@@ -35,6 +35,10 @@
 24. [Branch Naming Conventions](#24-branch-naming-conventions)
 25. [Best Practices — The Full Picture](#25-best-practices--the-full-picture)
 26. [Troubleshooting and Recovery](#26-troubleshooting-and-recovery)
+27. [Branching Strategies — Deep Reference](#27-branching-strategies--deep-reference)
+28. [Branch Protection and Repository Settings](#28-branch-protection-and-repository-settings)
+29. [Semantic Versioning with Git](#29-semantic-versioning-with-git)
+30. [Git in CI/CD Pipelines](#30-git-in-cicd-pipelines)
 
 ---
 
@@ -2421,3 +2425,744 @@ git merge origin/main && git push
 ---
 
 *Last updated: 2026 — Built from real Git usage across solo and team projects.*
+
+---
+
+## 27. Branching Strategies — Deep Reference
+
+### 27.1 Why Strategy Matters
+
+Without an agreed branching strategy, teams develop inconsistent habits: some people work directly on main, others create branches for every keystroke, PRs sit unreviewed for days, and no one is sure if main is deployable at any given moment. A branching strategy is a social contract — everyone on the team knows the rules without asking.
+
+### 27.2 GitHub Flow — Simple, Continuous Deployment
+
+The most practical strategy for most teams. One rule: `main` is always deployable.
+
+```
+main ─────────────────────────────────────────→ (protected, always deployable)
+      │             │              │
+      └─ feat/a     └─ fix/b       └─ feat/c
+         │               │              │
+         ├─ commits       ├─ commit      ├─ commits
+         └─ PR → CI → review → squash merge
+```
+
+**The workflow:**
+
+```bash
+# 1. Always start from latest main
+git checkout main && git pull
+git checkout -b feature/user-auth
+
+# 2. Work in small, frequent commits
+git add -p
+git commit -m "feat(auth): add JWT token generation"
+git commit -m "feat(auth): add token validation middleware"
+git commit -m "test(auth): add unit tests for JWT service"
+
+# 3. Keep branch up to date with main (daily, or before opening PR)
+git fetch origin
+git rebase origin/main
+
+# 4. Push and open PR
+git push -u origin feature/user-auth
+# Open PR on GitHub
+
+# 5. After approval and CI green: squash merge via GitHub UI
+# This collapses all feature commits into one clean commit on main
+
+# 6. Delete branch
+git branch -d feature/user-auth
+git push origin --delete feature/user-auth
+```
+
+**Merge strategies on GitHub:**
+
+- **Squash and merge** — All feature commits collapse into one commit on main. Clean history. Good for most teams.
+- **Rebase and merge** — Feature commits are replayed onto main linearly. Preserves individual commits. Good when commits are already clean.
+- **Create a merge commit** — Standard merge, preserves branch in history. Use with `--no-ff` if you want to see branches in git log.
+
+**Best for:** Small to medium teams, continuous deployment, web services, any team that ships multiple times per day.
+
+---
+
+### 27.3 GitFlow — Structured Release Management
+
+For products with scheduled release cycles — mobile apps, versioned APIs, enterprise software shipped to customers.
+
+**Branch structure:**
+
+```
+main ─────────────────────────────────────────────────────→ (tagged releases only)
+   │                                                    │
+   └─ develop ──────────────────────────────────────→  │
+          │                    │                    │   │
+          └─ feature/auth      └─ feature/payments  │   │
+                   │                 │              │   │
+                   └─ merge develop  └─ merge        │   │
+                             │                      │   │
+                             └─ release/2.0 ─────────┘   │
+                                      │               │   │
+                                 bugfix only      merge  │
+                                                 main+   │
+                                                 develop  │
+                                                          │
+                                                hotfix/2.0.1
+                                                     │
+                                              merge main+develop
+```
+
+**Commands for each branch type:**
+
+```bash
+# Feature branch
+git checkout develop
+git checkout -b feature/payment-integration
+# work, commit...
+git checkout develop && git merge --no-ff feature/payment-integration
+git branch -d feature/payment-integration
+
+# Release branch (when develop is ready to release)
+git checkout develop
+git checkout -b release/2.0.0
+# Only bug fixes here — no new features
+git commit -m "fix: resolve edge case in payment flow"
+git commit -m "chore(release): bump version to 2.0.0"
+
+# Finish the release
+git checkout main && git merge --no-ff release/2.0.0
+git tag -a v2.0.0 -m "Release 2.0.0"
+git checkout develop && git merge --no-ff release/2.0.0
+git branch -d release/2.0.0
+
+# Hotfix (urgent production bug)
+git checkout main
+git checkout -b hotfix/2.0.1
+git commit -m "fix: resolve critical XSS vulnerability"
+
+# Finish the hotfix
+git checkout main && git merge --no-ff hotfix/2.0.1
+git tag -a v2.0.1 -m "Hotfix 2.0.1"
+git checkout develop && git merge --no-ff hotfix/2.0.1
+git branch -d hotfix/2.0.1
+```
+
+**git-flow CLI (automates all of the above):**
+
+```bash
+# Install
+brew install git-flow-avh   # macOS
+sudo apt install git-flow   # Ubuntu
+
+# Initialise in a repo
+git flow init   # accepts all defaults with -d
+
+# Feature
+git flow feature start user-auth
+git flow feature finish user-auth   # merges to develop, deletes branch
+
+# Release
+git flow release start 2.0.0
+git flow release finish 2.0.0   # merges to main+develop, tags, deletes
+
+# Hotfix
+git flow hotfix start 2.0.1
+git flow hotfix finish 2.0.1
+```
+
+**Best for:** Mobile apps (App Store review cycles), versioned SDKs/libraries, enterprise software, teams maintaining multiple live versions.
+
+---
+
+### 27.4 Trunk-Based Development — Maximum Velocity
+
+Developers commit directly to `main` or via branches that live less than one day. No long-running branches. Feature flags control what users see.
+
+```
+main ─────────────────────────────────────────────→
+  c1 c2 c3       c6 c7       c10 c11 c12
+         │            │
+         c4 c5─merge  c8 c9─merge
+        (< 1 day)    (< 1 day)
+```
+
+**Key disciplines:**
+
+```bash
+# Never let a branch live more than a day
+# If it's going to take longer → use a feature flag
+
+# Commit directly to main for small changes
+git checkout main && git pull
+# make a small change
+git commit -m "fix: correct typo in error message"
+git push
+
+# For slightly larger work: short-lived branch
+git checkout -b fix/auth-null-pointer
+git commit -m "fix(auth): handle null user in middleware"
+git push -u origin fix/auth-null-pointer
+# Open PR, get fast review (hours, not days), merge same day
+
+# Feature flags in code
+if (featureFlags.isEnabled('new-checkout-v2', userId)) {
+  return newCheckoutFlow();
+}
+return legacyCheckout();
+```
+
+**What makes trunk-based work:**
+- CI runs in < 10 minutes — slow CI blocks everyone
+- High test coverage — need confidence that `main` always works
+- Feature flags — incomplete features are hidden, not branched
+- Small, frequent commits — easier to review, less risk
+- On-call culture — whoever breaks main fixes it immediately
+
+**Best for:** Google-scale teams, companies with strong CI/CD infrastructure, teams that ship dozens of times per day. Hard to adopt without existing test coverage and feature flag infrastructure.
+
+---
+
+### 27.5 Forking Workflow (Open Source)
+
+Used when contributors don't have write access to the main repository.
+
+```
+Upstream (org/project)  ← PR from fork
+         │
+         └─ Fork (contributor/project)
+                  │
+                  └─ feature branch → PR → upstream
+```
+
+```bash
+# 1. Fork the repo on GitHub
+
+# 2. Clone your fork
+git clone https://github.com/you/project.git
+cd project
+
+# 3. Add upstream remote
+git remote add upstream https://github.com/org/project.git
+git remote -v
+# origin   https://github.com/you/project.git (your fork)
+# upstream https://github.com/org/project.git (original)
+
+# 4. Always branch from latest upstream
+git fetch upstream
+git checkout -b feature/my-contribution upstream/main
+
+# 5. Work and commit
+git commit -m "feat: add awesome feature"
+
+# 6. Keep up to date with upstream during development
+git fetch upstream
+git rebase upstream/main
+
+# 7. Push to your fork and open PR to upstream
+git push -u origin feature/my-contribution
+# Open PR: your fork → upstream repo
+```
+
+---
+
+### 27.6 Branch Naming — Complete Convention
+
+```
+# Format
+<type>/<optional-ticket-id>-<short-description>
+
+# Feature work
+feature/user-authentication
+feature/PROJ-142-payment-integration
+feature/add-dark-mode
+
+# Bug fixes
+fix/login-safari-bug
+fix/PROJ-89-null-pointer-checkout
+bugfix/cart-total-calculation
+
+# Hotfixes (urgent production bugs)
+hotfix/critical-xss-vulnerability
+hotfix/payment-gateway-timeout
+
+# Release branches (GitFlow)
+release/v1.2.0
+release/2.0.0-rc1
+
+# Chores, maintenance
+chore/update-dependencies
+chore/remove-deprecated-api
+deps/upgrade-node-20
+
+# Documentation
+docs/api-reference
+docs/onboarding-guide
+
+# Experiments (disposable, no PR required)
+experiment/new-caching-strategy
+spike/postgres-migration
+
+# Rules:
+# - All lowercase
+# - Hyphens, not underscores or spaces
+# - Short but descriptive (3-5 words after the type)
+# - Include ticket number when possible (links PR to issue tracker)
+# - Type matches conventional commit type where applicable
+```
+
+---
+
+## 28. Branch Protection and Repository Settings
+
+### 28.1 Why Branch Protection Matters
+
+Without protection, anyone with write access can push directly to `main`, force-push over history, or delete the branch. Protection rules enforce your team's branching strategy at the GitHub level — they apply even to admins (optionally) and cannot be bypassed by individual developers.
+
+### 28.2 Recommended Settings for `main`
+
+```
+Settings → Branches → Add branch protection rule
+
+Branch name pattern: main
+
+Core protections:
+☑ Require a pull request before merging
+    Required approvals: 1 (small team) | 2 (larger team)
+    ☑ Dismiss stale pull request approvals when new commits are pushed
+    ☑ Require review from Code Owners (if CODEOWNERS file exists)
+    ☑ Require approval of the most recent reviewable push
+
+☑ Require status checks to pass before merging
+    ☑ Require branches to be up to date before merging
+    Required status checks: (these are your CI job names)
+      - CI / Lint & Format
+      - CI / Unit Tests
+      - CI / Integration Tests
+      - CI / Build Docker Image
+
+☑ Require conversation resolution before merging
+
+Quality controls:
+☑ Require linear history
+    (enforces squash or rebase merge — no merge commits on main)
+
+☑ Require signed commits
+    (GPG or SSH signed — proves identity, not just email header)
+
+Security:
+☑ Do not allow bypassing the above settings
+    ☑ Include administrators
+    (even you cannot force-push to main)
+
+Danger zone:
+☐ Allow force pushes     ← leave unchecked
+☐ Allow deletions        ← leave unchecked
+```
+
+### 28.3 CODEOWNERS
+
+The `.github/CODEOWNERS` file defines who must review changes to specific files or directories. Reviewers are automatically requested when a PR touches those paths.
+
+```
+# .github/CODEOWNERS
+
+# Default: any change requires review from backend-team
+*                           @org/backend-team
+
+# Auth and security code requires security team review
+/src/auth/                  @org/security-team
+/src/middleware/             @org/security-team
+
+# Payment code requires both payments team and a finance lead
+/src/payments/              @org/payments-team @finance-lead
+
+# CI/CD changes require devops review
+/.github/                   @org/devops-team
+/Dockerfile                 @org/devops-team
+/docker-compose*.yml        @org/devops-team
+
+# Migrations require DBA or tech lead sign-off
+/migrations/                @tech-lead @dba-team
+
+# Documentation managed by docs team
+/docs/                      @org/docs-team
+/README.md                  @org/docs-team
+```
+
+### 28.4 Setting Merge Strategy
+
+Enforce a specific merge strategy to maintain clean history:
+
+```
+Settings → General → Pull Requests
+
+For GitHub Flow (squash history):
+  ☐ Allow merge commits    ← disable
+  ☐ Allow rebase merging   ← disable
+  ☑ Allow squash merging   ← only this
+  
+  Squash merge commit title: Pull request title
+  Squash merge commit message: Pull request body
+
+For feature-branch preservation:
+  ☐ Allow merge commits
+  ☑ Allow rebase merging   ← clean linear history with individual commits
+  ☐ Allow squash merging
+
+Auto-delete head branches:
+  ☑ Automatically delete head branches   ← clean up after merge
+```
+
+### 28.5 Rulesets (Newer, More Powerful)
+
+GitHub Rulesets (GA 2023) replace branch protection rules for organisations. They can target multiple branches with a single rule and have bypass lists for specific roles.
+
+```
+Settings → Rules → Rulesets → New branch ruleset
+
+Name: Production Branch Protection
+Enforcement: Active
+Bypass list: Role: Organization admin (emergency bypass)
+
+Target branches:
+  Include by pattern: main
+  Include by pattern: release/**
+
+Rules:
+  ☑ Restrict deletions
+  ☑ Require linear history
+  ☑ Require signed commits
+  ☑ Require a pull request before merging
+    Required approvals: 2
+    ☑ Dismiss stale reviews on push
+  ☑ Require status checks
+    Required checks: CI, Security Scan
+  ☑ Block force pushes
+```
+
+---
+
+## 29. Semantic Versioning with Git
+
+### 29.1 The SemVer Contract
+
+SemVer (`MAJOR.MINOR.PATCH`) is a communication tool — it tells users of your software what kind of change to expect:
+
+```
+v1.0.0   Initial stable release
+v1.0.1   Bug fix — update safely, nothing will break
+v1.1.0   New feature — update safely, you get new capabilities
+v2.0.0   Breaking change — read the migration guide before updating
+
+Pre-release identifiers (lower precedence than the release):
+v2.0.0-alpha.1   → v2.0.0-alpha.2   → v2.0.0-beta.1   → v2.0.0-rc.1   → v2.0.0
+```
+
+The contract: if you depend on `^1.2.3` (npm) or `~>1.2` (bundler), you expect `1.2.4` and `1.3.0` to be safe updates. When the major version bumps, you read the changelog before upgrading.
+
+### 29.2 Tagging Releases with Git
+
+```bash
+# Annotated tag for releases (recommended — stores tagger, date, message)
+git tag -a v1.2.3 -m "Release 1.2.3
+
+- Add user authentication
+- Fix payment timeout issue
+- Improve error messages"
+
+# Sign a tag (if you've set up GPG)
+git tag -s v1.2.3 -m "Release 1.2.3"
+
+# Tag a specific commit (not HEAD)
+git tag -a v1.2.3 a1b2c3d -m "Release 1.2.3"
+
+# Push tags
+git push origin v1.2.3      # push specific tag
+git push origin --tags      # push all tags
+git push --follow-tags      # push commits AND annotated tags
+
+# List tags
+git tag                     # all tags
+git tag -l "v1.*"           # filter
+git tag -n                  # with messages
+git show v1.2.3             # show tag details and tagged commit
+
+# Delete tags
+git tag -d v1.2.3
+git push origin --delete v1.2.3
+
+# Checkout a tag (detached HEAD)
+git checkout v1.2.3
+git checkout -b hotfix/v1.2.4 v1.2.3   # branch from a tag
+```
+
+### 29.3 Automating Versions from Conventional Commits
+
+When all commits follow Conventional Commits format, tools can automatically determine the next version:
+
+```
+feat: add payment webhook          → 1.0.0 → 1.1.0  (MINOR bump)
+fix: handle null in auth           → 1.1.0 → 1.1.1  (PATCH bump)
+feat!: change auth token format    → 1.1.1 → 2.0.0  (MAJOR bump)
+  BREAKING CHANGE: tokens are now JWT
+docs: update readme                → no version change
+chore: update deps                 → no version change
+```
+
+**Tools:**
+
+```bash
+# standard-version (standalone)
+npx standard-version           # auto-bump version, generate CHANGELOG, create tag
+npx standard-version --dry-run # preview what would happen
+npx standard-version --release-as minor   # force a specific bump type
+
+# semantic-release (automated, runs in CI)
+# Configured in .releaserc or package.json
+# Runs on CI, analyses commits, creates tags and GitHub releases automatically
+```
+
+**`package.json` with standard-version:**
+
+```json
+{
+  "scripts": {
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "release:patch": "standard-version --release-as patch"
+  }
+}
+```
+
+### 29.4 CHANGELOG Generation
+
+```bash
+# standard-version automatically generates CHANGELOG.md on each release
+# Organised by version, with sections for features, fixes, and breaking changes
+
+# Example generated CHANGELOG.md:
+# ## [1.2.0] - 2026-01-15
+# ### Features
+# - **auth:** add JWT refresh token rotation (#142)
+# - **payments:** add Paystack webhook support (#138)
+# ### Bug Fixes
+# - **auth:** handle null user in middleware (#145)
+# ### BREAKING CHANGES
+# - **api:** response format for /users changed
+```
+
+### 29.5 Version Badges and Release Notes
+
+When you push an annotated tag, create a GitHub Release to add notes and attach binary assets:
+
+```bash
+# Via GitHub CLI
+gh release create v1.2.3 \
+  --title "Release 1.2.3" \
+  --notes "## What's Changed
+  - Add user authentication
+  - Fix payment timeout
+  
+  **Full Changelog**: https://github.com/org/repo/compare/v1.2.2...v1.2.3"
+
+# Attach build artifacts
+gh release create v1.2.3 \
+  --notes "Release notes" \
+  ./dist/app-linux-x64 \
+  ./dist/app-macos-arm64
+
+# Auto-generate notes from PR titles and commit messages
+gh release create v1.2.3 --generate-notes
+```
+
+---
+
+## 30. Git in CI/CD Pipelines
+
+### 30.1 How CI Systems Interact with Git
+
+CI systems (GitHub Actions, GitLab CI, Jenkins) clone your repository, run jobs, and interact with Git. Understanding how they check out code and what git information is available prevents common pipeline bugs.
+
+### 30.2 Checkout Depth — Shallow vs Full
+
+By default, `actions/checkout` does a shallow clone (depth=1) — only the latest commit. This is fast but breaks commands that need history:
+
+```yaml
+# Shallow clone (default) — fast, but git log only shows one commit
+- uses: actions/checkout@v4
+
+# Full clone — needed for changelog generation, git log, version tools
+- uses: actions/checkout@v4
+  with:
+    fetch-depth: 0   # 0 = full history
+
+# Specific depth — for git log last N commits
+- uses: actions/checkout@v4
+  with:
+    fetch-depth: 50
+
+# Why full history matters:
+# - semantic-release needs history to determine version bumps
+# - git log --oneline to generate changelogs
+# - git describe to get the last tag
+# - Checking if a file changed since last release
+```
+
+### 30.3 Git Information Available in Pipelines
+
+```yaml
+# Common git values available via github context
+${{ github.sha }}          # current commit SHA (full)
+${{ github.ref }}          # refs/heads/main or refs/tags/v1.0.0
+${{ github.ref_name }}     # main or v1.0.0
+${{ github.event.before }} # previous commit SHA (on push)
+
+# Deriving values from git in a step
+- name: Get git info
+  run: |
+    # Short SHA (first 7 chars) — common for image tagging
+    SHORT_SHA=$(git rev-parse --short HEAD)
+    echo "short_sha=$SHORT_SHA" >> $GITHUB_OUTPUT
+
+    # Last tag reachable from HEAD
+    LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+    echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
+
+    # Commits since last tag (for build numbers)
+    COMMITS_SINCE=$(git rev-list $LAST_TAG..HEAD --count)
+    echo "commits_since_tag=$COMMITS_SINCE" >> $GITHUB_OUTPUT
+
+    # Branch name
+    BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+```
+
+### 30.4 Tagging from CI
+
+```yaml
+# Create and push a tag from a CI pipeline
+- name: Create release tag
+  run: |
+    git config user.name "github-actions[bot]"
+    git config user.email "github-actions[bot]@users.noreply.github.com"
+    git tag -a "v${{ steps.version.outputs.value }}" \
+      -m "Release v${{ steps.version.outputs.value }}"
+    git push origin "v${{ steps.version.outputs.value }}"
+
+# Using the official action
+- uses: rickstaa/action-create-tag@v1
+  with:
+    tag: v${{ steps.version.outputs.value }}
+    message: Release v${{ steps.version.outputs.value }}
+```
+
+### 30.5 Committing Back to the Repository from CI
+
+```yaml
+# Bump version in package.json and commit back
+- name: Bump version
+  run: |
+    git config user.name "github-actions[bot]"
+    git config user.email "github-actions[bot]@users.noreply.github.com"
+    npm version patch --no-git-tag-version
+    git add package.json package-lock.json
+    git commit -m "chore(release): bump version [skip ci]"
+    git push
+
+# IMPORTANT: [skip ci] prevents an infinite loop where the commit triggers CI again
+# GitHub also respects [ci skip], [no ci], [skip actions]
+```
+
+### 30.6 Detecting What Changed
+
+```yaml
+# Check if specific files changed — decide whether to run expensive steps
+- name: Detect changes
+  id: changes
+  uses: dorny/paths-filter@v3
+  with:
+    filters: |
+      backend:
+        - 'src/**'
+        - 'package*.json'
+        - 'Dockerfile'
+      docs:
+        - 'docs/**'
+        - '*.md'
+      infra:
+        - 'terraform/**'
+        - '.github/workflows/**'
+
+- name: Run backend tests
+  if: steps.changes.outputs.backend == 'true'
+  run: npm test
+
+- name: Deploy docs
+  if: steps.changes.outputs.docs == 'true'
+  run: ./deploy-docs.sh
+
+# Manual change detection with git diff
+- name: Check if Dockerfile changed
+  id: dockerfile
+  run: |
+    if git diff --name-only HEAD~1 HEAD | grep -q "Dockerfile"; then
+      echo "changed=true" >> $GITHUB_OUTPUT
+    else
+      echo "changed=false" >> $GITHUB_OUTPUT
+    fi
+
+- name: Rebuild image (only if Dockerfile changed)
+  if: steps.dockerfile.outputs.changed == 'true'
+  run: docker build .
+```
+
+### 30.7 PR Validation — Enforcing Conventions in CI
+
+```yaml
+# Validate PR title follows Conventional Commits
+- name: Validate PR title
+  if: github.event_name == 'pull_request'
+  run: |
+    TITLE="${{ github.event.pull_request.title }}"
+    PATTERN="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{1,72}"
+    if ! echo "$TITLE" | grep -qE "$PATTERN"; then
+      echo "❌ PR title does not follow Conventional Commits format"
+      echo "Expected: type(scope): description"
+      echo "Examples:"
+      echo "  feat(auth): add JWT refresh tokens"
+      echo "  fix(payments): handle timeout on Paystack webhook"
+      exit 1
+    fi
+    echo "✅ PR title is valid"
+
+# Check commits on the PR branch
+- name: Lint commit messages
+  uses: wagoid/commitlint-github-action@v6
+  with:
+    configFile: commitlint.config.js
+```
+
+### 30.8 Git LFS in CI
+
+Large file storage (LFS) stores large binary files outside the git history:
+
+```bash
+# Install LFS locally
+git lfs install
+git lfs track "*.psd"
+git lfs track "*.zip"
+git add .gitattributes
+git commit -m "chore: configure LFS for design assets"
+```
+
+```yaml
+# In GitHub Actions — checkout includes LFS files by default
+- uses: actions/checkout@v4
+  with:
+    lfs: true   # explicitly enable LFS (default is false for speed)
+```
+
+---
+
+*Last updated: 2026 — Built from real Git usage across solo and team projects. Extended with branching strategies, protection rules, semantic versioning, and CI/CD integration.*
