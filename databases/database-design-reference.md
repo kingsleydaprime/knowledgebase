@@ -2372,3 +2372,342 @@ A checklist to run through before finalising any schema.
 ---
 
 *Last updated: 2026 — Built from real schema design experience across SaaS and fintech systems.*
+
+---
+
+## 21. Time-Series Data
+
+Data fundamentally ordered by time and queried in time ranges — metrics, analytics, IoT, financial tick data.
+
+### 21.1 Key Design Principles
+
+```sql
+-- 1. Time is always the primary dimension — index first
+CREATE INDEX idx_metrics_time ON metrics(recorded_at DESC);
+
+-- 2. Always TIMESTAMPTZ — store in UTC
+recorded_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+
+-- 3. Partition by time — old data is never updated
+PARTITION BY RANGE (recorded_at)
+
+-- 4. Never update time-series rows — append only
+
+-- 5. Aggregate into buckets for long-range queries
+-- Instead of 1M individual rows, store hourly aggregates:
+CREATE TABLE metric_hourly (
+  metric_name TEXT,
+  bucket      TIMESTAMPTZ,   -- truncated to hour
+  avg_value   DECIMAL,
+  max_value   DECIMAL,
+  min_value   DECIMAL,
+  sample_count INT,
+  PRIMARY KEY (metric_name, bucket)
+);
+```
+
+### 21.2 TimescaleDB
+
+PostgreSQL extension that handles time-series automatically — automatic partitioning by time, transparent compression, continuous aggregates. Use for any serious time-series workload instead of rolling your own partitioning.
+
+```sql
+-- Convert a regular table into a hypertable (automatic time partitioning)
+SELECT create_hypertable('metrics', 'recorded_at');
+
+-- Continuous aggregate: auto-maintained rollup
+CREATE MATERIALIZED VIEW metrics_hourly
+WITH (timescaledb.continuous) AS
+SELECT
+  time_bucket('1 hour', recorded_at) AS bucket,
+  metric_name,
+  AVG(value) AS avg_value,
+  MAX(value) AS max_value
+FROM metrics
+GROUP BY bucket, metric_name;
+```
+
+---
+
+## 22. Domain-Specific Schema Patterns
+
+### 22.1 Finance / Banking
+
+```
+Core rules:
+1. Use DECIMAL, never FLOAT for money
+2. Store amounts in smallest currency unit (kobo, cents)
+3. Every transaction is IMMUTABLE — never update, only append
+4. Double-entry bookkeeping — every debit has a credit
+5. Use database transactions (ACID) for all money movements
+6. Idempotency keys — prevent duplicate charges
+```
+
+```sql
+CREATE TABLE accounts (
+  id        UUID PRIMARY KEY,
+  owner_id  UUID REFERENCES users(id),
+  currency  TEXT NOT NULL DEFAULT 'NGN',
+  type      TEXT CHECK (type IN ('SAVINGS', 'CURRENT', 'WALLET'))
+);
+
+CREATE TABLE transactions (
+  id              UUID PRIMARY KEY,
+  account_id      UUID REFERENCES accounts(id),
+  amount_kobo     BIGINT NOT NULL,           -- smallest unit, never FLOAT
+  type            TEXT CHECK (type IN ('CREDIT', 'DEBIT')),
+  reference       TEXT,
+  idempotency_key TEXT UNIQUE,               -- prevents duplicate charges
+  created_at      TIMESTAMPTZ DEFAULT NOW()
+  -- NEVER add updated_at — transactions are immutable
+);
+
+CREATE TABLE ledger_entries (  -- double-entry bookkeeping
+  id             UUID PRIMARY KEY,
+  transaction_id UUID REFERENCES transactions(id),
+  account_id     UUID REFERENCES accounts(id),
+  debit          BIGINT DEFAULT 0,
+  credit         BIGINT DEFAULT 0
+);
+```
+
+### 22.2 Healthcare
+
+```
+Core rules:
+1. Audit everything — who read what, when (legal requirement)
+2. Soft delete only — records legally required even after "deletion"
+3. Encryption at rest for PII and medical data
+4. Row-level security — patients see only their own data
+5. FHIR compliance for interoperability (if building for hospitals)
+```
+
+```sql
+CREATE TABLE patients (
+  id          UUID PRIMARY KEY,
+  mrn         TEXT UNIQUE,           -- Medical Record Number
+  first_name  TEXT NOT NULL,
+  last_name   TEXT NOT NULL,
+  date_of_birth DATE NOT NULL,
+  blood_type  TEXT
+);
+
+CREATE TABLE encounters (
+  id          UUID PRIMARY KEY,
+  patient_id  UUID REFERENCES patients(id),
+  doctor_id   UUID REFERENCES doctors(id),
+  type        TEXT,                  -- OUTPATIENT, INPATIENT, EMERGENCY
+  started_at  TIMESTAMPTZ,
+  ended_at    TIMESTAMPTZ,
+  notes       TEXT                   -- encrypted at application level
+);
+
+CREATE TABLE vitals (
+  id           UUID PRIMARY KEY,
+  encounter_id UUID REFERENCES encounters(id),
+  type         TEXT,                 -- BLOOD_PRESSURE, TEMPERATURE, etc.
+  value        DECIMAL,
+  unit         TEXT,
+  recorded_at  TIMESTAMPTZ           -- time-series data
+);
+```
+
+### 22.3 E-Commerce
+
+```
+Core rules:
+1. Snapshot product details on order — prices change over time
+2. Inventory is an append-only ledger, not a counter
+3. Cart is ephemeral — can live in Redis
+4. Orders are immutable once placed
+```
+
+```sql
+CREATE TABLE order_items (
+  id                   UUID PRIMARY KEY,
+  order_id             UUID REFERENCES orders(id),
+  variant_id           UUID REFERENCES product_variants(id),
+  product_name_snapshot TEXT NOT NULL,   -- snapshot — product may be deleted
+  price_snapshot       DECIMAL(10,2) NOT NULL,  -- price at time of order
+  quantity             INT NOT NULL
+);
+
+-- Inventory as ledger — never update a counter directly
+CREATE TABLE inventory_movements (
+  id          UUID PRIMARY KEY,
+  variant_id  UUID REFERENCES product_variants(id),
+  quantity_delta INT NOT NULL,          -- positive=restock, negative=sale
+  type        TEXT CHECK (type IN ('SALE', 'RETURN', 'RESTOCK', 'ADJUSTMENT')),
+  reference   TEXT,
+  created_at  TIMESTAMPTZ DEFAULT NOW()
+);
+-- Current stock = SUM(quantity_delta) for variant
+-- Or: maintain a denormalized stock_count with atomic updates
+```
+
+### 22.4 AI / ML Platform
+
+```
+Core rules:
+1. Models and datasets are versioned — immutable versions
+2. Experiments need full reproducibility — store all hyperparams
+3. Inference logs are time-series — partition by time
+4. Embeddings are vectors — use pgvector extension
+```
+
+```sql
+CREATE TABLE models (
+  id          UUID PRIMARY KEY,
+  name        TEXT NOT NULL,
+  description TEXT,
+  created_by  UUID REFERENCES users(id)
+);
+
+CREATE TABLE model_versions (
+  id           UUID PRIMARY KEY,
+  model_id     UUID REFERENCES models(id),
+  version      TEXT NOT NULL,          -- semver: 1.0.0, 1.1.0
+  weights_path TEXT NOT NULL,          -- S3 path to model weights
+  framework    TEXT,                   -- pytorch, tensorflow
+  metrics      JSONB,                  -- { accuracy: 0.94, f1: 0.92 }
+  created_at   TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE (model_id, version)
+);
+
+CREATE TABLE experiments (
+  id               UUID PRIMARY KEY,
+  model_version_id UUID REFERENCES model_versions(id),
+  dataset_id       UUID REFERENCES datasets(id),
+  hyperparams      JSONB NOT NULL,     -- { lr: 0.001, epochs: 10, batch_size: 32 }
+  status           TEXT,               -- RUNNING, COMPLETED, FAILED
+  started_at       TIMESTAMPTZ,
+  ended_at         TIMESTAMPTZ,
+  results          JSONB               -- { val_accuracy: 0.94 }
+);
+
+-- Vector embeddings (requires pgvector extension)
+CREATE EXTENSION IF NOT EXISTS vector;
+CREATE TABLE embeddings (
+  id               UUID PRIMARY KEY,
+  source_type      TEXT,               -- 'post', 'user', 'product'
+  source_id        UUID NOT NULL,
+  vector           VECTOR(1536),       -- OpenAI ada-002 dimension
+  model_version_id UUID REFERENCES model_versions(id),
+  created_at       TIMESTAMPTZ DEFAULT NOW()
+);
+CREATE INDEX ON embeddings USING ivfflat (vector vector_cosine_ops);
+```
+
+### 22.5 Multi-Tenant SaaS
+
+Three tenancy models:
+
+**Model 1 — Shared tables with tenant_id (most common):**
+```sql
+CREATE TABLE projects (
+  id        UUID PRIMARY KEY,
+  tenant_id UUID NOT NULL REFERENCES tenants(id),
+  name      TEXT NOT NULL
+);
+
+-- Row-level security prevents cross-tenant data leakage
+ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
+CREATE POLICY tenant_isolation ON projects
+  USING (tenant_id = current_setting('app.current_tenant')::UUID);
+-- Set before each query: SET LOCAL app.current_tenant = 'tenant-uuid'
+```
+
+**Model 2 — Separate schema per tenant:**
+```sql
+CREATE SCHEMA tenant_abc;
+CREATE TABLE tenant_abc.projects (...);
+-- More isolation, harder to maintain, up to ~1,000 tenants
+```
+
+**Model 3 — Separate database per tenant:**
+Maximum isolation, massive operational overhead. Only for regulated industries (healthcare, finance) or very large enterprise tenants.
+
+---
+
+## 23. Common Mistakes — Junior to Senior
+
+| Mistake | Why it hurts | The fix |
+|---|---|---|
+| Storing arrays in columns (`user.skills = []`) | Can't query, paginate, or add metadata | Always create a join table for lists |
+| Using FLOAT for money | `0.1 + 0.2 = 0.30000000000000004` in floating point | `DECIMAL(10,2)` or store as integer cents |
+| No indexes on foreign keys | Every JOIN is a full table scan | Every FK gets an index, no exceptions |
+| `SELECT *` in production | Fetches unused columns, wastes bandwidth | Always specify columns |
+| OFFSET pagination on large tables | `OFFSET 10000` scans and discards 10,000 rows | Cursor-based pagination |
+| Hard deleting everything | Breaks FK references, loses audit history | Soft delete with `deleted_at` |
+| Timezone-naive timestamps | Summer time changes break queries | Always `TIMESTAMPTZ`, store in UTC |
+| No `created_at`/`updated_at` | You will need them — debugging, sorting, auditing | Add to every table from day one |
+| `VARCHAR(255)` for everything | Arbitrary limit — might truncate real data | `TEXT` for strings, add `CHECK` for real limits |
+| Over-normalizing hot paths | 5-table JOIN on every page load | Denormalize counters and snapshots on hot paths |
+| Low-cardinality shard key | Hot shards — one shard gets 90% of writes | Shard by `user_id` or `tenant_id` |
+| No transaction on multi-step writes | Partial failure leaves inconsistent state | Wrap related writes in a database transaction |
+
+---
+
+## 24. Senior Engineer Mindset
+
+### 24.1 Questions to Ask Before Writing Any Schema
+
+```
+1. What are the top 5 queries this schema will serve?
+   Design indexes for those queries specifically.
+
+2. What is the expected row count in 1 year? 5 years?
+   Does this table need partitioning?
+
+3. What is the read:write ratio?
+   Read-heavy → optimise for reads.
+   Write-heavy → minimise index count.
+
+4. Which data is mutable? Which is immutable?
+   Financial and audit data should never be updated.
+
+5. What happens when a parent record is deleted?
+   CASCADE, RESTRICT, or SET NULL?
+
+6. Does this need an audit trail?
+   Add audit_logs table or event sourcing from day one.
+
+7. Is this a multi-tenant system?
+   Add tenant_id to every table immediately.
+
+8. What columns will be in WHERE clauses?
+   Add indexes for those columns now, not after slow queries appear.
+```
+
+### 24.2 Schema Evolution Path
+
+```
+Day 1 (MVP):
+  Normalised schema, basic indexes on FKs and common filters
+  Soft delete on critical tables, timestamps everywhere
+
+Month 3 (Growth):
+  Add counter caches (like_count, comment_count) — verified by slow query log
+  Add composite indexes based on EXPLAIN ANALYZE output
+  Add read replicas — separate read traffic from write traffic
+
+Year 1 (Scale):
+  Partition large tables by time (events, transactions, logs)
+  Materialised views for expensive aggregations
+  Archiving strategy for old partitions
+
+Year 3+ (Hyperscale):
+  Evaluate sharding based on actual measured bottlenecks
+  Purpose-built databases for specific workloads:
+    Redis for sessions, Elasticsearch for search,
+    TimescaleDB for metrics, pgvector for embeddings
+```
+
+### 24.3 The Cardinal Rules
+
+1. **Design your schema around your queries, not just your entities.** The best schema is one where the most frequent queries need the fewest joins and always use indexes.
+
+2. **Every index is a trade-off.** More indexes = faster reads + slower writes + more storage. Add indexes for proven query patterns, not hypothetical ones.
+
+3. **Normalisation is the starting point, not the goal.** Start normalised, denormalise under measured performance pressure. Never denormalise speculatively.
+
+4. **Never store money as FLOAT. Never store arrays in columns. Never skip transactions on multi-step writes.** These three cause production incidents that wake you up at 3am.
