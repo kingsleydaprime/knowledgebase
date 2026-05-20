@@ -1,7 +1,7 @@
 # DevOps — Full Reference Guide
 
 > A concept-first reference covering the full DevOps landscape.
-> Builds on the VPS Deployment Reference — read that first for foundational Docker and Linux knowledge.
+> Builds on the notes in `devops/vps/`, `devops/docker/`, and `devops/linux/` — read those first for foundational knowledge.
 > This file goes wider: cloud, Kubernetes, IaC, GitOps, security, reliability, and more.
 
 ---
@@ -25,6 +25,11 @@
 15. [Cloud Cost Management](#15-cloud-cost-management)
 16. [SRE Practices — SLOs, Error Budgets, Chaos Engineering](#16-sre-practices--slos-error-budgets-chaos-engineering)
 17. [DevOps Progression Map](#17-devops-progression-map)
+18. [Web Servers — Nginx and Caddy](#18-web-servers--nginx-and-caddy)
+19. [Configuration Management — Ansible](#19-configuration-management--ansible)
+20. [Serverless](#20-serverless)
+21. [Artifact Management](#21-artifact-management)
+22. [Cloud Design Patterns](#22-cloud-design-patterns)
 
 ---
 
@@ -2222,6 +2227,963 @@ Everything in this file has direct application to what you've already built:
 - **SLOs** — define what "Nextvibe is working" actually means numerically, and build alerting around it
 
 The SIWES DevOps phase you planned is the right starting point. Cloud + Linux + Docker is the base. Everything else in this file is what comes after that base is solid.
+
+---
+
+## 18. Web Servers — Nginx and Caddy
+
+### 18.1 What a Web Server Does
+
+A web server sits at the entry point of your infrastructure and handles:
+- Serving static files directly (HTML, CSS, JS, images)
+- Acting as a **reverse proxy** — forwarding requests to your application server
+- Terminating SSL/TLS so your app only sees plain HTTP internally
+- Load balancing between multiple backend instances
+- Caching, rate limiting, compression, security headers
+
+Your Node.js or Python process is an application server, not a web server. You put a proper web server in front of it.
+
+### 18.2 Nginx
+
+Nginx (pronounced "engine-x") is the most widely used web server. It handles static files with extremely low memory usage and is the standard reverse proxy in Linux deployments.
+
+**Installation:**
+
+```bash
+sudo apt update && sudo apt install nginx
+sudo systemctl enable nginx
+sudo systemctl start nginx
+```
+
+**Configuration structure:**
+
+```
+/etc/nginx/
+├── nginx.conf               ← global settings (worker count, logging, mime types)
+├── sites-available/         ← all your server block configs
+│   └── your-app
+└── sites-enabled/           ← symlinks to active configs
+    └── your-app → ../sites-available/your-app
+```
+
+```bash
+sudo ln -s /etc/nginx/sites-available/your-app /etc/nginx/sites-enabled/
+sudo nginx -t          # test config before reloading — always run this
+sudo systemctl reload nginx
+```
+
+**Reverse proxy (the most common config):**
+
+```nginx
+server {
+    listen 80;
+    server_name yourdomain.com www.yourdomain.com;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+**With SSL after Certbot:**
+
+```nginx
+server {
+    listen 443 ssl;
+    server_name yourdomain.com;
+
+    ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
+
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    add_header X-Frame-Options DENY;
+    add_header X-Content-Type-Options nosniff;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+server {
+    listen 80;
+    server_name yourdomain.com;
+    return 301 https://$host$request_uri;
+}
+```
+
+**Serving a static SPA (React, Vue, etc.):**
+
+```nginx
+server {
+    listen 80;
+    server_name yourdomain.com;
+    root /var/www/html;
+    index index.html;
+
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript;
+
+    location / {
+        try_files $uri $uri/ /index.html;   # fallback to index.html for client-side routing
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff2)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
+
+**Rate limiting:**
+
+```nginx
+http {
+    limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
+
+    server {
+        location /api/ {
+            limit_req zone=api burst=20 nodelay;
+            proxy_pass http://localhost:3000;
+        }
+    }
+}
+```
+
+**Essential commands:**
+
+```bash
+sudo nginx -t                       # Test config syntax without reloading
+sudo systemctl reload nginx         # Reload config — no downtime
+sudo systemctl restart nginx        # Full restart — brief downtime
+tail -f /var/log/nginx/access.log   # Watch access logs
+tail -f /var/log/nginx/error.log    # Watch error logs
+```
+
+### 18.3 Getting SSL with Certbot
+
+```bash
+sudo apt install certbot python3-certbot-nginx
+
+# Obtain cert and auto-configure Nginx in one step
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+
+# Test auto-renewal
+sudo certbot renew --dry-run
+
+# Certbot installs a systemd timer — verify it's running
+sudo systemctl status certbot.timer
+```
+
+### 18.4 Caddy
+
+Caddy is a modern web server written in Go. Its defining feature: **automatic HTTPS by default**. Point it at a domain name and it obtains and renews a Let's Encrypt certificate automatically — no Certbot, no manual SSL configuration.
+
+The same reverse proxy config that takes 25 lines in Nginx takes 3 in Caddy:
+
+```
+yourdomain.com {
+    reverse_proxy localhost:3000
+}
+```
+
+That's it. Caddy handles the certificate, HTTP→HTTPS redirect, and renewal.
+
+**More complete Caddyfile:**
+
+```
+yourdomain.com {
+    reverse_proxy localhost:3000 {
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+    }
+
+    handle /static/* {
+        root * /var/www
+        file_server
+    }
+
+    log {
+        output file /var/log/caddy/access.log
+    }
+}
+```
+
+**Installation:**
+
+```bash
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' \
+  | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' \
+  | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update && sudo apt install caddy
+```
+
+### 18.5 Nginx vs Caddy
+
+| | Nginx | Caddy |
+|---|---|---|
+| SSL setup | Manual (Certbot) | Automatic |
+| Config complexity | High | Low |
+| Performance | Extremely high | Very high |
+| Ecosystem | Massive | Smaller but growing |
+| Use when | Complex routing, large teams, maximum control | New projects, simplicity, auto-HTTPS |
+
+For a new personal project or startup: Caddy. For large-scale production with complex routing requirements or an existing Nginx team: Nginx.
+
+---
+
+## 19. Configuration Management — Ansible
+
+### 19.1 IaC vs Configuration Management
+
+Terraform (Section 4) provisions infrastructure — it creates VMs, VPCs, and databases. It answers: **what servers exist?**
+
+Configuration management answers: **what is installed and configured on those servers?** Once Terraform creates 10 EC2 instances, something needs to install Docker, configure Nginx, create users, copy SSH keys, and keep all 10 consistent. That's Ansible's job.
+
+| Tool | Answers |
+|---|---|
+| Terraform | What infrastructure exists |
+| Ansible | What is configured on that infrastructure |
+
+They're complementary, not competing. A typical workflow: Terraform creates the instances, Ansible configures them.
+
+### 19.2 Why Ansible Over Chef and Puppet
+
+Chef and Puppet are older tools that require:
+- A master server that nodes check in with periodically
+- An agent installed on every managed node
+- Learning their own DSLs (Ruby for Chef, Puppet language for Puppet)
+
+Ansible requires:
+- **Nothing on managed nodes** — it connects over SSH, which is already there
+- YAML playbooks — readable by anyone who understands YAML
+- No master server for basic use cases
+
+For most teams starting fresh, Ansible is the right choice. Chef and Puppet make sense if you're joining an organisation already invested in them, or if you need their specific pull-based model (nodes checking in on their own schedule).
+
+### 19.3 Core Concepts
+
+**Inventory** — A list of servers Ansible manages. Static file or dynamic (queried from AWS, GCP, etc.).
+
+**Playbook** — A YAML file describing what should happen on which servers. The main unit of work.
+
+**Task** — A single action: install a package, copy a file, restart a service.
+
+**Module** — Built-in functionality for a task type. `apt` installs packages. `copy` copies files. `systemd` manages services. There are thousands of community modules.
+
+**Role** — A reusable, self-contained collection of tasks, templates, and variables for configuring one thing (e.g., an `nginx` role).
+
+**Handler** — A task that only runs when notified — typically to restart a service after its config file changes.
+
+### 19.4 Inventory
+
+```ini
+# inventory.ini
+[web]
+web1.yourdomain.com
+web2.yourdomain.com
+
+[db]
+db1.yourdomain.com
+
+[all:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[web:vars]
+http_port=80
+```
+
+### 19.5 Writing Playbooks
+
+```yaml
+# setup-webserver.yml
+---
+- name: Configure web servers
+  hosts: web
+  become: yes       # sudo
+  vars:
+    app_port: 3000
+    node_version: "20"
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600   # only update if cache is older than 1 hour
+
+    - name: Install required packages
+      apt:
+        name:
+          - nginx
+          - git
+          - curl
+        state: present
+
+    - name: Install Node.js
+      shell: |
+        curl -fsSL https://deb.nodesource.com/setup_{{ node_version }}.x | bash -
+        apt-get install -y nodejs
+      args:
+        creates: /usr/bin/node   # skip if already installed — makes it idempotent
+
+    - name: Copy nginx config
+      template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/sites-available/myapp
+        mode: '0644'
+      notify: Reload nginx      # only runs the handler if this task changed something
+
+    - name: Enable nginx site
+      file:
+        src: /etc/nginx/sites-available/myapp
+        dest: /etc/nginx/sites-enabled/myapp
+        state: link
+
+    - name: Ensure nginx is started and enabled
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+  handlers:
+    - name: Reload nginx
+      systemd:
+        name: nginx
+        state: reloaded
+```
+
+**Jinja2 template (`templates/nginx.conf.j2`):**
+
+```
+server {
+    listen 80;
+    server_name {{ inventory_hostname }};
+
+    location / {
+        proxy_pass http://localhost:{{ app_port }};
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+**Running playbooks:**
+
+```bash
+ansible-playbook -i inventory.ini setup-webserver.yml
+
+# Dry run — show what would change without changing anything
+ansible-playbook -i inventory.ini setup-webserver.yml --check
+
+# Run only tasks tagged 'nginx'
+ansible-playbook -i inventory.ini setup-webserver.yml --tags nginx
+
+# Limit to a specific host
+ansible-playbook -i inventory.ini setup-webserver.yml --limit web1.yourdomain.com
+
+# Pass extra variables at runtime
+ansible-playbook -i inventory.ini setup-webserver.yml -e "node_version=22"
+```
+
+**Ad-hoc commands — one-liners for quick tasks:**
+
+```bash
+ansible all -i inventory.ini -m ping                                        # Ping all hosts
+ansible web -i inventory.ini -m shell -a "df -h"                           # Check disk space
+ansible web -i inventory.ini -m apt -a "name=htop state=present" --become  # Install a package
+ansible web -i inventory.ini -m systemd -a "name=nginx state=restarted" --become
+```
+
+### 19.6 Roles
+
+Roles package tasks for reuse. The directory structure is conventional:
+
+```
+roles/
+└── nginx/
+    ├── tasks/
+    │   └── main.yml       # Tasks
+    ├── handlers/
+    │   └── main.yml       # Handlers
+    ├── templates/
+    │   └── nginx.conf.j2  # Jinja2 templates
+    ├── files/
+    │   └── nginx.pem      # Static files to copy
+    ├── vars/
+    │   └── main.yml       # Role variables
+    └── defaults/
+        └── main.yml       # Default values (overridable by caller)
+```
+
+Using roles in a playbook:
+
+```yaml
+- name: Configure servers
+  hosts: web
+  become: yes
+  roles:
+    - nginx
+    - nodejs
+    - monitoring
+```
+
+**Ansible Galaxy** — community role registry. Don't write an Nginx role from scratch:
+
+```bash
+ansible-galaxy install geerlingguy.nginx
+ansible-galaxy install -r requirements.yml   # install from a requirements file
+```
+
+### 19.7 Ansible Vault — Encrypting Secrets
+
+```bash
+# Create an encrypted vars file
+ansible-vault create vars/secrets.yml
+
+# Edit an encrypted file
+ansible-vault edit vars/secrets.yml
+
+# Run a playbook with vault password
+ansible-playbook playbook.yml --ask-vault-pass
+
+# Better for CI — use a password file
+ansible-playbook playbook.yml --vault-password-file .vault_pass
+```
+
+The encrypted file looks like normal YAML when decrypted:
+
+```yaml
+db_password: supersecretpassword
+api_key: your-api-key-here
+```
+
+---
+
+## 20. Serverless
+
+### 20.1 What Serverless Means
+
+"Serverless" doesn't mean no servers — it means you don't manage servers. You deploy a function; the platform handles provisioning, scaling, and maintenance.
+
+**Traditional server:** You provision a VM, it runs 24/7, you pay whether or not there's traffic.
+
+**Serverless:** Your function runs only when called. At zero traffic, you pay zero.
+
+The trade-off: you give up control (can't tune the OS, can't keep long-lived connections, have execution time limits) in exchange for zero operational overhead and infinite automatic scaling.
+
+### 20.2 When Serverless Makes Sense
+
+**Good fit:**
+- Infrequent or bursty traffic — a webhook handler that fires 100 times per day
+- Event-driven tasks — resize an image when it's uploaded to S3
+- Scheduled jobs — run a database cleanup every night at 2 AM
+- APIs with unpredictable or spiky traffic patterns
+
+**Poor fit:**
+- Long-running processes — Lambda has a 15-minute max execution time
+- Low-latency requirements — cold starts add 100ms–2s on first invocation
+- WebSocket servers or any stateful, persistent connections
+- High, steady traffic — at sustained scale, Lambda can cost more than a reserved EC2 instance
+
+### 20.3 AWS Lambda
+
+Lambda is the dominant serverless platform. Functions are triggered by event sources.
+
+**Common triggers:**
+
+| Trigger | Use case |
+|---|---|
+| API Gateway | HTTP request → Lambda (REST API) |
+| S3 Event | File uploaded → Lambda (process it) |
+| SQS | Message in queue → Lambda (worker) |
+| EventBridge | Cron schedule → Lambda (scheduled job) |
+| DynamoDB Stream | DB change → Lambda (react to writes) |
+| SNS | Notification → Lambda (fan-out processing) |
+
+**Basic Lambda function (Node.js):**
+
+```javascript
+// handler.js
+exports.handler = async (event, context) => {
+  // event.body contains the HTTP request body when triggered via API Gateway
+  const body = JSON.parse(event.body);
+
+  const result = await processData(body);
+
+  return {
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ success: true, data: result }),
+  };
+};
+```
+
+**Deploy via AWS CLI:**
+
+```bash
+zip -r function.zip handler.js node_modules/
+
+aws lambda create-function \
+  --function-name my-function \
+  --runtime nodejs20.x \
+  --role arn:aws:iam::ACCOUNT_ID:role/lambda-role \
+  --handler handler.handler \
+  --zip-file fileb://function.zip \
+  --timeout 30 \
+  --memory-size 256
+
+# Update code only
+aws lambda update-function-code \
+  --function-name my-function \
+  --zip-file fileb://function.zip
+
+# Test invoke
+aws lambda invoke \
+  --function-name my-function \
+  --payload '{"body":"{\"key\":\"value\"}"}' \
+  output.json
+```
+
+### 20.4 Cold Starts
+
+A cold start occurs when Lambda initialises a new execution environment — downloading your code, starting the runtime, running top-level initialisation. This adds latency on the first invocation after idle.
+
+**Approximate cold start times by runtime:**
+
+| Runtime | Cold start |
+|---|---|
+| Node.js | 100–300ms |
+| Python | 100–300ms |
+| Go | 100–200ms |
+| Java | 1–5s |
+| .NET | 1–3s |
+
+**Minimising cold starts:**
+
+Move initialisation code outside the handler — it's cached and reused across warm invocations:
+
+```javascript
+// Good — DB connection created once, reused on subsequent calls
+const db = new Pool({ host: process.env.DB_HOST });
+
+exports.handler = async (event) => {
+  const result = await db.query('SELECT ...');   // no reconnect cost
+  return result;
+};
+```
+
+Keep your deployment package small — large `node_modules` increases init time. Use **Provisioned Concurrency** to keep N instances always warm if cold starts are unacceptable for your use case.
+
+### 20.5 Serverless Framework
+
+The Serverless Framework manages packaging, IAM role creation, and deployment:
+
+```yaml
+# serverless.yml
+service: my-api
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+
+functions:
+  api:
+    handler: handler.handler
+    events:
+      - httpApi:
+          path: /users
+          method: GET
+      - httpApi:
+          path: /users/{id}
+          method: GET
+
+  processUpload:
+    handler: upload.handler
+    events:
+      - s3:
+          bucket: my-uploads-bucket
+          event: s3:ObjectCreated:*
+
+  nightlyCleanup:
+    handler: cleanup.handler
+    events:
+      - schedule: cron(0 2 * * ? *)   # 2 AM UTC daily
+```
+
+```bash
+npm install -g serverless
+serverless deploy          # deploy everything
+serverless deploy -f api   # deploy one function
+serverless logs -f api -t  # tail logs
+serverless remove          # tear down everything
+```
+
+### 20.6 Cloudflare Workers — Edge Serverless
+
+Cloudflare Workers run JavaScript/TypeScript at Cloudflare's edge — 300+ locations worldwide. Unlike Lambda (which runs in one AWS region), Workers run in the location closest to the user.
+
+**No cold starts** — Workers run in V8 isolates, not full Node.js processes. They're always warm but have a 10ms CPU time limit on the free tier and no access to Node.js APIs.
+
+```javascript
+// worker.js
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+
+    if (url.pathname === '/api/hello') {
+      return new Response(JSON.stringify({ message: 'Hello from the edge' }), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    return fetch(request);   // pass everything else to the origin
+  },
+};
+```
+
+```bash
+npm install -g wrangler
+wrangler login
+wrangler deploy
+```
+
+Use Workers for: auth middleware, request routing, A/B testing, edge caching logic, geographic redirects — anything lightweight that benefits from running close to users.
+
+---
+
+## 21. Artifact Management
+
+### 21.1 What Artifact Management Is
+
+An artifact is anything your build process produces — a Docker image, an npm package, a compiled JAR, a Python wheel, a binary. Artifact management means storing, versioning, and distributing these outputs reliably across your pipeline.
+
+Without a proper registry:
+- You can't guarantee the exact binary that was tested is the one that gets deployed — rebuilding from source can produce different results if a dependency changed
+- You have no single source of truth for what's in production
+- You can't enforce access control on deployable artifacts
+
+### 21.2 Container Image Registries
+
+**Docker Hub** — the public default. Free tier has pull rate limits. Fine for public images and personal projects.
+
+**GitHub Container Registry (GHCR)** — the easiest choice if you're on GitHub. Uses the same `GITHUB_TOKEN` as Actions — no extra credentials:
+
+```yaml
+# GitHub Actions
+- name: Log in to GHCR
+  uses: docker/login-action@v3
+  with:
+    registry: ghcr.io
+    username: ${{ github.actor }}
+    password: ${{ secrets.GITHUB_TOKEN }}
+
+- name: Build and push
+  uses: docker/build-push-action@v5
+  with:
+    context: .
+    push: true
+    tags: |
+      ghcr.io/${{ github.repository }}:latest
+      ghcr.io/${{ github.repository }}:${{ github.sha }}
+```
+
+**AWS ECR (Elastic Container Registry)** — the right choice when deploying to ECS or EKS. No egress fees within AWS:
+
+```bash
+# Authenticate Docker to ECR
+aws ecr get-login-password --region us-east-1 | \
+  docker login --username AWS --password-stdin \
+  ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
+
+# Create a repository
+aws ecr create-repository --repository-name my-app --region us-east-1
+
+# Tag and push
+docker tag my-app:latest ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+docker push ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+```
+
+**ECR image lifecycle policy** — automatically delete old images to control storage cost:
+
+```json
+{
+  "rules": [{
+    "rulePriority": 1,
+    "description": "Keep last 10 images",
+    "selection": {
+      "tagStatus": "any",
+      "countType": "imageCountMoreThan",
+      "countNumber": 10
+    },
+    "action": { "type": "expire" }
+  }]
+}
+```
+
+### 21.3 Nexus Repository Manager
+
+Nexus is the most widely deployed self-hosted artifact manager. It handles multiple package formats in one place: Docker, npm, Maven, PyPI, NuGet, Helm charts.
+
+**Why self-host:**
+- Air-gapped environments with no internet access in production
+- Proxy and cache public registries — if npm or Docker Hub is down, your builds still work
+- One internal registry for all artifact types
+- Consistent access control across package formats
+
+```bash
+# Pull through Nexus proxy — caches the image locally on first pull
+docker pull nexus.yourdomain.com:8082/library/node:20
+
+# Push a private image
+docker tag my-app nexus.yourdomain.com:8083/my-app:1.0.0
+docker push nexus.yourdomain.com:8083/my-app:1.0.0
+```
+
+```bash
+# .npmrc — point npm at your Nexus proxy
+registry=https://nexus.yourdomain.com/repository/npm-proxy/
+```
+
+**JFrog Artifactory** is the commercial alternative with a better UI, native Kubernetes support, and stronger security features. It's the enterprise standard in Java/Maven-heavy organisations. For most teams starting out: GHCR for containers + standard npm. Nexus or Artifactory only if you have air-gapped, compliance, or multi-format requirements.
+
+### 21.4 Tagging Strategy
+
+**Never use `latest` for production deployments.** `latest` is mutable — it points to different images at different times. You can't audit which version is running.
+
+A solid strategy:
+
+```bash
+# Tag with git SHA — immutable, always traceable to a commit
+docker tag my-app ghcr.io/org/my-app:a3f9b1c2
+
+# Also tag with semver for explicit version references
+docker tag my-app ghcr.io/org/my-app:v1.4.2
+
+# Also tag with branch name for staging
+docker tag my-app ghcr.io/org/my-app:main
+```
+
+Your Kubernetes manifests always reference the SHA tag. The CI pipeline sets it:
+
+```yaml
+- name: Set image tag
+  run: echo "IMAGE_TAG=${GITHUB_SHA::8}" >> $GITHUB_ENV
+
+- name: Deploy
+  run: |
+    kubectl set image deployment/my-app \
+      my-app=ghcr.io/org/my-app:${{ env.IMAGE_TAG }}
+```
+
+---
+
+## 22. Cloud Design Patterns
+
+### 22.1 Why These Patterns Matter
+
+Cloud systems fail in ways that local systems don't — network calls fail transiently, services go down independently, latency spikes unpredictably. These patterns are proven solutions to recurring distributed systems problems. They're not code patterns — they're architectural decisions about how services communicate and recover.
+
+### 22.2 Availability Patterns
+
+**Circuit Breaker**
+
+Wraps calls to an external service and stops calling it if it's failing — giving it time to recover rather than hammering it with requests that will all fail.
+
+```
+State machine:
+CLOSED (normal) → too many failures → OPEN (fast-fail all requests)
+OPEN → timeout → HALF-OPEN (allow one test request)
+HALF-OPEN → success → CLOSED | failure → OPEN again
+```
+
+```javascript
+const CircuitBreaker = require('opossum');
+
+const breaker = new CircuitBreaker(callExternalService, {
+  timeout: 3000,
+  errorThresholdPercentage: 50,   // open after 50% failure rate
+  resetTimeout: 30000,             // retry after 30 seconds
+});
+
+breaker.fallback(() => getCachedData());   // return cached data when open
+```
+
+**Retry with Exponential Backoff**
+
+Transient failures resolve on their own. Retrying immediately adds load. Retrying with increasing delays gives the upstream time to recover.
+
+```javascript
+async function callWithRetry(fn, maxRetries = 3) {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      if (attempt === maxRetries) throw error;
+      const delay = Math.pow(2, attempt) * 100;   // 200ms, 400ms, 800ms
+      const jitter = Math.random() * 100;          // prevents thundering herd
+      await sleep(delay + jitter);
+    }
+  }
+}
+```
+
+**Bulkhead**
+
+Isolate parts of your system so a failure in one doesn't cascade. Named after ship compartments — if one floods, the others stay dry.
+
+In practice: give each downstream service its own connection pool with a fixed max size. A failing payment service can't exhaust all connections and take down auth with it.
+
+**Health Endpoint Monitoring**
+
+Every service exposes a `/health` endpoint that checks its own dependencies:
+
+```javascript
+app.get('/health', async (req, res) => {
+  const checks = await Promise.allSettled([
+    db.query('SELECT 1'),
+    redis.ping(),
+  ]);
+
+  const healthy = checks.every(c => c.status === 'fulfilled');
+  res.status(healthy ? 200 : 503).json({
+    status: healthy ? 'healthy' : 'degraded',
+    checks: { database: checks[0].status, redis: checks[1].status },
+  });
+});
+```
+
+Load balancers and Kubernetes readiness probes call this. Non-200 responses remove the instance from rotation.
+
+### 22.3 Data Management Patterns
+
+**CQRS — Command Query Responsibility Segregation**
+
+Separate the model for writing data from the model for reading it.
+
+```
+Write path: Command → Command Handler → Write Model → Database (normalised)
+Read path:  Query  → Query Handler  → Read Model  → Read-optimised view
+```
+
+Write models enforce business rules and maintain consistency. Read models are optimised for how data is queried — often denormalised, pre-joined, cached. One model trying to do both is compromised at both. Use CQRS when read and write patterns differ significantly, or you need to scale them independently.
+
+**Event Sourcing**
+
+Instead of storing the current state of a record, store the sequence of events that produced it.
+
+```
+Traditional:    { userId: 1, balance: 750 }
+
+Event sourced:
+  AccountOpened   amount: 1000
+  WithdrawalMade  amount: 200
+  DepositMade     amount: 50
+  WithdrawalMade  amount: 100
+  → current balance: 1000 - 200 + 50 - 100 = 750
+```
+
+Benefits: complete audit trail, ability to replay events to rebuild state, ability to derive multiple read projections from the same event stream. Cost: more complex to query current state, requires event replay infrastructure.
+
+**Saga Pattern**
+
+Manages distributed transactions across multiple services without a two-phase commit. A saga is a sequence of local transactions, each publishing an event that triggers the next — with compensating transactions that undo completed steps if a later step fails.
+
+```
+Order placement saga:
+1. OrderService: Create order (PENDING) → emit OrderCreated
+2. PaymentService: Charge payment → emit PaymentCharged
+   on failure: emit PaymentFailed → compensate step 1 (cancel order)
+3. InventoryService: Reserve stock → emit StockReserved
+   on failure: emit StockUnavailable → compensate steps 1-2
+4. OrderService: Confirm order (CONFIRMED)
+```
+
+### 22.4 Design and Implementation Patterns
+
+**Strangler Fig**
+
+Migrate a legacy system incrementally. Build new functionality alongside the old system and route traffic piece by piece until the legacy system can be removed.
+
+```
+Phase 1: New feature A → new system | everything else → legacy
+Phase 2: Feature group B → new system | remaining → legacy
+Phase 3: All requests → new system | legacy decommissioned
+```
+
+An API gateway or load balancer handles the routing split. This is how you rewrite a monolith to microservices without a risky big-bang rewrite.
+
+**Anti-Corruption Layer**
+
+When integrating with an external system, put a translation layer between it and your domain. Your code talks to the ACL in your own language; the ACL translates to the external system's API. Prevents the external model from corrupting your domain — you can swap the external system later by only changing the ACL.
+
+**Backends for Frontends (BFF)**
+
+Instead of one general-purpose API serving all clients, create a dedicated backend for each client type:
+
+```
+Mobile app → Mobile BFF  ↘
+Web app    → Web BFF      → Core services
+Partners   → Partner API ↗
+```
+
+Mobile needs different response shapes, different auth flows, and different data granularity than web. A general API compromises for all; a BFF is optimised for one.
+
+### 22.5 Management and Monitoring Patterns
+
+**Sidecar**
+
+Deploy a secondary container alongside your application container that provides supporting capabilities (logging, monitoring, proxying) without modifying the application itself.
+
+```yaml
+spec:
+  containers:
+    - name: my-app         # main application
+      image: my-app:v1
+    - name: log-shipper    # sidecar ships logs to central store
+      image: fluent-bit:latest
+```
+
+This is how Istio works — it injects an Envoy sidecar into every pod to handle mTLS, retries, and observability without touching your application code.
+
+**Throttling**
+
+Control the rate of resource consumption to protect services from being overwhelmed. At scale this runs in Redis so limits apply across all service instances:
+
+```javascript
+// Token bucket — Redis-backed so it works across multiple instances
+async function checkRateLimit(userId) {
+  const key = `ratelimit:${userId}`;
+  const requests = await redis.incr(key);
+  if (requests === 1) await redis.expire(key, 60);   // set 60-second window on first request
+  return requests <= 100;   // allow 100 requests per 60 seconds
+}
+```
+
+**Queue-Based Load Levelling**
+
+Place a queue between a producer and a consumer so traffic spikes don't overwhelm the downstream service. The producer writes to the queue at any rate; the consumer processes at a controlled rate.
+
+```
+High-volume event → SQS queue → Lambda worker (processes at controlled rate)
+```
+
+This decouples throughput from processing capacity. The queue absorbs spikes; the worker processes at whatever rate it can sustain. Used extensively in this codebase's planned BullMQ migration (see Part 21).
 
 ---
 

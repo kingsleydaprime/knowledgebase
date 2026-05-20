@@ -48,7 +48,7 @@
 
 ### 1.1 Buy a VPS and Point Your Domain
 
-- Purchase a VPS (DigitalOcean, Hetzner, Vultr, etc.)
+- Purchase a VPS (DigitalOcean, Hetzner, Vultr, Contabo, etc.)
 - Point your domain's **A record** to the VPS IP address
 - Wait for DNS propagation (use `dig yourdomain.com` to verify)
 
@@ -3233,3 +3233,96 @@ A linear list of every step, in order, for deploying a production application fr
 ---
 
 *Last updated: 2026 — Built from real deployment experience.*
+
+---
+
+## 28. Real-World Infrastructure: Vibe Events Platform Reference
+
+> Concrete infrastructure decisions from a real NestJS + PostgreSQL + Redis project. Use as a template for MVP-scale systems.
+
+### 28.1 Stack
+
+```
+API:        NestJS (TypeScript)
+Database:   PostgreSQL
+Cache:      Redis (queues + caching + pub/sub)
+Storage:    MinIO (self-hosted S3-compatible)
+CDN:        Cloudflare (proxies MinIO, serves media at edge)
+Real-time:  Socket.IO + Redis Adapter
+Queues:     BullMQ (on top of Redis)
+Hosting:    Railway or Render (MVP) → AWS ECS (medium scale)
+```
+
+### 28.2 Job Queues with BullMQ
+
+BullMQ runs on Redis. Jobs stored in Redis, workers read from Redis, retries automatic.
+
+| Queue | Triggered by | Does |
+|---|---|---|
+| `media.queue` | PostcardsModule, EventsModule | Resize photos, generate thumbnails, normalise video, update DB |
+| `notification.queue` | Every module | FCM push, email via Resend — retries automatically |
+| `leaderboard.queue` | GamesModule | Compute ranks, assign rewards, notify winners |
+| `email.queue` | AuthModule, EventsModule | Verification emails, password reset, event reminders |
+
+Separate email from notification queue — failures shouldn't block each other. Different retry policies, throttle limits, and costs.
+
+**Job flow:**
+```
+1. API validates, creates DB record, returns response immediately
+2. queue.add('job', payload) — stored in Redis instantly
+3. Worker (separate process) picks up job
+4. Success: update DB
+5. Failure: retry 3× with exponential backoff → dead-letter queue
+```
+
+### 28.3 Redis Caching Key Patterns
+
+| Key | TTL | Reason |
+|---|---|---|
+| `refresh:{userId}:{tokenId}` | 30 days | Token validation and revocation |
+| `event:{eventId}` | 5 min | Event pages are read constantly |
+| `discover:events:{lat}:{lng}:{tag}` | 2 min | Most-hit endpoint — same query for nearby users |
+| `vibe-tags:all` | 1 hour | Tags rarely change |
+| `leaderboard:{gameId}` | 30 sec | Polled frequently during active games |
+| `user:{userId}` | 10 min | Profile shown on every postcard and comment |
+| `checkin:{userId}:{eventId}` | 24 hours | Must be fast — checked on every postcard creation |
+
+**Invalidation:** Delete cached key immediately on update.
+```typescript
+await redis.del(`user:${userId}`);
+```
+
+### 28.4 CDN + MinIO
+
+```
+Upload to MinIO at:   minio.yourdomain.com/bucket/key
+Cloudflare proxies:   cdn.yourdomain.com/key → never hits MinIO directly
+Cached at edge:       photos, videos, backdrops, avatars
+Bypasses CDN:         all API responses (user-specific, dynamic)
+DDoS protection:      free on all Cloudflare plans
+```
+
+### 28.5 Socket.IO Scaling with Redis Adapter
+
+```
+MVP (single server): direct delivery, no adapter needed.
+
+Multiple servers:
+  User A (Server 1) → DM to User B (Server 2)
+  Without adapter: message lost — Server 1 has no connection to User B
+  With Redis adapter:
+    Server 1 → redis.publish('socket:user:B', payload)
+    Server 2 → subscribed → delivers to User B
+
+Install @socket.io/redis-adapter at MVP. Zero refactor when you scale.
+```
+
+Events: `dm:{conversationId}`, `chat:{eventId}:{section}`, `leaderboard:{gameId}`, `notifications:{userId}`
+
+### 28.6 Scaling Path
+
+```
+MVP:    Railway/Render — managed Postgres + Redis, auto-deploy from GitHub
+Medium: AWS — ECS, RDS with replicas, ElastiCache, S3, CloudFront
+Large:  Kubernetes multi-region, auto-scaling per service
+```
