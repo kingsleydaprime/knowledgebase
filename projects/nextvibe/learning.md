@@ -443,7 +443,7 @@ Rule: put the most selective column (the one that eliminates the most rows) firs
 | `follows` | `@@index([followingId])` | "Who follows this user?" (followers list) |
 | `follows` | `@@index([followerId])` | "Who does this user follow?" (following list) |
 
-**What's missing:** The `notifications` table has no index on `[recipientId, isRead]`. The unread count query is `WHERE recipientId = ? AND isRead = false`. Without this compound index, every page load that shows a notification badge does a full scan of all notifications for that user. At 100 notifications per user and 10,000 users making simultaneous requests, this becomes a problem fast. This is noted in Part 21.
+**What's missing:** The `notifications` table has no index on `[recipientId, isRead]`. The unread count query is `WHERE recipientId = ? AND isRead = false`. Without this compound index, every page load that shows a notification badge does a full scan of all notifications for that user. At 100 notifications per user and 10,000 users making simultaneous requests, this becomes a problem fast. This is noted in Part 20.
 
 **How to know if you're missing an index in production:**
 
@@ -666,7 +666,7 @@ Backend  → deletes "refresh:userId:refreshToken" from Redis
 The Redis key `refresh:userId:refreshToken` has a 30-day TTL. After 30 days of no activity, the key disappears. The next refresh attempt finds no key in Redis and returns `401`. The frontend now shows the login screen. The user was "remembered" for 30 days automatically.
 
 **The security property this design gives you:**
-- Stolen access token? Damage window = however long until expiry (currently infinite — bug, see Part 21)
+- Stolen access token? Damage window = however long until expiry (currently infinite — bug, see Part 20)
 - Stolen refresh token? Usable exactly once. If the attacker uses it first, the real user's next refresh attempt fails, alerting them something is wrong
 - Logout from one device? Delete that device's refresh token key — that session is dead
 - "Log out everywhere"? Delete all Redis keys matching `refresh:userId:*` — all sessions for that user are instantly revoked, regardless of how many devices they were on
@@ -962,7 +962,7 @@ async create(data: {...}) {
 
 Persistence first, then push. If the push fails, the notification still exists in the database for the next time the user opens the app.
 
-### WebSocket Architecture
+### WebSocket Architecture: The `/notifications` Namespace
 
 ```typescript
 @WebSocketGateway({ cors: { origin: '*' }, namespace: '/notifications' })
@@ -978,12 +978,39 @@ async handleConnection(client: Socket) {
 }
 ```
 
+The token must be passed in the handshake `auth` object — not in HTTP headers:
+
+```typescript
+// frontend connection
+const socket = io('/notifications', { auth: { token: accessToken } });
+```
+
+If the token is missing or invalid, the server calls `client.disconnect()` immediately. There is no retry — the client must reconnect with a valid token.
+
 When a notification needs to reach user `abc`, you emit to room `user:abc`:
+
 ```typescript
 this.server.to(`user:abc`).emit('notification', notification);
 ```
 
-Only the socket in that room (i.e., that user's connection) receives it.
+Only the socket in that room (i.e., that user's connection) receives it. This is how Socket.io rooms work: a room is a named group of connected sockets. Emitting to the room sends to all members of that group. Since room `user:abc` contains only the socket belonging to user `abc`, it is effectively a private channel.
+
+The client side only needs to listen for one event:
+
+```typescript
+socket.on('notification', (notification) => {
+  // update badge count, show toast, etc.
+});
+```
+
+There is also a `ping`/`pong` keep-alive pair:
+
+```typescript
+socket.emit('ping');
+socket.on('pong', () => { /* connection confirmed alive */ });
+```
+
+Use this to verify the connection is still active without waiting for a real notification to arrive.
 
 **Scaling problem:** Socket.io rooms are in-memory in this process. If you run two API instances, a user connected to instance 1 won't receive events emitted by instance 2. The fix: Socket.io Redis adapter (the `redis.service.ts` even exposes `getClient()` for this exact reason). This is one of the first things to add when you need horizontal scaling.
 
@@ -1004,6 +1031,62 @@ The self-action guard:
 if (data.actorId && data.recipientId === data.actorId) return null;
 ```
 You don't notify yourself when you like your own post.
+
+### Notification Types and What Triggers Them
+
+Every notification has a `type` and a `targetType`. The `type` describes what happened; the `targetType` describes what entity it happened to. Together they tell the frontend exactly what link to show when the user taps the notification.
+
+| Type | What triggers it | targetType | targetId points to |
+|---|---|---|---|
+| `FOLLOW` | User A followed User B | `USER` | actor's user ID |
+| `LIKE` | Someone liked a postcard | `POSTCARD` | postcard ID |
+| `COMMENT` | Someone commented on a postcard | `POSTCARD` | postcard ID |
+| `TAG` | User was tagged in content | `POSTCARD` | postcard ID |
+| `RSVP` | RSVP confirmed or waitlisted | `EVENT` | event ID |
+| `GAME_RESULT` | Game round result available | `GAME` | game session ID |
+| `EVENT_REMINDER` | Cron job fires before event starts | `EVENT` | event ID |
+| `CHECK_IN` | User checked in at event | `EVENT` | event ID |
+| `PAYMENT_CONFIRMED` | Payment webhook confirmed success | `PAYMENT` | payment record ID |
+| `PAYMENT_FAILED` | Payment webhook reported failure | `PAYMENT` | payment record ID |
+| `EVENT_PUBLISHED` | Organizer's event went live | `EVENT` | event ID |
+| `TICKET_PURCHASED` | Ticket purchase confirmed | `TICKET` | purchase ID |
+| `GAME_UNLOCKED` | Game session unlocked after payment | `GAME` | game session ID |
+| `VIBETAG_ACTIVATED` | VibeTags activated for an event | `EVENT` | event ID |
+
+### Notification Object Shape
+
+What the `notification` socket event delivers, and what `GET /v1/notifications` returns per item:
+
+```typescript
+interface Notification {
+  id: string;
+  recipientId: string;
+  actorId?: string;        // undefined means system-generated (cron, payment webhook)
+  type: NotificationType;
+  targetType: NotificationTarget;
+  targetId: string;
+  isRead: boolean;         // always false on delivery via socket
+  createdAt: string;       // ISO 8601
+  actor?: {                // populated on REST fetch; may be absent on socket push
+    id: string;
+    username: string;
+    displayName?: string;
+    avatarUrl?: string;
+  };
+}
+```
+
+### Notification REST Endpoints
+
+The socket delivers notifications in real time, but it is not the source of truth. On app load, the client fetches history and the unread count via REST:
+
+```
+GET  /v1/notifications?page=1&limit=50   — paginated list; response includes meta.unreadCount
+POST /v1/notifications/:id/read          — mark one notification as read
+POST /v1/notifications/read-all          — mark all unread as read → { updatedCount: number }
+```
+
+The correct integration pattern: on app open, call `GET /v1/notifications` to initialise the badge count from `meta.unreadCount`. Then connect the socket and listen for `notification` events to increment the badge in real time. When the user opens the notification panel, call `POST /v1/notifications/read-all` and reset the badge to zero.
 
 ---
 
@@ -1132,7 +1215,7 @@ Without seeing the implementation, but based on the schema indices (`@@index([st
 
 ---
 
-## Part 16 — Analytics
+## Part 15b — Analytics
 
 The project has an `analytics.service.ts` file. Analytics answers questions like:
 - How many tickets were sold for this event?
@@ -1181,19 +1264,212 @@ These are all read-only queries against existing tables — no new data model ne
 
 ---
 
-## Part 17 — The Messaging Module
+## Part 16 — The Messaging Module
 
-DMs between users follow the mutual-follow requirement (enforced in `UserPreference.messagingPref`).
+The messaging module exposes one Socket.io gateway (`/messaging` namespace) and a REST controller. The gateway handles real-time delivery; the REST controller handles conversation creation and history loading. You need both.
 
-The `Conversation` model uses a canonical ordering pattern. When user A starts a conversation with user B, you ensure `userAId < userBId` alphabetically (by sorting the two IDs). This means there's only ever one conversation record for any pair — you can look it up with `@@unique([userAId, userBId])` regardless of which user initiates.
+### The Two Gateways
 
-The `lastMessageAt` field on `Conversation` is updated every time a message is sent. The inbox is ordered by `lastMessageAt DESC` — conversations with recent activity float to the top.
+The project now has two gateways running alongside the HTTP API:
 
-**What's missing:** Message read receipts at scale. The current `isRead: Boolean` on `Message` doesn't handle "last read message ID" per user, which is what most messaging apps use for accurate unread counts without marking every message individually.
+| Namespace | Purpose |
+|---|---|
+| `/messaging` | DM conversations and event chat rooms |
+| `/notifications` | Per-user notification push |
+
+Both are on the same process and port as the HTTP API. Socket.io separates them by namespace — `/messaging` traffic never mixes with `/notifications` traffic. Clients connect to each independently, with the same JWT token.
+
+### Direct Messages: The Full Flow
+
+DMs involve a REST call to create the conversation, then socket events for all subsequent interaction.
+
+**Step 1 — Create the conversation via REST (once per pair of users):**
+
+```
+POST /v1/conversations
+Body: { "userId": "<target-user-uuid>" }
+```
+
+Both users must be mutual followers. The service checks this before creating anything. You cannot DM a stranger. The response includes `id` — the conversation ID you will use for every socket event.
+
+**Why REST for creation, not socket?** Creating a conversation writes to the database and enforces the mutual-follow rule. REST is the right tool for operations that validate, write, and need a structured error response. Socket events are for real-time delivery of things that have already been created.
+
+**Step 2 — Join the DM room (every time the user opens the conversation screen):**
+
+```typescript
+socket.emit('join:dm', { conversationId: '<uuid>' });
+socket.on('joined:dm', ({ conversationId }) => {
+  // confirmed — you're in the room, messages will be delivered
+});
+```
+
+Internally, the server calls `client.join('dm:{conversationId}')`. The room name is `dm:` + the conversation UUID. Any message sent to this room reaches all sockets in it — both participants if both are connected.
+
+**Important:** Room membership is not persisted across reconnects. Socket.io handles automatic reconnection, but when the socket reconnects, the room join must be re-emitted. Always re-emit `join:dm` inside the socket's `connect` event handler.
+
+**Step 3 — Send messages:**
+
+```typescript
+socket.emit('send:dm', {
+  conversationId: '<uuid>',
+  body: 'Hey!',       // optional — text
+  mediaUrl: '<url>',  // optional — image or video URL
+});
+```
+
+At least one of `body` or `mediaUrl` must be provided. The `senderId` is always resolved from the JWT token on the server — the client never passes it. This prevents any possibility of spoofing who sent a message.
+
+**Step 4 — Receive messages:**
+
+```typescript
+socket.on('new:dm', (message) => {
+  appendToConversation(message);
+});
+```
+
+`new:dm` is broadcast to the entire `dm:{conversationId}` room — that means both the sender and the recipient receive it. The sender's client should display the message using `new:dm`, not optimistically before the event arrives. This keeps both sides in sync.
+
+**Step 5 — Typing indicators:**
+
+```typescript
+// emit when user starts typing (debounce — don't fire on every keystroke)
+socket.emit('typing:dm', { conversationId: '<uuid>' });
+
+// receive when the other participant is typing
+socket.on('typing:dm', ({ userId }) => {
+  showTypingIndicator(userId);
+});
+```
+
+The server sends the `typing:dm` event only to the other participant — using `.to(room).except(socket.id)` — so you never see your own typing indicator. Debounce the emit on the client to avoid flooding: emit once when typing starts, not on every character.
+
+### Direct Message REST Endpoints
+
+```
+GET /v1/conversations                                     — inbox list
+GET /v1/conversations/:id/messages?page=1&limit=50        — paginated history
+```
+
+The inbox response shape per conversation:
+
+```json
+{
+  "id": "uuid",
+  "participant": { "id": "...", "username": "...", "avatarUrl": "..." },
+  "lastMessage": { "body": "...", "createdAt": "..." },
+  "unreadCount": 3,
+  "lastMessageAt": "2026-05-20T10:00:00.000Z"
+}
+```
+
+Load history via REST when the user opens a conversation (to show past messages), then keep the socket open for new messages going forward. Don't re-fetch history via REST on every new message — the socket delivers new messages in real time.
+
+### Event Chat
+
+Event chats are group rooms, one per event per lifecycle phase. Every event can have up to three chat rooms:
+
+| Section | When it is active |
+|---|---|
+| `PRE_EVENT` | Before the event starts |
+| `DURING_EVENT` | While the event is live |
+| `POST_EVENT` | After the event ends |
+
+**Access control:** The server checks that the connecting user has either RSVPed or checked into the event before allowing them to join or send messages. If neither is true, the socket call is silently rejected. This is enforced server-side — you cannot bypass it from the client.
+
+The flow mirrors DMs:
+
+```typescript
+// join a section
+socket.emit('join:event-chat', {
+  eventId: '<uuid>',
+  section: 'DURING_EVENT',   // 'PRE_EVENT' | 'DURING_EVENT' | 'POST_EVENT'
+});
+
+socket.on('joined:event-chat', ({ room }) => {
+  // room = 'chat:<eventId>:DURING_EVENT'
+  // confirmed — ready to send and receive
+});
+
+// send a message
+socket.emit('send:event-chat', {
+  eventId: '<uuid>',
+  section: 'DURING_EVENT',
+  body: 'This is great!',   // optional
+  mediaUrl: '<url>',        // optional
+});
+
+// receive messages (broadcast to everyone in the room)
+socket.on('new:event-chat', (message) => {
+  appendToEventChat(message);
+});
+```
+
+Event chat history is loaded via REST:
+
+```
+GET /v1/events/:eventId/chat/:section?page=1&limit=50
+```
+
+Where `:section` is `PRE_EVENT`, `DURING_EVENT`, or `POST_EVENT`.
+
+### Message Object Shape
+
+Both `new:dm` and `new:event-chat` deliver a message in this shape:
+
+```typescript
+interface Message {
+  id: string;
+  conversationId?: string;  // present on DM messages
+  chatId?: string;          // present on event chat messages
+  senderId: string;
+  body?: string;
+  mediaUrl?: string;
+  createdAt: string;        // ISO 8601
+  sender: {
+    id: string;
+    username: string;
+    avatarUrl?: string;
+    displayName?: string;
+  };
+}
+```
+
+### The Canonical Ordering Pattern for Conversations
+
+When user A starts a conversation with user B, the service must guarantee only one conversation record ever exists for that pair — regardless of who initiates. The trick: before creating, sort the two user IDs alphabetically and always assign the smaller one to `userAId`:
+
+```typescript
+const [userAId, userBId] = [userId, targetUserId].sort();
+await prisma.conversation.upsert({
+  where: { userAId_userBId: { userAId, userBId } },
+  create: { userAId, userBId },
+  update: {},
+});
+```
+
+This makes the `@@unique([userAId, userBId])` constraint meaningful: since the IDs are always assigned in sorted order, the pair `(A, B)` is always the same regardless of who called the endpoint first. Without the sort, user A initiating creates `(A, B)` and user B initiating creates `(B, A)` — two separate rows, two separate inboxes, diverged message history.
+
+### The `lastMessageAt` Denormalisation
+
+The inbox is ordered by `lastMessageAt DESC` — conversations with the most recent activity float to the top. This field is updated on every `send:dm` call:
+
+```typescript
+await prisma.conversation.update({
+  data: { lastMessageAt: new Date() },
+});
+```
+
+This is denormalisation: the correct value is derivable as `MAX(messages.createdAt)` for that conversation, but that requires an aggregation query across every message for every conversation in the inbox. With `lastMessageAt` pre-stored, the inbox query is a single read with no aggregation. The trade-off is one extra write per message to keep the field current — always worth it for any feature that shows a sorted inbox.
+
+### What's Missing
+
+**Message read receipts at scale.** The current `isRead: Boolean` on `Message` marks each message individually. At scale this means "mark as read" requires updating every unread message row. Most messaging apps use a `lastReadMessageId` per user per conversation instead — a single integer per user that the UI uses to determine which messages are "above" (read) or "below" (unread) the cursor. This is a significant improvement to make before heavy usage.
+
+**Typing indicators for event chat.** The gateway implements `typing:dm` for DMs but there is no `typing:event-chat` event. For large group chats this is actually fine (typing indicators in group chats are noisy), but for small groups or pre-event chats it might be worth adding.
 
 ---
 
-## Part 18 — The Storage Module
+## Part 17 — The Storage Module
 
 File uploads (avatars, event fliers, postcard media) go through the storage module. Based on `upload.service.ts` existing alongside `storage.service.ts`, uploads likely:
 1. Accept multipart/form-data
@@ -1204,7 +1480,7 @@ File uploads (avatars, event fliers, postcard media) go through the storage modu
 
 ---
 
-## Part 19 — The Admin Module
+## Part 18 — The Admin Module
 
 Admin routes are protected by role check:
 
@@ -1218,7 +1494,7 @@ The admin module likely handles: user banning, coupon creation, platform analyti
 
 ---
 
-## Part 20 — Cross-Cutting Concerns
+## Part 19 — Cross-Cutting Concerns
 
 These are things that apply across the entire system.
 
@@ -1269,7 +1545,7 @@ Use transactions any time two or more writes must succeed together.
 
 ---
 
-## Part 21 — What is Missing and Should Be Built
+## Part 20 — What is Missing and Should Be Built
 
 These are genuine gaps in the current codebase that would need to be addressed before a production launch.
 
@@ -1382,7 +1658,7 @@ The `notifications` table (which will be queried on every page load for unread c
 
 ---
 
-## Part 22 — Design Decisions Worth Understanding
+## Part 21 — Design Decisions Worth Understanding
 
 ### Why Split the Prisma Schema Across Files?
 
@@ -1438,7 +1714,7 @@ This is the **Single Responsibility Principle** applied at the database level: e
 
 ---
 
-## Part 23 — How to Think About Improving This Codebase
+## Part 22 — How to Think About Improving This Codebase
 
 When you inherit a codebase and need to improve it, always prioritise in this order:
 
@@ -1459,7 +1735,7 @@ If the answer to any of these is "something bad", you've found something worth i
 
 ---
 
-## Part 24 — The Mental Model for Being a Good Engineer
+## Part 23 — The Mental Model for Being a Good Engineer
 
 Everything you build is a trade-off. The question is never "what's the perfect solution?" — it's always "what's the right trade-off for this context?"
 
@@ -1479,7 +1755,7 @@ Every design decision in this codebase was made for a reason. When you encounter
 
 ---
 
-## Part 25 — Deploying to Production: CI/CD, Build Pipelines, and the Mistakes That Break Them
+## Part 24 — Deploying to Production: CI/CD, Build Pipelines, and the Mistakes That Break Them
 
 Deploying is the step where your working local code becomes a running server that real users hit. It fails in ways that are invisible locally, for reasons that feel baffling until you understand the concepts. This part explains those concepts using the actual production failure this project experienced.
 
@@ -1685,194 +1961,1532 @@ When a build fails in CI/CD, here is the process:
 
 ---
 
----
+## Part 25 — Development Environment Problems and How to Solve Them
 
-## Part 26 — How to Contribute
-
-This section covers what you need to know before writing code against this codebase for the first time.
+These are errors that happen on your local machine during development, not in production. They feel catastrophic the first time you see them. Once you understand what they mean, they take less than a minute to fix.
 
 ---
 
-### Adding a New Module
+### `ENOSPC: System limit for number of file watchers reached`
 
-Every feature in this codebase is a NestJS module. When you add a feature, you add a module. Here is the exact pattern to follow.
-
-**Step 1: Create the folder**
+**The full error:**
 
 ```
-src/modules/your-feature/
-  your-feature.module.ts
-  your-feature.controller.ts
-  your-feature.service.ts
-  dto/
-    create-your-feature.dto.ts
-    update-your-feature.dto.ts
+Error: ENOSPC: System limit for number of file watchers reached,
+watch '/home/.../src/generated/prisma/wasm-edge-light-loader.mjs'
+    at FSWatcher.<computed> (node:internal/fs/watchers:247:19)
+    ...
+  errno: -28,
+  code: 'ENOSPC',
 ```
 
-**Step 2: Write the module file**
+**What you were doing when it appeared:** Running `pnpm run start:dev` — the NestJS watch mode compiler. Everything compiled fine (`Found 0 errors. Watching for file changes.`), then the process crashed.
 
-```typescript
-@Module({
-  imports: [PrismaModule],           // add shared infrastructure you need
-  controllers: [YourFeatureController],
-  providers: [YourFeatureService],
-  exports: [YourFeatureService],     // only export if other modules need it
-})
-export class YourFeatureModule {}
-```
+**Why `ENOSPC` is misleading:** `ENOSPC` stands for "No Space on Device." Your first instinct is to check disk space. That's wrong. This error has nothing to do with disk space. It's about a Linux kernel resource called **inotify**.
 
-**Step 3: Register it in `app.module.ts`**
+**What inotify is:**
 
-```typescript
-@Module({
-  imports: [
-    // ... existing modules
-    YourFeatureModule,
-  ],
-})
-export class AppModule {}
-```
+Linux uses a kernel subsystem called `inotify` to implement file watching. When a program wants to know when a file changes, it asks the kernel to "watch" that file. The kernel maintains a list of all active watches across all processes on the machine.
 
-**Step 4: Keep the controller thin**
+By default, Linux caps this list at **65,536 watches total** across all processes. When the cap is hit, the error code is `ENOSPC` — because the kernel reports "no space" in the watch table, even though your disk is fine.
 
-Controllers receive a request, delegate to the service, return the result. They do not contain logic. If you find yourself writing an `if` statement in a controller method, it belongs in the service.
+**Why this project hits the limit:**
 
----
+The NestJS watch mode compiler (via `chokidar`) registers an inotify watch on every file it monitors. This project has a `src/generated/prisma/` directory containing many generated files from Prisma. Combined with the rest of `src/`, `node_modules/.pnpm/`, and any other projects or editors you have open on the same machine (VS Code alone consumes thousands of watches), the total exceeds 65,536.
 
-### Naming Conventions
-
-Following these consistently means any engineer can find anything without searching.
-
-| Thing | Convention | Example |
-|---|---|---|
-| Module folder | kebab-case | `ticket-transfers/` |
-| Class names | PascalCase | `TicketTransfersService` |
-| File names | kebab-case | `ticket-transfers.service.ts` |
-| DTO class | PascalCase + Dto suffix | `InitiateTransferDto` |
-| Route prefix | kebab-case | `@Controller('ticket-transfers')` |
-| Prisma model | PascalCase | `TicketTransfer` |
-| Database table | snake_case (Prisma maps it) | `ticket_transfers` |
-| Enum values | SCREAMING_SNAKE_CASE | `TRANSFER_PENDING` |
-
-For any new table, add `@@map("snake_case_name")` in the Prisma model to be explicit about the table name — don't rely on Prisma's default inference.
-
----
-
-### Adding a Database Model
-
-The schema is split by domain in `prisma/schema/`. Put your model in the file that owns its domain. If the model doesn't belong to an existing domain, create a new `.prisma` file.
-
-**Step 1: Add the model to the appropriate schema file**
-
-```prisma
-// prisma/schema/tickets.prisma
-model TicketTransfer {
-  id          String   @id @default(cuid())
-  ticketId    String
-  fromUserId  String
-  toUserId    String
-  createdAt   DateTime @default(now())
-
-  ticket   Ticket @relation(fields: [ticketId], references: [id])
-  fromUser User   @relation("TransferFrom", fields: [fromUserId], references: [id])
-  toUser   User   @relation("TransferTo", fields: [toUserId], references: [id])
-
-  @@index([ticketId])
-  @@map("ticket_transfers")
-}
-```
-
-**Step 2: Create and apply the migration**
+**How to check the current limit:**
 
 ```bash
-# generate a new migration file (does not apply it yet)
-pnpm prisma migrate dev --name add_ticket_transfers
-
-# this also runs prisma generate automatically in dev
+cat /proc/sys/fs/inotify/max_user_watches
+# outputs: 65536
 ```
 
-**Step 3: Never manually edit migration files**
+**The fix — increase the limit permanently:**
 
-Prisma generates SQL migration files in `prisma/migrations/`. Never edit them by hand. If you made a mistake in your schema, fix the schema file and generate a new migration. Editing migration files breaks the migration history and causes the `db:deploy` step to fail in CI.
+```bash
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+```
 
-**Step 4: Always add indexes for columns you query on**
+`/etc/sysctl.conf` is the kernel parameter configuration file. Changes here survive reboots. `sysctl -p` reloads the file immediately without rebooting. After this, the limit is 524,288 — eight times the default, more than enough for any development machine.
 
-Before adding a model, ask: what queries will I run against this table? Add `@@index` entries for every column that will appear in a `WHERE` clause or `ORDER BY`. This is especially important for foreign keys — Prisma does not automatically index them.
+**For an immediate fix without rebooting (does not survive reboot):**
+
+```bash
+sudo sysctl fs.inotify.max_user_watches=524288
+```
+
+**Why 524,288?** It is the standard recommended value in the documentation for VS Code, Webpack, Jest, and other watch-heavy tools. It's high enough that you will never hit the ceiling in normal development, while still being a finite cap that prevents a runaway process from consuming unlimited kernel resources.
+
+**After applying the fix:** Restart `pnpm run start:dev`. The error will not appear again.
+
+**Key lesson:** `ENOSPC` in Node.js file watcher errors does not mean disk space. It means a kernel resource table is full. Always check the full error message — `code: 'ENOSPC'` combined with `syscall: 'watch'` is the giveaway that it's inotify, not disk.
 
 ---
 
-### The Migration Workflow in This Project
+## Part 26 — WebSocket Gateway Authentication Done Right
 
-This project uses `prisma migrate deploy` (not `migrate dev`) in production. The difference:
+### The Problem You'll Hit First
 
-- `migrate dev` — used locally. Generates new migration files from schema changes. Runs generators. Prompts you for a migration name.
-- `migrate deploy` — used in CI/CD. Applies pending migrations without generating anything. Fails if there are unapplied migrations. Never prompts.
-
-The build command on Render runs:
-```
-pnpm run db:deploy  # applies pending migrations
-pnpm dlx prisma generate  # regenerates the client types
-```
-
-**What this means for you:** After changing the schema, run `pnpm prisma migrate dev` locally, commit both the schema change and the generated migration file, and push. The next deploy will pick up the migration automatically.
-
-If you forget to commit the migration file, the deploy will succeed (the code compiled) but the app will crash at runtime when it tries to use a table that doesn't exist.
-
----
-
-### Adding a New API Endpoint
-
-1. Add a method to the relevant controller with the correct HTTP decorator (`@Get`, `@Post`, `@Patch`, `@Delete`)
-2. Create a DTO in `dto/` for any request body using `class-validator` decorators
-3. Implement the logic in the service
-4. Routes are protected by default — add `@Public()` only if the endpoint genuinely needs no authentication
+If you look at a NestJS WebSocket gateway and see this pattern, it looks reasonable:
 
 ```typescript
-// dto/create-item.dto.ts
-export class CreateItemDto {
-  @IsString()
-  @IsNotEmpty()
-  name: string;
-
-  @IsNumber()
-  @Min(0)
-  price: number;
-}
-
-// controller
-@Post()
-create(@CurrentUser() user: JwtPayload, @Body() dto: CreateItemDto) {
-  return this.itemsService.create(user.sub, dto);
+async handleConnection(client: Socket) {
+  const token = client.handshake?.auth?.token;
+  if (!token) {
+    client.disconnect();
+    return;
+  }
+  // ... token is present but never verified
 }
 ```
 
-The `@Body()` DTO is automatically validated by the global `ValidationPipe` in `main.ts`. If validation fails, NestJS returns a `400 Bad Request` before your method runs.
+This is **not authentication**. It's presence checking. Any client can send any string as `token` and get past this check. The user is not authenticated — you just know they sent something.
+
+### The Correct Pattern
+
+Inject `JwtService` and `ConfigService` into your gateway, then verify the token in `handleConnection` and store the payload on `client.data`:
+
+```typescript
+@WebSocketGateway({ namespace: '/messaging', cors: { origin: '*' } })
+export class MessagingGateway implements OnGatewayConnection {
+  constructor(
+    private messagingService: MessagingService,
+    private jwtService: JwtService,
+    private configService: ConfigService,
+  ) {}
+
+  async handleConnection(client: Socket) {
+    const token = client.handshake?.auth?.token;
+    if (!token) {
+      client.disconnect();
+      return;
+    }
+    try {
+      const payload = this.jwtService.verify<JwtPayload>(token, {
+        secret: this.configService.get<string>('JWT_ACCESS_SECRET'),
+      });
+      client.data.user = payload;
+    } catch {
+      client.disconnect();
+    }
+  }
+}
+```
+
+The `try/catch` is mandatory — `jwtService.verify` throws on invalid or expired tokens. Any exception means the token is invalid, so disconnect.
+
+### Why `@UseGuards` Doesn't Work Here
+
+`@UseGuards(WsJwtGuard)` works on `@SubscribeMessage` handlers — it runs *after* the connection is established. It does not run during `handleConnection`. If you only use guards and skip `handleConnection` validation, any client can connect (even without a token), they just can't call guarded message handlers. The socket connection itself is open, leaking it from room subscriptions and connection events.
+
+Always validate in `handleConnection` as the gate. Guards are a second layer for specific message handlers.
+
+### `client.data.user` — The Socket-Level User Store
+
+`client.data` is a plain object that persists for the lifetime of the socket connection. It's the right place to store the verified JWT payload. Every subsequent handler for this client can access the verified identity without re-validating the token.
+
+Never trust the user's identity from message body fields like `senderId`. Always derive it from `client.data.user`:
+
+```typescript
+@SubscribeMessage('send:dm')
+async handleSendDm(
+  @ConnectedSocket() client: Socket,
+  @MessageBody() data: { conversationId: string; body?: string; mediaUrl?: string },
+) {
+  const senderId = client.data.user?.sub;  // from verified JWT
+  if (!senderId) return;  // belt-and-suspenders: should already be disconnected
+  // ...
+}
+```
+
+The `data.senderId` (from the client's message body) is user-controlled input. A malicious client can put any userId there and impersonate anyone. The JWT payload cannot be forged without the server's secret.
+
+### Make TypeScript Happy with `@WebSocketServer()`
+
+```typescript
+@WebSocketServer() server!: Server;
+```
+
+Without `!`, TypeScript strict mode will error: "Property 'server' has no initializer and is not definitely assigned in the constructor." The `!` is the definite assignment assertion — you're telling TypeScript that NestJS assigns this via the decorator, not the constructor. This is correct; NestJS does assign it.
+
+### Module Setup for Gateway JWT
+
+Your gateway's module must import `AuthModule` (which exports `JwtModule`) so `JwtService` is injectable:
+
+```typescript
+@Module({
+  imports: [AuthModule, PrismaModule],
+  providers: [MessagingGateway, MessagingService],
+  controllers: [MessagingController],
+})
+export class MessagingModule {}
+```
+
+`AuthModule` exports `JwtModule`, which provides `JwtService`. Without this import, NestJS will throw "JwtService is not a provider" at startup.
 
 ---
 
-### What to Check Before Submitting
+## Part 27 — Duplicate Controller Routes: The Silent Killer
 
-Before marking work as ready for review, go through this list:
+### The Setup
 
-**Correctness**
-- [ ] Does the endpoint handle the case where a resource doesn't exist? (`NotFoundException`)
-- [ ] Does the endpoint check that the calling user has permission to act on the resource? (`ForbiddenException`)
-- [ ] If two writes must happen together, are they in a `$transaction`?
+You have two NestJS modules, both with controllers decorated `@Controller('organizer-payments')`:
 
-**Database**
-- [ ] Have you added `@@index` entries for every column you filter or sort on?
-- [ ] Is your migration file committed alongside the schema change?
-- [ ] Did you run `pnpm prisma generate` after the schema change?
+- `BillingModule` → loads first in `AppModule.imports`
+- `OrganizerPaymentsModule` → loads second
 
-**Security**
-- [ ] Is the route correctly protected (or deliberately `@Public()`)?
-- [ ] Are you validating all user-provided input with DTO decorators?
-- [ ] If handling a webhook, is the signature verified before processing?
+Both controllers define routes like `POST /organizer-payments/initiate`, `GET /organizer-payments/history`, etc.
 
-**Reliability**
-- [ ] If an operation can be called twice (by retry or duplicate request), is it idempotent?
-- [ ] If the operation is long-running (sending many emails, processing many records), should it be a queued job instead of a direct call?
+### What NestJS Does
+
+NestJS registers routes in the order modules are loaded. When `BillingModule` loads first, its controller claims `/organizer-payments/*`. When `OrganizerPaymentsModule` loads, NestJS silently ignores the duplicate routes — no error, no warning. The first controller wins every request.
+
+This means:
+- Every `POST /organizer-payments/initiate` hits the billing controller's handler
+- The newer, cleaner service in `OrganizerPaymentsModule` is never called
+- You see no errors — requests succeed (or fail) with the wrong service
+
+### How to Detect It
+
+Look at your `AppModule.imports` array and grep for `@Controller('same-path')` across the codebase. If two files have the same controller prefix and both their modules are imported, you have a conflict.
+
+```bash
+grep -r "@Controller('organizer-payments')" src/
+```
+
+### The Fix
+
+Remove the controller from whichever module should not own the route. In this codebase, `BillingModule` handled organizer payments while the dedicated `OrganizerPaymentsModule` was being built. Once `OrganizerPaymentsModule` was ready, `BillingModule`'s controller was removed — but the provider and exports stayed:
+
+```typescript
+@Module({
+  imports: [HttpModule.register({ timeout: 30000, maxRedirects: 5 }), ConfigModule, PrismaModule, NotificationsModule],
+  // controllers: [] — removed OrganizerPaymentsController entirely
+  providers: [PricingService, CouponsService, OrganizerPaymentsService, ErcaspayService],
+  exports: [PricingService, CouponsService, OrganizerPaymentsService, ErcaspayService],
+})
+export class BillingModule {}
+```
+
+The key insight: removing a controller from a module does not remove the service. Other modules that depend on the exported services continue to work fine.
+
+### Lesson
+
+When a feature "isn't working" and you can't find any error, check for duplicate route registration. It's invisible in logs and easy to miss during refactors where responsibility for a domain shifts from one module to another.
 
 ---
 
-*Document covers codebase as of May 2026. Module list: Auth, Users, Events (+ RSVP), Tickets, Payments (Juicyway + Monnify), Billing (Pricing, Coupons, OrganizerPayments), Games (Sessions, Rounds, Rewards, AI generation), Notifications (WebSocket + Resend), Social (Follows, Likes, Comments, Shares, Feed), Messaging (DMs + EventChat), Storage, Discovery, Admin, VibeTags, Postcards.*
+## Part 28 — Notification `targetId` Convention
+
+### The Rule
+
+`targetId` in a notification record should be the **entity acted upon**, not the actor.
+
+The notification schema has:
+- `actorId` — who performed the action (always the logged-in user)
+- `recipientId` — who receives the notification
+- `targetId` — what entity was acted upon
+- `targetType` — the type of that entity (`USER`, `EVENT`, `POSTCARD`, etc.)
+
+### FOLLOW Notification Example
+
+When user A follows user B:
+- `actorId` = A (the follower — who did the action)
+- `recipientId` = B (who gets notified)
+- `targetType` = `'USER'`
+- `targetId` = B (the user who was followed — the entity acted upon)
+
+The original code had `targetId: followerId` — the same value as `actorId`. This was redundant (you already have `actorId`) and inconsistent with how every other notification type works.
+
+```typescript
+// WRONG — targetId is the actor, redundant with actorId
+this.notifications.create({
+  recipientId: followingId,
+  actorId: followerId,
+  type: 'FOLLOW',
+  targetType: 'USER',
+  targetId: followerId,  // ← this is the actor, not the target
+});
+
+// CORRECT — targetId is the entity acted upon
+this.notifications.create({
+  recipientId: followingId,
+  actorId: followerId,
+  type: 'FOLLOW',
+  targetType: 'USER',
+  targetId: followingId,  // ← the user who was followed
+});
+```
+
+### Why It Matters
+
+Frontend reads `targetId` to know where to navigate when the user taps the notification. For a FOLLOW notification, tapping it should go to the followed user's profile — which is `followingId`. If `targetId` was `followerId`, you'd navigate to the actor's profile, which is the wrong person.
+
+Applying this consistently across notification types:
+- `LIKE` on a postcard → `targetId` = postcard's id, `targetType` = `'POSTCARD'`
+- `COMMENT` on an event → `targetId` = event's id, `targetType` = `'EVENT'`
+- `RSVP` to an event → `targetId` = event's id, `targetType` = `'EVENT'`
+- `FOLLOW` → `targetId` = the followed user's id, `targetType` = `'USER'`
+
+---
+
+## Part 29 — Documenting WebSocket Events in Swagger
+
+### The Problem
+
+OpenAPI (Swagger) is an HTTP specification. It has no concept of WebSocket connections, socket events, or persistent connections. NestJS's `@ApiOperation`, `@ApiBody`, `@ApiResponse` decorators only apply to HTTP route handlers — they cannot describe `@SubscribeMessage` handlers.
+
+### The Solution: `addTag` with a Markdown Description
+
+`DocumentBuilder.addTag(name, description)` in `main.ts` lets you add a tag entry with an arbitrary markdown description to the Swagger UI. This description appears in the tag's expandable section — a good place to put WebSocket documentation.
+
+```typescript
+const config = new DocumentBuilder()
+  .setTitle('NextVibe API')
+  .setVersion('1.0')
+  .addBearerAuth()
+  .addTag('Messaging', `
+## WebSocket: /messaging namespace
+
+Connect with Socket.io to \`ws://<host>/messaging\`.
+
+**Authentication:** Send the JWT access token (no "Bearer " prefix) in the handshake auth object:
+\`\`\`js
+const socket = io('/messaging', { auth: { token: 'your.jwt.token' } });
+\`\`\`
+
+### Events You Can Emit
+
+| Event | Payload | Description |
+|---|---|---|
+| \`join:dm\` | \`{ conversationId }\` | Join a DM room |
+| \`send:dm\` | \`{ conversationId, body?, mediaUrl? }\` | Send a DM |
+| \`typing:dm\` | \`{ conversationId }\` | Broadcast typing indicator |
+| \`join:chat\` | \`{ eventId, section }\` | Join event chat room |
+| \`send:chat\` | \`{ eventId, section, body?, mediaUrl? }\` | Send event chat message |
+
+### Events You Will Receive
+
+| Event | Payload | Description |
+|---|---|---|
+| \`new:dm\` | message object | New DM received |
+| \`typing:dm\` | \`{ userId }\` | Someone is typing |
+| \`new:chat\` | message object | New event chat message |
+
+**section values:** \`PRE_EVENT\` | \`DURING_EVENT\` | \`POST_EVENT\`
+  `)
+  .build();
+```
+
+### Limitations
+
+- The description is static text — it doesn't get the interactive "try it" button that HTTP endpoints have
+- You can't describe request/response schemas with JSON Schema inside tag descriptions
+- It's purely documentation; no machine-readable contract
+
+### Alternative: Dedicated WebSocket Docs Page
+
+For complex WebSocket APIs, consider a separate docs page (a `WEBSOCKET.md` file or a dedicated route serving an HTML page) linked from Swagger. The `addTag` approach works well for simple socket APIs where the team just needs to know event names and shapes.
+
+---
+
+## Part 30 — HTTP Method Mismatches: Why Your Endpoint Returns 404 Instead of 405
+
+### The Symptom
+
+```
+PATCH /v1/notifications/28ea18b6-2552-4566-862a-43886333eaa9/read  404  2.866 ms
+```
+
+The route exists. The ID is valid. But you get a 404. You check the database — the record is there. You check the guard — it would pass. Nothing seems wrong.
+
+### The Cause
+
+NestJS (and Express underneath it) matches routes by **both path and HTTP method**. If the controller registers `@Post(':id/read')` but the client sends a `PATCH`, NestJS finds no matching route and returns 404 — not 405 Method Not Allowed. The 404 is misleading because the *path* exists, just not for that method.
+
+```typescript
+// Controller has this:
+@Post(':id/read')
+markAsRead(@Param('id') id: string, @CurrentUser() user: JwtPayload) {
+  return this.notificationsService.markAsRead(id, user.sub);
+}
+
+// Client is calling:
+PATCH /v1/notifications/:id/read   ← wrong method → 404
+```
+
+### How to Spot It
+
+Look at the startup logs. NestJS prints every registered route:
+
+```
+[RouterExplorer] Mapped {/v1/notifications/:id/read, POST} route
+```
+
+The log says `POST`. If your client is sending `PATCH`, that's your mismatch. Always check the startup log first when a route returns 404 and you're sure the path is correct.
+
+### Why 404 and Not 405?
+
+HTTP 405 (Method Not Allowed) is the *correct* response when a path exists but the method doesn't. NestJS/Express return 404 instead because they don't store "this path exists but not for this method" — they only store complete path+method combinations. If `PATCH /x` isn't registered, there is no registered route at all, and 404 is the fallback.
+
+This is a known and somewhat annoying behaviour. The fix is always to match the method in the controller to what the client sends — or vice versa.
+
+### Which Method Is Correct for "Mark as Read"?
+
+Semantically, marking a notification as read is a partial update to a resource. The correct HTTP method is `PATCH`. `POST` is for creating things or non-idempotent actions. In this codebase, the controller used `@Post` but should use `@Patch` — or the frontend should send `POST` to match. Either works as long as both sides agree.
+
+```typescript
+// Correct:
+@Patch(':id/read')
+markAsRead(@Param('id') id: string, @CurrentUser() user: JwtPayload) {
+  return this.notificationsService.markAsRead(id, user.sub);
+}
+```
+
+### Key Rule
+
+When a route you know exists returns 404:
+1. Check the startup logs for the method NestJS registered it under
+2. Check what method the client is sending
+3. Fix the mismatch — usually one line in the controller decorator
+
+---
+
+## Part 31 — Reading Server Startup Logs to Detect Problems Before They Bite
+
+### What the Startup Logs Tell You
+
+Every time NestJS starts, `RouterExplorer` prints every registered route:
+
+```
+[RouterExplorer] Mapped {/v1/admin/coupons, POST} route
+[RouterExplorer] Mapped {/v1/admin/coupons, POST} route   ← same route twice
+```
+
+Two lines for the same route is a red flag. It means two controllers are registered at the same path. As covered in Part 27, NestJS silently uses the first one and ignores the second. This log is your only warning — there is no error at runtime.
+
+### Subtle Path Param Naming Differences
+
+```
+[RouterExplorer] Mapped {/v1/events/:id/rsvp, POST} route
+[RouterExplorer] Mapped {/v1/events/:eventId/rsvp, POST} route
+```
+
+These look different (`:id` vs `:eventId`) so NestJS registers both. But they match the same incoming URLs — `/v1/events/abc/rsvp` matches both. The first one registered wins every request. The second controller's handler is dead code. You won't see an error. You'll see the wrong service being called.
+
+**How to catch it:** After adding a new controller or route, scan the startup logs for:
+- Identical path+method pairs (exact duplicates)
+- Paths that differ only in param name (`:id` vs `:eventId`) — structurally identical
+
+```bash
+# Quick check: count routes, look for duplicates
+grep "RouterExplorer.*Mapped" logs.txt | sort | uniq -d
+```
+
+### What Else to Watch in Startup Logs
+
+| Log message | What it means |
+|---|---|
+| `[NestFactory] Starting Nest application...` | Bootstrap started |
+| `[InstanceLoader] XModule dependencies initialized` | Module DI wired |
+| `[RoutesResolver] XController {/v1/path}` | Controller scope registered |
+| `[RouterExplorer] Mapped {/v1/path, METHOD}` | Individual route registered |
+| `[NestApplication] Nest application successfully started` | Ready to serve |
+
+If the app hangs between `InstanceLoader` and `RoutesResolver`, a provider constructor is likely blocking (synchronous DB call, infinite loop, missing env var causing a crash). If it hangs after all routes are mapped, the `listen()` call is failing (port in use, permission denied for ports < 1024).
+
+### Reading a 403 from Logs Alongside Prior Events
+
+Production logs tell a story. One example from this codebase:
+
+```
+09:26:01  POST /v1/users/A/follow      201   ← user 1 follows user A
+09:26:31  POST /v1/users/B/follow      201   ← user 1 follows user B
+09:43:50  POST /v1/auth/oauth/google   200   ← user 2 logs in
+09:45:19  POST /v1/conversations       403   ← user 2 tries to DM someone
+09:46:16  POST /v1/users/X/follow      201   ← user 2 starts following people
+09:47:44  POST /v1/users/Y/follow      201
+```
+
+The 403 on `/conversations` isn't an auth problem — the user just logged in successfully. It's a **mutual follow** problem. User 2 is trying to DM someone they're not mutually following yet. The follow actions *after* the 403 confirm they're trying to fix it. You can read the sequence of events and understand intent from timestamps alone.
+
+This skill — reading log timelines to understand what a user was doing — is one of the most valuable debugging tools you have in production.
+
+---
+
+## Part 32 — Migrating from Multipart File Upload to Presigned URLs
+
+### The Problem with Multipart Upload Through NestJS
+
+The original event creation flow used `FileFieldsInterceptor` — the client sent a `multipart/form-data` request with the binary file embedded in the HTTP body:
+
+```
+POST /v1/events
+Content-Type: multipart/form-data
+
+[text fields] + [binary file bytes]
+```
+
+NestJS receives the request, buffers the entire file into memory, then uploads it to MinIO. This means:
+- A 50MB video stays in NestJS process memory during the entire upload
+- If two users upload simultaneously, memory doubles
+- Large files hit NestJS body size limits (default: `1mb` in many configs)
+- The NestJS server becomes the bottleneck for something that has nothing to do with business logic
+
+### The Presigned URL Solution
+
+Instead of routing the binary through NestJS, you generate a **presigned URL** — a time-limited, signed URL that authorises the client to upload directly to MinIO/S3 without going through your server:
+
+```
+1. Client → NestJS:  POST /v1/storage/presigned-url   { filename, contentType }
+2. NestJS → Client:  { uploadUrl, fileUrl }
+3. Client → MinIO:   PUT uploadUrl   (binary file, direct — NestJS not involved)
+4. Client → NestJS:  POST /v1/events { ..., flierUrl: fileUrl }
+```
+
+NestJS only handles step 1 (generates the URL, tiny request) and step 4 (receives the public URL as a JSON string, no binary). The heavy binary transfer happens directly between the client and storage, bypassing your application server entirely.
+
+### What Changed in This Codebase
+
+**Before:**
+
+```typescript
+// Controller used FileFieldsInterceptor
+@UseInterceptors(FileFieldsInterceptor([
+  { name: 'flier', maxCount: 1 },
+  { name: 'video', maxCount: 1 },
+]))
+create(
+  @CurrentUser() user: JwtPayload,
+  @UploadedFiles() files: { flier?: Express.Multer.File[], video?: Express.Multer.File[] },
+  @Body() dto: CreateEventDto,
+) {
+  return this.eventsService.create(user.sub, dto, files.flier?.[0], files.video?.[0]);
+}
+
+// Service required and uploaded the file
+async create(organizerId: string, dto: CreateEventDto, flierFile?: Express.Multer.File) {
+  if (!flierFile) {
+    throw new BadRequestException('Event flier (image) is required');
+  }
+  const flierUrl = await this.uploadService.uploadFile(flierFile, 'event-fliers');
+  // ...
+}
+```
+
+**After:**
+
+```typescript
+// Controller: no interceptor, no file params — just JSON body
+create(
+  @CurrentUser() user: JwtPayload,
+  @Body() dto: CreateEventDto,
+) {
+  return this.eventsService.create(user.sub, dto);
+}
+
+// DTO: flierUrl is now a plain optional string
+export class CreateEventDto {
+  // ...existing fields...
+
+  @IsString()
+  @IsOptional()
+  @ApiPropertyOptional({ example: 'https://cdn.nextvibe.com/events/flier.jpg' })
+  flierUrl?: string;
+
+  @IsString()
+  @IsOptional()
+  @ApiPropertyOptional({ example: 'https://cdn.nextvibe.com/events/promo.mp4' })
+  promoVideoUrl?: string;
+}
+
+// Service: no file parameter, no upload — reads URL directly from DTO
+async create(organizerId: string, dto: CreateEventDto) {
+  const flierUrl = dto.flierUrl ?? null;
+  const promoVideoUrl = dto.promoVideoUrl ?? null;
+  // ...rest of creation logic unchanged...
+}
+```
+
+### Why `flierUrl` Became Optional
+
+In the old multipart flow, the file was required — if no file was attached, you had nothing to upload. In the presigned URL flow, the client uploads the file directly to storage *before* calling `POST /v1/events`. But the event might still be valid to create as a draft without a flier yet — the organiser may upload the flier later. Making `flierUrl` optional gives this flexibility without any special handling.
+
+### What Happens to the Error `"Event flier (image) is required"`
+
+That error was thrown in the service when `!flierFile`. Once the file parameter is removed from the service signature, the error disappears because there is no longer a concept of "file not attached." The URL either comes from the DTO or it's `null`. If you want to enforce a flier for published events (not drafts), that validation belongs in the publish flow, not the creation flow.
+
+### The 3-Step Flow for the Frontend
+
+```javascript
+// Step 1: Get a presigned URL
+const { uploadUrl, fileUrl } = await api.post('/v1/storage/presigned-url', {
+  filename: file.name,
+  contentType: file.type,
+  folder: 'events',
+});
+
+// Step 2: Upload directly to storage (NestJS is not involved)
+await axios.put(uploadUrl, file, {
+  headers: { 'Content-Type': file.type },
+  onUploadProgress: (e) => setProgress(Math.round(e.loaded * 100 / e.total)),
+});
+
+// Step 3: Create the event with the storage URL as a plain string
+await api.post('/v1/events', {
+  name: 'Tech Summit 2026',
+  flierUrl: fileUrl,  // the public URL, not the binary
+  // ...other fields
+});
+```
+
+The `uploadUrl` is a signed, short-lived URL only MinIO/S3 will accept. The `fileUrl` is the permanent public URL of the stored file — this is what goes into your database.
+
+---
+
+## Part 33 — Robust Process Error Handling
+
+### Why the Basic Pattern Is Insufficient
+
+The basic pattern most tutorials show:
+
+```javascript
+process
+  .on('uncaughtException', (err) => console.error(err))
+  .on('unhandledRejection', (err) => console.error(err))
+```
+
+has two critical problems:
+1. It logs the error but **doesn't exit**. The process continues running in an undefined state after an uncaught exception. The Node.js documentation explicitly says the process should be considered unsafe after `uncaughtException` — memory may be corrupted, async state may be inconsistent.
+2. It handles only two events. There are several others that matter in production.
+
+### The Full Set of Process Events That Matter
+
+| Signal / Event | Who sends it | What to do |
+|---|---|---|
+| `uncaughtException` | Node.js runtime | Log, exit 1 |
+| `unhandledRejection` | Node.js runtime | Log, exit 1 |
+| `SIGTERM` | Docker, Kubernetes, `kill <pid>` | Graceful shutdown, exit 0 |
+| `SIGINT` | Ctrl+C in terminal | Graceful shutdown, exit 0 |
+| `SIGHUP` | Terminal closed (Unix) | Graceful shutdown, exit 0 |
+| `SIGUSR2` | nodemon (restart) | Cleanup, re-raise signal |
+| `warning` | Node.js runtime | Log only, do not exit |
+
+### The Force-Exit Timeout — The Part Everyone Misses
+
+When you call `server.close()` or `app.close()`, you stop accepting **new** connections. But existing connections are allowed to finish. If a long-running request never finishes (e.g., a client that opened a connection and went silent), the server close never completes — the process hangs.
+
+In Docker/Kubernetes, this means the container stays alive until Kubernetes gives up and sends SIGKILL (the nuclear option with no cleanup at all). You want to control this yourself:
+
+```javascript
+const timer = setTimeout(() => {
+  console.error('Graceful shutdown timed out — forcing exit');
+  process.exit(1);
+}, 10_000);  // 10 seconds
+
+timer.unref();  // ← this is critical
+```
+
+**Why `.unref()`?** A timer with a reference keeps the Node.js event loop alive. If everything else (server, connections) has closed, you want the process to exit naturally — not stay alive waiting for a timeout that should only fire if something went wrong. `.unref()` tells the event loop "don't count this timer as a reason to stay alive." The timer still fires if the process hasn't exited, but it doesn't prevent natural exit.
+
+### SIGUSR2 and nodemon
+
+`nodemon` sends `SIGUSR2` to restart your process during development. If you don't handle it, nodemon still works — but you miss the opportunity to cleanly close DB connections and release resources before the restart. The correct pattern is to clean up and then **re-raise** the signal so nodemon knows the process acknowledged it:
+
+```javascript
+process.once('SIGUSR2', async () => {
+  await app.close();  // or server.close()
+  process.kill(process.pid, 'SIGUSR2');  // re-raise, nodemon proceeds
+});
+```
+
+Note `process.once` — not `process.on`. nodemon only sends this once. Using `once` avoids accumulating handlers across multiple restarts.
+
+### Plain Node.js Implementation
+
+```javascript
+// error-handler.js
+function registerProcessErrorHandlers(server) {
+  function shutdown(signal, code = 0) {
+    console.log(`[${signal}] Shutting down gracefully...`);
+
+    const timer = setTimeout(() => {
+      console.error('[shutdown] Timed out — forcing exit');
+      process.exit(1);
+    }, 10_000);
+    timer.unref();
+
+    server.close((err) => {
+      if (err) {
+        console.error('[shutdown] Error closing server:', err);
+        process.exit(1);
+      }
+      process.exit(code);
+    });
+  }
+
+  process.on('uncaughtException', (err) => {
+    console.error(`[uncaughtException] ${err.message}\n${err.stack}`);
+    process.exit(1);  // always exit — process state is undefined after this
+  });
+
+  process.on('unhandledRejection', (reason) => {
+    const msg = reason instanceof Error ? reason.stack : String(reason);
+    console.error(`[unhandledRejection] ${msg}`);
+    process.exit(1);
+  });
+
+  process.on('SIGTERM', () => shutdown('SIGTERM'));
+  process.on('SIGINT',  () => shutdown('SIGINT'));
+  process.on('SIGHUP',  () => shutdown('SIGHUP'));
+
+  process.once('SIGUSR2', () => {
+    console.log('[SIGUSR2] nodemon restart — closing server');
+    server.close(() => process.kill(process.pid, 'SIGUSR2'));
+  });
+
+  process.on('warning', (w) => {
+    console.warn(`[warning:${w.name}] ${w.message}`);
+  });
+}
+
+const server = app.listen(3000);
+registerProcessErrorHandlers(server);
+```
+
+### Express.js — Adding the 4-Argument Error Handler
+
+Express has its own error-handling middleware convention on top of process-level handlers. The key rule: **error middleware must have exactly four parameters**. Express detects error handlers by parameter count — if your function only has 3 parameters, Express treats it as regular middleware.
+
+```javascript
+// Must come AFTER all routes and regular middleware
+function globalErrorHandler(err, req, res, next) {
+  const status = err.status || err.statusCode || 500;
+  const message = err.message || 'Internal Server Error';
+
+  console.error(`[error] ${req.method} ${req.url} — ${status}: ${message}`);
+
+  res.status(status).json({
+    success: false,
+    error: {
+      code: err.code || 'INTERNAL_ERROR',
+      message,
+      // only expose stack trace in development
+      ...(process.env.NODE_ENV !== 'production' && { stack: err.stack }),
+    },
+  });
+}
+
+// 404 handler — for routes that don't match anything
+function notFoundHandler(req, res) {
+  res.status(404).json({
+    success: false,
+    error: { code: 'NOT_FOUND', message: `Cannot ${req.method} ${req.path}` },
+  });
+}
+
+app.use(yourRoutes);
+app.use(notFoundHandler);    // after routes, before error handler
+app.use(globalErrorHandler); // last middleware registered
+```
+
+Triggering the error handler from a route:
+
+```javascript
+// Express 4 — pass errors to next()
+app.get('/users/:id', async (req, res, next) => {
+  try {
+    const user = await db.findUser(req.params.id);
+    if (!user) {
+      const err = new Error('User not found');
+      err.status = 404;
+      return next(err);
+    }
+    res.json(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Express 5 / with express-async-errors patch — throw directly
+app.get('/users/:id', async (req, res) => {
+  const user = await db.findUser(req.params.id);
+  if (!user) throw Object.assign(new Error('User not found'), { status: 404 });
+  res.json(user);
+});
+```
+
+### NestJS Implementation
+
+```typescript
+// src/common/process-error-handler.ts
+import { INestApplication, Logger } from '@nestjs/common';
+
+const logger = new Logger('Process');
+
+export function registerProcessErrorHandlers(app: INestApplication) {
+  async function shutdown(signal: string, code = 0) {
+    logger.log(`${signal} received — closing application`);
+
+    const timer = setTimeout(() => {
+      logger.error('Graceful shutdown timed out — forcing exit');
+      process.exit(1);
+    }, 10_000);
+    timer.unref();
+
+    await app.close(); // triggers OnApplicationShutdown hooks on all providers
+    process.exit(code);
+  }
+
+  process.on('uncaughtException', (err: Error) => {
+    logger.error(`Uncaught Exception: ${err.message}`, err.stack);
+    process.exit(1);
+  });
+
+  process.on('unhandledRejection', (reason: unknown) => {
+    const message = reason instanceof Error ? reason.stack : String(reason);
+    logger.error(`Unhandled Rejection: ${message}`);
+    process.exit(1);
+  });
+
+  process.on('SIGTERM', () => shutdown('SIGTERM'));
+  process.on('SIGINT',  () => shutdown('SIGINT'));
+  process.on('SIGHUP',  () => shutdown('SIGHUP'));
+
+  process.once('SIGUSR2', async () => {
+    logger.log('SIGUSR2 received (nodemon restart)');
+    await app.close();
+    process.kill(process.pid, 'SIGUSR2');
+  });
+
+  process.on('warning', (warning: Error) => {
+    logger.warn(`[${warning.name}] ${warning.message}`);
+  });
+}
+```
+
+**Why `app.close()` matters in NestJS:** It calls `OnApplicationShutdown` lifecycle hooks on every provider. This is how you cleanly close database connections, flush message queues, and drain in-flight requests. Without it, those connections leak — Postgres connection pools don't get released, Redis clients stay open, and your next deploy may hit connection limits.
+
+### The Five Rules to Remember
+
+1. **Always exit after `uncaughtException`** — Node.js documentation says the process is in an undefined state. Trying to serve more requests after this is gambling.
+2. **Always exit after `unhandledRejection`** — future Node.js versions exit automatically; handle it yourself now.
+3. **Always set a force-exit timeout on shutdown signals** — `server.close()` waits for connections to drain; if one hangs, so does your process.
+4. **Always call `.unref()` on that timeout** — without it, the timer itself keeps the event loop alive even after everything has closed.
+5. **Re-raise `SIGUSR2` after cleanup** — don't exit on it; nodemon needs the re-raised signal to know it can restart.
+
+---
+
+## Part 34 — MinIO Configuration: Two URLs, Two Different Jobs
+
+### The Core Confusion
+
+MinIO storage involves two URLs that serve completely different purposes, and mixing them up is one of the most common bugs when deploying:
+
+| Variable | What it is | Who uses it |
+|---|---|---|
+| `MINIO_ENDPOINT` | The address NestJS uses to talk to MinIO | Your NestJS server (server-to-server) |
+| `CDN_BASE_URL` / `MINIO_EXTERNAL_URL` | The address clients use to access stored files | Browsers, mobile apps |
+
+These two can be — and often *are* — different addresses for the same MinIO instance.
+
+### Why They Can Differ
+
+Imagine MinIO running inside a Docker network. Other containers can reach it at `minio:9000` (the internal Docker DNS name). But browsers outside the network need to use `https://files.yourdomain.com`. So:
+
+- `MINIO_ENDPOINT=minio:9000` — NestJS connects here (internal)
+- `CDN_BASE_URL=https://files.yourdomain.com/nextvibe` — clients use this (external)
+
+In this codebase, MinIO runs on Railway at `minio-production-5cff.up.railway.app`. NestJS connects to it there, and clients also access files from the same domain. So both values should point to the same Railway domain. The bug was that `CDN_BASE_URL` was left as `http://localhost:9000/nextvibe` — the local dev value — even after MinIO moved to Railway.
+
+### How the Code Resolves the Public Base URL
+
+```typescript
+this.publicBaseUrl =
+  this.configService.get('MINIO_EXTERNAL_URL') ??   // explicit override wins
+  this.configService.get('CDN_BASE_URL') ??          // fallback
+  `${protocol}://${host}:${port}/${bucket}`;         // auto-constructed from MINIO_ENDPOINT
+```
+
+Priority: `MINIO_EXTERNAL_URL` → `CDN_BASE_URL` → constructed from `MINIO_ENDPOINT`. If you set `CDN_BASE_URL` wrong, you'll get wrong public URLs in every API response. If you set neither, it auto-constructs from `MINIO_ENDPOINT` — which works if your MinIO endpoint is already public-facing.
+
+### The Classic Bug This Produces
+
+```
+// .env (production — wrong)
+MINIO_ENDPOINT=minio-production-5cff.up.railway.app   ✅ correct
+CDN_BASE_URL=http://localhost:9000/nextvibe            ❌ dev leftover
+
+// Result:
+uploadUrl = https://minio-production-5cff.up.railway.app/nextvibe/events/file.jpg?X-Amz-...  ✅
+fileUrl   = http://localhost:9000/nextvibe/events/file.jpg                                     ❌
+
+// uploadUrl works (browser can upload there)
+// fileUrl goes into the database
+// Every image/video reference in every API response points to localhost:9000
+// No images or videos load in production
+```
+
+The `uploadUrl` is generated by the MinIO client (which uses `MINIO_ENDPOINT` — correct). The `fileUrl` is built using `publicBaseUrl` (which uses `CDN_BASE_URL` — wrong). That's why the upload worked but the stored URLs were broken.
+
+### Fix
+
+```
+CDN_BASE_URL=https://minio-production-5cff.up.railway.app/nextvibe
+```
+
+### Also: MinIO Needs to Know Its Own External URL
+
+MinIO itself has a configuration variable called `MINIO_SERVER_URL`. This tells MinIO what its own public address is — it affects things like presigned URL generation when MinIO is behind a reverse proxy. If MinIO generates presigned URLs using its internal address, and a browser tries to use those URLs, it won't be able to reach MinIO.
+
+On Railway, MinIO's `MINIO_SERVER_URL` should be set to `https://minio-production-5cff.up.railway.app`. This is separate from anything in your NestJS `.env` — it's a MinIO server environment variable.
+
+---
+
+## Part 35 — Presigned URLs: How the Signature Actually Works
+
+### What a Presigned URL Is
+
+A presigned URL is a regular HTTPS URL with an authentication signature embedded in its query parameters. It allows someone (like a browser) to perform a specific S3/MinIO operation *without* having the MinIO credentials. The credentials stay on your server; only the signature goes to the client.
+
+An example presigned PUT URL:
+
+```
+https://minio-production-5cff.up.railway.app/nextvibe/events/file.jpg
+  ?X-Amz-Algorithm=AWS4-HMAC-SHA256
+  &X-Amz-Credential=minioadmin%2F20260522%2Fus-east-1%2Fs3%2Faws4_request
+  &X-Amz-Date=20260522T102959Z
+  &X-Amz-Expires=900
+  &X-Amz-SignedHeaders=host
+  &X-Amz-Signature=7270ad47...
+```
+
+Breaking this down:
+- `X-Amz-Algorithm` — signing algorithm used (HMAC-SHA256)
+- `X-Amz-Credential` — who signed it + date + region + service
+- `X-Amz-Date` — when the signature was created (ISO 8601)
+- `X-Amz-Expires` — how long the URL is valid in seconds (900 = 15 minutes)
+- `X-Amz-SignedHeaders` — which request headers are covered by the signature
+- `X-Amz-Signature` — the actual cryptographic signature
+
+### What the Signature Covers
+
+The signature is an HMAC-SHA256 hash over:
+- The HTTP method (`PUT`)
+- The bucket and object key (`/nextvibe/events/file.jpg`)
+- The expiry time
+- The credentials used
+
+This means:
+- You **cannot** change the file path — the signature will be invalid
+- You **cannot** use the URL after it expires — MinIO checks the date + expiry
+- You **cannot** use it for a different HTTP method (a PUT URL won't work for GET)
+- You **can** use it from any IP address — there is no IP binding by default
+
+### The Expiry Window
+
+In this codebase, URLs expire in 15 minutes (`15 * 60 = 900` seconds). This means the frontend must start the upload within 15 minutes of requesting the presigned URL. For large files with slow connections, you may need to increase this. For very sensitive data, keep it short.
+
+### Content-Type Constraint
+
+When generating a presigned URL, you can optionally lock it to a specific Content-Type. If you do, MinIO will reject any PUT that doesn't send exactly that Content-Type header.
+
+In this codebase, `presignedPutObject` is called without a Content-Type — so MinIO accepts any file type. This is flexible but means you can't enforce "only images" at the storage layer. If you want that, you'd need to pass the Content-Type when generating:
+
+```typescript
+// Locked to a specific content type (more secure)
+const uploadUrl = await this.minioClient.presignedPutObject(
+  this.bucketName,
+  storageKey,
+  expiresSeconds,
+  { 'Content-Type': contentType },  // MinIO enforces this
+);
+```
+
+### Browser CORS: The Hidden Requirement
+
+When a browser sends a `PUT` request to a different domain (like uploading to MinIO from your app at `app.mynextvibe.com`), the browser first sends a **preflight `OPTIONS` request** to check if MinIO allows cross-origin uploads.
+
+MinIO must respond to that `OPTIONS` with the right CORS headers:
+
+```
+Access-Control-Allow-Origin: https://app.mynextvibe.com
+Access-Control-Allow-Methods: PUT
+Access-Control-Allow-Headers: Content-Type
+```
+
+If MinIO doesn't have CORS configured, the preflight fails, and the actual `PUT` never happens. The browser shows a CORS error. **This is the most common reason presigned URL uploads work in testing (Postman, curl) but fail in the browser** — because Postman doesn't do CORS preflight.
+
+### Configuring CORS on MinIO
+
+In MinIO, CORS is configured via the MinIO admin console or the `mc` CLI:
+
+```bash
+# Using MinIO client (mc)
+mc alias set myminio https://minio-production-5cff.up.railway.app minioadmin minioadmin
+mc admin config set myminio/ api cors_allow_origin="https://app.mynextvibe.com"
+```
+
+Or via MinIO's web console (browser UI at your MinIO domain) → Administrator → Configuration → API → CORS.
+
+For development, you can allow all origins (`*`), but in production, restrict to your actual frontend domain.
+
+---
+
+## Part 36 — Prisma's `undefined` vs `null`: The Silent Security Bug
+
+### The Difference
+
+In Prisma queries, `undefined` and `null` are **not the same thing** and their difference has security implications:
+
+```typescript
+// undefined — Prisma IGNORES this field entirely (no filter applied)
+await prisma.follow.findMany({
+  where: { followerId: undefined }
+});
+// ↑ This is equivalent to: findMany({ where: {} })
+// Returns ALL follow records in the database
+
+// null — Prisma filters for records where followerId IS NULL
+await prisma.follow.findMany({
+  where: { followerId: null }
+});
+// ↑ This filters for records where the column is actually null
+```
+
+### Why This Is a Security Bug
+
+If your `userId` comes from a JWT and the JWT decoding fails or returns `undefined`, and you pass that directly to Prisma:
+
+```typescript
+async getFollowers(userId: string) {
+  return prisma.follow.findMany({
+    where: { followingId: userId },  // if userId is undefined...
+  });
+}
+```
+
+Prisma ignores the `where` clause entirely and returns **every follow record in the database**. A brand new user with no followers suddenly appears to be followed by the entire platform.
+
+This was an actual bug described in the codebase documentation — new users appeared to have thousands of followers because the JWT payload wasn't parsed correctly at the social controller layer.
+
+### The Fix Pattern
+
+Always validate that your identifier is actually a string before passing it to Prisma:
+
+```typescript
+async getFollowers(userId: string) {
+  if (!userId) throw new BadRequestException('User ID is required');
+
+  return prisma.follow.findMany({
+    where: { followingId: userId },
+  });
+}
+```
+
+Or at the guard level — if `@CurrentUser()` ever returns `undefined`, the JWT guard should have rejected the request before it reached the service. The root cause is usually a guard that isn't properly applied, or a JWT payload shape that doesn't match what the decorator extracts.
+
+### The General Rule
+
+Any time you have a `where` clause that's built from user-supplied or runtime-derived values, validate them explicitly before the query:
+
+```typescript
+// Dangerous — if organizerId is undefined, returns all events
+const events = await prisma.event.findMany({
+  where: { organizerId }
+});
+
+// Safe
+if (!organizerId) throw new ForbiddenException();
+const events = await prisma.event.findMany({
+  where: { organizerId }
+});
+```
+
+This is especially important for multi-tenant data — you never want to accidentally return another user's data because a filter was silently dropped.
+
+---
+
+## Part 37 — How `class-validator` Actually Works in NestJS
+
+### What `ValidationPipe` Does
+
+In `main.ts`, this is registered globally:
+
+```typescript
+app.useGlobalPipes(new ValidationPipe({
+  whitelist: true,     // strips properties not in the DTO
+  transform: true,     // converts types (e.g. "123" → 123 for @IsNumber())
+  forbidNonWhitelisted: false,
+}));
+```
+
+When a request comes in, NestJS:
+1. Takes the raw JSON body
+2. Instantiates the DTO class
+3. Runs all `class-validator` decorators
+4. If `whitelist: true`, strips any properties not decorated in the DTO
+5. If validation fails, returns a 400 with all failing constraints listed
+
+### What `@IsOptional()` Actually Does
+
+`@IsOptional()` does not mean "this field is optional in the API." It means: **if this field is `undefined` or `null`, skip all other validation on it.**
+
+```typescript
+@IsString()
+@IsOptional()
+bio?: string;
+```
+
+Without `@IsOptional()`: if `bio` is missing from the request body, `@IsString()` runs and fails because `undefined` is not a string — you'd get a 400 even when the field isn't sent.
+
+With `@IsOptional()`: if `bio` is missing, all validation on `bio` is skipped entirely — no error.
+
+You still need `@IsString()` alongside it because if `bio` IS provided, you still want to ensure it's a string and not, say, a number.
+
+### The `whitelist: true` Security Feature
+
+`whitelist: true` is a security measure. Without it, a client can send:
+
+```json
+{
+  "username": "alice",
+  "isAdmin": true,    ← not in DTO, but would pass through to the service
+  "role": "ADMIN"
+}
+```
+
+With `whitelist: true`, any property not decorated in the DTO is silently stripped before the controller handler runs. `isAdmin` and `role` never reach your service.
+
+`forbidNonWhitelisted: true` goes further — instead of silently stripping unknown properties, it returns a 400 error if any unknown property is present. This is stricter and useful for catching client bugs early.
+
+### `@Transform()` and Type Coercion
+
+NestJS receives all incoming data as strings (from query params) or JSON primitives (from body). `@Transform()` lets you convert them:
+
+```typescript
+@IsNumber()
+@IsOptional()
+@Transform(({ value }) => (value ? Number(value) : value))
+capacity?: number;
+```
+
+Without `@Transform()`, a query param `?capacity=100` would be the string `"100"`. `@IsNumber()` would fail because `"100"` is not a number. With `@Transform()`, it's converted to `100` first, then validated.
+
+The `transform: true` option on `ValidationPipe` does automatic coercion for some types, but explicit `@Transform()` decorators give you full control over the conversion logic.
+
+### `@Type()` for Nested Objects
+
+When a DTO has nested objects, `class-transformer` needs a hint about which class to instantiate:
+
+```typescript
+@IsArray()
+@ValidateNested({ each: true })
+@Type(() => CreateTicketTierDto)
+ticketTiers?: CreateTicketTierDto[];
+```
+
+Without `@Type(() => CreateTicketTierDto)`, the nested objects stay as plain JavaScript objects and `@ValidateNested()` has nothing to run — the nested validators never fire. `@Type()` tells `class-transformer` to instantiate the right class, which then has its own decorators that `class-validator` can execute.
+
+---
+
+## Part 38 — Environment Variables: The Dev/Prod Split That Always Catches You
+
+### The Pattern of the Bug
+
+The most common production bug isn't a code bug — it's an env var that was set up for local development and never updated for production. The pattern:
+
+1. During development, you run MinIO locally at `localhost:9000`
+2. You set `CDN_BASE_URL=http://localhost:9000/nextvibe` in your `.env`
+3. You deploy — MinIO moves to Railway, NestJS moves to Railway
+4. You update `MINIO_ENDPOINT=minio-production-5cff.up.railway.app`
+5. You forget to update `CDN_BASE_URL`
+6. NestJS connects to MinIO correctly (MINIO_ENDPOINT is right)
+7. Every file URL stored in the database is `http://localhost:9000/...`
+8. No images load in production
+
+The fix is one line. The debugging takes an hour because the upload *succeeds* — the data just isn't right.
+
+### The Rule: Separate Concerns in Your `.env`
+
+Every URL in your `.env` that a **browser or mobile app** will use must point to a public address. Every URL that only your **server** uses can be an internal address. When you deploy, go through every variable and ask: "who uses this URL?"
+
+| Variable | User | Must be public? |
+|---|---|---|
+| `MINIO_ENDPOINT` | NestJS server | No — can be internal |
+| `CDN_BASE_URL` | Browser (image URLs) | **Yes** |
+| `DATABASE_URL` | NestJS server | No |
+| `WEB_APP_URL` | Used in emails/QR codes sent to users | **Yes** |
+| `REDIS_HOST` | NestJS server | No |
+
+### The `.env.example` Contract
+
+`.env.example` is a contract for anyone setting up the project. Every value in it should be a safe placeholder that makes it obvious what the format should be — not a working local value that someone might use as-is in production.
+
+```bash
+# Bad — someone copies this to .env, deploys, and it silently uses localhost
+CDN_BASE_URL=http://localhost:9000/nextvibe
+
+# Good — obviously a placeholder, no one will use it as-is
+CDN_BASE_URL=https://your-minio-host/nextvibe
+```
+
+This is why the `.env.example` in this codebase was updated to the generic placeholder form, not the Railway-specific URL — `.env.example` should work for *any* deployment, not be tied to one specific infrastructure.
+
+---
+
+## Part 39 — WebSockets, WSS, and Socket.io — The Full Picture
+
+### HTTP vs WebSocket: The Fundamental Difference
+
+Every request you've made so far in this codebase uses HTTP. HTTP is a **request-response** protocol — the client speaks, the server responds, the connection closes. The server can never speak first. To simulate real-time with HTTP you have to poll: "do you have a new message? no. do you have one now? no. now? no." — this is wasteful, slow, and burns battery on mobile.
+
+**WebSocket** is a different protocol entirely. It starts as HTTP (a special "upgrade" request), then both sides agree to switch protocols, and from that point the TCP connection stays open. Either side can send a message at any time without waiting for the other to ask. One persistent connection instead of hundreds of short ones.
+
+```
+HTTP:
+  Client → Server: GET /messages        (request)
+  Server → Client: [messages]           (response, connection closes)
+  Client → Server: GET /messages        (ask again 2 seconds later)
+  ...
+
+WebSocket:
+  Client → Server: [upgrade request]    (one-time handshake)
+  Server → Client: [upgrade confirmed]
+  --- connection stays open forever ---
+  Server → Client: new message!         (server speaks first, no request needed)
+  Client → Server: typing indicator     (client speaks without waiting)
+  Server → Client: another message!
+```
+
+### WS vs WSS
+
+`ws://` is plain WebSocket — the data is sent unencrypted over the network, just like `http://`.
+
+`wss://` is WebSocket over TLS — the same WebSocket protocol but encrypted, just like `https://`. In production you **always** use `wss://`. Modern browsers will block `ws://` connections from `https://` pages (mixed content policy).
+
+The TLS termination usually happens at your reverse proxy (Nginx, Railway, Cloudflare), not in your Node.js process. Your Node.js app just sees a plain WebSocket connection — the encryption layer is handled before traffic reaches it. This means even if your NestJS app listens on `ws://localhost:5000` internally, the outside world connects via `wss://api.mynextvibe.com`.
+
+### What Socket.io Is (and Is Not)
+
+Socket.io is **not** a WebSocket library. It is a real-time messaging library that **uses** WebSocket when available, but adds its own protocol layer on top with features WebSocket alone doesn't have:
+
+| Feature | Raw WebSocket | Socket.io |
+|---|---|---|
+| Auto-reconnect | No — you implement it | Built-in, exponential backoff |
+| Rooms | No — you implement it | Built-in |
+| Namespaces | No | Built-in |
+| Acknowledgements | No | Built-in |
+| Fallback to polling | No | Built-in (for restrictive networks) |
+| Event names | No — just raw binary frames | Built-in (`emit('event', data)`) |
+| Broadcasting | No — you implement it | Built-in |
+
+The tradeoff: Socket.io clients can only talk to Socket.io servers. You can't use a raw WebSocket client to connect to a Socket.io server — the protocol is different.
+
+### The Socket.io Handshake (What Actually Happens)
+
+When a client calls `io('wss://api.mynextvibe.com/messaging')`:
+
+1. **Polling handshake** — the client sends a regular HTTP GET to `/socket.io/?EIO=4&transport=polling`. The server responds with a session ID (`sid`) and connection parameters.
+2. **Namespace connection** — the client sends a namespace connect packet for `/messaging`.
+3. **Transport upgrade** — the client sends an HTTP `Upgrade: websocket` request. The server confirms. The TCP connection is now a WebSocket.
+4. **Your `handleConnection` fires** — this is where JWT validation happens. If you call `client.disconnect()` here, the client sees `connect_error`.
+
+This means Socket.io CORS applies to step 1 (polling HTTP request), NOT to the WebSocket upgrade itself. If your CORS blocks the initial polling request, the whole connection fails.
+
+### Why the Connection Was Failing in This Codebase
+
+The browser console showed:
+
+```
+[chat] socket status → disconnected   ← initial state
+[chat] join effect: socket not available yet   ← component fired before socket ready
+[chat] socket status → disconnected
+[chat] join effect: socket not available yet
+[chat] socket status → error   ← connection attempt FAILED
+```
+
+`status → error` means `connect_error` — the server rejected the handshake. Our `handleConnection` calls `client.disconnect()` when no token is present. The frontend was creating the socket at component mount before the access token was loaded into state, so `auth: { token: undefined }` was sent. Server sees no token → disconnect → client gets `error`.
+
+### The Room System — Why Real-Time Can Still Fail After Connecting
+
+Connecting to a Socket.io namespace just means you have a pipe to the server. You are not in any room yet. `server.to('room').emit(...)` only sends to sockets that have joined that room via `socket.join('room')`.
+
+In this codebase, the DM flow requires:
+
+```
+1. User A connects to /messaging namespace   ← has a pipe
+2. User A emits 'join:dm' { conversationId }  ← enters the room
+   Server: client.join('dm:{conversationId}')
+3. User B connects to /messaging namespace   ← has a pipe
+4. User B emits 'join:dm' { conversationId }  ← enters the room
+5. User A emits 'send:dm' { conversationId, body }
+   Server: server.to('dm:{conversationId}').emit('new:dm', message)
+6. User B receives 'new:dm'   ← because they're in the room
+```
+
+If User B never emits `join:dm`, they are connected but not in any room. Step 6 never reaches them. They'd have to poll the REST API to see new messages. **This is exactly why messages weren't real-time** — the frontend was connecting but not emitting `join:dm`.
+
+### NestJS + Socket.io Setup (Server Side)
+
+**Install:**
+```bash
+pnpm add @nestjs/websockets @nestjs/platform-socket.io socket.io
+```
+
+**The gateway:**
+```typescript
+import {
+  WebSocketGateway, WebSocketServer,
+  SubscribeMessage, MessageBody, ConnectedSocket,
+  OnGatewayConnection, OnGatewayDisconnect,
+} from '@nestjs/websockets';
+import { Server, Socket } from 'socket.io';
+import { JwtService } from '@nestjs/jwt';
+
+@WebSocketGateway({
+  namespace: '/messaging',        // clients connect to /messaging, not root
+  cors: { origin: '*' },          // Socket.io CORS — separate from app CORS
+  transports: ['websocket'],      // optional: skip polling, go straight to WS
+})
+export class MessagingGateway implements OnGatewayConnection, OnGatewayDisconnect {
+  @WebSocketServer() server!: Server;  // ! = definite assignment (NestJS sets this)
+
+  constructor(private jwtService: JwtService) {}
+
+  // Fires when ANY client connects — validate here
+  async handleConnection(client: Socket) {
+    const token = client.handshake?.auth?.token;
+    if (!token) {
+      client.emit('exception', { message: 'No token provided' });
+      client.disconnect();
+      return;
+    }
+    try {
+      const payload = this.jwtService.verify(token, { secret: process.env.JWT_ACCESS_SECRET });
+      client.data.user = payload;   // store on client, accessible in all handlers
+    } catch (err: any) {
+      client.emit('exception', { message: 'Invalid or expired token' });
+      client.disconnect();
+    }
+  }
+
+  handleDisconnect(client: Socket) {
+    // clean up anything tied to client.id
+  }
+
+  @SubscribeMessage('join:dm')
+  handleJoin(@ConnectedSocket() client: Socket, @MessageBody() data: { conversationId: string }) {
+    client.join(`dm:${data.conversationId}`);
+    return { event: 'joined:dm', data };  // acknowledgement back to emitter
+  }
+
+  @SubscribeMessage('send:dm')
+  async handleSend(@ConnectedSocket() client: Socket, @MessageBody() data: any) {
+    const senderId = client.data.user?.sub;
+    if (!senderId) return { error: 'Unauthorized' };
+
+    const message = await this.saveMessage(data);
+
+    // emit to everyone in the room (including sender)
+    this.server.to(`dm:${data.conversationId}`).emit('new:dm', message);
+
+    // emit to everyone EXCEPT sender:
+    // client.to(`dm:${data.conversationId}`).emit('new:dm', message);
+
+    return message;  // acknowledgement to the sender
+  }
+}
+```
+
+**The module:**
+```typescript
+@Module({
+  imports: [AuthModule],   // AuthModule exports JwtModule → JwtService injectable
+  providers: [MessagingGateway, MessagingService],
+})
+export class MessagingModule {}
+```
+
+**Register in AppModule** — just import `MessagingModule`. NestJS handles registering the gateway automatically.
+
+### Client Side (React / React Native)
+
+**Install:**
+```bash
+npm install socket.io-client
+```
+
+**The golden rule: only connect after the token is ready.**
+
+```typescript
+import { io, Socket } from 'socket.io-client';
+import { useEffect, useRef } from 'react';
+
+function useMessagingSocket(accessToken: string | null, conversationId: string) {
+  const socketRef = useRef<Socket | null>(null);
+
+  useEffect(() => {
+    if (!accessToken) return;  // ← WAIT for token. Don't connect without it.
+
+    const socket = io('wss://api.mynextvibe.com/messaging', {
+      auth: { token: accessToken },      // sent in handshake, NOT as a header
+      transports: ['websocket'],          // skip polling for lower latency
+      reconnectionAttempts: 5,
+      reconnectionDelay: 1000,
+    });
+
+    socketRef.current = socket;
+
+    // Join the room immediately after connection is confirmed
+    socket.on('connect', () => {
+      console.log('connected, joining room');
+      socket.emit('join:dm', { conversationId });
+    });
+
+    socket.on('new:dm', (message) => {
+      // update your local messages state here
+    });
+
+    socket.on('exception', (err) => {
+      // server rejected with reason — token expired, etc.
+      console.error('socket rejected:', err.message);
+    });
+
+    socket.on('connect_error', (err) => {
+      // connection failed entirely
+      console.error('connect_error:', err.message);
+    });
+
+    // CRITICAL: disconnect and recreate on cleanup
+    // this runs when: component unmounts, accessToken changes, conversationId changes
+    return () => {
+      socket.disconnect();
+      socketRef.current = null;
+    };
+  }, [accessToken, conversationId]);  // ← recreate socket when token or conversation changes
+
+  return socketRef;
+}
+```
+
+### `server.to()` vs `client.to()` — The Difference
+
+```typescript
+// server.to() — sends to ALL sockets in the room, INCLUDING the sender
+this.server.to('dm:abc').emit('new:dm', message);
+
+// client.to() — sends to all sockets in the room EXCEPT the sender
+client.to('dm:abc').emit('typing:dm', { userId });
+```
+
+Use `server.to()` for messages (sender should also see the message confirmed). Use `client.to()` for indicators like typing (you don't need to tell yourself you're typing).
+
+### Namespaces vs Rooms
+
+These are two different levels of isolation:
+
+**Namespace** (`/messaging`, `/notifications`) — a completely separate channel. Sockets on different namespaces cannot communicate. Each namespace has its own set of rooms, events, and middleware. A client must explicitly connect to a namespace: `io('/messaging')`.
+
+**Room** (`dm:abc`, `chat:eventId:PRE_EVENT`) — a group within a namespace. A socket can join multiple rooms. `server.to('room').emit(...)` reaches everyone in the room. Rooms don't need to be declared — they're created automatically when the first socket joins and destroyed when the last one leaves.
+
+Think of it like: namespaces are different apps, rooms are groups within an app.
+
+### Common Socket.io Bugs and What They Mean
+
+| Symptom | Cause |
+|---|---|
+| `status → error` immediately | Server rejected handshake — usually no/invalid token |
+| Connected but no real-time messages | User never emitted `join:room` — not in the room |
+| Messages received twice | Both `server.to()` (sends to all) and `return message` (acknowledgement) — sender gets two copies |
+| Works in Postman/test, fails in browser | CORS issue — Socket.io CORS and app CORS may need to match |
+| Works locally, fails on deploy | `ws://` vs `wss://` — production needs `wss://` |
+| Second user can't connect | Frontend uses socket as a singleton — old user's socket is reused with wrong token |
+| `@UseGuards` not working in gateway | Guards work on `@SubscribeMessage` handlers but NOT on `handleConnection` — validate JWT there manually |
+
+---
+
+## Part 40 — Debugging a 401 on Login
+
+### The Login Endpoint Architecture
+
+The login route is decorated with `@Public()`:
+
+```typescript
+@Public()
+@Post('login')
+login(@Body() dto: LoginDto) {
+  return this.authService.login(dto);
+}
+```
+
+And the JWT guard handles `@Public()` like this:
+
+```typescript
+async canActivate(context: ExecutionContext): Promise<boolean> {
+  const isPublic = this.reflector.getAllAndOverride(IS_PUBLIC_KEY, [...]);
+  if (isPublic) {
+    try {
+      await super.canActivate(context);  // attempt auth if token present
+    } catch (_) {}                        // swallow the error
+    return true;                          // always let through
+  }
+  return super.canActivate(context);
+}
+```
+
+On `@Public()` routes the guard **always returns `true`** regardless of whether a token is present or valid. So a 401 on `POST /auth/login` is **never coming from the guard** — it's always coming from the service throwing `UnauthorizedException`.
+
+### The Three Causes of a 401 on Login
+
+**1. Email not found**
+```typescript
+const user = await this.prisma.user.findUnique({ where: { email: dto.email } });
+if (!user || !user.passwordHash) {
+  throw new UnauthorizedException('Invalid credentials');
+}
+```
+The user doesn't exist in the database. Check: wrong email, different environment (dev DB vs prod DB), or they never registered.
+
+**2. OAuth user trying email/password login**
+Same code block — `!user.passwordHash`. A user who signed up with Google OAuth has no password hash. If they try to log in with email + password, they hit this check. The error message deliberately says "Invalid credentials" (not "use Google OAuth") so you don't leak that the account exists.
+
+**3. Wrong password**
+```typescript
+const passwordValid = await argon2.verify(user.passwordHash, dto.password);
+if (!passwordValid) {
+  throw new UnauthorizedException('Invalid credentials');
+}
+```
+The user exists and has a password, but the password is wrong.
+
+### How to Distinguish Them from Logs
+
+The response time tells you which branch was hit:
+- **Fast 401 (~5ms)** — user not found or no passwordHash. Prisma query returned immediately, no argon2 run.
+- **Slow 401 (~100–200ms)** — wrong password. Argon2 verification ran (intentionally slow to resist brute force), found mismatch.
+
+Looking at the actual logs:
+```
+POST /v1/auth/login  401  161ms   ← argon2 ran → user found, wrong password
+POST /v1/auth/login  401   68ms   ← argon2 didn't run → user not found or no passwordHash
+```
+
+### Case Sensitivity
+
+Postgres string comparisons are case-sensitive by default. If a user registered as `John@Gmail.com` and logs in as `john@gmail.com`, `findUnique({ where: { email: 'john@gmail.com' } })` returns null — a fast 401.
+
+Fix: normalise emails to lowercase before storing and before querying.
+
+```typescript
+// On registration:
+email: dto.email.toLowerCase()
+
+// On login:
+where: { email: dto.email.toLowerCase() }
+```
+
+---
+
+*Document covers codebase as of May 2026. Module list: Auth, Users, Events (+ RSVP), Tickets, Payments (Juicyway + Ercaspay), Billing (Pricing, Coupons, OrganizerPayments), Games (Sessions, Rounds, Rewards, AI generation), Notifications (WebSocket + Resend), Social (Follows, Likes, Comments, Shares, Feed), Messaging (DMs + EventChat), Storage, Discovery, Admin, VibeTags, Postcards.*
