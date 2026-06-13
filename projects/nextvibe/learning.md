@@ -2263,8 +2263,8 @@ const socket = io('/messaging', { auth: { token: 'your.jwt.token' } });
 | \`join:dm\` | \`{ conversationId }\` | Join a DM room |
 | \`send:dm\` | \`{ conversationId, body?, mediaUrl? }\` | Send a DM |
 | \`typing:dm\` | \`{ conversationId }\` | Broadcast typing indicator |
-| \`join:chat\` | \`{ eventId, section }\` | Join event chat room |
-| \`send:chat\` | \`{ eventId, section, body?, mediaUrl? }\` | Send event chat message |
+| \`join:event-chat\` | \`{ eventId, section }\` | Join event chat room |
+| \`send:event-chat\` | \`{ eventId, section, body?, mediaUrl? }\` | Send event chat message |
 
 ### Events You Will Receive
 
@@ -2272,7 +2272,7 @@ const socket = io('/messaging', { auth: { token: 'your.jwt.token' } });
 |---|---|---|
 | \`new:dm\` | message object | New DM received |
 | \`typing:dm\` | \`{ userId }\` | Someone is typing |
-| \`new:chat\` | message object | New event chat message |
+| \`new:event-chat\` | message object | New event chat message |
 
 **section values:** \`PRE_EVENT\` | \`DURING_EVENT\` | \`POST_EVENT\`
   `)
@@ -3489,4 +3489,576 @@ where: { email: dto.email.toLowerCase() }
 
 ---
 
-*Document covers codebase as of May 2026. Module list: Auth, Users, Events (+ RSVP), Tickets, Payments (Juicyway + Ercaspay), Billing (Pricing, Coupons, OrganizerPayments), Games (Sessions, Rounds, Rewards, AI generation), Notifications (WebSocket + Resend), Social (Follows, Likes, Comments, Shares, Feed), Messaging (DMs + EventChat), Storage, Discovery, Admin, VibeTags, Postcards.*
+---
+
+## Part 41 — Deriving Values Server-Side: The Tier-Capacity Pattern
+
+### The Problem With Letting Users Set Their Own Capacity
+
+When the events service accepted a raw `capacity` field from the DTO, an organizer could pay for the cheapest `MICRO` tier (1–50 attendees) but pass `capacity: 5000` in the request body. The pricing is based on tier, so they'd get enterprise-scale capacity at micro-scale price.
+
+### The Fix: Remove Capacity From the Input, Derive It From Tier
+
+The DTO now takes a `tier` field (an enum), and the service maps that to capacity server-side:
+
+```typescript
+// Outside the class — immutable lookup table
+const TIER_CAPACITY_MAP: Record<string, number> = {
+  MICRO: 50,
+  SMALL: 200,
+  MEDIUM: 500,
+  LARGE: 2000,
+  ENTERPRISE: 999999,
+};
+
+async create(organizerId: string, dto: CreateEventDto) {
+  const calculatedCapacity = TIER_CAPACITY_MAP[dto.tier.toUpperCase()] ?? 50;
+  // dto.capacity is no longer accepted — capacity is derived from tier
+}
+```
+
+The client can no longer send a capacity at all. They pick a tier; the server decides what that tier means in terms of headcount.
+
+### The General Principle: Derived Fields Belong on the Server
+
+Anytime a value is logically determined by another input, don't accept the derived value from the client — compute it:
+
+| Client sends | Server derives |
+|---|---|
+| `tier: 'LARGE'` | `capacity: 2000` |
+| `isPublic: false` | `accessKey: 'VIBE-XYZ123'` |
+| `eventId` | `qrCode: 'https://...'` |
+| `userId` (from JWT) | never accepts it from body |
+
+This pattern prevents clients from sending inconsistent or manipulated data. The server is always the source of truth for computed values.
+
+### The `@Transform()` Pairing
+
+The tier field uses:
+```typescript
+@IsEnum(EventTier)
+@Transform(({ value }) => typeof value === 'string' ? value.toUpperCase() : value)
+tier: EventTier;
+```
+
+`@Transform()` runs before `@IsEnum()`. It normalises `'medium'` → `'MEDIUM'` before validation, so both `"medium"` and `"MEDIUM"` pass. Without the transform, `"medium"` would fail `@IsEnum(EventTier)` because the enum values are uppercase. This pairing is also used on the `mode` field — any field where the enum is uppercase but you want to accept any casing from the client.
+
+---
+
+## Part 42 — NestJS Route Ordering: The Static vs Parameterized Gotcha
+
+### The Bug
+
+You add this to your controller:
+
+```typescript
+@Get('me')
+getMe(@CurrentUser() user: JwtPayload) {
+  return this.usersService.getMe(user.sub);
+}
+
+@Get(':id')
+getUser(@Param('id') id: string) {
+  return this.usersService.findById(id);
+}
+```
+
+You call `GET /users/me`. Instead of hitting `getMe`, it hits `getUser` with `id = "me"`. Your service does `findById("me")`, Prisma looks for a user with id `"me"`, finds nothing, throws `NotFoundException`.
+
+### Why It Happens
+
+NestJS registers and matches routes in the order they're declared in the class. `:id` is a wildcard — it matches *any* path segment, including the literal string `"me"`. If `getUser` is declared before `getMe`, `:id` intercepts first.
+
+The same happens with:
+- `GET /users/search` shadowed by `GET /users/:id`
+- `GET /events/featured` shadowed by `GET /events/:id`
+- `GET /notifications/read-all` shadowed by `GET /notifications/:id`
+
+### The Fix: Always Declare Static Routes Before Parameterized Ones
+
+```typescript
+// Static routes first
+@Get('me')
+getMe() { ... }
+
+@Get('search')
+search() { ... }
+
+@Get('featured')
+getFeatured() { ... }
+
+// Parameterized routes after
+@Get(':id')
+getUser(@Param('id') id: string) { ... }
+```
+
+NestJS tries routes in declaration order. Once it finds a match, it stops. Static routes like `/me` and `/search` must be registered before `:id` or they'll always be shadowed.
+
+### The Same Problem Exists Across Controllers
+
+If two controllers have routes that could match the same URL (e.g., `BillingController` and `OrganizerPaymentsController` both using `/organizer-payments`), the module loaded first in `AppModule.imports` wins — as covered in Part 27. The principle is the same: registration order determines which handler runs.
+
+---
+
+## Part 43 — Prisma Transactions: Two Patterns, Two Use Cases
+
+### Pattern 1: Sequential Transaction (Array Form)
+
+```typescript
+const [result1, result2] = await this.prisma.$transaction([
+  this.prisma.user.update({ where: { id }, data: { balance: { decrement: amount } } }),
+  this.prisma.ledger.create({ data: { userId: id, amount, type: 'DEBIT' } }),
+]);
+```
+
+Prisma sends all operations to PostgreSQL in a single transaction. They succeed or fail together. The return value is an array with each operation's result.
+
+**Limitation:** You cannot use the result of one operation as input to the next. All queries are defined upfront before any of them run.
+
+### Pattern 2: Interactive Transaction (Callback Form)
+
+```typescript
+const event = await this.prisma.$transaction(async (tx) => {
+  const newEvent = await tx.event.create({ data: { ... } });
+
+  // use newEvent.id for the next operations
+  await tx.eventChat.createMany({
+    data: [
+      { eventId: newEvent.id, section: 'PRE_EVENT' },
+      { eventId: newEvent.id, section: 'DURING_EVENT' },
+    ],
+  });
+
+  await tx.event.update({
+    where: { id: newEvent.id },
+    data: { qrCode: `${webAppUrl}/events/${newEvent.id}` },
+  });
+
+  return newEvent;
+});
+```
+
+`tx` is a Prisma transaction client — it has all the same methods as `this.prisma` but every operation goes through the same transaction. The callback runs inside the transaction. If you `throw` inside the callback, the entire transaction rolls back automatically.
+
+**Use this when:** Later operations depend on the results of earlier ones (like using the new event's `id`).
+
+### The `tx` Proxy: Why Not Just Use `this.prisma`?
+
+Inside the callback, you MUST use `tx`, not `this.prisma`. `this.prisma` opens a separate connection — any `this.prisma.xxx` call inside the transaction callback runs outside the transaction. It won't roll back with the others if something fails.
+
+```typescript
+await this.prisma.$transaction(async (tx) => {
+  await tx.event.create({ ... });          // ✅ inside transaction
+  await this.prisma.event.create({ ... }); // ❌ outside transaction — won't roll back
+});
+```
+
+### When to Use Transactions
+
+Use a transaction anytime **two or more writes must succeed or fail together**:
+- Creating an event + creating its chat rooms + creating its QR code
+- Activating a payment + updating the event plan + publishing the event
+- Creating a ticket + decrementing the tier's available quantity
+
+If only one write fails, the others roll back automatically — no partial state, no orphaned records.
+
+### The Timeout Default
+
+Prisma interactive transactions have a default timeout of **5 seconds**. If the callback takes longer, Prisma rolls back and throws `TransactionExpiredError`. For operations involving external API calls (e.g., calling Juicyway inside a transaction), keep the external call outside the transaction and only put the database writes inside:
+
+```typescript
+// ❌ Don't put external calls inside a transaction
+await this.prisma.$transaction(async (tx) => {
+  const payment = await juicywayService.initiate(amount);  // could take 3+ seconds
+  await tx.payment.create({ data: { reference: payment.ref } });
+});
+
+// ✅ External call outside, DB writes inside
+const payment = await juicywayService.initiate(amount);  // outside
+await this.prisma.$transaction(async (tx) => {           // fast DB writes only
+  await tx.payment.create({ data: { reference: payment.ref } });
+  await tx.event.update({ data: { status: 'PENDING_PAYMENT' } });
+});
+```
+
+---
+
+## Part 44 — NestJS Lifecycle Hooks
+
+NestJS providers can hook into the application lifecycle by implementing specific interfaces. These run at predictable moments during startup and shutdown.
+
+### The Four Lifecycle Moments
+
+```
+bootstrap() called
+    │
+    ▼
+[Module initialization — constructors run, DI wired]
+    │
+    ▼
+OnModuleInit.onModuleInit()     ← provider is ready, safe to use injected services
+    │
+    ▼
+OnApplicationBootstrap.onApplicationBootstrap()  ← all modules initialized
+    │
+    ▼
+[Server starts listening on port]
+    │
+    ▼
+[Application running...]
+    │
+    ▼
+app.close() called (SIGTERM, SIGINT, etc.)
+    │
+    ▼
+OnApplicationShutdown.onApplicationShutdown(signal)  ← clean up resources
+    │
+    ▼
+[Process exits]
+```
+
+### Real Example: PrismaService Uses `OnModuleInit`
+
+```typescript
+@Injectable()
+export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
+  async onModuleInit() {
+    await this.$connect();  // establish DB connection when module is ready
+  }
+
+  async onModuleDestroy() {
+    await this.$disconnect();  // release connection on shutdown
+  }
+}
+```
+
+`onModuleInit` fires after NestJS finishes dependency injection for that module. It's safe to call `this.$connect()` here because `PrismaService` is fully constructed. Putting the connect call in the constructor would run before DI is complete — fine for Prisma specifically, but risky for services that depend on injected config.
+
+### `OnApplicationShutdown` — Why `app.close()` Matters
+
+`app.close()` triggers `onApplicationShutdown()` on every provider that implements it. This is the mechanism behind "graceful shutdown" — it gives every service the chance to clean up:
+
+```typescript
+@Injectable()
+export class RedisService implements OnApplicationShutdown {
+  async onApplicationShutdown() {
+    await this.client.quit();  // release Redis connections
+  }
+}
+```
+
+Without this, the process exits with open database connections, unflushed buffers, and mid-flight messages. The next deploy may see connection limit errors because the old connections were never released.
+
+### The `enableShutdownHooks()` Requirement
+
+For `OnApplicationShutdown` to fire on OS signals (SIGTERM, SIGINT), you must call this in `main.ts`:
+
+```typescript
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.enableShutdownHooks();  // ← required for SIGTERM/SIGINT to trigger onApplicationShutdown
+  await app.listen(3000);
+}
+```
+
+Without it, `app.close()` you call manually will still trigger the hooks, but OS signals won't. This is a common gotcha in production — the app shuts down without running cleanup because `enableShutdownHooks()` was never called.
+
+---
+
+## Part 45 — WebSocket Error Handling: Why Throwing Doesn't Work the Same Way
+
+### HTTP vs WebSocket Error Propagation
+
+In HTTP handlers, you throw and NestJS handles it:
+
+```typescript
+@Get(':id')
+async getEvent(@Param('id') id: string) {
+  const event = await this.eventsService.findById(id);
+  if (!event) throw new NotFoundException('Event not found');
+  // NestJS catches this, returns { statusCode: 404, message: "Event not found" }
+}
+```
+
+In WebSocket handlers (`@SubscribeMessage`), throwing behaves differently. NestJS does catch it and converts it to an `exception` event emitted back to the sender — but only if you use `WsException`:
+
+```typescript
+@SubscribeMessage('send:dm')
+async handleSend(@ConnectedSocket() client: Socket) {
+  throw new WsException('Unauthorized');
+  // Client receives: socket.on('exception', { message: 'Unauthorized' })
+}
+```
+
+If you throw a regular HTTP exception (`NotFoundException`, `ForbiddenException`) inside a WebSocket handler, NestJS may or may not handle it gracefully depending on configuration. The safest pattern in this codebase is to **return an error object instead of throwing**:
+
+```typescript
+@SubscribeMessage('send:dm')
+async handleSendDm(@ConnectedSocket() client: Socket, @MessageBody() data: any) {
+  const senderId = client.data.user?.sub;
+  if (!senderId) return { error: 'Unauthorized' };  // return, don't throw
+
+  // business logic errors — also return
+  const conversation = await this.messagingService.findConversation(data.conversationId);
+  if (!conversation) return { error: 'Conversation not found' };
+
+  const message = await this.messagingService.saveMessage(...);
+  this.server.to(`dm:${data.conversationId}`).emit('new:dm', message);
+  return message;  // acknowledgement to sender
+}
+```
+
+The returned value from a `@SubscribeMessage` handler is sent back to the **emitting client only** as an acknowledgement. The broadcast (`this.server.to(...).emit(...)`) goes to the room. These are two different channels.
+
+### The `exception` Event Convention
+
+When the server emits `exception` back to the client, the client should listen for it globally:
+
+```typescript
+socket.on('exception', (error) => {
+  console.error('Server error:', error.message);
+  // handle the error in UI
+});
+```
+
+In this codebase, `handleConnection` emits `exception` before disconnecting an unauthorized client — giving the frontend a chance to show a "session expired" message rather than silently failing.
+
+### `handleConnection` Errors Are Different
+
+Errors thrown or returned from `handleConnection` do NOT use the `exception` event — because the client isn't fully connected yet. The only way to communicate a rejection reason during connection is:
+
+```typescript
+async handleConnection(client: Socket) {
+  if (!token) {
+    client.emit('exception', { message: 'No token' });  // emit before disconnect
+    client.disconnect();  // then disconnect
+  }
+}
+```
+
+This is why `handleConnection` in this codebase emits `exception` first, then calls `disconnect()`. Without the emit, the client just sees a generic `connect_error` with no reason.
+
+---
+
+## Part 46 — The `@Public()` Guard Pattern: How Opt-Out Auth Works
+
+### Secure by Default
+
+The `JwtGuard` is applied globally in `AppModule`:
+
+```typescript
+app.useGlobalGuards(new JwtGuard(reflector));
+// or in AppModule providers:
+{ provide: APP_GUARD, useClass: JwtGuard }
+```
+
+This means **every single route** is protected by default. You never forget to add auth to a sensitive endpoint because auth is automatic. You only opt out explicitly with `@Public()`.
+
+The alternative (opt-in auth with `@UseGuards()` on each route) means forgetting to add the guard on a sensitive endpoint exposes it publicly. Secure by default avoids this class of mistake entirely.
+
+### How `@Public()` Works Technically
+
+`@Public()` is a custom decorator that sets metadata on the route handler:
+
+```typescript
+export const IS_PUBLIC_KEY = 'isPublic';
+export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);
+```
+
+`SetMetadata` stores a key-value pair on the route handler's metadata. The guard reads it:
+
+```typescript
+const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
+  context.getHandler(),  // check method-level metadata first
+  context.getClass(),    // fall back to class-level metadata
+]);
+if (isPublic) return true;
+```
+
+`getAllAndOverride` means: check the handler first (method decorator), then the class (controller decorator). If either has `isPublic: true`, the route is public.
+
+### The Try/Catch on Public Routes
+
+```typescript
+if (isPublic) {
+  try {
+    await super.canActivate(context);  // attempt to validate JWT if present
+  } catch (_) {}                        // ignore if no token or invalid token
+  return true;                          // always allow through
+}
+```
+
+This is subtle: even on `@Public()` routes, the guard *tries* to validate the JWT. Why? Because some public routes benefit from knowing who's calling — even if authentication isn't required.
+
+For example, `GET /events/:id` is public (anyone can view an event) but if the user IS logged in, the response includes `isRsvped: true` and `isCheckedIn: true`. The guard tries to parse the JWT; if it succeeds, `req.user` is populated and the controller can read it with `@CurrentUser()`. If there's no token or it's invalid, the try/catch swallows the error, `req.user` is undefined, and the public response is returned without the user-specific fields.
+
+This is why `@CurrentUser()` on a `@Public()` route returns `undefined` when not authenticated — and you see patterns like `@CurrentUser() user?: JwtPayload` (note the `?`) on those handlers.
+
+---
+
+## Part 47 — The Prisma Schema-Code Sync Error
+
+### The Error
+
+```
+error TS2353: Object literal may only specify known properties,
+and 'tier' does not exist in type '... EventUncheckedCreateInput ...'
+```
+
+You wrote `tier: dto.tier` in the service. TypeScript knows the Prisma-generated types. The generated types say `tier` doesn't exist on the `Event` model. You get a compile error.
+
+### The Cause
+
+You added a field to the service and DTO but never added it to the Prisma schema file (`events.prisma`). The generated client (`src/generated/prisma/`) is built from the schema — if the schema doesn't have the field, the generated types don't have it either, and TypeScript refuses to compile.
+
+The same error appeared for `vibetagsEnabled` on `GameSession` — used in `organizer-payments.service.ts` but missing from `games.prisma`.
+
+### The Fix: Schema First, Always
+
+The correct order when adding a new field:
+
+```
+1. Add the field to the .prisma schema file
+   tier  EventTier @default(MICRO)    ← events.prisma
+
+2. Run prisma migrate dev (creates migration + regenerates client)
+   pnpm prisma migrate dev --name add_tier_to_events
+
+3. Now use the field in service/DTO code — TypeScript is happy
+```
+
+**Never go code-first with Prisma.** The schema is the single source of truth. Code that uses a field that doesn't exist in the schema compiles in your head but fails the TypeScript compiler, because the compiler reads from the generated types, which come from the schema.
+
+### `prisma generate` vs `prisma migrate dev`
+
+| Command | What it does | When to run |
+|---|---|---|
+| `prisma generate` | Regenerates the client from the current schema. No database changes. | When you pull schema changes from git but the DB is already migrated |
+| `prisma migrate dev` | Creates a new migration SQL file AND runs `prisma generate`. Changes the database. | When you add/change fields in the schema and want them in the DB |
+| `prisma migrate deploy` | Applies pending migrations in production. Does NOT generate. | In CI/CD build pipeline |
+
+In local development you almost always want `prisma migrate dev` — it does everything in one step.
+
+---
+
+## Part 48 — OpenRouter: One API for Every AI Model
+
+### What OpenRouter Is
+
+OpenRouter is a routing layer that sits in front of dozens of AI model providers (OpenAI, Anthropic, Google, Mistral, Perplexity, Meta, etc.) and exposes them all through a single, unified API. Instead of managing separate API keys and SDKs for each provider, you have one key and one endpoint.
+
+```
+Your app
+    │
+    ▼
+OpenRouter  (https://openrouter.ai/api/v1)
+    │
+    ├── OpenAI         (gpt-4o, o3, o1)
+    ├── Anthropic      (claude-3.5-sonnet, claude-3-haiku)
+    ├── Google         (gemini-2.5-flash, gemini-2.5-pro)
+    ├── Perplexity     (sonar-pro, sonar-reasoning)
+    ├── Meta           (llama-3.3-70b, llama-4-scout)
+    ├── Mistral        (mistral-large, codestral)
+    └── ...50+ more
+```
+
+### Why Use It Instead of Direct Provider APIs
+
+- **One key to manage** — single `OPENROUTER_API_KEY`, not separate keys for OpenAI + Anthropic + Google
+- **Easy model switching** — change one string (`"gpt-4o"` → `"claude-3.5-sonnet"`) to compare models or fall back if one is down
+- **Fallbacks and load balancing** — OpenRouter can automatically fall back to another model if your primary is rate-limited
+- **Unified billing** — one invoice, one dashboard for all usage across providers
+- **Cost visibility** — see exactly what each model costs per token before you commit
+
+### The OpenAI SDK as a Universal AI Client
+
+OpenRouter uses the same request/response format as OpenAI's Chat Completions API. This means you can use the `openai` npm package to talk to OpenRouter — just change the `baseURL` and `apiKey`:
+
+```typescript
+import OpenAI from 'openai';
+
+// OpenAI directly
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+// OpenRouter — same SDK, different URL + key
+const openRouter = new OpenAI({
+  apiKey: process.env.OPENROUTER_API_KEY,
+  baseURL: 'https://openrouter.ai/api/v1',
+  defaultHeaders: {
+    'HTTP-Referer': 'https://yourapp.com',   // identifies your app to OpenRouter
+    'X-Title': 'Your App Name',              // shown in OpenRouter dashboard
+  },
+});
+
+// Calling either one is identical
+const response = await openRouter.chat.completions.create({
+  model: 'anthropic/claude-3.5-sonnet',
+  messages: [{ role: 'user', content: 'Hello' }],
+});
+```
+
+This is the OpenAI-compatible API pattern — many providers (Mistral, Together AI, Groq, Ollama for local models) expose the same interface. One SDK, many providers.
+
+### Web Search in AI: Online Models
+
+Some AI models can search the web in real time before generating a response. This solves the fundamental LLM problem: training data has a cutoff date. A model trained on data from 2024 doesn't know about an event that happened last week.
+
+For game generation, web search means:
+- "Generate trivia about the FIFA 2026 World Cup" → model can search for actual recent results, correct scores, real players
+- "Generate questions about [artist]'s latest album" → model searches for the actual track list instead of hallucinating
+- "Create a word puzzle about Nigerian fintech news" → model pulls current companies and events, not outdated training data
+
+**Perplexity Sonar** is the primary web-search AI provider. Their models always search the web — it's not optional. `perplexity/sonar-pro` is their most capable search-augmented model.
+
+**The `:online` suffix** — on OpenRouter, any model can have web search added by appending `:online`:
+```
+google/gemini-2.5-flash          ← no web search
+google/gemini-2.5-flash:online   ← web search enabled
+openai/gpt-4o:online             ← GPT-4o with web search
+```
+
+OpenRouter handles the search plumbing — the model gets web results injected into its context automatically.
+
+### Structured JSON Output on OpenRouter
+
+Gemini enforces JSON via a `responseSchema` object in its generation config. OpenRouter uses the OpenAI standard:
+
+```typescript
+response_format: { type: 'json_object' }
+```
+
+This tells the model to always return valid JSON — no markdown fences, no explanation text, just the JSON object. Not all models honour this (especially smaller open-source ones), but all major commercial models do.
+
+For even stricter control, OpenAI-compatible APIs also support JSON Schema via:
+```typescript
+response_format: {
+  type: 'json_schema',
+  json_schema: { name: 'game_draft', schema: yourSchemaObject }
+}
+```
+
+### The Model ID Format on OpenRouter
+
+```
+{provider}/{model-name}:{variant}
+
+anthropic/claude-3.5-sonnet
+google/gemini-2.5-flash
+openai/gpt-4o
+perplexity/sonar-pro
+meta-llama/llama-3.3-70b-instruct
+openai/gpt-4o:online              ← with web search
+google/gemini-2.5-flash:online    ← Gemini with web search
+```
+
+Browse available models and their costs at `openrouter.ai/models`.
+
+### In This Codebase
+
+`generateGameDraftViaOpenRouter()` is the new method. It uses `perplexity/sonar-pro` for web-grounded game generation. The `generateGameDraft()` method (Gemini) is kept as-is. To switch which one the games controller calls, change one method name in the game generation controller.
+
+The `HTTP-Referer` and `X-Title` headers are required by OpenRouter — they appear in your usage dashboard and help OpenRouter attribute traffic to your app. If omitted, some models may reject the request.
+
+---
+
+*Document covers codebase as of May 2026. Module list: Auth, Users, Events (+ RSVP), Tickets, Payments (Juicyway + Ercaspay), Billing (Pricing, Coupons, OrganizerPayments), Games (Sessions, Rounds, Rewards, AI generation via Gemini + OpenRouter), Notifications (WebSocket + Resend), Social (Follows, Likes, Comments, Shares, Feed), Messaging (DMs + EventChat), Storage, Discovery, Admin, VibeTags, Postcards.*

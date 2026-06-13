@@ -975,6 +975,226 @@ When an entity changes, delete or update all related cache keys.
 - Log aggregation and analysis
 - Faceted search (filter by multiple attributes)
 
+### 17.4 Focused Decision Matrix
+
+| Feature | PostgreSQL | MongoDB | Cassandra |
+|---|---|---|---|
+| Primary goal | Data integrity & complex relations | Developer speed & flexible schema | Extreme write scale & uptime |
+| Data model | Structured (relational) | Flexible JSON-like documents | Wide-column / tabular |
+| Scaling | Primarily vertical | Horizontal (native sharding) | Horizontal (linear, masterless) |
+| Consistency | Strict ACID | Tunable (default eventual) | Eventual (tunable) |
+
+### 17.5 Decision Rules of Thumb
+
+**By operation type:**
+
+- **Financial, legal, or transactional data** → PostgreSQL. A balance can never be "eventually consistent." ACID is non-negotiable.
+- **Chronological, write-heavy data (logs, IoT, streams)** → Cassandra. Writes become simple appends — virtually impossible to crash from write volume.
+- **Nested, frequently-changing, or schema-free data** → MongoDB. Add fields on the fly without slow table migrations.
+
+**By scale:**
+
+- **Under 2–3 TB, fits on one large server** → PostgreSQL. Modern hardware is powerful. Don't over-engineer early.
+- **Must span multiple global data centres with zero downtime** → Cassandra. Masterless architecture — individual nodes fail seamlessly.
+- **Rapid, unpredictable storage growth needing automated sharding** → MongoDB. Native sharding distributes collections across clusters out of the box.
+
+**By application type:**
+
+- **E-commerce product catalogue** → MongoDB. Handles polymorphic attributes (laptops vs. t-shirts) naturally in a single collection.
+- **Messaging or chat history** → Cassandra. Chat is append-only time-series data. High write concurrency, read via slices ("last 50 messages").
+- **Social graph or recommendation engine** → Neo4j. SQL breaks down under multi-level JOINs; graph DBs traverse relationships via direct pointers.
+
+### 17.6 PostgreSQL in Practice
+
+**ACID transaction — atomic wallet debit and creator credit:**
+
+```sql
+BEGIN;
+
+UPDATE user_wallets
+SET balance = balance - 5.00, updated_at = NOW()
+WHERE user_id = 'user_abc123' AND balance >= 5.00;
+
+UPDATE creator_balances
+SET pending_payout = pending_payout + 5.00, updated_at = NOW()
+WHERE creator_id = 'creator_xyz789';
+
+INSERT INTO payment_ledger (id, sender_id, receiver_id, amount, status, created_at)
+VALUES (gen_random_uuid(), 'user_abc123', 'creator_xyz789', 5.00, 'COMPLETED', NOW());
+
+COMMIT;
+```
+
+**JSONB for dynamic metadata alongside structured rows:**
+
+```sql
+CREATE TABLE user_posts (
+    post_id    UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id    VARCHAR(50) NOT NULL,
+    content    TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    metadata   JSONB
+);
+
+-- GIN index for fast JSONB field queries
+CREATE INDEX idx_posts_metadata_type ON user_posts USING gin ((metadata->>'post_type'));
+
+INSERT INTO user_posts (user_id, content, metadata) VALUES (
+  'user_1', 'What is your favourite tech stack?',
+  '{"post_type": "poll", "poll_options": [{"id": 1, "text": "PostgreSQL"}, {"id": 2, "text": "MongoDB"}]}'
+);
+
+SELECT * FROM user_posts WHERE metadata->>'post_type' = 'poll';
+```
+
+JSONB is PostgreSQL's escape hatch for flexible fields without giving up relational integrity on everything else.
+
+**Recursive CTE for second-degree social connections (friends of friends):**
+
+```sql
+WITH RECURSIVE friends_cte AS (
+    -- direct friends
+    SELECT user_id, friend_id, 1 AS depth
+    FROM social_connections
+    WHERE user_id = 'user_alpha'
+
+    UNION
+
+    -- friends of friends
+    SELECT sc.user_id, sc.friend_id, f.depth + 1
+    FROM social_connections sc
+    JOIN friends_cte f ON sc.user_id = f.friend_id
+    WHERE f.depth < 2
+)
+SELECT DISTINCT friend_id FROM friends_cte WHERE friend_id != 'user_alpha';
+```
+
+Use recursive CTEs for shallow graph traversal (1–3 hops). Beyond that, the multi-level JOIN cost compounds quickly — reach for Neo4j.
+
+### 17.7 MongoDB in Practice
+
+**Video asset with nested transcode variations:**
+
+```javascript
+const VideoAssetSchema = new mongoose.Schema({
+  title:   String,
+  ownerId: String,
+  status:  { type: String, enum: ['processing', 'ready', 'failed'] },
+  resolutions: [{
+    quality:     { type: String, enum: ['1080p', '720p', '480p'] },
+    format:      { type: String, enum: ['HLS', 'DASH'] },
+    playlistUrl: String,
+    chunksCount: Number
+  }],
+  engagement: {
+    likesCount: { type: Number, default: 0 },
+    comments: [{
+      userId:  String,
+      text:    String,
+      postedAt: { type: Date, default: Date.now }
+    }]
+  }
+}, { timestamps: true });
+
+// Atomically push a new resolution once transcoding completes
+await VideoAsset.updateOne(
+  { _id: videoId },
+  {
+    $push: { resolutions: { quality: '1080p', format: 'HLS', playlistUrl: cdnUrl, chunksCount: 142 } },
+    $set:  { status: 'ready' }
+  }
+);
+```
+
+**Polymorphic product attributes with `Mixed` type:**
+
+```javascript
+const ProductSchema = new mongoose.Schema({
+  title:    { type: String, required: true },
+  price:    { type: Number, required: true },
+  category: { type: String, required: true },
+  attributes: { type: mongoose.Schema.Types.Mixed }  // schema-free escape hatch
+});
+
+// Laptop — CPU, RAM, Storage
+await Product.create({
+  title: 'Developer Workstation', price: 2499, category: 'Electronics',
+  attributes: { CPU: 'M3 Max', RAM: '64GB', Storage: '2TB SSD' }
+});
+
+// Apparel — completely different shape, same collection
+await Product.create({
+  title: 'Tech Hoodie', price: 85, category: 'Apparel',
+  attributes: { Size: 'XL', Color: 'Charcoal Black', Material: '80% Cotton' }
+});
+```
+
+### 17.8 Cassandra in Practice
+
+**Chat message table — partitioned by day, clustered by time:**
+
+```cql
+CREATE KEYSPACE chat_system WITH replication = {
+  'class': 'SimpleStrategy',
+  'replication_factor': 3
+};
+
+CREATE TABLE channel_messages (
+  channel_id   uuid,
+  bucket_date  date,      -- partition by day keeps partitions bounded
+  message_id   timeuuid,  -- time-ordered UUID, doubles as timestamp
+  sender_id    text,
+  message_body text,
+  PRIMARY KEY ((channel_id, bucket_date), message_id)
+) WITH CLUSTERING ORDER BY (message_id DESC);
+
+-- Fetch last 50 messages in a channel
+SELECT message_id, sender_id, message_body
+FROM channel_messages
+WHERE channel_id = 6a2f7ef4-54c3-11ed-bdc3-0242ac120002
+  AND bucket_date = '2026-05-20'
+LIMIT 50;
+```
+
+Key design choices: partition by `(channel_id, bucket_date)` not just `channel_id` — unbounded partitions eventually exceed Cassandra's per-partition size limits. `timeuuid` gives sub-millisecond ordering without a separate timestamp column.
+
+### 17.9 Neo4j in Practice
+
+**Friend-of-friend recommendation in Cypher:**
+
+```cypher
+MATCH (user:User {id: "user_alpha"})-[:FOLLOWS]->(friend:User)-[:FOLLOWS]->(recommended:User)
+WHERE NOT (user)-[:FOLLOWS]->(recommended) AND user <> recommended
+RETURN recommended.username, count(friend) AS mutualFriendsCount
+ORDER BY mutualFriendsCount DESC
+LIMIT 10;
+```
+
+This traverses two hops in a single statement. The SQL equivalent requires two self-joins on a `social_connections` table plus deduplication — and degrades significantly at scale.
+
+### 17.10 Redis in Practice
+
+**Atomic view counter — no DB touch:**
+
+```javascript
+await redis.incr(`video:${videoId}:views`);
+```
+
+**Rate limiting — fixed window:**
+
+```javascript
+async function isRateLimited(ipAddress) {
+  const key = `rate:${ipAddress}`;
+  const count = await redis.incr(key);
+  if (count === 1) {
+    await redis.expire(key, 60); // set TTL on first request only
+  }
+  return count > 100; // true = reject with 429
+}
+```
+
+`INCR` is atomic — no race condition even across multiple servers hitting the same key. See Section 36 for the full sliding window counter algorithm with weighted previous-window approximation.
+
 ---
 
 ## 18. Database Replication
@@ -1137,6 +1357,63 @@ Queues decouple producers from consumers. The producer puts a message in the que
 **Consumer lag** — producers faster than consumers → queue grows unbounded. Add more consumers or scale consumer compute.
 
 **Message ordering** — queues don't guarantee order by default. Use Kafka partition keys if order within a partition matters.
+
+### 20.5 Traditional Queue in Practice (RabbitMQ)
+
+One producer, one consumer per message. Use for tasks that must execute exactly once by exactly one worker.
+
+```javascript
+const amqp = require('amqplib');
+
+async function sendVideoToEncodingQueue(videoMetadata) {
+  const connection = await amqp.connect('amqp://localhost');
+  const channel    = await connection.createChannel();
+  const queueName  = 'video_transcode_tasks';
+
+  await channel.assertQueue(queueName, { durable: true });
+
+  channel.sendToQueue(
+    queueName,
+    Buffer.from(JSON.stringify(videoMetadata)),
+    { persistent: true }  // survives broker restart
+  );
+}
+```
+
+`persistent: true` + `durable: true` together guarantee the message survives a RabbitMQ restart. Without both, a crash loses queued work.
+
+### 20.6 Event Stream in Practice (Kafka)
+
+One event, many consumers. Use when a single action must trigger multiple independent downstream systems.
+
+```javascript
+const { Kafka } = require('kafkajs');
+const kafka    = new Kafka({ clientId: 'media-app', brokers: ['localhost:9092'] });
+const producer = kafka.producer();
+
+async function publishVideoUploadedEvent(videoDetails) {
+  await producer.connect();
+  await producer.send({
+    topic: 'user-video-uploads',
+    messages: [{
+      key:   videoDetails.userId,          // same user → same partition → ordered
+      value: JSON.stringify({
+        eventId: crypto.randomUUID(),
+        action:  'VIDEO_PUBLISHED',
+        payload: videoDetails
+      })
+    }]
+  });
+}
+
+// This single event is consumed independently by:
+// - Push notification service
+// - Copyright / safety AI scanner
+// - Data warehouse indexer
+// Each consumer reads at its own pace, from its own offset
+```
+
+The key difference from a queue: Kafka retains the event log. Each consumer group tracks its own offset — add a new consumer tomorrow and it can replay from the beginning.
 
 ---
 
@@ -1318,6 +1595,37 @@ Write: user posts → saved to main DB
 Read:  user loads feed → read from pre-computed feed cache
 Feed computed asynchronously, optimised for reading
 ```
+
+**CQRS in practice — Cassandra write path + PostgreSQL read path:**
+
+Use Cassandra to absorb high-frequency writes (individual events), and asynchronously aggregate into PostgreSQL for consistent, queryable read models.
+
+```javascript
+// Background Kafka worker: bridges Cassandra writes into PostgreSQL aggregates
+const { Client: PostgresClient } = require('pg');
+
+const pgClient = new PostgresClient({ connectionString: process.env.DATABASE_URL });
+await pgClient.connect();
+
+kafkaConsumer.on('message', async (event) => {
+  const { videoId, eventType } = JSON.parse(event.value);
+
+  if (eventType === 'LIKE_PRESSED') {
+    // Cassandra already wrote the raw event immediately at write time.
+    // The worker increments the relational aggregate calmly in batches:
+    await pgClient.query(
+      `UPDATE video_aggregates
+       SET total_likes = total_likes + 1, updated_at = NOW()
+       WHERE video_id = $1`,
+      [videoId]
+    );
+  }
+});
+```
+
+Write path: high-volume raw events → Cassandra (append-only, never blocks under load).
+Read path: aggregated totals → PostgreSQL (consistent, supports complex queries).
+The Kafka consumer is the bridge — decouples the two stores with eventual consistency on the read side.
 
 ### 25.3 Event Sourcing
 
@@ -1539,6 +1847,27 @@ Pre-compute top 5 suggestions at each node (avoid traversal on query)
 Shard by first character for scale
 Update hourly via batch job over search logs
 ```
+
+### 28.6 Elasticsearch Fuzzy Query
+
+Handle typos and spelling variations automatically with `fuzziness: "AUTO"`.
+
+```json
+POST /video_index/_search
+{
+  "query": {
+    "match": {
+      "video_title": {
+        "query":     "tictok compilashon",
+        "fuzziness": "AUTO",
+        "operator":  "and"
+      }
+    }
+  }
+}
+```
+
+`AUTO` fuzziness maps edit distance to term length: 1-char terms = exact, 2–5 chars = 1 edit allowed, 6+ chars = 2 edits allowed. `operator: "and"` requires all terms to match (fuzzy), preventing overly broad results.
 
 ---
 

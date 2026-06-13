@@ -55,6 +55,8 @@ Written for someone who has never touched Next.js but wants to understand it fro
 46. [Bottom Nav Real-Time Badge — Shared Cache + Conditional Socket](#46-bottom-nav-real-time-badge--shared-cache--conditional-socket)
 47. [Event Chat — Message Order and Prepend vs Append](#47-event-chat--message-order-and-prepend-vs-append)
 48. [Tab Switching and Sockets — Effect Dependencies](#48-tab-switching-and-sockets--effect-dependencies)
+49. [Word Puzzle — Auditing an Implementation Against a Design Spec](#49-word-puzzle--auditing-an-implementation-against-a-design-spec)
+50. [Dead Code — Recognising and Removing Unreachable Functions](#50-dead-code--recognising-and-removing-unreachable-functions)
 
 ---
 
@@ -4596,6 +4598,301 @@ log(); // logs 0, not 5 — stale closure
 ```
 
 In React, every render creates new function instances. If your effect uses a function from the current render, the deps array tells React when to create a fresh one. Missing a dep = stale closure = bugs that are hard to track down because the code looks correct.
+
+---
+
+## 49. Word Puzzle — Auditing an Implementation Against a Design Spec
+
+### The exercise
+
+A PDF spec was handed over describing how the word-puzzle game should work. The task: read the spec, check the code, and identify what's missing.
+
+This is a real-world skill — product or backend teams often hand over requirements as documents rather than tickets. Knowing how to read a spec and map it against code methodically is as important as knowing how to write code.
+
+### What the spec required
+
+The PDF described five things:
+
+1. **API response shape** — `{ grid: string[][], hiddenWords: [{word, clue, startCell, endCell, direction}], points }`
+2. **2D grid render** — CSS Grid, dynamic column count, per-cell state (`isIdle`, `isHovered`, `isSelected`, `isPartofCorrectWord`)
+3. **Pointer event listeners** — `onPointerDown`, `onPointerMove/Enter`, `onPointerUp` to track drag lines across letters
+4. **Client-side word validation** — compare user's start/end cell coordinates against `hiddenWords`, no API call needed
+5. **UI layout** — grid canvas, word/clue sidebar (strikethrough when found), score + timer panel
+
+### How to audit systematically
+
+Go through each requirement and find the corresponding code:
+
+```
+Requirement 1 — API shape
+  → Search for where game data is consumed
+  → Found: buildGridFromQuestions() in page.tsx and event-game-tab.tsx
+  → Status: ✅ — server sends flat question objects with word/startCell/endCell;
+    client builds the grid itself (smarter than spec's approach)
+
+Requirement 2 — 2D grid render
+  → Search for gridTemplateColumns
+  → Found: style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
+  → Cell states: CellState = "idle" | "hovered" | "selected" | "correct" | "wrong-flash"
+  → Status: ✅
+
+Requirement 3 — Pointer events
+  → Search for onPointerDown, onPointerMove, onPointerUp
+  → Found: all three on the container div in WordPuzzleGrid
+  → Also: setPointerCapture (spec didn't mention this but it's required for mobile)
+  → Status: ✅ — better than spec
+
+Requirement 4 — Client-side validation
+  → Search for handleSelectionComplete
+  → Found: coordinate matching with forward + reverse support
+  → Status: ✅
+
+Requirement 5 — Sidebar
+  → Found: "Words to Find" section — shows hw.word
+  → Spec said to show item.clue OR item.word
+  → hw.clue is stored (q.text ?? q.clue ?? q.word) but never rendered
+  → Status: ⚠️ — gap found
+
+Score/timer panel
+  → Found: countdown timer + progress bar in WordPuzzleRoundPlayer
+  → Status: ✅
+```
+
+### The gap — sidebar showed word only, not clue
+
+The spec said to show `item.clue` (hints like "King of the jungle") so finding the word is an actual puzzle. Showing "LION" in the word list makes it trivial — users just scan for each word they can read.
+
+`hw.clue` was already stored in the data structure:
+
+```ts
+// In buildGridFromQuestions:
+clue: q.text ?? q.clue ?? q.word,  // already there, just never rendered
+```
+
+### The fix — show both word and clue
+
+The old sidebar was a flat flex-wrap pill list — too cramped to show two lines per item. Changed to a 2-column grid so each item has room for both:
+
+```tsx
+// ❌ Before — word only, pill layout
+<div className="flex flex-wrap gap-1.5">
+  {hiddenWords.map((hw, idx) => {
+    const found = foundWords.has(hw.word.toUpperCase());
+    return (
+      <div key={`${hw.word}-${idx}`} className={cn(
+        "flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium border",
+        found ? "border-green-500/40 bg-green-500/10 text-green-700 line-through"
+               : "border-border bg-muted text-muted-foreground"
+      )}>
+        {found && <CheckCircle2 className="h-3 w-3 shrink-0" />}
+        {hw.word}
+      </div>
+    );
+  })}
+</div>
+```
+
+```tsx
+// ✅ After — word + clue, 2-column grid layout
+<div className="grid grid-cols-2 gap-1.5">
+  {hiddenWords.map((hw, idx) => {
+    const found = foundWords.has(hw.word.toUpperCase());
+    // Only show clue if it's different from the word itself
+    // (when no clue was provided, clue falls back to the word — no need to repeat it)
+    const hasClue = hw.clue && hw.clue.toUpperCase() !== hw.word.toUpperCase();
+    return (
+      <div key={`${hw.word}-${idx}`} className={cn(
+        "flex items-start gap-1.5 rounded-xl px-2.5 py-2 text-xs border transition-all",
+        found ? "border-green-500/40 bg-green-500/10 text-green-700"
+               : "border-border bg-muted/50 text-foreground"
+      )}>
+        <div className="shrink-0 mt-0.5">
+          {found
+            ? <CheckCircle2 className="h-3 w-3 text-green-600" />
+            : <span className="block h-3 w-3 rounded-full border border-current opacity-40" />}
+        </div>
+        <div className="min-w-0">
+          <p className={cn("font-bold leading-tight", found && "line-through")}>
+            {hw.word}
+          </p>
+          {hasClue && (
+            <p className={cn(
+              "text-[10px] leading-tight mt-0.5 truncate",
+              found ? "text-green-600/70" : "text-muted-foreground"
+            )}>
+              {hw.clue}
+            </p>
+          )}
+        </div>
+      </div>
+    );
+  })}
+</div>
+```
+
+The `hasClue` check prevents redundancy: if no clue was authored (`clue` falls back to `word`), showing both would repeat the same text twice.
+
+### How the game is played (mobile and laptop)
+
+Understanding the interaction model is essential before auditing pointer event code.
+
+**On mobile (touch):**
+- Press and hold your finger on the starting letter
+- Drag across the grid letters in a straight line
+- Lift your finger on the last letter of the word
+- If your start/end cells match a hidden word's coordinates, that word is found
+
+**On laptop (mouse):**
+- Click and hold on the starting letter
+- Drag to the last letter
+- Release
+
+The cells highlight as you drag (`"hovered"` state). A correct match turns green (`"correct"`). A miss flashes red (`"wrong-flash"`) and clears after 500ms.
+
+**Why `setPointerCapture` matters on mobile:** Without it, if your finger moves slightly off a cell edge, the browser treats it as leaving the element and `onPointerMove` stops firing mid-drag. `setPointerCapture` locks the pointer events to the grid container for the lifetime of the drag, no matter where the finger moves. The spec didn't mention this — it's a mobile-specific detail that the code handles correctly.
+
+### Key lesson — specs describe what, code must handle how
+
+The spec said "implement pointer event listeners." The code went further:
+- Used container-level events (not per-cell) — essential for touch drag reliability
+- Added `setPointerCapture` — handles finger drift
+- Added `onPointerLeave` — commits the selection if the user drags off the grid edge
+
+A spec describes the intended behaviour. Implementation must account for the real environment (mobile browsers, edge cases, timing).
+
+---
+
+## 50. Dead Code — Recognising and Removing Unreachable Functions
+
+### What dead code is
+
+Dead code is any code that can never execute at runtime. It compiles, it looks correct, but no code path ever reaches it. It's harmless to behaviour but harmful to maintenance: future readers assume it matters, spend time understanding it, and may accidentally try to wire it up.
+
+### The `handleWordSubmit` example
+
+In `RoundPlayer` (inside both `page.tsx` and `event-game-tab.tsx`), there was a function:
+
+```ts
+const handleWordSubmit = () => {
+  if (flash || !wordInput.trim()) return;
+  const correctAnswer: string = q?.correctAnswer ?? q?.answer ?? "";
+  const isCorrect = wordInput.trim().toLowerCase() === correctAnswer.trim().toLowerCase();
+  const newAnswers = [...answers];
+  newAnswers[currentQ] = wordInput;
+  setAnswers(newAnswers);
+  setFlash({ selected: wordInput, correct: correctAnswer, isCorrect });
+  setTimeout(() => advance(wordInput, newAnswers), 800);
+};
+```
+
+It looks reasonable — it handles submitting a typed word answer. But it was never called.
+
+**Why it could never be called:** `RoundPlayer` handles multiple game types. When `gameType === "word-puzzle"`, the component exits early:
+
+```ts
+// ── Word Puzzle: delegate entirely to the grid player ──────────────────────
+if (gameType === "word-puzzle") {
+  if (finalScore !== null) {
+    // fall through to score screen
+  } else if (!waitingForResult) {
+    return (
+      <WordPuzzleRoundPlayer   // ← exits here — renders the grid player
+        questions={questions}
+        onAllComplete={async (wordAnswers) => { ... }}
+      />
+    );
+  }
+}
+```
+
+The execution path for word-puzzle never reaches the rest of `RoundPlayer`. There's no text input rendered. `handleWordSubmit` is wired to nothing. It's unreachable.
+
+### How to identify dead code
+
+**Signal 1 — TypeScript hints**
+
+TypeScript reports `'handleWordSubmit' is declared but its value is never read` as a hint (code `6133`). This is TypeScript telling you directly that nothing references this identifier. Treat these hints seriously — they're almost always pointing at real dead code.
+
+**Signal 2 — Early returns that bypass everything**
+
+When a function has an early return that covers a whole case:
+
+```ts
+if (gameType === "word-puzzle") {
+  return <WordPuzzleRoundPlayer ... />;  // exits here for ALL word-puzzle games
+}
+
+// Everything below here is never reached for word-puzzle
+const handleWordSubmit = () => { ... };  // dead
+```
+
+Trace the control flow for each case. If a case exits early and a function is only relevant to that case, the function is dead.
+
+**Signal 3 — Nothing calls it**
+
+Search the file for the function name. If the only match is the declaration, it's dead.
+
+```bash
+grep -n "handleWordSubmit" event-game-tab.tsx
+# 807:  const handleWordSubmit = () => {
+# Only one result — the declaration. Nothing calls it.
+```
+
+### What to do about dead code
+
+**Delete it.** Don't comment it out, don't add a `// TODO: use this later` comment, don't leave it "just in case." If it's unreachable now, it will stay unreachable — and if you genuinely need it later, git history has it.
+
+The one exception: if there's a real, imminent plan to wire it up (e.g. "we're adding a text input mode for word puzzle next sprint"), keep it and add a comment explaining why. But "might be useful someday" is not a reason to keep dead code.
+
+### Handling truly unused parameters
+
+Sometimes a function signature must match a certain shape even when you don't use all the parameters. TypeScript's convention is to prefix unused parameters with `_`:
+
+```ts
+// ❌ Unused parameter — TypeScript reports hint 6133
+const advance = async (selectedAnswer: number | string, allAnswers: (number | string)[]) => {
+  // selectedAnswer is never used inside the function body
+};
+
+// ✅ Underscore prefix — tells TypeScript (and readers) "intentionally unused"
+const advance = async (_selectedAnswer: number | string, allAnswers: (number | string)[]) => {
+  // The _ prefix suppresses the hint and communicates intent
+};
+```
+
+The underscore is a widely recognised convention across TypeScript, JavaScript, Python, Rust, and Go. It means "I know this parameter exists and I'm deliberately not using it."
+
+**When to use `_` vs just removing the parameter:**
+- Use `_` when the parameter is part of a required signature (callback shape, interface, event handler)
+- Delete the parameter entirely when it's your own internal function and you can freely change the signature
+
+In this project, `advance` is called via `setTimeout(() => advance(idx, newAnswers), 800)` and the first arg is passed even though `advance` doesn't use it. Changing the call site to `advance(newAnswers)` would also work, but the `_` approach is simpler and makes the intent obvious without restructuring the calls.
+
+### Also cleaned up — inline event handlers
+
+```tsx
+// ❌ Unused event parameter
+onPointerLeave={(e) => {
+  if (isDrawing.current && startCell.current) { ... }
+}}
+
+// ✅ Remove unused param
+onPointerLeave={() => {
+  if (isDrawing.current && startCell.current) { ... }
+}}
+```
+
+Same principle: if you're not using the event object, don't declare it. Keeps the code honest.
+
+### Summary — dead code checklist
+
+When reviewing code:
+
+1. **Check TypeScript hints** — `'X' is declared but its value is never read` means dead code
+2. **Trace early returns** — any function that "handles" a case already covered by an early return is dead
+3. **Search for callers** — if nothing calls a function, it's dead
+4. **Remove it** — don't leave "just in case" dead code; use git history if you ever need it back
+5. **Prefix unused params** — `_paramName` instead of deleting when the signature must match a required shape
 
 ---
 
