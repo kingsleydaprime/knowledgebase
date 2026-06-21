@@ -57,6 +57,8 @@ Written for someone who has never touched Next.js but wants to understand it fro
 48. [Tab Switching and Sockets — Effect Dependencies](#48-tab-switching-and-sockets--effect-dependencies)
 49. [Word Puzzle — Auditing an Implementation Against a Design Spec](#49-word-puzzle--auditing-an-implementation-against-a-design-spec)
 50. [Dead Code — Recognising and Removing Unreachable Functions](#50-dead-code--recognising-and-removing-unreachable-functions)
+51. [Anonymous Game Play — Playing Without an Account](#51-anonymous-game-play--playing-without-an-account)
+52. [Already-Played Guard — Preventing Double Submissions](#52-already-played-guard--preventing-double-submissions)
 
 ---
 
@@ -4896,4 +4898,406 @@ When reviewing code:
 
 ---
 
-*This guide covers the NextVibe frontend as of May 2026. Update it when significant architectural changes are made.*
+---
+
+## 51. Anonymous Game Play — Playing Without an Account
+
+### The problem
+
+Game rounds can be shared publicly via a `shareToken` link (`/game/<token>`). Users who aren't logged in should still be able to play — forcing login before play kills conversion for viral links. But anonymous play has to integrate with the authenticated leaderboard, rewards, and scoring system once the user does log in.
+
+The solution has four moving parts:
+1. A random guest ID stored in localStorage
+2. Three backend anonymous endpoints (join, submit, merge)
+3. A post-auth merge flow that converts anonymous scores to real account scores
+4. UX guards and prompts at the score screen
+
+---
+
+### The anonymous game library — `src/lib/anonymous-game.ts`
+
+All localStorage interaction is centralised here so nothing reads/writes `localStorage` directly in components:
+
+```typescript
+const ANON_STORAGE_KEY = "nv_anon_game";
+
+interface AnonGameData {
+  anonymousId: string;
+  sessions: AnonPendingSession[];
+}
+
+export interface AnonPendingSession {
+  sessionId: string;
+  eventId: string;
+  eventName: string;
+}
+
+// Read the anonymous ID (returns null if no session exists)
+export function getAnonymousId(): string | null {
+  const raw = localStorage.getItem(ANON_STORAGE_KEY);
+  if (!raw) return null;
+  try { return JSON.parse(raw).anonymousId ?? null; } catch { return null; }
+}
+
+// Save after a successful anonymous join
+export function saveAnonSession(
+  anonymousId: string,
+  session: AnonPendingSession
+): void {
+  const existing = getAllAnonData();
+  const sessions = existing?.sessions ?? [];
+  // dedup: don't add the same session twice
+  if (!sessions.some(s => s.sessionId === session.sessionId)) {
+    sessions.push(session);
+  }
+  localStorage.setItem(ANON_STORAGE_KEY, JSON.stringify({ anonymousId, sessions }));
+}
+
+// Get the list of pending sessions (for the merge dialog)
+export function getPendingSessions(): AnonPendingSession[] {
+  return getAllAnonData()?.sessions ?? [];
+}
+
+// Wipe everything after merge completes or user skips merge
+export function clearAnonGameData(): void {
+  localStorage.removeItem(ANON_STORAGE_KEY);
+}
+```
+
+**Why localStorage, not a cookie?**
+
+The anonymous ID must survive page reloads and browser closes (not just the session). Cookies could work, but localStorage is simpler here — anonymous game data has no security sensitivity and doesn't need to be sent to the server on every request (we send it explicitly in API call bodies).
+
+---
+
+### RTK Query endpoints — `eventApi.ts`
+
+Three mutations handle the anonymous lifecycle:
+
+```typescript
+// Join a game session anonymously
+anonymousJoinGame: builder.mutation<
+  { data: { anonymousId: string; sessionId: string; eventId: string; eventName: string } },
+  { token: string; anonymousId?: string }
+>({
+  query: ({ token, anonymousId }) => ({
+    url: `/v1/games/anonymous/join/${token}`,
+    method: "POST",
+    body: anonymousId ? { anonymousId } : {},
+  }),
+}),
+
+// Submit answers for a round as an anonymous player
+anonymousSubmitRound: builder.mutation<
+  { data: { score: number } },
+  { roundId: string; answers: number[]; anonymousId: string }
+>({
+  query: ({ roundId, answers, anonymousId }) => ({
+    url: `/v1/games/anonymous/rounds/${roundId}/submit`,
+    method: "POST",
+    body: { answers, anonymousId },
+  }),
+}),
+
+// Merge anonymous scores into the now-authenticated user's account
+mergeAnonymousSessions: builder.mutation<
+  void,
+  { anonymousId: string; confirmedEventIds: string[] }
+>({
+  query: ({ anonymousId, confirmedEventIds }) => ({
+    url: `/v1/games/anonymous/merge`,
+    method: "POST",
+    body: { anonymousId, confirmedEventIds },
+  }),
+}),
+```
+
+Exported hooks: `useAnonymousJoinGameMutation`, `useAnonymousSubmitRoundMutation`, `useMergeAnonymousSessionsMutation`.
+
+---
+
+### `PUBLIC_PATHS` — preventing the 401 redirect loop
+
+The `baseQueryWithReauth` in `src/app/provider/api/baseQuery.ts` redirects to `/auth/login?from=<current>` whenever an API call returns 401 and the user isn't logged in. This is correct for authenticated pages, but on a public game page an anonymous player will get 401 from authenticated endpoints (like `getGameSession`) — and should NOT be redirected to login.
+
+The fix: a `PUBLIC_PATHS` allowlist checked before any 401 redirect:
+
+```typescript
+const PUBLIC_PATHS = [
+  "/events",
+  "/dashboard/events",
+  "/postcards",
+  "/postcard",
+  "/dashboard/postcards",
+  "/game",     // ← added for the public game share page
+];
+
+function isPublicPath(pathname: string): boolean {
+  return PUBLIC_PATHS.some(
+    (p) => pathname === p || pathname.startsWith(p + "/")
+  );
+}
+
+// In the 401 handler:
+if (!isPublicPath(window.location.pathname)) {
+  clearSessionAndRedirect();
+}
+```
+
+**Why `/game` specifically?** The public game page at `/game/<token>` calls `getGameSessionByToken` which is a protected endpoint — it returns 401 when called without a token. Without this guard, an anonymous user landing on `/game/abc` would get immediately redirected to login before they even see the game.
+
+Note: this is different from `PUBLIC_ROUTES` in `src/proxy.ts` (server-side middleware). The `PUBLIC_PATHS` check is purely client-side — it only prevents `baseQueryWithReauth` from redirecting to login on 401.
+
+---
+
+### Anonymous join on the event game tab
+
+The event game tab (`event-game-tab.tsx`) handles two surfaces: authenticated and unauthenticated. The join flow detects which path to take:
+
+```typescript
+const [anonymousJoin] = useAnonymousJoinGameMutation();
+const [anonId, setAnonId] = useState<string | null>(() => getAnonymousId());
+
+// In handleJoin:
+if (!isLoggedIn) {
+  // Primary source: allSessions (from useGetGamesQuery) — always available synchronously
+  const sessionFromList = allSessions.find((s: any) => s.id === sessionId);
+  const shareToken: string | undefined =
+    sessionFromList?.shareToken ?? sessionDataMap[sessionId]?.shareToken;
+
+  if (shareToken) {
+    try {
+      const existingAnonId = getAnonymousId();
+      const res = await anonymousJoin({
+        token: shareToken,
+        anonymousId: existingAnonId ?? undefined,
+      }).unwrap();
+
+      const payload = res?.data ?? res;
+      saveAnonSession(payload.anonymousId, {
+        sessionId: payload.sessionId,
+        eventId: payload.eventId,
+        eventName: payload.eventName,
+      });
+      setAnonId(payload.anonymousId);
+    } catch { /* fall through — join locally only */ }
+  }
+
+  markSessionJoined(sessionId);
+  setActiveSessionId(sessionId);
+  toast.success("You're in! Sign in after to save your score.");
+  return;
+}
+
+// Authenticated join path follows...
+```
+
+**The `sessionDataMap` race condition:**
+
+`sessionDataMap` is populated by async `SessionFetcher` components. If the user clicks "Join" immediately after the page loads, those fetches may not have resolved yet — `sessionDataMap[sessionId]` would be `undefined`.
+
+The fix: use `allSessions` (from `useGetGamesQuery`) as the primary source. `allSessions` comes from the top-level games list query that loaded before the user saw anything. `sessionDataMap` is only used as a fallback if for some reason `shareToken` isn't on the list entry:
+
+```typescript
+const shareToken: string | undefined =
+  sessionFromList?.shareToken ??   // ← synchronous, always available
+  sessionDataMap[sessionId]?.shareToken;  // ← async fallback
+```
+
+Why does `shareToken` appear on the list result? Because Prisma returns all scalar fields by default — `shareToken` is a scalar on `GameSession`, so it comes back in the list query without explicit `select`.
+
+---
+
+### Anonymous submit — and the stale closure trap
+
+After the user answers a round, `handleSubmit` must decide whether to call the anonymous or authenticated endpoint:
+
+```typescript
+// Inside handleSubmit (event-game-tab.tsx):
+const effectiveAnonId = anonId ?? getAnonymousId(); // ← read localStorage as fallback
+const isLoggedIn = !!Cookies.get("accessToken");
+
+if (!isLoggedIn && effectiveAnonId) {
+  try {
+    const res = await anonymousSubmit({
+      roundId: playingRoundId,
+      answers: submittedAnswers,
+      anonymousId: effectiveAnonId,
+    }).unwrap();
+    const payload = res?.data ?? res;
+    return { ok: true, score: payload.score ?? 0 };
+  } catch {
+    return { ok: false };
+  }
+}
+```
+
+**Why `anonId ?? getAnonymousId()`?**
+
+React state (`anonId`) is captured at render time. `handleSubmit` is often called inside a `setTimeout` callback (e.g., 800ms after the user selects their final answer to show the result animation). If `setAnonId()` was called between render and the timeout firing, the closure still holds the old value.
+
+Reading `getAnonymousId()` directly from localStorage breaks out of the closure — localStorage is always current. This pattern (`stateVar ?? readFromSource()`) is the general fix for stale closure problems where the source of truth is outside React.
+
+---
+
+### Post-auth merge — `use-anon-merge.ts`
+
+After a successful login (Google or email), the `handlePostAuth` function runs before redirecting the user:
+
+```typescript
+export function useAnonMerge() {
+  async function handlePostAuth(onDone: () => void) {
+    const hasPending = checkPending();  // checks localStorage for pending sessions
+    if (!hasPending) { onDone(); return; }
+
+    const sessions = getPendingSessions();
+    const uniqueEventIds = [...new Set(sessions.map(s => s.eventId))];
+
+    if (uniqueEventIds.length === 1) {
+      // Single event — merge silently without asking
+      await mergeAndClear(uniqueEventIds);
+      onDone();
+    } else {
+      // Multiple events — show dialog so user can choose which to keep
+      setShowDialog(true);
+    }
+  }
+
+  async function mergeAndClear(confirmedEventIds: string[]) {
+    const anonymousId = getAnonymousId();
+    if (!anonymousId) { clearAnonGameData(); return; }
+
+    try {
+      await mergeSessions({ anonymousId, confirmedEventIds }).unwrap();
+    } catch {
+      // best-effort — if merge fails, don't block the user
+    } finally {
+      clearAnonGameData();  // ← ALWAYS clears, whether merge succeeded or failed
+      setShowDialog(false);
+    }
+  }
+}
+```
+
+**The `finally` block is critical.** It runs even if `mergeSessions` throws. This ensures:
+- If merge succeeds → data is cleared ✓
+- If merge fails (network, server error) → data is still cleared ✓
+- After logout, the next anonymous play session starts fresh ✓
+
+**Where `handlePostAuth` is called:**
+
+Both the Google login button (`google-login-button.tsx`) and the email login form call `handlePostAuth` as the last step before `router.replace(destination)`. The call order is:
+
+```
+login succeeds → dispatch(setUser) → dispatch(setIsAuthenticated(true)) →
+await handlePostAuth(() => router.replace(destination))
+```
+
+`handlePostAuth` either calls `onDone()` immediately (no pending sessions) or shows the `AnonymousMergeDialog` (multiple events to choose from). `onDone` is the redirect — so the user only navigates away after the merge completes.
+
+---
+
+### Login prompt on the score screen
+
+After completing a round anonymously, the score screen shows a nudge to log in:
+
+```tsx
+// In RoundPlayer's score screen (both page.tsx and event-game-tab.tsx):
+{isAnonymous && (() => {
+  const from = encodeURIComponent(`/game/${token}`);
+  return (
+    <div className="w-full rounded-xl border border-[#5B1A57]/20 bg-[#5B1A57]/5 p-3 text-center space-y-1.5">
+      <p className="text-xs text-muted-foreground font-medium">
+        Log in to see the full leaderboard &amp; keep your score
+      </p>
+      <div className="flex gap-3 justify-center">
+        <a href={`/auth/login?from=${from}`}
+           className="text-xs font-semibold text-[#5B1A57] hover:underline">
+          Log in
+        </a>
+        <span className="text-xs text-muted-foreground">·</span>
+        <a href={`/auth/register?from=${from}`}
+           className="text-xs font-semibold text-[#5B1A57] hover:underline">
+          Sign up
+        </a>
+      </div>
+    </div>
+  );
+})()}
+```
+
+**Why `<a>` not `<Link>`?** The `?from=` redirect must survive a full page navigation through the auth flow (login page → redirect back). `<a>` triggers a full navigation, which is correct here. `<Link>` does a client-side navigation within Next.js's router, which works fine here too — but `<a>` is slightly clearer for "navigating to a different section of the app."
+
+In `event-game-tab.tsx`, `isAnonymous` is detected via `!Cookies.get("accessToken")` since `isAuthenticated` (Redux state) may not reflect the cookie state during the brief window after a logout.
+
+---
+
+## 52. Already-Played Guard — Preventing Double Submissions
+
+### The problem
+
+A user completes a game round. If they then open the round URL again (directly, via back button, or by clicking a shared link), they would see the question list and could potentially submit again. The backend rejects duplicate submissions (`@@unique([gameRoundId, userId])`), but the UX should not even show the questions — it should show a "you already played this" screen.
+
+### Two signals, one guard
+
+The already-played state is detected from two sources:
+
+```typescript
+// Source 1: local React state (set immediately when user submits in this session)
+const [playedRounds, setPlayedRounds] = useState<Set<string>>(new Set());
+
+// Source 2: backend-persisted flag (loaded with the session data)
+const roundAlreadyPlayed =
+  playedRounds.has(playingRoundId) ||
+  !!sessionDetail?.rounds?.find(r => r.id === playingRoundId)?.hasPlayed;
+```
+
+`playedRounds` is the fast path — it works immediately within the same browser session without a network round-trip. `hasPlayed` is the durable path — it persists across browser sessions and devices.
+
+When `roundAlreadyPlayed` is true, the guard renders a completion screen instead of the questions:
+
+```tsx
+if (roundAlreadyPlayed) {
+  return (
+    <div className="flex flex-col items-center gap-4 py-10 text-center">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+        <CheckCircle2 className="h-9 w-9 text-green-600" />
+      </div>
+      <div>
+        <h3 className="text-lg font-bold">Round already completed</h3>
+        <p className="text-sm text-muted-foreground mt-1">
+          You've already submitted your answers for this round.
+        </p>
+      </div>
+      {myEntry?.score !== undefined && (
+        <p className="text-sm">Your score: <strong>{myEntry.score}</strong></p>
+      )}
+      <Button onClick={() => setPlayingRoundId(null)}>Back to Lobby</Button>
+    </div>
+  );
+}
+```
+
+### Where the guard lives
+
+The guard appears in two places:
+- **`/game/[token]/page.tsx`** — the public share link page, before rendering `PublicRoundPlayer`
+- **`event-game-tab.tsx`** — the in-app event game tab, in the `if (playingRoundId)` block
+
+Both use the same pattern. The `myEntry?.score` is only available on the public page (where the user's `GameEntry` is loaded from the session data) — on the event tab, only the "already played" message is shown without a score.
+
+### Why check `sessionDetail?.rounds` rather than just `playedRounds`?
+
+`playedRounds` is in-memory state. If the user:
+1. Plays a round on their phone
+2. Later opens the same round URL on their laptop
+
+...their laptop's React state has no knowledge of what their phone played. `hasPlayed` is stored server-side and comes back with the session data, so it covers cross-device cases.
+
+### Backend `hasPlayed` field
+
+`hasPlayed` is a computed or stored field on `GameRound` that the backend returns as part of the session detail. It reflects whether the current authenticated user has a `GameEntry` row for that round. For anonymous users, this field is not present — the guard falls back to `playedRounds` only.
+
+---
+
+*This guide covers the NextVibe frontend as of June 2026. Update it when significant architectural changes are made.*
