@@ -2842,6 +2842,42 @@ MinIO itself has a configuration variable called `MINIO_SERVER_URL`. This tells 
 
 On Railway, MinIO's `MINIO_SERVER_URL` should be set to `https://minio-production-5cff.up.railway.app`. This is separate from anything in your NestJS `.env` — it's a MinIO server environment variable.
 
+### Cloudflare R2 as the Migration Path
+
+The root cause of slow uploads on this project is Railway-hosted MinIO: Railway throttles bandwidth and containers cold-start. Cloudflare R2 is the recommended migration target.
+
+R2 is 100% S3-compatible — same API, same SDK, same request format. Migrating requires **only environment variable changes**, no code changes:
+
+```bash
+# MinIO on Railway (current)
+MINIO_ENDPOINT=minio-production-5cff.up.railway.app
+MINIO_ACCESS_KEY=minioadmin
+MINIO_SECRET_KEY=your-secret
+MINIO_BUCKET_NAME=nextvibe
+MINIO_USE_SSL=true
+MINIO_PORT=443
+CDN_BASE_URL=https://minio-production-5cff.up.railway.app/nextvibe
+
+# Cloudflare R2 (same code, different env vars)
+MINIO_ENDPOINT=<account-id>.r2.cloudflarestorage.com
+MINIO_ACCESS_KEY=your-r2-access-key-id
+MINIO_SECRET_KEY=your-r2-secret-access-key
+MINIO_BUCKET_NAME=nextvibe
+MINIO_USE_SSL=true
+MINIO_PORT=443
+CDN_BASE_URL=https://pub-<hash>.r2.dev
+```
+
+The `StorageService` (AWS SDK v3 S3 client) and `UploadService` (`minio` npm package) both read from env vars and both are S3-compatible clients — they work with R2 without modification.
+
+**Why R2 is better than Railway-hosted MinIO:**
+- $0 egress fees — data transfer out of R2 is free (Railway charges bandwidth per GB)
+- No cold starts — R2 is Cloudflare's edge network, always warm
+- Better global performance — files served from Cloudflare's CDN edge nodes
+- No self-managed instance — Cloudflare handles availability, scaling, backups
+
+**Short-term fix without migrating:** Use `browser-image-compression` on the client side before the XHR upload. A 5 MB photo compresses to ~200–400 KB, making uploads 10–15× faster regardless of the storage backend. This is complementary to R2, not a replacement.
+
 ---
 
 ## Part 35 — Presigned URLs: How the Signature Actually Works
@@ -4344,4 +4380,220 @@ This is the right pattern for "cleanup that must happen regardless of success or
 
 ---
 
-*Document covers codebase as of June 2026. Module list: Auth, Users, Events (+ RSVP), Tickets, Payments (Juicyway + Ercaspay), Billing (Pricing, Coupons, OrganizerPayments), Games (Sessions, Rounds, Rewards, AI generation via Gemini + OpenRouter, Anonymous Play + Merge), Notifications (WebSocket + Resend), Social (Follows, Likes, Comments, Shares, Feed), Messaging (DMs + EventChat), Storage, Discovery, Admin, VibeTags, Postcards.*
+## Part 50 — The Pledge Module
+
+The pledge system lets users financially support the platform. Unlike event tickets, pledges are platform-wide donations — they don't grant event access. The module lives at `src/modules/pledges/`.
+
+### What pledges are
+
+Pledges are voluntary support contributions. Users select a tier, pay, and get listed as a supporter. Key distinctions from tickets:
+- Priced in USD internally, charged in NGN at conversion time
+- Work for guests (unauthenticated users) — `email` and `name` required in body
+- Eight hardcoded tiers from $5 (Vibe Watcher) to $500 (Vibe King)
+
+### Hardcoded tiers vs database tiers
+
+Pledge tiers are defined as constants in the service, not stored in a database table:
+
+```typescript
+const PLEDGE_TIERS: Record<string, { priceUsd: number; label: string }> = {
+  vibewatcher:    { priceUsd: 5,   label: 'Vibe Watcher' },
+  vibesupporter:  { priceUsd: 10,  label: 'Vibe Supporter' },
+  vibefan:        { priceUsd: 25,  label: 'Vibe Fan' },
+  vibeenthusiast: { priceUsd: 50,  label: 'Vibe Enthusiast' },
+  vibechampion:   { priceUsd: 100, label: 'Vibe Champion' },
+  vibepatron:     { priceUsd: 150, label: 'Vibe Patron' },
+  vibemaestro:    { priceUsd: 250, label: 'Vibe Maestro' },
+  vibeking:       { priceUsd: 500, label: 'Vibe King' },
+};
+```
+
+This is appropriate when: tier prices are controlled by the platform (not configurable per-organizer), changes are infrequent, and the tier set is small enough that a code deploy is acceptable for updates. The alternative (database tiers) is better when admins need to manage tiers from a dashboard without a deploy.
+
+### USD → NGN conversion
+
+```typescript
+const USD_TO_NGN = 1500; // set as a constant; in production this should come from a forex API or config
+
+const amountNgn = tier.priceUsd * quantity * USD_TO_NGN;
+```
+
+The Ercaspay checkout is initiated with the NGN amount. Both `totalUsd` and `totalNgn` are stored on the `Pledge` record for display and audit.
+
+### Guest support
+
+`POST /pledges/initiate` is `@Public()`. For unauthenticated users, `email` and `name` are required in the request body. For authenticated users, these are pulled from the JWT-decoded user. The controller branches on whether a user is present:
+
+```typescript
+@Post('initiate')
+@Public()
+async initiate(@Body() dto: InitiatePledgeDto, @CurrentUser() user?: JwtPayload) {
+  // user is undefined for guests — guard is @Public() so it doesn't reject
+  return this.pledgesService.initiate(dto, user?.sub);
+}
+```
+
+The service stores `userId: null` for guests and stores the email from the DTO for receipt purposes. If the guest later creates an account with the same email, their pledges can be linked manually or via a merge endpoint.
+
+### The three endpoints
+
+```
+POST /v1/pledges/initiate        — @Public()
+  Body: { tierId, quantity?, email?, name? }
+  Returns: { pledgeId, checkoutUrl, totalNgn, totalUsd, expiresAt }
+
+GET /v1/pledges/verify/:pledgeId — @Public()
+  Returns: { status: PENDING|COMPLETED|FAILED|EXPIRED, pledge: {...} }
+
+GET /v1/pledges/my               — auth required
+  Returns: paginated list of user's pledges, newest first
+```
+
+---
+
+## Part 51 — Ercaspay Payment Internals: NGN Amounts, Webhook Branching, and Notification Enrichment
+
+### Ercaspay stores amounts in NGN, not kobo
+
+Unlike Stripe (which uses the smallest currency unit — kobo for NGN), Ercaspay uses **full currency amounts**. ₦5,000 is stored as `5000`, not `500000`. This distinction matters because:
+
+- If you divide by 100 before displaying, ₦5,000 becomes ₦50 — a 100× error
+- The database stores the number Ercaspay returned — no conversion needed on read
+
+The bug that appeared: the ticket purchase email had `totalAmount / 100` carried over from a previous Monnify integration. Monnify used kobo; Ercaspay does not. Fix: `params.totalAmount.toLocaleString()` with no division.
+
+**Rule:** always check whether a payment provider uses major currency units (NGN) or minor units (kobo/cents). Ercaspay = NGN. Stripe = kobo/cents.
+
+### Webhook dispatch branching
+
+The single Ercaspay webhook endpoint routes a `payment_reference` to different processors in order. Each processor returns `null` if the reference doesn't belong to its domain:
+
+```
+Webhook arrives with payment_reference
+      │
+      ▼
+Branch A: Is this an organizer plan payment?
+  orgPaymentsService.processPayment(reference)
+  → Found: { status: 'ORGANIZER_PLAN_ACTIVATED' }
+  → Not found: returns null → fall through
+      │
+      ▼
+Branch B: Is this a pledge?
+  pledgesService.processWebhookPayment(reference)
+  → Found: { status: 'PLEDGE_COMPLETED', ... }
+  → Not found: returns null → fall through
+      │
+      ▼
+Branch C: Must be a ticket purchase
+  paymentsService.processWebhookPayment(reference)
+```
+
+This pattern lets a single webhook URL handle all payment types without separate endpoints registered per domain. Each service only processes references it created — branches never conflict.
+
+### Public UUID-as-access-token pattern
+
+`GET /v1/payments/purchases/:purchaseId/summary` is `@Public()`. The purchase UUID (128-bit, 2^122 possible values) is the access control — computationally infeasible to brute-force. No login required to fetch the confirmation data.
+
+This pattern is appropriate when:
+- The protected data (a purchase receipt) is the user's own — not sensitive to other users
+- The confirmation page needs to work even if the user isn't logged in at that moment (e.g. checkout opened in a different browser session)
+- You don't want to force a login flow just to show "your tickets are confirmed"
+
+**Route ordering is critical:** `GET /purchases/:id/summary` must be declared BEFORE `GET /purchases/:id` in the controller. Otherwise NestJS matches the literal string `"summary"` as the `:id` param and tries to parse it as a UUID, producing a 400. This is a specific instance of the static-before-parameterized rule from Part 42.
+
+### Enriched ticket purchase email
+
+`notifyTicketPurchased` was updated to send a full HTML email with event context and individual ticket numbers. New signature:
+
+```typescript
+async notifyTicketPurchased(params: {
+  userId: string; email: string; displayName: string; purchaseId: string;
+  eventName: string; description?: string | null; eventDate: Date;
+  eventEndDate?: Date | null; locationName?: string | null;
+  tickets: { ticketNumber: string; tierName: string }[];
+  totalAmount: number;  // in NGN, no division — display directly
+})
+```
+
+The webhook handler builds the ticket list after issuing tickets:
+
+```typescript
+const tierMap: Record<string, string> = {};
+for (const t of purchase.event.ticketTiers) { tierMap[t.id] = t.name; }
+
+this.notificationsService.notifyTicketPurchased({
+  ...purchaseData,
+  tickets: issuedTickets.map(t => ({
+    ticketNumber: t.ticketNumber,
+    tierName: tierMap[t.ticketTierId] ?? 'General',
+  })),
+}).catch(e => this.logger.error(`notifyTicketPurchased failed: ${e?.message}`));
+```
+
+The `.catch()` is mandatory — a failed email must not crash the webhook handler. Tickets have already been issued; the confirmation email is best-effort.
+
+---
+
+## Part 52 — Notification Coverage Audit
+
+Not all `NotificationType` enum values are wired to actual calls in the codebase. Tracking this prevents silent gaps where users expect a notification but receive nothing.
+
+### Current status
+
+| Type | Status | Where it fires |
+|---|---|---|
+| `TICKET_PURCHASED` | ✅ Wired | `payments.service.ts` — after Ercaspay webhook |
+| `GAME_RESULT` | ✅ Wired (added June 2026) | `games.service.ts` — in `distributeRoundRewards` |
+| `GAME_UNLOCKED` | ✅ Wired | `organizer-payments.service.ts` — on plan activation |
+| `PAYMENT_CONFIRMED` | ✅ Wired | organizer payment webhook |
+| `PAYMENT_FAILED` | ✅ Wired | organizer payment webhook |
+| `EVENT_PUBLISHED` | ✅ Wired | events service on publish |
+| `VIBETAG_ACTIVATED` | ✅ Wired | vibetag service |
+| `EVENT_REMINDER` | ✅ Wired | daily cron job |
+| `FOLLOW` | ✅ Wired | social service |
+| `LIKE` | ✅ Wired | social service |
+| `COMMENT` | ✅ Wired | social service |
+| `RSVP` | ✅ Wired | events service |
+| `CHECK_IN` | ❌ Not wired | No code calls this — would fire when an attendee checks in |
+| `TAG` | ❌ Not wired | No code calls this — would fire when tagged in a postcard |
+
+### How GAME_RESULT was added
+
+`GamesService.distributeRoundRewards` loops through all entries to calculate rewards. After the loop, a notification fires for each participant:
+
+```typescript
+// 1. GamesModule imports NotificationsModule
+@Module({
+  imports: [PaymentsModule, NotificationsModule],
+  ...
+})
+
+// 2. GamesService constructor
+constructor(
+  private prisma: PrismaService,
+  private payments: PaymentsService,
+  private notifications: NotificationsService,
+) {}
+
+// 3. Inside distributeRoundRewards, after the reward creation loop:
+for (const entry of entries) {
+  if (entry.userId) {
+    this.notifications.create({
+      recipientId: entry.userId,
+      type: NotificationType.GAME_RESULT,
+      targetType: NotificationTarget.GAME,
+      targetId: roundId,  // frontend deep-links to the round's results screen
+    }).catch(() => null);  // best-effort — notification failure does not affect rewards
+  }
+}
+```
+
+Note: anonymous players (`entry.userId === null`) don't get notifications — they have no account to receive them. The `if (entry.userId)` guard handles this.
+
+### Avoiding circular imports
+
+`GamesModule` already imports `PaymentsModule`. Adding `NotificationsModule` is safe because `NotificationsModule` doesn't import `GamesModule` — no cycle. If a circular dependency appeared, the fix would be to move the notification call out of `GamesService` into an event-emitter or a separate coordination service.
+
+---
+
+*Document covers codebase as of June 2026. Module list: Auth, Users, Events (+ RSVP), Tickets, Payments (Juicyway + Ercaspay), Pledges, Billing (Pricing, Coupons, OrganizerPayments), Games (Sessions, Rounds, Rewards, AI generation via Gemini + OpenRouter, Anonymous Play + Merge), Notifications (WebSocket + Resend), Social (Follows, Likes, Comments, Shares, Feed), Messaging (DMs + EventChat), Storage, Discovery, Admin, VibeTags, Postcards.*

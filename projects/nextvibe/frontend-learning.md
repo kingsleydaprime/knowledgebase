@@ -2776,6 +2776,112 @@ const onSubmit = async (values: BasicInfoFormValues) => {
 </Button>
 ```
 
+### Image Compression Before Upload — `browser-image-compression`
+
+Large phone photos (5–10 MB) make uploads slow regardless of the storage backend. Compressing client-side before the XHR reduces a typical photo from 5 MB to ~200–400 KB — a 10–15× improvement with no perceptible quality loss for event fliers.
+
+```bash
+npm install browser-image-compression
+```
+
+```ts
+import imageCompression from "browser-image-compression";
+
+const handleFlierChange = async (file: File) => {
+  if (file.size > 10 * 1024 * 1024) {
+    toast.warning("Flyer must be 10 MB or less.");
+    return;
+  }
+  setValue("flier", file, { shouldValidate: true });
+  setFlierUpload({ status: "uploading", progress: 0, url: null });
+
+  try {
+    // Compress images; pass non-image files straight through
+    const toUpload = file.type.startsWith("image/")
+      ? await imageCompression(file, {
+          maxSizeMB: 1,             // target ≤ 1 MB output
+          maxWidthOrHeight: 1920,   // cap at 1920px — enough for any flier
+          useWebWorker: true,       // runs off the main thread, UI stays responsive
+          fileType: "image/jpeg",   // always output JPEG for best size/quality ratio
+        })
+      : file;
+
+    const intent = await uploadIntent({
+      filename: file.name,
+      contentType: toUpload.type,
+      folder: "events",
+    }).unwrap();
+
+    await uploadFile(toUpload, intent.data.uploadUrl, (pct) =>
+      setFlierUpload((prev) => ({ ...prev, progress: pct }))
+    );
+    setFlierUpload({ status: "done", progress: 100, url: intent.data.fileUrl });
+  } catch {
+    setFlierUpload({ status: "error", progress: 0, url: null });
+    toast.error("Flyer upload failed. You can retry.");
+  }
+};
+```
+
+**Key options:**
+- `maxSizeMB: 1` — the library targets this size; it's a goal, not a guarantee
+- `useWebWorker: true` — compression runs in a background thread; no UI freeze even for large files
+- `fileType: "image/jpeg"` — forces JPEG output regardless of input (PNG → JPEG, WEBP → JPEG). Don't use for logos/icons with transparency — alpha channel is lost.
+
+**Why `intent.data.uploadUrl` (not `intent.uploadUrl`)?** The backend wraps all responses in a global `ResponseInterceptor` as `{ success: true, data: { ... } }`. RTK Query resolves the full response, so you access the payload at `result.data.uploadUrl`. Every successful API call from this backend follows this `{ success, data }` envelope shape.
+
+**No video compression client-side:** `browser-image-compression` only handles images. Video compression in the browser is too slow (minutes for large files). Users must pre-compress or stay within the size limit.
+
+### Video Format Validation
+
+Two checks before attempting a video upload — format first, then size:
+
+```ts
+const MAX_VIDEO_SIZE = 350 * 1024 * 1024; // 350 MB
+const ACCEPTED_VIDEO_TYPES = ["video/mp4", "video/quicktime", "video/webm"];
+
+const handleVideoChange = async (file: File) => {
+  // Format check first — an unsupported format is completely unrecoverable
+  if (!ACCEPTED_VIDEO_TYPES.includes(file.type)) {
+    toast.error("Please upload an MP4, MOV, or WebM video.");
+    return;
+  }
+  // Size check second — a large MP4 is at least redeemable (user can re-encode it)
+  if (file.size > MAX_VIDEO_SIZE) {
+    toast.error("Video must be 350 MB or less.");
+    return;
+  }
+  // proceed with upload (same presigned URL pattern, no compression)
+};
+```
+
+**Format before size:** surface the more actionable error first. An unsupported format can't be uploaded at all; a large MP4 can be re-encoded.
+
+**Restrict the file picker:**
+```tsx
+<input type="file" accept="video/mp4,video/quicktime,video/webm" />
+```
+
+This filters the OS file dialog, but the `file.type` check in the handler is still required — users can bypass `accept` by typing a path directly.
+
+**Zod schema with two refines (separate error messages):**
+```ts
+promoVideo: z
+  .instanceof(File)
+  .optional()
+  .nullable()
+  .refine(
+    (f) => !f || ACCEPTED_VIDEO_TYPES.includes(f.type),
+    { message: "Video must be MP4, MOV, or WebM format" }
+  )
+  .refine(
+    (f) => !f || f.size <= MAX_VIDEO_SIZE,
+    { message: "Video must be 350 MB or less" }
+  ),
+```
+
+Two `.refine()` calls produce two distinct error messages. One combined refine would give a generic message for both failure modes.
+
 ---
 
 ## 32. Auth State on Public Pages — Cookies vs Redux
@@ -5297,6 +5403,127 @@ Both use the same pattern. The `myEntry?.score` is only available on the public 
 ### Backend `hasPlayed` field
 
 `hasPlayed` is a computed or stored field on `GameRound` that the backend returns as part of the session detail. It reflects whether the current authenticated user has a `GameEntry` row for that round. For anonymous users, this field is not present — the guard falls back to `playedRounds` only.
+
+---
+
+## 53. Ticket Purchase Confirmation — Public Summary Endpoint
+
+### The endpoint
+
+After Ercaspay redirects the user back from checkout, call:
+
+```
+GET /v1/payments/purchases/:purchaseId/summary
+Auth: none required — public endpoint
+```
+
+No auth header needed. The purchase UUID is the access control: a 128-bit UUID (2^122 possible values) is computationally infeasible to guess. This lets the confirmation page work even if the user isn't logged in at that moment.
+
+### Response shape
+
+```json
+{
+  "purchaseId": "uuid",
+  "paymentStatus": "COMPLETED",
+  "paidAt": "2026-06-25T10:00:00.000Z",
+  "totalAmount": 10000,
+  "currency": "NGN",
+  "customerName": "Kingsley Daprime",
+  "event": {
+    "id": "uuid",
+    "name": "Make Music Lagos 2026",
+    "startsAt": "2026-08-15T18:00:00.000Z",
+    "endsAt": "2026-08-15T23:00:00.000Z",
+    "locationName": "Eko Atlantic City, Lagos",
+    "flierUrl": "https://...",
+    "mode": "IN_PERSON"
+  },
+  "tickets": [
+    { "ticketNumber": "NV-AB12CD34", "tierName": "VIP", "tierPrice": 5000, "status": "VALID", "qrCode": "data:image/png;base64,..." },
+    { "ticketNumber": "NV-EF56GH78", "tierName": "VIP", "tierPrice": 5000, "status": "VALID", "qrCode": "data:image/png;base64,..." }
+  ]
+}
+```
+
+`totalAmount` is in NGN, full naira (not kobo) — display directly with `.toLocaleString()`.
+
+### Getting `purchaseId` to the confirmation page
+
+When initiating a purchase, the backend returns `purchaseId`. Pass it to Ercaspay's redirect URL:
+
+```ts
+// After initiatePurchase:
+const { purchaseId, checkoutUrl } = result;
+// Build your return URL:
+const returnUrl = `${origin}/tickets/confirm?purchaseId=${purchaseId}`;
+// Pass returnUrl to Ercaspay at checkout initiation
+```
+
+The confirmation page reads it:
+
+```tsx
+// Wrap in Suspense because useSearchParams() requires it
+export default function ConfirmPage() {
+  return (
+    <Suspense fallback={<TicketSkeleton />}>
+      <ConfirmPageInner />
+    </Suspense>
+  );
+}
+
+function ConfirmPageInner() {
+  const searchParams = useSearchParams();
+  const purchaseId = searchParams.get("purchaseId");
+  // ...
+}
+```
+
+### Polling for webhook delay
+
+There's a race condition: Ercaspay redirects the user before the webhook fires. The confirmation page may arrive when `paymentStatus` is still `PENDING`. Poll until `COMPLETED`:
+
+```ts
+const [attempts, setAttempts] = useState(0);
+const { data, refetch } = useGetPurchaseSummaryQuery(purchaseId ?? "", {
+  skip: !purchaseId,
+});
+
+const status = data?.data?.paymentStatus;
+const isPending = status === "PENDING" || !status;
+
+useEffect(() => {
+  if (!isPending || attempts >= 10) return;
+  const timer = setTimeout(() => {
+    refetch();
+    setAttempts((a) => a + 1);
+  }, 2000); // check every 2s, up to 10 attempts (~20s total)
+  return () => clearTimeout(timer);
+}, [isPending, attempts, refetch]);
+```
+
+After 10 attempts, show a "payment still processing" message and a manual refresh button rather than spinning forever.
+
+### Displaying individual tickets
+
+Each ticket in the response has its own `ticketNumber` and `qrCode` (base64 data URL). Render them in a list:
+
+```tsx
+{summary.tickets.map((ticket) => (
+  <div key={ticket.ticketNumber} className="rounded-xl border p-4 space-y-2">
+    <div className="flex justify-between items-center">
+      <div>
+        <p className="font-semibold">{ticket.tierName}</p>
+        <p className="text-xs text-muted-foreground font-mono">{ticket.ticketNumber}</p>
+      </div>
+      <p className="font-medium">₦{ticket.tierPrice.toLocaleString()}</p>
+    </div>
+    {ticket.qrCode && (
+      <img src={ticket.qrCode} alt={`QR for ${ticket.ticketNumber}`}
+           className="w-32 h-32 mx-auto" />
+    )}
+  </div>
+))}
+```
 
 ---
 
