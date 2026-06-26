@@ -77,9 +77,47 @@ Both modes are software-defined using the same chip:
 - **LoRaWAN end-node mode:** ESP32 runs a LoRaWAN stack (e.g., RadioLib or LMIC), SX1262 transmits join requests and data frames to a LoRaWAN network server
 
 **Required external components:**
-- TCXO or crystal for frequency accuracy (SX1262 supports both; TCXO preferred for LoRaWAN)
-- RF switch if sharing the antenna between TX and RX paths (SX1262 has a built-in switch but check application note)
-- 50Ω matched trace to U.FL connector or onboard antenna
+- 32 MHz crystal (Crystal_GND24 symbol in KiCad — 4-pin with grounded case) with 10pF load caps
+- PE4259 RF switch to route the single antenna between TX (RFO) and RX (RFI_N/RFI_P) paths — see Section 2A
+- RF matching network (copy values from SX1262 datasheet section 14.6.2 exactly)
+- U.FL coax connector (Conn_Coaxial in KiCad) for the antenna cable
+
+---
+
+## 2A. LoRa RF Switch
+
+### Selected: Skyworks PE4259
+
+| Spec | Value |
+|---|---|
+| Type | SPDT RF switch |
+| Frequency | DC – 3 GHz |
+| Insertion loss | ~0.4 dB |
+| Isolation | ~30 dB |
+| Control | Single logic pin (CTRL) |
+| Supply (CTRL/VDD) | 1.8 – 3.6V |
+| Package | SOT-26 (6-pin) |
+
+**Why it's needed:**  
+The SX1262 has separate TX (RFO) and RX (RFI_N / RFI_P) ports, but only one antenna is used. The PE4259 routes the shared antenna to the TX path when transmitting and the RX path when receiving. Without this switch, you would need two antennas or leave TX/RX permanently connected to the antenna (which degrades performance and risks damage).
+
+**How it is controlled:**  
+SX1262 DIO2 drives the CTRL pin via a 100Ω series resistor. The SX1262 automatically sets DIO2 HIGH during TX and LOW during RX. No firmware control needed — the chip handles it.
+
+| CTRL pin state | PE4259 routing |
+|---|---|
+| HIGH (TX) | RFC → RF1 (to SX1262 RFO) |
+| LOW (RX) | RFC → RF2 (to SX1262 RFI_N/RFI_P) |
+
+**Pin connections:**
+- CTRL (pin 4) → DIO2 via 100Ω resistor
+- CTRL/VDD (pin 6) → +3V3 (logic supply — no decoupling cap needed)
+- RFC (pin 5) → output matching network → U.FL connector
+- RF1 (pin 1) → SX1262 RFO matching network
+- RF2 (pin 3) → SX1262 RFI_N/RFI_P matching network
+- GND (pin 2) → GND
+
+**Symbol source:** Download from SnapEDA (not in KiCad standard library).
 
 ---
 
@@ -146,25 +184,28 @@ The ESP32-C6 has no Ethernet MAC. The W5500 offloads the entire TCP/IP stack to 
 
 ## 5. PoE Controller
 
-### Selected: Texas Instruments TPS23730
+### Selected: Texas Instruments PPS23730A0RMTT
+
+> **Updated during schematic phase:** The originally specified TPS23730 was not found in the KiCad standard library. The PPS23730A0RMTT was found instead — it is in the same TI PoE PD controller family and has compatible functionality with an integrated DC-DC controller. It has 47 pins.
 
 | Spec | Value |
 |---|---|
-| Standard | IEEE 802.3bt Type 3 (also compatible with 802.3af/at) |
-| Max power | 51W at PD input |
-| Internal switch | 0.3Ω (low heat) |
-| DC-DC controller | Integrated (current-mode, flyback/active-clamp forward) |
-| Classification | Class 1–6 supported |
-| Package | HTSSOP-48 |
+| Standard | IEEE 802.3af/at compatible |
+| DC-DC controller | Integrated |
+| Pins | 47 (complex — place now, wire last in schematic) |
+| Package | VQFN / similar |
 
-**Why TPS23730:**  
-It's a full PoE PD (Powered Device) controller + DC-DC controller in one chip. It handles the IEEE 802.3bt handshake with the PSE (the PoE switch/injector), draws power from the Ethernet cable, and steps it down to usable DC. The integrated DC-DC controller means fewer external ICs. The 51W ceiling is overkill for this board (we'll draw maybe 5–10W) but gives enormous headroom and ensures compatibility with any 802.3af/at/bt PSE.
+**Why PPS23730A0RMTT:**  
+It is a full PoE PD (Powered Device) controller + DC-DC controller in one chip. It handles the IEEE 802.3bt handshake with the PSE (the PoE switch/injector), draws power from the Ethernet cable, and steps it down to usable DC. Found in the KiCad standard library — avoids needing a custom symbol.
 
 **What it outputs:**  
-The TPS23730 drives an external transformer for isolation. The secondary side outputs ~12V or ~5V depending on transformer configuration. We'll target 5V output from the PoE stage, which then feeds into the power OR'ing circuit.
+Drives an external transformer for isolation. Secondary side outputs regulated DC, targeted at 5V to feed into the power OR'ing circuit (net label: `POE_5V`).
 
-**Alternative (simpler):**  
-If BOM cost or complexity is a concern, the **TPS2375** (8-pin, 802.3af only, ~15.4W max) + a separate DC-DC converter is a simpler approach. Downside: two chips, less power headroom. Recommend TPS23730 for this exploratory design given the brief asks for maximum features.
+**Schematic approach:**  
+Place the symbol early, leave all pins unconnected, wire it last using the PPS23730 datasheet application circuit. It is the most complex section of the schematic.
+
+**Original alternative noted:**  
+TPS2375 (8-pin, 802.3af only, ~15.4W) + separate DC-DC is simpler but has less power headroom.
 
 ---
 
@@ -294,7 +335,7 @@ Standard **push-push MicroSD slot** (e.g., Molex 1040310811 or Amphenol 101-0066
                │                         │
           LM66100 #1                LM66100 #2
                │                         │
-       TPS23730 (PoE)             USB-C 5V input
+       PPS23730A0RMTT (PoE)       USB-C 5V input
                │
        RJ45 + Magnetics
        (PoE 48V from switch)
@@ -312,11 +353,11 @@ Antennas (all via U.FL):
 ## 11. Open Questions
 
 - [ ] **Antenna placement:** All four antennas need to be separated on the PCB edge with ground plane cutouts beneath them. Need to decide board size and antenna layout before starting layout.
-- [ ] **SPI bus contention:** W5500, SX1262, and MicroSD share SPI. Verify max SPI clock compatibility across all three (W5500 supports 80MHz, SX1262 supports up to 16MHz, SD cards in SPI mode up to 25MHz — run the bus at 16MHz or give each its own SPI peripheral if ESP32-C6 has multiple).
+- [ ] **SPI bus contention:** W5500, SX1262, and MicroSD share SPI. SX1262 is the limiting device at 16 MHz — run the whole bus at 16 MHz.
 - [ ] **eSIM footprint:** Identify a specific eSIM module footprint to include as DNP pads. Candidates: Truphone TP-000-0001, Sierra Wireless WP7702.
-- [ ] **USB-C CC resistors:** For 5V/900mA default draw, two 5.1kΩ pull-down resistors on CC1 and CC2 are required. Confirm no PD controller is needed for the target current budget.
-- [ ] **Regulatory bands:** Confirm LoRa frequency band for target deployment region (868 MHz for EU/Africa, 915 MHz for Americas). SX1262 supports both but the BOM antenna and matching network differs.
-- [ ] **ESP32-C6 SPI peripheral count:** Verify how many independent SPI peripherals the C6 exposes and whether bus sharing for W5500 + SX1262 + SD is safe given different max clock speeds.
+- [x] **USB-C CC resistors:** ✅ Resolved — 5.1kΩ to GND on both CC1 and CC2. No PD controller needed for 5V/900mA default.
+- [x] **Regulatory bands:** ✅ Resolved — **868 MHz** confirmed. Nigeria is ITU Region 1, same band as Europe.
+- [x] **ESP32-C6 SPI peripheral count:** ✅ Resolved — shared SPI bus with separate CS lines (CS_ETH on GPIO2, CS_LORA on GPIO10, CS_SD on GPIO11). Bus runs at 16 MHz to satisfy SX1262 limit.
 
 ---
 
@@ -328,11 +369,12 @@ Antennas (all via U.FL):
 | 2 | LoRa transceiver | Semtech SX1262 | LoRa hub + LoRaWAN end-node |
 | 3 | Cellular module | SIMCom SIM7080G | LTE Cat-M1 / NB-IoT / 2G fallback + GNSS |
 | 4 | Ethernet controller | WIZnet W5500 | 10/100 Ethernet over SPI |
-| 5 | PoE PD controller | TI TPS23730 | 802.3bt PoE powered device + DC-DC |
+| 5 | PoE PD controller | TI PPS23730A0RMTT | PoE powered device + integrated DC-DC |
 | 6 | Ideal diode × 2 | TI LM66100 | PoE + USB-C power ORing |
 | 7 | 3.3V LDO | TLV1117-33 | Main 3.3V rail |
 | 8 | 3.8V LDO | AP2112K-3.8 | Isolated cellular supply |
-| 9 | MicroSD slot | Molex 1040310811 | Local storage |
-| 10 | USB-C receptacle | USB4105-GF-A | Power + programming |
-| 11 | RJ45 w/ magnetics | HR911105A | Ethernet + PoE input |
-| 12 | nano-SIM holder | Amphenol 101-00064-68 | Physical SIM |
+| 9 | LoRa RF switch | Skyworks PE4259 | TX/RX antenna switching for SX1262 |
+| 10 | MicroSD slot | Molex 1040310811 | Local storage |
+| 11 | USB-C receptacle | USB4105-GF-A | Power + programming |
+| 12 | RJ45 w/ magnetics | HanRun HR911105A | Ethernet (MagJack — integrated magnetics) |
+| 13 | nano-SIM holder | Amphenol 101-00064-68 | Physical SIM |

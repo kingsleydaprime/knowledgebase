@@ -243,6 +243,70 @@ If this project didn't need Zigbee or Thread, the ESP32-S3 would've been a bette
 
 ---
 
+## When do you use PWR_FLAG? When a resistor? When a decoupling cap? How do you pick values?
+
+### PWR_FLAG
+
+PWR_FLAG is **KiCad-only** — it has zero effect on the actual circuit. It tells KiCad's ERC that a net is being powered even when no output pin on the schematic is visibly driving it.
+
+**The rule:**
+- Net has a real power output pin (LDO VOUT, regulator output) → **no PWR_FLAG needed**
+- Net is powered from outside the schematic (USB cable, external supply, section not yet drawn) → **add PWR_FLAG**
+- GND → **no PWR_FLAG needed** (GND power symbol is already a power output type)
+
+One PWR_FLAG per net is enough — place it anywhere on that net.
+
+> If you add a PWR_FLAG to a net that already has a real VOUT pin, KiCad will throw "two power outputs connected" error. Remove the PWR_FLAG in that case.
+
+---
+
+### Resistors — when and what value
+
+| Situation | Resistor? | Value | Reason |
+|---|---|---|---|
+| LED in series | Yes | 330Ω | Limits current so the LED doesn't burn out |
+| Signal line that nothing drives at rest | Yes — pull-up or pull-down | 10kΩ | Holds line at a known HIGH or LOW |
+| Strapping / BOOT / EN pins | Yes | 10kΩ | Industry default for startup pin biasing |
+| USB-C CC pins | Yes | 5.1kΩ | USB-C specification mandates this exact value |
+| EXRES1 on W5500 | Yes | 12.4kΩ | W5500 datasheet mandates this exact value |
+| IC power pin | No | — | Connect directly to the power rail |
+| SPI / UART signal line | Usually no | — | These are actively driven signals |
+
+**How to calculate the value:**
+- **Datasheet specifies it** → use that exact value, always
+- **Pull-up or pull-down** → default **10kΩ** (not too much current waste, strong enough to hold the line)
+- **LED current limiting** → `R = (Vsupply − Vforward) ÷ Idesired`
+  - Example: 3.3V supply, LED forward voltage 2.0V, want 10mA → `(3.3 − 2.0) ÷ 0.01 = 130Ω` → round up to **330Ω** for safety
+
+---
+
+### Decoupling capacitors — when and what value
+
+Every IC power pin gets a 100nF cap placed right next to it. Every time a chip switches a logic gate, it pulls a brief current spike from its supply. The cap sits right there and supplies that spike instantly, before the supply voltage can dip. Without it, the chip can glitch or crash.
+
+| Situation | Cap? | Value |
+|---|---|---|
+| Any IC VDD / VCC / VBAT / VDDIO pin | Yes | 100nF ceramic |
+| High-current IC (e.g. SIM7080G cellular) | Yes — also add bulk | 100nF + 100µF electrolytic |
+| RF chip power pin (SX1262) | Yes | 100nF + 10µF |
+| LDO regulator input | Yes | 10µF + 100nF |
+| LDO regulator output | Yes | 10µF + 100nF |
+| Crystal pin (load caps) | Yes | 10–20pF (from crystal datasheet) |
+| Internal regulator output pin (e.g. VREG on SX1262) | Yes — stabilising only | 100nF to GND, nothing else |
+| Signal / GPIO pin | No | Caps filter signals — wrong place |
+| Passive component (resistor, another cap) | No | — |
+
+**How to know the value:**
+- **100nF** → universal default for IC decoupling. Use when the datasheet doesn't specify.
+- **10µF** → bulk capacitor, handles slower larger current spikes. Pair with 100nF on power sections.
+- **100µF** → high current draws like the cellular module (can spike 2A).
+- **1µF** → simple low-power LDOs like the AP2112K.
+- **10–20pF** → crystal load caps. Use the value in the crystal's datasheet.
+
+**The datasheet always wins.** 100nF is only the fallback when nothing is specified.
+
+---
+
 ## Why does the MCU need so many capacitors on its power pins?
 
 Every time a microcontroller switches a logic gate (which happens billions of times per second), it pulls a tiny spike of current. At 160 MHz (ESP32-C6's clock speed), that's 160 million spikes per second. Those spikes travel back up the power trace and cause tiny voltage dips on the chip's VDD pin.
@@ -312,6 +376,48 @@ The **DIO1 pin** is an interrupt output. You configure it to trigger when certai
 
 ---
 
+## What is a crystal and why do chips need one?
+
+A **quartz crystal** (or just "crystal") is a small physical component — a tiny slice of quartz mineral — that vibrates at a precise, stable frequency when electricity is applied to it. This is called the **piezoelectric effect**: mechanical vibration and electrical oscillation are linked in quartz, so you can electrically "ring" it like a tuning fork.
+
+The frequency it vibrates at is determined by its physical size and cut — a 32 MHz crystal vibrates exactly 32 million times per second, always, regardless of temperature or voltage changes (within limits). This makes it far more accurate than a software timer or an internal RC oscillator.
+
+**Why do chips need this?**
+
+Chips need a clock — a regular electrical pulse that drives every operation. "160 MHz processor" means the chip does 160 million operations per second, timed by 160 million clock pulses. Without a stable clock source, timing drifts, and things go wrong:
+
+- Radio chips drift off their target frequency → other radios can't hear them
+- Ethernet chips can't maintain the precise bit rate → connection drops
+- Microcontrollers running software timers lose track of real time
+
+**Crystal vs internal oscillator:**
+
+Most chips have a built-in RC oscillator (resistor + capacitor that charges and discharges). It's convenient — no external parts — but it's only accurate to about ±1%. For general computation that's fine, but for radio frequency and Ethernet, ±1% is catastrophic.
+
+A crystal is accurate to ±20–50 ppm (parts per million) — that's 0.002–0.005% — orders of magnitude better.
+
+**What are the load capacitors (the 10pF caps)?**
+
+The crystal doesn't vibrate correctly in isolation — it needs a small capacitive load on each pin to "tune" its oscillation to the exact target frequency. These are called **load capacitors**. The crystal's datasheet specifies the exact capacitance value. Get them wrong and the crystal runs slightly off frequency (usually a few kHz off — bad for radio).
+
+**The KiCad symbol:**
+
+Two variants you'll encounter:
+- `Crystal` — basic 2-pin symbol
+- `Crystal_GND24` — 4-pin: 2 signal pins + 2 pins for the metal case (tie to GND to shield the crystal from interference)
+
+Use `Crystal_GND24` for RF designs. The case pins go to GND.
+
+```
+XTA ──┬── [Crystal] ──┬── XTB
+      │   (case→GND)  │
+    10pF            10pF
+      │               │
+     GND             GND
+```
+
+---
+
 ## Why does the W5500 need a 25 MHz crystal?
 
 Ethernet (10/100 Mbps) is a synchronous protocol — both devices need to agree on timing precisely. The W5500's PHY (physical layer chip) needs an accurate clock source to generate and receive Ethernet signals at exactly the right frequency.
@@ -319,6 +425,63 @@ Ethernet (10/100 Mbps) is a synchronous protocol — both devices need to agree 
 The 25 MHz crystal provides this reference. The W5500 uses it internally to generate the clocks needed for MII (Media Independent Interface) and line encoding.
 
 Without a crystal (or with a poor quality one), the Ethernet link won't establish or will drop packets randomly.
+
+---
+
+## What is the DCC_SW pin on the SX1262? And the 22nH inductor?
+
+The SX1262 has an internal voltage regulator — it can either use a simple **LDO** (linear dropout) or a **DC-DC buck converter** (switching regulator) to power its internal core from VBAT.
+
+- **LDO mode**: simpler, no external parts, but wastes energy as heat
+- **DC-DC mode**: more efficient (less battery drain), but needs a small external inductor
+
+The **DCC_SW pin** is the switching node of the internal DC-DC converter. When running in DC-DC mode, current pulses in and out of this pin at high frequency — the external inductor smooths these pulses into a stable DC voltage.
+
+The **22nH inductor** connects from DCC_SW back to VBAT. The switching happens so fast (MHz range) that the inductor stores and releases energy faster than a capacitor could, acting as a current buffer.
+
+We use DC-DC mode on this board because the SX1262 is running on 3.3V from a regulator and efficiency matters. The firmware must also be configured to use DC-DC mode on startup via `SetRegulatorMode`.
+
+---
+
+## What is VR_PA on the SX1262?
+
+VR_PA is the **power amplifier supply**. The RF transmitter inside the SX1262 has its own dedicated supply pin, separate from the digital logic supply (VBAT). This isolation prevents the transmitter's current spikes during TX from disturbing the digital sections of the chip.
+
+On our board, VR_PA connects to +3V3 with a 100nF decoupling cap. At 3.3V, the SX1262 can transmit at up to +22 dBm — more than enough for our 868 MHz LoRa link.
+
+---
+
+## What is VREG on the SX1262?
+
+VREG is the **output of the SX1262's internal voltage regulator**. The chip generates a lower internal voltage (around 1.8V) from VBAT and uses it to power its own internal digital logic.
+
+You do not connect VREG to anything external. You only place a 100nF decoupling capacitor from VREG to GND. This stabilises the regulator's output — without it, the chip's internal voltage rails would oscillate and the chip wouldn't function correctly.
+
+---
+
+## What is the PE4259 RF switch and why does the SX1262 need one?
+
+The SX1262 has two separate RF ports:
+- **RFO** — transmit output. The LoRa signal goes OUT through here to the antenna.
+- **RFI_N / RFI_P** — receive input (differential pair). Incoming signals come IN from the antenna through here.
+
+The problem: you only have one antenna. You cannot connect it to both ports simultaneously — the transmitter output would flood into the receiver input and the chip would hear itself instead of the air.
+
+The **PE4259** is an RF switch — a tiny chip that acts like a signal traffic controller. It has three RF ports:
+- **RF1** — connected to the TX path (from RFO)
+- **RF2** — connected to the RX path (from RFI_N/RFI_P)
+- **RFC** — connected to the antenna
+
+At any moment, RFC is connected to either RF1 or RF2, never both. The **CTRL pin** decides which:
+- CTRL HIGH → RFC connects to RF1 → antenna goes to TX path → transmitting
+- CTRL LOW → RFC connects to RF2 → antenna goes to RX path → receiving
+
+**DIO2 on the SX1262 controls CTRL** through a 100Ω resistor. The firmware configures DIO2 to go HIGH before transmitting and LOW before receiving — the SX1262 can do this automatically via the `SetDio2AsRfSwitchCtrl` command.
+
+**Why the 100Ω resistor between DIO2 and CTRL?**
+It limits current and protects against any voltage mismatch between the SX1262's DIO pin and the PE4259's CTRL input. Standard practice for any digital signal driving an RF component.
+
+**This is why DIO2 is not no-connect.** Without it, the RF switch never changes state and the radio either can't transmit or can't receive.
 
 ---
 
@@ -431,19 +594,58 @@ Whichever source has a slightly higher voltage automatically wins and supplies t
 
 ---
 
-## ERC Error: "Input Power pin not driven by any Output Power pins"
+## ERC Errors Explained — The Full Guide
 
-This is the most common ERC error beginners hit in KiCad. It looks scary but it's just KiCad saying "I can see components consuming power on this net, but nothing producing it."
+### "Input Power pin not driven by any Output Power pins"
 
-Power symbols like +3V3 and GND are typed as "power input" — they consume power. KiCad's ERC checks that every power input net also has a "power output" somewhere driving it. If you haven't drawn your voltage regulator yet, KiCad doesn't know what's supplying +3V3 and raises this error.
+KiCad is saying: "I can see components consuming power on this net, but nothing producing it."
 
-**The fix: PWR_FLAG.** It's a special symbol with a "power output" pin that tells KiCad "this net IS being driven — I'm just drawing the source later." Place one on every net that shows this error.
+**The rule:**
+- If **no component output** is producing that voltage on the schematic (e.g. the LDO isn't drawn yet, or the power comes from an external cable) → add a `PWR_FLAG`
+- If a **real power output pin** (LDO VOUT, regulator output) is already on that net → **no PWR_FLAG needed**. The VOUT pin already tells KiCad where the power comes from.
 
-**Rule:** Every power net needs a PWR_FLAG. At minimum:
-- One PWR_FLAG on +3V3
-- One PWR_FLAG on GND
+**In your design:**
 
-Connect it by touching it to the power net wire — that's all it takes. Once the actual power source (voltage regulator) is drawn later, the PWR_FLAG can stay — it doesn't hurt anything.
+| Net | Source on schematic | PWR_FLAG needed? |
+|---|---|---|
+| `+3V3` | TLV1117-33 VOUT | No — VOUT drives it |
+| `+3V8` | AP2112K VOUT | No — VOUT drives it |
+| `+5V` | LM66100 VOUT × 2 | No — VOUT drives it |
+| `GND` | GND power symbol | No — power symbol drives it |
+| `USB_VBUS` | Nothing (comes from USB cable) | Yes — add PWR_FLAG |
+| `POE_5V` | Nothing yet (PPS23730 not wired) | Yes — temporarily |
+| `SIM_VCC` | SIM7080G SIM_VDD (Output type) | Yes — add PWR_FLAG (see below) |
+
+**Important:** PWR_FLAGs placed early (before the LDO was placed) must be **removed** once the LDO is added. Keeping them causes the next error.
+
+---
+
+### "Pins of type Power output and Power output are connected"
+
+Two pins defined as "Power output" are on the same net. KiCad sees two power sources fighting.
+
+Three situations where this happens:
+
+1. **PWR_FLAG left on a net that now has a real VOUT** → remove the PWR_FLAG
+2. **Two LM66100 VOUTs both on +5V** → this is intentional (OR-ing circuit). Right-click → Exclude from ERC
+3. **SIM_VDD (Output) + PWR_FLAG** → SIM_VDD is "Output" type (not "Power output"), but they still conflict. Keep the PWR_FLAG, right-click the SIM_VCC error → Exclude from ERC
+
+---
+
+### "Pins of type Output and Power output are connected"
+
+A regular "Output" pin and a PWR_FLAG are on the same net. This is the SIM7080G SIM_VDD case — the pin is typed "Output" in the symbol, not "Power output", but PWR_FLAG is "Power output". They conflict.
+
+Fix: keep the PWR_FLAG (so the SIM card VCC gets a power source), then exclude the specific error from ERC.
+
+---
+
+### The core rule for PWR_FLAG (final version)
+
+> **PWR_FLAG = "I know power comes here, but the schematic doesn't show a component producing it."**
+> 
+> If any component's output pin is already on the net → no PWR_FLAG.  
+> If the power comes from outside the schematic (USB cable, external supply, unfinished section) → add PWR_FLAG.
 
 ---
 
@@ -489,6 +691,60 @@ GND
 You've used this before without realising it — the BOOT button on every ESP32 dev board is exactly this circuit. Our PCB builds it in.
 
 The EN pin uses the same idea but opposite: a 10kΩ pull-UP to +3V3 keeps EN HIGH by default (chip runs). A button to GND pulls EN LOW to reset the chip. That's the RESET button.
+
+---
+
+## Which side of an LED is the anode and which is the cathode?
+
+In the KiCad LED symbol:
+
+```
+Anode (+) ──▶|── Cathode (−)
+```
+
+- **Anode** — the flat end of the triangle. The (+) side. Current flows IN here.
+- **Cathode** — the bar/vertical line at the tip of the triangle. The (−) side. Current flows OUT here, to GND.
+
+On a real physical LED:
+- Anode → **longer leg**
+- Cathode → **shorter leg** (also has a flat edge on the plastic lens)
+
+In your schematic:
+```
+LED net (GPIO0) → 330Ω resistor → Anode → LED → Cathode → GND
+```
+
+Current flows from the GPIO, through the resistor (which limits how much), into the anode, out the cathode, to ground.
+
+---
+
+## What are the two pins on a Conn_Coaxial (U.FL connector)?
+
+A `Conn_Coaxial` in KiCad represents a U.FL coaxial socket — the tiny RF connector that an antenna cable plugs into. It has two pins:
+
+- **Pin 1** — the centre conductor (signal). This is where the RF signal travels. Connect to your antenna net (e.g. `LORA_ANT`, `ANT_NET`).
+- **Pin 2** — the outer shield (ground). The metal shell around the connector. Connect to GND.
+
+This matches how coax cable works physically: the inner wire carries the signal, the outer braid is ground.
+
+---
+
+## Why do crystals for different chips need different load cap values?
+
+The load capacitors on each side of a crystal "tune" the crystal to its exact target frequency. Each crystal has a specified **load capacitance (CL)** in its datasheet — this is the total capacitance the crystal "sees" across both pins.
+
+Since the two caps are in series from the crystal's perspective:
+```
+CL = (C1 × C2) / (C1 + C2)    (if C1 = C2, this simplifies to C/2)
+```
+
+So if the crystal needs CL = 10pF, you use two 20pF caps (20/2 = 10pF).
+
+In this design:
+- **SX1262 crystal (32 MHz)** → 10pF load caps (CL ≈ 5pF, as per SX1262 datasheet)
+- **W5500 crystal (25 MHz)** → 20pF load caps (CL ≈ 10pF, as per W5500 datasheet)
+
+For the W5500, a standard 2-pin Crystal symbol is fine — it's not an RF design, so the Crystal_GND24 (grounded case) isn't needed. Crystal_GND24 is for RF chips where the grounded case provides RF shielding.
 
 ---
 

@@ -87,8 +87,11 @@
 - CC resistors: 5.1kΩ to GND on both CC1 and CC2
 
 ### Gotchas
-- Every power net needs a **PWR_FLAG** symbol in KiCad or ERC will complain that the net has no power source
-- The TPS23730 application circuit is complex — download the datasheet and copy the reference design exactly, don't freehand it
+- **PWR_FLAG rule**: only add it when no component output drives that net. If an LDO VOUT is already on the net, no PWR_FLAG needed — adding one causes "two power outputs" ERC error
+- Nets needing PWR_FLAG in this design: `USB_VBUS` (from external cable), `POE_5V` (until PPS23730 is wired), `SIM_VCC` (SIM_VDD pin type is "Output" not "Power output")
+- Nets NOT needing PWR_FLAG: `+3V3` (TLV1117 VOUT), `+3V8` (AP2112K VOUT), `+5V` (LM66100 VOUTs), `GND` (power symbol)
+- Two LM66100 VOUTs on `+5V` will always give "two power outputs" ERC error — this is intentional OR-ing, exclude it from ERC
+- The PPS23730 application circuit is complex — download the datasheet and copy the reference design exactly, don't freehand it
 - LM66100 max current is 1.5A — total board current at peak must stay under 1.5A per source or use a higher-rated ORing solution
 
 ---
@@ -130,30 +133,74 @@
 
 ## Section 3 — SX1262 (LoRa)
 
-> Fill in as you work through this section
+### Key wiring — SPI and control
+- NSS (19) → CS_LORA (GPIO10)
+- SCK (18) → SPI_SCK (GPIO8)
+- MOSI (17) → SPI_MOSI (GPIO6)
+- MISO (16) → SPI_MISO (GPIO7)
+- RESET (15) → LORA_RESET (GPIO15) — active low
+- BUSY (14) → LORA_BUSY (GPIO18)
+- DIO1 (13) → LORA_DIO1 (GPIO19) — TX/RX done interrupt
+- DIO2 (12) → 100Ω resistor → PE4259 CTRL pin — controls RF switch (TX vs RX path)
+- DIO3 (6) → no-connect
 
-### Key wiring
-- SPI (SCK, MOSI, MISO) → shared SPI bus
-- NSS (chip select) → CS_LORA (GPIO10)
-- NRESET → GPIO15 — active low reset (GPIO14 does not exist on WROOM-1)
-- BUSY → GPIO18 — MCU must wait for BUSY=LOW before sending commands
-- DIO1 → GPIO19 — interrupt line for TX/RX done
-- Antenna → 50Ω trace to U.FL connector (for 868MHz external antenna)
+### Key wiring — power
+- VDD_IN (1) → +3V3, 100nF to GND
+- VBAT (10) → +3V3, 100nF + 10µF to GND
+- VBAT_IO (11) → +3V3, 100nF to GND
+- VR_PA (24) → +3V3, 100nF to GND
+- VREG (7) → 100nF cap to GND only (internal regulator output — do not drive)
+- DCC_SW (9) → 15µH inductor → +3V3 (DC-DC switch node)
+- GND (2) → GND
+
+### Key wiring — crystal
+- XTA (3) → 32 MHz crystal pin + 10pF cap to GND
+- XTB (4) → 32 MHz crystal pin + 10pF cap to GND
+- Crystal case pins → GND
+- Use Crystal_GND24 symbol in KiCad
+
+### Key wiring — RF section (copy from SX1262 datasheet section 14.6.2)
+- RFO (23) → matching network (L, C per datasheet) → PE4259 RF1 (pin 1)
+- RFI_N (22) + RFI_P (21) → their own matching network → PE4259 RF2 (pin 3)
+- PE4259 RFC (pin 5) → C8, L5, C9, C10 output matching → Conn_Coaxial pin 1 (ANT_NET)
+- PE4259 CTRL (pin 4) → 100Ω resistor → DIO2 (SX1262 pin 12)
+- PE4259 CTRL/VDD (pin 6) → +3V3 (no decoupling cap — logic supply only)
+- PE4259 GND (pin 2) → GND
+- Conn_Coaxial pin 1 (centre/signal) → ANT_NET
+- Conn_Coaxial pin 2 (shield) → GND
+- Download PE4259 symbol from SnapEDA
+
+### Gotchas
+- DIO2 is NOT no-connect — it controls the PE4259 RF switch
+- DCC_SW inductor is **15µH** (from datasheet reference design), not 22nH
+- Copy the RF matching network component values exactly from datasheet section 14.6.2 — do not guess
 
 ---
 
 ## Section 4 — W5500 (Ethernet)
 
-> Fill in as you work through this section
-
 ### Key wiring
-- SPI (SCK, MOSI, MISO) → shared SPI bus
-- SCSn (chip select) → CS_ETH (GPIO9)
-- RSTn → GPIO20 — active low reset
-- INTn → GPIO21 — interrupt, tells MCU a packet arrived
-- 25MHz crystal between XTLIN and XTLOUT (+ load caps per crystal datasheet)
-- RSVD pin → tie to GND per datasheet
-- RJ45 magnetics → connect per W5500 application circuit
+- SCSn → `CS_ETH` (GPIO2)
+- SCLK → `SPI_SCK`, MOSI → `SPI_MOSI`, MISO → `SPI_MISO`
+- RSTn → `ETH_RESET` (GPIO20) — active low
+- INTn → `ETH_INT` (GPIO21) — interrupt
+- RSVD → GND (per datasheet)
+- EXRES1 → 12.4kΩ resistor → GND (sets internal reference current — value must be exactly 12.4kΩ)
+- PMODE0, PMODE1, PMODE2 → all `+3V3` (sets 100Base-T full duplex auto-negotiation)
+- VBG, TOCAP, 1V2O → decoupling cap to GND only (internal voltage outputs — never drive them)
+- 25 MHz crystal (Crystal_GND24) between XTLIN and XTLOUT, 20pF load caps on each pin, case pins → GND
+
+### RJ45 — use RJ45_Hanrun_HR911105A (MagJack with integrated magnetics)
+- W5500 TXOP / TXON → MagJack TX+ / TX-
+- W5500 RXIP / RXIN → MagJack RX+ / RX-
+- MagJack CT (centre tap) pins → `+3V3` through 49.9Ω resistor (copy from W5500 datasheet)
+- MagJack GND / shield → GND
+- LED pins → no-connect for prototype
+
+### Gotchas
+- EXRES1 must be exactly 12.4kΩ — do not substitute
+- VBG/TOCAP/1V2O are outputs — cap to GND only, never connect to a power rail
+- Centre tap resistor value comes from the W5500 datasheet application circuit — copy it exactly
 
 ---
 

@@ -318,19 +318,19 @@ Press `A`, search `SX1262IMLTRT`, place it with space around it.
 | 1 | VDD_IN | `+3V3` | 100nF to GND |
 | 24 | VR_PA | `+3V3` | 100nF to GND |
 | 7 | VREG | 100nF cap to GND only | Internal regulator output — do NOT drive it, just decouple |
-| 9 | DCC_SW | 22nH inductor → `+3V3` | DC-DC switch node — needs this small inductor |
+| 9 | DCC_SW | 15µH inductor → `+3V3` | DC-DC switch node — value from datasheet reference design |
 | 2 | GND | GND | — |
 
 **Crystal (pins 3 and 4):**
 
-The SX1262 needs a **32 MHz crystal** for its clock reference.
+The SX1262 needs a **32 MHz crystal** for its clock reference. A crystal is a quartz component that vibrates at a precise frequency to give the chip an accurate timing source — essential for radio communication. See `learning.md` for a full explanation.
 
 | Pin | Connect to |
 |---|---|
 | XTA (3) | One end of 32 MHz crystal + 10pF cap to GND |
 | XTB (4) | Other end of 32 MHz crystal + 10pF cap to GND |
 
-Press `A`, search `Crystal` — place the crystal between XTA and XTB with the two 10pF load caps.
+Press `A`, search `Crystal_GND24` — this is the 4-pin version with case ground pins. Place it between XTA and XTB. Connect the two case pins (pins 2 and 4 on the symbol) to GND. Add a 10pF cap from each signal pin to GND.
 
 **SPI and control pins:**
 
@@ -343,27 +343,45 @@ Press `A`, search `Crystal` — place the crystal between XTA and XTB with the t
 | 15 | RESET | `LORA_RESET` | Active low reset from ESP32 |
 | 14 | BUSY | `LORA_BUSY` | ESP32 waits for this to go LOW before sending commands |
 | 13 | DIO1 | `LORA_DIO1` | Interrupt — fires when TX/RX is done |
-| 12 | DIO2 | no-connect (`Q`) | — |
+| 12 | DIO2 | 100Ω resistor → PE4259 CTRL pin | Controls RF switch — HIGH=TX, LOW=RX |
 | 6 | DIO3 | no-connect (`Q`) | — |
 
-**Antenna (RF pins):**
+**RF section — PE4259 RF Switch + matching network:**
 
-| Pin | Name | Connect to |
+The SX1262 has separate TX (RFO) and RX (RFI_N/RFI_P) ports but only one antenna. The **PE4259 RF switch** routes the antenna to TX when transmitting and RX when receiving. DIO2 controls which path is active.
+
+> Download the PE4259 symbol from SnapEDA before starting this section.
+
+**Step 1 — Place the PE4259 RF switch**
+
+| PE4259 pin | Connect to | Notes |
 |---|---|---|
-| 23 | RFO | Matching network → U.FL connector |
-| 22 | RFI_N | Connected through matching network back to antenna |
-| 21 | RFI_P | Connected through matching network back to antenna |
+| CTRL (pin 4) | DIO2 (pin 12 on SX1262) via 100Ω resistor | Insert resistor in series on the wire |
+| CTRL/VDD (pin 6) | `+3V3` power symbol | Logic supply — no decoupling cap needed here |
+| RFC (pin 5) | Antenna matching network → U.FL connector | Common antenna port |
+| RF1 (pin 1) | RFO matching network output | TX path |
+| RF2 (pin 3) | RFI_N/RFI_P matching network output | RX path |
+| GND (pin 2) | GND | |
 
-The matching network converts between the chip's differential RF port and the 50Ω antenna. **Copy the exact circuit from the SX1262 datasheet Application Circuit section** — do not guess component values.
+**Step 2 — Copy the matching networks from the datasheet**
 
-For the schematic:
-1. Draw a wire from RFO (pin 23)
-2. Place inductor + capacitors per datasheet values for 868 MHz
-3. Place a coaxial connector (press `A`, search `Connector_Coaxial`) at the end
-4. Label the coax centre pin `LORA_ANT`
-5. Connect RFI_N and RFI_P per the datasheet matching circuit
+Open SX1262 datasheet section **14.6.2** and copy the RF circuit exactly:
+- RFO (23) → inductor/capacitor network → PE4259 RF1
+- RFI_N (22) + RFI_P (21) → their own network → PE4259 RF2
+- PE4259 RFC → output matching (C8, L5, C9, C10 in datasheet) → U.FL connector
 
-> Reference: Heltec WiFi LoRa 32 V3 schematic is a working SX1262 reference. Download it and keep it open while doing this section.
+**Step 3 — Place the U.FL connector**
+
+Press `A`, search `Connector_Coaxial` — this is the U.FL coax socket that the antenna cable plugs into.
+
+| Conn_Coaxial pin | Connect to |
+|---|---|
+| Pin 1 (centre/signal) | ANT_NET (from PE4259 RFC matching network) |
+| Pin 2 (shield/outer) | GND |
+
+> Do not guess component values. Every inductor and capacitor value in the RF matching network comes from the datasheet. Getting these wrong means the radio won't work at 868 MHz.
+
+> Reference: Heltec WiFi LoRa 32 V3 schematic is a working SX1262 + PE4259 reference design.
 
 ---
 
@@ -406,7 +424,7 @@ Press `A`, search `W5500`, place it.
 | XTLIN | One end of crystal + 20pF cap to GND |
 | XTLOUT | Other end of crystal + 20pF cap to GND |
 
-Press `A`, search `Crystal` — place a crystal symbol between XTLIN and XTLOUT, add the two 20pF load caps.
+Press `A`, search `Crystal_GND24` — place between XI/CLKIN and XO, connect the two case pins to GND, add 20pF load caps on each signal pin to GND.
 
 **Ethernet magnetics (RJ45):**
 
@@ -417,11 +435,17 @@ W5500 TPOUT+ / TPOUT-  →  Magnetics TX pair  →  RJ45 TX+/TX-
 W5500 TPIN+  / TPIN-   →  Magnetics RX pair  →  RJ45 RX+/RX-
 ```
 
-Press `A`, search `RJ45` — use a magjack with integrated magnetics (e.g. `HR911105A`). Connect the differential pairs using net labels:
-- `ETH_TX_P`, `ETH_TX_N` between W5500 and magnetics TX side
-- `ETH_RX_P`, `ETH_RX_N` between magnetics RX side and RJ45
+Press `A`, search `RJ45_Hanrun_HR911105A` — this is a **MagJack** (RJ45 with integrated magnetics). No separate transformer needed.
 
-> Tip: Many magjack footprints include the magnetics and LED resistors internally — check the datasheet of the specific part you pick.
+| Connection | Detail |
+|---|---|
+| W5500 TXOP / TXON | MagJack TX+ / TX- |
+| W5500 RXIP / RXIN | MagJack RX+ / RX- |
+| MagJack CT (centre tap) pins | `+3V3` through a **49.9Ω resistor** — copy exact value from W5500 datasheet |
+| MagJack GND / shield | GND |
+| LED pins | no-connect (`Q`) for prototype |
+
+> Open the W5500 datasheet application circuit and copy the RJ45 connections exactly — especially the centre tap resistor values. Do not guess.
 
 ---
 
