@@ -514,3 +514,58 @@ In that exact order — if you enable before allowing SSH, you'll lock yourself 
 ---
 
 Ready to move into **systemd and services** — how Linux manages background services like nginx, postgres, redis?
+
+---
+
+## RHEL addendum: NetworkManager & nmcli
+
+Everything above (`ip addr`, `ip route`, `ss`, subnets, CIDR) is distro-agnostic and carries over unchanged. The one thing that doesn't: **Ubuntu here uses `ufw`, RHEL uses `firewalld`** (full depth in [[15-rhcsa/12-manage-network-security|Manage Network Security]]) — and RHEL manages interfaces through **NetworkManager** rather than the more manual approaches other distros sometimes use.
+
+`ip addr add` (used earlier in this note) is **runtime-only** — it's gone the moment the interface resets or the machine reboots, same class of gotcha as `setenforce`/`setsebool` without `-P` in [[15-rhcsa/07-manage-selinux-security|rhcsa/manage-selinux-security]]. On RHEL, the persistent, boot-surviving way to configure an interface is through NetworkManager, via its CLI, `nmcli`.
+
+```bash
+nmcli general status                # is NetworkManager running, what's its connectivity state
+nmcli device status                  # every network device, its state, and which connection profile (if any) is active on it
+nmcli device show eth0               # full detail on one device — IP, gateway, DNS, MAC, everything
+```
+
+### Connection profiles — the persistent layer
+
+A "device" is the physical/virtual NIC; a "connection" is a saved *profile* of settings that can be applied to a device. This separation is why NetworkManager survives reboots where a bare `ip addr add` doesn't — the profile is written to disk.
+
+```bash
+nmcli connection show                 # every saved connection profile
+nmcli connection show eth0            # full detail on one profile
+nmcli connection up eth0              # activate a profile on its device
+nmcli connection down eth0            # deactivate
+```
+
+Profiles are stored as files under `/etc/NetworkManager/system-connections/*.nmconnection` — that directory is the RHEL equivalent of Ubuntu's netplan YAML files, if netplan is what you're used to.
+
+### Setting a static IP
+
+```bash
+nmcli connection modify eth0 ipv4.addresses 192.168.1.50/24
+nmcli connection modify eth0 ipv4.gateway 192.168.1.1
+nmcli connection modify eth0 ipv4.dns "8.8.8.8 1.1.1.1"
+nmcli connection modify eth0 ipv4.method manual     # switch off DHCP for this profile
+nmcli connection up eth0                             # re-apply the profile so changes take effect
+```
+
+`ipv4.method manual` is the part that's easy to forget — without it, DHCP can still overwrite the static values you just set the next time the lease renews.
+
+### Reverting to DHCP
+
+```bash
+nmcli connection modify eth0 ipv4.method auto
+nmcli connection up eth0
+```
+
+### nmtui — the menu-driven alternative
+
+For anyone who'd rather not remember every flag, `nmtui` gives a text-based menu UI over the same NetworkManager backend — genuinely useful over an SSH session with no GUI:
+```bash
+sudo nmtui
+```
+
+Hostname changes (`hostnamectl`) are covered separately in [[devops/01-linux/04-users-and-groups|Users & Groups]] — NetworkManager handles *interface* config, not the system hostname.
