@@ -6,118 +6,79 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ---
 
+## How to Use This as a Course
+
+The domains below that are actually built out (DSA, AI/ML, cybersecurity, and the `concepts/` folders) are meant to be readable start-to-finish, not just looked up. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
+
+Start here, depending on what you want:
+- [[foundations/dsa/README|Data Structures & Algorithms]] → then [[foundations/dsa/06-patterns/README|LeetCode Patterns]]
+- [[ai-ml/README|AI & ML]] — orientation → maths → building with code → building your own models
+- [[cybersecurity/README|Cybersecurity]] — fundamentals → ethical hacking → network/web security → cryptography
+- [[concepts/01-backend/README|Backend]], [[concepts/02-frontend/README|Frontend]], [[concepts/03-design-patterns/README|Design Patterns]], [[concepts/04-best-practices/README|Best Practices]] — framework-agnostic engineering concepts
+
+A [Beginner] tag doesn't mean "skip if you're experienced" — it just means the note doesn't lean on anything else in the folder yet. Read a folder's notes in order at least once even if a topic sounds familiar; later notes assume earlier ones without re-explaining them.
+
+---
+
 ## Structure
+
+Course domains use numbered folders/files (`01-`, `02-`...) so the reading order shows up directly in the file tree, not just inside a README. Everything else is unordered reference material.
 
 ```
 knowledgebase/
 │
-├── foundations/                  # Universal CS concepts — language agnostic
-│   ├── networking/               # OSI model, HTTP/HTTPS, TCP/UDP, DNS, sockets
-│   ├── os/                       # Operating systems, Linux internals, processes, memory
-│   ├── data-structures/          # Arrays, linked lists, trees, graphs, heaps
-│   ├── algorithms/               # Sorting, searching, complexity, recursion
-│   └── computer-science/         # General CS — compilers, memory, concurrency
+├── foundations/
+│   ├── dsa/                      # numbered course: iterations → data types → data
+│   │   │                         # structures → algorithms → patterns/ (15 LeetCode patterns)
+│   │   └── pdfs/                 # original Codility-style course material, untouched
+│   ├── os/                       # fundamentals.md
+│   └── networking/                # currently empty
 │
-├── concepts/                     # Engineering concepts — framework/language agnostic
-│   ├── backend/
-│   │   ├── README.md             # What backend engineering actually is
-│   │   ├── http-servers.md       # Request lifecycle, routing, middleware, parsing
-│   │   ├── authentication.md     # JWT, sessions, OAuth, API keys
-│   │   ├── authorization.md      # RBAC, ABAC, guards, policies
-│   │   ├── apis.md               # REST, GraphQL, gRPC, WebSockets
-│   │   ├── databases.md          # ORMs, migrations, transactions, indexing
-│   │   └── best-practices.md     # Error handling, logging, validation, security
-│   │
-│   ├── frontend/
-│   │   ├── README.md
-│   │   ├── rendering.md          # CSR, SSR, SSG, ISR, hydration
-│   │   ├── state-management.md   # Local, global, server state
-│   │   └── best-practices.md     # Accessibility, performance, component design
-│   │
-│   ├── design-patterns/
-│   │   ├── README.md
-│   │   ├── creational.md         # Singleton, Factory, Builder, Prototype
-│   │   ├── structural.md         # Adapter, Decorator, Proxy, Facade
-│   │   ├── behavioral.md         # Observer, Strategy, Command, Iterator
-│   │   └── architectural.md      # MVC, CQRS, Event-driven, Microservices, Monolith
-│   │
-│   ├── system-design/
-│   │   ├── README.md
-│   │   ├── scalability.md        # Horizontal vs vertical, load balancing
-│   │   ├── caching.md            # Cache strategies, Redis, CDN
-│   │   └── distributed-systems.md # CAP theorem, consistency, availability
-│   │
-│   └── best-practices/           # General engineering practices
-│       ├── clean-code.md
-│       ├── git-practices.md       # PR structure, branching, commit messages
-│       ├── documentation.md
-│       └── testing.md             # Unit, integration, e2e, TDD
+├── ai-ml/                        # numbered course, 5 phases: 01-fundamentals →
+│   ├── 01-fundamentals/          # 02-maths (linear-algebra/calculus/probability) →
+│   ├── 02-maths/                 # 03-ml-engineering (data/training/fine-tuning) →
+│   ├── 03-ml-engineering/        # 04-computer-vision → 05-building-your-own-models
+│   ├── 04-computer-vision/
+│   └── 05-building-your-own-models/
 │
-├── problem-solving/               # How to think, not just what to know
-│   ├── README.md
-│   ├── frameworks.md              # How to approach any problem from scratch
-│   ├── debugging.md               # Systematic debugging methodology
-│   ├── system-thinking.md         # Breaking big problems into small ones
-│   └── life-tech-parallels.md     # Applying engineering thinking beyond tech
+├── ai-automation/                # scaffold only — n8n-focused, no content written yet
 │
-├── languages/                     # The language itself — syntax, idioms, internals
-│   ├── javascript/
-│   ├── typescript/
-│   ├── python/
-│   ├── go/
-│   ├── java/
-│   └── rust/
+├── cybersecurity/                # numbered course, 5 stages: 01-fundamentals →
+│   ├── 01-fundamentals/          # 02-ethical-hacking → 03-network-security →
+│   ├── 02-ethical-hacking/       # 04-web-security → 05-cryptography
+│   ├── 03-network-security/      # (ethical-hacking includes practice-exercises +
+│   ├── 04-web-security/          #  a worked-solutions companion file)
+│   └── 05-cryptography/
 │
-├── backend/                       # Framework-specific implementation
-│   ├── nodejs/
-│   ├── nestjs/
-│   ├── express/
-│   ├── django/
-│   ├── fastapi/
-│   └── spring/
+├── concepts/                     # numbered course: framework-agnostic engineering ideas
+│   ├── 01-backend/
+│   ├── 02-frontend/
+│   ├── 03-design-patterns/
+│   └── 04-best-practices/
 │
-├── frontend/                      # Framework-specific implementation
-│   ├── react/
-│   ├── nextjs/
-│   └── tailwind/
+├── devops/                       # numbered course: 01-linux → 02-docker →
+│   ├── 01-linux/                 # 03-cloud → 04-vps. 01-linux/15-rhcsa/ is the
+│   │   └── 15-rhcsa/             # RHCSA cert track (own practice-exercises +
+│   ├── 02-docker/                # solutions), built on top of 01-linux fundamentals
+│   ├── 03-cloud/
+│   └── 04-vps/
 │
-├── devops/                        # Infrastructure, deployment, automation
-│   ├── linux/
-│   ├── docker/
-│   ├── kubernetes/
-│   ├── ci-cd/
-│   ├── terraform/
-│   └── aws/
+├── backend/                      # scaffold — shared nodejs/ core, then pick a track
+│   ├── 01-nodejs/
+│   ├── 02-express/
+│   └── 03-nest/
 │
-├── ai-ml/                         # Machine learning and AI systems
-│   ├── fundamentals/
-│   ├── pytorch/
-│   ├── mlops/
-│   └── llms/
+├── frontend/                     # scaffold — react/ has 1 note, next/ is empty so far
+│   ├── 01-react/
+│   ├── 02-next/
+│   └── vue/                      # untouched, empty
 │
-├── cybersecurity/                 # Security concepts and ethical hacking
-│   ├── networking-security/
-│   ├── web-security/
-│   └── ethical-hacking/
+├── databases/, architecture/, git/, hardware/, tools/, references/
+│                                 # unordered reference material, not course-structured
 │
-├── embedded/                      # Hardware and embedded systems
-│   ├── arduino/
-│   ├── esp32/
-│   └── ros2/
+├── problem-solving/, blog-drafts/
 │
-├── mobile/
-│   ├── react-native/
-│   └── java-android/
-│
-├── databases/
-│   ├── postgresql/
-│   ├── mongodb/
-│   └── redis/
-│
-└── tools/                         # Dev tools and environment setup
-    ├── neovim/
-    ├── vscode/
-    └── terminal/
+└── projects/                     # per-project learning logs, not course material
 ```
 
 ---
