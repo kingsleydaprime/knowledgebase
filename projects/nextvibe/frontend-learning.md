@@ -5527,4 +5527,248 @@ Each ticket in the response has its own `ticketNumber` and `qrCode` (base64 data
 
 ---
 
+---
+
+## 54. Game Play Page — `correctAnswerIndex` vs `correctAnswer`
+
+### The Bug
+
+In the game play page (`/game/[token]/page.tsx`), the flash-feedback after a player selects an option always highlighted option A (index 0), regardless of which option was actually correct. This applied to both trivia and true/false questions.
+
+**Root cause:** The game config stores answers as a numeric index under `correctAnswerIndex`. The page was reading:
+
+```typescript
+// Old — broken:
+const correctIdx: number | string = q?.correctAnswer ?? q?.correct ?? q?.answer ?? 0;
+```
+
+`q.correctAnswer` is not a field in the config — the config stores `q.correctAnswerIndex`. None of the fallbacks (`correct`, `answer`) exist either. The entire chain resolved to `0`, so the flash always highlighted option A.
+
+**The fix:**
+
+```typescript
+// New — correct:
+const correctIdx: number = q?.correctAnswerIndex ?? 0;
+```
+
+Read `correctAnswerIndex` directly. The `?? 0` fallback is safe: if a question has no correct answer defined (shouldn't happen, but defensive), option A is highlighted — the same old behavior, just not for wrong reasons.
+
+### The Rule
+
+When working with game round config in the frontend:
+- **Answers are stored as `correctAnswerIndex` (number 0-3)** — the zero-based index of the correct option in the `options` array
+- **Never read `q.correctAnswer`** — that string field does not exist in the config JSON the backend stores
+- **Never read `q.correct` or `q.answer`** — also absent from the config
+
+The only exception: `q.correctAnswer` is set as a computed convenience field on the frontend wizard's local `Question` state — but that state is for the creation UI, not for the game play page which reads from the backend config.
+
+---
+
+## 55. mapType Enum Keys Must Match Backend Exactly
+
+### The Bug
+
+The game play page (`page.tsx`) maps backend game type strings to frontend display types:
+
+```typescript
+// Old — broken:
+const mapType: Record<string, string> = {
+  TRIVIA: "trivia",
+  WORD_PUZZLE: "word-puzzle",
+  TWO_TRUTHS: "two-truths",       // ← wrong
+  THIS_OR_THAT: "this-or-that",
+};
+```
+
+The backend enum value for two-truths is `TWO_TRUTHS_ONE_LIE`. The map had `TWO_TRUTHS`. When the backend returned `"TWO_TRUTHS_ONE_LIE"`, the map lookup found no key and fell through to the trivia renderer. Every two-truths round rendered as trivia.
+
+**The fix:**
+
+```typescript
+// Correct:
+const mapType: Record<string, string> = {
+  TRIVIA: "trivia",
+  WORD_PUZZLE: "word-puzzle",
+  TWO_TRUTHS_ONE_LIE: "two-truths",   // matches backend enum
+  THIS_OR_THAT: "this-or-that",
+};
+```
+
+### The Rule
+
+Any frontend map from backend enum values to display types must use the exact backend enum string as the key. The backend enum is the source of truth. Check `backend/prisma/schema/games.prisma` → `enum GameType` for the canonical values.
+
+Current `GameType` enum:
+```prisma
+enum GameType {
+  TRIVIA
+  WORD_PUZZLE
+  THIS_OR_THAT
+  TWO_TRUTHS_ONE_LIE
+}
+```
+
+**How bugs like this hide:** The fallback renderer (trivia) is functional — players can still answer questions. The wrong rendering just shows a different layout. No error is thrown, no network failure, no console warning. The only signal is visual: "why does my two-truths round look like trivia?"
+
+---
+
+## 56. True/False Pivot — Renaming THIS_OR_THAT and Adding Real Scoring
+
+### The Decision
+
+`THIS_OR_THAT` in its original form was an opinion poll: "Do you prefer X or Y?" Players picked an option and everyone got points regardless of choice. There was no correct answer.
+
+The pivot: rename the concept to **True or False** and make it a knowledge game. Each question is a factual statement that is definitively true or false. Players who identify it correctly get points; those who get it wrong get nothing.
+
+The backend enum stays `THIS_OR_THAT` — no database migration needed. The display label changes to "True or False" and the mechanics change.
+
+### Config Shape After the Pivot
+
+```json
+{
+  "text": "The Great Wall of China is visible from space.",
+  "options": ["True", "False"],
+  "correctAnswerIndex": 1,
+  "points": 5
+}
+```
+
+- `options` is always `["True", "False"]` — locked, not editable
+- `correctAnswerIndex` is 0 if the statement is TRUE, 1 if FALSE
+- The backend scores by comparing `userAnswer` (submitted as option index) to `correctAnswerIndex`
+
+### UI Changes in the Wizard
+
+**Step 4 (question review/edit):**
+
+The edit mode for `this-or-that` questions was changed from generic text input + correct-answer selector to a locked True/False toggle:
+
+```tsx
+{gameType === "this-or-that" ? (
+  <>
+    <Label>Is the statement true or false? — tap to mark</Label>
+    <div className="flex gap-2">
+      {["True", "False"].map((label, optIdx) => (
+        <button
+          key={label}
+          type="button"
+          onClick={() => handleQuestionEdit(q.id, "correctAnswerIndex", optIdx)}
+          className={cn(
+            "flex-1 h-9 rounded-lg border text-sm font-medium transition-colors",
+            q.correctAnswerIndex === optIdx
+              ? "bg-emerald-500 border-emerald-500 text-white"
+              : "border-border bg-muted text-muted-foreground"
+          )}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  </>
+) : /* trivia/two-truths: editable text inputs */ }
+```
+
+The options themselves are not text inputs — True and False are fixed. The organizer only controls which is correct.
+
+**View mode** shows the correct option highlighted green (same as trivia).
+
+**`addQuestion` template for this-or-that:**
+```typescript
+{ id: newId, question: "", options: ["True", "False"], correctAnswerIndex: 0, correctAnswer: "True", timeLimitSecs: 15, points: 5 }
+```
+
+**AI response mapping (in `handleComplete` of the wizard):**
+
+AI-generated questions for `this-or-that` must be mapped to ensure `correctAnswerIndex` is always a defined number:
+
+```typescript
+if (gameType === "this-or-that") {
+  const tfOptions = ["True", "False"];
+  const correctIdx = q.correctAnswerIndex ?? 0;
+  return {
+    ...base,
+    question: q.text ?? q.question ?? "",
+    options: tfOptions,
+    correctAnswerIndex: correctIdx,
+    correctAnswer: tfOptions[correctIdx],
+  };
+}
+```
+
+The fallback `?? 0` (defaulting to True) is acceptable — the organizer reviews every AI-generated question before saving and can correct it with the toggle.
+
+### AI Prompt for THIS_OR_THAT
+
+The AI is instructed to produce True/False questions:
+
+- `"options"`: exactly `["True", "False"]` — always these two words
+- `"correctAnswerIndex"`: 0 if the statement is TRUE, 1 if the statement is FALSE
+- The statement in `"text"` must be definitively factual — not subjective or debatable
+
+The AI schema example uses:
+```json
+{
+  "text": "A factual statement that is either true or false",
+  "options": ["True", "False"],
+  "correctAnswerIndex": 0,
+  "points": 5
+}
+```
+
+---
+
+## 57. Word Puzzle Serialization in the Game Creation Wizard
+
+### How the Wizard Stores Word Puzzle Questions
+
+The wizard's internal `Question` state for word puzzles stores each hidden word as a separate question entry:
+
+```typescript
+// Internal wizard state — one entry per hidden word:
+[
+  { id: "q-1", wordPuzzleMeta: { grid: [[...]], word: "CAT", startCell: [0,0], endCell: [0,2], direction: "HORIZONTAL" }, points: 10 },
+  { id: "q-2", wordPuzzleMeta: { word: "DOG", startCell: [1,0], endCell: [1,2], direction: "HORIZONTAL" }, points: 10 },
+]
+```
+
+This is a UI convenience — it lets the organizer manage each word as an individual item in the list.
+
+### How the Backend Expects the Config
+
+The backend reads `config.questions[0].hiddenWords[]`. All hidden words must be grouped under a single `questions[0]` object. The grid is shared — all words are in the same grid.
+
+### The Serialization Step (in `handleComplete`)
+
+When the wizard submits, it must transform the one-word-per-question internal state into the one-question-with-all-words format the backend expects:
+
+```typescript
+if (r.gameType === "word-puzzle") {
+  const grid = r.questions[0]?.wordPuzzleMeta?.grid ?? [];
+  const totalPoints = r.questions.reduce((sum, q) => sum + (q.points ?? 10), 0);
+  const hiddenWords = r.questions
+    .filter((q) => q.wordPuzzleMeta?.word)
+    .map((q) => ({
+      word: q.wordPuzzleMeta!.word,
+      startCell: q.wordPuzzleMeta!.startCell,
+      endCell: q.wordPuzzleMeta!.endCell,
+      direction: q.wordPuzzleMeta!.direction,
+    }));
+  return {
+    ...roundBase,
+    config: { questions: [{ grid, hiddenWords, points: totalPoints }] },
+  };
+}
+```
+
+Key details:
+- The grid is taken from the first question entry (all entries share the same grid)
+- `totalPoints` sums all per-word points — the backend awards them all as one when the player finds any word? No — the backend awards `question.points` when a hidden word is found, reading from the single question's `points`. Use total points to avoid the player getting zero points for finding words beyond the first.
+- Only entries with a `wordPuzzleMeta.word` are included (filters out empty template entries)
+
+### Why the Mismatch Exists
+
+The wizard's step-four UI renders each word as an editable "question card" — this matches the trivia UX where each question is independent. The word puzzle concept doesn't map cleanly to this UI, so the internal representation is adapted for the UI and then serialized correctly at save time. The serialization step is the critical translation layer between UI state and backend config.
+
+---
+
 *This guide covers the NextVibe frontend as of June 2026. Update it when significant architectural changes are made.*

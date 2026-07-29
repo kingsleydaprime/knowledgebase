@@ -8,5 +8,6 @@ Framework-agnostic frontend concepts — true whether you're writing React, Vue,
 3. [[03-rendering|rendering]] — **[Advanced]** — CSR, SSR, SSG, ISR, and hydration — where and when HTML actually gets built
 
 ## Related
+- [[frontend/README|frontend/]] — the framework-specific implementations of these same ideas (React, then Next)
 - [[concepts/01-backend/README|backend concepts]]
 - [[concepts/03-design-patterns/README|design patterns]]

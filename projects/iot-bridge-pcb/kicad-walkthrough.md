@@ -608,3 +608,87 @@ Run when ALL sections are drawn:
 You placed the ESP32-C6 first. Now everything else in the schematic is either:
 - **Something the ESP32 talks to** (peripherals — LoRa, Ethernet, Cellular, SD)
 - **Something that powers the ESP32** (power section — USB-C, PoE, LDOs)
+
+---
+
+## Learning Notes (merged from `learning.md`, split out 2026-07-27)
+
+> The sections below were moved here from the old flat `learning.md` file when learning notes were split into topic-scoped files. Content is verbatim from the original — only heading levels were adjusted to nest under this section.
+
+### Tools & Software We're Using — And Why
+
+#### KiCad
+Free, open-source PCB design software. Industry-used alongside paid tools like Altium Designer and Eagle. Has two main editors:
+- **Schematic Editor** — draw the logical connections (what connects to what)
+- **PCB Editor** — physically place components and route copper traces
+
+We're using KiCad because the brief specifically recommends it, it's free, and it's powerful enough for professional work. Altium is the industry gold standard but costs thousands of dollars per year.
+
+#### Espressif KiCad Libraries
+Espressif (makers of the ESP32) publishes official KiCad symbol and footprint libraries for all their chips. Downloaded from their GitHub and added to KiCad. Without this, there's no ESP32-C6-WROOM-1 symbol available in KiCad's default library — you'd have to draw one from scratch.
+
+**How to add it:** Preferences → Manage Symbol Libraries → add the downloaded `.kicad_sym` file.
+
+#### KiCad Symbol Libraries Used So Far
+| Library | What's in it |
+|---|---|
+| `Device` | Generic passives — R (resistor), C (capacitor), L (inductor) |
+| `Switch` | SW_Push — momentary tactile button |
+| `power` | Power symbols — +3V3, GND, +5V, PWR_FLAG |
+| `espressif` | ESP32-C6-WROOM-1 and other Espressif modules |
+| `Connector` | USB-C, RJ45, pin headers |
+
+#### ESP-IDF (Planned — Firmware)
+Espressif IoT Development Framework. This is the official C/C++ framework for writing firmware for ESP32 chips. Think of it like the Arduino IDE but professional-grade — more control, more features, more complex. Includes:
+- FreeRTOS (real-time operating system for running multiple tasks)
+- WiFi and Bluetooth stack
+- SPI, UART, I2C, GPIO drivers
+- OTA update support
+
+#### RadioLib (Planned — Firmware)
+An open-source library for controlling RF (radio) chips like the SX1262 over SPI. Handles all the low-level SPI commands and register writes so your firmware can call simple functions like `lora.transmit("hello")` instead of manually writing SX1262 opcodes. Supports both raw LoRa and full LoRaWAN.
+
+#### FreeRTOS (Planned — Firmware)
+A real-time operating system built into ESP-IDF. Lets you run multiple "tasks" concurrently — like reading a LoRa packet in one task while simultaneously checking for an MQTT message in another. Without an RTOS, you'd have to handle all of that manually in one loop, which gets very messy very fast.
+
+### What is the SWD header and why does every MCU design include one?
+
+**SWD (Serial Wire Debug)** is ARM's debugging interface. It uses just two signal wires (SWDIO and SWDCLK) plus power and ground — so a 4-pin header on your PCB lets you:
+
+1. **Flash firmware** — load your compiled code directly onto the chip without a USB bootloader
+2. **Debug in real time** — set breakpoints, step through code line by line, inspect variable values, all while the code is running on the actual hardware
+
+You connect an **ST-Link** (for STM32) or **J-Link** programmer to this header. On the ESP32-C6, USB Serial/JTAG is built in so you can use the USB-C port directly, but a dedicated SWD/JTAG header is still good practice for production boards.
+
+If you don't include an SWD header and your USB bootloader breaks or your firmware bricks the chip, you have no way to recover it.
+
+### Which side of an LED is the anode and which is the cathode?
+
+In the KiCad LED symbol:
+
+```
+Anode (+) ──▶|── Cathode (−)
+```
+
+- **Anode** — the flat end of the triangle. The (+) side. Current flows IN here.
+- **Cathode** — the bar/vertical line at the tip of the triangle. The (−) side. Current flows OUT here, to GND.
+
+On a real physical LED:
+- Anode → **longer leg**
+- Cathode → **shorter leg** (also has a flat edge on the plastic lens)
+
+In your schematic:
+```
+LED net (GPIO0) → 330Ω resistor → Anode → LED → Cathode → GND
+```
+
+Current flows from the GPIO, through the resistor (which limits how much), into the anode, out the cathode, to ground.
+
+### What are the two pins on a Conn_Coaxial (U.FL connector)?
+
+A `Conn_Coaxial` in KiCad represents a U.FL coaxial socket — the tiny RF connector that an antenna cable plugs into. It has two pins:
+
+- **Pin 1** — the centre conductor (signal). This is where the RF signal travels. Connect to your antenna net (e.g. `LORA_ANT`, `ANT_NET`).
+- **Pin 2** — the outer shield (ground). The metal shell around the connector. Connect to GND.
+
+This matches how coax cable works physically: the inner wire carries the signal, the outer braid is ground.

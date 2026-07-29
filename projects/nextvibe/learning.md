@@ -4596,4 +4596,191 @@ Note: anonymous players (`entry.userId === null`) don't get notifications — th
 
 ---
 
+---
+
+## Part 53 — Game Session Config Structure: The Word Puzzle Serialization Bug
+
+### The Config Shape the Backend Expects
+
+`GameRound.config` is a JSON column. The exact shape the backend reads for each game type is hardcoded in `games.service.ts → calculateScore`. Get this shape wrong and scoring silently returns 0.
+
+**WORD_PUZZLE config — the backend reads `questions[0].hiddenWords[]`:**
+
+```json
+{
+  "questions": [
+    {
+      "grid": [["C","A","T",...], ...],
+      "hiddenWords": [
+        { "word": "CAT", "startCell": [0,0], "endCell": [0,2], "direction": "HORIZONTAL" },
+        { "word": "DOG", "startCell": [1,0], "endCell": [1,2], "direction": "HORIZONTAL" }
+      ],
+      "points": 20
+    }
+  ]
+}
+```
+
+All hidden words live inside a single `questions[0]` object. `questions.length` is always 1 for word puzzle.
+
+**What the wizard was doing wrong (the bug):**
+
+The wizard had been creating one question entry per hidden word:
+
+```json
+{
+  "questions": [
+    { "word": "CAT", "startCell": [0,0], "endCell": [0,2], "direction": "HORIZONTAL", "points": 10 },
+    { "word": "DOG", "startCell": [1,0], "endCell": [1,2], "direction": "HORIZONTAL", "points": 10 }
+  ]
+}
+```
+
+The backend's `calculateScore` reads `config.questions[0].hiddenWords` and finds it undefined — scoring returns 0 every time. The game played, players submitted answers, but all scores were 0. No error was thrown.
+
+**The fix (in the wizard's `handleComplete`):**
+
+```typescript
+if (r.gameType === "word-puzzle") {
+  const grid = r.questions[0]?.wordPuzzleMeta?.grid ?? [];
+  const totalPoints = r.questions.reduce((sum, q) => sum + (q.points ?? 10), 0);
+  const hiddenWords = r.questions
+    .filter((q) => q.wordPuzzleMeta?.word)
+    .map((q) => ({
+      word: q.wordPuzzleMeta!.word,
+      startCell: q.wordPuzzleMeta!.startCell,
+      endCell: q.wordPuzzleMeta!.endCell,
+      direction: q.wordPuzzleMeta!.direction,
+    }));
+  return {
+    ...roundBase,
+    config: { questions: [{ grid, hiddenWords, points: totalPoints }] },
+  };
+}
+```
+
+**The lesson:** when a backend service reads structured JSON from a database column, there is only one valid shape. The code that writes that JSON must produce the exact same shape the reader expects. When they're in different files (wizard vs games.service.ts), drift is easy to miss and silent to fail.
+
+### THIS_OR_THAT Scoring: Changed from Participation to Correct-Answer
+
+The original `calculateScore` for `THIS_OR_THAT` gave points to everyone regardless of answer — it was a participation game. After the pivot to True/False (where there is a definitive correct answer), the scoring changed:
+
+```typescript
+// Old — participation:
+case 'THIS_OR_THAT':
+  totalScore += question.points || 5;
+  break;
+
+// New — correct answer required:
+case 'THIS_OR_THAT':
+  if (Number(userAnswer) === question.correctAnswerIndex) {
+    totalScore += question.points || 5;
+  }
+  break;
+```
+
+`userAnswer` is a string (submitted by the frontend as the option index). `Number()` converts it to a number before comparing. `correctAnswerIndex` is 0 for True, 1 for False. The answer stored in the config is `correctAnswerIndex`, not the option text.
+
+---
+
+## Part 54 — EventPlan Null Guard: The paymentRequired Disagreement Bug
+
+### How EventPlan is Created
+
+`EventPlan` has exactly one creator in the entire codebase: `activatePayment()` in `organizer-payments.service.ts`. It uses `eventPlan.upsert()`. It is called:
+
+1. When an organizer pays for a plan (Ercaspay webhook fires `activatePayment()`)
+2. When a coupon covers 100% of the cost (free payment path — `activatePayment()` is called immediately)
+3. As a fallback in `verifyPayment()` — if the webhook was missed, the frontend can trigger verification which calls `activatePayment()` if the payment reference is confirmed
+
+**Free events never get an EventPlan.** Creating an event is free. Publishing a free event (no tickets, no games, no VibeTags) costs nothing and bypasses the billing flow entirely. A free event's `EventPlan` is always `null`.
+
+### The Bug
+
+`createSession` had this logic:
+
+```typescript
+// Old — broken:
+let paymentRequired = false;
+if (plan) {
+  if (plan.gamesUsed >= plan.gamesIncluded) {
+    paymentRequired = true;
+  }
+}
+// If plan is null → paymentRequired stays false
+// The session is created with paymentRequired: false
+```
+
+Then if the organizer tried to activate the session (`updateStatus` to `ACTIVE`), the service threw:
+
+```
+400 Bad Request: No active event plan found for this event
+```
+
+The `createSession` response told the organizer "no payment required" but `updateStatus` refused to activate. Contradiction. The organizer would see a game in PENDING state that appeared free but couldn't be activated.
+
+**The fix:**
+
+```typescript
+const paymentRequired = !plan || plan.gamesUsed >= plan.gamesIncluded;
+```
+
+Now a null plan correctly signals `paymentRequired: true`. The organizer is told upfront they need to purchase a plan. The wizard can show a payment flow before creating the session.
+
+### The Mental Model
+
+EventPlan is a gate, not a side effect. Before running any game session, the system must confirm:
+- A plan exists (organizer has purchased)
+- The plan has remaining quota (`gamesUsed < gamesIncluded`)
+
+Both conditions must be true. The old code only checked the second condition when the plan existed, treating "no plan" as "no gate." The new code treats "no plan" as a failed gate.
+
+---
+
+## Part 55 — AI Generation Memory: OOM on Render 512MB
+
+### The Root Cause
+
+`AiGeneratorService` called the OpenRouter API (Gemini 2.5 Flash) with:
+
+```typescript
+max_tokens: 60000,
+```
+
+The model generates up to 60,000 tokens. Holding a partially-streamed or fully-buffered response of that size in Node.js memory consumes approximately 240MB per AI request (token buffers, JSON parse buffers, intermediate strings). The Render instance has 512MB total — leaving ~270MB for the rest of the application (Prisma connections, cached queries, active sessions). A single AI request combined with normal traffic pushed the process over the limit. Render killed it with an OOM signal.
+
+### The Fix: Per-Game-Type Token Caps
+
+```typescript
+const maxTokens = dto.gameType === 'WORD_PUZZLE' ? 8000 : 4000;
+```
+
+Reasoning:
+- **WORD_PUZZLE** needs more tokens because it returns a full 10×10 grid (100 single-character cells) plus hidden word metadata. A single round with 2 words is ~300 tokens of grid + metadata.
+- **TRIVIA, THIS_OR_THAT, TWO_TRUTHS_ONE_LIE** have compact question shapes. 4,000 tokens is more than enough for 10 questions per round with multiple rounds.
+
+Memory impact at 4,000 tokens: approximately 16MB per request. At 8,000 tokens: approximately 32MB. Both are manageable on a 512MB instance.
+
+### Recommended Additional Step
+
+Add `--max-old-space-size=400` to the Node.js start command on Render:
+
+```
+node --max-old-space-size=400 dist/main.js
+```
+
+Without this, Node.js will use as much heap memory as the OS allows until the OS kills it. With this flag, Node.js triggers garbage collection more aggressively when approaching 400MB — keeping the process alive instead of getting OOM-killed.
+
+### Dead Code in the Games Module
+
+Two items in the codebase are dead (present but never called):
+
+1. **`POST /v1/games/ai/save-draft` (backend)** — an endpoint that accepts a complete AI-generated draft and saves it as a game session. The wizard never calls it. The wizard calls `POST /v1/games/ai/generate-draft` only to get questions, then saves the session through the regular `createSession` path. `ai-save-draft` is unused and can be deleted.
+
+2. **`frontend/src/app/provider/api/gameApi.ts` (frontend)** — a dead API file. It defines mutations against URLs that don't exist in the backend (`/games`, `/events/:id/games`, `/games/:id/leaderboard`). No component imports from this file. It can be deleted without any impact.
+
+**How to verify dead code:** `grep -r "gameApi" src/` — if nothing imports it, it's dead.
+
+---
+
 *Document covers codebase as of June 2026. Module list: Auth, Users, Events (+ RSVP), Tickets, Payments (Juicyway + Ercaspay), Pledges, Billing (Pricing, Coupons, OrganizerPayments), Games (Sessions, Rounds, Rewards, AI generation via Gemini + OpenRouter, Anonymous Play + Merge), Notifications (WebSocket + Resend), Social (Follows, Likes, Comments, Shares, Feed), Messaging (DMs + EventChat), Storage, Discovery, Admin, VibeTags, Postcards.*
