@@ -11,6 +11,7 @@ Framework-agnostic backend concepts — the ideas that stay true whether you're 
 6. [[06-authorization|authorization]] — **[Advanced]** — RBAC vs ABAC, guards/policies, and object-level authorization (the most commonly missed check)
 
 ## Related
+- [[backend/README|backend/]] — the framework-specific implementations of these same ideas (Node.js core, then Express or Nest)
 - [[concepts/02-frontend/README|frontend concepts]]
 - [[cybersecurity/README|cybersecurity curriculum map]] — the security mechanics underneath authentication-flows and backend-best-practices
 - [[architecture/system-design-reference|system-design-reference]] — scaling these same concepts across a distributed system

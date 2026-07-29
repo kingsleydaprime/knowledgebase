@@ -16,7 +16,7 @@ The brain of the OS that does all this is called the kernel.
 
 
 ## The Kernel
-The kernel runs with full access to hardware. Everything else — your browser, terminal, Python script — runs in userspace, which is restricted.
+The kernel runs with full access to hardware. Everything else — your browser, terminal, Python script — runs in user-space, which is restricted.
 
 When your program needs hardware (read a file, open a socket, print something), it can't do it directly. It asks the kernel via a system call (syscall). The kernel does it, then returns the result.
 

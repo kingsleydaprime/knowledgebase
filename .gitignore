@@ -2,3 +2,6 @@
 pdfs/
 *.pdf
 test.py
+blog-ideas.md
+blog-drafts/
+.obsidian/
