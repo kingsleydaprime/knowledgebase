@@ -89,6 +89,25 @@ Average case O(n log n), but worst case O(n²) — happens when the pivot choice
 
 **Stable** means equal elements keep their original relative order after sorting — matters when you're sorting by one key but want ties broken by original order (e.g. sorting students by grade, wanting ties to stay in the order they were entered).
 
+## Beating the O(n log n) floor — non-comparison sorts
+
+The O(n log n) floor above applies specifically to algorithms that sort by **comparing** elements pairwise. Sidestep comparison entirely — using actual structural knowledge about the data, like "every value is an integer between 0 and m" — and the floor doesn't apply anymore.
+
+**Counting sort**: if every element is known to fall in a small, bounded range `0..m`, build an array of counters instead of comparing anything:
+```python
+def counting_sort(A, m):
+    count = [0] * (m + 1)
+    for x in A:
+        count[x] += 1
+    result = []
+    for value, freq in enumerate(count):
+        result.extend([value] * freq)
+    return result
+```
+Each element is placed by using its own **value as an array index**, not by comparing it against other elements — that's what makes this **O(n + m)** rather than O(n log n): m is a property of the data's range, not its length, so when m is small relative to n this genuinely beats comparison-based sorting. The real limitation is memory, not time — counting sort needs an array of size m+1, so it stops being practical once the value range gets large (a range of a billion needs a billion-entry array regardless of how few elements you're actually sorting).
+
+The same counting-array technique is useful for more than sorting — anywhere you need fast frequency lookups on bounded values. For example: given two arrays A and B, can swapping one element between them make their sums equal? Build a counting array for A once, then for each candidate swap value, check its count in O(1) instead of re-scanning A — turning an O(n²) "try every pair" approach into O(n + m) overall.
+
 ## What languages actually give you
 
 Python's `sorted()`/`list.sort()` and Java's `Collections.sort()` use **Timsort** — a hybrid that runs insertion sort on small chunks (where it's genuinely fast) and merges those chunks the way merge sort does, specifically because it's stable and does very well on partially-sorted real-world data. In an interview, "just use the built-in sort" (O(n log n), stable, well-tested) is almost always the right call unless the question is specifically about implementing a sort.

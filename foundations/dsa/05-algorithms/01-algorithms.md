@@ -75,6 +75,18 @@ The same notation, applied to memory instead of time — how much *extra* space 
 
 Big-O is usually quoted as worst-case unless stated otherwise, because average-case can hide real problems — an algorithm that's O(1) on average but O(n) in an adversarial case (a poorly-hashed [[03-hash-maps|hash map]], say) can be exploited or just get unlucky with real input. In interviews specifically, stating "this is O(n) average, O(n²) worst case" is a stronger answer than just "O(n)."
 
+## Reading a constraint and guessing the expected complexity
+
+A practical trick worth having as a reflex, especially under time pressure (an interview, a timed platform like Codility/LeetCode): most machines do roughly **10⁸ operations per second**, and problems are usually solvable within a 1-10 second time limit — which means the *input size constraint alone* tells you what complexity is expected, before you've even fully worked out an approach:
+
+| If n is around... | Expected complexity |
+|---|---|
+| ≤ 500 | O(n³) is fine |
+| ≤ 10,000 | O(n²) |
+| ≤ 1,000,000 | O(n) or O(n log n) |
+
+Seeing `n ≤ 1,000,000` in a problem statement and reaching for an O(n²) solution is a signal to stop and look for the O(n log n) or O(n) approach instead — the constraint is effectively telling you a nested loop over the whole input won't finish in time. These are rough guides, not guarantees (they vary by the actual constant factors involved), but they're a genuinely useful sanity check on whether the approach you're about to write is even in the right ballpark.
+
 ## Gotchas
 
 - Big-O describes growth rate, not actual speed — an O(n²) algorithm can outrun an O(n log n) one for small n, because the constant factors and lower-order terms that Big-O throws away still cost real time at small scale.

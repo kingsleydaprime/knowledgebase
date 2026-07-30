@@ -6,18 +6,20 @@ A map of the DSA notes in this folder, in the order they're meant to be read —
 
 ```
 dsa/
-├── data-types.md, data-type-classification.md   # foundations — precede both of the below
-├── data-structures/
-│   ├── arrays.md, dynamic-arrays.md, hash-maps.md, linked-lists.md, graphs.md
+├── 01-iterations.md, 02-data-types.md, 03-data-type-classification.md   # foundations
+├── 04-data-structures/
+│   ├── arrays, dynamic-arrays, hash-maps, linked-lists, graphs, stacks-and-queues
 │   └── trees/
 │       ├── trees.md
 │       └── traversal.md        # companion note — tree traversal orders
-├── algorithms/
+├── 05-algorithms/
 │   ├── algorithms.md            # Big-O, complexity analysis
-│   ├── dfs.md, bfs.md, sorting.md, searching.md
-│   └── (future: dijkstra.md, and other algorithms that don't belong to a single data structure)
-└── patterns/                    # LeetCode patterns — a layer above both, see below
+│   ├── dfs, bfs, sorting, searching, dijkstra
+│   └── number-theory-basics, leader-algorithm, max-slice-algorithms, greedy-algorithms
+└── 06-patterns/                 # LeetCode patterns — a layer above both, see below
 ```
+
+After cross-referencing this folder against the original Codility course PDFs in `pdfs/`, five notes were added for topics that had zero coverage anywhere: [[foundations/dsa/04-data-structures/07-stacks-and-queues|stacks-and-queues]], [[foundations/dsa/05-algorithms/07-number-theory-basics|number-theory-basics]] (GCD, primality, Sieve of Eratosthenes), [[foundations/dsa/05-algorithms/08-leader-algorithm|leader-algorithm]] (majority element / Boyer-Moore voting), [[foundations/dsa/05-algorithms/09-max-slice-algorithms|max-slice-algorithms]] (Kadane's algorithm), and [[foundations/dsa/05-algorithms/10-greedy-algorithms|greedy-algorithms]]. A few existing notes also picked up real depth from the same review: non-comparison sorts in [[foundations/dsa/05-algorithms/04-sorting|sorting]], the "guess expected complexity from constraint size" heuristic in [[foundations/dsa/05-algorithms/01-algorithms|algorithms]], and "binary search on the answer" in [[foundations/dsa/06-patterns/09-modified-binary-search|modified-binary-search]].
 
 The rule for where a note goes: if it's a way of *storing* data, it's under `data-structures/` (with a further subfolder if that structure has its own companion notes, the way trees has traversal). If it's a *procedure* that operates on data structures — including ones that don't belong to just one structure, like Dijkstra working across a weighted graph — it's under `algorithms/`.
 
@@ -37,14 +39,19 @@ Tags mark roughly where each note sits on a Beginner → Advanced curve, within 
 7. [[01-trees|trees]] — **[Intermediate]** — hierarchical structures, BSTs, balance
    - [[02-traversal|traversal]] — **[Intermediate]** — visiting every node, pre/in/post/level-order (companion note, tree-specific)
 8. [[06-graphs|graphs]] — **[Intermediate]** — the general case: vertices, edges, adjacency representations
+9. [[foundations/dsa/04-data-structures/07-stacks-and-queues|stacks-and-queues]] — **[Beginner]** — LIFO/FIFO, array-based push/pop, the circular buffer trick
 
 **Algorithms**
-9. [[01-algorithms|algorithms]] — **[Beginner]** — what an algorithm is, Big-O, complexity analysis
-10. [[02-dfs|dfs]] — **[Intermediate]** — depth-first search
-11. [[03-bfs|bfs]] — **[Intermediate]** — breadth-first search
-12. [[04-sorting|sorting]] — **[Intermediate]** — bubble/insertion/merge/quicksort, stability, Timsort
-13. [[05-searching|searching]] — **[Beginner]** — linear vs binary search
-14. [[06-dijkstra|dijkstra]] — **[Advanced]** — shortest path in weighted graphs, BFS generalized with a min-heap
+10. [[01-algorithms|algorithms]] — **[Beginner]** — what an algorithm is, Big-O, complexity analysis
+11. [[02-dfs|dfs]] — **[Intermediate]** — depth-first search
+12. [[03-bfs|bfs]] — **[Intermediate]** — breadth-first search
+13. [[04-sorting|sorting]] — **[Intermediate]** — bubble/insertion/merge/quicksort, stability, Timsort, counting sort
+14. [[05-searching|searching]] — **[Beginner]** — linear vs binary search
+15. [[06-dijkstra|dijkstra]] — **[Advanced]** — shortest path in weighted graphs, BFS generalized with a min-heap
+16. [[foundations/dsa/05-algorithms/07-number-theory-basics|number-theory-basics]] — **[Intermediate]** — primality testing, Sieve of Eratosthenes, factorization, GCD/LCM
+17. [[foundations/dsa/05-algorithms/08-leader-algorithm|leader-algorithm]] — **[Intermediate]** — majority element via Boyer-Moore voting
+18. [[foundations/dsa/05-algorithms/09-max-slice-algorithms|max-slice-algorithms]] — **[Intermediate]** — Kadane's algorithm, maximum subarray sum
+19. [[foundations/dsa/05-algorithms/10-greedy-algorithms|greedy-algorithms]] — **[Advanced]** — locally-optimal choices, and why they aren't always globally correct
 
 More algorithms belong here as they're written up — A*, Union-Find, Bellman-Ford, topological sort as its own note, etc. — anything that's a standalone procedure rather than a way of storing data.
 

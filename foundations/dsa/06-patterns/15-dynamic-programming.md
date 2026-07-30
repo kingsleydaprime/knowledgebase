@@ -41,6 +41,8 @@ def fib_tabulation(n):
 
 Both are O(n) — the exponential blowup is gone the moment repeated subproblems stop being recomputed. Bottom-up avoids recursion's call-stack overhead entirely (see the space-complexity note in [[01-algorithms|algorithms]]); top-down is often easier to derive first, since it mirrors the natural recursive definition of the problem.
 
+Fibonacci specifically can go even faster than O(n) — O(log n) via matrix exponentiation (`[[1,1],[1,0]]^n` encodes the recurrence), or a closed-form (Binet's formula, using the golden ratio). Neither is worth reaching for by default — they're a well-known footnote once O(n) DP stops being fast enough, not the normal answer.
+
 ## The real skill: finding the recurrence relation
 
 Every DP problem comes down to answering one question: **how does the answer to a state depend on smaller states?** For Fibonacci it's `dp[i] = dp[i-1] + dp[i-2]`. For Climbing Stairs (how many ways to climb n stairs, 1 or 2 steps at a time) it's the *same* recurrence, because the question is structurally identical: `dp[i] = dp[i-1] + dp[i-2]`. Recognizing that two differently-worded problems share a recurrence is most of what "getting good at DP" actually means.
