@@ -46,10 +46,41 @@ left=4 right=4 mid=4  nums[4]=0 == target -> found at index 4
 
 O(log n) — same as standard binary search; the extra "which half is sorted" check is O(1) work added to each step, not an extra pass over the data.
 
+## Binary search on the answer — a different modification, worth knowing separately
+
+The rotated-array case above still binary-searches *over the array*. A distinct and very commonly tested variant instead binary-searches **over the space of possible answers** — used whenever a problem asks for the optimal value satisfying some condition, and "is candidate value X good enough?" is cheap to check and has a **monotonic** answer (every value below some threshold fails, every value at or above it works, with no flip-flopping).
+
+**Example:** given `n` holes in a roof and `k` boards, find the minimum board size that lets all holes be covered using at most `k` boards.
+```python
+def min_board_size(holes, k):
+    def boards_needed(size):          # greedy check: how many boards of this size are needed?
+        count, last_covered = 0, -1
+        for i, has_hole in enumerate(holes):
+            if has_hole and last_covered < i:
+                count += 1
+                last_covered = i + size - 1
+        return count
+
+    lo, hi, result = 1, len(holes), -1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if boards_needed(mid) <= k:     # mid is "good enough" — try to do better
+            result = mid
+            hi = mid - 1
+        else:                            # mid isn't enough — need a bigger size
+            lo = mid + 1
+    return result
+```
+The shape to recognize: `lo`/`hi` bound a range of **candidate answers**, not array indices; the "check" function (`boards_needed` here) is usually its own separate O(n) pass; and the overall complexity becomes **O(n log n)** — an O(n) check repeated O(log n) times — rather than the plain O(log n) of searching an already-built array. Other classic problems in this exact shape: "minimum ship capacity to deliver packages within D days," "Koko eating bananas" (minimum eating speed to finish within h hours), "split array into k parts minimizing the largest part's sum."
+
+The tell that a problem wants this pattern: it asks for a minimum/maximum value satisfying a constraint, and you can imagine a "does value X work?" check that's monotonic (works for X implies works for every value past X in the same direction) — that monotonicity is precisely what makes binary search valid here, same as sortedness is what makes it valid on an array.
+
 ## Practice problems
 1. Search in Rotated Sorted Array (LeetCode #33)
 2. Find Minimum in Rotated Sorted Array (LeetCode #153) — the pivot-finding half of this pattern in isolation
 3. Search a 2D Matrix II (LeetCode #240) — binary search generalized to two dimensions
+4. Koko Eating Bananas (LeetCode #875) — binary search on the answer
+5. Capacity To Ship Packages Within D Days (LeetCode #1011) — binary search on the answer
 
 ## Related
 - [[05-searching|searching]]

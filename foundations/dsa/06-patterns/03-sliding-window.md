@@ -1,6 +1,6 @@
 # Pattern: Sliding Window
 
-A specialization of [[02-two-pointers|two-pointers]] where both pointers move in the same direction, maintaining a contiguous "window" over the data instead of converging from opposite ends. It turns "recompute something over every contiguous subarray/substring" from O(n·k) or O(n²) into O(n), by updating the window incrementally instead of recomputing it from scratch each time it shifts.
+A specialization of [[02-two-pointers|two-pointers]] where both pointers move in the same direction, maintaining a contiguous "window" over the data instead of converging from opposite ends. It turns "recompute something over every contiguous subarray/substring" from O(n·k) or O(n²) into O(n), by updating the window incrementally instead of recomputing it from scratch each time it shifts. Codility's own course material calls this the **"caterpillar method"** — same technique (a front and back index, each only ever moving forward), different name — worth recognizing if it comes up under that label.
 
 ## When to use it
 
