@@ -8,7 +8,7 @@ Part of [[README|RHCSA V10]].
 
 ## What RHEL actually is
 
-Red Hat Enterprise Linux is the commercial, enterprise-support Linux distribution from Red Hat (owned by IBM since 2019). The product isn't really the software — RHEL's source is public — the product is the **support contract, certification, and stability guarantee**. Companies pay for RHEL because when something breaks in production, there's a phone number to call and a guaranteed fix timeline (an SLA).
+Red Hat Enterprise Linux is the commercial, enterprise-support Linux distribution from Red Hat (owned by IBM since 2019). The product isn't really the software — RHEL's source is public — the product is the **support contract, certification, and stability guarantee**. Companies pay for RHEL because when something breaks in production, there's a phone number to call and a guaranteed fix timeline — an **SLA (Service Level Agreement)**, a contractual promise like "critical issues get a first response within 1 hour, resolved within 4."
 
 This is the single biggest mental shift coming from Ubuntu/Debian: on your personal machine, "free and community-supported" is fine. In an enterprise data center running a bank's core systems, someone needs to be contractually liable when it breaks.
 
@@ -49,8 +49,14 @@ subscription-manager attach --auto      # attach an available subscription
 subscription-manager list --available   # see what's available
 subscription-manager status             # check current status
 ```
-
-Without registration, `dnf` has no repos to pull from — this is the RHEL equivalent of `apt update` failing because `/etc/apt/sources.list` is empty.
+```
++-------------------------------------------+
+   System Status Details
++-------------------------------------------+
+Overall Status: Current
+Content Access Mode is set to Simple Content Access.
+```
+"Current" is what you want to see — it means the system has a valid subscription attached and `dnf` has repos to pull from. Without registration, the very first `dnf install` on a fresh RHEL box fails outright — this is the RHEL equivalent of `apt update` failing because `/etc/apt/sources.list` is empty.
 
 ---
 

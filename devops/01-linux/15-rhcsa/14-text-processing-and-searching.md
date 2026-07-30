@@ -93,6 +93,49 @@ grep -E '^(root|kingsley):' /etc/passwd     # alternation + anchor combined — 
 
 Default to `grep -E` unless there's a specific reason not to — it removes an entire category of "why isn't my regex matching" mistakes caused by forgetting a backslash.
 
+### Explicit repetition counts
+
+Beyond `*` (zero or more) and `+` (one or more), you can require an exact or bounded count:
+
+| BRE | ERE | Meaning |
+|---|---|---|
+| `\{n\}` | `{n}` | Exactly `n` times |
+| `\{n,\}` | `{n,}` | `n` or more times |
+| `\{,m\}` | `{,m}` | At most `m` times |
+| `\{n,m\}` | `{n,m}` | Between `n` and `m` times |
+
+```bash
+grep -E 'c.{2}t' file.txt      # c, then exactly 2 of anything, then t — matches "coat", "cart", "covert" but not "cat" or "convert"
+```
+
+### POSIX character classes — portable, and worth recognizing even if you rarely type them from scratch
+
+`[A-Z]` and friends work, but assume ASCII ordering and can behave oddly under different locales — POSIX classes are the portable, self-documenting equivalent:
+
+| Class | Matches |
+|---|---|
+| `[:alpha:]` | Letters |
+| `[:digit:]` | Digits 0-9 |
+| `[:alnum:]` | Letters + digits |
+| `[:upper:]` / `[:lower:]` | Upper/lowercase letters only |
+| `[:space:]` | Whitespace (space, tab, newline, etc.) |
+| `[:punct:]` | Punctuation characters |
+
+Used *inside* a bracket expression, with the extra `[...]`:
+```bash
+grep -E '[[:digit:]]+' file.txt      # one or more digits anywhere on the line
+grep -E '^[[:upper:]]' file.txt       # lines starting with an uppercase letter
+```
+
+### Word boundaries — GNU extensions, not strictly POSIX, but universally available in grep
+
+```bash
+grep '\bcat\b' file.txt        # \b = word boundary — matches "cat" but not "category" or "concatenate"
+grep '\Bcat\B' file.txt        # \B = NOT a word boundary — the opposite, matches "concatenate" but not standalone "cat"
+grep -w 'cat' file.txt          # grep's own -w flag is shorthand for the same \b...\b idea
+```
+`\<` and `\>` are the older, more explicit spelling of "start of word" / "end of word" specifically (as opposed to `\b`, which matches either edge) — functionally `\<cat\>` behaves the same as `\bcat\b` for a single word. `\w`/`\W` (word/non-word character) and `\s`/`\S` (whitespace/non-whitespace) are shorthand for `[_[:alnum:]]` and `[[:space:]]` respectively, and read a lot like what you'd already expect from regex in other languages (Python, JavaScript).
+
 ### Character classes and anchors — the regex you actually need for the exam
 
 ```bash

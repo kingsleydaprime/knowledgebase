@@ -89,6 +89,30 @@ Shrinking the LV before the filesystem risks truncating live filesystem data tha
 
 ---
 
+## Replacing or removing a physical volume safely
+
+Growing (above) is the common case; the other direction — a PV needs to come *out* of a VG, because the underlying disk is failing, undersized, or just being decommissioned — needs its data moved off first, not just deleted out from under the filesystem sitting on top of it.
+
+```bash
+pvmove -A y /dev/sdb1        # move all data OFF this PV onto other PVs with free space in the same VG
+```
+```
+/dev/sdb1: Moved: 2.74%
+...
+/dev/sdb1: Moved: 100.00%
+```
+`-A y` auto-backs-up the VG's metadata (via `vgcfgbackup`) once the move finishes — worth doing every time, since `pvmove` needs the other PVs in the VG to have enough free space to absorb what's being moved, and a **power loss mid-move can leave the VG in an inconsistent, data-losing state** — back up the actual data on the LVs beforehand too, not just the metadata.
+
+Once the PV is empty, remove it from the VG, then wipe it:
+```bash
+vgreduce vg01 /dev/sdb1       # remove the now-empty PV from the volume group
+pvremove /dev/sdb1             # wipe the PV label — the device is now free for any other use
+```
+
+This `pvmove` → `vgreduce` → `pvremove` sequence — evacuate, then detach, then wipe — is the safe order specifically because it never removes a PV while it might still hold live data.
+
+---
+
 ## Cleaning up
 
 ```bash

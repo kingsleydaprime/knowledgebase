@@ -8,18 +8,28 @@ Part of [[README|RHCSA V10]]. RHCSA tests the **client** side of this — mounti
 
 ## NFS — Network File System
 
-The standard way Linux machines share filesystems with each other over the network.
+The standard way Linux machines share filesystems with each other over the network. RHEL 10 defaults to **NFSv4.2**, though NFSv3 is still fully supported — worth knowing there are two, because how you *discover* what a server exports is genuinely different between them, not just a version number.
 
 ```bash
 sudo dnf install nfs-utils          # client tooling, if not already present
-
-showmount -e nfs-server.example.com # list what that server is EXPORTING (sharing) before mounting anything
 ```
 
+**NFSv3** exports are queried with `showmount`, which relies on the legacy RPC protocol (`rpcbind`, listening on port 111 — this is *why* NFS needs more than one firewall service opened, see below):
+```bash
+showmount -e nfs-server.example.com
+```
 ```
 Export list for nfs-server.example.com:
 /exports/data    192.168.1.0/24
 ```
+
+**NFSv4** drops the RPC/`rpcbind` dependency entirely and instead exposes a single **export tree** — mount the server's root export to browse what's available, rather than querying it:
+```bash
+mkdir /mnt/browse
+mount nfs-server.example.com:/ /mnt/browse    # mounts the export TREE, not any actual data
+ls /mnt/browse                                  # browse it like a directory listing to see what's exported
+```
+Since this is what RHEL 10 actually defaults to, don't assume `showmount` is guaranteed to work against a modern server — if it comes back empty or refuses to connect, mounting the root export to browse it is the NFSv4-native alternative, not a sign anything's broken.
 
 ### Mounting
 
@@ -39,6 +49,21 @@ nfs-server.example.com:/exports/data   /mnt/nfsdata   nfs   defaults,_netdev   0
 Test before trusting it to survive a reboot, same discipline as any fstab edit:
 ```bash
 sudo mount -a
+```
+
+### "device is busy" — unmounting a share still in use
+
+`umount` refuses if anything is still using the mount — an open file, or just a shell with its working directory sitting inside it. Find out what, rather than guessing:
+```bash
+lsof /mnt/nfsdata
+```
+```
+COMMAND  PID  USER   FD  TYPE DEVICE  SIZE/OFF  NODE NAME
+program 5534  user  txt  REG  252,4    910704   128  /mnt/nfsdata/file
+```
+Close whatever's listed (or `cd` out of the mount if it's just a shell sitting in it) and retry. Only if nothing else works — and only understanding this risks losing unwritten data for any file still open — force it:
+```bash
+sudo umount -f /mnt/nfsdata
 ```
 
 ---
@@ -83,7 +108,7 @@ sudo systemctl enable --now autofs      # apply and persist across reboots
 
 ## SMB/CIFS — briefly
 
-Same idea, Windows-world protocol, for completeness:
+**SMB (Server Message Block)** — and **CIFS (Common Internet File System)**, an older dialect of the same protocol — is the Windows-world equivalent of NFS. Same idea, different protocol, for completeness:
 ```bash
 sudo dnf install cifs-utils
 sudo mount -t cifs //server/share /mnt/smb -o credentials=/root/.smbcreds
