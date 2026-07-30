@@ -23,12 +23,12 @@ Status key: ✅ done · 🔄 in progress · ⬜ not started yet
 13. ✅ Configure & Secure SSH → [[devops/01-linux/14-basic-ssh-config|Basic SSH Config]], hardening cross-referenced in [[12-manage-network-security|manage-network-security]]
 14. ✅ [[05-analyze-and-store-logs|Analyze & Store Logs]]
 15. ✅ Manage Networking → [[devops/01-linux/13-network-fundamentals|Networking Fundamentals]] (concepts + ufw, now with an nmcli/NetworkManager addendum for the RHEL-native side)
-16. ✅ Archive and Transfer Files → [[devops/01-linux/linux-reference|Linux Reference]] (§12.1 tar/gzip, §14.5 scp/rsync)
+16. ✅ Archive and Transfer Files → [[18-archiving-and-transferring-files|Archiving and Transferring Files]] (tar/gzip/bzip2/xz, sftp/scp/rsync)
 17. ✅ Install & Update Software → [[devops/01-linux/05-package-management|Package Management]]
 18. ✅ Access Linux File Systems → [[devops/01-linux/01-file-system|The Linux Filesystem]] *(directory tree)* + [[08-maintain-basic-storage|Maintain Basic Storage]] *(mounting, fstab, filesystem types)*
 19. ✅ Improving Command Line Productivity Using Shell Scripts → [[devops/01-linux/12-bash-scripting|Bash Scripting]] + [[14-text-processing-and-searching|Text Processing & Searching]] (grep/find/wc/sort/cut, exam-drill depth)
 20. ✅ [[06-tune-system-performance|Tune System Performance]] — builds on [[devops/01-linux/06-process-management|Process Management]]
-21. ✅ Schedule Future Tasks → [[devops/01-linux/11-cron-jobs|Cron Jobs]]
+21. ✅ Schedule Future Tasks → [[devops/01-linux/11-cron-jobs|Cron Jobs]] + [[17-scheduling-user-and-system-tasks|Scheduling User and System Tasks]] (at, systemd timers, systemd-tmpfiles)
 22. ✅ [[07-manage-selinux-security|Manage SELinux Security]]
 23. ✅ [[08-maintain-basic-storage|Maintain Basic Storage]]
 24. ✅ [[09-maintain-advanced-storage|Maintain Advanced Storage]]
@@ -61,8 +61,20 @@ RHEL-specific topics with no prior coverage in the vault — written out in full
 - [[12-manage-network-security|manage-network-security]] — firewalld, replacing ufw
 - [[13-running-containers|running-containers]] — Podman, replacing Docker
 - [[14-text-processing-and-searching|text-processing-and-searching]] — grep/find/wc/sort/cut/uniq, example-dense, the tools used to explore this vault itself
+- [[17-scheduling-user-and-system-tasks|scheduling-user-and-system-tasks]] — `at` for one-time jobs, systemd timers + systemd-tmpfiles for system-level scheduling
+- [[18-archiving-and-transferring-files|archiving-and-transferring-files]] — tar/compression, sftp/scp/rsync
+- [[19-flatpak|flatpak]] — sandboxed application packaging, a genuinely different model from RPM
+- [[20-rhel-image-mode|rhel-image-mode]] — bootc, RHEL 10's newest paradigm: the OS itself as an immutable, rollback-able container image
 
 All known gaps from earlier are now closed — [[devops/01-linux/13-network-fundamentals|Networking Fundamentals]] got an nmcli/NetworkManager addendum for the RHEL-native side of interface config.
+
+## Supplementary topics (found reviewing the official course books)
+
+Cross-checked this folder against the actual RH124/RH134 course books (Red Hat System Administration I & II, RHEL 10.0 editions — `4484555-rh124v10.pdf` / `4484556-rh134v10.pdf` at the vault root) and found a handful of genuinely uncovered topics. Four became new standalone notes (above); three were small enough to fold directly into an existing note instead:
+
+- **RHEL Lightspeed** (AI-assisted command-line help, new in RHEL 10) — added to [[04-get-help-in-rhel|get-help-in-rhel]]
+- **Shell I/O redirection** (`>`, `>>`, `2>`, pipes, `tee`) — added to [[03-accessing-the-command-line|accessing-the-command-line]]
+- **Building container images** (Containerfile, `podman build`) — added to [[13-running-containers|running-containers]], which previously only covered running pre-built images
 
 ---
 

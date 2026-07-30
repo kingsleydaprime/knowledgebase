@@ -76,6 +76,41 @@ The practical consequence: **rootless containers can't bind ports below 1024** (
 
 ---
 
+## Building your own images
+
+Everything above assumes pulling an image someone else already built. Building your own starts with a **Containerfile** (Podman's name for what Docker calls a Dockerfile — same idea, same syntax, different filename convention) and Red Hat's **Universal Base Images (UBI)** as the foundation to build on top of:
+
+```dockerfile
+# Containerfile
+FROM ubi10/ubi                              # base image — Red Hat's freely-redistributable UBI
+RUN dnf install -y httpd                    # layer: install what the app needs
+COPY index.html /var/www/html/index.html    # layer: add your own files
+EXPOSE 80                                    # document which port the container expects to be published
+ENTRYPOINT ["/usr/sbin/httpd", "-DFOREGROUND"]   # what actually runs when the container starts
+```
+
+```bash
+podman build -t my-httpd -f Containerfile   # -t names/tags the resulting image
+podman image list                            # confirm it's there, alongside pulled images
+podman run -d --name web -p 8080:80 my-httpd
+```
+
+Each instruction in the Containerfile becomes its own cached **layer** — Podman prints `STEP 1/5`, `STEP 2/5`, etc. while building, and reuses cached layers from a previous build if an earlier instruction hasn't changed (this is why `FROM`/install-heavy steps are conventionally placed before frequently-changing steps like `COPY` — it keeps rebuilds fast).
+
+### Managing images once you have more than one
+
+```bash
+podman tag c6222576494f fedora:latest        # give an image (by ID) an additional name/tag
+podman image inspect my-httpd                # full JSON detail
+podman image inspect my-httpd --format "{{.Created}}"   # pull just one field out with a Go template
+podman image push my-httpd registry.example.com/my-httpd   # share it via a registry
+podman rmi <image-id>                         # remove one image
+podman image prune                            # remove dangling images — built but no longer tagged/referenced
+podman image prune --all                      # also remove any image not currently used by a container
+```
+
+---
+
 ## Persisting containers across reboots — systemd integration
 
 A `podman run` container doesn't survive a reboot on its own — you need it managed by systemd, same as any other service in [[devops/01-linux/07-systemd-and-services|systemd & Services]].

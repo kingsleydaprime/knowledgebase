@@ -8,6 +8,8 @@ Part of [[README|RHCSA V10]]. Pairs with [[09-maintain-advanced-storage|maintain
 
 ## Partition tables: MBR vs. GPT
 
+A partition table is the map at the start of a disk that says where each partition begins and ends — **MBR (Master Boot Record)** is the original, decades-old format; **GPT (GUID Partition Table)** is its modern replacement, built to remove MBR's size and partition-count ceilings.
+
 | | MBR | GPT |
 |---|---|---|
 | Max disk size | 2 TB | Effectively unlimited (exabytes) |
@@ -19,13 +21,54 @@ Modern RHEL installs on UEFI hardware default to **GPT**. Know both because the 
 
 ---
 
-## Tools: fdisk, gdisk, parted
+## Tools: parted, fdisk, gdisk
+
+**`parted` is RHEL's standard, official partition editor** — it handles both MBR and GPT, works interactively or as one-liners for scripting, and is the tool Red Hat's own course material builds around. `fdisk`/`gdisk` (below) are worth recognizing since they're common elsewhere and still ship on RHEL, but default to `parted` unless something specifically calls for the others.
 
 | Tool | Partition table | Style |
 |---|---|---|
+| `parted` | Both | Interactive session or fully scriptable one-liners — **the RHEL-standard choice** |
 | `fdisk` | MBR natively; modern versions also handle GPT | Interactive, single-letter menu |
 | `gdisk` | GPT only | Same interactive style as fdisk, GPT-native |
-| `parted` | Both | Can be interactive or fully scriptable in one line |
+
+### parted walkthrough
+
+```bash
+sudo parted /dev/sdb print          # show the current partition table without changing anything
+```
+```
+Model: QEMU QEMU HARDDISK (scsi)
+Disk /dev/sdb: 5369MB
+Partition Table: gpt
+Number  Start   End     Size    File system  Name  Flags
+```
+
+A brand-new disk has no partition table at all yet — write one first with `mklabel` (this **wipes any existing partition table**, so treat it as destructive):
+```bash
+sudo parted /dev/sdb mklabel gpt      # or 'msdos' for MBR
+```
+
+Then create the partition. Interactively:
+```bash
+sudo parted /dev/sdb
+```
+```
+(parted) mkpart
+Partition name? []? userdata
+File system type? [ext2]? xfs
+Start? 2048s
+End? 1000MB
+(parted) print                        # verify before quitting
+(parted) quit
+```
+`mkpart` only labels the partition's intended filesystem type in the table — it does **not** actually create a filesystem on it; that's still a separate `mkfs` step below. Sizes accept `s` (sectors), `MB`/`GB` (powers of 10), or `MiB`/`GiB` (powers of 2) — a start sector that's a multiple of 2048 is the safe, aligned default `parted` itself will nudge you toward if you get it wrong.
+
+The same thing as a single scriptable line, for when interactivity isn't wanted:
+```bash
+sudo parted /dev/sdb mkpart userdata xfs 2048s 1000MB
+sudo parted /dev/sdb rm 1                              # delete partition number 1 — same interactive/one-liner duality
+sudo udevadm settle                                     # wait for the kernel to register the new device node before using it
+```
 
 ### fdisk walkthrough
 
@@ -56,12 +99,6 @@ After writing, make sure the kernel actually sees the new table:
 ```bash
 sudo partprobe /dev/sdb        # re-read partition table without rebooting
 sudo lsblk                     # confirm the new partition shows up
-```
-
-`parted` one-liner equivalent, for when scripting matters more than interactivity:
-```bash
-sudo parted /dev/sdb mklabel gpt
-sudo parted /dev/sdb mkpart primary xfs 0% 10GiB
 ```
 
 ---
@@ -124,6 +161,17 @@ sudo mount -a          # mount everything in fstab that isn't already mounted �
 ---
 
 ## Swap
+
+Swap is disk space the kernel uses to hold memory pages that don't fit in RAM right now — slower than RAM by a lot, so it's a pressure release valve, not a substitute for having enough physical memory for your actual workload. Red Hat's own sizing guidance, worth knowing rather than guessing at:
+
+| Total RAM | Recommended swap | Swap if hibernation matters |
+|---|---|---|
+| ≤ 2 GB | 2× RAM | 3× RAM |
+| 2–8 GB | Same as RAM | 2× RAM |
+| 8–64 GB | At least 4 GB | 1.5× RAM |
+| > 64 GB | At least 4 GB | Hibernation not recommended at this size |
+
+Hibernation is the special case that drives the bigger numbers — hibernating writes the *entire contents of RAM* to swap before powering off, so swap has to be at least as large as RAM for that to even be possible at all.
 
 ```bash
 sudo mkswap /dev/sdb2          # format a partition as swap space

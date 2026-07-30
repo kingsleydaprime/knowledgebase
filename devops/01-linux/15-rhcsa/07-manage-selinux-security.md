@@ -60,6 +60,19 @@ The policy (type `httpd_t` can read type `httpd_sys_content_t`) is what actually
 
 **Setup:** you move (or `mkdir`) a new web root at `/web` instead of the default `/var/www/html`, put files there, point Apache's config at it. Apache 403s anyway, even though DAC permissions are fine. This is *always* an SELinux context problem: files created outside `/var/www/html` don't inherit `httpd_sys_content_t` automatically.
 
+Concretely, this is what it looks like from the outside — a `403 Forbidden` even though `ls -l` shows the file is world-readable:
+```
+$ curl -I http://localhost/
+HTTP/1.1 403 Forbidden
+
+$ ls -l /web/index.html
+-rw-r--r--. 1 apache apache 42 Jul 30 09:00 /web/index.html    # DAC permissions are completely fine
+
+$ ls -Z /web/index.html
+unconfined_u:object_r:default_t:s0 /web/index.html              # but the TYPE is wrong — default_t, not httpd_sys_content_t
+```
+That mismatched type — `default_t` instead of `httpd_sys_content_t` — is the entire bug. Nothing about ownership or the `rwx` bits is wrong; `httpd`'s policy simply never grants `httpd_t` access to files labeled `default_t`.
+
 ```bash
 # Wrong tool: chcon — sets the context directly but TEMPORARILY
 chcon -t httpd_sys_content_t /web/index.html   # works until the next full relabel wipes it out

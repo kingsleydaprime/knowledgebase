@@ -14,7 +14,7 @@ Firmware (BIOS/UEFI)  →  Bootloader (GRUB2)  →  Kernel + initramfs  →  sys
 
 | Stage | What happens |
 |---|---|
-| Firmware | POST, finds a boot device |
+| Firmware | **POST (Power-On Self-Test)** — hardware sanity-checks itself, then finds a boot device |
 | GRUB2 | Loads the selected kernel + initramfs into memory, hands off control |
 | Kernel + initramfs | Kernel initializes hardware; initramfs is a minimal temporary root filesystem holding just enough drivers/tools to find and mount the *real* root filesystem |
 | systemd (PID 1) | Once real root is mounted, systemd takes over as the first real process and brings the system up to a target |
@@ -81,6 +81,40 @@ Reach either from the GRUB menu by appending to the kernel line (press `e`, edit
 systemd.unit=rescue.target
 systemd.unit=emergency.target
 ```
+
+---
+
+## Repairing a broken fstab entry or a corrupted filesystem at boot
+
+A bad `/etc/fstab` entry (wrong UUID, nonexistent mount point, a filesystem that's actually corrupted) fails during boot in one of two ways: a **nonexistent device or bad UUID** makes systemd time out waiting for it and eventually drop to an emergency shell; **actual filesystem corruption** makes systemd first attempt an automatic repair (usually just replaying the journal, on XFS/ext4 — fast), and only fall through to the emergency shell if that automatic attempt fails. Either way, the boot output looks roughly like this before it drops you to a shell:
+```
+[ TIME ] Timed out waiting for device /dev/sda2.
+[DEPEND] Dependency failed for /mnt/mountfolder
+[DEPEND] Dependency failed for Local File Systems.
+[ OK ] Started Emergency Shell.
+[ OK ] Reached target Emergency Mode.
+Give root password for maintenance
+(or press Control-D to continue):
+```
+
+**Fixing an fstab typo/bad entry** (no actual disk corruption, just a wrong line):
+```bash
+mount -o remount,rw /       # root is often still read-only at this point — required before you can edit fstab at all
+vi /etc/fstab                # fix the bad entry (wrong mount point, bad UUID, etc.)
+mount --all                  # or -a — attempt every fstab entry not yet mounted; errors surface immediately, right here
+systemctl daemon-reload      # systemd generates mount units FROM fstab — it must re-read the file before a retry reflects your edit
+mount --all                  # retry after the reload
+systemctl reboot              # the real test: does it boot clean, unattended, from cold
+```
+`mount --all` failing with something like `mount point does not exist` is telling you exactly what's still wrong (e.g. `mkdir` the missing mount point) — read the actual error rather than re-editing blind.
+
+**Fixing actual filesystem corruption** (not just an fstab typo — the filesystem itself is damaged) needs a repair tool, and critically, **the filesystem must be unmounted first** or the repair risks making things worse:
+```bash
+xfs_repair /dev/sdb1          # XFS — note there's no "fsck.xfs" that does real work; it's a no-op stub that only exists to satisfy boot scripts
+fsck.ext4 -p /dev/sdb1        # ext4 (a hardlink to e2fsck) — -p auto-repairs minor issues without prompting
+```
+
+**`nofail`** — an fstab mount option worth knowing for testing (not for anything production-critical): it lets the boot continue even if that specific mount fails, instead of blocking the whole boot on it. Never use it on a filesystem something else genuinely depends on being there — an app starting successfully against *missing* data is worse than a boot that stops and tells you plainly.
 
 ---
 

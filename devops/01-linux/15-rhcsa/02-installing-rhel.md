@@ -34,6 +34,8 @@ Anaconda shows one **Installation Summary** hub screen with spokes (sub-screens)
 | Root Password | Root account, or lock it and rely on sudo-only admin (common hardened setup) |
 | User Creation | First regular user, optionally "Make this user administrator" (adds to `wheel` group → sudo) |
 
+The `wheel` group is worth understanding, not just memorizing: on RHEL, membership in `wheel` is what `/etc/sudoers` grants blanket sudo access to (`%wheel ALL=(ALL) ALL`, usually already uncommented by default). Checking "Make this user administrator" during install is just a checkbox for "add this user to the `wheel` group" — nothing more mysterious than that.
+
 ---
 
 ## Installation Destination — the one that matters most for the exam
@@ -47,7 +49,7 @@ Two paths:
 /            — xfs, inside an LVM logical volume
 swap         — inside an LVM logical volume
 ```
-Notice: **LVM by default**. This is different from a lot of Debian/Ubuntu default installs, which often skip LVM. LVM is why "Maintain Advanced Storage" (resizing volumes live) is even possible without repartitioning — see [[09-maintain-advanced-storage|maintain-advanced-storage]].
+Notice: **LVM by default**. This is different from a lot of Debian/Ubuntu default installs, which often skip LVM. In short, "inside an LVM logical volume" means `/` and swap aren't sitting directly on a fixed-size partition — there's a flexible pool of storage underneath them that can be grown (and, with caveats, shrunk) later without wiping and repartitioning the disk. That flexibility is exactly why "Maintain Advanced Storage" (resizing volumes live) is even possible — see [[09-maintain-advanced-storage|maintain-advanced-storage]] for the full mechanics.
 
 **Custom partitioning** — you define the layout yourself: mount points, sizes, filesystem types (`xfs` is the RHEL default filesystem — see [[08-maintain-basic-storage|maintain-basic-storage]] for why), and whether each goes on a plain partition, LVM, or (newer) Stratis.
 

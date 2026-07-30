@@ -76,11 +76,69 @@ Short options (`-x`) can usually be combined (`-la` = `-l -a`); long options (`-
 | `Ctrl+K` | Delete from cursor to end of line |
 | `Ctrl+W` | Delete the word before the cursor |
 | `Ctrl+C` | Kill the currently running foreground command |
-| `Ctrl+D` | Send EOF — closes the shell if the line is empty (same as typing `exit`) |
+| `Ctrl+D` | Send **EOF (End Of File)** — a signal meaning "no more input is coming." On an empty command line this closes the shell (same as typing `exit`); fed to a program reading from stdin, it tells that program the input stream has ended |
 | `Ctrl+Z` | Suspend the current process to the background — see [[devops/01-linux/06-process-management|Process Management]] |
 | `!!` | Re-run the last command |
 | `!n` | Re-run history entry number `n` (see it with `history`) |
 | `sudo !!` | Extremely common combo — re-run the last command with sudo after forgetting it |
+
+Reverse search (`Ctrl+R`) is worth trying hands-on once rather than just reading about it — press `Ctrl+R`, start typing part of a command you ran earlier (say `syst`), and the prompt itself changes to show what it found:
+```
+(reverse-i-search)`syst': systemctl status sshd
+```
+Press `Ctrl+R` again to cycle to the next older match, `Enter` to run it as-is, or any arrow key to drop the found command onto the normal prompt for editing first.
+
+---
+
+## Redirecting input and output
+
+Every process starts with three numbered channels, called **file descriptors** — this is worth knowing by number, not just by name, since redirection syntax refers to them numerically:
+
+| # | Name | Default connection | Direction |
+|---|---|---|---|
+| 0 | stdin (standard input) | Keyboard | Read |
+| 1 | stdout (standard output) | Terminal | Write |
+| 2 | stderr (standard error) | Terminal | Write |
+
+Redirection changes where a channel reads from or writes to — a file instead of the keyboard/terminal, or `/dev/null` to discard it entirely.
+
+| Operator | Effect |
+|---|---|
+| `> file` | stdout **overwrites** file |
+| `>> file` | stdout **appends** to file |
+| `2> file` | stderr overwrites file |
+| `2> /dev/null` | discard stderr entirely |
+| `> file 2>&1` or `&> file` | stdout AND stderr, overwrite, to the same file |
+| `>> file 2>&1` or `&>> file` | stdout AND stderr, append, to the same file |
+
+```bash
+find /etc > results.txt 2> errors.txt      # split: normal output here, permission-denied noise there
+find /etc -name passwd > out.txt 2> /dev/null   # keep the result, throw away the "permission denied" clutter
+```
+
+**Order matters** with `2>&1` — it means "point this channel at wherever the other one currently goes," evaluated left to right at that moment, not "link them together permanently":
+```bash
+command > output.log 2>&1     # stdout → file, THEN stderr → same place stdout now points (the file). Both end up in output.log — correct.
+command 2>&1 > output.log     # stderr → wherever stdout currently is (the terminal), THEN stdout → file. stderr still prints to the terminal — probably not what you wanted.
+```
+This is exactly why the merged forms `&>` / `&>>` exist — they sidestep the ordering gotcha entirely by doing both in one step (though some non-Bash shells don't support them, so scripts aiming for portability still use the two-step `2>&1` form).
+
+### Pipelines — chaining commands instead of files
+
+A pipe (`|`) connects one command's stdout directly to the next command's stdin, without an intermediate file:
+
+```bash
+ls -l /usr/bin | less              # page through long output
+ls | wc -l                          # count how many files ls listed
+ls -t | head -n 10 > recent.txt     # 10 most-recently-modified files, saved to a file
+```
+
+**Redirection inside a pipeline redirects to a file instead of passing along the pipe** — `ls > out.txt | less` sends everything to `out.txt` and `less` receives nothing. When you need output to go both to a file *and* onward through the pipeline, use `tee` (named for a plumbing T-joint — it splits the stream in two):
+
+```bash
+ls -l | tee saved.txt | less        # saved to a file AND still displayed, in the same command
+ls -l | tee -a saved.txt             # -a appends instead of overwriting
+```
 
 ---
 

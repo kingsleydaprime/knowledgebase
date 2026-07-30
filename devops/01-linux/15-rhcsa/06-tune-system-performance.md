@@ -8,7 +8,11 @@ Part of [[README|RHCSA V10]]. Builds on [[devops/01-linux/06-process-management|
 
 ## nice and renice — process priority
 
-Every process has a **niceness** value from **-20 (highest priority, least "nice" to other processes) to 19 (lowest priority, most "nice")**. Default is 0. Lower niceness = more CPU time relative to other processes when the CPU is contended.
+**RHEL 10 changed the actual scheduler underneath this**, worth knowing since it's a real, current fact rather than trivia: the default scheduling policy for ordinary processes (**`SCHED_NORMAL`**, also called `SCHED_OTHER`) is now implemented by **EEVDF (Earliest Eligible Virtual Deadline First)**, replacing the older **CFS (Completely Fair Scheduler)** used in earlier RHEL versions. EEVDF assigns each task a "virtual deadline" based on how much CPU time it's owed and its priority, then always runs whichever runnable task's deadline is soonest — the practical result for you is the same idea as before (a fairness-based scheduler you influence via niceness), just a different algorithm underneath.
+
+**Niceness only affects `SCHED_NORMAL` processes.** Real-time scheduling policies (`SCHED_FIFO`, `SCHED_RR` — first-in-first-out and round-robin, used for genuinely time-critical work) sit in a strictly higher-priority class that always preempts normal processes regardless of nice value; niceness has no way to let a normal process outrank a real-time one. Nearly everything you run day to day is `SCHED_NORMAL` — this distinction mostly matters so you don't expect `renice` to fix contention against something running real-time.
+
+Every `SCHED_NORMAL` process has a **niceness** value from **-20 (highest priority, least "nice" to other processes) to 19 (lowest priority, most "nice")**. Default is 0. Lower niceness = more CPU time relative to other processes when the CPU is contended.
 
 ```bash
 nice -n 10 some-command          # start a new process with LOWER priority (nicer, gives way to others)
@@ -24,6 +28,8 @@ ps -eo pid,ni,comm --sort=-ni | head    # processes sorted by niceness, highest 
 top                                      # NI column, live — see devops/linux/process-management
 ```
 
+`top` also shows a **`PR`** (priority) column alongside `NI` — don't confuse the two. `NI` is the value you set; `PR` is `top`'s own computed scheduling priority, on a single unified scale that also represents real-time processes (which is why you'll occasionally see a `PR` of `-` or a negative number far below what any `NI` value could produce — that's a real-time task, entirely outside the nice-value system above).
+
 ---
 
 ## tuned — profile-based system tuning
@@ -37,19 +43,64 @@ tuned-adm active                    # just the currently active profile
 tuned-adm profile throughput-performance    # switch profiles — takes effect immediately
 tuned-adm recommend                 # tuned's own suggestion based on detected hardware/role
 ```
+```
+$ tuned-adm list
+Available profiles:
+- balanced             - General non-specialized tuned profile
+- throughput-performance - Broadly applicable tuning for high throughput workloads
+- virtual-guest         - Optimize for running inside a virtual guest
+...
+Current active profile: balanced
+```
 
 Common built-in profiles:
 
 | Profile | Use case |
 |---|---|
 | `balanced` | Default — reasonable tradeoff of power saving and performance |
+| `balanced-battery` | Balanced, but tuned further toward power saving |
 | `powersave` | Laptops, minimizing energy use over raw performance |
+| `desktop` | Optimized for desktop interactive use |
 | `throughput-performance` | Servers doing sustained heavy I/O/CPU work — the classic "make this server fast" answer |
-| `latency-performance` | Minimize response latency over throughput — real-time-ish workloads |
+| `latency-performance` | Deterministic low latency, at the cost of higher power draw |
+| `network-throughput` | Streaming network throughput — mainly older CPUs or 40G+ networks |
+| `network-latency` | Deterministic low latency specifically for network response time |
 | `virtual-guest` | Tuned for running *inside* a VM |
-| `virtual-host` | Tuned for a machine *hosting* VMs |
+| `virtual-host` | Tuned for a machine *hosting* KVM guests |
+| `hpc-compute` | High-performance-computing compute workloads |
+| `aws` | Optimized specifically for AWS EC2 instances |
+| `accelerator-performance` | Increased performance for accelerator-driven workloads |
+| `optimize-serial-console` | Tuned for serial-console-driven systems |
+
+(`intel-sst` also exists, for Intel Speed Select frequency configuration on supported hardware — narrow enough it's not worth memorizing unless you're on that specific hardware.)
 
 `tuned-adm profile <name>` is almost always the actual exam-correct answer to "tune this system for X workload" — knowing the right profile name matters more than knowing what's inside it.
+
+### Static vs. dynamic tuning
+
+`tuned` applies a profile in one of two modes:
+
+- **Static** (the RHEL default) — settings from the profile are applied once, when `tuned` starts or you switch profiles, and stay fixed regardless of what the system does afterward. Predictable, and enough for almost every real use case.
+- **Dynamic** — `tuned` keeps monitoring live system activity (via its *monitor plugins* — CPU load, disk I/O, network traffic) and continuously adjusts settings on top of the base profile via *tuning plugins* (e.g. the `net` plugin scaling interface speed with actual usage). Disabled by default specifically because static tuning is more predictable; enable it in `/etc/tuned/tuned-main.conf`:
+  ```ini
+  dynamic_tuning = 1
+  update_interval = 10   # seconds between adjustment checks
+  ```
+
+### Profiles are just directories you can inherit from
+
+Shipped profiles live in `/usr/lib/tuned/profiles/<name>/tuned.conf` — never edit these directly (a package update overwrites them). A profile can `include=` another profile to inherit its settings and only override what's different:
+```ini
+[main]
+summary=Optimize for running inside a virtual guest
+include=throughput-performance
+
+[sysctl]
+vm.swappiness = 30
+```
+To customize, copy the profile directory to `/etc/tuned/profiles/<name>/` (same override-precedence pattern as systemd units and `tmpfiles.d`) and edit the copy there instead.
+
+RHEL 10 ships considerably more profiles than the obvious ones — worth knowing the full breadth exists rather than assuming it's just balanced/powersave/throughput/latency:
 
 ---
 
