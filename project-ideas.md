@@ -26,6 +26,17 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ---
 
+## ⭐ Build-Your-Own — systems mastery
+*The deepest reps in the vault. Each one turns a whole [[architecture/README|architecture / distributed-systems]] topic from words into bone-deep understanding. These are the projects you asked for — pick one and go far.*
+
+- 🔴 ⭐ **Your own Redis** — an in-memory key-value store: implement the core data structures (strings, lists, hashes, sorted sets), a TCP server speaking a simple protocol (RESP), and persistence (snapshotting + an append-only log). Teaches data structures + networking + [[languages/01-java/02-jvm-and-concurrency/02-concurrency|event-loop concurrency]] + durability. The most approachable of these — start here. (See *Build Your Own Redis* / the "codecrafters" style.)
+- 🔴 **Your own database** — a storage engine from scratch: a **B-tree** or **LSM-tree** on-disk structure, an [[architecture/02-building-blocks/03-databases-at-scale|index]], a simple query layer, and [[databases/database-design-reference|ACID transactions]] (a write-ahead log for durability, isolation via locking/MVCC). The project that demystifies what a database *is*. (See *Designing Data-Intensive Applications* + *Build Your Own Database*.)
+- 🔴 **Your own git** — a content-addressable store: [[git/git-reference|hash objects]] (blobs/trees/commits), build the commit DAG, and implement `add`/`commit`/`log`/`branch`/`checkout`. Small, elegant, and it permanently demystifies git. (See *Build Your Own Git* / "git from the inside out.")
+- 🔴 ⭐ **A Raft key-value store** — [[architecture/04-distributed-systems/04-consensus|consensus]] made real: implement Raft (leader election, log replication, safety), then a replicated KV store on top, and test it against node crashes and partitions. **The single best distributed-systems learning project** — it forces you to confront every edge case the [[architecture/04-distributed-systems/README|theory]] describes. (See MIT 6.824 labs — the gold standard.)
+- 🔴 **Your own language / interpreter** — lexer → parser → tree-walking interpreter (then maybe a bytecode VM or compiler). *Note:* this is **compiler/interpreter theory**, a different domain from system design — there's no vault course for it yet (a good future one). Superb for understanding how code runs. (See *Crafting Interpreters* — the definitive resource.)
+
+Pair each with a short write-up of what you learned; these are portfolio-grade signal on their own.
+
 ## DevOps
 *Mostly reference in the notes — this is the section where doing matters most, because you haven't run k8s/Terraform/Prometheus yet.*
 

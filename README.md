@@ -17,6 +17,7 @@ Start here, depending on what you want:
 - [[concepts/01-backend/README|Backend]], [[concepts/02-frontend/README|Frontend]], [[concepts/03-design-patterns/README|Design Patterns]], [[concepts/04-best-practices/README|Best Practices]] — framework-agnostic engineering concepts
 - [[languages/01-java/README|Java]] — the JVM, concurrency, and the Spring Boot/build-tools ecosystem
 - [[devops/README|DevOps]] — Linux → containers → orchestration → CI/CD → IaC → observability
+- [[architecture/README|Architecture]] — system design (scaling, caching, patterns) + distributed systems (consensus, consistency, partitioning)
 
 A [Beginner] tag doesn't mean "skip if you're experienced" — it just means the note doesn't lean on anything else in the folder yet. Read a folder's notes in order at least once even if a topic sounds familiar; later notes assume earlier ones without re-explaining them.
 
@@ -100,7 +101,14 @@ knowledgebase/
 │   ├── 05-threejs/
 │   └── vue/                      # untouched, empty
 │
-├── databases/, architecture/, git/, hardware/, tools/, references/
+├── architecture/                 # numbered course: system design (fundamentals →
+│   ├── 01-system-design-fundamentals/  # building-blocks → patterns) + distributed
+│   ├── 02-building-blocks/       # systems (04 — consensus/clocks/consistency/2PC).
+│   ├── 03-architectural-patterns/  # roadmap.sh-cross-referenced; DDIA for dist-sys.
+│   ├── 04-distributed-systems/   # Keeps system-design-reference.md as a cheat-sheet.
+│   └── 05-case-studies/
+│
+├── databases/, git/, hardware/, tools/, references/
 │                                 # unordered reference material, not course-structured
 │
 ├── problem-solving/, blog-drafts/
