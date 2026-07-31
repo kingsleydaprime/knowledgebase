@@ -34,12 +34,12 @@ knowledgebase/
 │   ├── os/                       # fundamentals.md
 │   └── networking/                # currently empty
 │
-├── ai-ml/                        # numbered course, 5 phases: 01-fundamentals →
-│   ├── 01-fundamentals/          # 02-maths (linear-algebra/calculus/probability) →
-│   ├── 02-maths/                 # 03-ml-engineering (data/training/fine-tuning) →
-│   ├── 03-ml-engineering/        # 04-computer-vision → 05-building-your-own-models
-│   ├── 04-computer-vision/
-│   └── 05-building-your-own-models/
+├── ai-ml/                        # split (roadmap.sh-cross-referenced) into 3 career
+│   ├── 00-foundations/           # paths over a shared foundation: 00-foundations
+│   ├── 01-data-scientist/        # (concepts + maths) → 01-data-scientist (skeleton) →
+│   ├── 02-ml-engineer/           # 02-ml-engineer (ML workflow/CV/build-your-own, +algo
+│   └── 03-ai-engineer/           # zoo/RL/MLOps to come) → 03-ai-engineer (deep-built:
+│                                  # LLMs/prompting/RAG/tools+MCP/agents/multimodal/safety)
 │
 ├── ai-automation/                # scaffold only — n8n-focused, no content written yet
 │
