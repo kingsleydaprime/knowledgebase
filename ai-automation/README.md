@@ -7,7 +7,7 @@
 1. `what-is-workflow-automation` — **[Beginner]** — the problem this category solves: triggers, actions, and why "automation platform" beats a pile of cron scripts past a certain complexity
 2. `n8n-core-concepts` — **[Beginner]** — nodes, triggers, workflows, executions, credentials
 3. `connecting-apis-and-webhooks` — **[Intermediate]** — REST/webhook nodes, authentication, handling pagination and rate limits inside a workflow
-4. `ai-agent-workflows-in-n8n` — **[Intermediate → Advanced]** — wiring an LLM into a workflow as a node (classification, extraction, agent-style tool calling), and where that overlaps with [[ai-ml/01-fundamentals/06-agents|agents]]
+4. `ai-agent-workflows-in-n8n` — **[Intermediate → Advanced]** — wiring an LLM into a workflow as a node (classification, extraction, agent-style tool calling), and where that overlaps with [[ai-ml/03-ai-engineer/08-agents|agents]]
 5. `error-handling-and-retries` — **[Intermediate]** — making a workflow actually production-safe: retry logic, dead-letter handling, alerting on failure
 6. `self-hosting-n8n` — **[Intermediate]** — Docker-based self-hosting vs n8n cloud, and the tradeoffs
 

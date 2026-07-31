@@ -1,39 +1,32 @@
 # AI & ML
 
-A map of this folder, in reading order, across three phases: get oriented first (what these systems are, the math underneath them, how to use what already exists), then go deeper into building things with code (data, training, computer vision), then get into designing and shipping your own models.
+This domain is organized around a distinction that matters for how you actually learn and work: **"AI/ML" is three different career paths, not one.** roadmap.sh treats them as separate roadmaps (and even has explicit `ml-engineer-vs-ai-engineer` nodes) — so this domain is split the same way, over a shared foundation.
 
-Tags mark roughly where each note sits on a Beginner → Advanced curve — the three phases already move in that direction at a coarse level; the tags add the same signal within each phase.
+## The three paths — and how they differ
 
-## Phase 1 — Orientation & foundations
+| Path | Core question | Deliverable | Builds/trains models? |
+|---|---|---|---|
+| **[[ai-ml/01-data-scientist/README\|Data Scientist]]** | "what does the data tell us?" | an answer, analysis, or insight (often a notebook + report) | sometimes — usually classical ML, interpreted |
+| **[[ai-ml/02-ml-engineer/README\|ML Engineer]]** | "how do we build and ship a model that works in production?" | a trained model running reliably as software | **yes** — trains models, then operationalizes them (MLOps) |
+| **[[ai-ml/03-ai-engineer/README\|AI Engineer]]** | "how do we build a product on top of existing models?" | an application using pre-trained models (LLMs) via APIs | **no** — uses pre-trained models; RAG/prompting/agents, not training |
 
-**Foundations**
-1. [[01-what-is-ai|what-is-ai]] — **[Beginner]** — AI vs ML vs deep learning, narrow vs general
-2. [[02-what-is-a-model|what-is-a-model]] — **[Beginner]** — parameters, training vs inference, generalization
+The sharpest line is between **ML Engineer** (trains models, needs the math and the algorithm zoo) and **AI Engineer** (uses someone else's trained models, needs prompting/RAG/agents/APIs). The Data Scientist sits closer to the ML Engineer on the math/stats side but optimizes for *insight* over *shipping software*. Many real jobs blend two of these — the split is about emphasis, not walls.
 
-**Maths** (each of these three is deep enough to be its own folder of atomic notes, not one flat file)
-3. [[ai-ml/02-maths/01-linear-algebra/README|linear-algebra/]] — **[Beginner → Intermediate]** — vectors, matrices, dot products — why weights and embeddings are what they are
-4. [[ai-ml/02-maths/02-calculus/README|calculus/]] — **[Intermediate]** — derivatives, gradients, chain rule — why backpropagation works
-5. [[ai-ml/02-maths/03-probability-and-statistics/README|probability-and-statistics/]] — **[Beginner → Intermediate]** — distributions, Bayes, why loss functions and LLM sampling look the way they do
-6. [[04-optimization|optimization]] — **[Intermediate]** — gradient descent, learning rate, batches — how training actually runs
+## Shared foundation
 
-**Using what already exists**
-7. [[03-llms|llms]] — **[Intermediate]** — tokens, context windows, transformers/attention, autoregressive generation
-8. [[04-other-model-types|other-model-types]] — **[Beginner]** — classic ML, computer vision, diffusion, embeddings, speech, RL
-9. [[05-open-source-models|open-source-models]] — **[Intermediate]** — Hugging Face, Ollama/llama.cpp, quantization, self-host vs API
-10. [[06-agents|agents]] — **[Intermediate]** — the agentic loop, tool calling, MCP
-11. [[07-prompting|prompting]] — **[Beginner]** — system vs user prompts, few-shot, chain-of-thought, failure modes
-12. [[08-ai-tools-landscape|ai-tools-landscape]] — **[Beginner]** — the categories of AI products and where each one fits
-13. [[09-choosing-the-right-ai-tool|choosing-the-right-ai-tool]] — **[Intermediate]** — turning all of the above into an actual decision process
+- [[ai-ml/00-foundations/README|00-foundations/]] — the common ground: **core concepts** (what AI/a model is) and **[[ai-ml/00-foundations/03-mathematics/README|mathematics]]** (linear algebra, calculus, probability/statistics, optimization). The Data Scientist and ML Engineer paths lean on this heavily; the AI Engineer path needs far less of it.
 
-## Phase 2 — Building with code **[Intermediate]**
+## The three tracks
 
-**ML engineering** ([[ai-ml/03-ml-engineering/README|ml-engineering/]]) — the general workflow: cleaning and splitting data, running a real PyTorch training loop, evaluating honestly, fine-tuning an existing model instead of starting from zero.
+1. [[ai-ml/01-data-scientist/README|01-data-scientist/]] — **[skeleton]** — statistics, EDA, experimentation, econometrics, classical ML for insight. The emptiest track; to be built out.
+2. [[ai-ml/02-ml-engineer/README|02-ml-engineer/]] — **[Intermediate → Advanced]** — the ML workflow, deep learning, computer vision, building your own models, and (to come) the algorithm zoo, RL, NLP, and MLOps. The most-built track — its current content was re-homed here from the old flat structure.
+3. [[ai-ml/03-ai-engineer/README|03-ai-engineer/]] — **[Beginner → Advanced]** — the applied-LLM track: how LLMs work, the model landscape, calling models (APIs/SDKs), prompt engineering, RAG & embeddings, tools & MCP, agents, multimodal, and safety. **The deep-built track** — it matches the applied AI work (AI SDK, MCP, agents) done elsewhere in these projects.
 
-**Computer vision** ([[ai-ml/04-computer-vision/README|computer-vision/]]) — the same workflow specialized for images: CNNs, image data/augmentation, transfer learning.
+## Where the content comes from
 
-## Phase 3 — Building your own models **[Advanced]**
-
-[[ai-ml/05-building-your-own-models/README|building-your-own-models/]] — designing an architecture instead of reusing one, deciding when training from scratch is actually worth it over fine-tuning, and what happens after training: serving, monitoring for drift, versioning, retraining pipelines.
+Restructured (2026-07-31) by cross-referencing against roadmap.sh's `ai-data-scientist`, `machine-learning`, `mlops`, and `ai-engineer` roadmaps. The old single linear course ("fundamentals → maths → ml-engineering → CV → build your own") conflated all three paths; its content was re-homed into the path it actually belonged to, nothing dropped. The AI Engineer track was built out deeply this pass (folding in the old `01-fundamentals/` notes + roadmap gaps); Data Scientist and ML Engineer keep their existing content with gaps documented for later passes.
 
 ## Related
-- [[foundations/dsa/README|DSA fundamentals]] — different domain, same "orientation → patterns/practice → build" approach
+- [[foundations/dsa/README|DSA fundamentals]] — different domain, same "orientation → build" approach
+- [[devops/README|DevOps]] — the MLOps half of the ML Engineer path cross-links here
+- [[ai-automation/README|ai-automation/]] — the no-code/automation-tooling angle on applied AI
