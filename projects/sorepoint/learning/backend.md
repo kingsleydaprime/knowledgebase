@@ -137,6 +137,64 @@ writes back, so a re-run is cheap and a crash is recoverable.
 
 ---
 
+## 6. Stage 2 — one crawl, three signals, honest failures
+
+`src/lib/crawl.ts` does **one** `fetch` per business (SPEC §3.1) and derives three
+agents' inputs from it. The point is cheap + honest, not a real headless browser.
+
+- **Only businesses with a `website_url` are crawled.** No website = nothing to
+  fetch; that's the `site` agent's job straight from the listing.
+- **Signals** from a successful 2xx HTML response:
+  - `mobile_ready` = does the HTML contain `<meta name="viewport">`. A heuristic,
+    not a true mobile-friendliness test — but cheap and a strong proxy.
+  - `slow` = TTFB > 3s. `fetch` resolves when response headers arrive (before the
+    body), so timing to that point ≈ time-to-first-byte.
+  - `social_links_json` = hrefs matching known social domains; `booking_signal` =
+    booking keywords/widget domains in the HTML.
+- **Signals are `null` when we couldn't determine them** (non-2xx, non-HTML, or
+  never connected) — never a defaulted `false`. `null` = "unknown" feeds
+  `unscanned`; `false` would be a lie.
+
+### Honest failure classification (the important bit)
+
+A fetch can fail three very different ways, and conflating them would be
+dishonest:
+
+- **401 / 403 / 429** → `blocked = true`, `loaded = true`. The site answered; it
+  just refused *us*. That's evidence about our crawler, so downstream it's
+  `unscanned`, never a flaw of theirs (SPEC §3.3).
+- **Network throw** (DNS, connection refused, TLS, timeout) → `loaded = false`,
+  and the cause is labelled in `raw_meta_json.error` via `err.cause.code`
+  (`ENOTFOUND`→`dns`, `ECONNREFUSED`→`refused`, `AbortError`→`timeout`, …). This
+  is about *their* site being unreachable — a real flaw the `site` agent can flag.
+- **2xx** → loaded and analysable.
+
+`AbortController` + `setTimeout(() => controller.abort(), 10_000)` gives the
+timeout; `clearTimeout` in `finally` so a fast success doesn't leak a timer.
+
+### A real data-quality catch
+
+First crawl produced `ERR_INVALID_URL` on two sites: OSM `website` tags are often
+**bare domains** (`foo.com`, no scheme), which `fetch()` rejects. Fix — default a
+missing scheme to `https://` before fetching. After that, those two resolved to
+their true state: `dns` failures (the domains genuinely don't exist). The lesson:
+external free data is messy at the edges — normalize inputs, and a fixed bug often
+just reveals the *honest* underlying state.
+
+### Concurrency without a library
+
+21 sites sequentially is slow; unbounded is rude. A tiny fixed-size pool — N
+workers pulling from a shared index until the list is exhausted — caps in-flight
+requests at 6 with no dependency:
+
+```ts
+let next = 0;
+async function worker() { while (next < items.length) { const i = next++; results[i] = await fn(items[i]); } }
+await Promise.all(Array.from({ length: 6 }, worker));
+```
+
+---
+
 ## See also
 
 - `supabase.md` — the service_role GRANTs-vs-RLS bug this worker hit, TypeGen, local stack
