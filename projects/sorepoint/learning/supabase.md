@@ -236,7 +236,46 @@ into the browser build).
 
 ---
 
+## 8. GRANTs vs RLS — two independent gates (a real bug)
+
+The worker's first DB write failed with:
+
+```
+42501  permission denied for table scans
+hint: GRANT SELECT ON public.scans TO service_role;
+```
+
+Surprising, because the SECRET key maps to `service_role`, which **bypasses RLS**.
+But RLS wasn't the gate — **table GRANTs** were. They're independent:
+
+- **GRANT** decides whether a role may touch a table *at all* (SELECT/INSERT/…).
+- **RLS** decides which *rows* are visible *once* a role can touch the table.
+
+`service_role` bypasses RLS but still needs the GRANT. Why was it missing? Because
+**migrations run as the `postgres` role**, and `postgres`'s *default privileges*
+in schema `public` grant the API roles only partial rights (DELETE/TRUNCATE/
+REFERENCES/TRIGGER — no SELECT/INSERT/UPDATE). Supabase's *full* default grants
+are attached to the `supabase_admin` role, so objects created by `postgres` (our
+migrations) don't inherit them. Confirmed by inspecting `pg_default_acl`.
+
+Fix — an explicit grant migration (kept separate; the schema migration was already
+committed, and migrations are append-only):
+
+```sql
+grant select, insert, update, delete on all tables in schema public to service_role;
+alter default privileges in schema public
+  grant select, insert, update, delete on tables to service_role;   -- future tables too
+```
+
+Takeaways: (1) `permission denied` on Supabase is usually a GRANT problem, not an
+RLS one; read the error's hint. (2) Once a migration is committed, add a new one
+rather than editing it. (3) `alter default privileges` fixes the *next* tables so
+you don't rediscover this every migration.
+
+---
+
 ## See also
 
 - `shell.md` — `systemctl --user`, env vars, the scaffolding move-aside trick
+- `backend.md` — the pipeline worker that hit this bug; source adapters; OSM
 - app repo `~/code/spectroniq/sorepoint/DECISIONS.md` — why local-first, worker-not-route

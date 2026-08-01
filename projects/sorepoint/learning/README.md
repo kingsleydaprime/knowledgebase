@@ -18,7 +18,7 @@ Domains expected to come into play (created only as work actually touches them):
 
 - `shell.md` — command-line techniques used along the way *(started)*
 - `supabase.md` — Postgres schema, RLS, TypeGen, the data model *(started)*
-- `backend.md` — the pipeline worker (Places pull → crawl → agents → rank)
+- `backend.md` — the pipeline worker (Places pull → crawl → agents → rank) *(started)*
 - `sys-design.md` — why worker-not-route, cache-first/resumable, evidence-weighted ranking
 - `frontend.md` — the Next.js dashboard, honest coverage UI *(started)*
 - `git.md`, `testing.md` — as those come up
