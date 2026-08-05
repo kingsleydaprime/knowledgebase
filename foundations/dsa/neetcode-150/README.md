@@ -13,9 +13,9 @@ This complements the concept notes in the folders above ([[04-data-structures/03
 - [x] Sliding Window (6)
 - [x] Stack (7)
 - [x] Binary Search (7)
-- [ ] Linked List (11)
-- [ ] Trees (15)
-- [ ] Tries (3)
+- [x] Linked List (11)
+- [x] Trees (15)
+- [x] Tries (3)
 - [ ] Heap / Priority Queue (7)
 - [ ] Backtracking (9)
 - [ ] Graphs (13)
@@ -94,45 +94,45 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 
 | # | Problem | Key idea |
 |---|---|---|
-| 206 | Reverse Linked List | iterative pointer flip |
-| 21 | Merge Two Sorted Lists | two-pointer merge with a dummy |
-| 143 | Reorder List | mid + reverse + interleave |
-| 19 | Remove Nth Node From End | two pointers n apart |
-| 138 | Copy List with Random Pointer | interleave clones or old→new map |
-| 2 | Add Two Numbers | digit-by-digit with carry |
-| 141 | Linked List Cycle | Floyd's fast/slow |
-| 287 | Find the Duplicate Number | Floyd's on value-as-pointer |
-| 146 | LRU Cache | hash map + doubly linked list |
-| 23 | Merge K Sorted Lists | min-heap of k heads |
-| 25 | Reverse Nodes in k-Group | reverse each k-block |
+| 206 | [[035-reverse-linked-list\|Reverse Linked List]] | iterative pointer flip |
+| 21 | [[036-merge-two-sorted-lists\|Merge Two Sorted Lists]] | two-pointer merge with a dummy |
+| 143 | [[037-reorder-list\|Reorder List]] | mid + reverse + interleave |
+| 19 | [[038-remove-nth-node-from-end\|Remove Nth Node From End]] | two pointers n apart |
+| 138 | [[039-copy-list-with-random-pointer\|Copy List with Random Pointer]] | interleave clones or old→new map |
+| 2 | [[040-add-two-numbers\|Add Two Numbers]] | digit-by-digit with carry |
+| 141 | [[041-linked-list-cycle\|Linked List Cycle]] | Floyd's fast/slow |
+| 287 | [[042-find-the-duplicate-number\|Find the Duplicate Number]] | Floyd's on value-as-pointer |
+| 146 | [[043-lru-cache\|LRU Cache]] | hash map + doubly linked list |
+| 23 | [[044-merge-k-sorted-lists\|Merge K Sorted Lists]] | min-heap of k heads |
+| 25 | [[045-reverse-nodes-in-k-group\|Reverse Nodes in k-Group]] | reverse each k-block |
 
 ## Trees — [[01-trees|trees]] · [[02-traversal|traversal]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 226 | Invert Binary Tree | swap children recursively |
-| 104 | Maximum Depth of Binary Tree | 1 + max(left, right) |
-| 543 | Diameter of Binary Tree | max(left height + right height) |
-| 110 | Balanced Binary Tree | height check returning −1 on imbalance |
-| 100 | Same Tree | structural + value recursion |
-| 572 | Subtree of Another Tree | "same tree" at every node |
-| 235 | Lowest Common Ancestor of a BST | descend by BST ordering |
-| 102 | Binary Tree Level Order Traversal | BFS by level |
-| 199 | Binary Tree Right Side View | BFS; last node per level |
-| 1448 | Count Good Nodes in Binary Tree | DFS carrying max-on-path |
-| 98 | Validate Binary Search Tree | DFS carrying (min, max) |
-| 230 | Kth Smallest Element in a BST | in-order, stop at k |
-| 105 | Construct Tree from Preorder & Inorder | root from pre, split via in |
-| 124 | Binary Tree Maximum Path Sum | DFS best-arm + global max |
-| 297 | Serialize and Deserialize Binary Tree | pre-order with null markers |
+| 226 | [[046-invert-binary-tree\|Invert Binary Tree]] | swap children recursively |
+| 104 | [[047-maximum-depth-of-binary-tree\|Maximum Depth of Binary Tree]] | 1 + max(left, right) |
+| 543 | [[048-diameter-of-binary-tree\|Diameter of Binary Tree]] | max(left height + right height) |
+| 110 | [[049-balanced-binary-tree\|Balanced Binary Tree]] | height check returning −1 on imbalance |
+| 100 | [[050-same-tree\|Same Tree]] | structural + value recursion |
+| 572 | [[051-subtree-of-another-tree\|Subtree of Another Tree]] | "same tree" at every node |
+| 235 | [[052-lowest-common-ancestor-of-a-bst\|Lowest Common Ancestor of a BST]] | descend by BST ordering |
+| 102 | [[053-binary-tree-level-order-traversal\|Binary Tree Level Order Traversal]] | BFS by level |
+| 199 | [[054-binary-tree-right-side-view\|Binary Tree Right Side View]] | BFS; last node per level |
+| 1448 | [[055-count-good-nodes-in-binary-tree\|Count Good Nodes in Binary Tree]] | DFS carrying max-on-path |
+| 98 | [[056-validate-binary-search-tree\|Validate Binary Search Tree]] | DFS carrying (min, max) |
+| 230 | [[057-kth-smallest-element-in-a-bst\|Kth Smallest Element in a BST]] | in-order, stop at k |
+| 105 | [[058-construct-binary-tree-from-preorder-and-inorder-traversal\|Construct Tree from Preorder & Inorder]] | root from pre, split via in |
+| 124 | [[059-binary-tree-maximum-path-sum\|Binary Tree Maximum Path Sum]] | DFS best-arm + global max |
+| 297 | [[060-serialize-and-deserialize-binary-tree\|Serialize and Deserialize Binary Tree]] | pre-order with null markers |
 
 ## Tries — [[09-tries|tries]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 208 | Implement Trie (Prefix Tree) | insert / search / startsWith |
-| 211 | Design Add and Search Words | wildcard `.` → branch DFS |
-| 212 | Word Search II | one trie + grid backtracking |
+| 208 | [[061-implement-trie-prefix-tree\|Implement Trie (Prefix Tree)]] | insert / search / startsWith |
+| 211 | [[062-design-add-and-search-words-data-structure\|Design Add and Search Words]] | wildcard `.` → branch DFS |
+| 212 | [[063-word-search-ii\|Word Search II]] | one trie + grid backtracking |
 
 ## Heap / Priority Queue — [[08-heaps|heaps]] · [[07-top-k-elements|top-k]]
 
