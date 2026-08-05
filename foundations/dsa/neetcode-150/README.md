@@ -16,9 +16,9 @@ This complements the concept notes in the folders above ([[04-data-structures/03
 - [x] Linked List (11)
 - [x] Trees (15)
 - [x] Tries (3)
-- [ ] Heap / Priority Queue (7)
-- [ ] Backtracking (9)
-- [ ] Graphs (13)
+- [x] Heap / Priority Queue (7)
+- [x] Backtracking (9)
+- [x] Graphs (13)
 - [ ] Advanced Graphs (6)
 - [ ] 1-D Dynamic Programming (12)
 - [ ] 2-D Dynamic Programming (11)
@@ -138,45 +138,45 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 
 | # | Problem | Key idea |
 |---|---|---|
-| 703 | Kth Largest Element in a Stream | min-heap of size k |
-| 1046 | Last Stone Weight | max-heap, smash two heaviest |
-| 973 | K Closest Points to Origin | heap by squared distance |
-| 215 | Kth Largest Element in an Array | heap O(n log k) vs Quickselect |
-| 621 | Task Scheduler | max-heap by count + cooldown |
-| 355 | Design Twitter | k-way merge via heap |
-| 295 | Find Median from Data Stream | two heaps |
+| 703 | [[064-kth-largest-element-in-a-stream\|Kth Largest Element in a Stream]] | min-heap of size k |
+| 1046 | [[065-last-stone-weight\|Last Stone Weight]] | max-heap, smash two heaviest |
+| 973 | [[066-k-closest-points-to-origin\|K Closest Points to Origin]] | heap by squared distance |
+| 215 | [[067-kth-largest-element-in-an-array\|Kth Largest Element in an Array]] | heap O(n log k) vs Quickselect |
+| 621 | [[068-task-scheduler\|Task Scheduler]] | max-heap by count + cooldown |
+| 355 | [[069-design-twitter\|Design Twitter]] | k-way merge via heap |
+| 295 | [[070-find-median-from-data-stream\|Find Median from Data Stream]] | two heaps |
 
 ## Backtracking — [[14-backtracking|backtracking]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 78 | Subsets | include/exclude each element |
-| 39 | Combination Sum | reuse allowed; recurse on same index |
-| 46 | Permutations | swap-in-place or used-set |
-| 90 | Subsets II | sort, skip duplicate siblings |
-| 40 | Combination Sum II | sort, each once, skip dup siblings |
-| 79 | Word Search | grid DFS with visited + undo |
-| 131 | Palindrome Partitioning | cut at every palindromic prefix |
-| 17 | Letter Combinations of a Phone Number | product over digit→letters |
-| 51 | N-Queens | place per row; column/diagonal sets |
+| 78 | [[071-subsets\|Subsets]] | include/exclude each element |
+| 39 | [[072-combination-sum\|Combination Sum]] | reuse allowed; recurse on same index |
+| 46 | [[073-permutations\|Permutations]] | swap-in-place or used-set |
+| 90 | [[074-subsets-ii\|Subsets II]] | sort, skip duplicate siblings |
+| 40 | [[075-combination-sum-ii\|Combination Sum II]] | sort, each once, skip dup siblings |
+| 79 | [[076-word-search\|Word Search]] | grid DFS with visited + undo |
+| 131 | [[077-palindrome-partitioning\|Palindrome Partitioning]] | cut at every palindromic prefix |
+| 17 | [[078-letter-combinations-of-a-phone-number\|Letter Combinations of a Phone Number]] | product over digit→letters |
+| 51 | [[079-n-queens\|N-Queens]] | place per row; column/diagonal sets |
 
 ## Graphs — [[06-graphs|graphs]] · [[13-matrix-traversal|matrix-traversal]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 200 | Number of Islands | grid flood fill, count components |
-| 133 | Clone Graph | DFS/BFS with old→new map |
-| 695 | Max Area of Island | flood fill returning area |
-| 417 | Pacific Atlantic Water Flow | reverse-flow BFS from both oceans |
-| 130 | Surrounded Regions | mark border-connected regions safe |
-| 994 | Rotting Oranges | multi-source BFS by minute |
-| 286 | Walls and Gates | multi-source BFS from gates |
-| 207 | Course Schedule | topological-sort feasibility |
-| 210 | Course Schedule II | topological order itself |
-| 684 | Redundant Connection | union-find; first cycle edge |
-| 323 | Number of Connected Components | union-find; count roots |
-| 261 | Graph Valid Tree | union-find; n−1 edges, no cycle |
-| 127 | Word Ladder | BFS over one-letter-change neighbors |
+| 200 | [[080-number-of-islands\|Number of Islands]] | grid flood fill, count components |
+| 133 | [[081-clone-graph\|Clone Graph]] | DFS/BFS with old→new map |
+| 695 | [[082-max-area-of-island\|Max Area of Island]] | flood fill returning area |
+| 417 | [[083-pacific-atlantic-water-flow\|Pacific Atlantic Water Flow]] | reverse-flow BFS from both oceans |
+| 130 | [[084-surrounded-regions\|Surrounded Regions]] | mark border-connected regions safe |
+| 994 | [[085-rotting-oranges\|Rotting Oranges]] | multi-source BFS by minute |
+| 286 | [[086-walls-and-gates\|Walls and Gates]] | multi-source BFS from gates |
+| 207 | [[087-course-schedule\|Course Schedule]] | topological-sort feasibility |
+| 210 | [[088-course-schedule-ii\|Course Schedule II]] | topological order itself |
+| 684 | [[089-redundant-connection\|Redundant Connection]] | union-find; first cycle edge |
+| 323 | [[090-number-of-connected-components\|Number of Connected Components]] | union-find; count roots |
+| 261 | [[091-graph-valid-tree\|Graph Valid Tree]] | union-find; n−1 edges, no cycle |
+| 127 | [[092-word-ladder\|Word Ladder]] | BFS over one-letter-change neighbors |
 
 ## Advanced Graphs — [[06-dijkstra|dijkstra]] · [[12-minimum-spanning-tree|MST]] · [[11-topological-sort|topo-sort]]
 
