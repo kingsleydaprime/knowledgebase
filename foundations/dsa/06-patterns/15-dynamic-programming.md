@@ -56,7 +56,69 @@ Every DP problem comes down to answering one question: **how does the answer to 
 - **Subset Sum** — a Knapsack variant: does *any* subset sum to a target?
 - **Matrix Chain Multiplication** — optimal way to parenthesize/split a sequence, `dp[i][j]` depends on trying every split point between i and j.
 
-Each of these is a distinct recurrence shape — worth its own worked example once you're solving problems, rather than trying to hold all six abstractly at once.
+Each of these is a distinct recurrence shape — worth its own worked example once you're solving problems, rather than trying to hold all six abstractly at once. NeetCode splits these into **1-D DP** (the state is one index) and **2-D DP** (the state is two indices, usually a grid or a pair of sequences); the split below follows that.
+
+## 1-D DP — the state is a single index
+
+**House Robber** — max sum of non-adjacent elements. At each house you either rob it (and skip the previous) or skip it: `dp[i] = max(dp[i-1], dp[i-2] + nums[i])`. Only the last two states matter, so it collapses to O(1) space:
+
+```python
+def rob(nums):
+    prev, curr = 0, 0                       # dp[i-2], dp[i-1]
+    for n in nums:
+        prev, curr = curr, max(curr, prev + n)
+    return curr
+```
+
+**Coin Change** — fewest coins to make `amount`, each coin reusable. This is the **unbounded knapsack** shape (items reusable, unlike 0/1): `dp[a] = 1 + min(dp[a - c])` over every coin `c ≤ a`.
+
+```python
+def coin_change(coins, amount):
+    dp = [0] + [float("inf")] * amount      # dp[a] = fewest coins to make a
+    for a in range(1, amount + 1):
+        for c in coins:
+            if c <= a:
+                dp[a] = min(dp[a], 1 + dp[a - c])
+    return dp[amount] if dp[amount] != float("inf") else -1
+```
+
+The 0/1 vs unbounded distinction is entirely in the loop order: reuse-allowed iterates capacity outermost (as here); each-item-once iterates items outermost and capacity **descending** so an item isn't counted twice.
+
+**Longest Increasing Subsequence (LIS)** — `dp[i]` = length of the best increasing subsequence *ending at* i, depending on all earlier j with `nums[j] < nums[i]`: `dp[i] = 1 + max(dp[j])`. That's O(n²); a [[09-modified-binary-search|binary-search]]-on-a-patience-piles trick gets it to O(n log n).
+
+```python
+def length_of_lis(nums):
+    dp = [1] * len(nums)                    # every element is an LIS of length 1 by itself
+    for i in range(len(nums)):
+        for j in range(i):
+            if nums[j] < nums[i]:
+                dp[i] = max(dp[i], dp[j] + 1)
+    return max(dp, default=0)
+```
+
+## 2-D DP — the state is two indices
+
+When the answer depends on **two** moving parts — a position in a grid, or an index into *each* of two sequences — the table becomes 2-D. The recurrence usually reads off a small set of neighbor cells.
+
+**Unique Paths** (grid, only right/down moves): each cell is reached from above or from the left → `dp[r][c] = dp[r-1][c] + dp[r][c-1]`, base case the first row/column = 1.
+
+**Longest Common Subsequence (LCS)** — compare two strings char by char. If the characters match, extend the diagonal; otherwise take the better of dropping one character from either string:
+
+```python
+def lcs(a, b):
+    dp = [[0] * (len(b) + 1) for _ in range(len(a) + 1)]
+    for i in range(len(a) - 1, -1, -1):
+        for j in range(len(b) - 1, -1, -1):
+            if a[i] == b[j]:
+                dp[i][j] = 1 + dp[i + 1][j + 1]     # match -> take the diagonal
+            else:
+                dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])   # skip a char in a or b
+    return dp[0][0]
+```
+
+**Edit Distance** — fewest insert/delete/replace to turn one string into another. Same 2-D shape, but the "no match" case takes `1 + min` of the three neighbors (each corresponding to one edit operation): `dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])`. LCS, Edit Distance, Distinct Subsequences, and Interleaving String are all the *same* two-sequence grid with different cell rules — recognizing that is the 2-D-DP version of the recurrence-sharing insight above.
+
+Most 2-D DP tables reduce to **two rows** (or one) of space, since each cell only reads the previous row and the current one.
 
 ## Complexity
 
@@ -68,13 +130,13 @@ Varies by sub-pattern, but the general win is turning an exponential brute-force
 - Off-by-one errors in the base cases (`dp[0]`, `dp[1]`) are the most common DP bug — get the smallest 1-2 states right by hand before trusting the recurrence for larger n.
 
 ## Practice problems
-1. Climbing Stairs (LeetCode #70)
-2. House Robber (LeetCode #198)
-3. Coin Change (LeetCode #322)
-4. Longest Common Subsequence (LeetCode #1143)
-5. Longest Increasing Subsequence (LeetCode #300)
-6. Partition Equal Subset Sum (LeetCode #416)
+
+**1-D DP** — Climbing Stairs (#70), Min Cost Climbing Stairs (#746), House Robber (#198) and House Robber II (#213, circular), Coin Change (#322), Maximum Product Subarray (#152), Word Break (#139), Longest Increasing Subsequence (#300), Partition Equal Subset Sum (#416), Decode Ways (#91), Longest Palindromic Substring (#5).
+
+**2-D DP** — Unique Paths (#62), Longest Common Subsequence (#1143), Coin Change II (#518), Target Sum (#494), Edit Distance (#72), Interleaving String (#97), Distinct Subsequences (#115), Best Time to Buy/Sell with Cooldown (#309), Longest Increasing Path in a Matrix (#329).
 
 ## Related
 - [[01-algorithms|algorithms]] — where the exponential-vs-polynomial framing comes from
 - [[14-backtracking|backtracking]] — same recursive-exploration shape, but without reusing overlapping subproblem results
+- [[09-modified-binary-search|modified-binary-search]] — the O(n log n) LIS optimization
+- [[13-bit-manipulation|bit manipulation]] — the Counting Bits DP recurrence, and bitmask DP over subsets
