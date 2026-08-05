@@ -22,6 +22,20 @@ You **program to the interface, hold the implementation**: `List<T> xs = new Arr
 
 `ArrayList` grows by reallocating a larger backing array (typically ~1.5×) and copying — which is why `new ArrayList<>(expectedSize)` matters for large loads: it avoids repeated reallocation, the same reason the bulk-dedup `HashSet<>(8_000_000)` in [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation]] is pre-sized.
 
+The everyday `ArrayList` method surface — a resizable array that (unlike a plain `int[]`) grows on demand and only holds objects (boxed primitives):
+
+```java
+List<String> foods = new ArrayList<>();
+foods.add("apple");                 // append
+foods.add(0, "banana");             // insert at index (shifts the rest)
+foods.get(0);                       // "banana" — read by index
+foods.set(0, "orange");             // overwrite in place
+foods.size();                       // 2 — a method, unlike array.length
+foods.contains("apple");            // true — and indexOf("apple") → 1, or -1 if absent
+foods.remove("apple");              // remove by value; remove(0) removes by index
+for (String f : foods) { ... }      // for-each walk
+```
+
 ## Set — no duplicates
 
 | Implementation | Ordering | `add`/`contains`/`remove` |
@@ -41,7 +55,41 @@ You **program to the interface, hold the implementation**: `List<T> xs = new Arr
 | `TreeMap` | sorted keys | O(log n) | Range queries (`headMap`, `subMap`, `firstKey`) |
 | `ConcurrentHashMap` | none | O(1) average | Thread-safe without locking the whole map ([[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]]) |
 
+The everyday `HashMap` method surface — a set of unique **keys**, each mapped to a **value**. Both type parameters must be reference types (`Integer`, not `int`); `put` on an existing key **overwrites** it:
+
+```java
+Map<String, Double> prices = new HashMap<>();
+prices.put("apple", 0.50);          // add / overwrite
+prices.put("banana", 0.25);
+prices.get("apple");                // 0.50 — or null if the key is absent
+prices.getOrDefault("pear", 0.0);   // 0.0 — null-safe read with a fallback
+prices.containsKey("apple");        // true — and containsValue(0.25)
+prices.remove("apple");             // delete by key
+prices.size();                      // number of entries
+for (String key : prices.keySet())          // iterate keys...
+    System.out.println(key + ": $" + prices.get(key));
+for (var entry : prices.entrySet())          // ...or key+value together (avoids a second lookup)
+    System.out.println(entry.getKey() + " -> " + entry.getValue());
+```
+
 `HashMap` internals worth knowing: keys are bucketed by `hashCode()`, and within a bucket compared by `equals()`. Collisions chain in a linked list that **converts to a balanced tree once a bucket exceeds 8 entries** (Java 8+), bounding worst-case lookup at O(log n) instead of O(n) under adversarial hashing. `computeIfAbsent(key, k -> ...)` atomically gets-or-creates — the idiom behind one-to-many secondary indexes (`Map<String, Set<String>>`).
+
+A worked example — a **slot machine** payout table keyed by symbol, showing a `Map` as a lookup table plus `getOrDefault` for the "no win" case:
+
+```java
+String[] reel = {"🍒", "🍉", "🔔", "⭐", "7️⃣"};
+Map<String, Integer> payouts = Map.of("🍒", 10, "🍉", 20, "🔔", 30, "⭐", 40, "7️⃣", 50);
+
+Random random = new Random();
+String[] spin = new String[3];
+for (int i = 0; i < 3; i++) spin[i] = reel[random.nextInt(reel.length)];
+System.out.println(String.join(" | ", spin));
+
+int payout = spin[0].equals(spin[1]) && spin[1].equals(spin[2])   // all three match
+        ? payouts.getOrDefault(spin[0], 0)
+        : 0;
+System.out.println(payout > 0 ? "You win " + payout : "You lose");
+```
 
 ## Queue and Deque — ends, not indices
 

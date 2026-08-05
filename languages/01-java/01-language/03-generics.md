@@ -42,7 +42,20 @@ public static <T> T firstOrNull(List<T> items) {
 String s = firstOrNull(List.of("a", "b"));   // T inferred as String
 ```
 
-Convention: `T` (type), `E` (element), `K`/`V` (key/value), `R` (result).
+A class can declare **several type parameters** at once — the comma-separated form behind `Map<K, V>` and `Pair`-like carriers:
+
+```java
+public class Pair<T, U> {                 // two independent type parameters
+    private final T first;
+    private final U second;
+    public Pair(T first, U second) { this.first = first; this.second = second; }
+    public T first()  { return first; }
+    public U second() { return second; }
+}
+Pair<String, Double> product = new Pair<>("Apple", 0.50);   // T=String, U=Double
+```
+
+Convention: `T` (type), `E` (element), `K`/`V` (key/value), `R` (result), and `U`/`S` for a second/third type after `T`.
 
 ## Bounded type parameters
 

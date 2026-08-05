@@ -24,6 +24,27 @@ Transaction t = new Transaction("T1", new BigDecimal("34.02"));  // an object
 
 `new` allocates the object on the heap and runs the constructor. `this` refers to the current object — needed here to disambiguate the field `id` from the parameter `id`. A class with no explicit constructor gets a no-arg default one; declare any constructor and the default disappears.
 
+**Overloaded constructors** give a class several ways to be built — same name, different parameter lists (the general overloading rule below). One constructor can delegate to another with `this(...)` so the real initialization lives in a single place:
+
+```java
+public class Pizza {
+    private String bread, sauce, cheese;
+
+    public Pizza() {                                 // no-arg: sensible defaults
+        this("Hand-tossed", "Marinara", "Mozzarella");
+    }
+    public Pizza(String bread, String sauce, String cheese) {   // full control
+        this.bread = bread;
+        this.sauce = sauce;
+        this.cheese = cheese;
+    }
+}
+new Pizza();                                    // uses the defaults
+new Pizza("Thin", "Pesto", "Feta");             // fully specified
+```
+
+`this(...)` must be the first statement in the constructor, and is the beginner echo of `super(...)`, which calls the *parent's* constructor (see [Inheritance](#2-inheritance)).
+
 ## The four pillars
 
 ### 1. Encapsulation
@@ -55,7 +76,18 @@ public class CardPayment extends Payment {
 }
 ```
 
-Java has **single inheritance** for classes (one `extends`) but a class can implement many interfaces. Favor **composition over inheritance** — inheritance couples a subclass tightly to its parent's implementation, and a deep hierarchy is rigid; holding a collaborator as a field (composition) is usually more flexible. Reach for inheritance only for a genuine "is-a" relationship, not just to reuse code.
+Java has **single inheritance** for classes (one `extends`) but a class can implement many interfaces. `super` reaches the parent: `super(...)` calls the parent constructor (must be the first line of the child constructor), and `super.method()` calls the parent's version of an overridden method.
+
+Favor **composition over inheritance** — inheritance couples a subclass tightly to its parent's implementation, and a deep hierarchy is rigid; holding a collaborator as a field (composition) is usually more flexible. Reach for inheritance only for a genuine "is-a" relationship, not just to reuse code. The distinction is **is-a vs has-a**: a `Car` *is-a* Vehicle (inheritance), but a `Car` *has-a* Engine (composition) — the car is built *from* an engine object it holds as a field:
+
+```java
+class Engine { void start() { System.out.println("Vroom"); } }
+
+class Car {
+    private final Engine engine = new Engine();   // has-a: Car is composed of an Engine
+    void drive() { engine.start(); }              // delegates to its part
+}
+```
 
 ### 3. Polymorphism
 
@@ -133,6 +165,43 @@ Break it and a `HashMap` can't find a key you definitely put in, because it look
 ```
 
 This is exactly the boilerplate Lombok's `@Data` and Java `record`s generate for you ([[languages/01-java/03-tooling/03-lombok-and-builders|Lombok]], [[languages/01-java/01-language/07-modern-java|Modern Java]]) — but you have to understand the contract to know why a broken `equals` corrupts a map, and to spot it in code that hand-rolls one.
+
+## toString — a readable object
+
+`Object`'s default `toString()` returns something useless like `Transaction@1b6d3586` (class name + hex hash). Printing an object, or concatenating it into a string, calls `toString()` implicitly — so override it to return something readable:
+
+```java
+public class Car {
+    private String make, model;
+    private int year;
+    // ... constructor ...
+    @Override public String toString() {
+        return year + " " + make + " " + model;   // 2024 Toyota Corolla
+    }
+}
+
+Car car = new Car("Toyota", "Corolla", 2024);
+System.out.println(car);   // System.out.println(car.toString()) — "2024 Toyota Corolla"
+```
+
+This is purely for a human-readable representation (logging, debugging) — distinct from `equals`/`hashCode`, which define *identity*. Records and Lombok's `@Data` generate `toString` for you ([[languages/01-java/01-language/07-modern-java|Modern Java]], [[languages/01-java/03-tooling/03-lombok-and-builders|Lombok]]).
+
+## Arrays of objects
+
+An array (or `ArrayList`) can hold object references just like it holds primitives — the natural way to manage a collection of the same type. Each slot is a reference, so a freshly-`new`ed object array starts full of `null` until you populate it:
+
+```java
+Car[] garage = new Car[3];                 // three nulls
+garage[0] = new Car("Toyota", "Corolla", 2024);
+garage[1] = new Car("Honda", "Civic", 2023);
+garage[2] = new Car("Ford", "Focus", 2022);
+
+for (Car c : garage) {
+    System.out.println(c);                 // calls each car's toString()
+}
+```
+
+This is the shape behind the beginner "quiz" and "library of books" projects — an array of custom objects walked with a for-each loop. For a resizable version, use `ArrayList<Car>` ([[languages/01-java/01-language/04-collections|Collections]]).
 
 ## Object lifecycle and initializer blocks
 

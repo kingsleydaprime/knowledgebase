@@ -13,6 +13,21 @@ public interface DeliverCallback { void handle(String tag, Delivery msg) throws 
 DeliverCallback cb = (tag, delivery) -> process(delivery);   // lambda replaces an anonymous class
 ```
 
+### Anonymous classes — what lambdas replaced
+
+Before lambdas, the way to supply a one-off implementation inline was an **anonymous class**: `new SomeType() { ... }` creates an unnamed class *and* an instance of it in one expression, right where it's needed — no separate named class, used once. It's still the tool when the interface has **more than one method** (so a lambda can't apply), as with `TimerTask` ([[languages/01-java/01-language/08-core-apis|Core APIs]]):
+
+```java
+Runnable r = new Runnable() {              // anonymous class implementing Runnable
+    @Override public void run() { System.out.println("running"); }
+};
+
+// For a single-abstract-method interface, the lambda is the same thing, shorter:
+Runnable r2 = () -> System.out.println("running");
+```
+
+An anonymous class can capture effectively-final locals and can hold its own fields/multiple methods — the two things a lambda can't. It's a **local/inner class** distinction covered structurally in [[languages/01-java/01-language/02-oop|OOP]]; here the point is the lambda-vs-anonymous-class tradeoff.
+
 The `java.util.function` package supplies the general-purpose ones you'll use constantly:
 
 | Interface | Shape | Typical use |
