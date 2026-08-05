@@ -18,6 +18,24 @@ producerThread.join();    // block the calling thread until producerThread finis
 
 Without threads, a slow producer (streaming a multi-GB file) and a slow consumer (writing to a DB) would run strictly sequentially. With threads, the producer fills a queue while the consumer drains it concurrently — this is the entire justification for reaching for threads at all: two operations with independent, overlapping I/O-wait time.
 
+The lambda above is shorthand. Classically there are **two ways** to give a thread its work, and the distinction is worth knowing because you'll read both:
+
+```java
+// 1. implement Runnable (preferred — leaves you free to extend another class)
+class Worker implements Runnable {
+    public void run() { System.out.println("working"); }
+}
+new Thread(new Worker()).start();
+
+// 2. extend Thread (couples your task to the Thread class — rarely the right call)
+class WorkerThread extends Thread {
+    public void run() { System.out.println("working"); }
+}
+new WorkerThread().start();
+```
+
+The single most common beginner mistake: **calling `run()` instead of `start()`.** `run()` just invokes the method on the *current* thread — no concurrency. `start()` is what asks the JVM to spawn a new thread and call `run()` there. `Thread.sleep(millis)` pauses the current thread (it throws the checked `InterruptedException`), and `join()` waits for another thread to finish — both used constantly in the countdown/alarm-clock projects ([[languages/01-java/01-language/08-core-apis|Core APIs]]).
+
 ## Why "thread-safe" is a specific, narrow claim
 
 A piece of code is thread-safe if multiple threads can call it concurrently without corrupting shared state, regardless of how the threads are scheduled or interleaved. It is **not** a property of "using threads carefully" — it's a property you can name for a specific class:

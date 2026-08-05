@@ -29,6 +29,21 @@ LocalDateTime dt = resultSet.getTimestamp("col").toLocalDateTime();  // read
 
 `Timestamp.valueOf` treats the value as local (no zone) — fine only when app and DB share a timezone; otherwise go through `Instant`/`ZonedDateTime`.
 
+At the beginner level the everyday surface is `now()`, the accessors, comparison, and formatting — the pieces the alarm-clock project leans on:
+
+```java
+LocalDate.now();                    // today
+LocalTime now = LocalTime.now();    // current time of day
+now.getHour(); now.getMinute(); now.getSecond();      // component accessors
+LocalTime alarm = LocalTime.parse("08:00");
+now.isBefore(alarm);                // true — also isAfter(); the basis for a "wait until" loop
+
+// Formatting — turn a temporal into a string (and parse back)
+String pretty = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));   // "07:26:41"
+```
+
+Because the types are immutable, "modifying" returns a new value: `now.plusHours(1)`, `today.plusDays(7)` — the original is untouched.
+
 ## Regular expressions
 
 `Pattern` compiles a regex; `Matcher` runs it. Compile once and reuse for anything hot — compilation isn't free:
@@ -57,6 +72,26 @@ try (BufferedReader r = Files.newBufferedReader(Path.of(filePath))) {
 ```
 
 Always wrap resources in try-with-resources ([[languages/01-java/01-language/06-exceptions|Exceptions]]).
+
+At the beginner level, the classic pair is `FileWriter` to write and `BufferedReader` + `FileReader` to read line-by-line. File access can fail, so the calls are checked (`IOException`) and belong in try-with-resources:
+
+```java
+// Write — FileWriter creates/overwrites (new FileWriter(path, true) appends instead)
+try (FileWriter writer = new FileWriter("output.txt")) {
+    writer.write("Hello\n");
+    writer.write("World\n");
+}
+
+// Read — BufferedReader.readLine() returns null at end-of-file, the natural loop sentinel
+try (BufferedReader reader = new BufferedReader(new FileReader("words.txt"))) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+}
+```
+
+Reading a word list from a file this way — then picking one at random — is exactly how the beginner **hangman** project loads its answers instead of hard-coding them.
 
 ## Networking
 
@@ -107,6 +142,80 @@ SecureRandom random = new SecureRandom();   // unpredictable IDs — never plain
 ```
 
 SHA-256 as an idempotency fingerprint is in [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation]]; `SecureRandom` for ID generation is there too. For actual encryption, prefer vetted higher-level libraries over hand-assembling `Cipher` — the deeper cryptography material lives in [[cybersecurity/05-cryptography/README|cybersecurity/cryptography]].
+
+## Playing audio (`javax.sound.sampled`)
+
+The built-in sound API plays uncompressed audio (WAV/AIFF — **not** MP3, which needs an external library or a conversion to WAV). Three types cooperate: `AudioSystem` (the factory), `AudioInputStream` (the decoded stream), and `Clip` (an in-memory player you can `start`/`stop`/`close` and seek). Every step throws a checked exception, so the whole thing is a try-with-resources with several `catch` arms:
+
+```java
+try (AudioInputStream audio = AudioSystem.getAudioInputStream(new File("song.wav"))) {
+    Clip clip = AudioSystem.getClip();
+    clip.open(audio);
+    clip.start();                                    // non-blocking — returns immediately
+    clip.setMicrosecondPosition(0);                  // seek to start (a "reset")
+    // ... keep the program alive while it plays (below), then clip.stop() / clip.close()
+} catch (UnsupportedAudioFileException e) {           // wrong/compressed format
+    System.out.println("Audio format not supported");
+} catch (LineUnavailableException e) {                // the audio line is busy
+    System.out.println("Audio line unavailable");
+} catch (IOException e) {                             // catch-all safety net, listed last
+    System.out.println("Error reading audio file");
+}
+```
+
+The catch order matters: **most-specific first, the broad `IOException` last** ([[languages/01-java/01-language/06-exceptions|Exceptions]]). One beginner gotcha: `clip.start()` returns immediately, so a program that starts a clip and then ends will cut the sound off — you must keep the main thread alive (a blocking `scanner.nextLine()`, a `Thread.sleep`, or a loop on `clip.isRunning()`). This is the whole **audio player** project: a menu loop reading `p`/`s`/`r`/`q` and calling `clip.start()` / `clip.stop()` / `setMicrosecondPosition(0)` / `clip.close()`. For a simple system beep with no file at all: `Toolkit.getDefaultToolkit().beep();`.
+
+## Scheduling: `java.util.Timer` and `TimerTask`
+
+`Timer` runs a `TimerTask` on a background thread — once after a delay, or repeatedly at a fixed rate. `TimerTask` is abstract with one method to fill in, `run()`, which is the textbook use for an **anonymous class** ([[languages/01-java/01-language/05-functional-programming|Functional Programming]]):
+
+```java
+Timer timer = new Timer();
+int[] count = { 10 };                                // boxed in an array so the inner class can mutate it
+timer.scheduleAtFixedRate(new TimerTask() {
+    @Override public void run() {
+        System.out.println(count[0]);
+        if (count[0]-- <= 0) {
+            System.out.println("Happy New Year!");
+            timer.cancel();                          // stop the timer, or it repeats forever
+        }
+    }
+}, 0, 1000);                                          // initial delay 0ms, then every 1000ms
+```
+
+That's the **countdown timer** project. `schedule(task, delay)` fires once; `scheduleAtFixedRate(task, delay, period)` repeats — and `timer.cancel()` is mandatory or the JVM keeps ticking. (For richer scheduling in real apps, use `ScheduledExecutorService` from [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] or Spring's `@Scheduled` from [[languages/01-java/05-web-and-api/01-spring-boot|Spring Boot]].)
+
+## Capstone project: the alarm clock
+
+The final beginner project ties several of these APIs together — `LocalTime`, threading, and audio. An `AlarmClock` **implements `Runnable`** so it can run on its own thread; its `run()` polls `LocalTime.now()` once a second until the alarm time, then plays a WAV `Clip`:
+
+```java
+class AlarmClock implements Runnable {
+    private final LocalTime alarmTime;
+    private final String filePath;
+    AlarmClock(LocalTime alarmTime, String filePath) {
+        this.alarmTime = alarmTime;
+        this.filePath = filePath;
+    }
+    @Override public void run() {
+        while (LocalTime.now().isBefore(alarmTime)) {
+            LocalTime now = LocalTime.now();
+            System.out.printf("\r%02d:%02d:%02d", now.getHour(), now.getMinute(), now.getSecond());
+            try { Thread.sleep(1000); }                       // wait a second, then re-check
+            catch (InterruptedException e) { System.out.println("Interrupted"); }
+        }
+        System.out.println("\nAlarm!");
+        playSound(filePath);                                  // the Clip code from the audio section
+    }
+    private void playSound(String path) { /* AudioSystem/Clip try-with-resources */ }
+}
+
+// In main:
+Thread alarmThread = new Thread(new AlarmClock(LocalTime.parse("08:00"), "alarm.wav"));
+alarmThread.start();                                          // runs run() off the main thread
+```
+
+Two details worth lifting out: `printf("\r...")` uses a **carriage return** to redraw the clock in place instead of scrolling, and running the alarm on a separate `Thread` keeps the main thread free to read a "press enter to stop" line — the same `start()`-not-`run()` rule from [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]].
 
 ## Related
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — streaming IO and the CSV/regex parsing in anger
