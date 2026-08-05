@@ -10,9 +10,9 @@ This complements the concept notes in the folders above ([[04-data-structures/03
 
 - [x] Arrays & Hashing (9)
 - [x] Two Pointers (5)
-- [ ] Sliding Window (6)
-- [ ] Stack (7)
-- [ ] Binary Search (7)
+- [x] Sliding Window (6)
+- [x] Stack (7)
+- [x] Binary Search (7)
 - [ ] Linked List (11)
 - [ ] Trees (15)
 - [ ] Tries (3)
@@ -59,36 +59,36 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 
 | # | Problem | Key idea |
 |---|---|---|
-| 121 | Best Time to Buy and Sell Stock | track min-so-far; window = buy…sell |
-| 3 | Longest Substring Without Repeating Characters | grow; shrink on a repeat |
-| 424 | Longest Repeating Character Replacement | valid while (len − maxfreq) ≤ k |
-| 567 | Permutation in String | fixed window; compare char counts |
-| 76 | Minimum Window Substring | expand to satisfy, contract to minimize |
-| 239 | Sliding Window Maximum | monotonic deque of candidate maxima |
+| 121 | [[015-best-time-to-buy-and-sell-stock\|Best Time to Buy and Sell Stock]] | track min-so-far; window = buy…sell |
+| 3 | [[016-longest-substring-without-repeating-characters\|Longest Substring Without Repeating Characters]] | grow; shrink on a repeat |
+| 424 | [[017-longest-repeating-character-replacement\|Longest Repeating Character Replacement]] | valid while (len − maxfreq) ≤ k |
+| 567 | [[018-permutation-in-string\|Permutation in String]] | fixed window; compare char counts |
+| 76 | [[019-minimum-window-substring\|Minimum Window Substring]] | expand to satisfy, contract to minimize |
+| 239 | [[020-sliding-window-maximum\|Sliding Window Maximum]] | monotonic deque of candidate maxima |
 
 ## Stack — [[07-stacks-and-queues|stacks-and-queues]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 20 | Valid Parentheses | push opens, match/pop on closes |
-| 155 | Min Stack | pair each value with the min-so-far |
-| 150 | Evaluate Reverse Polish Notation | pop operands, push results |
-| 22 | Generate Parentheses | backtracking with open/close counts |
-| 739 | Daily Temperatures | monotonic stack of indices |
-| 853 | Car Fleet | sort by position; monotonic stack of times |
-| 84 | Largest Rectangle in Histogram | monotonic stack of increasing heights |
+| 20 | [[021-valid-parentheses\|Valid Parentheses]] | push opens, match/pop on closes |
+| 155 | [[022-min-stack\|Min Stack]] | pair each value with the min-so-far |
+| 150 | [[023-evaluate-reverse-polish-notation\|Evaluate Reverse Polish Notation]] | pop operands, push results |
+| 22 | [[024-generate-parentheses\|Generate Parentheses]] | backtracking with open/close counts |
+| 739 | [[025-daily-temperatures\|Daily Temperatures]] | monotonic stack of indices |
+| 853 | [[026-car-fleet\|Car Fleet]] | sort by position; monotonic stack of times |
+| 84 | [[027-largest-rectangle-in-histogram\|Largest Rectangle in Histogram]] | monotonic stack of increasing heights |
 
 ## Binary Search — [[09-modified-binary-search|modified-binary-search]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 704 | Binary Search | the baseline half-and-discard |
-| 74 | Search a 2D Matrix | treat the grid as one sorted array |
-| 875 | Koko Eating Bananas | binary search on the answer |
-| 153 | Find Minimum in Rotated Sorted Array | compare mid to right |
-| 33 | Search in Rotated Sorted Array | find the sorted half, then bound |
-| 981 | Time Based Key-Value Store | binary search over timestamps |
-| 4 | Median of Two Sorted Arrays | binary search on the partition |
+| 704 | [[028-binary-search\|Binary Search]] | the baseline half-and-discard |
+| 74 | [[029-search-a-2d-matrix\|Search a 2D Matrix]] | treat the grid as one sorted array |
+| 875 | [[030-koko-eating-bananas\|Koko Eating Bananas]] | binary search on the answer |
+| 153 | [[031-find-minimum-in-rotated-sorted-array\|Find Minimum in Rotated Sorted Array]] | compare mid to right |
+| 33 | [[032-search-in-rotated-sorted-array\|Search in Rotated Sorted Array]] | find the sorted half, then bound |
+| 981 | [[033-time-based-key-value-store\|Time Based Key-Value Store]] | binary search over timestamps |
+| 4 | [[034-median-of-two-sorted-arrays\|Median of Two Sorted Arrays]] | binary search on the partition |
 
 ## Linked List — [[04-linked-lists|linked-lists]]
 
