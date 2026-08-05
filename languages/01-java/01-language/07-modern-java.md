@@ -42,6 +42,42 @@ String message = switch (responseCode) {
 
 The payment sandbox's `ScenarioEngine` maps account suffixes to outcomes this way. A `yield` statement returns a value from a multi-line `{ }` case body.
 
+At the beginner level the point is simpler: the **arrow (enhanced) switch replaces a long `else if` chain** that all tests the same variable. Each `case` runs only its own arm — there's no fall-through and no `break` to forget, which is exactly the bug the old colon-and-`break` switch invited. Comma-separated labels collapse duplicate arms, and `default` plays the role of the trailing `else`:
+
+```java
+String day = scanner.nextLine();
+switch (day) {
+    case "Saturday", "Sunday" -> System.out.println("Weekend");
+    case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" -> System.out.println("Weekday");
+    default -> System.out.println(day + " is not a day");
+}
+```
+
+A worked project — the beginner **calculator**, dispatching on a `char` operator (note the single-quoted `char` labels and the multi-line `{ }` arm guarding divide-by-zero):
+
+```java
+try (Scanner scanner = new Scanner(System.in)) {
+    System.out.print("First number: ");
+    double a = scanner.nextDouble();
+    System.out.print("Operator (+ - * / ^): ");
+    char op = scanner.next().charAt(0);        // take the first typed char
+    System.out.print("Second number: ");
+    double b = scanner.nextDouble();
+
+    Double result = switch (op) {
+        case '+' -> a + b;
+        case '-' -> a - b;
+        case '*' -> a * b;
+        case '/' -> b == 0 ? null : a / b;     // guard divide-by-zero
+        case '^' -> Math.pow(a, b);
+        default  -> null;                      // invalid operator
+    };
+
+    if (result == null) System.out.println("Invalid operation");
+    else                System.out.printf("Result: %.2f%n", result);
+}
+```
+
 ## Records — the data carrier
 
 A `record` is an immutable data class where the compiler generates the constructor, private final fields, accessors, `equals`, `hashCode`, and `toString` from a one-line declaration:
