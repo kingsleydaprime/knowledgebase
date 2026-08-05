@@ -19,9 +19,9 @@ This complements the concept notes in the folders above ([[04-data-structures/03
 - [x] Heap / Priority Queue (7)
 - [x] Backtracking (9)
 - [x] Graphs (13)
-- [ ] Advanced Graphs (6)
-- [ ] 1-D Dynamic Programming (12)
-- [ ] 2-D Dynamic Programming (11)
+- [x] Advanced Graphs (6)
+- [x] 1-D Dynamic Programming (12)
+- [x] 2-D Dynamic Programming (11)
 - [ ] Greedy (8)
 - [ ] Intervals (6)
 - [ ] Math & Geometry (8)
@@ -182,45 +182,45 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 
 | # | Problem | Key idea |
 |---|---|---|
-| 332 | Reconstruct Itinerary | Hierholzer's Eulerian path |
-| 1584 | Min Cost to Connect All Points | MST (Prim's / Kruskal's) |
-| 743 | Network Delay Time | Dijkstra, take the max |
-| 778 | Swim in Rising Water | Dijkstra / binary search on max cell |
-| 269 | Alien Dictionary | precedence edges → topological sort |
-| 787 | Cheapest Flights Within K Stops | Bellman-Ford bounded to k+1 |
+| 332 | [[093-reconstruct-itinerary\|Reconstruct Itinerary]] | Hierholzer's Eulerian path |
+| 1584 | [[094-min-cost-to-connect-all-points\|Min Cost to Connect All Points]] | MST (Prim's / Kruskal's) |
+| 743 | [[095-network-delay-time\|Network Delay Time]] | Dijkstra, take the max |
+| 778 | [[096-swim-in-rising-water\|Swim in Rising Water]] | Dijkstra / binary search on max cell |
+| 269 | [[097-alien-dictionary\|Alien Dictionary]] | precedence edges → topological sort |
+| 787 | [[098-cheapest-flights-within-k-stops\|Cheapest Flights Within K Stops]] | Bellman-Ford bounded to k+1 |
 
 ## 1-D Dynamic Programming — [[15-dynamic-programming|dynamic-programming]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 70 | Climbing Stairs | Fibonacci shape |
-| 746 | Min Cost Climbing Stairs | min of two prior + cost |
-| 198 | House Robber | max(skip, rob + dp[i-2]) |
-| 213 | House Robber II | two linear runs (drop first/last) |
-| 5 | Longest Palindromic Substring | expand around center |
-| 647 | Palindromic Substrings | count center expansions |
-| 91 | Decode Ways | 1-digit and valid 2-digit splits |
-| 322 | Coin Change | unbounded knapsack |
-| 152 | Maximum Product Subarray | track running max and min |
-| 139 | Word Break | dp[i] true if a word ends at i |
-| 300 | Longest Increasing Subsequence | dp[i]=1+max(dp[j]<); O(n log n) |
-| 416 | Partition Equal Subset Sum | subset-sum to total/2 |
+| 70 | [[099-climbing-stairs\|Climbing Stairs]] | Fibonacci shape |
+| 746 | [[100-min-cost-climbing-stairs\|Min Cost Climbing Stairs]] | min of two prior + cost |
+| 198 | [[101-house-robber\|House Robber]] | max(skip, rob + dp[i-2]) |
+| 213 | [[102-house-robber-ii\|House Robber II]] | two linear runs (drop first/last) |
+| 5 | [[103-longest-palindromic-substring\|Longest Palindromic Substring]] | expand around center |
+| 647 | [[104-palindromic-substrings\|Palindromic Substrings]] | count center expansions |
+| 91 | [[105-decode-ways\|Decode Ways]] | 1-digit and valid 2-digit splits |
+| 322 | [[106-coin-change\|Coin Change]] | unbounded knapsack |
+| 152 | [[107-maximum-product-subarray\|Maximum Product Subarray]] | track running max and min |
+| 139 | [[108-word-break\|Word Break]] | dp[i] true if a word ends at i |
+| 300 | [[109-longest-increasing-subsequence\|Longest Increasing Subsequence]] | dp[i]=1+max(dp[j]<); O(n log n) |
+| 416 | [[110-partition-equal-subset-sum\|Partition Equal Subset Sum]] | subset-sum to total/2 |
 
 ## 2-D Dynamic Programming — [[15-dynamic-programming|dynamic-programming]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 62 | Unique Paths | dp[r][c]=dp[r-1][c]+dp[r][c-1] |
-| 1143 | Longest Common Subsequence | match → diagonal+1 |
-| 309 | Buy/Sell Stock with Cooldown | hold/sold/rest state machine |
-| 518 | Coin Change II | count combinations |
-| 494 | Target Sum | ± signs → subset-sum count |
-| 97 | Interleaving String | 2-D reachability |
-| 329 | Longest Increasing Path in a Matrix | DFS + memo |
-| 115 | Distinct Subsequences | match → sum; else carry |
-| 72 | Edit Distance | 1+min(insert, delete, replace) |
-| 312 | Burst Balloons | interval DP on last balloon |
-| 10 | Regular Expression Matching | 2-D with `*`/`.` transitions |
+| 62 | [[111-unique-paths\|Unique Paths]] | dp[r][c]=dp[r-1][c]+dp[r][c-1] |
+| 1143 | [[112-longest-common-subsequence\|Longest Common Subsequence]] | match → diagonal+1 |
+| 309 | [[113-best-time-to-buy-and-sell-stock-with-cooldown\|Buy/Sell Stock with Cooldown]] | hold/sold/rest state machine |
+| 518 | [[114-coin-change-ii\|Coin Change II]] | count combinations |
+| 494 | [[115-target-sum\|Target Sum]] | ± signs → subset-sum count |
+| 97 | [[116-interleaving-string\|Interleaving String]] | 2-D reachability |
+| 329 | [[117-longest-increasing-path-in-a-matrix\|Longest Increasing Path in a Matrix]] | DFS + memo |
+| 115 | [[118-distinct-subsequences\|Distinct Subsequences]] | match → sum; else carry |
+| 72 | [[119-edit-distance\|Edit Distance]] | 1+min(insert, delete, replace) |
+| 312 | [[120-burst-balloons\|Burst Balloons]] | interval DP on last balloon |
+| 10 | [[121-regular-expression-matching\|Regular Expression Matching]] | 2-D with `*`/`.` transitions |
 
 ## Greedy — [[10-greedy-algorithms|greedy]]
 
