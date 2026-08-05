@@ -22,12 +22,12 @@ This complements the concept notes in the folders above ([[04-data-structures/03
 - [x] Advanced Graphs (6)
 - [x] 1-D Dynamic Programming (12)
 - [x] 2-D Dynamic Programming (11)
-- [ ] Greedy (8)
-- [ ] Intervals (6)
-- [ ] Math & Geometry (8)
-- [ ] Bit Manipulation (7)
+- [x] Greedy (8)
+- [x] Intervals (6)
+- [x] Math & Geometry (8)
+- [x] Bit Manipulation (7)
 
-Categories are filled in one at a time; a problem name becomes a link once its file is written.
+**All 150 solved.** ✅
 
 ## Arrays & Hashing — [[03-hash-maps|hash-maps]]
 
@@ -226,50 +226,50 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 
 | # | Problem | Key idea |
 |---|---|---|
-| 53 | Maximum Subarray | Kadane's |
-| 55 | Jump Game | farthest reachable index |
-| 45 | Jump Game II | extend current jump's range |
-| 134 | Gas Station | failing point + 1 if total ≥ 0 |
-| 846 | Hand of Straights | count map + take runs from smallest |
-| 1899 | Merge Triplets to Form Target | keep triplets never exceeding target |
-| 763 | Partition Labels | extend to last index of each char |
-| 678 | Valid Parenthesis String | track min/max open count |
+| 53 | [[122-maximum-subarray\|Maximum Subarray]] | Kadane's |
+| 55 | [[123-jump-game\|Jump Game]] | farthest reachable index |
+| 45 | [[124-jump-game-ii\|Jump Game II]] | extend current jump's range |
+| 134 | [[125-gas-station\|Gas Station]] | failing point + 1 if total ≥ 0 |
+| 846 | [[126-hand-of-straights\|Hand of Straights]] | count map + take runs from smallest |
+| 1899 | [[127-merge-triplets-to-form-target-triplet\|Merge Triplets to Form Target]] | keep triplets never exceeding target |
+| 763 | [[128-partition-labels\|Partition Labels]] | extend to last index of each char |
+| 678 | [[129-valid-parenthesis-string\|Valid Parenthesis String]] | track min/max open count |
 
 ## Intervals — [[08-overlapping-intervals|overlapping-intervals]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 57 | Insert Interval | before / merge / after |
-| 56 | Merge Intervals | sort by start, merge touching |
-| 435 | Non-overlapping Intervals | sort by end; count removals |
-| 252 | Meeting Rooms | sort; any overlap → false |
-| 253 | Meeting Rooms II | min-heap of end times |
-| 1851 | Minimum Interval to Include Each Query | sort + heap by size |
+| 57 | [[130-insert-interval\|Insert Interval]] | before / merge / after |
+| 56 | [[131-merge-intervals\|Merge Intervals]] | sort by start, merge touching |
+| 435 | [[132-non-overlapping-intervals\|Non-overlapping Intervals]] | sort by end; count removals |
+| 252 | [[133-meeting-rooms\|Meeting Rooms]] | sort; any overlap → false |
+| 253 | [[134-meeting-rooms-ii\|Meeting Rooms II]] | min-heap of end times |
+| 1851 | [[135-minimum-interval-to-include-each-query\|Minimum Interval to Include Each Query]] | sort + heap by size |
 
 ## Math & Geometry — [[14-math-and-geometry|math-and-geometry]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 48 | Rotate Image | transpose + reverse rows |
-| 54 | Spiral Matrix | four shrinking boundaries |
-| 73 | Set Matrix Zeroes | use row 0 / col 0 as markers |
-| 202 | Happy Number | cycle detection |
-| 66 | Plus One | grade-school carry |
-| 50 | Pow(x, n) | fast exponentiation |
-| 43 | Multiply Strings | digit-by-digit multiply |
-| 2013 | Detect Squares | point-count hash map |
+| 48 | [[136-rotate-image\|Rotate Image]] | transpose + reverse rows |
+| 54 | [[137-spiral-matrix\|Spiral Matrix]] | four shrinking boundaries |
+| 73 | [[138-set-matrix-zeroes\|Set Matrix Zeroes]] | use row 0 / col 0 as markers |
+| 202 | [[139-happy-number\|Happy Number]] | cycle detection |
+| 66 | [[140-plus-one\|Plus One]] | grade-school carry |
+| 50 | [[141-pow-x-n\|Pow(x, n)]] | fast exponentiation |
+| 43 | [[142-multiply-strings\|Multiply Strings]] | digit-by-digit multiply |
+| 2013 | [[143-detect-squares\|Detect Squares]] | point-count hash map |
 
 ## Bit Manipulation — [[13-bit-manipulation|bit-manipulation]]
 
 | # | Problem | Key idea |
 |---|---|---|
-| 136 | Single Number | XOR everything; pairs cancel |
-| 191 | Number of 1 Bits | x &= x-1 (Kernighan) |
-| 338 | Counting Bits | count[i]=count[i>>1]+(i&1) |
-| 190 | Reverse Bits | shift out, shift in, ×32 |
-| 268 | Missing Number | XOR indices with values |
-| 371 | Sum of Two Integers | XOR + carry loop |
-| 7 | Reverse Integer | reverse digits with overflow guard |
+| 136 | [[144-single-number\|Single Number]] | XOR everything; pairs cancel |
+| 191 | [[145-number-of-1-bits\|Number of 1 Bits]] | x &= x-1 (Kernighan) |
+| 338 | [[146-counting-bits\|Counting Bits]] | count[i]=count[i>>1]+(i&1) |
+| 190 | [[147-reverse-bits\|Reverse Bits]] | shift out, shift in, ×32 |
+| 268 | [[148-missing-number\|Missing Number]] | XOR indices with values |
+| 371 | [[149-sum-of-two-integers\|Sum of Two Integers]] | XOR + carry loop |
+| 7 | [[150-reverse-integer\|Reverse Integer]] | reverse digits with overflow guard |
 
 ## Related
 - [[README|DSA index]] — the concept notes underneath
