@@ -9,7 +9,7 @@ This complements the concept notes in the folders above ([[04-data-structures/03
 ## Progress
 
 - [x] Arrays & Hashing (9)
-- [ ] Two Pointers (5)
+- [x] Two Pointers (5)
 - [ ] Sliding Window (6)
 - [ ] Stack (7)
 - [ ] Binary Search (7)
@@ -49,11 +49,11 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 
 | # | Problem | Key idea |
 |---|---|---|
-| 125 | Valid Palindrome | pointers in from both ends, skip non-alphanumerics |
-| 167 | Two Sum II | inward pointers; move by sum vs target |
-| 15 | 3Sum | sort, fix one, two-pointer the rest; skip dupes |
-| 11 | Container With Most Water | widest first; move the shorter wall inward |
-| 42 | Trapping Rain Water | two pointers tracking left/right max walls |
+| 125 | [[010-valid-palindrome\|Valid Palindrome]] | pointers in from both ends, skip non-alphanumerics |
+| 167 | [[011-two-sum-ii\|Two Sum II]] | inward pointers; move by sum vs target |
+| 15 | [[012-3sum\|3Sum]] | sort, fix one, two-pointer the rest; skip dupes |
+| 11 | [[013-container-with-most-water\|Container With Most Water]] | widest first; move the shorter wall inward |
+| 42 | [[014-trapping-rain-water\|Trapping Rain Water]] | two pointers tracking left/right max walls |
 
 ## Sliding Window — [[03-sliding-window|sliding-window]]
 
