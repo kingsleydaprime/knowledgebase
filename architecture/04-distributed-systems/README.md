@@ -4,7 +4,7 @@ The theory of systems that span multiple machines — *why* they're fundamentall
 
 **Source:** roadmap.sh has no distributed-systems roadmap, so this is from the canon — Kleppmann's *Designing Data-Intensive Applications*, MIT 6.824, and the primary papers (Lamport, FLP, CAP/Gilbert-Lynch, Raft, Spanner). `[reference]` — deep theory to study *and build*; you won't fully grasp it without implementing (esp. [[architecture/04-distributed-systems/08-raft-in-depth|Raft]]).
 
-**This is a deep curriculum (in progress).** Notes marked **⏳** are outlines being filled in; the rest are full deep notes. Reading order is grouped into five parts.
+**A deep curriculum, grouped into five parts.** Every note opens with a plain-language *"kid version first"* intuition before going to full depth, and ends with a **Key insight**. Read A→C, then build a Raft KV-store, then D→E.
 
 ## Part A — Foundations (the models & limits)
 1. [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — **[Advanced]** — partial failure, the failure/timing/clock models, process pauses, why perfect failure detection is impossible, safety vs liveness, the 8 fallacies
@@ -23,13 +23,13 @@ The theory of systems that span multiple machines — *why* they're fundamentall
 
 ## Part D — Transactions & Storage
 10. [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — **[Advanced]** — 2PC/3PC, isolation levels, MVCC, the saga pattern, idempotency
-11. [[architecture/04-distributed-systems/11-modern-distributed-transactions|Modern Distributed Transactions]] — **[Advanced]** ⏳ — Spanner/TrueTime, Percolator, Calvin, CockroachDB
-12. [[architecture/04-distributed-systems/12-the-log-and-state-machines|The Log & State Machines]] — **[Advanced]** ⏳ — replicated state machines, Kafka, LSM-trees, CDC, event sourcing
+11. [[architecture/04-distributed-systems/11-modern-distributed-transactions|Modern Distributed Transactions]] — **[Advanced]** — Spanner/TrueTime, Percolator, Calvin, CockroachDB
+12. [[architecture/04-distributed-systems/12-the-log-and-state-machines|The Log & State Machines]] — **[Advanced]** — replicated state machines, Kafka, LSM-trees, CDC, event sourcing
 
 ## Part E — Partitioning & Operations
 13. [[architecture/04-distributed-systems/13-partitioning|Partitioning]] — **[Advanced]** — sharding strategies, consistent hashing, rebalancing, hotspots
-14. [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection & Membership]] — **[Advanced]** ⏳ — heartbeats, phi-accrual, gossip, SWIM, anti-entropy, split-brain
-15. [[architecture/04-distributed-systems/15-testing-distributed-systems|Testing Distributed Systems]] — **[Advanced]** ⏳ — Jepsen, deterministic simulation, chaos, TLA+
+14. [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection & Membership]] — **[Advanced]** — heartbeats, phi-accrual, gossip, SWIM, anti-entropy, split-brain
+15. [[architecture/04-distributed-systems/15-testing-distributed-systems|Testing Distributed Systems]] — **[Advanced]** — Jepsen, deterministic simulation, chaos, TLA+
 
 ## How to actually learn this
 
