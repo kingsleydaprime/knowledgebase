@@ -1,44 +1,61 @@
-# Partitioning & Fault Tolerance
+# Partitioning
 
-**[reference]** — from the canon (DDIA chapters 6 & 8). How data is spread across nodes for scale, and how the system keeps working as nodes come, go, and die. The operational reality of running a distributed system.
+**[reference]** — from the canon (DDIA ch. 6). How data is **split across many nodes** so you can store more and serve more than one machine can hold — and how to split it *well*, so load stays even and queries stay cheap. (Knowing *who's alive* to route around failures is the sibling topic: [[architecture/04-distributed-systems/14-failure-detection-and-membership|failure detection & membership]].)
 
-## Partitioning (sharding) — spreading data
+## The kid version first
 
-To store more data or handle more writes than one node can, you **partition** (shard): split the dataset so each node holds a subset ([[architecture/02-building-blocks/03-databases-at-scale|databases at scale]]). The whole game is choosing *how* to split so load is even and queries stay efficient.
+You have **way too many toys for one toy box** — so you get several boxes and split the toys across them. Simple idea, but the *hard* question is **which toy goes in which box**, and you have two instincts:
+- **By name (A–F in box 1, G–M in box 2…).** Nice when you want "all the toys starting with S" — they're together. But if a new craze means *everyone* wants the newest toys (all starting with "Z"), **one box gets mobbed** while others sit idle (a **hotspot**).
+- **By a scramble rule (a "hash"): compute a number from the toy's name and use it to pick a box.** Spreads toys evenly so no box gets mobbed — but now "all the S toys" are scattered across every box.
 
-### Partitioning strategies
+And there's a nasty trap: if you pick the box with **"box = number mod (how many boxes)"** and then *add one more box*, the math changes for *almost every toy* → you have to **re-sort nearly everything**. The clever fix (**consistent hashing**) makes adding a box move only *a few* toys. That's this whole note.
 
-- **Range partitioning** — assign contiguous key ranges to nodes (A–F on node 1, G–M on node 2…). Great for range scans (they hit few nodes), but prone to **hotspots** — if keys are time-ordered, all recent writes hit one node.
-- **Hash partitioning** — hash the key and assign by hash. Distributes evenly (no hotspots from key skew), but destroys range queries (adjacent keys scatter across nodes).
-- **The hot-key problem** — even with hashing, a single extremely popular key (a celebrity's account) overloads one partition. Mitigations: add a random suffix to split it, or cache it separately.
+## Partitioning (sharding) strategies
 
-The **partition key** is the most important schema decision in a sharded system — a poor choice creates hotspots or forces expensive cross-partition operations that can't be undone without a painful migration.
+**Partitioning** (a.k.a. sharding) splits the dataset so each node holds a subset ([[architecture/02-building-blocks/03-databases-at-scale|databases at scale]]). Two base strategies, with opposite tradeoffs:
 
-### Consistent hashing — partitioning that survives change
+- **Range partitioning** — assign contiguous key ranges to nodes (`A–F` → node 1, `G–M` → node 2…). **Great for range scans** (a "last 24 hours" query hits few nodes) — but **hotspot-prone**: time-ordered keys send *all* recent writes to one node.
+- **Hash partitioning** — hash the key, assign by hash. **Distributes evenly** (kills key-skew hotspots), but **destroys range queries** (adjacent keys scatter everywhere). Compound keys (hash the first part, range the second) recover *some* locality.
 
-Naive hashing (`node = hash(key) % N`) has a fatal flaw: **change N (add/remove a node) and *almost every* key remaps**, triggering a massive reshuffle. **Consistent hashing** solves this: map both nodes and keys onto a hash ring, and a key belongs to the next node clockwise. Adding/removing a node only remaps the keys in *one segment* of the ring — roughly `1/N` of keys move, not all of them. **Virtual nodes** (each physical node placed at many ring positions) smooth out the distribution and rebalancing. This is the backbone of Dynamo/Cassandra/many caches and load balancers, and a great thing to implement to understand.
+**The partition key is the single most important decision in a sharded system.** A poor choice bakes in hotspots or forces expensive cross-partition operations, and changing it later means a painful migration. Choose it to (a) spread load evenly and (b) keep your common queries on as few partitions as possible.
 
-## Fault detection — knowing who's alive
+### The hot-key problem
+Even perfect hashing can't save you from **one key that's individually enormous** — a celebrity's account, a viral post. All its traffic lands on one partition. Mitigations: **split the hot key** by appending a random suffix (spreading it across N partitions, at the cost of reads having to gather all N), or **cache it** separately in front of the store. There's no automatic fix; the application has to know which keys are hot.
 
-You can't [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|reliably tell dead from slow]], but you must *estimate* liveness to route around failures:
+## Consistent hashing — partitioning that survives change
 
-- **Heartbeats** — nodes periodically signal "I'm alive"; miss enough and you suspect failure. The timeout is a tradeoff (fast detection vs false positives).
-- **Gossip protocols** — instead of a central monitor, nodes *gossip* health info to a few random peers, who spread it further, so knowledge of failures propagates epidemically across the cluster. Scalable and resilient (no central point), used by Cassandra, Consul, and others for membership and failure detection.
-- **Phi accrual failure detectors** — output a *suspicion level* rather than a binary dead/alive, letting the app choose its own threshold.
+Naive `node = hash(key) % N` has a fatal operational flaw: **change `N` (add or remove a node) and almost every key remaps**, triggering a cluster-wide reshuffle (and cache-miss storm). **Consistent hashing** fixes it:
 
-## Rebalancing and recovery
+- Map **both nodes and keys onto a ring** (a hash space wrapped into a circle). A key belongs to the **next node clockwise** from its position.
+- Add or remove a node and **only the keys in that one arc move** — roughly **`1/N` of keys**, not all of them. The rest stay put.
+- **Virtual nodes** — place each physical node at *many* points on the ring (not one). This smooths the distribution (no node accidentally owning a huge arc) and makes rebalancing spread evenly when a node joins/leaves. Without virtual nodes, consistent hashing distributes lumpily.
 
-When nodes are added (scale out), removed, or fail, data must **rebalance** so load stays even — moving partitions to new nodes ([[architecture/04-distributed-systems/05-replication|from replicas]]) without downtime and without moving *more* than necessary (why consistent hashing matters). Recovery from a failed node means promoting a [[architecture/04-distributed-systems/05-replication|replica]] and re-replicating to restore the redundancy level. Doing this automatically, safely, and without overwhelming the cluster (a rebalance storm) is core operational machinery.
+This is the backbone of Dynamo, Cassandra, Riak, and many caches/load balancers — and one of the best things to implement yourself to make distributed systems concrete (the ⭐ consistent-hash sharded cache in [[architecture/05-case-studies/README|case studies]]).
 
-## Replication + partitioning together
+> **Aside — fixed-partition rebalancing.** Many systems (e.g. Kafka, Elasticsearch) instead create a *large fixed number* of partitions up front (say 1000) and just **assign partitions to nodes**, moving whole partitions when nodes change. Simpler than a ring, and "how many partitions" becomes the capacity ceiling. Both approaches solve the same "don't reshuffle everything" goal.
 
-Real systems do **both**: partition for scale, and replicate each partition for fault tolerance. So a dataset is split into shards, and each shard has (say) 3 replicas across different nodes/racks/zones. A partition's replicas often form a small [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] group (Raft) for strong consistency within the shard, while the system scales by having *many* such groups. This "shard + replicate + consensus-per-shard" is the architecture of modern distributed databases (Spanner, CockroachDB, TiDB) — the synthesis of everything in this section.
+## Secondary indexes — the cross-partition headache
 
-## The synthesis
+Partitioning by primary key is easy; **querying by something else** is where it bites. Two schemes:
+- **Local (document-partitioned) index** — each partition indexes only its own data. Writes are cheap (one partition), but a query on the secondary field must **scatter-gather across *all* partitions** (each might have matches). Common default.
+- **Global (term-partitioned) index** — the index itself is partitioned by the indexed term, so a read hits one partition — but a **write** must update a *different* partition than the data, making writes cross-partition (often async). You trade read cost for write cost.
 
-Fault tolerance isn't one feature; it's the *combination*: [[architecture/04-distributed-systems/05-replication|replication]] for redundancy, [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] for agreement, partitioning + consistent hashing for scale, failure detection + gossip for awareness, and rebalancing for recovery — all assuming [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|things constantly fail]]. Building even a slice of it (a consistent-hash sharded cache, a Raft KV-store) is where this stops being abstract.
+There's no free lunch; which you pick depends on read-heavy vs write-heavy.
+
+## Request routing — finding the right partition
+
+When a client wants key `K`, *who knows which node holds it?* Three approaches: the client asks any node (which forwards), a **routing tier / load balancer** knows the mapping, or the client is **partition-aware** and computes it directly. The partition→node mapping is itself cluster state that must stay consistent as things rebalance — usually kept in a **[[architecture/04-distributed-systems/09-coordination-services|coordination service]]** (ZooKeeper/etcd) so everyone reads the same up-to-date map.
+
+## Partitioning + replication together (the real architecture)
+
+Real systems do **both**: **partition for scale, replicate each partition for fault tolerance.** A dataset is split into shards, and *each shard* has (say) 3 [[architecture/04-distributed-systems/05-replication|replicas]] across different nodes/racks/zones. Frequently **each shard's replicas form a small [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] group** (Raft) for strong consistency *within* the shard, and the system scales by running **many** such groups. This **"shard + replicate + consensus-per-shard"** pattern is the architecture of every modern distributed database — [[architecture/04-distributed-systems/11-modern-distributed-transactions|Spanner, CockroachDB, TiDB]] — and the synthesis of this whole course.
+
+## Key insight
+
+**Partitioning is "too much for one node, so split it across many," and the whole art is choosing *how* to split.** Range keys give cheap scans but risk hotspots; hash keys spread evenly but scatter ranges — and the **partition key is your most consequential, hardest-to-change decision.** Never use `hash % N` (adding a node reshuffles everything); use **consistent hashing with virtual nodes** (or a large fixed partition count) so growth moves only `~1/N` of the data. Secondary indexes force a read-cost-vs-write-cost choice (local vs global). And real systems **combine partitioning with [[architecture/04-distributed-systems/05-replication|replication]] and per-shard [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]]** — shard for scale, replicate for safety, agree within each shard.
 
 ## Related
-- [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — the redundancy half of fault tolerance
+- [[architecture/04-distributed-systems/05-replication|Replication]] — the redundancy half; shard, then replicate each shard
+- [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection & Membership]] — knowing which nodes are alive to route/rebalance
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — per-shard agreement
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — sharding from the system-design view
