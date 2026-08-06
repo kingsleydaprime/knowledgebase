@@ -45,5 +45,5 @@ Everyone wants "exactly-once" processing; in a distributed system it's [[archite
 
 ## Related
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — sagas, orchestration vs choreography
-- [[architecture/04-distributed-systems/04-consensus|Consensus]] — atomic commit as a consensus problem
+- [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — atomic commit as a consensus problem
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|Idempotency (Java)]] — the idempotency-key pattern in real code

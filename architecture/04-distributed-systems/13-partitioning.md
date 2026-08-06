@@ -28,17 +28,17 @@ You can't [[architecture/04-distributed-systems/01-what-makes-distributed-system
 
 ## Rebalancing and recovery
 
-When nodes are added (scale out), removed, or fail, data must **rebalance** so load stays even — moving partitions to new nodes ([[architecture/04-distributed-systems/03-replication-and-consistency|from replicas]]) without downtime and without moving *more* than necessary (why consistent hashing matters). Recovery from a failed node means promoting a [[architecture/04-distributed-systems/03-replication-and-consistency|replica]] and re-replicating to restore the redundancy level. Doing this automatically, safely, and without overwhelming the cluster (a rebalance storm) is core operational machinery.
+When nodes are added (scale out), removed, or fail, data must **rebalance** so load stays even — moving partitions to new nodes ([[architecture/04-distributed-systems/05-replication|from replicas]]) without downtime and without moving *more* than necessary (why consistent hashing matters). Recovery from a failed node means promoting a [[architecture/04-distributed-systems/05-replication|replica]] and re-replicating to restore the redundancy level. Doing this automatically, safely, and without overwhelming the cluster (a rebalance storm) is core operational machinery.
 
 ## Replication + partitioning together
 
-Real systems do **both**: partition for scale, and replicate each partition for fault tolerance. So a dataset is split into shards, and each shard has (say) 3 replicas across different nodes/racks/zones. A partition's replicas often form a small [[architecture/04-distributed-systems/04-consensus|consensus]] group (Raft) for strong consistency within the shard, while the system scales by having *many* such groups. This "shard + replicate + consensus-per-shard" is the architecture of modern distributed databases (Spanner, CockroachDB, TiDB) — the synthesis of everything in this section.
+Real systems do **both**: partition for scale, and replicate each partition for fault tolerance. So a dataset is split into shards, and each shard has (say) 3 replicas across different nodes/racks/zones. A partition's replicas often form a small [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] group (Raft) for strong consistency within the shard, while the system scales by having *many* such groups. This "shard + replicate + consensus-per-shard" is the architecture of modern distributed databases (Spanner, CockroachDB, TiDB) — the synthesis of everything in this section.
 
 ## The synthesis
 
-Fault tolerance isn't one feature; it's the *combination*: [[architecture/04-distributed-systems/03-replication-and-consistency|replication]] for redundancy, [[architecture/04-distributed-systems/04-consensus|consensus]] for agreement, partitioning + consistent hashing for scale, failure detection + gossip for awareness, and rebalancing for recovery — all assuming [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|things constantly fail]]. Building even a slice of it (a consistent-hash sharded cache, a Raft KV-store) is where this stops being abstract.
+Fault tolerance isn't one feature; it's the *combination*: [[architecture/04-distributed-systems/05-replication|replication]] for redundancy, [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] for agreement, partitioning + consistent hashing for scale, failure detection + gossip for awareness, and rebalancing for recovery — all assuming [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|things constantly fail]]. Building even a slice of it (a consistent-hash sharded cache, a Raft KV-store) is where this stops being abstract.
 
 ## Related
-- [[architecture/04-distributed-systems/03-replication-and-consistency|Replication & Consistency]] — the redundancy half of fault tolerance
-- [[architecture/04-distributed-systems/04-consensus|Consensus]] — per-shard agreement
+- [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — the redundancy half of fault tolerance
+- [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — per-shard agreement
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — sharding from the system-design view
