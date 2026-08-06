@@ -6,6 +6,36 @@ This complements the concept notes in the folders above ([[04-data-structures/03
 
 **Structure:** every solution lives flat in **`questions/`**, numbered `001`–`150` in NeetCode order (so the folder reads in curriculum order without nesting). The topic grouping lives *here in this index*, not in the folder layout — this README is the map, `questions/` is the content.
 
+> **New to interviews?** Read the **[[interview-playbook|interview playbook]]** first — the UMPIRE process (reword → clarify → examples → brute-force-then-optimize → code → test) and how to **read a problem's constraints and stated complexity to guess the intended approach** before you've solved it. The cheat-sheet below is *shape → tool*; the playbook is *how to run the whole interview*.
+
+## Pattern cheat-sheet — signal → tool
+
+Most of the interview battle is **recognizing which of ~18 tools a problem is asking for**. This maps the tell-tale signal in a problem to the pattern and its concept note. Read it as "when I see X, reach for Y."
+
+| When you see… | Reach for | Note |
+|---|---|---|
+| "have I seen this?", count occurrences, dedupe, find a pair by value | **Hash map / set** — trade space for O(1) lookup | [[03-hash-maps\|hash-maps]] |
+| **sorted** array + find a pair/triplet, palindrome, work from both ends | **Two pointers** converging inward (O(1) space) | [[02-two-pointers\|two-pointers]] |
+| longest/shortest **contiguous** substring/subarray meeting a constraint | **Sliding window** — grow right, shrink left when invalid | [[03-sliding-window\|sliding-window]] |
+| matched brackets, "most recent unclosed", **next greater/smaller** element | **Stack** / **monotonic stack** | [[07-stacks-and-queues\|stacks]] · [[06-monotonic-stack\|monotonic-stack]] |
+| **sorted** input & search; OR "minimize the max / min feasible speed/capacity" | **Binary search** — incl. **on the answer** (monotonic predicate) | [[09-modified-binary-search\|modified-binary-search]] |
+| reverse a list, detect a cycle, find the middle / n-th from end | **Linked-list pointers** — reversal, **fast/slow** | [[05-linked-list-reversal\|reversal]] · [[04-fast-slow-pointers\|fast-slow]] |
+| "do X at every node, combine children"; OR level-by-level | **Tree DFS** (return up / carry down) · **BFS** by level | [[11-dfs-pattern\|dfs]] · [[12-bfs-pattern\|bfs]] |
+| prefix / autocomplete queries, search many words in a grid | **Trie** (+ backtracking for grids) | [[09-tries\|tries]] |
+| "k largest/smallest", "top k", running median, merge k sorted | **Heap** (size-k, or two-heap) | [[08-heaps\|heaps]] · [[07-top-k-elements\|top-k]] |
+| "generate **all** subsets / permutations / combinations", place-then-undo | **Backtracking** (choose → recurse → un-choose) | [[14-backtracking\|backtracking]] |
+| grid connectivity, islands, flood fill, fewest steps on a grid | **Graph DFS/BFS** (multi-source BFS for nearest) | [[13-matrix-traversal\|matrix-traversal]] · [[06-graphs\|graphs]] |
+| prerequisites, build/task ordering, "can everything be ordered?" | **Topological sort** (Kahn's) = cycle detection | [[11-topological-sort\|topological-sort]] |
+| "same group?", dynamic connectivity, cycle in an **undirected** graph | **Union-Find** (a failed `union` = a cycle) | [[10-union-find\|union-find]] |
+| shortest path with **weights**; OR connect everything at min cost | **Dijkstra** · **MST** (Prim/Kruskal); hop-limited → Bellman-Ford | [[06-dijkstra\|dijkstra]] · [[12-minimum-spanning-tree\|MST]] |
+| "count the ways", min/max over choices, **overlapping subproblems** | **Dynamic programming** (find the recurrence) | [[15-dynamic-programming\|DP]] |
+| a locally-optimal choice that's provably globally optimal | **Greedy** (justify with an exchange argument) | [[10-greedy-algorithms\|greedy]] |
+| overlapping ranges, merge intervals, meeting rooms | **Intervals** — sort by start/end, then sweep (+ heap) | [[08-overlapping-intervals\|overlapping-intervals]] |
+| O(1) space demanded, "appears once", XOR hints, powers of two | **Bit manipulation** (XOR cancel, `n & (n-1)`) | [[13-bit-manipulation\|bit-manipulation]] |
+| rotate/spiral/zero a matrix in place, fast `xⁿ`, big-int arithmetic | **Math & geometry** (in-place tricks, binary exponentiation) | [[14-math-and-geometry\|math-and-geometry]] |
+
+**Also read the constraints first.** The input size `n` usually leaks the intended complexity — `n ≤ 20` hints at exponential backtracking/bitmask, `n ≤ ~5000` at O(n²) DP, `n ≤ 10⁵` at O(n log n) or O(n), `n ≥ 10⁹` at O(log n) or math. See the constraint→complexity heuristic in [[05-algorithms/01-algorithms\|algorithms]].
+
 ## Progress
 
 - [x] Arrays & Hashing (9)
