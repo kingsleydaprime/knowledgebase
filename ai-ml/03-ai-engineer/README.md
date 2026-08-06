@@ -6,6 +6,10 @@ Built by cross-referencing the [roadmap.sh ai-engineer](https://roadmap.sh/ai-en
 
 ## Reading order
 
+The track is in two parts. **Part I (1–10)** is the core path — everything you need to build an AI feature end to end. **Part II (11–17)** goes deeper on the topics that separate a demo from a shipped product: the reliable-component techniques, the production plumbing, and the depth topics (fine-tuning, self-hosting, voice). Read Part I in order; dip into Part II as you need it.
+
+### Part I — Building
+
 1. [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|The AI Engineer Role]] — **[Beginner]** — AI engineer vs ML engineer, the "build on pre-trained models" paradigm, and the choose-the-right-tool decision process
 2. [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — **[Beginner → Intermediate]** — tokens, context windows, transformers/attention, autoregression, and the sampling knobs (temperature, top-p/k, penalties) you set on every call
 3. [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — **[Beginner]** — kinds of models, the LLM provider ecosystem, open vs closed/self-hosting, and the AI-tools categories
@@ -16,6 +20,16 @@ Built by cross-referencing the [roadmap.sh ai-engineer](https://roadmap.sh/ai-en
 8. [[ai-ml/03-ai-engineer/08-agents|Agents]] — **[Advanced]** — the agentic (ReAct) loop, memory, multi-agent systems, frameworks, and observability
 9. [[ai-ml/03-ai-engineer/09-multimodal|Multimodal AI]] — **[Intermediate]** — vision input, image generation, speech (STT/TTS), and video
 10. [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — **[Advanced]** — prompt injection, guardrails, evals, cost, observability — turning a demo into a shipped product
+
+### Part II — Depth & Production
+
+11. [[ai-ml/03-ai-engineer/11-structured-output|Structured Output]] — **[Intermediate]** — JSON mode, schema-constrained decoding, and the discipline that turns an LLM into a reliable *function*
+12. [[ai-ml/03-ai-engineer/12-evals|Evals]] — **[Intermediate → Advanced]** — the core applied-AI skill: golden datasets, LLM-as-judge (and its biases), offline gates vs online signal, evaluating RAG and agents
+13. [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|Reliability & Plumbing]] — **[Intermediate]** — retries/backoff, timeouts, rate limits, fallbacks, and AI gateways: making a flaky network call dependable
+14. [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|Cost, Caching & Latency]] — **[Intermediate]** — model routing/cascading, prompt caching (freeze the front), streaming for perceived latency, trimming tokens
+15. [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-Tuning (Applied)]] — **[Advanced]** — when (rarely) to fine-tune, LoRA/PEFT, SFT vs DPO, the dataset-is-the-project reality
+16. [[ai-ml/03-ai-engineer/16-local-and-open-models|Local & Open Models]] — **[Intermediate]** — Ollama/vLLM, quantization (GGUF/AWQ), and when self-hosting an open model beats an API
+17. [[ai-ml/03-ai-engineer/17-voice-and-realtime|Voice & Realtime]] — **[Advanced]** — STT→LLM→TTS pipelines vs speech-native models, and the sub-second-latency constraint (streaming, turn-taking, barge-in)
 
 ## Practice, not just notes
 
