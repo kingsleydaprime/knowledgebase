@@ -58,6 +58,19 @@ Both specialize a model to your needs, differently:
 
 Rule of thumb: **RAG for knowledge, fine-tuning for behavior** — and you can combine them. For "answer questions about our docs," RAG is almost always the right first move; reach for fine-tuning when you need the model to reliably *behave* a certain way, not to *know* new facts.
 
+## Advanced RAG — where the real quality lives
+
+The basic pipeline above gets you a demo. Production RAG is mostly a set of upgrades to *retrieval*, because retrieval quality — not the LLM — is what caps a RAG system. In rough order of payoff:
+
+- **Chunking strategy is decision #1.** Beyond "split into passages": size chunks to your content (a few hundred tokens is a common start), split on **semantic boundaries** (paragraphs, sections, code blocks) not blind character counts, and add **overlap** so meaning isn't severed at a boundary. **Contextual retrieval** — prepend a one-line summary of the *document* to each chunk before embedding — fixes the classic failure where a chunk says "it increased 30%" with no idea what "it" is. Chunking quietly determines RAG quality more than model choice.
+- **Query transformation** — the user's raw question is often a poor search query. Rewrite it: **query rewriting** (clean up a messy question), **multi-query** (generate several phrasings, retrieve for each, merge), and **HyDE** (Hypothetical Document Embeddings — have the LLM draft a *fake ideal answer* and embed *that* to search, since a hypothetical answer sits closer in vector space to the real passages than the question does).
+- **Hybrid search** — combine semantic (vector) similarity with **keyword/BM25** search and fuse the rankings (e.g. reciprocal rank fusion). Vectors blur exact terms (names, codes, error IDs, acronyms); keyword search nails them. Hybrid reliably beats pure vector search in production.
+- **Reranking** — retrieve a *generous* candidate set (say top-50) cheaply, then run a **cross-encoder reranker** that scores each candidate against the query far more accurately than the initial vector similarity, and keep the top few for the prompt. Retrieve wide, rerank precise. This is one of the highest-ROI additions.
+- **GraphRAG** — when answers require connecting facts across documents ("how does X relate to Y?"), build a knowledge graph of entities/relationships and retrieve over *that* structure, not just isolated chunks. Heavier to build; shines on multi-hop questions plain chunk retrieval can't answer.
+- **Agentic RAG** — let an [[ai-ml/03-ai-engineer/08-agents|agent]] drive retrieval: decide *whether* to search, reformulate the query, search again if the first results were thin, and reason over multiple retrieval rounds — instead of a single fixed fetch. More capable, more expensive/slower.
+
+**And measure it.** Retrieval and generation are separately evaluable — context precision/recall for "did the right chunk come back?", faithfulness/answer-relevance for "did the model use it correctly?". Don't tune RAG by vibes; see [[ai-ml/03-ai-engineer/12-evals|evals]] (the RAG-evaluation section). Reach for these upgrades in response to *measured* failures — start simple, add the piece that fixes the retrieval miss you actually observe.
+
 ## Gotchas
 
 - **RAG is only as good as its retrieval** — if the right chunk isn't retrieved, the model can't use it, and may hallucinate instead. Debug retrieval (what got fetched?) before blaming the model.
@@ -67,4 +80,7 @@ Rule of thumb: **RAG for knowledge, fine-tuning for behavior** — and you can c
 ## Related
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — embedding models as a model type
 - [[ai-ml/03-ai-engineer/05-prompt-engineering|Prompt Engineering]] — context engineering, the broader discipline RAG feeds
+- [[ai-ml/03-ai-engineer/12-evals|Evals]] — evaluating retrieval vs. generation separately
+- [[ai-ml/03-ai-engineer/08-agents|Agents]] — agentic RAG, where the model drives retrieval
+- [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-Tuning (Applied)]] — the other side of the RAG-vs-fine-tuning decision
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|Dot Product]] — the similarity math underneath

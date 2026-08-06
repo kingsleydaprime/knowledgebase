@@ -30,6 +30,23 @@ Review: "Shipping was slow but the product is fine." →
 - **Self-consistency** — sample several CoT runs and take the majority answer; trades cost for reliability on hard problems.
 - **Step-back prompting** — ask the model to first state the general principle, then apply it — helps on problems where jumping straight in goes wrong.
 
+## Beyond a single prompt — chaining, decomposition, meta-prompting
+
+Past a point, the win isn't a cleverer single prompt but *how you compose several*:
+
+- **Prompt chaining** — split a complex task into a sequence of prompts where each step's output feeds the next (extract → transform → summarize). Each step is simpler, individually checkable, and easier to debug than one mega-prompt trying to do everything at once. The cost is more calls and latency ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost & latency]]).
+- **Decomposition** — have the model (or your code) break a hard problem into sub-problems, solve each, then combine. The manual sibling of what an [[ai-ml/03-ai-engineer/08-agents|agent]] does dynamically.
+- **ReAct-style reason+act** — interleave reasoning with tool calls ("think, then act, observe the result, think again"). This is the bridge from prompting into [[ai-ml/03-ai-engineer/08-agents|agents]] — the agent loop is a prompting pattern that runs itself.
+- **Meta-prompting** — use an LLM to *write or improve prompts*. Ask a model to critique and rewrite your prompt, or generate few-shot examples. Surprisingly effective, and the manual version of the automated optimization below.
+
+## Prompts are artifacts — version, measure, optimize
+
+A prompt in production is code: it has behavior, it regresses, and it deserves the same rigor.
+
+- **Version them.** Keep prompts in source control (or a prompt-management tool), not pasted inline and forgotten. A prompt change is a deploy — you want to diff it, review it, and roll it back.
+- **Measure every change against an [[ai-ml/03-ai-engineer/12-evals|eval set]].** "This wording feels better" is exactly the vibe-tuning evals exist to kill. Change prompt → re-run the eval → keep the number that went up. Without this loop, prompt engineering is guessing.
+- **Optimize systematically (DSPy et al.).** Instead of hand-tweaking wording, frameworks like **DSPy** treat the prompt as parameters to *optimize* — you define the task and a metric, and the framework searches for the instructions and few-shot examples that maximize your eval score. The mindset shift: stop writing prompts by hand, start *compiling* them against a metric. Reach for this once you have a real eval set and a prompt worth optimizing.
+
 ## Prompt vs context engineering
 
 As systems grow, the harder problem shifts from wording a single prompt to **context engineering** — deciding *what information* to put in the window and in what order: retrieved documents ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]), tool results, conversation history, few-shot examples. Given a fixed [[ai-ml/03-ai-engineer/02-how-llms-work|context window]], curating the most relevant context (and compacting/summarizing the rest) often matters more than clever phrasing.
@@ -49,4 +66,7 @@ As systems grow, the harder problem shifts from wording a single prompt to **con
 ## Related
 - [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — why conditioning on better context works
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — grounding as the fix for hallucination
+- [[ai-ml/03-ai-engineer/12-evals|Evals]] — how you actually know a prompt change helped
+- [[ai-ml/03-ai-engineer/08-agents|Agents]] — the agent loop is a self-running prompting pattern
+- [[ai-ml/03-ai-engineer/11-structured-output|Structured Output]] — hard format guarantees, beyond "please return JSON"
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — prompt injection
