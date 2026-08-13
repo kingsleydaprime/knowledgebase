@@ -186,3 +186,7 @@ The `RETRYING` state exists specifically to close a race condition: without it, 
 - [[languages/01-java/03-tooling/03-lombok-and-builders|Lombok & the Builder Pattern]] — `@RequiredArgsConstructor` and DI
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] — the thread pool sizing behind `@Async`
 - [[languages/01-java/05-web-and-api/03-api-design-and-documentation|API Design & Documentation]] — config-resolution and validation patterns that build on this layering
+
+## Seen in the wild
+- [[projects/direct-debit-sandbox-java/learning/02-spring-boot-basics|direct-debit-sandbox]] — Spring Boot on a real payments domain
+- [[projects/direct-debit-sandbox-java/interview/01-java-and-spring-boot|its interview notes]] — the same material as questions

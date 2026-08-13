@@ -316,3 +316,12 @@ For example, `GET /events/:id` is public (anyone can view an event) but if the u
 This is why `@CurrentUser()` on a `@Public()` route returns `undefined` when not authenticated — and you see patterns like `@CurrentUser() user?: JwtPayload` (note the `?`) on those handlers.
 
 (See `learning/backend/03-modules.md` Part 50/51 for the pledges and Ercaspay payment modules, which use this same `@Public()` + optional-user pattern to support both guest and authenticated flows on the same endpoint. See `learning/backend/04-games-ai.md` Part 49 for the anonymous game play system, another major consumer of "public route, optional identity" patterns.)
+
+---
+
+## The general version of this
+- [[concepts/01-backend/05-authentication-flows|Authentication Flows (concepts)]] — sessions vs tokens, framework-agnostic
+- [[concepts/01-backend/06-authorization|Authorization]]
+- [[concepts/interview/01-apis-auth-and-practices|Interview: auth questions]]
+
+↑ [[projects/README|All projects and the domains they exercise]]

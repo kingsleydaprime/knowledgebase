@@ -97,3 +97,11 @@ where title ilike '%roadmap%' or title ilike '%progress on both%'
 - `group by` / `having` (not hit yet in our diagnostics, but `count(*)` almost always pairs with one eventually)
 - Subqueries (`exists (select 1 from ... where ...)`) — already all over the migration functions (`flag_completion`, `leave_circle`), worth a dedicated pass once we're reading those functions together rather than running ad-hoc diagnostics
 - `insert ... on conflict ... do update/nothing` — the "upsert" pattern already used in `cast_penalty_vote` and `detect_missed_cycles`
+
+---
+
+## The general version of this
+- [[databases/sql-reference|SQL reference]] · [[databases/database-design-reference|Database design]]
+- [[databases/interview/01-sql-modelling-and-internals|Databases interview]] — indexes, isolation levels, query plans
+
+↑ [[projects/README|All projects and the domains they exercise]]

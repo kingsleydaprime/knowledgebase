@@ -66,3 +66,11 @@ ls -la backend | grep -i env         # found .env and .env.prod.example
 
 ---
 
+
+---
+
+## The general version of this
+- [[devops/01-linux/README|Linux (devops course)]] — note that **this file has no general counterpart yet**; grep/find/regex/sed depth currently lives only here. Promoting it to `devops/01-linux/` is a known gap, tracked in [[projects/README|the projects README]].
+- [[devops/01-linux/16-sed-and-awk|sed & awk]] — the one piece that does exist generally
+
+↑ [[projects/README|All projects and the domains they exercise]]

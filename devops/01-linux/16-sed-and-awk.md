@@ -250,3 +250,8 @@ the signal to stop and write a script instead.
 - [[devops/01-linux/15-rhcsa/14-text-processing-and-searching|text processing]] — grep, find, sort, uniq, cut
 - [[devops/01-linux/12-bash-scripting|bash scripting]] — heredocs, `set -euo pipefail`, functions
 - [[devops/01-linux/linux-reference|linux-reference]] — lookup reference
+
+## Seen in the wild
+- [[projects/arete/learning/devops/08-sed-and-awk|arete: sed & awk]] — a deeper treatment written against real files
+- [[projects/arete/learning/devops/07-regex-from-zero-to-advanced|arete: regex from zero to advanced]] — the regex layer underneath
+- [[projects/arete/learning/devops/05-grep-in-depth|grep]] and [[projects/arete/learning/devops/06-find-in-depth|find]] in depth — currently the vault's deepest shell material, and it lives in a project folder

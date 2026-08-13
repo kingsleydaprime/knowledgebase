@@ -351,3 +351,12 @@ ON DUPLICATE KEY UPDATE amount = VALUES(amount);
 
 ---
 
+
+---
+
+## The general version of this
+- [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation & Idempotency (Java course)]]
+- [[architecture/04-distributed-systems/10-distributed-transactions|Distributed transactions]] — why exactly-once is impossible and idempotency is the answer
+- [[databases/interview/01-sql-modelling-and-internals|Databases: Q7]] — UUID primary key tradeoffs
+
+↑ [[projects/README|All projects and the domains they exercise]]

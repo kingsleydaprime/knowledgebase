@@ -41,3 +41,8 @@ Async isn't free: you trade *immediacy and simplicity* for *decoupling, resilien
 - [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|Messaging with RabbitMQ (Java)]] — this built in real code (DLQs, backpressure, competing consumers)
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — event sourcing, CQRS, saga
 - [[architecture/01-system-design-fundamentals/02-scalability-and-performance|Scalability]] — async as a scaling lever
+
+## Seen in the wild
+- [[projects/record-id-generator-java/learning/05-rabbitmq-messaging|record-id-generator]] — the queue running for real
+- [[projects/socioboom/interview/02-queues-and-deployment|socioboom]] — background jobs for social publishing
+- [[projects/nextvibe/learning/backend/05-realtime|nextvibe]] — realtime delivery, the push-based sibling

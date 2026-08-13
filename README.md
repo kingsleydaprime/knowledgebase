@@ -8,9 +8,14 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
-The domains below that are actually built out (DSA, AI/ML, cybersecurity, and the `concepts/` folders) are meant to be readable start-to-finish, not just looked up. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
+The domains that are actually built out — **networking, DSA, architecture (incl. distributed systems), devops, java, AI/ML, cybersecurity, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `backend/`, `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`.) Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
+
+**Two cross-cutting entry points, added August 2026:**
+- 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
+- 🎯 **[[INTERVIEW|Interview Prep Index]]** — every domain now has an `interview/` folder: the question, what a strong answer covers, and the detail that separates memorised from understood.
 
 Start here, depending on what you want:
+- [[foundations/networking/README|Networking]] — the wire up to the web: link layer → IP → TCP/congestion control → DNS/TLS/HTTP → QUIC → debugging. The foundation under devops, security, and distributed systems
 - [[foundations/dsa/README|Data Structures & Algorithms]] → then [[foundations/dsa/06-patterns/README|LeetCode Patterns]]
 - [[ai-ml/README|AI & ML]] — split into three career paths (data scientist, ML engineer, AI engineer) over a shared foundation
 - [[cybersecurity/README|Cybersecurity]] — fundamentals → ethical hacking → network/web security → cryptography → attacks taxonomy → security operations (blue team) → GRC → cloud
@@ -35,12 +40,19 @@ Course domains use numbered folders/files (`01-`, `02-`...) so the reading order
 ```
 knowledgebase/
 │
+├── PRIMETECHIE.md                # the tiered progression through everything below
+├── INTERVIEW.md                  # index of every domain's interview/ folder
+│
 ├── foundations/
 │   ├── dsa/                      # numbered course: iterations → data types → data
 │   │   │                         # structures → algorithms → patterns/ (15 LeetCode patterns)
 │   │   └── pdfs/                 # original Codility-style course material, untouched
-│   ├── os/                       # fundamentals.md
-│   └── networking/                # currently empty
+│   ├── networking/               # numbered course (16 notes, built Aug 2026): the model
+│   │                             # & link layer → IP/routing → UDP/TCP/congestion/sockets
+│   │                             # → DNS/HTTP/TLS/QUIC → middleboxes/performance/debugging.
+│   │                             # From Kurose & Ross, Stevens, RFCs, Grigorik.
+│   └── os/                       # partially built — fundamentals.md + interview/, with a
+│                                 # curriculum plan in its README. Honest scaffold.
 │
 ├── ai-ml/                        # split (roadmap.sh-cross-referenced) into 3 career
 │   ├── 00-foundations/           # paths over a shared foundation: 00-foundations
@@ -100,7 +112,6 @@ knowledgebase/
 │   ├── 03-gsap/                  # scene/materials/R3F, each with performance notes)
 │   ├── 04-framer-motion/
 │   ├── 05-threejs/
-│   └── vue/                      # untouched, empty
 │
 ├── architecture/                 # numbered course: system design (fundamentals →
 │   ├── 01-system-design-fundamentals/  # building-blocks → patterns) + distributed
@@ -109,12 +120,19 @@ knowledgebase/
 │   ├── 04-distributed-systems/   # Keeps system-design-reference.md as a cheat-sheet.
 │   └── 05-case-studies/
 │
-├── databases/, git/, hardware/, tools/, references/
+├── databases/, git/, hardware/, tools/
 │                                 # unordered reference material, not course-structured
 │
-├── problem-solving/, blog-drafts/
+├── problem-solving/, blog-drafts/  # blog-drafts + blog-ideas.md are gitignored —
+│                                 # local drafts, deliberately not published
 │
-└── projects/                     # per-project learning logs, not course material
+├── sources/                      # RAW MATERIAL, NOT NOTES — video transcripts and course
+│                                 # PDFs the courses were distilled from. Excluded from the
+│                                 # Quartz build so they don't dominate search/graph.
+│
+└── projects/                     # per-project learning logs + interview/ banks.
+                                  # 42% of the vault by word count. See projects/README.md
+                                  # for the map of which project exercises which domain.
 ```
 
 ---
@@ -134,19 +152,26 @@ Notes capture **understanding** — the why and how. Not a copy of docs. Docs al
 
 ## Note Format
 
-Each note follows this structure where relevant:
+There are two shapes here, and this section describes what's **actually used** rather than an aspiration — the previously documented format (`## What it is / ## Why it exists / ## References`) was followed by almost nothing.
+
+**Course notes** (the numbered folders — networking, distributed systems, java, cybersecurity…):
 
 ```markdown
 # Topic Name
-> Framework/Language vX · Last updated Month Year
+**[Beginner|Intermediate|Advanced]** — one line on what this is and what it assumes
 
-## What it is
-## Why it exists / the problem it solves
-## How it works
-## Example
-## Gotchas / what I learned the hard way
-## References
+## The kid version first     ← plain-language intuition before any depth
+## <the actual content>      ← tables, worked examples, real failure modes
+## Key insight               ← the one thing to keep if you forget the rest
+## Related                   ← wikilinks out, always
+## Seen in the wild          ← where this shows up in projects/ (where applicable)
 ```
+
+**Reference notes** (`*-reference.md`, the unordered folders) are dense lookup documents, not pedagogy — no reading order, no difficulty marker.
+
+**Difficulty markers** are inline `**[Beginner]**` / `**[Intermediate]**` / `**[Advanced]**` in READMEs and note headers (91 files), *not* Obsidian frontmatter tags. A marker says how much prior context a note assumes **within its folder**, not absolute difficulty.
+
+**Interview banks** (`<domain>/interview/`) use a third shape: the question, **what a strong answer covers**, and **the detail worth adding**. 🔥 marks frequently-asked. See [[INTERVIEW|the index]].
 
 ---
 

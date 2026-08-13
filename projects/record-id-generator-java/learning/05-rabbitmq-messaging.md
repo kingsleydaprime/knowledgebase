@@ -951,3 +951,11 @@ Java has two kinds of threads:
 
 ---
 
+
+---
+
+## The general version of this
+- [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|Messaging with RabbitMQ (Java course)]]
+- [[architecture/02-building-blocks/04-messaging-and-async|Messaging & Async (architecture)]] — queues as a system-design building block
+
+↑ [[projects/README|All projects and the domains they exercise]]

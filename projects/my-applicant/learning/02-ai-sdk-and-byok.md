@@ -177,3 +177,11 @@ Without it, a model returning `index: 9` for an 8-item batch would attach a
 score to the wrong job — and this tool would then write a tailored resume for
 a different role than the one it applies to. **When a model returns an index
 into your data, always bounds-check it.**
+
+---
+
+## The general version of this
+- [[ai-ml/03-ai-engineer/04-calling-models|Calling Models]] · [[ai-ml/03-ai-engineer/08-agents|Agents]]
+- [[ai-ml/interview/01-ai-engineering|AI engineering interview]] — evals, cost control, prompt injection
+
+↑ [[projects/README|All projects and the domains they exercise]]

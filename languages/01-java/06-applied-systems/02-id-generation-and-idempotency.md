@@ -100,3 +100,8 @@ MySQL can also absorb this at the SQL level instead of the application level: `I
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|Persistence & Data Modeling]] — the surrogate-key/business-key split this idempotency design depends on
 - [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|Messaging with RabbitMQ]] — at-least-once delivery is exactly why consumers need an idempotent write path
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — `INSERT IGNORE` performance cost under bulk load
+
+## Seen in the wild
+- [[projects/record-id-generator-java/learning/07-id-generation-and-idempotency|record-id-generator]] — this exact design, built and tuned for throughput
+- [[projects/direct-debit-sandbox-java/learning/05-async-scheduling-retry|direct-debit-sandbox]] — idempotency where getting it wrong means double-charging someone
+- [[languages/01-java/interview/03-spring-persistence-and-systems|Interview: Q6]]

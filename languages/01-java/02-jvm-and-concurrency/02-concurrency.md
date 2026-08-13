@@ -223,3 +223,7 @@ Everything above is vocabulary. It doesn't prove you can write correct concurren
 - [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|Messaging with RabbitMQ]] — backpressure and per-consumer connections, a concurrency problem at the network layer
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — the timed-flush/double-buffering design that motivates the `synchronized` example above
 - [[languages/01-java/02-jvm-and-concurrency/exercises/README|Concurrency Exercises]] — build the reps
+
+## Seen in the wild
+- [[projects/record-id-generator-java/learning/06-concurrency-and-threads|record-id-generator]] — thread pools and shared state under real load
+- [[languages/01-java/interview/02-jvm-and-concurrency|Interview: JVM & concurrency]] — the round this material is tested in

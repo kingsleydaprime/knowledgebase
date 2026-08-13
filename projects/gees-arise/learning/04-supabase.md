@@ -84,3 +84,12 @@ Once a user can be in many circles, every page needs to know *which* circle to s
 The split that kept it clean: **reads happen in TS** (the resolver, running under normal RLS — it only ever reads the caller's own `users` row and own memberships), while **writes happen in `SECURITY DEFINER` RPCs** (`set_active_circle`, plus `create_circle`/`join_circle`/`leave_circle` maintaining the pointer as a side effect). `set_active_circle` re-checks membership before writing, so a caller can never point `active_circle_id` at a circle they don't belong to — don't rely on a table's UPDATE policy being tight enough for that.
 
 **Stale-pointer self-healing:** when an admin removes someone with `remove_member`, we *don't* bother clearing that user's `active_circle_id` (it's another user's row). The resolver's fallback fixes it automatically on their next page load. Leaning on the resolver instead of special-casing every mutation is the whole point of having a resolver.
+
+---
+
+## The general version of this
+- [[concepts/01-backend/06-authorization|Authorization (concepts)]] — RBAC/ABAC and why authz belongs at the data layer
+- [[cybersecurity/04-web-security/README|Web security]] — the attacks RLS is defending against
+- [[databases/sql-reference|SQL reference]]
+
+↑ [[projects/README|All projects and the domains they exercise]]

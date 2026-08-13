@@ -87,3 +87,7 @@ The protocol guarantees a message goes to exactly one consumer, stays unacked un
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] — the threading model underneath consumer scaling
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation & Idempotency]] — why at-least-once delivery needs an idempotent write path
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — what happens on the database side once messages are flowing
+
+## Seen in the wild
+- [[projects/record-id-generator-java/learning/05-rabbitmq-messaging|record-id-generator]] — RabbitMQ in production: DLQs, prefetch, consumer scaling
+- [[projects/socioboom/interview/02-queues-and-deployment|socioboom]] — queues and deployment, the same problems on a different stack
