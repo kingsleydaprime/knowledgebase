@@ -38,11 +38,11 @@ How components are arranged into whole architectures.
 ### [[architecture/04-distributed-systems/README|04 — Distributed Systems]]
 The theory. Harder, more foundational, and exactly what your build-your-own-Redis/DB/Raft projects need.
 1. [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — partial failure, unreliable networks, no global clock, the 8 fallacies, FLP
-2. [[architecture/04-distributed-systems/02-time-and-ordering|Time & Ordering]] — physical vs logical clocks, Lamport & vector clocks, causality
-3. [[architecture/04-distributed-systems/03-replication-and-consistency|Replication & Consistency]] — leader/leaderless replication, quorums, the consistency-model spectrum, CRDTs
-4. [[architecture/04-distributed-systems/04-consensus|Consensus]] — why it's hard, Paxos, Raft, leader election
-5. [[architecture/04-distributed-systems/05-distributed-transactions|Distributed Transactions]] — 2PC/3PC, saga, isolation across nodes
-6. [[architecture/04-distributed-systems/06-partitioning-and-fault-tolerance|Partitioning & Fault Tolerance]] — sharding strategies, consistent hashing, failure detection, gossip
+2. [[architecture/04-distributed-systems/03-time-and-ordering|Time & Ordering]] — physical vs logical clocks, Lamport & vector clocks, causality
+3. [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — leader/leaderless replication, quorums, the consistency-model spectrum, CRDTs
+4. [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — why it's hard, Paxos, Raft, leader election
+5. [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — 2PC/3PC, saga, isolation across nodes
+6. [[architecture/04-distributed-systems/13-partitioning|Partitioning & Fault Tolerance]] — sharding strategies, consistent hashing, failure detection, gossip
 
 ### [[architecture/05-case-studies/README|05 — Case Studies & Practice]]
 Applying it: designing real systems, and the **build-your-own** projects that are the actual reps.

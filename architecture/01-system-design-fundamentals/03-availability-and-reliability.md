@@ -38,7 +38,7 @@ The core principle: **eliminate single points of failure through redundancy.** I
 - **Redundancy** — run multiple instances of everything (app servers, databases). If one dies, others carry the load.
   - **Active-active** — all instances serve traffic (also load-balances); on failure, survivors absorb it.
   - **Active-passive (failover)** — a standby takes over when the primary fails; simpler but the standby sits idle.
-- **Failover** — detecting a failure and switching to a backup. The hard parts are *fast, correct* detection (health checks — [[architecture/03-architectural-patterns/04-microservices-patterns|health monitoring]]) and avoiding **split-brain** (two nodes both think they're primary — a [[architecture/04-distributed-systems/04-consensus|consensus]] problem).
+- **Failover** — detecting a failure and switching to a backup. The hard parts are *fast, correct* detection (health checks — [[architecture/03-architectural-patterns/04-microservices-patterns|health monitoring]]) and avoiding **split-brain** (two nodes both think they're primary — a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] problem).
 - **Geographic distribution** — spread across availability zones/regions ([[devops/03-cloud/01-cloud-fundamentals|cloud regions/AZs]]) so a data-center outage doesn't take you down.
 - **Graceful degradation** — when a dependency fails, serve a reduced experience (stale cache, a default) instead of an error ([[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]). The site stays up with less functionality.
 
@@ -46,7 +46,7 @@ The core principle: **eliminate single points of failure through redundancy.** I
 
 Availability keeps you serving; reliability keeps the data correct:
 
-- **Replication** — multiple copies of data so a disk/node failure doesn't lose it ([[architecture/04-distributed-systems/03-replication-and-consistency|replication]]).
+- **Replication** — multiple copies of data so a disk/node failure doesn't lose it ([[architecture/04-distributed-systems/05-replication|replication]]).
 - **Backups** — point-in-time copies to recover from corruption/mistakes/ransomware (test the *restore*, not just the backup).
 - **Durability** — once the system acknowledges a write, it must survive failures (the "D" in ACID; why databases fsync to disk before ack'ing).
 

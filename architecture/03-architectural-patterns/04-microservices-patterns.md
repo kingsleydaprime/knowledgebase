@@ -37,7 +37,7 @@ Deploy a helper *alongside* each service (in the same [[devops/05-orchestration/
 
 ## Leader Election
 
-When multiple instances of a service run for availability but only *one* should perform a task at a time (a scheduled job, a coordinator), they must agree on a **leader** — and re-elect if it dies. This is a [[architecture/04-distributed-systems/04-consensus|consensus]] problem, and you almost never implement it by hand: you lean on a coordination service (etcd, ZooKeeper, or the platform) that provides it. It's the bridge where microservices patterns meet distributed-systems theory.
+When multiple instances of a service run for availability but only *one* should perform a task at a time (a scheduled job, a coordinator), they must agree on a **leader** — and re-elect if it dies. This is a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] problem, and you almost never implement it by hand: you lean on a coordination service (etcd, ZooKeeper, or the platform) that provides it. It's the bridge where microservices patterns meet distributed-systems theory.
 
 ## Cross-cutting: observability
 
@@ -50,4 +50,4 @@ These patterns are powerful, but note what they represent: **a whole platform of
 ## Related
 - [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|Monolith / Microservices / Serverless]] — whether to take this on at all
 - [[devops/05-orchestration/README|Orchestration (devops)]] — the platform that provides these
-- [[architecture/04-distributed-systems/04-consensus|Consensus]] — the theory under service discovery & leader election
+- [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — the theory under service discovery & leader election

@@ -34,7 +34,7 @@ Order → Payment → Inventory → Shipping
 - **Orchestration** — a central coordinator tells each service what to do and triggers compensations. Clearer control flow, but the orchestrator is a component to build.
 - **Choreography** — each service reacts to events and emits its own, no central brain. More decoupled, but the flow is implicit and harder to follow.
 
-Sagas give you eventual consistency across services (not the atomic isolation of a real [[architecture/04-distributed-systems/05-distributed-transactions|distributed transaction]]) — a mid-saga observer can see partial state. Usually the right tradeoff, because true distributed transactions (2PC) are slow and fragile.
+Sagas give you eventual consistency across services (not the atomic isolation of a real [[architecture/04-distributed-systems/10-distributed-transactions|distributed transaction]]) — a mid-saga observer can see partial state. Usually the right tradeoff, because true distributed transactions (2PC) are slow and fragile.
 
 ## Materialized View
 
@@ -50,5 +50,5 @@ Every pattern here manages the same fundamental loss: **once data crosses a tran
 
 ## Related
 - [[architecture/02-building-blocks/04-messaging-and-async|Messaging & Async]] — the event backbone these run on
-- [[architecture/04-distributed-systems/05-distributed-transactions|Distributed Transactions]] — 2PC, the alternative sagas avoid
+- [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — 2PC, the alternative sagas avoid
 - [[languages/01-java/06-applied-systems/README|Applied Systems (Java)]] — a real payment/ledger domain
