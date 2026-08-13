@@ -4258,3 +4258,9 @@ The `HAVING` clause can reference any aggregate function, whether or not it appe
 ---
 
 *Last updated: 2026 — Built from real query writing experience across analytics, APIs, and production systems. Supplemented with concepts from Alan Beaulieu's Learning SQL (O'Reilly, 2nd ed.).*
+
+## Seen in the wild
+- [[projects/gees-arise/learning/03-sql|gees-arise]] — SQL and Postgres RLS against a real schema
+- [[projects/sorepoint/learning/supabase|sorepoint]] — Postgres/Supabase in a crawling pipeline
+- [[projects/record-id-generator-java/learning/04-database-mysql-flyway|record-id-generator]] — MySQL, Flyway migrations, and performance under bulk load
+- [[databases/interview/README|Interview: databases]]

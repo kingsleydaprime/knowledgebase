@@ -51,3 +51,8 @@ Some tasks split across multiple agents — a **planner** that decomposes and de
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp|Tools & MCP]] — the tool-calling primitive agents are built on
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — the substrate for long-term memory
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — evals, guardrails, sandboxing
+
+## Seen in the wild
+- [[projects/socioboom/interview/03-ai-and-agents|socioboom]] — agents doing real publishing work
+- [[projects/my-applicant/learning/02-ai-sdk-and-byok|my-applicant]] — the AI SDK, BYOK, and pipeline design
+- [[ai-ml/interview/01-ai-engineering|Interview: Q6–Q7]] — why agents are hard, and prompt injection

@@ -12,6 +12,10 @@ configuration:
     - private
     - templates
     - .obsidian
+    # raw source material (transcripts, course PDFs) — inputs, not notes.
+    # Without this they dominate site search and the graph view.
+    - sources/**
+    - "**/*transcript*"
   theme:
     fontOrigin: googleFonts
     cdnCaching: true

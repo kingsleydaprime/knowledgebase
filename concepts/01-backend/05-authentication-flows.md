@@ -71,3 +71,8 @@ Lets a user authenticate once and gain access across multiple related applicatio
 - [[06-authorization|authorization]]
 - [[02-secure-authentication|secure-authentication]]
 - [[05-digital-signatures-and-pki|digital-signatures-and-pki]]
+
+## Seen in the wild
+- [[projects/nextvibe/learning/backend/02-auth|nextvibe]] — auth built out on NestJS
+- [[projects/arete/learning/backend/04-auth|arete]] — the same problem, different constraints
+- [[concepts/interview/01-apis-auth-and-practices|Interview: Q3–Q4]] — sessions vs JWT, OAuth + PKCE

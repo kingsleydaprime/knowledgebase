@@ -82,3 +82,7 @@ await updatePost(req.params.id, req.body);
 - [[05-authentication-flows|authentication-flows]]
 - [[07-exploitation-concepts|exploitation-concepts]]
 - [[02-cia-triad|cia-triad]]
+
+## Seen in the wild
+- [[projects/gees-arise/interview/01-postgres-rls-and-security|gees-arise]] — Postgres row-level security, authorization enforced at the data layer
+- [[concepts/interview/01-apis-auth-and-practices|Interview: Q5]] — RBAC/ABAC/ReBAC and the IDOR trap
