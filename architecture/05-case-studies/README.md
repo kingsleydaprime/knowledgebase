@@ -11,7 +11,7 @@ Reading distributed-systems theory without implementing it is famously ineffecti
 - **Your own Redis** — in-memory data structures + a network protocol + persistence
 - **Your own database** — a storage engine (B-tree/LSM), indexing, transactions
 - **Your own git** — content-addressable storage, DAGs, the object model
-- **A Raft key-value store** — [[architecture/04-distributed-systems/04-consensus|consensus]] made concrete: leader election, log replication, fault tolerance
+- **A Raft key-value store** — [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] made concrete: leader election, log replication, fault tolerance
 
 Each one turns a section of this course from words into something you understand in your bones.
 

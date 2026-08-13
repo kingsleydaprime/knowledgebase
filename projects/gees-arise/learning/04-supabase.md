@@ -55,3 +55,32 @@ Building "delete account" surfaced three separate Supabase concepts at once.
 - [ ] Realtime subscriptions — how the audit feed could update live without polling
 - [ ] `pg_cron` / scheduled Edge Functions — used for auto-verifying completions and detecting missed cycles (see `learning/sys-design.md` §4 for *why* this is needed)
 - [ ] **Generate real Supabase types** (`supabase gen types typescript`) — this project still has zero generated types, so every `.rpc()`/`.from()` call is implicitly `any`-shaped. Has caused two real TS errors now (a discriminated-union return-type gotcha in `learning/sys-design.md` §9, and `circle_preview`'s `.rpc().single()` needing a manual type assertion) that generated types would catch or avoid entirely — worth doing properly rather than continuing to hand-write casts one RPC at a time.
+
+## 4. Two things learned building multi-circle (2026-08-04)
+
+### Postgres functions are identified by their *argument signature*, not just their name
+
+We wanted to "allow joining multiple circles," which meant undoing the single-circle guard added in `00000000000018`. That migration looked like it guarded `create_circle` and `join_circle`. But the app kept letting you *create* extra circles while blocking *joining* them — a contradiction that only made sense once we looked at the signatures:
+
+- `00000000000008` created `create_circle(text, time, text)` — 3 args, the version the app calls (it passes a description).
+- `00000000000018` then wrote `create or replace function create_circle(circle_name text, circle_reset_time time ...)` — 2 args.
+
+In Postgres, `foo(text, time)` and `foo(text, time, text)` are **two different functions** that happen to share a name (overloading). `create or replace` matches on the *whole signature*, so migration 18 didn't replace the 3-arg function — it created a brand-new 2-arg overload that nothing ever called, and put the guard there. The real code path never had a guard.
+
+**Takeaways:**
+- To *change* a function's parameter list you must `drop function` the old signature first (migration 8 does exactly this: `drop function if exists public.create_circle(text, time);` before recreating with 3 args). `create or replace` alone can't do it — it'll silently leave a stale overload behind.
+- `grant execute` is also per-signature — dropping/recreating a signature drops its grants, which is why these migrations re-`grant execute on function create_circle(text, time, text)` each time.
+- When two overloads of a function exist, a call resolves to whichever signature matches the arguments passed. Ambiguity here is a real (confusing) bug source. `00000000000034` deletes the dead 2-arg overload precisely so there's only ever one `create_circle`.
+- How we'd have caught it faster: `\df create_circle` in `psql` (or querying `pg_proc`) lists *every* overload with its argument types — the source of truth over "what the latest migration file looks like."
+
+### The "active record" pointer + resolver pattern
+
+Once a user can be in many circles, every page needs to know *which* circle to show. Two moving parts:
+
+1. **A pointer column** — `users.active_circle_id uuid references circles(id) on delete set null`. `on delete set null` means a deleted circle can never leave a dangling pointer. We also **backfilled** it (`update users set active_circle_id = (select ... order by joined_at desc limit 1)`) so behaviour is identical to before on day one — a freshly added nullable column is `null` for every existing row until you populate it.
+
+2. **A resolver that never trusts the pointer blindly** (`src/lib/active-circle.ts`). The pointer can be *stale* (you left that circle) or *null* (brand-new user). So the resolver: read the pointer → confirm you still have a membership in it → if not, fall back to your most-recently-joined membership → `null` only if you're in no circles. This means a page can *never* render against a circle you're not in, even if the stored pointer is wrong.
+
+The split that kept it clean: **reads happen in TS** (the resolver, running under normal RLS — it only ever reads the caller's own `users` row and own memberships), while **writes happen in `SECURITY DEFINER` RPCs** (`set_active_circle`, plus `create_circle`/`join_circle`/`leave_circle` maintaining the pointer as a side effect). `set_active_circle` re-checks membership before writing, so a caller can never point `active_circle_id` at a circle they don't belong to — don't rely on a table's UPDATE policy being tight enough for that.
+
+**Stale-pointer self-healing:** when an admin removes someone with `remove_member`, we *don't* bother clearing that user's `active_circle_id` (it's another user's row). The resolver's fallback fixes it automatically on their next page load. Leaning on the resolver instead of special-casing every mutation is the whole point of having a resolver.

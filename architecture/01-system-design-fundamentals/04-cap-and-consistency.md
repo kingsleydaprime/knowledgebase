@@ -23,7 +23,7 @@ The popular "pick 2 of 3" framing is misleading. In a real distributed system, *
 
 "Consistency" isn't binary — it's a spectrum of guarantees, from strongest (and most expensive) to weakest (and most available). This is the more useful lens than CAP:
 
-- **Strong / linearizable** — every read sees the latest write, as if there were one copy. Simplest to reason about, most expensive (needs coordination — a [[architecture/04-distributed-systems/04-consensus|consensus]]/quorum round-trip), limits availability and adds latency.
+- **Strong / linearizable** — every read sees the latest write, as if there were one copy. Simplest to reason about, most expensive (needs coordination — a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]]/quorum round-trip), limits availability and adds latency.
 - **Sequential / causal** — weaker but preserves useful orderings (e.g. causally-related events are seen in order — you never see a reply before the message it answers). A pragmatic middle ground.
 - **Eventual consistency** — if writes stop, all replicas *eventually* converge; in the meantime, reads may be stale. Cheap, highly available, low latency — the default for AP systems. The cost: your application must tolerate (and sometimes resolve) stale/conflicting reads.
 
@@ -34,9 +34,9 @@ The design question is always "**how consistent does *this data* need to be?**" 
 - A **like count** can be eventually consistent (briefly wrong is fine) → favor availability.
 - An **account balance** or **inventory decrement** needs strong consistency (double-spend is unacceptable) → favor consistency, pay the coordination cost.
 
-Mature systems mix models: strong consistency for the money, eventual for the feed. The instinct to build — *from the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|requirements]], decide the weakest consistency each piece of data can tolerate, because weaker is cheaper and more available* — is exactly the senior judgment CAP is really about. The mechanisms that implement these guarantees (quorums, replication, consensus, conflict resolution/CRDTs) are the subject of [[architecture/04-distributed-systems/03-replication-and-consistency|distributed systems]].
+Mature systems mix models: strong consistency for the money, eventual for the feed. The instinct to build — *from the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|requirements]], decide the weakest consistency each piece of data can tolerate, because weaker is cheaper and more available* — is exactly the senior judgment CAP is really about. The mechanisms that implement these guarantees (quorums, replication, consensus, conflict resolution/CRDTs) are the subject of [[architecture/04-distributed-systems/05-replication|distributed systems]].
 
 ## Related
-- [[architecture/04-distributed-systems/03-replication-and-consistency|Replication & Consistency]] — how these guarantees are actually implemented
+- [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — how these guarantees are actually implemented
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability & Reliability]] — the A in CAP
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — where you pick a database's consistency model

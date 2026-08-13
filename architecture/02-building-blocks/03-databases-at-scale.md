@@ -20,14 +20,14 @@ Most load is reads, so the first database scaling move is **replication** — co
 - **Leader-follower (primary-replica)** — writes go to one leader, which replicates to read-only followers. Route reads to followers to multiply read capacity. The standard pattern.
 - The catch: **replication lag** — a follower may be slightly behind the leader, so a read right after a write can see stale data ([[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]]). "Read-your-own-writes" (route a user's reads to the leader briefly after they write) is the common fix.
 
-Replication also buys availability (a follower can be promoted if the leader dies — [[architecture/01-system-design-fundamentals/03-availability-and-reliability|failover]]). The mechanics are in [[architecture/04-distributed-systems/03-replication-and-consistency|replication & consistency]].
+Replication also buys availability (a follower can be promoted if the leader dies — [[architecture/01-system-design-fundamentals/03-availability-and-reliability|failover]]). The mechanics are in [[architecture/04-distributed-systems/05-replication|replication & consistency]].
 
 ## Scaling writes: sharding (partitioning)
 
 Replication multiplies reads but every node still handles every write. To scale *writes* (and data beyond one machine), **shard**: split the data across multiple databases, each holding a subset.
 
 - **Shard key** — the field you partition on (user_id, geography). *The* critical decision — a bad key creates **hot shards** (one shard gets most traffic) and makes cross-shard queries painful.
-- **Strategies** — **range** partitioning (by key range — good for range scans, prone to hotspots) vs **hash** partitioning (hash the key — even distribution, but kills range queries). **Consistent hashing** ([[architecture/04-distributed-systems/06-partitioning-and-fault-tolerance|partitioning]]) minimizes reshuffling when nodes are added/removed.
+- **Strategies** — **range** partitioning (by key range — good for range scans, prone to hotspots) vs **hash** partitioning (hash the key — even distribution, but kills range queries). **Consistent hashing** ([[architecture/04-distributed-systems/13-partitioning|partitioning]]) minimizes reshuffling when nodes are added/removed.
 - **The costs** — sharding is a big step: **cross-shard joins/transactions become hard or impossible**, rebalancing is operationally painful, and it adds real complexity. Exhaust replication + caching + a bigger box *first*; shard when you genuinely must.
 
 ## Other scaling tools
@@ -41,6 +41,6 @@ Replication multiplies reads but every node still handles every write. To scale 
 When the database is the bottleneck, escalate in roughly this order (cheap/simple → expensive/complex): **optimize queries + indexes → add caching → add read replicas → denormalize → shard.** Each step buys time; sharding is the last resort because it's the most complex and hardest to undo.
 
 ## Related
-- [[architecture/04-distributed-systems/03-replication-and-consistency|Replication & Consistency]] — how replication actually works
+- [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — how replication actually works
 - [[architecture/02-building-blocks/02-caching|Caching]] — the layer that protects the database
 - [[databases/database-design-reference|Databases reference]] — SQL/schema/indexing fundamentals

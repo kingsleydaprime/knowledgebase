@@ -285,3 +285,45 @@ const value = useSelector((state: RootState) => state.sliceName.field);
 const dispatch = useDispatch();
 dispatch(someAction(payload));
 ```
+
+## 20. Cache Invalidation with Tags — a Worked Example (Rewards)
+
+Adding the "redeem your prize" page was a clean, minimal RTK Query slice. Two endpoints on the existing `gamesApi`:
+
+```ts
+// tagTypes now includes "Rewards"
+getMyRewards: build.query<RewardsResponse, void>({
+  query: () => "/v1/my/rewards",
+  providesTags: ["Rewards"],       // this query's data is "tagged" Rewards
+}),
+claimReward: build.mutation<ClaimRewardResponse, string>({
+  query: (rewardId) => ({ url: `/v1/rewards/${rewardId}/claim`, method: "POST" }),
+  invalidatesTags: ["Rewards"],    // running this mutation marks Rewards stale
+}),
+```
+
+**The whole point:** after a successful `claimReward`, RTK Query automatically **refetches** `getMyRewards` — no manual `refetch()`, no local state juggling to flip `isClaimed`. The mutation `invalidatesTags: ["Rewards"]` and the query `providesTags: ["Rewards"]` are the two ends of the same string. The list re-renders with the reward now showing "Claimed" because the server is the source of truth and the cache was told it's stale.
+
+This is why you almost never keep a copy of server data in `useState`. The tag system *is* your cache-consistency mechanism.
+
+### `void` argument queries
+
+`getMyRewards` takes no parameter (it's scoped to the JWT's user server-side), so its arg type is `void` and the hook is called with no argument:
+
+```ts
+const { data, isLoading } = useGetMyRewardsQuery();   // no arg
+```
+
+### The response envelope reaches the hook verbatim
+
+The backend's global `ResponseInterceptor` wraps every response as `{ success: true, data: <serviceReturn> }`. RTK Query does **not** unwrap that — so the typed response is the *envelope*, and the component reads `data?.data`:
+
+```ts
+const rewards: Reward[] = data?.data ?? [];   // data.data, not data
+```
+
+This is the same reason the notifications page reaches `data?.data?.data` (envelope → `{ data, meta }` → the array). Match your response TypeScript type to what the interceptor actually sends, not to what the service returns.
+
+### Duplicated display helpers across the client/server boundary
+
+`ordinal()` and `rewardTypeLabel()` exist in *both* the backend (for the email) and this page (for the card). That duplication is acceptable — the two runtimes can't share a module here, and the alternative (an API that returns pre-formatted display strings) would leak presentation concerns into the backend. Keep formatting on each side; share only *data*.

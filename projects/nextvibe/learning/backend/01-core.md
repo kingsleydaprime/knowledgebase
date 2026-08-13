@@ -921,6 +921,30 @@ If two controllers have routes that could match the same URL (e.g., `BillingCont
 
 (See `learning/backend/03-modules.md` Part 51 for another instance of this exact rule: `GET /purchases/:id/summary` must be declared before `GET /purchases/:id` in the payments controller.)
 
+### Live instance in this codebase: correct today, fragile by accident (audited 2026-08-12)
+
+`src/modules/events/events.controller.ts` declares the greedy route *first*:
+
+```
+ 85:  @Get(':id')                        ← greedy, declared early
+...
+278:  @Post('checkin')
+321:  @Get('me/created')
+338:  @Get('organizer/:organizerId')
+355:  @Post('upload-intent')
+```
+
+By the rule above this should already be broken — and it isn't, but only by **luck of segment counts**:
+
+- `@Get(':id')` matches exactly *one* path segment, so `/events/me/created` (two segments) slips past it.
+- The `@Post` static routes are safe only because no `@Post(':id')` exists to shadow them.
+
+**The landmine:** the moment anyone adds a single-segment GET below line 85 — `@Get('featured')`, `@Get('trending')`, `@Get('drafts')` — `:id` swallows it silently. No error, no warning, just "Event not found" on a route that reads as correctly defined. That is a genuinely nasty debugging session, because the code looks right.
+
+Worth pre-emptively moving `@Get(':id')` and friends to the bottom of that controller. Costs nothing and removes the trap.
+
+**The wider lesson:** "it works" and "it's correct" are different claims. Code that only works because of an incidental property (here, segment counts) is code that will break when someone makes a change that looks entirely unrelated. When you find working code that violates a rule you believe in, check *why* it works before concluding the rule is optional.
+
 ---
 
 ## Part 43 — Prisma Transactions: Two Patterns, Two Use Cases

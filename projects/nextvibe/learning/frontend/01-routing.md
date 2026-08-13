@@ -1045,3 +1045,27 @@ function Inner() {
 - Around mutations (`useCreateEventMutation` — mutations don't suspend)
 
 Suspense is for **reading** async data, not for tracking pending writes. (See `learning/frontend/02-state-management.md` for the RTK Query loading/error state patterns that cover the mutation case instead.)
+
+## 36. Route-Group Layouts Own the Chrome — Pages Render Only Content
+
+The rewards page lives at `src/app/(app)/rewards/page.tsx` → URL `/rewards`. The `(app)` in parentheses is a **route group**: it organizes files and attaches a shared layout **without adding a path segment**. So `(app)/rewards/` is *not* `/app/rewards`, just `/rewards`.
+
+The important discipline: `(app)/layout.tsx` already renders the navbar, bottom nav, mobile gate, and page padding:
+
+```tsx
+<MobileOnlyGate>
+  <main className="min-h-screen ...">
+    <DashboardNavbar />
+    <section className="px-4 py-6 sm:px-6">{children}</section>
+    <BottomNav />
+  </main>
+</MobileOnlyGate>
+```
+
+So the page itself must render **only its content** — no `min-h-screen` wrapper, no `<BottomNav />`, no outer padding. Adding those again would double the nav bar and stack the padding. When dropping a new page into an existing route group, read its `layout.tsx` first and let the layout own all the chrome.
+
+(Contrast: the notifications page renders its *own* `BottomNav` because its canonical home is the `dashboard/(dashboard-route)` group, whose layout doesn't provide one — it's only *re-exported* into `(app)`. Same component, two layout contexts. Always check which layout actually wraps the route you're building.)
+
+### A consequence: the email deep-link inherits the mobile gate
+
+`notifyGameReward` emails link to `${FRONTEND_URL}/rewards`. Because `/rewards` sits under `(app)`, it inherits `MobileOnlyGate` — a winner opening the link on desktop sees the mobile-only screen, exactly like the rest of the app shell. That's intentional consistency, not a bug, but it's the kind of thing to notice when you choose *which route group* a linked-to page belongs in.

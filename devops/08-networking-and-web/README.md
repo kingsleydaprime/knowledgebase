@@ -8,6 +8,7 @@ This section overlaps the `foundations/networking/` domain (currently empty) —
 
 1. [[devops/08-networking-and-web/01-networking-and-protocols|Networking & Protocols]] — **[Intermediate]** — the OSI model, TCP/UDP, DNS, HTTP/HTTPS, SSL/TLS, SSH, ports, and the email protocols (SMTP/IMAP/POP3, SPF/DKIM/DMARC)
 2. [[devops/08-networking-and-web/02-web-servers-and-proxies|Web Servers & Proxies]] — **[Intermediate]** — Nginx in depth, Apache/Caddy, forward vs reverse proxy, load balancing, and caching servers
+3. [[devops/08-networking-and-web/03-local-https-tunnels|Local HTTPS Tunnels]] — **[Intermediate]** — exposing localhost over public HTTPS for OAuth callbacks and webhooks; cloudflared vs ngrok, named vs quick tunnels
 
 ## Related
 - [[devops/01-linux/13-network-fundamentals|Linux networking fundamentals]] — the host-level view

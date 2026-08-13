@@ -15,9 +15,10 @@ A map of the Linux notes in this folder, in reading order — the day-to-day OS 
 9. [[09-symbolic-links|symbolic-links]] — **[Beginner]** — pointers to another file/directory, and how they differ from a hard link
 10. [[10-environment-variables|environment-variables]] — **[Beginner]** — variables available system-wide to any process
 11. [[11-cron-jobs|cron-jobs]] — **[Intermediate]** — scheduling commands to run automatically
-12. [[12-bash-scripting|bash-scripting]] — **[Intermediate]** — automating the commands above into reusable scripts
-13. [[13-network-fundamentals|network-fundamentals]] — **[Intermediate]** — the networking concepts you need before SSH makes sense
-14. [[14-basic-ssh-config|basic-ssh-config]] — **[Intermediate]** — remotely controlling another machine over an encrypted session — how you'll access every server/cloud instance you ever deploy to
+12. [[12-bash-scripting|bash-scripting]] — **[Intermediate]** — automating the commands above into reusable scripts, plus `set -euo pipefail` and heredocs
+13. [[16-sed-and-awk|sed-and-awk]] — **[Intermediate]** — transforming text rather than just finding it: line-range extraction, substitution, and column/aggregate processing (numbered `16-` only because `15-` was taken by the RHCSA folder — it reads here)
+14. [[13-network-fundamentals|network-fundamentals]] — **[Intermediate]** — the networking concepts you need before SSH makes sense
+15. [[14-basic-ssh-config|basic-ssh-config]] — **[Intermediate]** — remotely controlling another machine over an encrypted session — how you'll access every server/cloud instance you ever deploy to
 
 ## Next layer — RHCSA certification track
 

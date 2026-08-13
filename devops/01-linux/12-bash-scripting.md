@@ -515,3 +515,144 @@ A few things your system just told you:
 ---
 
 This is the kind of thing that runs on servers every few minutes and pipes output to a monitoring system.
+
+---
+
+## Script safety — `set -euo pipefail`
+
+Every non-trivial script should start with this. Without it, bash's defaults are dangerous:
+a failing command doesn't stop the script, a typo'd variable silently becomes an empty
+string, and a broken pipeline reports success.
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+```
+
+| Flag | Long form | What it does |
+|---|---|---|
+| `-e` | `set -o errexit` | Exit immediately if any command exits non-zero |
+| `-u` | `set -o nounset` | Error on referencing an unset variable |
+| `-o pipefail` | — | A pipeline fails if **any** stage fails, not just the last |
+
+### Why each one matters
+
+**Without `-e`**, the script keeps going after a failure:
+
+```bash
+cd /nonexistent      # fails, prints an error
+rm -rf ./*           # RUNS ANYWAY — in whatever directory you were already in
+```
+
+That is a genuinely catastrophic pattern and it's bash's default behavior.
+
+**Without `-u`**, a typo becomes silence:
+
+```bash
+BACKUP_DIR=/srv/backups
+rm -rf "$BACKUP_DIRR/"    # typo → expands to "/" → deletes everything it can reach
+```
+
+With `-u`, that's an immediate error instead.
+
+**Without `pipefail`**, only the last command's status counts:
+
+```bash
+grep "pattern" missing-file.txt | wc -l
+echo $?    # 0 — "success", because wc succeeded, even though grep failed
+```
+
+### `#!/usr/bin/env bash` vs `#!/bin/bash`
+
+`env` looks bash up via `PATH`. On systems where bash isn't at `/bin/bash` (notably NixOS,
+and macOS where `/bin/bash` is an ancient 3.x), the `env` form finds the right one.
+
+### Escaping `-e` when you expect a failure
+
+Sometimes a non-zero exit is the answer you want:
+
+```bash
+set -e
+if grep -q "pattern" file.txt; then ...     # fine — grep in a condition doesn't trigger -e
+fi
+
+count=$(grep -c "pattern" file.txt || true) # `|| true` swallows the failure deliberately
+```
+
+---
+
+## Heredocs — multi-line text into a command
+
+A heredoc feeds a block of literal text to a command's stdin.
+
+```bash
+cat > config.yml <<'EOF'
+server:
+  host: localhost
+  port: 3000
+EOF
+```
+
+The delimiter (`EOF` by convention, but any word works) marks the end. Everything between
+goes to the command.
+
+### The quoting rule — this is the part that bites
+
+| Form | Behavior |
+|---|---|
+| `<<'EOF'` | **Literal.** No expansion of anything. |
+| `<<EOF` | **Expanded.** `$VAR` substitutes, backticks execute, `\` escapes. |
+
+```bash
+NAME="world"
+
+cat <<EOF
+Hello $NAME          # → Hello world
+Today is $(date)     # → runs date
+EOF
+
+cat <<'EOF'
+Hello $NAME          # → Hello $NAME     (literal)
+Today is $(date)     # → Today is $(date)
+EOF
+```
+
+**Default to the quoted form.** Writing a config file, a script, or documentation
+containing `$` or backticks with an unquoted heredoc will corrupt it — and worse, backticks
+will *execute* whatever is inside them.
+
+### `<<-` strips leading tabs
+
+Lets you indent a heredoc inside a function or loop without the indentation ending up in
+the output. Note: **tabs only**, not spaces.
+
+```bash
+deploy() {
+	cat <<-'EOF'
+	Starting deploy...
+	EOF
+}
+```
+
+### Embedding another language
+
+The `-` argument tells most interpreters to read the program from stdin:
+
+```bash
+python3 - <<'PY'
+import json, pathlib
+data = json.loads(pathlib.Path("package.json").read_text())
+print(data["version"])
+PY
+```
+
+Useful when a text transformation is too structural for `sed` — Python's `str.replace` is
+literal, so strings full of regex metacharacters need no escaping.
+
+### Herestrings — a single line
+
+```bash
+grep "pattern" <<< "$SOME_VARIABLE"
+```
+
+`<<<` passes one string as stdin. Cleaner than `echo "$VAR" | grep`.

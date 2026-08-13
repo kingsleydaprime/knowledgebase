@@ -1031,3 +1031,41 @@ Note: anonymous players (`entry.userId === null`) don't get notifications — th
 ### Avoiding circular imports
 
 `GamesModule` already imports `PaymentsModule`. Adding `NotificationsModule` is safe because `NotificationsModule` doesn't import `GamesModule` — no cycle. If a circular dependency appeared, the fix would be to move the notification call out of `GamesService` into an event-emitter or a separate coordination service.
+
+### Wiring a second consumer of NotificationsModule (PostcardsModule)
+
+`GamesModule` was the first module to inject `NotificationsService`. Making `PostcardsService` produce like/comment notifications follows the exact same three-step recipe — and it's worth internalizing because it's the *whole* pattern for using one module's service inside another in NestJS:
+
+```typescript
+// 1. NotificationsModule must EXPORT the service (it already does)
+@Module({ providers: [NotificationsService, ...], exports: [NotificationsService] })
+
+// 2. The consumer module IMPORTS it
+@Module({ imports: [UploadModule, NotificationsModule], ... })  // PostcardsModule
+
+// 3. The consumer service injects it via the constructor
+constructor(
+  private prisma: PrismaService,
+  private uploadService: UploadService,
+  private notifications: NotificationsService,  // now available
+) {}
+```
+
+Miss step 1 (`exports`) and Nest throws `Nest can't resolve dependencies of PostcardsService` at boot — the provider exists but isn't visible outside its own module. A module is a *visibility boundary*, not just a grouping.
+
+No circular-import risk here for the same reason as GamesModule: `NotificationsModule` doesn't import `PostcardsModule`, so there's no cycle.
+
+### A claim/redeem endpoint: ownership + idempotency in the service, not the controller
+
+Adding "winners can redeem prizes" needed two routes on `GamesController` (`GET my/rewards`, `POST rewards/:id/claim`). The controller stays a thin pass-through; all the rules live in `GamesService.claimReward`:
+
+```typescript
+if (!reward) throw new NotFoundException('Reward not found');
+if (reward.userId !== userId) throw new ForbiddenException('This reward does not belong to you');
+if (reward.isClaimed) throw new BadRequestException('This reward has already been claimed');
+return this.prisma.reward.update({ where: { id }, data: { isClaimed: true, claimedAt: new Date() } });
+```
+
+Three distinct failure modes → three distinct HTTP codes (404 / 403 / 400). The `isClaimed` check makes claiming **idempotent-safe**: a double-tap or a retried request can't claim twice. Authorization (`reward.userId !== userId`) is enforced server-side from the JWT's `user.sub` — never trust a userId from the request body.
+
+Route-ordering note: `my/rewards` and `rewards/:id/claim` are static/distinct paths, so they don't collide with `game-sessions/:id`-style param routes on the same prefix-less `@Controller()`.

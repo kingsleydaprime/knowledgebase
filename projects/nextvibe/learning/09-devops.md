@@ -854,3 +854,206 @@ node --max-old-space-size=400 dist/main.js
 Without this, Node.js will use as much heap memory as the OS allows until the OS kills it. With this flag, Node.js triggers garbage collection more aggressively when approaching 400MB — keeping the process alive instead of getting OOM-killed.
 
 (See `learning/backend/04-games-ai.md` for the AI generation service itself — the OpenRouter integration and the anonymous game play system that also lives in the games module — and for the related dead-code cleanup that was done alongside this fix.)
+
+---
+
+## Part 56 — Does Your Docker Image Actually Apply Migrations?
+
+Worth asking of any deployed app, and the answer is often no. It was no here, for four
+independent reasons — each of which would block it on its own. The method of checking matters
+more than this particular verdict, so here's the order to check in:
+
+**1. Does anything invoke a migration?** Look at `CMD`/`ENTRYPOINT` in the Dockerfile and at
+`command:`/`entrypoint:` in the compose file:
+
+```dockerfile
+CMD ["bun", "dist/src/main.js"]
+```
+
+That starts the app and nothing else. A `db:deploy` script existed in `package.json`, but
+**a script nothing calls is not a deployment step**. Grep for who calls it:
+
+```bash
+grep -rn "migrate deploy\|db:deploy\|entrypoint\|ENTRYPOINT" Dockerfile docker-compose*.yml package.json
+```
+
+The only `entrypoint:` in the compose file belonged to a MinIO bucket-provisioner container —
+easy to skim past and assume the app had one too.
+
+**2. Is the CLI even in the runtime image?** `prisma` is usually a **devDependency**, and
+production images install with `--production` / `--omit=dev`, which excludes it. So
+`prisma migrate deploy` isn't available inside the container at all.
+
+**3. Are the CLI's config files copied in?** The Dockerfile copied `package.json`, lockfiles,
+`dist/`, and `prisma/` — but not `prisma.config.ts`.
+
+**4. Can the CLI even connect?** This is the one that's easy to miss:
+
+```prisma
+datasource db {
+  provider = "postgresql"
+}
+```
+
+No `url`. It lives in `prisma.config.ts` instead. So even a container *with* the CLI installed
+couldn't reach the database without that file. (See Part 37 in
+`learning/backend/06-money-ledger-and-payouts.md` — the same missing `url` breaks standalone
+scripts in a different way.)
+
+### `migrate deploy` vs `migrate dev` — never confuse these
+
+| Command | What it does | Safe in prod? |
+|---|---|---|
+| `prisma migrate dev` | Creates migrations, **can reset the database**, reruns seeds | **No. Never.** |
+| `prisma migrate deploy` | Applies pending migrations only. Never resets, never drops | Yes |
+| `prisma migrate diff` | Prints SQL, changes nothing | Yes (read-only) |
+
+`migrate dev` is the one in every tutorial because tutorials run locally. Pointing it at a
+production `DATABASE_URL` can drop the database to resolve drift. Only ever run `deploy`
+against something you care about.
+
+### If you do want migrations in the container
+
+The usual pattern is an entrypoint script that migrates then execs the app:
+
+```sh
+#!/bin/sh
+set -e
+npx prisma migrate deploy
+exec bun dist/src/main.js
+```
+
+...plus copying `prisma.config.ts` in and making the CLI available at runtime.
+
+**But know the trade-off:** migrating on container start doesn't scale past one replica. Prisma
+takes an advisory lock so nothing corrupts, but every replica blocks on boot behind whichever
+one is doing the work, and a slow migration becomes a slow rollout. The cleaner pattern at
+scale is a **separate release step** that runs once before new containers roll out (Render's
+"pre-deploy command", Heroku's release phase, a Kubernetes Job). Single-instance and
+pre-launch, entrypoint-on-start is a reasonable trade.
+
+---
+
+## Part 57 — `environment:` Silently Overrides `env_file:` in Compose
+
+This one is worth internalising because it fails quietly and looks correct.
+
+```yaml
+app:
+  env_file:
+    - .env                                                        # your real config
+  environment:
+    DATABASE_URL: postgresql://postgres:password@postgres:5432/nextvibe   # wins
+```
+
+In Docker Compose, **`environment:` takes precedence over `env_file:`**. So despite `.env`
+being loaded with the real (Aiven) connection string, this service talks to the throwaway
+Postgres container defined in the same file, with the password literally `password`.
+
+A file named `docker-compose.prod.yml` doing this isn't a production stack at all — it's a
+self-contained local stack that happens to be named "prod". Nothing errors; the app boots
+fine and connects to an empty database.
+
+**How to check what a container actually got**, rather than what you think it got:
+
+```bash
+docker compose -f docker-compose.prod.yml config          # renders the FINAL merged config
+docker compose exec app printenv DATABASE_URL             # what the running container sees
+```
+
+`docker compose config` is the useful one — it resolves all the layering, variable
+substitution, and overrides, and prints what Compose will really use. Run it before debugging
+"why is my app talking to the wrong database."
+
+**The general lesson:** when two mechanisms can set the same value, find out which wins
+*before* you rely on either. Precedence rules are the source of a whole class of bug where
+everything looks configured correctly and behaves otherwise.
+
+---
+
+## Part 58 — Is It a Code Bug, or Are You Looking at a Stale Deploy?
+
+A live page misbehaved and the backend logs looked like this:
+
+```
+GET /v1/events/earnings                     404
+GET /v1/events/earnings/attendees           404
+GET /v1/organizer-payments/publish-preview/earnings  400
+GET /v1/vibe-tags?eventId=earnings          200
+```
+
+The obvious reading is "the backend is broken." The correct reading is the opposite: the
+backend is answering perfectly. There is genuinely no event whose id is `"earnings"`.
+
+**The request path told us which code was running.** A newly added Next.js page lived at
+`/dashboard/earnings`, but the *deployed* frontend was built before that page existed. With no
+static route to match, the URL fell through to the dynamic `app/dashboard/[eventId]/` route,
+which rendered with `eventId = "earnings"` and dutifully asked the API for an event by that
+name.
+
+So the deployed frontend was stale, and nothing in the backend needed changing at all.
+
+### The diagnostic habit
+
+**When production behaves differently from local, verify what is deployed before debugging the
+code.** Local passing while production fails is far more often a deployment-state difference
+than a logic bug, and hours get lost editing correct code.
+
+Concretely, the tell was that the *absent* requests mattered as much as the present ones: the
+new page would have called `/v1/earnings/balance`, and nothing in the logs did. **Ask what
+should be in the logs and isn't** — a missing request is evidence, not silence.
+
+### Probing a deployed API with status codes
+
+You can check whether a route exists on a deployed service without credentials, because a
+globally-guarded API distinguishes the two cases for you:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" https://your-api.example.com/v1/payout-accounts/supported
+```
+
+| Response | Meaning |
+|---|---|
+| `404` | Route does not exist — **the deploy has not picked up your code** |
+| `401` | Route exists, auth required — **deployed correctly** |
+
+Always run a **control** alongside it, so you know the two codes actually discriminate on that
+service rather than everything returning the same thing:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" https://your-api.example.com/v1/definitely-not-a-route
+# expect 404
+```
+
+If the control returns 404 and your real routes return 401, the deploy is confirmed live. That
+is a complete verification with no login, no Postman, and no dashboard access. (See
+`learning/10-shell.md` Part 6 for what those curl flags do.)
+
+---
+
+## Part 59 — `NEXT_PUBLIC_*` Is Baked In at Build Time
+
+The single most common "I changed the env var and nothing happened" in Next.js.
+
+Variables prefixed `NEXT_PUBLIC_` are **inlined into the JavaScript bundle during the build**.
+They are not read from the environment at runtime. So:
+
+- Changing `NEXT_PUBLIC_API_URL` in your host's dashboard and **restarting** the service does
+  nothing. The old value is already compiled into the shipped JS.
+- You must trigger a **rebuild** for a new value to take effect.
+- Locally, the same rule applies to `next dev`: edit `.env` and you must restart the dev
+  server. An edit mid-session is silently ignored.
+
+The corollary worth remembering: **anything in a `NEXT_PUBLIC_` variable is public.** It ships
+inside JavaScript that any visitor can read. Never put a secret behind that prefix — it is a
+declaration that the value is safe to expose, not a way to pass configuration.
+
+### And when `.env` is gitignored
+
+If `.env*` is in `.gitignore` (it should be), the deployed app does **not** get its values from
+your repo — they come from the host's dashboard. Two separate sources of truth that drift
+silently, because nothing errors when they disagree; the app just points at the wrong backend.
+
+When a deployed frontend can't reach its API, check the host's env config before the code. And
+confirm in the browser's Network tab which host the requests actually go to — that is the only
+answer that isn't a guess.

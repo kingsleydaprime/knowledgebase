@@ -524,3 +524,53 @@ async handleConnection(client: Socket) {
 ```
 
 This is why `handleConnection` in this codebase emits `exception` first, then calls `disconnect()`. Without the emit, the client just sees a generic `connect_error` with no reason.
+
+## Part 46 — The Producer/Consumer Split: Why "Notifications Don't Show Up"
+
+A notification system has two halves, and they fail independently:
+
+- **The consumer side** — the DB table, the `NotificationsGateway` that pushes over WebSocket, the frontend page that lists them, the socket listener. This is the *plumbing*: it delivers whatever it's given.
+- **The producer side** — the actual `this.notifications.create(...)` calls scattered across the feature services (postcards, games, payments...) that *put something into* the plumbing.
+
+When "I'm not seeing notifications for likes/comments," the instinct is to debug the socket or the frontend. But the plumbing was fine — the bug was that **the producer side never existed**. `PostcardsService.toggleLike` and `addComment` wrote their rows and returned, never calling `notifications.create`. The `LIKE`/`COMMENT` enum values existed, the frontend page worked, the gateway worked — the event was simply never *produced*.
+
+Debugging lesson: when an end-to-end pipeline is silent, find which *end* is broken before poking the middle. A quick `grep -rn "notifications\." src/modules/postcards` returning **nothing** was the whole diagnosis — the service didn't even inject `NotificationsService`.
+
+### The self-notification guard lives in `create()`, not the caller
+
+`NotificationsService.create()` starts with:
+
+```typescript
+if (data.actorId && data.recipientId === data.actorId) return null;
+```
+
+So callers can fire notifications unconditionally — liking your own postcard, commenting on your own — and `create()` quietly no-ops. The producer doesn't need to re-check "is the actor also the recipient?". This is why `toggleLike` can just pass `recipientId: postcard.authorId, actorId: userId` without an `if`.
+
+### Best-effort producers: `.catch(() => null)`
+
+Every producer call is `await this.notifications.create({...}).catch(() => null)`. A notification is a *side effect* of the real action (the like was already saved). If Resend is down or the notification insert fails, the user's like must still succeed. Never let a best-effort side channel throw into the main flow.
+
+## Part 47 — Rich Transactional Emails vs. In-App Notifications
+
+`notifyGameReward` (added for game winners) does **both**: an in-app `create()` *and* a full HTML `sendEmail()`. They serve different moments:
+
+- In-app notification → the user is already in the app; a lightweight row is enough.
+- Email → reaches the user when they're *not* in the app, and carries the call-to-action ("Redeem Your Prize" → `${FRONTEND_URL}/rewards`).
+
+Two small helpers keep the email human:
+- `ordinal(n)` → `1 → "1st", 2 → "2nd", 23 → "23rd"` for "You finished 2nd".
+- `rewardTypeLabel(type)` → a `Record<RewardType, string>` mapping the enum to display copy (`COUPON → "Coupon"`). Using a `Record<RewardType, string>` (not a loose object) means **adding a new `RewardType` to the enum is a compile error here until you give it a label** — the type system forces you to handle it.
+
+### Deduping when winners are a subset of a notified group
+
+`distributeRoundRewards` used to notify *every* ranked player with a generic `GAME_RESULT`. Now winners get the richer reward notification+email instead. To avoid a winner getting *two* `GAME_RESULT` rows, collect winner ids in a `Set` and notify only the non-winners generically:
+
+```typescript
+const winnerUserIds = new Set<string>();
+// ...create reward + notifyRewardWinner(...); winnerUserIds.add(id)...
+for (const entry of entries) {
+  if (entry.userId && !winnerUserIds.has(entry.userId)) {
+    this.notifications.create({ /* generic GAME_RESULT */ }).catch(() => null);
+  }
+}
+```
