@@ -148,13 +148,16 @@ knowledgebase/
 │                                 # ROS, SLAM. A stated direction, not knowledge. Sits on top of
 │                                 # hardware/ and joins ai-ml/, os/ and networking/.
 │
-├── git/                          # a course (~15k words, 16 notes) + a command reference and a
+├── git/                          # a course (~17k words, 17 notes) + a command reference and a
 │                                 # recovery guide. internals → three trees → branching →
-│                                 # merge/rebase → history → undoing → team workflow → hooks.
+│                                 # merge/rebase → history → undoing → team workflow → gh CLI → hooks.
 │                                 # Split out of one 3,168-line reference in Aug 2026.
 │
-├── databases/, tools/
-│                                 # unordered reference material, not course-structured
+├── tools/                        # the software used to do the work. quartz/ (6 notes) documents
+│                                 # the SSG publishing this vault — pipeline, config, theming,
+│                                 # layout, graph view, deploy. plus neovim-setup.
+│
+├── databases/                    # unordered reference material, not course-structured
 │
 │   NOTE: quartz/content/index.md is the PUBLISHED SITE'S landing page and is
 │   its own file — it used to symlink here, but a README and a landing page

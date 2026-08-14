@@ -197,5 +197,6 @@ gh release create v1.2.3 --generate-notes
 ## Related
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — the commit types that drive an automated version bump
 - [[git/14-github-and-ci|Git in CI]] — tagging and releasing from a pipeline
-- [[git/16-hooks-and-signing|Hooks and Signing]] — signed tags
+- [[git/15-the-github-cli|The GitHub CLI]] — `gh release create --generate-notes` in context
+- [[git/17-hooks-and-signing|Hooks and Signing]] — signed tags
 - [[git/README|Git course map]]
