@@ -12,6 +12,7 @@ The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest a
 
 - [x] `languages/02-go/` — README + 13 notes, ~14,400 words
 - [x] Spring Boot moved to `backend/frameworks/java/`; the `languages/` vs `backend/frameworks/` rule stated
+- [x] `languages/03-rust/` — README + 18 notes, ~22,000 words
 
 ---
 
@@ -19,7 +20,7 @@ The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest a
 
 The order is deliberate: Rust first (already queued), then C, then C++. C before C++ because C++ is only comprehensible as a reaction to C, and both before `build-your-own-x/`, because every build guide there assumes you can read a systems language.
 
-### 1.1 `languages/03-rust/` — ~16 notes
+### 1.1 `languages/03-rust/` — ✅ **DONE** — README + 18 notes, ~22,000 words
 Ownership and borrowing · lifetimes · traits and generics · `Result`/`Option` and the `?` operator · pattern matching · smart pointers (`Box`/`Rc`/`Arc`/`RefCell`) · interior mutability · `unsafe` and what it actually permits · async/await and the runtime split · cargo, crates, workspaces · macros · testing · error-handling crates (`thiserror`/`anyhow`) · performance and zero-cost abstractions
 
 ### 1.2 `languages/04-c/` — ~12 notes
@@ -107,7 +108,7 @@ Each line is roughly one working session.
 
 | # | Batch | Notes |
 |---|---|---|
-| 1 | `languages/03-rust/` | ~16 |
+| ~~1~~ | ~~`languages/03-rust/`~~ ✅ | 18 |
 | 2 | `languages/04-c/` | ~12 |
 | 3 | `languages/05-cpp/` | ~15 |
 | 4 | `backend/frameworks/` — go, rust, c, cpp | ~21 |
