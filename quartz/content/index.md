@@ -2,7 +2,7 @@
 title: Kingsley's Knowledge Base
 ---
 
-> **software · infrastructure · security · hardware**
+> **software · infrastructure · security · hardware · ML**
 >
 > 855 notes. Not a mirror of documentation — my understanding of how things actually work, the why and the how, and what I figured out the hard way.
 
@@ -20,16 +20,19 @@ Docs already exist. This is the layer underneath them: the mental models, the fa
 
 ---
 
-## The four columns
+## The five columns
 
 | | | |
 |---|---|---|
-| 💻 **Software** | [[backend/README\|Backend]] · [[foundations/dsa/README\|DSA]] · [[architecture/README\|Architecture]] · [[languages/01-java/README\|Java]] · [[ai-ml/README\|AI & ML]] | backends, systems, algorithms, applied AI |
+| 💻 **Software** | [[backend/README\|Backend]] · [[foundations/dsa/README\|DSA]] · [[architecture/README\|Architecture]] · [[languages/01-java/README\|Java]] · [[ai-ml/03-ai-engineer/README\|AI Engineering]] | backends, systems, algorithms, building on pre-trained models |
 | ☁️ **Infrastructure** | [[devops/README\|DevOps]] · [[foundations/networking/README\|Networking]] · [[databases/database-design-reference\|Databases]] | Linux → containers → orchestration → CI/CD → observability |
 | 🔐 **Security** | [[cybersecurity/README\|Cybersecurity]] | offence *and* defence — you can't do one well without the other |
 | 🔌 **Hardware** | [[hardware/README\|Hardware & Embedded]] | electricity → embedded → RF → a board that physically exists |
+| 🧠 **ML & Data** | [[ai-ml/README\|AI & ML]] · [[ai-ml/00-foundations/03-mathematics/README\|the maths]] | training models and reasoning from data — a different bedrock |
 
-Most engineering vaults are column one with a bit of column two. The point of this one is the boundaries — being the person who follows a problem from a web request down to a voltage rail instead of handing it off at the edge of a job title.
+**AI sits in two columns on purpose.** *Using* a model is software engineering — APIs, retries, schemas, evals, cost. *Training* one isn't: its foundation is linear algebra, calculus and probability, and its failure modes are leakage, overfitting and drift rather than bugs. [[ai-ml/README|The AI/ML course]] splits the same way.
+
+Most engineering vaults are column one with a bit of column two. The point of this one is the boundaries — being the person who follows a problem from a web request down to a voltage rail, or from a dashboard back to a leaked feature, instead of handing it off at the edge of a job title.
 
 ---
 
