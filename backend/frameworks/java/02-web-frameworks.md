@@ -1,6 +1,6 @@
 # Web Frameworks
 
-**Source:** **[reference / landscape]** — the payment sandbox used Spring Boot (covered in depth in [[languages/01-java/05-web-and-api/01-spring-boot|Spring Boot]]); this file maps the alternatives from [roadmap.sh Java](https://roadmap.sh/java) so the Spring choice sits in context rather than as the only option known.
+**Source:** **[reference / landscape]** — the payment sandbox used Spring Boot (covered in depth in [[backend/frameworks/java/01-spring-boot|Spring Boot]]); this file maps the alternatives from [roadmap.sh Java](https://roadmap.sh/java) so the Spring choice sits in context rather than as the only option known.
 
 ## The landscape
 
@@ -24,6 +24,6 @@
 The payment sandbox needed validation, JSON binding, DI, scheduling, and auto-generated OpenAPI docs — all things Spring Boot provides out of the box with one starter dependency each. Startup time and native-image footprint were irrelevant for a sandbox service. The alternatives above win on *deployment density and cold-start latency*, which a long-running internal sandbox doesn't optimize for — so the "heavy but complete" framework was the correct call, the same kind of fit-the-tool-to-the-workload reasoning as the [[languages/01-java/04-persistence/02-orm-jpa-hibernate|JDBC-over-ORM]] decision.
 
 ## Related
-- [[languages/01-java/05-web-and-api/01-spring-boot|Spring Boot]] — the framework the projects used, in depth
+- [[backend/frameworks/java/01-spring-boot|Spring Boot]] — the framework the projects used, in depth
 - [[languages/01-java/02-jvm-and-concurrency/03-virtual-threads|Virtual Threads]] — why the blocking-vs-reactive tradeoff is shifting
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — startup/JIT warmup, what native-image compilation sidesteps

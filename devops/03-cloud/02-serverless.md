@@ -36,7 +36,7 @@ You write the handler; the platform owns everything else — provisioning, scali
 The defining FaaS gotcha: when a function hasn't run recently, the platform must spin up a fresh execution environment — a **cold start** — adding latency (tens of ms to seconds, depending on runtime and package size). A "warm" instance reused for a follow-up invocation skips it. Consequences:
 
 - Latency-sensitive, steady-traffic workloads suffer from cold starts and cost more than a warm VM — serverless is *not* automatically the low-latency choice.
-- Heavy runtimes (a fat JVM) cold-start slower than light ones (Go, Node, Python) — which is exactly why the [[languages/01-java/05-web-and-api/02-web-frameworks|Quarkus/Micronaut + GraalVM native-image]] push exists: to make Java viable in FaaS.
+- Heavy runtimes (a fat JVM) cold-start slower than light ones (Go, Node, Python) — which is exactly why the [[backend/frameworks/java/02-web-frameworks|Quarkus/Micronaut + GraalVM native-image]] push exists: to make Java viable in FaaS.
 - Mitigations: provisioned concurrency (pay to keep instances warm — but that's no longer scaling to zero), smaller packages, lighter runtimes.
 
 ## When serverless fits — and when it doesn't
@@ -49,5 +49,5 @@ The honest framing: serverless optimizes for *operational simplicity and idle co
 
 ## Related
 - [[devops/03-cloud/01-cloud-fundamentals|Cloud Fundamentals]] — the service-model spectrum FaaS sits at the end of
-- [[languages/01-java/05-web-and-api/02-web-frameworks|Web Frameworks (Java)]] — why native-image compilation matters for FaaS
+- [[backend/frameworks/java/02-web-frameworks|Web Frameworks (Java)]] — why native-image compilation matters for FaaS
 - [[devops/05-orchestration/README|Orchestration]] — the "run containers yourself" alternative to serverless containers

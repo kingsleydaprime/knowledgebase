@@ -15,4 +15,4 @@ Meanwhile, the material exists in interview form: [[concepts/interview/01-apis-a
 
 ## Related
 - [[backend/README|Backend course]] · [[foundations/networking/11-http-evolution|HTTP evolution]] — what your API rides on
-- [[languages/01-java/05-web-and-api/03-api-design-and-documentation|API design & docs (Java)]]
+- [[backend/frameworks/java/03-api-design-and-documentation|API design & docs (Java)]]

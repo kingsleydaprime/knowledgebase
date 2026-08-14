@@ -13,7 +13,7 @@ HttpEntity<Object> entity = new HttpEntity<>(payload, headers);
 ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 ```
 
-Defined once as a `@Bean` and injected wherever needed, same as any other Spring-managed dependency (see [[languages/01-java/05-web-and-api/01-spring-boot]]).
+Defined once as a `@Bean` and injected wherever needed, same as any other Spring-managed dependency (see [[backend/frameworks/java/01-spring-boot]]).
 
 ## A catalogue of common Spring/Java runtime errors
 
@@ -24,7 +24,7 @@ Defined once as a `@Bean` and injected wherever needed, same as any other Spring
 | `MethodArgumentNotValidException` | A `@NotBlank`/`@NotNull` field failed validation |
 | `NoSuchBeanDefinitionException` | Spring can't find a dependency to inject — the target class is missing `@Service`/`@Component`/`@Bean`, or sits outside the scanned package |
 | `ConcurrentModificationException` | A plain `HashMap`/`ArrayList` mutated while another thread iterates it — use `ConcurrentHashMap` (see [[languages/01-java/02-jvm-and-concurrency/02-concurrency]]) |
-| `@Async` method runs synchronously with no error | Called from inside the same class — Spring's proxy is bypassed (see [[languages/01-java/05-web-and-api/01-spring-boot]]) |
+| `@Async` method runs synchronously with no error | Called from inside the same class — Spring's proxy is bypassed (see [[backend/frameworks/java/01-spring-boot]]) |
 
 ## The config-resolution / fallback pattern
 
@@ -116,6 +116,6 @@ Swagger UI is a JavaScript SPA bundled inside the springdoc jar — it fetches `
 A hand-built portal can do exactly the same thing — fetch `/v3/api-docs`, walk the JSON (resolving `$ref` pointers into `components.schemas` manually), and render a custom UI — trading Swagger UI's zero-maintenance battle-testing for full control over branding and layout. Both read the same spec, so they never drift apart; this is the practical value of generating the spec from code rather than hand-maintaining a YAML file that two consumers could each go stale against independently.
 
 ## Related
-- [[languages/01-java/05-web-and-api/01-spring-boot|Spring Boot & Scheduling]] — the controller layer this whole file annotates
+- [[backend/frameworks/java/01-spring-boot|Spring Boot & Scheduling]] — the controller layer this whole file annotates
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|Persistence & Data Modeling]] — the provision pattern as a normalization decision
 - [[languages/01-java/01-language/01-fundamentals|Fundamentals]] — enums as a language feature, before their use here as a validation mechanism

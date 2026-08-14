@@ -9,7 +9,7 @@
 Resources addressed by URLs, manipulated with HTTP verbs (GET/POST/PUT/DELETE), usually JSON. The default for public and web APIs.
 
 - **Pros** — simple, universal, cacheable (HTTP caching), stateless, human-readable, works everywhere.
-- **Cons** — **over-fetching** (an endpoint returns more than you need) and **under-fetching** (you need several round-trips to assemble a screen), and no strict contract by default. See the real [[languages/01-java/05-web-and-api/03-api-design-and-documentation|REST/OpenAPI design]].
+- **Cons** — **over-fetching** (an endpoint returns more than you need) and **under-fetching** (you need several round-trips to assemble a screen), and no strict contract by default. See the real [[backend/frameworks/java/03-api-design-and-documentation|REST/OpenAPI design]].
 
 ### GraphQL
 
@@ -47,6 +47,6 @@ A common mistake is making everything synchronous request-response, which create
 Worth knowing what these sit on ([[devops/08-networking-and-web/01-networking-and-protocols|networking & protocols]]): **HTTP/1.1 → HTTP/2** (multiplexing, what gRPC uses) **→ HTTP/3** (over QUIC/UDP, lower latency); **TCP** (reliable, ordered — most APIs) vs **UDP** (fire-and-forget, low overhead — video, DNS, some real-time); **WebSockets** for full-duplex real-time (chat, live updates); and **TLS** securing all of it ([[cybersecurity/04-web-security/03-https-and-tls|HTTPS/TLS]]).
 
 ## Related
-- [[languages/01-java/05-web-and-api/03-api-design-and-documentation|API Design & Documentation (Java)]] — REST/OpenAPI in real code
+- [[backend/frameworks/java/03-api-design-and-documentation|API Design & Documentation (Java)]] — REST/OpenAPI in real code
 - [[architecture/02-building-blocks/04-messaging-and-async|Messaging & Async]] — the async alternative to request-response
 - [[devops/08-networking-and-web/01-networking-and-protocols|Networking & Protocols (devops)]] — the transport layer

@@ -43,10 +43,11 @@ Building, wiring, testing, and observing.
 1. [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|JDBC & Data Modeling]] — HikariCP, Flyway, SQL, primary-key design, normalization
 2. [[languages/01-java/04-persistence/02-orm-jpa-hibernate|ORM: JPA & Hibernate]] — JPA, Hibernate, Spring Data JPA, Ebean
 
-### [[languages/01-java/05-web-and-api/README|05 — Web & API]]
-1. [[languages/01-java/05-web-and-api/01-spring-boot|Spring Boot]] — DI, the controller/service layering, validation, `@Async`, `@Scheduled`
-2. [[languages/01-java/05-web-and-api/02-web-frameworks|Web Frameworks]] — the Spring/Quarkus/Javalin/Play landscape
-3. [[languages/01-java/05-web-and-api/03-api-design-and-documentation|API Design & Documentation]] — RestTemplate, config-resolution patterns, OpenAPI/springdoc
+### 05 — Web & API → [[backend/frameworks/java/README|moved to backend/frameworks/java/]]
+These three notes were **moved, not duplicated** — `languages/` teaches the language, `backend/frameworks/` teaches the frameworks built on it. [[languages/01-java/05-web-and-api/README|Signpost page]].
+1. [[backend/frameworks/java/01-spring-boot|Spring Boot]] — DI, the controller/service layering, validation, `@Async`, `@Scheduled`
+2. [[backend/frameworks/java/02-web-frameworks|Web Frameworks]] — the Spring/Quarkus/Javalin/Play landscape
+3. [[backend/frameworks/java/03-api-design-and-documentation|API Design & Documentation]] — RestTemplate, config-resolution patterns, OpenAPI/springdoc
 
 ### [[languages/01-java/06-applied-systems/README|06 — Applied Systems]]
 The project-grounded high-throughput work — the strongest "real engineering" signal in the domain.
