@@ -16,7 +16,7 @@ Applied in August 2026 by **moving** (not copying) Java's Spring Boot material o
 
 1. [[languages/01-java/README|01-java/]] — **[Beginner → Advanced]** — a full course in six themed sections: the **language** (fundamentals, OOP, generics, collections, functional, exceptions, modern Java, core APIs) → **JVM & concurrency** (internals, GC, the memory model, virtual threads) → **tooling** (build/DI/testing/logging) → **persistence** → *web & API ([[backend/frameworks/java/README|now in backend/]])* → **applied systems**. Cross-referenced against [roadmap.sh Java](https://roadmap.sh/java); the applied-systems material is distilled from two real SIWES projects.
 2. [[languages/02-go/README|02-go/]] — **[Beginner → Advanced]** — 13 notes: the toolchain, the type system, slices and maps properly, interfaces and implicit satisfaction, errors as values, goroutines and channels, concurrency patterns, `context`, generics, the standard library, testing, modules, and the runtime. **[reference]**
-3. `03-rust/` — **planned** — ownership and borrowing, lifetimes, traits, error handling with `Result`, `async`/`await` and the runtime split, cargo and the crate ecosystem
+3. [[languages/03-rust/README|03-rust/]] — **[Beginner → Advanced]** — 18 notes: ownership, borrowing and lifetimes (the hard part), sum types and exhaustive matching, `Result` and `?`, traits and monomorphised generics, iterators, smart pointers, `Send`/`Sync` concurrency, async and Tokio, `unsafe` and FFI, macros, and what "zero-cost" actually claims. **[reference]**
 
 Other languages (Python at depth, Kotlin, Zig) would slot in as further numbered tracks if notes get written for them.
 
