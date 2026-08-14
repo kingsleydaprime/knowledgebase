@@ -59,7 +59,7 @@ The baseline. You can take an idea to a running thing without help.
 
 **💻 Software**
 - [ ] Ship a full-stack app **to a real domain over HTTPS** — not localhost, not a screenshot
-- [ ] Use git like a professional: feature branches, [[git/git-reference|conventional commits]], an interactive rebase you didn't panic during, and a merge conflict you resolved by *reading* rather than picking a side
+- [ ] Use git like a professional: feature branches, [[git/12-conventions-and-hygiene|conventional commits]], an interactive rebase you didn't panic during, and a merge conflict you resolved by *reading* rather than picking a side
 - [ ] Write a test suite that has actually caught a regression → [[backend/07-practices/02-testing-a-backend|testing a backend]]
 - [ ] Read a stack trace top-to-bottom and fix the root cause, **not the symptom**
 

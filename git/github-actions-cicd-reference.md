@@ -2773,4 +2773,14 @@ git commit -m "docs: update readme [ci skip]"
 
 ---
 
-*Last updated: 2026 — Built from real CI/CD pipeline experience across production deployments.*
+## Related
+- [[devops/06-ci-cd/README|DevOps → CI/CD]] — the curriculum home for this material; that section's tool note dissects this vault's own deploy pipeline
+- [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — the model these pipelines implement
+- [[git/14-github-and-ci|GitHub as a Platform, and Git in CI]] — branch protection, required checks, and how a pipeline talks to your repo
+- [[git/11-tags-and-versioning|Tags and Versioning]] — the releases a CD pipeline cuts
+- [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the Kubernetes-native alternative to pushing deploys from CI
+- [[git/README|Git course map]]
+
+---
+
+*Last updated: 2026 — Built from real CI/CD pipeline experience across production deployments. Filed under `git/` for historical reasons; the curriculum home is [[devops/06-ci-cd/README|devops/06-ci-cd]].*
