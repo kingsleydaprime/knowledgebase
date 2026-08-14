@@ -16,13 +16,21 @@ A map of the Linux notes in this folder, in reading order — the day-to-day OS 
 10. [[10-environment-variables|environment-variables]] — **[Beginner]** — variables available system-wide to any process
 11. [[11-cron-jobs|cron-jobs]] — **[Intermediate]** — scheduling commands to run automatically
 12. [[12-bash-scripting|bash-scripting]] — **[Intermediate]** — automating the commands above into reusable scripts, plus `set -euo pipefail` and heredocs
-13. [[16-sed-and-awk|sed-and-awk]] — **[Intermediate]** — transforming text rather than just finding it: line-range extraction, substitution, and column/aggregate processing (numbered `16-` only because `15-` was taken by the RHCSA folder — it reads here)
-14. [[13-network-fundamentals|network-fundamentals]] — **[Intermediate]** — the networking concepts you need before SSH makes sense
-15. [[14-basic-ssh-config|basic-ssh-config]] — **[Intermediate]** — remotely controlling another machine over an encrypted session — how you'll access every server/cloud instance you ever deploy to
+13. [[17-logs-and-journald|logs-and-journald]] — **[Intermediate]** — reading the machine's own account of what happened: `journalctl`, where each distro keeps its log files, making the journal survive a reboot, and stopping logs filling the disk
+14. [[16-sed-and-awk|sed-and-awk]] — **[Intermediate]** — transforming text rather than just finding it: line-range extraction, substitution, and column/aggregate processing
+15. [[18-disks-and-filesystems|disks-and-filesystems]] — **[Intermediate]** — partition → format → mount, `fstab` by UUID, the full-disk emergency (`df -i`, `lsof +L1`), and LVM for storage you can grow
+16. [[19-the-boot-process|the-boot-process]] — **[Intermediate]** — firmware → GRUB → kernel → systemd, which handoff each symptom points at, and getting into rescue mode when a bad `fstab` line stops the boot
+17. [[13-network-fundamentals|network-fundamentals]] — **[Intermediate]** — the networking concepts you need before SSH makes sense
+18. [[14-basic-ssh-config|basic-ssh-config]] — **[Intermediate]** — remotely controlling another machine over an encrypted session — how you'll access every server/cloud instance you ever deploy to
+19. [[20-firewalls-and-hardening|firewalls-and-hardening]] — **[Intermediate]** — `ss -tulpn` before any rule, ufw and firewalld, keys-only SSH, AppArmor vs SELinux, and the ten-minute baseline for any public box
+
+> **On the numbering:** file numbers ran out of order once `15-` was taken by the RHCSA folder, and notes 16–20 were appended as they were written. **The list above is the reading order**; the filename prefixes are just unique IDs. Renaming them would break wikilinks across the vault for no reader benefit.
 
 ## Next layer — RHCSA certification track
 
-[[devops/01-linux/15-rhcsa/README|15-rhcsa/]] — a structured cert-prep course built on top of everything above, with RHEL-specific nuance (SELinux, firewalld, Podman) layered on top of the Ubuntu/Debian-flavored fundamentals in this folder.
+[[devops/01-linux/15-rhcsa/README|15-rhcsa/]] — a structured cert-prep course built on top of everything above, going deeper on RHEL specifics (SELinux contexts, firewalld zones and rich rules, Podman, Stratis, image mode).
+
+Notes 17–20 above were added (Aug 2026) because several genuinely distro-neutral topics — logs, storage, boot, firewalls — existed *only* inside that cert track, so anyone reading this folder start-to-finish never met them. The RHCSA notes remain the deep versions and each new note hands off to its sibling; what's here is the Ubuntu/Debian-first core everyone needs regardless of distro.
 
 ## Also in this folder (not part of the numbered sequence)
 

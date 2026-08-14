@@ -31,9 +31,15 @@ The track is in two parts. **Part I (1–10)** is the core path — everything y
 16. [[ai-ml/03-ai-engineer/16-local-and-open-models|Local & Open Models]] — **[Intermediate]** — Ollama/vLLM, quantization (GGUF/AWQ), and when self-hosting an open model beats an API
 17. [[ai-ml/03-ai-engineer/17-voice-and-realtime|Voice & Realtime]] — **[Advanced]** — STT→LLM→TTS pipelines vs speech-native models, and the sub-second-latency constraint (streaming, turn-taking, barge-in)
 
-## Practice, not just notes
+### Part III — Reps
 
-Same honest caveat as every domain: reading this isn't reps. The reps here are *building* — a RAG system over your own docs, a small MCP server, an agent with real tools, an eval set for a feature. The applied work you already do (AI SDK, MCP) is where this becomes real; these notes are the map.
+Reading this track isn't reps. The reps are *building*, so the builds are now in the folder rather than left as an exhortation:
+
+18. [[ai-ml/03-ai-engineer/18-lab-setup|Lab Setup]] — **[Beginner]** — the environment the exercises assume: one key with a spending cap, a cheap model, `usage` printed on every call, and the habit of checking the SDK's version-matched docs instead of your memory
+19. [[ai-ml/03-ai-engineer/19-practice-exercises|Practice Exercises]] — **[Beginner → Advanced]** — fifteen exercises over the whole track, each naming the note it exercises and what "done" looks like. The load-bearing four: build an eval set, build a RAG over your own notes, diagnose its failures as retrieval vs generation, and prompt-inject it
+20. [[ai-ml/03-ai-engineer/20-practice-exercises-solutions|Solutions]] — **[Beginner → Advanced]** — worked answers with code, and the reasoning behind each
+
+Same pattern as [[cybersecurity/02-ethical-hacking/12-practice-exercises|ethical hacking]] and the [[devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA track]]: lab, exercises, solutions. The applied work you already do (AI SDK, MCP) is where this becomes real; these notes are the map, and Part III is the terrain.
 
 ## Related
 - [[using-ai/README|Using AI]] — the prior course for non-programmers: using LLMs as a *user*. Note 1 below assumes you've either read it or absorbed it by osmosis
