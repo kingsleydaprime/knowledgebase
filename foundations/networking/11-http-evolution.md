@@ -32,7 +32,7 @@ If you're doing performance work on an existing codebase, checking whether these
 
 ## The pieces of HTTP/1.1 worth knowing precisely
 
-**Statelessness and how it's worked around.** The server keeps no memory between requests. Cookies, tokens, and sessions all exist to reintroduce state on top — which is what makes horizontal scaling easy (any server can handle any request) and is the foundation of the [[concepts/01-backend/05-authentication-flows|auth flows]] notes.
+**Statelessness and how it's worked around.** The server keeps no memory between requests. Cookies, tokens, and sessions all exist to reintroduce state on top — which is what makes horizontal scaling easy (any server can handle any request) and is the foundation of the [[backend/05-auth/01-authentication-flows|auth flows]] notes.
 
 **Persistent connections.** `Connection: keep-alive` is the default in 1.1. This is the single biggest 1.1 performance feature, because it amortises the [[foundations/networking/06-tcp-connection-lifecycle|TCP handshake]] and [[foundations/networking/12-tls-and-transport-security|TLS handshake]] — and lets [[foundations/networking/08-congestion-control|congestion control]] escape slow start, which matters more than most people realise.
 
@@ -70,5 +70,5 @@ Every version of HTTP after 1.0 is an attack on the same two costs: **the number
 - [[foundations/networking/13-quic-and-modern-transport|QUIC & HTTP/3]] — where this story ends
 - [[foundations/networking/12-tls-and-transport-security|TLS]] — h2 requires it in practice; ALPN is how it's negotiated
 - [[foundations/networking/15-network-performance|Network Performance]] — measuring which of these actually matters
-- [[concepts/01-backend/03-apis|APIs]] — HTTP semantics as an API design surface
+- [[backend/02-api-design/01-apis-and-rest|APIs]] — HTTP semantics as an API design surface
 - [[cybersecurity/04-web-security/README|Web Security]] — smuggling, caching attacks, header handling

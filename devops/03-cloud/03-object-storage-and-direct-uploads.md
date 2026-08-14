@@ -177,7 +177,7 @@ video.
 
 Also plan for what happens *after* the bytes land — transcoding, thumbnailing, virus
 scanning. That belongs in a background job, not the upload request. See
-[[concepts/01-backend/README|backend concepts]] on queues.
+[[backend/README|backend concepts]] on queues.
 
 ---
 
@@ -198,5 +198,5 @@ scanning. That belongs in a background job, not the upload request. See
 - [[devops/minio-guide|MinIO guide]] — self-hosting an S3-compatible store
 - [[devops/03-cloud/aws-cloud-reference|AWS cloud reference]] — S3 specifics within AWS
 - [[devops/03-cloud/01-cloud-fundamentals|Cloud fundamentals]]
-- [[concepts/01-backend/06-oauth-provider-integrations|OAuth provider integrations]] — platforms that ingest media by URL
+- [[backend/05-auth/03-oauth-provider-integrations|OAuth provider integrations]] — platforms that ingest media by URL
 - [[architecture/system-design-reference|System design reference]]

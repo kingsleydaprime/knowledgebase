@@ -178,5 +178,5 @@ tunnelled.
 ## Related
 - [[devops/08-networking-and-web/01-networking-and-protocols|Networking & protocols]] — DNS, HTTPS, TLS
 - [[devops/08-networking-and-web/02-web-servers-and-proxies|Web servers & proxies]] — reverse proxying generally
-- [[concepts/01-backend/06-oauth-provider-integrations|OAuth provider integrations]] — why https callbacks force this
+- [[backend/05-auth/03-oauth-provider-integrations|OAuth provider integrations]] — why https callbacks force this
 - [[devops/01-linux/07-systemd-and-services|systemd services]] — running the tunnel persistently
