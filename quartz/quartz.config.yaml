@@ -31,7 +31,10 @@ configuration:
     colors:
       lightMode:
         light: "#fbf9f5" # warm paper, not clinical white
-        lightgray: "#e7e1d7" # borders, table rules
+        # ALSO the graph's link colour (the plugin draws inactive edges in
+        # --lightgray and switches to --gray on hover). Kept close enough to the
+        # paper background to stay quiet as a border, far enough to read as a line.
+        lightgray: "#d9d1c3" # borders, table rules, graph links
         gray: "#a89f92"
         darkgray: "#4d4740" # body text
         dark: "#22201d" # headings
@@ -41,7 +44,9 @@ configuration:
         textHighlight: "#f5c96b88"
       darkMode:
         light: "#17161a"
-        lightgray: "#2f2d33"
+        # Was #2f2d33 — only ~1.3:1 against the #17161a background, which made
+        # graph links and indent guides effectively invisible until hovered.
+        lightgray: "#4a4653" # borders, table rules, graph links
         gray: "#6f6a75"
         darkgray: "#d6d2cc" # body text
         dark: "#eceae6" # headings
