@@ -23,27 +23,32 @@ configuration:
       header: Schibsted Grotesk
       body: Source Sans Pro
       code: IBM Plex Mono
+    # Palette: warm paper + burnt copper accent, muted teal for hover.
+    # Copper reads as electronics/hardware, which is the half of this vault
+    # most sites don't have. Deliberately calm — the site is mostly long-form
+    # course notes, so contrast is tuned for reading, not for impact.
+    # `secondary` = links/headings, `tertiary` = hover.
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#fbf9f5" # warm paper, not clinical white
+        lightgray: "#e7e1d7" # borders, table rules
+        gray: "#a89f92"
+        darkgray: "#4d4740" # body text
+        dark: "#22201d" # headings
+        secondary: "#9c4221" # burnt copper — links, headings
+        tertiary: "#3d7068" # deep teal — hover
+        highlight: rgba(156, 66, 33, 0.09)
+        textHighlight: "#f5c96b88"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#17161a"
+        lightgray: "#2f2d33"
+        gray: "#6f6a75"
+        darkgray: "#d6d2cc" # body text
+        dark: "#eceae6" # headings
+        secondary: "#e08a54" # copper, lifted for a dark background
+        tertiary: "#6fb3a5" # teal, lifted to match
+        highlight: rgba(224, 138, 84, 0.12)
+        textHighlight: "#d9a44e66"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -168,6 +173,38 @@ plugins:
       priority: 50
   - source: "@quartz-community/graph"
     enabled: true
+    # Tuned for THIS vault's size (~855 published notes, densely cross-linked).
+    # The plugin defaults are built for a ~100-note garden; at this scale they
+    # collapse into an unreadable blob. Key changes vs default:
+    #   enableRadial false  — radial layout forces 855 nodes into a ring and
+    #                         destroys the domain clustering that makes a large
+    #                         graph legible. Force-directed shows the clusters.
+    #   repelForce/linkDistance up — spread nodes apart instead of overlapping
+    #   fontSize down       — 855 labels at 0.6 is solid overlapping text
+    #   showTags false      — no note in this vault uses frontmatter tags
+    options:
+      localGraph:
+        depth: 2
+        scale: 1.1
+        repelForce: 0.6
+        centerForce: 0.3
+        linkDistance: 35
+        fontSize: 0.5
+        opacityScale: 1.2
+        showTags: false
+        focusOnHover: true
+        enableRadial: false
+      globalGraph:
+        depth: -1
+        scale: 0.65
+        repelForce: 0.9
+        centerForce: 0.15
+        linkDistance: 45
+        fontSize: 0.45
+        opacityScale: 1.5
+        showTags: false
+        focusOnHover: true
+        enableRadial: false
     layout:
       position: right
       priority: 10
@@ -234,8 +271,9 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        GitHub: https://github.com/kingsleydaprime
+        Vault source: https://github.com/kingsleydaprime/knowledgebase
+        The Primetechie Path: https://kingsleydaprime.github.io/knowledgebase/PRIMETECHIE
     layout:
       position: footer
       priority: 50

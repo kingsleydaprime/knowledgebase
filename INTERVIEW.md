@@ -18,6 +18,7 @@ Every domain in this vault now has an `interview/` folder. Same format throughou
 | [[cybersecurity/interview/README\|Security]] | injection classes, crypto, SSRF, defence, IR | 1 |
 | [[ai-ml/interview/README\|AI/ML]] | RAG, agents, evals, prompt injection + ML fundamentals | 2 |
 | [[frontend/interview/README\|Frontend]] | React model, rendering strategies, Web Vitals, compositor | 1 |
+| [[hardware/interview/README\|Hardware]] | decoupling, I2C/SPI, interrupts, board bring-up + RF, MQTT, battery life | 2 |
 
 Plus the project-specific bank: [[projects/arete/interview/01-backend-and-data|arete/interview/]] — the original, and still the best template because every answer is anchored in code you actually wrote.
 
@@ -41,6 +42,10 @@ Two failure modes these banks are written against:
 
 **AI engineering:**
 [[ai-ml/interview/01-ai-engineering|AI engineering]] → [[ai-ml/interview/02-ml-and-stats-fundamentals|ML fundamentals]] → [[databases/interview/01-sql-modelling-and-internals|databases]] (vector search) → [[concepts/interview/01-apis-auth-and-practices|APIs]]
+
+**Embedded / hardware:**
+[[hardware/interview/01-electronics-and-embedded|Electronics & embedded]] → [[hardware/interview/02-rf-and-iot|RF & IoT]] → [[foundations/os/interview/01-processes-memory-and-io|OS]] (memory, interrupts) → [[foundations/networking/interview/02-tcp-and-transport|TCP]]
+⭐ Lead with [[projects/iot-bridge-pcb/task|the IoT Bridge PCB]] — a board you designed beats any prepared answer.
 
 ## The five questions worth over-preparing
 

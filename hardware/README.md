@@ -23,7 +23,7 @@ The notes build on each other — don't skip, they stack.
 9. [[hardware/09-putting-it-all-together|Putting It All Together]] — **[Intermediate]** — the whole stack in one picture, and concrete next steps
 10. [[hardware/10-kicad-basics|KiCad Basics]] — **[Intermediate]** — turning a design into a manufacturable board: schematic vs layout, symbols vs footprints, PCB layers, decoupling, crystals, powering from USB
 
-**Also here:** [[hardware/hardware-reference|hardware-reference]] — units, prefixes and key formulas, for lookup rather than reading.
+**Also here:** [[hardware/hardware-reference|hardware-reference]] — units, prefixes and key formulas, for lookup rather than reading. And [[hardware/interview/README|interview/]] — 25 questions across electronics/embedded and RF/IoT.
 
 ## Practice, not just notes
 
@@ -41,8 +41,7 @@ Everything else in this vault assumes a working machine. This domain is where "w
 
 Honest, in the vault's usual style:
 
-- **No interview bank** — every other built-out domain has one.
-- **Nothing on test and bring-up** — how you actually power a new board for the first time without releasing the smoke. There's a project for it in [[project-ideas|project-ideas]]; the note should follow the build.
+- **Nothing on test and bring-up** — how you actually power a new board for the first time without releasing the smoke. There's a project for it in [[project-ideas|project-ideas]] and a debugging walkthrough in [[hardware/interview/01-electronics-and-embedded|the interview bank]]; the note should follow the build, not precede it.
 - **No robotics** — motion, control, and autonomy are a separate direction: [[robotics/README|robotics/]], currently scaffold.
 
 ## Related
