@@ -2,13 +2,13 @@
 
 The tool you touch more often than any other, and the one most people learn only as far as `add`, `commit`, `push`. This course goes down to the object model and back up to team workflow, because almost every confusing thing Git does stops being confusing once you know it's a content-addressable store with a few pointers on top.
 
-**~15,000 words across 16 notes, plus a command reference and a recovery guide.** Split in August 2026 out of a single 3,168-line `git-reference.md` that was really a textbook wearing a reference's filename — the material was good, but there was no reading order and nothing linked to anything.
+**~17,000 words across 17 notes, plus a command reference and a recovery guide.** Split in August 2026 out of a single 3,168-line `git-reference.md` that was really a textbook wearing a reference's filename — the material was good, but there was no reading order and nothing linked to anything.
 
 > **The one rule worth memorising:** never rewrite history that someone else may have pulled. Everything else in Git is recoverable — the reflog holds your commits for 30 days and `git reset --hard` is undoable more often than people think. Rewriting shared history is the one mistake that costs *other people* their afternoon, and no command of yours can fix it for them.
 
 ## Reading order
 
-The notes build on each other. Sections 1–11 are Git as a solo tool; 12–14 are Git as a team tool; 15–16 are the things you reach for occasionally.
+The notes build on each other. Sections 1–11 are Git as a solo tool; 12–15 are Git as a team tool; 16–17 are the things you reach for occasionally.
 
 **Foundations**
 
@@ -35,11 +35,12 @@ The notes build on each other. Sections 1–11 are Git as a solo tool; 12–14 a
 12. [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — **[Beginner → Intermediate]** — Conventional Commits, messages worth reading, and repo hygiene
 13. [[git/13-branching-strategies|Branching Strategies]] — **[Intermediate]** — GitHub Flow, GitFlow, trunk-based, forking; and branch naming
 14. [[git/14-github-and-ci|GitHub as a Platform, and Git in CI]] — **[Intermediate]** — branch protection, CODEOWNERS, rulesets, PR practice, and how a pipeline talks to your repo
+15. [[git/15-the-github-cli|The GitHub CLI (`gh`)]] — **[Intermediate]** — doing all of note 14 from the terminal: PRs, issues, releases, CI runs, and `gh api` for everything without a wrapper
 
 **Occasional tools**
 
-15. [[git/15-power-tools|Power Tools]] — **[Advanced]** — submodules, worktrees, patch files, cherry-pick
-16. [[git/16-hooks-and-signing|Hooks and Signing]] — **[Advanced]** — pre-commit automation, Husky, GPG and SSH signatures
+16. [[git/16-power-tools|Power Tools]] — **[Advanced]** — submodules, worktrees, patch files, cherry-pick
+17. [[git/17-hooks-and-signing|Hooks and Signing]] — **[Advanced]** — pre-commit automation, Husky, GPG and SSH signatures
 
 **Also here:**
 - [[git/git-reference|git-reference]] — the commands themselves, grouped by task, for lookup rather than reading

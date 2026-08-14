@@ -233,6 +233,6 @@ git config --global core.excludesfile ~/.gitignore_global
 
 ## Related
 - [[git/11-tags-and-versioning|Tags and Versioning]] — what conventional commits let you automate
-- [[git/16-hooks-and-signing|Hooks and Signing]] — enforcing these conventions mechanically
+- [[git/17-hooks-and-signing|Hooks and Signing]] — enforcing these conventions mechanically
 - [[git/09-investigating-history|Investigating History]] — the payoff for hygiene, a year later
 - [[git/README|Git course map]]

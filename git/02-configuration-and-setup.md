@@ -191,6 +191,6 @@ git remote set-url origin new-url  # Change remote URL
 
 ## Related
 - [[git/03-the-three-trees|The Three Trees]] — the next step once a repo exists
-- [[git/16-hooks-and-signing|Hooks and Signing]] — what `commit.gpgsign` and `tag.gpgsign` above actually turn on
+- [[git/17-hooks-and-signing|Hooks and Signing]] — what `commit.gpgsign` and `tag.gpgsign` above actually turn on
 - [[devops/01-linux/10-environment-variables|Environment Variables]] — how the shell finds your editor and credentials
 - [[git/README|Git course map]]
