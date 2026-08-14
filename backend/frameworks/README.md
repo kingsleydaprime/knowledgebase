@@ -9,7 +9,7 @@ Deliberately **not numbered**: there's no reading order. Pick the one you're usi
 | Language | Frameworks | Concurrency model | Status |
 |---|---|---|---|
 | **[[backend/frameworks/javascript/README\|JavaScript / TypeScript]]** | Node runtime, Express, NestJS | **event loop** | built out — Nest reference is substantial |
-| **[[backend/frameworks/java/README\|Java]]** | Spring Boot | thread-per-request → **virtual threads** (21+) | **lives in [[languages/01-java/05-web-and-api/README\|languages/01-java]]** — pointer only |
+| **[[backend/frameworks/java/README\|Java]]** | Spring Boot | thread-per-request → **virtual threads** (21+) | built out — **moved here** from `languages/01-java/` |
 | **[[backend/frameworks/python/README\|Python]]** | FastAPI, Django, Flask | mixed — WSGI blocking vs ASGI async | scaffold |
 | **[[backend/frameworks/go/README\|Go]]** | net/http, Chi, Gin | **goroutines** (green threads) | scaffold |
 | **[[backend/frameworks/rust/README\|Rust]]** | Axum, Actix Web | **async/tokio** | scaffold |

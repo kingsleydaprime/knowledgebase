@@ -42,7 +42,7 @@ Validation, config, errors, logging, caching, jobs, rate limiting. *Scaffold —
 Not numbered; there's no reading order. Pick yours.
 
 - **[[backend/frameworks/javascript/README|JavaScript/TypeScript]]** — [[backend/frameworks/javascript/01-node-runtime/README|Node runtime]], [[backend/frameworks/javascript/02-express/README|Express]], [[backend/frameworks/javascript/03-nest/README|Nest]] — event loop
-- **[[backend/frameworks/java/README|Java]]** — pointer to [[languages/01-java/05-web-and-api/README|languages/01-java]], where Spring lives with the JVM material it depends on
+- **[[backend/frameworks/java/README|Java]]** — [[backend/frameworks/java/01-spring-boot|Spring Boot]] — thread-per-request, virtual threads from 21. Moved here from `languages/01-java/`
 - **[[backend/frameworks/python/README|Python]]** · **[[backend/frameworks/go/README|Go]]** · **[[backend/frameworks/rust/README|Rust]]** — scaffolds
 
 **Read [[backend/01-foundations/04-runtime-and-concurrency-models|note 01.4]] before any of them.** Frameworks look like twenty things to learn; they're three concurrency models wearing different vocabularies.

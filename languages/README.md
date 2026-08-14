@@ -1,14 +1,27 @@
 # Languages
 
-Language-specific deep dives that sit alongside [[../backend/README|backend/]] and [[../frontend/README|frontend/]]. Where those two are organized by *framework* (Express, Nest, React, GSAP...), this domain is organized by *language* — the parts of a language and its core ecosystem that aren't specific to any one framework built on top of it.
+Language-specific deep dives. Where [[backend/README|backend/]] and [[frontend/README|frontend/]] are organised by *framework*, this domain is organised by *language* — the parts of a language and its core ecosystem that aren't specific to any one framework built on top of it.
 
-## Structure
+## The rule
 
-1. [[languages/01-java/README|01-java/]] — **[Beginner → Advanced]** — a full course organized into six themed sections: the **language** (fundamentals, OOP, generics, collections, functional, exceptions, modern Java, core APIs) → **JVM & concurrency** (internals, GC, the memory model, virtual threads) → **tooling** (build/DI/testing/logging) → **persistence** → **web & API** → **applied systems**. Topic coverage cross-referenced against [roadmap.sh Java](https://roadmap.sh/java); the applied-systems material is distilled from two real SIWES projects (a Spring Boot payment sandbox and a high-throughput CSV→MySQL pipeline over RabbitMQ).
+> **`languages/` teaches the language. `backend/frameworks/` teaches the frameworks built on it.**
 
-Other languages (Go, Python at depth, Kotlin, etc.) would slot in as further numbered tracks if/when notes get written for them.
+So the JVM, goroutines, the borrow checker, generics, testing and tooling live here. Spring Boot, Gin, Axum, Express and NestJS live in [[backend/frameworks/README|backend/frameworks/]], where they can be compared against each other instead of being filed under the language they happen to be written in.
+
+That comparison is the whole point of the split. Spring's `@RestController`/`@Service` and Nest's `@Controller`/`@Injectable` are the same idea in different spelling — obvious when they share a folder, invisible when they don't.
+
+Applied in August 2026 by **moving** (not copying) Java's Spring Boot material out of `languages/01-java/05-web-and-api/` into [[backend/frameworks/java/README|backend/frameworks/java/]]. Go and Rust follow the same shape from the start.
+
+## Tracks
+
+1. [[languages/01-java/README|01-java/]] — **[Beginner → Advanced]** — a full course in six themed sections: the **language** (fundamentals, OOP, generics, collections, functional, exceptions, modern Java, core APIs) → **JVM & concurrency** (internals, GC, the memory model, virtual threads) → **tooling** (build/DI/testing/logging) → **persistence** → *web & API ([[backend/frameworks/java/README|now in backend/]])* → **applied systems**. Cross-referenced against [roadmap.sh Java](https://roadmap.sh/java); the applied-systems material is distilled from two real SIWES projects.
+2. [[languages/02-go/README|02-go/]] — **[Beginner → Advanced]** — 13 notes: the toolchain, the type system, slices and maps properly, interfaces and implicit satisfaction, errors as values, goroutines and channels, concurrency patterns, `context`, generics, the standard library, testing, modules, and the runtime. **[reference]**
+3. `03-rust/` — **planned** — ownership and borrowing, lifetimes, traits, error handling with `Result`, `async`/`await` and the runtime split, cargo and the crate ecosystem
+
+Other languages (Python at depth, Kotlin, Zig) would slot in as further numbered tracks if notes get written for them.
 
 ## Related
-- [[backend/README|backend]] — Node.js/Express/Nest, the JS-ecosystem counterpart to this domain
-- [[backend/README|backend concepts]] — framework-agnostic ideas these tracks implement
-- [[projects/record-id-generator-java/learning/01-java-fundamentals|record-id-generator-java learning notes]] and [[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct-debit-sandbox-java learning notes]] — the original project-embedded notes the applied-systems section was built from. Kept in place as the full narrative/debugging-log version; this domain is the distilled reference version.
+- [[backend/frameworks/README|backend/frameworks/]] — the frameworks these languages host
+- [[backend/README|backend course]] — the framework-agnostic concepts those frameworks implement
+- [[foundations/dsa/README|foundations/dsa]] — the CS underneath all of them
+- [[projects/record-id-generator-java/learning/01-java-fundamentals|record-id-generator]] and [[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct-debit-sandbox]] — the project notes the Java track was distilled from
