@@ -604,6 +604,12 @@ grep -w "word" file.txt              # Match whole word only
 grep -o "pattern" file.txt           # Show only the matching part
 grep --color "pattern" file.txt      # Highlight matches
 
+# Scoping a recursive search (essential in any real codebase)
+grep -rn "pattern" . --include="*.md"          # Only files matching the glob (repeatable)
+grep -rn "pattern" . --exclude="*.min.js"      # Skip files matching the glob
+grep -rn "pattern" . --exclude-dir=node_modules --exclude-dir=.git
+grep -rl "pattern" . --include="*.py" | wc -l  # How many files match, total
+
 # Useful patterns
 grep "^ERROR" app.log                # Lines starting with ERROR
 grep "EOF$" file.txt                 # Lines ending with EOF
@@ -2269,6 +2275,10 @@ find . -name "*.sh" -exec chmod +x {} \;       # Make all .sh files executable
 find . -type f -exec grep -l "pattern" {} \;   # Find files containing pattern
 find . -name "*.log" -exec gzip {} \;          # Compress all log files
 find . -name "*.log" | xargs gzip              # Same, using xargs (faster for many files)
+
+# Match on the whole path, not just the filename
+find . -path "*/docs/*.md"           # Path glob — needs the leading */
+find . -ipath "*git*"                # Case-insensitive path match
 
 # Exclude directories
 find . -name "*.js" -not -path "*/node_modules/*"

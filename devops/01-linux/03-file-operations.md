@@ -117,6 +117,60 @@ find /var/log -size +1M
 
 The `2>/dev/null` on the second one suppresses permission error messages. Tell me what you get.
 
+## Searching a codebase
+
+`grep -r` and `find` as shown above will work — and then drown you in `node_modules/`, `.git/`, and build output. Four flags turn them from "technically recursive" into something you'd actually use on a project:
+
+```bash
+grep -rn "pattern" .                          # recursive + line numbers — the default pair
+grep -rn "pattern" . --include="*.md"         # only search files matching this glob
+grep -rn "pattern" . --exclude-dir=node_modules --exclude-dir=.git
+grep -rn "pattern" . --include="*.js" --exclude-dir=dist   # flags stack
+```
+
+`--include` takes a **glob**, not a directory, and it's repeatable. `--exclude-dir` is what saves you: a single unfiltered `grep -r` in a JavaScript project spends most of its time inside `node_modules/`.
+
+For `find`, the matching pair is `-path` (matches the whole path, not just the filename) and `-not`:
+
+```bash
+find . -name "*.md"                     # matches the FILENAME only
+find . -path "*/docs/*.md"              # matches the whole PATH — note the leading */
+find . -ipath "*git*"                   # -i prefix = case-insensitive (works on -name too)
+find . -name "*.md" -not -path "./node_modules/*"   # exclude a subtree
+find . -type f -not -path "./.git/*" -not -path "./node_modules/*"
+```
+
+The `-not -path` exclusions must match how the path is *printed* — since `find .` prints `./a/b.md`, the pattern needs the leading `./`. Getting that wrong is the usual reason an exclusion silently does nothing.
+
+### Counting instead of reading
+
+Sometimes you don't want the matches, you want the shape of the data:
+
+```bash
+grep -c "pattern" file.md          # matches in ONE file
+grep -rc "pattern" *.md            # per-file counts — one "file:count" line each
+grep -rl "pattern" . --include="*.md" | wc -l   # how many files match, total
+wc -l *.md                         # line counts per file + a total
+```
+
+`grep -c` per file is a fast structural audit. In a linked note vault, counting the wikilink marker per file finds orphaned notes — anything reporting `0` links to nothing:
+
+```bash
+grep -c "\[\[" git/*.md            # 0 means the note is a dead end
+wc -l devops/06-ci-cd/*.md         # is this module thin or fat?
+```
+
+### A note on quoting
+
+Always quote the pattern and the glob. Unquoted, the **shell** expands `*` before the command ever sees it:
+
+```bash
+grep -rn "pattern" . --include=*.md    # zsh: "no matches found" if no .md in the CWD
+grep -rn "pattern" . --include="*.md"  # correct — grep receives the glob itself
+```
+
+Bash and zsh differ here — bash silently passes the unmatched pattern through, zsh errors out. Quoting works in both, so just always quote.
+
 ## Redirection
 
 You've seen `>` and `>>`. Let's formalize it.
