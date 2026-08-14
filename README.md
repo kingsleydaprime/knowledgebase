@@ -151,6 +151,10 @@ knowledgebase/
 ├── databases/, git/, tools/
 │                                 # unordered reference material, not course-structured
 │
+│   NOTE: quartz/content/index.md is the PUBLISHED SITE'S landing page and is
+│   its own file — it used to symlink here, but a README and a landing page
+│   want different things. Edit both when the vault's shape changes.
+│
 ├── problem-solving/, blog-drafts/  # blog-drafts + blog-ideas.md are gitignored —
 │                                 # local drafts, deliberately not published
 │

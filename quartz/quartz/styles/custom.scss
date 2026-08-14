@@ -1,3 +1,142 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// ─────────────────────────────────────────────────────────────────────────────
+// Custom styles for kingsleydaprime's knowledge base.
+//
+// Everything below uses Quartz's existing CSS custom properties (--secondary,
+// --tertiary, --lightgray, --light, --dark, --gray, --highlight), so it adapts
+// to light and dark mode automatically without a second set of rules.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Tables ───────────────────────────────────────────────────────────────────
+// The single highest-value change here: base.scss ships NO table styling, and
+// this vault is unusually table-heavy (nearly every course note compares options
+// in a table). Default browser tables look like a 1998 spec document.
+article {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95em;
+    // Wide tables scroll instead of forcing the page to scroll sideways.
+    // Tradeoff: display:block makes the table shrink-to-content rather than
+    // filling the column. Worth it — a page that scrolls horizontally on mobile
+    // is much worse than a table that doesn't stretch.
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  thead th {
+    background: color-mix(in srgb, var(--secondary) 12%, transparent);
+    color: var(--dark);
+    font-weight: $semiBoldWeight;
+    text-align: left;
+    border-bottom: 2px solid color-mix(in srgb, var(--secondary) 45%, transparent);
+    white-space: nowrap;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid var(--lightgray);
+    vertical-align: top;
+  }
+
+  // Zebra striping — makes wide comparison tables scannable across a row.
+  tbody tr:nth-child(even) {
+    background: color-mix(in srgb, var(--lightgray) 28%, transparent);
+  }
+
+  tbody tr:hover {
+    background: var(--highlight);
+  }
+
+  // The first column is almost always the label/option being compared.
+  tbody td:first-child {
+    font-weight: $semiBoldWeight;
+  }
+}
+
+// ── Blockquotes ──────────────────────────────────────────────────────────────
+// Used throughout for "the honest note", warnings, and the golden rule.
+article blockquote {
+  border-left: 3px solid var(--secondary);
+  background: color-mix(in srgb, var(--secondary) 6%, transparent);
+  border-radius: 0 4px 4px 0;
+  padding: 0.6rem 1rem;
+  margin: 1.4rem 0;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ── Code ─────────────────────────────────────────────────────────────────────
+article {
+  pre {
+    border: 1px solid var(--lightgray);
+    border-radius: 6px;
+  }
+
+  // Inline code — distinguish it from surrounding prose without shouting.
+  p > code,
+  li > code,
+  td > code {
+    background: color-mix(in srgb, var(--tertiary) 16%, transparent);
+    border-radius: 3px;
+    padding: 0.1em 0.35em;
+    font-size: 0.9em;
+  }
+}
+
+// ── Headings ─────────────────────────────────────────────────────────────────
+// Long course notes need clearer section boundaries than the default gives.
+article {
+  h2 {
+    margin-top: 2.4rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--lightgray);
+  }
+
+  h3 {
+    margin-top: 1.8rem;
+  }
+
+  // Horizontal rules separate interview questions and exercise sections —
+  // make them quieter than a full-width dark line.
+  hr {
+    border: none;
+    border-top: 1px solid var(--lightgray);
+    margin: 2.5rem 0;
+  }
+}
+
+// ── Graph panel ──────────────────────────────────────────────────────────────
+// The default 250px is cramped once localGraph depth is 2.
+.graph .graph-outer {
+  height: 320px;
+}
+
+// ── Task lists ───────────────────────────────────────────────────────────────
+// PRIMETECHIE is one long checklist; give the boxes room to breathe.
+article {
+  li:has(> input[type="checkbox"]) {
+    list-style: none;
+    margin-left: -1.2rem;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+    transform: translateY(1px);
+  }
+}
+
+// ── Reading comfort ──────────────────────────────────────────────────────────
+article {
+  line-height: 1.7;
+
+  li {
+    margin: 0.35rem 0;
+  }
+}
