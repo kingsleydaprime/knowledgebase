@@ -42,7 +42,7 @@ The baseline. You can take an idea to a running thing without help.
 - [ ] Read a stack trace top-to-bottom and fix the root cause, **not the symptom**
 - [ ] Explain what happens between typing a URL and seeing a page → [[foundations/networking/01-what-a-network-is|note 01]]
 
-**Course load:** [[concepts/01-backend/README|concepts/]] · [[foundations/dsa/README|dsa/]] 01–04 · [[git/git-reference|git]] · [[devops/01-linux/README|linux]] 01–12
+**Course load:** [[backend/README|concepts/]] · [[foundations/dsa/README|dsa/]] 01–04 · [[git/git-reference|git]] · [[devops/01-linux/README|linux]] 01–12
 
 **Capstone:** any 🟢 in [[project-ideas|project-ideas]], deployed and written up.
 

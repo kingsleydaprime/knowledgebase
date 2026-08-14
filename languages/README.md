@@ -10,5 +10,5 @@ Other languages (Go, Python at depth, Kotlin, etc.) would slot in as further num
 
 ## Related
 - [[backend/README|backend]] — Node.js/Express/Nest, the JS-ecosystem counterpart to this domain
-- [[concepts/01-backend/README|backend concepts]] — framework-agnostic ideas these tracks implement
+- [[backend/README|backend concepts]] — framework-agnostic ideas these tracks implement
 - [[projects/record-id-generator-java/learning/01-java-fundamentals|record-id-generator-java learning notes]] and [[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct-debit-sandbox-java learning notes]] — the original project-embedded notes the applied-systems section was built from. Kept in place as the full narrative/debugging-log version; this domain is the distilled reference version.

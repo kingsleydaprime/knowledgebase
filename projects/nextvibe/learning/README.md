@@ -6,8 +6,8 @@
 - [[projects/nextvibe/learning/00-sys-design|00 — System Design]] → general: [[architecture/README|architecture]]
 
 ## Backend
-1. [[projects/nextvibe/learning/backend/01-core|01 — Core]] → [[concepts/01-backend/README|backend concepts]]
-2. [[projects/nextvibe/learning/backend/02-auth|02 — Auth]] → [[concepts/01-backend/05-authentication-flows|auth flows]], [[concepts/interview/01-apis-auth-and-practices|interview]]
+1. [[projects/nextvibe/learning/backend/01-core|01 — Core]] → [[backend/README|backend concepts]]
+2. [[projects/nextvibe/learning/backend/02-auth|02 — Auth]] → [[backend/05-auth/01-authentication-flows|auth flows]], [[concepts/interview/01-apis-auth-and-practices|interview]]
 3. [[projects/nextvibe/learning/backend/03-modules|03 — Modules]]
 4. [[projects/nextvibe/learning/backend/04-games-ai|04 — Games & AI]] → [[ai-ml/03-ai-engineer/README|AI engineering]]
 5. [[projects/nextvibe/learning/backend/05-realtime|05 — Realtime]] → [[foundations/networking/11-http-evolution|HTTP/WebSockets]], [[architecture/02-building-blocks/04-messaging-and-async|async]]

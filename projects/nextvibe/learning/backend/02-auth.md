@@ -320,8 +320,8 @@ This is why `@CurrentUser()` on a `@Public()` route returns `undefined` when not
 ---
 
 ## The general version of this
-- [[concepts/01-backend/05-authentication-flows|Authentication Flows (concepts)]] — sessions vs tokens, framework-agnostic
-- [[concepts/01-backend/06-authorization|Authorization]]
+- [[backend/05-auth/01-authentication-flows|Authentication Flows (concepts)]] — sessions vs tokens, framework-agnostic
+- [[backend/05-auth/02-authorization|Authorization]]
 - [[concepts/interview/01-apis-auth-and-practices|Interview: auth questions]]
 
 ↑ [[projects/README|All projects and the domains they exercise]]

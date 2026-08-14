@@ -3,10 +3,10 @@
 NestJS + Prisma backend with a React Native app. **Notable for holding the deepest shell/text-processing material in the entire vault** — the `devops/05`–`08` files below have no counterpart in [[devops/01-linux/README|devops/01-linux]] yet, which is a known gap tracked in [[projects/README|the projects README]].
 
 ## Backend
-1. [[projects/arete/learning/backend/01-fundamentals-and-nestjs|01 — Fundamentals & NestJS]] → [[concepts/01-backend/README|backend concepts]]
+1. [[projects/arete/learning/backend/01-fundamentals-and-nestjs|01 — Fundamentals & NestJS]] → [[backend/README|backend concepts]]
 2. [[projects/arete/learning/backend/02-prisma-and-data-modeling|02 — Prisma & Data Modeling]] → [[databases/database-design-reference|database design]]
 3. [[projects/arete/learning/backend/03-patterns-worth-stealing|03 — Patterns Worth Stealing]] → [[concepts/03-design-patterns/README|design patterns]]
-4. [[projects/arete/learning/backend/04-auth|04 — Auth]] → [[concepts/01-backend/05-authentication-flows|auth flows]]
+4. [[projects/arete/learning/backend/04-auth|04 — Auth]] → [[backend/05-auth/01-authentication-flows|auth flows]]
 5. [[projects/arete/learning/backend/05-product-logic-case-studies|05 — Product Logic Case Studies]]
 6. [[projects/arete/learning/backend/06-advanced-habits-and-bug-postmortems|06 — Advanced Habits & Bug Postmortems]] ⭐ — real postmortems, the [[PRIMETECHIE|Rank II]] material
 7. [[projects/arete/learning/backend/07-study-path|07 — Study Path]]
@@ -25,7 +25,7 @@ NestJS + Prisma backend with a React Native app. **Notable for holding the deepe
 ## Mobile (React Native)
 1. [[projects/arete/learning/mobile/01-react-native-fundamentals|01 — React Native Fundamentals]]
 2. [[projects/arete/learning/mobile/02-navigation-and-state|02 — Navigation & State]] → [[concepts/02-frontend/02-state-management|state management]]
-3. [[projects/arete/learning/mobile/03-api-layer|03 — API Layer]] → [[concepts/01-backend/03-apis|APIs]]
+3. [[projects/arete/learning/mobile/03-api-layer|03 — API Layer]] → [[backend/02-api-design/01-apis-and-rest|APIs]]
 4. [[projects/arete/learning/mobile/04-ui-patterns-from-arete-screens|04 — UI Patterns]]
 5. [[projects/arete/learning/mobile/05-push-notifications-and-advanced-topics|05 — Push Notifications & Advanced Topics]]
 6. [[projects/arete/learning/mobile/06-the-home-trail-case-study|06 — The Home Trail Case Study]]

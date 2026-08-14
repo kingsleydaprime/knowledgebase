@@ -178,5 +178,5 @@ model. That ratio is the single most useful thing to carry to the next integrati
 ## Related
 - [[projects/socioboom/learning/00-how-it-fits-together|00-how-it-fits-together]] — the system shape
 - [[projects/socioboom/learning/backend/10-media-and-social-publishing|10-media-and-social-publishing]] — per-platform API detail
-- [[concepts/01-backend/06-oauth-provider-integrations|OAuth provider integrations]] — the transferable version
+- [[backend/05-auth/03-oauth-provider-integrations|OAuth provider integrations]] — the transferable version
 - `socioboom/setup/nextsteps.md` — the live checklist
