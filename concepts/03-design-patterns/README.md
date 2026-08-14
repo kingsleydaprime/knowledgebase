@@ -12,6 +12,6 @@ The classic Gang-of-Four object-oriented design patterns — reusable, named sol
 MVC, CQRS, Event-Driven Architecture, Microservices vs. Monolith — the larger, system-level patterns rather than object-level ones — are **not** duplicated here. They're already covered in real depth, with worked examples, in `architecture/system-design-reference.md` (see its sections on Microservices vs Monolith and Key Design Patterns specifically) — start there for that layer.
 
 ## Related
-- [[concepts/01-backend/README|backend concepts]]
+- [[backend/README|backend concepts]]
 - [[concepts/02-frontend/README|frontend concepts]]
 - [[architecture/system-design-reference|system-design-reference]]

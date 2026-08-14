@@ -74,9 +74,9 @@ Real systems frequently mix these — a public-facing REST or GraphQL API at the
 
 - GraphQL's flexibility is also its biggest operational risk — without query complexity limits, a client (malicious or just careless) can construct a query that's cheap to write but extremely expensive for the server to resolve, effectively becoming a form of denial-of-service.
 - REST's convention isn't strictly enforced by the protocol — nothing stops someone from building a "REST" API that doesn't actually follow resource/verb conventions consistently, which is a common, confusing real-world deviation from the textbook description above.
-- WebSocket connections are stateful, which complicates horizontal scaling the same way session-based auth does (see [[05-authentication-flows|authentication-flows]]) — a message meant for a specific connected client needs to reach whichever specific server instance that client is actually connected to, usually requiring a pub/sub layer (Redis, or a message queue) between instances.
+- WebSocket connections are stateful, which complicates horizontal scaling the same way session-based auth does (see [[backend/05-auth/01-authentication-flows|authentication flows]]) — a message meant for a specific connected client needs to reach whichever specific server instance that client is actually connected to, usually requiring a pub/sub layer (Redis, or a message queue) between instances.
 
 ## Related
-- [[01-http-servers|http-servers]]
-- [[04-databases|databases]]
-- [[02-backend-best-practices|backend-best-practices]]
+- [[backend/01-foundations/02-http-servers|HTTP servers]]
+- [[backend/04-data-and-persistence/01-databases-in-the-backend|databases]]
+- [[backend/07-practices/01-backend-best-practices|backend best practices]]

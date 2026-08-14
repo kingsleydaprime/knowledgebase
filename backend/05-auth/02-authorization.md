@@ -1,6 +1,6 @@
 # Authorization
 
-Authentication ([[05-authentication-flows|authentication-flows]]) answers "who are you." Authorization answers a completely separate question: "what are you allowed to do, now that I know who you are." Conflating the two is a common source of security bugs — a system can authenticate a user perfectly and still let them do things they shouldn't, if authorization checks are missing or incomplete (this is exactly the [[07-exploitation-concepts|broken access control]] vulnerability category from a defensive angle).
+Authentication ([[backend/05-auth/01-authentication-flows|authentication flows]]) answers "who are you." Authorization answers a completely separate question: "what are you allowed to do, now that I know who you are." Conflating the two is a common source of security bugs — a system can authenticate a user perfectly and still let them do things they shouldn't, if authorization checks are missing or incomplete (this is exactly the [[07-exploitation-concepts|broken access control]] vulnerability category from a defensive angle).
 
 ## RBAC — Role-Based Access Control
 
@@ -40,7 +40,7 @@ More expressive than RBAC — it can encode exactly the "editors can only edit t
 
 Most modern frameworks provide a dedicated place for authorization logic to live outside the handler itself, so it's consistently applied rather than manually re-checked (and potentially forgotten) in every individual handler:
 
-- **Guards** (NestJS's term) — run before a handler, similar to middleware (see [[01-http-servers|http-servers]]) but specifically framed around the "is this request allowed" question, often declared declaratively via a decorator on the route.
+- **Guards** (NestJS's term) — run before a handler, similar to middleware (see [[backend/01-foundations/02-http-servers|HTTP servers]]) but specifically framed around the "is this request allowed" question, often declared declaratively via a decorator on the route.
 - **Policies** — a common pattern (Laravel, and conceptually similar constructs elsewhere) that centralizes "can this user do X to this resource" logic in one dedicated class/function per resource type, called consistently from every relevant handler instead of duplicating the check.
 
 ```typescript
@@ -79,7 +79,7 @@ await updatePost(req.params.id, req.body);
 - Overly broad roles (a "staff" role that's really "everything except admin") tend to accumulate over time as a team takes the path of least resistance — periodically auditing actual role permissions against what's genuinely needed is a real, ongoing task, not a one-time setup step.
 
 ## Related
-- [[05-authentication-flows|authentication-flows]]
+- [[backend/05-auth/01-authentication-flows|authentication flows]]
 - [[07-exploitation-concepts|exploitation-concepts]]
 - [[02-cia-triad|cia-triad]]
 

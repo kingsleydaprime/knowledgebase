@@ -43,7 +43,7 @@ function authMiddleware(req, res, next) {
 }
 ```
 
-This is the mechanism behind cross-cutting concerns that shouldn't be duplicated in every handler: authentication (see [[05-authentication-flows|authentication-flows]]), logging, CORS handling (see [[04-security-headers-and-same-origin-policy|security-headers-and-same-origin-policy]]), body parsing, rate limiting. Middleware order matters — auth middleware needs to run before a handler that assumes `req.user` already exists, and get that order wrong and you get confusing bugs where a value "isn't there yet."
+This is the mechanism behind cross-cutting concerns that shouldn't be duplicated in every handler: authentication (see [[backend/05-auth/01-authentication-flows|authentication flows]]), logging, CORS handling (see [[04-security-headers-and-same-origin-policy|security-headers-and-same-origin-policy]]), body parsing, rate limiting. Middleware order matters — auth middleware needs to run before a handler that assumes `req.user` already exists, and get that order wrong and you get confusing bugs where a value "isn't there yet."
 
 ## Synchronous handling vs the event loop (Node specifically)
 
@@ -56,6 +56,6 @@ Node.js handles many concurrent requests on a single thread via an event loop �
 - See `backend/express/`, `backend/nest/`, and `backend/nodejs/` in this vault for framework-specific implementations of these same ideas.
 
 ## Related
-- [[05-authentication-flows|authentication-flows]]
-- [[03-apis|apis]]
-- [[02-backend-best-practices|backend-best-practices]]
+- [[backend/05-auth/01-authentication-flows|authentication flows]]
+- [[backend/02-api-design/01-apis-and-rest|APIs]]
+- [[backend/07-practices/01-backend-best-practices|backend best practices]]

@@ -9,6 +9,6 @@ General engineering practices that apply regardless of language or framework —
 4. [[04-testing-fundamentals|testing-fundamentals]] — **[Intermediate]** — the testing pyramid (unit/integration/E2E), TDD, what makes a test actually valuable vs. just contributing to a coverage number
 
 ## Related
-- [[concepts/01-backend/README|backend concepts]]
+- [[backend/README|backend concepts]]
 - [[concepts/02-frontend/README|frontend concepts]]
 - [[git/git-reference|git-reference]]

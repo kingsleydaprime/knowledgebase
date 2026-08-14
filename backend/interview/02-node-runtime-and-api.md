@@ -118,7 +118,7 @@ await pipeline(readable, transform, writable);
 - **Preserve the cause** when wrapping: `new AppError('...', { cause: err })`. Losing the original stack makes the incident unreadable at 3am.
 - **`Error.captureStackTrace`** and `AsyncLocalStorage` for request-scoped context (correlation IDs across async boundaries) — the latter is how you get a trace ID into every log line without threading it through every function.
 
-→ [[backend/01-nodejs/02-nodejs-errorhandler|the error handler note]]
+→ [[backend/frameworks/javascript/01-node-runtime/02-error-handling|the error handler note]]
 
 ## Related
 - [[backend/interview/01-production-debugging|Production Debugging]] — the other half of this interview
