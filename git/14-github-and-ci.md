@@ -353,7 +353,7 @@ git commit -m "chore: configure LFS for design assets"
 
 ## Related
 - [[devops/06-ci-cd/02-ci-cd-tools|CI/CD Tools]] — GitHub Actions dissected via this vault's own deploy pipeline
-- [[git/github-actions-cicd-reference|GitHub Actions reference]] — the full hands-on Actions notes
+- [[devops/06-ci-cd/README|DevOps → CI/CD]] — GitHub Actions itself, in depth, across 10 notes
 - [[git/13-branching-strategies|Branching Strategies]] — what the protection rules are protecting
 - [[git/11-tags-and-versioning|Tags and Versioning]] — releases cut from CI
 - [[git/README|Git course map]]

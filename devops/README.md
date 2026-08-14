@@ -15,7 +15,7 @@ A map of this folder, in reading order. The first four sections are the original
 3. [[devops/03-cloud/README|03-cloud/]] — **[Intermediate]** — cloud provider fundamentals: the AWS/Azure/GCP landscape, core service categories, serverless, and cloud design patterns
 4. [[devops/04-vps/vps-setup|04-vps/]] — **[Intermediate]** — deploying to a real Linux VPS, the practical capstone of the first three
 5. [[devops/05-orchestration/README|05-orchestration/]] — **[Advanced]** — Kubernetes and the container-orchestration landscape (Swarm, managed k8s, OpenShift)
-6. [[devops/06-ci-cd/README|06-ci-cd/]] — **[Intermediate → Advanced]** — continuous integration/delivery: concepts, and the tooling (GitHub Actions, Jenkins, GitLab CI)
+6. [[devops/06-ci-cd/README|06-ci-cd/]] — **[Intermediate → Advanced]** — continuous integration/delivery: the concepts, then GitHub Actions in depth across 10 notes (triggers, runners, secrets, caching, reusable workflows, CI and CD pipelines, security, troubleshooting), plus the Jenkins / GitLab CI landscape
 7. [[devops/07-infrastructure-as-code/README|07-infrastructure-as-code/]] — **[Advanced]** — provisioning (Terraform, Pulumi, CloudFormation) and configuration management (Ansible, Chef, Puppet)
 8. [[devops/08-networking-and-web/README|08-networking-and-web/]] — **[Intermediate]** — networking & protocols (OSI, DNS, HTTP/S, TLS, SSH) and web servers/proxies (Nginx, load balancers, caching)
 9. [[devops/09-secret-management/README|09-secret-management/]] — **[Advanced]** — secrets out of git: Vault, SOPS, Sealed Secrets, cloud KMS

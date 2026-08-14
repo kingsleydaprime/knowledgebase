@@ -44,7 +44,6 @@ The notes build on each other. Sections 1–11 are Git as a solo tool; 12–14 a
 **Also here:**
 - [[git/git-reference|git-reference]] — the commands themselves, grouped by task, for lookup rather than reading
 - [[git/git-troubleshooting|git-troubleshooting]] — symptom-first recovery recipes ("I committed to the wrong branch", "I accidentally committed my .env"). Written for the moment you're panicking
-- [[git/github-actions-cicd-reference|github-actions-cicd-reference]] — GitHub Actions and CI/CD in depth. Sits here for historical reasons; the curriculum home for that material is [[devops/06-ci-cd/README|devops/06-ci-cd]]
 
 ## Where the reps are
 

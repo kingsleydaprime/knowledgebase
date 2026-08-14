@@ -237,6 +237,29 @@ git push -u origin feature/my-contribution
 
 ---
 
+## Choosing a Strategy
+
+```
+Small team (1-5 people), continuous deployment?
+  → GitHub Flow
+
+Large team, scheduled quarterly releases, multiple versions in production?
+  → GitFlow
+
+Elite team, extreme CI/CD, strong test coverage, feature flags?
+  → Trunk-based development
+
+Open source, or contributors without write access?
+  → Forking workflow
+
+Most teams at most companies?
+  → GitHub Flow
+```
+
+The honest summary: GitHub Flow is the right default and the other three are answers to specific constraints. Adopt GitFlow because you genuinely ship versioned releases, not because it looks rigorous — its overhead is real and most teams that adopt it end up working around it.
+
+---
+
 ## Branch Naming — Complete Convention
 
 ```
