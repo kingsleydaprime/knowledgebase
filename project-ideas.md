@@ -12,6 +12,8 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 **If you only do five** (highest signal for where you're aiming): the ⭐ projects below — the order-book matching engine (Java/systems), a RAG app over *this vault* (AI eng), an end-to-end MLOps project (ML eng), a full A/B-test analysis (data sci), and putting one app through a real CI/CD + container deploy (DevOps).
 
+**The other columns.** Those five are aimed at the low-latency/software target. [[PRIMETECHIE|The path]] is four columns wide, and the reps below cover all of them — 🔐 security (secure your own app, then a SIEM detection you tested by attacking your own lab) and 🔌 hardware (rev 2 of the IoT Bridge). Hardware is the one column where you already have more built than written, so it needs the *fewest* new projects and gives the fastest returns.
+
 ---
 
 ## Java / JVM & Systems
@@ -96,6 +98,34 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
 
 ---
 
+## Hardware & Embedded
+*The column where you already have **more built than written** — [[projects/iot-bridge-pcb/task|the IoT Bridge PCB]] is a real fabricated board. These extend that rather than starting from zero. Note the difficulty scale shifts here: everything has a lead time, because parts ship and boards get fabbed.*
+
+- 🟢 **Blink, but properly** — get an LED blinking on a bare microcontroller with **no Arduino framework**: registers directly, your own delay, read the datasheet for the GPIO section. The "hello world" that actually teaches something, because the abstraction you skipped is the whole lesson ([[hardware/fundamentals|GPIO & the firmware loop]]).
+- 🟢 **Talk to a sensor over I2C** — wire a temperature/IMU sensor, write the driver yourself from the datasheet rather than importing a library: address it, read its registers, convert the raw value. Then put a scope or logic analyser on the bus and *watch the transaction you wrote* ([[hardware/fundamentals|UART/I2C/SPI]]).
+- 🟢 **Instrument your own power** — measure the actual current draw of a board in idle, active, and sleep, and make a number-backed claim about how long it would run on a given battery. Turns "power budget" from a phrase into arithmetic.
+- 🟡 **Design a small board and have it fabbed** — something genuinely simple (a breakout, a sensor node, a USB-powered widget): schematic → footprints → layout → gerbers → order it → bring it up. The [[hardware/kicad-basics|KiCad]] workflow end to end, at a scale where a mistake costs £15 and a fortnight rather than a project.
+- 🟡 ⭐ **Rev 2 of the IoT Bridge** — you have a board and you have notes on what you'd change. Do the revision: fix what rev 1 got wrong, and write up the diff and *why*. **Designing a rev 2 is a different and more valuable skill than designing a rev 1**, and it's the [[PRIMETECHIE|Rank V hardware gate]] almost nobody has.
+- 🟡 **Bring-up procedure, written down** — take a new board and document the order you power and verify it: continuity before power, current-limited first power-on, rails measured against the schematic, then clocks, then comms. Then use it on the next board. The checklist that stops you releasing the smoke.
+- 🟡 **Firmware you can update over the air** — an ESP32 that fetches and applies its own firmware update, with a rollback path when the new image doesn't boot. Ties [[hardware/fundamentals|embedded]] to [[foundations/networking/README|networking]] and to the "design for failure" instinct from [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]].
+- 🔴 **A device fleet that survives a bad network** — several nodes reporting to a server they can't always reach: local buffering, reconnect with backoff, and a defensible answer for what happens when two nodes resync with conflicting data. This is [[architecture/04-distributed-systems/README|distributed systems]] with a physical body, and it's the [[PRIMETECHIE|Rank IV hardware analogue]].
+- 🔴 **Debug something electrical and prove it** — take a fault you'd normally guess at and instrument it instead: scope the rail, find the noise, identify the cause (insufficient decoupling, ground bounce, a trace carrying more current than it should), fix it, and show the before/after trace. The hardware equivalent of a flame graph.
+
+---
+
+## Robotics
+*⚠️ **No vault course backs these yet** — [[robotics/README|robotics/]] is scaffold. Listed deliberately: the vault's own rule is that the build comes before the notes, so the first project here is the prerequisite for writing that folder at all.*
+
+- 🟢 **Make one motor go exactly where you tell it** — a servo or a stepper with an encoder, commanded to a position and holding it. Then disturb it by hand and watch it correct. That's a closed loop, and it's the entire subject in miniature.
+- 🟡 ⭐ **Tune a PID by hand, and write down what each term did** — a line follower or a self-balancing two-wheeler. Start with P only and watch it oscillate; add D and watch it stop; add I and watch the steady-state error close. **Tuning one loop badly on real hardware teaches more than any amount of control theory reading** — and it's the honest prerequisite for the `control-theory-basics` note.
+- 🟡 **Sensor fusion on something that moves** — combine an accelerometer and a gyro into one angle estimate with a complementary filter, and demonstrate why neither alone is usable (one drifts, one is noisy). The intuition Kalman filters formalise.
+- 🔴 **Teleoperation with a latency budget** — drive something remotely and measure the end-to-end delay, then make it degrade safely when the link drops rather than continuing at the last command. Joins [[foundations/networking/15-network-performance|latency]] to a machine that can hurt someone.
+- 🔴 **A robot that maps a room** — odometry plus a range sensor into a 2D occupancy map, and an honest account of how far it drifts. The entry point to SLAM, and the project that would justify writing that note.
+
+**If you do one:** the PID tuning project. It's cheap, it fits on a desk, and it converts an entire planned folder from aspiration into something you've earned the right to write.
+
+---
+
 ## Foundations (Python / data tools)
 *Do these alongside the ML/DS tracks — they're the muscle memory those depend on.*
 
@@ -107,5 +137,7 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
 
 ## Related
 - [[README|Knowledgebase home]] — the notes these projects exercise
-- [[languages/01-java/02-jvm-and-concurrency/exercises/README|Java concurrency exercises]] — the one place ready-made reps already exist
+- [[PRIMETECHIE|The Primetechie Path]] — which rank and column each project is a gate for
+- [[languages/01-java/02-jvm-and-concurrency/exercises/README|Java concurrency exercises]] · [[ai-ml/03-ai-engineer/19-practice-exercises|AI engineering exercises]] · [[cybersecurity/02-ethical-hacking/12-practice-exercises|ethical hacking exercises]] · [[devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA exercises]] — where ready-made reps already exist
+- [[hardware/README|Hardware]] · [[robotics/README|Robotics]] — the two newest columns; robotics is scaffold, so its projects come *before* its notes
 - [[problem-solving/thinking-patterns|problem-solving]] — the thinking-process companion
