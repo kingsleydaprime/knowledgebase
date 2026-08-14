@@ -13,6 +13,7 @@ The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest a
 - [x] `languages/02-go/` — README + 13 notes, ~14,400 words
 - [x] Spring Boot moved to `backend/frameworks/java/`; the `languages/` vs `backend/frameworks/` rule stated
 - [x] `languages/03-rust/` — README + 18 notes, ~22,000 words
+- [x] `languages/04-c/` — README + 13 notes, ~19,000 words
 
 ---
 
@@ -23,7 +24,7 @@ The order is deliberate: Rust first (already queued), then C, then C++. C before
 ### 1.1 `languages/03-rust/` — ✅ **DONE** — README + 18 notes, ~22,000 words
 Ownership and borrowing · lifetimes · traits and generics · `Result`/`Option` and the `?` operator · pattern matching · smart pointers (`Box`/`Rc`/`Arc`/`RefCell`) · interior mutability · `unsafe` and what it actually permits · async/await and the runtime split · cargo, crates, workspaces · macros · testing · error-handling crates (`thiserror`/`anyhow`) · performance and zero-cost abstractions
 
-### 1.2 `languages/04-c/` — ~12 notes
+### 1.2 `languages/04-c/` — ✅ **DONE** — README + 13 notes, ~19,000 words
 **Explicitly requested: headers.** The translation unit model is the thing nobody explains properly.
 
 Compilation model (preprocess → compile → assemble → link) · **headers, include guards, and why `.h`/`.c` split the way they do** · the preprocessor and macros · types, integer promotion, and `size_t` · pointers and pointer arithmetic · arrays vs pointers (the decay rule) · manual memory: `malloc`/`free`, the heap, and every way to get it wrong · structs, unions, bitfields, padding · strings as `char*` and why that's a security story · the standard library · **undefined behaviour** as its own note · build systems: `make`, `CMake` · debugging: `gdb`, `valgrind`, sanitizers
@@ -109,7 +110,7 @@ Each line is roughly one working session.
 | # | Batch | Notes |
 |---|---|---|
 | ~~1~~ | ~~`languages/03-rust/`~~ ✅ | 18 |
-| 2 | `languages/04-c/` | ~12 |
+| ~~2~~ | ~~`languages/04-c/`~~ ✅ | 13 |
 | 3 | `languages/05-cpp/` | ~15 |
 | 4 | `backend/frameworks/` — go, rust, c, cpp | ~21 |
 | 5 | `foundations/os/` buildout | ~12 |
