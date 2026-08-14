@@ -11,6 +11,7 @@ Deliberately **not numbered**: there's no reading order. Pick the one you're usi
 | **[[backend/frameworks/javascript/README\|JavaScript / TypeScript]]** | Node runtime, Express, NestJS | **event loop** | built out — Nest reference is substantial |
 | **[[backend/frameworks/java/README\|Java]]** | Spring Boot | thread-per-request → **virtual threads** (21+) | built out — **moved here** from `languages/01-java/` |
 | **[[backend/frameworks/python/README\|Python]]** | FastAPI, Django, Flask | mixed — WSGI blocking vs ASGI async | scaffold |
+| **[[backend/frameworks/c/README\|C]]** | libmicrohttpd, Kore, civetweb | **you build it** — usually an `epoll` loop | scaffold |
 | **[[backend/frameworks/go/README\|Go]]** | net/http, Chi, Gin | **goroutines** (green threads) | scaffold |
 | **[[backend/frameworks/rust/README\|Rust]]** | Axum, Actix Web | **async/tokio** | scaffold |
 
