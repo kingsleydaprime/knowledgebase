@@ -34,7 +34,7 @@ Analyzes an intrusion via four linked vertices — **Adversary, Capability, Infr
 
 **Threat hunting** is *proactively* searching for attackers who evaded automated [[cybersecurity/07-security-operations/02-logging-siem-and-detection|detection]] — assuming breach and going to look, rather than waiting for an alert. A hunt is **hypothesis-driven**: "if an attacker used pass-the-hash for lateral movement (an ATT&CK technique), I'd see *this* pattern in the logs — let me search for it." The hunter queries the SIEM/EDR data, confirms or refutes, and — crucially — **turns any finding into a new automated detection** so the next occurrence alerts on its own.
 
-Hunting is what separates a mature SOC from an alert-monitoring one: it finds the sophisticated, low-and-slow adversaries ([[cybersecurity/03-attacker-and-hacker-types|APTs]]) that never trip a signature. It depends on good telemetry (logs/EDR), knowledge of ATT&CK, and understanding your own environment's "normal."
+Hunting is what separates a mature SOC from an alert-monitoring one: it finds the sophisticated, low-and-slow adversaries ([[cybersecurity/01-fundamentals/03-attacker-and-hacker-types|APTs]]) that never trip a signature. It depends on good telemetry (logs/EDR), knowledge of ATT&CK, and understanding your own environment's "normal."
 
 ## Related
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging, SIEM & Detection]] — the data hunts run against

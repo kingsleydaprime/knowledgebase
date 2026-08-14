@@ -43,7 +43,7 @@ Don't announce "done" and stop. **Trace your code line-by-line on a small exampl
 Before you brute-force, scan the prompt for tells. Problems are written with a target solution in mind, and the constraints, the stated complexity, and the exact wording all leak it.
 
 ### Signal A — the input-size constraint tells you the complexity
-Machines do ~10⁸ operations/second and problems allow ~1–10s, so the bound on `n` reveals what complexity is *expected* — often before you've even found the approach. Full table lives in [[05-algorithms/01-algorithms|algorithms]]; the reflex version:
+Machines do ~10⁸ operations/second and problems allow ~1–10s, so the bound on `n` reveals what complexity is *expected* — often before you've even found the approach. Full table lives in [[foundations/dsa/05-algorithms/01-algorithms|algorithms]]; the reflex version:
 
 | Constraint on `n` | Expected complexity | What that usually means |
 |---|---|---|
@@ -94,5 +94,5 @@ The single highest-leverage habit: **talk through all of it**. A silent solve of
 
 ## Related
 - [[README|NeetCode 150 index & pattern cheat-sheet]] — signal → tool, once you know *what* you're building
-- [[05-algorithms/01-algorithms|algorithms]] — the full constraint → complexity table and Big-O reasoning
-- [[06-patterns/README|patterns]] · [[04-data-structures/03-hash-maps|data structures]] — the tools themselves
+- [[foundations/dsa/05-algorithms/01-algorithms|algorithms]] — the full constraint → complexity table and Big-O reasoning
+- [[foundations/dsa/06-patterns/README|patterns]] · [[foundations/dsa/04-data-structures/03-hash-maps|data structures]] — the tools themselves

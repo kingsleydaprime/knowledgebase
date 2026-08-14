@@ -64,8 +64,8 @@ The baseline. You can take an idea to a running thing without help.
 - [ ] Run `ss -tulpn` on your own server and be able to justify **every single listening port**
 
 **🔌 Hardware**
-- [ ] Build a circuit on a breadboard that does something, having **calculated** the resistor rather than copying it → [[hardware/fundamentals|fundamentals]]
-- [ ] Read a datasheet well enough to wire a part you've never used → [[blog-drafts/reading-a-datasheet|reading a datasheet]]
+- [ ] Build a circuit on a breadboard that does something, having **calculated** the resistor rather than copying it → [[hardware/01-electricity|electricity]]
+- [ ] Read a datasheet well enough to wire a part you've never used → the [[hardware/README|golden rule]], and `blog-drafts/reading-a-datasheet.md`
 
 **Capstone:** any 🟢 in [[project-ideas|project-ideas]], deployed and written up.
 
@@ -117,7 +117,7 @@ Depth becomes bedrock. You stop treating infrastructure as magic because you've 
 **The non-negotiable gate, in whichever column is yours:**
 
 - [ ] 💻 **Build one thing from scratch that you previously only used** — your own Redis (most approachable), your own git, an HTTP/1.1 server from raw sockets → [[foundations/networking/09-sockets-and-the-network-api|sockets]], or a B-tree/LSM storage engine
-- [ ] 🔌 **Design, order, and bring up your own PCB** — schematic → layout → fab → first power-on without releasing the smoke → [[hardware/kicad-basics|KiCad]], [[projects/iot-bridge-pcb/task|IoT Bridge PCB]]
+- [ ] 🔌 **Design, order, and bring up your own PCB** — schematic → layout → fab → first power-on without releasing the smoke → [[hardware/10-kicad-basics|KiCad]], [[projects/iot-bridge-pcb/task|IoT Bridge PCB]]
 - [ ] 🔐 **Exploit something end to end in your own lab** — recon → foothold → privilege escalation → written up as a report someone could act on → [[cybersecurity/02-ethical-hacking/12-practice-exercises|practice exercises]]
 - [ ] ☁️ **Run the thing you usually rent** — self-host the database, the queue, the object store, and survive the operational reality of it
 
@@ -149,7 +149,7 @@ Where most senior engineers stop, and where the genuinely hard problems start.
 
 **The same shape in the other columns, if that's where you live:**
 - 🔐 Run an incident end to end — detect, contain, eradicate, recover, postmortem → [[cybersecurity/07-security-operations/04-incident-response|incident response]]
-- 🔌 Build a fleet of devices that stay coherent with a server they **can't always reach** — buffering, reconnection, conflict on resync → [[hardware/fundamentals|IoT architecture]]
+- 🔌 Build a fleet of devices that stay coherent with a server they **can't always reach** — buffering, reconnection, conflict on resync → [[hardware/08-iot-architecture|IoT architecture]]
 
 **Capstone:** the Raft KV store, tested against partitions and crashes. Write up what surprised you — that write-up is worth more than the code.
 

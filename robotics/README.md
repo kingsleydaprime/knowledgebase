@@ -8,7 +8,7 @@ Scaffolded August 2026 as a stated direction rather than existing knowledge. Lab
 
 1. `what-robotics-actually-is` — **[Beginner]** — the sense → plan → act loop, and why every robotics problem decomposes into those three regardless of the robot
 2. `sensors-and-perception` — **[Beginner]** — encoders, IMUs, range finders, cameras; noise, drift, and why a single sensor is never trusted alone
-3. `actuators-and-motion` — **[Beginner]** — DC/stepper/servo motors, drivers, gearing, and the current draw that makes [[hardware/fundamentals|power design]] suddenly matter
+3. `actuators-and-motion` — **[Beginner]** — DC/stepper/servo motors, drivers, gearing, and the current draw that makes [[hardware/01-electricity|power design]] suddenly matter
 4. `control-theory-basics` — **[Intermediate]** — open vs closed loop, PID and how to actually tune one, steady-state error, why derivative gain amplifies noise
 5. `kinematics` — **[Intermediate]** — forward and inverse kinematics, degrees of freedom, workspace; the maths that turns "put the gripper there" into joint angles
 6. `state-estimation-and-filtering` — **[Advanced]** — sensor fusion, complementary and Kalman filters: combining unreliable sensors into one usable belief
