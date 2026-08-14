@@ -2,10 +2,13 @@
 
 This domain is organized around a distinction that matters for how you actually learn and work: **"AI/ML" is three different career paths, not one.** roadmap.sh treats them as separate roadmaps (and even has explicit `ml-engineer-vs-ai-engineer` nodes) — so this domain is split the same way, over a shared foundation.
 
+> **New to AI entirely, and not a programmer?** Start with [[using-ai/README|using-ai/]] — an eight-note course on *using* LLMs well (briefing them, checking them, what not to paste). Everything below assumes you'll be building.
+
 ## The three paths — and how they differ
 
 | Path | Core question | Deliverable | Builds/trains models? |
 |---|---|---|---|
+| *[[using-ai/README\|(path zero: AI User)]]* | *"how do I use these tools well?"* | *better work, faster — no code* | *no — uses the products, not the APIs* |
 | **[[ai-ml/01-data-scientist/README\|Data Scientist]]** | "what does the data tell us?" | an answer, analysis, or insight (often a notebook + report) | sometimes — usually classical ML, interpreted |
 | **[[ai-ml/02-ml-engineer/README\|ML Engineer]]** | "how do we build and ship a model that works in production?" | a trained model running reliably as software | **yes** — trains models, then operationalizes them (MLOps) |
 | **[[ai-ml/03-ai-engineer/README\|AI Engineer]]** | "how do we build a product on top of existing models?" | an application using pre-trained models (LLMs) via APIs | **no** — uses pre-trained models; RAG/prompting/agents, not training |
@@ -27,6 +30,7 @@ The sharpest line is between **ML Engineer** (trains models, needs the math and 
 Restructured (2026-07-31) by cross-referencing against roadmap.sh's `ai-data-scientist`, `machine-learning`, `mlops`, and `ai-engineer` roadmaps. The old single linear course ("fundamentals → maths → ml-engineering → CV → build your own") conflated all three paths; its content was re-homed into the path it actually belonged to, nothing dropped. The AI Engineer track was built out deeply this pass (folding in the old `01-fundamentals/` notes + roadmap gaps); Data Scientist and ML Engineer keep their existing content with gaps documented for later passes.
 
 ## Related
+- [[using-ai/README|Using AI]] — the non-programmer on-ramp that feeds into this domain
 - [[foundations/dsa/README|DSA fundamentals]] — different domain, same "orientation → build" approach
 - [[devops/README|DevOps]] — the MLOps half of the ML Engineer path cross-links here
 - [[ai-automation/README|ai-automation/]] — the no-code/automation-tooling angle on applied AI
