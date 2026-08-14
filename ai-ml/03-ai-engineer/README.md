@@ -36,6 +36,7 @@ The track is in two parts. **Part I (1–10)** is the core path — everything y
 Same honest caveat as every domain: reading this isn't reps. The reps here are *building* — a RAG system over your own docs, a small MCP server, an agent with real tools, an eval set for a feature. The applied work you already do (AI SDK, MCP) is where this becomes real; these notes are the map.
 
 ## Related
+- [[using-ai/README|Using AI]] — the prior course for non-programmers: using LLMs as a *user*. Note 1 below assumes you've either read it or absorbed it by osmosis
 - [[ai-ml/README|AI/ML course map]] — the three paths
 - [[ai-ml/00-foundations/README|Foundations]] — what a model is, and the (light) math this path needs
 - [[ai-automation/README|ai-automation/]] — the no-code angle on applied AI

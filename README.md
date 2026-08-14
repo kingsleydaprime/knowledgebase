@@ -8,7 +8,7 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
-The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, cybersecurity, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`, and parts of `backend/`.) Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
+The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`, and parts of `backend/`.) Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
 
 **Two cross-cutting entry points, added August 2026:**
 - 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
@@ -17,6 +17,7 @@ The domains that are actually built out — **networking, DSA, backend, architec
 Start here, depending on what you want:
 - [[foundations/networking/README|Networking]] — the wire up to the web: link layer → IP → TCP/congestion control → DNS/TLS/HTTP → QUIC → debugging. The foundation under devops, security, and distributed systems
 - [[foundations/dsa/README|Data Structures & Algorithms]] → then [[foundations/dsa/06-patterns/README|LeetCode Patterns]]
+- [[using-ai/README|Using AI]] — **start here if you're new to AI and don't write code.** Eight notes on using LLMs well: what they are, how to brief them, how to check them, what not to paste. The on-ramp to everything below
 - [[ai-ml/README|AI & ML]] — split into three career paths (data scientist, ML engineer, AI engineer) over a shared foundation
 - [[cybersecurity/README|Cybersecurity]] — fundamentals → ethical hacking → network/web security → cryptography → attacks taxonomy → security operations (blue team) → GRC → cloud
 - [[backend/README|Backend]] — a full course: foundations → API design → **structuring a backend** (layers, DI, hexagonal, modular monolith) → data → auth, plus `frameworks/` for Node/Nest/Spring/FastAPI/Axum
@@ -54,6 +55,12 @@ knowledgebase/
 │   │                             # From Kurose & Ross, Stevens, RFCs, Grigorik.
 │   └── os/                       # partially built — fundamentals.md + interview/, with a
 │                                 # curriculum plan in its README. Honest scaffold.
+│
+├── using-ai/                     # 8-note course for NON-programmers new to AI (Aug 2026):
+│                                 # what an LLM is → how it works plainly → choosing a tool
+│                                 # → prompting as briefing → context/long chats →
+│                                 # verifying output → privacy → living with it.
+│                                 # The on-ramp *into* ai-ml/; a technical-user track is planned.
 │
 ├── ai-ml/                        # split (roadmap.sh-cross-referenced) into 3 career
 │   ├── 00-foundations/           # paths over a shared foundation: 00-foundations
