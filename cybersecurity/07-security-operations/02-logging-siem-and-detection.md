@@ -40,7 +40,77 @@ The sensors that feed detection:
 
 The mature SOC combines all three, tuned to its environment, feeding a [[cybersecurity/07-security-operations/03-threat-intelligence-and-hunting|hunt]] and [[cybersecurity/07-security-operations/04-incident-response|response]] process. Detection metrics — **false positive / false negative** rates, and mean-time-to-detect — are how you measure whether it's working.
 
+## What a detection actually looks like
+
+Everything above is vocabulary until you write one. Take the most common detection in existence: **SSH password spraying followed by a success.**
+
+The raw material, from a Linux auth log ([[devops/01-linux/17-logs-and-journald|logs & journald]] — `/var/log/auth.log` on Debian/Ubuntu, `/var/log/secure` on RHEL):
+
+```
+Failed password for invalid user admin from 203.0.113.9 port 54122 ssh2
+Failed password for invalid user root from 203.0.113.9 port 54124 ssh2
+Accepted password for deploy from 203.0.113.9 port 54180 ssh2
+```
+
+Three lines. The first two are noise on any internet-facing box; the third *after* the first two is an incident. Detection is the act of expressing "after" in a query.
+
+**On one box, before any SIEM exists:**
+
+```bash
+journalctl -u ssh --since "1 hour ago" | grep -c "Failed password"
+journalctl -u ssh --since "1 hour ago" | grep "Accepted" 
+# then: does any IP appear in BOTH lists?
+grep "Failed password" /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -c | sort -rn | head
+```
+
+That last line — count failures per source IP, descending — is the single most useful one-liner in host-level detection, and it needs no product at all.
+
+**In Splunk (SPL):**
+
+```
+index=linux sourcetype=secure "Failed password"
+| stats count AS failures, dc(user) AS users_tried BY src_ip
+| where failures > 20 AND users_tried > 5
+| join src_ip [ search index=linux sourcetype=secure "Accepted password" | stats count AS successes BY src_ip ]
+| where successes > 0
+```
+
+**As a Sigma rule** — the portable detection format, which converts to Splunk/Elastic/Sentinel syntax, so rules are shared as Sigma rather than rewritten per platform:
+
+```yaml
+title: SSH Brute Force Followed by Successful Login
+logsource:
+  product: linux
+  service: sshd
+detection:
+  failed:
+    message|contains: 'Failed password'
+  success:
+    message|contains: 'Accepted password'
+  timeframe: 15m
+  condition: failed | count() by src_ip > 20 and success
+level: high
+falsepositives:
+  - Misconfigured automation retrying with stale credentials
+  - A vulnerability scanner in an authorised test window
+```
+
+Note the `falsepositives` block. **A rule without one will be disabled within a fortnight** — the analyst who gets paged at 3am by your monitoring service's expired credential will turn it off, and it will still be off during the real intrusion.
+
+## Tuning is the actual job
+
+Writing the rule is an afternoon. Making it survivable is the work:
+
+- **Baseline before you threshold.** Run the query without the `where` clause for a week and look at the distribution. A threshold of 20 is a guess; the 99th percentile of your own traffic is a decision.
+- **Exclude by identity, not by silence.** Suppress the known vulnerability scanner *by its source IP and only during its window*, rather than dropping the threshold until it stops firing.
+- **Every alert needs a next step.** If the analyst's only possible response is "hmm," it's a dashboard panel, not an alert. This is the same discipline as [[devops/10-observability/01-observability-fundamentals|actionable alerting]] in DevOps, and it fails the same way.
+- **Test your detection by performing the attack.** Spray your own lab box ([[cybersecurity/02-ethical-hacking/05-home-lab-setup|home lab]]) and confirm the alert fires. An untested detection rule is a belief, not a control — and detections silently break when a log format changes upstream.
+
+The uncomfortable truth of most SOCs: the rules exist, and nobody has verified since deployment that they still fire.
+
 ## Related
 - [[cybersecurity/07-security-operations/03-threat-intelligence-and-hunting|Threat Intelligence & Hunting]] — turning detections into proactive searching
+- [[devops/01-linux/17-logs-and-journald|Logs and journald]] — reading the raw material above on a single host
+- [[devops/01-linux/20-firewalls-and-hardening|Firewalls & Hardening]] — keys-only SSH, which eliminates the attack this rule detects
 - [[cybersecurity/07-security-operations/04-incident-response|Incident Response]] — what happens when an alert is real
 - [[devops/10-observability/README|Observability (DevOps)]] — the same telemetry foundation for reliability

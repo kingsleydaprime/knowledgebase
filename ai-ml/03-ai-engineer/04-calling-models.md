@@ -29,7 +29,7 @@ Provider APIs differ in detail (auth, streaming format, tool-calling shape). A u
 
 ```ts
 // ILLUSTRATIVE shape — verify exact current API against the installed version's docs.
-import { generateText, streamText, generateObject, tool } from "ai";
+import { generateText, streamText, tool, Output } from "ai";
 
 // 1. One-shot text
 const { text } = await generateText({ model, prompt: "…" });
@@ -38,7 +38,7 @@ const { text } = await generateText({ model, prompt: "…" });
 const { textStream } = streamText({ model, prompt: "…" });
 
 // 3. Structured output — get typed JSON, not a string to parse
-const { object } = await generateObject({ model, schema /* a zod schema */, prompt: "…" });
+const { output } = await generateText({ model, prompt: "…", output: Output.object({ schema }) });
 
 // 4. Tool calling — give the model functions it can invoke (see 07-tools-and-mcp)
 const result = await generateText({ model, tools: { getWeather: tool({ /* … */ }) }, prompt: "…" });

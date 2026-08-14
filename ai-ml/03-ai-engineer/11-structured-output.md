@@ -21,7 +21,9 @@ You supply a JSON Schema; the provider constrains generation so the output **pro
 
 ```ts
 // ILLUSTRATIVE — the durable idea, not an exact API.
-import { generateObject } from "ai";
+// (The AI SDK's older `generateObject` has been superseded by `generateText` + `Output.object`;
+//  the shape below is current as of Aug 2026. Check node_modules/ai/docs/ — this WILL move again.)
+import { generateText, Output } from "ai";
 import { z } from "zod";
 
 const Invoice = z.object({
@@ -32,7 +34,11 @@ const Invoice = z.object({
   is_overdue: z.boolean(),
 });
 
-const { object } = await generateObject({ model, schema: Invoice, prompt: invoiceText });
+const { output } = await generateText({
+  model,
+  prompt: invoiceText,
+  output: Output.object({ schema: Invoice }),
+});
 //        ^ typed as z.infer<typeof Invoice>, already validated
 ```
 
