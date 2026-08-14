@@ -49,11 +49,31 @@ Use this when a course note feels abstract and you want the real instance:
 
 ---
 
-## Known gaps worth fixing
+## Topics that live ONLY here
 
-- **[[projects/arete/learning/devops/05-grep-in-depth|grep]], [[projects/arete/learning/devops/06-find-in-depth|find]], [[projects/arete/learning/devops/07-regex-from-zero-to-advanced|regex]], and [[projects/arete/learning/devops/08-sed-and-awk|sed/awk]]** in arete are **general knowledge sitting in a project folder** with no counterpart in [[devops/01-linux/README|devops/01-linux]] (which only has `16-sed-and-awk`). They're invisible from the course structure. Worth promoting.
+A sweep in **August 2026** measured every project topic against the course folders. These are subjects where the project logs are the vault's *only real coverage* — the courses mention them in passing at best. Listed with the honest word counts, worst ratio first.
+
+| Topic | In courses | In projects | Where |
+|---|---|---|---|
+| **React / Next.js** | 419 w (two stub READMEs) | **~44,000 w** | 105× — see [[frontend/README\|the frontend index]], now written |
+| **Tailwind / shadcn** | **zero mentions, anywhere** | 1.6k w | [[projects/socioboom/learning/frontend/03-styling-and-ui\|socioboom — styling]] |
+| **Supabase / BaaS** | 3 passing mentions | 4.0k w | [[projects/gees-arise/learning/04-supabase\|gees-arise]] · [[projects/sorepoint/learning/supabase\|sorepoint]] |
+| **Money, ledgers, payouts** | mentioned, no note | 12.9k w | [[projects/nextvibe/learning/backend/06-money-ledger-and-payouts\|nextvibe]] |
+| **Realtime / WebSockets** | mentioned, no note | 11.2k w | [[projects/nextvibe/learning/backend/05-realtime\|backend]] · [[projects/nextvibe/learning/frontend/06-realtime\|frontend]] |
+| **React Native / mobile** | **zero** | 3.1k w | [[projects/arete/learning/mobile/01-react-native-fundamentals\|arete mobile]] (7 notes) |
+| **grep, find, regex, sed/awk** | only `16-sed-and-awk` | 2.1k w | [[projects/arete/learning/devops/05-grep-in-depth\|arete devops notes]] — the deepest shell material in the vault |
+
+**This is not a filing error, and the fix is not "move it."** A project note teaches a topic *as it showed up*, with the real bug attached — often better than a standalone note. The failure is only that it was **unfindable from the course structure**, so a reader concluded the vault had nothing on Next.js when it has 44,000 words.
+
+Two of these are now fixed by indexing rather than moving: [[frontend/README|frontend]] carries a full topic→project table, as do [[frontend/01-react/README|01-react]] and [[frontend/02-next/README|02-next]]. The rest are still only reachable from this page.
+
+**Worth a real course eventually:** money/ledgers and realtime are both large, general, and genuinely absent — they'd sit in [[backend/README|backend/]] as `08-realtime` and a financial-systems section. Mobile would be a new `frontend/06-react-native/`. Do the distillation when you next touch that code, not as a documentation project.
+
+## Other known gaps
+
 - **`munakalati/` was an empty folder** — removed 2026-08-13. Recreate it with a `learning/` folder if the project restarts.
 - **No project has exercised the [[architecture/04-distributed-systems/README|distributed systems]] material.** That's the Rank IV gap in [[PRIMETECHIE|the Primetechie path]], and the Raft KV store in [[project-ideas|project-ideas]] is the fix.
+- **No project has a unit-testing story.** The only testing notes are [[projects/gees-arise/learning/07-testing|gees-arise's Playwright E2E]] and Java's JUnit work — which is why [[backend/07-practices/02-testing-a-backend|testing a backend]] had to be written from scratch rather than distilled.
 
 ## Related
 - [[README|Vault README]] · [[project-ideas|Project Ideas]] — what to build next

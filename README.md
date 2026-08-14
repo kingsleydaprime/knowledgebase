@@ -8,7 +8,7 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
-The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `robotics/`, `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`, and parts of `backend/`.)
+The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `robotics/`, `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`, and parts of `backend/`. **Note on the frontend two:** the scaffold is the *course*, not the knowledge — ~44,000 words on React/Next.js live in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
 
 **This is not a software-engineering vault.** It covers software, infrastructure, security, and hardware — see [[PRIMETECHIE|the path]] for how those four fit together rather than sitting in separate silos. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
 
