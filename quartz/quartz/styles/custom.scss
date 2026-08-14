@@ -39,7 +39,7 @@ article {
   th,
   td {
     padding: 0.5rem 0.8rem;
-    border-bottom: 1px solid var(--lightgray);
+    border-bottom: 1px solid color-mix(in srgb, var(--lightgray) 60%, transparent);
     vertical-align: top;
   }
 
@@ -75,7 +75,7 @@ article blockquote {
 // ── Code ─────────────────────────────────────────────────────────────────────
 article {
   pre {
-    border: 1px solid var(--lightgray);
+    border: 1px solid color-mix(in srgb, var(--lightgray) 60%, transparent);
     border-radius: 6px;
   }
 
@@ -96,7 +96,7 @@ article {
   h2 {
     margin-top: 2.4rem;
     padding-bottom: 0.3rem;
-    border-bottom: 1px solid var(--lightgray);
+    border-bottom: 1px solid color-mix(in srgb, var(--lightgray) 60%, transparent);
   }
 
   h3 {
@@ -107,8 +107,134 @@ article {
   // make them quieter than a full-width dark line.
   hr {
     border: none;
-    border-top: 1px solid var(--lightgray);
+    border-top: 1px solid color-mix(in srgb, var(--lightgray) 60%, transparent);
     margin: 2.5rem 0;
+  }
+}
+
+// ── Explorer ─────────────────────────────────────────────────────────────────
+// The default explorer is a flat, undifferentiated list. With ~30 top-level
+// folders and 4 levels of nesting, structure has to be visible at a glance:
+// folders read as containers, files as leaves, and the current page is obvious.
+//
+// Note: `.folder-outer > ul` already ships a `border-left: 1px solid
+// var(--lightgray)` indent guide — it was invisible only because dark-mode
+// `lightgray` sat almost on top of the background. That's fixed in the palette
+// (quartz.config.yaml), so the guides below build on a line that now renders.
+.explorer {
+  // Section header — match the weight of the other sidebar headings but give
+  // the fold chevron a clearer hit area.
+  .explorer-toggle h2 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+
+  // Rows: files and folders share one row shape so the tree reads as a column
+  // of equal-height items rather than a ragged list.
+  .nav-file-title,
+  .folder-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.2rem 0.45rem;
+    border-radius: 5px;
+    line-height: 1.35;
+    transition:
+      background-color 0.12s ease,
+      color 0.12s ease;
+  }
+
+  // Files — quieter than folders, since folders are the navigation and files
+  // are the destinations. Removes the default underline-on-hover in favour of
+  // a hover pill, which is far less noisy in a dense tree.
+  .nav-file-title {
+    color: var(--darkgray);
+    background-image: none;
+    font-size: 0.92rem;
+
+    &:hover {
+      background-color: var(--highlight);
+      color: var(--secondary);
+    }
+  }
+
+  // Folders — the structural layer, so slightly stronger.
+  .folder-title {
+    font-size: 0.95rem;
+    font-weight: $semiBoldWeight;
+  }
+
+  .folder-button:hover .folder-title {
+    color: var(--secondary);
+  }
+
+  .folder-container {
+    align-items: flex-start; // long names like "07-infrastructure-as-code" wrap;
+    padding: 0.05rem 0; //  keep the chevron on the FIRST line, not centred
+    border-radius: 5px;
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--lightgray) 45%, transparent);
+    }
+  }
+
+  // The collapse chevron: nudge it onto the text baseline and calm it down
+  // until you're actually pointing at the row.
+  .folder-icon {
+    margin-top: 0.42rem;
+    flex-shrink: 0;
+    opacity: 0.45;
+    transition:
+      transform 0.2s ease,
+      opacity 0.12s ease;
+  }
+
+  .folder-container:hover .folder-icon {
+    opacity: 1;
+    color: var(--secondary);
+  }
+
+  // Current page — a copper left-rule plus a tint. The rule is what makes it
+  // findable when scrolling a long tree; the tint alone gets lost.
+  .nav-file-title.is-active,
+  .nav-file-title.active {
+    background-color: var(--highlight);
+    color: var(--secondary);
+    font-weight: $semiBoldWeight;
+    box-shadow: inset 2px 0 0 var(--secondary);
+  }
+
+  // Indent guides — soften the inherited border and light it up for the
+  // subtree you're hovering, so nesting depth is readable without counting.
+  .folder-outer > ul {
+    border-left-color: color-mix(in srgb, var(--lightgray) 70%, transparent);
+    transition: border-left-color 0.15s ease;
+  }
+
+  li:hover > .folder-outer > ul {
+    border-left-color: color-mix(in srgb, var(--secondary) 45%, transparent);
+  }
+
+  // Scrollbar — the default chunky one eats width in a 250px sidebar.
+  .explorer-ul {
+    scrollbar-width: thin;
+    scrollbar-color: var(--lightgray) transparent;
+    padding-right: 0.25rem;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--lightgray);
+      border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: var(--gray);
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
   }
 }
 
@@ -116,6 +242,13 @@ article {
 // The default 250px is cramped once localGraph depth is 2.
 .graph .graph-outer {
   height: 320px;
+}
+
+// The global-graph modal is where 800+ notes are actually explored — the
+// default 80vw/80vh leaves a wasteful margin on a large screen.
+.graph > .global-graph-outer > .global-graph-container {
+  width: 92vw;
+  height: 90vh;
 }
 
 // ── Task lists ───────────────────────────────────────────────────────────────
