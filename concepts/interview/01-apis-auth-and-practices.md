@@ -1,6 +1,6 @@
 # Concepts Interview — APIs, Auth & Practices
 
-From [[concepts/01-backend/README|01-backend]], [[concepts/03-design-patterns/README|03-design-patterns]], [[concepts/04-best-practices/README|04-best-practices]].
+From [[backend/README|01-backend]], [[concepts/03-design-patterns/README|03-design-patterns]], [[concepts/04-best-practices/README|04-best-practices]].
 
 ---
 

@@ -1,20 +1,12 @@
-# Concepts — Framework-Agnostic Engineering
+# Concepts — Ideas That Belong to No Domain
 
-The ideas that stay true when you change language, framework, or job. If a note here mentions a specific tool, it's as an *example* of the concept — not as the point.
+The engineering ideas that aren't *about* any one domain — design patterns, clean code, testing, how to structure a pull request. True whatever you're building and wherever you're building it.
 
-This is the folder to reread when you're picking up something new: the syntax will be unfamiliar, but the concepts won't be.
+**`01-backend/` moved to [[backend/README|backend/]] in August 2026.** The reasoning is worth keeping: someone navigating to "backend" shouldn't have to know that half the backend material was filed under "concepts." Domain-specific concepts now live with their domain; this folder holds only what belongs to none.
+
+That leaves an open question — [[concepts/02-frontend/README|02-frontend]] has the same problem and arguably belongs in [[frontend/README|frontend/]]. Not moved yet.
 
 ## Sections
-
-### [[concepts/01-backend/README|01 — Backend]]
-How servers actually work, independent of Express/Nest/Spring.
-1. [[concepts/01-backend/01-http-servers|HTTP Servers]] — **[Beginner]** — the request lifecycle, routing, middleware as a concept
-2. [[concepts/01-backend/02-backend-best-practices|Backend Best Practices]] — **[Intermediate]** — layering, error handling, config
-3. [[concepts/01-backend/03-apis|APIs]] — **[Intermediate]** — REST semantics, versioning, pagination, idempotency
-4. [[concepts/01-backend/04-databases|Databases]] — **[Intermediate]** — modelling, transactions, the ORM tradeoff
-5. [[concepts/01-backend/05-authentication-flows|Authentication Flows]] — **[Intermediate]** — sessions vs tokens, JWT's real tradeoffs
-6. [[concepts/01-backend/06-authorization|Authorization]] — **[Intermediate]** — RBAC/ABAC, and why authn ≠ authz
-7. [[concepts/01-backend/06-oauth-provider-integrations|OAuth Provider Integrations]] — **[Advanced]** — the flows in practice
 
 ### [[concepts/02-frontend/README|02 — Frontend]]
 1. [[concepts/02-frontend/01-frontend-best-practices|Frontend Best Practices]] — **[Beginner]**

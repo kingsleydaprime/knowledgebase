@@ -1,6 +1,6 @@
 # OAuth Provider Integrations — The Practical Cut
 
-[[concepts/01-backend/05-authentication-flows|05-authentication-flows]] covers what OAuth 2.0
+[[backend/05-auth/01-authentication-flows|05-authentication-flows]] covers what OAuth 2.0
 *is*. This file covers what actually happens when you integrate four or five real providers:
 where each one deviates from the spec, which failures are configuration and which are
 policy, and what to plan for beyond the code.
@@ -233,7 +233,7 @@ Answering these before writing code is roughly an hour and saves days.
 ---
 
 ## Related
-- [[concepts/01-backend/05-authentication-flows|05-authentication-flows]] — the theory
+- [[backend/05-auth/01-authentication-flows|05-authentication-flows]] — the theory
 - [[devops/08-networking-and-web/03-local-https-tunnels|Local HTTPS tunnels]] — for https-only callbacks
 - [[devops/03-cloud/03-object-storage-and-direct-uploads|Object storage & direct uploads]] — for fetch-by-URL platforms
 - [[devops/09-secret-management/README|Secret management]] — storing provider tokens at rest

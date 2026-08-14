@@ -70,6 +70,6 @@ Indexes aren't free — they speed up reads on the indexed column(s) but slow do
 - An index doesn't help a query that doesn't use it — mismatched query patterns (searching on a computed/transformed version of a column that isn't itself indexed, for instance) silently fall back to a full scan despite an index technically existing on the underlying column.
 
 ## Related
-- [[03-apis|apis]]
-- [[02-backend-best-practices|backend-best-practices]]
+- [[backend/02-api-design/01-apis-and-rest|APIs]]
+- [[backend/07-practices/01-backend-best-practices|backend best practices]]
 - [[05-searching|searching]] — why indexing provides the speedup it does

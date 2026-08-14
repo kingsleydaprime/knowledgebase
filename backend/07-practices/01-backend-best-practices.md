@@ -49,7 +49,7 @@ Validating environment configuration at startup (see `backend/nodejs/node-env-va
 
 ## Security basics that belong in every backend, not just "security-focused" ones
 
-- Rate limiting on authentication and other sensitive endpoints (see [[05-authentication-flows|authentication-flows]]).
+- Rate limiting on authentication and other sensitive endpoints (see [[backend/05-auth/01-authentication-flows|authentication flows]]).
 - HTTPS everywhere, never plain HTTP for anything handling real data (see [[03-https-and-tls|https-and-tls]]).
 - Dependency updates — a backend's own code being secure doesn't help if a dependency it pulls in has a known vulnerability; keeping dependencies current (and knowing what's in your dependency tree at all) is part of this list, not a separate concern.
 - Secrets (API keys, database credentials, signing keys) belong in a secrets manager or environment variables, never hardcoded or committed to source control.
@@ -61,6 +61,6 @@ Validating environment configuration at startup (see `backend/nodejs/node-env-va
 - Validation done only on the client side, mirroring the same mistake covered in [[01-input-validation-and-output-encoding|input-validation-and-output-encoding]], provides no actual protection — server-side validation is non-negotiable regardless of what the client already checks.
 
 ## Related
-- [[01-http-servers|http-servers]]
+- [[backend/01-foundations/02-http-servers|HTTP servers]]
 - [[01-input-validation-and-output-encoding|input-validation-and-output-encoding]]
-- [[05-authentication-flows|authentication-flows]]
+- [[backend/05-auth/01-authentication-flows|authentication flows]]

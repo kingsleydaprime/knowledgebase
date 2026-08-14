@@ -8,7 +8,7 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
-The domains that are actually built out — **networking, DSA, architecture (incl. distributed systems), devops, java, AI/ML, cybersecurity, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `backend/`, `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`.) Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
+The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, cybersecurity, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`, and parts of `backend/`.) Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
 
 **Two cross-cutting entry points, added August 2026:**
 - 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
@@ -19,7 +19,8 @@ Start here, depending on what you want:
 - [[foundations/dsa/README|Data Structures & Algorithms]] → then [[foundations/dsa/06-patterns/README|LeetCode Patterns]]
 - [[ai-ml/README|AI & ML]] — split into three career paths (data scientist, ML engineer, AI engineer) over a shared foundation
 - [[cybersecurity/README|Cybersecurity]] — fundamentals → ethical hacking → network/web security → cryptography → attacks taxonomy → security operations (blue team) → GRC → cloud
-- [[concepts/01-backend/README|Backend]], [[concepts/02-frontend/README|Frontend]], [[concepts/03-design-patterns/README|Design Patterns]], [[concepts/04-best-practices/README|Best Practices]] — framework-agnostic engineering concepts
+- [[backend/README|Backend]] — a full course: foundations → API design → **structuring a backend** (layers, DI, hexagonal, modular monolith) → data → auth, plus `frameworks/` for Node/Nest/Spring/FastAPI/Axum
+- [[concepts/02-frontend/README|Frontend]], [[concepts/03-design-patterns/README|Design Patterns]], [[concepts/04-best-practices/README|Best Practices]] — engineering ideas that belong to no single domain
 - [[languages/01-java/README|Java]] — the JVM, concurrency, and the Spring Boot/build-tools ecosystem
 - [[devops/README|DevOps]] — Linux → containers → orchestration → CI/CD → IaC → observability
 - [[architecture/README|Architecture]] — system design (scaling, caching, patterns) + distributed systems (consensus, consistency, partitioning)
@@ -74,10 +75,9 @@ knowledgebase/
 │   ├── 08-governance-risk-and-compliance/
 │   └── 09-cloud-security/
 │
-├── concepts/                     # numbered course: framework-agnostic engineering ideas
-│   ├── 01-backend/
-│   ├── 02-frontend/
-│   ├── 03-design-patterns/
+├── concepts/                     # engineering ideas that belong to NO domain.
+│   ├── 02-frontend/              # (01-backend moved into backend/ — Aug 2026, so that
+│   ├── 03-design-patterns/       #  everything about backends is findable in one place)
 │   └── 04-best-practices/
 │
 ├── devops/                       # numbered course, roadmap.sh-cross-referenced.
@@ -101,10 +101,17 @@ knowledgebase/
 │                                  # tooling, persistence, web-and-api, applied-systems.
 │                                  # roadmap.sh-cross-referenced; applied section from 2 real projects
 │
-├── backend/                      # scaffold — shared nodejs/ core, then pick a track
-│   ├── 01-nodejs/
-│   ├── 02-express/
-│   └── 03-nest/
+├── backend/                      # numbered COURSE (restructured Aug 2026) + implementations.
+│   ├── 01-foundations/           # 01-foundations (what a backend is, request lifecycle,
+│   ├── 02-api-design/            #  runtime/concurrency models) → 02-api-design →
+│   ├── 03-structuring-a-backend/ #  03-structuring (layers, by-feature, DI, hexagonal,
+│   ├── 04-data-and-persistence/  #  modular monolith→services) → 04-data → 05-auth →
+│   ├── 05-auth/                  #  06-cross-cutting → 07-practices.
+│   ├── 06-cross-cutting/         # Sections 01-07 hold true in ANY language;
+│   ├── 07-practices/             # frameworks/ is "how this stack does it".
+│   ├── frameworks/               #   javascript/{node,express,nest}, java/ (pointer to
+│   │                             #   languages/01-java), python/, go/, rust/
+│   └── interview/                # built from a real interview, not guessed
 │
 ├── frontend/                     # mixed — react/ and next/ are still scaffold, but
 │   ├── 01-react/                 # gsap/, framer-motion/, and threejs/ are full written
@@ -141,8 +148,9 @@ knowledgebase/
 
 **Concept or implementation?**
 
-- *Is this true regardless of language or framework?* → `concepts/` or `foundations/`
-- *Is this how a specific tool does it?* → that tool's folder
+- *Does it belong to a **domain**?* → that domain's folder (`backend/`, `devops/`, `architecture/`…), in a numbered section if it's true regardless of language
+- *Is this how a specific tool/framework does it?* → that domain's implementation folder — e.g. `backend/frameworks/<language>/<framework>/`
+- *Is it true of engineering generally, belonging to **no** domain* (clean code, design patterns, PR structure)? → `concepts/`
 - *Is this how to think about a problem?* → `problem-solving/`
 - *Is this a dev environment or tooling thing?* → `tools/`
 

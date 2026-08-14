@@ -68,7 +68,7 @@ Lets a user authenticate once and gain access across multiple related applicatio
 - OAuth's Authorization Code flow requires validating the `state` parameter to prevent CSRF-style attacks against the login flow itself — skipping this check is a known, concrete vulnerability class in OAuth implementations.
 
 ## Related
-- [[06-authorization|authorization]]
+- [[backend/05-auth/02-authorization|authorization]]
 - [[02-secure-authentication|secure-authentication]]
 - [[05-digital-signatures-and-pki|digital-signatures-and-pki]]
 
