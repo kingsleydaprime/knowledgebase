@@ -8,7 +8,9 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
-The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`, and parts of `backend/`.) Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
+The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `robotics/`, `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`, and parts of `backend/`.)
+
+**This is not a software-engineering vault.** It covers software, infrastructure, security, and hardware — see [[PRIMETECHIE|the path]] for how those four fit together rather than sitting in separate silos. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
 
 **Two cross-cutting entry points, added August 2026:**
 - 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
@@ -25,6 +27,7 @@ Start here, depending on what you want:
 - [[languages/01-java/README|Java]] — the JVM, concurrency, and the Spring Boot/build-tools ecosystem
 - [[devops/README|DevOps]] — Linux → containers → orchestration → CI/CD → IaC → observability
 - [[architecture/README|Architecture]] — system design (scaling, caching, patterns) + distributed systems (consensus, consistency, partitioning)
+- [[hardware/README|Hardware & Embedded]] — the layer below all the software: electricity → digital/analog → embedded → microcontrollers → I2C/SPI/UART → RF → IoT architecture, plus KiCad and a real fabricated PCB
 - [[research/README|Research & Paper Writing]] — a meta-skill for every field: doing research (reading papers, finding a gap, methodology) + writing/publishing (structure, style, venues, peer review)
 
 A [Beginner] tag doesn't mean "skip if you're experienced" — it just means the note doesn't lean on anything else in the folder yet. Read a folder's notes in order at least once even if a topic sounds familiar; later notes assume earlier ones without re-explaining them.
@@ -134,7 +137,18 @@ knowledgebase/
 │   ├── 04-distributed-systems/   # Keeps system-design-reference.md as a cheat-sheet.
 │   └── 05-case-studies/
 │
-├── databases/, git/, hardware/, tools/
+├── hardware/                     # NOT reference material — a real course (~11k words) plus the
+│                                 # vault's largest applied project. electricity → digital/analog
+│                                 # → embedded/RTOS → microcontrollers → UART/I2C/SPI → RF →
+│                                 # IoT architecture, + kicad-basics. Reps live in
+│                                 # projects/iot-bridge-pcb/ (19k words, a board that exists).
+│                                 # Filed under "reference" until Aug 2026, which undersold it.
+│
+├── robotics/                     # scaffold only — sense/plan/act, control theory, kinematics,
+│                                 # ROS, SLAM. A stated direction, not knowledge. Sits on top of
+│                                 # hardware/ and joins ai-ml/, os/ and networking/.
+│
+├── databases/, git/, tools/
 │                                 # unordered reference material, not course-structured
 │
 ├── problem-solving/, blog-drafts/  # blog-drafts + blog-ideas.md are gitignored —
