@@ -1,7 +1,7 @@
 # SocioBoom — Git
 
-Version control as practised on this project. The comprehensive general reference is
-[[git/git-reference|git/git-reference]] — read that for internals, rebasing, reflog,
+Version control as practised on this project. The general-purpose version of this material is
+[[git/README|the git course]] — read that for internals, rebasing, reflog,
 recovery, and workflows. This file teaches the parts that came up here, in the context they
 came up in, plus what's true only of this project.
 
@@ -100,7 +100,7 @@ Not "is this commit small" but: **does each commit leave the tree in a working s
 Each of the three backend commits typechecks on its own. That's the property that makes
 `git bisect` work, makes a revert safe, and lets a reviewer read one commit without holding
 the other two in their head. (Stated as a general rule in
-[[git/git-reference|git-reference]] §25.1.)
+[[git/12-conventions-and-hygiene|Conventions and Hygiene]].)
 
 Checking commit 1 in isolation means asking: with only these files staged, does anything in
 the tree reference something that isn't there yet? Here, `main.ts` imports the new media
@@ -179,5 +179,5 @@ Two columns: left is the staging area, right is the working tree.
 ---
 
 ## Related
-- [[git/git-reference|git/git-reference]] — the comprehensive general reference
+- [[git/README|Git course]] — the general-purpose version of all of this
 - [[projects/socioboom/learning/01-shell|01-shell]] — shell commands on this project

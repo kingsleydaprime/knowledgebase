@@ -6,7 +6,7 @@ The domain-file numbering here follows the standard learning-file convention —
 
 ## Reading order
 
-1. [[projects/gees-arise/learning/01-git|01 — Git]] → general: [[git/git-reference|git reference]]
+1. [[projects/gees-arise/learning/01-git|01 — Git]] → general: [[git/README|the git course]]
 2. [[projects/gees-arise/learning/02-shell|02 — Shell]] → [[devops/01-linux/README|linux]]
 3. [[projects/gees-arise/learning/03-sql|03 — SQL]] → [[databases/sql-reference|SQL reference]], [[databases/interview/01-sql-modelling-and-internals|db interview]]
 4. [[projects/gees-arise/learning/04-supabase|04 — Supabase & RLS]] ⭐ → [[backend/05-auth/02-authorization|authorization]], [[cybersecurity/04-web-security/README|web security]]

@@ -6,7 +6,7 @@ A map of this folder, in reading order. The first four sections are the original
 
 - The foundation (`01-linux` … `04-vps`) is grounded in real work — Linux/RHCSA study, actual Docker usage, and VPS deploys.
 - Sections **05–11 are mostly `[reference]`** and marked as such: Kubernetes, Terraform, Ansible, Prometheus, service meshes, etc. are covered from roadmap.sh and primary docs, not from having run them in anger yet. Where a real grounded hook exists it's used — e.g. CI/CD is anchored to this vault's own GitHub Actions deploy workflow. DevOps is intensely hands-on, so the honest next step for these pillars is to *do* them (a real pipeline, a `terraform apply`, a k8s cluster), not just read them.
-- Two roadmap.sh DevOps topics live elsewhere in the vault and are cross-linked rather than duplicated: **version control** → the top-level [[git/git-reference|git/]] domain, and **a programming language for automation** → [[languages/README|languages/]].
+- Two roadmap.sh DevOps topics live elsewhere in the vault and are cross-linked rather than duplicated: **version control** → the top-level [[git/README|git/]] domain, and **a programming language for automation** → [[languages/README|languages/]].
 
 ## Reading order
 
@@ -28,6 +28,6 @@ A map of this folder, in reading order. The first four sections are the original
 - [[minio-guide|minio-guide]] — a specific self-hosted object storage guide
 
 ## Related
-- [[git/git-reference|git/]] — version control, the roadmap's VCS pillar
+- [[git/README|git/]] — version control, the roadmap's VCS pillar
 - [[languages/README|languages/]] — a programming language for automation/tooling
 - [[foundations/dsa/README|DSA fundamentals]]

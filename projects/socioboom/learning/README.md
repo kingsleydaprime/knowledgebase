@@ -22,7 +22,7 @@ these files teach, that one records why.
 ## Standalone domains
 
 Taught in this project's context. The general-purpose versions of the same material also
-live in the main vault (`devops/01-linux/`, `git/git-reference.md`) — these teach, those are
+live in the main vault (`devops/01-linux/`, `git/`) — these teach, those are
 the reference; each file links across.
 
 | File | Covers |

@@ -148,7 +148,12 @@ knowledgebase/
 │                                 # ROS, SLAM. A stated direction, not knowledge. Sits on top of
 │                                 # hardware/ and joins ai-ml/, os/ and networking/.
 │
-├── databases/, git/, tools/
+├── git/                          # a course (~15k words, 16 notes) + a command reference and a
+│                                 # recovery guide. internals → three trees → branching →
+│                                 # merge/rebase → history → undoing → team workflow → hooks.
+│                                 # Split out of one 3,168-line reference in Aug 2026.
+│
+├── databases/, tools/
 │                                 # unordered reference material, not course-structured
 │
 │   NOTE: quartz/content/index.md is the PUBLISHED SITE'S landing page and is
