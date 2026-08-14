@@ -52,8 +52,11 @@ How the deploy stage rolls out a new version without breaking users:
 - **Blue-green** — stand up the new version (green) alongside the old (blue), switch all traffic at once, keep blue as instant rollback. Costs double capacity briefly.
 - **Canary** — send a small % of traffic to the new version, watch metrics, then ramp up (or roll back). The safest for risky changes; needs good [[devops/10-observability/README|observability]] to judge the canary.
 
+All three (plus *recreate*, the crude one) are covered properly — with the tradeoffs that pick between them — in [[devops/06-ci-cd/09-cd-and-deployment|CD, Deployment Strategies and Releases]].
+
 ## Related
 - [[devops/06-ci-cd/02-ci-cd-tools|CI/CD Tools]] — these concepts in a real GitHub Actions pipeline
+- [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — the stages above, built for real
 - [[languages/01-java/03-tooling/04-testing|Testing (Java)]] — the gate at the center of CI
 - [[devops/07-infrastructure-as-code/README|Infrastructure as Code]] — what the deploy stage often invokes
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — a git-driven model for the CD half

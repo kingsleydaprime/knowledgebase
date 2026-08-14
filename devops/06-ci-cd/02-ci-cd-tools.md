@@ -1,6 +1,6 @@
 # CI/CD Tools
 
-**Partly grounded** — the GitHub Actions walkthrough dissects this vault's *actual* deploy pipeline (`.github/workflows/deploy.yml`). The other tools are `[reference]`. There's a fuller hands-on companion at [[git/github-actions-cicd-reference|git/github-actions-cicd-reference]].
+**Partly grounded** — the GitHub Actions walkthrough dissects this vault's *actual* deploy pipeline (`.github/workflows/deploy.yml`). The other tools are `[reference]`. Notes [[devops/06-ci-cd/03-github-actions-fundamentals|03]]–[[devops/06-ci-cd/12-troubleshooting-workflows|12]] take Actions apart properly; this one is the orientation.
 
 ## GitHub Actions — dissected from a real pipeline
 
@@ -79,5 +79,5 @@ For the *delivery* half specifically on Kubernetes, note that GitOps tools ([[de
 
 ## Related
 - [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — the model this file makes concrete
-- [[git/github-actions-cicd-reference|GitHub Actions reference (git/)]] — the fuller hands-on notes
+- [[devops/06-ci-cd/03-github-actions-fundamentals|GitHub Actions Fundamentals]] — the same tool, taken apart in depth from here on
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the k8s-native delivery model
