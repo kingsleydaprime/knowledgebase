@@ -45,4 +45,4 @@ You can't patch people, so defense is layered: **training** (recognize the tacti
 ## Related
 - [[cybersecurity/04-web-security/02-secure-authentication|Secure Authentication]] — MFA, the key mitigation for phished credentials
 - [[cybersecurity/07-security-operations/README|Security Operations]] — detecting the post-phish activity
-- [[cybersecurity/03-attacker-and-hacker-types|Attacker & Hacker Types]] — who runs these campaigns
+- [[cybersecurity/01-fundamentals/03-attacker-and-hacker-types|Attacker & Hacker Types]] — who runs these campaigns
