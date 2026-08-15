@@ -105,7 +105,7 @@ Worth doing, not blocking:
 - [x] **`foundations/theory-of-computation/`** — ✅ **DONE** — 8 notes, ~11,600 words
 - [x] **`foundations/computer-architecture/`** — ✅ **DONE** — 12 notes, ~17,400 words (plan said ~10; data representation and performance-method earned their own)
 - [x] **`foundations/discrete-math/`** — ✅ **DONE** — 8 notes, ~11,300 words. Recurrences and the Master Theorem folded into `05-induction-and-recursion` rather than a separate note
-- [ ] **`databases/` → a course** — **the last big unstructured domain**, and now the only unticked item in this file. Four reference files (`sql-`, `mysql-`, `nosql-`, `database-design-reference`) plus an `interview/` folder, no numbered course. Note that `foundations/discrete-math/04` now leans on it for the relational-model connection
+- [x] **`databases/` → a course** — ✅ **DONE** — 12 notes, ~17,900 words, plus a README. **Additive**: all four reference files kept (≈40 inbound links) and positioned as the syntax layer; the course is the *internals* layer they lacked — pages, B-trees, LSM, the query pipeline, MVCC, WAL, replication, operations
 
 Deferred, honestly: computer graphics, information theory, PL theory. Real subjects, no current pull.
 
@@ -133,7 +133,7 @@ Each line is roughly one working session.
 
 Batches 5 and 6 are inserted before `build-your-own-x/` because the OS and compilers guides are blocked without them. Everything else follows the order requested.
 
-**Every batch in this plan is now complete.** What remains is `databases/` → a course (above), and the three deferred subjects (computer graphics, information theory, PL theory) — none of which anyone has asked for.
+**Every item in this plan is now complete.** The only things left are the three deferred subjects — computer graphics, information theory, PL theory — which were deferred for lack of pull rather than lack of merit, and remain available if that changes.
 
 **The standing debt is reps, not notes.** `engineering/`, `robotics/` and all three CS-theory domains are `[reference]`: read and assembled, never validated by building. Each one's README names what would close its own gap, and [[project-ideas|project-ideas]] carries the list.
 

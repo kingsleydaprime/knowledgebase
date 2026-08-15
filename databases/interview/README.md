@@ -1,6 +1,6 @@
 # Databases — Interview Prep
 
-From [[databases/sql-reference|sql-reference]], [[databases/database-design-reference|database-design-reference]], [[databases/nosql-reference|nosql-reference]].
+From [[databases/sql-reference|sql-reference]], [[databases/database-design-reference|database-design-reference]], [[databases/nosql-reference|nosql-reference]] — and now backed by the [[databases/README|numbered course]], whose notes 04 (indexes), 07 (the optimiser), 08 (isolation) and 09 (MVCC) cover exactly what this round asks about.
 
 ## Files
 1. [[databases/interview/01-sql-modelling-and-internals|SQL, Modelling & Internals]] — indexes, transactions, isolation, query plans, normalisation, SQL vs NoSQL
