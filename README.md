@@ -8,7 +8,7 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
-The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `robotics/`, `ai-automation/`, `frontend/01-react`+`02-next`, `foundations/os`, and parts of `backend/`. **Note on the frontend two:** the scaffold is the *course*, not the knowledge — ~44,000 words on React/Next.js live in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
+The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `robotics/`, `ai-automation/`, `frontend/01-react`+`02-next`, and parts of `backend/`. **Note on the frontend two:** the scaffold is the *course*, not the knowledge — ~44,000 words on React/Next.js live in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
 
 **This is not a software-engineering vault.** It covers software, infrastructure, security, and hardware — see [[PRIMETECHIE|the path]] for how those four fit together rather than sitting in separate silos. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
 
@@ -58,8 +58,15 @@ knowledgebase/
 │   │                             # & link layer → IP/routing → UDP/TCP/congestion/sockets
 │   │                             # → DNS/HTTP/TLS/QUIC → middleboxes/performance/debugging.
 │   │                             # From Kurose & Ross, Stevens, RFCs, Grigorik.
-│   └── os/                       # partially built — fundamentals.md + interview/, with a
-│                                 # curriculum plan in its README. Honest scaffold.
+│   ├── os/                       # numbered course (12 notes, Aug 2026): kernel/user split →
+│   │                             # processes/threads → scheduling → virtual memory →
+│   │                             # allocation → futexes → filesystems → epoll/io_uring →
+│   │                             # syscalls/ABI → signals/IPC → namespaces+cgroups → boot.
+│   │                             # Built against the plan its own README proposed.
+│   └── compilers/                # numbered course (11 notes, Aug 2026): lexing → parsing
+│                                 # (recursive descent + Pratt) → ASTs/scopes → type systems
+│                                 # → SSA/IR → optimisation → codegen → bytecode VMs → GC
+│                                 # → JIT. Built to unblock build-your-own-language.
 │
 ├── using-ai/                     # 8-note course for NON-programmers new to AI (Aug 2026):
 │                                 # what an LLM is → how it works plainly → choosing a tool
