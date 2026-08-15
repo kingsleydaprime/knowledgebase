@@ -30,6 +30,7 @@ Start here, depending on what you want:
 - [[devops/README|DevOps]] — Linux → containers → orchestration → CI/CD → IaC → observability
 - [[architecture/README|Architecture]] — system design (scaling, caching, patterns) + distributed systems (consensus, consistency, partitioning)
 - [[hardware/README|Hardware & Embedded]] — the layer below all the software: electricity → digital/analog → embedded → microcontrollers → I2C/SPI/UART → RF → IoT architecture, plus KiCad and a real fabricated PCB
+- [[engineering/README|Engineering]] — the physical half: [[engineering/01-continuum-mechanics/README|continuum mechanics]] (how solids and fluids deform) and [[engineering/02-control-theory/README|control theory]] (making a system behave despite a wrong model). The control track is more portable than it sounds — autoscalers and congestion control are feedback loops with all the classical pathologies
 - [[research/README|Research & Paper Writing]] — a meta-skill for every field: doing research (reading papers, finding a gap, methodology) + writing/publishing (structure, style, venues, peer review)
 
 A [Beginner] tag doesn't mean "skip if you're experienced" — it just means the note doesn't lean on anything else in the folder yet. Read a folder's notes in order at least once even if a topic sounds familiar; later notes assume earlier ones without re-explaining them.
@@ -147,12 +148,16 @@ knowledgebase/
 │   ├── 04-distributed-systems/   # Keeps system-design-reference.md as a cheat-sheet.
 │   └── 05-case-studies/
 │
-├── engineering/                  # the PHYSICAL half. 01-continuum-mechanics (13 notes, Aug 2026):
-│                                 # continuum hypothesis → tensors → kinematics → strain → stress
-│                                 # → conservation laws → constitutive models → elasticity → beams
-│                                 # → finite deformation → Navier-Stokes → failure → FEM.
-│                                 # 02-control-theory planned. [reference], and honest that
-│                                 # mechanics validates against experiment, not a compiler.
+├── engineering/                  # the PHYSICAL half, two tracks (26 notes, ~41k words, Aug 2026).
+│                                 # 01-continuum-mechanics: continuum hypothesis → tensors →
+│                                 # kinematics → strain → stress → conservation laws →
+│                                 # constitutive models → elasticity → beams → finite deformation
+│                                 # → Navier-Stokes → failure → FEM.
+│                                 # 02-control-theory: open/closed loop → transfer functions →
+│                                 # time response → PID (and tuning one) → root locus → Bode →
+│                                 # Nyquist → state space → observers/Kalman → LQR/MPC → digital
+│                                 # → nonlinear. [reference], and honest that these validate
+│                                 # against an experiment, not a compiler.
 │
 ├── hardware/                     # NOT reference material — a real course (~11k words) plus the
 │                                 # vault's largest applied project. electricity → digital/analog
@@ -161,9 +166,10 @@ knowledgebase/
 │                                 # projects/iot-bridge-pcb/ (19k words, a board that exists).
 │                                 # Filed under "reference" until Aug 2026, which undersold it.
 │
-├── robotics/                     # scaffold only — sense/plan/act, control theory, kinematics,
-│                                 # ROS, SLAM. A stated direction, not knowledge. Sits on top of
-│                                 # hardware/ and joins ai-ml/, os/ and networking/.
+├── robotics/                     # scaffold only — sense/plan/act, kinematics, ROS, SLAM. A
+│                                 # stated direction, not knowledge. The control half now lives
+│                                 # in engineering/02-control-theory/. Sits on top of hardware/
+│                                 # and joins ai-ml/, os/ and networking/.
 │
 ├── git/                          # a course (~17k words, 17 notes) + a command reference and a
 │                                 # recovery guide. internals → three trees → branching →

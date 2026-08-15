@@ -64,7 +64,8 @@ Treat this as a map of the vocabulary and the structure of the arguments — eno
 **A build project would help**: writing a small 2D linear-elastic FE solver — element stiffness, assembly, boundary conditions, solve — is a few hundred lines and would remove the black box permanently. That's a genuine gap in [[build-your-own-x/README|build-your-own-x]].
 
 ## Related
-- [[engineering/README|Engineering]] — the umbrella, and the control-theory track
+- [[engineering/README|Engineering]] — the umbrella
+- [[engineering/02-control-theory/README|Control Theory]] — the other track: controlling the systems this one describes
 - [[hardware/README|Hardware & Embedded]] — the electronics layer beside this one
 - [[robotics/README|Robotics]] — where mechanics and control meet
 - [[build-your-own-x/README|build-your-own-x]] — where an FE solver would go
