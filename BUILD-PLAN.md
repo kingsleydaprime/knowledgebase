@@ -18,6 +18,7 @@ The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest a
 - [x] `backend/frameworks/` — go (6), rust (6), c (4), cpp (5) + READMEs, ~31,000 words
 - [x] `foundations/os/` — 12 notes, ~17,000 words
 - [x] `foundations/compilers/` — 11 notes, ~16,500 words
+- [x] `build-your-own-x/` batch 1 — http-server, git, shell + README, ~6,800 words
 
 ---
 
@@ -62,13 +63,13 @@ Following the [[languages/README|rule]]: frameworks live here, languages live th
 
 ### The files — ~8 guides, longer than normal notes (~2,500 words each)
 
-- [ ] **`01-http-server.md`** — the one to write first, since it's the most tractable. Milestones: raw socket accept loop → request-line parser → header parser → response writer → routing → static files → keep-alive → concurrency → chunked encoding. *Requested example: "build the parser first, then a route."*
-- [ ] **`02-your-own-git.md`** — content-addressable store → blob/tree/commit objects → refs → index/staging → commit → log → branch → checkout → diff → merge. Pairs with [[git/01-how-git-works|How Git Actually Works]], which is already written
+- [x] **`01-http-server.md`** ✅ — the one to write first, since it's the most tractable. Milestones: raw socket accept loop → request-line parser → header parser → response writer → routing → static files → keep-alive → concurrency → chunked encoding. *Requested example: "build the parser first, then a route."*
+- [x] **`02-your-own-git.md`** ✅ — content-addressable store → blob/tree/commit objects → refs → index/staging → commit → log → branch → checkout → diff → merge. Pairs with [[git/01-how-git-works|How Git Actually Works]], which is already written
 - [ ] **`03-your-own-redis.md`** — RESP protocol parser → in-memory store → GET/SET → event loop → expiry → more data types → persistence (RDB/AOF) → replication
 - [ ] **`04-your-own-language.md`** — lexer → parser/AST → tree-walking interpreter → environments and scope → functions and closures → then either a bytecode VM or a compiler. **Blocked on the compilers gap below**
 - [ ] **`05-your-own-os.md`** — bootloader → protected/long mode → VGA or serial output → interrupts → memory management → paging → processes → scheduler → syscalls → filesystem. The longest and hardest; **blocked on the OS gap below**
 - [ ] **`06-your-own-database.md`** — pager → B-tree or LSM → record format → a SQL subset parser → query execution → transactions and a WAL
-- [ ] **`07-your-own-shell.md`** — the best small one. Read-eval loop → tokenising → `fork`/`exec` → redirection → pipes → job control → builtins
+- [x] **`07-your-own-shell.md`** ✅ — the best small one. Read-eval loop → tokenising → `fork`/`exec` → redirection → pipes → job control → builtins
 - [ ] **`08-your-own-container.md`** — namespaces → cgroups → chroot/pivot_root → a layered filesystem. Ties [[devops/02-docker/README|Docker]] to what the kernel actually does
 
 Once this folder exists, [[project-ideas|project-ideas.md]]'s "build your own X" tier should link into it rather than duplicating it.
@@ -119,7 +120,7 @@ Each line is roughly one working session.
 | ~~4~~ | ~~`backend/frameworks/`~~ ✅ | 21 |
 | ~~5~~ | ~~`foundations/os/`~~ ✅ | 12 |
 | ~~6~~ | ~~`foundations/compilers/`~~ ✅ | 11 |
-| 7 | `build-your-own-x/` — guides 01, 02, 07 (http, git, shell) | 3 |
+| ~~7~~ | ~~`build-your-own-x/` — 01, 02, 07~~ ✅ | 3 |
 | 8 | `build-your-own-x/` — guides 03, 04, 06 (redis, language, database) | 3 |
 | 9 | `build-your-own-x/` — guides 05, 08 (os, container) | 2 |
 | 10 | `engineering/01-continuum-mechanics/` | ~13 |
