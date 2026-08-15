@@ -36,6 +36,7 @@ The theory of systems that span multiple machines — *why* they're fundamentall
 Reading isn't enough here — distributed systems reward *implementation* more than any other topic in the vault. The path that sticks: read Part A–C, then **build a Raft KV-store** ([[architecture/05-case-studies/README|case studies]]) — it forces every consensus edge case to become real. Then the transactions / storage / ops parts land, because you've felt why they're hard.
 
 ## Related
+- [[databases/README|Databases]] — the single-node view: MVCC, WAL, and the operator's side of replication and sharding
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the fundamentals-level view of what this section proves
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency (Java)]] — the single-machine version of many of these problems
 - [[architecture/05-case-studies/README|Case Studies]] — the build-your-own projects that make this real

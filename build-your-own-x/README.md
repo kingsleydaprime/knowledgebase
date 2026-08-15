@@ -28,8 +28,9 @@ The milestone ordering is the load-bearing part. **You should always have someth
 6. [[build-your-own-x/06-your-own-database|Your Own Database]] — **[Advanced]** — pager → row format → B-tree → SQL parser → execution → **transactions and a WAL**. `kill -9` mid-write and the data survives
 7. [[build-your-own-x/07-your-own-shell|Your Own Shell]] — **[Intermediate]** — read-eval loop → tokenise → `fork`/`exec` → exit status → redirection → builtins → pipelines → jobs. **The best small one**: a few hundred lines, and you can use it
 8. [[build-your-own-x/08-your-own-container|Your Own Container]] — **[Intermediate]** — namespaces → pivot_root → cgroups → user namespaces → overlayfs. **The best effort-to-insight ratio here**: ~200 lines, one evening
+9. [[build-your-own-x/09-your-own-regex-engine|Your Own Regex Engine]] — **[Intermediate]** — parse → Thompson's construction → NFA simulation → subset construction → captures. **One evening, and yours beats Python's `re` by minutes on adversarial input**
 
-**All eight are written.**
+**All nine are written.**
 
 ## Which to start with
 
@@ -38,6 +39,7 @@ The milestone ordering is the load-bearing part. **You should always have someth
 | The fastest satisfying result | **HTTP server** |
 | To understand a tool you use daily | **git** |
 | The smallest project that teaches the most | **shell** |
+| Theory to become concrete fastest | **regex engine** |
 | To stop finding Docker magical | **container** (~200 lines, once you've read os/11) |
 | The deepest single lesson | **language** |
 | To never fear a database again | **database** |

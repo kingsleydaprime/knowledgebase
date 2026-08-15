@@ -272,6 +272,7 @@ diff expected.txt actual.txt
 ---
 
 ## Related
+- [[databases/README|Databases]] — the internals course: pages, B-trees, LSM, WAL, MVCC. **Read notes 03–05 and 10 before milestone 3**
 - [[foundations/os/07-filesystems-and-storage|Filesystems and Storage]] — `fsync`, the page cache, journaling
 - [[foundations/dsa/04-data-structures/05-trees/01-trees|Trees]] — the B-tree's ancestry
 - [[databases/database-design-reference|Database Design]] · [[databases/sql-reference|SQL Reference]]

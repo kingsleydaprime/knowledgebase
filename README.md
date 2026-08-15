@@ -14,7 +14,7 @@ The domains that are actually built out — **networking, DSA, backend, architec
 
 **Two cross-cutting entry points, added August 2026:**
 - 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
-- 🔨 **[[build-your-own-x/README|Build Your Own X]]** — language-agnostic build guides with numbered, independently-testable milestones. Where the rest of the vault stops being reading. All eight written: HTTP server, git, redis, language, OS, database, shell, container.
+- 🔨 **[[build-your-own-x/README|Build Your Own X]]** — language-agnostic build guides with numbered, independently-testable milestones. Where the rest of the vault stops being reading. All nine written: HTTP server, git, redis, language, OS, database, shell, container, regex engine.
 - 🧭 **[[BUILD-PLAN|Build Plan]]** — the working queue for what gets written next, ordered and sized: the systems languages (Rust/C/C++), `build-your-own-x/`, `engineering/`, and the CS-curriculum gaps found by auditing a standard syllabus against this vault.
 - 🎯 **[[INTERVIEW|Interview Prep Index]]** — every domain now has an `interview/` folder: the question, what a strong answer covers, and the detail that separates memorised from understood.
 
@@ -30,6 +30,7 @@ Start here, depending on what you want:
 - [[devops/README|DevOps]] — Linux → containers → orchestration → CI/CD → IaC → observability
 - [[architecture/README|Architecture]] — system design (scaling, caching, patterns) + distributed systems (consensus, consistency, partitioning)
 - [[hardware/README|Hardware & Embedded]] — the layer below all the software: electricity → digital/analog → embedded → microcontrollers → I2C/SPI/UART → RF → IoT architecture, plus KiCad and a real fabricated PCB
+- [[databases/README|Databases]] — a course on the **internals** (pages → B-trees → LSM → query planning → MVCC → WAL → replication → operations) plus four deep syntax/design references. Read the course to understand `EXPLAIN`; use the references to look things up
 - [[foundations/discrete-math/README|Discrete Maths]] → [[foundations/theory-of-computation/README|Theory of Computation]] → [[foundations/computer-architecture/README|Computer Architecture]] — the CS-theory spine, added Aug 2026 after auditing a standard syllabus against this vault. Logic and proof → what's computable and what's NP-hard → why one $O(n)$ loop is thirty times slower than another
 - [[engineering/README|Engineering]] — the physical half: [[engineering/01-continuum-mechanics/README|continuum mechanics]] (how solids and fluids deform) and [[engineering/02-control-theory/README|control theory]] (making a system behave despite a wrong model). The control track is more portable than it sounds — autoscalers and congestion control are feedback loops with all the classical pathologies
 - [[research/README|Research & Paper Writing]] — a meta-skill for every field: doing research (reading papers, finding a gap, methodology) + writing/publishing (structure, style, venues, peer review)
@@ -196,7 +197,12 @@ knowledgebase/
 │                                 # the SSG publishing this vault — pipeline, config, theming,
 │                                 # layout, graph view, deploy. plus neovim-setup.
 │
-├── databases/                    # unordered reference material, not course-structured
+├── databases/                    # a course (12 notes, ~18k words, Aug 2026) + 4 big reference
+│                                 # files kept in place. Course = INTERNALS: pages/buffer pool →
+│                                 # B-trees → LSM → query pipeline → join algorithms/optimiser →
+│                                 # ACID/isolation → MVCC/vacuum → WAL/ARIES → replication →
+│                                 # operations. References = SYNTAX: sql-, database-design-,
+│                                 # mysql-, nosql-reference (11k lines, ~40 inbound links).
 │
 │   NOTE: quartz/content/index.md is the PUBLISHED SITE'S landing page and is
 │   its own file — it used to symlink here, but a README and a landing page
