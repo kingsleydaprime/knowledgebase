@@ -519,9 +519,9 @@ Ready to move into **systemd and services** — how Linux manages background ser
 
 ## RHEL addendum: NetworkManager & nmcli
 
-Everything above (`ip addr`, `ip route`, `ss`, subnets, CIDR) is distro-agnostic and carries over unchanged. The one thing that doesn't: **Ubuntu here uses `ufw`, RHEL uses `firewalld`** (full depth in [[15-rhcsa/12-manage-network-security|Manage Network Security]]) — and RHEL manages interfaces through **NetworkManager** rather than the more manual approaches other distros sometimes use.
+Everything above (`ip addr`, `ip route`, `ss`, subnets, CIDR) is distro-agnostic and carries over unchanged. The one thing that doesn't: **Ubuntu here uses `ufw`, RHEL uses `firewalld`** (full depth in [[devops/01-linux/15-rhcsa/12-manage-network-security|Manage Network Security]]) — and RHEL manages interfaces through **NetworkManager** rather than the more manual approaches other distros sometimes use.
 
-`ip addr add` (used earlier in this note) is **runtime-only** — it's gone the moment the interface resets or the machine reboots, same class of gotcha as `setenforce`/`setsebool` without `-P` in [[15-rhcsa/07-manage-selinux-security|rhcsa/manage-selinux-security]]. On RHEL, the persistent, boot-surviving way to configure an interface is through NetworkManager, via its CLI, `nmcli`.
+`ip addr add` (used earlier in this note) is **runtime-only** — it's gone the moment the interface resets or the machine reboots, same class of gotcha as `setenforce`/`setsebool` without `-P` in [[devops/01-linux/15-rhcsa/07-manage-selinux-security|rhcsa/manage-selinux-security]]. On RHEL, the persistent, boot-surviving way to configure an interface is through NetworkManager, via its CLI, `nmcli`.
 
 ```bash
 nmcli general status                # is NetworkManager running, what's its connectivity state

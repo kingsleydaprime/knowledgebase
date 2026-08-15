@@ -8,7 +8,7 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
-The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `robotics/`, `ai-automation/`, `frontend/01-react`+`02-next`, and parts of `backend/`. **Note on the frontend two:** the scaffold is the *course*, not the knowledge — ~44,000 words on React/Next.js live in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
+The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `ai-automation/`, `frontend/01-react`+`02-next`, and parts of `backend/`. **`engineering/` and `robotics/` are written but marked `[reference]`** — courses on paper, with no build behind them yet, and each says so on its own front page. **Note on the frontend two:** the scaffold is the *course*, not the knowledge — ~44,000 words on React/Next.js live in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
 
 **This is not a software-engineering vault.** It covers software, infrastructure, security, and hardware — see [[PRIMETECHIE|the path]] for how those four fit together rather than sitting in separate silos. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
 
@@ -30,6 +30,7 @@ Start here, depending on what you want:
 - [[devops/README|DevOps]] — Linux → containers → orchestration → CI/CD → IaC → observability
 - [[architecture/README|Architecture]] — system design (scaling, caching, patterns) + distributed systems (consensus, consistency, partitioning)
 - [[hardware/README|Hardware & Embedded]] — the layer below all the software: electricity → digital/analog → embedded → microcontrollers → I2C/SPI/UART → RF → IoT architecture, plus KiCad and a real fabricated PCB
+- [[foundations/discrete-math/README|Discrete Maths]] → [[foundations/theory-of-computation/README|Theory of Computation]] → [[foundations/computer-architecture/README|Computer Architecture]] — the CS-theory spine, added Aug 2026 after auditing a standard syllabus against this vault. Logic and proof → what's computable and what's NP-hard → why one $O(n)$ loop is thirty times slower than another
 - [[engineering/README|Engineering]] — the physical half: [[engineering/01-continuum-mechanics/README|continuum mechanics]] (how solids and fluids deform) and [[engineering/02-control-theory/README|control theory]] (making a system behave despite a wrong model). The control track is more portable than it sounds — autoscalers and congestion control are feedback loops with all the classical pathologies
 - [[research/README|Research & Paper Writing]] — a meta-skill for every field: doing research (reading papers, finding a gap, methodology) + writing/publishing (structure, style, venues, peer review)
 
@@ -65,6 +66,18 @@ knowledgebase/
 │   │                             # allocation → futexes → filesystems → epoll/io_uring →
 │   │                             # syscalls/ABI → signals/IPC → namespaces+cgroups → boot.
 │   │                             # Built against the plan its own README proposed.
+│   ├── discrete-math/            # numbered course (8 notes, Aug 2026): logic → proof →
+│   │                             # sets/relations/functions → induction/recurrences →
+│   │                             # combinatorics → graphs → number theory (RSA in 8 lines).
+│   ├── theory-of-computation/    # numbered course (8 notes, Aug 2026): the Chomsky hierarchy
+│   │                             # → finite automata → regular → context-free → Turing
+│   │                             # machines → decidability/Rice → P vs NP → quantum.
+│   │                             # Explains WHY compilers/ is structured as it is.
+│   ├── computer-architecture/    # numbered course (12 notes, Aug 2026): ISA as contract →
+│   │                             # data representation → instruction sets → assembly →
+│   │                             # datapath → pipelining → branch prediction/Spectre →
+│   │                             # memory hierarchy → caches → OOO → memory models →
+│   │                             # performance method. Where the vault's constants come from.
 │   └── compilers/                # numbered course (11 notes, Aug 2026): lexing → parsing
 │                                 # (recursive descent + Pratt) → ASTs/scopes → type systems
 │                                 # → SSA/IR → optimisation → codegen → bytecode VMs → GC
@@ -166,10 +179,13 @@ knowledgebase/
 │                                 # projects/iot-bridge-pcb/ (19k words, a board that exists).
 │                                 # Filed under "reference" until Aug 2026, which undersold it.
 │
-├── robotics/                     # scaffold only — sense/plan/act, kinematics, ROS, SLAM. A
-│                                 # stated direction, not knowledge. The control half now lives
-│                                 # in engineering/02-control-theory/. Sits on top of hardware/
-│                                 # and joins ai-ml/, os/ and networking/.
+├── robotics/                     # a course (14 notes, ~22k words, Aug 2026) but [reference] —
+│                                 # sense/plan/act → sensors → actuators → transforms → forward/
+│                                 # inverse kinematics → Jacobians → dynamics → control →
+│                                 # motion planning → state estimation → SLAM → ROS 2 → safety.
+│                                 # The control THEORY lives in engineering/02-control-theory/;
+│                                 # note 09 here is the robot-specific part. Its README is blunt
+│                                 # that nothing here has been validated on hardware.
 │
 ├── git/                          # a course (~17k words, 17 notes) + a command reference and a
 │                                 # recovery guide. internals → three trees → branching →

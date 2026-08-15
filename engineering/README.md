@@ -18,7 +18,7 @@ Everything else here — software, infrastructure, security — assumes a workin
 | | |
 |---|---|
 | [[hardware/README\|hardware/]] | the electronics layer — this is the mechanical one |
-| [[robotics/README\|robotics/]] | draws on `02-control-theory` for the control half, and needs kinematics and dynamics from mechanics |
+| [[robotics/README\|robotics/]] | draws on `02-control-theory` for the whole control half; its notes 07–08 carry the Jacobians and manipulator dynamics |
 | [[ai-ml/00-foundations/03-mathematics/README\|the maths notes]] | linear algebra and calculus, at the level ML needs. This domain needs more — tensor calculus and PDEs |
 | [[foundations/dsa/README\|numerical methods]] | not yet written; FEM and CFD both need it |
 

@@ -78,5 +78,6 @@ OS knowledge is load-bearing across the vault, and these notes are deliberately 
 ## Related
 - [[foundations/networking/README|Networking]] — the layer above, built on sockets and file descriptors
 - [[devops/01-linux/README|Linux]] — the same machine from the command line
+- [[foundations/computer-architecture/README|Computer Architecture]] — the layer directly below: the TLB behind virtual memory, cache coherence behind concurrency primitives, and memory models behind atomics
 - [[languages/04-c/README|C]] — the language all of this is written in
 - [[PRIMETECHIE|The Primetechie Path]] — Rank II–III depth material

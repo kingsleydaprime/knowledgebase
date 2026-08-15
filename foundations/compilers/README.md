@@ -68,8 +68,10 @@ The realistic path, and the milestone that matters:
 - **Language design itself** — this is about implementation, not about what makes a good language
 
 ## Related
+- [[foundations/theory-of-computation/README|Theory of Computation]] — **why this course is shaped the way it is**: lexers are DFAs, parsers are PDAs, and the syntax/semantics split is forced by the hierarchy
 - [[languages/04-c/01-why-c-and-the-compilation-model|C: The Compilation Model]] — the four stages, concretely
 - [[foundations/os/README|Operating Systems]] — what the output runs on
+- [[foundations/computer-architecture/README|Computer Architecture]] — the machine codegen targets, and why its scheduling and register allocation matter
 - [[foundations/dsa/README|DSA]] — trees, graphs, and union-find, all used here
 - [[languages/03-rust/17-macros|Rust: Macros]] — compile-time code generation from the user's side
 - [[BUILD-PLAN|Build Plan]] — `build-your-own-x/` is next

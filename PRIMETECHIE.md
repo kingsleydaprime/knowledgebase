@@ -280,7 +280,9 @@ Assessed against this vault as of **August 2026** — an honest read, not a flat
 | 🔐 **Security** | Deep on paper — 54 notes, the vault's best exercise set | Lab exists; exercises not worked through |
 | 🔌 **Hardware** | Real but thin — 15 notes + a 19k-word project | **Strongest reps-to-notes ratio in the vault** |
 | 🧠 **ML & Data** | Deep on paper — ml-engineer 42 notes, data-scientist 8 (thinnest track) | **Zero. No project has trained a model** |
-| 🤖 **Robotics** | [[robotics/README\|Scaffold only]] | None. Stated direction, not knowledge |
+| 🤖 **Robotics** | [[robotics/README\|14 notes, `[reference]`]] | None. Written, not built — the notes say so |
+| 📐 **Engineering** | [[engineering/README\|26 notes, `[reference]`]] — continuum mechanics + control theory | None. Validates against an experiment there isn't one of |
+| 🧮 **CS theory** | [[foundations/discrete-math/README\|discrete maths]] · [[foundations/theory-of-computation/README\|theory of computation]] · [[foundations/computer-architecture/README\|architecture]] — 28 notes | None — **and this is the one where reps are free.** `perf` and an afternoon |
 
 Two asymmetries worth naming:
 
