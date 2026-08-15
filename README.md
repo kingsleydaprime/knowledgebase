@@ -14,7 +14,7 @@ The domains that are actually built out — **networking, DSA, backend, architec
 
 **Two cross-cutting entry points, added August 2026:**
 - 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
-- 🔨 **[[build-your-own-x/README|Build Your Own X]]** — language-agnostic build guides with numbered, independently-testable milestones. Where the rest of the vault stops being reading. Six written — HTTP server, git, redis, language, database, shell; OS and container planned.
+- 🔨 **[[build-your-own-x/README|Build Your Own X]]** — language-agnostic build guides with numbered, independently-testable milestones. Where the rest of the vault stops being reading. All eight written: HTTP server, git, redis, language, OS, database, shell, container.
 - 🧭 **[[BUILD-PLAN|Build Plan]]** — the working queue for what gets written next, ordered and sized: the systems languages (Rust/C/C++), `build-your-own-x/`, `engineering/`, and the CS-curriculum gaps found by auditing a standard syllabus against this vault.
 - 🎯 **[[INTERVIEW|Interview Prep Index]]** — every domain now has an `interview/` folder: the question, what a strong answer covers, and the detail that separates memorised from understood.
 
@@ -146,6 +146,13 @@ knowledgebase/
 │   ├── 03-architectural-patterns/  # roadmap.sh-cross-referenced; DDIA for dist-sys.
 │   ├── 04-distributed-systems/   # Keeps system-design-reference.md as a cheat-sheet.
 │   └── 05-case-studies/
+│
+├── engineering/                  # the PHYSICAL half. 01-continuum-mechanics (13 notes, Aug 2026):
+│                                 # continuum hypothesis → tensors → kinematics → strain → stress
+│                                 # → conservation laws → constitutive models → elasticity → beams
+│                                 # → finite deformation → Navier-Stokes → failure → FEM.
+│                                 # 02-control-theory planned. [reference], and honest that
+│                                 # mechanics validates against experiment, not a compiler.
 │
 ├── hardware/                     # NOT reference material — a real course (~11k words) plus the
 │                                 # vault's largest applied project. electricity → digital/analog

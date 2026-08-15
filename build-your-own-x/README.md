@@ -24,13 +24,12 @@ The milestone ordering is the load-bearing part. **You should always have someth
 2. [[build-your-own-x/02-your-own-git|Your Own Git]] — **[Intermediate]** — content-addressable store → blobs → trees → commits → refs → log → index → branches → diff → merge. **Real Git can read your repository**
 3. [[build-your-own-x/03-your-own-redis|Your Own Redis]] — **[Intermediate]** — RESP parser → store → expiry → event loop → data types → RDB/AOF persistence → replication. **The real `redis-cli` connects to it**
 4. [[build-your-own-x/04-your-own-language|Your Own Language]] — **[Intermediate → Advanced]** — lexer → parser → tree-walking interpreter → closures → then a bytecode VM, a type checker, or GC. **The deepest single lesson here**
+5. [[build-your-own-x/05-your-own-os|Your Own OS]] — **[Advanced]** — bootloader → descriptor tables → interrupts → physical memory → paging → user mode → syscalls → processes → filesystem. **Weeks, not a weekend** — and it boots from a USB stick on real hardware
 6. [[build-your-own-x/06-your-own-database|Your Own Database]] — **[Advanced]** — pager → row format → B-tree → SQL parser → execution → **transactions and a WAL**. `kill -9` mid-write and the data survives
 7. [[build-your-own-x/07-your-own-shell|Your Own Shell]] — **[Intermediate]** — read-eval loop → tokenise → `fork`/`exec` → exit status → redirection → builtins → pipelines → jobs. **The best small one**: a few hundred lines, and you can use it
+8. [[build-your-own-x/08-your-own-container|Your Own Container]] — **[Intermediate]** — namespaces → pivot_root → cgroups → user namespaces → overlayfs. **The best effort-to-insight ratio here**: ~200 lines, one evening
 
-**Planned:**
-
-5. `05-your-own-os` — bootloader → long mode → interrupts → paging → processes → scheduler → syscalls → filesystem. The longest and hardest. → [[foundations/os/README|os]] is the prerequisite, now written
-8. `08-your-own-container` — namespaces → cgroups → pivot_root → layered filesystem. Ties [[devops/02-docker/README|Docker]] to [[foundations/os/11-isolation-and-containers|what the kernel actually does]]
+**All eight are written.**
 
 ## Which to start with
 

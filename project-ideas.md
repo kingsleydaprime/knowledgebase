@@ -29,13 +29,24 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 ---
 
 ## ⭐ Build-Your-Own — systems mastery
-*The deepest reps in the vault. Each one turns a whole [[architecture/README|architecture / distributed-systems]] topic from words into bone-deep understanding. These are the projects you asked for — pick one and go far.*
+*The deepest reps in the vault. Each one turns a whole topic from words into bone-deep understanding.*
 
-- 🔴 ⭐ **Your own Redis** — an in-memory key-value store: implement the core data structures (strings, lists, hashes, sorted sets), a TCP server speaking a simple protocol (RESP), and persistence (snapshotting + an append-only log). Teaches data structures + networking + [[languages/01-java/02-jvm-and-concurrency/02-concurrency|event-loop concurrency]] + durability. The most approachable of these — start here. (See *Build Your Own Redis* / the "codecrafters" style.)
-- 🔴 **Your own database** — a storage engine from scratch: a **B-tree** or **LSM-tree** on-disk structure, an [[architecture/02-building-blocks/03-databases-at-scale|index]], a simple query layer, and [[databases/database-design-reference|ACID transactions]] (a write-ahead log for durability, isolation via locking/MVCC). The project that demystifies what a database *is*. (See *Designing Data-Intensive Applications* + *Build Your Own Database*.)
-- 🔴 **Your own git** — a content-addressable store: [[git/01-how-git-works|hash objects]] (blobs/trees/commits), build the commit DAG, and implement `add`/`commit`/`log`/`branch`/`checkout`. Small, elegant, and it permanently demystifies git. (See *Build Your Own Git* / "git from the inside out.")
-- 🔴 ⭐ **A Raft key-value store** — [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] made real: implement Raft (leader election, log replication, safety), then a replicated KV store on top, and test it against node crashes and partitions. **The single best distributed-systems learning project** — it forces you to confront every edge case the [[architecture/04-distributed-systems/README|theory]] describes. (See MIT 6.824 labs — the gold standard.)
-- 🔴 **Your own language / interpreter** — lexer → parser → tree-walking interpreter (then maybe a bytecode VM or compiler). *Note:* this is **compiler/interpreter theory**, a different domain from system design — there's no vault course for it yet (a good future one). Superb for understanding how code runs. (See *Crafting Interpreters* — the definitive resource.)
+> **These now have full build guides in [[build-your-own-x/README|build-your-own-x/]]** — numbered milestones, each independently testable, with per-language toolkits and a "where to stop". Read the guide rather than this list; the entries below are the one-line pitch and the difficulty rating.
+
+| | Guide | Why |
+|---|---|---|
+| 🟠 | [[build-your-own-x/01-http-server\|HTTP server]] | **Start here.** A weekend; a real browser is the test |
+| 🟠 | [[build-your-own-x/07-your-own-shell\|Shell]] | The smallest one that teaches the most — `fork`/`exec`, fds, pipes |
+| 🟠 | [[build-your-own-x/08-your-own-container\|Container]] | ~200 lines, one evening, and Docker stops being magical |
+| 🔴 | [[build-your-own-x/02-your-own-git\|Git]] | Real Git reads your repository. Permanently demystifies it |
+| 🔴 ⭐ | [[build-your-own-x/03-your-own-redis\|Redis]] | Data structures + networking + durability. The real `redis-cli` connects |
+| 🔴 | [[build-your-own-x/04-your-own-language\|Language / interpreter]] | The deepest single lesson. → [[foundations/compilers/README\|compilers]] is the course behind it |
+| 🔴 | [[build-your-own-x/06-your-own-database\|Database]] | B-tree, SQL subset, WAL. `kill -9` mid-write and the data survives |
+| 🔴 | [[build-your-own-x/05-your-own-os\|Operating system]] | Weeks, not a weekend. Boots from a USB stick → [[foundations/os/README\|os]] |
+
+**Not yet a guide, and the best distributed-systems project there is:**
+
+- 🔴 ⭐ **A Raft key-value store** — [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] made real: leader election, log replication, safety, then a replicated KV store on top, tested against crashes and partitions. It forces you to confront every edge case the [[architecture/04-distributed-systems/README|theory]] describes. (MIT 6.824 labs are the gold standard.)
 
 Pair each with a short write-up of what you learned; these are portfolio-grade signal on their own.
 
