@@ -16,6 +16,7 @@ The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest a
 - [x] `languages/04-c/` — README + 13 notes, ~19,000 words
 - [x] `languages/05-cpp/` — README + 15 notes, ~24,000 words
 - [x] `backend/frameworks/` — go (6), rust (6), c (4), cpp (5) + READMEs, ~31,000 words
+- [x] `foundations/os/` — 12 notes, ~17,000 words
 
 ---
 
@@ -92,7 +93,7 @@ Found 2026-08-14 by grep-testing a standard undergraduate syllabus against the v
 The bias is coherent — everything practitioners use, little of what's proved in a lecture hall — but **two of these gaps block Phase 2**, so they're not optional:
 
 - [ ] **`foundations/compilers/`** — ~10 notes — **blocks `04-your-own-language`.** Lexing, parsing (recursive descent, Pratt, LR), ASTs, symbol tables, type checking, IR, codegen, optimisation, VMs and bytecode, garbage collection
-- [ ] **`foundations/os/` buildout** — ~12 notes — **blocks `05-your-own-os`.** Promote the single `fundamentals.md` into a real course: processes, threads, scheduling, virtual memory, paging, filesystems, I/O, syscalls, IPC, deadlock, virtualisation
+- [x] **`foundations/os/` buildout** — ✅ **DONE** — 12 notes, ~17,000 words. `fundamentals.md` kept (13 inbound links); numbered course built around it
 
 Worth doing, not blocking:
 
@@ -115,7 +116,7 @@ Each line is roughly one working session.
 | ~~2~~ | ~~`languages/04-c/`~~ ✅ | 13 |
 | ~~3~~ | ~~`languages/05-cpp/`~~ ✅ | 15 |
 | ~~4~~ | ~~`backend/frameworks/`~~ ✅ | 21 |
-| 5 | `foundations/os/` buildout | ~12 |
+| ~~5~~ | ~~`foundations/os/`~~ ✅ | 12 |
 | 6 | `foundations/compilers/` | ~10 |
 | 7 | `build-your-own-x/` — guides 01, 02, 07 (http, git, shell) | 3 |
 | 8 | `build-your-own-x/` — guides 03, 04, 06 (redis, language, database) | 3 |
