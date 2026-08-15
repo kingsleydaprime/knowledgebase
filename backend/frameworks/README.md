@@ -42,6 +42,18 @@ The course's vocabulary, translated. This table is most of what "learning a new 
 
 Notice how much is "(your own)" in the minimal frameworks — **Express and Axum give you a router and get out of the way**; Nest and Spring give you a container and opinions. That's the actual axis on which these differ, and it's a team-size decision more than a technical one: opinionated frameworks pay off when many people touch the codebase, and cost you when three people want to move fast.
 
+## Two shapes, and which to use
+
+This folder contains both layouts, deliberately:
+
+**A folder per framework** — when a language has **several co-equal frameworks** that are genuinely separate subjects. [[backend/frameworks/javascript/README|javascript/]] is this: the Node runtime, Express and Nest each need their own treatment, because Express middleware and Nest interceptors are different topics, not two spellings of one.
+
+**Flat notes by concern** — when a language has **one dominant choice plus alternatives**, and the material is shared across all of them. [[backend/frameworks/java/README|java/]], [[backend/frameworks/go/README|go/]], [[backend/frameworks/rust/README|rust/]], [[backend/frameworks/c/README|c/]] and [[backend/frameworks/cpp/README|cpp/]] are this. Go's middleware note applies identically to the stdlib, Chi and Gin; the database and testing notes are framework-independent entirely. Splitting them per framework would leave one folder with five notes and two with one each.
+
+> **The test: could you write a note about this framework that wouldn't apply to its siblings?** If yes, give it a folder. If no, the material is really about the *language's* approach, and it belongs in flat notes by concern.
+
+`python/` will take the folder shape when it's written — Django, Flask and FastAPI are genuinely co-equal.
+
 ## How to add a framework here
 
 Keep it to what the course *doesn't* already cover:
