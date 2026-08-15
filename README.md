@@ -14,6 +14,7 @@ The domains that are actually built out — **networking, DSA, backend, architec
 
 **Two cross-cutting entry points, added August 2026:**
 - 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
+- 🔨 **[[build-your-own-x/README|Build Your Own X]]** — language-agnostic build guides with numbered, independently-testable milestones. Where the rest of the vault stops being reading. HTTP server, git, and shell are written; redis, language, OS, database and container are planned.
 - 🧭 **[[BUILD-PLAN|Build Plan]]** — the working queue for what gets written next, ordered and sized: the systems languages (Rust/C/C++), `build-your-own-x/`, `engineering/`, and the CS-curriculum gaps found by auditing a standard syllabus against this vault.
 - 🎯 **[[INTERVIEW|Interview Prep Index]]** — every domain now has an `interview/` folder: the question, what a strong answer covers, and the detail that separates memorised from understood.
 
