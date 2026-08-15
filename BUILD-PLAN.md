@@ -20,6 +20,8 @@ The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest a
 - [x] `foundations/compilers/` — 11 notes, ~16,500 words
 - [x] `build-your-own-x/` batch 1 — http-server, git, shell + README, ~6,800 words
 - [x] `build-your-own-x/` batch 2 — redis, language, database, ~6,300 words
+- [x] `build-your-own-x/` batch 3 — os, container, ~4,400 words. **All 8 guides written; Phase 2 complete**
+- [x] `engineering/` created (umbrella) + `01-continuum-mechanics/` — 13 notes, ~19,600 words
 
 ---
 
@@ -68,10 +70,10 @@ Following the [[languages/README|rule]]: frameworks live here, languages live th
 - [x] **`02-your-own-git.md`** ✅ — content-addressable store → blob/tree/commit objects → refs → index/staging → commit → log → branch → checkout → diff → merge. Pairs with [[git/01-how-git-works|How Git Actually Works]], which is already written
 - [x] **`03-your-own-redis.md`** ✅ — RESP protocol parser → in-memory store → GET/SET → event loop → expiry → more data types → persistence (RDB/AOF) → replication
 - [x] **`04-your-own-language.md`** ✅ — lexer → parser/AST → tree-walking interpreter → environments and scope → functions and closures → then either a bytecode VM or a compiler. **Blocked on the compilers gap below**
-- [ ] **`05-your-own-os.md`** — bootloader → protected/long mode → VGA or serial output → interrupts → memory management → paging → processes → scheduler → syscalls → filesystem. The longest and hardest; **blocked on the OS gap below**
+- [x] **`05-your-own-os.md`** ✅ — bootloader → protected/long mode → VGA or serial output → interrupts → memory management → paging → processes → scheduler → syscalls → filesystem. The longest and hardest; **blocked on the OS gap below**
 - [x] **`06-your-own-database.md`** ✅ — pager → B-tree or LSM → record format → a SQL subset parser → query execution → transactions and a WAL
 - [x] **`07-your-own-shell.md`** ✅ — the best small one. Read-eval loop → tokenising → `fork`/`exec` → redirection → pipes → job control → builtins
-- [ ] **`08-your-own-container.md`** — namespaces → cgroups → chroot/pivot_root → a layered filesystem. Ties [[devops/02-docker/README|Docker]] to what the kernel actually does
+- [x] **`08-your-own-container.md`** ✅ — namespaces → cgroups → chroot/pivot_root → a layered filesystem. Ties [[devops/02-docker/README|Docker]] to what the kernel actually does
 
 Once this folder exists, [[project-ideas|project-ideas.md]]'s "build your own X" tier should link into it rather than duplicating it.
 
@@ -81,7 +83,7 @@ Once this folder exists, [[project-ideas|project-ideas.md]]'s "build your own X"
 
 Chosen structure: one umbrella with numbered tracks, room to grow.
 
-- [ ] **`engineering/01-continuum-mechanics/`** — ~13 notes — index notation and tensors · kinematics of deformation · strain measures · stress (Cauchy, PK1/PK2) · conservation laws · constitutive models · linear elasticity · beams and plates · viscous fluids and Navier–Stokes · finite deformation · failure and yield criteria · an intro to FEM
+- [x] **`engineering/01-continuum-mechanics/`** — ✅ **DONE** — 13 notes, ~19,600 words
 - [ ] **`engineering/02-control-theory/`** — ~13 notes — open vs closed loop · modelling and transfer functions · Laplace · first/second-order response · PID and **actually tuning one** · stability · root locus · Bode and Nyquist · state-space · controllability and observability · observers and Kalman · LQR · digital control and discretisation · an intro to nonlinear control
 - [ ] **`robotics/`** — ~9 notes — build out the existing plan, with `control-theory-basics` becoming a pointer into `engineering/02`. Kinematics gets real depth: forward/inverse, DH parameters, Jacobians, singularities, then dynamics, state estimation, ROS 2, SLAM
 
@@ -123,8 +125,8 @@ Each line is roughly one working session.
 | ~~6~~ | ~~`foundations/compilers/`~~ ✅ | 11 |
 | ~~7~~ | ~~`build-your-own-x/` — 01, 02, 07~~ ✅ | 3 |
 | ~~8~~ | ~~`build-your-own-x/` — 03, 04, 06~~ ✅ | 3 |
-| 9 | `build-your-own-x/` — guides 05, 08 (os, container) | 2 |
-| 10 | `engineering/01-continuum-mechanics/` | ~13 |
+| ~~9~~ | ~~`build-your-own-x/` — 05, 08~~ ✅ | 2 |
+| ~~10~~ | ~~`engineering/01-continuum-mechanics/`~~ ✅ | 13 |
 | 11 | `engineering/02-control-theory/` | ~13 |
 | 12 | `robotics/` buildout | ~9 |
 | 13 | *optional* — theory of computation, computer architecture, discrete math | ~26 |
