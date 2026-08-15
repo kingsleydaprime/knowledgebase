@@ -21,15 +21,15 @@ The milestone ordering is the load-bearing part. **You should always have someth
 **Built:**
 
 1. [[build-your-own-x/01-http-server|HTTP Server]] — **[Intermediate]** — accept loop → request-line parser → headers → responses → routing → static files → keep-alive → concurrency → chunked encoding. **The best first project**: a weekend, immediate visual feedback, and a real browser as the test
-2. [[build-your-own-x/02-your-own-git|Your Own Git]] — **[Intermediate]** — content-addressable store → blobs → trees → commits → refs → log → index → branches → diff → merge. **Real Git can read your repository** — that's the test that makes it satisfying
+2. [[build-your-own-x/02-your-own-git|Your Own Git]] — **[Intermediate]** — content-addressable store → blobs → trees → commits → refs → log → index → branches → diff → merge. **Real Git can read your repository**
+3. [[build-your-own-x/03-your-own-redis|Your Own Redis]] — **[Intermediate]** — RESP parser → store → expiry → event loop → data types → RDB/AOF persistence → replication. **The real `redis-cli` connects to it**
+4. [[build-your-own-x/04-your-own-language|Your Own Language]] — **[Intermediate → Advanced]** — lexer → parser → tree-walking interpreter → closures → then a bytecode VM, a type checker, or GC. **The deepest single lesson here**
+6. [[build-your-own-x/06-your-own-database|Your Own Database]] — **[Advanced]** — pager → row format → B-tree → SQL parser → execution → **transactions and a WAL**. `kill -9` mid-write and the data survives
 7. [[build-your-own-x/07-your-own-shell|Your Own Shell]] — **[Intermediate]** — read-eval loop → tokenise → `fork`/`exec` → exit status → redirection → builtins → pipelines → jobs. **The best small one**: a few hundred lines, and you can use it
 
 **Planned:**
 
-3. `03-your-own-redis` — RESP parser → in-memory store → event loop → expiry → more types → persistence → replication
-4. `04-your-own-language` — lexer → parser → tree-walking interpreter → closures → bytecode VM. → [[foundations/compilers/README|compilers]] is the prerequisite, now written
 5. `05-your-own-os` — bootloader → long mode → interrupts → paging → processes → scheduler → syscalls → filesystem. The longest and hardest. → [[foundations/os/README|os]] is the prerequisite, now written
-6. `06-your-own-database` — pager → B-tree or LSM → record format → SQL subset → query execution → transactions and a WAL
 8. `08-your-own-container` — namespaces → cgroups → pivot_root → layered filesystem. Ties [[devops/02-docker/README|Docker]] to [[foundations/os/11-isolation-and-containers|what the kernel actually does]]
 
 ## Which to start with
