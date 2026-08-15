@@ -84,8 +84,8 @@ Once this folder exists, [[project-ideas|project-ideas.md]]'s "build your own X"
 Chosen structure: one umbrella with numbered tracks, room to grow.
 
 - [x] **`engineering/01-continuum-mechanics/`** — ✅ **DONE** — 13 notes, ~19,600 words
-- [ ] **`engineering/02-control-theory/`** — ~13 notes — open vs closed loop · modelling and transfer functions · Laplace · first/second-order response · PID and **actually tuning one** · stability · root locus · Bode and Nyquist · state-space · controllability and observability · observers and Kalman · LQR · digital control and discretisation · an intro to nonlinear control
-- [ ] **`robotics/`** — ~9 notes — build out the existing plan, with `control-theory-basics` becoming a pointer into `engineering/02`. Kinematics gets real depth: forward/inverse, DH parameters, Jacobians, singularities, then dynamics, state estimation, ROS 2, SLAM
+- [x] **`engineering/02-control-theory/`** — ✅ **DONE** — 13 notes, ~21,000 words
+- [ ] **`robotics/`** — ~9 notes — build out the existing plan. `control-theory-basics` **already re-pointed** at `engineering/02-control-theory/`; when written it becomes a robotics-specific note (cascaded joint loops, computed torque) rather than a restatement. Kinematics gets real depth: forward/inverse, DH parameters, Jacobians, singularities, then dynamics, state estimation, ROS 2, SLAM
 
 > `robotics/README.md` carries the rule that control-theory notes *"should only be written after something has actually been made to move."* Keep that caveat visible on these; don't quietly delete it.
 
@@ -127,7 +127,7 @@ Each line is roughly one working session.
 | ~~8~~ | ~~`build-your-own-x/` — 03, 04, 06~~ ✅ | 3 |
 | ~~9~~ | ~~`build-your-own-x/` — 05, 08~~ ✅ | 2 |
 | ~~10~~ | ~~`engineering/01-continuum-mechanics/`~~ ✅ | 13 |
-| 11 | `engineering/02-control-theory/` | ~13 |
+| ~~11~~ | ~~`engineering/02-control-theory/`~~ ✅ | 13 |
 | 12 | `robotics/` buildout | ~9 |
 | 13 | *optional* — theory of computation, computer architecture, discrete math | ~26 |
 

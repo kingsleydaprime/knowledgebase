@@ -42,10 +42,11 @@ Everything else in this vault assumes a working machine. This domain is where "w
 Honest, in the vault's usual style:
 
 - **Nothing on test and bring-up** — how you actually power a new board for the first time without releasing the smoke. There's a project for it in [[project-ideas|project-ideas]] and a debugging walkthrough in [[hardware/interview/01-electronics-and-embedded|the interview bank]]; the note should follow the build, not precede it.
-- **No robotics** — motion, control, and autonomy are a separate direction: [[robotics/README|robotics/]], currently scaffold.
+- **No robotics** — motion, control, and autonomy are a separate direction: [[robotics/README|robotics/]], currently scaffold. The *control theory* half now exists as a track: [[engineering/02-control-theory/README|engineering/02-control-theory/]], including the digital-implementation note that covers sampling, discretisation, and fixed-point on a microcontroller.
 
 ## Related
 - [[robotics/README|Robotics]] — the layer above: actuation, control, autonomy. Planned, not built
+- [[engineering/02-control-theory/README|Control Theory]] — why an op-amp's feedback loop and a motor's servo loop are the same subject, and [[engineering/02-control-theory/12-digital-control|how to implement one on an MCU]]
 - [[foundations/os/README|Operating Systems]] — what runs once the hardware works
 - [[foundations/networking/README|Networking]] — the protocol stack above the physical layer this domain builds
 - [[PRIMETECHIE|The Primetechie Path]] — where the hardware gates sit in the progression

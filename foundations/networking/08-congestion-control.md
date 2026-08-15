@@ -88,3 +88,4 @@ Congestion control is a **distributed algorithm running on machines that never c
 - [[foundations/networking/15-network-performance|Network Performance]] — BDP, and why round trips dominate
 - [[foundations/networking/13-quic-and-modern-transport|QUIC]] — congestion control moved to userspace, where it can be iterated on
 - [[architecture/04-distributed-systems/README|Distributed Systems]] — incast, tail latency, and scatter-gather
+- [[engineering/02-control-theory/README|Control Theory]] — AIMD is a feedback controller with a delayed, noisy plant. The maths that explains why it oscillates, and why the delay is the hard part

@@ -9,7 +9,7 @@ Everything else here — software, infrastructure, security — assumes a workin
 ## Tracks
 
 1. [[engineering/01-continuum-mechanics/README|01-continuum-mechanics/]] — **[Advanced]** — how solids and fluids deform and flow, treated as continuous media. Tensors, strain, stress, the conservation laws, constitutive models, elasticity, Navier–Stokes, failure, and an entry into FEM
-2. `02-control-theory/` — **planned** — open vs closed loop, transfer functions, PID and how to actually tune one, stability, root locus, Bode and Nyquist, state-space, observers and Kalman, LQR, digital control
+2. [[engineering/02-control-theory/README|02-control-theory/]] — **[Intermediate → Advanced]** — making a system behave despite a wrong model and real disturbances. Transfer functions, PID and how to actually tune one, stability, root locus, Bode and Nyquist, state space, observers and Kalman, LQR and MPC, digital implementation, and an entry into nonlinear control
 
 **Later, if they earn their place:** thermodynamics and heat transfer, statics and dynamics, materials science, fluid mechanics as its own track, signals and systems.
 
