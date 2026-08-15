@@ -85,15 +85,15 @@ Chosen structure: one umbrella with numbered tracks, room to grow.
 
 - [x] **`engineering/01-continuum-mechanics/`** — ✅ **DONE** — 13 notes, ~19,600 words
 - [x] **`engineering/02-control-theory/`** — ✅ **DONE** — 13 notes, ~21,000 words
-- [ ] **`robotics/`** — ~9 notes — build out the existing plan. `control-theory-basics` **already re-pointed** at `engineering/02-control-theory/`; when written it becomes a robotics-specific note (cascaded joint loops, computed torque) rather than a restatement. Kinematics gets real depth: forward/inverse, DH parameters, Jacobians, singularities, then dynamics, state estimation, ROS 2, SLAM
+- [x] **`robotics/`** — ✅ **DONE** — 14 notes, ~22,000 words. Built against the 9-note plan its README proposed, with kinematics expanded to five notes as this plan called for (transforms, forward, inverse, Jacobians, dynamics). Note 09 is the robotics-specific control note; theory stays in `engineering/02`
 
-> `robotics/README.md` carries the rule that control-theory notes *"should only be written after something has actually been made to move."* Keep that caveat visible on these; don't quietly delete it.
+> `robotics/README.md` carried the rule that control-theory notes *"should only be written after something has actually been made to move."* **Honoured, not deleted** — it survives in both new tracks' honest notes, sharpened rather than softened: the robotics README now says outright that its "what actually goes wrong" sections are written from other people's experience, and `project-ideas.md` states the debt explicitly. **Phase 3 is complete.**
 
 ---
 
 ## The CS-curriculum gaps
 
-Found 2026-08-14 by grep-testing a standard undergraduate syllabus against the vault. **Absent entirely** (0 hits): complexity theory (P vs NP), automata and formal languages, compilers, computer architecture, discrete mathematics, programming-language theory, computer graphics, information theory. **Thin:** operating systems (one note), databases (references only, no course), numerical methods.
+Found 2026-08-14 by grep-testing a standard undergraduate syllabus against the vault. **Absent entirely** (0 hits): complexity theory (P vs NP), automata and formal languages, compilers, computer architecture, discrete mathematics, programming-language theory, computer graphics, information theory. **All but the last three are now closed.** **Thin:** operating systems (one note), databases (references only, no course), numerical methods.
 
 The bias is coherent — everything practitioners use, little of what's proved in a lecture hall — but **two of these gaps block Phase 2**, so they're not optional:
 
@@ -102,10 +102,10 @@ The bias is coherent — everything practitioners use, little of what's proved i
 
 Worth doing, not blocking:
 
-- [ ] **`foundations/theory-of-computation/`** — ~8 notes — automata, regular and context-free languages, Turing machines, decidability, P/NP, reductions. Pairs naturally with compilers
-- [ ] **`foundations/computer-architecture/`** — ~10 notes — ISA, assembly, the memory hierarchy, caches, pipelining, branch prediction, out-of-order execution. Sits between [[hardware/README|hardware/]] and [[foundations/os/README|os/]], and explains the constants behind every performance note in the vault
-- [ ] **`foundations/discrete-math/`** — ~8 notes — logic, proof techniques, sets, relations, functions, combinatorics, graph theory, recurrences
-- [ ] **`databases/` → a course** — the last big unstructured domain, alongside the four existing reference files
+- [x] **`foundations/theory-of-computation/`** — ✅ **DONE** — 8 notes, ~11,600 words
+- [x] **`foundations/computer-architecture/`** — ✅ **DONE** — 12 notes, ~17,400 words (plan said ~10; data representation and performance-method earned their own)
+- [x] **`foundations/discrete-math/`** — ✅ **DONE** — 8 notes, ~11,300 words. Recurrences and the Master Theorem folded into `05-induction-and-recursion` rather than a separate note
+- [ ] **`databases/` → a course** — **the last big unstructured domain**, and now the only unticked item in this file. Four reference files (`sql-`, `mysql-`, `nosql-`, `database-design-reference`) plus an `interview/` folder, no numbered course. Note that `foundations/discrete-math/04` now leans on it for the relational-model connection
 
 Deferred, honestly: computer graphics, information theory, PL theory. Real subjects, no current pull.
 
@@ -128,10 +128,14 @@ Each line is roughly one working session.
 | ~~9~~ | ~~`build-your-own-x/` — 05, 08~~ ✅ | 2 |
 | ~~10~~ | ~~`engineering/01-continuum-mechanics/`~~ ✅ | 13 |
 | ~~11~~ | ~~`engineering/02-control-theory/`~~ ✅ | 13 |
-| 12 | `robotics/` buildout | ~9 |
-| 13 | *optional* — theory of computation, computer architecture, discrete math | ~26 |
+| ~~12~~ | ~~`robotics/` buildout~~ ✅ | 14 |
+| ~~13~~ | ~~*optional* — theory of computation, computer architecture, discrete math~~ ✅ | 28 |
 
 Batches 5 and 6 are inserted before `build-your-own-x/` because the OS and compilers guides are blocked without them. Everything else follows the order requested.
+
+**Every batch in this plan is now complete.** What remains is `databases/` → a course (above), and the three deferred subjects (computer graphics, information theory, PL theory) — none of which anyone has asked for.
+
+**The standing debt is reps, not notes.** `engineering/`, `robotics/` and all three CS-theory domains are `[reference]`: read and assembled, never validated by building. Each one's README names what would close its own gap, and [[project-ideas|project-ideas]] carries the list.
 
 ---
 

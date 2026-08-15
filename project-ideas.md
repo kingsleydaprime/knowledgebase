@@ -125,15 +125,31 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
 ---
 
 ## Robotics
-*⚠️ **No vault course backs these yet** — [[robotics/README|robotics/]] is scaffold. Listed deliberately: the vault's own rule is that the build comes before the notes, so the first project here is the prerequisite for writing that folder at all.*
+*⚠️ **The notes exist; the reps don't.** [[robotics/README|robotics/]] is now 14 notes, and every one is `[reference]` — assembled from the standard sources, not from a robot that moved. **These projects are what would make that folder trustworthy**, and its own README says as much. The vault's rule normally puts the build before the notes; this domain went the other way, so the debt is explicit.*
 
 - 🟢 **Make one motor go exactly where you tell it** — a servo or a stepper with an encoder, commanded to a position and holding it. Then disturb it by hand and watch it correct. That's a closed loop, and it's the entire subject in miniature.
-- 🟡 ⭐ **Tune a PID by hand, and write down what each term did** — a line follower or a self-balancing two-wheeler. Start with P only and watch it oscillate; add D and watch it stop; add I and watch the steady-state error close. **Tuning one loop badly on real hardware teaches more than any amount of control theory reading** — and it's the honest prerequisite for the `control-theory-basics` note.
+- 🟡 ⭐ **Tune a PID by hand, and write down what each term did** — a line follower or a self-balancing two-wheeler. Start with P only and watch it oscillate; add D and watch it stop; add I and watch the steady-state error close. **Tuning one loop badly on real hardware teaches more than any amount of control theory reading** — and it's the honest prerequisite for trusting a word of [[engineering/02-control-theory/04-pid-control|the PID note]].
 - 🟡 **Sensor fusion on something that moves** — combine an accelerometer and a gyro into one angle estimate with a complementary filter, and demonstrate why neither alone is usable (one drifts, one is noisy). The intuition Kalman filters formalise.
 - 🔴 **Teleoperation with a latency budget** — drive something remotely and measure the end-to-end delay, then make it degrade safely when the link drops rather than continuing at the last command. Joins [[foundations/networking/15-network-performance|latency]] to a machine that can hurt someone.
-- 🔴 **A robot that maps a room** — odometry plus a range sensor into a 2D occupancy map, and an honest account of how far it drifts. The entry point to SLAM, and the project that would justify writing that note.
+- 🔴 **A robot that maps a room** — odometry plus a range sensor into a 2D occupancy map, and an honest account of how far it drifts. The entry point to [[robotics/12-localisation-and-slam|SLAM]], and the project that turns "odometry drifts without bound" from a sentence you read into a number you measured.
 
-**If you do one:** the PID tuning project. It's cheap, it fits on a desk, and it converts an entire planned folder from aspiration into something you've earned the right to write.
+**If you do one:** the PID tuning project. It's cheap, it fits on a desk, and it's the difference between having read [[engineering/02-control-theory/04-pid-control|the PID note]] and having earned it.
+
+---
+
+## CS Theory — the cheapest reps in this vault
+*⚠️ **Notes exist, reps don't** — [[foundations/discrete-math/README|discrete maths]], [[foundations/theory-of-computation/README|theory of computation]] and [[foundations/computer-architecture/README|computer architecture]] are all `[reference]`. **Unlike engineering or robotics, closing this gap needs no hardware and no money** — `perf`, a compiler, and an afternoon. That makes it the least excusable gap on this page.*
+
+- 🟢 **Run `perf stat` on something you wrote** — look at the IPC, then work out *why* it's that number. Twenty minutes, and it turns [[foundations/computer-architecture/12-performance|the whole performance note]] from reading into a method you've used.
+- 🟢 **Reproduce the sorted-array branch experiment** — the same loop over sorted vs shuffled data, several-fold difference, identical instruction count. **Seeing it yourself is different from reading it** → [[foundations/computer-architecture/06-pipelining|pipelining]].
+- 🟢 **Demonstrate false sharing** — two threads incrementing adjacent array elements, then padded to 64 bytes. **Watch a parallel program get faster by adding memory** → [[foundations/computer-architecture/09-caches-in-depth|caches]].
+- 🟡 ⭐ **Matrix multiply, three ways** — naive, loop-interchanged, blocked. Measure each. **A 10× spread from reordering identical arithmetic** is the single best demonstration of [[foundations/computer-architecture/08-the-memory-hierarchy|the memory hierarchy]].
+- 🟡 **Prove three things on paper** — $\{a^nb^n\}$ isn't regular, the halting problem is undecidable, one NP-completeness reduction. **Reading a proof and producing one are different skills** → [[foundations/discrete-math/03-proof-techniques|proof techniques]].
+- 🟡 ⭐ **Build a regex engine** — Thompson's construction → subset construction → simulate the DFA. A few hundred lines, and it makes [[foundations/theory-of-computation/02-finite-automata|the regex/NFA/DFA equivalence]] concrete. **This is the missing ninth guide in [[build-your-own-x/README|build-your-own-x]].**
+- 🔴 **Write a SAT solver** — DPLL is short; adding clause learning makes it genuinely useful. The best way to understand why [[foundations/theory-of-computation/07-complexity-classes|NP-completeness]] is survivable in practice.
+- 🔴 **Lean's Natural Number Game, then a real proof in Lean** — a proof assistant will not let you skip a step, which is exactly the discipline reading proofs doesn't build.
+
+**If you do one:** the matrix-multiply trio. It takes an hour, produces a number you can't argue with, and permanently changes how you think about data layout.
 
 ---
 
@@ -150,5 +166,5 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
 - [[README|Knowledgebase home]] — the notes these projects exercise
 - [[PRIMETECHIE|The Primetechie Path]] — which rank and column each project is a gate for
 - [[languages/01-java/02-jvm-and-concurrency/exercises/README|Java concurrency exercises]] · [[ai-ml/03-ai-engineer/19-practice-exercises|AI engineering exercises]] · [[cybersecurity/02-ethical-hacking/12-practice-exercises|ethical hacking exercises]] · [[devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA exercises]] — where ready-made reps already exist
-- [[hardware/README|Hardware]] · [[robotics/README|Robotics]] — the two newest columns; robotics is scaffold, so its projects come *before* its notes
+- [[hardware/README|Hardware]] · [[robotics/README|Robotics]] · [[engineering/README|Engineering]] · [[foundations/computer-architecture/README|CS theory]] — the newest columns. Hardware has a fabricated board behind it; the other three have notes and no reps, which is what these projects are for — and **the CS-theory ones are free**
 - [[problem-solving/thinking-patterns|problem-solving]] — the thinking-process companion

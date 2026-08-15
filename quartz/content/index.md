@@ -58,9 +58,11 @@ Notes are tagged **[Beginner]** / **[Intermediate]** / **[Advanced]**, marking h
 
 This vault labels its own gaps rather than implying uniform coverage.
 
-**Built out and readable start-to-finish:** networking · DSA · backend · architecture (incl. distributed systems) · devops · java · AI/ML · using-ai · cybersecurity · hardware · research · concepts
+**Built out and readable start-to-finish:** networking · DSA · backend · architecture (incl. distributed systems) · devops · java · AI/ML · using-ai · cybersecurity · hardware · research · concepts · operating systems · compilers
 
-**Honest scaffold — a stated direction, not knowledge yet:** [[robotics/README|robotics]] · [[ai-automation/README|ai-automation]] · [[foundations/os/README|foundations/os]] · parts of [[frontend/README|frontend]]
+**Written, but `[reference]` — read and assembled, not validated by building:** [[engineering/README|engineering]] (continuum mechanics · control theory) · [[robotics/README|robotics]] · the CS-theory spine ([[foundations/discrete-math/README|discrete maths]] · [[foundations/theory-of-computation/README|theory of computation]] · [[foundations/computer-architecture/README|computer architecture]]). Each says so on its own front page, and says what would close the gap.
+
+**Honest scaffold — a stated direction, not knowledge yet:** [[ai-automation/README|ai-automation]] · parts of [[frontend/README|frontend]]
 
 Where a folder is a plan rather than a course, it says so in its first paragraph. Where a topic has been read but not practised, the notes say that too — because *"reading is not a rank"* is the rule the whole vault is organised around.
 

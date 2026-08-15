@@ -12,5 +12,7 @@ The mathematical foundation underneath most of the rest of `cybersecurity/` — 
 
 ## Related
 - [[cybersecurity/README|cybersecurity curriculum map]]
+- [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|Number Theory]] — the maths under RSA and Diffie–Hellman, with RSA derived in eight lines
+- [[foundations/theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]] — why cryptographic hardness is *conjectured*, and what quantum computing does to it
 - [[cybersecurity/04-web-security/README|web-security]] — TLS and secure authentication as applied cryptography
 - [[cybersecurity/03-network-security/README|network-security]] — VPNs and encryption in transit as applied cryptography
