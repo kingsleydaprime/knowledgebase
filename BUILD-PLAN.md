@@ -15,6 +15,7 @@ The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest a
 - [x] `languages/03-rust/` — README + 18 notes, ~22,000 words
 - [x] `languages/04-c/` — README + 13 notes, ~19,000 words
 - [x] `languages/05-cpp/` — README + 15 notes, ~24,000 words
+- [x] `backend/frameworks/` — go (6), rust (6), c (4), cpp (5) + READMEs, ~31,000 words
 
 ---
 
@@ -33,7 +34,7 @@ Compilation model (preprocess → compile → assemble → link) · **headers, i
 ### 1.3 `languages/05-cpp/` — ✅ **DONE** — README + 15 notes, ~24,000 words
 RAII (the central idea) · classes, constructors, the rule of 0/3/5 · references vs pointers · templates and generic programming · the STL: containers, iterators, algorithms · smart pointers and ownership · move semantics and rvalue references · operator overloading · inheritance, virtual dispatch, and the vtable · exceptions and exception safety · `constexpr` and compile-time computation · modern C++ (11→23): what actually changed practice · **modules**, and why headers are still everywhere · concurrency: `std::thread`, `atomic`, the memory model · build and tooling: CMake, package managers
 
-### 1.4 `backend/frameworks/` — ~21 notes total
+### 1.4 `backend/frameworks/` — ✅ **DONE** — 21 notes + 4 rewritten READMEs, ~31,000 words
 Following the [[languages/README|rule]]: frameworks live here, languages live there.
 
 - `go/` (~6) — `net/http` in depth, Chi, Gin, middleware as composition, testing handlers, the stdlib-is-enough argument
@@ -113,7 +114,7 @@ Each line is roughly one working session.
 | ~~1~~ | ~~`languages/03-rust/`~~ ✅ | 18 |
 | ~~2~~ | ~~`languages/04-c/`~~ ✅ | 13 |
 | ~~3~~ | ~~`languages/05-cpp/`~~ ✅ | 15 |
-| 4 | `backend/frameworks/` — go, rust, c, cpp | ~21 |
+| ~~4~~ | ~~`backend/frameworks/`~~ ✅ | 21 |
 | 5 | `foundations/os/` buildout | ~12 |
 | 6 | `foundations/compilers/` | ~10 |
 | 7 | `build-your-own-x/` — guides 01, 02, 07 (http, git, shell) | 3 |
