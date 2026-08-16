@@ -107,7 +107,17 @@ Worth doing, not blocking:
 - [x] **`foundations/discrete-math/`** — ✅ **DONE** — 8 notes, ~11,300 words. Recurrences and the Master Theorem folded into `05-induction-and-recursion` rather than a separate note
 - [x] **`databases/` → a course** — ✅ **DONE** — 12 notes, ~17,900 words, plus a README. **Additive**: all four reference files kept (≈40 inbound links) and positioned as the syntax layer; the course is the *internals* layer they lacked — pages, B-trees, LSM, the query pipeline, MVCC, WAL, replication, operations
 
-Deferred, honestly: computer graphics, information theory, PL theory. Real subjects, no current pull.
+~~Deferred, honestly: computer graphics, information theory, PL theory.~~ **Un-deferred 2026-08-16** — and a re-audit of every README's stated-gaps section found two *more* load-bearing than any of the three:
+
+## Phase 4 — the gaps the vault itself flagged
+
+Ordered by dependency. Chosen 2026-08-16 after grepping every README for its own "known gaps" section.
+
+- [x] **`foundations/numerical-methods/`** — ✅ **DONE** — 10 notes, ~14,500 words. **Was the biggest structural hole.** `engineering/README` says "not yet written; FEM and CFD both need it"; continuum mechanics lists quadrature/linear solvers/stability as genuine gaps; control theory needs discretisation; ML optimisation leans on conditioning. Floating point → root finding → linear systems → eigenvalues → interpolation → quadrature → ODEs → PDEs → optimisation
+- [x] **`foundations/information-theory/`** — ✅ **DONE** — 7 notes, ~10,600 words. **Connective tissue, not a new silo.** Cross-entropy and KL divergence are used throughout `ai-ml/` and never explained; key entropy is referenced in discrete-math 06; Shannon capacity belongs under networking; ECC under number theory
+- [x] **`foundations/gpu-and-parallel-computing/`** — ✅ **DONE** — 7 notes, ~10,800 words. Closes the gap flagged in `computer-architecture/README` ("a genuine gap given the ML material in this vault"). **`ai-ml/` is 98 notes with nothing explaining the hardware underneath.** SIMT/warps → coalescing → occupancy → the CUDA model → why matmul maps well → tensor cores → transfer cost
+- [x] **`foundations/computer-graphics/`** — ✅ **DONE** — 9 notes, ~13,000 words. Needed numerical methods and GPU first. The transform pipeline (reuses `robotics/04`), rasterisation, shading, ray tracing, shaders
+- [x] **`foundations/programming-language-theory/`** — ✅ **DONE** — 7 notes, ~10,200 words. Lambda calculus, formal type systems, operational semantics, Curry–Howard (already name-dropped in `discrete-math/02`). Stands on the compilers course
 
 ---
 
@@ -133,7 +143,9 @@ Each line is roughly one working session.
 
 Batches 5 and 6 are inserted before `build-your-own-x/` because the OS and compilers guides are blocked without them. Everything else follows the order requested.
 
-**Every item in this plan is now complete.** The only things left are the three deferred subjects — computer graphics, information theory, PL theory — which were deferred for lack of pull rather than lack of merit, and remain available if that changes.
+**ALL PHASES COMPLETE (2026-08-16).** Phase 4 was added from a re-audit of every README's own stated-gaps section — the three long-deferred subjects, plus numerical methods and GPU/parallel computing, which turned out to be more load-bearing than any of them. **All five were built in dependency order in one session: 40 notes, ~59,000 words.**
+
+**Nothing is queued.** The remaining gaps each README names are now *within* domains rather than whole missing subjects — and **the vault-wide debt is reps, not notes.** Fourteen domains are `[reference]`; every one names its own remedy, and [[project-ideas|project-ideas]] carries the consolidated list.
 
 **The standing debt is reps, not notes.** `engineering/`, `robotics/` and all three CS-theory domains are `[reference]`: read and assembled, never validated by building. Each one's README names what would close its own gap, and [[project-ideas|project-ideas]] carries the list.
 

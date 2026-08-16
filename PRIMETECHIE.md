@@ -282,7 +282,8 @@ Assessed against this vault as of **August 2026** — an honest read, not a flat
 | 🧠 **ML & Data** | Deep on paper — ml-engineer 42 notes, data-scientist 8 (thinnest track) | **Zero. No project has trained a model** |
 | 🤖 **Robotics** | [[robotics/README\|14 notes, `[reference]`]] | None. Written, not built — the notes say so |
 | 📐 **Engineering** | [[engineering/README\|26 notes, `[reference]`]] — continuum mechanics + control theory | None. Validates against an experiment there isn't one of |
-| 🧮 **CS theory** | [[foundations/discrete-math/README\|discrete maths]] · [[foundations/theory-of-computation/README\|theory of computation]] · [[foundations/computer-architecture/README\|architecture]] — 28 notes | None — **and this is the one where reps are free.** `perf` and an afternoon |
+| 🧮 **CS theory** | [[foundations/discrete-math/README\|discrete maths]] · [[foundations/theory-of-computation/README\|theory of computation]] · [[foundations/computer-architecture/README\|architecture]] · [[foundations/numerical-methods/README\|numerical methods]] · [[foundations/information-theory/README\|information theory]] · [[foundations/programming-language-theory/README\|PL theory]] — 68 notes | None — **and this is the column where reps are free.** `perf`, a compiler, an afternoon |
+| 🎮 **Graphics & GPU** | [[foundations/computer-graphics/README\|graphics]] · [[foundations/gpu-and-parallel-computing/README\|GPU & parallel]] — 16 notes | None. **Best reps-to-effort ratio in the vault** — a broken renderer *looks* broken |
 
 Two asymmetries worth naming:
 

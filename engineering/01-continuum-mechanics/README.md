@@ -47,8 +47,8 @@ If the derivations fade, these keep paying:
 
 **Genuine gaps in this vault** that this track needs and doesn't have:
 - **Tensor calculus** beyond Cartesian coordinates — curvilinear systems, Christoffel symbols. Needed for shells
-- **PDE theory** — classification, well-posedness, solution methods
-- **Numerical methods** — quadrature, linear solvers, stability analysis
+- ~~**PDE theory**~~ — **now covered** in [[foundations/numerical-methods/09-partial-differential-equations|numerical-methods/09]] (classification, finite difference/volume/element, CFL)
+- ~~**Numerical methods**~~ — **now written**: [[foundations/numerical-methods/README|foundations/numerical-methods/]] (quadrature, sparse solvers, conditioning, stability)
 - **Thermodynamics** — the energy equation and the second law are used here without a proper foundation
 
 **Within the track:** no worked problems, no plasticity in depth (flow rules and return mapping get a paragraph), no composites or laminate theory, no experimental methods beyond a mention, and nothing on multiphysics coupling.
