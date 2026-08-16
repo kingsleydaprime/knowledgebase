@@ -60,7 +60,7 @@ This vault labels its own gaps rather than implying uniform coverage.
 
 **Built out and readable start-to-finish:** networking · DSA · backend · architecture (incl. distributed systems) · devops · java · AI/ML · using-ai · cybersecurity · hardware · research · concepts · operating systems · compilers · databases
 
-**Written, but `[reference]` — read and assembled, not validated by building:** [[engineering/README|engineering]] (continuum mechanics · control theory) · [[robotics/README|robotics]] · the CS-theory spine ([[foundations/discrete-math/README|discrete maths]] · [[foundations/theory-of-computation/README|theory of computation]] · [[foundations/computer-architecture/README|computer architecture]]). Each says so on its own front page, and says what would close the gap.
+**Written, but `[reference]` — read and assembled, not validated by building:** [[engineering/README|engineering]] (continuum mechanics · control theory) · [[robotics/README|robotics]] · [[databases/README|databases]] (the internals course) · the CS-theory spine ([[foundations/discrete-math/README|discrete maths]] · [[foundations/theory-of-computation/README|theory of computation]] · [[foundations/computer-architecture/README|computer architecture]] · [[foundations/numerical-methods/README|numerical methods]] · [[foundations/information-theory/README|information theory]] · [[foundations/gpu-and-parallel-computing/README|GPU & parallel]] · [[foundations/computer-graphics/README|graphics]] · [[foundations/programming-language-theory/README|PL theory]]). Each says so on its own front page, and says what would close the gap.
 
 **Honest scaffold — a stated direction, not knowledge yet:** [[ai-automation/README|ai-automation]] · parts of [[frontend/README|frontend]]
 

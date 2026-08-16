@@ -32,6 +32,10 @@ Start here, depending on what you want:
 - [[hardware/README|Hardware & Embedded]] — the layer below all the software: electricity → digital/analog → embedded → microcontrollers → I2C/SPI/UART → RF → IoT architecture, plus KiCad and a real fabricated PCB
 - [[databases/README|Databases]] — a course on the **internals** (pages → B-trees → LSM → query planning → MVCC → WAL → replication → operations) plus four deep syntax/design references. Read the course to understand `EXPLAIN`; use the references to look things up
 - [[foundations/discrete-math/README|Discrete Maths]] → [[foundations/theory-of-computation/README|Theory of Computation]] → [[foundations/computer-architecture/README|Computer Architecture]] — the CS-theory spine, added Aug 2026 after auditing a standard syllabus against this vault. Logic and proof → what's computable and what's NP-hard → why one $O(n)$ loop is thirty times slower than another
+- [[foundations/numerical-methods/README|Numerical Methods]] — **the gap three domains asked for by name.** Floating point and conditioning → linear systems → quadrature → ODEs → PDEs → optimisation. What FEM, control discretisation and ML optimisation all sit on
+- [[foundations/gpu-and-parallel-computing/README|GPU & Parallel Computing]] — the hardware under 98 notes of ML. Warps, coalescing, the roofline, FSDP. **Why "thousands of cores" is misleading**
+- [[foundations/information-theory/README|Information Theory]] — entropy, and **the note explaining the cross-entropy loss the ML track uses everywhere**. Plus compression, channel capacity, error-correcting codes
+- [[foundations/computer-graphics/README|Computer Graphics]] · [[foundations/programming-language-theory/README|PL Theory]] — rasterisation, shading and ray tracing; lambda calculus, Curry–Howard and where Rust's borrow checker came from
 - [[engineering/README|Engineering]] — the physical half: [[engineering/01-continuum-mechanics/README|continuum mechanics]] (how solids and fluids deform) and [[engineering/02-control-theory/README|control theory]] (making a system behave despite a wrong model). The control track is more portable than it sounds — autoscalers and congestion control are feedback loops with all the classical pathologies
 - [[research/README|Research & Paper Writing]] — a meta-skill for every field: doing research (reading papers, finding a gap, methodology) + writing/publishing (structure, style, venues, peer review)
 
@@ -74,6 +78,22 @@ knowledgebase/
 │   │                             # → finite automata → regular → context-free → Turing
 │   │                             # machines → decidability/Rice → P vs NP → quantum.
 │   │                             # Explains WHY compilers/ is structured as it is.
+│   ├── numerical-methods/        # numbered course (10 notes, Aug 2026): floating point/error
+│   │                             # → root finding → linear systems → eigenvalues →
+│   │                             # interpolation → quadrature → ODEs → PDEs → optimisation.
+│   │                             # engineering/ asked for this by name.
+│   ├── information-theory/       # numbered course (7 notes, Aug 2026): entropy → mutual info
+│   │                             # → compression → CROSS-ENTROPY & KL (the note ai-ml needed)
+│   │                             # → channel capacity → ECC → where it shows up.
+│   ├── gpu-and-parallel-computing/ # numbered course (7 notes, Aug 2026): parallelism → GPU
+│   │                             # architecture/warps → CUDA model → patterns → coalescing
+│   │                             # → roofline → FSDP/multi-GPU. The hardware under ai-ml/.
+│   ├── computer-graphics/        # numbered course (9 notes, Aug 2026): rendering equation →
+│   │                             # transforms → rasterisation → shading/PBR → textures →
+│   │                             # GPU pipeline → ray tracing → meshes → animation.
+│   ├── programming-language-theory/ # numbered course (7 notes, Aug 2026): lambda calculus →
+│   │                             # semantics → type systems → inference → Curry-Howard →
+│   │                             # effects & substructural (where Rust's borrow checker is from).
 │   ├── computer-architecture/    # numbered course (12 notes, Aug 2026): ISA as contract →
 │   │                             # data representation → instruction sets → assembly →
 │   │                             # datapath → pipelining → branch prediction/Spectre →

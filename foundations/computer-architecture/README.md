@@ -63,7 +63,7 @@ How you get from logic gates to something that runs a program, and why that mach
 5. **Read some assembly on Godbolt.** Change optimisation levels and watch code disappear
 6. **The books:** Patterson & Hennessy (*Computer Organization and Design*) for the fundamentals; Hennessy & Patterson (*Computer Architecture: A Quantitative Approach*) for depth; **Drepper's *What Every Programmer Should Know About Memory*** — free, and still the best thing written on note 08's material; Agner Fog's optimisation manuals for the microarchitectural detail
 
-**What's missing here:** exercises, GPU architecture (a genuine gap given the ML material in this vault), I/O and DMA, power and thermal design in depth, chip layout, formal verification of hardware, and anything on FPGAs or accelerator design beyond a mention.
+**What's missing here:** exercises, ~~GPU architecture~~ (**now covered** — [[foundations/gpu-and-parallel-computing/README|foundations/gpu-and-parallel-computing/]]), I/O and DMA, power and thermal design in depth, chip layout, formal verification of hardware, and anything on FPGAs or accelerator design beyond a mention.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
 

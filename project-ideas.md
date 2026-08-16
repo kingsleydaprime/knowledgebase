@@ -137,6 +137,35 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
 
 ---
 
+## Graphics & GPU — the most visible reps
+*⚠️ **Notes exist, reps don't** — [[foundations/computer-graphics/README|graphics]] and [[foundations/gpu-and-parallel-computing/README|GPU & parallel]]. **Best reps-to-effort ratio in the vault**, because a broken renderer* looks *broken. Free GPUs on Colab and Kaggle if you don't have one.*
+
+- 🟢 ⭐ **[Ray Tracing in One Weekend](https://raytracing.github.io)** — genuinely a weekend, no API, no build system, and you finish with a real rendered image. **The single best entry point in graphics.**
+- 🟢 **Break coalescing deliberately** — write a CUDA kernel, transpose the index calculation, measure. **A 10–30× slowdown from one swapped index** makes [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|note 05]] permanent.
+- 🟡 **Write a software rasteriser** — edge functions, z-buffer, perspective-correct interpolation. No GPU. **Then deliberately skip the perspective correction and watch textures warp like a PlayStation 1** → [[foundations/computer-graphics/03-rasterisation|03]].
+- 🟡 **Reduce your render resolution.** If the frame rate doesn't change, you're CPU-bound. **A ten-second test that saves days** → [[foundations/computer-graphics/06-the-gpu-graphics-pipeline|06]].
+- 🟡 ⭐ **Matrix multiply on a GPU three ways** — naive, tiled with shared memory, then cuBLAS. Measure each. **Seeing how far short hand-written code falls is the lesson** → [[foundations/gpu-and-parallel-computing/04-parallel-patterns|04]].
+- 🔴 **Profile a real training loop** with `torch.profiler` and find the data-loading gaps. **They're almost always there**, and the GPU is idle while you optimise kernels → [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|06]].
+
+**If you do one:** Ray Tracing in One Weekend. It's the rare project that's short, self-contained, and produces something you want to show people.
+
+---
+
+## Numerical methods & information theory — short scripts, real insight
+*⚠️ **Notes exist, reps don't** — [[foundations/numerical-methods/README|numerical methods]] and [[foundations/information-theory/README|information theory]]. Every one of these is under 50 lines.*
+
+- 🟢 ⭐ **Plot the finite-difference error U-curve** — compute $f'(x)$ at $h$ from $10^{-1}$ to $10^{-16}$, plot the error. **The V shape is the whole of [[foundations/numerical-methods/01-why-numerical-methods|note 01]] in one picture**, and it takes five minutes.
+- 🟢 **Break the quadratic formula** — solve $x^2 + 10^8x + 1 = 0$ naively and with the stable form. **Watch half your digits vanish** → [[foundations/numerical-methods/02-floating-point-and-error|02]].
+- 🟢 **Measure the entropy of a real file**, then compare against what `gzip` and `zstd` achieve. **The gap is the redundancy your model isn't capturing** → [[foundations/information-theory/01-what-information-is|01]].
+- 🟡 **Reproduce Runge's phenomenon** — interpolate $1/(1+25x^2)$ at 5, 10, 20 equally-spaced points. **More points makes it worse.** Then use Chebyshev nodes and watch it converge → [[foundations/numerical-methods/06-interpolation-and-approximation|06]].
+- 🟡 **Hit a stiffness wall** — integrate a stiff ODE with `RK45` and with `BDF`. **Compare step counts; it's usually orders of magnitude** → [[foundations/numerical-methods/08-ordinary-differential-equations|08]].
+- 🟡 **Fit forward vs reverse KL to a bimodal distribution.** One covers both modes, one picks a single mode. **Twenty lines, and [[foundations/information-theory/04-cross-entropy-and-kl-divergence|note 04]]'s central point becomes visual.**
+- 🔴 **Do a convergence study on anything** — halve the step, confirm the error falls at the promised rate. **The single most useful habit in numerical work.**
+
+**If you do one:** the finite-difference U-curve. Five minutes, and it permanently changes how you think about "just use a smaller step."
+
+---
+
 ## CS Theory — the cheapest reps in this vault
 *⚠️ **Notes exist, reps don't** — [[foundations/discrete-math/README|discrete maths]], [[foundations/theory-of-computation/README|theory of computation]] and [[foundations/computer-architecture/README|computer architecture]] are all `[reference]`. **Unlike engineering or robotics, closing this gap needs no hardware and no money** — `perf`, a compiler, and an afternoon. That makes it the least excusable gap on this page.*
 
@@ -166,5 +195,5 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
 - [[README|Knowledgebase home]] — the notes these projects exercise
 - [[PRIMETECHIE|The Primetechie Path]] — which rank and column each project is a gate for
 - [[languages/01-java/02-jvm-and-concurrency/exercises/README|Java concurrency exercises]] · [[ai-ml/03-ai-engineer/19-practice-exercises|AI engineering exercises]] · [[cybersecurity/02-ethical-hacking/12-practice-exercises|ethical hacking exercises]] · [[devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA exercises]] — where ready-made reps already exist
-- [[hardware/README|Hardware]] · [[robotics/README|Robotics]] · [[engineering/README|Engineering]] · [[foundations/computer-architecture/README|CS theory]] — the newest columns. Hardware has a fabricated board behind it; the other three have notes and no reps, which is what these projects are for — and **the CS-theory ones are free**
+- [[hardware/README|Hardware]] · [[robotics/README|Robotics]] · [[engineering/README|Engineering]] · [[foundations/computer-architecture/README|CS theory]] · [[foundations/computer-graphics/README|graphics & GPU]] — the newest columns. Hardware has a fabricated board behind it; the rest have notes and no reps, which is what these projects are for — and **everything below hardware on that list is free to try**
 - [[problem-solving/thinking-patterns|problem-solving]] — the thinking-process companion

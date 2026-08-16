@@ -16,5 +16,7 @@ Each area is deep enough to be its own folder of atomic notes rather than one fl
 The Data Scientist and ML Engineer roadmaps expect more than the above: **more linear algebra** (eigenvalues/eigenvectors, SVD, determinants & matrix inverse), **inferential statistics** (hypothesis testing, confidence intervals, distribution types) beyond the descriptive basics, and **discrete math**. These are noted for a later pass.
 
 ## Related
+- [[foundations/numerical-methods/README|Numerical Methods]] — conditioning, why gradient descent zigzags, and the linear algebra done properly
+- [[foundations/information-theory/README|Information Theory]] — **where cross-entropy loss and KL divergence actually come from**
 - [[ai-ml/00-foundations/README|Foundations]]
 - [[ai-ml/README|AI/ML course map]]
