@@ -2,9 +2,9 @@
 title: Kingsley's Knowledge Base
 ---
 
-> **software · infrastructure · security · hardware · ML**
+> **software · infrastructure · security · hardware · ML · engineering · CS theory**
 >
-> 855 notes. Not a mirror of documentation — my understanding of how things actually work, the why and the how, and what I figured out the hard way.
+> 1,150 notes. Not a mirror of documentation — my understanding of how things actually work, the why and the how, and what I figured out the hard way.
 
 Docs already exist. This is the layer underneath them: the mental models, the failure modes, and the things that only make sense once you've broken them yourself.
 

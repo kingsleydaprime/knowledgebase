@@ -1,6 +1,6 @@
 # 🎯 Interview Prep — Index
 
-Every domain in this vault now has an `interview/` folder. Same format throughout, generalised from [[projects/arete/interview/01-backend-and-data|the arete interview notes]]: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
+**Thirteen domains have an `interview/` folder** — the ones below. The theory and engineering tracks added since (`engineering/`, `robotics/`, and the CS-theory spine from `discrete-math` through `programming-language-theory`) deliberately don't: those are `[reference]` material with no reps behind them, and **an interview bank for a subject you haven't practised would be memorisation, not preparation.** The place to start with those is [[project-ideas|project-ideas]], not a question list. Same format throughout, generalised from [[projects/arete/interview/01-backend-and-data|the arete interview notes]]: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
 
 ## The banks
 
