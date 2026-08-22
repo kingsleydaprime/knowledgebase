@@ -11,7 +11,7 @@ Deliberately **not numbered**: there's no reading order. Pick the one you're usi
 | **[[backend/frameworks/javascript/README\|JavaScript / TypeScript]]** | Node runtime, Express, NestJS | **event loop** | built out — Nest reference is substantial |
 | **[[backend/frameworks/java/README\|Java]]** | Spring Boot | thread-per-request → **virtual threads** (21+) | built out — **moved here** from `languages/01-java/` |
 | **[[backend/frameworks/cpp/README\|C++]]** | Drogon, Crow, oat++, Beast | **async event loop** (asio) | scaffold |
-| **[[backend/frameworks/python/README\|Python]]** | FastAPI, Django, Flask | mixed — WSGI blocking vs ASGI async | scaffold |
+| **[[backend/frameworks/python/README\|Python]]** | FastAPI, Django, Flask | mixed — **WSGI blocking vs ASGI async** | **built out** — folder shape, 3 notes |
 | **[[backend/frameworks/c/README\|C]]** | libmicrohttpd, Kore, civetweb | **you build it** — usually an `epoll` loop | scaffold |
 | **[[backend/frameworks/go/README\|Go]]** | net/http, Chi, Gin | **goroutines** (green threads) | scaffold |
 | **[[backend/frameworks/rust/README\|Rust]]** | Axum, Actix Web | **async/tokio** | scaffold |
@@ -52,7 +52,7 @@ This folder contains both layouts, deliberately:
 
 > **The test: could you write a note about this framework that wouldn't apply to its siblings?** If yes, give it a folder. If no, the material is really about the *language's* approach, and it belongs in flat notes by concern.
 
-`python/` will take the folder shape when it's written — Django, Flask and FastAPI are genuinely co-equal.
+`python/` took the folder shape when it was written (Aug 2026) — Django, Flask and FastAPI are genuinely co-equal, and each passes the test above emphatically: Django's admin and migrations, FastAPI's `Depends()` and Pydantic, and Flask's context locals are three unrelated subjects, none of which says anything about the other two.
 
 ## How to add a framework here
 
