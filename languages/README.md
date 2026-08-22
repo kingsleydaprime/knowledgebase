@@ -20,7 +20,8 @@ Applied in August 2026 by **moving** (not copying) Java's Spring Boot material o
 4. [[languages/04-c/README|04-c/]] — **[Beginner → Advanced]** — 13 notes: the compilation model, **headers and the translation unit**, the preprocessor, integer promotion, pointers, array decay and strings, manual memory, struct layout, the (small) standard library, **undefined behaviour**, modular C, build systems, and the tooling that substitutes for a safety net. **[reference]**
 5. [[languages/05-cpp/README|05-cpp/]] — **[Beginner → Advanced]** — 15 notes: RAII (the central idea), references and `const`, the Rule of Zero/Five, smart pointers, virtual dispatch and vtables, operator overloading, templates and concepts, the STL and ranges, exception safety, `constexpr`, the memory model, the modern subset to write, and CMake. **[reference]**
 
-Other languages (Python at depth, Kotlin, Zig) would slot in as further numbered tracks if notes get written for them.
+Other languages (Kotlin, Zig) would slot in as further numbered tracks if notes get written for them.
+6. [[languages/06-python/README|06-python/]] — **[Beginner → Advanced]** — 14 notes: the toolchain and virtual environments, **the data model** (names bind to objects — the source of most Python surprises), collections and their costs, scope and closures, dunder protocols and dataclasses, generators and laziness, decorators and context managers, gradual typing, EAFP, the import system, the standard library, **the GIL and the three concurrency models**, pytest and ruff, and why CPython is slow. Deliberately excludes the web frameworks ([[backend/frameworks/python/README|backend/frameworks/python/]]) and the numeric stack ([[ai-ml/00-foundations/04-python-and-data-tools/README|ai-ml]]). **[reference]**
 
 ## Related
 - [[backend/frameworks/README|backend/frameworks/]] — the frameworks these languages host
