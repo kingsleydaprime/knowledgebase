@@ -30,6 +30,7 @@ Start here, depending on what you want:
 - [[backend/README|Backend]] — a full course: foundations → API design → **structuring a backend** (layers, DI, hexagonal, modular monolith) → data → auth, plus `frameworks/` for Node/Nest/Spring/FastAPI/Axum
 - [[concepts/02-frontend/README|Frontend]], [[concepts/03-design-patterns/README|Design Patterns]], [[concepts/04-best-practices/README|Best Practices]] — engineering ideas that belong to no single domain
 - [[languages/01-java/README|Java]] — the JVM, concurrency, and the Spring Boot/build-tools ecosystem
+- [[languages/06-python/README|Python]] — **the language, not the data stack**: the data model that explains every Python surprise, dunder protocols, generators, gradual typing, **the GIL**, and why CPython is slow. Plus [[backend/frameworks/python/README|FastAPI/Django/Flask]]
 - [[devops/README|DevOps]] — **the physical layer** (servers, hypervisors, data centres, leaf-spine) → Linux → containers → orchestration → CI/CD → IaC → observability → **the disciplines** (SRE, platform engineering, DevSecOps)
 - [[architecture/README|Architecture]] — system design (scaling, caching, patterns) + distributed systems (consensus, consistency, partitioning)
 - [[hardware/README|Hardware & Embedded]] — the layer below all the software: electricity → digital/analog → embedded → microcontrollers → I2C/SPI/UART → RF → IoT architecture, plus KiCad and a real fabricated PCB
@@ -168,6 +169,12 @@ knowledgebase/
 │                                 # · IDPs and golden paths · security as a pipeline stage.
 │
 ├── languages/                     # numbered course, organized by language rather than framework
+│   ├── 06-python/                # numbered course (14 notes, Aug 2026): toolchain/venvs →
+│   │                              # THE DATA MODEL (names bind to objects) → collections →
+│   │                              # scope/closures → dunder protocols → generators →
+│   │                              # decorators → typing → EAFP → imports → stdlib →
+│   │                              # THE GIL → pytest/ruff → why CPython is slow.
+│   │                              # Excludes web frameworks and the numeric stack, by rule.
 │   └── 01-java/                  # 6 themed sections: language (fundamentals→OOP→generics→
 │                                  # collections→functional→exceptions→modern-java→core-apis),
 │                                  # jvm-and-concurrency (internals/GC/memory-model/loom),

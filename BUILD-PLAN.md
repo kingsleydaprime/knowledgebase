@@ -2,7 +2,7 @@
 
 The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest about what each batch costs. Tick things off as they land.
 
-**Current state:** 935 notes, ~1,107,000 words (Phase 5, 2026-08-22). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
+**Current state:** 956 notes, ~1,128,000 words (Phase 5, 2026-08-22). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
 
 > **The standing caveat:** almost everything below will be marked `[reference]` — written from sources, not from having built the thing. That's the vault's convention and it should stay visible. [[PRIMETECHIE|Reading is not a rank.]] The `build-your-own-x/` phase exists specifically to convert some of it into the other kind.
 
@@ -129,7 +129,19 @@ Added 2026-08-22. Both from freeCodeCamp transcripts in `sources/`, gap-analysed
 - [x] **`devops/00-the-physical-layer/`** — ✅ **DONE** — README + 4 notes, ~5,100 words. The gap was exactly one layer wide: `hardware/` covers boards, `devops/03-cloud` opens with "someone else's computers" and never mentions the computers. Servers → virtualisation/hypervisors → data centres → the leaf-spine network. **`hot aisle` had 0 hits vault-wide**
 - [x] **`devops/12-sre-and-platform-engineering/`** — ✅ **DONE** — README + 4 notes, ~5,400 words. `devops/` had eleven sections of *tools* and two paragraphs of *disciplines*. **`toil` had 0 hits**; IDPs appeared once; DevSecOps had no note. The evolution spine (waterfall → agile → DevOps → SRE → platform → DevSecOps, each fixing the last one's bottleneck) → SRE practices → platform engineering → DevSecOps. Deliberately does **not** restate SLO/error-budget material already in `10-observability/`
 
-**Total: 3 READMEs + 20 notes, ~27,400 words.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
+**Total so far: 3 READMEs + 20 notes, ~27,400 words.**
+
+### Phase 5b — the follow-on gaps (2026-08-22)
+
+Found in the same session, from a third source (`sources/100 CS concepts explained.md` — **mostly redundant**; 95% of it was already covered at greater depth) and from a direct audit of `languages/` and `backend/frameworks/`.
+
+- [x] **`foundations/programming-fundamentals/` notes 13–14** — ✅ **DONE** — ~2,200 words. **Closes the gap this course's own README declared.** The original call — "OOP belongs in `languages/`" — was wrong: OOP is language-*flavoured*, not language-specific, and omitting it stopped the course one concept short of where every real codebase starts. Objects and classes; programming paradigms (with expression-vs-statement, which was absent vault-wide outside `compilers/`)
+- [x] **`languages/06-python/`** — ✅ **DONE** — README + 14 notes, ~12,600 words. **`languages/README` had listed "Python at depth" as a track that would slot in if notes got written.** They hadn't been — despite the entire `ai-ml/` domain being written in Python and `devops/` assuming it for automation. **The vault taught Python-the-tool everywhere and Python-the-language nowhere.** Deliberately excludes the web frameworks (below) and the numeric stack (`ai-ml/00-foundations/04-python-and-data-tools/`), per the `languages/` rule
+- [x] **`backend/frameworks/python/`** — ✅ **DONE** — rewritten README + 3 notes, ~2,650 words. Was scaffold-only. Took the **folder shape** its own index predicted it would, since FastAPI, Django and Flask are genuinely co-equal subjects
+- [x] **`devops/01-linux/12-bash-scripting`** — extended with repo-wide scripting technique (`fold`, assertion-guarded rewrites, verification passes). **Not a new note** — the heredoc and `python3 -` material was already there, so this extends rather than restates
+- [x] **`.obsidian/app.json`** — `userIgnoreFilters` for `quartz/` and `sources/`. **487 stray `.md` files in `quartz/node_modules/`** were polluting the graph and search. Not committed — `.obsidian/` is gitignored
+
+**Phase 5 total: 5 READMEs + 39 notes, ~47,000 words**, plus ~1,200 words extending `12-bash-scripting`. The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
 
 ---
 
