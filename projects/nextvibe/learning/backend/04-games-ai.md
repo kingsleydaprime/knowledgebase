@@ -566,3 +566,109 @@ EventPlan is a gate, not a side effect. Before running any game session, the sys
 Both conditions must be true. The old code only checked the second condition when the plan existed, treating "no plan" as "no gate." The new code treats "no plan" as a failed gate.
 
 (See `learning/00-sys-design.md` Domain 6 — Billing for the `EventPlan` model's role in the schema, and `learning/backend/03-modules.md` Part 10 for the game session status-lifecycle state machine this gate feeds into.)
+
+---
+
+## Don't ask an LLM for what code can compute (2026-08-21)
+
+Word puzzle rounds were being saved with empty content:
+
+```json
+{"questions": [{"grid": [], "points": 50, "hiddenWords": []}]}
+```
+
+### Reading the row
+
+`points: 50` is the diagnostic detail. The wizard computes the round total as
+`questions.reduce((sum, q) => sum + (q.points ?? 10), 0)`, so 50 means **five
+questions existed** at submit time. But `hiddenWords` is built by
+`questions.filter((q) => q.wordPuzzleMeta?.word)` — and it came out empty, so
+none of those five carried word-puzzle metadata.
+
+Worth internalising: **a surviving derived value can tell you about inputs that
+were themselves discarded.** The points total was computed from data that never
+got persisted, so it's the only remaining evidence of how many questions there
+were. When debugging missing data, look at what was calculated *from* it.
+
+The words were unrecoverable because the word-puzzle submit branch writes only
+`wordPuzzleMeta` and drops each question's `text`/`correctAnswer`. Nothing to
+restore — only regenerate.
+
+### The root cause: the prompt asked for the wrong thing
+
+The generator asked the model to return:
+
+> `"grid"`: a perfectly symmetrical 10x10 2D array … The hidden words MUST
+> actually appear in the grid at the specified positions
+> `"hiddenWords"`: … `"startCell"`: `[rowIndex, colIndex]`, `"endCell"` …
+
+That's a **constraint-satisfaction problem with exact self-reported
+coordinates** — close to a worst case for an LLM. It has to place words without
+collisions, keep the grid rectangular, fill the remainder, and then report
+indices that agree with what it wrote. `validateDraft` correctly rejected
+malformed output and threw, and the organizer proceeded with an empty round.
+
+Meanwhile the frontend already contained a working placement algorithm.
+
+**The fix was to move the boundary.** Ask the model only for what it's genuinely
+good at — choosing words and writing clues — and do the placement in code:
+
+```ts
+// prompt now: { words: [{ word, clue }], points }
+// then, server-side:
+const { grid, hiddenWords } = buildWordGrid(q.words);
+```
+
+This is a general division of labour worth applying beyond this feature:
+
+| Give the model | Keep in code |
+|---|---|
+| open-ended generation, judgement, phrasing | arithmetic, indices, coordinates |
+| "which words suit this topic" | "do these words fit without colliding" |
+| natural language | anything with a verifiable correct answer |
+
+Secondary wins: the prompt no longer spends ~1000 tokens illustrating a 10×10
+grid, so `maxTokens` dropped from 8000 to 4000, and generation stopped being the
+most failure-prone game type.
+
+### Properties the placement code has that a prompt cannot
+
+`src/modules/games/word-grid.ts`:
+
+- **It cannot produce a wrong answer.** A word is placed by writing its letters,
+  and the coordinates are recorded as it writes them. There's no separate
+  "report where you put it" step to get wrong.
+- **Longest-word-first.** Long words are hardest to place and are placed while
+  the grid is still empty. Greedy algorithms on packing problems generally want
+  the awkward items first.
+- **It fails loudly.** `tryBuild` returns `null` if any single word won't fit,
+  and the caller retries at a larger size before throwing. It never returns a
+  grid missing a word it claims is hidden — which is exactly the invariant the
+  old version couldn't guarantee.
+- **Seeded RNG (`mulberry32`).** Same seed, same grid. A puzzle that generated
+  badly can be reproduced exactly, and tests don't flake.
+
+Verified by reading each word back out of the finished grid along its own
+recorded coordinates — the check that would have caught the original bug:
+
+```ts
+let read = '';
+for (let i = 0; i < hw.word.length; i++) read += grid[r1 + dr * i][c1 + dc * i];
+if (read !== hw.word) { /* placement disagrees with its own coordinates */ }
+```
+
+### Validate at the write boundary, not at read time
+
+`assertRoundConfigPlayable` now rejects a WORD_PUZZLE round with an empty grid
+or no hidden words, and is called from **all four** paths that write a round
+config (`createSession`, `createGameFromAi`, `addRound`, `updateRound`).
+
+Finding every write path matters more than the check itself — a validator wired
+into three of four entry points is a validator that eventually gets bypassed.
+Note the `updateRound` guard is conditional on `dto.config !== undefined`, so a
+title-only edit isn't blocked by a puzzle that was already broken.
+
+**The general shape: reject bad data where it enters, not where it's displayed.**
+The frontend fallbacks that rebuild a grid from surviving word coordinates are
+worth having, but they're mitigation. The reason bad rows existed at all is that
+nothing said no at write time.

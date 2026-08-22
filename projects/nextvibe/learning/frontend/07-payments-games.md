@@ -1252,3 +1252,172 @@ Key details:
 The wizard's step-four UI renders each word as an editable "question card" — this matches the trivia UX where each question is independent. The word puzzle concept doesn't map cleanly to this UI, so the internal representation is adapted for the UI and then serialized correctly at save time. The serialization step is the critical translation layer between UI state and backend config.
 
 (See `learning/backend/04-games-ai.md` Part 53 for the exact backend config shape this serialization step must match, and the real bug that occurred when an earlier version of this wizard didn't group hidden words correctly.)
+
+---
+
+## `touch-action: none` makes overflow unrecoverable (2026-08-21)
+
+A player reported the word puzzle "not swiping" on his phone. It worked fine on
+a laptop. The cause was a layout bug that only exists below a certain viewport
+width, and it's a combination worth recognising because each half looks correct
+on its own.
+
+**Half one — fixed cell sizes inside a scroll container:**
+
+```jsx
+<div className="overflow-x-auto">
+  <div className="inline-grid gap-0.5" style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}>
+    <div className="h-8 w-8 ..." />   {/* fixed size */}
+```
+
+`overflow-x-auto` looks like the responsible thing to do — "if it's too wide,
+let them scroll." Do the arithmetic though: 12 columns x 32px + 11 gaps x 2px =
+406px, against roughly 343px of usable width on a 375px phone.
+
+**Half two — the drag handler disables panning:**
+
+```jsx
+className="... touch-none"   // touch-action: none
+```
+
+That's *correct* for a drag-to-select grid: without it the browser treats the
+drag as a scroll and `pointermove` never fires. But `touch-action: none` also
+means the finger can no longer pan the `overflow-x-auto` parent. So the content
+overflows, and the one affordance provided for reaching it is disabled by the
+very property that makes the interaction work.
+
+The result: columns exist off-screen, are unreachable, and a drag toward them
+does nothing — indistinguishable from "swiping is broken".
+
+**The fix is to stop overflowing rather than to scroll:**
+
+```jsx
+<div className="w-full max-w-sm mx-auto">
+  <div className="grid w-full gap-0.5 touch-none"
+       style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
+    <div className="aspect-square ..." />   {/* sized by the grid */}
+```
+
+`minmax(0, 1fr)` rather than `1fr` matters: `1fr` is shorthand for
+`minmax(auto, 1fr)`, and the `auto` minimum refuses to shrink below the content's
+intrinsic size — which is what lets grid and flex children blow out their
+container. `minmax(0, 1fr)` allows genuine shrinking. This is the single most
+common reason a CSS grid or flex row overflows despite `w-full`.
+
+`aspect-square` then keeps the cells square at whatever width they land on, so
+one rule handles every column count on every screen.
+
+### The general lessons
+
+- **A scroll container is not a fix for overflow** when something else on the
+  element disables scrolling. `touch-action`, `pointer-events`, and
+  `overscroll-behavior` all interact with scroll affordances in ways that are
+  invisible on a mouse-driven desktop.
+- **Desktop-only testing hides an entire class of bug.** Nothing here was wrong
+  at a laptop width; the layout only failed below roughly 400px. Checking a
+  narrow viewport (devtools device toolbar is enough to catch this one) costs
+  seconds.
+- **A generator change can surface a latent UI bug.** The grid was previously
+  always 10x10 because the AI prompt demanded it, which fits. Moving placement
+  into code let grids be 11-14 wide — the layout bug was always there, the
+  content just never triggered it. When changing what a system *produces*, check
+  what consumes it against the new range of outputs, not just the old one.
+
+---
+
+## Reading a bug out of a screen recording (2026-08-21)
+
+A player reported the word puzzle "not swiping" on his iPhone. It worked on the
+organiser's iPhone. Three rounds of theorising got nowhere; a 15-second screen
+recording settled it in one pass.
+
+### The technique
+
+Video can't be watched directly, but frames can be read as images. `ffmpeg`
+samples them and tiles them into numbered contact sheets:
+
+```bash
+ffprobe -v error -show_entries format=duration -show_entries stream=width,height "clip.mp4"
+
+# numbered contact sheets: 3 frames/sec, 24 per sheet
+ffmpeg -i clip.mp4 -vf "fps=3,scale=176:-1,\
+drawtext=text='%{n}':x=4:y=4:fontsize=16:fontcolor=yellow:box=1:boxcolor=black,\
+tile=6x4" sheet_%d.png
+```
+
+- `fps=3` resamples — 3 frames per second of video, not every frame.
+- `drawtext=text='%{n}'` stamps the frame number, so a frame of interest can be
+  re-extracted at full resolution.
+- `tile=6x4` packs 24 frames into one image: a whole interaction seen at once,
+  which is what makes the *pattern* visible rather than any single moment.
+
+Chaining filters with commas builds a pipeline — resample, scale, label, tile —
+each stage feeding the next.
+
+### What it showed
+
+Across 44 frames, **never more than one cell was highlighted.** Always a single
+cell, which then flashed red. The countdown ran 50s → 36s, so the app was alive;
+roughly a dozen attempts all failed identically.
+
+That single observation eliminated nearly every hypothesis at once. Tap feedback
+appearing proves `pointerdown`, `touch-action: none`, and cell identification all
+work. The selection never growing proves the failure is between down and up. And
+the red flash proves the selection *completed* — with `start === end`.
+
+**Evidence narrows faster than reasoning does.** Overflowing grids,
+`-webkit-user-select`, `touch-callout`, Tailwind not compiling `touch-none` — all
+plausible, all wrong, and all of them cost more time than the recording did.
+When a bug can't be reproduced locally, get an artefact rather than another
+hypothesis.
+
+### The actual defect
+
+```ts
+const cellFromPoint = (clientX, clientY) => {
+  const el = document.elementFromPoint(clientX, clientY);
+  if (!el) return null;
+  if (el.dataset.row === undefined) return null;   // ← silently discards the move
+  ...
+```
+
+Two WebKit-specific problems, both producing exactly one highlighted cell:
+
+1. **Hit-testing under pointer capture.** `onPointerDown` calls
+   `setPointerCapture`. While a pointer is captured, WebKit can return the
+   *capture target* from a hit test rather than the element under the finger. The
+   capture target is the grid, which has no `data-row`, so every `pointermove`
+   hit `return null` and was dropped.
+2. **`onPointerLeave` committing the selection.** With capture taken, move and up
+   still arrive even outside the element — so leaving is *not* the end of a drag.
+   If WebKit fires `pointerleave` when capture is taken, the handler committed a
+   one-cell selection instantly, ending the drag before the finger moved.
+
+**Fix: don't hit-test, do arithmetic.**
+
+```ts
+const rect = gridRef.current.getBoundingClientRect();
+const col = clamp(Math.floor(((clientX - rect.left) / rect.width) * cols), 0, cols - 1);
+const row = clamp(Math.floor(((clientY - rect.top) / rect.height) * rows), 0, rows - 1);
+```
+
+A uniform grid's geometry already determines which cell a point falls in. Asking
+the DOM was doing work that could be computed — and taking on the DOM's
+browser-specific edge cases for free. It's also faster (no hit test per move) and
+clamping means a finger straying past the edge keeps dragging instead of
+dropping the selection. `onPointerLeave` was removed entirely; capture already
+guarantees delivery.
+
+**The general principle: prefer computing over querying when the answer is
+already determined by data you hold.** A hit test asks "what is under this
+point?" — a question with browser-, overlay-, and capture-dependent answers. The
+arithmetic asks "which cell contains this point?", which has exactly one answer
+everywhere.
+
+### The caveat worth keeping
+
+Why it worked on one iPhone and not another was never established — most likely
+an iOS version difference in hit-testing under capture. The fix removes the
+dependency entirely rather than explaining the divergence, so it holds either
+way. **Note the difference between fixing a bug and understanding it**; this was
+the former, and saying so is more useful than implying the latter.

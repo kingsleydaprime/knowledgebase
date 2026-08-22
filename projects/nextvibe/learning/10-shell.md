@@ -233,3 +233,139 @@ curl -s -o /dev/null -w "%{http_code}\n" "$B/v1/definitely-not-a-route"   # expe
 Without this you can't tell "404 means not deployed" from "this server returns 404 for
 everything." A test with no control isn't evidence. (Applied to verifying deployments in
 `learning/09-devops.md` Part 58.)
+
+---
+
+## Editing source files from a heredoc script (2026-08-21)
+
+Most of this session's edits were applied by piping a Python script into
+`python3` from the shell, rather than opening an editor:
+
+```bash
+python3 - <<'PY'
+import pathlib
+p = pathlib.Path("backend/src/modules/social/likes.service.ts")
+s = p.read_text()
+assert old in s, "pattern not found"   # fail loudly rather than silently no-op
+p.write_text(s.replace(old, new, 1))
+PY
+```
+
+Reading the pieces:
+
+- `python3 -` — the `-` means *read the program from stdin* instead of from a
+  file. Same convention as `cat -`, `tar -f -`.
+- `<<'PY' ... PY` — a **heredoc**: everything up to the closing `PY` is fed to
+  the command's stdin. `PY` is just a chosen delimiter; any word works.
+- The **quotes** around `<<'PY'` are the part that matters. Quoted, the body is
+  passed through literally. Unquoted (`<<PY`), the shell first expands `$vars`,
+  backticks and `\` escapes *inside* the body — which mangles code containing
+  `$` or `\`. **Default to the quoted form** unless you specifically want
+  interpolation.
+
+Why this over `sed -i`: `sed` works line-by-line, so multi-line replacements are
+awkward, and it silently does nothing when the pattern doesn't match. The
+`assert old in s` above turns "my edit didn't apply" into an immediate error
+instead of a change you believe happened but didn't.
+
+**The failure this actually caused, worth learning from.** One script inserted
+an import after "the last line starting with `import `":
+
+```python
+last_import = max(i for i, l in enumerate(lines) if l.startswith("import "))
+```
+
+In a file ending with a *multi-line* import, that heuristic picked the opening
+`import {` line and inserted the new import between the brace and its members —
+a syntax error:
+
+```ts
+import {
+import { resetAuthRefreshState } from "@/app/provider/api/baseQuery";
+  Laptop, Music, ...
+} from "lucide-react";
+```
+
+Line-oriented edits assume line-oriented structure. When the target is nested
+syntax, anchor on something unambiguous (here, the closing `} from "lucide-react";`)
+— and run the typechecker afterwards, which is exactly what caught it.
+
+## `grep -ril` — locating files by content (2026-08-21)
+
+```bash
+grep -ril "postcard" backend/src frontend --include="*.ts" --include="*.tsx"
+```
+
+- `-r` recurse into directories
+- `-i` case-insensitive
+- `-l` print **only the filenames** with a match, not the matching lines —
+  turns grep from "show me the matches" into "show me which files to open"
+- `--include=GLOB` restrict to matching filenames; repeatable, which is how both
+  `.ts` and `.tsx` are covered above
+
+Pair `-l` with a later `grep -n` on the narrowed set: find the files, then find
+the lines. `-n` prints line numbers, and `-A N` / `-B N` print N lines after /
+before each match, which is usually faster than opening the file:
+
+```bash
+grep -n "model Like" -A 20 backend/prisma/schema/social.prisma
+```
+
+## `npx tsc --noEmit` — typecheck without building (2026-08-21)
+
+```bash
+npx tsc --noEmit          # uses ./tsconfig.json
+npx tsc --noEmit -p backend/tsconfig.json    # -p picks a specific project
+```
+
+`--noEmit` runs the full typechecker and writes **no output files** — you get
+the errors without a build directory. It's the cheapest possible "did I break
+anything" check and the natural thing to run after edits.
+
+Reading its output honestly matters: this run reported errors in
+`app.controller.spec.ts` (missing `@types/jest`) and `reminders.service.ts`
+(missing `csv-parse`) that had nothing to do with the change in flight. Check
+whether a reported file is one you actually touched before assuming you caused
+it — and equally, don't wave away errors in files you *did* touch. Filtering
+generated noise keeps the real signal visible:
+
+```bash
+npx tsc --noEmit 2>&1 | grep -v "^\.next/" | head -30
+```
+
+## Reading a video with `ffmpeg` / `ffprobe` (2026-08-21)
+
+Used to diagnose a mobile bug from a screen recording that couldn't be
+reproduced locally.
+
+```bash
+# What am I dealing with? -v error suppresses the banner, leaving just the data.
+ffprobe -v error \
+  -show_entries format=duration,size \
+  -show_entries stream=width,height,r_frame_rate,codec_name \
+  -of default=noprint_wrappers=1 clip.mp4
+
+# Frames at 3/sec, numbered, tiled 6x4 into contact sheets
+ffmpeg -i clip.mp4 -vf "fps=3,scale=176:-1,\
+drawtext=text='%{n}':x=4:y=4:fontsize=16:fontcolor=yellow:box=1:boxcolor=black,\
+tile=6x4" sheet_%d.png
+```
+
+- `-vf` is the **video filter chain**; commas separate stages and each feeds the
+  next. Order matters — scale before tile, or you tile full-size frames.
+- `fps=3` *resamples* to 3 frames per second of video. It isn't playback speed;
+  it's how many frames get emitted.
+- `scale=176:-1` sets width and lets `-1` compute the height to preserve aspect
+  ratio. `-2` instead rounds to an even number, which some codecs require.
+- `%{n}` inside `drawtext` is the frame counter — a per-frame expression, not a
+  shell variable, which is why it's inside single quotes.
+- `sheet_%d.png` — `%d` is filled in by ffmpeg per output file, the same
+  convention as `frame_%03d.png` (zero-padded to 3 digits so they sort correctly).
+
+Tiling is the part that does the actual work: 24 frames in one image shows the
+*pattern* across an interaction, which is what a bug usually is, rather than any
+single moment.
+
+Note `-v error` on both commands. ffmpeg's default output is a wall of build
+configuration; suppressing it leaves only what was asked for — worth doing
+whenever the output is being read rather than watched.

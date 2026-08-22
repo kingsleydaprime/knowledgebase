@@ -546,3 +546,87 @@ import Cookies from "js-cookie";
 const accessToken = Cookies.get("accessToken");
 const refreshToken = Cookies.get("refreshToken");
 ```
+
+---
+
+## The 401 refresh loop: latch a dead session (2026-08-21)
+
+The console showed the same three lines over and over:
+
+```
+GET  /v1/users/me       401
+POST /api/auth/refresh  401
+GET  /v1/conversations  401
+POST /api/auth/refresh  401
+...
+```
+
+### Why it looped
+
+`baseQueryWithReauth` had a queue so that simultaneous 401s share one refresh:
+
+```ts
+let isRefreshing = false;
+// ...
+} finally {
+  isRefreshing = false;
+}
+```
+
+That correctly deduplicates requests that 401 *at the same moment*. What it
+doesn't do is remember the **outcome**. Once the refresh failed, `isRefreshing`
+went back to `false`, so the next component to mount and fire a query hit a 401,
+saw no refresh in flight, and started its own — which failed identically. Every
+query in the app got its own doomed refresh, forever.
+
+The queue is a *concurrency* guard. What was missing is a *state* guard:
+
+```ts
+let refreshRejected = false;
+
+// in the handler, before starting a refresh:
+if (refreshRejected) return result;   // session is known dead — fail fast
+```
+
+Plus a way back, called on a fresh login so the module-level flag doesn't
+outlive the dead session:
+
+```ts
+export function resetAuthRefreshState() {
+  refreshRejected = false;
+}
+```
+
+**Module-level mutable state in a base query is a latch, not a cache** — it
+survives every component unmount and every route change, so anything you set
+there needs an explicit reset path. Forgetting that is how you ship an app that
+can't log back in without a hard reload.
+
+### Two related mistakes in the same handler
+
+**1. Treating every failure as a dead session.** The `catch` covered network
+errors and the abort timeout, and responded by deleting the user's cookies:
+
+```ts
+} catch {
+  flushQueue(false);
+  clearSessionAndRedirect(isAdminRoute);   // ← logs you out over a blip
+  return result;
+}
+```
+
+An abort tells you nothing about whether the session is valid. Now the catch
+leaves credentials alone, and only an explicit 401/403 from the refresh route
+ends the session.
+
+**2. An abort timeout shorter than the server's worst case.** The cap was 10 s
+against an API that cold-starts on Render's free tier. The abort didn't cancel
+the server's work — the backend still processed the refresh and rotated the
+token away, leaving the client holding a token the server had just deleted.
+Raised to 20 s, and the backend now keeps a replay window (see
+[backend/02-auth.md](../backend/02-auth.md)).
+
+**Aborting a request does not undo it.** The server may well have completed the
+work. For anything that mutates state — and rotating a refresh token mutates
+state — the client and server need to agree on what happens when the response
+is lost.

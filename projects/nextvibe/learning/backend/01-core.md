@@ -1156,3 +1156,117 @@ The correct order when adding a new field:
 | `prisma migrate deploy` | Applies pending migrations in production. Does NOT generate. | In CI/CD build pipeline |
 
 In local development you almost always want `prisma migrate dev` — it does everything in one step.
+
+---
+
+## Counter caches: derive, never nudge (2026-08-21)
+
+`Postcard.likeCount` is a **counter cache** — a denormalised copy of
+`SELECT COUNT(*) FROM postcard_likes WHERE postcard_id = ?`, kept so the feed
+doesn't run a COUNT per card. It was maintained like this:
+
+```ts
+await this.prisma.postcard.update({
+  where: { id: postcardId },
+  data: { likeCount: { increment: 1 } },   // or { decrement: 1 }
+});
+```
+
+That's the pattern that put postcards on a like count of **-1**.
+
+### Why ±1 always drifts eventually
+
+A blind `increment`/`decrement` is a *relative* write: it assumes the delta it
+applies exactly matches a real change in the source table. Every way that
+assumption breaks is permanent, because nothing ever re-checks:
+
+1. **Two writers, one counter.** `/v1/postcards/:id/like` wrote a `PostcardLike`
+   row; `/v1/likes` wrote a `Like` row. Different tables, *same* `likeCount`.
+   One endpoint's decrement could cancel a like the other never counted.
+2. **Non-idempotent increment.** `LikesService.like()` did an `upsert` (correctly
+   a no-op on a repeat like) and then incremented **unconditionally**. Like
+   twice, unlike once → counter is +1 forever.
+3. **No floor.** Nothing stopped the value going below zero.
+
+### The fix: recompute inside the transaction
+
+```ts
+const { liked, currentLikes } = await this.prisma.$transaction(async (tx) => {
+  const existing = await tx.postcardLike.findUnique({
+    where: { postcardId_userId: { postcardId, userId } },
+  });
+
+  if (existing) await tx.postcardLike.delete({ where: { id: existing.id } });
+  else          await tx.postcardLike.create({ data: { postcardId, userId } });
+
+  // Absolute write, derived from the source of truth.
+  const total = await tx.postcardLike.count({ where: { postcardId } });
+  await tx.postcard.update({ where: { id: postcardId }, data: { likeCount: total } });
+
+  return { liked: !existing, currentLikes: total };
+});
+```
+
+Two properties worth naming, because they're what actually buy the correctness:
+
+- **Absolute, not relative.** `data: { likeCount: total }` overwrites. A
+  duplicate request writes the same number twice — harmless. Compare
+  `{ increment: 1 }`, where running twice means something different from running
+  once. This is the difference between an **idempotent** and a
+  **non-idempotent** write, and it's why retry-safe systems prefer absolute ones.
+- **Transactional.** The COUNT and the UPDATE are in one `$transaction`, so a
+  concurrent like can't land between them and get overwritten by a stale total.
+
+The cost is one extra COUNT per toggle. On an indexed `postcardId` that's
+negligible, and it buys a counter that self-heals: even if a row is inserted by
+a migration, a script, or a future endpoint, the next toggle corrects the cache.
+
+**General rule:** a counter cache should be *derived* on every write. If you
+find yourself writing `{ increment: 1 }`, ask what happens when that request is
+duplicated, retried, or raced — and whether anything will ever notice if it is.
+
+### The other half: repairing rows that already drifted
+
+Changing the code stops *new* drift; it doesn't fix rows already wrong. That
+needs a backfill — `prisma/repair-like-counts.ts`, built on the same dry-run
+pattern as `backfill-ledger.ts`:
+
+```bash
+npx tsx prisma/repair-like-counts.ts            # print what it would change
+npx tsx prisma/repair-like-counts.ts --commit   # actually write
+```
+
+It uses `groupBy` to get every true count in **one** query rather than a COUNT
+per postcard — the difference between 1 query and N:
+
+```ts
+const grouped = await prisma.postcardLike.groupBy({
+  by: ['postcardId'],
+  _count: { _all: true },
+});
+```
+
+Note the shape: `groupBy` returns rows of `{ postcardId, _count: { _all } }`,
+and postcards with **zero** likes don't appear at all — hence the
+`trueCounts.get(p.id) ?? 0` when reading it back. Missing-means-zero is easy to
+forget and produces exactly the bug you're trying to fix.
+
+Any one-off data script should be **idempotent and dry-run-by-default**. This
+one is idempotent by construction: it sets an absolute value computed from the
+source table, so a second run finds nothing to change.
+
+### Related: the API must return the corrected value
+
+Fixing the database isn't enough if the client never learns the true number.
+`toggleLike` returned only `{ liked }`, while the frontend did:
+
+```ts
+if (result?.currentLikes !== undefined) setLikeCount(result.currentLikes);
+```
+
+`currentLikes` was always `undefined`, so that reconciliation never ran and the
+optimistic guess became permanent on screen. **A mutation that changes a
+displayed number should return that number.** Otherwise every client is left
+guessing, and the guesses accumulate. See also
+[frontend/02-state-management.md](../frontend/02-state-management.md) on
+optimistic updates.

@@ -325,3 +325,93 @@ This is why `@CurrentUser()` on a `@Public()` route returns `undefined` when not
 - [[concepts/interview/01-apis-auth-and-practices|Interview: auth questions]]
 
 ↑ [[projects/README|All projects and the domains they exercise]]
+
+---
+
+## Refresh token rotation needs a grace window (2026-08-21)
+
+Symptom: a run of `POST /api/auth/refresh 401` repeating in the console, and a
+session that never recovered without a manual re-login.
+
+### What rotation is, and the trap in it
+
+The refresh endpoint uses **rotating, single-use refresh tokens** whitelisted in
+Redis. Each refresh consumes the old token and issues a new pair:
+
+```ts
+const exists = await this.redis.exists(redisKey);
+if (!exists) throw new UnauthorizedException('Refresh token expired or revoked');
+
+await this.redis.del(redisKey);              // consume it
+const tokens = await this.generateTokens(payload);   // issue the replacement
+return tokens;
+```
+
+Rotation is good security — a stolen refresh token stops working as soon as the
+real user refreshes. But look at the ordering. The old token is destroyed
+**before** the replacement reaches the browser. If anything goes wrong in that
+gap, the client is left holding a token the server has already deleted, and
+there is no path back. Things that land in that gap, all routine:
+
+- the client's own abort timeout firing while the API cold-starts (Render free
+  tier — the request *is* processed, the response just arrives too late);
+- two tabs refreshing at once;
+- any retry of a request whose response was lost.
+
+The session isn't compromised in any of these. It's just gone.
+
+### The fix: a short replay window
+
+Keep the tokens that a rotation issued, keyed by the token it retired, for a
+minute. A duplicate refresh inside that window gets the same replacement pair
+instead of a dead end:
+
+```ts
+const graceKey = `refresh:used:${payload.sub}:${refreshToken}`;
+
+if (!exists) {
+  const replayed = await this.redis.get(graceKey);
+  if (replayed) return JSON.parse(replayed);      // benign duplicate
+  throw new UnauthorizedException('Refresh token expired or revoked');
+}
+
+await this.redis.del(redisKey);
+const tokens = await this.generateTokens(payload);
+await this.redis.set(graceKey, JSON.stringify(tokens), 60);
+```
+
+60 seconds is the trade-off: long enough to absorb a retry or a cold start,
+short enough that a genuinely leaked token isn't reusable for meaningfully
+longer than before.
+
+**Don't forget logout.** The grace key has to be deleted there too, or logging
+out can be silently undone by an in-flight refresh:
+
+```ts
+await this.redis.del(`refresh:${userId}:${refreshToken}`);
+await this.redis.del(`refresh:used:${userId}:${refreshToken}`);
+```
+
+### The wider lesson: distinguish "denied" from "unavailable"
+
+The proxy route collapsed every failure into 401 — including its own
+`catch` block, which fires when the API is simply unreachable:
+
+```ts
+} catch {
+  return NextResponse.json({ message: "Refresh failed" }, { status: 401 });
+}
+```
+
+401 means *"your credentials were rejected"*. A network error means *"I don't
+know"*. Reporting the second as the first means one bad minute from the API logs
+every active user out. The route now returns **401 only when the backend itself
+rejected the token (401/403)** and **502 otherwise**, and the client destroys
+the session only on 401.
+
+That distinction is a general API design habit worth keeping: **never report an
+infrastructure failure as an authorisation failure.** The client's correct
+reaction to the two is opposite — give up vs. try again.
+
+Related: the client-side half of this loop is in
+[frontend/03-auth.md](../frontend/03-auth.md).

@@ -327,3 +327,72 @@ This is the same reason the notifications page reaches `data?.data?.data` (envel
 ### Duplicated display helpers across the client/server boundary
 
 `ordinal()` and `rewardTypeLabel()` exist in *both* the backend (for the email) and this page (for the card). That duplication is acceptable — the two runtimes can't share a module here, and the alternative (an API that returns pre-formatted display strings) would leak presentation concerns into the backend. Keep formatting on each side; share only *data*.
+
+---
+
+## Optimistic updates need a server value to land on (2026-08-21)
+
+The like button did this:
+
+```ts
+const wasLiked = liked;
+setLiked(!wasLiked);
+setLikeCount((c) => (wasLiked ? c - 1 : c + 1));   // optimistic guess
+try {
+  const result = await toggleLikeMutation({ ... }).unwrap();
+  if (result?.currentLikes !== undefined) setLikeCount(result.currentLikes);  // reconcile
+} catch {
+  setLiked(wasLiked);
+  setLikeCount((c) => (wasLiked ? c + 1 : c - 1));  // roll back
+}
+```
+
+The structure is right — guess, reconcile, roll back on failure. It failed for
+two reasons, and both are worth recognising as *shapes* rather than one-off bugs.
+
+### 1. The reconcile step was dead code
+
+The backend returned `{ liked }` and nothing else, so `result.currentLikes` was
+always `undefined` and the guard skipped the correction every single time. The
+optimistic guess was the final state, permanently.
+
+An optimistic update without a reconcile isn't optimistic — it's just a local
+mutation that happens to fire a request. Worth grepping for: a `!== undefined`
+guard around a field the API never actually sends looks like careful code and
+behaves like no code at all.
+
+### 2. The guess started from a wrong premise
+
+The feed endpoints never returned `isLiked`, so every card rendered as un-liked:
+
+```ts
+const [optimisticLiked, setOptimisticLiked] = useState(postcard.isLiked ?? false);
+```
+
+For a postcard the user had already liked, `?? false` was wrong. Tapping the
+heart therefore looked like a *like* to the client (`c + 1`) while the server
+processed it as a **toggle** and removed the existing like. Client and server
+moved in opposite directions on the same tap.
+
+In `postcard-viewer`, where fresh data *did* supply `isLiked: true` against a
+stale `likeCount: 0`, the same mismatch produced the actual reported symptom:
+`0 - 1` → **a like count of -1** on screen, with no server value to correct it.
+
+**A toggle endpoint requires the client to know the current state.** If the list
+payload can't tell you whether you've liked something, don't render a toggle
+against a guessed default — either have the API return the per-viewer state
+(what we did: `isLiked` is now resolved in one batched query per page of
+results) or send an explicit `like`/`unlike` intent instead of a toggle.
+
+### The defensive floor
+
+Clamping is the cheap last line, not the fix:
+
+```ts
+setLikeCount((c) => Math.max(0, wasLiked ? c - 1 : c + 1));
+```
+
+Worth having — a count should never render negative regardless of what the API
+says — but note it only hides the symptom. The real repairs were server-side:
+return `currentLikes`, and send `isLiked` with every card. Reach for the clamp
+*as well as*, never *instead of*.
