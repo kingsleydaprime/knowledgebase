@@ -7,6 +7,7 @@ General engineering practices that apply regardless of language or framework —
 2. [[02-pr-structure|pr-structure]] — **[Beginner]** — keeping pull requests focused, writing them for the reviewer, what to include
 3. [[03-documentation-practices|documentation-practices]] — **[Intermediate]** — READMEs, inline comments, API docs, ADRs, and keeping documentation from rotting
 4. [[04-testing-fundamentals|testing-fundamentals]] — **[Intermediate]** — the testing pyramid (unit/integration/E2E), TDD, what makes a test actually valuable vs. just contributing to a coverage number
+5. [[05-solid-principles|solid-principles]] — **[Intermediate]** — the five principles, what each one actually buys you, and when applying them is over-engineering
 
 ## Related
 - [[backend/README|backend concepts]]

@@ -16,10 +16,12 @@ The domains that are actually built out — **networking, DSA, backend, architec
 - 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
 - 🔨 **[[build-your-own-x/README|Build Your Own X]]** — language-agnostic build guides with numbered, independently-testable milestones. Where the rest of the vault stops being reading. All nine written: HTTP server, git, redis, language, OS, database, shell, container, regex engine.
 - 🧭 **[[BUILD-PLAN|Build Plan]]** — the working queue for what gets written next, ordered and sized: the systems languages (Rust/C/C++), `build-your-own-x/`, `engineering/`, and the CS-curriculum gaps found by auditing a standard syllabus against this vault.
+- 🧠 **[[learning/README|How I Learn]]** — the method behind everything else here: the learning loop (board → notebook → laptop), the "make a course" system, the one-active-course rule, and AI as sparring partner rather than answer machine. Personal, and deliberately unpublished.
 - 🎯 **[[INTERVIEW|Interview Prep Index]]** — every domain now has an `interview/` folder: the question, what a strong answer covers, and the detail that separates memorised from understood.
 
 Start here, depending on what you want:
 - [[foundations/networking/README|Networking]] — the wire up to the web: link layer → IP → TCP/congestion control → DNS/TLS/HTTP → QUIC → debugging. The foundation under devops, security, and distributed systems
+- [[foundations/software-engineering/README|Software Engineering — orientation]] — **three short notes on what the profession actually is**: programming vs engineering, the SDLC and what breaks when each phase is skipped, and the eleven roles. Written Aug 2026 to fill a gap the rest of the vault assumed
 - [[foundations/dsa/README|Data Structures & Algorithms]] → then [[foundations/dsa/06-patterns/README|LeetCode Patterns]]
 - [[using-ai/README|Using AI]] — **start here if you're new to AI and don't write code.** Eight notes on using LLMs well: what they are, how to brief them, how to check them, what not to paste. The on-ramp to everything below
 - [[ai-ml/README|AI & ML]] — split into three career paths (data scientist, ML engineer, AI engineer) over a shared foundation
@@ -227,6 +229,10 @@ knowledgebase/
 │   NOTE: quartz/content/index.md is the PUBLISHED SITE'S landing page and is
 │   its own file — it used to symlink here, but a README and a landing page
 │   want different things. Edit both when the vault's shape changes.
+│
+├── learning/                     # HOW I LEARN, not what — the loop, the course system,
+│                                 # the one-active-course rule, catalogue + course template.
+│                                 # Personal; not symlinked into quartz/content.
 │
 ├── problem-solving/, blog-drafts/  # blog-drafts + blog-ideas.md are gitignored —
 │                                 # local drafts, deliberately not published
