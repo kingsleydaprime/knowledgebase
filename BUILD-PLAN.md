@@ -2,7 +2,7 @@
 
 The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest about what each batch costs. Tick things off as they land.
 
-**Current state:** 912 notes, ~1,080,000 words. This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
+**Current state:** 935 notes, ~1,107,000 words (Phase 5, 2026-08-22). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
 
 > **The standing caveat:** almost everything below will be marked `[reference]` — written from sources, not from having built the thing. That's the vault's convention and it should stay visible. [[PRIMETECHIE|Reading is not a rank.]] The `build-your-own-x/` phase exists specifically to convert some of it into the other kind.
 
@@ -121,6 +121,18 @@ Ordered by dependency. Chosen 2026-08-16 after grepping every README for its own
 
 ---
 
+## Phase 5 — the gaps two source courses found
+
+Added 2026-08-22. Both from freeCodeCamp transcripts in `sources/`, gap-analysed against the vault before anything was written — **most of what the IT-fundamentals course covers (IP addressing, subnetting, TCP/IP, DNS, firewalls, NAT, Linux, VPC/security groups, CI/CD) was already here and was deliberately not duplicated.** Three folders survived the filter.
+
+- [x] **`foundations/programming-fundamentals/`** — ✅ **DONE** — README + 12 notes, ~13,700 words. **The vault had no way in.** 900+ notes assumed you could already read code; `using-ai/` was written as the on-ramp for non-programmers into *AI*, and there was no equivalent into *programming*. Language-agnostic: what a program is → translation → tooling → syntax → variables/types → control flow → collections → functions → recursion/the call stack → errors/debugging → planning → what to build next
+- [x] **`devops/00-the-physical-layer/`** — ✅ **DONE** — README + 4 notes, ~5,100 words. The gap was exactly one layer wide: `hardware/` covers boards, `devops/03-cloud` opens with "someone else's computers" and never mentions the computers. Servers → virtualisation/hypervisors → data centres → the leaf-spine network. **`hot aisle` had 0 hits vault-wide**
+- [x] **`devops/12-sre-and-platform-engineering/`** — ✅ **DONE** — README + 4 notes, ~5,400 words. `devops/` had eleven sections of *tools* and two paragraphs of *disciplines*. **`toil` had 0 hits**; IDPs appeared once; DevSecOps had no note. The evolution spine (waterfall → agile → DevOps → SRE → platform → DevSecOps, each fixing the last one's bottleneck) → SRE practices → platform engineering → DevSecOps. Deliberately does **not** restate SLO/error-budget material already in `10-observability/`
+
+**Total: 3 READMEs + 20 notes, ~27,400 words.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
+
+---
+
 ## Suggested order
 
 Each line is roughly one working session.
@@ -143,9 +155,9 @@ Each line is roughly one working session.
 
 Batches 5 and 6 are inserted before `build-your-own-x/` because the OS and compilers guides are blocked without them. Everything else follows the order requested.
 
-**ALL PHASES COMPLETE (2026-08-16).** Phase 4 was added from a re-audit of every README's own stated-gaps section — the three long-deferred subjects, plus numerical methods and GPU/parallel computing, which turned out to be more load-bearing than any of them. **All five were built in dependency order in one session: 40 notes, ~59,000 words.**
+**PHASES 0–4 COMPLETE (2026-08-16); Phase 5 added and completed 2026-08-22.** Phase 4 was added from a re-audit of every README's own stated-gaps section — the three long-deferred subjects, plus numerical methods and GPU/parallel computing, which turned out to be more load-bearing than any of them. **All five were built in dependency order in one session: 40 notes, ~59,000 words.**
 
-**Nothing is queued.** The remaining gaps each README names are now *within* domains rather than whole missing subjects — and **the vault-wide debt is reps, not notes.** Fourteen domains are `[reference]`; every one names its own remedy, and [[project-ideas|project-ideas]] carries the consolidated list.
+**Phase 5 (2026-08-22) added three more**, found by gap-analysing two source courses rather than a syllabus — see above. **Nothing is queued.** The remaining gaps each README names are now *within* domains rather than whole missing subjects — and **the vault-wide debt is reps, not notes.** Fourteen domains are `[reference]`; every one names its own remedy, and [[project-ideas|project-ideas]] carries the consolidated list.
 
 **The standing debt is reps, not notes.** `engineering/`, `robotics/` and all three CS-theory domains are `[reference]`: read and assembled, never validated by building. Each one's README names what would close its own gap, and [[project-ideas|project-ideas]] carries the list.
 
