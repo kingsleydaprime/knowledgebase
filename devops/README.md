@@ -1,15 +1,17 @@
 # DevOps
 
-A map of this folder, in reading order. The first four sections are the original foundation — a working Linux baseline, containers, cloud, and deploying to a real server. Sections **05–11 are the DevOps-discipline pillars**, added by cross-referencing this domain against the [roadmap.sh DevOps roadmap](https://roadmap.sh/devops): orchestration, CI/CD, infrastructure as code, networking, secrets, observability, and delivery.
+A map of this folder, in reading order. **00 is the physical layer underneath everything else** (added Aug 2026). The next four sections are the original foundation — a working Linux baseline, containers, cloud, and deploying to a real server. Sections **05–11 are the DevOps-discipline pillars**, added by cross-referencing this domain against the [roadmap.sh DevOps roadmap](https://roadmap.sh/devops): orchestration, CI/CD, infrastructure as code, networking, secrets, observability, and delivery. **12 is the disciplines themselves** — SRE, platform engineering and DevSecOps (added Aug 2026).
 
 ## Where the content comes from
 
+- **`00-the-physical-layer/` and `12-sre-and-platform-engineering/` are `[reference]`**, added August 2026 from an IT-fundamentals course: the machine/building/wiring under the cloud, and the delivery disciplines the tool sections assumed but never named.
 - The foundation (`01-linux` … `04-vps`) is grounded in real work — Linux/RHCSA study, actual Docker usage, and VPS deploys.
 - Sections **05–11 are mostly `[reference]`** and marked as such: Kubernetes, Terraform, Ansible, Prometheus, service meshes, etc. are covered from roadmap.sh and primary docs, not from having run them in anger yet. Where a real grounded hook exists it's used — e.g. CI/CD is anchored to this vault's own GitHub Actions deploy workflow. DevOps is intensely hands-on, so the honest next step for these pillars is to *do* them (a real pipeline, a `terraform apply`, a k8s cluster), not just read them.
 - Two roadmap.sh DevOps topics live elsewhere in the vault and are cross-linked rather than duplicated: **version control** → the top-level [[git/README|git/]] domain, and **a programming language for automation** → [[languages/README|languages/]].
 
 ## Reading order
 
+0. [[devops/00-the-physical-layer/README|00-the-physical-layer/]] — **[Beginner]** — the layer under Linux: servers, virtualisation and hypervisors, data centres, and the leaf-spine network. **Why an availability zone is a physical fact**
 1. [[devops/01-linux/README|01-linux/]] — **[Beginner → Advanced]** — Linux fundamentals (filesystem, users, processes, services, networking, SSH) through to the RHCSA cert track
 2. [[devops/02-docker/README|02-docker/]] — **[Intermediate]** — containers: the big picture, networking, volumes, multi-stage builds
 3. [[devops/03-cloud/README|03-cloud/]] — **[Intermediate]** — cloud provider fundamentals: the AWS/Azure/GCP landscape, core service categories, serverless, and cloud design patterns
@@ -21,6 +23,7 @@ A map of this folder, in reading order. The first four sections are the original
 9. [[devops/09-secret-management/README|09-secret-management/]] — **[Advanced]** — secrets out of git: Vault, SOPS, Sealed Secrets, cloud KMS
 10. [[devops/10-observability/README|10-observability/]] — **[Advanced]** — the three pillars (metrics, logs, traces), SLIs/SLOs, and the stack (Prometheus, Grafana, ELK, OpenTelemetry)
 11. [[devops/11-delivery-and-advanced/README|11-delivery-and-advanced/]] — **[Advanced]** — GitOps (ArgoCD/FluxCD), artifact management, service mesh, cloud design patterns
+12. [[devops/12-sre-and-platform-engineering/README|12-sre-and-platform-engineering/]] — **[Intermediate → Advanced]** — the disciplines rather than the tools: how delivery practice evolved (waterfall → agile → DevOps → SRE → platform → DevSecOps), **toil and on-call design**, Internal Developer Platforms and golden paths, and security as a pipeline stage
 
 ## Also in this folder (not part of the numbered sequence)
 
