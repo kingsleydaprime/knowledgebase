@@ -649,6 +649,26 @@ PY
 Useful when a text transformation is too structural for `sed` — Python's `str.replace` is
 literal, so strings full of regex metacharacters need no escaping.
 
+### Nested heredocs need different delimiters
+
+A heredoc ends at **the first line equal to its delimiter** — it doesn't understand nesting.
+So a script that writes *another* heredoc using the same word terminates early, and the shell
+tries to execute the remainder as commands:
+
+```bash
+python3 - <<'PY'          # outer
+s = """
+cat <<'PY'                # inner — SAME word
+hello
+PY                        # <- ends the OUTER heredoc here. Everything after is shell input
+"""
+PY
+```
+
+The symptom is a baffling `unmatched \`` or `command not found` pointing at a line that looks
+fine. **Use distinct delimiters whenever one heredoc contains another** — `PY` inside `OUTEREOF`,
+or feed the script via `python3 /dev/stdin <<'OUTEREOF'`.
+
 ### Herestrings — a single line
 
 ```bash
@@ -656,3 +676,154 @@ grep "pattern" <<< "$SOME_VARIABLE"
 ```
 
 `<<<` passes one string as stdin. Cleaner than `echo "$VAR" | grep`.
+
+---
+
+## One-off scripts across a whole repo
+
+Three techniques that come up whenever you're processing or auditing a directory tree rather
+than running a program. Added Aug 2026, from distilling three course transcripts into this
+vault — the work that produced [[foundations/programming-fundamentals/README|programming
+fundamentals]] and [[devops/00-the-physical-layer/README|the physical layer]].
+
+### `fold` — make a one-line file readable by line-based tools
+
+Machine-generated files — video transcripts, minified JSON, some exports — are frequently
+**one enormous line**. Every line-based tool is useless on them: `head -50` prints the whole
+file, `sed -n '1,100p'` prints the whole file, `grep -n` reports "line 1" for everything.
+
+```bash
+wc -lwc transcript.md
+#       0  124714  651107     ← zero newlines, 124k words, 651 KB
+```
+
+`fold` inserts line breaks at a fixed width:
+
+```bash
+fold -s -w 200 transcript.md > wrapped.txt
+```
+
+- `-w 200` — wrap at 200 characters
+- `-s` — **break at spaces**, not mid-word. Almost always what you want for prose
+
+Now every line-based tool works, and you can read a huge file in controlled chunks:
+
+```bash
+wc -l wrapped.txt          # 3299
+sed -n '1,140p' wrapped.txt      # first chunk
+sed -n '141,280p' wrapped.txt    # next chunk
+```
+
+**Why chunk at all rather than `cat`:** anything with an output limit — a pager, a log, a tool
+window — truncates a 650 KB dump. Fixed line ranges give you a cursor you can advance
+deliberately, and `grep -n` on the wrapped file gives you real line numbers to jump to.
+
+The reverse (`fmt`, or `tr -d '\n'`) puts it back if you need the original shape.
+
+### Guard a scripted rewrite with an assertion
+
+When rewriting files programmatically, the dangerous failure is not a crash — it's a
+**silent no-op**. `str.replace` on a string that isn't there returns the original, and the
+script writes the file back unchanged and exits 0. You believe the edit landed. It didn't.
+
+```bash
+python3 - <<'PY'
+import pathlib
+p = pathlib.Path("README.md")
+s = p.read_text()
+
+old = "the exact text I expect to find"
+assert old in s, "anchor not found — file changed since I last looked"   # ← the guard
+
+s = s.replace(old, "the replacement")
+p.write_text(s)
+PY
+```
+
+**The `assert` converts a silent wrong result into a loud failure**, which is the same instinct
+as ECC memory and checksums: you cannot fix what you were never told about. Cheap, one line,
+and it catches the case where a file drifted between when you read it and when you edited it.
+
+`sed -i` has the identical hazard with no equivalent guard — it exits 0 whether or not the
+pattern matched. If the edit matters, check afterwards:
+
+```bash
+sed -i 's/old/new/' file.md
+grep -c "new" file.md          # verify it actually landed
+```
+
+### A verification pass over the whole tree
+
+The useful habit after any bulk edit: **write a throwaway script that checks the invariant you
+care about.** It takes two minutes and finds what reading cannot.
+
+For a wiki-linked vault, the invariant is "every `[[link]]` points at a file that exists":
+
+```bash
+python3 - <<'PY'
+import re, pathlib
+root = pathlib.Path(".")
+
+SKIP = ("quartz", "node_modules", "sources")
+notes = [p for p in root.rglob("*.md") if p.parts[0] not in SKIP]
+
+# Obsidian resolves BOTH forms, so both count as valid:
+#   full path   [[devops/01-linux/12-bash-scripting]]
+#   short form  [[12-bash-scripting]]        <- resolved by filename alone
+valid = {str(p.with_suffix("")) for p in notes} | {p.stem for p in notes}
+
+bad = []
+for p in notes:
+    text = re.sub(r"```.*?```", "", p.read_text(), flags=re.S)   # ignore code blocks
+    for m in re.finditer(r"\[\[([^\]\|\\]+)", text):
+        target = m.group(1).strip()
+        if target not in valid:
+            bad.append((str(p), target))
+
+print(f"{len(bad)} broken")
+for f, t in bad:
+    print(" ", f, "->", t)
+PY
+```
+
+**Accepting both link forms is the part that matters**, and getting it wrong is instructive.
+The strict version — full paths only — reports **2,032 "broken" links in this vault**, every
+one of them fine, because the vault uses short-form links throughout. A checker with a
+false-positive rate like that gets ignored within a day, which makes it *worse* than no
+checker: it turns a real signal into noise you've trained yourself to skip. Same failure mode
+as a noisy alert → [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]].
+
+Tune it until a clean run means something, then trust it.
+
+Three things worth stealing from the shape regardless of what you're checking:
+
+- **Build the set of valid things first, then test against it.** One pass to collect, one to
+  check — far faster and clearer than re-scanning for every reference
+- **Strip what shouldn't be scanned** before matching. Here it's fenced code blocks, which
+  otherwise report a Python list literal `[[1, 2, 3]]` as a broken link
+- **Print what failed, not just how many.** A count tells you there's a problem; the list is
+  the fix
+
+Same pattern, other invariants worth checking after a bulk edit:
+
+```bash
+# unclosed code fences — an odd number of ``` in a file
+# (find, not **/*.md — globstar is on by default in zsh but NOT in bash)
+find . -name "*.md" -not -path "./quartz/*" | while read -r f; do
+  n=$(grep -c '^```' "$f")
+  [ $((n % 2)) -ne 0 ] && echo "UNCLOSED: $f ($n)"
+done
+
+# reconcile a claimed count against reality before publishing it
+find . -name "*.md" -not -path "./quartz/*" | wc -l
+cat foundations/programming-fundamentals/*.md | wc -w
+```
+
+**That last one is the point of the whole section.** Any number written into a README — note
+counts, word counts, "12 notes" — is a claim that rots. Deriving it from the filesystem takes
+one command and stops the document lying.
+
+## Related
+- [[devops/01-linux/16-sed-and-awk|sed and awk]] — when the transformation is line-shaped
+- [[devops/01-linux/03-file-operations|file operations]] — `find`, `grep -r`, and the search flags
+- [[git/09-investigating-history|investigating history]] — the git equivalent of a verification pass
