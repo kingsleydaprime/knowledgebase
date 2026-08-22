@@ -583,3 +583,158 @@ for (const entry of entries) {
 - [[foundations/networking/06-tcp-connection-lifecycle|TCP lifecycle]] — why idle connections die and you need heartbeats
 
 ↑ [[projects/README|All projects and the domains they exercise]]
+
+---
+
+## Part N — Push notifications for the mobile app (2026-08-22)
+
+The gateway in this file solves half the problem. A WebSocket reaches a user
+whose app is **open and in the foreground** — which is exactly when they least
+need to be told something happened. Push notifications are the other half: they
+reach a phone that's locked, backgrounded, or has the app killed.
+
+### Why Expo and not Firebase directly
+
+The `.env` had `FIREBASE_PROJECT_ID` / `FIREBASE_PRIVATE_KEY` / `FIREBASE_CLIENT_EMAIL`
+stubbed for a direct-FCM path that was never built. We went with Expo instead.
+
+The delivery chain is always the same underneath:
+
+```
+your server → [FCM (Android) / APNs (iOS)] → the device
+```
+
+You never talk to a phone directly; you hand a message to Google's or Apple's
+service. The question is only whether you talk to those two yourself, or let
+Expo do it:
+
+```
+direct:  server → firebase-admin → FCM ─┐
+                                        ├→ device
+         server → APNs (key, .p8, JWT) ─┘
+
+Expo:    server → expo-server-sdk → Expo → FCM/APNs → device
+```
+
+Direct FCM means an APNs signing key, a service account JSON, two payload
+shapes, and two sets of error semantics. Since the app is Expo it already gets
+its token from `getExpoPushTokenAsync()`, so Expo brokers both platforms behind
+one token format and one API. The cost is a dependency on Expo's service being
+up, and that's the trade recorded in `DECISIONS.md`.
+
+### Storing tokens: key on the token, not on the user
+
+```prisma
+model DeviceToken {
+  token    String         @unique
+  userId   String
+  platform DevicePlatform @default(UNKNOWN)
+}
+```
+
+The non-obvious part is `@unique` on `token` rather than `@@unique([userId, token])`.
+
+A push token identifies **an app install on a device**, not a person. One person
+has several devices, and — the case that bites — one device gets signed into
+different accounts over its life. Upserting on the token means re-registering
+after a new sign-in *moves* the row to whoever is signed in now:
+
+```typescript
+return this.prisma.deviceToken.upsert({
+  where: { token: dto.token },
+  create: { userId, token: dto.token, platform },
+  update: { userId, platform, lastUsedAt: new Date() },
+});
+```
+
+Key it on `(userId, token)` instead and you get a second row, the old row
+survives, and the previous user's notifications keep arriving on a phone they
+no longer own. **When a row represents a physical thing, the identifier of that
+thing is the key — not the identifier of whoever currently holds it.**
+
+### Dead tokens must be deleted, or they accumulate forever
+
+Expo replies with a **ticket** per message. A ticket with
+`details.error === 'DeviceNotRegistered'` means the app was uninstalled or the
+token revoked. That token will never work again:
+
+```typescript
+tickets.forEach((ticket, i) => {
+  if (ticket.status !== 'error') return;
+  if (ticket.details?.error === 'DeviceNotRegistered') dead.push(chunk[i].to as string);
+});
+```
+
+Note `tickets` is positionally aligned with the chunk you sent — that's the only
+way to know which token a ticket refers to. Nothing else in the response
+identifies it.
+
+Without this cleanup the table only grows, and every future notification pays to
+retry addresses that are guaranteed to fail.
+
+**Not yet done, and worth knowing:** a ticket only says Expo *accepted* the
+message. Actual delivery is reported in a **receipt**, fetched by ticket id
+about 15 minutes later. Tokens that die at the receipt stage rather than the
+ticket stage still linger. That's the natural next piece of work — a cron over
+stored ticket ids.
+
+### Chunking is mandatory, not an optimisation
+
+```typescript
+for (const chunk of this.expo.chunkPushNotifications(messages)) { ... }
+```
+
+Expo caps a request at 100 messages. The SDK splits for you; skipping this works
+fine in dev with two test devices and fails the day a real event fans out.
+
+### Fire-and-forget, deliberately
+
+Both channels fan out from the same funnel in `persist()`:
+
+```typescript
+this.gateway.pushToUser(data.recipientId, notification);
+
+void this.push.sendToUser(recipientId, payload).catch((e) => this.logger.error(...));
+```
+
+`void` plus `.catch` says "start this, don't wait, don't let it throw". An HTTP
+round-trip to Expo must not sit inside the request that triggered the
+notification — someone liking a post shouldn't wait on Expo to get their 200.
+And a push failure must not roll back an in-app notification that was written
+successfully.
+
+The `void` operator is how you tell both a reader and the `no-floating-promises`
+lint rule that the promise is unawaited on purpose. `.catch()` is still required:
+an unhandled rejection in a floating promise can take the process down.
+
+### Both channels fire, and the app dedupes
+
+A foregrounded user gets the socket event *and* the push. Rather than trying to
+know on the server whether a socket is currently live (it's racy — a connection
+can drop between the check and the send), the push payload carries the
+notification id and the app drops what it has already shown:
+
+```typescript
+data: { notificationId, type, targetType, targetId }
+```
+
+**Send both and let the receiver deduplicate**, rather than trying to be clever
+server-side about which channel to use. The client is the only place that knows
+what it actually displayed.
+
+That `data` object is also what deep linking runs on — the app routes on
+`targetType`/`targetId` rather than parsing the body text.
+
+### The preference column that nothing read
+
+`UserPreference.pushNotifications` existed from the start and no code had ever
+checked it. `sendToUser` now does:
+
+```typescript
+if (preference && !preference.pushNotifications) return;
+```
+
+Note `preference &&` — a missing preference row means "send", not "don't". A
+user whose row was never created should still get notifications; only an
+explicit `false` suppresses them. Worth being deliberate about which way a
+missing setting falls.

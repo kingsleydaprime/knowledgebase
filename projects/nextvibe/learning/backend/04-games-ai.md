@@ -672,3 +672,124 @@ title-only edit isn't blocked by a puzzle that was already broken.
 The frontend fallbacks that rebuild a grid from surviving word coordinates are
 worth having, but they're mitigation. The reason bad rows existed at all is that
 nothing said no at write time.
+
+---
+
+## Part N — The word puzzle scored 0 no matter how you played (2026-08-22)
+
+### Diagnose before you touch the code
+
+The symptom was "scores aren't recorded, I always get 0", and the obvious
+suspect was `calculateScore`. It was the wrong suspect, and the only reason we
+didn't spend an hour rewriting correct code is that we looked at real data
+first.
+
+`git log -L` is the tool for "when did this function last change":
+
+```bash
+git log --oneline -L 628,690:src/modules/games/games.service.ts
+```
+
+`-L start,end:file` follows a **range of lines** through history, tracking it
+across edits that move it around. It reported that the scoring function hadn't
+changed since the FEEDBACK commit — so whatever broke, this wasn't it.
+
+### Read the evidence the system already recorded
+
+`submitRound` stores what the client sent:
+
+```typescript
+metadata: { ...(dto.metadata ?? {}), answers: dto.answers ?? [] }
+```
+
+That turns "it doesn't work" into an answerable question. A read-only script
+joining `GameEntry` to its round printed, per submission, the stored hidden
+words next to the submitted answers:
+
+```
+hiddenWords[] : ["CONNECTION","DIGITAL","INNOVATION","NIGERIA","FINTECH",...]
+answers[]     : ["","DIGITAL","","NIGERIA","FINTECH","",""]     score=60  ✅
+answers[]     : ["","","","","","",""]                          score=0   ❌
+```
+
+The scorer was right. When words arrived it scored them (3 × 20 = 60). The
+failing submissions contained **nothing** — the player found no words at all.
+
+**The lesson: a bug report tells you where someone noticed the problem, not
+where it is.** Store enough of the input to reconstruct a failure and you can
+diagnose from data instead of guessing.
+
+### The actual defect: an unstated positional contract
+
+```typescript
+// before
+userAnswers.forEach((answer: string, i: number) => {
+  const expected = hiddenWords[i]?.word?.toUpperCase();
+  if (answer && expected && answer.toUpperCase() === expected) { ... }
+});
+```
+
+This compares `answers[i]` to `hiddenWords[i]`. That silently demands the client
+send **one slot per hidden word, in the stored order, with blanks for misses** —
+`["", "DIGITAL", "", "NIGERIA"]`. The web player happens to build exactly that:
+
+```typescript
+const answers = hiddenWords.map((hw) => (foundWords.has(hw.word) ? hw.word : ""));
+```
+
+No other client would guess it. A mobile client sending the obvious thing —
+`["DIGITAL","NIGERIA"]`, just the words it found — scores `DIGITAL` against
+`hiddenWords[0]` (`CONNECTION`), misses, and returns 0 on a correct submission.
+
+The fix is to stop making array position load-bearing:
+
+```typescript
+const expected = new Set(hiddenWords.map((hw) => normaliseWord(hw?.word)).filter(Boolean));
+const credited = new Set<string>();
+for (const answer of userAnswers) {
+  const word = normaliseWord(answer);
+  if (word && expected.has(word)) credited.add(word);   // a Set, so duplicates credit once
+}
+return credited.size * pointsPerWord;
+```
+
+Both shapes now score identically, and order stops mattering.
+
+**The general principle: when two systems have to agree, prefer a contract that
+can't be violated by accident.** "Send me the words you found" is impossible to
+get subtly wrong. "Send me a parallel array in my internal storage order" is
+impossible to get right without reading my source.
+
+### Why the second `Set` matters
+
+`credited` is a `Set`, not a counter. With a counter, a client that resends its
+whole found-list — or just retries — banks the same word repeatedly. Any time
+you score user-submitted input, ask what happens when the same valid item
+appears twice.
+
+### The silent zero in the arithmetic
+
+```typescript
+const pointsPerWord = Math.max(1, Math.floor(totalPoints / hiddenWords.length));
+```
+
+Without `Math.max(1, …)`, a puzzle whose author set 5 total points across 8
+words gives `floor(5/8) = 0` per word: play perfectly, score 0, and nothing in
+the data explains why. Integer division that can round to zero is worth a guard
+whenever zero means "silently broken" rather than "legitimately none".
+
+### Sharing the normaliser instead of re-typing it
+
+The grid builder stores words through `normaliseWord` (uppercase, strip
+non-letters), so `CHIN-CHIN` is stored as `CHINCHIN`. The scorer has to apply
+*exactly* that transform to the player's answer or the comparison fails on
+punctuation. Rather than write `.toUpperCase()` twice and let the two drift, the
+transform was exported from `word-grid.ts` and imported by the scorer:
+
+```typescript
+export function normaliseWord(word: unknown): string {
+  return String(word ?? '').toUpperCase().replace(/[^A-Z]/g, '');
+}
+```
+
+**When two places must apply the same rule, share the function, not the rule.**

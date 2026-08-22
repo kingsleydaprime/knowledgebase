@@ -415,3 +415,152 @@ reaction to the two is opposite — give up vs. try again.
 
 Related: the client-side half of this loop is in
 [frontend/03-auth.md](../frontend/03-auth.md).
+
+---
+
+## Part N — Making Google sign-in work from the mobile app (2026-08-22)
+
+The backend already had `POST /auth/oauth/google` taking an ID token. It worked
+from the web and would have rejected every single sign-in from the phone. The
+reason is the one thing about Google OAuth that catches everybody once.
+
+### First: how mobile Google auth actually differs from web
+
+It's worth being precise about this, because the intuition — "mobile needs a
+different flow" — is wrong for this codebase, and the thing that *does* differ is
+easy to miss.
+
+**The backend endpoint is the same one.** Both platforms send a Google **ID
+token** to `POST /v1/auth/oauth/google`. There is no mobile-specific route, and
+no OAuth redirect/callback to implement.
+
+```
+web:     browser  → Google Identity Services (@react-oauth/google)
+                  → credentialResponse.credential   ← an ID token
+                  → POST /v1/auth/oauth/google { idToken }
+
+mobile:  app      → native Google Sign-In SDK
+                  → getTokens().idToken             ← an ID token
+                  → POST /v1/auth/oauth/google { idToken }   ← identical
+```
+
+What genuinely differs is only three things:
+
+| | Web | Mobile |
+|---|---|---|
+| How the ID token is obtained | GIS button in the browser | native SDK |
+| The token's `aud` claim | web client ID | Android / iOS client ID |
+| Where NextVibe's tokens are stored | httpOnly cookies via a Next.js route | `expo-secure-store` |
+
+The middle row is the entire backend problem, and it's covered next.
+
+**Why there's no authorization code exchange anywhere here.** The classic OAuth
+diagram — redirect to provider, get a `code` back, POST it with your client
+secret to swap for tokens — is the *server-side web app* flow. This backend never
+does it. Both clients use the ID token flow: the provider hands the client a
+signed assertion of who the user is, and the client relays it. The backend's only
+job is verifying the signature and the audience.
+
+That's why `GOOGLE_CLIENT_SECRET` is in `.env` and read by nothing. Worth
+recognising: a client secret is meaningless in a mobile app or a browser anyway —
+anything shipped to a user's device isn't secret. That's precisely why the ID
+token flow exists.
+
+### One Google project, several client IDs
+
+In the Google Cloud console you create a separate **OAuth client ID per
+platform**: Web, Android, iOS. They're not interchangeable. When Google issues
+an ID token it stamps the requesting client's ID into the token's `aud`
+(audience) claim.
+
+Verification checks that claim:
+
+```typescript
+// before — only ever accepts tokens minted for the web client
+const ticket = await this.googleClient.verifyIdToken({
+  idToken,
+  audience: this.configService.get<string>('GOOGLE_CLIENT_ID'),
+});
+```
+
+An Android token carries `aud = <android client id>`, doesn't match, and throws
+— surfacing as a flat `401 Invalid Google token` with nothing to say *which*
+check failed. `verifyIdToken` accepts an array, so the fix is to trust every
+platform ID you actually own:
+
+```typescript
+this.googleAudiences = [
+  this.configService.get<string>('GOOGLE_CLIENT_ID'),          // web
+  this.configService.get<string>('GOOGLE_CLIENT_ID_ANDROID'),
+  this.configService.get<string>('GOOGLE_CLIENT_ID_IOS'),
+].filter((id): id is string => !!id && id.trim().length > 0);
+```
+
+**Why an allow-list and not "skip the audience check":** `aud` is what stops a
+token minted for someone *else's* app being replayed against yours. Any Google
+user can get a valid, correctly-signed ID token from any app they sign into —
+signature validity alone proves nothing about who it was meant for. Dropping the
+check turns "prove this token was issued for us" into "prove this token exists".
+
+Note the type predicate `(id): id is string => ...`. Without it, `.filter()`
+leaves the array typed `(string | undefined)[]` and TypeScript rejects it where
+a `string[]` is wanted. The predicate is how you tell the compiler what the
+filter guarantees at runtime.
+
+### `email_verified` is the claim that matters for account linking
+
+The handler looks a user up by email and, finding one, signs you in as them:
+
+```typescript
+let user = await this.prisma.user.findFirst({
+  where: { OR: [{ email }, { oauthProvider: 'GOOGLE', oauthId: googleId }] },
+});
+```
+
+That's account linking, and it's a takeover vector if the email isn't verified.
+Google accounts can be created on arbitrary addresses; `email_verified: false`
+means Google is passing along an address it has **not** confirmed. If someone
+registers a Google account on your user's address, this branch hands them that
+user's tokens without a password.
+
+```typescript
+if (payload.email_verified === false) {
+  throw new UnauthorizedException('Your Google email address is not verified');
+}
+```
+
+**The general rule: "this identity provider told me an email address" and "this
+person controls that email address" are different claims.** Only the second one
+justifies linking to an existing account, and only `email_verified` asserts it.
+
+### Optional claims are optional
+
+```typescript
+const baseUsername = name.toLowerCase()...   // 500 when `name` is absent
+```
+
+`name` is only present when the profile scope was granted, and it goes missing
+often enough on mobile to matter. Every field in an OIDC ID token except `sub`
+(and `iss`/`aud`/`exp`) should be treated as optional:
+
+```typescript
+const baseUsername =
+  (name ?? email.split('@')[0] ?? '')
+    .toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '').slice(0, 20)
+  || 'vibe';
+```
+
+Two fallbacks, because the first one can also produce an empty string — an
+address of all-punctuation before the `@` strips to `''`, and an empty username
+would collide on the uniqueness loop forever.
+
+`sub` is the only stable identifier, which is why it's what gets stored as
+`oauthId`. Email addresses can be changed by the user; `sub` cannot.
+
+### What the mobile side does
+
+The app gets a token with `getTokens()` / `getIdToken()` from its Google sign-in
+library, configured with the **web** client ID as `webClientId`, and POSTs it to
+`/auth/oauth/google` as `{ idToken }`. The backend does the rest. Nothing about
+this flow needs `GOOGLE_CLIENT_SECRET` — that's for the server-side authorization
+code exchange, which this app doesn't use.

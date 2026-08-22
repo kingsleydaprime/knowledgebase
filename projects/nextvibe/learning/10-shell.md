@@ -369,3 +369,118 @@ single moment.
 Note `-v error` on both commands. ffmpeg's default output is a wall of build
 configuration; suppressing it leaves only what was asked for — worth doing
 whenever the output is being read rather than watched.
+
+---
+
+## Part N — `git log -L`: following a function through history (2026-08-22)
+
+While diagnosing the word puzzle scoring bug, the first question was "when did
+this function last change?" — not "what does it do now".
+
+```bash
+git log --oneline -L 628,690:src/modules/games/games.service.ts
+```
+
+`-L <start>,<end>:<file>` follows a **range of lines** through history and shows
+only the commits that touched it, each with the diff of just that range. Unlike
+`git log -- <file>`, which drowns you in every commit that touched a 1800-line
+service, this answers a question about one function.
+
+Git tracks the range as edits above it shift it up and down, so the line numbers
+you give are the ones in your *current* working tree.
+
+Two variants worth knowing:
+
+```bash
+# By regex instead of line numbers — follows the function even as it moves
+git log -L :calculateScore:src/modules/games/games.service.ts
+
+# Suppress the diffs, just list the commits
+git log --oneline -L 628,690:src/file.ts -s
+```
+
+The `:funcname:file` form is usually what you want — it finds the function by
+name and doesn't go stale when you edit the file.
+
+**Why this mattered here:** it proved the scoring function hadn't changed since
+an old commit, which redirected the whole investigation away from the code that
+looked guilty and toward the data. Cheap question, large saving.
+
+---
+
+## Part N+1 — Heredocs, and the nested-delimiter trap that bit me writing this
+
+The read-only DB diagnostic was written to a file, run once, and removed:
+
+```bash
+cat > prisma/_tmp-diagnose.ts <<'SCRIPT'
+...typescript...
+SCRIPT
+npx tsx prisma/_tmp-diagnose.ts 2>&1 | tail -70
+rm prisma/_tmp-diagnose.ts
+```
+
+**`<<'SCRIPT'` with the delimiter quoted.** Unquoted `<<SCRIPT` makes the shell
+expand `$variables` and backticks *inside* the heredoc before writing it, which
+mangles any script containing `${...}` template literals. Quoting the delimiter
+turns off all expansion and writes the text literally. For anything containing
+code, always quote it.
+
+**It lives in `prisma/`, not `/tmp`.** The script imports
+`../src/generated/prisma/client` and needs `dotenv/config` to find `.env` — both
+resolve relative to where the file sits. A script that depends on a project's
+module resolution has to run from inside that project.
+
+The `_tmp-` prefix and the `rm` are the discipline part: a diagnostic that
+outlives its diagnosis becomes a file nobody dares delete two years later.
+
+### The trap: a heredoc ends at the *first* line equal to its delimiter
+
+Writing this very section failed the first time. The command was:
+
+```bash
+cat >> notes.md <<'EOF'
+...prose containing an example that itself used <<'EOF' ... EOF ...
+EOF
+```
+
+The shell doesn't understand nesting. It scans line by line for the first line
+that is exactly the delimiter, and the `EOF` **inside my example** ended the
+heredoc early. Everything after it stopped being data and became commands — so
+the shell cheerfully ran the `npx tsx` and `rm` lines from my own example text,
+and the notes file was left truncated mid-sentence.
+
+Three ways out, in rough order of preference:
+
+```bash
+# 1. Pick a delimiter the content cannot contain
+cat >> notes.md <<'END_OF_NOTE'
+... text that mentions EOF freely ...
+END_OF_NOTE
+
+# 2. Write the file from a language with real string literals
+python3 - <<'PY'
+pathlib.Path('notes.md').write_text(...)
+PY
+
+# 3. Indent the body and use <<- (only strips TABS, not spaces — awkward)
+```
+
+**The general lesson: a heredoc is not a quoting construct that nests.** The
+moment the content is itself shell-flavoured, prefer writing the file from
+Python/Node, where a string is a genuine value with an unambiguous end.
+
+The failure mode is nastier than a syntax error, too: instead of refusing to
+run, the shell silently reinterprets your data as instructions. Anything
+destructive sitting in an example (`rm`, `git reset`) would have executed for
+real. Check what actually ran after a heredoc misbehaves.
+
+### Piping to `tail` to survive a wall of output
+
+```bash
+npx tsx prisma/_tmp-diagnose.ts 2>&1 | tail -70
+```
+
+`2>&1` redirects stderr into stdout **before** the pipe, so errors reach `tail`
+too — without it a crash prints to the terminal unpiped while `tail` shows
+nothing useful. Order matters here: the redirection has to come before the `|`.
