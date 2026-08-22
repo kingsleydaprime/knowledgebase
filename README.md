@@ -20,6 +20,7 @@ The domains that are actually built out — **networking, DSA, backend, architec
 - 🎯 **[[INTERVIEW|Interview Prep Index]]** — every domain now has an `interview/` folder: the question, what a strong answer covers, and the detail that separates memorised from understood.
 
 Start here, depending on what you want:
+- [[foundations/programming-fundamentals/README|Programming Fundamentals]] — **start here if you have never written code.** Twelve language-agnostic notes: what a program is → syntax → variables → control flow → collections → functions → recursion → debugging → planning → what to build. Written Aug 2026, because 900 notes assumed this and none of them taught it
 - [[foundations/networking/README|Networking]] — the wire up to the web: link layer → IP → TCP/congestion control → DNS/TLS/HTTP → QUIC → debugging. The foundation under devops, security, and distributed systems
 - [[foundations/software-engineering/README|Software Engineering — orientation]] — **three short notes on what the profession actually is**: programming vs engineering, the SDLC and what breaks when each phase is skipped, and the eleven roles. Written Aug 2026 to fill a gap the rest of the vault assumed
 - [[foundations/dsa/README|Data Structures & Algorithms]] → then [[foundations/dsa/06-patterns/README|LeetCode Patterns]]
@@ -29,7 +30,7 @@ Start here, depending on what you want:
 - [[backend/README|Backend]] — a full course: foundations → API design → **structuring a backend** (layers, DI, hexagonal, modular monolith) → data → auth, plus `frameworks/` for Node/Nest/Spring/FastAPI/Axum
 - [[concepts/02-frontend/README|Frontend]], [[concepts/03-design-patterns/README|Design Patterns]], [[concepts/04-best-practices/README|Best Practices]] — engineering ideas that belong to no single domain
 - [[languages/01-java/README|Java]] — the JVM, concurrency, and the Spring Boot/build-tools ecosystem
-- [[devops/README|DevOps]] — Linux → containers → orchestration → CI/CD → IaC → observability
+- [[devops/README|DevOps]] — **the physical layer** (servers, hypervisors, data centres, leaf-spine) → Linux → containers → orchestration → CI/CD → IaC → observability → **the disciplines** (SRE, platform engineering, DevSecOps)
 - [[architecture/README|Architecture]] — system design (scaling, caching, patterns) + distributed systems (consensus, consistency, partitioning)
 - [[hardware/README|Hardware & Embedded]] — the layer below all the software: electricity → digital/analog → embedded → microcontrollers → I2C/SPI/UART → RF → IoT architecture, plus KiCad and a real fabricated PCB
 - [[databases/README|Databases]] — a course on the **internals** (pages → B-trees → LSM → query planning → MVCC → WAL → replication → operations) plus four deep syntax/design references. Read the course to understand `EXPLAIN`; use the references to look things up
@@ -61,6 +62,12 @@ knowledgebase/
 ├── BUILD-PLAN.md                 # the ordered queue of what gets written next
 │
 ├── foundations/
+│   ├── programming-fundamentals/ # numbered course (12 notes, Aug 2026): THE ON-RAMP.
+│   │                             # what a program is → languages/translation → tooling →
+│   │                             # syntax → variables/types → control flow → collections →
+│   │                             # functions → recursion/the call stack → errors/debugging
+│   │                             # → planning → what to build next. Language-agnostic;
+│   │                             # assumes nothing. Everything else here assumed it.
 │   ├── dsa/                      # numbered course: iterations → data types → data
 │   │   │                         # structures → algorithms → patterns/ (15 LeetCode patterns)
 │   │   └── pdfs/                 # original Codility-style course material, untouched
@@ -138,6 +145,10 @@ knowledgebase/
 │   └── 04-best-practices/
 │
 ├── devops/                       # numbered course, roadmap.sh-cross-referenced.
+│   ├── 00-the-physical-layer/    # NEW Aug 2026: the layer under Linux — servers,
+│   │                             # virtualisation/hypervisors, data centres (hot aisle,
+│   │                             # PUE, Uptime tiers, what an AZ physically is), and the
+│   │                             # leaf-spine DC network. 4 notes.
 │   ├── 01-linux/                 # Foundation: 01-linux (+15-rhcsa/ cert track) →
 │   │   └── 15-rhcsa/             # 02-docker → 03-cloud → 04-vps. Then the DevOps
 │   ├── 02-docker/                # pillars: 05-orchestration (k8s) → 06-ci-cd →
@@ -149,7 +160,12 @@ knowledgebase/
 │   ├── 08-networking-and-web/
 │   ├── 09-secret-management/
 │   ├── 10-observability/
-│   └── 11-delivery-and-advanced/
+│   ├── 11-delivery-and-advanced/
+│   └── 12-sre-and-platform-engineering/  # NEW Aug 2026: the DISCIPLINES, not the tools.
+│                                 # How delivery practice evolved (waterfall→agile→devops→
+│                                 # SRE→platform→devsecops, each fixing the last one's
+│                                 # bottleneck) · toil/on-call/incident command/postmortems
+│                                 # · IDPs and golden paths · security as a pipeline stage.
 │
 ├── languages/                     # numbered course, organized by language rather than framework
 │   └── 01-java/                  # 6 themed sections: language (fundamentals→OOP→generics→

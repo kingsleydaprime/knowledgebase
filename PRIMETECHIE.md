@@ -57,6 +57,8 @@ Because it's two different jobs, and [[ai-ml/README|the ai-ml course]] already s
 
 The baseline. You can take an idea to a running thing without help.
 
+*Before Rank I:* if you can't yet write code at all, [[foundations/programming-fundamentals/README|programming fundamentals]] is the on-ramp — twelve language-agnostic notes, and the only thing in this vault that assumes nothing.
+
 **💻 Software**
 - [ ] Ship a full-stack app **to a real domain over HTTPS** — not localhost, not a screenshot
 - [ ] Use git like a professional: feature branches, [[git/12-conventions-and-hygiene|conventional commits]], an interactive rebase you didn't panic during, and a merge conflict you resolved by *reading* rather than picking a side
