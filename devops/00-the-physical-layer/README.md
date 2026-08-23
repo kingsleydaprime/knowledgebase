@@ -2,7 +2,7 @@
 
 The machine, the building, and the wiring — the four notes this folder's neighbours all assumed.
 
-**~5,100 words across 4 notes.** Built August 2026. `[reference]`.
+**~6,300 words across 5 notes.** Built August 2026. `[reference]`.
 
 > **The one idea:** every abstraction above this — a container, an instance type, an availability zone, a VPC — is a *rental agreement over a physical constraint*. Knowing the constraint tells you where the abstraction leaks.
 
@@ -20,6 +20,7 @@ This is numbered `00` because it sits *under* Linux, not after it. It is also th
 2. [[devops/00-the-physical-layer/02-virtualisation-and-hypervisors|Virtualisation and Hypervisors]] — **[Beginner → Intermediate]** — Type 1 vs Type 2, oversubscription and steal time, and **why containers are not smaller VMs**
 3. [[devops/00-the-physical-layer/03-data-centres|Data Centres]] — **[Beginner]** — power, hot aisle/cold aisle, PUE, the Uptime tiers, and **what an availability zone physically is**
 4. [[devops/00-the-physical-layer/04-the-data-centre-network|The Data Centre Network]] — **[Intermediate]** — east–west traffic, leaf-spine, oversubscription ratios, VXLAN overlays, and **incast**
+5. [[devops/00-the-physical-layer/05-getting-into-infrastructure|Getting Into Infrastructure]] — **[Beginner]** — the roles and what separates them, **hands-on-metal vs infrastructure-as-software**, where certifications actually help, and what to build
 
 ## The things worth carrying
 
