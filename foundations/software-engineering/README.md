@@ -1,16 +1,17 @@
 # Software Engineering — Orientation
 
-> Three short notes on what the profession *is*, written because the rest of this vault assumed it and never said it.
+> Four short notes on what the profession *is*, written because the rest of this vault assumed it and never said it.
 
 Everything else here teaches a subject — a language, a protocol, a database. This folder answers the questions that come before that: what the job actually is, what shape the work takes, and who does which part of it.
 
-**It's deliberately small.** If you've shipped things, most of this will confirm what you already know by doing. Its value is vocabulary — being able to name which phase a problem belongs to, or what a role is actually responsible for, in an interview or a post-mortem.
+**It's deliberately small.** (Note 04 was added Aug 2026, answering a question the roles note didn't: *what other kinds of software engineering are there?*) If you've shipped things, most of this will confirm what you already know by doing. Its value is vocabulary — being able to name which phase a problem belongs to, or what a role is actually responsible for, in an interview or a post-mortem.
 
 ## Reading order
 
 1. [[foundations/software-engineering/01-what-software-engineering-is|what-software-engineering-is]] — **[Beginner]** — programming vs engineering, where the time actually goes, the three habits (abstraction, decomposition, trade-offs)
 2. [[foundations/software-engineering/02-the-software-development-lifecycle|the-software-development-lifecycle]] — **[Beginner]** — the six phases, what breaks when each is skipped, waterfall vs agile as batch size
 3. [[foundations/software-engineering/03-the-engineering-roles|the-engineering-roles]] — **[Beginner]** — the eleven roles, what genuinely differs (the failure you fear), and the seniority ladder
+4. [[foundations/software-engineering/04-the-kinds-of-software-engineering|the-kinds-of-software-engineering]] — **[Beginner]** — the field cut by *constraint* rather than product: embedded, real-time/safety-critical, systems, games, HPC, desktop, firmware. **Which specialisations are hard to switch into later, and why the asymmetry runs one way**
 
 ## Then
 
