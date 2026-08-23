@@ -4,6 +4,8 @@ From [[frontend/README|frontend/]] and [[concepts/02-frontend/README|concepts/02
 
 ## Files
 1. [[frontend/interview/01-react-rendering-and-performance|React, Rendering & Performance]] — the React model, rendering strategies, Core Web Vitals, animation performance
+2. [[frontend/interview/02-javascript-and-typescript|JavaScript & TypeScript]] — **the language round.** Event loop, closures and stale closures, `this`, coercion, promises/concurrency, what TS does and doesn't check, memory leaks
+3. [[frontend/interview/03-state-data-and-architecture|State, Data & Architecture]] — where state lives, context re-renders, data fetching done properly, codebase structure, **accessibility**, performance method, the RSC boundary
 
 ## Scope note
 

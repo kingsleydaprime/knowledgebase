@@ -338,7 +338,7 @@ You'll see the container's PID from the host's perspective — proof that it's j
 
 Tell me what PID you see.
 
-```What am I supposed to see?```
+> **What am I supposed to see?**
 
 You'll see something like:
 

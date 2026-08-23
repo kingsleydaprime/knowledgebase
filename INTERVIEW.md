@@ -1,6 +1,6 @@
 # 🎯 Interview Prep — Index
 
-**Thirteen domains have an `interview/` folder** — the ones below. The theory and engineering tracks added since (`engineering/`, `robotics/`, and the CS-theory spine from `discrete-math` through `programming-language-theory`) deliberately don't: those are `[reference]` material with no reps behind them, and **an interview bank for a subject you haven't practised would be memorisation, not preparation.** The place to start with those is [[project-ideas|project-ideas]], not a question list. Same format throughout, generalised from [[projects/arete/interview/01-backend-and-data|the arete interview notes]]: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
+**Fifteen domains have an `interview/` folder** — the ones below. The theory and engineering tracks added since (`engineering/`, `robotics/`, and the CS-theory spine from `discrete-math` through `programming-language-theory`) deliberately don't: those are `[reference]` material with no reps behind them, and **an interview bank for a subject you haven't practised would be memorisation, not preparation.** The place to start with those is [[project-ideas|project-ideas]], not a question list. Same format throughout, generalised from [[projects/arete/interview/01-backend-and-data|the arete interview notes]]: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
 
 ## The banks
 
@@ -9,15 +9,17 @@
 | [[backend/interview/README\|Backend / Node]] | **built from a real interview** — p99 spikes, AZ vs deploy, retry storms, `Promise.all`, `Buffer` | 2 |
 | [[foundations/networking/interview/README\|Networking]] | layering → TCP → TLS → debugging scenarios | 4 |
 | [[languages/01-java/interview/README\|Java]] | **JVM, GC, memory model, concurrency** — the low-latency round | 3 |
+| [[languages/06-python/interview/README\|Python]] | **the data model and the gotchas** — mutable defaults, the GIL, generators, EAFP | 1 |
 | [[architecture/interview/README\|Architecture]] | the system design round + distributed systems depth | 2 |
 | [[foundations/dsa/interview/README\|DSA]] | how to *run* a coding round + the pattern lookup | 1 |
 | [[databases/interview/README\|Databases]] | indexes, isolation levels, query plans, migrations | 1 |
 | [[foundations/os/interview/README\|OS]] | processes, virtual memory, syscalls, scheduling | 1 |
 | [[devops/interview/README\|DevOps]] | Linux, containers, CI/CD, observability, incidents | 1 |
-| [[concepts/interview/README\|Concepts]] | APIs, auth, OAuth, patterns, testing philosophy | 1 |
+| [[concepts/interview/README\|Concepts]] | APIs, auth, OAuth + **patterns, code review, testing theatre** | **2** |
 | [[cybersecurity/interview/README\|Security]] | injection classes, crypto, SSRF, defence, IR | 1 |
 | [[ai-ml/interview/README\|AI/ML]] | RAG, agents, evals, prompt injection + ML fundamentals | 2 |
-| [[frontend/interview/README\|Frontend]] | React model, rendering strategies, Web Vitals, compositor | 1 |
+| [[game-development/interview/README\|Game Dev]] | vectors, fixed timestep, frame budget, collision phases, lag compensation, ECS | 1 |
+| [[frontend/interview/README\|Frontend]] | React model + **the JS/TS language round** + state, data, a11y, RSC | **3** |
 | [[hardware/interview/README\|Hardware]] | decoupling, I2C/SPI, interrupts, board bring-up + RF, MQTT, battery life | 2 |
 
 Plus the project-specific bank: [[projects/arete/interview/01-backend-and-data|arete/interview/]] — the original, and still the best template because every answer is anchored in code you actually wrote.
