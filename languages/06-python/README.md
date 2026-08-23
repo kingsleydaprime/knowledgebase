@@ -2,7 +2,7 @@
 
 The language and its core ecosystem. **Not the data stack** — that lives in [[ai-ml/00-foundations/04-python-and-data-tools/README|ai-ml/00-foundations]] — and **not the web frameworks**, which live in [[backend/frameworks/python/README|backend/frameworks/python/]] per [[languages/README|the rule]].
 
-**~12,600 words across 14 notes.** Built August 2026. `[reference]`.
+**~15,300 words across 17 notes.** Built August 2026, extended the same week after a [roadmap.sh](https://roadmap.sh/python) audit. `[reference]`.
 
 > **The one idea:** Python trades machine time for programmer time, and **every quirk in this course is that trade showing through.** Names bind to objects (so assignment aliases), types are checked at runtime (so errors reach production), and one lock protects the interpreter (so threads don't parallelise). Knowing *why* turns a list of gotchas into one model.
 
@@ -31,6 +31,12 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 13. [[languages/06-python/13-testing-and-tooling|Testing and Tooling]] — **[Intermediate]** — pytest, fixtures, `parametrize`, ruff, and the pre-commit/CI split
 14. [[languages/06-python/14-performance-and-the-runtime|Performance and the Runtime]] — **[Advanced]** — why it's slow, and **the ordered list of what to try**
 
+**15–17 were added after auditing this course against the [roadmap.sh Python track](https://roadmap.sh/python)** — all three were named as gaps by the honest note below before the audit confirmed them.
+
+15. [[languages/06-python/15-files-and-io|Files and I/O]] — **[Beginner → Intermediate]** — modes, encodings, large files, **the atomic-write pattern**, and path traversal
+16. [[languages/06-python/16-regular-expressions|Regular Expressions]] — **[Intermediate]** — the syntax worth memorising, `fullmatch` vs `match`, and **catastrophic backtracking as a DoS class**
+17. [[languages/06-python/17-asyncio-in-depth|asyncio in Depth]] — **[Advanced]** — TaskGroups, cancellation, timeouts, bounding fan-out, **and why sequential `await`s aren't concurrent**
+
 ## The things worth carrying
 
 1. **Assignment binds a name; it never copies.** Whether you notice depends only on whether the object is mutable → [[languages/06-python/02-the-data-model|02]]
@@ -54,6 +60,12 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 19. **`parametrize` is the highest-return pytest feature** — it makes edge cases cheap enough to actually write → [[languages/06-python/13-testing-and-tooling|13]]
 20. **Coverage measures what ran, not what was checked** → [[languages/06-python/13-testing-and-tooling|13]]
 21. **Fix the algorithm, then the I/O, then vectorise. Measure between each** → [[languages/06-python/14-performance-and-the-runtime|14]]
+22. **`open(path, "w")` truncates before you write anything.** Atomic write = temp file, fsync, `os.replace` → [[languages/06-python/15-files-and-io|15]]
+23. **Always pass `encoding="utf-8"`** — the default is platform-dependent, so it works locally and breaks in production → [[languages/06-python/15-files-and-io|15]]
+24. **`re.match` anchors at position 0; it does not mean "does this match".** Use `fullmatch` → [[languages/06-python/16-regular-expressions|16]]
+25. **Nested quantifiers are a denial-of-service vector**, and have taken down Cloudflare and Stack Overflow → [[languages/06-python/16-regular-expressions|16]]
+26. **Sequential `await`s are not concurrent.** `TaskGroup` or `gather` is what overlaps them → [[languages/06-python/17-asyncio-in-depth|17]]
+27. **Every network call needs a timeout; every fan-out needs a semaphore** → [[languages/06-python/17-asyncio-in-depth|17]]
 
 ## Where this connects
 
@@ -65,6 +77,23 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 | [[devops/01-linux/12-bash-scripting\|bash scripting]] | When a shell script should have been Python |
 | [[languages/02-go/README\|Go]] · [[languages/03-rust/README\|Rust]] | The other end of the trade — types and concurrency enforced |
 | [[foundations/compilers/README\|compilers]] | What "bytecode on a VM" means |
+
+## Against the roadmap
+
+Audited against the [roadmap.sh Python track](https://roadmap.sh/python) (August 2026). Its topic list maps onto this vault in three ways:
+
+**Covered here** — basics and syntax, variables and types, conditionals, loops, functions, lambdas, scope, lists/tuples/sets/dictionaries, comprehensions, generator expressions, iterators, decorators, context managers, classes, inheritance, encapsulation, OOP, paradigms, exceptions, modules, package managers (pip/uv/poetry/pipenv/pdm/conda/pyenv/virtualenv), `pyproject.toml`, PyPI, static typing, type annotations, mypy/pyright, testing, pytest, unittest, ruff, black, code formatting, the GIL, threading, multiprocessing, concurrency, asynchrony, file handling, glob, regular expressions, string handling, type casting.
+
+**Covered elsewhere in this vault, deliberately not duplicated:**
+
+| Roadmap topic | Where it lives |
+|---|---|
+| Data structures & algorithms, sorting, arrays, linked lists, hashmaps, heaps/stacks/queues, BSTs, recursion | [[foundations/dsa/README\|foundations/dsa/]] |
+| Django, Flask, FastAPI, Pydantic | [[backend/frameworks/python/README\|backend/frameworks/python/]] — **per [[languages/README\|the languages/ rule]]** |
+| NumPy, pandas, plotting | [[ai-ml/00-foundations/04-python-and-data-tools/README\|ai-ml/00-foundations]] |
+| Git, clean code, paradigms | [[git/README\|git/]], [[concepts/04-best-practices/README\|best practices]], [[foundations/programming-fundamentals/14-programming-paradigms\|paradigms]] |
+
+**Deliberately skipped** — the alternative-framework long tail (Tornado, Sanic, Pyramid, aiohttp, gevent, Plotly Dash), the formatter/doc long tail (yapf, sphinx, doctest, tox, pyre). **These are lookups, not understanding**, and listing them would imply coverage that adds nothing over their own documentation.
 
 ## The honest note
 
@@ -79,7 +108,7 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 5. **Write a decorator with arguments** from scratch, without copying. Three levels of nesting is the part that doesn't stick from reading
 6. **Benchmark `threading` vs `multiprocessing`** on one CPU-bound and one I/O-bound task. Note 12's table, verified in ten minutes
 
-**What's missing:** metaclasses and descriptors (deliberately — rarely needed, frequently misused), `async` generators and `asyncio` at depth, packaging *as a publisher* (building and uploading to PyPI), C-extension authoring, and exercises.
+**What's missing:** ~~`asyncio` at depth~~ **(closed, note 17)**, metaclasses and descriptors (deliberately — rarely needed, frequently misused), packaging *as a publisher* (building and uploading to PyPI), C-extension authoring, and **exercises**, which remains the real hole.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
 
