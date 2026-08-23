@@ -8,13 +8,13 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
-The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `ai-automation/`, `frontend/01-react`+`02-next`, and parts of `backend/`. **`engineering/` and `robotics/` are written but marked `[reference]`** — courses on paper, with no build behind them yet, and each says so on its own front page. **Note on the frontend two:** the scaffold is the *course*, not the knowledge — ~44,000 words on React/Next.js live in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
+The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `frontend/01-react`+`02-next`, and parts of `backend/`. **`engineering/` and `robotics/` are written but marked `[reference]`** — courses on paper, with no build behind them yet, and each says so on its own front page. **Note on the frontend two:** the scaffold is the *course*, not the knowledge — ~44,000 words on React/Next.js live in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
 
 **This is not a software-engineering vault.** It covers software, infrastructure, security, and hardware — see [[PRIMETECHIE|the path]] for how those four fit together rather than sitting in separate silos. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
 
 **Two cross-cutting entry points, added August 2026:**
 - 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
-- 🔨 **[[build-your-own-x/README|Build Your Own X]]** — language-agnostic build guides with numbered, independently-testable milestones. Where the rest of the vault stops being reading. All nine written: HTTP server, git, redis, language, OS, database, shell, container, regex engine.
+- 🔨 **[[build-your-own-x/README|Build Your Own X]]** — language-agnostic build guides with numbered, independently-testable milestones. Where the rest of the vault stops being reading. All twelve written: HTTP server, git, redis, language, OS, database, shell, container, regex engine — plus **neural network, memory allocator and physics engine** (Aug 2026).
 - 🧭 **[[BUILD-PLAN|Build Plan]]** — the working queue for what gets written next, ordered and sized: the systems languages (Rust/C/C++), `build-your-own-x/`, `engineering/`, and the CS-curriculum gaps found by auditing a standard syllabus against this vault.
 - 🧠 **[[learning/README|How I Learn]]** — the method behind everything else here: the learning loop (board → notebook → laptop), the "make a course" system, the one-active-course rule, and AI as sparring partner rather than answer machine. Personal, and deliberately unpublished.
 - 🎯 **[[INTERVIEW|Interview Prep Index]]** — every domain now has an `interview/` folder: the question, what a strong answer covers, and the detail that separates memorised from understood.
@@ -42,8 +42,9 @@ Start here, depending on what you want:
 - [[foundations/computer-graphics/README|Computer Graphics]] · [[foundations/programming-language-theory/README|PL Theory]] — rasterisation, shading and ray tracing; lambda calculus, Curry–Howard and where Rust's borrow checker came from
 - [[engineering/README|Engineering]] — the physical half: [[engineering/01-continuum-mechanics/README|continuum mechanics]] (how solids and fluids deform) and [[engineering/02-control-theory/README|control theory]] (making a system behave despite a wrong model). The control track is more portable than it sounds — autoscalers and congestion control are feedback loops with all the classical pathologies
 - [[foundations/systems-engineering/README|Systems Engineering]] — **the INCOSE discipline, added Aug 2026**: requirements, the V-model, interfaces and ICDs, trade studies, V&V, MBSE, FMEA and fault trees. Written because this vault is kept by a systems engineering student and had nothing on it — and because **traceability, FMEA and interface control are genuinely underused in software**
-- [[game-development/README|Game Development]] — the 16 ms budget, the game loop and ECS, real-time graphics, game physics, game AI, netcode. **Deliberately thin**: most of the roadmap is already here under graphics, robotics, DSA and ML
+- [[game-development/README|Game Development]] — **a full track**: the 16 ms budget, the game loop and ECS, real-time graphics, physics, game AI, netcode, plus [[game-development/engines/README|engines/]] (Godot/Unity/Unreal/from-scratch), an [[game-development/interview/README|interview bank]], and a projects tier. Leans on graphics, robotics, DSA and ML rather than duplicating them
 - [[desktop/README|Desktop]] — what the web removed and desktop kept. Tauri/Electron/Qt/.NET/native, and why **distribution is the real discipline**
+- [[astronomy/README|Astronomy & Space]] — **written for someone else's path, and it stands alone.** The sky and how it moves → light and spectroscopy → stars → exoplanets → relativity and black holes → cosmology → spaceflight → **astrology handled honestly** (the shared history, the double-blind studies, and the six psychological mechanisms that make it feel precise) → getting started
 - [[research/README|Research & Paper Writing]] — a meta-skill for every field: doing research (reading papers, finding a gap, methodology) + writing/publishing (structure, style, venues, peer review)
 
 A [Beginner] tag doesn't mean "skip if you're experienced" — it just means the note doesn't lean on anything else in the folder yet. Read a folder's notes in order at least once even if a topic sounds familiar; later notes assume earlier ones without re-explaining them.
@@ -123,7 +124,9 @@ knowledgebase/
 │                                 # N², margin, Conway) → trade studies → V&V → MBSE/SysML
 │                                 # → FMEA/fault trees. THE DEGREE-SHAPED GAP.
 │
-├── game-development/             # 8 notes, Aug 2026, roadmap.sh-cross-referenced.
+├── game-development/             # FULL TRACK (Aug 2026), roadmap.sh-cross-referenced:
+│   ├── engines/                  # 8 course notes + engines/ (godot, unity, unreal,
+│   ├── interview/                # from-scratch) + interview/ + a project-ideas tier.
 │                                 # the 16ms budget → game loop/fixed timestep/ECS →
 │                                 # real-time graphics → physics → game AI → netcode →
 │                                 # tools & production → getting started. Thin ON PURPOSE:
@@ -133,6 +136,13 @@ knowledgebase/
 ├── desktop/                      # 1 note + frameworks/ (Aug 2026): tauri, electron, qt,
 │   └── frameworks/               # dotnet, native — all scaffold. Copies the
 │                                 # backend/frameworks/ convention.
+│
+├── astronomy/                    # numbered course (10 notes, Aug 2026), written for a
+│                                 # non-vault-owner: the sky/coordinates → light &
+│                                 # spectroscopy → stars → exoplanets → relativity &
+│                                 # black holes → cosmology → spaceflight → ASTROLOGY
+│                                 # HANDLED HONESTLY (history, evidence, and the Barnum
+│                                 # effect) → getting started. Assumes no physics.
 │
 ├── using-ai/                     # 8-note course for NON-programmers new to AI (Aug 2026):
 │                                 # what an LLM is → how it works plainly → choosing a tool
@@ -147,7 +157,11 @@ knowledgebase/
 │   └── 03-ai-engineer/           # zoo/RL/MLOps to come) → 03-ai-engineer (deep-built:
 │                                  # LLMs/prompting/RAG/tools+MCP/agents/multimodal/safety)
 │
-├── ai-automation/                # scaffold only — n8n-focused, no content written yet
+├── ai-automation/                # numbered course (6 notes, Aug 2026): what workflow
+│                                 # automation is → n8n core concepts (the array-of-items
+│                                 # model) → APIs/webhooks/idempotency → LLM & agent nodes
+│                                 # (prompt injection as the security model) → error
+│                                 # handling/retries/alerting-on-absence → self-hosting.
 │
 ├── cybersecurity/                # numbered course, roadmap.sh-cross-referenced.
 │   ├── 01-fundamentals/          # Original: 01-fundamentals → 02-ethical-hacking →
@@ -189,6 +203,11 @@ knowledgebase/
 │                                 # · IDPs and golden paths · security as a pipeline stage.
 │
 ├── languages/                     # numbered course, organized by language rather than framework
+│   ├── 07-csharp/                # numbered course (13 notes, Aug 2026): value vs reference
+│   │                              # types, nullable refs, records, LINQ, reified generics,
+│   │                              # async (the model everyone copied), GC and Span<T>,
+│   │                              # pattern matching, DI, tiered JIT and Native AOT.
+│   │                              # Written because it's Unity's language.
 │   ├── 06-python/                # numbered course (14 notes, Aug 2026): toolchain/venvs →
 │   │                              # THE DATA MODEL (names bind to objects) → collections →
 │   │                              # scope/closures → dunder protocols → generators →

@@ -2,7 +2,7 @@
 
 The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest about what each batch costs. Tick things off as they land.
 
-**Current state:** 991 notes, ~1,162,000 words (Phase 5d, 2026-08-23). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
+**Current state:** 1,070 notes, ~1,235,000 words (Phase 5i, 2026-08-23). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
 
 > **The standing caveat:** almost everything below will be marked `[reference]` — written from sources, not from having built the thing. That's the vault's convention and it should stay visible. [[PRIMETECHIE|Reading is not a rank.]] The `build-your-own-x/` phase exists specifically to convert some of it into the other kind.
 
@@ -170,7 +170,82 @@ Prompted by a single message naming six directions at once, plus "is the Python 
 
 **Still open — the same gap, in seven other domains:** discrete-math, theory-of-computation, computer-architecture, numerical-methods, GPU/parallel, PL-theory, computer-graphics, information-theory, databases. Each names "exercises" in its own `What's missing` line.
 
-**Phase 5d total: 4 notes, ~7,050 words.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
+**Phase 5d total: 4 notes, ~7,050 words.**
+
+### Phase 5e — the remaining nine domains (2026-08-23)
+
+**Every domain that named `exercises` in its own `What's missing` line now has them.** Nine pairs, built from each README's own "what would close the gap" list rather than invented.
+
+| Domain | Notes | Shape |
+|---|---|---|
+| `foundations/computer-architecture` | 13–14 | Measured: cache sizes from timing, matmul, false sharing |
+| `foundations/numerical-methods` | 11–12 | Measured: the U-curve, cancellation, Hilbert, Runge |
+| `foundations/discrete-math` | 09–10 | Proofs on paper; RSA and counterexamples verified |
+| `foundations/theory-of-computation` | 09–10 | Three proofs from scratch + regex engine + SAT solver |
+| `foundations/information-theory` | 08–09 | Measured: entropy vs gzip, Huffman on skewed sources |
+| `databases` | 13–14 | Measured: 9,327× index speedup, N+1, MVCC, WAL |
+| `foundations/gpu-and-parallel-computing` | 08–09 | **Honest no-GPU path**; figures marked as borrowed |
+| `foundations/computer-graphics` | 10–11 | Shadertoy + a CPU ray tracer |
+| `foundations/programming-language-theory` | 08–09 | Implementations: Algorithm W, progress/preservation |
+
+**Measured while writing, and it changed the material:**
+
+- **The sorted-array branch-prediction result does not reproduce at `-O2`** — 4.0× at `-O0`, ~nothing at `-O2`, because GCC emits branchless code. The exercise now asks you to find the instruction that explains it, which teaches more than the original
+- **Matrix multiply: 6.5× at N=1024, only 2.4× at N=512** — the effect appears when the working set exceeds L3, so benchmarking on small inputs misleads
+- **gzip beat the order-0 entropy "floor" by ~2×** on a real file, which forced the correct statement: entropy is the floor *for a given source model*
+- **A SQLite index gave 9,327×** on 200 lookups over 500k rows
+- **`foundations/information-theory/README` claimed Huffman loses "~7× at $p=0.9$" — measured, that's 2.1×; 7.1× is $p=0.98$.** Corrected in place
+
+**Phase 5e total: 18 notes, ~21,900 words.**
+
+### Phase 5f — the public-resource pass (2026-08-23)
+
+**Reframed by him mid-session:** the vault is published, so it serves readers on paths that aren't his. That changes what "missing" means — a stub that's a fine personal placeholder is a dead end for a stranger.
+
+- [x] **Interview banks, where the reference material was deepest and the bank thinnest** — ✅ 4 notes + a new bank, ~5,000 words. **Java (parked) had 3 interview notes; frontend (his actual target) had 1.** Now: `frontend/interview` 1→**3** (the JS/TS language round; state/data/a11y/RSC), `concepts/interview` 1→**2** (patterns, code review, testing theatre, when duplication beats abstraction), and a new **`languages/06-python/interview`**
+- [x] **`ai-automation/`** — ✅ README + 6 notes, ~5,500 words. **The only genuinely empty domain in the vault** — a 219-word stub carrying a 6-note plan since July. The plan was good; these are that plan, written
+
+**Deliberately not done:** interview banks for `game-development`, `desktop`, `systems-engineering` and the CS-theory spine. [[INTERVIEW|INTERVIEW.md]]'s own stated principle is that **"an interview bank for a subject you haven't practised would be memorisation, not preparation"** — that reasoning still holds, and silently violating it to make a table look complete would be the wrong kind of completeness.
+
+**Phase 5f total: 12 files, ~12,200 words.**
+
+### Phase 5g — depth on request (2026-08-23)
+
+**Two asks: make game development a real track rather than a map, and add astronomy for someone else.** The first exposed a dependency the vault didn't have.
+
+- [x] **`game-development/` → a full track** — ✅ engines/ (4), interview/ (2), a project-ideas tier, README rewritten. **Honest audit first: it had no projects, no interview bank, no per-engine structure — it was a map, and I'd said so.** Now ~12,550 words
+- [x] **`languages/07-csharp/`** — ✅ README + 13 notes, ~9,600 words. **C# was absent from the vault entirely**, so the game track pointed at nothing for Unity, and `languages/` had a Java-shaped hole where a reader would compare. Value/reference types, nullable refs, records, LINQ, reified generics, async, GC and `Span<T>`, pattern matching, DI, tiered JIT/AOT
+- [x] **`astronomy/`** — ✅ README + 10 notes, ~9,300 words. Written for a reader with no physics and no other domain in this vault. **Note 09 handles astrology honestly** — the two-millennia shared history (Ptolemy and Kepler practised both), what a natal chart actually contains, the Carlson and Dean–Kelly studies, and **the six psychological mechanisms that explain why it feels precise anyway.** Those mechanisms — Barnum, confirmation bias, subjective validation, cold reading — are useful well beyond astrology
+
+**A note on note 09's framing**, since it's the one editorial judgement here worth recording: the vault is rigorous everywhere else, so presenting astrology as a working predictive system would have been dishonest, and refusing to cover it would have been useless to the person who asked. **The treatment is accurate about the evidence, generous about the culture and history, and clear about where the line sits.**
+
+**Phase 5g total: 32 new files, ~25,800 words** (plus a rewritten game-development README and a project-ideas tier).
+
+### Phase 5h — the two dependencies (2026-08-23)
+
+Both asked for directly, and both were things the vault had already flagged against itself.
+
+- [x] **`backend/frameworks/csharp/`** — ✅ README + 4 notes, ~3,500 words. **Named in `languages/07-csharp/README`'s own "what's missing"**, and the frameworks map listed seven languages with C# conspicuously absent right after the language course landed. **Flat notes by concern**, per the folder's own folder-vs-flat test: ASP.NET Core is *the* choice, and Minimal APIs vs MVC are two styles within it. Also updated the cross-stack concept table to seven columns
+- [x] **`build-your-own-x/` 10–12** — ✅ ~2,900 words. Chosen against the folder's stated criterion rather than to pad the list:
+  - **Neural network** — **`ai-ml/` is ~98 notes, the largest domain in the vault, and had no build guide.** The most conspicuous absence
+  - **Memory allocator** — best effort-to-insight after the container guide; makes `foundations/os/05` and `languages/04-c` concrete
+  - **Physics engine** — completes the game-dev track, and it's the rare project where a wrong integrator is *visually* wrong
+
+**Considered and rejected, recorded so it isn't re-litigated:** a text editor (overlaps the shell guide's raw-terminal material), a BitTorrent client (protocol plumbing over insight per hour), a browser engine (too large to finish, which violates the folder's own rule 7 about stopping).
+
+**Phase 5h total: 8 files, ~6,400 words.**
+
+### Phase 5i — the backend depth pass (2026-08-23)
+
+Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.** The audit is the finding.
+
+- [x] **Corrected a stale index** — ✅ `go/`, `rust/`, `c/` and `cpp/` were labelled `scaffold` in two places while containing **21 notes and ~28,000 words**, written back in Phase 1.4. **The table was never updated, and I edited it twice (for `python/` and `csharp/`) without noticing.** An index that lies about its own contents is worse than one that's incomplete
+- [x] **`backend/06-cross-cutting/`** — ✅ README + 7 notes, ~5,400 words. **This was the actual scaffold** — a README that mapped elsewhere, including a row reading *"file uploads — not covered anywhere yet — a genuine gap."* Validation & DTOs · config & secrets · error handling · rate limiting · idempotency & retries · security headers & CORS · file uploads. **Caching, observability and background jobs deliberately still point elsewhere** rather than being duplicated
+- [x] **`backend/frameworks/cross-language-recipes`** — ✅ ~1,500 words. The stated ask: *"a full backend in all the languages — rate limiting, headers, auth."* Middleware, rate limiting, JWT verification (**with algorithm pinning**), CORS, **graceful shutdown**, structured logging, and a what-you-get-free matrix — **side by side in Node, Go, Rust, Python, C# and Java**
+
+**Phase 5i total: 9 files, ~7,400 words**, plus three corrected indexes.
+
+**Still open, and requested:** the `frontend/` restructure — a course (`01`–`07`) plus `frontend/frameworks/{react,next,css}`, mirroring `backend/`. **The bigger half of that is a *move*, not new writing**: ~44,000 words of React/Next material currently sit in `projects/`, indexed only by `frontend/README`. That's a findability problem, and it's the next batch. Combined 5d+5e: **22 notes, ~29,000 words**, and **no domain README now names exercises as missing.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
 
 ---
 

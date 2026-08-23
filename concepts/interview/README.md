@@ -4,6 +4,7 @@ From [[concepts/README|concepts/]]. The framework-agnostic round: API design, au
 
 ## Files
 1. [[concepts/interview/01-apis-auth-and-practices|APIs, Auth & Practices]] — REST semantics, idempotency, sessions vs JWT, OAuth, design patterns, testing philosophy
+2. [[concepts/interview/02-patterns-code-quality-and-review|Patterns, Code Quality & Review]] — patterns as vocabulary, why Singleton is global state, **which SOLID principle is overrated**, how to review a PR, testing theatre, and when duplication beats abstraction
 
 ## Related
 - [[concepts/README|Concepts course]]
