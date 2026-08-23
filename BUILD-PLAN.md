@@ -2,7 +2,7 @@
 
 The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest about what each batch costs. Tick things off as they land.
 
-**Current state:** 987 notes, ~1,155,000 words (Phase 5c, 2026-08-23). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
+**Current state:** 991 notes, ~1,162,000 words (Phase 5d, 2026-08-23). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
 
 > **The standing caveat:** almost everything below will be marked `[reference]` — written from sources, not from having built the thing. That's the vault's convention and it should stay visible. [[PRIMETECHIE|Reading is not a rank.]] The `build-your-own-x/` phase exists specifically to convert some of it into the other kind.
 
@@ -157,7 +157,20 @@ Prompted by a single message naming six directions at once, plus "is the Python 
 
 **Deferred, deliberately:** finance / tax / entrepreneurship (deferred by him in the same message — and it isn't a tech domain, so it needs its own shape rather than a course folder) and manufacturing as a business (under-specified; a business question, not a learning one).
 
-**Phase 5c total: 31 files (4 READMEs + 27 notes/scaffolds), ~26,500 words.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
+**Phase 5c total: 31 files (4 READMEs + 27 notes/scaffolds), ~26,500 words.**
+
+### Phase 5d — exercises (2026-08-23)
+
+**The gap nine separate domain READMEs named independently**, and the only one that genuinely required generation rather than reading. Two courses closed; seven still open.
+
+- [x] **`foundations/programming-fundamentals/` 15–16** — ✅ ~3,550 words. Sixteen exercises, language-agnostic, ~8–12 hours. **The course's own honest note said "this is a reading course with no problems in it" — that no longer applies to it**
+- [x] **`languages/06-python/` 18–19** — ✅ ~3,500 words. Eighteen exercises that *reproduce* the gotchas. **Every figure in the solutions was measured on Python 3.14**, not estimated — including one exercise that had to be rewritten because 3.14's constant folding defeated the original demonstration
+
+**Measured while writing, and worth recording:** 4 threads on CPU-bound work ran **2× slower than serial** (5.76 s vs 2.81 s) — stronger than note 12's "no speedup" claim; catastrophic backtracking hit **23 s at n=28**, doubling per character; a generator vs list of 5M items differed by **211,287×** in `getsizeof`.
+
+**Still open — the same gap, in seven other domains:** discrete-math, theory-of-computation, computer-architecture, numerical-methods, GPU/parallel, PL-theory, computer-graphics, information-theory, databases. Each names "exercises" in its own `What's missing` line.
+
+**Phase 5d total: 4 notes, ~7,050 words.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
 
 ---
 

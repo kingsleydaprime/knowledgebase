@@ -2,7 +2,7 @@
 
 The language and its core ecosystem. **Not the data stack** — that lives in [[ai-ml/00-foundations/04-python-and-data-tools/README|ai-ml/00-foundations]] — and **not the web frameworks**, which live in [[backend/frameworks/python/README|backend/frameworks/python/]] per [[languages/README|the rule]].
 
-**~15,300 words across 17 notes.** Built August 2026, extended the same week after a [roadmap.sh](https://roadmap.sh/python) audit. `[reference]`.
+**~18,800 words across 19 notes.** Built August 2026, extended the same week after a [roadmap.sh](https://roadmap.sh/python) audit. `[reference]`.
 
 > **The one idea:** Python trades machine time for programmer time, and **every quirk in this course is that trade showing through.** Names bind to objects (so assignment aliases), types are checked at runtime (so errors reach production), and one lock protects the interpreter (so threads don't parallelise). Knowing *why* turns a list of gotchas into one model.
 
@@ -36,6 +36,11 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 15. [[languages/06-python/15-files-and-io|Files and I/O]] — **[Beginner → Intermediate]** — modes, encodings, large files, **the atomic-write pattern**, and path traversal
 16. [[languages/06-python/16-regular-expressions|Regular Expressions]] — **[Intermediate]** — the syntax worth memorising, `fullmatch` vs `match`, and **catastrophic backtracking as a DoS class**
 17. [[languages/06-python/17-asyncio-in-depth|asyncio in Depth]] — **[Advanced]** — TaskGroups, cancellation, timeouts, bounding fan-out, **and why sequential `await`s aren't concurrent**
+
+**Then the reps.**
+
+18. [[languages/06-python/18-practice-exercises|Practice Exercises]] — **[Beginner → Advanced]** — eighteen exercises that **reproduce** the gotchas rather than describing them: the small-int cache, the mutable default, `UnboundLocalError`, late binding, generator exhaustion, ReDoS, the GIL, the blocked event loop
+19. [[languages/06-python/19-practice-exercises-solutions|Solutions]] — **every number measured on Python 3.14**, not estimated
 
 ## The things worth carrying
 
@@ -108,7 +113,7 @@ Audited against the [roadmap.sh Python track](https://roadmap.sh/python) (August
 5. **Write a decorator with arguments** from scratch, without copying. Three levels of nesting is the part that doesn't stick from reading
 6. **Benchmark `threading` vs `multiprocessing`** on one CPU-bound and one I/O-bound task. Note 12's table, verified in ten minutes
 
-**What's missing:** ~~`asyncio` at depth~~ **(closed, note 17)**, metaclasses and descriptors (deliberately — rarely needed, frequently misused), packaging *as a publisher* (building and uploading to PyPI), C-extension authoring, and **exercises**, which remains the real hole.
+**What's missing:** ~~`asyncio` at depth~~ **(closed, note 17)**, metaclasses and descriptors (deliberately — rarely needed, frequently misused), packaging *as a publisher* (building and uploading to PyPI), and C-extension authoring. ~~Exercises~~ — **closed by notes 18–19 (Aug 2026).**
 
 → [[PRIMETECHIE|Reading is not a rank.]]
 

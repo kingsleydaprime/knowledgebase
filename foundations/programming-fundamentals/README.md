@@ -2,7 +2,7 @@
 
 The on-ramp. **For someone who has never written code** — the concepts that are the same in every language, before any language.
 
-**~15,900 words across 14 notes.** Built August 2026. `[reference]`.
+**~19,400 words across 16 notes.** Built August 2026. `[reference]`.
 
 > **The one idea:** a computer has no judgement. Everything in this course is a technique for being completely explicit without the instructions becoming unmanageably long — and every one of them is the same move: **make a thing, name it, then reason with the name instead of the contents.**
 
@@ -35,6 +35,11 @@ It is **deliberately language-agnostic**. Examples appear in Python, JavaScript 
 
 13. [[foundations/programming-fundamentals/13-objects-and-classes|Objects and Classes]] — **[Beginner → Intermediate]** — encapsulation, inheritance, polymorphism, **why "prefer composition over inheritance" is near-unanimous**, and where OOP stops being the answer
 14. [[foundations/programming-fundamentals/14-programming-paradigms|Programming Paradigms]] — **[Beginner → Intermediate]** — imperative vs declarative, expressions vs statements, the four styles, and **the one heuristic worth more than the taxonomy**
+
+**Then the reps.** 01–14 are reading; **this is where it becomes a skill.**
+
+15. [[foundations/programming-fundamentals/15-practice-exercises|Practice Exercises]] — **[Beginner]** — sixteen exercises, any language, ~8–12 hours. Each reproduces a real behaviour rather than describing it
+16. [[foundations/programming-fundamentals/16-practice-exercises-solutions|Solutions]] — worked answers with the reasoning, **after you've tried**
 
 ## The things worth carrying
 
@@ -78,7 +83,7 @@ It is **deliberately language-agnostic**. Examples appear in Python, JavaScript 
 
 **Where I'd bet the guess is wrong:** note 05's reference-vs-value section and note 09 are probably still too fast, and note 07 probably under-explains why hashing gives O(1) — it's stated rather than shown.
 
-**What's missing:** ~~objects and classes~~ — **closed by notes 13–14 (Aug 2026)**, after a third source raised it independently and the original judgement ("it belongs in `languages/`") turned out to be wrong: OOP is language-*flavoured*, not language-specific, and leaving it out meant the course stopped one concept short of where every real codebase starts. Still absent: exceptions and error handling as a construct rather than an event, file and network I/O, async and concurrency, generics, and testing as a practice rather than a mention. **Exercises above all** — this is a reading course with no problems in it, which is exactly the criticism note 12 makes of reading courses.
+**What's missing:** ~~exercises~~ — **closed by notes 15–16 (Aug 2026); the criticism this course made of reading courses no longer applies to it.** ~~objects and classes~~ — **closed by notes 13–14**, after a third source raised it independently and the original judgement ("it belongs in `languages/`") turned out to be wrong: OOP is language-*flavoured*, not language-specific, and leaving it out meant the course stopped one concept short of where every real codebase starts. Still absent: exceptions and error handling as a construct rather than an event, file and network I/O, async and concurrency, generics, and testing as a practice rather than a mention. **Exercises above all** — this is a reading course with no problems in it, which is exactly the criticism note 12 makes of reading courses.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
 
