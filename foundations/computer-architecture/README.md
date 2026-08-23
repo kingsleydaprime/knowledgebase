@@ -2,7 +2,7 @@
 
 How you get from logic gates to something that runs a program, and why that machine has the performance characteristics it does. **The layer between [[foundations/os/README|operating systems]] and [[hardware/02-digital-and-analog|digital logic]]** — and the source of every constant the rest of this vault quotes.
 
-**~17,400 words across 12 notes.** Built August 2026 to close a gap found by auditing a standard CS syllabus against this vault. `[reference]`.
+**~18,900 words across 14 notes** (including practice + solutions). Built August 2026 to close a gap found by auditing a standard CS syllabus against this vault. `[reference]`.
 
 > **The practical pitch:** Big-O tells you how an algorithm scales. **This domain tells you why one $O(n)$ loop is thirty times slower than another** — and that ratio decides more real performance outcomes than complexity class does.
 
@@ -63,9 +63,14 @@ How you get from logic gates to something that runs a program, and why that mach
 5. **Read some assembly on Godbolt.** Change optimisation levels and watch code disappear
 6. **The books:** Patterson & Hennessy (*Computer Organization and Design*) for the fundamentals; Hennessy & Patterson (*Computer Architecture: A Quantitative Approach*) for depth; **Drepper's *What Every Programmer Should Know About Memory*** — free, and still the best thing written on note 08's material; Agner Fog's optimisation manuals for the microarchitectural detail
 
-**What's missing here:** exercises, ~~GPU architecture~~ (**now covered** — [[foundations/gpu-and-parallel-computing/README|foundations/gpu-and-parallel-computing/]]), I/O and DMA, power and thermal design in depth, chip layout, formal verification of hardware, and anything on FPGAs or accelerator design beyond a mention.
+**What's missing here:** ~~exercises~~ — **closed by notes 13–14 (Aug 2026)**; ~~GPU architecture~~ (**now covered** — [[foundations/gpu-and-parallel-computing/README|foundations/gpu-and-parallel-computing/]]), I/O and DMA, power and thermal design in depth, chip layout, formal verification of hardware, and anything on FPGAs or accelerator design beyond a mention.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
+
+## Practice
+
+- [[foundations/computer-architecture/13-practice-exercises|Practice Exercises]] — twelve experiments on your own machine — cache sizes measured from timing alone, and **two classic results that fail to reproduce at `-O2`**
+- [[foundations/computer-architecture/14-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[foundations/os/README|Operating Systems]] — the layer above

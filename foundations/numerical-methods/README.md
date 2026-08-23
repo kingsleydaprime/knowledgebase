@@ -2,7 +2,7 @@
 
 Computing answers to problems that have no closed form — and knowing how wrong the answer is. **The gap three domains in this vault explicitly said they needed.**
 
-**~14,500 words across 10 notes.** Built August 2026. `[reference]`.
+**~16,000 words across 12 notes** (including practice + solutions). Built August 2026. `[reference]`.
 
 > **The premise:** most equations describing the world can't be solved exactly. No formula for a general quintic, no antiderivative for $e^{-x^2}$, no closed form for Navier–Stokes. **So you approximate — and the discipline is producing an answer close enough, fast enough, with an error you can bound.**
 >
@@ -76,9 +76,14 @@ Unlike a compiler error or a failing test, **a bad numerical result looks exactl
 6. **Do a convergence study.** Halve the step on anything here and check the error falls at the promised rate. **This is the single most useful habit in the domain**
 7. **The books:** Trefethen & Bau's *Numerical Linear Algebra* (outstanding, and readable); Press et al.'s *Numerical Recipes* (dated on some algorithms, excellent on judgement); LeVeque for finite differences and PDEs; Nocedal & Wright for optimisation
 
-**What's missing here:** exercises, complex analysis and contour methods, FFT and spectral methods in depth (only mentioned), interval arithmetic, arbitrary-precision arithmetic, numerical linear algebra at scale (communication-avoiding algorithms), and uncertainty quantification.
+**What's missing here:** ~~exercises~~ — **closed by notes 11–12 (Aug 2026)**; complex analysis and contour methods, FFT and spectral methods in depth (only mentioned), interval arithmetic, arbitrary-precision arithmetic, numerical linear algebra at scale (communication-avoiding algorithms), and uncertainty quantification.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
+
+## Practice
+
+- [[foundations/numerical-methods/11-practice-exercises|Practice Exercises]] — twelve short scripts — the finite-difference U-curve, catastrophic cancellation, Hilbert conditioning, Runge's phenomenon, convergence studies
+- [[foundations/numerical-methods/12-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[engineering/README|Engineering]] — the domain that needed this

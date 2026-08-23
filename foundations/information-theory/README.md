@@ -2,7 +2,7 @@
 
 Shannon's measure of surprise, and the surprising number of things it turns out to govern. **Connective tissue for material already in this vault, not a new silo.**
 
-**~10,600 words across 7 notes.** Built August 2026. `[reference]`.
+**~11,700 words across 9 notes** (including practice + solutions). Built August 2026. `[reference]`.
 
 > **The one idea:** information is **surprise**, measured as $-\log p$. That single definition gives you the compression limit, the channel capacity, the loss function every classifier is trained on, the strength of a password, and the energy cost of erasing a bit.
 
@@ -60,15 +60,20 @@ Shannon's measure of surprise, and the surprising number of things it turns out 
 
 1. **Measure the entropy of a real file** — character frequencies, compute $H$, then compare against what `gzip` and `zstd` actually achieve. **The gap between the two is the redundancy your model isn't capturing**
 2. **Reproduce Shannon's 1951 experiment.** Have someone guess the next letter of a sentence, record how many guesses each took, and estimate the entropy of English. **A genuinely fun hour**
-3. **Implement Huffman, then arithmetic coding.** Compare on a skewed distribution ($p=0.9$) and watch Huffman lose by ~7× → [[foundations/information-theory/03-source-coding-and-compression|03]]
+3. **Implement Huffman, then arithmetic coding.** Compare on a skewed distribution and watch Huffman lose — **measured: 2.1× at $p=0.9$, 7.1× at $p=0.98$, 12.4× at $p=0.99$** → [[foundations/information-theory/03-source-coding-and-compression|03]] · [[foundations/information-theory/09-practice-exercises-solutions|exercise 7]]
 4. **Compute the cross-entropy loss of a model by hand** for a few examples and confirm it matches what PyTorch reports. **Then compute the perplexity and check it's $e^{\text{loss}}$**
 5. **Fit forward vs reverse KL to a bimodal distribution** and watch one cover both modes and the other pick one. **Twenty lines, and note 04's central point becomes visual**
 6. **Try `gzip` + k-NN as a text classifier.** It works better than it has any right to
 7. **The books:** Cover & Thomas, *Elements of Information Theory* (the standard, and readable); **MacKay's *Information Theory, Inference and Learning Algorithms*** — free online, idiosyncratic, and outstanding on the ML connection; Shannon's original 1948 paper, which is short and remarkably clear
 
-**What's missing:** exercises, rate–distortion theory properly, network information theory (multi-user channels), algorithmic information theory beyond a mention, quantum information, and the estimation problem in depth (getting MI from finite samples is genuinely hard and gets one paragraph).
+**What's missing:** ~~exercises~~ — **closed by notes 8–9 (Aug 2026)**; rate–distortion theory properly, network information theory (multi-user channels), algorithmic information theory beyond a mention, quantum information, and the estimation problem in depth (getting MI from finite samples is genuinely hard and gets one paragraph).
 
 → [[PRIMETECHIE|Reading is not a rank.]]
+
+## Practice
+
+- [[foundations/information-theory/08-practice-exercises|Practice Exercises]] — twelve exercises over real data — **including why gzip beats your entropy 'floor'**
+- [[foundations/information-theory/09-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[ai-ml/README|AI & ML]] — the domain that needed note 04

@@ -2,7 +2,7 @@
 
 The mathematics of things you can count. Logic, proof, sets, induction, counting, graphs and number theory — the one maths course that turns out to be load-bearing for programmers, because **computers are discrete machines**.
 
-**~11,300 words across 8 notes.** Built August 2026 to close a gap found by auditing a standard CS syllabus against this vault. `[reference]`.
+**~13,300 words across 10 notes** (including practice + solutions). Built August 2026 to close a gap found by auditing a standard CS syllabus against this vault. `[reference]`.
 
 > **The pitch:** you have been using all of this for years without the vocabulary. `a && !b` is propositional logic. A loop invariant is induction. A `HashSet` is a set, a database table is a *relation* in the literal mathematical sense, and a dependency graph is a graph. **This track gives names to things you already do**, and the names let you reuse fifty years of results instead of re-deriving them badly.
 
@@ -56,9 +56,14 @@ The gap is closable cheaply, and unlike most of this vault it needs no hardware:
 - **A proof assistant** — Lean's *Natural Number Game* is genuinely the best entry point available, and it will not let you skip a step
 - **The books:** Rosen (standard, exhaustive), Lehman/Leighton/Meyer's *Mathematics for Computer Science* (MIT 6.042, free, better written), Velleman's *How to Prove It* (the one that actually teaches proof)
 
-**What's missing from this track:** exercises, generating functions, deeper probability (it's in [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|the ML maths notes]]), lattices and order theory in depth, formal proof systems and natural deduction, and any treatment of Boolean algebra as circuit minimisation.
+**What's missing from this track:** ~~exercises~~ — **closed by notes 9–10 (Aug 2026)**; generating functions, deeper probability (it's in [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|the ML maths notes]]), lattices and order theory in depth, formal proof systems and natural deduction, and any treatment of Boolean algebra as circuit minimisation.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
+
+## Practice
+
+- [[foundations/discrete-math/09-practice-exercises|Practice Exercises]] — sixteen problems, mostly with paper — including the horses proof, a loop invariant on real code, and RSA by hand
+- [[foundations/discrete-math/10-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[foundations/theory-of-computation/README|Theory of Computation]] — the direct continuation
