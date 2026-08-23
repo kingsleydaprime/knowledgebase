@@ -38,7 +38,7 @@ document.querySelector(".card").classList.add("expanded");
 Flip.from(state, { duration: 0.6, ease: "power2.inOut" });
 ```
 
-**Why this exists**: browsers can't animate between two different layout states directly — you can't tween "this element used to be 100px in the DOM flow, now it's `position: fixed` full-screen" with a normal tween. Flip works by measuring the First and Last states, Inverting the visual result with a transform so it *looks* like it hasn't moved yet, then letting the browser Play a normal transform tween back to the real position — hence the name (First, Last, Invert, Play). This is the same core idea as the [[../04-framer-motion/06-layout-animations|`layout` prop in Framer Motion]], implemented explicitly instead of automatically.
+**Why this exists**: browsers can't animate between two different layout states directly — you can't tween "this element used to be 100px in the DOM flow, now it's `position: fixed` full-screen" with a normal tween. Flip works by measuring the First and Last states, Inverting the visual result with a transform so it *looks* like it hasn't moved yet, then letting the browser Play a normal transform tween back to the real position — hence the name (First, Last, Invert, Play). This is the same core idea as the [[frontend/04-framer-motion/06-layout-animations|`layout` prop in Framer Motion]], implemented explicitly instead of automatically.
 
 ## SplitText
 
@@ -84,4 +84,4 @@ All four solve problems that are either impossible or very fiddly with `.to()`/`
 ## Related
 - [[01-intro|intro]] — plugin registration pattern
 - [[04-scrolltrigger|ScrollTrigger]] — the plugin you'll use most often
-- [[../04-framer-motion/06-layout-animations|Framer Motion layout animations]] — the declarative equivalent of Flip
+- [[frontend/04-framer-motion/06-layout-animations|Framer Motion layout animations]] — the declarative equivalent of Flip

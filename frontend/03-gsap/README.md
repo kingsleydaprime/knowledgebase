@@ -1,6 +1,6 @@
 # GSAP
 
-**[Beginner → Advanced]** — a JavaScript animation engine for tweening any numeric property with real timeline control (sequencing, scroll-linking, drag physics) beyond what CSS transitions can do alone. Part of the [[../README|frontend]] course.
+**[Beginner → Advanced]** — a JavaScript animation engine for tweening any numeric property with real timeline control (sequencing, scroll-linking, drag physics) beyond what CSS transitions can do alone. Part of the [[frontend/README|frontend]] course.
 
 ## Structure
 
@@ -13,6 +13,6 @@
 7. [[07-performance-and-gotchas|07 — Performance and Gotchas]] — compositor-only properties, cleanup, layout thrash
 
 ## Related
-- [[../README|frontend course map]]
-- [[../04-framer-motion/README|Framer Motion]] — the declarative, React-native alternative for component-driven animation
-- [[../../concepts/02-frontend/README|frontend concepts]]
+- [[frontend/README|frontend course map]]
+- [[frontend/04-framer-motion/README|Framer Motion]] — the declarative, React-native alternative for component-driven animation
+- [[concepts/02-frontend/README|frontend concepts]]

@@ -24,7 +24,7 @@ def rotate(matrix):
 
 ## Number tricks
 
-**Pow(x, n) — fast (binary) exponentiation.** Computing `xⁿ` by multiplying x by itself n times is O(n). **Exponentiation by squaring** is O(log n): `xⁿ = (x²)^(n/2)` when n is even, `x · x^(n-1)` when odd — halving the exponent each step. This same "square to halve the exponent" idea is what makes Fibonacci-by-matrix-power O(log n) (see [[../06-patterns/15-dynamic-programming|DP]]).
+**Pow(x, n) — fast (binary) exponentiation.** Computing `xⁿ` by multiplying x by itself n times is O(n). **Exponentiation by squaring** is O(log n): `xⁿ = (x²)^(n/2)` when n is even, `x · x^(n-1)` when odd — halving the exponent each step. This same "square to halve the exponent" idea is what makes Fibonacci-by-matrix-power O(log n) (see [[foundations/dsa/06-patterns/15-dynamic-programming|DP]]).
 
 ```python
 def my_pow(x, n):
@@ -41,11 +41,11 @@ def my_pow(x, n):
 
 The bit test (`n & 1`, `n >>= 1`) ties this directly to [[13-bit-manipulation|bit manipulation]] — you're walking the binary digits of the exponent.
 
-**Happy Number — cycle detection on a number sequence.** Repeatedly replacing a number by the sum of the squares of its digits either reaches 1 (happy) or loops forever. Detect the loop with a `seen` set, or with **Floyd's fast/slow pointers** ([[../06-patterns/04-fast-slow-pointers|fast-slow]]) — the sequence is functionally a linked list where "next" is the digit-square-sum, so a cycle there is the same cycle a linked list has.
+**Happy Number — cycle detection on a number sequence.** Repeatedly replacing a number by the sum of the squares of its digits either reaches 1 (happy) or loops forever. Detect the loop with a `seen` set, or with **Floyd's fast/slow pointers** ([[foundations/dsa/06-patterns/04-fast-slow-pointers|fast-slow]]) — the sequence is functionally a linked list where "next" is the digit-square-sum, so a cycle there is the same cycle a linked list has.
 
 **Plus One / Multiply Strings — grade-school arithmetic by hand.** When the number is too big for a native int (or you're told not to convert), simulate addition/multiplication digit by digit, right to left, carrying — the same full-adder logic as [[13-bit-manipulation|Sum of Two Integers]] but in base 10.
 
-**Detect Squares — counting via a hash map of points.** Geometry that's really [[../04-data-structures/03-hash-maps|hashing]]: to count axis-aligned squares through a query point, for each point sharing a diagonal, check whether the other two corners exist — using a point-count map for O(1) corner lookups.
+**Detect Squares — counting via a hash map of points.** Geometry that's really [[foundations/dsa/04-data-structures/03-hash-maps|hashing]]: to count axis-aligned squares through a query point, for each point sharing a diagonal, check whether the other two corners exist — using a point-count map for O(1) corner lookups.
 
 ## Complexity notes
 
@@ -71,5 +71,5 @@ Rotate Image · Spiral Matrix · Set Matrix Zeroes · Happy Number · Plus One �
 ## Related
 - [[13-bit-manipulation|Bit manipulation]] — the binary-exponent and grade-school-arithmetic cousins
 - [[07-number-theory-basics|Number theory basics]] — GCD, primes, modular arithmetic
-- [[../06-patterns/04-fast-slow-pointers|Fast & slow pointers]] — Happy Number's cycle detection
-- [[../06-patterns/13-matrix-traversal|Matrix traversal]] — the *graph* view of a grid (connectivity), as opposed to the *geometry* view here
+- [[foundations/dsa/06-patterns/04-fast-slow-pointers|Fast & slow pointers]] — Happy Number's cycle detection
+- [[foundations/dsa/06-patterns/13-matrix-traversal|Matrix traversal]] — the *graph* view of a grid (connectivity), as opposed to the *geometry* view here

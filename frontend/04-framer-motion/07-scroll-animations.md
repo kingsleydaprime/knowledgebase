@@ -1,6 +1,6 @@
 # Scroll-Linked Animations: useScroll, useTransform, useSpring
 
-[[03-gestures|`whileInView`]] handles the common "animate once when it enters the viewport" case, but doesn't let a value track scroll position *continuously* — for that (a progress bar that fills as you scroll, a parallax layer, an element that rotates proportionally to scroll distance), Framer Motion provides motion-value hooks. This is the direct equivalent of GSAP's [[../03-gsap/04-scrolltrigger|`scrub: true`]].
+[[03-gestures|`whileInView`]] handles the common "animate once when it enters the viewport" case, but doesn't let a value track scroll position *continuously* — for that (a progress bar that fills as you scroll, a parallax layer, an element that rotates proportionally to scroll distance), Framer Motion provides motion-value hooks. This is the direct equivalent of GSAP's [[frontend/03-gsap/04-scrolltrigger|`scrub: true`]].
 
 ## Motion values
 
@@ -71,5 +71,5 @@ Motion values bypass React's render cycle for a reason: scroll events can fire d
 
 ## Related
 - [[03-gestures|gestures]] — `whileInView` for the simpler one-shot case
-- [[../03-gsap/04-scrolltrigger|GSAP: ScrollTrigger]] — the imperative equivalent, with pinning support Framer Motion doesn't have natively
+- [[frontend/03-gsap/04-scrolltrigger|GSAP: ScrollTrigger]] — the imperative equivalent, with pinning support Framer Motion doesn't have natively
 - [[08-performance-and-gotchas|performance and gotchas]]

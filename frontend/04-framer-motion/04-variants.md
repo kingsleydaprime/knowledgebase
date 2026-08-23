@@ -43,7 +43,7 @@ const itemVariants = {
 </motion.ul>
 ```
 
-Only the parent `<motion.ul>` needs `initial`/`animate` set explicitly — every `<motion.li>` picks it up automatically by matching variant key names. This is the declarative equivalent of GSAP's [[../03-gsap/02-tweens-and-easing|stagger]], expressed as parent/child state propagation instead of an explicit selector + stagger config.
+Only the parent `<motion.ul>` needs `initial`/`animate` set explicitly — every `<motion.li>` picks it up automatically by matching variant key names. This is the declarative equivalent of GSAP's [[frontend/03-gsap/02-tweens-and-easing|stagger]], expressed as parent/child state propagation instead of an explicit selector + stagger config.
 
 ## Orchestration props
 

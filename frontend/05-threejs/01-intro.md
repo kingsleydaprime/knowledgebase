@@ -2,7 +2,7 @@
 
 Three.js is a JavaScript 3D graphics library that wraps **WebGL** — the browser's low-level, GPU-accelerated 3D rendering API — in a much friendlier object-oriented API. Raw WebGL requires writing shader programs (GLSL) and manually managing buffers just to draw a single triangle; three.js gives you `Mesh`, `Camera`, `Light` objects and handles the WebGL calls underneath.
 
-This is a genuinely different domain from [[../03-gsap/README|GSAP]] and [[../04-framer-motion/README|Framer Motion]] — those animate 2D DOM/SVG properties; three.js renders an actual 3D scene onto a `<canvas>` element, with its own coordinate system, cameras, and lighting model borrowed from real-world graphics/physics concepts.
+This is a genuinely different domain from [[frontend/03-gsap/README|GSAP]] and [[frontend/04-framer-motion/README|Framer Motion]] — those animate 2D DOM/SVG properties; three.js renders an actual 3D scene onto a `<canvas>` element, with its own coordinate system, cameras, and lighting model borrowed from real-world graphics/physics concepts.
 
 ## Installing
 

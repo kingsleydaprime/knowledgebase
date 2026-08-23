@@ -30,7 +30,7 @@ wheelFL.rotation.x += 0.1; // spins just this wheel, relative to the group's tra
 
 ## The animation loop: `requestAnimationFrame`
 
-Unlike [[../03-gsap/README|GSAP]] or [[../04-framer-motion/README|Framer Motion]], three.js has no built-in tweening — you drive change yourself, every frame, inside a render loop:
+Unlike [[frontend/03-gsap/README|GSAP]] or [[frontend/04-framer-motion/README|Framer Motion]], three.js has no built-in tweening — you drive change yourself, every frame, inside a render loop:
 
 ```js
 function animate() {
@@ -59,7 +59,7 @@ function animate() {
 animate();
 ```
 
-This is the same underlying reason [[../03-gsap/02-tweens-and-easing|GSAP]] and [[../04-framer-motion/02-animate-props|Framer Motion]] both express animation in terms of `duration` (seconds) rather than per-frame increments — three.js just doesn't hide this from you the way those higher-level libraries do, since it's a lower-level rendering library, not an animation library.
+This is the same underlying reason [[frontend/03-gsap/02-tweens-and-easing|GSAP]] and [[frontend/04-framer-motion/02-animate-props|Framer Motion]] both express animation in terms of `duration` (seconds) rather than per-frame increments — three.js just doesn't hide this from you the way those higher-level libraries do, since it's a lower-level rendering library, not an animation library.
 
 ## Cleanup on unmount (React/SPA context)
 

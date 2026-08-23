@@ -10,7 +10,7 @@ An MST always has exactly **V−1 edges**. If the graph is disconnected, no span
 
 ## Prim's algorithm — grow one tree with a heap
 
-Start from any vertex; repeatedly add the **cheapest edge that connects a new vertex to the tree you've built so far**. A [[../04-data-structures/08-heaps|min-heap]] of candidate edges (keyed by weight) makes "cheapest edge leaving the tree" fast.
+Start from any vertex; repeatedly add the **cheapest edge that connects a new vertex to the tree you've built so far**. A [[foundations/dsa/04-data-structures/08-heaps|min-heap]] of candidate edges (keyed by weight) makes "cheapest edge leaving the tree" fast.
 
 ```python
 import heapq
@@ -35,7 +35,7 @@ Note the **lazy deletion** — because `heapq` has no decrease-key, you push dup
 
 ## Kruskal's algorithm — sort edges, union greedily
 
-Sort **all** edges by weight ascending; walk them cheapest-first and add an edge iff its two endpoints are in **different** components (adding it would connect two blobs, not create a cycle). "Same component?" is exactly what [[../04-data-structures/10-union-find|Union-Find]] answers in near-O(1).
+Sort **all** edges by weight ascending; walk them cheapest-first and add an edge iff its two endpoints are in **different** components (adding it would connect two blobs, not create a cycle). "Same component?" is exactly what [[foundations/dsa/04-data-structures/10-union-find|Union-Find]] answers in near-O(1).
 
 ```python
 def kruskal(n, edges):                     # edges: list of (weight, u, v)
@@ -55,7 +55,7 @@ The whole algorithm is "sorted edges + Union-Find's cycle check." `union` return
 | | Prim's | Kruskal's |
 |---|---|---|
 | Grows | one tree outward from a start | a forest that merges into one tree |
-| Core structure | [[../04-data-structures/08-heaps|min-heap]] | [[../04-data-structures/10-union-find|Union-Find]] + sort |
+| Core structure | [[foundations/dsa/04-data-structures/08-heaps|min-heap]] | [[foundations/dsa/04-data-structures/10-union-find|Union-Find]] + sort |
 | Complexity | O(E log V) | O(E log E) ≈ O(E log V) (dominated by the sort) |
 | Best when | **dense** graphs (many edges), or edges given as adjacency | **sparse** graphs, or edges given as a flat list |
 
@@ -74,8 +74,8 @@ Both are O(E log V) with the standard structures, so the choice is usually about
 - **Ties don't matter for the total** — with distinct weights the MST is unique; with ties there can be several MSTs but they all share the same minimum total.
 
 ## Related
-- [[../04-data-structures/10-union-find|Union-Find]] — the engine of Kruskal's
-- [[../04-data-structures/08-heaps|Heaps]] — the engine of Prim's
+- [[foundations/dsa/04-data-structures/10-union-find|Union-Find]] — the engine of Kruskal's
+- [[foundations/dsa/04-data-structures/08-heaps|Heaps]] — the engine of Prim's
 - [[06-dijkstra|Dijkstra]] — near-identical heap loop, different key (shortest path vs MST)
 - [[06-graphs|Graphs]] — weighted, undirected graphs
 - [[10-greedy-algorithms|Greedy]] — both algorithms are greedy, proven correct by the cut property

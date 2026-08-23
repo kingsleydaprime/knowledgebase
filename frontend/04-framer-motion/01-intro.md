@@ -1,6 +1,6 @@
 # Framer Motion (Motion): Intro
 
-Framer Motion is a declarative animation library built specifically for React. Where [[../03-gsap/README|GSAP]] is imperative — you call `gsap.to(el, {...})` and it mutates the DOM directly — Framer Motion expresses animation as **props on a component**, matching how React already thinks about UI: state changes, and the render describes what should be on screen.
+Framer Motion is a declarative animation library built specifically for React. Where [[frontend/03-gsap/README|GSAP]] is imperative — you call `gsap.to(el, {...})` and it mutates the DOM directly — Framer Motion expresses animation as **props on a component**, matching how React already thinks about UI: state changes, and the render describes what should be on screen.
 
 ## The rebrand: "Motion"
 
@@ -62,4 +62,4 @@ Framer Motion is the natural default for component-driven UI animation in React 
 ## Related
 - [[02-animate-props|animate props]] — `initial`/`animate`/`exit`/`transition` in depth
 - [[04-variants|variants]] — reusable, orchestrated animation state
-- [[../03-gsap/README|GSAP]] — the imperative alternative
+- [[frontend/03-gsap/README|GSAP]] — the imperative alternative

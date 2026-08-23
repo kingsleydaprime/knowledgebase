@@ -58,4 +58,4 @@ GSAP can technically tween any numeric CSS property, but not all properties are 
 ## Related
 - [[02-tweens-and-easing|tweens and easing]] — the full property/duration/stagger vocabulary
 - [[03-timelines|timelines]] — sequencing multiple tweens
-- [[../02-next/README|Next.js]] — GSAP typically runs inside `useEffect`/`useGSAP` in a React/Next context, see [[06-react-integration|react integration]]
+- [[frontend/02-next/README|Next.js]] — GSAP typically runs inside `useEffect`/`useGSAP` in a React/Next context, see [[06-react-integration|react integration]]
