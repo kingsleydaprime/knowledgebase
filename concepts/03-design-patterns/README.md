@@ -13,5 +13,5 @@ MVC, CQRS, Event-Driven Architecture, Microservices vs. Monolith — the larger,
 
 ## Related
 - [[backend/README|backend concepts]]
-- [[concepts/02-frontend/README|frontend concepts]]
+- [[frontend/README|frontend concepts]]
 - [[architecture/system-design-reference|system-design-reference]]

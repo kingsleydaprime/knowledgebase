@@ -2,7 +2,7 @@
 
 The language round. **Every frontend and full-stack interview has one**, and it's the round most candidates under-prepare because they've been writing framework code rather than language code.
 
-From [[concepts/02-frontend/README|concepts/02-frontend]], [[backend/frameworks/javascript/01-node-runtime/README|the Node runtime]], and [[foundations/programming-fundamentals/README|programming fundamentals]].
+From [[frontend/README|frontend]], [[backend/frameworks/javascript/01-node-runtime/README|the Node runtime]], and [[foundations/programming-fundamentals/README|programming fundamentals]].
 
 ---
 
