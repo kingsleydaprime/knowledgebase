@@ -2,7 +2,7 @@
 
 Turning a 3D scene description into a 2D image. Rasterisation, shading, ray tracing, and the geometry and animation underneath.
 
-**~12,900 words across 9 notes.** Built August 2026. `[reference]`.
+**~14,100 words across 11 notes** (including practice + solutions). Built August 2026. `[reference]`.
 
 > **The one idea:** every rendering algorithm is an approximation of the **rendering equation** — light leaving a point equals what it emits plus everything arriving, weighted by the material. **Rasterisation truncates it at one bounce; path tracing estimates it by Monte Carlo.** Knowing the equation tells you exactly what each technique is throwing away.
 
@@ -74,9 +74,14 @@ Unlike a numerical method that returns a plausible wrong number, **a broken rend
 6. **[Shadertoy](https://shadertoy.com)** for SDFs and ray marching — a whole scene in one fragment shader, with instant feedback
 7. **The books:** *Real-Time Rendering* (Akenine-Möller et al.) — the standard reference; ***Physically Based Rendering*** (Pharr, Jakob, Humphreys) — **free online, a literate program, and the best book in the field**; *Fundamentals of Computer Graphics* (Marschner & Shirley) for the basics
 
-**What's missing:** exercises, colour science in depth, volumetric rendering and participating media, subsurface scattering, procedural generation beyond noise, VR/AR specifics, video codecs, and the whole 2D/vector graphics and typography side.
+**What's missing:** ~~exercises~~ — **closed by notes 10–11 (Aug 2026)**; colour science in depth, volumetric rendering and participating media, subsurface scattering, procedural generation beyond noise, VR/AR specifics, video codecs, and the whole 2D/vector graphics and typography side.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
+
+## Practice
+
+- [[foundations/computer-graphics/10-practice-exercises|Practice Exercises]] — twelve exercises — colour-by-normal, the transform chain by hand, gamma, and a ray tracer in a weekend
+- [[foundations/computer-graphics/11-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[foundations/gpu-and-parallel-computing/README|GPU and Parallel Computing]] — the hardware this drove

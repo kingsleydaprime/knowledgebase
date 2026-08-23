@@ -2,7 +2,7 @@
 
 Studying languages as mathematical objects — what a program *means*, and what you can prove about it. **The research pipeline that produced every feature in the languages you use.**
 
-**~10,200 words across 7 notes.** Built August 2026. `[reference]`.
+**~11,500 words across 9 notes** (including practice + solutions). Built August 2026. `[reference]`.
 
 > **The one idea:** **[[foundations/compilers/README|Compilers]] asks how to *implement* a language. PL theory asks what a program *means* and what can be proved about it.** Both are needed, and the second is where generics, type inference, garbage collection, pattern matching, `Option`, async/await and the borrow checker all came from — usually decades before they shipped.
 
@@ -58,9 +58,14 @@ Studying languages as mathematical objects — what a program *means*, and what 
 5. **Write something in a dependently-typed language** — Idris, Agda, Lean. **Encode a length-indexed vector and feel `head` refuse to compile on an empty one**
 6. **The books:** ***Types and Programming Languages*** (Pierce) — **the standard, and genuinely readable; if you read one, read TAPL**; *Practical Foundations for Programming Languages* (Harper) for depth; *Programming Language Foundations in Agda* (Wadler) — free, executable
 
-**What's missing:** exercises, module systems and ML functors, object calculi formally, abstract interpretation, program synthesis, macro systems as a theory, concurrency calculi beyond a mention, and gradual typing's performance problem in depth.
+**What's missing:** ~~exercises~~ — **closed by notes 8–9 (Aug 2026)**; module systems and ML functors, object calculi formally, abstract interpretation, program synthesis, macro systems as a theory, concurrency calculi beyond a mention, and gradual typing's performance problem in depth.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
+
+## Practice
+
+- [[foundations/programming-language-theory/08-practice-exercises|Practice Exercises]] — twelve exercises, mostly implementations — capture-avoiding substitution, Algorithm W, progress/preservation, and linearity as Rust's borrow checker
+- [[foundations/programming-language-theory/09-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[foundations/compilers/README|Compilers]] — the implementation side

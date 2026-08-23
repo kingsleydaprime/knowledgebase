@@ -2,7 +2,7 @@
 
 How a database actually works underneath — pages, B-trees, query planning, MVCC, the write-ahead log — plus four deep reference files for the surface layer.
 
-**Course: ~17,900 words across 12 notes** (built August 2026). **References: ~11,300 lines across 4 files** (older, and still the place to look up syntax). `[reference]` throughout.
+**Course: ~20,500 words across 14 notes** (built August 2026, including practice + solutions). **References: ~11,300 lines across 4 files** (older, and still the place to look up syntax). `[reference]` throughout.
 
 > **Why the split.** The four reference files were already comprehensive on *what to type* — every join type, every window function, every normalisation form, every MongoDB operator. **What was missing was the layer underneath: why the planner chose that plan, why your update bloated the table, why the migration locked everything.** The numbered course is that layer, and it doesn't repeat the references.
 
@@ -78,9 +78,14 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 6. **[[build-your-own-x/06-your-own-database|Build a small database]]** — an append-only log, then a B-tree or LSM, then a WAL. `kill -9` mid-transaction and see the data survive. **The guide's verification hook is exactly the durability argument in note 10**
 7. **The books:** *Database Internals* (Petrov) for storage and distribution; *Designing Data-Intensive Applications* (Kleppmann) for the systems view; *The Art of PostgreSQL* for the practitioner's; and the Postgres source, which is unusually readable
 
-**What's missing:** exercises, worked schema examples beyond what the design reference has, anything on data warehousing and dimensional modelling, stream processing, vector databases and embeddings (a real gap given this vault's AI/ML material), and time-series databases in depth.
+**What's missing:** ~~exercises~~ — **closed by notes 13–14 (Aug 2026)**; worked schema examples beyond what the design reference has, anything on data warehousing and dimensional modelling, stream processing, vector databases and embeddings (a real gap given this vault's AI/ML material), and time-series databases in depth.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
+
+## Practice
+
+- [[databases/13-practice-exercises|Practice Exercises]] — fourteen exercises against a real database — a 9,327× index speedup, N+1, deadlocks, MVCC bloat, and killing the server mid-write
+- [[databases/14-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[databases/interview/README|Databases — Interview Prep]] — what gets asked about all this

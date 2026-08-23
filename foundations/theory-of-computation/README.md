@@ -2,7 +2,7 @@
 
 What can be computed at all, and what can be computed quickly. Automata, Turing machines, undecidability and complexity — the part of computer science that tells you when to **stop looking for a solution.**
 
-**~11,600 words across 8 notes.** Built August 2026 to close a gap found by auditing a standard CS syllabus against this vault. `[reference]`.
+**~13,300 words across 10 notes** (including practice + solutions). Built August 2026 to close a gap found by auditing a standard CS syllabus against this vault. `[reference]`.
 
 > **The one idea worth the whole track:** the hierarchy of machines is a hierarchy of **memory**. No memory, a stack, a bounded tape, an unbounded tape. **Which level a problem sits at tells you which tool it needs** — and the two hardest boundaries (undecidable, NP-complete) tell you when no tool will do.
 
@@ -57,9 +57,14 @@ The facts are memorable and cheap — "HTML isn't regular", "SAT is NP-complete"
 - **Write a SAT solver.** DPLL is surprisingly short; adding clause learning turns it into something that actually works
 - **Sipser's *Introduction to the Theory of Computation*** — the standard text, and unusually well written. Papadimitriou for complexity, Arora–Barak for the modern treatment
 
-**What's missing here:** exercises, formal proofs of the equivalences (they're described rather than derived), the arithmetical hierarchy in depth, circuit complexity, communication complexity, descriptive complexity, and anything on computability over the reals.
+**What's missing here:** ~~exercises~~ — **closed by notes 9–10 (Aug 2026)**; formal proofs of the equivalences (they're described rather than derived), the arithmetical hierarchy in depth, circuit complexity, communication complexity, descriptive complexity, and anything on computability over the reals.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
+
+## Practice
+
+- [[foundations/theory-of-computation/09-practice-exercises|Practice Exercises]] — fourteen problems — three proofs from scratch, plus a regex engine and a SAT solver to build
+- [[foundations/theory-of-computation/10-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[foundations/discrete-math/README|Discrete Mathematics]] — the prerequisite

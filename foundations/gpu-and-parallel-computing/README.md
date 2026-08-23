@@ -2,7 +2,7 @@
 
 What a GPU actually is, why "thousands of cores" is misleading, and how to make code fast on one. **The hardware layer under 98 notes of machine learning.**
 
-**~10,800 words across 7 notes.** Built August 2026. `[reference]`.
+**~12,100 words across 9 notes** (including practice + solutions). Built August 2026. `[reference]`.
 
 > **The one idea:** a CPU hides memory latency with caches and speculation. **A GPU hides it by having so many threads that when one stalls, another is ready.** Everything else — warps, coalescing, occupancy, the roofline — follows from that single architectural choice.
 
@@ -68,9 +68,14 @@ What a GPU actually is, why "thousands of cores" is misleading, and how to make 
 
 **No GPU?** Colab and Kaggle give free ones, and **most of these experiments run fine on a T4.**
 
-**What's missing:** exercises, ray tracing hardware, graphics pipeline specifics (that's [[foundations/computer-graphics/README|computer graphics]]), FPGA and ASIC design, sparse and irregular workloads in depth, and power/thermal management.
+**What's missing:** ~~exercises~~ — **closed by notes 8–9 (Aug 2026)**; ray tracing hardware, graphics pipeline specifics (that's [[foundations/computer-graphics/README|computer graphics]]), FPGA and ASIC design, sparse and irregular workloads in depth, and power/thermal management.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
+
+## Practice
+
+- [[foundations/gpu-and-parallel-computing/08-practice-exercises|Practice Exercises]] — twelve exercises, with an **honest no-GPU path** — Amdahl, coalescing, the transfer tax, the roofline
+- [[foundations/gpu-and-parallel-computing/09-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[ai-ml/README|AI & ML]] — the domain this sits under
