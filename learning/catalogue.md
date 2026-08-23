@@ -38,8 +38,23 @@
 
 | Date | What caught my attention | Still interesting later? |
 |---|---|---|
-| | | |
+| 2026-08-23 | **Game development** — one of the three original reasons for tech. Map now written: [[game-development/README\|game-development/]] | Yes. **Next action is a game jam, not a course** — 48 hours tests it properly |
+| 2026-08-23 | **Embedded software engineering** — wants to get into it | Yes, and **you're closer than you think**: PCB + firmware already exist. See [[foundations/software-engineering/04-the-kinds-of-software-engineering\|kinds of SWE]] |
+| 2026-08-23 | **Data centres / infrastructure career** | Yes — and it's *adjacent to*, not divergent from, the current track. [[devops/00-the-physical-layer/05-getting-into-infrastructure\|route written]] |
+| 2026-08-23 | **Desktop applications** — "how do I make mine" | Mild. [[desktop/README\|Map written]]; a Tauri app is a weekend if it ever matters |
+| 2026-08-23 | **Finance, tax, entrepreneurship** — "to become a better person" | **Yes, and genuinely important** — but explicitly deferred by you in the same breath. Not a tech course; needs its own shape |
+| 2026-08-23 | **Manufacturing business** — "can I start one" | Unknown, and **under-specified**. This is a business question, not a learning one. Would need a real problem and a real market before it's a course |
 
 ---
 
 **Before adding anything to "Active": is the current one done, or genuinely being retired?** Two active courses is the failure mode this file exists to prevent.
+
+---
+
+## Note added 2026-08-23
+
+Six interests surfaced in one session, alongside *"I'm thinking of so many things I can do to make a future-proof career."* **All six now have written maps in the vault, and none is an active course.** That's the correct outcome and it's what this file is for.
+
+The maps cost a session. **Starting them would cost the job search**, which is the thing currently funding everything else — and the [[learning/catalogue|parking decision of 2026-08-21]] (Java, mobile, embedded, robotics all parked, *"a CV aimed at four roles reads as aimed at none"*) was made forty-eight hours before this list appeared.
+
+**Notes are not commitments.** They're there so that when one of these comes round properly, the ground is surveyed. → [[learning/04-one-active-course|One Active Course]]
