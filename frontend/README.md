@@ -32,7 +32,7 @@
 1. [[frontend/06-cross-cutting/01-accessibility|Accessibility]] — **a correctness requirement, often a legal one**, and the area where most candidates are weakest
 
 ### [[frontend/07-practices/README|07 — Practices]]
-1. [[frontend/07-practices/01-frontend-best-practices|Frontend Best Practices]] · 2. [[frontend/07-practices/02-performance|Performance]] — Core Web Vitals, network vs CPU, a budget in CI
+1. [[frontend/07-practices/01-frontend-best-practices|Frontend Best Practices]] · 2. [[frontend/07-practices/02-performance|Performance]] — Core Web Vitals, a budget in CI · 3. [[frontend/07-practices/03-testing-a-frontend|Testing a Frontend]] · 4. [[frontend/07-practices/04-end-to-end-with-playwright|End-to-End with Playwright]]
 
 ---
 
@@ -65,7 +65,7 @@ React and rendering · **the JS/TS language round** · state, data, accessibilit
 
 **`[reference]` for the course sections, and genuinely not for the rest** — the animation and 3D courses came from building things, and `projects/` is real shipped work.
 
-**What's missing, named rather than implied:** forms and validation at depth, i18n, error boundaries as a pattern, offline/PWA, testing (Playwright and Testing Library have no notes — a real gap given the [[learning/catalogue|hire track]] targets frontend), build tooling (Vite, bundlers, module formats), and Vue/Svelte beyond the comparison table.
+**What's missing, named rather than implied:** forms and validation at depth, i18n, error boundaries as a pattern, offline/PWA, ~~testing~~ — **closed by notes 03–04 in [[frontend/07-practices/README|07-practices]] (Aug 2026)**; build tooling (Vite, bundlers, module formats), and Vue/Svelte beyond the comparison table.
 
 **And the deepest gap is reps, not notes** — see [[project-ideas|project ideas]].
 
