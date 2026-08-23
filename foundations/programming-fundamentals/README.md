@@ -2,7 +2,7 @@
 
 The on-ramp. **For someone who has never written code** — the concepts that are the same in every language, before any language.
 
-**~13,700 words across 12 notes.** Built August 2026. `[reference]`.
+**~15,900 words across 14 notes.** Built August 2026. `[reference]`.
 
 > **The one idea:** a computer has no judgement. Everything in this course is a technique for being completely explicit without the instructions becoming unmanageably long — and every one of them is the same move: **make a thing, name it, then reason with the name instead of the contents.**
 
@@ -31,6 +31,11 @@ It is **deliberately language-agnostic**. Examples appear in Python, JavaScript 
 11. [[foundations/programming-fundamentals/11-planning-before-you-type|Planning Before You Type]] — **[Beginner]** — decomposition, pseudocode, flowcharts, and how much planning is actually right
 12. [[foundations/programming-fundamentals/12-choosing-what-to-build-next|Choosing What to Build Next]] — **[Beginner]** — tutorial hell, what to build, using AI without letting it do the learning, **and where in this vault to go next**
 
+**Then two more, added after the course was written** — [[foundations/programming-fundamentals/13-objects-and-classes|13]] and [[foundations/programming-fundamentals/14-programming-paradigms|14]] close the gap the "honest note" below originally declared. Read them once 01–12 are comfortable; they're the bridge into [[languages/README|languages/]].
+
+13. [[foundations/programming-fundamentals/13-objects-and-classes|Objects and Classes]] — **[Beginner → Intermediate]** — encapsulation, inheritance, polymorphism, **why "prefer composition over inheritance" is near-unanimous**, and where OOP stops being the answer
+14. [[foundations/programming-fundamentals/14-programming-paradigms|Programming Paradigms]] — **[Beginner → Intermediate]** — imperative vs declarative, expressions vs statements, the four styles, and **the one heuristic worth more than the taxonomy**
+
 ## The things worth carrying
 
 1. **The computer has no judgement. It did exactly what you wrote.** The question is never *why is it doing this* but *what did I actually tell it to do* → [[foundations/programming-fundamentals/01-what-a-program-actually-is|01]]
@@ -50,6 +55,8 @@ It is **deliberately language-agnostic**. Examples appear in Python, JavaScript 
 15. **Running it every few lines does more than every debugging technique combined** → [[foundations/programming-fundamentals/10-errors-and-debugging|10]]
 16. **If you can't do it by hand, you cannot write code for it** → [[foundations/programming-fundamentals/11-planning-before-you-type|11]]
 17. **You cannot read your way to competence — and finishing things is the habit almost nobody has** → [[foundations/programming-fundamentals/12-choosing-what-to-build-next|12]]
+18. **Encapsulation and polymorphism aged well; deep inheritance did not.** Go dropped it, Rust never had it → [[foundations/programming-fundamentals/13-objects-and-classes|13]]
+19. **Push the pure logic apart from the effects.** Every paradigm agrees, which is a decent sign it's the real lesson → [[foundations/programming-fundamentals/14-programming-paradigms|14]]
 
 ## Where this connects
 
@@ -71,7 +78,7 @@ It is **deliberately language-agnostic**. Examples appear in Python, JavaScript 
 
 **Where I'd bet the guess is wrong:** note 05's reference-vs-value section and note 09 are probably still too fast, and note 07 probably under-explains why hashing gives O(1) — it's stated rather than shown.
 
-**What's missing, deliberately:** objects and classes (a genuine gap — OOP is the next concept most people meet, and it's language-specific enough that it belongs in [[languages/README|languages/]]), exceptions and error handling as a construct rather than an event, file and network I/O, async and concurrency, generics, and testing as a practice rather than a mention. **Exercises above all** — this is a reading course with no problems in it, which is exactly the criticism note 12 makes of reading courses.
+**What's missing:** ~~objects and classes~~ — **closed by notes 13–14 (Aug 2026)**, after a third source raised it independently and the original judgement ("it belongs in `languages/`") turned out to be wrong: OOP is language-*flavoured*, not language-specific, and leaving it out meant the course stopped one concept short of where every real codebase starts. Still absent: exceptions and error handling as a construct rather than an event, file and network I/O, async and concurrency, generics, and testing as a practice rather than a mention. **Exercises above all** — this is a reading course with no problems in it, which is exactly the criticism note 12 makes of reading courses.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
 

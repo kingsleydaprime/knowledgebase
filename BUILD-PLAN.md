@@ -2,7 +2,7 @@
 
 The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest about what each batch costs. Tick things off as they land.
 
-**Current state:** 956 notes, ~1,128,000 words (Phase 5, 2026-08-22). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
+**Current state:** 987 notes, ~1,155,000 words (Phase 5c, 2026-08-23). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
 
 > **The standing caveat:** almost everything below will be marked `[reference]` — written from sources, not from having built the thing. That's the vault's convention and it should stay visible. [[PRIMETECHIE|Reading is not a rank.]] The `build-your-own-x/` phase exists specifically to convert some of it into the other kind.
 
@@ -141,7 +141,23 @@ Found in the same session, from a third source (`sources/100 CS concepts explain
 - [x] **`devops/01-linux/12-bash-scripting`** — extended with repo-wide scripting technique (`fold`, assertion-guarded rewrites, verification passes). **Not a new note** — the heredoc and `python3 -` material was already there, so this extends rather than restates
 - [x] **`.obsidian/app.json`** — `userIgnoreFilters` for `quartz/` and `sources/`. **487 stray `.md` files in `quartz/node_modules/`** were polluting the graph and search. Not committed — `.obsidian/` is gitignored
 
-**Phase 5 total: 5 READMEs + 39 notes, ~47,000 words**, plus ~1,200 words extending `12-bash-scripting`. The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
+**Phase 5 total: 5 READMEs + 39 notes, ~47,000 words**, plus ~1,200 words extending `12-bash-scripting`.
+
+### Phase 5c — the curiosity batch (2026-08-23)
+
+Prompted by a single message naming six directions at once, plus "is the Python course complete" and "borrow from roadmap.sh". **All six became maps, none became an active course** — logged in [[learning/catalogue|the parking lot]], per [[learning/04-one-active-course|the one-active-course rule]].
+
+- [x] **Python roadmap audit** — ✅ notes 15–17 (~2,700 words): files & I/O, regular expressions, asyncio in depth. **All three were named as gaps by the course's own honest note before [roadmap.sh](https://roadmap.sh/python) confirmed them.** README now carries a full three-way roadmap mapping: covered here / covered elsewhere in the vault / deliberately skipped
+- [x] **`foundations/systems-engineering/`** — ✅ README + 8 notes, ~8,200 words. **Zero prior hits for INCOSE, MBSE, SysML, requirements engineering or trade studies** — in a vault kept by a systems engineering student. Cuts both ways: it connects the degree to the software, and imports FMEA/fault trees/ICDs/traceability, which software genuinely underuses. **No roadmap.sh roadmap exists** for this; the standards are the syllabus
+- [x] **`game-development/`** — ✅ README + 8 notes, ~7,600 words, cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer). **Deliberately thin** — the roadmap's maths, graphics, physics-integration, spatial-structure and ML topics were already written under `computer-graphics/`, `robotics/`, `numerical-methods/`, `dsa/` and `ai-ml/`. The folder points at them rather than restating
+- [x] **`foundations/software-engineering/04`** — ✅ ~1,300 words. The field cut by constraint rather than product area, with **embedded at depth** (the stated interest) and an honest account of which switches are hard
+- [x] **`desktop/`** — ✅ README + 1 note + frameworks index + 5 scaffolds, ~2,750 words. Copies the `backend/frameworks/` convention exactly, as requested. No roadmap.sh coverage exists
+- [x] **`devops/00-the-physical-layer/05`** — ✅ ~1,100 words. The infrastructure career path on top of the physical-layer notes: the roles, **hands-on-metal vs infrastructure-as-software**, where certs actually help
+- [x] **Parking lot + thinking-patterns** — six interests dated and captured; the recurrence of the bundled-asks pattern recorded with evidence
+
+**Deferred, deliberately:** finance / tax / entrepreneurship (deferred by him in the same message — and it isn't a tech domain, so it needs its own shape rather than a course folder) and manufacturing as a business (under-specified; a business question, not a learning one).
+
+**Phase 5c total: 31 files (4 READMEs + 27 notes/scaffolds), ~26,500 words.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
 
 ---
 

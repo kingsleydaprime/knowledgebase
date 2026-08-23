@@ -22,7 +22,7 @@ The domains that are actually built out — **networking, DSA, backend, architec
 Start here, depending on what you want:
 - [[foundations/programming-fundamentals/README|Programming Fundamentals]] — **start here if you have never written code.** Twelve language-agnostic notes: what a program is → syntax → variables → control flow → collections → functions → recursion → debugging → planning → what to build. Written Aug 2026, because 900 notes assumed this and none of them taught it
 - [[foundations/networking/README|Networking]] — the wire up to the web: link layer → IP → TCP/congestion control → DNS/TLS/HTTP → QUIC → debugging. The foundation under devops, security, and distributed systems
-- [[foundations/software-engineering/README|Software Engineering — orientation]] — **three short notes on what the profession actually is**: programming vs engineering, the SDLC and what breaks when each phase is skipped, and the eleven roles. Written Aug 2026 to fill a gap the rest of the vault assumed
+- [[foundations/software-engineering/README|Software Engineering — orientation]] — **three short notes on what the profession actually is**: programming vs engineering, the SDLC and what breaks when each phase is skipped, and the eleven roles. Written Aug 2026 to fill a gap the rest of the vault assumed · **now four notes** — the fourth answers *what other kinds of software engineering are there?* (embedded, real-time, systems, games, HPC)
 - [[foundations/dsa/README|Data Structures & Algorithms]] → then [[foundations/dsa/06-patterns/README|LeetCode Patterns]]
 - [[using-ai/README|Using AI]] — **start here if you're new to AI and don't write code.** Eight notes on using LLMs well: what they are, how to brief them, how to check them, what not to paste. The on-ramp to everything below
 - [[ai-ml/README|AI & ML]] — split into three career paths (data scientist, ML engineer, AI engineer) over a shared foundation
@@ -41,6 +41,9 @@ Start here, depending on what you want:
 - [[foundations/information-theory/README|Information Theory]] — entropy, and **the note explaining the cross-entropy loss the ML track uses everywhere**. Plus compression, channel capacity, error-correcting codes
 - [[foundations/computer-graphics/README|Computer Graphics]] · [[foundations/programming-language-theory/README|PL Theory]] — rasterisation, shading and ray tracing; lambda calculus, Curry–Howard and where Rust's borrow checker came from
 - [[engineering/README|Engineering]] — the physical half: [[engineering/01-continuum-mechanics/README|continuum mechanics]] (how solids and fluids deform) and [[engineering/02-control-theory/README|control theory]] (making a system behave despite a wrong model). The control track is more portable than it sounds — autoscalers and congestion control are feedback loops with all the classical pathologies
+- [[foundations/systems-engineering/README|Systems Engineering]] — **the INCOSE discipline, added Aug 2026**: requirements, the V-model, interfaces and ICDs, trade studies, V&V, MBSE, FMEA and fault trees. Written because this vault is kept by a systems engineering student and had nothing on it — and because **traceability, FMEA and interface control are genuinely underused in software**
+- [[game-development/README|Game Development]] — the 16 ms budget, the game loop and ECS, real-time graphics, game physics, game AI, netcode. **Deliberately thin**: most of the roadmap is already here under graphics, robotics, DSA and ML
+- [[desktop/README|Desktop]] — what the web removed and desktop kept. Tauri/Electron/Qt/.NET/native, and why **distribution is the real discipline**
 - [[research/README|Research & Paper Writing]] — a meta-skill for every field: doing research (reading papers, finding a gap, methodology) + writing/publishing (structure, style, venues, peer review)
 
 A [Beginner] tag doesn't mean "skip if you're experienced" — it just means the note doesn't lean on anything else in the folder yet. Read a folder's notes in order at least once even if a topic sounds familiar; later notes assume earlier ones without re-explaining them.
@@ -113,6 +116,23 @@ knowledgebase/
 │                                 # (recursive descent + Pratt) → ASTs/scopes → type systems
 │                                 # → SSA/IR → optimisation → codegen → bytecode VMs → GC
 │                                 # → JIT. Built to unblock build-your-own-language.
+│
+├── systems-engineering/          # (under foundations/) numbered course (8 notes, Aug 2026):
+│                                 # what SE is (emergence, the cost curve) → requirements
+│                                 # → lifecycle/V-model → architecture & interfaces (ICDs,
+│                                 # N², margin, Conway) → trade studies → V&V → MBSE/SysML
+│                                 # → FMEA/fault trees. THE DEGREE-SHAPED GAP.
+│
+├── game-development/             # 8 notes, Aug 2026, roadmap.sh-cross-referenced.
+│                                 # the 16ms budget → game loop/fixed timestep/ECS →
+│                                 # real-time graphics → physics → game AI → netcode →
+│                                 # tools & production → getting started. Thin ON PURPOSE:
+│                                 # most of the roadmap already lives in computer-graphics/,
+│                                 # robotics/, dsa/, numerical-methods/ and ai-ml/.
+│
+├── desktop/                      # 1 note + frameworks/ (Aug 2026): tauri, electron, qt,
+│   └── frameworks/               # dotnet, native — all scaffold. Copies the
+│                                 # backend/frameworks/ convention.
 │
 ├── using-ai/                     # 8-note course for NON-programmers new to AI (Aug 2026):
 │                                 # what an LLM is → how it works plainly → choosing a tool

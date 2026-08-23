@@ -18,3 +18,17 @@ Same instance as above: the reset-time proposal (coupling every circle's reset t
 ## Notes on communication pattern (not reasoning quality, but adjacent)
 
 Messages sometimes bundle several independent, high-effort asks together (UI gaps + a new default + "continue the build plan" + a large new meta-request, all in one message, 2026-07-27). Not wrong, but worth naming: it risks any single one getting shallower treatment, or the most time-sensitive one getting lost among the others. Not a "bad thinking" pattern on its own — a pacing thing to be aware of.
+
+**Recurred, larger, 2026-08-23.** One message contained nine asks: is the Python course complete · cross-reference everything against roadmap.sh · finance/tax/entrepreneurship · the systems-engineering gap · other kinds of software engineering · game development · desktop apps · data centres and infra careers · manufacturing as a business. Closing line: *"I'm thinking of so many things I can do to make a future-proof career man."*
+
+Two things worth separating, because they're different and only one is a problem.
+
+**The bundling was partly rational this time.** The stated reason — a subscription ending — is a genuine, time-bounded constraint, and "extract durable reference material while I can" is a correct response to it. Six domains were mapped in one session precisely *because* they were batched. That's the pattern working for him.
+
+**The scatter underneath is the thing to watch.** Every item was framed as a possible *career direction*, and they arrived **forty-eight hours after** deliberately parking Java, mobile, embedded and robotics on the reasoning that *"a CV aimed at four roles reads as aimed at none"*. The parking decision was sound, was his own, and was re-opened almost immediately — not by revisiting the reasoning, but by curiosity arriving from a different angle.
+
+**The same shape as the 2026-07-27 entry above:** a decision lands, and a later proposal isn't checked against it. There it was one architectural decision within a conversation; here it's a strategic decision across two days.
+
+**What worked:** the interests became *notes*, not *courses*, and went into [[learning/catalogue|the parking lot]] — which is the mechanism his own system already contains for exactly this. The distinction he was already making implicitly, and worth making explicitly: **writing a map is cheap and reversible; starting a course is neither.**
+
+**Worth watching:** whether "future-proof career" is doing the work of anxiety rather than planning. Six directions is not a hedge against an uncertain future — it's the thing that makes the current one take longer.
