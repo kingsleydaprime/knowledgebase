@@ -12,7 +12,7 @@ When the `expanded`/`collapsed` class changes the element's actual box size (via
 
 ## How it works (FLIP, automatically)
 
-This is the same First-Last-Invert-Play technique as GSAP's [[../03-gsap/05-other-plugins|Flip plugin]], but performed automatically on every render instead of manually wrapped around a state change: Framer Motion measures the element's layout before the render (First), measures it again after (Last), computes the transform delta, applies it inverted so nothing visually moves yet (Invert), then animates that transform back to identity (Play) — meaning the *actual* CSS layout property never gets animated frame-by-frame, only a `transform`, which is why this stays performant even for expensive-to-animate properties like `width`/`height`/`flex`.
+This is the same First-Last-Invert-Play technique as GSAP's [[frontend/03-gsap/05-other-plugins|Flip plugin]], but performed automatically on every render instead of manually wrapped around a state change: Framer Motion measures the element's layout before the render (First), measures it again after (Last), computes the transform delta, applies it inverted so nothing visually moves yet (Invert), then animates that transform back to identity (Play) — meaning the *actual* CSS layout property never gets animated frame-by-frame, only a `transform`, which is why this stays performant even for expensive-to-animate properties like `width`/`height`/`flex`.
 
 ## `layoutId`: shared element transitions
 
@@ -47,4 +47,4 @@ Because layout animation works by scaling a transform rather than literally anim
 
 ## Related
 - [[05-animate-presence|AnimatePresence]] — combining `layout` with add/remove for reflowing lists
-- [[../03-gsap/05-other-plugins|GSAP: Flip]] — the manual, imperative version of the same underlying technique
+- [[frontend/03-gsap/05-other-plugins|GSAP: Flip]] — the manual, imperative version of the same underlying technique

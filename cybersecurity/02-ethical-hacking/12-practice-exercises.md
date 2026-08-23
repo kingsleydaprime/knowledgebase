@@ -1,6 +1,6 @@
 # Ethical Hacking — Practice Exercises
 
-> Goal-only tasks, no walkthroughs — same format as the [[../../devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA practice exercises]]. You're told the objective, not the commands; a real engagement doesn't hand you the payload either. Run every one of these against the lab built in [[05-home-lab-setup|home-lab-setup]] — **never against anything you don't own or don't have explicit written authorization to test**, per [[01-rules-of-engagement-and-legal|rules-of-engagement-and-legal]].
+> Goal-only tasks, no walkthroughs — same format as the [[devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA practice exercises]]. You're told the objective, not the commands; a real engagement doesn't hand you the payload either. Run every one of these against the lab built in [[05-home-lab-setup|home-lab-setup]] — **never against anything you don't own or don't have explicit written authorization to test**, per [[01-rules-of-engagement-and-legal|rules-of-engagement-and-legal]].
 
 ## How to use this
 

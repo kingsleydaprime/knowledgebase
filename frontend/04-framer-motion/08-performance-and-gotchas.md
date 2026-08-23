@@ -2,7 +2,7 @@
 
 ## Animate transforms and opacity, same rule as everywhere else
 
-The [[../03-gsap/07-performance-and-gotchas|compositor-only properties rule]] applies identically here: `x`, `y`, `scale`, `rotate`, `opacity` are cheap; `width`, `height`, `top`, `left` force layout recalculation every frame. Framer Motion's `layout` prop (see [[06-layout-animations|layout animations]]) exists specifically so you *can* animate layout-affecting changes while still only touching `transform` under the hood — reach for it instead of literally animating `width`/`height` whenever the two achieve the same visual result.
+The [[frontend/03-gsap/07-performance-and-gotchas|compositor-only properties rule]] applies identically here: `x`, `y`, `scale`, `rotate`, `opacity` are cheap; `width`, `height`, `top`, `left` force layout recalculation every frame. Framer Motion's `layout` prop (see [[06-layout-animations|layout animations]]) exists specifically so you *can* animate layout-affecting changes while still only touching `transform` under the hood — reach for it instead of literally animating `width`/`height` whenever the two achieve the same visual result.
 
 ## `LazyMotion`: reducing bundle size
 
@@ -45,4 +45,4 @@ The most common real-world causes, in order of likelihood:
 ## Related
 - [[06-layout-animations|layout animations]]
 - [[07-scroll-animations|scroll animations]]
-- [[../03-gsap/07-performance-and-gotchas|GSAP performance and gotchas]] — the shared underlying browser-rendering concepts
+- [[frontend/03-gsap/07-performance-and-gotchas|GSAP performance and gotchas]] — the shared underlying browser-rendering concepts

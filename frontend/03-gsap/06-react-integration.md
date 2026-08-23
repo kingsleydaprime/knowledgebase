@@ -88,4 +88,4 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 ## Related
 - [[03-timelines|timelines]] — what you'll typically build inside `useGSAP`
 - [[04-scrolltrigger|ScrollTrigger]] — registration/cleanup concerns are sharpest here
-- [[../02-next/README|Next.js]] — `"use client"` boundary and App Router specifics
+- [[frontend/02-next/README|Next.js]] — `"use client"` boundary and App Router specifics

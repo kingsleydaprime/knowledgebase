@@ -1,6 +1,6 @@
 # Framer Motion (Motion)
 
-**[Beginner → Advanced]** — a declarative animation library built for React: animation expressed as props (`initial`/`animate`/`exit`) that stay in sync with component state, rather than imperative calls. Part of the [[../README|frontend]] course.
+**[Beginner → Advanced]** — a declarative animation library built for React: animation expressed as props (`initial`/`animate`/`exit`) that stay in sync with component state, rather than imperative calls. Part of the [[frontend/README|frontend]] course.
 
 ## Structure
 
@@ -14,6 +14,6 @@
 8. [[08-performance-and-gotchas|08 — Performance and Gotchas]] — `LazyMotion`, SSR, common "why isn't this animating" causes
 
 ## Related
-- [[../README|frontend course map]]
-- [[../03-gsap/README|GSAP]] — the imperative alternative, stronger for timeline/scroll-scrubbing/SVG-path work
-- [[../../concepts/02-frontend/README|frontend concepts]]
+- [[frontend/README|frontend course map]]
+- [[frontend/03-gsap/README|GSAP]] — the imperative alternative, stronger for timeline/scroll-scrubbing/SVG-path work
+- [[concepts/02-frontend/README|frontend concepts]]

@@ -95,4 +95,4 @@ You visit each node once and each edge once — the same linear bound as any gra
 - [[06-graphs|Graphs]] — DAGs, in-degree, adjacency representation
 - [[02-dfs|DFS]] / [[03-bfs|BFS]] — the two traversal engines underneath
 - [[10-greedy-algorithms|Greedy]] — Kahn's "take any ready node" is a greedy choice that's provably safe on a DAG
-- [[../06-patterns/12-bfs-pattern|BFS pattern]] — Kahn's is BFS over a dependency graph
+- [[foundations/dsa/06-patterns/12-bfs-pattern|BFS pattern]] — Kahn's is BFS over a dependency graph

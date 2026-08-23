@@ -1,6 +1,6 @@
 # Three.js
 
-**[Beginner → Advanced]** — a JavaScript 3D graphics library wrapping WebGL: scenes, cameras, lights, geometry, and materials rendered onto a canvas. A different domain from [[../03-gsap/README|GSAP]]/[[../04-framer-motion/README|Framer Motion]] (2D DOM/SVG animation) — this is real-time 3D rendering. Part of the [[../README|frontend]] course.
+**[Beginner → Advanced]** — a JavaScript 3D graphics library wrapping WebGL: scenes, cameras, lights, geometry, and materials rendered onto a canvas. A different domain from [[frontend/03-gsap/README|GSAP]]/[[frontend/04-framer-motion/README|Framer Motion]] (2D DOM/SVG animation) — this is real-time 3D rendering. Part of the [[frontend/README|frontend]] course.
 
 ## Structure
 
@@ -14,6 +14,6 @@
 8. [[08-performance-and-gotchas|08 — Performance and Gotchas]] — manual `dispose()`, draw calls, InstancedMesh, LOD
 
 ## Related
-- [[../README|frontend course map]]
-- [[../03-gsap/README|GSAP]] / [[../04-framer-motion/README|Framer Motion]] — 2D animation libraries, different rendering model entirely
-- [[../../concepts/02-frontend/README|frontend concepts]]
+- [[frontend/README|frontend course map]]
+- [[frontend/03-gsap/README|GSAP]] / [[frontend/04-framer-motion/README|Framer Motion]] — 2D animation libraries, different rendering model entirely
+- [[concepts/02-frontend/README|frontend concepts]]

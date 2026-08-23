@@ -14,13 +14,13 @@ java BoundedBlockingQueueTest   # or RateLimiterTest
 
 Right now, both fail immediately with `UnsupportedOperationException: implement me` — that's the starting (red) state. Implement the stub class until every test prints `PASS` and the summary line reads `N passed, 0 failed`.
 
-## 1. [[bounded-blocking-queue/BoundedBlockingQueue.java|Bounded Blocking Queue]]
+## 1. [[languages/01-java/02-jvm-and-concurrency/exercises/bounded-blocking-queue/BoundedBlockingQueue.java|Bounded Blocking Queue]]
 
 A fixed-capacity queue where `put()` blocks while full and `take()` blocks while empty, safe under multiple concurrent producers and consumers. This is the exact shape of the batching problem in [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|Messaging with RabbitMQ]] and [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]]'s `batchLock` example — except here you're building the primitive instead of using one someone else already wrote (`java.util.concurrent.ArrayBlockingQueue` is the real one; don't use it, that's the class you're re-deriving).
 
 Forces you to actually reason about: `wait()`/`notifyAll()` (or `Condition`/`await()`/`signalAll()` if you use `ReentrantLock` instead of `synchronized`), spurious wakeups (why the wait condition must be checked in a `while` loop, not an `if`), and what exactly a monitor guarantees vs. what it doesn't.
 
-## 2. [[rate-limiter/RateLimiter.java|Token-Bucket Rate Limiter]]
+## 2. [[languages/01-java/02-jvm-and-concurrency/exercises/rate-limiter/RateLimiter.java|Token-Bucket Rate Limiter]]
 
 A non-blocking `tryAcquire()` that allows bursts up to a bucket capacity, refilling continuously at a fixed rate, safe under concurrent callers.
 

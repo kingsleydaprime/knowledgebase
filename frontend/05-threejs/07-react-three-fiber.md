@@ -1,6 +1,6 @@
 # React Three Fiber (R3F)
 
-React Three Fiber is a React renderer for three.js — not a wrapper that calls three.js imperatively from `useEffect`, but a genuine **custom React reconciler** (the same mechanism react-dom uses to turn JSX into DOM nodes) that turns JSX into three.js scene graph objects directly. This is a meaningfully deeper integration than how [[../03-gsap/06-react-integration|GSAP integrates with React]], which stays fully imperative underneath a `useGSAP` convenience hook.
+React Three Fiber is a React renderer for three.js — not a wrapper that calls three.js imperatively from `useEffect`, but a genuine **custom React reconciler** (the same mechanism react-dom uses to turn JSX into DOM nodes) that turns JSX into three.js scene graph objects directly. This is a meaningfully deeper integration than how [[frontend/03-gsap/06-react-integration|GSAP integrates with React]], which stays fully imperative underneath a `useGSAP` convenience hook.
 
 ## Installing
 

