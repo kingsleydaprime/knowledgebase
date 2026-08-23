@@ -8,7 +8,7 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
-The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `frontend/01-react`+`02-next`, and parts of `backend/`. **`engineering/` and `robotics/` are written but marked `[reference]`** — courses on paper, with no build behind them yet, and each says so on its own front page. **Note on the frontend two:** the scaffold is the *course*, not the knowledge — ~44,000 words on React/Next.js live in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
+The domains that are actually built out — **networking, DSA, backend, architecture (incl. distributed systems), devops, java, AI/ML, using-ai, cybersecurity, hardware, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (Still scaffold, and labelled as such below: `frontend/frameworks/react`+`02-next`, and parts of `backend/`. **`engineering/` and `robotics/` are written but marked `[reference]`** — courses on paper, with no build behind them yet, and each says so on its own front page. **Note on the frontend two:** the scaffold is the *course*, not the knowledge — ~44,000 words on React/Next.js live in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
 
 **This is not a software-engineering vault.** It covers software, infrastructure, security, and hardware — see [[PRIMETECHIE|the path]] for how those four fit together rather than sitting in separate silos. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
 
@@ -28,7 +28,7 @@ Start here, depending on what you want:
 - [[ai-ml/README|AI & ML]] — split into three career paths (data scientist, ML engineer, AI engineer) over a shared foundation
 - [[cybersecurity/README|Cybersecurity]] — fundamentals → ethical hacking → network/web security → cryptography → attacks taxonomy → security operations (blue team) → GRC → cloud
 - [[backend/README|Backend]] — a full course: foundations → API design → **structuring a backend** (layers, DI, hexagonal, modular monolith) → data → auth, plus `frameworks/` for Node/Nest/Spring/FastAPI/Axum
-- [[concepts/02-frontend/README|Frontend]], [[concepts/03-design-patterns/README|Design Patterns]], [[concepts/04-best-practices/README|Best Practices]] — engineering ideas that belong to no single domain
+- [[frontend/README|Frontend]] — **a full course since Aug 2026**, mirroring backend: foundations → rendering & hydration → structure → **state & data** → styling → accessibility → performance, plus `frameworks/` (React, Next, **Tailwind/Sass**, GSAP, Framer Motion, Three.js)
 - [[languages/01-java/README|Java]] — the JVM, concurrency, and the Spring Boot/build-tools ecosystem
 - [[languages/06-python/README|Python]] — **the language, not the data stack**: the data model that explains every Python surprise, dunder protocols, generators, gradual typing, **the GIL**, and why CPython is slow. Plus [[backend/frameworks/python/README|FastAPI/Django/Flask]]
 - [[devops/README|DevOps]] — **the physical layer** (servers, hypervisors, data centres, leaf-spine) → Linux → containers → orchestration → CI/CD → IaC → observability → **the disciplines** (SRE, platform engineering, DevSecOps)
@@ -232,13 +232,17 @@ knowledgebase/
 │   │                             #   languages/01-java), python/, go/, rust/
 │   └── interview/                # built from a real interview, not guessed
 │
-├── frontend/                     # mixed — react/ and next/ are still scaffold, but
-│   ├── 01-react/                 # gsap/, framer-motion/, and threejs/ are full written
-│   ├── 02-next/                  # courses (tweens/timelines, gestures/variants,
-│   ├── 03-gsap/                  # scene/materials/R3F, each with performance notes)
-│   ├── 04-framer-motion/
-│   ├── 05-threejs/
-│
+├── frontend/                     # A COURSE + frameworks (restructured Aug 2026,
+│   ├── 01-foundations/           # mirroring backend/). Sections 01-07 are framework-
+│   ├── 02-rendering/             # agnostic: what a frontend is, the browser/DOM,
+│   ├── 03-structuring-a-frontend/# rendering & HYDRATION, components, STATE & DATA
+│   ├── 04-state-and-data/        # (server state is a cache, not state), CSS
+│   ├── 05-styling/               # architecture, ACCESSIBILITY, performance.
+│   ├── 06-cross-cutting/         # (concepts/02-frontend was moved into 02, 04, 07.)
+│   ├── 07-practices/             #
+│   └── frameworks/               # react, next, css (tailwind/sass), gsap,
+│                                 # framer-motion, threejs. The animation + 3D
+│                                 # courses are the deepest material here.
 ├── architecture/                 # numbered course: system design (fundamentals →
 │   ├── 01-system-design-fundamentals/  # building-blocks → patterns) + distributed
 │   ├── 02-building-blocks/       # systems (04 — consensus/clocks/consistency/2PC).

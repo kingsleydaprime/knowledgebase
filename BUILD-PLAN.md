@@ -2,7 +2,7 @@
 
 The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest about what each batch costs. Tick things off as they land.
 
-**Current state:** 1,070 notes, ~1,235,000 words (Phase 5i, 2026-08-23). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
+**Current state:** 1,083 notes, ~1,244,000 words (Phase 5j, 2026-08-23). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
 
 > **The standing caveat:** almost everything below will be marked `[reference]` — written from sources, not from having built the thing. That's the vault's convention and it should stay visible. [[PRIMETECHIE|Reading is not a rank.]] The `build-your-own-x/` phase exists specifically to convert some of it into the other kind.
 
@@ -245,7 +245,20 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 **Phase 5i total: 9 files, ~7,400 words**, plus three corrected indexes.
 
-**Still open, and requested:** the `frontend/` restructure — a course (`01`–`07`) plus `frontend/frameworks/{react,next,css}`, mirroring `backend/`. **The bigger half of that is a *move*, not new writing**: ~44,000 words of React/Next material currently sit in `projects/`, indexed only by `frontend/README`. That's a findability problem, and it's the next batch. Combined 5d+5e: **22 notes, ~29,000 words**, and **no domain README now names exercises as missing.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
+### Phase 5j — the frontend restructure (2026-08-23)
+
+**`frontend/` is now a course + `frameworks/`, mirroring `backend/`.** Both moves were already prescribed by the vault: `concepts/README` said *"02-frontend arguably belongs in frontend/. Not moved yet"*, and `frontend/README` said *"distil the recurring material and leave the war stories in projects/, cross-linked — the same split backend uses."*
+
+- [x] **Structure** — ✅ `concepts/02-frontend/` moved in (3 notes → sections 02, 04, 07); `03-gsap`/`04-framer-motion`/`05-threejs`/`01-react`/`02-next` moved under `frameworks/`. **~57 inbound links repointed across 39 files**
+- [x] **Course sections `01`–`07`** — ✅ 7 new notes, ~7,000 words: what a frontend is · the browser and the DOM · **hydration and the server boundary** · components and composition · **data fetching and server state** · CSS architecture · **accessibility** · performance
+- [x] **`frameworks/react`, `next`, `css`** — ✅ the React model, error boundaries, and **`css/` with Tailwind and Sass** — which appeared nowhere in the vault except one socioboom note
+- [x] **`projects/` material left in place, deliberately** — ~44,000 words of React/Next taught against real code. Moving it would strip the project logs of material that reads as a whole, against the [[learning/README|dev-workflow]] principle that both copies are meant to exist. **Indexed from `frameworks/react/` and `frameworks/next/` instead** — the problem was findability, not location
+
+**Two bugs I made and caught, worth recording:** a blunt string replacement rewrote `projects/socioboom/learning/frontend/02-nextjs-app-router` into a `frameworks/` path (it matched inside a *project* path — replacements should have been anchored to `[[`); and sibling short-form links like `[[02-state-management]]` silently began resolving to a **project note** rather than the moved course note. **The link checker reported "all resolve" for the second one** — a link can resolve and still be wrong, which is the limitation of checking existence rather than intent.
+
+**Phase 5j total: 16 files, ~9,400 words**, plus 39 files repointed and 3 indexes rewritten.
+
+**Still open:**  — a course (`01`–`07`) plus `frontend/frameworks/{react,next,css}`, mirroring `backend/`. **The bigger half of that is a *move*, not new writing**: ~44,000 words of React/Next material currently sit in `projects/`, indexed only by `frontend/README`. That's a findability problem, and it's the next batch. Combined 5d+5e: **22 notes, ~29,000 words**, and **no domain README now names exercises as missing.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
 
 ---
 

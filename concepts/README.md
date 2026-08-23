@@ -4,14 +4,10 @@ The engineering ideas that aren't *about* any one domain — design patterns, cl
 
 **`01-backend/` moved to [[backend/README|backend/]] in August 2026.** The reasoning is worth keeping: someone navigating to "backend" shouldn't have to know that half the backend material was filed under "concepts." Domain-specific concepts now live with their domain; this folder holds only what belongs to none.
 
-That leaves an open question — [[concepts/02-frontend/README|02-frontend]] has the same problem and arguably belongs in [[frontend/README|frontend/]]. Not moved yet.
+**`02-frontend/` was moved into [[frontend/README|frontend/]] in August 2026**, for the same reason — the frontend course now holds both the concepts and the frameworks.
 
 ## Sections
 
-### [[concepts/02-frontend/README|02 — Frontend]]
-1. [[concepts/02-frontend/01-frontend-best-practices|Frontend Best Practices]] — **[Beginner]**
-2. [[concepts/02-frontend/02-state-management|State Management]] — **[Intermediate]** — the problem before the libraries
-3. [[concepts/02-frontend/03-rendering|Rendering]] — **[Intermediate]** — CSR/SSR/SSG/ISR and what each actually costs
 
 ### [[concepts/03-design-patterns/README|03 — Design Patterns]]
 1. [[concepts/03-design-patterns/01-creational-patterns|Creational]] — **[Intermediate]**

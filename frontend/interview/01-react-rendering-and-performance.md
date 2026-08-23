@@ -1,6 +1,6 @@
 # Frontend Interview — React, Rendering & Performance
 
-From [[concepts/02-frontend/README|concepts/02-frontend]], [[frontend/03-gsap/07-performance-and-gotchas|GSAP performance]], [[frontend/05-threejs/08-performance-and-gotchas|Three.js performance]].
+From [[frontend/README|frontend]], [[frontend/frameworks/gsap/07-performance-and-gotchas|GSAP performance]], [[frontend/frameworks/threejs/08-performance-and-gotchas|Three.js performance]].
 
 ---
 
@@ -67,7 +67,7 @@ At 60fps you have **16.7ms per frame** for everything. Layout on a complex tree 
 - **Layout thrashing** — reading a layout property (`offsetHeight`) after writing one forces a **synchronous reflow**. In a loop that's O(n) forced reflows and a frozen page. Batch reads, then writes.
 - Use `requestAnimationFrame`, not `setInterval`, so you're aligned with the frame budget.
 
-This is straight from [[frontend/03-gsap/07-performance-and-gotchas|the GSAP performance note]], and it's the kind of answer most candidates can't give.
+This is straight from [[frontend/frameworks/gsap/07-performance-and-gotchas|the GSAP performance note]], and it's the kind of answer most candidates can't give.
 
 ---
 
@@ -89,7 +89,7 @@ This is straight from [[frontend/03-gsap/07-performance-and-gotchas|the GSAP per
 
 Then: keyboard navigation for every interactive element, visible focus indicators (don't `outline: none` without a replacement), sufficient colour contrast, labelled form inputs, alt text that conveys purpose, and `prefers-reduced-motion` respected for animation.
 
-**Why beyond compliance:** semantic markup improves SEO, keyboard support helps power users, and `prefers-reduced-motion` prevents genuine harm — vestibular disorders make parallax and large motion physically nauseating. **In an animation-heavy codebase, honouring `prefers-reduced-motion` is the single highest-value accessibility control**, and it's a one-media-query change. → [[frontend/04-framer-motion/08-performance-and-gotchas|Framer Motion gotchas]]
+**Why beyond compliance:** semantic markup improves SEO, keyboard support helps power users, and `prefers-reduced-motion` prevents genuine harm — vestibular disorders make parallax and large motion physically nauseating. **In an animation-heavy codebase, honouring `prefers-reduced-motion` is the single highest-value accessibility control**, and it's a one-media-query change. → [[frontend/frameworks/framer-motion/08-performance-and-gotchas|Framer Motion gotchas]]
 
 ---
 

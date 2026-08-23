@@ -11,5 +11,5 @@ General engineering practices that apply regardless of language or framework —
 
 ## Related
 - [[backend/README|backend concepts]]
-- [[concepts/02-frontend/README|frontend concepts]]
+- [[frontend/README|frontend concepts]]
 - [[git/README|the git course]]
