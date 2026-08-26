@@ -53,7 +53,7 @@ def groupAnagrams(strs):
 
 ## Why `tuple`, not `list`
 
-A dict key must be **hashable**, which in Python means immutable — a `list` raises `TypeError: unhashable type`, a `tuple` doesn't. This is exactly the hashability constraint from [[03-data-type-classification|data-type-classification]]: a mutable key could change after hashing and corrupt the table.
+A dict key must be **hashable**, which in Python means immutable — a `list` raises `TypeError: unhashable type`, a `tuple` doesn't. This is exactly the hashability constraint from [[foundations/programming-fundamentals/15-how-types-actually-work|data-type-classification]]: a mutable key could change after hashing and corrupt the table.
 
 ## Complexity summary
 

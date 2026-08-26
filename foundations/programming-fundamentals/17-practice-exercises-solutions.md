@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Beginner]** · Worked answers to [[foundations/programming-fundamentals/15-practice-exercises|note 15]]. **Try each first.**
+> **[Beginner]** · Worked answers to [[foundations/programming-fundamentals/16-practice-exercises|note 16]]. **Try each first.**
 
 These explain *why*, not just *what*. Where an exercise has no single right answer, the solution says so and gives you the thing to judge against instead.
 
@@ -313,7 +313,7 @@ Arguments for declarative: no mutable accumulator, expresses *what* rather than 
 **The lesson isn't "declarative good".** It's that you should be able to write both and pick deliberately → [[foundations/programming-fundamentals/14-programming-paradigms|note 14]].
 
 ## Related
-- [[foundations/programming-fundamentals/15-practice-exercises|the exercises]]
+- [[foundations/programming-fundamentals/16-practice-exercises|the exercises]]
 - [[foundations/programming-fundamentals/README|the course]]
 
 *Source: [reference] — written Aug 2026.*

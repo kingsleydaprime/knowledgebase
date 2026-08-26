@@ -86,7 +86,7 @@ print(list1)         # [1, 2, 3, 4]  ← list1 changed too
 
 The fix is an explicit copy when you want one (`list1.copy()`, `[...list1]`, `list(list1)`) — and note that this copies one level. A "shallow" copy of a list of lists still shares the inner lists; a **deep copy** goes all the way down.
 
-**The rule to carry:** *simple values are copied; everything else is shared unless you say otherwise.* This is the root of a large fraction of "why did that change?" bugs, and it's why immutability is treated as a virtue in [[concepts/04-best-practices/README|best practices]].
+**The rule to carry:** *simple values are copied; everything else is shared unless you say otherwise.* (Why languages do this, and the mutable/immutable axis that decides when you can even notice, is [[foundations/programming-fundamentals/15-how-types-actually-work|note 15]].) This is the root of a large fraction of "why did that change?" bugs, and it's why immutability is treated as a virtue in [[concepts/04-best-practices/README|best practices]].
 
 ## Conversion, explicit and otherwise
 
@@ -138,6 +138,7 @@ What actually matters:
 **Naming is genuinely hard and genuinely worth the time.** A well-named variable removes the need for a comment, and it removes the need to reread the code that produced it.
 
 ## Related
+- [[foundations/programming-fundamentals/15-how-types-actually-work|how types actually work]] — **the deeper version of this note**: the bit-level story, and value/reference, mutable/immutable, static/dynamic and strong/weak as four separate questions
 - [[foundations/programming-fundamentals/06-control-flow|control flow]] — making decisions with these values
 - [[foundations/programming-fundamentals/07-collections|collections]] — many values under one name
 - [[foundations/numerical-methods/02-floating-point-and-error|floating point]] — why `0.1 + 0.2` isn't `0.3`
