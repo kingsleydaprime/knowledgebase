@@ -1,6 +1,6 @@
 # Encode and Decode Strings
 
-**LeetCode 271** · Arrays & Hashing · concept: [[02-data-types|data-types]]
+**LeetCode 271** · Arrays & Hashing · concept: [[foundations/programming-fundamentals/15-how-types-actually-work|data-types]]
 
 ## Problem
 
@@ -56,6 +56,6 @@ Both are linear in the total length of all strings — you touch each character 
 **When a delimiter can appear in the data, prefix with a length instead.** "Read the count, then read exactly that many bytes" is *the* framing protocol — it's how HTTP `Content-Length`, TLV (type-length-value) encodings, and most network wire formats delimit variable-length fields. This problem is really a tiny serialization-format design exercise disguised as a string problem.
 
 ## Related
-- concept: [[02-data-types|data-types]] — encoding and representation
+- concept: [[foundations/programming-fundamentals/15-how-types-actually-work|data-types]] — encoding and representation
 - the same "length-prefix a serialization" idea shows up in [[03-hash-maps|hashing]]-based design problems
 - prev: [[005-top-k-frequent-elements|Top K Frequent Elements]] · next: [[007-product-of-array-except-self|Product of Array Except Self]]

@@ -6,7 +6,7 @@ The course's own honest note says it plainly: *"this is a reading course with no
 
 **Use any language.** Examples are in Python because it has the least syntax between you and the idea, but every exercise works in JavaScript, Java, Go or C — and doing a few in a second language is itself exercise 2.
 
-**Work in order.** Several build on earlier output. Solutions in [[foundations/programming-fundamentals/16-practice-exercises-solutions|note 16]] — **genuinely try each one first.** The failures are the lesson; a solution you read is a solution you don't own.
+**Work in order.** Several build on earlier output. Solutions in [[foundations/programming-fundamentals/17-practice-exercises-solutions|note 16]] — **genuinely try each one first.** The failures are the lesson; a solution you read is a solution you don't own.
 
 **Time budget:** the whole set is roughly 8–12 hours. None of it needs anything installed beyond a language and an editor — several work in a browser console.
 
@@ -95,7 +95,7 @@ Take a list of order records and compute the total value per customer, twice: on
 Then: [[foundations/dsa/README|DSA]] for efficiency, or [[languages/06-python/README|Python]] to go deep in one language.
 
 ## Related
-- [[foundations/programming-fundamentals/16-practice-exercises-solutions|Solutions]] — after you've tried
+- [[foundations/programming-fundamentals/17-practice-exercises-solutions|Solutions]] — after you've tried
 - [[foundations/programming-fundamentals/README|the course]]
 - [[learning/06-ai-as-sparring-partner|AI as sparring partner]] — **how to use an LLM on these without wasting them**
 

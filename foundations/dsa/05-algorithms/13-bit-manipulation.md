@@ -1,6 +1,6 @@
 # Bit Manipulation
 
-Bit manipulation operates on the individual binary digits of an integer directly, using the bitwise operators. It shows up in interviews as a category of its own because a handful of tricks turn problems that look like they need extra space or a full pass into O(1)-space, single-expression solutions — and because the underlying representation ([[foundations/dsa/02-data-types|how integers are stored as bits]]) is fair game to test.
+Bit manipulation operates on the individual binary digits of an integer directly, using the bitwise operators. It shows up in interviews as a category of its own because a handful of tricks turn problems that look like they need extra space or a full pass into O(1)-space, single-expression solutions — and because the underlying representation ([[foundations/programming-fundamentals/15-how-types-actually-work|how integers are stored as bits]]) is fair game to test.
 
 ## The operators
 
@@ -74,6 +74,6 @@ Most bit tricks are **O(1) time and O(1) space** (fixed 32/64-bit width), or O(b
 - **Don't reach for bit tricks first** — they're O(1)-space wins on specific structure, not a general tool; a hash map is clearer when space isn't the constraint.
 
 ## Related
-- [[foundations/dsa/02-data-types|Data types]] — two's complement, how integers are bits
+- [[foundations/programming-fundamentals/15-how-types-actually-work|Data types]] — two's complement, how integers are bits
 - [[foundations/dsa/06-patterns/15-dynamic-programming|Dynamic programming]] — Counting Bits recurrence; bitmask DP
 - [[07-number-theory-basics|Number theory]] — the arithmetic cousin (GCD, primality, modular math)

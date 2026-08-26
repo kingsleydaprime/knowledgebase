@@ -2,7 +2,7 @@
 
 The on-ramp. **For someone who has never written code** — the concepts that are the same in every language, before any language.
 
-**~19,400 words across 16 notes.** Built August 2026. `[reference]`.
+**~21,000 words across 17 notes.** Built August 2026. `[reference]`.
 
 > **The one idea:** a computer has no judgement. Everything in this course is a technique for being completely explicit without the instructions becoming unmanageably long — and every one of them is the same move: **make a thing, name it, then reason with the name instead of the contents.**
 
@@ -36,10 +36,12 @@ It is **deliberately language-agnostic**. Examples appear in Python, JavaScript 
 13. [[foundations/programming-fundamentals/13-objects-and-classes|Objects and Classes]] — **[Beginner → Intermediate]** — encapsulation, inheritance, polymorphism, **why "prefer composition over inheritance" is near-unanimous**, and where OOP stops being the answer
 14. [[foundations/programming-fundamentals/14-programming-paradigms|Programming Paradigms]] — **[Beginner → Intermediate]** — imperative vs declarative, expressions vs statements, the four styles, and **the one heuristic worth more than the taxonomy**
 
-**Then the reps.** 01–14 are reading; **this is where it becomes a skill.**
+15. [[foundations/programming-fundamentals/15-how-types-actually-work|How Types Actually Work]] — **[Beginner → Intermediate]** — the layer under note 05: **why the same 32 bits are an integer, a float or four letters depending only on the type**, and the five independent questions hiding inside the phrase "data type"
 
-15. [[foundations/programming-fundamentals/15-practice-exercises|Practice Exercises]] — **[Beginner]** — sixteen exercises, any language, ~8–12 hours. Each reproduces a real behaviour rather than describing it
-16. [[foundations/programming-fundamentals/16-practice-exercises-solutions|Solutions]] — worked answers with the reasoning, **after you've tried**
+**Then the reps.** 01–15 are reading; **this is where it becomes a skill.**
+
+16. [[foundations/programming-fundamentals/16-practice-exercises|Practice Exercises]] — **[Beginner]** — sixteen exercises, any language, ~8–12 hours. Each reproduces a real behaviour rather than describing it
+17. [[foundations/programming-fundamentals/17-practice-exercises-solutions|Solutions]] — worked answers with the reasoning, **after you've tried**
 
 ## The things worth carrying
 
@@ -73,7 +75,7 @@ It is **deliberately language-agnostic**. Examples appear in Python, JavaScript 
 | [[git/README\|git/]] | Start on your first project, not your fifth |
 | [[using-ai/README\|using-ai/]] | The parallel on-ramp, and note 12's position on not outsourcing the learning |
 | [[foundations/compilers/README\|compilers]] · [[foundations/computer-architecture/README\|architecture]] | What's underneath — **much later** |
-| [[project-ideas\|project ideas]] · [[build-your-own-x/README\|build your own X]] | Where reading stops |
+| [[project-ideas\|project ideas]] · [[build-your-own-shit/README\|build your own shit]] | Where reading stops |
 
 ## The honest note
 
