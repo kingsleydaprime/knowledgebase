@@ -35,7 +35,7 @@ Good first projects share three properties: **you can describe them in one sente
 
 **Then extend the one you built.** Add persistence. Add error handling for every bad input you can think of. Add tests. Give it a config file. **Extending an existing project teaches you more than starting a new one**, because you're forced to read and modify code — which is the actual job → [[foundations/software-engineering/01-what-software-engineering-is|where the time goes]].
 
-When you want bigger, the vault has two lists: [[project-ideas|project ideas]] across every domain, and [[build-your-own-x/README|build your own X]] for when you want to build the tools themselves.
+When you want bigger, the vault has two lists: [[project-ideas|project ideas]] across every domain, and [[build-your-own-shit/README|build your own shit]] for when you want to build the tools themselves.
 
 ## Practise deliberately, but don't mistake it for building
 
@@ -76,7 +76,7 @@ Once you can build small things unaided, the vault opens up:
 | **Any direction at all** | [[PRIMETECHIE|the Primetechie path]] — a tiered progression through everything |
 | A specific language, properly | [[languages/README|languages/]] |
 | Web servers, APIs, databases | [[backend/README|backend]] |
-| Browsers, interfaces | [[frontend/README|frontend]] · [[concepts/02-frontend/README|frontend concepts]] |
+| Browsers, interfaces | [[frontend/README|frontend]] · [[frontend/README|frontend concepts]] |
 | Efficiency, interviews | [[foundations/dsa/README|DSA]] |
 | Data, models | [[ai-ml/README|AI & ML]] |
 | Servers, deployment, cloud | [[devops/README|devops]] |
@@ -95,7 +95,7 @@ Once you can build small things unaided, the vault opens up:
 
 ## Related
 - [[project-ideas|project ideas]] — the vault's build list, tiered
-- [[build-your-own-x/README|build your own X]] — where reading stops
+- [[build-your-own-shit/README|build your own shit]] — where reading stops
 - [[PRIMETECHIE|the Primetechie path]] — an order to do all of this in
 - [[learning/README|how I learn]] — the method
 - [[foundations/software-engineering/README|software engineering]] — what this becomes professionally

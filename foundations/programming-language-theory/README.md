@@ -51,7 +51,7 @@ Studying languages as mathematical objects — what a program *means*, and what 
 
 **What would close the gap, and the first item is the one that matters:**
 
-1. **Write a type checker.** [[build-your-own-x/04-your-own-language|Your own language]] with a type checker instead of a bare interpreter — **implement the inference rules from note 04 and watch them work.** A few hundred lines, and it makes the notation concrete permanently
+1. **Write a type checker.** [[build-your-own-shit/04-your-own-language|Your own language]] with a type checker instead of a bare interpreter — **implement the inference rules from note 04 and watch them work.** A few hundred lines, and it makes the notation concrete permanently
 2. **Implement Hindley–Milner.** Unification plus generalisation is ~200 lines and genuinely satisfying when it infers a type you didn't expect
 3. **[*Software Foundations*](https://softwarefoundations.cis.upenn.edu)** — free, interactive, in Coq. **Proves the theorems in note 04 by making *you* prove them.** The best entry point into the subject by a distance
 4. **Lean's [Natural Number Game](https://adam.math.hhu.de)** — a browser game that teaches proof, and it will not let you skip a step

@@ -109,5 +109,5 @@ These notes cover what's specific to *this* vault and what was non-obvious in pr
 - [[tools/quartz/02-configuration|Configuration]] — the YAML this pipeline reads
 - [[tools/quartz/04-layout-and-components|Layout and Components]] — how the emit stage assembles a page
 - [[tools/quartz/06-publishing-this-vault|Publishing This Vault]] — the deploy side
-- [[frontend/02-next/README|Next.js]] — the same static-generation idea, with a runtime attached
+- [[frontend/frameworks/next/README|Next.js]] — the same static-generation idea, with a runtime attached
 - [[tools/quartz/README|Quartz notes]]

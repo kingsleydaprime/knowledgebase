@@ -50,7 +50,7 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 
 | Need | Already here |
 |---|---|
-| UI, state, components | [[frontend/README\|frontend]] · [[concepts/02-frontend/README\|frontend concepts]] |
+| UI, state, components | [[frontend/README\|frontend]] · [[frontend/README\|frontend concepts]] |
 | The backend/business layer | [[backend/README\|backend]] |
 | Local storage | [[databases/README\|databases]] — SQLite is the usual answer |
 | Packaging, signing, CI releases | [[devops/06-ci-cd/README\|CI/CD]] |

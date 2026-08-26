@@ -51,7 +51,7 @@ the reference; each file links across.
 | File | Covers |
 |---|---|
 | [frontend/01-foundations.md](frontend/01-foundations.md) | TypeScript for React, React fundamentals, JSX |
-| [frontend/02-nextjs-app-router.md](frontend/02-nextjs-app-router.md) | App Router, route groups, server vs client, `@/` alias |
+| [frontend/frameworks/nextjs-app-router.md](frontend/frameworks/nextjs-app-router.md) | App Router, route groups, server vs client, `@/` alias |
 | [frontend/03-styling-and-ui.md](frontend/03-styling-and-ui.md) | Tailwind v4, shadcn/ui, dark mode |
 | [frontend/04-architecture.md](frontend/04-architecture.md) | `features/` structure, navigation, adding a feature |
 | [frontend/05-data-fetching.md](frontend/05-data-fetching.md) | TanStack Query v5, polling background jobs, payload discipline |

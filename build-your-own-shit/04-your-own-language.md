@@ -239,5 +239,5 @@ You'll have learned:
 ## Related
 - [[foundations/compilers/README|Compilers]] — the whole domain, written to unblock this
 - [[foundations/compilers/03-parsing|Parsing]] · [[foundations/compilers/09-bytecode-and-virtual-machines|Bytecode VMs]] · [[foundations/compilers/10-garbage-collection|GC]]
-- [[build-your-own-x/06-your-own-database|Your Own Database]] — reuses the parser for SQL
-- [[build-your-own-x/README|build-your-own-x]]
+- [[build-your-own-shit/06-your-own-database|Your Own Database]] — reuses the parser for SQL
+- [[build-your-own-shit/README|build-your-own-shit]]

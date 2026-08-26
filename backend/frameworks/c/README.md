@@ -22,7 +22,7 @@ Microsoft and Google both report **~70% of their CVEs are memory-safety bugs**, 
 The cases where it's a real answer:
 - **Embedding HTTP in an existing C codebase** — firmware, a device's config UI, a game engine's debug server. The strongest case, and it's about avoiding a second runtime rather than about HTTP
 - **Extremely constrained targets** where no other toolchain exists
-- **Learning** — writing one from `socket()` up teaches you more than any framework will → [[BUILD-PLAN|build-your-own-x]]
+- **Learning** — writing one from `socket()` up teaches you more than any framework will → [[BUILD-PLAN|build-your-own-shit]]
 
 If the reason is an existing native codebase, look at [[backend/frameworks/cpp/README|C++]] first — RAII, `std::string` and a real JSON layer remove most of note 02's difficulty.
 

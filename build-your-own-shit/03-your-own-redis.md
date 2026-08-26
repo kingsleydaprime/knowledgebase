@@ -14,7 +14,7 @@ A server speaking the Redis protocol, holding data in memory, supporting the cor
 
 | You should know | Where |
 |---|---|
-| **Sockets and an accept loop** | [[build-your-own-x/01-http-server\|guide 01]] — build that first |
+| **Sockets and an accept loop** | [[build-your-own-shit/01-http-server\|guide 01]] — build that first |
 | **Hash maps** — what they cost and why | [[foundations/dsa/04-data-structures/03-hash-maps\|dsa/03-hash-maps]] |
 | **Event loops** — `epoll`/`kqueue` | [[foundations/os/08-io-models\|os/08]] |
 | **`fsync` and durability** | [[foundations/os/07-filesystems-and-storage\|os/07]] — **the AOF milestone depends on this** |
@@ -113,7 +113,7 @@ Now serve many clients. Options:
 
 **Test:** several `redis-cli` sessions at once. `redis-benchmark -p 6379 -t set,get -n 10000`.
 
-**Watch for:** with an event loop you need the per-connection buffer state from [[build-your-own-x/01-http-server|the HTTP guide]] — a command may arrive across several reads. Pipelining makes this sharper: a client can send ten commands before reading any reply, so **parse and execute every complete command in the buffer, not just the first.**
+**Watch for:** with an event loop you need the per-connection buffer state from [[build-your-own-shit/01-http-server|the HTTP guide]] — a command may arrive across several reads. Pipelining makes this sharper: a client can send ten commands before reading any reply, so **parse and execute every complete command in the buffer, not just the first.**
 
 ### 6. More data types
 
@@ -260,8 +260,8 @@ Compare behaviour against real Redis for edge cases — `GET` on a missing key, 
 ---
 
 ## Related
-- [[build-your-own-x/01-http-server|Build Your Own HTTP Server]] — do this first
+- [[build-your-own-shit/01-http-server|Build Your Own HTTP Server]] — do this first
 - [[foundations/os/07-filesystems-and-storage|Filesystems and Storage]] — the `fsync` milestone
 - [[foundations/os/08-io-models|I/O Models]] — the event loop
 - [[architecture/02-building-blocks/02-caching|Caching]] — what you're building, conceptually
-- [[build-your-own-x/README|build-your-own-x]]
+- [[build-your-own-shit/README|build-your-own-shit]]

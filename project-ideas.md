@@ -31,18 +31,18 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 ## ⭐ Build-Your-Own — systems mastery
 *The deepest reps in the vault. Each one turns a whole topic from words into bone-deep understanding.*
 
-> **These now have full build guides in [[build-your-own-x/README|build-your-own-x/]]** — numbered milestones, each independently testable, with per-language toolkits and a "where to stop". Read the guide rather than this list; the entries below are the one-line pitch and the difficulty rating.
+> **These now have full build guides in [[build-your-own-shit/README|build-your-own-shit/]]** — numbered milestones, each independently testable, with per-language toolkits and a "where to stop". Read the guide rather than this list; the entries below are the one-line pitch and the difficulty rating.
 
 | | Guide | Why |
 |---|---|---|
-| 🟠 | [[build-your-own-x/01-http-server\|HTTP server]] | **Start here.** A weekend; a real browser is the test |
-| 🟠 | [[build-your-own-x/07-your-own-shell\|Shell]] | The smallest one that teaches the most — `fork`/`exec`, fds, pipes |
-| 🟠 | [[build-your-own-x/08-your-own-container\|Container]] | ~200 lines, one evening, and Docker stops being magical |
-| 🔴 | [[build-your-own-x/02-your-own-git\|Git]] | Real Git reads your repository. Permanently demystifies it |
-| 🔴 ⭐ | [[build-your-own-x/03-your-own-redis\|Redis]] | Data structures + networking + durability. The real `redis-cli` connects |
-| 🔴 | [[build-your-own-x/04-your-own-language\|Language / interpreter]] | The deepest single lesson. → [[foundations/compilers/README\|compilers]] is the course behind it |
-| 🔴 | [[build-your-own-x/06-your-own-database\|Database]] | B-tree, SQL subset, WAL. `kill -9` mid-write and the data survives |
-| 🔴 | [[build-your-own-x/05-your-own-os\|Operating system]] | Weeks, not a weekend. Boots from a USB stick → [[foundations/os/README\|os]] |
+| 🟠 | [[build-your-own-shit/01-http-server\|HTTP server]] | **Start here.** A weekend; a real browser is the test |
+| 🟠 | [[build-your-own-shit/07-your-own-shell\|Shell]] | The smallest one that teaches the most — `fork`/`exec`, fds, pipes |
+| 🟠 | [[build-your-own-shit/08-your-own-container\|Container]] | ~200 lines, one evening, and Docker stops being magical |
+| 🔴 | [[build-your-own-shit/02-your-own-git\|Git]] | Real Git reads your repository. Permanently demystifies it |
+| 🔴 ⭐ | [[build-your-own-shit/03-your-own-redis\|Redis]] | Data structures + networking + durability. The real `redis-cli` connects |
+| 🔴 | [[build-your-own-shit/04-your-own-language\|Language / interpreter]] | The deepest single lesson. → [[foundations/compilers/README\|compilers]] is the course behind it |
+| 🔴 | [[build-your-own-shit/06-your-own-database\|Database]] | B-tree, SQL subset, WAL. `kill -9` mid-write and the data survives |
+| 🔴 | [[build-your-own-shit/05-your-own-os\|Operating system]] | Weeks, not a weekend. Boots from a USB stick → [[foundations/os/README\|os]] |
 
 **Not yet a guide, and the best distributed-systems project there is:**
 
@@ -151,6 +151,23 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
 
 ---
 
+## Game Development — the reps that are their own portfolio
+*⚠️ **Notes exist, reps don't** — [[game-development/README|game-development/]]. **The one domain where finishing is the whole skill**, and where a shipped 48-hour jam entry outperforms a polished unfinished thing. Free: Godot (MIT), itch.io hosting, Ludum Dare/GMTK jams.*
+
+- 🟢 ⭐ **Do a game jam.** Ludum Dare, GMTK, or any of the hundreds on itch.io. A theme, 48 hours, ship something. **The single highest-value item in this section** — it forces scope discipline and an actual finish line, and produces a public artefact with feedback from strangers → [[game-development/08-getting-started|08]].
+- 🟢 **Ship Pong, then Breakout.** Two weekends, publicly on itch.io. Menus, sound, a build someone else can run. **The last 20% is where the learning is** → [[game-development/08-getting-started|the ladder]].
+- 🟢 **Write a shader that colours a surface by its normal**, then by a light direction. Ten lines on Shadertoy. **It demystifies the whole of graphics** → [[foundations/computer-graphics/10-practice-exercises|graphics exercise 1]].
+- 🟢 **Implement Euler integration and watch a pendulum gain energy**, then change two lines to semi-implicit and watch it stop. **Ten minutes, and note 04's central claim becomes a memory** → [[game-development/04-game-physics|04]].
+- 🟡 **A platformer with good feel** — coyote time, jump buffering, variable jump height, all hand-authored rather than physics-driven. **Feel is a real, teachable skill and it's what interviews ask about** → [[game-development/04-game-physics|04]].
+- 🟡 **Profile a frame with RenderDoc.** Capture, find where 16 ms goes, fix one thing, re-measure. **Seeing the budget is worth more than reading about it** → [[game-development/03-graphics-for-games|03]].
+- 🟡 **A top-down roguelike** — enemy state machines, A\* pathfinding on a navmesh or grid, procedural levels → [[game-development/05-game-ai|05]].
+- 🔴 ⭐ **Build a 2D engine from scratch and ship one small game with it.** Window, fixed-timestep loop, sprite renderer, collision, audio. **The game is what forces you to build the parts engine projects skip** → [[game-development/engines/from-scratch|from-scratch]].
+- 🔴 **Networked multiplayer for a simple game** — client prediction, server reconciliation, entity interpolation. **The hardest common problem in the field**; do it after something simpler ships → [[game-development/06-multiplayer-and-networking|06]].
+
+**If you do one:** the game jam. It tests scope, finishing, and whether you actually enjoy this — for the price of a weekend, before you commit years.
+
+---
+
 ## Numerical methods & information theory — short scripts, real insight
 *⚠️ **Notes exist, reps don't** — [[foundations/numerical-methods/README|numerical methods]] and [[foundations/information-theory/README|information theory]]. Every one of these is under 50 lines.*
 
@@ -174,7 +191,7 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
 - 🟢 **Demonstrate false sharing** — two threads incrementing adjacent array elements, then padded to 64 bytes. **Watch a parallel program get faster by adding memory** → [[foundations/computer-architecture/09-caches-in-depth|caches]].
 - 🟡 ⭐ **Matrix multiply, three ways** — naive, loop-interchanged, blocked. Measure each. **A 10× spread from reordering identical arithmetic** is the single best demonstration of [[foundations/computer-architecture/08-the-memory-hierarchy|the memory hierarchy]].
 - 🟡 **Prove three things on paper** — $\{a^nb^n\}$ isn't regular, the halting problem is undecidable, one NP-completeness reduction. **Reading a proof and producing one are different skills** → [[foundations/discrete-math/03-proof-techniques|proof techniques]].
-- 🟡 ⭐ **Build a regex engine** — Thompson's construction → subset construction → simulate the DFA. A few hundred lines, and it makes [[foundations/theory-of-computation/02-finite-automata|the regex/NFA/DFA equivalence]] concrete. **This is the missing ninth guide in [[build-your-own-x/README|build-your-own-x]].**
+- 🟡 ⭐ **Build a regex engine** — Thompson's construction → subset construction → simulate the DFA. A few hundred lines, and it makes [[foundations/theory-of-computation/02-finite-automata|the regex/NFA/DFA equivalence]] concrete. **This is the missing ninth guide in [[build-your-own-shit/README|build-your-own-shit]].**
 - 🔴 **Write a SAT solver** — DPLL is short; adding clause learning makes it genuinely useful. The best way to understand why [[foundations/theory-of-computation/07-complexity-classes|NP-completeness]] is survivable in practice.
 - 🔴 **Lean's Natural Number Game, then a real proof in Lean** — a proof assistant will not let you skip a step, which is exactly the discipline reading proofs doesn't build.
 

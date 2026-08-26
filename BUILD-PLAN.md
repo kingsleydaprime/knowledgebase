@@ -2,9 +2,9 @@
 
 The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest about what each batch costs. Tick things off as they land.
 
-**Current state:** 1,085 notes, ~1,246,000 words (Phase 5j, 2026-08-23). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
+**Current state:** 1,086 notes, ~1,247,000 words (Phase 5k, 2026-08-24). This plan adds roughly **110 notes** on the core path, plus **~48** if the CS-theory gaps are folded in.
 
-> **The standing caveat:** almost everything below will be marked `[reference]` — written from sources, not from having built the thing. That's the vault's convention and it should stay visible. [[PRIMETECHIE|Reading is not a rank.]] The `build-your-own-x/` phase exists specifically to convert some of it into the other kind.
+> **The standing caveat:** almost everything below will be marked `[reference]` — written from sources, not from having built the thing. That's the vault's convention and it should stay visible. [[PRIMETECHIE|Reading is not a rank.]] The `build-your-own-shit/` phase exists specifically to convert some of it into the other kind.
 
 ---
 
@@ -18,16 +18,16 @@ The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest a
 - [x] `backend/frameworks/` — go (6), rust (6), c (4), cpp (5) + READMEs, ~31,000 words
 - [x] `foundations/os/` — 12 notes, ~17,000 words
 - [x] `foundations/compilers/` — 11 notes, ~16,500 words
-- [x] `build-your-own-x/` batch 1 — http-server, git, shell + README, ~6,800 words
-- [x] `build-your-own-x/` batch 2 — redis, language, database, ~6,300 words
-- [x] `build-your-own-x/` batch 3 — os, container, ~4,400 words. **All 8 guides written; Phase 2 complete**
+- [x] `build-your-own-shit/` batch 1 — http-server, git, shell + README, ~6,800 words
+- [x] `build-your-own-shit/` batch 2 — redis, language, database, ~6,300 words
+- [x] `build-your-own-shit/` batch 3 — os, container, ~4,400 words. **All 8 guides written; Phase 2 complete**
 - [x] `engineering/` created (umbrella) + `01-continuum-mechanics/` — 13 notes, ~19,600 words
 
 ---
 
 ## Phase 1 — the systems languages
 
-The order is deliberate: Rust first (already queued), then C, then C++. C before C++ because C++ is only comprehensible as a reaction to C, and both before `build-your-own-x/`, because every build guide there assumes you can read a systems language.
+The order is deliberate: Rust first (already queued), then C, then C++. C before C++ because C++ is only comprehensible as a reaction to C, and both before `build-your-own-shit/`, because every build guide there assumes you can read a systems language.
 
 ### 1.1 `languages/03-rust/` — ✅ **DONE** — README + 18 notes, ~22,000 words
 Ownership and borrowing · lifetimes · traits and generics · `Result`/`Option` and the `?` operator · pattern matching · smart pointers (`Box`/`Rc`/`Arc`/`RefCell`) · interior mutability · `unsafe` and what it actually permits · async/await and the runtime split · cargo, crates, workspaces · macros · testing · error-handling crates (`thiserror`/`anyhow`) · performance and zero-cost abstractions
@@ -50,7 +50,7 @@ Following the [[languages/README|rule]]: frameworks live here, languages live th
 
 ---
 
-## Phase 2 — `build-your-own-x/`
+## Phase 2 — `build-your-own-shit/`
 
 **The point of this folder:** language-agnostic build guides. Each file is *"here is everything you'll meet building this, and the order to build it in"* — not a tutorial in one language. Where a step needs a library, suggest options **per language**.
 
@@ -75,7 +75,7 @@ Following the [[languages/README|rule]]: frameworks live here, languages live th
 - [x] **`07-your-own-shell.md`** ✅ — the best small one. Read-eval loop → tokenising → `fork`/`exec` → redirection → pipes → job control → builtins
 - [x] **`08-your-own-container.md`** ✅ — namespaces → cgroups → chroot/pivot_root → a layered filesystem. Ties [[devops/02-docker/README|Docker]] to what the kernel actually does
 
-Once this folder exists, [[project-ideas|project-ideas.md]]'s "build your own X" tier should link into it rather than duplicating it.
+Once this folder exists, [[project-ideas|project-ideas.md]]'s "build your own shit" tier should link into it rather than duplicating it.
 
 ---
 
@@ -226,7 +226,7 @@ Prompted by a single message naming six directions at once, plus "is the Python 
 Both asked for directly, and both were things the vault had already flagged against itself.
 
 - [x] **`backend/frameworks/csharp/`** — ✅ README + 4 notes, ~3,500 words. **Named in `languages/07-csharp/README`'s own "what's missing"**, and the frameworks map listed seven languages with C# conspicuously absent right after the language course landed. **Flat notes by concern**, per the folder's own folder-vs-flat test: ASP.NET Core is *the* choice, and Minimal APIs vs MVC are two styles within it. Also updated the cross-stack concept table to seven columns
-- [x] **`build-your-own-x/` 10–12** — ✅ ~2,900 words. Chosen against the folder's stated criterion rather than to pad the list:
+- [x] **`build-your-own-shit/` 10–12** — ✅ ~2,900 words. Chosen against the folder's stated criterion rather than to pad the list:
   - **Neural network** — **`ai-ml/` is ~98 notes, the largest domain in the vault, and had no build guide.** The most conspicuous absence
   - **Memory allocator** — best effort-to-insight after the container guide; makes `foundations/os/05` and `languages/04-c` concrete
   - **Physics engine** — completes the game-dev track, and it's the rare project where a wrong integrator is *visually* wrong
@@ -260,7 +260,17 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 **Backend testing was already covered** and did not need adding: [[backend/07-practices/02-testing-a-backend|testing a backend]] (1,600 words — Testcontainers, test-data isolation, time, per-layer, auth, flakiness), [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] for the pyramid and TDD, plus per-language notes in Go, Rust, Java, Python and C#.
 
-**Phase 5j total: 18 files, ~11,600 words**, plus 39 files repointed and 3 indexes rewritten.
+**Phase 5j total: 18 files, ~11,600 words**
+
+### Phase 5k — React guide, and two renames (2026-08-24)
+
+- [x] **`build-your-own-shit/13-your-own-react`** — ✅ ~1,300 words. `createElement` → render → a work loop → **fibers** → the render/commit split → reconciliation and keys → function components → **`useState` via an array and a cursor**. **The payoff is step 8:** put a hook inside an `if` and watch state attach to the wrong slot — the hook rules stop being style and become the only thing keeping that array aligned. Optional step 10 rebuilds it with signals, which makes the React-vs-Solid comparison in `frontend/frameworks/README` something you've felt
+- [x] **`build-your-own-x/` → `build-your-own-shit/`** — ✅ his call, taken with the trade named: the folder is a **public Quartz URL** (`kingsleydaprime.github.io/knowledgebase/build-your-own-shit/`) on a site the hire track plans to link from a CV. **107 paths and 7 display names across 41 files.** Checked first that the string never appears as a substring of anything else and isn't in any config
+- [x] **"Software Engineering — Orientation" → "Introduction to Software Engineering"** — ✅ the domain README title, the root README entry, and **SWE 101's week 1** in the scheme of work. *"Orientation"* described the note's role in the vault; *"Introduction to Software Engineering"* describes what it teaches, which is the right name for the **first topic of the course**
+
+**Phase 5k total: 1 new guide + 2 renames across 45 files.**
+
+- [x] **A table of contents for the scheme of work** — ✅ his observation, and the justification turned out to be structural rather than cosmetic: the file summarised **153 topics with a 12-row block table** and nothing in between, so "where is X taught / when do I hit it" meant scrolling 624 lines. **And the file's own header says "week number = notebook section number" and "index on pages 1–4"** — so the notebook needs an index the source document never produced. **Generated by \** between HTML markers, so it is regenerated rather than hand-maintained and cannot drift from the weeks below it., plus 39 files repointed and 3 indexes rewritten.
 
 **Still open:**  — a course (`01`–`07`) plus `frontend/frameworks/{react,next,css}`, mirroring `backend/`. **The bigger half of that is a *move*, not new writing**: ~44,000 words of React/Next material currently sit in `projects/`, indexed only by `frontend/README`. That's a findability problem, and it's the next batch. Combined 5d+5e: **22 notes, ~29,000 words**, and **no domain README now names exercises as missing.** The standing caveat applies harder than usual to the last one — three of its four notes are organisational disciplines, and a solo project has no dev/ops wall, no ticket queue and no on-call rotation to validate them against.
 
@@ -278,15 +288,15 @@ Each line is roughly one working session.
 | ~~4~~ | ~~`backend/frameworks/`~~ ✅ | 21 |
 | ~~5~~ | ~~`foundations/os/`~~ ✅ | 12 |
 | ~~6~~ | ~~`foundations/compilers/`~~ ✅ | 11 |
-| ~~7~~ | ~~`build-your-own-x/` — 01, 02, 07~~ ✅ | 3 |
-| ~~8~~ | ~~`build-your-own-x/` — 03, 04, 06~~ ✅ | 3 |
-| ~~9~~ | ~~`build-your-own-x/` — 05, 08~~ ✅ | 2 |
+| ~~7~~ | ~~`build-your-own-shit/` — 01, 02, 07~~ ✅ | 3 |
+| ~~8~~ | ~~`build-your-own-shit/` — 03, 04, 06~~ ✅ | 3 |
+| ~~9~~ | ~~`build-your-own-shit/` — 05, 08~~ ✅ | 2 |
 | ~~10~~ | ~~`engineering/01-continuum-mechanics/`~~ ✅ | 13 |
 | ~~11~~ | ~~`engineering/02-control-theory/`~~ ✅ | 13 |
 | ~~12~~ | ~~`robotics/` buildout~~ ✅ | 14 |
 | ~~13~~ | ~~*optional* — theory of computation, computer architecture, discrete math~~ ✅ | 28 |
 
-Batches 5 and 6 are inserted before `build-your-own-x/` because the OS and compilers guides are blocked without them. Everything else follows the order requested.
+Batches 5 and 6 are inserted before `build-your-own-shit/` because the OS and compilers guides are blocked without them. Everything else follows the order requested.
 
 **PHASES 0–4 COMPLETE (2026-08-16); Phase 5 added and completed 2026-08-22.** Phase 4 was added from a re-audit of every README's own stated-gaps section — the three long-deferred subjects, plus numerical methods and GPU/parallel computing, which turned out to be more load-bearing than any of them. **All five were built in dependency order in one session: 40 notes, ~59,000 words.**
 

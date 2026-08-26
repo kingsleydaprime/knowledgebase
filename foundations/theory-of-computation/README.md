@@ -53,7 +53,7 @@ The facts are memorable and cheap — "HTML isn't regular", "SAT is NP-complete"
 **What would close the gap, cheaply:**
 
 - **Prove three things from scratch:** $\{a^nb^n\}$ isn't regular, the halting problem is undecidable, and one NP-completeness reduction (VERTEX COVER from 3-SAT is the standard first). An afternoon with paper
-- **Build a regex engine** — Thompson's construction, then subset construction. **A few hundred lines, and it makes the equivalences concrete.** It's the natural companion to [[build-your-own-x/README|build-your-own-x]], and arguably belongs there
+- **Build a regex engine** — Thompson's construction, then subset construction. **A few hundred lines, and it makes the equivalences concrete.** It's the natural companion to [[build-your-own-shit/README|build-your-own-shit]], and arguably belongs there
 - **Write a SAT solver.** DPLL is surprisingly short; adding clause learning turns it into something that actually works
 - **Sipser's *Introduction to the Theory of Computation*** — the standard text, and unusually well written. Papadimitriou for complexity, Arora–Barak for the modern treatment
 

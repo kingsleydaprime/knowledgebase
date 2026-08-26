@@ -145,7 +145,7 @@ ltrace ./myprogram           # library calls instead
 
 > **The best way to learn this is not to read about it.** *Operating Systems: Three Easy Pieces* (free online) plus writing a toy shell, a toy allocator, and a toy scheduler teaches more than any set of notes — including these.
 
-These notes exist so the vocabulary is in place and the cross-domain links work. The [[BUILD-PLAN|build-your-own-x]] guides for a shell and an OS are where this becomes knowledge. [[PRIMETECHIE|Reading is not a rank.]]
+These notes exist so the vocabulary is in place and the cross-domain links work. The [[BUILD-PLAN|build-your-own-shit]] guides for a shell and an OS are where this becomes knowledge. [[PRIMETECHIE|Reading is not a rank.]]
 
 ---
 

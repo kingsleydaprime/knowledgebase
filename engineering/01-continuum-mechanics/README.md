@@ -61,11 +61,11 @@ That gap matters more than the equivalent gap in a software domain, because the 
 
 Treat this as a map of the vocabulary and the structure of the arguments — enough to read a paper, follow a derivation, or notice which assumption a textbook is quietly making. Not a substitute for a course with problem sets. → [[PRIMETECHIE|Reading is not a rank.]]
 
-**A build project would help**: writing a small 2D linear-elastic FE solver — element stiffness, assembly, boundary conditions, solve — is a few hundred lines and would remove the black box permanently. That's a genuine gap in [[build-your-own-x/README|build-your-own-x]].
+**A build project would help**: writing a small 2D linear-elastic FE solver — element stiffness, assembly, boundary conditions, solve — is a few hundred lines and would remove the black box permanently. That's a genuine gap in [[build-your-own-shit/README|build-your-own-shit]].
 
 ## Related
 - [[engineering/README|Engineering]] — the umbrella
 - [[engineering/02-control-theory/README|Control Theory]] — the other track: controlling the systems this one describes
 - [[hardware/README|Hardware & Embedded]] — the electronics layer beside this one
 - [[robotics/README|Robotics]] — where mechanics and control meet
-- [[build-your-own-x/README|build-your-own-x]] — where an FE solver would go
+- [[build-your-own-shit/README|build-your-own-shit]] — where an FE solver would go

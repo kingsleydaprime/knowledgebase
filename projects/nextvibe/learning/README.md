@@ -15,7 +15,7 @@
 
 ## Frontend
 1. [[projects/nextvibe/learning/frontend/01-routing|01 — Routing]]
-2. [[projects/nextvibe/learning/frontend/02-state-management|02 — State Management]] → [[concepts/02-frontend/02-state-management|state management]]
+2. [[projects/nextvibe/learning/frontend/02-state-management|02 — State Management]] → [[frontend/04-state-and-data/01-state-management|state management]]
 3. [[projects/nextvibe/learning/frontend/03-auth|03 — Auth]]
 4. [[projects/nextvibe/learning/frontend/04-forms-ui|04 — Forms & UI]]
 5. [[projects/nextvibe/learning/frontend/05-uploads-errors|05 — Uploads & Errors]]

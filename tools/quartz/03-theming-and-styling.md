@@ -134,5 +134,5 @@ catch(e){ console.error('SCSS ERROR:', e.message); process.exit(1); }"
 ## Related
 - [[tools/quartz/05-the-graph-view|The Graph View]] — the component most affected by these variables
 - [[tools/quartz/02-configuration|Configuration]] — where the theme block lives
-- [[frontend/01-react/README|React]] — the component model Preact mirrors
+- [[frontend/frameworks/react/README|React]] — the component model Preact mirrors
 - [[tools/quartz/README|Quartz notes]]

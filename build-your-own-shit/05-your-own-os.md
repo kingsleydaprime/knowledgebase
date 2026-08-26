@@ -248,7 +248,7 @@ What each level teaches you:
 
 **If you continue:** the most rewarding next steps are a **keyboard-driven shell** running as a user process (it makes the whole thing feel like a computer), then **SMP** (bringing up the other cores is a satisfying, well-defined problem).
 
-This is the natural endpoint of [[build-your-own-x/07-your-own-shell|the shell guide]] — there you called `fork` and `exec`; here you implement them.
+This is the natural endpoint of [[build-your-own-shit/07-your-own-shell|the shell guide]] — there you called `fork` and `exec`; here you implement them.
 
 ---
 
@@ -257,4 +257,4 @@ This is the natural endpoint of [[build-your-own-x/07-your-own-shell|the shell g
 - [[foundations/os/04-virtual-memory|Virtual Memory]] — the hardest milestone
 - [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — milestones 2, 3 and 8
 - [[languages/04-c/README|C]] — the language most of this is written in
-- [[build-your-own-x/README|build-your-own-x]]
+- [[build-your-own-shit/README|build-your-own-shit]]

@@ -1,7 +1,7 @@
 # SocioBoom Frontend — Foundations: TypeScript, React & JSX
 
 Split out from the original flat `frontend-learning.md` (moved to `learning/archive/`). See also
-`learning/frontend/02-nextjs-app-router.md` (the framework these fundamentals sit inside),
+`learning/frontend/frameworks/nextjs-app-router.md` (the framework these fundamentals sit inside),
 `learning/frontend/03-styling-and-ui.md` (how these components get styled), and
 `learning/backend/01-foundations.md` (the TypeScript notes that overlap on the server side).
 

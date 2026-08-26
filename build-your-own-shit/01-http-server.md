@@ -255,4 +255,4 @@ The natural follow-on from here is **your own Redis** (guide 03, planned) — sa
 - [[foundations/os/08-io-models|I/O Models]] — blocking, epoll, io_uring
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|C: The Accept Loop]] — milestone 8 in depth
 - [[backend/frameworks/c/02-parsing-http-safely|C: Parsing HTTP Safely]] — read before milestone 2 if you're in C
-- [[build-your-own-x/README|build-your-own-x]]
+- [[build-your-own-shit/README|build-your-own-shit]]

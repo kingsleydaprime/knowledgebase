@@ -65,7 +65,7 @@ A sweep in **August 2026** measured every project topic against the course folde
 
 **This is not a filing error, and the fix is not "move it."** A project note teaches a topic *as it showed up*, with the real bug attached — often better than a standalone note. The failure is only that it was **unfindable from the course structure**, so a reader concluded the vault had nothing on Next.js when it has 44,000 words.
 
-Two of these are now fixed by indexing rather than moving: [[frontend/README|frontend]] carries a full topic→project table, as do [[frontend/01-react/README|01-react]] and [[frontend/02-next/README|02-next]]. The rest are still only reachable from this page.
+Two of these are now fixed by indexing rather than moving: [[frontend/README|frontend]] carries a full topic→project table, as do [[frontend/frameworks/react/README|01-react]] and [[frontend/frameworks/next/README|02-next]]. The rest are still only reachable from this page.
 
 **Worth a real course eventually:** money/ledgers and realtime are both large, general, and genuinely absent — they'd sit in [[backend/README|backend/]] as `08-realtime` and a financial-systems section. Mobile would be a new `frontend/06-react-native/`. Do the distillation when you next touch that code, not as a documentation project.
 

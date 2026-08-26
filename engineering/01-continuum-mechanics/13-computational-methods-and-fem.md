@@ -149,7 +149,7 @@ In rough order of frequency:
 
 **Learning recommendation:** **FEniCS** lets you write the weak form in near-mathematical notation and get a solution, which makes the connection between the theory and the code unusually direct. Or write a small 2D linear-elastic FE solver yourself — element stiffness, assembly, boundary conditions, solve. It's a few hundred lines and it removes the black box permanently.
 
-That project would fit the [[build-your-own-x/README|build-your-own-x]] format well, and it's a genuine gap in this vault.
+That project would fit the [[build-your-own-shit/README|build-your-own-shit]] format well, and it's a genuine gap in this vault.
 
 ## The honest note
 

@@ -24,7 +24,7 @@ NestJS + Prisma backend with a React Native app. **Notable for holding the deepe
 
 ## Mobile (React Native)
 1. [[projects/arete/learning/mobile/01-react-native-fundamentals|01 — React Native Fundamentals]]
-2. [[projects/arete/learning/mobile/02-navigation-and-state|02 — Navigation & State]] → [[concepts/02-frontend/02-state-management|state management]]
+2. [[projects/arete/learning/mobile/02-navigation-and-state|02 — Navigation & State]] → [[frontend/04-state-and-data/01-state-management|state management]]
 3. [[projects/arete/learning/mobile/03-api-layer|03 — API Layer]] → [[backend/02-api-design/01-apis-and-rest|APIs]]
 4. [[projects/arete/learning/mobile/04-ui-patterns-from-arete-screens|04 — UI Patterns]]
 5. [[projects/arete/learning/mobile/05-push-notifications-and-advanced-topics|05 — Push Notifications & Advanced Topics]]

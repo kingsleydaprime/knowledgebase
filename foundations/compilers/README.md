@@ -74,4 +74,4 @@ The realistic path, and the milestone that matters:
 - [[foundations/computer-architecture/README|Computer Architecture]] — the machine codegen targets, and why its scheduling and register allocation matter
 - [[foundations/dsa/README|DSA]] — trees, graphs, and union-find, all used here
 - [[languages/03-rust/17-macros|Rust: Macros]] — compile-time code generation from the user's side
-- [[BUILD-PLAN|Build Plan]] — `build-your-own-x/` is next
+- [[BUILD-PLAN|Build Plan]] — `build-your-own-shit/` is next

@@ -11,7 +11,7 @@ The domain-file numbering here follows the standard learning-file convention —
 3. [[projects/gees-arise/learning/03-sql|03 — SQL]] → [[databases/sql-reference|SQL reference]], [[databases/interview/01-sql-modelling-and-internals|db interview]]
 4. [[projects/gees-arise/learning/04-supabase|04 — Supabase & RLS]] ⭐ → [[backend/05-auth/02-authorization|authorization]], [[cybersecurity/04-web-security/README|web security]]
 5. [[projects/gees-arise/learning/05-backend|05 — Backend]] → [[backend/README|backend concepts]]
-6. [[projects/gees-arise/learning/06-frontend|06 — Frontend]] → [[concepts/02-frontend/README|frontend concepts]]
+6. [[projects/gees-arise/learning/06-frontend|06 — Frontend]] → [[frontend/README|frontend concepts]]
 7. [[projects/gees-arise/learning/07-testing|07 — Testing]] → [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]]
 8. [[projects/gees-arise/learning/08-devops|08 — DevOps]] → [[devops/README|devops]]
 9. [[projects/gees-arise/learning/09-sys-design|09 — System Design]] → [[architecture/README|architecture]]

@@ -1,7 +1,7 @@
 # SocioBoom Frontend — Project Architecture, Navigation & Adding Features
 
 Split out from the original flat `frontend-learning.md` (moved to `learning/archive/`). See also
-`learning/frontend/02-nextjs-app-router.md` (the routing layer this structure sits on),
+`learning/frontend/frameworks/nextjs-app-router.md` (the routing layer this structure sits on),
 `learning/frontend/06-feature-walkthroughs.md` (the pattern applied in anger), and
 `learning/backend/02-architecture-and-modules.md` (the matching module discipline on the server).
 

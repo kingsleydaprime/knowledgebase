@@ -159,7 +159,7 @@ Thompson's construction builds an NFA compositionally: literals are two states a
 | Python `re` (backtracking) | **23 seconds** |
 | Your Thompson NFA/DFA | **microseconds** |
 
-**Same regex. Same input. Different algorithm.** A backtracking engine explores exponentially many decompositions; an automaton tracks the *set* of reachable states, and there are only finitely many. That's why RE2 and Go's `regexp` are linear-time by construction — and why they refuse backreferences, which take the language beyond regular → [[languages/06-python/16-regular-expressions|regular expressions]] · [[build-your-own-x/09-your-own-regex-engine|build your own]].
+**Same regex. Same input. Different algorithm.** A backtracking engine explores exponentially many decompositions; an automaton tracks the *set* of reachable states, and there are only finitely many. That's why RE2 and Go's `regexp` are linear-time by construction — and why they refuse backreferences, which take the language beyond regular → [[languages/06-python/16-regular-expressions|regular expressions]] · [[build-your-own-shit/09-your-own-regex-engine|build your own]].
 
 **Finishing this exercise makes the whole course concrete**: you will have built the regex ≡ NFA ≡ DFA equivalence rather than read it.
 

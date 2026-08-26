@@ -209,7 +209,7 @@ Also: idle timeouts (walk connections by `last_active`, or use a `timerfd`), fil
 
 ## What this is worth
 
-**Do write one** to understand the layer. The [[BUILD-PLAN|build-your-own-x]] HTTP server guide starts exactly here, and the payoff is understanding every runtime you'll use afterwards.
+**Do write one** to understand the layer. The [[BUILD-PLAN|build-your-own-shit]] HTTP server guide starts exactly here, and the payoff is understanding every runtime you'll use afterwards.
 
 **Don't ship one** without a strong reason. The list above is the *easy* half — parsing untrusted input in C is where the CVEs are, and every framework in [[backend/frameworks/c/README|the C options]] has already solved this correctly.
 
