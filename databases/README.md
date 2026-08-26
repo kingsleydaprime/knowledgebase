@@ -60,7 +60,7 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 | [[foundations/compilers/README\|compilers]] | The query pipeline *is* a compiler pipeline |
 | [[foundations/discrete-math/04-sets-relations-and-functions\|sets and relations]] | A table is a relation, literally — Codd's 1970 paper |
 | [[backend/04-data-and-persistence/README\|backend/data]] | Using a database from an application |
-| [[build-your-own-x/06-your-own-database\|build-your-own-database]] | The build guide these notes explain |
+| [[build-your-own-shit/06-your-own-database\|build-your-own-database]] | The build guide these notes explain |
 
 ## The honest note
 
@@ -75,7 +75,7 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 3. **Watch bloat happen** — update a table in a loop with vacuum off, watch `n_dead_tup` and the table size grow, then vacuum
 4. **Do an expand–contract migration** on something real, including the separate contract release
 5. **Restore from a backup, timed.** Your RTO is what a restore actually takes → [[databases/10-durability-and-recovery|10]]
-6. **[[build-your-own-x/06-your-own-database|Build a small database]]** — an append-only log, then a B-tree or LSM, then a WAL. `kill -9` mid-transaction and see the data survive. **The guide's verification hook is exactly the durability argument in note 10**
+6. **[[build-your-own-shit/06-your-own-database|Build a small database]]** — an append-only log, then a B-tree or LSM, then a WAL. `kill -9` mid-transaction and see the data survive. **The guide's verification hook is exactly the durability argument in note 10**
 7. **The books:** *Database Internals* (Petrov) for storage and distribution; *Designing Data-Intensive Applications* (Kleppmann) for the systems view; *The Art of PostgreSQL* for the practitioner's; and the Postgres source, which is unusually readable
 
 **What's missing:** ~~exercises~~ — **closed by notes 13–14 (Aug 2026)**; worked schema examples beyond what the design reference has, anything on data warehousing and dimensional modelling, stream processing, vector databases and embeddings (a real gap given this vault's AI/ML material), and time-series databases in depth.

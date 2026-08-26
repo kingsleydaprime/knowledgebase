@@ -113,7 +113,7 @@ Virtualisation is not free, and the bill has three lines:
 - [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] — the problems this solved
 - [[devops/02-docker/README|Docker]] — the container half, in depth
 - [[foundations/os/11-isolation-and-containers|namespaces and cgroups]] — the kernel primitives containers are built from
-- [[build-your-own-x/08-your-own-container|build your own container]] — where this stops being reading
+- [[build-your-own-shit/08-your-own-container|build your own container]] — where this stops being reading
 - [[cybersecurity/09-cloud-security/01-cloud-and-infrastructure-security|cloud security]] — multi-tenancy as a threat model
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (module 2), extended with hardware-assist and container-boundary detail from vendor documentation.*

@@ -160,7 +160,7 @@ These are **incremental** — feed them whatever bytes arrived, they call your c
 
 Note the callback data is **not NUL-terminated** and points into your buffer, which may be reused on the next read. Copy anything you keep.
 
-Write your own to learn — see the [[BUILD-PLAN|build-your-own-x]] HTTP server guide. Ship llhttp.
+Write your own to learn — see the [[BUILD-PLAN|build-your-own-shit]] HTTP server guide. Ship llhttp.
 
 ## Fuzz it
 

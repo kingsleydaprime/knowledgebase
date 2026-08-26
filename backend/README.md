@@ -30,7 +30,10 @@ Transactions, concurrent writes, connection pools, N+1, migrations.
 1. [[backend/05-auth/01-authentication-flows|Authentication Flows]] · 2. [[backend/05-auth/02-authorization|Authorization]] · 3. [[backend/05-auth/03-oauth-provider-integrations|OAuth Provider Integrations]]
 
 ### [[backend/06-cross-cutting/README|06 — Cross-Cutting Concerns]]
-Validation, config, errors, logging, caching, jobs, rate limiting. *Scaffold — the README maps where each currently lives.*
+**Built out Aug 2026 — 7 notes.** The things every feature needs and no feature owns.
+1. [[backend/06-cross-cutting/01-validation-and-dtos|Validation & DTOs]] · 2. [[backend/06-cross-cutting/02-configuration-and-secrets|Config & Secrets]] · 3. [[backend/06-cross-cutting/03-error-handling|Error Handling]] · 4. [[backend/06-cross-cutting/04-rate-limiting|Rate Limiting]] · 5. [[backend/06-cross-cutting/05-idempotency-and-retries|Idempotency & Retries]] · 6. [[backend/06-cross-cutting/06-security-headers-and-cors|Security Headers & CORS]] · 7. [[backend/06-cross-cutting/07-file-uploads|File Uploads]]
+
+*Caching, observability and background jobs stay in [[architecture/02-building-blocks/README|building blocks]] and [[devops/10-observability/README|observability]] — linked, not duplicated. For the per-language implementations, see [[backend/frameworks/cross-language-recipes|cross-language recipes]].*
 
 ### [[backend/07-practices/README|07 — Practices]]
 [[backend/07-practices/01-backend-best-practices|Backend best practices]].
@@ -43,7 +46,12 @@ Not numbered; there's no reading order. Pick yours.
 
 - **[[backend/frameworks/javascript/README|JavaScript/TypeScript]]** — [[backend/frameworks/javascript/01-node-runtime/README|Node runtime]], [[backend/frameworks/javascript/02-express/README|Express]], [[backend/frameworks/javascript/03-nest/README|Nest]] — event loop
 - **[[backend/frameworks/java/README|Java]]** — [[backend/frameworks/java/01-spring-boot|Spring Boot]] — thread-per-request, virtual threads from 21. Moved here from `languages/01-java/`
-- **[[backend/frameworks/python/README|Python]]** · **[[backend/frameworks/go/README|Go]]** · **[[backend/frameworks/rust/README|Rust]]** — scaffolds
+- **[[backend/frameworks/python/README|Python]]** — FastAPI, Django, Flask — mixed WSGI/ASGI
+- **[[backend/frameworks/csharp/README|C#]]** — ASP.NET Core — async, thread pool
+- **[[backend/frameworks/go/README|Go]]** — net/http, Chi, Gin — goroutines
+- **[[backend/frameworks/rust/README|Rust]]** — Axum, Actix — async/tokio
+- **[[backend/frameworks/cpp/README|C++]]** · **[[backend/frameworks/c/README|C]]** — when you'd actually reach for them, and when you wouldn't
+- **[[backend/frameworks/cross-language-recipes|Cross-Language Recipes]]** ⭐ — **rate limiting, JWT, CORS, headers, graceful shutdown and structured logging in all six, side by side**
 
 **Read [[backend/01-foundations/04-runtime-and-concurrency-models|note 01.4]] before any of them.** Frameworks look like twenty things to learn; they're three concurrency models wearing different vocabularies.
 

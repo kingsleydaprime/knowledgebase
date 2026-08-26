@@ -116,14 +116,14 @@ The second version has one branch instead of two and can't mishandle an empty li
 
 ## Complexity
 
-| Operation | Time | Why |
-|---|---|---|
-| Access by index | O(n) | must walk from the head — there's no address arithmetic |
-| Search | O(n) | same reason |
-| Insert/delete at head | O(1) | just repoint `head` |
-| Insert/delete given a node reference | O(1) singly*, O(1) doubly | *singly needs the *predecessor*, not the node |
-| Insert/delete at tail | O(n), or O(1) with a tail pointer | walking to the end is the cost; caching the tail removes it |
-| Space overhead | O(n) pointers | 1 pointer per node singly, 2 doubly — on top of the data itself |
+| Operation                            | Time                              | Why                                                             |
+| ------------------------------------ | --------------------------------- | --------------------------------------------------------------- |
+| Access by index                      | O(n)                              | must walk from the head — there's no address arithmetic         |
+| Search                               | O(n)                              | same reason                                                     |
+| Insert/delete at head                | O(1)                              | just repoint `head`                                             |
+| Insert/delete given a node reference | O(1) singly*, O(1) doubly         | *singly needs the *predecessor*, not the node                   |
+| Insert/delete at tail                | O(n), or O(1) with a tail pointer | walking to the end is the cost; caching the tail removes it     |
+| Space overhead                       | O(n) pointers                     | 1 pointer per node singly, 2 doubly — on top of the data itself |
 
 Compare directly against [[01-arrays|arrays]]: linked lists win at insert/delete near a position you already hold, arrays win at random access and cache locality. Neither is strictly better — pick based on which operation dominates.
 

@@ -1,6 +1,8 @@
-# Software Engineering — Orientation
+# Introduction to Software Engineering
 
 > Four short notes on what the profession *is*, written because the rest of this vault assumed it and never said it.
+>
+> **This is week 1 of [[learning/swe-101/04-scheme-of-work|SWE 101]]** — the entry point to the whole vault.
 
 Everything else here teaches a subject — a language, a protocol, a database. This folder answers the questions that come before that: what the job actually is, what shape the work takes, and who does which part of it.
 
@@ -21,4 +23,4 @@ This is week 1 of [[learning/swe-101/04-scheme-of-work|SWE 101]] and nothing els
 - [[concepts/04-best-practices/README|best practices]] — the habits that follow from "code is read more than written"
 - [[architecture/README|architecture]] — the design phase, at depth
 
-*Source: [reference] — no project grounds these; they're orientation, not technique.*
+*Source: [reference] — no project grounds these; they're introduction, not technique.*

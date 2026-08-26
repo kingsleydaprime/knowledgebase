@@ -249,4 +249,4 @@ Compare with what you learned in [[git/README|the git course]] — the differenc
 - [[git/03-the-three-trees|The Three Trees]] — what the index milestone implements
 - [[git/16-power-tools|Git: Power Tools]] — what you're choosing not to build
 - [[foundations/dsa/04-data-structures/06-graphs|Graphs]] — the merge-base problem
-- [[build-your-own-x/README|build-your-own-x]]
+- [[build-your-own-shit/README|build-your-own-shit]]

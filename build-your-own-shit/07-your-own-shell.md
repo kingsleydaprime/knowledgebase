@@ -275,7 +275,7 @@ A file-descriptor count that grows with each command means you're leaking pipe e
 
 **If you want to go further:** add **command substitution** (`$(...)` — it's a pipe plus a recursive shell invocation, and it's satisfying), or **implement `$PATH` lookup yourself** with `execv` instead of `execvp`. Both are small and illuminating.
 
-This pairs naturally with [[build-your-own-x/01-http-server|the HTTP server]] — same process and descriptor machinery, different problem — and it's the best preparation for **writing an OS** (guide 05, planned), where you implement the other side of these calls.
+This pairs naturally with [[build-your-own-shit/01-http-server|the HTTP server]] — same process and descriptor machinery, different problem — and it's the best preparation for **writing an OS** (guide 05, planned), where you implement the other side of these calls.
 
 ---
 
@@ -284,4 +284,4 @@ This pairs naturally with [[build-your-own-x/01-http-server|the HTTP server]] �
 - [[foundations/os/10-signals-and-ipc|Signals and IPC]] — pipes, `dup2`, signal handling
 - [[devops/01-linux/12-bash-scripting|Bash Scripting]] — the thing you're reimplementing
 - [[devops/01-linux/06-process-management|Linux: Process Management]] — jobs and signals from the user side
-- [[build-your-own-x/README|build-your-own-x]]
+- [[build-your-own-shit/README|build-your-own-shit]]

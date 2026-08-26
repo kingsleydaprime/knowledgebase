@@ -30,7 +30,7 @@ By Sunday: what must be true before the week closes
 
 | Weeks | Block | Depth |
 |---|---|---|
-| 1 | Orientation & the audit | Skim |
+| 1 | **Introduction to software engineering** & the audit | Skim |
 | 2–4 | Software design | **Write** |
 | 5–8 | Architecture & system design | **Write** |
 | 9–11 | Databases | **Write** |
@@ -49,9 +49,251 @@ By Sunday: what must be true before the week closes
 
 ---
 
-# Week 1 — Orientation and the audit
+---
 
-**Read:** [[foundations/software-engineering/README|software engineering orientation]] (01–03) · [[projects/README|projects/README]] — what you've already built and which domains it exercises
+---
+
+---
+
+## Contents
+
+**This doubles as the notebook index.** The header says *week number = notebook section number* and *index on pages 1–4* — this is what goes on those pages. Topic `13.4` here is page-marked 13.4 in the book.
+
+**Generated, not hand-written** — run `python3 learning/swe-101/scripts/generate-contents.py` after editing any week. Edit a week, regenerate, never both.
+
+<!-- CONTENTS:START -->
+
+**Week 1 · Introduction**
+
+- **1 — Introduction to Software Engineering, and the audit**  ·  *D1*
+    - `1.1` Programming vs engineering; where the time actually goes
+    - `1.2` The SDLC: requirements → design → implementation → testing → deployment → maintenance, **and what breaks when each is skipped**
+    - `1.3` The engineering roles — and the honest way to tell them apart (*the failure you fear*)
+    - `1.4` Abstraction, decomposition, trade-offs
+    - `1.5` **The audit**
+
+**Weeks 2–4 · Software design**
+
+- **2 — Design principles**  ·  *D2*
+    - `2.1` Modularity — what a module is, and what makes a bad one
+    - `2.2` Coupling and cohesion
+    - `2.3` Abstraction and interfaces
+    - `2.4` Separation of concerns
+    - `2.5` DRY, KISS, YAGNI — **and where each one is wrong**
+    - `2.6` SOLID, one letter at a time — **and when it's over-engineering**
+    - `2.7` Composition over inheritance
+- **3 — Design patterns**  ·  *D3*
+    - `3.1` Creational — factory, builder, **and why singleton is usually a mistake**
+    - `3.2` Structural — adapter, decorator, facade, proxy
+    - `3.3` Behavioural — strategy, observer, command, state
+    - `3.4` Dependency injection and wiring
+- **4 — Structuring a codebase**  ·  *D4*
+    - `4.1` Layers: controllers, services, repositories
+    - `4.2` Organising by layer vs by feature
+    - `4.3` Hexagonal and clean architecture
+    - `4.4` Modular monolith → services, and when to split
+
+**Weeks 5–8 · Architecture & system design**
+
+- **5 — How to approach system design**  ·  *D5*
+    - `5.1` The sequence, so you never freeze
+    - `5.2` Functional vs non-functional requirements
+    - `5.3` Back-of-envelope estimation
+    - `5.4` Scalability and performance, vertical vs horizontal
+- **6 — Availability, caching, load balancing**  ·  *D6*
+    - `6.1` Availability, reliability, what "three nines" actually costs
+    - `6.2` CAP and consistency
+    - `6.3` Load balancing, proxies, reverse proxies
+    - `6.4` Caching, and cache invalidation
+- **7 — Data, messaging, communication**  ·  *D7*
+    - `7.1` Databases at scale
+    - `7.2` Messaging and async
+    - `7.3` REST, gRPC, GraphQL, WebSockets
+- **8 — Architectural patterns and trade-offs**  ·  *D8*
+    - `8.1` Monolith vs microservices vs serverless
+    - `8.2` Resilience: timeouts, retries, backoff, circuit breakers, bulkheads
+    - `8.3` Data and integration patterns
+    - `8.4` Microservices patterns
+    - `8.5` **Trade-off articulation** — saying "I'd choose X because Y" instead of "it depends"
+
+**Weeks 9–11 · Databases**
+
+- **9 — The relational model and SQL**  ·  *D9*
+    - `9.1` What a database actually is
+    - `9.2` The relational model — tables, rows, keys, relationships
+    - `9.3` Normalisation, and when to denormalise on purpose
+    - `9.4` SQL: SELECT, JOIN, GROUP BY, aggregates, subqueries, CTEs
+- **10 — Database internals**  ·  *D10*
+    - `10.1` Storage and page layout
+    - `10.2` B-trees and indexes
+    - `10.3` LSM trees, and why new engines choose them
+    - `10.4` The query pipeline
+    - `10.5` Join algorithms and the optimiser
+    - `10.6` **`EXPLAIN ANALYZE` — estimated vs actual rows as *the* diagnostic**
+- **11 — Transactions, durability, operations**  ·  *D11*
+    - `11.1` Transactions and ACID
+    - `11.2` Isolation levels and MVCC
+    - `11.3` Durability, the WAL, recovery
+    - `11.4` Replication and scaling — *"replication is not a backup"*
+    - `11.5` Operating: migrations, `lock_timeout`, pooling, backups
+
+**Weeks 12–15 · Networking & the web**
+
+- **12 — The network and IP**  ·  *D12*
+    - `12.1` What a network is; the layered model
+    - `12.2` The link layer, MAC addresses
+    - `12.3` IP addressing and subnetting
+    - `12.4` Routing
+- **13 — TCP and UDP**  ·  *D13*
+    - `13.1` UDP and ports
+    - `13.2` TCP connection lifecycle — handshake, teardown, states
+    - `13.3` Reliability and flow control
+    - `13.4` Congestion control
+    - `13.5` Sockets and the network API
+- **14 — DNS, HTTP, TLS**  ·  *D14*
+    - `14.1` DNS in depth
+    - `14.2` HTTP and its evolution — 1.1, 2, 3
+    - `14.3` TLS and transport security
+    - `14.4` QUIC
+    - `14.5` Cookies, sessions, headers
+- **15 — The edge, performance, debugging**  ·  *D15a*
+    - `15.1` NAT, firewalls, middleboxes
+    - `15.2` Proxies, reverse proxies, CDNs
+    - `15.3` Latency vs bandwidth, RTT, head-of-line blocking
+    - `15.4` Debugging: `dig`, `curl -v`, `ss`, `tcpdump`
+
+**Weeks 16–17 · Security**
+
+- **16 — Identity: authentication and authorisation**  ·  *D15b*
+    - `16.1` Authentication vs authorisation
+    - `16.2` Password hashing — bcrypt/argon2, **and why not SHA-256**
+    - `16.3` Sessions vs JWT, **and when JWT is the wrong choice**
+    - `16.4` OAuth 2.0 / OIDC
+    - `16.5` Least privilege
+- **17 — Attacks and defences**  ·  *mixed review begins — 5 problems/week, patterns drawn at random. **This is what interviews actually are.***
+    - `17.1` Input validation and output encoding
+    - `17.2` Injection: SQL, command, template
+    - `17.3` XSS, CSRF, SSRF
+    - `17.4` Security headers and same-origin policy
+    - `17.5` Symmetric, asymmetric, signatures, PKI
+    - `17.6` TLS in practice
+    - `17.7` Secrets management
+    - `17.8` **Prompt injection and LLM-specific risk**
+
+**Weeks 18–19 · Backend consolidation**
+
+- **18 — Backend: the request path**  ·  *mixed review, 5 problems*
+    - `18.1` What a backend is
+    - `18.2` HTTP servers; rate limiting at the edge
+    - `18.3` The request lifecycle end to end
+    - `18.4` Runtime and concurrency models — **the Node event loop**
+    - `18.5` REST design and resource modelling
+    - `18.6` ⚠️ API versioning — *no dedicated chapter; thin coverage only*
+- **19 — Backend: cross-cutting concerns**  ·  *mixed review, 5 problems*
+    - `19.1` Validation, error handling, error contracts
+    - `19.2` Rate limiting
+    - `19.3` Structured logging and configuration
+    - `19.4` Databases in the backend; pooling, migrations
+    - `19.5` Background jobs and queues
+    - `19.6` Idempotency
+    - `19.7` Caching layers
+
+**Weeks 20–23 · AI engineering**
+
+- **20 — LLMs: the ground floor**  ·  *mixed review, 5 problems*
+    - `20.1` What the role actually is
+    - `20.2` How LLMs work — enough to reason about *why* they fail
+    - `20.3` The model landscape
+    - `20.4` Calling models: streaming, tokens, temperature, context windows
+- **21 — Prompting, structure, retrieval**  ·  *mixed review, 5 problems*
+    - `21.1` Prompt engineering; prompts as versioned artifacts
+    - `21.2` Structured output
+    - `21.3` RAG and embeddings — chunking, hybrid search, reranking
+- **22 — Tools and agents**  ·  *mixed review, 5 problems*
+    - `22.1` Tools and MCP
+    - `22.2` Agents, **and when not to use one**
+    - `22.3` Multimodal
+- **23 — Evals and production ⭐**  ·  *mixed review, 5 problems*
+    - `23.1` **Evals — golden sets, scorers, regression runs in CI**
+    - `23.2` Reliability and plumbing — retries, fallbacks, timeouts
+    - `23.3` Cost, caching, latency
+    - `23.4` Safety in production — PII, output filtering
+    - `23.5` Practice
+
+**Week 24 · Testing & quality**
+
+- **24 — Testing and quality**  ·  *mixed review, 5 problems*
+    - `24.1` The pyramid: unit, integration, e2e
+    - `24.2` Test doubles: stub, mock, fake, spy
+    - `24.3` **What not to test**; flaky tests
+    - `24.4` Code review, giving and receiving
+    - `24.5` Observability: logs, metrics, traces
+
+**Week 25 · DevOps & delivery**
+
+- **25 — DevOps and delivery**  ·  *mixed review, 5 problems*
+    - `25.1` Docker — layers, caching, multi-stage
+    - `25.2` CI/CD concepts
+    - `25.3` CI pipelines — what runs on every push
+    - `25.4` CD, deployment strategies, releases
+    - `25.5` Pipeline security and secrets
+    - `25.6` Troubleshooting workflows
+
+**Weeks 26–29 · Concurrency & distributed systems**
+
+- **26 — Concurrency**  ·  *mixed review + **first timed mock**, 45 min, unseen medium*
+    - `26.1` Processes vs threads
+    - `26.2` Scheduling
+    - `26.3` Concurrency vs parallelism; **the Node event loop**
+    - `26.4` Locks, mutexes, deadlock, race conditions
+- **27 — What makes distributed systems hard**  ·  *mixed + timed mock*
+    - `27.1` What makes them hard
+    - `27.2` Theoretical limits
+    - `27.3` Time and ordering — **why you can't trust clocks**
+    - `27.4` Consistency models
+- **28 — Replication, partitioning, consensus**  ·  *mixed + timed mock*
+    - `28.1` Replication
+    - `28.2` Partitioning and sharding
+    - `28.3` Consensus
+    - `28.4` Raft
+- **29 — Transactions, logs, failure**  ·  *mixed + timed mock*
+    - `29.1` Distributed transactions and saga
+    - `29.2` The log and event-driven architecture
+    - `29.3` Idempotency and retry storms
+    - `29.4` Failure detection
+    - `29.5` Testing distributed systems
+
+**Week 30 · Review**
+
+- **30 — Review and mock loops**
+    - `30.1` Full system-design mock: **ride-sharing**, then **video platform**
+    - `30.2` Two timed coding mocks
+    - `30.3` The project story — 2 minutes, 5 minutes, 20 minutes of depth
+    - `30.4` Behavioural — six STAR stories from real projects
+    - `30.5` Re-audit weeks 2–29; anything still *don't know it* gets a fortnight
+
+**Week 31+ · The CS spine**
+
+- **31 — The CS spine (ongoing)**
+    - `31.1` How a program runs — compile, link, load
+    - `31.2` Memory: stack, heap, process layout
+    - `31.3` Virtual memory and the MMU
+    - `31.4` The memory hierarchy and caches
+    - `31.5` Syscalls and the kernel boundary
+    - `31.6` Complexity classes, P vs NP — **knowing when to stop looking**
+    - `31.7` Automata — why regexes and parsers look the way they do
+    - `31.8` Compilers: lexer → parser → IR → codegen
+    - `31.9` Garbage collection
+    - `31.10` Why one O(n) loop is 30× slower than another
+
+*153 topics across 31 weeks. Generated from the weeks below — regenerate rather than hand-edit.*
+
+<!-- CONTENTS:END -->
+---
+
+# Week 1 — Introduction to Software Engineering, and the audit
+
+**Read:** [[foundations/software-engineering/README|Introduction to Software Engineering]] (01–03) · [[projects/README|projects/README]] — what you've already built and which domains it exercises
 
 **Topics**
 - **1.1** Programming vs engineering; where the time actually goes → [[foundations/software-engineering/01-what-software-engineering-is|01]]

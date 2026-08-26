@@ -72,6 +72,6 @@ Write typing rules for a linear lambda calculus where every variable is used **e
 ## Related
 - [[foundations/programming-language-theory/09-practice-exercises-solutions|Solutions]]
 - [[foundations/programming-language-theory/README|the course]]
-- [[foundations/compilers/README|compilers]] · [[build-your-own-x/04-your-own-language|build your own language]]
+- [[foundations/compilers/README|compilers]] · [[build-your-own-shit/04-your-own-language|build your own language]]
 
 *Source: [reference] — built from this course's own gap-closing list.*

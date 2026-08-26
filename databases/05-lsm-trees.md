@@ -129,5 +129,5 @@
 ## Related
 - [[databases/04-b-trees-and-indexes|B-Trees and Indexes]] — the read-optimised alternative
 - [[databases/03-storage-and-page-layout|Storage and Page Layout]] — pages and the buffer pool
-- [[build-your-own-x/06-your-own-database|build-your-own-database]] — which offers LSM as the easier storage engine to build
+- [[build-your-own-shit/06-your-own-database|build-your-own-database]] — which offers LSM as the easier storage engine to build
 - [[databases/README|Databases map]]

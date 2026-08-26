@@ -76,7 +76,7 @@ If the algebra fades, these keep paying:
 
 The cheapest way to close that gap: **simulate one.** A hundred lines of Python — a second-order plant, a discrete PID, a step input, a plot — and every claim in notes 03 and 04 becomes something you can check. Add saturation and watch windup happen. Add noise and watch the derivative term ruin everything. It takes an afternoon and it's worth more than the rest of the track.
 
-**A physical build is better still**: a motor, an encoder, and a microcontroller. Everything in note 12 stops being abstract the moment you sample too slowly and the thing screams. → [[build-your-own-x/README|build-your-own-x]]
+**A physical build is better still**: a motor, an encoder, and a microcontroller. Everything in note 12 stops being abstract the moment you sample too slowly and the thing screams. → [[build-your-own-shit/README|build-your-own-shit]]
 
 ## Related
 - [[engineering/README|Engineering]] — the umbrella

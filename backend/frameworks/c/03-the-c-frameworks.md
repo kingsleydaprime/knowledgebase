@@ -153,7 +153,7 @@ The JSON gap is the one that bites hardest. Turning a struct into JSON is ~5 lin
 **Yes:**
 - **An existing C or C++ program needs an HTTP surface** — a device's config page, a game engine's debug server, an instrument's control API. Spawning a Go sidecar to talk to your C program over IPC is often the worse trade
 - **The target has no other toolchain** — small embedded, no Rust or Go support
-- **Learning.** Writing one from `socket()` up teaches you more about HTTP and about every runtime you use than any framework will → [[BUILD-PLAN|build-your-own-x]]
+- **Learning.** Writing one from `socket()` up teaches you more about HTTP and about every runtime you use than any framework will → [[BUILD-PLAN|build-your-own-shit]]
 
 **No:**
 - **A new web service.** You're taking [[languages/04-c/07-memory-management|manual memory management]] onto the most attacker-exposed surface you own, for performance [[languages/02-go/README|Go]] or [[backend/frameworks/rust/README|Rust]] would also give you

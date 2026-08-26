@@ -22,7 +22,7 @@ By the end, **killing the process mid-write and reopening leaves your data intac
 | **SQL semantics** | [[databases/sql-reference\|sql-reference]] |
 | **Transactions and isolation** | [[architecture/04-distributed-systems/10-distributed-transactions\|transactions]] |
 
-**Do [[build-your-own-x/04-your-own-language|the language guide]] first if you can** — the SQL parser is the same recursive-descent machinery, and you'll move much faster having done it once.
+**Do [[build-your-own-shit/04-your-own-language|the language guide]] first if you can** — the SQL parser is the same recursive-descent machinery, and you'll move much faster having done it once.
 
 ## The build order
 
@@ -277,4 +277,4 @@ diff expected.txt actual.txt
 - [[foundations/dsa/04-data-structures/05-trees/01-trees|Trees]] — the B-tree's ancestry
 - [[databases/database-design-reference|Database Design]] · [[databases/sql-reference|SQL Reference]]
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — B-tree vs LSM in production
-- [[build-your-own-x/README|build-your-own-x]]
+- [[build-your-own-shit/README|build-your-own-shit]]

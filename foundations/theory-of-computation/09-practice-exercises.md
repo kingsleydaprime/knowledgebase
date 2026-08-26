@@ -63,7 +63,7 @@ The grammar $E \to E + E \mid E \times E \mid \text{num}$ is ambiguous. Give a s
 
 **13. A regex engine.**
 Implement Thompson's construction (regex → NFA), then subset construction (NFA → DFA), then simulate. Support `. * + ? | ()` and literals.
-**Done when:** it matches correctly **and** you can demonstrate it running in linear time on the input that makes [[languages/06-python/16-regular-expressions|Python's `re`]] take 23 seconds — `(a+)+$` against `aaaa…b`. **That contrast is the entire payoff of this course.** → [[build-your-own-x/09-your-own-regex-engine|build your own regex engine]]
+**Done when:** it matches correctly **and** you can demonstrate it running in linear time on the input that makes [[languages/06-python/16-regular-expressions|Python's `re`]] take 23 seconds — `(a+)+$` against `aaaa…b`. **That contrast is the entire payoff of this course.** → [[build-your-own-shit/09-your-own-regex-engine|build your own regex engine]]
 
 **14. A DPLL SAT solver.**
 Unit propagation, pure literal elimination, and branching. Test it on a small graph-colouring instance encoded as CNF.

@@ -68,7 +68,7 @@ OS knowledge is load-bearing across the vault, and these notes are deliberately 
 
 ## Known gaps
 
-- **No project.** The [[BUILD-PLAN|build-your-own-x]] shell and OS guides are where this becomes knowledge
+- **No project.** The [[BUILD-PLAN|build-your-own-shit]] shell and OS guides are where this becomes knowledge
 - **Device drivers** — the kernel's largest and buggiest surface, entirely uncovered
 - **Kernel modules** — writing, loading, and why the internal ABI is deliberately unstable
 - **Real-time Linux** — PREEMPT_RT, latency guarantees. Relevant to [[robotics/README|robotics]]

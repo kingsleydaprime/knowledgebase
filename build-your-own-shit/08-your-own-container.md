@@ -50,7 +50,7 @@ Plain `fork`/`exec`, no isolation yet — the skeleton.
 
 **Test:** it runs the command and exits with the child's status.
 
-**Watch for:** the same [[build-your-own-x/07-your-own-shell|`fork`/`exec` mechanics]] as the shell guide. If you built that, this milestone is copy-paste.
+**Watch for:** the same [[build-your-own-shit/07-your-own-shell|`fork`/`exec` mechanics]] as the shell guide. If you built that, this milestone is copy-paste.
 
 ### 2. UTS namespace — a hostname of its own
 
@@ -289,6 +289,6 @@ ls -l /proc/<pid>/ns/                    # your container's namespace IDs vs the
 ## Related
 - [[foundations/os/11-isolation-and-containers|Isolation and Containers]] — the specification for this project
 - [[devops/02-docker/README|Docker]] — the same thing from above
-- [[build-your-own-x/07-your-own-shell|Your Own Shell]] — the `fork`/`exec` skeleton
+- [[build-your-own-shit/07-your-own-shell|Your Own Shell]] — the `fork`/`exec` skeleton
 - [[cybersecurity/09-cloud-security/README|Cloud Security]] — container escape as a threat model
-- [[build-your-own-x/README|build-your-own-x]]
+- [[build-your-own-shit/README|build-your-own-shit]]

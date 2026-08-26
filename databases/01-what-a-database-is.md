@@ -24,7 +24,7 @@ Store your records as JSON on disk. Then:
 
 > **A database is what you get when you take those six problems seriously.** It's not a fancy file format — it's forty years of accumulated answers to problems that appear the moment more than one thing touches your data.
 >
-> **Which is the argument against writing your own.** Not that it's hard to start; it's that you will re-derive all six, badly, over years. → [[build-your-own-x/06-your-own-database|build-your-own-database]] exists to make that concrete, and its own "where to stop" section is the honest version of this argument.
+> **Which is the argument against writing your own.** Not that it's hard to start; it's that you will re-derive all six, badly, over years. → [[build-your-own-shit/06-your-own-database|build-your-own-database]] exists to make that concrete, and its own "where to stop" section is the honest version of this argument.
 
 ## ACID
 

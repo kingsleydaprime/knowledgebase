@@ -149,7 +149,7 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 
 **Continuations, CPS and async.** Continuation-passing style is a lambda calculus transformation, and **async/await is essentially a CPS transform** the compiler does for you.
 
-**Closures are the implementation of lambda abstraction with free variables** — the environment captures them. → [[build-your-own-x/04-your-own-language|Build your own language]], where closures are the milestone.
+**Closures are the implementation of lambda abstraction with free variables** — the environment captures them. → [[build-your-own-shit/04-your-own-language|Build your own language]], where closures are the milestone.
 
 **Currying** — $\lambda x.\lambda y.\,e$ rather than a two-argument function. **Why Haskell and OCaml have partial application for free**, and why `f(x)(y)` works in JavaScript.
 
@@ -158,5 +158,5 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 ## Related
 - [[foundations/programming-language-theory/03-semantics|Semantics]] — giving meaning rigorously
 - [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what types buy you
-- [[build-your-own-x/04-your-own-language|Build Your Own Language]] — implementing closures, which is this
+- [[build-your-own-shit/04-your-own-language|Build Your Own Language]] — implementing closures, which is this
 - [[foundations/programming-language-theory/README|PL theory map]]

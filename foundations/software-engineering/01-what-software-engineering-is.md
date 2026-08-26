@@ -47,4 +47,4 @@ The useful version isn't a hierarchy of people, it's a question about *scope of 
 - [[foundations/software-engineering/03-the-engineering-roles|the roles]] — who does which part
 - [[PRIMETECHIE|the Primetechie path]] — the tiered progression through this whole vault
 
-*Source: [reference] — written as the orientation the rest of this vault assumed but never wrote down.*
+*Source: [reference] — written as the introduction the rest of this vault assumed but never wrote down.*

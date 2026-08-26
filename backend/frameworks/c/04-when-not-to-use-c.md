@@ -54,7 +54,7 @@ Small embedded systems, unusual architectures, or environments where only a C co
 
 **3. Learning.**
 
-Writing an HTTP server from `socket()` up teaches you more about HTTP, TCP, and every runtime you'll ever use than any framework will. That's a genuinely good reason — for a project you don't deploy. → [[BUILD-PLAN|build-your-own-x]]
+Writing an HTTP server from `socket()` up teaches you more about HTTP, TCP, and every runtime you'll ever use than any framework will. That's a genuinely good reason — for a project you don't deploy. → [[BUILD-PLAN|build-your-own-shit]]
 
 **4. Extreme constraints, honestly assessed.**
 

@@ -2,7 +2,7 @@
 
 Software engineering under a hard real-time constraint, in service of a subjective goal.
 
-**~7,600 words across 8 notes.** Built August 2026. `[reference]`. Cross-referenced against the [roadmap.sh game-developer roadmap](https://roadmap.sh/game-developer).
+**~12,550 words: 8 course notes + 4 engine pages + an interview bank + 2 index pages.** Built August 2026. `[reference]`. Cross-referenced against the [roadmap.sh game-developer roadmap](https://roadmap.sh/game-developer).
 
 > **The one idea:** you have **16 milliseconds**, every frame, forever. Every technical decision in this folder — data-oriented design, fixed timesteps, culling, approximate physics, prediction, baked lighting — is that constraint showing through. Games are not "software with graphics"; they are software where **the worst case is the experience**.
 
@@ -58,6 +58,22 @@ Games were one of the three reasons you came into tech. That's reason enough to 
 16. **Estimate, then cut to a third.** Scope kills more projects than skill → [[game-development/07-tools-and-production|07]] · [[game-development/08-getting-started|08]]
 17. **A finished Pong on the internet beats an unfinished RPG on your disk** → [[game-development/08-getting-started|08]]
 
+## Engines
+
+**Same convention as [[backend/frameworks/README|backend/frameworks/]]** — the course teaches the concepts; these are how each engine names and does them.
+
+[[game-development/engines/README|engines/]] — the map and the concept-translation table
+
+- [[game-development/engines/godot|Godot]] — **[Beginner → Intermediate]** — MIT, small enough to read, GDScript. **The recommendation for learning**
+- [[game-development/engines/unity|Unity]] — **[Intermediate]** — C#, the deepest job market, and **the fragmentation you should know about before committing**
+- [[game-development/engines/unreal|Unreal]] — **[Advanced]** — C++ and Blueprints, AAA rendering free, strong opinions
+- [[game-development/engines/from-scratch|From scratch]] — **[Advanced]** — the layers in build order, and **an honest account of which project you're doing**
+
+## Practice and interviews
+
+- [[project-ideas|project ideas → Game Development]] — tiered reps. **If you do one: a game jam**
+- [[game-development/interview/README|interview/]] — the round: vectors, fixed timestep, diagnosing 30 fps, pooling, collision phases, lag compensation, ECS, and the portfolio conversation
+
 ## The honest note
 
 **`[reference]`, and more so than most of this vault** — I have not shipped a game, not used Unity, Unreal or Godot in anger, and never had a frame budget. **Everything here is assembled from primary sources and from the parts of this vault that genuinely do apply.** Take the industry section in note 01 as reported rather than lived.
@@ -76,7 +92,9 @@ Games were one of the three reasons you came into tech. That's reason enough to 
 
 ## A note on priority
 
-Your own [[learning/catalogue|catalogue]] runs [[learning/04-one-active-course|one active course]], and it is currently SWE 101 for a job search. **This folder is a map, not a start date.** It's here so that when games come back round — and they will — the ground is already surveyed.
+**This is now a full track** — course, engines, projects and an interview bank — rather than the map it started as. That doesn't change [[learning/04-one-active-course|the one-active-course rule]]: your own [[learning/catalogue|catalogue]] runs SWE 101 for a job search, and this is parked in the parking lot with a date on it.
+
+**A track being complete is not a reason to start it.** It's here so that when games come round — and they will — nothing is missing.
 
 ## Related
 - [[foundations/computer-graphics/README|computer graphics]] — the rendering half

@@ -194,7 +194,7 @@ for _ in range(100000):
 - **Capture groups** (milestone 7) — the Pike VM
 - **A lazy DFA with a bounded cache** — the actual production design
 - **Leftmost-longest semantics** properly
-- **A bytecode VM** instead of a graph walk — compile to instructions (`char`, `split`, `jmp`, `match`) and write an interpreter. **Russ Cox's series covers this**, and it connects directly to [[build-your-own-x/04-your-own-language|your own language]]
+- **A bytecode VM** instead of a graph walk — compile to instructions (`char`, `split`, `jmp`, `match`) and write an interpreter. **Russ Cox's series covers this**, and it connects directly to [[build-your-own-shit/04-your-own-language|your own language]]
 
 **Don't build:** backreferences (not regular, needs backtracking, defeats the purpose), full PCRE compatibility (enormous), or Unicode property classes (a data problem, not an algorithm problem).
 
@@ -206,4 +206,4 @@ for _ in range(100000):
 - [[foundations/theory-of-computation/02-finite-automata|Finite Automata]] — the constructions, explained
 - [[foundations/theory-of-computation/03-regular-languages|Regular Languages]] — why the limits are where they are
 - [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — the same machinery, industrially
-- [[build-your-own-x/README|build-your-own-x]]
+- [[build-your-own-shit/README|build-your-own-shit]]
