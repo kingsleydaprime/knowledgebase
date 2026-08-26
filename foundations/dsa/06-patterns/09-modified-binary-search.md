@@ -76,11 +76,21 @@ The shape to recognize: `lo`/`hi` bound a range of **candidate answers**, not ar
 The tell that a problem wants this pattern: it asks for a minimum/maximum value satisfying a constraint, and you can imagine a "does value X work?" check that's monotonic (works for X implies works for every value past X in the same direction) — that monotonicity is precisely what makes binary search valid here, same as sortedness is what makes it valid on an array.
 
 ## Practice problems
-1. Search in Rotated Sorted Array (LeetCode #33)
-2. Find Minimum in Rotated Sorted Array (LeetCode #153) — the pivot-finding half of this pattern in isolation
-3. Search a 2D Matrix II (LeetCode #240) — binary search generalized to two dimensions
-4. Koko Eating Bananas (LeetCode #875) — binary search on the answer
-5. Capacity To Ship Packages Within D Days (LeetCode #1011) — binary search on the answer
+
+**In the [[foundations/dsa/neetcode-150/README|NeetCode 150]]** — written up here:
+
+1. [[028-binary-search|Binary Search]] (LeetCode #704) — the unmodified baseline; nail the loop invariant here first
+2. [[032-search-in-rotated-sorted-array|Search in Rotated Sorted Array]] (LeetCode #33)
+3. [[031-find-minimum-in-rotated-sorted-array|Find Minimum in Rotated Sorted Array]] (LeetCode #153) — the pivot-finding half of this pattern in isolation
+4. [[029-search-a-2d-matrix|Search a 2D Matrix]] (LeetCode #74) — treat the grid as one flat sorted array
+5. [[030-koko-eating-bananas|Koko Eating Bananas]] (LeetCode #875) — binary search on the answer
+6. [[033-time-based-key-value-store|Time Based Key-Value Store]] (LeetCode #981) — binary search for the largest timestamp ≤ target
+7. [[034-median-of-two-sorted-arrays|Median of Two Sorted Arrays]] (LeetCode #4) — binary search on the *partition point*; the hardest one here
+
+**Not in the NeetCode 150:**
+
+8. Search a 2D Matrix II (LeetCode #240) — rows and columns sorted but not globally, so it's a staircase walk from a corner rather than a true binary search
+9. Capacity To Ship Packages Within D Days (LeetCode #1011) — binary search on the answer, same shape as Koko
 
 ## Related
 - [[05-searching|searching]]

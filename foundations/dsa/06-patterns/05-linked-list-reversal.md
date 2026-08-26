@@ -45,9 +45,17 @@ O(n) time, O(1) space — the entire value of doing it in place rather than buil
 - Off-by-one on where the sublist reversal starts/ends is the most common bug in the `m, n` sublist variant — draw the before/after picture first, same advice as in [[04-linked-lists|linked-lists]].
 
 ## Practice problems
-1. Reverse Linked List (LeetCode #206)
-2. Reverse Linked List II (LeetCode #92) — reverse only a sublist
-3. Swap Nodes in Pairs (LeetCode #24) — reversal in fixed-size chunks
+
+**In the [[foundations/dsa/neetcode-150/README|NeetCode 150]]** — written up here:
+
+1. [[035-reverse-linked-list|Reverse Linked List]] (LeetCode #206) — the base case; get this one automatic before anything else
+2. [[045-reverse-nodes-in-k-group|Reverse Nodes in k-Group]] (LeetCode #25) — reversal in fixed-size chunks, and the hardest version of this pattern
+3. [[037-reorder-list|Reorder List]] (LeetCode #143) — reversal as one step of three: find the middle with [[04-fast-slow-pointers|fast/slow pointers]], reverse the second half, then interleave
+
+**Not in the NeetCode 150:**
+
+4. Reverse Linked List II (LeetCode #92) — reverse only a sublist
+5. Swap Nodes in Pairs (LeetCode #24) — reversal in chunks of two; a gentler lead-in to #25 above
 
 ## Related
 - [[04-linked-lists|linked-lists]]

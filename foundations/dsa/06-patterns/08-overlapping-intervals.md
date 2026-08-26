@@ -45,9 +45,15 @@ O(n log n) — dominated by the initial sort; the merge pass itself is O(n). Thi
 - `start <= last_end` (not `<`) — intervals that touch exactly at the boundary (`[1,3]` and `[3,5]`) count as overlapping in most problem definitions; check the specific problem's definition since this is a common off-by-one trap.
 
 ## Practice problems
-1. Merge Intervals (LeetCode #56)
-2. Insert Interval (LeetCode #57)
-3. Non-overlapping Intervals (LeetCode #435) — minimum removals to eliminate all overlaps
+
+All of these are written up in the [[foundations/dsa/neetcode-150/README|NeetCode 150]] — intervals are one of the patterns it covers end to end:
+
+1. [[133-meeting-rooms|Meeting Rooms]] (LeetCode #252) — just "does any pair overlap?"; the smallest version of the pattern
+2. [[131-merge-intervals|Merge Intervals]] (LeetCode #56)
+3. [[130-insert-interval|Insert Interval]] (LeetCode #57)
+4. [[132-non-overlapping-intervals|Non-overlapping Intervals]] (LeetCode #435) — minimum removals to eliminate all overlaps
+5. [[134-meeting-rooms-ii|Meeting Rooms II]] (LeetCode #253) — count *maximum concurrent* overlaps, which wants a heap or a sweep line rather than a merge
+6. [[135-minimum-interval-to-include-each-query|Minimum Interval to Include Each Query]] (LeetCode #1851) — the hard one
 
 ## Related
 - [[04-sorting|sorting]]

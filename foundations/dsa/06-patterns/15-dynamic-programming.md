@@ -131,9 +131,11 @@ Varies by sub-pattern, but the general win is turning an exponential brute-force
 
 ## Practice problems
 
-**1-D DP** — Climbing Stairs (#70), Min Cost Climbing Stairs (#746), House Robber (#198) and House Robber II (#213, circular), Coin Change (#322), Maximum Product Subarray (#152), Word Break (#139), Longest Increasing Subsequence (#300), Partition Equal Subset Sum (#416), Decode Ways (#91), Longest Palindromic Substring (#5).
+Every problem below is written up in the [[foundations/dsa/neetcode-150/README|NeetCode 150]] — DP is the one pattern the 150 covers essentially completely.
 
-**2-D DP** — Unique Paths (#62), Longest Common Subsequence (#1143), Coin Change II (#518), Target Sum (#494), Edit Distance (#72), Interleaving String (#97), Distinct Subsequences (#115), Best Time to Buy/Sell with Cooldown (#309), Longest Increasing Path in a Matrix (#329).
+**1-D DP** — [[099-climbing-stairs|Climbing Stairs]] (#70), [[100-min-cost-climbing-stairs|Min Cost Climbing Stairs]] (#746), [[101-house-robber|House Robber]] (#198) and [[102-house-robber-ii|House Robber II]] (#213, circular), [[106-coin-change|Coin Change]] (#322), [[107-maximum-product-subarray|Maximum Product Subarray]] (#152), [[108-word-break|Word Break]] (#139), [[109-longest-increasing-subsequence|Longest Increasing Subsequence]] (#300), [[110-partition-equal-subset-sum|Partition Equal Subset Sum]] (#416), [[105-decode-ways|Decode Ways]] (#91), [[103-longest-palindromic-substring|Longest Palindromic Substring]] (#5).
+
+**2-D DP** — [[111-unique-paths|Unique Paths]] (#62), [[112-longest-common-subsequence|Longest Common Subsequence]] (#1143), [[114-coin-change-ii|Coin Change II]] (#518), [[115-target-sum|Target Sum]] (#494), [[119-edit-distance|Edit Distance]] (#72), [[116-interleaving-string|Interleaving String]] (#97), [[118-distinct-subsequences|Distinct Subsequences]] (#115), [[113-best-time-to-buy-and-sell-stock-with-cooldown|Best Time to Buy/Sell with Cooldown]] (#309), [[117-longest-increasing-path-in-a-matrix|Longest Increasing Path in a Matrix]] (#329).
 
 ## Related
 - [[01-algorithms|algorithms]] — where the exponential-vs-polynomial framing comes from
