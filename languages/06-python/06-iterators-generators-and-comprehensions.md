@@ -137,6 +137,6 @@ Laziness costs you things, and the trade is worth stating:
 - [[languages/06-python/03-built-in-types-and-collections|built-in types]] — the eager versions
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency]] — `async` generators
 - [[languages/06-python/07-decorators-and-context-managers|context managers]] — the `with` in `read_lines`
-- [[foundations/dsa/01-iterations|iterations]] — the DSA view
+- [[foundations/dsa/01-loops-and-what-they-cost|loops and what they cost]] — what iteration costs, and the hidden loops behind `in`
 
 *Source: [reference] — from the Python docs and `itertools`.*
