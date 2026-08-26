@@ -56,18 +56,23 @@ Every branch shares the same `path` list — it's mutated forward on the way dow
 
 ## Why "record a copy" matters
 
-`result.append(path[:])`, not `result.append(path)` — since `path` is the same mutable list object being reused across the whole search, appending a reference to it (instead of a copy) means every entry in `result` would end up pointing at the same, now-empty-again list once backtracking finishes. This is a direct instance of the reference-type aliasing trap covered in [[03-data-type-classification|data-type-classification]].
+`result.append(path[:])`, not `result.append(path)` — since `path` is the same mutable list object being reused across the whole search, appending a reference to it (instead of a copy) means every entry in `result` would end up pointing at the same, now-empty-again list once backtracking finishes. This is a direct instance of the reference-type aliasing trap covered in [[foundations/programming-fundamentals/15-how-types-actually-work|data-type-classification]].
 
 ## Complexity
 
 Typically exponential (O(n!) for permutations, O(2ⁿ) for subsets) — this is inherent to enumerating every valid arrangement, not a sign of an inefficient implementation. The main lever for speeding up backtracking in practice is **pruning**: checking `is_valid` early to cut off whole invalid branches before recursing into them (this is the entire trick behind solving N-Queens efficiently — reject a queen placement immediately instead of completing the board and checking at the end).
 
 ## Practice problems
-1. Permutations (LeetCode #46)
-2. Subsets (LeetCode #78)
-3. N-Queens (LeetCode #51) — pruning is the whole game here
+
+All three are written up in the [[foundations/dsa/neetcode-150/README|NeetCode 150]]:
+
+1. [[073-permutations|Permutations]] (LeetCode #46)
+2. [[071-subsets|Subsets]] (LeetCode #78)
+3. [[079-n-queens|N-Queens]] (LeetCode #51) — pruning is the whole game here
+
+Then the duplicate-handling variants, also in the 150, which is where most backtracking bugs actually live: [[072-combination-sum|Combination Sum]] (#39), [[074-subsets-ii|Subsets II]] (#90), and [[075-combination-sum-ii|Combination Sum II]] (#40).
 
 ## Related
 - [[11-dfs-pattern|dfs-pattern]]
 - [[01-algorithms|algorithms]] — exponential complexity classes
-- [[03-data-type-classification|data-type-classification]] — why copying matters when recording a mutable path
+- [[foundations/programming-fundamentals/15-how-types-actually-work|data-type-classification]] — why copying matters when recording a mutable path

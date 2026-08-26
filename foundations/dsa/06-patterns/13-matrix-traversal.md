@@ -74,9 +74,17 @@ This "loop over every node, start a fresh traversal from any unvisited one" stru
 O(rows × cols) — each cell is visited a constant number of times regardless of grid shape.
 
 ## Practice problems
-1. Flood Fill (LeetCode #733)
-2. Number of Islands (LeetCode #200)
-3. Surrounded Regions (LeetCode #130)
+
+**In the [[foundations/dsa/neetcode-150/README|NeetCode 150]]** — written up here:
+
+1. [[080-number-of-islands|Number of Islands]] (LeetCode #200)
+2. [[082-max-area-of-island|Max Area of Island]] (LeetCode #695) — the same flood fill, returning a size instead of a count
+3. [[084-surrounded-regions|Surrounded Regions]] (LeetCode #130) — the inversion trick: flood inward from the border rather than outward from the interior
+4. [[083-pacific-atlantic-water-flow|Pacific Atlantic Water Flow]] (LeetCode #417) — two traversals from opposite edges, intersected
+
+**Not in the NeetCode 150:**
+
+5. Flood Fill (LeetCode #733) — the pattern with nothing built on top of it; start here if the visited-set bookkeeping isn't automatic yet
 
 ## Related
 - [[02-dfs|dfs]]

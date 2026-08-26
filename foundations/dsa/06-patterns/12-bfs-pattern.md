@@ -67,9 +67,14 @@ All initial rotten oranges seed the queue *before* the first level runs — this
 O(V + E), or O(rows × cols) on a grid — same as plain BFS.
 
 ## Practice problems
-1. Binary Tree Level Order Traversal (LeetCode #102)
-2. Rotting Oranges (LeetCode #994) — multi-source BFS
-3. Word Ladder (LeetCode #127) — shortest transformation sequence
+
+All of these are written up in the [[foundations/dsa/neetcode-150/README|NeetCode 150]]:
+
+1. [[053-binary-tree-level-order-traversal|Binary Tree Level Order Traversal]] (LeetCode #102)
+2. [[054-binary-tree-right-side-view|Binary Tree Right Side View]] (LeetCode #199) — level order where you keep only the last node of each level
+3. [[085-rotting-oranges|Rotting Oranges]] (LeetCode #994) — multi-source BFS
+4. [[086-walls-and-gates|Walls and Gates]] (LeetCode #286) — multi-source BFS on a grid, seeding the queue with every gate at once
+5. [[092-word-ladder|Word Ladder]] (LeetCode #127) — shortest transformation sequence over an implicit graph
 
 ## Related
 - [[03-bfs|bfs]]

@@ -44,9 +44,18 @@ root = 5 -> the 2nd largest element
 O(n log k) — n insertions/removals, each O(log k) because the heap never grows past size k. This beats sorting the whole array (O(n log n)) whenever k is meaningfully smaller than n.
 
 ## Practice problems
-1. Kth Largest Element in an Array (LeetCode #215)
-2. Top K Frequent Elements (LeetCode #347) — heap keyed by frequency count instead of value
-3. Find K Pairs with Smallest Sums (LeetCode #373)
+
+**In the [[foundations/dsa/neetcode-150/README|NeetCode 150]]** — written up here:
+
+1. [[067-kth-largest-element-in-an-array|Kth Largest Element in an Array]] (LeetCode #215)
+2. [[005-top-k-frequent-elements|Top K Frequent Elements]] (LeetCode #347) — heap keyed by frequency count instead of by value
+3. [[066-k-closest-points-to-origin|K Closest Points to Origin]] (LeetCode #973) — heap keyed by a computed distance
+4. [[064-kth-largest-element-in-a-stream|Kth Largest Element in a Stream]] (LeetCode #703) — the streaming version, where sorting isn't an option because the data hasn't all arrived yet
+5. [[070-find-median-from-data-stream|Find Median from Data Stream]] (LeetCode #295) — two heaps balanced against each other; the hard one
+
+**Not in the NeetCode 150:**
+
+6. Find K Pairs with Smallest Sums (LeetCode #373)
 
 ## Related
 - [[01-trees|trees]] — the shape a heap is built on

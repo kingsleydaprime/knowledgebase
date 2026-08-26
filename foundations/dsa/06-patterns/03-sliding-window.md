@@ -53,9 +53,18 @@ Each character is added to `seen` at most once and removed at most once across t
 O(n) — every element enters and leaves the window at most once, regardless of window type. Compare to the naive approach of checking every substring/subarray, which is O(n²) or worse.
 
 ## Practice problems
-1. Maximum Average Subarray I (LeetCode #643) — fixed window
-2. Longest Substring Without Repeating Characters (LeetCode #3) — variable window
-3. Minimum Window Substring (LeetCode #76) — variable window, the hardest common variant
+
+**In the [[foundations/dsa/neetcode-150/README|NeetCode 150]]** — written up here:
+
+1. [[016-longest-substring-without-repeating-characters|Longest Substring Without Repeating Characters]] (LeetCode #3) — variable window
+2. [[019-minimum-window-substring|Minimum Window Substring]] (LeetCode #76) — variable window, the hardest common variant
+3. [[017-longest-repeating-character-replacement|Longest Repeating Character Replacement]] (LeetCode #424) — variable window with a "how much am I allowed to cheat" budget
+4. [[018-permutation-in-string|Permutation in String]] (LeetCode #567) — fixed window plus a character-count comparison
+5. [[020-sliding-window-maximum|Sliding Window Maximum]] (LeetCode #239) — fixed window where the aggregate *isn't* invertible, so it needs a [[06-monotonic-stack|monotonic]] deque instead of the add-one-drop-one update
+
+**Not in the NeetCode 150:**
+
+6. Maximum Average Subarray I (LeetCode #643) — the plainest fixed-window drill; worth doing first if the fixed-size version above hasn't clicked yet
 
 ## Related
 - [[02-two-pointers|two-pointers]]

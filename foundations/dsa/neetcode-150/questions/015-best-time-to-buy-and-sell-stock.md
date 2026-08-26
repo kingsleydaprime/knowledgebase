@@ -1,6 +1,6 @@
 # Best Time to Buy and Sell Stock
 
-**LeetCode 121** · Sliding Window · concept: [[03-sliding-window|sliding-window]]
+**LeetCode 121** · Sliding Window · concepts: [[03-sliding-window|sliding-window]], [[01-prefix-sum|prefix-sum]]
 
 ## Problem
 
@@ -30,6 +30,8 @@ def maxProfit(prices):
 
 **"Best pair where the second comes after the first" → carry the best-so-far of the first as you scan.** You never need to look back — the optimal buy for any sell day is just the minimum price before it, maintained incrementally. This left-boundary-as-a-running-extreme idea seeds the sliding-window family.
 
+It's also the [[01-prefix-sum|prefix-sum]] pattern with the aggregate swapped out. Profit on day `j` is `price[j] − min(price[0..j-1])` — a value at `j` combined with an aggregate over everything before it. The reason `min_price` is a single variable rather than an array is that you only ever need the aggregate ending *here*, never an arbitrary range, so there's nothing to store. [[122-maximum-subarray|Maximum Subarray]] is the same move with sums instead of minima.
+
 ## Related
-- concept: [[03-sliding-window|sliding-window]]
+- concepts: [[03-sliding-window|sliding-window]], [[01-prefix-sum|prefix-sum]]
 - next: [[016-longest-substring-without-repeating-characters|Longest Substring Without Repeating Characters]]

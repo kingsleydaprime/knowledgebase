@@ -52,9 +52,17 @@ Postorder because both children's results (`left_gain`, `right_gain`) must be kn
 O(n) — every node is visited exactly once regardless of the order.
 
 ## Practice problems
-1. Binary Tree Paths (LeetCode #257) — preorder
-2. Kth Smallest Element in a BST (LeetCode #230) — inorder
-3. Binary Tree Maximum Path Sum (LeetCode #124) — postorder
+
+**In the [[foundations/dsa/neetcode-150/README|NeetCode 150]]** — written up here:
+
+1. [[057-kth-smallest-element-in-a-bst|Kth Smallest Element in a BST]] (LeetCode #230) — inorder
+2. [[056-validate-binary-search-tree|Validate Binary Search Tree]] (LeetCode #98) — inorder again, via the fact that a valid BST's inorder traversal comes out sorted
+3. [[059-binary-tree-maximum-path-sum|Binary Tree Maximum Path Sum]] (LeetCode #124) — postorder
+4. [[058-construct-binary-tree-from-preorder-and-inorder-traversal|Construct Binary Tree from Preorder and Inorder]] (LeetCode #105) — two orderings together, and the clearest demonstration of what information each one actually carries
+
+**Not in the NeetCode 150:**
+
+5. Binary Tree Paths (LeetCode #257) — preorder
 
 ## Related
 - [[02-traversal|traversal]]

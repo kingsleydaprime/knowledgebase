@@ -68,9 +68,17 @@ Note the extra `visiting` set on top of `visited` — this is what catches a cyc
 O(V + E), same as plain DFS.
 
 ## Practice problems
-1. Clone Graph (LeetCode #133)
-2. Path Sum II (LeetCode #113)
-3. Course Schedule II (LeetCode #210) — topological sort
+
+**In the [[foundations/dsa/neetcode-150/README|NeetCode 150]]** — written up here:
+
+1. [[081-clone-graph|Clone Graph]] (LeetCode #133)
+2. [[087-course-schedule|Course Schedule]] (LeetCode #207) — cycle detection; the yes/no version of the next one
+3. [[088-course-schedule-ii|Course Schedule II]] (LeetCode #210) — topological sort
+4. [[063-word-search-ii|Word Search II]] (LeetCode #212) — DFS with a [[09-tries|trie]] to prune; the hard end of this pattern
+
+**Not in the NeetCode 150:**
+
+5. Path Sum II (LeetCode #113)
 
 ## Related
 - [[02-dfs|dfs]]

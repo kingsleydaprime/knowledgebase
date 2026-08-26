@@ -38,9 +38,14 @@ The reason this works without checking every pair: at each step, one side of the
 O(n) time, O(1) extra space — versus O(n²) for checking every pair, or O(n) time / O(n) space for the hash-map version of two-sum on unsorted input. Two pointers wins on space when the data is already sorted.
 
 ## Practice problems
-1. Two Sum II - Input Array is Sorted (LeetCode #167)
-2. 3Sum (LeetCode #15) — fix one element, two-pointer the rest
-3. Container With Most Water (LeetCode #11)
+
+All three are written up in the [[foundations/dsa/neetcode-150/README|NeetCode 150]]:
+
+1. [[011-two-sum-ii|Two Sum II - Input Array is Sorted]] (LeetCode #167)
+2. [[012-3sum|3Sum]] (LeetCode #15) — fix one element, two-pointer the rest
+3. [[013-container-with-most-water|Container With Most Water]] (LeetCode #11)
+
+Also in the 150 and built on this pattern: [[010-valid-palindrome|Valid Palindrome]] (#125), the simplest converging-pointer problem and a good warm-up, and [[014-trapping-rain-water|Trapping Rain Water]] (#42), the hard one.
 
 ## Related
 - [[03-sliding-window|sliding-window]] — a specialization where both pointers move in the same direction

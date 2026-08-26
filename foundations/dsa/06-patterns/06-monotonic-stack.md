@@ -45,9 +45,16 @@ Every index gets pushed onto the stack exactly once and popped at most once acro
 O(n) time, O(n) space (worst case, if the array is already in an order that never triggers a pop, e.g. strictly decreasing).
 
 ## Practice problems
-1. Next Greater Element I (LeetCode #496)
-2. Daily Temperatures (LeetCode #739)
-3. Largest Rectangle in Histogram (LeetCode #84) — the classic hard variant
+
+**In the [[foundations/dsa/neetcode-150/README|NeetCode 150]]** — written up here:
+
+1. [[025-daily-temperatures|Daily Temperatures]] (LeetCode #739) — next-greater-element in its most readable form
+2. [[026-car-fleet|Car Fleet]] (LeetCode #853) — the pattern in disguise: sort by position, then a monotonic stack of arrival times
+3. [[027-largest-rectangle-in-histogram|Largest Rectangle in Histogram]] (LeetCode #84) — the classic hard variant
+
+**Not in the NeetCode 150:**
+
+4. Next Greater Element I (LeetCode #496) — the smallest possible statement of the pattern; do it first if the stack invariant isn't clear yet
 
 ## Related
 - [[01-algorithms|algorithms]] — amortized analysis
