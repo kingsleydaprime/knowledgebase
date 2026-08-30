@@ -21,6 +21,7 @@ Each folder is a real project with two things in it:
 | **[[projects/direct-debit-sandbox-java/learning/01-java-fundamentals\|direct-debit-sandbox-java]]** (27k) | Spring Boot payments sandbox, async + retries | [[backend/frameworks/java/01-spring-boot\|Spring Boot]] · [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency\|idempotency]] · [[architecture/03-architectural-patterns/02-resilience-patterns\|retries/resilience]] |
 | **[[projects/iot-bridge-pcb/kicad-walkthrough\|iot-bridge-pcb]]** (25k) | Hardware — schematic, power, RF, KiCad | [[hardware/README\|hardware]] · [[hardware/10-kicad-basics\|KiCad]] |
 | **[[projects/arete/learning/backend/01-fundamentals-and-nestjs\|arete]]** (20k) | NestJS + Prisma + React Native | [[backend/README\|backend]] · [[devops/01-linux/README\|shell/devops]] · frontend (mobile) |
+| **[[projects/kingsley-iheme/learning/README\|kingsley-iheme]]** (15k) | Next.js 16 + Sanity CMS portfolio site; env-gated integrations | [[frontend/frameworks/next/README\|Next.js 16]] · [[frontend/README\|Tailwind v4]] · **Sanity/headless CMS** · [[backend/02-api-design/README\|API design]] · [[devops/09-secret-management/README\|env/secrets]] |
 | **[[projects/json-healer/learning\|json-healer]]** (13k) | TS library — parsing/repair, packaging | [[foundations/dsa/05-algorithms/01-algorithms\|algorithms]] · [[concepts/04-best-practices/README\|library design]] |
 | **[[projects/strictenv/learning\|strictenv]]** (9k) | TS library — typed env validation | [[concepts/04-best-practices/README\|API design]] · [[devops/09-secret-management/README\|config/secrets]] |
 | **[[projects/sorepoint/learning/README\|sorepoint]]** (9k) | Crawling pipeline + Supabase/Postgres | [[backend/README\|backend]] · [[databases/sql-reference\|Postgres]] · [[devops/01-linux/README\|shell]] |
@@ -44,6 +45,9 @@ Use this when a course note feels abstract and you want the real instance:
 | **AI agents & LLM plumbing** | [[projects/my-applicant/learning/02-ai-sdk-and-byok\|my-applicant]] · [[projects/socioboom/interview/03-ai-and-agents\|socioboom]] |
 | **Shell / grep / sed / regex** | [[projects/arete/learning/devops/05-grep-in-depth\|arete devops notes]] — the deepest shell material in the vault |
 | **Postmortems & real bugs** | [[projects/arete/learning/backend/06-advanced-habits-and-bug-postmortems\|arete]] · [[projects/gees-arise/interview/04-bugs-and-story\|gees-arise]] |
+| **Headless CMS & content modelling** | [[projects/kingsley-iheme/learning/02-sanity\|kingsley-iheme — Sanity]] (schemas, GROQ, Portable Text, discriminated unions) |
+| **Transactional email (SPF/DKIM)** | [[projects/kingsley-iheme/learning/03-backend-api\|kingsley-iheme — Resend]] — why `from` is you and `replyTo` is them |
+| **Graceful degradation / status-code contracts** | [[projects/kingsley-iheme/learning/03-backend-api\|kingsley-iheme]] — 503 not-configured vs 502 upstream-broken |
 | **Observability / logging** | [[projects/record-id-generator-java/learning/09-logging-and-observability\|record-id-generator]] |
 | **Docker & perf tuning** | [[projects/record-id-generator-java/learning/10-docker-and-performance-tuning\|record-id-generator]] |
 
@@ -56,7 +60,8 @@ A sweep in **August 2026** measured every project topic against the course folde
 | Topic | In courses | In projects | Where |
 |---|---|---|---|
 | **React / Next.js** | 419 w (two stub READMEs) | **~44,000 w** | 105× — see [[frontend/README\|the frontend index]], now written |
-| **Tailwind / shadcn** | **zero mentions, anywhere** | 1.6k w | [[projects/socioboom/learning/frontend/03-styling-and-ui\|socioboom — styling]] |
+| **Tailwind / shadcn** | **zero mentions, anywhere** | 2.2k w | [[projects/socioboom/learning/frontend/03-styling-and-ui\|socioboom — styling]] · [[projects/kingsley-iheme/learning/01-frontend\|kingsley-iheme]] — the only **Tailwind v4** (CSS-first `@theme`, no config file) instance |
+| **Sanity / headless CMS** | `frontend/frameworks/sanity/` exists but is **empty** | 15k w | [[projects/munakalati/learning/03-sanity/README\|munakalati]] (11k — the deeper course) · [[projects/kingsley-iheme/learning/02-sanity\|kingsley-iheme]] (4k — discriminated-union modelling, graceful degradation) |
 | **Supabase / BaaS** | 3 passing mentions | 4.0k w | [[projects/gees-arise/learning/04-supabase\|gees-arise]] · [[projects/sorepoint/learning/supabase\|sorepoint]] |
 | **Money, ledgers, payouts** | mentioned, no note | 12.9k w | [[projects/nextvibe/learning/backend/06-money-ledger-and-payouts\|nextvibe]] |
 | **Realtime / WebSockets** | mentioned, no note | 11.2k w | [[projects/nextvibe/learning/backend/05-realtime\|backend]] · [[projects/nextvibe/learning/frontend/06-realtime\|frontend]] |
