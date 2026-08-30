@@ -8,6 +8,7 @@ General engineering practices that apply regardless of language or framework —
 3. [[03-documentation-practices|documentation-practices]] — **[Intermediate]** — READMEs, inline comments, API docs, ADRs, and keeping documentation from rotting
 4. [[04-testing-fundamentals|testing-fundamentals]] — **[Intermediate]** — the testing pyramid (unit/integration/E2E), TDD, what makes a test actually valuable vs. just contributing to a coverage number
 5. [[05-solid-principles|solid-principles]] — **[Intermediate]** — the five principles, what each one actually buys you, and when applying them is over-engineering
+6. [[concepts/04-best-practices/06-data-migrations|data-migrations]] — **[Intermediate → Advanced]** — the five phases, **idempotency as a property of (ID scheme, write verb)**, replace vs. patch, dry runs where the safe name is the short one, count reconciliation, and why repair scripts are planned for rather than apologised for
 
 ## Related
 - [[backend/README|backend concepts]]
