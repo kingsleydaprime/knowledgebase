@@ -18,6 +18,7 @@ Each folder is a real project with two things in it:
 | **[[projects/socioboom/learning/archive/original-flat-backend-learning\|socioboom]]** (67k) | Social publishing + AI agents + queues | [[architecture/02-building-blocks/04-messaging-and-async\|queues]] · [[ai-ml/03-ai-engineer/08-agents\|agents]] · [[devops/README\|deployment]] |
 | **[[projects/gees-arise/learning/09-sys-design\|gees-arise]]** (32k) | Next.js + Supabase, Postgres RLS | [[databases/sql-reference\|SQL]] · [[backend/05-auth/02-authorization\|authorization]] · [[cybersecurity/04-web-security/README\|web security]] · [[git/README\|git]] · [[devops/01-linux/README\|shell]] |
 | **[[projects/record-id-generator-java/learning/01-java-fundamentals\|record-id-generator-java]]** (31k) | High-throughput ID generation, RabbitMQ, MySQL | [[languages/01-java/README\|Java]] · [[languages/01-java/02-jvm-and-concurrency/README\|concurrency]] · [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq\|messaging]] · [[databases/mysql-reference\|MySQL]] · [[architecture/README\|throughput/perf]] |
+| **[[projects/munakalati/learning/README\|munakalati]]** (30k) | Next.js 16 + Sanity site — **434 blog posts migrated from Wix** | [[frontend/frameworks/sanity/README\|Sanity/CMS]] · [[concepts/04-best-practices/06-data-migrations\|data migration]] · [[frontend/frameworks/next/README\|Next.js 16]] · [[frontend/02-rendering/01-rendering-strategies\|ISR/rendering]] · [[git/README\|git]] |
 | **[[projects/direct-debit-sandbox-java/learning/01-java-fundamentals\|direct-debit-sandbox-java]]** (27k) | Spring Boot payments sandbox, async + retries | [[backend/frameworks/java/01-spring-boot\|Spring Boot]] · [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency\|idempotency]] · [[architecture/03-architectural-patterns/02-resilience-patterns\|retries/resilience]] |
 | **[[projects/iot-bridge-pcb/kicad-walkthrough\|iot-bridge-pcb]]** (25k) | Hardware — schematic, power, RF, KiCad | [[hardware/README\|hardware]] · [[hardware/10-kicad-basics\|KiCad]] |
 | **[[projects/arete/learning/backend/01-fundamentals-and-nestjs\|arete]]** (20k) | NestJS + Prisma + React Native | [[backend/README\|backend]] · [[devops/01-linux/README\|shell/devops]] · frontend (mobile) |
@@ -45,7 +46,10 @@ Use this when a course note feels abstract and you want the real instance:
 | **AI agents & LLM plumbing** | [[projects/my-applicant/learning/02-ai-sdk-and-byok\|my-applicant]] · [[projects/socioboom/interview/03-ai-and-agents\|socioboom]] |
 | **Shell / grep / sed / regex** | [[projects/arete/learning/devops/05-grep-in-depth\|arete devops notes]] — the deepest shell material in the vault |
 | **Postmortems & real bugs** | [[projects/arete/learning/backend/06-advanced-habits-and-bug-postmortems\|arete]] · [[projects/gees-arise/interview/04-bugs-and-story\|gees-arise]] |
-| **Headless CMS & content modelling** | [[projects/kingsley-iheme/learning/02-sanity\|kingsley-iheme — Sanity]] (schemas, GROQ, Portable Text, discriminated unions) |
+| **Headless CMS & content modelling** | [[projects/munakalati/learning/03-sanity/README\|munakalati]] (16 types, singletons, ordering, presentation coupling) · [[projects/kingsley-iheme/learning/02-sanity\|kingsley-iheme]] (discriminated unions, graceful degradation) |
+| **Bulk data migration** | [[projects/munakalati/learning/05-migration/README\|munakalati]] — 434 records, Wix→Sanity: idempotency, deterministic IDs, dry runs, repair scripts |
+| **Rich text / Portable Text** | [[projects/munakalati/learning/05-migration/04-portable-text-conversion\|munakalati]] — converting between two incompatible tree formats |
+| **ISR & layered caches** | [[projects/munakalati/learning/04-frontend/02-data-fetching-and-caching\|munakalati]] — staleness composes across a CDN and a page cache |
 | **Transactional email (SPF/DKIM)** | [[projects/kingsley-iheme/learning/03-backend-api\|kingsley-iheme — Resend]] — why `from` is you and `replyTo` is them |
 | **Graceful degradation / status-code contracts** | [[projects/kingsley-iheme/learning/03-backend-api\|kingsley-iheme]] — 503 not-configured vs 502 upstream-broken |
 | **Observability / logging** | [[projects/record-id-generator-java/learning/09-logging-and-observability\|record-id-generator]] |
@@ -61,7 +65,7 @@ A sweep in **August 2026** measured every project topic against the course folde
 |---|---|---|---|
 | **React / Next.js** | 419 w (two stub READMEs) | **~44,000 w** | 105× — see [[frontend/README\|the frontend index]], now written |
 | **Tailwind / shadcn** | **zero mentions, anywhere** | 2.2k w | [[projects/socioboom/learning/frontend/03-styling-and-ui\|socioboom — styling]] · [[projects/kingsley-iheme/learning/01-frontend\|kingsley-iheme]] — the only **Tailwind v4** (CSS-first `@theme`, no config file) instance |
-| **Sanity / headless CMS** | `frontend/frameworks/sanity/` exists but is **empty** | 15k w | [[projects/munakalati/learning/03-sanity/README\|munakalati]] (11k — the deeper course) · [[projects/kingsley-iheme/learning/02-sanity\|kingsley-iheme]] (4k — discriminated-union modelling, graceful degradation) |
+| **Sanity / headless CMS** | **now a 3-note course** ([[frontend/frameworks/sanity/README\|frameworks/sanity]], 4k w, written Aug 2026) + [[frontend/04-state-and-data/03-content-modeling-and-headless-cms\|the concept note]] | 19k w | [[projects/munakalati/learning/03-sanity/README\|munakalati]] (15k across Sanity + migration — the deeper course) · [[projects/kingsley-iheme/learning/02-sanity\|kingsley-iheme]] (4k — discriminated-union modelling, graceful degradation) |
 | **Supabase / BaaS** | 3 passing mentions | 4.0k w | [[projects/gees-arise/learning/04-supabase\|gees-arise]] · [[projects/sorepoint/learning/supabase\|sorepoint]] |
 | **Money, ledgers, payouts** | mentioned, no note | 12.9k w | [[projects/nextvibe/learning/backend/06-money-ledger-and-payouts\|nextvibe]] |
 | **Realtime / WebSockets** | mentioned, no note | 11.2k w | [[projects/nextvibe/learning/backend/05-realtime\|backend]] · [[projects/nextvibe/learning/frontend/06-realtime\|frontend]] |
@@ -76,7 +80,7 @@ Two of these are now fixed by indexing rather than moving: [[frontend/README|fro
 
 ## Other known gaps
 
-- **`munakalati/` was an empty folder** — removed 2026-08-13. Recreate it with a `learning/` folder if the project restarts.
+- ~~`munakalati/` was an empty folder~~ — **filled in August 2026** at project handover: [[projects/munakalati/learning/README\|17 learning notes across five domains]] + [[projects/munakalati/interview/README\|an interview bank]]. It's the vault's only bulk-data-migration material.
 - **No project has exercised the [[architecture/04-distributed-systems/README|distributed systems]] material.** That's the Rank IV gap in [[PRIMETECHIE|the Primetechie path]], and the Raft KV store in [[project-ideas|project-ideas]] is the fix.
 - **No project has a unit-testing story.** The only testing notes are [[projects/gees-arise/learning/07-testing|gees-arise's Playwright E2E]] and Java's JUnit work — which is why [[backend/07-practices/02-testing-a-backend|testing a backend]] had to be written from scratch rather than distilled.
 

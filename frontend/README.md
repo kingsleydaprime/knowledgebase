@@ -24,6 +24,7 @@
 ### [[frontend/04-state-and-data/README|04 — State and Data]] ⭐
 **The heart of the course.**
 1. [[frontend/04-state-and-data/01-state-management|State Management]] · 2. [[frontend/04-state-and-data/02-data-fetching-and-server-state|Data Fetching and Server State]] — **server state is a cache, not state**; the race condition every hand-rolled fetch has
+3. [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|Content Modelling and the Headless CMS]] — **[Intermediate]** — the third design discipline; **`required()` in a CMS is a form check, not a constraint**
 
 ### [[frontend/05-styling/README|05 — Styling]]
 1. [[frontend/05-styling/01-css-architecture|CSS Architecture]] — global scope and the specificity ratchet, what each solution fixes, modern CSS, tokens
@@ -41,6 +42,7 @@
 - **[[frontend/frameworks/react/README|react/]]** — the model, hooks, error boundaries
 - **[[frontend/frameworks/next/README|next/]]** — App Router, RSC, caching
 - **[[frontend/frameworks/css/README|css/]]** — **[[frontend/frameworks/css/tailwind|Tailwind]]** and **[[frontend/frameworks/css/sass|Sass]]**
+- **[[frontend/frameworks/sanity/README|sanity/]]** — the headless CMS: document model, GROQ, Portable Text
 - **[[frontend/frameworks/gsap/README|gsap/]]** · **[[frontend/frameworks/framer-motion/README|framer-motion/]]** · **[[frontend/frameworks/threejs/README|threejs/]]** — **full courses, 23 notes between them**
 
 ## [[frontend/interview/README|interview/]]

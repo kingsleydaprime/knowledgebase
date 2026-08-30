@@ -37,6 +37,7 @@ app/
 
 - [[projects/nextvibe/learning/frontend/01-routing|nextvibe — routing]]
 - [[projects/socioboom/learning/frontend/02-nextjs-app-router|socioboom — App Router]]
+- [[projects/munakalati/learning/04-frontend/README|munakalati — App Router, ISR and a CMS]] — **Next 16 specifically**: async `params`/`searchParams`, private folders, `typedRoutes` as the fix for untyped `href`
 
 Plus everything in [[frontend/frameworks/react/README|React]]'s index.
 

@@ -621,6 +621,35 @@ EOF
 containing `$` or backticks with an unquoted heredoc will corrupt it — and worse, backticks
 will *execute* whatever is inside them.
 
+### The delimiter must not appear in the body
+
+**The shell ends a heredoc at the first line that is exactly the delimiter** — it has no idea
+that line is inside a fenced code block, a comment, or a nested example. So a heredoc that
+*documents* heredocs will terminate itself early:
+
+```bash
+cat > notes.md <<'EOF'
+Writing a file looks like this:
+
+    cat > x.txt <<'EOF'
+    hello
+    EOF          # ← this line ends the OUTER heredoc
+
+...and everything after here is handed to the shell as commands.
+EOF
+```
+
+The failure is loud but confusing: the file is written truncated, and the remaining prose is
+executed. Prose makes terrible shell — expect `command not found`, or a glob error like
+`no matches found: *word*` from a line of markdown containing `*emphasis*`.
+
+**Two habits:**
+
+- **Pick a delimiter that cannot occur in the body.** `MDDOC`, `PYSRC`, `SQLBLOCK` — anything
+  but `EOF` when the content might itself contain `EOF`.
+- **When a heredoc-heavy command errors, check the tail of what it wrote** (`tail -5 file`).
+  The truncation point names the line that closed it.
+
 ### `<<-` strips leading tabs
 
 Lets you indent a heredoc inside a function or loop without the indentation ending up in
@@ -823,7 +852,94 @@ cat foundations/programming-fundamentals/*.md | wc -w
 counts, word counts, "12 notes" — is a claim that rots. Deriving it from the filesystem takes
 one command and stops the document lying.
 
+## Flags for scripts that touch production data
+
+A one-off script that reads an API is harmless. A one-off script that **deletes, patches or
+overwrites real records** is a different object, and it earns a small, fixed set of conventions.
+
+### `--dry-run`, and which name is the safe one
+
+Parsing is as simple as it looks, and for one or two booleans that is correct — no `getopts`,
+no dependency:
+
+```bash
+DRY_RUN=false
+[[ " $* " == *" --dry-run "* ]] && DRY_RUN=true
+```
+
+```js
+const dryRun = process.argv.includes("--dry-run");   // the same thing in a node/bun script
+```
+
+**The important decision isn't the parsing — it's which invocation is short.** Wire the wrappers
+so the obvious, tab-completable name is the *preview*:
+
+```json
+"cleanup":       "bun run scripts/cleanup.js --dry-run",
+"cleanup:apply": "bun run scripts/cleanup.js"
+```
+
+> **The default must be safe, and the destructive path must be the one you go out of your way to
+> ask for.** The reverse — `cleanup` deletes, `cleanup:dry` previews — is the same functionality
+> one accidental tab-completion away from an incident.
+
+The residual risk with `includes("--dry-run")` is that a typo (`--dryrun`) silently means *apply*.
+Where the stakes justify it, invert the flag: **dry-run unconditionally, require an explicit
+`--apply`.** Then a typo fails safe.
+
+### Print the change before making it — in both modes
+
+```js
+console.log(`  ${id}\n    Before: ${before}\n    After:  ${after}`);
+if (!dryRun) await write(id, after);
+```
+
+Identical output either way, so the preview is faithful and the real run leaves a transcript.
+**A dry run that takes a different code path is a dry run that lies to you.**
+
+### The rest of the set
+
+| Flag | Job |
+|---|---|
+| `--dry-run` | preview; the default |
+| `--force` | ignore the "already done" skip, for when the transform itself changed |
+| `--retry` | re-run only what failed last time, read back from the run report |
+| `--debug` | fetch **one** record, dump its actual shape, exit — before you trust the docs |
+| `--limit N` | process the first N, to sanity-check on real data at low cost |
+
+`--debug` is the underrated one. Building "show me what this API really returns" into the script
+means it's still there the next time the shape surprises you, instead of being retyped into a REPL.
+
+### Structure
+
+1. **A header comment: what this fixes, why it exists, and how to run it.** A repair script is a
+   response to a specific incident; without the incident written down it is unreadable *and*
+   undeletable, because nobody can tell whether it is still needed.
+2. **Assert config at the top** — fail on a missing env var before doing any work, not halfway
+   through.
+3. **A query/filter that defines the work set as narrowly as possible.** *Safety lives in the
+   selection, not in the loop* — a loop cannot damage what was never fetched.
+4. **Exit early and say so** when there's nothing to do.
+5. **Deterministic choices.** If the script picks a survivor among duplicates, the rule must give
+   the same answer twice, or the dry run told you nothing.
+6. **Write a structured report**, even on success.
+
+### The `.env` foot-gun
+
+Runtimes that auto-load `.env` (bun, and node with `--env-file`) make it invisible **which
+environment a destructive script is about to hit** — it's decided by which lines happen to be
+commented out in a file you aren't looking at. Name the target in the command:
+
+```bash
+bun --env-file=.env.migration run scripts/cleanup.js --dry-run
+dotenv -e .env.staging -- node scripts/cleanup.js
+```
+
+**Anything that decides between staging and production should be visible in your shell history.**
+
 ## Related
 - [[devops/01-linux/16-sed-and-awk|sed and awk]] — when the transformation is line-shaped
 - [[devops/01-linux/03-file-operations|file operations]] — `find`, `grep -r`, and the search flags
 - [[git/09-investigating-history|investigating history]] — the git equivalent of a verification pass
+- [[concepts/04-best-practices/06-data-migrations|data migrations]] — where the dry-run/apply conventions above come from
+- [[projects/munakalati/learning/02-shell|munakalati — shell]] — these techniques against a real codebase

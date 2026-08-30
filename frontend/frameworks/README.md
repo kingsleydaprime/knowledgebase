@@ -11,6 +11,7 @@
 | **[[frontend/frameworks/react/README\|react/]]** | The React model, hooks, error boundaries | 2 notes + a routed index into `projects/` |
 | **[[frontend/frameworks/next/README\|next/]]** | App Router, RSC, caching, `next/image` | Scaffold + a routed index |
 | **[[frontend/frameworks/css/README\|css/]]** | **Tailwind, Sass** | 2 notes |
+| **[[frontend/frameworks/sanity/README\|sanity/]]** | **Headless CMS** — the document model, GROQ, Portable Text | **Full course — 3 notes** |
 | **[[frontend/frameworks/gsap/README\|gsap/]]** | Tweens, timelines, ScrollTrigger, plugins | **Full course — 7 notes** |
 | **[[frontend/frameworks/framer-motion/README\|framer-motion/]]** | Animate props, gestures, variants, layout | **Full course — 8 notes** |
 | **[[frontend/frameworks/threejs/README\|threejs/]]** | Scene/camera/renderer, materials, R3F | **Full course — 8 notes** |

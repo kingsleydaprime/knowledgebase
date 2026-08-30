@@ -15,7 +15,7 @@ A map of the Linux notes in this folder, in reading order — the day-to-day OS 
 9. [[09-symbolic-links|symbolic-links]] — **[Beginner]** — pointers to another file/directory, and how they differ from a hard link
 10. [[10-environment-variables|environment-variables]] — **[Beginner]** — variables available system-wide to any process
 11. [[11-cron-jobs|cron-jobs]] — **[Intermediate]** — scheduling commands to run automatically
-12. [[12-bash-scripting|bash-scripting]] — **[Intermediate]** — automating the commands above into reusable scripts, plus `set -euo pipefail` and heredocs
+12. [[12-bash-scripting|bash-scripting]] — **[Intermediate]** — automating the commands above into reusable scripts, plus `set -euo pipefail`, heredocs (**and the delimiter-collision trap**), and **flag conventions for scripts that touch production data**
 13. [[17-logs-and-journald|logs-and-journald]] — **[Intermediate]** — reading the machine's own account of what happened: `journalctl`, where each distro keeps its log files, making the journal survive a reboot, and stopping logs filling the disk
 14. [[16-sed-and-awk|sed-and-awk]] — **[Intermediate]** — transforming text rather than just finding it: line-range extraction, substitution, and column/aggregate processing
 15. [[18-disks-and-filesystems|disks-and-filesystems]] — **[Intermediate]** — partition → format → mount, `fstab` by UUID, the full-disk emergency (`df -i`, `lsof +L1`), and LVM for storage you can grow
