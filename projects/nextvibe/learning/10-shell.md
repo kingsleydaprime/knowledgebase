@@ -484,3 +484,70 @@ npx tsx prisma/_tmp-diagnose.ts 2>&1 | tail -70
 `2>&1` redirects stderr into stdout **before** the pipe, so errors reach `tail`
 too — without it a crash prints to the terminal unpiped while `tail` shows
 nothing useful. Order matters here: the redirection has to come before the `|`.
+
+---
+
+## Part N+2 — Reading *parts* of a file: `sed -n` as a surgical `cat` (2026-08-28)
+
+`cat` on a 600-line service file is mostly waste. `sed -n` prints only what you
+ask for. The `-n` means "don't auto-print every line"; the `p` command then does
+all the printing, so you get exactly the selected range.
+
+**By line number:**
+
+```bash
+sed -n '235,420p' src/modules/auth/auth.service.ts   # lines 235–420
+sed -n '1,140p'  src/modules/auth/auth.controller.ts # the first 140 (= head -140)
+sed -n '268,$p'  DECISIONS.md                        # line 268 to end of file
+```
+
+**By pattern range** — far more useful, because you usually know the *name* of
+the thing you want, not its line number. An address can be a `/regex/`, and
+`start,end` works with regexes on either side:
+
+```bash
+# print one method, from its signature to the closing brace at its indent level
+sed -n '/private async upsertGoogleUser/,/^  }/p' src/modules/auth/auth.service.ts
+```
+
+`/^  }/` is doing real work there: anchored to a closing brace at exactly two
+spaces of indentation, i.e. the end of a class method, not the end of every
+nested `if` inside it. Pattern ranges end at the **first** match after the start,
+so the anchor has to be specific or you get three lines instead of forty.
+
+**Several ranges in one call** — separate commands with `;`:
+
+```bash
+sed -n '/private sanitizeUser/,/^  }/p;/private async generateTokens/,/^  }/p' file.ts
+```
+
+That pulled three unrelated helper methods out of one file in a single command,
+which beats three round trips through `grep -n` and line arithmetic.
+
+The pairing to remember: **`grep -n` to find, `sed -n` to read.** `grep` gives
+you the line number or the pattern, `sed -n` gives you the surrounding block.
+
+## Part N+3 — `node -e` to check a behaviour instead of arguing about it (2026-08-28)
+
+Writing the mobile OAuth guide, the question came up: does JS's `URL` parser
+handle a custom scheme like `nextvibe://auth?code=abc`, or does it treat it as
+opaque and lose the query string? There was a code comment in the repo asserting
+one answer and a memory of the spec asserting another.
+
+Rather than pick a side:
+
+```bash
+node -e "const u=new URL('nextvibe://auth?code=abc123'); console.log(u.host, u.searchParams.get('code'));"
+# → auth abc123
+```
+
+`node -e` runs a one-liner and exits. `python3 -c` is the same idea; for anything
+multi-line, graduate to the `python3 - << 'PY'` heredoc pattern from the earlier
+section.
+
+The habit is the point: **a claim about runtime behaviour is cheap to test and
+expensive to get wrong in documentation.** Ten seconds settled it — and it also
+surfaced the real caveat worth documenting, which is that Node's answer is *not*
+React Native's: RN ships a partial `URL` polyfill with no `searchParams`, so the
+same line that works here returns `undefined` on a device. Testing the assumption
+is what turned a vague worry into a specific warning worth writing down.

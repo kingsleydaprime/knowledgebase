@@ -420,6 +420,12 @@ Related: the client-side half of this loop is in
 
 ## Part N — Making Google sign-in work from the mobile app (2026-08-22)
 
+> **Superseded in part (2026-08-28).** Everything below is still true of
+> `POST /auth/oauth/google`, but "there is no OAuth redirect/callback to
+> implement" and "`GOOGLE_CLIENT_SECRET` is read by nothing" stopped being true
+> when the hosted redirect flow landed. See *Part N+1* at the end of this file.
+
+
 The backend already had `POST /auth/oauth/google` taking an ID token. It worked
 from the web and would have rejected every single sign-in from the phone. The
 reason is the one thing about Google OAuth that catches everybody once.
@@ -564,3 +570,164 @@ library, configured with the **web** client ID as `webClientId`, and POSTs it to
 `/auth/oauth/google` as `{ idToken }`. The backend does the rest. Nothing about
 this flow needs `GOOGLE_CLIENT_SECRET` — that's for the server-side authorization
 code exchange, which this app doesn't use.
+
+---
+
+## Part N+1 — The hosted redirect flow: OAuth where the client holds nothing (2026-08-28)
+
+Part N ended on a confident claim: this backend does no authorization code
+exchange, so `GOOGLE_CLIENT_SECRET` is dead config. That was accurate for the
+ID-token flow, and it is the thing the redirect flow reverses. Both now exist
+side by side, which is the interesting part — they are not competing
+implementations of the same idea, they distribute the *same work* between client
+and server differently.
+
+### The two shapes, side by side
+
+```
+ID-token flow  (POST /auth/oauth/google)
+  app ──► Google SDK ──► signed ID token ──► your API ──► verify signature ──► JWTs
+          └─ the app needs: client ID per platform, SHA-1, .plist, the SDK
+
+Redirect flow  (start → callback → exchange)
+  app ──► opens URL ──► your API ──► 302 ──► Google consent
+                                              │
+  app ◄── deep link ?code=X ◄── your API ◄────┘  (code exchange happens HERE,
+          └─ the app needs: a URL scheme                with the client secret)
+  app ──► POST /auth/oauth/exchange { code:X } ──► JWTs
+```
+
+The question each answers is the same — "prove to my server who this Google user
+is" — and the honest trade is:
+
+| | ID token | Hosted redirect |
+|---|---|---|
+| Google credentials on the device | client ID per platform | none |
+| Changing Google config | new app release | server env change |
+| Server state needed | none | Redis (state + one-time code) |
+| Round trips from the app | 1 | 1 (plus opening a URL) |
+| Client secret used | no | **yes** — this is what needs it |
+| Fails as | opaque `401 Invalid Google token` on device | a `?error=` you can branch on |
+
+The redirect flow is the **BFF (backend-for-frontend) pattern** applied to OAuth:
+the confidential client lives on the server, and the public client (the app) is
+demoted to something that opens a browser and posts one string back. It is what
+"no client ID in the app" actually buys — not less code, but a config surface
+that moves from the app stores to your `.env`.
+
+### The three endpoints and why there are three
+
+`GET /auth/oauth/google/start` — builds the consent URL and 302s to it.
+`GET /auth/oauth/google/callback` — Google's redirect target. Never called by a client.
+`POST /auth/oauth/exchange` — the app trades a one-time code for JWTs.
+
+The middle one is not "an extra hop we could remove". It exists because Google
+redirects a *browser*, and a browser cannot hand a JSON body to your app.
+
+### The four security decisions worth internalising
+
+Every one of these is a general OAuth lesson, not a NextVibe quirk.
+
+**1. `state` is the CSRF defence, and consuming it is what makes it one.**
+
+```ts
+const state = randomBytes(32).toString('base64url');
+await this.redis.set(`oauth:state:${state}`, JSON.stringify({ appRedirect }), 600);
+// ...later, in the callback:
+const raw = await this.redis.getdel(`oauth:state:${state}`);
+if (!raw) throw new BadRequestException('OAuth state is invalid or expired');
+```
+
+Google echoes `state` back unchanged, so a value you don't recognise means the
+callback wasn't triggered by a flow you started. Note **`getdel`**, not `get` —
+read-and-delete atomically. `get` would leave a callback URL replayable: replay
+it and you mint a second login code. Single use is not a nicety here, it's the
+whole property.
+
+Storing `appRedirect` *inside* the state record is the same instinct one level
+down: the callback then trusts nothing in its own query string.
+
+**2. The deep link carries a one-time code, never the tokens.**
+
+The obvious shortcut is to redirect to `nextvibe://auth?accessToken=...`. Don't.
+Deep-link URLs end up in system logs, and on Android a second app can register
+the same custom scheme and receive them. So the callback stashes the result and
+emits a random code that is useless on its own:
+
+```ts
+const oauthCode = randomBytes(32).toString('base64url');
+await this.redis.set(`oauth:code:${oauthCode}`, JSON.stringify({ userId, isNewUser }), 120);
+```
+
+Intercepting that code buys an attacker nothing unless they also win the race to
+`POST /auth/oauth/exchange` within 120 seconds — and if they do, the real user's
+sign-in fails loudly instead of silently succeeding for both. This is the same
+reasoning that gives OAuth its own `code` step; PKCE is the next rung of it.
+
+**3. Tokens are minted at exchange, not at callback.**
+
+Subtle and worth stating: the callback could generate the JWTs and park them in
+Redis. It doesn't. If nobody redeems the code — user killed the app, deep link
+never fired — a flow that minted early leaves a **live refresh token** sitting in
+Redis for its full TTL. Minting at redemption means an abandoned flow leaves
+behind nothing but a key that expires.
+
+Generalise it: *don't create a credential until something is waiting to receive
+it.*
+
+**4. Exact-match allowlist, because `?redirect=` is an open redirect otherwise.**
+
+```ts
+if (!this.appRedirectAllowlist.includes(requested)) {
+  throw new BadRequestException('redirect is not an allowed target');
+}
+```
+
+Without the check, an attacker names their own host and your callback hands them
+a valid login code. And the check is `includes`, not `startsWith`, deliberately —
+prefix matching is the classic allowlist bypass:
+
+```
+allowlist entry:  https://nextvibe.app
+startsWith admits: https://nextvibe.app.evil.example   ← different site entirely
+```
+
+The cost of exactness is real and shows up immediately: Expo Go's redirect is
+`exp://<lan-ip>:8081/--/auth`, whose host changes per machine, so local testing
+wants a development build with the real `nextvibe://` scheme. That's the right
+trade — loosening an allowlist for developer convenience is how open redirects
+ship.
+
+### Two flags on the consent URL
+
+```ts
+this.googleWebClient.generateAuthUrl({
+  access_type: 'online',        // no refresh token from Google — we never call it again
+  scope: ['openid', 'email', 'profile'],
+  state,
+  prompt: 'select_account',
+});
+```
+
+`access_type: 'online'` says: don't issue a Google refresh token. We only want
+identity, once. Ask for `'offline'` and you're storing a long-lived Google
+credential you have no use for — a liability, not a feature.
+
+`prompt: 'select_account'` forces the account picker. Without it Google reuses
+the browser's existing session, and a user signed into the wrong account has no
+way to switch — it just silently logs them in as the wrong person. It reads like
+a UX flag; it's really a correctness one.
+
+### Why both flows converge safely
+
+Both paths end in `upsertGoogleUser(payload)` matching on `email` **or**
+`(oauthProvider: 'GOOGLE', oauthId: sub)`, so a user who signed up through the
+web ID-token flow and later signs in through the mobile redirect flow lands on
+the same row. Two entry points, one identity — which is the reason keeping both
+flows costs almost nothing.
+
+### See also
+
+- Part N above, for the ID-token flow and the `aud` trap
+- `backend/MOBILE_INTEGRATION.md` §1A — the client-side guide written from this
+- `backend/DECISIONS.md` (2026-08-28) — the one-paragraph version of the trade-off
