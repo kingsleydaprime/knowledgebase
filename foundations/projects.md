@@ -75,6 +75,7 @@ Several foundations courses ship exercises with solutions. **Do these before inv
 
 
 ## Related
+- [[foundations/README|the foundations index]] — all fifteen courses
 
 - [[foundations/dsa/README|DSA]] · [[foundations/os/README|OS]] · [[foundations/compilers/README|compilers]] · [[foundations/networking/README|networking]]
 - [[build-your-own-shit/README|build-your-own-shit]] — the systems reps
