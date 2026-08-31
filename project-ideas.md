@@ -22,6 +22,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 | [[backend/projects\|Backend]] | Load-test and fix your own p99 |
 | [[frontend/projects\|Frontend]] | The same app three ways — local state, server state, RSC |
 | [[databases/projects\|Databases]] | A zero-downtime migration on a live table |
+| [[data-engineering/projects\|Data Engineering]] | The end-to-end mini-pipeline, then break its idempotency |
 | [[architecture/projects\|Architecture]] | **A Raft key-value store** |
 | [[devops/projects\|DevOps]] | Containerize and deploy one app end to end |
 | [[cybersecurity/projects\|Cybersecurity]] | PortSwigger's Academy, then secure your own app |
