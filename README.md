@@ -343,6 +343,15 @@ knowledgebase/
 │   its own file — it used to symlink here, but a README and a landing page
 │   want different things. Edit both when the vault's shape changes.
 │
+├── data-engineering/             # FULL TRACK (Aug 2026): 10-note course + interview
+│                                 # + projects. The plumbing between databases/ and
+│                                 # ai-ml/: the operational/analytical split → warehouses/
+│                                 # lakes/lakehouses (columnar, Iceberg) → batch vs
+│                                 # streaming → ingestion & CDC → Kafka (the log) →
+│                                 # Spark AND when not to → dbt → orchestration &
+│                                 # IDEMPOTENCY → dimensional modelling → data quality.
+│                                 # The one idea: ELT — load raw, transform in place.
+│
 ├── learning/                     # HOW I LEARN, not what — the loop, the course system,
 │                                 # the one-active-course rule, catalogue + course template.
 │                                 # Personal; not symlinked into quartz/content.

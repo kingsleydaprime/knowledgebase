@@ -361,6 +361,16 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 **Phase 9 total: 15 new files, ~12,900 words, plus 3 indexes updated.**
 
+### Phase 10 — data engineering (2026-08-31)
+
+**From the queue.** Built as its own top-level domain (not folded into `databases/` or `ai-ml/`), because it's a distinct discipline and a distinct career track — **the plumbing between the systems that run a business and the systems that analyse it.**
+
+- [x] **`data-engineering/`** — ✅ **10 notes + README + projects + interview.** The gap the audit named: `databases/` is single-DB internals, `architecture/04` has the log/partitioning *theory*, `ai-ml/10-mlops` touches serving — but the discipline that *assembles* pipelines had no home
+- [x] **Framing decisions that shaped it:** the **operational/analytical split** as the root of everything (note 01), **ELT over ETL** as the change that defines the modern field, **idempotency** as the load-bearing operational discipline (note 08), and — deliberately, against the tooling hype — **"most data fits on one machine, measure before you distribute"** (note 06) and **"the modern data stack is frequently over-engineered"** (note 10). The vault's house style is honest assessment, and this field needed it more than most
+- [x] **Cross-linked** into `databases/` (the layer below), `ai-ml/` (the layer above — MLOps is largely data engineering), `architecture/04-distributed-systems` (the log, partitioning), and the four indexes (root README tree, INTERVIEW 17→18, project-ideas, Quartz Infrastructure column + symlink)
+
+**Phase 10 total: 14 new files, ~9,700 words, plus 6 indexes updated and 1 symlink.**
+
 ## Queue after Phase 8
 
 **Closed:** `mobile/` ✅ · `cybersecurity/10-protecting-yourself/` ✅
@@ -370,7 +380,7 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 - [x] **Binary exploitation** — ✅ `cybersecurity/11-binary-exploitation/`, **7 notes, ~6,900 words.** Process memory → stack overflows and `ret2win` → shellcode → the mitigations (checksec as a recipe) → ret2libc/ROP → format strings and the heap → pwntools/pwndbg/practice
 - [x] **Active Directory** — ✅ `cybersecurity/12-active-directory/`, **6 notes, ~6,000 words.** What AD is (the graph model) → Kerberos → enumeration/BloodHound → credential attacks → lateral movement/escalation → defending. Its projects entry points at GOAD
 - [x] **`foundations/` README** — ✅ **written 2026-08-31.** The vault's largest section (15 courses, ~371 notes, ~312k words) had no entry point while every sub-course had one. Also fixed **a wikilink broken by a line wrap** in `devops/01-linux/12-bash-scripting`, found by scanning for unclosed `[[` — a check the earlier link validator structurally could not catch, since its regex required a closing `]]`
-- [ ] **Data engineering** — Kafka, Spark, Airflow, dbt, warehouses, CDC. The bridge between `databases/` and `ai-ml/`
+- [x] **Data engineering** — ✅ `data-engineering/`, **14 files (10 notes + README + projects + a 2-file interview bank), ~9,700 words + banks.** The operational/analytical split → warehouses/lakes/lakehouses → batch/streaming → ingestion & CDC → Kafka → Spark (and when not to) → dbt → orchestration/idempotency → dimensional modelling → data quality. Cross-linked from `databases/` and `ai-ml/` READMEs
 - [ ] **DSP / signal processing** — the link between `hardware/`'s RF material and `information-theory/`
 - [ ] Malware analysis & RE · API security · thicken `09-cloud-security` (**758 words**), `08-GRC`, `01-fundamentals`
 - [ ] Practice exercises for the 10 domains without them (lower priority — `projects.md` now covers the reps gap)
