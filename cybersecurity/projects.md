@@ -24,7 +24,11 @@ Notes give you the map. **These give you the reps, and they're where the hours s
 - 🟡 **picoCTF / a live CTF** — where it stops being exercises. **Done when:** you've solved something nobody handed you.
 - 🟡 **Write the walkthrough** — for every box you root, write the report as if for a client → [[cybersecurity/02-ethical-hacking/09-post-exploitation-and-reporting|reporting]]. **The report is the actual deliverable of the job**, and almost nobody practises it.
 
-**Two honest caveats about where the notes will run out:** this vault currently has near-zero on **binary exploitation** (shellcode, ROP, heap) and on **Active Directory** (Kerberos, lateral movement, BloodHound). Those are the two things OSCP and real corporate pentests are mostly made of — expect to learn them elsewhere until those notes exist.
+**The two things OSCP and real corporate pentests are mostly made of** now have their own sections — build reps against them:
+
+- 🟡 ⭐ **Own a domain in GOAD** — stand up [Game of Active Directory](https://github.com/Orange-Cyberdefense/GOAD) (a free, deliberately-vulnerable AD lab), get one foothold, run BloodHound, and walk a path to Domain Admin. **Done when:** you've DCSync'd KRBTGT and forged a Golden Ticket → [[cybersecurity/12-active-directory/README|active directory]].
+- 🟢 ⭐ **Climb ROP Emporium** — ret2win → ret2libc → ROP, one concept per challenge, with pwntools. **Done when:** you've written a working ROP chain against a No-PIE binary → [[cybersecurity/11-binary-exploitation/README|binary exploitation]].
+- 🟡 **pwn.college and how2heap** — the structured path through memory, shellcode, ROP and the heap. **Done when:** you've popped a shell via tcache poisoning.
 
 
 ## If you only do one

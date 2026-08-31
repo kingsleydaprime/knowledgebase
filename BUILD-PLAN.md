@@ -349,15 +349,27 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 ---
 
+### Phase 9 — the two offensive gaps (2026-08-31)
+
+**From the queue, in priority order.** These were the two things I'd flagged as standing between him and getting stuck on his third HackTheBox box.
+
+- [x] **`cybersecurity/11-binary-exploitation/`** — ✅ **7 notes.** Built as its own numbered section (parallel to `06-attacks-and-threats`, `07-security-operations`) rather than crammed into `02-ethical-hacking`, because it's a whole discipline. The load-bearing framing: **an exploit is a chain of primitives, and modern defences shifted the era from injecting code to reusing the target's own** — so the notes are ordered as base case → each mitigation → its bypass. `checksec` as a recipe is the recurring practical anchor
+- [x] **`cybersecurity/12-active-directory/`** — ✅ **6 notes.** The bigger of the two in real-world terms: **internal pentesting IS AD pentesting**, and it's the CTF-learner's blind spot. Framing: **graph traversal with stolen credentials, not vulnerability exploitation.** Kerberos gets its own note early because nearly every named attack abuses "every ticket is encrypted with an account's hash"; BloodHound is named as the single highest-leverage skill; the defence note is the mirror of the attack notes
+- [x] **Both assume the authorization from [[cybersecurity/02-ethical-hacking/01-rules-of-engagement-and-legal|note 01]]** — stated in every README and most notes. Dual-use material framed for lab, CTF (ROP Emporium, pwn.college, GOAD, HackTheBox), and authorised engagements, which is exactly the context [[cybersecurity/02-ethical-hacking/README|ethical-hacking]] already establishes
+- [x] **Integration** — ✅ `cybersecurity/README` (two new sections), root README tree, and `cybersecurity/projects.md` — **whose stale "expect to learn these elsewhere until those notes exist" caveat is now three real reps** pointing at GOAD, ROP Emporium and pwn.college
+- [x] **A self-inflicted cleanup** — ✅ `ln -s` into the `quartz/content/cybersecurity` dir-symlink created two recursive symlinks inside the real folders; removed. (cybersecurity is a *directory* symlink, so its subdirs are auto-exposed to Quartz — no per-section symlink needed)
+
+**Phase 9 total: 15 new files, ~12,900 words, plus 3 indexes updated.**
+
 ## Queue after Phase 8
 
 **Closed:** `mobile/` ✅ · `cybersecurity/10-protecting-yourself/` ✅
 
 **Still open, in priority order:**
 
-- [ ] **Binary exploitation** (`cybersecurity/`) — shellcode, ROP, heap, ASLR/canary bypass. **What OSCP and most CTFs test**, and currently one bullet
-- [ ] **Active Directory / Windows attack paths** — Kerberos, pass-the-hash, lateral movement, BloodHound. **Currently one table row**, and it's what the majority of real corporate pentests are
-- [ ] **`foundations/` has no README** — the vault's largest section (~312k words, 16 sub-courses) still has no entry point. Cheap to fix, found in Phase 7
+- [x] **Binary exploitation** — ✅ `cybersecurity/11-binary-exploitation/`, **7 notes, ~6,900 words.** Process memory → stack overflows and `ret2win` → shellcode → the mitigations (checksec as a recipe) → ret2libc/ROP → format strings and the heap → pwntools/pwndbg/practice
+- [x] **Active Directory** — ✅ `cybersecurity/12-active-directory/`, **6 notes, ~6,000 words.** What AD is (the graph model) → Kerberos → enumeration/BloodHound → credential attacks → lateral movement/escalation → defending. Its projects entry points at GOAD
+- [x] **`foundations/` README** — ✅ **written 2026-08-31.** The vault's largest section (15 courses, ~371 notes, ~312k words) had no entry point while every sub-course had one. Also fixed **a wikilink broken by a line wrap** in `devops/01-linux/12-bash-scripting`, found by scanning for unclosed `[[` — a check the earlier link validator structurally could not catch, since its regex required a closing `]]`
 - [ ] **Data engineering** — Kafka, Spark, Airflow, dbt, warehouses, CDC. The bridge between `databases/` and `ai-ml/`
 - [ ] **DSP / signal processing** — the link between `hardware/`'s RF material and `information-theory/`
 - [ ] Malware analysis & RE · API security · thicken `09-cloud-security` (**758 words**), `08-GRC`, `01-fundamentals`
