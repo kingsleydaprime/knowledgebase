@@ -57,3 +57,6 @@ The gap between "I've read about interactive rebase" and "I've used interactive 
 - **No coverage of Git internals at the packfile level** — delta compression, `git gc`, and repository maintenance are mentioned but not explained
 - **Monorepo tooling** (sparse-checkout, partial clone, `git filter-repo`) is absent, and matters at scale
 - **GitLab and Bitbucket** are barely mentioned; the platform note is GitHub-shaped because that's what's actually been used here
+
+## Related
+- [[git/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each

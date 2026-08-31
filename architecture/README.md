@@ -48,6 +48,7 @@ The theory. Harder, more foundational, and exactly what your build-your-own-Redi
 Applying it: designing real systems, and the **build-your-own** projects that are the actual reps.
 
 ## Related
+- [[architecture/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[architecture/system-design-reference|system-design-reference]] — the dense cheat-sheet companion
 - [[databases/database-design-reference|databases]] — the storage layer these systems are built on
 - [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud Design Patterns (devops)]] — the resilience patterns from the ops angle

@@ -102,6 +102,7 @@ The vault's own principle: [[PRIMETECHIE|reading is not a rank]].
 Within the track: no worked examples end to end, no code beyond pseudocode, nothing on grasping and manipulation planning specifically, nothing on legged locomotion (a subject in itself), nothing on multi-robot coordination, and only a mention of learned control. Aerial and underwater vehicles get passing references rather than treatment.
 
 ## Related
+- [[robotics/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[engineering/02-control-theory/README|Control Theory]] — the theory half, deliberately housed elsewhere
 - [[hardware/README|Hardware & Embedded]] — the layer below, and the one that's actually built
 - [[PRIMETECHIE|The Primetechie Path]] — where this direction sits

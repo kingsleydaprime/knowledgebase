@@ -33,6 +33,7 @@ That gap matters more than the equivalent gap in a software domain, because the 
 Treat these as a map of the vocabulary and the structure of the arguments — enough to read a paper, follow a derivation, or know which assumption a textbook is quietly making — not as a substitute for a course with problem sets. → [[PRIMETECHIE|Reading is not a rank.]]
 
 ## Related
+- [[engineering/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[hardware/README|Hardware & Embedded]] — the layer this sits beside
 - [[robotics/README|Robotics]] — where mechanics and control meet
 - [[research/README|Research]] — how to read the papers this field is written in

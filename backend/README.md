@@ -69,6 +69,7 @@ Not numbered; there's no reading order. Pick yours.
 - *Is it how it went in one of my projects?* → [[projects/README|projects/]]
 
 ## Related
+- [[backend/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[architecture/README|Architecture]] — the same questions at system scale
 - [[databases/interview/README|Databases]] · [[foundations/networking/README|Networking]] · [[devops/README|DevOps]]
 - [[PRIMETECHIE|The Primetechie Path]] · [[INTERVIEW|Interview index]]

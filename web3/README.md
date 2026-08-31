@@ -53,6 +53,7 @@ Three guides in [[build-your-own-shit/README|build-your-own-shit/]], ordered by 
 - [[build-your-own-shit/16-your-own-token-and-wallet|Your Own Token and Wallet]] — ERC-20 from scratch, HD wallet, NFT, deployed to a testnet. **The most applied, and the best first one**
 
 ## Related
+- [[web3/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[cybersecurity/README|cybersecurity]] — the parent security discipline, and what doesn't transfer
 - [[cybersecurity/05-cryptography/README|cryptography]] — the primitives, properly
 - [[architecture/04-distributed-systems/README|distributed systems]] — the field this is a subfield of

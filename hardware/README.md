@@ -45,6 +45,7 @@ Honest, in the vault's usual style:
 - **No robotics *build*** — motion, control and autonomy now have notes ([[robotics/README|robotics/]], 14 of them), but they're `[reference]`: nothing there has been run on hardware, and that folder says so plainly. The *control theory* half is its own track: [[engineering/02-control-theory/README|engineering/02-control-theory/]], including the digital-implementation note that covers sampling, discretisation, and fixed-point on a microcontroller.
 
 ## Related
+- [[hardware/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[robotics/README|Robotics]] — the layer above: actuation, control, autonomy. Written, not built
 - [[engineering/02-control-theory/README|Control Theory]] — why an op-amp's feedback loop and a motor's servo loop are the same subject, and [[engineering/02-control-theory/12-digital-control|how to implement one on an MCU]]
 - [[foundations/computer-architecture/README|Computer Architecture]] — the layer directly above the gates: how you get from digital logic to something that runs a program

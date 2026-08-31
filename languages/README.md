@@ -25,6 +25,7 @@ Other languages (Kotlin, Zig) would slot in as further numbered tracks if notes 
 7. [[languages/07-csharp/README|07-csharp/]] — **[Beginner → Advanced]** — 13 notes: the .NET naming mess untangled, **value vs reference types and nullable reference types**, records/structs/classes, **LINQ and the `IQueryable` trap**, reified generics and variance, delegates and events-as-leaks, **the async model everyone copied**, GC and `Span<T>`, exception filters, pattern matching, DI as a platform feature, xUnit and Roslyn analyzers, tiered JIT and Native AOT. **Written because it's [[game-development/engines/unity|Unity's language]]** and the vault had none. **[reference]**
 
 ## Related
+- [[languages/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[backend/frameworks/README|backend/frameworks/]] — the frameworks these languages host
 - [[backend/README|backend course]] — the framework-agnostic concepts those frameworks implement
 - [[foundations/dsa/README|foundations/dsa]] — the CS underneath all of them

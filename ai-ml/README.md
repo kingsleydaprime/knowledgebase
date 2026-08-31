@@ -30,6 +30,7 @@ The sharpest line is between **ML Engineer** (trains models, needs the math and 
 Restructured (2026-07-31) by cross-referencing against roadmap.sh's `ai-data-scientist`, `machine-learning`, `mlops`, and `ai-engineer` roadmaps. The old single linear course ("fundamentals → maths → ml-engineering → CV → build your own") conflated all three paths; its content was re-homed into the path it actually belonged to, nothing dropped. The AI Engineer track was built out deeply this pass (folding in the old `01-fundamentals/` notes + roadmap gaps); Data Scientist and ML Engineer keep their existing content with gaps documented for later passes.
 
 ## Related
+- [[ai-ml/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[using-ai/README|Using AI]] — the non-programmer on-ramp that feeds into this domain
 - [[foundations/dsa/README|DSA fundamentals]] — different domain, same "orientation → build" approach
 - [[devops/README|DevOps]] — the MLOps half of the ML Engineer path cross-links here
