@@ -29,6 +29,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 | [[ai-ml/projects\|AI & ML]] | **RAG over this vault** |
 | [[foundations/projects\|Foundations]] | The regex engine — one evening, theory becomes code |
 | [[languages/projects\|Languages]] | The same program in three languages |
+| [[mobile/projects\|Mobile]] | Survive process death, then **ship a small app to a store** |
 | [[git/projects\|Git]] | The disaster drill — an hour, and git stops being scary |
 | [[hardware/projects\|Hardware]] | Rev 2 of the IoT Bridge |
 | [[robotics/projects\|Robotics]] | Something moving in ROS 2 + Gazebo |
