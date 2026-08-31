@@ -20,13 +20,14 @@ Docs already exist. This is the layer underneath them: the mental models, the fa
 
 ---
 
-## The five columns
+## The six columns
 
 | | | |
 |---|---|---|
 | 💻 **Software** | [[backend/README\|Backend]] · [[foundations/dsa/README\|DSA]] · [[architecture/README\|Architecture]] · [[languages/01-java/README\|Java]] · [[ai-ml/03-ai-engineer/README\|AI Engineering]] | backends, systems, algorithms, building on pre-trained models |
 | ☁️ **Infrastructure** | [[devops/README\|DevOps]] · [[foundations/networking/README\|Networking]] · [[databases/database-design-reference\|Databases]] | Linux → containers → orchestration → CI/CD → observability |
 | 🔐 **Security** | [[cybersecurity/README\|Cybersecurity]] | offence *and* defence — you can't do one well without the other |
+| ⛓️ **Web3** | [[web3/README\|Web3 & Blockchain]] | the chain, the EVM, Solidity, security — **and an honest assessment of where it doesn't apply** |
 | 🔌 **Hardware** | [[hardware/README\|Hardware & Embedded]] | electricity → embedded → RF → a board that physically exists |
 | 🧠 **ML & Data** | [[ai-ml/README\|AI & ML]] · [[ai-ml/00-foundations/03-mathematics/README\|the maths]] | training models and reasoning from data — a different bedrock |
 
@@ -60,7 +61,7 @@ This vault labels its own gaps rather than implying uniform coverage.
 
 **Built out and readable start-to-finish:** networking · DSA · backend · architecture (incl. distributed systems) · devops · java · AI/ML · using-ai · cybersecurity · hardware · research · concepts · operating systems · compilers · databases
 
-**Written, but `[reference]` — read and assembled, not validated by building:** [[engineering/README|engineering]] (continuum mechanics · control theory) · [[robotics/README|robotics]] · [[databases/README|databases]] (the internals course) · the CS-theory spine ([[foundations/discrete-math/README|discrete maths]] · [[foundations/theory-of-computation/README|theory of computation]] · [[foundations/computer-architecture/README|computer architecture]] · [[foundations/numerical-methods/README|numerical methods]] · [[foundations/information-theory/README|information theory]] · [[foundations/gpu-and-parallel-computing/README|GPU & parallel]] · [[foundations/computer-graphics/README|graphics]] · [[foundations/programming-language-theory/README|PL theory]]). Each says so on its own front page, and says what would close the gap.
+**Written, but `[reference]` — read and assembled, not validated by building:** [[web3/README|web3]] (a full 8-section track, Aug 2026 — nothing in it has been deployed or audited by its author; [[build-your-own-shit/16-your-own-token-and-wallet|guide 16]] is the cheapest way to start closing that) · [[engineering/README|engineering]] (continuum mechanics · control theory) · [[robotics/README|robotics]] · [[databases/README|databases]] (the internals course) · the CS-theory spine ([[foundations/discrete-math/README|discrete maths]] · [[foundations/theory-of-computation/README|theory of computation]] · [[foundations/computer-architecture/README|computer architecture]] · [[foundations/numerical-methods/README|numerical methods]] · [[foundations/information-theory/README|information theory]] · [[foundations/gpu-and-parallel-computing/README|GPU & parallel]] · [[foundations/computer-graphics/README|graphics]] · [[foundations/programming-language-theory/README|PL theory]]). Each says so on its own front page, and says what would close the gap.
 
 **Honest scaffold — a stated direction, not knowledge yet:** [[ai-automation/README|ai-automation]] · parts of [[frontend/README|frontend]]
 

@@ -163,6 +163,19 @@ knowledgebase/
 │                                 # (prompt injection as the security model) → error
 │                                 # handling/retries/alerting-on-absence → self-hosting.
 │
+├── web3/                         # FULL TRACK (Aug 2026): 8-section numbered course +
+│   ├── 01-foundations/           # frameworks/ + interview/, 71 files. Foundations (the
+│   ├── 02-ethereum-and-the-evm/  # double-spend problem, UTXO vs accounts, consensus) →
+│   ├── 03-smart-contracts-with-solidity/  # the EVM (storage costs drive everything) →
+│   ├── 04-smart-contract-security/        # Solidity → SECURITY (read in parallel with 03,
+│   ├── 05-beyond-ethereum/       # not after) → rollups/zk/Solana/Bitcoin/bridges →
+│   ├── 06-building-dapps/        # dapps (you CANNOT query a chain) → DeFi/NFTs/DAOs →
+│   ├── 07-the-application-layer/ # THE HONEST ASSESSMENT. That last section is the point:
+│   ├── 08-the-honest-assessment/ # what survives "would a database do?", where the money
+│   ├── frameworks/               # actually went (access control and bridges, not
+│   └── interview/                # reentrancy), regulation, and energy after the Merge.
+│                                 # frameworks/: solidity, rust, javascript, python, go.
+│
 ├── cybersecurity/                # numbered course, roadmap.sh-cross-referenced.
 │   ├── 01-fundamentals/          # Original: 01-fundamentals → 02-ethical-hacking →
 │   ├── 02-ethical-hacking/       # 03-network-security → 04-web-security →

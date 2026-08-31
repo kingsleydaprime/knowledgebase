@@ -36,7 +36,11 @@ The milestone ordering is the load-bearing part. **You should always have someth
 
 13. [[build-your-own-shit/13-your-own-react|Your Own React]] — **[Intermediate]** — `createElement` → render → a work loop → **fibers** → render/commit split → reconciliation and keys → function components → **`useState` via an array and a cursor**. ~500 lines, and **the hook rules stop being rules and become consequences**
 
-**All thirteen are written.**
+14. [[build-your-own-shit/14-your-own-blockchain|Your Own Blockchain]] — **[Intermediate]** — blocks → proof-of-work → an HTTP API → wallets → UTXO → mempool → **P2P gossip** → **fork choice** → difficulty adjustment. **Two nodes disagree and then converge without coordinating** — that moment is the guide
+15. [[build-your-own-shit/15-your-own-smart-contract-vm|Your Own Smart Contract VM]] — **[Intermediate → Advanced]** — stack machine → 256-bit words → **gas metering** → jumps → memory → storage → deployment → `CALL` → revert/snapshot → **`DELEGATECALL`, and a working proxy upgrade in 15 lines**
+16. [[build-your-own-shit/16-your-own-token-and-wallet|Your Own Token and Wallet]] — **[Intermediate]** — an ERC-20 from scratch → `approve`/`transferFrom` → **deployed to a testnet and visible in MetaMask** → an HD wallet whose addresses **match MetaMask's for the same seed** → a hand-signed transaction → an on-chain SVG NFT
+
+**All sixteen are written.**
 
 **Three added Aug 2026**, chosen against this folder's own criterion — build a toy version of something you rely on, and the real thing stops being opaque:
 
@@ -45,6 +49,12 @@ The milestone ordering is the load-bearing part. **You should always have someth
 - **Physics engine** — completes the [[game-development/README|game development track]], and it's the rare project where a wrong integrator is *visible*
 - **React** *(added later)* — the frontend equivalent of the language guide, and it explains the hook rules by making you implement the array they depend on
 
+**Three more added Aug 2026** alongside the [[web3/README|web3 track]], which had no build guides at all:
+
+- **Blockchain** — the consensus lesson is the one that doesn't come from reading. Watching two of your own nodes fork and reconverge is worth more than any explanation of Nakamoto consensus
+- **Smart contract VM** — **the deepest of the three.** Gas, reverts and `DELEGATECALL` stop being rules and become mechanisms, which makes [[web3/03-smart-contracts-with-solidity/README|Solidity]] stop feeling arbitrary
+- **Token and wallet** — **the best first one.** An evening each, and it ends with a token on a public chain and an HD wallet whose addresses match MetaMask's
+
 **Considered and not written:** a text editor (overlaps the shell guide's terminal handling), a BitTorrent client (more protocol plumbing than insight per hour), and a browser engine (too large to finish, which breaks rule 7).
 
 ## Which to start with
@@ -52,6 +62,9 @@ The milestone ordering is the load-bearing part. **You should always have someth
 | If you want | Build |
 |---|---|
 | The fastest satisfying result | **HTTP server** |
+| Something to show someone tonight | **token and wallet** |
+| To stop `DELEGATECALL` being frightening | **smart contract VM** |
+| To watch distributed consensus actually happen | **blockchain** |
 | To stop autodiff being magic | **neural network** |
 | The best weekend systems project | **memory allocator** |
 | Something where bugs are *visible* | **physics engine** |
@@ -82,3 +95,4 @@ The milestone ordering is the load-bearing part. **You should always have someth
 - [[project-ideas|Project Ideas]] — the wider tiered build list
 - [[PRIMETECHIE|The Primetechie Path]] — where these sit as rank gates
 - [[foundations/os/README|Operating Systems]] · [[foundations/compilers/README|Compilers]] — the two prerequisites written specifically to unblock this folder
+- [[web3/README|Web3 & Blockchain]] — the domain guides 14-16 make concrete
