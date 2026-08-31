@@ -712,8 +712,8 @@ grep "pattern" <<< "$SOME_VARIABLE"
 
 Three techniques that come up whenever you're processing or auditing a directory tree rather
 than running a program. Added Aug 2026, from distilling three course transcripts into this
-vault — the work that produced [[foundations/programming-fundamentals/README|programming
-fundamentals]] and [[devops/00-the-physical-layer/README|the physical layer]].
+vault — the work that produced [[foundations/programming-fundamentals/README|programming fundamentals]]
+and [[devops/00-the-physical-layer/README|the physical layer]].
 
 ### `fold` — make a one-line file readable by line-based tools
 
