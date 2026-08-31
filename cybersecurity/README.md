@@ -39,6 +39,10 @@ A map of this folder. Sections **01–05** are the original course — fundament
 
 [[cybersecurity/09-cloud-security/README|09-cloud-security/]] — securing cloud workloads: shared responsibility, IAM, the cloud attack surface, and container/Kubernetes/IaC security — cross-linking the DevOps domain for the infrastructure mechanics.
 
+## Protecting Yourself (for people who don't work in security) **[Beginner]**
+
+[[cybersecurity/10-protecting-yourself/README|10-protecting-yourself/]] — **the odd one out, and deliberately so.** Sections 01–09 are written for someone defending an organisation; this one is for you, your family, and the people who ring you when something goes wrong. Eight notes, no jargon: your actual threat model (you are almost certainly not being targeted), passwords and why *reuse* is the whole problem, why SMS 2FA is the weak kind, the phishing tells that still work now AI has killed the old ones, devices and an honest answer about VPNs, backups and why sync isn't one, your privacy footprint as an attacker's research budget, and **an ordered checklist for when it's already happened.**
+
 ## Related
 - [[cybersecurity/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[ai-ml/README|ai-ml curriculum map]] — same "orientation → deep dive → practice" shape
