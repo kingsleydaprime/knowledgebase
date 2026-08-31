@@ -97,6 +97,7 @@ Games were one of the three reasons you came into tech. That's reason enough to 
 **A track being complete is not a reason to start it.** It's here so that when games come round — and they will — nothing is missing.
 
 ## Related
+- [[game-development/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[foundations/computer-graphics/README|computer graphics]] — the rendering half
 - [[robotics/README|robotics]] — the other reason you came into tech, same maths
 - [[foundations/gpu-and-parallel-computing/README|GPU & parallel computing]]

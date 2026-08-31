@@ -31,6 +31,7 @@ A map of this folder, in reading order. **00 is the physical layer underneath ev
 - [[minio-guide|minio-guide]] — a specific self-hosted object storage guide
 
 ## Related
+- [[devops/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[git/README|git/]] — version control, the roadmap's VCS pillar
 - [[languages/README|languages/]] — a programming language for automation/tooling
 - [[foundations/dsa/README|DSA fundamentals]]

@@ -88,6 +88,7 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 - [[databases/14-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
+- [[databases/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[databases/interview/README|Databases — Interview Prep]] — what gets asked about all this
 - [[architecture/04-distributed-systems/README|Distributed Systems]] — the theory beyond one machine
 - [[backend/README|Backend]] — where databases get used

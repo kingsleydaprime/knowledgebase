@@ -40,5 +40,6 @@ A map of this folder. Sections **01–05** are the original course — fundament
 [[cybersecurity/09-cloud-security/README|09-cloud-security/]] — securing cloud workloads: shared responsibility, IAM, the cloud attack surface, and container/Kubernetes/IaC security — cross-linking the DevOps domain for the infrastructure mechanics.
 
 ## Related
+- [[cybersecurity/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[ai-ml/README|ai-ml curriculum map]] — same "orientation → deep dive → practice" shape
 - [[foundations/dsa/README|DSA fundamentals]]

@@ -74,5 +74,6 @@ React and rendering · **the JS/TS language round** · state, data, accessibilit
 → [[PRIMETECHIE|Reading is not a rank.]]
 
 ## Related
+- [[frontend/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[backend/README|Backend]] — the structure this mirrors, and the other half of a full-stack app
 - [[concepts/README|concepts/]] · [[INTERVIEW|Interview index]] · [[BUILD-PLAN|Build Plan]]
