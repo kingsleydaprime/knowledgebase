@@ -39,6 +39,14 @@ A map of this folder. Sections **01–05** are the original course — fundament
 
 [[cybersecurity/09-cloud-security/README|09-cloud-security/]] — securing cloud workloads: shared responsibility, IAM, the cloud attack surface, and container/Kubernetes/IaC security — cross-linking the DevOps domain for the infrastructure mechanics.
 
+## Binary Exploitation **[Intermediate → Advanced]**
+
+[[cybersecurity/11-binary-exploitation/README|11-binary-exploitation/]] — the `pwn` category, and the natural application of [[languages/04-c/README|C]] and [[foundations/computer-architecture/README|computer architecture]]. The memory model and bug taxonomy → the classic stack overflow and `ret2win` → shellcode and its three strange constraints → **the mitigations (NX, canaries, ASLR, PIE, RELRO) and reading `checksec` as a recipe** → bypassing them with ret2libc and ROP → format strings and the heap → pwntools, pwndbg, and where to practise. **The one idea: modern exploitation reuses the target's own code rather than injecting new code.**
+
+## Active Directory **[Intermediate → Advanced]**
+
+[[cybersecurity/12-active-directory/README|12-active-directory/]] — **what internal penetration testing actually is, and the biggest blind spot for people who learned on CTFs.** What AD is and the attacker's graph model → Kerberos, and why "every ticket is encrypted with an account's hash" generates nearly every named attack → enumeration and **BloodHound** → credential attacks (Kerberoasting, pass-the-hash, mimikatz) → lateral movement and escalation (DCSync, Golden Tickets, ACL/delegation/ADCS abuse) → the blue-team mirror (tiering, gMSA, LAPS, honeytokens). **The one idea: compromise is graph traversal with stolen credentials, not vulnerability exploitation.**
+
 ## Protecting Yourself (for people who don't work in security) **[Beginner]**
 
 [[cybersecurity/10-protecting-yourself/README|10-protecting-yourself/]] — **the odd one out, and deliberately so.** Sections 01–09 are written for someone defending an organisation; this one is for you, your family, and the people who ring you when something goes wrong. Eight notes, no jargon: your actual threat model (you are almost certainly not being targeted), passwords and why *reuse* is the whole problem, why SMS 2FA is the weak kind, the phishing tells that still work now AI has killed the old ones, devices and an honest answer about VPNs, backups and why sync isn't one, your privacy footprint as an attacker's research budget, and **an ordered checklist for when it's already happened.**

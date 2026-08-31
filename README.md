@@ -186,14 +186,24 @@ knowledgebase/
 │   ├── 07-security-operations/   # compliance → 09-cloud-security.
 │   ├── 08-governance-risk-and-compliance/
 │   ├── 09-cloud-security/
-│   └── 10-protecting-yourself/  # NEW Aug 2026: the odd one out — 8 notes for a
+│   ├── 10-protecting-yourself/  # NEW Aug 2026 (see below)
+│   ├── 11-binary-exploitation/  # NEW Aug 2026: the `pwn` category — process memory,
+│   │                            # stack overflows, shellcode, the mitigations
+│   │                            # (checksec as a recipe), ret2libc/ROP, heap. 7 notes.
+│   └── 12-active-directory/     # NEW Aug 2026: what internal pentesting ACTUALLY is,
+│                                # the CTF-learner's blind spot. Kerberos → BloodHound →
+│                                # Kerberoasting/pass-the-hash → DCSync/Golden Tickets →
+│                                # tiering/LAPS/honeytokens. 6 notes.
+│       # (10-protecting-yourself: the odd one out — 8 notes for a
 │                                 # NON-technical reader, in the using-ai/ shape.
 │                                 # The six things that matter, ranked; reuse (not
 │                                 # strength) as the password problem; why SMS 2FA
 │                                 # is weakest; the phishing habits that work; an
 │                                 # honest VPN answer; and an ORDERED checklist for
 │                                 # after it's happened. The one folder you can
-│                                 # send to family.
+│       #  NON-technical reader; the six things ranked, the phishing habits,
+│       #  and a checklist for after it's happened. The one folder you can
+│       #  send to family.)
 │
 ├── concepts/                     # engineering ideas that belong to NO domain.
 │   ├── 02-frontend/              # (01-backend moved into backend/ — Aug 2026, so that
