@@ -1,6 +1,6 @@
 # 🎯 Interview Prep — Index
 
-**Sixteen domains have an `interview/` folder** — the ones below. The theory and engineering tracks added since (`engineering/`, `robotics/`, and the CS-theory spine from `discrete-math` through `programming-language-theory`) deliberately don't: those are `[reference]` material with no reps behind them, and **an interview bank for a subject you haven't practised would be memorisation, not preparation.** The place to start with those is [[project-ideas|project-ideas]], not a question list. Same format throughout, generalised from [[projects/arete/interview/01-backend-and-data|the arete interview notes]]: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
+**Seventeen domains have an `interview/` folder** — the ones below. The theory and engineering tracks added since (`engineering/`, `robotics/`, and the CS-theory spine from `discrete-math` through `programming-language-theory`) deliberately don't: those are `[reference]` material with no reps behind them, and **an interview bank for a subject you haven't practised would be memorisation, not preparation.** The place to start with those is [[project-ideas|project-ideas]], not a question list. Same format throughout, generalised from [[projects/arete/interview/01-backend-and-data|the arete interview notes]]: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
 
 ## The banks
 
@@ -22,6 +22,7 @@
 | [[frontend/interview/README\|Frontend]] | React model + **the JS/TS language round** + state, data, a11y, RSC | **3** |
 | [[hardware/interview/README\|Hardware]] | decoupling, I2C/SPI, interrupts, board bring-up + RF, MQTT, battery life | 2 |
 | [[web3/interview/README\|Web3]] | the double-spend problem, storage vs memory, **the three reentrancy variants**, flash loans, where the money actually went | 1 |
+| [[mobile/interview/README\|Mobile]] | **process death vs rotation**, offline-first, the radio tail, permissions, no-rollback release | 1 |
 
 Plus the project-specific bank: [[projects/arete/interview/01-backend-and-data|arete/interview/]] — the original, and still the best template because every answer is anchored in code you actually wrote.
 

@@ -20,10 +20,11 @@ Docs already exist. This is the layer underneath them: the mental models, the fa
 
 ---
 
-## The six columns
+## The seven columns
 
 | | | |
 |---|---|---|
+| 📱 **Mobile** | [[mobile/README\|Mobile]] · [[languages/08-swift/README\|Swift]] · [[languages/09-kotlin/README\|Kotlin]] | the OS can kill your process — everything else follows from that |
 | 💻 **Software** | [[backend/README\|Backend]] · [[foundations/dsa/README\|DSA]] · [[architecture/README\|Architecture]] · [[languages/01-java/README\|Java]] · [[ai-ml/03-ai-engineer/README\|AI Engineering]] | backends, systems, algorithms, building on pre-trained models |
 | ☁️ **Infrastructure** | [[devops/README\|DevOps]] · [[foundations/networking/README\|Networking]] · [[databases/database-design-reference\|Databases]] | Linux → containers → orchestration → CI/CD → observability |
 | 🔐 **Security** | [[cybersecurity/README\|Cybersecurity]] | offence *and* defence — you can't do one well without the other |
@@ -39,6 +40,7 @@ Most engineering vaults are column one with a bit of column two. The point of th
 
 ## New to any of this?
 
+- **Just want to not get hacked?** → [[cybersecurity/10-protecting-yourself/README|Protecting Yourself]] — eight notes, no code, no jargon. The six things that actually matter, and an ordered checklist for when it's already gone wrong.
 - **Never used an LLM seriously?** → [[using-ai/README|Using AI]] — eight notes, no code, for people who want to *use* these tools well rather than build with them.
 - **Want the wire-level foundation?** → [[foundations/networking/README|Networking]] — the layer under devops, security and distributed systems.
 - **Preparing for something?** → [[INTERVIEW|the interview index]].
@@ -61,7 +63,7 @@ This vault labels its own gaps rather than implying uniform coverage.
 
 **Built out and readable start-to-finish:** networking · DSA · backend · architecture (incl. distributed systems) · devops · java · AI/ML · using-ai · cybersecurity · hardware · research · concepts · operating systems · compilers · databases
 
-**Written, but `[reference]` — read and assembled, not validated by building:** [[web3/README|web3]] (a full 8-section track, Aug 2026 — nothing in it has been deployed or audited by its author; [[build-your-own-shit/16-your-own-token-and-wallet|guide 16]] is the cheapest way to start closing that) · [[engineering/README|engineering]] (continuum mechanics · control theory) · [[robotics/README|robotics]] · [[databases/README|databases]] (the internals course) · the CS-theory spine ([[foundations/discrete-math/README|discrete maths]] · [[foundations/theory-of-computation/README|theory of computation]] · [[foundations/computer-architecture/README|computer architecture]] · [[foundations/numerical-methods/README|numerical methods]] · [[foundations/information-theory/README|information theory]] · [[foundations/gpu-and-parallel-computing/README|GPU & parallel]] · [[foundations/computer-graphics/README|graphics]] · [[foundations/programming-language-theory/README|PL theory]]). Each says so on its own front page, and says what would close the gap.
+**Written, but `[reference]` — read and assembled, not validated by building:** [[mobile/README|mobile]] (a full track + Swift/Kotlin/Dart, Aug 2026 — nothing here has been shipped to a store by its author; [[mobile/projects|the projects file]] says so plainly) · [[web3/README|web3]] (a full 8-section track, Aug 2026 — nothing in it has been deployed or audited by its author; [[build-your-own-shit/16-your-own-token-and-wallet|guide 16]] is the cheapest way to start closing that) · [[engineering/README|engineering]] (continuum mechanics · control theory) · [[robotics/README|robotics]] · [[databases/README|databases]] (the internals course) · the CS-theory spine ([[foundations/discrete-math/README|discrete maths]] · [[foundations/theory-of-computation/README|theory of computation]] · [[foundations/computer-architecture/README|computer architecture]] · [[foundations/numerical-methods/README|numerical methods]] · [[foundations/information-theory/README|information theory]] · [[foundations/gpu-and-parallel-computing/README|GPU & parallel]] · [[foundations/computer-graphics/README|graphics]] · [[foundations/programming-language-theory/README|PL theory]]). Each says so on its own front page, and says what would close the gap.
 
 **Honest scaffold — a stated direction, not knowledge yet:** [[ai-automation/README|ai-automation]] · parts of [[frontend/README|frontend]]
 

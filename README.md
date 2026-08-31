@@ -185,7 +185,15 @@ knowledgebase/
 │   ├── 06-attacks-and-threats/   # the blue-team half) → 08-governance-risk-and-
 │   ├── 07-security-operations/   # compliance → 09-cloud-security.
 │   ├── 08-governance-risk-and-compliance/
-│   └── 09-cloud-security/
+│   ├── 09-cloud-security/
+│   └── 10-protecting-yourself/  # NEW Aug 2026: the odd one out — 8 notes for a
+│                                 # NON-technical reader, in the using-ai/ shape.
+│                                 # The six things that matter, ranked; reuse (not
+│                                 # strength) as the password problem; why SMS 2FA
+│                                 # is weakest; the phishing habits that work; an
+│                                 # honest VPN answer; and an ORDERED checklist for
+│                                 # after it's happened. The one folder you can
+│                                 # send to family.
 │
 ├── concepts/                     # engineering ideas that belong to NO domain.
 │   ├── 02-frontend/              # (01-backend moved into backend/ — Aug 2026, so that
@@ -216,6 +224,9 @@ knowledgebase/
 │                                 # · IDPs and golden paths · security as a pipeline stage.
 │
 ├── languages/                     # numbered course, organized by language rather than framework
+│   ├── 08-swift/                 # NEW Aug 2026, with mobile/: value types, optionals,
+│   ├── 09-kotlin/                # ARC, `some` vs `any` · null safety, sealed types,
+│   ├── 10-dart/                  # coroutines/Flow · JIT+AOT, isolates, freezed.
 │   ├── 07-csharp/                # numbered course (13 notes, Aug 2026): value vs reference
 │   │                              # types, nullable refs, records, LINQ, reified generics,
 │   │                              # async (the model everyone copied), GC and Span<T>,
@@ -232,6 +243,19 @@ knowledgebase/
 │                                  # jvm-and-concurrency (internals/GC/memory-model/loom),
 │                                  # tooling, persistence, web-and-api, applied-systems.
 │                                  # roadmap.sh-cross-referenced; applied section from 2 real projects
+│
+├── mobile/                       # FULL TRACK (Aug 2026): 14-note platform-agnostic
+│   ├── frameworks/               # course + frameworks/ + interview/ + projects.
+│   │                             # what makes mobile different (the OS can KILL YOU) →
+│   │                             # the two platforms → THE LIFECYCLE (the note that
+│   │                             # shapes the most code) → declarative UI → state →
+│   │                             # navigation → OFFLINE-FIRST (the local DB is the
+│   │                             # source of truth) → networking (the radio tail) →
+│   │                             # permissions → background work → performance →
+│   │                             # security (the app runs on the attacker's hardware)
+│   └── interview/                # → release (no rollback) → native vs cross-platform.
+│                                 # frameworks/: ios, android, flutter, react-native.
+│                                 # Closed the vault's biggest structural gap.
 │
 ├── backend/                      # numbered COURSE (restructured Aug 2026) + implementations.
 │   ├── 01-foundations/           # 01-foundations (what a backend is, request lifecycle,
