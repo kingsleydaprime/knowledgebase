@@ -20,6 +20,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 Notes give you the map. **These give you the reps, and they're where the hours should go:**
 
 - 🟢 ⭐ **PortSwigger Web Security Academy** — free, and the best security learning resource that exists. Maps directly onto [[cybersecurity/04-web-security/README|web security]] and [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|exploitation concepts]]. **Done when:** you've cleared the SQLi, XSS, and access-control paths.
+- 🟡 ⭐ **Break an API's authorization** — spin up **crAPI** (OWASP's vulnerable API) or PortSwigger's API/access-control labs, and with two accounts find a **BOLA** (swap object IDs) and a **BFLA** (call an admin route). **Done when:** you've read another user's data by changing an ID, and you can state the server-side fix → [[cybersecurity/14-api-security/03-authorization-and-bola|API authorization]]. **The #1 real-world API bug.**
 - 🟢 **TryHackMe** → 🟡 **HackTheBox** — guided, then unguided. **Done when:** you've rooted a box with no walkthrough.
 - 🟡 **picoCTF / a live CTF** — where it stops being exercises. **Done when:** you've solved something nobody handed you.
 - 🟡 **Write the walkthrough** — for every box you root, write the report as if for a client → [[cybersecurity/02-ethical-hacking/09-post-exploitation-and-reporting|reporting]]. **The report is the actual deliverable of the job**, and almost nobody practises it.

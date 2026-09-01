@@ -198,10 +198,14 @@ knowledgebase/
 │   │                            # the CTF-learner's blind spot. Kerberos → BloodHound →
 │   │                            # Kerberoasting/pass-the-hash → DCSync/Golden Tickets →
 │   │                            # tiering/LAPS/honeytokens. 6 notes.
-│   └── 13-malware-and-reverse-engineering/  # NEW Sep 2026: the DEFENSIVE twin of 11.
-│                                # static (strings/imports/Ghidra) ↔ dynamic (safe lab,
-│                                # unpack in memory) → how malware works → evasion (why
-│                                # signatures lose) → workflow (IOCs, YARA). 6 notes.
+│   ├── 13-malware-and-reverse-engineering/  # NEW Sep 2026: the DEFENSIVE twin of 11.
+│   │                            # static (strings/imports/Ghidra) ↔ dynamic (safe lab,
+│   │                            # unpack in memory) → how malware works → evasion (why
+│   │                            # signatures lose) → workflow (IOCs, YARA). 6 notes.
+│   └── 14-api-security/         # NEW Sep 2026: web security minus the browser. OWASP API
+│                                # Top 10 — authZ dominates: BOLA/IDOR (#1), BFLA, mass
+│                                # assignment; JWT pitfalls; SSRF; rate limiting; shadow
+│                                # APIs. The attacking side of backend/api-design. 6 notes.
 │       # (10-protecting-yourself: the odd one out — 8 notes for a
 │                                 # NON-technical reader, in the using-ai/ shape.
 │                                 # The six things that matter, ranked; reuse (not

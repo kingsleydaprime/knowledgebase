@@ -12,6 +12,7 @@ Two different questions that get collapsed into one word: **authentication** (wh
 3. **Pin the JWT algorithm server-side.** Never trust the token's own `alg` header — that's `alg: none` and algorithm-confusion attacks. And a JWT is **signed, not encrypted**: anyone can read the payload.
 
 ## Related
+- [[cybersecurity/14-api-security/02-authentication-for-apis|API authentication]] — tokens, JWT pitfalls, and the API-specific auth story
 - [[backend/README|Backend course]]
 - [[concepts/interview/01-apis-auth-and-practices|Interview: auth questions]] — sessions vs JWT, OAuth + PKCE, password storage
 - [[cybersecurity/04-web-security/README|Web Security]] · [[foundations/networking/12-tls-and-transport-security|TLS]]
