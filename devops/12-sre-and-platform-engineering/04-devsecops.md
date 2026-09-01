@@ -97,7 +97,7 @@ Which is the same structural move as [[devops/12-sre-and-platform-engineering/03
 - [[cybersecurity/README|cybersecurity]] — the domain this borrows from, in depth
 - [[devops/06-ci-cd/10-pipeline-security|pipeline security]] — securing the pipeline itself
 - [[devops/09-secret-management/README|secret management]] — the tooling for the secrets section
-- [[cybersecurity/09-cloud-security/01-cloud-and-infrastructure-security|cloud security]] — posture and misconfiguration
+- [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|cloud security]] — posture and misconfiguration
 - [[cybersecurity/07-security-operations/04-incident-response|incident response]] — what happens when it gets through anyway
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (final module), extended with OWASP, SLSA and CNCF supply-chain security material.*

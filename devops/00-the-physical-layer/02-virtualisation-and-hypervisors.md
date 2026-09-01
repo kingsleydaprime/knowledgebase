@@ -114,6 +114,6 @@ Virtualisation is not free, and the bill has three lines:
 - [[devops/02-docker/README|Docker]] — the container half, in depth
 - [[foundations/os/11-isolation-and-containers|namespaces and cgroups]] — the kernel primitives containers are built from
 - [[build-your-own-shit/08-your-own-container|build your own container]] — where this stops being reading
-- [[cybersecurity/09-cloud-security/01-cloud-and-infrastructure-security|cloud security]] — multi-tenancy as a threat model
+- [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|cloud security]] — multi-tenancy as a threat model
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (module 2), extended with hardware-assist and container-boundary detail from vendor documentation.*
