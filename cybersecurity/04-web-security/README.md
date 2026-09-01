@@ -9,6 +9,7 @@ Securing the software itself — the defensive counterpart to [[07-exploitation-
 4. [[04-security-headers-and-same-origin-policy|security-headers-and-same-origin-policy]] — **[Advanced]** — same-origin policy, CORS, CSP, clickjacking defenses, CSRF-protecting cookie flags
 
 ## Related
+- [[cybersecurity/14-api-security/README|API security]] — the same principles for machine clients, minus the browser: BOLA, JWT, SSRF, the OWASP API Top 10
 - [[cybersecurity/README|cybersecurity curriculum map]]
 - [[cybersecurity/03-network-security/README|network-security]] — the network-layer counterpart to this folder's application-layer focus
 - [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|exploitation-concepts]] — the offensive framing of the same vulnerability classes

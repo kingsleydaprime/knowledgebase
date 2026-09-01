@@ -14,5 +14,6 @@ Planned, and honestly absent — the questions this section should answer:
 Meanwhile, the material exists in interview form: [[concepts/interview/01-apis-auth-and-practices|APIs, Auth & Practices]] covers REST semantics, idempotency, and safe/idempotent methods with worked answers.
 
 ## Related
+- [[cybersecurity/14-api-security/README|API security]] — the attacking-and-defending side of what you're building here
 - [[backend/README|Backend course]] · [[foundations/networking/11-http-evolution|HTTP evolution]] — what your API rides on
 - [[backend/frameworks/java/03-api-design-and-documentation|API design & docs (Java)]]
