@@ -34,10 +34,10 @@ To reason precisely, you fix *what kinds of failures* you'll tolerate. From weak
 | Model | A failed node… | Handled by |
 |---|---|---|
 | **Fail-stop** | crashes and *announces it* (or is reliably detectable) | the easy, mostly-theoretical case |
-| **Crash-stop (fail-silent)** | crashes and simply stops, silently, forever | classic consensus ([[architecture/04-distributed-systems/07-consensus-and-paxos|Paxos]]/[[architecture/04-distributed-systems/08-raft-in-depth|Raft]]) |
+| **Crash-stop (fail-silent)** | crashes and simply stops, silently, forever | classic consensus ([[architecture/04-distributed-systems/07-consensus-and-paxos\|Paxos]]/[[architecture/04-distributed-systems/08-raft-in-depth\|Raft]]) |
 | **Crash-recovery** | crashes, then *comes back* — possibly with stale state, possibly having lost in-flight memory | real systems; needs stable storage + recovery logic |
 | **Omission** | drops some messages (send/receive omission) but keeps running | flaky-network modeling |
-| **Byzantine** | behaves *arbitrarily* — sends conflicting or malicious messages, lies | [[architecture/04-distributed-systems/09-coordination-services|BFT]], blockchains, adversarial settings |
+| **Byzantine** | behaves *arbitrarily* — sends conflicting or malicious messages, lies | [[architecture/04-distributed-systems/09-coordination-services\|BFT]], blockchains, adversarial settings |
 
 Most internal infrastructure assumes **crash-recovery with fair-loss networks**: nodes fail by crashing (not lying), may restart, and the network may drop messages but not forge them. Byzantine tolerance costs far more (you need `3f+1` nodes to tolerate `f` liars, vs `2f+1` for crashes) and is reserved for trustless environments. *Knowing which model you're in tells you which algorithm you're allowed to use.*
 

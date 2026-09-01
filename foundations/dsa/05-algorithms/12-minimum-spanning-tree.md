@@ -55,7 +55,7 @@ The whole algorithm is "sorted edges + Union-Find's cycle check." `union` return
 | | Prim's | Kruskal's |
 |---|---|---|
 | Grows | one tree outward from a start | a forest that merges into one tree |
-| Core structure | [[foundations/dsa/04-data-structures/08-heaps|min-heap]] | [[foundations/dsa/04-data-structures/10-union-find|Union-Find]] + sort |
+| Core structure | [[foundations/dsa/04-data-structures/08-heaps\|min-heap]] | [[foundations/dsa/04-data-structures/10-union-find\|Union-Find]] + sort |
 | Complexity | O(E log V) | O(E log E) ≈ O(E log V) (dominated by the sort) |
 | Best when | **dense** graphs (many edges), or edges given as adjacency | **sparse** graphs, or edges given as a flat list |
 

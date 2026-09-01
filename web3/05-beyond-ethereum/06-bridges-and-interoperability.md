@@ -31,7 +31,7 @@ The options, in descending order of trust required:
 | **Externally verified** | A multisig or committee attests | **Trust the committee.** Most bridges. Fastest, cheapest, worst |
 | **Optimistically verified** | Assume valid, allow challenges | Trust ≥1 honest watcher |
 | **Natively / light-client verified** | Chain B verifies chain A's consensus directly, in a contract | **Trust only the chains.** Correct, expensive, hard |
-| **ZK light client** | Verify a proof of A's consensus | **The endgame.** Cheap verification, mathematically sound → [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zk]] |
+| **ZK light client** | Verify a proof of A's consensus | **The endgame.** Cheap verification, mathematically sound → [[web3/05-beyond-ethereum/03-zero-knowledge-proofs\|zk]] |
 
 **The overwhelming majority of deployed bridges are externally verified**, because it's the only one that was easy to build. That is the whole story of the losses below.
 

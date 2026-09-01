@@ -266,4 +266,4 @@ Read left to right: pull the first field (the IP) out of every line → sort so 
 | Extract a specific column from delimited text | `cut` or `awk '{print $N}'` |
 | Remove duplicate lines | `sort \| uniq` |
 | Run a command against many found files at once | `find ... -exec` or `find ... \| xargs` |
-| Do all of the above chained together | a pipe (`\|`) — see [[devops/01-linux/linux-reference|Linux Reference]] §6 for pipe fundamentals |
+| Do all of the above chained together | a pipe (`\|`) — see [[devops/01-linux/linux-reference\|Linux Reference]] §6 for pipe fundamentals |

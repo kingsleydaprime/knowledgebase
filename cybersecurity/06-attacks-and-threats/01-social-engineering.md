@@ -17,7 +17,7 @@ The easiest way past a firewall is to convince someone to open the door. **Socia
 | **Whaling** | spear phishing aimed at executives ("big fish") |
 | **Smishing** | phishing via SMS |
 | **Vishing** | phishing via voice call (often impersonating IT/bank support) |
-| **Pharming** | redirecting a legitimate URL to a fake site (via [[cybersecurity/06-attacks-and-threats/02-network-attacks|DNS poisoning]]/host-file tampering) |
+| **Pharming** | redirecting a legitimate URL to a fake site (via [[cybersecurity/06-attacks-and-threats/02-network-attacks\|DNS poisoning]]/host-file tampering) |
 | **BEC** (business email compromise) | impersonating an executive/vendor to authorize a fraudulent wire transfer — one of the costliest attack types |
 
 The tells: urgency ("act now or your account is locked"), a mismatched sender/URL, unexpected attachments, requests to bypass process. Defenses: email authentication ([[cybersecurity/03-network-security/README|SPF/DKIM/DMARC]]), link/attachment scanning, MFA (a phished password alone isn't enough), and training.

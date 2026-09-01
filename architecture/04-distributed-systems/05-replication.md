@@ -60,8 +60,8 @@ Tuning W and R slides you along the tradeoff: `W=N, R=1` → fast reads, slow/fr
 | | Writes | Best for | Conflict risk |
 |---|---|---|---|
 | **Single-leader** | one place | most apps; anything needing simple strong-ish consistency | none (one writer) |
-| **Multi-leader** | many places (per region) | multi-datacenter, offline-first | yes → need [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|resolution]] |
-| **Leaderless** | any replica | max availability, no failover (Cassandra/Dynamo) | yes → quorums + [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|resolution]] |
+| **Multi-leader** | many places (per region) | multi-datacenter, offline-first | yes → need [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution\|resolution]] |
+| **Leaderless** | any replica | max availability, no failover (Cassandra/Dynamo) | yes → quorums + [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution\|resolution]] |
 
 The instinct: **single-leader for the data that must be correct** (money, accounts); **leaderless/eventual for the data that must be available** (feeds, carts, telemetry). And it pairs with [[architecture/04-distributed-systems/13-partitioning|partitioning]] — real systems *shard* data across many groups and *replicate* each shard, so the two techniques combine (each shard is a little single-leader or leaderless cluster).
 

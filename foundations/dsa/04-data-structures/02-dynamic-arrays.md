@@ -43,7 +43,7 @@ This "average cost over a sequence of operations" is what *amortized* means — 
 | Access by index | O(1) | same as static array |
 | Append at end | O(1) amortized | O(n) worst case, on a resize |
 | Insert/delete at start/middle | O(n) | shifting, same as static array |
-| Search | O(n) unsorted / O(log n) sorted | see [[05-searching|searching]] |
+| Search | O(n) unsorted / O(log n) sorted | see [[05-searching\|searching]] |
 
 ## Example
 

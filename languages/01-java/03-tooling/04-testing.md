@@ -86,7 +86,7 @@ Spring Boot's `@SpringBootTest` boots the actual application context for full-sl
 | **Cucumber-JVM** | BDD — tests written as `Given/When/Then` plain-language scenarios, mapped to step code; for business-readable acceptance tests |
 | **REST Assured** | fluent HTTP API testing (`given().when().get().then().statusCode(200)`) — ideal for the sandbox's endpoints |
 | **JMeter** | load/performance testing — throughput and latency under concurrent load, not correctness |
-| **JMH** | the JVM microbenchmark harness — the *only* correct way to benchmark Java, because it handles JIT warmup and dead-code elimination that naive `System.nanoTime()` benchmarks get wrong ([[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]]) |
+| **JMH** | the JVM microbenchmark harness — the *only* correct way to benchmark Java, because it handles JIT warmup and dead-code elimination that naive `System.nanoTime()` benchmarks get wrong ([[languages/01-java/02-jvm-and-concurrency/01-jvm-internals\|JVM Internals]]) |
 
 ## Related
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency Injection]] — what makes a class mockable in the first place

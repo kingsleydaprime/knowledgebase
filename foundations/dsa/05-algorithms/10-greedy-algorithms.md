@@ -54,7 +54,7 @@ This pairing pattern — sort, then converge from both ends — is the same shap
 | Signal | Approach |
 |---|---|
 | You can prove the locally-best choice is never worse than any alternative | Greedy — fastest option when it applies |
-| Choices interact in ways where "best right now" can lock out a better later outcome | [[foundations/dsa/06-patterns/15-dynamic-programming|dynamic-programming]] |
+| Choices interact in ways where "best right now" can lock out a better later outcome | [[foundations/dsa/06-patterns/15-dynamic-programming\|dynamic-programming]] |
 | Problem is small enough, or you need a guaranteed-correct baseline to check other approaches against | Brute force |
 
 ## Related

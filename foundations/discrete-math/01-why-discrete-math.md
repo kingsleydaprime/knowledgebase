@@ -18,13 +18,13 @@ The honest pitch for this domain: **you have been using it for years without the
 
 | You already do | It's really |
 |---|---|
-| `if (a && !b \|\| c)` | propositional logic → [[foundations/discrete-math/02-logic|02]] |
-| Reasoning about a loop invariant | induction → [[foundations/discrete-math/05-induction-and-recursion|05]] |
-| A hash set, a SQL `JOIN`, a `UNIQUE` constraint | set theory → [[foundations/discrete-math/04-sets-relations-and-functions|04]] |
-| Big-O analysis | asymptotics and recurrences → [[foundations/discrete-math/05-induction-and-recursion|05]] |
-| A dependency graph, a router table, a social graph | graph theory → [[foundations/discrete-math/07-graph-theory|07]] |
-| "How many combinations does this password have?" | combinatorics → [[foundations/discrete-math/06-combinatorics-and-counting|06]] |
-| RSA, Diffie–Hellman, a hash function | number theory → [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|08]] |
+| `if (a && !b \|\| c)` | propositional logic → [[foundations/discrete-math/02-logic\|02]] |
+| Reasoning about a loop invariant | induction → [[foundations/discrete-math/05-induction-and-recursion\|05]] |
+| A hash set, a SQL `JOIN`, a `UNIQUE` constraint | set theory → [[foundations/discrete-math/04-sets-relations-and-functions\|04]] |
+| Big-O analysis | asymptotics and recurrences → [[foundations/discrete-math/05-induction-and-recursion\|05]] |
+| A dependency graph, a router table, a social graph | graph theory → [[foundations/discrete-math/07-graph-theory\|07]] |
+| "How many combinations does this password have?" | combinatorics → [[foundations/discrete-math/06-combinatorics-and-counting\|06]] |
+| RSA, Diffie–Hellman, a hash function | number theory → [[foundations/discrete-math/08-number-theory-and-modular-arithmetic\|08]] |
 | A type checker rejecting your program | logic, again |
 | Normalising a database schema | relations, literally — that's where "relational" comes from |
 

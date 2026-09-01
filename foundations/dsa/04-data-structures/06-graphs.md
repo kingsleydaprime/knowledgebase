@@ -134,12 +134,12 @@ A graph on its own is just a shape; the useful work is in the algorithms that wa
 |---|---|
 | Is there a path from A to B? | DFS or BFS |
 | Shortest path, **unweighted** | BFS |
-| Shortest path, **weighted, non-negative** | [[06-dijkstra|Dijkstra]] — BFS + a min-heap |
+| Shortest path, **weighted, non-negative** | [[06-dijkstra\|Dijkstra]] — BFS + a min-heap |
 | Shortest path, **negative weights** | Bellman-Ford |
-| How many connected components? | DFS/BFS from every unvisited vertex, or [[10-union-find|union-find]] |
+| How many connected components? | DFS/BFS from every unvisited vertex, or [[10-union-find\|union-find]] |
 | Is there a cycle? | DFS tracking the recursion stack (directed), or union-find (undirected) |
-| Valid ordering of dependencies? | [[11-topological-sort|Topological sort]] — DAG only |
-| Cheapest way to connect everything? | [[12-minimum-spanning-tree|MST]] — Prim's or Kruskal's |
+| Valid ordering of dependencies? | [[11-topological-sort\|Topological sort]] — DAG only |
+| Cheapest way to connect everything? | [[12-minimum-spanning-tree\|MST]] — Prim's or Kruskal's |
 | Can it be two-coloured? | BFS assigning alternating colours (bipartite check) |
 
 ## Gotchas

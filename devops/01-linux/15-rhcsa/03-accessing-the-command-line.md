@@ -77,7 +77,7 @@ Short options (`-x`) can usually be combined (`-la` = `-l -a`); long options (`-
 | `Ctrl+W` | Delete the word before the cursor |
 | `Ctrl+C` | Kill the currently running foreground command |
 | `Ctrl+D` | Send **EOF (End Of File)** — a signal meaning "no more input is coming." On an empty command line this closes the shell (same as typing `exit`); fed to a program reading from stdin, it tells that program the input stream has ended |
-| `Ctrl+Z` | Suspend the current process to the background — see [[devops/01-linux/06-process-management|Process Management]] |
+| `Ctrl+Z` | Suspend the current process to the background — see [[devops/01-linux/06-process-management\|Process Management]] |
 | `!!` | Re-run the last command |
 | `!n` | Re-run history entry number `n` (see it with `history`) |
 | `sudo !!` | Extremely common combo — re-run the last command with sudo after forgetting it |

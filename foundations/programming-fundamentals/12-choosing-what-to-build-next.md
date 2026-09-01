@@ -73,15 +73,15 @@ Once you can build small things unaided, the vault opens up:
 
 | Interest | Start at |
 |---|---|
-| **Any direction at all** | [[PRIMETECHIE|the Primetechie path]] — a tiered progression through everything |
-| A specific language, properly | [[languages/README|languages/]] |
-| Web servers, APIs, databases | [[backend/README|backend]] |
-| Browsers, interfaces | [[frontend/README|frontend]] · [[frontend/README|frontend concepts]] |
-| Efficiency, interviews | [[foundations/dsa/README|DSA]] |
-| Data, models | [[ai-ml/README|AI & ML]] |
-| Servers, deployment, cloud | [[devops/README|devops]] |
-| How the machine works | [[foundations/os/README|OS]] · [[foundations/computer-architecture/README|architecture]] |
-| Breaking things, defensively | [[cybersecurity/README|cybersecurity]] |
+| **Any direction at all** | [[PRIMETECHIE\|the Primetechie path]] — a tiered progression through everything |
+| A specific language, properly | [[languages/README\|languages/]] |
+| Web servers, APIs, databases | [[backend/README\|backend]] |
+| Browsers, interfaces | [[frontend/README\|frontend]] · [[frontend/README\|frontend concepts]] |
+| Efficiency, interviews | [[foundations/dsa/README\|DSA]] |
+| Data, models | [[ai-ml/README\|AI & ML]] |
+| Servers, deployment, cloud | [[devops/README\|devops]] |
+| How the machine works | [[foundations/os/README\|OS]] · [[foundations/computer-architecture/README\|architecture]] |
+| Breaking things, defensively | [[cybersecurity/README\|cybersecurity]] |
 
 **And [[learning/README|how I learn]]** for the method behind all of it — the reading list is not the point; the reps are.
 

@@ -58,7 +58,7 @@ Referencing data from earlier nodes:
 | **IF / Switch** | Branch on a condition |
 | **Merge** | Rejoin branches (append, merge by key, wait for both) |
 | **Set / Edit Fields** | Reshape the JSON |
-| **Split In Batches** | Chunk items — **for rate limits** → [[ai-automation/03-connecting-apis-and-webhooks|note 03]] |
+| **Split In Batches** | Chunk items — **for rate limits** → [[ai-automation/03-connecting-apis-and-webhooks\|note 03]] |
 | **App nodes** | Slack, Sheets, Postgres, Gmail, ~400 more |
 
 **The HTTP Request node is the one to learn properly.** App nodes are conveniences over it; when an app node lacks the endpoint you need — which happens constantly — you drop to HTTP Request and it always works.

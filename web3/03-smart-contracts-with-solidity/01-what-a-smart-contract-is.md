@@ -36,7 +36,7 @@ Worth learning early, because a great deal of wasted effort comes from assuming 
 | Can't | Because | Workaround |
 |---|---|---|
 | Run on a schedule | Nothing executes without a paid transaction | Keeper networks (Chainlink Automation, Gelato) |
-| Read the internet | Determinism — nodes would get different answers | [[web3/06-building-dapps/06-oracles|Oracles]] |
+| Read the internet | Determinism — nodes would get different answers | [[web3/06-building-dapps/06-oracles\|Oracles]] |
 | Generate randomness | Same reason. `block.timestamp` and `blockhash` are **proposer-influenced** | Chainlink VRF, or commit-reveal |
 | Keep a secret | Storage is public | Commit-reveal, or off-chain computation with proofs |
 | Know the "real" time | `block.timestamp` is proposer-set, tolerable drift ~12s | Don't rely on precision below a minute |

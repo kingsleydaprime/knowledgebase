@@ -13,7 +13,7 @@ The three service models, by how much the provider manages:
 | **IaaS** (Infrastructure) | hardware, virtualization, network | OS, runtime, app, data | AWS EC2, a raw VM |
 | **PaaS** (Platform) | + OS, runtime, scaling | app + data | Heroku, App Engine, Elastic Beanstalk |
 | **SaaS** (Software) | everything | just your usage/config | Gmail, Datadog |
-| **FaaS** (Functions) | + the server entirely | just the function code | Lambda ([[devops/03-cloud/02-serverless|serverless]]) |
+| **FaaS** (Functions) | + the server entirely | just the function code | Lambda ([[devops/03-cloud/02-serverless\|serverless]]) |
 
 The trend as you go down that list: less operational burden, less control, and usually a higher per-unit cost that's worth it until scale flips the math.
 
@@ -24,7 +24,7 @@ The trend as you go down that list: less operational burden, less control, and u
 | **AWS** | market leader, broadest service catalog | the default; enormous breadth, steep breadth-driven complexity |
 | **Azure** | strong in enterprise / Microsoft shops | AD integration, hybrid, .NET |
 | **GCP** | strong in data/ML and Kubernetes | GKE (they created Kubernetes), BigQuery |
-| **DigitalOcean / Hetzner / Linode** | simple, cheap, developer-friendly | predictable pricing, less breadth — great for small deploys and the [[devops/04-vps/vps-setup|VPS]] path |
+| **DigitalOcean / Hetzner / Linode** | simple, cheap, developer-friendly | predictable pricing, less breadth — great for small deploys and the [[devops/04-vps/vps-setup\|VPS]] path |
 | **Cloudflare** | edge/network-first | CDN, DNS, edge compute (Workers) |
 
 The big three (AWS/Azure/GCP) offer the same *categories* of service under different names — learn the category and the specific product name is a lookup.

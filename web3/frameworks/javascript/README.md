@@ -127,7 +127,7 @@ ponder.on('ERC20:Transfer', async ({ event, context }) => {
 | **Ponder** | TypeScript indexer |
 | **Hardhat** | Contract development in TS |
 | **Safe SDK** | Multisig integration |
-| **permissionless.js** | ERC-4337 account abstraction → [[web3/06-building-dapps/07-account-abstraction|AA]] |
+| **permissionless.js** | ERC-4337 account abstraction → [[web3/06-building-dapps/07-account-abstraction\|AA]] |
 
 **viem + wagmi is the current default.** ethers is the mature alternative and the one most existing code uses; migrating isn't urgent.
 

@@ -116,6 +116,6 @@ L /run/link      -    root root -     /etc/fstab   # create a symlink instead of
 | Need | Tool |
 |---|---|
 | Run something once, at a specific future time, as yourself | `at` |
-| Recurring job, personal (yours specifically) | `cron` via `crontab -e` — see [[devops/01-linux/11-cron-jobs|cron-jobs]] |
+| Recurring job, personal (yours specifically) | `cron` via `crontab -e` — see [[devops/01-linux/11-cron-jobs\|cron-jobs]] |
 | Recurring **system-level** task, RHEL-idiomatic | a `.timer` unit |
 | Make sure a directory/symlink exists at boot, or gets pruned over time | `systemd-tmpfiles` |
