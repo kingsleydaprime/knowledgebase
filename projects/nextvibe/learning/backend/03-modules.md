@@ -1069,3 +1069,79 @@ return this.prisma.reward.update({ where: { id }, data: { isClaimed: true, claim
 Three distinct failure modes → three distinct HTTP codes (404 / 403 / 400). The `isClaimed` check makes claiming **idempotent-safe**: a double-tap or a retried request can't claim twice. Authorization (`reward.userId !== userId`) is enforced server-side from the JWT's `user.sub` — never trust a userId from the request body.
 
 Route-ordering note: `my/rewards` and `rewards/:id/claim` are static/distinct paths, so they don't collide with `game-sessions/:id`-style param routes on the same prefix-less `@Controller()`.
+
+---
+
+## Video overlays: composite where the compositing is cheap (2026-08-31)
+
+A postcard is a photo or video with the event's **vibe tag** — a PNG frame —
+drawn over it. The question is *where* the two get combined.
+
+Three places it could happen, and why only two of them work here:
+
+| Where | Photos | Videos |
+|---|---|---|
+| Client, before upload | Cheap. A `<canvas>` `drawImage` on a 1080p JPEG is a few ms | Means decoding, recompositing and re-encoding every frame in the browser. Slower than the upload itself past a few MB |
+| Server, during transcode | Overkill | The real answer — but it needs FFmpeg, which this box doesn't have |
+| Client, at *view* time | Pointless, the pixels are already baked | Free. The `<video>` gets an absolutely-positioned `<img>` on top |
+
+So the split is: **photos are burned in before upload; videos are stored raw and
+the tag is replayed as a CSS layer during playback.** That's the same split
+Instagram and TikTok make, for the same reason — the difference is they *do*
+have FFmpeg, so they eventually bake it server-side during transcoding and the
+overlay is only a stopgap for the preview. Here it's permanent, which has one
+real consequence worth knowing: **a downloaded or externally-shared video has no
+vibe tag on it.** Only the in-app viewer composites. If that matters later, the
+fix is a transcode worker, not more client-side code.
+
+### The schema shape
+
+```prisma
+model PostcardMedia {
+  // ...
+  /// Snapshot of the vibe tag image that was NOT burned into this file.
+  vibeTagOverlayUrl String?
+}
+```
+
+`NULL` carries real meaning: *the overlay is already in the pixels* (or there
+never was one). It is not "unknown". The viewer's rule is a one-liner —
+`{vibeTagOverlayUrl && <img …>}`.
+
+### Two decisions in that field that are worth copying
+
+**1. The client says *whether*, the server decides *what*.** The DTO accepts a
+`vibeTagOverlayUrl` string, but the service reads it as a flag only:
+
+```typescript
+private resolveOverlayUrl(media: PostcardMediaDto, vibeTagImageUrl: string) {
+  return media.vibeTagOverlayUrl ? vibeTagImageUrl : null;
+}
+```
+
+Persisting the client's string verbatim would let any caller put an arbitrary
+remote URL into an `<img src>` that every viewer of that postcard renders — a
+free tracking pixel at minimum, and a request your users make to a host you
+don't control. The client genuinely knows something the server can't (did the
+browser succeed at baking?), so it gets to answer that. It does not get to
+choose the image.
+
+That generalises: **when a client must inform a decision, take the smallest
+input that carries the information.** A boolean's worth of trust is much easier
+to reason about than a URL's worth.
+
+**2. Store the resolved URL, don't read through the relation.** `PostcardMedia`
+could reach `postcard.vibeTag.imageUrl` at render time and skip the column. But
+then re-uploading an event's vibe tag would silently rewrite what every existing
+postcard looks like. Copying the URL in at write time makes it a **snapshot** —
+same reasoning as storing the price on an order line instead of joining to the
+product. Denormalise deliberately when the value is a historical fact.
+
+### Where the write paths were
+
+Three of them, all needing the same line: `create`, `swap`, and `addMedia`.
+The first two already loaded the vibe tag; `addMedia` didn't, and needed
+`include: { vibeTag: { select: { imageUrl: true } } }` added to its lookup —
+otherwise a video added to an existing postcard silently loses its tag. Worth
+grepping for *every* writer of a table before adding a column to it; a column
+that's only populated on two of three paths is worse than no column.

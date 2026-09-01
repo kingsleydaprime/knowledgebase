@@ -1421,3 +1421,100 @@ an iOS version difference in hit-testing under capture. The fix removes the
 dependency entirely rather than explaining the divergence, so it holds either
 way. **Note the difference between fixing a bug and understanding it**; this was
 the former, and saying so is more useful than implying the latter.
+
+---
+
+## "Still shows submitted after switching accounts" — caches that outlive an identity (2026-08-31)
+
+The report: play a game, sign in as a **different account**, and the round still
+shows as submitted. Clearing browser history didn't help.
+
+That last clause is the diagnostic gift. **Browsing history and `localStorage`
+are different stores.** Chrome's "Clear browsing history" checkbox clears the
+visited-URL list; site data (localStorage, IndexedDB, cache) is a *separate*
+checkbox that most people never tick. So "I cleared history and it persisted"
+doesn't mean "it isn't client-side" — it points straight at localStorage.
+
+### Cause 1 — the cache key named the event but not the player
+
+```typescript
+// before
+const playedRoundsKey = `playedRounds:${eventProp?.id}`;
+```
+
+The comment above it even said *"Key is scoped to the event so different events
+don't collide"* — which is true, and incomplete. Two things vary here, not one:
+which event, and **which person**. Scoping to only one of them makes "already
+submitted" a property of the browser.
+
+```typescript
+// after
+const identityKey = isLoggedIn
+  ? currentUserId ? `u:${currentUserId}` : null   // null = /users/me still in flight
+  : `anon:${anonId ?? "guest"}`;
+
+const playedRoundsKey =
+  identityKey && eventProp?.id ? `playedRounds:${eventProp.id}:${identityKey}` : null;
+```
+
+Three details in that snippet that matter more than the renaming:
+
+- **`null` for "not resolved yet"** is a third state, distinct from logged-out.
+  Logged in but `/users/me` hasn't returned means we don't yet know whose bucket
+  to use — so we neither read nor write. Defaulting to a "guest" bucket instead
+  would have quietly filed one account's plays under another's key.
+- **Reload on identity change, don't merge.** An effect keyed on
+  `[eventId, joinedSessionsKey, playedRoundsKey]` *replaces* both sets from the
+  new key. Merging would have preserved the exact leak being fixed.
+- **Purge the old unscoped keys.** Shipping the new key layout fixes new writes;
+  every existing user is still carrying a poisoned `playedRounds:<eventId>`
+  entry. A one-line `removeItem` of the legacy keys in the same effect is the
+  migration. *A key-format change needs a cleanup pass for data already on disk.*
+
+### Cause 2 — sign-out did a client-side navigation
+
+```typescript
+// before
+router.push("/auth/login");
+```
+
+`router.push` is a **client-side** transition: React unmounts components, but the
+Redux store — and with it every RTK Query response cached under the outgoing
+account — survives. The next person to sign in on that tab inherits the previous
+account's `game-sessions/:id` payload, `rounds[].hasPlayed` included.
+
+```typescript
+// after
+window.location.href = "/auth/login";
+```
+
+A hard navigation tears down the JS heap. You *can* instead dispatch
+`api.util.resetApiState()` for each API slice, but that's a list someone has to
+remember to extend every time a new slice is added — the reload can't be
+forgotten. **Sign-out is the one place where a full page load is the feature.**
+(The marketing navbar's logout already did this; only the settings screen
+didn't, which is why the bug depended on *which* sign-out button you used.)
+
+### The pattern under both
+
+Neither cause was a wrong calculation — the server was right the whole time.
+`GET /v1/game-sessions/:id` returns per-user `rounds[].hasPlayed` derived from a
+`@@unique([gameRoundId, userId])` row. Both bugs were **client-side caches whose
+lifetime was longer than the identity they described.**
+
+The question to ask of any client cache: *what invalidates this?* If the honest
+answer is "nothing, until the tab closes", then anything user-specific in it is
+a cross-account leak waiting for someone to share a device. Two mitigations,
+and you generally want both:
+
+1. Put the identity **in the key**, so a switch reads a different bucket rather
+   than needing a correct eviction.
+2. Make sign-out destroy the whole cache, so anything you forgot to key still
+   can't survive.
+
+### Where it *wasn't*
+
+The share-link game page (`/game/[token]`) has its own `playedRounds`, but as
+plain React state with no persistence — so it was never affected. Worth
+confirming rather than assuming: two components with the same variable name had
+materially different exposure.

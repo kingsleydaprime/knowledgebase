@@ -1270,3 +1270,50 @@ displayed number should return that number.** Otherwise every client is left
 guessing, and the guesses accumulate. See also
 [frontend/02-state-management.md](../frontend/02-state-management.md) on
 optimistic updates.
+
+---
+
+## Hand-writing a migration when you can't reach the database (2026-08-31)
+
+`prisma migrate dev` is the normal path, and the table above says so. But it
+**connects to your database** — it diffs the schema against the live DB, writes
+the SQL, applies it, and regenerates the client. No `DATABASE_URL` you can reach
+(working offline, or on a machine that isn't allowed near prod) means it can't
+run at all.
+
+The two halves can be done separately:
+
+```bash
+# 1. Regenerate the client — schema only, never touches a database
+npx prisma generate
+
+# 2. Write the migration by hand, in a correctly-named directory
+mkdir -p prisma/migrations/20260831120000_add_vibetag_overlay_to_postcard_media
+cat > prisma/migrations/.../migration.sql << 'EOF'
+-- AlterTable
+ALTER TABLE "postcard_media" ADD COLUMN     "vibeTagOverlayUrl" TEXT;
+EOF
+```
+
+`prisma generate` alone is enough to make TypeScript accept the new field, so
+you can write and typecheck the whole feature with no database in sight.
+
+Three things to get right in the hand-written version:
+
+- **The directory name is the version.** `<UTC timestamp>_<snake_case_name>`,
+  and Prisma orders migrations by *string sort on that directory name*. Pick a
+  timestamp later than every existing one or it'll be treated as already-applied
+  history. Copy the format from a neighbour rather than inventing it.
+- **Quote the identifiers.** Prisma-generated SQL always writes `"table"` and
+  `"column"` in double quotes, because unquoted identifiers get folded to
+  lowercase by Postgres and `vibeTagOverlayUrl` would become `vibetagoverlayurl`.
+- **A new column must be nullable or have a default**, or the `ALTER TABLE`
+  fails on any table with existing rows.
+
+The catch: because nothing diffed against a real database, **nothing verified
+your SQL matches your schema.** `prisma migrate dev` normally guarantees that.
+Here the guarantee is you. `prisma migrate deploy` will happily apply SQL that
+drifts from the schema, and you find out later via confusing runtime errors. Run
+`prisma migrate dev` (or at minimum `migrate diff`) against a real database
+before this reaches production — treat the hand-written file as *provisional*
+until something has checked it.
