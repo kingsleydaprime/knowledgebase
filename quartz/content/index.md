@@ -30,7 +30,7 @@ Docs already exist. This is the layer underneath them: the mental models, the fa
 | 🔐 **Security** | [[cybersecurity/README\|Cybersecurity]] | offence *and* defence — you can't do one well without the other |
 | ⛓️ **Web3** | [[web3/README\|Web3 & Blockchain]] | the chain, the EVM, Solidity, security — **and an honest assessment of where it doesn't apply** |
 | 🔌 **Hardware** | [[hardware/README\|Hardware & Embedded]] | electricity → embedded → RF → a board that physically exists |
-| 🧠 **ML & Data** | [[ai-ml/README\|AI & ML]] · [[ai-ml/00-foundations/03-mathematics/README\|the maths]] | training models and reasoning from data — a different bedrock |
+| 🧠 **ML & Data** | [[ai-ml/README\|AI & ML]] · [[data-analysis/README\|Data Analysis]] · [[data-engineering/README\|Data Engineering]] | training models, and turning data into decisions and pipelines |
 
 **AI sits in two columns on purpose.** *Using* a model is software engineering — APIs, retries, schemas, evals, cost. *Training* one isn't: its foundation is linear algebra, calculus and probability, and its failure modes are leakage, overfitting and drift rather than bugs. [[ai-ml/README|The AI/ML course]] splits the same way.
 

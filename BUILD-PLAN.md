@@ -429,6 +429,20 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 **Also (Sep 2026): refreshed the root README's narrative intro** — it had drifted while the structure tree below it was kept current. Updated the built-out domains list, the build-your-own-shit count (13→16, +blockchain/VM/token guides), the cybersecurity one-liner (now 14 sections), and added start-here entries for mobile, data-engineering, web3 and DSP; noted that every domain now ships a `projects.md`.
 
+### Phase 16 — data analysis (2026-09-01)
+
+**His probe — "no more content gaps? data analysis?" — and he was right.** An honest audit found a genuine hole: the vault had [[data-engineering/README|data engineering]] (build the warehouse) and [[ai-ml/01-data-scientist/README|data science]] (models/inference), but the **enormous middle — the analyst discipline, the most common data job** — was missing. The data-scientist track even *distinguished* the analyst without covering it. This also swept up the **time-series** gap (nothing on trend/seasonality/forecasting anywhere).
+
+- [x] **`data-analysis/`** — ✅ **12 files (8 notes + README + projects + 2-file interview bank).** The analyst role vs engineer vs scientist → **SQL for analysis** (window functions & CTEs — the primary skill) → metrics & KPIs (vanity vs actionable, **Goodhart**) → exploratory & **diagnostic** analysis (*why did it change?* as a method) → product analytics (funnels, cohorts, retention, **LTV:CAC**) → **time series** (decomposition, seasonality, forecasting — fills that gap too) → dashboards & **the semantic layer** → **communicating** (the deliverable is a decision)
+- [x] **Positioned as the third data domain** so the stack reads engineering → analysis → science. Borrows the rigorous stats (A/B testing, causal inference) from the data-scientist track rather than duplicating; consumes the data-engineering warehouse. Heavily cross-linked to both
+- [x] **Integration** — root README (tree + start-here), INTERVIEW (18→19), project-ideas, the Quartz **ML & Data** landing-page column + symlink
+
+**Phase 16 total: 12 new files, ~13,000 words, plus 5 indexes updated.**
+
+### Queued (not yet done)
+
+- [ ] **Distil `sources/Developer habits.md`** — a good transcript on 7 coding habits (guard clauses / early return, intent-revealing names, anti-corruption boundaries at external systems, making invalid states unrepresentable, separating decisions from side effects, useful/coded errors, focused changes). **Its through-line — "make the next change easier" — is exactly [[concepts/04-best-practices/README|concepts/04-best-practices]] material**, so it distils into a note (or thickens an existing one) there. His call, "eventually"
+
 ## Queue after Phase 8
 
 **Closed:** `mobile/` ✅ · `cybersecurity/10-protecting-yourself/` ✅
