@@ -7,5 +7,6 @@ Deep learning specialized for images — the same [[ai-ml/02-ml-engineer/05-deep
 3. [[ai-ml/02-ml-engineer/06-computer-vision/03-transfer-learning|Transfer Learning]] — **[Intermediate]** — starting from a pretrained model instead of from scratch (usually the right call)
 
 ## Related
+- [[foundations/digital-signal-processing/05-convolution-and-lti-systems|DSP: convolution]] — what a conv layer actually computes, from the signal-processing side
 - [[ai-ml/02-ml-engineer/05-deep-learning/README|Deep Learning]] — the fundamentals CNNs specialize
 - [[ai-ml/03-ai-engineer/09-multimodal|Multimodal AI]] — the applied/AI-engineer view of vision models

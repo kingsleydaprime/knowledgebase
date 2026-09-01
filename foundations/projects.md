@@ -29,6 +29,17 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 **If you do one:** the finite-difference U-curve. Five minutes, and it permanently changes how you think about "just use a smaller step."
 
 
+## Digital signal processing — fun, and mostly a $30 dongle
+
+*The fuller ladder is in [[foundations/digital-signal-processing/projects|the DSP projects file]]; the highest-signal ones:*
+
+- 🟢 ⭐ **See a sound's spectrum** — record a whistle or a chord, FFT it, plot the spectrum and a spectrogram. **An hour, and the frequency domain stops being abstract** → [[foundations/digital-signal-processing/07-spectral-analysis|07]].
+- 🟡 ⭐ **Convolution from scratch, then the theorem** — hand-write slide-multiply-sum, verify against `np.convolve`, then get the same answer via FFT→multiply→inverse-FFT. **You'll *see* that time-convolution = frequency-multiplication** → [[foundations/digital-signal-processing/05-convolution-and-lti-systems|05]].
+- 🔴 ⭐ **Decode real aircraft with an RTL-SDR** — a ~$30 dongle + GNU Radio, demodulate FM, then decode **ADS-B** and plot the planes overhead. **The most satisfying payoff in foundations**, and legal because you're only receiving → [[foundations/digital-signal-processing/08-modulation-and-sdr|08]].
+
+**If you do one:** see a sound's spectrum. Then buy the dongle.
+
+
 ## CS theory — the cheapest reps in this vault
 
 - 🟢 **Run `perf stat` on something you wrote** — look at the IPC, then work out *why* it's that number. Twenty minutes, and it turns [[foundations/computer-architecture/12-performance|the whole performance note]] from reading into a method you've used.

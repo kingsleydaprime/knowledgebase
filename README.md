@@ -99,6 +99,10 @@ knowledgebase/
 │   ├── information-theory/       # numbered course (7 notes, Aug 2026): entropy → mutual info
 │   │                             # → compression → CROSS-ENTROPY & KL (the note ai-ml needed)
 │   │                             # → channel capacity → ECC → where it shows up.
+│   ├── digital-signal-processing/ # NEW Sep 2026 (9 notes): signals & LTI → sampling/Nyquist
+│   │                             # → the frequency domain → FFT → CONVOLUTION (also a CNN's
+│   │                             # core) → filters → spectral analysis → modulation & SDR →
+│   │                             # practice. Bridges hardware/RF, information-theory & CV.
 │   ├── gpu-and-parallel-computing/ # numbered course (7 notes, Aug 2026): parallelism → GPU
 │   │                             # architecture/warps → CUDA model → patterns → coalescing
 │   │                             # → roofline → FSDP/multi-GPU. The hardware under ai-ml/.

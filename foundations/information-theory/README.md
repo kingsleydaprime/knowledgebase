@@ -76,6 +76,7 @@ Shannon's measure of surprise, and the surprising number of things it turns out 
 - [[foundations/information-theory/09-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
+- [[foundations/digital-signal-processing/README|digital signal processing]] — sampling (Nyquist), the frequency domain, and modulation: information theory's applied sibling
 - [[ai-ml/README|AI & ML]] — the domain that needed note 04
 - [[foundations/discrete-math/README|Discrete Mathematics]] — probability and counting underneath
 - [[cybersecurity/05-cryptography/README|Cryptography]] — entropy as security

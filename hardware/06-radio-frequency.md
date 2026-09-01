@@ -204,6 +204,7 @@ Sub-1GHz (433MHz, 868MHz, 915MHz) is much less congested — fewer devices opera
 ---
 
 ## Related
+- [[foundations/digital-signal-processing/08-modulation-and-sdr|modulation and SDR]] — the DSP side of RF: I/Q, digital modulation, and software-defined radio
 - [[hardware/05-communication-protocols|Communication Protocols]] — the wired equivalents
 - [[hardware/07-connectivity|Connectivity]] — choosing between radio and a cable
 - [[hardware/08-iot-architecture|IoT Architecture]] — what these radios carry
