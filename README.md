@@ -189,7 +189,11 @@ knowledgebase/
 │   ├── 06-attacks-and-threats/   # the blue-team half) → 08-governance-risk-and-
 │   ├── 07-security-operations/   # compliance → 09-cloud-security.
 │   ├── 08-governance-risk-and-compliance/
-│   ├── 09-cloud-security/
+│   ├── 09-cloud-security/       # EXPANDED Sep 2026 (1 note → 5): shared responsibility
+│   │                            # → identity-is-the-perimeter (IAM, escalation) → the
+│   │                            # attack surface (public buckets, metadata/SSRF=Capital
+│   │                            # One) → container/k8s → cloud-native defence (CSPM,
+│   │                            # shift-left, CloudTrail→SIEM).
 │   ├── 10-protecting-yourself/  # NEW Aug 2026 (see below)
 │   ├── 11-binary-exploitation/  # NEW Aug 2026: the `pwn` category — process memory,
 │   │                            # stack overflows, shellcode, the mitigations
