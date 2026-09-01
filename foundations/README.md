@@ -32,6 +32,7 @@ Written to explain *why* the practical courses are shaped as they are.
 - [[foundations/theory-of-computation/README|theory-of-computation/]] — **[Advanced]** · 11 notes — the Chomsky hierarchy → finite automata → regular and context-free languages → Turing machines → decidability and Rice's theorem → P vs NP → quantum. **Explains why [[foundations/compilers/README|compilers/]] is structured as it is**
 - [[foundations/programming-language-theory/README|programming-language-theory/]] — **[Advanced]** · 10 notes — lambda calculus → semantics → type systems → inference → Curry–Howard → effects and substructural types. **Where Rust's borrow checker comes from**
 - [[foundations/information-theory/README|information-theory/]] — **[Intermediate]** · 10 notes — entropy → mutual information → compression → **cross-entropy and KL divergence** (the note [[ai-ml/README|ai-ml]] needed) → channel capacity → error-correcting codes
+- [[foundations/digital-signal-processing/README|digital-signal-processing/]] — **[Beginner → Advanced]** · 9 notes — signals & LTI → sampling & Nyquist → **the frequency domain** → the FFT → **convolution** (which is also a CNN's core) → filters → spectral analysis → modulation & SDR → practice. Bridges [[hardware/06-radio-frequency|RF]], [[foundations/information-theory/README|information theory]] and [[ai-ml/02-ml-engineer/06-computer-vision/README|computer vision]]
 
 ## Building and computing
 
@@ -49,7 +50,7 @@ Written to explain *why* the practical courses are shaped as they are.
 
 ## The honest labelling
 
-**The practical courses are grounded; the theory spine is `[reference]`.** `discrete-math`, `theory-of-computation`, `computer-architecture`, `numerical-methods`, `information-theory`, `gpu-and-parallel-computing`, `computer-graphics` and `programming-language-theory` were read and assembled, not validated by building. Each says so on its own front page, and each names what would close its gap.
+**The practical courses are grounded; the theory spine is `[reference]`.** `discrete-math`, `theory-of-computation`, `computer-architecture`, `numerical-methods`, `information-theory`, `digital-signal-processing`, `gpu-and-parallel-computing`, `computer-graphics` and `programming-language-theory` were read and assembled, not validated by building. Each says so on its own front page, and each names what would close its gap.
 
 **That's also why they're the cheapest reps in the vault** — most are a single script and an afternoon, and [[foundations/projects|projects.md]] lists them.
 

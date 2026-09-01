@@ -371,6 +371,19 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 **Phase 10 total: 14 new files, ~9,700 words, plus 6 indexes updated and 1 symlink.**
 
+### Phase 11 — digital signal processing (2026-09-01)
+
+**From the queue.** Placed under `foundations/` (not `hardware/` or its own top-level domain), because it's foundational maths-and-engineering alongside numerical-methods and information-theory, and it bridges three existing areas.
+
+- [x] **`foundations/digital-signal-processing/`** — ✅ **9 notes + README + projects.** The gap the audit named: `hardware/` had RF, `information-theory/` had entropy and channels, `numerical-methods/` had interpolation — but sampling, Fourier, convolution, filters and modulation had no home
+- [x] **Framing that shaped it:** the two load-bearing ideas are **the frequency domain** (any signal is a sum of sinusoids) and **convolution** (which *is* multiplication in that domain) — the notes are ordered so 01–05 build to those, and 06–09 apply them. The **convolution theorem** (note 05) is the hinge, and it's deliberately connected to CNNs — *a conv layer is DSP convolution with learned kernels* — which makes this folder upstream of computer vision, not just radio
+- [x] **No interview bank** — correct and deliberate: it's `[reference]` tier, and INTERVIEW.md's stated principle is that reference tracks with no reps don't get banks (matching numerical-methods, information-theory et al.)
+- [x] **The reps are unusually fun and cheap** — NumPy on a laptop, then a **~$30 RTL-SDR dongle** that decodes real aircraft (ADS-B). Legal because it's receive-only; the projects file says so
+- [x] **Cross-linked** into `information-theory` (applied sibling), `hardware/06-radio-frequency` (the analog side of modulation), `ai-ml/computer-vision` (convolution), plus foundations/README (theory spine + reference list), foundations/projects, and the root README tree. **No Quartz symlink needed** — `foundations/` is a directory symlink, so the new folder is auto-exposed
+- [x] **No INTERVIEW.md change** (no bank), and the theory spine is now nine reference courses
+
+**Phase 11 total: 11 new files, ~11,000 words, plus 5 indexes/neighbours updated.**
+
 ## Queue after Phase 8
 
 **Closed:** `mobile/` ✅ · `cybersecurity/10-protecting-yourself/` ✅
@@ -381,7 +394,7 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 - [x] **Active Directory** — ✅ `cybersecurity/12-active-directory/`, **6 notes, ~6,000 words.** What AD is (the graph model) → Kerberos → enumeration/BloodHound → credential attacks → lateral movement/escalation → defending. Its projects entry points at GOAD
 - [x] **`foundations/` README** — ✅ **written 2026-08-31.** The vault's largest section (15 courses, ~371 notes, ~312k words) had no entry point while every sub-course had one. Also fixed **a wikilink broken by a line wrap** in `devops/01-linux/12-bash-scripting`, found by scanning for unclosed `[[` — a check the earlier link validator structurally could not catch, since its regex required a closing `]]`
 - [x] **Data engineering** — ✅ `data-engineering/`, **14 files (10 notes + README + projects + a 2-file interview bank), ~9,700 words + banks.** The operational/analytical split → warehouses/lakes/lakehouses → batch/streaming → ingestion & CDC → Kafka → Spark (and when not to) → dbt → orchestration/idempotency → dimensional modelling → data quality. Cross-linked from `databases/` and `ai-ml/` READMEs
-- [ ] **DSP / signal processing** — the link between `hardware/`'s RF material and `information-theory/`
+- [x] **DSP / signal processing** — ✅ `foundations/digital-signal-processing/`, **11 files (9 notes + README + projects), ~11,000 words.** Signals & LTI → sampling/Nyquist → the frequency domain → FFT → convolution → filters → spectral analysis → modulation & SDR → practice. Cross-linked to hardware/RF, information-theory, and — the non-obvious one — computer-vision (a CNN's convolution *is* DSP convolution)
 - [ ] Malware analysis & RE · API security · thicken `09-cloud-security` (**758 words**), `08-GRC`, `01-fundamentals`
 - [ ] Practice exercises for the 10 domains without them (lower priority — `projects.md` now covers the reps gap)
 
