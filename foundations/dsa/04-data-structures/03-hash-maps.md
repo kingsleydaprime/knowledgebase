@@ -96,11 +96,11 @@ Inside a loop over n items, that one substitution takes the code from O(n²) to 
 | Need | Use | Why |
 |---|---|---|
 | Lookup by arbitrary key | **hash map** | O(1) average |
-| Lookup by small integer index | **[[01-arrays|array]]** | O(1) guaranteed, no hashing, far better cache behaviour |
+| Lookup by small integer index | **[[01-arrays\|array]]** | O(1) guaranteed, no hashing, far better cache behaviour |
 | Membership only, no value | **hash set** | same speed, less memory |
-| Keys in **sorted** order | **balanced [[01-trees|BST]]** (`TreeMap`, `std::map`) | O(log n), but ordered iteration and range queries — a hash map cannot do either |
-| Smallest/largest repeatedly | **[[08-heaps|heap]]** | O(1) peek, O(log n) pop |
-| Prefix queries on string keys | **[[09-tries|trie]]** | hash maps can't answer "all keys starting with…" at all |
+| Keys in **sorted** order | **balanced [[01-trees\|BST]]** (`TreeMap`, `std::map`) | O(log n), but ordered iteration and range queries — a hash map cannot do either |
+| Smallest/largest repeatedly | **[[08-heaps\|heap]]** | O(1) peek, O(log n) pop |
+| Prefix queries on string keys | **[[09-tries\|trie]]** | hash maps can't answer "all keys starting with…" at all |
 
 **The recurring tradeoff: a hash map buys O(1) by destroying order.** Hashing deliberately scatters keys, so there is no cheap way to ask for the smallest key, keys in a range, or keys with a given prefix. When you need any of those, an ordered structure earns its extra log n.
 

@@ -47,7 +47,7 @@ Machines do ~10⁸ operations/second and problems allow ~1–10s, so the bound o
 
 | Constraint on `n` | Expected complexity | What that usually means |
 |---|---|---|
-| `n ≤ ~20` | O(2ⁿ) / O(n!) | try **every** subset/permutation → [[README|backtracking]] or bitmask DP |
+| `n ≤ ~20` | O(2ⁿ) / O(n!) | try **every** subset/permutation → [[README\|backtracking]] or bitmask DP |
 | `n ≤ ~500` | O(n³) | triple loop is fine — often interval / 2-D DP |
 | `n ≤ ~5,000` | O(n²) | a nested loop or O(n²) DP is intended |
 | `n ≤ 10⁵–10⁶` | O(n) or O(n log n) | one pass, or **sort first**, or a hash map — *not* a nested loop |

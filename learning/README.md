@@ -9,12 +9,12 @@ Every other folder in this vault is the output. This one is the method.
 
 | # | Note | What's in it |
 |---|---|---|
-| 01 | [[learning/01-how-i-learn|How I Learn]] | The observe→question→understand→experiment loop, the joy of it, the JAMB evidence, and what flow actually required |
-| 02 | [[learning/02-the-learning-loop|The Learning Loop]] | The eight steps · board / notebook / laptop · why the board is the real notebook · how this applies to DSA |
-| 03 | [[learning/03-the-course-system|The Course System]] | "Want to learn something? Make a course." Why it works, and what it doesn't do |
-| 04 | [[learning/04-one-active-course|One Active Course]] | Many interests, one at a time · not now ≠ never · curiosity vs comparison · why SWE is the active one |
-| 05 | [[learning/05-attention-and-stillness|Attention and Stillness]] | Rebuilding boredom · impulsivity, described accurately · reading as the pressure valve |
-| 06 | [[learning/06-ai-as-sparring-partner|AI as Sparring Partner]] | The rule that stops AI hollowing out the rest of the system |
+| 01 | [[learning/01-how-i-learn\|How I Learn]] | The observe→question→understand→experiment loop, the joy of it, the JAMB evidence, and what flow actually required |
+| 02 | [[learning/02-the-learning-loop\|The Learning Loop]] | The eight steps · board / notebook / laptop · why the board is the real notebook · how this applies to DSA |
+| 03 | [[learning/03-the-course-system\|The Course System]] | "Want to learn something? Make a course." Why it works, and what it doesn't do |
+| 04 | [[learning/04-one-active-course\|One Active Course]] | Many interests, one at a time · not now ≠ never · curiosity vs comparison · why SWE is the active one |
+| 05 | [[learning/05-attention-and-stillness\|Attention and Stillness]] | Rebuilding boredom · impulsivity, described accurately · reading as the pressure valve |
+| 06 | [[learning/06-ai-as-sparring-partner\|AI as Sparring Partner]] | The rule that stops AI hollowing out the rest of the system |
 
 **The active course:** [[learning/swe-101/README|SWE 101]] — target, gap audit, and the two tracks (hire + foundation).
 

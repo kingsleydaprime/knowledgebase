@@ -10,12 +10,12 @@ ML runs on Python — not because it's fast (it isn't), but because the heavy nu
 
 | Library | Role |
 |---|---|
-| **NumPy** | the foundation — n-dimensional arrays and vectorized math ([[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|linear algebra]] in code); nearly everything else is built on it |
-| **pandas** | tabular data — the `DataFrame`, for loading, cleaning, and manipulating structured data ([[ai-ml/02-ml-engineer/02-working-with-data/README|working with data]]) |
+| **NumPy** | the foundation — n-dimensional arrays and vectorized math ([[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README\|linear algebra]] in code); nearly everything else is built on it |
+| **pandas** | tabular data — the `DataFrame`, for loading, cleaning, and manipulating structured data ([[ai-ml/02-ml-engineer/02-working-with-data/README\|working with data]]) |
 | **Matplotlib / Seaborn** | visualization — plotting distributions, relationships, results (Seaborn is a higher-level layer on Matplotlib) |
-| **scikit-learn** | classical ML — a consistent API for [[ai-ml/02-ml-engineer/03-classical-ml/README|regression, trees, SVMs, clustering, PCA]], plus preprocessing, metrics, and model selection. The workhorse for everything that isn't deep learning |
-| **PyTorch** | deep learning — the research-and-increasingly-production standard; dynamic, Pythonic ([[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch|training loop]]) |
-| **TensorFlow / Keras** | deep learning — Google's framework; Keras is its high-level API. Still common, especially in production/mobile ([[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|edge]]) |
+| **scikit-learn** | classical ML — a consistent API for [[ai-ml/02-ml-engineer/03-classical-ml/README\|regression, trees, SVMs, clustering, PCA]], plus preprocessing, metrics, and model selection. The workhorse for everything that isn't deep learning |
+| **PyTorch** | deep learning — the research-and-increasingly-production standard; dynamic, Pythonic ([[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch\|training loop]]) |
+| **TensorFlow / Keras** | deep learning — Google's framework; Keras is its high-level API. Still common, especially in production/mobile ([[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge\|edge]]) |
 
 ## The scikit-learn API — learn one, know them all
 

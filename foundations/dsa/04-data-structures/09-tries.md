@@ -90,10 +90,10 @@ Worst case (`word` is all dots) this degrades toward exploring the whole trie �
 
 | Need | Reach for |
 |---|---|
-| Exact membership only | [[03-hash-maps|hash set]] — simpler, less memory |
+| Exact membership only | [[03-hash-maps\|hash set]] — simpler, less memory |
 | Prefix queries / autocomplete | **trie** |
 | Multi-pattern search over a grid/text | **trie** + DFS |
-| Sorted iteration of keys | trie (a pre-order walk yields words in lexicographic order) — or a balanced [[01-trees|BST]] |
+| Sorted iteration of keys | trie (a pre-order walk yields words in lexicographic order) — or a balanced [[01-trees\|BST]] |
 
 If you never ask a prefix question, a hash set beats a trie on every axis. The trie is worth its memory precisely when the *prefix* is the query.
 

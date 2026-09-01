@@ -58,7 +58,7 @@ Match the test to the data:
 | **t-test** | comparing the means of two groups (A/B test on a continuous metric) |
 | **ANOVA** | comparing means across 3+ groups |
 | **Chi-square** | association between two categorical variables |
-| **Correlation test** | is a [[ai-ml/01-data-scientist/02-descriptive-statistics|correlation]] significantly different from zero? |
+| **Correlation test** | is a [[ai-ml/01-data-scientist/02-descriptive-statistics\|correlation]] significantly different from zero? |
 | **Mann-Whitney / non-parametric** | when normality assumptions don't hold |
 
 ```python

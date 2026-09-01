@@ -264,15 +264,15 @@ Not postmortems; open items, honestly listed. Anyone picking this project up sho
 
 | Issue | Impact | Where |
 |---|---|---|
-| **`src/migration.js`, `src/backfill-images.js`, `src/docs.md` are gitignored** | The main migration tooling exists on one machine. A fresh clone has `package.json` scripts pointing at missing files | [[projects/munakalati/learning/01-git|01 — git]] |
-| **Featured post appears twice on `/blog` page 1** | `featuredId: ""` never matches, so `_id != $featuredId` excludes nothing | [[projects/munakalati/learning/03-sanity/03-groq-queries|sanity/03]] |
-| **Every migrated hyperlink is plain text** | `wixMarks()` maps BOLD/ITALIC/UNDERLINE and drops LINK. 434 posts affected | [[projects/munakalati/learning/05-migration/04-portable-text-conversion|migration/04]] |
-| **All 434 posts are `category: "news"`** | The blog's category filter is effectively useless | [[projects/munakalati/learning/05-migration/01-anatomy-of-a-migration|migration/01]] |
-| **433 backfilled cover images have no alt text** | Accessibility debt | [[projects/munakalati/learning/03-sanity/04-images-and-portable-text|sanity/04]] |
-| **Nine components exist in duplicate** (`home/X.tsx` and `home/cms/X.tsx`) | Dead code that looks live; edits to the wrong copy do nothing | [[projects/munakalati/learning/04-frontend/03-rendering-cms-content|frontend/03]] |
-| **CMS fallbacks fire silently** | A broken GROQ query renders hardcoded content with no error | [[projects/munakalati/learning/04-frontend/03-rendering-cms-content|frontend/03]] |
-| **`--retry` synthesises a stub listing** | Retried posts get their Wix UUID as their slug | [[projects/munakalati/learning/05-migration/03-idempotency-reruns-and-reports|migration/03]] |
-| **Hand-written types drift from the schema** | `localPhoto` is declared and doesn't exist; projections are typed as full documents | [[projects/munakalati/learning/03-sanity/02-schema-design|sanity/02]] |
+| **`src/migration.js`, `src/backfill-images.js`, `src/docs.md` are gitignored** | The main migration tooling exists on one machine. A fresh clone has `package.json` scripts pointing at missing files | [[projects/munakalati/learning/01-git\|01 — git]] |
+| **Featured post appears twice on `/blog` page 1** | `featuredId: ""` never matches, so `_id != $featuredId` excludes nothing | [[projects/munakalati/learning/03-sanity/03-groq-queries\|sanity/03]] |
+| **Every migrated hyperlink is plain text** | `wixMarks()` maps BOLD/ITALIC/UNDERLINE and drops LINK. 434 posts affected | [[projects/munakalati/learning/05-migration/04-portable-text-conversion\|migration/04]] |
+| **All 434 posts are `category: "news"`** | The blog's category filter is effectively useless | [[projects/munakalati/learning/05-migration/01-anatomy-of-a-migration\|migration/01]] |
+| **433 backfilled cover images have no alt text** | Accessibility debt | [[projects/munakalati/learning/03-sanity/04-images-and-portable-text\|sanity/04]] |
+| **Nine components exist in duplicate** (`home/X.tsx` and `home/cms/X.tsx`) | Dead code that looks live; edits to the wrong copy do nothing | [[projects/munakalati/learning/04-frontend/03-rendering-cms-content\|frontend/03]] |
+| **CMS fallbacks fire silently** | A broken GROQ query renders hardcoded content with no error | [[projects/munakalati/learning/04-frontend/03-rendering-cms-content\|frontend/03]] |
+| **`--retry` synthesises a stub listing** | Retried posts get their Wix UUID as their slug | [[projects/munakalati/learning/05-migration/03-idempotency-reruns-and-reports\|migration/03]] |
+| **Hand-written types drift from the schema** | `localPhoto` is declared and doesn't exist; projections are typed as full documents | [[projects/munakalati/learning/03-sanity/02-schema-design\|sanity/02]] |
 | **No CI, no tests, no pre-commit hooks** | Nothing catches any of the above automatically | — |
 
 ## The pattern across all six

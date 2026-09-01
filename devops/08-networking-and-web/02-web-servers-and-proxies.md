@@ -82,7 +82,7 @@ Caching is one of the highest-leverage performance tools and one of the hardest 
 | **Caddy** | modern, **automatic HTTPS** (fetches + renews Let's Encrypt certs itself) — least-config option |
 | **HAProxy** | a dedicated high-performance load balancer (L4/L7), not a general web server |
 | **Traefik** | cloud-native reverse proxy with automatic service discovery — popular as a k8s ingress controller |
-| **Envoy** | the high-performance proxy underneath most [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]] |
+| **Envoy** | the high-performance proxy underneath most [[devops/11-delivery-and-advanced/03-service-mesh\|service meshes]] |
 
 ## Related
 - [[devops/08-networking-and-web/01-networking-and-protocols|Networking & Protocols]] — the HTTP/TLS these servers speak

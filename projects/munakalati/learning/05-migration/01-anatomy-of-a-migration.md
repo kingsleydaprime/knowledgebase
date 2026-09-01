@@ -46,8 +46,8 @@ Before any code, the real task is a table — source field to target field, and 
 | `slug` | `slug.current`, `decodeURIComponent`'d | Source stores it percent-encoded; the frontend needs it decoded |
 | `excerpt` | `excerpt`, `.slice(0, 200)` | Target schema validates `max(200)`; source has no limit |
 | `firstPublishedDate` | `publishedAt` | Falls back to `lastPublishedDate`, then `null` |
-| `content.nodes[]` | `body` (Portable Text) | The hard one → [[projects/munakalati/learning/05-migration/04-portable-text-conversion|note 04]] |
-| `media.wixMedia.image` | `coverImage` | Three fallback sources → [[projects/munakalati/learning/05-migration/02-reading-the-wix-api|note 02]] |
+| `content.nodes[]` | `body` (Portable Text) | The hard one → [[projects/munakalati/learning/05-migration/04-portable-text-conversion\|note 04]] |
+| `media.wixMedia.image` | `coverImage` | Three fallback sources → [[projects/munakalati/learning/05-migration/02-reading-the-wix-api\|note 02]] |
 | `categoryIds[]` (UUIDs) | `category: "news"` | **Punted.** See below |
 | `memberId` | `author` → one default author | **Punted.** See below |
 

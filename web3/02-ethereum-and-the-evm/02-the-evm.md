@@ -14,7 +14,7 @@ Thousands of machines run the identical program and get the identical answer, or
 |---|---|---|
 | **256-bit words** | Native size for Keccak hashes and addresses; makes big-number arithmetic native | Everything is 32 bytes. A `bool` occupies a full word. Real hardware is 64-bit, so **the EVM is slow to emulate** |
 | **Stack machine, no registers** | Trivially simple to specify and reimplement identically | Awkward codegen; a hard **1024-item stack depth** limit, and "stack too deep" is a Solidity error you will meet |
-| **No floating point** | IEEE-754 is not bit-identically reproducible across platforms | All maths is fixed-point by hand → [[web3/04-smart-contract-security/04-arithmetic-and-rounding|arithmetic]] |
+| **No floating point** | IEEE-754 is not bit-identically reproducible across platforms | All maths is fixed-point by hand → [[web3/04-smart-contract-security/04-arithmetic-and-rounding\|arithmetic]] |
 | **Metered execution** | Halting problem: you cannot decide in advance if a program terminates, so you charge it until it stops | Every loop is a cost risk |
 | **Synchronous calls only** | Determinism — no scheduler, no concurrency | No async, no callbacks, no timers |
 

@@ -120,10 +120,10 @@ Worth knowing because the vocabulary is still around.
 
 | For | Read |
 |---|---|
-| **SQL syntax**, joins, window functions, CTEs | [[databases/sql-reference|sql-reference]] (4,200 lines) |
-| **Schema design**, normalisation, keys, patterns | [[databases/database-design-reference|database-design-reference]] |
-| **MySQL specifics**, admin, replication setup | [[databases/mysql-reference|mysql-reference]] |
-| **MongoDB, Redis, Cassandra, Neo4j, Elasticsearch** | [[databases/nosql-reference|nosql-reference]] |
+| **SQL syntax**, joins, window functions, CTEs | [[databases/sql-reference\|sql-reference]] (4,200 lines) |
+| **Schema design**, normalisation, keys, patterns | [[databases/database-design-reference\|database-design-reference]] |
+| **MySQL specifics**, admin, replication setup | [[databases/mysql-reference\|mysql-reference]] |
+| **MongoDB, Redis, Cassandra, Neo4j, Elasticsearch** | [[databases/nosql-reference\|nosql-reference]] |
 
 **02–05 are storage** — the relational model, pages, B-trees, LSM trees.
 **06–07 are query processing** — the pipeline, join algorithms, the optimiser.

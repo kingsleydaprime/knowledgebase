@@ -41,7 +41,7 @@ Two words to keep straight, because interviewers love this one:
 | **NS** | zone → its authoritative servers | delegation — how the hierarchy is built |
 | **MX** | domain → mail servers | with priority values |
 | **TXT** | arbitrary text | SPF, DKIM, DMARC, and domain-ownership verification |
-| **SRV** | service → host+port | service discovery; how [[devops/05-orchestration/README|Kubernetes]] DNS exposes ports |
+| **SRV** | service → host+port | service discovery; how [[devops/05-orchestration/README\|Kubernetes]] DNS exposes ports |
 | **PTR** | IP → name | reverse lookups; mail servers check these |
 | **CAA** | domain → which CAs may issue certs | a real, cheap security control — set it |
 | **SOA** | zone metadata | serial, refresh, and the **negative-caching TTL** |

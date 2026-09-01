@@ -86,7 +86,7 @@ The fix is to collect the pieces in a list and join once at the end — O(n). Ja
 |---|---|---|
 | Access by index | O(1) | direct address calculation |
 | Search (unsorted) | O(n) | no shortcuts, check every element |
-| Search (sorted) | O(log n) | binary search — see [[05-searching|searching]] |
+| Search (sorted) | O(log n) | binary search — see [[05-searching\|searching]] |
 | Insert/delete at end | O(1) | no shifting needed |
 | Insert/delete at start/middle | O(n) | every element after the gap has to shift |
 

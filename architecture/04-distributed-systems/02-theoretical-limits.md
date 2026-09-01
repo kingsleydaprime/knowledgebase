@@ -69,11 +69,11 @@ CALM reframes the design question from "how do I coordinate?" to "**can I model 
 
 | Limit | Says you can't… | So the course does… |
 |---|---|---|
-| Two Generals | guarantee exactly-once delivery | idempotency + at-least-once ([[architecture/04-distributed-systems/10-distributed-transactions|transactions]]) |
-| FLP | guarantee consensus terminates (async) | partial synchrony + timeouts ([[architecture/04-distributed-systems/07-consensus-and-paxos|Raft/Paxos]]) |
-| CAP | have C and A during a partition | pick CP or AP per operation ([[architecture/04-distributed-systems/05-replication|replication]]) |
-| PACELC | have C without latency, ever | pick a [[architecture/04-distributed-systems/04-consistency-models|consistency model]] on the curve |
-| CALM | drop coordination for non-monotonic logic | model as monotonic → [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs]] where possible |
+| Two Generals | guarantee exactly-once delivery | idempotency + at-least-once ([[architecture/04-distributed-systems/10-distributed-transactions\|transactions]]) |
+| FLP | guarantee consensus terminates (async) | partial synchrony + timeouts ([[architecture/04-distributed-systems/07-consensus-and-paxos\|Raft/Paxos]]) |
+| CAP | have C and A during a partition | pick CP or AP per operation ([[architecture/04-distributed-systems/05-replication\|replication]]) |
+| PACELC | have C without latency, ever | pick a [[architecture/04-distributed-systems/04-consistency-models\|consistency model]] on the curve |
+| CALM | drop coordination for non-monotonic logic | model as monotonic → [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution\|CRDTs]] where possible |
 
 ## Key insight
 

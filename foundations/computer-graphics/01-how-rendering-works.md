@@ -62,7 +62,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 |---|---|
 | $L_o$ | outgoing radiance — **what you want** |
 | $L_e$ | emitted (only for light sources) |
-| $f_r$ | **BRDF** — how the material reflects → [[foundations/computer-graphics/04-shading-and-lighting|Shading]] |
+| $f_r$ | **BRDF** — how the material reflects → [[foundations/computer-graphics/04-shading-and-lighting\|Shading]] |
 | $L_i$ | incoming radiance **from everywhere** |
 | $(\omega_i\cdot\mathbf{n})$ | Lambert's cosine — glancing light contributes less |
 

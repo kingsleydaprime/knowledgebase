@@ -76,13 +76,13 @@ A Sanity webhook → a Next route handler → `revalidateTag()`. Content updates
 
 | From this project | The course |
 |---|---|
-| Sanity, GROQ, Portable Text | [[frontend/frameworks/sanity/README|frontend/frameworks/sanity/]] |
-| Content modelling as a concept | [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modeling and headless CMS]] |
-| The migration playbook | [[concepts/04-best-practices/06-data-migrations|concepts/04 — data migrations]] |
-| App Router, RSC, ISR | [[frontend/frameworks/next/README|next/]] · [[frontend/02-rendering/README|rendering]] |
-| Ops-script conventions | [[devops/01-linux/12-bash-scripting|bash scripting]] |
-| Two remotes, merge hygiene | [[git/08-remotes-and-collaboration|remotes and collaboration]] |
-| Retries, backoff, idempotency | [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] |
+| Sanity, GROQ, Portable Text | [[frontend/frameworks/sanity/README\|frontend/frameworks/sanity/]] |
+| Content modelling as a concept | [[frontend/04-state-and-data/03-content-modeling-and-headless-cms\|content modeling and headless CMS]] |
+| The migration playbook | [[concepts/04-best-practices/06-data-migrations\|concepts/04 — data migrations]] |
+| App Router, RSC, ISR | [[frontend/frameworks/next/README\|next/]] · [[frontend/02-rendering/README\|rendering]] |
+| Ops-script conventions | [[devops/01-linux/12-bash-scripting\|bash scripting]] |
+| Two remotes, merge hygiene | [[git/08-remotes-and-collaboration\|remotes and collaboration]] |
+| Retries, backoff, idempotency | [[backend/06-cross-cutting/05-idempotency-and-retries\|idempotency and retries]] |
 
 ## The one-sentence version
 

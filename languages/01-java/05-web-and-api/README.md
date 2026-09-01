@@ -26,11 +26,11 @@ You probably want one of these instead:
 
 | You want | Go to |
 |---|---|
-| To build an HTTP service in Java | [[backend/frameworks/java/README|backend/frameworks/java/]] |
-| The DI concept, not Spring's version of it | [[languages/01-java/03-tooling/02-dependency-injection|03-tooling/02-dependency-injection]] |
-| Threads, virtual threads, the memory model | [[languages/01-java/02-jvm-and-concurrency/README|02-jvm-and-concurrency/]] |
-| JDBC, JPA, transactions | [[languages/01-java/04-persistence/README|04-persistence/]] |
-| The rest of the Java course | [[languages/01-java/README|Java course index]] |
+| To build an HTTP service in Java | [[backend/frameworks/java/README\|backend/frameworks/java/]] |
+| The DI concept, not Spring's version of it | [[languages/01-java/03-tooling/02-dependency-injection\|03-tooling/02-dependency-injection]] |
+| Threads, virtual threads, the memory model | [[languages/01-java/02-jvm-and-concurrency/README\|02-jvm-and-concurrency/]] |
+| JDBC, JPA, transactions | [[languages/01-java/04-persistence/README\|04-persistence/]] |
+| The rest of the Java course | [[languages/01-java/README\|Java course index]] |
 
 ## Related
 - [[backend/frameworks/java/README|backend/frameworks/java/]] — where this went

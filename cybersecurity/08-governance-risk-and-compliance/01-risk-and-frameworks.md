@@ -35,7 +35,7 @@ Rather than invent controls from scratch, organizations adopt established framew
 | **NIST Cybersecurity Framework (CSF)** | a widely-used, flexible framework organized around five functions: **Identify, Protect, Detect, Respond, Recover** (which map neatly onto this course's sections). The common US reference. |
 | **NIST RMF / 800-53** | a detailed risk-management process and control catalog (heavy, common in US government). |
 | **ISO/IEC 27001** | the international standard for an Information Security Management System (ISMS); certifiable, common globally for demonstrating security maturity to customers. |
-| **CIS Controls / Benchmarks** | a prioritized, prescriptive list of defensive actions (Controls) and concrete [[cybersecurity/07-security-operations/01-defensive-architecture|hardening]] configs (Benchmarks). The most actionable starting point. |
+| **CIS Controls / Benchmarks** | a prioritized, prescriptive list of defensive actions (Controls) and concrete [[cybersecurity/07-security-operations/01-defensive-architecture\|hardening]] configs (Benchmarks). The most actionable starting point. |
 
 Frameworks give a common language, avoid reinventing the wheel, and provide something to measure/audit against.
 

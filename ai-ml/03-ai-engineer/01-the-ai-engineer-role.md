@@ -35,11 +35,11 @@ This narrows the field fast (see [[ai-ml/00-foundations/02-what-is-a-model|what 
 
 | Input/output | Reach for |
 |---|---|
-| Structured/tabular data | classic ML (regression, gradient-boosted trees) — an [[ai-ml/02-ml-engineer/README|ML-engineer]] job |
+| Structured/tabular data | classic ML (regression, gradient-boosted trees) — an [[ai-ml/02-ml-engineer/README\|ML-engineer]] job |
 | Free-form text in, text/answer out | an LLM |
 | Images in, classification/detection out | a vision model |
 | Text in, new image/audio out | a diffusion / generation model |
-| "Find similar things" / semantic search | [[ai-ml/03-ai-engineer/06-rag-and-embeddings|embeddings]] |
+| "Find similar things" / semantic search | [[ai-ml/03-ai-engineer/06-rag-and-embeddings\|embeddings]] |
 
 ### Step 3 — for language tasks, how much capability does it need?
 

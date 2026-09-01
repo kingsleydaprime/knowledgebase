@@ -51,9 +51,9 @@ for (String f : foods) { ... }      // for-each walk
 | Implementation | Ordering | Lookup | Notes |
 |---|---|---|---|
 | `HashMap` | none | O(1) average | The default; one null key allowed |
-| `LinkedHashMap` | insertion (or access) order | O(1) average | Deterministic iteration — why the API response builder uses it ([[languages/01-java/03-tooling/03-lombok-and-builders|Lombok & Builders]]) |
+| `LinkedHashMap` | insertion (or access) order | O(1) average | Deterministic iteration — why the API response builder uses it ([[languages/01-java/03-tooling/03-lombok-and-builders\|Lombok & Builders]]) |
 | `TreeMap` | sorted keys | O(log n) | Range queries (`headMap`, `subMap`, `firstKey`) |
-| `ConcurrentHashMap` | none | O(1) average | Thread-safe without locking the whole map ([[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]]) |
+| `ConcurrentHashMap` | none | O(1) average | Thread-safe without locking the whole map ([[languages/01-java/02-jvm-and-concurrency/02-concurrency\|Concurrency]]) |
 
 The everyday `HashMap` method surface — a set of unique **keys**, each mapped to a **value**. Both type parameters must be reference types (`Integer`, not `int`); `put` on an existing key **overwrites** it:
 

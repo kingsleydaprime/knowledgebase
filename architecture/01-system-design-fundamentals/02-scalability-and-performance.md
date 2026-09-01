@@ -23,7 +23,7 @@ The two ways to handle more load:
 | | Vertical (scale up) | Horizontal (scale out) |
 |---|---|---|
 | How | a bigger machine (more CPU/RAM) | more machines |
-| Simplicity | simple — no code changes, no distribution | complex — needs [[architecture/02-building-blocks/01-load-balancing-and-proxies|load balancing]], stateless design, [[architecture/04-distributed-systems/README|distributed-systems]] concerns |
+| Simplicity | simple — no code changes, no distribution | complex — needs [[architecture/02-building-blocks/01-load-balancing-and-proxies\|load balancing]], stateless design, [[architecture/04-distributed-systems/README\|distributed-systems]] concerns |
 | Ceiling | hard limit (biggest machine you can buy) | effectively unlimited |
 | Failure | single point of failure | survives node loss (redundancy) |
 | Cost | expensive at the top end | commodity hardware, but more of it |

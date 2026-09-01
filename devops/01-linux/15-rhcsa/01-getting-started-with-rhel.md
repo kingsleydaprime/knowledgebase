@@ -74,7 +74,7 @@ Content Access Mode is set to Simple Content Access.
 | Show info | `apt show pkg` | `dnf info pkg` |
 | List installed | `dpkg -l` | `rpm -qa` |
 | Firewall | `ufw` | `firewalld` |
-| Mandatory access control | AppArmor | **SELinux** — the biggest conceptual jump, gets its own note: [[07-manage-selinux-security|manage-selinux-security]] |
+| Mandatory access control | AppArmor | **SELinux** — the biggest conceptual jump, gets its own note: [[07-manage-selinux-security\|manage-selinux-security]] |
 
 Full depth on package management already lives in [[devops/01-linux/05-package-management|Package Management]] — the concepts (repos, dependency resolution, caching) carry over 1:1 from what's there; `dnf` is just the RHEL-family syntax.
 

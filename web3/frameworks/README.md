@@ -6,11 +6,11 @@
 
 | Language | Role | Folder |
 |---|---|---|
-| **Solidity** | **The contract language.** EVM chains — Ethereum and every L2. The default | [[web3/frameworks/solidity/README|solidity/]] |
-| **Rust** | **The other contract language.** Solana, CosmWasm, ink!, NEAR — plus most chain clients | [[web3/frameworks/rust/README|rust/]] |
-| **JS / TS** | **The client layer.** Frontends, indexers, bots, scripts. viem, wagmi, ethers | [[web3/frameworks/javascript/README|javascript/]] |
-| **Python** | **Scripting, analysis, security tooling.** web3.py, Slither, Vyper | [[web3/frameworks/python/README|python/]] |
-| **Go** | **Infrastructure.** Geth, Cosmos SDK, indexers, backend services | [[web3/frameworks/go/README|go/]] |
+| **Solidity** | **The contract language.** EVM chains — Ethereum and every L2. The default | [[web3/frameworks/solidity/README\|solidity/]] |
+| **Rust** | **The other contract language.** Solana, CosmWasm, ink!, NEAR — plus most chain clients | [[web3/frameworks/rust/README\|rust/]] |
+| **JS / TS** | **The client layer.** Frontends, indexers, bots, scripts. viem, wagmi, ethers | [[web3/frameworks/javascript/README\|javascript/]] |
+| **Python** | **Scripting, analysis, security tooling.** web3.py, Slither, Vyper | [[web3/frameworks/python/README\|python/]] |
+| **Go** | **Infrastructure.** Geth, Cosmos SDK, indexers, backend services | [[web3/frameworks/go/README\|go/]] |
 
 ## Which to learn, in what order
 

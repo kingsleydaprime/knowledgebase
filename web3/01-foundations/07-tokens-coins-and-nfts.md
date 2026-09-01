@@ -16,7 +16,7 @@ An **NFT** is the same table where each row is one distinct numbered item instea
 |---|---|---|
 | Where the balance lives | In the protocol's own account state | In one contract's storage mapping |
 | Who can change the rules | Nobody, without a hard fork | **Whoever controls that contract** |
-| Used to pay gas | Yes — this is its structural role | No (barring [[web3/06-building-dapps/07-account-abstraction|account abstraction]]) |
+| Used to pay gas | Yes — this is its structural role | No (barring [[web3/06-building-dapps/07-account-abstraction\|account abstraction]]) |
 | If the code is broken | The chain is broken | That token is broken; the chain is fine |
 
 **The second row is the one people miss.** A token's properties are whatever its contract says. It can be pausable, freezable, mintable without limit, or upgradeable to entirely different code tomorrow. **USDC can and does freeze addresses** — Circle has done it, on request from law enforcement. That's not a flaw in the token; it's what the contract was written to do. "Decentralised" is not a property tokens have by default. It's a property specific code either has or doesn't → [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|upgradeability]].

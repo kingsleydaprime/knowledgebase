@@ -19,7 +19,7 @@ Pick by **what you're trying to produce**, not by which brand you've heard of mo
 | **Image generation** | Illustration, mockups, concept visuals | Text inside images, hands, precise layout; and the licensing question for commercial use |
 | **Voice / realtime** | Hands-free, practising a language, transcription | Transcription errors compound silently into whatever comes next |
 | **Coding assistants** (Cursor, Copilot, Claude Code) | Writing or changing code | A different course — see the hand-off at the end |
-| **Automation platforms** (n8n, Zapier, Make) | The *same* AI task, repeatedly, without you present | Real engineering; see [[ai-automation/README|ai-automation/]] |
+| **Automation platforms** (n8n, Zapier, Make) | The *same* AI task, repeatedly, without you present | Real engineering; see [[ai-automation/README\|ai-automation/]] |
 
 ## How to actually choose, in three questions
 

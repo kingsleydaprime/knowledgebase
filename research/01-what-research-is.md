@@ -20,7 +20,7 @@ Contributions come in a few flavors — knowing which kind you're making shapes 
 |---|---|---|
 | **New method / technique** | "here's a better way to do X" | a faster algorithm, a new model architecture |
 | **Empirical finding** | "here's something true about the world we measured" | "model A beats B on task T," "this material fatigues under condition C" |
-| **Theory / proof** | "here's something we can *prove* must be true" | a bound, a theorem, an impossibility result ([[architecture/04-distributed-systems/02-theoretical-limits|like FLP]]) |
+| **Theory / proof** | "here's something we can *prove* must be true" | a bound, a theorem, an impossibility result ([[architecture/04-distributed-systems/02-theoretical-limits\|like FLP]]) |
 | **System / artifact** | "we built a thing that works, here's the design + evidence" | a new robot controller, a chip design, a software system |
 | **Dataset / benchmark** | "here's a new way to *measure* progress" | a labeled dataset, an evaluation suite |
 | **Survey / synthesis** | "here's the whole field organized so you understand it" | a review paper mapping an area |

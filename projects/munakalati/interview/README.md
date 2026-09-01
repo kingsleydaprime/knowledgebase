@@ -15,10 +15,10 @@ Questions an interviewer could realistically ask **about this project**, drawn f
 
 | File | Covers |
 |---|---|
-| [[projects/munakalati/interview/01-sanity-and-content-modeling|01-sanity-and-content-modeling]] | Headless CMS trade-offs, schema design, singletons, GROQ, Portable Text, editor experience |
-| [[projects/munakalati/interview/02-nextjs-and-rendering|02-nextjs-and-rendering]] | Server Components, ISR and layered caches, fetch waterfalls, route groups, the fallback pattern |
-| [[projects/munakalati/interview/03-migration-and-data-integrity|03-migration-and-data-integrity]] ⭐ | Idempotency, deterministic IDs, rich-text conversion, dry runs, verification |
-| [[projects/munakalati/interview/04-bugs-and-story|04-bugs-and-story]] ⭐ | The silent bugs, trade-offs defended, what you'd do differently, behavioural |
+| [[projects/munakalati/interview/01-sanity-and-content-modeling\|01-sanity-and-content-modeling]] | Headless CMS trade-offs, schema design, singletons, GROQ, Portable Text, editor experience |
+| [[projects/munakalati/interview/02-nextjs-and-rendering\|02-nextjs-and-rendering]] | Server Components, ISR and layered caches, fetch waterfalls, route groups, the fallback pattern |
+| [[projects/munakalati/interview/03-migration-and-data-integrity\|03-migration-and-data-integrity]] ⭐ | Idempotency, deterministic IDs, rich-text conversion, dry runs, verification |
+| [[projects/munakalati/interview/04-bugs-and-story\|04-bugs-and-story]] ⭐ | The silent bugs, trade-offs defended, what you'd do differently, behavioural |
 
 ---
 

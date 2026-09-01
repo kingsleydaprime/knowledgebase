@@ -149,7 +149,7 @@ UUID=a1b2c3d4-...                       /mnt/data    xfs    defaults  0     2
 | device | `UUID=...` (preferred) or `/dev/sdX` (fragile) or `LABEL=...` |
 | mountpoint | Where it attaches into the tree |
 | type | Filesystem type — `xfs`, `ext4`, `swap`, `nfs`, etc. |
-| options | `defaults` covers the common case; others: `ro`, `noatime`, `_netdev` (wait for network — critical for [[10-access-network-attached-storage|access-network-attached-storage]]) |
+| options | `defaults` covers the common case; others: `ro`, `noatime`, `_netdev` (wait for network — critical for [[10-access-network-attached-storage\|access-network-attached-storage]]) |
 | dump | Legacy `dump` backup utility flag — `0` = ignore, essentially always 0 today |
 | pass | `fsck` order at boot — `1` for root filesystem, `2` for others, `0` to skip checking |
 

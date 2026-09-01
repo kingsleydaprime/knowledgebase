@@ -15,7 +15,7 @@ Not a criticism of the scheme — it's a well-built *beginner-to-senior* curricu
 | **Phase 1** — what is software / SDLC / types of engineer | 1 | **Cut.** You are one, across twelve projects. One evening skimming SDLC vocabulary for interviews, not a week. |
 | **Phase 2–3** — computational thinking, complexity | 2–3 | **Folded into DSA.** Big-O and recursion get learned *through* problems, not before them. |
 | **Phase 4–7** — variables, loops, functions, OOP | 4–7 | **Cut.** Four weeks on material nextvibe and the Java projects already prove. The single largest saving in the plan. |
-| **Phase 5** — Git, Linux, tooling | 13–14 | **Cut to a checklist.** You use these daily; [[git/README|git/]] and [[devops/01-linux/README|linux/]] are written. Skim for gaps only. |
+| **Phase 5** — Git, Linux, tooling | 13–14 | **Cut to a checklist.** You use these daily; [[git/README\|git/]] and [[devops/01-linux/README\|linux/]] are written. Skim for gaps only. |
 | **Phase 10** — testing | 30–32 | **Compressed to 1 week.** `gees-arise/learning/07-testing` and the strictenv/json-healer banks show this is owned. |
 | **Phase 12** — DevOps | 38–41 | **Compressed to 1 week.** nextvibe/socioboom/gees-arise all have deployment notes; the vault's own CI/CD is yours. |
 | **Phase 15** — projects | 49–52 | **Moved to week 3** and made the flagship. Projects are not the graduation ceremony. |
