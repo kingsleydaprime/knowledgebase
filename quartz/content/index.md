@@ -26,7 +26,7 @@ Docs already exist. This is the layer underneath them: the mental models, the fa
 |---|---|---|
 | 📱 **Mobile** | [[mobile/README\|Mobile]] · [[languages/08-swift/README\|Swift]] · [[languages/09-kotlin/README\|Kotlin]] | the OS can kill your process — everything else follows from that |
 | 💻 **Software** | [[backend/README\|Backend]] · [[foundations/dsa/README\|DSA]] · [[architecture/README\|Architecture]] · [[languages/01-java/README\|Java]] · [[ai-ml/03-ai-engineer/README\|AI Engineering]] | backends, systems, algorithms, building on pre-trained models |
-| ☁️ **Infrastructure** | [[devops/README\|DevOps]] · [[foundations/networking/README\|Networking]] · [[databases/database-design-reference\|Databases]] | Linux → containers → orchestration → CI/CD → observability |
+| ☁️ **Infrastructure** | [[devops/README\|DevOps]] · [[foundations/networking/README\|Networking]] · [[databases/database-design-reference\|Databases]] · [[data-engineering/README\|Data Engineering]] | Linux → containers → orchestration → CI/CD → observability → pipelines |
 | 🔐 **Security** | [[cybersecurity/README\|Cybersecurity]] | offence *and* defence — you can't do one well without the other |
 | ⛓️ **Web3** | [[web3/README\|Web3 & Blockchain]] | the chain, the EVM, Solidity, security — **and an honest assessment of where it doesn't apply** |
 | 🔌 **Hardware** | [[hardware/README\|Hardware & Embedded]] | electricity → embedded → RF → a board that physically exists |
