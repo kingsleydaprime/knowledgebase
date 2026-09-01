@@ -29,6 +29,8 @@ Notes give you the map. **These give you the reps, and they're where the hours s
 - 🟡 ⭐ **Own a domain in GOAD** — stand up [Game of Active Directory](https://github.com/Orange-Cyberdefense/GOAD) (a free, deliberately-vulnerable AD lab), get one foothold, run BloodHound, and walk a path to Domain Admin. **Done when:** you've DCSync'd KRBTGT and forged a Golden Ticket → [[cybersecurity/12-active-directory/README|active directory]].
 - 🟢 ⭐ **Climb ROP Emporium** — ret2win → ret2libc → ROP, one concept per challenge, with pwntools. **Done when:** you've written a working ROP chain against a No-PIE binary → [[cybersecurity/11-binary-exploitation/README|binary exploitation]].
 - 🟡 **pwn.college and how2heap** — the structured path through memory, shellcode, ROP and the heap. **Done when:** you've popped a shell via tcache poisoning.
+- 🟢 ⭐ **Reverse a crackme** — take a binary from crackmes.one or a CTF `rev` challenge into Ghidra, find the check, and recover the password *without running it*. **Done when:** you've read the logic from the decompiler and beaten it → [[cybersecurity/13-malware-and-reverse-engineering/02-static-analysis|static analysis]]. **Zero infection risk — start here.**
+- 🟡 ⭐ **Analyse a real sample in an isolated lab** — build FLARE VM + REMnux with host-only networking and FakeNet, then triage a MalwareBazaar sample: hash-check, strings, imports, sandbox run, and **write a YARA rule** for it. **Done when:** you have IOCs and a rule that would catch it → [[cybersecurity/13-malware-and-reverse-engineering/06-the-malware-analysis-workflow|the workflow]]. **Only once your lab isolation is solid.**
 
 
 ## If you only do one

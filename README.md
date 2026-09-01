@@ -194,10 +194,14 @@ knowledgebase/
 │   ├── 11-binary-exploitation/  # NEW Aug 2026: the `pwn` category — process memory,
 │   │                            # stack overflows, shellcode, the mitigations
 │   │                            # (checksec as a recipe), ret2libc/ROP, heap. 7 notes.
-│   └── 12-active-directory/     # NEW Aug 2026: what internal pentesting ACTUALLY is,
-│                                # the CTF-learner's blind spot. Kerberos → BloodHound →
-│                                # Kerberoasting/pass-the-hash → DCSync/Golden Tickets →
-│                                # tiering/LAPS/honeytokens. 6 notes.
+│   ├── 12-active-directory/     # NEW Aug 2026: what internal pentesting ACTUALLY is,
+│   │                            # the CTF-learner's blind spot. Kerberos → BloodHound →
+│   │                            # Kerberoasting/pass-the-hash → DCSync/Golden Tickets →
+│   │                            # tiering/LAPS/honeytokens. 6 notes.
+│   └── 13-malware-and-reverse-engineering/  # NEW Sep 2026: the DEFENSIVE twin of 11.
+│                                # static (strings/imports/Ghidra) ↔ dynamic (safe lab,
+│                                # unpack in memory) → how malware works → evasion (why
+│                                # signatures lose) → workflow (IOCs, YARA). 6 notes.
 │       # (10-protecting-yourself: the odd one out — 8 notes for a
 │                                 # NON-technical reader, in the using-ai/ shape.
 │                                 # The six things that matter, ranked; reuse (not
