@@ -416,6 +416,17 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 **Phase 14 total: 4 new notes + 1 rewritten README (net +4 files, ~4,800 net new words), 2 inbound links repointed.**
 
+### Phase 15 — thicken GRC and fundamentals (2026-09-01)
+
+**From the queue — the last items.** Both folders were coherent and well-written but brief; the right fix was **adding the missing foundational concepts, not padding the good notes.**
+
+- [x] **`01-fundamentals/` 3 notes → 5 + README.** The three existing notes (what cybersecurity is, CIA triad, attacker types) are good and untouched. Added the two concepts they *reference as important but never teach*: **`04-security-principles`** (the durable Saltzer-Schroeder principles — defence in depth, least privilege, fail-safe, zero trust, minimise-surface, no-obscurity — framed as a *reasoning tool* you derive rules from) and **`05-threat-modeling`** (Shostack's four questions, STRIDE, trust boundaries — the bridge from the attacker taxonomy to a plan). Plus a README the folder lacked
+- [x] **`08-GRC/` 2 notes → 4.** The folder was heavy on **R** (risk) and **C** (compliance), light on **G** (governance). Added **`03-governance-and-the-human-layer`** (running security as a *program* — policy→standard→procedure hierarchy, the CISO/roles, and the human layer: awareness and a *blameless reporting culture*) and **`04-third-party-and-supply-chain-risk`** (the dominant modern breach vector — SolarWinds, Log4Shell, Target; SBOMs, vendor vetting — entirely absent before, and increasingly *the* risk)
+- [x] **Cross-linked** into the newer sections (security-principles ↔ cloud IAM/AD tiering/API BOLA; supply-chain ↔ cloud container supply chain and shift-left scanning; human-layer ↔ social engineering and protecting-yourself), so the fundamentals and GRC now tie the whole cybersecurity track together rather than sitting apart
+- [x] **Integration** — both folder READMEs, the main cybersecurity README's Fundamentals list, and the root README tree. No Quartz symlink (cybersecurity is a directory symlink)
+
+**Phase 15 total: 5 new files (4 notes + 1 README), ~6,500 words, plus 3 READMEs updated.**
+
 ## Queue after Phase 8
 
 **Closed:** `mobile/` ✅ · `cybersecurity/10-protecting-yourself/` ✅
@@ -430,7 +441,8 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 - [x] **Malware analysis & reverse engineering** — ✅ `cybersecurity/13-malware-and-reverse-engineering/`, **7 files (6 notes + README), ~9,700 words.** RE and the legal line → static (the cheap tells) → dynamic (safe lab, unpack in memory) → how malware works → evasion → the workflow (IOCs, YARA). The defensive twin of 11, completing the offensive-technical trio (11/12/13)
 - [x] **API security** — ✅ `cybersecurity/14-api-security/`, **7 files (6 notes + README), ~9,500 words.** Built around the OWASP API Security Top 10: what makes APIs different (authZ dominates) → authentication (JWT pitfalls) → BOLA/BFLA/mass-assignment → injection & SSRF → rate limiting & business-flow abuse → the lifecycle (shadow APIs, gateways, testing). Cross-linked to web-security, backend/api-design and backend/auth
 - [x] **Thicken `09-cloud-security`** — ✅ **expanded from 1 note (758 words) to 5 notes (~5,600 words).** Shared responsibility → identity-is-the-perimeter (IAM + escalation paths) → the attack surface (public storage, exposed secrets, metadata/SSRF = Capital One) → container/k8s security → cloud-native defence (CSPM/CIEM/CNAPP, shift-left, CloudTrail→SIEM). Old single note's content preserved and redistributed; 2 external inbound links repointed
-- [ ] Thicken `08-GRC` and `01-fundamentals` (lower priority — both are coherent, just brief), and practice exercises for domains still lacking them
+- [x] **Thicken `08-GRC` and `01-fundamentals`** — ✅ both expanded by *adding the missing foundational concepts* rather than padding the (good) existing notes. **Fundamentals 3→5 + README:** added `04-security-principles` (defence in depth, least privilege, fail-safe, zero trust — a reasoning tool) and `05-threat-modeling` (the four questions, STRIDE, trust boundaries) — both were repeatedly *mentioned as important but never taught*. **GRC 2→4:** added `03-governance-and-the-human-layer` (the underweighted 'G' — policy hierarchy, the security program, and security awareness/blameless culture) and `04-third-party-and-supply-chain-risk` (SolarWinds/Log4Shell/Target, SBOMs — the dominant modern vector, absent before)
+- [ ] Practice exercises for domains still lacking them (lower priority — `projects.md` files now cover the reps gap)
 - [ ] Practice exercises for the 10 domains without them (lower priority — `projects.md` now covers the reps gap)
 
 - [x] **A table of contents for the scheme of work** — ✅ his observation, and the justification turned out to be structural rather than cosmetic: the file summarised **153 topics with a 12-row block table** and nothing in between, so "where is X taught / when do I hit it" meant scrolling 624 lines. **And the file's own header says "week number = notebook section number" and "index on pages 1–4"** — so the notebook needs an index the source document never produced. **Generated by \** between HTML markers, so it is regenerated rather than hand-maintained and cannot drift from the weeks below it., plus 39 files repointed and 3 indexes rewritten.

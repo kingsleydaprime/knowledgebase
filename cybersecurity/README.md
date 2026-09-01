@@ -6,6 +6,8 @@ A map of this folder. Sections **01–05** are the original course — fundament
 1. [[01-what-is-cybersecurity|what-is-cybersecurity]] — defensive vs offensive security, the major domains, why "fully secure" isn't a real state
 2. [[02-cia-triad|cia-triad]] — confidentiality, integrity, availability — the vocabulary nearly every security discussion reduces to
 3. [[03-attacker-and-hacker-types|attacker-and-hacker-types]] — white/grey/black hat, script kiddies through APTs, and why insider threats matter
+4. [[01-fundamentals/04-security-principles|security-principles]] — the durable design principles (defence in depth, least privilege, fail securely, zero trust) — a reasoning tool, not a checklist
+5. [[01-fundamentals/05-threat-modeling|threat-modeling]] — the four-question planning tool, STRIDE, and trust boundaries — turning "be secure" into a concrete prioritised list
 
 ## Ethical Hacking (offensive, in depth) **[Beginner → Advanced]**
 
