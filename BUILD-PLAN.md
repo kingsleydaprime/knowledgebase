@@ -427,6 +427,8 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 **Phase 15 total: 5 new files (4 notes + 1 README), ~6,500 words, plus 3 READMEs updated.**
 
+**Also (Sep 2026): refreshed the root README's narrative intro** — it had drifted while the structure tree below it was kept current. Updated the built-out domains list, the build-your-own-shit count (13→16, +blockchain/VM/token guides), the cybersecurity one-liner (now 14 sections), and added start-here entries for mobile, data-engineering, web3 and DSP; noted that every domain now ships a `projects.md`.
+
 ## Queue after Phase 8
 
 **Closed:** `mobile/` ✅ · `cybersecurity/10-protecting-yourself/` ✅
