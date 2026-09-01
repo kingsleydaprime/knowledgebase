@@ -188,7 +188,8 @@ knowledgebase/
 │   ├── 05-cryptography/          # 07-security-operations (SIEM/IR/hunting/forensics,
 │   ├── 06-attacks-and-threats/   # the blue-team half) → 08-governance-risk-and-
 │   ├── 07-security-operations/   # compliance → 09-cloud-security.
-│   ├── 08-governance-risk-and-compliance/
+│   ├── 08-governance-risk-and-compliance/  # THICKENED Sep 2026 (2→4): +governance/
+│   │                            # human-layer & +third-party/supply-chain risk
 │   ├── 09-cloud-security/       # EXPANDED Sep 2026 (1 note → 5): shared responsibility
 │   │                            # → identity-is-the-perimeter (IAM, escalation) → the
 │   │                            # attack surface (public buckets, metadata/SSRF=Capital
