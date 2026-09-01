@@ -37,6 +37,7 @@ Start here, depending on what you want:
 - [[hardware/README|Hardware & Embedded]] — the layer below all the software: electricity → digital/analog → embedded → microcontrollers → I2C/SPI/UART → RF → IoT architecture, plus KiCad and a real fabricated PCB
 - [[databases/README|Databases]] — a course on the **internals** (pages → B-trees → LSM → query planning → MVCC → WAL → replication → operations) plus four deep syntax/design references. Read the course to understand `EXPLAIN`; use the references to look things up
 - [[data-engineering/README|Data Engineering]] — **the plumbing between databases and ML (Sep 2026)**: the operational/analytical split and **ELT** → warehouses/lakes/lakehouses (columnar, Iceberg) → batch vs streaming → ingestion & CDC → Kafka → Spark (and when *not* to) → dbt → orchestration & **idempotency** → dimensional modelling → data quality
+- [[data-analysis/README|Data Analysis]] — **the analyst discipline (Sep 2026)**, the middle of the data stack and the most common data job: **the deliverable is a decision, not a number**. SQL for analysis (window functions) → metrics & Goodhart → diagnostic analysis (*why did it change?*) → funnels/cohorts/retention/LTV → time series → dashboards & the semantic layer → communicating
 - [[web3/README|Web3 & Blockchain]] — **a full track (Aug 2026)**: the double-spend problem → the EVM → Solidity → **smart-contract security** (where the money actually went) → rollups/zk/Solana/Bitcoin/bridges → building dapps → DeFi/NFTs/DAOs → **an honest assessment of where blockchains don't apply**, plus `frameworks/` for five languages
 - [[foundations/discrete-math/README|Discrete Maths]] → [[foundations/theory-of-computation/README|Theory of Computation]] → [[foundations/computer-architecture/README|Computer Architecture]] — the CS-theory spine, added Aug 2026 after auditing a standard syllabus against this vault. Logic and proof → what's computable and what's NP-hard → why one $O(n)$ loop is thirty times slower than another
 - [[foundations/numerical-methods/README|Numerical Methods]] — **the gap three domains asked for by name.** Floating point and conditioning → linear systems → quadrature → ODEs → PDEs → optimisation. What FEM, control discretisation and ML optimisation all sit on
@@ -372,6 +373,16 @@ knowledgebase/
 │                                 # Spark AND when not to → dbt → orchestration &
 │                                 # IDEMPOTENCY → dimensional modelling → data quality.
 │                                 # The one idea: ELT — load raw, transform in place.
+│
+├── data-analysis/                # FULL TRACK (Sep 2026): 8-note course + interview
+│                                 # + projects. The analyst discipline — decisions from
+│                                 # data, the most common data job, the middle of the
+│                                 # stack between data-engineering & data-science. The
+│                                 # analyst role → SQL for analysis (window functions) →
+│                                 # metrics & KPIs (Goodhart) → diagnostic analysis (why
+│                                 # did it change?) → product analytics (funnels, cohorts,
+│                                 # LTV) → time series → dashboards & the semantic layer →
+│                                 # communicating. One idea: the deliverable is a DECISION.
 │
 ├── learning/                     # HOW I LEARN, not what — the loop, the course system,
 │                                 # the one-active-course rule, catalogue + course template.

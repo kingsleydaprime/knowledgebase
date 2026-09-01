@@ -1,6 +1,6 @@
 # 🎯 Interview Prep — Index
 
-**Eighteen domains have an `interview/` folder** — the ones below. The theory and engineering tracks added since (`engineering/`, `robotics/`, and the CS-theory spine from `discrete-math` through `programming-language-theory`) deliberately don't: those are `[reference]` material with no reps behind them, and **an interview bank for a subject you haven't practised would be memorisation, not preparation.** The place to start with those is [[project-ideas|project-ideas]], not a question list. Same format throughout, generalised from [[projects/arete/interview/01-backend-and-data|the arete interview notes]]: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
+**Nineteen domains have an `interview/` folder** — the ones below. The theory and engineering tracks added since (`engineering/`, `robotics/`, and the CS-theory spine from `discrete-math` through `programming-language-theory`) deliberately don't: those are `[reference]` material with no reps behind them, and **an interview bank for a subject you haven't practised would be memorisation, not preparation.** The place to start with those is [[project-ideas|project-ideas]], not a question list. Same format throughout, generalised from [[projects/arete/interview/01-backend-and-data|the arete interview notes]]: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
 
 ## The banks
 
@@ -24,6 +24,7 @@
 | [[web3/interview/README\|Web3]] | the double-spend problem, storage vs memory, **the three reentrancy variants**, flash loans, where the money actually went | 1 |
 | [[mobile/interview/README\|Mobile]] | **process death vs rotation**, offline-first, the radio tail, permissions, no-rollback release | 1 |
 | [[data-engineering/interview/README\|Data Engineering]] | operational vs analytical, ELT, **CDC**, **idempotency**, batch vs streaming, dimensional modelling | 1 |
+| [[data-analysis/interview/README\|Data Analysis]] | the SQL screen (**window functions**, fan-out), the diagnostic case, metrics, communicating a decision | 1 |
 
 Plus the project-specific bank: [[projects/arete/interview/01-backend-and-data|arete/interview/]] — the original, and still the best template because every answer is anchored in code you actually wrote.
 
