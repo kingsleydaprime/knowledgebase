@@ -22,6 +22,8 @@ The vault's gap audit named it: `hardware/` has RF and embedded, `information-th
 8. [[foundations/digital-signal-processing/08-modulation-and-sdr|modulation-and-sdr]] — **[Advanced]** — how data rides radio waves, **I/Q signals**, and software-defined radio — the bridge to [[hardware/06-radio-frequency|RF]]
 9. [[foundations/digital-signal-processing/09-dsp-in-practice|dsp-in-practice]] — **[Intermediate]** — the tooling, **fixed-point (the textbook-vs-shipped gap)**, and how much of what you use daily is quietly DSP
 
+**Practice:** [[foundations/digital-signal-processing/10-practice-exercises|practice-exercises]] — **[Intermediate]** — twelve short scripts (a tone becoming a spike, making aliasing audible, proving the convolution theorem, poles crossing the unit circle), plus two RTL-SDR radio drills. Solutions in [[foundations/digital-signal-processing/11-practice-exercises-solutions|note 11]]
+
 ## If you only take three things
 
 1. **Any signal is a sum of sinusoids** — the frequency domain is the same signal seen differently, and filtering is just selecting frequencies ([[foundations/digital-signal-processing/03-the-frequency-domain|03]]).
@@ -30,7 +32,7 @@ The vault's gap audit named it: `hardware/` has RF and embedded, `information-th
 
 ## The status note
 
-Like the rest of the [[foundations/README|foundations]] theory spine, this is **`[reference]`** — read and assembled, not validated by building. The fastest way to make it real is cheap and genuinely fun: **NumPy/SciPy on your laptop, then a ~$30 RTL-SDR dongle** turns the whole folder into a working radio receiver → [[foundations/digital-signal-processing/projects|projects]].
+Like the rest of the [[foundations/README|foundations]] theory spine, this is **`[reference]`** — read and assembled, not validated by building. The fastest way to make it real is cheap and genuinely fun: **NumPy/SciPy on your laptop, then a ~$30 RTL-SDR dongle** turns the whole folder into a working radio receiver → [[foundations/digital-signal-processing/10-practice-exercises|the exercises]] and [[foundations/digital-signal-processing/projects|projects]].
 
 ## Related
 - [[foundations/information-theory/README|information theory]] — the limits on what a channel can carry
