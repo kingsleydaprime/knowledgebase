@@ -29,6 +29,8 @@ It **borrows** the statistical rigour ([[ai-ml/01-data-scientist/03-inferential-
 7. [[data-analysis/07-dashboards-and-bi|dashboards-and-bi]] — **[Intermediate]** — BI tools, **the semantic layer** (one definition of every metric), self-serve, and why most dashboards fail
 8. [[data-analysis/08-communicating-analysis|communicating-analysis]] — **[Intermediate]** — **the half of the job that isn't technical**: lead with the answer, the "so what" test, honest storytelling, insight → action
 
+**Practice:** [[data-analysis/09-practice-exercises|practice-exercises]] — **[Intermediate]** — twelve drills weighted toward the SQL screen (top-N per group, running totals, **reproducing a join fan-out**) plus a full diagnostic and the answer-first one-pager. Solutions in [[data-analysis/10-practice-exercises-solutions|note 10]]
+
 ## If you only take three things
 
 1. **The deliverable is a decision** — start from "what would we do differently?", not from the data ([[data-analysis/01-what-data-analysis-is|01]]).

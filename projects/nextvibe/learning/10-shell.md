@@ -551,3 +551,125 @@ surfaced the real caveat worth documenting, which is that Node's answer is *not*
 React Native's: RN ships a partial `URL` polyfill with no `searchParams`, so the
 same line that works here returns `undefined` on a device. Testing the assumption
 is what turned a vague worry into a specific warning worth writing down.
+
+---
+
+## Part N+4 — Swapping a dependency, and the pipe that ate the exit code (2026-09-02)
+
+Replacing `expo-server-sdk` with `firebase-admin` on the backend. Three things
+worth keeping from it.
+
+### `pnpm remove` / `pnpm add`
+
+```bash
+pnpm remove expo-server-sdk        # drops it from package.json, node_modules AND the lockfile
+pnpm add firebase-admin            # the reverse
+```
+
+`remove` is the one people skip — deleting the import and leaving the package
+installed means the lockfile keeps pinning a dependency nothing uses, and it
+still gets downloaded on every CI install.
+
+### The trap: `cmd | tail` throws away `cmd`'s exit code
+
+This actually bit me. The install was run as:
+
+```bash
+pnpm remove expo-server-sdk && pnpm add firebase-admin 2>&1 | tail -20
+```
+
+`pnpm add` **failed** — npm registry timeouts — and the command still reported
+**exit code 0**. Nothing looked wrong until `grep firebase package.json` came
+back empty.
+
+The reason: **a pipeline's exit status is the exit status of its **last**
+command.** `tail` succeeded at tailing the error output, so the pipeline
+succeeded. `pnpm`'s failure was invisible to anything checking `$?`.
+
+Three fixes, depending on what you need:
+
+```bash
+set -o pipefail                 # pipeline fails if ANY stage fails — the usual answer
+cmd | tail -20; echo "${PIPESTATUS[0]}"   # bash: exit code of the first stage
+cmd | tail -20; echo "${pipestatus[1]}"   # zsh: same idea, 1-indexed array
+```
+
+In a script, `set -euo pipefail` at the top is the standard opening line and this
+is exactly the bug it exists to prevent. Interactively, the lesson is simpler:
+**after piping a command's output through anything, verify the effect, not the
+exit code.** `grep firebase package.json` was the real check.
+
+### Reading the installed types instead of trusting your memory of an API
+
+`firebase-admin` was at v14, newer than anything I could recall reliably. Rather
+than write the send call from memory:
+
+```bash
+grep -n "sendEachForMulticast" node_modules/firebase-admin/lib/messaging/messaging.d.ts
+grep -n "interface BatchResponse" -A 20 node_modules/firebase-admin/lib/messaging/messaging-api.d.ts
+grep -rn "registration-token-not-registered" node_modules/firebase-admin/lib/messaging/*.js
+```
+
+This caught two things a from-memory version would have got wrong: the
+token-based `MulticastMessage` is **deprecated** in v14 in favour of FIDs, and
+the exact error-code strings (which are prefixed `messaging/` only at throw time
+— visible in `error.js`, not in the constant list).
+
+**`node_modules` is primary source.** It's the exact version you're compiling
+against, which is more than the library's own docs site can say — those describe
+whatever version is current. `.d.ts` files for the API surface, the `.js` for
+the constants and behaviour the types don't capture.
+
+### `pnpm approve-builds`
+
+```
+[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: @firebase/util, protobufjs
+```
+
+Not an error. pnpm refuses to run packages' `postinstall` scripts by default —
+arbitrary code execution on install is a real supply-chain vector. `pnpm
+approve-builds` lets you allow specific ones. Only needed if a package genuinely
+requires its postinstall (native compilation, downloading a binary); these two
+don't for the messaging path, so it was left alone.
+
+---
+
+## Part N+5 — Inspecting config without printing secrets (2026-09-02)
+
+Question: are the `FIREBASE_*` values in `.env` real yet, or still the
+placeholders from `.env.example`? The lazy answer is `cat .env`, which dumps a
+private key into the terminal (and into scrollback, and into any transcript).
+Better to ask a narrower question:
+
+```bash
+val=$(grep -E "^FIREBASE_PROJECT_ID=" .env | cut -d= -f2- | tr -d '"')
+
+if [ -z "$val" ]; then echo "EMPTY"
+elif echo "$val" | grep -qi "your-\|xxx"; then echo "still a placeholder"
+else echo "set (${#val} chars)"; fi
+```
+
+Three things worth keeping:
+
+- **`cut -d= -f2-`** — split on `=`, take field 2 **to the end**. The `-` is the
+  point: `-f2` alone would truncate at the first `=` inside the value, which
+  base64 and PEM data are full of.
+- **`${#var}`** — the *length* of a variable. Reports "is it plausibly a real
+  key" without revealing the key. Same family as `${var:-default}` and
+  `${var#prefix}`.
+- **`grep -q`** — quiet: no output, just an exit status for the `if`. The right
+  tool whenever you're testing rather than displaying.
+
+**The habit: when you only need a yes/no about a secret, compute the yes/no.**
+Printing the value to read it yourself puts it somewhere you didn't intend.
+
+### `command -v` over `which`
+
+```bash
+command -v firebase >/dev/null && firebase --version || echo "not installed"
+```
+
+`command -v` is a shell builtin and POSIX; `which` is an external binary that
+isn't guaranteed present and whose exit status is inconsistent across systems.
+`command -v` is the portable check for "is this on PATH". Redirect to
+`/dev/null` when you want only the exit status.

@@ -62,6 +62,32 @@ inline style  >  #id  >  .class / [attr] / :pseudo  >  element  >  *
 
 **`@layer` fixes the specificity ratchet** by letting you declare precedence explicitly instead of escalating selectors.
 
+### A grid track's default minimum is its content, not zero
+
+The single most common cause of "my grid overflows its container and the page scrolls sideways". `1fr` is shorthand for `minmax(auto, 1fr)`, and that `auto` minimum means the track **refuses to shrink below its content's min-content size** — one long unbroken word, a `<pre>` block, a wide table, and the track pushes the whole layout past the viewport.
+
+```css
+grid-template-columns: 1fr 1fr;              /* overflows on long content   */
+grid-template-columns: minmax(0, 1fr) 1fr;   /* the fix — may shrink to 0   */
+```
+
+The same applies from the other direction to a fixed track: `20rem` cannot shrink either, so content wider than it spills out rather than wrapping. `minmax(0, 20rem)` means "up to 20rem, but shrinkable". Flexbox has the identical trap under a different name — `min-width: auto` on flex items, fixed with `min-width: 0`.
+
+Choosing between a cap and a ratio for an asymmetric two-column layout: `minmax(0, 20rem) 1fr` caps the narrow column and gives all surplus width to the other; `1fr 2fr` keeps growing both forever on a wide monitor. **Cap the column whose content has a natural maximum size.**
+
+### `mix-blend-mode` deletes a background that has no alpha
+
+A logo supplied as a JPEG on a solid black square, dropped onto a page that is dark but not *black*, shows a visible tile. If the supplied background is **exactly** `#000` or `#fff`, blending removes it with no image editing:
+
+```css
+.logo-on-dark  { mix-blend-mode: screen; }   /* pure black  -> backdrop */
+.logo-on-light { mix-blend-mode: multiply; } /* pure white  -> backdrop */
+```
+
+Screen is `1 - (1-source)(1-backdrop)`, so a source of `0` returns the backdrop exactly; multiply is `source x backdrop`, so a source of `1` does the same. Not an approximation — and it keeps working when the palette changes. Verify the corner pixels really are `0`/`255` first; at `(4,2,6)` you get a faint rectangle instead.
+
+**The gotcha:** a blend only sees its backdrop within the nearest **isolated group**, and *any* element that creates a stacking context forms one — `isolation: isolate`, `opacity < 1`, `filter`, `backdrop-filter`, `transform`, `will-change`. So a "harmless" wrapper can silently break a blend (transparent backdrop → black stays black), and a `backdrop-filter` on a sticky header can usefully *contain* one. If a blend stops working, look up the tree for a new stacking context, not at the blend.
+
 ## Design tokens
 
 **Name the decisions, not the values:**

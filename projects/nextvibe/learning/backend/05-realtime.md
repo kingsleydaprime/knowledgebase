@@ -586,41 +586,77 @@ for (const entry of entries) {
 
 ---
 
-## Part N — Push notifications for the mobile app (2026-08-22)
+## Part N — Push notifications for the mobile app (2026-08-22, moved to FCM 2026-09-02)
 
 The gateway in this file solves half the problem. A WebSocket reaches a user
 whose app is **open and in the foreground** — which is exactly when they least
 need to be told something happened. Push notifications are the other half: they
 reach a phone that's locked, backgrounded, or has the app killed.
 
-### Why Expo and not Firebase directly
+### The delivery chain, and where you plug into it
 
-The `.env` had `FIREBASE_PROJECT_ID` / `FIREBASE_PRIVATE_KEY` / `FIREBASE_CLIENT_EMAIL`
-stubbed for a direct-FCM path that was never built. We went with Expo instead.
-
-The delivery chain is always the same underneath:
+This is the mental model to hold, because both designs below are the same
+picture with a different entry point:
 
 ```
 your server → [FCM (Android) / APNs (iOS)] → the device
 ```
 
-You never talk to a phone directly; you hand a message to Google's or Apple's
-service. The question is only whether you talk to those two yourself, or let
-Expo do it:
+You never talk to a phone directly. You hand a message to Google's or Apple's
+service, which owns the persistent connection to the device. The only question
+is whether you talk to those two yourself, or let a broker do it:
 
 ```
 direct:  server → firebase-admin → FCM ─┐
                                         ├→ device
          server → APNs (key, .p8, JWT) ─┘
 
-Expo:    server → expo-server-sdk → Expo → FCM/APNs → device
+via Expo: server → expo-server-sdk → Expo → FCM/APNs → device
 ```
 
-Direct FCM means an APNs signing key, a service account JSON, two payload
-shapes, and two sets of error semantics. Since the app is Expo it already gets
-its token from `getExpoPushTokenAsync()`, so Expo brokers both platforms behind
-one token format and one API. The cost is a dependency on Expo's service being
-up, and that's the trade recorded in `DECISIONS.md`.
+### We built it on Expo first, then switched to direct FCM
+
+Worth keeping both halves of this, because the reasoning didn't turn out to be
+wrong — the priorities changed.
+
+**The original call (2026-08-22):** the app is Expo, so it already gets a token
+from `getExpoPushTokenAsync()`. Expo brokers both platforms behind one token
+format and one API, so we skipped the APNs signing key, the service account, and
+two sets of error semantics. The `FIREBASE_*` env vars sat stubbed and unused.
+
+**The switch (2026-09-02):** dropped the broker to stop depending on Expo's
+service being up. The cost is real and it lands almost entirely on the *client*:
+
+- Expo Go can't receive push any more — FCM needs native config, so the app needs
+  a development build with `google-services.json` / `GoogleService-Info.plist`.
+- iOS needs an APNs auth key uploaded to Firebase. Without it FCM accepts your
+  sends and delivers **nothing, with no error** — precisely the failure mode the
+  first decision was avoiding.
+- The client must send `messaging().getToken()`. On iOS,
+  `getDevicePushTokenAsync()` returns the raw **APNs** token, which FCM won't
+  accept as a registration token — it registers fine and fails on every send.
+
+The general lesson: **a broker is not a lazy choice.** Removing one buys you
+independence and costs you the integration work it was doing on your behalf. Be
+able to name what that work is before you decide it's worth taking on.
+
+### Credentials: the escaped-newline trap
+
+A service-account private key is multi-line PEM, and a `.env` file can't hold
+real newlines. So the value is stored with literal `\n` and unescaped at load:
+
+```typescript
+privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+```
+
+Skip this and the SDK fails at the *first send* with "Invalid PEM formatted
+message" — not at boot, which is where you'd look for a config error.
+
+Related, and a deliberate choice: if any of the three `FIREBASE_*` vars are
+missing, `PushService` logs a warning and sets `messaging` to `null` rather than
+throwing. Push then no-ops. A local environment shouldn't need a Firebase
+service account to run the API, and an unconfigured optional subsystem shouldn't
+take down the routes that merely *trigger* it.
 
 ### Storing tokens: key on the token, not on the user
 
@@ -654,38 +690,128 @@ thing is the key — not the identifier of whoever currently holds it.**
 
 ### Dead tokens must be deleted, or they accumulate forever
 
-Expo replies with a **ticket** per message. A ticket with
-`details.error === 'DeviceNotRegistered'` means the app was uninstalled or the
-token revoked. That token will never work again:
+`sendEachForMulticast` returns a `BatchResponse` whose `responses` array is
+**positionally aligned** with the tokens you sent. That alignment is the only
+thing tying a result back to a token — nothing in the response identifies it:
 
 ```typescript
-tickets.forEach((ticket, i) => {
-  if (ticket.status !== 'error') return;
-  if (ticket.details?.error === 'DeviceNotRegistered') dead.push(chunk[i].to as string);
+responses.forEach((response, index) => {
+  if (response.success) return;
+  const code = response.error?.code;
+  if (code && DEAD_TOKEN_CODES.has(code)) dead.push(chunk[index]);
 });
 ```
 
-Note `tickets` is positionally aligned with the chunk you sent — that's the only
-way to know which token a ticket refers to. Nothing else in the response
-identifies it.
-
 Without this cleanup the table only grows, and every future notification pays to
-retry addresses that are guaranteed to fail.
+retry addresses guaranteed to fail.
 
-**Not yet done, and worth knowing:** a ticket only says Expo *accepted* the
-message. Actual delivery is reported in a **receipt**, fetched by ticket id
-about 15 minutes later. Tokens that die at the receipt stage rather than the
-ticket stage still linger. That's the natural next piece of work — a cron over
-stored ticket ids.
+**The trap: not every error means a dead token.** The obvious set to delete on is
+"anything that looks like a bad token", and that's how you empty your own
+database. `messaging/invalid-argument` is returned both for a bad token *and*
+for a malformed message payload. Include it, ship one bad payload shape, and
+every token in the batch fails with it — so you delete every device row you have,
+and push stays silently broken for every user until each phone happens to
+re-register. So the delete set is only the two codes that are unambiguously
+token-scoped:
+
+```typescript
+const DEAD_TOKEN_CODES = new Set([
+  'messaging/registration-token-not-registered',  // uninstalled / revoked
+  'messaging/invalid-registration-token',         // malformed
+]);
+```
+
+**Generalise it:** before writing a rule that deletes data in response to an
+error code, ask what *else* returns that code. An error that can be caused by
+your own bug must never trigger destructive cleanup.
+
+**Also gone in the move:** Expo's two-stage ticket/receipt model. Expo accepted a
+message (ticket) and reported real delivery ~15 min later (receipt), and we never
+polled receipts — so some dead tokens lingered. FCM has no equivalent second
+stage, so that gap closed by accident rather than by design.
+
+### Validation got weaker, and that's not fixable
+
+Expo tokens were checkable: `Expo.isExpoPushToken()` matched the
+`ExponentPushToken[...]` wrapper. FCM tokens are **opaque** — no documented
+format, and the length varies by platform and SDK version. So the strongest
+honest check is:
+
+```typescript
+typeof token === 'string' && token.length >= 32 && !/\s/.test(token)
+```
+
+Anything stricter starts rejecting legitimate tokens the next time Google
+changes the format. The consequence: an iOS APNs token sent by mistake passes
+registration and only fails at send time. **When you can't validate at the
+boundary, you have to detect at use — which is exactly what the dead-token
+cleanup above is for.**
+
+There's one exception worth seeing, because it's where the two rules collide.
+The table still held old `ExponentPushToken[...]` values, and those are ~41
+characters with no whitespace — so the loose check waves them through, and FCM
+may reject them as `invalid-argument`, which the rule above deliberately does
+*not* delete on. Result: dead rows retried on every notification, forever. So
+that one known-dead format is matched explicitly:
+
+```typescript
+const EXPO_TOKEN_PATTERN = /^Expo(nent)?PushToken\[/i;
+```
+
+**The lesson: "detect at use" only works if the failure is actually
+distinguishable.** When you already know a specific value is dead, encode that
+knowledge directly instead of hoping the error path infers it. This is also the
+whole data migration — no SQL, no backfill script, just a filter that empties
+the stale rows on first send.
+
+### Data payloads are string→string only
+
+FCM will not carry a number, a boolean, or a nested object in `data`. Everything
+gets encoded on the way out:
+
+```typescript
+out[key] = typeof value === 'string' ? value : JSON.stringify(value);
+```
+
+Today every field is already a string, so this does nothing visible — it's there
+so that adding a numeric field later fails on the client's `JSON.parse` rather
+than silently shipping `"[object Object]"`.
 
 ### Chunking is mandatory, not an optimisation
 
+FCM rejects a multicast of more than 500 tokens. Unlike `expo-server-sdk`, which
+had `chunkPushNotifications()`, `firebase-admin` gives you no helper — you slice
+yourself:
+
 ```typescript
-for (const chunk of this.expo.chunkPushNotifications(messages)) { ... }
+for (let i = 0; i < valid.length; i += FCM_MULTICAST_LIMIT) {
+  const chunk = valid.slice(i, i + FCM_MULTICAST_LIMIT);
+}
 ```
 
-Expo caps a request at 100 messages. The SDK splits for you; skipping this works
-fine in dev with two test devices and fails the day a real event fans out.
+Skipping this works fine in dev with two test devices and fails the day a real
+event fans out.
+
+**Use `sendEachForMulticast`, not the older `sendMulticast`.** The former sends
+one request per token, so a single bad token fails only itself; the latter failed
+the entire batch. The per-token isolation is what makes the dead-token cleanup
+above safe to run.
+
+### A deprecation to know about
+
+`firebase-admin` 14 deprecates token-based sending in favour of **FIDs**
+(Firebase Installation IDs) and will remove `tokens` in the next major:
+
+```typescript
+export interface MulticastMessage { fids?: string[]; tokens: string[]; }  // deprecated
+export interface FidMulticastMessage { fids: string[]; }                  // the future
+```
+
+We stayed on `tokens` deliberately — a FID is a *different identifier* that the
+client would have to fetch and register instead, so migrating is client-led work,
+not a server-side find-and-replace. **Worth noticing how this was found:** by
+reading the installed `.d.ts` files, not by recalling the API. For a library
+that's had a major version recently, the types on disk are the primary source.
 
 ### Fire-and-forget, deliberately
 
@@ -698,8 +824,8 @@ void this.push.sendToUser(recipientId, payload).catch((e) => this.logger.error(.
 ```
 
 `void` plus `.catch` says "start this, don't wait, don't let it throw". An HTTP
-round-trip to Expo must not sit inside the request that triggered the
-notification — someone liking a post shouldn't wait on Expo to get their 200.
+round-trip to FCM must not sit inside the request that triggered the
+notification — someone liking a post shouldn't wait on Google to get their 200.
 And a push failure must not roll back an in-app notification that was written
 successfully.
 

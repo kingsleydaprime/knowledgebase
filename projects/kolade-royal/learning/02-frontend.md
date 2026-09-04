@@ -389,6 +389,362 @@ here; the alternative is animating `visibility` explicitly with a delay.
 
 ---
 
+## 9. An asymmetric two-column layout, and why `minmax(0, …)` is there
+
+The Chairman's section is a narrow identity column (name, titles, location) beside a
+wide body column (biography, figures, board history):
+
+```tsx
+<div className="mt-12 grid gap-12 md:grid-cols-[minmax(0,20rem)_1fr]">
+```
+
+Reading the arbitrary value out loud: on `md` and up, two columns — the first at most
+`20rem` and allowed to shrink to nothing, the second taking whatever is left. Below
+`md` there is no `grid-cols-*` at all, so the grid falls back to a single column and
+the two blocks stack. Mobile is the *absence* of a rule, not an extra rule.
+
+Note the underscore in `[minmax(0,20rem)_1fr]`. Tailwind's arbitrary-value syntax
+can't contain a literal space (a space would end the class name), so `_` is the escape
+for one. It becomes `grid-template-columns: minmax(0,20rem) 1fr`.
+
+### Why not `[20rem_1fr]`?
+
+Because a fixed `20rem` can't shrink. If the narrow column ever contains something
+that won't fit — a long unbroken string, an image with its own intrinsic width — the
+track stays `20rem` wide while its contents spill out of it, and the grid pushes past
+the container instead of the content wrapping. `minmax(0, 20rem)` says "up to 20rem,
+but you may go smaller", which restores the ability to shrink.
+
+This is the same trap as the well-known `1fr` overflow problem, from the other
+direction. `1fr` is shorthand for `minmax(auto, 1fr)`, and that `auto` minimum means a
+grid track will refuse to shrink below its content's *min-content* size — which is why
+a long word or a `<pre>` block in a `1fr` column can blow out a whole layout, and why
+the fix is spelling it `minmax(0, 1fr)`. Same principle both times: **a grid track's
+default minimum is its content, not zero.**
+
+### Sizing the columns as a ratio instead
+
+`md:grid-cols-[1fr_2fr]` would also have produced a narrow-and-wide split. The
+difference is what happens on a very wide monitor: the ratio version keeps growing the
+identity column forever, eventually giving a two-word job title a 40rem-wide track.
+The `minmax` version caps it and hands the surplus to the prose. Cap the column whose
+content has a natural maximum size; let the one with real content take the remainder.
+
+---
+
+## 10. `key` on a list you generated from prose
+
+Three of the four lists in this section key off the content itself:
+
+```tsx
+{chairman.boards.map((b) => (
+  <li key={b}>…</li>
+))}
+
+{chairman.bio.map((para) => (
+  <p key={para.slice(0, 24)}>{para}</p>
+))}
+```
+
+React uses `key` to match elements between renders — it is how it knows "this is the
+same `<li>` that was here before, moved" versus "this is a new one". The rule is that
+a key must be **stable** (same item, same key next render) and **unique among its
+siblings**.
+
+`key={index}` satisfies unique but not stable: insert an item at the top and every
+subsequent item's key shifts by one, so React thinks every element changed. For static
+content rendered once from a constant, that costs nothing real — which is why it is
+tempting — but it silently becomes a bug the day the list is reordered or filtered.
+Keying off content is stable by construction.
+
+`para.slice(0, 24)` is the compromise for paragraphs: full paragraph text works as a
+key but makes the DOM inspector unreadable, and the first 24 characters are already
+unique across three paragraphs that start "A seasoned…", "He is a lyricist…" and
+"He has authored…". If two paragraphs could ever share an opening, this breaks and you
+would want an explicit `id` on each entry in the data instead. The general shape of
+the rule: **derive the key from something the data guarantees is distinct**, and if the
+data guarantees nothing, add a field that does.
+
+---
+
+## 11. Where new copy goes — following the existing seam
+
+The Chairman's profile went into `src/lib/content.ts`, not into `about/page.tsx`, for
+the reason already set out in §6: that file is the group-level copy and the page
+components are structure. The specific judgment call this time was *which* file — and
+the answer came from `DECISIONS.md` rather than from the code.
+
+The project draws a line between group-level facts and Nigerian-entity facts:
+`lib/content.ts` holds the parent group's positioning, `lib/objects.ts` holds the
+Nigerian company's own registered objects. The Chairman chairs the **parent** and
+presides over the **foundation**; he holds no stated office at the Nigerian company.
+So the data belongs with the group copy, and the comment above it says so explicitly,
+because the next person to touch it will not have read the decisions log.
+
+Worth generalising: a decisions log earns its keep at exactly this moment — not when
+the decision is made, but months later, when a new piece of content arrives and the
+question "where does this go?" has an answer that isn't visible anywhere in the code.
+
+---
+
+## 12. `mix-blend-mode` — deleting a background that has no alpha
+
+The Kolade crest arrived as two JPEGs: gold artwork on a solid black square, and the
+same artwork on a solid white square. JPEG has no alpha channel, so there is no
+transparency to fall back on, and the page background is `#150E20` — near-black, but
+not black. Dropping the dark JPEG straight in would show a visible black tile.
+
+```tsx
+className="mix-blend-screen"
+```
+
+That is the whole fix. To see why it is exact rather than approximate, look at the
+formula. **Screen** is:
+
+```
+result = 1 - (1 - source) x (1 - backdrop)
+```
+
+Substitute a black source (`0`):
+
+```
+result = 1 - (1 - 0) x (1 - backdrop) = 1 - (1 - backdrop) = backdrop
+```
+
+Pure black under `screen` returns the backdrop **unchanged**. Not "close to". The black
+square becomes literally the page background, whatever colour that is — which also means
+the same file keeps working if the palette changes again.
+
+**Multiply** is the mirror image, `result = source x backdrop`, so a pure white source
+returns the backdrop unchanged. That is the one to use for the light-background version
+of an asset sitting on a light section.
+
+| Asset background | Blend mode | Why |
+| --- | --- | --- |
+| Pure black `#000` | `screen` | black → backdrop |
+| Pure white `#fff` | `multiply` | white → backdrop |
+
+**This only works if the background is *exactly* `#000` / `#fff`.** At `(4,2,6)` the
+maths leaves a faint but real rectangle. Measure it before relying on it — see
+[[01-shell]] §7 for the one-liner. JPEG compression also means the pixels immediately
+around the artwork are not pure, so expect slight haze at the edges of fine detail; a
+transparent PNG or SVG is still the better asset if you can get one.
+
+### The trap: blending is confined to a stacking context
+
+`mix-blend-mode` blends an element with its *backdrop* — but only within the nearest
+**isolated group**. Any element that creates a stacking context forms one. So this bites
+in both directions:
+
+- The sticky nav uses `backdrop-blur`, and `backdrop-filter` creates a stacking context.
+  That is what stops the logo blending with light page sections scrolling underneath —
+  it blends with the nav's own background instead. Here the isolation is doing us a
+  favour.
+- The reverse trap: wrapping a blended element in a div and adding `isolate` or
+  `opacity-90` or `transform` to that div gives it a *transparent* backdrop, and
+  screen-against-transparent leaves black as black. The "safety wrapper" is what breaks
+  it.
+
+The rule to remember: **`isolation: isolate` on an ancestor changes what a blend sees.**
+If a blend suddenly stops working, look up the tree for a new stacking context, not at
+the blend itself.
+
+---
+
+## 13. `next/image` — the three props that are not optional
+
+```tsx
+<Image
+  src="/logos/logo-dark.jpg"
+  width={1600}
+  height={1600}
+  alt="The Kolade coat of arms"
+  sizes="(min-width: 768px) 16rem, 12rem"
+  priority
+  className="mb-8 w-48 md:w-64"
+/>
+```
+
+- **`width`/`height` are the *intrinsic* dimensions**, not the display size. They exist
+  so the browser can reserve the right box before the file arrives, which is what stops
+  the page jumping as images load (cumulative layout shift). The actual rendered size
+  comes from the CSS — `w-48 md:w-64` here. Getting the ratio wrong distorts nothing
+  visually but reserves the wrong space, so the shift comes back.
+- **`sizes` is a promise about CSS width, not a request.** It tells the browser how wide
+  the image will *be* at each breakpoint so it can pick the right file from the srcset
+  before layout is computed. Omit it and Next assumes `100vw`, and every phone downloads
+  a desktop-width file. The values must track the classes: `w-48` is 12rem, `md:w-64` is
+  16rem, and `md:` is `min-width: 768px` — which is exactly what the string above says.
+- **`priority`** disables lazy loading and preloads. Correct for the hero crest, which is
+  above the fold; wrong for everything below it, because preloading everything is the
+  same as preloading nothing.
+
+### `alt` is a decision, not a description
+
+Three images in this project, three different answers:
+
+| Where | `alt` | Why |
+| --- | --- | --- |
+| Hero crest | `"The Kolade coat of arms"` | Content. Carries meaning a screen-reader user would otherwise lose. |
+| Nav + footer crest | `alt=""` + `aria-hidden` | Decorative *here* — the company name sits next to it as real text. Announcing "Kolade coat of arms, Kolade Royal" makes the reader say everything twice. |
+| Carousel slides | the caption | The image *is* the content. |
+
+The mistake is treating `alt` as a property of the file. It is a property of the file's
+role **on this page** — the identical crest is content in the hero and noise in the nav.
+
+---
+
+## 14. A carousel that does not fail its keyboard and touch users
+
+The four things that separate a real carousel from a pair of arrows:
+
+```tsx
+const go = useCallback(
+  (delta: number) => setIndex((i) => (i + delta + slides.length) % slides.length),
+  [slides.length],
+);
+```
+
+**Wrapping in both directions.** `(i + delta) % n` is wrong going backwards: from slide 0,
+`-1 % 5` is `-1` in JavaScript, not `4`. JS `%` is *remainder*, which keeps the sign of
+the left operand — it is not the mathematical modulo. Adding `n` before the `%` puts the
+value in positive territory first. This is the same reason `-1 % 5 === -1` surprises
+people coming from Python, where it is `4`.
+
+**Functional `setIndex(i => ...)`** rather than `setIndex(index + delta)`. The updater
+form reads the value React is about to commit, so two rapid clicks both count. Closing
+over `index` means the second click computes from a stale value and one of them is lost.
+
+**A swipe threshold.** `Math.abs(dx) > 50` — without it, any tap registers a
+one-or-two-pixel delta and randomly advances the slide, and a vertical scroll that drifts
+sideways does the same.
+
+**Controls that exist at every size.** The round arrow buttons are `hidden sm:flex`, so
+below `sm` the only remaining control was an 8px dot. Touch targets need ~44px, hence the
+explicit Previous/Next pair for small screens. "It is swipeable" is not an answer —
+swipe is undiscoverable and not everyone can perform one.
+
+### `aria-live` on the caption, not the image
+
+```tsx
+<figcaption aria-live="polite">{current.caption}</figcaption>
+```
+
+The slide changes with no page navigation and no focus move, so a screen reader would
+otherwise announce nothing at all — the user presses Next and hears silence. `aria-live`
+on the text that changes makes the new caption and position ("3 / 5") announce itself.
+`polite` waits for a pause rather than interrupting.
+
+---
+
+## 15. Autoplay: the timer is the easy half
+
+Making the carousel advance on its own is four lines. Making it *acceptable* is the rest
+of this section — and the reason to write them at the same time is that "add the pause
+control later" reliably means never.
+
+```tsx
+useEffect(() => {
+  if (!autoplay) return;
+  const id = setInterval(() => go(1), 6000);
+  return () => clearInterval(id);
+}, [autoplay, go, index]);
+```
+
+### The cleanup function is not optional
+
+`return () => clearInterval(id)` is what stops the timer when the component unmounts.
+Without it the interval keeps firing against a component that is gone, React warns about
+setting state on an unmounted component, and every navigation back to the page starts a
+*second* interval on top of the first — the slides begin advancing twice as fast, then
+three times, and it looks like a mysterious speed bug rather than a leak. Same shape as
+the `removeEventListener` in §8, and the same rule: **anything you start in an effect,
+stop in its cleanup.**
+
+### `index` in the dependency array is a feature
+
+Listing `index` means every slide change tears the interval down and builds a new one.
+That is deliberate: click Next 200ms before a tick was due and you would otherwise get
+two advances in a quarter second. Rebuilding gives every slide a full interval, however
+it was reached.
+
+### WCAG 2.2.2 "Pause, Stop, Hide"
+
+> For any moving, blinking or scrolling information that starts automatically, lasts
+> more than five seconds, and is presented in parallel with other content, there is a
+> mechanism for the user to pause, stop, or hide it.
+
+A six-second auto-rotating carousel is squarely inside that. It is not a nicety — content
+that moves on its own is actively hostile to people reading with a screen magnifier, and
+to anyone whose reading speed is slower than the rotation. Three mechanisms here:
+
+1. **An explicit pause button**, which is the one the success criterion actually asks for.
+2. **Pause on hover and on focus-within**, so reading or tabbing through stops the motion
+   without anyone having to find a control.
+3. **No autoplay at all under `prefers-reduced-motion`.**
+
+### The media query has to be checked in JavaScript
+
+`globals.css` already has a blanket reduced-motion block that flattens transitions. It
+has **no reach over a `setInterval`** — CSS cannot stop a timer. A component that moves
+on its own has to ask the question itself:
+
+```tsx
+useEffect(() => {
+  const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+  setReducedMotion(query.matches);
+  const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}, []);
+```
+
+Two details. `window.matchMedia` must be inside the effect, not in the render body —
+there is no `window` during server rendering, so touching it at module or render level
+crashes the build. And subscribing to `change` rather than only reading `.matches` once
+means it responds if the OS setting is toggled while the page is open.
+
+### Three states, not one boolean
+
+```tsx
+const autoplay = playing && !suspended && !reducedMotion;
+```
+
+The instinct is a single `paused` flag, and it breaks immediately: the user pauses
+explicitly, then moves the mouse away, and hover-unpause silently overrides their
+choice. `playing` is the user's stated intent, `suspended` is transient hover/focus, and
+`reducedMotion` is a system preference that outranks both. Keeping them separate means
+none of them can clobber another. **When two different things can "pause" something, they
+need two different variables.**
+
+### `onPointerEnter` with a `pointerType` guard, not `onMouseEnter`
+
+Touch browsers fire *emulated* mouse events, so a tap raises `mouseenter` — and then
+frequently never raises `mouseleave`, because the finger is gone rather than moved away.
+The result: autoplay suspends on the first swipe and never resumes.
+
+```tsx
+onPointerEnter={(e) => { if (e.pointerType !== "touch") setSuspended(true); }}
+```
+
+Pointer events carry `pointerType` (`"mouse" | "pen" | "touch"`), so the hover-to-pause
+behaviour can be limited to devices that actually have a hover state. Worth generalising:
+**any "on hover" behaviour needs an answer for what it does on touch**, and the answer is
+usually "nothing", not "whatever the emulated event happens to do".
+
+### `aria-live` has to change with the mode
+
+```tsx
+aria-live={autoplay ? "off" : "polite"}
+```
+
+The live region added in §14 is right when the user drives the carousel and wrong when it
+drives itself — a screen reader announcing a new caption every six seconds, over whatever
+the user was actually reading, is unusable. Silent while rotating, live once they take
+control.
+
+---
+
 ## See also
 
 - [[01-shell]] — the `sed`/`grep` mechanics of the rename itself.

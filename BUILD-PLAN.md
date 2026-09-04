@@ -441,7 +441,8 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 ### Queued (not yet done)
 
-- [ ] **Distil `sources/Developer habits.md`** — a good transcript on 7 coding habits (guard clauses / early return, intent-revealing names, anti-corruption boundaries at external systems, making invalid states unrepresentable, separating decisions from side effects, useful/coded errors, focused changes). **Its through-line — "make the next change easier" — is exactly [[concepts/04-best-practices/README|concepts/04-best-practices]] material**, so it distils into a note (or thickens an existing one) there. His call, "eventually"
+- [x] **Distilled `sources/Developer habits.md`** — ✅ → [[concepts/04-best-practices/07-habits-that-make-change-easier|concepts/04-best-practices/07]], the 7 habits under one through-line (*make the next change easier*), cross-linked to clean-code, SOLID, type-driven design and the anti-corruption-layer pattern
+- [x] **Practice-exercise files where they genuinely fit** — ✅ added drill+solution files to **DSP** (`10`/`11` — the one foundations theory course that lacked them, now consistent with all its siblings) and **data-analysis** (`09`/`10` — SQL is inherently drillable). **Deliberately NOT added to the applied build-domains** (backend, frontend, architecture, devops, mobile, etc.) — those use `projects.md` as their rep mechanism by design, and drill files there would be forced padding
 
 ## Queue after Phase 8
 

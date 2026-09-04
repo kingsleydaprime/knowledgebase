@@ -186,6 +186,171 @@ that you need the browser.
 
 ---
 
+## 5. Heredocs — writing whole files from the shell
+
+Adding the Chairman's profile meant appending a ~35-line TypeScript object to
+`src/lib/content.ts`. Not a job for `sed`. The tool is a **heredoc**:
+
+```bash
+cat >> src/lib/content.ts << 'EOF'
+
+export const chairman = {
+  name: 'Josiah "Air" Yoshiyahu II',
+  ...
+};
+EOF
+```
+
+Three things are happening on that first line, and each matters.
+
+### `>>` vs `>`
+
+- `>` **truncates** the file to zero bytes, then writes. Get this wrong on a file you
+  meant to add to and the old contents are gone, with no undo outside git.
+- `>>` **appends** — existing contents stay, new text lands at the end.
+
+The habit worth building: type `>>` by default, and reach for `>` only when you have
+consciously decided the old file should cease to exist.
+
+### `<< 'EOF'` vs `<< EOF` — quote the delimiter
+
+The delimiter is the word the shell watches for to know the text has ended. Whether
+you quote it changes how the **body** is treated:
+
+| Form | Shell expands `$VAR`, backticks, `\` in the body? |
+| --- | --- |
+| `<< EOF` | **Yes** |
+| `<< 'EOF'` | **No** — every character goes through literally |
+
+Writing code, this is not a stylistic preference. TSX is full of `${...}`; unquoted,
+the shell would try to expand `${chairman.name}` as a shell variable, find it empty,
+and silently write an empty string into the file.
+
+**Rule: if the heredoc body is code or markdown, quote the delimiter.** Leave it
+unquoted only when you specifically *want* shell values interpolated into the output.
+
+### The terminator must be alone on its line — and must not appear in the body
+
+No leading spaces (`<<-` strips leading *tabs* only, not spaces), nothing after it.
+
+I hit the sharper version of this while writing these very notes: the note body
+contained a worked example that itself ended with `PY` on its own line, while the
+outer heredoc was also delimited by `PY`. The shell doesn't know one is "inside" a
+code fence — it is scanning line by line for its terminator. It found the inner one,
+ended the heredoc early, and tried to execute the remaining prose as commands:
+
+```
+(eval):19: unmatched `
+```
+
+An error that names a backtick when the real fault is a delimiter collision several
+lines earlier. **When a heredoc body contains heredocs, the outer delimiter must be
+something that cannot appear in the text** — `__SCRIPT_EOF__` rather than `EOF`. The
+sturdier fix, once a script is more than a few lines: write it to a file first and run
+that file, so there is only one level of quoting to reason about.
+
+---
+
+## 6. `python3 - << 'EOF'` — when the edit is too smart for `sed`
+
+Inserting a new JSX section into `about/page.tsx` needed two things: rewrite an import
+line, and insert ~75 lines *before* one anchor line. `sed` does the first and is
+painful at the second.
+
+```bash
+python3 - << 'EOF'
+from pathlib import Path
+p = Path("src/app/about/page.tsx")
+s = p.read_text()
+
+old = 'import { divisions, GROUP } from "@/lib/content";'
+assert old in s, "import line not found"
+s = s.replace(old, 'import { chairman, divisions, GROUP } from "@/lib/content";')
+
+anchor = "      {/* LEADERSHIP */}"
+assert anchor in s, "leadership anchor not found"
+s = s.replace(anchor, section + anchor, 1)
+
+p.write_text(s)
+EOF
+```
+
+- **`python3 -`** — the `-` means "read the program from stdin" rather than from a
+  file. With a heredoc, that is a throwaway script leaving nothing on disk.
+- **`.read_text()` / `.write_text()`** — read the whole file, transform the string,
+  write it back. Fine at this scale; stream line-by-line for a huge file.
+
+### The habit that matters: assert before you write
+
+```python
+assert anchor in s, "leadership anchor not found"
+```
+
+Without it, a mistyped anchor means `.replace()` matches nothing, returns the string
+unchanged, and `write_text()` cheerfully writes the **identical** file back. Exit code
+0. Success message printed. Nothing changed. You then spend ten minutes wondering why
+the browser doesn't show your new section.
+
+`sed` has precisely the same failure mode and no equivalent guard — that is the real
+argument for reaching for Python once an edit has any logic in it. Assert that what
+you are matching on exists, *then* mutate.
+
+### `.replace(old, new, 1)` — the count argument
+
+The trailing `1` caps it at one replacement. If `{/* LEADERSHIP */}` ever appeared
+twice, an uncapped replace would insert the whole section twice. Bound the count when
+you mean "the first one" rather than "all of them".
+
+---
+
+## 7. Inspecting images before you write markup for them
+
+Before adding the logos and carousel photos I needed three facts about each file:
+dimensions, real content, and — for the logos — the exact background colour.
+
+### Dimensions without opening an editor
+
+```bash
+find public -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) \
+  -printf '%8s  %p\n' | sort -k2
+```
+
+- `\( ... \)` — grouping in `find`. The backslashes are there because bare
+  parentheses are shell syntax; `find` needs to receive them literally.
+- `-o` is OR. Without the grouping, `-o` would bind loosely and the `-printf` would
+  only apply to the last branch — a classic `find` bug.
+- `-printf '%8s  %p'` — size in bytes right-aligned to 8 columns, then path. Cheaper
+  and more scriptable than `ls -la` per directory.
+
+### The pixel that decides the CSS
+
+```bash
+python3 -c "
+from PIL import Image
+im = Image.open('public/logos/logo-dark.jpg').convert('RGB')
+w, h = im.size
+print([im.getpixel(p) for p in [(2,2), (w-3,2), (2,h-3), (w-3,h-3)]])
+"
+```
+
+Both logos came back exactly `(0,0,0)` and `(255,255,255)` at every corner. That single
+fact is what made `mix-blend-mode` the correct fix rather than a hopeful one — see
+[[02-frontend]] §12. Had they been `(4,2,6)` or a gradient, blending would have left a
+visible ghost rectangle and the answer would have been "go get a transparent PNG".
+
+**The habit:** when a CSS technique depends on an exact colour value, measure it. Do not
+infer it from how the image looks.
+
+### `python3 -c` vs `python3 -` (heredoc)
+
+`-c` takes the program as a single argument — good for one-liners. The heredoc form from
+§6 is better once the script has more than a couple of lines, because you are not
+fighting nested quoting inside a shell string. Note the `"` wrapper above means `$` would
+still be expanded by the shell — fine here since there is none, but a reason to prefer
+the quoted heredoc as soon as the code gets real.
+
+---
+
 ## See also
 
 - [[02-frontend]] — the design-token thinking behind this rename, and why some of
