@@ -1,84 +1,176 @@
-# Stacks and Queues
+# Module: Stacks and Queues (LIFO & FIFO Collections)
 
-> Added after reviewing Codility's own course PDFs in `pdfs/` (Chapter 7, `5-Stacks.pdf`) — this data structure had no dedicated note in this vault at all, despite [[06-monotonic-stack|monotonic-stack]] in `patterns/` already assuming you know what a stack is.
+Welcome to the **Stacks and Queues** module. Both Stacks and Queues are linear data structures with constrained interfaces: you can only insert and remove elements at specific ends.
 
-Part of [[foundations/dsa/README|DSA fundamentals]]. Both structures below support the same two core operations — **push** (insert) and **pop** (remove) — the entire difference between them is *which end* each operation happens at.
+Despite their simplicity, Stacks and Queues drive core software systems—from CPU call stacks and browser history to network packet buffers and graph traversal algorithms (**DFS** and **BFS**).
 
 ---
 
-## Stack — last in, first out (LIFO)
+## 1. Real-World Motivation & Physical Metaphors
 
-Both insertion and removal happen at the same end, the **top**. Picture a stack of plates: you can only take a plate off the top, and any new plate goes on top too — the last one you put down is the first one you'll pick back up.
+```
+STACK (LIFO):                              QUEUE (FIFO):
+  [ Plate 3 ]  <-- Top (Push/Pop)           Enqueue -> [ 3 ][ 2 ][ 1 ] -> Dequeue
+  [ Plate 2 ]                                           (Tail)   (Head)
+  [ Plate 1 ]
+```
+
+### 1. Stack — Last-In, First-Out (LIFO)
+Imagine a physical **stack of cafeteria trays**:
+- The last tray placed on top of the pile is the very first tray picked up by a customer.
+- **Key Principle**: Insertions (`Push`) and Deletions (`Pop`) happen at the **same end (The Top)**.
+
+### 2. Queue — First-In, First-Out (FIFO)
+Imagine a **supermarket checkout line**:
+- New customers join the **back (Tail)** of the line. The customer who has been waiting longest at the **front (Head)** gets served first.
+- **Key Principle**: Insertions (`Enqueue`) happen at the **Tail**; Deletions (`Dequeue`) happen at the **Head**.
+
+---
+
+## 2. Plain-English Terminology & Concept Table
+
+| Term | Plain-English Definition | Example / Analogy |
+| :--- | :--- | :--- |
+| **LIFO** | Last-In, First-Out (Stack behavior). | Undo history (`Ctrl + Z`). |
+| **FIFO** | First-In, First-Out (Queue behavior). | Printer print job queue. |
+| **Push / Enqueue** | Adding a new element to the collection. | Adding a plate to top of stack / joining back of line. |
+| **Pop / Dequeue** | Removing an element from the collection. | Taking top plate off stack / serving customer at front of line. |
+| **Peek (Top / Front)**| Looking at the next element without removing it. | Checking what's at the top of the stack. |
+| **Circular Buffer** | Implementing a fixed-capacity FIFO queue in a flat array using modulo `% N`. | Ring buffer for audio streaming. |
+
+---
+
+## 3. Stacks: Mechanics & Applications
+
+### Python Stack Implementation ($O(1)$ Operations)
+In Python, a standard `list` functions as a high-performance stack using `.append()` and `.pop()`:
 
 ```python
-stack = [0] * N
-size = 0
-
-def push(x):
-    global size
-    stack[size] = x
-    size += 1
-
-def pop():
-    global size
-    size -= 1
-    return stack[size]
+class Stack:
+    """LIFO Stack implementation using dynamic array."""
+    def __init__(self):
+        self.items = []
+        
+    def push(self, val):
+        self.items.append(val)  # O(1) Amortized
+        
+    def pop(self):
+        if self.is_empty():
+            raise IndexError("Pop from empty stack")
+        return self.items.pop()  # O(1) from end of array
+        
+    def peek(self):
+        return self.items[-1] if not self.is_empty() else None
+        
+    def is_empty(self):
+        return len(self.items) == 0
 ```
-Both operations are **O(1)** — no shifting of other elements required, since nothing but the top ever changes. Real code almost always reaches for a language's built-in dynamic array for this (Python's `list.append`/`list.pop`, exactly the interface above) rather than hand-rolling a fixed-size array — the fixed-size version above is what makes the O(1)/no-shifting behavior explicit to see.
 
-**Where a stack actually shows up:** undo/redo history, matching balanced brackets/parentheses, tracking function call frames (the literal "call stack"), depth-first traversal (see [[foundations/dsa/05-algorithms/02-dfs|dfs]]), and the monotonic-stack pattern ([[foundations/dsa/06-patterns/06-monotonic-stack|monotonic-stack]]) for "next greater/smaller element" problems.
+### Where Stacks Are Used in Production
+1. **Function Call Stack**: Tracking active function calls, local variables, and return addresses in memory.
+2. **Undo / Redo Mechanisms**: `Ctrl + Z` pops the most recent action off the undo stack.
+3. **Balanced Parentheses Validation**: Matching opening `(` and closing `)` brackets.
+4. **Depth-First Search (DFS)**: Exploring graph/tree paths using recursive or explicit stacks.
 
 ---
 
-## Queue — first in, first out (FIFO)
+## 4. Queues: Mechanics & The `pop(0)` Performance Trap
 
-Insertion happens at the **back** (tail), removal happens at the **front** (head) — a grocery-store line: new people join the back, and whoever's been waiting longest (the front) gets served next.
+> [!WARNING]
+> **Python Performance Trap**: Writing `queue.pop(0)` on a standard Python list is an **$O(n)$ disaster**! It removes the item at index 0 and shifts every single remaining item left by 1 position in RAM.
+
+### Correct Python Queue Implementation using `collections.deque`
+To achieve true **$O(1)$ Dequeue** operations, use a Doubly-Linked List (`collections.deque`):
 
 ```python
-queue = [0] * N
-head, tail = 0, 0
+from collections import deque
 
-def push(x):
-    global tail
-    tail = (tail + 1) % N
-    queue[tail] = x
-
-def pop():
-    global head
-    head = (head + 1) % N
-    return queue[head]
-
-def size():
-    return (tail - head + N) % N
-
-def empty():
-    return head == tail
+class Queue:
+    """FIFO Queue implementation using doubly linked deque."""
+    def __init__(self):
+        self.items = deque()
+        
+    def enqueue(self, val):
+        self.items.append(val)     # Add to Tail: O(1)
+        
+    def dequeue(self):
+        if self.is_empty():
+            raise IndexError("Dequeue from empty queue")
+        return self.items.popleft() # Remove from Head: O(1)!
+        
+    def is_empty(self):
+        return len(self.items) == 0
 ```
-Also O(1) for push/pop — the `% N` (modulo) on both `head` and `tail` is what makes this work in a *fixed-size* array without ever shifting elements: once `tail` reaches the end of the array, it wraps back around to index 0 instead of needing to grow. This wraparound technique is called a **circular buffer** — worth recognizing the name, since it comes up anywhere a fixed-size FIFO buffer is needed (network packet buffers, audio buffers, producer/consumer queues), not just here.
-
-**Where a queue actually shows up:** breadth-first traversal (see [[foundations/dsa/05-algorithms/03-bfs|bfs]] — BFS is *defined* by using a queue instead of a stack, that's the entire mechanical difference from DFS), task scheduling, rate limiting, any "process in the order things arrived" scenario.
 
 ---
 
-## Worked example: minimum starting queue size
+## 5. Low-Level Circular Buffer (Array Queue)
 
-**Problem:** given a sequence of events where `0` = a person joins the back of a queue and `1` = the person at the front is served and leaves, find the minimum number of people who must *already* have been in line for the whole sequence to be valid (you can't serve someone from an empty queue).
+In low-level systems (C, OS kernels, audio drivers), queues are implemented in a fixed-size array without memory allocations using **modulo arithmetic (`% N`)**:
 
 ```python
-def min_starting_queue_size(events):
-    size = result = 0
-    for event in events:
-        if event == 0:
-            size += 1
-        else:
-            size -= 1
-            result = max(result, -size)
-    return result
+class CircularQueue:
+    """Fixed-capacity Queue using array modulo wraparound."""
+    def __init__(self, capacity: int):
+        self.capacity = capacity
+        self.queue = [None] * capacity
+        self.head = 0
+        self.tail = 0
+        self.size = 0
+        
+    def enqueue(self, val) -> bool:
+        if self.size == self.capacity:
+            return False  # Queue Full
+        self.queue[self.tail] = val
+        self.tail = (self.tail + 1) % self.capacity  # Wraparound index
+        self.size += 1
+        return True
+        
+    def dequeue(self):
+        if self.size == 0:
+            return None   # Queue Empty
+        val = self.queue[self.head]
+        self.queue[self.head] = None
+        self.head = (self.head + 1) % self.capacity  # Wraparound index
+        self.size -= 1
+        return val
 ```
-The trick: simulate the queue's size as a running counter rather than an actual queue of people. Every time a "serve" event would drive the count negative, that negative amount is exactly how many people had to already be waiting to make that serve valid — track the most negative point reached across the whole sequence, and that's the answer. **O(n) time, O(1) space** — the win from not needing an actual queue/array to hold "people," just a single running integer.
 
 ---
 
-## Related
-- [[foundations/dsa/06-patterns/06-monotonic-stack|monotonic-stack]] — a stack used in a specific pattern, not just raw push/pop
-- [[foundations/dsa/05-algorithms/02-dfs|dfs]] / [[foundations/dsa/05-algorithms/03-bfs|bfs]] — stack-driven vs. queue-driven traversal, the mechanical reason they explore in different orders
+## 6. Time & Space Complexity Summary
+
+| Data Structure | Insertion (Push / Enqueue) | Deletion (Pop / Dequeue) | Lookup Top/Front | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Stack (Array-backed)** | **$O(1)$ Amortized** | **$O(1)$** | **$O(1)$** | $O(n)$ |
+| **Queue (`deque`)** | **$O(1)$** | **$O(1)$** | **$O(1)$** | $O(n)$ |
+| **Queue (Naive `list.pop(0)`)** | $O(1)$ | **$O(n)$ (SLOW)** | $O(1)$ | $O(n)$ |
+| **Circular Buffer** | **$O(1)$** | **$O(1)$** | **$O(1)$** | $O(\text{Capacity})$ |
+
+---
+
+## 7. Common Pitfalls & Traps
+
+1. **`list.pop(0)` in Python**: Always use `collections.deque.popleft()` for $O(1)$ FIFO queues instead of `list.pop(0)`.
+2. **Stack Overflow**: Infinite recursive calls fill the call stack memory, throwing a stack overflow error.
+3. **Queue Underflow / Empty Pop**: Popping from an empty stack or queue without checking `is_empty()` crashes with index errors.
+
+---
+
+## 8. Check Your Understanding (University Self-Assessment)
+
+1. **Question**: What is the difference between LIFO and FIFO? Give one real-world application for each.
+   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>LIFO</b> (Last-In, First-Out) processes the newest element first (e.g., Undo history <code>Ctrl+Z</code>). <b>FIFO</b> (First-In, First-Out) processes the oldest element first (e.g., Printer queue, supermarket checkout line).</details>
+
+2. **Question**: Why is `list.pop(0)` slow in Python, and what structure should be used instead?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> <code>list.pop(0)</code> removes the element at index 0, forcing Python to shift all remaining elements left by 1 position in memory (an <b>O(n)</b> operation). Use <code>collections.deque.popleft()</code> instead, which runs in <b>O(1)</b> time.</details>
+
+3. **Question**: Which data structure is used to implement Depth-First Search (DFS), and which is used for Breadth-First Search (BFS)?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>DFS</b> uses a <b>Stack (LIFO)</b> (or recursion call stack). <b>BFS</b> uses a <b>Queue (FIFO)</b>.</details>
+
+---
+
+## Related Modules
+- [[01-arrays|Arrays]] — The memory structure backing array-based stacks
+- [[04-linked-lists|Linked Lists]] — Node structure backing `collections.deque`
+- [[02-dfs|DFS]] & [[03-bfs|BFS]] — Traversals powered by Stacks and Queues

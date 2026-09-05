@@ -1,78 +1,172 @@
-# Searching
+# Module: Searching Algorithms (Linear & Binary Search)
 
-Searching means finding whether (and where) a target value exists in a structure. The whole story here is one tradeoff: linear search works on anything but costs O(n); binary search costs only O(log n) but demands the data be sorted first. Which one applies is almost always decided by that one question — is the data sorted?
+Welcome to the **Searching Algorithms** module. Searching is the process of locating a specific target value within a data structure.
 
-## Linear search
+The choice of search algorithm depends entirely on one fundamental question: **Is the data sorted?**
 
-Check every element, in order, until you find the target or run out.
+---
 
+## 1. Real-World Motivation & Physical Metaphors
+
+Imagine looking up a word in a **printed physical dictionary**:
+
+```
+Search space: 1,000 pages
+
+Step 1: Open dictionary directly to the middle (Page 500).
+        Word is "M" (Target "R" comes AFTER "M").
+        -> INSTANTLY DISCARD PAGES 1 TO 500! (500 pages eliminated in 1 step!)
+
+Step 2: Open middle of remaining pages 501-1000 (Page 750).
+        Word is "T" (Target "R" comes BEFORE "T").
+        -> INSTANTLY DISCARD PAGES 750 TO 1000!
+```
+
+- If the dictionary pages were shuffled in random order, you would be forced to read every page one-by-one (**Linear Search**).
+- Because the pages are **sorted**, you can halve the remaining search space with every single flip (**Binary Search**)!
+
+### Production Applications:
+1. **Database Index Lookups**: B-Tree indices finding records in $O(\log n)$ time.
+2. **Git Bisect**: Finding the exact commit that introduced a bug using binary search over commit history.
+3. **Libraries**: Python `bisect` module for finding insertion ranks in $O(\log n)$.
+
+---
+
+## 2. Plain-English Terminology & Concept Table
+
+| Term | Plain-English Definition | Example / Analogy |
+| :--- | :--- | :--- |
+| **Linear Search** | Checking every element sequentially from index 0 to $N-1$. | Scanning a random pile of papers for a specific invoice. |
+| **Binary Search** | Repeatedly checking the middle element and discarding the half that cannot contain target. | Flipping to the middle of a phonebook. |
+| **Search Space** | The range of candidate indices `[low, high]` that could hold the target. | Pages 501 to 750 in a dictionary. |
+| **Monotonic Function** | A function or sequence that only increases or only decreases. | Precondition for Binary Search. |
+
+---
+
+## 3. Technical Deep Dive: Linear vs. Binary Search
+
+### 1. Linear Search ($O(n)$ Unsorted Fallback)
 ```python
-def linear_search(arr, target):
-    for i, val in enumerate(arr):
-        if val == target:
-            return i
+def linear_search(arr: list, target: int) -> int:
+    """Scans array sequentially. Returns index if found, else -1."""
+    for index, value in enumerate(arr):
+        if value == target:
+            return index
     return -1
 ```
 
-O(n) — no assumptions about the data required, which is exactly why it's the fallback when data isn't sorted and sorting it first wouldn't pay off (e.g. a single one-off search on unsorted data isn't worth an O(n log n) sort beforehand).
+---
 
-## Binary search
-
-Requires sorted data. Repeatedly check the middle element and discard the half that can't contain the target.
+### 2. Binary Search ($O(\log n)$ Sorted Requirement)
 
 ```python
-def binary_search(arr, target):
-    lo, hi = 0, len(arr) - 1
-    while lo <= hi:
-        mid = (lo + hi) // 2
+def binary_search(arr: list, target: int) -> int:
+    """Finds target in a SORTED array using binary search. Returns index or -1."""
+    low = 0
+    high = len(arr) - 1
+    
+    while low <= high:
+        # Safe midpoint calculation (prevents integer overflow in C/Java)
+        mid = low + (high - low) // 2
+        
         if arr[mid] == target:
-            return mid
+            return mid          # Target found!
         elif arr[mid] < target:
-            lo = mid + 1
+            low = mid + 1       # Target is in right half
         else:
-            hi = mid - 1
-    return -1
+            high = mid - 1      # Target is in left half
+            
+    return -1                   # Target does not exist
 ```
 
-```
-Search for 7 in [1, 3, 4, 6, 7, 9, 12, 15]:
+---
 
-lo=0 hi=7  mid=3  arr[3]=6 < 7  -> search right half
-lo=4 hi=7  mid=5  arr[5]=9 > 7  -> search left half
-lo=4 hi=4  mid=4  arr[4]=7 == 7 -> found at index 4
-```
+## 4. The Python `bisect` Built-in Module
 
-Each comparison eliminates half of the remaining search space, which is exactly what produces O(log n) — this is the same halving logic that makes a [[01-trees|BST]] fast, just applied to a sorted array via index math instead of pointers.
-
-## Complexity
-
-| | Linear search | Binary search |
-|---|---|---|
-| Precondition | none | data must be sorted |
-| Time | O(n) | O(log n) |
-| Space | O(1) | O(1) iterative / O(log n) recursive (call stack) |
-
-If the data isn't already sorted and you'll only search it once, sorting first costs O(n log n) — more expensive than just doing one O(n) linear search. Binary search only pays off when the data is already sorted, or when you'll search it many times (sort once, search repeatedly for cheap).
-
-## Common variants
-
-- **Find first/leftmost occurrence** of a target among duplicates — instead of returning immediately on a match, keep searching the left half to find an earlier one.
-- **Find insertion point** (where a value *would* go to keep the array sorted) — Python's `bisect.bisect_left`/`bisect_right` do exactly this in O(log n).
-- **Search in a rotated sorted array** — a sorted array that's been rotated at an unknown pivot; one half of any given split is still guaranteed sorted, so you can figure out which half to search using that fact. This is a genuinely common interview pattern — worth its own attention when we get into problem patterns.
+Python includes a high-performance C-implemented binary search module called `bisect`:
 
 ```python
 import bisect
-bisect.bisect_left([1, 3, 4, 4, 6], 4)   # 2 — leftmost position a 4 could be inserted
-bisect.bisect_right([1, 3, 4, 4, 6], 4)  # 4 — rightmost
+
+arr = [1, 3, 4, 4, 6, 8]
+
+# 1. bisect_left: Find index of FIRST (leftmost) occurrence
+idx_left = bisect.bisect_left(arr, 4)   # Returns index 2
+
+# 2. bisect_right: Find index where item should be inserted (after duplicates)
+idx_right = bisect.bisect_right(arr, 4) # Returns index 4
+
+# 3. insort: Insert item in-place while keeping list sorted (O(n) shift, O(log n) search)
+bisect.insort(arr, 5)  # Resulting arr: [1, 3, 4, 4, 5, 6, 8]
 ```
 
-## Gotchas
+---
 
-- **`mid = (lo + hi) // 2` can overflow** in fixed-width-integer languages (C, Java) when `lo + hi` exceeds the max int — the safe form is `mid = lo + (hi - lo) // 2`. Not an issue in Python (arbitrary precision ints), but worth knowing since it's a classic "correct-looking code that's actually buggy" example.
-- **Off-by-one errors on the loop bounds** (`<=` vs `<`, `mid + 1` vs `mid`) are the most common binary search bug — decide up front whether `hi` is inclusive or exclusive and stay consistent.
-- Binary search on unsorted data doesn't error — it just silently returns wrong/inconsistent results, since the algorithm has no way to detect that its core assumption is violated.
+## 5. Advanced Pattern: Search in Rotated Sorted Array
 
-## Related
-- [[04-sorting|sorting]] — the precondition for binary search
-- [[01-trees|trees]] — a BST is binary search generalized to a pointer structure
-- [[01-algorithms|algorithms]] — why halving the search space gives O(log n)
+What if a sorted array was rotated at a pivot point (e.g. `[4, 5, 6, 7, 0, 1, 2]`)?
+
+Even though the array is rotated, **at least one half (left or right) is guaranteed to be strictly sorted** at any split:
+
+```python
+def search_rotated(nums: list, target: int) -> int:
+    low, high = 0, len(nums) - 1
+    
+    while low <= high:
+        mid = low + (high - low) // 2
+        if nums[mid] == target:
+            return mid
+            
+        # Check if left half is sorted
+        if nums[low] <= nums[mid]:
+            if nums[low] <= target < nums[mid]:
+                high = mid - 1  # Target in sorted left half
+            else:
+                low = mid + 1   # Target in right half
+        # Otherwise, right half MUST be sorted
+        else:
+            if nums[mid] < target <= nums[high]:
+                low = mid + 1   # Target in sorted right half
+            else:
+                high = mid - 1  # Target in left half
+                
+    return -1
+```
+
+---
+
+## 6. Time & Space Complexity Summary
+
+| Algorithm | Precondition | Time Complexity | Auxiliary Space |
+| :--- | :--- | :--- | :--- |
+| **Linear Search** | None (Works on any dataset) | $O(n)$ | $O(1)$ |
+| **Binary Search (Iterative)** | **Data MUST be sorted** | **$O(\log n)$** | $O(1)$ |
+| **Binary Search (Recursive)** | **Data MUST be sorted** | **$O(\log n)$** | $O(\log n)$ call stack |
+
+---
+
+## 7. Common Pitfalls & Traps
+
+1. **Unsorted Array Failure**: Running Binary Search on an unsorted array does NOT raise an exception—it silently returns incorrect/inconsistent answers!
+2. **Integer Overflow in Midpoint**: Writing `mid = (low + high) // 2` can overflow maximum 32-bit integer limits in C/Java/C++ if `low + high > 2,147,483,647`. Always write `mid = low + (high - low) // 2`.
+3. **Off-by-One Loop Bounds**: Mixing up `while low <= high` vs `while low < high` causes infinite loops or skips checking boundary elements.
+
+---
+
+## 8. Check Your Understanding (University Self-Assessment)
+
+1. **Question**: How many comparisons will Binary Search make to find a target in a sorted array of 1,000,000 elements?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> At most <b>20 comparisons</b> ($O(\log_2 1,000,000) \approx 19.93$).</details>
+
+2. **Question**: Why is `mid = low + (high - low) // 2` preferred over `mid = (low + high) // 2` in typed languages like C++ and Java?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> If <code>low</code> and <code>high</code> are both large integers (e.g. 1.5 billion), <code>low + high</code> exceeds the maximum 32-bit signed integer limit (2.14 billion), causing integer overflow. <code>low + (high - low) // 2</code> avoids adding the two large numbers together.</details>
+
+3. **Question**: If an array is unsorted and you only need to perform a single search query, should you sort it first to run Binary Search?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>No!</b> Sorting takes $O(n \log n)$ time plus $O(\log n)$ search time = $O(n \log n)$ total. A single Linear Search takes only $O(n)$ time. Sorting first is only worth it if you perform <b>multiple</b> search queries.</details>
+
+---
+
+## Related Modules
+- [[04-sorting|Sorting Algorithms]] — Precondition for binary search
+- [[01-algorithms|Algorithms & Complexity Analysis]] — Logarithmic bounds derivation
+- [[01-trees|Trees]] — Binary Search Trees (pointer-based binary search)

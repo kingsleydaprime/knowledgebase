@@ -1,120 +1,185 @@
-# Hash Maps
+# Module: Hash Maps & Hash Sets (Instant Key-Value Lookups)
 
-A hash map (dict, hash table, associative array) stores key → value pairs and gets you from a key to its value in average O(1) time, regardless of how many entries it holds. That's the whole pitch — it trades the ordering guarantees of an [[01-arrays|array]] for near-instant lookup by an arbitrary key instead of a numeric index.
+Welcome to the **Hash Maps** module. A Hash Map (also known as a Dictionary, Hash Table, or Associative Array) is a structure that stores **Key $\rightarrow$ Value** pairs and retrieves values in average **$O(1)$ Constant Time**, regardless of whether the table contains 10 entries or 10,000,000 entries.
 
-## Why it exists
+If Arrays are the workhorse of memory, Hash Maps are the most useful high-level data structure in software development.
 
-An array gives you O(1) access, but only if you already know the integer index. A hash map answers: "what if my 'index' is a string, a tuple, or any other value?" The trick is to run the key through a **hash function** that converts it into an integer, and use that integer as the index into an underlying array (the "bucket array").
+---
 
-```
-key = "apple"
-hash("apple") -> 2166136261   (some large integer)
-index = hash("apple") % capacity   -> e.g. 5
-buckets[5] = ("apple", value)
-```
+## 1. Why Do Hash Maps Exist? (Real-World Motivation)
 
-Lookup, insert, and delete all reduce to: hash the key, compute the index, go straight to that bucket — O(1) on average, same reasoning as array indexing, just with an extra hashing step in front.
-
-## Collisions
-
-Two different keys can hash to the same index — that's a **collision**, and it's inevitable once you have more possible keys than buckets. Two common strategies:
-
-- **Chaining**: each bucket holds a small list of (key, value) pairs; on collision, just append to that bucket's list. Lookup becomes "hash to a bucket, then scan the short list."
-- **Open addressing**: on collision, probe to a different slot using some rule (linear probing, quadratic probing, double hashing) until an empty one is found.
+Imagine a physical **Coat Check Room** at a concert hall:
 
 ```
-Chaining:
-buckets[5] -> [("apple", 1), ("grape", 2)]   <- both hashed to 5, stored together
+  Guest gives Name ("Alice")  --->  Coat Check Attendant (Hash Function)
+                                            |
+                                            v
+                                  Slot Number #4 (Bucket)
+                                  [ Alice's Coat ]
 ```
 
-| | Chaining | Open addressing |
-|---|---|---|
-| Collision handling | bucket holds a list | probe for another slot |
-| Load factor can exceed 1 | ✓ | ✗ — never more entries than slots |
-| Memory | pointer overhead per entry | no pointers, denser |
-| Cache behaviour | poor — chains are scattered | **good** — probing stays in nearby memory |
-| Deletion | straightforward | needs tombstones, or lookups break |
-| Used by | Java `HashMap`, most textbooks | Python `dict`, Rust `HashMap`, most modern implementations |
+- In an [[01-arrays|Array]], you can only retrieve data if you already know a numeric index like `arr[4]`.
+- But what if your "index" is a person's name (`"Alice"`), a user ID (`"usr_99"`), or an email address?
 
-Open addressing has won in most modern standard libraries for the cache reason: probing a few adjacent slots costs less than one pointer-chase to a scattered list node. Its awkwardness is deletion — you can't just empty a slot, because that would break the probe chain for any key that hashed past it, so deleted slots get a **tombstone** marker instead.
+A Hash Map acts like that coat check attendant: it takes **any arbitrary key**, transforms it into a numeric slot number, and retrieves the value instantly without searching through every item!
 
-## What makes a good hash function
+---
 
-Three properties, and the first is the one that actually matters:
+## 2. Plain-English Terminology & Concept Table
 
-1. **Uniform distribution** — keys should spread evenly across buckets. A hash that clumps turns O(1) into O(n) by piling everything into a few buckets. This is the whole job.
-2. **Deterministic** — the same key must always hash to the same value, within a single run of the program.
-3. **Fast** — hashing happens on every single operation, so an expensive hash eats the benefit it's providing.
+| Term | Plain-English Definition | Example / Analogy |
+| :--- | :--- | :--- |
+| **Key** | The identifier used to store and look up data. | `"user_alice"`, SSN, Product ID. |
+| **Value** | The payload data associated with a key. | User profile object, balance. |
+| **Hash Function** | A mathematical function that converts a key into a large integer. | `hash("apple") -> 2166136261`. |
+| **Bucket Array** | The underlying array where key-value pairs are stored. | Array of size $N$. |
+| **Collision** | When two *different* keys produce the exact same bucket index. | Both `"apple"` and `"grape"` map to bucket #5. |
+| **Load Factor ($\alpha$)** | The ratio of occupied entries to total bucket slots ($\frac{\text{entries}}{\text{capacity}}$). | 7 entries in 10 slots ($\alpha = 0.7$). |
 
-Note what's *not* on the list: cryptographic security. A hash map wants speed and spread, which is why they use fast non-cryptographic functions (FNV, MurmurHash, SipHash, xxHash) rather than SHA-256. **A hash map's hash function and a cryptographic hash function solve different problems** — conflating them is a common misconception.
+---
 
-**Determinism is per-run, not forever.** Python randomises its string-hash seed at interpreter startup, so `hash("apple")` differs between runs. That's a deliberate defence against the hash-flooding attack below: if an attacker can't predict your hash values, they can't craft keys that all collide. It's also why hash values must never be persisted to disk or used across processes.
+## 3. How a Hash Map Works (The 3-Step Pipeline)
 
-## Load factor and resizing
+When you write `map["apple"] = 100`, the Hash Map executes three fast steps:
 
-Load factor = number of entries / number of buckets. As it climbs, collisions get more frequent and average-case O(1) starts to degrade toward O(n) (too many keys crammed into too few buckets). Once load factor crosses a threshold (commonly ~0.7), the table resizes — allocates a bigger bucket array and re-hashes every existing key into it. This is conceptually identical to how [[02-dynamic-arrays|dynamic-arrays]] resize, and it's why hash map operations are described as **amortized** O(1), not strictly O(1).
+```
+1. Pass Key through Hash Function:
+   hash("apple") -> 2,166,136,261
 
-## Complexity
+2. Map Large Integer to Bucket Array Index (using Modulo %):
+   index = 2,166,136,261 % 8 (capacity) -> 5
 
-| Operation | Average | Worst case |
-|---|---|---|
-| Insert | O(1) | O(n) — everything collides into one bucket |
-| Lookup | O(1) | O(n) |
-| Delete | O(1) | O(n) |
+3. Store Key-Value Pair in Bucket #5:
+   bucket[5] = ("apple", 100)
+```
 
-The worst case is rare in practice with a decent hash function, but it's real — it's the basis of "hash flooding" denial-of-service attacks against naive hash implementations.
+```
+Bucket Array:
+Slot 0: None
+Slot 1: None
+...
+Slot 5: ("apple", 100)  <-- Direct O(1) Access!
+```
 
-## Example
+---
+
+## 4. Handling Collisions (What Happens When Keys Clash?)
+
+Because there are infinitely many possible strings/keys but a finite number of bucket slots, two different keys will eventually hash to the same bucket index. This is called a **Collision**.
+
+Computer scientists use two primary strategies to resolve collisions:
+
+---
+
+### Strategy 1: Separate Chaining (Linked Lists in Buckets)
+Each bucket slot holds a small list of pairs. When a collision occurs, the new pair is appended to that bucket's list.
+
+```
+Bucket 5:  [ ("apple", 100) ] -> [ ("grape", 250) ] -> None
+```
+- **Lookup Process**: Hash to bucket #5, then walk the short list to find the matching key.
+- *Used by*: Java `HashMap`.
+
+---
+
+### Strategy 2: Open Addressing (Probing for Next Available Slot)
+All entries live directly in the flat array. When a slot is occupied, the table **probes** (scans) for the next open slot using a rule (e.g. check slot $i+1, i+2, \dots$).
+
+```
+Bucket 5: ("apple", 100)
+Bucket 6: ("grape", 250)  <-- Probed to next slot because Slot 5 was full!
+```
+
+#### Comparison of Collision Strategies
+
+| Feature | Separate Chaining | Open Addressing |
+| :--- | :--- | :--- |
+| **Storage Mechanism** | Bucket contains a pointer to a list node. | Everything lives in one flat array. |
+| **Cache Behavior** | Poor (list nodes scattered on heap). | **Excellent** (sequential array probing). |
+| **Max Load Factor** | Can exceed $1.0$ (lists grow infinitely). | Must stay $< 1.0$ (fails when full). |
+| **Deletion Mechanism** | Simple node removal from list. | Requires **Tombstone** markers so probe chains aren't broken. |
+| **Modern Adoption** | Textbook classic. | **Python `dict`**, Rust `HashMap`, C++ `flat_map`. |
+
+---
+
+## 5. Load Factor & Dynamic Resizing
+
+As more items are added to a Hash Map, the buckets fill up and collisions become frequent. Left unchecked, $O(1)$ lookups would slow down to $O(n)$ linear scans.
+
+To prevent this, Hash Maps maintain a **Load Factor Threshold** (typically $\approx 0.7$):
+
+$$\text{Load Factor } (\alpha) = \frac{\text{Total Entries}}{\text{Total Capacity}}$$
+
+When $\alpha > 0.7$:
+1. Allocate a **new bucket array** with double the capacity ($2\times$).
+2. **Re-hash every existing key** into the new bucket array.
+3. Free the old array.
+
+Because resizing happens exponentially rarely, Hash Map operations are **Amortized $O(1)$**.
+
+---
+
+## 6. Hash Sets (Instant Membership Checks)
+
+A **Hash Set** is simply a Hash Map that stores only **Keys without Values**. 
+
+It answers one specific question instantly: *"Have I seen this item before?"*
 
 ```python
-counts = {}
-for word in ["a", "b", "a", "c", "a"]:
-    counts[word] = counts.get(word, 0) + 1
-# {'a': 3, 'b': 1, 'c': 1}
+# BAD: O(n) scan inside an O(n) loop = O(n²) total time
+seen_list = []
+for item in items:
+    if item in seen_list:  # Scans entire list element-by-element!
+        print("Duplicate")
 
-"a" in counts        # O(1) average — membership check
-counts.pop("b")      # O(1) average
+# GOOD: O(1) membership check inside an O(n) loop = O(n) total time
+seen_set = set()
+for item in items:
+    if item in seen_set:   # Instant O(1) hash lookup!
+        print("Duplicate")
 ```
 
-This "count occurrences" pattern is probably the single most common hash map use in interview problems — reach for a dict the moment you catch yourself thinking "how many times have I seen this."
+> [!TIP]
+> **The Golden Optimizations Rule**: Replacing a `List` with a `Set` for membership testing is the single most common speedup in software engineering!
 
-## Hash sets
+---
 
-A **hash set** is the same structure with the values thrown away — it stores only keys, answering "have I seen this?" in O(1). Python's `set`, Java's `HashSet`, Go's `map[T]struct{}`. Internally it's a hash map whose values are ignored, so every complexity figure above carries over unchanged.
+## 7. Trade-Offs: What Hash Maps Give Up to Buy $O(1)$
 
-The reason it deserves naming: **swapping a list for a set is the single most common optimisation in practice.**
+Hash Maps are extraordinarily fast, but they come with trade-offs:
 
-```python
-if x in some_list:     # O(n) — scans the whole list
-if x in some_set:      # O(1) — hashes and jumps
-```
+1. **Destroys Order**: Hashing scrambles keys across memory. A standard Hash Map cannot tell you the minimum key, maximum key, or display keys in sorted order.
+2. **No Range Queries**: You cannot query "all keys between 10 and 50" without scanning every entry in the map ($O(n)$). (For range queries, use a [[01-trees|Binary Search Tree]] or B+ Tree).
+3. **Keys Must Be Immutable**: If a key changes its internal data after being inserted into a dict, its hash changes, rendering the item permanently lost inside the table! (In Python, lists cannot be keys, but immutable tuples can).
 
-Inside a loop over n items, that one substitution takes the code from O(n²) to O(n). If you catch yourself scanning a collection to check membership, that's the signal.
+---
 
-## Choosing a hash map vs the alternatives
+## 8. Summary of Complexity
 
-| Need | Use | Why |
-|---|---|---|
-| Lookup by arbitrary key | **hash map** | O(1) average |
-| Lookup by small integer index | **[[01-arrays\|array]]** | O(1) guaranteed, no hashing, far better cache behaviour |
-| Membership only, no value | **hash set** | same speed, less memory |
-| Keys in **sorted** order | **balanced [[01-trees\|BST]]** (`TreeMap`, `std::map`) | O(log n), but ordered iteration and range queries — a hash map cannot do either |
-| Smallest/largest repeatedly | **[[08-heaps\|heap]]** | O(1) peek, O(log n) pop |
-| Prefix queries on string keys | **[[09-tries\|trie]]** | hash maps can't answer "all keys starting with…" at all |
+| Operation | Average Time | Worst-Case Time (Hash Flooding / Collisions) |
+| :--- | :--- | :--- |
+| **Lookup (`map[key]`)** | **$O(1)$** | $O(n)$ |
+| **Insert (`map[key] = val`)** | **$O(1)$ Amortized** | $O(n)$ |
+| **Delete (`del map[key]`)** | **$O(1)$** | $O(n)$ |
+| **Space Complexity** | $O(n)$ | $O(n)$ |
 
-**The recurring tradeoff: a hash map buys O(1) by destroying order.** Hashing deliberately scatters keys, so there is no cheap way to ask for the smallest key, keys in a range, or keys with a given prefix. When you need any of those, an ordered structure earns its extra log n.
+---
 
-Also worth remembering the constant factor: if your keys are already small integers, **use an array**. `counts = [0] * 26` for letter frequencies beats a dict — no hashing, no collisions, perfect cache locality. Big-O calls both O(1); the array is several times faster.
+## 9. Check Your Understanding (University Self-Assessment)
 
-## Gotchas
+1. **Question**: Why are Python `list`s invalid as dictionary keys (`TypeError: unhashable type`), while `tuple`s are valid?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> Lists are <b>mutable</b> (their contents can change). If a key's contents change, its hash value changes, breaking the table's ability to locate it. Tuples are <b>immutable</b> and cannot change after creation.</details>
 
-- **Keys must be hashable, which usually means immutable.** In Python, `list`s can't be dict keys (`TypeError: unhashable type`) but `tuple`s can — because a mutable key could change after being hashed, silently breaking the table's internal structure. See [[foundations/programming-fundamentals/15-how-types-actually-work|data-type-classification]] for why immutability matters here.
-- **Python dicts preserve insertion order** (guaranteed since 3.7) — but don't rely on this in languages where it isn't guaranteed (older Python, many other languages' hash map implementations).
-- A "hash map is O(1)" is an *average case* claim — don't state it as a worst-case guarantee in an interview without the caveat.
-- Iterating a hash map has no defined order tied to hash values — never assume keys come back sorted or in insertion order unless the language specifically promises it.
+2. **Question**: What is the difference between a Hash Map and a Balanced Binary Search Tree (BST)? When would you prefer a BST?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> A Hash Map provides faster average lookups (<b>O(1)</b> vs <b>O(log n)</b>), but destroys order. You prefer a BST when you need keys stored in <b>sorted order</b> or need to perform <b>range queries</b> (e.g. find all keys between X and Y).</details>
 
-## Related
-- [[01-arrays|arrays]] — the bucket array underneath, and the better choice for integer keys
-- [[foundations/programming-fundamentals/15-how-types-actually-work|data-type-classification]] — hashability and immutability
-- [[02-dynamic-arrays|dynamic-arrays]] — resizing follows the same amortized logic
-- [[01-algorithms|algorithms]] — why this is amortized O(1) and not worst-case O(1)
+3. **Question**: If a Hash Map has 70 entries and 100 bucket slots, what is its Load Factor? What action will the Hash Map take if 10 more entries are added?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> The Load Factor is <b>0.7</b> (70/100). Adding 10 more entries brings the load factor to 0.8, crossing the 0.7 threshold and triggering an automatic capacity resize (doubling buckets to 200) and re-hashing.</details>
+
+---
+
+## Related Modules
+- [[01-arrays|Arrays]] — The bucket array foundation underneath
+- [[02-dynamic-arrays|Dynamic Arrays]] — Amortized resizing principles
+- [[01-trees|Trees]] — Binary Search Trees for ordered key-value storage
+- [[09-tries|Tries]] — Prefix trees for string key searches

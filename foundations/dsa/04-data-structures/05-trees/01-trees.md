@@ -1,181 +1,306 @@
-# Trees
+# Module: Trees — Hierarchical Data Structures
 
-A tree is a hierarchical structure: one root node, and every other node has exactly one parent, forming branches with no cycles. It's what you get when you take a [[04-linked-lists|linked list]] and let each node point to more than one "next" — a linked list is really a tree where every node has at most one child.
+Welcome to the **Trees** course module. In linear data structures like Arrays and Linked Lists, elements follow one after another in a straight line. In this module, we introduce **hierarchical data structures**, where elements branch out in parent-child relationships.
 
-Formally it's a connected, acyclic [[06-graphs|graph]] with exactly `n-1` edges. That constraint is the source of every property below: **no cycles means recursion terminates, and one parent means there's exactly one path between any two nodes.**
+---
 
-## Terminology
+## 1. Why Do We Need Trees? (Real-World Motivation)
 
-- **Root** — the top node, no parent. **Leaf** — a node with no children. **Internal node** — any node that isn't a leaf.
-- **Parent / child** — a direct connection one level apart. **Siblings** — nodes sharing a parent. **Ancestor / descendant** — the transitive versions.
-- **Height** of a node — edges on the longest path *down* to a leaf. The **height of the tree** is the root's height. A single node has height 0.
-- **Depth** (or **level**) of a node — edges from the root *down* to it. The root is depth 0. Height counts down, depth counts up — mixing them is a routine off-by-one.
-- **Degree** — the number of children a node has.
-- **Subtree** — any node plus all its descendants, which is itself a valid tree. **This is why almost every tree algorithm is recursive**: the problem restated on a child is the identical problem on a smaller input.
+Before diving into formal computer science definitions, let's understand why linear data structures (Arrays and Linked Lists) are not always enough.
 
-**Height is the number that matters.** Nearly every tree operation walks one root-to-leaf path, so its cost is O(height). All the machinery below exists to keep height near log n rather than n.
+### The Limitation of Linear Structures
+- **Arrays**: Excellent for accessing elements by index ($O(1)$), but inserting or deleting elements in the middle requires shifting elements ($O(n)$).
+- **Linked Lists**: Fast insertion and deletion ($O(1)$), but searching for an item requires walking link-by-link from the beginning ($O(n)$).
 
-## Shapes of binary tree
+What if you need to organize data that naturally branches, or data that needs **both fast search and dynamic insertion**? That is where **Trees** come in.
 
-A **binary tree** is the common special case: every node has **at most two children**, conventionally `left` and `right`.
+### Real-World Examples of Trees
+You interact with trees every single day when using software:
 
+1. **Your Computer's File Explorer / Directory System**:
+   - The main drive (`C:\` or `/`) is the top folder.
+   - Folders contain subfolders, which contain files.
+   
+2. **Web Pages (The HTML Document Object Model - DOM)**:
+   - The `<html>` tag contains `<head>` and `<body>`.
+   - The `<body>` contains `<div>` tags, which contain `<p>` and `<a>` elements.
+
+3. **Company Organizational Charts**:
+   - The CEO is at the top.
+   - Vice Presidents report to the CEO, Directors report to VPs, and Engineers report to Directors.
+
+---
+
+## 2. What Is a Tree? (Intuition & Visual Anatomy)
+
+In computer science, a **Tree** is a collection of nodes connected by edges, organized in a parent-child hierarchy with **no loops or cycles**.
+
+> **Fun Fact**: In real life, trees grow from the ground up. In computer science, we draw trees upside down, with the **Root at the top** and the **Leaves at the bottom**.
+
+### Visualizing a Tree
+
+```
+                   [ Root ]
+                      (A)
+                     /   \
+                   /       \
+                 (B)       (C)
+                /   \        \
+              (D)   (E)      (F)  <-- Leaves
+```
+
+### Key Terminology Demystified
+
+| Term | Plain-English Definition | Example from Diagram Above |
+| :--- | :--- | :--- |
+| **Node** | An individual container holding data and pointers to other nodes. | `A`, `B`, `C`, `D`, `E`, `F` |
+| **Edge** | The connection/link between two nodes. | Line between `A` and `B` |
+| **Root** | The absolute top node of the tree. It has **no parent**. | Node `A` |
+| **Parent** | A node that points directly down to a child node. | Node `A` is parent to `B` and `C` |
+| **Child** | A node directly connected to a parent node above it. | `B` and `C` are children of `A` |
+| **Siblings** | Nodes that share the exact same parent node. | `B` and `C` are siblings; `D` and `E` are siblings |
+| **Leaf (Terminal Node)** | A node that has **zero children** (the end of a branch). | Nodes `D`, `E`, and `F` |
+| **Internal Node** | Any node that is not a leaf (i.e., has at least one child). | Nodes `A`, `B`, `C` |
+| **Ancestor** | Any node on the path from the root down to a given node. | Ancestors of `D` are `B` and `A` |
+| **Descendant** | Any node reachable by moving downward from a given node. | Descendants of `A` are `B`, `C`, `D`, `E`, `F` |
+| **Subtree** | A node and all of its descendants. (Every node is the root of its own subtree). | `B-D-E` forms a subtree rooted at `B` |
+
+---
+
+## 3. Height vs. Depth (The Classic Off-By-One Trap)
+
+Two measurements describe the position of nodes inside a tree: **Depth** and **Height**. Computer science students often confuse them:
+
+```
+Level 0 (Root) --------> (A)            Height of Tree = 2
+                        /   \
+Level 1 -------------> (B)   (C)        Depth of B = 1
+                      /   \    \
+Level 2 ------------> (D) (E)  (F)      Depth of D = 2, Height of D = 0
+```
+
+- **Depth (or Level)**: How far down a node is from the root.
+  - **Rule**: Count edges from **Root $\rightarrow$ Node**.
+  - Root `A` has **Depth 0**. Node `B` has **Depth 1**. Node `D` has **Depth 2**.
+- **Height**: The longest path from a node down to a leaf.
+  - **Rule**: Count edges on the longest path from **Node $\rightarrow$ Leaf**.
+  - Leaf `D` has **Height 0**. Node `B` has **Height 1** (path: `B -> D`). Root `A` has **Height 2** (path: `A -> B -> D`).
+  - **Height of the Tree** = Height of the Root node (here, 2).
+
+> [!TIP]
+> **Memory Trick**: **Depth** measures how deep you sink down from the surface (Root). **Height** measures how tall a tower is built up from the ground (Leaf).
+
+---
+
+## 4. Formal Definition & The Recursive Nature of Trees
+
+Formally, a tree with $n$ nodes is a connected, acyclic graph with exactly **$n - 1$ edges**.
+
+### Why "No Cycles" Matters
+Because there are no loops (cycles) and every node except the root has exactly **one parent**:
+1. There is **exactly one unique path** between the root and any node.
+2. **Trees are inherently recursive**: Any node in a tree can be viewed as the root of a smaller tree (its subtree).
+
+This is why almost every tree algorithm (traversals, searches, insertions) is written using **recursion**! Solving a problem on a tree simply means solving the identical problem on its left and right subtrees.
+
+---
+
+## 5. Binary Trees: Definition and Common Shapes
+
+A **Binary Tree** is the most widely used variation of a tree. The rule is simple: **Every node can have AT MOST two children**, conventionally named `left` and `right`.
+
+### Python Implementation of a Tree Node
 ```python
 class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+    """Represents a single node in a Binary Tree."""
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val        # The value stored in this node
+        self.left = left      # Reference to left child (TreeNode or None)
+        self.right = right    # Reference to right child (TreeNode or None)
 ```
 
-The shape vocabulary gets used loosely in conversation and precisely in problem statements, so it's worth pinning down:
+### The 5 Standard Shapes of Binary Trees
 
-**Full** (or *proper*) — every node has either 0 or 2 children. Never exactly one.
+Understanding these shapes is critical because a tree's shape directly dictates its performance ($O(\log n)$ vs $O(n)$).
+
+#### 1. Full (Proper) Binary Tree
+Every node has **either 0 or 2 children**. No node has only 1 child.
+```
+       1
+      / \
+     2   3
+    / \
+   4   5
+```
+*Where it's used*: Arithmetic expression trees (e.g. `(4 + 5) * 3`), where operators (`+`, `*`) take 2 operands, and numbers take 0.
+
+#### 2. Complete Binary Tree
+Every level is completely filled, except possibly the last level, which is filled **strictly from left to right**.
+```
+       1
+      / \
+     2   3
+    / \  /
+   4  5 6
+```
+*Where it's used*: **Heaps** and Priority Queues! Because there are no gaps, a complete binary tree can be stored efficiently in a flat Array without using pointers.
+
+#### 3. Perfect Binary Tree
+All internal nodes have 2 children, and **all leaves are at the exact same depth**.
+```
+       1
+      / \
+     2   3
+    / \ / \
+   4  5 6  7
+```
+*Formula*: A perfect binary tree of height $h$ has total nodes $n = 2^{h+1} - 1$. For height 2, $n = 2^3 - 1 = 7$ nodes.
+
+#### 4. Balanced Binary Tree
+A tree where the height of the left and right subtrees of *every node* differs by at most 1.
+```
+       1
+      / \
+     2   3
+    /
+   4
+```
+*Why it matters*: Keeps tree height bounded to $O(\log n)$, guaranteeing fast searches.
+
+#### 5. Degenerate (Pathological) Binary Tree
+Every node has only 1 child. The tree degrades into a single straight line.
+```
+   1
+    \
+     2
+      \
+       3
+        \
+         4
+```
+*Why it's dangerous*: Structurally identical to a **Linked List**. Height becomes $n-1$, and operations slow down from $O(\log n)$ to $O(n)$.
+
+---
+
+## 6. Binary Search Trees (BSTs)
+
+A **Binary Search Tree (BST)** is a binary tree with a special ordering rule called the **BST Invariant**:
+
+> **The BST Invariant**: For every node $X$:
+> - All values in $X$'s **left subtree** must be strictly **smaller** than $X$'s value.
+> - All values in $X$'s **right subtree** must be strictly **larger** than $X$'s value.
+
+### Visualizing a Valid BST
 
 ```
-      1           Nodes have two children or none.
-     / \          Common in expression trees: an operator
-    2   3         takes two operands, a literal takes none.
-   / \
-  4   5
+            (8)
+          /     \
+        (3)     (10)
+       /   \        \
+     (1)   (6)      (14)
+          /   \     /
+        (4)   (7) (13)
 ```
+Notice:
+- Left of `8`: `{1, 3, 4, 6, 7}` (all $< 8$).
+- Right of `8`: `{10, 13, 14}` (all $> 8$).
 
-**Complete** — every level is full except possibly the last, which fills **left to right** with no gaps.
+### How Searching Works in a BST ($O(\log n)$)
 
-```
-      1           This is the shape a heap maintains, and
-     / \          the reason a heap can live in a flat array
-    2   3         with no pointers at all: children of index
-   / \  /         i sit at 2i+1 and 2i+2, with no holes.
-  4  5 6
-```
+Searching a BST mimics **Binary Search** on a sorted array:
+1. Start at the root.
+2. If `target == current.val`, you found it!
+3. If `target < current.val`, go **left** (discard the entire right half of the tree).
+4. If `target > current.val`, go **right** (discard the entire left half of the tree).
 
-**Perfect** — every internal node has two children and all leaves are at the same depth. A perfect tree of height `h` has exactly `2^(h+1) - 1` nodes.
-
-```
-      1           The maximally dense shape. Rare in practice
-     / \          (n has to be exactly 2^k - 1), but it's the
-    2   3         baseline the others are measured against.
-   / \ / \
-  4  5 6  7
-```
-
-**Balanced** — height is O(log n). The usual strict definition (AVL's) is that for every node, the heights of its two subtrees differ by at most 1.
-
-**Degenerate** (or *pathological*) — every node has one child. Structurally a linked list, and the failure mode every balancing scheme exists to prevent.
-
-```
-  1
-   \
-    2       Height n-1 instead of log n.
-     \      Every operation is O(n).
-      3
-       \
-        4
-```
-
-Every perfect tree is complete; every complete tree is balanced; **balanced does not imply complete**. Getting these confused is a common interview stumble.
-
-**N-ary trees** drop the two-child limit — each node keeps a list of children instead of `left`/`right`. Filesystems, the DOM, org charts, and JSON are all n-ary. Most binary-tree algorithms port over by swapping `for child in node.children` for the two explicit recursive calls.
-
-## Binary Search Trees (BSTs)
-
-A binary tree with one extra rule: for every node, **everything in its left subtree is smaller and everything in its right subtree is larger.** That single invariant is what makes search fast — at each node you discard half the remaining tree, the same idea as [[05-searching|binary search]] on a sorted array, expressed as pointers instead of index arithmetic.
+#### Python Implementation of BST Search
 
 ```python
-def bst_search(node, target):
-    if node is None or node.value == target:
+def bst_search(node: TreeNode, target: int) -> TreeNode:
+    """Recursively search for target in a Binary Search Tree."""
+    # Base Case: target not found (None) or target found
+    if node is None or node.val == target:
         return node
-    if target < node.value:
+    
+    # If target is smaller than current node, search left subtree
+    if target < node.val:
         return bst_search(node.left, target)
+    
+    # Otherwise, target is larger, search right subtree
     return bst_search(node.right, target)
 ```
 
-```
-           8
-         /   \
-        3     10
-       / \      \
-      1   6      14
-         / \     /
-        4   7  13
-```
+### Two Essential BST Properties to Remember
 
-Two consequences worth memorising:
+1. **Inorder Traversal of a BST yields SORTED order!**
+   - If you visit `Left Subtree -> Root -> Right Subtree`, you will visit the values in strictly ascending order: `1, 3, 4, 6, 7, 8, 10, 13, 14`.
+2. **The BST invariant applies to ENTIRE subtrees, not just immediate children!**
+   - *Common Bug*: Only checking `node.left.val < node.val` is NOT enough. A node deep inside the left subtree could still be greater than the root!
 
-- **Inorder traversal of a BST yields sorted order.** This is the "trick" behind a startling number of tree problems — validating a BST, finding the kth smallest, spotting two swapped nodes.
-- **The invariant is about entire subtrees, not immediate children.** Checking only `node.left.value < node.value` is the single most common BST bug: a node deep in the left subtree can still exceed the root and break the tree while every parent-child pair looks fine. Validation has to carry a `(min, max)` range down the recursion.
+---
 
-## When BSTs go wrong, and the trees that fix it
+## 7. Self-Balancing Trees & Production Use
 
-| Operation | Balanced BST | Degenerate (worst case) |
-|---|---|---|
-| Search | O(log n) | O(n) |
-| Insert | O(log n) | O(n) |
-| Delete | O(log n) | O(n) |
-| Min / max | O(log n) | O(n) |
-| Inorder (all nodes) | O(n) | O(n) |
+What happens if you insert already sorted data (`1, 2, 3, 4, 5`) into a plain BST?
+- `1` becomes root. `2` goes right of `1`. `3` goes right of `2`...
+- You get a **Degenerate Tree** (Linked List), and search time degrades to $O(n)$!
 
-That O(log n) **assumes balance, and a plain BST does nothing to maintain it.** Insert already-sorted data one item at a time and every new node goes right, producing the degenerate tree above — every operation O(n), and you've built an expensive linked list. Sorted input isn't exotic; it's what you get from a database dump, a sorted file, or auto-increment IDs.
-
-Self-balancing trees do extra work on insert and delete to keep height at O(log n) regardless of input order. The mechanism is the **rotation** — a local rearrangement of three nodes that changes height without breaking the BST invariant:
+To prevent this, production software uses **Self-Balancing Binary Search Trees**, which perform mathematical re-arrangements called **Tree Rotations** to keep height at $O(\log n)$.
 
 ```
-    right rotation on 5
-        5                 3
-       / \               / \
-      3   D     ->      A   5
-     / \                   / \
-    A   C                 C   D
-
-  A < 3 < C < 5 < D holds before and after.
+   Right Rotation on Node 5:
+        (5)                   (3)
+       /   \                 /   \
+     (3)   (D)    -->      (A)   (5)
+    /   \                       /   \
+  (A)   (C)                   (C)   (D)
 ```
 
-**AVL trees** — strictly balanced: every node's subtree heights differ by at most 1, enforced by rotating on the way back up from each insert or delete. Tightest height, so the fastest lookups; the strictness means more rotations on write. Choose when reads dominate writes.
+### Types of Self-Balancing Trees
 
-**Red-Black trees** — each node is red or black, with rules (no red node has a red parent; every root-to-leaf path has the same number of black nodes) that guarantee the longest path is at most twice the shortest. Looser than AVL, so taller trees and slightly slower lookups, but **far fewer rotations per write**. This is the pragmatic default and what you're actually using: Java's `TreeMap`, C++'s `std::map`, and the Linux kernel's process scheduler are all red-black trees.
+1. **AVL Trees**:
+   - Enforces strict balance: height difference between left and right subtrees $\le 1$.
+   - *Best for*: Read-heavy workloads where fast lookup is critical.
+2. **Red-Black Trees**:
+   - Uses node colors (Red/Black) and rules to ensure the longest path is at most $2\times$ the shortest path.
+   - Requires fewer rotations during insertions/deletions than AVL trees.
+   - *Where it's used*: Java `TreeMap`, C++ `std::map`, Linux kernel process scheduler.
+3. **B-Trees & B+ Trees**:
+   - Nodes hold **hundreds of keys** and have **hundreds of children** instead of just 2.
+   - *Why*: Reduces tree height to just 3-4 levels for billions of records, minimizing expensive **Disk Reads/Seeks**.
+   - *Where it's used*: **Every major database index** (PostgreSQL, MySQL InnoDB, SQLite) and Filesystem (ext4, NTFS).
 
-**B-trees and B+ trees** — the ones that matter most in production, and the reason this section exists. They aren't binary: **each node holds many keys and has many children**, so a node is sized to fill one disk page or block.
+---
 
-The motivation is that the bottleneck isn't comparisons, it's **disk reads**. A binary tree over 10⁹ records is ~30 levels deep, so a lookup is ~30 random disk seeks. A B-tree with a few hundred keys per node is 3–4 levels deep over the same data — **3 seeks instead of 30**, because each read pulls in hundreds of keys at once. Height reduction is the entire game.
+## 8. Summary of Complexity
 
-**Practically every database index and filesystem is a B+ tree**: Postgres, MySQL's InnoDB, SQLite, ext4, NTFS. B+ trees additionally keep all values in the leaves and link the leaves together, which makes range scans (`WHERE created_at BETWEEN ...`) a linear walk instead of a repeated descent — the reason range queries on an indexed column are fast.
+| Structure / Tree Type | Average Search | Worst Case Search | Average Insert | Worst Case Insert |
+| :--- | :--- | :--- | :--- | :--- |
+| **Unbalanced BST** | $O(\log n)$ | $O(n)$ (degenerate) | $O(\log n)$ | $O(n)$ |
+| **AVL Tree** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| **Red-Black Tree** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| **B+ Tree (Disk)** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
 
-| Tree | Balance rule | Best at | Where you'll meet it |
-|---|---|---|---|
-| **Plain BST** | none | teaching | your own code, and only with random input |
-| **AVL** | subtree heights differ ≤ 1 | read-heavy workloads | in-memory indexes, databases with rare writes |
-| **Red-Black** | longest path ≤ 2× shortest | mixed read/write | `TreeMap`, `std::map`, Linux scheduler |
-| **B / B+ tree** | many keys per node, fixed depth | disk and page-based storage | **every database index**, filesystems |
+---
 
-**Other trees worth knowing by name:** [[08-heaps|heaps]] (a complete binary tree ordered parent-vs-child rather than left-vs-right — priority, not search), [[09-tries|tries]] (branching on characters of a key, for prefix queries), segment and Fenwick trees (range queries over a mutable array — the answer to the "prefix sums can't handle updates" problem in [[01-prefix-sum|prefix sum]]), and Merkle trees (nodes are hashes of their children, so any change propagates to the root — the basis of git commits, blockchains, and rsync).
+## 9. Check Your Understanding (University Self-Assessment)
 
-## Where trees actually show up
+Try answering these questions to verify what you've learned:
 
-- **Database indexes and filesystems** — B+ trees, as above. This is the highest-impact one by far.
-- **The DOM** — an n-ary tree; every CSS selector match and DOM query is a tree traversal.
-- **Compilers** — source parses into an abstract syntax tree, then every optimisation pass is a tree walk. See [[foundations/compilers/README|compilers]].
-- **Git** — commits form a DAG, but each commit's snapshot is a Merkle tree of directories and blobs.
-- **Routing, autocomplete, decision trees, scene graphs** — anywhere data is naturally hierarchical or needs ordered access.
+1. **Question**: A binary tree has a root node $A$. Node $A$ has left child $B$ and right child $C$. Node $B$ has left child $D$. What is the **Depth** of $D$ and what is the **Height** of $A$?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> Depth of D is <b>2</b> (path: A -> B -> D). Height of A is <b>2</b> (longest path to leaf D: A -> B -> D).</details>
 
-## Traversal
+2. **Question**: Why does a database like PostgreSQL use a B+ Tree instead of a standard Binary Search Tree?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> Database records live on disk. Reading from disk is millions of times slower than RAM. A B+ Tree has hundreds of keys per node, keeping the tree height to 3–4 levels, requiring only 3–4 disk seeks instead of ~30 seeks for a BST.</details>
 
-Visiting every node has its own standard orders — preorder, inorder, postorder, level-order — covered in [[02-traversal|traversal]], since the same idea generalises to graphs.
+3. **Question**: What traversal order on a Binary Search Tree produces values in sorted order?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>Inorder Traversal</b> (Left Subtree -> Root -> Right Subtree).</details>
 
-## Gotchas
+---
 
-- **Balance is not automatic.** A plain BST silently degrades to O(n) on sorted or adversarial insertion order. If you need the guarantee, you need a self-balancing tree — or just use the language's built-in ordered map, which already is one.
-- **Validating a BST needs a range, not a parent comparison.** Pass `(min, max)` bounds down; comparing each node only to its immediate parent accepts invalid trees.
-- **Height vs depth**, and whether a single node has height 0 or 1. Conventions differ between sources — state yours before you start counting.
-- **Recursion depth is the tree's height**, so a degenerate tree blows the call stack where a balanced one is fine. O(log n) stack space in theory, O(n) in the failure case.
-- **Complete ≠ balanced ≠ full ≠ perfect** — see the shapes above.
-- **Deleting from a BST has three cases**, and the two-child case is the one people botch: replace the node with its inorder successor (leftmost node of the right subtree), then delete *that*.
-
-## Related
-- [[02-traversal|traversal]] — pre/in/post/level-order, and picking the right one
-- [[06-graphs|graphs]] — a tree is a connected acyclic graph; graphs drop both constraints
-- [[04-linked-lists|linked lists]] — the one-child degenerate case, which is also the BST failure mode
-- [[08-heaps|heaps]] — a complete binary tree with a different ordering invariant
-- [[09-tries|tries]] — trees branching on key characters
-- [[05-searching|searching]] — binary search is the array version of a BST descent
-- [[10-binary-tree-traversal-pattern|binary tree traversal pattern]] — choosing an order per problem
-- [[databases/README|databases]] — where B+ trees do their real work
+## Related Modules
+- [[02-traversal|Tree Traversal]] — Pre-order, In-order, Post-order, and Level-order walkthroughs
+- [[04-linked-lists|Linked Lists]] — The 1-child linear precursor to trees
+- [[06-graphs|Graphs]] — Generalizing trees to allow cycles and multiple parents
+- [[08-heaps|Heaps]] — Priority queues implemented as complete binary trees in flat arrays
+- [[databases/README|Databases]] — Practical application of B+ Trees in indexing
