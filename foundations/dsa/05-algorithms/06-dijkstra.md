@@ -1,71 +1,133 @@
-# Dijkstra's Algorithm
+# Module: Dijkstra's Algorithm (Weighted Shortest Path)
 
-Dijkstra finds the shortest path from a source node to every other node in a **weighted** graph (non-negative weights only). It's [[03-bfs|BFS]] generalized: BFS finds shortest paths by hops because every edge "costs" the same one step; Dijkstra finds shortest paths by total weight, by always expanding whichever unvisited node currently has the smallest known distance instead of just whichever was discovered first.
+Welcome to the **Dijkstra's Algorithm** module. Dijkstra finds the shortest path from a starting source node to every other node in a **weighted graph with non-negative edge weights**.
 
-## Why BFS isn't enough here
+While [[03-bfs|BFS]] finds shortest paths in terms of **number of hops** (unweighted edges), Dijkstra finds shortest paths in terms of **total cumulative cost/distance** (weighted edges).
 
-BFS's shortest-path guarantee relies on every edge having equal weight — the node distance in the queue mirrors number of hops exactly. The moment edges have different weights, "fewest hops" and "lowest total cost" stop being the same thing, and a plain queue can't tell you which frontier node is actually closest. Dijkstra swaps the queue for a **min-heap keyed by cumulative distance**, so the next node popped is always the genuinely closest unvisited one — the same "always take the smallest" logic as [[07-top-k-elements|a heap]], applied to distances instead of values.
+---
 
-## How it works
+## 1. Real-World Motivation & Physical Metaphors
 
-1. Set distance to the source as 0, everything else as infinity.
-2. Push `(0, source)` onto a min-heap.
-3. Pop the smallest-distance node. For each neighbor, compute `distance_to_node + edge_weight` — if that's smaller than the neighbor's currently known distance, update it (this update step is called **relaxation**) and push the neighbor with its new distance.
-4. Repeat until the heap is empty.
+Imagine planning a **GPS Driving Route**:
 
+```
+                       [ Highway: 100 miles, 65 mph (Cost: 90 mins) ]
+  ( City A ) ---------------------------------------------------------> ( City B )
+      |                                                                     ^
+      +---> [ Local Road: 5 miles ] ---> ( Village C ) ---> [ Local Road: 5 miles ]
+                                        (Cost: 15 mins)
+```
+
+- **BFS Strategy**: Picks the 1-hop direct highway route (100 miles, taking 90 minutes).
+- **Dijkstra Strategy**: Evaluates total travel time (weight) and picks the 2-hop route through Village C (10 miles total, taking only 30 minutes).
+
+### Production Applications:
+1. **GPS Navigation (Google Maps / Waze)**: Calculating fastest driving routes considering speed limits and traffic delay weights.
+2. **Network IP Routing (OSPF Protocol)**: Routing data packets across servers based on latency.
+3. **Flight Booking Search**: Finding the cheapest flight combinations between airports.
+
+---
+
+## 2. Plain-English Terminology & Concept Table
+
+| Term | Plain-English Definition | Example / Analogy |
+| :--- | :--- | :--- |
+| **Edge Weight** | The numeric cost (distance, time, fee) required to travel across an edge. | Toll road price or travel time. |
+| **Relaxation** | Updating the shortest known distance to a node if a cheaper path is discovered. | Finding a shortcut road. |
+| **Min-Heap (Priority Queue)** | Data structure that always pops the unvisited node with the smallest cumulative distance. | Always processing the closest node next. |
+| **Stale Entry** | An outdated `(distance, node)` pair left in the heap after a shorter path to that node was found. | Old, expired route suggestion. |
+
+---
+
+## 3. Technical Deep Dive: Dijkstra's Algorithm
+
+### Step-by-Step Mechanics
+1. Initialize `distances[source] = 0` and `distances[node] = infinity` for all other nodes.
+2. Push `(0, source)` into a **Min-Heap**.
+3. Pop the node with the smallest distance `dist`. If `dist > distances[node]`, skip it (**Stale Entry**).
+4. For each neighbor, calculate candidate distance: `new_dist = dist + weight`.
+5. If `new_dist < distances[neighbor]`, update `distances[neighbor] = new_dist` (**Relaxation**) and push `(new_dist, neighbor)` into the min-heap.
+
+---
+
+### Python Code Implementation
 ```python
 import heapq
 
-def dijkstra(graph, source):
-    # graph: {node: [(neighbor, weight), ...]}
-    distances = {node: float("inf") for node in graph}
+def dijkstra(graph: dict, source: str) -> dict:
+    """Finds the shortest distance from source to all nodes in a weighted graph.
+    
+    graph format: { 'A': [('B', 2), ('C', 5)], ... }
+    """
+    # 1. Initialize distance map with infinity
+    distances = {node: float('inf') for node in graph}
     distances[source] = 0
-    heap = [(0, source)]
-
-    while heap:
-        dist, node = heapq.heappop(heap)
-        if dist > distances[node]:
-            continue                     # stale entry — a shorter path was already found
-        for neighbor, weight in graph[node]:
-            new_dist = dist + weight
+    
+    # 2. Min-heap stores tuples of (cumulative_distance, node)
+    min_heap = [(0, source)]
+    
+    while min_heap:
+        current_dist, current_node = heapq.heappop(min_heap)
+        
+        # Lazy Deletion / Stale Entry check:
+        # If we already found a shorter path to current_node, skip processing!
+        if current_dist > distances[current_node]:
+            continue
+            
+        # 3. Relax edges to neighbors
+        for neighbor, weight in graph[current_node]:
+            new_dist = current_dist + weight
+            
             if new_dist < distances[neighbor]:
-                distances[neighbor] = new_dist
-                heapq.heappush(heap, (new_dist, neighbor))
+                distances[neighbor] = new_dist  # Relaxation step
+                heapq.heappush(min_heap, (new_dist, neighbor))
+                
     return distances
 ```
 
-```
-graph:              A --2-- B
-                     \       \
-                      6       3
-                       \       \
-                        C --1-- D
+---
 
-dijkstra(graph, "A"):
-start: dist={A:0, B:inf, C:inf, D:inf}, heap=[(0,A)]
-pop A(0): relax B -> 2, relax C -> 6      heap=[(2,B),(6,C)]
-pop B(2): relax D -> 2+3=5                heap=[(5,D),(6,C)]
-pop D(5): relax C -> 5+1=6 (not < 6, no update)
-pop C(6): no better relaxations
+## 4. Why Negative Edge Weights Break Dijkstra
 
-final: {A:0, B:2, C:6, D:5}
-```
+> [!CAUTION]
+> **Dijkstra FAILS on Negative Edge Weights!**
+> Dijkstra makes a **Greedy Assumption**: Once a node is popped from the min-heap, its calculated distance is final and will never decrease. 
+> 
+> If negative edge weights exist, a longer path with 10 hops could suddenly become cheaper later if it contains a `-100` weight edge! For graphs with negative weights, use the **Bellman-Ford Algorithm** ($O(V \cdot E)$).
 
-## Why the `if dist > distances[node]: continue` line matters
+---
 
-A node can be pushed onto the heap multiple times, once per time a shorter path to it is discovered — the heap doesn't support "update the priority of an existing entry" directly, so old, now-stale `(distance, node)` pairs just sit in the heap alongside the newer, better one. By the time a stale entry is popped, `distances[node]` has already been improved past it, so this check is what makes it safe to just skip it rather than reprocessing a node with outdated distance information.
+## 5. Time & Space Complexity Summary
 
-## Complexity
+| Metric | Complexity | Explanation |
+| :--- | :--- | :--- |
+| **Time Complexity** | **$O((V + E) \log V)$** | Every vertex ($V$) is popped from the heap, and every edge ($E$) can trigger a heap push ($O(\log V)$). |
+| **Space Complexity** | **$O(V + E)$** | Graph adjacency list $O(V + E)$ plus heap storage $O(V)$. |
 
-O((V + E) log V) with a binary heap — every edge can trigger a push (E log V), and every vertex is popped once (V log V). This is the same shape of bound as [[03-bfs|bfs]]'s O(V + E), with the extra log V factor coming directly from heap operations replacing plain queue operations.
+---
 
-## Gotchas
+## 6. Common Pitfalls & Traps
 
-- **Negative edge weights break it.** Dijkstra's greedy assumption — once a node is popped, its distance is final — only holds if every future edge can only add non-negative distance. A negative edge could make a longer-looking path actually cheaper *after* a node's been finalized, which Dijkstra has no mechanism to revisit. Bellman-Ford handles negative weights (at O(V·E) cost) — worth its own note if that comes up, not covered here.
-- Forgetting the stale-entry check (`if dist > distances[node]: continue`) doesn't produce wrong answers by itself (relaxation only ever improves distances), but it does waste work reprocessing a node's neighbors using an already-outdated distance.
-- Dijkstra gives shortest distance to **every** reachable node from the source, not just one target — if you only need one target's distance, you can stop early the moment that target is popped, but the algorithm doesn't require knowing the target in advance.
+1. **Forgetting the Stale Entry Check**: Skipping `if current_dist > distances[current_node]: continue` will not cause incorrect answers, but it wastes massive CPU cycles re-exploring outdated graph paths.
+2. **Negative Edge Weights**: Never use Dijkstra if edges can have negative values.
+3. **Confusing Dijkstra with BFS**: BFS uses a simple Queue ($O(V+E)$ on unweighted graphs). Dijkstra uses a Min-Heap ($O((V+E)\log V)$ on weighted graphs).
 
-## Related
-- [[03-bfs|bfs]] — the unweighted special case
-- [[07-top-k-elements|top-k-elements]] — same min-heap mechanics, different use
-- [[06-graphs|graphs]]
+---
+
+## 7. Check Your Understanding (University Self-Assessment)
+
+1. **Question**: What is the purpose of the edge relaxation step in Dijkstra's Algorithm?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> Edge relaxation checks if reaching a neighbor via the current node (<code>current_dist + weight</code>) is cheaper than the neighbor's previously recorded shortest distance. If so, the neighbor's recorded distance is updated.</details>
+
+2. **Question**: Why does Dijkstra require a Min-Heap (Priority Queue) instead of a standard FIFO Queue?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> A FIFO queue explores nodes by hop count (BFS). A Min-Heap ensures that the node with the absolute smallest cumulative distance is always popped next, which is required for weighted graph shortest paths.</details>
+
+3. **Question**: Can Dijkstra be used to find the shortest path on a graph with negative edge weights?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>No!</b> Dijkstra assumes that adding edges can only increase cumulative path cost. Negative edges violate this greedy assumption. Use the <b>Bellman-Ford Algorithm</b> instead.</details>
+
+---
+
+## Related Modules
+- [[03-bfs|Breadth-First Search (BFS)]] — Unweighted shortest paths ($O(V+E)$)
+- [[08-heaps|Heaps & Priority Queues]] — Min-Heap mechanics powering Dijkstra
+- [[06-graphs|Graphs]] — Weighted graph adjacency lists

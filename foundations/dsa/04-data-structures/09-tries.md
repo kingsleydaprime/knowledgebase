@@ -1,117 +1,185 @@
-# Tries (Prefix Trees)
+# Module: Tries / Prefix Trees (Shared Prefix Search)
 
-A trie (pronounced "try", from re**trie**val) is a tree specialized for storing strings by their **shared prefixes**. Every path from the root spells out a prefix; every stored word is a path ending at a node flagged as a word-end. It trades memory for a superpower a [[03-hash-maps|hash map]] can't match: answering "does any stored word *start with* this prefix?" in time proportional to the prefix length, independent of how many words are stored.
+Welcome to the **Trie** (pronounced *"try"*, short for re**TRIE**val) module. A Trie is a tree-based data structure optimized for storing strings by sharing common letter prefixes.
 
-## Why it exists
+Tries trade extra memory to grant a superpower that [[03-hash-maps|Hash Maps]] cannot match: **answering "Does any word start with this prefix?" in $O(L)$ time**, where $L$ is the length of the prefix, regardless of whether the dictionary contains 10 words or 10,000,000 words!
 
-A hash set of words answers "is this exact word present?" in O(L) (you hash the whole L-character string). What it *can't* do is prefix queries — "how many words start with `app`?", or "walk every word beginning with `pre`" — without scanning every key. A trie makes prefixes first-class: because words that share a prefix share the same path, a prefix lookup is just a walk down that one path. This is why autocomplete, spell-checkers, IP routing tables, and word-search-on-a-grid all reach for tries.
+---
 
-## The structure
+## 1. Real-World Motivation & Physical Metaphors
 
-Each node holds:
+Imagine using the **Search Bar Autocomplete** on your phone:
 
-- a map from **next character → child node** (a dict of size ≤ alphabet, or a fixed array of 26 for lowercase English),
-- a boolean `is_end` marking whether a word terminates *at this node*.
+```
+User types "app"  --->  Trie follows path: 'a' -> 'p' -> 'p'
+                             |
+         +-------------------+-------------------+
+         |                                       |
+    [ "apple" ]                             [ "application" ]
+```
 
-The root represents the empty prefix and stores no character itself. The characters live on the **edges** (equivalently, are the keys into the children map) — a node "is" the prefix formed by the path taken to reach it.
+- If you stored 1,000,000 words in a [[03-hash-maps|Hash Set]], asking *"Are there any words starting with 'app'?"* would force the computer to scan all 1,000,000 entries one-by-one ($O(N)$).
+- A **Trie** stores words by sharing letter paths. The characters `'a' -> 'p' -> 'p'` are stored **once**, and all words starting with `"app"` branch off from that exact node!
 
+### Production Use Cases:
+1. **Search Engine Autocomplete**: Instant word predictions as you type.
+2. **Spell-Checkers & Predictive Text (T9)**: Validating dictionary words.
+3. **IP Router Routing Tables**: Longest prefix matching for IP addresses.
+
+---
+
+## 2. Plain-English Terminology & Concept Table
+
+| Term | Plain-English Definition | Example / Analogy |
+| :--- | :--- | :--- |
+| **Root Node** | The empty starting node of the Trie. | Represents the empty string `""`. |
+| **Character Edge** | The link between nodes representing a single letter. | Edge labeled `'a'` or `'b'`. |
+| **`is_end` Flag** | A boolean flag marking if a full word terminates at this node. | Differentiates `"app"` (valid word) from `"appl"` (just a prefix). |
+| **Alphabet Size ($\Sigma$)** | The number of possible child branches per node. | $\Sigma = 26$ for lowercase English letters. |
+
+---
+
+## 3. Visual Anatomy of a Trie
+
+Below is a Trie containing the words **`"app"`, `"apple"`, `"apt"`, and `"cat"`**:
+
+```
+                  ( Root )
+                 /        \
+               'a'        'c'
+               /            \
+             'p'            'a'
+            /   \             \
+          'p'*  't'*          't'*
+          /
+        'l'
+        /
+      'e'*
+
+(* indicates is_end = True)
+```
+
+Notice how `"app"`, `"apple"`, and `"apt"` all share the initial path `'a' -> 'p'`!
+
+---
+
+## 4. Technical Deep Dive: Trie Implementation
+
+### Python Code: `TrieNode` & `Trie` Class
 ```python
 class TrieNode:
+    """Node representing a single character step in the Trie."""
     def __init__(self):
-        self.children = {}      # char -> TrieNode
-        self.is_end = False     # True if a word ends here
+        self.children = {}  # Maps character -> TrieNode (e.g. {'a': Node})
+        self.is_end = False  # True if a complete word ends at this node
+
 
 class Trie:
+    """Prefix Tree data structure."""
     def __init__(self):
         self.root = TrieNode()
 
-    def insert(self, word):                 # O(L)
-        node = self.root
-        for ch in word:
-            if ch not in node.children:
-                node.children[ch] = TrieNode()
-            node = node.children[ch]
-        node.is_end = True
+    def insert(self, word: str) -> None:
+        """Inserts a word into the trie. Time Complexity: O(L)"""
+        current = self.root
+        for char in word:
+            if char not in current.children:
+                current.children[char] = TrieNode()
+            current = current.children[char]
+        current.is_end = True  # Flag the end of the word
 
-    def search(self, word):                 # O(L) — full word must exist AND end here
+    def search(self, word: str) -> bool:
+        """Returns True if the exact word exists in the trie. Time Complexity: O(L)"""
         node = self._walk(word)
         return node is not None and node.is_end
 
-    def startsWith(self, prefix):            # O(L) — path just has to exist
+    def startsWith(self, prefix: str) -> bool:
+        """Returns True if any word in the trie starts with prefix. Time Complexity: O(L)"""
         return self._walk(prefix) is not None
 
-    def _walk(self, s):
-        node = self.root
-        for ch in s:
-            if ch not in node.children:
+    def _walk(self, text: str) -> TrieNode:
+        """Helper to walk the trie path for a given string."""
+        current = self.root
+        for char in text:
+            if char not in current.children:
                 return None
-            node = node.children[ch]
-        return node
+            current = current.children[char]
+        return current
 ```
 
-The one subtlety is `is_end`. `search("app")` and `startsWith("app")` walk the identical path; the *only* difference is that `search` also checks the flag. Without `is_end` you couldn't tell that `app` is a stored word while `appl` is merely a prefix of `apple`.
+---
 
-## Complexity
+## 5. Hash Set vs. Trie Comparison
 
-Let L = length of the word/prefix, and Σ = alphabet size.
+| Feature | Hash Set / Hash Map | Trie (Prefix Tree) |
+| :--- | :--- | :--- |
+| **Exact Word Match (`"apple"`)** | **$O(L)$** (Hash calculation) | **$O(L)$** (Node traversal) |
+| **Prefix Match (`startsWith("app")`)** | $O(N \cdot L)$ (Must scan all keys) | **$O(L)$** (Walk prefix length only!) |
+| **Memory Consumption** | Compact ($O(N \cdot L)$) | Higher due to node pointers ($O(N \cdot L \cdot \Sigma)$) |
+| **Sorted Lexicographical Traversal**| Requires sorting all keys ($O(N \log N)$) | **$O(N)$ for free** (Preorder traversal of tree) |
 
-| Operation | Time | Note |
-|---|---|---|
-| Insert | O(L) | independent of the number of stored words |
-| Search (exact) | O(L) | |
-| startsWith (prefix) | O(L) | the operation a hash map can't do |
-| Space | O(total characters · Σ) worst case | shared prefixes reclaim much of this |
+---
 
-The headline is that **every operation is O(L), not O(L · n)** — adding a millionth word doesn't slow down lookups. The cost is space: each node carries a children container, so a trie is memory-hungry compared to a hash set, especially when words share few prefixes. The array-of-26 layout is fast but wasteful; the dict layout is compact but has hashing overhead per step.
+## 6. Advanced Pattern: Wildcard Search (`.`)
 
-## Wildcard search — the `.` that matches any character
-
-The moment a search allows a wildcard, the single-path walk becomes a **branching DFS**: at a `.`, recurse into *every* child; at a concrete character, recurse into just that one. This is *Design Add and Search Words*:
+When a query string includes a wildcard `.` (matching any character), the single-path lookup transforms into a **Depth-First Search (DFS)** over all child branches:
 
 ```python
-def search(self, word):
-    def dfs(node, i):
-        if i == len(word):
+def search_wildcard(self, word: str) -> bool:
+    """Searches for a word where '.' matches any character."""
+    def dfs(node: TrieNode, index: int) -> bool:
+        if index == len(word):
             return node.is_end
-        ch = word[i]
-        if ch == ".":
-            return any(dfs(child, i + 1) for child in node.children.values())
-        return ch in node.children and dfs(node.children[ch], i + 1)
+            
+        char = word[index]
+        if char == '.':
+            # Wildcard: Recurse down ALL existing child nodes!
+            return any(dfs(child, index + 1) for child in node.children.values())
+        else:
+            if char not in node.children:
+                return False
+            return dfs(node.children[char], index + 1)
+
     return dfs(self.root, 0)
 ```
 
-Worst case (`word` is all dots) this degrades toward exploring the whole trie — but on realistic inputs the concrete characters prune aggressively.
+---
 
-## Trie + grid backtracking — the killer combination
+## 7. Complexity & Memory Trade-Offs
 
-*Word Search II* (find which of many words appear in a character grid) is the reason tries earn their keep. The brute force — run a grid DFS separately for each word — is hopeless. Instead, **build one trie of all the words**, then run a single [[14-backtracking|backtracking]] DFS over the grid that walks the trie in lockstep: at each cell, only continue if the current character is a child in the trie. The trie prunes dead ends across *all* words simultaneously, and matched words get pruned out of the trie so they aren't re-reported. This "trie guides the search" idea generalizes to any multi-pattern matching on a search space.
+Let $L$ = Length of the target word/prefix, and $\Sigma$ = Alphabet size (e.g. 26).
 
-## Complexity vs. a hash map — when to actually use a trie
+| Operation | Time Complexity | Notes |
+| :--- | :--- | :--- |
+| **Insert Word** | **$O(L)$** | Completely independent of total words stored ($N$). |
+| **Search Exact Word** | **$O(L)$** | Checks `is_end == True`. |
+| **Prefix Match (`startsWith`)**| **$O(L)$** | The key operation a Hash Map cannot match! |
+| **Space Overhead** | $O(N \cdot L \cdot \Sigma)$ | Shared prefixes save space, but pointer overhead is high. |
 
-| Need | Reach for |
-|---|---|
-| Exact membership only | [[03-hash-maps\|hash set]] — simpler, less memory |
-| Prefix queries / autocomplete | **trie** |
-| Multi-pattern search over a grid/text | **trie** + DFS |
-| Sorted iteration of keys | trie (a pre-order walk yields words in lexicographic order) — or a balanced [[01-trees\|BST]] |
+---
 
-If you never ask a prefix question, a hash set beats a trie on every axis. The trie is worth its memory precisely when the *prefix* is the query.
+## 8. Common Pitfalls & Traps
 
-## Gotchas
+1. **Forgetting `is_end`**: If you forget to flag `is_end = True`, your Trie cannot distinguish between an actual word (`"app"`) and a prefix of a longer word (`"apple"`).
+2. **Memory Overuse**: Using fixed arrays of size 26 for Unicode/multilingual inputs wastes massive RAM. Use a dynamic dictionary `self.children = {}` instead.
+3. **Complex Deletions**: Deleting a word from a Trie requires recursively pruning unneeded nodes only if they have no other children and are not marked as `is_end` for another word.
 
-- **Forgetting `is_end`** collapses `search` and `startsWith` into the same (wrong) answer — the flag is the whole point.
-- **Deletion is fiddly**: you can't just unset `is_end` and prune, because the node may sit on the path of a longer word. Prune a node only if it has no children *and* isn't another word's end.
-- **Memory blows up with a large alphabet** using fixed arrays — prefer a dict for Unicode or sparse alphabets.
-- A trie's pre-order traversal yields keys **in sorted order for free** — occasionally the reason to pick it over a hash map even without prefix queries.
+---
 
-## Canonical problems (NeetCode Tries)
+## 9. Check Your Understanding (University Self-Assessment)
 
-- **Implement Trie (Prefix Tree)** — `insert` / `search` / `startsWith`, the structure above.
-- **Design Add and Search Words Data Structure** — the wildcard `.` DFS.
-- **Word Search II** — trie + grid backtracking.
+1. **Question**: Why can't a Hash Set perform prefix searches (`startsWith("app")`) in $O(L)$ time?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> A Hash Set hashes the entire string to compute an index. Searching for a prefix gives a completely different hash than the full word (e.g., <code>hash("app") != hash("apple")</code>). To check prefixes, a Hash Set must scan every key one-by-one (<b>O(N)</b>).</details>
 
-## Related
-- [[03-hash-maps|Hash maps]] — the alternative that can't do prefixes
-- [[01-trees|Trees]] — the general tree structure a trie specializes
-- [[14-backtracking|Backtracking]] — pairs with a trie for Word Search II
-- [[02-dfs|DFS]] — how wildcard and grid searches traverse a trie
+2. **Question**: What is the purpose of the `is_end` boolean flag in a `TrieNode`?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> The <code>is_end</code> flag indicates that a valid word terminates at that node. Without it, searching for <code>"app"</code> in a Trie containing only <code>"apple"</code> would incorrectly return <code>True</code>.</details>
+
+3. **Question**: How does a Trie automatically provide sorted (alphabetical) word output?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> By performing a <b>Preorder Traversal</b> over the Trie while iterating child keys in alphabetical order ('a' to 'z'), words are visited in strictly sorted lexicographical order.</details>
+
+---
+
+## Related Modules
+- [[03-hash-maps|Hash Maps]] — The $O(1)$ exact-match alternative
+- [[01-trees|Trees]] — General tree hierarchies
+- [[02-dfs|Depth-First Search (DFS)]] — Traversing Tries for wildcard and grid search (Word Search II)

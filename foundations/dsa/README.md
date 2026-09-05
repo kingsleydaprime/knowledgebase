@@ -47,11 +47,11 @@ dsa/
 
 **Note on numbering:** the folder numbers order the *folders*; the reading order below is what actually matters and doesn't follow them exactly. Complexity analysis lives at `05-algorithms/01-algorithms.md` for filing reasons but should be read second.
 
-## Reading order
+## Reading order & University Course Approach
 
-Tags mark roughly where each note sits on a Beginner → Advanced curve **within this folder** — pacing, not gates. A "Beginner" tag means "assumes the least prior context here."
+Every module in this folder is structured like a **University Course Lecture**: starting with **real-world motivation** and everyday physical analogies before moving into formal definitions, step-by-step visual diagrams, annotated code, and self-assessment practice questions.
 
-This assumes you can already read and write code. If you can't yet, [[foundations/programming-fundamentals/README|programming fundamentals]] is the on-ramp into that, and this folder is the next stop after it.
+Whether you are an absolute beginner or looking for deep computer science intuition, you can read these modules sequentially from top to bottom.
 
 **Start here — the measuring system**
 

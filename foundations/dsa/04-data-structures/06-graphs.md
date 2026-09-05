@@ -1,163 +1,176 @@
-# Graphs
+# Module: Graphs (Networks, Connections & Dependencies)
 
-A graph is a set of **vertices** (nodes) connected by **edges**. It's the most general structure in this folder, and the others are special cases of it: a [[01-trees|tree]] is a graph with no cycles and exactly one path between any two nodes; a [[04-linked-lists|linked list]] is a tree where every node has exactly one child. Graphs drop those restrictions — any node can connect to any other, cycles are allowed, and there needn't be a single root.
+Welcome to the **Graphs** module. A **Graph** is a set of **Vertices** (nodes) connected by **Edges** (relationships).
 
-The reason graphs matter more than that framing suggests: **an enormous number of problems are graph problems wearing a disguise.** Road networks, social follows, package dependencies, build targets, web links, state machines, course prerequisites, currency exchange rates, and 2-D grids are all graphs. Learning to *notice* that is worth more than any individual graph algorithm.
+Graphs are the ultimate generalized data structure. In fact, earlier structures you studied are simply restricted graphs:
+- A [[01-trees|Tree]] is a graph with no cycles and exactly one path between any two nodes.
+- A [[04-linked-lists|Linked List]] is a tree where every node has at most one child.
 
-## Vocabulary
+By removing all restrictions, graphs allow any node to connect to any other node, allow loops (cycles), and allow disconnected components.
 
-- **Vertex / node** — a thing. **Edge** — a relationship between two things.
-- **Adjacent** — two vertices with an edge between them. The **neighbours** of `v` are all vertices adjacent to it.
-- **Degree** of a vertex — how many edges touch it. Directed graphs split this into **in-degree** (edges arriving) and **out-degree** (edges leaving); in-degree is what [[11-topological-sort|topological sort]] counts.
-- **Path** — a sequence of vertices each connected to the next. **Cycle** — a path that returns to its start.
-- **Connected** — there's a path between every pair of vertices. A **component** is a maximal connected chunk; a graph can be several disconnected components.
+---
 
-## The kinds of graph
+## 1. Why Graphs Matter (Real-World Motivation)
 
-Four independent properties. Any combination is possible, and each one changes which algorithms apply — which is why the first thing to establish about a graph problem is which boxes it ticks.
-
-### Directed vs undirected
-
-Does an edge `A → B` imply `B → A`? A one-way street versus a two-way street.
+An enormous number of real-world software systems are **graph problems in disguise**:
 
 ```
-undirected:  A —— B        directed:  A ——> B
-             friendship               "follows on Twitter"
+[ New York ] ===== (2,800 miles) ===== [ Los Angeles ]   <-- Flight Networks / GPS Maps
+     |                                        |
+     + ------------- (215 miles) ------------ + [ Washington D.C. ]
 ```
 
-The practical consequence is in how you build the adjacency list: undirected means **every edge gets added twice**, once in each direction. Forgetting that second `append` is the most common graph-construction bug there is.
+1. **GPS Navigation & Google Maps**: Intersections are vertices; roads are weighted edges (where weights represent distance or traffic delay).
+2. **Social Networks (LinkedIn / Twitter)**: Users are vertices. Two-way "Friends" are undirected edges; one-way "Followers" are directed edges.
+3. **Build Systems & Course Prerequisites (DAGs)**: Package `A` depends on Package `B`, which depends on Package `C`.
+4. **2D Grid Mazes**: Every grid cell `(r, c)` is a vertex connected to its 4 cardinal neighbors (`up, down, left, right`).
 
-### Weighted vs unweighted
+---
 
-Do edges carry a cost — distance, time, price, capacity — or are they all equivalent?
+## 2. Plain-English Terminology & Concept Table
 
-This is the single most important distinction for **shortest path**, because it decides your algorithm outright. Unweighted: [[03-bfs|BFS]] finds the shortest path, because "fewest edges" and "lowest cost" are the same thing. Weighted: BFS is simply *wrong* — a two-edge route can be cheaper than a one-edge route — and you need [[06-dijkstra|Dijkstra]] (or Bellman-Ford if any weight is negative, since Dijkstra assumes adding an edge never makes a path cheaper).
+| Term | Plain-English Definition | Real-World Example |
+| :--- | :--- | :--- |
+| **Vertex (Node)** | An individual entity or point in the graph. | A city, user, web page, or grid cell. |
+| **Edge** | A connection or link between two vertices. | Flight path, friendship, hyperlink. |
+| **Adjacent (Neighbor)** | Two vertices connected directly by an edge. | Cities sharing a direct highway. |
+| **Degree** | Total edges touching a vertex. Directed graphs split this into **In-Degree** (arriving) and **Out-Degree** (leaving). | Twitter followers (In-degree) vs accounts followed (Out-degree). |
+| **Path** | A sequence of connected vertices from Start $\rightarrow$ End. | Flight itinerary with layovers. |
+| **Cycle** | A path that loops back to its starting vertex. | Round-trip flight `A -> B -> C -> A`. |
+| **DAG** | Directed Acyclic Graph: A directed graph with **zero cycles**. | Task schedules, build systems, Git commits. |
 
-### Cyclic vs acyclic
+---
 
-Can you follow edges and end up back where you started?
+## 3. The 4 Dimensions of Graphs
 
-A **DAG** (directed acyclic graph) is the directed, cycle-free case, and it's worth naming because so much real infrastructure is one: build dependencies, task schedules, course prerequisites, spreadsheet formula references, git commit history. **A DAG is exactly the class of graph you can [[11-topological-sort|topologically sort]]** — and the "is there a cycle?" check and the sort are the same algorithm, since a topological sort is possible if and only if no cycle exists.
+To pick the correct algorithm, you must identify your graph's 4 core dimensions:
 
-Note the trap: **acyclic is not the same as tree.** A DAG can have multiple paths between two nodes — the diamond A→B, A→C, B→D, C→D has no cycle but isn't a tree.
+```
+Undirected (2-Way Street):       Directed (1-Way Street):
+   (A) <----------> (B)              (A) -----------> (B)
 
-### Simple vs multigraph
+Unweighted (Equal Cost):        Weighted (Cost Added):
+   (A) ------------ (B)              (A) --[50 miles]-> (B)
+```
 
-A **simple graph** has at most one edge between any pair of vertices and no **self-loops** (an edge from a vertex to itself). Most problems assume this without saying so.
+1. **Directed vs. Undirected**:
+   - **Undirected**: Edges work both ways (`A <-> B`). *Code Rule*: Must add the edge twice in code (`graph[A].append(B)` and `graph[B].append(A)`).
+   - **Directed**: Edges work one-way (`A -> B`).
+2. **Weighted vs. Unweighted**:
+   - **Unweighted**: All edges have equal cost. (Use **[[03-bfs|BFS]]** for shortest path).
+   - **Weighted**: Edges carry distances/costs. (Use **[[06-dijkstra|Dijkstra's Algorithm]]** for shortest path).
+3. **Cyclic vs. Acyclic (DAG)**:
+   - **Cyclic**: Contains loops. Must track a `visited` set during traversal!
+   - **Acyclic (DAG)**: No loops. Can be **Topologically Sorted** (e.g. build dependencies).
+4. **Sparse vs. Dense**:
+   - **Sparse**: Edges ($E$) is close to Vertices ($V$). (Use **Adjacency List**).
+   - **Dense**: Edges ($E$) approaches $V^2$. (Use **Adjacency Matrix**).
 
-A **multigraph** allows **parallel edges** — two cities with both a cheap slow train and an expensive fast one between them. This matters more than it sounds: an adjacency *matrix* fundamentally can't represent parallel edges (one cell, one value), so a multigraph forces an adjacency list or edge list.
+---
 
-### Named shapes worth recognising
+## 4. Graph Data Representations (How to Store a Graph)
 
-- **Complete graph** — every vertex connected to every other. `V(V-1)/2` edges undirected; the densest a simple graph gets.
-- **Bipartite graph** — vertices split into two groups with edges only *between* groups, never within. Students↔courses, jobs↔machines, users↔products. Checking bipartiteness is a two-colouring BFS, and it's the setup for matching problems.
-- **Tree** — connected, acyclic, undirected, exactly `V-1` edges. **Forest** — a collection of trees, i.e. acyclic but not necessarily connected.
-- **Strongly connected** (directed only) — every vertex can reach every other *following edge directions*. Distinct from **weakly connected**, which only requires connectivity if you ignore direction.
+There are 3 standard ways to store a graph in code:
 
-### Dense vs sparse
-
-Not a formal category but the one that drives your representation choice. With `V` vertices, a simple undirected graph has at most `V(V-1)/2` edges — call it `V²`.
-
-- **Sparse**: `E` is closer to `V` than to `V²`. A social network — you follow hundreds of people, not eight billion.
-- **Dense**: `E` approaches `V²`. A currency-conversion table where every currency has a rate against every other.
-
-**Most real and interview graphs are sparse**, which is why the adjacency list is the default.
-
-## Representations
-
-Three ways to store a graph, and the choice materially affects performance.
-
-**Adjacency list** — for each vertex, its neighbours. The default.
+### 1. Adjacency List (The Universal Default)
+A dictionary mapping each vertex to a list of its neighbors.
 
 ```python
+# Adjacency List representation in Python
 graph = {
     "A": ["B", "C"],
     "B": ["A", "D"],
     "C": ["A"],
-    "D": ["B"],
+    "D": ["B"]
 }
-# weighted: store tuples -> {"A": [("B", 5), ("C", 2)]}
 ```
+- **Space**: $O(V + E)$ (Optimal for sparse graphs).
+- **Pros**: Fast neighbor iteration; low memory usage.
 
-**Adjacency matrix** — a V×V grid, `matrix[i][j] = 1` when an edge exists (or the weight, when weighted).
+---
+
+### 2. Adjacency Matrix (Dense $V \times V$ Grid)
+A 2D matrix where `matrix[u][v] = 1` (or weight) if an edge connects $u$ to $v$.
 
 ```
-    A  B  C  D
-A [ 0, 1, 1, 0 ]
-B [ 1, 0, 0, 1 ]
-C [ 1, 0, 0, 0 ]
-D [ 0, 1, 0, 0 ]
+     A  B  C  D
+A  [ 0, 1, 1, 0 ]
+B  [ 1, 0, 0, 1 ]
+C  [ 1, 0, 0, 0 ]
+D  [ 0, 1, 0, 0 ]
 ```
+- **Space**: $O(V^2)$ (Heavy memory penalty for sparse graphs).
+- **Pros**: Instant $O(1)$ check to see if edge `(u, v)` exists.
 
-An undirected graph's matrix is symmetric across the diagonal; the diagonal itself is self-loops.
+---
 
-**Edge list** — just the edges, no per-vertex grouping.
+### 3. Edge List (Array of Tuples)
+A simple array storing edge tuples: `[("A", "B", 5), ("A", "C", 2), ("B", "D", 7)]`.
+- **Primary Use**: Algorithms that process edges globally, like **Kruskal's Minimum Spanning Tree**.
+
+---
+
+## 5. Implicit Graphs (Grid Mazes Without Graph Objects)
+
+> [!TIP]
+> A 2D Grid array is secretly a Graph! You don't need to build an Adjacency List object—calculate neighbor coordinates arithmetically.
 
 ```python
-edges = [("A", "B", 5), ("A", "C", 2), ("B", "D", 7)]
+def get_neighbors(r: int, c: int, rows: int, cols: int):
+    """Calculates cardinal neighbors (Up, Down, Left, Right) on the fly."""
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    neighbors = []
+    
+    for dr, dc in directions:
+        nr, nc = r + dr, c + dc
+        # Check boundary constraints
+        if 0 <= nr < rows and 0 <= nc < cols:
+            neighbors.append((nr, nc))
+            
+    return neighbors
 ```
 
-Useless for "who are `A`'s neighbours?" — that's a full scan — but it's the right shape when an algorithm wants to consider *every edge in some order*, which is exactly what [[12-minimum-spanning-tree|Kruskal's]] does (sort all edges by weight, add the cheapest that doesn't form a cycle). Bellman-Ford also just relaxes every edge repeatedly. It's also how graphs almost always arrive in a problem statement, so `edges → adjacency list` is a conversion worth being able to write without thinking.
+Every grid maze problem (Islands, Flood Fill, Pathfinding) uses this implicit graph technique!
 
-| | Adjacency list | Adjacency matrix | Edge list |
-|---|---|---|---|
-| Space | O(V + E) | O(V²) | O(E) |
-| Edge `(u,v)` exists? | O(degree of u) | **O(1)** | O(E) |
-| Iterate neighbours of `u` | **O(degree of u)** | O(V) — scan the row | O(E) |
-| Iterate all edges | O(V + E) | O(V²) | **O(E)** |
-| Add an edge | O(1) | O(1) | O(1) |
-| Parallel edges | ✓ | ✗ | ✓ |
-| Best for | sparse graphs — **the default** | dense graphs, O(1) edge lookup | edge-centric algorithms (Kruskal, Bellman-Ford) |
+---
 
-## Implicit graphs — the ones with no graph object
+## 6. Graph Algorithm Decision Cheat-Sheet
 
-Not every graph is built. Often the graph is **implied by the rules of the problem**, and constructing it explicitly would be wasted work. Recognising this is worth more in practice than any representation detail.
+| Question / Goal | Algorithm to Reach For |
+| :--- | :--- |
+| **Is there any path between A and B?** | **DFS** or **BFS** |
+| **Shortest Path (Unweighted Graph / Grid)** | **BFS** (Breadth-First Search) |
+| **Shortest Path (Weighted Graph, Non-Negative)** | **Dijkstra's Algorithm** (BFS + Min-Heap) |
+| **Valid Order of Dependencies (DAG)** | **Topological Sort** |
+| **Detect Cycles in Undirected Graph** | **Union-Find** or DFS |
+| **Connect all points with minimum total cost** | **Minimum Spanning Tree (Prim's / Kruskal's)** |
 
-**A 2-D grid is a graph.** Each cell is a vertex; each cell is adjacent to its four (or eight) neighbours. There's no adjacency list anywhere — the neighbours are computed arithmetically:
+---
 
-```python
-for dr, dc in ((0, 1), (0, -1), (1, 0), (-1, 0)):
-    nr, nc = r + dr, c + dc
-    if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] != WALL:
-        ...   # this is "for neighbour in graph[node]"
-```
+## 7. Common Pitfalls & Traps
 
-That loop *is* the adjacency lookup. Every grid problem — islands, flood fill, shortest path through a maze, rotting oranges — is a standard [[02-dfs|DFS]]/[[03-bfs|BFS]] over an implicit graph, which is why [[13-matrix-traversal|matrix traversal]] is a graph pattern rather than an array one.
+1. **Forgetting `visited` Sets**: Unlike trees, graph paths can loop. Omitting a `visited = set()` causes infinite recursive loops.
+2. **Marking Visited on Dequeue vs Enqueue in BFS**: In BFS, always add a node to `visited` **immediately when enqueuing it**. Marking it on dequeue allows duplicate nodes to flood the queue.
+3. **Using BFS on Weighted Graphs**: BFS assumes fewer edges = shorter path. On a weighted graph, a path with 2 edges (weights: $10+10 = 20$) can be slower than a path with 3 edges (weights: $1+1+1 = 3$). Use **Dijkstra** for weighted graphs!
 
-The same idea generalises: in **Word Ladder** the vertices are words and the edges are "differs by one letter" — computed, never stored. In a **state-space search** the vertices are configurations (a puzzle position, a game state) and the edges are legal moves. **If you can enumerate a node's neighbours on demand, you have a graph, and every graph algorithm applies** — no data structure required.
+---
 
-## How you actually do things with a graph
+## 8. Check Your Understanding (University Self-Assessment)
 
-A graph on its own is just a shape; the useful work is in the algorithms that walk it. [[02-dfs|DFS]] and [[03-bfs|BFS]] are the foundation, and nearly everything else is one of them with something added:
+1. **Question**: Why is an Adjacency List preferred over an Adjacency Matrix for storing a social network like Twitter (800 million users, average 500 follows per user)?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> Twitter's graph is extremely <b>sparse</b>. An Adjacency Matrix requires an 800M x 800M grid (640,000 trillion cells, mostly zeros!). An Adjacency List consumes space proportional to actual edges <b>O(V + E)</b>, taking only a few gigabytes.</details>
 
-| Question | Tool |
-|---|---|
-| Is there a path from A to B? | DFS or BFS |
-| Shortest path, **unweighted** | BFS |
-| Shortest path, **weighted, non-negative** | [[06-dijkstra\|Dijkstra]] — BFS + a min-heap |
-| Shortest path, **negative weights** | Bellman-Ford |
-| How many connected components? | DFS/BFS from every unvisited vertex, or [[10-union-find\|union-find]] |
-| Is there a cycle? | DFS tracking the recursion stack (directed), or union-find (undirected) |
-| Valid ordering of dependencies? | [[11-topological-sort\|Topological sort]] — DAG only |
-| Cheapest way to connect everything? | [[12-minimum-spanning-tree\|MST]] — Prim's or Kruskal's |
-| Can it be two-coloured? | BFS assigning alternating colours (bipartite check) |
+2. **Question**: What is a DAG (Directed Acyclic Graph), and why is it required for Topological Sorting?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> A DAG is a directed graph with <b>zero cycles</b>. Topological sorting orders tasks by dependencies. If a cycle exists (A depends on B, B depends on C, C depends on A), a valid topological order is logically impossible (circular dependency deadlock).</details>
 
-## Gotchas
+3. **Question**: In an undirected graph, what critical step must be taken when populating an Adjacency List from an edge `(u, v)`?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> You must append the edge in <b>both directions</b>: <code>graph[u].append(v)</code> AND <code>graph[v].append(u)</code>.</details>
 
-- **Cycles break naive traversal.** Unlike a tree, a graph can loop back on itself, so every traversal needs a `visited` set. Without one, DFS/BFS runs forever. This is the number-one graph bug, and the reason tree code doesn't port to graphs unchanged.
-- **Mark visited when you *enqueue*, not when you dequeue.** In BFS, marking on dequeue lets a vertex be added to the queue several times before it's first processed — still correct, but it can blow up the queue and the runtime.
-- **Disconnected graphs.** One DFS/BFS call only reaches the start vertex's component. To cover the whole graph you must loop over all vertices and start fresh from each unvisited one — forgetting this quietly gives an answer for one component instead of the graph.
-- **Undirected edges must be added twice.** `graph[u].append(v)` *and* `graph[v].append(u)`. Half a graph produces plausible-looking wrong answers rather than a crash.
-- **BFS on a weighted graph is wrong**, even though it runs and returns something. Fewest edges ≠ lowest cost.
-- **Acyclic ≠ tree** — see the diamond above.
-- **A dense graph in an adjacency list still costs O(V²) to traverse**, and a sparse graph in a matrix wastes O(V²) space to hold almost entirely zeros. The representation has to match the density.
+---
 
-## Related
-- [[01-trees|trees]] — the constrained case: connected, acyclic, `V-1` edges
-- [[04-linked-lists|linked lists]] — the maximally constrained case: one child each
-- [[02-dfs|dfs]] and [[03-bfs|bfs]] — the two traversals everything else is built from
-- [[06-dijkstra|dijkstra]] — weighted shortest path
-- [[11-topological-sort|topological-sort]] — ordering a DAG
-- [[12-minimum-spanning-tree|minimum-spanning-tree]] — Prim's and Kruskal's
-- [[10-union-find|union-find]] — components and cycle detection without traversal
-- [[13-matrix-traversal|matrix-traversal]] — grids as implicit graphs
+## Related Modules
+- [[01-trees|Trees]] — Cycle-free connected graphs
+- [[02-dfs|Depth-First Search (DFS)]] — Graph traversal using stack/recursion
+- [[03-bfs|Breadth-First Search (BFS)]] — Shortest path in unweighted graphs
+- [[06-dijkstra|Dijkstra's Algorithm]] — Shortest path in weighted graphs
+- [[10-union-find|Union-Find]] — Disjoint sets and cycle detection
