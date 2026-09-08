@@ -4,17 +4,19 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 
 **~18,800 words across 19 notes.** Built August 2026, extended the same week after a [roadmap.sh](https://roadmap.sh/python) audit. `[reference]`.
 
-> **The one idea:** Python trades machine time for programmer time, and **every quirk in this course is that trade showing through.** Names bind to objects (so assignment aliases), types are checked at runtime (so errors reach production), and one lock protects the interpreter (so threads don't parallelise). Knowing *why* turns a list of gotchas into one model.
+> **The one idea:** Python trades machine time for programmer time, and **every quirk in this course is that trade showing through.** Names bind to objects (so assignment aliases), types are checked at runtime (so errors reach production), and one lock protects the interpreter (so threads don't parallelise). Knowing _why_ turns a list of gotchas into one model.
 
 ## Why this exists
 
-[[languages/README|languages/README]] listed "Python at depth" as a track that would slot in *if notes got written*. They hadn't been — despite Python appearing throughout the vault: the [[ai-ml/README|entire ML domain]] is written in it, [[devops/README|devops]] assumes it for automation, and [[foundations/programming-fundamentals/README|programming fundamentals]] uses it for most examples.
+[[languages/README|languages/README]] listed "Python at depth" as a track that would slot in _if notes got written_. They hadn't been — despite Python appearing throughout the vault: the [[ai-ml/README|entire ML domain]] is written in it, [[devops/README|devops]] assumes it for automation, and [[foundations/programming-fundamentals/README|programming fundamentals]] uses it for most examples.
 
 **So the vault taught Python-the-tool everywhere and Python-the-language nowhere.** This closes that.
 
 ## Reading order
 
 **01–04 are the model and are worth reading in order.** 05–11 are the language's features and can be dipped into. 12–14 are the runtime, and assume the rest.
+
+**Self-study pilot:** [[languages/06-python/06-iterators-generators-and-comprehensions|Iterators, Generators and Laziness]] now has a state trace, runnable examples, and independent implementation checks. Follow its prerequisites and complete its local practice before moving on; you do not need to wait until note 18 to start practising. The remaining lessons have not yet received the same teaching-quality revision.
 
 1. [[languages/06-python/01-why-python-and-the-toolchain|Why Python, and the Toolchain]] — **[Beginner]** — what it's for, versions, and **virtual environments, which is where beginners lose days**
 2. [[languages/06-python/02-the-data-model|The Data Model]] — **[Beginner → Intermediate]** — names bind to objects; `is` vs `==`, copying, truthiness, and **the mutable default argument**
@@ -74,14 +76,14 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 
 ## Where this connects
 
-| | |
-|---|---|
-| [[backend/frameworks/python/README\|backend/frameworks/python/]] | FastAPI, Django, Flask — **the frameworks, per the languages/ rule** |
-| [[ai-ml/00-foundations/04-python-and-data-tools/README\|Python for data]] | NumPy, pandas, matplotlib — the numeric stack |
-| [[foundations/programming-fundamentals/README\|programming fundamentals]] | **If this is your first language, start there** |
-| [[devops/01-linux/12-bash-scripting\|bash scripting]] | When a shell script should have been Python |
-| [[languages/02-go/README\|Go]] · [[languages/03-rust/README\|Rust]] | The other end of the trade — types and concurrency enforced |
-| [[foundations/compilers/README\|compilers]] | What "bytecode on a VM" means |
+|                                                                           |                                                                      |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [[backend/frameworks/python/README\|backend/frameworks/python/]]          | FastAPI, Django, Flask — **the frameworks, per the languages/ rule** |
+| [[ai-ml/00-foundations/04-python-and-data-tools/README\|Python for data]] | NumPy, pandas, matplotlib — the numeric stack                        |
+| [[foundations/programming-fundamentals/README\|programming fundamentals]] | **If this is your first language, start there**                      |
+| [[devops/01-linux/12-bash-scripting\|bash scripting]]                     | When a shell script should have been Python                          |
+| [[languages/02-go/README\|Go]] · [[languages/03-rust/README\|Rust]]       | The other end of the trade — types and concurrency enforced          |
+| [[foundations/compilers/README\|compilers]]                               | What "bytecode on a VM" means                                        |
 
 ## Against the roadmap
 
@@ -91,12 +93,12 @@ Audited against the [roadmap.sh Python track](https://roadmap.sh/python) (August
 
 **Covered elsewhere in this vault, deliberately not duplicated:**
 
-| Roadmap topic | Where it lives |
-|---|---|
-| Data structures & algorithms, sorting, arrays, linked lists, hashmaps, heaps/stacks/queues, BSTs, recursion | [[foundations/dsa/README\|foundations/dsa/]] |
-| Django, Flask, FastAPI, Pydantic | [[backend/frameworks/python/README\|backend/frameworks/python/]] — **per [[languages/README\|the languages/ rule]]** |
-| NumPy, pandas, plotting | [[ai-ml/00-foundations/04-python-and-data-tools/README\|ai-ml/00-foundations]] |
-| Git, clean code, paradigms | [[git/README\|git/]], [[concepts/04-best-practices/README\|best practices]], [[foundations/programming-fundamentals/14-programming-paradigms\|paradigms]] |
+| Roadmap topic                                                                                               | Where it lives                                                                                                                                            |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Data structures & algorithms, sorting, arrays, linked lists, hashmaps, heaps/stacks/queues, BSTs, recursion | [[foundations/dsa/README\|foundations/dsa/]]                                                                                                              |
+| Django, Flask, FastAPI, Pydantic                                                                            | [[backend/frameworks/python/README\|backend/frameworks/python/]] — **per [[languages/README\|the languages/ rule]]**                                      |
+| NumPy, pandas, plotting                                                                                     | [[ai-ml/00-foundations/04-python-and-data-tools/README\|ai-ml/00-foundations]]                                                                            |
+| Git, clean code, paradigms                                                                                  | [[git/README\|git/]], [[concepts/04-best-practices/README\|best practices]], [[foundations/programming-fundamentals/14-programming-paradigms\|paradigms]] |
 
 **Deliberately skipped** — the alternative-framework long tail (Tornado, Sanic, Pyramid, aiohttp, gevent, Plotly Dash), the formatter/doc long tail (yapf, sphinx, doctest, tox, pyre). **These are lookups, not understanding**, and listing them would imply coverage that adds nothing over their own documentation.
 
@@ -113,11 +115,12 @@ Audited against the [roadmap.sh Python track](https://roadmap.sh/python) (August
 5. **Write a decorator with arguments** from scratch, without copying. Three levels of nesting is the part that doesn't stick from reading
 6. **Benchmark `threading` vs `multiprocessing`** on one CPU-bound and one I/O-bound task. Note 12's table, verified in ten minutes
 
-**What's missing:** ~~`asyncio` at depth~~ **(closed, note 17)**, metaclasses and descriptors (deliberately — rarely needed, frequently misused), packaging *as a publisher* (building and uploading to PyPI), and C-extension authoring. ~~Exercises~~ — **closed by notes 18–19 (Aug 2026).**
+**What's missing:** ~~`asyncio` at depth~~ **(closed, note 17)**, metaclasses and descriptors (deliberately — rarely needed, frequently misused), packaging _as a publisher_ (building and uploading to PyPI), and C-extension authoring. ~~Exercises~~ — **closed by notes 18–19 (Aug 2026).**
 
 → [[PRIMETECHIE|Reading is not a rank.]]
 
 ## Related
+
 - [[languages/README|languages/]] — the domain index
 - [[backend/frameworks/python/README|Python backends]]
 - [[BUILD-PLAN|Build Plan]]

@@ -1,75 +1,223 @@
-# Math & Geometry
+# Module: Math & Geometry (In-Place Grids & Number Tricks)
 
-A grab-bag category, unified less by a shared algorithm than by a shared demand: **manipulate numbers or grid coordinates directly and carefully**, often *in place* and often with an arithmetic trick that avoids the obvious extra space. Interviews use these to test precision with indices, overflow, and simulation — the kind of bug-prone code that separates "knows the idea" from "can actually write it."
+Welcome to the **Math & Geometry** module. This module covers problems where the solution hinges on **direct number manipulation or precise grid coordinate reasoning**, often in-place and with arithmetic tricks that eliminate the need for extra memory.
 
-## In-place matrix manipulation
+These problems test whether you understand *how computation works*, not just which data structure to reach for.
 
-The recurring theme: transform a grid **without allocating a second grid**, by reasoning about which cells swap or which markers you can reuse.
+---
 
-**Rotate Image (90° clockwise, in place).** The clean decomposition: **transpose** (swap `m[i][j]` with `m[j][i]`), then **reverse each row**. Together those equal a 90° clockwise rotation, and both steps are in-place swaps.
+## 1. Real-World Motivation & Physical Metaphors
+
+These techniques power real production systems:
+
+- **Image Processing**: Rotating a photo, applying a blur filter, or zeroing out corrupted pixel regions in-place without allocating a second image buffer.
+- **Game Engines**: Scanning a grid in a spiral order to render tiles from center outward. Simulating physics with fast exponentiation.
+- **Data Compression & Encryption**: Fast modular exponentiation (`x^n mod m`) powers RSA public-key cryptography and digital signatures.
+
+---
+
+## 2. Plain-English Terminology & Concept Table
+
+| Term | Plain-English Definition | Analogy |
+| :--- | :--- | :--- |
+| **In-Place** | Transforming data directly inside the input structure with $O(1)$ extra space (no copy array). | Rearranging books on a shelf without needing a second shelf. |
+| **Transposition** | Swapping matrix element `[i][j]` with `[j][i]` across the main diagonal. | Reflecting a chessboard across its diagonal. |
+| **Binary Exponentiation** | Computing $x^n$ in $O(\log n)$ by repeatedly squaring instead of multiplying $n$ times. | Folding paper repeatedly (halving problems). |
+| **Cycle Detection (Floyd's)** | Using slow/fast pointers on a sequence to detect whether it loops. | Two runners on a circular track—the faster one laps the slower. |
+
+---
+
+## 3. In-Place Matrix Manipulation
+
+### 3.1 Rotate Image (90° Clockwise, In-Place)
+
+**Key Insight**: A 90° clockwise rotation = **Transpose** (swap across main diagonal) **then Reverse each row**.
 
 ```python
-def rotate(matrix):
+def rotate_matrix(matrix: list) -> None:
+    """Rotates an n×n matrix 90° clockwise IN-PLACE."""
     n = len(matrix)
-    for i in range(n):                          # transpose across the main diagonal
-        for j in range(i + 1, n):
+    
+    # Step 1: Transpose - swap matrix[i][j] with matrix[j][i]
+    for i in range(n):
+        for j in range(i + 1, n):  # Only above the diagonal (avoid double-swap)
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
-    for row in matrix:                          # reverse each row
+    
+    # Step 2: Reverse each row
+    for row in matrix:
         row.reverse()
 ```
 
-**Spiral Matrix.** Walk the grid in rings, maintaining four shrinking boundaries — `top, bottom, left, right` — and peel off one edge at a time (top row L→R, right column T→B, bottom row R→L, left column B→T), moving the boundary inward after each. The whole difficulty is not double-visiting the last row/column when the remaining region is a single line.
+**Visualization**:
+```
+Original:              After Transpose:       After Row Reversal (= 90° CW):
+1  2  3                1  4  7               7  4  1
+4  5  6    ─────►      2  5  8    ─────►     8  5  2
+7  8  9                3  6  9               9  6  3
+```
 
-**Set Matrix Zeroes.** The naive fix uses O(m+n) marker arrays to record which rows/columns to zero. The O(1)-space trick: **use the first row and first column of the matrix itself as those marker arrays**, with two extra booleans to remember whether the first row/column were themselves originally zero. A classic "reuse the input as your scratch space" move.
+---
 
-## Number tricks
+### 3.2 Set Matrix Zeroes (O(1) Space Trick)
 
-**Pow(x, n) — fast (binary) exponentiation.** Computing `xⁿ` by multiplying x by itself n times is O(n). **Exponentiation by squaring** is O(log n): `xⁿ = (x²)^(n/2)` when n is even, `x · x^(n-1)` when odd — halving the exponent each step. This same "square to halve the exponent" idea is what makes Fibonacci-by-matrix-power O(log n) (see [[foundations/dsa/06-patterns/15-dynamic-programming|DP]]).
+**Problem**: If any cell `matrix[i][j] == 0`, set its entire row and column to zero.
+
+**Naïve approach**: Store zero-row and zero-column indices in separate arrays → $O(m + n)$ space.
+
+**O(1) Space Trick**: Use the **first row and first column of the matrix itself** as the marker arrays, with two extra booleans for the first row/column's own zero status.
 
 ```python
-def my_pow(x, n):
-    if n < 0:
-        x, n = 1 / x, -n
-    result = 1
-    while n:
-        if n & 1:            # if the current lowest bit is set, fold x in
-            result *= x
-        x *= x               # square the base
-        n >>= 1              # drop the lowest bit
+def set_matrix_zeroes(matrix: list) -> None:
+    """Sets rows and columns to zero IN-PLACE using O(1) extra space."""
+    m, n = len(matrix), len(matrix[0])
+    
+    # Track whether the first row/column themselves contain zeros
+    first_row_has_zero = any(matrix[0][j] == 0 for j in range(n))
+    first_col_has_zero = any(matrix[i][0] == 0 for i in range(m))
+    
+    # Use first row & column as markers for the rest of the matrix
+    for i in range(1, m):
+        for j in range(1, n):
+            if matrix[i][j] == 0:
+                matrix[i][0] = 0   # Mark row i
+                matrix[0][j] = 0   # Mark column j
+    
+    # Apply zeros based on markers (rows and columns, excluding first)
+    for i in range(1, m):
+        for j in range(1, n):
+            if matrix[i][0] == 0 or matrix[0][j] == 0:
+                matrix[i][j] = 0
+    
+    # Handle first row and first column separately
+    if first_row_has_zero:
+        for j in range(n): matrix[0][j] = 0
+    if first_col_has_zero:
+        for i in range(m): matrix[i][0] = 0
+```
+
+---
+
+### 3.3 Spiral Matrix (Shrinking Boundary Walk)
+
+**Strategy**: Maintain four shrinking boundaries (`top`, `bottom`, `left`, `right`). Peel off one edge per direction in rotation, moving each boundary inward after processing:
+
+```python
+def spiral_order(matrix: list) -> list:
+    """Returns all elements of a matrix in spiral (clockwise) order."""
+    result = []
+    top, bottom = 0, len(matrix) - 1
+    left, right = 0, len(matrix[0]) - 1
+    
+    while top <= bottom and left <= right:
+        # → Right (top row, left to right)
+        for col in range(left, right + 1):
+            result.append(matrix[top][col])
+        top += 1
+        
+        # ↓ Down (right column, top to bottom)
+        for row in range(top, bottom + 1):
+            result.append(matrix[row][right])
+        right -= 1
+        
+        # ← Left (bottom row, right to left) — only if rows remain
+        if top <= bottom:
+            for col in range(right, left - 1, -1):
+                result.append(matrix[bottom][col])
+            bottom -= 1
+        
+        # ↑ Up (left column, bottom to top) — only if columns remain
+        if left <= right:
+            for row in range(bottom, top - 1, -1):
+                result.append(matrix[row][left])
+            left += 1
+    
     return result
 ```
 
-The bit test (`n & 1`, `n >>= 1`) ties this directly to [[13-bit-manipulation|bit manipulation]] — you're walking the binary digits of the exponent.
+---
 
-**Happy Number — cycle detection on a number sequence.** Repeatedly replacing a number by the sum of the squares of its digits either reaches 1 (happy) or loops forever. Detect the loop with a `seen` set, or with **Floyd's fast/slow pointers** ([[foundations/dsa/06-patterns/04-fast-slow-pointers|fast-slow]]) — the sequence is functionally a linked list where "next" is the digit-square-sum, so a cycle there is the same cycle a linked list has.
+## 4. Number Tricks
 
-**Plus One / Multiply Strings — grade-school arithmetic by hand.** When the number is too big for a native int (or you're told not to convert), simulate addition/multiplication digit by digit, right to left, carrying — the same full-adder logic as [[13-bit-manipulation|Sum of Two Integers]] but in base 10.
+### 4.1 Fast Power (`Pow(x, n)`) — Binary Exponentiation
 
-**Detect Squares — counting via a hash map of points.** Geometry that's really [[foundations/dsa/04-data-structures/03-hash-maps|hashing]]: to count axis-aligned squares through a query point, for each point sharing a diagonal, check whether the other two corners exist — using a point-count map for O(1) corner lookups.
+**Naïve**: Multiply `x` by itself `n` times → $O(n)$.
+**Smart**: $x^n = (x^2)^{n/2}$ when $n$ is even — halving the exponent each step → $O(\log n)$:
 
-## Complexity notes
+```python
+def my_pow(x: float, n: int) -> float:
+    """O(log n) fast exponentiation by squaring."""
+    if n < 0:
+        x, n = 1 / x, -n  # Handle negative exponents
+    
+    result = 1.0
+    while n:
+        if n & 1:       # If current lowest bit is set, multiply in current x
+            result *= x
+        x *= x          # Square the base (x^1 → x^2 → x^4 → x^8...)
+        n >>= 1         # Drop the lowest bit (shift right)
+    return result
+```
 
-The theme across the category is **beating the obvious bound with a trick**, and being able to name it:
+This leverages [[13-bit-manipulation|bit manipulation]] directly—iterating through the binary digits of the exponent.
 
-| Problem | Naive | Trick | Result |
-|---|---|---|---|
-| Pow(x, n) | O(n) | exponent halving | O(log n) |
-| Rotate / Set Zeroes | O(n²) space | in-place reuse | O(1) space |
-| Happy Number | — | cycle detection | O(1) space (fast/slow) |
+### 4.2 Happy Number — Cycle Detection via Floyd's Algorithm
 
-## Gotchas
+A number is "happy" if repeated replacement with the sum-of-squared-digits eventually reaches 1. Otherwise, it cycles forever.
 
-- **Integer overflow** — the ever-present hazard (Reverse Integer, Multiply Strings, Pow). Check bounds *before* the operation that would overflow; in fixed-width languages, mask or use a wider type.
-- **In-place means order-of-operations matters** — in Rotate/Set-Zeroes, doing steps in the wrong order corrupts data you still need to read.
-- **Off-by-one on shrinking boundaries** (Spiral) — the single-row/single-column remainder is where the bug lives; test on non-square grids.
-- **Negative/zero exponents** (Pow) — handle `n < 0` (reciprocal) and `n == 0` (→ 1) explicitly.
+```python
+def is_happy(n: int) -> bool:
+    """Detects Happy Number cycle using Floyd's fast/slow pointer algorithm."""
+    def digit_square_sum(x):
+        total = 0
+        while x:
+            x, digit = divmod(x, 10)
+            total += digit ** 2
+        return total
+    
+    slow, fast = n, digit_square_sum(n)
+    while fast != 1 and slow != fast:
+        slow = digit_square_sum(slow)
+        fast = digit_square_sum(digit_square_sum(fast))
+    return fast == 1
+```
 
-## Canonical problems (NeetCode Math & Geometry)
+This treats the sequence of digit-square-sums as a **linked list**. Floyd's cycle detection detects loops with $O(1)$ space instead of a hash set.
 
-Rotate Image · Spiral Matrix · Set Matrix Zeroes · Happy Number · Plus One · Pow(x, n) · Multiply Strings · Detect Squares.
+---
 
-## Related
-- [[13-bit-manipulation|Bit manipulation]] — the binary-exponent and grade-school-arithmetic cousins
-- [[07-number-theory-basics|Number theory basics]] — GCD, primes, modular arithmetic
-- [[foundations/dsa/06-patterns/04-fast-slow-pointers|Fast & slow pointers]] — Happy Number's cycle detection
-- [[foundations/dsa/06-patterns/13-matrix-traversal|Matrix traversal]] — the *graph* view of a grid (connectivity), as opposed to the *geometry* view here
+## 5. Complexity Summary
+
+| Problem | Naïve Approach | Optimized Trick | Optimized Complexity |
+| :--- | :--- | :--- | :--- |
+| **Rotate Matrix** | $O(n^2)$ space (copy grid) | Transpose + reverse rows | **$O(1)$ space** |
+| **Set Matrix Zeroes** | $O(m+n)$ space (marker arrays) | Reuse first row/col as markers | **$O(1)$ space** |
+| **Pow(x, n)** | $O(n)$ (multiply n times) | Binary exponentiation | **$O(\log n)$** |
+| **Happy Number** | $O(k)$ space (hash set of seen) | Floyd's slow/fast pointers | **$O(1)$ space** |
+
+---
+
+## 6. Common Pitfalls & Traps
+
+1. **Transpose Before Reverse (not after)**: For 90° CW rotation—transpose first, then reverse rows. Doing it in the wrong order gives a 90° CCW rotation.
+2. **Spiral Off-By-One**: When only a single row or column remains, the left/right bottom/top boundary checks prevent double-visiting that row/column.
+3. **Negative Exponent in `Pow`**: Always handle `n < 0` explicitly by taking the reciprocal of `x` and making `n` positive before the main loop.
+4. **Integer Overflow in `Pow`**: In fixed-width languages (Java, C++), intermediate `x * x` can overflow 64-bit integers for large inputs.
+
+---
+
+## 7. Check Your Understanding (University Self-Assessment)
+
+1. **Question**: What two-step in-place process achieves a 90° clockwise rotation of an $n \times n$ matrix?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> (1) <b>Transpose</b>: swap <code>matrix[i][j]</code> with <code>matrix[j][i]</code> for all <code>i < j</code>. (2) <b>Reverse each row</b>. These two in-place operations together are equivalent to a 90° clockwise rotation.</details>
+
+2. **Question**: Why does binary exponentiation compute `x^n` in $O(\log n)$ instead of $O(n)$?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> Instead of multiplying by <code>x</code> exactly <code>n</code> times, binary exponentiation halves the exponent at each step by squaring the base (<code>x^n = (x^2)^{n/2}</code>). This means the loop runs for at most <code>log₂ n</code> iterations.</details>
+
+3. **Question**: In the Set Matrix Zeroes problem, why must you process the first row and column markers *last* rather than *first*?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> The first row and column are used as marker storage during the pass over the interior cells. If you zero them out first, you destroy the markers needed to process the interior cells correctly.</details>
+
+---
+
+## Related Modules
+- [[13-bit-manipulation|Bit Manipulation]] — Binary exponentiation uses bit-shift operators
+- [[07-number-theory-basics|Number Theory Basics]] — Integer arithmetic techniques
