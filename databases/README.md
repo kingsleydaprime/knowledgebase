@@ -4,20 +4,22 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 
 **Course: ~20,500 words across 14 notes** (built August 2026, including practice + solutions). **References: ~11,300 lines across 4 files** (older, and still the place to look up syntax). `[reference]` throughout.
 
-> **Why the split.** The four reference files were already comprehensive on *what to type* — every join type, every window function, every normalisation form, every MongoDB operator. **What was missing was the layer underneath: why the planner chose that plan, why your update bloated the table, why the migration locked everything.** The numbered course is that layer, and it doesn't repeat the references.
+> **Why the split.** The four reference files were already comprehensive on _what to type_ — every join type, every window function, every normalisation form, every MongoDB operator. **What was missing was the layer underneath: why the planner chose that plan, why your update bloated the table, why the migration locked everything.** The numbered course is that layer, and it doesn't repeat the references.
 
 ## Two ways in
 
 **Looking something up?** Go straight to a reference:
 
-| For | File |
-|---|---|
-| **SQL syntax** — joins, window functions, CTEs, subqueries | [[databases/sql-reference\|sql-reference]] · 4,200 lines |
-| **Schema design** — keys, normalisation, cardinality, patterns | [[databases/database-design-reference\|database-design-reference]] · 2,700 lines |
-| **MySQL specifics** — admin, storage engines, replication setup | [[databases/mysql-reference\|mysql-reference]] · 2,100 lines |
-| **MongoDB, Redis, Cassandra, Neo4j, Elasticsearch** | [[databases/nosql-reference\|nosql-reference]] · 2,000 lines |
+| For                                                             | File                                                                             |
+| --------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **SQL syntax** — joins, window functions, CTEs, subqueries      | [[databases/sql-reference\|sql-reference]] · 4,200 lines                         |
+| **Schema design** — keys, normalisation, cardinality, patterns  | [[databases/database-design-reference\|database-design-reference]] · 2,700 lines |
+| **MySQL specifics** — admin, storage engines, replication setup | [[databases/mysql-reference\|mysql-reference]] · 2,100 lines                     |
+| **MongoDB, Redis, Cassandra, Neo4j, Elasticsearch**             | [[databases/nosql-reference\|nosql-reference]] · 2,000 lines                     |
 
 **Want to understand what's happening?** Read the course, in order.
+
+**Self-study pilot:** [[databases/03-storage-and-page-layout|Storage and Page Layout]] now includes prerequisites, a byte-by-byte page trace, a runnable in-memory Python model, and an independent compaction lab with checks. Stop and do that lab before continuing to indexes. It needs no database server. The remaining lessons have not yet received the same teaching-quality revision.
 
 ## The course
 
@@ -25,7 +27,7 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 
 1. [[databases/01-what-a-database-is|What a Database Is]] — **[Beginner → Intermediate]** — why not files, what ACID actually guarantees, OLTP vs OLAP, and an honest account of the NoSQL story
 2. [[databases/02-the-relational-model|The Relational Model]] — **[Intermediate]** — Codd's data independence, relational algebra, and **why the optimiser's whole job is to never do what the algebra literally says**
-3. [[databases/03-storage-and-page-layout|Storage and Page Layout]] — **[Intermediate → Advanced]** — pages, slotted layout, the buffer pool, row vs column storage, and **why a random UUID primary key hurts InnoDB specifically**
+3. [[databases/03-storage-and-page-layout|Storage and Page Layout]] — **[Intermediate → Advanced]** — pages, slotted layout, **implementing compaction with stable slots**, the buffer pool, row vs column storage, and clustered-key tradeoffs
 4. [[databases/04-b-trees-and-indexes|B-Trees and Indexes]] — **[Intermediate → Advanced]** — why B+ trees not binary trees, the leftmost prefix rule, index-only scans, and **when an index makes things worse**
 5. [[databases/05-lsm-trees|LSM Trees]] — **[Advanced]** — the write-optimised alternative, compaction, bloom filters, and the RUM conjecture
 6. [[databases/06-the-query-pipeline|The Query Pipeline]] — **[Intermediate → Advanced]** — parse → bind → rewrite → plan → execute. **A database is a compiler**
@@ -53,20 +55,20 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 
 ## Where this connects
 
-| | |
-|---|---|
-| [[architecture/04-distributed-systems/README\|distributed systems]] | **Deliberate division of labour** — consensus, CAP, consistency models and distributed transactions live there. Note 11 is the operator's view |
-| [[foundations/computer-architecture/08-the-memory-hierarchy\|memory hierarchy]] | Pages, buffer pools and B-tree fanout are the same argument one level up |
-| [[foundations/compilers/README\|compilers]] | The query pipeline *is* a compiler pipeline |
-| [[foundations/discrete-math/04-sets-relations-and-functions\|sets and relations]] | A table is a relation, literally — Codd's 1970 paper |
-| [[backend/04-data-and-persistence/README\|backend/data]] | Using a database from an application |
-| [[build-your-own-shit/06-your-own-database\|build-your-own-database]] | The build guide these notes explain |
+|                                                                                   |                                                                                                                                                |
+| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| [[architecture/04-distributed-systems/README\|distributed systems]]               | **Deliberate division of labour** — consensus, CAP, consistency models and distributed transactions live there. Note 11 is the operator's view |
+| [[foundations/computer-architecture/08-the-memory-hierarchy\|memory hierarchy]]   | Pages, buffer pools and B-tree fanout are the same argument one level up                                                                       |
+| [[foundations/compilers/README\|compilers]]                                       | The query pipeline _is_ a compiler pipeline                                                                                                    |
+| [[foundations/discrete-math/04-sets-relations-and-functions\|sets and relations]] | A table is a relation, literally — Codd's 1970 paper                                                                                           |
+| [[backend/04-data-and-persistence/README\|backend/data]]                          | Using a database from an application                                                                                                           |
+| [[build-your-own-shit/06-your-own-database\|build-your-own-database]]             | The build guide these notes explain                                                                                                            |
 
 ## The honest note
 
-**`[reference]`, with one qualification: the reference files predate this course and were written from wider use.** The numbered notes are the internals layer, assembled from the standard sources — Hellerstein & Stonebraker's *Architecture of a Database System*, *Designing Data-Intensive Applications*, Petrov's *Database Internals*, and the Postgres and InnoDB documentation. **Not from having operated a database at scale.**
+**`[reference]`, with one qualification: the reference files predate this course and were written from wider use.** The numbered notes are the internals layer, assembled from the standard sources — Hellerstein & Stonebraker's _Architecture of a Database System_, _Designing Data-Intensive Applications_, Petrov's _Database Internals_, and the Postgres and InnoDB documentation. **Not from having operated a database at scale.**
 
-**The tell to watch for:** the notes are confident about *mechanisms* and thinner on *judgement* — how bad a particular bloat number is in practice, when a plan regression is worth chasing, what a real incident feels like. **Those come from operating one.**
+**The tell to watch for:** the notes are confident about _mechanisms_ and thinner on _judgement_ — how bad a particular bloat number is in practice, when a plan regression is worth chasing, what a real incident feels like. **Those come from operating one.**
 
 **What would close the gap, in rough order of value:**
 
@@ -76,7 +78,7 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 4. **Do an expand–contract migration** on something real, including the separate contract release
 5. **Restore from a backup, timed.** Your RTO is what a restore actually takes → [[databases/10-durability-and-recovery|10]]
 6. **[[build-your-own-shit/06-your-own-database|Build a small database]]** — an append-only log, then a B-tree or LSM, then a WAL. `kill -9` mid-transaction and see the data survive. **The guide's verification hook is exactly the durability argument in note 10**
-7. **The books:** *Database Internals* (Petrov) for storage and distribution; *Designing Data-Intensive Applications* (Kleppmann) for the systems view; *The Art of PostgreSQL* for the practitioner's; and the Postgres source, which is unusually readable
+7. **The books:** _Database Internals_ (Petrov) for storage and distribution; _Designing Data-Intensive Applications_ (Kleppmann) for the systems view; _The Art of PostgreSQL_ for the practitioner's; and the Postgres source, which is unusually readable
 
 **What's missing:** ~~exercises~~ — **closed by notes 13–14 (Aug 2026)**; worked schema examples beyond what the design reference has, anything on data warehousing and dimensional modelling, stream processing, vector databases and embeddings (a real gap given this vault's AI/ML material), and time-series databases in depth.
 
@@ -88,8 +90,9 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 - [[databases/14-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
-- [[data-engineering/README|data engineering]] — moving analytical data *between* databases: warehouses, Kafka, dbt, pipelines
-- [[databases/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
+
+- [[data-engineering/README|data engineering]] — moving analytical data _between_ databases: warehouses, Kafka, dbt, pipelines
+- [[databases/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a _done when_ for each
 - [[databases/interview/README|Databases — Interview Prep]] — what gets asked about all this
 - [[architecture/04-distributed-systems/README|Distributed Systems]] — the theory beyond one machine
 - [[backend/README|Backend]] — where databases get used

@@ -8,21 +8,25 @@ This is not a copy of documentation. It's my understanding of how things work �
 
 ## How to Use This as a Course
 
+**Teaching-quality revision:** the [[COURSE-STANDARD|course standard]] now sets the target: clear prerequisites → visual explanation → worked example → independent practice → checks. Coverage and a reading order do not by themselves make a self-study course. The first revised pilots are [[languages/06-python/06-iterators-generators-and-comprehensions|Python iterators/generators]] and [[databases/03-storage-and-page-layout|database page layout]]; the rest is being improved in stages, not claimed to meet the standard already.
+
 The domains that are actually built out — **networking, DSA, backend, frontend, architecture (incl. distributed systems), devops, java, python, AI/ML, using-ai, cybersecurity, mobile, web3, data-engineering, hardware, databases, git, research, and `concepts/`** — are meant to be readable start-to-finish, not just looked up. (**`engineering/`, `robotics/`, and the CS-theory + DSP spine are written but marked `[reference]`** — courses on paper, with no build behind them yet, and each says so on its own front page. **Note on frontend:** its `frameworks/react`+`next` deep-dives partly live as ~44,000 words in [[projects/README|projects/]], indexed by topic in [[frontend/README|frontend/README]].)
 
-**This is not a software-engineering vault.** It covers software, infrastructure, security, and hardware — see [[PRIMETECHIE|the path]] for how those four fit together rather than sitting in separate silos. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes *within that folder*, not an absolute difficulty across the whole vault.
+**This is not a software-engineering vault.** It covers software, infrastructure, security, and hardware — see [[PRIMETECHIE|the path]] for how those four fit together rather than sitting in separate silos. Each has its own `README.md` acting as the entry point, with notes tagged **[Beginner]**, **[Intermediate]**, or **[Advanced]** in the order they're meant to be read — a tag marks how much prior context a note assumes _within that folder_, not an absolute difficulty across the whole vault.
 
 **Two cross-cutting entry points, added August 2026:**
-- 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can *demonstrate*, not something you've read. Start here if you want an order to do all this in.
+
+- 🕶️ **[[PRIMETECHIE|The Primetechie Path]]** — a tiered progression through the whole vault (Builder → Diagnostician → Systems Thinker → Distributed Mind → Specialist → Force Multiplier), where every gate is something you can _demonstrate_, not something you've read. Start here if you want an order to do all this in.
 - 🔨 **[[build-your-own-shit/README|Build Your Own Shit]]** — language-agnostic build guides with numbered, independently-testable milestones. Where the rest of the vault stops being reading. All sixteen written: HTTP server, git, redis, language, OS, database, shell, container, regex engine, neural network, memory allocator, physics engine, your own React — plus **your own blockchain, smart-contract VM, and token+wallet** (Aug 2026, with the web3 track).
 - 🧭 **[[BUILD-PLAN|Build Plan]]** — the working queue for what gets written next, ordered and sized: the systems languages (Rust/C/C++), `build-your-own-shit/`, `engineering/`, and the CS-curriculum gaps found by auditing a standard syllabus against this vault.
 - 🧠 **[[learning/README|How I Learn]]** — the method behind everything else here: the learning loop (board → notebook → laptop), the "make a course" system, the one-active-course rule, and AI as sparring partner rather than answer machine. Personal, and deliberately unpublished.
 - 🎯 **[[INTERVIEW|Interview Prep Index]]** — every domain now has an `interview/` folder: the question, what a strong answer covers, and the detail that separates memorised from understood.
 
 Start here, depending on what you want:
+
 - [[foundations/programming-fundamentals/README|Programming Fundamentals]] — **start here if you have never written code.** Twelve language-agnostic notes: what a program is → syntax → variables → control flow → collections → functions → recursion → debugging → planning → what to build. Written Aug 2026, because 900 notes assumed this and none of them taught it
 - [[foundations/networking/README|Networking]] — the wire up to the web: link layer → IP → TCP/congestion control → DNS/TLS/HTTP → QUIC → debugging. The foundation under devops, security, and distributed systems
-- [[foundations/software-engineering/README|Introduction to Software Engineering]] — **three short notes on what the profession actually is**: programming vs engineering, the SDLC and what breaks when each phase is skipped, and the eleven roles. Written Aug 2026 to fill a gap the rest of the vault assumed · **now four notes** — the fourth answers *what other kinds of software engineering are there?* (embedded, real-time, systems, games, HPC)
+- [[foundations/software-engineering/README|Introduction to Software Engineering]] — **three short notes on what the profession actually is**: programming vs engineering, the SDLC and what breaks when each phase is skipped, and the eleven roles. Written Aug 2026 to fill a gap the rest of the vault assumed · **now four notes** — the fourth answers _what other kinds of software engineering are there?_ (embedded, real-time, systems, games, HPC)
 - [[foundations/dsa/README|Data Structures & Algorithms]] → then [[foundations/dsa/06-patterns/README|LeetCode Patterns]]
 - [[using-ai/README|Using AI]] — **start here if you're new to AI and don't write code.** Eight notes on using LLMs well: what they are, how to brief them, how to check them, what not to paste. The on-ramp to everything below
 - [[ai-ml/README|AI & ML]] — split into three career paths (data scientist, ML engineer, AI engineer) over a shared foundation
@@ -36,8 +40,8 @@ Start here, depending on what you want:
 - [[architecture/README|Architecture]] — system design (scaling, caching, patterns) + distributed systems (consensus, consistency, partitioning)
 - [[hardware/README|Hardware & Embedded]] — the layer below all the software: electricity → digital/analog → embedded → microcontrollers → I2C/SPI/UART → RF → IoT architecture, plus KiCad and a real fabricated PCB
 - [[databases/README|Databases]] — a course on the **internals** (pages → B-trees → LSM → query planning → MVCC → WAL → replication → operations) plus four deep syntax/design references. Read the course to understand `EXPLAIN`; use the references to look things up
-- [[data-engineering/README|Data Engineering]] — **the plumbing between databases and ML (Sep 2026)**: the operational/analytical split and **ELT** → warehouses/lakes/lakehouses (columnar, Iceberg) → batch vs streaming → ingestion & CDC → Kafka → Spark (and when *not* to) → dbt → orchestration & **idempotency** → dimensional modelling → data quality
-- [[data-analysis/README|Data Analysis]] — **the analyst discipline (Sep 2026)**, the middle of the data stack and the most common data job: **the deliverable is a decision, not a number**. SQL for analysis (window functions) → metrics & Goodhart → diagnostic analysis (*why did it change?*) → funnels/cohorts/retention/LTV → time series → dashboards & the semantic layer → communicating
+- [[data-engineering/README|Data Engineering]] — **the plumbing between databases and ML (Sep 2026)**: the operational/analytical split and **ELT** → warehouses/lakes/lakehouses (columnar, Iceberg) → batch vs streaming → ingestion & CDC → Kafka → Spark (and when _not_ to) → dbt → orchestration & **idempotency** → dimensional modelling → data quality
+- [[data-analysis/README|Data Analysis]] — **the analyst discipline (Sep 2026)**, the middle of the data stack and the most common data job: **the deliverable is a decision, not a number**. SQL for analysis (window functions) → metrics & Goodhart → diagnostic analysis (_why did it change?_) → funnels/cohorts/retention/LTV → time series → dashboards & the semantic layer → communicating
 - [[web3/README|Web3 & Blockchain]] — **a full track (Aug 2026)**: the double-spend problem → the EVM → Solidity → **smart-contract security** (where the money actually went) → rollups/zk/Solana/Bitcoin/bridges → building dapps → DeFi/NFTs/DAOs → **an honest assessment of where blockchains don't apply**, plus `frameworks/` for five languages
 - [[foundations/discrete-math/README|Discrete Maths]] → [[foundations/theory-of-computation/README|Theory of Computation]] → [[foundations/computer-architecture/README|Computer Architecture]] — the CS-theory spine, added Aug 2026 after auditing a standard syllabus against this vault. Logic and proof → what's computable and what's NP-hard → why one $O(n)$ loop is thirty times slower than another
 - [[foundations/numerical-methods/README|Numerical Methods]] — **the gap three domains asked for by name.** Floating point and conditioning → linear systems → quadrature → ODEs → PDEs → optimisation. What FEM, control discretisation and ML optimisation all sit on
@@ -56,7 +60,7 @@ A [Beginner] tag doesn't mean "skip if you're experienced" — it just means the
 
 ## → Ready to build?
 
-Notes are a map, not reps. **[[project-ideas|Project Ideas]]** is the index, and **every domain now has its own `projects.md`** — a graded ladder (🟢🟡🔴) with a concrete *done-when* for each project, tied to the notes it exercises. Pick one and finish it.
+Notes are a map, not reps. **[[project-ideas|Project Ideas]]** is the index, and **every domain now has its own `projects.md`** — a graded ladder (🟢🟡🔴) with a concrete _done-when_ for each project, tied to the notes it exercises. Pick one and finish it.
 
 ---
 
@@ -406,11 +410,11 @@ knowledgebase/
 
 **Concept or implementation?**
 
-- *Does it belong to a **domain**?* → that domain's folder (`backend/`, `devops/`, `architecture/`…), in a numbered section if it's true regardless of language
-- *Is this how a specific tool/framework does it?* → that domain's implementation folder — e.g. `backend/frameworks/<language>/<framework>/`
-- *Is it true of engineering generally, belonging to **no** domain* (clean code, design patterns, PR structure)? → `concepts/`
-- *Is this how to think about a problem?* → `problem-solving/`
-- *Is this a dev environment or tooling thing?* → `tools/`
+- _Does it belong to a **domain**?_ → that domain's folder (`backend/`, `devops/`, `architecture/`…), in a numbered section if it's true regardless of language
+- _Is this how a specific tool/framework does it?_ → that domain's implementation folder — e.g. `backend/frameworks/<language>/<framework>/`
+- _Is it true of engineering generally, belonging to **no** domain_ (clean code, design patterns, PR structure)? → `concepts/`
+- _Is this how to think about a problem?_ → `problem-solving/`
+- _Is this a dev environment or tooling thing?_ → `tools/`
 
 Notes capture **understanding** — the why and how. Not a copy of docs. Docs already exist.
 
@@ -418,24 +422,29 @@ Notes capture **understanding** — the why and how. Not a copy of docs. Docs al
 
 ## Note Format
 
-There are two shapes here, and this section describes what's **actually used** rather than an aspiration — the previously documented format (`## What it is / ## Why it exists / ## References`) was followed by almost nothing.
-
-**Course notes** (the numbered folders — networking, distributed systems, java, cybersecurity…):
+Teaching notes and lookup references serve different purposes. Many existing **course notes** still use this compact shape:
 
 ```markdown
 # Topic Name
+
 **[Beginner|Intermediate|Advanced]** — one line on what this is and what it assumes
 
-## The kid version first     ← plain-language intuition before any depth
-## <the actual content>      ← tables, worked examples, real failure modes
-## Key insight               ← the one thing to keep if you forget the rest
-## Related                   ← wikilinks out, always
-## Seen in the wild          ← where this shows up in projects/ (where applicable)
+## The kid version first ← plain-language intuition before any depth
+
+## <the actual content> ← tables, worked examples, real failure modes
+
+## Key insight ← the one thing to keep if you forget the rest
+
+## Related ← wikilinks out, always
+
+## Seen in the wild ← where this shows up in projects/ (where applicable)
 ```
 
-**Reference notes** (`*-reference.md`, the unordered folders) are dense lookup documents, not pedagogy — no reading order, no difficulty marker.
+**New and revised teaching lessons** follow [[COURSE-STANDARD|the course standard]]: explicit outcomes and prerequisites, a step-by-step example, runnable code or a complete derivation, independent practice with feedback, and a demonstrable finish line. This extends the older shape rather than just renaming its headings. The standard includes an outline, review checklist, and examples; existing notes are not automatically compliant.
 
-**Difficulty markers** are inline `**[Beginner]**` / `**[Intermediate]**` / `**[Advanced]**` in READMEs and note headers (91 files), *not* Obsidian frontmatter tags. A marker says how much prior context a note assumes **within its folder**, not absolute difficulty.
+**Reference notes** (`*-reference.md`, the unordered folders) are dense lookup documents, not pedagogy — no reading order, no difficulty marker. Keep them useful for lookup rather than forcing them into lesson format.
+
+**Difficulty markers** are inline `**[Beginner]**` / `**[Intermediate]**` / `**[Advanced]**` in READMEs and note headers (91 files), _not_ Obsidian frontmatter tags. A marker says how much prior context a note assumes **within its folder**, not absolute difficulty.
 
 **Interview banks** (`<domain>/interview/`) use a third shape: the question, **what a strong answer covers**, and **the detail worth adding**. 🔥 marks frequently-asked. See [[INTERVIEW|the index]].
 
@@ -447,4 +456,4 @@ Personal knowledge base of **Kingsley Ihemelandu** ([@kingsleydaprime](https://g
 
 Systems Engineer · Builder · Founder [@Spectroniq Limited](https://linkedin.com/company/spectroniqltd)
 
-*Started building this properly during SIWES 2026 — IT Consortium, Accra, Ghana.*
+_Started building this properly during SIWES 2026 — IT Consortium, Accra, Ghana._

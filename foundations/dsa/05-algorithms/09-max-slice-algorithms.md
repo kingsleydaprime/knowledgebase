@@ -1,62 +1,155 @@
-# Maximum Slice Problem (Kadane's Algorithm)
+# Module: Maximum Slice Problem — Kadane's Algorithm
 
-> Added after reviewing Codility's own course PDFs in `pdfs/` (Chapter 9, `7-MaxSlice.pdf`) — not covered anywhere in this vault. Codility calls this the "maximum slice problem"; it's more widely known as **Kadane's algorithm** — same technique, worth recognizing both names since most other material (LeetCode's "Maximum Subarray," textbooks) uses the latter.
+Welcome to the **Maximum Slice** module. The problem: given a sequence of integers (which may include negative numbers), find the **contiguous subarray (slice)** with the largest possible sum.
 
-Part of [[foundations/dsa/README|DSA fundamentals]]. **Problem:** given a sequence of integers (which may include negatives), find the contiguous slice (subarray) with the largest possible sum. The empty slice is allowed and counts as sum 0 — so the answer is never negative, even if every element in the array is.
-
-Same shape as [[foundations/dsa/05-algorithms/08-leader-algorithm|leader-algorithm]]: three solutions, each a genuine idea rather than a micro-tweak of the last.
+This is one of the most elegant problems in computer science, illustrating how a **dynamic programming insight** can slash a naïve $O(n^3)$ solution all the way down to a single-pass $O(n)$ algorithm.
 
 ---
 
-## O(n³) — check every slice, sum each one from scratch
+## 1. Real-World Motivation & Physical Metaphors
+
+Imagine you're a **Stock Day Trader** analyzing daily profit/loss figures:
+
+```
+Day:     1    2    3    4    5    6    7    8
+PnL:   -2   +3   +4   -1   +5   -8   +4   +1
+
+Best trading window:  Days 2 through 6
+  Sum = 3 + 4 + (-1) + 5 = 11  ← Maximum subarray sum!
+```
+
+You want to find the contiguous window of days that maximizes your cumulative profit.
+
+### Real-World Applications:
+1. **Financial Analysis**: Finding the optimal holding window for a stock position.
+2. **Signal Processing**: Isolating the highest-amplitude segment of a noisy signal.
+3. **Genomics**: Identifying the highest-density gene sequence region in a DNA strand.
+
+---
+
+## 2. Plain-English Terminology & Concept Table
+
+| Term | Plain-English Definition | Analogy |
+| :--- | :--- | :--- |
+| **Subarray / Slice** | A contiguous block of elements within the array. | A date range window on a calendar. |
+| **`max_ending_here`** | The maximum sum achievable by any subarray that ends exactly at the current position. | Best P&L for any trade window ending today. |
+| **`max_so_far`** | The global running maximum found across all positions so far. | The best trade window discovered at any point in history. |
+| **Kadane's Algorithm** | A linear-time DP algorithm maintaining the best suffix subarray sum at each step. | Day-by-day profit tracking with automatic "cut your losses" reset. |
+
+---
+
+## 3. Three Solutions: Naïve → Optimal
+
+### Approach 1: Brute Force ($O(n^3)$)
+
+Check every possible slice `[p, q]` and sum each from scratch:
 
 ```python
-def slow_max_slice(A):
+def max_slice_brute(A: list) -> int:
+    """O(n³): Checks every possible subarray and recomputes its sum."""
     n = len(A)
     result = 0
     for p in range(n):
         for q in range(p, n):
-            result = max(result, sum(A[p:q+1]))
+            result = max(result, sum(A[p:q + 1]))  # O(n) inner sum
     return result
 ```
-O(n²) possible slices, each summed in O(n) — the naive nested-loop-plus-recompute approach.
 
-## O(n²) — stop recomputing sums from scratch
+**Why slow**: $O(n^2)$ possible subarrays, each summed in $O(n)$ → **$O(n^3)$ total**.
 
-Two ways to the same complexity class:
-- **Prefix sums**: precompute `pref[i]` = sum of the first `i` elements once, and any slice's sum becomes `pref[q+1] - pref[p]` — O(1) per slice instead of O(n). See [[foundations/dsa/06-patterns/01-prefix-sum|prefix-sum]] for the general technique this borrows directly.
-- **Running sum without precomputing**: for a fixed start `p`, extending the slice by one element (`q` → `q+1`) just adds `A[q+1]` to the running sum you already had — no need to re-sum from `p` every time.
+---
+
+### Approach 2: Running Sum ($O(n^2)$)
+
+Maintain a running sum for a fixed starting index `p`. When we move `q` forward by one, we extend the running sum by one addition instead of recomputing from scratch:
+
 ```python
-def quadratic_max_slice(A):
+def max_slice_quadratic(A: list) -> int:
+    """O(n²): Eliminates redundant re-summing with a running total."""
     n = len(A)
     result = 0
     for p in range(n):
         running_sum = 0
         for q in range(p, n):
-            running_sum += A[q]
+            running_sum += A[q]     # O(1) extension instead of O(n) re-sum
             result = max(result, running_sum)
     return result
 ```
-Either way: O(n²), an improvement, but still not the ceiling.
 
 ---
 
-## O(n) — Kadane's algorithm: the best slice *ending here* determines the best slice *ending one further*
+### Approach 3: Kadane's Algorithm ($O(n)$, $O(1)$ Space)
 
-The actual insight, and the reason this is worth sitting with rather than memorizing: define `max_ending_here` as the largest-sum slice that ends **exactly** at the current position. Moving one position forward, there are only two possibilities — extend the previous best-ending-here slice by one element, or (if that would make things worse than starting fresh) discard everything before and start a brand new slice at the current element alone:
+> [!KEY-INSIGHT]
+> **The Recurrence**: The best subarray ending at position $i$ is either:
+> 1. The best subarray ending at position $i-1$, extended by one element (`max_ending_here + A[i]`), OR
+> 2. Start a brand new subarray at position $i$ alone (`A[i]`)
+> 
+> In other words: **if carrying the negative baggage of a prior run makes things worse than starting fresh, cut and restart.**
 
 ```python
-def max_slice(A):
-    max_ending_here = max_so_far = 0
-    for a in A:
-        max_ending_here = max(0, max_ending_here + a)
+def max_slice_kadane(A: list) -> int:
+    """O(n) time, O(1) space: Kadane's Algorithm."""
+    max_ending_here = 0  # Best sum for subarrays ending AT current index
+    max_so_far = 0       # Best sum found ANYWHERE so far
+    
+    for value in A:
+        # Either extend the previous best suffix, or reset to 0 (empty slice)
+        max_ending_here = max(0, max_ending_here + value)
         max_so_far = max(max_so_far, max_ending_here)
+        
     return max_so_far
 ```
-`max(0, max_ending_here + a)` is the whole trick: if the running slice has gone negative enough that adding the current element still leaves you worse off than an empty slice (sum 0), there is *never* a reason to keep carrying that negative baggage forward — reset to 0 and effectively "start over" from the next element. This is why the empty-slice-allowed framing of the problem matters: it's what makes the reset-to-zero move always valid rather than a special case.
 
-**This is dynamic programming**, even though the code doesn't look like the memoized/tabulated DP you might expect (see [[foundations/dsa/06-patterns/15-dynamic-programming|dynamic-programming]]) — the defining DP shape is exactly here: the answer for position `i` is computed directly from the answer at position `i-1`, with no need to ever re-examine earlier positions again once you've folded their result into `max_ending_here`. One pass, O(n) time, O(1) space — no array of subproblem answers needed because each subproblem only ever depends on the *immediately previous* one, not on all of them.
+**Walkthrough on `[-2, 3, 4, -1, 5, -8, 4, 1]`:**
+```
+Value:           -2    3    4   -1    5   -8    4    1
+max_ending_here:  0    3    7    6   11    3    7    8
+max_so_far:       0    3    7    7   11   11   11   11
 
-## Related
-- [[foundations/dsa/06-patterns/01-prefix-sum|prefix-sum]] — the O(n²) intermediate step borrows this technique directly
-- [[foundations/dsa/06-patterns/15-dynamic-programming|dynamic-programming]] — Kadane's is a minimal, O(1)-space example of the same "build the answer from the previous answer" idea
+→ Maximum subarray sum = 11
+```
+
+The `max(0, ...)` is the key: by resetting to 0, we allow starting a completely new subarray from the next element, which is equivalent to "allowing the empty slice" as a baseline.
+
+---
+
+## 4. Why Kadane's is Dynamic Programming
+
+Kadane's algorithm is a minimal, single-variable form of **Dynamic Programming**:
+
+| DP Characteristic | Kadane's Algorithm |
+| :--- | :--- |
+| **Subproblem definition** | `max_ending_here[i]` = best subarray sum ending at index `i`. |
+| **Recurrence relation** | `max_ending_here[i] = max(0, max_ending_here[i-1] + A[i])` |
+| **Optimal substructure** | Global answer built from optimal answers to smaller problems. |
+| **Space optimization** | Only the immediately previous subproblem value is ever needed → $O(1)$ space. |
+
+---
+
+## 5. Complexity Summary
+
+| Approach | Time | Space | Key Idea |
+| :--- | :--- | :--- | :--- |
+| **Brute Force** | $O(n^3)$ | $O(1)$ | Re-sum every subarray from scratch. |
+| **Running Sum** | $O(n^2)$ | $O(1)$ | Extend running sum instead of re-summing. |
+| **Kadane's Algorithm** | **$O(n)$** | **$O(1)$** | DP recurrence: extend or reset. |
+
+---
+
+## 6. Check Your Understanding (University Self-Assessment)
+
+1. **Question**: Why does Kadane's algorithm reset `max_ending_here` to 0 (not to `A[i]`) when the running sum goes negative?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> The problem allows the empty slice (sum = 0) as a valid baseline answer. Resetting to 0 is equivalent to saying "start a fresh subarray from the next element." Resetting to <code>A[i]</code> would force us to include at least one element, changing the problem definition.</details>
+
+2. **Question**: What is the relationship between `max_ending_here` and the concept of a DP subproblem?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> <code>max_ending_here</code> represents the optimal solution to the subproblem "what is the maximum sum subarray ending exactly at position i?" The solution at position <code>i</code> is computed directly from position <code>i-1</code>, following the DP recurrence.</details>
+
+3. **Question**: On an all-negative array `[-5, -3, -8, -1]`, what does Kadane's algorithm return?
+   - <details><summary>Click for Answer</summary><b>Answer:</b> It returns <b>0</b> (the empty slice sum), because <code>max_ending_here</code> resets to 0 at every step since every element is negative.</details>
+
+---
+
+## Related Modules
+- [[01-algorithms|Algorithms & Complexity Analysis]] — Recurrence derivation and notation
+- [[04-sorting|Sorting Algorithms]] — $O(n \log n)$ sort-first approaches
