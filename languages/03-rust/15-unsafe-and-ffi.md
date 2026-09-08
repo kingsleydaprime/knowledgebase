@@ -180,4 +180,4 @@ cargo geiger                    # count unsafe in your dependency tree
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]] — safe abstractions built on this
 - [[languages/03-rust/13-concurrency|Concurrency]] — `Send`/`Sync` as unsafe traits
 - [[languages/03-rust/18-performance-and-zero-cost|Performance]] — measure before reaching for `unsafe`
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

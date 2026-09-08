@@ -155,4 +155,4 @@ $$C = \alpha_{\text{src}}C_{\text{src}} + (1-\alpha_{\text{src}})C_{\text{dst}}$
 - [[foundations/computer-graphics/04-shading-and-lighting|Shading and Lighting]] — computing the colour
 - [[foundations/computer-graphics/06-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — how this runs in hardware
 - [[foundations/computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — what feeds this
-- [[foundations/computer-graphics/README|Computer graphics map]]
+- [[foundations/computer-graphics/index|Computer graphics map]]

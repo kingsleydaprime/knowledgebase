@@ -56,4 +56,4 @@ Beneath the heavy artillery: **fault injection** in integration tests (kill a de
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — the partial-failure × timing bugs these hunt
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — what Jepsen's checkers verify against
 - [[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]] — the edge cases you'll want to test (and TLA+-verify)
-- [[architecture/05-case-studies/README|Case Studies]] — test your own Raft KV-store this way
+- [[architecture/05-case-studies/index|Case Studies]] — test your own Raft KV-store this way

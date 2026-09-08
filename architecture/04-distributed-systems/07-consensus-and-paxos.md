@@ -66,4 +66,4 @@ This is why **etcd** and **ZooKeeper** ([[architecture/04-distributed-systems/09
 - [[architecture/04-distributed-systems/09-coordination-services|Coordination Services]] — consensus packaged as etcd/ZooKeeper; BFT
 - [[architecture/04-distributed-systems/05-replication|Replication]] — what strong consistency and safe failover require
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — atomic commit is a consensus problem
-- [[architecture/05-case-studies/README|Case Studies]] — the build-your-own Raft KV-store
+- [[architecture/05-case-studies/index|Case Studies]] — the build-your-own Raft KV-store

@@ -122,7 +122,7 @@ hdparm -W /dev/sda            # is the write cache on?
 
 **Directory entries need their own fsync.** Creating a file and fsyncing it doesn't guarantee the *name* survives — the directory is a separate object.
 
-→ [[architecture/04-distributed-systems/README|Distributed systems]] durability arguments all bottom out here.
+→ [[architecture/04-distributed-systems/index|Distributed systems]] durability arguments all bottom out here.
 
 ## Journaling
 
@@ -149,7 +149,7 @@ Copy-on-write filesystems (btrfs, ZFS) take a different route — never overwrit
 | **btrfs** | CoW, snapshots, checksums, built-in RAID. Feature-rich; RAID5/6 still not recommended |
 | **ZFS** | CoW with checksums, integrated volume management. Excellent; licensing keeps it out of the kernel tree |
 | **tmpfs** | RAM-backed. `/dev/shm`, `/run`. Fast, volatile |
-| **overlayfs** | union mount — **the basis of container images** → [[devops/02-docker/README\|Docker]] |
+| **overlayfs** | union mount — **the basis of container images** → [[devops/02-docker/index\|Docker]] |
 | **NFS / CIFS** | network filesystems. The abstraction leaks: latency, partial failure, locking |
 
 **overlayfs is worth understanding** if you use containers. A container's filesystem is read-only image layers plus a writable upper layer; writing to a file in a lower layer **copies the whole file up first** (copy-up). That's why writing to a large file inside a container can be surprisingly slow the first time, and why write-heavy workloads should use a volume rather than the container filesystem.
@@ -208,4 +208,4 @@ splice(fd_in, NULL, fd_out, NULL, len, 0);         // via a pipe, more general
 - [[foundations/os/04-virtual-memory|Virtual Memory]] — the page cache from the memory side
 - [[devops/01-linux/18-disks-and-filesystems|Linux: Disks and Filesystems]] — the operational view
 - [[databases/database-design-reference|Database Design]] — why durability costs what it does
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]

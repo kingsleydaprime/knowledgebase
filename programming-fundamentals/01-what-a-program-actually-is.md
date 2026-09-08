@@ -38,7 +38,7 @@ A **programming language** is a notation designed for humans, with a mechanical,
 total = price * quantity
 ```
 
-and something turns it into the load / multiply / store instructions the processor needs. That translator — a [[foundations/compilers/README|compiler or interpreter]] — is itself a program, which is a genuinely strange fact worth sitting with for a moment.
+and something turns it into the load / multiply / store instructions the processor needs. That translator — a [[foundations/compilers/index|compiler or interpreter]] — is itself a program, which is a genuinely strange fact worth sitting with for a moment.
 
 **Every language is a bargain: expressiveness for you, in exchange for a translation step and some loss of control.** [[foundations/programming-fundamentals/02-languages-and-the-translation-problem|Note 02]] is about the terms of that bargain.
 
@@ -70,8 +70,8 @@ That last one is the big one, and it's the same move as the language itself: **m
 ## Related
 - [[foundations/programming-fundamentals/02-languages-and-the-translation-problem|languages and translation]] — what happens to your text
 - [[foundations/programming-fundamentals/03-where-code-gets-written|where code gets written]] — the tools
-- [[foundations/compilers/README|compilers]] — the translation step, at depth, much later
+- [[foundations/compilers/index|compilers]] — the translation step, at depth, much later
 - [[foundations/computer-architecture/01-what-architecture-is|computer architecture]] — what's underneath the instructions
-- [[using-ai/README|using AI]] — the parallel on-ramp, for the other tool you'll be leaning on
+- [[using-ai/index|using AI]] — the parallel on-ramp, for the other tool you'll be leaning on
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, written as the on-ramp this vault assumed and never wrote.*

@@ -70,6 +70,7 @@ s.length                          // compiles. May NPE at runtime.
 **This is where NPEs still come from in Kotlin**, and it's most of Android's older framework surface.
 
 **What to do:**
+
 - **Declare the type explicitly at the boundary** — `val s: String? = javaObject.getName()` forces you to handle it
 - **Annotate your Java** with `@Nullable`/`@NonNull` — Kotlin respects these and the platform type disappears
 - **Treat every Java boundary as suspect**
@@ -113,6 +114,7 @@ val clean: List<String> = maybeNulls.filterNotNull()
 **Kotlin didn't remove null — it moved it into the type system so the compiler can check it.** The guarantee is genuine and holds completely within Kotlin, and **it stops at the Java boundary**, where platform types silently reintroduce the risk. So the discipline that remains is: annotate your Java, declare types explicitly at boundaries, and treat `!!` as something you have to justify.
 
 ## Related
+
 - [[languages/09-kotlin/03-types-and-data-classes|types and data classes]]
 - [[languages/08-swift/02-values-references-and-optionals|Swift's optionals]] — the same idea
-- [[languages/01-java/README|Java]] — where the platform types come from
+- [[languages/01-java/index|Java]] — where the platform types come from

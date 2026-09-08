@@ -105,5 +105,5 @@ Worth stating plainly, because the field routinely pretends these are solved:
 ## Related
 - [[web3/06-building-dapps/07-account-abstraction|account abstraction]] — the attempt to fix most of this
 - [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing chain state]]
-- [[web3/frameworks/javascript/README|JS/TS for web3]] — wagmi, viem, RainbowKit
+- [[web3/frameworks/javascript/index|JS/TS for web3]] — wagmi, viem, RainbowKit
 - [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]]

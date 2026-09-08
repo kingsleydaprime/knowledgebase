@@ -61,7 +61,7 @@ Worked example — split `10.0.0.0/22` into `/24`s: `/22` is 4× `/24`, so you g
 | `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` | **Private** (RFC 1918) — not routable on the internet; what every home LAN and cloud VPC uses |
 | `127.0.0.0/8` | **Loopback** — never leaves the host |
 | `169.254.0.0/16` | **Link-local** — self-assigned when DHCP fails. Seeing a `169.254.x.x` address means *"DHCP didn't answer"* — an instant diagnosis |
-| `169.254.169.254` | the **cloud metadata service** on AWS/GCP/Azure. Memorise this one: it's the endpoint behind most [[cybersecurity/04-web-security/README\|SSRF]] escalations, because it hands out instance credentials to anything that asks |
+| `169.254.169.254` | the **cloud metadata service** on AWS/GCP/Azure. Memorise this one: it's the endpoint behind most [[cybersecurity/04-web-security/index\|SSRF]] escalations, because it hands out instance credentials to anything that asks |
 | `224.0.0.0/4` | **Multicast** — one-to-many |
 
 ## NAT — the reason IPv4 survived
@@ -101,5 +101,5 @@ An IP address is not a name for a *machine* — it's a name for a **location in 
 ## Related
 - [[foundations/networking/04-routing|Routing]] — what routers do with these prefixes
 - [[foundations/networking/14-nat-firewalls-and-middleboxes|NAT, Firewalls & Middleboxes]] — NAT traversal in full
-- [[devops/03-cloud/README|Cloud]] — VPC/subnet design is this arithmetic applied
+- [[devops/03-cloud/index|Cloud]] — VPC/subnet design is this arithmetic applied
 - [[foundations/networking/16-debugging-networks|Debugging Networks]] — `ip addr`, `ip route`, reading a routing table

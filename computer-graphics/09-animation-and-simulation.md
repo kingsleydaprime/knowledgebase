@@ -116,7 +116,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 
 **Differentiable simulation** — make the whole simulation differentiable so you can optimise through it. **Gradient-based control and system identification** rather than sampling.
 
-**The sim-to-real gap** is the practical difficulty: **contact, friction and actuator dynamics are the parts simulators model worst**, and they're exactly what matters for manipulation. **Domain randomisation** — randomise masses, friction, delays and textures during training so the policy learns to be robust — is the standard mitigation. → [[robotics/README|Robotics]]
+**The sim-to-real gap** is the practical difficulty: **contact, friction and actuator dynamics are the parts simulators model worst**, and they're exactly what matters for manipulation. **Domain randomisation** — randomise masses, friction, delays and textures during training so the policy learns to be robust — is the standard mitigation. → [[robotics/index|Robotics]]
 
 **Rendering for training data** — synthetic datasets with perfect ground-truth labels (depth, segmentation, pose), which is far cheaper than annotating real images.
 
@@ -144,4 +144,4 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 - [[robotics/08-dynamics|Robot Dynamics]] — the same equations, more rigour
 - [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators and why symplectic matters
 - [[foundations/computer-graphics/08-geometry-and-meshes|Geometry and Meshes]] — what gets deformed
-- [[foundations/computer-graphics/README|Computer graphics map]]
+- [[foundations/computer-graphics/index|Computer graphics map]]

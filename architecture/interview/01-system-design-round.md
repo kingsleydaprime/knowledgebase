@@ -1,6 +1,6 @@
 # Architecture Interview — The System Design Round
 
-From [[architecture/01-system-design-fundamentals/README|01-fundamentals]], [[architecture/02-building-blocks/README|02-building-blocks]], [[architecture/03-architectural-patterns/README|03-patterns]].
+From [[architecture/01-system-design-fundamentals/index|01-fundamentals]], [[architecture/02-building-blocks/index|02-building-blocks]], [[architecture/03-architectural-patterns/index|03-patterns]].
 
 **This round is not a knowledge test — it's a "can I work with you" test.** The interviewer is watching you handle ambiguity, make a call, and say why. Candidates fail far more often by jumping to a diagram than by not knowing what a CDN is.
 
@@ -58,7 +58,7 @@ Then: redirect uses **301 vs 302** — and this is a real tradeoff worth naming:
 
 **Details that score:** return `429` with `Retry-After` and `X-RateLimit-*` headers; decide fail-open vs fail-closed when Redis is down (fail-open for availability, fail-closed for abuse protection — *name the choice*); and rate-limit by API key, not IP, when you can, because NAT means many users share an IP.
 
-**You have this in the vault** — the token-bucket exercise in [[languages/01-java/02-jvm-and-concurrency/exercises/README|the concurrency exercises]]. Build it.
+**You have this in the vault** — the token-bucket exercise in [[languages/01-java/02-jvm-and-concurrency/exercises/index|the concurrency exercises]]. Build it.
 
 ---
 

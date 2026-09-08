@@ -172,4 +172,4 @@ FROM pg_stat_user_indexes WHERE idx_scan = 0;
 - [[databases/05-lsm-trees|LSM Trees]] — the write-optimised alternative
 - [[databases/07-join-algorithms-and-the-optimiser|Join Algorithms and the Optimiser]] — how the planner decides to use these
 - [[databases/database-design-reference|Database Design Reference]] — §11, index design strategy
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]

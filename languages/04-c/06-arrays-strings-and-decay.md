@@ -232,4 +232,4 @@ Both [[languages/02-go/02-language-fundamentals|Go]] and [[languages/03-rust/02-
 - [[languages/04-c/07-memory-management|Memory Management]] — allocating for strings
 - [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Exploits]] — where buffer overflows lead
 - [[languages/03-rust/04-borrowing-and-references|Rust: Slices]] — a pointer that carries its length
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

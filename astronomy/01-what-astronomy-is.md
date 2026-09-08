@@ -84,9 +84,9 @@ Astronomy's numbers defeat intuition, so it uses its own units:
 
 - **Writing telescope proposals**, and mostly being rejected — big facilities are oversubscribed several times over
 - **Reducing data** — calibration, removing instrumental artefacts, subtracting the sky. Often the bulk of the work
-- **Writing code.** Modern astronomy is a computational science; Python is effectively its lingua franca → [[languages/06-python/README|Python]]
+- **Writing code.** Modern astronomy is a computational science; Python is effectively its lingua franca → [[languages/06-python/index|Python]]
 - **Statistics** — much of the field is extracting weak signals from noisy, incomplete, biased samples
-- **Simulation** — you can't experiment on a galaxy, so you simulate one → [[foundations/numerical-methods/README|numerical methods]]
+- **Simulation** — you can't experiment on a galaxy, so you simulate one → [[foundations/numerical-methods/index|numerical methods]]
 
 **The field is unusually open.** Most large surveys become public, papers go to **arXiv** before journals, and the core software stack (Astropy, NumPy) is open source. **An amateur with a laptop can do real work on real data**, which is not true of most sciences → [[astronomy/10-getting-started|note 10]].
 
@@ -94,6 +94,6 @@ Astronomy's numbers defeat intuition, so it uses its own units:
 - [[astronomy/02-the-sky-and-how-it-moves|the sky and how it moves]] — start here for observing
 - [[astronomy/03-light-and-instruments|light and instruments]] — how everything is measured
 - [[astronomy/09-astrology-honestly|astrology, honestly]] — the distinction, properly
-- [[astronomy/README|the domain index]]
+- [[astronomy/index|the domain index]]
 
 *Source: [reference] — written Aug 2026 from standard texts and current mission documentation.*

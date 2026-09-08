@@ -100,6 +100,6 @@ Write down what happened and how they got in. **That's a personal postmortem**, 
 **In an incident, sequence beats speed: email first, sign out all sessions, then check recovery settings** — because an attacker who keeps a forwarding rule or a recovery phone number keeps the account no matter how many times you change the password. Most people change the password, feel safe, and get compromised again a week later by the back door they never looked for.
 
 ## Related
-- [[cybersecurity/10-protecting-yourself/README|the track]]
+- [[cybersecurity/10-protecting-yourself/index|the track]]
 - [[cybersecurity/10-protecting-yourself/06-backups-and-your-data|backups]] — what makes recovery possible
 - [[cybersecurity/07-security-operations/04-incident-response|incident response]] — the organisational version

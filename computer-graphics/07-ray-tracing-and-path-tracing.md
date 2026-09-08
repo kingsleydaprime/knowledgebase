@@ -172,4 +172,4 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 - [[foundations/computer-graphics/01-how-rendering-works|How Rendering Works]] — the rendering equation
 - [[foundations/numerical-methods/07-numerical-integration|Numerical Integration]] — Monte Carlo and variance reduction
 - [[foundations/computer-graphics/04-shading-and-lighting|Shading and Lighting]] — the BRDFs being sampled
-- [[foundations/computer-graphics/README|Computer graphics map]]
+- [[foundations/computer-graphics/index|Computer graphics map]]

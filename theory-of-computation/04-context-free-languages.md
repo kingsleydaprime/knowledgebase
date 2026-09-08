@@ -159,4 +159,4 @@ Same idea as [[foundations/theory-of-computation/03-regular-languages|the regula
 - [[foundations/compilers/03-parsing|Parsing]] — the industrial application
 - [[foundations/theory-of-computation/03-regular-languages|Regular Languages]] — the level below
 - [[foundations/theory-of-computation/05-turing-machines|Turing Machines]] — the level above
-- [[foundations/theory-of-computation/README|Theory of computation map]]
+- [[foundations/theory-of-computation/index|Theory of computation map]]

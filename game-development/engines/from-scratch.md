@@ -33,10 +33,10 @@
 - **Where the frame budget actually goes**, because you wrote every part of it
 - **Why engines make the API choices they do** — most "weird" engine decisions turn out to be forced
 - **Data-oriented design as a felt constraint**, not a slogan → [[foundations/computer-architecture/09-caches-in-depth|caches]]
-- **The whole [[foundations/computer-graphics/README|graphics course]] becomes concrete**
-- **Memory management under a hard deadline** — why per-frame allocation is a bug → [[languages/04-c/README|C]] · [[languages/03-rust/README|Rust]]
+- **The whole [[foundations/computer-graphics/index|graphics course]] becomes concrete**
+- **Memory management under a hard deadline** — why per-frame allocation is a bug → [[languages/04-c/index|C]] · [[languages/03-rust/index|Rust]]
 
-**It is one of the best learning projects in software**, and this vault's [[build-your-own-shit/README|build-your-own-shit]] folder exists on the same premise.
+**It is one of the best learning projects in software**, and this vault's [[build-your-own-shit/index|build-your-own-shit]] folder exists on the same premise.
 
 ## The languages
 
@@ -74,8 +74,8 @@ Even in a from-scratch engine, use libraries for the solved problems:
 **The strongest version of this project:** build the engine *and* one small finished game with it. The game forces you to build the parts that engine projects skip, and it produces something you can show → [[game-development/08-getting-started|getting started]].
 
 ## Related
-- [[build-your-own-shit/README|build your own shit]] — the same premise, other systems
+- [[build-your-own-shit/index|build your own shit]] — the same premise, other systems
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — build this first
-- [[foundations/computer-graphics/README|computer graphics]] · [[foundations/computer-architecture/README|architecture]]
+- [[foundations/computer-graphics/index|computer graphics]] · [[foundations/computer-architecture/index|architecture]]
 
 *Source: [reference] — written Aug 2026.*

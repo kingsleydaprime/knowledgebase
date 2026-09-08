@@ -58,4 +58,4 @@ The two drills that most change how you work are **#5** (watching a join silentl
 
 ## Related
 - [[data-analysis/09-practice-exercises|the exercises]]
-- [[data-analysis/README|the data analysis course]] · [[data-analysis/interview/01-the-data-analyst-round|the interview round]]
+- [[data-analysis/index|the data analysis course]] · [[data-analysis/interview/01-the-data-analyst-round|the interview round]]

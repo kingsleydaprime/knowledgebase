@@ -14,14 +14,14 @@ Concretely, C is still what you're standing on:
 - **Every language runtime** — CPython, the JVM's HotSpot, V8, the Go runtime, Ruby, PHP
 - **The databases** — SQLite, PostgreSQL, MySQL, Redis
 - **The infrastructure** — nginx, OpenSSL, curl, git, ffmpeg, SQLite again
-- **Embedded and firmware**, near-universally → [[hardware/README|hardware/]]
+- **Embedded and firmware**, near-universally → [[hardware/index|hardware/]]
 - **The ABI everything speaks.** When Rust, Python, or Java calls into another language, it speaks C's calling convention. C is the lingua franca of FFI — which is why [[languages/03-rust/15-unsafe-and-ffi|Rust's FFI note]] is entirely about C compatibility.
 
 So even if you never ship C, you read it: to understand a kernel bug, to debug a library, to know what your runtime is doing.
 
 ## What you're signing up for
 
-The honest framing, especially having just done [[languages/03-rust/README|Rust]]:
+The honest framing, especially having just done [[languages/03-rust/index|Rust]]:
 
 C gives you **no safety at all**. No bounds checking, no ownership, no lifetimes, no type safety across a `void*`, no null protection, no automatic memory management, no exceptions, no destructors, no strings, no collections, no modules, no namespaces.
 
@@ -149,5 +149,5 @@ Dynamic linking means the binary depends on `libc.so` existing on the target mac
 - [[languages/04-c/02-headers-and-the-translation-unit|Headers and the Translation Unit]] — the model this pipeline implies
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — the price of no safety net
 - [[languages/03-rust/01-why-rust-and-the-toolchain|Rust: Why Rust]] — the language built to replace this one
-- [[foundations/os/README|Operating Systems]] — written in C, all of them
-- [[languages/04-c/README|C course map]]
+- [[foundations/os/index|Operating Systems]] — written in C, all of them
+- [[languages/04-c/index|C course map]]

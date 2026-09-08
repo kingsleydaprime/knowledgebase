@@ -141,7 +141,7 @@ String hash = HexFormat.of().formatHex(md.digest(input.getBytes(StandardCharsets
 SecureRandom random = new SecureRandom();   // unpredictable IDs — never plain Random for anything security-adjacent
 ```
 
-SHA-256 as an idempotency fingerprint is in [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation]]; `SecureRandom` for ID generation is there too. For actual encryption, prefer vetted higher-level libraries over hand-assembling `Cipher` — the deeper cryptography material lives in [[cybersecurity/05-cryptography/README|cybersecurity/cryptography]].
+SHA-256 as an idempotency fingerprint is in [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation]]; `SecureRandom` for ID generation is there too. For actual encryption, prefer vetted higher-level libraries over hand-assembling `Cipher` — the deeper cryptography material lives in [[cybersecurity/05-cryptography/index|cybersecurity/cryptography]].
 
 ## Playing audio (`javax.sound.sampled`)
 
@@ -220,4 +220,4 @@ Two details worth lifting out: `printf("\r...")` uses a **carriage return** to r
 ## Related
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — streaming IO and the CSV/regex parsing in anger
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation & Idempotency]] — `MessageDigest` and `SecureRandom` applied
-- [[cybersecurity/05-cryptography/README|Cryptography (cybersecurity)]] — the crypto primitives in depth
+- [[cybersecurity/05-cryptography/index|Cryptography (cybersecurity)]] — the crypto primitives in depth

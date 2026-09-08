@@ -142,7 +142,7 @@ From [[hardware/01-electricity|01-electricity]], [[hardware/02-digital-and-analo
 
 **Strong answer covers:** **absolute maximum** is the stress level beyond which you may cause permanent damage — it is *not* a spec you're allowed to operate at. **Recommended operating conditions** are where the datasheet's performance figures are guaranteed. Running between the two is the grey zone where the part works, isn't characterised, and fails unpredictably in the field.
 
-**The detail worth adding:** this is why the [[hardware/README|golden rule]] is to read the datasheet *and* the manufacturer's reference design. The datasheet tells you the limits; the app note tells you how they intended it to be wired. Copying a reference design is not a shortcut — it's using the work of the people who characterised the part.
+**The detail worth adding:** this is why the [[hardware/index|golden rule]] is to read the datasheet *and* the manufacturer's reference design. The datasheet tells you the limits; the app note tells you how they intended it to be wired. Copying a reference design is not a shortcut — it's using the work of the people who characterised the part.
 
 ---
 
@@ -167,7 +167,7 @@ From [[hardware/01-electricity|01-electricity]], [[hardware/02-digital-and-analo
 ---
 
 ## Related
-- [[hardware/README|Hardware course]] — the notes these come from
+- [[hardware/index|Hardware course]] — the notes these come from
 - [[hardware/interview/02-rf-and-iot|RF & IoT bank]] — the wireless and systems half
 - [[projects/iot-bridge-pcb/task|IoT Bridge PCB]] — **cite this**; a real board beats any answer here
 - [[INTERVIEW|Interview index]]

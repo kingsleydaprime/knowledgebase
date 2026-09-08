@@ -16,9 +16,9 @@ You could redecorate the dining room completely and the kitchen wouldn't change.
 
 Strip away frameworks and it's four things:
 
-1. **Persist state** — remember things after the request ends and the process restarts. → [[backend/04-data-and-persistence/README|data & persistence]]
+1. **Persist state** — remember things after the request ends and the process restarts. → [[backend/04-data-and-persistence/index|data & persistence]]
 2. **Enforce rules** — the invariants that must hold no matter who asks or how. *You can't withdraw more than your balance. You can't book a taken seat.*
-3. **Decide who may do what** — authentication and authorization. → [[backend/05-auth/README|auth]]
+3. **Decide who may do what** — authentication and authorization. → [[backend/05-auth/index|auth]]
 4. **Integrate** — talk to other systems (payment providers, email, other services) and to other clients.
 
 Everything else — routing, serialisation, middleware, ORMs — is machinery in service of those four.
@@ -41,17 +41,17 @@ This single rule generates most of the backend's design:
 The frontend/backend line has moved a lot, and the vocabulary reflects that:
 
 - **Server-rendered** — the server sends HTML. The original model, and back in fashion (Next.js server components, Rails/Hotwire, HTMX).
-- **API + SPA** — the server sends JSON, the client renders. → [[backend/02-api-design/README|API design]]
+- **API + SPA** — the server sends JSON, the client renders. → [[backend/02-api-design/index|API design]]
 - **BFF (backend-for-frontend)** — a thin server per client type, shaping data for that client, in front of shared services.
 - **Serverless** — the same responsibilities, but the runtime is managed and scales per request. Changes the *operations*, not the *concerns* — though it makes connection pooling genuinely harder.
 
-**The four responsibilities don't move.** Whichever shape you pick, something still has to hold state, enforce rules, decide permission, and integrate. That's why this course is framework-agnostic and why [[backend/frameworks/README|frameworks/]] is a subfolder rather than the main event.
+**The four responsibilities don't move.** Whichever shape you pick, something still has to hold state, enforce rules, decide permission, and integrate. That's why this course is framework-agnostic and why [[backend/frameworks/index|frameworks/]] is a subfolder rather than the main event.
 
 ## What makes backend work hard
 
 Not the syntax. The three things that actually generate difficulty:
 
-- **Concurrency** — many requests at once, touching the same data. Two users buying the last item is a *correctness* problem, not a performance one. → [[backend/04-data-and-persistence/README|transactions and isolation]]
+- **Concurrency** — many requests at once, touching the same data. Two users buying the last item is a *correctness* problem, not a performance one. → [[backend/04-data-and-persistence/index|transactions and isolation]]
 - **Failure** — networks time out, databases fail over, your process dies mid-operation. A request that "failed" may have succeeded. → [[backend/interview/01-production-debugging|retry safety]]
 - **Change over time** — the schema, the API, and the code all have to evolve while running, without downtime and without breaking existing clients.
 
@@ -65,4 +65,4 @@ The backend is **the boundary where claims become facts.** The client can reques
 - [[backend/01-foundations/02-http-servers|HTTP Servers]] — how requests physically arrive
 - [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]] — what happens to one
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — how many happen at once
-- [[foundations/networking/README|Networking]] — the layer underneath all of it
+- [[foundations/networking/index|Networking]] — the layer underneath all of it

@@ -238,4 +238,4 @@ Their genuine advantage over `#define` is that the debugger knows the names and 
 - [[languages/04-c/11-modular-c-and-project-structure|Modular C]] — opaque structs as an interface
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Rust: Enums]] — tagged unions with the checking built in
 - [[hardware/03-embedded-systems|Embedded Systems]] — where layout control genuinely matters
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

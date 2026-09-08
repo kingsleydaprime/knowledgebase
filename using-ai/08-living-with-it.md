@@ -59,9 +59,9 @@ Two questions, occasionally:
 You now have the working model: what it is, how it works, how to brief it, how to feed it, how to check it, and what not to give it. From here:
 
 - **Just use it.** Two weeks of real tasks teaches more than another course. Come back to [[using-ai/06-verifying-what-it-tells-you|note 06]] when something surprises you.
-- **Want it to run without you?** Repeated, scheduled, unattended tasks are automation — [[ai-automation/README|ai-automation/]].
-- **Want to build things with it?** [[ai-ml/03-ai-engineer/README|The AI Engineer track]] picks up exactly where this leaves off: calling models from code, retrieval, tools, agents, evals. It assumes you can program.
-- **Want to know how the models themselves are made?** [[ai-ml/README|The AI/ML course]] — foundations, then the data scientist and ML engineer paths.
+- **Want it to run without you?** Repeated, scheduled, unattended tasks are automation — [[ai-automation/index|ai-automation/]].
+- **Want to build things with it?** [[ai-ml/03-ai-engineer/index|The AI Engineer track]] picks up exactly where this leaves off: calling models from code, retrieval, tools, agents, evals. It assumes you can program.
+- **Want to know how the models themselves are made?** [[ai-ml/index|The AI/ML course]] — foundations, then the data scientist and ML engineer paths.
 
 ## Key insight
 
@@ -70,5 +70,5 @@ The tool is very good at producing the *shape* of competent work. Whether it con
 ## Related
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — the discipline underneath all of this
 - [[using-ai/07-privacy-and-what-not-to-share|Privacy and What Not to Share]] — the other thing that stays your responsibility
-- [[using-ai/README|Course index]]
-- [[ai-ml/03-ai-engineer/README|AI Engineer track]] — the next course if you write code
+- [[using-ai/index|Course index]]
+- [[ai-ml/03-ai-engineer/index|AI Engineer track]] — the next course if you write code

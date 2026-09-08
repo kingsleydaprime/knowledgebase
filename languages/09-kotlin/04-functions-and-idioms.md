@@ -138,4 +138,4 @@ repeat(3) { retry() }
 ## Related
 - [[languages/09-kotlin/03-types-and-data-classes|types and data classes]]
 - [[languages/09-kotlin/05-coroutines-and-flow|coroutines]] — built on `inline` and suspending lambdas
-- [[languages/01-java/README|Java]] — what these idioms replace
+- [[languages/01-java/index|Java]] — what these idioms replace

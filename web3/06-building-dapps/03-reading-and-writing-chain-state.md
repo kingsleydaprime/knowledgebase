@@ -138,5 +138,5 @@ Over a WebSocket transport this is a real push subscription; over HTTP viem poll
 ## Related
 - [[web3/06-building-dapps/04-indexing-and-events|indexing and events]] — for anything historical
 - [[web3/06-building-dapps/01-the-dapp-architecture|the dapp architecture]]
-- [[web3/frameworks/javascript/README|JS/TS for web3]] — viem and wagmi in full
+- [[web3/frameworks/javascript/index|JS/TS for web3]] — viem and wagmi in full
 - [[web3/01-foundations/06-networking-and-nodes|nodes and RPC]]

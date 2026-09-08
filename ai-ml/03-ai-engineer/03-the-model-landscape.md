@@ -11,7 +11,7 @@ LLMs dominate the conversation but are one branch. Recognizing what *kind* of mo
 - **Diffusion / generation models** — text → new image/video/audio (Stable Diffusion, Midjourney, Sora-style). Different architecture from LLMs entirely (denoising, not next-token) — covered under [[ai-ml/03-ai-engineer/09-multimodal|multimodal]].
 - **Speech models** — speech-to-text (Whisper) and text-to-speech.
 - **Vision models** — image classification/detection/segmentation.
-- **Classic ML / RL** — regression, trees, clustering, reinforcement learning. Mostly [[ai-ml/02-ml-engineer/README|ML-engineer]] territory, but worth recognizing (a gradient-boosted tree often beats an LLM on structured/tabular data, cheaper and faster).
+- **Classic ML / RL** — regression, trees, clustering, reinforcement learning. Mostly [[ai-ml/02-ml-engineer/index|ML-engineer]] territory, but worth recognizing (a gradient-boosted tree often beats an LLM on structured/tabular data, cheaper and faster).
 
 ## LLM providers — closed (API) models
 
@@ -65,8 +65,8 @@ Rule of thumb: **self-host when privacy/offline is a hard requirement, volume ma
 - **Image/video/audio generation** — diffusion-based, different evaluation criteria entirely.
 - **Search/RAG tools** — LLM + live search or a document store, grounding answers in sources.
 - **Embedding/vector infrastructure** — the building blocks behind semantic search and RAG (usually used indirectly).
-- **MLOps/serving platforms** — the practitioner side ([[ai-ml/02-ml-engineer/README|ML engineer]] audience).
-- **No-code/low-code AI builders** — visual agent/automation assembly ([[ai-automation/README|ai-automation]]); accessible, hits a ceiling fast for custom logic.
+- **MLOps/serving platforms** — the practitioner side ([[ai-ml/02-ml-engineer/index|ML engineer]] audience).
+- **No-code/low-code AI builders** — visual agent/automation assembly ([[ai-automation/index|ai-automation]]); accessible, hits a ceiling fast for custom logic.
 
 ## Related
 - [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|The AI Engineer Role]] — the decision process for picking from this landscape

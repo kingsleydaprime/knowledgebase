@@ -48,7 +48,7 @@ You have already done all six phases across twelve projects, unnamed. The value 
 
 ## Related
 - [[foundations/software-engineering/01-what-software-engineering-is|what software engineering is]]
-- [[architecture/01-system-design-fundamentals/README|system design fundamentals]] — the design phase, in depth
+- [[architecture/01-system-design-fundamentals/index|system design fundamentals]] — the design phase, in depth
 - [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — how modern delivery compresses phases 4–6
 
 *Source: [reference]*

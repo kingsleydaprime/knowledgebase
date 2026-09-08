@@ -216,4 +216,4 @@ Given root locus exists, the case for the frequency domain:
 - [[engineering/02-control-theory/05-stability-and-root-locus|Stability and Root Locus]] — the time-domain view
 - [[engineering/02-control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — margins done properly
 - [[engineering/02-control-theory/04-pid-control|PID Control]] — what P, I and D do to these plots
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/02-control-theory/index|Control theory map]]

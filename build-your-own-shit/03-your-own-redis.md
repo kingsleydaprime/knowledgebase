@@ -255,7 +255,7 @@ Compare behaviour against real Redis for edge cases — `GET` on a missing key, 
 
 **Real Redis additionally has:** Cluster with hash-slot sharding and resharding, Sentinel for failover, Lua scripting, modules, streams with consumer groups, pub/sub, transactions with `WATCH`, eight eviction policies, and a decade of memory-layout optimisation (ziplists, intsets, embedded strings) that makes small objects dramatically cheaper.
 
-**If you want to go further:** implement **eviction** (`maxmemory` with LRU or LFU — Redis's approximate LRU sampling is another nice probabilistic algorithm), or **pub/sub**, which is small and teaches you fan-out. Replication is the natural bridge into [[architecture/04-distributed-systems/README|distributed systems]].
+**If you want to go further:** implement **eviction** (`maxmemory` with LRU or LFU — Redis's approximate LRU sampling is another nice probabilistic algorithm), or **pub/sub**, which is small and teaches you fan-out. Replication is the natural bridge into [[architecture/04-distributed-systems/index|distributed systems]].
 
 ---
 
@@ -264,4 +264,4 @@ Compare behaviour against real Redis for edge cases — `GET` on a missing key, 
 - [[foundations/os/07-filesystems-and-storage|Filesystems and Storage]] — the `fsync` milestone
 - [[foundations/os/08-io-models|I/O Models]] — the event loop
 - [[architecture/02-building-blocks/02-caching|Caching]] — what you're building, conceptually
-- [[build-your-own-shit/README|build-your-own-shit]]
+- [[build-your-own-shit/index|build-your-own-shit]]

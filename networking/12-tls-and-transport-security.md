@@ -1,6 +1,6 @@
 # TLS & Transport Security
 
-**[Intermediate→Advanced]** — how two machines that have never met establish a private, authenticated channel across a network run by strangers. This note is about the *protocol*; the underlying maths lives in [[cybersecurity/05-cryptography/README|cryptography]].
+**[Intermediate→Advanced]** — how two machines that have never met establish a private, authenticated channel across a network run by strangers. This note is about the *protocol*; the underlying maths lives in [[cybersecurity/05-cryptography/index|cryptography]].
 
 ## The kid version first
 
@@ -45,7 +45,7 @@ The root's public key ships with your operating system — that's the anchor, an
 What the client actually checks, in order — and each is a real-world failure mode:
 
 1. **Signature chain** validates to a trusted root.
-2. **Not expired.** The single most common outage cause in this entire note. Automate renewal ([[devops/06-ci-cd/README|certbot / cert-manager]]) or you *will* be paged at 3am about it.
+2. **Not expired.** The single most common outage cause in this entire note. Automate renewal ([[devops/06-ci-cd/index|certbot / cert-manager]]) or you *will* be paged at 3am about it.
 3. **Name matches** — the `Subject Alternative Name` must cover the hostname. (Common Name has been deprecated for this since 2017; browsers ignore it entirely.)
 4. **Not revoked.** The weakest link. CRLs are huge and stale; **OCSP** requires an online check that leaks browsing to the CA and fails open (soft-fail) — an attacker who can MITM can also block the OCSP query. **OCSP stapling** improves this by having the *server* fetch and attach a signed freshness proof. Chrome largely abandoned OCSP for CRLSets; the industry's real answer has become **short-lived certificates** — a 90-day (soon 47-day) cert that expires before revocation would have mattered.
 
@@ -83,7 +83,7 @@ Things TLS explicitly does not protect:
 TLS's hardest problem was never encryption — it's **authentication**, and TLS doesn't actually solve it so much as *delegate* it to a global network of certificate authorities that you implicitly trust because your OS vendor does. Every serious TLS incident of the last fifteen years has been an authentication or negotiation failure (a rogue CA, a stripped connection, a downgrade to weak legacy crypto, an expired cert), not a broken cipher. The maths has held. The trust infrastructure around it is the soft part.
 
 ## Related
-- [[cybersecurity/05-cryptography/README|Cryptography]] — the primitives underneath
+- [[cybersecurity/05-cryptography/index|Cryptography]] — the primitives underneath
 - [[foundations/networking/13-quic-and-modern-transport|QUIC]] — TLS 1.3 fused into the transport itself
 - [[foundations/networking/11-http-evolution|HTTP Evolution]] — ALPN, and why h2 requires TLS in practice
 - [[cybersecurity/03-network-security/03-vpns-and-encryption-in-transit|Encryption in Transit]] — the operator's view

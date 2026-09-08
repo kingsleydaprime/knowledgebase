@@ -27,7 +27,7 @@ Software testing checks that *code* is correct. Data quality checks that *data* 
 - **dbt tests** — `unique`, `not_null`, `accepted_values`, relationships, plus custom SQL. **The first line of defence, and nearly free** → [[data-engineering/07-transformation-and-dbt|dbt]]
 - **Great Expectations / Soda** — richer declarative data-quality suites with profiling and reporting
 
-**Data observability** — monitoring data health continuously, like [[devops/10-observability/README|application observability]] but for data:
+**Data observability** — monitoring data health continuously, like [[devops/10-observability/index|application observability]] but for data:
 
 - **Anomaly detection** on freshness, volume and distribution — alert when today doesn't look like history
 - **Monte Carlo, Anomalo** and similar are the commercial category
@@ -75,7 +75,7 @@ Around 2020 a standard architecture crystallised: **Fivetran (ingest) → Snowfl
 ## Related
 - [[data-engineering/07-transformation-and-dbt|transformation and dbt]] — tests as the first line
 - [[data-engineering/08-orchestration|orchestration]] — where quality alerts fire
-- [[devops/10-observability/README|observability]] — the application-monitoring analogue
+- [[devops/10-observability/index|observability]] — the application-monitoring analogue
 - [[data-engineering/01-what-data-engineering-is|what data engineering is]] — the whole picture
 
 *Source: [reference] — Aug 2026. The stack landscape moves fast; treat specific tools as of-the-moment.*

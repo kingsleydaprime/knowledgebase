@@ -110,4 +110,4 @@ git commit -m "feat: implement feature X"
 - [[git/06-rebasing|Rebasing]] — the other way to integrate
 - [[git/07-merge-vs-rebase|Merge vs Rebase]] — choosing between them
 - [[git/04-branching|Branching]] — what you are merging
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

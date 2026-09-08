@@ -154,4 +154,4 @@ $$\text{L} \subseteq \text{NL} \subseteq \text{P} \subseteq \text{NP} \subseteq 
 - [[foundations/theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]] — randomness, quantum, approximation
 - [[foundations/theory-of-computation/06-decidability|Decidability]] — impossible rather than slow
 - [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — where complexity is applied
-- [[foundations/theory-of-computation/README|Theory of computation map]]
+- [[foundations/theory-of-computation/index|Theory of computation map]]

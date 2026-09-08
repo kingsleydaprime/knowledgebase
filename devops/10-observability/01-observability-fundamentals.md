@@ -47,4 +47,4 @@ Alerts should be **actionable and symptom-based** — page a human for *user-fac
 ## Related
 - [[languages/01-java/03-tooling/05-logging-and-observability|Logging & Observability (Java)]] — the application-side, grounded in a real pipeline
 - [[devops/10-observability/02-the-observability-stack|The Observability Stack]] — the tools that implement these pillars
-- [[devops/05-orchestration/README|Orchestration]] — what you're most often observing
+- [[devops/05-orchestration/index|Orchestration]] — what you're most often observing

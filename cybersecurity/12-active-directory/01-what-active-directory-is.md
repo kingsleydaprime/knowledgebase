@@ -71,7 +71,7 @@ AD is **decades old, backward-compatible to a fault, and insecure by default in 
 ## Related
 - [[cybersecurity/12-active-directory/02-authentication-and-kerberos|authentication and Kerberos]] — the protocol underneath the attacks
 - [[cybersecurity/12-active-directory/03-enumeration|enumeration]] — BloodHound and mapping the graph
-- [[cybersecurity/01-fundamentals/01-what-is-cybersecurity|fundamentals]] · [[cybersecurity/03-network-security/README|network security]]
-- [[cybersecurity/11-binary-exploitation/README|binary exploitation]] — the other big offensive gap
+- [[cybersecurity/01-fundamentals/01-what-is-cybersecurity|fundamentals]] · [[cybersecurity/03-network-security/index|network security]]
+- [[cybersecurity/11-binary-exploitation/index|binary exploitation]] — the other big offensive gap
 
 *Source: [reference] — Aug 2026. Authorised-testing / lab material.*

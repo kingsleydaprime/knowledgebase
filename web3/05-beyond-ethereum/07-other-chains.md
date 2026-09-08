@@ -64,7 +64,7 @@ Across all the variety, the field is settling on a few things:
 ## Related
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the trilemma]] — what they're all trading
 - [[web3/05-beyond-ethereum/04-solana-and-the-alternative-model|Solana]] · [[web3/05-beyond-ethereum/05-bitcoin-and-utxo|Bitcoin]]
-- [[web3/frameworks/rust/README|Rust for web3]] — Solana, CosmWasm, ink!
+- [[web3/frameworks/rust/index|Rust for web3]] — Solana, CosmWasm, ink!
 - [[foundations/programming-language-theory/07-effects-and-substructural-types|substructural types]] — the theory behind Move
 
 *Source: [reference] — Aug 2026.*

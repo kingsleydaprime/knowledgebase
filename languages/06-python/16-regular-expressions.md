@@ -96,7 +96,7 @@ re.match(r"(a+)+$", "a" * 30 + "b")     # effectively hangs
 
 Nested quantifiers (`(a+)+`, `(a*)*`, `(\s|\w)+`) give the engine exponentially many ways to split the input, and it tries all of them before failing.
 
-**This is a real denial-of-service class — ReDoS** — and it has caused documented multi-hour outages at Cloudflare and Stack Overflow, both from a regex in production. If your pattern touches user input, this is a security property, not a performance note → [[cybersecurity/06-attacks-and-threats/README|attacks]].
+**This is a real denial-of-service class — ReDoS** — and it has caused documented multi-hour outages at Cloudflare and Stack Overflow, both from a regex in production. If your pattern touches user input, this is a security property, not a performance note → [[cybersecurity/06-attacks-and-threats/index|attacks]].
 
 **Defences:**
 - Avoid nested quantifiers; make alternations unambiguous
@@ -127,6 +127,6 @@ Path(f).suffix == ".csv"              # not a filename pattern
 - [[foundations/theory-of-computation/03-regular-languages|regular languages]] — what regex provably can't do
 - [[build-your-own-shit/09-your-own-regex-engine|build your own regex engine]] — where this stops being reading
 - [[devops/01-linux/16-sed-and-awk|sed and awk]] — regex at the shell
-- [[cybersecurity/06-attacks-and-threats/README|attacks and threats]] — ReDoS
+- [[cybersecurity/06-attacks-and-threats/index|attacks and threats]] — ReDoS
 
 *Source: [reference] — from the `re` documentation; roadmap.sh-cross-referenced.*

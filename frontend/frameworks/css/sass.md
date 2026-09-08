@@ -83,7 +83,7 @@ CSS has no loops. If you're generating a scale, Sass still wins.
 **Dart Sass is the only maintained implementation** — LibSass and Ruby Sass are both dead.
 
 ## Related
-- [[frontend/frameworks/css/README|css/]] · [[frontend/frameworks/css/tailwind|Tailwind]]
+- [[frontend/frameworks/css/index|css/]] · [[frontend/frameworks/css/tailwind|Tailwind]]
 - [[frontend/05-styling/01-css-architecture|CSS architecture]] — the modern CSS Sass no longer needs to provide
 
 *Source: [reference] — from the Sass documentation, Aug 2026.*

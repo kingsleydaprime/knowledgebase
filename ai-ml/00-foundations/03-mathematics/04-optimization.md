@@ -1,10 +1,10 @@
 # Optimization for AI/ML
 
-Optimization is the piece that actually connects [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|linear algebra]] (how a model is represented), [[ai-ml/00-foundations/03-mathematics/02-calculus/README|calculus]] (how to compute which direction reduces error), and [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|probability and statistics]] (how error/loss is defined) into an actual training loop. If [[ai-ml/00-foundations/02-what-is-a-model|what-is-a-model]] describes "a big adjustable function," optimization is the description of *how the adjusting happens*.
+Optimization is the piece that actually connects [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] (how a model is represented), [[ai-ml/00-foundations/03-mathematics/02-calculus/index|calculus]] (how to compute which direction reduces error), and [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability and statistics]] (how error/loss is defined) into an actual training loop. If [[ai-ml/00-foundations/02-what-is-a-model|what-is-a-model]] describes "a big adjustable function," optimization is the description of *how the adjusting happens*.
 
 ## The loss function — defining "wrong"
 
-Before you can improve a model, you need a single number that measures how wrong its current output is — the **loss** (or cost). Simple example for predicting a number: squared error, `(prediction - actual)²`. For classification, it's typically cross-entropy loss (see [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|probability and statistics]]). Whatever the specific formula, the training process only ever does one thing: try to make this number smaller.
+Before you can improve a model, you need a single number that measures how wrong its current output is — the **loss** (or cost). Simple example for predicting a number: squared error, `(prediction - actual)²`. For classification, it's typically cross-entropy loss (see [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability and statistics]]). Whatever the specific formula, the training process only ever does one thing: try to make this number smaller.
 
 ## Gradient descent — the core algorithm
 
@@ -55,6 +55,6 @@ Plain gradient descent is rarely used directly in practice — variants that ada
 - Learning rate is usually the single highest-leverage setting to tune when a model trains badly — "loss is exploding to NaN" is very often "learning rate too high," and "loss barely moves" is very often "learning rate too low."
 
 ## Related
-- [[ai-ml/00-foundations/03-mathematics/02-calculus/README|calculus]] — where gradients come from
-- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|probability and statistics]] — where loss functions come from
+- [[ai-ml/00-foundations/03-mathematics/02-calculus/index|calculus]] — where gradients come from
+- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability and statistics]] — where loss functions come from
 - [[ai-ml/00-foundations/02-what-is-a-model|what-is-a-model]]

@@ -101,7 +101,7 @@ Getting readiness right is what enables **zero-downtime rolling updates**: k8s b
 Kubernetes is the industry standard for running containers at scale, and its declarative, self-healing model is genuinely powerful. It's also famously complex — a large API surface, a steep learning curve, and real operational burden. That complexity is exactly why **managed** k8s (GKE/EKS/AKS) and the alternatives exist — see [[devops/05-orchestration/02-orchestration-landscape|the landscape]] — and why [[devops/11-delivery-and-advanced/01-gitops|GitOps]] and [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]] grew up around it to manage that complexity declaratively.
 
 ## Related
-- [[devops/02-docker/README|Docker]] — the containers k8s schedules
+- [[devops/02-docker/index|Docker]] — the containers k8s schedules
 - [[devops/05-orchestration/02-orchestration-landscape|The Orchestration Landscape]] — Swarm, managed k8s, OpenShift, Nomad
-- [[devops/10-observability/README|Observability]] — Prometheus is the de-facto k8s monitoring stack
+- [[devops/10-observability/index|Observability]] — Prometheus is the de-facto k8s monitoring stack
 - [[devops/09-secret-management/01-secret-management|Secret Management]] — why k8s Secrets need help

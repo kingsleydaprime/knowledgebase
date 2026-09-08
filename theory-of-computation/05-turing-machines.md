@@ -142,4 +142,4 @@ $$BB(1)=1 \quad BB(2)=6 \quad BB(3)=21 \quad BB(4)=107 \quad BB(5)=47{,}176{,}87
 - [[foundations/theory-of-computation/06-decidability|Decidability]] — what these machines cannot decide
 - [[foundations/theory-of-computation/01-what-computation-is|What Computation Is]] — the Church–Turing thesis
 - [[foundations/computer-architecture/01-what-architecture-is|Computer Architecture]] — the UTM, built
-- [[foundations/theory-of-computation/README|Theory of computation map]]
+- [[foundations/theory-of-computation/index|Theory of computation map]]

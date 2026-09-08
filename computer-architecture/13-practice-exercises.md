@@ -30,7 +30,7 @@ In any language, print `0.1 + 0.2`, then find the largest integer `n` where `flo
 
 **2. Overflow deliberately, three ways.**
 In C, overflow a signed `int`, an `unsigned int`, and shift a value by more than its width. Compile at `-O0` and `-O2` and compare. Then compile with `-fsanitize=undefined`.
-**Done when:** the sanitiser has reported something, and you can say which of the three is defined behaviour and which is UB → [[foundations/computer-architecture/02-data-representation|note 02]] · [[languages/04-c/README|C]].
+**Done when:** the sanitiser has reported something, and you can say which of the three is defined behaviour and which is UB → [[foundations/computer-architecture/02-data-representation|note 02]] · [[languages/04-c/index|C]].
 
 **3. Read what the compiler actually emits.**
 Take a five-line function and compile it at `-O0`, `-O1`, `-O2`, `-O3` (`gcc -S`, or use [godbolt.org](https://godbolt.org)). Diff the assembly. Then write a function whose entire body is optimised away.
@@ -91,7 +91,7 @@ Before running exercise 6 or 9, **write down your predicted ratio.** Then measur
 
 ## Related
 - [[foundations/computer-architecture/14-practice-exercises-solutions|Solutions]] — with measured results
-- [[foundations/computer-architecture/README|the course]]
+- [[foundations/computer-architecture/index|the course]]
 - [[foundations/gpu-and-parallel-computing/08-practice-exercises|GPU exercises]] — the same method, other hardware
 
 *Source: [reference] — built from this course's own "what would close the gap" list. Results in note 14 measured Aug 2026.*

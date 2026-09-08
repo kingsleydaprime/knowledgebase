@@ -108,7 +108,7 @@ Every endpoint has at least three cases, and most suites only test the first:
 2. **Not authenticated → 401**
 3. **Authenticated as the wrong user → 403, and no data leaked in the error body**
 
-Case 3 is where [[backend/05-auth/README|broken object-level authorization]] lives — the most common serious API vulnerability there is, and it's trivially testable: create two users, have one request the other's resource, assert it fails. If you write one new kind of test after this note, write that one.
+Case 3 is where [[backend/05-auth/index|broken object-level authorization]] lives — the most common serious API vulnerability there is, and it's trivially testable: create two users, have one request the other's resource, assert it fails. If you write one new kind of test after this note, write that one.
 
 ## Why backend suites go flaky
 
@@ -133,7 +133,7 @@ Backend testing comes down to one decision repeated: real, faked, or ignored. Us
 ## Related
 - [[concepts/04-best-practices/04-testing-fundamentals|Testing Fundamentals]] — the pyramid, TDD, and what makes any test valuable
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal & Clean Architecture]] — why ports and adapters make more of your code unit-testable
-- [[backend/05-auth/README|Auth]] — the 401/403 cases above
+- [[backend/05-auth/index|Auth]] — the 401/403 cases above
 - [[languages/01-java/03-tooling/04-testing|Java Testing]] — JUnit 5, Mockito and Testcontainers in depth
 - [[backend/frameworks/javascript/03-nest/01-nestjs-reference|NestJS reference]] — the three testing levels in that stack
 

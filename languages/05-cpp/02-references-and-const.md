@@ -208,4 +208,4 @@ f(nullptr);     // unambiguous — nullptr has type std::nullptr_t
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — the fourth way to pass an argument
 - [[languages/04-c/05-pointers|C: Pointers]] — what references replace
 - [[languages/03-rust/04-borrowing-and-references|Rust: Borrowing]] — references with lifetimes attached
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

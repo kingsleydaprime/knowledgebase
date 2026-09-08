@@ -39,7 +39,7 @@
 | **Stock Linux** | poor | tens of *milliseconds* of jitter. Fine for planning, not control |
 | **Python / JVM / Go** | poor | GC pauses. Never in a control loop |
 
-→ [[foundations/os/03-scheduling|Scheduling]], [[foundations/os/README|Operating Systems]]
+→ [[foundations/os/03-scheduling|Scheduling]], [[foundations/os/index|Operating Systems]]
 
 **The standard architecture, and it's the right default:**
 
@@ -170,4 +170,4 @@ Dual encoders that disagree indicate a fault. **Comparison is itself a detection
 - [[robotics/09-robot-control|Robot Control]] — the loops with the deadlines
 - [[foundations/os/03-scheduling|Scheduling]] — how an OS meets or misses them
 - [[robotics/13-ros-and-robot-software|ROS and Robot Software]] — and where it isn't appropriate
-- [[robotics/README|Robotics map]]
+- [[robotics/index|Robotics map]]

@@ -54,7 +54,7 @@ Because you pay per token on every call, the cheapest token is the one you don't
 
 ## Making it visible
 
-You can't optimize what you can't see. Log **tokens, cost, and latency per call** (a natural job for the AI gateway from [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|reliability & plumbing]]), broken down by feature and model. Watch cache-hit rate, p95 latency, and cost-per-request as first-class dashboards — the same way you'd watch any [[devops/10-observability/README|production system]]. Most "why is this so expensive?" mysteries are a missing cache hit, an oversized model, or unbounded context, and you only find them by measuring.
+You can't optimize what you can't see. Log **tokens, cost, and latency per call** (a natural job for the AI gateway from [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|reliability & plumbing]]), broken down by feature and model. Watch cache-hit rate, p95 latency, and cost-per-request as first-class dashboards — the same way you'd watch any [[devops/10-observability/index|production system]]. Most "why is this so expensive?" mysteries are a missing cache hit, an oversized model, or unbounded context, and you only find them by measuring.
 
 ## Gotchas
 

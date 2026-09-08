@@ -81,6 +81,6 @@
 4. **Communication** — leading with the answer, honest, tied to an action
 
 ## Related
-- [[data-analysis/README|the data analysis course]] · [[data-analysis/projects|projects]]
-- [[databases/interview/README|databases interview]] — deeper SQL · [[ai-ml/interview/README|ai-ml interview]] — the stats/DS side
+- [[data-analysis/index|the data analysis course]] · [[data-analysis/projects|projects]]
+- [[databases/interview/index|databases interview]] — deeper SQL · [[ai-ml/interview/index|ai-ml interview]] — the stats/DS side
 - [[INTERVIEW|Interview Prep Index]]

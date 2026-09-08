@@ -69,4 +69,4 @@ Exactly what it sounds like — one data wire (plus ground). Developed by Dallas
 - [[hardware/04-microcontrollers|Microcontrollers]] — the peripherals that speak these
 - [[hardware/06-radio-frequency|Radio Frequency]] — talking without wires
 - [[projects/iot-bridge-pcb/schematic-notes|IoT Bridge — schematic notes]] — these buses on a real board
-- [[foundations/networking/README|Networking]] — the same layering idea, several orders of magnitude up
+- [[foundations/networking/index|Networking]] — the same layering idea, several orders of magnitude up

@@ -21,7 +21,7 @@ var b1 = new Box { X = 1 };   var b2 = b1; b2.X = 99;
 // b1.X == 99  ← shared
 ```
 
-**This is the same names-and-objects distinction as [[foundations/programming-fundamentals/05-variables-and-types|programming fundamentals]]** — except C# lets *you* choose which behaviour a type has.
+**This is the same names-and-objects distinction as [[foundations/programming-fundamentals/05-variables-and-types|programming fundamentals]]** — except C# lets _you_ choose which behaviour a type has.
 
 **Where value types live:** on the stack when local, **inline inside their container** when a field. That's the performance argument — an array of 1,000 structs is one contiguous block; an array of 1,000 class instances is 1,000 scattered heap objects plus a pointer array → [[foundations/computer-architecture/09-caches-in-depth|caches]]. **This is why game code uses structs for vectors and particles.**
 
@@ -93,11 +93,12 @@ typeof(List<int>) != typeof(List<string>);      // true — distinct runtime typ
 - You can do `typeof(T)`, `new T()` (with a constraint), and overload on generic arity
 - No need for the `Class<T>` token-passing that Java code is full of
 
-**This is a genuine and underappreciated advantage** → [[languages/01-java/README|Java]] · [[languages/07-csharp/05-generics-and-constraints|note 05]].
+**This is a genuine and underappreciated advantage** → [[languages/01-java/index|Java]] · [[languages/07-csharp/05-generics-and-constraints|note 05]].
 
 ## Related
+
 - [[languages/07-csharp/03-classes-records-and-structs|classes, records and structs]]
 - [[languages/07-csharp/08-memory-gc-and-spans|memory, GC and spans]] — where boxing bites
 - [[foundations/programming-fundamentals/05-variables-and-types|variables and types]] — the language-agnostic version
 
-*Source: [reference] — from the C# language reference, Aug 2026.*
+_Source: [reference] — from the C# language reference, Aug 2026._

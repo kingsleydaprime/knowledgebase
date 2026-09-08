@@ -59,7 +59,7 @@ Each provider has a managed secret store — **AWS Secrets Manager / Parameter S
 This is the same least-privilege, secure-by-default mindset as the cloud [[devops/03-cloud/01-cloud-fundamentals|shared-responsibility model]] — most breaches are leaked or over-permissioned credentials, not broken crypto.
 
 ## Related
-- [[devops/07-infrastructure-as-code/README|Infrastructure as Code]] — IaC references secrets, never hardcodes them
+- [[devops/07-infrastructure-as-code/index|Infrastructure as Code]] — IaC references secrets, never hardcodes them
 - [[devops/05-orchestration/01-kubernetes|Kubernetes]] — why native k8s Secrets need help
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the "secrets in git" problem these tools solve
-- [[cybersecurity/05-cryptography/README|Cryptography]] — the encryption underneath
+- [[cybersecurity/05-cryptography/index|Cryptography]] — the encryption underneath

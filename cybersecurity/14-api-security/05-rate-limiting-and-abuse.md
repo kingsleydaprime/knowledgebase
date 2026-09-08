@@ -21,7 +21,7 @@ The vectors:
 **The defences:**
 
 **Rate limiting** — cap requests per client per time window:
-- **Token bucket** is the standard algorithm — a bucket refills at a steady rate, each request spends a token, empty bucket = rejected. Allows bursts while bounding the average → [[backend/06-cross-cutting/README|rate limiting]], and you can [[build-your-own-shit/README|build one]]
+- **Token bucket** is the standard algorithm — a bucket refills at a steady rate, each request spends a token, empty bucket = rejected. Allows bursts while bounding the average → [[backend/06-cross-cutting/index|rate limiting]], and you can [[build-your-own-shit/index|build one]]
 - **Per what?** Per API key, per user, per IP — and usually several at once (a per-IP limit stops one attacker; a per-user limit stops a botnet targeting one account)
 - **Return `429 Too Many Requests`** with a `Retry-After` header, so legitimate clients back off politely
 - **Tiered limits** — different caps per plan, stricter on expensive endpoints (login, search, export) than cheap ones
@@ -42,7 +42,7 @@ The subtle one, and why rate limiting alone isn't enough. **Some abuse uses the 
 **A simple rate limit doesn't catch this**, because a distributed attack stays under any per-client limit, and the individual requests are indistinguishable from real use. The defences are behavioural, not just volumetric:
 
 - **Bot detection** — CAPTCHA, device fingerprinting, proof-of-work challenges, behavioural analysis (mouse/timing patterns real users have and scripts don't)
-- **Anomaly detection** — flag patterns: one device creating many accounts, purchases faster than humanly possible, a spike in a sensitive flow → [[cybersecurity/07-security-operations/README|detection]]
+- **Anomaly detection** — flag patterns: one device creating many accounts, purchases faster than humanly possible, a spike in a sensitive flow → [[cybersecurity/07-security-operations/index|detection]]
 - **Business-logic limits** — "max 4 tickets per person," "one signup bonus per verified identity/payment method," step-up verification on sensitive flows
 - **Friction for the suspicious** — email/SMS verification, waiting periods, holds on new accounts
 
@@ -62,7 +62,7 @@ The highest-value target for automated abuse, deserving special treatment:
 
 - **API gateway / reverse proxy** — the natural place for coarse rate limiting, applied before requests reach your app (Kong, cloud API gateways, nginx, Cloudflare) → [[cybersecurity/14-api-security/06-the-api-security-lifecycle|gateways]]
 - **Application layer** — for per-user and business-logic limits the gateway can't see
-- **A shared store** (Redis) so limits hold *across* your instances — a per-instance counter is defeated by load balancing → [[databases/README|Redis]]
+- **A shared store** (Redis) so limits hold *across* your instances — a per-instance counter is defeated by load balancing → [[databases/index|Redis]]
 - **A WAF / bot-management layer** for the behavioural stuff
 
 **Layer them:** gateway for volume, app for business logic, WAF for bots.
@@ -74,7 +74,7 @@ The highest-value target for automated abuse, deserving special treatment:
 ## Related
 - [[cybersecurity/14-api-security/04-input-validation-and-injection|input validation]] — bounding per-request work
 - [[cybersecurity/14-api-security/06-the-api-security-lifecycle|the API security lifecycle]] — gateways and WAFs
-- [[backend/06-cross-cutting/README|cross-cutting concerns]] — rate limiting while building
-- [[cybersecurity/07-security-operations/README|security operations]] — anomaly detection
+- [[backend/06-cross-cutting/index|cross-cutting concerns]] — rate limiting while building
+- [[cybersecurity/07-security-operations/index|security operations]] — anomaly detection
 
 *Source: [reference] — OWASP API4/API6. Aug 2026.*

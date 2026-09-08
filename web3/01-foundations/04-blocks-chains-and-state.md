@@ -86,13 +86,13 @@ Solana uses an account model with **declared read/write sets**, which restores p
 
 ## Key insight
 
-**A blockchain is an append-only log, and the "current state" is a materialised view over it** — exactly the [[architecture/03-architectural-patterns/README|event-sourcing]] pattern, with consensus deciding the log order. Once you see it that way, reorgs, determinism and state bloat all stop being surprises and become the ordinary consequences of that architecture.
+**A blockchain is an append-only log, and the "current state" is a materialised view over it** — exactly the [[architecture/03-architectural-patterns/index|event-sourcing]] pattern, with consensus deciding the log order. Once you see it that way, reorgs, determinism and state bloat all stop being surprises and become the ordinary consequences of that architecture.
 
 ## Related
 - [[web3/01-foundations/05-consensus|consensus]] — who appends the next block
 - [[web3/02-ethereum-and-the-evm/01-the-world-computer|the world computer]] — the account model in full
 - [[web3/05-beyond-ethereum/05-bitcoin-and-utxo|Bitcoin and UTXO]] — the other model, in depth
-- [[databases/README|databases]] — WAL and MVCC are the same log-and-view shape
+- [[databases/index|databases]] — WAL and MVCC are the same log-and-view shape
 - [[build-your-own-shit/14-your-own-blockchain|build your own blockchain]]
 
 *Source: [reference] — Aug 2026.*

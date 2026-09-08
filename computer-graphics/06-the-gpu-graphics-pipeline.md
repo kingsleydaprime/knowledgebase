@@ -174,4 +174,4 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 - [[foundations/gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware underneath
 - [[foundations/computer-graphics/03-rasterisation|Rasterisation]] — the fixed-function stage
 - [[foundations/gpu-and-parallel-computing/03-the-programming-model|The Compute Programming Model]] — the sibling model
-- [[foundations/computer-graphics/README|Computer graphics map]]
+- [[foundations/computer-graphics/index|Computer graphics map]]

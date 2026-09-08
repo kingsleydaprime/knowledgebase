@@ -21,7 +21,7 @@ Because every call passes through a sidecar, the mesh can transparently add — 
 
 - **mTLS everywhere** — automatic mutual-TLS between services (encryption + cryptographic identity), the backbone of zero-trust networking.
 - **Traffic management** — canary rollouts, weighted routing, retries, timeouts, circuit breaking ([[devops/11-delivery-and-advanced/04-cloud-design-patterns|resilience patterns]]) configured declaratively.
-- **Observability** — uniform metrics, logs, and [[devops/10-observability/README|traces]] for every service-to-service call, for free.
+- **Observability** — uniform metrics, logs, and [[devops/10-observability/index|traces]] for every service-to-service call, for free.
 
 ## The tools
 
@@ -39,5 +39,5 @@ A service mesh is powerful but adds **real complexity and overhead** — a proxy
 ## Related
 - [[devops/05-orchestration/01-kubernetes|Kubernetes]] — what a service mesh runs on top of
 - [[devops/08-networking-and-web/02-web-servers-and-proxies|Web Servers & Proxies]] — Envoy, the proxy under most meshes
-- [[devops/10-observability/README|Observability]] — a mesh provides uniform telemetry
+- [[devops/10-observability/index|Observability]] — a mesh provides uniform telemetry
 - [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud Design Patterns]] — the resilience patterns a mesh implements

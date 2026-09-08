@@ -86,7 +86,7 @@ with $\alpha \approx 0.98$. **Five lines of code, and on a balancing robot it wo
 
 The richest sensor and the hardest to use.
 
-**A camera gives you enormous information in a form that needs interpretation.** Everything else on this list returns a number; a camera returns two million numbers that mean nothing until something processes them. → [[ai-ml/02-ml-engineer/06-computer-vision/README|Computer Vision]]
+**A camera gives you enormous information in a form that needs interpretation.** Everything else on this list returns a number; a camera returns two million numbers that mean nothing until something processes them. → [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision]]
 
 **What cameras are used for in robotics:**
 
@@ -149,4 +149,4 @@ What experience teaches, compressed:
 - [[robotics/11-state-estimation-and-filtering|State Estimation and Filtering]] — turning these into a usable belief
 - [[robotics/03-actuators-and-motion|Actuators and Motion]] — the other half of the hardware
 - [[hardware/05-communication-protocols|Communication Protocols]] — I2C/SPI/UART, how sensors physically talk
-- [[robotics/README|Robotics map]]
+- [[robotics/index|Robotics map]]

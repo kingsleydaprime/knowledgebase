@@ -32,9 +32,9 @@ The catch-all for insecure defaults and sloppy setup — and it's common because
 - **Default credentials** on admin interfaces, databases, dashboards
 - **Missing TLS**, or accepting weak ciphers → [[cybersecurity/04-web-security/03-https-and-tls|TLS]]
 - **Debug mode on in production** — the framework default that leaks everything
-- **Unpatched dependencies** — the API framework and its libraries → [[devops/README|dependency management]]
+- **Unpatched dependencies** — the API framework and its libraries → [[devops/index|dependency management]]
 
-**The defence is discipline, not cleverness:** harden defaults, minimise the surface, automate configuration (so prod matches a reviewed baseline), and scan for drift → [[devops/07-infrastructure-as-code/README|infrastructure as code]].
+**The defence is discipline, not cleverness:** harden defaults, minimise the surface, automate configuration (so prod matches a reviewed baseline), and scan for drift → [[devops/07-infrastructure-as-code/index|infrastructure as code]].
 
 ## API10: Unsafe Consumption of APIs
 
@@ -42,7 +42,7 @@ The inversion: **you're not just an API *provider*, you're a *consumer* — and 
 
 - **Trusting third-party responses** — you validate user input rigorously, then pipe a partner API's response straight into your database or logic unvalidated. **If their API is compromised or malicious, so are you** → [[web3/05-beyond-ethereum/06-bridges-and-interoperability|the same trust problem]]
 - **Following redirects blindly** to a third-party endpoint (→ SSRF-adjacent) → [[cybersecurity/14-api-security/04-input-validation-and-injection|SSRF]]
-- **No timeout / no error handling** on outbound calls — a slow or failing dependency cascades into your own outage → [[architecture/04-distributed-systems/README|cascading failures]]
+- **No timeout / no error handling** on outbound calls — a slow or failing dependency cascades into your own outage → [[architecture/04-distributed-systems/index|cascading failures]]
 - **Secrets sent to the wrong place** — leaking your API keys to a compromised partner
 
 **Validate data from other APIs as carefully as data from users, use timeouts and circuit breakers, and pin/verify who you're talking to** (TLS, and ideally certificate/host validation).
@@ -53,15 +53,15 @@ The infrastructure that enforces the previous notes:
 
 - **API Gateway** — the front door: centralised authN, rate limiting, request validation, logging, routing. **The single best place to enforce cross-cutting controls** consistently instead of per-service (Kong, cloud API gateways, Apigee) → [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|rate limiting]]
 - **WAF (Web Application Firewall)** — pattern-based filtering of known attacks; a useful layer, **not a substitute** for fixing the code (WAFs are bypassable)
-- **Secrets management** — API keys and tokens in a vault, never in code or config → [[devops/09-secret-management/README|secret management]]
-- **Logging and monitoring** — log auth failures, authZ denials, rate-limit hits, and anomalies; feed them to detection → [[cybersecurity/07-security-operations/README|security operations]]
-- **mTLS between internal services** — don't trust the network perimeter alone → [[cybersecurity/03-network-security/README|zero trust]]
+- **Secrets management** — API keys and tokens in a vault, never in code or config → [[devops/09-secret-management/index|secret management]]
+- **Logging and monitoring** — log auth failures, authZ denials, rate-limit hits, and anomalies; feed them to detection → [[cybersecurity/07-security-operations/index|security operations]]
+- **mTLS between internal services** — don't trust the network perimeter alone → [[cybersecurity/03-network-security/index|zero trust]]
 
 ## Testing APIs — because none of this stays fixed
 
 Security is a state you fall out of. Build testing in:
 
-- **In CI:** schema validation, dependency scanning (SCA), SAST, and secrets scanning on every commit → [[devops/06-ci-cd/README|CI/CD]]
+- **In CI:** schema validation, dependency scanning (SCA), SAST, and secrets scanning on every commit → [[devops/06-ci-cd/index|CI/CD]]
 - **DAST / API scanners** — automated scanning against a running API (OWASP ZAP, Burp)
 - **Manual API pentesting** — **Burp Suite** and **Postman** are the workhorses. The highest-value manual tests are the ones tools miss: **BOLA** (two accounts, swap IDs) and **BFLA** (guess admin routes) → [[cybersecurity/14-api-security/03-authorization-and-bola|testing authZ]], [[cybersecurity/02-ethical-hacking/08-common-tools|tools]]
 - **The OpenAPI spec as a test oracle** — anything reachable that *isn't* in the spec is a shadow endpoint; anything in the spec without auth is a finding
@@ -73,9 +73,9 @@ Security is a state you fall out of. Build testing in:
 **The operational half of API security is the unglamorous part that determines whether the rest holds: you can't secure APIs you've forgotten (shadow/zombie endpoints are the ones nobody patches), defaults are insecure until hardened, the third-party APIs you *call* are an attack surface too, and none of it survives without testing built into CI.** A gateway is the best place to enforce cross-cutting controls consistently, an accurate OpenAPI spec doubles as a security artefact, and the authorization bugs that dominate the API Top 10 are precisely the ones scanners miss — so manual testing with two accounts stays essential.
 
 ## Related
-- [[cybersecurity/14-api-security/README|the API security course]]
+- [[cybersecurity/14-api-security/index|the API security course]]
 - [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|rate limiting]] — enforced at the gateway
-- [[cybersecurity/07-security-operations/README|security operations]] — logging and detection
-- [[devops/06-ci-cd/README|CI/CD]] — where testing lives · [[devops/09-secret-management/README|secret management]]
+- [[cybersecurity/07-security-operations/index|security operations]] — logging and detection
+- [[devops/06-ci-cd/index|CI/CD]] — where testing lives · [[devops/09-secret-management/index|secret management]]
 
 *Source: [reference] — OWASP API8/API9/API10. Aug 2026.*

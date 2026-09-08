@@ -17,7 +17,7 @@ The DFT computes `N` frequency bins from `N` samples. Done directly, each bin is
    N = 1,000,000  → ~1,000,000,000,000 ops       (a trillion — hopeless in real time)
 ```
 
-**O(N²) makes the DFT unusable for anything large.** A one-second audio clip at 44.1 kHz is 44,100 samples; processing audio in real time with an O(N²) DFT is a non-starter → [[foundations/dsa/README|complexity]].
+**O(N²) makes the DFT unusable for anything large.** A one-second audio clip at 44.1 kHz is 44,100 samples; processing audio in real time with an O(N²) DFT is a non-starter → [[foundations/dsa/index|complexity]].
 
 ## What the FFT does
 

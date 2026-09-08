@@ -153,4 +153,4 @@ repeat:
 - [[foundations/numerical-methods/06-interpolation-and-approximation|Interpolation]] — the spline mathematics
 - [[foundations/computer-graphics/09-animation-and-simulation|Animation and Simulation]] — deforming these
 - [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] — meshes for simulation rather than rendering
-- [[foundations/computer-graphics/README|Computer graphics map]]
+- [[foundations/computer-graphics/index|Computer graphics map]]

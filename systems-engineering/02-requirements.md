@@ -26,7 +26,7 @@ Component requirements   "The controller shall switch at ≥ 20 kHz"
 
 **Non-functional** — how well. Performance, reliability, availability, safety, security, usability, maintainability, cost, weight, power.
 
-**The non-functional ones determine the architecture.** "Handles 100 users" and "handles 100 million" are the same functional requirement and completely different systems. Software people learn this as *"you can't add scalability later"* → [[architecture/01-system-design-fundamentals/README|system design]].
+**The non-functional ones determine the architecture.** "Handles 100 users" and "handles 100 million" are the same functional requirement and completely different systems. Software people learn this as *"you can't add scalability later"* → [[architecture/01-system-design-fundamentals/index|system design]].
 
 They are also the ones most often left vague, which is how you get an argument at acceptance about whether "fast" was met.
 

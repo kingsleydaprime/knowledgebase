@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · What real-time rendering adds to the graphics you already have — the frame budget, culling, batching, and why games cheat everywhere.
 
-**This vault already has [[foundations/computer-graphics/README|a nine-note graphics course]]** — the rendering equation, the transform pipeline, rasterisation, shading and PBR, textures, the GPU pipeline, ray tracing, meshes and animation. Read that for the theory.
+**This vault already has [[foundations/computer-graphics/index|a nine-note graphics course]]** — the rendering equation, the transform pipeline, rasterisation, shading and PBR, textures, the GPU pipeline, ray tracing, meshes and animation. Read that for the theory.
 
 **This note is only what changes when you have 16 milliseconds.**
 
@@ -50,11 +50,11 @@ Everything here is about **not drawing things**:
 
 **Level of detail (LOD)** — swap in simpler meshes with distance. A character might have 50k triangles up close and 500 at range. **The pop when it switches is the artefact you're trading against**, which is why LOD transitions get blended.
 
-**Spatial partitioning** makes culling fast: quadtrees (2D), octrees, BVH, spatial hashes. **These are the [[foundations/dsa/README|tree structures]] you already know**, applied to space — the question "what is near this point" is the same as "what is in this subtree".
+**Spatial partitioning** makes culling fast: quadtrees (2D), octrees, BVH, spatial hashes. **These are the [[foundations/dsa/index|tree structures]] you already know**, applied to space — the question "what is near this point" is the same as "what is in this subtree".
 
 ## Shaders
 
-Programs that run on the GPU, massively in parallel → [[foundations/gpu-and-parallel-computing/README|GPU and parallel computing]].
+Programs that run on the GPU, massively in parallel → [[foundations/gpu-and-parallel-computing/index|GPU and parallel computing]].
 
 - **Vertex shader** — runs per vertex; transforms into clip space
 - **Fragment/pixel shader** — runs per pixel; computes colour. **This is where the cost is**, because there are far more pixels than vertices
@@ -97,9 +97,9 @@ The techniques that make real-time rendering possible, each an approximation:
 **For 2D games you need almost none of this.** Sprites, transforms and a camera. Don't let the 3D pipeline put you off starting.
 
 ## Related
-- [[foundations/computer-graphics/README|computer graphics]] — **the theory, already written**
-- [[foundations/gpu-and-parallel-computing/README|GPU and parallel computing]] — the hardware
+- [[foundations/computer-graphics/index|computer graphics]] — **the theory, already written**
+- [[foundations/gpu-and-parallel-computing/index|GPU and parallel computing]] — the hardware
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — where rendering sits
-- [[foundations/dsa/README|data structures]] — the trees under spatial partitioning
+- [[foundations/dsa/index|data structures]] — the trees under spatial partitioning
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

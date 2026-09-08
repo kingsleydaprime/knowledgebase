@@ -152,4 +152,4 @@ steps:
 ## Related
 - [[devops/06-ci-cd/04-triggers-jobs-and-runners|Triggers, Jobs and Runners]] — `uses:` at step level vs job level
 - [[devops/06-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — passing secrets across the boundary
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/06-ci-cd/index|CI/CD module map]]

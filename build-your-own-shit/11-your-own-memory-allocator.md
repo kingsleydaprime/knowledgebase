@@ -10,7 +10,7 @@
 
 ## What you need first
 
-- **C, and pointers you're comfortable with** → [[languages/04-c/README|C]]
+- **C, and pointers you're comfortable with** → [[languages/04-c/index|C]]
 - **What the stack and heap actually are** → [[foundations/os/05-memory-allocation|memory allocation]]
 - **`sbrk` or `mmap`** — how a process asks the kernel for memory → [[foundations/os/09-syscalls-interrupts-and-the-abi|syscalls]]
 - Helpful: [[foundations/computer-architecture/08-the-memory-hierarchy|the memory hierarchy]]
@@ -97,11 +97,11 @@ Segregate free lists by size to avoid walking a long list for a small request. T
 
 **You will have learned:** what a pointer returned by `malloc` actually points into, why `free` needs no size, why fragmentation is the hard problem, why alignment exists, and why heap corruption surfaces far from its cause — which makes [[foundations/programming-fundamentals/10-errors-and-debugging|debugging]] C a different activity afterwards.
 
-**And it makes [[languages/03-rust/README|Rust's]] ownership model land differently**: you'll have written the bugs it exists to prevent.
+**And it makes [[languages/03-rust/index|Rust's]] ownership model land differently**: you'll have written the bugs it exists to prevent.
 
 ## Related
 - [[foundations/os/05-memory-allocation|memory allocation]] — the theory
-- [[languages/04-c/README|C]] — the language, and undefined behaviour
+- [[languages/04-c/index|C]] — the language, and undefined behaviour
 - [[build-your-own-shit/05-your-own-os|your own OS]] — where you'd write the layer below this
 - [[languages/07-csharp/08-memory-gc-and-spans|garbage collection]] — the other approach
 

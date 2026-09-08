@@ -32,7 +32,7 @@ v1 is widely criticised — verbose, tool-dependent, awkward to diff, and with a
 
 **SysML v2 (released 2023–24) is a substantial redesign**, and the parts that matter to anyone from software:
 
-- **A textual notation** alongside the graphical one. Which means **the model is text, so it diffs, merges and lives in git** → [[git/README|git]]
+- **A textual notation** alongside the graphical one. Which means **the model is text, so it diffs, merges and lives in git** → [[git/index|git]]
 - **A standard API**, so tooling isn't locked to one vendor
 - **A cleaner metamodel**
 
@@ -62,7 +62,7 @@ Software has arrived at MBSE's central idea repeatedly without calling it that. 
 | MBSE idea | Software equivalent |
 |---|---|
 | Model as source of truth | **Infrastructure as code** → [[devops/07-infrastructure-as-code/01-provisioning-and-terraform\|Terraform]] |
-| Generated documentation | OpenAPI → generated client + docs → [[backend/02-api-design/README\|API design]] |
+| Generated documentation | OpenAPI → generated client + docs → [[backend/02-api-design/index\|API design]] |
 | Consistency checked mechanically | **Type checking** → [[languages/06-python/08-typing-and-type-hints\|typing]] |
 | Parametric constraints | Property-based testing; SLO burn calculations |
 | Simulation before commitment | `terraform plan`, staging, canaries |
@@ -86,6 +86,6 @@ Software has arrived at MBSE's central idea repeatedly without calling it that. 
 - [[foundations/systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what gets modelled
 - [[foundations/systems-engineering/02-requirements|requirements]] — traceability, mechanised
 - [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]] — the same idea, in software
-- [[engineering/02-control-theory/README|control theory]] — models with dynamics
+- [[engineering/02-control-theory/index|control theory]] — models with dynamics
 
 *Source: [reference] — from OMG SysML specifications, INCOSE's MBSE initiative, and the digital-twin literature.*

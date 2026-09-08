@@ -48,7 +48,7 @@ $X \sim U(-1,1)$, $Y = X^2$: **Pearson $r \approx 0$**, because the relationship
 
 **Mutual information is clearly positive**, because knowing $X$ determines $Y$ *exactly*: $H(Y|X) = 0$, so $I(X;Y) = H(Y)$.
 
-**Correlation measures *linear* dependence only.** MI measures dependence of any shape. **Reporting "these variables are uncorrelated" as "these variables are unrelated" is a real and common error** — and it's why feature-selection by correlation silently discards useful non-linear features → [[ai-ml/README|AI & ML]].
+**Correlation measures *linear* dependence only.** MI measures dependence of any shape. **Reporting "these variables are uncorrelated" as "these variables are unrelated" is a real and common error** — and it's why feature-selection by correlation silently discards useful non-linear features → [[ai-ml/index|AI & ML]].
 
 (Estimating MI from finite samples is genuinely hard and bin-size dependent — your number will be biased upward. The *sign* is the point.)
 
@@ -134,6 +134,6 @@ Three parity bits at positions 1, 2, 4 covering overlapping subsets. Recomputing
 
 ## Related
 - [[foundations/information-theory/08-practice-exercises|the exercises]]
-- [[foundations/information-theory/README|the course]]
+- [[foundations/information-theory/index|the course]]
 
 *Source: [reference] — entropy and compression figures measured August 2026.*

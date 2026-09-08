@@ -159,4 +159,4 @@
 - [[databases/09-mvcc-and-concurrency-control|MVCC]] — what the log is protecting
 - [[databases/11-replication-and-scaling|Replication and Scaling]] — the same WAL, shipped elsewhere
 - [[architecture/04-distributed-systems/12-the-log-and-state-machines|The Log and State Machines]] — the same idea, generalised
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]

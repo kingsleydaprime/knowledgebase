@@ -92,11 +92,11 @@ Take a list of order records and compute the total value per customer, twice: on
 
 **You are not finished with this course until you've built something nobody told you to build** → [[foundations/programming-fundamentals/12-choosing-what-to-build-next|note 12]]. These exercises are reps; a project is the game.
 
-Then: [[foundations/dsa/README|DSA]] for efficiency, or [[languages/06-python/README|Python]] to go deep in one language.
+Then: [[foundations/dsa/index|DSA]] for efficiency, or [[languages/06-python/index|Python]] to go deep in one language.
 
 ## Related
 - [[foundations/programming-fundamentals/17-practice-exercises-solutions|Solutions]] — after you've tried
-- [[foundations/programming-fundamentals/README|the course]]
+- [[foundations/programming-fundamentals/index|the course]]
 - [[learning/06-ai-as-sparring-partner|AI as sparring partner]] — **how to use an LLM on these without wasting them**
 
 *Source: [reference] — written Aug 2026 to close the gap this course's own README named.*

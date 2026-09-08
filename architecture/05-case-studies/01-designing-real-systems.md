@@ -19,7 +19,7 @@ For each problem, run the framework: **clarify requirements → estimate → hig
 ## A rate limiter
 
 - **The core** — allow N requests per user per window; reject the rest.
-- **What it teaches** — algorithms (token bucket, sliding window), where the counter lives ([[architecture/02-building-blocks/02-caching|Redis]] for shared state across servers), and the [[languages/01-java/02-jvm-and-concurrency/exercises/README|concurrency]] of atomic increments. You've already got a [[languages/01-java/02-jvm-and-concurrency/exercises/README|single-machine version to build]] — the distributed version adds shared state.
+- **What it teaches** — algorithms (token bucket, sliding window), where the counter lives ([[architecture/02-building-blocks/02-caching|Redis]] for shared state across servers), and the [[languages/01-java/02-jvm-and-concurrency/exercises/index|concurrency]] of atomic increments. You've already got a [[languages/01-java/02-jvm-and-concurrency/exercises/index|single-machine version to build]] — the distributed version adds shared state.
 
 ## A chat system (e.g. WhatsApp)
 
@@ -28,7 +28,7 @@ For each problem, run the framework: **clarify requirements → estimate → hig
 
 ## Others worth working
 
-A **news feed / notification system** (fan-out again), a **web crawler** (queues, dedup, politeness), a **typeahead/autocomplete** (tries, caching), a **distributed cache** (consistent hashing), a **payment system** (strong consistency, idempotency, sagas — the [[languages/01-java/06-applied-systems/README|domain you've built in Java]]).
+A **news feed / notification system** (fan-out again), a **web crawler** (queues, dedup, politeness), a **typeahead/autocomplete** (tries, caching), a **distributed cache** (consistent hashing), a **payment system** (strong consistency, idempotency, sagas — the [[languages/01-java/06-applied-systems/index|domain you've built in Java]]).
 
 ## The evaluation criteria (what "good" looks like)
 

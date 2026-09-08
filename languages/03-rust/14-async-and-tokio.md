@@ -179,7 +179,7 @@ Use async when you have many concurrent I/O-bound tasks — a web server, a prox
 
 ## Related
 - [[languages/03-rust/13-concurrency|Concurrency]] — threads, and when to prefer them
-- [[backend/frameworks/rust/README|Rust Backends]] — Axum, built on Tokio
+- [[backend/frameworks/rust/index|Rust Backends]] — Axum, built on Tokio
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — where this sits among the alternatives
 - [[languages/02-go/06-goroutines-and-channels|Go: Goroutines]] — the no-colouring alternative
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

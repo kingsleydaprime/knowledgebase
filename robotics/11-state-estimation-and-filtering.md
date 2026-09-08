@@ -137,4 +137,4 @@ Applying it as if it were current is wrong — you're correcting the present wit
 - [[engineering/02-control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — the theory this applies
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — what's being fused
 - [[robotics/12-localisation-and-slam|Localisation and SLAM]] — the largest application
-- [[robotics/README|Robotics map]]
+- [[robotics/index|Robotics map]]

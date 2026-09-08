@@ -1,6 +1,6 @@
 # Runtime & Concurrency Models
 
-**[Intermediate]** — **the most useful note in this course**, because it explains *why* backend frameworks differ. Once you know which concurrency model a framework sits on, most of its API design, its performance characteristics, and its failure modes follow. This is the note that makes [[backend/frameworks/README|the frameworks folder]] make sense.
+**[Intermediate]** — **the most useful note in this course**, because it explains *why* backend frameworks differ. Once you know which concurrency model a framework sits on, most of its API design, its performance characteristics, and its failure modes follow. This is the note that makes [[backend/frameworks/index|the frameworks folder]] make sense.
 
 ## The kid version first
 
@@ -72,7 +72,7 @@ And **how you tune**: for thread-per-request, thread-pool size is the dial. For 
 A backend framework is mostly **a set of ergonomic choices made on top of one concurrency model**, and the model is the part that actually determines behaviour under load. Learn the three models and frameworks stop being twenty things to memorise: they become three things you understand and twenty vocabularies. It also tells you what to worry about on day one — *"what happens here if something blocks?"* has a different answer in Nest than in Spring, and that difference is the whole reason both exist.
 
 ## Related
-- [[backend/frameworks/README|frameworks/]] — each framework's model, named
+- [[backend/frameworks/index|frameworks/]] — each framework's model, named
 - [[foundations/networking/09-sockets-and-the-network-api|Sockets & the Network API]] — C10K, `select`→`epoll`→`io_uring` from the OS side
 - [[foundations/os/interview/01-processes-memory-and-io|OS: blocking vs non-blocking vs async I/O]]
 - [[languages/01-java/02-jvm-and-concurrency/03-virtual-threads|Virtual Threads (Java)]] · [[backend/interview/02-node-runtime-and-api|Node runtime interview]]

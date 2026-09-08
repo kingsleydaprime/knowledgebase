@@ -34,4 +34,4 @@ For most AI-engineering work, multimodal = **pick a model that supports the moda
 ## Related
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — diffusion and speech models as types
 - [[ai-ml/03-ai-engineer/04-calling-models|Calling Models]] — multimodal is the same call shape with more content types
-- [[ai-ml/02-ml-engineer/06-computer-vision/README|Computer Vision (ML-engineer)]] — the training-side view of vision models
+- [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision (ML-engineer)]] — the training-side view of vision models

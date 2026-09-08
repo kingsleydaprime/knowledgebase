@@ -74,4 +74,4 @@ Finally, *interpret*: connect the result back to the [[research/04-research-ques
 - [[research/04-research-questions-and-hypotheses|Research Questions & Hypotheses]] — H₀/H₁, confirmatory vs exploratory
 - [[research/07-research-ethics-and-integrity|Ethics & Integrity]] — where p-hacking crosses into misconduct
 - [[ai-ml/01-data-scientist/03-inferential-statistics|Inferential Statistics]] — significance, CIs, the stats in depth
-- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|Probability & Statistics]] — the foundations underneath
+- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability & Statistics]] — the foundations underneath

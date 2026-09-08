@@ -86,6 +86,6 @@ Neither has won. Solana's monolithic bet is the strongest counter-argument to th
 - [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|layer 2s and rollups]] — the escape, in detail
 - [[web3/01-foundations/06-networking-and-nodes|networking and nodes]] — the bandwidth constraint
 - [[web3/01-foundations/05-consensus|consensus]]
-- [[architecture/04-distributed-systems/README|distributed systems]] — the general trade-offs
+- [[architecture/04-distributed-systems/index|distributed systems]] — the general trade-offs
 
 *Source: [reference] — Aug 2026.*

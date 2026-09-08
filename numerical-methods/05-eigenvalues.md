@@ -23,7 +23,7 @@
 | [[engineering/02-control-theory/08-state-space\|Control theory]] | **eigenvalues of $A$ *are* the poles** — stability |
 | [[engineering/01-continuum-mechanics/02-index-notation-and-tensors\|Continuum mechanics]] | principal stresses and strains |
 | Structural analysis | **vibration modes and natural frequencies** |
-| [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README\|PCA]] | eigenvectors of the covariance matrix |
+| [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index\|PCA]] | eigenvectors of the covariance matrix |
 | [[foundations/discrete-math/07-graph-theory\|Graphs]] | PageRank is a dominant eigenvector; spectral clustering |
 | Quantum mechanics | energy levels |
 | [[foundations/numerical-methods/04-linear-systems\|Iterative solvers]] | convergence rates depend on the spectrum |
@@ -156,5 +156,5 @@ $$A = U\Sigma V^T$$
 ## Related
 - [[foundations/numerical-methods/04-linear-systems|Linear Systems]] — used inside shift-and-invert
 - [[engineering/02-control-theory/08-state-space|State Space]] — where eigenvalues are the poles
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|Linear Algebra]] — the theory
-- [[foundations/numerical-methods/README|Numerical methods map]]
+- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory
+- [[foundations/numerical-methods/index|Numerical methods map]]

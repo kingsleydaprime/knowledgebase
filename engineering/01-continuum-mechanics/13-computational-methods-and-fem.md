@@ -149,13 +149,13 @@ In rough order of frequency:
 
 **Learning recommendation:** **FEniCS** lets you write the weak form in near-mathematical notation and get a solution, which makes the connection between the theory and the code unusually direct. Or write a small 2D linear-elastic FE solver yourself — element stiffness, assembly, boundary conditions, solve. It's a few hundred lines and it removes the black box permanently.
 
-That project would fit the [[build-your-own-shit/README|build-your-own-shit]] format well, and it's a genuine gap in this vault.
+That project would fit the [[build-your-own-shit/index|build-your-own-shit]] format well, and it's a genuine gap in this vault.
 
 ## The honest note
 
 Modern FE software will produce a smooth, colourful, professional-looking result for almost any input, including nonsense. There is no warning for a wrong material model, an unconverged mesh, or a boundary condition that doesn't exist in reality.
 
-**The software solves the equations. Deciding whether they were the right equations remains yours**, and it's the part that requires the rest of this track. → [[engineering/README|the domain note]]
+**The software solves the equations. Deciding whether they were the right equations remains yours**, and it's the part that requires the rest of this track. → [[engineering/index|the domain note]]
 
 ---
 
@@ -164,4 +164,4 @@ Modern FE software will produce a smooth, colourful, professional-looking result
 - [[engineering/01-continuum-mechanics/10-finite-deformation|Finite Deformation]] — nonlinear solution
 - [[engineering/01-continuum-mechanics/09-beams-and-structures|Beams and Structures]] — the hand calculations that check FE
 - [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — the linear solvers underneath
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

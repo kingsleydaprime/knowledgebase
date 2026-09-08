@@ -25,11 +25,11 @@ The defining challenge: a **new user** has no interaction history, and a **new i
 
 ## Modern approaches
 
-Production recommenders (YouTube, Netflix, TikTok) use **deep learning**: neural networks that learn user and item embeddings from many signals (watch time, context, sequence of recent actions), often a two-stage *candidate generation → ranking* pipeline. **Sequence models** ([[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/README|transformers]]) increasingly model the *order* of a user's actions to predict the next one.
+Production recommenders (YouTube, Netflix, TikTok) use **deep learning**: neural networks that learn user and item embeddings from many signals (watch time, context, sequence of recent actions), often a two-stage *candidate generation → ranking* pipeline. **Sequence models** ([[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/index|transformers]]) increasingly model the *order* of a user's actions to predict the next one.
 
 ## The feedback-loop caveat
 
-A subtle, important issue: recommenders **shape the behavior they then learn from**. Recommending an item makes it more likely to be clicked, which reinforces recommending it — creating filter bubbles and popularity bias, and making offline [[ai-ml/02-ml-engineer/04-model-evaluation/README|evaluation]] deceptive (you only observe outcomes for items you *chose* to show). This is a real [[ai-ml/02-ml-engineer/10-mlops/README|MLOps]]/monitoring concern, and a reason [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|A/B testing on live traffic]] matters more here than offline metrics.
+A subtle, important issue: recommenders **shape the behavior they then learn from**. Recommending an item makes it more likely to be clicked, which reinforces recommending it — creating filter bubbles and popularity bias, and making offline [[ai-ml/02-ml-engineer/04-model-evaluation/index|evaluation]] deceptive (you only observe outcomes for items you *chose* to show). This is a real [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]]/monitoring concern, and a reason [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|A/B testing on live traffic]] matters more here than offline metrics.
 
 ## Related
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/03-nlp-and-embeddings|NLP & Embeddings]] — the embedding idea recommenders rely on

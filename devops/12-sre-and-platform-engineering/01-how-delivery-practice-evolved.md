@@ -83,7 +83,7 @@ DevSecOps distributes it instead: threat modelling in planning, static analysis 
 
 **They coexist; they're not a ladder.** A mature organisation runs all of them at once. "We've moved past DevOps to platform engineering" is nearly always a misunderstanding — the platform is built *by* people doing DevOps work.
 
-**Each transition moved the bottleneck rather than removing it.** That's the [[architecture/01-system-design-fundamentals/README|theory of constraints]] applied to a delivery pipeline, and it predicts what breaks next: optimise anything, and the constraint relocates. Knowing where yours currently is matters more than knowing the vocabulary.
+**Each transition moved the bottleneck rather than removing it.** That's the [[architecture/01-system-design-fundamentals/index|theory of constraints]] applied to a delivery pipeline, and it predicts what breaks next: optimise anything, and the constraint relocates. Knowing where yours currently is matters more than knowing the vocabulary.
 
 **Titles lag reality badly.** A "DevOps Engineer" role may be any of these depending on the company — at a fifty-person startup it's usually all five at once. Read the responsibilities, not the title. See [[foundations/software-engineering/03-the-engineering-roles|the engineering roles]].
 

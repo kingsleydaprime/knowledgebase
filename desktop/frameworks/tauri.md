@@ -30,12 +30,12 @@ const cfg = await invoke("read_config", { path: "app.toml" });
 
 **The real cost: three webview engines.** You've swapped "bundle one browser" for "test against three", and WebKitGTK on Linux is the weakest of them. **This is the browser-compatibility problem you thought you'd left behind** — and it's the honest counterweight to the size argument.
 
-**You need some Rust** → [[languages/03-rust/README|Rust]]. Not deep Rust — commands, `Result`, serde — but the learning curve is real if you've only written TypeScript.
+**You need some Rust** → [[languages/03-rust/index|Rust]]. Not deep Rust — commands, `Result`, serde — but the learning curve is real if you've only written TypeScript.
 
 **v2 (2024) added mobile targets** (iOS/Android), which changes the calculus if you want one codebase across desktop and mobile.
 
 ## Related
 - [[desktop/frameworks/electron|Electron]] — the incumbent it targets
-- [[desktop/frameworks/README|frameworks/]] · [[languages/03-rust/README|Rust]]
+- [[desktop/frameworks/index|frameworks/]] · [[languages/03-rust/index|Rust]]
 
 *Source: [reference] — scaffold, from the Tauri documentation.*

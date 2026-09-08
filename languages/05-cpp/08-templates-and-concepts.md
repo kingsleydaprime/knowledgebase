@@ -244,4 +244,4 @@ The two polymorphisms, and the real trade:
 - [[languages/05-cpp/10-iterators-and-algorithms|Iterators and Algorithms]] — the STL, which is all templates
 - [[languages/05-cpp/12-constexpr-and-compile-time|constexpr]] — computation at compile time
 - [[languages/03-rust/10-generics-and-trait-bounds|Rust: Generics]] — bounds checked at definition, from the start
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

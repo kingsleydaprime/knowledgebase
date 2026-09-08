@@ -211,4 +211,4 @@ Every stage hands control to the next and disappears. By the time you have a log
 - [[foundations/os/02-processes-and-threads|Processes and Threads]] — PID 1's duties
 - [[foundations/os/11-isolation-and-containers|Isolation and Containers]] — the primitives systemd uses for hardening
 - [[devops/01-linux/19-the-boot-process|Linux: The Boot Process]] · [[devops/01-linux/07-systemd-and-services|systemd and Services]]
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]

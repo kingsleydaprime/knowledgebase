@@ -2,7 +2,7 @@
 
 **[Intermediate → Advanced]** — Axum is a thin layer over `hyper` and `tower`. Understanding the layers below it is what makes the rest predictable.
 
-**Source:** `[reference]`. Assumes [[languages/03-rust/README|the Rust course]], especially [[languages/03-rust/14-async-and-tokio|async]].
+**Source:** `[reference]`. Assumes [[languages/03-rust/index|the Rust course]], especially [[languages/03-rust/14-async-and-tokio|async]].
 
 ## The stack
 
@@ -200,7 +200,7 @@ async fn shutdown_signal() {
 }
 ```
 
-Graceful shutdown drains in-flight requests before exiting — the same requirement as [[backend/frameworks/go/01-net-http-in-depth|Go]], and equally necessary under [[devops/05-orchestration/README|Kubernetes]].
+Graceful shutdown drains in-flight requests before exiting — the same requirement as [[backend/frameworks/go/01-net-http-in-depth|Go]], and equally necessary under [[devops/05-orchestration/index|Kubernetes]].
 
 Timeouts come from `tower` rather than the server:
 
@@ -251,4 +251,4 @@ Actix is slightly faster in benchmarks and has a thread-per-core model that avoi
 - [[backend/frameworks/rust/04-async-pitfalls|Async Pitfalls]] — what goes wrong at runtime
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the runtime underneath
 - [[backend/frameworks/go/02-middleware-as-composition|Go: Middleware]] — the same idea, untyped
-- [[backend/frameworks/rust/README|Rust backends]]
+- [[backend/frameworks/rust/index|Rust backends]]

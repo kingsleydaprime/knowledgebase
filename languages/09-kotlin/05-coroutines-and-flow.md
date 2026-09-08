@@ -150,5 +150,5 @@ supervisorScope {
 ## Related
 - [[languages/09-kotlin/04-functions-and-idioms|functions]] — `inline` and suspending lambdas
 - [[languages/08-swift/10-concurrency-and-actors|Swift concurrency]] — the same problem, similar shape
-- [[mobile/frameworks/android/README|Android]] — where this is used daily
-- [[languages/01-java/README|Java concurrency]] — what this replaces
+- [[mobile/frameworks/android/index|Android]] — where this is used daily
+- [[languages/01-java/index|Java concurrency]] — what this replaces

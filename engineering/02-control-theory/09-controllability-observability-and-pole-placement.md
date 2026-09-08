@@ -152,4 +152,4 @@ Two options:
 - [[engineering/02-control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — getting the state you don't measure
 - [[engineering/02-control-theory/08-state-space|State Space]] — the representation
 - [[engineering/02-control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — choosing $K$ by optimisation instead
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/02-control-theory/index|Control theory map]]

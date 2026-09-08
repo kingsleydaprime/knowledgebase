@@ -120,7 +120,7 @@ async def fetch_limited(url):
 await asyncio.gather(*(fetch_limited(u) for u in urls))
 ```
 
-**A semaphore is the standard answer**, and 20–100 is a sane starting range. This is the async version of a worker pool → [[architecture/02-building-blocks/README|building blocks]].
+**A semaphore is the standard answer**, and 20–100 is a sane starting range. This is the async version of a worker pool → [[architecture/02-building-blocks/index|building blocks]].
 
 ## Mixing with blocking code
 
@@ -128,7 +128,7 @@ await asyncio.gather(*(fetch_limited(u) for u in urls))
 result = await asyncio.to_thread(blocking_call, arg)     # 3.9+
 ```
 
-Runs it in a threadpool so the loop stays free. **This is the correct escape hatch** when a library has no async version → [[backend/frameworks/python/01-fastapi/README|FastAPI]] does it automatically for `def` handlers.
+Runs it in a threadpool so the loop stays free. **This is the correct escape hatch** when a library has no async version → [[backend/frameworks/python/01-fastapi/index|FastAPI]] does it automatically for `def` handlers.
 
 Going the other way — calling async from sync — is `asyncio.run(main())`, and **only once, at the top of your program.** Calling it inside a running loop raises.
 
@@ -179,7 +179,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 ## Related
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — the prerequisite
-- [[backend/frameworks/python/01-fastapi/README|FastAPI]] — asyncio in production
+- [[backend/frameworks/python/01-fastapi/index|FastAPI]] — asyncio in production
 - [[foundations/os/08-io-models|I/O models]] — epoll, and what the loop sits on
 - [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]] — the cross-language comparison
 

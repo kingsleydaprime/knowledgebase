@@ -23,7 +23,7 @@ The two ways to handle more load:
 | | Vertical (scale up) | Horizontal (scale out) |
 |---|---|---|
 | How | a bigger machine (more CPU/RAM) | more machines |
-| Simplicity | simple — no code changes, no distribution | complex — needs [[architecture/02-building-blocks/01-load-balancing-and-proxies\|load balancing]], stateless design, [[architecture/04-distributed-systems/README\|distributed-systems]] concerns |
+| Simplicity | simple — no code changes, no distribution | complex — needs [[architecture/02-building-blocks/01-load-balancing-and-proxies\|load balancing]], stateless design, [[architecture/04-distributed-systems/index\|distributed-systems]] concerns |
 | Ceiling | hard limit (biggest machine you can buy) | effectively unlimited |
 | Failure | single point of failure | survives node loss (redundancy) |
 | Cost | expensive at the top end | commodity hardware, but more of it |
@@ -42,9 +42,9 @@ When one server isn't enough, the standard moves — each its own note:
 
 ## The core insight
 
-Scaling is a sequence of **finding the current bottleneck and relieving it** — there's always a bottleneck (compute, database, network, a hot key), and scaling is whack-a-mole against it. This is why [[devops/10-observability/README|measurement]] matters: you scale what the metrics say is the constraint, not what you assume. And it's why the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|record-generator pipeline's]] real bottleneck was the database write path, not the file reading — you have to measure to know.
+Scaling is a sequence of **finding the current bottleneck and relieving it** — there's always a bottleneck (compute, database, network, a hot key), and scaling is whack-a-mole against it. This is why [[devops/10-observability/index|measurement]] matters: you scale what the metrics say is the constraint, not what you assume. And it's why the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|record-generator pipeline's]] real bottleneck was the database write path, not the file reading — you have to measure to know.
 
 ## Related
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability & Reliability]] — horizontal scaling also buys fault tolerance
-- [[architecture/02-building-blocks/README|Building Blocks]] — the tools in the scaling toolkit
-- [[ai-ml/02-ml-engineer/README|ML Engineer]]'s data pipelines — throughput/latency in another domain
+- [[architecture/02-building-blocks/index|Building Blocks]] — the tools in the scaling toolkit
+- [[ai-ml/02-ml-engineer/index|ML Engineer]]'s data pipelines — throughput/latency in another domain

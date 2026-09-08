@@ -284,4 +284,4 @@ This pairs naturally with [[build-your-own-shit/01-http-server|the HTTP server]]
 - [[foundations/os/10-signals-and-ipc|Signals and IPC]] — pipes, `dup2`, signal handling
 - [[devops/01-linux/12-bash-scripting|Bash Scripting]] — the thing you're reimplementing
 - [[devops/01-linux/06-process-management|Linux: Process Management]] — jobs and signals from the user side
-- [[build-your-own-shit/README|build-your-own-shit]]
+- [[build-your-own-shit/index|build-your-own-shit]]

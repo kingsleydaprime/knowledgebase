@@ -155,7 +155,7 @@ func (s *Server) handleGetUser(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-`log/slog` since Go 1.21 — JSON output that a log aggregator can actually query, with a request ID threading through every line of a request. That correlation is what makes logs useful during an incident. → [[devops/10-observability/README|Observability]]
+`log/slog` since Go 1.21 — JSON output that a log aggregator can actually query, with a request ID threading through every line of a request. That correlation is what makes logs useful during an incident. → [[devops/10-observability/index|Observability]]
 
 ### Metrics
 
@@ -220,7 +220,7 @@ USER nonroot:nonroot
 ENTRYPOINT ["/app"]
 ```
 
-**`CGO_ENABLED=0`** produces a genuinely static binary, which is what lets the final image be `distroless/static` or `scratch` — a few megabytes with no shell, no package manager, and almost no attack surface. This is Go's biggest practical deployment advantage. → [[devops/02-docker/README|Docker]]
+**`CGO_ENABLED=0`** produces a genuinely static binary, which is what lets the final image be `distroless/static` or `scratch` — a few megabytes with no shell, no package manager, and almost no attack surface. This is Go's biggest practical deployment advantage. → [[devops/02-docker/index|Docker]]
 
 **`-ldflags="-s -w"`** strips debug info; smaller binary, and you lose symbol names in stack traces, so decide deliberately.
 
@@ -266,6 +266,6 @@ go test -race -cover ./...
 ## Related
 - [[backend/frameworks/go/01-net-http-in-depth|net/http in Depth]] — timeouts and shutdown
 - [[languages/02-go/11-testing-and-benchmarking|Go: Testing and Benchmarking]] — the testing idioms
-- [[devops/10-observability/README|Observability]] · [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]]
+- [[devops/10-observability/index|Observability]] · [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]]
 - [[backend/07-practices/02-testing-a-backend|Testing a Backend]] — the strategy behind this
-- [[backend/frameworks/go/README|Go backends]]
+- [[backend/frameworks/go/index|Go backends]]

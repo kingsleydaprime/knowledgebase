@@ -19,7 +19,7 @@ Everything in this domain rests on splitting two workloads that a single databas
 | Writes | Constant, small | Bulk loads |
 | Latency | Milliseconds, user-facing | Seconds to minutes, fine |
 | Storage | **Row-oriented** | **Column-oriented** |
-| System | Postgres, MySQL → [[databases/README\|databases]] | Snowflake, BigQuery → [[data-engineering/02-warehouses-lakes-and-lakehouses\|warehouses]] |
+| System | Postgres, MySQL → [[databases/index\|databases]] | Snowflake, BigQuery → [[data-engineering/02-warehouses-lakes-and-lakehouses\|warehouses]] |
 
 **You must not run heavy analytics on the operational database.** A `GROUP BY` over the whole orders table locks resources the checkout flow needs, and the row-oriented storage is the wrong shape for it anyway → [[data-engineering/09-data-modelling-for-analytics|why columnar]].
 
@@ -65,17 +65,17 @@ Almost every data system, however grand its tooling, is this:
     transactional)          for analysis)           data)
 ```
 
-- **Below it:** [[databases/README|databases]] — the storage engines, indexes and transactions data engineering moves data between and builds warehouses on
-- **Beside it:** [[architecture/04-distributed-systems/README|distributed systems]] — because at scale, every data tool is a distributed system, and its failures are distributed-systems failures
-- **Above it:** [[ai-ml/README|ai-ml]] — **models are only as good as the data pipeline feeding them.** "Garbage in, garbage out" is a data-engineering problem, and [[ai-ml/02-ml-engineer/10-mlops/README|MLOps]] is largely data engineering wearing an ML hat
+- **Below it:** [[databases/index|databases]] — the storage engines, indexes and transactions data engineering moves data between and builds warehouses on
+- **Beside it:** [[architecture/04-distributed-systems/index|distributed systems]] — because at scale, every data tool is a distributed system, and its failures are distributed-systems failures
+- **Above it:** [[ai-ml/index|ai-ml]] — **models are only as good as the data pipeline feeding them.** "Garbage in, garbage out" is a data-engineering problem, and [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] is largely data engineering wearing an ML hat
 
 ## Why it's a distinct role
 
 It emerged because building reliable data pipelines is neither database administration nor software engineering nor data science, but overlaps all three:
 
-- **From software engineering:** version control, testing, CI/CD, idempotency, code review — pipelines are code → [[concepts/04-best-practices/README|best practices]]
-- **From databases:** SQL, storage internals, query optimisation, modelling → [[databases/README|databases]]
-- **From distributed systems:** partitioning, replication, consistency, and the fact that **things fail partway through** → [[architecture/04-distributed-systems/README|distributed systems]]
+- **From software engineering:** version control, testing, CI/CD, idempotency, code review — pipelines are code → [[concepts/04-best-practices/index|best practices]]
+- **From databases:** SQL, storage internals, query optimisation, modelling → [[databases/index|databases]]
+- **From distributed systems:** partitioning, replication, consistency, and the fact that **things fail partway through** → [[architecture/04-distributed-systems/index|distributed systems]]
 - **Its own:** the tools (warehouses, Kafka, Spark, orchestrators), the modelling patterns, and a deep respect for **idempotency and reprocessing**, because pipelines break and must be re-runnable
 
 ## Key insight
@@ -85,7 +85,7 @@ It emerged because building reliable data pipelines is neither database administ
 ## Related
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses, lakes and lakehouses]] — where analytical data lives
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — the two ways it moves
-- [[databases/README|databases]] — the operational side
-- [[ai-ml/README|ai-ml]] — the main consumer
+- [[databases/index|databases]] — the operational side
+- [[ai-ml/index|ai-ml]] — the main consumer
 
 *Source: [reference] — Aug 2026.*

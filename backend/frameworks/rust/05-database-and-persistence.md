@@ -130,7 +130,7 @@ sqlx::migrate!("./migrations").run(&pool).await?;    // embedded in the binary
 
 **SeaORM** is the closest thing to a conventional ORM and it's fine. The usual reservations apply: generated SQL you didn't write, easy N+1 queries, and a query builder that's more verbose than the SQL it produces.
 
-The Rust community leans the same way [[languages/02-go/README|Go's]] does — **SQL is already a good query language, and sqlx gives you type safety without an abstraction layer.** That combination is hard to argue with.
+The Rust community leans the same way [[languages/02-go/index|Go's]] does — **SQL is already a good query language, and sqlx gives you type safety without an abstraction layer.** That combination is hard to argue with.
 
 ## Mapping errors
 
@@ -196,6 +196,6 @@ Combined with `testcontainers` for the Postgres instance itself, integration tes
 ## Related
 - [[backend/frameworks/rust/03-state-and-shared-data|State and Shared Data]] — the pool as state
 - [[backend/frameworks/rust/04-async-pitfalls|Async Pitfalls]] — pool exhaustion and unbounded spawning
-- [[backend/04-data-and-persistence/README|Data and Persistence]] — the concepts
+- [[backend/04-data-and-persistence/index|Data and Persistence]] — the concepts
 - [[databases/sql-reference|SQL Reference]]
-- [[backend/frameworks/rust/README|Rust backends]]
+- [[backend/frameworks/rust/index|Rust backends]]

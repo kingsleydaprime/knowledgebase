@@ -26,7 +26,7 @@ The integer boundary is **2⁵³ = 9,007,199,254,740,992**. Beyond it, `float(n)
 - **Unsigned overflow is defined** — it wraps modulo 2ⁿ. Guaranteed by the standard
 - **Shifting by ≥ the width is UB**, and genuinely varies: x86 masks the shift count to 5 or 6 bits, so `x << 32` on a 32-bit int may return `x`, not 0
 
-`-fsanitize=undefined` reports the signed overflow and the shift at runtime with file and line. **Run it on any C you write** → [[languages/04-c/README|C]].
+`-fsanitize=undefined` reports the signed overflow and the shift at runtime with file and line. **Run it on any C you write** → [[languages/04-c/index|C]].
 
 ### 3. What the compiler emits
 
@@ -151,6 +151,6 @@ No answer — the log is the artefact.
 
 ## Related
 - [[foundations/computer-architecture/13-practice-exercises|the exercises]]
-- [[foundations/computer-architecture/README|the course]]
+- [[foundations/computer-architecture/index|the course]]
 
 *Source: [reference] — measured on an i7-8650U with GCC, August 2026.*

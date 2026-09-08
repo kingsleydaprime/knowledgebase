@@ -160,7 +160,7 @@ $$K(x) = \text{length of the shortest program that outputs } x$$
 
 **Compress before encrypting, never after.** Encrypted data is incompressible by design.
 
-> **And be careful even then: compression combined with encryption leaks information.** **CRIME and BREACH** exploited exactly this — an attacker who can inject text into a compressed-then-encrypted stream learns whether their guess matched a secret **by watching the compressed length change.** The fix was to stop compressing attacker-influenced data alongside secrets. → [[cybersecurity/04-web-security/README|Web Security]]
+> **And be careful even then: compression combined with encryption leaks information.** **CRIME and BREACH** exploited exactly this — an attacker who can inject text into a compressed-then-encrypted stream learns whether their guess matched a secret **by watching the compressed length change.** The fix was to stop compressing attacker-influenced data alongside secrets. → [[cybersecurity/04-web-security/index|Web Security]]
 
 **Beware decompression bombs.** A 42 KB zip expanding to 4.5 PB is a denial-of-service vector. **Always bound the output size** when decompressing untrusted input.
 
@@ -172,4 +172,4 @@ $$K(x) = \text{length of the shortest program that outputs } x$$
 - [[foundations/information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — compression as prediction, made precise
 - [[foundations/information-theory/01-what-information-is|What Information Is]] — where the entropy floor comes from
 - [[foundations/theory-of-computation/06-decidability|Decidability]] — why $K$ is uncomputable
-- [[foundations/information-theory/README|Information theory map]]
+- [[foundations/information-theory/index|Information theory map]]

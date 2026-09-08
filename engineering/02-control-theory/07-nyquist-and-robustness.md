@@ -173,4 +173,4 @@ What to actually check, in order:
 - [[engineering/02-control-theory/06-frequency-response|Frequency Response]] — where margins are read
 - [[engineering/02-control-theory/05-stability-and-root-locus|Stability and Root Locus]] — the time-domain view
 - [[engineering/02-control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — optimality vs robustness
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/02-control-theory/index|Control theory map]]

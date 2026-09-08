@@ -127,4 +127,4 @@
 ## Related
 - [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — P, NP and the reductions
 - [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|Cryptographic Best Practices]] — where post-quantum lands
-- [[foundations/theory-of-computation/README|Theory of computation map]]
+- [[foundations/theory-of-computation/index|Theory of computation map]]

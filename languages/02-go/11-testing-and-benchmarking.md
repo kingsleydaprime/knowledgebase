@@ -236,4 +236,4 @@ Compiled, run as a test *and* rendered in the generated docs. Documentation that
 - [[languages/02-go/13-performance-and-runtime|Performance and the Runtime]] — pprof, after benchmarks tell you where to look
 - [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — wiring `go test -race ./...` into a gate
 - [[languages/01-java/03-tooling/04-testing|Java: Testing]] — JUnit and Mockito, the framework-heavy alternative
-- [[languages/02-go/README|Go course map]]
+- [[languages/02-go/index|Go course map]]

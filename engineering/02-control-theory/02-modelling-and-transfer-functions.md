@@ -36,14 +36,14 @@ So an ODE becomes an algebraic equation, and cascading systems becomes **multipl
 
 The transforms worth knowing:
 
-| $f(t)$ | $F(s)$ |
-|---|---|
-| $\delta(t)$ | $1$ |
-| $1$ (step) | $1/s$ |
-| $t$ (ramp) | $1/s^2$ |
-| $e^{-at}$ | $1/(s+a)$ |
-| $\sin\omega t$ | $\omega/(s^2+\omega^2)$ |
-| $f(t-T)$ (delay) | $e^{-sT}F(s)$ |
+| $f(t)$           | $F(s)$                  |
+| ---------------- | ----------------------- |
+| $\delta(t)$      | $1$                     |
+| $1$ (step)       | $1/s$                   |
+| $t$ (ramp)       | $1/s^2$                 |
+| $e^{-at}$        | $1/(s+a)$               |
+| $\sin\omega t$   | $\omega/(s^2+\omega^2)$ |
+| $f(t-T)$ (delay) | $e^{-sT}F(s)$           |
 
 That last one matters — **a pure time delay is $e^{-sT}$**, which is not a rational function, and it's why delay is so destructive to stability. → [[engineering/02-control-theory/06-frequency-response|Frequency Response]]
 
@@ -67,17 +67,17 @@ $$G(s) = \frac{N(s)}{D(s)} = K\frac{(s - z_1)(s - z_2)\cdots}{(s - p_1)(s - p_2)
 
 **The single most important idea in classical control:**
 
-> **Poles determine the shape of the response. Their locations *are* the system's natural modes.**
+> **Poles determine the shape of the response. Their locations _are_ the system's natural modes.**
 
 Each pole contributes a term $e^{p_i t}$ to the response:
 
-| Pole location | Contributes | Behaviour |
-|---|---|---|
-| Real, negative ($-a$) | $e^{-at}$ | decaying exponential — **stable** |
-| Real, positive ($+a$) | $e^{at}$ | growing — **unstable** |
-| Complex pair ($-\sigma \pm j\omega$) | $e^{-\sigma t}\sin(\omega t)$ | **damped oscillation** |
-| Pure imaginary ($\pm j\omega$) | $\sin\omega t$ | sustained oscillation — marginally stable |
-| At origin | constant | integrator |
+| Pole location                        | Contributes                   | Behaviour                                 |
+| ------------------------------------ | ----------------------------- | ----------------------------------------- |
+| Real, negative ($-a$)                | $e^{-at}$                     | decaying exponential — **stable**         |
+| Real, positive ($+a$)                | $e^{at}$                      | growing — **unstable**                    |
+| Complex pair ($-\sigma \pm j\omega$) | $e^{-\sigma t}\sin(\omega t)$ | **damped oscillation**                    |
+| Pure imaginary ($\pm j\omega$)       | $\sin\omega t$                | sustained oscillation — marginally stable |
+| At origin                            | constant                      | integrator                                |
 
 ```
               Im
@@ -100,15 +100,15 @@ That's the criterion the entire field rests on. → [[engineering/02-control-the
 
 Less intuitive, and they matter more than people expect.
 
-Zeros **don't affect stability** — they don't appear in the characteristic equation. They shape the *transient*: they can add overshoot, speed up the initial response, or cancel a pole.
+Zeros **don't affect stability** — they don't appear in the characteristic equation. They shape the _transient_: they can add overshoot, speed up the initial response, or cancel a pole.
 
-**Right-half-plane zeros are the ones to watch.** A system with an RHP zero is **non-minimum phase**, and it exhibits **initial undershoot** — it goes the *wrong way first*.
+**Right-half-plane zeros are the ones to watch.** A system with an RHP zero is **non-minimum phase**, and it exhibits **initial undershoot** — it goes the _wrong way first_.
 
 Real examples:
 
 - **Backing a car with a trailer** — to move the trailer left, you must first steer right
 - **A bicycle** — countersteering: to turn left at speed, push the bars right first
-- **Boiler drum level** — adding cold feedwater makes the level *drop* momentarily as steam bubbles collapse, before rising
+- **Boiler drum level** — adding cold feedwater makes the level _drop_ momentarily as steam bubbles collapse, before rising
 - **Aircraft altitude via elevator** — pitching up initially loses altitude
 
 > **RHP zeros impose a hard limit on achievable bandwidth.** You cannot control faster than an RHP zero allows, no matter how clever the controller — pushing gain up makes the loop unstable. That's a fundamental constraint, not a tuning problem, and recognising a non-minimum-phase plant early saves a lot of wasted effort.
@@ -172,7 +172,7 @@ describes a surprising number of industrial processes with three parameters.
 
 - **Excite the frequencies you care about.** A slow ramp tells you nothing about high-frequency behaviour
 - **Stay in the linear region.** Large inputs hit saturation and you'll fit a model of the saturation
-- **Validate on different data** than you fitted to — the same discipline as [[ai-ml/02-ml-engineer/04-model-evaluation/README|any model fitting]]
+- **Validate on different data** than you fitted to — the same discipline as [[ai-ml/02-ml-engineer/04-model-evaluation/index|any model fitting]]
 - **An identified model is only valid over the range you excited.** Extrapolation is guessing
 
 ## Standard forms
@@ -194,7 +194,8 @@ $\omega_n$ is the **natural frequency**, $\zeta$ the **damping ratio**. Everythi
 ---
 
 ## Related
+
 - [[engineering/02-control-theory/03-time-response|Time Response]] — what these poles produce
 - [[engineering/02-control-theory/05-stability-and-root-locus|Stability and Root Locus]] — the characteristic equation
 - [[engineering/02-control-theory/08-state-space|State Space]] — the alternative representation
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/02-control-theory/index|Control theory map]]

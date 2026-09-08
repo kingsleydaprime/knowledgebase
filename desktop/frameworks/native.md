@@ -24,11 +24,11 @@
 
 **The cost is linear in platforms and it is not amortised.** Three platforms is three UIs, three build pipelines, three sets of bugs, three areas of expertise. **The usual compromise is a shared core** — business logic in Rust, C++ or Kotlin Multiplatform — **with a native UI per platform.** That's the architecture behind several well-regarded cross-platform apps, and it's a straightforward application of [[foundations/systems-engineering/04-architecture-and-interfaces|interface design]]: put the boundary where the platforms genuinely differ, which is the UI, and share everything below it.
 
-**SwiftUI and WinUI have converged on the same model** — declarative UI as a function of state, with the framework diffing. The same idea as React → [[frontend/frameworks/react/README|React]]. **Learning one makes the others much faster.**
+**SwiftUI and WinUI have converged on the same model** — declarative UI as a function of state, with the framework diffing. The same idea as React → [[frontend/frameworks/react/index|React]]. **Learning one makes the others much faster.**
 
 **Accessibility, localisation and platform conventions come free**, which is the quiet argument for native and the thing cross-platform toolkits spend the most effort approximating.
 
 ## Related
-- [[desktop/frameworks/README|frameworks/]] · [[desktop/01-what-desktop-development-is|what desktop development is]]
+- [[desktop/frameworks/index|frameworks/]] · [[desktop/01-what-desktop-development-is|what desktop development is]]
 
 *Source: [reference] — scaffold, from Apple, Microsoft and GNOME documentation.*

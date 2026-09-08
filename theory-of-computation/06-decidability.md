@@ -164,4 +164,4 @@ Worth recognising, because they show the reach:
 - [[foundations/theory-of-computation/05-turing-machines|Turing Machines]] — the machines this is about
 - [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — hard rather than impossible
 - [[foundations/compilers/05-type-systems-and-checking|Type Systems]] — soundness/completeness in practice
-- [[foundations/theory-of-computation/README|Theory of computation map]]
+- [[foundations/theory-of-computation/index|Theory of computation map]]

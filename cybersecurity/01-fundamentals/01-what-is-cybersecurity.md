@@ -5,7 +5,7 @@ Cybersecurity is the practice of protecting systems, networks, and data from una
 ## The two sides of the same coin
 
 - **Defensive security (blue team)** — building and operating systems so they resist attack: secure configuration, monitoring, incident response, patching, access control. Most cybersecurity work, by volume, is this.
-- **Offensive security (red team / ethical hacking)** — deliberately trying to break into systems, under authorization, to find weaknesses before someone without authorization does. This is what [[cybersecurity/02-ethical-hacking/README|ethical-hacking]] covers in depth.
+- **Offensive security (red team / ethical hacking)** — deliberately trying to break into systems, under authorization, to find weaknesses before someone without authorization does. This is what [[cybersecurity/02-ethical-hacking/index|ethical-hacking]] covers in depth.
 
 Neither side is complete without the other — offensive testing is how defenses actually get validated rather than just assumed to work, and defensive controls are what offensive findings ultimately feed back into.
 
@@ -18,7 +18,7 @@ Neither side is complete without the other — offensive testing is how defenses
 - **Cryptography** — the mathematical foundation for confidentiality and integrity (encryption, hashing, digital signatures) underlying most of the above.
 - **Governance, risk, and compliance (GRC)** — policy, regulatory requirements, and risk management — the less technical, still essential side of the field.
 
-This vault currently goes deep on [[cybersecurity/02-ethical-hacking/README|ethical-hacking]] specifically; the other domains are real gaps to fill in later, not omissions that mean they don't matter.
+This vault currently goes deep on [[cybersecurity/02-ethical-hacking/index|ethical-hacking]] specifically; the other domains are real gaps to fill in later, not omissions that mean they don't matter.
 
 ## Why "there's no such thing as a fully secure system"
 
@@ -36,4 +36,4 @@ Not every vulnerability deserves the same urgency. Risk is typically thought of 
 ## Related
 - [[02-cia-triad|cia-triad]]
 - [[03-attacker-and-hacker-types|attacker-and-hacker-types]]
-- [[cybersecurity/02-ethical-hacking/README|ethical-hacking]]
+- [[cybersecurity/02-ethical-hacking/index|ethical-hacking]]

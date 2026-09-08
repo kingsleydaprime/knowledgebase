@@ -56,7 +56,7 @@ app.Use(async (context, next) =>
 
 **Middleware is a singleton.** It's constructed once. **Injecting a scoped service into its constructor captures it forever** → [[languages/07-csharp/11-the-standard-library-and-ecosystem|note 11]]. Inject scoped services into `InvokeAsync` instead.
 
-**This is the onion/decorator pattern**, and it's the same shape as Express middleware, Django middleware and `tower` layers → [[backend/frameworks/README|frameworks]].
+**This is the onion/decorator pattern**, and it's the same shape as Express middleware, Django middleware and `tower` layers → [[backend/frameworks/index|frameworks]].
 
 ## Dependency injection
 
@@ -90,19 +90,19 @@ builder.Services.Configure<StripeOptions>(builder.Configuration.GetSection("Stri
 
 **The options pattern binds config to a typed class**, so a typo is a startup failure rather than a null at 3 a.m. `IOptionsSnapshot<T>` re-reads per request; `IOptionsMonitor<T>` pushes changes.
 
-**Never put secrets in `appsettings.json`** — it's committed. Use user secrets locally and environment variables or a vault in production → [[devops/09-secret-management/README|secret management]].
+**Never put secrets in `appsettings.json`** — it's committed. Use user secrets locally and environment variables or a vault in production → [[devops/09-secret-management/index|secret management]].
 
 ## Hosting
 
 **Kestrel** is the built-in cross-platform server, and it is genuinely fast — routinely near the top of TechEmpower benchmarks.
 
-**Reverse proxy or not?** Kestrel can face the internet directly and is designed to. Putting nginx or YARP in front buys you TLS termination, static file serving, rate limiting and shared-port routing → [[devops/08-networking-and-web/README|networking and web]]. **Behind a proxy, configure `ForwardedHeaders`** or every request appears to come from the proxy's IP — which breaks logging, rate limiting and geo rules.
+**Reverse proxy or not?** Kestrel can face the internet directly and is designed to. Putting nginx or YARP in front buys you TLS termination, static file serving, rate limiting and shared-port routing → [[devops/08-networking-and-web/index|networking and web]]. **Behind a proxy, configure `ForwardedHeaders`** or every request appears to come from the proxy's IP — which breaks logging, rate limiting and geo rules.
 
 **The concurrency model is async all the way down** — a thread-pool thread per *active* request, released during I/O waits, rather than one thread pinned per connection → [[languages/07-csharp/07-async-await-and-tasks|note 07]] · [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]].
 
 ## Related
 - [[backend/frameworks/csharp/02-minimal-apis-and-mvc|minimal APIs and MVC]] — the two endpoint styles
-- [[languages/07-csharp/README|the C# course]] — the language
-- [[backend/03-structuring-a-backend/README|structuring a backend]] — the layering this doesn't give you
+- [[languages/07-csharp/index|the C# course]] — the language
+- [[backend/03-structuring-a-backend/index|structuring a backend]] — the layering this doesn't give you
 
 *Source: [reference] — from the ASP.NET Core documentation, Aug 2026.*

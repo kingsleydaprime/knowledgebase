@@ -4,7 +4,7 @@
 
 ## The ndarray
 
-NumPy's one data structure is the **ndarray** — an n-dimensional grid of a *single* dtype, stored in a contiguous block of memory (which is why it's fast — the [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|vectors and matrices]] of linear algebra, in code):
+NumPy's one data structure is the **ndarray** — an n-dimensional grid of a *single* dtype, stored in a contiguous block of memory (which is why it's fast — the [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|vectors and matrices]] of linear algebra, in code):
 
 ```python
 import numpy as np
@@ -55,7 +55,7 @@ a[a < 0] = 0       # clamp negatives to zero, in place
 mask = (a > 0) & (a < 4)   # combine conditions with & | ~ (not and/or)
 ```
 
-This "filter and transform by condition" pattern is everywhere in data cleaning ([[ai-ml/02-ml-engineer/02-working-with-data/README|working with data]]) and carries directly into [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]].
+This "filter and transform by condition" pattern is everywhere in data cleaning ([[ai-ml/02-ml-engineer/02-working-with-data/index|working with data]]) and carries directly into [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]].
 
 ## Broadcasting — operating on mismatched shapes
 
@@ -97,9 +97,9 @@ Knowing view-vs-copy avoids a whole class of "why did my data change" bugs.
 ## Practice
 
 - Reimplement a small numeric loop you'd write in Java (e.g. normalize a list, compute a moving average) as one vectorized expression.
-- Implement `k-means` or `linear regression` using *only* NumPy (no scikit-learn) — the fastest way to make [[ai-ml/00-foundations/03-mathematics/README|the math]] and vectorization click. (These are in [[project-ideas|PROJECTS]].)
+- Implement `k-means` or `linear regression` using *only* NumPy (no scikit-learn) — the fastest way to make [[ai-ml/00-foundations/03-mathematics/index|the math]] and vectorization click. (These are in [[project-ideas|PROJECTS]].)
 
 ## Related
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|Linear Algebra]] — what arrays represent
+- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — what arrays represent
 - [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]] — labeled tables built on ndarrays
 - [[ai-ml/02-ml-engineer/05-deep-learning/01-neural-network-fundamentals|Neural Network Fundamentals]] — broadcasting is how layers process batches

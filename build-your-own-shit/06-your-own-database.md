@@ -206,7 +206,7 @@ An LSM is arguably **easier to build**: writes go to an in-memory sorted map plu
 
 **C** — what `sqlite` is, and the byte-level page manipulation is the most direct. The [*Let's Build a Simple Database*](https://cstack.github.io/db_tutorial/) tutorial is in C and follows almost exactly this milestone order.
 
-**Rust** — a genuinely good fit. Page borrows and lifetimes map onto the real invariants, and the enum-based AST helps the parser. Fighting the borrow checker over the page cache is instructive rather than annoying — it's asking the right questions about aliasing. → [[languages/03-rust/README|Rust]]
+**Rust** — a genuinely good fit. Page borrows and lifetimes map onto the real invariants, and the enum-based AST helps the parser. Fighting the borrow checker over the page cache is instructive rather than annoying — it's asking the right questions about aliasing. → [[languages/03-rust/index|Rust]]
 
 **Go** — clean file I/O, and `encoding/binary` handles serialisation. Good balance.
 
@@ -272,9 +272,9 @@ diff expected.txt actual.txt
 ---
 
 ## Related
-- [[databases/README|Databases]] — the internals course: pages, B-trees, LSM, WAL, MVCC. **Read notes 03–05 and 10 before milestone 3**
+- [[databases/index|Databases]] — the internals course: pages, B-trees, LSM, WAL, MVCC. **Read notes 03–05 and 10 before milestone 3**
 - [[foundations/os/07-filesystems-and-storage|Filesystems and Storage]] — `fsync`, the page cache, journaling
 - [[foundations/dsa/04-data-structures/05-trees/01-trees|Trees]] — the B-tree's ancestry
 - [[databases/database-design-reference|Database Design]] · [[databases/sql-reference|SQL Reference]]
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — B-tree vs LSM in production
-- [[build-your-own-shit/README|build-your-own-shit]]
+- [[build-your-own-shit/index|build-your-own-shit]]

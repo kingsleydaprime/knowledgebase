@@ -60,6 +60,6 @@ Swift moves fast. **Swift 6 (2024) introduced strict concurrency checking** — 
 **Swift is a genuinely well-designed modern language locked to one vendor's platforms.** Learning it is learning Apple development — which is a large, well-paid, and durable niche, and not a general-purpose skill the way Go or Python is. **Learn it because you want to ship on Apple platforms**, and it'll be a pleasure. Learn it as a general language and you'll wonder where the ecosystem is.
 
 ## Related
-- [[languages/08-swift/README|the Swift course]]
-- [[mobile/frameworks/ios/README|iOS]] — the platform
-- [[languages/README|languages]] — the rule about what lives here
+- [[languages/08-swift/index|the Swift course]]
+- [[mobile/frameworks/ios/index|iOS]] — the platform
+- [[languages/index|languages]] — the rule about what lives here

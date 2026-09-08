@@ -99,4 +99,4 @@ Layering organises code; hexagonal architecture **inverts a dependency**. The mo
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|Dependency Injection]] — the mechanism that makes inversion possible
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services|Modular Monolith → Services]] — boundaries at the next scale up
 - [[concepts/03-design-patterns/02-structural-patterns|Structural Patterns]] — adapter, facade
-- [[architecture/03-architectural-patterns/README|Architectural Patterns]] — the system-level view
+- [[architecture/03-architectural-patterns/index|Architectural Patterns]] — the system-level view

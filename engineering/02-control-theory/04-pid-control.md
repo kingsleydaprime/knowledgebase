@@ -249,7 +249,7 @@ r →[ OUTER PID ]→ setpoint →[ INNER PID ]→[ ACTUATOR ]→[ PLANT ]
 
 The outer (primary) loop controls what you care about; its output is the **setpoint for the inner loop**, which controls something faster and closer to the actuator.
 
-**Standard example:** a robot joint. The outer loop controls position, and commands a velocity; the inner loop controls velocity, and commands current; an innermost loop controls current. Each is faster than the one outside it. → [[robotics/README|Robotics]]
+**Standard example:** a robot joint. The outer loop controls position, and commands a velocity; the inner loop controls velocity, and commands current; an innermost loop controls current. Each is faster than the one outside it. → [[robotics/index|Robotics]]
 
 **Rules:**
 
@@ -276,4 +276,4 @@ But start with PID. **The commonest failure mode in practice isn't that PID was 
 - [[engineering/02-control-theory/05-stability-and-root-locus|Stability and Root Locus]] — why high gain destabilises
 - [[engineering/02-control-theory/06-frequency-response|Frequency Response]] — what the D term does to phase
 - [[engineering/02-control-theory/12-digital-control|Digital Control]] — implementing this on a microcontroller
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/02-control-theory/index|Control theory map]]

@@ -43,4 +43,4 @@ If a result surprised you — the alias sounding real (#2), the Gibbs overshoot 
 
 ## Related
 - [[foundations/digital-signal-processing/10-practice-exercises|the exercises]]
-- [[foundations/digital-signal-processing/README|the DSP course]]
+- [[foundations/digital-signal-processing/index|the DSP course]]

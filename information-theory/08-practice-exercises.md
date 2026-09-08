@@ -68,6 +68,6 @@ Implement Hamming(7,4). Encode a nibble, flip one bit, and correct it. Then flip
 
 ## Related
 - [[foundations/information-theory/09-practice-exercises-solutions|Solutions]]
-- [[foundations/information-theory/README|the course]]
+- [[foundations/information-theory/index|the course]]
 
 *Source: [reference] — built from this course's own gap-closing list. Results measured Aug 2026.*

@@ -47,4 +47,4 @@ A WAF sits in front of a web application specifically and filters based on HTTP-
 ## Related
 - [[02-network-segmentation|network-segmentation]]
 - [[04-intrusion-detection-and-prevention|intrusion-detection-and-prevention]]
-- [[cybersecurity/04-web-security/README|web-security]]
+- [[cybersecurity/04-web-security/index|web-security]]

@@ -223,4 +223,4 @@ Or in C++: `alignas(std::hardware_destructive_interference_size)`.
 - [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the practical rules
 - [[foundations/computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — ordering on top of coherence
 - [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] — what runs on this
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

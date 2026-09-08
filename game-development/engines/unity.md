@@ -79,11 +79,11 @@ Unity is free below a revenue threshold, then per-seat subscriptions.
 
 ## Why it's still usually the right pick for a job
 
-**The job market is the deepest of the three by a wide margin**, especially in mobile, VR/AR and mid-size studios. C# is a genuinely pleasant, well-designed language with excellent tooling → [[languages/07-csharp/README|C#]]. And the asset ecosystem means a prototype that would take a month takes a week.
+**The job market is the deepest of the three by a wide margin**, especially in mobile, VR/AR and mid-size studios. C# is a genuinely pleasant, well-designed language with excellent tooling → [[languages/07-csharp/index|C#]]. And the asset ecosystem means a prototype that would take a month takes a week.
 
 ## Related
-- [[game-development/engines/README|engines/]] · [[game-development/engines/godot|Godot]] · [[game-development/engines/unreal|Unreal]]
-- [[languages/07-csharp/README|C#]] — the language
-- [[game-development/interview/README|game dev interview prep]]
+- [[game-development/engines/index|engines/]] · [[game-development/engines/godot|Godot]] · [[game-development/engines/unreal|Unreal]]
+- [[languages/07-csharp/index|C#]] — the language
+- [[game-development/interview/index|game dev interview prep]]
 
 *Source: [reference] — from the Unity documentation; licensing history from public reporting, Aug 2026.*

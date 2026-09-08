@@ -151,4 +151,4 @@ Where this becomes concrete, and the reason CS students learn it.
 - [[foundations/discrete-math/02-logic|Logic]] — the reasoning these formalise
 - [[foundations/discrete-math/05-induction-and-recursion|Induction and Recursion]] — the technique that matters most
 - [[foundations/theory-of-computation/06-decidability|Decidability]] — where proofs establish impossibility
-- [[foundations/discrete-math/README|Discrete maths map]]
+- [[foundations/discrete-math/index|Discrete maths map]]

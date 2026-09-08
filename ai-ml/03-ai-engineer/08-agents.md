@@ -38,7 +38,7 @@ Some tasks split across multiple agents — a **planner** that decomposes and de
 ## Frameworks and observability
 
 - **Frameworks** — LangChain / LangGraph, CrewAI, AutoGen, and the SDK-native agent abstractions (e.g. the AI SDK's agent/tool-loop helpers, [[ai-ml/03-ai-engineer/04-calling-models|calling models]]) handle the loop, tool wiring, and state so you don't hand-roll it. Useful, but understand the underlying loop first — frameworks hide it, and you debug what you understand.
-- **Observability** — agents are hard to debug because behavior spans many nondeterministic steps. Tracing tools (LangSmith, Langfuse, and general [[devops/10-observability/README|observability]] adapted for LLMs) capture each step — prompts, tool calls, token usage, latency — so you can see *why* an agent did what it did. Non-negotiable for anything beyond a toy.
+- **Observability** — agents are hard to debug because behavior spans many nondeterministic steps. Tracing tools (LangSmith, Langfuse, and general [[devops/10-observability/index|observability]] adapted for LLMs) capture each step — prompts, tool calls, token usage, latency — so you can see *why* an agent did what it did. Non-negotiable for anything beyond a toy.
 - **Evals** — because output is nondeterministic, you can't "unit test" an agent conventionally. You build **evaluation sets** (representative tasks + criteria) and measure success rate as you change prompts/tools/models ([[ai-ml/03-ai-engineer/10-safety-and-production|safety & production]]).
 
 ## Gotchas

@@ -53,7 +53,7 @@ Games are **large binary assets** — textures, models, audio, video. Git handle
 - Repositories reach hundreds of GB
 - Two people editing one scene file is an unresolvable conflict
 
-**Hence file locking** — check out a file exclusively so nobody else can edit it. Alien to a git workflow → [[git/README|git]] and completely necessary when merging is impossible.
+**Hence file locking** — check out a file exclusively so nobody else can edit it. Alien to a git workflow → [[git/index|git]] and completely necessary when merging is impossible.
 
 **Perforce** remains the industry standard for this reason: centralised, handles huge binaries, locking is native. **Git LFS** plus a locking layer works for smaller teams, and **Plastic SCM / Unity Version Control** targets the same problem.
 
@@ -81,12 +81,12 @@ Tools: engine profilers, RenderDoc (frame capture), platform vendor tools (PIX, 
 
 **Certification** is real for consoles. Sony, Microsoft and Nintendo each have hundreds of technical requirements — how you handle a controller disconnecting, suspend/resume, save-data corruption, naming conventions, load-time limits. **Failing cert costs weeks**, and it's a fixed, knowable checklist that studios still get wrong.
 
-**Then:** store pages, age ratings, localisation, day-one patches, and live operations if the game continues after launch — which is now most of them, and is a [[devops/README|devops]] job with a different name.
+**Then:** store pages, age ratings, localisation, day-one patches, and live operations if the game continues after launch — which is now most of them, and is a [[devops/index|devops]] job with a different name.
 
 ## Related
 - [[game-development/08-getting-started|getting started]] — scope, applied to you
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the same productivity argument
-- [[git/README|git]] — and where it doesn't fit
+- [[git/index|git]] — and where it doesn't fit
 - [[foundations/systems-engineering/06-verification-and-validation|V&V]] — playtesting as validation
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

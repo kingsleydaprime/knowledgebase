@@ -8,13 +8,13 @@ Containers package an app with its dependencies so it runs anywhere; Kubernetes 
 
 ## The layers
 
-Container security stacks, and a weakness at any layer undermines the ones above → [[devops/02-docker/README|Docker]], [[devops/05-orchestration/README|Kubernetes]]:
+Container security stacks, and a weakness at any layer undermines the ones above → [[devops/02-docker/index|Docker]], [[devops/05-orchestration/index|Kubernetes]]:
 
 ```
    CLUSTER      Kubernetes RBAC, secrets, network policies, the API server
    RUNTIME      how the container actually runs — user, capabilities, isolation
    IMAGE        what's inside — dependencies, base image, baked-in secrets
-   HOST         the node's OS (this is [[devops/01-linux/README|Linux hardening]])
+   HOST         the node's OS (this is [[devops/01-linux/index|Linux hardening]])
 ```
 
 ## Image security — what's inside the box
@@ -32,11 +32,11 @@ An image is a filesystem plus metadata, and it's only as safe as its contents:
 The container process on the node, and the defaults are the danger:
 
 - **Don't run as root.** A container running as root that escapes its isolation is root *on the host*. Set a non-root `USER`; enforce it with a policy so nobody forgets → **the single highest-value container-runtime control**
-- **Drop Linux capabilities.** Containers get a default set of kernel capabilities; most workloads need almost none. Drop `ALL` and add back only what's required → [[foundations/os/README|OS capabilities]]
+- **Drop Linux capabilities.** Containers get a default set of kernel capabilities; most workloads need almost none. Drop `ALL` and add back only what's required → [[foundations/os/index|OS capabilities]]
 - **Read-only root filesystem** where possible — malware can't write a payload to a filesystem it can't modify
 - **No privileged containers.** `--privileged` disables most isolation and is a near-guaranteed host takeover if compromised. Ban it
 - **Resource limits** — CPU/memory limits so one container can't starve the node (a container-level [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|resource-exhaustion]] defence)
-- **Runtime detection** — tools like Falco watch for anomalous container behaviour (a shell spawned in a container that should never spawn one, unexpected network connections) → [[cybersecurity/07-security-operations/README|detection]]
+- **Runtime detection** — tools like Falco watch for anomalous container behaviour (a shell spawned in a container that should never spawn one, unexpected network connections) → [[cybersecurity/07-security-operations/index|detection]]
 
 **The container is not a security boundary as strong as a VM.** It shares the host kernel, so a kernel exploit escapes it. For hostile multi-tenant workloads, stronger isolation (gVisor, Kata Containers, Firecracker microVMs) is warranted → [[foundations/os/11-isolation-and-containers|isolation]].
 
@@ -60,7 +60,7 @@ Every item is the same instinct — **minimise privilege and blast radius at eac
 **Containers and Kubernetes add three layers of attack surface — image, runtime, cluster — and every layer's defaults are insecure: containers run as root, pods can reach every other pod, and Kubernetes secrets are just base64.** Security is therefore opt-in, layer by layer, all following one instinct: minimise privilege and blast radius, so a compromise at any layer gains little and spreads to nothing. And remember the container itself is a weaker boundary than a VM — it shares the host kernel — so genuinely hostile workloads need stronger isolation, not just careful config.
 
 ## Related
-- [[devops/02-docker/README|Docker]] · [[devops/05-orchestration/README|Kubernetes]] — the mechanics being secured
+- [[devops/02-docker/index|Docker]] · [[devops/05-orchestration/index|Kubernetes]] — the mechanics being secured
 - [[foundations/os/11-isolation-and-containers|isolation and containers]] — namespaces, cgroups, the kernel boundary
 - [[cybersecurity/09-cloud-security/05-cloud-native-defence|cloud-native defence]] — scanning and policy-as-code
 - [[cybersecurity/03-network-security/02-network-segmentation|network segmentation]] — the network-policy principle

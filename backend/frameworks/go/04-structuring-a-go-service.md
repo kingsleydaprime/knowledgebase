@@ -190,7 +190,7 @@ func LoadConfig() (*Config, error) {
 }
 ```
 
-**Validate config at startup and fail loudly.** A service that boots with a missing database URL and fails on the first request is worse than one that refuses to start. → [[devops/09-secret-management/README|Secret Management]]
+**Validate config at startup and fail loudly.** A service that boots with a missing database URL and fails on the first request is worse than one that refuses to start. → [[devops/09-secret-management/index|Secret Management]]
 
 `envconfig` or `viper` if you want tags and file support; plain `os.Getenv` is fine and dependency-free for a handful of values.
 
@@ -235,4 +235,4 @@ For most services, hand-written wiring in `run()` is clearer and shorter than th
 - [[backend/frameworks/go/06-testing-and-production|Testing and Production]] — why small interfaces pay off
 - [[languages/02-go/04-methods-and-interfaces|Go: Methods and Interfaces]] — consumer-declared interfaces
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|DI and Wiring]] — the concept, framework-agnostic
-- [[backend/frameworks/go/README|Go backends]]
+- [[backend/frameworks/go/index|Go backends]]

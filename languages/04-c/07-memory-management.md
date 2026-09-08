@@ -279,4 +279,4 @@ Allocation is a pointer bump; there is no individual `free`, so **no use-after-f
 - [[languages/04-c/13-debugging-and-tooling|Debugging and Tooling]] — ASan and Valgrind
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — this discipline, enforced
 - [[foundations/os/fundamentals|OS Fundamentals]] — virtual memory underneath
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

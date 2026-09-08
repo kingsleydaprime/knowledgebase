@@ -181,7 +181,7 @@ The standard responses:
 - **Event-triggered control** — transmit only when the error exceeds a threshold, rather than on a fixed schedule. Cuts bandwidth substantially with provable stability guarantees
 - **Fail safe on loss of signal.** Decide in advance what the actuator does when the network drops, and make it a deliberate choice rather than "hold the last value forever"
 
-The parallels with distributed systems are real, and worth taking seriously — a cloud autoscaler is a networked control loop with a slow, noisy plant and multi-minute actuator delay. → [[architecture/04-distributed-systems/README|Distributed Systems]]
+The parallels with distributed systems are real, and worth taking seriously — a cloud autoscaler is a networked control loop with a slow, noisy plant and multi-minute actuator delay. → [[architecture/04-distributed-systems/index|Distributed Systems]]
 
 ---
 
@@ -189,4 +189,4 @@ The parallels with distributed systems are real, and worth taking seriously — 
 - [[engineering/02-control-theory/04-pid-control|PID Control]] — the controller you're discretising
 - [[engineering/02-control-theory/08-state-space|State Space]] — the discrete state-space form
 - [[engineering/02-control-theory/06-frequency-response|Frequency Response]] — where the hold delay costs you
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/02-control-theory/index|Control theory map]]

@@ -144,8 +144,8 @@ No garbage collection (nothing is freed), no threads, no exceptions to catch —
 
 ## Related
 - [[web3/03-smart-contracts-with-solidity/03-storage-memory-calldata|storage, memory, calldata]] — this, in depth
-- [[web3/04-smart-contract-security/README|smart contract security]] — read alongside, not after
-- [[web3/frameworks/solidity/README|the Solidity toolchain]] — Foundry, Hardhat
+- [[web3/04-smart-contract-security/index|smart contract security]] — read alongside, not after
+- [[web3/frameworks/solidity/index|the Solidity toolchain]] — Foundry, Hardhat
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]]
 
 *Source: [reference] — Solidity 0.8.24+. Aug 2026.*

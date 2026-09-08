@@ -185,4 +185,4 @@ The cost is that error types have to be composed by hand, which is what the next
 - [[languages/03-rust/08-error-handling-in-practice|Error Handling in Practice]] — `thiserror`, `anyhow`, and real error types
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Structs, Enums and Pattern Matching]] — the enums these are built from
 - [[languages/02-go/05-errors|Go: Errors]] — the same philosophy without `?`
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

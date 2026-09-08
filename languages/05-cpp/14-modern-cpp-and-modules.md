@@ -202,4 +202,4 @@ Worth knowing when reading old code:
 - [[languages/05-cpp/01-why-cpp-and-what-it-added|Why C++]] — the "several languages in one" problem
 - [[languages/05-cpp/15-build-tooling-and-ecosystem|Build Tooling and Ecosystem]] — enforcing the subset
 - [[languages/04-c/02-headers-and-the-translation-unit|C: Headers]] — what modules replace
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

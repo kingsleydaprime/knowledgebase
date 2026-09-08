@@ -172,4 +172,4 @@ perf stat -e branches,branch-misses ./program
 - [[foundations/computer-architecture/07-branch-prediction-and-speculation|Branch Prediction and Speculation]] — solving the control hazard
 - [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — hiding the data hazards
 - [[foundations/computer-architecture/05-the-datapath|The Datapath]] — the stages being pipelined
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

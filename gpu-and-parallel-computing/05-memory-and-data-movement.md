@@ -201,4 +201,4 @@ Compute-bound near peak FLOPS           → you're done
 - [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — which bound you're against
 - [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the CPU analogue
 - [[foundations/gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — tiling and fusion
-- [[foundations/gpu-and-parallel-computing/README|GPU and parallel map]]
+- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]

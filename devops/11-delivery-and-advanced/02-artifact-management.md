@@ -38,6 +38,6 @@ These sit between your builds and both public registries and your deploys: your 
 Artifact management is increasingly a **security** topic, not just storage. Knowing exactly what's in a build (an SBOM — software bill of materials), scanning artifacts for vulnerabilities, and signing them (Sigstore/cosign) so you can verify an image wasn't tampered with are now standard concerns — a reaction to supply-chain attacks where compromised dependencies or images poison everyone downstream (the same class of risk as the Log4Shell incident noted in [[languages/01-java/03-tooling/05-logging-and-observability|logging]]).
 
 ## Related
-- [[devops/06-ci-cd/README|CI/CD]] — produces the artifacts stored here
+- [[devops/06-ci-cd/index|CI/CD]] — produces the artifacts stored here
 - [[devops/05-orchestration/01-kubernetes|Kubernetes]] — pulls images from a registry
 - [[languages/01-java/03-tooling/01-build-tools|Build Tools]] — (in the Java domain) publishing built jars

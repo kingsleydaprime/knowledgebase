@@ -2,7 +2,7 @@
 
 The language round. **Every frontend and full-stack interview has one**, and it's the round most candidates under-prepare because they've been writing framework code rather than language code.
 
-From [[frontend/README|frontend]], [[backend/frameworks/javascript/01-node-runtime/README|the Node runtime]], and [[foundations/programming-fundamentals/README|programming fundamentals]].
+From [[frontend/index|frontend]], [[backend/frameworks/javascript/01-node-runtime/index|the Node runtime]], and [[foundations/programming-fundamentals/index|programming fundamentals]].
 
 ---
 
@@ -88,7 +88,7 @@ Fix: arrow function, or `.bind(this)`.
 ```ts
 const user: User = await res.json();   // ✗ a lie — `any` cast to User
 ```
-**Nothing checked that.** If the API changed, you have a `User`-shaped hole and a crash somewhere unrelated. **Validate at the boundary** with `zod`/`valibot`, then the type is earned rather than asserted → [[backend/frameworks/python/01-fastapi/README|the same argument for Pydantic]].
+**Nothing checked that.** If the API changed, you have a `User`-shaped hole and a crash somewhere unrelated. **Validate at the boundary** with `zod`/`valibot`, then the type is earned rather than asserted → [[backend/frameworks/python/01-fastapi/index|the same argument for Pydantic]].
 
 **Details that matter:**
 - **Structural, not nominal** — anything with the right shape satisfies the type. Two unrelated interfaces with identical members are interchangeable
@@ -141,7 +141,7 @@ const a = await fetchA(); const b = await fetchB();       // sequential — 2x s
 ## Related
 - [[frontend/interview/01-react-rendering-and-performance|React, rendering & performance]]
 - [[frontend/interview/03-state-data-and-architecture|State, data & architecture]]
-- [[backend/frameworks/javascript/01-node-runtime/README|the Node runtime]] — the event loop, server-side
+- [[backend/frameworks/javascript/01-node-runtime/index|the Node runtime]] — the event loop, server-side
 - [[backend/interview/02-node-runtime-and-api|Node interview prep]]
 
 *Source: [reference] — the language round, assembled Aug 2026.*

@@ -111,7 +111,7 @@ analyzer:
 | **json_serializable** | JSON |
 | **collection** | `firstWhereOrNull`, `groupBy` — **add it immediately** |
 | **dio** or **http** | Networking |
-| **riverpod** / **bloc** / **provider** | State management → [[mobile/frameworks/flutter/README\|Flutter]] |
+| **riverpod** / **bloc** / **provider** | State management → [[mobile/frameworks/flutter/index\|Flutter]] |
 | **get_it** / **injectable** | Dependency injection |
 | **drift** / **isar** / **sqflite** | Local database → [[mobile/07-data-and-offline-first\|offline-first]] |
 | **mocktail** | Mocking, **no codegen needed** |
@@ -142,4 +142,4 @@ dart pub upgrade --major-versions
 ## Related
 - [[languages/10-dart/03-classes-and-collections|classes]] — what `freezed` generates
 - [[languages/10-dart/05-testing-and-errors|testing]] — mocktail vs mockito
-- [[mobile/frameworks/flutter/README|Flutter]] — where all of this is used
+- [[mobile/frameworks/flutter/index|Flutter]] — where all of this is used

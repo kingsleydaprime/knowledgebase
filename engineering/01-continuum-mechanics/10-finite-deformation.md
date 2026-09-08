@@ -179,4 +179,4 @@ Finite deformation is where the clean structure of linear elasticity — superpo
 - [[engineering/01-continuum-mechanics/05-stress|Stress]] — the three stress tensors this needs
 - [[engineering/01-continuum-mechanics/07-constitutive-models|Constitutive Models]] — hyperelasticity in context
 - [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] — solving these
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

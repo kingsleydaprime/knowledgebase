@@ -33,7 +33,7 @@ response
 
 **3. Routing.** Match method + path to a handler, extract path parameters. Frameworks differ in mechanism (decorators, a router object, file-system routing) and not in effect.
 
-**4. Authentication, then authorization.** Two distinct things, in that order. **Authn** establishes identity (session cookie, bearer token, mTLS). **Authz** decides permission — and it must be re-checked at the *data* layer too, because route-level checks can't know whether *this* user owns *that* record. That gap is IDOR. → [[backend/05-auth/README|auth]]
+**4. Authentication, then authorization.** Two distinct things, in that order. **Authn** establishes identity (session cookie, bearer token, mTLS). **Authz** decides permission — and it must be re-checked at the *data* layer too, because route-level checks can't know whether *this* user owns *that* record. That gap is IDOR. → [[backend/05-auth/index|auth]]
 
 **5. Validation.** Parse the input into a typed object and reject what doesn't fit. **Validate at the boundary, once** — after this line, code should be able to trust its inputs.
 
@@ -100,4 +100,4 @@ The lifecycle is **a funnel of decreasing distrust.** At stage 1 you trust nothi
 - [[backend/01-foundations/02-http-servers|HTTP Servers]] — the layer underneath
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — how stage 6 executes, and why frameworks differ
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|Layers]] — what stage 6 looks like inside
-- [[cybersecurity/04-web-security/README|Web Security]] — the attacks each stage defends against
+- [[cybersecurity/04-web-security/index|Web Security]] — the attacks each stage defends against

@@ -10,7 +10,7 @@ That's why it's fast, and also why every change requires a rebuild. If you edite
 
 ## The build pipeline
 
-Running `npx quartz build` walks a fixed sequence. Understanding the *stages* matters because plugins slot into specific ones, and a plugin can only do what its stage allows.
+Running `npx quartz build` walks a fixed sequence. Understanding the _stages_ matters because plugins slot into specific ones, and a plugin can only do what its stage allows.
 
 ```
 content/*.md
@@ -40,7 +40,7 @@ content/*.md
 
 Three consequences worth internalising:
 
-**Parsing is per-file and parallel.** A transformer plugin sees one file at a time and can't know about the others. Anything needing global knowledge — backlinks, the graph, search — has to be an *emitter*, running after every file is parsed. That's why `content-index` is a required dependency of the graph view.
+**Parsing is per-file and parallel.** A transformer plugin sees one file at a time and can't know about the others. Anything needing global knowledge — backlinks, the graph, search — has to be an _emitter_, running after every file is parsed. That's why `content-index` is a required dependency of the graph view.
 
 **Filtering happens after parsing.** An ignored file still gets read and parsed before being dropped. Adding `sources/**` to `ignorePatterns` keeps it off the site, but doesn't make the build meaningfully faster.
 
@@ -50,7 +50,7 @@ Three consequences worth internalising:
 
 Once the page loads, Quartz dispatches a custom `"nav"` event. Every interactive component listens for it and wires up its own handlers.
 
-This exists because of `enableSPA: true` (set in this vault's config). With SPA routing on, clicking an internal link swaps the page content *without* a full browser reload — so `DOMContentLoaded` never fires again, and any component that relied on it would silently break after the first navigation. `"nav"` fires on every navigation instead.
+This exists because of `enableSPA: true` (set in this vault's config). With SPA routing on, clicking an internal link swaps the page content _without_ a full browser reload — so `DOMContentLoaded` never fires again, and any component that relied on it would silently break after the first navigation. `"nav"` fires on every navigation instead.
 
 If you ever write a custom component and its behaviour works on first load but dies after clicking a link, this is why.
 
@@ -73,12 +73,12 @@ npx quartz sync                  # commit and push content (not used here — gi
 
 This matters because most Quartz material online is still v4:
 
-| | v4 | v5 |
-|---|---|---|
-| Config | `quartz.config.ts` (TypeScript) | `quartz.config.yaml` |
-| Layout | `quartz.layout.ts` | `layout:` section in the same YAML |
-| Plugins | imported from Quartz's own source | separate npm packages under `@quartz-community/*` |
-| Custom code | edit `quartz.config.ts` | `quartz.ts` TS overrides, for callbacks YAML can't express |
+|             | v4                                | v5                                                         |
+| ----------- | --------------------------------- | ---------------------------------------------------------- |
+| Config      | `quartz.config.ts` (TypeScript)   | `quartz.config.yaml`                                       |
+| Layout      | `quartz.layout.ts`                | `layout:` section in the same YAML                         |
+| Plugins     | imported from Quartz's own source | separate npm packages under `@quartz-community/*`          |
+| Custom code | edit `quartz.config.ts`           | `quartz.ts` TS overrides, for callbacks YAML can't express |
 
 If a tutorial tells you to edit `quartz.config.ts`, it's for v4 and the file won't exist. See [[tools/quartz/02-configuration|Configuration]] for the v5 equivalents.
 
@@ -94,20 +94,21 @@ That technique is how the graph link-colour behaviour in [[tools/quartz/05-the-g
 
 ## Where the real documentation is
 
-Quartz ships its own docs *inside this repo* at `quartz/docs/`. That's the authoritative reference and it's version-matched to the installed Quartz, unlike anything on the web.
+Quartz ships its own docs _inside this repo_ at `quartz/docs/`. That's the authoritative reference and it's version-matched to the installed Quartz, unlike anything on the web.
 
 ```bash
 cd quartz && npx quartz build --serve -d docs   # read them as a site
 grep -rl "graph" quartz/docs/                    # or just grep them
 ```
 
-These notes cover what's specific to *this* vault and what was non-obvious in practice. For exhaustive option lists, read `quartz/docs/`.
+These notes cover what's specific to _this_ vault and what was non-obvious in practice. For exhaustive option lists, read `quartz/docs/`.
 
 ---
 
 ## Related
+
 - [[tools/quartz/02-configuration|Configuration]] — the YAML this pipeline reads
 - [[tools/quartz/04-layout-and-components|Layout and Components]] — how the emit stage assembles a page
 - [[tools/quartz/06-publishing-this-vault|Publishing This Vault]] — the deploy side
-- [[frontend/frameworks/next/README|Next.js]] — the same static-generation idea, with a runtime attached
-- [[tools/quartz/README|Quartz notes]]
+- [[frontend/frameworks/next/index|Next.js]] — the same static-generation idea, with a runtime attached
+- [[tools/quartz/index|Quartz notes]]

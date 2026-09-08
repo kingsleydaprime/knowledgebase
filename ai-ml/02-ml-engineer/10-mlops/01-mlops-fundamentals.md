@@ -1,10 +1,10 @@
 # MLOps Fundamentals
 
-**[reference]** — from the roadmap.sh `mlops` roadmap. What MLOps is, and — the key framing — what it adds *beyond* the [[devops/README|DevOps]] you already know.
+**[reference]** — from the roadmap.sh `mlops` roadmap. What MLOps is, and — the key framing — what it adds *beyond* the [[devops/index|DevOps]] you already know.
 
 ## What MLOps is
 
-MLOps is the discipline of reliably building, deploying, and maintaining ML models in production. It's **DevOps applied to ML**, and it borrows most of DevOps wholesale — CI/CD, containers, infrastructure-as-code, monitoring. So rather than re-explain those, this section **cross-links the [[devops/README|DevOps domain]]** for the shared parts and focuses on what's genuinely ML-specific.
+MLOps is the discipline of reliably building, deploying, and maintaining ML models in production. It's **DevOps applied to ML**, and it borrows most of DevOps wholesale — CI/CD, containers, infrastructure-as-code, monitoring. So rather than re-explain those, this section **cross-links the [[devops/index|DevOps domain]]** for the shared parts and focuses on what's genuinely ML-specific.
 
 ## What ML adds beyond ordinary DevOps
 
@@ -40,14 +40,14 @@ A useful way to place a team: from **manual** (notebooks, hand-deployed models, 
 
 | MLOps needs | Lives in DevOps |
 |---|---|
-| Containerizing a model service | [[devops/02-docker/README\|Docker]] / [[devops/05-orchestration/README\|Kubernetes]] |
-| Automated pipelines | [[devops/06-ci-cd/README\|CI/CD]] |
-| Provisioning training/serving infra | [[devops/07-infrastructure-as-code/README\|Terraform/IaC]] |
-| Metrics/logs/dashboards | [[devops/10-observability/README\|Observability]] |
+| Containerizing a model service | [[devops/02-docker/index\|Docker]] / [[devops/05-orchestration/index\|Kubernetes]] |
+| Automated pipelines | [[devops/06-ci-cd/index\|CI/CD]] |
+| Provisioning training/serving infra | [[devops/07-infrastructure-as-code/index\|Terraform/IaC]] |
+| Metrics/logs/dashboards | [[devops/10-observability/index\|Observability]] |
 
 MLOps = these + data/model versioning + experiment tracking + drift monitoring + retraining. The next notes cover that ML-specific delta.
 
 ## Related
 - [[ai-ml/02-ml-engineer/10-mlops/02-experiment-tracking-and-pipelines|Experiment Tracking & Pipelines]] — versioning data/models/experiments
 - [[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|Monitoring & Edge]] — drift and edge deployment
-- [[devops/README|DevOps]] — the shared foundation MLOps extends
+- [[devops/index|DevOps]] — the shared foundation MLOps extends

@@ -81,5 +81,5 @@ The entire active window should be under 2 seconds. Every millisecond of WiFi ac
 ## Related
 - [[hardware/07-connectivity|Connectivity]] — how devices reach the layer above
 - [[hardware/09-putting-it-all-together|Putting It All Together]] — the whole picture
-- [[architecture/04-distributed-systems/README|Distributed Systems]] — a device fleet is a distributed system with a physical body
-- [[robotics/README|Robotics]] — the direction this leads if the devices move
+- [[architecture/04-distributed-systems/index|Distributed Systems]] — a device fleet is a distributed system with a physical body
+- [[robotics/index|Robotics]] — the direction this leads if the devices move

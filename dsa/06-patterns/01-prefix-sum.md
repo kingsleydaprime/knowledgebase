@@ -146,7 +146,7 @@ O(n) to build, O(1) per query — versus O(n) per query if you sum the range dir
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/README|NeetCode 150]]** — solved and written up here:
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[007-product-of-array-except-self|Product of Array Except Self]] (LeetCode #238) — the multiplicative sibling: prefix products from the left, suffix products from the right, meet at each index.
 2. [[014-trapping-rain-water|Trapping Rain Water]] (LeetCode #42) — prefix/suffix *maxima* instead of sums. Same "combine information from both directions" shape, and a good illustration of the non-invertibility gotcha above.

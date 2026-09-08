@@ -11,10 +11,10 @@
 **Where it appears here:**
 
 - **[[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]]** — every element stiffness matrix is a quadrature. **This is the single biggest consumer**
-- **Probability** — expectations, normalising constants, Bayesian evidence → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|Probability]]
+- **Probability** — expectations, normalising constants, Bayesian evidence → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability]]
 - **[[foundations/numerical-methods/08-ordinary-differential-equations|ODE solvers]]** — each step integrates the derivative
 - Areas, volumes, centroids, moments of inertia
-- **[[foundations/computer-graphics/README|Rendering]]** — the rendering equation is an integral over incoming light
+- **[[foundations/computer-graphics/index|Rendering]]** — the rendering equation is an integral over incoming light
 
 ## Newton–Cotes rules
 
@@ -105,7 +105,7 @@ $$\int_\Omega f \approx \frac{V}{N}\sum_{i=1}^{N} f(x_i), \qquad x_i \sim \text{
 
 **Quasi-Monte Carlo** — low-discrepancy sequences (Sobol, Halton) instead of random points. **Error approaches $O(N^{-1})$** for smooth integrands. Used heavily in finance and rendering.
 
-**MCMC** for sampling from a distribution you can only evaluate up to a constant — Metropolis–Hastings, HMC, NUTS. **The foundation of practical Bayesian inference.** → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|Probability]]
+**MCMC** for sampling from a distribution you can only evaluate up to a constant — Metropolis–Hastings, HMC, NUTS. **The foundation of practical Bayesian inference.** → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability]]
 
 ## Numerical differentiation, briefly
 
@@ -119,7 +119,7 @@ $$f'(x) \approx \frac{f(x+h)-f(x-h)}{2h} \qquad O(h^2)\text{, central difference
 
 **The better options when you need derivatives:**
 
-**Automatic differentiation** — exact to machine precision, no step size. **This is what every ML framework does**, and it's why gradients in PyTorch are trustworthy in a way finite differences aren't. → [[ai-ml/02-ml-engineer/05-deep-learning/README|Deep Learning]]
+**Automatic differentiation** — exact to machine precision, no step size. **This is what every ML framework does**, and it's why gradients in PyTorch are trustworthy in a way finite differences aren't. → [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]]
 
 **Complex-step differentiation** — $f'(x) \approx \text{Im}[f(x+ih)]/h$. **No subtraction, so no cancellation**, and you can take $h = 10^{-200}$. Requires $f$ to accept complex input, and it's a genuinely elegant trick worth knowing.
 
@@ -145,4 +145,4 @@ $$f'(x) \approx \frac{f(x+h)-f(x-h)}{2h} \qquad O(h^2)\text{, central difference
 - [[foundations/numerical-methods/06-interpolation-and-approximation|Interpolation]] — quadrature rules are integrated interpolants
 - [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]] — integration in time
 - [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] — the biggest consumer of Gauss points
-- [[foundations/numerical-methods/README|Numerical methods map]]
+- [[foundations/numerical-methods/index|Numerical methods map]]

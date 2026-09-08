@@ -65,4 +65,4 @@ Beyond Spring, the same idea appears as **CDI** (Jakarta EE / `@Inject`), **Guic
 - [[backend/frameworks/java/01-spring-boot|Spring Boot]] — DI applied across a real service
 - [[languages/01-java/03-tooling/04-testing|Testing]] — injecting mocks is why DI makes code testable
 - [[languages/01-java/01-language/02-oop|OOP]] — depending on interfaces, the abstraction DI exploits
-- [[concepts/03-design-patterns/README|Design Patterns]] — DI vs the Factory/Service Locator patterns
+- [[concepts/03-design-patterns/index|Design Patterns]] — DI vs the Factory/Service Locator patterns

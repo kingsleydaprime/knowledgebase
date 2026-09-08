@@ -12,7 +12,7 @@ This wasn't the goal. Ownership was designed for memory management and turned ou
 
 **Worth being precise:** Rust prevents *data races*, not *race conditions*. Two threads taking a lock in different orders still deadlocks; a logically wrong interleaving is still logically wrong. What's gone is the memory-corrupting kind, where the compiler and CPU reorder around unsynchronised access and produce nonsense.
 
-Contrast: [[languages/01-java/02-jvm-and-concurrency/README|Java]] and [[languages/02-go/07-concurrency-patterns|Go]] are memory-safe but will happily let two threads write one field. Go ships a *dynamic* race detector precisely because it can't check statically.
+Contrast: [[languages/01-java/02-jvm-and-concurrency/index|Java]] and [[languages/02-go/07-concurrency-patterns|Go]] are memory-safe but will happily let two threads write one field. Go ships a *dynamic* race detector precisely because it can't check statically.
 
 ## Threads
 
@@ -166,5 +166,5 @@ The rule of thumb that survives: **threads for CPU, async for I/O.** Mixing them
 - [[languages/03-rust/14-async-and-tokio|Async and Tokio]] — the other concurrency model
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]] — `Rc<RefCell<T>>`, the single-threaded mirror
 - [[languages/02-go/07-concurrency-patterns|Go: Concurrency Patterns]] — the same problems, checked dynamically
-- [[architecture/04-distributed-systems/README|Distributed Systems]] — where these problems stop being local
-- [[languages/03-rust/README|Rust course map]]
+- [[architecture/04-distributed-systems/index|Distributed Systems]] — where these problems stop being local
+- [[languages/03-rust/index|Rust course map]]

@@ -1,6 +1,6 @@
 # The Shared Responsibility Model
 
-**[Intermediate]** — the one concept cloud security is built on, why misconfiguration (not exotic exploits) causes most cloud breaches, and where the line actually sits. Overlaps the [[devops/README|DevOps domain]] — this is the *security* lens.
+**[Intermediate]** — the one concept cloud security is built on, why misconfiguration (not exotic exploits) causes most cloud breaches, and where the line actually sits. Overlaps the [[devops/index|DevOps domain]] — this is the *security* lens.
 
 ## The kid version first
 
@@ -38,7 +38,7 @@ Getting clear on *which* half is yours is the foundational skill, because assumi
 - A storage bucket set to public → sensitive data indexed by search engines
 - An IAM role with `*` permissions → one compromised credential owns everything
 - A database exposed to the internet with a default or no password
-- An API key committed to a public Git repo → scraped within minutes → [[devops/09-secret-management/README|secret management]]
+- An API key committed to a public Git repo → scraped within minutes → [[devops/09-secret-management/index|secret management]]
 
 **Cloud security is therefore largely *configuration* security**, which is why the discipline looks different from classic pentesting. The attacker isn't finding a buffer overflow; they're finding the door you left open — and in the cloud, a single misconfiguration is **instantly internet-reachable**. There's no internal network to hide a mistake behind → [[cybersecurity/09-cloud-security/03-the-cloud-attack-surface|the attack surface]].
 

@@ -219,4 +219,4 @@ Summing RSS across processes vastly overstates memory use, because every process
 - [[foundations/os/07-filesystems-and-storage|Filesystems and Storage]] — the page cache from the other side
 - [[foundations/os/11-isolation-and-containers|Isolation and Containers]] — cgroup memory limits
 - [[languages/04-c/07-memory-management|C: Memory Management]] — the same picture from user space
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]

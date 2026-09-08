@@ -1,6 +1,6 @@
 # Network Attacks
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. Educational/defensive: how network-layer attacks work so you can detect and prevent them. The offensive counterpart to [[cybersecurity/03-network-security/README|network security]], and it assumes the networking basics also covered in [[devops/08-networking-and-web/01-networking-and-protocols|DevOps networking & protocols]].
+**[reference]** — from the roadmap.sh cyber-security roadmap. Educational/defensive: how network-layer attacks work so you can detect and prevent them. The offensive counterpart to [[cybersecurity/03-network-security/index|network security]], and it assumes the networking basics also covered in [[devops/08-networking-and-web/01-networking-and-protocols|DevOps networking & protocols]].
 
 ## Man-in-the-Middle (MITM)
 
@@ -18,7 +18,7 @@ These exploit trusting, unauthenticated LAN protocols:
 ## Denial of Service
 
 - **DoS** — overwhelming a service so legitimate users can't reach it (flood of requests, or a crafted packet that crashes it).
-- **DDoS** — the same from many compromised machines (a **botnet**) at once — far harder to block since traffic comes from everywhere. Defense: upstream scrubbing/CDN (Cloudflare), rate limiting, over-provisioning; the [[cybersecurity/07-security-operations/README|SOC]] watches for the traffic spike.
+- **DDoS** — the same from many compromised machines (a **botnet**) at once — far harder to block since traffic comes from everywhere. Defense: upstream scrubbing/CDN (Cloudflare), rate limiting, over-provisioning; the [[cybersecurity/07-security-operations/index|SOC]] watches for the traffic spike.
 
 ## Wi-Fi attacks
 
@@ -26,7 +26,7 @@ Wireless adds physical-proximity attacks (see the existing [[cybersecurity/02-et
 
 - **Evil twin / rogue AP** — a fake access point mimicking a legitimate SSID; victims connect and route traffic through the attacker.
 - **Deauthentication attack** — forging deauth frames to kick clients off a network (to force a reconnect to an evil twin, or capture the handshake for offline cracking).
-- **WPS attacks / weak WPA** — exploiting weak Wi-Fi setup/crypto ([[cybersecurity/05-cryptography/README|WEP is broken; WPA2/WPA3]] are the standard).
+- **WPS attacks / weak WPA** — exploiting weak Wi-Fi setup/crypto ([[cybersecurity/05-cryptography/index|WEP is broken; WPA2/WPA3]] are the standard).
 
 ## Other
 
@@ -40,6 +40,6 @@ Wireless adds physical-proximity attacks (see the existing [[cybersecurity/02-et
 Most of these exploit **protocols that trust by default** (ARP, DNS, DHCP have no built-in authentication) or **unencrypted traffic**. The two structural defenses recur everywhere: **encrypt in transit** (TLS, IPsec, VPN — [[cybersecurity/03-network-security/03-vpns-and-encryption-in-transit|encryption in transit]]) so interception is useless, and **segment + authenticate** ([[cybersecurity/03-network-security/02-network-segmentation|segmentation]], zero-trust) so a foothold on one segment doesn't reach everything.
 
 ## Related
-- [[cybersecurity/03-network-security/README|Network Security]] — the defenses against these
+- [[cybersecurity/03-network-security/index|Network Security]] — the defenses against these
 - [[devops/08-networking-and-web/01-networking-and-protocols|Networking & Protocols (DevOps)]] — the protocol fundamentals these abuse
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging & Detection]] — catching these in network telemetry

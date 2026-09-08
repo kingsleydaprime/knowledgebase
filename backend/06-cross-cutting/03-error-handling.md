@@ -27,7 +27,7 @@ handler throws  →  central handler  →  map to status + body  →  log with c
 }
 ```
 
-**Include the trace ID.** It's the single most useful field in the body — a user pastes it into a support ticket and you find the exact request in your logs → [[devops/10-observability/README|observability]].
+**Include the trace ID.** It's the single most useful field in the body — a user pastes it into a support ticket and you find the exact request in your logs → [[devops/10-observability/index|observability]].
 
 ## Mapping to status codes
 
@@ -58,7 +58,7 @@ Client:  a stable error code, a safe message, a trace ID
 Logs:    the exception, the stack trace, the inputs, the user, the trace ID
 ```
 
-**Never send a stack trace, a SQL error, or an internal path to a client.** `ORA-00933` tells an attacker your database; a file path tells them your directory structure; an ORM error tells them your schema → [[cybersecurity/06-attacks-and-threats/README|attacks]].
+**Never send a stack trace, a SQL error, or an internal path to a client.** `ORA-00933` tells an attacker your database; a file path tells them your directory structure; an ORM error tells them your schema → [[cybersecurity/06-attacks-and-threats/index|attacks]].
 
 **And never let framework debug pages reach production.** ASP.NET Core's developer exception page, Flask's debugger, Rails' error page — each is gated on an environment variable, and each has been shipped enabled.
 
@@ -73,7 +73,7 @@ Logs:    the exception, the stack trace, the inputs, the user, the trace ID
 - **Return a result** for expected outcomes — `Order | NotFound`, `TryGet`, `Result<T>`
 - **Throw** for genuinely exceptional and unrecoverable conditions
 
-→ [[languages/02-go/05-errors|Go's errors as values]] · [[languages/03-rust/README|Rust's `Result`]] · [[languages/07-csharp/09-error-handling|the debate in C#]]
+→ [[languages/02-go/05-errors|Go's errors as values]] · [[languages/03-rust/index|Rust's `Result`]] · [[languages/07-csharp/09-error-handling|the debate in C#]]
 
 ## Errors from dependencies
 
@@ -87,7 +87,7 @@ Logs:    the exception, the stack trace, the inputs, the user, the trace ID
 
 **Don't let a dependency's error shape leak through.** Translate it. A client should never see a Stripe error object from your API.
 
-**And bound the failure.** A slow dependency exhausts your connection pool and takes the whole service down — which is why timeouts and circuit breakers belong here → [[backend/06-cross-cutting/05-idempotency-and-retries|note 05]] · [[architecture/04-distributed-systems/README|distributed systems]].
+**And bound the failure.** A slow dependency exhausts your connection pool and takes the whole service down — which is why timeouts and circuit breakers belong here → [[backend/06-cross-cutting/05-idempotency-and-retries|note 05]] · [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Stable error codes
 
@@ -102,6 +102,6 @@ Clients branch on `code`. **`detail` is for humans and may be reworded or locali
 ## Related
 - [[backend/06-cross-cutting/01-validation-and-dtos|validation]] — where 400s come from
 - [[backend/06-cross-cutting/04-rate-limiting|rate limiting]] — where 429s come from
-- [[backend/02-api-design/README|API design]] · [[devops/10-observability/README|observability]]
+- [[backend/02-api-design/index|API design]] · [[devops/10-observability/index|observability]]
 
 *Source: [reference] — written Aug 2026.*

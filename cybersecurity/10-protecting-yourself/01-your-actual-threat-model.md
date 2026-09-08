@@ -72,13 +72,13 @@ Being honest about this matters, because bad advice crowds out good:
 - **A consumer VPN "for security".** Oversold. It moves who can see your traffic; it doesn't stop phishing, malware or breaches → [[cybersecurity/10-protecting-yourself/05-your-devices-and-networks|05]].
 - **Antivirus beyond what's built in.** Windows Defender is good now. Third-party suites are mostly upsell.
 - **Covering your webcam.** Harmless, and far down the list.
-- **Worrying about encryption being broken.** It won't be. **The attacker goes around it, through you** → [[cybersecurity/05-cryptography/README|cryptography]].
+- **Worrying about encryption being broken.** It won't be. **The attacker goes around it, through you** → [[cybersecurity/05-cryptography/index|cryptography]].
 
 ## Key insight
 
 **Security is not a state you reach; it's a small number of habits that make you a worse target than the person next to you.** Almost all real-world harm is automated and opportunistic — so the goal isn't being unbreakable, it's being expensive enough that the automation moves on. Six things, one weekend, and you've done that.
 
 ## Related
-- [[cybersecurity/10-protecting-yourself/README|the track]]
-- [[cybersecurity/06-attacks-and-threats/README|attacks and threats]] — the same material, for people defending organisations
+- [[cybersecurity/10-protecting-yourself/index|the track]]
+- [[cybersecurity/06-attacks-and-threats/index|attacks and threats]] — the same material, for people defending organisations
 - [[cybersecurity/01-fundamentals/02-cia-triad|the CIA triad]] — the professional framing of "what's worth protecting"

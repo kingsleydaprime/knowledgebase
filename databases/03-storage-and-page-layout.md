@@ -436,7 +436,7 @@ For a larger implementation, [[build-your-own-shit/06-your-own-database|build yo
 - [[databases/04-b-trees-and-indexes|B-Trees and Indexes]] — the structure built on these pages
 - [[databases/05-lsm-trees|LSM Trees]] — the write-optimised alternative
 - [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the same argument, one level down
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]
 
 ## Further reading
 

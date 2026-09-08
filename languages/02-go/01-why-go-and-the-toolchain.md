@@ -67,9 +67,9 @@ GOOS=darwin GOARCH=arm64 go build -o bin/api-mac ./cmd/api
 GOOS=windows GOARCH=amd64 go build -o bin/api.exe ./cmd/api
 ```
 
-No toolchain to install, no container needed. This is why Go dominates CLI tooling and why so much of the infrastructure in [[devops/README|devops/]] — Docker, Kubernetes, Terraform, Prometheus, the `gh` CLI — is written in it. One static binary, no runtime to install on the target.
+No toolchain to install, no container needed. This is why Go dominates CLI tooling and why so much of the infrastructure in [[devops/index|devops/]] — Docker, Kubernetes, Terraform, Prometheus, the `gh` CLI — is written in it. One static binary, no runtime to install on the target.
 
-That last point is worth sitting with: a Go binary has no JVM to install and no `node_modules`. It's a single file you can `scp` to a server. Compare the Dockerfile you'd write for [[backend/frameworks/java/README|a Spring Boot service]] against `FROM scratch` + one binary.
+That last point is worth sitting with: a Go binary has no JVM to install and no `node_modules`. It's a single file you can `scp` to a server. Compare the Dockerfile you'd write for [[backend/frameworks/java/index|a Spring Boot service]] against `FROM scratch` + one binary.
 
 ## A first program
 
@@ -123,6 +123,6 @@ Being honest about it, since a language note that only lists strengths is useles
 ## Related
 - [[languages/02-go/02-language-fundamentals|Language Fundamentals]] — the syntax
 - [[languages/02-go/12-modules-and-project-layout|Modules and Project Layout]] — `go.mod` in depth
-- [[backend/frameworks/go/README|Go Backends]] — the frameworks built on this
+- [[backend/frameworks/go/index|Go Backends]] — the frameworks built on this
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — where goroutines sit among the alternatives
-- [[languages/02-go/README|Go course map]]
+- [[languages/02-go/index|Go course map]]

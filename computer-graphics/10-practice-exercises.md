@@ -44,7 +44,7 @@ Replace Blinn–Phong with a GGX/Cook–Torrance BRDF. Render a grid varying rou
 
 **7. Alias, then fix it.**
 Render a checkerboard receding to the horizon with point sampling. Then add mipmapping, then anisotropic filtering.
-**Done when:** you've seen the shimmer, and can explain it as **undersampling a signal above the Nyquist limit** → [[foundations/computer-graphics/05-textures-and-sampling|note 05]] · [[foundations/information-theory/README|information theory]].
+**Done when:** you've seen the shimmer, and can explain it as **undersampling a signal above the Nyquist limit** → [[foundations/computer-graphics/05-textures-and-sampling|note 05]] · [[foundations/information-theory/index|information theory]].
 
 **8. Gamma.**
 Render a gradient and a lighting calculation without gamma correction, then with. Average two colours in sRGB space, then in linear space.
@@ -64,7 +64,7 @@ Render your scene at 1, 2, 4, 16 bounces, and at 1, 10, 100, 1000 samples per pi
 
 **11. Make it fast with a BVH.**
 Add a bounding volume hierarchy. Time before and after on a scene of 500+ spheres.
-**Done when:** you have the ratio and can state the complexity change from $O(n)$ per ray → [[foundations/dsa/README|DSA]].
+**Done when:** you have the ratio and can state the complexity change from $O(n)$ per ray → [[foundations/dsa/index|DSA]].
 
 **12. Mesh normals.**
 Load an OBJ, compute face normals, then smooth vertex normals by averaging. Render both.
@@ -72,7 +72,7 @@ Load an OBJ, compute face normals, then smooth vertex normals by averaging. Rend
 
 ## Related
 - [[foundations/computer-graphics/11-practice-exercises-solutions|Solutions]]
-- [[foundations/computer-graphics/README|the course]]
+- [[foundations/computer-graphics/index|the course]]
 - [[game-development/03-graphics-for-games|graphics for games]] — the same material under a frame budget
 
 *Source: [reference] — built from this course's own gap-closing list.*

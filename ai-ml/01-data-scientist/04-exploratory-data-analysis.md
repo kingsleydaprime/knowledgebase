@@ -59,4 +59,4 @@ pandas for the manipulation, [[ai-ml/01-data-scientist/05-data-visualization|mat
 ## Related
 - [[ai-ml/01-data-scientist/02-descriptive-statistics|Descriptive Statistics]] — the summaries EDA computes
 - [[ai-ml/01-data-scientist/05-data-visualization|Data Visualization]] — EDA's other half
-- [[ai-ml/02-ml-engineer/02-working-with-data/README|Working with Data]] — the cleaning EDA reveals the need for
+- [[ai-ml/02-ml-engineer/02-working-with-data/index|Working with Data]] — the cleaning EDA reveals the need for

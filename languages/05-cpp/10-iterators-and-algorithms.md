@@ -163,7 +163,7 @@ rv::take_while  rv::drop_while  rv::join  rv::split
 rv::iota  rv::keys  rv::values  rv::enumerate (C++23)
 ```
 
-Same model as [[languages/03-rust/11-collections-and-iterators|Rust's iterator adapters]] and [[languages/02-go/README|far ahead of Go]], which has none. Caveats: ranges compile slowly, error messages are still rough, and `views::filter` has surprising requirements on its predicate (it must be pure and cheap — it's evaluated more than once).
+Same model as [[languages/03-rust/11-collections-and-iterators|Rust's iterator adapters]] and [[languages/02-go/index|far ahead of Go]], which has none. Caveats: ranges compile slowly, error messages are still rough, and `views::filter` has surprising requirements on its predicate (it must be pure and cheap — it's evaluated more than once).
 
 To materialise:
 
@@ -239,4 +239,4 @@ One argument, and it's parallel — though `libstdc++` needs Intel TBB linked fo
 - [[languages/05-cpp/08-templates-and-concepts|Templates and Concepts]] — how all of this is implemented
 - [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — what these implement
 - [[languages/03-rust/11-collections-and-iterators|Rust: Iterators]] — the same design, memory-safe
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

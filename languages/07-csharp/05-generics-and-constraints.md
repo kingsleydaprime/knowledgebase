@@ -13,7 +13,7 @@ public class Repository<T> where T : class, IEntity, new()
 
 ## Reified — the difference that matters
 
-**C# generics survive to runtime.** Java erases them → [[languages/01-java/README|Java]].
+**C# generics survive to runtime.** Java erases them → [[languages/01-java/index|Java]].
 
 ```csharp
 typeof(List<int>) != typeof(List<string>);     // true — distinct runtime types

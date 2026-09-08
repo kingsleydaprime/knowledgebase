@@ -115,7 +115,7 @@ else if (errno == ERANGE)    { /* out of range */ }
 
 Verbose, and it's the only way to parse an integer correctly in C.
 
-**`rand()` is not a CSPRNG.** For anything security-relevant use `getrandom()` (Linux), `arc4random_buf()` (BSD/macOS), or read `/dev/urandom`. → [[cybersecurity/05-cryptography/README|Cryptography]]
+**`rand()` is not a CSPRNG.** For anything security-relevant use `getrandom()` (Linux), `arc4random_buf()` (BSD/macOS), or read `/dev/urandom`. → [[cybersecurity/05-cryptography/index|Cryptography]]
 
 ## `<string.h>`
 
@@ -246,4 +246,4 @@ This is what [[foundations/os/fundamentals|OS Fundamentals]] and [[foundations/n
 - [[languages/04-c/07-memory-management|Memory Management]] — `malloc` and friends
 - [[foundations/os/fundamentals|OS Fundamentals]] — where POSIX takes over
 - [[foundations/networking/09-sockets-and-the-network-api|Sockets]] — the networking C doesn't have
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

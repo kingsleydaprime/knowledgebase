@@ -96,7 +96,7 @@ Bodies below a velocity threshold for N frames stop being simulated until touche
 
 **Stop at a stable stack with friction and a broad phase.** 3D, continuous collision detection, joints and soft bodies are each substantial projects with sharply diminishing returns on understanding.
 
-**You will have learned:** why game physics is *approximation under a deadline* rather than simulation, why solvers are allowed not to converge, what "restitution" and "slop" actually mean in an engine's inspector, and why every engine separates `Update` from `FixedUpdate` → [[game-development/README|game development]].
+**You will have learned:** why game physics is *approximation under a deadline* rather than simulation, why solvers are allowed not to converge, what "restitution" and "slop" actually mean in an engine's inspector, and why every engine separates `Update` from `FixedUpdate` → [[game-development/index|game development]].
 
 **Reference implementation:** Box2D's source is readable and well-commented, and Erin Catto's GDC talks are the canonical explanation of the sequential-impulse solver.
 
@@ -104,6 +104,6 @@ Bodies below a velocity threshold for N frames stop being simulated until touche
 - [[game-development/04-game-physics|game physics]] — the theory this implements
 - [[game-development/engines/from-scratch|from scratch]] — where this fits in an engine
 - [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators properly
-- [[engineering/01-continuum-mechanics/README|continuum mechanics]] — what real simulation looks like
+- [[engineering/01-continuum-mechanics/index|continuum mechanics]] — what real simulation looks like
 
 *Source: [reference] — build guide, Aug 2026.*

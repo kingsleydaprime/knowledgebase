@@ -2,7 +2,7 @@
 
 **[Intermediate]** — The free lunch ended, what Amdahl actually limits, and the taxonomy that tells you which kind of parallel you need.
 
-**Source:** `[reference]` — see [[foundations/gpu-and-parallel-computing/README|the domain note]].
+**Source:** `[reference]` — see [[foundations/gpu-and-parallel-computing/index|the domain note]].
 
 ## The end of free performance
 
@@ -150,4 +150,4 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 - [[foundations/gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — what a GPU actually is
 - [[foundations/computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — the correctness side
 - [[foundations/computer-architecture/12-performance|Performance]] — profile before parallelising
-- [[foundations/gpu-and-parallel-computing/README|GPU and parallel map]]
+- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]

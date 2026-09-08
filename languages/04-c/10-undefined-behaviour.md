@@ -141,7 +141,7 @@ It isn't an oversight. UB exists to allow:
 
 The bargain: **the programmer guarantees they never invoke UB, and in exchange gets a compiler that assumes it.**
 
-That bargain was reasonable in 1972 and has aged badly, because humans don't keep the guarantee across millions of lines. The measured result is the 70% memory-safety figure. This is the entire reason [[languages/03-rust/README|Rust]] exists: same performance, but the guarantee is checked rather than assumed.
+That bargain was reasonable in 1972 and has aged badly, because humans don't keep the guarantee across millions of lines. The measured result is the 70% memory-safety figure. This is the entire reason [[languages/03-rust/index|Rust]] exists: same performance, but the guarantee is checked rather than assumed.
 
 ## Finding it
 
@@ -196,4 +196,4 @@ scan-build make
 - [[languages/04-c/04-types-and-integers|Types and Integers]] — signed overflow, promotion
 - [[languages/04-c/07-memory-management|Memory Management]] — the memory-related half
 - [[languages/03-rust/15-unsafe-and-ffi|Rust: Unsafe]] — the same UB, confined to blocks you opt into
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

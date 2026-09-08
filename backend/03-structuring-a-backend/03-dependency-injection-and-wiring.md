@@ -99,4 +99,4 @@ DI is not a framework, a container, or an annotation — it's the single rule th
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|Layers]] — what's being wired together
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal & Clean Architecture]] — where interfaces genuinely earn their place
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency Injection (Java)]] — Spring's implementation
-- [[backend/frameworks/javascript/03-nest/README|NestJS]] — a decorator-based container in practice
+- [[backend/frameworks/javascript/03-nest/index|NestJS]] — a decorator-based container in practice

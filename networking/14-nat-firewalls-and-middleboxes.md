@@ -65,7 +65,7 @@ Two recurring practical problems:
 - **The client IP disappears.** Behind a proxy, your server sees the proxy's address. `X-Forwarded-For` / the `PROXY` protocol restore it — and **`X-Forwarded-For` is client-controllable**, so trusting it blindly lets anyone spoof their IP past your rate limiter or IP allowlist. Only trust the hops you control (count from the right).
 - **TLS termination boundaries.** Terminating at the edge means plaintext internally. Fine if the internal network is trusted; [[foundations/networking/12-tls-and-transport-security|mTLS]]/service mesh exists because that assumption keeps turning out to be wrong.
 
-Also worth internalising: L7 proxies **re-parse and re-serialise HTTP**, and when the front-end and back-end disagree about how to parse a request (`Content-Length` vs `Transfer-Encoding`), you get **request smuggling** — one of the highest-severity web vulnerability classes, and a direct consequence of having a middlebox interpret a layer it doesn't own. → [[cybersecurity/04-web-security/README|web security]]
+Also worth internalising: L7 proxies **re-parse and re-serialise HTTP**, and when the front-end and back-end disagree about how to parse a request (`Content-Length` vs `Transfer-Encoding`), you get **request smuggling** — one of the highest-severity web vulnerability classes, and a direct consequence of having a middlebox interpret a layer it doesn't own. → [[cybersecurity/04-web-security/index|web security]]
 
 ## Ossification — the deep cost
 

@@ -10,18 +10,18 @@ By the end **you will run a non-trivial program written in your own language.** 
 
 **What you're deliberately not building:** a type checker (a large separate project — [[foundations/compilers/05-type-systems-and-checking|note 05]] if you want one), native code generation, a module system, or a standard library beyond a handful of builtins.
 
-**Why this one:** every other program you write runs on top of something like this. Building one converts "I use a language" into "I know what a language *is*" — and the tree-walker milestone arrives fast enough to stay motivating.
+**Why this one:** every other program you write runs on top of something like this. Building one converts "I use a language" into "I know what a language _is_" — and the tree-walker milestone arrives fast enough to stay motivating.
 
 ## What you need first
 
-| You should know | Where |
-|---|---|
-| **The compiler pipeline** | [[foundations/compilers/01-what-a-compiler-is\|compilers/01]] |
-| **Lexing** | [[foundations/compilers/02-lexical-analysis\|compilers/02]] |
-| **Recursive descent and Pratt parsing** | [[foundations/compilers/03-parsing\|compilers/03]] — **the core prerequisite** |
-| **ASTs, scopes, closures** | [[foundations/compilers/04-asts-and-semantic-analysis\|compilers/04]] |
-| **Bytecode VMs** (for the second half) | [[foundations/compilers/09-bytecode-and-virtual-machines\|compilers/09]] |
-| **Garbage collection** (once you have closures) | [[foundations/compilers/10-garbage-collection\|compilers/10]] |
+| You should know                                 | Where                                                                          |
+| ----------------------------------------------- | ------------------------------------------------------------------------------ |
+| **The compiler pipeline**                       | [[foundations/compilers/01-what-a-compiler-is\|compilers/01]]                  |
+| **Lexing**                                      | [[foundations/compilers/02-lexical-analysis\|compilers/02]]                    |
+| **Recursive descent and Pratt parsing**         | [[foundations/compilers/03-parsing\|compilers/03]] — **the core prerequisite** |
+| **ASTs, scopes, closures**                      | [[foundations/compilers/04-asts-and-semantic-analysis\|compilers/04]]          |
+| **Bytecode VMs** (for the second half)          | [[foundations/compilers/09-bytecode-and-virtual-machines\|compilers/09]]       |
+| **Garbage collection** (once you have closures) | [[foundations/compilers/10-garbage-collection\|compilers/10]]                  |
 
 **[Crafting Interpreters](https://craftinginterpreters.com) is the companion to this guide.** It builds exactly this — a tree-walker in Java, then a bytecode VM in C — and it's free. This guide is the language-agnostic map; that book is the detailed walkthrough.
 
@@ -49,7 +49,7 @@ Recursive descent for statements, Pratt for expressions.
 
 **Test:** print the AST as an s-expression and check precedence — `(+ 1 (* 2 3))`, not `(* (+ 1 2) 3)`.
 
-**Watch for:** the `(left_bp, right_bp)` asymmetry in the Pratt table *is* your associativity. Left-associative means `left < right`. Get this wrong and `1-2-3` evaluates as `1-(2-3)`.
+**Watch for:** the `(left_bp, right_bp)` asymmetry in the Pratt table _is_ your associativity. Left-associative means `left < right`. Get this wrong and `1-2-3` evaluates as `1-(2-3)`.
 
 **Don't bail on the first syntax error** — synchronise at statement boundaries and keep going.
 
@@ -89,7 +89,7 @@ print a;                    // 1
 
 Declaration, calls, parameters, `return`.
 
-A call: create a new environment whose parent is the function's *defining* scope, bind parameters, execute the body.
+A call: create a new environment whose parent is the function's _defining_ scope, bind parameters, execute the body.
 
 **Test:** recursive fibonacci. Then mutual recursion, which forces you to decide whether functions are hoisted.
 
@@ -97,7 +97,7 @@ A call: create a new environment whose parent is the function's *defining* scope
 
 **`return` needs a non-local exit** from arbitrarily deep recursion in your evaluator. The clean implementations are an exception/error propagated up, or a signal value checked after every statement. Pick one early — retrofitting is unpleasant.
 
-**Guard the recursion depth**, or a runaway recursive program in *your* language blows *your* interpreter's stack and segfaults the host process instead of raising a language-level error.
+**Guard the recursion depth**, or a runaway recursive program in _your_ language blows _your_ interpreter's stack and segfaults the host process instead of raising a language-level error.
 
 ### 7. Closures — the milestone that matters
 
@@ -148,19 +148,19 @@ Mark-and-sweep is a few hundred lines: track allocations, mark from roots, sweep
 
 Arrays and maps · string methods · a small builtin library (`len`, `print`, `clock`) · classes or structs · error handling · a module system · a REPL with history.
 
-**Classes are the natural extension** if you took the VM path — *Crafting Interpreters* covers them, and method dispatch plus inheritance is where inline caching starts to matter.
+**Classes are the natural extension** if you took the VM path — _Crafting Interpreters_ covers them, and method dispatch plus inheritance is where inline caching starts to matter.
 
 ## Per-language toolkit
 
-| Milestone | C | C++ | Rust | Go | Python | JS/Node |
-|---|---|---|---|---|---|---|
-| **Lexer** | by hand | by hand | by hand; `logos` | by hand | by hand | by hand |
-| **AST** | tagged unions | `std::variant` | **enums** | interfaces + type switch | classes | classes/objects |
-| **Tree walk** | function pointers | visitor | `match` | type switch | visitor / `match` | switch |
-| **Values** | tagged union, NaN boxing | `std::variant` | enum | `interface{}` | native | native |
-| **Env/scope** | hash map by hand | `unordered_map` | `HashMap` | `map` | `dict` | `Map` |
-| **GC** | write one | write one | `Rc` first, then write one | **host GC — free** | **host GC — free** | **host GC — free** |
-| **VM dispatch** | **computed goto** | computed goto | `match` | `switch` | `match` | `switch` |
+| Milestone       | C                        | C++             | Rust                       | Go                       | Python             | JS/Node            |
+| --------------- | ------------------------ | --------------- | -------------------------- | ------------------------ | ------------------ | ------------------ |
+| **Lexer**       | by hand                  | by hand         | by hand; `logos`           | by hand                  | by hand            | by hand            |
+| **AST**         | tagged unions            | `std::variant`  | **enums**                  | interfaces + type switch | classes            | classes/objects    |
+| **Tree walk**   | function pointers        | visitor         | `match`                    | type switch              | visitor / `match`  | switch             |
+| **Values**      | tagged union, NaN boxing | `std::variant`  | enum                       | `interface{}`            | native             | native             |
+| **Env/scope**   | hash map by hand         | `unordered_map` | `HashMap`                  | `map`                    | `dict`             | `Map`              |
+| **GC**          | write one                | write one       | `Rc` first, then write one | **host GC — free**       | **host GC — free** | **host GC — free** |
+| **VM dispatch** | **computed goto**        | computed goto   | `match`                    | `switch`                 | `match`            | `switch`           |
 
 **This is the guide where language choice matters most:**
 
@@ -168,7 +168,7 @@ Arrays and maps · string methods · a small builtin library (`len`, `print`, `c
 
 **Python / JS / Go** — the host GC handles memory for you, so closures and cycles just work. **You skip the GC lesson entirely**, which is fine for a first language and a real gap if that's what you came for.
 
-**C** — the full experience, and the only way to genuinely learn GC and NaN boxing. This is what `clox` in *Crafting Interpreters* does. Slowest to a working language, most learned.
+**C** — the full experience, and the only way to genuinely learn GC and NaN boxing. This is what `clox` in _Crafting Interpreters_ does. Slowest to a working language, most learned.
 
 **Java/C#** — what the book's first half uses; the visitor pattern is idiomatic and verbose.
 
@@ -186,7 +186,7 @@ Arrays and maps · string methods · a small builtin library (`len`, `print`, `c
 
 **Environments as a linked list are O(depth) per lookup.** Fine for a tree-walker, and the first thing to fix in a VM.
 
-**GC and a missed root.** An object reachable only from a local in your *interpreter's* host-language code is invisible to your collector. Stress mode catches it.
+**GC and a missed root.** An object reachable only from a local in your _interpreter's_ host-language code is invisible to your collector. Stress mode catches it.
 
 **Left vs right associativity** in the Pratt table.
 
@@ -202,7 +202,7 @@ Arrays and maps · string methods · a small builtin library (`len`, `print`, `c
 // expect: 2
 ```
 
-*Crafting Interpreters* ships exactly this for Lox, and **you can point it at your language if you follow its semantics** — a ready-made conformance suite of a few hundred tests.
+_Crafting Interpreters_ ships exactly this for Lox, and **you can point it at your language if you follow its semantics** — a ready-made conformance suite of a few hundred tests.
 
 Milestone programs, in order:
 
@@ -237,7 +237,8 @@ You'll have learned:
 ---
 
 ## Related
-- [[foundations/compilers/README|Compilers]] — the whole domain, written to unblock this
+
+- [[foundations/compilers/index|Compilers]] — the whole domain, written to unblock this
 - [[foundations/compilers/03-parsing|Parsing]] · [[foundations/compilers/09-bytecode-and-virtual-machines|Bytecode VMs]] · [[foundations/compilers/10-garbage-collection|GC]]
 - [[build-your-own-shit/06-your-own-database|Your Own Database]] — reuses the parser for SQL
-- [[build-your-own-shit/README|build-your-own-shit]]
+- [[build-your-own-shit/index|build-your-own-shit]]

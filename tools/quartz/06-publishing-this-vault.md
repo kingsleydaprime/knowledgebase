@@ -137,4 +137,4 @@ The `.gitignore` route is the only one that keeps content off *GitHub* as well a
 - [[devops/06-ci-cd/03-github-actions-fundamentals|GitHub Actions Fundamentals]] — the syntax it's written in
 - [[git/15-the-github-cli|The GitHub CLI]] — watching the deploy from the terminal
 - [[tools/quartz/02-configuration|Configuration]] — `ignorePatterns` and the plugin list
-- [[tools/quartz/README|Quartz notes]]
+- [[tools/quartz/index|Quartz notes]]

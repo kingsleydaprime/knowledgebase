@@ -6,7 +6,7 @@ Python's pitch is **programmer time over machine time**. It is one of the slowes
 
 **Where it wins:** data and ML (an ecosystem nothing else comes close to), scripting and automation, glue between systems, backends where I/O dominates, scientific computing, anything where the bottleneck is understanding the problem rather than executing the solution.
 
-**Where it doesn't:** CPU-bound work in pure Python, hard latency requirements, memory-constrained environments, mobile, and — honestly — large codebases without type hints and discipline, because a dynamic language lets errors reach runtime that [[languages/03-rust/README|Rust]] or [[languages/01-java/README|Java]] would refuse to compile.
+**Where it doesn't:** CPU-bound work in pure Python, hard latency requirements, memory-constrained environments, mobile, and — honestly — large codebases without type hints and discipline, because a dynamic language lets errors reach runtime that [[languages/03-rust/index|Rust]] or [[languages/01-java/index|Java]] would refuse to compile.
 
 **The tell that this is a real trade, not a weakness:** NumPy, pandas and PyTorch are Python interfaces over C, C++, Fortran and CUDA. Python is the *steering* language; the numeric work happens in compiled code → [[languages/06-python/14-performance-and-the-runtime|note 14]]. Used that way, "Python is slow" is close to irrelevant.
 
@@ -14,7 +14,7 @@ Python's pitch is **programmer time over machine time**. It is one of the slowes
 
 **CPython** is the reference implementation and what you almost certainly have. Written in C, compiles source to bytecode, runs it on a stack machine. When people say "Python", they mean this.
 
-Others worth knowing exist: **PyPy** (a JIT, often several times faster on pure-Python workloads), **MicroPython** (microcontrollers → [[hardware/README|hardware]]), and **Jython**/**IronPython** (JVM/.NET, largely historical).
+Others worth knowing exist: **PyPy** (a JIT, often several times faster on pure-Python workloads), **MicroPython** (microcontrollers → [[hardware/index|hardware]]), and **Jython**/**IronPython** (JVM/.NET, largely historical).
 
 ## Versions
 
@@ -109,7 +109,7 @@ The word for code that follows the community's grain is **Pythonic**, and it's a
 - [[languages/06-python/02-the-data-model|the data model]] — the idea everything else follows from
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — ruff, mypy, pytest
 - [[languages/06-python/14-performance-and-the-runtime|performance]] — what CPython is actually doing
-- [[foundations/programming-fundamentals/README|programming fundamentals]] — if this is your first language
-- [[ai-ml/00-foundations/04-python-and-data-tools/README|Python for data]] — the numeric stack, elsewhere in this vault
+- [[foundations/programming-fundamentals/index|programming fundamentals]] — if this is your first language
+- [[ai-ml/00-foundations/04-python-and-data-tools/index|Python for data]] — the numeric stack, elsewhere in this vault
 
 *Source: [reference] — from the official docs, PEPs, and the packaging ecosystem's own guidance.*

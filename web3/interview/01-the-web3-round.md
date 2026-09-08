@@ -139,6 +139,6 @@
 3. **Are you calibrated?** Knowing where the money actually went, and what blockchains are bad at, distinguishes people who've engaged with the field from people who've read its marketing
 
 ## Related
-- [[web3/README|the web3 course]]
-- [[web3/04-smart-contract-security/README|smart contract security]] — most of the hard questions live here
+- [[web3/index|the web3 course]]
+- [[web3/04-smart-contract-security/index|smart contract security]] — most of the hard questions live here
 - [[INTERVIEW|Interview Prep Index]]

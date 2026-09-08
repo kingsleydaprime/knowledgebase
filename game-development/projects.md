@@ -26,7 +26,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## Related
 
-- [[game-development/README|the game development course]] · [[game-development/interview/README|interview bank]]
-- [[game-development/engines/README|engines]] — Godot, Unity, Unreal
+- [[game-development/index|the game development course]] · [[game-development/interview/index|interview bank]]
+- [[game-development/engines/index|engines]] — Godot, Unity, Unreal
 - [[build-your-own-shit/12-your-own-physics-engine|build your own physics engine]]
 - [[project-ideas|Project Ideas]] — the vault-wide index

@@ -121,7 +121,7 @@ The responses:
 
 **Profile caching** — .NET's ReadyToRun and Android's baseline profiles ship pre-compiled or pre-profiled code so the first run isn't cold.
 
-This is the concrete reason [[languages/02-go/README|Go]] and [[languages/03-rust/README|Rust]] win for CLI tools and short-lived processes, regardless of peak throughput.
+This is the concrete reason [[languages/02-go/index|Go]] and [[languages/03-rust/index|Rust]] win for CLI tools and short-lived processes, regardless of peak throughput.
 
 ## How you actually emit code
 
@@ -172,4 +172,4 @@ The interpreter/JIT/AOT distinction is blurring:
 - [[foundations/compilers/07-optimisation|Optimisation]] — the same passes, with runtime information
 - [[foundations/compilers/10-garbage-collection|Garbage Collection]] — the other half of a managed runtime
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — HotSpot's tiers in practice
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

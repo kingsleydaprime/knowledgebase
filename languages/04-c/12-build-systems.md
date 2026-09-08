@@ -177,7 +177,7 @@ Easy, and it makes your build depend on the distro. Version pinning is whatever 
 #include "stb_image.h"
 ```
 
-**4. Git submodules** — `git submodule add`, then `add_subdirectory()`. Works; submodules are their own source of friction. → [[languages/03-rust/README|`git/16-power-tools`]] covers submodules.
+**4. Git submodules** — `git submodule add`, then `add_subdirectory()`. Works; submodules are their own source of friction. → [[languages/03-rust/index|`git/16-power-tools`]] covers submodules.
 
 **5. CMake FetchContent** — the closest thing to a package manager built in:
 
@@ -234,4 +234,4 @@ Build and test under sanitizers as a separate target, since they're too slow for
 - [[languages/04-c/11-modular-c-and-project-structure|Modular C]] — the layout being built
 - [[languages/04-c/13-debugging-and-tooling|Debugging and Tooling]] — the sanitizer flags
 - [[languages/03-rust/16-modules-cargo-and-testing|Rust: Cargo]] — what a solved dependency story looks like
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

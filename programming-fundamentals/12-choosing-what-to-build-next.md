@@ -35,13 +35,13 @@ Good first projects share three properties: **you can describe them in one sente
 
 **Then extend the one you built.** Add persistence. Add error handling for every bad input you can think of. Add tests. Give it a config file. **Extending an existing project teaches you more than starting a new one**, because you're forced to read and modify code — which is the actual job → [[foundations/software-engineering/01-what-software-engineering-is|where the time goes]].
 
-When you want bigger, the vault has two lists: [[project-ideas|project ideas]] across every domain, and [[build-your-own-shit/README|build your own shit]] for when you want to build the tools themselves.
+When you want bigger, the vault has two lists: [[project-ideas|project ideas]] across every domain, and [[build-your-own-shit/index|build your own shit]] for when you want to build the tools themselves.
 
 ## Practise deliberately, but don't mistake it for building
 
 Sites with small, self-contained problems — Exercism, Codewars, LeetCode, Advent of Code — are genuinely useful for fluency: loops, string handling, collections, thinking in code without looking things up.
 
-**Two honest limits.** They're all *given a specification, produce an answer* — no design decisions, no structure, no naming, no maintenance, which is most of real work. And **LeetCode specifically is interview preparation**, a distinct skill from building software, and starting it now is premature. The vault's position on this is in [[foundations/dsa/README|DSA]] and [[INTERVIEW|the interview index]].
+**Two honest limits.** They're all *given a specification, produce an answer* — no design decisions, no structure, no naming, no maintenance, which is most of real work. And **LeetCode specifically is interview preparation**, a distinct skill from building software, and starting it now is premature. The vault's position on this is in [[foundations/dsa/index|DSA]] and [[INTERVIEW|the interview index]].
 
 **Roughly 20% exercises, 80% projects** is a reasonable split at this stage. The reverse is a way of feeling productive while avoiding the hard thing.
 
@@ -49,9 +49,9 @@ Sites with small, self-contained problems — Exercism, Codewars, LeetCode, Adve
 
 Concepts aren't the whole of programming. Three things are worth starting immediately, while your projects are small enough that mistakes are cheap:
 
-**[[git/README|Git]].** Start on your first project, not your fifth. Learning version control on a codebase you care about is significantly worse.
+**[[git/index|Git]].** Start on your first project, not your fifth. Learning version control on a codebase you care about is significantly worse.
 
-**The [[devops/01-linux/README|command line]].** Every tool, server and CI system assumes it → [[foundations/programming-fundamentals/03-where-code-gets-written|note 03]].
+**The [[devops/01-linux/index|command line]].** Every tool, server and CI system assumes it → [[foundations/programming-fundamentals/03-where-code-gets-written|note 03]].
 
 **Reading other people's code.** Deeply uncomfortable and enormously effective. Pick a small library you use, open the source, and work out how one function does its job. You will be surprised how ordinary it is — and that demystification is itself the lesson.
 
@@ -63,7 +63,7 @@ You'll be using an LLM. Two ways to do it, and they lead to different places.
 
 **Useful:** write it yourself, get stuck, then ask *"why is this returning None?"*, *"what's the idiomatic way to do this in Python?"*, *"review this function — what have I missed?"* Ask it to explain, to quiz you, to critique your attempt.
 
-**The test is simple: can you explain every line you're about to keep?** If not, you have a dependency rather than a skill. → [[using-ai/README|using AI]], especially [[using-ai/06-verifying-what-it-tells-you|verifying what it tells you]].
+**The test is simple: can you explain every line you're about to keep?** If not, you have a dependency rather than a skill. → [[using-ai/index|using AI]], especially [[using-ai/06-verifying-what-it-tells-you|verifying what it tells you]].
 
 This vault's own position is that AI is best used as a [[learning/06-ai-as-sparring-partner|sparring partner]] — hints and questions rather than answers.
 
@@ -74,16 +74,16 @@ Once you can build small things unaided, the vault opens up:
 | Interest | Start at |
 |---|---|
 | **Any direction at all** | [[PRIMETECHIE\|the Primetechie path]] — a tiered progression through everything |
-| A specific language, properly | [[languages/README\|languages/]] |
-| Web servers, APIs, databases | [[backend/README\|backend]] |
-| Browsers, interfaces | [[frontend/README\|frontend]] · [[frontend/README\|frontend concepts]] |
-| Efficiency, interviews | [[foundations/dsa/README\|DSA]] |
-| Data, models | [[ai-ml/README\|AI & ML]] |
-| Servers, deployment, cloud | [[devops/README\|devops]] |
-| How the machine works | [[foundations/os/README\|OS]] · [[foundations/computer-architecture/README\|architecture]] |
-| Breaking things, defensively | [[cybersecurity/README\|cybersecurity]] |
+| A specific language, properly | [[languages/index\|languages/]] |
+| Web servers, APIs, databases | [[backend/index\|backend]] |
+| Browsers, interfaces | [[frontend/index\|frontend]] · [[frontend/index\|frontend concepts]] |
+| Efficiency, interviews | [[foundations/dsa/index\|DSA]] |
+| Data, models | [[ai-ml/index\|AI & ML]] |
+| Servers, deployment, cloud | [[devops/index\|devops]] |
+| How the machine works | [[foundations/os/index\|OS]] · [[foundations/computer-architecture/index\|architecture]] |
+| Breaking things, defensively | [[cybersecurity/index\|cybersecurity]] |
 
-**And [[learning/README|how I learn]]** for the method behind all of it — the reading list is not the point; the reps are.
+**And [[learning/index|how I learn]]** for the method behind all of it — the reading list is not the point; the reps are.
 
 ## The three things worth carrying
 
@@ -95,9 +95,9 @@ Once you can build small things unaided, the vault opens up:
 
 ## Related
 - [[project-ideas|project ideas]] — the vault's build list, tiered
-- [[build-your-own-shit/README|build your own shit]] — where reading stops
+- [[build-your-own-shit/index|build your own shit]] — where reading stops
 - [[PRIMETECHIE|the Primetechie path]] — an order to do all of this in
-- [[learning/README|how I learn]] — the method
-- [[foundations/software-engineering/README|software engineering]] — what this becomes professionally
+- [[learning/index|how I learn]] — the method
+- [[foundations/software-engineering/index|software engineering]] — what this becomes professionally
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course (closing segments), extended with this vault's own position on tutorial hell and AI-assisted learning.*

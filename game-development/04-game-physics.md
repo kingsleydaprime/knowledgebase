@@ -88,6 +88,6 @@ Euler angles suffer **gimbal lock** — at certain orientations two axes align a
 - [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators, properly
 - [[robotics/04-rigid-body-transforms|rigid body transforms]] — quaternions, already written
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — the fixed timestep
-- [[engineering/01-continuum-mechanics/README|continuum mechanics]] — what real simulation looks like
+- [[engineering/01-continuum-mechanics/index|continuum mechanics]] — what real simulation looks like
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

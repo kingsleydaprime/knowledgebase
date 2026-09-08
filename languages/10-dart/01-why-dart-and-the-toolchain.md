@@ -71,7 +71,7 @@ String greet(String name, {String greeting = 'Hello', int? times}) =>
 greet('Ada', greeting: 'Hi');       // named arguments
 ```
 
-**`final` vs `const`:** `final` is set once at runtime; `const` is known at compile time and canonicalised. **In Flutter, `const` constructors let the framework skip rebuilding a widget** — which is why `prefer_const_constructors` is a lint worth enabling → [[mobile/frameworks/flutter/README|Flutter]].
+**`final` vs `const`:** `final` is set once at runtime; `const` is known at compile time and canonicalised. **In Flutter, `const` constructors let the framework skip rebuilding a widget** — which is why `prefer_const_constructors` is a lint worth enabling → [[mobile/frameworks/flutter/index|Flutter]].
 
 **Named parameters with `required`** are the Flutter idiom, and they're why widget constructors read the way they do.
 
@@ -89,6 +89,6 @@ Being straight about it:
 **Dart is a deliberately unsurprising language whose one clever idea is shipping both a JIT and an AOT compiler** — which is what buys Flutter sub-second stateful hot reload in development and native performance in release. **Learn it for Flutter**; as a general-purpose language it has no argument against Kotlin, TypeScript or Go.
 
 ## Related
-- [[languages/10-dart/README|the Dart course]]
-- [[mobile/frameworks/flutter/README|Flutter]] — the reason this exists
-- [[languages/README|languages]]
+- [[languages/10-dart/index|the Dart course]]
+- [[mobile/frameworks/flutter/index|Flutter]] — the reason this exists
+- [[languages/index|languages]]

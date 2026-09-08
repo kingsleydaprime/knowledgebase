@@ -4,7 +4,7 @@
 
 ## The idea
 
-GitOps applies the [[devops/07-infrastructure-as-code/README|Infrastructure as Code]] philosophy to *deployment*: **git is the single source of truth for the desired state of your running system**, and an automated agent continuously makes the live environment match what's in git. You don't `kubectl apply` or run deploy scripts by hand — you open a pull request that changes a manifest, merge it, and an operator reconciles the cluster to match.
+GitOps applies the [[devops/07-infrastructure-as-code/index|Infrastructure as Code]] philosophy to *deployment*: **git is the single source of truth for the desired state of your running system**, and an automated agent continuously makes the live environment match what's in git. You don't `kubectl apply` or run deploy scripts by hand — you open a pull request that changes a manifest, merge it, and an operator reconciles the cluster to match.
 
 The four principles:
 
@@ -15,7 +15,7 @@ The four principles:
 
 ## Pull vs push delivery
 
-This is the key distinction from traditional [[devops/06-ci-cd/README|CI/CD]]:
+This is the key distinction from traditional [[devops/06-ci-cd/index|CI/CD]]:
 
 - **Push (traditional CD)** — the CI pipeline has cluster credentials and *pushes* changes in (`kubectl apply` from the pipeline). The pipeline needs powerful production access, and there's no continuous drift correction.
 - **Pull (GitOps)** — an agent *inside* the cluster watches git and pulls changes in. The cluster's credentials never leave the cluster (better security posture), and drift is continuously reconciled, not just applied once.
@@ -45,7 +45,7 @@ Both do the same core loop: watch a git repo of manifests, reconcile the cluster
 The catch it forces you to solve: **secrets can't sit in plaintext in the git repo** — which is exactly why Sealed Secrets / SOPS / External Secrets exist ([[devops/09-secret-management/01-secret-management|Secret Management]]).
 
 ## Related
-- [[devops/07-infrastructure-as-code/README|Infrastructure as Code]] — the same declarative philosophy applied to provisioning
-- [[devops/06-ci-cd/README|CI/CD]] — GitOps is the delivery half; CI builds the artifact
+- [[devops/07-infrastructure-as-code/index|Infrastructure as Code]] — the same declarative philosophy applied to provisioning
+- [[devops/06-ci-cd/index|CI/CD]] — GitOps is the delivery half; CI builds the artifact
 - [[devops/05-orchestration/01-kubernetes|Kubernetes]] — what GitOps agents reconcile
 - [[devops/09-secret-management/01-secret-management|Secret Management]] — solving "secrets in git"

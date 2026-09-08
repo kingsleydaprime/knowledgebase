@@ -105,5 +105,5 @@ pandas is fast when you use vectorized/`groupby`/`merge` operations and slow whe
 
 ## Related
 - [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — the array engine underneath
-- [[ai-ml/02-ml-engineer/02-working-with-data/README|Working with Data]] — cleaning/feature-engineering with these tools
+- [[ai-ml/02-ml-engineer/02-working-with-data/index|Working with Data]] — cleaning/feature-engineering with these tools
 - [[ai-ml/01-data-scientist/04-exploratory-data-analysis|Exploratory Data Analysis]] — pandas as an exploration tool

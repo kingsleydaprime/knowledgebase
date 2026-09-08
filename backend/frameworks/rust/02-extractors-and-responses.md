@@ -239,4 +239,4 @@ async fn create(ValidatedJson(payload): ValidatedJson<CreateUser>) -> ... { }
 - [[backend/frameworks/rust/03-state-and-shared-data|State and Shared Data]] — `Arc`, and what happens under concurrency
 - [[languages/03-rust/08-error-handling-in-practice|Rust: Error Handling]] — `thiserror` and `anyhow`
 - [[backend/05-auth/02-authorization|Authorization]] — what the type system is enforcing here
-- [[backend/frameworks/rust/README|Rust backends]]
+- [[backend/frameworks/rust/index|Rust backends]]

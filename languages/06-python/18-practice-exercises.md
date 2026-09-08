@@ -102,7 +102,7 @@ With `httpx.AsyncClient`, fetch 10 URLs with sequential `await`s and time it. Sw
 
 ## Related
 - [[languages/06-python/19-practice-exercises-solutions|Solutions]] — after you've tried
-- [[languages/06-python/README|the course]]
+- [[languages/06-python/index|the course]]
 - [[learning/06-ai-as-sparring-partner|AI as sparring partner]]
 
 *Source: [reference] — written Aug 2026 to close the gap this course's README named.*

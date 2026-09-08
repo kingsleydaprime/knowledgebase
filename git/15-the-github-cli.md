@@ -216,4 +216,4 @@ If a command changes commits, it's `git`. If it changes something you'd otherwis
 - [[git/11-tags-and-versioning|Tags and Versioning]] — what `gh release create` is publishing
 - [[devops/06-ci-cd/12-troubleshooting-workflows|Troubleshooting Workflows]] — where `gh run view --log-failed` leads
 - [[devops/01-linux/03-file-operations|File Operations (Linux)]] — the pipes and filters `--jq` output feeds into
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

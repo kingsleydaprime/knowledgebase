@@ -54,7 +54,7 @@ builder.Services.AddOpenTelemetry()
     .WithMetrics(m => m.AddAspNetCoreInstrumentation().AddRuntimeInstrumentation());
 ```
 
-**OpenTelemetry is the default answer**, and .NET's built-in instrumentation is genuinely good — `Activity` (spans) and `Meter` are in the BCL, not a library → [[devops/10-observability/README|observability]].
+**OpenTelemetry is the default answer**, and .NET's built-in instrumentation is genuinely good — `Activity` (spans) and `Meter` are in the BCL, not a library → [[devops/10-observability/index|observability]].
 
 **Structured logging, not string interpolation:**
 
@@ -73,7 +73,7 @@ app.MapHealthChecks("/health/ready");
 app.MapHealthChecks("/health/live", new() { Predicate = _ => false });
 ```
 
-**Liveness and readiness are different questions.** Liveness: *is the process alive?* — restart if not. Readiness: *can it serve traffic?* — remove from the load balancer if not. **Wiring a database check into liveness means a brief database blip restarts every pod**, which turns a small problem into an outage → [[devops/05-orchestration/README|orchestration]].
+**Liveness and readiness are different questions.** Liveness: *is the process alive?* — restart if not. Readiness: *can it serve traffic?* — remove from the load balancer if not. **Wiring a database check into liveness means a brief database blip restarts every pod**, which turns a small problem into an outage → [[devops/05-orchestration/index|orchestration]].
 
 ## Deployment
 
@@ -106,7 +106,7 @@ ENTRYPOINT ["dotnet", "MyApi.dll"]
 ConnectionStrings__Db=Host=...;Password=...
 ```
 
-**Secrets belong in a secret store**, injected as env vars or fetched at startup — never in the image, never in the repo → [[devops/09-secret-management/README|secret management]].
+**Secrets belong in a secret store**, injected as env vars or fetched at startup — never in the image, never in the repo → [[devops/09-secret-management/index|secret management]].
 
 **`ASPNETCORE_ENVIRONMENT`** drives which `appsettings.{env}.json` loads and whether the developer exception page is on. **Getting this wrong in production leaks stack traces to users.**
 
@@ -124,6 +124,6 @@ ConnectionStrings__Db=Host=...;Password=...
 ## Related
 - [[backend/frameworks/csharp/03-data-access|data access]]
 - [[languages/07-csharp/12-testing-and-tooling|C#: testing and tooling]] — the unit-test layer
-- [[devops/10-observability/README|observability]] · [[devops/06-ci-cd/README|CI/CD]]
+- [[devops/10-observability/index|observability]] · [[devops/06-ci-cd/index|CI/CD]]
 
 *Source: [reference] — from the ASP.NET Core documentation, Aug 2026.*

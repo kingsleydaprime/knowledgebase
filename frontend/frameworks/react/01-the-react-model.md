@@ -87,7 +87,7 @@ useSyncExternalStore(...);                     // subscribe to a non-React store
 
 - **Actions and `useActionState`** — form submission with pending and error state built in
 - **`use()`** — read a promise or context, integrating with Suspense
-- **Server Components / Server Actions** → [[frontend/frameworks/next/README|Next.js]] · [[frontend/02-rendering/02-hydration-and-the-server-boundary|the server boundary]]
+- **Server Components / Server Actions** → [[frontend/frameworks/next/index|Next.js]] · [[frontend/02-rendering/02-hydration-and-the-server-boundary|the server boundary]]
 - **React Compiler** — automatic memoisation
 - `forwardRef` largely unnecessary — `ref` is a normal prop now
 
@@ -100,7 +100,7 @@ useSyncExternalStore(...);                     // subscribe to a non-React store
 **Re-render behaviour surprises people** far more than in signal-based frameworks (Solid, Svelte 5, Vue), which track dependencies at a finer grain and re-run less by construction.
 
 ## Related
-- [[frontend/frameworks/react/README|React]] · [[frontend/frameworks/next/README|Next.js]]
+- [[frontend/frameworks/react/index|React]] · [[frontend/frameworks/next/index|Next.js]]
 - [[frontend/03-structuring-a-frontend/01-components-and-composition|components and composition]]
 - [[frontend/interview/01-react-rendering-and-performance|the interview round]]
 

@@ -23,7 +23,7 @@ handler := Logging(Auth(RateLimit(mux)))
 
 That's it. No `app.use()`, no `@Injectable`, no ordering annotations — **the nesting order in the source is the execution order**. `Logging` runs first on the way in and last on the way out.
 
-Compare with the [[backend/frameworks/README|translation table]]: Express `app.use`, Nest interceptors/guards, Spring filters. Those are registries the framework walks. Go's is function composition, which means you can read the order off the page and there's no framework to consult about precedence.
+Compare with the [[backend/frameworks/index|translation table]]: Express `app.use`, Nest interceptors/guards, Spring filters. Those are registries the framework walks. Go's is function composition, which means you can read the order off the page and there's no framework to consult about precedence.
 
 ## Chaining without the nesting
 
@@ -207,5 +207,5 @@ The cost: no framework means no framework *features*. No automatic dependency in
 - [[backend/frameworks/go/01-net-http-in-depth|net/http in Depth]] — the `Handler` interface this builds on
 - [[backend/frameworks/go/03-routers-chi-and-gin|Routers: Chi and Gin]] — what a router adds
 - [[languages/02-go/08-context|Go: Context]] — request-scoped values and cancellation
-- [[backend/06-cross-cutting/README|Cross-Cutting Concerns]] — what middleware is for, conceptually
-- [[backend/frameworks/go/README|Go backends]]
+- [[backend/06-cross-cutting/index|Cross-Cutting Concerns]] — what middleware is for, conceptually
+- [[backend/frameworks/go/index|Go backends]]

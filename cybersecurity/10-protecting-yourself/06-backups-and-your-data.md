@@ -93,4 +93,4 @@ Backups fail silently, constantly — a job stopped months ago, a drive died, a 
 - [[cybersecurity/10-protecting-yourself/05-your-devices-and-networks|devices]] — encryption and updates
 - [[cybersecurity/10-protecting-yourself/08-when-it-goes-wrong|when it goes wrong]]
 - [[cybersecurity/07-security-operations/04-incident-response|incident response]] — the organisational version
-- [[devops/README|devops]] — the same 3-2-1 logic, applied to production
+- [[devops/index|devops]] — the same 3-2-1 logic, applied to production

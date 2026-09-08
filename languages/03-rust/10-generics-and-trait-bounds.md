@@ -167,4 +167,4 @@ This is the typestate pattern — encoding units, or a state machine's state, in
 - [[languages/03-rust/05-lifetimes|Lifetimes]] — lifetimes are generic parameters too
 - [[languages/03-rust/18-performance-and-zero-cost|Performance and Zero-Cost Abstractions]] — what monomorphisation buys
 - [[languages/01-java/01-language/03-generics|Java: Generics]] — erasure, for contrast
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

@@ -158,4 +158,4 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 - [[foundations/computer-graphics/05-textures-and-sampling|Textures and Sampling]] — where the material parameters come from
 - [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing]] — solving the light transport properly
 - [[foundations/computer-graphics/01-how-rendering-works|How Rendering Works]] — the rendering equation
-- [[foundations/computer-graphics/README|Computer graphics map]]
+- [[foundations/computer-graphics/index|Computer graphics map]]

@@ -142,6 +142,6 @@ Reading across a row is how you predict a type's behaviour without memorising ru
 - [[foundations/computer-architecture/02-data-representation|data representation]] — two's complement and IEEE-754 in full
 - [[foundations/dsa/04-data-structures/01-arrays|arrays]] — where fixed-size types turn into O(1) indexing
 - [[foundations/dsa/04-data-structures/03-hash-maps|hash maps]] — why keys must be immutable
-- [[languages/README|languages]] — how individual languages answer axes 4 and 5
+- [[languages/index|languages]] — how individual languages answer axes 4 and 5
 
 *Source: [reference] — consolidated from the type notes that previously sat in `foundations/dsa/`, where they were prerequisites rather than DSA material.*

@@ -69,7 +69,7 @@ Summing $10^7$ copies of `0.1` (exact answer $10^6$):
 - **Ascending order** — better, for the same reason in reverse: add small things together first, while the accumulator is comparably sized
 - **Kahan summation** — best, essentially exact. It keeps a running compensation term capturing what each addition rounded off, and adds it back
 
-**Floating-point addition is commutative but not associative.** $(a+b)+c \ne a+(b+c)$ in general — which means **summing an array is order-dependent**, and therefore that parallel reductions give different answers than serial ones, and different answers run to run if the reduction order varies. That's a real reproducibility problem in ML training and in [[foundations/gpu-and-parallel-computing/README|GPU]] reductions.
+**Floating-point addition is commutative but not associative.** $(a+b)+c \ne a+(b+c)$ in general — which means **summing an array is order-dependent**, and therefore that parallel reductions give different answers than serial ones, and different answers run to run if the reduction order varies. That's a real reproducibility problem in ML training and in [[foundations/gpu-and-parallel-computing/index|GPU]] reductions.
 
 ---
 
@@ -169,10 +169,10 @@ Rosenbrock from $(-1.2, 1)$:
 
 BFGS builds an approximation to the inverse Hessian, which **rescales the space** so the valley looks round. In the rescaled coordinates, steepest descent is a good direction.
 
-**This is the same $\kappa$ from exercise 3, in a different costume**, and it's why preconditioning matters, why input normalisation helps neural network training, and why Adam's per-parameter scaling works → [[foundations/numerical-methods/10-numerical-optimisation|note 10]] · [[ai-ml/README|AI & ML]].
+**This is the same $\kappa$ from exercise 3, in a different costume**, and it's why preconditioning matters, why input normalisation helps neural network training, and why Adam's per-parameter scaling works → [[foundations/numerical-methods/10-numerical-optimisation|note 10]] · [[ai-ml/index|AI & ML]].
 
 ## Related
 - [[foundations/numerical-methods/11-practice-exercises|the exercises]]
-- [[foundations/numerical-methods/README|the course]]
+- [[foundations/numerical-methods/index|the course]]
 
 *Source: [reference] — measured August 2026.*

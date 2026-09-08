@@ -48,7 +48,7 @@ var describe = numbers switch
 
 **Why this matters beyond brevity:** a `switch` **expression** must produce a value on every path, so the compiler warns when a case is unhandled. **It moves a class of bug from runtime to compile time**, and it composes — patterns nest arbitrarily.
 
-**Records exist partly to be matched on** → [[languages/07-csharp/03-classes-records-and-structs|note 03]]. `record` + `switch` expression is C#'s answer to algebraic data types, and it's the same shape as [[languages/03-rust/README|Rust's `match`]] — with the notable gap that **C# has no closed union type**, so exhaustiveness over a type hierarchy can't be fully proven and you still need a `_` arm.
+**Records exist partly to be matched on** → [[languages/07-csharp/03-classes-records-and-structs|note 03]]. `record` + `switch` expression is C#'s answer to algebraic data types, and it's the same shape as [[languages/03-rust/index|Rust's `match`]] — with the notable gap that **C# has no closed union type**, so exhaustiveness over a type hierarchy can't be fully proven and you still need a `_` arm.
 
 ## The syntax that removed the ceremony
 
@@ -117,7 +117,7 @@ var (lo, hi) = MinMax(numbers);
 
 ## Related
 - [[languages/07-csharp/03-classes-records-and-structs|records]] — what you match on
-- [[languages/03-rust/README|Rust]] — where the pattern matching came from
+- [[languages/03-rust/index|Rust]] — where the pattern matching came from
 - [[foundations/programming-language-theory/04-type-systems-formally|type systems]] — exhaustiveness
 
 *Source: [reference] — from the C# language reference, Aug 2026.*

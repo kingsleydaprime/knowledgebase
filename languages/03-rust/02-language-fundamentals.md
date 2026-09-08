@@ -207,4 +207,4 @@ Doc-comment code blocks are **compiled and run by `cargo test`**. Documentation 
 - [[languages/03-rust/03-ownership|Ownership]] — why `for item in collection` consumes it
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Structs, Enums and Pattern Matching]] — where `match` gets serious
 - [[languages/02-go/02-language-fundamentals|Go: Language Fundamentals]] — the same ground, different trade-offs
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

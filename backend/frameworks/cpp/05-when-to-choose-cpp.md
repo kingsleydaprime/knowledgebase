@@ -115,11 +115,11 @@ The four-language picture, complete:
 |---|---|
 | Existing C++ process needs HTTP | **C++** |
 | C++-only domain libraries | **C++** |
-| New service, latency SLO a GC can't meet | **[[backend/frameworks/rust/README\|Rust]]** |
+| New service, latency SLO a GC can't meet | **[[backend/frameworks/rust/index\|Rust]]** |
 | New service, correctness critical | **Rust** |
-| New service, ordinary requirements, ship soon | **[[backend/frameworks/go/README\|Go]]** |
-| Existing C process needs HTTP | **[[backend/frameworks/c/README\|C]]**, or C++ if it compiles |
-| Rich domain logic, big team, mature ecosystem | **[[backend/frameworks/java/README\|Spring Boot]]** |
+| New service, ordinary requirements, ship soon | **[[backend/frameworks/go/index\|Go]]** |
+| Existing C process needs HTTP | **[[backend/frameworks/c/index\|C]]**, or C++ if it compiles |
+| Rich domain logic, big team, mature ecosystem | **[[backend/frameworks/java/index\|Spring Boot]]** |
 
 ---
 
@@ -128,4 +128,4 @@ The four-language picture, complete:
 - [[backend/frameworks/cpp/03-json-and-serialisation|JSON and Serialisation]] — the ergonomic gap, concretely
 - [[backend/frameworks/rust/06-production-and-tradeoffs|Rust: Production and Tradeoffs]] — the same argument from the other side
 - [[backend/frameworks/c/04-when-not-to-use-c|C: When Not to Use C]]
-- [[backend/frameworks/cpp/README|C++ backends]]
+- [[backend/frameworks/cpp/index|C++ backends]]

@@ -11,7 +11,7 @@
 - **Performance.** Did the compiler vectorise that loop? Inline that call? Hoist that bounds check? **The source doesn't tell you; the disassembly does**
 - **Debugging optimised builds.** When the debugger says "value optimised out", assembly is what's left
 - **Crash analysis.** A stack trace with no symbols, a core dump, a `SIGILL`
-- **Security.** Reverse engineering, exploit development, understanding a CVE → [[cybersecurity/02-ethical-hacking/README|Ethical Hacking]]
+- **Security.** Reverse engineering, exploit development, understanding a CVE → [[cybersecurity/02-ethical-hacking/index|Ethical Hacking]]
 - **Understanding costs.** Seeing that a virtual call is a load plus an indirect branch makes the cost concrete
 
 **Godbolt (compiler explorer) is the tool.** Paste code, see assembly, change flags, watch it change. **An hour there teaches more about optimisation than any amount of reading.**
@@ -220,4 +220,4 @@ uint64_t rdtsc(void) {
 - [[foundations/computer-architecture/03-instruction-sets|Instruction Sets]] — the vocabulary
 - [[foundations/compilers/08-code-generation|Code Generation]] — what produces this
 - [[foundations/computer-architecture/12-performance|Performance]] — using it to make things fast
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

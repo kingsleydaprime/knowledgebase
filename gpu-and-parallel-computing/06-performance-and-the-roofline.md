@@ -143,7 +143,7 @@ cudaDeviceSynchronize();  end = now();     // ✓
 
 **Use the libraries** — cuBLAS, cuDNN, and `torch.compile`. They implement the optimisations above better than hand-written code.
 
-**Try mixed precision early.** BF16 usually costs no accuracy and buys both bandwidth and tensor cores. → [[ai-ml/02-ml-engineer/05-deep-learning/README|Deep Learning]]
+**Try mixed precision early.** BF16 usually costs no accuracy and buys both bandwidth and tensor cores. → [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]]
 
 **Batch aggressively.** GPUs are throughput machines; small work starves them.
 
@@ -157,4 +157,4 @@ cudaDeviceSynchronize();  end = now();     // ✓
 - [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — the memory-bound fixes
 - [[foundations/computer-architecture/12-performance|Performance]] — the CPU-side methodology
 - [[foundations/gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]] — when one GPU isn't enough
-- [[foundations/gpu-and-parallel-computing/README|GPU and parallel map]]
+- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]

@@ -42,7 +42,7 @@ Key concepts embedded there:
 - **Build once, promote the artifact** — never rebuild between staging and prod; deploy the identical, tested artifact, or you're not actually testing what ships.
 - **Fail fast and loudly** — a broken build must stop the line and be visible, or "green" stops meaning anything.
 - **Everything in version control** — the pipeline definition itself is code (a YAML file in the repo), reviewed and versioned like everything else ("pipeline as code").
-- **Idempotent, repeatable deploys** — running the deploy twice yields the same result; this is where CI/CD meets [[devops/07-infrastructure-as-code/README|Infrastructure as Code]] (pipelines run `terraform apply` / `ansible-playbook`) and [[devops/11-delivery-and-advanced/01-gitops|GitOps]].
+- **Idempotent, repeatable deploys** — running the deploy twice yields the same result; this is where CI/CD meets [[devops/07-infrastructure-as-code/index|Infrastructure as Code]] (pipelines run `terraform apply` / `ansible-playbook`) and [[devops/11-delivery-and-advanced/01-gitops|GitOps]].
 
 ## Deployment strategies
 
@@ -50,7 +50,7 @@ How the deploy stage rolls out a new version without breaking users:
 
 - **Rolling** — replace instances a few at a time (the k8s Deployment default). Simple, no extra capacity, but two versions run at once mid-rollout.
 - **Blue-green** — stand up the new version (green) alongside the old (blue), switch all traffic at once, keep blue as instant rollback. Costs double capacity briefly.
-- **Canary** — send a small % of traffic to the new version, watch metrics, then ramp up (or roll back). The safest for risky changes; needs good [[devops/10-observability/README|observability]] to judge the canary.
+- **Canary** — send a small % of traffic to the new version, watch metrics, then ramp up (or roll back). The safest for risky changes; needs good [[devops/10-observability/index|observability]] to judge the canary.
 
 All three (plus *recreate*, the crude one) are covered properly — with the tradeoffs that pick between them — in [[devops/06-ci-cd/09-cd-and-deployment|CD, Deployment Strategies and Releases]].
 
@@ -58,5 +58,5 @@ All three (plus *recreate*, the crude one) are covered properly — with the tra
 - [[devops/06-ci-cd/02-ci-cd-tools|CI/CD Tools]] — these concepts in a real GitHub Actions pipeline
 - [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — the stages above, built for real
 - [[languages/01-java/03-tooling/04-testing|Testing (Java)]] — the gate at the center of CI
-- [[devops/07-infrastructure-as-code/README|Infrastructure as Code]] — what the deploy stage often invokes
+- [[devops/07-infrastructure-as-code/index|Infrastructure as Code]] — what the deploy stage often invokes
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — a git-driven model for the CD half

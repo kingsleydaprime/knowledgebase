@@ -39,7 +39,7 @@ Notes that save real time later:
 
 **A character is not a one-character string.** `'A'` and `"A"` are different types in languages that distinguish them. Python doesn't; Java and C do.
 
-**Null is its own concept and its own problem.** It means *nothing is here*, and using it as though something were is the classic `NullPointerException` / `undefined is not a function`. Its inventor called it his "billion-dollar mistake". Modern languages fight it with `Option`/`Maybe` types and nullability checks → [[languages/03-rust/README|Rust]].
+**Null is its own concept and its own problem.** It means *nothing is here*, and using it as though something were is the classic `NullPointerException` / `undefined is not a function`. Its inventor called it his "billion-dollar mistake". Modern languages fight it with `Option`/`Maybe` types and nullability checks → [[languages/03-rust/index|Rust]].
 
 ## Declaring, and where the value lives
 
@@ -86,7 +86,7 @@ print(list1)         # [1, 2, 3, 4]  ← list1 changed too
 
 The fix is an explicit copy when you want one (`list1.copy()`, `[...list1]`, `list(list1)`) — and note that this copies one level. A "shallow" copy of a list of lists still shares the inner lists; a **deep copy** goes all the way down.
 
-**The rule to carry:** *simple values are copied; everything else is shared unless you say otherwise.* (Why languages do this, and the mutable/immutable axis that decides when you can even notice, is [[foundations/programming-fundamentals/15-how-types-actually-work|note 15]].) This is the root of a large fraction of "why did that change?" bugs, and it's why immutability is treated as a virtue in [[concepts/04-best-practices/README|best practices]].
+**The rule to carry:** *simple values are copied; everything else is shared unless you say otherwise.* (Why languages do this, and the mutable/immutable axis that decides when you can even notice, is [[foundations/programming-fundamentals/15-how-types-actually-work|note 15]].) This is the root of a large fraction of "why did that change?" bugs, and it's why immutability is treated as a virtue in [[concepts/04-best-practices/index|best practices]].
 
 ## Conversion, explicit and otherwise
 

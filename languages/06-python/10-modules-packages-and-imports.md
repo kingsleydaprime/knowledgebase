@@ -134,6 +134,6 @@ Now `from mypackage import Engine` works regardless of where `Engine` actually l
 - [[languages/06-python/01-why-python-and-the-toolchain|the toolchain]] — venvs and `pyproject.toml`
 - [[languages/06-python/13-testing-and-tooling|testing]] — why layout and test imports interact
 - [[languages/06-python/08-typing-and-type-hints|typing]] — `TYPE_CHECKING`
-- [[backend/03-structuring-a-backend/README|structuring a backend]] — layout at application scale
+- [[backend/03-structuring-a-backend/index|structuring a backend]] — layout at application scale
 
 *Source: [reference] — from the Python import system docs and the Packaging User Guide.*

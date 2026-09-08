@@ -6,7 +6,7 @@
 
 A huge amount of business data is a **time series** — a number measured repeatedly over time: daily revenue, hourly traffic, monthly signups. It looks simple, but it has a trap: **the points aren't independent** (today depends on yesterday), which breaks the ordinary statistics that assume they are. And the eye is easily fooled — a "spike" might just be Monday, a "trend" might just be Christmas. Time series analysis is the toolkit for telling a real signal from the rhythm and the noise.
 
-This is the analyst-and-business side of time; the signal-processing side (Fourier, filters) lives in [[foundations/digital-signal-processing/README|DSP]].
+This is the analyst-and-business side of time; the signal-processing side (Fourier, filters) lives in [[foundations/digital-signal-processing/index|DSP]].
 
 ## Why time series is its own thing
 
@@ -53,7 +53,7 @@ When you need to project forward (demand planning, capacity, budgets), forecasti
 - **Moving average / exponential smoothing** — weight recent observations more; Holt-Winters handles trend *and* seasonality. The workhorse for stable business series
 - **ARIMA** — the classical statistical model (autoregressive + moving average on a differenced series). Powerful, requires the series to be **stationary** (below), more involved to tune
 - **Prophet** (Meta) — designed for business time series with strong seasonality and holidays; robust, forgiving, popular with analysts because it "just works" on messy real data
-- **ML approaches** — gradient boosting or neural nets (LSTMs) for complex, multi-variate cases → [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/README|sequence models]]. Usually overkill for a single business metric
+- **ML approaches** — gradient boosting or neural nets (LSTMs) for complex, multi-variate cases → [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/index|sequence models]]. Usually overkill for a single business metric
 
 **The honest guidance: start with the naive baseline and simple smoothing.** Most business forecasting needs are met by seasonal-naive or exponential smoothing, and reaching for ARIMA or an LSTM on a series that a moving average handles is the analyst version of over-engineering → [[data-engineering/06-distributed-processing|the "you probably don't need it" instinct]].
 
@@ -78,7 +78,7 @@ Time series has specific, common footguns:
 ## Related
 - [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]] — "is this change real or seasonal?"
 - [[data-analysis/02-sql-for-analysis|SQL for analysis]] — moving averages and period-over-period in SQL
-- [[foundations/digital-signal-processing/README|DSP]] — the signal-processing side of time (Fourier, filters)
+- [[foundations/digital-signal-processing/index|DSP]] — the signal-processing side of time (Fourier, filters)
 - [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|econometrics]] — time series for causal inference
 
 *Source: [reference] — Sep 2026.*

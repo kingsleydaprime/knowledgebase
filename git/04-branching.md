@@ -76,4 +76,4 @@ git checkout -b new-branch      # Create and switch
 - [[git/05-merging|Merging]] — bringing a branch back
 - [[git/13-branching-strategies|Branching Strategies]] — the team patterns these commands serve
 - [[git/08-remotes-and-collaboration|Remotes and Collaboration]] — where tracking branches point
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

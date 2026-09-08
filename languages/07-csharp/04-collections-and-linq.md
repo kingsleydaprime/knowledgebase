@@ -88,6 +88,6 @@ db.Orders.ToList().Where(o => o.Total > 100);        // ✗ loads EVERY order, f
 ## Related
 - [[languages/07-csharp/06-delegates-events-and-lambdas|delegates and lambdas]] — what LINQ is built on
 - [[languages/07-csharp/08-memory-gc-and-spans|memory and GC]] — LINQ's cost
-- [[foundations/programming-fundamentals/07-collections|collections]] · [[databases/README|databases]]
+- [[foundations/programming-fundamentals/07-collections|collections]] · [[databases/index|databases]]
 
 *Source: [reference] — from the .NET documentation, Aug 2026.*

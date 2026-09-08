@@ -182,5 +182,5 @@ This is the state-machine pattern from [[backend/frameworks/java/01-spring-boot|
 - [[languages/03-rust/07-option-and-result|Option and Result]] — the two enums you'll use hourly
 - [[languages/03-rust/09-traits|Traits]] — behaviour on these types
 - [[languages/03-rust/10-generics-and-trait-bounds|Generics]] — `Option<T>` is generic
-- [[concepts/03-design-patterns/README|Design Patterns]] — many of which are language features here
-- [[languages/03-rust/README|Rust course map]]
+- [[concepts/03-design-patterns/index|Design Patterns]] — many of which are language features here
+- [[languages/03-rust/index|Rust course map]]

@@ -160,7 +160,7 @@
 
 **Determinism is hard.** Different device counts change reduction order, and floating-point addition isn't associative. **Bit-exact reproducibility across cluster sizes is generally not achievable** — and this is the same non-associativity from [[foundations/numerical-methods/02-floating-point-and-error|note 02]], at scale.
 
-> **Large training runs are distributed systems**, with all that implies: partial failure, stragglers, coordination overhead, and the need for observability. → [[architecture/04-distributed-systems/README|Distributed Systems]]
+> **Large training runs are distributed systems**, with all that implies: partial failure, stragglers, coordination overhead, and the need for observability. → [[architecture/04-distributed-systems/index|Distributed Systems]]
 
 ## Practical notes
 
@@ -184,6 +184,6 @@
 
 ## Related
 - [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — single-device optimisation first
-- [[architecture/04-distributed-systems/README|Distributed Systems]] — the general theory
-- [[ai-ml/02-ml-engineer/10-mlops/README|MLOps]] — running training at scale
-- [[foundations/gpu-and-parallel-computing/README|GPU and parallel map]]
+- [[architecture/04-distributed-systems/index|Distributed Systems]] — the general theory
+- [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] — running training at scale
+- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]

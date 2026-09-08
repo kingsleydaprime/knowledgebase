@@ -248,4 +248,4 @@ The tools that catch these in C — ASan, Valgrind — are runtime and only find
 - [[languages/04-c/07-memory-management|Memory Management]] — the heap, and every way to lose it
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — the consequences
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — the systematic fix
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

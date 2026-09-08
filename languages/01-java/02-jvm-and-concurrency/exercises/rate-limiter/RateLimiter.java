@@ -13,7 +13,7 @@
  *    exceed what the rate + accumulated burst capacity actually allows.
  *
  * Run RateLimiterTest.java against this once implemented — see
- * ../README.md for how to compile and run it.
+ * ../index.md for how to compile and run it.
  */
 public class RateLimiter {
 

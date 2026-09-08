@@ -31,6 +31,6 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 **The full analyst deliverable.** Everything else is a component of it, and it's the thing a hiring manager actually wants to see: a real question answered in SQL, communicated as a decision a non-technical person can act on. That one-pager *is* the job.
 
 ## Related
-- [[data-analysis/README|the data analysis course]] · [[data-analysis/interview/README|interview bank]]
+- [[data-analysis/index|the data analysis course]] · [[data-analysis/interview/index|interview bank]]
 - [[data-engineering/projects|data engineering projects]] — the layer below · [[ai-ml/projects|ai-ml projects]] — the data-science reps
 - [[project-ideas|Project Ideas]] — the vault-wide index

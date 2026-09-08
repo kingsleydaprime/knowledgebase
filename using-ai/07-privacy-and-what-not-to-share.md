@@ -66,4 +66,4 @@ Treat a chatbot as a competent external vendor, not a private notebook. That sin
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — memory and projects persist more than a single chat does
 - [[using-ai/08-living-with-it|Living With It]] — disclosure, and where responsibility sits
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — the builder's side: prompt injection, guardrails, data handling
-- [[cybersecurity/README|Cybersecurity]] — the wider discipline this borrows from
+- [[cybersecurity/index|Cybersecurity]] — the wider discipline this borrows from

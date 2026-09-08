@@ -40,7 +40,7 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 - **C#** — nullable reference types are warnings, not enforcement → [[languages/07-csharp/02-the-type-system|note 02]]
 - **Go / Rust** — `json.Unmarshal` and `serde` populate zero values or fail; **you still need range and business rules**
 
-**The one framework where this is structural:** FastAPI, because the Pydantic model that validates *is* the model that generates the schema, so they cannot drift → [[backend/frameworks/python/01-fastapi/README|FastAPI]].
+**The one framework where this is structural:** FastAPI, because the Pydantic model that validates *is* the model that generates the schema, so they cannot drift → [[backend/frameworks/python/01-fastapi/index|FastAPI]].
 
 ## What a DTO is for
 
@@ -48,7 +48,7 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 
 **You can change the domain without breaking clients.** Rename a field internally; the DTO mapping absorbs it.
 
-**You can't leak what you didn't mean to.** Returning your database entity directly is how `passwordHash`, `internalNotes` and `isAdmin` end up in a public response. **This is a genuine and common breach path** → [[cybersecurity/04-web-security/README|web security]].
+**You can't leak what you didn't mean to.** Returning your database entity directly is how `passwordHash`, `internalNotes` and `isAdmin` end up in a public response. **This is a genuine and common breach path** → [[cybersecurity/04-web-security/index|web security]].
 
 **Input and output shapes differ, and should.** `CreateOrder` has no `id`; `Order` does. One type doing both means optional fields everywhere and no useful guarantees.
 
@@ -83,7 +83,7 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 
 ## Related
 - [[backend/06-cross-cutting/03-error-handling|error handling]] — the response shape
-- [[backend/02-api-design/README|API design]] — contracts
+- [[backend/02-api-design/index|API design]] — contracts
 - [[backend/frameworks/cross-language-recipes|cross-language recipes]] — this in six stacks
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation]] — the security view
 

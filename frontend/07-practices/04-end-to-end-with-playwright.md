@@ -143,6 +143,6 @@ npx playwright show-trace trace.zip
 - [[frontend/07-practices/03-testing-a-frontend|testing a frontend]] — the component layer
 - [[backend/07-practices/02-testing-a-backend|testing a backend]] — the shared-database problem
 - [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] — the pyramid
-- [[devops/06-ci-cd/README|CI/CD]] — where these run
+- [[devops/06-ci-cd/index|CI/CD]] — where these run
 
 *Source: [reference] — from the Playwright documentation, Aug 2026.*

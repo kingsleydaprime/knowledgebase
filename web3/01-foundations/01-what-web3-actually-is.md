@@ -77,7 +77,7 @@ This folder is about **public chains**, because that's where the interesting eng
    Data           Blocks, hashes, Merkle trees, signatures
 ```
 
-The rest of this course walks up that stack: [[web3/01-foundations/README|01-foundations]] covers data through consensus, [[web3/02-ethereum-and-the-evm/README|02]] covers execution, [[web3/03-smart-contracts-with-solidity/README|03]] the contract layer, [[web3/07-the-application-layer/README|07]] the top.
+The rest of this course walks up that stack: [[web3/01-foundations/index|01-foundations]] covers data through consensus, [[web3/02-ethereum-and-the-evm/index|02]] covers execution, [[web3/03-smart-contracts-with-solidity/index|03]] the contract layer, [[web3/07-the-application-layer/index|07]] the top.
 
 ## Key insight
 
@@ -85,8 +85,8 @@ The rest of this course walks up that stack: [[web3/01-foundations/README|01-fou
 
 ## Related
 - [[web3/01-foundations/02-the-double-spend-problem|the double-spend problem]] — why this needed inventing at all
-- [[web3/08-the-honest-assessment/README|the honest assessment]] — read this early, not last
+- [[web3/08-the-honest-assessment/index|the honest assessment]] — read this early, not last
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|what makes distributed systems hard]] — the field this is a subfield of
-- [[cybersecurity/05-cryptography/README|cryptography]] — the primitives this is assembled from
+- [[cybersecurity/05-cryptography/index|cryptography]] — the primitives this is assembled from
 
 *Source: [reference] — Aug 2026.*

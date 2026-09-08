@@ -50,13 +50,13 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 
 | Need | Already here |
 |---|---|
-| UI, state, components | [[frontend/README\|frontend]] · [[frontend/README\|frontend concepts]] |
-| The backend/business layer | [[backend/README\|backend]] |
-| Local storage | [[databases/README\|databases]] — SQLite is the usual answer |
-| Packaging, signing, CI releases | [[devops/06-ci-cd/README\|CI/CD]] |
-| Rust, for Tauri | [[languages/03-rust/README\|Rust]] |
-| C++/C#, for Qt/.NET | [[languages/05-cpp/README\|C++]] · [[languages/01-java/README\|Java]] (adjacent) |
-| Processes, filesystem, IPC | [[foundations/os/README\|OS]] |
+| UI, state, components | [[frontend/index\|frontend]] · [[frontend/index\|frontend concepts]] |
+| The backend/business layer | [[backend/index\|backend]] |
+| Local storage | [[databases/index\|databases]] — SQLite is the usual answer |
+| Packaging, signing, CI releases | [[devops/06-ci-cd/index\|CI/CD]] |
+| Rust, for Tauri | [[languages/03-rust/index\|Rust]] |
+| C++/C#, for Qt/.NET | [[languages/05-cpp/index\|C++]] · [[languages/01-java/index\|Java]] (adjacent) |
+| Processes, filesystem, IPC | [[foundations/os/index\|OS]] |
 
 **A desktop app is mostly a frontend and a backend in one process**, with distribution as the genuinely new problem.
 
@@ -69,9 +69,9 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 **A developer tool with a CLI already?** → **consider not building a GUI at all.** A good CLI plus a web UI on localhost is often the right answer, and it's how much developer tooling ships.
 
 ## Related
-- [[desktop/frameworks/README|frameworks/]] — the options, compared
-- [[frontend/README|frontend]] — the UI half
+- [[desktop/frameworks/index|frameworks/]] — the options, compared
+- [[frontend/index|frontend]] — the UI half
 - [[foundations/software-engineering/04-the-kinds-of-software-engineering|kinds of software engineering]] — where desktop sits
-- [[foundations/os/README|OS]] — what you're integrating with
+- [[foundations/os/index|OS]] — what you're integrating with
 
 *Source: [reference] — written Aug 2026. No roadmap.sh roadmap covers desktop.*

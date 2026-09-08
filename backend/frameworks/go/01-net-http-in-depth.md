@@ -2,7 +2,7 @@
 
 **[Intermediate]** — The standard library as a production HTTP server, and the configuration that separates a toy from something you'd put on the internet.
 
-**Source:** `[reference]`. Assumes [[languages/02-go/README|the Go course]] and [[backend/01-foundations/README|backend foundations]].
+**Source:** `[reference]`. Assumes [[languages/02-go/index|the Go course]] and [[backend/01-foundations/index|backend foundations]].
 
 ## The two interfaces
 
@@ -149,7 +149,7 @@ func main() {
 
 `Shutdown` stops accepting new connections and waits for in-flight requests to finish, up to the deadline. Without it, a deploy kills requests mid-flight.
 
-This matters more than it sounds under [[devops/05-orchestration/README|Kubernetes]]: the moment a pod is marked terminating, it gets `SIGTERM` while the load balancer may still send it traffic for a few seconds. Handle the signal, drain, then exit.
+This matters more than it sounds under [[devops/05-orchestration/index|Kubernetes]]: the moment a pod is marked terminating, it gets `SIGTERM` while the load balancer may still send it traffic for a few seconds. Handle the signal, drain, then exit.
 
 `ErrServerClosed` is the expected return from `ListenAndServe` after `Shutdown` — treating it as an error is a common noisy-log bug.
 
@@ -211,4 +211,4 @@ None of these are hard. They're each 10–50 lines you write once. The question 
 - [[backend/frameworks/go/06-testing-and-production|Testing and Production]] — `httptest` and observability
 - [[languages/02-go/10-the-standard-library|Go: The Standard Library]] — the `io` interfaces underneath
 - [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]] — the model this implements
-- [[backend/frameworks/go/README|Go backends]]
+- [[backend/frameworks/go/index|Go backends]]

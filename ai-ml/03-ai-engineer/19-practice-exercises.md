@@ -89,5 +89,5 @@ When you finish one, write down what surprised you. That note is worth more than
 ## Related
 - [[ai-ml/03-ai-engineer/18-lab-setup|Lab Setup]] — the environment these assume
 - [[ai-ml/03-ai-engineer/20-practice-exercises-solutions|Solutions]] — after you've tried
-- [[ai-ml/03-ai-engineer/README|The track]] — the notes each exercise draws on
+- [[ai-ml/03-ai-engineer/index|The track]] — the notes each exercise draws on
 - [[project-ideas|Project Ideas]] — bigger builds once these are comfortable

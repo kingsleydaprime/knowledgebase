@@ -303,4 +303,4 @@ Try answering these questions to verify what you've learned:
 - [[04-linked-lists|Linked Lists]] — The 1-child linear precursor to trees
 - [[06-graphs|Graphs]] — Generalizing trees to allow cycles and multiple parents
 - [[08-heaps|Heaps]] — Priority queues implemented as complete binary trees in flat arrays
-- [[databases/README|Databases]] — Practical application of B+ Trees in indexing
+- [[databases/index|Databases]] — Practical application of B+ Trees in indexing

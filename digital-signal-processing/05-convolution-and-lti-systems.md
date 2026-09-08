@@ -68,9 +68,9 @@ Because an LTI system multiplies each frequency by a complex number, that set of
 
 The identical operation, in more dimensions and more fields:
 
-- **Images (2-D convolution)** — a small kernel slides over the image: blur, sharpen, edge-detect, emboss are all `h` choices → [[foundations/computer-graphics/README|graphics]]
-- **Convolutional neural networks** — a CNN's core layer convolves learned kernels over images. **The network *learns the impulse responses*** — early layers learn edge and texture detectors, later ones learn object parts. Understanding DSP convolution is understanding what a conv layer *does* → [[ai-ml/02-ml-engineer/06-computer-vision/README|computer vision]]
-- **Probability** — the distribution of a sum of two independent random variables is the convolution of their distributions → [[ai-ml/00-foundations/03-mathematics/README|the maths]]
+- **Images (2-D convolution)** — a small kernel slides over the image: blur, sharpen, edge-detect, emboss are all `h` choices → [[foundations/computer-graphics/index|graphics]]
+- **Convolutional neural networks** — a CNN's core layer convolves learned kernels over images. **The network *learns the impulse responses*** — early layers learn edge and texture detectors, later ones learn object parts. Understanding DSP convolution is understanding what a conv layer *does* → [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]]
+- **Probability** — the distribution of a sum of two independent random variables is the convolution of their distributions → [[ai-ml/00-foundations/03-mathematics/index|the maths]]
 
 **That a CNN and an audio filter run the same operation is not a coincidence** — both are LTI-style local weighted blends, and it's why "convolution" is one of the highest-leverage concepts to actually understand.
 
@@ -81,7 +81,7 @@ The identical operation, in more dimensions and more fields:
 ## Related
 - [[foundations/digital-signal-processing/06-digital-filters|digital filters]] — designing the `h[n]` that does what you want
 - [[foundations/digital-signal-processing/03-the-frequency-domain|the frequency domain]] · [[foundations/digital-signal-processing/04-the-fft|the FFT]]
-- [[ai-ml/02-ml-engineer/06-computer-vision/README|computer vision]] — convolution as the CNN's core
+- [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]] — convolution as the CNN's core
 - [[foundations/digital-signal-processing/01-signals-and-systems|signals and systems]] — the LTI foundation
 
 *Source: [reference] — Aug 2026.*

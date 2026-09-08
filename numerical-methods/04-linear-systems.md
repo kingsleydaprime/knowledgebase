@@ -85,7 +85,7 @@ $$A = LL^T$$
 
 **SVD** — $A = U\Sigma V^T$.
 
-**The most expensive and the most informative.** Gives you rank, condition number, null space, pseudoinverse, and the best low-rank approximation. **When a problem is rank-deficient or nearly so, SVD is what tells you and what handles it.** → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|Linear Algebra]]
+**The most expensive and the most informative.** Gives you rank, condition number, null space, pseudoinverse, and the best low-rank approximation. **When a problem is rank-deficient or nearly so, SVD is what tells you and what handles it.** → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
 
 ## Conditioning
 
@@ -192,5 +192,5 @@ Is A large and sparse?
 ## Related
 - [[foundations/numerical-methods/05-eigenvalues|Eigenvalues]] — the other big linear-algebra computation
 - [[foundations/numerical-methods/09-partial-differential-equations|PDEs]] — where the huge sparse systems come from
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|Linear Algebra]] — the theory
-- [[foundations/numerical-methods/README|Numerical methods map]]
+- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory
+- [[foundations/numerical-methods/index|Numerical methods map]]

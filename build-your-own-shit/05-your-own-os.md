@@ -18,12 +18,12 @@ By the end **it boots from a USB stick on a real machine.** That's the hook, and
 
 | You should know | Where |
 |---|---|
-| **C**, thoroughly — pointers, memory layout, `volatile`, UB | [[languages/04-c/README\|the C course]] |
+| **C**, thoroughly — pointers, memory layout, `volatile`, UB | [[languages/04-c/index\|the C course]] |
 | **The boot chain** | [[foundations/os/12-boot-and-init\|os/12]] |
 | **Virtual memory and page tables** | [[foundations/os/04-virtual-memory\|os/04]] — **the hardest milestone depends on this** |
 | **Processes, context switching** | [[foundations/os/02-processes-and-threads\|os/02]] · [[foundations/os/03-scheduling\|os/03]] |
 | **Interrupts, syscalls, the ABI** | [[foundations/os/09-syscalls-interrupts-and-the-abi\|os/09]] |
-| **Some x86-64 assembly** | not covered in the vault — see the gaps note in [[foundations/os/README\|os/README]] |
+| **Some x86-64 assembly** | not covered in the vault — see the gaps note in [[foundations/os/index\|os/index]] |
 
 **You'll also need the [OSDev Wiki](https://wiki.osdev.org)**, which is the canonical reference and effectively the specification for this project. [Philipp Oppermann's *Writing an OS in Rust*](https://os.phil-opp.com) is the best modern tutorial in any language.
 
@@ -253,8 +253,8 @@ This is the natural endpoint of [[build-your-own-shit/07-your-own-shell|the shel
 ---
 
 ## Related
-- [[foundations/os/README|Operating Systems]] — the whole domain, written to unblock this
+- [[foundations/os/index|Operating Systems]] — the whole domain, written to unblock this
 - [[foundations/os/04-virtual-memory|Virtual Memory]] — the hardest milestone
 - [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — milestones 2, 3 and 8
-- [[languages/04-c/README|C]] — the language most of this is written in
-- [[build-your-own-shit/README|build-your-own-shit]]
+- [[languages/04-c/index|C]] — the language most of this is written in
+- [[build-your-own-shit/index|build-your-own-shit]]

@@ -179,4 +179,4 @@ A high syscall count per request is the signature of a poorly-batched I/O loop �
 - [[foundations/networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the same material, network-side
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|Building an Event Loop]] — writing one
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — how frameworks expose this
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]

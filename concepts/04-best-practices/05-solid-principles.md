@@ -117,6 +117,6 @@ The payoff isn't mainly testability (though it's the reason you can test `OrderS
 
 ## Related
 - [[01-clean-code|clean-code]] — naming, function scope, DRY and its limits
-- [[concepts/03-design-patterns/README|design patterns]] — several of these principles *are* patterns
-- [[backend/03-structuring-a-backend/README|structuring a backend]] — where DIP and SRP show up architecturally
+- [[concepts/03-design-patterns/index|design patterns]] — several of these principles *are* patterns
+- [[backend/03-structuring-a-backend/index|structuring a backend]] — where DIP and SRP show up architecturally
 - [[04-testing-fundamentals|testing-fundamentals]] — most SOLID violations are discovered as "this is hard to test"

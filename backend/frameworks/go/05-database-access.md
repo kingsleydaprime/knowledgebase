@@ -118,7 +118,7 @@ if !ok { col = "created_at" }
 query := fmt.Sprintf("SELECT ... ORDER BY %s", col)      // safe: col came from the map
 ```
 
-→ [[cybersecurity/04-web-security/README|Web Security]]
+→ [[cybersecurity/04-web-security/index|Web Security]]
 
 ## Transactions
 
@@ -201,13 +201,13 @@ func (s *Server) handleReady(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-**Liveness must not check dependencies** — if it does, a database blip makes Kubernetes restart every healthy pod, turning a partial outage into a total one. Liveness answers "is this process wedged"; readiness answers "should I get traffic". → [[devops/05-orchestration/README|Orchestration]]
+**Liveness must not check dependencies** — if it does, a database blip makes Kubernetes restart every healthy pod, turning a partial outage into a total one. Liveness answers "is this process wedged"; readiness answers "should I get traffic". → [[devops/05-orchestration/index|Orchestration]]
 
 ---
 
 ## Related
 - [[backend/frameworks/go/04-structuring-a-go-service|Structuring a Go Service]] — where the store fits
-- [[backend/04-data-and-persistence/README|Data and Persistence]] — the concepts
+- [[backend/04-data-and-persistence/index|Data and Persistence]] — the concepts
 - [[databases/sql-reference|SQL Reference]] · [[databases/database-design-reference|Database Design]]
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — pooling and connection limits
-- [[backend/frameworks/go/README|Go backends]]
+- [[backend/frameworks/go/index|Go backends]]

@@ -17,7 +17,7 @@ contextBridge.exposeInMainWorld("api", {
 
 ## The things to know
 
-**Security is opt-in and this is where apps get compromised.** Set `nodeIntegration: false`, `contextIsolation: true`, `sandbox: true`, and expose a deliberate API through a preload script. **A renderer with Node access plus any XSS is arbitrary code execution on the user's machine** → [[cybersecurity/04-web-security/README|web security]].
+**Security is opt-in and this is where apps get compromised.** Set `nodeIntegration: false`, `contextIsolation: true`, `sandbox: true`, and expose a deliberate API through a preload script. **A renderer with Node access plus any XSS is arbitrary code execution on the user's machine** → [[cybersecurity/04-web-security/index|web security]].
 
 **Memory and size are the standing criticism** — a whole Chromium per app. Legitimate, and empirically survivable: the most-used editor in the world ships this way.
 
@@ -29,6 +29,6 @@ contextBridge.exposeInMainWorld("api", {
 
 ## Related
 - [[desktop/frameworks/tauri|Tauri]] — the lighter alternative
-- [[desktop/frameworks/README|frameworks/]] · [[backend/frameworks/javascript/01-node-runtime/README|Node runtime]]
+- [[desktop/frameworks/index|frameworks/]] · [[backend/frameworks/javascript/01-node-runtime/index|Node runtime]]
 
 *Source: [reference] — scaffold, from the Electron documentation.*

@@ -125,7 +125,7 @@ You get `__init__`, `__repr__` and `__eq__` generated. Options worth knowing:
 
 **`field(default_factory=list)` is how you avoid the mutable-default bug** — the dataclass machinery calls the factory per instance. A bare `= []` is a runtime error, which is a rare case of Python protecting you from that mistake.
 
-The alternatives: **`NamedTuple`** for immutable positional records, and **`pydantic`** when the data comes from *outside* your program and needs validating and parsing → [[backend/frameworks/python/01-fastapi/README|FastAPI]] is built on it.
+The alternatives: **`NamedTuple`** for immutable positional records, and **`pydantic`** when the data comes from *outside* your program and needs validating and parsing → [[backend/frameworks/python/01-fastapi/index|FastAPI]] is built on it.
 
 ## Inheritance and the MRO
 
@@ -154,6 +154,6 @@ Or, better for duck-typed code, a **`Protocol`** — structural typing, no inher
 - [[languages/06-python/08-typing-and-type-hints|typing]] — Protocols and generics
 - [[languages/06-python/07-decorators-and-context-managers|decorators]] — `@property` is one
 - [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]] — the concepts, language-agnostic
-- [[concepts/03-design-patterns/README|design patterns]] — many of which Python makes trivial or unnecessary
+- [[concepts/03-design-patterns/index|design patterns]] — many of which Python makes trivial or unnecessary
 
 *Source: [reference] — from the Python data model documentation.*

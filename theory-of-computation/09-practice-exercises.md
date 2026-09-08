@@ -73,8 +73,8 @@ Unit propagation, pure literal elimination, and branching. Test it on a small gr
 
 ## Related
 - [[foundations/theory-of-computation/10-practice-exercises-solutions|Solutions]]
-- [[foundations/theory-of-computation/README|the course]]
-- [[foundations/compilers/README|compilers]] — where the CFG material gets used
+- [[foundations/theory-of-computation/index|the course]]
+- [[foundations/compilers/index|compilers]] — where the CFG material gets used
 - [[foundations/discrete-math/09-practice-exercises|discrete maths exercises]] — the proof technique underneath
 
 *Source: [reference] — built from this course's own "what would close the gap" list.*

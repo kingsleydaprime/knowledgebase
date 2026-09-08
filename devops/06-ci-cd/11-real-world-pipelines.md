@@ -272,5 +272,5 @@ jobs:
 - [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — the build halves of these, explained stage by stage
 - [[devops/06-ci-cd/09-cd-and-deployment|CD and Deployment]] — the deploy halves
 - [[devops/04-vps/vps-deployment-reference|VPS Deployment]] — the servers these pipelines ship to
-- [[devops/02-docker/README|Docker]] — the images they build and push
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/02-docker/index|Docker]] — the images they build and push
+- [[devops/06-ci-cd/index|CI/CD module map]]

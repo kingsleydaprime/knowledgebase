@@ -73,10 +73,10 @@ The axis that matters: **HCL/declarative (Terraform) vs a real programming langu
 
 ## Where IaC runs
 
-IaC belongs in a [[devops/06-ci-cd/README|CI/CD pipeline]], not on someone's laptop: a change to the `.tf` files triggers a `plan` (posted for review on the PR) and, on merge, an `apply`. And IaC must **never hardcode secrets** — credentials come from a [[devops/09-secret-management/README|secret manager]] at apply time, never committed to the repo or baked into state carelessly.
+IaC belongs in a [[devops/06-ci-cd/index|CI/CD pipeline]], not on someone's laptop: a change to the `.tf` files triggers a `plan` (posted for review on the PR) and, on merge, an `apply`. And IaC must **never hardcode secrets** — credentials come from a [[devops/09-secret-management/index|secret manager]] at apply time, never committed to the repo or baked into state carelessly.
 
 ## Related
 - [[devops/07-infrastructure-as-code/02-configuration-management|Configuration Management]] — the other half of IaC
-- [[devops/03-cloud/README|Cloud]] — what provisioning tools create
-- [[devops/06-ci-cd/README|CI/CD]] — where `terraform apply` actually runs
-- [[devops/09-secret-management/README|Secret Management]] — keeping credentials out of IaC
+- [[devops/03-cloud/index|Cloud]] — what provisioning tools create
+- [[devops/06-ci-cd/index|CI/CD]] — where `terraform apply` actually runs
+- [[devops/09-secret-management/index|Secret Management]] — keeping credentials out of IaC

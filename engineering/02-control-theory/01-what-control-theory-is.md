@@ -2,7 +2,7 @@
 
 **[Beginner → Intermediate]** — Why feedback is the single most important idea in engineering, what it costs, and the vocabulary the rest of the track uses.
 
-**Source:** `[reference]` — see [[engineering/README|the domain note]].
+**Source:** `[reference]` — see [[engineering/index|the domain note]].
 
 ## The problem
 
@@ -140,7 +140,7 @@ Worth knowing why the field looks like two subjects:
 
 Not just machines:
 
-- **Mechanical** — robots, vehicles, aircraft, machine tools → [[robotics/README|robotics]]
+- **Mechanical** — robots, vehicles, aircraft, machine tools → [[robotics/index|robotics]]
 - **Electrical** — power supplies, PLLs, motor drives, op-amp circuits
 - **Process** — chemical plants, refineries, HVAC
 - **Biology** — homeostasis, glucose regulation, gene expression. Feedback loops evolved long before anyone wrote them down
@@ -162,6 +162,6 @@ That last comparison is worth taking seriously. Autoscaling on CPU usage has all
 ## Related
 - [[engineering/02-control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]] — how to describe a plant
 - [[engineering/02-control-theory/04-pid-control|PID Control]] — the controller you'll actually use
-- [[engineering/01-continuum-mechanics/README|Continuum Mechanics]] — the other engineering track
-- [[robotics/README|Robotics]] — where this gets applied
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/01-continuum-mechanics/index|Continuum Mechanics]] — the other engineering track
+- [[robotics/index|Robotics]] — where this gets applied
+- [[engineering/02-control-theory/index|Control theory map]]

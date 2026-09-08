@@ -213,4 +213,4 @@ git add -A && git commit -m "WIP: [description]"
 - [[git/git-troubleshooting|Troubleshooting]] — the symptom-first version of this note
 - [[git/03-the-three-trees|The Three Trees]] — `reset --soft/--mixed/--hard` maps exactly onto them
 - [[git/01-how-git-works|How Git Actually Works]] — why nothing is really gone until `gc` runs
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

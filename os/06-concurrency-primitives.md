@@ -209,4 +209,4 @@ Sharding is the underrated middle step: replacing one lock with 64 locks keyed b
 - [[foundations/os/02-processes-and-threads|Processes and Threads]] — what shares what
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — these primitives with the races made impossible
 - [[architecture/04-distributed-systems/03-time-and-ordering|Time and Ordering]] — the same problems, without shared memory
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]

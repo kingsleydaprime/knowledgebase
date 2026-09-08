@@ -66,7 +66,7 @@ Kafka can be configured for each, and the choice is a real trade → [[data-engi
 
 One tool, several jobs, which is why it's everywhere:
 
-1. **Decoupling services** — service A appends events, services B/C/D consume independently. A doesn't know or care who reads. **The backbone of event-driven architecture** → [[architecture/03-architectural-patterns/README|architectural patterns]]
+1. **Decoupling services** — service A appends events, services B/C/D consume independently. A doesn't know or care who reads. **The backbone of event-driven architecture** → [[architecture/03-architectural-patterns/index|architectural patterns]]
 2. **The streaming ingestion layer** — clicks, IoT, telemetry land in Kafka, then flow to the warehouse and to real-time processors → [[data-engineering/03-batch-and-streaming|streaming]]
 3. **CDC transport** — Debezium publishes database changes to Kafka topics → [[data-engineering/04-ingestion-and-change-data-capture|CDC]]
 4. **Event sourcing** — the log *is* the source of truth; current state is a projection you rebuild by replaying → [[architecture/04-distributed-systems/12-the-log-and-state-machines|the log]]

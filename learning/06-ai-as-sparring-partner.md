@@ -40,4 +40,4 @@ I should say which mode I'm in. If I don't, and it's clearly study, default to *
 
 If I've read three good explanations and still can't reconstruct the idea on a blank board — I've been consuming, not learning. Close everything and go to step 3 of the loop.
 
-**Related:** [[using-ai/README|Using AI]] — the general course on working with LLMs. This note is the *learning-specific* override on top of it.
+**Related:** [[using-ai/index|Using AI]] — the general course on working with LLMs. This note is the *learning-specific* override on top of it.

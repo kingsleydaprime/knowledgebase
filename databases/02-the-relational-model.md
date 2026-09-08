@@ -167,4 +167,4 @@ GROUP BY c.name;
 - [[databases/06-the-query-pipeline|The Query Pipeline]] — where this algebra gets used
 - [[databases/database-design-reference|Database Design Reference]] — modelling, normalisation, keys in depth
 - [[foundations/discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the maths
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]

@@ -61,7 +61,7 @@ The bins span from 0 (DC, the average) up to the [[foundations/digital-signal-pr
 
 ## Why complex numbers?
 
-DSP is full of `e^{jω}` and complex spectra, which can feel like unnecessary abstraction. The reason is clean: **a complex exponential `e^{jωt}` is a rotating point** — it encodes both a cosine (real part) and a sine (imaginary part) at once, and rotation is the natural language of oscillation → [[foundations/discrete-math/README|the maths]].
+DSP is full of `e^{jω}` and complex spectra, which can feel like unnecessary abstraction. The reason is clean: **a complex exponential `e^{jωt}` is a rotating point** — it encodes both a cosine (real part) and a sine (imaginary part) at once, and rotation is the natural language of oscillation → [[foundations/discrete-math/index|the maths]].
 
 Practically, the two numbers per frequency (real/imaginary, or magnitude/phase) *are* amplitude-and-timing. Complex numbers aren't a complication bolted on; they're the compact, correct way to carry "how much *and* when" for each frequency. Euler's formula `e^{jθ} = cos θ + j·sin θ` is the bridge.
 

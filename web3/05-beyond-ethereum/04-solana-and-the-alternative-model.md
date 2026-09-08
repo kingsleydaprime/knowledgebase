@@ -57,7 +57,7 @@ pub struct Initialize<'info> {
 
 **The mental shift:** the caller supplies every account the instruction touches. Your program receives them and **must validate them** — Anchor's constraints (`has_one`, `seeds`, `signer`) do this declaratively.
 
-**The dominant vulnerability class is missing account validation.** If you don't verify that the passed account is the one you expected, an attacker passes a different one. There's no `msg.sender`-shaped implicit context to lean on; **everything is explicit, and everything unvalidated is exploitable.** This is Solana's equivalent of the access-control category, and it dominates its audit findings → [[web3/frameworks/rust/README|Rust for web3]].
+**The dominant vulnerability class is missing account validation.** If you don't verify that the passed account is the one you expected, an attacker passes a different one. There's no `msg.sender`-shaped implicit context to lean on; **everything is explicit, and everything unvalidated is exploitable.** This is Solana's equivalent of the access-control category, and it dominates its audit findings → [[web3/frameworks/rust/index|Rust for web3]].
 
 ## The honest ledger
 
@@ -84,9 +84,9 @@ The genuine trade: Ethereum optimises for *anyone can verify, forever*, and acce
 **Solana's real contribution is parallel execution via declared account access** — that's a genuine advance, and Ethereum has repeatedly considered adopting the idea via access lists. The rest of the design is a coherent, explicit choice to buy performance with hardware requirements. Judge it on whether that trade is acceptable for a given application, not on whether it's "really decentralised" — a question that has no threshold anyone agrees on.
 
 ## Related
-- [[web3/frameworks/rust/README|Rust for web3]] — Anchor, and the Solana programming model
+- [[web3/frameworks/rust/index|Rust for web3]] — Anchor, and the Solana programming model
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the trilemma]] — the trade being made
 - [[web3/01-foundations/04-blocks-chains-and-state|state models]] — declared access sets
-- [[languages/03-rust/README|Rust]] — the language
+- [[languages/03-rust/index|Rust]] — the language
 
 *Source: [reference] — Aug 2026.*

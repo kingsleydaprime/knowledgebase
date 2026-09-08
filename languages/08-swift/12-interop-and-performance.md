@@ -37,7 +37,7 @@ data.withUnsafeBytes { raw in
 }
 ```
 
-**The scoped-closure pattern is the safe way** — it bounds the pointer's lifetime → [[languages/04-c/README|C]].
+**The scoped-closure pattern is the safe way** — it bounds the pointer's lifetime → [[languages/04-c/index|C]].
 
 ## Where Swift's performance actually goes
 
@@ -97,5 +97,5 @@ let items: [Circle] = [...]        // contiguous, no indirection
 ## Related
 - [[languages/08-swift/02-values-references-and-optionals|value types]] · [[languages/08-swift/04-protocols-and-generics|`some` vs `any`]]
 - [[languages/08-swift/03-memory-and-arc|ARC]] — the counting cost
-- [[languages/04-c/README|C]] — the interop target
+- [[languages/04-c/index|C]] — the interop target
 - [[mobile/11-performance-and-battery|mobile performance]] — what actually matters in an app

@@ -24,7 +24,7 @@ Two behaviours worth knowing:
 import _ "go.uber.org/automaxprocs"    // reads the cgroup quota
 ```
 
-This is one of the most common Go-in-Kubernetes performance bugs. → [[devops/05-orchestration/README|Orchestration]]
+This is one of the most common Go-in-Kubernetes performance bugs. → [[devops/05-orchestration/index|Orchestration]]
 
 ## Escape analysis
 
@@ -148,6 +148,6 @@ This shows per-goroutine timelines, scheduler latency, GC events, and syscall bl
 ## Related
 - [[languages/02-go/11-testing-and-benchmarking|Testing and Benchmarking]] — where the numbers come from
 - [[languages/02-go/07-concurrency-patterns|Concurrency Patterns]] — the leaks pprof finds
-- [[languages/01-java/02-jvm-and-concurrency/README|Java: JVM & Concurrency]] — generational GC, the road Go didn't take
-- [[devops/10-observability/README|Observability]] — profiling as a production practice
-- [[languages/02-go/README|Go course map]]
+- [[languages/01-java/02-jvm-and-concurrency/index|Java: JVM & Concurrency]] — generational GC, the road Go didn't take
+- [[devops/10-observability/index|Observability]] — profiling as a production practice
+- [[languages/02-go/index|Go course map]]

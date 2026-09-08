@@ -1,6 +1,6 @@
 # Raft in Depth
 
-**[reference]** — from the Raft paper (Ongaro & Ousterhout, *In Search of an Understandable Consensus Algorithm*, 2014) and MIT 6.824. [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] covered *why* agreement is hard and the original solution. This note is **Raft at the level where you can actually build one** — the field's most-implemented consensus algorithm, and the topic that most rewards writing the code ([[architecture/05-case-studies/README|build-your-own Raft KV-store]]). The details below feel obvious in prose and bite you in the implementation; that gap is the whole point.
+**[reference]** — from the Raft paper (Ongaro & Ousterhout, *In Search of an Understandable Consensus Algorithm*, 2014) and MIT 6.824. [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] covered *why* agreement is hard and the original solution. This note is **Raft at the level where you can actually build one** — the field's most-implemented consensus algorithm, and the topic that most rewards writing the code ([[architecture/05-case-studies/index|build-your-own Raft KV-store]]). The details below feel obvious in prose and bite you in the implementation; that gap is the whole point.
 
 ## The kid version first
 
@@ -100,4 +100,4 @@ Every rule above maps to one step of this trace — that's why they exist.
 - [[architecture/04-distributed-systems/09-coordination-services|Coordination Services]] — etcd/ZooKeeper run this under the hood; fencing, leases
 - [[architecture/04-distributed-systems/12-the-log-and-state-machines|The Log & State Machines]] — what the committed log feeds
 - [[architecture/04-distributed-systems/03-time-and-ordering|Time & Ordering]] — terms as a logical clock
-- [[architecture/05-case-studies/README|Case Studies]] — build the Raft KV-store (do this)
+- [[architecture/05-case-studies/index|Case Studies]] — build the Raft KV-store (do this)

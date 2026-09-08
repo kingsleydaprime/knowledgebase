@@ -36,7 +36,7 @@
 
 **It also predicted the CMB fluctuation spectrum**, which was then measured and matched.
 
-**Its status, honestly:** widely accepted, and **not confirmed at the level the three pillars are.** There is no consensus on the mechanism, the models are flexible enough to accommodate a range of outcomes, and some cosmologists argue it is under-constrained. **Detecting primordial gravitational waves (B-mode polarisation) would be strong evidence; none has been confirmed** — the 2014 BICEP2 claim turned out to be galactic dust, which is a good case study in how the field self-corrects → [[research/README|research]].
+**Its status, honestly:** widely accepted, and **not confirmed at the level the three pillars are.** There is no consensus on the mechanism, the models are flexible enough to accommodate a range of outcomes, and some cosmologists argue it is under-constrained. **Detecting primordial gravitational waves (B-mode polarisation) would be strong evidence; none has been confirmed** — the 2014 BICEP2 claim turned out to be galactic dust, which is a good case study in how the field self-corrects → [[research/index|research]].
 
 ## The dark sector
 
@@ -81,7 +81,7 @@ Determined by dark energy's behaviour, which is not well constrained:
 ## Related
 - [[astronomy/06-gravity-and-relativity|gravity and relativity]] — the framework
 - [[astronomy/04-stars|stars]] — where the elements came from
-- [[foundations/information-theory/README|information theory]] — entropy and heat death
-- [[research/README|research]] — how claims like these get tested
+- [[foundations/information-theory/index|information theory]] — entropy and heat death
+- [[research/index|research]] — how claims like these get tested
 
 *Source: [reference] — written Aug 2026 from standard cosmology texts and current survey results.*

@@ -122,4 +122,4 @@ cat .git/refs/heads/feature   # a1b2c3d4... (same SHA, new ref)
 - [[git/03-the-three-trees|The Three Trees]] — the model layered on top of the object store
 - [[git/06-rebasing|Rebasing]] — why replayed commits get new SHAs makes sense only from here
 - [[git/10-undoing-things|Undoing Things]] — the reflog is just a log of ref movements
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

@@ -97,7 +97,7 @@ const char *url = std::getenv("DATABASE_URL");
 if (!url) { LOG_FATAL << "DATABASE_URL not set"; return 1; }
 ```
 
-**Fail at startup on missing config**, loudly. A service that boots and fails on first request is worse than one that refuses to boot. → [[devops/09-secret-management/README|Secret Management]]
+**Fail at startup on missing config**, loudly. A service that boots and fails on first request is worse than one that refuses to boot. → [[devops/09-secret-management/index|Secret Management]]
 
 ## Logging and metrics
 
@@ -113,11 +113,11 @@ spdlog::set_pattern(R"({"ts":"%Y-%m-%dT%H:%M:%S.%e","level":"%l","msg":"%v"})");
 spdlog::info(R"("request_id":"{}","path":"{}")", req_id, path);
 ```
 
-The gap versus [[languages/02-go/README|Go's `slog`]] or Rust's `tracing` is real: neither structured fields nor span context come for free, and there's no `#[instrument]` equivalent. You thread a request ID through manually or put it in a thread-local.
+The gap versus [[languages/02-go/index|Go's `slog`]] or Rust's `tracing` is real: neither structured fields nor span context come for free, and there's no `#[instrument]` equivalent. You thread a request ID through manually or put it in a thread-local.
 
 **Metrics:** `prometheus-cpp` exposes a `/metrics` endpoint. Same cardinality rule as everywhere — **label with the route pattern, never the actual path**, or you'll take down your Prometheus.
 
-**Tracing:** the OpenTelemetry C++ SDK exists and is more manual than other languages' — no automatic instrumentation, so you create spans by hand at each boundary. → [[devops/10-observability/README|Observability]]
+**Tracing:** the OpenTelemetry C++ SDK exists and is more manual than other languages' — no automatic instrumentation, so you create spans by hand at each boundary. → [[devops/10-observability/index|Observability]]
 
 ## Deployment
 
@@ -137,7 +137,7 @@ USER 1000:1000
 ENTRYPOINT ["myservice"]
 ```
 
-**A C++ binary is dynamically linked by default**, so the runtime image needs every shared library — libstdc++, libssl, libpq, libjsoncpp, and their transitive dependencies. That's why C++ images are ~100MB while [[languages/02-go/README|Go's]] are ~10MB on `distroless/static`.
+**A C++ binary is dynamically linked by default**, so the runtime image needs every shared library — libstdc++, libssl, libpq, libjsoncpp, and their transitive dependencies. That's why C++ images are ~100MB while [[languages/02-go/index|Go's]] are ~10MB on `distroless/static`.
 
 ```bash
 ldd build/myservice        # find out what you actually need
@@ -161,7 +161,7 @@ drogon::app().registerBeginningAdvice([] { LOG_INFO << "started"; });
 std::signal(SIGTERM, [](int) { drogon::app().quit(); });
 ```
 
-`quit()` stops the event loops after in-flight requests finish. Without it, a deploy kills requests mid-flight — and under [[devops/05-orchestration/README|Kubernetes]] a pod receives `SIGTERM` while the load balancer may still be sending it traffic.
+`quit()` stops the event loops after in-flight requests finish. Without it, a deploy kills requests mid-flight — and under [[devops/05-orchestration/index|Kubernetes]] a pod receives `SIGTERM` while the load balancer may still be sending it traffic.
 
 **And ignore `SIGPIPE`**, or a client disconnecting mid-response terminates your process:
 
@@ -205,5 +205,5 @@ cmake -B build-tsan -DCMAKE_CXX_FLAGS="-fsanitize=thread -g"     # separate — 
 - [[backend/frameworks/cpp/02-async-models-and-asio|Async Models and asio]] — why sync database drivers stall the loop
 - [[backend/frameworks/cpp/05-when-to-choose-cpp|When to Choose C++]] — the decision
 - [[languages/05-cpp/15-build-tooling-and-ecosystem|C++: Build Tooling]] — CMake, sanitizers, clang-tidy
-- [[backend/04-data-and-persistence/README|Data and Persistence]] · [[devops/10-observability/README|Observability]]
-- [[backend/frameworks/cpp/README|C++ backends]]
+- [[backend/04-data-and-persistence/index|Data and Persistence]] · [[devops/10-observability/index|Observability]]
+- [[backend/frameworks/cpp/index|C++ backends]]

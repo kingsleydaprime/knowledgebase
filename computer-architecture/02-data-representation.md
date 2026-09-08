@@ -67,7 +67,7 @@ $$\text{value} = (-1)^S \times 1.\text{mantissa} \times 2^{\text{exp}-127}$$
 | `float16` | 16 | ~3 digits | $10^{\pm5}$ |
 | `bfloat16` | 16 | ~2 digits | **$10^{\pm38}$** |
 
-> **`bfloat16` is float32 with the mantissa truncated** — same exponent range, less precision. **That's exactly the right trade for neural networks**, where gradients span enormous ranges but individual values don't need precision. It's why it's the ML default. → [[ai-ml/02-ml-engineer/05-deep-learning/README|Deep Learning]]
+> **`bfloat16` is float32 with the mantissa truncated** — same exponent range, less precision. **That's exactly the right trade for neural networks**, where gradients span enormous ranges but individual values don't need precision. It's why it's the ML default. → [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]]
 
 ### The things that surprise people
 
@@ -189,4 +189,4 @@ struct Good { int b; char a; char c; };  // 8 bytes
 - [[languages/04-c/04-types-and-integers|C: Types and Integers]] — the language-level view
 - [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — why layout matters so much
 - [[foundations/computer-architecture/03-instruction-sets|Instruction Sets]] — what operates on this data
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

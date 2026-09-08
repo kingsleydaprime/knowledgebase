@@ -1,6 +1,6 @@
 # Descriptive Statistics
 
-**[reference]** — from the roadmap.sh `data-analyst`/`ai-data-scientist` roadmaps. Summarizing a dataset honestly — the first thing you do with any data, and the foundation [[ai-ml/01-data-scientist/03-inferential-statistics|inference]] builds on. Complements the probability basis in [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|foundations]].
+**[reference]** — from the roadmap.sh `data-analyst`/`ai-data-scientist` roadmaps. Summarizing a dataset honestly — the first thing you do with any data, and the foundation [[ai-ml/01-data-scientist/03-inferential-statistics|inference]] builds on. Complements the probability basis in [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|foundations]].
 
 Descriptive statistics *describe the data you have* (no claims beyond it); [[ai-ml/01-data-scientist/03-inferential-statistics|inferential]] statistics generalize from a sample to a population. This note is the first.
 

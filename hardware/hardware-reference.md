@@ -26,5 +26,5 @@ Battery life:   hours = mAh / mA_avg
 ```
 
 ## Related
-- [[hardware/README|Hardware course index]]
+- [[hardware/index|Hardware course index]]
 - [[hardware/01-electricity|Electricity]] — where most of these formulas come from

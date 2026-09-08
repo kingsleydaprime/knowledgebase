@@ -99,7 +99,7 @@ In rough order of frequency:
 ## Related
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing and tooling]] — what to do before
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — audited protocols that were exploited anyway
-- [[cybersecurity/08-governance-risk-and-compliance/README|governance, risk and compliance]] — the general discipline
+- [[cybersecurity/08-governance-risk-and-compliance/index|governance, risk and compliance]] — the general discipline
 - [[web3/04-smart-contract-security/01-why-this-is-different|why security is different here]]
 
 *Source: [reference] — Aug 2026.*

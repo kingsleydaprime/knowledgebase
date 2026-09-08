@@ -2,7 +2,7 @@
 
 **Python interviews test the data model and the gotchas**, not syntax. If you can explain *why* the mutable default bug happens, you've demonstrated the model that every other answer depends on.
 
-From [[languages/06-python/README|the Python course]] — each question maps to a note.
+From [[languages/06-python/index|the Python course]] — each question maps to a note.
 
 ---
 
@@ -118,7 +118,7 @@ if os.path.exists(path):        # ✗ TOCTOU — the file can vanish between the
     open(path)
 ```
 
-The check-then-act version has a **race condition**. `try/except FileNotFoundError` has none, and it's faster on the success path. In a security context, time-of-check-to-time-of-use is an exploitable bug class → [[cybersecurity/06-attacks-and-threats/README|attacks]].
+The check-then-act version has a **race condition**. `try/except FileNotFoundError` has none, and it's faster on the success path. In a security context, time-of-check-to-time-of-use is an exploitable bug class → [[cybersecurity/06-attacks-and-threats/index|attacks]].
 
 **The follow-up worth pre-empting — what's wrong with `except: pass`:** it catches `KeyboardInterrupt` and `SystemExit` (which sit outside `Exception` deliberately), swallows your own typos, and discards the evidence. If you must continue, `except Exception:` with `log.exception(...)` — which records the full traceback → [[languages/06-python/09-errors-and-exceptions|note 09]].
 
@@ -128,7 +128,7 @@ The check-then-act version has a **race condition**. `try/except FileNotFoundErr
 
 **Strong answer covers:** **nothing at runtime.** They're erased as far as execution is concerned — `calculate(  "100" )` on an `int` parameter runs happily. They exist for **static checkers, editors and readers**.
 
-**The consequence:** data crossing a boundary — an API response, a form, a file — is unchecked whatever you annotated. **Validate at the boundary** with Pydantic, then the type is earned → [[backend/frameworks/python/01-fastapi/README|FastAPI]].
+**The consequence:** data crossing a boundary — an API response, a form, a file — is unchecked whatever you annotated. **Validate at the boundary** with Pydantic, then the type is earned → [[backend/frameworks/python/01-fastapi/index|FastAPI]].
 
 **Details that matter:** modern spellings (`list[str]`, `X | None`) over `List`/`Optional`; `Protocol` for structural typing, which fits duck-typed code far better than an ABC; `Any` disables checking and spreads — prefer `object` and narrow.
 
@@ -153,9 +153,9 @@ The check-then-act version has a **race condition**. `try/except FileNotFoundErr
 ---
 
 ## Related
-- [[languages/06-python/README|the Python course]]
+- [[languages/06-python/index|the Python course]]
 - [[languages/06-python/18-practice-exercises|practice exercises]] — reproduce every gotcha above
-- [[backend/frameworks/python/README|Python backends]] — the framework round
-- [[languages/01-java/interview/README|Java interview prep]] — the contrast
+- [[backend/frameworks/python/index|Python backends]] — the framework round
+- [[languages/01-java/interview/index|Java interview prep]] — the contrast
 
 *Source: [reference] — assembled Aug 2026; measurements from the course's own exercises.*

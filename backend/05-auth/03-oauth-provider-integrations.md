@@ -236,4 +236,4 @@ Answering these before writing code is roughly an hour and saves days.
 - [[backend/05-auth/01-authentication-flows|05-authentication-flows]] — the theory
 - [[devops/08-networking-and-web/03-local-https-tunnels|Local HTTPS tunnels]] — for https-only callbacks
 - [[devops/03-cloud/03-object-storage-and-direct-uploads|Object storage & direct uploads]] — for fetch-by-URL platforms
-- [[devops/09-secret-management/README|Secret management]] — storing provider tokens at rest
+- [[devops/09-secret-management/index|Secret management]] — storing provider tokens at rest

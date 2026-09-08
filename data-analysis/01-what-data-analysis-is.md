@@ -18,11 +18,11 @@ This is the most common confusion, so it's worth being precise. The three data d
 | **Data analyst** | **A decision or a recommendation** | **SQL, BI tools, spreadsheets, stats** | "What does the data say we should do?" |
 | **Data scientist** | A model or a rigorous statistical answer | Python/R, stats, ML | "Can we predict / prove this?" |
 
-- **[[data-engineering/README|Data engineering]]** builds the warehouse the analyst queries → the plumbing
+- **[[data-engineering/index|Data engineering]]** builds the warehouse the analyst queries → the plumbing
 - **Data analysis** (this track) turns that data into answers → **the last mile, and the most common data job**
-- **[[ai-ml/01-data-scientist/README|Data science]]** brings statistical rigour and predictive modelling → the deep end
+- **[[ai-ml/01-data-scientist/index|Data science]]** brings statistical rigour and predictive modelling → the deep end
 
-**The lines blur** — a "data analyst" at a small company does all three; "analytics engineer" is a hybrid of analyst and engineer who models data in [[data-engineering/07-transformation-and-dbt|dbt]]; and the analyst reaches into the [[ai-ml/01-data-scientist/README|data-scientist toolkit]] for [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|A/B tests]] and [[ai-ml/01-data-scientist/03-inferential-statistics|hypothesis testing]]. But the *deliverable* distinguishes them: **the analyst's output is a decision, communicated to someone who acts on it.**
+**The lines blur** — a "data analyst" at a small company does all three; "analytics engineer" is a hybrid of analyst and engineer who models data in [[data-engineering/07-transformation-and-dbt|dbt]]; and the analyst reaches into the [[ai-ml/01-data-scientist/index|data-scientist toolkit]] for [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|A/B tests]] and [[ai-ml/01-data-scientist/03-inferential-statistics|hypothesis testing]]. But the *deliverable* distinguishes them: **the analyst's output is a decision, communicated to someone who acts on it.**
 
 ## The analytics maturity spectrum
 
@@ -38,7 +38,7 @@ Analysis comes in four levels of ambition, and knowing which one a question need
    PRESCRIPTIVE  "what should we do?"        ← optimisation, recommendation
 ```
 
-**Most day-to-day analysis is descriptive and diagnostic** — what happened and why — and *diagnostic is where analysts earn their keep*, because "sales dropped" is easy and "sales dropped *because* the checkout broke for mobile users in Germany" is the insight someone can act on → [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]]. Predictive and prescriptive shade into [[ai-ml/README|data science]].
+**Most day-to-day analysis is descriptive and diagnostic** — what happened and why — and *diagnostic is where analysts earn their keep*, because "sales dropped" is easy and "sales dropped *because* the checkout broke for mobile users in Germany" is the insight someone can act on → [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]]. Predictive and prescriptive shade into [[ai-ml/index|data science]].
 
 ## The analysis workflow
 
@@ -79,7 +79,7 @@ The analyst's actual toolkit, and where each fits:
 - **[[data-analysis/07-dashboards-and-bi|Dashboards and BI]]** — self-serve, the semantic layer, dashboard design
 - **[[data-analysis/08-communicating-analysis|Communicating analysis]]** — turning findings into decisions
 
-It **borrows** the statistical rigour (hypothesis testing, A/B tests, causal inference) from the [[ai-ml/01-data-scientist/README|data-scientist track]] rather than duplicating it, and consumes the warehouse the [[data-engineering/README|data-engineering track]] builds.
+It **borrows** the statistical rigour (hypothesis testing, A/B tests, causal inference) from the [[ai-ml/01-data-scientist/index|data-scientist track]] rather than duplicating it, and consumes the warehouse the [[data-engineering/index|data-engineering track]] builds.
 
 ## Key insight
 
@@ -87,7 +87,7 @@ It **borrows** the statistical rigour (hypothesis testing, A/B tests, causal inf
 
 ## Related
 - [[data-analysis/02-sql-for-analysis|SQL for analysis]] — the analyst's primary tool
-- [[data-engineering/README|data engineering]] — the layer that feeds this · [[ai-ml/01-data-scientist/README|data science]] — the rigorous end
+- [[data-engineering/index|data engineering]] — the layer that feeds this · [[ai-ml/01-data-scientist/index|data science]] — the rigorous end
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — defining what to measure
 - [[ai-ml/01-data-scientist/01-the-data-scientist-role|the data scientist role]] — the neighbouring discipline
 

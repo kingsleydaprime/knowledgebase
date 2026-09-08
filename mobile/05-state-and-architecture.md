@@ -38,7 +38,7 @@ State ──► UI renders ──► user acts ──► Event ┘
                               produces NEW state
 ```
 
-**One direction, one place where state changes.** When something is wrong on screen, there's exactly one place to look. This is the same idea as Redux, Elm and React's model → [[frontend/04-state-and-data/README|state and data]].
+**One direction, one place where state changes.** When something is wrong on screen, there's exactly one place to look. This is the same idea as Redux, Elm and React's model → [[frontend/04-state-and-data/index|state and data]].
 
 ## Model UI state as one type
 
@@ -126,7 +126,7 @@ Mobile testing has an awkward cost curve — UI tests are slow and flaky. So:
 ## Related
 - [[mobile/03-the-app-lifecycle|the app lifecycle]] — the constraint this answers
 - [[mobile/07-data-and-offline-first|offline-first]] — the repository pattern in full
-- [[frontend/03-structuring-a-frontend/README|structuring a frontend]] — the same layering
-- [[backend/03-structuring-a-backend/README|structuring a backend]] — and again
+- [[frontend/03-structuring-a-frontend/index|structuring a frontend]] — the same layering
+- [[backend/03-structuring-a-backend/index|structuring a backend]] — and again
 
 *Source: [reference] — Aug 2026.*

@@ -4,7 +4,7 @@
 
 ## The hat spectrum
 
-- **White hat** — hacks with explicit authorization, for defensive purposes: penetration testers, bug bounty hunters, security researchers reporting through responsible disclosure. This is what [[cybersecurity/02-ethical-hacking/README|ethical hacking]] refers to, and the entire rest of that folder assumes this context.
+- **White hat** — hacks with explicit authorization, for defensive purposes: penetration testers, bug bounty hunters, security researchers reporting through responsible disclosure. This is what [[cybersecurity/02-ethical-hacking/index|ethical hacking]] refers to, and the entire rest of that folder assumes this context.
 - **Black hat** — hacks without authorization, for malicious purposes: theft, extortion (ransomware), sabotage, espionage. Everything covered in this vault's ethical-hacking notes is framed against black-hat techniques specifically so they can be defended against, never framed as instructions to carry them out without authorization.
 - **Grey hat** — somewhere in between: accessing or testing a system without explicit authorization, but without malicious intent (e.g. finding and reporting a vulnerability without having been asked to look) — technically often illegal despite good intentions, which is exactly why authorization (covered in [[01-rules-of-engagement-and-legal|rules-of-engagement-and-legal]]) is the single factor separating "white hat" from "grey hat," not skill or motive.
 
@@ -27,4 +27,4 @@ Defensive priorities differ enormously by which attacker category is actually th
 
 ## Related
 - [[01-what-is-cybersecurity|what-is-cybersecurity]]
-- [[cybersecurity/02-ethical-hacking/README|ethical-hacking]]
+- [[cybersecurity/02-ethical-hacking/index|ethical-hacking]]

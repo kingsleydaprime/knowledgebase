@@ -12,7 +12,7 @@ Most of this is the same injection story as [[cybersecurity/04-web-security/01-i
 
 APIs receive structured data (JSON, usually), and the first defence is refusing anything that doesn't match the expected shape:
 
-- **Validate against a schema** — types, required fields, ranges, formats, enums. JSON Schema, OpenAPI validation, or your framework's DTO validation (Pydantic, Zod, Bean Validation) → [[backend/02-api-design/README|API design]]
+- **Validate against a schema** — types, required fields, ranges, formats, enums. JSON Schema, OpenAPI validation, or your framework's DTO validation (Pydantic, Zod, Bean Validation) → [[backend/02-api-design/index|API design]]
 - **Allowlist, don't blocklist** — define what's *valid* and reject everything else, rather than trying to enumerate what's *bad*
 - **Check `Content-Type`** and parse accordingly — mismatches are a classic bypass
 - **Bound everything** — string lengths, array sizes, number ranges, nesting depth. An unbounded array or deeply-nested JSON is a denial-of-service → [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|resource consumption]]
@@ -42,8 +42,8 @@ Injection is injection: **untrusted input is treated as code/commands instead of
 ```
 
 **Why SSRF is devastating in the cloud:** your server sits *inside* the trusted network. An attacker who makes it fetch a URL can reach:
-- **The cloud metadata service** (`169.254.169.254`) — on misconfigured setups this hands out **IAM credentials**, and SSRF-to-metadata was the mechanism of the **2019 Capital One breach** (100M+ records) → [[cybersecurity/09-cloud-security/README|cloud security]]
-- **Internal services** with no external auth (databases, admin panels, other microservices) that trusted the network perimeter → [[cybersecurity/03-network-security/README|network segmentation]]
+- **The cloud metadata service** (`169.254.169.254`) — on misconfigured setups this hands out **IAM credentials**, and SSRF-to-metadata was the mechanism of the **2019 Capital One breach** (100M+ records) → [[cybersecurity/09-cloud-security/index|cloud security]]
+- **Internal services** with no external auth (databases, admin panels, other microservices) that trusted the network perimeter → [[cybersecurity/03-network-security/index|network segmentation]]
 - **`localhost`** and link-local ranges
 
 **The defences (layer them — no single one is enough):**
@@ -57,7 +57,7 @@ Injection is injection: **untrusted input is treated as code/commands instead of
 
 ## Other input-driven API risks
 
-- **Deserialization** — turning attacker-controlled bytes into objects can execute code (Java, Python `pickle`, .NET). **Never deserialize untrusted data with an unsafe deserializer**; use JSON with a schema → [[languages/06-python/README|Python]]'s pickle warning
+- **Deserialization** — turning attacker-controlled bytes into objects can execute code (Java, Python `pickle`, .NET). **Never deserialize untrusted data with an unsafe deserializer**; use JSON with a schema → [[languages/06-python/index|Python]]'s pickle warning
 - **File uploads** — validate type by *content* not extension, store outside the web root, scan, and never execute
 - **GraphQL depth/complexity** — a nested query can be a resource-exhaustion attack; limit depth and complexity → [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|resource consumption]]
 
@@ -67,8 +67,8 @@ Injection is injection: **untrusted input is treated as code/commands instead of
 
 ## Related
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation and output encoding]] — the general treatment
-- [[cybersecurity/09-cloud-security/README|cloud security]] — the SSRF-to-metadata attack path
+- [[cybersecurity/09-cloud-security/index|cloud security]] — the SSRF-to-metadata attack path
 - [[cybersecurity/14-api-security/03-authorization-and-bola|authorization]] — the other "trust the input" family
-- [[backend/02-api-design/README|API design]] — schema validation while building
+- [[backend/02-api-design/index|API design]] — schema validation while building
 
 *Source: [reference] — OWASP API7 (SSRF). Aug 2026.*

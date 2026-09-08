@@ -185,4 +185,4 @@ For a JIT specifically, Cranelift or a hand-rolled assembler over a small instru
 - [[foundations/compilers/07-optimisation|Optimisation]] — what runs before this
 - [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]] — the calling convention as a contract
 - [[languages/04-c/12-build-systems|C: Build Systems]] — assembling and linking, practically
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

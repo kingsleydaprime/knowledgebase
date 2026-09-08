@@ -1,10 +1,10 @@
 # Data Migrations
 
-**[[concepts/04-best-practices/README|04 — Best Practices]], note 6.** **[Intermediate → Advanced]** `[reference]`
+**[[concepts/04-best-practices/index|04 — Best Practices]], note 6.** **[Intermediate → Advanced]** `[reference]`
 
 Moving records from one system into another that models them differently. **A task most developers do once, under time pressure, without a playbook** — and then never write down what they learned.
 
-**Worked example:** [[projects/munakalati/learning/05-migration/README|munakalati — 434 blog posts, Wix → Sanity]], where every claim here has a scar attached.
+**Worked example:** [[projects/munakalati/learning/05-migration/index|munakalati — 434 blog posts, Wix → Sanity]], where every claim here has a scar attached.
 
 ---
 
@@ -187,7 +187,7 @@ Small scripts, one class of damage each. The template that keeps them safe:
 10. **Test the pure transform functions.** They're the most testable code you will write all year, and the fixtures are the API responses you already saved in phase 1.
 
 ## Related
-- [[projects/munakalati/learning/05-migration/README|munakalati — the worked example]]
+- [[projects/munakalati/learning/05-migration/index|munakalati — the worked example]]
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] · [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data and integration patterns]]
 - [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modelling]] — designing the target

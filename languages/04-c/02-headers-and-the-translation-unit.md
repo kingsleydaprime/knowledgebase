@@ -251,4 +251,4 @@ Understanding headers isn't legacy trivia — it's what makes C, C++, and every 
 - [[languages/04-c/03-the-preprocessor|The Preprocessor]] — the text substitution doing all this
 - [[languages/04-c/11-modular-c-and-project-structure|Modular C]] — using these tools to structure a real project
 - [[languages/03-rust/16-modules-cargo-and-testing|Rust: Modules]] — what replaced headers
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

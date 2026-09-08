@@ -136,4 +136,4 @@ dart format --set-exit-if-changed .
 ## Related
 - [[languages/10-dart/02-types-and-null-safety|sealed classes]] — the Result pattern
 - [[languages/10-dart/06-tooling-and-codegen|tooling]] — lints and build_runner
-- [[mobile/frameworks/flutter/README|Flutter]] — widget testing
+- [[mobile/frameworks/flutter/index|Flutter]] — widget testing

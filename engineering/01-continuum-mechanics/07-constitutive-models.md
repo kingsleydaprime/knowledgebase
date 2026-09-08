@@ -184,4 +184,4 @@ Every model has constants, and they come from experiments:
 - [[engineering/01-continuum-mechanics/06-conservation-laws|Conservation Laws]] — the equations this closes
 - [[engineering/01-continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — the simplest case, in full
 - [[engineering/01-continuum-mechanics/12-failure-and-yield|Failure and Yield]] — yield criteria in depth
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

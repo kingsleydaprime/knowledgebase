@@ -109,5 +109,5 @@ Check `ss -tulpn` before you write a single rule — most exposure is a service 
 - [[devops/01-linux/14-basic-ssh-config|Basic SSH Config]] — keys, config files, the session you shouldn't close
 - [[devops/01-linux/15-rhcsa/12-manage-network-security|RHCSA: Manage Network Security]] — firewalld zones and rich rules in depth
 - [[devops/01-linux/15-rhcsa/07-manage-selinux-security|RHCSA: SELinux]] — contexts, booleans, and diagnosing denials properly
-- [[cybersecurity/README|Cybersecurity]] — the attacker's view of everything above
+- [[cybersecurity/index|Cybersecurity]] — the attacker's view of everything above
 - [[devops/04-vps/vps-setup|VPS Setup]] — where this gets applied to a real deployed box

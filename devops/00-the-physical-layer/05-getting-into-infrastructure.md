@@ -12,7 +12,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 | **Network engineer** | Switching, routing, the fabric | **Deep networking** | High; specialised |
 | **Systems / infrastructure engineer** | Servers, OS, virtualisation, storage | Linux, automation | High |
 | **Cloud engineer** | Cloud infrastructure as code | Terraform, one cloud deeply | High, and the largest market |
-| **SRE / platform** | Reliability, delivery platforms | Software + operations | Highest → [[devops/12-sre-and-platform-engineering/README\|12]] |
+| **SRE / platform** | Reliability, delivery platforms | Software + operations | Highest → [[devops/12-sre-and-platform-engineering/index\|12]] |
 | **Hardware / capacity** | Procurement, power, cooling, planning | Electrical + facilities | Specialised, scarce |
 
 **The split that matters: hands-on-metal versus infrastructure-as-software.**
@@ -33,19 +33,19 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 
 **Non-negotiable, in this order:**
 
-**1. Linux, deeply.** Not "I can `cd`" — processes, systemd, networking, storage, permissions, logs, troubleshooting a box that won't boot. **This is the single highest-return skill in infrastructure and there is no way around it** → [[devops/01-linux/README|01-linux]], and the [[devops/01-linux/15-rhcsa/README|RHCSA track]] is a genuinely good structure for it.
+**1. Linux, deeply.** Not "I can `cd`" — processes, systemd, networking, storage, permissions, logs, troubleshooting a box that won't boot. **This is the single highest-return skill in infrastructure and there is no way around it** → [[devops/01-linux/index|01-linux]], and the [[devops/01-linux/15-rhcsa/index|RHCSA track]] is a genuinely good structure for it.
 
-**2. Networking.** Subnetting, routing, DNS, TLS, firewalls, and the ability to debug why two machines can't talk. **The most common gap in self-taught infrastructure people** → [[foundations/networking/README|networking]].
+**2. Networking.** Subnetting, routing, DNS, TLS, firewalls, and the ability to debug why two machines can't talk. **The most common gap in self-taught infrastructure people** → [[foundations/networking/index|networking]].
 
-**3. One cloud, properly.** Not three shallowly. AWS has the largest market; Azure dominates enterprise; GCP is strong in data/ML → [[devops/03-cloud/README|03-cloud]].
+**3. One cloud, properly.** Not three shallowly. AWS has the largest market; Azure dominates enterprise; GCP is strong in data/ML → [[devops/03-cloud/index|03-cloud]].
 
-**4. Infrastructure as code.** Terraform, and configuration management. **The line between "sysadmin" and "infrastructure engineer" is essentially whether your infrastructure is in git** → [[devops/07-infrastructure-as-code/README|07-IaC]].
+**4. Infrastructure as code.** Terraform, and configuration management. **The line between "sysadmin" and "infrastructure engineer" is essentially whether your infrastructure is in git** → [[devops/07-infrastructure-as-code/index|07-IaC]].
 
-**5. A scripting language.** Python and Bash → [[languages/06-python/README|Python]] · [[devops/01-linux/12-bash-scripting|Bash]].
+**5. A scripting language.** Python and Bash → [[languages/06-python/index|Python]] · [[devops/01-linux/12-bash-scripting|Bash]].
 
-**6. Containers and orchestration.** Docker, then Kubernetes → [[devops/02-docker/README|02-docker]] · [[devops/05-orchestration/README|05-orchestration]].
+**6. Containers and orchestration.** Docker, then Kubernetes → [[devops/02-docker/index|02-docker]] · [[devops/05-orchestration/index|05-orchestration]].
 
-**Then:** observability → [[devops/10-observability/README|10]], CI/CD → [[devops/06-ci-cd/README|06]], and security posture → [[cybersecurity/09-cloud-security/README|cloud security]].
+**Then:** observability → [[devops/10-observability/index|10]], CI/CD → [[devops/06-ci-cd/index|06]], and security posture → [[cybersecurity/09-cloud-security/index|cloud security]].
 
 ## Certifications — where they actually help
 
@@ -53,7 +53,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 
 **Worth it:**
 - **AWS Solutions Architect Associate** — the broadest signal, widely recognised
-- **RHCSA** — proves real Linux ability, hands-on exam, hard to fake. **This vault already has a track for it** → [[devops/01-linux/15-rhcsa/README|RHCSA]]
+- **RHCSA** — proves real Linux ability, hands-on exam, hard to fake. **This vault already has a track for it** → [[devops/01-linux/15-rhcsa/index|RHCSA]]
 - **CCNA** — still the networking credential, if you're going that direction
 - **CKA** — Kubernetes, hands-on, respected
 
@@ -67,7 +67,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 
 **From a technician role.** Genuinely available with few prerequisites, and the way to use it is to automate your own job and move sideways into engineering.
 
-**From a degree.** Systems engineering is directly relevant — capacity, power, cooling, reliability and interfaces are the discipline → [[foundations/systems-engineering/README|systems engineering]].
+**From a degree.** Systems engineering is directly relevant — capacity, power, cooling, reliability and interfaces are the discipline → [[foundations/systems-engineering/index|systems engineering]].
 
 ## What to build
 
@@ -75,18 +75,18 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 
 1. **A real VPS, doing something real.** Buy one, harden it, deploy something, keep it up → [[devops/04-vps/vps-setup|04-vps]]. **Publicly reachable and actually used beats any lab**
 2. **Everything in Terraform**, in a public repo. VPC, subnets, security groups, an instance. Destroy and recreate it from scratch — that's the claim IaC makes, and doing it proves you understand it
-3. **A CI/CD pipeline** that deploys on push → [[devops/06-ci-cd/README|06-ci-cd]]
-4. **Monitoring, with an alert that has actually fired** → [[devops/10-observability/README|10]]
+3. **A CI/CD pipeline** that deploys on push → [[devops/06-ci-cd/index|06-ci-cd]]
+4. **Monitoring, with an alert that has actually fired** → [[devops/10-observability/index|10]]
 5. **A small Kubernetes cluster** — k3s on cheap VPSes teaches more than a managed control plane, because you have to fix it
 6. **A home lab**, if hardware appeals — an old machine, a hypervisor, some VMs → [[devops/00-the-physical-layer/02-virtualisation-and-hypervisors|virtualisation]]. This is where the physical notes stop being abstract
 
 **Write up what broke.** An infrastructure portfolio is post-incident notes more than it is repositories — the ability to describe a failure clearly is most of the interview.
 
 ## Related
-- [[devops/README|devops]] — the whole track, in order
-- [[devops/00-the-physical-layer/README|the physical layer]] — notes 01–04
-- [[devops/12-sre-and-platform-engineering/README|SRE and platform engineering]] — where the ceiling is
-- [[foundations/networking/README|networking]] — the most-skipped prerequisite
+- [[devops/index|devops]] — the whole track, in order
+- [[devops/00-the-physical-layer/index|the physical layer]] — notes 01–04
+- [[devops/12-sre-and-platform-engineering/index|SRE and platform engineering]] — where the ceiling is
+- [[foundations/networking/index|networking]] — the most-skipped prerequisite
 - [[PRIMETECHIE|the Primetechie path]] — the gated progression
 
 *Source: [reference] — written Aug 2026; cross-referenced against the [roadmap.sh devops](https://roadmap.sh/devops) and [network-engineer](https://roadmap.sh/network-engineer) roadmaps.*

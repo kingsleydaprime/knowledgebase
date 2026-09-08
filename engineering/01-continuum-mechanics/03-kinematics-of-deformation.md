@@ -179,4 +179,4 @@ Almost everything above collapses when displacement gradients are small ($|\nabl
 - [[engineering/01-continuum-mechanics/04-strain-measures|Strain Measures]] — quantifying what $\mathbf{F}$ describes
 - [[engineering/01-continuum-mechanics/06-conservation-laws|Conservation Laws]] — where the material derivative earns its keep
 - [[engineering/01-continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]] — $\mathbf{D}$ in action
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

@@ -155,7 +155,7 @@ Also worth knowing: `heapq` (priority queue on a plain list), `bisect` (binary s
 ## Related
 - [[languages/06-python/06-iterators-generators-and-comprehensions|iterators and generators]] — lazy versions of all of this
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — when a dict should have been a type
-- [[foundations/dsa/README|DSA]] — why these costs are what they are
+- [[foundations/dsa/index|DSA]] — why these costs are what they are
 - [[foundations/programming-fundamentals/07-collections|collections]] — the language-agnostic version
 
 *Source: [reference] — from the Python standard library documentation.*

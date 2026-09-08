@@ -115,6 +115,6 @@ The useful test is **reversibility**: a decision you can undo in an afternoon sh
 - [[foundations/systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what you're choosing between
 - [[foundations/systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — quantifying the downside
 - [[concepts/04-best-practices/03-documentation-practices|documentation practices]] — ADRs
-- [[architecture/01-system-design-fundamentals/README|system design]] — trade-offs as the core skill
+- [[architecture/01-system-design-fundamentals/index|system design]] — trade-offs as the core skill
 
 *Source: [reference] — from the INCOSE handbook, NASA SE Handbook, and the ADR literature (Nygard).*

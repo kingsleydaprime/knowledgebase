@@ -49,7 +49,7 @@ text = json.dumps(data, indent=2)        # Python → string
 data = json.load(file_obj)               # note: load/dump take file objects
 ```
 
-`json.dumps` fails on `datetime`, `Decimal`, `set` and your own classes — pass `default=str` for a quick fix, or a custom encoder for a real one. For anything with a schema, validate rather than trusting: `pydantic` → [[backend/frameworks/python/01-fastapi/README|FastAPI]].
+`json.dumps` fails on `datetime`, `Decimal`, `set` and your own classes — pass `default=str` for a quick fix, or a custom encoder for a real one. For anything with a schema, validate rather than trusting: `pydantic` → [[backend/frameworks/python/01-fastapi/index|FastAPI]].
 
 ## `collections`, `itertools`, `functools`
 
@@ -103,7 +103,7 @@ log.info("processing %s items", count)   # lazy — %s formatted only if emitted
 log.exception("failed")                  # inside except: includes the traceback
 ```
 
-**Use `logging`, not `print`, for anything long-lived.** You get levels, timestamps, module names, and routing to files or a collector without changing call sites → [[devops/10-observability/README|observability]].
+**Use `logging`, not `print`, for anything long-lived.** You get levels, timestamps, module names, and routing to files or a collector without changing call sites → [[devops/10-observability/index|observability]].
 
 **Use `%s` placeholders rather than f-strings in log calls.** With an f-string the message is built even when the level is disabled; with placeholders it isn't. On a hot path that's real cost.
 
@@ -126,7 +126,7 @@ Free `--help`, type conversion and validation. For anything bigger, `click` or `
 | Need | Module |
 |---|---|
 | CSV | `csv` |
-| SQL, zero setup | `sqlite3` → [[databases/README\|databases]] |
+| SQL, zero setup | `sqlite3` → [[databases/index\|databases]] |
 | Hashing, HMAC | `hashlib`, `hmac`, `secrets` |
 | **Tokens, passwords** | **`secrets`** — never `random` |
 | Regular expressions | `re` |
@@ -138,7 +138,7 @@ Free `--help`, type conversion and validation. For anything bigger, `click` or `
 | Timing/profiling | `time.perf_counter`, `timeit`, `cProfile` → note 14 |
 | Tests | `unittest` (but use `pytest`) → note 13 |
 
-**`secrets` vs `random` is a security bug waiting to happen.** `random` is a Mersenne Twister — fast, reproducible, and **predictable from a few outputs**. Use `secrets` for tokens, passwords, session IDs and anything an attacker benefits from guessing → [[cybersecurity/05-cryptography/README|cryptography]].
+**`secrets` vs `random` is a security bug waiting to happen.** `random` is a Mersenne Twister — fast, reproducible, and **predictable from a few outputs**. Use `secrets` for tokens, passwords, session IDs and anything an attacker benefits from guessing → [[cybersecurity/05-cryptography/index|cryptography]].
 
 ## What's not in the box
 
@@ -150,6 +150,6 @@ Notably: HTTP clients (`urllib` exists and is unpleasant — use `requests` or `
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency]] — `asyncio` and friends
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — the third-party layer
 - [[devops/01-linux/12-bash-scripting|bash scripting]] — when a shell script should have been Python
-- [[ai-ml/00-foundations/04-python-and-data-tools/README|Python for data]] — the numeric stack
+- [[ai-ml/00-foundations/04-python-and-data-tools/index|Python for data]] — the numeric stack
 
 *Source: [reference] — from the Python standard library documentation.*

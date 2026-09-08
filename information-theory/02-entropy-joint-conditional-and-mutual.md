@@ -85,7 +85,7 @@ $$I(X;Y) = H(X) + H(Y) - H(X,Y) = \sum_{x,y}p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)}$
 
 *The known weakness:* it's marginal. Two features individually uninformative can be jointly predictive (XOR is the standard example), and pairwise MI ranking will discard both. **mRMR** (max-relevance, min-redundancy) partially addresses this.
 
-**Decision trees.** **Information gain *is* mutual information** — at each split, choose the feature maximising $I(\text{feature};\text{label})$, i.e. the one that most reduces label entropy. ID3, C4.5, and the `entropy` criterion in scikit-learn. → [[ai-ml/02-ml-engineer/03-classical-ml/README|Classical ML]]
+**Decision trees.** **Information gain *is* mutual information** — at each split, choose the feature maximising $I(\text{feature};\text{label})$, i.e. the one that most reduces label entropy. ID3, C4.5, and the `entropy` criterion in scikit-learn. → [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]]
 
 *(Gini impurity is the common alternative and behaves similarly — it's a second-order approximation to entropy, and cheaper because there's no logarithm.)*
 
@@ -169,4 +169,5 @@ $$h(X) = -\int p(x)\log p(x)\,dx$$
 - [[foundations/information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the ML-facing measures
 - [[foundations/information-theory/05-channel-capacity-and-noise|Channel Capacity]] — mutual information, maximised
 - [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|Causal Inference]] — where conditioning-on-colliders bites
-- [[foundations/information-theory/README|Information theory map]]
+- [[foundations/information-theory/index|Information theory map]]
+

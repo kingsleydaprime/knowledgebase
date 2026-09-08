@@ -152,4 +152,4 @@ $$J(\mathbf{x}_n)\,\Delta\mathbf{x} = -\mathbf{F}(\mathbf{x}_n), \qquad \mathbf{
 - [[foundations/numerical-methods/04-linear-systems|Linear Systems]] — solved inside every Newton step
 - [[foundations/numerical-methods/10-numerical-optimisation|Numerical Optimisation]] — minimisation is root-finding on the gradient
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — this, applied
-- [[foundations/numerical-methods/README|Numerical methods map]]
+- [[foundations/numerical-methods/index|Numerical methods map]]

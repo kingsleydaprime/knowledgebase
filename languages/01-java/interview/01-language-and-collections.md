@@ -1,6 +1,6 @@
 # Java Interview — Language & Collections
 
-From [[languages/01-java/01-language/README|01-language/]]. The screening round — get these fast and clean so the conversation can move to the interesting parts.
+From [[languages/01-java/01-language/index|01-language/]]. The screening round — get these fast and clean so the conversation can move to the interesting parts.
 
 🔥 marks questions that come up constantly.
 

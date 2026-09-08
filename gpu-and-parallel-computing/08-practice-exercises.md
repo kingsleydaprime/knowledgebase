@@ -81,7 +81,7 @@ Run Nsight Compute (or `nvprof`) on your tiled matmul. Find achieved occupancy, 
 
 ## Related
 - [[foundations/gpu-and-parallel-computing/09-practice-exercises-solutions|Solutions]]
-- [[foundations/gpu-and-parallel-computing/README|the course]]
+- [[foundations/gpu-and-parallel-computing/index|the course]]
 - [[foundations/computer-architecture/13-practice-exercises|architecture exercises]] — the same method on the CPU
 
 *Source: [reference] — built from this course's own gap-closing list.*

@@ -16,7 +16,7 @@
 
 **The detail worth adding:** it should be on during development, not a pre-release check. **This is the bug class that only appears in the wild**, and it's the most common untested path in mobile.
 
-**Q: Why does Android have `ViewModel` *and* `SavedStateHandle`?**
+**Q: Why does Android have `ViewModel` _and_ `SavedStateHandle`?**
 
 **A strong answer covers:** they solve different problems. `ViewModel` survives configuration changes (rotation, dark mode, split-screen) but dies with the process. `SavedStateHandle` is persisted and survives process death, but is small — it's for IDs and scroll positions, not data.
 
@@ -50,7 +50,7 @@
 
 **A strong answer covers:** latency and round trips dominate, so chattiness is expensive.
 
-**The detail worth adding, and it's the one that impresses:** **the radio tail.** Waking the cellular radio keeps it in a high-power state for seconds *after* the transfer completes — so ten small requests spread over a minute cost far more battery than one batch. **The cost is the wake-up, not the bytes** → [[mobile/11-performance-and-battery|battery]].
+**The detail worth adding, and it's the one that impresses:** **the radio tail.** Waking the cellular radio keeps it in a high-power state for seconds _after_ the transfer completes — so ten small requests spread over a minute cost far more battery than one batch. **The cost is the wake-up, not the bytes** → [[mobile/11-performance-and-battery|battery]].
 
 **Q: Your API adds a field. What breaks?**
 
@@ -84,7 +84,7 @@
 
 **Q: How do you handle a permission denial?**
 
-**A strong answer covers:** the feature degrades but works — manual entry instead of location. Prime with your own explanation *before* the system dialog.
+**A strong answer covers:** the feature degrades but works — manual entry instead of location. Prime with your own explanation _before_ the system dialog.
 
 **The detail worth adding:** **on iOS, denial is close to permanent** — you get one ask, and recovery means talking the user into Settings. That's why the priming screen is the highest-leverage UI in the flow. Plus the granular tiers: "only this once", approximate location, selected photos → [[mobile/09-permissions-and-privacy|permissions]].
 
@@ -124,6 +124,7 @@
 4. **Are you calibrated about frameworks** rather than tribal?
 
 ## Related
-- [[mobile/README|the mobile course]] · [[mobile/projects|projects]]
+
+- [[mobile/index|the mobile course]] · [[mobile/projects|projects]]
 - [[mobile/03-the-app-lifecycle|the lifecycle]] — the most-asked area
 - [[INTERVIEW|Interview Prep Index]]

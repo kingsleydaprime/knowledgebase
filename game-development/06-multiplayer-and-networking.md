@@ -58,11 +58,11 @@ So games use UDP and build only what they need on top: sequence numbers, selecti
 
 ## Scale and topology
 
-**Matchmaking, lobbies, dedicated servers, regions** — and the operational half is ordinary [[devops/README|devops]]: autoscaling instances, placing them near players, session routing, observability → [[devops/00-the-physical-layer/03-data-centres|regions and AZs]].
+**Matchmaking, lobbies, dedicated servers, regions** — and the operational half is ordinary [[devops/index|devops]]: autoscaling instances, placing them near players, session routing, observability → [[devops/00-the-physical-layer/03-data-centres|regions and AZs]].
 
 **Latency is geography.** Nothing beats a server physically closer, which is why regional deployment isn't optional and why cross-region play feels bad no matter how good the netcode.
 
-For MMOs: **sharding** by zone, **interest management** so a server only tracks what matters to nearby players, and handing players between servers at boundaries. This is [[architecture/04-distributed-systems/README|distributed systems]] with a hard latency budget.
+For MMOs: **sharding** by zone, **interest management** so a server only tracks what matters to nearby players, and handing players between servers at boundaries. This is [[architecture/04-distributed-systems/index|distributed systems]] with a hard latency budget.
 
 ## Honest advice
 
@@ -71,9 +71,9 @@ For MMOs: **sharding** by zone, **interest management** so a server only tracks 
 **If you do:** use your engine's networking (Unity Netcode/Mirror, Unreal's replication, Godot's high-level multiplayer) rather than sockets. And read Valve's *Source Multiplayer Networking* and Gabriel Gambetta's *Fast-Paced Multiplayer* — both short, free, and they explain prediction and reconciliation better than anything else available.
 
 ## Related
-- [[foundations/networking/README|networking]] — **the full course; this note assumes it**
+- [[foundations/networking/index|networking]] — **the full course; this note assumes it**
 - [[foundations/networking/13-quic-and-modern-transport|QUIC]] — the same head-of-line reasoning
-- [[architecture/04-distributed-systems/README|distributed systems]] — consistency under latency
+- [[architecture/04-distributed-systems/index|distributed systems]] — consistency under latency
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — why determinism matters
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer) and Valve/Gambetta's published material.*

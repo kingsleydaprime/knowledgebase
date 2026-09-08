@@ -63,7 +63,7 @@ pip install pyright                     # Microsoft's; powers VS Code's Pylance,
 2. Run in **non-strict** mode; unannotated code is simply skipped
 3. Annotate **new code and anything you touch**
 4. Turn on `disallow_untyped_defs` per-module as each becomes clean
-5. Add it to [[devops/06-ci-cd/README|CI]] once it passes
+5. Add it to [[devops/06-ci-cd/index|CI]] once it passes
 
 **Do not turn on strict mode across a large untyped codebase.** You get thousands of errors, nobody triages them, and the tool gets removed — the same alert-fatigue failure as everywhere else → [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]].
 
@@ -120,7 +120,7 @@ def process(value: str | None) -> str:
 
 ## The honest limits
 
-- **No runtime enforcement.** Data from an API, a file or a form is unchecked, whatever you annotated. Validate at the boundary — `pydantic` does this, and it's why FastAPI is built on it → [[backend/frameworks/python/01-fastapi/README|FastAPI]]
+- **No runtime enforcement.** Data from an API, a file or a form is unchecked, whatever you annotated. Validate at the boundary — `pydantic` does this, and it's why FastAPI is built on it → [[backend/frameworks/python/01-fastapi/index|FastAPI]]
 - **Dynamic idioms resist typing.** Heavy `getattr`, monkey-patching and metaclasses fight the checker
 - **Third-party stubs vary.** Some libraries ship types; others need `types-requests`-style stub packages; some have nothing
 - **Annotations can be wrong.** They're checked against each other, not against reality
@@ -131,6 +131,6 @@ def process(value: str | None) -> str:
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — Protocol vs ABC
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — mypy in CI
 - [[foundations/programming-language-theory/04-type-systems-formally|type systems]] — the theory
-- [[languages/03-rust/README|Rust]] — the other end of the spectrum
+- [[languages/03-rust/index|Rust]] — the other end of the spectrum
 
 *Source: [reference] — from PEP 484 and successors, and the mypy documentation.*

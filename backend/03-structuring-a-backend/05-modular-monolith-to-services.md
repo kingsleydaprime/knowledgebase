@@ -97,7 +97,7 @@ The things people forget, and then rediscover in an incident:
 - **Versioning is now permanent.** You can no longer change a function signature and fix all callers in one commit. Every interface change needs a backward-compatible rollout.
 - **Debugging needs distributed tracing** before you need it, not after.
 
-→ [[architecture/04-distributed-systems/README|distributed systems]] · [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
+→ [[architecture/04-distributed-systems/index|distributed systems]] · [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
 
 ## Key insight
 

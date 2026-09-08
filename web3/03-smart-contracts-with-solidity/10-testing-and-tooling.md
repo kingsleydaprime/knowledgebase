@@ -153,9 +153,9 @@ aderyn                       # Rust-based, newer, good output
 **Fuzzing and invariant testing are the baseline in this domain, not advanced practice.** A hand-written unit test verifies the case you imagined; an invariant test attacks the ones you didn't. Since the attacker's whole job is to find the sequence of calls you never considered, testing that generates sequences you never considered is the only kind that meets them on their ground.
 
 ## Related
-- [[web3/frameworks/solidity/README|the Solidity toolchain]] — installing and configuring these
+- [[web3/frameworks/solidity/index|the Solidity toolchain]] — installing and configuring these
 - [[web3/04-smart-contract-security/07-the-audit-process|the audit process]] — what comes after
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]] — measuring
-- [[concepts/04-best-practices/README|best practices]] — testing generally
+- [[concepts/04-best-practices/index|best practices]] — testing generally
 
 *Source: [reference] — Foundry, Aug 2026.*

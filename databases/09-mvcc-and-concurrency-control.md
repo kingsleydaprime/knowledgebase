@@ -169,4 +169,4 @@ T2: locks row B ─────────► wants row A
 - [[databases/08-transactions-and-acid|Transactions and ACID]] — the guarantees this implements
 - [[databases/10-durability-and-recovery|Durability and Recovery]] — the log underneath
 - [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] — locks one layer down
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]

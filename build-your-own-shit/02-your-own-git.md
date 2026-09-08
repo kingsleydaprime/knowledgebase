@@ -16,7 +16,7 @@ A content-addressable object store plus the commands that operate on it: `init`,
 |---|---|
 | **Git's object model** — blobs, trees, commits, refs | [[git/01-how-git-works\|git/01]] — **read this first; it's the spec** |
 | **The three trees** — working directory, index, HEAD | [[git/03-the-three-trees\|git/03]] |
-| **Hashing** — what SHA-1 gives you | [[cybersecurity/05-cryptography/README\|cryptography]] |
+| **Hashing** — what SHA-1 gives you | [[cybersecurity/05-cryptography/index\|cryptography]] |
 | **Filesystem basics** — paths, permissions, recursion | [[foundations/os/07-filesystems-and-storage\|os/07]] |
 
 [[git/01-how-git-works|How Git Actually Works]] is effectively the specification for this project. Everything below is implementing what that note describes.
@@ -240,7 +240,7 @@ git hash-object a.txt         #
 
 **If you want to go further:** implementing **packfiles** is the natural next step and teaches you real compression engineering — delta encoding against a base object, plus the index that makes random access possible. The **network protocol** is less interesting; it's mostly negotiation.
 
-Compare with what you learned in [[git/README|the git course]] — the difference between having read it and having built it is exactly the point of this folder.
+Compare with what you learned in [[git/index|the git course]] — the difference between having read it and having built it is exactly the point of this folder.
 
 ---
 
@@ -249,4 +249,4 @@ Compare with what you learned in [[git/README|the git course]] — the differenc
 - [[git/03-the-three-trees|The Three Trees]] — what the index milestone implements
 - [[git/16-power-tools|Git: Power Tools]] — what you're choosing not to build
 - [[foundations/dsa/04-data-structures/06-graphs|Graphs]] — the merge-base problem
-- [[build-your-own-shit/README|build-your-own-shit]]
+- [[build-your-own-shit/index|build-your-own-shit]]

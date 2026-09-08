@@ -147,4 +147,4 @@ What you reliably get is *predictability*: no pauses, no surprise allocations, a
 - [[languages/03-rust/10-generics-and-trait-bounds|Generics]] — monomorphisation, and its compile-time cost
 - [[languages/03-rust/15-unsafe-and-ffi|Unsafe and FFI]] — the last resort, after measuring
 - [[languages/02-go/13-performance-and-runtime|Go: Performance and the Runtime]] — GC tuning, the other approach
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

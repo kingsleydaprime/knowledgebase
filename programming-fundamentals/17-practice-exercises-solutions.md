@@ -162,7 +162,7 @@ print(f"list {list_time:.4f}s   set {set_time:.6f}s   ratio {list_time/set_time:
 
 Typical: **500–2000×**. The list scans on average 10,000 entries per lookup; the set hashes once and jumps.
 
-**The exact ratio doesn't matter — the shape does.** The list's cost grows with the collection; the set's doesn't. Double the data and the gap doubles → [[foundations/dsa/README|DSA]].
+**The exact ratio doesn't matter — the shape does.** The list's cost grows with the collection; the set's doesn't. Double the data and the gap doubles → [[foundations/dsa/index|DSA]].
 
 ### 9. Refactor until each does one thing
 
@@ -314,6 +314,6 @@ Arguments for declarative: no mutable accumulator, expresses *what* rather than 
 
 ## Related
 - [[foundations/programming-fundamentals/16-practice-exercises|the exercises]]
-- [[foundations/programming-fundamentals/README|the course]]
+- [[foundations/programming-fundamentals/index|the course]]
 
 *Source: [reference] — written Aug 2026.*

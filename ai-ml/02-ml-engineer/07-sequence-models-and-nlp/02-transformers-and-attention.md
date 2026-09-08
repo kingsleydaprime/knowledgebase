@@ -41,7 +41,7 @@ The one cost: attention is **O(n²)** in sequence length (every token attends to
 - **Decoder-only** (GPT, most LLMs) — autoregressive next-token prediction, good for generation ([[ai-ml/03-ai-engineer/02-how-llms-work|how LLMs work]]).
 - **Encoder-decoder** (T5, original translation model) — for sequence-to-sequence tasks.
 
-Transformers also crossed over into [[ai-ml/02-ml-engineer/06-computer-vision/README|vision]] (Vision Transformers) and other modalities — the architecture generalized far beyond text.
+Transformers also crossed over into [[ai-ml/02-ml-engineer/06-computer-vision/index|vision]] (Vision Transformers) and other modalities — the architecture generalized far beyond text.
 
 ## Related
 - [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — the applied view of what these enable

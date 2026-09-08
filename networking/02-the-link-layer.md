@@ -21,7 +21,7 @@ MTU sounds like trivia. It is one of the top causes of "the connection hangs on 
 - Hosts discover the smallest MTU on the path (**Path MTU Discovery**) by setting the *don't fragment* bit and listening for those ICMP messages.
 - **If a firewall blocks ICMP** — a depressingly common "hardening" decision — those messages never arrive. The sender keeps sending packets that are too big, and they keep getting silently dropped. Small packets (the handshake, a `GET`) fit and work fine; the first big response vanishes. The connection just... stalls. This is the **PMTU black hole**, and it's why "block all ICMP" is bad advice.
 
-Tunnels (VPN, VXLAN, [[devops/05-orchestration/README|Kubernetes overlay networks]]) add their own headers, shrinking the usable MTU below 1500 — which is why MTU bugs show up so often in container networking specifically.
+Tunnels (VPN, VXLAN, [[devops/05-orchestration/index|Kubernetes overlay networks]]) add their own headers, shrinking the usable MTU below 1500 — which is why MTU bugs show up so often in container networking specifically.
 
 **Jumbo frames** (MTU ~9000) exist in data centres to cut per-packet overhead, but only work if *every* device on the path agrees.
 

@@ -1,6 +1,6 @@
 # Concepts Interview — APIs, Auth & Practices
 
-From [[backend/README|01-backend]], [[concepts/03-design-patterns/README|03-design-patterns]], [[concepts/04-best-practices/README|04-best-practices]].
+From [[backend/index|01-backend]], [[concepts/03-design-patterns/index|03-design-patterns]], [[concepts/04-best-practices/index|04-best-practices]].
 
 ---
 
@@ -58,7 +58,7 @@ From [[backend/README|01-backend]], [[concepts/03-design-patterns/README|03-desi
 
 **Models:** **RBAC** (roles → permissions) — simple, most common, degrades into role explosion when rules get contextual. **ABAC** (rules over attributes of user/resource/environment) — expressive, harder to reason about and audit. **ReBAC** (relationship-based, Google Zanzibar / OpenFGA) — "can edit if in the document's editor set" — the right model for anything with sharing and hierarchies.
 
-**The rule that matters more than the model:** **authorise on the server, at the data access layer, every time.** Hiding a button is UX, not security. The single most common real-world authorization bug is **IDOR** — accepting a resource ID from the user and returning it without checking ownership. → [[cybersecurity/04-web-security/README|web security]]
+**The rule that matters more than the model:** **authorise on the server, at the data access layer, every time.** Hiding a button is UX, not security. The single most common real-world authorization bug is **IDOR** — accepting a resource ID from the user and returning it without checking ownership. → [[cybersecurity/04-web-security/index|web security]]
 
 ---
 

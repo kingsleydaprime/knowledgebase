@@ -221,4 +221,4 @@ echo "email@example.com $(cat ~/.ssh/id_ed25519.pub)" >> ~/.ssh/allowed_signers
 - [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|Digital Signatures and PKI]] — what a GPG signature actually proves
 - [[devops/01-linux/12-bash-scripting|Bash Scripting]] — hooks are just executable scripts
 - [[git/14-github-and-ci|Git in CI]] — server-side enforcement when hooks are not enough
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

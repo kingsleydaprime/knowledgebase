@@ -69,4 +69,4 @@ rabbitmq:
 ## Related
 - [[languages/01-java/03-tooling/01-build-tools|Build Tools & Project Structure]] — what actually goes into the jar this Dockerfile packages
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — MySQL tuning flags set via the same `command:` block shown here
-- [[devops/02-docker/README|Docker (devops)]] — general Docker/compose concepts not specific to Java
+- [[devops/02-docker/index|Docker (devops)]] — general Docker/compose concepts not specific to Java

@@ -71,16 +71,16 @@ $$\Delta v = v_e \ln\frac{m_0}{m_f}$$
 
 ## The engineering discipline
 
-**Spaceflight is where [[foundations/systems-engineering/README|systems engineering]] was invented**, and the reasons are structural: you cannot iterate, you cannot repair, and the cost of failure is total.
+**Spaceflight is where [[foundations/systems-engineering/index|systems engineering]] was invented**, and the reasons are structural: you cannot iterate, you cannot repair, and the cost of failure is total.
 
 **Everything in that folder shows up here:** requirements traceability, interface control documents (**Mars Climate Orbiter is the canonical failure** → [[foundations/systems-engineering/01-what-systems-engineering-is|note 01]]), FMEA, redundancy and margin, technology readiness levels, and V&V against an environment you cannot fully reproduce.
 
 **It's also where real-time and safety-critical software lives** → [[foundations/software-engineering/04-the-kinds-of-software-engineering|kinds of software engineering]] — flight software is written in restricted language subsets with formal review, and the Apollo Guidance Computer's software is still studied.
 
 ## Related
-- [[foundations/systems-engineering/README|systems engineering]] — the discipline this field created
+- [[foundations/systems-engineering/index|systems engineering]] — the discipline this field created
 - [[astronomy/05-planets-and-solar-systems|planets]] — the destinations
 - [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]] — how trajectories are computed
-- [[engineering/02-control-theory/README|control theory]] — guidance and attitude control
+- [[engineering/02-control-theory/index|control theory]] — guidance and attitude control
 
 *Source: [reference] — written Aug 2026.*

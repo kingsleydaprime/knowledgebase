@@ -2,11 +2,11 @@
 
 **[Beginner → Intermediate]** — The ISA as a contract, the layers between your code and the electrons, and why the constants matter.
 
-**Source:** `[reference]` — see [[foundations/computer-architecture/README|the domain note]].
+**Source:** `[reference]` — see [[foundations/computer-architecture/index|the domain note]].
 
 ## The gap this fills
 
-**Above:** [[foundations/os/README|operating systems]] assume a CPU that executes instructions and a memory that stores things.
+**Above:** [[foundations/os/index|operating systems]] assume a CPU that executes instructions and a memory that stores things.
 
 **Below:** [[hardware/02-digital-and-analog|digital logic]] gives you gates and flip-flops.
 
@@ -143,12 +143,12 @@
 
 **11–12 are multicore and how to actually make code fast.**
 
-**Prerequisites:** some [[hardware/02-digital-and-analog|digital logic]] helps but isn't required. Familiarity with C-level programming — pointers, memory layout — makes it much more concrete. → [[languages/04-c/README|C]]
+**Prerequisites:** some [[hardware/02-digital-and-analog|digital logic]] helps but isn't required. Familiarity with C-level programming — pointers, memory layout — makes it much more concrete. → [[languages/04-c/index|C]]
 
 ---
 
 ## Related
 - [[foundations/computer-architecture/02-data-representation|Data Representation]] — how numbers are actually stored
 - [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the most practically important part
-- [[hardware/README|Hardware & Embedded]] — the layer below
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[hardware/index|Hardware & Embedded]] — the layer below
+- [[foundations/computer-architecture/index|Architecture map]]

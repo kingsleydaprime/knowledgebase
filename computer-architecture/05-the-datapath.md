@@ -173,4 +173,4 @@ $$P \approx C V^2 f + \text{leakage}$$
 - [[foundations/computer-architecture/06-pipelining|Pipelining]] — overlapping these stages
 - [[hardware/02-digital-and-analog|Digital and Analog]] — the gates underneath
 - [[foundations/computer-architecture/03-instruction-sets|Instruction Sets]] — what's being executed
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

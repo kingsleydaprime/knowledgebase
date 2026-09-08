@@ -265,4 +265,4 @@ Building with **both GCC and Clang** catches more than either alone — they dis
 - [[languages/04-c/12-build-systems|C: Build Systems]] — Make and the fundamentals
 - [[languages/04-c/13-debugging-and-tooling|C: Debugging and Tooling]] — gdb, Valgrind, perf, all applicable
 - [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — where this belongs
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

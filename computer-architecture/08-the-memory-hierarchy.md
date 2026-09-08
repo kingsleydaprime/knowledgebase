@@ -198,4 +198,4 @@ perf stat -e cache-references,cache-misses,\
 - [[foundations/computer-architecture/09-caches-in-depth|Caches in Depth]] — how they actually work
 - [[foundations/os/04-virtual-memory|Virtual Memory]] — the TLB and page tables
 - [[foundations/computer-architecture/12-performance|Performance]] — the full methodology
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

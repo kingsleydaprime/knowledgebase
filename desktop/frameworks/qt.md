@@ -25,13 +25,13 @@ app.exec()
 
 **Licensing needs actual attention.** Qt is dual-licensed: **LGPLv3** (free, but you must allow users to relink — practically, dynamic linking) or **commercial** (paid, permits static linking and removes obligations). **Check this before building a product on it**, not after → [[foundations/systems-engineering/05-trade-studies|trade studies]].
 
-**Python bindings are first-class.** **PySide6** is the official one (LGPL); **PyQt6** is third-party (GPL or commercial). For a Python developer wanting a genuinely native desktop app, this is the strongest option → [[languages/06-python/README|Python]].
+**Python bindings are first-class.** **PySide6** is the official one (LGPL); **PyQt6** is third-party (GPL or commercial). For a Python developer wanting a genuinely native desktop app, this is the strongest option → [[languages/06-python/index|Python]].
 
 **It's much more than a GUI toolkit** — networking, threading, serialisation, SQL, testing. Closer to a platform, which is a strength and a commitment.
 
-**Heavily used in embedded and industrial HMI**, where a native-feeling UI on constrained hardware matters and Electron is not an option → [[hardware/README|hardware]].
+**Heavily used in embedded and industrial HMI**, where a native-feeling UI on constrained hardware matters and Electron is not an option → [[hardware/index|hardware]].
 
 ## Related
-- [[desktop/frameworks/README|frameworks/]] · [[languages/05-cpp/README|C++]] · [[languages/06-python/README|Python]]
+- [[desktop/frameworks/index|frameworks/]] · [[languages/05-cpp/index|C++]] · [[languages/06-python/index|Python]]
 
 *Source: [reference] — scaffold, from the Qt documentation.*

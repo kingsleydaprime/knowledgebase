@@ -37,7 +37,7 @@ fun CounterView() {
 }
 ```
 
-**Those are the same program.** If you know [[frontend/frameworks/react/README|React]], you already know this model — `@State`/`remember` is `useState`, and `body`/`@Composable` is the render function.
+**Those are the same program.** If you know [[frontend/frameworks/react/index|React]], you already know this model — `@State`/`remember` is `useState`, and `body`/`@Composable` is the render function.
 
 **This convergence is the single most useful fact in mobile right now:** learn the model once and it transfers across SwiftUI, Compose, React Native and Flutter.
 
@@ -91,7 +91,7 @@ Both platforms ship strong accessibility support and both stores care:
 - **Respect the user's text size.** Dynamic Type and Android's font scale are widely used, especially by older users. **Test at 200%** — fixed-height containers break here
 - **Hit targets ≥ 44pt (iOS) / 48dp (Android)**
 - **Honour reduce-motion**
-- **Test with VoiceOver and TalkBack.** Ten minutes, and it finds things nothing else does → [[frontend/06-cross-cutting/README|accessibility]]
+- **Test with VoiceOver and TalkBack.** Ten minutes, and it finds things nothing else does → [[frontend/06-cross-cutting/index|accessibility]]
 
 ## Key insight
 
@@ -99,8 +99,8 @@ Both platforms ship strong accessibility support and both stores care:
 
 ## Related
 - [[mobile/05-state-and-architecture|state and architecture]] — where the state actually lives
-- [[frontend/frameworks/react/README|React]] — the same model, and where it came from
-- [[frontend/02-rendering/README|rendering]] — the general theory
+- [[frontend/frameworks/react/index|React]] — the same model, and where it came from
+- [[frontend/02-rendering/index|rendering]] — the general theory
 - [[mobile/11-performance-and-battery|performance]]
 
 *Source: [reference] — Aug 2026.*

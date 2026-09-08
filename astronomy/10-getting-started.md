@@ -47,7 +47,7 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 
 - **Stellarium** — planetarium software; shows the sky for any time and place. **Start here**
 - **SkySafari** / **Stellarium Mobile** — the same, pointable at the sky
-- **Astropy** — the Python ecosystem for real analysis → [[languages/06-python/README|Python]]
+- **Astropy** — the Python ecosystem for real analysis → [[languages/06-python/index|Python]]
 - **Aladin**, **TOPCAT** — professional sky atlas and catalogue tools, freely available
 - **Clear Outside** — cloud forecasting, which turns out to be the binding constraint most nights
 
@@ -64,7 +64,7 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 - **MAST** (Hubble, JWST, TESS, Kepler), **ESA archives** (Gaia), **SDSS**, **NASA Exoplanet Archive**
 - **arXiv** — nearly every paper, free, usually before journal publication
 
-**A concrete first project:** download a TESS light curve, plot it, and **find the transit dip yourself**. It's an afternoon with Python and Astropy, it uses real data from a real spacecraft, and it produces a plot you can explain → [[foundations/numerical-methods/README|numerical methods]] for the fitting.
+**A concrete first project:** download a TESS light curve, plot it, and **find the transit dip yourself**. It's an afternoon with Python and Astropy, it uses real data from a real spacecraft, and it produces a plot you can explain → [[foundations/numerical-methods/index|numerical methods]] for the fitting.
 
 **That project is the reason this domain is worth a folder in a software vault:** modern astronomy is a data-analysis discipline, and the skills transfer both ways.
 
@@ -80,7 +80,7 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 ## Related
 - [[astronomy/02-the-sky-and-how-it-moves|the sky and how it moves]] — what you're looking at
 - [[astronomy/03-light-and-instruments|light and instruments]] — why aperture wins
-- [[astronomy/README|the domain index]]
-- [[languages/06-python/README|Python]] — the analysis language
+- [[astronomy/index|the domain index]]
+- [[languages/06-python/index|Python]] — the analysis language
 
 *Source: [reference] — written Aug 2026.*

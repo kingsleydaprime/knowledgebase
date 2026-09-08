@@ -139,4 +139,4 @@ git rebase --abort
 - [[git/07-merge-vs-rebase|Merge vs Rebase]] — the rules for when this is safe
 - [[git/01-how-git-works|How Git Actually Works]] — why rewriting produces new SHAs
 - [[git/10-undoing-things|Undoing Things]] — the reflog is how you survive a bad rebase
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

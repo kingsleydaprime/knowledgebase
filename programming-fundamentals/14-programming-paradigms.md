@@ -103,8 +103,8 @@ The tribal era is over. Python has classes, first-class functions, comprehension
 ## Related
 - [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]] — the OO paradigm in depth
 - [[foundations/programming-fundamentals/08-functions|functions]] — purity, introduced
-- [[foundations/programming-language-theory/README|PL theory]] — the formal treatment, much later
-- [[languages/03-rust/README|Rust]] · [[languages/02-go/README|Go]] — two modern languages that deliberately dropped inheritance
-- [[concepts/04-best-practices/README|best practices]] — the habits these produce
+- [[foundations/programming-language-theory/index|PL theory]] — the formal treatment, much later
+- [[languages/03-rust/index|Rust]] · [[languages/02-go/index|Go]] — two modern languages that deliberately dropped inheritance
+- [[concepts/04-best-practices/index|best practices]] — the habits these produce
 
 *Source: [reference] — written Aug 2026 alongside note 13, prompted by `sources/100 CS concepts explained.md`.*

@@ -236,5 +236,5 @@ Many projects (games, embedded) compile with `-fno-rtti` to save binary size, wh
 - [[languages/05-cpp/09-the-stl-containers|The STL Containers]] — `std::variant` and friends
 - [[languages/03-rust/09-traits|Rust: Traits]] — no inheritance at all
 - [[languages/04-c/05-pointers|C: Function Pointers]] — the vtable, by hand
-- [[concepts/03-design-patterns/README|Design Patterns]] — most of which are about avoiding this
-- [[languages/05-cpp/README|C++ course map]]
+- [[concepts/03-design-patterns/index|Design Patterns]] — most of which are about avoiding this
+- [[languages/05-cpp/index|C++ course map]]

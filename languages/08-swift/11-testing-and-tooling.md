@@ -98,7 +98,7 @@ Worth knowing the rituals, because you'll need them:
 - **"Unable to type-check this expression in reasonable time"** — a SwiftUI view or a long expression chain. **Break it into smaller subexpressions with explicit types.** The error never points at the real problem
 - **Previews crash or won't build** — Clean Build Folder (⇧⌘K), restart Xcode. Genuinely the fix, frustratingly
 - **Package resolution stuck** — File → Packages → Reset Package Caches
-- **Signing errors** — usually a mismatch between bundle ID, capabilities and profile → [[mobile/frameworks/ios/README|iOS]]
+- **Signing errors** — usually a mismatch between bundle ID, capabilities and profile → [[mobile/frameworks/ios/index|iOS]]
 - **Derived data corruption** — delete `~/Library/Developer/Xcode/DerivedData`
 
 **These aren't your fault**, and knowing the rituals saves hours of assuming they are.

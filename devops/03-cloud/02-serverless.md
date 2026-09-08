@@ -50,4 +50,4 @@ The honest framing: serverless optimizes for *operational simplicity and idle co
 ## Related
 - [[devops/03-cloud/01-cloud-fundamentals|Cloud Fundamentals]] — the service-model spectrum FaaS sits at the end of
 - [[backend/frameworks/java/02-web-frameworks|Web Frameworks (Java)]] — why native-image compilation matters for FaaS
-- [[devops/05-orchestration/README|Orchestration]] — the "run containers yourself" alternative to serverless containers
+- [[devops/05-orchestration/index|Orchestration]] — the "run containers yourself" alternative to serverless containers

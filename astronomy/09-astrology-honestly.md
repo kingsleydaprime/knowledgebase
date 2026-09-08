@@ -65,7 +65,7 @@ Statements like *"you have a need for others to like you, yet you tend to be cri
 
 **Cold reading.** In person, an astrologer receives constant feedback — expression, posture, what the client volunteers — and unconsciously refines. **This is a real skill and does not require dishonesty**; practitioners frequently believe in what they're doing.
 
-**All six mechanisms are worth knowing independently of astrology.** They explain the persuasiveness of workplace personality typing, some management consulting, a good deal of medical pseudoscience, and why anecdote feels more compelling than data → [[using-ai/06-verifying-what-it-tells-you|verifying what you're told]] · [[research/README|research methods]].
+**All six mechanisms are worth knowing independently of astrology.** They explain the persuasiveness of workplace personality typing, some management consulting, a good deal of medical pseudoscience, and why anecdote feels more compelling than data → [[using-ai/06-verifying-what-it-tells-you|verifying what you're told]] · [[research/index|research methods]].
 
 ## What it does do
 
@@ -84,7 +84,7 @@ It provides **a vocabulary for talking about personality and relationships** —
 ## Related
 - [[astronomy/02-the-sky-and-how-it-moves|the sky and how it moves]] — precession and the zodiac
 - [[astronomy/01-what-astronomy-is|what astronomy is]] — the vocabulary, separated
-- [[research/README|research]] — how a claim like this gets tested
+- [[research/index|research]] — how a claim like this gets tested
 - [[using-ai/06-verifying-what-it-tells-you|verifying what it tells you]] — the same biases, elsewhere
 
 *Source: [reference] — written Aug 2026. Studies cited: Carlson (Nature, 1985); Dean & Kelly (2003); Forer (1949).*

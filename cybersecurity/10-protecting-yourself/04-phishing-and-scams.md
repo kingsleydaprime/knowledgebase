@@ -93,4 +93,4 @@ Most people reading this will at some point be the person a parent or friend cal
 - [[cybersecurity/10-protecting-yourself/03-two-factor-and-passkeys|passkeys]] — the only defence that's phishing-proof by design
 - [[cybersecurity/10-protecting-yourself/08-when-it-goes-wrong|when it goes wrong]]
 - [[cybersecurity/06-attacks-and-threats/01-social-engineering|social engineering]] — the professional treatment
-- [[using-ai/README|using AI]] — why the spelling-mistake tell stopped working
+- [[using-ai/index|using AI]] — why the spelling-mistake tell stopped working

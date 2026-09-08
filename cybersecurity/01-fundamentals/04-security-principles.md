@@ -59,7 +59,7 @@ Two people to authorise a large payment; the developer who writes code isn't the
 
 Two principles that pair:
 
-- **Keep it simple (economy of mechanism).** Complexity is where bugs and misconfigurations hide. A simple system you fully understand is more secure than a clever one you don't — which is why [[web3/README|smart contract]] and [[cybersecurity/11-binary-exploitation/README|security-critical]] code is written to be *reviewable*, not impressive
+- **Keep it simple (economy of mechanism).** Complexity is where bugs and misconfigurations hide. A simple system you fully understand is more secure than a clever one you don't — which is why [[web3/index|smart contract]] and [[cybersecurity/11-binary-exploitation/index|security-critical]] code is written to be *reviewable*, not impressive
 - **No security through obscurity.** Don't rely on attackers *not knowing* how your system works. Assume they have your source code and your design (they often do). **Security must hold even when the design is public** — this is [[cybersecurity/05-cryptography/01-what-is-cryptography|Kerckhoffs's principle]] generalised: a hidden algorithm is not a secure one; a hidden key is. Obscurity can be a *thin extra layer* (defence in depth), never the foundation
 
 ## Complete mediation

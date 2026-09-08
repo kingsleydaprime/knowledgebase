@@ -2,7 +2,7 @@
 
 **[Intermediate]** — The two paradigms, why one won for real-time and the other for film, and what they're both approximating.
 
-**Source:** `[reference]` — see [[foundations/computer-graphics/README|the domain note]].
+**Source:** `[reference]` — see [[foundations/computer-graphics/index|the domain note]].
 
 ## The problem
 
@@ -91,7 +91,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 
 ## Rendering as sampling
 
-**A framing that unifies a surprising amount, and connects to [[foundations/information-theory/README|information theory]].**
+**A framing that unifies a surprising amount, and connects to [[foundations/information-theory/index|information theory]].**
 
 **A pixel is not a point — it's an area.** Its correct colour is the *average* of the image over that area:
 
@@ -111,15 +111,15 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 
 **The reason this domain earns its place here, given it's the furthest from what you build:**
 
-**GPU programming.** Graphics *is* why GPUs exist, and the [[foundations/gpu-and-parallel-computing/README|compute model]] is the graphics model generalised. Understanding the pipeline explains why GPUs are shaped the way they are.
+**GPU programming.** Graphics *is* why GPUs exist, and the [[foundations/gpu-and-parallel-computing/index|compute model]] is the graphics model generalised. Understanding the pipeline explains why GPUs are shaped the way they are.
 
 **Linear algebra and transforms.** The [[robotics/04-rigid-body-transforms|same homogeneous transforms]] as robotics — same matrices, different application. Learning one gives you the other.
 
-**Numerical methods.** Monte Carlo integration, interpolation, splines and ODE integration for physics. → [[foundations/numerical-methods/README|Numerical Methods]]
+**Numerical methods.** Monte Carlo integration, interpolation, splines and ODE integration for physics. → [[foundations/numerical-methods/index|Numerical Methods]]
 
 **Signal processing.** Sampling, filtering, aliasing, reconstruction.
 
-**Simulation and robotics.** Physics engines, collision detection, and rendering for [[robotics/README|robot simulators]] — MuJoCo, Isaac Sim and Gazebo all need this.
+**Simulation and robotics.** Physics engines, collision detection, and rendering for [[robotics/index|robot simulators]] — MuJoCo, Isaac Sim and Gazebo all need this.
 
 **Machine learning.** Differentiable rendering, NeRFs and Gaussian splatting are graphics and ML fused, and the rendering equation is what they're learning to invert.
 
@@ -131,12 +131,12 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 
 **08–09 are geometry and animation.**
 
-**Prerequisites:** [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 02 already** if you've read it.
+**Prerequisites:** [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 02 already** if you've read it.
 
 ---
 
 ## Related
 - [[foundations/computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — getting from 3D to 2D
 - [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — the other paradigm
-- [[foundations/gpu-and-parallel-computing/README|GPU and Parallel Computing]] — the hardware this drove
-- [[foundations/computer-graphics/README|Computer graphics map]]
+- [[foundations/gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove
+- [[foundations/computer-graphics/index|Computer graphics map]]

@@ -44,11 +44,11 @@ Embedded is software running on hardware that isn't a general-purpose computer: 
 
 **Concurrency is interrupts, not threads.** An interrupt can fire between any two instructions. Shared state between an ISR and main code needs `volatile`, atomics, or disabled interrupts — and getting it wrong produces bugs that appear once a week → [[foundations/os/10-signals-and-ipc|signals]].
 
-**What you need:** C, properly — pointers, memory layout, undefined behaviour → [[languages/04-c/README|C]]. Then datasheets, the common protocols (I2C, SPI, UART, CAN) → [[hardware/05-communication-protocols|communication protocols]], interrupts and timers, and enough electronics to read a schematic and not damage the board → [[hardware/01-electricity|electricity]].
+**What you need:** C, properly — pointers, memory layout, undefined behaviour → [[languages/04-c/index|C]]. Then datasheets, the common protocols (I2C, SPI, UART, CAN) → [[hardware/05-communication-protocols|communication protocols]], interrupts and timers, and enough electronics to read a schematic and not damage the board → [[hardware/01-electricity|electricity]].
 
-**Rust is a genuine and growing option here** — `no_std` embedded Rust gives memory safety without a runtime, which is exactly the pitch for a field where memory bugs are expensive and unreachable → [[languages/03-rust/README|Rust]].
+**Rust is a genuine and growing option here** — `no_std` embedded Rust gives memory safety without a runtime, which is exactly the pitch for a field where memory bugs are expensive and unreachable → [[languages/03-rust/index|Rust]].
 
-**You already have an unusual amount of this.** [[hardware/README|hardware/]] is 10 notes plus a **fabricated PCB**, and [[projects/README|projects/]] has the IoT bridge. **That combination — real firmware plus a board you designed — is rare among software engineers** and is the single strongest thing you own for entering this field.
+**You already have an unusual amount of this.** [[hardware/index|hardware/]] is 10 notes plus a **fabricated PCB**, and [[projects/index|projects/]] has the IoT bridge. **That combination — real firmware plus a board you designed — is rare among software engineers** and is the single strongest thing you own for entering this field.
 
 ## Real-time and safety-critical
 
@@ -65,13 +65,13 @@ Frequently confused with embedded; **not the same thing.**
 
 ## The others, briefly
 
-**Systems** — operating systems, databases, compilers, browsers, runtimes. Performance in microseconds; correctness under concurrency. → [[foundations/os/README|OS]] · [[foundations/compilers/README|compilers]] · [[databases/README|databases]]
+**Systems** — operating systems, databases, compilers, browsers, runtimes. Performance in microseconds; correctness under concurrency. → [[foundations/os/index|OS]] · [[foundations/compilers/index|compilers]] · [[databases/index|databases]]
 
-**Games** — [[game-development/README|its own folder]].
+**Games** — [[game-development/index|its own folder]].
 
-**Scientific / HPC** — simulation, modelling, numerical methods at scale. Fortran is genuinely alive here. Correctness means *numerical* correctness → [[foundations/numerical-methods/README|numerical methods]] · [[foundations/gpu-and-parallel-computing/README|GPU]].
+**Scientific / HPC** — simulation, modelling, numerical methods at scale. Fortran is genuinely alive here. Correctness means *numerical* correctness → [[foundations/numerical-methods/index|numerical methods]] · [[foundations/gpu-and-parallel-computing/index|GPU]].
 
-**Desktop** — [[desktop/README|its own folder]].
+**Desktop** — [[desktop/index|its own folder]].
 
 **Firmware and drivers** — the layer between the OS and the hardware. Deep hardware knowledge, and bugs crash the machine.
 
@@ -89,17 +89,17 @@ Frequently confused with embedded; **not the same thing.**
 
 ## The realistic advice
 
-**Don't pick a branch yet.** Depth in one thing plus literacy in the neighbours beats a shallow tour, and the fundamentals — [[foundations/dsa/README|data structures]], [[foundations/networking/README|networking]], [[foundations/os/README|OS]], [[git/README|version control]], debugging — are the same in every branch and are what actually transfers.
+**Don't pick a branch yet.** Depth in one thing plus literacy in the neighbours beats a shallow tour, and the fundamentals — [[foundations/dsa/index|data structures]], [[foundations/networking/index|networking]], [[foundations/os/index|OS]], [[git/index|version control]], debugging — are the same in every branch and are what actually transfers.
 
 **Earn in the branch with the most jobs; explore the others deliberately.** Web and cloud fund the exploration. Embedded, games and systems are smaller markets with fewer, more specialised roles.
 
-**And notice what you already have:** hardware and firmware experience *plus* modern software practice is a genuinely uncommon combination. Robotics, IoT, drones, medical devices and automotive all want exactly that pairing, and most candidates have one half → [[hardware/README|hardware]] · [[robotics/README|robotics]].
+**And notice what you already have:** hardware and firmware experience *plus* modern software practice is a genuinely uncommon combination. Robotics, IoT, drones, medical devices and automotive all want exactly that pairing, and most candidates have one half → [[hardware/index|hardware]] · [[robotics/index|robotics]].
 
 ## Related
 - [[foundations/software-engineering/03-the-engineering-roles|the engineering roles]] — the same field cut by product area
-- [[hardware/README|hardware]] — embedded, hands-on, with a real board
-- [[game-development/README|game development]] · [[desktop/README|desktop]]
-- [[foundations/systems-engineering/README|systems engineering]] — the discipline that coordinates several of these at once
+- [[hardware/index|hardware]] — embedded, hands-on, with a real board
+- [[game-development/index|game development]] · [[desktop/index|desktop]]
+- [[foundations/systems-engineering/index|systems engineering]] — the discipline that coordinates several of these at once
 - [[PRIMETECHIE|the Primetechie path]] — an order to explore in
 
 *Source: [reference] — written Aug 2026 to answer "what other kinds of software engineering are there?", which the roles note didn't cover.*

@@ -168,5 +168,5 @@ $Y$ is the **regressor** and $\boldsymbol\pi$ the parameter vector. **So it's a 
 ## Related
 - [[robotics/09-robot-control|Robot Control]] — putting this into a loop
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — where $J^T$ maps forces
-- [[engineering/01-continuum-mechanics/README|Continuum Mechanics]] — the deformation this assumes away
-- [[robotics/README|Robotics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum Mechanics]] — the deformation this assumes away
+- [[robotics/index|Robotics map]]

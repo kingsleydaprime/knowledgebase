@@ -10,7 +10,7 @@
 
 The data: Microsoft reported that **~70% of the CVEs it assigns are memory-safety issues**. Google reported the same for Chrome, and later that Android's memory-safety vulnerabilities fell from 76% to 24% of the total as new code shifted to memory-safe languages. These aren't hypotheticals about careless programmers — they're the measured output of large teams of excellent C and C++ programmers over decades.
 
-Every buffer overflow, use-after-free, and integer-overflow-into-heap-overflow in that dataset is a class of bug that **cannot occur** in [[languages/02-go/README|Go]], [[backend/frameworks/rust/README|Rust]], Java, or Python.
+Every buffer overflow, use-after-free, and integer-overflow-into-heap-overflow in that dataset is a class of bug that **cannot occur** in [[languages/02-go/index|Go]], [[backend/frameworks/rust/index|Rust]], Java, or Python.
 
 ## What you actually gain
 
@@ -74,7 +74,7 @@ Sub-millisecond p99 with a memory budget in single-digit megabytes. This is rare
 
 The most common real scenario, and there are three good options before "write it in C":
 
-**1. Use [[backend/frameworks/cpp/README|C++]] instead.** If the codebase compiles as C++ or can link against it, Drogon or Crow give you RAII, `std::string`, real containers, a JSON layer, and coroutines. Most of [[backend/frameworks/c/02-parsing-http-safely|the parsing dangers]] become non-issues because `std::string` carries its length and destructors run on every path. **This is usually the right answer.**
+**1. Use [[backend/frameworks/cpp/index|C++]] instead.** If the codebase compiles as C++ or can link against it, Drogon or Crow give you RAII, `std::string`, real containers, a JSON layer, and coroutines. Most of [[backend/frameworks/c/02-parsing-http-safely|the parsing dangers]] become non-issues because `std::string` carries its length and destructors run on every path. **This is usually the right answer.**
 
 **2. Put the network layer in another language and call C via FFI.** Rust or Go handles HTTP; your C library does the domain work behind a narrow, audited interface:
 
@@ -93,7 +93,7 @@ The attacker-facing parsing is memory-safe; the C is reached only through one fu
 
 ## The Rust argument specifically
 
-For the case where C looked right — no GC, minimal footprint, systems-level — [[backend/frameworks/rust/README|Rust]] is the direct replacement:
+For the case where C looked right — no GC, minimal footprint, systems-level — [[backend/frameworks/rust/index|Rust]] is the direct replacement:
 
 - Same performance class, no runtime, static binary
 - Memory safety **enforced at compile time**
@@ -127,7 +127,7 @@ Steps 1 and 2 are cheap and remove most of the exposure. Do those first regardle
 ## Related
 - [[backend/frameworks/c/03-the-c-frameworks|The C Frameworks]] — the options, if the answer is yes
 - [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] — the risk, concretely
-- [[backend/frameworks/rust/README|Rust backends]] — the direct replacement
-- [[backend/frameworks/cpp/README|C++ backends]] — the answer for an existing native codebase
+- [[backend/frameworks/rust/index|Rust backends]] — the direct replacement
+- [[backend/frameworks/cpp/index|C++ backends]] — the answer for an existing native codebase
 - [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Exploits]] — where the CVE numbers come from
-- [[backend/frameworks/c/README|C backends]]
+- [[backend/frameworks/c/index|C backends]]

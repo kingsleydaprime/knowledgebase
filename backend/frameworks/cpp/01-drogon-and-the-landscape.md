@@ -2,7 +2,7 @@
 
 **[Intermediate → Advanced]** — The C++ web framework options, and what a modern one actually looks like now that coroutines exist.
 
-**Source:** `[reference]`. Assumes [[languages/05-cpp/README|the C++ course]].
+**Source:** `[reference]`. Assumes [[languages/05-cpp/index|the C++ course]].
 
 ## The landscape
 
@@ -228,7 +228,7 @@ Use it when you're **building a framework**, implementing a proxy, or need proto
 
 **oat++** if API documentation generation matters to you, or for very constrained targets.
 
-And the framing worth keeping from [[backend/frameworks/c/04-when-not-to-use-c|the C decision]]: **C++ on the server is defensible far more often than C**, because RAII and containers remove the easy memory bugs while keeping the performance. Whether it beats [[backend/frameworks/rust/README|Rust]] or [[languages/02-go/README|Go]] for a *new* service is the question note 05 takes up.
+And the framing worth keeping from [[backend/frameworks/c/04-when-not-to-use-c|the C decision]]: **C++ on the server is defensible far more often than C**, because RAII and containers remove the easy memory bugs while keeping the performance. Whether it beats [[backend/frameworks/rust/index|Rust]] or [[languages/02-go/index|Go]] for a *new* service is the question note 05 takes up.
 
 ---
 
@@ -236,4 +236,4 @@ And the framing worth keeping from [[backend/frameworks/c/04-when-not-to-use-c|t
 - [[backend/frameworks/cpp/02-async-models-and-asio|Async Models and asio]] — the layer underneath all of these
 - [[backend/frameworks/cpp/03-json-and-serialisation|JSON and Serialisation]] — the gap C++ feels most
 - [[languages/05-cpp/13-concurrency|C++: Concurrency]] — coroutines in context
-- [[backend/frameworks/cpp/README|C++ backends]]
+- [[backend/frameworks/cpp/index|C++ backends]]

@@ -95,4 +95,4 @@ The single highest-leverage habit: **talk through all of it**. A silent solve of
 ## Related
 - [[README|NeetCode 150 index & pattern cheat-sheet]] — signal → tool, once you know *what* you're building
 - [[foundations/dsa/05-algorithms/01-algorithms|algorithms]] — the full constraint → complexity table and Big-O reasoning
-- [[foundations/dsa/06-patterns/README|patterns]] · [[foundations/dsa/04-data-structures/03-hash-maps|data structures]] — the tools themselves
+- [[foundations/dsa/06-patterns/index|patterns]] · [[foundations/dsa/04-data-structures/03-hash-maps|data structures]] — the tools themselves

@@ -127,7 +127,7 @@ Also: **recover from errors and keep going.** Reporting one error per compile is
 
 The whole discipline is about moving work from dynamic to static: type checking, dispatch resolution, bounds checks, memory layout. Every check you can do at compile time is one you don't pay for on every execution.
 
-That's the same argument [[languages/03-rust/README|Rust]] makes about ownership, and it's why [[languages/05-cpp/12-constexpr-and-compile-time|`constexpr`]] exists.
+That's the same argument [[languages/03-rust/index|Rust]] makes about ownership, and it's why [[languages/05-cpp/12-constexpr-and-compile-time|`constexpr`]] exists.
 
 ## What you'll actually build
 
@@ -154,4 +154,4 @@ Step 3 is the milestone. A tree-walking interpreter for a small language is a we
 - [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — the first phase
 - [[foundations/compilers/06-intermediate-representations|Intermediate Representations]] — the front/back-end boundary
 - [[languages/04-c/01-why-c-and-the-compilation-model|C: The Compilation Model]] — preprocess/compile/assemble/link, concretely
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

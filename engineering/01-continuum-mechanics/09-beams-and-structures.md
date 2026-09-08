@@ -157,5 +157,5 @@ Worth knowing the boundaries, because the formulas will happily give you a numbe
 - [[engineering/01-continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — what these reduce from
 - [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] — the general method these preceded
 - [[engineering/01-continuum-mechanics/12-failure-and-yield|Failure and Yield]] — whether the stress is acceptable
-- [[hardware/README|Hardware & Embedded]] — where these get built
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[hardware/index|Hardware & Embedded]] — where these get built
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

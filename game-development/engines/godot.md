@@ -8,7 +8,7 @@
 
 **The editor is written in Godot.** The engine is legible in a way Unity and Unreal are not: you can read the source of the thing you're using, and the whole download is ~100 MB.
 
-**GDScript is close to Python** → [[languages/06-python/README|Python]], so if you've done [[foundations/programming-fundamentals/README|programming fundamentals]] you can be productive immediately.
+**GDScript is close to Python** → [[languages/06-python/index|Python]], so if you've done [[foundations/programming-fundamentals/index|programming fundamentals]] you can be productive immediately.
 
 ## The model: everything is a node
 
@@ -55,7 +55,7 @@ func take_damage(amount: int) -> void:
 
 **GDScript** — built in, fast iteration, tight engine integration, no build step. Typed since 4.0 (`var x: int`), and **use the types** — they catch errors and speed up execution.
 
-**C#** — available via the .NET build, better performance for heavy computation, and a real type system → [[languages/07-csharp/README|C#]]. The cost: a build step, slightly rougher tooling, and **no web export** on some versions.
+**C#** — available via the .NET build, better performance for heavy computation, and a real type system → [[languages/07-csharp/index|C#]]. The cost: a build step, slightly rougher tooling, and **no web export** on some versions.
 
 **Start with GDScript.** Use C# where you have a genuine CPU-bound hotspot, or you already know it.
 
@@ -70,8 +70,8 @@ func take_damage(amount: int) -> void:
 **Fewer jobs.** Growing, and still far behind Unity → [[game-development/01-what-game-development-actually-is|the industry, honestly]].
 
 ## Related
-- [[game-development/engines/README|engines/]] · [[game-development/engines/unity|Unity]]
+- [[game-development/engines/index|engines/]] · [[game-development/engines/unity|Unity]]
 - [[game-development/08-getting-started|getting started]] — the project ladder
-- [[languages/06-python/README|Python]] — the closest neighbour to GDScript
+- [[languages/06-python/index|Python]] — the closest neighbour to GDScript
 
 *Source: [reference] — from the Godot documentation, Aug 2026.*

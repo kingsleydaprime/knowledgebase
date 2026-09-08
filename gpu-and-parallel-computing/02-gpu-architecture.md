@@ -111,7 +111,7 @@ $$D = A\times B + C \qquad\text{for small tiles, e.g. } 16\times16$$
 
 > **This is where modern ML performance actually comes from.** An H100 delivers ~67 TFLOPS of general FP32 and **~990 TFLOPS of FP16 through tensor cores** — roughly 15×.
 >
-> **Which is why mixed precision isn't a minor optimisation.** Training in FP16/BF16 with FP32 accumulation isn't about saving memory primarily — **it's about accessing hardware that's an order of magnitude faster.** → [[ai-ml/02-ml-engineer/05-deep-learning/README|Deep Learning]]
+> **Which is why mixed precision isn't a minor optimisation.** Training in FP16/BF16 with FP32 accumulation isn't about saving memory primarily — **it's about accessing hardware that's an order of magnitude faster.** → [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]]
 
 **Precision formats and why they exist:**
 
@@ -163,4 +163,4 @@ $$D = A\times B + C \qquad\text{for small tiles, e.g. } 16\times16$$
 - [[foundations/gpu-and-parallel-computing/03-the-programming-model|The Programming Model]] — writing code for this
 - [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — coalescing and shared memory
 - [[foundations/computer-architecture/01-what-architecture-is|Computer Architecture]] — the CPU it's contrasted with
-- [[foundations/gpu-and-parallel-computing/README|GPU and parallel map]]
+- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]

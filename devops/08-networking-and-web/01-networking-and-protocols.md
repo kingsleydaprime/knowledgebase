@@ -38,8 +38,8 @@ Two operational realities: **TTL** (time-to-live) controls how long a record is 
 **HTTPS** is HTTP over **TLS**. The essentials a DevOps engineer must own:
 
 - TLS provides **encryption** (eavesdroppers can't read traffic), **integrity** (it can't be tampered with), and **authentication** (the server is who it claims, via a certificate signed by a trusted CA).
-- The **handshake** negotiates keys before any HTTP flows (asymmetric crypto to exchange a symmetric session key — see [[cybersecurity/05-cryptography/README|cryptography]]).
-- **Certificates** expire — an expired cert is a classic, embarrassing outage. **Let's Encrypt** + automated renewal (certbot, or a reverse proxy like Caddy that does it automatically) is the standard fix. Certs and their private keys are [[devops/09-secret-management/README|secrets]].
+- The **handshake** negotiates keys before any HTTP flows (asymmetric crypto to exchange a symmetric session key — see [[cybersecurity/05-cryptography/index|cryptography]]).
+- **Certificates** expire — an expired cert is a classic, embarrassing outage. **Let's Encrypt** + automated renewal (certbot, or a reverse proxy like Caddy that does it automatically) is the standard fix. Certs and their private keys are [[devops/09-secret-management/index|secrets]].
 
 ## SSH
 
@@ -58,5 +58,5 @@ If you ever send transactional email from an app and it lands in spam, misconfig
 ## Related
 - [[devops/01-linux/13-network-fundamentals|Linux Network Fundamentals]] — the host-level, hands-on view
 - [[devops/08-networking-and-web/02-web-servers-and-proxies|Web Servers & Proxies]] — what terminates TLS and routes HTTP
-- [[cybersecurity/05-cryptography/README|Cryptography]] — the crypto under TLS
-- [[cybersecurity/03-network-security/README|Network Security]] — the security cut of the same protocols
+- [[cybersecurity/05-cryptography/index|Cryptography]] — the crypto under TLS
+- [[cybersecurity/03-network-security/index|Network Security]] — the security cut of the same protocols

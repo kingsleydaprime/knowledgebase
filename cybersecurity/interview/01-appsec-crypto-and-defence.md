@@ -1,6 +1,6 @@
 # Security Interview — AppSec, Crypto & Defence
 
-From [[cybersecurity/04-web-security/README|04-web-security]], [[cybersecurity/05-cryptography/README|05-cryptography]], [[cybersecurity/06-attacks-and-threats/README|06-attacks-and-threats]], [[cybersecurity/07-security-operations/README|07-security-operations]].
+From [[cybersecurity/04-web-security/index|04-web-security]], [[cybersecurity/05-cryptography/index|05-cryptography]], [[cybersecurity/06-attacks-and-threats/index|06-attacks-and-threats]], [[cybersecurity/07-security-operations/index|07-security-operations]].
 
 ---
 

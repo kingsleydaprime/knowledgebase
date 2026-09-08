@@ -69,6 +69,6 @@ Take your diagnostic from #7 and write it up for a non-technical executive: **le
 If you do only three: **#5** (reproduce a join fan-out — the bug that silently wrongs your numbers), **#7** (run a real diagnostic — the case-study half of the interview), and **#12** (write the one-pager — because the deliverable is a decision, not a query). The SQL drills #1–4 are worth doing until they're *reflexive*, because the live SQL screen doesn't wait.
 
 ## Related
-- [[data-analysis/README|the data analysis course]] · [[data-analysis/projects|projects]] — the larger deliverables
+- [[data-analysis/index|the data analysis course]] · [[data-analysis/projects|projects]] — the larger deliverables
 - [[data-analysis/10-practice-exercises-solutions|solutions]]
 - [[databases/13-practice-exercises|the databases exercises]] — deeper on SQL internals

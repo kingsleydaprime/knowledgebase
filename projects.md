@@ -47,7 +47,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 - 🟢 **Demonstrate false sharing** — two threads incrementing adjacent array elements, then padded to 64 bytes. **Watch a parallel program get faster by adding memory** → [[foundations/computer-architecture/09-caches-in-depth|caches]].
 - 🟡 ⭐ **Matrix multiply, three ways** — naive, loop-interchanged, blocked. Measure each. **A 10× spread from reordering identical arithmetic** is the single best demonstration of [[foundations/computer-architecture/08-the-memory-hierarchy|the memory hierarchy]].
 - 🟡 **Prove three things on paper** — $\{a^nb^n\}$ isn't regular, the halting problem is undecidable, one NP-completeness reduction. **Reading a proof and producing one are different skills** → [[foundations/discrete-math/03-proof-techniques|proof techniques]].
-- 🟡 ⭐ **Build a regex engine** — Thompson's construction → subset construction → simulate the DFA. A few hundred lines, and it makes [[foundations/theory-of-computation/02-finite-automata|the regex/NFA/DFA equivalence]] concrete. **This is the missing ninth guide in [[build-your-own-shit/README|build-your-own-shit]].**
+- 🟡 ⭐ **Build a regex engine** — Thompson's construction → subset construction → simulate the DFA. A few hundred lines, and it makes [[foundations/theory-of-computation/02-finite-automata|the regex/NFA/DFA equivalence]] concrete. **This is the missing ninth guide in [[build-your-own-shit/index|build-your-own-shit]].**
 - 🔴 **Write a SAT solver** — DPLL is short; adding clause learning makes it genuinely useful. The best way to understand why [[foundations/theory-of-computation/07-complexity-classes|NP-completeness]] is survivable in practice.
 - 🔴 **Lean's Natural Number Game, then a real proof in Lean** — a proof assistant will not let you skip a step, which is exactly the discipline reading proofs doesn't build.
 
@@ -63,17 +63,17 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## Systems — where the build guides live
 
-The deepest foundations reps are all written up as full guides in [[build-your-own-shit/README|build-your-own-shit/]]:
+The deepest foundations reps are all written up as full guides in [[build-your-own-shit/index|build-your-own-shit/]]:
 
 | | Guide | Makes concrete |
 |---|---|---|
-| 🟠 | [[build-your-own-shit/07-your-own-shell\|Shell]] | [[foundations/os/README\|OS]] — `fork`/`exec`, fds, pipes |
+| 🟠 | [[build-your-own-shit/07-your-own-shell\|Shell]] | [[foundations/os/index\|OS]] — `fork`/`exec`, fds, pipes |
 | 🟠 | [[build-your-own-shit/08-your-own-container\|Container]] | [[foundations/os/11-isolation-and-containers\|namespaces and cgroups]] |
-| 🟠 | [[build-your-own-shit/01-http-server\|HTTP server]] | [[foundations/networking/README\|networking]] |
-| 🔴 | [[build-your-own-shit/09-your-own-regex-engine\|Regex engine]] | [[foundations/theory-of-computation/README\|automata]] — **theory to code, one evening** |
-| 🔴 | [[build-your-own-shit/04-your-own-language\|Language]] | [[foundations/compilers/README\|compilers]] — the deepest single lesson |
+| 🟠 | [[build-your-own-shit/01-http-server\|HTTP server]] | [[foundations/networking/index\|networking]] |
+| 🔴 | [[build-your-own-shit/09-your-own-regex-engine\|Regex engine]] | [[foundations/theory-of-computation/index\|automata]] — **theory to code, one evening** |
+| 🔴 | [[build-your-own-shit/04-your-own-language\|Language]] | [[foundations/compilers/index\|compilers]] — the deepest single lesson |
 | 🔴 | [[build-your-own-shit/11-your-own-memory-allocator\|Memory allocator]] | [[foundations/os/05-memory-allocation\|memory]] |
-| 🔴 | [[build-your-own-shit/05-your-own-os\|Operating system]] | all of [[foundations/os/README\|OS]] — weeks, not a weekend |
+| 🔴 | [[build-your-own-shit/05-your-own-os\|Operating system]] | all of [[foundations/os/index\|OS]] — weeks, not a weekend |
 
 ## Practice exercises already written
 
@@ -82,12 +82,12 @@ Several foundations courses ship exercises with solutions. **Do these before inv
 
 ## If you only do one
 
-**The regex engine.** One evening, ~200 lines, and it converts the most abstract folder in the vault ([[foundations/theory-of-computation/README|theory of computation]]) into running code — plus yours beats Python's `re` on adversarial input, which is a genuinely satisfying result.
+**The regex engine.** One evening, ~200 lines, and it converts the most abstract folder in the vault ([[foundations/theory-of-computation/index|theory of computation]]) into running code — plus yours beats Python's `re` on adversarial input, which is a genuinely satisfying result.
 
 
 ## Related
-- [[foundations/README|the foundations index]] — all fifteen courses
+- [[foundations/index|the foundations index]] — all fifteen courses
 
-- [[foundations/dsa/README|DSA]] · [[foundations/os/README|OS]] · [[foundations/compilers/README|compilers]] · [[foundations/networking/README|networking]]
-- [[build-your-own-shit/README|build-your-own-shit]] — the systems reps
+- [[foundations/dsa/index|DSA]] · [[foundations/os/index|OS]] · [[foundations/compilers/index|compilers]] · [[foundations/networking/index|networking]]
+- [[build-your-own-shit/index|build-your-own-shit]] — the systems reps
 - [[project-ideas|Project Ideas]] — the vault-wide index

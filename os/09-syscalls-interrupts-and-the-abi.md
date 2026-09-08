@@ -185,4 +185,4 @@ This is what `bcc`, `bpftrace`, Cilium, Falco and most modern observability tool
 - [[foundations/os/08-io-models|I/O Models]] — why batching syscalls matters
 - [[foundations/os/10-signals-and-ipc|Signals and IPC]] — the kernel interrupting *you*
 - [[languages/03-rust/15-unsafe-and-ffi|Rust: FFI]] — the ABI in use
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]

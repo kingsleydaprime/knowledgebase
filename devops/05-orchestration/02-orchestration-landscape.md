@@ -26,7 +26,7 @@ Managed k8s removes the hardest, most dangerous part (control-plane operation an
 
 ## OpenShift — the enterprise distribution
 
-**Red Hat OpenShift** is Kubernetes plus an opinionated enterprise layer: built-in CI/CD, an integrated container registry, stricter security defaults (it won't let containers run as root by default), a developer console, and commercial support. It's k8s underneath, so skills transfer, but it adds guardrails and batteries that large regulated organizations want. Common in enterprises already on Red Hat — which connects to the RHEL material in [[devops/01-linux/15-rhcsa/README|the RHCSA track]].
+**Red Hat OpenShift** is Kubernetes plus an opinionated enterprise layer: built-in CI/CD, an integrated container registry, stricter security defaults (it won't let containers run as root by default), a developer console, and commercial support. It's k8s underneath, so skills transfer, but it adds guardrails and batteries that large regulated organizations want. Common in enterprises already on Red Hat — which connects to the RHEL material in [[devops/01-linux/15-rhcsa/index|the RHCSA track]].
 
 ## How to choose
 
@@ -40,5 +40,5 @@ The meta-point: the interesting decision is rarely "which orchestrator" — it's
 
 ## Related
 - [[devops/05-orchestration/01-kubernetes|Kubernetes]] — the standard the rest of this landscape is measured against
-- [[devops/03-cloud/README|Cloud]] — where managed k8s runs
+- [[devops/03-cloud/index|Cloud]] — where managed k8s runs
 - [[devops/03-cloud/02-serverless|Serverless]] — the "skip orchestration" alternative

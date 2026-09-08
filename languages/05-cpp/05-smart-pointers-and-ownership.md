@@ -212,4 +212,4 @@ std::string_view sv = std::string("temp");   // DANGLING immediately
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — why `unique_ptr` is move-only
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Rust: Smart Pointers]] — `Box`/`Rc`/`Weak`, the same set
 - [[languages/04-c/07-memory-management|C: Memory Management]] — what this replaces
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

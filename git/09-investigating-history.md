@@ -145,4 +145,4 @@ git bisect run ./test.sh               # Automatically bisects using the script
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — good messages are what make `log` searchable at all
 - [[git/git-troubleshooting|Troubleshooting]] — when investigation turns into recovery
 - [[devops/01-linux/03-file-operations|File Operations (Linux)]] — `grep` and pipes, which most of these commands feed into
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

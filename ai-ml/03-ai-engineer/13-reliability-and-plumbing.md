@@ -69,7 +69,7 @@ An **AI gateway** (LiteLLM, Portkey, a provider's own, or a thin in-house proxy)
 - **rate-limit handling and load-balancing** across keys/regions,
 - **caching** ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost, caching & latency]]), **cost tracking**, and **observability** (logging every call's prompt, tokens, latency, cost).
 
-The payoff: your application code stays about the *feature*, and the cross-cutting reliability concerns live in one swappable layer. For a prototype a gateway is optional; for anything multi-provider or production-facing it's usually the right backbone. (This is the LLM-shaped slice of general [[devops/10-observability/README|observability]] and resilience engineering — the patterns are the same ones you'd apply to any critical downstream dependency.)
+The payoff: your application code stays about the *feature*, and the cross-cutting reliability concerns live in one swappable layer. For a prototype a gateway is optional; for anything multi-provider or production-facing it's usually the right backbone. (This is the LLM-shaped slice of general [[devops/10-observability/index|observability]] and resilience engineering — the patterns are the same ones you'd apply to any critical downstream dependency.)
 
 ## Gotchas
 
