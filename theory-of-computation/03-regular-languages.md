@@ -145,4 +145,4 @@ Define $x \equiv_L y$ if **no suffix distinguishes them**: for every $z$, $xz\in
 - [[foundations/theory-of-computation/02-finite-automata|Finite Automata]] — the machines
 - [[foundations/theory-of-computation/04-context-free-languages|Context-Free Languages]] — what you need when this isn't enough
 - [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — regular languages, industrially
-- [[foundations/theory-of-computation/README|Theory of computation map]]
+- [[foundations/theory-of-computation/index|Theory of computation map]]

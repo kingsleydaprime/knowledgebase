@@ -76,7 +76,7 @@ $$c_p = \sqrt{\frac{\lambda + 2\mu}{\rho}} \qquad\qquad c_s = \sqrt{\frac{\mu}{\
 
 **P-waves** (pressure, longitudinal) are faster; **S-waves** (shear, transverse) are slower and **cannot travel through fluids**, since fluids have $\mu = 0$.
 
-That last fact is how we know Earth has a liquid outer core: S-waves from earthquakes leave a shadow zone on the far side. A continuum-mechanics result that maps the planet's interior. → [[hardware/README|hardware]] uses the same wave physics for ultrasonic sensing.
+That last fact is how we know Earth has a liquid outer core: S-waves from earthquakes leave a shadow zone on the far side. A continuum-mechanics result that maps the planet's interior. → [[hardware/index|hardware]] uses the same wave physics for ultrasonic sensing.
 
 ## The two-dimensional simplifications
 
@@ -156,4 +156,4 @@ That's a strong guarantee and it's why linear elastic FE is reliable: there is o
 - [[engineering/01-continuum-mechanics/07-constitutive-models|Constitutive Models]] — where Hooke's law sits among alternatives
 - [[engineering/01-continuum-mechanics/09-beams-and-structures|Beams and Structures]] — the engineering specialisations
 - [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] — solving this numerically
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

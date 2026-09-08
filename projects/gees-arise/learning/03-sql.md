@@ -104,4 +104,4 @@ where title ilike '%roadmap%' or title ilike '%progress on both%'
 - [[databases/sql-reference|SQL reference]] · [[databases/database-design-reference|Database design]]
 - [[databases/interview/01-sql-modelling-and-internals|Databases interview]] — indexes, isolation levels, query plans
 
-↑ [[projects/README|All projects and the domains they exercise]]
+↑ [[projects/index|All projects and the domains they exercise]]

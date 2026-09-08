@@ -73,7 +73,7 @@ chrt -d ./task                # SCHED_DEADLINE — specify runtime/period/deadli
 
 `SCHED_FIFO` and `SCHED_RR` **always** preempt normal tasks. A runaway FIFO task with no blocking can lock up a core — hence `sched_rt_runtime_us`, which reserves 5% of each period for normal tasks by default.
 
-`SCHED_DEADLINE` is the most principled: you declare "I need 2ms of CPU every 10ms", and the kernel admission-controls it. That's the right tool for genuine real-time work — audio, motor control, robotics. → [[robotics/README|robotics]]
+`SCHED_DEADLINE` is the most principled: you declare "I need 2ms of CPU every 10ms", and the kernel admission-controls it. That's the right tool for genuine real-time work — audio, motor control, robotics. → [[robotics/index|robotics]]
 
 ## Multicore: run queues, load balancing, affinity
 
@@ -143,7 +143,7 @@ java -XX:ActiveProcessorCount=2               # JVM (usually detects it, verify)
 UV_THREADPOOL_SIZE=4                          # Node's libuv pool
 ```
 
-**And prefer CPU *requests* over hard *limits*** in Kubernetes for latency-sensitive services. Requests give you a guaranteed share via `cpu.weight` without the throttle cliff. → [[devops/05-orchestration/README|Orchestration]]
+**And prefer CPU *requests* over hard *limits*** in Kubernetes for latency-sensitive services. Requests give you a guaranteed share via `cpu.weight` without the throttle cliff. → [[devops/05-orchestration/index|Orchestration]]
 
 This single mechanism explains a large fraction of "our service is slow in Kubernetes but fine locally" reports.
 
@@ -181,4 +181,4 @@ cat /proc/pressure/cpu               # PSI — how much time is LOST to CPU cont
 - [[foundations/os/11-isolation-and-containers|Isolation and Containers]] — cgroups in full
 - [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] — blocking, and priority inheritance
 - [[languages/02-go/13-performance-and-runtime|Go: the G-M-P scheduler]] — a user-space scheduler on top of this
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]

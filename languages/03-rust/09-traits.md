@@ -173,7 +173,7 @@ What you get instead:
 - **Shared data** → composition; put the common struct in a field
 - **Polymorphism** → generics (static) or `dyn Trait` (dynamic)
 
-This means no fragile base class problem, no diamond problem, and no "where is this method actually defined" archaeology. It also means genuinely deep hierarchies are awkward — which is mostly a feature, since [[concepts/03-design-patterns/README|composition over inheritance]] is the advice everywhere anyway. Rust just removed the option.
+This means no fragile base class problem, no diamond problem, and no "where is this method actually defined" archaeology. It also means genuinely deep hierarchies are awkward — which is mostly a feature, since [[concepts/03-design-patterns/index|composition over inheritance]] is the advice everywhere anyway. Rust just removed the option.
 
 ---
 
@@ -182,4 +182,4 @@ This means no fragile base class problem, no diamond problem, and no "where is t
 - [[languages/03-rust/11-collections-and-iterators|Collections and Iterators]] — `Iterator`, the best trait in the library
 - [[languages/02-go/04-methods-and-interfaces|Go: Interfaces]] — implicit satisfaction, for contrast
 - [[languages/01-java/01-language/02-oop|Java: OOP]] — the inheritance model Rust rejected
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

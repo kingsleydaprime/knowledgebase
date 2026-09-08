@@ -177,4 +177,4 @@ enum State {
 - [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness
 - [[foundations/discrete-math/02-logic|Logic]] — the other half of the correspondence
 - [[foundations/discrete-math/03-proof-techniques|Proof Techniques]] — constructive vs classical
-- [[foundations/programming-language-theory/README|PL theory map]]
+- [[foundations/programming-language-theory/index|PL theory map]]

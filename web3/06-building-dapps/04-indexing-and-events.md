@@ -38,7 +38,7 @@ Every indexer is the same pipeline:
   Postgres  ──►  GraphQL / REST  ──►  your frontend
 ```
 
-**You are building a read model over an event stream.** It's [[architecture/03-architectural-patterns/README|CQRS/event sourcing]], with the chain as an immutable event log you don't control — which is a genuinely clean fit, and worth recognising because all the usual patterns and pitfalls apply.
+**You are building a read model over an event stream.** It's [[architecture/03-architectural-patterns/index|CQRS/event sourcing]], with the chain as an immutable event log you don't control — which is a genuinely clean fit, and worth recognising because all the usual patterns and pitfalls apply.
 
 ## The options
 
@@ -111,5 +111,5 @@ entities:  User, Position, Trade, DailyStats
 ## Related
 - [[web3/03-smart-contracts-with-solidity/05-events-and-logs|events and logs]] — the producer side
 - [[web3/06-building-dapps/01-the-dapp-architecture|the dapp architecture]]
-- [[architecture/03-architectural-patterns/README|architectural patterns]] — CQRS and event sourcing
-- [[databases/README|databases]] — where the read model lives
+- [[architecture/03-architectural-patterns/index|architectural patterns]] — CQRS and event sourcing
+- [[databases/index|databases]] — where the read model lives

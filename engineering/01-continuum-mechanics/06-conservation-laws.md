@@ -181,4 +181,4 @@ The "essential/natural" naming comes from the variational formulation, where ess
 - [[engineering/01-continuum-mechanics/05-stress|Stress]] — what the momentum balance is written in
 - [[engineering/01-continuum-mechanics/07-constitutive-models|Constitutive Models]] — the six missing equations
 - [[engineering/01-continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]] — the fluid specialisation
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

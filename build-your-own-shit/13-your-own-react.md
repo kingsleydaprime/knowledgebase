@@ -98,7 +98,7 @@ Collect effects during render, run them **after commit**, and run the previous c
 **10. Optional: signals instead.**
 Rebuild the same app with **fine-grained reactivity** — a `signal()` that tracks which computations read it and re-runs only those, with no virtual DOM and no diffing.
 
-*Works when:* updating one value re-runs one computation rather than a component function. **~100 lines, and it makes the [[frontend/frameworks/README|React vs Solid/Svelte comparison]] something you've felt** rather than read.
+*Works when:* updating one value re-runs one computation rather than a component function. **~100 lines, and it makes the [[frontend/frameworks/index|React vs Solid/Svelte comparison]] something you've felt** rather than read.
 
 ## The parts that will bite you
 
@@ -134,8 +134,8 @@ Rebuild the same app with **fine-grained reactivity** — a `signal()` that trac
 
 ## Related
 - [[frontend/frameworks/react/01-the-react-model|the React model]] — what you're reimplementing
-- [[frontend/frameworks/README|frameworks/]] — the reactivity-model comparison step 10 illuminates
+- [[frontend/frameworks/index|frameworks/]] — the reactivity-model comparison step 10 illuminates
 - [[build-your-own-shit/04-your-own-language|your own language]] — the same premise, other end of the stack
-- [[foundations/compilers/README|compilers]] — JSX transpilation
+- [[foundations/compilers/index|compilers]] — JSX transpilation
 
 *Source: [reference] — build guide, Aug 2026.*

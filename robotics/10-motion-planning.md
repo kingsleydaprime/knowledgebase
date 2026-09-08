@@ -10,7 +10,7 @@ A robot's **configuration** $q$ is the vector of everything that determines its 
 
 **The trick:**
 
-> **In C-space, the robot is a *point*.** Its whole geometry has been folded into the definition of the space, and obstacles become forbidden regions.
+> **In C-space, the robot is a _point_.** Its whole geometry has been folded into the definition of the space, and obstacles become forbidden regions.
 
 ```
   workspace                    C-space
@@ -38,10 +38,10 @@ So planning becomes: **find a curve from $q_{start}$ to $q_{goal}$ that stays in
 
 **Practical points, all of which matter more than the planner choice:**
 
-- **Self-collision matters.** An arm can hit itself, and it's the constraint people forget. Pre-compute which link pairs *can never* touch and skip them permanently — this is a large saving
+- **Self-collision matters.** An arm can hit itself, and it's the constraint people forget. Pre-compute which link pairs _can never_ touch and skip them permanently — this is a large saving
 - **Simplify geometry.** Convex hulls or capsules instead of full meshes. **An order of magnitude faster** and rarely less safe if you add margin
 - **Add a safety margin.** Plan with the robot inflated slightly; execution isn't perfect
-- **Discrete checking misses things.** Checking waypoints can step *through* a thin obstacle between samples. Use continuous collision detection, or a step size smaller than the thinnest obstacle
+- **Discrete checking misses things.** Checking waypoints can step _through_ a thin obstacle between samples. Use continuous collision detection, or a step size smaller than the thinnest obstacle
 
 ## Grid and graph search
 
@@ -89,7 +89,7 @@ until q_new is near q_goal
 
 **Why it works:** the nearest-neighbour step biases growth toward unexplored regions — large Voronoi regions get sampled more often. **It explores outward aggressively** rather than filling in locally, which is exactly right for finding a way through a maze-like space.
 
-**RRT-Connect** grows trees from *both* ends and tries to join them. **Dramatically faster in practice**, and it's the default in MoveIt.
+**RRT-Connect** grows trees from _both_ ends and tries to join them. **Dramatically faster in practice**, and it's the default in MoveIt.
 
 **The caveat: RRT paths are ugly.** Jagged, wandering, and far from optimal. **Always post-process** — shortcut smoothing (repeatedly try to replace two waypoints with a direct connection) removes most of the ugliness in a few milliseconds and is essentially mandatory.
 
@@ -125,7 +125,7 @@ A car cannot move sideways, so **not every path in C-space is drivable**.
 
 $$\dot{x}\sin\theta - \dot{y}\cos\theta = 0$$
 
-**The constraint is on velocities, not positions.** The car can *reach* any pose (parallel parking works), it just can't get there directly. → [[robotics/01-what-robotics-actually-is|Degrees of freedom]]
+**The constraint is on velocities, not positions.** The car can _reach_ any pose (parallel parking works), it just can't get there directly. → [[robotics/01-what-robotics-actually-is|Degrees of freedom]]
 
 **Consequences for planning:**
 
@@ -146,7 +146,7 @@ $$\dot{x}\sin\theta - \dot{y}\cos\theta = 0$$
 
 ## Task and behaviour layers
 
-Above motion planning sits *what to do*.
+Above motion planning sits _what to do_.
 
 **Task planning** — symbolic. "To make tea: fill kettle, boil, pour." PDDL and classical planners. **Task and Motion Planning (TAMP)** interleaves the two, because whether a symbolic action is possible depends on geometry — you can't grasp the mug if the arm can't reach it.
 
@@ -171,7 +171,8 @@ Above motion planning sits *what to do*.
 ---
 
 ## Related
+
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — called constantly inside planning
 - [[robotics/09-robot-control|Robot Control]] — executing what this produces
 - [[foundations/dsa/05-algorithms/06-dijkstra|Dijkstra and graph search]] — A*, Dijkstra, graph search
-- [[robotics/README|Robotics map]]
+- [[robotics/index|Robotics map]]

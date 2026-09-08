@@ -77,5 +77,5 @@ Tune to 1090 MHz and decode ADS-B transponder messages (`dump1090`), then plot t
 If you do only three: **#1** (a tone becomes a spike — the frequency domain made concrete), **#5** (prove the convolution theorem — the hinge of the field), and **#2** (make aliasing happen — the sampling theorem you can hear). Then buy the dongle for #11–12.
 
 ## Related
-- [[foundations/digital-signal-processing/README|the DSP course]] · [[foundations/digital-signal-processing/projects|projects]] — the larger builds
+- [[foundations/digital-signal-processing/index|the DSP course]] · [[foundations/digital-signal-processing/projects|projects]] — the larger builds
 - [[foundations/digital-signal-processing/11-practice-exercises-solutions|solutions]]

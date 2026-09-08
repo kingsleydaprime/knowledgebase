@@ -56,12 +56,15 @@ python -m timeit -s "setup" "statement"               # micro-benchmarks, done r
 ## The ordered list
 
 ### 1. Fix the algorithm
-An O(n²) loop is not rescued by a faster language. `x in list` inside a loop → use a `set`. Repeated `list.pop(0)` → use `deque`. **This is where the big wins are and it's language-independent** → [[foundations/dsa/README|DSA]].
+
+An O(n²) loop is not rescued by a faster language. `x in list` inside a loop → use a `set`. Repeated `list.pop(0)` → use `deque`. **This is where the big wins are and it's language-independent** → [[foundations/dsa/index|DSA]].
 
 ### 2. Fix the I/O
+
 Most "slow Python" in real systems is N+1 queries, an unindexed column, or serial network calls that should be concurrent → [[databases/04-b-trees-and-indexes|indexes]], [[languages/06-python/12-concurrency-and-the-gil|concurrency]]. **Check this before touching the code.**
 
 ### 3. Use the right built-ins
+
 Built-ins run in C. The interpreter loop is the expensive part, so **the goal is fewer Python-level operations**:
 
 ```python
@@ -72,18 +75,21 @@ local_func = self.method              # hoist lookups out of hot loops
 ```
 
 ### 4. Cache
+
 ```python
 @functools.cache
 def expensive(n): ...
 ```
+
 Free, if the arguments are hashable and the input space is bounded.
 
 ### 5. Move the hot loop out of Python
+
 This is the real answer for numeric work, and it's the ecosystem's whole strategy:
 
 - **NumPy / Polars** — vectorise. One array operation, one C loop, no interpreter overhead per element. **Often 10–100×**, and it also releases the GIL
 - **Cython** — annotate Python with C types, compile
-- **PyO3 / Rust** or a C extension — write the kernel in a fast language and call it → [[languages/03-rust/README|Rust]]
+- **PyO3 / Rust** or a C extension — write the kernel in a fast language and call it → [[languages/03-rust/index|Rust]]
 - **Numba** — JIT-compile numeric functions with a decorator
 
 **The vectorisation shift is the mental one:**
@@ -94,6 +100,7 @@ result = a * b                                     # NumPy: one C loop
 ```
 
 ### 6. Change the interpreter
+
 **PyPy** is a JIT and often several times faster on pure-Python workloads — but C-extension compatibility is imperfect, so it rarely suits the scientific stack.
 
 **CPython is getting faster on its own.** 3.11 was ~25% faster than 3.10 (specialising adaptive interpreter, PEP 659), 3.12 continued it, 3.13 added an experimental JIT. **Upgrading Python is the cheapest optimisation available** and people forget it exists.
@@ -126,10 +133,11 @@ Then: **generators** instead of lists for large sequences → [[languages/06-pyt
 **Optimise when there's a number and a target** — a p99 latency, a batch window, a cost line. Otherwise you're trading readability, which is the thing you chose Python for, against a benefit nobody asked for.
 
 ## Related
+
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — the parallelism half
 - [[foundations/computer-architecture/12-performance|performance method]] — how to measure anything
-- [[foundations/gpu-and-parallel-computing/README|GPU and parallel computing]] — where the numeric work actually goes
+- [[foundations/gpu-and-parallel-computing/index|GPU and parallel computing]] — where the numeric work actually goes
 - [[foundations/compilers/11-jit-compilation|JIT compilation]] — what PyPy and 3.13 are doing
 - [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — vectorisation, hands-on
 
-*Source: [reference] — from CPython internals documentation, PEP 659, and the profiling tools' own docs.*
+_Source: [reference] — from CPython internals documentation, PEP 659, and the profiling tools' own docs._

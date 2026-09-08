@@ -12,13 +12,13 @@ A webhook node gives you a URL. The external service POSTs to it; your workflow 
 
 **The four things a production webhook needs:**
 
-**1. Verify it's genuinely from who you think.** A public URL accepts posts from anyone. Most providers sign the payload (Stripe, GitHub, Slack) — **verify the signature**, comparing with a constant-time check → [[cybersecurity/04-web-security/README|web security]].
+**1. Verify it's genuinely from who you think.** A public URL accepts posts from anyone. Most providers sign the payload (Stripe, GitHub, Slack) — **verify the signature**, comparing with a constant-time check → [[cybersecurity/04-web-security/index|web security]].
 
 **2. Respond fast.** Most providers time out in 3–30 seconds and will retry — or disable your endpoint after repeated failures. **Acknowledge immediately, then do the work asynchronously.** n8n's "respond immediately" mode exists for this.
 
 **3. Expect duplicates.** Webhooks are **at-least-once**. Network hiccups, provider retries and your own timeouts all produce repeats → idempotency, below.
 
-**4. Handle out-of-order delivery.** `updated` can arrive before `created`. If order matters, use the payload's own timestamp or version rather than arrival order → [[architecture/04-distributed-systems/README|distributed systems]].
+**4. Handle out-of-order delivery.** `updated` can arrive before `created`. If order matters, use the payload's own timestamp or version rather than arrival order → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Authentication, in rough order of how often you meet it
 
@@ -30,7 +30,7 @@ A webhook node gives you a URL. The external service POSTs to it; your workflow 
 | **HMAC signature** | Sign the request body | Byte-exact canonicalisation; constant-time compare |
 | **mTLS** | Client certificate | Rare, and awkward in hosted platforms |
 
-**The rule everywhere: the credential lives in the credential store, never in the node's parameters and never in a Code node.** → [[devops/09-secret-management/README|secret management]]
+**The rule everywhere: the credential lives in the credential store, never in the node's parameters and never in a Code node.** → [[devops/09-secret-management/index|secret management]]
 
 ## Pagination
 
@@ -42,7 +42,7 @@ A webhook node gives you a URL. The external service POSTs to it; your workflow 
 
 n8n's HTTP Request node has built-in pagination; the thing to get right is the **stop condition** — an empty page, a missing cursor, or a `has_more: false`. **A wrong stop condition either truncates silently or loops forever**, and the first is worse because nobody notices.
 
-**And ask whether you should be paginating at all.** Pulling 40,000 records through a workflow every hour to find the three that changed is a design smell — use a webhook, or an incremental filter on `updated_since` → [[databases/README|databases]].
+**And ask whether you should be paginating at all.** Pulling 40,000 records through a workflow every hour to find the three that changed is a design smell — use a webhook, or an incremental filter on `updated_since` → [[databases/index|databases]].
 
 ## Rate limits
 
@@ -55,7 +55,7 @@ Every API has them, and they're the most common cause of an automation that work
 
 **In a workflow:** use **Split In Batches** to chunk, add a **Wait** node between batches, and configure retry-on-429 with **exponential backoff plus jitter**.
 
-**Jitter matters and gets skipped.** Without it, everything that failed together retries together, and you rebuild the exact spike that caused the limit → [[architecture/04-distributed-systems/README|retry storms]].
+**Jitter matters and gets skipped.** Without it, everything that failed together retries together, and you rebuild the exact spike that caused the limit → [[architecture/04-distributed-systems/index|retry storms]].
 
 ## Idempotency — the one that prevents real damage
 
@@ -65,7 +65,7 @@ Three approaches, best first:
 
 **1. Use the provider's idempotency key.** Stripe and others accept an `Idempotency-Key` header — the same key returns the original result rather than charging twice. **If the API offers this, use it.**
 
-**2. Make the operation naturally idempotent.** "Set status to `paid`" is safe repeated; "add £10 to the balance" is not. **Prefer upserts and absolute values over increments** → [[backend/02-api-design/README|API design]].
+**2. Make the operation naturally idempotent.** "Set status to `paid`" is safe repeated; "add £10 to the balance" is not. **Prefer upserts and absolute values over increments** → [[backend/02-api-design/index|API design]].
 
 **3. Deduplicate yourself.** Store the event id you've processed and skip repeats. n8n's "Remove Duplicates" node does this within a run; across runs you need a database or the static-data store.
 
@@ -85,7 +85,7 @@ The classes worth handling separately:
 ## Related
 - [[ai-automation/05-error-handling-and-retries|error handling and retries]] — the workflow-level machinery
 - [[ai-automation/02-n8n-core-concepts|n8n core concepts]]
-- [[backend/02-api-design/README|API design]] — the other side of every integration
-- [[foundations/networking/README|networking]] — what a timeout actually means
+- [[backend/02-api-design/index|API design]] — the other side of every integration
+- [[foundations/networking/index|networking]] — what a timeout actually means
 
 *Source: [reference] — written Aug 2026.*

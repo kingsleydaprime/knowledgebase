@@ -41,7 +41,7 @@ Two words to keep straight, because interviewers love this one:
 | **NS** | zone → its authoritative servers | delegation — how the hierarchy is built |
 | **MX** | domain → mail servers | with priority values |
 | **TXT** | arbitrary text | SPF, DKIM, DMARC, and domain-ownership verification |
-| **SRV** | service → host+port | service discovery; how [[devops/05-orchestration/README\|Kubernetes]] DNS exposes ports |
+| **SRV** | service → host+port | service discovery; how [[devops/05-orchestration/index\|Kubernetes]] DNS exposes ports |
 | **PTR** | IP → name | reverse lookups; mail servers check these |
 | **CAA** | domain → which CAs may issue certs | a real, cheap security control — set it |
 | **SOA** | zone metadata | serial, refresh, and the **negative-caching TTL** |
@@ -60,7 +60,7 @@ The operational discipline that follows:
 
 DNS uses **UDP port 53**, falling back to TCP when the response exceeds the size limit (512 bytes classically; **EDNS0** negotiates up to ~4096). Truncated responses set the `TC` bit, telling the client to retry over TCP.
 
-Two consequences: **zone transfers** (`AXFR`) always use TCP, and firewalls that block TCP/53 "because DNS is UDP" break DNSSEC and large responses in ways that are maddening to diagnose. Also, the amplification property — small query, big answer, no handshake to prevent source spoofing — makes open resolvers a favourite [[cybersecurity/06-attacks-and-threats/README|DDoS amplifier]].
+Two consequences: **zone transfers** (`AXFR`) always use TCP, and firewalls that block TCP/53 "because DNS is UDP" break DNSSEC and large responses in ways that are maddening to diagnose. Also, the amplification property — small query, big answer, no handshake to prevent source spoofing — makes open resolvers a favourite [[cybersecurity/06-attacks-and-threats/index|DDoS amplifier]].
 
 ## Security: the parts that matter
 
@@ -88,5 +88,5 @@ DNS is the internet's most successful distributed system, and it achieves that b
 ## Related
 - [[foundations/networking/04-routing|Routing]] — anycast, which DNS depends on
 - [[foundations/networking/15-network-performance|Network Performance]] — DNS as the first round trip
-- [[cybersecurity/03-network-security/README|Network Security]] — poisoning, DNSSEC, exfiltration over DNS
+- [[cybersecurity/03-network-security/index|Network Security]] — poisoning, DNSSEC, exfiltration over DNS
 - [[devops/08-networking-and-web/01-networking-and-protocols|Networking & Protocols (devops)]] — the operator's DNS record cheat-sheet

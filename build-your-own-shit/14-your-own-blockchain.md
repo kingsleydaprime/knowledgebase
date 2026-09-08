@@ -13,8 +13,8 @@
 ## What you need first
 
 - **Hashing and digital signatures** → [[cybersecurity/05-cryptography/03-hashing-and-integrity|hashing]] · [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures]]
-- **The concepts** → [[web3/01-foundations/README|web3/01-foundations]] — notes 02, 04 and 05 in particular
-- **Sockets and a request/response loop** → [[foundations/networking/README|networking]]
+- **The concepts** → [[web3/01-foundations/index|web3/01-foundations]] — notes 02, 04 and 05 in particular
+- **Sockets and a request/response loop** → [[foundations/networking/index|networking]]
 - Helpful: [[build-your-own-shit/01-http-server|the HTTP server guide]] — you'll want a small HTTP API, and this is the same accept loop
 
 **Python or Go are the natural choices.** Python for speed of writing (`hashlib` and `ecdsa` do the crypto); Go if you want the concurrency to be pleasant, since mining and networking must run simultaneously. **Avoid Rust for this one unless you already know it** — you'll fight the borrow checker over shared mutable chain state and learn less about blockchains.
@@ -139,7 +139,7 @@ Replace the block's flat transaction list with a Merkle root, then implement a p
 **And it recontextualises [[git/01-how-git-works|Git]]** — you'll have built the same content-addressed hash chain, and the only thing Git is missing is the consensus rule.
 
 ## Related
-- [[web3/01-foundations/README|web3/01-foundations]] — the theory, in full
+- [[web3/01-foundations/index|web3/01-foundations]] — the theory, in full
 - [[web3/05-beyond-ethereum/05-bitcoin-and-utxo|Bitcoin and UTXO]] — what you're building a toy of
 - [[git/01-how-git-works|how Git works]] — the same hash chain, without consensus
 - [[build-your-own-shit/15-your-own-smart-contract-vm|your own smart contract VM]] — the natural next one

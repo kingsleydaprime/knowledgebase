@@ -2,7 +2,7 @@
 
 **[Intermediate]** — The one modelling assumption the whole field rests on, when it holds, and why solids and fluids turn out to be the same theory with different closures.
 
-**Source:** `[reference]` — see [[engineering/README|the domain note]] on what that means here.
+**Source:** `[reference]` — see [[engineering/index|the domain note]] on what that means here.
 
 ## The continuum hypothesis
 
@@ -46,14 +46,14 @@ $$\text{mass} \quad \text{momentum} \quad \text{angular momentum} \quad \text{en
 
 Those give you equations relating stress to motion, and they're **the same equations for steel, water, air, blood, and rock**. → [[engineering/01-continuum-mechanics/06-conservation-laws|Conservation Laws]]
 
-The equations are also **underdetermined** — more unknowns than equations. What closes the system is a **constitutive model**: a statement about how *this particular material* responds to deformation. → [[engineering/01-continuum-mechanics/07-constitutive-models|Constitutive Models]]
+The equations are also **underdetermined** — more unknowns than equations. What closes the system is a **constitutive model**: a statement about how _this particular material_ responds to deformation. → [[engineering/01-continuum-mechanics/07-constitutive-models|Constitutive Models]]
 
-| | Solid | Fluid |
-|---|---|---|
-| Responds to | **how much** you deform it (strain) | **how fast** you deform it (strain rate) |
-| Constitutive law | $\boldsymbol{\sigma} = f(\boldsymbol{\varepsilon})$ | $\boldsymbol{\sigma} = f(\dot{\boldsymbol{\varepsilon}})$ |
-| At rest under shear | holds a deformed shape | keeps flowing |
-| Simplest model | Hooke's law | Newtonian viscosity |
+|                     | Solid                                               | Fluid                                                     |
+| ------------------- | --------------------------------------------------- | --------------------------------------------------------- |
+| Responds to         | **how much** you deform it (strain)                 | **how fast** you deform it (strain rate)                  |
+| Constitutive law    | $\boldsymbol{\sigma} = f(\boldsymbol{\varepsilon})$ | $\boldsymbol{\sigma} = f(\dot{\boldsymbol{\varepsilon}})$ |
+| At rest under shear | holds a deformed shape                              | keeps flowing                                             |
+| Simplest model      | Hooke's law                                         | Newtonian viscosity                                       |
 
 **That's the entire distinction.** A fluid is a material that cannot resist shear at rest; a solid can. Everything else — the balance laws, the stress tensor, the kinematics — is shared.
 
@@ -96,9 +96,9 @@ Same for strain, and for the deformation gradient.
 
 A recurring source of confusion, so it's worth naming now.
 
-**Lagrangian (material)** — follow a particle. "Where is *this bit of material* now?" Natural for solids, where you care about a specific piece of steel.
+**Lagrangian (material)** — follow a particle. "Where is _this bit of material_ now?" Natural for solids, where you care about a specific piece of steel.
 
-**Eulerian (spatial)** — watch a fixed point in space. "What's the velocity *at this location* right now?" Natural for fluids, where tracking individual water molecules is absurd.
+**Eulerian (spatial)** — watch a fixed point in space. "What's the velocity _at this location_ right now?" Natural for fluids, where tracking individual water molecules is absurd.
 
 Both describe the same physics. Solid mechanics is usually Lagrangian, fluid mechanics usually Eulerian, and **the translation between them is where a lot of the notation comes from** — the material derivative, the two stress measures, the several strain measures. → [[engineering/01-continuum-mechanics/03-kinematics-of-deformation|Kinematics]]
 
@@ -126,18 +126,19 @@ Every textbook formula you've used carries some subset of these. **The formula i
 - **Geomechanics** — soil, rock, earthquakes
 - **Biomechanics** — tissue, implants, cardiovascular
 - **Computer graphics** — cloth, hair, fluid and soft-body simulation are all this, with speed prioritised over accuracy
-- **Robotics** — [[robotics/README|soft robotics]] and compliant mechanisms are continuum problems
+- **Robotics** — [[robotics/index|soft robotics]] and compliant mechanisms are continuum problems
 
 ## Reading this track
 
 The order is deliberate: **kinematics before stress before balance laws before constitutive models**, because each genuinely needs the previous. Notes 02–06 are the foundation and can't be skipped. After that, 07–13 are applications and you can take what you need.
 
-**The prerequisite is multivariable calculus and linear algebra** — partial derivatives, divergence, gradient, matrices, eigenvalues. [[ai-ml/00-foundations/03-mathematics/README|The vault's maths notes]] cover these at the level ML needs, which is a floor rather than enough; tensor calculus and PDEs are a genuine gap.
+**The prerequisite is multivariable calculus and linear algebra** — partial derivatives, divergence, gradient, matrices, eigenvalues. [[ai-ml/00-foundations/03-mathematics/index|The vault's maths notes]] cover these at the level ML needs, which is a floor rather than enough; tensor calculus and PDEs are a genuine gap.
 
 ---
 
 ## Related
+
 - [[engineering/01-continuum-mechanics/02-index-notation-and-tensors|Index Notation and Tensors]] — the language
 - [[engineering/01-continuum-mechanics/07-constitutive-models|Constitutive Models]] — where the modelling error lives
 - [[hardware/01-electricity|Hardware: Electricity]] — the other physical domain here
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

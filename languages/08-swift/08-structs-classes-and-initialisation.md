@@ -97,7 +97,7 @@ struct Settings {
 }
 ```
 
-**Worth understanding rather than writing.** Knowing that `@State` is a struct with a `wrappedValue` demystifies why the SwiftUI wrappers behave as they do — including why `@ObservedObject` recreates its object and `@StateObject` doesn't → [[mobile/frameworks/ios/README|SwiftUI]].
+**Worth understanding rather than writing.** Knowing that `@State` is a struct with a `wrappedValue` demystifies why the SwiftUI wrappers behave as they do — including why `@ObservedObject` recreates its object and `@StateObject` doesn't → [[mobile/frameworks/ios/index|SwiftUI]].
 
 ## Extensions
 
@@ -131,4 +131,4 @@ class Base { class func make() -> Self { ... } }   // `class` = overridable stat
 ## Related
 - [[languages/08-swift/02-values-references-and-optionals|value vs reference types]]
 - [[languages/08-swift/04-protocols-and-generics|protocols and extensions]]
-- [[mobile/frameworks/ios/README|SwiftUI]] — property wrappers in practice
+- [[mobile/frameworks/ios/index|SwiftUI]] — property wrappers in practice

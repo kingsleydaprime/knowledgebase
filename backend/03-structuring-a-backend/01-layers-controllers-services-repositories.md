@@ -92,7 +92,7 @@ Layering is a default, not a law, and the failure modes are real:
 
 Real systems add a few more, and it's worth knowing the names:
 
-- **DTOs** — the shape crossing the API boundary, separate from your domain objects, so an internal rename isn't a breaking API change. → [[backend/06-cross-cutting/README|validation]]
+- **DTOs** — the shape crossing the API boundary, separate from your domain objects, so an internal rename isn't a breaking API change. → [[backend/06-cross-cutting/index|validation]]
 - **Mappers** — DTO ↔ domain ↔ persistence conversion.
 - **Domain model** — where entities own their own invariants, rather than services manipulating dumb data bags. The difference between a "rich" and an "anaemic" domain model.
 - **Middleware / filters / interceptors** — cross-cutting concerns before or after the controller. → [[backend/01-foundations/03-the-request-lifecycle|request lifecycle]]
@@ -105,4 +105,4 @@ Layering isn't about having three folders — it's about **which direction knowl
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|Organising by layer vs by feature]] — how these map onto folders
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|Dependency Injection]] — how the layers get connected
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal & Clean Architecture]] — layering with the dependency rule enforced
-- [[concepts/03-design-patterns/README|Design Patterns]] — repository, adapter, and friends
+- [[concepts/03-design-patterns/index|Design Patterns]] — repository, adapter, and friends

@@ -141,4 +141,4 @@ Lifetimes are the last big concept and they're less used day to day than ownersh
 - [[languages/03-rust/04-borrowing-and-references|Borrowing and References]] — what lifetimes describe
 - [[languages/03-rust/10-generics-and-trait-bounds|Generics and Trait Bounds]] — lifetimes are a kind of generic parameter
 - [[languages/03-rust/14-async-and-tokio|Async and Tokio]] — where `'static` bounds bite hardest
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

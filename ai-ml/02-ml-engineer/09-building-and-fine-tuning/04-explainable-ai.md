@@ -42,7 +42,7 @@ shap.summary_plot(shap_values, X)          # global view; force_plot for a singl
 ## The honest caveats
 
 - **An explanation is an approximation**, not the model's actual reasoning — especially for LIME. Treat explanations as evidence, not ground truth.
-- **Explaining LLMs is much harder** — SHAP/LIME target tabular/feature-based models. For [[ai-ml/03-ai-engineer/README|LLMs]], "interpretability" means different, less mature techniques (attention analysis, mechanistic interpretability), and in practice grounding/citation ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]) and [[ai-ml/03-ai-engineer/10-safety-and-production|evals]] do more for trust than feature attribution.
+- **Explaining LLMs is much harder** — SHAP/LIME target tabular/feature-based models. For [[ai-ml/03-ai-engineer/index|LLMs]], "interpretability" means different, less mature techniques (attention analysis, mechanistic interpretability), and in practice grounding/citation ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]) and [[ai-ml/03-ai-engineer/10-safety-and-production|evals]] do more for trust than feature attribution.
 
 ## Related
 - [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|Trees & Ensembles]] — feature importances, and SHAP's home turf

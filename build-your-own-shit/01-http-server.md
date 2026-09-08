@@ -122,7 +122,7 @@ GET /..%2f..%2fetc%2fpasswd        ← URL-encoded
 GET /..%252f                        ← double-encoded
 ```
 
-**URL-decode exactly once**, reject any remaining `..` or NUL byte, then resolve the real path and verify it's still under the document root. Rejecting `..` by substring alone is insufficient. → [[cybersecurity/04-web-security/README|Web Security]]
+**URL-decode exactly once**, reject any remaining `..` or NUL byte, then resolve the real path and verify it's still under the document root. Rejecting `..` by substring alone is insufficient. → [[cybersecurity/04-web-security/index|Web Security]]
 
 Also: don't read the whole file into memory. Stream it.
 
@@ -183,7 +183,7 @@ What each language gives you per milestone, and what a library would add.
 
 **Go** — the standard library already contains a complete server, so **use only `net.Listen` and do the rest yourself**, or you're not building anything. Goroutines make milestone 8 nearly free, which is the point of the language. → [[backend/frameworks/go/01-net-http-in-depth|net/http in Depth]]
 
-**Rust** — `std::net` for a blocking version first; tokio for the async one. The borrow checker will push you toward the right buffer ownership, which is genuinely instructive. → [[languages/03-rust/README|Rust]]
+**Rust** — `std::net` for a blocking version first; tokio for the async one. The borrow checker will push you toward the right buffer ownership, which is genuinely instructive. → [[languages/03-rust/index|Rust]]
 
 **C** — the most educational and the most dangerous. Read [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] first, bound every buffer, and build with `-fsanitize=address,undefined`.
 
@@ -255,4 +255,4 @@ The natural follow-on from here is **your own Redis** (guide 03, planned) — sa
 - [[foundations/os/08-io-models|I/O Models]] — blocking, epoll, io_uring
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|C: The Accept Loop]] — milestone 8 in depth
 - [[backend/frameworks/c/02-parsing-http-safely|C: Parsing HTTP Safely]] — read before milestone 2 if you're in C
-- [[build-your-own-shit/README|build-your-own-shit]]
+- [[build-your-own-shit/index|build-your-own-shit]]

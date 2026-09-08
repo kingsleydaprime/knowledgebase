@@ -91,7 +91,7 @@ Take binary search **as you would actually write it**. State the invariant, prov
 
 ## Related
 - [[foundations/discrete-math/10-practice-exercises-solutions|Solutions]]
-- [[foundations/discrete-math/README|the course]]
+- [[foundations/discrete-math/index|the course]]
 - [[foundations/theory-of-computation/09-practice-exercises|ToC exercises]] — proofs, applied to computation
 
 *Source: [reference] — built from this course's own "what would close the gap" list.*

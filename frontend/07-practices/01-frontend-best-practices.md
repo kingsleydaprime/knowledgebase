@@ -41,4 +41,4 @@ A meaningful fraction of users rely on assistive technology (screen readers, key
 ## Related
 - [[frontend/02-rendering/01-rendering-strategies|rendering strategies]]
 - [[frontend/04-state-and-data/01-state-management|state-management]]
-- [[cybersecurity/04-web-security/README|web-security]]
+- [[cybersecurity/04-web-security/index|web-security]]

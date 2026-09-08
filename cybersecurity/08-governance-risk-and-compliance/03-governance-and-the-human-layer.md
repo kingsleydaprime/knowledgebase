@@ -81,6 +81,6 @@ Governance closes the loop by *checking* — you can't manage what you don't mea
 - [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|risk and frameworks]] — the R and C that governance operationalises
 - [[cybersecurity/08-governance-risk-and-compliance/04-third-party-and-supply-chain-risk|third-party and supply-chain risk]] — governing risk you don't directly control
 - [[cybersecurity/06-attacks-and-threats/01-social-engineering|social engineering]] — the attacks the human layer faces
-- [[cybersecurity/10-protecting-yourself/README|protecting yourself]] — the personal version of security awareness
+- [[cybersecurity/10-protecting-yourself/index|protecting yourself]] — the personal version of security awareness
 
 *Source: [reference] — Aug 2026.*

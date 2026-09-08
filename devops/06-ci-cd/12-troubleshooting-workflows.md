@@ -130,4 +130,4 @@ git commit -m "docs: update readme [ci skip]"
 ## Related
 - [[devops/06-ci-cd/03-github-actions-fundamentals|Fundamentals]] — knowing the execution model is half of debugging it
 - [[devops/06-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — the source of most "why is this empty" bugs
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/06-ci-cd/index|CI/CD module map]]

@@ -170,4 +170,4 @@ That last one is the most commonly ignored, and the most consequential.
 - [[engineering/01-continuum-mechanics/05-stress|Stress]] — principal stresses and the deviator
 - [[engineering/01-continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — stress concentration and the crack-tip singularity
 - [[engineering/01-continuum-mechanics/09-beams-and-structures|Beams and Structures]] — buckling
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

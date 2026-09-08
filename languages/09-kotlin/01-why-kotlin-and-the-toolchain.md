@@ -15,7 +15,7 @@
 
 ## What transfers from Java
 
-**A great deal.** The JVM, the memory model, garbage collection, the collections framework, the entire library ecosystem, and most of the tooling → [[languages/01-java/README|the Java course]].
+**A great deal.** The JVM, the memory model, garbage collection, the collections framework, the entire library ecosystem, and most of the tooling → [[languages/01-java/index|the Java course]].
 
 **What Kotlin changes is the language surface**, not the platform:
 
@@ -76,7 +76,7 @@ val (id, name, _) = u                 // destructuring
 
 Being honest:
 
-- **It's still the JVM** — startup time, memory footprint, GC pauses → [[languages/01-java/README|JVM internals]]
+- **It's still the JVM** — startup time, memory footprint, GC pauses → [[languages/01-java/index|JVM internals]]
 - **Gradle is still Gradle**
 - **Compile times are slower than Java's**, noticeably, especially with annotation processing (KSP is faster than kapt — use it)
 - **Null safety stops at the Java boundary.** Platform types (`String!`) are Kotlin admitting it doesn't know, and they can still NPE
@@ -86,6 +86,6 @@ Being honest:
 **Kotlin is Java's ecosystem with twenty years of language-design hindsight applied to the syntax.** Everything about the platform transfers; what changes is that null is in the type system, boilerplate is generated, everything is an expression, and concurrency is coroutines instead of threads. **If you know Java, you're productive in a week** — and the remaining month is learning coroutines properly.
 
 ## Related
-- [[languages/09-kotlin/README|the Kotlin course]]
-- [[languages/01-java/README|Java]] — the platform underneath, and it still applies
-- [[mobile/frameworks/android/README|Android]] — the main destination
+- [[languages/09-kotlin/index|the Kotlin course]]
+- [[languages/01-java/index|Java]] — the platform underneath, and it still applies
+- [[mobile/frameworks/android/index|Android]] — the main destination

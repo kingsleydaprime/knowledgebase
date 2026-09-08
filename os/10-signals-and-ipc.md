@@ -84,7 +84,7 @@ send(fd, buf, len, MSG_NOSIGNAL);          // or suppress per-call
 
 Every network program must do one of these. Go and Rust handle it in their runtimes; C and C++ don't. → [[backend/frameworks/c/01-the-accept-loop-and-event-loops|The Accept Loop]]
 
-**`SIGTERM` is the graceful-shutdown contract.** Kubernetes sends `SIGTERM`, waits `terminationGracePeriodSeconds` (default 30), then `SIGKILL`. A process that ignores `SIGTERM` gets killed mid-request every deploy. → [[devops/05-orchestration/README|Orchestration]]
+**`SIGTERM` is the graceful-shutdown contract.** Kubernetes sends `SIGTERM`, waits `terminationGracePeriodSeconds` (default 30), then `SIGKILL`. A process that ignores `SIGTERM` gets killed mid-request every deploy. → [[devops/05-orchestration/index|Orchestration]]
 
 **`SIGCHLD` and zombies.** Ignore it explicitly or reap with `waitpid`, or children accumulate. → [[foundations/os/02-processes-and-threads|Processes and Threads]]
 
@@ -182,7 +182,7 @@ Use it for large data at high frequency — databases (Postgres's shared buffers
 | Peer identity, or passing an fd | **Unix socket** (`SO_PEERCRED` / `SCM_RIGHTS`) |
 | Large data, high frequency | **shared memory** + explicit synchronisation |
 | Notification only | **eventfd** / **signalfd** |
-| Across machines | **TCP** → [[foundations/networking/README\|networking]] |
+| Across machines | **TCP** → [[foundations/networking/index\|networking]] |
 | Interrupting a process | **signal** |
 
 > **Default to Unix domain sockets.** They're fast, they're the same API as network sockets (so the code ports), they carry authenticated credentials, and they integrate with event loops. Reach for shared memory only when profiling shows the copy is the bottleneck.
@@ -194,4 +194,4 @@ Use it for large data at high frequency — databases (Postgres's shared buffers
 - [[foundations/os/08-io-models|I/O Models]] — `signalfd`/`eventfd` in an event loop
 - [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] — synchronising shared memory
 - [[devops/01-linux/06-process-management|Linux: Process Management]] — signals from the shell
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]

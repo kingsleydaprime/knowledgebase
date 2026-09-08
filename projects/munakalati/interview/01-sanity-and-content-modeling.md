@@ -1,6 +1,6 @@
 # munakalati — Sanity and Content Modelling
 
-From [[projects/munakalati/learning/03-sanity/README|learning/03-sanity]]. **Content modelling is a design activity most candidates have never had to do deliberately** — which makes it a good differentiator if you can talk about the trade-offs rather than the API.
+From [[projects/munakalati/learning/03-sanity/index|learning/03-sanity]]. **Content modelling is a design activity most candidates have never had to do deliberately** — which makes it a good differentiator if you can talk about the trade-offs rather than the API.
 
 ---
 
@@ -12,7 +12,7 @@ The concrete pull for this project: the site needed to be a modern React app wit
 
 **The cost, and say it unprompted:** you now build and maintain everything WordPress gives free — every page template, every list, every 404. And you have two deploy targets rather than one.
 
-**The line that lands:** *"Headless is right when the presentation is the differentiated part. If the site is a blog with a standard theme, WordPress is genuinely the better engineering decision."*
+**The line that lands:** _"Headless is right when the presentation is the differentiated part. If the site is a blog with a standard theme, WordPress is genuinely the better engineering decision."_
 
 ---
 
@@ -24,7 +24,7 @@ The concrete pull for this project: the site needed to be a modern React app wit
 - **Ordered collections** — twelve of the sixteen (`partner`, `testimonial`, `initiative`, `teamMember`…). A curated list rendered as a page section, sequenced by an `order` field.
 - **Singletons** — `heroContent`, `videoOverview`. Exactly one document each.
 
-**Then the observation that shows you thought about it:** *"Twelve of sixteen being 'ordered list of things that render as a section' told me what this CMS actually is. It's not a database — it's a set of editable page sections. So the hard questions were about ordering, singletons and how much presentation belongs in the content layer, not about relations."*
+**Then the observation that shows you thought about it:** _"Twelve of sixteen being 'ordered list of things that render as a section' told me what this CMS actually is. It's not a database — it's a set of editable page sections. So the hard questions were about ordering, singletons and how much presentation belongs in the content layer, not about relations."_
 
 ---
 
@@ -36,7 +36,7 @@ The concrete pull for this project: the site needed to be a modern React app wit
 2. The query pins the ID: `*[_type == "heroContent" && _id == "heroContent"][0]` — **not** `*[_type == "heroContent"][0]`.
 3. `preview.prepare()` returns a static title, since there's only one.
 
-**The bit to volunteer:** *"None of that prevents a second document being created through the API. What makes it safe is the query — pinning `_id` means a stray duplicate is inert rather than randomly winning. If I were hardening it I'd add `__experimental_actions: ['update','publish']` to remove create and delete from the Studio entirely."*
+**The bit to volunteer:** _"None of that prevents a second document being created through the API. What makes it safe is the query — pinning `_id` means a stray duplicate is inert rather than randomly winning. If I were hardening it I'd add `__experimental_actions: ['update','publish']` to remove create and delete from the Studio entirely."_
 
 **The general principle:** in a document store, a singleton is a well-known ID that every reader agrees to use. Same pattern as the migration's `DEFAULT_AUTHOR_ID`.
 
@@ -55,7 +55,7 @@ The concrete pull for this project: the site needed to be a modern React app wit
 
 Both `publishedAt` and `context` are `required()`, and both are guarded anyway. The `!defined(context)` clause is a backwards-compatibility shim for documents created before the field existed — `required()` doesn't apply retroactively either.
 
-**The generalisation:** *"CMS validation is a UX affordance, not a constraint. If I need a real guarantee I enforce it in the query with `defined()`, or I run a script over the dataset. It's the same distinction as client-side form validation versus a database `NOT NULL`."*
+**The generalisation:** _"CMS validation is a UX affordance, not a constraint. If I need a real guarantee I enforce it in the query with `defined()`, or I run a script over the dataset. It's the same distinction as client-side form validation versus a database `NOT NULL`."_
 
 ---
 
@@ -82,7 +82,7 @@ The mappings: `SELECT` → the trailing projection, `WHERE` → the filter, `JOI
 
 **Why it matters:** concatenating a filter fragment means the query text varies per request — which kills any query-plan reuse and, more importantly, reintroduces the injection surface that bound parameters exist to remove. **`$param` is a bound parameter, never interpolated into the query text**, exactly like a prepared statement.
 
-**Bonus, if you want to be honest about your own code:** *"There's a live bug next to that one. The same query has `_id != $featuredId` to stop the featured post also appearing in the grid, and the page passes an empty string, so it never excludes anything. The fetches run in a `Promise.all`, so the featured post's ID isn't known yet when the paged query is fired — a parallel-fetch optimisation quietly breaking a data dependency."*
+**Bonus, if you want to be honest about your own code:** _"There's a live bug next to that one. The same query has `_id != $featuredId` to stop the featured post also appearing in the grid, and the page passes an empty string, so it never excludes anything. The fetches run in a `Promise.all`, so the featured post's ID isn't known yet when the paged query is fired — a parallel-fetch optimisation quietly breaking a data dependency."_
 
 ---
 
@@ -99,7 +99,7 @@ Four arguments against an HTML blob, in order of weight:
 
 **The cost:** nothing renders until you supply a component map. Four buckets — `block` (by style), `list`, `marks` (decorators and annotations), and `types` (non-text nodes).
 
-**The detail that proves you've used it:** *"Links are the fiddly part. A link's `href` isn't on the span — the span carries a `_key` in its `marks` that points at a `markDefs` entry on the parent block. It's a normalisation, so one annotation can span several spans. It's also why my migration dropped every link: mapping bold to `strong` is one line, mapping a link means accumulating `markDefs` across a whole block."*
+**The detail that proves you've used it:** _"Links are the fiddly part. A link's `href` isn't on the span — the span carries a `_key` in its `marks` that points at a `markDefs` entry on the parent block. It's a normalisation, so one annotation can span several spans. It's also why my migration dropped every link: mapping bold to `strong` is one line, mapping a link means accumulating `markDefs` across a whole block."_
 
 ---
 
@@ -115,9 +115,9 @@ headlineEnd        "Africa's future"
 
 **Against:** the CMS now knows about the design. An editor who wants to highlight a different word has to think in three fields. A rebrand means editing content documents.
 
-**For:** the alternative is one field with Portable Text or markdown so the editor marks the highlight themselves — which is *more* conceptual load for a two-person content team, and a richer authoring surface just gets misused differently. Three labelled fields with `description` examples are unambiguous and impossible to break.
+**For:** the alternative is one field with Portable Text or markdown so the editor marks the highlight themselves — which is _more_ conceptual load for a two-person content team, and a richer authoring surface just gets misused differently. Three labelled fields with `description` examples are unambiguous and impossible to break.
 
-**The verdict to give:** *"For a small team, the three fields are the right trade. Where I'd push back on my own code is the `initiative` type, which stores `bgColor` as a free-text string — that lets a non-designer put any hex value on the homepage. If presentation has to live in the CMS it should be `options: { list: [...] }` with named brand choices. **Constrain the choice, don't remove it.**"*
+**The verdict to give:** _"For a small team, the three fields are the right trade. Where I'd push back on my own code is the `initiative` type, which stores `bgColor` as a free-text string — that lets a non-designer put any hex value on the homepage. If presentation has to live in the CMS it should be `options: { list: [...] }` with named brand choices. **Constrain the choice, don't remove it.**"_
 
 ---
 
@@ -127,11 +127,11 @@ headlineEnd        "Africa's future"
 
 - `TeamMember` and `BoardMember` both declare `localPhoto?: string`. No schema defines it.
 - `body` is `unknown[]`, forcing `value={post.body as Parameters<typeof PortableText>[0]["value"]}` at the call site.
-- **The real one:** the interfaces describe *documents*, but queries return *projections*. `relatedPostsQuery` doesn't select `author`, yet its results are typed `Post[]`, which declares `author` as non-optional. `related[0].author.name` typechecks and throws at runtime.
+- **The real one:** the interfaces describe _documents_, but queries return _projections_. `relatedPostsQuery` doesn't select `author`, yet its results are typed `Post[]`, which declares `author` as non-optional. `related[0].author.name` typechecks and throws at runtime.
 
-**The fix is Sanity TypeGen** — it reads the schema *and* every `groq`-tagged query and emits a type per query, so a projection that omits `author` produces a type without `author`. Every query in the project already carries the `groq` tag TypeGen looks for; it got 90% of the way there and stopped.
+**The fix is Sanity TypeGen** — it reads the schema _and_ every `groq`-tagged query and emits a type per query, so a projection that omits `author` produces a type without `author`. Every query in the project already carries the `groq` tag TypeGen looks for; it got 90% of the way there and stopped.
 
-**The line:** *"Hand-written types against an external system aren't types, they're hopeful comments."*
+**The line:** _"Hand-written types against an external system aren't types, they're hopeful comments."_
 
 ---
 
@@ -141,8 +141,9 @@ headlineEnd        "Africa's future"
 
 **Why previews matter more than they look:** with 434 migrated posts, a document list without a `media` and `subtitle` is 434 identical rows and the CMS is unusable. The `"No author"` fallback in the post preview also makes broken data visible at a glance instead of rendering an empty row.
 
-**What wasn't done, and say so:** *"An editor still sees sixteen flat document types with no indication of which page each one feeds. The obvious next step is grouping — nesting `teamMember`, `boardMember`, `ambassador` and `timeline` under one 'About page' folder in Structure Builder. **The Studio's default is a developer's view of the content model; an editor thinks in pages and tasks.** Sixteen alphabetical types is roughly where translating between the two starts being worth the effort."*
+**What wasn't done, and say so:** _"An editor still sees sixteen flat document types with no indication of which page each one feeds. The obvious next step is grouping — nesting `teamMember`, `boardMember`, `ambassador` and `timeline` under one 'About page' folder in Structure Builder. **The Studio's default is a developer's view of the content model; an editor thinks in pages and tasks.** Sixteen alphabetical types is roughly where translating between the two starts being worth the effort."_
 
 ## Related
-- [[projects/munakalati/learning/03-sanity/README|learning/03-sanity]]
-- [[frontend/frameworks/sanity/README|the general Sanity course]] · [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modelling]]
+
+- [[projects/munakalati/learning/03-sanity/index|learning/03-sanity]]
+- [[frontend/frameworks/sanity/index|the general Sanity course]] · [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modelling]]

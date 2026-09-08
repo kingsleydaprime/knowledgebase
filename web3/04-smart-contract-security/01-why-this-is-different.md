@@ -1,6 +1,6 @@
 # Why Security Is Different Here
 
-**[Intermediate]** — the specific ways smart contract security departs from [[cybersecurity/README|ordinary application security]], and why the usual defence-in-depth playbook doesn't transfer.
+**[Intermediate]** — the specific ways smart contract security departs from [[cybersecurity/index|ordinary application security]], and why the usual defence-in-depth playbook doesn't transfer.
 
 ## The five differences
 
@@ -8,7 +8,7 @@
 
 **2. The attacker is funded, automated and instant.** Bots watch every deployment and every mempool transaction. A vulnerability in a contract holding $10M has a $10M bounty attached, payable immediately, to an anonymous party. **Exploitation happens in seconds, not in the weeks a normal disclosure cycle assumes.**
 
-**3. No perimeter.** No firewall, no WAF, no rate limit, no IP block, no auth by default. Every function is a public endpoint reachable by anyone, from anywhere, arbitrarily often. The entire concept of network-layer defence is absent → [[cybersecurity/03-network-security/README|network security]] simply doesn't apply.
+**3. No perimeter.** No firewall, no WAF, no rate limit, no IP block, no auth by default. Every function is a public endpoint reachable by anyone, from anywhere, arbitrarily often. The entire concept of network-layer defence is absent → [[cybersecurity/03-network-security/index|network security]] simply doesn't apply.
 
 **4. The system is composable, and that's an attack surface.** Anyone can build on your contract without asking. Your contract will be called inside flash loans, wrapped by aggregators, and used as collateral by protocols you've never heard of. **You cannot enumerate your integrations**, so you cannot reason about the full system your code participates in. Composability is the ecosystem's best property and its worst security property, and those are the same property.
 
@@ -68,10 +68,10 @@ Roughly where the money has actually gone, across the field's history:
 
 ## Key insight
 
-**Smart contract security is closer to aerospace than to web security: you cannot patch after launch, so all the effort moves to before it.** The defence-in-depth reflexes from [[cybersecurity/README|application security]] mostly don't transfer, because they assume a perimeter, a patch cycle, and reversible losses — and this environment has none of the three.
+**Smart contract security is closer to aerospace than to web security: you cannot patch after launch, so all the effort moves to before it.** The defence-in-depth reflexes from [[cybersecurity/index|application security]] mostly don't transfer, because they assume a perimeter, a patch cycle, and reversible losses — and this environment has none of the three.
 
 ## Related
-- [[cybersecurity/README|cybersecurity]] — the general discipline this departs from
+- [[cybersecurity/index|cybersecurity]] — the general discipline this departs from
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — where the money actually went
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing and tooling]]
 - [[web3/04-smart-contract-security/07-the-audit-process|the audit process]]

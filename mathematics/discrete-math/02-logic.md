@@ -177,4 +177,4 @@ An **argument** is premises plus a conclusion. It's **valid** if the conclusion 
 - [[foundations/discrete-math/03-proof-techniques|Proof Techniques]] — using this to establish things
 - [[foundations/discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the objects logic talks about
 - [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — where SAT becomes central
-- [[foundations/discrete-math/README|Discrete maths map]]
+- [[foundations/discrete-math/index|Discrete maths map]]

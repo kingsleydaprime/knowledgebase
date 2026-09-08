@@ -158,4 +158,4 @@ python3 -c "import yaml; d=yaml.safe_load(open('quartz.config.yaml')); print(len
 - [[tools/quartz/03-theming-and-styling|Theming and Styling]] — the `theme:` block in detail
 - [[tools/quartz/04-layout-and-components|Layout and Components]] — the `layout:` block in detail
 - [[tools/quartz/01-how-quartz-works|How Quartz Works]] — what `order` actually orders
-- [[tools/quartz/README|Quartz notes]]
+- [[tools/quartz/index|Quartz notes]]

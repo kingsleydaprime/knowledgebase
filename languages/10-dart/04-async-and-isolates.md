@@ -17,7 +17,7 @@
 
 **Consequence:** async code is concurrent but not parallel. `await` yields to the loop; it never runs two Dart functions at the same instant.
 
-**And the important consequence for Flutter: a long synchronous computation blocks the UI**, because rendering happens on the same loop. Dropped frames come from exactly this → [[languages/10-dart/README|isolates, below]].
+**And the important consequence for Flutter: a long synchronous computation blocks the UI**, because rendering happens on the same loop. Dropped frames come from exactly this → [[languages/10-dart/index|isolates, below]].
 
 ## Futures and async/await
 
@@ -131,6 +131,6 @@ await Isolate.run(() => heavyLoop());
 
 ## Related
 - [[languages/10-dart/03-classes-and-collections|collections]] — `Iterable` laziness is a related idea
-- [[mobile/frameworks/flutter/README|Flutter]] — where blocking the loop is visible
+- [[mobile/frameworks/flutter/index|Flutter]] — where blocking the loop is visible
 - [[languages/09-kotlin/05-coroutines-and-flow|Kotlin coroutines]] — the comparison
 - [[foundations/os/08-io-models|I/O models]] — event loops generally

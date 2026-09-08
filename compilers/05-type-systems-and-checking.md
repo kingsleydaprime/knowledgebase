@@ -236,4 +236,4 @@ For a language you're building:
 - [[foundations/compilers/06-intermediate-representations|Intermediate Representations]] — what comes after
 - [[languages/03-rust/09-traits|Rust: Traits]] · [[languages/05-cpp/08-templates-and-concepts|C++: Concepts]] — constrained polymorphism in practice
 - [[foundations/dsa/04-data-structures/10-union-find|Union-Find]] — the structure unification uses
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

@@ -1,6 +1,6 @@
 # Java Interview — Spring, Persistence & Applied Systems
 
-From [[languages/01-java/04-persistence/README|04-persistence/]], [[languages/01-java/05-web-and-api/README|05-web-and-api/]], [[languages/01-java/06-applied-systems/README|06-applied-systems/]]. The "have you shipped and operated this" round — and the one where your real projects ([[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct-debit-sandbox]], [[projects/record-id-generator-java/learning/01-java-fundamentals|record-id-generator]]) are your best material.
+From [[languages/01-java/04-persistence/index|04-persistence/]], [[languages/01-java/05-web-and-api/index|05-web-and-api/]], [[languages/01-java/06-applied-systems/index|06-applied-systems/]]. The "have you shipped and operated this" round — and the one where your real projects ([[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct-debit-sandbox]], [[projects/record-id-generator-java/learning/01-java-fundamentals|record-id-generator]]) are your best material.
 
 ---
 

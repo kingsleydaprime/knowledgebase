@@ -214,7 +214,7 @@ Every pattern above — CAS-based atomics over locks, bounded thread pools over 
 
 ## Practice, not just theory
 
-Everything above is vocabulary. It doesn't prove you can write correct concurrent code under pressure — only building something with it does. [[languages/01-java/02-jvm-and-concurrency/exercises/README|Two unsolved exercises]] sit alongside this file: a bounded blocking queue and a token-bucket rate limiter, each with a real test harness (single-threaded correctness, blocking behavior, concurrent load) that starts red and stays red until the implementation is actually correct.
+Everything above is vocabulary. It doesn't prove you can write correct concurrent code under pressure — only building something with it does. [[languages/01-java/02-jvm-and-concurrency/exercises/index|Two unsolved exercises]] sit alongside this file: a bounded blocking queue and a token-bucket rate limiter, each with a real test harness (single-threaded correctness, blocking behavior, concurrent load) that starts red and stays red until the implementation is actually correct.
 
 ## Related
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — the runtime (GC, JIT, memory areas) the memory model above sits within
@@ -222,7 +222,7 @@ Everything above is vocabulary. It doesn't prove you can write correct concurren
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|Persistence & Data Modeling]] — `ConcurrentHashMap` as an in-memory store, secondary indexes under concurrent writes
 - [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|Messaging with RabbitMQ]] — backpressure and per-consumer connections, a concurrency problem at the network layer
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — the timed-flush/double-buffering design that motivates the `synchronized` example above
-- [[languages/01-java/02-jvm-and-concurrency/exercises/README|Concurrency Exercises]] — build the reps
+- [[languages/01-java/02-jvm-and-concurrency/exercises/index|Concurrency Exercises]] — build the reps
 
 ## Seen in the wild
 - [[projects/record-id-generator-java/learning/06-concurrency-and-threads|record-id-generator]] — thread pools and shared state under real load

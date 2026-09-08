@@ -219,4 +219,4 @@ The catch is the same in all of them: **a green thread that blocks in a syscall 
 - [[foundations/os/04-virtual-memory|Virtual Memory]] — copy-on-write, in full
 - [[foundations/os/10-signals-and-ipc|Signals and IPC]] — how processes talk
 - [[devops/01-linux/06-process-management|Linux: Process Management]] — the same thing from the shell
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]

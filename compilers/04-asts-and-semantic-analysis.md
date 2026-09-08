@@ -231,4 +231,4 @@ These mostly need a **control-flow graph** rather than the AST, which is one of 
 - [[foundations/compilers/05-type-systems-and-checking|Type Systems and Checking]] — the next pass
 - [[foundations/compilers/09-bytecode-and-virtual-machines|Bytecode VMs]] — where slot resolution pays off
 - [[concepts/03-design-patterns/03-behavioral-patterns|Design Patterns: Visitor]]
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

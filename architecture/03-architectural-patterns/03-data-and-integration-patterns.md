@@ -18,7 +18,7 @@ Separate the **write** model from the **read** model. Instead of one representat
 Instead of storing the *current state*, store the **sequence of events** that produced it (append-only log). Current state is derived by replaying events.
 
 - **Why** — a perfect audit log (every change, forever), the ability to reconstruct any past state or fix a bug and replay, and a natural fit with [[architecture/02-building-blocks/04-messaging-and-async|event-driven]] systems and CQRS (events update the read models).
-- **Cost** — a big mental shift, event schema evolution is tricky, and "what's the current state?" requires replay (or snapshots). Powerful for domains where history/audit is first-class (finance, ledgers — the [[languages/01-java/06-applied-systems/README|payment domain]]); overkill for simple CRUD.
+- **Cost** — a big mental shift, event schema evolution is tricky, and "what's the current state?" requires replay (or snapshots). Powerful for domains where history/audit is first-class (finance, ledgers — the [[languages/01-java/06-applied-systems/index|payment domain]]); overkill for simple CRUD.
 
 CQRS and event sourcing pair naturally but are independent — you can use either alone.
 
@@ -51,4 +51,4 @@ Every pattern here manages the same fundamental loss: **once data crosses a tran
 ## Related
 - [[architecture/02-building-blocks/04-messaging-and-async|Messaging & Async]] — the event backbone these run on
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — 2PC, the alternative sagas avoid
-- [[languages/01-java/06-applied-systems/README|Applied Systems (Java)]] — a real payment/ledger domain
+- [[languages/01-java/06-applied-systems/index|Applied Systems (Java)]] — a real payment/ledger domain

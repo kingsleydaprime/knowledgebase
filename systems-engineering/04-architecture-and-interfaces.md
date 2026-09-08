@@ -24,7 +24,7 @@ The mapping between them is rarely one-to-one:
 
 ## Coupling and cohesion, in physical systems
 
-The same two ideas [[concepts/04-best-practices/README|software best practices]] are built on, and they predate software by decades.
+The same two ideas [[concepts/04-best-practices/index|software best practices]] are built on, and they predate software by decades.
 
 **High cohesion** — a subsystem's parts belong together, serving one purpose.
 
@@ -60,7 +60,7 @@ An **ICD** specifies precisely what crosses a boundary, and it is the field's mo
 
 **Why an ICD is powerful:** once it's agreed, two teams can work independently for months and their outputs will fit. **The interface is the contract, and it is owned by neither side** — which is the point, because an interface owned by one side quietly changes to suit that side.
 
-**The software equivalent is an API contract** — an OpenAPI spec, a protobuf definition, a published schema → [[backend/02-api-design/README|API design]]. Same purpose, same failure when it drifts, and the same rule: **the interface is harder to change than either implementation**, so spend more thought on it.
+**The software equivalent is an API contract** — an OpenAPI spec, a protobuf definition, a published schema → [[backend/02-api-design/index|API design]]. Same purpose, same failure when it drifts, and the same rule: **the interface is harder to change than either implementation**, so spend more thought on it.
 
 ## N² diagrams
 
@@ -92,8 +92,8 @@ The deliberate use — **the inverse Conway manoeuvre** — is to organise teams
 
 ## Related
 - [[foundations/systems-engineering/05-trade-studies|trade studies]] — choosing between architectures
-- [[architecture/02-building-blocks/README|building blocks]] — the software vocabulary
-- [[backend/02-api-design/README|API design]] — the ICD, for software
+- [[architecture/02-building-blocks/index|building blocks]] — the software vocabulary
+- [[backend/02-api-design/index|API design]] — the ICD, for software
 - [[concepts/04-best-practices/05-solid-principles|SOLID]] — coupling and cohesion at code scale
 
 *Source: [reference] — from the INCOSE handbook, NASA SE Handbook, and Conway (1967).*

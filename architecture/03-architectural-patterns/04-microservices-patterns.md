@@ -13,7 +13,7 @@ Services scale up/down and move (new instances, failures, [[devops/05-orchestrat
 - **Server-side** — the caller hits a [[architecture/02-building-blocks/01-load-balancing-and-proxies|load balancer]] that knows the instances (k8s Services work this way).
 - **Client-side** — the caller queries a **service registry** (Consul, etcd, Eureka) and picks an instance itself.
 
-The registry is kept current by health checks. This is what makes "call the payment service" resolve to a live instance despite constant churn — and it relies on [[architecture/04-distributed-systems/README|distributed-systems]] machinery underneath.
+The registry is kept current by health checks. This is what makes "call the payment service" resolve to a live instance despite constant churn — and it relies on [[architecture/04-distributed-systems/index|distributed-systems]] machinery underneath.
 
 ## API Gateway
 
@@ -41,13 +41,13 @@ When multiple instances of a service run for availability but only *one* should 
 
 ## Cross-cutting: observability
 
-The pattern that makes microservices *operable*: because a request now spans many services, you *need* distributed [[devops/10-observability/README|tracing]] (a request/trace ID threaded through every hop), centralized logging, and per-service health endpoints — or debugging becomes impossible. This isn't optional the way it is in a monolith; it's the price of admission.
+The pattern that makes microservices *operable*: because a request now spans many services, you *need* distributed [[devops/10-observability/index|tracing]] (a request/trace ID threaded through every hop), centralized logging, and per-service health endpoints — or debugging becomes impossible. This isn't optional the way it is in a monolith; it's the price of admission.
 
 ## The honest summary
 
-These patterns are powerful, but note what they represent: **a whole platform of complexity that a monolith gets for free** (in-process calls need no discovery, one process needs no gateway, one app needs no distributed tracing). That's the real cost of microservices ([[architecture/03-architectural-patterns/01-monolith-microservices-serverless|when to adopt them]]) — you're signing up to build and run all of this. Managed platforms ([[devops/05-orchestration/README|Kubernetes]], [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]]) provide much of it, which is exactly why they exist.
+These patterns are powerful, but note what they represent: **a whole platform of complexity that a monolith gets for free** (in-process calls need no discovery, one process needs no gateway, one app needs no distributed tracing). That's the real cost of microservices ([[architecture/03-architectural-patterns/01-monolith-microservices-serverless|when to adopt them]]) — you're signing up to build and run all of this. Managed platforms ([[devops/05-orchestration/index|Kubernetes]], [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]]) provide much of it, which is exactly why they exist.
 
 ## Related
 - [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|Monolith / Microservices / Serverless]] — whether to take this on at all
-- [[devops/05-orchestration/README|Orchestration (devops)]] — the platform that provides these
+- [[devops/05-orchestration/index|Orchestration (devops)]] — the platform that provides these
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — the theory under service discovery & leader election

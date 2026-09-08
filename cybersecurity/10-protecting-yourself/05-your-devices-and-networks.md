@@ -65,7 +65,7 @@ Almost all malware that reaches ordinary people exploits a hole that was **patch
 - **Change the router's admin password.** The default is printed in the manual and on the internet
 - **WPA3, or WPA2 if that's all it offers.** Never WEP or open
 - **Turn off WPS** — the button-pairing feature has a known flaw
-- **Guest network for visitors and smart devices.** Cheap smart-home gear is often badly secured and this keeps it away from your laptops → [[hardware/README|IoT]]
+- **Guest network for visitors and smart devices.** Cheap smart-home gear is often badly secured and this keeps it away from your laptops → [[hardware/index|IoT]]
 
 **Public Wi-Fi — the honest version.** The classic advice ("never bank on public Wi-Fi") is largely out of date. **Nearly all traffic is HTTPS-encrypted now**, so the café can see *which sites* you visit, not what you do on them. The realistic risks:
 
@@ -105,5 +105,5 @@ VPNs are the most oversold product in consumer security. **YouTube sponsorships 
 ## Related
 - [[cybersecurity/10-protecting-yourself/06-backups-and-your-data|backups]] — what saves you when a device is lost or ransomed
 - [[cybersecurity/10-protecting-yourself/04-phishing-and-scams|phishing]] — how malware usually arrives
-- [[cybersecurity/03-network-security/README|network security]] — the professional treatment
-- [[devops/01-linux/README|Linux]] — if you want the technical version of hardening
+- [[cybersecurity/03-network-security/index|network security]] — the professional treatment
+- [[devops/01-linux/index|Linux]] — if you want the technical version of hardening

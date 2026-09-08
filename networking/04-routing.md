@@ -15,7 +15,7 @@ Two different jobs, often confused, running at completely different speeds:
 - **Forwarding** (the *data plane*) — for this one packet, look up the destination and send it out an interface. Happens billions of times a second, in hardware. Microseconds.
 - **Routing** (the *control plane*) — build and maintain the table by talking to other routers. Happens continuously in the background, in software. Seconds to minutes.
 
-This split is why a router can forward at line rate while running complex protocols, and it's the same architectural split you'll recognise in [[devops/05-orchestration/README|Kubernetes]] (controllers reconcile; kube-proxy forwards) and in [[architecture/03-architectural-patterns/04-microservices-patterns|service mesh]] design.
+This split is why a router can forward at line rate while running complex protocols, and it's the same architectural split you'll recognise in [[devops/05-orchestration/index|Kubernetes]] (controllers reconcile; kube-proxy forwards) and in [[architecture/03-architectural-patterns/04-microservices-patterns|service mesh]] design.
 
 ## Reading a routing table
 

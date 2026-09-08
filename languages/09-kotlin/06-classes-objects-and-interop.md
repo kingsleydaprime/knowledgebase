@@ -32,12 +32,12 @@ class Child : Base() { override fun render() {} }
 
 ## Visibility
 
-| | |
-|---|---|
-| `public` | Default |
-| `internal` | **Visible within the module** — no Java equivalent, and genuinely useful for library boundaries |
-| `protected` | Subclasses only |
-| `private` | The file (top-level) or the class |
+|             |                                                                                                 |
+| ----------- | ----------------------------------------------------------------------------------------------- |
+| `public`    | Default                                                                                         |
+| `internal`  | **Visible within the module** — no Java equivalent, and genuinely useful for library boundaries |
+| `protected` | Subclasses only                                                                                 |
+| `private`   | The file (top-level) or the class                                                               |
 
 **`internal` is the one Java lacks.** It lets a library have implementation classes that are visible across its own source set but not to consumers.
 
@@ -104,6 +104,7 @@ button.setOnClickListener { doThing() }
 **Kotlin's object model is Java's with the defaults inverted** — final instead of open, non-null instead of nullable, properties instead of fields, composition (`by`) made as cheap as inheritance. Every one of those inversions is a lesson learned from twenty years of Java, and the interop annotations exist because the two must still coexist in the same codebase.
 
 ## Related
+
 - [[languages/09-kotlin/02-null-safety|null safety]] — platform types
-- [[languages/01-java/README|Java]] — the platform and the contrast
+- [[languages/01-java/index|Java]] — the platform and the contrast
 - [[languages/09-kotlin/03-types-and-data-classes|data and sealed classes]]

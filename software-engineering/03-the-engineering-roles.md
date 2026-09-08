@@ -6,17 +6,17 @@ Titles are inconsistent across companies — the same work is "backend engineer"
 
 | Role | Owns | The daily reality | In this vault |
 |---|---|---|---|
-| **Frontend** | What the user touches | Rendering, state, accessibility, bundle size, "why is it slow on a mid-range Android" | [[frontend/README\|frontend]] |
-| **Backend** | Everything behind the API | Data modelling, APIs, auth, queues, "why is p99 latency 4 seconds" | [[backend/README\|backend]] |
+| **Frontend** | What the user touches | Rendering, state, accessibility, bundle size, "why is it slow on a mid-range Android" | [[frontend/index\|frontend]] |
+| **Backend** | Everything behind the API | Data modelling, APIs, auth, queues, "why is p99 latency 4 seconds" | [[backend/index\|backend]] |
 | **Full-stack** | Both, end to end | Owning a feature from database to button. Common at startups | both |
 | **Mobile** | iOS/Android apps | Platform APIs, offline state, app-store release cycles, device fragmentation | [[projects/arete/learning/backend/01-fundamentals-and-nestjs\|arete]] |
-| **Embedded** | Software on hardware | C, constrained memory, interrupts, no OS or a small one, hardware that lies | [[hardware/README\|hardware]] |
-| **Systems** | The layer everything runs on | OS internals, compilers, databases, performance measured in microseconds | [[foundations/os/README\|OS]] · [[foundations/compilers/README\|compilers]] |
-| **DevOps / SRE** | Delivery and uptime | Pipelines, infrastructure, monitoring, incidents, being on call | [[devops/README\|devops]] |
-| **Security** | Making attacks expensive | Threat modelling, reviews, testing, incident response | [[cybersecurity/README\|cybersecurity]] |
-| **Data** | Data other people depend on | Pipelines, warehouses, the correctness of numbers people make decisions on | [[ai-ml/01-data-scientist/README\|data scientist]] |
-| **ML** | Models in production | Training, evaluation, drift, serving | [[ai-ml/02-ml-engineer/README\|ML engineer]] |
-| **AI engineer** | Products built on models | RAG, agents, prompts, **evals**, cost and latency. Mostly application engineering | [[ai-ml/03-ai-engineer/README\|AI engineer]] |
+| **Embedded** | Software on hardware | C, constrained memory, interrupts, no OS or a small one, hardware that lies | [[hardware/index\|hardware]] |
+| **Systems** | The layer everything runs on | OS internals, compilers, databases, performance measured in microseconds | [[foundations/os/index\|OS]] · [[foundations/compilers/index\|compilers]] |
+| **DevOps / SRE** | Delivery and uptime | Pipelines, infrastructure, monitoring, incidents, being on call | [[devops/index\|devops]] |
+| **Security** | Making attacks expensive | Threat modelling, reviews, testing, incident response | [[cybersecurity/index\|cybersecurity]] |
+| **Data** | Data other people depend on | Pipelines, warehouses, the correctness of numbers people make decisions on | [[ai-ml/01-data-scientist/index\|data scientist]] |
+| **ML** | Models in production | Training, evaluation, drift, serving | [[ai-ml/02-ml-engineer/index\|ML engineer]] |
+| **AI engineer** | Products built on models | RAG, agents, prompts, **evals**, cost and latency. Mostly application engineering | [[ai-ml/03-ai-engineer/index\|AI engineer]] |
 
 ## What actually differs
 

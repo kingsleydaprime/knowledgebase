@@ -293,7 +293,7 @@ By Sunday: what must be true before the week closes
 
 # Week 1 — Introduction to Software Engineering, and the audit
 
-**Read:** [[foundations/software-engineering/README|Introduction to Software Engineering]] (01–03) · [[projects/README|projects/README]] — what you've already built and which domains it exercises
+**Read:** [[foundations/software-engineering/index|Introduction to Software Engineering]] (01–03) · [[projects/index|projects/index]] — what you've already built and which domains it exercises
 
 **Topics**
 - **1.1** Programming vs engineering; where the time actually goes → [[foundations/software-engineering/01-what-software-engineering-is|01]]
@@ -306,7 +306,7 @@ By Sunday: what must be true before the week closes
 
 **By Sunday:** the audit is done, and "What is a software engineer?" is written in your own words, one page, nothing open.
 
-> **This gap is now closed.** Topics 1.1–1.3 had no chapter — the vault is written for practitioners and never wrote down what the profession *is*. [[foundations/software-engineering/README|foundations/software-engineering/]] was written to fill exactly this week. It's deliberately short: you're twelve projects deep, so most of it will confirm what you already know by doing, and its real value is vocabulary. **1.5 is still the actual deliverable of the week.**
+> **This gap is now closed.** Topics 1.1–1.3 had no chapter — the vault is written for practitioners and never wrote down what the profession *is*. [[foundations/software-engineering/index|foundations/software-engineering/]] was written to fill exactly this week. It's deliberately short: you're twelve projects deep, so most of it will confirm what you already know by doing, and its real value is vocabulary. **1.5 is still the actual deliverable of the week.**
 
 ---
 
@@ -331,7 +331,7 @@ By Sunday: what must be true before the week closes
 
 # Week 3 — Design patterns
 
-**Read:** [[concepts/03-design-patterns/README|design patterns]], all three chapters
+**Read:** [[concepts/03-design-patterns/index|design patterns]], all three chapters
 
 **Topics**
 - **3.1** Creational — factory, builder, **and why singleton is usually a mistake** → [[concepts/03-design-patterns/01-creational-patterns|creational]]
@@ -347,7 +347,7 @@ By Sunday: what must be true before the week closes
 
 # Week 4 — Structuring a codebase
 
-**Read:** [[backend/03-structuring-a-backend/README|structuring a backend]], all five chapters
+**Read:** [[backend/03-structuring-a-backend/index|structuring a backend]], all five chapters
 
 **Topics**
 - **4.1** Layers: controllers, services, repositories → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|layers]]
@@ -363,7 +363,7 @@ By Sunday: what must be true before the week closes
 
 # Week 5 — How to approach system design
 
-**Read:** [[architecture/01-system-design-fundamentals/README|system design fundamentals]] 01–02
+**Read:** [[architecture/01-system-design-fundamentals/index|system design fundamentals]] 01–02
 
 **Topics**
 - **5.1** The sequence, so you never freeze → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach it]]
@@ -410,7 +410,7 @@ By Sunday: what must be true before the week closes
 
 # Week 8 — Architectural patterns and trade-offs
 
-**Read:** [[architecture/03-architectural-patterns/README|architectural patterns]] 01–04 · [[architecture/interview/01-system-design-round|the interview round]]
+**Read:** [[architecture/03-architectural-patterns/index|architectural patterns]] 01–04 · [[architecture/interview/01-system-design-round|the interview round]]
 
 **Topics**
 - **8.1** Monolith vs microservices vs serverless → [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|the three]]
@@ -544,7 +544,7 @@ By Sunday: what must be true before the week closes
 
 # Week 16 — Identity: authentication and authorisation
 
-**Read:** [[backend/05-auth/README|auth]] 01–03 · [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]]
+**Read:** [[backend/05-auth/index|auth]] 01–03 · [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]]
 
 **Topics**
 - **16.1** Authentication vs authorisation → [[backend/05-auth/01-authentication-flows|flows]] · [[backend/05-auth/02-authorization|authz]]
@@ -561,7 +561,7 @@ By Sunday: what must be true before the week closes
 
 # Week 17 — Attacks and defences
 
-**Read:** [[cybersecurity/04-web-security/README|web security]] 01–04 · [[cybersecurity/05-cryptography/README|cryptography]] 01–06
+**Read:** [[cybersecurity/04-web-security/index|web security]] 01–04 · [[cybersecurity/05-cryptography/index|cryptography]] 01–06
 
 **Topics**
 - **17.1** Input validation and output encoding → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|01]]
@@ -581,7 +581,7 @@ By Sunday: what must be true before the week closes
 
 # Week 18 — Backend: the request path
 
-**Read:** [[backend/01-foundations/README|backend foundations]] 01–04 · [[backend/02-api-design/01-apis-and-rest|APIs & REST]]
+**Read:** [[backend/01-foundations/index|backend foundations]] 01–04 · [[backend/02-api-design/01-apis-and-rest|APIs & REST]]
 
 **Depth: reconstruct.** Write from memory first, then diff against your own code. The diff is the lesson.
 
@@ -622,7 +622,7 @@ By Sunday: what must be true before the week closes
 
 # Week 20 — LLMs: the ground floor
 
-**Read:** [[ai-ml/03-ai-engineer/README|the AI engineer track]] 01–04
+**Read:** [[ai-ml/03-ai-engineer/index|the AI engineer track]] 01–04
 
 **Topics**
 - **20.1** What the role actually is → [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|01]]
@@ -706,7 +706,7 @@ By Sunday: what must be true before the week closes
 
 # Week 25 — DevOps and delivery
 
-**Read:** [[devops/02-docker/README|docker]] · [[devops/06-ci-cd/README|CI/CD]] 01, 08, 09 · [[devops/09-secret-management/01-secret-management|secrets]]
+**Read:** [[devops/02-docker/index|docker]] · [[devops/06-ci-cd/index|CI/CD]] 01, 08, 09 · [[devops/09-secret-management/01-secret-management|secrets]]
 
 **Depth: gap-fill.**
 
@@ -742,7 +742,7 @@ By Sunday: what must be true before the week closes
 
 # Week 27 — What makes distributed systems hard
 
-**Read:** [[architecture/04-distributed-systems/README|distributed systems]] 01–04
+**Read:** [[architecture/04-distributed-systems/index|distributed systems]] 01–04
 
 **Topics**
 - **27.1** What makes them hard → [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|01]]
@@ -806,7 +806,7 @@ By Sunday: what must be true before the week closes
 
 # Week 31+ — The CS spine (ongoing)
 
-**Read:** [[foundations/os/README|OS]] · [[foundations/computer-architecture/README|architecture]] · [[foundations/theory-of-computation/README|theory]] · [[foundations/compilers/README|compilers]]
+**Read:** [[foundations/os/index|OS]] · [[foundations/computer-architecture/index|architecture]] · [[foundations/theory-of-computation/index|theory]] · [[foundations/compilers/index|compilers]]
 
 No deadline, no interviewer asking. **This is the unit that answers your actual objective — *"understand why software is built the way it is."***
 
@@ -827,7 +827,7 @@ No deadline, no interviewer asking. **This is the unit that answers your actual 
 
 # Section D — DSA, every week
 
-**Read:** [[foundations/dsa/README|DSA course]] → [[foundations/dsa/06-patterns/README|the 15 patterns]] · [[foundations/dsa/interview/README|the coding round]]
+**Read:** [[foundations/dsa/index|DSA course]] → [[foundations/dsa/06-patterns/index|the 15 patterns]] · [[foundations/dsa/interview/index|the coding round]]
 
 Back of the notebook, worked forward. One page per pattern — format in [[learning/swe-101/03-notebook-method|the method]].
 

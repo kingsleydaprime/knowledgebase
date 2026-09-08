@@ -2,7 +2,7 @@
 
 **Game interviews are unusually technical and unusually concrete.** Expect maths on a whiteboard, performance reasoning, and a portfolio conversation that goes deeper than in most software roles — because in games, *"show me the thing you shipped"* is the primary signal.
 
-From the [[game-development/README|game development course]].
+From the [[game-development/index|game development course]].
 
 ---
 
@@ -67,7 +67,7 @@ render(accumulator / FIXED_DT)      // interpolate between the last two states
 **Where it matters:** bullets, particles, enemies, UI elements, audio sources — anything spawned frequently.
 
 **Details that matter:**
-- In C#/Unity the concern is the managed heap and GC spikes → [[languages/07-csharp/README|C#]]
+- In C#/Unity the concern is the managed heap and GC spikes → [[languages/07-csharp/index|C#]]
 - In C++ it's fragmentation and allocator cost, and the answer is usually an **arena or pool allocator** → [[foundations/os/05-memory-allocation|memory allocation]]
 - **Pooling has a cost:** objects must be reset properly on reuse, and stale state is a classic bug — a pooled enemy that remembers its old health
 
@@ -139,7 +139,7 @@ In an OO hierarchy, objects are scattered on the heap; iterating them chases poi
 ---
 
 ## Related
-- [[game-development/README|the course]] · [[game-development/engines/README|engines]]
+- [[game-development/index|the course]] · [[game-development/engines/index|engines]]
 - [[foundations/computer-graphics/10-practice-exercises|graphics exercises]] — the reps behind Q1 and Q3
 - [[project-ideas|project ideas]] — the game-development tier
 - [[INTERVIEW|Interview Prep Index]]

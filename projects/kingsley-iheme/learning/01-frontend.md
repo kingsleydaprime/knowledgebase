@@ -1,8 +1,8 @@
 # 01 — Frontend (Next.js 16, React 19, Tailwind v4)
 
-Part of the [[projects/kingsley-iheme/learning/README|kingsley-iheme learning log]]. Siblings: [[projects/kingsley-iheme/learning/02-sanity|02-sanity]] · [[projects/kingsley-iheme/learning/03-backend-api|03-backend-api]] · [[projects/kingsley-iheme/learning/04-devops|04-devops]].
+Part of the [[projects/kingsley-iheme/learning/index|kingsley-iheme learning log]]. Siblings: [[projects/kingsley-iheme/learning/02-sanity|02-sanity]] · [[projects/kingsley-iheme/learning/03-backend-api|03-backend-api]] · [[projects/kingsley-iheme/learning/04-devops|04-devops]].
 
-General reference for the same material: [[frontend/frameworks/next/README|frontend/frameworks/next]] and [[frontend/frameworks/react/README|react]]. This file teaches it as it showed up here — Next **16** specifically, with real files.
+General reference for the same material: [[frontend/frameworks/next/index|frontend/frameworks/next]] and [[frontend/frameworks/react/index|react]]. This file teaches it as it showed up here — Next **16** specifically, with real files.
 
 ---
 
@@ -399,7 +399,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 disallow: ["/studio", "/api/"]
 ```
 
-Correct instinct — keep the CMS login and the API surface out of search results. **But be clear about what `robots.txt` is**: a politeness convention honoured by well-behaved crawlers. It is *not* access control. `/studio` is genuinely protected because Sanity requires authentication; `/api/contact` is protected because it validates input and only sends mail to a fixed address. `robots.txt` is doing SEO hygiene here, not security — and treating a `Disallow` line as a security boundary is a classic finding in [[cybersecurity/04-web-security/README|web security]] reviews. (Worse, `robots.txt` is public and readable by anyone, so it happily advertises the paths you'd rather nobody visited.)
+Correct instinct — keep the CMS login and the API surface out of search results. **But be clear about what `robots.txt` is**: a politeness convention honoured by well-behaved crawlers. It is *not* access control. `/studio` is genuinely protected because Sanity requires authentication; `/api/contact` is protected because it validates input and only sends mail to a fixed address. `robots.txt` is doing SEO hygiene here, not security — and treating a `Disallow` line as a security boundary is a classic finding in [[cybersecurity/04-web-security/index|web security]] reviews. (Worse, `robots.txt` is public and readable by anyone, so it happily advertises the paths you'd rather nobody visited.)
 
 ### JSON-LD structured data
 
@@ -413,7 +413,7 @@ export function JsonLd({ data }: { data: object }) {
 
 Schema.org markup that tells Google *what* a page is — `/about` declares a `Person`, `/counseling` declares a `Service` with an `OfferCatalog` built from the same `sessionTypes` array the UI renders. One source of truth for the buttons and the structured data.
 
-**The `.replace(/</g, "\\u003c")` is the load-bearing line, and it is not decoration.** Inside a `<script>` block, the HTML parser has one job: find `</script>`. If any user-controlled string in that JSON contains `</script><img src=x onerror=alert(1)>`, the browser closes the script tag early and executes the rest as markup — **stored XSS**, straight through `dangerouslySetInnerHTML`. Escaping `<` as its `<` unicode escape is valid JSON that parses to the identical string, but is invisible to the HTML parser, so the tag can never be closed early. Currently the data here is all hardcoded, but the component is generic and the guard means it stays safe if CMS content is ever fed into it. Cross-reference: [[cybersecurity/04-web-security/README|XSS]].
+**The `.replace(/</g, "\\u003c")` is the load-bearing line, and it is not decoration.** Inside a `<script>` block, the HTML parser has one job: find `</script>`. If any user-controlled string in that JSON contains `</script><img src=x onerror=alert(1)>`, the browser closes the script tag early and executes the rest as markup — **stored XSS**, straight through `dangerouslySetInnerHTML`. Escaping `<` as its `<` unicode escape is valid JSON that parses to the identical string, but is invisible to the HTML parser, so the tag can never be closed early. Currently the data here is all hardcoded, but the component is generic and the guard means it stays safe if CMS content is ever fed into it. Cross-reference: [[cybersecurity/04-web-security/index|XSS]].
 
 ---
 

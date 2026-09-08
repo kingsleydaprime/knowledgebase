@@ -206,4 +206,4 @@ That gives you $G(s) = Ke^{-\theta s}/(\tau s + 1)$ or a second-order fit — en
 - [[engineering/02-control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]] — where poles come from
 - [[engineering/02-control-theory/04-pid-control|PID Control]] — using this to tune
 - [[engineering/02-control-theory/05-stability-and-root-locus|Stability and Root Locus]] — moving poles deliberately
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/02-control-theory/index|Control theory map]]

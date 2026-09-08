@@ -13,7 +13,7 @@
  * primitive yourself using wait()/notifyAll() or a Lock + Condition.
  *
  * Run BoundedBlockingQueueTest.java against this once implemented — see
- * ../README.md for how to compile and run it.
+ * ../index.md for how to compile and run it.
  */
 public class BoundedBlockingQueue<T> {
 

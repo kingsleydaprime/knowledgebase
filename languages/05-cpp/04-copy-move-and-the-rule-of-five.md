@@ -224,4 +224,4 @@ In [[languages/03-rust/03-ownership|Rust]] moves are the **default and destructi
 - [[languages/05-cpp/05-smart-pointers-and-ownership|Smart Pointers and Ownership]] — the Rule of Zero, in practice
 - [[languages/05-cpp/11-exceptions-and-error-handling|Exceptions]] — why copy assignment allocates first
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — moves by default
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

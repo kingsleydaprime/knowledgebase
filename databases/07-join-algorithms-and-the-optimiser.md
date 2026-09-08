@@ -178,4 +178,4 @@ Default is 100; more buckets means a finer histogram.
 - [[databases/06-the-query-pipeline|The Query Pipeline]] — where planning sits
 - [[databases/04-b-trees-and-indexes|B-Trees and Indexes]] — the access methods being chosen between
 - [[databases/sql-reference|SQL Reference]] — §26 on writing queries the planner handles well
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]

@@ -1,7 +1,7 @@
 # Git — Munakalati
 
-**Domain:** git, as it showed up in [[projects/munakalati/learning/README|munakalati]] — a client project with **two remotes**, a second contributor, and a `.gitignore` that quietly excluded the most important scripts in the repo.
-**General version:** [[git/README|the git course]] — this file is only the project-specific parts.
+**Domain:** git, as it showed up in [[projects/munakalati/learning/index|munakalati]] — a client project with **two remotes**, a second contributor, and a `.gitignore` that quietly excluded the most important scripts in the repo.
+**General version:** [[git/index|the git course]] — this file is only the project-specific parts.
 
 45 commits, two authors (43 / 2), one branch.
 

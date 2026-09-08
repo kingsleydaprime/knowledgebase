@@ -10,7 +10,7 @@ This is the note the whole track has been pointing at: [[data-analysis/01-what-d
 
 ## Why this is half the job
 
-A technically brilliant analysis communicated badly loses to a mediocre analysis communicated well — because **decisions are made by people, and people act on what they understand and remember, not on what's most rigorous.** The analyst who can make a finding *land* — clear, memorable, tied to an action — has more impact than the one with better statistics and worse slides. This isn't a knock on rigour; it's that rigour is *necessary and not sufficient*. The [[ai-ml/01-data-scientist/README|data-scientist track]] opens with the same lesson, because it's the one both disciplines most underweight early.
+A technically brilliant analysis communicated badly loses to a mediocre analysis communicated well — because **decisions are made by people, and people act on what they understand and remember, not on what's most rigorous.** The analyst who can make a finding *land* — clear, memorable, tied to an action — has more impact than the one with better statistics and worse slides. This isn't a knock on rigour; it's that rigour is *necessary and not sufficient*. The [[ai-ml/01-data-scientist/index|data-scientist track]] opens with the same lesson, because it's the one both disciplines most underweight early.
 
 ## Lead with the answer
 

@@ -23,7 +23,7 @@ GOOD: if not user exists:      return error
       do the actual thing                  ← front and centre
 ```
 
-These are **guard clauses** (early return). The goal isn't to eliminate all nesting — it's to keep the *important path* of a function easy to see → [[foundations/programming-fundamentals/README|control flow]]. A reader should follow what a function *does* without mentally unwinding a pyramid of conditions.
+These are **guard clauses** (early return). The goal isn't to eliminate all nesting — it's to keep the *important path* of a function easy to see → [[foundations/programming-fundamentals/index|control flow]]. A reader should follow what a function *does* without mentally unwinding a pyramid of conditions.
 
 ## 2. Name things by their meaning
 
@@ -42,7 +42,7 @@ external response  →  [ boundary: map to OUR names/shapes ]  →  our clean mo
    (their fields)          the ONE place their change costs us      (used everywhere)
 ```
 
-This is the **anti-corruption layer**. When the external service changes, you fix one mapping instead of fifty call sites. It's the same instinct as [[cybersecurity/14-api-security/06-the-api-security-lifecycle|not trusting third-party responses]] and [[architecture/03-architectural-patterns/README|hexagonal architecture's ports and adapters]] — keep external complexity contained at the edge instead of spreading it inward.
+This is the **anti-corruption layer**. When the external service changes, you fix one mapping instead of fifty call sites. It's the same instinct as [[cybersecurity/14-api-security/06-the-api-security-lifecycle|not trusting third-party responses]] and [[architecture/03-architectural-patterns/index|hexagonal architecture's ports and adapters]] — keep external complexity contained at the edge instead of spreading it inward.
 
 ## 4. Make invalid states harder to represent
 
@@ -82,13 +82,13 @@ BAD:  throw Error("Something went wrong")
 GOOD: throw Error(code: "PAYMENT_DECLINED", message: "Your card was declined")
 ```
 
-And when you log errors, **include the context that helps investigation** — but **never log passwords, tokens, secrets, or personal data** → [[cybersecurity/10-protecting-yourself/README|don't leak secrets in logs]], [[languages/08-swift/06-error-handling|error handling]]. A useful error is the difference between a five-minute fix and an afternoon of guessing → [[foundations/programming-fundamentals/10-errors-and-debugging|debugging]].
+And when you log errors, **include the context that helps investigation** — but **never log passwords, tokens, secrets, or personal data** → [[cybersecurity/10-protecting-yourself/index|don't leak secrets in logs]], [[languages/08-swift/06-error-handling|error handling]]. A useful error is the difference between a five-minute fix and an afternoon of guessing → [[foundations/programming-fundamentals/10-errors-and-debugging|debugging]].
 
 ## 7. Keep your changes focused
 
 Not about writing code — about *changing* it. A pull request that adds a feature, refactors a service, changes the database, updates the frontend, and modifies retry logic all at once might work perfectly and still be **impossible to review, test, debug, or roll back.**
 
-**Smaller, focused changes** — one adds the validation, one refactors the payment service, one updates the interface — each with a clear purpose. Easier to review, easier to bisect when something breaks, easier to revert the one piece that was wrong → [[concepts/04-best-practices/02-pr-structure|PR structure]], [[git/README|focused commits]].
+**Smaller, focused changes** — one adds the validation, one refactors the payment service, one updates the interface — each with a clear purpose. Easier to review, easier to bisect when something breaks, easier to revert the one piece that was wrong → [[concepts/04-best-practices/02-pr-structure|PR structure]], [[git/index|focused commits]].
 
 ## The one idea underneath all seven
 
@@ -113,7 +113,7 @@ Every habit serves the same goal:
 ## Related
 - [[concepts/04-best-practices/01-clean-code|clean code]] · [[concepts/04-best-practices/05-solid-principles|SOLID]] · [[concepts/04-best-practices/02-pr-structure|PR structure]]
 - [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] — habit 5 is what makes code testable
-- [[architecture/03-architectural-patterns/README|architectural patterns]] — habit 3 (anti-corruption layer) and habit 5 at system scale
+- [[architecture/03-architectural-patterns/index|architectural patterns]] — habit 3 (anti-corruption layer) and habit 5 at system scale
 - [[languages/08-swift/05-enums-and-pattern-matching|type-driven design]] — habit 4 across languages
 
-*Source: distilled from a "7 coding habits" talk (in [[sources/README|sources/]]). [reference] — Sep 2026.*
+*Source: distilled from a "7 coding habits" talk (in [[sources/index|sources/]]). [reference] — Sep 2026.*

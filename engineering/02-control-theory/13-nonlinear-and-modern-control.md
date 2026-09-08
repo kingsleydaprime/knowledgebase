@@ -109,13 +109,13 @@ Honest orientation on the modern landscape.
 
 **Reinforcement learning** is optimal control without a model — learn the policy from interaction. Impressive on problems where no model exists or the dynamics are too complex to write down.
 
-> **The honest comparison:** RL needs enormous amounts of data, offers no stability guarantee, and transfers poorly from simulation to hardware. Classical control needs a model and gives you provable guarantees. **They're complementary, and the interesting work is in the overlap** — RL for high-level policy with a classical inner loop enforcing safety, or learned dynamics models feeding an MPC. Nobody flies an aircraft on a pure neural policy, and nobody hand-designs a controller for a task with no model. → [[ai-ml/README|AI/ML]]
+> **The honest comparison:** RL needs enormous amounts of data, offers no stability guarantee, and transfers poorly from simulation to hardware. Classical control needs a model and gives you provable guarantees. **They're complementary, and the interesting work is in the overlap** — RL for high-level policy with a classical inner loop enforcing safety, or learned dynamics models feeding an MPC. Nobody flies an aircraft on a pure neural policy, and nobody hand-designs a controller for a task with no model. → [[ai-ml/index|AI/ML]]
 
 **Learning-based control** — learn the *model*, then use classical synthesis. Often the practical middle ground: Gaussian-process MPC, iterative learning control for repetitive tasks, and system identification with neural networks. **It keeps the guarantees where they matter** and uses learning where models are hard.
 
 **Safe learning and control barrier functions** — a genuinely useful development. A CBF gives a provable constraint on the control input that keeps the state in a safe set, and it composes with *any* nominal controller, learned or not. It's how you put a hard safety envelope around a policy you don't fully trust.
 
-**Networked and multi-agent control** — consensus, formation control, distributed optimisation. Drone swarms, power grids, traffic. The plant is a graph and stability depends on its connectivity. → [[architecture/04-distributed-systems/README|Distributed Systems]]
+**Networked and multi-agent control** — consensus, formation control, distributed optimisation. Drone swarms, power grids, traffic. The plant is a graph and stability depends on its connectivity. → [[architecture/04-distributed-systems/index|Distributed Systems]]
 
 **Data-driven control** — behavioural systems theory and Willems' fundamental lemma: **design a controller directly from measured input–output data, with guarantees, without ever identifying a model.** An active and genuinely novel area.
 
@@ -136,5 +136,5 @@ Honest orientation on the modern landscape.
 ## Related
 - [[engineering/02-control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — MPC, the modern default
 - [[engineering/02-control-theory/02-modelling-and-transfer-functions|Modelling]] — linearisation and its limits
-- [[robotics/README|Robotics]] — where most of this gets applied
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[robotics/index|Robotics]] — where most of this gets applied
+- [[engineering/02-control-theory/index|Control theory map]]

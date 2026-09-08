@@ -1,8 +1,8 @@
 # The Cryptographic Primitives
 
-**[Intermediate]** — the four pieces every chain is assembled from, and specifically what blockchains do with them that [[cybersecurity/05-cryptography/README|the cryptography course]] doesn't cover.
+**[Intermediate]** — the four pieces every chain is assembled from, and specifically what blockchains do with them that [[cybersecurity/05-cryptography/index|the cryptography course]] doesn't cover.
 
-**This note deliberately does not re-teach cryptography.** Hash functions, asymmetric keys and signatures are covered properly in [[cybersecurity/05-cryptography/README|cybersecurity/05]]. Read that first if any of it is unfamiliar. What's here is **the blockchain-specific usage** — which is narrower and stranger than general crypto use.
+**This note deliberately does not re-teach cryptography.** Hash functions, asymmetric keys and signatures are covered properly in [[cybersecurity/05-cryptography/index|cybersecurity/05]]. Read that first if any of it is unfamiliar. What's here is **the blockchain-specific usage** — which is narrower and stranger than general crypto use.
 
 ## 1. Hash functions — used as identity, not as integrity
 

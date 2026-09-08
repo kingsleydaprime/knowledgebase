@@ -8,7 +8,7 @@ C# is a **statically typed, garbage-collected, multi-paradigm language** that be
 
 **Where it doesn't:** systems programming without a runtime, scripting and data science (Python owns it), and anything where a GC pause is unacceptable → [[languages/07-csharp/08-memory-gc-and-spans|note 08]].
 
-**The fair summary: C# is what Java would look like if it had shipped its good ideas faster.** Records, pattern matching, nullable reference types, value types, LINQ and async all arrived years earlier → [[languages/01-java/README|Java]].
+**The fair summary: C# is what Java would look like if it had shipped its good ideas faster.** Records, pattern matching, nullable reference types, value types, LINQ and async all arrived years earlier → [[languages/01-java/index|Java]].
 
 ## The naming, untangled
 
@@ -98,8 +98,8 @@ record User(string Name, int Age);
 
 ## Related
 - [[languages/07-csharp/02-the-type-system|the type system]] — value vs reference, and nullability
-- [[languages/07-csharp/README|the course]]
-- [[languages/01-java/README|Java]] — the closest neighbour
+- [[languages/07-csharp/index|the course]]
+- [[languages/01-java/index|Java]] — the closest neighbour
 - [[game-development/engines/unity|Unity]] — the reason many people arrive here
 
 *Source: [reference] — from the .NET and C# language documentation, Aug 2026.*

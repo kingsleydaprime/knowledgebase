@@ -157,4 +157,4 @@ The **transitive closure** of $R$ adds every pair reachable by a chain. Given "d
 - [[foundations/discrete-math/05-induction-and-recursion|Induction and Recursion]] — proving things about these structures
 - [[foundations/discrete-math/07-graph-theory|Graph Theory]] — relations, drawn
 - [[foundations/theory-of-computation/06-decidability|Decidability]] — where countability does real work
-- [[foundations/discrete-math/README|Discrete maths map]]
+- [[foundations/discrete-math/index|Discrete maths map]]

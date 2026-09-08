@@ -138,7 +138,7 @@ Plotted log-log, that's a diagonal (bandwidth-limited) meeting a horizontal ceil
 
 **You can classify a kernel before writing it**, by counting FLOPs and bytes on paper. **That prediction is the whole value of the roofline** — it tells you whether to optimise arithmetic (pointless if memory-bound) or data movement.
 
-**It's also why matrix multiplication is the operation GPUs are marketed on:** it's one of the few common kernels with high enough intensity to reach peak. And it's why transformer inference is memory-bound at batch size 1 and compute-bound at large batch → [[ai-ml/README|AI & ML]].
+**It's also why matrix multiplication is the operation GPUs are marketed on:** it's one of the few common kernels with high enough intensity to reach peak. And it's why transformer inference is memory-bound at batch size 1 and compute-bound at large batch → [[ai-ml/index|AI & ML]].
 
 ### 11. Predict, then measure
 
@@ -158,6 +158,6 @@ Nsight Compute reports **achieved occupancy** (active warps vs maximum), **memor
 
 ## Related
 - [[foundations/gpu-and-parallel-computing/08-practice-exercises|the exercises]]
-- [[foundations/gpu-and-parallel-computing/README|the course]]
+- [[foundations/gpu-and-parallel-computing/index|the course]]
 
 *Source: [reference] — **GPU figures are representative values from vendor documentation, not measured here** (this vault has no GPU). The Amdahl and roofline reasoning is hardware-independent.*

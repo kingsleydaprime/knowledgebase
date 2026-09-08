@@ -50,7 +50,7 @@ Regularization is the concrete mechanism behind the bias-variance tradeoff ([[ai
 
 ## When regression is the right tool
 
-For **structured/tabular data**, a regularized linear or logistic model is often competitive with far fancier methods, trains instantly, and is interpretable — a real advantage when you need to *explain* a decision ([[ai-ml/02-ml-engineer/09-building-and-fine-tuning/04-explainable-ai|explainable AI]]). Reach past it to [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|trees/ensembles]] when relationships are strongly non-linear, or to [[ai-ml/02-ml-engineer/05-deep-learning/README|deep learning]] for unstructured data (text/images).
+For **structured/tabular data**, a regularized linear or logistic model is often competitive with far fancier methods, trains instantly, and is interpretable — a real advantage when you need to *explain* a decision ([[ai-ml/02-ml-engineer/09-building-and-fine-tuning/04-explainable-ai|explainable AI]]). Reach past it to [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|trees/ensembles]] when relationships are strongly non-linear, or to [[ai-ml/02-ml-engineer/05-deep-learning/index|deep learning]] for unstructured data (text/images).
 
 ## Related
 - [[ai-ml/02-ml-engineer/04-model-evaluation/02-overfitting-and-regularization|Overfitting & Regularization]] — what regularization fights

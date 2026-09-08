@@ -28,7 +28,7 @@ One codebase (Flutter, React Native, KMP) means roughly half the work and some c
 **Good:** genuinely consistent UI, excellent hot reload, strong performance (compiles to native code), one codebase covering mobile plus desktop and web, and a mature widget set.
 
 **The costs:**
-- **Dart.** A pleasant language with a small ecosystem outside Flutter → [[languages/10-dart/README|the Dart course]]
+- **Dart.** A pleasant language with a small ecosystem outside Flutter → [[languages/10-dart/index|the Dart course]]
 - **You don't get platform widgets**, so you don't get platform behaviour free — including some accessibility and text-input subtleties. Material widgets on iOS look subtly foreign to iOS users
 - **New OS features need a plugin**, so you wait
 - **Larger binaries** — the engine ships with your app
@@ -46,7 +46,7 @@ One codebase (Flutter, React Native, KMP) means roughly half the work and some c
 - **Dependency fragility.** Native modules break across upgrades, and React Native upgrades have a reputation for being painful
 - **You still need native knowledge** for anything unusual
 
-**Best for:** teams with React experience, apps that are mostly views over an API, and startups needing speed → [[frontend/frameworks/react/README|React]].
+**Best for:** teams with React experience, apps that are mostly views over an API, and startups needing speed → [[frontend/frameworks/react/index|React]].
 
 ## Kotlin Multiplatform
 
@@ -92,9 +92,9 @@ Four questions, in order:
 **The decision is mostly about your team and your app's relationship to the platform, not about the frameworks' technical merits** — which are closer than the arguing suggests. A React team should probably ship React Native; a team building a camera-heavy app with widgets and a watch companion should probably go native; and a team that already has two native apps should look at KMP before rewriting anything.
 
 ## Related
-- [[mobile/frameworks/README|the framework folders]] — each in more depth
+- [[mobile/frameworks/index|the framework folders]] — each in more depth
 - [[mobile/02-the-two-platforms|the two platforms]]
-- [[languages/10-dart/README|Dart]] · [[languages/09-kotlin/README|Kotlin]] · [[languages/08-swift/README|Swift]]
-- [[desktop/frameworks/README|desktop frameworks]] — the same argument, one layer over
+- [[languages/10-dart/index|Dart]] · [[languages/09-kotlin/index|Kotlin]] · [[languages/08-swift/index|Swift]]
+- [[desktop/frameworks/index|desktop frameworks]] — the same argument, one layer over
 
 *Source: [reference] — Aug 2026.*

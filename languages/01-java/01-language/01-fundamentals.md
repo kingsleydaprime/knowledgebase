@@ -504,4 +504,4 @@ This file is deliberately the ground floor. The topics it used to bundle now hav
 ## Related
 - [[languages/01-java/01-language/02-oop|OOP]] — the next step up
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — what runs the bytecode this file compiles to
-- [[foundations/dsa/README|DSA]] — language-agnostic algorithms and data structures
+- [[foundations/dsa/index|DSA]] — language-agnostic algorithms and data structures

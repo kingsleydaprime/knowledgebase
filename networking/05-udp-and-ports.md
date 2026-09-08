@@ -59,7 +59,7 @@ A UDP application that just blasts packets at a fixed rate does **not** back off
 
 So the real rule is: **choosing UDP means you have accepted responsibility for congestion control yourself.** QUIC and WebRTC both implement full congestion control in userspace precisely because they had to. If you write a UDP protocol and skip this, you have not built something simpler than TCP — you've built something antisocial.
 
-The related operational reality: UDP is the workhorse of **amplification DDoS**. Spoof the victim's source address, send a small query to a server that returns a large answer (DNS, NTP, memcached), and the reply lands on the victim — a 50×+ amplification. UDP's lack of a handshake is what makes source-address spoofing productive, and it's why open resolvers are a liability. → [[cybersecurity/06-attacks-and-threats/README|attacks & threats]]
+The related operational reality: UDP is the workhorse of **amplification DDoS**. Spoof the victim's source address, send a small query to a server that returns a large answer (DNS, NTP, memcached), and the reply lands on the victim — a 50×+ amplification. UDP's lack of a handshake is what makes source-address spoofing productive, and it's why open resolvers are a liability. → [[cybersecurity/06-attacks-and-threats/index|attacks & threats]]
 
 ## Choosing between them
 

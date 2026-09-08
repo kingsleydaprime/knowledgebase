@@ -172,7 +172,7 @@ fn synchronize(&mut self) {
 
 Simple and effective. Statement boundaries and block delimiters are the natural sync points.
 
-**Error productions** — grammar rules that match *common mistakes* specifically, so you can give a targeted message:
+**Error productions** — grammar rules that match _common mistakes_ specifically, so you can give a targeted message:
 
 ```rust
 // a rule matching `if x == 1 {` without parens, in a language that requires them
@@ -183,7 +183,7 @@ if self.check(If) && !self.check_next(LParen) {
 
 That's how the best error messages happen — someone anticipated the mistake.
 
-**Produce a partial AST with error nodes** rather than bailing out. Later phases can then run and report *their* errors too, and it's essential for IDE features, where the code is almost always incomplete mid-keystroke.
+**Produce a partial AST with error nodes** rather than bailing out. Later phases can then run and report _their_ errors too, and it's essential for IDE features, where the code is almost always incomplete mid-keystroke.
 
 ## Ambiguity
 
@@ -220,7 +220,8 @@ The lesson for a language designer: **ambiguity you resolve by rule is ambiguity
 ---
 
 ## Related
+
 - [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — where the tokens come from
 - [[foundations/compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — the tree being built
 - [[foundations/dsa/04-data-structures/05-trees/01-trees|Trees]] · [[foundations/dsa/04-data-structures/07-stacks-and-queues|Stacks]] — the structures underneath
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

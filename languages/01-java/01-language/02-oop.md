@@ -230,4 +230,4 @@ public enum Channel {
 - [[languages/01-java/01-language/01-fundamentals|Fundamentals]] — access modifiers, static vs instance
 - [[languages/01-java/01-language/03-generics|Generics]] — parameterizing the types these classes hold
 - [[languages/01-java/01-language/07-modern-java|Modern Java]] — records and sealed classes, the modern evolution of OOP modeling
-- [[concepts/03-design-patterns/README|Design Patterns]] — OOP patterns applied
+- [[concepts/03-design-patterns/index|Design Patterns]] — OOP patterns applied

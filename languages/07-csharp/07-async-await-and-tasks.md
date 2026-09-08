@@ -109,6 +109,6 @@ await LoadAsync(cts.Token);        // a timeout, expressed as cancellation
 ## Related
 - [[languages/07-csharp/06-delegates-events-and-lambdas|delegates]] — `IAsyncEnumerable`
 - [[backend/01-foundations/04-runtime-and-concurrency-models|runtime and concurrency models]]
-- [[languages/06-python/17-asyncio-in-depth|asyncio]] · [[languages/01-java/README|Java's virtual threads]]
+- [[languages/06-python/17-asyncio-in-depth|asyncio]] · [[languages/01-java/index|Java's virtual threads]]
 
 *Source: [reference] — from the .NET async documentation, Aug 2026.*

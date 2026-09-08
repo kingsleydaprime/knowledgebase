@@ -145,4 +145,4 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 - [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness, proved against these semantics
 - [[foundations/discrete-math/03-proof-techniques|Proof Techniques]] — loop invariants as induction
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — semantics deliberately left open
-- [[foundations/programming-language-theory/README|PL theory map]]
+- [[foundations/programming-language-theory/index|PL theory map]]

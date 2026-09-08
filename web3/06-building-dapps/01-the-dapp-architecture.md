@@ -105,5 +105,5 @@ If it matters for your application:
 ## Related
 - [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing chain state]]
 - [[web3/06-building-dapps/04-indexing-and-events|indexing and events]] — the constraint that shapes the architecture
-- [[frontend/README|frontend]] — the other 90%
-- [[web3/frameworks/javascript/README|JS/TS for web3]] — viem, wagmi, ethers
+- [[frontend/index|frontend]] — the other 90%
+- [[web3/frameworks/javascript/index|JS/TS for web3]] — viem, wagmi, ethers

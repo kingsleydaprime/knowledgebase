@@ -32,7 +32,7 @@ let result = tokio::task::spawn_blocking(move || {    // for genuinely blocking 
 
 For long CPU work that can't be chunked, `rayon` with a channel back is better — `spawn_blocking`'s pool isn't sized for sustained parallel compute.
 
-**Why this is worse in Rust than in [[languages/02-go/README|Go]]:** Go's runtime detects a blocking syscall and detaches the thread, handing the processor to another. Tokio has no such mechanism — it cannot know your function is blocking. Async Rust is less forgiving here, and it's a real argument for Go in services doing mixed workloads.
+**Why this is worse in Rust than in [[languages/02-go/index|Go]]:** Go's runtime detects a blocking syscall and detaches the thread, handing the processor to another. Tokio has no such mechanism — it cannot know your function is blocking. Async Rust is less forgiving here, and it's a real argument for Go in services doing mixed workloads.
 
 Detect it with `tokio-console`, or the runtime's own warning:
 
@@ -239,4 +239,4 @@ Function colouring is the ongoing tax: `async fn` can only be awaited from async
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the model underneath
 - [[backend/frameworks/rust/05-database-and-persistence|Database and Persistence]] — where most awaits go
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]]
-- [[backend/frameworks/rust/README|Rust backends]]
+- [[backend/frameworks/rust/index|Rust backends]]

@@ -2,7 +2,7 @@
 
 **[Advanced]** — Building the thing every other framework in this vault is built on. This is where Node's event loop, Go's netpoller and tokio's reactor actually live.
 
-**Source:** `[reference]`. Assumes [[languages/04-c/README|the C course]] and [[foundations/networking/09-sockets-and-the-network-api|sockets]].
+**Source:** `[reference]`. Assumes [[languages/04-c/index|the C course]] and [[foundations/networking/09-sockets-and-the-network-api|sockets]].
 
 ## The blocking server
 
@@ -211,7 +211,7 @@ Also: idle timeouts (walk connections by `last_active`, or use a `timerfd`), fil
 
 **Do write one** to understand the layer. The [[BUILD-PLAN|build-your-own-shit]] HTTP server guide starts exactly here, and the payoff is understanding every runtime you'll use afterwards.
 
-**Don't ship one** without a strong reason. The list above is the *easy* half — parsing untrusted input in C is where the CVEs are, and every framework in [[backend/frameworks/c/README|the C options]] has already solved this correctly.
+**Don't ship one** without a strong reason. The list above is the *easy* half — parsing untrusted input in C is where the CVEs are, and every framework in [[backend/frameworks/c/index|the C options]] has already solved this correctly.
 
 ---
 
@@ -220,4 +220,4 @@ Also: idle timeouts (walk connections by `last_active`, or use a `timerfd`), fil
 - [[foundations/networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the syscalls
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — where this sits
 - [[languages/03-rust/14-async-and-tokio|Rust: Async]] — the state machine, generated
-- [[backend/frameworks/c/README|C backends]]
+- [[backend/frameworks/c/index|C backends]]

@@ -61,7 +61,7 @@ A single FFT gives *one* spectrum for the whole chunk — useless for a signal w
 
 **The spectrogram is the workhorse visualisation of DSP** — it's how you *see* speech formants, music notes, a modem's tones, a machine's changing vibration. And the window length is exactly the resolution/latency trade made visible: a short window gives crisp timing and blurry pitch, a long window the reverse. **Speech analysis uses short windows (timing matters); tuning a note uses long ones (pitch matters).**
 
-**Mel-spectrograms** — a spectrogram warped to the perceptual mel frequency scale — are the standard input to speech and audio ML models, which is a direct bridge from DSP to [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/README|audio ML]].
+**Mel-spectrograms** — a spectrogram warped to the perceptual mel frequency scale — are the standard input to speech and audio ML models, which is a direct bridge from DSP to [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/index|audio ML]].
 
 ## Practical spectral analysis
 
@@ -86,7 +86,7 @@ f, t, Sxx = signal.spectrogram(x, fs, window='hann', nperseg=1024)
 ## Related
 - [[foundations/digital-signal-processing/04-the-fft|the FFT]] — what spectral analysis runs on
 - [[foundations/digital-signal-processing/02-sampling-and-aliasing|sampling]] — the other way a spectrum can mislead
-- [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/README|sequence models]] — spectrograms as ML input
-- [[foundations/information-theory/README|information theory]] — the uncertainty/entropy connections
+- [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/index|sequence models]] — spectrograms as ML input
+- [[foundations/information-theory/index|information theory]] — the uncertainty/entropy connections
 
 *Source: [reference] — Aug 2026.*

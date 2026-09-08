@@ -31,7 +31,7 @@ attempt 3:  wait 4s  ± random
 give up  →  error branch
 ```
 
-**Jitter is the part that gets omitted and is the part that matters at scale.** Without it, every workflow that failed during a provider outage retries in lockstep the instant it recovers — and knocks it over again. That's a **retry storm**, and it's how a brief outage becomes a long one → [[architecture/04-distributed-systems/README|distributed systems]].
+**Jitter is the part that gets omitted and is the part that matters at scale.** Without it, every workflow that failed during a provider outage retries in lockstep the instant it recovers — and knocks it over again. That's a **retry storm**, and it's how a brief outage becomes a long one → [[architecture/04-distributed-systems/index|distributed systems]].
 
 **Cap total attempts.** Infinite retries against a permanently broken endpoint is a slow-motion denial of service against yourself, with a bill attached.
 
@@ -97,6 +97,6 @@ Workflow-level timeouts matter too — a run that legitimately takes 10 minutes 
 - [[ai-automation/03-connecting-apis-and-webhooks|connecting APIs and webhooks]] — idempotency
 - [[ai-automation/06-self-hosting-n8n|self-hosting]] — where the alerting runs
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — alerting philosophy
-- [[devops/10-observability/README|observability]]
+- [[devops/10-observability/index|observability]]
 
 *Source: [reference] — written Aug 2026.*

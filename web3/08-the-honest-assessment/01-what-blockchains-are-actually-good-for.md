@@ -76,4 +76,4 @@ That is genuinely valuable in a small number of situations, and **the field has 
 - [[web3/01-foundations/01-what-web3-actually-is|what web3 actually is]] — the same argument, at the start
 - [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|the fraud surface]]
 - [[web3/07-the-application-layer/05-gaming-and-the-rest|gaming and the rest]] — the four-question test applied
-- [[architecture/04-distributed-systems/README|distributed systems]] — the field this belongs to
+- [[architecture/04-distributed-systems/index|distributed systems]] — the field this belongs to

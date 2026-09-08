@@ -7,7 +7,7 @@ The notes in this vault are a **map**. Projects are the **territory** — what t
 ## How to use this
 
 - **Pick one and finish it.** One shipped project beats five half-started ones. Finishing — deployed, tested, written up — is the skill.
-- **Extend your real projects where you can.** Adding CI/CD or benchmarks to something you already built is higher-signal than a toy, and faster to start → [[projects/README|projects/]].
+- **Extend your real projects where you can.** Adding CI/CD or benchmarks to something you already built is higher-signal than a toy, and faster to start → [[projects/index|projects/]].
 - **Write it up.** A short README with the *why* and what you learned turns a project into portfolio signal.
 - **Every entry has a *done when*.** If you can't say when a project is finished, you'll either stop early or never stop.
 
@@ -57,7 +57,7 @@ Highest signal for where you're aiming, across all four columns of [[PRIMETECHIE
 ## Java / JVM & Systems
 *The low-latency / systems signal — what a firm doing market-data / FPGA work actually screens for. This is where you have the most to prove and the most upside. Kept here rather than in [[languages/projects|languages/projects]] because it's a career target, not a language tour.*
 
-- 🟢 **Solve the concurrency exercises** — the [[languages/01-java/02-jvm-and-concurrency/exercises/README|bounded blocking queue and token-bucket rate limiter]] already have a red→green test harness. Do both — once with `synchronized`, once lock-free with `ReentrantLock`/atomics. Exercises: [[languages/01-java/02-jvm-and-concurrency/02-concurrency|concurrency]].
+- 🟢 **Solve the concurrency exercises** — the [[languages/01-java/02-jvm-and-concurrency/exercises/index|bounded blocking queue and token-bucket rate limiter]] already have a red→green test harness. Do both — once with `synchronized`, once lock-free with `ReentrantLock`/atomics. Exercises: [[languages/01-java/02-jvm-and-concurrency/02-concurrency|concurrency]].
 - 🟡 **Lock-free ring buffer (SPSC/MPSC queue)** — a bounded ring buffer using `AtomicLong` cursors and CAS, no locks. Benchmark it against `ArrayBlockingQueue`. The canonical low-latency data structure (the LMAX Disruptor's core). Exercises: [[languages/01-java/02-jvm-and-concurrency/02-concurrency|atomics/CAS]], [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|memory model]].
 - 🔴 ⭐ **In-memory order book + matching engine** — a limit-order book (price levels, bid/ask, add/cancel/match) with a matching engine, single-threaded on the hot path for determinism. Feed it a synthetic order stream, measure throughput and p99 latency. *This is the single most on-target project for a trading firm* — it's literally the domain.
 - 🟡 **Market-data feed parser** — parse a binary/CSV market-data feed (or a simplified FIX/ITCH-style format) at high throughput, zero-allocation on the hot path. Ties [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|batch/streaming]] to [[languages/01-java/01-language/01-fundamentals|the language]].
@@ -69,7 +69,7 @@ Highest signal for where you're aiming, across all four columns of [[PRIMETECHIE
 ## ⭐ Build-Your-Own — systems mastery
 *The deepest reps in the vault. Each one turns a whole topic from words into bone-deep understanding.*
 
-> **These now have full build guides in [[build-your-own-shit/README|build-your-own-shit/]]** — numbered milestones, each independently testable, with per-language toolkits and a "where to stop". Read the guide rather than this list; the entries below are the one-line pitch and the difficulty rating.
+> **These now have full build guides in [[build-your-own-shit/index|build-your-own-shit/]]** — numbered milestones, each independently testable, with per-language toolkits and a "where to stop". Read the guide rather than this list; the entries below are the one-line pitch and the difficulty rating.
 
 | | Guide | Why |
 |---|---|---|
@@ -78,20 +78,20 @@ Highest signal for where you're aiming, across all four columns of [[PRIMETECHIE
 | 🟠 | [[build-your-own-shit/08-your-own-container\|Container]] | ~200 lines, one evening, and Docker stops being magical |
 | 🔴 | [[build-your-own-shit/02-your-own-git\|Git]] | Real Git reads your repository. Permanently demystifies it |
 | 🔴 ⭐ | [[build-your-own-shit/03-your-own-redis\|Redis]] | Data structures + networking + durability. The real `redis-cli` connects |
-| 🔴 | [[build-your-own-shit/04-your-own-language\|Language / interpreter]] | The deepest single lesson. → [[foundations/compilers/README\|compilers]] is the course behind it |
+| 🔴 | [[build-your-own-shit/04-your-own-language\|Language / interpreter]] | The deepest single lesson. → [[foundations/compilers/index\|compilers]] is the course behind it |
 | 🔴 | [[build-your-own-shit/06-your-own-database\|Database]] | B-tree, SQL subset, WAL. `kill -9` mid-write and the data survives |
-| 🔴 | [[build-your-own-shit/05-your-own-os\|Operating system]] | Weeks, not a weekend. Boots from a USB stick → [[foundations/os/README\|os]] |
+| 🔴 | [[build-your-own-shit/05-your-own-os\|Operating system]] | Weeks, not a weekend. Boots from a USB stick → [[foundations/os/index\|os]] |
 
 **Not yet a guide, and the best distributed-systems project there is:**
 
-- 🔴 ⭐ **A Raft key-value store** — [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] made real: leader election, log replication, safety, then a replicated KV store on top, tested against crashes and partitions. It forces you to confront every edge case the [[architecture/04-distributed-systems/README|theory]] describes. (MIT 6.824 labs are the gold standard.)
+- 🔴 ⭐ **A Raft key-value store** — [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] made real: leader election, log replication, safety, then a replicated KV store on top, tested against crashes and partitions. It forces you to confront every edge case the [[architecture/04-distributed-systems/index|theory]] describes. (MIT 6.824 labs are the gold standard.)
 
 Pair each with a short write-up of what you learned; these are portfolio-grade signal on their own.
 
 ---
 
 ## Related
-- [[build-your-own-shit/README|Build Your Own Shit]] — the sixteen full build guides
+- [[build-your-own-shit/index|Build Your Own Shit]] — the sixteen full build guides
 - [[BUILD-PLAN|Build Plan]] — what gets written next
 - [[PRIMETECHIE|The Primetechie Path]] — where these sit as rank gates
 - [[INTERVIEW|Interview Prep Index]] — the other half of proving ability

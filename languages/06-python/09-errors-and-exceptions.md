@@ -24,7 +24,7 @@ except FileNotFoundError:
 
 **EAFP is the Pythonic default**, for two solid reasons rather than taste:
 
-**It has no race condition.** The LBYL version above is a TOCTOU bug — time-of-check to time-of-use. Between `exists()` and `open()`, another process can delete the file. In a security context this class of bug is exploitable → [[cybersecurity/06-attacks-and-threats/README|attacks]].
+**It has no race condition.** The LBYL version above is a TOCTOU bug — time-of-check to time-of-use. Between `exists()` and `open()`, another process can delete the file. In a security context this class of bug is exploitable → [[cybersecurity/06-attacks-and-threats/index|attacks]].
 
 **It's faster in the common case.** No check on the success path; you pay only when it fails.
 
@@ -126,7 +126,7 @@ In a long traceback, most frames are library code — **find the deepest frame t
 
 ## Exceptions and control flow
 
-`StopIteration` ends every `for` loop → [[languages/06-python/06-iterators-generators-and-comprehensions|note 06]]. `KeyError` drives `dict.get`. This is normal here in a way it isn't in Go or Rust, where errors are values → [[languages/02-go/05-errors|Go errors]] and [[languages/03-rust/README|Rust's `Result`]].
+`StopIteration` ends every `for` loop → [[languages/06-python/06-iterators-generators-and-comprehensions|note 06]]. `KeyError` drives `dict.get`. This is normal here in a way it isn't in Go or Rust, where errors are values → [[languages/02-go/05-errors|Go errors]] and [[languages/03-rust/index|Rust's `Result`]].
 
 **The trade:** exceptions keep the happy path clean and make it easy to *forget* a failure mode, since nothing forces you to handle it. Returned errors are noisier and impossible to ignore silently. Neither is right; know which one you're in.
 
@@ -140,6 +140,6 @@ except* ValueError as eg: ...
 - [[languages/06-python/07-decorators-and-context-managers|context managers]] — `finally`, packaged
 - [[foundations/programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the language-agnostic version
 - [[languages/02-go/05-errors|errors in Go]] — the errors-as-values contrast
-- [[backend/06-cross-cutting/README|cross-cutting concerns]] — error handling at an API boundary
+- [[backend/06-cross-cutting/index|cross-cutting concerns]] — error handling at an API boundary
 
 *Source: [reference] — from the Python tutorial and language reference.*

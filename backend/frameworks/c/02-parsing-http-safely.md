@@ -6,7 +6,7 @@
 
 An HTTP parser is the most exposed code you will ever write. Before authentication, before routing, before any of your logic runs, you are parsing bytes chosen by anyone on the internet.
 
-In [[languages/04-c/README|C]] that means:
+In [[languages/04-c/index|C]] that means:
 
 - **No bounds checking** — an unchecked index is a buffer overflow
 - **No length on a string** — `char *` carries no size ([[languages/04-c/06-arrays-strings-and-decay|array decay]])
@@ -119,7 +119,7 @@ if (!realpath(candidate, resolved)) { respond_404(c); return; }
 if (strncmp(resolved, docroot, docroot_len) != 0) { respond_403(c); return; }
 ```
 
-Decoding twice is itself a vulnerability — it's how `%252e` becomes `.`. → [[cybersecurity/04-web-security/README|Web Security]]
+Decoding twice is itself a vulnerability — it's how `%252e` becomes `.`. → [[cybersecurity/04-web-security/index|Web Security]]
 
 ### 7. Reject, don't normalise
 
@@ -203,7 +203,7 @@ And at runtime: drop privileges after binding port 80 (`setuid` to a non-root us
 
 > Every byte is hostile. Bound everything. Carry lengths, never assume NUL. Check every arithmetic operation. Reject ambiguity rather than normalising it. Use llhttp. Fuzz what you write. Compile with hardening. Drop privileges.
 
-That list is the price of writing HTTP in C, and it's the reason the [[backend/frameworks/c/README|honest recommendation]] for a new service is a memory-safe language — where most of this is handled by the type system rather than by discipline.
+That list is the price of writing HTTP in C, and it's the reason the [[backend/frameworks/c/index|honest recommendation]] for a new service is a memory-safe language — where most of this is handled by the type system rather than by discipline.
 
 ---
 
@@ -211,5 +211,5 @@ That list is the price of writing HTTP in C, and it's the reason the [[backend/f
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|The Accept Loop and Event Loops]] — where bytes arrive
 - [[backend/frameworks/c/03-the-c-frameworks|The C Frameworks]] — libraries that solved this already
 - [[languages/04-c/06-arrays-strings-and-decay|C: Arrays, Strings and Decay]] · [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]]
-- [[cybersecurity/04-web-security/README|Web Security]] · [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Exploits]]
-- [[backend/frameworks/c/README|C backends]]
+- [[cybersecurity/04-web-security/index|Web Security]] · [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Exploits]]
+- [[backend/frameworks/c/index|C backends]]

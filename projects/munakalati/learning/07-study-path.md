@@ -1,6 +1,6 @@
 # Study Path — What Munakalati Taught, and What to Learn Next
 
-**Closing note for [[projects/munakalati/learning/README|munakalati]].** Written at handover: what this project actually exercised, where it was thin, and the specific next things worth learning from here.
+**Closing note for [[projects/munakalati/learning/index|munakalati]].** Written at handover: what this project actually exercised, where it was thin, and the specific next things worth learning from here.
 
 ---
 
@@ -76,10 +76,10 @@ A Sanity webhook → a Next route handler → `revalidateTag()`. Content updates
 
 | From this project | The course |
 |---|---|
-| Sanity, GROQ, Portable Text | [[frontend/frameworks/sanity/README\|frontend/frameworks/sanity/]] |
+| Sanity, GROQ, Portable Text | [[frontend/frameworks/sanity/index\|frontend/frameworks/sanity/]] |
 | Content modelling as a concept | [[frontend/04-state-and-data/03-content-modeling-and-headless-cms\|content modeling and headless CMS]] |
 | The migration playbook | [[concepts/04-best-practices/06-data-migrations\|concepts/04 — data migrations]] |
-| App Router, RSC, ISR | [[frontend/frameworks/next/README\|next/]] · [[frontend/02-rendering/README\|rendering]] |
+| App Router, RSC, ISR | [[frontend/frameworks/next/index\|next/]] · [[frontend/02-rendering/index\|rendering]] |
 | Ops-script conventions | [[devops/01-linux/12-bash-scripting\|bash scripting]] |
 | Two remotes, merge hygiene | [[git/08-remotes-and-collaboration\|remotes and collaboration]] |
 | Retries, backoff, idempotency | [[backend/06-cross-cutting/05-idempotency-and-retries\|idempotency and retries]] |
@@ -90,5 +90,5 @@ A Sanity webhook → a Next route handler → `revalidateTag()`. Content updates
 
 ## Related
 - [[projects/munakalati/learning/06-bugs-and-postmortems|06 — bugs and postmortems]] — including the standing-issues table
-- [[projects/munakalati/interview/README|the interview bank]]
-- [[projects/README|all projects and the domains they exercise]]
+- [[projects/munakalati/interview/index|the interview bank]]
+- [[projects/index|all projects and the domains they exercise]]

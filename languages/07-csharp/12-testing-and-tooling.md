@@ -103,7 +103,7 @@ public class Benchmarks
 - run: dotnet test --no-build -c Release --collect:"XPlat Code Coverage"
 ```
 
-Add `dotnet format --verify-no-changes` to fail on unformatted code, and **`dotnet list package --vulnerable`** to catch known CVEs in dependencies → [[devops/06-ci-cd/README|CI/CD]].
+Add `dotnet format --verify-no-changes` to fail on unformatted code, and **`dotnet list package --vulnerable`** to catch known CVEs in dependencies → [[devops/06-ci-cd/index|CI/CD]].
 
 ## Related
 - [[languages/07-csharp/11-the-standard-library-and-ecosystem|the ecosystem]]

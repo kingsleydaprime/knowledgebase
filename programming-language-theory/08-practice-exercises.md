@@ -67,11 +67,11 @@ Give the type corresponding to each and write an inhabiting term: $A \to (B \to 
 
 **12. Linearity by hand.**
 Write typing rules for a linear lambda calculus where every variable is used **exactly once**. Show $\lambda x.\,x\,x$ and $\lambda x.\lambda y.\,x$ are both rejected.
-**Done when:** you can connect the rules to Rust's move semantics and say which Rust feature corresponds to weakening → [[foundations/programming-language-theory/07-effects-and-substructural-types|note 07]] · [[languages/03-rust/README|Rust]].
+**Done when:** you can connect the rules to Rust's move semantics and say which Rust feature corresponds to weakening → [[foundations/programming-language-theory/07-effects-and-substructural-types|note 07]] · [[languages/03-rust/index|Rust]].
 
 ## Related
 - [[foundations/programming-language-theory/09-practice-exercises-solutions|Solutions]]
-- [[foundations/programming-language-theory/README|the course]]
-- [[foundations/compilers/README|compilers]] · [[build-your-own-shit/04-your-own-language|build your own language]]
+- [[foundations/programming-language-theory/index|the course]]
+- [[foundations/compilers/index|compilers]] · [[build-your-own-shit/04-your-own-language|build your own language]]
 
 *Source: [reference] — built from this course's own gap-closing list.*

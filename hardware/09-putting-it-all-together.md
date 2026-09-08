@@ -36,7 +36,7 @@ The RF link (LoRa) enables the sensor to be kilometers from the gateway with no 
 Every expert in this space started by wiring up a blinking LED and wondering why it was brighter than expected. The fundamentals here are the map — the territory is soldering iron burns and `Serial.println()` debugging at 2am.
 
 ## Related
-- [[hardware/README|Hardware course index]]
+- [[hardware/index|Hardware course index]]
 - [[hardware/hardware-reference|Hardware Reference]] — units, prefixes and the formulas, for lookup
 - [[projects/iot-bridge-pcb/task|IoT Bridge PCB]] — all of this, done for real
 - [[project-ideas|Project Ideas]] — the hardware build tier

@@ -234,4 +234,4 @@ async fn creates_user(pool: PgPool) {
 - [[backend/frameworks/rust/04-async-pitfalls|Async Pitfalls]] — blocking, and what else stalls the runtime
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — `Arc<Mutex<T>>` and `Send`/`Sync`
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|DI and Wiring]] — the concept
-- [[backend/frameworks/rust/README|Rust backends]]
+- [[backend/frameworks/rust/index|Rust backends]]

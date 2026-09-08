@@ -2,7 +2,7 @@
 
 The round that separates *"I can build a component"* from *"I can structure an application."* It's where senior frontend interviews spend most of their time, and where the answers are judgement rather than recall.
 
-From [[frontend/04-state-and-data/01-state-management|state management]], [[frontend/02-rendering/01-rendering-strategies|rendering]], and the React/Next material in [[projects/README|projects/]].
+From [[frontend/04-state-and-data/01-state-management|state management]], [[frontend/02-rendering/01-rendering-strategies|rendering]], and the React/Next material in [[projects/index|projects/]].
 
 ---
 
@@ -128,6 +128,6 @@ From [[frontend/04-state-and-data/01-state-management|state management]], [[fron
 - [[frontend/interview/01-react-rendering-and-performance|React, rendering & performance]]
 - [[frontend/interview/02-javascript-and-typescript|JavaScript & TypeScript]]
 - [[concepts/interview/01-apis-auth-and-practices|APIs, auth & practices]]
-- [[architecture/interview/README|Architecture interview prep]] — the system-design round
+- [[architecture/interview/index|Architecture interview prep]] — the system-design round
 
 *Source: [reference] — assembled Aug 2026.*

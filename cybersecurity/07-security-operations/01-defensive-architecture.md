@@ -1,6 +1,6 @@
 # Defensive Architecture
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. How you build systems to be *defensible in the first place* — the strategy that everything else in [[cybersecurity/07-security-operations/README|security operations]] operates within.
+**[reference]** — from the roadmap.sh cyber-security roadmap. How you build systems to be *defensible in the first place* — the strategy that everything else in [[cybersecurity/07-security-operations/index|security operations]] operates within.
 
 ## Defense in depth
 
@@ -31,7 +31,7 @@ Zero Trust is why a phished credential ([[cybersecurity/06-attacks-and-threats/0
 - Disable unused services, ports, and default accounts; change default credentials.
 - Apply the principle of least functionality — a server runs only what it must.
 - Enforce secure configuration baselines (the **CIS Benchmarks** — [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|frameworks]]).
-- Patch promptly, enforce least-privilege permissions, enable OS security features (ASLR/DEP, SELinux/AppArmor, [[devops/01-linux/README|Linux]] controls).
+- Patch promptly, enforce least-privilege permissions, enable OS security features (ASLR/DEP, SELinux/AppArmor, [[devops/01-linux/index|Linux]] controls).
 - **Group Policy** (Windows) / configuration management (Ansible — [[devops/07-infrastructure-as-code/02-configuration-management|IaC]]) to enforce hardening at scale.
 
 Every disabled service is one fewer thing to exploit or patch — hardening directly reduces the [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|exploit surface]].
@@ -40,8 +40,8 @@ Every disabled service is one fewer thing to exploit or patch — hardening dire
 
 Security operations is organized around adversarial roles:
 
-- **Red team** — offensive; simulates real attackers to find weaknesses ([[cybersecurity/02-ethical-hacking/README|ethical hacking / pentesting]] is the discipline).
-- **Blue team** — defensive; monitors, detects, and responds (the [[cybersecurity/07-security-operations/README|SOC]], this whole section).
+- **Red team** — offensive; simulates real attackers to find weaknesses ([[cybersecurity/02-ethical-hacking/index|ethical hacking / pentesting]] is the discipline).
+- **Blue team** — defensive; monitors, detects, and responds (the [[cybersecurity/07-security-operations/index|SOC]], this whole section).
 - **Purple team** — collaboration between the two: red attacks, blue detects, and they share findings to improve detection in a tight loop. The most productive model — offense and defense sharpening each other rather than working in silos.
 
 ## Why architecture comes first
@@ -51,4 +51,4 @@ Detection, response, and forensics (the rest of this section) are what you do wh
 ## Related
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging, SIEM & Detection]] — monitoring the layers this builds
 - [[cybersecurity/03-network-security/02-network-segmentation|Network Segmentation]] — a core defense-in-depth/zero-trust layer
-- [[cybersecurity/08-governance-risk-and-compliance/README|Governance, Risk & Compliance]] — the frameworks that mandate this
+- [[cybersecurity/08-governance-risk-and-compliance/index|Governance, Risk & Compliance]] — the frameworks that mandate this

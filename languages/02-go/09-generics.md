@@ -142,4 +142,4 @@ The practical consequence: generic code is usually **not faster** than the `inte
 - [[languages/02-go/04-methods-and-interfaces|Methods and Interfaces]] — usually the better tool
 - [[languages/02-go/03-composite-types|Composite Types]] — what `slices` and `maps` operate on
 - [[languages/01-java/01-language/03-generics|Java: Generics]] — erasure, wildcards, and variance, for contrast
-- [[languages/02-go/README|Go course map]]
+- [[languages/02-go/index|Go course map]]

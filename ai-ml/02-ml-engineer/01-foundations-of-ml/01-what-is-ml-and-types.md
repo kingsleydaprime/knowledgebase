@@ -19,7 +19,7 @@ You have inputs **and** their correct outputs (labels), and the model learns to 
 - **Classification** — predict a category (spam/not-spam, which digit, which disease). Output is discrete.
 - **Regression** — predict a continuous number (house price, temperature, demand). Output is a quantity.
 
-This is the world of [[ai-ml/02-ml-engineer/03-classical-ml/01-regression|regression]], [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|trees]], and most of [[ai-ml/02-ml-engineer/05-deep-learning/README|deep learning]].
+This is the world of [[ai-ml/02-ml-engineer/03-classical-ml/01-regression|regression]], [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|trees]], and most of [[ai-ml/02-ml-engineer/05-deep-learning/index|deep learning]].
 
 ### Unsupervised learning — finding structure without labels
 
@@ -45,9 +45,9 @@ frame the problem → get & clean data → engineer features → split data
    → train a model → evaluate honestly → tune → deploy → monitor → (retrain)
 ```
 
-The unglamorous truth: **most of the effort is data** ([[ai-ml/02-ml-engineer/02-working-with-data/README|working with data]]) and **honest evaluation** ([[ai-ml/02-ml-engineer/04-model-evaluation/README|model evaluation]]), not picking a clever algorithm. And the last two steps — deploy and monitor — are the [[ai-ml/02-ml-engineer/10-mlops/README|MLOps]] half that distinguishes an ML *engineer* from someone training models in a notebook.
+The unglamorous truth: **most of the effort is data** ([[ai-ml/02-ml-engineer/02-working-with-data/index|working with data]]) and **honest evaluation** ([[ai-ml/02-ml-engineer/04-model-evaluation/index|model evaluation]]), not picking a clever algorithm. And the last two steps — deploy and monitor — are the [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] half that distinguishes an ML *engineer* from someone training models in a notebook.
 
 ## Related
 - [[ai-ml/00-foundations/02-what-is-a-model|What is a Model]] — the shared concept
 - [[ai-ml/02-ml-engineer/01-foundations-of-ml/02-the-ml-toolkit|The ML Toolkit]] — the libraries you'll use
-- [[ai-ml/02-ml-engineer/03-classical-ml/README|Classical ML]] — the supervised/unsupervised algorithms
+- [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]] — the supervised/unsupervised algorithms

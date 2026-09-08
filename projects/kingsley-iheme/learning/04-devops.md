@@ -1,8 +1,8 @@
 # 04 — DevOps (env vars, package management, deploy)
 
-Part of the [[projects/kingsley-iheme/learning/README|kingsley-iheme learning log]]. Siblings: [[projects/kingsley-iheme/learning/01-frontend|01-frontend]] · [[projects/kingsley-iheme/learning/02-sanity|02-sanity]] · [[projects/kingsley-iheme/learning/03-backend-api|03-backend-api]].
+Part of the [[projects/kingsley-iheme/learning/index|kingsley-iheme learning log]]. Siblings: [[projects/kingsley-iheme/learning/01-frontend|01-frontend]] · [[projects/kingsley-iheme/learning/02-sanity|02-sanity]] · [[projects/kingsley-iheme/learning/03-backend-api|03-backend-api]].
 
-General reference: [[devops/09-secret-management/README|devops/secret-management]] · [[devops/01-linux/README|devops/linux]] · [[git/README|git]].
+General reference: [[devops/09-secret-management/index|devops/secret-management]] · [[devops/01-linux/index|devops/linux]] · [[git/index|git]].
 
 ---
 

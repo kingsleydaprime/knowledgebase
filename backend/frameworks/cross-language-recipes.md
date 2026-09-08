@@ -2,11 +2,11 @@
 
 > **[Intermediate]** · The same production backend concerns, implemented side by side in **Node, Go, Rust, Python, C# and Java.**
 
-**The point of this folder is comparison** → [[backend/frameworks/README|frameworks]]. The concept table there translates *vocabulary*; this translates *code*.
+**The point of this folder is comparison** → [[backend/frameworks/index|frameworks]]. The concept table there translates *vocabulary*; this translates *code*.
 
 **Use it two ways:** to build the same real backend in a language you don't know yet, or to check that the thing you do reflexively in Node has an equivalent elsewhere — because it always does, and it's rarely called the same thing.
 
-**Concepts first.** Each section links to the [[backend/06-cross-cutting/README|cross-cutting note]] that explains *why*; this is the *how*.
+**Concepts first.** Each section links to the [[backend/06-cross-cutting/index|cross-cutting note]] that explains *why*; this is the *how*.
 
 ---
 
@@ -87,7 +87,7 @@ if !limiter.Allow() { http.Error(w, "rate limited", http.StatusTooManyRequests);
 
 ---
 
-## 3. Auth: verifying a JWT → [[backend/05-auth/README|the concepts]]
+## 3. Auth: verifying a JWT → [[backend/05-auth/index|the concepts]]
 
 **The five checks that matter, in every language:** signature, `exp`, `iss`, `aud`, and **algorithm pinning**.
 
@@ -168,13 +168,13 @@ process.on("SIGTERM", () => server.close(() => { pool.end(); process.exit(0); })
 builder.Services.Configure<HostOptions>(o => o.ShutdownTimeout = TimeSpan.FromSeconds(15));
 ```
 
-**Kubernetes sends SIGTERM, waits `terminationGracePeriodSeconds`, then SIGKILL.** Your drain timeout must be *shorter* than that grace period, or you're killed mid-request anyway → [[devops/05-orchestration/README|orchestration]].
+**Kubernetes sends SIGTERM, waits `terminationGracePeriodSeconds`, then SIGKILL.** Your drain timeout must be *shorter* than that grace period, or you're killed mid-request anyway → [[devops/05-orchestration/index|orchestration]].
 
 **And remove yourself from the load balancer first** — fail readiness immediately on SIGTERM, keep serving for a few seconds, *then* drain. Otherwise traffic is still being routed to you while you shut down.
 
 ---
 
-## 6. Structured logging → [[devops/10-observability/README|observability]]
+## 6. Structured logging → [[devops/10-observability/index|observability]]
 
 **Fields, not interpolated strings**, in every stack:
 
@@ -211,7 +211,7 @@ logger.info({ orderId: id, customerId: cust }, "order created");  // pino
 | **Graceful shutdown** | manual | manual | ✓ | via server | **✓** | **✓** |
 | **Structured logging** | pino | **✓ slog** | tracing | ✗ | **✓** | ✓ |
 
-**The pattern: Express and Go stdlib give you almost nothing and get out of the way; ASP.NET Core and Spring give you almost everything and have opinions.** Neither is better — **it's a team-size decision**, and the cost of the minimal ones is that every project reassembles the same six libraries slightly differently → [[backend/frameworks/README|frameworks]].
+**The pattern: Express and Go stdlib give you almost nothing and get out of the way; ASP.NET Core and Spring give you almost everything and have opinions.** Neither is better — **it's a team-size decision**, and the cost of the minimal ones is that every project reassembles the same six libraries slightly differently → [[backend/frameworks/index|frameworks]].
 
 ---
 
@@ -222,8 +222,8 @@ logger.info({ orderId: id, customerId: cust }, "order created");  // pino
 **Expect a weekend for the first, a day for the second, and an evening thereafter** — because after two you're translating vocabulary, not learning concepts. **That convergence is the actual lesson of this page.**
 
 ## Related
-- [[backend/06-cross-cutting/README|cross-cutting concerns]] — the *why* for every section here
-- [[backend/frameworks/README|frameworks/]] — the concept translation table
-- [[backend/05-auth/README|auth]] · [[cybersecurity/04-web-security/README|web security]]
+- [[backend/06-cross-cutting/index|cross-cutting concerns]] — the *why* for every section here
+- [[backend/frameworks/index|frameworks/]] — the concept translation table
+- [[backend/05-auth/index|auth]] · [[cybersecurity/04-web-security/index|web security]]
 
 *Source: [reference] — written Aug 2026 from each framework's own documentation.*

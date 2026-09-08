@@ -89,7 +89,7 @@ This is why **packet loss matters far more than users expect**, why a marginally
 
 ## Tail latency, and why averages lie
 
-In [[architecture/README|distributed systems]], p99 matters more than the mean, for a reason that's easy to miss: **if one user request fans out to 100 backend calls, the user waits for the slowest.** With a p99 of 1 second, a 100-call fan-out has a ~63% chance of hitting at least one — so your *median* user experiences your *p99* backend.
+In [[architecture/index|distributed systems]], p99 matters more than the mean, for a reason that's easy to miss: **if one user request fans out to 100 backend calls, the user waits for the slowest.** With a p99 of 1 second, a 100-call fan-out has a ~63% chance of hitting at least one — so your *median* user experiences your *p99* backend.
 
 Tail latency sources are disproportionately network- and transport-level: [[foundations/networking/08-congestion-control|RTO timeouts]] after tail loss, incast at a top-of-rack switch, bufferbloat, garbage collection pauses coinciding with a retransmit, [[foundations/networking/10-dns-in-depth|DNS]] timeouts.
 

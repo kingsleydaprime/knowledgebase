@@ -18,7 +18,7 @@ def countdown(n):
 ## The two parts, and both are mandatory
 
 **The base case** — the condition where it stops calling itself and just returns.
-**The recursive case** — where it calls itself with an input that has moved *closer to the base case*.
+**The recursive case** — where it calls itself with an input that has moved _closer to the base case_.
 
 **Omit the base case and it never stops.** But unlike an infinite loop, which merely hangs, this one crashes — and understanding why requires the call stack.
 
@@ -72,6 +72,7 @@ factorial(3) → 3 * factorial(2)      ← waits
 factorial(2) → 2 * factorial(1)      ← waits
 factorial(1) → 1                     ← base case, returns
 ```
+
 then unwinding: `2 * 1 = 2` → `3 * 2 = 6` → `4 * 6 = 24`.
 
 **The thing to notice: each call is suspended mid-expression, waiting for the one below it.** That's the frame doing its job — holding `n` and the fact that a multiplication is still pending.
@@ -115,25 +116,26 @@ def fib(n):
     return fib(n - 1) + fib(n - 2)
 ```
 
-`fib(5)` computes `fib(3)` twice, `fib(2)` three times. The work grows **exponentially** — `fib(50)` is billions of calls and will not finish. The fix is **memoisation**: cache each result the first time, and the same function runs in linear time. That single change is the entry point to [[foundations/dsa/README|dynamic programming]].
+`fib(5)` computes `fib(3)` twice, `fib(2)` three times. The work grows **exponentially** — `fib(50)` is billions of calls and will not finish. The fix is **memoisation**: cache each result the first time, and the same function runs in linear time. That single change is the entry point to [[foundations/dsa/index|dynamic programming]].
 
-**Some languages optimise a special case.** If the recursive call is the *last* thing a function does (**tail recursion**), the current frame isn't needed any more and can be reused, making it as cheap as a loop. Scheme, Haskell and Scala guarantee this; **Python and Java deliberately don't**, so don't rely on it unless you know your language does it.
+**Some languages optimise a special case.** If the recursive call is the _last_ thing a function does (**tail recursion**), the current frame isn't needed any more and can be reused, making it as cheap as a loop. Scheme, Haskell and Scala guarantee this; **Python and Java deliberately don't**, so don't rely on it unless you know your language does it.
 
 ## The other things the stack explains
 
 Understanding the stack pays off well beyond recursion:
 
-**Stack traces.** The list of frames printed when something crashes, innermost first. It's a literal snapshot of the stack at the moment of failure — read from the top for *where*, and downward for *how you got there*. Learning to read these properly is one of the highest-return debugging skills → [[foundations/programming-fundamentals/10-errors-and-debugging|note 10]].
+**Stack traces.** The list of frames printed when something crashes, innermost first. It's a literal snapshot of the stack at the moment of failure — read from the top for _where_, and downward for _how you got there_. Learning to read these properly is one of the highest-return debugging skills → [[foundations/programming-fundamentals/10-errors-and-debugging|note 10]].
 
-**Stack vs heap.** Local variables and frames live on the **stack** — fast, automatically freed on return, limited in size. Larger and longer-lived data lives on the **heap** — flexible, and either garbage-collected or freed by you. This is why returning a pointer to a local variable is a classic C bug: the frame is gone → [[languages/04-c/README|C]] and [[foundations/os/05-memory-allocation|memory allocation]].
+**Stack vs heap.** Local variables and frames live on the **stack** — fast, automatically freed on return, limited in size. Larger and longer-lived data lives on the **heap** — flexible, and either garbage-collected or freed by you. This is why returning a pointer to a local variable is a classic C bug: the frame is gone → [[languages/04-c/index|C]] and [[foundations/os/05-memory-allocation|memory allocation]].
 
 **Each thread gets its own stack**, which is part of why threads are cheaper than processes and why deep recursion in many threads exhausts memory quickly → [[foundations/os/02-processes-and-threads|threads]].
 
 ## Related
+
 - [[foundations/programming-fundamentals/08-functions|functions]] — the prerequisite
 - [[foundations/dsa/05-algorithms/01-algorithms|algorithms]] — where recursion becomes the default tool
 - [[foundations/os/05-memory-allocation|memory allocation]] — stack and heap properly
 - [[foundations/computer-architecture/04-assembly|assembly]] — the stack as the hardware sees it
 - [[foundations/discrete-math/05-induction-and-recursion|induction and recursion]] — the maths of why base cases work
 
-*Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the frame-level model, tail calls and the memoisation case.*
+_Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the frame-level model, tail calls and the memoisation case._

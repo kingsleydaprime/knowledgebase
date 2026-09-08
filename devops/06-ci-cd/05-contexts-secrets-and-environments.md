@@ -200,7 +200,7 @@ If the same secret name exists at multiple levels, the most specific level wins.
 ---
 
 ## Related
-- [[devops/09-secret-management/README|Secret Management]] — the broader problem this is one instance of
+- [[devops/09-secret-management/index|Secret Management]] — the broader problem this is one instance of
 - [[devops/06-ci-cd/10-pipeline-security|Securing the Pipeline]] — why least privilege on these tokens matters
 - [[devops/06-ci-cd/04-triggers-jobs-and-runners|Triggers, Jobs and Runners]] — where these contexts get evaluated
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/06-ci-cd/index|CI/CD module map]]

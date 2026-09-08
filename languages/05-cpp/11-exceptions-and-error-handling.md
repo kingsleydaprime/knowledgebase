@@ -209,4 +209,4 @@ If you're on `-fno-exceptions`, know what you lose: `new` becomes a null return 
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — `noexcept` moves
 - [[languages/03-rust/07-option-and-result|Rust: Result]] — the model `std::expected` adopts
 - [[languages/04-c/09-the-standard-library|C: errno]] — the alternative C++ inherited
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

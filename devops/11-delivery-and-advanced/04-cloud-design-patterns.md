@@ -25,8 +25,8 @@ Cloud infrastructure is commodity hardware that *will* fail — instances die, n
 
 ## Management & monitoring patterns
 
-- **Externalized configuration** — config lives outside the artifact (env vars, config service), so the same image runs in every environment ([[devops/07-infrastructure-as-code/README|IaC]], [[devops/09-secret-management/README|secrets]]).
-- **Observability built in** — structured logs, metrics, and traces as a first-class design concern, not bolted on ([[devops/10-observability/README|observability]]).
+- **Externalized configuration** — config lives outside the artifact (env vars, config service), so the same image runs in every environment ([[devops/07-infrastructure-as-code/index|IaC]], [[devops/09-secret-management/index|secrets]]).
+- **Observability built in** — structured logs, metrics, and traces as a first-class design concern, not bolted on ([[devops/10-observability/index|observability]]).
 - **Idempotency** — design operations so retries and duplicate deliveries are safe (the [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|idempotency-key pattern]]) — a hard requirement once you have retries and at-least-once messaging.
 
 ## The through-line

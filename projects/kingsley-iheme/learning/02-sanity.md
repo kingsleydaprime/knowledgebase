@@ -1,8 +1,8 @@
 # 02 — Sanity (schemas, GROQ, Portable Text, embedded Studio)
 
-Part of the [[projects/kingsley-iheme/learning/README|kingsley-iheme learning log]]. Siblings: [[projects/kingsley-iheme/learning/01-frontend|01-frontend]] · [[projects/kingsley-iheme/learning/03-backend-api|03-backend-api]] · [[projects/kingsley-iheme/learning/04-devops|04-devops]].
+Part of the [[projects/kingsley-iheme/learning/index|kingsley-iheme learning log]]. Siblings: [[projects/kingsley-iheme/learning/01-frontend|01-frontend]] · [[projects/kingsley-iheme/learning/03-backend-api|03-backend-api]] · [[projects/kingsley-iheme/learning/04-devops|04-devops]].
 
-> **How this relates to the vault's other Sanity notes.** [[projects/munakalati/learning/03-sanity/README|munakalati]] has a deeper five-note Sanity course (11k words) covering content modelling at larger scale, `->` joins, `markDefs`, Structure Builder, and a Wix migration. The general folder `frontend/frameworks/sanity/` is an empty stub, so **both instances live only under `projects/`**.
+> **How this relates to the vault's other Sanity notes.** [[projects/munakalati/learning/03-sanity/index|munakalati]] has a deeper five-note Sanity course (11k words) covering content modelling at larger scale, `->` joins, `markDefs`, Structure Builder, and a Wix migration. The general folder `frontend/frameworks/sanity/` is an empty stub, so **both instances live only under `projects/`**.
 >
 > This file is the smaller, differently-shaped instance: two document types instead of sixteen, a **discriminated union** as the central modelling decision, and a graceful-degradation fetch wrapper that munakalati has no equivalent of. Written to stand alone — where it independently reaches the same conclusion as munakalati (API version as a date, schema validation ≠ database constraint, `defined()` in queries), that agreement is the point.
 

@@ -174,4 +174,4 @@ var tmpl = template.Must(template.ParseFiles("index.html"))
 - [[languages/02-go/08-context|Context]] — `context.Canceled` and `DeadlineExceeded` as sentinels
 - [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]] — where error→status mapping belongs
 - [[languages/01-java/01-language/06-exceptions|Java: Exceptions]] — checked exceptions, the road not taken
-- [[languages/02-go/README|Go course map]]
+- [[languages/02-go/index|Go course map]]

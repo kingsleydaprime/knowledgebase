@@ -39,7 +39,7 @@ GROUP BY 1, 2
 
 Transformation used to be scattered SQL scripts, stored procedures, and undocumented cron jobs. dbt applied software practices to it, and *that's* the contribution:
 
-- **Version control** — transformations are SQL files in git. Reviewed, diffed, rolled back → [[git/README|git]]
+- **Version control** — transformations are SQL files in git. Reviewed, diffed, rolled back → [[git/index|git]]
 - **Testing** — assert data properties: `unique`, `not_null`, `accepted_values`, relationships, and custom SQL tests. **Data tests, in the pipeline, that fail the build** → [[data-engineering/10-data-quality-governance-and-the-stack|data quality]]
 - **Documentation and lineage** — dbt generates docs and a visual DAG showing how every table derives from its sources. **"Where does this number come from?" becomes answerable**
 - **Modularity** — reusable models and macros instead of copy-pasted SQL

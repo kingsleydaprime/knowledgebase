@@ -12,7 +12,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🟢 **Read a real contract** — pick a deployed protocol on Etherscan, read the verified source, and write a page on what its privileged roles can do, whether it's upgradeable, and where the timelock is. **Done when:** you can state exactly who could rug it and how fast. Exercises: [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|proxies]].
 
-- 🟢 **Break your own contract** — write a vulnerable contract (reentrancy, bad access control, spot-price oracle), then write the Foundry exploit that drains it. **Done when:** the exploit test passes, then you fix it and it fails. Exercises: [[web3/04-smart-contract-security/README|security]].
+- 🟢 **Break your own contract** — write a vulnerable contract (reentrancy, bad access control, spot-price oracle), then write the Foundry exploit that drains it. **Done when:** the exploit test passes, then you fix it and it fails. Exercises: [[web3/04-smart-contract-security/index|security]].
 
 - 🟡 **Invariant-test something real** — take your token or vault and write invariants (supply equals sum of balances; solvency holds; no one withdraws more than they deposited), then let Foundry's fuzzer attack them for an hour. **Done when:** it finds something you didn't expect. Exercises: [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing]].
 
@@ -31,6 +31,6 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 **The token and wallet guide**, then immediately **break your own contract**. Together that's two evenings, and it takes you from "read about reentrancy" to "wrote the exploit and watched it drain."
 
 ## Related
-- [[web3/README|the web3 course]] · [[web3/interview/README|interview bank]]
-- [[web3/04-smart-contract-security/README|smart contract security]] — read before deploying anything
+- [[web3/index|the web3 course]] · [[web3/interview/index|interview bank]]
+- [[web3/04-smart-contract-security/index|smart contract security]] — read before deploying anything
 - [[project-ideas|Project Ideas]] — the vault-wide index

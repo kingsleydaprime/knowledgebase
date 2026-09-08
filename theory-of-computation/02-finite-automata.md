@@ -154,4 +154,4 @@ A backtracking engine matching `(a+)+b` against `aaaaaaaaaaaaaaaaaaaaaaaaX` trie
 - [[foundations/theory-of-computation/03-regular-languages|Regular Languages]] — what these recognise, and the limits
 - [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — the industrial application
 - [[foundations/theory-of-computation/04-context-free-languages|Context-Free Languages]] — the next level up
-- [[foundations/theory-of-computation/README|Theory of computation map]]
+- [[foundations/theory-of-computation/index|Theory of computation map]]

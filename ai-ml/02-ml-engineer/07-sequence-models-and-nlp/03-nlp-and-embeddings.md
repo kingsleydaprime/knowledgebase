@@ -4,7 +4,7 @@
 
 ## The core problem: text isn't numbers
 
-Models do math on numbers ([[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|vectors]]); language is symbols. NLP is largely the pipeline that bridges that gap: turn raw text into numeric input, and turn model output back into text.
+Models do math on numbers ([[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|vectors]]); language is symbols. NLP is largely the pipeline that bridges that gap: turn raw text into numeric input, and turn model output back into text.
 
 ## Text preprocessing
 

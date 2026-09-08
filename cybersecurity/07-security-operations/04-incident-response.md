@@ -4,7 +4,7 @@
 
 ## Why a process, not panic
 
-During a live incident, ad-hoc reactions make things worse: tipping off the attacker, destroying evidence, or taking down more than necessary. A defined **incident response (IR) process** — decided calmly in advance — is what lets a team act fast *and* correctly under pressure. It's the security counterpart to a [[devops/README|DevOps]] on-call runbook.
+During a live incident, ad-hoc reactions make things worse: tipping off the attacker, destroying evidence, or taking down more than necessary. A defined **incident response (IR) process** — decided calmly in advance — is what lets a team act fast *and* correctly under pressure. It's the security counterpart to a [[devops/index|DevOps]] on-call runbook.
 
 ## The IR lifecycle (NIST / SANS)
 
@@ -35,4 +35,4 @@ IR isn't purely technical: **communication** (who's informed, when — leadershi
 ## Related
 - [[cybersecurity/07-security-operations/05-forensics-and-malware-analysis|Forensics & Malware Analysis]] — the deep investigation during/after an incident
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging, SIEM & Detection]] — where incidents are first spotted
-- [[cybersecurity/08-governance-risk-and-compliance/README|Governance, Risk & Compliance]] — the obligations IR must satisfy
+- [[cybersecurity/08-governance-risk-and-compliance/index|Governance, Risk & Compliance]] — the obligations IR must satisfy

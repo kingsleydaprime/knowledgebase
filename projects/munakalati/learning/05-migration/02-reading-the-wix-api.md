@@ -85,7 +85,7 @@ if (!res.ok) {
 
 **`fetch` rejects only on network failure.** A 401, a 404, a 500 all resolve normally with `res.ok === false`. Skip the check — as v1 did — and `await res.json()` parses the *error* body into `{ message: "..." }`, `data.posts` is `undefined`, `|| []` swallows it, and the script cheerfully reports migrating zero posts.
 
-**Including `await res.text()` in the message is the part people leave out and then regret.** `Wix 401` tells you nothing; `Wix 401: {"message":"RICH_CONTENT fieldset requires elevated permissions"}` tells you exactly what to do next — and in this project it's literally what led to the fallback below. Read the whole error, not the status code → the same habit as [[projects/gees-arise/learning/README|gees-arise]]'s Vercel body-limit and Supabase rate-limit debugging.
+**Including `await res.text()` in the message is the part people leave out and then regret.** `Wix 401` tells you nothing; `Wix 401: {"message":"RICH_CONTENT fieldset requires elevated permissions"}` tells you exactly what to do next — and in this project it's literally what led to the fallback below. Read the whole error, not the status code → the same habit as [[projects/gees-arise/learning/index|gees-arise]]'s Vercel body-limit and Supabase rate-limit debugging.
 
 ## Degrading instead of failing: the 401 fallback
 
@@ -202,4 +202,4 @@ Depth-first, returns on the first hit, `= []` default so a missing `nodes` is a 
 ## Related
 - [[projects/munakalati/learning/05-migration/04-portable-text-conversion|04 — turning those nodes into Portable Text]]
 - [[projects/munakalati/learning/02-shell|02 — shell]] — the `curl` habit
-- [[backend/README|backend]] · [[foundations/networking/README|networking]] — HTTP status semantics
+- [[backend/index|backend]] · [[foundations/networking/index|networking]] — HTTP status semantics

@@ -83,6 +83,6 @@ GDPR (EU/UK), CCPA (California), and a growing list elsewhere — including **Ni
 - [[mobile/12-security-on-device|security on device]] — protecting what you did collect
 - [[mobile/13-release-and-distribution|release]] — where declarations get checked
 - [[cybersecurity/10-protecting-yourself/07-your-privacy-footprint|your privacy footprint]] — the user's side of this
-- [[cybersecurity/08-governance-risk-and-compliance/README|governance and compliance]]
+- [[cybersecurity/08-governance-risk-and-compliance/index|governance and compliance]]
 
 *Source: [reference] — Aug 2026. Not legal advice.*

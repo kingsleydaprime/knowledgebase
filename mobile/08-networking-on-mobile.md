@@ -28,7 +28,7 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 
 **4. Right-size images. This is usually the biggest win available.** Serve device-appropriate resolutions; use modern formats (WebP, AVIF); never download a 4000px image for a 200px thumbnail. **Images are typically the majority of an app's bytes**, and fixing them is often a one-day change with a large measured effect.
 
-**5. Timeouts, retries, backoff.** Short connect timeouts, longer read timeouts. **Retry only idempotent requests**, with exponential backoff and **jitter** — without jitter, every device retries simultaneously when your server recovers and knocks it over again → [[backend/06-cross-cutting/README|retries]].
+**5. Timeouts, retries, backoff.** Short connect timeouts, longer read timeouts. **Retry only idempotent requests**, with exponential backoff and **jitter** — without jitter, every device retries simultaneously when your server recovers and knocks it over again → [[backend/06-cross-cutting/index|retries]].
 
 **6. Cancel work the user walked away from.** Both platforms tie request scopes to lifecycle. Use them.
 
@@ -77,7 +77,7 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 ## Related
 - [[mobile/07-data-and-offline-first|offline-first]] — where responses go
 - [[mobile/11-performance-and-battery|performance and battery]] — the radio tail
-- [[foundations/networking/README|networking]] — TCP, TLS and HTTP properly
-- [[backend/02-api-design/README|API design]] — the other side of this contract
+- [[foundations/networking/index|networking]] — TCP, TLS and HTTP properly
+- [[backend/02-api-design/index|API design]] — the other side of this contract
 
 *Source: [reference] — Aug 2026.*

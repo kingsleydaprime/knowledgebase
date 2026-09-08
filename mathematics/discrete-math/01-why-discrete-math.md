@@ -2,7 +2,7 @@
 
 **[Beginner]** — The mathematics of things you can count, and why it's the one maths course that turns out to be load-bearing for programmers.
 
-**Source:** `[reference]` — see [[foundations/discrete-math/README|the domain note]].
+**Source:** `[reference]` — see [[foundations/discrete-math/index|the domain note]].
 
 ## Continuous vs discrete
 
@@ -48,7 +48,7 @@ Papers in algorithms, cryptography, databases, PL and distributed systems are wr
 
 **4. You know when something is impossible.**
 
-**This is the most practically valuable one.** Knowing that a problem is NP-complete stops you looking for an efficient exact algorithm and starts you looking for an approximation. Knowing the halting problem is undecidable tells you why your linter can't catch everything. → [[foundations/theory-of-computation/README|Theory of Computation]]
+**This is the most practically valuable one.** Knowing that a problem is NP-complete stops you looking for an efficient exact algorithm and starts you looking for an approximation. Knowing the halting problem is undecidable tells you why your linter can't catch everything. → [[foundations/theory-of-computation/index|Theory of Computation]]
 
 > **The counter-argument, stated fairly:** most working programmers never explicitly use any of this and ship fine software. That's true. **The claim isn't that you can't work without it — it's that certain classes of problem are opaque without it**, and you won't know which ones you're missing.
 
@@ -94,12 +94,12 @@ For a loop, you find a property true before it starts, preserved by each iterati
 
 **Prerequisites:** none beyond high-school algebra. **This is genuinely the ground floor** — which is why it's the first-year course, and why it's a reasonable entry point even if the rest of the vault's maths (linear algebra, calculus) is unfamiliar.
 
-**What this track is not:** a problem set. Discrete maths is learned by *doing proofs*, and reading proofs is to writing them what reading code is to writing it. The honest note in [[foundations/discrete-math/README|the README]] says more.
+**What this track is not:** a problem set. Discrete maths is learned by *doing proofs*, and reading proofs is to writing them what reading code is to writing it. The honest note in [[foundations/discrete-math/index|the README]] says more.
 
 ---
 
 ## Related
 - [[foundations/discrete-math/02-logic|Logic]] — the next note, and the foundation
-- [[foundations/theory-of-computation/README|Theory of Computation]] — where this leads directly
-- [[foundations/dsa/README|Data Structures & Algorithms]] — where it's already being applied
-- [[foundations/discrete-math/README|Discrete maths map]]
+- [[foundations/theory-of-computation/index|Theory of Computation]] — where this leads directly
+- [[foundations/dsa/index|Data Structures & Algorithms]] — where it's already being applied
+- [[foundations/discrete-math/index|Discrete maths map]]

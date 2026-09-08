@@ -134,4 +134,4 @@ final text = switch (state) {           // EXHAUSTIVE — no default needed
 ## Related
 - [[languages/10-dart/03-classes-and-collections|classes and collections]]
 - [[languages/09-kotlin/02-null-safety|Kotlin's null safety]] — the comparison, including the hole Dart doesn't have
-- [[mobile/frameworks/flutter/README|Flutter]]
+- [[mobile/frameworks/flutter/index|Flutter]]

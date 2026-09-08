@@ -281,4 +281,4 @@ git merge origin/main && git push
 - [[git/10-undoing-things|Undoing Things]] — the same material organised by intent rather than symptom
 - [[git/01-how-git-works|How Git Actually Works]] — the model that makes these fixes obvious instead of magic
 - [[git/git-reference|Command reference]] — flags and syntax lookup
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

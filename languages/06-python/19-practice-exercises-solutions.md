@@ -352,6 +352,6 @@ Then one `time.sleep(2)` inside a single coroutine freezes **every** task in the
 
 ## Related
 - [[languages/06-python/18-practice-exercises|the exercises]]
-- [[languages/06-python/README|the course]]
+- [[languages/06-python/index|the course]]
 
 *Source: [reference] — all timings measured on Python 3.14, August 2026.*

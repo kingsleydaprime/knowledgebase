@@ -1,7 +1,7 @@
 # Local HTTPS Tunnels
 
 Exposing a service running on `localhost` at a public HTTPS URL, so external systems can
-reach your development machine. Part of the [[devops/README|DevOps curriculum]].
+reach your development machine. Part of the [[devops/index|DevOps curriculum]].
 
 Written 2026-08-12, prompted by TikTok's Login Kit refusing `http://localhost` redirect URIs.
 

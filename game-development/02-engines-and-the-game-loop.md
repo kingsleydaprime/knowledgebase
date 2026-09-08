@@ -15,7 +15,7 @@ while running:
 
 **That's the whole architecture.** Everything else is detail inside `update` and `render`.
 
-It is a fundamentally different shape from most software in this vault. A [[backend/README|backend]] is **reactive** — it sleeps until a request arrives. A game is **proactive** — it runs continuously whether or not anything happened, because the world must be redrawn regardless.
+It is a fundamentally different shape from most software in this vault. A [[backend/index|backend]] is **reactive** — it sleeps until a request arrives. A game is **proactive** — it runs continuously whether or not anything happened, because the world must be redrawn regardless.
 
 ## The timestep problem
 
@@ -86,11 +86,11 @@ MovementSystem: for all entities with (Position, Velocity) → position += veloc
 | Licence | Per-seat / revenue tiers | 5% royalty above a threshold | **MIT — genuinely free** |
 | Best for | Indie, mobile, prototyping, VR | Photorealistic 3D, large teams | 2D, small teams, learning |
 
-**Recommendation, for someone curious rather than committed: Godot.** MIT-licensed with no revenue conditions, small enough to understand, GDScript is close enough to Python to be immediately productive → [[languages/06-python/README|Python]], and the editor is itself a Godot application, so the engine is legible in a way the others aren't. **The concepts transfer** — nodes, scenes, the loop, components — so nothing is wasted if you move to Unity later.
+**Recommendation, for someone curious rather than committed: Godot.** MIT-licensed with no revenue conditions, small enough to understand, GDScript is close enough to Python to be immediately productive → [[languages/06-python/index|Python]], and the editor is itself a Godot application, so the engine is legible in a way the others aren't. **The concepts transfer** — nodes, scenes, the loop, components — so nothing is wasted if you move to Unity later.
 
 **Unity** if you want the largest job market and asset ecosystem. Note the 2023 runtime-fee episode: it was reversed after significant backlash, but it demonstrated that licence terms on a proprietary engine can change under you. That's a real trade-study input → [[foundations/systems-engineering/05-trade-studies|trade studies]].
 
-**Unreal** if the goal is photorealism or AAA employment. Its C++ is a specific dialect with its own macros, reflection and memory conventions — closer to a framework than to the [[languages/05-cpp/README|C++]] in this vault.
+**Unreal** if the goal is photorealism or AAA employment. Its C++ is a specific dialect with its own macros, reflection and memory conventions — closer to a framework than to the [[languages/05-cpp/index|C++]] in this vault.
 
 **Don't agonise.** The transferable skills are the loop, vectors, state machines, and how to finish something. All three teach those.
 

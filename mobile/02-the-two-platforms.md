@@ -28,7 +28,7 @@ Apple controls the hardware, the OS and the store, so everything is consistent a
 
 ## iOS
 
-**Swift** is a modern, strongly-typed, memory-safe language with optionals, value types and structured concurrency → [[languages/08-swift/README|the Swift course]]. Memory is managed by **ARC** — automatic reference counting, deterministic, no GC pauses, and **retain cycles are your problem** (hence `weak`).
+**Swift** is a modern, strongly-typed, memory-safe language with optionals, value types and structured concurrency → [[languages/08-swift/index|the Swift course]]. Memory is managed by **ARC** — automatic reference counting, deterministic, no GC pauses, and **retain cycles are your problem** (hence `weak`).
 
 **SwiftUI** is the declarative present; **UIKit** is the imperative past that still underpins a lot and is still needed for things SwiftUI can't do. **Real codebases mix them.**
 
@@ -38,7 +38,7 @@ Apple controls the hardware, the OS and the store, so everything is consistent a
 
 ## Android
 
-**Kotlin** is Google's official language since 2019 — concise, null-safe, with **coroutines** as the concurrency model → [[languages/09-kotlin/README|the Kotlin course]]. It runs on a JVM-derived runtime (ART), so it's **garbage collected**, and much of [[languages/01-java/README|the Java course]] transfers.
+**Kotlin** is Google's official language since 2019 — concise, null-safe, with **coroutines** as the concurrency model → [[languages/09-kotlin/index|the Kotlin course]]. It runs on a JVM-derived runtime (ART), so it's **garbage collected**, and much of [[languages/01-java/index|the Java course]] transfers.
 
 **Jetpack Compose** is the declarative present; the **View system** is the XML-based past, still enormous in existing codebases.
 
@@ -71,8 +71,8 @@ More than the tribalism suggests, and this is why cross-platform works at all:
 **The platforms have converged technically and stayed divergent culturally.** Their UI frameworks, concurrency models and architectures now look remarkably alike — so the transferable skill is the *shape*, and what actually differs is the tooling friction, the review culture, and Android's fragmentation. Learn the shape once; the second platform is mostly vocabulary.
 
 ## Related
-- [[languages/08-swift/README|Swift]] · [[languages/09-kotlin/README|Kotlin]]
-- [[mobile/frameworks/ios/README|iOS]] · [[mobile/frameworks/android/README|Android]]
+- [[languages/08-swift/index|Swift]] · [[languages/09-kotlin/index|Kotlin]]
+- [[mobile/frameworks/ios/index|iOS]] · [[mobile/frameworks/android/index|Android]]
 - [[mobile/14-native-vs-cross-platform|native vs cross-platform]]
 - [[mobile/04-declarative-ui|declarative UI]] — where they're nearly identical
 

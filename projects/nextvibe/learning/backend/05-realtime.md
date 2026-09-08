@@ -582,7 +582,7 @@ for (const entry of entries) {
 - [[foundations/networking/11-http-evolution|HTTP evolution]] — what WebSockets sit on top of
 - [[foundations/networking/06-tcp-connection-lifecycle|TCP lifecycle]] — why idle connections die and you need heartbeats
 
-↑ [[projects/README|All projects and the domains they exercise]]
+↑ [[projects/index|All projects and the domains they exercise]]
 
 ---
 

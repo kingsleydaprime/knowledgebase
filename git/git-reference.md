@@ -1,6 +1,6 @@
 # Git — Command Reference
 
-**[Reference]** — The commands and their flags, grouped by what you're trying to do. For *why* any of it works the way it does, read the course: [[git/README|the reading order starts here]]. For "something has gone wrong", go to [[git/git-troubleshooting|git-troubleshooting]].
+**[Reference]** — The commands and their flags, grouped by what you're trying to do. For *why* any of it works the way it does, read the course: [[git/index|the reading order starts here]]. For "something has gone wrong", go to [[git/git-troubleshooting|git-troubleshooting]].
 
 Conventions below: `<placeholder>` is yours to fill in, `[optional]` is optional, and anything marked ⚠️ can lose work.
 
@@ -246,7 +246,7 @@ git diff > changes.patch         # ad-hoc patch from working directory
 ---
 
 ## Related
-- [[git/README|Git course]] — the explanations behind all of this
+- [[git/index|Git course]] — the explanations behind all of this
 - [[git/git-troubleshooting|git-troubleshooting]] — symptom-first recovery
 - [[devops/01-linux/linux-reference|Linux reference]] — the shell these run in
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — how to write the messages

@@ -113,7 +113,7 @@ lower   │  image layer 3 (RO)      │
 
 Read-only image layers plus one writable layer. Fifty containers from one image share the lower layers on disk and in the page cache.
 
-**Copy-up is the performance gotcha:** modifying a file that lives in a lower layer copies the **entire file** to the upper layer first. Appending one line to a 2GB file in an image copies 2GB. Write-heavy paths belong on a volume, not the container filesystem. → [[devops/02-docker/README|Docker]]
+**Copy-up is the performance gotcha:** modifying a file that lives in a lower layer copies the **entire file** to the upper layer first. Appending one line to a 2GB file in an image copies 2GB. Write-heavy paths belong on a volume, not the container filesystem. → [[devops/02-docker/index|Docker]]
 
 ## Capabilities
 
@@ -200,7 +200,7 @@ That's the whole trick. **Docker is a convenient wrapper around eight kernel fea
 ## Related
 - [[foundations/os/03-scheduling|Scheduling]] — cgroup CPU throttling
 - [[foundations/os/04-virtual-memory|Virtual Memory]] — cgroup memory limits and the OOM killer
-- [[devops/02-docker/README|Docker]] — the same thing from above
-- [[devops/05-orchestration/README|Orchestration]] — where the limits get set
-- [[cybersecurity/09-cloud-security/README|Cloud Security]] — container escape as a threat model
-- [[foundations/os/README|OS course map]]
+- [[devops/02-docker/index|Docker]] — the same thing from above
+- [[devops/05-orchestration/index|Orchestration]] — where the limits get set
+- [[cybersecurity/09-cloud-security/index|Cloud Security]] — container escape as a threat model
+- [[foundations/os/index|OS course map]]

@@ -6,11 +6,11 @@
 
 Security isn't one job; the main tracks map onto this course's sections:
 
-- **Offensive** (red team / penetration tester / ethical hacker) — [[cybersecurity/02-ethical-hacking/README|ethical hacking]] + [[cybersecurity/06-attacks-and-threats/README|attacks]].
-- **Defensive / SOC analyst / blue team** — [[cybersecurity/07-security-operations/README|security operations]]: monitoring, detection, incident response. The largest employer of entry-level security talent.
+- **Offensive** (red team / penetration tester / ethical hacker) — [[cybersecurity/02-ethical-hacking/index|ethical hacking]] + [[cybersecurity/06-attacks-and-threats/index|attacks]].
+- **Defensive / SOC analyst / blue team** — [[cybersecurity/07-security-operations/index|security operations]]: monitoring, detection, incident response. The largest employer of entry-level security talent.
 - **DFIR** (incident responder / forensic analyst) — the deep end of [[cybersecurity/07-security-operations/05-forensics-and-malware-analysis|forensics & IR]].
-- **Application / product security** — [[cybersecurity/04-web-security/README|web/app security]], secure coding, working with dev teams (a natural pivot for a software engineer).
-- **Cloud security** — [[cybersecurity/09-cloud-security/README|securing cloud/infrastructure]], overlapping DevOps → "DevSecOps."
+- **Application / product security** — [[cybersecurity/04-web-security/index|web/app security]], secure coding, working with dev teams (a natural pivot for a software engineer).
+- **Cloud security** — [[cybersecurity/09-cloud-security/index|securing cloud/infrastructure]], overlapping DevOps → "DevSecOps."
 - **GRC / security management** — [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|risk, compliance, audit]], leading toward CISO.
 
 For someone coming from software engineering, **application security** and **cloud/DevSecOps** are the most natural entries — they build directly on skills you already have.
@@ -21,7 +21,7 @@ Grouped by level and focus:
 
 **Foundational / entry:**
 - **CompTIA Security+** — the standard entry-level cert; broad fundamentals, widely required as a baseline. A sensible first cert.
-- **CompTIA Network+ / A+ / Linux+** — the IT/networking foundation beneath security (much of it overlaps [[devops/01-linux/README|Linux]] and [[devops/08-networking-and-web/01-networking-and-protocols|networking]]).
+- **CompTIA Network+ / A+ / Linux+** — the IT/networking foundation beneath security (much of it overlaps [[devops/01-linux/index|Linux]] and [[devops/08-networking-and-web/01-networking-and-protocols|networking]]).
 
 **Offensive:**
 - **CEH** (Certified Ethical Hacker) — broad, well-known, theory-heavy.
@@ -45,5 +45,5 @@ Grouped by level and focus:
 
 ## Related
 - [[cybersecurity/02-ethical-hacking/14-career-path-and-best-practices|Career Path & Best Practices (ethical hacking)]] — the offensive-career deep dive
-- [[cybersecurity/README|Cybersecurity course map]] — the sections each path maps to
+- [[cybersecurity/index|Cybersecurity course map]] — the sections each path maps to
 - [[project-ideas|Project Ideas]] — building real skill alongside any cert

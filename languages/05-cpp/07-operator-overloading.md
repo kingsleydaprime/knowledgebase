@@ -224,7 +224,7 @@ Iterator  operator++(int) { Iterator t = *this; ++pos_; return t; }  // post: du
 |---|---|
 | **C** | none — hence `complex_add(a, b)` |
 | **Java** | none, except built-in `+` for `String` |
-| **[[languages/02-go/README\|Go]]** | none, deliberately — part of "one obvious way" |
+| **[[languages/02-go/index\|Go]]** | none, deliberately — part of "one obvious way" |
 | **[[languages/03-rust/09-traits\|Rust]]** | via traits (`Add`, `Index`, `Deref`) — same power, must implement a named trait |
 | **Python** | dunder methods — same idea, dynamically |
 
@@ -237,4 +237,4 @@ Go's omission is a considered position: operator overloading makes code shorter 
 - [[languages/05-cpp/10-iterators-and-algorithms|Iterators and Algorithms]] — where `++` and `*` earn their keep
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — `operator=`
 - [[languages/03-rust/09-traits|Rust: Traits]] — operators as named traits
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

@@ -48,7 +48,7 @@ public:
 
 **Resource Acquisition Is Initialisation.** The name is bad and the idea is the best one in the language:
 
-> **Acquire a resource in a constructor. Release it in the destructor. The object's lifetime *is* the resource's lifetime.**
+> **Acquire a resource in a constructor. Release it in the destructor. The object's lifetime _is_ the resource's lifetime.**
 
 ```cpp
 class FileHandle {
@@ -85,15 +85,15 @@ Every exit path has to remember. RAII makes forgetting **impossible**, because t
 
 ### Why it's stronger than the alternatives
 
-| Mechanism | Problem |
-|---|---|
-| `goto cleanup` (C) | you must write it, every time, in every function |
-| `try/finally` (Java) | you must write it, at every call site |
-| `defer` (Go) | you must write it, at every acquisition |
-| `with` (Python) | you must write it, and only in that block |
+| Mechanism            | Problem                                                          |
+| -------------------- | ---------------------------------------------------------------- |
+| `goto cleanup` (C)   | you must write it, every time, in every function                 |
+| `try/finally` (Java) | you must write it, at every call site                            |
+| `defer` (Go)         | you must write it, at every acquisition                          |
+| `with` (Python)      | you must write it, and only in that block                        |
 | **destructor (C++)** | **written once, in the class. Every user gets it automatically** |
 
-That's the distinction: RAII puts the cleanup in the **type**, so no caller can forget. Every other mechanism puts it at the *call site*, where it's one omission away from a leak.
+That's the distinction: RAII puts the cleanup in the **type**, so no caller can forget. Every other mechanism puts it at the _call site_, where it's one omission away from a leak.
 
 The other mechanisms also don't compose. An object holding three RAII members releases all three, in reverse order, automatically — no nesting required.
 
@@ -183,7 +183,7 @@ std::vector<int> b{5, 0};     // TWO elements: 5 and 0
 
 Braces prefer `std::initializer_list` constructors when one exists. This is C++'s "most vexing" modern gotcha. Braces are otherwise better — they prevent narrowing conversions — but for containers with size arguments, use parentheses.
 
-The *actual* most vexing parse:
+The _actual_ most vexing parse:
 
 ```cpp
 Widget w();        // declares a FUNCTION named w returning Widget — not a variable
@@ -234,8 +234,9 @@ Which ones it generates, and when writing one suppresses another, is the **rule 
 ---
 
 ## Related
+
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — what happens when your class owns something
 - [[languages/05-cpp/05-smart-pointers-and-ownership|Smart Pointers and Ownership]] — RAII for memory, off the shelf
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — RAII promoted from convention to rule
 - [[languages/04-c/07-memory-management|C: Memory Management]] — what you'd write without it
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

@@ -61,9 +61,9 @@ The evolution of that "ask the kernel" call is worth knowing because the reason 
 
 The pattern is: **stop re-telling the kernel what you care about on every single call.** `epoll` is the foundation under nginx, Redis, Node's libuv, Netty, and Nginx-style event loops generally. `io_uring` goes further by making the I/O itself asynchronous rather than just the notification, which finally makes async *file* I/O work properly too.
 
-**The event-loop trade:** one thread + `epoll` handles enormous connection counts cheaply, but **any blocking work on that thread stalls every connection**. That's the whole reason "don't block the event loop" is the first rule of [[backend/frameworks/javascript/01-node-runtime/README|Node]], why Redis (single-threaded) is astonishingly fast until you run one `KEYS *`, and why CPU-bound work needs a worker pool.
+**The event-loop trade:** one thread + `epoll` handles enormous connection counts cheaply, but **any blocking work on that thread stalls every connection**. That's the whole reason "don't block the event loop" is the first rule of [[backend/frameworks/javascript/01-node-runtime/index|Node]], why Redis (single-threaded) is astonishingly fast until you run one `KEYS *`, and why CPU-bound work needs a worker pool.
 
-**Threads came back, though.** Green threads / virtual threads give you blocking-style code on an event-loop-style runtime — the runtime parks the lightweight thread and reuses the OS thread. Go's goroutines have always worked this way; [[languages/01-java/02-jvm-and-concurrency/README|Java's Project Loom]] brought it to the JVM. The lesson is that the *programming model* (blocking, sequential, readable) and the *execution model* (multiplexed onto few OS threads) were never actually required to match — we just lacked the runtime to separate them.
+**Threads came back, though.** Green threads / virtual threads give you blocking-style code on an event-loop-style runtime — the runtime parks the lightweight thread and reuses the OS thread. Go's goroutines have always worked this way; [[languages/01-java/02-jvm-and-concurrency/index|Java's Project Loom]] brought it to the JVM. The lesson is that the *programming model* (blocking, sequential, readable) and the *execution model* (multiplexed onto few OS threads) were never actually required to match — we just lacked the runtime to separate them.
 
 ## Things the API lies to you about
 
@@ -81,5 +81,5 @@ The socket API models the network as **a file you can read and write**, and that
 ## Related
 - [[foundations/networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states behind these calls
 - [[foundations/os/fundamentals|OS Fundamentals]] — file descriptors, threads, context switching
-- [[languages/01-java/02-jvm-and-concurrency/README|JVM & Concurrency]] — NIO, Netty, and virtual threads
+- [[languages/01-java/02-jvm-and-concurrency/index|JVM & Concurrency]] — NIO, Netty, and virtual threads
 - [[foundations/networking/16-debugging-networks|Debugging Networks]] — `lsof`, `ss`, and finding fd leaks

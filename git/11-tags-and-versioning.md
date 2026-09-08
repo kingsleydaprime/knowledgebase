@@ -199,4 +199,4 @@ gh release create v1.2.3 --generate-notes
 - [[git/14-github-and-ci|Git in CI]] — tagging and releasing from a pipeline
 - [[git/15-the-github-cli|The GitHub CLI]] — `gh release create --generate-notes` in context
 - [[git/17-hooks-and-signing|Hooks and Signing]] — signed tags
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

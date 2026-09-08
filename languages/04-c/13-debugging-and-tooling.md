@@ -236,4 +236,4 @@ None of this is optional in the way it might be in a memory-safe language. C giv
 - [[languages/04-c/07-memory-management|Memory Management]] — the bug classes
 - [[languages/04-c/12-build-systems|Build Systems]] — wiring the flags in
 - [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — where sanitizers belong
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

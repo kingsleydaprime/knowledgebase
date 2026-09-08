@@ -47,7 +47,7 @@ Mapping defences to the attacks, because that's how they make sense:
 
 ## Detection — because prevention is never complete
 
-Enumeration and lateral movement use legitimate protocols ([[cybersecurity/12-active-directory/03-enumeration|03]]), so detection is **behavioural, not signature-based** → [[cybersecurity/07-security-operations/README|security operations]]:
+Enumeration and lateral movement use legitimate protocols ([[cybersecurity/12-active-directory/03-enumeration|03]]), so detection is **behavioural, not signature-based** → [[cybersecurity/07-security-operations/index|security operations]]:
 
 - **The right event IDs** — 4768/4769 (Kerberos tickets, for roasting), 4662 (DCSync-shaped replication), 4728/4732 (privileged group changes), 4624 with anomalous logon patterns
 - **Honeytokens** — a fake service account with an SPN and a tempting name. **Nobody legitimate ever requests its ticket, so a 4769 for it is a near-certain Kerberoast alert.** Cheap, high-signal, and one of the best AD detections available
@@ -64,7 +64,7 @@ Enumeration and lateral movement use legitimate protocols ([[cybersecurity/12-ac
 
 ## Where cloud changes the picture
 
-**Azure AD / Entra ID** is a different model (OAuth, conditional access, no Kerberos), and hybrid environments — on-prem AD synced to Entra — introduce their own attack paths (**Azure AD Connect** compromise, PRT theft, illicit consent grants). **Hybrid is now the common case**, and it means an on-prem compromise can pivot to the cloud tenant and vice versa → [[cybersecurity/09-cloud-security/README|cloud security]].
+**Azure AD / Entra ID** is a different model (OAuth, conditional access, no Kerberos), and hybrid environments — on-prem AD synced to Entra — introduce their own attack paths (**Azure AD Connect** compromise, PRT theft, illicit consent grants). **Hybrid is now the common case**, and it means an on-prem compromise can pivot to the cloud tenant and vice versa → [[cybersecurity/09-cloud-security/index|cloud security]].
 
 ## Key insight
 
@@ -72,8 +72,8 @@ Enumeration and lateral movement use legitimate protocols ([[cybersecurity/12-ac
 
 ## Related
 - [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|lateral movement]] — the attacks this counters
-- [[cybersecurity/07-security-operations/README|security operations]] — SIEM, detection, incident response
-- [[cybersecurity/09-cloud-security/README|cloud security]] — Entra ID and hybrid
-- [[cybersecurity/08-governance-risk-and-compliance/README|governance and compliance]] — tiering as policy
+- [[cybersecurity/07-security-operations/index|security operations]] — SIEM, detection, incident response
+- [[cybersecurity/09-cloud-security/index|cloud security]] — Entra ID and hybrid
+- [[cybersecurity/08-governance-risk-and-compliance/index|governance and compliance]] — tiering as policy
 
 *Source: [reference] — Aug 2026.*

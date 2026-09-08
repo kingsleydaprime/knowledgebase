@@ -99,7 +99,7 @@ $$K \approx \frac{\text{uncertainty in my estimate}}{\text{uncertainty in my est
 - **$R$ large** (noisy sensor) → small $K$ → **trust the model**, smooth heavily
 - **$Q$ large** (poor model) → large $K$ → **trust the measurement**, respond fast
 
-**That's the entire intuition**, and it's a weighted average of two noisy sources of information, weighted by their reliability. The same logic as inverse-variance weighting in statistics, or a Bayesian posterior combining prior and likelihood — which is exactly what it is. → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|Probability and Statistics]]
+**That's the entire intuition**, and it's a weighted average of two noisy sources of information, weighted by their reliability. The same logic as inverse-variance weighting in statistics, or a Bayesian posterior combining prior and likelihood — which is exactly what it is. → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]]
 
 ### Tuning it
 
@@ -131,7 +131,7 @@ Real systems aren't linear, and the standard extensions:
 
 **No Jacobians needed**, accurate to higher order, and more robust to strong nonlinearity. Costs a bit more computation. **If your EKF is diverging, try the UKF before adding more tuning.**
 
-**Particle filter** — represent the distribution with weighted samples. Handles arbitrary nonlinearity *and* non-Gaussian, multi-modal distributions. Expensive, and suffers from particle depletion in high dimensions, but it's the only option when the posterior is genuinely multi-modal — which is why it's used for robot kidnapping/global localisation, where "I might be in one of four identical corridors" is a real belief state. → [[robotics/README|Robotics]]
+**Particle filter** — represent the distribution with weighted samples. Handles arbitrary nonlinearity *and* non-Gaussian, multi-modal distributions. Expensive, and suffers from particle depletion in high dimensions, but it's the only option when the posterior is genuinely multi-modal — which is why it's used for robot kidnapping/global localisation, where "I might be in one of four identical corridors" is a real belief state. → [[robotics/index|Robotics]]
 
 ## Sensor fusion
 
@@ -167,5 +167,5 @@ Standard combinations:
 - [[engineering/02-control-theory/09-controllability-observability-and-pole-placement|Controllability and Observability]] — the condition for any of this
 - [[engineering/02-control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — the dual problem, and LQG
 - [[engineering/02-control-theory/12-digital-control|Digital Control]] — implementing the discrete filter
-- [[robotics/README|Robotics]] — where sensor fusion lives
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[robotics/index|Robotics]] — where sensor fusion lives
+- [[engineering/02-control-theory/index|Control theory map]]

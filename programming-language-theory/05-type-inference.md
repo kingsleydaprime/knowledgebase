@@ -167,4 +167,4 @@ List.hd !r ^ "boom"     (* treats an int as a string *)
 - [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what's being inferred
 - [[foundations/compilers/05-type-systems-and-checking|Compilers: Type Systems]] — implementation
 - [[foundations/dsa/04-data-structures/10-union-find|Union-Find]] — the data structure behind unification
-- [[foundations/programming-language-theory/README|PL theory map]]
+- [[foundations/programming-language-theory/index|PL theory map]]

@@ -13,7 +13,7 @@ client ← ✗ timeout ←──────────────  response l
 
 The client sees a failure. **The charge went through.** If it retries, the customer is charged twice.
 
-**This is not an edge case.** Any distributed call has three outcomes, not two: succeeded, failed, and **unknown**. The third is the one that needs designing for → [[architecture/04-distributed-systems/README|distributed systems]].
+**This is not an edge case.** Any distributed call has three outcomes, not two: succeeded, failed, and **unknown**. The third is the one that needs designing for → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Idempotency
 
@@ -94,7 +94,7 @@ gateway retries 3× → service A retries 3× → service B retries 3×
 
 **A struggling dependency now receives 27× its normal load, precisely when it can least handle it.**
 
-**Retry at one layer.** Usually the one closest to the failure, or the outermost. **Not both.** And make it explicit in your architecture which layer owns retries → [[architecture/04-distributed-systems/README|distributed systems]].
+**Retry at one layer.** Usually the one closest to the failure, or the outermost. **Not both.** And make it explicit in your architecture which layer owns retries → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Circuit breakers
 
@@ -124,7 +124,7 @@ Message delivery gives you **at-most-once** or **at-least-once**. Not both. "Exa
 ## Related
 - [[backend/06-cross-cutting/04-rate-limiting|rate limiting]] — the server side of the same pressure
 - [[backend/06-cross-cutting/03-error-handling|error handling]] — which failures are retryable
-- [[architecture/04-distributed-systems/README|distributed systems]]
+- [[architecture/04-distributed-systems/index|distributed systems]]
 - [[ai-automation/05-error-handling-and-retries|the same problem in workflow automation]]
 
 *Source: [reference] — written Aug 2026.*

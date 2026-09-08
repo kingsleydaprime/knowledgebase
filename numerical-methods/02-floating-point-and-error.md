@@ -19,9 +19,9 @@ $$\text{fl}(x) = x(1 + \delta), \qquad |\delta| \leq \epsilon/2$$
 
 $$\text{fl}(a \oplus b) = (a \oplus b)(1+\delta)$$
 
-> **The mental model that matters: floating point numbers are *relatively* spaced, not absolutely.** Near 1.0 the gap is $10^{-16}$; near $10^{6}$ it's $10^{-10}$; near $10^{-6}$ it's $10^{-22}$.
+> **The mental model that matters: floating point numbers are _relatively_ spaced, not absolutely.** Near 1.0 the gap is $10^{-16}$; near $10^{6}$ it's $10^{-10}$; near $10^{-6}$ it's $10^{-22}$.
 >
-> **So "how many decimal places" is the wrong question.** A `double` has ~16 *significant digits*, wherever it sits on the number line. **Absolute tolerances are almost always a bug** — use relative ones, or a hybrid.
+> **So "how many decimal places" is the wrong question.** A `double` has ~16 _significant digits_, wherever it sits on the number line. **Absolute tolerances are almost always a bug** — use relative ones, or a hybrid.
 
 **The tolerance you actually want:**
 
@@ -65,13 +65,13 @@ x2 = c / q          # from x1·x2 = c/a — no subtraction
 
 **Other cancellations and their fixes:**
 
-| Naive | Better |
-|---|---|
-| $\sqrt{x+1}-\sqrt{x}$ | $\dfrac{1}{\sqrt{x+1}+\sqrt{x}}$ |
-| $1-\cos x$ (small $x$) | $2\sin^2(x/2)$ |
-| $e^x - 1$ (small $x$) | **`expm1(x)`** |
-| $\log(1+x)$ (small $x$) | **`log1p(x)`** |
-| variance via $E[X^2]-E[X]^2$ | **Welford's online algorithm** |
+| Naive                        | Better                           |
+| ---------------------------- | -------------------------------- |
+| $\sqrt{x+1}-\sqrt{x}$        | $\dfrac{1}{\sqrt{x+1}+\sqrt{x}}$ |
+| $1-\cos x$ (small $x$)       | $2\sin^2(x/2)$                   |
+| $e^x - 1$ (small $x$)        | **`expm1(x)`**                   |
+| $\log(1+x)$ (small $x$)      | **`log1p(x)`**                   |
+| variance via $E[X^2]-E[X]^2$ | **Welford's online algorithm**   |
 
 > **`expm1` and `log1p` exist in every standard library for exactly this reason.** If you're computing $e^x - 1$ for small $x$ by hand, you're throwing away most of your precision, and the library function is there to stop you.
 
@@ -105,7 +105,7 @@ for x in values:
 
 **Pairwise summation** — recursively split and add halves — gives $O(\epsilon\log n)$ for essentially free. **NumPy's `sum` does this**, which is why it's more accurate than a Python loop.
 
-> **A practical consequence for ML:** parallel reductions sum in a non-deterministic order, so **the same training run gives slightly different results.** That's not a bug and it can't be fixed without giving up the parallelism — it's why bit-exact reproducibility across GPU counts is generally not offered. → [[foundations/gpu-and-parallel-computing/README|GPU and Parallel Computing]]
+> **A practical consequence for ML:** parallel reductions sum in a non-deterministic order, so **the same training run gives slightly different results.** That's not a bug and it can't be fixed without giving up the parallelism — it's why bit-exact reproducibility across GPU counts is generally not offered. → [[foundations/gpu-and-parallel-computing/index|GPU and Parallel Computing]]
 
 ## Error propagation
 
@@ -119,14 +119,14 @@ $$\delta y \approx f'(x)\,\delta x \qquad\Longrightarrow\qquad \frac{\delta y}{y
 
 **Examples worth knowing:**
 
-| Operation | Condition | Note |
-|---|---|---|
-| Multiplication, division | $\kappa = 1$ | **always well-conditioned** |
-| Addition of same-sign | $\kappa = 1$ | fine |
-| **Subtraction of near-equals** | **$\kappa \to \infty$** | **cancellation** |
-| $\sqrt{x}$ | $1/2$ | **error-reducing** |
-| $e^x$ | $|x|$ | bad for large $x$ |
-| $\log x$ | $1/|\log x|$ | bad near $x=1$ |
+| Operation                      | Condition               | Note                        |
+| ------------------------------ | ----------------------- | --------------------------- |
+| Multiplication, division       | $\kappa = 1$            | **always well-conditioned** |
+| Addition of same-sign          | $\kappa = 1$            | fine                        |
+| **Subtraction of near-equals** | **$\kappa \to \infty$** | **cancellation**            |
+| $\sqrt{x}$                     | $1/2$                   | **error-reducing**          |
+| $e^x$                          | $                       | x                           | $   | bad for large $x$ |
+| $\log x$                       | $1/                     | \log x                      | $   | bad near $x=1$    |
 
 > **Multiplication and division never lose relative precision. Subtraction can lose all of it.** That single asymmetry explains most of the reformulations in this note — **the goal is almost always to rewrite a subtraction away.**
 
@@ -134,13 +134,13 @@ $$\delta y \approx f'(x)\,\delta x \qquad\Longrightarrow\qquad \frac{\delta y}{y
 
 **The framing that makes numerical analysis tractable.**
 
-**Forward error** — how far is my answer from the true answer? *What you want to know.*
+**Forward error** — how far is my answer from the true answer? _What you want to know._
 
-**Backward error** — for what perturbed *input* would my answer be exactly right? *What you can actually compute.*
+**Backward error** — for what perturbed _input_ would my answer be exactly right? _What you can actually compute._
 
 $$\text{forward error} \lesssim \text{condition number} \times \text{backward error}$$
 
-> **An algorithm is *backward stable* if it gives the exact answer to a nearby problem.** That's the realistic goal — and it's what LAPACK routines guarantee.
+> **An algorithm is _backward stable_ if it gives the exact answer to a nearby problem.** That's the realistic goal — and it's what LAPACK routines guarantee.
 >
 > **The insight this buys you:** if your input data is measured to 3 digits anyway, an algorithm with backward error at machine precision is **already better than your data deserves.** Chasing more accuracy is wasted effort — the uncertainty is in the measurement, not the arithmetic.
 
@@ -183,7 +183,8 @@ if x != x:  # x is NaN
 ---
 
 ## Related
+
 - [[foundations/computer-architecture/02-data-representation|Data Representation]] — the IEEE 754 format itself
 - [[foundations/numerical-methods/04-linear-systems|Linear Systems]] — where conditioning bites hardest
 - [[foundations/numerical-methods/01-why-numerical-methods|Why Numerical Methods]] — conditioning vs stability
-- [[foundations/numerical-methods/README|Numerical methods map]]
+- [[foundations/numerical-methods/index|Numerical methods map]]

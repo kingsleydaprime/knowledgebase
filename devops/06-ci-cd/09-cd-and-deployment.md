@@ -457,8 +457,8 @@ jobs:
 
 ## Related
 - [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — the build this deploys
-- [[devops/05-orchestration/README|Orchestration]] — rolling and canary rollouts as Kubernetes primitives
+- [[devops/05-orchestration/index|Orchestration]] — rolling and canary rollouts as Kubernetes primitives
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the pull-based alternative to deploying from CI
 - [[git/11-tags-and-versioning|Tags and Versioning]] — the SemVer contract these releases follow
-- [[devops/10-observability/README|Observability]] — what tells you a canary is failing
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/10-observability/index|Observability]] — what tells you a canary is failing
+- [[devops/06-ci-cd/index|CI/CD module map]]

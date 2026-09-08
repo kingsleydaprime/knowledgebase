@@ -36,7 +36,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 >
 > Hamming invented this out of frustration: his weekend batch jobs kept failing on parity errors, and the machine could detect the problem but not fix it. **"If it can detect the error, why can't it correct it?"**
 
-**Extended Hamming (SECDED)** adds an overall parity bit, giving $d = 4$: **single error correction, double error detection.** This is what ECC memory uses — and it's why servers with ECC RAM survive the cosmic-ray bit flips that silently corrupt data on consumer machines. → [[foundations/computer-architecture/README|Computer Architecture]]
+**Extended Hamming (SECDED)** adds an overall parity bit, giving $d = 4$: **single error correction, double error detection.** This is what ECC memory uses — and it's why servers with ECC RAM survive the cosmic-ray bit flips that silently corrupt data on consumer machines. → [[foundations/computer-architecture/index|Computer Architecture]]
 
 ## Reed–Solomon
 
@@ -136,4 +136,4 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 - [[foundations/information-theory/05-channel-capacity-and-noise|Channel Capacity]] — the limit these approach
 - [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|Number Theory]] — the finite fields Reed–Solomon needs
 - [[architecture/04-distributed-systems/05-replication|Replication]] — erasure coding in storage
-- [[foundations/information-theory/README|Information theory map]]
+- [[foundations/information-theory/index|Information theory map]]

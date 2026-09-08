@@ -187,4 +187,4 @@ cargo asm my_crate::my_function          # cargo-show-asm
 - [[foundations/compilers/08-code-generation|Code Generation]] — the passes after these
 - [[languages/03-rust/18-performance-and-zero-cost|Rust: Performance]] — inlining as the basis of zero-cost abstraction
 - [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — the thing the compiler cannot fix
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

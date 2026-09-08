@@ -130,5 +130,5 @@ Same as [[mobile/05-state-and-architecture|the architecture note]]:
 
 ## Related
 - [[languages/09-kotlin/05-coroutines-and-flow|coroutines and Flow]]
-- [[mobile/frameworks/android/README|Android]] — Robolectric and instrumented tests
+- [[mobile/frameworks/android/index|Android]] — Robolectric and instrumented tests
 - [[languages/09-kotlin/03-types-and-data-classes|sealed types]] — polymorphic serialisation

@@ -58,7 +58,7 @@ The disciplines, and roughly how a team divides:
 
 **For physics** — Newtonian mechanics, integration, and why Euler integration explodes → [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]].
 
-**For graphics** — linear algebra properly, plus the rendering equation → [[foundations/computer-graphics/README|computer graphics]].
+**For graphics** — linear algebra properly, plus the rendering equation → [[foundations/computer-graphics/index|computer graphics]].
 
 **You don't need most of it to start.** A 2D game needs vectors and nothing else.
 
@@ -81,7 +81,7 @@ The disciplines, and roughly how a team divides:
 ## Related
 - [[game-development/02-engines-and-the-game-loop|engines and the game loop]] — the technical starting point
 - [[game-development/08-getting-started|getting started]] — what to actually build first
-- [[foundations/computer-graphics/README|computer graphics]] — the rendering half, already here
-- [[foundations/programming-fundamentals/README|programming fundamentals]] — if this is where you're starting from
+- [[foundations/computer-graphics/index|computer graphics]] — the rendering half, already here
+- [[foundations/programming-fundamentals/index|programming fundamentals]] — if this is where you're starting from
 
 *Source: [reference] — cross-referenced against the [roadmap.sh game developer roadmap](https://roadmap.sh/game-developer).*

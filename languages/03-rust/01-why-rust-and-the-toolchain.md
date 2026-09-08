@@ -25,7 +25,7 @@ That's the deal. Here's the price:
 
 **Good at:** systems programming, CLI tools, WebAssembly, embedded, game engines, network services where tail latency matters, and anything where a GC pause or a memory-safety bug is unacceptable. It's displacing C++ in new infrastructure — parts of the Linux kernel, Android, Windows, Firefox, and most new storage/database engines.
 
-**Bad at:** rapid prototyping, scripting, anything where iteration speed beats correctness, and teams that can't absorb the learning curve. A CRUD API you'd write in a day with [[backend/frameworks/java/README|Spring Boot]] or [[languages/02-go/README|Go]] takes longer in Rust and the safety buys you comparatively little.
+**Bad at:** rapid prototyping, scripting, anything where iteration speed beats correctness, and teams that can't absorb the learning curve. A CRUD API you'd write in a day with [[backend/frameworks/java/index|Spring Boot]] or [[languages/02-go/index|Go]] takes longer in Rust and the safety buys you comparatively little.
 
 The honest comparison with Go, since that's the other systems language here:
 
@@ -134,5 +134,5 @@ It names the rule, points at all three relevant lines, and often suggests the fi
 - [[languages/03-rust/03-ownership|Ownership]] — the idea everything else rests on
 - [[languages/03-rust/16-modules-cargo-and-testing|Modules, Cargo and Testing]] — the toolchain in depth
 - [[languages/02-go/01-why-go-and-the-toolchain|Go: Why Go]] — the other answer to the same problems
-- [[backend/frameworks/rust/README|Rust Backends]] — Axum and Actix
-- [[languages/03-rust/README|Rust course map]]
+- [[backend/frameworks/rust/index|Rust Backends]] — Axum and Actix
+- [[languages/03-rust/index|Rust course map]]

@@ -151,7 +151,7 @@ repos:
 pip install pre-commit && pre-commit install
 ```
 
-**Hooks must be fast** — lint and format on staged files, seconds not minutes. The full test suite belongs in [[devops/06-ci-cd/README|CI]] on push. A slow hook trains people to use `--no-verify`, which defeats it entirely.
+**Hooks must be fast** — lint and format on staged files, seconds not minutes. The full test suite belongs in [[devops/06-ci-cd/index|CI]] on push. A slow hook trains people to use `--no-verify`, which defeats it entirely.
 
 `pre-commit` is the language-agnostic framework; the Node equivalent is Husky. Both exist because a script dropped in `.git/hooks/` isn't version-controlled and doesn't survive a clone.
 
@@ -171,7 +171,7 @@ Low value: getters, framework behaviour, and anything whose test is a restatemen
 ## Related
 - [[languages/06-python/08-typing-and-type-hints|typing]] — the other half of the safety net
 - [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] — the concepts
-- [[devops/06-ci-cd/README|CI/CD]] — where this runs automatically
+- [[devops/06-ci-cd/index|CI/CD]] — where this runs automatically
 - [[languages/06-python/01-why-python-and-the-toolchain|the toolchain]] — venvs and pyproject.toml
 
 *Source: [reference] — from the pytest and ruff documentation.*

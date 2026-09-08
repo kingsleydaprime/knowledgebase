@@ -166,7 +166,7 @@ When a layout question is genuinely ambiguous, the built HTML answers it faster 
 ```bash
 python3 -c "
 import re,pathlib
-h=pathlib.Path('public/git/README.html').read_text()
+h=pathlib.Path('public/git/index.html').read_text()
 for c in ['left sidebar','right sidebar','page-header','page-footer']:
     print(c, '->', h.count(c))"
 ```
@@ -177,4 +177,4 @@ for c in ['left sidebar','right sidebar','page-header','page-footer']:
 - [[tools/quartz/02-configuration|Configuration]] — where all of this is declared
 - [[tools/quartz/03-theming-and-styling|Theming and Styling]] — `data-slug` and `data-frame` scoping
 - [[tools/quartz/01-how-quartz-works|How Quartz Works]] — the emit stage that assembles these slots
-- [[tools/quartz/README|Quartz notes]]
+- [[tools/quartz/index|Quartz notes]]

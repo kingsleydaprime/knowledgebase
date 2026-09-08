@@ -75,7 +75,7 @@ The fixes are all about managing the queue rather than the sender: **AQM** (Acti
 
 ## Incast — the data-centre failure mode
 
-Worth knowing because it bites in [[architecture/README|distributed systems]] specifically. A client fans out a request to 40 servers ([[architecture/02-building-blocks/README|scatter-gather]]); all 40 reply at once. Their responses collide at the top-of-rack switch, its shallow buffer overflows, and packets are lost — often the *last* packets of a response, with nothing after them to trigger fast retransmit. So you wait for an **RTO: 200ms+ in a data centre where RTTs are microseconds.**
+Worth knowing because it bites in [[architecture/index|distributed systems]] specifically. A client fans out a request to 40 servers ([[architecture/02-building-blocks/index|scatter-gather]]); all 40 reply at once. Their responses collide at the top-of-rack switch, its shallow buffer overflows, and packets are lost — often the *last* packets of a response, with nothing after them to trigger fast retransmit. So you wait for an **RTO: 200ms+ in a data centre where RTTs are microseconds.**
 
 The result is a latency distribution that's mostly sub-millisecond with a p99 in the hundreds of milliseconds — the classic "tail latency" signature. Mitigations: smaller RTO minimums, ECN/DCTCP, staggering the fan-out, and application-level hedging. It's a good example of why p99 latency in distributed systems so often has a *transport-layer* explanation that never shows up in application profiling.
 
@@ -87,5 +87,5 @@ Congestion control is a **distributed algorithm running on machines that never c
 - [[foundations/networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — the other window
 - [[foundations/networking/15-network-performance|Network Performance]] — BDP, and why round trips dominate
 - [[foundations/networking/13-quic-and-modern-transport|QUIC]] — congestion control moved to userspace, where it can be iterated on
-- [[architecture/04-distributed-systems/README|Distributed Systems]] — incast, tail latency, and scatter-gather
-- [[engineering/02-control-theory/README|Control Theory]] — AIMD is a feedback controller with a delayed, noisy plant. The maths that explains why it oscillates, and why the delay is the hard part
+- [[architecture/04-distributed-systems/index|Distributed Systems]] — incast, tail latency, and scatter-gather
+- [[engineering/02-control-theory/index|Control Theory]] — AIMD is a feedback controller with a delayed, noisy plant. The maths that explains why it oscillates, and why the delay is the hard part

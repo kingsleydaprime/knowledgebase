@@ -179,4 +179,4 @@ $$S = \frac{1}{(1-p) + p/n}$$
 - [[foundations/computer-architecture/09-caches-in-depth|Caches in Depth]] — coherence, which this sits on top of
 - [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] — locks, futexes, and what to use instead
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — the same problem, one scale up
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

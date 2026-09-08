@@ -1,6 +1,6 @@
 # GROQ
 
-**Part of [[frontend/frameworks/sanity/README|frameworks/sanity]].** `[reference]`
+**Part of [[frontend/frameworks/sanity/index|frameworks/sanity]].** `[reference]`
 **Real code:** [[projects/munakalati/learning/03-sanity/03-groq-queries|munakalati — 24 queries against 434 posts]] · **Compare:** [[databases/sql-reference|SQL reference]]
 
 ---
@@ -163,4 +163,4 @@ Anything with `0` is a candidate → [[projects/munakalati/learning/02-shell|the
 
 ## Related
 - [[frontend/frameworks/sanity/01-the-sanity-model|01 — the Sanity model]] · [[frontend/frameworks/sanity/03-portable-text-and-images|03 — Portable Text]]
-- [[databases/sql-reference|SQL reference]] · [[cybersecurity/04-web-security/README|web security]]
+- [[databases/sql-reference|SQL reference]] · [[cybersecurity/04-web-security/index|web security]]

@@ -1,7 +1,7 @@
 # SocioBoom — Git
 
 Version control as practised on this project. The general-purpose version of this material is
-[[git/README|the git course]] — read that for internals, rebasing, reflog,
+[[git/index|the git course]] — read that for internals, rebasing, reflog,
 recovery, and workflows. This file teaches the parts that came up here, in the context they
 came up in, plus what's true only of this project.
 
@@ -179,5 +179,5 @@ Two columns: left is the staging area, right is the working tree.
 ---
 
 ## Related
-- [[git/README|Git course]] — the general-purpose version of all of this
+- [[git/index|Git course]] — the general-purpose version of all of this
 - [[projects/socioboom/learning/01-shell|01-shell]] — shell commands on this project

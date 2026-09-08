@@ -91,9 +91,9 @@ The uncomfortable summary: **most of the money was lost to boring failures.** St
 **Every major loss traces back to something the team believed was true and wasn't** — that a function was restricted, that a price was honest, that a permission had been revoked, that a guard worked, that a signature had been checked. Security here is not primarily about knowing vulnerability classes. It's about enumerating your assumptions, writing them down, and then trying to break each one.
 
 ## Related
-- [[web3/04-smart-contract-security/README|smart contract security]] — the whole section
+- [[web3/04-smart-contract-security/index|smart contract security]] — the whole section
 - [[web3/04-smart-contract-security/01-why-this-is-different|why security is different here]]
 - [[web3/05-beyond-ethereum/06-bridges-and-interoperability|bridges]] — the largest losses
-- [[cybersecurity/07-security-operations/README|security operations]] — the discipline Ronin needed
+- [[cybersecurity/07-security-operations/index|security operations]] — the discipline Ronin needed
 
 *Source: [reference] — Aug 2026. Figures are USD at time of exploit and are approximate.*

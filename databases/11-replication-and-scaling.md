@@ -2,7 +2,7 @@
 
 **[Advanced]** — Read replicas, failover, partitioning, and the order in which you should actually try things.
 
-> **The distributed-systems theory is in [[architecture/04-distributed-systems/README|architecture/04-distributed-systems]]** — consensus, consistency models, CAP, partitioning strategies. **This note is the database-operator's view**: what the knobs do and what breaks.
+> **The distributed-systems theory is in [[architecture/04-distributed-systems/index|architecture/04-distributed-systems]]** — consensus, consistency models, CAP, partitioning strategies. **This note is the database-operator's view**: what the knobs do and what breaks.
 
 ## Scale up first
 
@@ -186,7 +186,7 @@ GET  /orders    → reads from replica → order isn't there yet
 ---
 
 ## Related
-- [[architecture/04-distributed-systems/README|Distributed Systems]] — the theory: consensus, CAP, consistency
+- [[architecture/04-distributed-systems/index|Distributed Systems]] — the theory: consensus, CAP, consistency
 - [[databases/10-durability-and-recovery|Durability and Recovery]] — the WAL that replication ships
 - [[databases/mysql-reference|MySQL Reference]] — §18, replication setup concretely
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]

@@ -14,7 +14,7 @@
 
 **This is the one worth doing.** It shows a finite machine handling arbitrarily large numbers — because it never stores the number, only the residue. **Bounded memory, unbounded input** is the whole idea of the model.
 
-**(c) Contains `101`.** Four states tracking the longest prefix of `101` matched so far: none / `1` / `10` / `101` (accepting, absorbing). **This is exactly what Knuth–Morris–Pratt builds** → [[foundations/dsa/README|DSA]].
+**(c) Contains `101`.** Four states tracking the longest prefix of `101` matched so far: none / `1` / `10` / `101` (accepting, absorbing). **This is exactly what Knuth–Morris–Pratt builds** → [[foundations/dsa/index|DSA]].
 
 ### 2. Subset construction
 
@@ -117,7 +117,7 @@ So $H$ cannot exist. ∎
 
 **The one-sentence version:** *$D$ is built to do the opposite of whatever it's predicted to do, so asking it about itself makes the prediction self-refuting.*
 
-**Same shape as Russell's paradox and Cantor's diagonal** — self-reference plus negation. And it's not an artefact: Rice's theorem generalises it to **every** non-trivial semantic property of programs, which is why perfect static analysis of program behaviour is impossible in principle, not merely hard → [[foundations/compilers/README|compilers]].
+**Same shape as Russell's paradox and Cantor's diagonal** — self-reference plus negation. And it's not an artefact: Rice's theorem generalises it to **every** non-trivial semantic property of programs, which is why perfect static analysis of program behaviour is impossible in principle, not merely hard → [[foundations/compilers/index|compilers]].
 
 ### 11. Reduce: "does this TM print `z`?"
 
@@ -173,6 +173,6 @@ Unit propagation (a clause with one unassigned literal forces it), pure literal 
 
 ## Related
 - [[foundations/theory-of-computation/09-practice-exercises|the exercises]]
-- [[foundations/theory-of-computation/README|the course]]
+- [[foundations/theory-of-computation/index|the course]]
 
 *Source: [reference] — the 23-second figure measured on Python 3.14, August 2026.*

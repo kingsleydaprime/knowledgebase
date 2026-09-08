@@ -211,8 +211,8 @@ switch (hash(input)) {                    // switch on strings, via compile-time
 | | |
 |---|---|
 | **C** | `#define`, and the preprocessor. No computation worth the name |
-| **[[languages/03-rust/README\|Rust]]** | `const fn` — the same idea, more restricted; and proc macros for real codegen |
-| **[[languages/02-go/README\|Go]]** | none. `go generate` shells out to a program |
+| **[[languages/03-rust/index\|Rust]]** | `const fn` — the same idea, more restricted; and proc macros for real codegen |
+| **[[languages/02-go/index\|Go]]** | none. `go generate` shells out to a program |
 | **Zig** | `comptime` — the cleanest design of the lot; the compile-time language *is* the language |
 
 C++'s version is the most capable in mainstream use, and it got there by accident and then by twenty years of retrofitting. Zig's `comptime` is what it would look like designed from the start.
@@ -223,4 +223,4 @@ C++'s version is the most capable in mainstream use, and it got there by acciden
 - [[languages/05-cpp/08-templates-and-concepts|Templates and Concepts]] — the older compile-time mechanism
 - [[languages/05-cpp/14-modern-cpp-and-modules|Modern C++ and Modules]] — where `constexpr` fits in the timeline
 - [[languages/04-c/03-the-preprocessor|C: The Preprocessor]] — what this replaces
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

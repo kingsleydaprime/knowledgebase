@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · Leaf-spine, east–west traffic, oversubscription, and why the network inside a data centre is built on the opposite assumptions to the internet.
 
-[[foundations/networking/README|The networking course]] teaches the internet: a wide-area network of untrusted, unequal, variable-latency links where you must assume loss and congestion. **A data centre network inverts nearly every one of those assumptions**, and the result is a genuinely different design.
+[[foundations/networking/index|The networking course]] teaches the internet: a wide-area network of untrusted, unequal, variable-latency links where you must assume loss and congestion. **A data centre network inverts nearly every one of those assumptions**, and the result is a genuinely different design.
 
 | | **The internet** | **Inside a data centre** |
 |---|---|---|
@@ -21,7 +21,7 @@ That last row is the one that reshaped the hardware.
 
 **East–west** traffic moves *between* machines inside it — a web tier calling a service, a service querying a database, a replica syncing, a MapReduce shuffling, a distributed training job exchanging gradients.
 
-**A single user request generates a burst of east–west traffic.** One page load might fan out to a dozen internal services, each hitting a cache and a database. [[architecture/03-architectural-patterns/README|Microservices]], replication and distributed storage all multiply it further.
+**A single user request generates a burst of east–west traffic.** One page load might fan out to a dozen internal services, each hitting a cache and a database. [[architecture/03-architectural-patterns/index|Microservices]], replication and distributed storage all multiply it further.
 
 The historical numbers are stark: east–west is commonly **70–80%+** of all data centre traffic. **And the classic three-tier network was built for the opposite case.**
 
@@ -58,13 +58,13 @@ The rules are simple, and the simplicity is the point:
 
 What that buys:
 
-**Predictable latency.** Two hops, always. Rack placement stops being a performance variable — which is what makes a scheduler like [[devops/05-orchestration/README|Kubernetes]] free to put a pod anywhere.
+**Predictable latency.** Two hops, always. Rack placement stops being a performance variable — which is what makes a scheduler like [[devops/05-orchestration/index|Kubernetes]] free to put a pod anywhere.
 
 **All links active.** Instead of STP, leaf-spine networks are routed at layer 3 with **ECMP** (equal-cost multi-path) — traffic is hashed across every available spine path. Add a spine and every leaf gets more bandwidth immediately.
 
 **Horizontal scaling.** More racks → more leaves. More bandwidth between racks → more spines. Both are additive, and neither requires redesigning the network.
 
-**Small failure domains.** A spine failure removes 1/N of the cross-rack capacity. Nothing goes down; things get proportionally slower. **Degradation instead of outage** is the same instinct that runs through [[architecture/04-distributed-systems/README|distributed systems]].
+**Small failure domains.** A spine failure removes 1/N of the cross-rack capacity. Nothing goes down; things get proportionally slower. **Degradation instead of outage** is the same instinct that runs through [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Oversubscription
 
@@ -117,9 +117,9 @@ This is why data centres run **DCTCP** and ECN-based schemes that mark packets r
 
 ## Related
 - [[devops/00-the-physical-layer/03-data-centres|data centres]] — the building these racks sit in
-- [[foundations/networking/README|networking]] — the protocols, in depth
+- [[foundations/networking/index|networking]] — the protocols, in depth
 - [[foundations/networking/15-network-performance|network performance]] — latency budgets
-- [[devops/08-networking-and-web/README|networking and web]] — the operator's view
-- [[architecture/04-distributed-systems/README|distributed systems]] — what all this east–west traffic is doing
+- [[devops/08-networking-and-web/index|networking and web]] — the operator's view
+- [[architecture/04-distributed-systems/index|distributed systems]] — what all this east–west traffic is doing
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (data centre networking section), extended with Clos/ECMP, VXLAN overlay and incast detail from primary sources.*

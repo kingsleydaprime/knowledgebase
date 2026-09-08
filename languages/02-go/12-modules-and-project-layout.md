@@ -143,4 +143,4 @@ That's the whole distribution model: a git tag. See [[git/11-tags-and-versioning
 - [[git/11-tags-and-versioning|Tags and Versioning]] — SemVer, which Go enforces structurally
 - [[devops/06-ci-cd/10-pipeline-security|Securing the Pipeline]] — the checksum database in context
 - [[languages/01-java/03-tooling/01-build-tools|Java: Build Tools]] — Maven/Gradle, for contrast
-- [[languages/02-go/README|Go course map]]
+- [[languages/02-go/index|Go course map]]

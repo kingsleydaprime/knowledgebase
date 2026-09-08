@@ -53,7 +53,7 @@ Every one of these is bypassable in minutes by someone with a modified app:
 ## Authentication on mobile
 
 - **OAuth via the system browser** (ASWebAuthenticationSession / Custom Tabs), **not a WebView.** A WebView lets the host app read the credentials — which is exactly what you're trying to prevent, and providers increasingly reject it
-- **PKCE is mandatory** for mobile OAuth. Mobile apps are public clients and cannot hold a client secret → [[backend/05-auth/README|auth]]
+- **PKCE is mandatory** for mobile OAuth. Mobile apps are public clients and cannot hold a client secret → [[backend/05-auth/index|auth]]
 - **Short-lived access tokens, refresh tokens in the Keychain/Keystore**, rotation on use
 - **Biometrics unlock a local secret; they don't authenticate to your server.** The right pattern is: biometric unlocks a Keystore-held key, which is used to access the token. **A boolean "biometric succeeded" that the app checks is bypassable**
 - **Handle biometric enrolment changes** — a new fingerprint added should invalidate the key, and the platforms support this
@@ -84,8 +84,8 @@ Every one of these is bypassable in minutes by someone with a modified app:
 
 ## Related
 - [[mobile/09-permissions-and-privacy|permissions and privacy]] — the data you shouldn't have collected
-- [[backend/05-auth/README|auth]] — the server side of this
-- [[cybersecurity/04-web-security/README|web security]] — much of it applies
-- [[cybersecurity/05-cryptography/README|cryptography]] — what the Keystore is doing
+- [[backend/05-auth/index|auth]] — the server side of this
+- [[cybersecurity/04-web-security/index|web security]] — much of it applies
+- [[cybersecurity/05-cryptography/index|cryptography]] — what the Keystore is doing
 
 *Source: [reference] — Aug 2026.*

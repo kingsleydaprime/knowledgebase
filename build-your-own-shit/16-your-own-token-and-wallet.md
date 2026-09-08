@@ -19,7 +19,7 @@
 - **Solidity basics** → [[web3/03-smart-contracts-with-solidity/02-solidity-fundamentals|Solidity fundamentals]]
 - **What a token actually is** → [[web3/01-foundations/07-tokens-coins-and-nfts|tokens, coins and NFTs]]
 - **Key derivation** → [[web3/01-foundations/03-cryptographic-primitives|cryptographic primitives]]
-- **Foundry** → [[web3/frameworks/solidity/README|the Solidity toolchain]]
+- **Foundry** → [[web3/frameworks/solidity/index|the Solidity toolchain]]
 
 **Solidity for the contracts, Python or TypeScript for the wallet.** Python's `ecdsa`, `mnemonic` and `eth-utils` are the clearest; TypeScript works but the temptation to import a library that does the whole thing is stronger.
 
@@ -204,7 +204,7 @@ function tokenURI(uint256 id) public pure returns (string memory) {
 ## Related
 - [[web3/03-smart-contracts-with-solidity/07-token-standards|token standards]] — what you just implemented, properly
 - [[web3/01-foundations/07-tokens-coins-and-nfts|tokens, coins and NFTs]] — the theory
-- [[web3/frameworks/solidity/README|the Solidity toolchain]] — Foundry, in detail
+- [[web3/frameworks/solidity/index|the Solidity toolchain]] — Foundry, in detail
 - [[build-your-own-shit/15-your-own-smart-contract-vm|your own smart contract VM]] — the machine this runs on
 
 *Source: [reference] — build guide, Aug 2026.*

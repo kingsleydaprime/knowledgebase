@@ -65,5 +65,5 @@ When someone proposes a blockchain application, four questions resolve it:
 ## Related
 - [[web3/08-the-honest-assessment/01-what-blockchains-are-actually-good-for|what blockchains are actually good for]] — the full argument
 - [[web3/06-building-dapps/06-oracles|oracles]] — why supply chain doesn't work
-- [[game-development/README|game development]] — how games are actually built
+- [[game-development/index|game development]] — how games are actually built
 - [[web3/07-the-application-layer/04-identity-and-naming|identity and naming]]

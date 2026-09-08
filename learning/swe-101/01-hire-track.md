@@ -46,7 +46,7 @@ Method is [[learning/02-the-learning-loop|yours]] and doesn't change:
 
 > Study 1–2 worked solutions → extract *what makes it that kind of problem* → **close them** → solve new ones cold. Never copy a third.
 
-Work through [[foundations/dsa/06-patterns/README|the 15 patterns]] already written here. One pattern per week, roughly:
+Work through [[foundations/dsa/06-patterns/index|the 15 patterns]] already written here. One pattern per week, roughly:
 
 arrays/hashing → two pointers → sliding window → binary search → stack → linked list → trees/BFS/DFS → heap → backtracking → graphs → intervals → greedy → DP (2 weeks) → tries → bit manipulation
 
@@ -69,7 +69,7 @@ One project, shipped properly. Not five half-projects.
 
 **Item 4 is the whole point.** A golden set, a scoring function, a regression run on every prompt change, and numbers you can quote. Almost nobody applying to junior AI roles has this. [[ai-ml/03-ai-engineer/12-evals|The note is already written]] — this is the reps for it.
 
-Milestones (each independently shippable, per [[build-your-own-shit/README|the build-guide rule]]):
+Milestones (each independently shippable, per [[build-your-own-shit/index|the build-guide rule]]):
 - **w3–4** — scope, deploy the skeleton to production on day one, CI green
 - **w5–6** — the core feature end to end
 - **w7–8** — the AI feature working

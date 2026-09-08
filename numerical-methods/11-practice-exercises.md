@@ -80,7 +80,7 @@ The three cheap answers, and you should reach for one of them by reflex: **a con
 
 ## Related
 - [[foundations/numerical-methods/12-practice-exercises-solutions|Solutions]] — with measured results
-- [[foundations/numerical-methods/README|the course]]
+- [[foundations/numerical-methods/index|the course]]
 - [[foundations/computer-architecture/13-practice-exercises|architecture exercises]] — where the floating point lives
 
 *Source: [reference] — built from this course's own "what would close the gap" list. Results in note 12 measured Aug 2026.*

@@ -1,7 +1,7 @@
 # Next.js App Router — How This Site Is Laid Out
 
 **Split from:** the munakalati frontend domain. **See also:** [[projects/munakalati/learning/04-frontend/02-data-fetching-and-caching|02 — data fetching]] · [[projects/munakalati/learning/04-frontend/03-rendering-cms-content|03 — rendering CMS content]]
-**General version:** [[frontend/frameworks/next/README|frontend/frameworks/next/]] · [[frontend/03-structuring-a-frontend/01-components-and-composition|structuring a frontend]]
+**General version:** [[frontend/frameworks/next/index|frontend/frameworks/next/]] · [[frontend/03-structuring-a-frontend/01-components-and-composition|structuring a frontend]]
 
 Next.js **16.2.4**, React **19.2.4**, App Router, Tailwind **4**.
 

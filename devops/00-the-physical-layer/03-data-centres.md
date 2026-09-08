@@ -94,7 +94,7 @@ That number is the whole design:
 
 So the standard advice — *spread across at least two AZs* — is not a cloud-vendor ritual. It's the statement that **an AZ is the blast radius of a physical event**, and one AZ is a single building's worth of risk no matter how many virtual machines you run inside it.
 
-The corollary is worth stating plainly: **three instances in one AZ are not a redundant system.** They share a roof, a power feed, and a cooling plant. Multi-AZ protects against the building. Multi-region protects against the region — at the cost of latency and, usually, of strong consistency. See [[architecture/04-distributed-systems/README|distributed systems]] for what that trade costs.
+The corollary is worth stating plainly: **three instances in one AZ are not a redundant system.** They share a roof, a power feed, and a cooling plant. Multi-AZ protects against the building. Multi-region protects against the region — at the cost of latency and, usually, of strong consistency. See [[architecture/04-distributed-systems/index|distributed systems]] for what that trade costs.
 
 ## Related
 - [[devops/00-the-physical-layer/04-the-data-centre-network|the data centre network]] — how the racks are wired together

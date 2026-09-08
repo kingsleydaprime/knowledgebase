@@ -63,7 +63,7 @@ Static typing costs you some verbosity and buys a class of error caught for free
 
 **General-purpose** — Python, Java, C#, Go, JavaScript, C++. Wide range; these should be your default.
 
-**Systems** — C, C++, Rust, Zig. Where you need control over memory and timing: operating systems, databases, browsers, game engines. → [[languages/README|languages/]] has full courses on these.
+**Systems** — C, C++, Rust, Zig. Where you need control over memory and timing: operating systems, databases, browsers, game engines. → [[languages/index|languages/]] has full courses on these.
 
 **Scripting** — Python, Bash, Ruby, PowerShell. Automation, glue, one-off tasks. [[devops/01-linux/12-bash-scripting|Bash]] in particular is not optional if you'll touch servers.
 
@@ -95,9 +95,9 @@ Pick by what you want to build:
 
 ## Related
 - [[foundations/programming-fundamentals/03-where-code-gets-written|where code gets written]] — the tools you'll need next
-- [[languages/README|languages/]] — the vault's full courses: Java, Go, Rust, C, C++
-- [[foundations/compilers/README|compilers]] — how translation actually works
-- [[foundations/programming-language-theory/README|PL theory]] — why languages differ, much later
+- [[languages/index|languages/]] — the vault's full courses: Java, Go, Rust, C, C++
+- [[foundations/compilers/index|compilers]] — how translation actually works
+- [[foundations/programming-language-theory/index|PL theory]] — why languages differ, much later
 - [[foundations/programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — where to take this
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the static/dynamic and compilation-model distinctions it left implicit.*

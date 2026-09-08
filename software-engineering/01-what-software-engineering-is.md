@@ -20,7 +20,7 @@ That sounds like a slogan, so here it is concretely. A program that works on you
 
 The single most surprising fact for people entering the profession: **writing new code is a minority of the job.** Most hours go to reading existing code, working out what's actually being asked for, deciding between approaches, reviewing other people's work, and finding out why something broke.
 
-This is not a complaint about bureaucracy. It's a consequence of the economics — code is written once and read continuously, so anything that makes reading cheaper pays back repeatedly. That single fact is the root of most practices in [[concepts/04-best-practices/README|best practices]].
+This is not a complaint about bureaucracy. It's a consequence of the economics — code is written once and read continuously, so anything that makes reading cheaper pays back repeatedly. That single fact is the root of most practices in [[concepts/04-best-practices/index|best practices]].
 
 ## The three habits
 

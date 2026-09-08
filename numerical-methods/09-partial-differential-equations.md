@@ -159,4 +159,4 @@ $$\frac{d}{dt}\int_{V}u\,dV + \oint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 
 - [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] — the applied treatment, and the domain that asked for this
 - [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]] — time stepping, which PDEs reuse
 - [[foundations/numerical-methods/04-linear-systems|Linear Systems]] — the huge sparse solves these produce
-- [[foundations/numerical-methods/README|Numerical methods map]]
+- [[foundations/numerical-methods/index|Numerical methods map]]

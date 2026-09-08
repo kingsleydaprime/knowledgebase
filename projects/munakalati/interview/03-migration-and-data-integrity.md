@@ -1,6 +1,6 @@
 # munakalati — Migration and Data Integrity
 
-From [[projects/munakalati/learning/05-migration/README|learning/05-migration]]. **This is the strongest material in the project.** Bulk data migration is something most developers do once, badly, and never reflect on — being able to talk about idempotency, verification and repair as *design* rather than firefighting is genuinely differentiating.
+From [[projects/munakalati/learning/05-migration/index|learning/05-migration]]. **This is the strongest material in the project.** Bulk data migration is something most developers do once, badly, and never reflect on — being able to talk about idempotency, verification and repair as *design* rather than firefighting is genuinely differentiating.
 
 ---
 
@@ -174,5 +174,5 @@ if (posts.length !== reportedTotal)
 **Then the limit**, so it doesn't read as a rationalisation: *"The cost is real — a bug found in one copy gets fixed in one copy. The line where it stops being acceptable is roughly the fourth copy, or the first time someone has to edit two of them for the same reason. And it's a judgement I'd make differently for application code, where the copies live forever and change together."*
 
 ## Related
-- [[projects/munakalati/learning/05-migration/README|learning/05-migration]]
+- [[projects/munakalati/learning/05-migration/index|learning/05-migration]]
 - [[concepts/04-best-practices/06-data-migrations|the general playbook]] · [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]]

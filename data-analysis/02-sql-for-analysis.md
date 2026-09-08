@@ -1,6 +1,6 @@
 # SQL for Analysis
 
-**[Intermediate]** — the analyst's primary tool, and the handful of patterns that separate analytical SQL from the transactional SQL of [[databases/README|the databases course]].
+**[Intermediate]** — the analyst's primary tool, and the handful of patterns that separate analytical SQL from the transactional SQL of [[databases/index|the databases course]].
 
 ## The kid version first
 
@@ -129,14 +129,14 @@ Analytical SQL has specific footguns worth naming:
 
 ## Beyond SQL
 
-Reach for **Python/pandas** when SQL gets awkward: statistical tests, complex reshaping, anything iterative, or joining SQL results with an API/file → [[ai-ml/00-foundations/04-python-and-data-tools/README|the Python data stack]]. And **spreadsheets** remain a legitimate analyst tool for small, ad-hoc, stakeholder-facing work — don't be a snob about them; the right tool is the one that answers the question fastest and most clearly.
+Reach for **Python/pandas** when SQL gets awkward: statistical tests, complex reshaping, anything iterative, or joining SQL results with an API/file → [[ai-ml/00-foundations/04-python-and-data-tools/index|the Python data stack]]. And **spreadsheets** remain a legitimate analyst tool for small, ad-hoc, stakeholder-facing work — don't be a snob about them; the right tool is the one that answers the question fastest and most clearly.
 
 ## Key insight
 
 **Analytical SQL is the same language as transactional SQL pointed at a different question, and two features carry most of it: window functions (compute across related rows without collapsing them — ranking, running totals, period-over-period, cohorts) and CTEs (build a complex analysis as a readable top-to-bottom recipe).** Learn window functions above all else — they're the line between querying a database and analysing one. Then watch for the analytical footguns, chiefly join fan-out silently multiplying your numbers, and drop to pandas only when SQL genuinely can't express the question.
 
 ## Related
-- [[databases/sql-reference|SQL reference]] — the syntax lookup · [[databases/README|the databases course]] — how the engine runs it
+- [[databases/sql-reference|SQL reference]] — the syntax lookup · [[databases/index|the databases course]] — how the engine runs it
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — where these patterns get applied
 - [[data-engineering/07-transformation-and-dbt|dbt]] — CTEs as the transformation layer
 - [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]] — the second tool

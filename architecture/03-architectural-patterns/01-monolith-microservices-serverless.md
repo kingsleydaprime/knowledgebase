@@ -16,7 +16,7 @@ A **modular monolith** (well-separated internal modules, one deployment) capture
 The application split into small, independently-deployable services, each owning one business capability and its own data, communicating over the network ([[architecture/02-building-blocks/05-communication|REST/gRPC]] or [[architecture/02-building-blocks/04-messaging-and-async|events]]).
 
 - **Pros** — independent deployment and scaling (scale only the hot service), team autonomy (each team owns a service), technology diversity, and fault isolation (one service down needn't kill all).
-- **Cons** — you trade code complexity for **operational and distributed-systems complexity**: network latency and failures between services, [[architecture/05-case-studies/01-designing-real-systems|distributed]] data (no cross-service transactions — you need [[architecture/03-architectural-patterns/03-data-and-integration-patterns|sagas]]), [[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]], harder debugging/tracing, and a whole platform to run ([[devops/05-orchestration/README|orchestration]], [[architecture/03-architectural-patterns/04-microservices-patterns|service discovery, gateways]], distributed [[devops/10-observability/README|observability]]).
+- **Cons** — you trade code complexity for **operational and distributed-systems complexity**: network latency and failures between services, [[architecture/05-case-studies/01-designing-real-systems|distributed]] data (no cross-service transactions — you need [[architecture/03-architectural-patterns/03-data-and-integration-patterns|sagas]]), [[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]], harder debugging/tracing, and a whole platform to run ([[devops/05-orchestration/index|orchestration]], [[architecture/03-architectural-patterns/04-microservices-patterns|service discovery, gateways]], distributed [[devops/10-observability/index|observability]]).
 
 ## The honest guidance
 
@@ -46,4 +46,4 @@ The mature answer is often **a mix**: a core monolith, a few extracted services 
 ## Related
 - [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices Patterns]] — the machinery microservices require
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — strangler fig, saga (the migration + data path)
-- [[devops/05-orchestration/README|Orchestration (devops)]] — what microservices run on
+- [[devops/05-orchestration/index|Orchestration (devops)]] — what microservices run on

@@ -165,4 +165,4 @@ WHERE id = 42 AND version = 3;
 - [[databases/09-mvcc-and-concurrency-control|MVCC and Concurrency Control]] — how isolation is actually implemented
 - [[databases/10-durability-and-recovery|Durability and Recovery]] — the A and D of ACID
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — the same problem across machines
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]

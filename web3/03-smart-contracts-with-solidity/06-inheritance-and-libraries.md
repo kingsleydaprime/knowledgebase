@@ -95,7 +95,7 @@ Solady is the notable alternative: same primitives, aggressively gas-optimised, 
 ## Related
 - [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|upgradeability and proxies]] — where inheritance and storage collide
 - [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|storage layout]]
-- [[concepts/03-design-patterns/README|design patterns]] — composition over inheritance, generally
-- [[web3/frameworks/solidity/README|the Solidity toolchain]]
+- [[concepts/03-design-patterns/index|design patterns]] — composition over inheritance, generally
+- [[web3/frameworks/solidity/index|the Solidity toolchain]]
 
 *Source: [reference] — OpenZeppelin v5. Aug 2026.*

@@ -4263,4 +4263,4 @@ The `HAVING` clause can reference any aggregate function, whether or not it appe
 - [[projects/gees-arise/learning/03-sql|gees-arise]] — SQL and Postgres RLS against a real schema
 - [[projects/sorepoint/learning/supabase|sorepoint]] — Postgres/Supabase in a crawling pipeline
 - [[projects/record-id-generator-java/learning/04-database-mysql-flyway|record-id-generator]] — MySQL, Flyway migrations, and performance under bulk load
-- [[databases/interview/README|Interview: databases]]
+- [[databases/interview/index|Interview: databases]]

@@ -37,7 +37,7 @@ Emergent properties are the ones that matter and the ones you cannot check by in
 
 **This is the whole justification for the discipline.** If system behaviour were the sum of component behaviours, you would need only good component engineers and a parts list.
 
-Software people meet this constantly without the vocabulary: a distributed system where every service is up and the system is down; a retry policy that is correct per-service and produces a [[architecture/04-distributed-systems/README|metastable failure]] in aggregate; a cache that improves latency until it fails and the cold database dies. **All emergent. All invisible in any single component's tests.**
+Software people meet this constantly without the vocabulary: a distributed system where every service is up and the system is down; a retry policy that is correct per-service and produces a [[architecture/04-distributed-systems/index|metastable failure]] in aggregate; a cache that improves latency until it fails and the cold database dies. **All emergent. All invisible in any single component's tests.**
 
 ## Where the cost is committed
 
@@ -82,16 +82,16 @@ Genuine overlaps exist — decomposition, interfaces, trade-offs, non-functional
 
 Deliberately: **the systems-engineering habit is already all over here without the name.**
 
-- [[architecture/01-system-design-fundamentals/README|System design]] is systems engineering for software — requirements, decomposition, interfaces, trade-offs, non-functional properties
+- [[architecture/01-system-design-fundamentals/index|System design]] is systems engineering for software — requirements, decomposition, interfaces, trade-offs, non-functional properties
 - [[foundations/software-engineering/02-the-software-development-lifecycle|The SDLC]] is the V-model with the arms shortened
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] is operational systems engineering: measure the emergent property (reliability), budget it, feed it back
-- [[hardware/08-iot-architecture|IoT architecture]] and [[robotics/README|robotics]] are multi-disciplinary systems where the seams are the whole problem
-- [[engineering/02-control-theory/README|Control theory]] is the mathematics of one emergent behaviour: stability under feedback
+- [[hardware/08-iot-architecture|IoT architecture]] and [[robotics/index|robotics]] are multi-disciplinary systems where the seams are the whole problem
+- [[engineering/02-control-theory/index|Control theory]] is the mathematics of one emergent behaviour: stability under feedback
 
 ## Related
 - [[foundations/systems-engineering/02-requirements|requirements]] — where it starts, and where it fails
 - [[foundations/systems-engineering/03-the-lifecycle-and-the-v-model|the lifecycle and the V-model]]
-- [[architecture/README|architecture]] — the software-shaped version
+- [[architecture/index|architecture]] — the software-shaped version
 - [[foundations/software-engineering/01-what-software-engineering-is|what software engineering is]] — the sibling note
 
 *Source: [reference] — from the INCOSE Systems Engineering Handbook, NASA SE Handbook (SP-2016-6105), and the standard case studies.*

@@ -1,6 +1,6 @@
 # Bugs and Postmortems
 
-**Real failures from [[projects/munakalati/learning/README|munakalati]], written up properly** — what broke, why, how it was found, what the actual fix was, and what generalises.
+**Real failures from [[projects/munakalati/learning/index|munakalati]], written up properly** — what broke, why, how it was found, what the actual fix was, and what generalises.
 
 This is the file to reread before an interview. **A candidate who can narrate a real bug end to end is rarer and more convincing than one who can recite definitions.**
 
@@ -86,7 +86,7 @@ if (!post && decoded !== slug) {
 
 **Fixing the read without fixing the data is a loan.** Attempt 1 shipped in minutes and would have been paid for indefinitely. Two commits later there is a permanent fix, a repair script, and a comment explaining the invariant.
 
-**Related:** [[projects/munakalati/learning/05-migration/05-repair-scripts|migration/05]] · [[foundations/networking/README|networking]] (percent-encoding is RFC 3986)
+**Related:** [[projects/munakalati/learning/05-migration/05-repair-scripts|migration/05]] · [[foundations/networking/index|networking]] (percent-encoding is RFC 3986)
 
 ---
 

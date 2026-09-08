@@ -324,7 +324,7 @@ This is why `@CurrentUser()` on a `@Public()` route returns `undefined` when not
 - [[backend/05-auth/02-authorization|Authorization]]
 - [[concepts/interview/01-apis-auth-and-practices|Interview: auth questions]]
 
-↑ [[projects/README|All projects and the domains they exercise]]
+↑ [[projects/index|All projects and the domains they exercise]]
 
 ---
 

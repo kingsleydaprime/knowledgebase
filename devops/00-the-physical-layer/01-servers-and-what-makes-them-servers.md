@@ -18,7 +18,7 @@ The honest answer to "what's a server?" is disappointing: **it's a computer with
 
 What makes it a *server* is not the parts list. It's four things about how it's used:
 
-**1. It serves other machines, not a person sitting at it.** No monitor, no keyboard. You reach it over the network — which is why [[devops/01-linux/14-basic-ssh-config|SSH]] is the single most important tool in the folder next door, and why a headless [[devops/01-linux/README|Linux]] install is the norm.
+**1. It serves other machines, not a person sitting at it.** No monitor, no keyboard. You reach it over the network — which is why [[devops/01-linux/14-basic-ssh-config|SSH]] is the single most important tool in the folder next door, and why a headless [[devops/01-linux/index|Linux]] install is the norm.
 
 **2. It's specified for concurrency, not for one user's peak.** Your laptop is tuned to make *one* person's foreground task feel fast. A server is tuned to keep *thousands* of requests moving at once. That's why servers have many slower cores rather than few fast ones, and why RAM capacity matters more than RAM latency.
 
@@ -38,7 +38,7 @@ What makes it a *server* is not the parts list. It's four things about how it's 
 
 If you want a single technical marker separating "server" from "expensive desktop", it's **ECC RAM** (Error-Correcting Code). Cosmic rays and electrical noise genuinely flip bits in memory — rarely per machine, constantly across a fleet. ECC detects two-bit errors and silently corrects single-bit ones.
 
-Without it, a flipped bit is a corrupted value with no error, no log line, and no way to reason about it afterwards. **This is the reliability story in miniature: not "prevent all failures" but "convert silent failures into loud ones."** The same instinct shows up as checksums in [[foundations/networking/02-the-link-layer|the link layer]], WAL in [[databases/10-durability-and-recovery|databases]], and health checks in [[devops/05-orchestration/README|orchestration]].
+Without it, a flipped bit is a corrupted value with no error, no log line, and no way to reason about it afterwards. **This is the reliability story in miniature: not "prevent all failures" but "convert silent failures into loud ones."** The same instinct shows up as checksums in [[foundations/networking/02-the-link-layer|the link layer]], WAL in [[databases/10-durability-and-recovery|databases]], and health checks in [[devops/05-orchestration/index|orchestration]].
 
 ## Storage: the number that isn't capacity
 
@@ -56,7 +56,7 @@ That's a **five-orders-of-magnitude** spread on random access from the same shel
 
 ## Why one application per server was the norm — and the bill it created
 
-Traditionally you bought a server, installed [[devops/01-linux/README|an OS]], and ran one application on it. Not from ignorance — from three real needs:
+Traditionally you bought a server, installed [[devops/01-linux/index|an OS]], and ran one application on it. Not from ignorance — from three real needs:
 
 - **Isolation** — application A's runaway process shouldn't take down B
 - **Security** — a compromise of one shouldn't be a compromise of all
@@ -88,7 +88,7 @@ Pick any cloud instance type and you're choosing these same five numbers, plus a
 ## Related
 - [[devops/00-the-physical-layer/02-virtualisation-and-hypervisors|virtualisation]] — how one of these became many
 - [[devops/00-the-physical-layer/03-data-centres|data centres]] — the building it lives in
-- [[foundations/computer-architecture/README|computer architecture]] — what's happening inside the CPU
+- [[foundations/computer-architecture/index|computer architecture]] — what's happening inside the CPU
 - [[foundations/os/01-what-an-os-is|what an OS is]] — the software that makes the hardware usable
 - [[devops/03-cloud/01-cloud-fundamentals|cloud fundamentals]] — renting all of the above
 

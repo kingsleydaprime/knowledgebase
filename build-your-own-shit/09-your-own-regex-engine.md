@@ -206,4 +206,4 @@ for _ in range(100000):
 - [[foundations/theory-of-computation/02-finite-automata|Finite Automata]] — the constructions, explained
 - [[foundations/theory-of-computation/03-regular-languages|Regular Languages]] — why the limits are where they are
 - [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — the same machinery, industrially
-- [[build-your-own-shit/README|build-your-own-shit]]
+- [[build-your-own-shit/index|build-your-own-shit]]

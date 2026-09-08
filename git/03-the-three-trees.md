@@ -130,4 +130,4 @@ git commit -m "stop tracking file.txt"
 - [[git/01-how-git-works|How Git Actually Works]] — what the index is a binary file *of*
 - [[git/10-undoing-things|Undoing Things]] — `reset` is defined entirely in terms of these three trees
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — what to put in the message you just learned to write
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

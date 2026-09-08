@@ -5,11 +5,11 @@
 Every `Object3D` (meshes, lights, cameras, groups — everything placed in a scene) has the same three transform properties, each a `Vector3`:
 
 ```js
-cube.position.set(x, y, z);   // where it is
-cube.rotation.set(x, y, z);    // orientation, in radians (NOT degrees)
-cube.scale.set(x, y, z);        // size multiplier per axis, default (1, 1, 1)
+cube.position.set(x, y, z); // where it is
+cube.rotation.set(x, y, z); // orientation, in radians (NOT degrees)
+cube.scale.set(x, y, z); // size multiplier per axis, default (1, 1, 1)
 
-cube.position.x += 1;   // properties are settable individually too
+cube.position.x += 1; // properties are settable individually too
 cube.rotation.y = Math.PI / 2; // 90 degrees, expressed in radians
 ```
 
@@ -30,7 +30,7 @@ wheelFL.rotation.x += 0.1; // spins just this wheel, relative to the group's tra
 
 ## The animation loop: `requestAnimationFrame`
 
-Unlike [[frontend/frameworks/gsap/README|GSAP]] or [[frontend/frameworks/framer-motion/README|Framer Motion]], three.js has no built-in tweening — you drive change yourself, every frame, inside a render loop:
+Unlike [[frontend/frameworks/gsap/index|GSAP]] or [[frontend/frameworks/framer-motion/index|Framer Motion]], three.js has no built-in tweening — you drive change yourself, every frame, inside a render loop:
 
 ```js
 function animate() {
@@ -80,6 +80,7 @@ cancelAnimationFrame(frameId);
 [[07-react-three-fiber|React Three Fiber]] handles this automatically, which is one of its main practical advantages over wiring vanilla three.js into a React component by hand.
 
 ## Related
+
 - [[01-intro|intro]] — the scene/camera/renderer setup this loop renders every frame
 - [[06-camera-controls-and-raycasting|camera controls and raycasting]] — user-driven changes to the scene each frame
 - [[07-react-three-fiber|React Three Fiber]] — where this loop is abstracted away

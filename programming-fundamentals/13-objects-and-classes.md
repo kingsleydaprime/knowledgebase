@@ -115,7 +115,7 @@ class Car:
         self.engine = Engine()      # has-a: composition
 ```
 
-Composition is more flexible, changeable at runtime, and doesn't couple you to someone else's hierarchy. → [[concepts/03-design-patterns/README|design patterns]] is largely a catalogue of composition techniques.
+Composition is more flexible, changeable at runtime, and doesn't couple you to someone else's hierarchy. → [[concepts/03-design-patterns/index|design patterns]] is largely a catalogue of composition techniques.
 
 ## Polymorphism
 
@@ -156,7 +156,7 @@ OOP is not the only way to organise code and is not always the best one. The hon
 - [[foundations/programming-fundamentals/14-programming-paradigms|programming paradigms]] — where OOP fits among the alternatives
 - [[languages/01-java/01-language/02-oop|OOP in Java]] — the same ideas with enforcement and full syntax
 - [[languages/05-cpp/03-classes-and-raii|classes and RAII in C++]] — objects tied to resource lifetime
-- [[concepts/03-design-patterns/README|design patterns]] — the catalogue built on top of this
+- [[concepts/03-design-patterns/index|design patterns]] — the catalogue built on top of this
 - [[concepts/04-best-practices/05-solid-principles|SOLID]] — five rules for not making the mess described above
 
 *Source: [reference] — written Aug 2026 to close the gap this course's own README named as its biggest, prompted by a third source (`sources/100 CS concepts explained.md`) raising it independently.*

@@ -161,7 +161,7 @@ with tempfile.TemporaryDirectory() as d:
 # directory and contents removed here, even on exception
 ```
 
-**Never build a temp path by hand** in `/tmp` — it's a symlink-attack and collision surface → [[cybersecurity/06-attacks-and-threats/README|attacks]].
+**Never build a temp path by hand** in `/tmp` — it's a symlink-attack and collision surface → [[cybersecurity/06-attacks-and-threats/index|attacks]].
 
 ## Paths from users are dangerous
 

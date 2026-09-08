@@ -91,6 +91,6 @@ For results flowing *back* (a picker returning a selection), use the platform's 
 - [[mobile/03-the-app-lifecycle|the app lifecycle]] — why the stack must be rebuildable
 - [[mobile/10-background-work-and-push|push notifications]] — the other cold-start entry point
 - [[mobile/12-security-on-device|security]] — deep link hijacking
-- [[frontend/03-structuring-a-frontend/README|frontend routing]] — the comparison
+- [[frontend/03-structuring-a-frontend/index|frontend routing]] — the comparison
 
 *Source: [reference] — Aug 2026.*

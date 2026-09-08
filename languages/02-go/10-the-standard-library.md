@@ -76,7 +76,7 @@ func Logging(next http.Handler) http.Handler {
 handler := Logging(Recoverer(mux))
 ```
 
-That's the whole middleware concept — no registration, no ordering config, just function composition. → [[backend/frameworks/go/README|Go Backends]]
+That's the whole middleware concept — no registration, no ordering config, just function composition. → [[backend/frameworks/go/index|Go Backends]]
 
 ### As a client
 
@@ -189,7 +189,7 @@ slog.Info("request handled", "method", r.Method, "status", 200, "dur", elapsed)
 logger.With("request_id", id).Info("processing")
 ```
 
-Use it over `log` for anything that ships. JSON output is what makes logs queryable in [[devops/10-observability/README|an observability stack]] — the difference between grep and a real query.
+Use it over `log` for anything that ships. JSON output is what makes logs queryable in [[devops/10-observability/index|an observability stack]] — the difference between grep and a real query.
 
 ## The rest, briefly
 
@@ -211,6 +211,6 @@ Use it over `log` for anything that ships. JSON output is what makes logs querya
 
 ## Related
 - [[languages/02-go/04-methods-and-interfaces|Methods and Interfaces]] — why `io.Reader` composes
-- [[backend/frameworks/go/README|Go Backends]] — `net/http` in anger
+- [[backend/frameworks/go/index|Go Backends]] — `net/http` in anger
 - [[languages/02-go/12-modules-and-project-layout|Modules and Project Layout]] — adding the few dependencies you need
-- [[languages/02-go/README|Go course map]]
+- [[languages/02-go/index|Go course map]]

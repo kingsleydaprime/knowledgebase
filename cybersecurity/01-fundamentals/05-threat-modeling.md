@@ -19,7 +19,7 @@ Threat modelling makes the danger *specific*, so the defences can be too. It's a
 The whole discipline, and you can run it on a napkin:
 
 **1. What are we building / working on?**
-Draw the system. Data flow diagrams are the classic tool: components, data stores, the flows between them, and — critically — the **trust boundaries** (where data crosses from less-trusted to more-trusted, e.g. the internet → your API, or a user's browser → your server). **Attacks happen at trust boundaries**, so drawing them is half the work → [[architecture/README|system design]].
+Draw the system. Data flow diagrams are the classic tool: components, data stores, the flows between them, and — critically — the **trust boundaries** (where data crosses from less-trusted to more-trusted, e.g. the internet → your API, or a user's browser → your server). **Attacks happen at trust boundaries**, so drawing them is half the work → [[architecture/index|system design]].
 
 **2. What can go wrong?**
 Enumerate the threats. This is where structured methods help you be thorough rather than relying on imagination:
@@ -47,7 +47,7 @@ For each threat, choose a response — the same four options as [[cybersecurity/
 - **Accept** — document it and live with it, when the fix costs more than the risk
 
 **4. Did we do a good job?**
-Review the model, validate the mitigations actually work (this is what [[cybersecurity/02-ethical-hacking/README|penetration testing]] checks), and revisit as the system changes. **A threat model is a living document, not a one-time gate** — new features add new threats.
+Review the model, validate the mitigations actually work (this is what [[cybersecurity/02-ethical-hacking/index|penetration testing]] checks), and revisit as the system changes. **A threat model is a living document, not a one-time gate** — new features add new threats.
 
 ## Prioritise, because you still can't do everything
 

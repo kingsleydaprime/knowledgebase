@@ -39,7 +39,7 @@ Named after a ship's watertight compartments: **isolate resources so one overloa
 
 ## Throttling / rate limiting
 
-Protect a service from being overwhelmed (by traffic spikes, abusive clients, or a retry storm) by **rejecting or queuing** excess requests beyond a set rate — controlled shedding of load to stay up for everyone else. (Building a rate limiter is a [[languages/01-java/02-jvm-and-concurrency/exercises/README|concurrency exercise]].) Related: **load shedding** (drop low-priority work under stress) and **back-pressure** (signal upstream to slow down — [[architecture/02-building-blocks/04-messaging-and-async|messaging]]).
+Protect a service from being overwhelmed (by traffic spikes, abusive clients, or a retry storm) by **rejecting or queuing** excess requests beyond a set rate — controlled shedding of load to stay up for everyone else. (Building a rate limiter is a [[languages/01-java/02-jvm-and-concurrency/exercises/index|concurrency exercise]].) Related: **load shedding** (drop low-priority work under stress) and **back-pressure** (signal upstream to slow down — [[architecture/02-building-blocks/04-messaging-and-async|messaging]]).
 
 ## Graceful degradation & fallbacks
 

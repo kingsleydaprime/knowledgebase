@@ -110,7 +110,7 @@ Explain the code, line by line, out loud, to something that isn't listening. **T
 
 **Run it constantly.** After every few lines, not after an hour. If it worked five minutes ago and doesn't now, the bug is in five minutes of work. **This single habit does more than every debugging technique combined**, because it collapses the search space before you have to search it.
 
-**Commit often, with [[git/README|git]].** A working state you can return to means a bad experiment costs nothing. `git diff` also answers "what did I change?" — which is the answer, more often than it should be.
+**Commit often, with [[git/index|git]].** A working state you can return to means a bad experiment costs nothing. `git diff` also answers "what did I change?" — which is the answer, more often than it should be.
 
 **Test the edges.** Empty input, zero, one item, negative numbers, huge values, missing fields, unexpected characters. The middle of the range almost always works.
 

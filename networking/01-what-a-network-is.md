@@ -73,6 +73,6 @@ Notice that **six network round trips can happen before a single byte of your HT
 The internet is not a network. It is an **agreement to interoperate**: a minimal, unreliable, best-effort delivery service (IP) that any physical network can implement and any application can build on. Its power comes from what it *refuses* to promise. Everything you want that IP doesn't give you — reliability, ordering, security, identity — is built on top, at the edges, by the two machines that actually care.
 
 ## Related
-- [[foundations/networking/README|Networking course map]]
+- [[foundations/networking/index|Networking course map]]
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes Distributed Systems Hard]] — the consequences of unreliable networks, one layer up
 - [[devops/08-networking-and-web/01-networking-and-protocols|Networking & Protocols (devops)]] — the same territory from the operator's chair

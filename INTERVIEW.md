@@ -6,25 +6,25 @@
 
 | Domain | Focus | Files |
 |---|---|---|
-| [[backend/interview/README\|Backend / Node]] | **built from a real interview** — p99 spikes, AZ vs deploy, retry storms, `Promise.all`, `Buffer` | 2 |
-| [[foundations/networking/interview/README\|Networking]] | layering → TCP → TLS → debugging scenarios | 4 |
-| [[languages/01-java/interview/README\|Java]] | **JVM, GC, memory model, concurrency** — the low-latency round | 3 |
-| [[languages/06-python/interview/README\|Python]] | **the data model and the gotchas** — mutable defaults, the GIL, generators, EAFP | 1 |
-| [[architecture/interview/README\|Architecture]] | the system design round + distributed systems depth | 2 |
-| [[foundations/dsa/interview/README\|DSA]] | how to *run* a coding round + the pattern lookup | 1 |
-| [[databases/interview/README\|Databases]] | indexes, isolation levels, query plans, migrations | 1 |
-| [[foundations/os/interview/README\|OS]] | processes, virtual memory, syscalls, scheduling | 1 |
-| [[devops/interview/README\|DevOps]] | Linux, containers, CI/CD, observability, incidents | 1 |
-| [[concepts/interview/README\|Concepts]] | APIs, auth, OAuth + **patterns, code review, testing theatre** | **2** |
-| [[cybersecurity/interview/README\|Security]] | injection classes, crypto, SSRF, defence, IR | 1 |
-| [[ai-ml/interview/README\|AI/ML]] | RAG, agents, evals, prompt injection + ML fundamentals | 2 |
-| [[game-development/interview/README\|Game Dev]] | vectors, fixed timestep, frame budget, collision phases, lag compensation, ECS | 1 |
-| [[frontend/interview/README\|Frontend]] | React model + **the JS/TS language round** + state, data, a11y, RSC | **3** |
-| [[hardware/interview/README\|Hardware]] | decoupling, I2C/SPI, interrupts, board bring-up + RF, MQTT, battery life | 2 |
-| [[web3/interview/README\|Web3]] | the double-spend problem, storage vs memory, **the three reentrancy variants**, flash loans, where the money actually went | 1 |
-| [[mobile/interview/README\|Mobile]] | **process death vs rotation**, offline-first, the radio tail, permissions, no-rollback release | 1 |
-| [[data-engineering/interview/README\|Data Engineering]] | operational vs analytical, ELT, **CDC**, **idempotency**, batch vs streaming, dimensional modelling | 1 |
-| [[data-analysis/interview/README\|Data Analysis]] | the SQL screen (**window functions**, fan-out), the diagnostic case, metrics, communicating a decision | 1 |
+| [[backend/interview/index\|Backend / Node]] | **built from a real interview** — p99 spikes, AZ vs deploy, retry storms, `Promise.all`, `Buffer` | 2 |
+| [[foundations/networking/interview/index\|Networking]] | layering → TCP → TLS → debugging scenarios | 4 |
+| [[languages/01-java/interview/index\|Java]] | **JVM, GC, memory model, concurrency** — the low-latency round | 3 |
+| [[languages/06-python/interview/index\|Python]] | **the data model and the gotchas** — mutable defaults, the GIL, generators, EAFP | 1 |
+| [[architecture/interview/index\|Architecture]] | the system design round + distributed systems depth | 2 |
+| [[foundations/dsa/interview/index\|DSA]] | how to *run* a coding round + the pattern lookup | 1 |
+| [[databases/interview/index\|Databases]] | indexes, isolation levels, query plans, migrations | 1 |
+| [[foundations/os/interview/index\|OS]] | processes, virtual memory, syscalls, scheduling | 1 |
+| [[devops/interview/index\|DevOps]] | Linux, containers, CI/CD, observability, incidents | 1 |
+| [[concepts/interview/index\|Concepts]] | APIs, auth, OAuth + **patterns, code review, testing theatre** | **2** |
+| [[cybersecurity/interview/index\|Security]] | injection classes, crypto, SSRF, defence, IR | 1 |
+| [[ai-ml/interview/index\|AI/ML]] | RAG, agents, evals, prompt injection + ML fundamentals | 2 |
+| [[game-development/interview/index\|Game Dev]] | vectors, fixed timestep, frame budget, collision phases, lag compensation, ECS | 1 |
+| [[frontend/interview/index\|Frontend]] | React model + **the JS/TS language round** + state, data, a11y, RSC | **3** |
+| [[hardware/interview/index\|Hardware]] | decoupling, I2C/SPI, interrupts, board bring-up + RF, MQTT, battery life | 2 |
+| [[web3/interview/index\|Web3]] | the double-spend problem, storage vs memory, **the three reentrancy variants**, flash loans, where the money actually went | 1 |
+| [[mobile/interview/index\|Mobile]] | **process death vs rotation**, offline-first, the radio tail, permissions, no-rollback release | 1 |
+| [[data-engineering/interview/index\|Data Engineering]] | operational vs analytical, ELT, **CDC**, **idempotency**, batch vs streaming, dimensional modelling | 1 |
+| [[data-analysis/interview/index\|Data Analysis]] | the SQL screen (**window functions**, fan-out), the diagnostic case, metrics, communicating a decision | 1 |
 
 Plus the project-specific bank: [[projects/arete/interview/01-backend-and-data|arete/interview/]] — the original, and still the best template because every answer is anchored in code you actually wrote.
 
@@ -65,4 +65,4 @@ Across every bank, these carry the most weight per minute spent:
 
 ## Related
 - [[README|Vault README]] · [[PRIMETECHIE|The Primetechie Path]] · [[project-ideas|Project Ideas]]
-- **The strongest answers cite your own code.** [[projects/README|projects/]] is the raw material — have one crisp story per project.
+- **The strongest answers cite your own code.** [[projects/index|projects/]] is the raw material — have one crisp story per project.

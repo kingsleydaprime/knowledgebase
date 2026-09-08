@@ -75,7 +75,7 @@ The elements that carry meaning: `<button>`, `<a href>` (**navigates** — if it
 }
 ```
 
-**Animation libraries need this explicitly** → [[frontend/frameworks/framer-motion/README|Framer Motion]] · [[frontend/frameworks/gsap/README|GSAP]].
+**Animation libraries need this explicitly** → [[frontend/frameworks/framer-motion/index|Framer Motion]] · [[frontend/frameworks/gsap/index|GSAP]].
 
 ## Testing it
 

@@ -159,4 +159,4 @@ Root locus answers this partially (you can see how close the locus is to the axi
 - [[engineering/02-control-theory/06-frequency-response|Frequency Response]] — the other view of the same problem
 - [[engineering/02-control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — stability with margin
 - [[engineering/02-control-theory/09-controllability-observability-and-pole-placement|Pole Placement]] — placing poles directly instead of via gain
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/02-control-theory/index|Control theory map]]

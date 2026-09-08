@@ -20,7 +20,7 @@ Every requirement is verified by one of these, and **choosing the method is part
 
 **Prefer test.** Use analysis where a test is impossible — you cannot test a bridge to destruction, or a satellite in orbit before launch, or a 40-year fatigue life.
 
-**And when you rely on analysis, the model becomes the thing that must be trusted.** That's where a whole discipline lives → [[foundations/numerical-methods/README|numerical methods]] on conditioning and error, and [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] on whether your simulation resembles reality.
+**And when you rely on analysis, the model becomes the thing that must be trusted.** That's where a whole discipline lives → [[foundations/numerical-methods/index|numerical methods]] on conditioning and error, and [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] on whether your simulation resembles reality.
 
 ## The levels
 
@@ -63,7 +63,7 @@ Serious programmes use **Independent Verification and Validation** — a team no
 
 The reason isn't distrust; it's that **the people who built it share the assumptions that would cause the failure.** If your mental model is wrong, your tests are wrong in exactly the same way, and no amount of diligence fixes it from the inside.
 
-**Software's weaker versions:** code review by someone who didn't write it, a separate QA function, external penetration testing, and a red team. All are the same move — buy a different set of assumptions → [[cybersecurity/02-ethical-hacking/README|ethical hacking]].
+**Software's weaker versions:** code review by someone who didn't write it, a separate QA function, external penetration testing, and a red team. All are the same move — buy a different set of assumptions → [[cybersecurity/02-ethical-hacking/index|ethical hacking]].
 
 **A blameless postmortem is retrospective IV&V**: an examination of the assumptions that failed, deliberately structured so people will tell the truth → [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]].
 
@@ -71,7 +71,7 @@ The reason isn't distrust; it's that **the people who built it share the assumpt
 
 The last stage, and the one most often treated as ceremony: **does it work in the hands of real users, doing real work, at real pace?**
 
-Physical programmes call it operational test and evaluation, sea trials, or flight test. Software calls it a canary, a beta, a pilot deployment, or a staged rollout → [[devops/11-delivery-and-advanced/README|delivery]].
+Physical programmes call it operational test and evaluation, sea trials, or flight test. Software calls it a canary, a beta, a pilot deployment, or a staged rollout → [[devops/11-delivery-and-advanced/index|delivery]].
 
 **The recurring finding across both is the same: systems that pass every technical verification fail on human factors.** Operators misread the display, procedures don't fit the shift pattern, the alarm is ignored because it fires constantly. Three Mile Island was substantially an interface problem — the instrumentation showed valve *commanded* position rather than actual position, and the operators reasoned correctly from wrong information.
 

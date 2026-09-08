@@ -153,4 +153,4 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 - [[foundations/computer-graphics/04-shading-and-lighting|Shading and Lighting]] — what the textures feed
 - [[foundations/computer-graphics/03-rasterisation|Rasterisation]] — antialiasing, the same sampling problem
 - [[foundations/information-theory/01-what-information-is|Information Theory]] — sampling and band-limiting
-- [[foundations/computer-graphics/README|Computer graphics map]]
+- [[foundations/computer-graphics/index|Computer graphics map]]

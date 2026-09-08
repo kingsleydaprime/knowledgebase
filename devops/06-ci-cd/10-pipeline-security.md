@@ -131,7 +131,7 @@ permissions:
 ---
 
 ## Related
-- [[devops/09-secret-management/README|Secret Management]] — where secrets should live
-- [[cybersecurity/README|Cybersecurity]] — supply-chain attacks in their wider context
+- [[devops/09-secret-management/index|Secret Management]] — where secrets should live
+- [[cybersecurity/index|Cybersecurity]] — supply-chain attacks in their wider context
 - [[devops/06-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — the mechanics being hardened here
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/06-ci-cd/index|CI/CD module map]]

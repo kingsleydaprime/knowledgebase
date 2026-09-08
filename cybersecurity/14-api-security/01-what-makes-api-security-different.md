@@ -55,9 +55,9 @@ The field's standard reference (2023 edition), and the backbone of this folder:
 
 API security stitches together three areas you've already met:
 
-- **[[cybersecurity/04-web-security/README|web security]]** — the parent discipline; injection, TLS, and auth principles apply, minus the browser
-- **[[backend/05-auth/README|backend/auth]]** and **[[backend/02-api-design/README|API design]]** — the *building* side; this folder is the *attacking-and-defending* side of the same APIs
-- **[[cybersecurity/02-ethical-hacking/README|ethical hacking]]** — API testing is a major part of modern web pentesting
+- **[[cybersecurity/04-web-security/index|web security]]** — the parent discipline; injection, TLS, and auth principles apply, minus the browser
+- **[[backend/05-auth/index|backend/auth]]** and **[[backend/02-api-design/index|API design]]** — the *building* side; this folder is the *attacking-and-defending* side of the same APIs
+- **[[cybersecurity/02-ethical-hacking/index|ethical hacking]]** — API testing is a major part of modern web pentesting
 
 This folder doesn't re-teach injection or OAuth from scratch — it covers **what's specific to APIs**, and links to the general treatment for the rest.
 
@@ -68,7 +68,7 @@ This folder doesn't re-teach injection or OAuth from scratch — it covers **wha
 ## Related
 - [[cybersecurity/14-api-security/02-authentication-for-apis|authentication for APIs]] — proving identity without a browser
 - [[cybersecurity/14-api-security/03-authorization-and-bola|authorization and BOLA]] — the #1 problem
-- [[cybersecurity/04-web-security/README|web security]] — the parent discipline
-- [[backend/02-api-design/README|API design]] — the building side
+- [[cybersecurity/04-web-security/index|web security]] — the parent discipline
+- [[backend/02-api-design/index|API design]] — the building side
 
 *Source: [reference] — OWASP API Security Top 10 (2023). Aug 2026.*

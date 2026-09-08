@@ -1,6 +1,6 @@
 # Portable Text and Images
 
-**Part of [[frontend/frameworks/sanity/README|frameworks/sanity]].** `[reference]`
+**Part of [[frontend/frameworks/sanity/index|frameworks/sanity]].** `[reference]`
 **Real code:** [[projects/munakalati/learning/03-sanity/04-images-and-portable-text|munakalati]] · **Converting *into* it:** [[projects/munakalati/learning/05-migration/04-portable-text-conversion|the Wix migration]]
 
 ---

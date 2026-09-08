@@ -227,4 +227,4 @@ The theory is **lattices and monotone functions**, which guarantees the iteratio
 - [[foundations/compilers/08-code-generation|Code Generation]] — turning IR into instructions
 - [[foundations/compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — what gets lowered
 - [[foundations/dsa/04-data-structures/06-graphs|Graphs]] — the CFG is one, and dominance is a graph property
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

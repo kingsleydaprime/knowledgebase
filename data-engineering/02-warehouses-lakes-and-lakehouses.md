@@ -23,7 +23,7 @@ Column-oriented (OLAP):  ids: [1,2,...]  names: [Ada,Bo,...]  ages: [36,29,...]
 
 - **Read only the columns you need.** `SELECT AVG(age)` touches one column, not the whole table. For a query over 3 of 200 columns, that's a ~60× reduction in data read
 - **Compression is dramatic.** A column of ages is all similar small integers — it compresses far better than mixed rows. Analytical data is often 5–10× smaller columnar
-- **Vectorised execution.** The CPU processes a column as a tight array, using SIMD → [[foundations/computer-architecture/README|the memory hierarchy]] loves this
+- **Vectorised execution.** The CPU processes a column as a tight array, using SIMD → [[foundations/computer-architecture/index|the memory hierarchy]] loves this
 
 **The trade:** fetching one *whole row* is slow (you gather from every column), which is exactly why OLTP uses row storage and OLAP uses columnar. Same data, opposite layout, for opposite questions → [[data-engineering/01-what-data-engineering-is|the operational/analytical split]].
 

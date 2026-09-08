@@ -125,4 +125,4 @@ permissions:
 - [[devops/06-ci-cd/02-ci-cd-tools|CI/CD Tools]] — this same model shown in this vault's own deploy pipeline
 - [[devops/06-ci-cd/04-triggers-jobs-and-runners|Triggers, Jobs and Runners]] — the `on:` and `jobs:` keys in full
 - [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — the vendor-neutral model underneath
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/06-ci-cd/index|CI/CD module map]]

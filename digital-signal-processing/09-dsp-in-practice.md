@@ -23,7 +23,7 @@ y = signal.filtfilt(b, a, x)                     # zero-phase filtering
 plt.specgram(x, Fs=fs)                           # a spectrogram, one call
 ```
 
-**`scipy.signal` is the workhorse** — filter design, convolution, spectrograms, resampling, all of it → [[ai-ml/00-foundations/04-python-and-data-tools/README|the Python data stack]]. **`librosa`** for audio specifically (loading, mel-spectrograms, feature extraction). **`numpy.fft`** or `scipy.fft` for transforms. **This is where you should learn DSP** — instant feedback, plots, no hardware.
+**`scipy.signal` is the workhorse** — filter design, convolution, spectrograms, resampling, all of it → [[ai-ml/00-foundations/04-python-and-data-tools/index|the Python data stack]]. **`librosa`** for audio specifically (loading, mel-spectrograms, feature extraction). **`numpy.fft`** or `scipy.fft` for transforms. **This is where you should learn DSP** — instant feedback, plots, no hardware.
 
 **For real-time and embedded — C/C++:**
 - **CMSIS-DSP** — ARM's optimised library for microcontrollers → [[hardware/03-embedded-systems|embedded]]
@@ -56,14 +56,14 @@ The point of this note is to make the ubiquity concrete — you interact with DS
 
 **Images and video:**
 - JPEG *is* DSP — the DCT (a Fourier relative), quantise, discard imperceptible detail
-- Blur, sharpen, edge-detect are 2-D [[foundations/digital-signal-processing/05-convolution-and-lti-systems|convolution]] → [[foundations/computer-graphics/README|graphics]]
+- Blur, sharpen, edge-detect are 2-D [[foundations/digital-signal-processing/05-convolution-and-lti-systems|convolution]] → [[foundations/computer-graphics/index|graphics]]
 
 **Communications** — every phone, Wi-Fi router, GPS receiver and satellite link is DSP modulating and demodulating → [[foundations/digital-signal-processing/08-modulation-and-sdr|modulation]].
 
-**Sensors and control** — filtering noisy accelerometer/gyro data (a Kalman filter has DSP in it), extracting a heartbeat from a noisy ECG → [[engineering/02-control-theory/10-observers-and-kalman|state estimation]], [[robotics/README|robotics]].
+**Sensors and control** — filtering noisy accelerometer/gyro data (a Kalman filter has DSP in it), extracting a heartbeat from a noisy ECG → [[engineering/02-control-theory/10-observers-and-kalman|state estimation]], [[robotics/index|robotics]].
 
 **Machine learning — the connection worth internalising:**
-- **A CNN's convolution layer is DSP convolution** with learned kernels → [[ai-ml/02-ml-engineer/06-computer-vision/README|computer vision]]
+- **A CNN's convolution layer is DSP convolution** with learned kernels → [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]]
 - **Audio and speech models run on spectrograms**, not raw waveforms — the DSP front-end is half the pipeline
 - **Data augmentation** (pitch shift, time stretch, adding noise) is DSP
 
@@ -77,16 +77,16 @@ How real signal work actually goes:
 2. **Check the sample rate and units.** Most confusion is a mislabelled frequency axis or a wrong `fs` → [[foundations/digital-signal-processing/02-sampling-and-aliasing|sampling]]
 3. **Filter conservatively.** It's easy to filter out signal along with noise; compare before/after spectra
 4. **Prototype in Python, then port.** Get it right in floating-point NumPy where it's easy to inspect, *then* deal with fixed-point and real-time constraints
-5. **Validate against reality**, like all of [[engineering/README|engineering]] — a filter that looks right in simulation must be checked on real recorded data with real noise
+5. **Validate against reality**, like all of [[engineering/index|engineering]] — a filter that looks right in simulation must be checked on real recorded data with real noise
 
 ## Key insight
 
 **DSP in practice is "sample, transform, filter, reconstruct" — a few lines of SciPy for analysis — and the one thing that separates it from textbook DSP is fixed-point arithmetic, where a filter that's stable in floating-point can destabilise once its coefficients are quantised for a cheap chip.** The reason to learn it despite the maths is ubiquity: audio, images, comms, sensors and even CNNs all reduce to the same handful of operations, so understanding convolution and the frequency domain pays off across an unusually wide span of the vault.
 
 ## Related
-- [[foundations/digital-signal-processing/README|the DSP course]]
-- [[ai-ml/02-ml-engineer/06-computer-vision/README|computer vision]] — convolution, learned
+- [[foundations/digital-signal-processing/index|the DSP course]]
+- [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]] — convolution, learned
 - [[hardware/03-embedded-systems|embedded systems]] — where fixed-point bites
-- [[ai-ml/00-foundations/04-python-and-data-tools/README|the Python data stack]] — NumPy/SciPy
+- [[ai-ml/00-foundations/04-python-and-data-tools/index|the Python data stack]] — NumPy/SciPy
 
 *Source: [reference] — Aug 2026.*

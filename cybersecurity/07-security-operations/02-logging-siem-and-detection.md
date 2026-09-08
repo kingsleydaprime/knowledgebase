@@ -1,6 +1,6 @@
 # Logging, SIEM & Detection
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. The eyes and ears of the [[cybersecurity/07-security-operations/README|SOC]] — you can't respond to what you can't see. This is the same logging/monitoring foundation as [[devops/10-observability/README|DevOps observability]], turned toward *security* signals.
+**[reference]** — from the roadmap.sh cyber-security roadmap. The eyes and ears of the [[cybersecurity/07-security-operations/index|SOC]] — you can't respond to what you can't see. This is the same logging/monitoring foundation as [[devops/10-observability/index|DevOps observability]], turned toward _security_ signals.
 
 ## Logs — the raw material
 
@@ -11,7 +11,7 @@ Every meaningful action leaves a trace; security operations lives or dies on col
 - **Application logs** — web server access/error logs, authentication events, database queries.
 - **Cloud logs** — AWS CloudTrail, Azure/GCP audit logs (API calls, IAM changes).
 
-The failure mode is [[cybersecurity/06-attacks-and-threats/03-web-application-attacks|OWASP's "logging & monitoring failures"]] — a breach no one noticed because nothing was logged, or logs no one looked at. Log centrally (so an attacker can't delete local evidence), retain enough history, and *actually analyze* it.
+The failure mode is [[cybersecurity/06-attacks-and-threats/03-web-application-attacks|OWASP's "logging & monitoring failures"]] — a breach no one noticed because nothing was logged, or logs no one looked at. Log centrally (so an attacker can't delete local evidence), retain enough history, and _actually analyze_ it.
 
 ## SIEM — making sense of the flood
 
@@ -29,14 +29,14 @@ Examples: Splunk, Elastic Security, Microsoft Sentinel, Wazuh (open-source). The
 The sensors that feed detection:
 
 - **IDS / IPS** — Intrusion Detection (alerts) / Prevention (blocks) Systems, at the network (**NIDS**, e.g. Snort/Suricata) or host (**HIDS**) level. Covered from the network angle in [[cybersecurity/03-network-security/04-intrusion-detection-and-prevention|network security]].
-- **EDR / XDR** — Endpoint Detection and Response: agents on every host that record process/file/network behavior, detect malicious *behavior* (not just known signatures), and enable remote investigation/containment. The modern successor to signature antivirus, and the key defense against [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|fileless/behavioral malware]]. **XDR** extends it across endpoint + network + cloud.
+- **EDR / XDR** — Endpoint Detection and Response: agents on every host that record process/file/network behavior, detect malicious _behavior_ (not just known signatures), and enable remote investigation/containment. The modern successor to signature antivirus, and the key defense against [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|fileless/behavioral malware]]. **XDR** extends it across endpoint + network + cloud.
 - **NDR** — Network Detection and Response, analyzing traffic for anomalies.
 
 ## Detection approaches
 
 - **Signature-based** — match known-bad patterns (a malware hash, an exploit string). Precise but blind to novel/[[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|zero-day]] attacks.
 - **Anomaly/behavior-based** — baseline "normal" and flag deviations (a user logging in at 3am from a new country, a server suddenly beaconing out). Catches unknowns but generates more false positives.
-- **Honeypots** — decoy systems with no legitimate purpose, so *any* interaction is suspicious by definition — a high-signal, low-noise detection trick and a way to study attacker behavior.
+- **Honeypots** — decoy systems with no legitimate purpose, so _any_ interaction is suspicious by definition — a high-signal, low-noise detection trick and a way to study attacker behavior.
 
 The mature SOC combines all three, tuned to its environment, feeding a [[cybersecurity/07-security-operations/03-threat-intelligence-and-hunting|hunt]] and [[cybersecurity/07-security-operations/04-incident-response|response]] process. Detection metrics — **false positive / false negative** rates, and mean-time-to-detect — are how you measure whether it's working.
 
@@ -52,13 +52,13 @@ Failed password for invalid user root from 203.0.113.9 port 54124 ssh2
 Accepted password for deploy from 203.0.113.9 port 54180 ssh2
 ```
 
-Three lines. The first two are noise on any internet-facing box; the third *after* the first two is an incident. Detection is the act of expressing "after" in a query.
+Three lines. The first two are noise on any internet-facing box; the third _after_ the first two is an incident. Detection is the act of expressing "after" in a query.
 
 **On one box, before any SIEM exists:**
 
 ```bash
 journalctl -u ssh --since "1 hour ago" | grep -c "Failed password"
-journalctl -u ssh --since "1 hour ago" | grep "Accepted" 
+journalctl -u ssh --since "1 hour ago" | grep "Accepted"
 # then: does any IP appear in BOTH lists?
 grep "Failed password" /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -c | sort -rn | head
 ```
@@ -84,9 +84,9 @@ logsource:
   service: sshd
 detection:
   failed:
-    message|contains: 'Failed password'
+    message|contains: "Failed password"
   success:
-    message|contains: 'Accepted password'
+    message|contains: "Accepted password"
   timeframe: 15m
   condition: failed | count() by src_ip > 20 and success
 level: high
@@ -102,15 +102,16 @@ Note the `falsepositives` block. **A rule without one will be disabled within a 
 Writing the rule is an afternoon. Making it survivable is the work:
 
 - **Baseline before you threshold.** Run the query without the `where` clause for a week and look at the distribution. A threshold of 20 is a guess; the 99th percentile of your own traffic is a decision.
-- **Exclude by identity, not by silence.** Suppress the known vulnerability scanner *by its source IP and only during its window*, rather than dropping the threshold until it stops firing.
+- **Exclude by identity, not by silence.** Suppress the known vulnerability scanner _by its source IP and only during its window_, rather than dropping the threshold until it stops firing.
 - **Every alert needs a next step.** If the analyst's only possible response is "hmm," it's a dashboard panel, not an alert. This is the same discipline as [[devops/10-observability/01-observability-fundamentals|actionable alerting]] in DevOps, and it fails the same way.
 - **Test your detection by performing the attack.** Spray your own lab box ([[cybersecurity/02-ethical-hacking/05-home-lab-setup|home lab]]) and confirm the alert fires. An untested detection rule is a belief, not a control — and detections silently break when a log format changes upstream.
 
 The uncomfortable truth of most SOCs: the rules exist, and nobody has verified since deployment that they still fire.
 
 ## Related
+
 - [[cybersecurity/07-security-operations/03-threat-intelligence-and-hunting|Threat Intelligence & Hunting]] — turning detections into proactive searching
 - [[devops/01-linux/17-logs-and-journald|Logs and journald]] — reading the raw material above on a single host
 - [[devops/01-linux/20-firewalls-and-hardening|Firewalls & Hardening]] — keys-only SSH, which eliminates the attack this rule detects
 - [[cybersecurity/07-security-operations/04-incident-response|Incident Response]] — what happens when an alert is real
-- [[devops/10-observability/README|Observability (DevOps)]] — the same telemetry foundation for reliability
+- [[devops/10-observability/index|Observability (DevOps)]] — the same telemetry foundation for reliability

@@ -1,6 +1,6 @@
 # munakalati — Next.js and Rendering
 
-From [[projects/munakalati/learning/04-frontend/README|learning/04-frontend]]. Next **16**, React **19**, App Router. **The strongest angle here is rendering strategy and cache reasoning** — most candidates can describe SSR vs SSG and stop.
+From [[projects/munakalati/learning/04-frontend/index|learning/04-frontend]]. Next **16**, React **19**, App Router. **The strongest angle here is rendering strategy and cache reasoning** — most candidates can describe SSR vs SSG and stop.
 
 ---
 
@@ -168,5 +168,5 @@ The key move is that `photoSrc` is a plain string in the view model — fallback
 **And the honest coda:** *"There's also a `.length > 0` there rather than a null check, deliberately — `client.fetch` on a list query returns `[]`, never null, and an empty array is truthy, so `banners || FALLBACK` would silently render nothing."*
 
 ## Related
-- [[projects/munakalati/learning/04-frontend/README|learning/04-frontend]]
-- [[frontend/02-rendering/README|rendering strategies]] · [[frontend/frameworks/next/README|Next.js]]
+- [[projects/munakalati/learning/04-frontend/index|learning/04-frontend]]
+- [[frontend/02-rendering/index|rendering strategies]] · [[frontend/frameworks/next/index|Next.js]]

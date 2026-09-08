@@ -25,7 +25,7 @@
 
 **`DateTime` is ambiguous; `DateTimeOffset` isn't.** `DateTime` carries a `Kind` (Utc/Local/Unspecified) that is easy to lose across serialisation. **Store UTC, use `DateTimeOffset` for anything with a real instant**, and `DateOnly` for birthdays and calendar dates → [[languages/06-python/11-the-standard-library|the same rule in Python]].
 
-**`Random` is not secure.** For tokens, passwords or anything an attacker benefits from predicting, use `RandomNumberGenerator` → [[cybersecurity/05-cryptography/README|cryptography]].
+**`Random` is not secure.** For tokens, passwords or anything an attacker benefits from predicting, use `RandomNumberGenerator` → [[cybersecurity/05-cryptography/index|cryptography]].
 
 ## Dependency injection, built in
 
@@ -59,9 +59,9 @@ var app = builder.Build();
 | | |
 |---|---|
 | **ASP.NET Core** | Web APIs, MVC, Blazor, SignalR — **in the SDK, not a package** |
-| **Entity Framework Core** | The default ORM → [[databases/README\|databases]] |
+| **Entity Framework Core** | The default ORM → [[databases/index\|databases]] |
 | **Dapper** | Micro-ORM; you write the SQL. Faster, more control |
-| **Serilog** | Structured logging → [[devops/10-observability/README\|observability]] |
+| **Serilog** | Structured logging → [[devops/10-observability/index\|observability]] |
 | **xUnit / NUnit** | Testing → [[languages/07-csharp/12-testing-and-tooling\|note 12]] |
 | **FluentValidation** | Validation rules as code |
 | **MediatR** | In-process messaging; popular, and easy to overuse |
@@ -81,7 +81,7 @@ var orders = await db.Orders
     .ToListAsync(ct);
 ```
 
-**The N+1 problem is identical to every other ORM's** → [[backend/frameworks/python/02-django/README|Django]]:
+**The N+1 problem is identical to every other ORM's** → [[backend/frameworks/python/02-django/index|Django]]:
 
 ```csharp
 foreach (var o in db.Orders.ToList())     // 1 query
@@ -102,7 +102,7 @@ foreach (var o in db.Orders.ToList())     // 1 query
 
 ## Related
 - [[languages/07-csharp/12-testing-and-tooling|testing and tooling]]
-- [[backend/README|the backend course]] — the concepts ASP.NET Core implements
-- [[databases/README|databases]] — what EF generates
+- [[backend/index|the backend course]] — the concepts ASP.NET Core implements
+- [[databases/index|databases]] — what EF generates
 
 *Source: [reference] — from the .NET documentation, Aug 2026.*

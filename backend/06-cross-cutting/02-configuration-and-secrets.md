@@ -53,7 +53,7 @@ export const env = Env.parse(process.env);      // throws at boot, not at 3am
 
 **A leaked secret is not fixed by deleting the commit.** Once it has touched a remote, rotate it first, then clean history. **Public GitHub is scraped within seconds** → [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]].
 
-**Use a real secret store in production** — Vault, cloud KMS/Secrets Manager, sealed secrets → [[devops/09-secret-management/README|secret management]].
+**Use a real secret store in production** — Vault, cloud KMS/Secrets Manager, sealed secrets → [[devops/09-secret-management/index|secret management]].
 
 **Redact in logs and error reporting.** A crash reporter that captures the environment will exfiltrate every variable. Configure a denylist by *name pattern* (`*_SECRET`, `*_KEY`, `*_TOKEN`, `*PASSWORD*`), and prefer typed config objects with a `ToString()` that refuses to print sensitive fields.
 
@@ -82,7 +82,7 @@ export const env = Env.parse(process.env);      // throws at boot, not at 3am
 
 ## Related
 - [[backend/06-cross-cutting/01-validation-and-dtos|validation]] — the same technique, applied to config
-- [[devops/09-secret-management/README|secret management]] — the tooling
+- [[devops/09-secret-management/index|secret management]] — the tooling
 - [[backend/frameworks/cross-language-recipes|cross-language recipes]] — env validation in six stacks
 - [[devops/06-ci-cd/05-contexts-secrets-and-environments|CI secrets]]
 

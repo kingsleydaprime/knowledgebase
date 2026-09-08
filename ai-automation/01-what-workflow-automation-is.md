@@ -16,7 +16,7 @@ Every platform in this category has the same two primitives:
 
 A **workflow** is a graph of these. An **execution** is one run of it, with its own data and its own log.
 
-**That's the whole model**, and its simplicity is the point — it's the same shape as an event-driven system → [[architecture/02-building-blocks/README|building blocks]], with the wiring done in a UI rather than in code.
+**That's the whole model**, and its simplicity is the point — it's the same shape as an event-driven system → [[architecture/02-building-blocks/index|building blocks]], with the wiring done in a UI rather than in code.
 
 ## The honest question: why not just write a script?
 
@@ -47,9 +47,9 @@ The case for a platform appears at a specific threshold, and it's worth naming p
 
 ## Where it sits against its neighbours
 
-**Not the same as a CI/CD pipeline** → [[devops/06-ci-cd/README|CI/CD]]. Those are triggered by code changes and produce artefacts. Overlapping tooling, different job.
+**Not the same as a CI/CD pipeline** → [[devops/06-ci-cd/index|CI/CD]]. Those are triggered by code changes and produce artefacts. Overlapping tooling, different job.
 
-**Not the same as a durable workflow engine** — Temporal, AWS Step Functions, Airflow. Those are code-first, built for long-running, strongly-guaranteed, high-volume orchestration, and they're what you graduate to when the automation *is* the product → [[architecture/04-distributed-systems/README|distributed systems]].
+**Not the same as a durable workflow engine** — Temporal, AWS Step Functions, Airflow. Those are code-first, built for long-running, strongly-guaranteed, high-volume orchestration, and they're what you graduate to when the automation *is* the product → [[architecture/04-distributed-systems/index|distributed systems]].
 
 **Not an ESB or an ETL tool**, though the boundaries blur. ETL moves bulk data on a schedule; this moves individual events reactively.
 
@@ -93,8 +93,8 @@ The recent shift: an LLM is now just **another node** in the graph. That makes a
 
 ## Related
 - [[ai-automation/02-n8n-core-concepts|n8n core concepts]] — the tool
-- [[ai-automation/README|the domain index]]
-- [[ai-ml/03-ai-engineer/README|AI engineer]] — building the models this orchestrates
-- [[devops/06-ci-cd/README|CI/CD]] — the neighbour it's confused with
+- [[ai-automation/index|the domain index]]
+- [[ai-ml/03-ai-engineer/index|AI engineer]] — building the models this orchestrates
+- [[devops/06-ci-cd/index|CI/CD]] — the neighbour it's confused with
 
 *Source: [reference] — written Aug 2026 against the plan this folder's README had carried since July.*

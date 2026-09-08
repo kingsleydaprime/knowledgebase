@@ -2,11 +2,11 @@
 
 **[Intermediate]** — Studying languages as mathematical objects, and why it produced things you use daily.
 
-**Source:** `[reference]` — see [[foundations/programming-language-theory/README|the domain note]].
+**Source:** `[reference]` — see [[foundations/programming-language-theory/index|the domain note]].
 
 ## The question
 
-**[[foundations/compilers/README|Compilers]] asks: how do I *implement* a language?**
+**[[foundations/compilers/index|Compilers]] asks: how do I *implement* a language?**
 
 **PL theory asks: what does a program *mean*, and what can I prove about it?**
 
@@ -111,12 +111,12 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 
 **07–08 are effects and where the field is going.**
 
-**Prerequisites:** [[foundations/discrete-math/02-logic|logic]] and [[foundations/discrete-math/03-proof-techniques|proof by induction]] — **structural induction especially**, since every soundness proof is one. [[foundations/compilers/README|Compilers]] helps for grounding but isn't required.
+**Prerequisites:** [[foundations/discrete-math/02-logic|logic]] and [[foundations/discrete-math/03-proof-techniques|proof by induction]] — **structural induction especially**, since every soundness proof is one. [[foundations/compilers/index|Compilers]] helps for grounding but isn't required.
 
 ---
 
 ## Related
 - [[foundations/programming-language-theory/02-lambda-calculus|Lambda Calculus]] — the foundation
-- [[foundations/compilers/README|Compilers]] — the implementation counterpart
-- [[foundations/theory-of-computation/README|Theory of Computation]] — the sibling theory domain
-- [[foundations/programming-language-theory/README|PL theory map]]
+- [[foundations/compilers/index|Compilers]] — the implementation counterpart
+- [[foundations/theory-of-computation/index|Theory of Computation]] — the sibling theory domain
+- [[foundations/programming-language-theory/index|PL theory map]]

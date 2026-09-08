@@ -177,4 +177,4 @@ The algorithms that resolve this — **SIMPLE**, PISO, projection methods — ar
 - [[engineering/01-continuum-mechanics/06-conservation-laws|Conservation Laws]] — where these equations come from
 - [[engineering/01-continuum-mechanics/07-constitutive-models|Constitutive Models]] — non-Newtonian fluids
 - [[engineering/01-continuum-mechanics/03-kinematics-of-deformation|Kinematics]] — the rate of deformation tensor
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

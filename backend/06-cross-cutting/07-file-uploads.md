@@ -70,7 +70,7 @@ Store the original filename as **metadata**, and escape it when displaying it.
 
 **Scan for malware** if users can download each other's files. ClamAV is the usual starting point.
 
-**Decide the deletion story before you build.** Orphaned objects — the database row was rolled back but the object was written — accumulate forever. **Reconcile periodically**, and remember that "delete the user" now means deleting their objects too, which is a GDPR obligation as much as a tidiness one → [[cybersecurity/08-governance-risk-and-compliance/README|GRC]].
+**Decide the deletion story before you build.** Orphaned objects — the database row was rolled back but the object was written — accumulate forever. **Reconcile periodically**, and remember that "delete the user" now means deleting their objects too, which is a GDPR obligation as much as a tidiness one → [[cybersecurity/08-governance-risk-and-compliance/index|GRC]].
 
 ## The checklist
 

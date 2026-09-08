@@ -38,13 +38,13 @@ Reference counting. The value drops when the last `Rc` does. Use it when a value
 
 `Rc::clone(&a)` over `a.clone()` is a strong convention: it signals "cheap refcount bump" rather than "deep copy" at the call site.
 
-**`Rc` gives you shared *immutable* access.** You cannot get a `&mut` out of it while more than one exists, because that would break the borrow rule. Combining it with mutation needs `RefCell`.
+**`Rc` gives you shared _immutable_ access.** You cannot get a `&mut` out of it while more than one exists, because that would break the borrow rule. Combining it with mutation needs `RefCell`.
 
 **`Rc` is not thread-safe** — its counter isn't atomic. That's deliberate: you don't pay for atomics you don't use, and the compiler stops you sharing it across threads because `Rc` isn't `Send`. → [[languages/03-rust/13-concurrency|Concurrency]]
 
 ## Interior mutability
 
-The idea: **mutate through a shared reference**, with the borrow rule enforced at *runtime* instead of compile time.
+The idea: **mutate through a shared reference**, with the borrow rule enforced at _runtime_ instead of compile time.
 
 ```rust
 use std::cell::RefCell;
@@ -54,10 +54,10 @@ let c = RefCell::new(5);
 let v = *c.borrow();
 ```
 
-| | Check | Cost of breaking it |
-|---|---|---|
-| `&`/`&mut` | compile time | won't compile |
-| `RefCell<T>` | runtime | **panics** |
+|              | Check        | Cost of breaking it |
+| ------------ | ------------ | ------------------- |
+| `&`/`&mut`   | compile time | won't compile       |
+| `RefCell<T>` | runtime      | **panics**          |
 
 ```rust
 let b1 = c.borrow_mut();
@@ -124,7 +124,7 @@ let s = String::from("k");
 hello(&s);           // &String → &str, automatically
 ```
 
-Don't implement `Deref` for your own non-pointer types just to get method inheritance. It's a documented anti-pattern — `Deref` means "this *is* a smart pointer", and abusing it makes method resolution confusing.
+Don't implement `Deref` for your own non-pointer types just to get method inheritance. It's a documented anti-pattern — `Deref` means "this _is_ a smart pointer", and abusing it makes method resolution confusing.
 
 ## `Drop`, again
 
@@ -140,25 +140,26 @@ Runs deterministically at scope exit, in reverse declaration order. This is what
 
 ## Choosing
 
-| Need | Use |
-|---|---|
-| One owner, heap | `Box<T>` |
-| Several owners, one thread | `Rc<T>` |
-| Several owners, many threads | `Arc<T>` |
-| Mutate a `Copy` through `&` | `Cell<T>` |
-| Mutate anything through `&`, one thread | `RefCell<T>` |
-| Mutate through `&`, many threads | `Mutex<T>` / `RwLock<T>` |
-| Shared mutable, one thread | `Rc<RefCell<T>>` |
-| Shared mutable, many threads | `Arc<Mutex<T>>` |
-| Break a cycle | `Weak<T>` |
-| Initialise once, read often | `OnceLock<T>` |
+| Need                                    | Use                      |
+| --------------------------------------- | ------------------------ |
+| One owner, heap                         | `Box<T>`                 |
+| Several owners, one thread              | `Rc<T>`                  |
+| Several owners, many threads            | `Arc<T>`                 |
+| Mutate a `Copy` through `&`             | `Cell<T>`                |
+| Mutate anything through `&`, one thread | `RefCell<T>`             |
+| Mutate through `&`, many threads        | `Mutex<T>` / `RwLock<T>` |
+| Shared mutable, one thread              | `Rc<RefCell<T>>`         |
+| Shared mutable, many threads            | `Arc<Mutex<T>>`          |
+| Break a cycle                           | `Weak<T>`                |
+| Initialise once, read often             | `OnceLock<T>`            |
 
 The single-threaded and multi-threaded columns are exact mirrors, which makes the set easier to remember than it first looks.
 
 ---
 
 ## Related
+
 - [[languages/03-rust/13-concurrency|Concurrency]] — `Arc<Mutex<T>>`, the threaded mirror of this
 - [[languages/03-rust/04-borrowing-and-references|Borrowing and References]] — the rule being moved to runtime
 - [[languages/03-rust/15-unsafe-and-ffi|Unsafe and FFI]] — what these are built on
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

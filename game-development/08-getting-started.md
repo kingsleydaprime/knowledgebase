@@ -53,15 +53,15 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 |---|---|
 | Linear algebra, vectors, matrices, transforms | [[foundations/computer-graphics/02-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
 | **Quaternions** | [[robotics/04-rigid-body-transforms\|robotics 04]] |
-| Rendering, rasterisation, PBR, shading, ray tracing | [[foundations/computer-graphics/README\|computer graphics]] — 9 notes |
-| GPU pipeline, shaders, parallelism | [[foundations/gpu-and-parallel-computing/README\|GPU & parallel computing]] |
-| Integration, ODEs, numerical stability | [[foundations/numerical-methods/README\|numerical methods]] |
-| Trees, BVH, spatial partitioning, A\*, graphs | [[foundations/dsa/README\|DSA]] · [[foundations/discrete-math/07-graph-theory\|graph theory]] |
-| Neural nets, decision trees, RL, naive Bayes | [[ai-ml/README\|AI & ML]] |
-| Memory, caches, data-oriented design | [[foundations/computer-architecture/README\|computer architecture]] |
-| C++, Rust, Python | [[languages/README\|languages]] |
-| Networking, UDP, latency | [[foundations/networking/README\|networking]] |
-| Rigid body dynamics, materials | [[engineering/01-continuum-mechanics/README\|continuum mechanics]] |
+| Rendering, rasterisation, PBR, shading, ray tracing | [[foundations/computer-graphics/index\|computer graphics]] — 9 notes |
+| GPU pipeline, shaders, parallelism | [[foundations/gpu-and-parallel-computing/index\|GPU & parallel computing]] |
+| Integration, ODEs, numerical stability | [[foundations/numerical-methods/index\|numerical methods]] |
+| Trees, BVH, spatial partitioning, A\*, graphs | [[foundations/dsa/index\|DSA]] · [[foundations/discrete-math/07-graph-theory\|graph theory]] |
+| Neural nets, decision trees, RL, naive Bayes | [[ai-ml/index\|AI & ML]] |
+| Memory, caches, data-oriented design | [[foundations/computer-architecture/index\|computer architecture]] |
+| C++, Rust, Python | [[languages/index\|languages]] |
+| Networking, UDP, latency | [[foundations/networking/index\|networking]] |
+| Rigid body dynamics, materials | [[engineering/01-continuum-mechanics/index\|continuum mechanics]] |
 
 **Game development is largely an integration discipline.** The maths and systems are the same ones robotics, graphics and simulation need — which is exactly why the skills transfer outward, and why the time isn't wasted even if you never ship a commercial game.
 

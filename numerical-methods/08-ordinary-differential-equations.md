@@ -173,4 +173,4 @@ $$y'' = f(x,y,y'), \qquad y(a)=\alpha,\ y(b)=\beta$$
 - [[foundations/numerical-methods/09-partial-differential-equations|PDEs]] — the same, with space as well as time
 - [[engineering/02-control-theory/12-digital-control|Digital Control]] — discretisation from the control side
 - [[robotics/08-dynamics|Robot Dynamics]] — what gets integrated
-- [[foundations/numerical-methods/README|Numerical methods map]]
+- [[foundations/numerical-methods/index|Numerical methods map]]

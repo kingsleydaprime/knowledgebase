@@ -33,7 +33,7 @@ Because output is nondeterministic, conventional unit tests don't fit. **Evaluat
 ## Cost and observability in production
 
 - **Cost** — priced per [[ai-ml/03-ai-engineer/02-how-llms-work|token]], so cost scales with usage and context size. Levers: use smaller models where they suffice ([[ai-ml/03-ai-engineer/01-the-ai-engineer-role|choosing a model]]), cache repeated calls/prompts, trim retrieved context, cap `max_tokens`. Cost is a first-class design constraint, not an afterthought.
-- **Observability** — log every call: prompt, response, tokens, latency, cost, tool calls (LangSmith/Langfuse or general [[devops/10-observability/README|observability]] adapted for LLMs). You cannot debug or optimize an LLM feature you can't see, and agents especially ([[ai-ml/03-ai-engineer/08-agents|agents]]) are opaque without tracing.
+- **Observability** — log every call: prompt, response, tokens, latency, cost, tool calls (LangSmith/Langfuse or general [[devops/10-observability/index|observability]] adapted for LLMs). You cannot debug or optimize an LLM feature you can't see, and agents especially ([[ai-ml/03-ai-engineer/08-agents|agents]]) are opaque without tracing.
 - **Human-in-the-loop** — for high-stakes outputs, a human approves before the action commits. The right default whenever a wrong autonomous action is expensive to undo.
 
 ## The through-line
@@ -43,4 +43,4 @@ Shipping AI is mostly **containing nondeterminism and untrusted input**: assume 
 ## Related
 - [[ai-ml/03-ai-engineer/05-prompt-engineering|Prompt Engineering]] — where prompt injection attacks
 - [[ai-ml/03-ai-engineer/08-agents|Agents]] — the biggest blast radius, needing the tightest guardrails
-- [[devops/10-observability/README|Observability (DevOps)]] — the production-monitoring foundation
+- [[devops/10-observability/index|Observability (DevOps)]] — the production-monitoring foundation

@@ -191,4 +191,4 @@ float left = shared_data[threadIdx.x - 1];
 - [[foundations/gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — the algorithms to build with
 - [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — where the performance is
 - [[foundations/gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware this maps to
-- [[foundations/gpu-and-parallel-computing/README|GPU and parallel map]]
+- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]

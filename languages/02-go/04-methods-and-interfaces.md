@@ -166,4 +166,4 @@ Every Go programmer meets this once. It's the reason `if err != nil` can be true
 - [[languages/02-go/10-the-standard-library|The Standard Library]] — `io.Reader`/`io.Writer` in practice
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal Architecture]] — what consumer-side interfaces give you for free
 - [[languages/01-java/01-language/02-oop|Java: OOP]] — inheritance and explicit `implements`, for contrast
-- [[languages/02-go/README|Go course map]]
+- [[languages/02-go/index|Go course map]]

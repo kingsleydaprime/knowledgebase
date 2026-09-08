@@ -82,5 +82,5 @@ The machine already told you what went wrong. `journalctl -u <service> -n 50` be
 ## Related
 - [[devops/01-linux/07-systemd-and-services|systemd & services]] — where these logs come from
 - [[devops/01-linux/15-rhcsa/05-analyze-and-store-logs|RHCSA: Analyze & Store Logs]] — the deep version: field filtering, rsyslog rules, logrotate config, journal storage
-- [[devops/10-observability/README|Observability]] — what happens when one machine's logs become a hundred machines' logs
+- [[devops/10-observability/index|Observability]] — what happens when one machine's logs become a hundred machines' logs
 - [[devops/01-linux/16-sed-and-awk|sed & awk]] — for the plain-text half

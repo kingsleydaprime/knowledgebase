@@ -139,4 +139,4 @@ Are you working alone on a branch no one else touches?
 - [[git/05-merging|Merging]] — the mechanics of one option
 - [[git/06-rebasing|Rebasing]] — the mechanics of the other
 - [[git/13-branching-strategies|Branching Strategies]] — the team context that settles most of these calls
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

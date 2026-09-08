@@ -203,4 +203,4 @@ Or `asio::post` to a separate pool with a completion handler. The rule from [[ba
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|C: The Accept Loop]] — the same loop, unwrapped
 - [[languages/05-cpp/13-concurrency|C++: Concurrency]] — coroutines, threads, the memory model
 - [[backend/frameworks/rust/04-async-pitfalls|Rust: Async Pitfalls]] — the same failure modes
-- [[backend/frameworks/cpp/README|C++ backends]]
+- [[backend/frameworks/cpp/index|C++ backends]]

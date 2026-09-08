@@ -4,7 +4,7 @@ Commands actually used on this project, with what each flag does — taught in t
 where they came up rather than as an abstract reference.
 
 The general-purpose versions of this material also live in the main vault:
-[[devops/01-linux/README|devops/01-linux]] for fundamentals,
+[[devops/01-linux/index|devops/01-linux]] for fundamentals,
 [[devops/01-linux/12-bash-scripting|12-bash-scripting]] for scripting,
 [[devops/01-linux/16-sed-and-awk|16-sed-and-awk]] for stream editing, and
 [[devops/01-linux/15-rhcsa/14-text-processing-and-searching|rhcsa/14-text-processing]] for
@@ -114,7 +114,7 @@ EOF
 performs expansion — `$VAR` substitutes and backticks execute as command substitution.
 
 Since these headers contained backticks around filenames, the unquoted form would have
-tried to *run* `learning/archive/` as a command. Quote the delimiter unless you specifically
+tried to _run_ `learning/archive/` as a command. Quote the delimiter unless you specifically
 want interpolation.
 
 Same idea for embedding another language:
@@ -177,7 +177,7 @@ done
   - `-F` fixed string, not a regex (headings contain `.`, which would otherwise be a
     wildcard)
   - `-x` match the **whole line** exactly, so "## 1. Foo" can't match "## 1. Foo Extended"
-  - `-h` suppress filename prefixes, so `wc -l` counts *matches*, not files
+  - `-h` suppress filename prefixes, so `wc -l` counts _matches_, not files
 - `[ "$n" -eq 1 ] || echo ...` runs the echo only when the test fails
 
 **This caught a real bug.** Section 15 landed in **zero** files — one range ended at 1541
@@ -190,7 +190,7 @@ Then before deleting the originals:
 diff -q "$SRC/backend-learning.md" "$KB/archive/original-flat-backend-learning.md"
 ```
 
-`-q` reports only *whether* files differ, not how. Proving the archives were byte-identical
+`-q` reports only _whether_ files differ, not how. Proving the archives were byte-identical
 turned an irreversible `rm` into a safe one.
 
 **The habit worth keeping:** when a bulk operation is too large to verify by reading, write
@@ -205,7 +205,7 @@ rmdir "$SRC"          # only removes an EMPTY directory
 rm -r "$SRC"          # removes everything inside, no questions
 ```
 
-`rmdir` failing is *useful information* — it means files you didn't account for are still
+`rmdir` failing is _useful information_ — it means files you didn't account for are still
 in there. Reach for it first; `rm -r` can't tell you that.
 
 ```bash
@@ -247,5 +247,6 @@ to JSON," so `tsc --noEmit` is the only working check until that's fixed.
 ---
 
 ## Related
-- [[devops/01-linux/README|Linux course]] — the general-purpose version of this material
+
+- [[devops/01-linux/index|Linux course]] — the general-purpose version of this material
 - [[projects/socioboom/learning/02-git|02-git]] — git on this project

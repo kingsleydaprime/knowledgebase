@@ -303,4 +303,4 @@ jobs:
 - [[devops/06-ci-cd/09-cd-and-deployment|CD and Deployment]] — what happens after the build goes green
 - [[languages/01-java/03-tooling/04-testing|Testing (Java)]] — the gate at the centre of the Spring Boot pipeline
 - [[devops/06-ci-cd/11-real-world-pipelines|Real-World Pipelines]] — the same stacks taken all the way to a VPS
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/06-ci-cd/index|CI/CD module map]]

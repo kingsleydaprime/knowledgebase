@@ -12,7 +12,7 @@ Every difficulty in this domain follows from that sentence.
 
 **2. Capture intent.** Turn taps, clicks, keystrokes and gestures into meaningful operations.
 
-**3. Talk to the backend.** Fetch, mutate, handle latency and failure, and keep a local view of remote state that is always slightly out of date → [[frontend/04-state-and-data/README|state and data]].
+**3. Talk to the backend.** Fetch, mutate, handle latency and failure, and keep a local view of remote state that is always slightly out of date → [[frontend/04-state-and-data/index|state and data]].
 
 **4. Stay responsive while doing all of it.** A frozen interface is a broken one, regardless of correctness.
 
@@ -53,12 +53,12 @@ JavaScript execution, layout, paint and user input all share **one main thread**
 **Underneath React, Vue, Svelte and everything else is the same platform**, and the platform is the part that doesn't churn:
 
 - **HTML** — structure and semantics. **Not a formatting language**; the tags carry meaning that accessibility tooling depends on
-- **CSS** — presentation, the cascade, layout → [[frontend/05-styling/README|styling]]
+- **CSS** — presentation, the cascade, layout → [[frontend/05-styling/index|styling]]
 - **JavaScript** — behaviour
 - **The DOM** — the live tree the browser renders, which your code mutates
 - **Browser APIs** — fetch, storage, history, observers, workers, media
 
-**Frameworks are strategies for keeping the DOM in sync with your state.** That's genuinely all they are, and knowing it makes learning the next one much faster → [[frontend/02-rendering/README|rendering]].
+**Frameworks are strategies for keeping the DOM in sync with your state.** That's genuinely all they are, and knowing it makes learning the next one much faster → [[frontend/02-rendering/index|rendering]].
 
 **The practical advice: invest in the platform, not the framework.** Frameworks have a half-life of a few years; `fetch`, the cascade, event handling and the DOM do not.
 
@@ -66,20 +66,20 @@ JavaScript execution, layout, paint and user input all share **one main thread**
 
 **Not in the syntax.** The hard parts, roughly in order:
 
-**State.** Keeping a local copy of remote data correct while it changes underneath you → [[frontend/04-state-and-data/README|04]].
+**State.** Keeping a local copy of remote data correct while it changes underneath you → [[frontend/04-state-and-data/index|04]].
 
 **Asynchrony.** Everything worth doing is async, and races, out-of-order responses and stale closures follow.
 
 **Layout across unknown viewports.** From a 320 px phone to an ultrawide monitor, with text the user may have scaled to 200%.
 
-**Accessibility.** Which is a correctness requirement, not a nicety, and frequently a legal one → [[frontend/06-cross-cutting/README|06]].
+**Accessibility.** Which is a correctness requirement, not a nicety, and frequently a legal one → [[frontend/06-cross-cutting/index|06]].
 
 **Performance on hardware you'd never choose.** Your laptop is the least representative device you own.
 
 ## Related
-- [[frontend/02-rendering/README|rendering]] — how state becomes pixels
-- [[frontend/README|the frontend course]]
+- [[frontend/02-rendering/index|rendering]] — how state becomes pixels
+- [[frontend/index|the frontend course]]
 - [[backend/01-foundations/01-what-a-backend-is|what a backend is]] — the other half
-- [[foundations/programming-fundamentals/README|programming fundamentals]] — if this is your first code
+- [[foundations/programming-fundamentals/index|programming fundamentals]] — if this is your first code
 
 *Source: [reference] — written Aug 2026.*

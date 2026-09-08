@@ -62,7 +62,7 @@ The graph edges are named attacks: `MemberOf`, `AdminTo`, `HasSession`, `CanRDP`
 
 The uncomfortable-for-defenders truth: **most enumeration uses normal LDAP and Kerberos queries** that any user is allowed to make. It looks like an application reading the directory. This is why:
 
-- **It's hard to detect** without behavioural baselines — a workstation suddenly querying every ACL in the domain is anomalous, but only if you're watching for *that pattern* → [[cybersecurity/07-security-operations/README|detection]]
+- **It's hard to detect** without behavioural baselines — a workstation suddenly querying every ACL in the domain is anomalous, but only if you're watching for *that pattern* → [[cybersecurity/07-security-operations/index|detection]]
 - **Attackers "live off the land"** — built-in tools and legitimate queries evade signature-based detection → [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|05]]
 - **BloodHound's collection is noisy** and *can* be caught (a burst of session/ACL queries), which is why attackers throttle it or collect selectively
 

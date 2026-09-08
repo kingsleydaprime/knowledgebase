@@ -159,4 +159,4 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 - [[foundations/programming-language-theory/03-semantics|Semantics]] — giving meaning rigorously
 - [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what types buy you
 - [[build-your-own-shit/04-your-own-language|Build Your Own Language]] — implementing closures, which is this
-- [[foundations/programming-language-theory/README|PL theory map]]
+- [[foundations/programming-language-theory/index|PL theory map]]

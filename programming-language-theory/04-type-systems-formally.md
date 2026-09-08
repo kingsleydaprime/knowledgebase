@@ -159,4 +159,4 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 - [[foundations/programming-language-theory/05-type-inference|Type Inference]] — Hindley–Milner
 - [[foundations/programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — where types become proofs
 - [[foundations/compilers/05-type-systems-and-checking|Compilers: Type Systems]] — the implementation
-- [[foundations/programming-language-theory/README|PL theory map]]
+- [[foundations/programming-language-theory/index|PL theory map]]

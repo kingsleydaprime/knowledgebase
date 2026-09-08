@@ -154,6 +154,6 @@ At professional scale this becomes an architecture decision record → [[concept
 - [[foundations/programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — where to apply this
 - [[foundations/software-engineering/02-the-software-development-lifecycle|the SDLC]] — this, at professional scale
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach system design]] — this, at system scale
-- [[learning/README|how I learn]] — the board-and-notebook version of the same instinct
+- [[learning/index|how I learn]] — the board-and-notebook version of the same instinct
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course.*

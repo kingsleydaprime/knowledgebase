@@ -79,7 +79,7 @@ function withdraw() external {
 }
 ```
 
-The push version has **three** problems: it can exceed the block gas limit and become permanently uncallable; a single malicious recipient with a reverting `receive()` blocks all payments; and the caller pays everyone's gas. **This is a denial-of-service bug class, not just an inefficiency** → [[web3/04-smart-contract-security/README|security]].
+The push version has **three** problems: it can exceed the block gas limit and become permanently uncallable; a single malicious recipient with a reverting `receive()` blocks all payments; and the caller pays everyone's gas. **This is a denial-of-service bug class, not just an inefficiency** → [[web3/04-smart-contract-security/index|security]].
 
 ## Measuring, which you should do before optimising
 

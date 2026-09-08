@@ -111,7 +111,7 @@ Screen is `1 - (1-source)(1-backdrop)`, so a source of `0` returns the backdrop 
 font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
 ```
 
-**Test at 200% browser zoom and 320 px width.** Both are real users, both break layouts that only got tested at desktop defaults, and one of them is an accessibility requirement → [[frontend/06-cross-cutting/README|accessibility]].
+**Test at 200% browser zoom and 320 px width.** Both are real users, both break layouts that only got tested at desktop defaults, and one of them is an accessibility requirement → [[frontend/06-cross-cutting/index|accessibility]].
 
 ## What to actually do
 
@@ -122,8 +122,8 @@ font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
 **Whatever you choose, choose one.** The genuinely bad outcome is a codebase with Tailwind, styled-components, three global stylesheets and a `!important` graveyard — because then no one can predict what a change will do.
 
 ## Related
-- [[frontend/frameworks/css/README|css/]] — Tailwind and Sass specifically
+- [[frontend/frameworks/css/index|css/]] — Tailwind and Sass specifically
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser]] — why CSS blocks rendering
-- [[frontend/06-cross-cutting/README|accessibility]] — colour contrast, zoom, motion
+- [[frontend/06-cross-cutting/index|accessibility]] — colour contrast, zoom, motion
 
 *Source: [reference] — written Aug 2026.*

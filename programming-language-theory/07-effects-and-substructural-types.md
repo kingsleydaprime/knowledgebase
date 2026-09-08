@@ -133,7 +133,7 @@ Server = ?Request . !Response . end      -- the dual
 
 **Multiparty session types** extend it to more than two participants with a global protocol projected onto each role.
 
-**Where it's reaching practice:** Rust and Scala libraries, verified protocol implementations, and **research on typing distributed system protocols.** → [[architecture/04-distributed-systems/README|Distributed Systems]]
+**Where it's reaching practice:** Rust and Scala libraries, verified protocol implementations, and **research on typing distributed system protocols.** → [[architecture/04-distributed-systems/index|Distributed Systems]]
 
 **Still mostly research**, and the ideas are seeping in — typestate patterns in Rust (encoding a state machine in the type so invalid transitions don't compile) are session types in a different dress.
 
@@ -181,4 +181,4 @@ Server = ?Request . !Response . end      -- the dual
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — affine types in production
 - [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — the foundations
 - [[foundations/programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — types as specifications
-- [[foundations/programming-language-theory/README|PL theory map]]
+- [[foundations/programming-language-theory/index|PL theory map]]

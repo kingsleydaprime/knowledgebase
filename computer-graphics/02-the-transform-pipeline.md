@@ -159,5 +159,5 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 ## Related
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — the same maths, more depth on rotations
 - [[foundations/computer-graphics/03-rasterisation|Rasterisation]] — what happens after this
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|Linear Algebra]] — the prerequisite
-- [[foundations/computer-graphics/README|Computer graphics map]]
+- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the prerequisite
+- [[foundations/computer-graphics/index|Computer graphics map]]

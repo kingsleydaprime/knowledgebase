@@ -226,4 +226,4 @@ Also: a `string_view` is not guaranteed NUL-terminated, so you can't pass `.data
 - [[languages/05-cpp/10-iterators-and-algorithms|Iterators and Algorithms]] — what operates on these
 - [[foundations/dsa/04-data-structures/03-hash-maps|Hash Maps]] and [[foundations/dsa/04-data-structures/08-heaps|Heaps]] — what these are underneath
 - [[languages/03-rust/11-collections-and-iterators|Rust: Collections]] — the same set, with invalidation made impossible
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

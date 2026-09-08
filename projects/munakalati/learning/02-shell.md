@@ -1,7 +1,7 @@
 # Shell — Munakalati
 
-**Domain:** the command line, as it showed up in [[projects/munakalati/learning/README|munakalati]] — a `bun`-scripted ops workflow, `curl` against an undocumented API, and the commands used to audit this codebase while writing these notes.
-**General version:** [[devops/01-linux/README|devops/01-linux]] — especially [[devops/01-linux/12-bash-scripting|bash scripting]] and [[devops/01-linux/16-sed-and-awk|sed and awk]].
+**Domain:** the command line, as it showed up in [[projects/munakalati/learning/index|munakalati]] — a `bun`-scripted ops workflow, `curl` against an undocumented API, and the commands used to audit this codebase while writing these notes.
+**General version:** [[devops/01-linux/index|devops/01-linux]] — especially [[devops/01-linux/12-bash-scripting|bash scripting]] and [[devops/01-linux/16-sed-and-awk|sed and awk]].
 
 ---
 

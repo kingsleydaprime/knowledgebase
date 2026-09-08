@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · State machines, behaviour trees, pathfinding and utility systems — and why the goal is *fun*, not intelligence.
 
-**Game AI is a different discipline from [[ai-ml/README|machine learning]]**, and conflating them is the most common misconception in the field. It's almost entirely hand-authored logic, and it optimises for **being interesting to play against**, not for playing well.
+**Game AI is a different discipline from [[ai-ml/index|machine learning]]**, and conflating them is the most common misconception in the field. It's almost entirely hand-authored logic, and it optimises for **being interesting to play against**, not for playing well.
 
 **A perfect opponent is not fun.** An aimbot wins every time. Chess engines stopped being interesting opponents decades ago. So game AI deliberately includes reaction delays, imperfect aim, forgetting the player's position, and losing convincingly.
 
@@ -106,12 +106,12 @@ Where it does appear:
 - **Content generation** — textures, dialogue, level suggestions, with a human in the loop
 - **Research showcases** — OpenAI Five, AlphaStar. Superhuman, and **not what you want as an opponent**
 
-**Reinforcement learning is a genuinely good fit for balancing**, not for the agents themselves → [[ai-ml/README|AI & ML]].
+**Reinforcement learning is a genuinely good fit for balancing**, not for the agents themselves → [[ai-ml/index|AI & ML]].
 
 ## Related
 - [[foundations/dsa/05-algorithms/06-dijkstra|Dijkstra]] · [[foundations/dsa/05-algorithms/03-bfs|BFS]] — pathfinding's foundation
 - [[foundations/discrete-math/07-graph-theory|graph theory]] — what a navmesh is
-- [[ai-ml/README|AI & ML]] — the other kind of AI
+- [[ai-ml/index|AI & ML]] — the other kind of AI
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — where AI ticks
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

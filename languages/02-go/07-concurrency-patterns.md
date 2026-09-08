@@ -188,4 +188,4 @@ The failure mode to avoid is reaching for channels because they're the interesti
 - [[languages/02-go/08-context|Context]] — the cancellation these patterns thread through
 - [[languages/02-go/11-testing-and-benchmarking|Testing]] — where `-race` lives
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Java: Concurrency]] — executors and the same patterns with threads
-- [[languages/02-go/README|Go course map]]
+- [[languages/02-go/index|Go course map]]

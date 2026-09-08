@@ -83,7 +83,7 @@ className={color === "red" ? "text-red-500" : "text-blue-500"}   // ✓ full str
 **With component libraries:** **shadcn/ui** is the common pairing — it copies Radix-based components *into your repo* rather than installing them as a dependency, so you own and can edit them. That combination — Radix for accessibility, Tailwind for styling, your repo for ownership — is close to a default for React apps in 2026 → [[frontend/03-structuring-a-frontend/01-components-and-composition|headless components]].
 
 ## Related
-- [[frontend/frameworks/css/README|css/]] · [[frontend/frameworks/css/sass|Sass]]
+- [[frontend/frameworks/css/index|css/]] · [[frontend/frameworks/css/sass|Sass]]
 - [[frontend/05-styling/01-css-architecture|CSS architecture]] — where utility-first sits among the options
 - [[frontend/06-cross-cutting/01-accessibility|accessibility]] — Tailwind styles it; Radix makes it correct
 

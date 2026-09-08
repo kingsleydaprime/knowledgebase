@@ -476,5 +476,5 @@ jobs:
 ## Related
 - [[devops/06-ci-cd/03-github-actions-fundamentals|Fundamentals]] — the YAML skeleton these keys sit in
 - [[devops/06-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — the expressions used in `if:` conditions here
-- [[devops/02-docker/README|Docker]] — container jobs and service containers run on the same primitives
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/02-docker/index|Docker]] — container jobs and service containers run on the same primitives
+- [[devops/06-ci-cd/index|CI/CD module map]]

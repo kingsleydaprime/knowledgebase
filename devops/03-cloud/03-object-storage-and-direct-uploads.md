@@ -1,7 +1,7 @@
 # Object Storage & Direct Browser Uploads
 
 S3-compatible object storage, presigned URLs, and the CORS/public-access rules that decide
-whether a file upload actually works. Part of the [[devops/README|DevOps curriculum]].
+whether a file upload actually works. Part of the [[devops/index|DevOps curriculum]].
 
 Complements [[devops/minio-guide|the MinIO guide]] (self-hosting the same API) and
 [[devops/03-cloud/aws-cloud-reference|the AWS reference]] (S3 within AWS). This file is the
@@ -177,7 +177,7 @@ video.
 
 Also plan for what happens *after* the bytes land — transcoding, thumbnailing, virus
 scanning. That belongs in a background job, not the upload request. See
-[[backend/README|backend concepts]] on queues.
+[[backend/index|backend concepts]] on queues.
 
 ---
 

@@ -138,11 +138,11 @@ int main() {
 
 **Good at:** game engines, trading systems, browsers, databases, CAD, embedded with a real toolchain, scientific computing, and any large existing C++ codebase. It's the default where you need C-level performance *and* substantial abstraction.
 
-**Bad at:** anything where compile times or onboarding matter, small tools, and new systems work where [[languages/03-rust/README|Rust]] is viable. It's also poorly suited to teams without a strong shared convention, because the language won't enforce one.
+**Bad at:** anything where compile times or onboarding matter, small tools, and new systems work where [[languages/03-rust/index|Rust]] is viable. It's also poorly suited to teams without a strong shared convention, because the language won't enforce one.
 
 The comparison that matters now that all four are here:
 
-| | [[languages/04-c/README\|C]] | C++ | [[languages/03-rust/README\|Rust]] | [[languages/02-go/README\|Go]] |
+| | [[languages/04-c/index\|C]] | C++ | [[languages/03-rust/index\|Rust]] | [[languages/02-go/index\|Go]] |
 |---|---|---|---|---|
 | Resource management | manual | **RAII** | RAII + ownership | GC |
 | Memory safety | none | partial, by discipline | guaranteed | guaranteed |
@@ -173,4 +173,4 @@ C++ and Rust occupy nearly the same performance niche. The difference is that C+
 - [[languages/04-c/01-why-c-and-the-compilation-model|C: The Compilation Model]] — the model C++ inherited
 - [[languages/05-cpp/14-modern-cpp-and-modules|Modern C++ and Modules]] — what changed and what to write
 - [[languages/03-rust/01-why-rust-and-the-toolchain|Rust: Why Rust]] — the same niche, checked
-- [[languages/05-cpp/README|C++ course map]]
+- [[languages/05-cpp/index|C++ course map]]

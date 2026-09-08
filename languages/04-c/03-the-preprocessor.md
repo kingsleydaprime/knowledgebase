@@ -234,4 +234,4 @@ Knowing the preprocessor is still necessary, because you'll read a lot of code t
 - [[languages/04-c/02-headers-and-the-translation-unit|Headers and the Translation Unit]] — `#include`, in depth
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — what a careless macro can produce
 - [[languages/03-rust/17-macros|Rust: Macros]] — hygienic, AST-based, type-checked
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

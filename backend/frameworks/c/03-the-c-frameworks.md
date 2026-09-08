@@ -136,12 +136,12 @@ Built on libmicrohttpd, adds routing with parameters, Jansson for JSON, and a `U
 
 ## What none of them give you
 
-Compared with every other stack in [[backend/frameworks/README|frameworks/]]:
+Compared with every other stack in [[backend/frameworks/index|frameworks/]]:
 
 - **No dependency injection.** Globals or a context pointer threaded manually
 - **No ORM.** libpq or the MySQL C API directly, and you write every mapping
 - **No serialisation from types.** Jansson or cJSON, field by field. There is no `serde`, no `encoding/json`, no Jackson — because C has no reflection and no derive macros
-- **No middleware ecosystem.** The `http.Handler` interoperability that makes [[backend/frameworks/go/README|Go]] compose has no equivalent
+- **No middleware ecosystem.** The `http.Handler` interoperability that makes [[backend/frameworks/go/index|Go]] compose has no equivalent
 - **No standard testing framework.** Unity or greatest, and you wire it up
 
 The JSON gap is the one that bites hardest. Turning a struct into JSON is ~5 lines per field, by hand, forever — and each of those lines is a place to leak memory or overflow a buffer.
@@ -156,13 +156,13 @@ The JSON gap is the one that bites hardest. Turning a struct into JSON is ~5 lin
 - **Learning.** Writing one from `socket()` up teaches you more about HTTP and about every runtime you use than any framework will → [[BUILD-PLAN|build-your-own-shit]]
 
 **No:**
-- **A new web service.** You're taking [[languages/04-c/07-memory-management|manual memory management]] onto the most attacker-exposed surface you own, for performance [[languages/02-go/README|Go]] or [[backend/frameworks/rust/README|Rust]] would also give you
+- **A new web service.** You're taking [[languages/04-c/07-memory-management|manual memory management]] onto the most attacker-exposed surface you own, for performance [[languages/02-go/index|Go]] or [[backend/frameworks/rust/index|Rust]] would also give you
 - **Anything with a rich domain model.** No generics, no collections, no serialisation — you'll write thousands of lines the other stacks generate
 - **A team.** C web code requires discipline that doesn't survive a deadline
 
 > The pattern worth noticing: **C's remaining niche here is embedding, not serving.** When the process is already C for a good reason, adding HTTP to it beats adding a second process. When you're choosing from scratch, essentially nothing recommends it.
 >
-> And if the reason is "an existing C++ codebase", look at [[backend/frameworks/cpp/README|C++ frameworks]] first — Drogon gives you RAII, a real JSON layer, and coroutines, which removes most of this note's difficulty.
+> And if the reason is "an existing C++ codebase", look at [[backend/frameworks/cpp/index|C++ frameworks]] first — Drogon gives you RAII, a real JSON layer, and coroutines, which removes most of this note's difficulty.
 
 ## If you do ship it
 
@@ -183,5 +183,5 @@ That last one is worth emphasising: **a hardened reverse proxy in front of your 
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|The Accept Loop and Event Loops]] — what these wrap
 - [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] — the part they solve for you
 - [[backend/frameworks/c/04-when-not-to-use-c|When Not to Use C]] — the decision, in full
-- [[backend/frameworks/cpp/README|C++ backends]] — usually the better answer for an existing native codebase
-- [[backend/frameworks/c/README|C backends]]
+- [[backend/frameworks/cpp/index|C++ backends]] — usually the better answer for an existing native codebase
+- [[backend/frameworks/c/index|C backends]]

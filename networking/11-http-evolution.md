@@ -36,7 +36,7 @@ If you're doing performance work on an existing codebase, checking whether these
 
 **Persistent connections.** `Connection: keep-alive` is the default in 1.1. This is the single biggest 1.1 performance feature, because it amortises the [[foundations/networking/06-tcp-connection-lifecycle|TCP handshake]] and [[foundations/networking/12-tls-and-transport-security|TLS handshake]] — and lets [[foundations/networking/08-congestion-control|congestion control]] escape slow start, which matters more than most people realise.
 
-**Content-Length vs chunked encoding.** The receiver needs to know where a response ends. Either declare the length upfront, or use `Transfer-Encoding: chunked` and send length-prefixed chunks with a zero-length terminator (necessary for streamed/generated content). Getting the interaction between these two wrong — where a front-end proxy and back-end server disagree about which one governs — is exactly the **request smuggling** vulnerability class. → [[cybersecurity/04-web-security/README|web security]]
+**Content-Length vs chunked encoding.** The receiver needs to know where a response ends. Either declare the length upfront, or use `Transfer-Encoding: chunked` and send length-prefixed chunks with a zero-length terminator (necessary for streamed/generated content). Getting the interaction between these two wrong — where a front-end proxy and back-end server disagree about which one governs — is exactly the **request smuggling** vulnerability class. → [[cybersecurity/04-web-security/index|web security]]
 
 **Caching**, which is the most under-used performance tool in the protocol:
 - `Cache-Control: max-age=N` — freshness, no revalidation needed
@@ -71,4 +71,4 @@ Every version of HTTP after 1.0 is an attack on the same two costs: **the number
 - [[foundations/networking/12-tls-and-transport-security|TLS]] — h2 requires it in practice; ALPN is how it's negotiated
 - [[foundations/networking/15-network-performance|Network Performance]] — measuring which of these actually matters
 - [[backend/02-api-design/01-apis-and-rest|APIs]] — HTTP semantics as an API design surface
-- [[cybersecurity/04-web-security/README|Web Security]] — smuggling, caching attacks, header handling
+- [[cybersecurity/04-web-security/index|Web Security]] — smuggling, caching attacks, header handling

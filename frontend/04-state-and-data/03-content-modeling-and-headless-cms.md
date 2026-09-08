@@ -1,8 +1,8 @@
 # Content Modelling and the Headless CMS
 
-**[[frontend/04-state-and-data/README|04 — State and Data]], note 3.** **[Intermediate]** `[reference]`
+**[[frontend/04-state-and-data/index|04 — State and Data]], note 3.** **[Intermediate]** `[reference]`
 
-**Framework-agnostic.** The Sanity implementation is [[frontend/frameworks/sanity/README|frameworks/sanity]]; a real 16-type model is [[projects/munakalati/learning/03-sanity/02-schema-design|munakalati]].
+**Framework-agnostic.** The Sanity implementation is [[frontend/frameworks/sanity/index|frameworks/sanity]]; a real 16-type model is [[projects/munakalati/learning/03-sanity/02-schema-design|munakalati]].
 
 > **The one idea:** content modelling is a third design discipline, distinct from database design and from component design — and the question it answers is not *"what shape is this data?"* but ***"what should a non-technical person be able to change, and how badly can they break the page doing it?"***
 
@@ -124,7 +124,7 @@ The piece that makes it clean is a **view model** — a shape that is neither th
 **Two cheap mitigations:** log server-side whenever a fallback fires, so it reaches your platform logs; and a strict mode in production that throws instead of falling back. And treat the fallbacks as scaffolding with a demolition date — once a section's content is genuinely in the CMS, the hardcoded copy is dead weight pretending to be a safety net.
 
 ## Related
-- [[frontend/frameworks/sanity/README|frameworks/sanity]] — one implementation, in depth
+- [[frontend/frameworks/sanity/index|frameworks/sanity]] — one implementation, in depth
 - [[projects/munakalati/learning/03-sanity/02-schema-design|munakalati — a real 16-type model]]
 - [[concepts/04-best-practices/06-data-migrations|data migrations]] — getting content *into* the model
 - [[databases/database-design-reference|database design]] — the discipline this is not

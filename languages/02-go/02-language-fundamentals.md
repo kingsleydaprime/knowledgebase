@@ -17,13 +17,13 @@ const Pi = 3.14159 // constants are compile-time only
 
 **Every type has a zero value, and it's always usable.** This is a deliberate design decision that shows up everywhere:
 
-| Type | Zero value |
-|---|---|
-| numeric | `0` |
-| `string` | `""` |
-| `bool` | `false` |
-| pointer, slice, map, chan, func, interface | `nil` |
-| struct | every field at its own zero value |
+| Type                                       | Zero value                        |
+| ------------------------------------------ | --------------------------------- |
+| numeric                                    | `0`                               |
+| `string`                                   | `""`                              |
+| `bool`                                     | `false`                           |
+| pointer, slice, map, chan, func, interface | `nil`                             |
+| struct                                     | every field at its own zero value |
 
 There is no `undefined`, no uninitialised memory, and no "variable might not have been initialised" error. `var buf bytes.Buffer` is immediately usable — the zero value is an empty buffer. Types that are useful at their zero value are considered good Go design; `sync.Mutex` is the canonical example.
 
@@ -49,7 +49,7 @@ var o OrderID = u    // COMPILE ERROR — distinct types
 
 `type X Y` creates a genuinely new type, not an alias. This is the cheapest safety mechanism in the language and it's underused: making `UserID` and `OrderID` distinct types means you cannot pass one where the other is expected, which is a bug class that Java's `Long`-everywhere style permits freely.
 
-(`type X = Y` with an equals sign *is* an alias, and is rare — it exists mainly for gradual refactors.)
+(`type X = Y` with an equals sign _is_ an alias, and is rare — it exists mainly for gradual refactors.)
 
 ### Basic types
 
@@ -118,7 +118,7 @@ func split(sum int) (x, y int) {
 }
 ```
 
-Naked returns hurt readability in anything longer than a few lines and are widely discouraged. But *naming* the returns is genuinely useful for documentation, and it's required if you want `defer` to modify the return value:
+Naked returns hurt readability in anything longer than a few lines and are widely discouraged. But _naming_ the returns is genuinely useful for documentation, and it's required if you want `defer` to modify the return value:
 
 ```go
 func doThing() (err error) {
@@ -158,7 +158,7 @@ func readFile(path string) error {
 }
 ```
 
-Deferred calls run **LIFO** when the surrounding *function* returns — not at end of block. Putting `defer f.Close()` immediately after the successful open is the idiom; it keeps acquisition and release adjacent, which is exactly what `try-with-resources` and RAII achieve differently.
+Deferred calls run **LIFO** when the surrounding _function_ returns — not at end of block. Putting `defer f.Close()` immediately after the successful open is the idiom; it keeps acquisition and release adjacent, which is exactly what `try-with-resources` and RAII achieve differently.
 
 Two traps:
 
@@ -230,7 +230,8 @@ Whether the value lives on the stack or the heap is decided by **escape analysis
 ---
 
 ## Related
+
 - [[languages/02-go/03-composite-types|Composite Types]] — slices, maps, structs
 - [[languages/02-go/05-errors|Errors]] — what that second return value is for
-- [[languages/01-java/01-language/README|Java: the language]] — the same ground, in a language that made opposite choices
-- [[languages/02-go/README|Go course map]]
+- [[languages/01-java/01-language/index|Java: the language]] — the same ground, in a language that made opposite choices
+- [[languages/02-go/index|Go course map]]

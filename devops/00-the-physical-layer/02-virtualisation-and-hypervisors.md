@@ -99,7 +99,7 @@ Reading back against the four problems:
 
 **The last one is quietly the biggest.** Once a running machine is a file, live migration becomes possible: move a running VM between physical hosts with no downtime, so hardware maintenance stops being an outage. That capability is why the cloud can patch the machine your instance is on without telling you.
 
-And the same insight — *make the unit of deployment a portable artefact* — is what [[devops/02-docker/README|container images]], [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|Terraform state]] and [[devops/11-delivery-and-advanced/01-gitops|GitOps]] are all separately re-applying one layer up.
+And the same insight — *make the unit of deployment a portable artefact* — is what [[devops/02-docker/index|container images]], [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|Terraform state]] and [[devops/11-delivery-and-advanced/01-gitops|GitOps]] are all separately re-applying one layer up.
 
 ## The honest cost
 
@@ -111,7 +111,7 @@ Virtualisation is not free, and the bill has three lines:
 
 ## Related
 - [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] — the problems this solved
-- [[devops/02-docker/README|Docker]] — the container half, in depth
+- [[devops/02-docker/index|Docker]] — the container half, in depth
 - [[foundations/os/11-isolation-and-containers|namespaces and cgroups]] — the kernel primitives containers are built from
 - [[build-your-own-shit/08-your-own-container|build your own container]] — where this stops being reading
 - [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|cloud security]] — multi-tenancy as a threat model

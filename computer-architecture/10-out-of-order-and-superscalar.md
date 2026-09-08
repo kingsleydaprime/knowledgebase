@@ -185,4 +185,4 @@ perf stat ./program     # look at insn per cycle
 - [[foundations/computer-architecture/06-pipelining|Pipelining]] — the simpler model
 - [[foundations/computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]] — what feeds the front end
 - [[foundations/computer-architecture/12-performance|Performance]] — the methodology
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

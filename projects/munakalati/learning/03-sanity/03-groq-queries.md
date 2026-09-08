@@ -182,4 +182,4 @@ grep -oP 'export const \K\w+(?=Query)' src/sanity/lib/queries.ts \
 - [[projects/munakalati/learning/04-frontend/02-data-fetching-and-caching|frontend/02 — where these queries get called]]
 - [[projects/munakalati/learning/06-bugs-and-postmortems|06 — bugs and postmortems]] — the slug-matching saga
 - [[databases/sql-reference|SQL reference]] — the language this is deliberately not
-- [[cybersecurity/04-web-security/README|web security]] — why `$params` and not interpolation
+- [[cybersecurity/04-web-security/index|web security]] — why `$params` and not interpolation

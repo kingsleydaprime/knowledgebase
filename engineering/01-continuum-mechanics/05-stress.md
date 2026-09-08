@@ -109,7 +109,7 @@ So every stress number carries the assumptions of the model used to compute it. 
 
 Photoelasticity and X-ray diffraction come closest to direct measurement, and both still infer through a physical model.
 
-**This is a good instance of the general point from [[engineering/README|the domain note]]:** the balance laws are certain, the constitutive model is chosen, and that's where the error lives.
+**This is a good instance of the general point from [[engineering/index|the domain note]]:** the balance laws are certain, the constitutive model is chosen, and that's where the error lives.
 
 ## Equilibrium
 
@@ -127,4 +127,4 @@ With acceleration it's Cauchy's equation of motion, and it's the same equation t
 - [[engineering/01-continuum-mechanics/04-strain-measures|Strain Measures]] — the conjugate quantity
 - [[engineering/01-continuum-mechanics/06-conservation-laws|Conservation Laws]] — where equilibrium comes from
 - [[engineering/01-continuum-mechanics/12-failure-and-yield|Failure and Yield]] — what principal stresses predict
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

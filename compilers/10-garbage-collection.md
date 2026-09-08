@@ -202,4 +202,4 @@ The standard defence: **a stress mode that collects on every allocation**, run a
 - [[foundations/os/05-memory-allocation|Memory Allocation]] — the manual alternative, and why `malloc` can't compact
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — the type-system alternative
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] · [[languages/02-go/13-performance-and-runtime|Go's GC]]
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

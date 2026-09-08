@@ -2,7 +2,7 @@
 
 **[Beginner]** — The sense → plan → act loop, why every robotics problem decomposes into those three, and what makes this genuinely harder than software.
 
-**Source:** `[reference]` — see [[robotics/README|the domain note]], which is blunt about what that means here.
+**Source:** `[reference]` — see [[robotics/index|the domain note]], which is blunt about what that means here.
 
 ## The loop
 
@@ -74,7 +74,7 @@ Real robot software is layered by **timescale**, and the layers have genuinely d
 
 **Safety lives at the bottom, always.** An emergency stop that goes through the planner is not an emergency stop. → [[robotics/14-safety-and-real-time|Safety and Real-Time]]
 
-This layering is also why [[architecture/04-distributed-systems/README|distributed-systems]] thinking shows up: a real robot is several computers (an MCU per joint, an onboard SBC, sometimes an offboard machine) exchanging messages with latency, partial failure, and no shared clock.
+This layering is also why [[architecture/04-distributed-systems/index|distributed-systems]] thinking shows up: a real robot is several computers (an MCU per joint, an onboard SBC, sometimes an offboard machine) exchanging messages with latency, partial failure, and no shared clock.
 
 ## The three questions
 
@@ -84,7 +84,7 @@ Almost every robotics problem is one of these, and naming which one you're on is
 
 **"How do I get there?"** — [[robotics/10-motion-planning|motion planning]], trajectory generation, and [[robotics/06-inverse-kinematics|inverse kinematics]] for "what joint angles put the gripper *there*".
 
-**"How do I make the hardware do it?"** — [[robotics/09-robot-control|control]], [[robotics/08-dynamics|dynamics]], and the [[engineering/02-control-theory/README|control theory]] underneath.
+**"How do I make the hardware do it?"** — [[robotics/09-robot-control|control]], [[robotics/08-dynamics|dynamics]], and the [[engineering/02-control-theory/index|control theory]] underneath.
 
 ## Kinds of robot
 
@@ -138,12 +138,12 @@ The gap between the subject and the practice.
 
 **13–14 are the engineering around it** — the software architecture and the safety obligations.
 
-**Prerequisites:** linear algebra (matrices, rotations, eigenvalues), calculus, and [[engineering/02-control-theory/README|control theory]] for notes 08–09. The control track carries the feedback theory this domain applies.
+**Prerequisites:** linear algebra (matrices, rotations, eigenvalues), calculus, and [[engineering/02-control-theory/index|control theory]] for notes 08–09. The control track carries the feedback theory this domain applies.
 
 ---
 
 ## Related
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — the sense half
 - [[robotics/09-robot-control|Robot Control]] — the act half
-- [[engineering/02-control-theory/README|Control Theory]] — the theory underneath all of it
-- [[robotics/README|Robotics map]]
+- [[engineering/02-control-theory/index|Control Theory]] — the theory underneath all of it
+- [[robotics/index|Robotics map]]

@@ -24,7 +24,7 @@ The consequence you'll hit within a day:
 scores[5]     # IndexError — valid indices are 0..4
 ```
 
-An **out-of-bounds** error. In Python or Java you get a clean exception. **In C you get whatever memory happened to be next**, no error, and a bug that appears somewhere unrelated — which is the origin of a large fraction of security vulnerabilities → [[cybersecurity/06-attacks-and-threats/README|attacks]].
+An **out-of-bounds** error. In Python or Java you get a clean exception. **In C you get whatever memory happened to be next**, no error, and a bug that appears somewhere unrelated — which is the origin of a large fraction of security vulnerabilities → [[cybersecurity/06-attacks-and-threats/index|attacks]].
 
 **Why arrays are fast:** the elements sit contiguously in memory, so `scores[2]` is one multiplication and one addition — *start + 2 × element size*. Getting any element costs the same regardless of the array's size. That's **O(1)** access, and it's the reason arrays underpin nearly every other data structure.
 
@@ -40,7 +40,7 @@ items.append("apple")      # grows as needed
 items.append("bread")
 ```
 
-Internally it keeps a fixed array with spare capacity. When it fills, it allocates a bigger one (typically double) and copies. Because the size doubles, the copies get rarer as it grows, and **the average cost per append stays constant** even though occasional appends are expensive. (This is *amortised* O(1) — the reasoning is worth meeting properly in [[foundations/dsa/README|DSA]].)
+Internally it keeps a fixed array with spare capacity. When it fills, it allocates a bigger one (typically double) and copies. Because the size doubles, the copies get rarer as it grows, and **the average cost per append stays constant** even though occasional appends are expensive. (This is *amortised* O(1) — the reasoning is worth meeting properly in [[foundations/dsa/index|DSA]].)
 
 **Use a dynamic array by default.** In most languages it's what you get from the literal syntax anyway.
 
@@ -123,7 +123,7 @@ users = [
 ]
 ```
 
-**That second shape is what JSON is**, and therefore what nearly every API response and config file is. Being comfortable reaching into nested lists-of-dictionaries is a genuinely high-return skill → [[backend/02-api-design/README|API design]].
+**That second shape is what JSON is**, and therefore what nearly every API response and config file is. Being comfortable reaching into nested lists-of-dictionaries is a genuinely high-return skill → [[backend/02-api-design/index|API design]].
 
 ## What's underneath, and where this goes
 
@@ -131,12 +131,12 @@ Everything above is built from two physical arrangements: **contiguous memory** 
 
 From those two, everything else: stacks, queues, linked lists, trees, graphs, heaps. Each trades the cost of one operation against another, and choosing well is most of what makes a program fast.
 
-**That's [[foundations/dsa/README|DSA]], and it's the natural next thing after this course.** You don't need it to write useful programs. You need it the first time something works on 100 items and takes four minutes on 100,000.
+**That's [[foundations/dsa/index|DSA]], and it's the natural next thing after this course.** You don't need it to write useful programs. You need it the first time something works on 100 items and takes four minutes on 100,000.
 
 ## Related
 - [[foundations/programming-fundamentals/06-control-flow|control flow]] — iterating over these
 - [[foundations/programming-fundamentals/08-functions|functions]] — passing collections around (and note 05's sharing trap applies)
-- [[foundations/dsa/README|DSA]] — the depth version of this note
+- [[foundations/dsa/index|DSA]] — the depth version of this note
 - [[foundations/programming-fundamentals/05-variables-and-types|variables and types]] — why `list2 = list1` doesn't copy
 - [[databases/02-the-relational-model|the relational model]] — collections that outlive the program
 

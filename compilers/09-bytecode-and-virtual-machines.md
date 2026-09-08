@@ -274,4 +274,4 @@ For [[BUILD-PLAN|build-your-own-language]]:
 - [[foundations/compilers/11-jit-compilation|JIT Compilation]] — where VMs go for speed
 - [[foundations/compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — slot resolution and upvalues
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — a production example
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

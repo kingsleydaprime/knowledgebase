@@ -1,6 +1,6 @@
 # AI/ML Interview — AI Engineering
 
-From [[ai-ml/03-ai-engineer/README|03-ai-engineer]].
+From [[ai-ml/03-ai-engineer/index|03-ai-engineer]].
 
 ---
 

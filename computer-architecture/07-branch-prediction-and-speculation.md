@@ -148,4 +148,4 @@ perf stat -e branches,branch-misses,cycles,instructions ./prog
 - [[foundations/computer-architecture/06-pipelining|Pipelining]] — why the penalty exists
 - [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — what makes speculation safe
 - [[foundations/computer-architecture/09-caches-in-depth|Caches in Depth]] — the side channel
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

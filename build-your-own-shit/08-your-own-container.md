@@ -19,7 +19,7 @@ By the end **you'll run a real Alpine root filesystem in it** — the same tarba
 | **Namespaces and cgroups** | [[foundations/os/11-isolation-and-containers\|os/11]] — **read this first; it's the spec** |
 | **`fork`/`exec`, and PID 1's duties** | [[foundations/os/02-processes-and-threads\|os/02]] |
 | **Mounts and the filesystem tree** | [[foundations/os/07-filesystems-and-storage\|os/07]] |
-| **What Docker does from above** | [[devops/02-docker/README\|Docker]] |
+| **What Docker does from above** | [[devops/02-docker/index\|Docker]] |
 
 **Linux only.** Namespaces and cgroups are Linux kernel features — macOS and Windows run Docker in a Linux VM for exactly this reason.
 
@@ -124,7 +124,7 @@ ip addr add 172.18.0.1/24 dev veth0 && ip link set veth0 up
 # then on the host: iptables -t nat -A POSTROUTING -s 172.18.0.0/24 -j MASQUERADE
 ```
 
-**That's a legitimate place to stop.** Isolating the network demonstrates the namespace; wiring it up is networking work rather than container work. → [[foundations/networking/README|networking]]
+**That's a legitimate place to stop.** Isolating the network demonstrates the namespace; wiring it up is networking work rather than container work. → [[foundations/networking/index|networking]]
 
 ### 6. cgroups — resource limits
 
@@ -180,7 +180,7 @@ Read-only lower layers plus one writable upper layer. Fifty containers from one 
 
 **Test:** run two containers from the same `lowerdir`. Write a file in one; confirm it doesn't appear in the other, and that the base is unmodified.
 
-**Watch for:** **copy-up** — modifying a file from a lower layer copies the *whole file* up first. Appending one line to a 2GB file copies 2GB. That's why write-heavy paths belong on a volume. → [[devops/02-docker/README|Docker]]
+**Watch for:** **copy-up** — modifying a file from a lower layer copies the *whole file* up first. Appending one line to a 2GB file copies 2GB. That's why write-heavy paths belong on a volume. → [[devops/02-docker/index|Docker]]
 
 ### 9. Capabilities and seccomp (optional)
 
@@ -288,7 +288,7 @@ ls -l /proc/<pid>/ns/                    # your container's namespace IDs vs the
 
 ## Related
 - [[foundations/os/11-isolation-and-containers|Isolation and Containers]] — the specification for this project
-- [[devops/02-docker/README|Docker]] — the same thing from above
+- [[devops/02-docker/index|Docker]] — the same thing from above
 - [[build-your-own-shit/07-your-own-shell|Your Own Shell]] — the `fork`/`exec` skeleton
-- [[cybersecurity/09-cloud-security/README|Cloud Security]] — container escape as a threat model
-- [[build-your-own-shit/README|build-your-own-shit]]
+- [[cybersecurity/09-cloud-security/index|Cloud Security]] — container escape as a threat model
+- [[build-your-own-shit/index|build-your-own-shit]]

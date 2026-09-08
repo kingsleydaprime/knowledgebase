@@ -17,7 +17,7 @@ A signal is a function mapping an independent variable (usually time) to a value
 
 **The whole discipline lives at the boundary** between these two — the real world is continuous, computers are discrete, and [[foundations/digital-signal-processing/02-sampling-and-aliasing|sampling]] is the bridge.
 
-Signals can be 1-D (audio, `x[n]`), 2-D (an image, `x[m,n]`), or higher (video). **The maths is the same in every dimension**, which is why the ideas here transfer straight to image processing and to [[ai-ml/02-ml-engineer/06-computer-vision/README|convolutional networks]].
+Signals can be 1-D (audio, `x[n]`), 2-D (an image, `x[m,n]`), or higher (video). **The maths is the same in every dimension**, which is why the ideas here transfer straight to image processing and to [[ai-ml/02-ml-engineer/06-computer-vision/index|convolutional networks]].
 
 ## The building-block signals
 
@@ -55,10 +55,10 @@ Once signals are numbers, you can do anything computation can do, precisely and 
 
 - **Audio** — noise removal, EQ, compression, effects, speech recognition
 - **Communications** — every phone, Wi-Fi and satellite link modulates and demodulates digitally → [[foundations/digital-signal-processing/08-modulation-and-sdr|modulation]]
-- **Images and video** — filtering, compression (JPEG *is* DSP), enhancement → [[foundations/computer-graphics/README|graphics]]
-- **Sensors and control** — filtering noisy readings, extracting signals → [[engineering/02-control-theory/README|control theory]], [[robotics/README|robotics]]
+- **Images and video** — filtering, compression (JPEG *is* DSP), enhancement → [[foundations/computer-graphics/index|graphics]]
+- **Sensors and control** — filtering noisy readings, extracting signals → [[engineering/02-control-theory/index|control theory]], [[robotics/index|robotics]]
 - **Biomedical** — ECG, EEG, ultrasound, MRI reconstruction
-- **Machine learning** — a CNN's core operation is [[foundations/digital-signal-processing/05-convolution-and-lti-systems|convolution]]; audio and speech models run on spectrograms → [[ai-ml/README|ai-ml]]
+- **Machine learning** — a CNN's core operation is [[foundations/digital-signal-processing/05-convolution-and-lti-systems|convolution]]; audio and speech models run on spectrograms → [[ai-ml/index|ai-ml]]
 
 **Analog vs digital, briefly:** analog processing (op-amps, RC circuits) is instantaneous and continuous but drifts, is hard to change, and can't do anything complex. Digital is a sampled approximation but is exact, reproducible, reprogrammable, and can run arbitrarily sophisticated algorithms. **The world went digital because "reprogrammable and exact" beats "instant and continuous" for almost everything** → [[hardware/02-digital-and-analog|digital and analog]].
 
@@ -70,6 +70,6 @@ Once signals are numbers, you can do anything computation can do, precisely and 
 - [[foundations/digital-signal-processing/02-sampling-and-aliasing|sampling and aliasing]] — the continuous-to-discrete bridge
 - [[foundations/digital-signal-processing/03-the-frequency-domain|the frequency domain]] — why sinusoids are special
 - [[foundations/digital-signal-processing/05-convolution-and-lti-systems|convolution and LTI systems]] — the impulse-response payoff
-- [[engineering/02-control-theory/README|control theory]] — LTI systems from the control side
+- [[engineering/02-control-theory/index|control theory]] — LTI systems from the control side
 
 *Source: [reference] — Aug 2026.*

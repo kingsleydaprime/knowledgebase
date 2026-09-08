@@ -1,6 +1,6 @@
 # Testing
 
-**Source:** **[reference — this is a real gap, not just an unexercised one]**. Neither project shipped a test suite — which is exactly the kind of thing the original knowledgebase critique meant by "signals self-direction, not engineering ability." Automated testing is one of the clearest engineering-maturity signals there is, so this file covers it properly, and the honest next step is to actually write tests against the two Java projects (and the [[languages/01-java/02-jvm-and-concurrency/exercises/README|concurrency exercises]] already ship with a runnable harness as a first move in that direction).
+**Source:** **[reference — this is a real gap, not just an unexercised one]**. Neither project shipped a test suite — which is exactly the kind of thing the original knowledgebase critique meant by "signals self-direction, not engineering ability." Automated testing is one of the clearest engineering-maturity signals there is, so this file covers it properly, and the honest next step is to actually write tests against the two Java projects (and the [[languages/01-java/02-jvm-and-concurrency/exercises/index|concurrency exercises]] already ship with a runnable harness as a first move in that direction).
 
 ## The testing pyramid
 
@@ -90,5 +90,5 @@ Spring Boot's `@SpringBootTest` boots the actual application context for full-sl
 
 ## Related
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency Injection]] — what makes a class mockable in the first place
-- [[languages/01-java/02-jvm-and-concurrency/exercises/README|Concurrency Exercises]] — a runnable test harness you implement against, the first real reps
+- [[languages/01-java/02-jvm-and-concurrency/exercises/index|Concurrency Exercises]] — a runnable test harness you implement against, the first real reps
 - [[backend/frameworks/java/01-spring-boot|Spring Boot]] — `@SpringBootTest` slices for the web layer

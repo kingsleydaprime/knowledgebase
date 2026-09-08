@@ -1,6 +1,6 @@
 # Frontend Interview — React, Rendering & Performance
 
-From [[frontend/README|frontend]], [[frontend/frameworks/gsap/07-performance-and-gotchas|GSAP performance]], [[frontend/frameworks/threejs/08-performance-and-gotchas|Three.js performance]].
+From [[frontend/index|frontend]], [[frontend/frameworks/gsap/07-performance-and-gotchas|GSAP performance]], [[frontend/frameworks/threejs/08-performance-and-gotchas|Three.js performance]].
 
 ---
 

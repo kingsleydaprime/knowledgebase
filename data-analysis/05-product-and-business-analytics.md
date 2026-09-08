@@ -61,7 +61,7 @@ The rest of the standard toolkit:
 
 - **Acquisition analysis** — which *channels* bring users, at what cost and quality. **Cheap channels often bring worse-retaining users**, so cost-per-acquisition without quality is misleading → segment acquisition by downstream retention, not just volume
 - **Engagement metrics** — DAU/MAU (daily over monthly active users — the "stickiness" ratio; high means people use it most days), session frequency and depth, feature adoption. These are the [[data-analysis/03-metrics-and-kpis|leading indicators]] of retention
-- **Segmentation and personas** — grouping users by behaviour (power users vs dabblers) to understand who your product actually serves, often via RFM (recency, frequency, monetary) or [[ai-ml/02-ml-engineer/03-classical-ml/README|clustering]]
+- **Segmentation and personas** — grouping users by behaviour (power users vs dabblers) to understand who your product actually serves, often via RFM (recency, frequency, monetary) or [[ai-ml/02-ml-engineer/03-classical-ml/index|clustering]]
 
 ## The connective tissue
 

@@ -1,6 +1,6 @@
 # AI/ML Interview — ML & Stats Fundamentals
 
-From [[ai-ml/02-ml-engineer/README|02-ml-engineer]] and [[ai-ml/01-data-scientist/README|01-data-scientist]]. The fundamentals round — these come up even in AI-engineering interviews, because they test whether you can reason about a model's behaviour rather than just call an API.
+From [[ai-ml/02-ml-engineer/index|02-ml-engineer]] and [[ai-ml/01-data-scientist/index|01-data-scientist]]. The fundamentals round — these come up even in AI-engineering interviews, because they test whether you can reason about a model's behaviour rather than just call an API.
 
 ---
 

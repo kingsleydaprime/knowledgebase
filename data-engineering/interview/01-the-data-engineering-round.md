@@ -95,6 +95,6 @@
 3. **Calibration** — reaching for the simplest thing that works, not the most impressive stack
 
 ## Related
-- [[data-engineering/README|the data engineering course]] · [[data-engineering/projects|projects]]
-- [[databases/interview/README|databases interview]] — the adjacent round
+- [[data-engineering/index|the data engineering course]] · [[data-engineering/projects|projects]]
+- [[databases/interview/index|databases interview]] — the adjacent round
 - [[INTERVIEW|Interview Prep Index]]

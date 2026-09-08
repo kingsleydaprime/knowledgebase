@@ -18,7 +18,7 @@ An 8-character password from 62 alphanumerics: $62^8 \approx 2.2 \times 10^{14}$
 
 **Sum rule** — mutually exclusive alternatives add.
 
-**Getting these two straight is most of elementary counting.** "And" multiplies, "or" (disjoint) adds — the same structure as [[foundations/discrete-math/02-logic|logic]] and [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|probability]], which is not a coincidence.
+**Getting these two straight is most of elementary counting.** "And" multiplies, "or" (disjoint) adds — the same structure as [[foundations/discrete-math/02-logic|logic]] and [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]], which is not a coincidence.
 
 ## Permutations and combinations
 
@@ -118,13 +118,13 @@ It's also why **UUID collisions are unlikely but not impossible** (122 random bi
 
 $$P(\text{event}) = \frac{|\text{favourable outcomes}|}{|\text{all outcomes}|}$$
 
-Which is why combinatorics comes first. Full treatment: [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|Probability and Statistics]].
+Which is why combinatorics comes first. Full treatment: [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]].
 
 **The link worth noting:** $\binom{n}{k}p^k(1-p)^{n-k}$ — the binomial distribution — is *literally* a combination times a product-rule probability. The $\binom{n}{k}$ counts which $k$ of the $n$ trials succeeded.
 
 ## Where counting is applied
 
-**Security and passwords.** Entropy is $\log_2(\text{number of possibilities})$. **A 12-character random password from 94 printable ASCII characters has $\log_2(94^{12}) \approx 79$ bits.** A memorable passphrase of 5 words from a 7,776-word list has $\log_2(7776^5) \approx 65$ bits — and is far easier to remember. **Counting is how you compare them honestly.** → [[cybersecurity/06-attacks-and-threats/README|Attacks and Threats]]
+**Security and passwords.** Entropy is $\log_2(\text{number of possibilities})$. **A 12-character random password from 94 printable ASCII characters has $\log_2(94^{12}) \approx 79$ bits.** A memorable passphrase of 5 words from a 7,776-word list has $\log_2(7776^5) \approx 65$ bits — and is far easier to remember. **Counting is how you compare them honestly.** → [[cybersecurity/06-attacks-and-threats/index|Attacks and Threats]]
 
 **Complexity analysis.** "How many subsets?" ($2^n$) "How many permutations?" ($n!$) tells you immediately whether exhaustive search is possible. $n!$ at $n=20$ is $2.4\times10^{18}$. → [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]]
 
@@ -158,6 +158,6 @@ Multiply then divide, in that order — the intermediate is always an integer.
 
 ## Related
 - [[foundations/discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — power sets and cardinality
-- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|Probability and Statistics]] — where counting becomes probability
+- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — where counting becomes probability
 - [[cybersecurity/05-cryptography/03-hashing-and-integrity|Hashing and Integrity]] — the birthday bound applied
-- [[foundations/discrete-math/README|Discrete maths map]]
+- [[foundations/discrete-math/index|Discrete maths map]]

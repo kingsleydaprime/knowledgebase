@@ -146,4 +146,4 @@ Strain is one of the few quantities here you measure directly.
 - [[engineering/01-continuum-mechanics/05-stress|Stress]] — the conjugate quantity
 - [[engineering/01-continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — strain's first real use
 - [[engineering/01-continuum-mechanics/10-finite-deformation|Finite Deformation]] — when small strain fails
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

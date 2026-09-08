@@ -4,7 +4,7 @@
 
 ## Why self-host
 
-**Data residency** is the real reason. A workflow reading your email, touching your CRM and holding credentials for twenty services is a high-value target and a compliance question. Self-hosting means that data never leaves infrastructure you control → [[cybersecurity/08-governance-risk-and-compliance/README|GRC]].
+**Data residency** is the real reason. A workflow reading your email, touching your CRM and holding credentials for twenty services is a high-value target and a compliance question. Self-hosting means that data never leaves infrastructure you control → [[cybersecurity/08-governance-risk-and-compliance/index|GRC]].
 
 Secondary: cost at volume (cloud plans price per execution), no execution limits, and network access to internal systems a hosted service cannot reach.
 
@@ -47,11 +47,11 @@ services:
 volumes: { pgdata: {}, n8n_data: {} }
 ```
 
-Behind a reverse proxy terminating TLS → [[devops/08-networking-and-web/README|networking and web]].
+Behind a reverse proxy terminating TLS → [[devops/08-networking-and-web/index|networking and web]].
 
 **Five things in there that are load-bearing:**
 
-**1. Use PostgreSQL, not the default SQLite.** SQLite is the default and is fine for evaluation only — it degrades badly with concurrent executions and makes backups awkward → [[databases/README|databases]].
+**1. Use PostgreSQL, not the default SQLite.** SQLite is the default and is fine for evaluation only — it degrades badly with concurrent executions and makes backups awkward → [[databases/index|databases]].
 
 **2. `N8N_ENCRYPTION_KEY` is the whole security model.** Every stored credential is encrypted with it. **Set it explicitly, back it up separately from the database, and never rotate it casually** — lose it and every credential must be re-entered by hand. A backup of the database *without* this key is useless.
 
@@ -78,7 +78,7 @@ The default is one process doing everything. Past a few hundred executions an ho
 
 **Upgrades:** pin a version tag rather than `latest`, read the release notes for breaking node changes, and **test on a copy first.** Workflows can break on upgrade when a node's behaviour changes.
 
-**Version control:** export workflows to JSON and commit them, or use the paid Git integration. **Without this, your automations exist only in a database** with no history and no review → [[git/README|git]].
+**Version control:** export workflows to JSON and commit them, or use the paid Git integration. **Without this, your automations exist only in a database** with no history and no review → [[git/index|git]].
 
 **Access control:** the free tier's user management is basic. **Anyone who can edit a workflow can use every stored credential** — they can't read the secret, but they can make it call anything. Treat editor access as credential access, and keep the instance off the public internet if you can, or behind SSO.
 
@@ -96,8 +96,8 @@ The default is one process doing everything. Past a few hundred executions an ho
 
 ## Related
 - [[ai-automation/05-error-handling-and-retries|error handling and retries]]
-- [[devops/02-docker/README|Docker]] · [[devops/04-vps/vps-setup|VPS setup]]
-- [[devops/09-secret-management/README|secret management]] — the encryption-key argument
+- [[devops/02-docker/index|Docker]] · [[devops/04-vps/vps-setup|VPS setup]]
+- [[devops/09-secret-management/index|secret management]] — the encryption-key argument
 - [[databases/12-operating-a-database|operating a database]]
 
 *Source: [reference] — from the n8n self-hosting documentation, Aug 2026.*

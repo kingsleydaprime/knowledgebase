@@ -89,7 +89,7 @@ The split that kept it clean: **reads happen in TS** (the resolver, running unde
 
 ## The general version of this
 - [[backend/05-auth/02-authorization|Authorization (concepts)]] — RBAC/ABAC and why authz belongs at the data layer
-- [[cybersecurity/04-web-security/README|Web security]] — the attacks RLS is defending against
+- [[cybersecurity/04-web-security/index|Web security]] — the attacks RLS is defending against
 - [[databases/sql-reference|SQL reference]]
 
-↑ [[projects/README|All projects and the domains they exercise]]
+↑ [[projects/index|All projects and the domains they exercise]]

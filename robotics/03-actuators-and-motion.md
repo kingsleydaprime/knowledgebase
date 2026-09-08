@@ -160,4 +160,4 @@ Tying it together — the chain from "move there" to actual movement:
 - [[robotics/09-robot-control|Robot Control]] — the loops that drive these
 - [[hardware/01-electricity|Electricity]] — power, current, and why motors are noisy
 - [[hardware/04-microcontrollers|Microcontrollers]] — PWM, timers, and what generates these signals
-- [[robotics/README|Robotics map]]
+- [[robotics/index|Robotics map]]

@@ -96,7 +96,7 @@ if (result.IsSuccess) { … } else { … }
 
 **The case for results:** the failure is in the *type signature*, so the compiler makes you handle it. You can't forget. And exceptions are expensive when thrown frequently — a throw costs microseconds, which matters in a hot loop.
 
-**The case against, in C# specifically:** the language and the entire BCL are exception-based, so you end up converting at every boundary. There's no built-in `Result<T>`, no `?` operator, and no exhaustiveness checking on your own union — so you get the verbosity without the guarantees → [[languages/03-rust/README|Rust's `Result`]] and [[languages/02-go/05-errors|Go's errors as values]].
+**The case against, in C# specifically:** the language and the entire BCL are exception-based, so you end up converting at every boundary. There's no built-in `Result<T>`, no `?` operator, and no exhaustiveness checking on your own union — so you get the verbosity without the guarantees → [[languages/03-rust/index|Rust's `Result`]] and [[languages/02-go/05-errors|Go's errors as values]].
 
 **The pragmatic position, and the one most codebases land on:** exceptions for genuinely exceptional and unrecoverable conditions; **`TryParse`-style methods or a result type for expected failures** — "not found", "invalid input", "already exists".
 

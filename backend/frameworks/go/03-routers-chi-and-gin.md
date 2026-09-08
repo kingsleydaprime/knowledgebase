@@ -163,5 +163,5 @@ Fiber deserves a warning: fasthttp is faster in benchmarks and incompatible with
 - [[backend/frameworks/go/01-net-http-in-depth|net/http in Depth]] — what these wrap
 - [[backend/frameworks/go/02-middleware-as-composition|Middleware as Composition]] — the interface Chi preserves
 - [[backend/frameworks/go/04-structuring-a-go-service|Structuring a Go Service]] — where routes get wired
-- [[backend/frameworks/README|frameworks/]] — the cross-stack translation table
-- [[backend/frameworks/go/README|Go backends]]
+- [[backend/frameworks/index|frameworks/]] — the cross-stack translation table
+- [[backend/frameworks/go/index|Go backends]]

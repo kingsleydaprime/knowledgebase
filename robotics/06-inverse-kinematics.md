@@ -147,4 +147,4 @@ The first term achieves the task. **The second does whatever you like, projected
 - [[robotics/05-forward-kinematics-and-dh-parameters|Forward Kinematics]] — the easy direction
 - [[robotics/07-jacobians-and-singularities|Jacobians and Singularities]] — the maths this depends on
 - [[robotics/10-motion-planning|Motion Planning]] — where IK gets called in a loop
-- [[robotics/README|Robotics map]]
+- [[robotics/index|Robotics map]]

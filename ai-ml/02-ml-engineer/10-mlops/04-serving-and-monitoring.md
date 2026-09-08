@@ -1,6 +1,6 @@
 # Serving & Operations
 
-**Source:** the original project's deployment note, re-homed into the MLOps section and trimmed so drift/monitoring depth lives in its own note ([[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|monitoring & edge]]). Getting a trained model out of a notebook and operating it: serving predictions, versioning, safe rollout, and retraining. The infra underneath is [[devops/README|DevOps]] ([[devops/02-docker/README|Docker]]/[[devops/05-orchestration/README|k8s]]/[[devops/10-observability/README|observability]]) — this is the ML-specific layer on top.
+**Source:** the original project's deployment note, re-homed into the MLOps section and trimmed so drift/monitoring depth lives in its own note ([[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|monitoring & edge]]). Getting a trained model out of a notebook and operating it: serving predictions, versioning, safe rollout, and retraining. The infra underneath is [[devops/index|DevOps]] ([[devops/02-docker/index|Docker]]/[[devops/05-orchestration/index|k8s]]/[[devops/10-observability/index|observability]]) — this is the ML-specific layer on top.
 
 ## Serving — getting predictions out of a model
 
@@ -43,4 +43,4 @@ The classic silent killer — if serving-time preprocessing doesn't *exactly* ma
 - [[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|Monitoring & Edge]] — catching the drift that triggers retraining
 - [[ai-ml/02-ml-engineer/10-mlops/02-experiment-tracking-and-pipelines|Experiment Tracking & Pipelines]] — model registry, feature stores, orchestration
 - [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/02-training-from-scratch-vs-fine-tuning|Training From Scratch vs Fine-Tuning]] — what produced the model being served
-- [[devops/README|DevOps]] — the operational disciplines this borrows from
+- [[devops/index|DevOps]] — the operational disciplines this borrows from

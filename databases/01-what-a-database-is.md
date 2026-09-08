@@ -2,7 +2,7 @@
 
 **[Beginner → Intermediate]** — Why not just use files, what ACID actually buys you, and how the landscape is shaped.
 
-**Source:** `[reference]` — see [[databases/README|the domain note]].
+**Source:** `[reference]` — see [[databases/index|the domain note]].
 
 ## Why not just files
 
@@ -94,7 +94,7 @@ Store your records as JSON on disk. Then:
 - **A graph database** — traversals of unbounded depth are the *primary* query. Recursive CTEs handle shallow cases fine
 - **A column store** — analytical scans over hundreds of millions of rows
 
-**Polyglot persistence** — using several — is legitimate and it costs you: more operational surface, more failure modes, and **consistency between stores becomes your problem.** → [[architecture/04-distributed-systems/README|Distributed Systems]]
+**Polyglot persistence** — using several — is legitimate and it costs you: more operational surface, more failure modes, and **consistency between stores becomes your problem.** → [[architecture/04-distributed-systems/index|Distributed Systems]]
 
 ## The NoSQL story
 
@@ -138,4 +138,4 @@ Worth knowing because the vocabulary is still around.
 - [[databases/02-the-relational-model|The Relational Model]] — the theory under SQL
 - [[databases/03-storage-and-page-layout|Storage and Page Layout]] — where the bytes go
 - [[databases/sql-reference|SQL Reference]] — the syntax layer
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]

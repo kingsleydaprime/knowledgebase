@@ -87,7 +87,7 @@ CLS ≤ 0.1
 ## Related
 - [[frontend/07-practices/01-frontend-best-practices|frontend best practices]]
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser and the DOM]]
-- [[frontend/02-rendering/README|rendering]] — strategy affects LCP directly
+- [[frontend/02-rendering/index|rendering]] — strategy affects LCP directly
 - [[foundations/computer-architecture/12-performance|performance method]]
 
 *Source: [reference] — from web.dev and the Core Web Vitals documentation, Aug 2026.*

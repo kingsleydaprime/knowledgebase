@@ -67,10 +67,10 @@ Referencing data from earlier nodes:
 
 Stored encrypted, referenced by name, **never inline in a node's parameters.**
 
-n8n handles the OAuth dance for supported services, which is a large part of the value — implementing OAuth2 refresh correctly against six providers is a genuine project → [[backend/05-auth/README|auth]].
+n8n handles the OAuth dance for supported services, which is a large part of the value — implementing OAuth2 refresh correctly against six providers is a genuine project → [[backend/05-auth/index|auth]].
 
 **Two things that matter operationally:**
-- Credentials are encrypted with a key from `N8N_ENCRYPTION_KEY`. **Lose that key and every stored credential is unrecoverable** — back it up separately from the database → [[devops/09-secret-management/README|secret management]]
+- Credentials are encrypted with a key from `N8N_ENCRYPTION_KEY`. **Lose that key and every stored credential is unrecoverable** — back it up separately from the database → [[devops/09-secret-management/index|secret management]]
 - Anyone who can edit a workflow can *use* a credential — they can't read the secret back, but they can make it call anything. **Editor access is effectively credential access**
 
 ## Executions, and how you debug
@@ -91,7 +91,7 @@ Every run is recorded: input and output **at every node**, timing, and status.
 
 **Worth saying plainly, because this folder is not a sales pitch:**
 
-- **Diffing and code review are poor.** A workflow is JSON; a meaningful diff of a node graph is hard, and reviewing one in a pull request is unpleasant → [[git/README|git]]
+- **Diffing and code review are poor.** A workflow is JSON; a meaningful diff of a node graph is hard, and reviewing one in a pull request is unpleasant → [[git/index|git]]
 - **Testing is weak.** There's no real unit-test story; you test by running it
 - **Complex logic becomes unreadable faster than code does.** Thirty nodes with nested branches is worse than the equivalent 200 lines
 - **Version control needs deliberate setup** — export to files, or use the paid Git integration
@@ -101,6 +101,6 @@ Every run is recorded: input and output **at every node**, timing, and status.
 ## Related
 - [[ai-automation/03-connecting-apis-and-webhooks|connecting APIs and webhooks]]
 - [[ai-automation/01-what-workflow-automation-is|what workflow automation is]]
-- [[devops/09-secret-management/README|secret management]] — the credential-store argument
+- [[devops/09-secret-management/index|secret management]] — the credential-store argument
 
 *Source: [reference] — from the n8n documentation, Aug 2026.*

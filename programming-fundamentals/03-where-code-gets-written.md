@@ -31,9 +31,9 @@ The editor is a window. The actual work is done by programs it calls:
 - **A build tool** — orchestrates the steps for anything non-trivial
 - **A debugger**
 - **A formatter and a linter** — one fixes layout, one flags suspicious patterns
-- **[[git/README|Git]]** — version control, which is not optional and which you should start using on day one, not "once the project is real"
+- **[[git/index|Git]]** — version control, which is not optional and which you should start using on day one, not "once the project is real"
 
-**All of these exist independently of your editor.** That matters, because it's why the same project builds identically in [[devops/06-ci-cd/README|CI]] where there's no editor at all — and it's why "it works on my machine" is a solvable problem rather than a mystery.
+**All of these exist independently of your editor.** That matters, because it's why the same project builds identically in [[devops/06-ci-cd/index|CI]] where there's no editor at all — and it's why "it works on my machine" is a solvable problem rather than a mystery.
 
 ## The terminal
 
@@ -51,7 +51,7 @@ cat file.txt        # print a file
 python3 script.py   # run a program
 ```
 
-You do not need to memorise more than that to start. Fluency accumulates from use, and it's worth having: everything in [[devops/01-linux/README|devops]] assumes it, servers have no other interface, and [[devops/01-linux/12-bash-scripting|scripting]] turns anything repetitive into something you do once.
+You do not need to memorise more than that to start. Fluency accumulates from use, and it's worth having: everything in [[devops/01-linux/index|devops]] assumes it, servers have no other interface, and [[devops/01-linux/12-bash-scripting|scripting]] turns anything repetitive into something you do once.
 
 **Terminal vs shell vs console**, since the words get used loosely: the **terminal** is the window, the **shell** is the program inside it interpreting what you type (`bash`, `zsh`, `fish`), and the **console** is where a running program prints its output. In practice people say all three interchangeably and it rarely causes confusion.
 
@@ -75,7 +75,7 @@ System.out.println("hello");   // Java
 
 **Instrumentation for you.** Printing a value to find out what it actually is at that moment. Crude, universally available, and genuinely one of the most effective debugging tools there is. → [[foundations/programming-fundamentals/10-errors-and-debugging|note 10]].
 
-**In real systems, printing grows up into [[devops/10-observability/README|logging]]** — same idea, with severity levels, timestamps, and somewhere durable to go. When you eventually meet structured logging, it's this.
+**In real systems, printing grows up into [[devops/10-observability/index|logging]]** — same idea, with severity levels, timestamps, and somewhere durable to go. When you eventually meet structured logging, it's this.
 
 ## The REPL
 
@@ -106,8 +106,8 @@ Press **F12** in your browser right now and you have a JavaScript REPL. That's a
 ## Related
 - [[foundations/programming-fundamentals/04-syntax-and-the-shape-of-a-statement|syntax]] — what the editor is checking
 - [[foundations/programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the debugger, properly
-- [[git/README|git/]] — start using it now, not later
-- [[devops/01-linux/README|Linux]] — where the terminal goes next
+- [[git/index|git/]] — start using it now, not later
+- [[devops/01-linux/index|Linux]] — where the terminal goes next
 - [[tools/neovim/neovim-setup|Neovim]] — if the editor itself becomes an interest
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the terminal/REPL material it skipped as language-specific.*

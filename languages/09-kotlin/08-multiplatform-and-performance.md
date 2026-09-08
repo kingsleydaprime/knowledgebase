@@ -39,7 +39,7 @@ actual class Platform { actual val name = UIDevice.currentDevice.systemName() }
 
 ## Performance
 
-**It's the JVM, so [[languages/01-java/README|everything in the Java course]] applies** — GC, JIT, escape analysis, the memory model. Kotlin's own costs are on top of that.
+**It's the JVM, so [[languages/01-java/index|everything in the Java course]] applies** — GC, JIT, escape analysis, the memory model. Kotlin's own costs are on top of that.
 
 **Where Kotlin adds overhead:**
 
@@ -79,6 +79,6 @@ actual class Platform { actual val name = UIDevice.currentDevice.systemName() }
 
 ## Related
 - [[mobile/14-native-vs-cross-platform|native vs cross-platform]] — where KMP fits
-- [[languages/01-java/README|Java]] — the JVM performance model
+- [[languages/01-java/index|Java]] — the JVM performance model
 - [[languages/09-kotlin/05-coroutines-and-flow|coroutines]] — cheap concurrency
 - [[foundations/computer-architecture/12-performance|performance method]]

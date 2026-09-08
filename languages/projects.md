@@ -12,7 +12,7 @@ Java has the deepest project list in the vault, aimed at the low-latency target:
 
 ## Go
 
-- 🟢 **A CLI with real ergonomics** — flags, subcommands, `context` cancellation on Ctrl-C, and useful `--help`. **Done when:** Ctrl-C during work exits cleanly, mid-operation. Exercises: [[languages/02-go/README|Go]].
+- 🟢 **A CLI with real ergonomics** — flags, subcommands, `context` cancellation on Ctrl-C, and useful `--help`. **Done when:** Ctrl-C during work exits cleanly, mid-operation. Exercises: [[languages/02-go/index|Go]].
 - 🟡 ⭐ **A concurrent worker pool with backpressure** — bounded channels, `errgroup`, graceful shutdown, and a rate limit. **Done when:** you can kill it mid-flight and no goroutine leaks (verify with `goleak`). **This is Go's whole thesis** — CSP concurrency as a first-class tool.
 - 🟡 **A load-testing tool** — concurrent HTTP requests, latency histogram, p50/p95/p99 output. **Done when:** your numbers agree with `hey` or `k6` on the same target.
 - 🔴 **Build your own container** — [[build-your-own-shit/08-your-own-container|the guide]] in Go. Namespaces, cgroups, pivot_root.
@@ -28,7 +28,7 @@ Java has the deepest project list in the vault, aimed at the low-latency target:
 
 - 🟢 ⭐ **Build your own shell** — [[build-your-own-shit/07-your-own-shell|the guide]]. `fork`/`exec`/`dup2`/pipes, in the language where the syscall *is* the lesson. **The best C project there is.**
 - 🟡 **A memory allocator** — [[build-your-own-shit/11-your-own-memory-allocator|the guide]]. **Done when:** `LD_PRELOAD=./myalloc.so ls` works.
-- 🟡 **Find your own UB** — write something with a deliberate off-by-one, then find it with ASan, Valgrind and UBSan. **Done when:** you've seen the same bug reported three different ways. Exercises: [[languages/04-c/README|C]].
+- 🟡 **Find your own UB** — write something with a deliberate off-by-one, then find it with ASan, Valgrind and UBSan. **Done when:** you've seen the same bug reported three different ways. Exercises: [[languages/04-c/index|C]].
 
 ## C++
 
@@ -39,14 +39,14 @@ Java has the deepest project list in the vault, aimed at the low-latency target:
 ## Python
 
 - 🟢 **Solve the exercises you have** — [[languages/06-python/18-practice-exercises|18-practice-exercises]] is already written. Do it.
-- 🟢 ⭐ **Break the data model on purpose** — mutable default arguments, late-binding closures in loops, `is` vs `==`, shared class attributes. **Done when:** you can predict each gotcha's output before running it. Exercises: [[languages/06-python/README|the data model]].
-- 🟡 **Prove the GIL to yourself** — the same CPU-bound work with threads, `multiprocessing`, and `asyncio`. **Done when:** you can explain from your own timings why threads didn't help. Exercises: [[languages/06-python/README|the GIL]].
+- 🟢 ⭐ **Break the data model on purpose** — mutable default arguments, late-binding closures in loops, `is` vs `==`, shared class attributes. **Done when:** you can predict each gotcha's output before running it. Exercises: [[languages/06-python/index|the data model]].
+- 🟡 **Prove the GIL to yourself** — the same CPU-bound work with threads, `multiprocessing`, and `asyncio`. **Done when:** you can explain from your own timings why threads didn't help. Exercises: [[languages/06-python/index|the GIL]].
 - 🟡 **A decorator library** — retry with backoff, caching, and timing, all preserving signatures with `functools.wraps`. **Done when:** `help()` on a decorated function still shows the right signature.
 
 ## C#
 
-- 🟡 **An async pipeline with `IAsyncEnumerable`** — stream, transform, cancel. **Done when:** cancellation propagates end to end. Exercises: [[languages/07-csharp/README|C#]].
-- 🟡 ⭐ **A Unity game jam entry** — the reason [[languages/07-csharp/README|C#]] is in this vault. Ship something in 48 hours → [[game-development/README|game development]].
+- 🟡 **An async pipeline with `IAsyncEnumerable`** — stream, transform, cancel. **Done when:** cancellation propagates end to end. Exercises: [[languages/07-csharp/index|C#]].
+- 🟡 ⭐ **A Unity game jam entry** — the reason [[languages/07-csharp/index|C#]] is in this vault. Ship something in 48 hours → [[game-development/index|game development]].
 - 🟡 **Zero-allocation parsing with `Span<T>`** — parse a large file with no heap allocations on the hot path. **Done when:** a profiler shows zero Gen0 collections during parsing.
 
 ## If you only do one
@@ -54,6 +54,6 @@ Java has the deepest project list in the vault, aimed at the low-latency target:
 **The same program in three languages.** It's a weekend, and it converts seven separate courses into one comparative understanding — which is the thing that actually makes you good at picking tools.
 
 ## Related
-- [[languages/README|the languages index]]
-- [[build-your-own-shit/README|build-your-own-shit]] — most guides name the right language for the lesson
+- [[languages/index|the languages index]]
+- [[build-your-own-shit/index|build-your-own-shit]] — most guides name the right language for the lesson
 - [[project-ideas|Project Ideas]] — the vault-wide index

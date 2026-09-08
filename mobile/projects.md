@@ -24,13 +24,13 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🔴 ⭐ **The same app, two ways** — build one small app natively **and** in Flutter or React Native. **Done when:** you can name three things each made easy and three each made painful. **This is the only way to have an informed opinion** on [[mobile/14-native-vs-cross-platform|the native-vs-cross-platform question]], and it's the answer interviewers actually respect.
 
-- 🔴 **Something that uses the hardware** — camera with real-time processing, background location with a geofence, BLE to a device you built → [[hardware/README|hardware]]. **Done when:** it works on a real device, in real conditions, with permissions denied at least once.
+- 🔴 **Something that uses the hardware** — camera with real-time processing, background location with a geofence, BLE to a device you built → [[hardware/index|hardware]]. **Done when:** it works on a real device, in real conditions, with permissions denied at least once.
 
 ## If you only do one
 
 **Ship a small app to a store.** Not because the app matters, but because the pipeline does — signing, privacy declarations, review, rejection, staged rollout, and a crash report from a device you've never seen. **You cannot simulate that**, and it's the single clearest signal in mobile hiring.
 
 ## Related
-- [[mobile/README|the mobile course]] · [[mobile/interview/README|interview bank]]
-- [[mobile/frameworks/README|frameworks]] — pick your stack
+- [[mobile/index|the mobile course]] · [[mobile/interview/index|interview bank]]
+- [[mobile/frameworks/index|frameworks]] — pick your stack
 - [[project-ideas|Project Ideas]] — the vault-wide index

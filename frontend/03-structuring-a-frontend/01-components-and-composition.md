@@ -40,7 +40,7 @@
 
 **2. Move state down.** If only one subtree needs it, it doesn't belong at the top.
 
-**3. Context — for genuinely ambient values.** Theme, locale, the current user, a client instance. **Things that rarely change** → [[frontend/04-state-and-data/README|state and data]].
+**3. Context — for genuinely ambient values.** Theme, locale, the current user, a client instance. **Things that rarely change** → [[frontend/04-state-and-data/index|state and data]].
 
 **4. A store with selectors** — when many components need fine-grained slices and context would re-render everything.
 
@@ -80,7 +80,7 @@ Flexible layout, no prop explosion.
 
 **Render props / slots** — the consumer supplies the markup, the component supplies the behaviour. Largely superseded by hooks in React; still central in Vue and Svelte.
 
-**Headless components** — behaviour and accessibility with **no styling** (Radix, Headless UI, TanStack Table). **The best of these are also the best accessibility you'll get for free** — focus traps, ARIA, keyboard handling done properly by people who specialise in it → [[frontend/06-cross-cutting/README|accessibility]].
+**Headless components** — behaviour and accessibility with **no styling** (Radix, Headless UI, TanStack Table). **The best of these are also the best accessibility you'll get for free** — focus traps, ARIA, keyboard handling done properly by people who specialise in it → [[frontend/06-cross-cutting/index|accessibility]].
 
 ## When to extract
 
@@ -94,9 +94,9 @@ Flexible layout, no prop explosion.
 **Premature extraction produces components with nine props and a boolean that switches behaviour** — which is worse than the duplication it replaced. **Duplication is cheaper than the wrong abstraction.**
 
 ## Related
-- [[frontend/04-state-and-data/README|state and data]] — where state lives
-- [[backend/03-structuring-a-backend/README|structuring a backend]] — the same arguments, other end
-- [[frontend/frameworks/react/README|React]] — the specifics
-- [[concepts/03-design-patterns/README|design patterns]]
+- [[frontend/04-state-and-data/index|state and data]] — where state lives
+- [[backend/03-structuring-a-backend/index|structuring a backend]] — the same arguments, other end
+- [[frontend/frameworks/react/index|React]] — the specifics
+- [[concepts/03-design-patterns/index|design patterns]]
 
 *Source: [reference] — written Aug 2026.*

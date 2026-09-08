@@ -27,7 +27,7 @@ The definition worth internalising:
 
 > **The state is the minimum set of variables such that, knowing $\mathbf{x}(t_0)$ and $\mathbf{u}(t)$ for $t \geq t_0$, you can determine all future behaviour.**
 
-**The state is a complete summary of the past.** Nothing about the history before $t_0$ matters beyond what's in $\mathbf{x}(t_0)$ — which is the same Markov property that shows up in [[ai-ml/03-ai-engineer/README|reinforcement learning]] and in queueing theory, and for the same reason.
+**The state is a complete summary of the past.** Nothing about the history before $t_0$ matters beyond what's in $\mathbf{x}(t_0)$ — which is the same Markov property that shows up in [[ai-ml/03-ai-engineer/index|reinforcement learning]] and in queueing theory, and for the same reason.
 
 **Choosing states** — usually the energy-storing elements, because energy can't change instantaneously:
 
@@ -96,7 +96,7 @@ $$\text{Stable} \iff \text{all eigenvalues of } A \text{ have negative real part
 
 Everything from the classical notes transfers directly. Complex eigenvalue pairs are oscillatory modes; the rightmost eigenvalue dominates; $\zeta$ and $\omega_n$ are read off the same way. → [[engineering/02-control-theory/03-time-response|Time Response]]
 
-**Eigenvectors are the mode shapes** — the direction in state space along which that mode acts. In a building model, an eigenvalue tells you the frequency and damping of a vibration mode; the eigenvector tells you what the building looks like while doing it. → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|Linear Algebra]]
+**Eigenvectors are the mode shapes** — the direction in state space along which that mode acts. In a building model, an eigenvalue tells you the frequency and damping of a vibration mode; the eigenvector tells you what the building looks like while doing it. → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
 
 **Modal form:** transform to $\bar{A} = \Lambda$ (diagonal, eigenvalues on the diagonal) and the modes fully decouple — $n$ independent first-order systems. That's the cleanest way to see what a system is doing.
 
@@ -159,5 +159,5 @@ $$A_d = e^{AT}, \qquad B_d = \left(\int_0^T e^{A\tau}d\tau\right)B = A^{-1}(A_d 
 ## Related
 - [[engineering/02-control-theory/09-controllability-observability-and-pole-placement|Controllability, Observability, Pole Placement]] — what you can do with this
 - [[engineering/02-control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]] — the classical representation
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|Linear Algebra]] — eigenvalues and eigenvectors
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvalues and eigenvectors
+- [[engineering/02-control-theory/index|Control theory map]]

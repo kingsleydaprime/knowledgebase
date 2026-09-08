@@ -92,7 +92,7 @@ function AddToCart({ id }) { const [n, setN] = useState(1); /* … */ }
 - Server Components can render Client Components; **the reverse only via `children`**
 - No `useState`, `useEffect` or browser APIs in a Server Component
 
-**The honest assessment:** RSC is a genuine reduction in shipped JavaScript and a real increase in mental overhead. **The benefit scales with how content-heavy the app is.** A dashboard that's interactive throughout gains little; a commerce or content site gains a lot → [[frontend/frameworks/next/README|Next.js]].
+**The honest assessment:** RSC is a genuine reduction in shipped JavaScript and a real increase in mental overhead. **The benefit scales with how content-heavy the app is.** A dashboard that's interactive throughout gains little; a commerce or content site gains a lot → [[frontend/frameworks/next/index|Next.js]].
 
 ## Choosing
 
@@ -110,8 +110,8 @@ function AddToCart({ id }) { const [n, setN] = useState(1); /* … */ }
 
 ## Related
 - [[frontend/02-rendering/01-rendering-strategies|rendering strategies]] — CSR/SSR/SSG/ISR
-- [[frontend/frameworks/next/README|Next.js]] — where most of this is implemented
-- [[frontend/07-practices/README|practices]] — measuring the result
+- [[frontend/frameworks/next/index|Next.js]] — where most of this is implemented
+- [[frontend/07-practices/index|practices]] — measuring the result
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser]] — why blocking matters
 
 *Source: [reference] — written Aug 2026.*

@@ -162,5 +162,5 @@ Every balance law in this field is derived by writing it as a surface plus volum
 ## Related
 - [[engineering/01-continuum-mechanics/03-kinematics-of-deformation|Kinematics of Deformation]] — the first real use
 - [[engineering/01-continuum-mechanics/05-stress|Stress]] — the tensor that motivates all of this
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|Linear Algebra]] — eigenvalues, at the level ML needs
-- [[engineering/01-continuum-mechanics/README|Continuum mechanics map]]
+- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvalues, at the level ML needs
+- [[engineering/01-continuum-mechanics/index|Continuum mechanics map]]

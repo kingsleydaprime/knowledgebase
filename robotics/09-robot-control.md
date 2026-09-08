@@ -2,7 +2,7 @@
 
 **[Intermediate → Advanced]** — Cascaded joint loops, trajectory following, and the control problems specific to machines with arms.
 
-> **The theory is in [[engineering/02-control-theory/README|engineering/02-control-theory]].** PID, tuning, stability, state estimation, LQR — all of it lives there and applies unchanged. **This note is the robotics-specific part**: how those loops are arranged in a real robot, what a manipulator adds, and what goes wrong on hardware.
+> **The theory is in [[engineering/02-control-theory/index|engineering/02-control-theory]].** PID, tuning, stability, state estimation, LQR — all of it lives there and applies unchanged. **This note is the robotics-specific part**: how those loops are arranged in a real robot, what a manipulator adds, and what goes wrong on hardware.
 
 ## The cascade
 
@@ -172,8 +172,8 @@ Roughly in the order you'll meet it:
 ---
 
 ## Related
-- [[engineering/02-control-theory/README|Control Theory]] — the theory this applies
+- [[engineering/02-control-theory/index|Control Theory]] — the theory this applies
 - [[robotics/08-dynamics|Dynamics]] — the model behind feedforward and computed torque
 - [[robotics/10-motion-planning|Motion Planning]] — what generates the trajectories
 - [[robotics/14-safety-and-real-time|Safety and Real-Time]] — the timing guarantees this depends on
-- [[robotics/README|Robotics map]]
+- [[robotics/index|Robotics map]]

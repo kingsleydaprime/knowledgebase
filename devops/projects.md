@@ -6,17 +6,17 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## The ladder
 
-- 🟢 ⭐ **Containerize + deploy one of your apps end to end** — multi-stage [[devops/02-docker/README|Dockerfile]], docker-compose for local, then deploy to a [[devops/04-vps/vps-setup|VPS]] behind [[devops/08-networking-and-web/02-web-servers-and-proxies|Nginx]] with Let's Encrypt TLS. The practical capstone.
-- 🟡 **A real CI/CD pipeline** — extend beyond this vault's deploy workflow: a [[devops/06-ci-cd/README|GitHub Actions]] pipeline for one of your apps that runs typecheck/lint/tests on PRs and deploys on merge, with a build-once-promote-artifact flow.
+- 🟢 ⭐ **Containerize + deploy one of your apps end to end** — multi-stage [[devops/02-docker/index|Dockerfile]], docker-compose for local, then deploy to a [[devops/04-vps/vps-setup|VPS]] behind [[devops/08-networking-and-web/02-web-servers-and-proxies|Nginx]] with Let's Encrypt TLS. The practical capstone.
+- 🟡 **A real CI/CD pipeline** — extend beyond this vault's deploy workflow: a [[devops/06-ci-cd/index|GitHub Actions]] pipeline for one of your apps that runs typecheck/lint/tests on PRs and deploys on merge, with a build-once-promote-artifact flow.
 - 🟡 **Local Kubernetes deploy** — stand up a `kind`/`minikube` cluster, write the [[devops/05-orchestration/01-kubernetes|Deployment/Service/Ingress]] manifests, deploy a containerized app with health probes, and do a rolling update + rollback. Makes the biggest reference gap concrete.
 - 🟡 **Terraform a small cloud setup** — provision a VM + network + managed DB on a throwaway cloud account with [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|Terraform]], read the `plan`, `apply`, then `destroy`. Learn state the safe way.
-- 🔴 **Observability stack** — instrument an app with metrics, run [[devops/10-observability/README|Prometheus + Grafana]] (+ Loki for logs), build a dashboard and an alert on an SLO. The "you can't operate what you can't see" lesson, hands-on.
+- 🔴 **Observability stack** — instrument an app with metrics, run [[devops/10-observability/index|Prometheus + Grafana]] (+ Loki for logs), build a dashboard and an alert on an SLO. The "you can't operate what you can't see" lesson, hands-on.
 - 🟢 **Secrets, done right** — take an app with a committed `.env` and move it to [[devops/09-secret-management/01-secret-management|SOPS or Vault]]; wire it into the deploy.
 
 
 ## Added reps — the operational ones
 
-- 🟡 **Break something on purpose, then write the postmortem** — take down one of your own deployed services (fill a disk, exhaust connections, OOM a container), fix it, and write a blameless postmortem with a timeline. **Done when:** the postmortem names a systemic cause, not a person. Exercises: [[devops/12-sre-and-platform-engineering/README|SRE]].
+- 🟡 **Break something on purpose, then write the postmortem** — take down one of your own deployed services (fill a disk, exhaust connections, OOM a container), fix it, and write a blameless postmortem with a timeline. **Done when:** the postmortem names a systemic cause, not a person. Exercises: [[devops/12-sre-and-platform-engineering/index|SRE]].
 - 🟡 **Define an SLO and burn its error budget** — pick a real service, define an availability or latency SLO, and alert on the burn rate rather than on raw errors. **Done when:** you've deliberately burned budget and the alert fired at the right time.
 - 🟢 **Restore from a backup you've never tested** — back up a real database, then restore it into a fresh environment. **Done when:** the restore works and you know your actual RTO. **Untested backups are the most common operational lie in software.**
 
@@ -28,6 +28,6 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## Related
 
-- [[devops/README|the devops course]] · [[devops/interview/README|interview bank]]
+- [[devops/index|the devops course]] · [[devops/interview/index|interview bank]]
 - [[devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA exercises]] — the Linux fundamentals drill
 - [[project-ideas|Project Ideas]] — the vault-wide index

@@ -117,4 +117,4 @@ func load() async throws -> [Item] {
 - [[languages/08-swift/05-enums-and-pattern-matching|enums]] — how errors are modelled
 - [[languages/08-swift/10-concurrency-and-actors|concurrency]] — async errors and cancellation
 - [[languages/03-rust/07-option-and-result|Rust's Result]] — the comparison
-- [[languages/02-go/README|Go's errors-as-values]] — the other approach
+- [[languages/02-go/index|Go's errors-as-values]] — the other approach

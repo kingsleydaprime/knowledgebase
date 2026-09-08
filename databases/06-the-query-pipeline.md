@@ -142,6 +142,6 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
 
 ## Related
 - [[databases/07-join-algorithms-and-the-optimiser|Join Algorithms and the Optimiser]] — the planning stage in depth
-- [[foundations/compilers/README|Compilers]] — the same pipeline, for languages
+- [[foundations/compilers/index|Compilers]] — the same pipeline, for languages
 - [[databases/sql-reference|SQL Reference]] — §26, query optimisation from the query-writing side
-- [[databases/README|Databases map]]
+- [[databases/index|Databases map]]

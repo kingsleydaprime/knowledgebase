@@ -157,4 +157,4 @@ git cherry-pick --continue                    # Continue after resolving conflic
 - [[git/06-rebasing|Rebasing]] — cherry-pick is the same replay machinery, one commit at a time
 - [[git/09-investigating-history|Investigating History]] — the diff options here extend `git diff`
 - [[git/02-configuration-and-setup|Configuration and Setup]] — `clone --recurse-submodules`
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

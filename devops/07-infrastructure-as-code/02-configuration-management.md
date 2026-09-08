@@ -53,11 +53,11 @@ The two axes: **push (Ansible/Salt) vs pull (Puppet/Chef agents polling a server
 
 ## Where it fits — and the immutable-infrastructure alternative
 
-Config management shines for **long-lived, mutable servers** you patch and evolve in place (a fleet of VMs, on-prem hardware). But the modern container/cloud pattern often sidesteps it entirely with **immutable infrastructure**: instead of mutating a running server, you bake a fresh machine image or container image (with [[devops/02-docker/README|Docker]], or Packer for VM images), and *replace* the old instance rather than reconfiguring it. No drift, because nothing is ever changed in place — you redeploy.
+Config management shines for **long-lived, mutable servers** you patch and evolve in place (a fleet of VMs, on-prem hardware). But the modern container/cloud pattern often sidesteps it entirely with **immutable infrastructure**: instead of mutating a running server, you bake a fresh machine image or container image (with [[devops/02-docker/index|Docker]], or Packer for VM images), and *replace* the old instance rather than reconfiguring it. No drift, because nothing is ever changed in place — you redeploy.
 
-So the honest framing: config management is essential for mutable-server worlds and still ubiquitous, but for containerized/cloud-native stacks the [[devops/02-docker/README|container image]] + [[devops/05-orchestration/01-kubernetes|orchestrator]] often *is* the configuration mechanism, and Ansible/Puppet recede to provisioning the cluster hosts themselves.
+So the honest framing: config management is essential for mutable-server worlds and still ubiquitous, but for containerized/cloud-native stacks the [[devops/02-docker/index|container image]] + [[devops/05-orchestration/01-kubernetes|orchestrator]] often *is* the configuration mechanism, and Ansible/Puppet recede to provisioning the cluster hosts themselves.
 
 ## Related
 - [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|Provisioning & Terraform]] — creates the machines this configures
 - [[devops/01-linux/14-basic-ssh-config|SSH Config]] — Ansible's transport
-- [[devops/02-docker/README|Docker]] — the immutable-image alternative
+- [[devops/02-docker/index|Docker]] — the immutable-image alternative

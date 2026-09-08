@@ -76,7 +76,7 @@ Automate it — mobile release is too error-prone by hand:
 - **CI:** GitHub Actions, Bitrise, Codemagic. **iOS builds need macOS runners**, which is a real cost
 - **Distribute test builds** — TestFlight (iOS), Play Internal Testing / Firebase App Distribution
 - **On every PR:** build, unit test, lint. **On main:** upload to internal testing automatically
-- **Automate version bumps** and changelogs → [[devops/06-ci-cd/README|CI/CD]]
+- **Automate version bumps** and changelogs → [[devops/06-ci-cd/index|CI/CD]]
 
 ## Monitoring — the part that's easy to skip
 
@@ -105,7 +105,7 @@ The part engineers ignore and that determines whether anyone installs:
 ## Related
 - [[mobile/09-permissions-and-privacy|permissions and privacy]] — declarations checked at review
 - [[mobile/11-performance-and-battery|performance]] — the metrics the stores rank on
-- [[devops/06-ci-cd/README|CI/CD]] — the general discipline
-- [[devops/11-delivery-and-advanced/README|delivery]] — staged rollout in the wider sense
+- [[devops/06-ci-cd/index|CI/CD]] — the general discipline
+- [[devops/11-delivery-and-advanced/index|delivery]] — staged rollout in the wider sense
 
 *Source: [reference] — Aug 2026.*

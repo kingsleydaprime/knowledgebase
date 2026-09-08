@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Why you'd formalise something as obvious as "computing", and what the hierarchy of machines is for.
 
-**Source:** `[reference]` — see [[foundations/theory-of-computation/README|the domain note]].
+**Source:** `[reference]` — see [[foundations/theory-of-computation/index|the domain note]].
 
 ## The question
 
@@ -137,12 +137,12 @@ A concept that recurs in every note here, so worth introducing now.
 
 **Reading order:** 02–04 climb the hierarchy (finite automata → regular → context-free). 05–06 are Turing machines and what they can't do. 07–08 are complexity — what they can't do *quickly*.
 
-**Prerequisites:** [[foundations/discrete-math/README|discrete maths]], particularly proof technique, countability, and induction. **The proofs here are the point**, so the ability to follow one matters more than any specific fact.
+**Prerequisites:** [[foundations/discrete-math/index|discrete maths]], particularly proof technique, countability, and induction. **The proofs here are the point**, so the ability to follow one matters more than any specific fact.
 
 ---
 
 ## Related
 - [[foundations/theory-of-computation/02-finite-automata|Finite Automata]] — the bottom of the hierarchy
 - [[foundations/discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — countability, the prerequisite for undecidability
-- [[foundations/compilers/README|Compilers]] — where the hierarchy is applied daily
-- [[foundations/theory-of-computation/README|Theory of computation map]]
+- [[foundations/compilers/index|Compilers]] — where the hierarchy is applied daily
+- [[foundations/theory-of-computation/index|Theory of computation map]]

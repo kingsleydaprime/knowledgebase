@@ -4,7 +4,7 @@
 
 ## What an AI Engineer is (and isn't)
 
-An **AI Engineer builds products on top of pre-trained models** — almost always LLMs — accessed through APIs or run locally. They do **not** train models from scratch or need the deep math the [[ai-ml/02-ml-engineer/README|ML Engineer]] does. Their toolkit is prompting, retrieval (RAG), tool/function calling, agents, and the surrounding production concerns (evals, cost, safety) — software engineering with a model as a component, not model research.
+An **AI Engineer builds products on top of pre-trained models** — almost always LLMs — accessed through APIs or run locally. They do **not** train models from scratch or need the deep math the [[ai-ml/02-ml-engineer/index|ML Engineer]] does. Their toolkit is prompting, retrieval (RAG), tool/function calling, agents, and the surrounding production concerns (evals, cost, safety) — software engineering with a model as a component, not model research.
 
 roadmap.sh draws the line explicitly (it has `ai-engineer-vs-ml-engineer` nodes on both roadmaps):
 
@@ -35,7 +35,7 @@ This narrows the field fast (see [[ai-ml/00-foundations/02-what-is-a-model|what 
 
 | Input/output | Reach for |
 |---|---|
-| Structured/tabular data | classic ML (regression, gradient-boosted trees) — an [[ai-ml/02-ml-engineer/README\|ML-engineer]] job |
+| Structured/tabular data | classic ML (regression, gradient-boosted trees) — an [[ai-ml/02-ml-engineer/index\|ML-engineer]] job |
 | Free-form text in, text/answer out | an LLM |
 | Images in, classification/detection out | a vision model |
 | Text in, new image/audio out | a diffusion / generation model |
@@ -58,5 +58,5 @@ Covered in [[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]] �
 
 ## Related
 - [[ai-ml/00-foundations/01-what-is-ai|What is AI]] — the AI/ML/DL nesting this role sits inside
-- [[ai-ml/02-ml-engineer/README|ML Engineer path]] — the "train the model" sibling
-- [[ai-ml/03-ai-engineer/README|AI Engineer track map]]
+- [[ai-ml/02-ml-engineer/index|ML Engineer path]] — the "train the model" sibling
+- [[ai-ml/03-ai-engineer/index|AI Engineer track map]]

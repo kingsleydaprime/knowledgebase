@@ -63,7 +63,7 @@ Per topic:
 
 The rule on worked solutions: **don't copy them, mine them for the pattern.** Study 1–2 sliding-window solutions → understand what makes a problem a sliding-window problem → close the solutions → solve new ones cold.
 
-**Related:** [[foundations/dsa/README|DSA course]] · [[foundations/dsa/06-patterns/README|LeetCode Patterns]]
+**Related:** [[foundations/dsa/index|DSA course]] · [[foundations/dsa/06-patterns/index|LeetCode Patterns]]
 
 ---
 

@@ -145,4 +145,4 @@ $$\mathbf{u}_{min} \leq \mathbf{u}_k \leq \mathbf{u}_{max}, \qquad \mathbf{x}_{m
 - [[engineering/02-control-theory/09-controllability-observability-and-pole-placement|Pole Placement]] — the alternative way to choose $K$
 - [[engineering/02-control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — the estimation half of LQG
 - [[engineering/02-control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — why margins matter here
-- [[engineering/02-control-theory/README|Control theory map]]
+- [[engineering/02-control-theory/index|Control theory map]]

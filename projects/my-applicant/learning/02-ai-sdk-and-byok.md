@@ -184,4 +184,4 @@ into your data, always bounds-check it.**
 - [[ai-ml/03-ai-engineer/04-calling-models|Calling Models]] · [[ai-ml/03-ai-engineer/08-agents|Agents]]
 - [[ai-ml/interview/01-ai-engineering|AI engineering interview]] — evals, cost control, prompt injection
 
-↑ [[projects/README|All projects and the domains they exercise]]
+↑ [[projects/index|All projects and the domains they exercise]]

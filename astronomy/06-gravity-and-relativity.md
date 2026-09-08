@@ -69,6 +69,6 @@ Wheeler's summary is the one to keep: *spacetime tells matter how to move; matte
 ## Related
 - [[astronomy/04-stars|stars]] — what collapses
 - [[astronomy/07-cosmology|cosmology]] — GR applied to everything
-- [[engineering/02-control-theory/README|control theory]] · [[foundations/numerical-methods/README|numerical methods]] — the maths underneath
+- [[engineering/02-control-theory/index|control theory]] · [[foundations/numerical-methods/index|numerical methods]] — the maths underneath
 
 *Source: [reference] — written Aug 2026.*

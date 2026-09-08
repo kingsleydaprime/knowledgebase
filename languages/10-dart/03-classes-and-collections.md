@@ -25,7 +25,7 @@ class User {
 
 **Named parameters with `required` are the dominant style**, because it's what Flutter's widget constructors use — and with a dozen optional parameters, positional arguments would be unreadable.
 
-**`const` constructors matter more than they look.** A `const` widget is canonicalised and **Flutter can skip rebuilding it entirely**. Turn on `prefer_const_constructors` — it's a free performance win → [[mobile/frameworks/flutter/README|Flutter]].
+**`const` constructors matter more than they look.** A `const` widget is canonicalised and **Flutter can skip rebuilding it entirely**. Turn on `prefer_const_constructors` — it's a free performance win → [[mobile/frameworks/flutter/index|Flutter]].
 
 **`this.field` in the constructor parameter list** assigns directly — no body needed.
 
@@ -135,4 +135,4 @@ final byCity = groupBy(users, (User u) => u.city);
 ## Related
 - [[languages/10-dart/02-types-and-null-safety|types and null safety]]
 - [[languages/10-dart/06-tooling-and-codegen|codegen]] — `freezed`, and why you need it
-- [[mobile/frameworks/flutter/README|Flutter]] — where the collection syntax pays off
+- [[mobile/frameworks/flutter/index|Flutter]] — where the collection syntax pays off

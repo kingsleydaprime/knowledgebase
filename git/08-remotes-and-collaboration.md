@@ -69,4 +69,4 @@ git push -u origin feature/my-feature
 - [[git/13-branching-strategies|Branching Strategies]] — the forking workflow in full
 - [[git/14-github-and-ci|GitHub as a Platform]] — the rules a remote enforces on push
 - [[git/04-branching|Branching]] — tracking branches
-- [[git/README|Git course map]]
+- [[git/index|Git course map]]

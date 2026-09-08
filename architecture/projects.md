@@ -6,11 +6,11 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## The ladder
 
-- 🟢 **Write a design doc for something you already built** — context, constraints, options considered, decision, trade-offs accepted. **Done when:** someone else could rebuild it from the doc, and you've named at least one thing you'd do differently. Exercises: [[architecture/01-system-design-fundamentals/README|fundamentals]].
+- 🟢 **Write a design doc for something you already built** — context, constraints, options considered, decision, trade-offs accepted. **Done when:** someone else could rebuild it from the doc, and you've named at least one thing you'd do differently. Exercises: [[architecture/01-system-design-fundamentals/index|fundamentals]].
 
 - 🟢 **Do five system-design questions on a whiteboard, out loud, timed** — 45 minutes each, using [[architecture/system-design-reference|the cheat sheet]] only afterwards to check yourself. **Done when:** you stop drawing boxes and start naming numbers (QPS, storage, bandwidth).
 
-- 🟡 **Cache invalidation, for real** — put Redis in front of a real read path in one of your apps. **Done when:** you've handled a stampede, chosen a TTL you can justify, and can describe the staleness window a user might see. Exercises: [[architecture/02-building-blocks/README|caching]].
+- 🟡 **Cache invalidation, for real** — put Redis in front of a real read path in one of your apps. **Done when:** you've handled a stampede, chosen a TTL you can justify, and can describe the staleness window a user might see. Exercises: [[architecture/02-building-blocks/index|caching]].
 
 - 🟡 ⭐ **Break your own system** — take a service you built, run it with a dependency behind a proxy (Toxiproxy), and inject latency, packet loss, and hard failures. **Done when:** you've found at least one failure mode you didn't know you had, and fixed it. Exercises: [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|why this is hard]].
 
@@ -22,13 +22,13 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🔴 **Implement a CRDT and prove convergence** — a G-counter, then an LWW-set, then a text CRDT. **Done when:** randomised concurrent operations in any order converge, verified by a property test. Exercises: [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs]].
 
-- 🔴 **Rebuild one case study** — pick something from [[architecture/05-case-studies/README|case studies]] and actually build a toy of it end to end. **Done when:** it handles a load test and you've written up where your design diverges from the real one.
+- 🔴 **Rebuild one case study** — pick something from [[architecture/05-case-studies/index|case studies]] and actually build a toy of it end to end. **Done when:** it handles a load test and you've written up where your design diverges from the real one.
 
 ## If you only do one
 
 **Raft.** Every distributed-systems idea in this folder — leaders, terms, quorums, split brain, linearisability — stops being vocabulary the first time your own cluster elects a leader after you killed one.
 
 ## Related
-- [[architecture/README|the architecture course]] · [[architecture/interview/README|interview bank]]
+- [[architecture/index|the architecture course]] · [[architecture/interview/index|interview bank]]
 - [[architecture/system-design-reference|system design cheat sheet]]
 - [[project-ideas|Project Ideas]] — the vault-wide index

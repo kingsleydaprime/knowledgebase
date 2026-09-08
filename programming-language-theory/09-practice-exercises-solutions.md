@@ -26,7 +26,7 @@ Correctly: alpha-convert first, $\lambda y.\,x \equiv \lambda y'.\,x$, then subs
 
 **The rule: when substituting into a term with a binder, rename the bound variable if it would capture a free variable of what you're substituting.**
 
-**Every first implementation of substitution has this bug**, and it's why real implementations use De Bruijn indices (bound variables as numbers, so there are no names to collide) or a locally-nameless representation. It's also the same phenomenon as **unhygienic macros** capturing user variables → [[foundations/compilers/README|compilers]].
+**Every first implementation of substitution has this bug**, and it's why real implementations use De Bruijn indices (bound variables as numbers, so there are no names to collide) or a locally-nameless representation. It's also the same phenomenon as **unhygienic macros** capturing user variables → [[foundations/compilers/index|compilers]].
 
 ### 3. Church numerals
 
@@ -163,10 +163,10 @@ Each variable goes to exactly one subterm, and there is no rule permitting dupli
 
 **Rust is affine (at most once), not linear (exactly once)** — which is why an unused `String` is fine but using it after a move is not, and why the compiler inserts `drop`.
 
-**This is the vault's clearest case of theory arriving in industry**: substructural type systems from the 1980s became the borrow checker, and "the type system tracks how many times you use a value" is the whole idea → [[languages/03-rust/README|Rust]].
+**This is the vault's clearest case of theory arriving in industry**: substructural type systems from the 1980s became the borrow checker, and "the type system tracks how many times you use a value" is the whole idea → [[languages/03-rust/index|Rust]].
 
 ## Related
 - [[foundations/programming-language-theory/08-practice-exercises|the exercises]]
-- [[foundations/programming-language-theory/README|the course]]
+- [[foundations/programming-language-theory/index|the course]]
 
 *Source: [reference] — from Pierce's *Types and Programming Languages* and the course's primary sources.*

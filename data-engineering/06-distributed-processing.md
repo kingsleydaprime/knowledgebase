@@ -40,7 +40,7 @@ result.write.parquet("s3://out/revenue/")
 
 **Lazy evaluation** — nothing runs until an *action* (write, count, collect). Spark builds the whole plan first, then optimises the entire chain — so it can push filters down, combine steps, and avoid materialising intermediate results.
 
-**Lineage and fault tolerance** — Spark records how each partition was derived (its lineage), so if a machine dies, it **recomputes just the lost partitions** from their inputs rather than restarting the job. This is how it survives failures at scale → [[architecture/04-distributed-systems/README|distributed systems]].
+**Lineage and fault tolerance** — Spark records how each partition was derived (its lineage), so if a machine dies, it **recomputes just the lost partitions** from their inputs rather than restarting the job. This is how it survives failures at scale → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## The shuffle — where jobs go to die
 
@@ -77,7 +77,7 @@ Distributed processing is expensive: a cluster to run and pay for, more complex 
 | **DuckDB / Polars** | **Single-node, and the right first answer for most workloads** |
 | **Dask** | Distributed Python/pandas — familiar API, smaller ecosystem |
 | **Flink** | Streaming-first, if real-time is the point → [[data-engineering/03-batch-and-streaming\|streaming]] |
-| **Ray** | Distributed Python for ML/compute, big in [[ai-ml/README\|ML]] training |
+| **Ray** | Distributed Python for ML/compute, big in [[ai-ml/index\|ML]] training |
 | **Trino / Presto** | Distributed SQL query engine over lakes — query without moving data |
 
 ## Key insight
@@ -88,6 +88,6 @@ Distributed processing is expensive: a cluster to run and pay for, more complex 
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses and lakes]] — DuckDB, and the single-node case
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — Spark does both
 - [[architecture/04-distributed-systems/13-partitioning|partitioning]] — the skew problem
-- [[foundations/gpu-and-parallel-computing/README|GPU and parallel computing]] — parallelism, one layer down
+- [[foundations/gpu-and-parallel-computing/index|GPU and parallel computing]] — parallelism, one layer down
 
 *Source: [reference] — Aug 2026.*

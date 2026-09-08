@@ -104,7 +104,7 @@ Worth raising the panel height whenever `localGraph.depth` is above 1 — depth 
 The rendered config is inlined into the HTML as a `data-cfg` attribute, which is the fastest way to confirm your YAML actually took effect:
 
 ```bash
-grep -o 'class="graph-container" data-cfg="[^"]*"' public/git/README.html
+grep -o 'class="graph-container" data-cfg="[^"]*"' public/git/index.html
 ```
 
 If those values are the plugin defaults rather than yours, the likely cause is a **stale build** — `public/` isn't regenerated until you run a build, and an old `public/` will happily show you settings from weeks ago.
@@ -115,4 +115,4 @@ If those values are the plugin defaults rather than yours, the likely cause is a
 - [[tools/quartz/03-theming-and-styling|Theming and Styling]] — why `--lightgray` is the load-bearing variable
 - [[tools/quartz/04-layout-and-components|Layout and Components]] — what a dedicated graph page would take
 - [[tools/quartz/01-how-quartz-works|How Quartz Works]] — why the graph must be an emitter, not a transformer
-- [[tools/quartz/README|Quartz notes]]
+- [[tools/quartz/index|Quartz notes]]

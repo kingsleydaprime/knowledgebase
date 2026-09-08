@@ -27,7 +27,7 @@ Builds a tree of clusters (a *dendrogram*) by repeatedly merging the closest pai
 
 ## PCA — dimensionality reduction
 
-**Principal Component Analysis** compresses many features into fewer, keeping as much of the variation as possible. It finds the directions (principal components) along which the data varies most — mathematically, the [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|eigenvectors]] of the data's covariance — and projects the data onto the top few:
+**Principal Component Analysis** compresses many features into fewer, keeping as much of the variation as possible. It finds the directions (principal components) along which the data varies most — mathematically, the [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|eigenvectors]] of the data's covariance — and projects the data onto the top few:
 
 ```python
 from sklearn.decomposition import PCA
@@ -44,9 +44,9 @@ The cost: the new components are **linear combinations** of original features, s
 
 ## Where these fit
 
-Unsupervised methods are often a *step* in a pipeline rather than the end: cluster to create segment labels, or PCA to compress features before feeding a supervised model. They're also central to the [[ai-ml/01-data-scientist/README|Data Scientist]] path's exploratory analysis. And the "compress to a meaningful lower-dimensional representation" idea reappears, learned rather than linear, in [[ai-ml/02-ml-engineer/08-other-architectures/01-autoencoders-and-gans|autoencoders]] and in [[ai-ml/03-ai-engineer/06-rag-and-embeddings|embeddings]].
+Unsupervised methods are often a *step* in a pipeline rather than the end: cluster to create segment labels, or PCA to compress features before feeding a supervised model. They're also central to the [[ai-ml/01-data-scientist/index|Data Scientist]] path's exploratory analysis. And the "compress to a meaningful lower-dimensional representation" idea reappears, learned rather than linear, in [[ai-ml/02-ml-engineer/08-other-architectures/01-autoencoders-and-gans|autoencoders]] and in [[ai-ml/03-ai-engineer/06-rag-and-embeddings|embeddings]].
 
 ## Related
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|Linear Algebra]] — eigenvectors, the basis of PCA
+- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvectors, the basis of PCA
 - [[ai-ml/02-ml-engineer/08-other-architectures/01-autoencoders-and-gans|Autoencoders]] — the neural, non-linear version of dimensionality reduction
 - [[ai-ml/02-ml-engineer/02-working-with-data/02-feature-engineering-and-scaling|Feature Scaling]] — required before distance-based clustering

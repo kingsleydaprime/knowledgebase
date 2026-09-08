@@ -77,6 +77,6 @@ The practices that are *nice to have* elsewhere are **mandatory here**:
 - [[web3/03-smart-contracts-with-solidity/02-solidity-fundamentals|Solidity fundamentals]] — the language
 - [[web3/04-smart-contract-security/01-why-this-is-different|why security is different here]] — the fuller argument
 - [[web3/02-ethereum-and-the-evm/01-the-world-computer|the world computer]] — the machine underneath
-- [[concepts/04-best-practices/README|best practices]] — the general versions of these habits
+- [[concepts/04-best-practices/index|best practices]] — the general versions of these habits
 
 *Source: [reference] — Aug 2026.*

@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Shannon's definition, why surprise is the right measure, and where the bit comes from.
 
-**Source:** `[reference]` — see [[foundations/information-theory/README|the domain note]].
+**Source:** `[reference]` — see [[foundations/information-theory/index|the domain note]].
 
 ## The question
 
@@ -137,12 +137,12 @@ $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 
 **Reliability** — error-correcting codes → [[foundations/information-theory/06-error-correcting-codes|note 06]]
 
-**Prerequisites:** [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|probability]] — distributions, expectation, independence, conditional probability. Logarithms. **Nothing else.**
+**Prerequisites:** [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]] — distributions, expectation, independence, conditional probability. Logarithms. **Nothing else.**
 
 ---
 
 ## Related
 - [[foundations/information-theory/02-entropy-joint-conditional-and-mutual|Joint, Conditional and Mutual Information]] — the toolkit
 - [[foundations/information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the note the ML material needs
-- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|Probability and Statistics]] — the prerequisite
-- [[foundations/information-theory/README|Information theory map]]
+- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — the prerequisite
+- [[foundations/information-theory/index|Information theory map]]

@@ -53,7 +53,7 @@ Three layers, and you want all three:
 
 1. **Prevention** — pre-commit hooks that block a commit containing something that looks like a key
 2. **Detection** — repository-wide scanning, including full history, because a secret deleted in a later commit is still in the history and still valid
-3. **Management** — a real secret store ([[devops/09-secret-management/README|Vault, SOPS, cloud KMS]]) that injects at runtime, with rotation
+3. **Management** — a real secret store ([[devops/09-secret-management/index|Vault, SOPS, cloud KMS]]) that injects at runtime, with rotation
 
 **A leaked secret is not fixed by deleting the commit.** Once it has touched a remote, assume it is compromised: rotate it, then clean the history. Public GitHub is scraped for keys within seconds — this is measured in seconds, not hours.
 
@@ -94,9 +94,9 @@ Which is the same structural move as [[devops/12-sre-and-platform-engineering/03
 **That's the end state worth aiming at: the secure way is the default way, and opting out is the thing that takes effort.**
 
 ## Related
-- [[cybersecurity/README|cybersecurity]] — the domain this borrows from, in depth
+- [[cybersecurity/index|cybersecurity]] — the domain this borrows from, in depth
 - [[devops/06-ci-cd/10-pipeline-security|pipeline security]] — securing the pipeline itself
-- [[devops/09-secret-management/README|secret management]] — the tooling for the secrets section
+- [[devops/09-secret-management/index|secret management]] — the tooling for the secrets section
 - [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|cloud security]] — posture and misconfiguration
 - [[cybersecurity/07-security-operations/04-incident-response|incident response]] — what happens when it gets through anyway
 

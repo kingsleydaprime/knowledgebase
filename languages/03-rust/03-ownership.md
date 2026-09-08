@@ -173,4 +173,4 @@ The cost is that you now think about ownership explicitly. In exchange, you thin
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]] — for when one owner isn't enough
 - [[languages/03-rust/13-concurrency|Concurrency]] — where ownership pays off unexpectedly
 - [[languages/02-go/13-performance-and-runtime|Go: the GC]] — the alternative deal
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

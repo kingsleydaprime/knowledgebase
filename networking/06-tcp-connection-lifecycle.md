@@ -109,4 +109,4 @@ A TCP connection is **soft state held only at the two endpoints** — the networ
 - [[foundations/networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — what happens between handshake and teardown
 - [[foundations/networking/09-sockets-and-the-network-api|Sockets & the Network API]] — these states from the code side
 - [[foundations/networking/16-debugging-networks|Debugging Networks]] — `ss`, `netstat`, and reading state tables
-- [[cybersecurity/06-attacks-and-threats/README|Attacks & Threats]] — SYN floods and connection-exhaustion DoS
+- [[cybersecurity/06-attacks-and-threats/index|Attacks & Threats]] — SYN floods and connection-exhaustion DoS

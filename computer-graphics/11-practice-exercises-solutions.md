@@ -71,7 +71,7 @@ The roughness/metalness grid should look like every PBR chart: metals coloured b
 
 The receding checkerboard shimmers because at distance **many texels fall inside one pixel**, and point sampling picks one arbitrarily. Sub-pixel camera motion changes which — hence crawling.
 
-**It is exactly undersampling.** The texture's spatial frequency exceeds the pixel grid's Nyquist limit, so high frequencies alias down into low-frequency patterns (moiré) → [[foundations/information-theory/README|information theory]].
+**It is exactly undersampling.** The texture's spatial frequency exceeds the pixel grid's Nyquist limit, so high frequencies alias down into low-frequency patterns (moiré) → [[foundations/information-theory/index|information theory]].
 
 **Mipmaps** pre-filter the texture into a chain of half-size levels; the hardware picks the level whose texel density ≈ pixel density. **You cannot fix aliasing by sampling harder at render time — you must remove the frequencies first**, which is what pre-filtering does.
 
@@ -113,7 +113,7 @@ Without acceleration, each ray tests **every** object: $O(n)$ per ray. A BVH giv
 
 On 500 spheres expect **roughly 20–50×**; the gap widens with scene size, which is the point — it's a complexity change, not a constant factor.
 
-**The same spatial-partitioning idea as [[game-development/03-graphics-for-games|game culling]] and collision broad-phase** — and the same trees as [[foundations/dsa/README|DSA]]. Build quality matters: the surface-area heuristic is the standard, and a naive median split is noticeably worse.
+**The same spatial-partitioning idea as [[game-development/03-graphics-for-games|game culling]] and collision broad-phase** — and the same trees as [[foundations/dsa/index|DSA]]. Build quality matters: the surface-area heuristic is the standard, and a naive median split is noticeably worse.
 
 ### 12. Mesh normals
 
@@ -126,6 +126,6 @@ On 500 spheres expect **roughly 20–50×**; the gap widens with scene size, whi
 
 ## Related
 - [[foundations/computer-graphics/10-practice-exercises|the exercises]]
-- [[foundations/computer-graphics/README|the course]]
+- [[foundations/computer-graphics/index|the course]]
 
 *Source: [reference] — explanations from the course's primary sources; Shirley's *Ray Tracing in One Weekend* is the recommended companion.*

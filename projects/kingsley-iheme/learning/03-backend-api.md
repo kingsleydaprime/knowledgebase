@@ -1,8 +1,8 @@
 # 03 — Backend / API (Route Handlers, validation, transactional email)
 
-Part of the [[projects/kingsley-iheme/learning/README|kingsley-iheme learning log]]. Siblings: [[projects/kingsley-iheme/learning/01-frontend|01-frontend]] · [[projects/kingsley-iheme/learning/02-sanity|02-sanity]] · [[projects/kingsley-iheme/learning/04-devops|04-devops]].
+Part of the [[projects/kingsley-iheme/learning/index|kingsley-iheme learning log]]. Siblings: [[projects/kingsley-iheme/learning/01-frontend|01-frontend]] · [[projects/kingsley-iheme/learning/02-sanity|02-sanity]] · [[projects/kingsley-iheme/learning/04-devops|04-devops]].
 
-General reference: [[backend/02-api-design/README|backend/api-design]] · [[backend/README|backend]].
+General reference: [[backend/02-api-design/index|backend/api-design]] · [[backend/index|backend]].
 
 ---
 
@@ -92,7 +92,7 @@ const safeInterest =
 
 **This is the most instructive line in the file.** Two decisions in it:
 
-**Allowlist, not blocklist.** The set of valid values is enumerated; anything else is rejected. Blocklists fail because you must anticipate every bad input. Allowlists fail closed. This is the general rule for *all* untrusted enum-ish input — [[cybersecurity/04-web-security/README|web security]] is largely applications of it.
+**Allowlist, not blocklist.** The set of valid values is enumerated; anything else is rejected. Blocklists fail because you must anticipate every bad input. Allowlists fail closed. This is the general rule for *all* untrusted enum-ish input — [[cybersecurity/04-web-security/index|web security]] is largely applications of it.
 
 **And it coerces rather than rejects.** Unlike the fields above, an invalid `interest` doesn't 400 — it silently becomes `"other"`. That's the right call *here* and it's worth being able to say why: `interest` is a routing hint for a human reading an email, not data anything depends on. Rejecting the whole message because a dropdown value was odd would lose a real enquiry from a real potential client to protect a field that only affects a subject line. **Match validation strictness to what the field actually does.** Reject what you can't proceed without; coerce what's merely advisory.
 
@@ -110,7 +110,7 @@ Read it: one-or-more non-space-non-`@`, an `@`, same again, a `.`, same again. D
 
 **Loose is correct, and this is a hill worth understanding.** The RFC 5322 grammar for a valid address is notoriously baroque (quoted strings, comments, IP literals). The "perfect" email regex is a famous 6,000-character monster, and it *still* can't tell you whether the mailbox exists. Meanwhile every over-strict regex on the internet has rejected somebody's legitimate address — `+` tags, new TLDs, apostrophes.
 
-So the real job splits in two: this regex catches *typos and obvious junk* cheaply; **only sending mail proves an address works.** Validate loosely at the edge, verify by delivery. (Related habit — [[cybersecurity/04-web-security/README|ReDoS]]: this pattern is safe because the character classes exclude the delimiters, so there's no ambiguity for the engine to backtrack through. Nested quantifiers over overlapping classes are where email regexes become a denial-of-service vector.)
+So the real job splits in two: this regex catches *typos and obvious junk* cheaply; **only sending mail proves an address works.** Validate loosely at the edge, verify by delivery. (Related habit — [[cybersecurity/04-web-security/index|ReDoS]]: this pattern is safe because the character classes exclude the delimiters, so there's no ambiguity for the engine to backtrack through. Nested quantifiers over overlapping classes are where email regexes become a denial-of-service vector.)
 
 ### Should this use Zod?
 

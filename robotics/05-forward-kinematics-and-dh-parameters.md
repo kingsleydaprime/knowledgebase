@@ -146,4 +146,4 @@ More places than "where's the hand":
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — the transforms being chained
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — the hard direction
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — differentiating this
-- [[robotics/README|Robotics map]]
+- [[robotics/index|Robotics map]]

@@ -57,4 +57,4 @@ The core shift for reliability engineering: **assume everything fails** — disk
 ## Related
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the availability-vs-consistency tradeoff
 - [[architecture/03-architectural-patterns/02-resilience-patterns|Resilience Patterns]] — designing for graceful failure
-- [[devops/10-observability/README|Observability (devops)]] — measuring and alerting on availability
+- [[devops/10-observability/index|Observability (devops)]] — measuring and alerting on availability

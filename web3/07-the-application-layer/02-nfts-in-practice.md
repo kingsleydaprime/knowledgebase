@@ -64,4 +64,4 @@ If you're building with NFTs, these are the ones that determine whether it ages 
 - [[web3/01-foundations/07-tokens-coins-and-nfts|tokens, coins and NFTs]] — the data model
 - [[web3/06-building-dapps/05-decentralised-storage|decentralised storage]] — where the image lives
 - [[web3/07-the-application-layer/04-identity-and-naming|identity and naming]] — ENS, the success case
-- [[web3/08-the-honest-assessment/README|the honest assessment]]
+- [[web3/08-the-honest-assessment/index|the honest assessment]]

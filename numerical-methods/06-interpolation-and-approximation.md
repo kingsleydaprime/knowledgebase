@@ -73,7 +73,7 @@ $$x_k = \cos\left(\frac{k\pi}{n}\right)$$
 
 **B-splines** — a basis with local support, so moving one control point affects only a local region. **The foundation of CAD and of font outlines.**
 
-**NURBS** — rational B-splines, which can represent conic sections exactly. **The standard in CAD and 3D modelling.** → [[foundations/computer-graphics/README|Computer Graphics]]
+**NURBS** — rational B-splines, which can represent conic sections exactly. **The standard in CAD and 3D modelling.** → [[foundations/computer-graphics/index|Computer Graphics]]
 
 **Bézier curves** — the graphics/design form, defined by control points the curve generally doesn't pass through. **Every vector graphics tool and font format uses these.**
 
@@ -89,7 +89,7 @@ $$\min_\beta \|A\beta - y\|^2$$
 
 **Why squared errors specifically:** it has a closed-form solution, it's the maximum-likelihood estimator under Gaussian noise, and it's differentiable. **The cost is sensitivity to outliers** — a single bad point can dominate, because the penalty is quadratic.
 
-**Robust alternatives** when outliers are real: $L_1$ (least absolute deviations), Huber loss (quadratic near zero, linear in the tails), or RANSAC. → [[ai-ml/02-ml-engineer/03-classical-ml/README|Classical ML]]
+**Robust alternatives** when outliers are real: $L_1$ (least absolute deviations), Huber loss (quadratic near zero, linear in the tails), or RANSAC. → [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]]
 
 **Regularisation** when the fit is ill-conditioned or over-fitting:
 
@@ -119,7 +119,7 @@ $$\min_\beta \|A\beta - y\|^2 + \lambda\|\beta\|^2 \qquad\text{(ridge / Tikhonov
 
 **Scattered data:** Delaunay triangulation plus linear interpolation, radial basis functions, or kriging (Gaussian process regression) when you want uncertainty estimates too.
 
-**The curse of dimensionality bites hard.** A grid with $m$ points per axis has $m^d$ points — **10 points per axis in 10 dimensions is $10^{10}$.** Above ~4 dimensions, grid methods are dead and you need scattered methods, sparse grids, or a learned model. → [[ai-ml/02-ml-engineer/README|ML]]
+**The curse of dimensionality bites hard.** A grid with $m$ points per axis has $m^d$ points — **10 points per axis in 10 dimensions is $10^{10}$.** Above ~4 dimensions, grid methods are dead and you need scattered methods, sparse grids, or a learned model. → [[ai-ml/02-ml-engineer/index|ML]]
 
 ## Practical notes
 
@@ -133,12 +133,12 @@ $$\min_\beta \|A\beta - y\|^2 + \lambda\|\beta\|^2 \qquad\text{(ridge / Tikhonov
 
 **Use the library.** `scipy.interpolate` (`CubicSpline`, `PchipInterpolator`, `interp1d`, `RBFInterpolator`), `numpy.polynomial.chebyshev` — and note `numpy.polyfit` warns about conditioning for a reason.
 
-**Count your parameters.** Fitting 10 parameters to 12 points is not a fit, it's memorisation. → [[ai-ml/02-ml-engineer/04-model-evaluation/README|Model Evaluation]]
+**Count your parameters.** Fitting 10 parameters to 12 points is not a fit, it's memorisation. → [[ai-ml/02-ml-engineer/04-model-evaluation/index|Model Evaluation]]
 
 ---
 
 ## Related
 - [[foundations/numerical-methods/07-numerical-integration|Numerical Integration]] — built on interpolation
 - [[foundations/numerical-methods/04-linear-systems|Linear Systems]] — least squares solved properly
-- [[ai-ml/02-ml-engineer/03-classical-ml/README|Classical ML]] — regression as statistical fitting
-- [[foundations/numerical-methods/README|Numerical methods map]]
+- [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]] — regression as statistical fitting
+- [[foundations/numerical-methods/index|Numerical methods map]]

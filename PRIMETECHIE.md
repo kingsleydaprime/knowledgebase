@@ -14,10 +14,10 @@ That's the actual trait, and it decomposes into four things you can deliberately
 
 | The trait | What it actually is | Where it's built |
 |---|---|---|
-| **Depth** | knowing the layer *below* the one you work at | [[foundations/networking/README\|networking]], [[foundations/os/fundamentals\|OS]], [[architecture/04-distributed-systems/README\|distributed systems]], [[foundations/dsa/README\|DSA]], [[hardware/README\|hardware]] |
+| **Depth** | knowing the layer *below* the one you work at | [[foundations/networking/index\|networking]], [[foundations/os/fundamentals\|OS]], [[architecture/04-distributed-systems/index\|distributed systems]], [[foundations/dsa/index\|DSA]], [[hardware/index\|hardware]] |
 | **Debugging** | narrowing the search space instead of guessing | [[foundations/networking/16-debugging-networks\|bisecting layers]], reading errors properly, profilers, a multimeter |
-| **Shipping** | finishing, deploying, operating, being on call for it | [[project-ideas\|projects]], [[devops/README\|devops]] |
-| **Communication** | making others faster — writing, reviewing, teaching | [[research/README\|research & writing]], [[concepts/04-best-practices/02-pr-structure\|PR structure]], this vault |
+| **Shipping** | finishing, deploying, operating, being on call for it | [[project-ideas\|projects]], [[devops/index\|devops]] |
+| **Communication** | making others faster — writing, reviewing, teaching | [[research/index\|research & writing]], [[concepts/04-best-practices/02-pr-structure\|PR structure]], this vault |
 
 **Three of those are not code.** That's the part the movie leaves out, and it's the part most engineers skip for a decade.
 
@@ -27,18 +27,18 @@ The trait is domain-independent, so the path is too. Every rank below has gates 
 
 | | |
 |---|---|
-| 💻 **Software** | Backends, systems, algorithms — [[backend/README\|backend]], [[foundations/dsa/README\|dsa]], [[architecture/README\|architecture]], [[languages/01-java/README\|java]], and [[ai-ml/03-ai-engineer/README\|AI engineering]] |
-| ☁️ **Infra** | Linux, cloud, containers, CI/CD, observability — [[devops/README\|devops]] |
-| 🔐 **Security** | Offence and defence, because you can't do one well without the other — [[cybersecurity/README\|cybersecurity]] |
-| 🔌 **Hardware** | Electronics, embedded, boards that physically exist — [[hardware/README\|hardware]] |
-| 🧠 **ML & Data** | Training models and reasoning from data — [[ai-ml/02-ml-engineer/README\|ml-engineer]], [[ai-ml/01-data-scientist/README\|data-scientist]], [[ai-ml/00-foundations/03-mathematics/README\|the maths]] |
+| 💻 **Software** | Backends, systems, algorithms — [[backend/index\|backend]], [[foundations/dsa/index\|dsa]], [[architecture/index\|architecture]], [[languages/01-java/index\|java]], and [[ai-ml/03-ai-engineer/index\|AI engineering]] |
+| ☁️ **Infra** | Linux, cloud, containers, CI/CD, observability — [[devops/index\|devops]] |
+| 🔐 **Security** | Offence and defence, because you can't do one well without the other — [[cybersecurity/index\|cybersecurity]] |
+| 🔌 **Hardware** | Electronics, embedded, boards that physically exist — [[hardware/index\|hardware]] |
+| 🧠 **ML & Data** | Training models and reasoning from data — [[ai-ml/02-ml-engineer/index\|ml-engineer]], [[ai-ml/01-data-scientist/index\|data-scientist]], [[ai-ml/00-foundations/03-mathematics/index\|the maths]] |
 
 ### Why AI is split across two columns
 
-Because it's two different jobs, and [[ai-ml/README|the ai-ml course]] already says so: *"the sharpest line is between **ML Engineer** (trains models, needs the math and the algorithm zoo) and **AI Engineer** (uses someone else's trained models)."*
+Because it's two different jobs, and [[ai-ml/index|the ai-ml course]] already says so: *"the sharpest line is between **ML Engineer** (trains models, needs the math and the algorithm zoo) and **AI Engineer** (uses someone else's trained models)."*
 
 - **AI engineering is software engineering.** You call an API, handle retries and timeouts, validate a schema, write an eval suite, argue about cost. It's backend work with a probabilistic dependency, and it belongs in the Software column.
-- **ML engineering isn't.** Its bedrock is [[ai-ml/00-foundations/03-mathematics/README|linear algebra, calculus, probability and optimization]] — an entire foundation no other column needs. "Knowing the layer below" means the maths, not the kernel. Its failure modes are leakage, overfitting and drift, none of which are software bugs.
+- **ML engineering isn't.** Its bedrock is [[ai-ml/00-foundations/03-mathematics/index|linear algebra, calculus, probability and optimization]] — an entire foundation no other column needs. "Knowing the layer below" means the maths, not the kernel. Its failure modes are leakage, overfitting and drift, none of which are software bugs.
 - **Data science isn't even engineering.** It optimises for a defensible *answer*, not shipped software — statistics, experiment design, causal inference.
 
 **You are not expected to clear all five columns at a rank.** Clear your primary discipline and get to Rank I–II literacy in the others — that's what makes you the person who can follow a problem from a web request down to a voltage rail, or from a dashboard back to a leaked feature, instead of handing it off at the boundary. The columns exist so the boundaries are visible, not so you tick every box.
@@ -57,7 +57,7 @@ Because it's two different jobs, and [[ai-ml/README|the ai-ml course]] already s
 
 The baseline. You can take an idea to a running thing without help.
 
-*Before Rank I:* if you can't yet write code at all, [[foundations/programming-fundamentals/README|programming fundamentals]] is the on-ramp — twelve language-agnostic notes, and the only thing in this vault that assumes nothing.
+*Before Rank I:* if you can't yet write code at all, [[foundations/programming-fundamentals/index|programming fundamentals]] is the on-ramp — twelve language-agnostic notes, and the only thing in this vault that assumes nothing.
 
 **💻 Software**
 - [ ] Ship a full-stack app **to a real domain over HTTPS** — not localhost, not a screenshot
@@ -66,7 +66,7 @@ The baseline. You can take an idea to a running thing without help.
 - [ ] Read a stack trace top-to-bottom and fix the root cause, **not the symptom**
 
 **☁️ Infra**
-- [ ] Deploy that app yourself → [[devops/04-vps/vps-setup|VPS]], [[devops/02-docker/README|Docker]]
+- [ ] Deploy that app yourself → [[devops/04-vps/vps-setup|VPS]], [[devops/02-docker/index|Docker]]
 - [ ] Explain what happens between typing a URL and seeing a page → [[foundations/networking/01-what-a-network-is|note 01]]
 - [ ] Find out why a service won't start **from its logs**, not from guessing → [[devops/01-linux/17-logs-and-journald|logs & journald]]
 
@@ -76,7 +76,7 @@ The baseline. You can take an idea to a running thing without help.
 
 **🔌 Hardware**
 - [ ] Build a circuit on a breadboard that does something, having **calculated** the resistor rather than copying it → [[hardware/01-electricity|electricity]]
-- [ ] Read a datasheet well enough to wire a part you've never used → the [[hardware/README|golden rule]], and `blog-drafts/reading-a-datasheet.md`
+- [ ] Read a datasheet well enough to wire a part you've never used → the [[hardware/index|golden rule]], and `blog-drafts/reading-a-datasheet.md`
 
 **🧠 ML & Data**
 - [ ] Train a model on a real dataset and **beat a trivial baseline** — and be able to say what the baseline was and why beating it is the only claim that means anything
@@ -144,7 +144,7 @@ Depth becomes bedrock. You stop treating infrastructure as magic because you've 
 - [ ] 🧠 **Implement the algorithm you usually import** — gradient descent and backprop by hand on a small network, or a decision tree from scratch, then check it against the library version → [[ai-ml/00-foundations/03-mathematics/04-optimization|optimization]], [[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch|the training loop]]
 
 **Also at this rank, whatever your column:**
-- [ ] Write concurrent code and **prove** it correct — where "prove" means a stress test that actually fails on a bad version → [[languages/01-java/02-jvm-and-concurrency/README|concurrency]]
+- [ ] Write concurrent code and **prove** it correct — where "prove" means a stress test that actually fails on a bad version → [[languages/01-java/02-jvm-and-concurrency/index|concurrency]]
 - [ ] Explain memory: stack vs heap, cache lines, why the memory model exists → [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM internals]]
 - [ ] Design a system on a whiteboard with explicit tradeoffs and named failure modes → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|system design]]
 - [ ] Reason about consistency without saying "eventually consistent" as though it settles anything → [[architecture/04-distributed-systems/04-consistency-models|consistency models]]
@@ -197,7 +197,7 @@ Depth in **one** domain deep enough that you're the escalation point. Pick a lan
 - [ ] Defend a model/cost/latency tradeoff with numbers
 
 **🧠 ML engineering** *(the other half — you train the model)*
-- [ ] Take a model from a notebook to a served endpoint with a **reproducible** training pipeline — same data and seed, same model → [[ai-ml/02-ml-engineer/10-mlops/README|MLOps]]
+- [ ] Take a model from a notebook to a served endpoint with a **reproducible** training pipeline — same data and seed, same model → [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]]
 - [ ] Detect drift in production and retrain on a schedule you can justify → [[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|monitoring]]
 - [ ] Defend a metric choice to someone who wanted accuracy, using the confusion matrix and the actual cost of each error type
 - [ ] Know when **not** to train — when a heuristic, a bought API, or [[ai-ml/03-ai-engineer/06-rag-and-embeddings|retrieval]] beats a model you'd have to maintain forever
@@ -207,14 +207,14 @@ Depth in **one** domain deep enough that you're the escalation point. Pick a lan
 - [ ] Tell someone senior their favourite metric is measuring the wrong thing, and be right
 
 **🔐 Security**
-- [ ] Find a real vulnerability in a real system, with authorisation → [[cybersecurity/README|cybersecurity]]
-- [ ] Build the defensive side too — detection rules that fire, tuned against your own false-positive rate → [[cybersecurity/07-security-operations/README|secops]]
+- [ ] Find a real vulnerability in a real system, with authorisation → [[cybersecurity/index|cybersecurity]]
+- [ ] Build the defensive side too — detection rules that fire, tuned against your own false-positive rate → [[cybersecurity/07-security-operations/index|secops]]
 - [ ] Do the boring half: write the finding up so a developer can fix it without asking you a question
 
 **☁️ Infrastructure**
 - [ ] Run a multi-region system and survive losing a region
 - [ ] Reduce a cloud bill by 50% with a written explanation of *why* it was high
-- [ ] Rebuild your entire environment from code, from nothing, and have it work → [[devops/07-infrastructure-as-code/README|IaC]]
+- [ ] Rebuild your entire environment from code, from nothing, and have it work → [[devops/07-infrastructure-as-code/index|IaC]]
 
 **🔌 Hardware & embedded**
 - [ ] Take a board from schematic to a **manufactured, working revision two** — where rev 2 exists because you found rev 1's mistakes
@@ -235,7 +235,7 @@ The rank almost nobody plans for. It's not management — it's the point where *
 - [ ] Make a decision under genuine uncertainty, write down the reasoning, and **be publicly wrong about one** → `DECISIONS.md`
 - [ ] Mentor someone from Rank I to Rank II
 - [ ] Say no to a technically interesting project for a correct business reason
-- [ ] Teach the hard thing simply — if you can't do the "kid version first" of it, you don't understand it → the convention every [[foundations/networking/README|networking]] and [[architecture/04-distributed-systems/README|dist-sys]] note follows
+- [ ] Teach the hard thing simply — if you can't do the "kid version first" of it, you don't understand it → the convention every [[foundations/networking/index|networking]] and [[architecture/04-distributed-systems/index|dist-sys]] note follows
 - [ ] **Explain your discipline to someone in another one** — the software gate is explaining a race condition to a hardware engineer; the hardware gate is explaining why the board needs another revision to a product manager
 
 **You've arrived when:** your best week involved very little code and you're at peace with that.
@@ -268,7 +268,7 @@ Assessed against this vault as of **August 2026** — an honest read, not a flat
 | **I — Builder** | ✅ **Cleared** | 12 projects, real deployments, git fluency, a fabricated PCB |
 | **II — Diagnostician** | 🟡 **In progress** | Networking course exists — *do* the tcpdump exercise. Observability still reference-only, not run. Security column is the newest and least practised. |
 | **III — Systems Thinker** | 🟡 **Partial** | Hardware column is **cleared** — [[projects/iot-bridge-pcb/task\|the IoT Bridge PCB]] is a real board, designed and documented. Software column is not: **no build-your-own project finished yet**, still the single biggest gap in the vault. |
-| **IV — Distributed Mind** | 🔵 **Theory only** | [[architecture/04-distributed-systems/README\|15 notes]] read, Raft unimplemented. Theory without reps. |
+| **IV — Distributed Mind** | 🔵 **Theory only** | [[architecture/04-distributed-systems/index\|15 notes]] read, Raft unimplemented. Theory without reps. |
 | **V — Specialist** | 🔵 **Aiming** | Low-latency Java is the stated target; the order-book project is the proof |
 | **VI — Force Multiplier** | 🟡 **Started** | This vault *is* Rank VI work. Blog drafts written but unpublished — publish one. |
 | **VII** | 🕶️ | see you there |
@@ -282,10 +282,10 @@ Assessed against this vault as of **August 2026** — an honest read, not a flat
 | 🔐 **Security** | Deep on paper — 54 notes, the vault's best exercise set | Lab exists; exercises not worked through |
 | 🔌 **Hardware** | Real but thin — 15 notes + a 19k-word project | **Strongest reps-to-notes ratio in the vault** |
 | 🧠 **ML & Data** | Deep on paper — ml-engineer 42 notes, data-scientist 8 (thinnest track) | **Zero. No project has trained a model** |
-| 🤖 **Robotics** | [[robotics/README\|14 notes, `[reference]`]] | None. Written, not built — the notes say so |
-| 📐 **Engineering** | [[engineering/README\|26 notes, `[reference]`]] — continuum mechanics + control theory | None. Validates against an experiment there isn't one of |
-| 🧮 **CS theory** | [[foundations/discrete-math/README\|discrete maths]] · [[foundations/theory-of-computation/README\|theory of computation]] · [[foundations/computer-architecture/README\|architecture]] · [[foundations/numerical-methods/README\|numerical methods]] · [[foundations/information-theory/README\|information theory]] · [[foundations/programming-language-theory/README\|PL theory]] — 68 notes | None — **and this is the column where reps are free.** `perf`, a compiler, an afternoon |
-| 🎮 **Graphics & GPU** | [[foundations/computer-graphics/README\|graphics]] · [[foundations/gpu-and-parallel-computing/README\|GPU & parallel]] — 16 notes | None. **Best reps-to-effort ratio in the vault** — a broken renderer *looks* broken |
+| 🤖 **Robotics** | [[robotics/index\|14 notes, `[reference]`]] | None. Written, not built — the notes say so |
+| 📐 **Engineering** | [[engineering/index\|26 notes, `[reference]`]] — continuum mechanics + control theory | None. Validates against an experiment there isn't one of |
+| 🧮 **CS theory** | [[foundations/discrete-math/index\|discrete maths]] · [[foundations/theory-of-computation/index\|theory of computation]] · [[foundations/computer-architecture/index\|architecture]] · [[foundations/numerical-methods/index\|numerical methods]] · [[foundations/information-theory/index\|information theory]] · [[foundations/programming-language-theory/index\|PL theory]] — 68 notes | None — **and this is the column where reps are free.** `perf`, a compiler, an afternoon |
+| 🎮 **Graphics & GPU** | [[foundations/computer-graphics/index\|graphics]] · [[foundations/gpu-and-parallel-computing/index\|GPU & parallel]] — 16 notes | None. **Best reps-to-effort ratio in the vault** — a broken renderer *looks* broken |
 
 Two asymmetries worth naming:
 
@@ -296,7 +296,7 @@ Two asymmetries worth naming:
 ### The next three moves, in order
 
 1. **Finish one build-your-own project.** Your own Redis. It closes the Rank III software gate and is the prerequisite for everything above it. Highest-leverage single thing in this document.
-2. **Do the tcpdump exercise** in [[foundations/networking/README|the networking README]]. Thirty minutes, and it converts a course you read into a layer you've seen.
+2. **Do the tcpdump exercise** in [[foundations/networking/index|the networking README]]. Thirty minutes, and it converts a course you read into a layer you've seen.
 3. **Publish one blog draft.** `blog-drafts/four-bugs-that-shipped.md` is closest to ready. Rank VI compounds earlier than people expect.
 
 > Reading this document is Rank 0. Go build something.

@@ -44,7 +44,7 @@ The four responses: **avoid** (change the design so it can't happen), **mitigate
 
 **RPN is a flawed number** — it multiplies ordinal scales, so 9×3×7 and 3×9×7 rank equally despite one being catastrophic. Use it to sort, then judge; never treat it as a threshold.
 
-**The software FMEA is worth doing and almost nobody does it.** Take each dependency — database, cache, third-party API, queue, DNS — and ask: what if it's slow? Unavailable? Returns wrong data? Returns *stale* data? Silently succeeds but does nothing? **"Slow" is the mode most often missed**, and it's usually worse than "down", because a down dependency fails fast while a slow one exhausts your connection pool and takes the whole service with it → [[architecture/04-distributed-systems/README|distributed systems]].
+**The software FMEA is worth doing and almost nobody does it.** Take each dependency — database, cache, third-party API, queue, DNS — and ask: what if it's slow? Unavailable? Returns wrong data? Returns *stale* data? Silently succeeds but does nothing? **"Slow" is the mode most often missed**, and it's usually worse than "down", because a down dependency fails fast while a slow one exhausts your connection pool and takes the whole service with it → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Fault Tree Analysis — top-down
 
@@ -99,6 +99,6 @@ Formal methods exist because informal judgement fails predictably:
 - [[foundations/systems-engineering/06-verification-and-validation|verification and validation]] — proving what you did specify
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — incident response and postmortems
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] — the numbers
-- [[cybersecurity/06-attacks-and-threats/README|threat modelling]] — FMEA with an adversary
+- [[cybersecurity/06-attacks-and-threats/index|threat modelling]] — FMEA with an adversary
 
 *Source: [reference] — from IEC 60812 (FMEA), IEC 61025 (FTA), the NASA SE Handbook, and Vaughan's *The Challenger Launch Decision*.*

@@ -59,7 +59,7 @@ Then: **dust grains collide and stick → pebbles → planetesimals (km-scale) �
 
 **Biosignatures** — the current frontier. JWST can measure some exoplanet atmospheric composition via transmission spectroscopy. **Oxygen plus methane together** is a promising combination, because they react quickly and shouldn't coexist without replenishment.
 
-**The honest state: no biosignature detection has been confirmed.** Claims appear, get scrutinised, and usually weaken. **That cycle is science working correctly**, and it's worth watching a few rounds of it before believing a headline → [[research/README|research]].
+**The honest state: no biosignature detection has been confirmed.** Claims appear, get scrutinised, and usually weaken. **That cycle is science working correctly**, and it's worth watching a few rounds of it before believing a headline → [[research/index|research]].
 
 ## Related
 - [[astronomy/04-stars|stars]] — what planets form around

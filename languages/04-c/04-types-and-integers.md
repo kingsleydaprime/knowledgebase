@@ -229,4 +229,4 @@ void copy(int *restrict dst, const int *restrict src, size_t n);
 - [[languages/04-c/05-pointers|Pointers]] — where these types get interesting
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — signed overflow and friends, in full
 - [[languages/03-rust/02-language-fundamentals|Rust: Fundamentals]] — fixed-width types and explicit overflow handling
-- [[languages/04-c/README|C course map]]
+- [[languages/04-c/index|C course map]]

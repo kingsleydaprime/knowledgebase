@@ -171,4 +171,4 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 - [[foundations/computer-architecture/04-assembly|Assembly]] — reading and writing this
 - [[foundations/computer-architecture/05-the-datapath|The Datapath]] — how instructions execute
 - [[foundations/compilers/08-code-generation|Code Generation]] — what emits these
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

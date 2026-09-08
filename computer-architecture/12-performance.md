@@ -151,7 +151,7 @@ for (i = 0; i < N; i++) expensive_function(x);   // result unused → removed en
 
 **Tail latency** is usually what matters for services. **p99 and p999, not the mean.**
 
-> **Tail latency amplifies in distributed systems.** A request fanning out to 100 servers waits for the slowest — **so the p99 of one service becomes the median of the aggregate.** This is why "the average is fine" is not an adequate answer. → [[architecture/01-system-design-fundamentals/README|System Design]]
+> **Tail latency amplifies in distributed systems.** A request fanning out to 100 servers waits for the slowest — **so the p99 of one service becomes the median of the aggregate.** This is why "the average is fine" is not an adequate answer. → [[architecture/01-system-design-fundamentals/index|System Design]]
 >
 > **Sources of tail latency:** GC pauses, cache misses on cold data, lock contention, page faults, network retransmits, and background work like compaction. **Techniques:** hedged requests, tail-tolerant design, and reducing variance rather than the mean.
 
@@ -197,4 +197,4 @@ Starting point:                          10.0 s
 - [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — where most of the wins are
 - [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — reading IPC
 - [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — the step that beats everything else
-- [[foundations/computer-architecture/README|Architecture map]]
+- [[foundations/computer-architecture/index|Architecture map]]

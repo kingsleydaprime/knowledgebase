@@ -1,6 +1,6 @@
 # Robotics — Projects
 
-*14 notes, ~23,000 words, and the README is blunt that **nothing here has been validated on hardware.** These projects exist to change that — and simulation counts, because Gazebo has real dynamics even if it has no real friction.*
+_14 notes, ~23,000 words, and the README is blunt that **nothing here has been validated on hardware.** These projects exist to change that — and simulation counts, because Gazebo has real dynamics even if it has no real friction._
 
 Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 🔴 ambitious / portfolio-grade. ⭐ = highest signal.
 
@@ -14,14 +14,12 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 **If you do one:** the PID tuning project. It's cheap, it fits on a desk, and it's the difference between having read [[engineering/02-control-theory/04-pid-control|the PID note]] and having earned it.
 
-
 ## If you only do one
 
 **Get something moving in ROS 2 + Gazebo.** Simulation removes the hardware cost while keeping the coordinate frames, the timing and the tuning — which is where the actual learning is.
 
-
 ## Related
 
-- [[robotics/README|the robotics course]]
+- [[robotics/index|the robotics course]]
 - [[engineering/projects|engineering projects]] — the control theory under this
 - [[project-ideas|Project Ideas]] — the vault-wide index

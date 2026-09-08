@@ -74,7 +74,7 @@ Memory scales with **area × resolution²**, so it doesn't extend well to large 
 
 **Topological map** — a graph of places and connections, no metric detail. Very compact, robust, and enough for "navigate to the kitchen". Often layered *on top* of a metric map.
 
-**Semantic map** — objects and their meanings ("this is a door, that's a chair"). Where the field is heading, and what makes "bring me the mug from the kitchen" possible. → [[ai-ml/02-ml-engineer/06-computer-vision/README|Computer Vision]]
+**Semantic map** — objects and their meanings ("this is a door, that's a chair"). Where the field is heading, and what makes "bring me the mug from the kitchen" possible. → [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision]]
 
 ## SLAM approaches
 
@@ -172,4 +172,4 @@ Worth recognising by name:
 - [[robotics/11-state-estimation-and-filtering|State Estimation and Filtering]] — the estimation machinery
 - [[robotics/10-motion-planning|Motion Planning]] — what consumes the map
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — lidar, cameras, and their failure modes
-- [[robotics/README|Robotics map]]
+- [[robotics/index|Robotics map]]

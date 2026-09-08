@@ -29,6 +29,6 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 **The zero-downtime migration.** It's the difference between someone who knows SQL and someone you'd let near production, and it takes a weekend.
 
 ## Related
-- [[databases/README|the databases course]] · [[databases/interview/README|interview bank]]
+- [[databases/index|the databases course]] · [[databases/interview/index|interview bank]]
 - [[databases/sql-reference|SQL reference]] · [[databases/database-design-reference|design reference]]
 - [[project-ideas|Project Ideas]] — the vault-wide index

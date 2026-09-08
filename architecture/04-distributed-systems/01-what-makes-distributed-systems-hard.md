@@ -1,6 +1,6 @@
 # What Makes Distributed Systems Hard
 
-**[reference]** — from the canon (Kleppmann's *Designing Data-Intensive Applications* ch. 8, MIT 6.824, Lamport). Why a system spread across machines is *categorically* harder than one machine — the foundation for everything else in this course. You feel this fully only when you build one (a [[architecture/05-case-studies/README|Raft KV store]]). This note establishes the **models** (failure, timing, clocks) that every later algorithm is defined against; the **impossibility results** those models produce (FLP, CAP) get their own treatment in [[architecture/04-distributed-systems/02-theoretical-limits|theoretical limits]].
+**[reference]** — from the canon (Kleppmann's *Designing Data-Intensive Applications* ch. 8, MIT 6.824, Lamport). Why a system spread across machines is *categorically* harder than one machine — the foundation for everything else in this course. You feel this fully only when you build one (a [[architecture/05-case-studies/index|Raft KV store]]). This note establishes the **models** (failure, timing, clocks) that every later algorithm is defined against; the **impossibility results** those models produce (FLP, CAP) get their own treatment in [[architecture/04-distributed-systems/02-theoretical-limits|theoretical limits]].
 
 ## The kid version first
 

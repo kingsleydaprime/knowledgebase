@@ -117,7 +117,7 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 
 **Neuroscience and biology.** Capacity of a neuron's spike train; the channel capacity of DNA replication with its error-correction machinery.
 
-**Any pipeline.** A rate-limited stage is a capacity constraint, and Little's law plays a similar role in queueing. → [[architecture/01-system-design-fundamentals/README|System Design]]
+**Any pipeline.** A rate-limited stage is a capacity constraint, and Little's law plays a similar role in queueing. → [[architecture/01-system-design-fundamentals/index|System Design]]
 
 ## The separation theorem
 
@@ -159,4 +159,4 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 - [[foundations/information-theory/06-error-correcting-codes|Error-Correcting Codes]] — how capacity is actually approached
 - [[foundations/information-theory/02-entropy-joint-conditional-and-mutual|Mutual Information]] — what capacity maximises
 - [[hardware/06-radio-frequency|Radio Frequency]] — the physical layer
-- [[foundations/information-theory/README|Information theory map]]
+- [[foundations/information-theory/index|Information theory map]]

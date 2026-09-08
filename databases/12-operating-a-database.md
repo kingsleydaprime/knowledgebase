@@ -115,13 +115,13 @@ for order in Order.objects.all():        # 1 query
 
 **Checkpoint frequency** — `log_checkpoints = on`. Frequent checkpoints mean `max_wal_size` is too small.
 
-**Set `log_min_duration_statement`** to log anything slow, and `auto_explain` to capture plans for them. → [[devops/10-observability/README|Observability]]
+**Set `log_min_duration_statement`** to log anything slow, and `auto_explain` to capture plans for them. → [[devops/10-observability/index|Observability]]
 
 ## Security
 
 **The basics, stated because they're skipped:**
 
-**Parameterised queries, always.** String concatenation into SQL is SQL injection, and it remains the top web vulnerability after twenty-five years. **ORMs and prepared statements do this correctly by default; `f"SELECT ... {user_input}"` does not.** → [[cybersecurity/04-web-security/README|Web Security]]
+**Parameterised queries, always.** String concatenation into SQL is SQL injection, and it remains the top web vulnerability after twenty-five years. **ORMs and prepared statements do this correctly by default; `f"SELECT ... {user_input}"` does not.** → [[cybersecurity/04-web-security/index|Web Security]]
 
 **Least privilege.** The application user needs `SELECT`/`INSERT`/`UPDATE`/`DELETE`, not `SUPERUSER` and not DDL. **Separate the migration user from the runtime user.**
 
@@ -186,5 +186,5 @@ for order in Order.objects.all():        # 1 query
 ## Related
 - [[databases/11-replication-and-scaling|Replication and Scaling]] — when one machine isn't enough
 - [[databases/interview/01-sql-modelling-and-internals|Databases interview]] — what gets asked about all this
-- [[devops/10-observability/README|Observability]] — the monitoring layer
-- [[databases/README|Databases map]]
+- [[devops/10-observability/index|Observability]] — the monitoring layer
+- [[databases/index|Databases map]]

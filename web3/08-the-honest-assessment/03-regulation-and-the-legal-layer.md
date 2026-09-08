@@ -63,6 +63,6 @@ The SEC's position for years was that most tokens are securities, pursued throug
 - [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|the fraud surface]] — what regulation responds to
 - [[web3/07-the-application-layer/03-daos-and-governance|DAOs]] — legal status
 - [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zk proofs]] — Tornado Cash and privacy tooling
-- [[cybersecurity/08-governance-risk-and-compliance/README|governance, risk and compliance]]
+- [[cybersecurity/08-governance-risk-and-compliance/index|governance, risk and compliance]]
 
 *Source: [reference] — Aug 2026, and deliberately dated. Verify anything jurisdiction-specific before acting on it. Not legal advice.*

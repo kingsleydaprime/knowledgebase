@@ -119,5 +119,5 @@ VStack {
 ## Related
 - [[languages/08-swift/02-values-references-and-optionals|value types]] — what protocols let you keep
 - [[languages/03-rust/09-traits|Rust traits]] — the closest analogue
-- [[languages/01-java/README|Java interfaces]] — the contrast
-- [[mobile/frameworks/ios/README|SwiftUI]] — result builders in practice
+- [[languages/01-java/index|Java interfaces]] — the contrast
+- [[mobile/frameworks/ios/index|SwiftUI]] — result builders in practice

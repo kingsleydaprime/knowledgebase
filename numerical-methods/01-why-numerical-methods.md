@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Computing answers to problems that have no closed form, and the two things that separate a working algorithm from one that returns confident nonsense.
 
-**Source:** `[reference]` — see [[foundations/numerical-methods/README|the domain note]].
+**Source:** `[reference]` — see [[foundations/numerical-methods/index|the domain note]].
 
 ## The premise
 
@@ -33,9 +33,9 @@ It gets worse quickly:
 | [[robotics/06-inverse-kinematics\|inverse kinematics]] | Newton's method, damped least squares |
 | [[robotics/11-state-estimation-and-filtering\|Kalman filters]] | matrix conditioning, numerical stability |
 | [[ai-ml/00-foundations/03-mathematics/04-optimization\|ML optimisation]] | gradient descent, conditioning, line search |
-| [[engineering/01-continuum-mechanics/README\|continuum mechanics]] | **says so explicitly in its gaps section** |
+| [[engineering/01-continuum-mechanics/index\|continuum mechanics]] | **says so explicitly in its gaps section** |
 
-**`engineering/README` names it outright: *"not yet written; FEM and CFD both need it."*** This track is that.
+**`engineering/index` names it outright: *"not yet written; FEM and CFD both need it."*** This track is that.
 
 ## The two failure modes
 
@@ -159,7 +159,7 @@ $$\text{error} = O(h^p)$$
 
 **10 is optimisation**, which is where ML meets this domain.
 
-**Prerequisites:** calculus (Taylor series especially), [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/README|linear algebra]], and [[foundations/computer-architecture/02-data-representation|floating point]]. **Taylor series is the tool the whole subject runs on** — nearly every method and every error bound comes from truncating one.
+**Prerequisites:** calculus (Taylor series especially), [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]], and [[foundations/computer-architecture/02-data-representation|floating point]]. **Taylor series is the tool the whole subject runs on** — nearly every method and every error bound comes from truncating one.
 
 ---
 
@@ -167,4 +167,4 @@ $$\text{error} = O(h^p)$$
 - [[foundations/numerical-methods/02-floating-point-and-error|Floating Point and Error]] — the foundation
 - [[foundations/numerical-methods/04-linear-systems|Linear Systems]] — the most-used note here
 - [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] — the domain that asked for this
-- [[foundations/numerical-methods/README|Numerical methods map]]
+- [[foundations/numerical-methods/index|Numerical methods map]]

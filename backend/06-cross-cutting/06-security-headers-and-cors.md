@@ -16,7 +16,7 @@
 | **`Permissions-Policy`** | Disables camera, mic, geolocation by default |
 | `Cache-Control: no-store` | On authenticated responses, so shared caches don't retain them |
 
-**Set them centrally.** Helmet (Node), `SecurityHeaders` middleware (.NET), `secure` (Python), or at the reverse proxy → [[devops/08-networking-and-web/README|networking and web]].
+**Set them centrally.** Helmet (Node), `SecurityHeaders` middleware (.NET), `secure` (Python), or at the reverse proxy → [[devops/08-networking-and-web/index|networking and web]].
 
 ## CSP is the one worth effort
 
@@ -77,13 +77,13 @@ Access-Control-Max-Age: 86400                             ← cache the prefligh
 
 **CSRF tokens** — a per-session token in a hidden field or header, verified server-side. Belt and braces with `SameSite`.
 
-**Token in a header, not a cookie** — an `Authorization: Bearer` header is not sent automatically cross-site, so header-based auth is structurally immune to CSRF. **That's a genuine argument for it in SPAs** → [[backend/05-auth/README|auth]].
+**Token in a header, not a cookie** — an `Authorization: Bearer` header is not sent automatically cross-site, so header-based auth is structurally immune to CSRF. **That's a genuine argument for it in SPAs** → [[backend/05-auth/index|auth]].
 
 **Never make a state-changing operation a `GET`.** `GET /delete?id=5` is triggerable by an `<img>` tag on any page.
 
 ## Related
 - [[backend/06-cross-cutting/03-error-handling|error handling]] — don't leak internals in errors either
-- [[cybersecurity/04-web-security/README|web security]] — the depth behind all of this
-- [[backend/05-auth/README|auth]] · [[backend/frameworks/cross-language-recipes|cross-language recipes]]
+- [[cybersecurity/04-web-security/index|web security]] — the depth behind all of this
+- [[backend/05-auth/index|auth]] · [[backend/frameworks/cross-language-recipes|cross-language recipes]]
 
 *Source: [reference] — written Aug 2026.*

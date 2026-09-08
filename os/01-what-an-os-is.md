@@ -2,7 +2,7 @@
 
 **[Beginner → Intermediate]** — The kernel/user split, why hardware enforces it, and the three jobs an operating system actually does.
 
-**Source:** `[reference]` — built out August 2026 from the plan in [[foundations/os/README|the OS README]]. The overview note [[foundations/os/fundamentals|fundamentals]] covers the same ground more briefly.
+**Source:** `[reference]` — built out August 2026 from the plan in [[foundations/os/index|the OS README]]. The overview note [[foundations/os/fundamentals|fundamentals]] covers the same ground more briefly.
 
 ## The three jobs
 
@@ -153,5 +153,5 @@ These notes exist so the vocabulary is in place and the cross-domain links work.
 - [[foundations/os/fundamentals|OS Fundamentals]] — the original overview note
 - [[foundations/os/02-processes-and-threads|Processes and Threads]] — the first real abstraction
 - [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — crossing the boundary
-- [[devops/01-linux/README|Linux]] — the same machine from the command line
-- [[foundations/os/README|OS course map]]
+- [[devops/01-linux/index|Linux]] — the same machine from the command line
+- [[foundations/os/index|OS course map]]

@@ -102,7 +102,7 @@ This bites especially with strings and other immutable values: `text.upper()` **
 
 **Prefer returning over mutating.** A function that takes inputs and returns an output, changing nothing else, is trivially understandable and trivially testable. One that quietly modifies a global or its own arguments is neither.
 
-That last property has a name — a **pure** function: same inputs, same output, no side effects. Not everything can be pure (something has to write the file), but **pushing the pure logic apart from the effects is one of the highest-return structural habits there is**. It's the core of [[concepts/03-design-patterns/README|a lot of design]] and the whole premise of functional programming.
+That last property has a name — a **pure** function: same inputs, same output, no side effects. Not everything can be pure (something has to write the file), but **pushing the pure logic apart from the effects is one of the highest-return structural habits there is**. It's the core of [[concepts/03-design-patterns/index|a lot of design]] and the whole premise of functional programming.
 
 **Watch the sharing trap.** Passing a list or object into a function passes a *reference* → [[foundations/programming-fundamentals/05-variables-and-types|note 05]]. Modifying it inside changes the caller's copy. Sometimes intended; frequently a surprise.
 

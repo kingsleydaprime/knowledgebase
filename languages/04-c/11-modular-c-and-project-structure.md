@@ -245,5 +245,5 @@ test: $(TESTS)
 - [[languages/04-c/02-headers-and-the-translation-unit|Headers and the Translation Unit]] — the mechanism behind all of this
 - [[languages/04-c/12-build-systems|Build Systems]] — compiling the layout above
 - [[languages/04-c/07-memory-management|Memory Management]] — ownership discipline
-- [[backend/03-structuring-a-backend/README|Structuring a Backend]] — the same ideas, with language support
-- [[languages/04-c/README|C course map]]
+- [[backend/03-structuring-a-backend/index|Structuring a Backend]] — the same ideas, with language support
+- [[languages/04-c/index|C course map]]

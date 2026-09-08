@@ -156,12 +156,12 @@ $$D_{KL}(\mathcal{N}(\mu,\sigma^2)\|\mathcal{N}(0,1)) = \tfrac{1}{2}\left(\mu^2 
 
 **Estimating KL from samples is high-variance.** For the reverse direction, use the low-variance estimator $\mathbb{E}_q[(r - 1) - \log r]$ with $r = p/q$, rather than the naive $\mathbb{E}[\log r]$ — **this is what modern RLHF implementations use** and it materially reduces gradient noise.
 
-**Cross-entropy is not calibration.** A model can have low cross-entropy and still be overconfident. **Check reliability diagrams and expected calibration error separately.** → [[ai-ml/02-ml-engineer/04-model-evaluation/README|Model Evaluation]]
+**Cross-entropy is not calibration.** A model can have low cross-entropy and still be overconfident. **Check reliability diagrams and expected calibration error separately.** → [[ai-ml/02-ml-engineer/04-model-evaluation/index|Model Evaluation]]
 
 ---
 
 ## Related
 - [[foundations/information-theory/03-source-coding-and-compression|Source Coding]] — the compression half of the equivalence
-- [[ai-ml/02-ml-engineer/05-deep-learning/README|Deep Learning]] — where this loss is used
+- [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]] — where this loss is used
 - [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — perplexity and next-token prediction
-- [[foundations/information-theory/README|Information theory map]]
+- [[foundations/information-theory/index|Information theory map]]

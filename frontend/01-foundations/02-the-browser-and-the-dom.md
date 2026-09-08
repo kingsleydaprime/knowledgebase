@@ -14,7 +14,7 @@ DNS → TCP → TLS → HTTP request → HTML arrives
    → composite (stack the layers)
 ```
 
-**The first four steps are [[foundations/networking/README|networking]]** and are often the bulk of the time on a first visit.
+**The first four steps are [[foundations/networking/index|networking]]** and are often the bulk of the time on a first visit.
 
 **Each later step depends on the one before**, which is why the order of your `<head>` matters and why "just move the script tag" is real advice rather than folklore.
 
@@ -65,7 +65,7 @@ The DOM is a live tree of nodes. Mutating it triggers the pipeline above.
 
 **It is genuinely slower than people expect** — not because the tree is slow, but because each mutation may invalidate layout for a subtree.
 
-**Which is what frameworks are optimising.** React's virtual DOM, Svelte's compiled updates and Vue's reactivity all exist to **batch and minimise real DOM mutations** → [[frontend/02-rendering/README|rendering]].
+**Which is what frameworks are optimising.** React's virtual DOM, Svelte's compiled updates and Vue's reactivity all exist to **batch and minimise real DOM mutations** → [[frontend/02-rendering/index|rendering]].
 
 **And it's why `key` matters in every framework's list rendering** — it tells the reconciler which DOM node corresponds to which item, and getting it wrong moves state to the wrong row.
 
@@ -109,9 +109,9 @@ list.addEventListener("click", (e) => {
 **The observers are the ones people miss.** A `scroll` listener firing hundreds of times a second, each doing `getBoundingClientRect()`, is a classic jank source. `IntersectionObserver` does the same job off the main thread.
 
 ## Related
-- [[frontend/02-rendering/README|rendering]] — CSR, SSR, hydration
-- [[frontend/07-practices/README|practices]] — Core Web Vitals
+- [[frontend/02-rendering/index|rendering]] — CSR, SSR, hydration
+- [[frontend/07-practices/index|practices]] — Core Web Vitals
 - [[foundations/networking/11-http-evolution|HTTP]] — the first four steps
-- [[foundations/computer-graphics/README|computer graphics]] — what paint and composite actually do
+- [[foundations/computer-graphics/index|computer graphics]] — what paint and composite actually do
 
 *Source: [reference] — written Aug 2026.*

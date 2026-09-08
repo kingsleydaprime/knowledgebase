@@ -114,5 +114,5 @@ Passing `defaultApiVersion: apiVersion` matters more than it looks — it makes 
 
 ## Related
 - [[projects/munakalati/learning/04-frontend/01-app-router-structure|frontend/01 — route groups and the rest of the routing]]
-- [[frontend/frameworks/next/README|Next.js]] — `dynamic`, catch-all routes
+- [[frontend/frameworks/next/index|Next.js]] — `dynamic`, catch-all routes
 - [[frontend/07-practices/02-performance|performance]] — why the Studio chunk must stay out of the site bundle

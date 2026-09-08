@@ -71,7 +71,7 @@ The feedback means the impulse response rings on forever (infinite), and it's th
 
 ## Poles, zeros and the z-transform
 
-To reason about IIR stability, DSP uses the **z-transform** — the discrete-time analogue of the Laplace transform → [[engineering/02-control-theory/README|control theory]]. It turns the filter's difference equation into a ratio of polynomials, the **transfer function `H(z)`**:
+To reason about IIR stability, DSP uses the **z-transform** — the discrete-time analogue of the Laplace transform → [[engineering/02-control-theory/index|control theory]]. It turns the filter's difference equation into a ratio of polynomials, the **transfer function `H(z)`**:
 
 - **Zeros** (roots of the numerator) — frequencies the filter *nulls*
 - **Poles** (roots of the denominator) — frequencies the filter *boosts*, and the source of feedback/resonance

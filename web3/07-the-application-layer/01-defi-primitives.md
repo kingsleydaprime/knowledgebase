@@ -72,7 +72,7 @@ HF < 1  → liquidatable: anyone repays your debt, takes your collateral plus a 
 
 Two models: **order-book** (dYdX, Hyperliquid — often on an app-chain for the throughput) and **pool-based** (GMX — traders take the other side of a shared liquidity pool).
 
-**Perps are where most on-chain volume and most retail losses are.** Leverage plus 24/7 markets plus permissionless access is an efficient mechanism for transferring money from inexperienced traders to sophisticated ones → [[web3/08-the-honest-assessment/README|the honest assessment]].
+**Perps are where most on-chain volume and most retail losses are.** Leverage plus 24/7 markets plus permissionless access is an efficient mechanism for transferring money from inexperienced traders to sophisticated ones → [[web3/08-the-honest-assessment/index|the honest assessment]].
 
 ## Composability — the feature and the risk
 

@@ -87,7 +87,7 @@ final class FeedViewModel: ObservableObject {
 }
 ```
 
-**UI updates must be on the main thread**, and `@MainActor` makes that a compile-time guarantee instead of a runtime crash. **Annotate view models and UI-facing types** → [[mobile/frameworks/ios/README|iOS]].
+**UI updates must be on the main thread**, and `@MainActor` makes that a compile-time guarantee instead of a runtime crash. **Annotate view models and UI-facing types** → [[mobile/frameworks/ios/index|iOS]].
 
 ## `Sendable` and Swift 6
 
@@ -116,6 +116,6 @@ final class FeedViewModel: ObservableObject {
 
 ## Related
 - [[languages/08-swift/06-error-handling|error handling]] — cancellation is an error
-- [[languages/09-kotlin/README|Kotlin coroutines]] — the same problem, similar shape
+- [[languages/09-kotlin/index|Kotlin coroutines]] — the same problem, similar shape
 - [[foundations/os/06-concurrency-primitives|concurrency primitives]] — what's underneath
 - [[languages/03-rust/13-concurrency|Rust's Send/Sync]] — the direct analogue of `Sendable`

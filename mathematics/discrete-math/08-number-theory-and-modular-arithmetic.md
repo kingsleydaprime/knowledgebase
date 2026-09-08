@@ -127,7 +127,7 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 
 **Checksums.** ISBN, IBAN, credit card numbers (Luhn), and CRC are all modular arithmetic. **A check digit catches single-digit and transposition errors** by construction.
 
-**Random number generators.** LCGs are $x_{n+1} = (ax_n + c) \bmod m$, and the choice of constants determines the period. → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/README|Probability]]
+**Random number generators.** LCGs are $x_{n+1} = (ax_n + c) \bmod m$, and the choice of constants determines the period. → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability]]
 
 **Error-correcting codes.** Reed–Solomon operates over finite fields — Galois fields being modular arithmetic generalised. Used in QR codes, CDs, RAID 6, and deep-space communication.
 
@@ -153,4 +153,4 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 - [[cybersecurity/05-cryptography/04-asymmetric-encryption|Asymmetric Encryption]] — RSA and ECC in practice
 - [[foundations/discrete-math/06-combinatorics-and-counting|Combinatorics]] — the birthday bound on key sizes
 - [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — why factoring's hardness is only conjectured
-- [[foundations/discrete-math/README|Discrete maths map]]
+- [[foundations/discrete-math/index|Discrete maths map]]

@@ -203,4 +203,4 @@ fn unterminated_string_reports_at_open_quote() {
 - [[foundations/compilers/03-parsing|Parsing]] — what consumes these tokens
 - [[foundations/compilers/01-what-a-compiler-is|What a Compiler Is]] — where this sits
 - [[languages/04-c/03-the-preprocessor|C: The Preprocessor]] — a separate token-level pass before the real lexer
-- [[foundations/compilers/README|Compilers course map]]
+- [[foundations/compilers/index|Compilers course map]]

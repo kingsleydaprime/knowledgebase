@@ -20,7 +20,7 @@ extract_events ──┘                              └──► update_dashbo
 
 **The orchestrator reads the DAG and runs tasks respecting dependencies** — `load_warehouse` waits for all three extracts; the two downstream branches run in parallel once `dbt_run` finishes. You declare the *shape*; the orchestrator handles ordering, parallelism, and what to do when a node fails.
 
-**"Pipelines as code"** — the DAG is defined in a programming language (usually Python), version-controlled and reviewed, not clicked together in a UI → [[git/README|git]].
+**"Pipelines as code"** — the DAG is defined in a programming language (usually Python), version-controlled and reviewed, not clicked together in a UI → [[git/index|git]].
 
 ## The three things an orchestrator must do
 
@@ -73,6 +73,6 @@ Idempotent:       DELETE yesterday's partition, then INSERT   ← re-run → sam
 - [[data-engineering/04-ingestion-and-change-data-capture|ingestion]] — idempotent loads, the same idea at the source
 - [[data-engineering/07-transformation-and-dbt|transformation and dbt]] — a major thing orchestrators run
 - [[data-engineering/10-data-quality-governance-and-the-stack|data quality]] — where alerts go
-- [[devops/06-ci-cd/README|CI/CD]] · [[architecture/03-architectural-patterns/README|architectural patterns]] — pipelines-as-code
+- [[devops/06-ci-cd/index|CI/CD]] · [[architecture/03-architectural-patterns/index|architectural patterns]] — pipelines-as-code
 
 *Source: [reference] — Aug 2026.*

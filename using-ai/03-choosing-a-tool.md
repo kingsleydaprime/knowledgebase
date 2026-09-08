@@ -19,7 +19,7 @@ Pick by **what you're trying to produce**, not by which brand you've heard of mo
 | **Image generation** | Illustration, mockups, concept visuals | Text inside images, hands, precise layout; and the licensing question for commercial use |
 | **Voice / realtime** | Hands-free, practising a language, transcription | Transcription errors compound silently into whatever comes next |
 | **Coding assistants** (Cursor, Copilot, Claude Code) | Writing or changing code | A different course — see the hand-off at the end |
-| **Automation platforms** (n8n, Zapier, Make) | The *same* AI task, repeatedly, without you present | Real engineering; see [[ai-automation/README\|ai-automation/]] |
+| **Automation platforms** (n8n, Zapier, Make) | The *same* AI task, repeatedly, without you present | Real engineering; see [[ai-automation/index\|ai-automation/]] |
 
 ## How to actually choose, in three questions
 
@@ -55,4 +55,4 @@ Match the tool to the *shape of the output* you want, then ask whether the answe
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — uploading your own sources, and why it helps so much
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — what to do with a sourced answer
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — the same landscape from the builder's side: providers, open vs closed, self-hosting
-- [[ai-automation/README|AI Automation]] — when the task should run without you
+- [[ai-automation/index|AI Automation]] — when the task should run without you

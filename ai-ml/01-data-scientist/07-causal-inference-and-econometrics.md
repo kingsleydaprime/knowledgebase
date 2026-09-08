@@ -4,7 +4,7 @@
 
 ## Prediction vs causation — a fundamental split
 
-Most of [[ai-ml/02-ml-engineer/README|ML]] answers **prediction**: given these features, what's the likely outcome? Causal inference answers **intervention**: if we *change* this, what happens to the outcome? These are different questions with different methods, and conflating them is dangerous:
+Most of [[ai-ml/02-ml-engineer/index|ML]] answers **prediction**: given these features, what's the likely outcome? Causal inference answers **intervention**: if we *change* this, what happens to the outcome? These are different questions with different methods, and conflating them is dangerous:
 
 - A model can *predict* churn brilliantly using "number of support tickets" — but that doesn't mean *reducing tickets* reduces churn (both may be driven by an unhappy customer). Acting on a predictive feature as if it were causal is a classic, costly mistake.
 - Prediction cares about *accuracy*; causation cares about *unbiased effect estimates*, which need entirely different validation.

@@ -34,7 +34,7 @@ The UI subscribes to a query. Sync updates the database. **The UI updates automa
 | **Cross-platform** | SQLDelight, Realm, WatermelonDB, Drift | — |
 | **Sync-as-a-service** | PowerSync, ElectricSQL, Replicache, Firebase | — |
 
-**SQLite underlies most of these**, and it's excellent — everything in [[databases/README|the databases course]] about indexes and query plans applies → [[databases/04-b-trees-and-indexes|indexes]].
+**SQLite underlies most of these**, and it's excellent — everything in [[databases/index|the databases course]] about indexes and query plans applies → [[databases/04-b-trees-and-indexes|indexes]].
 
 **A note on the sync services:** offline sync is genuinely hard, and using a service that solves it is a legitimate engineering decision rather than a shortcut. Weigh it against the lock-in.
 
@@ -65,7 +65,7 @@ CREATE TABLE outbox (
 Then:
 - **Process in order** — a "create" must precede its "update"
 - **Retry with exponential backoff and jitter**
-- **Make it idempotent** — send a client-generated ID so a retry after a timeout doesn't create two records → [[backend/06-cross-cutting/README|idempotency]]
+- **Make it idempotent** — send a client-generated ID so a retry after a timeout doesn't create two records → [[backend/06-cross-cutting/index|idempotency]]
 - **Give up eventually** and surface it. An item retrying forever is invisible data loss
 - **Handle a dead item** — if a mutation can never succeed (deleted server-side), it must be removable
 
@@ -114,7 +114,7 @@ Network-first      fetch, fall back to cache      prices, balances
 ## Related
 - [[mobile/05-state-and-architecture|state and architecture]] — the repository this sits under
 - [[mobile/08-networking-on-mobile|networking on mobile]]
-- [[databases/README|databases]] — SQLite is a real database, treat it as one
-- [[architecture/04-distributed-systems/README|distributed systems]] — because that's what you've built
+- [[databases/index|databases]] — SQLite is a real database, treat it as one
+- [[architecture/04-distributed-systems/index|distributed systems]] — because that's what you've built
 
 *Source: [reference] — Aug 2026.*

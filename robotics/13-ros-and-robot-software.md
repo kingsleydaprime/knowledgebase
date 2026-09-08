@@ -10,7 +10,7 @@ A robot is several processes on several machines, each talking to different hard
 
 **Writing that as one program is a mistake** — one segfault in the vision code takes down the control loop, and every component has to be in the same language, on the same machine, at the same rate.
 
-> **So robotics settled on message passing**: independent processes exchanging typed messages over named channels. It's the same reasoning that produced microservices, arrived at independently and about a decade earlier. → [[architecture/03-architectural-patterns/README|Architectural Patterns]]
+> **So robotics settled on message passing**: independent processes exchanging typed messages over named channels. It's the same reasoning that produced microservices, arrived at independently and about a decade earlier. → [[architecture/03-architectural-patterns/index|Architectural Patterns]]
 
 **What you get:** language independence (C++ for control, Python for the planner), process isolation (one crash doesn't take everything), distribution across machines, introspection (record and replay every message), and reusable drivers.
 
@@ -174,5 +174,5 @@ Worth knowing that ROS isn't the only answer:
 ## Related
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — what `tf2` manages
 - [[robotics/14-safety-and-real-time|Safety and Real-Time]] — where ROS stops being appropriate
-- [[architecture/04-distributed-systems/README|Distributed Systems]] — a multi-machine robot is one
-- [[robotics/README|Robotics map]]
+- [[architecture/04-distributed-systems/index|Distributed Systems]] — a multi-machine robot is one
+- [[robotics/index|Robotics map]]

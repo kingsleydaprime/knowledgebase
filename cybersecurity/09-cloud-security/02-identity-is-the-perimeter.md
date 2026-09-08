@@ -40,7 +40,7 @@ The second discipline: **prefer temporary, role-based credentials over long-live
 - **Roles** — an application *assumes a role* and gets short-lived credentials (valid for minutes to hours) that auto-expire. Nothing to leak permanently
 - **Static access keys** — a long-lived key pair. **These are the classic breach vector**: committed to Git, baked into an image, left in a config file, and — because they never expire — usable forever once leaked → [[cybersecurity/09-cloud-security/03-the-cloud-attack-surface|exposed secrets]]
 
-**Leaked static keys in a public Git repo are scraped within minutes** by bots watching for exactly that, then used to spin up crypto miners (denial-of-wallet) or exfiltrate data. The fix is structural: **don't have long-lived keys to leak.** Use roles for services, federated SSO for humans, and workload identity for containers → [[devops/09-secret-management/README|secret management]].
+**Leaked static keys in a public Git repo are scraped within minutes** by bots watching for exactly that, then used to spin up crypto miners (denial-of-wallet) or exfiltrate data. The fix is structural: **don't have long-lived keys to leak.** Use roles for services, federated SSO for humans, and workload identity for containers → [[devops/09-secret-management/index|secret management]].
 
 **And MFA everywhere**, especially on privileged and root accounts. The root account should be locked away, MFA-protected, and never used for daily work.
 
@@ -58,7 +58,7 @@ Here's why over-permissioning is so dangerous, concretely. **IAM itself has perm
 
 ## The providers, briefly
 
-The model is the same; the vocabulary differs → [[devops/03-cloud/README|cloud]]:
+The model is the same; the vocabulary differs → [[devops/03-cloud/index|cloud]]:
 
 - **AWS IAM** — users, roles, policies (JSON), STS for temporary credentials. The most granular and the most footgun-prone
 - **Azure** — RBAC + Entra ID (formerly Azure AD); role assignments over scopes
@@ -74,6 +74,6 @@ The model is the same; the vocabulary differs → [[devops/03-cloud/README|cloud
 - [[cybersecurity/09-cloud-security/03-the-cloud-attack-surface|the cloud attack surface]] — where compromised identities come from
 - [[cybersecurity/07-security-operations/01-defensive-architecture|defensive architecture]] — zero trust
 - [[cybersecurity/14-api-security/03-authorization-and-bola|API authorization]] — the same "permissions that reach permissions" problem
-- [[devops/09-secret-management/README|secret management]] — killing static keys
+- [[devops/09-secret-management/index|secret management]] — killing static keys
 
 *Source: [reference] — Aug 2026.*

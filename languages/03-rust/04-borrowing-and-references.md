@@ -164,4 +164,4 @@ let (a, b) = s.split_at_mut(i);   // slices provide explicit splitting methods
 - [[languages/03-rust/03-ownership|Ownership]] — the rules being relaxed here
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]] — escape hatches, used deliberately
 - [[languages/03-rust/13-concurrency|Concurrency]] — the same rule preventing data races
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

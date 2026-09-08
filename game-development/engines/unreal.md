@@ -18,7 +18,7 @@
 
 ## The C++ is a dialect
 
-**This is not the C++ in [[languages/05-cpp/README|the C++ course]].** Unreal uses its own macro-driven system:
+**This is not the C++ in [[languages/05-cpp/index|the C++ course]].** Unreal uses its own macro-driven system:
 
 ```cpp
 UCLASS()
@@ -73,8 +73,8 @@ If the goal is photorealism, you would spend years reproducing that.
 **The royalty:** 5% of gross revenue above a threshold (currently $1M per title), after which it's a real cost — and worth modelling in the trade study rather than discovering later → [[foundations/systems-engineering/05-trade-studies|trade studies]].
 
 ## Related
-- [[game-development/engines/README|engines/]] · [[game-development/engines/unity|Unity]]
-- [[languages/05-cpp/README|C++]] — the language it deviates from
+- [[game-development/engines/index|engines/]] · [[game-development/engines/unity|Unity]]
+- [[languages/05-cpp/index|C++]] — the language it deviates from
 - [[game-development/03-graphics-for-games|graphics for games]] — what Lumen and Nanite are solving
 
 *Source: [reference] — from the Unreal Engine documentation, Aug 2026.*

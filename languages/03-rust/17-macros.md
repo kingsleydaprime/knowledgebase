@@ -191,4 +191,4 @@ cargo expand --test mytest
 - [[languages/03-rust/09-traits|Traits]] — usually the better tool
 - [[languages/03-rust/16-modules-cargo-and-testing|Modules, Cargo and Testing]] — where proc-macro crates fit
 - [[languages/03-rust/08-error-handling-in-practice|Error Handling]] — `thiserror` is a derive macro
-- [[languages/03-rust/README|Rust course map]]
+- [[languages/03-rust/index|Rust course map]]

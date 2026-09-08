@@ -2,7 +2,7 @@
 
 The round that asks *"can you work in a codebase with other people?"* It shows up as a design-patterns question, a code-review exercise, or a "how would you refactor this" — and the grading is almost entirely about judgement rather than recall.
 
-From [[concepts/03-design-patterns/README|design patterns]], [[concepts/04-best-practices/README|best practices]], and [[foundations/software-engineering/README|software engineering]].
+From [[concepts/03-design-patterns/index|design patterns]], [[concepts/04-best-practices/index|best practices]], and [[foundations/software-engineering/index|software engineering]].
 
 ---
 
@@ -127,8 +127,8 @@ The failure mode is abstracting two things that *look* alike but aren't the same
 
 ## Related
 - [[concepts/interview/01-apis-auth-and-practices|APIs, auth & practices]]
-- [[concepts/03-design-patterns/README|design patterns]] · [[concepts/04-best-practices/README|best practices]]
-- [[foundations/software-engineering/README|software engineering]] — what the profession is
-- [[backend/interview/README|Backend interview prep]]
+- [[concepts/03-design-patterns/index|design patterns]] · [[concepts/04-best-practices/index|best practices]]
+- [[foundations/software-engineering/index|software engineering]] — what the profession is
+- [[backend/interview/index|Backend interview prep]]
 
 *Source: [reference] — assembled Aug 2026.*

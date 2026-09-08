@@ -280,4 +280,4 @@ jobs:
 - [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — all three assembled into a real build
 - [[devops/11-delivery-and-advanced/02-artifact-management|Artifact Management]] — what happens to a build output after the pipeline
 - [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — "build once, promote the artifact"
-- [[devops/06-ci-cd/README|CI/CD module map]]
+- [[devops/06-ci-cd/index|CI/CD module map]]

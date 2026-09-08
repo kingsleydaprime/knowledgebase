@@ -43,7 +43,7 @@ Models need a reliable flow of data — ingested, cleaned, transformed, and deli
 - **Storage** — data lakes (raw) and warehouses (structured, queried via SQL); increasingly "lakehouse" (Delta Lake).
 - **Lineage** — tracking where data came from and how it was transformed, for debugging and compliance.
 
-These are the same data-engineering concerns as any pipeline — the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|batch-processing]] and [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|messaging]] notes cover the same ideas (throughput, backpressure, idempotency) in another domain — and the orchestration/scheduling overlaps [[devops/06-ci-cd/README|CI/CD]].
+These are the same data-engineering concerns as any pipeline — the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|batch-processing]] and [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|messaging]] notes cover the same ideas (throughput, backpressure, idempotency) in another domain — and the orchestration/scheduling overlaps [[devops/06-ci-cd/index|CI/CD]].
 
 ## Related
 - [[ai-ml/02-ml-engineer/10-mlops/01-mlops-fundamentals|MLOps Fundamentals]] — why data/models need versioning

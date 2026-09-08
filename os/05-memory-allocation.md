@@ -171,4 +171,4 @@ For "is this a leak or fragmentation?": a leak grows without bound and the alloc
 - [[foundations/os/04-virtual-memory|Virtual Memory]] — where the pages come from
 - [[languages/04-c/07-memory-management|C: Memory Management]] — the user-space view, and arenas
 - [[languages/02-go/13-performance-and-runtime|Go: Performance]] — escape analysis and the GC
-- [[foundations/os/README|OS course map]]
+- [[foundations/os/index|OS course map]]
