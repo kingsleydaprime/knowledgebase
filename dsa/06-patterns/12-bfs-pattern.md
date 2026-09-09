@@ -250,6 +250,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain why BFS finds shortest paths in *unweighted* graphs and DFS does not.
+- [ ] Implement level-order traversal that groups nodes by depth.
+- [ ] Solve a shortest-path-on-a-grid problem independently.
+- [ ] State why BFS can use far more memory than DFS on a wide graph.
+
+**Recap:** BFS explores level by level using a queue, so the first time it reaches a node it has done so in the fewest edges — which is why it finds shortest paths in unweighted graphs. The cost is memory: the queue can hold an entire level, which on a wide graph is far more than DFS's stack depth.
+
+**Next:** [[13-matrix-traversal|matrix-traversal]] — grids as implicit graphs, where BFS and DFS apply directly without ever building an adjacency list.
+
 ## 9. Related
 
 - [[03-bfs|bfs]] — the underlying traversal algorithm

@@ -205,6 +205,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain why sorting is a precondition, and what breaks without it.
+- [ ] Trace the two indices on `[2,7,11,15]` for target 9 without running the code.
+- [ ] Implement two-sum-on-sorted independently and handle the no-solution case.
+- [ ] State why this is O(n) despite examining pairs, and why the naive version is O(n²).
+
+**Recap:** Two pointers converge from both ends of **sorted** data, moving the one whose value is provably wrong. Each index only ever moves forward, so every element is visited at most once and the pass is O(n) with O(1) extra space — replacing the O(n²) nested loop that checks every pair.
+
+**Next:** [[03-sliding-window|sliding-window]] — the same idea with both pointers moving in the *same* direction, which is what you need when the window is contiguous rather than converging.
+
 ## 9. Related
 
 - [[01-arrays|arrays]] — the underlying structure

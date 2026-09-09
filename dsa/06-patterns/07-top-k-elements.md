@@ -301,6 +301,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain why a min-heap of size k finds the k *largest*, which feels backwards.
+- [ ] State the complexity and compare it with sorting the whole input.
+- [ ] Implement top-k independently using a heap rather than a sort.
+- [ ] Say when sorting is actually the better choice.
+
+**Recap:** Maintaining a heap of size k gives the top k in O(n log k) rather than O(n log n) for a full sort. For the k largest you use a *min*-heap, so the smallest of your current best is at the top and cheapest to evict. The win only matters when k is much smaller than n; otherwise sort.
+
+**Next:** [[08-overlapping-intervals|overlapping-intervals]] — a pattern where sorting *is* the right first move, and the whole problem collapses to one linear pass afterwards.
+
 ## 10. Related
 
 - [[01-trees|trees]] — the heap data structure

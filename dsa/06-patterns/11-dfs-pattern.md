@@ -212,6 +212,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain why graphs need a visited set and trees do not.
+- [ ] Implement DFS both recursively and with an explicit stack.
+- [ ] Detect a cycle in a directed graph independently.
+- [ ] State the space complexity and when recursion depth becomes a real risk.
+
+**Recap:** DFS explores as far as possible along each branch before backtracking. On a graph — unlike a tree — you must track visited nodes, or a cycle sends you round forever. The recursive form is the natural one and costs stack proportional to depth; an explicit stack avoids that ceiling.
+
+**Next:** [[12-bfs-pattern|bfs-pattern]] — the same exploration with a queue instead of a stack, which changes the order enough to solve a different class of problem.
+
 ## 9. Related
 
 - [[02-dfs|dfs]] — the underlying traversal algorithm

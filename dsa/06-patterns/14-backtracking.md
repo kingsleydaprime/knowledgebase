@@ -242,6 +242,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain what distinguishes backtracking from plain DFS.
+- [ ] State why the undo step is essential and what happens without it.
+- [ ] Generate all subsets or permutations independently.
+- [ ] Add one pruning condition and explain what it saves.
+
+**Recap:** Backtracking is DFS over a space of partial solutions, with an explicit undo after each branch so the shared state is restored. The choose–explore–unchoose shape is the whole pattern. Complexity is exponential by nature, so pruning — abandoning a branch that provably cannot succeed — is what makes it usable.
+
+**Next:** [[15-dynamic-programming|dynamic-programming]] — what to do when the recursion tree repeats the same subproblem, which is exactly when backtracking becomes unaffordable.
+
 ## 9. Related
 
 - [[11-dfs-pattern|dfs-pattern]] — DFS as a problem-solving pattern

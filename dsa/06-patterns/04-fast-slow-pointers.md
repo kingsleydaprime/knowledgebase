@@ -253,6 +253,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain why a fast pointer moving two steps must meet a slow one inside a cycle.
+- [ ] Find the cycle's start after detection, and justify why resetting one pointer to the head works.
+- [ ] Implement cycle detection independently, handling the empty and single-node cases.
+- [ ] State why this beats a hash set of visited nodes.
+
+**Recap:** Two pointers traversing at different speeds detect cycles in O(1) space. Inside a loop the fast pointer gains one position per step on the slow one, so it must eventually land on it — the gap closes by exactly one each iteration and cannot be skipped over. Finding the loop's entry then falls out of the distance arithmetic, and the whole thing uses two variables rather than a set of every visited node.
+
+**Next:** [[05-linked-list-reversal|linked-list-reversal]] — the other core linked-list technique — rewiring pointers in place, which the fast/slow midpoint is often the setup for.
+
 ## 10. Related
 
 - [[04-linked-lists|linked-lists]] — the original application of this pattern
