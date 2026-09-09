@@ -6,7 +6,7 @@
 
 - You can build any function from gates, and know XOR is the expensive one — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]], [[how-computers-work/04-logic/04-universal-gates|module 18]].
 - You know that gate delays accumulate along a path and the critical path sets $f_{max}$ — [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
-- You have met two's complement, or are willing to take $-B = \overline{B} + 1$ on trust for one section.
+- You have met **two's complement**. If not, read [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]] first — this module builds a subtractor from it, and [[how-computers-work/05-combinational/04-the-alu|module 23]] uses its overflow rules for the flags.
 
 **After this lesson you will be able to:**
 
