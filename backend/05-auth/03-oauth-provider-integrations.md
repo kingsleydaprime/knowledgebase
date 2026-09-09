@@ -237,3 +237,153 @@ Answering these before writing code is roughly an hour and saves days.
 - [[devops/08-networking-and-web/03-local-https-tunnels|Local HTTPS tunnels]] — for https-only callbacks
 - [[devops/03-cloud/03-object-storage-and-direct-uploads|Object storage & direct uploads]] — for fetch-by-URL platforms
 - [[devops/09-secret-management/index|Secret management]] — storing provider tokens at rest
+
+## 7. Account Linking — One Human, Several Ways to Prove It
+
+Every provider integration eventually meets the same question: a user signs in
+with Google today and with email+password tomorrow. **One account, or two?**
+
+Almost always one. The work is in getting there without opening a takeover.
+
+### 7.1 Linking by email is a takeover primitive without one check
+
+The natural implementation — "look for an existing user with this email, and
+attach the provider identity to it" — hands an attacker any account whose email
+address they can *claim* at a provider, unless the provider actually
+**verified** the address.
+
+```ts
+// Google, in the ID token
+if (payload.email_verified !== true) throw new UnauthorizedException();
+```
+
+Write it as `!== true`, never `=== false`. The claim is attacker-adjacent
+input, and a missing claim must fail closed — `=== false` lets `undefined`
+through, which is precisely the case a future API version or an unusual
+provider will hand you.
+
+Providers differ in how much they promise here. Some never verify. Some (Apple)
+support private relay addresses that are verified but not the user's real
+mailbox. **If a provider does not assert verification, you cannot link by email
+at all** — link only on an explicit, authenticated "connect this account"
+action taken from inside an existing session.
+
+### 7.2 Lookup precedence: subject id first, email second
+
+Two identifiers can find the user, and they are not equally trustworthy:
+
+| identifier | stability | trust |
+|---|---|---|
+| provider subject id (`sub`) | permanent per account | the identity itself |
+| email | **changes**, and can move between accounts | a hint, verified at best |
+
+So the order is fixed:
+
+```
+1. look up (provider, providerAccountId) → if found, done
+2. else look up email                    → if found, link the identity onto it
+3. else create a new account
+```
+
+**Do not fold these into one `OR` query.** An `OR` has no precedence: when a
+user changes their provider-side email to one that already exists locally, two
+rows match and the database returns whichever it likes — signing the visitor in
+as either user, non-deterministically.
+
+### 7.3 Make the database enforce uniqueness
+
+```sql
+CREATE UNIQUE INDEX ON accounts (provider, provider_account_id);
+```
+
+"Only one row can match" is an invariant; an invariant that lives only in
+application code is one the database will eventually let you break. NULLs are
+distinct in a unique index, so password-only accounts (no provider columns) are
+unaffected and coexist freely.
+
+### 7.4 One column pair per user does not survive a second provider
+
+Storing `oauth_provider` / `oauth_id` directly on `users` works for exactly one
+provider. Add a second and there is nowhere to put it: the user signs in fine
+(the email is verified) but the new identity goes unrecorded, so they are only
+ever found by email on that provider — and a provider-side email change orphans
+them.
+
+The standard shape, and what NextAuth/Auth.js models:
+
+```
+users     (id, email, ...)
+accounts  (id, user_id, provider, provider_account_id, ...)
+            UNIQUE (provider, provider_account_id)
+```
+
+One row per linked identity, many per user. **Adding this before launch is a
+schema change; adding it afterwards is a data migration over live accounts.**
+Decide early even if you ship with one provider.
+
+### 7.5 The reverse direction is the one that gets forgotten
+
+Teams test "password user adds Google" and ship. The other direction —
+**provider user wants a password** — is usually broken, and broken *silently*:
+
+- login returns "invalid credentials" for a correct address, because there is
+  no hash to compare against;
+- forgot-password skips provider-only accounts and still returns the generic
+  "if that address exists, a link has been sent";
+- no set-password endpoint exists at all.
+
+Result: losing the provider account means permanent lockout, with every
+response saying things are fine. Fixes:
+
+1. **Let forgot-password work for provider-only accounts.** It does not weaken
+   anything — the provider proved ownership of that mailbox, and the link goes
+   to that same mailbox. Change the wording from "reset" to "set".
+2. **Add an authenticated set/change-password endpoint.** Require the current
+   password only when one exists; there is nothing to prove when there isn't.
+3. **Tell the user at the login form** which provider the account uses, instead
+   of a generic failure.
+
+Step 3 admits the address is registered. That is a real enumeration leak and
+should be a recorded decision — but check your registration endpoint first:
+if it already answers "email already in use", the leak exists regardless, and
+hardening only the login form buys nothing. **The two endpoints have to agree.**
+
+### 7.6 Changing a password must end existing sessions
+
+Adding a second sign-in method adds a second thing to revoke. If a password
+reset does not invalidate tokens issued before it, an attacker holding a stolen
+refresh token keeps the session for its full lifetime — and the victim's reset
+did nothing.
+
+The cheap, storage-free mechanism is a timestamp on the user row compared
+against the token's `iat`:
+
+```ts
+if (user.passwordChangedAt) {
+  const changedAt = Math.floor(user.passwordChangedAt.getTime() / 1000);
+  if ((payload.iat ?? 0) < changedAt) throw new UnauthorizedException();
+}
+```
+
+Two details that decide whether this works:
+
+- **`iat` is in whole seconds; JS timestamps are milliseconds.** Floor the
+  stored value, or a token minted in the same second as the change is rejected
+  — the exact token you hand back after a self-service password change.
+- **The change endpoint must return fresh tokens**, since it just invalidated
+  the caller's own. Otherwise changing your password logs you out.
+
+Put the check where a user row is already being loaded (session validation
+usually loads one anyway) and it costs an extra column, not an extra query.
+
+### 7.7 Checklist
+
+1. Does each linking direction work, or only the one you tested?
+2. What proves the provider verified the email — and does it fail closed?
+3. Can the lookup match two rows? Does a unique index prevent it?
+4. What happens when two sign-ins for a new user arrive at once?
+5. When a credential changes, what still holds a live session?
+6. If a user loses one method, is there a route back, and does the UI say so?
+7. Does the enumeration posture match across login, register and reset?
+
+→ applied: [[projects/nextvibe/learning/backend/02-auth|nextvibe auth notes]]

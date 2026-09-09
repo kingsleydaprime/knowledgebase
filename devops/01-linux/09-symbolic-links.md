@@ -147,3 +147,68 @@ You've now completed everything for Week 1:
 ---
 
 Ready for Docker?
+## Updating an existing link: `-f` and `-n`
+
+`ln -s` refuses to run if the link name already exists:
+
+```
+ln: failed to create symbolic link 'mylink': File exists
+```
+
+Two flags make the command idempotent — safe to run again over a link you
+already created:
+
+```bash
+ln -sfn /new/target /path/to/link
+```
+
+- **`-f`** (`--force`) — remove the existing destination first, so the command
+  re-points a link rather than failing.
+- **`-n`** (`--no-dereference`) — treat an existing symlink *to a directory* as
+  a file to replace, not as a directory to descend into.
+
+### Why `-n` is the one that bites
+
+Say `~/bin/tools` is already a symlink to `/opt/tools-v1`, and you re-point it:
+
+```bash
+ln -sf /opt/tools-v2 ~/bin/tools     # ✗ not what you meant
+```
+
+Without `-n`, `ln` **follows** the existing symlink, sees a directory at the
+end of it, and applies its usual "link *into* this directory" behaviour. You
+get `/opt/tools-v1/tools -> /opt/tools-v2`, while `~/bin/tools` still points at
+v1. Nothing errors; the deploy just silently didn't happen.
+
+```bash
+ln -sfn /opt/tools-v2 ~/bin/tools    # ✓ replaces the link itself
+```
+
+Learn them as one unit: **`-sfn` = symbolic, force, no-dereference** — the
+normal spelling for "make this link point here, whatever is there now".
+
+### Inspecting links
+
+```bash
+ls -l ~/bin/               # the -> arrows show each link's target
+readlink ~/bin/tools       # the target, one level
+readlink -f ~/bin/tools    # resolve the whole chain; empty output = broken
+find ~/bin -xtype l        # list broken symlinks specifically
+```
+
+`-xtype l` is the useful one in a cleanup: it matches links whose target does
+not exist, which is the state you get after moving or deleting the original.
+
+### Relative vs absolute targets
+
+An absolute target breaks if the tree is ever moved or copied to another
+machine. A relative target survives it, because it is resolved from the link's
+own directory:
+
+```bash
+ln -sfn ../../shared/config ./app/config    # travels with the tree
+```
+
+Same trade-off as relative imports in a codebase: relative for links *within* a
+project you might relocate, absolute for pointing at fixed system paths like
+`/opt` or `/usr/local`.

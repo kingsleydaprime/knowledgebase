@@ -7,6 +7,7 @@ The test: if the config file has opinions in it, the opinions belong here.
 ## What's here
 
 - [[tools/quartz/index|quartz/]] — **6 notes** — the static site generator publishing this vault. Build pipeline, configuration, theming, layout, the graph view, and the deploy setup. Fully grounded in this site's actual config
+- [[tools/agent-skills/index|agent-skills/]] — **1 note** — the `SKILL.md` format, its YAML frontmatter contract, and why a skill silently fails to load
 - [[tools/neovim/neovim-setup|neovim-setup]] — editor configuration
 
 ## Known gaps
