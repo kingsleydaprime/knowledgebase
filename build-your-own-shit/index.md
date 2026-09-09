@@ -40,7 +40,9 @@ The milestone ordering is the load-bearing part. **You should always have someth
 15. [[build-your-own-shit/15-your-own-smart-contract-vm|Your Own Smart Contract VM]] — **[Intermediate → Advanced]** — stack machine → 256-bit words → **gas metering** → jumps → memory → storage → deployment → `CALL` → revert/snapshot → **`DELEGATECALL`, and a working proxy upgrade in 15 lines**
 16. [[build-your-own-shit/16-your-own-token-and-wallet|Your Own Token and Wallet]] — **[Intermediate]** — an ERC-20 from scratch → `approve`/`transferFrom` → **deployed to a testnet and visible in MetaMask** → an HD wallet whose addresses **match MetaMask's for the same seed** → a hand-signed transaction → an on-chain SVG NFT
 
-**All sixteen are written.**
+17. [[build-your-own-shit/17-your-own-cpu/index|Your Own CPU — PRIME-1]] — **[Advanced]** — design a 16-bit ISA → build the processor **four ways** (logic simulator, Verilog, Python emulator, breadboard) → assembler → compiler. **The only guide here that starts below software** — every other one builds *on top of* a computer; this one builds the computer. Capstone of [[how-computers-work/index|How Computers Work]]
+
+**All seventeen are written.**
 
 **Three added Aug 2026**, chosen against this folder's own criterion — build a toy version of something you rely on, and the real thing stops being opaque:
 
