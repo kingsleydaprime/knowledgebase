@@ -314,6 +314,17 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] State the two conditions a problem needs for DP to apply.
+- [ ] Convert a recursive solution to a memoised one, then to a tabulated one.
+- [ ] Identify the state and the recurrence for a problem you have not seen.
+- [ ] Explain the space-optimisation from a 2D table to one or two rows.
+
+**Recap:** Dynamic programming applies when a problem has optimal substructure and overlapping subproblems — the same sub-answer needed repeatedly. Memoisation caches results on the recursive form; tabulation fills a table bottom-up and avoids recursion entirely. The hard part is never the code: it is identifying the state and writing the recurrence.
+
 ## 10. Related
 
 - [[01-algorithms|algorithms]] — where the exponential-vs-polynomial framing comes from

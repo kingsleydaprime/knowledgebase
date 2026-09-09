@@ -251,6 +251,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Draw the three-pointer dance (`prev`, `curr`, `next`) for one iteration.
+- [ ] Explain why you must save `next` *before* rewiring, and what happens if you don't.
+- [ ] Reverse a sublist between two positions independently.
+- [ ] State the space complexity and why the recursive version is worse on long lists.
+
+**Recap:** In-place reversal walks the list rewiring each node's `next` to point backwards, holding three pointers so the forward link is saved before it is destroyed. It is O(n) time and O(1) space. The recursive formulation is elegant and costs O(n) stack, which is a real hazard on long lists.
+
+**Next:** [[06-monotonic-stack|monotonic-stack]] — a different way of remembering what you have already seen — a stack that discards elements it can prove will never be the answer.
+
 ## 10. Related
 
 - [[04-linked-lists|linked-lists]] — the underlying data structure

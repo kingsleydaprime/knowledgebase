@@ -243,6 +243,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] State what pre-, in- and post-order each produce, and when each is the right choice.
+- [ ] Explain why in-order on a BST yields sorted output.
+- [ ] Implement all three traversals independently, iteratively for at least one.
+- [ ] Say which traversal you need when a node's answer depends on its children's.
+
+**Recap:** The three depth-first orders differ only in *when* you visit the node relative to its subtrees. Pre-order works top-down when a node's answer is needed before descending; post-order works bottom-up when the answer depends on the children; in-order on a BST produces sorted output. Choosing correctly is usually the whole problem.
+
+**Next:** [[11-dfs-pattern|dfs-pattern]] — generalising tree traversal to arbitrary graphs, where you must additionally track what you have already visited.
+
 ## 9. Related
 
 - [[02-traversal|traversal]] — the mechanics of preorder/inorder/postorder

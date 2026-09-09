@@ -2,6 +2,23 @@
 
 Preprocess an [[01-arrays|array]] once so that any range-sum query afterward is O(1) instead of O(n). The trade is a single O(n) pass and O(n) extra space up front, paid once, to make every query after that nearly free.
 
+**[Beginner]** — A university-level introduction to the prefix-sum pattern: what it is, why it exists, how it works, and how to implement it independently.
+
+## Before you start
+
+- You can index an array and reason about its memory layout. See [[01-arrays|arrays]] if needed.
+- You know what a hash map is and that lookups are O(1) on average. See [[03-hash-maps|hash maps]] for the variant below.
+- You can read Big-O notation. See [[01-algorithms|algorithms and complexity]].
+
+**What you will be able to do after this lesson:**
+
+1. Explain why preprocessing an array once turns every later range query from O(n) into O(1).
+2. Build a prefix-sum array with a sentinel and query any range without an off-by-one.
+3. Extend the idea to two dimensions with a summed-area table.
+4. Recognise the hash-map variant, and say why a sliding window cannot replace it when values may be negative.
+
+**Study route:** read the motivation and mechanism, run the lab, then attempt the independent task before opening the answers.
+
 ## The idea in one sentence
 
 **A bank statement doesn't store "how much did I spend in June" — it stores the running balance after every transaction, and you get June by subtracting the balance on 1 June from the balance on 30 June.** That subtraction *is* the prefix-sum pattern. Everything below is that one move, applied in different costumes.
@@ -46,6 +63,18 @@ revenue for days 2-5 =   850     90 + 210 + 400 + 150 -> 850 ✓
 **Two array lookups and a subtraction.** It doesn't matter whether the range is 4 days or 4 years — the cost is identical. Everything before day 2 got counted into both totals, so subtracting cancels it out exactly, and what survives is precisely the slice you asked for.
 
 That's the whole pattern: *don't store the answers to the ranges, store the totals up to each point, and subtract.*
+
+## Definitions and terminology
+
+| Term | Plain-English definition | Example / analogy |
+| :--- | :--- | :--- |
+| **Prefix sum** | The running total of everything up to a point | A bank balance after each transaction |
+| **Sentinel** | A leading  meaning "nothing so far", so index 0 needs no special case | The opening balance |
+| **Range query** | "What is the total between these two positions?" | Revenue for days 2–5 |
+| **Preprocessing** | Work done once up front so later queries are cheap | Building the statement |
+| **Summed-area table** | The 2-D version: totals from the origin to each cell | — |
+| **Inclusion–exclusion** | Subtracting overlapping regions, then adding back what was removed twice | — |
+| **Scan** | The same operation's name in parallel computing | — |
 
 ## Where this actually shows up
 
@@ -144,6 +173,144 @@ O(n) to build, O(1) per query — versus O(n) per query if you sum the range dir
 - **Overflow** in fixed-width languages: the prefix sums grow to the total of the whole array, which can exceed `int` even when every element is small. Use a 64-bit type.
 - **Reaching for it with only one query to answer.** Preprocessing costs O(n); a single range sum also costs O(n). It only pays when the cost is amortised over many queries.
 
+## Implementation — complete runnable example
+
+**Runnable example:** save as `prefix_sum_lab.py` and run `python3 prefix_sum_lab.py`. Standard library only; writes no files. Every result is checked against a brute-force computation.
+
+```python
+def build_prefix(values):
+    """P[i] = sum of everything BEFORE index i. The leading 0 is a sentinel
+    that removes the i == 0 special case from every query."""
+    prefix = [0]
+    for v in values:
+        prefix.append(prefix[-1] + v)
+    return prefix
+
+def range_sum(prefix, lo, hi):
+    """Sum of values[lo..hi] inclusive -- two lookups and a subtraction."""
+    return prefix[hi + 1] - prefix[lo]
+
+def build_prefix_2d(grid):
+    """Summed-area table: S[r][c] = sum of the rectangle from (0,0) to (r-1,c-1)."""
+    rows, cols = len(grid), len(grid[0])
+    s = [[0] * (cols + 1) for _ in range(rows + 1)]
+    for r in range(rows):
+        for c in range(cols):
+            s[r+1][c+1] = (grid[r][c] + s[r][c+1] + s[r+1][c] - s[r][c])
+    return s
+
+def rect_sum(s, r1, c1, r2, c2):
+    """Inclusion-exclusion: whole - top - left + the corner counted twice."""
+    return s[r2+1][c2+1] - s[r1][c2+1] - s[r2+1][c1] + s[r1][c1]
+
+def subarrays_summing_to(values, target):
+    """The hash-map variant. Counts subarrays whose sum is exactly `target`.
+
+    If prefix[j] - prefix[i] == target, then prefix[i] == prefix[j] - target,
+    so count how many earlier prefixes had that value."""
+    seen, running, count = {0: 1}, 0, 0
+    for v in values:
+        running += v
+        count += seen.get(running - target, 0)
+        seen[running] = seen.get(running, 0) + 1
+    return count
+
+if __name__ == "__main__":
+    revenue = [120, 340, 90, 210, 400, 150]
+    prefix = build_prefix(revenue)
+    print(f"revenue: {revenue}")
+    print(f"prefix:  {prefix}   <- one longer, leading sentinel")
+    print()
+    print("range queries, each O(1) regardless of width:")
+    for lo, hi in [(2, 5), (0, 0), (0, 5), (3, 3)]:
+        got = range_sum(prefix, lo, hi)
+        want = sum(revenue[lo:hi+1])
+        print(f"  days {lo}..{hi}: {got:5d}   (brute force {want})")
+        assert got == want
+
+    print()
+    print("2D summed-area table:")
+    grid = [[1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]]
+    s = build_prefix_2d(grid)
+    for r1, c1, r2, c2 in [(0, 0, 2, 2), (1, 1, 2, 2), (0, 1, 1, 2)]:
+        got = rect_sum(s, r1, c1, r2, c2)
+        want = sum(grid[r][c] for r in range(r1, r2+1) for c in range(c1, c2+1))
+        print(f"  rect ({r1},{c1})..({r2},{c2}) = {got:3d}   (brute force {want})")
+        assert got == want
+
+    print()
+    print("hash-map variant -- subarrays summing to a target:")
+    for values, target in [([1, 1, 1], 2), ([1, 2, 3], 3), ([3, 4, 7, 2, -3, 1, 4, 2], 7)]:
+        got = subarrays_summing_to(values, target)
+        want = sum(1 for i in range(len(values)) for j in range(i, len(values))
+                   if sum(values[i:j+1]) == target)
+        print(f"  {str(values):32s} target {target}: {got} subarrays  (brute force {want})")
+        assert got == want
+
+    print()
+    print("  note the negative number in the last case -- the hash-map variant")
+    print("  handles it, but a sliding window would NOT: it assumes growing the")
+    print("  window only increases the sum, which negatives break.")
+    print()
+    print("prefix_sum_lab: passed")
+```
+
+Expected output:
+
+```
+revenue: [120, 340, 90, 210, 400, 150]
+prefix:  [0, 120, 460, 550, 760, 1160, 1310]   <- one longer, leading sentinel
+
+range queries, each O(1) regardless of width:
+  days 2..5:   850   (brute force 850)
+  days 0..0:   120   (brute force 120)
+  days 0..5:  1310   (brute force 1310)
+  days 3..3:   210   (brute force 210)
+
+2D summed-area table:
+  rect (0,0)..(2,2) =  45   (brute force 45)
+  rect (1,1)..(2,2) =  28   (brute force 28)
+  rect (0,1)..(1,2) =  16   (brute force 16)
+
+hash-map variant -- subarrays summing to a target:
+  [1, 1, 1]                        target 2: 2 subarrays  (brute force 2)
+  [1, 2, 3]                        target 3: 2 subarrays  (brute force 2)
+  [3, 4, 7, 2, -3, 1, 4, 2]        target 7: 4 subarrays  (brute force 4)
+
+  note the negative number in the last case -- the hash-map variant
+  handles it, but a sliding window would NOT: it assumes growing the
+  window only increases the sum, which negatives break.
+
+prefix_sum_lab: passed
+```
+
+## Check your understanding (self-assessment)
+
+Attempt these before opening the answers.
+
+1. **Why does the prefix array have one more element than the input?**
+   <details><summary>Answer</summary>
+   The leading <code>0</code> is a <strong>sentinel</strong> meaning "the sum of the empty prefix". Without it, a query starting at index 0 would need <code>prefix[hi]</code> with no <code>prefix[-1]</code> to subtract, forcing an <code>if lo == 0</code> special case into every query. One extra element removes that branch everywhere.
+   </details>
+
+2. **Given , write the prefix array and use it to find the sum of indices 1 to 2.**
+   <details><summary>Answer</summary>
+   <code>P = [0, 2, 6, 12, 20]</code>. Sum of indices 1..2 is <code>P[3] - P[1] = 12 - 2 = 10</code>, and indeed <code>4 + 6 = 10</code>.
+   </details>
+
+3. **Why does the 2-D version subtract two rectangles and then add one back?**
+   <details><summary>Answer</summary>
+   <strong>Inclusion–exclusion.</strong> Removing the strip above and the strip to the left removes their overlapping corner <em>twice</em>, so it must be added back once. That is the <code>+ s[r1][c1]</code> term.
+   </details>
+
+4. **Could you use a sliding window instead of the hash-map variant to count subarrays summing to k?**
+   <details><summary>Answer</summary>
+   <strong>Only if every value is non-negative.</strong> A sliding window assumes that growing the window can only increase the sum, so shrinking from the left is a valid response to overshooting. Negative numbers break that monotonicity — the sum can fall as the window grows — and the window may skip valid answers.<br>
+   The lab's last test case includes <code>-3</code> for exactly this reason. The prefix-sum-plus-hash-map approach makes no monotonicity assumption and handles negatives correctly.
+   </details>
+
 ## Practice problems
 
 **In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
@@ -159,6 +326,19 @@ O(n) to build, O(1) per query — versus O(n) per query if you sum the range dir
 6. Subarray Sum Equals K (#560) — the hash-map variant, written out above. Do this one.
 7. Contiguous Array (#525) — the `0 → -1` re-skin.
 8. Range Sum Query 2D - Immutable (#304) — summed-area tables, the version image filters actually use.
+
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain why the sentinel exists and what breaks without it.
+- [ ] Build a prefix array and answer a range query with no off-by-one.
+- [ ] Derive the inclusion–exclusion formula for the 2-D case.
+- [ ] Explain why the hash-map variant handles negatives and a sliding window does not.
+
+**Recap:** Prefix sums trade one O(n) preprocessing pass and O(n) space for O(1) range queries thereafter. Each entry stores the total up to that point, so subtracting two entries cancels everything before the range and leaves exactly the slice you asked for. The 2-D form uses inclusion–exclusion; the hash-map form counts subarrays with a given sum and, unlike a sliding window, works with negative values.
+
+**Next:** [[02-two-pointers|two-pointers]] — the other pattern built on preprocessing a sequence, this time by sorting it so two indices can converge.
 
 ## Related
 - [[01-arrays|arrays]] — the underlying structure and why contiguous storage makes the O(1) lookup real

@@ -263,6 +263,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain what invariant the stack maintains and why popping is safe.
+- [ ] Trace next-greater-element on `[2,1,2,4,3]` by hand.
+- [ ] Implement next-greater-element independently, handling elements with no answer.
+- [ ] Explain why this is O(n) when each element can be pushed and popped.
+
+**Recap:** A monotonic stack keeps its contents sorted, popping anything the new element makes irrelevant. When a bigger value arrives, every smaller value beneath it has found its answer and can be discarded — so each element is pushed once and popped once, giving O(n) for a problem that looks quadratic.
+
+**Next:** [[07-top-k-elements|top-k-elements]] — another structure that deliberately discards what cannot matter, this time a heap keeping only the k best.
+
 ## 10. Related
 
 - [[01-algorithms|algorithms]] — where the amortized analysis comes from

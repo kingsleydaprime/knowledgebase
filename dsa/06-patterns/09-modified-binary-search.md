@@ -348,6 +348,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Write a binary search with correct bounds and no infinite loop.
+- [ ] Explain how to decide which half of a *rotated* array is sorted.
+- [ ] Implement search-in-rotated-array independently.
+- [ ] Explain why `low + (high - low) // 2` is preferred over `(low + high) // 2`.
+
+**Recap:** Binary search halves the search space each step by exploiting an ordering invariant. The variants keep that invariant while the data is transformed — in a rotated array, at least one half is always properly sorted, so you test which and recurse into the half that could contain the target. The bugs are almost always in the boundary conditions rather than the idea.
+
+**Next:** [[10-binary-tree-traversal-pattern|binary-tree-traversal-pattern]] — the same divide-and-conquer instinct applied to a branching structure instead of a linear one.
+
 ## 10. Related
 
 - [[05-searching|searching]] — the baseline binary search algorithm

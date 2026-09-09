@@ -267,6 +267,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Distinguish a fixed-size from a variable-size window and say when each applies.
+- [ ] Explain the amortised O(n) argument despite the nested-looking `while` inside a `for`.
+- [ ] Implement longest-substring-without-repeats independently.
+- [ ] State which aggregates a fixed window can update in O(1), and which cannot.
+
+**Recap:** A sliding window maintains a summary of a contiguous range and updates it incrementally as the range moves, turning O(n·k) recomputation into O(n). Fixed windows add the entering element and subtract the leaving one, which requires an invertible aggregate; variable windows grow the right edge and shrink the left when a constraint breaks. Each element enters and leaves at most once, which is the amortisation.
+
+**Next:** [[04-fast-slow-pointers|fast-slow-pointers]] — two pointers moving at *different speeds* over the same structure — the third way to arrange the same two-index idea.
+
 ## 10. Related
 
 - [[02-two-pointers|two-pointers]] — sliding window is a specialization where both pointers move in the same direction

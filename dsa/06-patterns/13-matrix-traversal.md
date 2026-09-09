@@ -277,6 +277,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain why a grid is a graph and what its edges are.
+- [ ] Write the direction-vector idiom for four- and eight-way movement.
+- [ ] Implement flood fill or island counting independently.
+- [ ] Handle bounds checking and visited marking without a separate visited array.
+
+**Recap:** A grid is a graph whose nodes are cells and whose edges are adjacency, so DFS and BFS apply unchanged — you just compute neighbours arithmetically instead of looking them up. The recurring idioms are a direction-vector list, a bounds check, and marking visited in place when mutation is allowed.
+
+**Next:** [[14-backtracking|backtracking]] — DFS that *undoes* its choices on the way back out, which is what you need when exploring arrangements rather than a fixed structure.
+
 ## 9. Related
 
 - [[02-dfs|dfs]] — the underlying traversal algorithm

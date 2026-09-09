@@ -290,6 +290,19 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Before moving on
+
+You are done with this pattern when you can, closed-book:
+
+- [ ] Explain why sorting by start time makes a single pass sufficient.
+- [ ] State the merge condition precisely, including the touching-but-not-overlapping case.
+- [ ] Implement interval merging independently.
+- [ ] Handle the empty input and the fully-nested-interval cases.
+
+**Recap:** Sorting intervals by start time means any interval that overlaps the current one must come next, so a single linear pass can merge everything. The whole difficulty is in the comparison: decide once whether `[1,2]` and `[2,3]` count as overlapping, and apply it consistently.
+
+**Next:** [[09-modified-binary-search|modified-binary-search]] — the other pattern where sorted input unlocks a fundamentally faster algorithm — this time logarithmic rather than linear.
+
 ## 10. Related
 
 - [[04-sorting|sorting]] — prerequisite for this pattern
