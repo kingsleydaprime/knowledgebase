@@ -731,3 +731,244 @@ flows costs almost nothing.
 - Part N above, for the ID-token flow and the `aud` trap
 - `backend/MOBILE_INTEGRATION.md` §1A — the client-side guide written from this
 - `backend/DECISIONS.md` (2026-08-28) — the one-paragraph version of the trade-off
+
+---
+
+## Part N+2 — Account linking: one identity, two ways to prove it (2026-09-09)
+
+The question that started this: *if the same person signs in with Google and
+with email+password, is that one account or two?* It should be one. Getting
+there turned out to touch five separate things, and four of them were bugs.
+
+### The two directions are not symmetrical
+
+**Password account first, then Google.** `upsertOAuthUser()` finds the row by
+email and writes the Google identity onto it. Both methods work afterwards.
+This direction already worked.
+
+**Google account first, then password.** This was a dead end, and a *silent*
+one:
+
+- `login()` saw `passwordHash === null` and answered `Invalid credentials` — a
+  correct address reported as wrong.
+- `forgotPassword()` detected the provider-only account and returned the
+  cheerful "if that email exists, a reset link has been sent" **without sending
+  anything**.
+- No endpoint existed to set a first password.
+
+So a user who lost their Google account was locked out permanently, and every
+signal the app gave them said things were fine. **The bug was not that a case
+was unhandled — it was that the unhandled case was disguised as success.** That
+pattern is worth recognising on sight: a generic reassuring response on a path
+that quietly does nothing.
+
+### Why linking by email is safe *only* because of one check
+
+Matching a Google sign-in to an existing password account by email is a
+takeover primitive unless the provider actually verified the address. Google
+tells you in the ID token:
+
+```ts
+if (payload.email_verified !== true) {
+  throw new UnauthorizedException('Your Google email address is not verified');
+}
+```
+
+It was written `=== false`, which passes when the claim is **missing**. Same
+intent, opposite default.
+
+**The general rule: a security check on input you don't control must fail
+closed.** Ask "is this affirmatively OK?" (`!== true`), never "is this
+explicitly bad?" (`=== false`) — because the set of "not explicitly bad" values
+includes `undefined`, `null`, `""`, and anything a future API version invents.
+
+### `OR` in a lookup has no precedence — and that is a real bug
+
+The original lookup:
+
+```ts
+const user = await this.prisma.user.findFirst({
+  where: { OR: [{ email }, { oauthProvider: 'GOOGLE', oauthId: googleId }] },
+});
+```
+
+Reads fine: "find them by either identifier." But consider a user who changes
+their Google address to one that already has an account here. **Two rows match.**
+`findFirst` with no `orderBy` returns whichever the query planner produces
+first — so the visitor is signed in as *either* user, non-deterministically.
+
+The fix is to make the precedence explicit, because the two identifiers are not
+equally trustworthy:
+
+```ts
+// 1. Provider subject id — the only id that survives an email change.
+const byIdentity = await this.prisma.user.findFirst({
+  where: { oauthProvider: provider, oauthId: providerAccountId },
+});
+if (byIdentity) return { user: byIdentity, isNewUser: false };
+
+// 2. Email — used only to link an identity the first time.
+const byEmail = await this.prisma.user.findUnique({ where: { email } });
+```
+
+**Takeaway: whenever a lookup can match on more than one key, ask what happens
+if two rows match.** If the answer is "that can't happen", something in the
+schema should be enforcing it — which leads directly to the next point.
+
+### An invariant enforced only in application code is not enforced
+
+Nothing stopped two rows carrying the same Google id, so the "at most one
+match" assumption lived purely in the code's optimism:
+
+```prisma
+@@unique([oauthProvider, oauthId])
+```
+
+Note what makes this safe to add: **Postgres treats NULLs as distinct in a
+unique index.** Every password-only account has both columns `NULL`, and any
+number of them coexist. The index constrains only the rows that actually carry
+an identity. (This is also why `NULL` is not "a value" in SQL — two NULLs are
+not equal to each other, so they never collide.)
+
+The habit: after writing "this can only match one row", go and make the
+database say so.
+
+### Races: let the database arbitrate, don't pre-check
+
+Two simultaneous first-time Google sign-ins both miss the lookup and both
+insert. A pre-check doesn't fix it — it just moves the race one step earlier.
+The insert is the only place with a real serialisation point, so let it fail
+and handle the failure:
+
+```ts
+} catch (err) {
+  if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
+    const conflicted = (err.meta?.target as string[]) ?? [];
+    if (conflicted.includes('email')) {
+      // Someone else created it in the gap — adopt their row.
+      const winner = await this.prisma.user.findUnique({ where: { email } });
+      if (winner) return { user: winner, isNewUser: false };
+    }
+    // else: username collision, loop and pick another
+  }
+}
+```
+
+`P2002` is Prisma's unique-constraint violation, and `err.meta.target` names
+*which* constraint — worth branching on, since "email taken" and "username
+taken" need opposite responses here.
+
+One related detail in the username allocator: after a collision, the old code
+incremented a counter. Every racing contender computes the *same* next
+candidate, so they collide again. Later attempts now jump to a random suffix,
+which converges immediately. **Deterministic retry strategies re-collide;
+that's the same reason real backoff is randomised (jitter).**
+
+### Compare-and-swap with `updateMany`
+
+Two clicks on one reset link both matched the token and both reset the
+password. `update` can't express "only if it's still the one I read", but
+`updateMany` can, because its `where` runs at write time:
+
+```ts
+const { count } = await this.prisma.user.updateMany({
+  where: { id: user.id, passwordResetToken: token },  // ← the guard
+  data: { passwordHash, passwordResetToken: null, /* ... */ },
+});
+if (count === 0) throw new BadRequestException('Invalid or expired reset token');
+```
+
+The row is only written if the token is *still* there, and `count` tells you
+whether you won. This is optimistic concurrency control, and the shape
+generalises: put the version/state you read into the `where` of the write.
+
+### A marker nothing reads is worse than no marker
+
+`resetPassword()` wrote a `pwd_changed:<userId>` key to Redis with a comment
+saying the JWT guard should check it. Nothing did — not the guard, not the
+strategy, not `refresh()`. So a stolen refresh token survived the victim
+resetting their password, **for the full 30 days**, while the code read as
+though that had been handled.
+
+Options considered:
+
+| approach | cost | verdict |
+|---|---|---|
+| `SCAN` Redis for `refresh:<userId>:*` | O(all keys) for an O(1) question | no |
+| per-user Redis SET indexing live tokens | correct, but new state to keep consistent | overkill here |
+| `users.passwordChangedAt` vs the token's `iat` | one column | ✅ |
+
+The column wins because of where the check lands. `JwtStrategy.validate()`
+**already loads that user row on every authenticated request** — so enforcing
+it costs one extra column in an existing `select`, not an extra query. Refresh
+pays one indexed read, roughly every 15 minutes.
+
+```ts
+if (user.passwordChangedAt) {
+  const changedAt = Math.floor(user.passwordChangedAt.getTime() / 1000);
+  if ((payload.iat ?? 0) < changedAt) throw new UnauthorizedException(...);
+}
+```
+
+**The `Math.floor` is not cosmetic.** JWT `iat` is in whole *seconds*;
+`Date.getTime()` is milliseconds. Compare them raw and a token issued in the
+same second as the change is rejected — which is exactly the token
+`setPassword()` hands back, so the feature would break on its own first use.
+Any time you compare a JWT claim to a JS timestamp, one side needs converting,
+and the boundary case is the one that bites.
+
+That is also why `setPassword()` returns a **fresh token pair**: it invalidates
+everything issued before now, including the access token the caller just used.
+Without returning new tokens, changing your password logs you out.
+
+### The enumeration trade-off, made deliberately
+
+Login now says *"This account was created with Google…"*, which admits the
+address is registered. That is a real information leak, and it was chosen
+knowingly for two reasons: the alternative is a dead end the user cannot act
+on, and `POST /auth/register` already answers `"Email already in use"` for the
+same address — so the leak exists regardless.
+
+**The point is not which answer is right. It is that the two endpoints must
+agree.** Hardening login while register stays chatty buys nothing. Recorded in
+`DECISIONS.md` so the pairing isn't lost.
+
+### Bonus bug: a global filter with no dependency injection
+
+`main.ts` had `app.useGlobalFilters(new HttpExceptionFilter())` while the filter
+constructor takes `PrismaService`. Hand-constructing it bypasses Nest's DI
+entirely, so `this.prisma` was `undefined` and the filter **threw while
+handling every error** — collapsing structured `{ code, message }` responses
+into bare 500s.
+
+```ts
+// app.module.ts — DI-aware registration
+providers: [{ provide: APP_FILTER, useClass: HttpExceptionFilter }]
+```
+
+**Rule: `new SomeProvider()` anywhere in a DI framework is a smell.** If the
+class has constructor dependencies, hand-constructing it silently produces a
+half-built object. `APP_FILTER` / `APP_GUARD` / `APP_INTERCEPTOR` exist exactly
+so global providers can be registered *through* the container.
+
+(The same file also wrote a hardcoded `'Failed to process stripe charge'` log
+row for every error in the app — a copy-paste that made the log table actively
+misleading. Now records the real route, message and code.)
+
+### The checklist this leaves behind
+
+When two sign-in methods can reach one account, ask:
+
+1. Does each direction work, or only the one you tested?
+2. What proves the provider actually verified the email — and does that check
+   fail *closed*?
+3. Can the lookup match two rows? What does the database do about it?
+4. What happens when two of these requests arrive at once?
+5. When a credential changes, what still holds a live session?
+6. If a user loses one method, is there a route back — and does the UI say so?
+
+### See also
+
+- [[projects/nextvibe/learning/backend/02-auth#Part N — Making Google sign-in work from the mobile app (2026-08-22)|Part N — Google sign-in from mobile]]
+- [[projects/nextvibe/learning/backend/02-auth#Part N+1 — The hosted redirect flow: OAuth where the client holds nothing (2026-08-28)|Part N+1 — the hosted redirect flow]]
+- General: [[backend/05-auth/03-oauth-provider-integrations|OAuth provider integrations]] · [[backend/05-auth/01-authentication-flows|authentication flows]]

@@ -673,3 +673,141 @@ command -v firebase >/dev/null && firebase --version || echo "not installed"
 isn't guaranteed present and whose exit status is inconsistent across systems.
 `command -v` is the portable check for "is this on PATH". Redirect to
 `/dev/null` when you want only the exit status.
+
+## Part N+6 — Auditing a whole class of files instead of eyeballing them (2026-09-09)
+
+Three agent skills silently failed to load with *"Invalid YAML frontmatter"*.
+Eleven `SKILL.md` files existed. The tempting move is to open the one named in
+the error and stare at it — which finds nothing, because the offending
+character looks completely ordinary.
+
+The better move is to stop reading and **make the parser answer**:
+
+```bash
+cd ~/.agents/skills && python3 - << 'PY'
+import re, os, yaml
+for d in sorted(os.listdir('.')):
+    f = os.path.join(d, 'SKILL.md')
+    if not os.path.exists(f): continue
+    raw = open(f, 'rb').read()
+    s   = raw.decode('utf-8-sig')
+    m   = re.match(r'---\n(.*?)\n---\n', s, re.S)
+    if not m:
+        print(f, 'NO FRONTMATTER'); continue
+    try:
+        y = yaml.safe_load(m.group(1))
+        print(f"{d:32s} OK   keys={list(y.keys())}")
+    except Exception as e:
+        print(f"{d:32s} FAIL {str(e).splitlines()[0]}")
+PY
+```
+
+This is the heredoc pattern from [[projects/nextvibe/learning/10-shell#Editing source files from a heredoc script (2026-08-21)|Part 8]], pointed at a different job: **not editing files, but interrogating them.** Worth separating in your head — the same tool does bulk *diagnosis*, and diagnosis across a set is where it earns the most.
+
+What makes the output useful rather than a wall of text:
+
+- **Every file reports, not just the failures.** Eight `OK` lines are what tell you the three failures share something the others don't — the diagnosis came from the contrast, not from the error.
+- **`f"{d:32s}"`** — pad to a fixed width so the statuses line up in a column. Scannable output is a real feature when you're comparing rows.
+- **`str(e).splitlines()[0]`** — YAML errors are multi-line with a caret diagram. The first line is the classification; the detail only matters once you know which files to look at.
+
+### `open(f, 'rb')` — check the bytes before blaming the content
+
+Note the file is read as **bytes first**, then decoded. That is deliberate: a
+whole class of "but it looks fine!" bugs lives in bytes you can't see.
+
+```python
+raw.startswith(b'\xef\xbb\xbf')   # UTF-8 BOM — invisible, breaks strict parsers
+b'\r\n' in raw                     # CRLF line endings from a Windows editor
+```
+
+`open(f, encoding='utf-8-sig')` decodes *and* strips a BOM if present — the
+`-sig` suffix is the one to remember. From the shell, `file <path>` reports the
+same things ("with BOM", "with CRLF line terminators") without any Python.
+
+Here both were clean, which is itself progress: it ruled out the invisible
+causes and left only the visible one.
+
+### The actual bug — and it's a YAML rule worth internalising
+
+```yaml
+description: ... not a one-time lookup. Triggers: starting a new project, ...
+#                                       ^^^^^^^^^
+```
+
+**A colon followed by a space inside an unquoted YAML scalar starts a nested
+mapping.** The parser reads `Triggers:` as a key, finds it where a key cannot
+go, and reports *"mapping values are not allowed here"* — an error message that
+points at YAML's grammar rather than at "your sentence contains a colon".
+
+Every vendor-written skill in the same directory already quoted its
+description. That's the tell: the ones written by hand broke, the ones written
+by people who'd hit this before did not.
+
+Characters that force quoting in YAML: `: ` anywhere, a trailing `:`, and a
+leading `#`, `&`, `*`, `!`, `|`, `>`, `%`, `@`, `` ` ``, `{`, `[`. **The
+cheapest habit is to quote every prose value and stop thinking about it.**
+
+### Let the library do the quoting
+
+Fixing it by hand means deciding between `'` and `"` and escaping whatever the
+text already contains — one description held apostrophes, another held double
+quotes. Don't:
+
+```python
+quoted = yaml.dump(val, default_style="'", width=10**9,
+                   allow_unicode=True).rstrip('\n').rstrip('...').strip()
+```
+
+- **`default_style="'"`** — force single-quoted style; internal `'` becomes `''`
+  automatically.
+- **`width=10**9`** — PyYAML line-wraps at 80 columns by default, which would
+  split a 700-character description across lines. An absurd width disables it.
+- **`allow_unicode=True`** — keep `—` as `—` rather than escaping it to `—`.
+
+**The general principle: when a format has an escaping rule, use its own
+serialiser rather than reimplementing the rule.** The same reasoning as
+`json.dumps` over string concatenation, or parameterised SQL over quoting user
+input yourself.
+
+### Verify in the same script that fixed it
+
+The fix script re-ran `yaml.safe_load` over every file it touched and printed
+the parsed keys. A rewrite that reports "wrote 3 files" tells you nothing about
+whether they're *correct* now — reparsing does. Cheap, and it turns a hopeful
+edit into a checked one.
+
+## Part N+7 — `ln -sfn`: re-pointing a symlink without nesting it (2026-09-09)
+
+The skills live in `~/.agents/skills/` and are surfaced through symlinks in
+`~/.claude/skills/`. Adding one:
+
+```bash
+ln -sfn ../../.agents/skills/mentor-mode ~/.claude/skills/mentor-mode
+```
+
+Plain `ln -s` fails outright if the link name already exists, so the flags are
+what make this idempotent — safe to re-run:
+
+- **`-f`** (force) — remove an existing destination first, so the command
+  updates a link instead of erroring.
+- **`-n`** (no-dereference) — **the one that matters, and the classic footgun.**
+  If the destination is already a symlink *to a directory*, `ln -sf` follows it
+  and creates the new link *inside* the target directory. You wanted to
+  re-point `skills/mentor-mode`; you got
+  `skills/mentor-mode/mentor-mode` and the original untouched. `-n` treats the
+  existing symlink as a plain file to be replaced.
+
+Remember them together as `-sfn`: **s**ymbolic, **f**orce, **n**o-dereference.
+
+Two checks worth knowing:
+
+```bash
+ls -l ~/.claude/skills/          # arrows show every link's target
+readlink -f ~/.claude/skills/mentor-mode   # resolve fully; empty = broken link
+```
+
+A **relative** target (`../../.agents/...`) rather than an absolute one keeps
+the link valid if the home directory is ever moved or the tree is copied
+elsewhere — the same reasoning as relative imports inside a project.
+
+→ general: [[devops/01-linux/09-symbolic-links|symbolic links]]
