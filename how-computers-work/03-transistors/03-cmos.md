@@ -327,7 +327,7 @@ The inverter generalises directly. **Any logic function** is built by arranging 
 
 Because PMOS conducts on a low input, the pull-up network automatically computes the complement, which is why **CMOS gates are naturally inverting**. NAND and NOR are the primitives; AND and OR cost an extra inverter stage.
 
-That is [[how-computers-work/04-logic/01-gates-from-transistors|module 14]]'s subject, along with a consequence you can already predict: since PMOS devices are the weak ones, you want as few of them in *series* as possible — which makes **NAND cheaper and faster than NOR**, and is why real chip libraries are built predominantly from NAND.
+That is [[how-computers-work/04-logic/01-gates-from-transistors|module 15]]'s subject, along with a consequence you can already predict: since PMOS devices are the weak ones, you want as few of them in *series* as possible — which makes **NAND cheaper and faster than NOR**, and is why real chip libraries are built predominantly from NAND.
 
 ---
 
@@ -413,7 +413,7 @@ Delay is roughly inversely proportional to drive current, so delay rises by $1/0
 
 **Recap:** CMOS pairs a PMOS pull-up network with an NMOS pull-down network so exactly one conducts in each stable state. Each transistor is used only in the direction where it does not starve itself, giving genuine rail-to-rail outputs and a transfer characteristic with a slope around −23 — far exceeding module 5's requirement. Because no path from supply to ground exists in either stable state, static power is limited to leakage, and all real power is dynamic: $\alpha CV^2f$, derived from the $CV^2$ cost of one charge-discharge cycle.
 
-**Next:** [[how-computers-work/04-logic/01-gates-from-transistors|Module 14 — Gates from Transistors]] begins Part V. You have a working switch and a working inverter; now build NAND, NOR and the rest, and find out why NAND is the gate real chips are made of.
+**Next:** [[how-computers-work/04-logic/01-gates-from-transistors|Module 15 — Gates from Transistors]] begins Part V. You have a working switch and a working inverter; now build NAND, NOR and the rest, and find out why NAND is the gate real chips are made of.
 
 ---
 

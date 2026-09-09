@@ -70,41 +70,59 @@ Why sand. This part answers a question most courses skip entirely.
 11. [[how-computers-work/03-transistors/01-what-a-transistor-is|What a Transistor Is]] — **[Intermediate]** — amplifier versus switch, BJT versus MOSFET, and why digital chose the MOSFET
 12. [[how-computers-work/03-transistors/02-mosfet-physics|MOSFET Physics]] — **[Intermediate]** — channel formation, threshold voltage, and the three operating regions
 13. [[how-computers-work/03-transistors/03-cmos|CMOS — The Pull-Up/Pull-Down Idea]] — **[Intermediate]** — **why your laptop doesn't melt**: complementary networks and near-zero static power
+14. [[how-computers-work/03-transistors/04-making-a-chip|Making a Chip]] — **[Intermediate]** — **how transistors are physically built**: photolithography, the self-aligned gate, metal interconnect, and why yield makes big chips expensive
 
 ### Part V — Transistors to Logic
 
-14. [[how-computers-work/04-logic/01-gates-from-transistors|Gates from Transistors]] — **[Intermediate]** — build NOT, NAND, NOR from CMOS pairs, and see why NAND is cheaper than AND
-15. [[how-computers-work/04-logic/02-boolean-algebra|Boolean Algebra]] — **[Beginner → Intermediate]** — the laws, De Morgan, and algebra as circuit optimisation
-16. [[how-computers-work/04-logic/03-karnaugh-maps|Karnaugh Maps and Minimisation]] — **[Intermediate]** — turning a truth table into the cheapest circuit that implements it
-17. [[how-computers-work/04-logic/04-universal-gates|Universal Gates]] — **[Intermediate]** — the proof that NAND alone is enough for *any* computation
+15. [[how-computers-work/04-logic/01-gates-from-transistors|Gates from Transistors]] — **[Intermediate]** — build NOT, NAND, NOR from CMOS pairs, and see why NAND is cheaper than AND
+16. [[how-computers-work/04-logic/02-boolean-algebra|Boolean Algebra]] — **[Beginner → Intermediate]** — the laws, De Morgan, and algebra as circuit optimisation
+17. [[how-computers-work/04-logic/03-karnaugh-maps|Karnaugh Maps and Minimisation]] — **[Intermediate]** — turning a truth table into the cheapest circuit that implements it
+18. [[how-computers-work/04-logic/04-universal-gates|Universal Gates]] — **[Intermediate]** — the proof that NAND alone is enough for *any* computation
 
 ### Part VI — Combinational Logic
 
-18. [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Multiplexers and Decoders]] — **[Intermediate]** — selection and addressing, the two moves behind every memory system
-19. [[how-computers-work/05-combinational/02-adders|Adders — Half, Full and Carry Propagation]] — **[Intermediate]** — arithmetic from pure logic, and why the carry chain sets your clock speed
-20. [[how-computers-work/05-combinational/03-the-alu|The ALU]] — **[Intermediate → Advanced]** — one circuit, many operations, and the flags that make branching possible
+19. [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Multiplexers and Decoders]] — **[Intermediate]** — selection and addressing, the two moves behind every memory system
+20. [[how-computers-work/05-combinational/02-adders|Adders — Half, Full and Carry Propagation]] — **[Intermediate]** — **arithmetic from pure logic**, traced bit by bit, and why the carry chain sets your clock speed
+21. [[how-computers-work/05-combinational/03-multipliers-and-comparators|Multipliers and Comparators]] — **[Intermediate → Advanced]** — shift-and-add, carry-save trees, and why comparison is a subtraction you throw away
+22. [[how-computers-work/05-combinational/04-the-alu|The ALU]] — **[Intermediate → Advanced]** — one circuit, many operations, and the flags that make branching possible
 
 ### Part VII — Memory and State
 
-21. [[how-computers-work/06-memory/01-latches-and-flip-flops|Latches and Flip-Flops]] — **[Intermediate → Advanced]** — **the conceptual leap of the whole course**: feedback turns combinational logic into memory
-22. [[how-computers-work/06-memory/02-registers-and-counters|Registers and Counters]] — **[Intermediate]** — from one bit to a word, and the program counter that makes a machine *sequential*
-23. [[how-computers-work/06-memory/03-memory-technology|Memory Technology — SRAM, DRAM and Flash]] — **[Intermediate]** — six transistors versus one capacitor, and why that tradeoff shapes the memory hierarchy
+23. [[how-computers-work/06-memory/01-latches-and-flip-flops|Latches and Flip-Flops]] — **[Intermediate → Advanced]** — **the conceptual leap of the whole course**: feedback turns combinational logic into memory
+24. [[how-computers-work/06-memory/02-registers-and-counters|Registers and Counters]] — **[Intermediate]** — from one bit to a word, and the program counter that makes a machine *sequential*
+25. [[how-computers-work/06-memory/03-memory-technology|Memory Technology — SRAM, DRAM and Flash]] — **[Intermediate]** — six transistors versus one capacitor, and why that tradeoff shapes the memory hierarchy
 
 ## Part II — the bridge (routes into existing courses)
 
-24. [[how-computers-work/07-the-bridge|The Bridge — Parts VIII to XVIII]] — the reading path through `computer-architecture/`, `os/`, `compilers/` and `programming-language-theory/`, week by week, with the dependency from Part VII named at each step.
+26. [[how-computers-work/07-the-bridge|The Bridge — Parts VIII to XVIII]] — the reading path through `computer-architecture/`, `os/`, `compilers/` and `programming-language-theory/`, week by week, with the dependency from Part VII named at each step.
 
 ## Part III — the capstone (written here)
 
 **PRIME-1** — design and build a computer and its software stack. This is where the two directions meet.
 
-25. [[how-computers-work/08-capstone/01-design-the-cpu|Design the PRIME-1 CPU]] — word size, registers, memory model, and the tradeoffs behind each choice
-26. [[how-computers-work/08-capstone/02-the-isa|The PRIME-1 ISA]] — instruction set and exact binary encoding
-27. [[how-computers-work/08-capstone/03-build-the-hardware|Build the Hardware]] — datapath and control in a logic simulator or HDL
-28. [[how-computers-work/08-capstone/04-build-the-assembler|Build the Assembler]] — two-pass assembly, labels, symbol resolution
-29. [[how-computers-work/08-capstone/05-build-the-emulator|Build the Emulator]] — a software PRIME-1 with a debugger
-30. [[how-computers-work/08-capstone/06-build-the-language|Build the Language]] — lexer, parser, AST, codegen to PRIME-1 assembly
-31. [[how-computers-work/08-capstone/07-final-integration|Final Integration]] — the full trace, source code to transistor
+27. [[how-computers-work/08-capstone/01-design-the-cpu|Design the PRIME-1 CPU]] — word size, registers, memory model, and the tradeoffs behind each choice
+28. [[how-computers-work/08-capstone/02-the-isa|The PRIME-1 ISA]] — instruction set and exact binary encoding
+29. [[how-computers-work/08-capstone/03-build-the-hardware|Build the Hardware]] — datapath and control in a logic simulator or HDL
+30. [[how-computers-work/08-capstone/04-build-the-assembler|Build the Assembler]] — two-pass assembly, labels, symbol resolution
+31. [[how-computers-work/08-capstone/05-build-the-emulator|Build the Emulator]] — a software PRIME-1 with a debugger
+32. [[how-computers-work/08-capstone/06-build-the-language|Build the Language]] — lexer, parser, AST, codegen to PRIME-1 assembly
+33. [[how-computers-work/08-capstone/07-final-integration|Final Integration]] — the full trace, source code to transistor
+
+## Answering your own questions
+
+This course is built to answer a specific list of questions — see [[how-computers-work/some-questions|some-questions]]. Each level of that list maps onto a part here:
+
+| Question level | Answered by |
+| :--- | :--- |
+| Level 1 — Electricity | Part II (modules 1–5) |
+| Level 2 — Semiconductor physics | Part III (modules 6–10) |
+| Level 3 — The transistor | Part IV (modules 11–14) |
+| Level 4 — Logic | Part V (modules 15–18) |
+| Level 5 — From logic to computation | Part VI (modules 19–22) |
+| Level 6 — Memory | Part VII (modules 23–25) |
+| Level 7 — Build the CPU | The bridge (26) + capstone (27–29) |
+| Level 8 — Machine language | The bridge (26) + capstone (28, 30) |
+| Level 9 — Assembly → compiler → language | The bridge (26) + capstone (30–33) |
 
 ## Prerequisites
 

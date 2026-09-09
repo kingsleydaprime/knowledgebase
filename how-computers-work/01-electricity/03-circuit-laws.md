@@ -182,7 +182,7 @@ Now suppose you had a component whose resistance you could switch between "essen
 
 That is an inverter, and rows 1 and 2 of the table are its two states. Row 3 is a **high-impedance output**, used deliberately when several devices share a bus. Row 4 is **short-circuit current** — the momentary path from supply to ground during switching, and one of the reasons a chip consumes power.
 
-You now have the complete mechanism of a logic gate, ten modules before you meet one. Everything between here and [[how-computers-work/04-logic/01-gates-from-transistors|module 14]] exists to explain how a lump of silicon can be persuaded to act as that switchable resistance.
+You now have the complete mechanism of a logic gate, ten modules before you meet one. Everything between here and [[how-computers-work/04-logic/01-gates-from-transistors|module 15]] exists to explain how a lump of silicon can be persuaded to act as that switchable resistance.
 
 ### Loading — the divider's practical trap
 
@@ -383,4 +383,4 @@ The load sits between the tap and ground, which is exactly where $R_2$ is — so
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — where the divider table becomes a real circuit
-- [[how-computers-work/04-logic/01-gates-from-transistors|Module 14 — Gates from Transistors]]
+- [[how-computers-work/04-logic/01-gates-from-transistors|Module 15 — Gates from Transistors]]

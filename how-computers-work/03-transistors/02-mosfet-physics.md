@@ -434,7 +434,7 @@ This is why "make everything minimum size" is often correct in dense logic and b
 
 - **The square-law equations are long-channel approximations.** In modern short-channel devices, carriers reach **velocity saturation** and current becomes closer to linear in $V_{ov}$. The qualitative picture — three regions, threshold, pinch-off — survives; the exponents do not.
 - **Short-channel effects are omitted.** Drain-induced barrier lowering (DIBL) makes $V_{th}$ depend on $V_{ds}$; the gate loses electrostatic control as $L$ shrinks. Combating this drove the move to **FinFETs** and gate-all-around structures, which wrap the gate around the channel on several sides.
-- **The body is assumed grounded.** A non-zero body-source voltage shifts $V_{th}$ — the **body effect** — which matters in stacked transistors like the series NMOS chains you will meet in [[how-computers-work/04-logic/01-gates-from-transistors|module 14]].
+- **The body is assumed grounded.** A non-zero body-source voltage shifts $V_{th}$ — the **body effect** — which matters in stacked transistors like the series NMOS chains you will meet in [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
 - **Temperature dependence is ignored here.** Mobility falls and leakage rises with temperature, so a hot chip is both slower and leakier.
 
 ---

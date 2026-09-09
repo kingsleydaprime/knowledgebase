@@ -1,12 +1,12 @@
-# Module 17: Universal Gates (One Gate Is Enough)
+# Module 18: Universal Gates (One Gate Is Enough)
 
 **[Intermediate]** — Part V ends with a result that sounds too strong to be true: **every logic function that exists can be built from NAND gates alone.** Not most. Every one.
 
 ## Before you start
 
-- You can build gates from CMOS networks and know their costs — [[how-computers-work/04-logic/01-gates-from-transistors|module 14]].
-- You know De Morgan's laws — [[how-computers-work/04-logic/02-boolean-algebra|module 15]].
-- You can write any function in canonical SOP form from its truth table — module 15.
+- You can build gates from CMOS networks and know their costs — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
+- You know De Morgan's laws — [[how-computers-work/04-logic/02-boolean-algebra|module 16]].
+- You can write any function in canonical SOP form from its truth table — module 16.
 
 **After this lesson you will be able to:**
 
@@ -29,7 +29,7 @@ The question is not idle. Every distinct cell in a library must be individually 
 
 **The answer turns out to be one.** A single gate type — NAND — suffices for every digital circuit that can exist. So does NOR. This is not an engineering approximation; it is a theorem, and this module proves it by construction and then tests the construction on all 256 three-input functions.
 
-It also completes Part V's arc. Module 14 built gates from switches. This module shows that **a sufficiently large collection of one kind of switch arrangement can compute anything at all** — which is the claim the whole bottom-up course has been climbing toward.
+It also completes Part V's arc. Module 15 built gates from switches. This module shows that **a sufficiently large collection of one kind of switch arrangement can compute anything at all** — which is the claim the whole bottom-up course has been climbing toward.
 
 ---
 
@@ -52,7 +52,7 @@ It also completes Part V's arc. Module 14 built gates from switches. This module
 
 The bar is high: not "the common ones", but every function of every number of inputs — all $2^{2^n}$ of them for $n$ inputs. For 3 inputs that is 256 functions; for 4 inputs, 65,536.
 
-**{AND, OR, NOT} is functionally complete**, and module 15 showed why: any truth table converts mechanically to canonical SOP, which uses only those three operations. Since the construction always works, the set is complete.
+**{AND, OR, NOT} is functionally complete**, and module 16 showed why: any truth table converts mechanically to canonical SOP, which uses only those three operations. Since the construction always works, the set is complete.
 
 **The interesting question is how much smaller a complete set can be.** And the answer is: one gate, provided you pick the right one.
 
@@ -112,7 +112,7 @@ Trace $A{=}1, B{=}1$: $c = 0$, both inner NANDs give 1, output $= \overline{1 \c
 
 The same argument runs with NOR, using the dual De Morgan law. NOT is a NOR with tied inputs; OR is NOR then invert; AND is $\overline{\overline{A} + \overline{B}}$.
 
-**Both NAND and NOR are universal.** In practice NAND dominates, for the reason established in [[how-computers-work/04-logic/01-gates-from-transistors|module 14]]: NOR stacks PMOS transistors in series, and PMOS is the weak type, so NOR is 38–79% more expensive depending on fan-in.
+**Both NAND and NOR are universal.** In practice NAND dominates, for the reason established in [[how-computers-work/04-logic/01-gates-from-transistors|module 15]]: NOR stacks PMOS transistors in series, and PMOS is the weak type, so NOR is 38–79% more expensive depending on fan-in.
 
 ---
 
@@ -228,7 +228,7 @@ if __name__ == "__main__":
         assert ok, name
 
     print()
-    print("cost of universality (dedicated cell vs NAND-only, module 14 costs):")
+    print("cost of universality (dedicated cell vs NAND-only, module 15 costs):")
     for name, dedicated, arity, built in [("AND2", 6, 2, AND), ("OR2", 6, 2, OR),
                                           ("NOR2", 4, 2, NOR), ("XOR2", 12, 2, XOR)]:
         n = gate_cost(built, arity) * 4
@@ -267,7 +267,7 @@ Every gate, built from NAND alone, verified over all inputs:
   NOR         4           16   yes
   XOR         4           16   yes
 
-cost of universality (dedicated cell vs NAND-only, module 14 costs):
+cost of universality (dedicated cell vs NAND-only, module 15 costs):
   AND2  dedicated   6   from NAND   8   penalty x1.33
   OR2   dedicated   6   from NAND  12   penalty x2.00
   NOR2  dedicated   4   from NAND  16   penalty x4.00
@@ -329,7 +329,7 @@ Take stock, because a threshold has been crossed.
 
 **That last arrow is this module.** From here on, the course never needs to go below the gate again — not because the physics stopped mattering, but because **the gate is a complete and sufficient foundation.** Any function you can specify as a truth table, you can now build.
 
-This is the same move as [[how-computers-work/01-electricity/05-the-digital-abstraction|module 5]], one level up. Module 5 bought the right to stop thinking about voltage. **Module 17 buys the right to stop thinking about transistors.**
+This is the same move as [[how-computers-work/01-electricity/05-the-digital-abstraction|module 5]], one level up. Module 5 bought the right to stop thinking about voltage. **Module 18 buys the right to stop thinking about transistors.**
 
 Parts VI and VII spend that credit: assembling gates into adders, ALUs, and memory — never again asking what a gate is made of.
 
@@ -352,7 +352,7 @@ Parts VI and VII spend that credit: assembling gates into adders, ALUs, and memo
    <strong>NOT:</strong> tie inputs together — $\overline{A + A} = \overline{A}$. <strong>1 gate.</strong><br>
    <strong>OR:</strong> NOR then invert. <strong>2 gates.</strong><br>
    <strong>AND:</strong> by De Morgan $A \cdot B = \overline{\overline{A} + \overline{B}}$ — invert both inputs, then NOR. <strong>3 gates.</strong><br>
-   Exactly the mirror of the NAND constructions, with AND and OR swapping costs. NOR is equally universal in theory and worse in silicon, for the PMOS-stacking reason from module 14.
+   Exactly the mirror of the NAND constructions, with AND and OR swapping costs. NOR is equally universal in theory and worse in silicon, for the PMOS-stacking reason from module 15.
    </details>
 
 2. **Is XOR functionally complete on its own?**
@@ -394,7 +394,7 @@ Parts VI and VII spend that credit: assembling gates into adders, ALUs, and memo
 
 <details><summary>Hint for (g), only if stuck</summary>
 `synthesise()` builds every 1-row as a full minterm, with no sharing between terms. Hand design spots that $S$ and $\overline{S}$ select between two paths and reuses structure across them.<br>
-This gap — mechanical correctness versus structural insight — is exactly the gap that logic optimisation tools exist to close, and it is why synthesis runs minimisation (module 16) before mapping to gates rather than emitting canonical form directly.
+This gap — mechanical correctness versus structural insight — is exactly the gap that logic optimisation tools exist to close, and it is why synthesis runs minimisation (module 17) before mapping to gates rather than emitting canonical form directly.
 </details>
 
 ---
@@ -420,14 +420,14 @@ This gap — mechanical correctness versus structural insight — is exactly the
 
 **Recap:** A gate set is functionally complete if every Boolean function can be built from it. NAND alone is complete — NOT is a NAND with tied inputs, AND is NAND inverted, OR is NAND with inverted inputs by De Morgan — and canonical SOP then covers every truth table, as verified here on all 256 three-input functions. NOR is equally complete but more expensive in CMOS. {AND, OR} is not complete because monotone gates compose only into monotone functions, which makes inversion the property that grants universality.
 
-**Next:** [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 18 — Multiplexers and Decoders]] begins Part VI. You will stop building individual gates and start assembling them into blocks that select and address — the two operations every memory and every datapath is made of.
+**Next:** [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 19 — Multiplexers and Decoders]] begins Part VI. You will stop building individual gates and start assembling them into blocks that select and address — the two operations every memory and every datapath is made of.
 
 ---
 
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[how-computers-work/04-logic/01-gates-from-transistors|Module 14]] — why NAND beats NOR in silicon
-- [[how-computers-work/04-logic/02-boolean-algebra|Module 15]] — De Morgan, the tool behind the constructions
+- [[how-computers-work/04-logic/01-gates-from-transistors|Module 15]] — why NAND beats NOR in silicon
+- [[how-computers-work/04-logic/02-boolean-algebra|Module 16]] — De Morgan, the tool behind the constructions
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the previous abstraction boundary
 - [[foundations/theory-of-computation/index|theory-of-computation/]] — circuit complexity, where depth and size are studied formally
