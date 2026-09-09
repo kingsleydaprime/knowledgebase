@@ -6,6 +6,20 @@ If Arrays are the workhorse of memory, Hash Maps are the most useful high-level 
 
 ---
 
+## Before you start
+
+- You understand arrays and O(1) indexing. See [[01-arrays|arrays]].
+- You know what a linked list is, since chaining uses one. See [[04-linked-lists|linked lists]].
+
+**What you will be able to do after this lesson:**
+
+1. Explain how a hash function turns a key into an array index.
+2. Explain what a collision is and how chaining resolves it.
+3. Explain what load factor is and why resizing keeps lookups fast.
+4. State precisely what assumption 'O(1) average' rests on, and how it fails.
+
+**Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
+
 ## 1. Why Do Hash Maps Exist? (Real-World Motivation)
 
 Imagine a physical **Coat Check Room** at a concert hall:
@@ -165,6 +179,142 @@ Hash Maps are extraordinarily fast, but they come with trade-offs:
 
 ---
 
+## Implementation - complete runnable example
+
+**Runnable example:** save as `hash_maps_lab.py` and run `python3 hash_maps_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
+
+```python
+"""Hash maps: a hash table with chaining, built from an array.
+
+Shows where O(1) average comes from, and exactly how it degrades."""
+
+class HashMap:
+    """Separate chaining: an array of buckets, each holding a list of pairs."""
+    def __init__(self, capacity=8, hash_fn=None, max_load=0.75):
+        self.capacity, self.size = capacity, 0
+        self.buckets = [[] for _ in range(capacity)]
+        self.hash_fn = hash_fn or (lambda k: hash(k))
+        self.max_load, self.probes, self.resizes = max_load, 0, 0
+
+    def _index(self, key):
+        return self.hash_fn(key) % self.capacity
+
+    def put(self, key, value):
+        i = self._index(key)
+        for pair in self.buckets[i]:
+            self.probes += 1
+            if pair[0] == key:
+                pair[1] = value
+                return
+        self.buckets[i].append([key, value])
+        self.size += 1
+        if self.size / self.capacity > self.max_load:
+            self._resize()
+
+    def get(self, key, default=None):
+        for pair in self.buckets[self._index(key)]:
+            self.probes += 1
+            if pair[0] == key:
+                return pair[1]
+        return default
+
+    def _resize(self):
+        """Rehash everything into a bigger array -- keeps chains short."""
+        old = self.buckets
+        self.capacity *= 2
+        self.buckets = [[] for _ in range(self.capacity)]
+        self.resizes += 1
+        for bucket in old:
+            for k, v in bucket:
+                self.buckets[self._index(k)].append([k, v])
+
+    def chain_lengths(self):
+        return [len(b) for b in self.buckets]
+
+if __name__ == "__main__":
+    print("A GOOD HASH -- keys spread evenly across buckets")
+    m = HashMap(hash_fn=lambda k: k * 2654435761)      # Knuth multiplicative
+    for i in range(1000):
+        m.put(i, i * i)
+    lens = m.chain_lengths()
+    print(f"  1000 keys, capacity {m.capacity}, {m.resizes} resizes")
+    print(f"  load factor {m.size / m.capacity:.2f}")
+    print(f"  chain lengths: min {min(lens)}, max {max(lens)}, "
+          f"mean {sum(lens)/len(lens):.2f}")
+    m.probes = 0
+    for i in range(1000):
+        m.get(i)
+    print(f"  1000 successful lookups cost {m.probes:,} probes "
+          f"({m.probes/1000:.2f} per lookup)")
+    print("  -> a short, bounded chain is why lookup is O(1) on AVERAGE.")
+    print()
+
+    print("A TERRIBLE HASH -- every key lands in the same bucket")
+    bad = HashMap(hash_fn=lambda k: 0)
+    for i in range(200):
+        bad.put(i, i)
+    lens = bad.chain_lengths()
+    print(f"  200 keys, capacity {bad.capacity}")
+    print(f"  chain lengths: min {min(lens)}, max {max(lens)}")
+    before = bad.probes
+    bad.get(199)
+    print(f"  one lookup of the last key cost {bad.probes - before} probes")
+    print("  -> the hash map has degenerated into a linked list: O(n).")
+    print("     'O(1) average' assumes the hash SPREADS keys. It is an")
+    print("     assumption about your data, not a guarantee.")
+    print()
+
+    print("LOAD FACTOR AND RESIZING")
+    print(f"  {'keys':>6s} {'capacity':>9s} {'load':>6s} {'resizes':>8s}")
+    m2 = HashMap(hash_fn=lambda k: k * 2654435761)
+    for n in (1, 10, 100, 1000):
+        while m2.size < n:
+            m2.put(m2.size, 0)
+        print(f"  {m2.size:6d} {m2.capacity:9d} {m2.size/m2.capacity:6.2f} {m2.resizes:8d}")
+    print("  -> capacity grows to keep the load factor under 0.75, which")
+    print("     keeps the average chain short. Resizing is the cost.")
+
+    good = HashMap(hash_fn=lambda k: k * 2654435761)
+    for i in range(500): good.put(i, i)
+    assert max(good.chain_lengths()) <= 5, "a good hash keeps chains short"
+    assert max(bad.chain_lengths()) == 200, "a constant hash puts everything in one chain"
+    assert good.get(499) == 499 and good.get(9999) is None
+    good.put(1, "changed")
+    assert good.get(1) == "changed" and good.size == 500
+    print()
+    print("hash_maps_lab: passed")
+```
+
+Expected output:
+
+```
+A GOOD HASH -- keys spread evenly across buckets
+  1000 keys, capacity 2048, 8 resizes
+  load factor 0.49
+  chain lengths: min 0, max 1, mean 0.49
+  1000 successful lookups cost 1,000 probes (1.00 per lookup)
+  -> a short, bounded chain is why lookup is O(1) on AVERAGE.
+
+A TERRIBLE HASH -- every key lands in the same bucket
+  200 keys, capacity 512
+  chain lengths: min 0, max 200
+  one lookup of the last key cost 200 probes
+  -> the hash map has degenerated into a linked list: O(n).
+     'O(1) average' assumes the hash SPREADS keys. It is an
+     assumption about your data, not a guarantee.
+
+LOAD FACTOR AND RESIZING
+    keys  capacity   load  resizes
+       1         8   0.12        0
+      10        16   0.62        1
+     100       256   0.39        5
+    1000      2048   0.49        8
+  -> capacity grows to keep the load factor under 0.75, which
+     keeps the average chain short. Resizing is the cost.
+
+hash_maps_lab: passed
+```
+
 ## 9. Check Your Understanding (University Self-Assessment)
 
 1. **Question**: Why are Python `list`s invalid as dictionary keys (`TypeError: unhashable type`), while `tuple`s are valid?
@@ -177,6 +327,36 @@ Hash Maps are extraordinarily fast, but they come with trade-offs:
    - <details><summary>Click for Answer</summary><b>Answer:</b> The Load Factor is <b>0.7</b> (70/100). Adding 10 more entries brings the load factor to 0.8, crossing the 0.7 threshold and triggering an automatic capacity resize (doubling buckets to 200) and re-hashing.</details>
 
 ---
+
+## Practice - independent task
+
+Implement **open addressing** with linear probing, as an alternative to chaining.
+
+- Store entries directly in the bucket array; on collision, try the next slot.
+- Implement `put`, `get` and - the hard one - `delete`.
+- **Deletion is the trap.** Removing an entry can break the probe chain for later keys. Discover this yourself: insert three keys that collide, delete the middle one, then look up the third.
+- Fix it with a **tombstone** marker.
+- Compare probe counts against the chaining version at load factors 0.5 and 0.9.
+
+**Done when:** your open-addressed map passes the delete-then-lookup case, and you can say which approach degrades worse at high load factor and why.
+
+<details><summary>Hint - open only after an attempt</summary>
+If keys A, B and C all hash to slot 5 and land in slots 5, 6 and 7, then deleting B leaves slot 6 empty. A lookup for C probes 5, finds A (not C), probes 6, finds <em>empty</em>, and concludes C is absent - even though C is sitting in slot 7.<br>
+A <strong>tombstone</strong> marks the slot as "deleted, keep probing". The cost is that tombstones accumulate and must be cleared during a resize.
+</details>
+
+## Before moving on
+
+You are done with this module when you can, closed-book:
+
+- [ ] Explain how a hash maps a key to a bucket index.
+- [ ] Explain chaining, and what happens when every key collides.
+- [ ] Explain load factor and why exceeding it triggers a resize.
+- [ ] State what 'O(1) average' assumes about your data and your hash function.
+
+**Recap:** A hash map turns a key into an array index by hashing, giving direct access rather than a search. Collisions are inevitable, and chaining stores colliding entries in a list per bucket. Keeping the load factor low - by resizing and rehashing - keeps chains short, which is where average O(1) comes from. That average assumes the hash spreads keys evenly; a degenerate hash puts everything in one chain and lookup becomes O(n).
+
+**Next:** [[04-linked-lists|Linked Lists]] - the non-contiguous alternative, and the opposite bet about which operation should be cheap.
 
 ## Related Modules
 - [[01-arrays|Arrays]] — The bucket array foundation underneath

@@ -6,6 +6,20 @@ Tries trade extra memory to grant a superpower that [[03-hash-maps|Hash Maps]] c
 
 ---
 
+## Before you start
+
+- You understand tree structure. See [[01-trees|trees]].
+- You understand hash maps and what they give up. See [[03-hash-maps|hash maps]].
+
+**What you will be able to do after this lesson:**
+
+1. Explain how a key becomes a path rather than something stored at a node.
+2. Explain why lookup is O(length) and independent of how many words are stored.
+3. Explain why a hash map cannot do prefix search at all.
+4. State the memory tradeoff and when a trie is the wrong choice.
+
+**Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
+
 ## 1. Real-World Motivation & Physical Metaphors
 
 Imagine using the **Search Bar Autocomplete** on your phone:
@@ -166,6 +180,155 @@ Let $L$ = Length of the target word/prefix, and $\Sigma$ = Alphabet size (e.g. 2
 
 ---
 
+## Implementation - complete runnable example
+
+**Runnable example:** save as `tries_lab.py` and run `python3 tries_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
+
+```python
+"""Tries: the structure where the KEY is the path, not something stored."""
+
+class Trie:
+    class Node:
+        __slots__ = ("children", "is_word")
+        def __init__(self):
+            self.children, self.is_word = {}, False
+
+    def __init__(self):
+        self.root, self.nodes = Trie.Node(), 1
+
+    def insert(self, word):
+        node = self.root
+        for ch in word:
+            if ch not in node.children:
+                node.children[ch] = Trie.Node()
+                self.nodes += 1
+            node = node.children[ch]
+        node.is_word = True
+
+    def _walk(self, prefix):
+        node = self.root
+        for ch in prefix:
+            if ch not in node.children:
+                return None
+            node = node.children[ch]
+        return node
+
+    def contains(self, word):
+        node = self._walk(word)
+        return node is not None and node.is_word
+
+    def starts_with(self, prefix):
+        return self._walk(prefix) is not None
+
+    def with_prefix(self, prefix):
+        """The operation a hash map cannot do at all."""
+        node, out = self._walk(prefix), []
+        if node is None:
+            return out
+        def collect(n, path):
+            if n.is_word: out.append(prefix + path)
+            for ch in sorted(n.children):
+                collect(n.children[ch], path + ch)
+        collect(node, "")
+        return out
+
+if __name__ == "__main__":
+    words = ["car", "card", "care", "careful", "cat", "dog", "do"]
+    t = Trie()
+    for w in words: t.insert(w)
+
+    print("THE KEY IS THE PATH")
+    print(f"  inserted: {words}")
+    print()
+    print("  root")
+    print("   ├── c ── a ── r*  ── d*")
+    print("   │              │    └── e* ── f ── u ── l*")
+    print("   │              └── t*")
+    print("   └── d ── o* ── g*")
+    print("  (* marks the end of a real word)")
+    print()
+    print("  'car', 'card' and 'care' SHARE the nodes c-a-r. The common")
+    print("  prefix is stored once, not three times.")
+    print()
+
+    print("LOOKUP IS O(length), NOT O(number of words)")
+    print(f"  {'query':>10s} {'contains':>10s} {'is a prefix':>13s}")
+    for q in ["car", "care", "ca", "cart", "do", "dog"]:
+        print(f"  {q:>10s} {str(t.contains(q)):>10s} {str(t.starts_with(q)):>13s}")
+    print("  -> 'ca' is a valid PREFIX but not a WORD. A trie distinguishes")
+    print("     them; that is what the is_word flag is for.")
+    print()
+
+    print("PREFIX SEARCH -- what a hash map simply cannot do")
+    for p in ["car", "ca", "d", "z"]:
+        print(f"  words starting {p!r:6s}: {t.with_prefix(p)}")
+    print("  -> a hash map hashes the WHOLE key, so it destroys the")
+    print("     relationship between 'car' and 'card'. Autocomplete needs")
+    print("     that relationship, which is why tries exist.")
+    print()
+
+    print("THE COST -- nodes versus characters stored")
+    total_chars = sum(len(w) for w in words)
+    print(f"  {len(words)} words, {total_chars} characters total")
+    print(f"  trie nodes: {t.nodes}  (shared prefixes save {total_chars + 1 - t.nodes} nodes)")
+    print("  -> tries trade memory per node for prefix operations. With")
+    print("     little shared prefix, they are far heavier than a hash map.")
+
+    assert t.contains("car") and t.contains("careful")
+    assert not t.contains("ca") and t.starts_with("ca")
+    assert not t.contains("cart") and not t.starts_with("cart")
+    assert t.with_prefix("car") == ["car", "card", "care", "careful"]
+    assert t.with_prefix("z") == []
+    assert sorted(t.with_prefix("")) == sorted(words)
+    print()
+    print("tries_lab: passed")
+```
+
+Expected output:
+
+```
+THE KEY IS THE PATH
+  inserted: ['car', 'card', 'care', 'careful', 'cat', 'dog', 'do']
+
+  root
+   ├── c ── a ── r*  ── d*
+   │              │    └── e* ── f ── u ── l*
+   │              └── t*
+   └── d ── o* ── g*
+  (* marks the end of a real word)
+
+  'car', 'card' and 'care' SHARE the nodes c-a-r. The common
+  prefix is stored once, not three times.
+
+LOOKUP IS O(length), NOT O(number of words)
+       query   contains   is a prefix
+         car       True          True
+        care       True          True
+          ca      False          True
+        cart      False         False
+          do       True          True
+         dog       True          True
+  -> 'ca' is a valid PREFIX but not a WORD. A trie distinguishes
+     them; that is what the is_word flag is for.
+
+PREFIX SEARCH -- what a hash map simply cannot do
+  words starting 'car' : ['car', 'card', 'care', 'careful']
+  words starting 'ca'  : ['car', 'card', 'care', 'careful', 'cat']
+  words starting 'd'   : ['do', 'dog']
+  words starting 'z'   : []
+  -> a hash map hashes the WHOLE key, so it destroys the
+     relationship between 'car' and 'card'. Autocomplete needs
+     that relationship, which is why tries exist.
+
+THE COST -- nodes versus characters stored
+  7 words, 26 characters total
+  trie nodes: 13  (shared prefixes save 14 nodes)
+  -> tries trade memory per node for prefix operations. With
+     little shared prefix, they are far heavier than a hash map.
+
+tries_lab: passed
+```
+
 ## 9. Check Your Understanding (University Self-Assessment)
 
 1. **Question**: Why can't a Hash Set perform prefix searches (`startsWith("app")`) in $O(L)$ time?
@@ -178,6 +341,36 @@ Let $L$ = Length of the target word/prefix, and $\Sigma$ = Alphabet size (e.g. 2
    - <details><summary>Click for Answer</summary><b>Answer:</b> By performing a <b>Preorder Traversal</b> over the Trie while iterating child keys in alphabetical order ('a' to 'z'), words are visited in strictly sorted lexicographical order.</details>
 
 ---
+
+## Practice - independent task
+
+Implement **autocomplete with ranking** - the actual product feature.
+
+- Extend the trie so each word carries a frequency count.
+- `suggest(prefix, k)` returns the `k` most frequent completions.
+- The naive version collects every completion and sorts. For a prefix like `"a"` on a large dictionary that is very slow.
+- Improve it: store at each node the best score in its subtree, then explore with a priority queue ([[08-heaps|heap]]), always expanding the most promising branch first.
+- Test on at least 500 words with varied frequencies.
+
+**Done when:** ranked suggestions are correct, and you can show your improved version visits far fewer nodes than the collect-everything approach for a short prefix.
+
+<details><summary>Hint - open only after an attempt</summary>
+Store <code>best_below</code> at each node: the highest frequency of any word in that subtree. Then a best-first search using a max-heap keyed on <code>best_below</code> expands only branches that could still contain a top-k answer.<br>
+This is the same idea as branch-and-bound: <strong>an upper bound on what a branch could yield lets you skip it entirely</strong>. Without the bound you must explore everything to be sure.
+</details>
+
+## Before moving on
+
+You are done with this module when you can, closed-book:
+
+- [ ] Explain how the path from the root spells the key.
+- [ ] Explain why lookup cost depends on key length, not on the number of keys.
+- [ ] Explain why a hash map destroys the prefix relationship.
+- [ ] State when a trie costs more memory than it is worth.
+
+**Recap:** A trie stores keys as paths, so common prefixes are shared rather than duplicated and lookup costs O(length) regardless of how many keys exist. A separate flag marks which paths are complete words, distinguishing a prefix from a key. Because a hash map hashes the whole key, it destroys any relationship between similar keys - which is why prefix search and autocomplete need a trie. The cost is memory per node, so tries are a poor choice when keys share little.
+
+**Next:** [[10-union-find|Union-Find]] - the last structure here, and the one that answers a question none of the others can.
 
 ## Related Modules
 - [[03-hash-maps|Hash Maps]] — The $O(1)$ exact-match alternative

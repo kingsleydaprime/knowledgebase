@@ -4,6 +4,20 @@ Welcome to the **Trees** course module. In linear data structures like Arrays an
 
 ---
 
+## Before you start
+
+- You understand linked structures and pointers. See [[04-linked-lists|linked lists]].
+- You know what recursion is and that it uses a call stack.
+
+**What you will be able to do after this lesson:**
+
+1. Explain why a balanced binary search tree gives O(log n) lookup.
+2. Explain what makes a tree degenerate, and why that costs O(n).
+3. Explain why in-order traversal of a BST produces sorted output.
+4. State why self-balancing trees exist and what they guarantee.
+
+**Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
+
 ## 1. Why Do We Need Trees? (Real-World Motivation)
 
 Before diving into formal computer science definitions, let's understand why linear data structures (Arrays and Linked Lists) are not always enough.
@@ -283,6 +297,157 @@ To prevent this, production software uses **Self-Balancing Binary Search Trees**
 
 ---
 
+## Implementation - complete runnable example
+
+**Runnable example:** save as `trees_lab.py` and run `python3 trees_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
+
+```python
+"""Trees: a BST, and why balance is the whole story."""
+
+class BST:
+    class Node:
+        __slots__ = ("key", "left", "right")
+        def __init__(self, key):
+            self.key, self.left, self.right = key, None, None
+
+    def __init__(self):
+        self.root, self.comparisons = None, 0
+
+    def insert(self, key):
+        """Iterative on purpose. A recursive insert into a DEGENERATE tree
+        recurses once per level -- 1000 sorted keys would blow the stack,
+        which is the failure this lesson is about."""
+        if self.root is None:
+            self.root = BST.Node(key)
+            return
+        node = self.root
+        while True:
+            self.comparisons += 1
+            if key < node.key:
+                if node.left is None:
+                    node.left = BST.Node(key); return
+                node = node.left
+            elif key > node.key:
+                if node.right is None:
+                    node.right = BST.Node(key); return
+                node = node.right
+            else:
+                return
+
+    def contains(self, key):
+        node = self.root
+        while node:
+            self.comparisons += 1
+            if key == node.key:
+                return True
+            node = node.left if key < node.key else node.right
+        return False
+
+    def height(self):
+        """Iterative, for the same reason as insert."""
+        if self.root is None:
+            return 0
+        best, stack = 0, [(self.root, 1)]
+        while stack:
+            node, depth = stack.pop()
+            best = max(best, depth)
+            if node.left:  stack.append((node.left, depth + 1))
+            if node.right: stack.append((node.right, depth + 1))
+        return best
+
+    def in_order(self):
+        """Iterative in-order with an explicit stack."""
+        out, stack, node = [], [], self.root
+        while stack or node:
+            while node:
+                stack.append(node); node = node.left
+            node = stack.pop()
+            out.append(node.key)
+            node = node.right
+        return out
+
+if __name__ == "__main__":
+    print("A BALANCED TREE -- height grows like log2(n)")
+    print(f"  {'n':>7s} {'height':>8s} {'log2(n)':>9s} {'lookups (worst)':>16s}")
+    for n in (7, 15, 1023, 65535):
+        t = BST()
+        # insert in an order that happens to balance: middle-out
+        def build(lo, hi):
+            if lo > hi: return
+            mid = (lo + hi) // 2
+            t.insert(mid); build(lo, mid-1); build(mid+1, hi)
+        build(0, n-1)
+        import math
+        print(f"  {n:7d} {t.height():8d} {math.log2(n+1):9.1f} {t.height():16d}")
+    print("  -> each comparison discards HALF the remaining tree.")
+    print()
+
+    print("THE SAME KEYS, INSERTED IN SORTED ORDER")
+    sorted_tree = BST()
+    for i in range(1000):
+        sorted_tree.insert(i)
+    balanced = BST()
+    def build2(lo, hi):
+        if lo > hi: return
+        mid = (lo + hi) // 2
+        balanced.insert(mid); build2(lo, mid-1); build2(mid+1, hi)
+    build2(0, 999)
+    print(f"  sorted insertion : height {sorted_tree.height():5d}")
+    print(f"  balanced         : height {balanced.height():5d}")
+    sorted_tree.comparisons = balanced.comparisons = 0
+    sorted_tree.contains(999); balanced.contains(999)
+    print(f"  finding key 999  : {sorted_tree.comparisons:4d} vs "
+          f"{balanced.comparisons:3d} comparisons")
+    print("  -> a BST with sorted input IS a linked list. Same code, same")
+    print("     keys, O(n) instead of O(log n). This is why self-balancing")
+    print("     trees (AVL, red-black) exist -- they refuse to degenerate.")
+    print()
+
+    print("IN-ORDER TRAVERSAL OF A BST YIELDS SORTED OUTPUT")
+    t = BST()
+    for k in (50, 30, 70, 20, 40, 60, 80):
+        t.insert(k)
+    print(f"  inserted: 50 30 70 20 40 60 80")
+    print(f"  in-order: {t.in_order()}")
+    print("  -> the BST property (left < node < right) applied recursively")
+    print("     IS the definition of sorted.")
+
+    assert t.in_order() == sorted(t.in_order())
+    assert t.contains(60) and not t.contains(65)
+    assert sorted_tree.height() == 1000, "sorted insertion degenerates fully"
+    assert balanced.height() <= 12, "balanced tree stays logarithmic"
+    print()
+    print("trees_lab: passed")
+```
+
+Expected output:
+
+```
+A BALANCED TREE -- height grows like log2(n)
+        n   height   log2(n)  lookups (worst)
+        7        3       3.0                3
+       15        4       4.0                4
+     1023       10      10.0               10
+    65535       16      16.0               16
+  -> each comparison discards HALF the remaining tree.
+
+THE SAME KEYS, INSERTED IN SORTED ORDER
+  sorted insertion : height  1000
+  balanced         : height    10
+  finding key 999  : 1000 vs  10 comparisons
+  -> a BST with sorted input IS a linked list. Same code, same
+     keys, O(n) instead of O(log n). This is why self-balancing
+     trees (AVL, red-black) exist -- they refuse to degenerate.
+
+IN-ORDER TRAVERSAL OF A BST YIELDS SORTED OUTPUT
+  inserted: 50 30 70 20 40 60 80
+  in-order: [20, 30, 40, 50, 60, 70, 80]
+  -> the BST property (left < node < right) applied recursively
+     IS the definition of sorted.
+
+trees_lab: passed
+```
+
 ## 9. Check Your Understanding (University Self-Assessment)
 
 Try answering these questions to verify what you've learned:
@@ -297,6 +462,35 @@ Try answering these questions to verify what you've learned:
    - <details><summary>Click for Answer</summary><b>Answer:</b> <b>Inorder Traversal</b> (Left Subtree -> Root -> Right Subtree).</details>
 
 ---
+
+## Practice - independent task
+
+Implement `delete(key)` on the BST - the operation everyone skips.
+
+- The easy cases: a leaf (just remove it) and a node with one child (splice it out).
+- The hard case: a node with **two children**. You must replace it with either its in-order predecessor or successor, then delete that node instead.
+- Implement it, then verify: after any sequence of inserts and deletes, `in_order()` must still be sorted and `contains()` must agree with a Python `set`.
+- Test with 200 random insert/delete operations against a `set` as the oracle.
+
+**Done when:** your tree survives 200 random operations with in-order output still sorted, including deleting the root and deleting the last node.
+
+<details><summary>Hint - open only after an attempt</summary>
+For a node with two children, the replacement must preserve the BST property: everything left is smaller, everything right is larger. Only two keys can sit there - the <strong>largest key in the left subtree</strong> (the in-order predecessor) or the <strong>smallest in the right subtree</strong> (the successor).<br>
+Both are guaranteed to have at most one child, so removing them recurses into an easy case. That is why the two-child case reduces to a one-child case rather than recursing forever.
+</details>
+
+## Before moving on
+
+You are done with this module when you can, closed-book:
+
+- [ ] Explain why each comparison discards half a balanced tree.
+- [ ] Explain what input order causes a BST to degenerate, and what it becomes.
+- [ ] Explain why in-order traversal of a BST is sorted.
+- [ ] State what a self-balancing tree guarantees that a plain BST does not.
+
+**Recap:** A binary search tree keeps every key in the left subtree smaller than the node and every key on the right larger, so each comparison discards half the remaining tree - O(log n) when balanced. Balance is not automatic: inserting sorted keys produces a tree of height n, which is a linked list wearing a tree's shape, and lookup degrades to O(n). Self-balancing variants such as AVL and red-black trees restructure on insertion to guarantee logarithmic height.
+
+**Next:** [[02-traversal|Tree Traversal]] - having built the tree, the next question is in what order to visit it - and the choice is decided by the problem.
 
 ## Related Modules
 - [[02-traversal|Tree Traversal]] — Pre-order, In-order, Post-order, and Level-order walkthroughs
