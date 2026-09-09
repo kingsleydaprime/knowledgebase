@@ -178,7 +178,7 @@ The pressure analogy is genuinely useful and it will carry you through the next 
 | Water flows in an open pipe | Current needs a **complete loop** | The single most important difference |
 | Pressure propagates at ~1500 m/s | Field propagates at ~$2 \times 10^8$ m/s | Timing intuitions transfer badly |
 
-**The loop requirement is the one to internalise.** Charge is conserved, so every electron leaving a battery's negative terminal must arrive back at its positive terminal. Break the loop anywhere and current everywhere stops instantly. This is why a switch works no matter where you put it in the circuit — and it is the entire basis of how a transistor controls a gate in [[how-computers-work/04-logic/01-gates-from-transistors|module 14]].
+**The loop requirement is the one to internalise.** Charge is conserved, so every electron leaving a battery's negative terminal must arrive back at its positive terminal. Break the loop anywhere and current everywhere stops instantly. This is why a switch works no matter where you put it in the circuit — and it is the entire basis of how a transistor controls a gate in [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
 
 ---
 

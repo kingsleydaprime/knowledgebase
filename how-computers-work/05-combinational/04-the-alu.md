@@ -1,11 +1,11 @@
-# Module 20: The ALU (One Circuit, Many Operations)
+# Module 22: The ALU (One Circuit, Many Operations)
 
 **[Intermediate → Advanced]** — Part VI ends by wrapping the adder, the logic gates and a shifter behind a multiplexer. The result is the computational core of every processor — and the first circuit whose behaviour is chosen by *data*.
 
 ## Before you start
 
-- You can build an adder/subtractor and compute the four flags — [[how-computers-work/05-combinational/02-adders|module 19]].
-- You can build a multiplexer and know it costs $width$ copies to go word-wide — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 18]].
+- You can build an adder/subtractor and compute the four flags — [[how-computers-work/05-combinational/02-adders|module 20]].
+- You can build a multiplexer and know it costs $width$ copies to go word-wide — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 19]].
 - You know gate delays accumulate along the critical path — [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
 
 **After this lesson you will be able to:**
@@ -97,9 +97,9 @@ Shifting looks like it should be a loop: shift by one, repeat $n$ times. **That 
                                      total: 5  ✓
 ```
 
-Each stage is a row of 2-to-1 multiplexers — the module 18 primitive again. **Three stages cover every shift from 0 to 7; five stages cover a 32-bit shifter.**
+Each stage is a row of 2-to-1 multiplexers — the module 19 primitive again. **Three stages cover every shift from 0 to 7; five stages cover a 32-bit shifter.**
 
-Shift amount has no effect on delay: shifting by 7 costs exactly what shifting by 1 costs. **This is the same "convert a sequential dependency into a logarithmic tree" move as carry-lookahead in [[how-computers-work/05-combinational/02-adders|module 19]]** — the recurring shape of fast digital design.
+Shift amount has no effect on delay: shifting by 7 costs exactly what shifting by 1 costs. **This is the same "convert a sequential dependency into a logarithmic tree" move as carry-lookahead in [[how-computers-work/05-combinational/02-adders|module 20]]** — the recurring shape of fast digital design.
 
 ---
 
@@ -174,7 +174,7 @@ OPS = {0b000: "ADD", 0b001: "SUB", 0b010: "AND", 0b011: "OR",
        0b100: "XOR", 0b101: "SHL", 0b110: "SHR", 0b111: "SLT"}
 
 def ripple_add(a, b, carry_in=0):
-    """Reused from module 19. Returns (sum, carry_out, carry_into_msb)."""
+    """Reused from module 20. Returns (sum, carry_out, carry_into_msb)."""
     result, carry, carry_into_msb = 0, carry_in, 0
     for i in range(WIDTH):
         if i == WIDTH - 1:
@@ -327,7 +327,7 @@ The `results` dictionary is the point: **every entry is computed before the sele
 
 ## 8. The ALU on the critical path
 
-The ALU is almost always the slowest block in a simple processor, because the adder's carry chain runs through it ([[how-computers-work/05-combinational/02-adders|module 19]]).
+The ALU is almost always the slowest block in a simple processor, because the adder's carry chain runs through it ([[how-computers-work/05-combinational/02-adders|module 20]]).
 
 Its delay is roughly:
 
@@ -358,7 +358,7 @@ With a 64-bit carry-lookahead adder at 280 ps and a MUX at ~40 ps, that is aroun
 
 1. **Why is SLT implemented as a subtraction rather than a dedicated comparator?**
    <details><summary>Answer</summary>
-   Because the adder already exists and subtraction is free in two's complement (module 19). $A < B$ exactly when $A - B$ is negative, so SLT is a subtract whose sign bit becomes the result and whose difference is discarded.<br>
+   Because the adder already exists and subtraction is free in two's complement (module 20). $A < B$ exactly when $A - B$ is negative, so SLT is a subtract whose sign bit becomes the result and whose difference is discarded.<br>
    A dedicated magnitude comparator would be extra area for something already computed. This is why real ISAs have a <code>cmp</code> instruction that sets flags without writing a result — it is a subtraction you throw away.<br>
    (The careful version must also account for signed overflow: the correct signed test is $N \oplus V$, not $N$ alone, which is why hardware comparison instructions use both flags.)
    </details>
@@ -379,7 +379,7 @@ With a 64-bit carry-lookahead adder at 280 ps and a MUX at ~40 ps, that is aroun
    <details><summary>Answer</summary>
    Every previous circuit did exactly one thing, determined by its wiring. To change the behaviour you would rebuild it.<br>
    The ALU's behaviour is chosen by three input bits arriving alongside the data — so <strong>the same silicon performs different operations on different cycles, decided by information rather than structure.</strong><br>
-   That is the seed of the stored-program computer: if the operation is selected by bits, those bits can be <em>stored in memory</em> and fetched like any other data. A sequence of such bit patterns is a <strong>program</strong>. It is the same insight as the MUX-as-LUT in [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 18]] — moving function from structure into data — and it is what Part VIII builds on.
+   That is the seed of the stored-program computer: if the operation is selected by bits, those bits can be <em>stored in memory</em> and fetched like any other data. A sequence of such bit patterns is a <strong>program</strong>. It is the same insight as the MUX-as-LUT in [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 19]] — moving function from structure into data — and it is what Part VIII builds on.
    </details>
 
 ---
@@ -433,7 +433,7 @@ SLTU is decided by the carry flag (borrow), SLT by $N \oplus V$. This is precise
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[how-computers-work/05-combinational/02-adders|Module 19 — Adders]] — the carry chain inside this block
-- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 18]] — the MUX that selects the operation
+- [[how-computers-work/05-combinational/02-adders|Module 20 — Adders]] — the carry chain inside this block
+- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 19]] — the MUX that selects the operation
 - [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]] — where the ALU sits in a processor
 - [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]] — the answer to a slow ALU

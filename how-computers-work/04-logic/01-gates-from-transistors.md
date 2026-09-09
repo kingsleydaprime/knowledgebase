@@ -1,4 +1,4 @@
-# Module 14: Gates from Transistors (Building the Logic Primitives)
+# Module 15: Gates from Transistors (Building the Logic Primitives)
 
 **[Intermediate]** — Part V begins. You have a working CMOS inverter; now build every other gate from the same two-network recipe — and find out why real chips are made overwhelmingly of NAND.
 
@@ -135,7 +135,7 @@ This is unavoidable. The PDN pulls the output **down** when its condition is sat
 
 **AND is 50% more expensive than NAND, and slower.** This inverts the intuition most people bring from Boolean algebra, where AND and OR feel primitive and NAND feels like a compound. **In silicon it is the other way round.** NAND and NOR are the primitives; AND and OR are derived.
 
-**XOR is the expensive one.** Its function — true when inputs differ — has no compact series/parallel representation, so a static CMOS XOR needs around 12 transistors. This is worth remembering: XOR appears in the heart of every adder in [[how-computers-work/05-combinational/02-adders|module 19]], and its cost is a real factor in arithmetic circuit design.
+**XOR is the expensive one.** Its function — true when inputs differ — has no compact series/parallel representation, so a static CMOS XOR needs around 12 transistors. This is worth remembering: XOR appears in the heart of every adder in [[how-computers-work/05-combinational/02-adders|module 20]], and its cost is a real factor in arithmetic circuit design.
 
 ---
 
@@ -192,7 +192,7 @@ That second column is the one that hurts. Larger input capacitance means the *pr
 
 1. **Prefer NAND over NOR** wherever the logic allows.
 2. **Keep stack heights low** — 4-input gates are usually the practical limit; beyond that, cascade smaller gates instead.
-3. **Push inversions around** using De Morgan's laws ([[how-computers-work/04-logic/02-boolean-algebra|module 15]]) to convert NOR-shaped logic into NAND-shaped logic.
+3. **Push inversions around** using De Morgan's laws ([[how-computers-work/04-logic/02-boolean-algebra|module 16]]) to convert NOR-shaped logic into NAND-shaped logic.
 
 > [!NOTE]
 > **Follow this chain all the way down.** Holes move by a relay of valence electrons through a nearly full band (module 8) → hole mobility is 2.81× lower → PMOS delivers less current per unit width (module 12) → series PMOS stacks must be widened proportionally → NOR costs 38–79% more than NAND → **standard cell libraries are built predominantly from NAND, and synthesis tools actively rewrite logic to use it.**
@@ -369,7 +369,7 @@ The `evaluate()` function is worth dwelling on: it does not contain a truth tabl
    <details><summary>Answer</summary>
    $\overline{A} \cdot \overline{B} = \overline{A + B}$ — a NOR gate, 13.2 units of width.<br>
    The alternative is to keep it as two inverters feeding an AND, but AND is itself NAND + inverter, so that is worse still.<br>
-   The real move is to change the <em>surrounding</em> logic so the required polarity comes out NAND-shaped. This is what synthesis tools do constantly — pushing inversions through a network with De Morgan's laws to land on NAND-dominated implementations. It is a major reason [[how-computers-work/04-logic/02-boolean-algebra|module 15]] matters practically and not just theoretically.
+   The real move is to change the <em>surrounding</em> logic so the required polarity comes out NAND-shaped. This is what synthesis tools do constantly — pushing inversions through a network with De Morgan's laws to land on NAND-dominated implementations. It is a major reason [[how-computers-work/04-logic/02-boolean-algebra|module 16]] matters practically and not just theoretically.
    </details>
 
 4. **Why does the NOR penalty grow with fan-in while NAND's does not?**
@@ -419,7 +419,7 @@ Option 2: <strong>absorb the inversion into the next stage.</strong> If whatever
 
 **Recap:** Every CMOS gate is a PDN of NMOS and a PUN of PMOS built as duals, so exactly one conducts for any input — making shorts and floating outputs structurally impossible. Series means AND, parallel means OR, and the PUN inverts that structure. CMOS gates are therefore naturally inverting: NAND and NOR are the primitives, AND and OR cost an extra stage. Because series transistors must be widened and PMOS is already 2.8× weak, NOR stacks the weak device and costs 38–79% more than NAND, which is why real libraries and synthesis tools are NAND-dominated.
 
-**Next:** [[how-computers-work/04-logic/02-boolean-algebra|Module 15 — Boolean Algebra]] moves up a level. You can now build any gate; the question becomes which gates to build. Boolean algebra is how you find a cheaper expression for the same function — and De Morgan's laws are the tool that turns NOR-shaped logic into NAND-shaped logic.
+**Next:** [[how-computers-work/04-logic/02-boolean-algebra|Module 16 — Boolean Algebra]] moves up a level. You can now build any gate; the question becomes which gates to build. Boolean algebra is how you find a cheaper expression for the same function — and De Morgan's laws are the tool that turns NOR-shaped logic into NAND-shaped logic.
 
 ---
 
@@ -428,4 +428,4 @@ Option 2: <strong>absorb the inversion into the next stage.</strong> If whatever
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — the inverter this generalises
 - [[how-computers-work/02-semiconductors/03-energy-bands|Module 8]] — where the 2.8× originates
-- [[how-computers-work/05-combinational/02-adders|Module 19 — Adders]] — where XOR's cost starts to matter
+- [[how-computers-work/05-combinational/02-adders|Module 20 — Adders]] — where XOR's cost starts to matter

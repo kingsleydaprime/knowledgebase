@@ -1,12 +1,12 @@
-# Module 16: Karnaugh Maps (Seeing the Simplification)
+# Module 17: Karnaugh Maps (Seeing the Simplification)
 
-**[Intermediate]** — Algebra in module 15 worked but gave no way to know when you had finished. A Karnaugh map turns simplification into a visual pattern-matching task with a clear stopping rule — and generalises into the algorithm real tools use.
+**[Intermediate]** — Algebra in module 16 worked but gave no way to know when you had finished. A Karnaugh map turns simplification into a visual pattern-matching task with a clear stopping rule — and generalises into the algorithm real tools use.
 
 ## Before you start
 
-- You can apply the Boolean laws, especially complement ($A + \overline{A} = 1$) and absorption — [[how-computers-work/04-logic/02-boolean-algebra|module 15]].
-- You can write canonical SOP from a truth table — module 15.
-- You know gate transistor costs — [[how-computers-work/04-logic/01-gates-from-transistors|module 14]].
+- You can apply the Boolean laws, especially complement ($A + \overline{A} = 1$) and absorption — [[how-computers-work/04-logic/02-boolean-algebra|module 16]].
+- You can write canonical SOP from a truth table — module 16.
+- You know gate transistor costs — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
 
 **After this lesson you will be able to:**
 
@@ -21,7 +21,7 @@
 
 ## 1. Why this exists (real-world motivation)
 
-Module 15's simplification worked, but look at what it required: noticing that you could *duplicate* a term to enable two different factorisations. That is a genuine insight, not a procedure — and it raises two problems that get worse with every added variable.
+Module 16's simplification worked, but look at what it required: noticing that you could *duplicate* a term to enable two different factorisations. That is a genuine insight, not a procedure — and it raises two problems that get worse with every added variable.
 
 **First, it is error-prone.** Each step is a chance to drop a term or mis-apply a law.
 
@@ -160,7 +160,7 @@ That is a **static hazard** — a glitch. It is a real pulse on a real wire, and
 
 **The fix is visible on the map: add a redundant group that overlaps the boundary.** The extra term is logically unnecessary — it never changes the function's value — but it holds the output high during the handover.
 
-**That redundant term is exactly the consensus term** from [[how-computers-work/04-logic/02-boolean-algebra|module 15]]: $AB + \overline{A}C + BC$, where $BC$ is algebraically redundant but physically essential.
+**That redundant term is exactly the consensus term** from [[how-computers-work/04-logic/02-boolean-algebra|module 16]]: $AB + \overline{A}C + BC$, where $BC$ is algebraically redundant but physically essential.
 
 > [!NOTE]
 > **Minimal is not always correct.** The minimum-cost circuit can glitch; the glitch-free circuit costs more. Which you want depends on whether the output feeds combinational logic that will settle anyway, or something edge-sensitive that could capture the glitch.
@@ -392,7 +392,7 @@ kmap_lab: passed
 - **(c)** Find a minimal cover by hand. State each group's size and the term it produces.
 - **(d)** Now solve it with `minimise()`, passing the don't-cares. Compare with your hand answer — if they differ in term count, work out which is right and why.
 - **(e)** Re-run with the don't-cares treated as 0 instead. How many more literals does that cost?
-- **(f)** Price both versions in transistors using module 14's table, assuming an $n$-input AND costs the same as $(n-1)$ AND2 gates.
+- **(f)** Price both versions in transistors using module 15's table, assuming an $n$-input AND costs the same as $(n-1)$ AND2 gates.
 - **(g)** Check for hazards: are any two groups in your cover adjacent but non-overlapping? If so, name the redundant term that would remove the glitch.
 
 **Done when:** `minimise()` agrees with your hand-derived cover, you can state the cost of ignoring the don't-cares, and you have identified any hazard in your solution.
@@ -423,13 +423,13 @@ If your hand answer has more terms than the tool's, you probably missed a wrap-a
 
 **Recap:** A Karnaugh map lays out a truth table in Gray-code order so that physically adjacent cells differ in exactly one variable, making the complement law a visual operation. Groups of $2^k$ cells — rectangular, maximal, overlapping, wrapping at the edges — each eliminate $k$ variables. Don't-cares may be included to enlarge groups without needing coverage. The method generalises to Quine–McCluskey, which finds all prime implicants algorithmically; minimal covers can still glitch, and a redundant consensus term is the fix.
 
-**Next:** [[how-computers-work/04-logic/04-universal-gates|Module 17 — Universal Gates]] closes Part V with a result that sounds too strong to be true: **NAND alone is enough to build every logic function that exists.**
+**Next:** [[how-computers-work/04-logic/04-universal-gates|Module 18 — Universal Gates]] closes Part V with a result that sounds too strong to be true: **NAND alone is enough to build every logic function that exists.**
 
 ---
 
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[how-computers-work/04-logic/02-boolean-algebra|Module 15]] — the laws this method applies visually
+- [[how-computers-work/04-logic/02-boolean-algebra|Module 16]] — the laws this method applies visually
 - [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] — the gate delays that cause hazards
 - [[foundations/discrete-math/index|discrete-math/]] — the combinatorial background

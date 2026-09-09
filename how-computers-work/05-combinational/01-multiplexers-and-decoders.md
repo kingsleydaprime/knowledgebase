@@ -1,11 +1,11 @@
-# Module 18: Multiplexers and Decoders (Selection and Addressing)
+# Module 19: Multiplexers and Decoders (Selection and Addressing)
 
 **[Intermediate]** — Part VI begins. You stop building individual gates and start assembling them into blocks. These two are the most important: **selection** and **addressing** are what every memory and every datapath is made of.
 
 ## Before you start
 
-- You know NAND is universal and can build any function from gates — [[how-computers-work/04-logic/04-universal-gates|module 17]].
-- You can minimise a function and price it in transistors — [[how-computers-work/04-logic/03-karnaugh-maps|module 16]], [[how-computers-work/04-logic/01-gates-from-transistors|module 14]].
+- You know NAND is universal and can build any function from gates — [[how-computers-work/04-logic/04-universal-gates|module 18]].
+- You can minimise a function and price it in transistors — [[how-computers-work/04-logic/03-karnaugh-maps|module 17]], [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
 
 **After this lesson you will be able to:**
 
@@ -20,7 +20,7 @@
 
 ## 1. Why this exists (real-world motivation)
 
-Module 17 proved you can build any function from NAND gates. True, and not yet useful — because "any function" as a flat truth table is hopeless at scale. A 32-bit adder has 64 inputs; its truth table has $2^{64}$ rows. You will not be drawing that K-map.
+Module 18 proved you can build any function from NAND gates. True, and not yet useful — because "any function" as a flat truth table is hopeless at scale. A 32-bit adder has 64 inputs; its truth table has $2^{64}$ rows. You will not be drawing that K-map.
 
 **Real digital systems are built from a small vocabulary of reusable blocks**, and two of them dominate everything that follows:
 
@@ -147,7 +147,7 @@ The lab verifies this for **all 16 two-input functions**, with zero failures.
 > [!NOTE]
 > **This is the second universality result in the course, and it is the practical one.**
 >
-> [[how-computers-work/04-logic/04-universal-gates|Module 17]] showed NAND is universal — you can build anything, but you must *rewire* for each function. A MUX-as-LUT is universal too, and crucially **the wiring never changes.** Only the stored constants do.
+> [[how-computers-work/04-logic/04-universal-gates|Module 18]] showed NAND is universal — you can build anything, but you must *rewire* for each function. A MUX-as-LUT is universal too, and crucially **the wiring never changes.** Only the stored constants do.
 >
 > **That is exactly what an FPGA is.** An FPGA is a large array of small LUTs — typically 4- or 6-input — plus programmable interconnect. "Programming" it means writing constants into the LUTs and configuring the routing. No silicon is modified; you are filling in truth tables.
 >
@@ -384,7 +384,7 @@ Notice that `multiplexer()` is built *from* `decoder()` rather than independentl
 3. **A 4-to-1 MUX has select bits $S_1S_0$ and data inputs wired to $A$, $\overline{A}$, 0, 1. What function of $S_1$, $S_0$, $A$ does it compute?**
    <details><summary>Answer</summary>
    It selects: $S_1S_0 = 00 \to A$; $01 \to \overline{A}$; $10 \to 0$; $11 \to 1$.<br>
-   This is a small <strong>programmable function unit</strong> — the same circuit computes identity, inversion, constant-zero or constant-one depending on control bits. Feeding a MUX with <em>variables</em> as well as constants is how you build a compact configurable block, and it is exactly the trick an ALU uses in [[how-computers-work/05-combinational/03-the-alu|module 20]] to make one circuit perform many operations.
+   This is a small <strong>programmable function unit</strong> — the same circuit computes identity, inversion, constant-zero or constant-one depending on control bits. Feeding a MUX with <em>variables</em> as well as constants is how you build a compact configurable block, and it is exactly the trick an ALU uses in [[how-computers-work/05-combinational/04-the-alu|module 22]] to make one circuit perform many operations.
    </details>
 
 4. **Why is a MUX-based LUT the basis of FPGAs rather than a NAND array?**
@@ -439,14 +439,14 @@ So <strong>larger, power-of-two-sized, properly aligned regions are cheaper to d
 
 **Recap:** A decoder turns an $n$-bit number into one-hot activation of $2^n$ lines — the mechanism behind constant-time memory addressing. A multiplexer is a decoder plus gating, selecting one of many inputs; word-wide versions replicate it per bit. Priority encoders resolve simultaneous requests and report validity separately. A MUX with constants on its data inputs computes any function of its select bits, making it a lookup table — universal like NAND, but reconfigurable by changing data rather than wiring, which is what an FPGA is.
 
-**Next:** [[how-computers-work/05-combinational/02-adders|Module 19 — Adders]] builds arithmetic from pure logic. You will find that the carry chain — not the addition itself — is what sets a processor's clock speed.
+**Next:** [[how-computers-work/05-combinational/02-adders|Module 20 — Adders]] builds arithmetic from pure logic. You will find that the carry chain — not the addition itself — is what sets a processor's clock speed.
 
 ---
 
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[how-computers-work/04-logic/04-universal-gates|Module 17]] — the other universality result
+- [[how-computers-work/04-logic/04-universal-gates|Module 18]] — the other universality result
 - [[how-computers-work/06-memory/03-memory-technology|Module 23]] — where hierarchical decoding returns
 - [[foundations/dsa/04-data-structures/01-arrays|dsa/arrays]] — the O(1) indexing this module explains
 - [[foundations/os/09-syscalls-interrupts-and-the-abi|os/syscalls and interrupts]] — priority encoders as interrupt controllers

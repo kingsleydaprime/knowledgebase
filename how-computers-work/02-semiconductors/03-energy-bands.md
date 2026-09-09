@@ -397,7 +397,7 @@ bands_lab: passed
 4. **Why do holes have lower mobility than electrons, and why does that matter for circuit layout?**
    <details><summary>Answer</summary>
    A conduction-band electron moves through a nearly empty band with few constraints. A hole moves via valence electrons shuffling sideways through a nearly <em>full</em> band — a relay process with a larger effective mass set by the valence band's curvature.<br>
-   For layout: PMOS transistors conduct via holes and are therefore ~2.8× weaker than same-size NMOS. To make a gate switch symmetrically, PMOS devices are drawn 2–3× wider. This is why standard cell layouts have a visibly taller P row, and why PMOS-heavy gates like NOR are slower than NAND — a fact that shapes real logic design in [[how-computers-work/04-logic/01-gates-from-transistors|module 14]].
+   For layout: PMOS transistors conduct via holes and are therefore ~2.8× weaker than same-size NMOS. To make a gate switch symmetrically, PMOS devices are drawn 2–3× wider. This is why standard cell layouts have a visibly taller P row, and why PMOS-heavy gates like NOR are slower than NAND — a fact that shapes real logic design in [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
    </details>
 
 ---

@@ -1,11 +1,11 @@
-# Module 15: Boolean Algebra (Circuit Optimisation as Algebra)
+# Module 16: Boolean Algebra (Circuit Optimisation as Algebra)
 
 **[Beginner → Intermediate]** — You can build any gate. Now the question is which gates to build. Boolean algebra is how you find a cheaper expression for the same function — and it routinely saves more than transistor sizing ever will.
 
 ## Before you start
 
-- You can build a CMOS gate from PDN and PUN networks and know their transistor costs — [[how-computers-work/04-logic/01-gates-from-transistors|module 14]].
-- You know NAND is cheaper than NOR, and AND costs more than NAND — module 14.
+- You can build a CMOS gate from PDN and PUN networks and know their transistor costs — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
+- You know NAND is cheaper than NOR, and AND costs more than NAND — module 15.
 - You can read a truth table.
 
 **After this lesson you will be able to:**
@@ -21,7 +21,7 @@
 
 ## 1. Why this exists (real-world motivation)
 
-Module 14 gave you a cost model: NAND2 is 4 transistors, AND2 is 6, XOR2 is 12. You can now price any circuit.
+Module 15 gave you a cost model: NAND2 is 4 transistors, AND2 is 6, XOR2 is 12. You can now price any circuit.
 
 **Which means you can now notice that most circuits are priced badly.**
 
@@ -29,7 +29,7 @@ Take the function $F = A\cdot B + A\cdot\overline{B} + \overline{A}\cdot B$. Bui
 
 That same function is exactly $A + B$. **One OR gate. Six transistors.**
 
-**An 82% saving, and not one transistor was resized.** Module 14 fought for 38% by choosing NAND over NOR; this fight is worth twice as much and is won before any circuit is drawn.
+**An 82% saving, and not one transistor was resized.** Module 15 fought for 38% by choosing NAND over NOR; this fight is worth twice as much and is won before any circuit is drawn.
 
 That is what Boolean algebra buys. It is not abstract mathematics that happens to describe circuits — **it is the cost-reduction tool of digital design**, and it is why synthesis software exists.
 
@@ -86,7 +86,7 @@ Each is stated with the intuition that makes it obvious, not just the symbols. A
 
 **Swap every AND with OR and every 0 with 1, and a valid law remains valid.** That is why the table has two columns — each row is one law and its dual, and proving one proves the other for free.
 
-This is not a coincidence. It reflects the symmetry between the two stable states of a CMOS gate, and it is the same duality as the PDN/PUN relationship in [[how-computers-work/04-logic/01-gates-from-transistors|module 14]].
+This is not a coincidence. It reflects the symmetry between the two stable states of a CMOS gate, and it is the same duality as the PDN/PUN relationship in [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
 
 ---
 
@@ -96,7 +96,7 @@ $$\overline{A \cdot B} = \overline{A} + \overline{B} \qquad\qquad \overline{A + 
 
 **In words: breaking the bar swaps the operator.** "Not (both)" is the same as "either one isn't". "Not (either)" is the same as "neither".
 
-These are the most-used laws in digital design, for a very concrete reason from module 14: **CMOS gates are naturally inverting, and NAND is cheaper than NOR.** De Morgan is the tool that moves inversions around until the logic lands on the cheap primitive.
+These are the most-used laws in digital design, for a very concrete reason from module 15: **CMOS gates are naturally inverting, and NAND is cheaper than NOR.** De Morgan is the tool that moves inversions around until the logic lands on the cheap primitive.
 
 **A direct example.** Suppose you need $\overline{A} \cdot \overline{B}$:
 
@@ -105,7 +105,7 @@ These are the most-used laws in digital design, for a very concrete reason from 
 
 **Same function, 60% fewer transistors, from applying one identity.**
 
-This is exactly what synthesis tools do at scale — pushing inversions through a whole network to land on NAND-dominated implementations. **[[how-computers-work/04-logic/04-universal-gates|Module 17]] takes this to its conclusion:** if De Morgan lets you rewrite anything in terms of NAND, do you need any other gate at all?
+This is exactly what synthesis tools do at scale — pushing inversions through a whole network to land on NAND-dominated implementations. **[[how-computers-work/04-logic/04-universal-gates|Module 18]] takes this to its conclusion:** if De Morgan lets you rewrite anything in terms of NAND, do you need any other gate at all?
 
 ---
 
@@ -147,13 +147,13 @@ $$F = B \cdot 1 + A \cdot 1 = A + B$$
 > [!NOTE]
 > **The trick of *duplicating* a term to enable two factorisations is the standard move**, and it is the one people find least obvious. Idempotence makes it free — you can always add another copy of a term already present.
 >
-> Hand-simplification of this kind is error-prone and hard to be sure you have finished, which is exactly why [[how-computers-work/04-logic/03-karnaugh-maps|module 16]] introduces a *visual* method that makes the groupings obvious and tells you when you are done.
+> Hand-simplification of this kind is error-prone and hard to be sure you have finished, which is exactly why [[how-computers-work/04-logic/03-karnaugh-maps|module 17]] introduces a *visual* method that makes the groupings obvious and tells you when you are done.
 
 ---
 
 ## 6. Predict before reading on
 
-Module 14 worked hard to save 38% by choosing NAND over NOR. This module's example saved 82% by algebra.
+Module 15 worked hard to save 38% by choosing NAND over NOR. This module's example saved 82% by algebra.
 
 **Does that mean transistor sizing doesn't matter?**
 
@@ -172,14 +172,14 @@ It is the same principle as in software: choose a better algorithm before micro-
 
 ## 7. Worked example — runnable
 
-Every law below is **proved by exhaustive truth-table comparison**, not asserted. The lab then simplifies a real expression, proves the two forms equivalent, and prices both using module 14's transistor costs.
+Every law below is **proved by exhaustive truth-table comparison**, not asserted. The lab then simplifies a real expression, proves the two forms equivalent, and prices both using module 15's transistor costs.
 
 Save as `boolean_lab.py` and run `python3 boolean_lab.py`.
 
 ```python
 from itertools import product
 
-# Transistor cost of each gate in static CMOS (module 14)
+# Transistor cost of each gate in static CMOS (module 15)
 GATE_COST = {"NOT": 2, "AND2": 6, "OR2": 6, "NAND2": 4, "NOR2": 4, "XOR2": 12}
 
 def verify(name, left, right, n_vars):
@@ -261,7 +261,7 @@ if __name__ == "__main__":
     print()
 
     # De Morgan in its practical role: turning NOR-shaped logic into NAND-shaped
-    print("De Morgan as a design tool (module 14: NAND is cheaper than NOR):")
+    print("De Morgan as a design tool (module 15: NAND is cheaper than NOR):")
     print(f"  A' . B'  built directly needs 2 NOT + 1 AND2 = {cost({'NOT':2,'AND2':1})} transistors")
     print(f"  rewritten as (A + B)' it is one NOR2         = {cost({'NOR2':1})} transistors")
 
@@ -309,14 +309,14 @@ F = A.B + A.B' + A'.B   simplifies to   F = A + B
   simplified:             1 OR2                  = 6 transistors
   saving: 28 transistors (82%)
 
-De Morgan as a design tool (module 14: NAND is cheaper than NOR):
+De Morgan as a design tool (module 15: NAND is cheaper than NOR):
   A' . B'  built directly needs 2 NOT + 1 AND2 = 10 transistors
   rewritten as (A + B)' it is one NOR2         = 4 transistors
 
 boolean_lab: passed
 ```
 
-Note the **consensus theorem** in the output: $AB + \overline{A}C + BC = AB + \overline{A}C$. The $BC$ term is entirely redundant — whenever $BC$ is true, either $A$ is true (so $AB$ covers it) or $A$ is false (so $\overline{A}C$ covers it). It is not obvious by inspection, which is why it is worth knowing by name, and it matters practically for eliminating hazards in [[how-computers-work/04-logic/03-karnaugh-maps|module 16]].
+Note the **consensus theorem** in the output: $AB + \overline{A}C + BC = AB + \overline{A}C$. The $BC$ term is entirely redundant — whenever $BC$ is true, either $A$ is true (so $AB$ covers it) or $A$ is false (so $\overline{A}C$ covers it). It is not obvious by inspection, which is why it is worth knowing by name, and it matters practically for eliminating hazards in [[how-computers-work/04-logic/03-karnaugh-maps|module 17]].
 
 ---
 
@@ -351,7 +351,7 @@ Note the **consensus theorem** in the output: $AB + \overline{A}C + BC = AB + \o
    <details><summary>Answer</summary>
    Rows where output is 1: $(0,1)$ and $(1,0)$. So $F = \overline{A}B + A\overline{B}$ — which is <strong>XOR</strong>.<br>
    Built literally: 2 NOT + 2 AND2 + 1 OR2 = $4 + 12 + 6 = 22$ transistors. As a dedicated XOR2 cell: <strong>12 transistors</strong>.<br>
-   XOR does not simplify further — this is a case where algebra cannot help and the answer is a purpose-built cell. It is also why cell libraries include XOR despite its cost, and why adders in [[how-computers-work/05-combinational/02-adders|module 19]] are expensive.
+   XOR does not simplify further — this is a case where algebra cannot help and the answer is a purpose-built cell. It is also why cell libraries include XOR despite its cost, and why adders in [[how-computers-work/05-combinational/02-adders|module 20]] are expensive.
    </details>
 
 4. **Why does an EDA flow simplify logic before choosing gates and sizing them?**
@@ -370,7 +370,7 @@ The rule: run if the guard is closed **and** power is OK **and** emergency stop 
 
 - **(a)** Build the full truth table for all 16 input combinations.
 - **(b)** Write the canonical SOP expression, one minterm per 1-row.
-- **(c)** Price the canonical form in transistors using module 14's table. State any assumptions about multi-input gate costs.
+- **(c)** Price the canonical form in transistors using module 15's table. State any assumptions about multi-input gate costs.
 - **(d)** Simplify algebraically, naming each law as you use it. Aim for a form with three literals.
 - **(e)** Price the simplified form. What percentage did you save?
 - **(f)** Apply De Morgan to express your answer using only NAND and NOT. Price that version too.
@@ -387,9 +387,9 @@ That is three literals plus one OR — a dramatic reduction from the canonical f
 
 ## 11. Tradeoffs and limits
 
-- **Hand simplification does not scale and has no stopping rule.** Beyond three or four variables you cannot be confident you have found the minimum. [[how-computers-work/04-logic/03-karnaugh-maps|Module 16]] gives a visual method with a clear termination condition; beyond six variables, algorithmic methods like Quine–McCluskey and Espresso take over.
+- **Hand simplification does not scale and has no stopping rule.** Beyond three or four variables you cannot be confident you have found the minimum. [[how-computers-work/04-logic/03-karnaugh-maps|Module 17]] gives a visual method with a clear termination condition; beyond six variables, algorithmic methods like Quine–McCluskey and Espresso take over.
 - **Minimal literal count is not always minimal cost.** The real objective is area, delay and power in a specific cell library — which is why synthesis tools optimise against a technology library rather than against literal count.
-- **Boolean algebra assumes ideal, instantaneous gates.** Real gates have delay, and two algebraically identical circuits can behave differently during transitions, producing **glitches**. Module 16 covers hazards and how the consensus theorem fixes them.
+- **Boolean algebra assumes ideal, instantaneous gates.** Real gates have delay, and two algebraically identical circuits can behave differently during transitions, producing **glitches**. Module 17 covers hazards and how the consensus theorem fixes them.
 - **This is two-valued logic only.** Real designs also carry high-impedance and don't-care states, which extend the algebra.
 
 ---
@@ -404,14 +404,14 @@ That is three literals plus one OR — a dramatic reduction from the canonical f
 
 **Recap:** Boolean algebra manipulates expressions into cheaper equivalents. Its laws mirror arithmetic except for idempotence and the second distributive law, and every law comes with a dual obtained by swapping AND with OR and 0 with 1. De Morgan's laws move inversions across operators, which is how NOR-shaped logic becomes NAND-shaped and why they are the most used laws in practice. Canonical SOP converts any truth table into a correct, wasteful expression; simplification then removes the waste — 34 transistors to 6 in this module's example.
 
-**Next:** [[how-computers-work/04-logic/03-karnaugh-maps|Module 16 — Karnaugh Maps]] replaces error-prone algebra with a visual method where the simplifications are literally adjacent squares, and where you can tell when you have finished.
+**Next:** [[how-computers-work/04-logic/03-karnaugh-maps|Module 17 — Karnaugh Maps]] replaces error-prone algebra with a visual method where the simplifications are literally adjacent squares, and where you can tell when you have finished.
 
 ---
 
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[how-computers-work/04-logic/01-gates-from-transistors|Module 14]] — the transistor costs used for pricing
-- [[how-computers-work/04-logic/04-universal-gates|Module 17]] — where De Morgan leads: NAND alone suffices
+- [[how-computers-work/04-logic/01-gates-from-transistors|Module 15]] — the transistor costs used for pricing
+- [[how-computers-work/04-logic/04-universal-gates|Module 18]] — where De Morgan leads: NAND alone suffices
 - [[foundations/discrete-math/02-logic|discrete-math/logic]] — the same algebra as propositional logic
 - [[foundations/theory-of-computation/index|theory-of-computation/]] — Boolean circuits as a model of computation
