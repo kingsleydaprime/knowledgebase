@@ -108,6 +108,17 @@ Shifting eight bits in one at a time turns a serial stream into a parallel byte:
    after bit 7 (0): 10110010   <- one complete byte
 ```
 
+**There are four configurations**, named by how data enters and leaves:
+
+| Name | In | Out | Used for |
+| :--- | :--- | :--- | :--- |
+| **SISO** | serial | serial | Delay lines — data emerges $n$ clocks later |
+| **SIPO** | serial | parallel | **Receiving**: a wire becomes a word |
+| **PISO** | parallel | serial | **Transmitting**: a word becomes a wire |
+| **PIPO** | parallel | parallel | Just an ordinary register (module 25's first section) |
+
+**SIPO and PISO are the pair that matter**, and together they are a serial link: PISO at the transmitter shifts a byte out one bit at a time, SIPO at the receiver shifts it back in. That is UART, SPI and every shift-register LED driver you will ever wire.
+
 **This is how essentially every serial interface works** — UART, SPI, I²C, USB, Ethernet. A wire carries one bit at a time; a shift register accumulates them into a word the rest of the system can use. Run it the other way (PISO) to transmit.
 
 It is also how the **barrel shifter** of [[how-computers-work/05-combinational/04-the-alu|module 23]] differs: a shift register shifts *over time*, one position per clock. A barrel shifter shifts *in space*, any distance in one cycle. Same operation, completely different cost and use.

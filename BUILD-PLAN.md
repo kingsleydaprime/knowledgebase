@@ -14,6 +14,11 @@ The historical phases below track topics written. They do **not** establish that
 - [x] Connect both pilots to their course indexes and existing practice material.
 - [ ] Study the pilots closed-book and record where the explanation, setup, or exercise still requires guessing. Editorial completion is not learner validation.
 
+### Flagged while building How Computers Work (2026-09-09)
+
+- [ ] **`mathematics/` is too thin for the courses that depend on it.** Concretely: `core/01-numbers/01-number-bases/` covers binary, decimal and hexadecimal but there is **no note on signed representations** — two's complement lives only in [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]], which is a Part IX course being used as a Part I prerequisite. Also thin: no dedicated logarithms note (only inside `06-exponents`), and the calculus tree jumps from limits to multivariable with gaps.
+- [ ] **No note anywhere on linkers and executable formats.** Static vs dynamic linking, relocation, ELF layout and the dynamic loader are covered only in passing across `compilers/08-code-generation` and `languages/04-c/01-why-c-and-the-compilation-model`. Flagged in [[how-computers-work/07-the-bridge|the bridge]] as the weakest link in the source-to-CPU chain.
+
 ### Next batches — proposed, not completed
 
 1. **Processes/threads and virtual memory:** explicit C/Linux prerequisites, parent/child and address-translation traces, bounded local labs, expected observations, and safety boundaries. Retain advanced operational material without making it the entry point.

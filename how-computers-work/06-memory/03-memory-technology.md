@@ -151,6 +151,24 @@ Once there, **it has nowhere to go.** The floating gate is surrounded by SiO₂ 
 
 **That is what "non-volatile" physically means:** not a different kind of memory, but electrons parked behind an insulator too tall to climb.
 
+### The ROM family, and how it got writable
+
+Flash is the end of a lineage, and the names are worth knowing because you will meet all of them:
+
+| Type | Written | Erased | Where you meet it |
+| :--- | :--- | :--- | :--- |
+| **ROM** | At manufacture, by the mask itself | Never | High-volume fixed firmware |
+| **PROM** | Once, by blowing fuses | Never | One-time configuration |
+| **EPROM** | Electrically | **Ultraviolet light**, ~20 minutes | Older firmware; the chip has a quartz window |
+| **EEPROM** | Electrically | **Electrically**, byte by byte | Small configuration stores, the [[build-your-own-shit/17-your-own-cpu/04-breadboard\|PRIME-1 control ROM]] |
+| **Flash** | Electrically | Electrically, **in large blocks** | SSDs, phones, everything |
+
+**The progression is one of steadily cheaper erasure.** Mask ROM cannot be changed at all. PROM's fuses are physically destroyed. EPROM needed UV photons energetic enough to knock trapped electrons off the floating gate — which is why those chips had a quartz window, and why a sticker over it was mandatory.
+
+**EEPROM made erasure electrical**, using the same tunnelling as programming but reversed. That is genuinely convenient and genuinely expensive: byte-level erase needs extra transistors per cell.
+
+**Flash is EEPROM with the erase granularity coarsened deliberately.** Erasing in large blocks rather than bytes removes most of that per-cell circuitry, which is what makes flash dense enough to be cheap. **The entire complexity of SSD firmware — wear levelling, garbage collection, the flash translation layer — exists to hide that one compromise** from software that expects to write single bytes.
+
 ### Multi-level cells, and why flash wears out
 
 | Technology | Bits/cell | Write cycles |
