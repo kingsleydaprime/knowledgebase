@@ -98,7 +98,7 @@ Here is the complete table. **Type this into a ROM component and your CPU knows 
 | **RegWrite** | Write the result back to the register file |
 | **RegBSrc** | Read port B address: 0 = `rb` field, 1 = `rd` field (**stores need this**) |
 | **ALUSrc** | ALU's second operand: 0 = register B, 1 = the immediate |
-| **ALUOp** | Which operation ([[how-computers-work/05-combinational/04-the-alu\|module 22]]'s function select) |
+| **ALUOp** | Which operation ([[how-computers-work/05-combinational/04-the-alu\|module 23]]'s function select) |
 | **MemRead** | Read data memory at the ALU result |
 | **MemWrite** | Write register B into data memory at the ALU result |
 | **MemToReg** | Writeback source: 0 = ALU result, 1 = memory data |
@@ -189,7 +189,7 @@ unit -- and it is exactly what you wire in a logic simulator."""
 
 MASK = 0xFFFF
 
-# ALU function codes (the ALU's own select lines -- module 22)
+# ALU function codes (the ALU's own select lines -- module 23)
 ALU_ADD, ALU_SUB, ALU_AND, ALU_OR, ALU_XOR, ALU_SHL, ALU_SHR, ALU_SLT = range(8)
 
 # One row per opcode. THIS TABLE IS THE CONTROL UNIT.
@@ -222,7 +222,7 @@ def to_signed(v):
     return v - (1 << 16) if v & 0x8000 else v
 
 def alu(a, b, op):
-    """The module 22 ALU: computes everything, a MUX selects one."""
+    """The module 23 ALU: computes everything, a MUX selects one."""
     results = {
         ALU_ADD: (a + b) & MASK,
         ALU_SUB: (a - b) & MASK,
@@ -427,9 +427,9 @@ The differential test at the end is the technique the master guide insists on: t
 
 ## The parts that will bite you
 
-- **Combinational loops.** If you accidentally wire an output back to an input with no register in the path, the simulator will oscillate or refuse to settle. Every loop must pass through the PC register or the register file. This is [[how-computers-work/06-memory/01-latches-and-flip-flops|module 23]]'s feedback, and here it is a bug rather than a feature.
+- **Combinational loops.** If you accidentally wire an output back to an input with no register in the path, the simulator will oscillate or refuse to settle. Every loop must pass through the PC register or the register file. This is [[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]]'s feedback, and here it is a bug rather than a feature.
 - **Forgetting `RegBSrc`.** Stores will write the wrong value and you will chase it for an hour.
-- **Register file write timing.** Digital's register file writes on the clock edge. If your read appears to see the new value in the same cycle, you have wired it as a latch, not a flip-flop ([[how-computers-work/06-memory/02-registers-and-counters|module 24]]).
+- **Register file write timing.** Digital's register file writes on the clock edge. If your read appears to see the new value in the same cycle, you have wired it as a latch, not a flip-flop ([[how-computers-work/06-memory/02-registers-and-counters|module 25]]).
 - **Sign extension on the wrong width.** Extend from bit 5, not bit 15.
 - **ROM vs RAM for instructions.** Use a ROM for instruction memory — it cannot be accidentally overwritten by a stray store while you are debugging.
 - **Clock speed.** Run it single-stepped first. Only switch to a free-running clock once the reference program works.
@@ -455,5 +455,5 @@ The differential test at the end is the technique the master guide insists on: t
 - [[build-your-own-shit/17-your-own-cpu/03-python-emulator|Track 3 — Python emulator]] — build this first; it is your oracle
 - [[build-your-own-shit/17-your-own-cpu/02-verilog|Track 2 — Verilog]] — the same design, described rather than drawn
 - [[build-your-own-shit/17-your-own-cpu/04-breadboard|Track 4 — Breadboard]]
-- [[how-computers-work/05-combinational/04-the-alu|module 22]] — the ALU you are placing
-- [[how-computers-work/06-memory/02-registers-and-counters|module 24]] — the register file and PC
+- [[how-computers-work/05-combinational/04-the-alu|module 23]] — the ALU you are placing
+- [[how-computers-work/06-memory/02-registers-and-counters|module 25]] — the register file and PC

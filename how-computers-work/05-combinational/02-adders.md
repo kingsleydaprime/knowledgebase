@@ -1,4 +1,4 @@
-# Module 20: Adders (Arithmetic from Pure Logic)
+# Module 21: Adders (Arithmetic from Pure Logic)
 
 **[Intermediate]** — Numbers have never appeared in this course. Only voltages, then bits, then Boolean functions. This module makes a circuit that *adds* — and the carry chain it produces turns out to be what limits a processor's clock speed.
 
@@ -575,7 +575,7 @@ The two flags genuinely answer different questions, which is why hardware provid
 
 **Recap:** A half adder is XOR for sum and AND for carry; a full adder chains by accepting a carry-in. Ripple-carry adders are correct but their carry dependency gives $O(n)$ delay — a 64-bit one caps the clock below 400 MHz. Carry-lookahead expresses each carry directly from generate and propagate signals, reducing depth to $O(\log n)$ and giving a 9× speedup at 64 bits, at the cost of area. Two's complement makes subtraction free: invert B, set carry-in, and the same adder does both.
 
-**Next:** [[how-computers-work/05-combinational/04-the-alu|Module 22 — The ALU]] wraps the adder together with logic operations and a shifter behind a multiplexer, producing one circuit that performs many operations — the computational core of every processor.
+**Next:** [[how-computers-work/05-combinational/04-the-alu|Module 23 — The ALU]] wraps the adder together with logic operations and a shifter behind a multiplexer, producing one circuit that performs many operations — the computational core of every processor.
 
 ---
 
@@ -583,6 +583,6 @@ The two flags genuinely answer different questions, which is why hardware provid
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] — critical path and clock frequency
-- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 19]] — the MUX that selects the ALU's operation
+- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the MUX that selects the ALU's operation
 - [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]] — two's complement and real overflow bugs
 - [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]] — the other answer to a long critical path

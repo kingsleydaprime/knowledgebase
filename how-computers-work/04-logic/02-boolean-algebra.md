@@ -351,7 +351,7 @@ Note the **consensus theorem** in the output: $AB + \overline{A}C + BC = AB + \o
    <details><summary>Answer</summary>
    Rows where output is 1: $(0,1)$ and $(1,0)$. So $F = \overline{A}B + A\overline{B}$ — which is <strong>XOR</strong>.<br>
    Built literally: 2 NOT + 2 AND2 + 1 OR2 = $4 + 12 + 6 = 22$ transistors. As a dedicated XOR2 cell: <strong>12 transistors</strong>.<br>
-   XOR does not simplify further — this is a case where algebra cannot help and the answer is a purpose-built cell. It is also why cell libraries include XOR despite its cost, and why adders in [[how-computers-work/05-combinational/02-adders|module 20]] are expensive.
+   XOR does not simplify further — this is a case where algebra cannot help and the answer is a purpose-built cell. It is also why cell libraries include XOR despite its cost, and why adders in [[how-computers-work/05-combinational/02-adders|module 21]] are expensive.
    </details>
 
 4. **Why does an EDA flow simplify logic before choosing gates and sizing them?**

@@ -1,4 +1,4 @@
-# Module 23: Latches and Flip-Flops (Feedback Becomes Memory)
+# Module 24: Latches and Flip-Flops (Feedback Becomes Memory)
 
 **[Intermediate → Advanced]** — Part VII begins with the conceptual leap of the whole course. **Every circuit built so far forgets everything the instant its inputs change.** One wire changes that.
 
@@ -92,7 +92,7 @@ Take two NOR gates. **Connect each one's output to the other's input.**
 >
 > The bit is not *in* a gate. It is in the **relationship** between two gates. Cut the feedback wire and the bit does not leak out; it simply stops existing.
 >
-> This is why memory needs power. The state is a continuously maintained equilibrium, not a stored object. Remove the supply and there is nothing to maintain it — which is exactly why SRAM is volatile in [[how-computers-work/06-memory/03-memory-technology|module 25]].
+> This is why memory needs power. The state is a continuously maintained equilibrium, not a stored object. Remove the supply and there is nothing to maintain it — which is exactly why SRAM is volatile in [[how-computers-work/06-memory/03-memory-technology|module 26]].
 
 ### Writing to it
 
@@ -539,7 +539,7 @@ Feeding a raw asynchronous signal into the debouncer means <em>each</em> of its 
 
 **Recap:** Cross-coupling two NOR gates creates a loop with two self-consistent solutions — the bit is the equilibrium, not a stored object, which is why memory needs power. S and R force a state; $S=R=1$ is forbidden because releasing it causes a race decided by gate delays. A D latch removes that state but is transparent while enabled, so synchronous designs use edge-triggered flip-flops built master–slave. Data near the clock edge can leave a flip-flop metastable; MTBF grows exponentially with settling time, so a two-flip-flop synchroniser makes the failure vanishingly improbable without ever making it impossible.
 
-**Next:** [[how-computers-work/06-memory/02-registers-and-counters|Module 24 — Registers and Counters]] scales one bit to a word, and builds the program counter — the register that makes a machine step through instructions rather than compute one value.
+**Next:** [[how-computers-work/06-memory/02-registers-and-counters|Module 25 — Registers and Counters]] scales one bit to a word, and builds the program counter — the register that makes a machine step through instructions rather than compute one value.
 
 ---
 
@@ -548,5 +548,5 @@ Feeding a raw asynchronous signal into the debouncer means <em>each</em> of its 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the forbidden zone metastability lives in
 - [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] — propagation delay and the clock period
-- [[how-computers-work/06-memory/03-memory-technology|Module 25]] — why this feedback pair makes SRAM volatile
+- [[how-computers-work/06-memory/03-memory-technology|Module 26]] — why this feedback pair makes SRAM volatile
 - [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]] — flip-flops as pipeline registers

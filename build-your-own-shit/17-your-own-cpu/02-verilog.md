@@ -27,7 +27,7 @@ always @(posedge clk)              // a FLIP-FLOP
     q <= d;                        // captures d at the clock edge
 ```
 
-**`assign` and `always @(*)` create combinational logic** — gates, computing continuously. **`always @(posedge clk)` creates sequential logic** — flip-flops, from [[how-computers-work/06-memory/01-latches-and-flip-flops|module 23]].
+**`assign` and `always @(*)` create combinational logic** — gates, computing continuously. **`always @(posedge clk)` creates sequential logic** — flip-flops, from [[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]].
 
 **Two rules that prevent most beginner bugs:**
 
@@ -42,7 +42,7 @@ Build in the master guide's order, but with a **testbench at every step** — th
 
 Write `alu.v` and a testbench that drives all eight operations and checks results. **Do not proceed until it passes.**
 
-Verilog's `$signed()` matters for `SLT`: `$signed(a) < $signed(b)` is signed comparison, `a < b` is unsigned. Both are correct; they answer different questions ([[how-computers-work/05-combinational/03-multipliers-and-comparators|module 21]]).
+Verilog's `$signed()` matters for `SLT`: `$signed(a) < $signed(b)` is signed comparison, `a < b` is unsigned. Both are correct; they answer different questions ([[how-computers-work/05-combinational/03-multipliers-and-comparators|module 22]]).
 
 ### 2 — Register file
 
@@ -361,4 +361,4 @@ The most likely culprits, in order:
 - [[build-your-own-shit/17-your-own-cpu/01-digital-simulator|Track 1]] — the verified `datapath.py` this mirrors
 - [[build-your-own-shit/17-your-own-cpu/03-python-emulator|Track 3]] — the oracle to diff against
 - [[build-your-own-shit/17-your-own-cpu/04-breadboard|Track 4 — Breadboard]]
-- [[how-computers-work/06-memory/01-latches-and-flip-flops|module 23]] — what `always @(posedge clk)` actually builds
+- [[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]] — what `always @(posedge clk)` actually builds

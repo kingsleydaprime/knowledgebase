@@ -1,12 +1,12 @@
-# Module 25: Memory Technology (Six Transistors Versus One Capacitor)
+# Module 26: Memory Technology (Six Transistors Versus One Capacitor)
 
-**[Intermediate]** — Part VII ends by asking why we don't build all memory the way module 24 built registers. The answer is cost per bit — and that single number generates the entire memory hierarchy.
+**[Intermediate]** — Part VII ends by asking why we don't build all memory the way module 25 built registers. The answer is cost per bit — and that single number generates the entire memory hierarchy.
 
 ## Before you start
 
-- You know a flip-flop stores a bit in a cross-coupled feedback loop — [[how-computers-work/06-memory/01-latches-and-flip-flops|module 23]].
-- You can build a register file from a decoder and multiplexers — [[how-computers-work/06-memory/02-registers-and-counters|module 24]].
-- You know decoders must be hierarchical for wide addresses — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 19]].
+- You know a flip-flop stores a bit in a cross-coupled feedback loop — [[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]].
+- You can build a register file from a decoder and multiplexers — [[how-computers-work/06-memory/02-registers-and-counters|module 25]].
+- You know decoders must be hierarchical for wide addresses — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]].
 - You remember noise margins and what happens when they shrink — [[how-computers-work/01-electricity/05-the-digital-abstraction|module 5]].
 
 **After this lesson you will be able to:**
@@ -22,7 +22,7 @@
 
 ## 1. Why this exists (real-world motivation)
 
-Module 24 built a register file. It works, it is fast, and you could in principle build all of a computer's memory the same way.
+Module 25 built a register file. It works, it is fast, and you could in principle build all of a computer's memory the same way.
 
 **Do the arithmetic and see why nobody does.**
 
@@ -55,7 +55,7 @@ A master–slave D flip-flop is roughly 20–24 transistors. For 16 GB of memory
 
 ## 3. SRAM — the flip-flop, slimmed down
 
-An SRAM cell is **module 23's bistable loop**, reduced to its minimum: two cross-coupled inverters (4 transistors) plus two access transistors connecting it to the bit lines.
+An SRAM cell is **module 24's bistable loop**, reduced to its minimum: two cross-coupled inverters (4 transistors) plus two access transistors connecting it to the bit lines.
 
 ```
               word line (from the row decoder)
@@ -69,11 +69,11 @@ An SRAM cell is **module 23's bistable loop**, reduced to its minimum: two cross
                 ├───┤ inverter  ├───┤
                 │   └───────────┘   │
                 │   ┌───────────┐   │        the SAME cross-coupled
-                ├───┤ inverter  ├───┤        pair as module 23
+                ├───┤ inverter  ├───┤        pair as module 24
                 │   └───────────┘   │
 ```
 
-**Six transistors, and the bit is the equilibrium of the loop** — exactly as in module 23. It never needs refreshing, because the inverters actively drive the state; as long as power flows, each side holds the other.
+**Six transistors, and the bit is the equilibrium of the loop** — exactly as in module 24. It never needs refreshing, because the inverters actively drive the state; as long as power flows, each side holds the other.
 
 **Consequences:**
 
@@ -276,7 +276,7 @@ if __name__ == "__main__":
     print()
 
     print("WHY DRAM IS SO SMALL: 1 transistor + 1 capacitor")
-    print("  SRAM holds its bit in a feedback loop (module 23) -- it needs")
+    print("  SRAM holds its bit in a feedback loop (module 24) -- it needs")
     print("  6 transistors and constant power, but it never forgets.")
     print("  DRAM holds its bit as CHARGE ON A CAPACITOR -- 1 transistor,")
     print("  but the charge leaks away in milliseconds.")
@@ -349,7 +349,7 @@ COST OF ONE BIT, by technology
   out of cell cost.
 
 WHY DRAM IS SO SMALL: 1 transistor + 1 capacitor
-  SRAM holds its bit in a feedback loop (module 23) -- it needs
+  SRAM holds its bit in a feedback loop (module 24) -- it needs
   6 transistors and constant power, but it never forgets.
   DRAM holds its bit as CHARGE ON A CAPACITOR -- 1 transistor,
   but the charge leaks away in milliseconds.
@@ -393,7 +393,7 @@ memory_lab: passed
 
 ## 9. Addressing a large array
 
-[[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 19]] warned that flat decoding does not scale — a 32-bit address would need $2^{32}$ AND gates. Memory arrays solve this by decoding in **two dimensions**.
+[[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] warned that flat decoding does not scale — a 32-bit address would need $2^{32}$ AND gates. Memory arrays solve this by decoding in **two dimensions**.
 
 ```
                     column decoder
@@ -498,7 +498,7 @@ The reason: at high hit rates the average is dominated by the <em>miss</em> term
 - [ ] Explain two-dimensional addressing and why sequential access beats random.
 - [ ] **Derive** the memory hierarchy from cell costs rather than reciting it.
 
-**Recap:** SRAM is module 23's bistable loop in six transistors — fast, self-sustaining, large and volatile. DRAM stores passive charge on a capacitor in ~6 F², 23× denser, but it leaks, so it needs refresh costing 0.6–4.6% of bandwidth, and its reads are destructive. Flash traps charge on a fully insulated floating gate, giving non-volatility at the cost of block erase and finite endurance, with multi-level cells trading noise margin for density. No technology is both fast and dense, and the memory hierarchy is the forced consequence.
+**Recap:** SRAM is module 24's bistable loop in six transistors — fast, self-sustaining, large and volatile. DRAM stores passive charge on a capacitor in ~6 F², 23× denser, but it leaks, so it needs refresh costing 0.6–4.6% of bandwidth, and its reads are destructive. Flash traps charge on a fully insulated floating gate, giving non-volatility at the cost of block erase and finite endurance, with multi-level cells trading noise margin for density. No technology is both fast and dense, and the memory hierarchy is the forced consequence.
 
 **Next:** [[how-computers-work/07-the-bridge|Module 26 — The Bridge]]. You have now built every component of a computer from electric charge upward: switches, gates, arithmetic, and memory. The bridge is where you assemble them into a processor and connect to the existing courses that carry the story up to software.
 
@@ -507,8 +507,8 @@ The reason: at high hit rates the average is dominated by the <em>miss</em> term
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 23]] — the bistable loop inside every SRAM cell
-- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 19]] — the decoders addressing the array
+- [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 24]] — the bistable loop inside every SRAM cell
+- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the decoders addressing the array
 - [[foundations/computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] — where this hierarchy is exploited
 - [[foundations/computer-architecture/09-caches-in-depth|computer-architecture/caches in depth]] — the machinery built on top of these tradeoffs
 - [[foundations/dsa/04-data-structures/01-arrays|dsa/arrays]] — why locality beats complexity analysis

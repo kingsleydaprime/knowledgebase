@@ -54,7 +54,7 @@ addr = instruction & 0xFFF
 
 `ADD`, `SUB`, `AND`, `OR`, `XOR`, `SHL`, `SHR`, `SLT`, plus flags.
 
-**Two traps, both from [[how-computers-work/06-memory/02-registers-and-counters|module 24]] and [[how-computers-work/05-combinational/04-the-alu|module 22]]:**
+**Two traps, both from [[how-computers-work/06-memory/02-registers-and-counters|module 25]] and [[how-computers-work/05-combinational/04-the-alu|module 23]]:**
 
 - **R0 must be hardwired.** Write to it and discard. If `write_reg` stores to R0, then `NOP` (`ADD R0,R0,R0`) silently works but every idiom that relies on R0 being zero breaks later, mysteriously.
 - **Read before write.** `ADD R1, R1, R2` must read the *old* R1. Read both operands into locals before writing the result.
@@ -400,7 +400,7 @@ The execution trace is the most useful thing this track produces. Follow the loo
 
 **Look at the last line.** The BNZ is at address 5; after fetch PC is 6; the encoded offset is `111100` = $-4$; $6 + (-4) = 2$, the loop label. **That is the off-by-one made visible**, and it is why the emulator is worth writing before the hardware.
 
-Note also the `C` flag set by `SUB`: it indicates *no borrow* (i.e. $R2 \geq R3$), which is the unsigned "greater or equal" test from [[how-computers-work/05-combinational/03-multipliers-and-comparators|module 21]].
+Note also the `C` flag set by `SUB`: it indicates *no borrow* (i.e. $R2 \geq R3$), which is the unsigned "greater or equal" test from [[how-computers-work/05-combinational/03-multipliers-and-comparators|module 22]].
 
 ## The parts that will bite you
 
@@ -441,5 +441,5 @@ The natural next step is not more features — it is **building the same machine
 - [[build-your-own-shit/17-your-own-cpu/01-digital-simulator|Track 1 — Digital simulator]] — build it as a circuit
 - [[build-your-own-shit/17-your-own-cpu/02-verilog|Track 2 — Verilog]]
 - [[build-your-own-shit/17-your-own-cpu/04-breadboard|Track 4 — Breadboard]]
-- [[how-computers-work/06-memory/02-registers-and-counters|module 24]] — the register file and PC this emulates
+- [[how-computers-work/06-memory/02-registers-and-counters|module 25]] — the register file and PC this emulates
 - [[build-your-own-shit/04-your-own-language|Your Own Language]] — the compiler that will target this ISA
