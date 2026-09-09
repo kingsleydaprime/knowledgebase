@@ -42,7 +42,9 @@ The milestone ordering is the load-bearing part. **You should always have someth
 
 17. [[build-your-own-shit/17-your-own-cpu/index|Your Own CPU — PRIME-1]] — **[Advanced]** — design a 16-bit ISA → build the processor **four ways** (logic simulator, Verilog, Python emulator, breadboard) → assembler → compiler. **The only guide here that starts below software** — every other one builds *on top of* a computer; this one builds the computer. Capstone of [[how-computers-work/index|How Computers Work]]
 
-**All seventeen are written.**
+18. [[build-your-own-shit/18-your-own-compiler|Your Own Compiler]] — **[Advanced]** — AST → **IR** → constant folding and DCE → **liveness and register allocation** → real x86-64 that runs on your machine. The sequel to guide 04, which stops before code generation, and to [[how-computers-work/08-capstone/06-build-the-language|Pebble]], which skips the middle. **The middle is where the interesting problems live**
+
+**All eighteen are written.**
 
 **Three added Aug 2026**, chosen against this folder's own criterion — build a toy version of something you rely on, and the real thing stops being opaque:
 
