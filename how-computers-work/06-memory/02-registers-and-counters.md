@@ -1,12 +1,12 @@
-# Module 24: Registers and Counters (From One Bit to a Machine That Steps)
+# Module 25: Registers and Counters (From One Bit to a Machine That Steps)
 
 **[Intermediate]** — A flip-flop holds one bit. This module scales that to words, builds the register file a CPU reads its operands from, and constructs the **program counter** — the single register that turns a calculator into a computer.
 
 ## Before you start
 
-- You know how a flip-flop stores a bit and why it is edge-triggered — [[how-computers-work/06-memory/01-latches-and-flip-flops|module 23]].
-- You can build decoders and multiplexers — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 19]].
-- You can build an adder, so you can build an incrementer — [[how-computers-work/05-combinational/02-adders|module 20]].
+- You know how a flip-flop stores a bit and why it is edge-triggered — [[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]].
+- You can build decoders and multiplexers — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]].
+- You can build an adder, so you can build an incrementer — [[how-computers-work/05-combinational/02-adders|module 21]].
 
 **After this lesson you will be able to:**
 
@@ -21,7 +21,7 @@
 
 ## 1. Why this exists (real-world motivation)
 
-Module 23 produced a device that stores one bit. Useful, and a long way from a computer.
+Module 24 produced a device that stores one bit. Useful, and a long way from a computer.
 
 **Three things are missing:**
 
@@ -29,7 +29,7 @@ Module 23 produced a device that stores one bit. Useful, and a long way from a c
 2. **Addressability.** A CPU has many registers and must read *two specific ones* and write *one specific one*, chosen by bits in the instruction.
 3. **Sequence.** Something must decide *which instruction runs next* — and update itself every cycle.
 
-**Each is built from parts you already have.** No new primitive appears in this module: registers are flip-flops in parallel, addressing is the decoder and multiplexer from [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 19]], and the program counter is a register wired to an incrementer.
+**Each is built from parts you already have.** No new primitive appears in this module: registers are flip-flops in parallel, addressing is the decoder and multiplexer from [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]], and the program counter is a register wired to an incrementer.
 
 **That third item is the important one.** Everything so far computes a value. The program counter makes the machine *go somewhere next*, and that is the difference between a calculator and a computer.
 
@@ -110,7 +110,7 @@ Shifting eight bits in one at a time turns a serial stream into a parallel byte:
 
 **This is how essentially every serial interface works** — UART, SPI, I²C, USB, Ethernet. A wire carries one bit at a time; a shift register accumulates them into a word the rest of the system can use. Run it the other way (PISO) to transmit.
 
-It is also how the **barrel shifter** of [[how-computers-work/05-combinational/04-the-alu|module 22]] differs: a shift register shifts *over time*, one position per clock. A barrel shifter shifts *in space*, any distance in one cycle. Same operation, completely different cost and use.
+It is also how the **barrel shifter** of [[how-computers-work/05-combinational/04-the-alu|module 23]] differs: a shift register shifts *over time*, one position per clock. A barrel shifter shifts *in space*, any distance in one cycle. Same operation, completely different cost and use.
 
 ---
 
@@ -126,7 +126,7 @@ It is also how the **barrel shifter** of [[how-computers-work/05-combinational/0
         └──────────────┘
 ```
 
-That is the entire design. The adder is the one from [[how-computers-work/05-combinational/02-adders|module 20]] with one input tied to the constant 1 — which simplifies to an **incrementer**, cheaper than a full adder because one operand is known.
+That is the entire design. The adder is the one from [[how-computers-work/05-combinational/02-adders|module 21]] with one input tied to the constant 1 — which simplifies to an **incrementer**, cheaper than a full adder because one operand is known.
 
 A 4-bit counter produces `1, 2, ... 15, 0, 1, 2, ...` — **wrapping is not a bug.** With $n$ bits there are only $2^n$ values, so the carry out of the top bit has nowhere to go and is discarded. Counters are inherently modulo-$2^n$.
 
@@ -141,7 +141,7 @@ A 4-bit counter produces `1, 2, ... 15, 0, 1, 2, ...` — **wrapping is not a bu
 
 A CPU needs many registers, with the instruction naming which to use. `ADD R3, R5` must read R3 and R5 and write the result, all in one cycle.
 
-**Two operations, two module 19 primitives:**
+**Two operations, two module 20 primitives:**
 
 - **Reading is a multiplexer.** The register address selects which register's output reaches the read port. It is combinational — no clock needed, the value is just *there*.
 - **Writing is a decoder.** The write address is decoded to one-hot, and each register's load enable is that one-hot bit ANDed with a global write enable. **Exactly one register loads; every other holds.**
@@ -208,7 +208,7 @@ The lab's trace:
 >
 > Every `if`, every `while`, every function call, every `return`, every exception, every thread switch — all of it, in every program ever written, is **this register being loaded with a different value.**
 >
-> A conditional branch is: compute a condition in the ALU ([[how-computers-work/05-combinational/04-the-alu|module 22]]), use its flag to drive the MUX select, and the PC either increments or loads the target. A function call additionally saves the old PC so `return` can restore it.
+> A conditional branch is: compute a condition in the ALU ([[how-computers-work/05-combinational/04-the-alu|module 23]]), use its flag to drive the MUX select, and the PC either increments or loads the target. A function call additionally saves the old PC so `return` can restore it.
 >
 > **The machine has no concept of a loop.** It only ever does "PC + 1" or "PC = something else". Loops are what *we* call it when the something-else points backwards.
 >
@@ -226,7 +226,7 @@ A register file has 2 read ports and 1 write port. An instruction does `ADD R3, 
 
 **The old one.** Reads are combinational and reflect the registers' *current* outputs. The write only takes effect at the clock edge, at the end of the cycle. So during the cycle, the read port sees the pre-write value — which is exactly what `R3 = R3 + R5` requires.
 
-**This is why edge-triggered flip-flops matter so much** ([[how-computers-work/06-memory/01-latches-and-flip-flops|module 23]]). If the register file used transparent latches, the new value could race back around to the read port mid-cycle and be added to itself again. The design would be unreliable and temperature-dependent.
+**This is why edge-triggered flip-flops matter so much** ([[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]]). If the register file used transparent latches, the new value could race back around to the read port mid-cycle and be added to itself again. The design would be unreliable and temperature-dependent.
 
 **The subtlety returns in pipelined processors.** There, the write may happen several cycles after the read, so a later instruction can read a stale value — a **read-after-write hazard**, solved by forwarding or stalling. That is [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]], and the problem originates in exactly this timing question.
 </details>
@@ -291,8 +291,8 @@ class Counter:
 class RegisterFile:
     """What a CPU actually has: N registers, 2 read ports, 1 write port.
 
-    Reading = a MUX selecting one register (module 19).
-    Writing = a DECODER enabling exactly one register (module 19).
+    Reading = a MUX selecting one register (module 20).
+    Writing = a DECODER enabling exactly one register (module 20).
     The register file is those two blocks wrapped around an array."""
     def __init__(self, n_registers=8, width=WIDTH):
         self.regs = [Register(width) for _ in range(n_registers)]
@@ -467,7 +467,7 @@ Note that `Register.clock_edge` contains the line `d = data_in if load_enable el
 
 2. **A 32-register file with 2 read ports. How many 32-to-1 MUXes and how wide?**
    <details><summary>Answer</summary>
-   <strong>Two</strong> 32-to-1 MUXes, each <strong>32 bits wide</strong> — so 64 individual 32-to-1 bit MUXes. From [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 19]], a 32-to-1 MUX built from 2-to-1s needs 31 of them, so roughly <strong>1,984 two-input MUXes</strong> just for reading.<br>
+   <strong>Two</strong> 32-to-1 MUXes, each <strong>32 bits wide</strong> — so 64 individual 32-to-1 bit MUXes. From [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]], a 32-to-1 MUX built from 2-to-1s needs 31 of them, so roughly <strong>1,984 two-input MUXes</strong> just for reading.<br>
    This is why register files are a substantial fraction of a core's area and why ISAs do not simply provide hundreds of registers. The read MUX cost grows with register count, and so does the delay ($\log_2 n$ levels).
    </details>
 
@@ -523,16 +523,16 @@ It is worth a register because it makes many operations free: <code>MOV rd, ra</
 - [ ] Build a register file and identify the decoder and the MUXes.
 - [ ] Explain how the PC implements sequential execution, branching and function calls.
 
-**Recap:** A register is $n$ flip-flops on a shared clock, with load enable implemented as a MUX feeding the output back — hardware never idles, it recirculates. Shift registers move contents one place per clock, bridging serial links and parallel words. A counter is a register wired to an incrementer, inherently modulo-$2^n$. A register file is [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 19]]'s decoder (for writing) and multiplexers (for reading) wrapped around an array of registers. The program counter — a register, an incrementer and a MUX — is the entire mechanism of control flow.
+**Recap:** A register is $n$ flip-flops on a shared clock, with load enable implemented as a MUX feeding the output back — hardware never idles, it recirculates. Shift registers move contents one place per clock, bridging serial links and parallel words. A counter is a register wired to an incrementer, inherently modulo-$2^n$. A register file is [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]]'s decoder (for writing) and multiplexers (for reading) wrapped around an array of registers. The program counter — a register, an incrementer and a MUX — is the entire mechanism of control flow.
 
-**Next:** [[how-computers-work/06-memory/03-memory-technology|Module 25 — Memory Technology]] closes Part VII. Registers are fast and enormous per bit; storing gigabytes needs a different bargain, and the six-transistor-versus-one-capacitor tradeoff is what produces the memory hierarchy.
+**Next:** [[how-computers-work/06-memory/03-memory-technology|Module 26 — Memory Technology]] closes Part VII. Registers are fast and enormous per bit; storing gigabytes needs a different bargain, and the six-transistor-versus-one-capacitor tradeoff is what produces the memory hierarchy.
 
 ---
 
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 23]] — the flip-flop being replicated here
-- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 19]] — the decoder and MUX inside every register file
+- [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 24]] — the flip-flop being replicated here
+- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the decoder and MUX inside every register file
 - [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]] — where the register file and PC sit in a CPU
 - [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]] — read-after-write hazards, which start with this module's timing

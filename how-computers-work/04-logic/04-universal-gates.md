@@ -420,7 +420,7 @@ This gap — mechanical correctness versus structural insight — is exactly the
 
 **Recap:** A gate set is functionally complete if every Boolean function can be built from it. NAND alone is complete — NOT is a NAND with tied inputs, AND is NAND inverted, OR is NAND with inverted inputs by De Morgan — and canonical SOP then covers every truth table, as verified here on all 256 three-input functions. NOR is equally complete but more expensive in CMOS. {AND, OR} is not complete because monotone gates compose only into monotone functions, which makes inversion the property that grants universality.
 
-**Next:** [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 19 — Multiplexers and Decoders]] begins Part VI. You will stop building individual gates and start assembling them into blocks that select and address — the two operations every memory and every datapath is made of.
+**Next:** [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20 — Multiplexers and Decoders]] begins Part VI. You will stop building individual gates and start assembling them into blocks that select and address — the two operations every memory and every datapath is made of.
 
 ---
 

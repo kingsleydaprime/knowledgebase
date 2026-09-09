@@ -135,7 +135,7 @@ This is unavoidable. The PDN pulls the output **down** when its condition is sat
 
 **AND is 50% more expensive than NAND, and slower.** This inverts the intuition most people bring from Boolean algebra, where AND and OR feel primitive and NAND feels like a compound. **In silicon it is the other way round.** NAND and NOR are the primitives; AND and OR are derived.
 
-**XOR is the expensive one.** Its function — true when inputs differ — has no compact series/parallel representation, so a static CMOS XOR needs around 12 transistors. This is worth remembering: XOR appears in the heart of every adder in [[how-computers-work/05-combinational/02-adders|module 20]], and its cost is a real factor in arithmetic circuit design.
+**XOR is the expensive one.** Its function — true when inputs differ — has no compact series/parallel representation, so a static CMOS XOR needs around 12 transistors. This is worth remembering: XOR appears in the heart of every adder in [[how-computers-work/05-combinational/02-adders|module 21]], and its cost is a real factor in arithmetic circuit design.
 
 ---
 
@@ -428,4 +428,4 @@ Option 2: <strong>absorb the inversion into the next stage.</strong> If whatever
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — the inverter this generalises
 - [[how-computers-work/02-semiconductors/03-energy-bands|Module 8]] — where the 2.8× originates
-- [[how-computers-work/05-combinational/02-adders|Module 20 — Adders]] — where XOR's cost starts to matter
+- [[how-computers-work/05-combinational/02-adders|Module 21 — Adders]] — where XOR's cost starts to matter

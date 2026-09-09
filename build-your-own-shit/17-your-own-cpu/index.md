@@ -28,11 +28,11 @@ By the end you will have:
 | You need | From |
 | :--- | :--- |
 | Gates from transistors | [[how-computers-work/04-logic/01-gates-from-transistors\|module 15]] |
-| Adders and the carry chain | [[how-computers-work/05-combinational/02-adders\|module 20]] |
-| Multiplexers and decoders | [[how-computers-work/05-combinational/01-multiplexers-and-decoders\|module 19]] |
-| The ALU | [[how-computers-work/05-combinational/04-the-alu\|module 22]] |
-| Flip-flops and setup/hold | [[how-computers-work/06-memory/01-latches-and-flip-flops\|module 23]] |
-| Register files and the program counter | [[how-computers-work/06-memory/02-registers-and-counters\|module 24]] |
+| Adders and the carry chain | [[how-computers-work/05-combinational/02-adders\|module 21]] |
+| Multiplexers and decoders | [[how-computers-work/05-combinational/01-multiplexers-and-decoders\|module 20]] |
+| The ALU | [[how-computers-work/05-combinational/04-the-alu\|module 23]] |
+| Flip-flops and setup/hold | [[how-computers-work/06-memory/01-latches-and-flip-flops\|module 24]] |
+| Register files and the program counter | [[how-computers-work/06-memory/02-registers-and-counters\|module 25]] |
 
 **If you have not done those, do them first.** This guide assumes you can build an ALU and a register file, and spends its time on what happens *above* them.
 
@@ -171,7 +171,7 @@ Whichever track you take, build in this sequence. **Each milestone runs.**
 - **Off-by-one on the PC.** Branch offsets are relative to PC-after-increment. Decide once, write it in your spec, and make the emulator authoritative.
 - **Sign extension.** A 6-bit immediate of `111111` is $-1$, not 63. Forgetting this makes backward branches jump forward into nothing.
 - **R0 writes.** If R0 is not genuinely hardwired, `NOP` (`ADD R0,R0,R0`) silently corrupts it and everything drifts.
-- **Read-during-write.** In one cycle, the register file is read *before* the write lands ([[how-computers-work/06-memory/02-registers-and-counters|module 24]]). `ADD R1, R1, R2` must use the old R1.
+- **Read-during-write.** In one cycle, the register file is read *before* the write lands ([[how-computers-work/06-memory/02-registers-and-counters|module 25]]). `ADD R1, R1, R2` must use the old R1.
 - **Clock edges in simulators.** A gate loop with no flip-flop will oscillate. If your simulator hangs, you have made a combinational loop.
 - **Word vs byte addressing.** PRIME-1 is word-addressed: `mem[5]` is the sixth 16-bit word, not byte 5. Mixing this up corrupts every load.
 

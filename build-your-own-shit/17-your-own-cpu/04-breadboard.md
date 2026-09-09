@@ -20,7 +20,7 @@
 
 **The failure mode is not conceptual, it is mechanical.** You will spend more time finding a wire that looks connected and isn't than you will spend thinking about architecture.
 
-**So why do it?** Because after tracks 1–3, PRIME-1 is a diagram and a program. Here it is a board that draws current and gets warm, where you can put a scope probe on the carry line and *watch the ripple* from [[how-computers-work/05-combinational/02-adders|module 20]] as a real propagation delay. Some things only become real when they are physical.
+**So why do it?** Because after tracks 1–3, PRIME-1 is a diagram and a program. Here it is a board that draws current and gets warm, where you can put a scope probe on the carry line and *watch the ripple* from [[how-computers-work/05-combinational/02-adders|module 21]] as a real propagation delay. Some things only become real when they are physical.
 
 ## Prerequisites beyond the other tracks
 
@@ -67,9 +67,9 @@
 > [!NOTE]
 > **Use an EEPROM for the control unit, not discrete gates.**
 >
-> Building the control logic from AND/OR gates would take a dozen extra chips and be miserable to change. An EEPROM *is* a lookup table ([[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 19]]) — address it with the opcode, and its stored bytes are your control signals.
+> Building the control logic from AND/OR gates would take a dozen extra chips and be miserable to change. An EEPROM *is* a lookup table ([[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]]) — address it with the opcode, and its stored bytes are your control signals.
 >
-> **Better still, it makes the control unit editable.** Change an instruction's behaviour by reburning a chip rather than rewiring the board. This is exactly the "move the function from structure into data" idea from module 19, and here it saves you literal hours.
+> **Better still, it makes the control unit editable.** Change an instruction's behaviour by reburning a chip rather than rewiring the board. This is exactly the "move the function from structure into data" idea from module 20, and here it saves you literal hours.
 >
 > This is also how Ben Eater's 8-bit computer does it, and it is the right call.
 
@@ -78,7 +78,7 @@
 **The rule: never wire two subsystems before the first one works standing alone.**
 
 1. **Power and clock.** Rails, decoupling caps, a 555 clock, a manual-step button, and one LED. *One evening.* If the LED blinks when you press the button, your foundations are sound.
-2. **One register.** A '273 with LEDs on its outputs and switches on its inputs. Clock it, watch it latch. *This is [[how-computers-work/06-memory/01-latches-and-flip-flops|module 23]] in your hands.*
+2. **One register.** A '273 with LEDs on its outputs and switches on its inputs. Clock it, watch it latch. *This is [[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]] in your hands.*
 3. **A bus.** Two registers plus tri-state drivers. Move a value from one to the other. **Only one driver enabled at a time, ever** — two drivers fighting is a short ([[how-computers-work/01-electricity/03-circuit-laws|module 3]]) and will get hot.
 4. **The ALU.** Two '283s plus XOR gates for subtract. Feed it two registers, display the result.
 5. **The program counter.** A '161 counting, with parallel load for jumps.

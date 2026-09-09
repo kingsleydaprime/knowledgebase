@@ -290,7 +290,7 @@ Amortised over volume, \$30 M is \$30 per chip at a million units, and 3 cents a
 **The alternatives:**
 
 1. **Use an older node.** A 180 nm mask set is ~\$250,000. Most chips in the world — microcontrollers, power management, automotive — are not on leading-edge nodes and never will be.
-2. **Use an FPGA.** [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 19]] showed an FPGA is an array of LUTs configured by stored bits. **You pay a large area and speed penalty to avoid the mask cost entirely** — someone else already paid it, and you buy their chip and reconfigure it.
+2. **Use an FPGA.** [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] showed an FPGA is an array of LUTs configured by stored bits. **You pay a large area and speed penalty to avoid the mask cost entirely** — someone else already paid it, and you buy their chip and reconfigure it.
 
 That tradeoff is now fully explained: FPGAs exist because **masks are a fixed cost and reconfigurability moves the function from structure into data.** Both halves of that sentence came from different modules, and they meet here.
 </details>
@@ -378,7 +378,7 @@ if __name__ == "__main__":
                                     ("3 nm", 75, 30_000_000)]:
         print(f"  {node:7s} ~{layers:2d} mask layers, mask set ~${mask_cost:,}")
     print("  a mask set is paid ONCE per design -- which is why low-volume")
-    print("  custom chips are uneconomic and FPGAs exist (module 19)")
+    print("  custom chips are uneconomic and FPGAs exist (module 20)")
 
     assert rayleigh_resolution(193, 1.35) < rayleigh_resolution(193, 0.93)
     assert yield_poisson(8.0, 0.1) < yield_poisson(1.0, 0.1)
@@ -425,7 +425,7 @@ MASK LAYERS -- each one is a separate print-and-etch cycle
   7 nm    ~60 mask layers, mask set ~$15,000,000
   3 nm    ~75 mask layers, mask set ~$30,000,000
   a mask set is paid ONCE per design -- which is why low-volume
-  custom chips are uneconomic and FPGAs exist (module 19)
+  custom chips are uneconomic and FPGAs exist (module 20)
 
 fab_lab: passed
 ```
@@ -523,5 +523,5 @@ As $D$ grows, the exponential punishes large dies far harder. Sweep $D$ from 0.0
 - [[how-computers-work/02-semiconductors/02-silicon-and-crystal|Module 7]] — where the wafer came from
 - [[how-computers-work/02-semiconductors/04-doping|Module 9]] — ion implantation through a mask
 - [[how-computers-work/03-transistors/03-cmos|Module 13]] — the device being built here
-- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 19]] — FPGAs, and why mask cost makes them worth it
+- [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — FPGAs, and why mask cost makes them worth it
 - [[foundations/computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] — partly a response to wire delay

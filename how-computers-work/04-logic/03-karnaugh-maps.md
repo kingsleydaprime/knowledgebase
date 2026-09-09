@@ -165,7 +165,7 @@ That is a **static hazard** — a glitch. It is a real pulse on a real wire, and
 > [!NOTE]
 > **Minimal is not always correct.** The minimum-cost circuit can glitch; the glitch-free circuit costs more. Which you want depends on whether the output feeds combinational logic that will settle anyway, or something edge-sensitive that could capture the glitch.
 >
-> This is the first genuine case in the course where **the mathematical abstraction and the physical reality diverge** — and the resolution is to add something the mathematics says is unnecessary. Keep it in mind for [[how-computers-work/06-memory/01-latches-and-flip-flops|module 21]], where timing stops being a detail and becomes the whole subject.
+> This is the first genuine case in the course where **the mathematical abstraction and the physical reality diverge** — and the resolution is to add something the mathematics says is unnecessary. Keep it in mind for [[how-computers-work/06-memory/01-latches-and-flip-flops|module 22]], where timing stops being a detail and becomes the whole subject.
 
 ---
 

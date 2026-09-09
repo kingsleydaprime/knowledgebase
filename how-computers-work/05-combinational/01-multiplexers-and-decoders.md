@@ -1,4 +1,4 @@
-# Module 19: Multiplexers and Decoders (Selection and Addressing)
+# Module 20: Multiplexers and Decoders (Selection and Addressing)
 
 **[Intermediate]** — Part VI begins. You stop building individual gates and start assembling them into blocks. These two are the most important: **selection** and **addressing** are what every memory and every datapath is made of.
 
@@ -72,7 +72,7 @@ Each output is one AND gate testing a specific combination of the select bits �
 >
 > This is the hardware fact underneath the constant-time array indexing in [[foundations/dsa/04-data-structures/01-arrays|dsa/arrays]]. The $O(1)$ you rely on in software is a decoder.
 
-**The cost:** a decoder needs $2^n$ AND gates. A 32-bit address decoded flat would need $2^{32}$ gates — impossible. Real memories decode **hierarchically**: split the address into row and column parts and decode each separately, so $2^{16} + 2^{16}$ gates replace $2^{32}$. That structure is why memory has rows and columns at all, and it returns in [[how-computers-work/06-memory/03-memory-technology|module 23]].
+**The cost:** a decoder needs $2^n$ AND gates. A 32-bit address decoded flat would need $2^{32}$ gates — impossible. Real memories decode **hierarchically**: split the address into row and column parts and decode each separately, so $2^{16} + 2^{16}$ gates replace $2^{32}$. That structure is why memory has rows and columns at all, and it returns in [[how-computers-work/06-memory/03-memory-technology|module 24]].
 
 ---
 
@@ -384,7 +384,7 @@ Notice that `multiplexer()` is built *from* `decoder()` rather than independentl
 3. **A 4-to-1 MUX has select bits $S_1S_0$ and data inputs wired to $A$, $\overline{A}$, 0, 1. What function of $S_1$, $S_0$, $A$ does it compute?**
    <details><summary>Answer</summary>
    It selects: $S_1S_0 = 00 \to A$; $01 \to \overline{A}$; $10 \to 0$; $11 \to 1$.<br>
-   This is a small <strong>programmable function unit</strong> — the same circuit computes identity, inversion, constant-zero or constant-one depending on control bits. Feeding a MUX with <em>variables</em> as well as constants is how you build a compact configurable block, and it is exactly the trick an ALU uses in [[how-computers-work/05-combinational/04-the-alu|module 22]] to make one circuit perform many operations.
+   This is a small <strong>programmable function unit</strong> — the same circuit computes identity, inversion, constant-zero or constant-one depending on control bits. Feeding a MUX with <em>variables</em> as well as constants is how you build a compact configurable block, and it is exactly the trick an ALU uses in [[how-computers-work/05-combinational/04-the-alu|module 23]] to make one circuit perform many operations.
    </details>
 
 4. **Why is a MUX-based LUT the basis of FPGAs rather than a NAND array?**
@@ -439,7 +439,7 @@ So <strong>larger, power-of-two-sized, properly aligned regions are cheaper to d
 
 **Recap:** A decoder turns an $n$-bit number into one-hot activation of $2^n$ lines — the mechanism behind constant-time memory addressing. A multiplexer is a decoder plus gating, selecting one of many inputs; word-wide versions replicate it per bit. Priority encoders resolve simultaneous requests and report validity separately. A MUX with constants on its data inputs computes any function of its select bits, making it a lookup table — universal like NAND, but reconfigurable by changing data rather than wiring, which is what an FPGA is.
 
-**Next:** [[how-computers-work/05-combinational/02-adders|Module 20 — Adders]] builds arithmetic from pure logic. You will find that the carry chain — not the addition itself — is what sets a processor's clock speed.
+**Next:** [[how-computers-work/05-combinational/02-adders|Module 21 — Adders]] builds arithmetic from pure logic. You will find that the carry chain — not the addition itself — is what sets a processor's clock speed.
 
 ---
 
@@ -447,6 +447,6 @@ So <strong>larger, power-of-two-sized, properly aligned regions are cheaper to d
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/04-logic/04-universal-gates|Module 18]] — the other universality result
-- [[how-computers-work/06-memory/03-memory-technology|Module 23]] — where hierarchical decoding returns
+- [[how-computers-work/06-memory/03-memory-technology|Module 24]] — where hierarchical decoding returns
 - [[foundations/dsa/04-data-structures/01-arrays|dsa/arrays]] — the O(1) indexing this module explains
 - [[foundations/os/09-syscalls-interrupts-and-the-abi|os/syscalls and interrupts]] — priority encoders as interrupt controllers

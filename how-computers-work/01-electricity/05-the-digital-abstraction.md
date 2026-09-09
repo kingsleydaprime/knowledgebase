@@ -206,7 +206,7 @@ The abstraction is not magic and it does have failure modes. Know them:
 
 - **Noise exceeding the margin** — long cables, poor grounding, switching interference nearby.
 - **Voltage droop** — heavy switching pulls the supply down, dragging $V_{OH}$ below $V_{IH}$.
-- **Marginal timing** — a signal sampled mid-transition is legitimately in the forbidden zone. This causes **metastability**, and it is a real, unavoidable hazard at clock-domain boundaries. You will meet it in [[how-computers-work/06-memory/01-latches-and-flip-flops|module 21]].
+- **Marginal timing** — a signal sampled mid-transition is legitimately in the forbidden zone. This causes **metastability**, and it is a real, unavoidable hazard at clock-domain boundaries. You will meet it in [[how-computers-work/06-memory/01-latches-and-flip-flops|module 22]].
 - **Mixing logic families** — a 5 V part's $V_{OH}$ may exceed a 3.3 V part's absolute maximum input, destroying it. A 3.3 V part's $V_{OH}$ may fall below a 5 V part's $V_{IH}$, so it is never read as a 1.
 
 Every one of these is a case of the lower layer failing to keep its promise. The layers above have no way to detect it and no way to recover — which is exactly what makes abstraction both powerful and, when it leaks, baffling to debug.
@@ -395,6 +395,6 @@ This is the end of Part II. You are ready for Part III when you can, closed-book
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — the circuit that delivers rail-to-rail outputs and sharp transitions
-- [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 21 — Latches and Flip-Flops]] — metastability, the abstraction's unavoidable failure mode
+- [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 22 — Latches and Flip-Flops]] — metastability, the abstraction's unavoidable failure mode
 - [[foundations/information-theory/01-what-information-is|information-theory/what information is]] — the mathematical treatment of what a bit is
 - [[foundations/networking/index|networking/]] — where noise margins reappear as bit error rates and coding gain

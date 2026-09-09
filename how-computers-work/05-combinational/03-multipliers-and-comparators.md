@@ -1,11 +1,11 @@
-# Module 21: Multipliers and Comparators (Beyond Addition)
+# Module 22: Multipliers and Comparators (Beyond Addition)
 
 **[Intermediate → Advanced]** — Addition was the easy one. Multiplication is where the "just add more gates" answer stops working, and comparison turns out to be a subtraction you throw away.
 
 ## Before you start
 
-- You can build a ripple-carry and a carry-lookahead adder, and trace a multi-bit addition — [[how-computers-work/05-combinational/02-adders|module 20]].
-- You know a barrel shifter shifts by any amount in $\log_2 n$ stages — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 19]].
+- You can build a ripple-carry and a carry-lookahead adder, and trace a multi-bit addition — [[how-computers-work/05-combinational/02-adders|module 21]].
+- You know a barrel shifter shifts by any amount in $\log_2 n$ stages — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]].
 - You know gate delays accumulate along the critical path — [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
 
 **After this lesson you will be able to:**
@@ -21,7 +21,7 @@
 
 ## 1. Why this exists (real-world motivation)
 
-[[how-computers-work/05-combinational/02-adders|Module 20]] built an adder and showed it scales to any width by repetition. **Multiplication does not scale that way.**
+[[how-computers-work/05-combinational/02-adders|Module 21]] built an adder and showed it scales to any width by repetition. **Multiplication does not scale that way.**
 
 Two 8-bit numbers multiply to a 16-bit result. Two 64-bit numbers multiply to 128 bits. The output is twice the input width, and — worse — every input bit can influence every output bit. There is no "one full adder per position" decomposition that just repeats.
 
@@ -104,7 +104,7 @@ This is why multiplication is never allowed to share the adder's timing budget. 
 
 ## 5. Carry-save addition — the trick that fixes it
 
-The bottleneck is the same villain as in module 20: **the carry chain**. Every partial-product addition pays a full carry propagation, and there are $n$ of them.
+The bottleneck is the same villain as in module 21: **the carry chain**. Every partial-product addition pays a full carry propagation, and there are $n$ of them.
 
 **The insight: when adding many numbers, do not propagate carries until the very end.**
 
@@ -139,7 +139,7 @@ Since each level costs one full-adder delay and the count falls geometrically, t
 > [!NOTE]
 > **This is the same move as carry-lookahead, applied one level up.**
 >
-> Module 20 converted the sequential carry chain within *one* addition into a logarithmic tree. Carry-save converts the sequential chain of *many additions* into a logarithmic tree.
+> Module 21 converted the sequential carry chain within *one* addition into a logarithmic tree. Carry-save converts the sequential chain of *many additions* into a logarithmic tree.
 >
 > **The pattern — "find the sequential dependency, pay area to make it a tree" — has now appeared three times**: carry-lookahead, the barrel shifter, and Wallace trees. It is the single most reusable idea in digital design, and it is the same idea as parallel prefix / scan algorithms in software.
 
@@ -168,7 +168,7 @@ That is a ripple from the MSB — and a ripple is exactly what we have been avoi
 | $A < B$ | $\overline{C}$ (borrow) | $N \oplus V$ |
 | $A \geq B$ | C | $\overline{N \oplus V}$ |
 
-**A comparison is a subtraction whose difference you discard.** This is why `cmp` exists as an instruction that sets flags without writing a result, and why [[how-computers-work/05-combinational/04-the-alu|module 22]]'s SLT is implemented as a subtract.
+**A comparison is a subtraction whose difference you discard.** This is why `cmp` exists as an instruction that sets flags without writing a result, and why [[how-computers-work/05-combinational/04-the-alu|module 23]]'s SLT is implemented as a subtract.
 
 **And it explains the signed/unsigned trap.** The same subtraction serves both, but which flags you read differs — $\overline{C}$ for unsigned, $N \oplus V$ for signed. Read the wrong pair and comparisons silently go wrong for half the input range. That is the hardware root of a whole family of C bugs.
 
@@ -323,7 +323,7 @@ if __name__ == "__main__":
     assert fails == 0
     print()
     print(f"  equality costs {WIDTH} XNOR + {WIDTH-1} AND gates")
-    print(f"  magnitude is a subtraction you throw away (module 22's SLT)")
+    print(f"  magnitude is a subtraction you throw away (module 23's SLT)")
 
     print()
     print("multiply_lab: passed")
@@ -377,7 +377,7 @@ COMPARATORS:
   exhaustive check over 65,536 pairs: 0 failures
 
   equality costs 8 XNOR + 7 AND gates
-  magnitude is a subtraction you throw away (module 22's SLT)
+  magnitude is a subtraction you throw away (module 23's SLT)
 
 multiply_lab: passed
 ```
@@ -418,7 +418,7 @@ multiply_lab: passed
 4. **Why does a processor provide both `SLT` and `SLTU` rather than one comparison?**
    <details><summary>Answer</summary>
    The subtraction is identical; only the <em>interpretation</em> differs. Unsigned less-than is read from the carry/borrow flag; signed less-than is $N \oplus V$.<br>
-   Hardware cannot know whether your bits represent signed or unsigned values — [[how-computers-work/05-combinational/02-adders|module 20]] established that the ALU computes one result and reports both C and V. So the <em>instruction</em> must specify which interpretation applies, which is why the ISA has two comparison instructions and why C's implicit signed/unsigned conversions cause so many bugs.
+   Hardware cannot know whether your bits represent signed or unsigned values — [[how-computers-work/05-combinational/02-adders|module 21]] established that the ALU computes one result and reports both C and V. So the <em>instruction</em> must specify which interpretation applies, which is why the ISA has two comparison instructions and why C's implicit signed/unsigned conversions cause so many bugs.
    </details>
 
 ---
@@ -429,7 +429,7 @@ multiply_lab: passed
 
 - **(a)** By hand, multiply `1011` × `1101` using the partial-product method. Show all four rows and the sum. Verify against decimal.
 - **(b)** Count the AND gates and full adders a 4×4 array multiplier needs. Generalise to $n \times n$.
-- **(c)** Implement `array_multiply(a, b, width)` that sums partial products with your ripple-carry adder from module 20, and verify it exhaustively for 4×4 (256 pairs).
+- **(c)** Implement `array_multiply(a, b, width)` that sums partial products with your ripple-carry adder from module 21, and verify it exhaustively for 4×4 (256 pairs).
 - **(d)** Implement a Wallace-tree reduction using `carry_save_add()`. For 4 partial products, how many CSA levels are needed? Verify it gives the same results as (c).
 - **(e)** Compute the critical path of both designs at 20 ps per gate. What is the speedup?
 - **(f)** Implement `multiply_by_constant(x, k)` that generates a minimal shift-and-add sequence for a *constant* multiplier. Test with $k = 7, 8, 10, 100$. Which needs the fewest operations, and why?
@@ -463,13 +463,13 @@ The problem is the sign bit: in two's complement the MSB has weight $-2^{n-1}$, 
 
 **Recap:** Binary multiplication is shift-and-add: each partial product is A ANDed with one bit of B and shifted, so no multiplication table is needed and shifting by a constant is free wiring. Summing the partial products naively gives $O(n)$ delay and $O(n^2)$ area; carry-save addition defers all carry propagation, letting a Wallace tree reduce the partial products in $O(\log n)$ with a single real carry chain at the end. Equality comparison is XNOR plus AND; magnitude comparison is a subtraction whose difference is discarded, read from C for unsigned and $N \oplus V$ for signed.
 
-**Next:** [[how-computers-work/05-combinational/04-the-alu|Module 22 — The ALU]] wraps the adder, the logic gates and a shifter behind a multiplexer, producing the single block a processor computes with.
+**Next:** [[how-computers-work/05-combinational/04-the-alu|Module 23 — The ALU]] wraps the adder, the logic gates and a shifter behind a multiplexer, producing the single block a processor computes with.
 
 ---
 
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[how-computers-work/05-combinational/02-adders|Module 20 — Adders]] — the carry chain this module works around
-- [[how-computers-work/05-combinational/04-the-alu|Module 22 — The ALU]] — where comparison becomes SLT
+- [[how-computers-work/05-combinational/02-adders|Module 21 — Adders]] — the carry chain this module works around
+- [[how-computers-work/05-combinational/04-the-alu|Module 23 — The ALU]] — where comparison becomes SLT
 - [[foundations/compilers/07-optimisation|compilers/optimisation]] — strength reduction, replacing multiplies with shifts
