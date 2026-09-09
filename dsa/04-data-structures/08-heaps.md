@@ -9,6 +9,20 @@ A **Priority Queue** is an abstract data type where elements have priorities. A 
 
 ---
 
+## Before you start
+
+- You understand arrays and index arithmetic. See [[01-arrays|arrays]].
+- You understand tree shape and height. See [[01-trees|trees]].
+
+**What you will be able to do after this lesson:**
+
+1. Explain how a complete binary tree is stored in an array with no pointers.
+2. Explain why the heap property is weaker than sorting, and why that is the point.
+3. Implement push and pop with bubble-up and bubble-down.
+4. Explain why finding the k largest uses a min-heap.
+
+**Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
+
 ## 1. Real-World Motivation & Physical Metaphors
 
 Imagine an **Hospital Emergency Room Triage Desk**:
@@ -161,6 +175,163 @@ $$\text{Total Work} = \sum_{h=0}^{\log n} \frac{N}{2^{h+1}} \times h = O(N)$$
 
 ---
 
+## Implementation - complete runnable example
+
+**Runnable example:** save as `heaps_lab.py` and run `python3 heaps_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
+
+```python
+"""Heaps: a tree stored in an array, and why that is the whole trick."""
+
+class MinHeap:
+    """A complete binary tree with no pointers -- the array IS the tree."""
+    def __init__(self):
+        self.data, self.swaps = [], 0
+
+    @staticmethod
+    def parent(i): return (i - 1) // 2
+    @staticmethod
+    def left(i):   return 2 * i + 1
+    @staticmethod
+    def right(i):  return 2 * i + 2
+
+    def push(self, x):
+        """Add at the end, then bubble UP while smaller than the parent."""
+        self.data.append(x)
+        i = len(self.data) - 1
+        while i > 0 and self.data[i] < self.data[self.parent(i)]:
+            p = self.parent(i)
+            self.data[i], self.data[p] = self.data[p], self.data[i]
+            self.swaps += 1
+            i = p
+
+    def pop(self):
+        """Take the root, move the last item there, bubble DOWN."""
+        if not self.data: raise IndexError("pop from empty heap")
+        smallest = self.data[0]
+        last = self.data.pop()
+        if self.data:
+            self.data[0] = last
+            i = 0
+            while True:
+                l, r, best = self.left(i), self.right(i), i
+                if l < len(self.data) and self.data[l] < self.data[best]: best = l
+                if r < len(self.data) and self.data[r] < self.data[best]: best = r
+                if best == i: break
+                self.data[i], self.data[best] = self.data[best], self.data[i]
+                self.swaps += 1
+                i = best
+        return smallest
+
+    def peek(self): return self.data[0] if self.data else None
+    def __len__(self): return len(self.data)
+
+def top_k(values, k):
+    """Keep a MIN-heap of size k to find the k LARGEST.
+
+    The smallest of your current best sits at the root, so it is the
+    cheapest to evict -- which is why the heap is a min-heap."""
+    h = MinHeap()
+    for v in values:
+        h.push(v)
+        if len(h) > k:
+            h.pop()
+    return sorted(h.data, reverse=True)
+
+if __name__ == "__main__":
+    print("THE ARRAY IS THE TREE -- no pointers anywhere")
+    h = MinHeap()
+    for v in [5, 3, 8, 1, 9, 2]:
+        h.push(v)
+    print(f"  pushed 5 3 8 1 9 2")
+    print(f"  array: {h.data}")
+    print("  index: 0  1  2  3  4  5")
+    print("         └─ children of i are at 2i+1 and 2i+2, parent at (i-1)//2")
+    print(f"  root (the minimum) = {h.peek()}")
+    print()
+    print("  as a tree:")
+    print("        1")
+    print("      /   \\")
+    print("     3     2")
+    print("    / \\   /")
+    print("   5   9 8")
+    print()
+
+    print("THE HEAP PROPERTY IS WEAKER THAN SORTING")
+    print(f"  heap array : {h.data}")
+    print(f"  sorted     : {sorted(h.data)}")
+    print("  -> a heap only guarantees parent <= children. It does NOT")
+    print("     sort. That weaker promise is why push and pop are")
+    print("     O(log n) instead of O(n log n).")
+    print()
+
+    print("POPPING YIELDS SORTED ORDER")
+    order = [h.pop() for _ in range(len(h))]
+    print(f"  {order}")
+    print()
+
+    print("TOP-K -- the pattern heaps exist for")
+    values = [7, 2, 9, 4, 1, 8, 3, 6, 5]
+    for k in (1, 3, 5):
+        print(f"  top {k} of {values}: {top_k(values, k)}")
+    print()
+    print(f"  {'n':>8s} {'k':>5s} {'sort: n log n':>15s} {'heap: n log k':>15s}")
+    import math
+    for n, k in [(1_000_000, 10), (1_000_000, 1000)]:
+        print(f"  {n:8,d} {k:5d} {n*math.log2(n):15,.0f} {n*math.log2(k):15,.0f}")
+    print("  -> the win only matters when k is much smaller than n.")
+
+    assert h.data == []
+    assert order == sorted(order)
+    assert top_k([7,2,9,4,1,8,3,6,5], 3) == [9, 8, 7]
+    assert top_k([1], 5) == [1]
+    h2 = MinHeap()
+    for v in [9, 8, 7, 6, 5]: h2.push(v)
+    assert h2.peek() == 5
+    assert [h2.pop() for _ in range(5)] == [5, 6, 7, 8, 9]
+    print()
+    print("heaps_lab: passed")
+```
+
+Expected output:
+
+```
+THE ARRAY IS THE TREE -- no pointers anywhere
+  pushed 5 3 8 1 9 2
+  array: [1, 3, 2, 5, 9, 8]
+  index: 0  1  2  3  4  5
+         └─ children of i are at 2i+1 and 2i+2, parent at (i-1)//2
+  root (the minimum) = 1
+
+  as a tree:
+        1
+      /   \
+     3     2
+    / \   /
+   5   9 8
+
+THE HEAP PROPERTY IS WEAKER THAN SORTING
+  heap array : [1, 3, 2, 5, 9, 8]
+  sorted     : [1, 2, 3, 5, 8, 9]
+  -> a heap only guarantees parent <= children. It does NOT
+     sort. That weaker promise is why push and pop are
+     O(log n) instead of O(n log n).
+
+POPPING YIELDS SORTED ORDER
+  [1, 2, 3, 5, 8, 9]
+
+TOP-K -- the pattern heaps exist for
+  top 1 of [7, 2, 9, 4, 1, 8, 3, 6, 5]: [9]
+  top 3 of [7, 2, 9, 4, 1, 8, 3, 6, 5]: [9, 8, 7]
+  top 5 of [7, 2, 9, 4, 1, 8, 3, 6, 5]: [9, 8, 7, 6, 5]
+
+         n     k   sort: n log n   heap: n log k
+  1,000,000    10      19,931,569       3,321,928
+  1,000,000  1000      19,931,569       9,965,784
+  -> the win only matters when k is much smaller than n.
+
+heaps_lab: passed
+```
+
 ## 9. Check Your Understanding (University Self-Assessment)
 
 1. **Question**: Given an array `[10, 20, 15, 30, 40]`, where is the left child of element `20` (index 1) located in the array?
@@ -173,6 +344,36 @@ $$\text{Total Work} = \sum_{h=0}^{\log n} \frac{N}{2^{h+1}} \times h = O(N)$$
    - <details><summary>Click for Answer</summary><b>Answer:</b> Python's <code>heapq</code> only supports min-heaps. To simulate a max-heap, multiply values by <code>-1</code> when pushing into the heap, and multiply by <code>-1</code> again when popping.</details>
 
 ---
+
+## Practice - independent task
+
+Implement **heapify** - building a heap from an unsorted array in O(n), not O(n log n).
+
+- The obvious way pushes each element one at a time: n pushes at O(log n) each.
+- The better way starts at the last non-leaf node and bubbles **down**, working backwards to the root.
+- Implement both. Count swaps for arrays of 1,000, 10,000 and 100,000 elements.
+- **The surprising result:** bottom-up heapify is O(n), not O(n log n). Most nodes are near the bottom and barely move.
+- Then implement **heapsort**: heapify, then repeatedly pop the root.
+
+**Done when:** both constructions produce valid heaps, your swap counts show bottom-up growing linearly while repeated-push grows faster, and heapsort matches Python's `sorted()`.
+
+<details><summary>Hint - open only after an attempt</summary>
+The intuition for O(n): half the nodes are leaves and cannot move at all; a quarter are one level up and move at most one step; an eighth move at most two. The total is n times the sum of k/2^k, which converges to a constant.<br>
+<strong>Repeated push is the opposite</strong> - it adds each element at the bottom where the tree is deepest, so it pays close to the full log n every time. Same final structure, different construction cost, and the difference is a genuinely surprising piece of arithmetic.
+</details>
+
+## Before moving on
+
+You are done with this module when you can, closed-book:
+
+- [ ] Explain the index arithmetic linking a node to its parent and children.
+- [ ] Explain why a heap does not sort, and why that weaker promise is useful.
+- [ ] Trace a push that bubbles up and a pop that bubbles down.
+- [ ] Explain why the k largest elements are found with a min-heap.
+
+**Recap:** A heap is a complete binary tree stored in an array, with children of index i at 2i+1 and 2i+2 - so the structure is implied by arithmetic and needs no pointers. It guarantees only that each parent beats its children, which is far weaker than sorting and is exactly why push and pop cost O(log n) rather than O(n log n). Keeping a min-heap of size k finds the k largest in O(n log k), which beats sorting when k is much smaller than n.
+
+**Next:** [[09-tries|Tries]] - a structure where the shape of the key itself becomes the path through the tree.
 
 ## Related Modules
 - [[01-arrays|Arrays]] — The flat 1D storage array underlying heaps

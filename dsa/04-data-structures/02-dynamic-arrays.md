@@ -6,6 +6,20 @@ Dynamic arrays are what high-level languages hand you by default: Python's `list
 
 ---
 
+## Before you start
+
+- You understand contiguous memory and O(1) indexing. See [[01-arrays|arrays]].
+- You can read Big-O notation and know what 'amortised' means informally.
+
+**What you will be able to do after this lesson:**
+
+1. Explain why a fixed-size array must be reallocated to grow.
+2. Compute the total copies for n appends under doubling, and show it is under 2n.
+3. Explain why doubling gives amortised O(1) and fixed-chunk growth does not.
+4. Explain why append is cheap and insert-at-front is not.
+
+**Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
+
 ## 1. Why Do Dynamic Arrays Exist? (Real-World Motivation)
 
 Imagine buying an expandable **accordion suitcase** for travel:
@@ -118,6 +132,132 @@ $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
 
 ---
 
+## Implementation - complete runnable example
+
+**Runnable example:** save as `dynamic_arrays_lab.py` and run `python3 dynamic_arrays_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
+
+```python
+"""Dynamic arrays: why doubling gives amortised O(1) append.
+
+Counts element copies exactly, so the amortisation is arithmetic rather
+than a claim."""
+
+class GrowableArray:
+    """A dynamic array built on a fixed-capacity store, like a real one."""
+    def __init__(self, growth=2):
+        self.data, self.size, self.capacity = [None], 0, 1
+        self.growth, self.copies, self.resizes = growth, 0, 0
+
+    def append(self, value):
+        if self.size == self.capacity:
+            self._resize(max(1, int(self.capacity * self.growth)))
+        self.data[self.size] = value
+        self.size += 1
+
+    def _resize(self, new_capacity):
+        """The expensive step: allocate bigger, copy everything across."""
+        bigger = [None] * new_capacity
+        for i in range(self.size):
+            bigger[i] = self.data[i]
+        self.copies += self.size
+        self.resizes += 1
+        self.data, self.capacity = bigger, new_capacity
+
+    def __getitem__(self, i):
+        if not 0 <= i < self.size:
+            raise IndexError(i)
+        return self.data[i]
+
+    def insert_front(self, value):
+        """O(n): everything must shift right to make room."""
+        if self.size == self.capacity:
+            self._resize(max(1, int(self.capacity * self.growth)))
+        for i in range(self.size, 0, -1):
+            self.data[i] = self.data[i - 1]
+        self.copies += self.size
+        self.data[0] = value
+        self.size += 1
+
+def append_cost(n, growth):
+    a = GrowableArray(growth)
+    for i in range(n):
+        a.append(i)
+    return a.copies, a.resizes
+
+if __name__ == "__main__":
+    print("GROWTH BY DOUBLING -- copies during n appends")
+    print(f"  {'n':>7s} {'copies':>10s} {'resizes':>9s} {'copies/append':>14s}")
+    for n in (10, 100, 1000, 10000):
+        copies, resizes = append_cost(n, 2)
+        print(f"  {n:7d} {copies:10,d} {resizes:9d} {copies/n:14.2f}")
+    print("  -> copies per append approaches 1 and never exceeds 2.")
+    print("     THAT is what 'amortised O(1)' means: some appends are")
+    print("     expensive, but the average over any run is constant.")
+    print()
+
+    print("WHY DOUBLING, NOT ADDING A FIXED AMOUNT")
+    print(f"  {'strategy':>22s} {'copies for n=10000':>20s}")
+    a = GrowableArray(2)
+    for i in range(10000): a.append(i)
+    print(f"  {'double (x2)':>22s} {a.copies:20,d}")
+    # grow by a constant chunk instead
+    size = cap = copies = 0
+    for i in range(10000):
+        if size == cap:
+            copies += size
+            cap += 100
+        size += 1
+    print(f"  {'grow by 100 each time':>22s} {copies:20,d}")
+    print(f"  -> fixed-chunk growth is O(n^2) overall; doubling is O(n).")
+    print()
+
+    print("APPEND vs INSERT AT FRONT")
+    back = GrowableArray()
+    for i in range(1000): back.append(i)
+    front = GrowableArray()
+    for i in range(1000): front.insert_front(i)
+    print(f"  1000 appends        : {back.copies:8,d} copies")
+    print(f"  1000 front inserts  : {front.copies:8,d} copies")
+    print(f"  -> front insertion is O(n) per operation, O(n^2) overall.")
+
+    copies_2x, _ = append_cost(10000, 2)
+    assert copies_2x < 2 * 10000, "doubling must stay under 2 copies per append"
+    assert copies_2x < copies, "doubling must beat fixed-chunk growth"
+    assert front.copies > 100 * back.copies
+    a = GrowableArray()
+    for i in range(5): a.append(i * i)
+    assert [a[i] for i in range(5)] == [0, 1, 4, 9, 16]
+    print()
+    print("dynamic_arrays_lab: passed")
+```
+
+Expected output:
+
+```
+GROWTH BY DOUBLING -- copies during n appends
+        n     copies   resizes  copies/append
+       10         15         4           1.50
+      100        127         7           1.27
+     1000      1,023        10           1.02
+    10000     16,383        14           1.64
+  -> copies per append approaches 1 and never exceeds 2.
+     THAT is what 'amortised O(1)' means: some appends are
+     expensive, but the average over any run is constant.
+
+WHY DOUBLING, NOT ADDING A FIXED AMOUNT
+                strategy   copies for n=10000
+             double (x2)               16,383
+   grow by 100 each time              495,000
+  -> fixed-chunk growth is O(n^2) overall; doubling is O(n).
+
+APPEND vs INSERT AT FRONT
+  1000 appends        :    1,023 copies
+  1000 front inserts  :  500,523 copies
+  -> front insertion is O(n) per operation, O(n^2) overall.
+
+dynamic_arrays_lab: passed
+```
+
 ## 7. Check Your Understanding (University Self-Assessment)
 
 1. **Question**: If a dynamic array currently has `length = 8` and `capacity = 8`, how many elements will be copied during the next `append()` operation if the growth factor is $2\times$?
@@ -130,6 +270,36 @@ $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
    - <details><summary>Click for Answer</summary><b>Answer:</b> Adding fixed slots causes resizes to occur at linear frequency. The total work for N appends becomes quadratic O(n²), turning the average cost of <code>append()</code> from O(1) into O(n).</details>
 
 ---
+
+## Practice - independent task
+
+Implement `pop()` and automatic shrinking, then measure the hazard it creates.
+
+- Add `pop()` removing the last element in O(1).
+- Add shrinking: when size drops below **half** capacity, halve the capacity.
+- Now write a loop that repeatedly appends one element and pops it, at exactly the boundary where capacity flips. Count the copies.
+- **You should see thrashing** - every single operation triggers a resize.
+- Fix it by shrinking only when size drops below **a quarter** of capacity. Re-measure.
+
+**Done when:** you can state how many copies the naive shrink rule costs for 1000 alternating operations versus the quarter rule, and explain why hysteresis fixes it.
+
+<details><summary>Hint - open only after an attempt</summary>
+With shrink-at-half, an array sitting at exactly half capacity that gains one element grows (copying everything), and losing it again shrinks (copying everything). Each operation is O(n), so the sequence is O(n^2).<br>
+Shrinking at a <em>quarter</em> leaves a gap between the grow threshold and the shrink threshold, so a single element cannot cross both. That gap is <strong>hysteresis</strong>, and every real implementation has some form of it.
+</details>
+
+## Before moving on
+
+You are done with this module when you can, closed-book:
+
+- [ ] Explain why growing requires allocate-and-copy rather than extending in place.
+- [ ] Compute total copies for n appends under doubling and show it is bounded by 2n.
+- [ ] Explain why growing by a fixed chunk is O(n^2) overall.
+- [ ] State why amortised O(1) is not the same as O(1).
+
+**Recap:** A dynamic array wraps a fixed-capacity block, reallocating when full. Doubling means the copies form a geometric series summing to under 2n, so n appends cost O(n) in total and each append is amortised O(1) - some are expensive, the average is constant. Growing by a fixed amount instead makes the total O(n^2). Front insertion remains O(n) because contiguity must be preserved.
+
+**Next:** [[03-hash-maps|Hash Maps]] - the structure that gives up ordering entirely to buy O(1) lookup by key.
 
 ## Related Modules
 - [[01-arrays|Arrays]] — The static contiguous foundation
