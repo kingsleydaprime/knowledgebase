@@ -1,50 +1,189 @@
 # How Computers Work
 
-A bottom-up journey from sand to software, following the complete computational stack — from matter and electricity to silicon, transistors, logic gates, and finally to software.
+**A bottom-up study of computing systems, from sand to software.**
 
-## Course Outline
+Most computing education starts in the middle. You learn a language, then maybe some data structures, and the machine underneath stays a rumour — a thing that "runs" your code by unspecified magic. This course removes the magic by refusing to start in the middle. It begins with electric charge and does not introduce an abstraction until the layer beneath it has been built.
 
-| Part | Topic | Linked Course |
-|---|---|---|
-| **0** | Prerequisite Mathematics | [[foundations/discrete-math/index|discrete-math/]] |
-| **I** | Information & Computation | [[foundations/information-theory/index|information-theory/]] |
-| **II** | Electricity & Electronics | *(no dedicated course yet)* |
-| **III** | Matter & Semiconductors | *(no dedicated course yet)* |
-| **IV** | The Transistor | [[foundations/computer-architecture/index|computer-architecture/]] |
-| **V** | Transistors → Logic | [[foundations/computer-architecture/index|computer-architecture/]] |
-| **VI** | Combinational Logic | [[foundations/computer-architecture/index|computer-architecture/]] |
-| **VII** | Memory & State | [[foundations/computer-architecture/index|computer-architecture/]] |
-| **VIII** | Building a Computer | [[foundations/computer-architecture/index|computer-architecture/]] |
-| **IX** | Instruction Set Architecture | [[foundations/computer-architecture/index|computer-architecture/]] |
-| **X** | Memory Hierarchy | [[foundations/computer-architecture/index|computer-architecture/]] |
-| **XI** | Making the CPU Fast | [[foundations/computer-architecture/index|computer-architecture/]] |
-| **XII** | Software-Hardware Interface | [[foundations/computer-architecture/index|computer-architecture/]] |
-| **XIII** | Operating Systems | [[foundations/os/index|os/]] |
-| **XIV** | Programming Languages | [[foundations/programming-language-theory/index|programming-language-theory/]] |
-| **XV** | Compilers | [[foundations/compilers/index|compilers/]] |
-| **XVI** | Interpreters & Runtimes | [[foundations/compilers/index|compilers/]] |
-| **XVII** | Language Runtime Systems | [[foundations/compilers/index|compilers/]] |
-| **XVIII** | Complete Trace (Source → CPU) | All of the above |
-| **XIX** | Build Your Own Computer | Capstone project |
-| **XX** | Build Your Own Software Stack | Capstone project |
-| **XXI** | Final Integration | Capstone project |
+> **The one idea:** every layer of a computer is a **deliberate act of forgetting**. Transistors forget that electrons are individuals and remember only "conducting or not". Logic gates forget voltage and remember only true and false. The ISA forgets which circuit does the adding. Each layer is a lie that is *useful because it is reliable* — and the whole subject is the study of why each lie holds, and what happens at the seams where it doesn't.
 
-## How to Study This Course
+## What this course is, and what it borrows
 
-1. **Start with the prerequisites** — discrete math and basic programming fundamentals.
-2. **Follow the bottom-up path** — physics → electronics → logic → architecture → software.
-3. **Cross-reference with existing courses** — each part links to the relevant university-level notes.
-4. **Complete the capstone** — build a CPU, assembler, and programming language.
+The stack is too large for one folder, and this vault already teaches most of its upper half well. So this course **writes the missing bottom** — the path from electric charge to a working memory cell, which exists nowhere else in the vault — and then **routes you through the existing courses** for the layers they already cover, with the framing that makes each one part of a single climb.
 
-## Related Courses
+That means the folder here is not the whole course. [[how-computers-work/07-the-bridge|Part VIII–XVIII]] is a reading path, not a rewrite.
 
-- [[foundations/dsa/index|DSA]] — algorithms and data structures
-- [[foundations/computer-architecture/index|Computer Architecture]] — CPU design, memory, performance
-- [[foundations/compilers/index|Compilers]] — lexical analysis, parsing, code generation
-- [[foundations/os/index|Operating Systems]] — processes, threads, virtual memory
-- [[foundations/discrete-math/index|Discrete Mathematics]] — number theory, logic, sets
-- [[foundations/information-theory/index|Information Theory]] — data, signals, encoding
+## The two directions
 
----
+**Bottom-up** — what this course builds first:
 
-*Based on the "FROM SILICON TO SOFTWARE" curriculum, refined to follow the university course standard (clear prerequisites, outcomes, definitions, step-by-step mechanisms, worked examples, independent practice, and completion criteria).*
+```
+Physics → Silicon → Semiconductor → Transistor → Logic Gate
+   → Digital Circuit → Memory/Datapath → CPU → ISA → Machine Code
+```
+
+**Top-down** — the descent from human intent:
+
+```
+Programming Language → Compiler → IR → Assembly → Machine Code → ISA → CPU
+```
+
+**The two paths meet at the processor.** The capstone is the demonstration that they really do meet: you write a program in a language you designed, compile it with a compiler you wrote, and execute it on a CPU you specified.
+
+## Course objectives
+
+By the end you should be able to:
+
+1. Explain what information and computation mean *physically* — what is different about a piece of matter that is storing a 1 versus a 0.
+2. Explain semiconductor behaviour well enough to say why silicon, and not copper or glass, sits at the bottom of the stack.
+3. Derive a logic gate from a transistor circuit, and a transistor's behaviour from a doped junction.
+4. Design combinational and sequential circuits, and explain how feedback creates memory out of components that have none.
+5. Trace the fetch–decode–execute cycle through a datapath you can draw from memory.
+6. Explain how a compiler turns text into instructions, and how an operating system gets those instructions onto the hardware.
+7. **Trace one line of source code all the way down to transistor activity** without skipping a layer.
+
+## Part I — the missing bottom (written here)
+
+These parts exist nowhere else in the vault. This is the actual new material.
+
+### Part II — Electricity and Electronics
+
+The physics you need, and no more. Not an EE degree — the subset that makes transistors comprehensible.
+
+1. [[how-computers-work/01-electricity/01-charge-current-and-voltage|Charge, Current and Voltage]] — **[Beginner]** — what is actually moving, and what "pressure" means for electrons
+2. [[how-computers-work/01-electricity/02-resistance-and-ohms-law|Resistance and Ohm's Law]] — **[Beginner]** — the one equation, and power as the thing that limits every chip ever built
+3. [[how-computers-work/01-electricity/03-circuit-laws|Circuit Laws — Kirchhoff, Series and Parallel]] — **[Beginner]** — voltage dividers, the mechanism behind every logic level
+4. [[how-computers-work/01-electricity/04-signals-and-time|Signals and Time]] — **[Beginner → Intermediate]** — DC, AC, edges, rise time, and why clocks exist
+5. [[how-computers-work/01-electricity/05-the-digital-abstraction|The Digital Abstraction]] — **[Intermediate]** — **the most important lesson in Part II**: how noise margins buy the right to stop thinking about voltage
+
+### Part III — Matter and Semiconductors
+
+Why sand. This part answers a question most courses skip entirely.
+
+6. [[how-computers-work/02-semiconductors/01-atoms-and-electrons|Atoms and Electrons]] — **[Beginner]** — valence electrons, and why the periodic table predicts conductivity
+7. [[how-computers-work/02-semiconductors/02-silicon-and-crystal|Silicon and the Crystal Lattice]] — **[Beginner]** — covalent bonding, purification, and how a wafer is made
+8. [[how-computers-work/02-semiconductors/03-energy-bands|Energy Bands and Conduction]] — **[Intermediate]** — the band gap: one number that sorts all matter into conductor, insulator, semiconductor
+9. [[how-computers-work/02-semiconductors/04-doping|Doping — Engineering a Semiconductor]] — **[Intermediate]** — adding one impurity atom in ten million to gain total control
+10. [[how-computers-work/02-semiconductors/05-pn-junctions|PN Junctions and Diodes]] — **[Intermediate]** — the depletion region, and the first device that does something *asymmetric*
+
+### Part IV — The Transistor
+
+11. [[how-computers-work/03-transistors/01-what-a-transistor-is|What a Transistor Is]] — **[Intermediate]** — amplifier versus switch, BJT versus MOSFET, and why digital chose the MOSFET
+12. [[how-computers-work/03-transistors/02-mosfet-physics|MOSFET Physics]] — **[Intermediate]** — channel formation, threshold voltage, and the three operating regions
+13. [[how-computers-work/03-transistors/03-cmos|CMOS — The Pull-Up/Pull-Down Idea]] — **[Intermediate]** — **why your laptop doesn't melt**: complementary networks and near-zero static power
+
+### Part V — Transistors to Logic
+
+14. [[how-computers-work/04-logic/01-gates-from-transistors|Gates from Transistors]] — **[Intermediate]** — build NOT, NAND, NOR from CMOS pairs, and see why NAND is cheaper than AND
+15. [[how-computers-work/04-logic/02-boolean-algebra|Boolean Algebra]] — **[Beginner → Intermediate]** — the laws, De Morgan, and algebra as circuit optimisation
+16. [[how-computers-work/04-logic/03-karnaugh-maps|Karnaugh Maps and Minimisation]] — **[Intermediate]** — turning a truth table into the cheapest circuit that implements it
+17. [[how-computers-work/04-logic/04-universal-gates|Universal Gates]] — **[Intermediate]** — the proof that NAND alone is enough for *any* computation
+
+### Part VI — Combinational Logic
+
+18. [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Multiplexers and Decoders]] — **[Intermediate]** — selection and addressing, the two moves behind every memory system
+19. [[how-computers-work/05-combinational/02-adders|Adders — Half, Full and Carry Propagation]] — **[Intermediate]** — arithmetic from pure logic, and why the carry chain sets your clock speed
+20. [[how-computers-work/05-combinational/03-the-alu|The ALU]] — **[Intermediate → Advanced]** — one circuit, many operations, and the flags that make branching possible
+
+### Part VII — Memory and State
+
+21. [[how-computers-work/06-memory/01-latches-and-flip-flops|Latches and Flip-Flops]] — **[Intermediate → Advanced]** — **the conceptual leap of the whole course**: feedback turns combinational logic into memory
+22. [[how-computers-work/06-memory/02-registers-and-counters|Registers and Counters]] — **[Intermediate]** — from one bit to a word, and the program counter that makes a machine *sequential*
+23. [[how-computers-work/06-memory/03-memory-technology|Memory Technology — SRAM, DRAM and Flash]] — **[Intermediate]** — six transistors versus one capacitor, and why that tradeoff shapes the memory hierarchy
+
+## Part II — the bridge (routes into existing courses)
+
+24. [[how-computers-work/07-the-bridge|The Bridge — Parts VIII to XVIII]] — the reading path through `computer-architecture/`, `os/`, `compilers/` and `programming-language-theory/`, week by week, with the dependency from Part VII named at each step.
+
+## Part III — the capstone (written here)
+
+**PRIME-1** — design and build a computer and its software stack. This is where the two directions meet.
+
+25. [[how-computers-work/08-capstone/01-design-the-cpu|Design the PRIME-1 CPU]] — word size, registers, memory model, and the tradeoffs behind each choice
+26. [[how-computers-work/08-capstone/02-the-isa|The PRIME-1 ISA]] — instruction set and exact binary encoding
+27. [[how-computers-work/08-capstone/03-build-the-hardware|Build the Hardware]] — datapath and control in a logic simulator or HDL
+28. [[how-computers-work/08-capstone/04-build-the-assembler|Build the Assembler]] — two-pass assembly, labels, symbol resolution
+29. [[how-computers-work/08-capstone/05-build-the-emulator|Build the Emulator]] — a software PRIME-1 with a debugger
+30. [[how-computers-work/08-capstone/06-build-the-language|Build the Language]] — lexer, parser, AST, codegen to PRIME-1 assembly
+31. [[how-computers-work/08-capstone/07-final-integration|Final Integration]] — the full trace, source code to transistor
+
+## Prerequisites
+
+**Required:** arithmetic, algebra, and comfort reading a small program. That is genuinely it for Parts II–VII.
+
+**Helpful but introduced as needed:** exponents and logarithms (for orders of magnitude and bit counts); the idea of a derivative (for rates of change in signals — used qualitatively, never solved).
+
+**Where to top up:** [[foundations/mathematics/index|mathematics/]] for the algebra and logarithms. Part 0 of the original curriculum listed calculus; in practice this course uses it only to say "how fast something is changing", and you can read every lesson without having taken a calculus course.
+
+**Not required:** any prior electronics, physics beyond secondary school, or hardware. No lab equipment is needed — every experiment in Parts II–VII is either a pencil-and-paper derivation or a free logic simulator.
+
+## How to study this course
+
+1. **Go in order for Parts II–VII.** This is the one stretch where skipping genuinely breaks things — doping makes no sense without band gaps, and CMOS makes no sense without doping.
+2. **Draw everything.** Circuits and truth tables live in the hand, not the eye. Every lesson has something to redraw closed-book.
+3. **Obey the descent rule.** If you cannot explain a NAND gate from its transistors, do not move on to adders — go back down. The whole value of a bottom-up course is lost the moment you start memorising a layer instead of deriving it.
+4. **Use the bridge as a route, not a summary.** Parts VIII–XVIII send you into full existing courses. Those are weeks of work, not an afternoon.
+5. **Build the capstone.** Everything before it is preparation for the moment your own compiler emits your own opcodes onto your own CPU.
+
+## The core principle
+
+At every layer, ask three questions:
+
+**1. What is physically happening?** — What are the electrons doing?
+
+**2. What abstraction have we created?** — We stop tracking individual electrons and call the behaviour "a transistor".
+
+**3. What does the next layer build from it?** — Transistors become gates, gates become adders, adders become ALUs.
+
+The goal is not to memorise the hierarchy. It is to understand **why every layer is allowed to exist** — what property of the layer below makes it safe to stop looking down.
+
+## Master concept map
+
+```text
+PHYSICS ── Electromagnetism
+   ↓
+MATTER ── Atoms, Electrons, Crystal structure
+   ↓
+SEMICONDUCTORS ── Silicon, Doping, P-type, N-type
+   ↓
+PN JUNCTIONS
+   ↓
+TRANSISTORS ── NMOS, PMOS, CMOS
+   ↓
+LOGIC GATES ── NOT, AND, OR, NAND, NOR, XOR
+   ↓
+DIGITAL CIRCUITS ── Multiplexers, Decoders, Adders, Comparators, Shifters
+   ├──────────────────────┐
+   ↓                      ↓
+COMBINATIONAL          SEQUENTIAL
+   └── ALU                ├── Latches, Flip-flops
+                          └── Registers, Counters
+   ↓
+DATAPATH ── Registers, ALU, Buses, Memory interface
+   ↓
+CONTROL UNIT
+   ↓
+CPU ── PC, IR, Registers, ALU, Control logic
+   ↓
+ISA → MACHINE CODE → ASSEMBLY → ASSEMBLER → OBJECT CODE → LINKER → EXECUTABLE
+   ↓
+OPERATING SYSTEM ── Processes, Threads, Memory, Syscalls, Drivers, I/O
+   ↓
+RUNTIME ── Libraries, VM, Garbage collector, JIT
+   ↓
+COMPILER / INTERPRETER ── Lexer, Parser, AST, Semantics, IR, Optimisation, Codegen
+   ↓
+PROGRAMMING LANGUAGE
+   ↓
+HUMAN IDEAS
+```
+
+## Related courses
+
+- [[foundations/computer-architecture/index|Computer Architecture]] — where Parts VIII–XII are taught
+- [[foundations/os/index|Operating Systems]] — Part XIII
+- [[foundations/compilers/index|Compilers]] — Parts XV–XVII
+- [[foundations/programming-language-theory/index|Programming Language Theory]] — Part XIV, the formal side
+- [[foundations/information-theory/index|Information Theory]] — Part I in its mathematical form
+- [[foundations/hardware/index|Hardware]] — the practical, build-things-with-microcontrollers counterpart to Part II
+- [[foundations/mathematics/index|Mathematics]] — Part 0 prerequisites
+- [[COURSE-STANDARD|Course standard]] — the teaching shape every lesson here follows

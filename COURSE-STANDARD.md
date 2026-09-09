@@ -104,53 +104,79 @@ A lesson is finished when the learner can explain the idea, trace an unfamiliar 
 
 Point to the next lesson and explain the dependency. Keep a short recap suitable for later lookup so the expanded teaching material remains useful as a knowledge base.
 
-## A flexible lesson outline
+## The lesson shape
 
-Use meaningful topic-specific headings. This is a scaffold, not a requirement to paste identical sections into every note.
+Two folders in this vault reached university quality by slightly different routes, and the standard is the union of both, not a choice between them.
+
+`dsa/04-data-structures/` contributes the **visual teaching**: a physical analogy up front, a plain-English terminology table before any jargon is used, ASCII diagrams carrying real numbers rather than abstract letters, an explicit pitfalls list, and self-assessment questions whose answers are hidden behind `<details>` so the reader must attempt first.
+
+`dsa/06-patterns/` contributes the **bridge to independent work**: a difficulty tag, prerequisites stated as things the reader can already do, observable outcomes, a complete runnable artifact with its exact command and expected output, an independent task with a "done when" condition, and answers placed after the attempt.
+
+A lesson meeting this standard has both halves. Explanation without the bridge produces a reader who recognises the heading; the bridge without the explanation produces a reader who cannot start.
+
+Use meaningful topic-specific headings and drop sections that a given topic genuinely does not need. This is a scaffold, not a form to fill in.
 
 ```markdown
-# Topic
+# Module N: Topic (the one-phrase hook)
 
-[Difficulty and source/experience status]
+**[Level]** — one sentence on what this teaches and why it is here.
 
 ## Before you start
 
-Prerequisites, outcomes, artifact, study route.
+Prerequisites as things you can already do, each with one direct link.
+"After this lesson you will be able to:" — two to four observable outcomes.
+Study route: which sections to read, where to stop and attempt.
 
-## The problem
+## 1. Why this exists (real-world motivation)
 
-Concrete motivation and the simpler approach's limitation.
+One concrete situation. Show why the simpler approach is insufficient.
+A physical analogy is welcome — then say where it stops matching.
 
-## How it works
+## 2. Terminology
 
-Terms, diagram, state-by-state example, prediction, reasoning.
+| Term | Plain-English definition | Example / analogy |
+
+Define every term before the section that uses it.
+
+## 3..N. How it works — step by step
+
+One running example. Show initial state, perform one operation, show what
+changed and what stayed true, explain why the next step follows.
+Diagrams carry concrete values. Define symbols before equations.
+Pause for a prediction before revealing a result.
 
 ## Worked example
 
-Complete setup, implementation or derivation, expected results.
+Complete setup, exact command and working directory, expected output or
+measurement, boundary cases, and any safety limits.
 
-## Try it yourself
+## Common pitfalls and traps
 
-Reconstruction, guided change, independent task and checks.
+The mistakes this topic actually produces, named explicitly.
 
-## Hints and answers — after your attempt
+## Check your understanding
 
-Progressive help and explanations, or links to existing solutions.
+Questions first. Answers behind `<details>` or under a clearly marked
+"after your attempt" heading — never adjacent to the question.
 
-## Tradeoffs and extensions
+## Practice — independent task
 
-Assumptions, failure modes, real-world connections, optional depth.
+Inputs, expected behaviour, edge cases, and an explicit "Done when".
+Link the course's existing exercise bank instead of duplicating it.
+
+## Tradeoffs, limits and extensions
+
+Assumptions, failure modes, and optional depth kept out of the entry path.
 
 ## Before moving on
 
-Demonstrable completion criteria, recap, next lesson.
+Demonstrable completion criteria, a short recap for later lookup, and the
+next lesson with the dependency named.
 
-## Related and sources
-
-Focused links and references for technical claims.
+## Related
 ```
 
-For a mathematics lesson, substitute a worked derivation and an independent proof/problem for runnable code. For hardware, use a safe setup, wiring diagram, predicted measurement, uncertainty, and a bounded experiment. The learning sequence stays the same; Python is not a universal requirement.
+For a mathematics lesson, substitute a worked derivation and an independent proof or problem for the runnable code. For hardware and physics, substitute a safe bounded setup, a diagram, a predicted measurement with its uncertainty, and what a disagreeing result would mean. The learning sequence stays the same; Python is not a universal requirement.
 
 ## The course around the lessons
 
