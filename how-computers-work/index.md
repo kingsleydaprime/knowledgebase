@@ -47,7 +47,7 @@ The curriculum opens with **Part 0 (mathematics)** and **Part I (information and
 
 | Curriculum topic | Where it is taught |
 | :--- | :--- |
-| Number bases, binary, decimal, hexadecimal, base conversion | ⚠️ **`mathematics/core/01-numbers/01-number-bases/` is currently one-sentence stubs.** Use [[foundations/computer-architecture/02-data-representation\|computer-architecture/data representation]] until those are written |
+| Number bases, binary, decimal, hexadecimal, base conversion | [[foundations/mathematics/core/01-numbers/01-number-bases/01-introduction\|mathematics/number bases]] → [[foundations/mathematics/core/01-numbers/01-number-bases/02-binary\|binary]], [[foundations/mathematics/core/01-numbers/01-number-bases/04-hexadecimal\|hexadecimal]] |
 | Exponents, logarithms, scientific notation | [[foundations/mathematics/06-exponents\|mathematics/exponents]], [[foundations/mathematics/07-scientific-notation\|scientific notation]] |
 | Sets, functions, algebraic manipulation | [[foundations/mathematics/02-sets\|sets]], [[foundations/mathematics/05-algebraic-manipulation\|algebraic manipulation]] |
 | Boolean logic, proof, modular arithmetic | [[foundations/discrete-math/index\|discrete-math/]] |
@@ -57,8 +57,8 @@ The curriculum opens with **Part 0 (mathematics)** and **Part I (information and
 | Endianness, alignment, text encoding | [[foundations/computer-architecture/02-data-representation\|computer-architecture/data representation]] |
 | Information, entropy, encoding, error tolerance | [[foundations/information-theory/index\|information-theory/]] |
 
-> [!WARNING]
-> **Some of these targets are not yet written.** The `mathematics/` course has 18 one-sentence stub files, including the number-bases notes above and all of calculus. Where a row points at a stub it is marked; use the alternative given.
+> [!NOTE]
+> **The calculus rows are not yet written.** `mathematics/calculus/` is currently 14 stub files. This course uses calculus only qualitatively — to say "how fast something is changing" — so nothing here depends on them.
 
 **The one you will actually need early:** [[foundations/computer-architecture/02-data-representation|two's complement]]. [[how-computers-work/05-combinational/02-adders|Module 21]] builds a subtractor from it, and [[how-computers-work/05-combinational/04-the-alu|module 23]] uses its overflow rules for the flags. **Read that note before module 21** if the phrase "invert and add one" is not already familiar.
 
