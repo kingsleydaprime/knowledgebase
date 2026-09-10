@@ -366,7 +366,7 @@ Implement `classify_quadric(A, B, C, D)` for surfaces of the form $Ax^2 + By^2 +
 
 ## Tradeoffs, limits and extensions
 
-**Classification by signs needs the cross terms gone.** A general quadric $Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + \ldots = 0$ must first be rotated into alignment. The rotation that does it is found by **diagonalising** the symmetric matrix of coefficients, and the resulting signs are its **eigenvalues**. So this classification is really a theorem about eigenvalues in disguise — see **eigenvalues** *(reserved)*.
+**Classification by signs needs the cross terms gone.** A general quadric $Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + \ldots = 0$ must first be rotated into alignment. The rotation that does it is found by **diagonalising** the symmetric matrix of coefficients, and the resulting signs are its **eigenvalues**. So this classification is really a theorem about eigenvalues in disguise — see [[04-linear-algebra/06-eigenvalues/01-eigenvalues-and-eigenvectors|eigenvalues]].
 
 **The same statement classifies stationary points.** For a function of several variables, the second-derivative matrix — the Hessian — is symmetric, and the signs of its eigenvalues say whether a stationary point is a minimum (all positive), a maximum (all negative) or a saddle (mixed). The quadric surfaces in this lesson are exactly the shapes a function looks like near a stationary point, which is why the saddle appears in both settings.
 
@@ -383,11 +383,11 @@ You are done with this lesson when you can:
 
 **Recap for later lookup:** with $=1$, no minus signs gives an **ellipsoid**, one gives a **hyperboloid of one sheet**, two gives a **hyperboloid of two sheets**; the same signs with $=0$ give a **cone**. $z = x^2 + y^2$ is an **elliptic paraboloid** (a dish, which focuses parallel rays exactly); $z = x^2 - y^2$ is a **hyperbolic paraboloid** (a saddle). The plane, the one-sheet hyperboloid and the hyperbolic paraboloid are the only **doubly ruled** surfaces.
 
-**Where next:** this is the last lesson in geometry and trigonometry. The natural continuations are **eigenvalues** *(reserved)*, which explain the classification, and [[06-calculus/04-calculus-3/03-optimization|multivariable optimisation]], where saddle points become the central difficulty.
+**Where next:** this is the last lesson in geometry and trigonometry. The natural continuations are [[04-linear-algebra/06-eigenvalues/01-eigenvalues-and-eigenvectors|eigenvalues]], which explain the classification, and [[06-calculus/04-calculus-3/03-optimization|multivariable optimisation]], where saddle points become the central difficulty.
 
 ## Related
 
 - [[01-lines-and-planes|Lines and Planes in Space]] — the vector machinery the ruling lines are written in
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the conic sections these surfaces generalise
 - [[02-solids|Solids]] — the slicing idea the method of traces borrows
-- **Eigenvalues** *(reserved)* — where the classification is properly explained
+- [[04-linear-algebra/06-eigenvalues/01-eigenvalues-and-eigenvectors|Eigenvalues]] — where the classification is properly explained

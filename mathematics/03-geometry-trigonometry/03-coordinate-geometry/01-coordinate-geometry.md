@@ -401,4 +401,4 @@ You are done with this lesson when you can:
 - [[03-constructions|Constructions]] — the rhombus theorem proved the other way
 - [[01-circle-theorems|Circle Theorems]] — the same circles, by argument instead of equation
 - [[01-lines-and-planes|Lines and Planes in Space]] — the three-dimensional continuation
-- **Vectors** *(reserved)* — the dot product used in the perpendicularity proof
+- [[04-linear-algebra/02-vectors/01-vectors|Vectors]] — the dot product used in the perpendicularity proof

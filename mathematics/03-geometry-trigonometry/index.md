@@ -83,6 +83,6 @@ Every lesson's lab has been executed and its documented "Expected output" block 
 
 - [[foundations/mathematics/index|mathematics/]] — the parent course and the full topic map
 - [[01-linear-equations|Linear Equations]] — the algebra every angle chase reduces to
-- **Vectors** *(reserved)* — the same objects as lesson 15, developed as algebra
+- [[04-linear-algebra/02-vectors/01-vectors|Vectors]] — the same objects as lesson 15, developed as algebra
 - [[06-calculus/03-calculus-2/03-applications|Applications of Integration]] — where the mensuration limits become integrals
 - [[COURSE-STANDARD|Course standard]] — the teaching shape these lessons follow

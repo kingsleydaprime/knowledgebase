@@ -14,6 +14,7 @@ This course is **partly written**, and the table below is honest about which par
 | **Number bases** (binary, decimal, hex) | ✅ **written**, with a runnable lab |
 | **Discrete mathematics** | ✅ **written** — logic, proof, sets, induction, combinatorics, graphs, number theory |
 | **Geometry and trigonometry** | ✅ **written** — 16 lessons, deductive geometry through to quadric surfaces |
+| **Linear algebra** | ✅ **written** — 6 lessons, matrices through to eigenvalues and PageRank |
 | **Calculus** | ✅ **written** — limits, continuity, derivatives, integration, multivariable |
 
 **Every lesson linked below is written**, with prerequisites, worked examples, problems and hidden answers. The gaps that remain are *topics not yet started* — listed at the bottom — rather than empty files.
@@ -29,7 +30,7 @@ mathematics/
 |- 01-core/                       numbers and algebra - bases through to groups and rings
 |- 02-discrete-math/              logic, proof, counting, graphs                    [written]
 |- 03-geometry-trigonometry/      deductive -> circle -> trig -> mensuration     [written]
-|- 04-linear-algebra/             matrices, vectors, vector spaces, eigenvalues
+|- 04-linear-algebra/             matrices -> systems -> spaces -> eigenvalues     [written]
 |- 05-probability-statistics/     descriptive stats through to inference
 |- 06-calculus/                   intro -> Calculus 1-3 -> ODE/PDE -> analysis      [1-3 written]
 |- 07-applied-and-computational/  numerical methods, optimisation, control
@@ -76,6 +77,12 @@ What the curriculum assumes. Read first if any of it is shaky.
 → [[03-geometry-trigonometry/index|geometry-trigonometry/]] — deductive geometry and constructions, circle theorems and tangents, coordinate geometry, trigonometry from ratios through bearings to hyperbolic functions, mensuration, latitude and longitude, and lines, planes and quadric surfaces in space.
 
 Highlights worth knowing are there: **SSA producing two different triangles** from identical data, **Archimedes bracketing $\pi$** with polygons, **Cavalieri's derivation of the sphere**, why a **polar route beats flying due east**, and a curved surface — the cooling tower — **built entirely from straight lines**.
+
+## 04-linear-algebra
+
+**Written in full — 6 lessons.** Matrices, vectors, elimination, vector spaces, transformations and eigenvalues, merging the SS3 matrices-and-vectors strand with the university Year 1–2 course.
+
+→ [[04-linear-algebra/index|linear-algebra/]] — the running theme is that **a matrix is a function**: the multiplication rule is function composition, the determinant is an area factor, and eigenvectors are the directions the function does not turn.
 
 ## 06-calculus
 
@@ -182,12 +189,12 @@ Every topic in both outlines, and the folder it belongs to. ✅ = written, every
 
 | Folder | Collects | From |
 | :--- | :--- | :--- |
-| `01-matrices-and-determinants/` | addition, scalar multiplication, determinants and inverses of $2\times2$; general matrices, Cramer's rule | SS3 T1, Uni Y1S2 |
-| `02-vectors/` | components, magnitude, direction, scalar product; vector algebra in 2D and 3D, dot and cross products | SS3 T1, Uni Y1S2 |
-| `03-systems-of-linear-equations/` | Gaussian elimination, inverse matrices | Uni Y1S2 |
-| `04-vector-spaces/` | subspaces, linear independence, bases, dimension | Uni Y2S1 |
-| `05-linear-transformations/` | kernel and image | Uni Y2S1 |
-| `06-eigenvalues/` | eigenvalues and eigenvectors | Uni Y2S1 |
+| `01-matrices-and-determinants/` ✅ | addition, scalar multiplication, determinants and inverses of $2\times2$; general matrices, Cramer's rule | SS3 T1, Uni Y1S2 |
+| `02-vectors/` ✅ | components, magnitude, direction, scalar product; vector algebra in 2D and 3D, dot and cross products | SS3 T1, Uni Y1S2 |
+| `03-systems-of-linear-equations/` ✅ | Gaussian elimination, inverse matrices | Uni Y1S2 |
+| `04-vector-spaces/` ✅ | subspaces, linear independence, bases, dimension | Uni Y2S1 |
+| `05-linear-transformations/` ✅ | kernel and image | Uni Y2S1 |
+| `06-eigenvalues/` ✅ | eigenvalues and eigenvectors | Uni Y2S1 |
 
 ### `05-probability-statistics`
 
