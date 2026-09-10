@@ -251,6 +251,24 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[035-reverse-linked-list|Reverse Linked List]] (LeetCode #206) — the three-pointer flip everything else here builds on.
+2. [[045-reverse-nodes-in-k-group|Reverse Nodes in k-Group]] (LeetCode #25) — the same flip applied blockwise; the tail reconnection is the hard part.
+3. [[037-reorder-list|Reorder List]] (LeetCode #143) — reverse the second half, then interleave.
+4. [[040-add-two-numbers|Add Two Numbers]] (LeetCode #2) — not reversal, but the same dummy-head-and-walk discipline.
+5. [[039-copy-list-with-random-pointer|Copy List with Random Pointer]] (LeetCode #138) — pointer rewiring of a different kind; good practice at not losing a reference.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since partial and pairwise reversals are where the pointer bookkeeping actually bites:
+
+6. Reverse Linked List II (#92) — reverse only positions $m..n$; the boundary handling *is* the problem.
+7. Swap Nodes in Pairs (#24) — $k$-group with $k=2$ — do this before #25.
+8. Palindrome Linked List (#234) — reverse half the list in place.
+9. Rotate List (#61) — find the tail, close the ring, cut it.
+10. Odd Even Linked List (#328) — splice into two lists, then rejoin.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

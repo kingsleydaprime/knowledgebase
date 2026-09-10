@@ -267,6 +267,25 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[015-best-time-to-buy-and-sell-stock|Best Time to Buy and Sell Stock]] (LeetCode #121) — the degenerate window: track the minimum so far.
+2. [[016-longest-substring-without-repeating-characters|Longest Substring Without Repeating Characters]] (LeetCode #3) — grow on the right, shrink from the left the moment a repeat appears.
+3. [[017-longest-repeating-character-replacement|Longest Repeating Character Replacement]] (LeetCode #424) — the window is valid while length minus the most frequent count is at most $k$.
+4. [[018-permutation-in-string|Permutation in String]] (LeetCode #567) — a fixed-size window and a character-count comparison.
+5. [[019-minimum-window-substring|Minimum Window Substring]] (LeetCode #76) — the hardest of the family: expand to satisfy, then contract to minimise.
+6. [[020-sliding-window-maximum|Sliding Window Maximum]] (LeetCode #239) — a monotonic **deque** — where this pattern meets [[06-monotonic-stack|monotonic-stack]].
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they drill the window-validity predicate, which is the part that generalises:
+
+7. Minimum Size Subarray Sum (#209) — variable window on a numeric constraint; the cleanest drill of the pattern.
+8. Find All Anagrams in a String (#438) — fixed window, same counting as #567.
+9. Max Consecutive Ones III (#1004) — "at most $k$ zeros" is a window-validity predicate.
+10. Longest Substring with At Most K Distinct Characters (#340) — the general form the others specialise.
+11. Maximum Number of Vowels in a Substring of Given Length (#1456) — fixed window, minimal distraction.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

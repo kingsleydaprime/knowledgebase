@@ -289,6 +289,25 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[131-merge-intervals|Merge Intervals]] (LeetCode #56) — sort by start, then merge — the function the lab implements.
+2. [[130-insert-interval|Insert Interval]] (LeetCode #57) — before / overlapping / after, in one pass over an already-sorted list.
+3. [[132-non-overlapping-intervals|Non-overlapping Intervals]] (LeetCode #435) — sort by **end**, not start; the greedy choice changes.
+4. [[133-meeting-rooms|Meeting Rooms]] (LeetCode #252) — sort and look for any overlap at all.
+5. [[134-meeting-rooms-ii|Meeting Rooms II]] (LeetCode #253) — a min-heap of end times, or a sweep line.
+6. [[135-minimum-interval-to-include-each-query|Minimum Interval to Include Each Query]] (LeetCode #1851) — offline processing: sort the queries too.
+7. [[128-partition-labels|Partition Labels]] (LeetCode #763) — build intervals from last-occurrence indices, then merge — an interval problem wearing a string costume.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they cover the two-list and last-occurrence variants the 150 leaves out:
+
+8. Interval List Intersections (#986) — two sorted lists, two pointers; overlap is max-of-starts to min-of-ends.
+9. Remove Covered Intervals (#1288) — sort by start ascending **and** end descending.
+10. Data Stream as Disjoint Intervals (#352) — maintain a merged set as intervals arrive, rather than merging once at the end.
+11. Employee Free Time (#759) — merge everything, then report the gaps.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

@@ -277,6 +277,29 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[080-number-of-islands|Number of Islands]] (LeetCode #200) — the flood fill everything else here varies.
+2. [[082-max-area-of-island|Max Area of Island]] (LeetCode #695) — flood fill that returns a value.
+3. [[084-surrounded-regions|Surrounded Regions]] (LeetCode #130) — traverse from the border inward; the inversion is the trick.
+4. [[083-pacific-atlantic-water-flow|Pacific Atlantic Water Flow]] (LeetCode #417) — two traversals, then intersect the results.
+5. [[085-rotting-oranges|Rotting Oranges]] (LeetCode #994) — multi-source BFS on a grid.
+6. [[076-word-search|Word Search]] (LeetCode #79) — DFS with backtracking; the visited marker must be undone on the way out.
+7. [[136-rotate-image|Rotate Image]] (LeetCode #48) — transpose, then reverse each row, in place.
+8. [[137-spiral-matrix|Spiral Matrix]] (LeetCode #54) — four shrinking boundaries; entirely about index discipline.
+9. [[138-set-matrix-zeroes|Set Matrix Zeroes]] (LeetCode #73) — using row 0 and column 0 as the marker storage.
+10. [[117-longest-increasing-path-in-a-matrix|Longest Increasing Path in a Matrix]] (LeetCode #329) — DFS plus memo on a grid.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they are the plain versions, worth doing before the 150's composites:
+
+11. Flood Fill (#733) — the pattern with nothing else attached — start here.
+12. Number of Closed Islands (#1254) — #200 with the border cases inverted.
+13. Spiral Matrix II (#59) — writing in spiral order rather than reading.
+14. Game of Life (#289) — in-place update using encoded intermediate states.
+15. Maximal Square (#221) — where matrix traversal meets DP.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

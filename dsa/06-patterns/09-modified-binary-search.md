@@ -349,6 +349,27 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[028-binary-search|Binary Search]] (LeetCode #704) — the baseline — settle your loop invariant here, once.
+2. [[029-search-a-2d-matrix|Search a 2D Matrix]] (LeetCode #74) — index arithmetic turns the grid into one sorted array.
+3. [[030-koko-eating-bananas|Koko Eating Bananas]] (LeetCode #875) — binary search on the **answer**, with a feasibility predicate.
+4. [[031-find-minimum-in-rotated-sorted-array|Find Minimum in Rotated Sorted Array]] (LeetCode #153) — compare mid against the right end, not the left.
+5. [[032-search-in-rotated-sorted-array|Search in Rotated Sorted Array]] (LeetCode #33) — identify which half is sorted, then decide.
+6. [[033-time-based-key-value-store|Time Based Key-Value Store]] (LeetCode #981) — search for the largest timestamp not exceeding the query.
+7. [[034-median-of-two-sorted-arrays|Median of Two Sorted Arrays]] (LeetCode #4) — binary search on the partition point; the hardest in the set.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they drill boundary-finding and search-on-the-answer separately:
+
+8. Capacity To Ship Packages Within D Days (#1011) — the problem the lab's `min_ship_capacity` solves — do it after reading section 3.
+9. First Bad Version (#278) — the minimal find-the-boundary template.
+10. Search Insert Position (#35) — where the two loop conventions visibly differ.
+11. Find First and Last Position of Element in Sorted Array (#34) — two boundary searches in one problem.
+12. Find Peak Element (#162) — binary search with no sorted order at all, only a local condition.
+13. Split Array Largest Sum (#410) — search-on-the-answer again, with a harder predicate.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

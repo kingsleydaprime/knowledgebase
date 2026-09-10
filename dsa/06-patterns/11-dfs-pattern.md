@@ -214,6 +214,28 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[047-maximum-depth-of-binary-tree|Maximum Depth of Binary Tree]] (LeetCode #104) — the smallest complete DFS.
+2. [[048-diameter-of-binary-tree|Diameter of Binary Tree]] (LeetCode #543) — return one thing, track another — the pattern for "path through a node".
+3. [[049-balanced-binary-tree|Balanced Binary Tree]] (LeetCode #110) — the $-1$ sentinel that avoids recomputing heights.
+4. [[059-binary-tree-maximum-path-sum|Binary Tree Maximum Path Sum]] (LeetCode #124) — the hardest version of return-versus-track.
+5. [[080-number-of-islands|Number of Islands]] (LeetCode #200) — DFS flood fill on a grid.
+6. [[081-clone-graph|Clone Graph]] (LeetCode #133) — DFS with a visited map that doubles as the output.
+7. [[087-course-schedule|Course Schedule]] (LeetCode #207) — DFS cycle detection with three colours.
+8. [[083-pacific-atlantic-water-flow|Pacific Atlantic Water Flow]] (LeetCode #417) — DFS from the edges inward, twice, then intersect.
+9. [[117-longest-increasing-path-in-a-matrix|Longest Increasing Path in a Matrix]] (LeetCode #329) — DFS plus memoisation — which is dynamic programming on a graph.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they exercise carrying state **down** the recursion rather than returning it up:
+
+10. Path Sum (#112) — carrying state **down** instead of returning it up.
+11. Path Sum II (#113) — the same, but collecting the paths themselves.
+12. Sum Root to Leaf Numbers (#129) — accumulate a value along the path.
+13. Number of Provinces (#547) — connected components on an adjacency matrix.
+14. Minimum Time to Collect All Apples in a Tree (#1443) — post-order accumulation on a general tree.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

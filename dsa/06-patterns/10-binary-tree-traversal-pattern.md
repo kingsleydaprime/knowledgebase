@@ -243,6 +243,26 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[053-binary-tree-level-order-traversal|Binary Tree Level Order Traversal]] (LeetCode #102) — BFS — the traversal that is not a DFS order.
+2. [[054-binary-tree-right-side-view|Binary Tree Right Side View]] (LeetCode #199) — level order, keeping the last node of each level.
+3. [[057-kth-smallest-element-in-a-bst|Kth Smallest Element in a BST]] (LeetCode #230) — in-order is sorted for a BST; stop at $k$.
+4. [[056-validate-binary-search-tree|Validate Binary Search Tree]] (LeetCode #98) — in-order must be strictly increasing, or carry $(\min, \max)$ bounds down.
+5. [[058-construct-binary-tree-from-preorder-and-inorder-traversal|Construct Tree from Preorder & Inorder]] (LeetCode #105) — the traversals as *data* rather than as a procedure.
+6. [[060-serialize-and-deserialize-binary-tree|Serialize and Deserialize Binary Tree]] (LeetCode #297) — pre-order plus null markers is enough to rebuild the tree.
+7. [[046-invert-binary-tree|Invert Binary Tree]] (LeetCode #226) — any traversal works, which is itself worth noticing.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since the 150 never asks for the three DFS orders *iteratively*, which is the useful exercise:
+
+8. Binary Tree Inorder Traversal (#94) — do it **iteratively**, with an explicit stack.
+9. Binary Tree Postorder Traversal (#145) — the awkward one to write iteratively; worth the struggle.
+10. Binary Tree Zigzag Level Order Traversal (#103) — level order with alternating direction.
+11. Vertical Order Traversal of a Binary Tree (#987) — traversal plus coordinate bookkeeping.
+12. Binary Tree Vertical Order Traversal (#314) — the simpler vertical variant; do it first.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

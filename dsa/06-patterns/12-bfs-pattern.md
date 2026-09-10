@@ -250,6 +250,26 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[053-binary-tree-level-order-traversal|Binary Tree Level Order Traversal]] (LeetCode #102) — BFS where the level structure *is* the answer.
+2. [[054-binary-tree-right-side-view|Binary Tree Right Side View]] (LeetCode #199) — the last node of each level.
+3. [[085-rotting-oranges|Rotting Oranges]] (LeetCode #994) — **multi-source** BFS: every rotten orange starts in the queue.
+4. [[086-walls-and-gates|Walls and Gates]] (LeetCode #286) — multi-source again, from every gate.
+5. [[092-word-ladder|Word Ladder]] (LeetCode #127) — BFS over an implicit graph whose edges you compute on demand.
+6. [[080-number-of-islands|Number of Islands]] (LeetCode #200) — flood fill works either way; BFS avoids the deep recursion.
+7. [[081-clone-graph|Clone Graph]] (LeetCode #133) — the same problem as the DFS version — do both and compare.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they cover multi-source and state-space BFS, which the 150 only touches:
+
+8. 01 Matrix (#542) — multi-source BFS from every zero — the cleanest drill of that idea.
+9. Shortest Path in Binary Matrix (#1091) — eight-directional BFS, returning a length.
+10. Minimum Depth of Binary Tree (#111) — BFS can stop early here and DFS cannot; that is the whole lesson.
+11. Open the Lock (#752) — BFS over *states*, not positions.
+12. Bus Routes (#815) — BFS where the nodes are routes rather than stops.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:
