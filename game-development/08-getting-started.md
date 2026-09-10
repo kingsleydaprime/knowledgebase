@@ -56,7 +56,7 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 | Rendering, rasterisation, PBR, shading, ray tracing | [[foundations/computer-graphics/index\|computer graphics]] — 9 notes |
 | GPU pipeline, shaders, parallelism | [[foundations/gpu-and-parallel-computing/index\|GPU & parallel computing]] |
 | Integration, ODEs, numerical stability | [[foundations/numerical-methods/index\|numerical methods]] |
-| Trees, BVH, spatial partitioning, A\*, graphs | [[foundations/dsa/index\|DSA]] · [[foundations/discrete-math/07-graph-theory\|graph theory]] |
+| Trees, BVH, spatial partitioning, A\*, graphs | [[foundations/dsa/index\|DSA]] · [[foundations/mathematics/02-discrete-math/07-graph-theory\|graph theory]] |
 | Neural nets, decision trees, RL, naive Bayes | [[ai-ml/index\|AI & ML]] |
 | Memory, caches, data-oriented design | [[foundations/computer-architecture/index\|computer architecture]] |
 | C++, Rust, Python | [[languages/index\|languages]] |

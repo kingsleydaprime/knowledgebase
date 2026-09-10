@@ -18,7 +18,7 @@ An 8-character password from 62 alphanumerics: $62^8 \approx 2.2 \times 10^{14}$
 
 **Sum rule** — mutually exclusive alternatives add.
 
-**Getting these two straight is most of elementary counting.** "And" multiplies, "or" (disjoint) adds — the same structure as [[foundations/discrete-math/02-logic|logic]] and [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]], which is not a coincidence.
+**Getting these two straight is most of elementary counting.** "And" multiplies, "or" (disjoint) adds — the same structure as [[foundations/mathematics/02-discrete-math/02-logic|logic]] and [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]], which is not a coincidence.
 
 ## Permutations and combinations
 
@@ -50,7 +50,7 @@ Can items repeat?
 
 $$\binom{n}{k} = \binom{n}{n-k} \qquad \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k} \qquad \sum_{k=0}^{n}\binom{n}{k} = 2^n$$
 
-**The middle one is Pascal's rule** — and it's a recurrence, so it's the DP formulation of binomial coefficients. **The last one says the subsets of an $n$-set number $2^n$**, counted by size, which connects straight back to [[foundations/discrete-math/04-sets-relations-and-functions|power sets]].
+**The middle one is Pascal's rule** — and it's a recurrence, so it's the DP formulation of binomial coefficients. **The last one says the subsets of an $n$-set number $2^n$**, counted by size, which connects straight back to [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|power sets]].
 
 ## The pigeonhole principle
 
@@ -68,7 +68,7 @@ $$\binom{n}{k} = \binom{n}{n-k} \qquad \binom{n}{k} = \binom{n-1}{k-1} + \binom{
 
 **In any set of $n+1$ integers from $1..2n$, two are coprime** — a genuinely non-obvious result from a very obvious principle.
 
-**Two people in London have the same number of head hairs.** Non-constructive: certainly true, and you'll never know who. → [[foundations/discrete-math/03-proof-techniques|Proof Techniques]]
+**Two people in London have the same number of head hairs.** Non-constructive: certainly true, and you'll never know who. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 ## Inclusion–exclusion
 
@@ -80,7 +80,7 @@ $$|A\cup B\cup C| = |A|+|B|+|C| - |A\cap B| - |A\cap C| - |B\cap C| + |A\cap B\c
 
 **Alternating signs, and in general $2^n - 1$ terms** — which is why it's elegant and often impractical for large $n$.
 
-**Where it shows up:** counting query results across overlapping conditions, derangements (permutations with no fixed point), and Euler's totient function in [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|number theory]].
+**Where it shows up:** counting query results across overlapping conditions, derangements (permutations with no fixed point), and Euler's totient function in [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|number theory]].
 
 ## The birthday problem
 
@@ -157,7 +157,7 @@ Multiply then divide, in that order — the intermediate is always an integer.
 ---
 
 ## Related
-- [[foundations/discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — power sets and cardinality
+- [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — power sets and cardinality
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — where counting becomes probability
 - [[cybersecurity/05-cryptography/03-hashing-and-integrity|Hashing and Integrity]] — the birthday bound applied
-- [[foundations/discrete-math/index|Discrete maths map]]
+- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]

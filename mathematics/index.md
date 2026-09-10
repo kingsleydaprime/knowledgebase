@@ -13,6 +13,7 @@ This course is **partly written**, and the table below is honest about which par
 | **Foundations** (numbers → scientific notation) | ✅ **written**, with problems and worked answers |
 | **Number bases** (binary, decimal, hex) | ✅ **written**, with a runnable lab |
 | **Discrete mathematics** | ✅ **written** — logic, proof, sets, induction, combinatorics, graphs, number theory |
+| **Geometry and trigonometry** | ✅ **written** — 16 lessons, deductive geometry through to quadric surfaces |
 | **Calculus** | ✅ **written** — limits, continuity, derivatives, integration, multivariable |
 
 **Every lesson linked below is written**, with prerequisites, worked examples, problems and hidden answers. The gaps that remain are *topics not yet started* — listed at the bottom — rather than empty files.
@@ -27,7 +28,7 @@ The order is dependency order. Calculus is **last** because it needs the algebra
 mathematics/
 |- 01-core/                       numbers and algebra - bases through to groups and rings
 |- 02-discrete-math/              logic, proof, counting, graphs                    [written]
-|- 03-geometry-trigonometry/      deductive, circle, coordinate, trig, mensuration
+|- 03-geometry-trigonometry/      deductive -> circle -> trig -> mensuration     [written]
 |- 04-linear-algebra/             matrices, vectors, vector spaces, eigenvalues
 |- 05-probability-statistics/     descriptive stats through to inference
 |- 06-calculus/                   intro -> Calculus 1-3 -> ODE/PDE -> analysis      [1-3 written]
@@ -67,6 +68,14 @@ What the curriculum assumes. Read first if any of it is shaky.
 **The most complete part of this course**, and the one computing draws on most.
 
 → [[02-discrete-math/index|discrete-math/]] — logic and truth tables, proof techniques, sets and relations, induction and recursion, combinatorics, graph theory, number theory and modular arithmetic, plus exercises and solutions.
+
+## 03-geometry-trigonometry
+
+**Written in full — 16 lessons.** Shape and measurement, from angle chasing to three-dimensional surfaces, merging the SS1–SS3 geometry and trigonometry strands with the university vectors-and-analytic-geometry course.
+
+→ [[03-geometry-trigonometry/index|geometry-trigonometry/]] — deductive geometry and constructions, circle theorems and tangents, coordinate geometry, trigonometry from ratios through bearings to hyperbolic functions, mensuration, latitude and longitude, and lines, planes and quadric surfaces in space.
+
+Highlights worth knowing are there: **SSA producing two different triangles** from identical data, **Archimedes bracketing $\pi$** with polygons, **Cavalieri's derivation of the sphere**, why a **polar route beats flying due east**, and a curved surface — the cooling tower — **built entirely from straight lines**.
 
 ## 06-calculus
 
@@ -108,7 +117,7 @@ Calculus 1–3 are written in full; the SS3 introduction, ODEs, PDEs and the ana
 | :--- | :--- |
 | Number bases | [[foundations/how-computers-work/index\|How Computers Work]], [[foundations/computer-architecture/02-data-representation\|data representation]] |
 | Exponents, logarithms | [[foundations/dsa/05-algorithms/01-algorithms\|complexity analysis]] — every $\log n$ |
-| Sets, logic, proof | [[foundations/discrete-math/index\|discrete-math]], [[foundations/theory-of-computation/index\|theory of computation]] |
+| Sets, logic, proof | [[foundations/mathematics/02-discrete-math/index\|discrete-math]], [[foundations/theory-of-computation/index\|theory of computation]] |
 | Combinatorics | [[foundations/dsa/index\|DSA]] — counting arrangements in backtracking and DP |
 | Graph theory | [[foundations/dsa/04-data-structures/06-graphs\|graphs]], [[foundations/networking/index\|networking]] |
 | Modular arithmetic | [[foundations/cybersecurity/05-cryptography/index\|cryptography]], hashing |
@@ -161,13 +170,13 @@ Every topic in both outlines, and the folder it belongs to. ✅ = written, every
 
 | Folder | Collects | From |
 | :--- | :--- | :--- |
-| `01-deductive-geometry/` | angles on a line, parallel lines, triangle properties, constructions of $30°, 45°, 60°, 90°$ | SS1 T2 |
-| `02-circle-geometry/` | chords, angles at centre and circumference, cyclic quadrilaterals, tangents, alternate segments | SS2 T2, SS2 T3 |
-| `03-coordinate-geometry/` | midpoint, gradient, distance, equation of a straight line | SS2 T3 |
-| `04-trigonometry/` | sine, cosine, tangent, graphs, elevation and depression, sine and cosine rules, bearings, hyperbolic functions | SS1 T3, SS2 T3, Uni Y1S1 |
-| `05-mensuration/` | perimeter and area of plane shapes, surface area and volume of solids | SS1 T3 |
-| `06-latitude-and-longitude/` | great circles, parallels of latitude, distances | SS3 T1 |
-| `07-analytic-geometry-3d/` | lines and planes in space, quadric surfaces | Uni Y1S2 |
+| `01-deductive-geometry/` ✅ | angles on a line, parallel lines, triangle properties, constructions of $30°, 45°, 60°, 90°$ | SS1 T2 |
+| `02-circle-geometry/` ✅ | chords, angles at centre and circumference, cyclic quadrilaterals, tangents, alternate segments | SS2 T2, SS2 T3 |
+| `03-coordinate-geometry/` ✅ | midpoint, gradient, distance, equation of a straight line | SS2 T3 |
+| `04-trigonometry/` ✅ | sine, cosine, tangent, graphs, elevation and depression, sine and cosine rules, bearings, hyperbolic functions | SS1 T3, SS2 T3, Uni Y1S1 |
+| `05-mensuration/` ✅ | perimeter and area of plane shapes, surface area and volume of solids | SS1 T3 |
+| `06-latitude-and-longitude/` ✅ | great circles, parallels of latitude, distances | SS3 T1 |
+| `07-analytic-geometry-3d/` ✅ | lines and planes in space, quadric surfaces | Uni Y1S2 |
 
 ### `04-linear-algebra`
 
@@ -226,7 +235,7 @@ Every topic in both outlines, and the folder it belongs to. ✅ = written, every
 
 ## Related
 
-- [[foundations/discrete-math/index|discrete-math/]] — the written continuation
+- [[foundations/mathematics/02-discrete-math/index|discrete-math/]] — the written continuation
 - [[foundations/numerical-methods/index|numerical-methods/]] — what happens when exact answers are unavailable
 - [[foundations/how-computers-work/index|How Computers Work]] — the course this one feeds most directly
 - [[COURSE-STANDARD|Course standard]] — the teaching shape these lessons follow

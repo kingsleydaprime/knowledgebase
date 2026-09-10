@@ -54,7 +54,7 @@
 
 **Three optimisations make this viable:**
 
-**Bloom filters.** A small probabilistic structure per SSTable answering "is this key definitely absent?" **No false negatives, some false positives** — so a negative answer lets you skip the file entirely without reading it. **This is what makes LSM point lookups practical**, typically eliminating 99%+ of unnecessary file reads. → [[foundations/discrete-math/06-combinatorics-and-counting|The probability behind it]]
+**Bloom filters.** A small probabilistic structure per SSTable answering "is this key definitely absent?" **No false negatives, some false positives** — so a negative answer lets you skip the file entirely without reading it. **This is what makes LSM point lookups practical**, typically eliminating 99%+ of unnecessary file reads. → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|The probability behind it]]
 
 **Sparse indexes and block caches** — each SSTable has an index of block offsets, so you binary-search within a file.
 

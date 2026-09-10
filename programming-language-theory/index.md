@@ -38,7 +38,7 @@ Studying languages as mathematical objects — what a program *means*, and what 
 | | |
 |---|---|
 | [[foundations/compilers/index\|compilers]] | **The implementation counterpart.** Theory here, machinery there |
-| [[foundations/discrete-math/02-logic\|logic]] · [[foundations/discrete-math/03-proof-techniques\|proof]] | **The prerequisite**, and half of Curry–Howard |
+| [[foundations/mathematics/02-discrete-math/02-logic\|logic]] · [[foundations/mathematics/02-discrete-math/03-proof-techniques\|proof]] | **The prerequisite**, and half of Curry–Howard |
 | [[foundations/theory-of-computation/06-decidability\|decidability]] | Why type checkers must be conservative |
 | [[languages/03-rust/03-ownership\|Rust]] | Where this theory most visibly shipped |
 | [[languages/05-cpp/index\|C++]] · [[languages/01-java/index\|Java]] | Variance, erasure, move semantics — the design decisions explained |
@@ -70,5 +70,5 @@ Studying languages as mathematical objects — what a program *means*, and what 
 ## Related
 - [[foundations/compilers/index|Compilers]] — the implementation side
 - [[foundations/theory-of-computation/index|Theory of Computation]] — the sibling theory domain
-- [[foundations/discrete-math/index|Discrete Mathematics]] — the prerequisite
+- [[foundations/mathematics/02-discrete-math/index|Discrete Mathematics]] — the prerequisite
 - [[BUILD-PLAN|Build Plan]]

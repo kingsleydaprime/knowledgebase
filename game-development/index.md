@@ -18,7 +18,7 @@ Games were one of the three reasons you came into tech. That's reason enough to 
 | Rendering, rasterisation, PBR, shading, ray tracing | [[foundations/computer-graphics/index\|computer graphics]] — 9 notes |
 | Shaders, GPU parallelism | [[foundations/gpu-and-parallel-computing/index\|GPU & parallel computing]] |
 | Integration, stability, ODEs | [[foundations/numerical-methods/index\|numerical methods]] |
-| BVH, trees, A\*, graphs | [[foundations/dsa/index\|DSA]] · [[foundations/discrete-math/07-graph-theory\|graph theory]] |
+| BVH, trees, A\*, graphs | [[foundations/dsa/index\|DSA]] · [[foundations/mathematics/02-discrete-math/07-graph-theory\|graph theory]] |
 | Neural nets, decision trees, RL | [[ai-ml/index\|AI & ML]] |
 | Caches, data-oriented design | [[foundations/computer-architecture/index\|computer architecture]] |
 | UDP, latency, distributed state | [[foundations/networking/index\|networking]] |

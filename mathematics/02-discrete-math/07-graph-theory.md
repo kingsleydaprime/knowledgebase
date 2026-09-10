@@ -136,5 +136,5 @@ Recognising these tells you which algorithms apply:
 ## Related
 - [[foundations/dsa/04-data-structures/06-graphs|Graphs (data structure)]] — the implementation view
 - [[foundations/dsa/05-algorithms/06-dijkstra|Dijkstra]] · [[foundations/dsa/05-algorithms/11-topological-sort|Topological Sort]] — the algorithms
-- [[foundations/discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — a graph is a relation
-- [[foundations/discrete-math/index|Discrete maths map]]
+- [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — a graph is a relation
+- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]

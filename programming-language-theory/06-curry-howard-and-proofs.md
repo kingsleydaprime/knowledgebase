@@ -78,7 +78,7 @@ $$\text{Excluded middle} \quad\longleftrightarrow\quad \texttt{forall a. Either 
 
 > **The practical meaning: a constructive proof carries an algorithm.** Prove "there exists an $x$ with property $P$" and **you have produced an $x$** — the proof *is* the construction.
 >
-> **A classical proof by contradiction gives you existence with no witness.** For mathematics that's fine; **for programming it's useless**, because you cannot run it. → [[foundations/discrete-math/03-proof-techniques|Non-constructive proofs]]
+> **A classical proof by contradiction gives you existence with no witness.** For mathematics that's fine; **for programming it's useless**, because you cannot run it. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Non-constructive proofs]]
 
 **Classical reasoning is recoverable** — via continuations, remarkably. **`callcc` has the type of Peirce's law**, $((A\Rightarrow B)\Rightarrow A)\Rightarrow A$, which is equivalent to the excluded middle. **Control operators correspond to classical logic** (Griffin, 1990), which is a genuinely startling connection between exception handling and proof theory.
 
@@ -175,6 +175,6 @@ enum State {
 
 ## Related
 - [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness
-- [[foundations/discrete-math/02-logic|Logic]] — the other half of the correspondence
-- [[foundations/discrete-math/03-proof-techniques|Proof Techniques]] — constructive vs classical
+- [[foundations/mathematics/02-discrete-math/02-logic|Logic]] — the other half of the correspondence
+- [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — constructive vs classical
 - [[foundations/programming-language-theory/index|PL theory map]]

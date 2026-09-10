@@ -28,7 +28,7 @@
 
 Written to explain *why* the practical courses are shaped as they are.
 
-- [[foundations/discrete-math/index|discrete-math/]] — **[Intermediate]** · 11 notes — logic → proof → sets, relations, functions → induction and recurrences → combinatorics → graphs → **number theory, with RSA derived in eight lines**
+- [[foundations/mathematics/02-discrete-math/index|discrete-math/]] — **[Intermediate]** · 11 notes — logic → proof → sets, relations, functions → induction and recurrences → combinatorics → graphs → **number theory, with RSA derived in eight lines**
 - [[foundations/theory-of-computation/index|theory-of-computation/]] — **[Advanced]** · 11 notes — the Chomsky hierarchy → finite automata → regular and context-free languages → Turing machines → decidability and Rice's theorem → P vs NP → quantum. **Explains why [[foundations/compilers/index|compilers/]] is structured as it is**
 - [[foundations/programming-language-theory/index|programming-language-theory/]] — **[Advanced]** · 10 notes — lambda calculus → semantics → type systems → inference → Curry–Howard → effects and substructural types. **Where Rust's borrow checker comes from**
 - [[foundations/information-theory/index|information-theory/]] — **[Intermediate]** · 10 notes — entropy → mutual information → compression → **cross-entropy and KL divergence** (the note [[ai-ml/index|ai-ml]] needed) → channel capacity → error-correcting codes

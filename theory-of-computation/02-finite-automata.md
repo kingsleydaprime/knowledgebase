@@ -57,7 +57,7 @@ $$\delta: Q\times(\Sigma\cup\{\epsilon\}) \to \mathcal{P}(Q)$$
 
 **DFA minimisation** then finds the unique smallest equivalent DFA, by merging states that can't be distinguished by any suffix (Hopcroft's algorithm, $O(n\log n)$).
 
-> **The minimal DFA is unique up to renaming** — a genuinely elegant result, and it comes from **Myhill–Nerode**: the states of the minimal DFA *are* the equivalence classes of "strings that behave identically from here on". [[foundations/discrete-math/04-sets-relations-and-functions|Equivalence relations]] doing real work.
+> **The minimal DFA is unique up to renaming** — a genuinely elegant result, and it comes from **Myhill–Nerode**: the states of the minimal DFA *are* the equivalence classes of "strings that behave identically from here on". [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Equivalence relations]] doing real work.
 
 ## Regular expressions are the same thing
 

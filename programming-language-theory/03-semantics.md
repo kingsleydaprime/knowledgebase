@@ -52,7 +52,7 @@ $$[\![e_1 + e_2]\!]\rho = [\![e_1]\!]\rho + [\![e_2]\!]\rho$$
 
 > **$\bot$ is the key idea: non-termination is a *value*.** It's the least-defined one, and every recursive definition converges to a least fixed point in that order.
 >
-> **This is where lattices earn their keep**, and it's the same machinery as [[foundations/discrete-math/04-sets-relations-and-functions|partial orders]] and as dataflow analysis in compilers. → [[foundations/compilers/07-optimisation|Optimisation]]
+> **This is where lattices earn their keep**, and it's the same machinery as [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|partial orders]] and as dataflow analysis in compilers. → [[foundations/compilers/07-optimisation|Optimisation]]
 
 **Denotational semantics is best for proving *equivalences*** — two programs are equal if their denotations are. **That's exactly what an optimisation must establish.**
 
@@ -78,9 +78,9 @@ $$\overline{\{Q[x := e]\}\ x := e\ \{Q\}}$$
 
 $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wedge \neg B\}}$$
 
-> **$I$ is the loop invariant, and this rule *is* [[foundations/discrete-math/05-induction-and-recursion|induction]]** — true before, preserved by each iteration, therefore true at the end.
+> **$I$ is the loop invariant, and this rule *is* [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|induction]]** — true before, preserved by each iteration, therefore true at the end.
 >
-> **Note the triple only promises partial correctness** — "if it terminates". **Termination is a separate obligation** requiring a variant: a quantity that strictly decreases and is bounded below. → [[foundations/discrete-math/03-proof-techniques|Proof Techniques]]
+> **Note the triple only promises partial correctness** — "if it terminates". **Termination is a separate obligation** requiring a variant: a quantity that strictly decreases and is bounded below. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 **Where this is used in practice:** design-by-contract (Eiffel, JML, Ada SPARK), and **verification tools** — Dafny, Why3, Frama-C, and the SMT-backed verifiers behind them. **`assert` statements are Hoare postconditions**, informally.
 
@@ -143,6 +143,6 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 
 ## Related
 - [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness, proved against these semantics
-- [[foundations/discrete-math/03-proof-techniques|Proof Techniques]] — loop invariants as induction
+- [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — loop invariants as induction
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — semantics deliberately left open
 - [[foundations/programming-language-theory/index|PL theory map]]

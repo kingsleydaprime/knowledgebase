@@ -10,26 +10,26 @@ The mathematics of things you can count. Logic, proof, sets, induction, counting
 
 **02–05 are the core and build in order.** Logic gives the language, proof gives the method, sets give the objects, induction ties them together. **06–08 are applications** and can be read in any order after that.
 
-1. [[foundations/discrete-math/01-why-discrete-math|Why Discrete Math]] — **[Beginner]** — continuous vs discrete, where it's already showing up in your code, and the honest case for and against learning it
-2. [[foundations/discrete-math/02-logic|Logic]] — **[Beginner]** — propositions, De Morgan, quantifiers, and **why implication is true when the premise is false**
-3. [[foundations/discrete-math/03-proof-techniques|Proof Techniques]] — **[Beginner → Intermediate]** — direct, contrapositive, contradiction, cases, counterexample, and **loop invariants as induction in disguise**
-4. [[foundations/discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — **[Beginner → Intermediate]** — the vocabulary of structure, equivalence relations and partial orders, and **why there are more problems than programs**
-5. [[foundations/discrete-math/05-induction-and-recursion|Induction and Recursion]] — **[Intermediate]** — weak, strong and structural induction; recurrences and the Master Theorem. **The most important note here**
-6. [[foundations/discrete-math/06-combinatorics-and-counting|Combinatorics and Counting]] — **[Intermediate]** — permutations, combinations, pigeonhole, and **the birthday bound that halves your hash's security**
-7. [[foundations/discrete-math/07-graph-theory|Graph Theory]] — **[Intermediate]** — the most reusable modelling tool in the subject, and **why "shortest path" is easy while "longest path" is NP-hard**
-8. [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|Number Theory and Modular Arithmetic]] — **[Intermediate]** — GCD, primes, modular exponentiation, and **RSA stated completely in eight lines**
+1. [[foundations/mathematics/02-discrete-math/01-why-discrete-math|Why Discrete Math]] — **[Beginner]** — continuous vs discrete, where it's already showing up in your code, and the honest case for and against learning it
+2. [[foundations/mathematics/02-discrete-math/02-logic|Logic]] — **[Beginner]** — propositions, De Morgan, quantifiers, and **why implication is true when the premise is false**
+3. [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — **[Beginner → Intermediate]** — direct, contrapositive, contradiction, cases, counterexample, and **loop invariants as induction in disguise**
+4. [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — **[Beginner → Intermediate]** — the vocabulary of structure, equivalence relations and partial orders, and **why there are more problems than programs**
+5. [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — **[Intermediate]** — weak, strong and structural induction; recurrences and the Master Theorem. **The most important note here**
+6. [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|Combinatorics and Counting]] — **[Intermediate]** — permutations, combinations, pigeonhole, and **the birthday bound that halves your hash's security**
+7. [[foundations/mathematics/02-discrete-math/07-graph-theory|Graph Theory]] — **[Intermediate]** — the most reusable modelling tool in the subject, and **why "shortest path" is easy while "longest path" is NP-hard**
+8. [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Number Theory and Modular Arithmetic]] — **[Intermediate]** — GCD, primes, modular exponentiation, and **RSA stated completely in eight lines**
 
 ## The things worth carrying
 
-1. **$p \to q$ is equivalent to its contrapositive, not its converse.** Confusing a statement with its converse is the most common reasoning error there is → [[foundations/discrete-math/02-logic|02]]
-2. **Quantifier order changes the claim.** "For every input there's a fast algorithm" and "there's an algorithm fast on every input" are different questions → [[foundations/discrete-math/02-logic|02]]
-3. **Disproving $\forall$ takes one counterexample; proving it takes an argument.** That asymmetry is why finding a bug is easy and proving correctness is hard → [[foundations/discrete-math/03-proof-techniques|03]]
-4. **A loop invariant is an inductive proof.** If you can't name the quantity that decreases, you may not have termination → [[foundations/discrete-math/05-induction-and-recursion|05]]
-5. **There are more problems than programs** — programs are countable, functions aren't. Undecidability stops being surprising → [[foundations/discrete-math/04-sets-relations-and-functions|04]]
-6. **Pigeonhole proves that lossless compression can't shrink every input** and that hash collisions are guaranteed. Both in one line → [[foundations/discrete-math/06-combinatorics-and-counting|06]]
-7. **An $n$-bit hash gives $n/2$ bits of collision resistance.** The birthday bound is why SHA-1 fell → [[foundations/discrete-math/06-combinatorics-and-counting|06]]
-8. **"Is this a graph problem?" is one of the highest-value questions in problem solving.** The answer is yes more often than expected → [[foundations/discrete-math/07-graph-theory|07]]
-9. **Primality testing is easy; factoring is hard.** That single gap is the foundation of RSA — and it's conjectured, not proved → [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|08]]
+1. **$p \to q$ is equivalent to its contrapositive, not its converse.** Confusing a statement with its converse is the most common reasoning error there is → [[foundations/mathematics/02-discrete-math/02-logic|02]]
+2. **Quantifier order changes the claim.** "For every input there's a fast algorithm" and "there's an algorithm fast on every input" are different questions → [[foundations/mathematics/02-discrete-math/02-logic|02]]
+3. **Disproving $\forall$ takes one counterexample; proving it takes an argument.** That asymmetry is why finding a bug is easy and proving correctness is hard → [[foundations/mathematics/02-discrete-math/03-proof-techniques|03]]
+4. **A loop invariant is an inductive proof.** If you can't name the quantity that decreases, you may not have termination → [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|05]]
+5. **There are more problems than programs** — programs are countable, functions aren't. Undecidability stops being surprising → [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|04]]
+6. **Pigeonhole proves that lossless compression can't shrink every input** and that hash collisions are guaranteed. Both in one line → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|06]]
+7. **An $n$-bit hash gives $n/2$ bits of collision resistance.** The birthday bound is why SHA-1 fell → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|06]]
+8. **"Is this a graph problem?" is one of the highest-value questions in problem solving.** The answer is yes more often than expected → [[foundations/mathematics/02-discrete-math/07-graph-theory|07]]
+9. **Primality testing is easy; factoring is hard.** That single gap is the foundation of RSA — and it's conjectured, not proved → [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|08]]
 
 ## Where this connects
 
@@ -62,8 +62,8 @@ The gap is closable cheaply, and unlike most of this vault it needs no hardware:
 
 ## Practice
 
-- [[foundations/discrete-math/09-practice-exercises|Practice Exercises]] — sixteen problems, mostly with paper — including the horses proof, a loop invariant on real code, and RSA by hand
-- [[foundations/discrete-math/10-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
+- [[foundations/mathematics/02-discrete-math/09-practice-exercises|Practice Exercises]] — sixteen problems, mostly with paper — including the horses proof, a loop invariant on real code, and RSA by hand
+- [[foundations/mathematics/02-discrete-math/10-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
 - [[foundations/theory-of-computation/index|Theory of Computation]] — the direct continuation

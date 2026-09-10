@@ -52,7 +52,7 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 
 **Judgements** are the statements being derived: $\Gamma \vdash e : \tau$ (typing), $e \to e'$ (evaluation), $\Gamma \vdash e_1 \equiv e_2$ (equivalence).
 
-> **Once you can read an inference rule, most PL papers become accessible.** It's a small notational investment with a large payoff — and it's the same structure as the natural-deduction proofs in [[foundations/discrete-math/02-logic|logic]], which isn't a coincidence.
+> **Once you can read an inference rule, most PL papers become accessible.** It's a small notational investment with a large payoff — and it's the same structure as the natural-deduction proofs in [[foundations/mathematics/02-discrete-math/02-logic|logic]], which isn't a coincidence.
 
 ## The results worth knowing
 
@@ -111,7 +111,7 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 
 **07–08 are effects and where the field is going.**
 
-**Prerequisites:** [[foundations/discrete-math/02-logic|logic]] and [[foundations/discrete-math/03-proof-techniques|proof by induction]] — **structural induction especially**, since every soundness proof is one. [[foundations/compilers/index|Compilers]] helps for grounding but isn't required.
+**Prerequisites:** [[foundations/mathematics/02-discrete-math/02-logic|logic]] and [[foundations/mathematics/02-discrete-math/03-proof-techniques|proof by induction]] — **structural induction especially**, since every soundness proof is one. [[foundations/compilers/index|Compilers]] helps for grounding but isn't required.
 
 ---
 

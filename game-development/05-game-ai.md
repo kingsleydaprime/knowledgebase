@@ -110,7 +110,7 @@ Where it does appear:
 
 ## Related
 - [[foundations/dsa/05-algorithms/06-dijkstra|Dijkstra]] · [[foundations/dsa/05-algorithms/03-bfs|BFS]] — pathfinding's foundation
-- [[foundations/discrete-math/07-graph-theory|graph theory]] — what a navmesh is
+- [[foundations/mathematics/02-discrete-math/07-graph-theory|graph theory]] — what a navmesh is
 - [[ai-ml/index|AI & ML]] — the other kind of AI
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — where AI ticks
 

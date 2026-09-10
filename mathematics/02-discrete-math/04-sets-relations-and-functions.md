@@ -49,7 +49,7 @@ $$|A \times B| = |A| \cdot |B|$$
 
 $$\overline{A \cup B} = \bar{A} \cap \bar{B}$$
 
-That's not a coincidence: both are Boolean algebras. → [[foundations/discrete-math/02-logic|Logic]]
+That's not a coincidence: both are Boolean algebras. → [[foundations/mathematics/02-discrete-math/02-logic|Logic]]
 
 ### Infinite sets and countability
 
@@ -147,14 +147,14 @@ The **transitive closure** of $R$ adds every pair reachable by a chain. Given "d
 
 **Collections** — `Set`, `Map`, and the `equals`/`hashCode` contract as equivalence-relation axioms.
 
-**Graphs** — a graph is a set of vertices plus a relation on them. → [[foundations/discrete-math/07-graph-theory|Graph Theory]]
+**Graphs** — a graph is a set of vertices plus a relation on them. → [[foundations/mathematics/02-discrete-math/07-graph-theory|Graph Theory]]
 
 **Distributed systems** — partial orders, lattices, and CRDT merge as a least-upper-bound operation.
 
 ---
 
 ## Related
-- [[foundations/discrete-math/05-induction-and-recursion|Induction and Recursion]] — proving things about these structures
-- [[foundations/discrete-math/07-graph-theory|Graph Theory]] — relations, drawn
+- [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — proving things about these structures
+- [[foundations/mathematics/02-discrete-math/07-graph-theory|Graph Theory]] — relations, drawn
 - [[foundations/theory-of-computation/06-decidability|Decidability]] — where countability does real work
-- [[foundations/discrete-math/index|Discrete maths map]]
+- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]

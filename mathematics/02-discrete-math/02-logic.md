@@ -67,7 +67,7 @@ $$\boxed{p \to q \equiv \neg q \to \neg p}$$
 
 **Confusing a statement with its converse is the most common reasoning error there is** — in code review, in debugging, in medical statistics, everywhere. "All bugs of this type show symptom X" does not mean "symptom X means this bug type".
 
-**The contrapositive is a proof technique.** If proving $p \to q$ directly is awkward, prove $\neg q \to \neg p$ instead — it's the same statement and is often much easier. → [[foundations/discrete-math/03-proof-techniques|Proof Techniques]]
+**The contrapositive is a proof technique.** If proving $p \to q$ directly is awkward, prove $\neg q \to \neg p$ instead — it's the same statement and is often much easier. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 ## Equivalences worth knowing
 
@@ -174,7 +174,7 @@ An **argument** is premises plus a conclusion. It's **valid** if the conclusion 
 ---
 
 ## Related
-- [[foundations/discrete-math/03-proof-techniques|Proof Techniques]] — using this to establish things
-- [[foundations/discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the objects logic talks about
+- [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — using this to establish things
+- [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the objects logic talks about
 - [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — where SAT becomes central
-- [[foundations/discrete-math/index|Discrete maths map]]
+- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]

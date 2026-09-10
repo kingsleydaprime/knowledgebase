@@ -122,13 +122,13 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 
 **Formally:** the recursion must be on a **well-founded** partial order — one with no infinite descending chains. $\mathbb{N}$ under $<$ is well-founded; $\mathbb{Z}$ is not, and $\mathbb{R}$ under $<$ on $[0,1]$ is not (you can always halve).
 
-**The practical rule:** identify what decreases and what its floor is. If you can't name it, you may not have termination — **the same variant argument as a loop**, because it's the same argument. → [[foundations/discrete-math/03-proof-techniques|Proof Techniques]]
+**The practical rule:** identify what decreases and what its floor is. If you can't name it, you may not have termination — **the same variant argument as a loop**, because it's the same argument. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 **And this is why total-functional languages (Coq, Agda, Lean) reject recursion they can't prove terminating.** They must — a non-terminating function would let you "prove" anything, since an infinite loop inhabits every type. It's the Curry–Howard correspondence enforcing itself.
 
 ## Where induction shows up
 
-**Loop invariants** — induction on iterations. → [[foundations/discrete-math/03-proof-techniques|Proof Techniques]]
+**Loop invariants** — induction on iterations. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 **Algorithm correctness** — every divide-and-conquer proof is strong induction.
 
@@ -143,7 +143,7 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 ---
 
 ## Related
-- [[foundations/discrete-math/03-proof-techniques|Proof Techniques]] — the other methods
+- [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — the other methods
 - [[foundations/dsa/06-patterns/15-dynamic-programming|Dynamic Programming]] — recursion plus memoisation
 - [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — where these complexities land
-- [[foundations/discrete-math/index|Discrete maths map]]
+- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]
