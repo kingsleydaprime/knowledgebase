@@ -28,39 +28,41 @@ This lesson is almost entirely definitions. That is deliberate. Nearly every con
 
 ## 2. Terminology
 
-| Term | Plain-English definition | Example |
-| :--- | :--- | :--- |
-| **Vertex** (node) | One of the things | A city |
-| **Edge** (arc, link) | A connection between two vertices | A road |
-| **Endpoints** | The two vertices an edge joins | — |
-| **Incident** | An edge *is incident to* the vertices it joins | Edge–vertex relation |
-| **Adjacent** (neighbours) | Two vertices joined by an edge | Vertex–vertex relation |
-| **Degree** $\deg(v)$ | How many edge-ends meet at $v$ | A self-loop counts **twice** |
-| **In-degree / out-degree** | Edges arriving at / leaving $v$ | Directed graphs only |
-| **Self-loop** | An edge from a vertex to itself | A page linking to itself |
-| **Parallel edges** | Two or more edges with the same endpoints | Two roads between the same towns |
-| **Simple graph** | No self-loops, no parallel edges | What most algorithms assume |
-| **Multigraph** | Parallel edges allowed | Road networks, circuit diagrams |
-| **Weighted** | Each edge carries a number | Distance, cost, capacity |
-| **Order / size** | Number of vertices $\lvert V\rvert$ / edges $\lvert E\rvert$ | Often written $n$ and $m$ |
-| **Dense / sparse** | $\lvert E\rvert$ near $\lvert V\rvert^2$ / near $\lvert V\rvert$ | Decides the representation |
+| Term                       | Plain-English definition                                                                                                                                                                                                           | Example                          |
+| :------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- |
+| **Vertex** (node)          | One of the things. This is a point in a graph that can be connected to other points by edges                                                                                                                                       | A city                           |
+| **Edge** (arc, link)       | A connection or line between two vertices                                                                                                                                                                                          | A road                           |
+| **Endpoints**              | The two vertices an edge joins. An endpoint is one of the two vertices that are connected by a particular edge.                                                                                                                    | —                                |
+| **Incident**               | An edge _is incident to_ the vertices it joins. The relationship between a vertex and an edge; if a vertex is an edpoint of an edge, they are incident to each other.                                                              | Edge–vertex relation             |
+| **Adjacent** (neighbours)  | Two vertices joined by an edge. Adjacent vertices are two nodes that are connected by the same edge, and adjacent edges are two edges that connect to the same vertex                                                              | Vertex–vertex relation           |
+| **Degree** $\deg(v)$       | How many edge-ends meet at $v$. The degree of a vertex is the number of edges connected to it                                                                                                                                      | A self-loop counts **twice**     |
+| **In-degree / out-degree** | Edges arriving at / leaving $v$. In degree is the number of edges coming in to a vertex and out degree is the nummber of edges leaving it (usually for directed graphs)                                                            | Directed graphs only             |
+| **Self-loop**              | An edge from a vertex to itself. This is an edge that connects a vertex to itself.                                                                                                                                                 | A page linking to itself         |
+| **Parallel edges**         | Two or more edges with the same endpoints. These are multiple edges that connect to the same pair of vertices                                                                                                                      | Two roads between the same towns |
+| **Simple graph**           | Undirected graph with No self-loops, no parallel edges                                                                                                                                                                             | What most algorithms assume      |
+| **Multigraph**             | Parallel edges allowed and self loops allowed                                                                                                                                                                                      | Road networks, circuit diagrams  |
+| **Weighted**               | Each edge carries a number                                                                                                                                                                                                         | Distance, cost, capacity         |
+| **Order / size**           | Number of vertices $\lvert V\rvert$ / edges $\lvert E\rvert$                                                                                                                                                                       | Often written $n$ and $m$        |
+| **Dense / sparse**         | $\lvert E\rvert$ near $\lvert V\rvert^2$ / near $\lvert V\rvert$ Dense graph has a number of edges close to the maximum possible number of edges, while a sparse graph has relatively few edges compared to its number of vertices | Decides the representation       |
 
-**Incident and adjacent are not interchangeable.** *Incident* relates an edge to a vertex; *adjacent* relates two vertices. Textbooks are strict about this and so are exam questions.
+**Incident and adjacent are not interchangeable.** _Incident_ relates an edge to a vertex; _adjacent_ relates two vertices. Textbooks are strict about this and so are exam questions.
 
 ## 3. The four dimensions
 
 Every graph question starts by fixing these four. Get one wrong and the algorithm you choose is wrong.
 
-| Dimension | Options | What it changes |
-| :--- | :--- | :--- |
-| **Direction** | Undirected / directed (digraph) | Whether an edge can be traversed both ways |
-| **Weight** | Unweighted / weighted | Whether BFS suffices or you need Dijkstra |
-| **Cycles** | Cyclic / acyclic | Whether you need a visited set to terminate |
-| **Connectivity** | Connected / disconnected | Whether one traversal reaches everything |
+| Dimension        | Options                         | What it changes                             |
+| :--------------- | :------------------------------ | :------------------------------------------ |
+| **Direction**    | Undirected / directed (digraph) | Whether an edge can be traversed both ways  |
+| **Weight**       | Unweighted / weighted           | Whether BFS suffices or you need Dijkstra   |
+| **Cycles**       | Cyclic / acyclic                | Whether you need a visited set to terminate |
+| **Connectivity** | Connected / disconnected        | Whether one traversal reaches everything    |
 
 An undirected edge $\{u,v\}$ means $u$ and $v$ are mutually adjacent. A directed edge $(u,v)$ means you can go from $u$ to $v$ and says **nothing** about the reverse. "Following" on social media is directed; "friendship" on most platforms is undirected.
 
 ### The handshake lemma
+
+The handshaking lemma states that in any undirected graph, the sum of all the vertex degrees is exactly twice the total number of edges. It's a fundamental principle because each edge connects exactly two vertices
 
 $$
 \sum_{v \in V} \deg(v) = 2\lvert E\rvert
@@ -267,7 +269,7 @@ graph_basics: passed
 ## Common pitfalls and traps
 
 - **Counting a self-loop once.** It contributes **two** to the degree, and the handshake lemma fails if you count it once.
-- **Using "adjacent" for an edge and a vertex.** Vertices are adjacent to vertices; edges are *incident* to vertices.
+- **Using "adjacent" for an edge and a vertex.** Vertices are adjacent to vertices; edges are _incident_ to vertices.
 - **Assuming a graph is simple.** If your input may contain duplicate edges or self-loops, most textbook algorithms need guarding. Check, or normalise on load.
 - **Assuming undirected means "both directions stored".** In an adjacency list it usually does — every undirected edge appears twice. Forgetting that doubles or halves your edge count.
 - **Confusing $\lvert E\rvert$ with the adjacency list's total length.** For an undirected simple graph the list holds $2\lvert E\rvert$ entries.
@@ -286,7 +288,7 @@ graph_basics: passed
 2. Sum $= 14$, so $\lvert E\rvert = 7$ — an integer, so the handshake lemma is satisfied. And the maximum degree $4$ is at most $n - 1 = 4$. So **yes**, such a simple graph can exist.
 3. $n(n-1)$ — every ordered pair of distinct vertices, which is twice the undirected maximum.
 4. An edge is **incident** to the two vertices it joins. Two vertices are **adjacent** when an edge joins them.
-5. Because degree counts *edge-ends* at a vertex, and a self-loop has both of its ends at the same vertex.
+5. Because degree counts _edge-ends_ at a vertex, and a self-loop has both of its ends at the same vertex.
 
 **And the prediction from section 3:** the maximum is $\binom{6}{2} = 15$ edges — the complete graph $K_6$, where every pair is joined. And **no**, it cannot have exactly three odd-degree vertices: the degree sum must be even, so odd-degree vertices always come in pairs.
 </details>
@@ -298,7 +300,7 @@ Implement `degree_sequence(graph)` and `is_graphical(sequence)`.
 1. `degree_sequence` returns the degrees sorted descending — a basic fingerprint of a graph's shape.
 2. `is_graphical` decides whether a given sequence of non-negative integers can be the degree sequence of some **simple** graph. Implement the **Erdős–Gallai** condition, or the **Havel–Hakimi** algorithm (repeatedly remove the largest degree $d$ and subtract 1 from the next $d$ entries).
 3. Assert the two necessary conditions first: the sum is even, and no degree exceeds $n-1$. Show a sequence that passes both and is still not graphical, proving they are not sufficient.
-4. When a sequence *is* graphical, **construct** a graph realising it, and verify with `degree_sequence`.
+4. When a sequence _is_ graphical, **construct** a graph realising it, and verify with `degree_sequence`.
 5. Test on: $(3,3,2,2,2)$, $(4,3,3,2,2)$, $(5,1,1,1,1,1)$, $(3,3,3,1)$, and $(1,1)$.
 
 **Edge cases:** the empty sequence; all zeros; a single vertex with degree 0; a sequence containing a negative number.
@@ -309,7 +311,7 @@ Implement `degree_sequence(graph)` and `is_graphical(sequence)`.
 
 You can define every term in section 2 without hesitating, state the handshake lemma and why odd-degree vertices come in pairs, and classify a graph along all four dimensions.
 
-**Recap:** vertices and edges; edges are *incident*, vertices are *adjacent*; degree counts edge-ends, and a self-loop counts twice; simple = no loops, no parallel edges; the four dimensions are direction, weight, cycles, connectivity; $\sum\deg(v) = 2\lvert E\rvert$; a simple graph on $n$ vertices has at most $\binom{n}{2}$ edges.
+**Recap:** vertices and edges; edges are _incident_, vertices are _adjacent_; degree counts edge-ends, and a self-loop counts twice; simple = no loops, no parallel edges; the four dimensions are direction, weight, cycles, connectivity; $\sum\deg(v) = 2\lvert E\rvert$; a simple graph on $n$ vertices has at most $\binom{n}{2}$ edges.
 
 **Next:** [[02-paths-cycles-and-connectivity|Paths, Cycles and Connectivity]] — what it means to get from one vertex to another, and the four different things "connected" can mean.
 
