@@ -62,13 +62,13 @@ The distinction is less binary than it's usually taught.
 **Bytecode VM** — compile to a compact instruction set, interpret that.
 
 - 3–10× slower than native, portable, fast startup
-- CPython, early JVM, Lua, Ruby → [[foundations/compilers/09-bytecode-and-virtual-machines|Bytecode VMs]]
+- CPython, early JVM, Lua, Ruby → [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode VMs]]
 
 **JIT** — compile to machine code *at runtime*, guided by observed behaviour.
 
 - Approaches or beats AOT on long-running programs, because it knows things AOT can't
 - Warm-up time, memory overhead, and enormous implementation complexity
-- HotSpot, V8, LuaJIT, PyPy, .NET → [[foundations/compilers/11-jit-compilation|JIT]]
+- HotSpot, V8, LuaJIT, PyPy, .NET → [[foundations/compilers/12-jit-compilation|JIT]]
 
 **Where real languages actually sit:**
 
@@ -136,8 +136,8 @@ For [[BUILD-PLAN|build-your-own-language]], the realistic path:
 1. **Lexer** — a few hundred lines. → [[foundations/compilers/02-lexical-analysis|02]]
 2. **Parser** producing an AST — recursive descent + Pratt. → [[foundations/compilers/03-parsing|03]] · [[foundations/compilers/04-asts-and-semantic-analysis|04]]
 3. **Tree-walking interpreter** with environments and closures. **You now have a working language.**
-4. Then either **a bytecode VM** (→ [[foundations/compilers/09-bytecode-and-virtual-machines|09]]) or **a type checker** (→ [[foundations/compilers/05-type-systems-and-checking|05]]), depending on what interests you
-5. Eventually **GC**, once you have closures and objects. → [[foundations/compilers/10-garbage-collection|10]]
+4. Then either **a bytecode VM** (→ [[foundations/compilers/10-bytecode-and-virtual-machines|09]]) or **a type checker** (→ [[foundations/compilers/05-type-systems-and-checking|05]]), depending on what interests you
+5. Eventually **GC**, once you have closures and objects. → [[foundations/compilers/11-garbage-collection|10]]
 
 Step 3 is the milestone. A tree-walking interpreter for a small language is a weekend, and everything afterwards is optimisation or rigour.
 

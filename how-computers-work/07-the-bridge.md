@@ -173,8 +173,8 @@ And the interrupt controller deciding *which* device wins is a **priority encode
 | :--- | :--- |
 | XIV — Programming languages | [[foundations/programming-language-theory/index\|programming-language-theory/]] — syntax, semantics, type systems |
 | XV — Compilers | [[foundations/compilers/index\|compilers/]] modules 1–8 — lexing, parsing, ASTs, IR, optimisation, codegen |
-| XVI — Interpreters and VMs | [[foundations/compilers/09-bytecode-and-virtual-machines\|bytecode and VMs]], [[foundations/compilers/11-jit-compilation\|JIT]] |
-| XVII — Runtime systems | [[foundations/compilers/10-garbage-collection\|garbage collection]], [[foundations/os/05-memory-allocation\|os/memory allocation]] |
+| XVI — Interpreters and VMs | [[foundations/compilers/10-bytecode-and-virtual-machines\|bytecode and VMs]], [[foundations/compilers/12-jit-compilation\|JIT]] |
+| XVII — Runtime systems | [[foundations/compilers/11-garbage-collection\|garbage collection]], [[foundations/os/05-memory-allocation\|os/memory allocation]] |
 
 **What to watch for:** [[foundations/compilers/07-optimisation|optimisation]] will describe **strength reduction** — replacing `x * 8` with `x << 3`. You know exactly why that is worth doing: a constant shift is free wiring, while a multiply is $O(n^2)$ gates ([[how-computers-work/05-combinational/03-multipliers-and-comparators|module 22]]).
 

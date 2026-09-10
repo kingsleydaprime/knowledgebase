@@ -12,7 +12,7 @@
 
 ## What you need first
 
-- **How a stack machine works** → [[foundations/compilers/09-bytecode-and-virtual-machines|bytecode VMs]] — **read this first, it's the direct prerequisite**
+- **How a stack machine works** → [[foundations/compilers/10-bytecode-and-virtual-machines|bytecode VMs]] — **read this first, it's the direct prerequisite**
 - **The EVM's shape** → [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]]
 - Helpful: [[build-your-own-shit/04-your-own-language|your own language]] — if you've built that interpreter, this is familiar ground with new constraints
 
@@ -169,7 +169,7 @@ A text assembler (`PUSH1 5 / PUSH1 3 / ADD`) makes writing test programs far les
 
 ## Related
 
-- [[foundations/compilers/09-bytecode-and-virtual-machines|bytecode VMs]] — the direct prerequisite
+- [[foundations/compilers/10-bytecode-and-virtual-machines|bytecode VMs]] — the direct prerequisite
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — what you're building a toy of
 - [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|proxies]] — step 10, in production
 - [[build-your-own-shit/04-your-own-language|your own language]] — the compiler front-end to this back-end

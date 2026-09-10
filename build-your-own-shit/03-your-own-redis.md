@@ -132,7 +132,7 @@ A skip list is a genuinely elegant structure: probabilistic balancing, much simp
 
 **Test:** `redis-cli zadd leaderboard 100 alice 200 bob`, then `zrange leaderboard 0 -1 withscores`.
 
-**Watch for:** each type needs its own commands to reject wrong-type keys — `LPUSH` on a string key must return `WRONGTYPE`, not corrupt it. That means values are a tagged union of types, which is the same shape as [[foundations/compilers/09-bytecode-and-virtual-machines|a VM's value type]].
+**Watch for:** each type needs its own commands to reject wrong-type keys — `LPUSH` on a string key must return `WRONGTYPE`, not corrupt it. That means values are a tagged union of types, which is the same shape as [[foundations/compilers/10-bytecode-and-virtual-machines|a VM's value type]].
 
 ### 7. Persistence
 

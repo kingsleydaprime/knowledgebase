@@ -107,7 +107,7 @@ Given $(P, w)$, construct machine $M$ that ignores its input, runs $P$ on $w$, a
 
 **Dead code elimination is approximate.** "Unreachable" is undecidable in general.
 
-**Garbage collectors over-approximate.** "Will this object be used again?" is undecidable, so GCs use *reachability* — a decidable, conservative proxy. **Reachable-but-never-used objects are retained**, and that's a memory leak the collector cannot fix by being smarter. → [[foundations/compilers/10-garbage-collection|Garbage Collection]]
+**Garbage collectors over-approximate.** "Will this object be used again?" is undecidable, so GCs use *reachability* — a decidable, conservative proxy. **Reachable-but-never-used objects are retained**, and that's a memory leak the collector cannot fix by being smarter. → [[foundations/compilers/11-garbage-collection|Garbage Collection]]
 
 **Antivirus cannot be perfect.** "Is this program malicious?" is semantic. **Signature matching is the syntactic proxy**, which is why novel malware gets through and why heuristics produce false positives. **Provably no perfect virus scanner exists** (Cohen, 1987).
 

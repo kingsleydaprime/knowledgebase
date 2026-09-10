@@ -88,7 +88,7 @@
 
 **Vectorised** — `next()` returns a *batch* (typically 1,000+ values), amortising the call overhead and enabling SIMD. **What every modern analytical engine uses** — DuckDB, ClickHouse, Snowflake. → [[foundations/computer-architecture/03-instruction-sets|SIMD]]
 
-**Compiled** — generate machine code for the whole plan via LLVM, eliminating interpretation entirely. **Postgres JITs expression evaluation for expensive queries**; HyPer and Umbra compile whole pipelines. → [[foundations/compilers/11-jit-compilation|JIT Compilation]]
+**Compiled** — generate machine code for the whole plan via LLVM, eliminating interpretation entirely. **Postgres JITs expression evaluation for expensive queries**; HyPer and Umbra compile whole pipelines. → [[foundations/compilers/12-jit-compilation|JIT Compilation]]
 
 **Pipelining vs blocking** is the distinction that matters for latency:
 

@@ -17,5 +17,5 @@ Read [[web3/01-foundations/index|01-foundations]] first. Notes **02** and **05**
 
 - [[web3/index|web3 curriculum map]]
 - [[web3/03-smart-contracts-with-solidity/index|03-smart-contracts-with-solidity]] — writing for this machine
-- [[foundations/compilers/09-bytecode-and-virtual-machines|bytecode VMs]] — the general category the EVM belongs to
+- [[foundations/compilers/10-bytecode-and-virtual-machines|bytecode VMs]] — the general category the EVM belongs to
 - [[build-your-own-shit/15-your-own-smart-contract-vm|build your own smart contract VM]] — the fastest way to make this folder concrete

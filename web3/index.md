@@ -57,5 +57,5 @@ Three guides in [[build-your-own-shit/index|build-your-own-shit/]], ordered by d
 - [[cybersecurity/index|cybersecurity]] — the parent security discipline, and what doesn't transfer
 - [[cybersecurity/05-cryptography/index|cryptography]] — the primitives, properly
 - [[architecture/04-distributed-systems/index|distributed systems]] — the field this is a subfield of
-- [[foundations/compilers/09-bytecode-and-virtual-machines|bytecode VMs]] — the general category the EVM belongs to
+- [[foundations/compilers/10-bytecode-and-virtual-machines|bytecode VMs]] — the general category the EVM belongs to
 - [[backend/index|backend]] · [[frontend/index|frontend]] — the 90% of a dapp that's ordinary web development

@@ -137,7 +137,7 @@ Then: **generators** instead of lists for large sequences → [[languages/06-pyt
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — the parallelism half
 - [[foundations/computer-architecture/12-performance|performance method]] — how to measure anything
 - [[foundations/gpu-and-parallel-computing/index|GPU and parallel computing]] — where the numeric work actually goes
-- [[foundations/compilers/11-jit-compilation|JIT compilation]] — what PyPy and 3.13 are doing
+- [[foundations/compilers/12-jit-compilation|JIT compilation]] — what PyPy and 3.13 are doing
 - [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — vectorisation, hands-on
 
 _Source: [reference] — from CPython internals documentation, PEP 659, and the profiling tools' own docs._

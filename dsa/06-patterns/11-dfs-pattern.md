@@ -161,13 +161,15 @@ Expected output:
 
 ```
 Test 1 - valid ordering:
-num_courses=4, prerequisites=[[1, 0], [2, 0], [3, 1], [3, 2]] -> order [0, 1, 2, 3]
+num_courses=4, prerequisites=[[1, 0], [2, 0], [3, 1], [3, 2]] -> order [0, 2, 1, 3]
 
 Test 2 - cycle exists:
 num_courses=2, prerequisites=[[1, 0], [0, 1]] -> order []
-
 dfs_pattern_lab: passed
 ```
+
+> [!NOTE]
+> A topological order is **not unique**. Here `[0, 2, 1, 3]` and `[0, 1, 2, 3]` are both valid — 1 and 2 depend only on 0, so either may come first. Which one you get depends on the order DFS happens to visit neighbours in, so assert that the result is *a* valid ordering rather than one specific list.
 
 ---
 

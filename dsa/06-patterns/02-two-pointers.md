@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
     # Test case 2: no solution
     nums2 = [1, 3, 5, 7]
-    target2 = 10
+    target2 = 11
     result2 = two_sum_sorted(nums2, target2)
     print(f"nums={nums2}, target={target2} -> indices {result2}")
     assert result2 == [-1, -1], f"Expected [-1, -1], got {result2}"
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     target3 = 4
     result3 = two_sum_sorted(nums3, target3)
     print(f"nums={nums3}, target={target3} -> indices {result3}")
-    assert result3 == [0, 3] or result3 == [1, 2], f"Expected [0, 3] or [1, 2], got {result3}"
+    assert result3 == [0, 1], f"Expected [0, 1], got {result3}"
 
     print("two_pointers_lab: passed")
 ```
@@ -112,8 +112,8 @@ Expected output:
 
 ```
 nums=[1, 2, 3, 4, 6], target=6 -> indices [1, 3]
-nums=[1, 3, 5, 7], target=10 -> indices [-1, -1]
-nums=[2, 2, 3, 4], target=4 -> indices [0, 3] or [1, 2]
+nums=[1, 3, 5, 7], target=11 -> indices [-1, -1]
+nums=[2, 2, 3, 4], target=4 -> indices [0, 1]
 two_pointers_lab: passed
 ```
 

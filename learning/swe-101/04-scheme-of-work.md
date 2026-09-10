@@ -818,7 +818,7 @@ No deadline, no interviewer asking. **This is the unit that answers your actual 
 - **31.6** Complexity classes, P vs NP — **knowing when to stop looking** → [[foundations/theory-of-computation/07-complexity-classes|complexity]]
 - **31.7** Automata — why regexes and parsers look the way they do → [[foundations/theory-of-computation/02-finite-automata|automata]]
 - **31.8** Compilers: lexer → parser → IR → codegen → [[foundations/compilers/02-lexical-analysis|lexing]] · [[foundations/compilers/03-parsing|parsing]]
-- **31.9** Garbage collection → [[foundations/compilers/10-garbage-collection|GC]]
+- **31.9** Garbage collection → [[foundations/compilers/11-garbage-collection|GC]]
 - **31.10** Why one O(n) loop is 30× slower than another → [[foundations/computer-architecture/12-performance|performance]]
 
 **Exercise:** `perf stat` on your own code; explain the IPC.
