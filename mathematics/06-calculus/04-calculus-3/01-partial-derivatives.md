@@ -5,7 +5,7 @@
 ## Before you start
 
 - You can differentiate fluently, especially the chain rule — [[01-rules|derivative rules]].
-- You know what a function of one variable is — [[01-variables|variables]].
+- You know what a function of one variable is — [[02-variables|variables]].
 
 **What you will be able to do after this lesson:**
 

@@ -399,5 +399,5 @@ You are done with this lesson when you can:
 ## Related
 
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the two-dimensional version, and where the dot product first appeared
-- **Vectors** *(reserved)* — the same objects, developed as algebra
-- **Systems of Linear Equations** *(reserved)* — intersecting several planes at once
+- [[04-linear-algebra/02-vectors/01-vectors|Vectors]] — the same objects, developed as algebra
+- [[04-linear-algebra/03-systems-of-linear-equations/01-gaussian-elimination|Systems of Linear Equations]] — intersecting several planes at once
