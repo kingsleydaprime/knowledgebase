@@ -205,6 +205,25 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[010-valid-palindrome|Valid Palindrome]] (LeetCode #125) — the simplest form: one pointer from each end, skip what does not count, compare.
+2. [[011-two-sum-ii|Two Sum II]] (LeetCode #167) — the sorted-input version the lab implements; the sum tells you which pointer to move.
+3. [[012-3sum|3Sum]] (LeetCode #15) — fix one element, then two-pointer the rest; the duplicate-skipping is where it gets fiddly.
+4. [[013-container-with-most-water|Container With Most Water]] (LeetCode #11) — start widest and move the **shorter** wall, because moving the taller one can never help.
+5. [[014-trapping-rain-water|Trapping Rain Water]] (LeetCode #42) — two pointers carrying running maxima; also solvable with prefix/suffix arrays, which is why it appears in [[01-prefix-sum|prefix-sum]] too.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they isolate the pointer-movement decision more cleanly than the harder problems in the 150 do:
+
+6. Remove Duplicates from Sorted Array (#26) — the read/write two-pointer — a different shape from the converging one.
+7. Merge Sorted Array (#88) — merge **backwards** from the end to avoid overwriting.
+8. Squares of a Sorted Array (#977) — negatives put the largest values at both ends.
+9. Reverse String (#344) — the pattern with nothing else in the way.
+10. 3Sum Closest (#16) — 3Sum with "track the best" instead of an exact target.
+11. 4Sum (#18) — two fixed elements, two-pointer the rest — the natural generalisation.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

@@ -253,6 +253,23 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[041-linked-list-cycle|Linked List Cycle]] (LeetCode #141) — Floyd's algorithm in its original setting.
+2. [[042-find-the-duplicate-number|Find the Duplicate Number]] (LeetCode #287) — the same algorithm on an *array*, treating values as pointers — the surprise of the set.
+3. [[037-reorder-list|Reorder List]] (LeetCode #143) — find the middle with fast/slow, then reverse and interleave.
+4. [[038-remove-nth-node-from-end|Remove Nth Node From End]] (LeetCode #19) — two pointers held $n$ apart, one pass.
+5. [[139-happy-number|Happy Number]] (LeetCode #202) — cycle detection with no list at all, just repeated digit-squaring.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since the 150 uses Floyd's algorithm but never asks you to find the cycle's *start*:
+
+6. Linked List Cycle II (#142) — finding where the cycle *starts* — the half of Floyd's algorithm #141 does not need.
+7. Middle of the Linked List (#876) — fast/slow with nothing else attached.
+8. Palindrome Linked List (#234) — middle, reverse, compare: three sub-patterns in one.
+9. Circular Array Loop (#457) — cycle detection with direction constraints.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

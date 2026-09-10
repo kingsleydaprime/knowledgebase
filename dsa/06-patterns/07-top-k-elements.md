@@ -301,6 +301,25 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[005-top-k-frequent-elements|Top K Frequent Elements]] (LeetCode #347) — count, then heap — though bucket sort beats the heap here, which is worth seeing.
+2. [[067-kth-largest-element-in-an-array|Kth Largest Element in an Array]] (LeetCode #215) — the size-$k$ heap versus Quickselect trade discussed above.
+3. [[066-k-closest-points-to-origin|K Closest Points to Origin]] (LeetCode #973) — the problem the lab's `k_closest_points` implements.
+4. [[064-kth-largest-element-in-a-stream|Kth Largest Element in a Stream]] (LeetCode #703) — where a heap is genuinely necessary, since the data arrives over time.
+5. [[065-last-stone-weight|Last Stone Weight]] (LeetCode #1046) — a max-heap with nothing else going on.
+6. [[068-task-scheduler|Task Scheduler]] (LeetCode #621) — max-heap by count, plus a cooldown queue.
+7. [[070-find-median-from-data-stream|Find Median from Data Stream]] (LeetCode #295) — two heaps facing each other; the standard extension.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they vary the comparator, which is where most heap bugs live:
+
+8. Top K Frequent Words (#692) — #347 with a tie-break that makes the comparator interesting.
+9. Reorganize String (#767) — greedy by frequency, driven by a max-heap.
+10. Kth Smallest Element in a Sorted Matrix (#378) — heap over rows, or binary search on the answer.
+11. Minimum Cost to Connect Sticks (#1167) — repeatedly merge the two smallest.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

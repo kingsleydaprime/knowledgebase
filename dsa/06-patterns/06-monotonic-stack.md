@@ -263,6 +263,24 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[025-daily-temperatures|Daily Temperatures]] (LeetCode #739) — the canonical next-greater-element problem.
+2. [[027-largest-rectangle-in-histogram|Largest Rectangle in Histogram]] (LeetCode #84) — the hardest classic; the stack finds each bar's left and right limits.
+3. [[026-car-fleet|Car Fleet]] (LeetCode #853) — sort by position, then a monotonic stack of arrival times.
+4. [[020-sliding-window-maximum|Sliding Window Maximum]] (LeetCode #239) — a monotonic deque — the same invariant, with removal from both ends.
+5. [[022-min-stack|Min Stack]] (LeetCode #155) — not monotonic, but the same idea of storing a running extreme alongside each entry.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since the 150 jumps straight to the hard cases; these are the pattern with nothing else attached:
+
+6. Next Greater Element I (#496) — the pattern with the indexing stripped away — start here.
+7. Next Greater Element II (#503) — the circular version: walk the array twice.
+8. Online Stock Span (#901) — next-greater from the left, computed as elements arrive.
+9. Maximal Rectangle (#85) — #84 applied to every row of a matrix.
+10. Next Greater Node In Linked List (#1019) — the same pattern with no random access.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

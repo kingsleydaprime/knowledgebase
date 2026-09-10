@@ -314,6 +314,41 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[099-climbing-stairs|Climbing Stairs]] (LeetCode #70) — Fibonacci — the first recurrence to write down.
+2. [[100-min-cost-climbing-stairs|Min Cost Climbing Stairs]] (LeetCode #746) — the same shape with a cost attached.
+3. [[101-house-robber|House Robber]] (LeetCode #198) — take-it-or-skip-it, in its clearest form.
+4. [[102-house-robber-ii|House Robber II]] (LeetCode #213) — a circular constraint, handled by running the linear version twice.
+5. [[103-longest-palindromic-substring|Longest Palindromic Substring]] (LeetCode #5) — expand around centres: $O(n^2)$ time, $O(1)$ space.
+6. [[104-palindromic-substrings|Palindromic Substrings]] (LeetCode #647) — the same expansion, counting instead of maximising.
+7. [[105-decode-ways|Decode Ways]] (LeetCode #91) — the recurrence branches on one digit or two.
+8. [[106-coin-change|Coin Change]] (LeetCode #322) — unbounded knapsack, minimising.
+9. [[107-maximum-product-subarray|Maximum Product Subarray]] (LeetCode #152) — track a running maximum **and** minimum, because a negative flips them.
+10. [[108-word-break|Word Break]] (LeetCode #139) — reachability over string positions.
+11. [[109-longest-increasing-subsequence|Longest Increasing Subsequence]] (LeetCode #300) — the $O(n^2)$ DP first, then the $O(n\log n)$ patience-sorting version.
+12. [[110-partition-equal-subset-sum|Partition Equal Subset Sum]] (LeetCode #416) — subset-sum to half the total: a boolean knapsack.
+13. [[111-unique-paths|Unique Paths]] (LeetCode #62) — the grid recurrence with nothing in the way.
+14. [[112-longest-common-subsequence|Longest Common Subsequence]] (LeetCode #1143) — the template every sequence-alignment problem specialises.
+15. [[119-edit-distance|Edit Distance]] (LeetCode #72) — three operations, one `min` — the canonical 2-D DP.
+16. [[113-best-time-to-buy-and-sell-stock-with-cooldown|Buy/Sell Stock with Cooldown]] (LeetCode #309) — a state machine rather than a grid.
+17. [[114-coin-change-ii|Coin Change II]] (LeetCode #518) — counting combinations, where **loop order** decides combinations versus permutations.
+18. [[115-target-sum|Target Sum]] (LeetCode #494) — signs become a subset-sum count.
+19. [[116-interleaving-string|Interleaving String]] (LeetCode #97) — 2-D reachability.
+20. [[118-distinct-subsequences|Distinct Subsequences]] (LeetCode #115) — match adds, mismatch carries.
+21. [[120-burst-balloons|Burst Balloons]] (LeetCode #312) — interval DP — think about the **last** balloon, not the first.
+22. [[121-regular-expression-matching|Regular Expression Matching]] (LeetCode #10) — the hardest of the set.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they expose the loop-order and state-machine details the 150 lets you skip:
+
+23. Minimum Path Sum (#64) — #62 with weights; do it immediately after.
+24. Perfect Squares (#279) — coin change where the coins are squares.
+25. Combination Sum IV (#377) — the loop-order counterpart to #518 — permutations, not combinations.
+26. N-th Tribonacci Number (#1137) — a warm-up for state compression.
+27. Best Time to Buy and Sell Stock IV (#188) — the general $k$-transaction version of #309.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:

@@ -242,6 +242,31 @@ Attempt these without the note, then compare your reasoning below.
 
 ---
 
+## Practice problems
+
+**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+
+1. [[071-subsets|Subsets]] (LeetCode #78) — include or exclude — the template for the whole family.
+2. [[074-subsets-ii|Subsets II]] (LeetCode #90) — sort, then skip duplicate siblings: the standard duplicate fix.
+3. [[072-combination-sum|Combination Sum]] (LeetCode #39) — reuse allowed, so recurse on the *same* index.
+4. [[075-combination-sum-ii|Combination Sum II]] (LeetCode #40) — each element once, duplicates skipped — compare carefully with #39.
+5. [[073-permutations|Permutations]] (LeetCode #46) — order matters; swap in place, or track a used set.
+6. [[024-generate-parentheses|Generate Parentheses]] (LeetCode #22) — the constraint prunes the tree, which is the whole point of backtracking over brute force.
+7. [[076-word-search|Word Search]] (LeetCode #79) — backtracking on a grid; undo the visited mark as you return.
+8. [[077-palindrome-partitioning|Palindrome Partitioning]] (LeetCode #131) — cut at every palindromic prefix.
+9. [[078-letter-combinations-of-a-phone-number|Letter Combinations of a Phone Number]] (LeetCode #17) — a product, written recursively.
+10. [[079-n-queens|N-Queens]] (LeetCode #51) — the classic; column and diagonal sets make the pruning cheap.
+11. [[063-word-search-ii|Word Search II]] (LeetCode #212) — a trie plus grid backtracking, where pruning is what makes it feasible at all.
+
+**Not in the NeetCode 150** — worth doing on LeetCode directly, since they give more duplicate-handling and constraint-checking practice:
+
+12. Permutations II (#47) — permutations with duplicates — the sibling-skip again.
+13. Combinations (#77) — $n$ choose $k$, the plainest version.
+14. Combination Sum III (#216) — fixed size and fixed sum together.
+15. Restore IP Addresses (#93) — backtracking with a validity constraint at every cut.
+16. Sudoku Solver (#37) — constraint propagation plus backtracking.
+17. N-Queens II (#52) — count only — a good check that your pruning is right.
+
 ## Before moving on
 
 You are done with this pattern when you can, closed-book:
