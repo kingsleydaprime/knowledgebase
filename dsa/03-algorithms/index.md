@@ -49,11 +49,26 @@
 | Topological sort | in-degree counts over an [[06-graphs/04-representations|adjacency list]] |
 | Counting / radix sort | arrays as buckets |
 
-## An honest note on this folder
+## What is verified
 
-**[[02-data-structures/index|02-data-structures]], [[04-patterns/index|04-patterns]] and the sorting folder here have been converted to [[COURSE-STANDARD|the course standard]]; the remaining notes in this folder have not.** They are accurate and useful, but they do not yet carry the full shape — stated prerequisites, observable outcomes, a verified runnable lab, practice with a *done when*. Converting them is tracked in [[BUILD-PLAN|the build plan]].
+**Every note in this folder now follows [[COURSE-STANDARD|the course standard]]**, alongside [[02-data-structures/index|02-data-structures]] and [[04-patterns/index|04-patterns]]: stated prerequisites, observable outcomes, a runnable lab whose expected output was generated from an actual run, practice with a *done when*, and a demonstrable finish line.
 
-Where a note here has a runnable example, that example has been executed. Where it does not, it is prose and a complexity table.
+Several labs exist to **break** the algorithm rather than to show it working:
+
+| Lesson | What the lab demonstrates |
+| :--- | :--- |
+| [[01-algorithms\|complexity]] | the ratio per doubling *is* the complexity — 2.00x for $O(n)$, 4.01x for $O(n^2)$ — and growing an array by one instead of doubling makes append $O(n)$ |
+| [[02-dfs\|DFS]] | recursive DFS dying with `RecursionError` on a 5,000-vertex path where the iterative form is fine |
+| [[03-bfs\|BFS]] | BFS returning the **heavier** of two equal-length paths, because it never looks at weight |
+| [[05-searching\|searching]] | all three classic binary-search bugs failing: an infinite loop, a missed single element, and the JDK's nine-year overflow |
+| [[06-dijkstra\|Dijkstra]] | Dijkstra returning $0$ where the true distance is $-9$, on a graph with one negative edge |
+| [[08-leader-algorithm\|leader]] | the voting phase confidently returning a candidate that is not a majority |
+| [[09-max-slice-algorithms\|max slice]] | `max(0, ...)` Kadane's answering a different question on all-negative input |
+| [[10-greedy-algorithms\|greedy]] | greedy coin change failing on $\{1,3,4\}$ and $\{1,7,10\}$, and 0/1 knapsack failing on the rule that is optimal for the fractional version |
+| [[12-minimum-spanning-tree\|MST]] | both algorithms checked against exhaustive search over every spanning tree |
+| [[14-math-and-geometry\|geometry]] | float slopes calling three points collinear when exact integer cross products say otherwise |
+
+Where a lab claims an output, that output came from executing the code.
 
 ## Related
 

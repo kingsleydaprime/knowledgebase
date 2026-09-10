@@ -6,6 +6,23 @@ Where [[02-dfs|DFS]] dives deep down one branch before backtracking, BFS explore
 
 ---
 
+## Before you start
+
+- You know DFS and what it does *not* guarantee — [[02-dfs|depth-first search]].
+- You know how a queue behaves — [[07-stacks-and-queues|stacks and queues]].
+- You know graph connectivity vocabulary — [[06-graphs/02-paths-cycles-and-connectivity|paths and connectivity]].
+
+**After this lesson you will be able to:**
+
+1. Implement BFS, and **prove to yourself** that it returns shortest paths on unweighted graphs by comparing against DFS.
+2. Reconstruct the path itself, not just its length.
+3. Implement **multi-source** BFS, and say which problems need it.
+4. Say precisely why BFS stops giving shortest paths the moment edges have weights.
+
+**Study route:** read 1–5, attempt the prediction in section 4, then run the lab. Block 2 is the shortest-path guarantee, measured.
+
+---
+
 ## 1. Real-World Motivation & Physical Metaphors
 
 Imagine dropping a **pebble into a calm pond**:
@@ -118,6 +135,211 @@ def shortest_path_bfs(graph: dict, start: str, target: str) -> list:
 
 ---
 
+## Implementation — complete runnable example
+
+**Runnable example:** save as `bfs_lab.py` in any empty directory and run `python3 bfs_lab.py`. Standard library only; writes no files.
+
+```python
+"""BFS: levels, shortest paths, multi-source, and where the guarantee ends."""
+from collections import defaultdict, deque
+
+
+def build(edges, directed=False):
+    adj = defaultdict(list)
+    for u, v in edges:
+        adj[u].append(v)
+        adj[v].append(u) if not directed else adj.setdefault(v, [])
+    return {k: sorted(vs) for k, vs in adj.items()}
+
+
+def bfs_levels(adj, start):
+    """Return {vertex: distance in edges}, and the vertices grouped by level."""
+    dist = {start: 0}
+    levels = [[start]]
+    q = deque([start])
+    while q:
+        v = q.popleft()
+        for w in adj.get(v, []):
+            if w not in dist:
+                dist[w] = dist[v] + 1
+                while len(levels) <= dist[w]:
+                    levels.append([])
+                levels[dist[w]].append(w)
+                q.append(w)
+    return dist, levels
+
+
+def bfs_path(adj, start, goal):
+    """The path itself, via a parent map."""
+    if start == goal:
+        return [start]
+    parent = {start: None}
+    q = deque([start])
+    while q:
+        v = q.popleft()
+        for w in adj.get(v, []):
+            if w not in parent:
+                parent[w] = v
+                if w == goal:
+                    path = [goal]
+                    while parent[path[-1]] is not None:
+                        path.append(parent[path[-1]])
+                    return path[::-1]
+                q.append(w)
+    return None
+
+
+def dfs_path(adj, start, goal, seen=None):
+    """DFS finds A path, with no claim about its length."""
+    seen = seen or {start}
+    if start == goal:
+        return [start]
+    for w in adj.get(start, []):
+        if w not in seen:
+            seen.add(w)
+            sub = dfs_path(adj, w, goal, seen)
+            if sub:
+                return [start] + sub
+    return None
+
+
+def multi_source_bfs(adj, sources):
+    """Every source starts at distance 0, all in the queue at once."""
+    dist = {s: 0 for s in sources}
+    q = deque(sources)
+    while q:
+        v = q.popleft()
+        for w in adj.get(v, []):
+            if w not in dist:
+                dist[w] = dist[v] + 1
+                q.append(w)
+    return dist
+
+
+def path_weight(path, weights):
+    return sum(weights[tuple(sorted((a, b)))] for a, b in zip(path, path[1:]))
+
+
+if __name__ == "__main__":
+    G = build([("A", "B"), ("A", "C"), ("B", "D"), ("C", "D"),
+               ("D", "E"), ("C", "F"), ("F", "E")])
+
+    print("Block 1 - BFS explores by level")
+    dist, levels = bfs_levels(G, "A")
+    for i, lvl in enumerate(levels):
+        print(f"    level {i}: {sorted(lvl)}")
+    print(f"  distances from A: {dict(sorted(dist.items()))}")
+    assert dist["A"] == 0 and dist["B"] == 1 and dist["E"] == 3
+
+    print()
+    print("Block 2 - BFS gives the SHORTEST path; DFS gives A path")
+    print("   start  goal   BFS path            len   DFS path                  len")
+    for start, goal in [("A", "E"), ("A", "D"), ("B", "F")]:
+        bp = bfs_path(G, start, goal)
+        dp = dfs_path(G, start, goal)
+        print(f"     {start}     {goal}    {str(bp):20}{len(bp)-1:4}   {str(dp):24}{len(dp)-1:4}")
+        assert len(bp) <= len(dp), "BFS is never longer"
+    bp, dp = bfs_path(G, "A", "E"), dfs_path(G, "A", "E")
+    assert len(bp) < len(dp), "on this graph DFS is strictly worse"
+    print("  BFS is never longer, and here it is strictly shorter.")
+    print("  The reason: BFS finishes every vertex at distance k before starting")
+    print("  any at distance k+1, so the first time it reaches the goal is the closest.")
+
+    print()
+    print("Block 3 - multi-source BFS: every source starts at zero")
+    grid_edges = []
+    R, C = 4, 5
+    for r in range(R):
+        for c in range(C):
+            if r + 1 < R: grid_edges.append(((r, c), (r + 1, c)))
+            if c + 1 < C: grid_edges.append(((r, c), (r, c + 1)))
+    grid = build(grid_edges)
+    single = bfs_levels(grid, (0, 0))[0]
+    multi = multi_source_bfs(grid, [(0, 0), (3, 4)])
+    print("   distance from (0,0) alone      distance from EITHER corner")
+    for r in range(R):
+        row1 = " ".join(f"{single[(r,c)]:2}" for c in range(C))
+        row2 = " ".join(f"{multi[(r,c)]:2}" for c in range(C))
+        print(f"     {row1}              {row2}")
+    assert multi[(3, 4)] == 0 and single[(3, 4)] == 7
+    print("  one queue, two starting points, one pass - not two separate searches.")
+    print("  This is how 'nearest exit', 'rotting oranges' and 'walls and gates' work.")
+
+    print()
+    print("Block 4 - where the guarantee ends: weighted edges")
+    weights = {("A", "B"): 1, ("A", "C"): 1, ("B", "D"): 1, ("C", "D"): 1,
+               ("D", "E"): 50, ("C", "F"): 1, ("E", "F"): 1}
+    bp = bfs_path(G, "A", "E")
+    alt = ["A", "C", "F", "E"]
+    print(f"  BFS path      {bp}  -> {len(bp)-1} edges, total weight {path_weight(bp, weights)}")
+    print(f"  alternative   {alt}  -> {len(alt)-1} edges, total weight {path_weight(alt, weights)}")
+    assert path_weight(alt, weights) < path_weight(bp, weights)
+    print("  Both paths have the SAME edge count, and BFS returned the heavier one -")
+    print("  it had no reason to prefer either, because it never looks at weight.")
+    print("  BFS minimises edge COUNT. When edges have differing costs that is")
+    print("  the wrong objective, and you need Dijkstra.")
+
+    print()
+    print("Block 5 - BFS vs DFS memory on a wide graph")
+    wide = build([("root", f"child{i}") for i in range(1000)])
+    d, lv = bfs_levels(wide, "root")
+    print(f"  a star with 1,000 leaves: BFS level 1 holds {len(lv[1]):,} vertices at once")
+    print(f"  DFS on the same graph never holds more than 2 on its stack")
+    print("  BFS memory is the widest LEVEL; DFS memory is the DEEPEST PATH.")
+    print("  Wide-and-shallow favours DFS; deep-and-narrow favours BFS.")
+    assert len(lv[1]) == 1000
+
+    print()
+    print("bfs_lab: passed")
+```
+
+Expected output:
+
+```
+Block 1 - BFS explores by level
+    level 0: ['A']
+    level 1: ['B', 'C']
+    level 2: ['D', 'F']
+    level 3: ['E']
+  distances from A: {'A': 0, 'B': 1, 'C': 1, 'D': 2, 'E': 3, 'F': 2}
+
+Block 2 - BFS gives the SHORTEST path; DFS gives A path
+   start  goal   BFS path            len   DFS path                  len
+     A     E    ['A', 'B', 'D', 'E']   3   ['A', 'B', 'D', 'C', 'F', 'E']   5
+     A     D    ['A', 'B', 'D']        2   ['A', 'B', 'D']            2
+     B     F    ['B', 'A', 'C', 'F']   3   ['B', 'A', 'C', 'D', 'E', 'F']   5
+  BFS is never longer, and here it is strictly shorter.
+  The reason: BFS finishes every vertex at distance k before starting
+  any at distance k+1, so the first time it reaches the goal is the closest.
+
+Block 3 - multi-source BFS: every source starts at zero
+   distance from (0,0) alone      distance from EITHER corner
+      0  1  2  3  4               0  1  2  3  3
+      1  2  3  4  5               1  2  3  3  2
+      2  3  4  5  6               2  3  3  2  1
+      3  4  5  6  7               3  3  2  1  0
+  one queue, two starting points, one pass - not two separate searches.
+  This is how 'nearest exit', 'rotting oranges' and 'walls and gates' work.
+
+Block 4 - where the guarantee ends: weighted edges
+  BFS path      ['A', 'B', 'D', 'E']  -> 3 edges, total weight 52
+  alternative   ['A', 'C', 'F', 'E']  -> 3 edges, total weight 3
+  Both paths have the SAME edge count, and BFS returned the heavier one -
+  it had no reason to prefer either, because it never looks at weight.
+  BFS minimises edge COUNT. When edges have differing costs that is
+  the wrong objective, and you need Dijkstra.
+
+Block 5 - BFS vs DFS memory on a wide graph
+  a star with 1,000 leaves: BFS level 1 holds 1,000 vertices at once
+  DFS on the same graph never holds more than 2 on its stack
+  BFS memory is the widest LEVEL; DFS memory is the DEEPEST PATH.
+  Wide-and-shallow favours DFS; deep-and-narrow favours BFS.
+
+bfs_lab: passed
+```
+
+Block 4 is the one to remember. BFS is not "the shortest path algorithm" — it is the **fewest edges** algorithm, and those coincide only when every edge costs the same.
+
 ## 6. Common Pitfalls & Traps
 
 1. **`list.pop(0)` Performance Trap**: Never write `queue.pop(0)` on a Python list! It takes $O(n)$ time to shift remaining elements, ruining BFS performance. Always use `collections.deque.popleft()` ($O(1)$).
@@ -138,6 +360,28 @@ def shortest_path_bfs(graph: dict, start: str, target: str) -> list:
    - <details><summary>Click for Answer</summary><b>Answer:</b> If a node has multiple neighbors currently in the queue, delaying its <code>visited</code> mark until dequeue allows all neighbors to push duplicate entries of the same node into the queue, wasting memory and processing time.</details>
 
 ---
+
+## Practice — independent task
+
+Implement `word_ladder(begin, end, wordlist)` — the shortest chain of one-letter changes from one word to another.
+
+1. The graph is **implicit**: never build it. Generate neighbours by trying each position with each letter and keeping those in the word list.
+2. Return the actual chain, not just its length, using a parent map.
+3. **Measure the naive neighbour cost.** Comparing against every word is $O(N \cdot L)$ per expansion. Replace it with the wildcard-bucket trick: pre-index words by patterns like `h*t`. Report the speed-up in neighbour lookups for a list of a few thousand words.
+4. Implement **bidirectional BFS** — search from both ends and stop when the frontiers meet. Count vertices expanded by each method.
+5. Explain the improvement with numbers: if the branching factor is $b$ and the answer is at depth $d$, one-directional BFS expands about $b^d$ and bidirectional about $2b^{d/2}$. Confirm the ratio you actually observe, and say whether it matches.
+
+**Edge cases:** `end` not in the word list (no ladder exists); `begin == end`; words of differing lengths; an empty word list.
+
+**Done when:** your ladder is verifiable — every consecutive pair differs in exactly one position and every word is in the list — bidirectional BFS returns the same length as plain BFS, and your step-5 ratio is backed by counts you measured.
+
+## Before moving on
+
+You can implement BFS, reconstruct paths, use multi-source BFS, and state exactly where the shortest-path guarantee stops.
+
+**Recap:** BFS uses a **queue** and explores level by level; $O(V+E)$ time; memory is the widest level, where DFS's is the deepest path; the first time BFS reaches a vertex is via the fewest edges, which is why it gives shortest paths on **unweighted** graphs only; multi-source BFS seeds the queue with every source at distance 0; with weighted edges, use [[06-dijkstra|Dijkstra]].
+
+**Next:** [[04-sorting/index|Sorting]], then [[05-searching|Searching]] — or jump straight to [[06-dijkstra|Dijkstra]], which is BFS with a priority queue.
 
 ## Related Modules
 - [[02-dfs|Depth-First Search (DFS)]] — Deep exploration traversal
