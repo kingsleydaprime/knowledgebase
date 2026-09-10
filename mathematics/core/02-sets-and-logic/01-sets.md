@@ -2,7 +2,7 @@
 
 ## Before you start
 
-- You know what a number system is — [[01-numbers|numbers]].
+- You know what a number system is — [[02-number-systems|numbers]].
 
 **What you will be able to do after this lesson:**
 
@@ -116,4 +116,4 @@ You are done with this lesson when you can, closed-book:
 
 **Recap:** A set is an unordered collection with no duplicates, and set notation is the language for saying precisely which things belong. Union, intersection, difference and complement combine sets; Venn diagrams show the regions. Inclusion–exclusion corrects for double counting by adding singles, subtracting pairs and adding back triples, so every element is counted exactly once. Databases, type systems and search queries are all set operations wearing different syntax.
 
-**Next:** [[03-variables|Variables]] — what happens when you stop naming specific numbers and start naming unknown ones.
+**Next:** [[01-variables|Variables]] — what happens when you stop naming specific numbers and start naming unknown ones.

@@ -2,7 +2,7 @@
 
 ## Before you start
 
-- You know the laws of indices — [[06-exponents|exponents]].
+- You know the laws of indices — [[04-indices-and-logarithms|exponents]].
 
 **What you will be able to do after this lesson:**
 

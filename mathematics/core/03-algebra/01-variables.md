@@ -2,7 +2,7 @@
 
 ## Before you start
 
-- You are comfortable with arithmetic and sets — [[02-sets|sets]].
+- You are comfortable with arithmetic and sets — [[01-sets|sets]].
 
 **What you will be able to do after this lesson:**
 
@@ -99,4 +99,4 @@ You are done with this lesson when you can, closed-book:
 
 **Recap:** A variable is a name for a quantity that may vary or is not yet known — not merely a letter. Constants hold fixed values, parameters are held fixed within a problem but vary between problems, and dependent variables are determined by independent ones. The most consequential distinction for a programmer is that mathematical `=` asserts equality while programming `=` usually commands assignment, which is why $x = x + 1$ is false in one and routine in the other.
 
-**Next:** [[04-equations|Equations]] — once you can name an unknown, the next question is how to find it.
+**Next:** [[02-equations|Equations]] — once you can name an unknown, the next question is how to find it.

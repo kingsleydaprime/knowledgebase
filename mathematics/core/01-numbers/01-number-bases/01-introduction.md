@@ -372,6 +372,6 @@ You are done with this lesson when you can, closed-book:
 ## Related
 
 - [[03-decimal|Decimal]] · [[04-hexadecimal|Hexadecimal]]
-- [[foundations/mathematics/06-exponents|exponents]] — the powers this lesson depends on
+- [[foundations/mathematics/core/03-algebra/04-indices-and-logarithms|exponents]] — the powers this lesson depends on
 - [[foundations/how-computers-work/01-electricity/05-the-digital-abstraction|How Computers Work — the digital abstraction]] — why two states, physically
 - [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]] — signed numbers and floating point, built on this

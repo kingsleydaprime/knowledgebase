@@ -2,7 +2,7 @@
 
 ## Before you start
 
-- You can substitute into expressions — [[03-variables|variables]].
+- You can substitute into expressions — [[01-variables|variables]].
 
 **What you will be able to do after this lesson:**
 
@@ -117,4 +117,4 @@ You are done with this lesson when you can, closed-book:
 
 **Recap:** Solving an equation means isolating the unknown by applying the same operation to both sides, which preserves equality. Simultaneous equations are solved by substitution or elimination and should be checked in every original equation, not just one. Changing the subject is the same technique aimed at a different symbol, and often introduces a domain restriction — taking a square root loses a sign, and dividing by an expression assumes it is non-zero.
 
-**Next:** [[05-algebraic-manipulation|Algebraic Manipulation]] — the toolkit that makes those steps possible.
+**Next:** [[03-algebraic-manipulation|Algebraic Manipulation]] — the toolkit that makes those steps possible.

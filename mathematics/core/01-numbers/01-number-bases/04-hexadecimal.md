@@ -112,7 +112,7 @@ The mask for the low $n$ bits is $2^n - 1$, which in hex is a run of <code>F</co
 
 **Recap:** Hexadecimal uses sixteen digits, 0–9 then A–F. It exists because $16 = 2^4$, so one hex digit is exactly four bits and conversion is digit-by-digit with no arithmetic — and a byte, being 8 bits, is exactly two hex digits. That locality means changing one bit changes exactly one hex digit, which is why memory dumps, colours, masks and addresses are all written in hex rather than decimal.
 
-**Next:** [[foundations/mathematics/01-numbers|Number systems]] — from *how* numbers are written to *what kinds* of number exist.
+**Next:** [[foundations/mathematics/core/01-numbers/02-number-systems|Number systems]] — from *how* numbers are written to *what kinds* of number exist.
 
 ## Related
 

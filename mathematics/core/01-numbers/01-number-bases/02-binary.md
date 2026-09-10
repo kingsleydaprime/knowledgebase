@@ -5,7 +5,7 @@
 ## Before you start
 
 - You can convert between decimal and any base — [[01-introduction|number bases]].
-- You know what a power is — [[foundations/mathematics/06-exponents|exponents]].
+- You know what a power is — [[foundations/mathematics/core/03-algebra/04-indices-and-logarithms|exponents]].
 
 **What you will be able to do after this lesson:**
 
