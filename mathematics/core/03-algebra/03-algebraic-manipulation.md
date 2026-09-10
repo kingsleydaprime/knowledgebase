@@ -2,7 +2,7 @@
 
 ## Before you start
 
-- You can solve linear equations — [[04-equations|equations]].
+- You can solve linear equations — [[02-equations|equations]].
 
 **What you will be able to do after this lesson:**
 
@@ -97,4 +97,4 @@ You are done with this lesson when you can, closed-book:
 
 **Recap:** Algebraic manipulation rewrites an expression into an equivalent form that is easier to work with. Expanding removes brackets; factorising reintroduces them, and recognising standard patterns — the difference of two squares, perfect squares, common factors — is most of the skill. Simplifying a fraction can change its domain, so restrictions must be carried. Two algebraically identical expressions can differ enormously in how easy and how accurate they are to compute.
 
-**Next:** [[06-exponents|Exponents]] — the notation that makes repeated multiplication manageable.
+**Next:** [[04-indices-and-logarithms|Exponents]] — the notation that makes repeated multiplication manageable.

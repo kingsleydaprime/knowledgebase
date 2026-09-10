@@ -360,4 +360,4 @@ You are done with this lesson when you can, closed-book:
 
 **Recap:** Each number system exists because the previous one could not answer a question. Naturals count but cannot express debt, so integers add negatives. Integers cannot divide evenly, so rationals add fractions. Rationals leave gaps on the line — $\sqrt{2}$ is not a ratio of whole numbers — so reals fill them. Each extension is the smallest one that closes an operation the previous system could not.
 
-**Next:** [[02-sets|Sets]] — the language used to state precisely what a number system *is*.
+**Next:** [[01-sets|Sets]] — the language used to state precisely what a number system *is*.
