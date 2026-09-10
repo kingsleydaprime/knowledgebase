@@ -14,7 +14,7 @@
 ## The layers, in the order you'll build them
 
 1. **A window and an input event loop** — SDL3, GLFW, or raw platform APIs
-2. **A render backend** — OpenGL or WebGPU to start; Vulkan/DX12 if you want the pain → [[foundations/computer-graphics/06-the-gpu-graphics-pipeline|the GPU pipeline]]
+2. **A render backend** — OpenGL or WebGPU to start; Vulkan/DX12 if you want the pain → [[computer-graphics/06-the-gpu-graphics-pipeline|the GPU pipeline]]
 3. **The game loop with a fixed timestep** → [[game-development/02-engines-and-the-game-loop|note 02]]. **Get this right first; everything else depends on it**
 4. **Maths** — vectors, matrices, quaternions → [[robotics/04-rigid-body-transforms|transforms]]
 5. **A scene representation** — a hierarchy, or an ECS
@@ -32,8 +32,8 @@
 
 - **Where the frame budget actually goes**, because you wrote every part of it
 - **Why engines make the API choices they do** — most "weird" engine decisions turn out to be forced
-- **Data-oriented design as a felt constraint**, not a slogan → [[foundations/computer-architecture/09-caches-in-depth|caches]]
-- **The whole [[foundations/computer-graphics/index|graphics course]] becomes concrete**
+- **Data-oriented design as a felt constraint**, not a slogan → [[computer-architecture/09-caches-in-depth|caches]]
+- **The whole [[computer-graphics/index|graphics course]] becomes concrete**
 - **Memory management under a hard deadline** — why per-frame allocation is a bug → [[languages/04-c/index|C]] · [[languages/03-rust/index|Rust]]
 
 **It is one of the best learning projects in software**, and this vault's [[build-your-own-shit/index|build-your-own-shit]] folder exists on the same premise.
@@ -48,7 +48,7 @@
 | **Zig** | C's simplicity, better ergonomics, great C interop | Young; smaller ecosystem |
 | **Odin / Jai** | Designed with games in mind | Very small ecosystems |
 
-**Rust deserves a specific caution:** scene graphs and entity references are exactly the aliasing-heavy, mutually-referential structures the borrow checker is strictest about. The idiomatic answer is arena/index-based storage — which is **also what ECS does anyway**, so it converges → [[game-development/02-engines-and-the-game-loop|ECS]] · [[foundations/programming-language-theory/07-effects-and-substructural-types|linearity]].
+**Rust deserves a specific caution:** scene graphs and entity references are exactly the aliasing-heavy, mutually-referential structures the borrow checker is strictest about. The idiomatic answer is arena/index-based storage — which is **also what ECS does anyway**, so it converges → [[game-development/02-engines-and-the-game-loop|ECS]] · [[programming-language-theory/07-effects-and-substructural-types|linearity]].
 
 ## Don't write these
 
@@ -76,6 +76,6 @@ Even in a from-scratch engine, use libraries for the solved problems:
 ## Related
 - [[build-your-own-shit/index|build your own shit]] — the same premise, other systems
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — build this first
-- [[foundations/computer-graphics/index|computer graphics]] · [[foundations/computer-architecture/index|architecture]]
+- [[computer-graphics/index|computer graphics]] · [[computer-architecture/index|architecture]]
 
 *Source: [reference] — written Aug 2026.*

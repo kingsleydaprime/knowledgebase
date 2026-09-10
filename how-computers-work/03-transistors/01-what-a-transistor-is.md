@@ -417,4 +417,4 @@ Transitions per second = (gate count) × (activity factor) × (clock frequency).
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] — the switchable-resistance requirement
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — where two complementary MOSFETs become a gate
-- [[foundations/hardware/03-embedded-systems|hardware/embedded systems]] — transistors as practical components
+- [[hardware/03-embedded-systems|hardware/embedded systems]] — transistors as practical components

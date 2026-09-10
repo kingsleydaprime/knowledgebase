@@ -56,7 +56,7 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 | Packaging, signing, CI releases | [[devops/06-ci-cd/index\|CI/CD]] |
 | Rust, for Tauri | [[languages/03-rust/index\|Rust]] |
 | C++/C#, for Qt/.NET | [[languages/05-cpp/index\|C++]] · [[languages/01-java/index\|Java]] (adjacent) |
-| Processes, filesystem, IPC | [[foundations/os/index\|OS]] |
+| Processes, filesystem, IPC | [[os/index\|OS]] |
 
 **A desktop app is mostly a frontend and a backend in one process**, with distribution as the genuinely new problem.
 
@@ -71,7 +71,7 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 ## Related
 - [[desktop/frameworks/index|frameworks/]] — the options, compared
 - [[frontend/index|frontend]] — the UI half
-- [[foundations/software-engineering/04-the-kinds-of-software-engineering|kinds of software engineering]] — where desktop sits
-- [[foundations/os/index|OS]] — what you're integrating with
+- [[software-engineering/04-the-kinds-of-software-engineering|kinds of software engineering]] — where desktop sits
+- [[os/index|OS]] — what you're integrating with
 
 *Source: [reference] — written Aug 2026. No roadmap.sh roadmap covers desktop.*

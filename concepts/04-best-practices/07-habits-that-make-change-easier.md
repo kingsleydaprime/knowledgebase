@@ -23,7 +23,7 @@ GOOD: if not user exists:      return error
       do the actual thing                  ← front and centre
 ```
 
-These are **guard clauses** (early return). The goal isn't to eliminate all nesting — it's to keep the *important path* of a function easy to see → [[foundations/programming-fundamentals/index|control flow]]. A reader should follow what a function *does* without mentally unwinding a pyramid of conditions.
+These are **guard clauses** (early return). The goal isn't to eliminate all nesting — it's to keep the *important path* of a function easy to see → [[programming-fundamentals/index|control flow]]. A reader should follow what a function *does* without mentally unwinding a pyramid of conditions.
 
 ## 2. Name things by their meaning
 
@@ -82,7 +82,7 @@ BAD:  throw Error("Something went wrong")
 GOOD: throw Error(code: "PAYMENT_DECLINED", message: "Your card was declined")
 ```
 
-And when you log errors, **include the context that helps investigation** — but **never log passwords, tokens, secrets, or personal data** → [[cybersecurity/10-protecting-yourself/index|don't leak secrets in logs]], [[languages/08-swift/06-error-handling|error handling]]. A useful error is the difference between a five-minute fix and an afternoon of guessing → [[foundations/programming-fundamentals/10-errors-and-debugging|debugging]].
+And when you log errors, **include the context that helps investigation** — but **never log passwords, tokens, secrets, or personal data** → [[cybersecurity/10-protecting-yourself/index|don't leak secrets in logs]], [[languages/08-swift/06-error-handling|error handling]]. A useful error is the difference between a five-minute fix and an afternoon of guessing → [[programming-fundamentals/10-errors-and-debugging|debugging]].
 
 ## 7. Keep your changes focused
 

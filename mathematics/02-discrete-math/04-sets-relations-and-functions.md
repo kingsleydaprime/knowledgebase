@@ -41,7 +41,7 @@ $$\{x \in \mathbb{Z} \mid x > 0 \wedge x \text{ is even}\}$$
 
 $$|\mathcal{P}(A)| = 2^{|A|}$$
 
-**The power set of an $n$-element set has $2^n$ elements** — because each element is independently in or out, one binary choice each. This is why brute-forcing "try every subset" is exponential and why subset problems are hard. → [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]]
+**The power set of an $n$-element set has $2^n$ elements** — because each element is independently in or out, one binary choice each. This is why brute-forcing "try every subset" is exponential and why subset problems are hard. → [[theory-of-computation/07-complexity-classes|Complexity Classes]]
 
 $$|A \times B| = |A| \cdot |B|$$
 
@@ -49,11 +49,11 @@ $$|A \times B| = |A| \cdot |B|$$
 
 $$\overline{A \cup B} = \bar{A} \cap \bar{B}$$
 
-That's not a coincidence: both are Boolean algebras. → [[foundations/mathematics/02-discrete-math/02-logic|Logic]]
+That's not a coincidence: both are Boolean algebras. → [[mathematics/02-discrete-math/02-logic|Logic]]
 
 ### Infinite sets and countability
 
-A genuinely surprising corner, and it matters for [[foundations/theory-of-computation/06-decidability|decidability]].
+A genuinely surprising corner, and it matters for [[theory-of-computation/06-decidability|decidability]].
 
 **Two sets have the same size if a bijection exists between them.** That definition is uncontroversial for finite sets and produces strange results for infinite ones.
 
@@ -92,7 +92,7 @@ For a relation $R$ on a set $A$:
 
 > **An equivalence relation partitions its set** into disjoint **equivalence classes** covering everything. Partition and equivalence relation are two views of the same thing.
 
-Where it shows up: **hashing** (buckets are classes under "same hash"), **modular arithmetic** ($\mathbb{Z}_n$ is the set of classes), **[[foundations/dsa/04-data-structures/10-union-find|union-find]]** (maintaining classes under merging), **type unification**, and **[[foundations/theory-of-computation/03-regular-languages|the Myhill–Nerode theorem]]**, where states of a minimal automaton *are* equivalence classes.
+Where it shows up: **hashing** (buckets are classes under "same hash"), **modular arithmetic** ($\mathbb{Z}_n$ is the set of classes), **[[dsa/04-data-structures/10-union-find|union-find]]** (maintaining classes under merging), **type unification**, and **[[theory-of-computation/03-regular-languages|the Myhill–Nerode theorem]]**, where states of a minimal automaton *are* equivalence classes.
 
 **And the `equals()` contract in Java or `Eq` in Rust is exactly these three axioms.** Violating transitivity — easy to do with a "fuzzy" comparison — breaks hash sets in ways that look like memory corruption.
 
@@ -104,16 +104,16 @@ Where it shows up: **hashing** (buckets are classes under "same hash"), **modula
 
 **Where it matters:**
 
-- **Dependency graphs.** A build's task order is a partial order, and [[foundations/dsa/05-algorithms/11-topological-sort|topological sort]] extends it to a total order — that's exactly what topological sorting *is*
+- **Dependency graphs.** A build's task order is a partial order, and [[dsa/05-algorithms/11-topological-sort|topological sort]] extends it to a total order — that's exactly what topological sorting *is*
 - **Version constraints**, semver ranges
 - **Happens-before in [[architecture/04-distributed-systems/03-time-and-ordering|distributed systems]]** — the canonical partial order. Concurrent events are simply *incomparable*, and Lamport's whole point is that physical time forces a false total order onto a genuinely partial one
-- **Lattices** — partial orders where every pair has a least upper bound. The basis of [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs]] and of dataflow analysis in [[foundations/compilers/07-optimisation|compilers]]
+- **Lattices** — partial orders where every pair has a least upper bound. The basis of [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs]] and of dataflow analysis in [[compilers/07-optimisation|compilers]]
 
 ### Closures
 
 The **transitive closure** of $R$ adds every pair reachable by a chain. Given "directly depends on", the transitive closure is "depends on, however indirectly".
 
-**Computed by Floyd–Warshall or repeated traversal**, and it's what you want for full dependency resolution or reachability. → [[foundations/dsa/04-data-structures/06-graphs|Graphs]]
+**Computed by Floyd–Warshall or repeated traversal**, and it's what you want for full dependency resolution or reachability. → [[dsa/04-data-structures/06-graphs|Graphs]]
 
 ## Functions
 
@@ -143,18 +143,18 @@ The **transitive closure** of $R$ adds every pair reachable by a chain. Given "d
 
 **Databases** — the relational model, normalisation (functional dependencies are literally functions between attribute sets), and set operations as query operators.
 
-**Type systems** — a type *is* a set of values, and a function type is a set of functions. Subtyping is $\subseteq$. → [[foundations/compilers/05-type-systems-and-checking|Type Systems]]
+**Type systems** — a type *is* a set of values, and a function type is a set of functions. Subtyping is $\subseteq$. → [[compilers/05-type-systems-and-checking|Type Systems]]
 
 **Collections** — `Set`, `Map`, and the `equals`/`hashCode` contract as equivalence-relation axioms.
 
-**Graphs** — a graph is a set of vertices plus a relation on them. → [[foundations/mathematics/02-discrete-math/07-graph-theory|Graph Theory]]
+**Graphs** — a graph is a set of vertices plus a relation on them. → [[mathematics/02-discrete-math/07-graph-theory|Graph Theory]]
 
 **Distributed systems** — partial orders, lattices, and CRDT merge as a least-upper-bound operation.
 
 ---
 
 ## Related
-- [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — proving things about these structures
-- [[foundations/mathematics/02-discrete-math/07-graph-theory|Graph Theory]] — relations, drawn
-- [[foundations/theory-of-computation/06-decidability|Decidability]] — where countability does real work
-- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]
+- [[mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — proving things about these structures
+- [[mathematics/02-discrete-math/07-graph-theory|Graph Theory]] — relations, drawn
+- [[theory-of-computation/06-decidability|Decidability]] — where countability does real work
+- [[mathematics/02-discrete-math/index|Discrete maths map]]

@@ -65,5 +65,5 @@ Ethernet cable (same RJ45 plug, same cable):
 ## Related
 - [[hardware/06-radio-frequency|Radio Frequency]] — the wireless options in depth
 - [[hardware/08-iot-architecture|IoT Architecture]] — the system these devices join
-- [[foundations/networking/index|Networking]] — everything above the physical layer
+- [[networking/index|Networking]] — everything above the physical layer
 - [[devops/08-networking-and-web/index|DevOps networking]] — the server side of the same link

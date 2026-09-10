@@ -93,4 +93,4 @@ JavaScript's `for...of` loop and the iterator protocol above are a language-leve
 ## Related
 - [[01-creational-patterns|creational-patterns]]
 - [[02-structural-patterns|structural-patterns]]
-- [[foundations/dsa/04-data-structures/05-trees/02-traversal|traversal]] — the same iteration idea generalized to trees and graphs
+- [[dsa/04-data-structures/05-trees/02-traversal|traversal]] — the same iteration idea generalized to trees and graphs

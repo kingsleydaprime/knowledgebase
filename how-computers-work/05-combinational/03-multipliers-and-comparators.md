@@ -400,7 +400,7 @@ multiply_lab: passed
 1. **Why is multiplying by 8 far cheaper than multiplying by 7?**
    <details><summary>Answer</summary>
    $\times 8$ is a left shift by 3 — <strong>free in hardware</strong>, just wiring, and one instruction in software.<br>
-   $\times 7$ has three 1-bits in binary (111), so it needs three partial products summed. A compiler will often rewrite it as $(x \ll 3) - x$ — one shift and one subtract — which is why strength reduction is a standard optimisation ([[foundations/compilers/07-optimisation|compilers/optimisation]]). <strong>The cost of a constant multiply depends on the bit pattern of the constant.</strong>
+   $\times 7$ has three 1-bits in binary (111), so it needs three partial products summed. A compiler will often rewrite it as $(x \ll 3) - x$ — one shift and one subtract — which is why strength reduction is a standard optimisation ([[compilers/07-optimisation|compilers/optimisation]]). <strong>The cost of a constant multiply depends on the bit pattern of the constant.</strong>
    </details>
 
 2. **A carry-save adder "adds three numbers in one gate delay". Where did the carry propagation go?**
@@ -472,4 +472,4 @@ The problem is the sign bit: in two's complement the MSB has weight $-2^{n-1}$, 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/05-combinational/02-adders|Module 21 — Adders]] — the carry chain this module works around
 - [[how-computers-work/05-combinational/04-the-alu|Module 23 — The ALU]] — where comparison becomes SLT
-- [[foundations/compilers/07-optimisation|compilers/optimisation]] — strength reduction, replacing multiplies with shifts
+- [[compilers/07-optimisation|compilers/optimisation]] — strength reduction, replacing multiplies with shifts

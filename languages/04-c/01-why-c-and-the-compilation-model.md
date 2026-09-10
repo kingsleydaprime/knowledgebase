@@ -149,5 +149,5 @@ Dynamic linking means the binary depends on `libc.so` existing on the target mac
 - [[languages/04-c/02-headers-and-the-translation-unit|Headers and the Translation Unit]] — the model this pipeline implies
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — the price of no safety net
 - [[languages/03-rust/01-why-rust-and-the-toolchain|Rust: Why Rust]] — the language built to replace this one
-- [[foundations/os/index|Operating Systems]] — written in C, all of them
+- [[os/index|Operating Systems]] — written in C, all of them
 - [[languages/04-c/index|C course map]]

@@ -33,7 +33,7 @@ Two things are being agreed, and it's worth separating them:
 
 **Why the ISN is random rather than 0:** if it were predictable, an off-path attacker could forge packets into an existing connection (**sequence prediction / TCP injection**) or complete a handshake while spoofing someone else's address. RFC 6528 specifies a randomised ISN derived from a hash including a secret. This is a security control hiding inside a mechanism that looks purely functional — a good example of how much of TCP's design is scar tissue.
 
-**Cost:** one full round trip (RTT) before any data moves. On a 100ms path that's 100ms of nothing, and then [[foundations/networking/12-tls-and-transport-security|TLS]] wants 1–2 more. This accumulated handshake tax is the single strongest motivation for [[foundations/networking/13-quic-and-modern-transport|QUIC]] and for connection reuse everywhere.
+**Cost:** one full round trip (RTT) before any data moves. On a 100ms path that's 100ms of nothing, and then [[networking/12-tls-and-transport-security|TLS]] wants 1–2 more. This accumulated handshake tax is the single strongest motivation for [[networking/13-quic-and-modern-transport|QUIC]] and for connection reuse everywhere.
 
 ## The SYN backlog and SYN floods
 
@@ -47,7 +47,7 @@ Two queues matter operationally, and conflating them causes confusion:
 - the **SYN queue** (half-open, `tcp_max_syn_backlog`)
 - the **accept queue** (fully established, waiting for your app to call `accept()`, sized by the `listen()` backlog and `somaxconn`)
 
-If your application is slow to `accept()`, the accept queue overflows and the kernel **silently drops** established connections. The symptom is clients seeing hangs or resets under load with no error in your app logs. Check it with `ss -lnt` — the `Recv-Q`/`Send-Q` columns on a listening socket are current and max accept-queue depth. → [[foundations/networking/16-debugging-networks|debugging]]
+If your application is slow to `accept()`, the accept queue overflows and the kernel **silently drops** established connections. The symptom is clients seeing hangs or resets under load with no error in your app logs. Check it with `ss -lnt` — the `Recv-Q`/`Send-Q` columns on a listening socket are current and max accept-queue depth. → [[networking/16-debugging-networks|debugging]]
 
 ## Teardown, and the TIME_WAIT question
 
@@ -93,11 +93,11 @@ The side that closes first enters **`TIME_WAIT`** for 2× the maximum segment li
 
 A **RST** is an abrupt abort, not a graceful close. You get one when connecting to a port nobody is listening on (that's how "connection refused" happens — instantly, versus a *timeout* when a firewall silently drops instead of rejecting), when sending to a socket that's already closed, or when a middlebox decides to kill your connection.
 
-That distinction is diagnostically valuable: **"connection refused" means you reached the host and nothing was listening. A hang/timeout means something is dropping silently** — a firewall, a security group, a wrong route, or a black-holed [[foundations/networking/02-the-link-layer|MTU]].
+That distinction is diagnostically valuable: **"connection refused" means you reached the host and nothing was listening. A hang/timeout means something is dropping silently** — a firewall, a security group, a wrong route, or a black-holed [[networking/02-the-link-layer|MTU]].
 
 ## Keepalives and the idle-connection problem
 
-TCP will happily sit idle forever — it sends nothing, so it never learns the peer died or that a [[foundations/networking/03-ip-addressing-and-subnetting|NAT]] dropped the mapping. Both sides think they're connected; the next write fails, minutes later.
+TCP will happily sit idle forever — it sends nothing, so it never learns the peer died or that a [[networking/03-ip-addressing-and-subnetting|NAT]] dropped the mapping. Both sides think they're connected; the next write fails, minutes later.
 
 TCP keepalive exists but defaults to **2 hours** of idle before the first probe, which is useless for anything real. Most systems set application-level pings (WebSocket ping frames, database pool validation queries) at 30–60 seconds instead — comfortably under typical NAT and load-balancer idle timeouts. That's the actual reason your ORM's connection pool has a "test on borrow" or "max idle time" setting, and why getting it wrong produces the maddening "first request after a quiet period always fails" bug.
 
@@ -106,7 +106,7 @@ TCP keepalive exists but defaults to **2 hours** of idle before the first probe,
 A TCP connection is **soft state held only at the two endpoints** — the network holds nothing and knows nothing. Every awkward part of TCP's lifecycle (`TIME_WAIT`, half-open connections, SYN backlogs, keepalives) is the cost of maintaining a shared illusion across an unreliable medium where either party can vanish without notice and the other can't tell the difference between "dead" and "slow." That last impossibility is the same one at the heart of [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|distributed systems]].
 
 ## Related
-- [[foundations/networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — what happens between handshake and teardown
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets & the Network API]] — these states from the code side
-- [[foundations/networking/16-debugging-networks|Debugging Networks]] — `ss`, `netstat`, and reading state tables
+- [[networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — what happens between handshake and teardown
+- [[networking/09-sockets-and-the-network-api|Sockets & the Network API]] — these states from the code side
+- [[networking/16-debugging-networks|Debugging Networks]] — `ss`, `netstat`, and reading state tables
 - [[cybersecurity/06-attacks-and-threats/index|Attacks & Threats]] — SYN floods and connection-exhaustion DoS

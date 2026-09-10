@@ -4,7 +4,7 @@
 
 This course's own note says it's *"unusually cheap to make concrete"* — and it is. Pure Python; no libraries needed except where marked.
 
-Solutions with measured results in [[foundations/information-theory/09-practice-exercises-solutions|note 09]].
+Solutions with measured results in [[information-theory/09-practice-exercises-solutions|note 09]].
 
 ---
 
@@ -12,7 +12,7 @@ Solutions with measured results in [[foundations/information-theory/09-practice-
 
 **1. Measure the entropy of a real file.**
 Count byte frequencies in a file you own, compute $H = -\sum p_i \log_2 p_i$ in bits per byte, and multiply by the file size for a predicted floor. **Then compress it with `gzip -9` and `xz` and compare.**
-**Done when:** you have three numbers — and **if the compressor beat your "floor", you have the most important result in this course.** Explain it → [[foundations/information-theory/01-what-information-is|note 01]].
+**Done when:** you have three numbers — and **if the compressor beat your "floor", you have the most important result in this course.** Explain it → [[information-theory/01-what-information-is|note 01]].
 
 **2. Entropy of English.**
 Compute the order-0 entropy of letters in a large English text, and compare against $\log_2 26$ for a uniform alphabet.
@@ -24,7 +24,7 @@ Have someone guess the next letter of a sentence they haven't seen, one letter a
 
 **4. Mutual information beats correlation.**
 Generate $X \sim \text{Uniform}(-1,1)$ and $Y = X^2$. Compute Pearson correlation, then estimate $I(X;Y)$ by binning.
-**Done when:** correlation is ~0 and mutual information is clearly positive. **Two variables where one *determines* the other, and correlation sees nothing** → [[foundations/information-theory/02-entropy-joint-conditional-and-mutual|note 02]].
+**Done when:** correlation is ~0 and mutual information is clearly positive. **Two variables where one *determines* the other, and correlation sees nothing** → [[information-theory/02-entropy-joint-conditional-and-mutual|note 02]].
 
 **5. Conditioning creates dependence.**
 Let $A$ and $B$ be independent fair coins and $C = A \oplus B$. Verify $I(A;B) = 0$ but $I(A;B \mid C) = 1$ bit.
@@ -36,7 +36,7 @@ Let $A$ and $B$ be independent fair coins and $C = A \oplus B$. Verify $I(A;B) =
 
 **6. Implement Huffman.**
 Build the tree, encode, decode, and verify round-trip. Compare bits used against the entropy floor from exercise 1.
-**Done when:** your output is within 1 bit/symbol of $H$ → [[foundations/information-theory/03-source-coding-and-compression|note 03]].
+**Done when:** your output is within 1 bit/symbol of $H$ → [[information-theory/03-source-coding-and-compression|note 03]].
 
 **7. Make Huffman lose badly.**
 Encode a binary source with $p = 0.9$, then $0.98$, then $0.99$. Compare bits/symbol against $H$.
@@ -56,7 +56,7 @@ Argue by counting that no lossless scheme can shorten every input of length $n$.
 
 **10. Cross-entropy by hand.**
 Take a 4-class problem, five examples, hand-written predicted probabilities. Compute the cross-entropy loss manually, then confirm it matches your framework's `cross_entropy`. Then compute perplexity.
-**Done when:** your hand figure matches to several decimals, and you can state the relationship between loss and perplexity → [[foundations/information-theory/04-cross-entropy-and-kl-divergence|note 04]].
+**Done when:** your hand figure matches to several decimals, and you can state the relationship between loss and perplexity → [[information-theory/04-cross-entropy-and-kl-divergence|note 04]].
 
 **11. Forward vs reverse KL.**
 Fit a single Gaussian to a bimodal target by minimising $D_{KL}(p\|q)$ and then $D_{KL}(q\|p)$. Plot both.
@@ -64,10 +64,10 @@ Fit a single Gaussian to a bimodal target by minimising $D_{KL}(p\|q)$ and then 
 
 **12. Hamming code by hand.**
 Implement Hamming(7,4). Encode a nibble, flip one bit, and correct it. Then flip two bits.
-**Done when:** single errors are corrected and **you can show a double error is silently mis-corrected** — which is why real systems use SECDED → [[foundations/information-theory/06-error-correcting-codes|note 06]] · [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|ECC memory]].
+**Done when:** single errors are corrected and **you can show a double error is silently mis-corrected** — which is why real systems use SECDED → [[information-theory/06-error-correcting-codes|note 06]] · [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|ECC memory]].
 
 ## Related
-- [[foundations/information-theory/09-practice-exercises-solutions|Solutions]]
-- [[foundations/information-theory/index|the course]]
+- [[information-theory/09-practice-exercises-solutions|Solutions]]
+- [[information-theory/index|the course]]
 
 *Source: [reference] — built from this course's own gap-closing list. Results measured Aug 2026.*

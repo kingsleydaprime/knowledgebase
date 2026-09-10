@@ -4,7 +4,7 @@
 
 ## What a component is for
 
-**A component is a boundary**: a name, a contract (props), and something you can reason about without reading its insides. **Same move as a function** → [[foundations/programming-fundamentals/08-functions|functions]].
+**A component is a boundary**: a name, a contract (props), and something you can reason about without reading its insides. **Same move as a function** → [[programming-fundamentals/08-functions|functions]].
 
 **The test for a good one, borrowed from the same place: can you describe it without using "and"?** A `UserCard` that also fetches the user, tracks analytics and manages a modal is three components.
 
@@ -63,7 +63,7 @@ src/
 
 **Keep business logic out of `ui/`.** A `Button` that knows about orders isn't a primitive. The test: could you copy `ui/` into another product unchanged?
 
-**Enforce the boundaries.** Features shouldn't import each other's internals — ESLint rules (`no-restricted-imports`) make that mechanical rather than a code-review argument → [[foundations/systems-engineering/04-architecture-and-interfaces|interfaces]].
+**Enforce the boundaries.** Features shouldn't import each other's internals — ESLint rules (`no-restricted-imports`) make that mechanical rather than a code-review argument → [[systems-engineering/04-architecture-and-interfaces|interfaces]].
 
 ## The patterns worth knowing
 

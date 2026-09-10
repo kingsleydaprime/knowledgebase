@@ -239,7 +239,7 @@ A register file has 2 read ports and 1 write port. An instruction does `ADD R3, 
 
 **This is why edge-triggered flip-flops matter so much** ([[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]]). If the register file used transparent latches, the new value could race back around to the read port mid-cycle and be added to itself again. The design would be unreliable and temperature-dependent.
 
-**The subtlety returns in pipelined processors.** There, the write may happen several cycles after the read, so a later instruction can read a stale value — a **read-after-write hazard**, solved by forwarding or stalling. That is [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]], and the problem originates in exactly this timing question.
+**The subtlety returns in pipelined processors.** There, the write may happen several cycles after the read, so a later instruction can read a stale value — a **read-after-write hazard**, solved by forwarding or stalling. That is [[computer-architecture/06-pipelining|computer-architecture/pipelining]], and the problem originates in exactly this timing question.
 </details>
 
 ---
@@ -545,5 +545,5 @@ It is worth a register because it makes many operations free: <code>MOV rd, ra</
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 24]] — the flip-flop being replicated here
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the decoder and MUX inside every register file
-- [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]] — where the register file and PC sit in a CPU
-- [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]] — read-after-write hazards, which start with this module's timing
+- [[computer-architecture/05-the-datapath|computer-architecture/the datapath]] — where the register file and PC sit in a CPU
+- [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — read-after-write hazards, which start with this module's timing

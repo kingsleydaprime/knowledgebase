@@ -48,13 +48,13 @@ Physics runs at a fixed rate; rendering runs as fast as it can and **interpolate
 
 **This is the canonical article every game programmer reads** — Glenn Fiedler's *Fix Your Timestep!* Genuinely worth reading in full.
 
-**Determinism matters more than it looks.** It's what makes replays, lockstep multiplayer, and reproducible bug reports possible → [[game-development/06-multiplayer-and-networking|networking]]. Note the tension with floating point: the same code on different CPUs can differ in the last bit, which is why deterministic lockstep games sometimes use fixed-point arithmetic → [[foundations/numerical-methods/02-floating-point-and-error|floating point]].
+**Determinism matters more than it looks.** It's what makes replays, lockstep multiplayer, and reproducible bug reports possible → [[game-development/06-multiplayer-and-networking|networking]]. Note the tension with floating point: the same code on different CPUs can differ in the last bit, which is why deterministic lockstep games sometimes use fixed-point arithmetic → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]].
 
 ## Entity Component System
 
 The dominant architecture for games, and it exists because inheritance fails here in a specific, instructive way.
 
-**The naive approach:** `Entity → Character → Player`. Then you need a door that takes damage, a crate that moves, a turret that's a character but doesn't walk. **You get either duplicated code or a base class with everything in it** — the deep-hierarchy failure from [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]], in its purest form.
+**The naive approach:** `Entity → Character → Player`. Then you need a door that takes damage, a crate that moves, a turret that's a character but doesn't walk. **You get either duplicated code or a base class with everything in it** — the deep-hierarchy failure from [[programming-fundamentals/13-objects-and-classes|objects and classes]], in its purest form.
 
 **ECS instead:**
 
@@ -74,7 +74,7 @@ MovementSystem: for all entities with (Position, Velocity) → position += veloc
 
 **And the performance argument is the real reason it won.** Components of one type are stored in contiguous arrays, so a system iterating `Position` walks memory linearly — every cache line fully used, hardware prefetching working. The object-oriented version chases pointers to scattered objects and stalls on cache misses.
 
-**On modern hardware that difference is often 10× or more**, because a cache miss costs hundreds of cycles while the arithmetic costs one → [[foundations/computer-architecture/09-caches-in-depth|caches]] and [[foundations/computer-architecture/08-the-memory-hierarchy|the memory hierarchy]]. This is **data-oriented design**, and games hit it first because they were the software most limited by memory access patterns.
+**On modern hardware that difference is often 10× or more**, because a cache miss costs hundreds of cycles while the arithmetic costs one → [[computer-architecture/09-caches-in-depth|caches]] and [[computer-architecture/08-the-memory-hierarchy|the memory hierarchy]]. This is **data-oriented design**, and games hit it first because they were the software most limited by memory access patterns.
 
 ## Choosing an engine
 
@@ -88,7 +88,7 @@ MovementSystem: for all entities with (Position, Velocity) → position += veloc
 
 **Recommendation, for someone curious rather than committed: Godot.** MIT-licensed with no revenue conditions, small enough to understand, GDScript is close enough to Python to be immediately productive → [[languages/06-python/index|Python]], and the editor is itself a Godot application, so the engine is legible in a way the others aren't. **The concepts transfer** — nodes, scenes, the loop, components — so nothing is wasted if you move to Unity later.
 
-**Unity** if you want the largest job market and asset ecosystem. Note the 2023 runtime-fee episode: it was reversed after significant backlash, but it demonstrated that licence terms on a proprietary engine can change under you. That's a real trade-study input → [[foundations/systems-engineering/05-trade-studies|trade studies]].
+**Unity** if you want the largest job market and asset ecosystem. Note the 2023 runtime-fee episode: it was reversed after significant backlash, but it demonstrated that licence terms on a proprietary engine can change under you. That's a real trade-study input → [[systems-engineering/05-trade-studies|trade studies]].
 
 **Unreal** if the goal is photorealism or AAA employment. Its C++ is a specific dialect with its own macros, reflection and memory conventions — closer to a framework than to the [[languages/05-cpp/index|C++]] in this vault.
 
@@ -97,7 +97,7 @@ MovementSystem: for all entities with (Position, Velocity) → position += veloc
 ## Related
 - [[game-development/03-graphics-for-games|graphics for games]] — what `render()` does
 - [[game-development/04-game-physics|game physics]] — what `update()` does
-- [[foundations/computer-architecture/09-caches-in-depth|caches]] — why ECS is fast
-- [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]] — the inheritance failure ECS answers
+- [[computer-architecture/09-caches-in-depth|caches]] — why ECS is fast
+- [[programming-fundamentals/13-objects-and-classes|objects and classes]] — the inheritance failure ECS answers
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer); timestep material from Fiedler's *Fix Your Timestep!*.*

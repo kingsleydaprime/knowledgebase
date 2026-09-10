@@ -2,7 +2,7 @@
 
 **[Intermediate]** — The two paradigms, why one won for real-time and the other for film, and what they're both approximating.
 
-**Source:** `[reference]` — see [[foundations/computer-graphics/index|the domain note]].
+**Source:** `[reference]` — see [[computer-graphics/index|the domain note]].
 
 ## The problem
 
@@ -27,7 +27,7 @@ for each triangle:
 
 **The killer property: it's embarrassingly parallel over triangles and pixels, and it never needs the whole scene at once** — stream triangles through, and each is independent.
 
-**Which is why it's what GPUs were built for.** The entire fixed-function graphics pipeline is a rasteriser in silicon. → [[foundations/computer-graphics/03-rasterisation|Rasterisation]]
+**Which is why it's what GPUs were built for.** The entire fixed-function graphics pipeline is a rasteriser in silicon. → [[computer-graphics/03-rasterisation|Rasterisation]]
 
 **What it's bad at:** anything requiring a triangle to know about *other* triangles. **Shadows, reflections, refraction and indirect light are all global effects, and rasterisation is fundamentally local.** Every real-time technique for those is an approximation bolted on — shadow maps, environment maps, screen-space reflections.
 
@@ -44,7 +44,7 @@ for each pixel:
 
 **The killer property: global effects are natural.** A reflection is just another ray. A shadow is a ray toward the light. Refraction, depth of field and motion blur all fall out of casting the right rays.
 
-**What it's bad at:** you need the whole scene queryable at once, and naive intersection is $O(\text{triangles})$ per ray. **Acceleration structures (BVH) fix the complexity; the memory requirement is inherent.** → [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing]]
+**What it's bad at:** you need the whole scene queryable at once, and naive intersection is $O(\text{triangles})$ per ray. **Acceleration structures (BVH) fix the complexity; the memory requirement is inherent.** → [[computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing]]
 
 > **The honest summary:** rasterisation is fast and local; ray tracing is slow and global. **Real-time rendering spent thirty years finding clever approximations of global effects within a local framework** — and hardware ray tracing (2018 onwards) is the beginning of that pressure easing.
 >
@@ -62,7 +62,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 |---|---|
 | $L_o$ | outgoing radiance — **what you want** |
 | $L_e$ | emitted (only for light sources) |
-| $f_r$ | **BRDF** — how the material reflects → [[foundations/computer-graphics/04-shading-and-lighting\|Shading]] |
+| $f_r$ | **BRDF** — how the material reflects → [[computer-graphics/04-shading-and-lighting\|Shading]] |
 | $L_i$ | incoming radiance **from everywhere** |
 | $(\omega_i\cdot\mathbf{n})$ | Lambert's cosine — glancing light contributes less |
 
@@ -70,7 +70,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 >
 > **Every rendering algorithm ever written is a way of approximating this integral.** Rasterised direct lighting truncates it at one bounce with no integral at all. Path tracing estimates it by Monte Carlo. **Knowing the equation tells you exactly what each technique is throwing away.**
 
-**And note the integral is high-dimensional**, which is why Monte Carlo is the method of choice — quadrature dies above ~4 dimensions and Monte Carlo's error is dimension-independent. → [[foundations/numerical-methods/07-numerical-integration|Monte Carlo]]
+**And note the integral is high-dimensional**, which is why Monte Carlo is the method of choice — quadrature dies above ~4 dimensions and Monte Carlo's error is dimension-independent. → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Monte Carlo]]
 
 ## The real-time pipeline
 
@@ -91,7 +91,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 
 ## Rendering as sampling
 
-**A framing that unifies a surprising amount, and connects to [[foundations/information-theory/index|information theory]].**
+**A framing that unifies a surprising amount, and connects to [[information-theory/index|information theory]].**
 
 **A pixel is not a point — it's an area.** Its correct colour is the *average* of the image over that area:
 
@@ -99,7 +99,7 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 
 **Rendering is estimating that integral by sampling.** And sampling theory then explains most visual artefacts:
 
-**Aliasing** — sampling below the Nyquist rate. **Jagged edges, shimmering textures, moiré patterns.** Fixed by supersampling (more samples), mipmapping (pre-filtering), or reconstruction filters. → [[foundations/computer-graphics/05-textures-and-sampling|Textures and Sampling]]
+**Aliasing** — sampling below the Nyquist rate. **Jagged edges, shimmering textures, moiré patterns.** Fixed by supersampling (more samples), mipmapping (pre-filtering), or reconstruction filters. → [[computer-graphics/05-textures-and-sampling|Textures and Sampling]]
 
 **Noise** — too few Monte Carlo samples. **Path tracing's grainy look**, and it decreases as $O(1/\sqrt{N})$, which is why film renders take hours.
 
@@ -111,11 +111,11 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 
 **The reason this domain earns its place here, given it's the furthest from what you build:**
 
-**GPU programming.** Graphics *is* why GPUs exist, and the [[foundations/gpu-and-parallel-computing/index|compute model]] is the graphics model generalised. Understanding the pipeline explains why GPUs are shaped the way they are.
+**GPU programming.** Graphics *is* why GPUs exist, and the [[gpu-and-parallel-computing/index|compute model]] is the graphics model generalised. Understanding the pipeline explains why GPUs are shaped the way they are.
 
 **Linear algebra and transforms.** The [[robotics/04-rigid-body-transforms|same homogeneous transforms]] as robotics — same matrices, different application. Learning one gives you the other.
 
-**Numerical methods.** Monte Carlo integration, interpolation, splines and ODE integration for physics. → [[foundations/numerical-methods/index|Numerical Methods]]
+**Numerical methods.** Monte Carlo integration, interpolation, splines and ODE integration for physics. → [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical Methods]]
 
 **Signal processing.** Sampling, filtering, aliasing, reconstruction.
 
@@ -136,7 +136,7 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 ---
 
 ## Related
-- [[foundations/computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — getting from 3D to 2D
-- [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — the other paradigm
-- [[foundations/gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove
-- [[foundations/computer-graphics/index|Computer graphics map]]
+- [[computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — getting from 3D to 2D
+- [[computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — the other paradigm
+- [[gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove
+- [[computer-graphics/index|Computer graphics map]]

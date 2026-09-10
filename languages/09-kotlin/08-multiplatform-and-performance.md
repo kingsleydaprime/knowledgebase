@@ -81,4 +81,4 @@ actual class Platform { actual val name = UIDevice.currentDevice.systemName() }
 - [[mobile/14-native-vs-cross-platform|native vs cross-platform]] — where KMP fits
 - [[languages/01-java/index|Java]] — the JVM performance model
 - [[languages/09-kotlin/05-coroutines-and-flow|coroutines]] — cheap concurrency
-- [[foundations/computer-architecture/12-performance|performance method]]
+- [[computer-architecture/12-performance|performance method]]

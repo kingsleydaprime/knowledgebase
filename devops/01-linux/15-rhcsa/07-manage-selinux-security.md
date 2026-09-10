@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. RHEL-specific — no equivalent exists elsewhere in this vault, since the other Linux notes here are Ubuntu/Debian-based, which use AppArmor instead. This is the single biggest conceptual gap between "knows Linux" and "knows RHEL," and it shows up constantly on the exam as "why won't this service start / serve files / connect out, even though the permissions are clearly right."
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. RHEL-specific — no equivalent exists elsewhere in this vault, since the other Linux notes here are Ubuntu/Debian-based, which use AppArmor instead. This is the single biggest conceptual gap between "knows Linux" and "knows RHEL," and it shows up constantly on the exam as "why won't this service start / serve files / connect out, even though the permissions are clearly right."
 
 ---
 

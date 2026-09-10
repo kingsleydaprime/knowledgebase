@@ -2,7 +2,7 @@
 
 > RHCSA V10 — added after reviewing the official RH134 course book (Red Hat System Administration II, RHEL 10.0). This is RHEL 10's newest, most different-paradigm feature — zero prior coverage in this vault, and conceptually unlike everything else in this folder, which all assumes the traditional package-based install model.
 
-Part of [[README|RHCSA V10]]. Everything else in this folder — `dnf`, RPM, Kickstart in [[02-installing-rhel|installing-rhel]] — is the **package mode** most of RHEL's history has worked. Image mode is a genuinely different way to install, run, and update RHEL itself, built on the same container tooling ([[13-running-containers|running-containers]]) already covers for applications.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Everything else in this folder — `dnf`, RPM, Kickstart in [[02-installing-rhel|installing-rhel]] — is the **package mode** most of RHEL's history has worked. Image mode is a genuinely different way to install, run, and update RHEL itself, built on the same container tooling ([[13-running-containers|running-containers]]) already covers for applications.
 
 ---
 

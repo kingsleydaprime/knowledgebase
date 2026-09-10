@@ -7,13 +7,13 @@
 | Domain | Focus | Files |
 |---|---|---|
 | [[backend/interview/index\|Backend / Node]] | **built from a real interview** — p99 spikes, AZ vs deploy, retry storms, `Promise.all`, `Buffer` | 2 |
-| [[foundations/networking/interview/index\|Networking]] | layering → TCP → TLS → debugging scenarios | 4 |
+| [[networking/interview/index\|Networking]] | layering → TCP → TLS → debugging scenarios | 4 |
 | [[languages/01-java/interview/index\|Java]] | **JVM, GC, memory model, concurrency** — the low-latency round | 3 |
 | [[languages/06-python/interview/index\|Python]] | **the data model and the gotchas** — mutable defaults, the GIL, generators, EAFP | 1 |
 | [[architecture/interview/index\|Architecture]] | the system design round + distributed systems depth | 2 |
-| [[foundations/dsa/interview/index\|DSA]] | how to *run* a coding round + the pattern lookup | 1 |
+| [[dsa/interview/index\|DSA]] | how to *run* a coding round + the pattern lookup | 1 |
 | [[databases/interview/index\|Databases]] | indexes, isolation levels, query plans, migrations | 1 |
-| [[foundations/os/interview/index\|OS]] | processes, virtual memory, syscalls, scheduling | 1 |
+| [[os/interview/index\|OS]] | processes, virtual memory, syscalls, scheduling | 1 |
 | [[devops/interview/index\|DevOps]] | Linux, containers, CI/CD, observability, incidents | 1 |
 | [[concepts/interview/index\|Concepts]] | APIs, auth, OAuth + **patterns, code review, testing theatre** | **2** |
 | [[cybersecurity/interview/index\|Security]] | injection classes, crypto, SSRF, defence, IR | 1 |
@@ -39,7 +39,7 @@ Two failure modes these banks are written against:
 ## If you're preparing for a specific role
 
 **Low-latency / systems (the current target in [[PRIMETECHIE|the Primetechie path]]):**
-[[languages/01-java/interview/02-jvm-and-concurrency|Java: JVM & concurrency]] → [[foundations/os/interview/01-processes-memory-and-io|OS]] → [[foundations/networking/interview/02-tcp-and-transport|TCP]] → [[foundations/dsa/interview/01-the-coding-round|coding round]] → [[architecture/interview/02-distributed-systems-depth|dist-sys depth]]
+[[languages/01-java/interview/02-jvm-and-concurrency|Java: JVM & concurrency]] → [[os/interview/01-processes-memory-and-io|OS]] → [[networking/interview/02-tcp-and-transport|TCP]] → [[dsa/interview/01-the-coding-round|coding round]] → [[architecture/interview/02-distributed-systems-depth|dist-sys depth]]
 
 **Backend / platform (Node):**
 [[backend/interview/01-production-debugging|production debugging]] ⭐ → [[backend/interview/02-node-runtime-and-api|Node runtime]] → [[concepts/interview/01-apis-auth-and-practices|APIs & auth]] → [[databases/interview/01-sql-modelling-and-internals|databases]] → [[architecture/interview/01-system-design-round|system design]] → [[devops/interview/01-linux-containers-and-operations|Linux & containers]]
@@ -50,7 +50,7 @@ Two failure modes these banks are written against:
 [[ai-ml/interview/01-ai-engineering|AI engineering]] → [[ai-ml/interview/02-ml-and-stats-fundamentals|ML fundamentals]] → [[databases/interview/01-sql-modelling-and-internals|databases]] (vector search) → [[concepts/interview/01-apis-auth-and-practices|APIs]]
 
 **Embedded / hardware:**
-[[hardware/interview/01-electronics-and-embedded|Electronics & embedded]] → [[hardware/interview/02-rf-and-iot|RF & IoT]] → [[foundations/os/interview/01-processes-memory-and-io|OS]] (memory, interrupts) → [[foundations/networking/interview/02-tcp-and-transport|TCP]]
+[[hardware/interview/01-electronics-and-embedded|Electronics & embedded]] → [[hardware/interview/02-rf-and-iot|RF & IoT]] → [[os/interview/01-processes-memory-and-io|OS]] (memory, interrupts) → [[networking/interview/02-tcp-and-transport|TCP]]
 ⭐ Lead with [[projects/iot-bridge-pcb/task|the IoT Bridge PCB]] — a board you designed beats any prepared answer.
 
 ## The five questions worth over-preparing
@@ -58,11 +58,11 @@ Two failure modes these banks are written against:
 Across every bank, these carry the most weight per minute spent:
 
 1. **"Walk me through a p99 latency investigation."** ([[languages/01-java/interview/02-jvm-and-concurrency|Java Q11]]) — the answer is a method, and it spans GC, locks, and the transport layer.
-2. **"The service is down — what do you check?"** ([[foundations/networking/interview/04-debugging-and-scenarios|Networking Q1]]) — bisecting layers, the single most transferable skill in this vault.
+2. **"The service is down — what do you check?"** ([[networking/interview/04-debugging-and-scenarios|Networking Q1]]) — bisecting layers, the single most transferable skill in this vault.
 3. **"Design X."** ([[architecture/interview/01-system-design-round|Architecture]]) — requirements *before* boxes, every time.
 4. **"How would you evaluate this?"** ([[ai-ml/interview/01-ai-engineering|AI Q4]]) — separates engineers from demo-builders.
 5. **"How do you safely migrate a huge table?"** ([[databases/interview/01-sql-modelling-and-internals|Databases Q10]]) — expand/migrate/contract; the fastest way to spot someone who's shipped.
 
 ## Related
-- [[README|Vault README]] · [[PRIMETECHIE|The Primetechie Path]] · [[project-ideas|Project Ideas]]
+- [[HOME|Vault README]] · [[PRIMETECHIE|The Primetechie Path]] · [[project-ideas|Project Ideas]]
 - **The strongest answers cite your own code.** [[projects/index|projects/]] is the raw material — have one crisp story per project.

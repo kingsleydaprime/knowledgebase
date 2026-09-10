@@ -104,7 +104,7 @@ From [[databases/sql-reference|sql-reference]], [[databases/database-design-refe
 
 **Sizing — and the counterintuitive point is the answer:** **smaller is usually faster.** A common formula is `connections ≈ (2 × cores) + effective_spindles`. A pool of 300 against an 8-core database is slower than a pool of 20, because you've moved the queue from your application (where it's cheap) into the database (where every connection competes for CPU, memory, and locks). HikariCP's documentation makes this case well and it's a great thing to cite.
 
-**Operational details:** set `maxLifetime` below any network/firewall idle timeout so the pool retires connections before a [[foundations/networking/06-tcp-connection-lifecycle|middlebox silently kills them]]. And in serverless/high-instance-count environments, use a proxy (PgBouncer, RDS Proxy) — otherwise 500 lambda instances × 10 connections exhausts the server.
+**Operational details:** set `maxLifetime` below any network/firewall idle timeout so the pool retires connections before a [[networking/06-tcp-connection-lifecycle|middlebox silently kills them]]. And in serverless/high-instance-count environments, use a proxy (PgBouncer, RDS Proxy) — otherwise 500 lambda instances × 10 connections exhausts the server.
 
 ---
 

@@ -123,4 +123,4 @@ You are done with this lesson when you can, closed-book:
 
 **Recap:** Scientific notation writes any number as a mantissa between 1 and 10 times a power of ten, making very large and very small quantities manageable and comparable. Multiplication and division act on mantissa and exponent independently; addition first requires a common exponent. The notation also makes significant figures unambiguous, which plain decimal cannot do. Its most practical use is order-of-magnitude estimation — getting the exponent right is usually enough to catch an error.
 
-**This is the end of the foundations sequence.** Next is [[foundations/mathematics/02-discrete-math/index|discrete mathematics]], which is written and is the natural continuation.
+**This is the end of the foundations sequence.** Next is [[mathematics/02-discrete-math/index|discrete mathematics]], which is written and is the natural continuation.

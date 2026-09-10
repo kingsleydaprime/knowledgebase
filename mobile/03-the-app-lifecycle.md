@@ -95,6 +95,6 @@ notification tap → app not running → launch → restore auth →
 - [[mobile/05-state-and-architecture|state and architecture]] — the patterns that handle this
 - [[mobile/07-data-and-offline-first|offline-first]] — where persisted state lives
 - [[mobile/10-background-work-and-push|background work]] — what you can do while not on screen
-- [[foundations/os/02-processes-and-threads|processes]] — what "the OS kills your process" means underneath
+- [[os/02-processes-and-threads|processes]] — what "the OS kills your process" means underneath
 
 *Source: [reference] — Aug 2026.*

@@ -53,4 +53,4 @@
 - [[backend/frameworks/index|frameworks/]] · [[languages/05-cpp/index|the C++ course]]
 - [[backend/frameworks/c/index|C backends]] — the layer below
 - [[backend/frameworks/rust/index|Rust backends]] — the same niche, with guarantees
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets and the Network API]]
+- [[networking/09-sockets-and-the-network-api|Sockets and the Network API]]

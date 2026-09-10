@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. This is where "reset a lost root password" lives — one of the most classic RHCSA exam tasks, walked through in full below.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. This is where "reset a lost root password" lives — one of the most classic RHCSA exam tasks, walked through in full below.
 
 ---
 

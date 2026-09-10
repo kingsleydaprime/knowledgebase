@@ -44,7 +44,7 @@ Typically a few thousand entries. At 4KB per entry, that covers only a few megab
 
 **Two consequences that matter:**
 
-**Context switches flush it** (or did, before PCID/ASID tagging), which is a large part of a context switch's real cost. → [[foundations/os/03-scheduling|Scheduling]]
+**Context switches flush it** (or did, before PCID/ASID tagging), which is a large part of a context switch's real cost. → [[os/03-scheduling|Scheduling]]
 
 **Huge pages exist to reduce pressure.** A 2MB page covers 512× the memory per TLB entry:
 
@@ -171,7 +171,7 @@ void *addr = mmap(NULL, len, PROT_READ, MAP_PRIVATE, fd, 0);
 
 **When it doesn't:** sequential streaming (`read` with readahead is competitive and simpler), small files (setup cost dominates), and any case where **you can't handle a `SIGBUS`** — if the file is truncated under you, touching a mapped page past the new end raises `SIGBUS`, not an error return.
 
-`mmap` is how shared libraries load, how databases access data files, and how [[foundations/os/05-memory-allocation|allocators]] get memory from the kernel.
+`mmap` is how shared libraries load, how databases access data files, and how [[os/05-memory-allocation|allocators]] get memory from the kernel.
 
 ## Copy-on-write
 
@@ -215,8 +215,8 @@ Summing RSS across processes vastly overstates memory use, because every process
 ---
 
 ## Related
-- [[foundations/os/05-memory-allocation|Memory Allocation]] — what `malloc` does with this
-- [[foundations/os/07-filesystems-and-storage|Filesystems and Storage]] — the page cache from the other side
-- [[foundations/os/11-isolation-and-containers|Isolation and Containers]] — cgroup memory limits
+- [[os/05-memory-allocation|Memory Allocation]] — what `malloc` does with this
+- [[os/07-filesystems-and-storage|Filesystems and Storage]] — the page cache from the other side
+- [[os/11-isolation-and-containers|Isolation and Containers]] — cgroup memory limits
 - [[languages/04-c/07-memory-management|C: Memory Management]] — the same picture from user space
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

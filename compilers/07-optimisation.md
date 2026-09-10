@@ -149,7 +149,7 @@ opt -O2 -print-after-all foo.ll           # IR after every pass — verbose and 
 
 ## The limits, honestly
 
-**Compilers do not fix algorithms.** An O(n²) loop stays O(n²). No optimiser will replace bubble sort with quicksort, or add a cache, or change your data structure. **Algorithmic choice is yours** and it dominates everything here. → [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]]
+**Compilers do not fix algorithms.** An O(n²) loop stays O(n²). No optimiser will replace bubble sort with quicksort, or add a cache, or change your data structure. **Algorithmic choice is yours** and it dominates everything here. → [[dsa/05-algorithms/01-algorithms|Algorithms]]
 
 **Memory layout is mostly yours.** The compiler won't convert array-of-structs to struct-of-arrays, or fix pointer-chasing through a linked list. Cache behaviour is usually the real bottleneck, and it's a design decision.
 
@@ -183,8 +183,8 @@ cargo asm my_crate::my_function          # cargo-show-asm
 ---
 
 ## Related
-- [[foundations/compilers/06-intermediate-representations|Intermediate Representations]] — what these passes operate on
-- [[foundations/compilers/08-code-generation|Code Generation]] — the passes after these
+- [[compilers/06-intermediate-representations|Intermediate Representations]] — what these passes operate on
+- [[compilers/08-code-generation|Code Generation]] — the passes after these
 - [[languages/03-rust/18-performance-and-zero-cost|Rust: Performance]] — inlining as the basis of zero-cost abstraction
-- [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — the thing the compiler cannot fix
-- [[foundations/compilers/index|Compilers course map]]
+- [[dsa/05-algorithms/01-algorithms|Algorithms]] — the thing the compiler cannot fix
+- [[compilers/index|Compilers course map]]

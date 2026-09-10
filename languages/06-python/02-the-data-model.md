@@ -13,7 +13,7 @@ b.append(4)
 print(a)           # [1, 2, 3, 4]
 ```
 
-If you carry the box metaphor from [[foundations/programming-fundamentals/05-variables-and-types|programming fundamentals]], this is inexplicable. With labels it's obvious: there is one list and two names for it.
+If you carry the box metaphor from [[programming-fundamentals/05-variables-and-types|programming fundamentals]], this is inexplicable. With labels it's obvious: there is one list and two names for it.
 
 ## Mutable and immutable
 
@@ -161,7 +161,7 @@ greet.author = "K" # functions take attributes, because they're objects
 - [[languages/06-python/03-built-in-types-and-collections|built-in types]] — the objects you'll use most
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — dunder methods and the protocols
 - [[languages/06-python/08-typing-and-type-hints|typing]] — catching what dynamism lets through
-- [[foundations/programming-fundamentals/05-variables-and-types|variables and types]] — the language-agnostic version
-- [[foundations/os/05-memory-allocation|memory allocation]] — what "somewhere else" actually means
+- [[programming-fundamentals/05-variables-and-types|variables and types]] — the language-agnostic version
+- [[os/05-memory-allocation|memory allocation]] — what "somewhere else" actually means
 
 *Source: [reference] — from the Python language reference and the community's accumulated list of ways to be surprised.*

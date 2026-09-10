@@ -29,7 +29,7 @@ dig -x 93.184.216.34               # reverse lookup
 
 `+trace` is the one worth learning — it shows *which* level of the hierarchy is broken, rather than just "no answer." `@8.8.8.8` immediately distinguishes "the record is wrong" from "my resolver has a stale/broken cache."
 
-Read the **TTL** in the answer: a TTL counting down tells you it's a cached answer and how long ago it was fetched. If you just changed a record and are still seeing the old one, the remaining TTL is exactly how long you'll keep seeing it. → [[foundations/networking/10-dns-in-depth|DNS in depth]]
+Read the **TTL** in the answer: a TTL counting down tells you it's a cached answer and how long ago it was fetched. If you just changed a record and are still seeing the old one, the remaining TTL is exactly how long you'll keep seeing it. → [[networking/10-dns-in-depth|DNS in depth]]
 
 `getent hosts example.com` is worth knowing too — it uses the OS resolver path (`/etc/hosts`, nsswitch, resolver config) which `dig` **bypasses**. If `dig` works and your app doesn't, the difference is here.
 
@@ -48,7 +48,7 @@ mtr example.com                    # traceroute + ping, continuous — use this 
 - **A latency spike at one hop that disappears at later hops is not a problem.** It means that router deprioritised generating an ICMP reply — a control-plane task. Only latency that *persists to the destination* is real.
 - **Paths are asymmetric.** The return route may differ entirely, and you can't see it from here.
 
-`mtr` is strictly better than `traceroute` for real diagnosis: it runs continuously, so you see **loss percentage per hop over time**, which separates a genuinely lossy link (loss persists at all subsequent hops) from ICMP rate-limiting (loss at one hop only, later hops clean). → [[foundations/networking/04-routing|routing]]
+`mtr` is strictly better than `traceroute` for real diagnosis: it runs continuously, so you see **loss percentage per hop over time**, which separates a genuinely lossy link (loss persists at all subsequent hops) from ICMP rate-limiting (loss at one hop only, later hops clean). → [[networking/04-routing|routing]]
 
 ## Step 3 — is the port actually open?
 
@@ -66,7 +66,7 @@ nmap -Pn -p 443 host               # when you need more detail
 | **"Connection refused" (instant)** | you reached the host; **nothing is listening** | service down, wrong port, bound to `127.0.0.1` instead of `0.0.0.0` |
 | **Hang → timeout** | something is **silently dropping** | firewall/security group DROP, wrong route, MTU black hole |
 
-That split immediately tells you whether to look at the application or at the network. → [[foundations/networking/14-nat-firewalls-and-middleboxes|firewalls: reject vs drop]]
+That split immediately tells you whether to look at the application or at the network. → [[networking/14-nat-firewalls-and-middleboxes|firewalls: reject vs drop]]
 
 The "bound to localhost" case is worth calling out — it's the most common self-inflicted version, and `ss -lntp` shows it instantly: `127.0.0.1:8080` will never accept remote connections, `0.0.0.0:8080` will.
 
@@ -81,13 +81,13 @@ lsof -i :8080                      # which process holds this port
 lsof -p PID | wc -l                # fd count — for leak hunting
 ```
 
-`ss` has replaced `netstat` (much faster on busy hosts). What to look for, mapping straight onto [[foundations/networking/06-tcp-connection-lifecycle|the TCP state machine]]:
+`ss` has replaced `netstat` (much faster on busy hosts). What to look for, mapping straight onto [[networking/06-tcp-connection-lifecycle|the TCP state machine]]:
 
 - **Many `CLOSE_WAIT`** → *your* app isn't calling `close()`. A file-descriptor leak. Ends in "too many open files."
 - **Many `FIN_WAIT_2`** → the *peer* isn't closing.
 - **Many `TIME_WAIT`** → connection churn; you need connection pooling, not a sysctl.
 - **`Recv-Q` non-zero on a LISTEN socket** → your app isn't calling `accept()` fast enough; the kernel is dropping connections silently.
-- **`ss -tin`** shows `rtt`, `cwnd`, and `retrans` per connection — the fastest way to confirm "the network is lossy" versus "the server is slow." Rising `retrans` is direct evidence of loss. → [[foundations/networking/08-congestion-control|congestion control]]
+- **`ss -tin`** shows `rtt`, `cwnd`, and `retrans` per connection — the fastest way to confirm "the network is lossy" versus "the server is slow." Rising `retrans` is direct evidence of loss. → [[networking/08-congestion-control|congestion control]]
 
 ## Step 5 — TLS and the application
 
@@ -128,9 +128,9 @@ Signatures worth recognising:
 - **SYN → RST** → nothing listening.
 - **Many retransmissions** → loss.
 - **`TCP ZeroWindow`** → the *receiver* is the bottleneck (its app isn't reading fast enough) — a very different problem from network congestion.
-- **Handshake fine, then silence on a large response** → classic [[foundations/networking/02-the-link-layer|MTU black hole]]. Confirm with `ping -M do -s 1472 host`, decreasing the size until it passes.
+- **Handshake fine, then silence on a large response** → classic [[networking/02-the-link-layer|MTU black hole]]. Confirm with `ping -M do -s 1472 host`, decreasing the size until it passes.
 
-For [[foundations/networking/13-quic-and-modern-transport|QUIC/HTTP3]], packet capture shows you almost nothing — it's encrypted by design. Use **qlog** or `SSLKEYLOGFILE` with Wireshark instead.
+For [[networking/13-quic-and-modern-transport|QUIC/HTTP3]], packet capture shows you almost nothing — it's encrypted by design. Use **qlog** or `SSLKEYLOGFILE` with Wireshark instead.
 
 ## Common failure signatures, indexed by symptom
 
@@ -153,7 +153,7 @@ For [[foundations/networking/13-quic-and-modern-transport|QUIC/HTTP3]], packet c
 Network debugging is **binary search over the stack**, and the reason it feels hard is that people start at the layer they're most comfortable with rather than the layer that's cheapest to eliminate. Every tool here answers one narrow question; the skill is choosing the question whose answer removes the most possibilities. And the most valuable single distinction in the whole practice costs you three seconds: **refused (fast) means you got there and were told no; hung (slow) means something in between never told you anything.**
 
 ## Related
-- [[foundations/networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states `ss` reports
-- [[foundations/networking/15-network-performance|Network Performance]] — interpreting the timings
+- [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states `ss` reports
+- [[networking/15-network-performance|Network Performance]] — interpreting the timings
 - [[devops/10-observability/index|Observability]] — turning this into monitoring rather than firefighting
 - [[devops/01-linux/index|Linux]] — the shell fluency this assumes

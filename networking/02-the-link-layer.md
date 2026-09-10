@@ -29,7 +29,7 @@ Tunnels (VPN, VXLAN, [[devops/05-orchestration/index|Kubernetes overlay networks
 
 A **MAC address** is 48 bits, burned into the network interface at manufacture (`a4:83:e7:2b:11:9f`). The first half identifies the vendor. Properties worth internalising:
 
-- **Flat, not hierarchical.** Unlike IP, you cannot look at a MAC and infer where it is. There is no routing on MAC addresses across the internet — it wouldn't scale, because every switch would need an entry for every device on Earth. Hierarchy is exactly what makes [[foundations/networking/03-ip-addressing-and-subnetting|IP addressing]] scalable.
+- **Flat, not hierarchical.** Unlike IP, you cannot look at a MAC and infer where it is. There is no routing on MAC addresses across the internet — it wouldn't scale, because every switch would need an entry for every device on Earth. Hierarchy is exactly what makes [[networking/03-ip-addressing-and-subnetting|IP addressing]] scalable.
 - **Locally meaningful only.** A MAC address is only useful within one broadcast domain.
 - **Randomised now, for privacy.** Modern phones/laptops rotate their Wi-Fi MAC per network, because a stable MAC is a perfect tracking identifier for anyone listening.
 
@@ -64,7 +64,7 @@ Three generations of "the box in the middle," and the difference explains most L
 
 Wired Ethernet is nearly lossless — a dropped packet almost always means congestion. Wi-Fi is not:
 
-- Loss comes from **interference and distance**, not congestion. This wrecks the core assumption of classic [[foundations/networking/08-congestion-control|congestion control]] ("loss means slow down"), which is part of why loss-based algorithms behave badly on wireless and why **BBR** measures the path instead of waiting for loss.
+- Loss comes from **interference and distance**, not congestion. This wrecks the core assumption of classic [[networking/08-congestion-control|congestion control]] ("loss means slow down"), which is part of why loss-based algorithms behave badly on wireless and why **BBR** measures the path instead of waiting for loss.
 - It's **half-duplex and shared** — the access point and every client contend for the same air. Your "1 Gbps Wi-Fi" is shared with everyone in range.
 - It retransmits at layer 2, which turns loss into **latency variance** (jitter) instead of loss. Good for TCP throughput, bad for real-time audio.
 
@@ -73,7 +73,7 @@ Wired Ethernet is nearly lossless — a dropped packet almost always means conge
 The link layer is where the **abstraction is deliberately broken and re-made at every hop**. The IP header stays intact end-to-end; the Ethernet frame around it is destroyed and rebuilt by every router on the path. Understanding that a packet has a permanent final address *and* a temporary next-hop address is the single mental shift that makes routing, ARP, NAT, and traceroute all make sense at once.
 
 ## Related
-- [[foundations/networking/03-ip-addressing-and-subnetting|IP Addressing & Subnetting]] — the hierarchical addressing MAC can't do
-- [[foundations/networking/04-routing|Routing]] — how the next hop is chosen
-- [[foundations/networking/16-debugging-networks|Debugging Networks]] — `ip neigh`, `arping`, and diagnosing MTU black holes
+- [[networking/03-ip-addressing-and-subnetting|IP Addressing & Subnetting]] — the hierarchical addressing MAC can't do
+- [[networking/04-routing|Routing]] — how the next hop is chosen
+- [[networking/16-debugging-networks|Debugging Networks]] — `ip neigh`, `arping`, and diagnosing MTU black holes
 - [[cybersecurity/03-network-security/02-network-segmentation|Network Segmentation]] — VLANs and broadcast domains as a security boundary

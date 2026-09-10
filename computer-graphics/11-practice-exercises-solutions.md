@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Intermediate → Advanced]** · Worked answers to [[foundations/computer-graphics/10-practice-exercises|note 10]].
+> **[Intermediate → Advanced]** · Worked answers to [[computer-graphics/10-practice-exercises|note 10]].
 
 **These are explanations, not code dumps** — graphics is a domain where the code is short and the *reason* is the hard part.
 
@@ -28,7 +28,7 @@ $$\mathbf{v}_{clip} = P \cdot V \cdot M \cdot \mathbf{v}_{model}$$
 
 **Order matters because matrix multiplication doesn't commute.** Swapping model and view renders as if the camera were the object. Swapping projection and view produces geometry that warps as you rotate.
 
-**The perspective divide is the step people forget is separate.** The projection matrix only *arranges* for the divide by putting $z$ into $w$; the divide is done by the hardware afterwards. That's also why $w$ must be carried through interpolation → exercise 4 → [[foundations/computer-graphics/02-the-transform-pipeline|note 02]].
+**The perspective divide is the step people forget is separate.** The projection matrix only *arranges* for the divide by putting $z$ into $w$; the divide is done by the hardware afterwards. That's also why $w$ must be carried through interpolation → exercise 4 → [[computer-graphics/02-the-transform-pipeline|note 02]].
 
 ### 3. Rasterise a triangle
 
@@ -71,7 +71,7 @@ The roughness/metalness grid should look like every PBR chart: metals coloured b
 
 The receding checkerboard shimmers because at distance **many texels fall inside one pixel**, and point sampling picks one arbitrarily. Sub-pixel camera motion changes which — hence crawling.
 
-**It is exactly undersampling.** The texture's spatial frequency exceeds the pixel grid's Nyquist limit, so high frequencies alias down into low-frequency patterns (moiré) → [[foundations/information-theory/index|information theory]].
+**It is exactly undersampling.** The texture's spatial frequency exceeds the pixel grid's Nyquist limit, so high frequencies alias down into low-frequency patterns (moiré) → [[information-theory/index|information theory]].
 
 **Mipmaps** pre-filter the texture into a chain of half-size levels; the hardware picks the level whose texel density ≈ pixel density. **You cannot fix aliasing by sampling harder at render time — you must remove the frequencies first**, which is what pre-filtering does.
 
@@ -105,7 +105,7 @@ Shirley's book is the best learning resource in graphics: ~200 lines gets sphere
 
 **Samples control noise.** Path tracing is Monte Carlo integration, so error falls as $O(1/\sqrt{N})$ — **not $1/N$.**
 
-**The consequence is brutal and worth internalising: halving the noise costs 4× the samples.** 100 → 400 spp for one halving. This is why offline renders take hours, and why real-time ray tracing is *entirely* a denoising problem — you render at 1–2 spp and reconstruct → [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|note 07]].
+**The consequence is brutal and worth internalising: halving the noise costs 4× the samples.** 100 → 400 spp for one halving. This is why offline renders take hours, and why real-time ray tracing is *entirely* a denoising problem — you render at 1–2 spp and reconstruct → [[computer-graphics/07-ray-tracing-and-path-tracing|note 07]].
 
 ### 11. BVH
 
@@ -113,7 +113,7 @@ Without acceleration, each ray tests **every** object: $O(n)$ per ray. A BVH giv
 
 On 500 spheres expect **roughly 20–50×**; the gap widens with scene size, which is the point — it's a complexity change, not a constant factor.
 
-**The same spatial-partitioning idea as [[game-development/03-graphics-for-games|game culling]] and collision broad-phase** — and the same trees as [[foundations/dsa/index|DSA]]. Build quality matters: the surface-area heuristic is the standard, and a naive median split is noticeably worse.
+**The same spatial-partitioning idea as [[game-development/03-graphics-for-games|game culling]] and collision broad-phase** — and the same trees as [[dsa/index|DSA]]. Build quality matters: the surface-area heuristic is the standard, and a naive median split is noticeably worse.
 
 ### 12. Mesh normals
 
@@ -122,10 +122,10 @@ On 500 spheres expect **roughly 20–50×**; the gap widens with scene size, whi
 
 **A cube must not have smoothed normals.** Averaging across a 90° edge gives corner normals pointing diagonally, so the flat faces are shaded as if curved and the cube looks like a rounded blob.
 
-**This is what "smoothing groups" / "hard edges" exist for**: an edge that should stay sharp needs *duplicated vertices* with different normals, because a vertex can carry only one normal. **That's why exported meshes often have more vertices than the model appears to have** — a cube needs 24, not 8 → [[foundations/computer-graphics/08-geometry-and-meshes|note 08]].
+**This is what "smoothing groups" / "hard edges" exist for**: an edge that should stay sharp needs *duplicated vertices* with different normals, because a vertex can carry only one normal. **That's why exported meshes often have more vertices than the model appears to have** — a cube needs 24, not 8 → [[computer-graphics/08-geometry-and-meshes|note 08]].
 
 ## Related
-- [[foundations/computer-graphics/10-practice-exercises|the exercises]]
-- [[foundations/computer-graphics/index|the course]]
+- [[computer-graphics/10-practice-exercises|the exercises]]
+- [[computer-graphics/index|the course]]
 
 *Source: [reference] — explanations from the course's primary sources; Shirley's *Ray Tracing in One Weekend* is the recommended companion.*

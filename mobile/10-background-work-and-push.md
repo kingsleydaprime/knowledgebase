@@ -102,6 +102,6 @@ Say this out loud when someone asks:
 - [[mobile/07-data-and-offline-first|offline-first]] — what the sync job actually does
 - [[mobile/11-performance-and-battery|performance and battery]] — why the OS is like this
 - [[mobile/06-navigation|navigation]] — handling a notification tap from cold
-- [[foundations/os/03-scheduling|scheduling]] — the OS side
+- [[os/03-scheduling|scheduling]] — the OS side
 
 *Source: [reference] — Aug 2026.*

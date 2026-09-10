@@ -109,6 +109,6 @@ service.onComplete = { [weak self] in
 
 ## Related
 - [[languages/08-swift/02-values-references-and-optionals|value types]] — structs avoid this entirely
-- [[foundations/compilers/11-garbage-collection|garbage collection]] — the alternative approach
+- [[compilers/11-garbage-collection|garbage collection]] — the alternative approach
 - [[languages/07-csharp/08-memory-gc-and-spans|C# memory]] — a GC'd comparison
 - [[mobile/11-performance-and-battery|performance]] — leaks as a mobile problem

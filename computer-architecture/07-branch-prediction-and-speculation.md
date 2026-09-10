@@ -60,13 +60,13 @@ if (x > 10) { ... }   // if the first was false, this is too
 
 **The CPU executes down the predicted path before knowing it's correct**, then either commits or discards.
 
-**What makes it safe:** results go to a **reorder buffer**, not to architectural state. **Nothing becomes visible until the instruction retires**, and instructions retire in order. If a prediction was wrong, everything after it is discarded before it ever became real. → [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]]
+**What makes it safe:** results go to a **reorder buffer**, not to architectural state. **Nothing becomes visible until the instruction retires**, and instructions retire in order. If a prediction was wrong, everything after it is discarded before it ever became real. → [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]]
 
 **Other speculation:**
 
 - **Memory disambiguation** — guess a load doesn't alias an earlier pending store, and execute it early
 - **Value prediction** — guess a load's result (research, rarely shipped)
-- **Prefetching** — speculatively fetch memory you'll probably need → [[foundations/computer-architecture/09-caches-in-depth|Caches]]
+- **Prefetching** — speculatively fetch memory you'll probably need → [[computer-architecture/09-caches-in-depth|Caches]]
 
 ## Spectre and Meltdown
 
@@ -106,7 +106,7 @@ if (index < array1_size) {          // train this to predict TAKEN
 | **`lfence`** after bounds checks | large where applied |
 | **Microcode updates** | shipped to existing CPUs |
 
-> **These were among the largest across-the-board performance regressions in computing history** — some database and I/O workloads lost 30%. **And they were shipped in weeks**, which was only possible because microcode is updatable. → [[foundations/computer-architecture/05-the-datapath|Microcode]]
+> **These were among the largest across-the-board performance regressions in computing history** — some database and I/O workloads lost 30%. **And they were shipped in weeks**, which was only possible because microcode is updatable. → [[computer-architecture/05-the-datapath|Microcode]]
 
 **Meltdown was fixed in hardware** in subsequent designs. **Spectre largely was not** — it's inherent to speculation, and mitigating it fully would mean giving up most of the performance speculation provides.
 
@@ -122,7 +122,7 @@ if (index < array1_size) {          // train this to predict TAKEN
 
 **What you can actually do:**
 
-**Make branches predictable.** Sorting or partitioning data so a hot branch goes one way is often a large win. → [[foundations/computer-architecture/06-pipelining|The sorted-array example]]
+**Make branches predictable.** Sorting or partitioning data so a hot branch goes one way is often a large win. → [[computer-architecture/06-pipelining|The sorted-array example]]
 
 **Hoist invariant branches out of loops.** A condition that doesn't change shouldn't be tested every iteration — and the compiler will often do this (loop unswitching) if it can prove invariance.
 
@@ -145,7 +145,7 @@ perf stat -e branches,branch-misses,cycles,instructions ./prog
 ---
 
 ## Related
-- [[foundations/computer-architecture/06-pipelining|Pipelining]] — why the penalty exists
-- [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — what makes speculation safe
-- [[foundations/computer-architecture/09-caches-in-depth|Caches in Depth]] — the side channel
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/06-pipelining|Pipelining]] — why the penalty exists
+- [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — what makes speculation safe
+- [[computer-architecture/09-caches-in-depth|Caches in Depth]] — the side channel
+- [[computer-architecture/index|Architecture map]]

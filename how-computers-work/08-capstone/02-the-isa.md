@@ -6,7 +6,7 @@
 
 - You have made the design decisions and can justify them — [[how-computers-work/08-capstone/01-design-the-cpu|module 28]].
 - You can read a bit field and understand sign extension — [[how-computers-work/05-combinational/02-adders|module 21]].
-- You have read [[foundations/computer-architecture/03-instruction-sets|computer-architecture/instruction sets]].
+- You have read [[computer-architecture/03-instruction-sets|computer-architecture/instruction sets]].
 
 **After this lesson you will be able to:**
 
@@ -437,14 +437,14 @@ isa_lab: passed
 
 <details><summary>Hint for (f), only if stuck</summary>
 With one link register: <code>JAL A</code> puts the return address in R7. Inside A, <code>JAL B</code> <strong>overwrites R7</strong> with A's internal address. When B returns to A, A's own return address is gone — it returns to itself, and loops forever.<br>
-The fix: at the top of any function that calls another, <strong>push R7 onto a stack</strong> (<code>SUB R6,R6,one</code> then <code>ST R7,R6,0</code>), and pop it before returning. That is the <strong>function prologue and epilogue</strong>, and you have just derived why calling conventions exist — see [[foundations/os/09-syscalls-interrupts-and-the-abi|os/syscalls and the ABI]].
+The fix: at the top of any function that calls another, <strong>push R7 onto a stack</strong> (<code>SUB R6,R6,one</code> then <code>ST R7,R6,0</code>), and pop it before returning. That is the <strong>function prologue and epilogue</strong>, and you have just derived why calling conventions exist — see [[os/09-syscalls-interrupts-and-the-abi|os/syscalls and the ABI]].
 </details>
 
 ---
 
 ## 12. Tradeoffs and limits
 
-- **No interrupt support.** A real ISA needs a way to save the PC and flags on an external event, a vector table, and a return-from-interrupt instruction. That is a substantial extension and the reason [[foundations/os/index|os/]] is its own course.
+- **No interrupt support.** A real ISA needs a way to save the PC and flags on an external event, a vector table, and a return-from-interrupt instruction. That is a substantial extension and the reason [[os/index|os/]] is its own course.
 - **No privilege levels.** Every instruction is available to every program, so there is no kernel/user split and no memory protection.
 - **No multiply or divide.** Both are large ([[how-computers-work/05-combinational/03-multipliers-and-comparators|module 22]]) and better added as a separate unit once the base machine works.
 - **Fixed 16-bit instructions waste space on simple operations.** `NOP` uses 16 bits to do nothing. Variable-length encoding would fix that and complicate everything else.
@@ -470,4 +470,4 @@ The fix: at the top of any function that calls another, <strong>push R7 onto a s
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/08-capstone/01-design-the-cpu|Module 28]] — the decisions this encodes
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU]] — the four implementations of this contract
-- [[foundations/computer-architecture/03-instruction-sets|computer-architecture/instruction sets]] — RISC vs CISC, real ISAs
+- [[computer-architecture/03-instruction-sets|computer-architecture/instruction sets]] — RISC vs CISC, real ISAs

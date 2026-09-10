@@ -202,4 +202,4 @@ Depth-first, returns on the first hit, `= []` default so a missing `nodes` is a 
 ## Related
 - [[projects/munakalati/learning/05-migration/04-portable-text-conversion|04 — turning those nodes into Portable Text]]
 - [[projects/munakalati/learning/02-shell|02 — shell]] — the `curl` habit
-- [[backend/index|backend]] · [[foundations/networking/index|networking]] — HTTP status semantics
+- [[backend/index|backend]] · [[networking/index|networking]] — HTTP status semantics

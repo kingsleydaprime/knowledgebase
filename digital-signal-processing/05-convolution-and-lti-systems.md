@@ -4,7 +4,7 @@
 
 ## The kid version first
 
-You know an [[foundations/digital-signal-processing/01-signals-and-systems|LTI system]] completely once you know its response to one impulse (a single spike). **Convolution is the operation that uses that impulse response to compute the system's output for *any* input** — you slide the impulse response along the input, multiplying and summing as you go.
+You know an [[digital-signal-processing/01-signals-and-systems|LTI system]] completely once you know its response to one impulse (a single spike). **Convolution is the operation that uses that impulse response to compute the system's output for *any* input** — you slide the impulse response along the input, multiplying and summing as you go.
 
 That's the whole mechanism behind echoes, filters, blur, edge detection, and — the same maths — the convolutional layer in a neural network.
 
@@ -49,9 +49,9 @@ This is the result that ties the whole field together:
 
 Slide-and-sum in time is the *same operation* as element-wise multiply of the two spectra. This is profound and practical:
 
-**1. It explains why the frequency domain matters.** An [[foundations/digital-signal-processing/03-the-frequency-domain|LTI system]] convolves the input with `h[n]` — equivalently, it multiplies the input's spectrum by `H(f)`, the system's **frequency response**. So a filter is just "a gain to apply at each frequency," which is why filter design is done in the frequency domain → [[foundations/digital-signal-processing/06-digital-filters|filters]].
+**1. It explains why the frequency domain matters.** An [[digital-signal-processing/03-the-frequency-domain|LTI system]] convolves the input with `h[n]` — equivalently, it multiplies the input's spectrum by `H(f)`, the system's **frequency response**. So a filter is just "a gain to apply at each frequency," which is why filter design is done in the frequency domain → [[digital-signal-processing/06-digital-filters|filters]].
 
-**2. It makes big convolutions fast.** Direct convolution is O(N²). But *multiplication* is O(N), so for large signals you go **FFT → multiply → inverse-FFT**, which is O(N log N) → [[foundations/digital-signal-processing/04-the-fft|the FFT]]. Large filters, long correlations, and template matching all use this.
+**2. It makes big convolutions fast.** Direct convolution is O(N²). But *multiplication* is O(N), so for large signals you go **FFT → multiply → inverse-FFT**, which is O(N log N) → [[digital-signal-processing/04-the-fft|the FFT]]. Large filters, long correlations, and template matching all use this.
 
 **The mental model to keep:** convolution (hard, in time) and multiplication (easy, in frequency) are two faces of the same thing, and the FFT lets you switch to the easy face whenever it's worth it.
 
@@ -60,15 +60,15 @@ Slide-and-sum in time is the *same operation* as element-wise multiply of the tw
 Because an LTI system multiplies each frequency by a complex number, that set of numbers — the **frequency response `H(f)`** — tells you everything the system does:
 
 - **Magnitude `|H(f)|`** — the gain at each frequency. `>1` boosts, `<1` attenuates, `0` removes. **This is what a filter's "shape" is** (low-pass = high near 0, zero at high frequencies)
-- **Phase `∠H(f)`** — the delay at each frequency. Matters for waveform shape and for [[foundations/digital-signal-processing/06-digital-filters|linear-phase filters]]
+- **Phase `∠H(f)`** — the delay at each frequency. Matters for waveform shape and for [[digital-signal-processing/06-digital-filters|linear-phase filters]]
 
-`H(f)` is just the [[foundations/digital-signal-processing/03-the-frequency-domain|Fourier transform]] of the impulse response `h[n]`. So the two complete descriptions of an LTI system — impulse response (time) and frequency response (frequency) — are a Fourier pair. Same system, two views, again.
+`H(f)` is just the [[digital-signal-processing/03-the-frequency-domain|Fourier transform]] of the impulse response `h[n]`. So the two complete descriptions of an LTI system — impulse response (time) and frequency response (frequency) — are a Fourier pair. Same system, two views, again.
 
 ## Convolution beyond audio
 
 The identical operation, in more dimensions and more fields:
 
-- **Images (2-D convolution)** — a small kernel slides over the image: blur, sharpen, edge-detect, emboss are all `h` choices → [[foundations/computer-graphics/index|graphics]]
+- **Images (2-D convolution)** — a small kernel slides over the image: blur, sharpen, edge-detect, emboss are all `h` choices → [[computer-graphics/index|graphics]]
 - **Convolutional neural networks** — a CNN's core layer convolves learned kernels over images. **The network *learns the impulse responses*** — early layers learn edge and texture detectors, later ones learn object parts. Understanding DSP convolution is understanding what a conv layer *does* → [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]]
 - **Probability** — the distribution of a sum of two independent random variables is the convolution of their distributions → [[ai-ml/00-foundations/03-mathematics/index|the maths]]
 
@@ -79,9 +79,9 @@ The identical operation, in more dimensions and more fields:
 **Convolution is how an LTI system's single impulse response is used to process any input — slide, multiply, sum — and the convolution theorem makes it the hinge of the entire field: convolution in time *is* multiplication in frequency.** That equivalence explains why filters are designed as frequency shapes, lets the FFT make big convolutions fast, and connects audio filtering, image processing and CNNs as literally the same operation with different kernels. Master convolution and the frequency response, and most of DSP is downstream.
 
 ## Related
-- [[foundations/digital-signal-processing/06-digital-filters|digital filters]] — designing the `h[n]` that does what you want
-- [[foundations/digital-signal-processing/03-the-frequency-domain|the frequency domain]] · [[foundations/digital-signal-processing/04-the-fft|the FFT]]
+- [[digital-signal-processing/06-digital-filters|digital filters]] — designing the `h[n]` that does what you want
+- [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] · [[digital-signal-processing/04-the-fft|the FFT]]
 - [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]] — convolution as the CNN's core
-- [[foundations/digital-signal-processing/01-signals-and-systems|signals and systems]] — the LTI foundation
+- [[digital-signal-processing/01-signals-and-systems|signals and systems]] — the LTI foundation
 
 *Source: [reference] — Aug 2026.*

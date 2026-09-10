@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]].
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]].
 
 ---
 

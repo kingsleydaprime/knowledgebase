@@ -126,6 +126,6 @@ The transient-storage version costs ~200 gas instead of ~20,000 → [[web3/03-sm
 - [[web3/04-smart-contract-security/01-why-this-is-different|why security is different here]]
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — The DAO, Curve
 - [[web3/03-smart-contracts-with-solidity/07-token-standards|token standards]] — the callback hooks
-- [[foundations/os/03-scheduling|concurrency and interleaving]] — the same shape of bug, different substrate
+- [[os/03-scheduling|concurrency and interleaving]] — the same shape of bug, different substrate
 
 *Source: [reference] — Aug 2026.*

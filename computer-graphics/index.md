@@ -12,7 +12,7 @@ Turning a 3D scene description into a 2D image. Rasterisation, shading, ray trac
 
 **What it does earn its place on:**
 
-**It's where three other tracks meet concretely.** [[robotics/04-rigid-body-transforms|The transform maths]] is the same matrices as robotics. [[foundations/numerical-methods/07-numerical-integration|Monte Carlo integration]] is the same as numerical methods. [[foundations/gpu-and-parallel-computing/index|The GPU]] exists because of this workload. **Graphics is the application that makes all three tangible at once.**
+**It's where three other tracks meet concretely.** [[robotics/04-rigid-body-transforms|The transform maths]] is the same matrices as robotics. [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Monte Carlo integration]] is the same as numerical methods. [[gpu-and-parallel-computing/index|The GPU]] exists because of this workload. **Graphics is the application that makes all three tangible at once.**
 
 **It's the most visual subject in computing.** A bug you can *see* is a bug you can debug, which makes it unusually good for building intuition — and unusually motivating.
 
@@ -22,40 +22,40 @@ Turning a 3D scene description into a 2D image. Rasterisation, shading, ray trac
 
 **02–06 are the rasterisation pipeline** and build strictly in order. **07 is ray tracing**, independent. **08–09 are geometry and motion.**
 
-1. [[foundations/computer-graphics/01-how-rendering-works|How Rendering Works]] — **[Intermediate]** — rasterisation vs ray tracing, **the rendering equation**, and rendering as a sampling problem
-2. [[foundations/computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — **[Intermediate]** — model→world→view→clip→screen, projection matrices, **why depth precision is non-uniform**, and the normal matrix
-3. [[foundations/computer-graphics/03-rasterisation|Rasterisation]] — **[Intermediate → Advanced]** — edge functions, the z-buffer, **perspective-correct interpolation**, antialiasing, deferred shading
-4. [[foundations/computer-graphics/04-shading-and-lighting|Shading and Lighting]] — **[Intermediate → Advanced]** — BRDFs, **physically based rendering**, image-based lighting, shadow mapping, and the gamma bug everyone hits
-5. [[foundations/computer-graphics/05-textures-and-sampling|Textures and Sampling]] — **[Intermediate]** — UV mapping, **mipmaps as pre-filtering**, anisotropic filtering, compression, SDFs
-6. [[foundations/computer-graphics/06-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — **[Intermediate → Advanced]** — shader stages, compute shaders, the modern APIs, and **why to learn on WebGPU rather than Vulkan**
-7. [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — **[Advanced]** — BVHs, Monte Carlo light transport, **next event estimation**, denoising, hardware RT
-8. [[foundations/computer-graphics/08-geometry-and-meshes|Geometry and Meshes]] — **[Intermediate → Advanced]** — indexed meshes, half-edge, Béziers and NURBS, **SDFs where booleans are trivial**, LOD
-9. [[foundations/computer-graphics/09-animation-and-simulation|Animation and Simulation]] — **[Intermediate → Advanced]** — SLERP, skinning, rigid body physics, collision detection, and **the sim-to-real gap**
+1. [[computer-graphics/01-how-rendering-works|How Rendering Works]] — **[Intermediate]** — rasterisation vs ray tracing, **the rendering equation**, and rendering as a sampling problem
+2. [[computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — **[Intermediate]** — model→world→view→clip→screen, projection matrices, **why depth precision is non-uniform**, and the normal matrix
+3. [[computer-graphics/03-rasterisation|Rasterisation]] — **[Intermediate → Advanced]** — edge functions, the z-buffer, **perspective-correct interpolation**, antialiasing, deferred shading
+4. [[computer-graphics/04-shading-and-lighting|Shading and Lighting]] — **[Intermediate → Advanced]** — BRDFs, **physically based rendering**, image-based lighting, shadow mapping, and the gamma bug everyone hits
+5. [[computer-graphics/05-textures-and-sampling|Textures and Sampling]] — **[Intermediate]** — UV mapping, **mipmaps as pre-filtering**, anisotropic filtering, compression, SDFs
+6. [[computer-graphics/06-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — **[Intermediate → Advanced]** — shader stages, compute shaders, the modern APIs, and **why to learn on WebGPU rather than Vulkan**
+7. [[computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — **[Advanced]** — BVHs, Monte Carlo light transport, **next event estimation**, denoising, hardware RT
+8. [[computer-graphics/08-geometry-and-meshes|Geometry and Meshes]] — **[Intermediate → Advanced]** — indexed meshes, half-edge, Béziers and NURBS, **SDFs where booleans are trivial**, LOD
+9. [[computer-graphics/09-animation-and-simulation|Animation and Simulation]] — **[Intermediate → Advanced]** — SLERP, skinning, rigid body physics, collision detection, and **the sim-to-real gap**
 
 ## The things worth carrying
 
-1. **Rasterisation is fast and local; ray tracing is slow and global.** Every real-time global effect is an approximation working around that → [[foundations/computer-graphics/01-how-rendering-works|01]]
-2. **The perspective divide is why homogeneous coordinates exist** — a matrix can't divide, but it can set up a division → [[foundations/computer-graphics/02-the-transform-pipeline|02]]
-3. **Z-fighting is fixed by pushing the *near* plane out**, not the far plane. Precision goes as $n/z^2$ → [[foundations/computer-graphics/02-the-transform-pipeline|02]]
-4. **Interpolate attribute/$w$ and $1/w$, then divide.** Skipping it gives you PlayStation-1 texture warping → [[foundations/computer-graphics/03-rasterisation|03]]
-5. **The z-buffer won because it needs no sorting** — and transparency, which does, has been awkward ever since → [[foundations/computer-graphics/03-rasterisation|03]]
-6. **Do all lighting maths in linear space.** The gamma bug is extremely common and looks like "too dark, blown highlights" → [[foundations/computer-graphics/04-shading-and-lighting|04]]
-7. **PBR's real win is decoupling material from lighting** — author once, correct everywhere → [[foundations/computer-graphics/04-shading-and-lighting|04]]
-8. **Mipmapping usually makes rendering *faster* as well as better** — better cache behaviour on distant surfaces → [[foundations/computer-graphics/05-textures-and-sampling|05]]
-9. **Reduce the resolution: if the frame rate doesn't change, you're CPU-bound.** A ten-second test that saves days → [[foundations/computer-graphics/06-the-gpu-graphics-pipeline|06]]
-10. **Next event estimation is not optional in a path tracer.** Without it, small lights are never found → [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|07]]
-11. **Never interpolate Euler angles or rotation matrices. SLERP, and check the sign first** → [[foundations/computer-graphics/09-animation-and-simulation|09]]
-12. **Fix your timestep**, and use semi-implicit Euler or Verlet — never explicit Euler → [[foundations/computer-graphics/09-animation-and-simulation|09]]
+1. **Rasterisation is fast and local; ray tracing is slow and global.** Every real-time global effect is an approximation working around that → [[computer-graphics/01-how-rendering-works|01]]
+2. **The perspective divide is why homogeneous coordinates exist** — a matrix can't divide, but it can set up a division → [[computer-graphics/02-the-transform-pipeline|02]]
+3. **Z-fighting is fixed by pushing the *near* plane out**, not the far plane. Precision goes as $n/z^2$ → [[computer-graphics/02-the-transform-pipeline|02]]
+4. **Interpolate attribute/$w$ and $1/w$, then divide.** Skipping it gives you PlayStation-1 texture warping → [[computer-graphics/03-rasterisation|03]]
+5. **The z-buffer won because it needs no sorting** — and transparency, which does, has been awkward ever since → [[computer-graphics/03-rasterisation|03]]
+6. **Do all lighting maths in linear space.** The gamma bug is extremely common and looks like "too dark, blown highlights" → [[computer-graphics/04-shading-and-lighting|04]]
+7. **PBR's real win is decoupling material from lighting** — author once, correct everywhere → [[computer-graphics/04-shading-and-lighting|04]]
+8. **Mipmapping usually makes rendering *faster* as well as better** — better cache behaviour on distant surfaces → [[computer-graphics/05-textures-and-sampling|05]]
+9. **Reduce the resolution: if the frame rate doesn't change, you're CPU-bound.** A ten-second test that saves days → [[computer-graphics/06-the-gpu-graphics-pipeline|06]]
+10. **Next event estimation is not optional in a path tracer.** Without it, small lights are never found → [[computer-graphics/07-ray-tracing-and-path-tracing|07]]
+11. **Never interpolate Euler angles or rotation matrices. SLERP, and check the sign first** → [[computer-graphics/09-animation-and-simulation|09]]
+12. **Fix your timestep**, and use semi-implicit Euler or Verlet — never explicit Euler → [[computer-graphics/09-animation-and-simulation|09]]
 
 ## Where this connects
 
 | | |
 |---|---|
-| [[foundations/gpu-and-parallel-computing/index\|GPU and parallel]] | **This workload is why GPUs exist** |
+| [[gpu-and-parallel-computing/index\|GPU and parallel]] | **This workload is why GPUs exist** |
 | [[robotics/04-rigid-body-transforms\|robotics]] | Identical transform maths; and robot simulators are rendering + physics |
-| [[foundations/numerical-methods/07-numerical-integration\|numerical methods]] | Monte Carlo, splines, ODE integrators |
-| [[foundations/information-theory/01-what-information-is\|information theory]] | Sampling, aliasing, band-limiting |
-| [[engineering/01-continuum-mechanics/index\|continuum mechanics]] | Cloth, soft bodies and fluids are the same equations |
+| [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration\|numerical methods]] | Monte Carlo, splines, ODE integrators |
+| [[information-theory/01-what-information-is\|information theory]] | Sampling, aliasing, band-limiting |
+| [[continuum-mechanics/index\|continuum mechanics]] | Cloth, soft bodies and fluids are the same equations |
 | [[ai-ml/02-ml-engineer/06-computer-vision/index\|computer vision]] | The inverse problem — image to scene |
 
 ## The honest note
@@ -80,11 +80,11 @@ Unlike a numerical method that returns a plausible wrong number, **a broken rend
 
 ## Practice
 
-- [[foundations/computer-graphics/10-practice-exercises|Practice Exercises]] — twelve exercises — colour-by-normal, the transform chain by hand, gamma, and a ray tracer in a weekend
-- [[foundations/computer-graphics/11-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
+- [[computer-graphics/10-practice-exercises|Practice Exercises]] — twelve exercises — colour-by-normal, the transform chain by hand, gamma, and a ray tracer in a weekend
+- [[computer-graphics/11-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove
-- [[foundations/numerical-methods/index|Numerical Methods]] — the maths underneath
+- [[gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove
+- [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical Methods]] — the maths underneath
 - [[robotics/index|Robotics]] — shared transforms, and simulation
 - [[BUILD-PLAN|Build Plan]]

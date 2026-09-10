@@ -11,4 +11,4 @@ What a backend is, how a request physically arrives and is handled, and the conc
 
 ## Related
 - [[backend/index|Backend course]] · [[backend/03-structuring-a-backend/index|03 — Structuring a Backend]]
-- [[foundations/networking/index|Networking]] — TCP, HTTP, and TLS underneath this
+- [[networking/index|Networking]] — TCP, HTTP, and TLS underneath this

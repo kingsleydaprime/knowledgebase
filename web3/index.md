@@ -49,7 +49,7 @@ A map of this folder. Sections **01–08** are a numbered course built Aug 2026,
 Three guides in [[build-your-own-shit/index|build-your-own-shit/]], ordered by depth:
 
 - [[build-your-own-shit/14-your-own-blockchain|Your Own Blockchain]] — blocks → PoW → P2P → UTXO → wallets → fork choice. **Makes sections 01 and 05 concrete**
-- [[build-your-own-shit/15-your-own-smart-contract-vm|Your Own Smart Contract VM]] — a stack machine with gas metering. **The deepest of the three**, and it pairs with [[foundations/compilers/index|compilers]]
+- [[build-your-own-shit/15-your-own-smart-contract-vm|Your Own Smart Contract VM]] — a stack machine with gas metering. **The deepest of the three**, and it pairs with [[compilers/index|compilers]]
 - [[build-your-own-shit/16-your-own-token-and-wallet|Your Own Token and Wallet]] — ERC-20 from scratch, HD wallet, NFT, deployed to a testnet. **The most applied, and the best first one**
 
 ## Related
@@ -57,5 +57,5 @@ Three guides in [[build-your-own-shit/index|build-your-own-shit/]], ordered by d
 - [[cybersecurity/index|cybersecurity]] — the parent security discipline, and what doesn't transfer
 - [[cybersecurity/05-cryptography/index|cryptography]] — the primitives, properly
 - [[architecture/04-distributed-systems/index|distributed systems]] — the field this is a subfield of
-- [[foundations/compilers/10-bytecode-and-virtual-machines|bytecode VMs]] — the general category the EVM belongs to
+- [[compilers/10-bytecode-and-virtual-machines|bytecode VMs]] — the general category the EVM belongs to
 - [[backend/index|backend]] · [[frontend/index|frontend]] — the 90% of a dapp that's ordinary web development

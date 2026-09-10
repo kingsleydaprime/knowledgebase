@@ -54,7 +54,7 @@
 
 **Three optimisations make this viable:**
 
-**Bloom filters.** A small probabilistic structure per SSTable answering "is this key definitely absent?" **No false negatives, some false positives** — so a negative answer lets you skip the file entirely without reading it. **This is what makes LSM point lookups practical**, typically eliminating 99%+ of unnecessary file reads. → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|The probability behind it]]
+**Bloom filters.** A small probabilistic structure per SSTable answering "is this key definitely absent?" **No false negatives, some false positives** — so a negative answer lets you skip the file entirely without reading it. **This is what makes LSM point lookups practical**, typically eliminating 99%+ of unnecessary file reads. → [[mathematics/02-discrete-math/06-combinatorics-and-counting|The probability behind it]]
 
 **Sparse indexes and block caches** — each SSTable has an index of block offsets, so you binary-search within a file.
 
@@ -103,7 +103,7 @@
 
 **Compaction stalls** — if writes arrive faster than compaction keeps up, L0 accumulates files, read amplification climbs, and eventually the database **throttles or blocks writes.** This is a well-known Cassandra and RocksDB operational problem.
 
-**Latency is bimodal.** p50 excellent, p99 much worse, because a request can land during a compaction I/O burst. **A B-tree's latency distribution is far tighter**, which matters for latency-sensitive services. → [[foundations/computer-architecture/12-performance|Tail latency]]
+**Latency is bimodal.** p50 excellent, p99 much worse, because a request can land during a compaction I/O burst. **A B-tree's latency distribution is far tighter**, which matters for latency-sensitive services. → [[computer-architecture/12-performance|Tail latency]]
 
 **Tuning surface is large** — level sizes, compaction triggers, bloom filter bits, block cache, write buffer count. **RocksDB in particular has a reputation for needing an expert**, and its own documentation says so.
 

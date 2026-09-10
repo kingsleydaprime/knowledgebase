@@ -291,7 +291,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[131-merge-intervals|Merge Intervals]] (LeetCode #56) — sort by start, then merge — the function the lab implements.
 2. [[130-insert-interval|Insert Interval]] (LeetCode #57) — before / overlapping / after, in one pass over an already-sorted list.

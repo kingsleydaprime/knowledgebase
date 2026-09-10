@@ -2,7 +2,7 @@
 
 **[Advanced]** — Combining unreliable sensors into one usable belief, and why a robot never actually knows where it is.
 
-> **The theory is in [[engineering/02-control-theory/10-observers-and-kalman|Observers and Kalman Filters]]** — the algorithm, the separation principle, tuning $Q$ and $R$, the EKF/UKF/particle variants. **This note is the robotics application**: what you fuse, why odometry drifts, and the practical failures.
+> **The theory is in [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]]** — the algorithm, the separation principle, tuning $Q$ and $R$, the EKF/UKF/particle variants. **This note is the robotics application**: what you fuse, why odometry drifts, and the practical failures.
 
 ## The premise
 
@@ -12,7 +12,7 @@ Every measurement is noisy, delayed, partial, or all three. No sensor reports "y
 
 $$\text{belief} = p(\mathbf{x}_t \mid \mathbf{z}_{1:t}, \mathbf{u}_{1:t})$$
 
-The state given every measurement and every command so far. **Filtering is the recursive computation of that distribution**, and the reason it's tractable is the Markov assumption: the current state summarises everything relevant about the past. → [[engineering/02-control-theory/08-state-space|What "state" means]]
+The state given every measurement and every command so far. **Filtering is the recursive computation of that distribution**, and the reason it's tractable is the Markov assumption: the current state summarises everything relevant about the past. → [[control-theory/08-state-space|What "state" means]]
 
 **Two steps, forever:**
 
@@ -55,7 +55,7 @@ $$\Delta x = \Delta s\cos\theta, \quad \Delta y = \Delta s\sin\theta, \quad \Del
 
 **Wheel odometry + IMU** — the IMU's gyro gives much better heading than differencing wheel encoders, and it doesn't care about slip. **This one pairing removes most odometry error** on a ground robot, and it's cheap.
 
-**IMU + GPS** — the standard outdoor combination. GPS at 1–10 Hz gives absolute position with no drift; the IMU at 100–1000 Hz fills the gaps and survives dropouts. → [[engineering/02-control-theory/10-observers-and-kalman|Sensor fusion]]
+**IMU + GPS** — the standard outdoor combination. GPS at 1–10 Hz gives absolute position with no drift; the IMU at 100–1000 Hz fills the gaps and survives dropouts. → [[control-theory/10-observers-and-kalman|Sensor fusion]]
 
 **Odometry + lidar scan matching** — indoor mobile robots. The scan match against a map is the absolute correction.
 
@@ -77,7 +77,7 @@ The filter tracks and removes it as conditions change. **Every serious IMU filte
 
 **The same idea covers** wheel radius, camera-to-IMU extrinsics, and clock offset between sensors. **If a parameter drifts and affects your measurements, consider estimating it** — it costs a state dimension and often removes an entire class of error.
 
-**The constraint is observability.** You can only estimate what the measurements actually reveal. Accelerometer bias and gravity are indistinguishable when stationary — you need motion to separate them, which is why VIO systems require an initialisation manoeuvre. → [[engineering/02-control-theory/09-controllability-observability-and-pole-placement|Observability]]
+**The constraint is observability.** You can only estimate what the measurements actually reveal. Accelerometer bias and gravity are indistinguishable when stationary — you need motion to separate them, which is why VIO systems require an initialisation manoeuvre. → [[control-theory/09-controllability-observability-and-pole-placement|Observability]]
 
 ## Choosing a filter
 
@@ -134,7 +134,7 @@ Applying it as if it were current is wrong — you're correcting the present wit
 ---
 
 ## Related
-- [[engineering/02-control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — the theory this applies
+- [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — the theory this applies
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — what's being fused
 - [[robotics/12-localisation-and-slam|Localisation and SLAM]] — the largest application
 - [[robotics/index|Robotics map]]

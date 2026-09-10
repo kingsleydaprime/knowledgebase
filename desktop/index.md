@@ -40,7 +40,7 @@ Requested directly: *"same way there's backend then frameworks for different lan
 | [[databases/index\|databases]] | SQLite is the usual local store |
 | [[devops/06-ci-cd/index\|CI/CD]] | Building, signing and releasing for three platforms |
 | [[languages/03-rust/index\|Rust]] · [[languages/06-python/index\|Python]] · [[languages/05-cpp/index\|C++]] | Tauri · PySide · Qt |
-| [[foundations/software-engineering/04-the-kinds-of-software-engineering\|kinds of software engineering]] | Where desktop sits in the tree |
+| [[software-engineering/04-the-kinds-of-software-engineering\|kinds of software engineering]] | Where desktop sits in the tree |
 
 ## The honest note
 

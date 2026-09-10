@@ -89,7 +89,7 @@ Every branch shares the same `path` list — it's mutated forward on the way dow
 
 ### Why "record a copy" matters
 
-`result.append(path[:])`, not `result.append(path)` — since `path` is the same mutable list object being reused across the whole search, appending a reference to it (instead of a copy) means every entry in `result` would end up pointing at the same, now-empty-again list once backtracking finishes. This is a direct instance of the reference-type aliasing trap covered in [[foundations/programming-fundamentals/15-how-types-actually-work|data-type-classification]].
+`result.append(path[:])`, not `result.append(path)` — since `path` is the same mutable list object being reused across the whole search, appending a reference to it (instead of a copy) means every entry in `result` would end up pointing at the same, now-empty-again list once backtracking finishes. This is a direct instance of the reference-type aliasing trap covered in [[programming-fundamentals/15-how-types-actually-work|data-type-classification]].
 
 ---
 
@@ -244,7 +244,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[071-subsets|Subsets]] (LeetCode #78) — include or exclude — the template for the whole family.
 2. [[074-subsets-ii|Subsets II]] (LeetCode #90) — sort, then skip duplicate siblings: the standard duplicate fix.
@@ -284,7 +284,7 @@ You are done with this pattern when you can, closed-book:
 
 - [[11-dfs-pattern|dfs-pattern]] — DFS as a problem-solving pattern
 - [[01-algorithms|algorithms]] — exponential complexity classes
-- [[foundations/programming-fundamentals/15-how-types-actually-work|data-type-classification]] — why copying matters when recording a mutable path
+- [[programming-fundamentals/15-how-types-actually-work|data-type-classification]] — why copying matters when recording a mutable path
 - [[14-backtracking|backtracking]] — this note
 
 ---

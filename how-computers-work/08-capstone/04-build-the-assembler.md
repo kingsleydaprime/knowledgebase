@@ -79,7 +79,7 @@ done:   JMP  done
 > - A **linker** resolves symbols *between* files — you call `printf` without knowing where it will land, and the linker patches the address once everything is placed. That is **relocation**, and it is why object files carry relocation entries.
 > - A **dynamic loader** resolves them at *run time*, when a shared library is mapped at an address nobody knew at compile time.
 >
-> **All three are the same two-phase pattern:** collect what is defined, then patch what refers to it. Understanding it once here makes [[foundations/compilers/08-code-generation|compilers/code generation]] and the linking material much less mysterious.
+> **All three are the same two-phase pattern:** collect what is defined, then patch what refers to it. Understanding it once here makes [[compilers/08-code-generation|compilers/code generation]] and the linking material much less mysterious.
 
 ---
 
@@ -409,4 +409,4 @@ Real assemblers distinguish <strong>local labels</strong> (often written <code>1
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[build-your-own-shit/17-your-own-cpu/03-python-emulator|Track 3]] — the full assembler implementation
 - [[how-computers-work/08-capstone/02-the-isa|Module 29]] — the encoding being generated
-- [[foundations/compilers/08-code-generation|compilers/code generation]] — where assembly output and object files are covered
+- [[compilers/08-code-generation|compilers/code generation]] — where assembly output and object files are covered

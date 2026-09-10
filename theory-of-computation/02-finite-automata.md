@@ -33,7 +33,7 @@ A DFA accepting binary strings with an even number of 1s:
 
 **Two states. That's the entire machine**, and it correctly handles inputs of any length — because "even so far" is all you need to remember.
 
-> **The defining constraint: a machine with $n$ states can distinguish at most $n$ situations.** It cannot count beyond $n$, because counting to $n+1$ requires $n+1$ distinguishable states. **That single observation is what limits regular languages**, and it's the whole content of the pumping lemma. → [[foundations/theory-of-computation/03-regular-languages|Regular Languages]]
+> **The defining constraint: a machine with $n$ states can distinguish at most $n$ situations.** It cannot count beyond $n$, because counting to $n+1$ requires $n+1$ distinguishable states. **That single observation is what limits regular languages**, and it's the whole content of the pumping lemma. → [[theory-of-computation/03-regular-languages|Regular Languages]]
 
 ## Nondeterministic automata
 
@@ -53,11 +53,11 @@ $$\delta: Q\times(\Sigma\cup\{\epsilon\}) \to \mathcal{P}(Q)$$
 
 **The subset construction** proves it: **each DFA state is a *set* of NFA states** — "all the states the NFA could be in right now". Determinism is recovered by tracking the whole possibility set at once.
 
-**The cost:** $n$ NFA states can become up to $2^n$ DFA states. **Usually far fewer in practice**, but the exponential blowup is real and achievable — and it's why some regex engines are slow. → [[foundations/compilers/02-lexical-analysis|Lexical Analysis]]
+**The cost:** $n$ NFA states can become up to $2^n$ DFA states. **Usually far fewer in practice**, but the exponential blowup is real and achievable — and it's why some regex engines are slow. → [[compilers/02-lexical-analysis|Lexical Analysis]]
 
 **DFA minimisation** then finds the unique smallest equivalent DFA, by merging states that can't be distinguished by any suffix (Hopcroft's algorithm, $O(n\log n)$).
 
-> **The minimal DFA is unique up to renaming** — a genuinely elegant result, and it comes from **Myhill–Nerode**: the states of the minimal DFA *are* the equivalence classes of "strings that behave identically from here on". [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Equivalence relations]] doing real work.
+> **The minimal DFA is unique up to renaming** — a genuinely elegant result, and it comes from **Myhill–Nerode**: the states of the minimal DFA *are* the equivalence classes of "strings that behave identically from here on". [[mathematics/02-discrete-math/04-sets-relations-and-functions|Equivalence relations]] doing real work.
 
 ## Regular expressions are the same thing
 
@@ -108,9 +108,9 @@ A backtracking engine matching `(a+)+b` against `aaaaaaaaaaaaaaaaaaaaaaaaX` trie
 
 **More places than people expect**, and the pattern is: whenever the state you need is bounded, this is the right tool.
 
-**Lexical analysis.** A lexer is a DFA. `flex` and friends take token patterns as regexes, build an NFA, determinise, minimise, and emit a table-driven DFA. **This is the single biggest industrial application.** → [[foundations/compilers/02-lexical-analysis|Lexical Analysis]]
+**Lexical analysis.** A lexer is a DFA. `flex` and friends take token patterns as regexes, build an NFA, determinise, minimise, and emit a table-driven DFA. **This is the single biggest industrial application.** → [[compilers/02-lexical-analysis|Lexical Analysis]]
 
-**Protocol state machines.** [[foundations/networking/07-tcp-reliability-and-flow-control|TCP's connection state machine]] — LISTEN, SYN_SENT, ESTABLISHED, FIN_WAIT — is a finite automaton, and it's specified as one in the RFC. So is TLS handshake state.
+**Protocol state machines.** [[networking/07-tcp-reliability-and-flow-control|TCP's connection state machine]] — LISTEN, SYN_SENT, ESTABLISHED, FIN_WAIT — is a finite automaton, and it's specified as one in the RFC. So is TLS handshake state.
 
 **UI and workflow state.** Order states, form wizards, game AI. **Making the state machine explicit** (XState, or a hand-rolled enum + transition table) turns "which booleans are set" into "which state are we in", and eliminates the impossible-combination bugs that boolean soup creates.
 
@@ -151,7 +151,7 @@ A backtracking engine matching `(a+)+b` against `aaaaaaaaaaaaaaaaaaaaaaaaX` trie
 ---
 
 ## Related
-- [[foundations/theory-of-computation/03-regular-languages|Regular Languages]] — what these recognise, and the limits
-- [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — the industrial application
-- [[foundations/theory-of-computation/04-context-free-languages|Context-Free Languages]] — the next level up
-- [[foundations/theory-of-computation/index|Theory of computation map]]
+- [[theory-of-computation/03-regular-languages|Regular Languages]] — what these recognise, and the limits
+- [[compilers/02-lexical-analysis|Lexical Analysis]] — the industrial application
+- [[theory-of-computation/04-context-free-languages|Context-Free Languages]] — the next level up
+- [[theory-of-computation/index|Theory of computation map]]

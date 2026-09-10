@@ -60,9 +60,9 @@ Every lab was executed and its "Expected output" block generated from that run. 
 
 ## Related
 
-- [[foundations/mathematics/index|mathematics/]] — the parent course and the full topic map
+- [[mathematics/index|mathematics/]] — the parent course and the full topic map
 - [[01-lines-and-planes|Lines and Planes in Space]] — vectors, geometrically
 - [[02-quadric-surfaces|Quadric Surfaces]] — a classification that is really about eigenvalue signs
-- [[foundations/ai-ml/index|ai-ml/]] — where PCA, embeddings and gradient methods use all of this
-- [[foundations/numerical-methods/index|numerical-methods/]] — conditioning, stability and iterative solvers
+- [[ai-ml/index|ai-ml/]] — where PCA, embeddings and gradient methods use all of this
+- [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical-methods/]] — conditioning, stability and iterative solvers
 - [[COURSE-STANDARD|Course standard]] — the teaching shape these lessons follow

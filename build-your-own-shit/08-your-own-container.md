@@ -10,15 +10,15 @@ By the end **you'll run a real Alpine root filesystem in it** — the same tarba
 
 **What you're deliberately not building:** an image format and registry (pulling and layering OCI images is a separate project), a daemon, an orchestrator, or full network setup with veth pairs and NAT (we'll isolate the network, not connect it).
 
-**Why this one:** it's the shortest path to deleting a piece of mystique. [[foundations/os/11-isolation-and-containers|There is no such thing as a container]] — there are namespaces, cgroups, and a pivot_root, and after this you'll have assembled them yourself.
+**Why this one:** it's the shortest path to deleting a piece of mystique. [[os/11-isolation-and-containers|There is no such thing as a container]] — there are namespaces, cgroups, and a pivot_root, and after this you'll have assembled them yourself.
 
 ## What you need first
 
 | You should know | Where |
 |---|---|
-| **Namespaces and cgroups** | [[foundations/os/11-isolation-and-containers\|os/11]] — **read this first; it's the spec** |
-| **`fork`/`exec`, and PID 1's duties** | [[foundations/os/02-processes-and-threads\|os/02]] |
-| **Mounts and the filesystem tree** | [[foundations/os/07-filesystems-and-storage\|os/07]] |
+| **Namespaces and cgroups** | [[os/11-isolation-and-containers\|os/11]] — **read this first; it's the spec** |
+| **`fork`/`exec`, and PID 1's duties** | [[os/02-processes-and-threads\|os/02]] |
+| **Mounts and the filesystem tree** | [[os/07-filesystems-and-storage\|os/07]] |
 | **What Docker does from above** | [[devops/02-docker/index\|Docker]] |
 
 **Linux only.** Namespaces and cgroups are Linux kernel features — macOS and Windows run Docker in a Linux VM for exactly this reason.
@@ -76,7 +76,7 @@ clone(child_fn, stack_top, CLONE_NEWPID | CLONE_NEWUTS | SIGCHLD, arg);
 
 **Watch for:** `ps` still shows every host process until you fix `/proc` in the next milestone — the namespace is active, but `/proc` is still the host's.
 
-**And you're now PID 1**, which has duties: reap orphaned children, and handle signals explicitly (the kernel applies no default handlers to PID 1). This is exactly the "container PID 1 problem" and why `docker run --init` exists. → [[foundations/os/02-processes-and-threads|Processes and Threads]]
+**And you're now PID 1**, which has duties: reap orphaned children, and handle signals explicitly (the kernel applies no default handlers to PID 1). This is exactly the "container PID 1 problem" and why `docker run --init` exists. → [[os/02-processes-and-threads|Processes and Threads]]
 
 ### 4. Mount namespace and a root filesystem
 
@@ -102,7 +102,7 @@ mount("proc", "/proc", "proc", 0, NULL);             // now ps works correctly
 
 **`MS_REC | MS_PRIVATE` on `/` first.** Without it your mounts propagate to the host, and unmounting inside affects the parent. This is the most common bug in a hand-rolled container.
 
-**`pivot_root`, not `chroot`.** `chroot` is escapable by a process with `CAP_SYS_CHROOT` — a few lines of C gets you out. `pivot_root` combined with unmounting the old root is the real boundary. → [[foundations/os/11-isolation-and-containers|Isolation]]
+**`pivot_root`, not `chroot`.** `chroot` is escapable by a process with `CAP_SYS_CHROOT` — a few lines of C gets you out. `pivot_root` combined with unmounting the old root is the real boundary. → [[os/11-isolation-and-containers|Isolation]]
 
 **Mount `/proc` after pivoting**, or `ps` reads the host's.
 
@@ -124,7 +124,7 @@ ip addr add 172.18.0.1/24 dev veth0 && ip link set veth0 up
 # then on the host: iptables -t nat -A POSTROUTING -s 172.18.0.0/24 -j MASQUERADE
 ```
 
-**That's a legitimate place to stop.** Isolating the network demonstrates the namespace; wiring it up is networking work rather than container work. → [[foundations/networking/index|networking]]
+**That's a legitimate place to stop.** Isolating the network demonstrates the namespace; wiring it up is networking work rather than container work. → [[networking/index|networking]]
 
 ### 6. cgroups — resource limits
 
@@ -149,7 +149,7 @@ dd if=/dev/zero of=/dev/null bs=200M count=1     # gets OOM-killed
 
 **Watch for:** writing the PID into `cgroup.procs` is what applies the limits. Order matters — do it before `exec` so the process is constrained from the start.
 
-**CPU limits throttle, they don't slow.** Exhaust the quota early in a period and everything freezes until the next one. Check `cpu.stat`'s `nr_throttled`. → [[foundations/os/03-scheduling|Scheduling]]
+**CPU limits throttle, they don't slow.** Exhaust the quota early in a period and everything freezes until the next one. Check `cpu.stat`'s `nr_throttled`. → [[os/03-scheduling|Scheduling]]
 
 Clean up the cgroup directory when the container exits, or you leak them.
 
@@ -280,14 +280,14 @@ ls -l /proc/<pid>/ns/                    # your container's namespace IDs vs the
 
 **Real runtimes additionally have:** the OCI image and runtime specs, registry pull with layer deduplication, full CNI networking, volume management, checkpoint/restore, rootless with subuid mapping, and integration with systemd, SELinux and AppArmor.
 
-**And the boundary is real:** namespaces isolate *views*, not the kernel. A kernel vulnerability is a shared failure domain. For untrusted code you need gVisor or a microVM like Firecracker. → [[foundations/os/11-isolation-and-containers|Isolation and Containers]]
+**And the boundary is real:** namespaces isolate *views*, not the kernel. A kernel vulnerability is a shared failure domain. For untrusted code you need gVisor or a microVM like Firecracker. → [[os/11-isolation-and-containers|Isolation and Containers]]
 
 **If you want to go further:** implement **image pulling** — fetch an OCI image from a registry, unpack the layers, and assemble them with overlayfs. It's the other half of Docker, and it's mostly HTTP and tar rather than kernel work.
 
 ---
 
 ## Related
-- [[foundations/os/11-isolation-and-containers|Isolation and Containers]] — the specification for this project
+- [[os/11-isolation-and-containers|Isolation and Containers]] — the specification for this project
 - [[devops/02-docker/index|Docker]] — the same thing from above
 - [[build-your-own-shit/07-your-own-shell|Your Own Shell]] — the `fork`/`exec` skeleton
 - [[cybersecurity/09-cloud-security/index|Cloud Security]] — container escape as a threat model

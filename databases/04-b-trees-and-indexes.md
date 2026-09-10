@@ -14,7 +14,7 @@ $$\log_{400}(10^8) \approx 3 \text{ levels}$$
 
 > **Three page reads instead of twenty-seven.** And the top two levels are almost always cached, **so a lookup in a 100-million-row table is typically one physical I/O.**
 >
-> **This is the same argument as [[foundations/computer-architecture/08-the-memory-hierarchy|cache lines]]:** you're paying per *block fetched*, not per comparison. So make each block do as much work as possible. **A binary tree does one comparison per fetch; a B+ tree does hundreds.**
+> **This is the same argument as [[computer-architecture/08-the-memory-hierarchy|cache lines]]:** you're paying per *block fetched*, not per comparison. So make each block do as much work as possible. **A binary tree does one comparison per fetch; a B+ tree does hundreds.**
 
 ## Structure
 

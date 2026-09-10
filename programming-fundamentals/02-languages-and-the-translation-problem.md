@@ -20,7 +20,7 @@ The trade is consistent, and it's not a quality ranking:
 | Ways to hurt yourself | Many, and quiet | Fewer, and loud |
 | Good for | Kernels, drivers, embedded, engines | Nearly everything else |
 
-**"Faster" needs qualifying.** C is faster at runtime. Python is faster to write, and often faster to *get a correct answer with*. Most software is limited by network calls, disk, and developer time — none of which a language change fixes. Optimising the language before you've measured is a classic misuse of effort. See [[foundations/computer-architecture/12-performance|performance]].
+**"Faster" needs qualifying.** C is faster at runtime. Python is faster to write, and often faster to *get a correct answer with*. Most software is limited by network calls, disk, and developer time — none of which a language change fixes. Optimising the language before you've measured is a classic misuse of effort. See [[computer-architecture/12-performance|performance]].
 
 ## Compiled, interpreted, and the middle
 
@@ -39,7 +39,7 @@ Two things worth knowing so the labels don't mislead you:
 
 **The line is about implementations, not languages.** C can be interpreted; Python can be compiled. "Python is interpreted" describes what CPython does, not a law about the language.
 
-**The real difference you'll feel is when you find out you're wrong.** Compiled: at build time, before anyone runs it. Interpreted: when execution reaches that line, possibly in production, possibly at 2 a.m. This is the substance behind arguments about type systems and it's a genuine trade — more upfront rigour against faster iteration. [[foundations/programming-language-theory/04-type-systems-formally|Type systems]] takes it much further.
+**The real difference you'll feel is when you find out you're wrong.** Compiled: at build time, before anyone runs it. Interpreted: when execution reaches that line, possibly in production, possibly at 2 a.m. This is the substance behind arguments about type systems and it's a genuine trade — more upfront rigour against faster iteration. [[programming-language-theory/04-type-systems-formally|Type systems]] takes it much further.
 
 ## Static and dynamic types
 
@@ -94,10 +94,10 @@ Pick by what you want to build:
 **Then finish something small in it before you evaluate.** Judging a language from tutorials tells you about tutorials.
 
 ## Related
-- [[foundations/programming-fundamentals/03-where-code-gets-written|where code gets written]] — the tools you'll need next
+- [[programming-fundamentals/03-where-code-gets-written|where code gets written]] — the tools you'll need next
 - [[languages/index|languages/]] — the vault's full courses: Java, Go, Rust, C, C++
-- [[foundations/compilers/index|compilers]] — how translation actually works
-- [[foundations/programming-language-theory/index|PL theory]] — why languages differ, much later
-- [[foundations/programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — where to take this
+- [[compilers/index|compilers]] — how translation actually works
+- [[programming-language-theory/index|PL theory]] — why languages differ, much later
+- [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — where to take this
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the static/dynamic and compilation-model distinctions it left implicit.*

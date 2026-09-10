@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. Pairs with [[09-maintain-advanced-storage|maintain-advanced-storage]] for LVM. Some of this overlaps with mount/fstab/mkfs basics already in [[devops/01-linux/linux-reference|Linux Reference]] — this note goes deeper on the partitioning side and the RHEL-specific defaults (XFS, GPT-first tooling).
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Pairs with [[09-maintain-advanced-storage|maintain-advanced-storage]] for LVM. Some of this overlaps with mount/fstab/mkfs basics already in [[devops/01-linux/linux-reference|Linux Reference]] — this note goes deeper on the partitioning side and the RHEL-specific defaults (XFS, GPT-first tooling).
 
 ---
 

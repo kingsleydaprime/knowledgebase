@@ -46,4 +46,4 @@ Fiber is built on fasthttp and is **not** `net/http` compatible — you lose the
 - [[backend/frameworks/index|frameworks/]] — the same concepts across every stack
 - [[languages/02-go/index|The Go course]] — the language
 - [[backend/frameworks/rust/index|Rust backends]] — the other no-runtime option
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets]] — what `net/http` sits on
+- [[networking/09-sockets-and-the-network-api|Sockets]] — what `net/http` sits on

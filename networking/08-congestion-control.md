@@ -20,7 +20,7 @@ Van Jacobson's response (1988) is the algorithm every TCP still descends from. T
 
 ## The congestion window
 
-The sender keeps a second limit alongside the [[foundations/networking/07-tcp-reliability-and-flow-control|receive window]]:
+The sender keeps a second limit alongside the [[networking/07-tcp-reliability-and-flow-control|receive window]]:
 
 ```
 bytes in flight ≤ min(receive window, congestion window)
@@ -71,7 +71,7 @@ This is exactly the "someone started a big upload and now video calls stutter an
 
 The fixes are all about managing the queue rather than the sender: **AQM** (Active Queue Management) — **CoDel** drops packets based on how long they've been *queued* rather than how full the queue is, and **fq_codel** additionally gives each flow its own queue so a bulk transfer can't monopolise the buffer. Enabling `fq_codel` (or `cake` on a home router) is a genuinely transformative one-line change.
 
-**ECN** (Explicit Congestion Notification) is the cleaner answer: routers *mark* packets instead of dropping them, and the receiver echoes the mark back. Congestion signalled without loss and without delay. Adoption has been slow for a very instructive reason — some middleboxes historically dropped packets with ECN bits set, so enabling it broke connectivity for a minority of users, and nobody would ship a feature that breaks 1% of traffic. That's [[foundations/networking/14-nat-firewalls-and-middleboxes|protocol ossification]] in one sentence.
+**ECN** (Explicit Congestion Notification) is the cleaner answer: routers *mark* packets instead of dropping them, and the receiver echoes the mark back. Congestion signalled without loss and without delay. Adoption has been slow for a very instructive reason — some middleboxes historically dropped packets with ECN bits set, so enabling it broke connectivity for a minority of users, and nobody would ship a feature that breaks 1% of traffic. That's [[networking/14-nat-firewalls-and-middleboxes|protocol ossification]] in one sentence.
 
 ## Incast — the data-centre failure mode
 
@@ -81,11 +81,11 @@ The result is a latency distribution that's mostly sub-millisecond with a p99 in
 
 ## Key insight
 
-Congestion control is a **distributed algorithm running on machines that never communicate, allocating a resource none of them can observe, with no enforcement mechanism.** It works because the rule's *shape* — gentle increase, sharp decrease — provably converges to fairness, and because nearly everyone voluntarily runs it. The internet's stability rests on cooperation that is technically optional. That's also why writing a [[foundations/networking/05-udp-and-ports|UDP]] application without congestion control isn't just risky engineering — it's defection from the agreement that keeps the whole thing standing.
+Congestion control is a **distributed algorithm running on machines that never communicate, allocating a resource none of them can observe, with no enforcement mechanism.** It works because the rule's *shape* — gentle increase, sharp decrease — provably converges to fairness, and because nearly everyone voluntarily runs it. The internet's stability rests on cooperation that is technically optional. That's also why writing a [[networking/05-udp-and-ports|UDP]] application without congestion control isn't just risky engineering — it's defection from the agreement that keeps the whole thing standing.
 
 ## Related
-- [[foundations/networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — the other window
-- [[foundations/networking/15-network-performance|Network Performance]] — BDP, and why round trips dominate
-- [[foundations/networking/13-quic-and-modern-transport|QUIC]] — congestion control moved to userspace, where it can be iterated on
+- [[networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — the other window
+- [[networking/15-network-performance|Network Performance]] — BDP, and why round trips dominate
+- [[networking/13-quic-and-modern-transport|QUIC]] — congestion control moved to userspace, where it can be iterated on
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — incast, tail latency, and scatter-gather
-- [[engineering/02-control-theory/index|Control Theory]] — AIMD is a feedback controller with a delayed, noisy plant. The maths that explains why it oscillates, and why the delay is the hard part
+- [[control-theory/index|Control Theory]] — AIMD is a feedback controller with a delayed, noisy plant. The maths that explains why it oscillates, and why the delay is the hard part

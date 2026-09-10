@@ -16,7 +16,7 @@ $$\gcd(a, b) = \gcd(b, a \bmod b), \qquad \gcd(a, 0) = a$$
 gcd(48, 18) → gcd(18, 12) → gcd(12, 6) → gcd(6, 0) = 6
 ```
 
-**It runs in $O(\log \min(a,b))$** — the worst case is consecutive Fibonacci numbers, which is a nice connection to [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|recurrences]]. **Extraordinarily fast**, and that efficiency is what makes RSA key generation practical.
+**It runs in $O(\log \min(a,b))$** — the worst case is consecutive Fibonacci numbers, which is a nice connection to [[mathematics/02-discrete-math/05-induction-and-recursion|recurrences]]. **Extraordinarily fast**, and that efficiency is what makes RSA key generation practical.
 
 **Extended Euclid** additionally finds $x, y$ with
 
@@ -32,7 +32,7 @@ $$ax + by = \gcd(a,b) \qquad \text{(Bézout's identity)}$$
 
 **The Fundamental Theorem of Arithmetic:** every integer > 1 has a **unique** prime factorisation.
 
-**Euclid: there are infinitely many primes.** Assume finitely many, multiply them all and add 1 — the result is divisible by none of them. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof by contradiction]]
+**Euclid: there are infinitely many primes.** Assume finitely many, multiply them all and add 1 — the result is divisible by none of them. → [[mathematics/02-discrete-math/03-proof-techniques|Proof by contradiction]]
 
 **The Prime Number Theorem:** primes near $n$ have density about $1/\ln n$.
 
@@ -44,7 +44,7 @@ $$ax + by = \gcd(a,b) \qquad \text{(Bézout's identity)}$$
 
 **AKS** (2002) is deterministic polynomial-time — a major theoretical result, too slow in practice.
 
-> **Testing whether a number is prime is easy. Finding its factors is hard.** That gap — polynomial versus (believed) super-polynomial — is the entire foundation of RSA. **Note that it's a *believed* hardness, not a proven one**: nobody has proved factoring is hard, and Shor's algorithm factors in polynomial time on a quantum computer. → [[foundations/theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]]
+> **Testing whether a number is prime is easy. Finding its factors is hard.** That gap — polynomial versus (believed) super-polynomial — is the entire foundation of RSA. **Note that it's a *believed* hardness, not a proven one**: nobody has proved factoring is hard, and Shor's algorithm factors in polynomial time on a quantum computer. → [[theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]]
 
 ## Modular arithmetic
 
@@ -52,7 +52,7 @@ $$ax + by = \gcd(a,b) \qquad \text{(Bézout's identity)}$$
 
 $$17 \equiv 5 \pmod{12}$$
 
-**It's an [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|equivalence relation]]**, partitioning $\mathbb{Z}$ into $n$ residue classes, and that's what $\mathbb{Z}_n$ means.
+**It's an [[mathematics/02-discrete-math/04-sets-relations-and-functions|equivalence relation]]**, partitioning $\mathbb{Z}$ into $n$ residue classes, and that's what $\mathbb{Z}_n$ means.
 
 **Arithmetic is well-defined on classes:**
 
@@ -123,7 +123,7 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 
 ## Where else it's used
 
-**Hashing.** $h(k) = k \bmod m$ — and **choosing $m$ prime** matters, because a composite modulus lets patterns in the keys collapse onto few buckets. → [[foundations/dsa/04-data-structures/03-hash-maps|Hash Maps]]
+**Hashing.** $h(k) = k \bmod m$ — and **choosing $m$ prime** matters, because a composite modulus lets patterns in the keys collapse onto few buckets. → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
 
 **Checksums.** ISBN, IBAN, credit card numbers (Luhn), and CRC are all modular arithmetic. **A check digit catches single-digit and transposition errors** by construction.
 
@@ -151,6 +151,6 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 
 ## Related
 - [[cybersecurity/05-cryptography/04-asymmetric-encryption|Asymmetric Encryption]] — RSA and ECC in practice
-- [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|Combinatorics]] — the birthday bound on key sizes
-- [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — why factoring's hardness is only conjectured
-- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]
+- [[mathematics/02-discrete-math/06-combinatorics-and-counting|Combinatorics]] — the birthday bound on key sizes
+- [[theory-of-computation/07-complexity-classes|Complexity Classes]] — why factoring's hardness is only conjectured
+- [[mathematics/02-discrete-math/index|Discrete maths map]]

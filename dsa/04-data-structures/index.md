@@ -2,7 +2,7 @@
 
 The eleven core data structures, written to [[COURSE-STANDARD|the course standard]]: prerequisites, observable outcomes, a terminology table, the mechanism worked through by hand, a complete runnable lab, independent practice with hidden answers, and a demonstrable finish line.
 
-This folder is about *how each structure works and what it costs*. The companion folder [[foundations/dsa/06-patterns/index|06-patterns]] is about recognising which structure or technique a problem calls for — several patterns there link back here rather than re-deriving the mechanics.
+This folder is about *how each structure works and what it costs*. The companion folder [[dsa/06-patterns/index|06-patterns]] is about recognising which structure or technique a problem calls for — several patterns there link back here rather than re-deriving the mechanics.
 
 Every lab in this folder has been run and its output checked against the documented "Expected output".
 
@@ -24,6 +24,6 @@ Ordered so each builds on the last — dynamic arrays assume arrays, heaps assum
 
 ## Related
 
-- [[foundations/dsa/index|DSA notes]] — the parent folder
-- [[foundations/dsa/06-patterns/index|06-patterns]] — the 15 recurring problem-solving patterns
-- [[foundations/dsa/05-algorithms/01-algorithms|05-algorithms]] — sorting, searching, and graph algorithms built on these structures
+- [[dsa/index|DSA notes]] — the parent folder
+- [[dsa/06-patterns/index|06-patterns]] — the 15 recurring problem-solving patterns
+- [[dsa/05-algorithms/01-algorithms|05-algorithms]] — sorting, searching, and graph algorithms built on these structures

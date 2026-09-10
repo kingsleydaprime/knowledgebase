@@ -21,7 +21,7 @@
 - **Java / Spring backend** — real evidence (direct-debit sandbox, record-id-generator, RabbitMQ, JVM concurrency), deliberately **off the CV for this job search**. Parked 2026-08-21: a CV aimed at four roles reads as aimed at none.
 - **Mobile** — React Native via arete. Parked 2026-08-21, same reason.
 - **Embedded / hardware** — the IoT bridge PCB is real and rare. Parked 2026-08-21, same reason.
-- **Robotics 101** — notes already exist ([[robotics/index|robotics]], [[engineering/02-control-theory/index|control theory]]) but marked `[reference]`; the debt is reps, not notes
+- **Robotics 101** — notes already exist ([[robotics/index|robotics]], [[control-theory/index|control theory]]) but marked `[reference]`; the debt is reps, not notes
 - **Music 101**
 - **Art 101** — drawing
 - **Public Speaking 101**
@@ -39,7 +39,7 @@
 | Date | What caught my attention | Still interesting later? |
 |---|---|---|
 | 2026-08-23 | **Game development** — one of the three original reasons for tech. Map now written: [[game-development/index\|game-development/]] | Yes. **Next action is a game jam, not a course** — 48 hours tests it properly |
-| 2026-08-23 | **Embedded software engineering** — wants to get into it | Yes, and **you're closer than you think**: PCB + firmware already exist. See [[foundations/software-engineering/04-the-kinds-of-software-engineering\|kinds of SWE]] |
+| 2026-08-23 | **Embedded software engineering** — wants to get into it | Yes, and **you're closer than you think**: PCB + firmware already exist. See [[software-engineering/04-the-kinds-of-software-engineering\|kinds of SWE]] |
 | 2026-08-23 | **Data centres / infrastructure career** | Yes — and it's *adjacent to*, not divergent from, the current track. [[devops/00-the-physical-layer/05-getting-into-infrastructure\|route written]] |
 | 2026-08-23 | **Desktop applications** — "how do I make mine" | Mild. [[desktop/index\|Map written]]; a Tauri app is a weekend if it ever matters |
 | 2026-08-23 | **Finance, tax, entrepreneurship** — "to become a better person" | **Yes, and genuinely important** — but explicitly deferred by you in the same breath. Not a tech course; needs its own shape |

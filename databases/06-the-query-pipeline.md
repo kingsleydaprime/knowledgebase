@@ -15,11 +15,11 @@
  rows
 ```
 
-**It's a compiler.** Parse, semantic analysis, optimisation, code generation, execution — **the same pipeline as [[foundations/compilers/01-what-a-compiler-is|a language compiler]]**, with a cost-based optimiser doing what register allocation and instruction selection do there.
+**It's a compiler.** Parse, semantic analysis, optimisation, code generation, execution — **the same pipeline as [[compilers/01-what-a-compiler-is|a language compiler]]**, with a cost-based optimiser doing what register allocation and instruction selection do there.
 
 ## Parse
 
-**SQL text → parse tree.** Standard lexing and recursive-descent or LALR parsing. → [[foundations/compilers/03-parsing|Parsing]]
+**SQL text → parse tree.** Standard lexing and recursive-descent or LALR parsing. → [[compilers/03-parsing|Parsing]]
 
 **Only syntax is checked here.** `SELECT * FROM no_such_table` parses fine — the table's existence isn't a syntactic question.
 
@@ -86,9 +86,9 @@
 
 **Volcano / iterator model** — each operator implements `next()`, pulling one row from its children. **Simple, composable, and the classic design.** Its cost is one virtual call per row per operator, which dominates at analytical scale.
 
-**Vectorised** — `next()` returns a *batch* (typically 1,000+ values), amortising the call overhead and enabling SIMD. **What every modern analytical engine uses** — DuckDB, ClickHouse, Snowflake. → [[foundations/computer-architecture/03-instruction-sets|SIMD]]
+**Vectorised** — `next()` returns a *batch* (typically 1,000+ values), amortising the call overhead and enabling SIMD. **What every modern analytical engine uses** — DuckDB, ClickHouse, Snowflake. → [[computer-architecture/03-instruction-sets|SIMD]]
 
-**Compiled** — generate machine code for the whole plan via LLVM, eliminating interpretation entirely. **Postgres JITs expression evaluation for expensive queries**; HyPer and Umbra compile whole pipelines. → [[foundations/compilers/12-jit-compilation|JIT Compilation]]
+**Compiled** — generate machine code for the whole plan via LLVM, eliminating interpretation entirely. **Postgres JITs expression evaluation for expensive queries**; HyPer and Umbra compile whole pipelines. → [[compilers/12-jit-compilation|JIT Compilation]]
 
 **Pipelining vs blocking** is the distinction that matters for latency:
 
@@ -142,6 +142,6 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
 
 ## Related
 - [[databases/07-join-algorithms-and-the-optimiser|Join Algorithms and the Optimiser]] — the planning stage in depth
-- [[foundations/compilers/index|Compilers]] — the same pipeline, for languages
+- [[compilers/index|Compilers]] — the same pipeline, for languages
 - [[databases/sql-reference|SQL Reference]] — §26, query optimisation from the query-writing side
 - [[databases/index|Databases map]]

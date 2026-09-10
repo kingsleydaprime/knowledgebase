@@ -14,8 +14,8 @@ That's the actual trait, and it decomposes into four things you can deliberately
 
 | The trait | What it actually is | Where it's built |
 |---|---|---|
-| **Depth** | knowing the layer *below* the one you work at | [[foundations/networking/index\|networking]], [[foundations/os/fundamentals\|OS]], [[architecture/04-distributed-systems/index\|distributed systems]], [[foundations/dsa/index\|DSA]], [[hardware/index\|hardware]] |
-| **Debugging** | narrowing the search space instead of guessing | [[foundations/networking/16-debugging-networks\|bisecting layers]], reading errors properly, profilers, a multimeter |
+| **Depth** | knowing the layer *below* the one you work at | [[networking/index\|networking]], [[os/fundamentals\|OS]], [[architecture/04-distributed-systems/index\|distributed systems]], [[dsa/index\|DSA]], [[hardware/index\|hardware]] |
+| **Debugging** | narrowing the search space instead of guessing | [[networking/16-debugging-networks\|bisecting layers]], reading errors properly, profilers, a multimeter |
 | **Shipping** | finishing, deploying, operating, being on call for it | [[project-ideas\|projects]], [[devops/index\|devops]] |
 | **Communication** | making others faster — writing, reviewing, teaching | [[research/index\|research & writing]], [[concepts/04-best-practices/02-pr-structure\|PR structure]], this vault |
 
@@ -27,7 +27,7 @@ The trait is domain-independent, so the path is too. Every rank below has gates 
 
 | | |
 |---|---|
-| 💻 **Software** | Backends, systems, algorithms — [[backend/index\|backend]], [[foundations/dsa/index\|dsa]], [[architecture/index\|architecture]], [[languages/01-java/index\|java]], and [[ai-ml/03-ai-engineer/index\|AI engineering]] |
+| 💻 **Software** | Backends, systems, algorithms — [[backend/index\|backend]], [[dsa/index\|dsa]], [[architecture/index\|architecture]], [[languages/01-java/index\|java]], and [[ai-ml/03-ai-engineer/index\|AI engineering]] |
 | ☁️ **Infra** | Linux, cloud, containers, CI/CD, observability — [[devops/index\|devops]] |
 | 🔐 **Security** | Offence and defence, because you can't do one well without the other — [[cybersecurity/index\|cybersecurity]] |
 | 🔌 **Hardware** | Electronics, embedded, boards that physically exist — [[hardware/index\|hardware]] |
@@ -57,7 +57,7 @@ Because it's two different jobs, and [[ai-ml/index|the ai-ml course]] already sa
 
 The baseline. You can take an idea to a running thing without help.
 
-*Before Rank I:* if you can't yet write code at all, [[foundations/programming-fundamentals/index|programming fundamentals]] is the on-ramp — twelve language-agnostic notes, and the only thing in this vault that assumes nothing.
+*Before Rank I:* if you can't yet write code at all, [[programming-fundamentals/index|programming fundamentals]] is the on-ramp — twelve language-agnostic notes, and the only thing in this vault that assumes nothing.
 
 **💻 Software**
 - [ ] Ship a full-stack app **to a real domain over HTTPS** — not localhost, not a screenshot
@@ -67,7 +67,7 @@ The baseline. You can take an idea to a running thing without help.
 
 **☁️ Infra**
 - [ ] Deploy that app yourself → [[devops/04-vps/vps-setup|VPS]], [[devops/02-docker/index|Docker]]
-- [ ] Explain what happens between typing a URL and seeing a page → [[foundations/networking/01-what-a-network-is|note 01]]
+- [ ] Explain what happens between typing a URL and seeing a page → [[networking/01-what-a-network-is|note 01]]
 - [ ] Find out why a service won't start **from its logs**, not from guessing → [[devops/01-linux/17-logs-and-journald|logs & journald]]
 
 **🔐 Security**
@@ -102,8 +102,8 @@ This is also the rank where the four columns stop being separate skills. The met
 - [ ] Read a flame graph. Read a GC log. Read an `EXPLAIN` plan. → [[databases/sql-reference|SQL]]
 
 **☁️ Infra**
-- [ ] `tcpdump` a request and **find the three-way handshake with your own eyes** → [[foundations/networking/06-tcp-connection-lifecycle|TCP lifecycle]]
-- [ ] Know, without looking it up, what a pile of `CLOSE_WAIT` sockets means about your code → [[foundations/networking/16-debugging-networks|debugging]]
+- [ ] `tcpdump` a request and **find the three-way handshake with your own eyes** → [[networking/06-tcp-connection-lifecycle|TCP lifecycle]]
+- [ ] Know, without looking it up, what a pile of `CLOSE_WAIT` sockets means about your code → [[networking/16-debugging-networks|debugging]]
 - [ ] Explain the difference between "connection refused" and a hang, and why it tells you where to look
 - [ ] Diagnose a crash from the **previous** boot's logs → [[devops/01-linux/19-the-boot-process|boot process]], `journalctl -b -1`
 - [ ] Fix a full disk that `df -h` says has space → [[devops/01-linux/18-disks-and-filesystems|disks & filesystems]]
@@ -137,7 +137,7 @@ Depth becomes bedrock. You stop treating infrastructure as magic because you've 
 
 **The non-negotiable gate, in whichever column is yours:**
 
-- [ ] 💻 **Build one thing from scratch that you previously only used** — your own Redis (most approachable), your own git, an HTTP/1.1 server from raw sockets → [[foundations/networking/09-sockets-and-the-network-api|sockets]], or a B-tree/LSM storage engine
+- [ ] 💻 **Build one thing from scratch that you previously only used** — your own Redis (most approachable), your own git, an HTTP/1.1 server from raw sockets → [[networking/09-sockets-and-the-network-api|sockets]], or a B-tree/LSM storage engine
 - [ ] 🔌 **Design, order, and bring up your own PCB** — schematic → layout → fab → first power-on without releasing the smoke → [[hardware/10-kicad-basics|KiCad]], [[projects/iot-bridge-pcb/task|IoT Bridge PCB]]
 - [ ] 🔐 **Exploit something end to end in your own lab** — recon → foothold → privilege escalation → written up as a report someone could act on → [[cybersecurity/02-ethical-hacking/12-practice-exercises|practice exercises]]
 - [ ] ☁️ **Run the thing you usually rent** — self-host the database, the queue, the object store, and survive the operational reality of it
@@ -165,7 +165,7 @@ Where most senior engineers stop, and where the genuinely hard problems start.
 - [ ] **Implement Raft.** Leader election, log replication, safety. Then a KV store on it. Then kill nodes and partition the network while it runs. → [[architecture/04-distributed-systems/08-raft-in-depth|Raft in depth]]
 - [ ] Explain why exactly-once delivery is impossible, and what you build instead → [[architecture/04-distributed-systems/10-distributed-transactions|idempotency]]
 - [ ] Explain CAP correctly — including why most people quoting it are wrong → [[architecture/04-distributed-systems/02-theoretical-limits|PACELC]]
-- [ ] Debug a p99 problem that turns out to be transport-layer → [[foundations/networking/15-network-performance|tail latency]], incast, RTO
+- [ ] Debug a p99 problem that turns out to be transport-layer → [[networking/15-network-performance|tail latency]], incast, RTO
 - [ ] Run something in production that **other people depend on**, and carry the pager for it
 - [ ] Design for failure explicitly: circuit breakers, backpressure, graceful degradation → [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
 
@@ -189,7 +189,7 @@ Depth in **one** domain deep enough that you're the escalation point. Pick a lan
 - [ ] Sub-microsecond p99 on a hot path, measured, with the number defended
 - [ ] Zero-allocation code on the hot path, verified by profiler not by vibes
 - [ ] Explain mechanical sympathy: cache lines, false sharing, branch prediction, NUMA
-- [ ] Know whether your latency spike came from [[foundations/networking/08-congestion-control|congestion control]] or [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|GC]]
+- [ ] Know whether your latency spike came from [[networking/08-congestion-control|congestion control]] or [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|GC]]
 
 **🤖 AI engineering** *(a Software lane — you build on models you didn't train)*
 - [ ] Ship an agent with a real eval suite, not vibes → [[ai-ml/03-ai-engineer/19-practice-exercises|the exercises]]
@@ -235,7 +235,7 @@ The rank almost nobody plans for. It's not management — it's the point where *
 - [ ] Make a decision under genuine uncertainty, write down the reasoning, and **be publicly wrong about one** → `DECISIONS.md`
 - [ ] Mentor someone from Rank I to Rank II
 - [ ] Say no to a technically interesting project for a correct business reason
-- [ ] Teach the hard thing simply — if you can't do the "kid version first" of it, you don't understand it → the convention every [[foundations/networking/index|networking]] and [[architecture/04-distributed-systems/index|dist-sys]] note follows
+- [ ] Teach the hard thing simply — if you can't do the "kid version first" of it, you don't understand it → the convention every [[networking/index|networking]] and [[architecture/04-distributed-systems/index|dist-sys]] note follows
 - [ ] **Explain your discipline to someone in another one** — the software gate is explaining a race condition to a hardware engineer; the hardware gate is explaining why the board needs another revision to a product manager
 
 **You've arrived when:** your best week involved very little code and you're at peace with that.
@@ -283,9 +283,9 @@ Assessed against this vault as of **August 2026** — an honest read, not a flat
 | 🔌 **Hardware** | Real but thin — 15 notes + a 19k-word project | **Strongest reps-to-notes ratio in the vault** |
 | 🧠 **ML & Data** | Deep on paper — ml-engineer 42 notes, data-scientist 8 (thinnest track) | **Zero. No project has trained a model** |
 | 🤖 **Robotics** | [[robotics/index\|14 notes, `[reference]`]] | None. Written, not built — the notes say so |
-| 📐 **Engineering** | [[engineering/index\|26 notes, `[reference]`]] — continuum mechanics + control theory | None. Validates against an experiment there isn't one of |
-| 🧮 **CS theory** | [[foundations/mathematics/02-discrete-math/index\|discrete maths]] · [[foundations/theory-of-computation/index\|theory of computation]] · [[foundations/computer-architecture/index\|architecture]] · [[foundations/numerical-methods/index\|numerical methods]] · [[foundations/information-theory/index\|information theory]] · [[foundations/programming-language-theory/index\|PL theory]] — 68 notes | None — **and this is the column where reps are free.** `perf`, a compiler, an afternoon |
-| 🎮 **Graphics & GPU** | [[foundations/computer-graphics/index\|graphics]] · [[foundations/gpu-and-parallel-computing/index\|GPU & parallel]] — 16 notes | None. **Best reps-to-effort ratio in the vault** — a broken renderer *looks* broken |
+| 📐 **Engineering** | [[control-theory/index\|13 notes]] · [[continuum-mechanics/index\|13 notes]], `[reference]` — continuum mechanics + control theory | None. Validates against an experiment there isn't one of |
+| 🧮 **CS theory** | [[mathematics/02-discrete-math/index\|discrete maths]] · [[theory-of-computation/index\|theory of computation]] · [[computer-architecture/index\|architecture]] · [[mathematics/07-applied-and-computational/01-numerical-methods/index\|numerical methods]] · [[information-theory/index\|information theory]] · [[programming-language-theory/index\|PL theory]] — 68 notes | None — **and this is the column where reps are free.** `perf`, a compiler, an afternoon |
+| 🎮 **Graphics & GPU** | [[computer-graphics/index\|graphics]] · [[gpu-and-parallel-computing/index\|GPU & parallel]] — 16 notes | None. **Best reps-to-effort ratio in the vault** — a broken renderer *looks* broken |
 
 Two asymmetries worth naming:
 
@@ -296,13 +296,13 @@ Two asymmetries worth naming:
 ### The next three moves, in order
 
 1. **Finish one build-your-own project.** Your own Redis. It closes the Rank III software gate and is the prerequisite for everything above it. Highest-leverage single thing in this document.
-2. **Do the tcpdump exercise** in [[foundations/networking/index|the networking README]]. Thirty minutes, and it converts a course you read into a layer you've seen.
+2. **Do the tcpdump exercise** in [[networking/index|the networking README]]. Thirty minutes, and it converts a course you read into a layer you've seen.
 3. **Publish one blog draft.** `blog-drafts/four-bugs-that-shipped.md` is closest to ready. Rank VI compounds earlier than people expect.
 
 > Reading this document is Rank 0. Go build something.
 
 ## Related
 - [[project-ideas|Project Ideas]] — the reps behind every gate here
-- [[README|Vault README]] — the map
+- [[HOME|Vault README]] — the map
 - [[INTERVIEW|Interview Prep Index]] — the "could you teach it?" test, per domain
 - [[problem-solving/thinking-patterns|Thinking Patterns]] — the meta-skill under all of it

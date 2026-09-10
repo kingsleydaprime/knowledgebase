@@ -10,24 +10,24 @@ How source text becomes something that runs. Lexing, parsing, type checking, IRs
 
 **The front end**
 
-1. [[foundations/compilers/01-what-a-compiler-is|What a Compiler Is]] — **[Beginner → Intermediate]** — the phases, the front/back-end split, and the spectrum from interpreter to JIT that most real languages sit on
-2. [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — **[Beginner → Intermediate]** — characters to tokens, maximal munch, and why everyone hand-writes lexers now
-3. [[foundations/compilers/03-parsing|Parsing]] — **[Intermediate]** — recursive descent for statements, **Pratt parsing for expressions**, error recovery, and why parser generators lost
-4. [[foundations/compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — **[Intermediate]** — arena-allocated trees, scopes and symbol tables, resolving names to slots, and closures
-5. [[foundations/compilers/05-type-systems-and-checking|Type Systems and Checking]] — **[Intermediate → Advanced]** — the design axes, Hindley–Milner and unification, variance, and why full inference isn't universal
+1. [[compilers/01-what-a-compiler-is|What a Compiler Is]] — **[Beginner → Intermediate]** — the phases, the front/back-end split, and the spectrum from interpreter to JIT that most real languages sit on
+2. [[compilers/02-lexical-analysis|Lexical Analysis]] — **[Beginner → Intermediate]** — characters to tokens, maximal munch, and why everyone hand-writes lexers now
+3. [[compilers/03-parsing|Parsing]] — **[Intermediate]** — recursive descent for statements, **Pratt parsing for expressions**, error recovery, and why parser generators lost
+4. [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — **[Intermediate]** — arena-allocated trees, scopes and symbol tables, resolving names to slots, and closures
+5. [[compilers/05-type-systems-and-checking|Type Systems and Checking]] — **[Intermediate → Advanced]** — the design axes, Hindley–Milner and unification, variance, and why full inference isn't universal
 
 **The middle and back end**
 
-6. [[foundations/compilers/06-intermediate-representations|Intermediate Representations]] — **[Advanced]** — the CFG, **SSA and φ-functions**, LLVM IR, and whether to target it
-7. [[foundations/compilers/07-optimisation|Optimisation]] — **[Advanced]** — the passes, **why inlining is the one that matters**, and the honest limits
-8. [[foundations/compilers/08-code-generation|Code Generation]] — **[Advanced]** — instruction selection, register allocation, calling conventions, linking
+6. [[compilers/06-intermediate-representations|Intermediate Representations]] — **[Advanced]** — the CFG, **SSA and φ-functions**, LLVM IR, and whether to target it
+7. [[compilers/07-optimisation|Optimisation]] — **[Advanced]** — the passes, **why inlining is the one that matters**, and the honest limits
+8. [[compilers/08-code-generation|Code Generation]] — **[Advanced]** — instruction selection, register allocation, calling conventions, linking
 9. [[compilers/09-linking-and-loading|Linking and Loading]] — symbols, relocations, static vs dynamic linking, and the dynamic loader. **The step between machine code and a running program**
 
 **Runtimes**
 
-9. [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — **[Intermediate → Advanced]** — **the realistic target for a language you build.** Stack vs register, dispatch, NaN boxing, closures
-10. [[foundations/compilers/11-garbage-collection|Garbage Collection]] — **[Advanced]** — reachability, mark-sweep, generational collection, and the three-way tradeoff
-11. [[foundations/compilers/12-jit-compilation|JIT Compilation]] — **[Advanced]** — tiered execution, speculation and deoptimisation, inline caching, warm-up
+9. [[compilers/10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — **[Intermediate → Advanced]** — **the realistic target for a language you build.** Stack vs register, dispatch, NaN boxing, closures
+10. [[compilers/11-garbage-collection|Garbage Collection]] — **[Advanced]** — reachability, mark-sweep, generational collection, and the three-way tradeoff
+11. [[compilers/12-jit-compilation|JIT Compilation]] — **[Advanced]** — tiered execution, speculation and deoptimisation, inline caching, warm-up
 
 ## If you're building a language
 
@@ -69,10 +69,10 @@ The realistic path, and the milestone that matters:
 - **Language design itself** — this is about implementation, not about what makes a good language
 
 ## Related
-- [[foundations/theory-of-computation/index|Theory of Computation]] — **why this course is shaped the way it is**: lexers are DFAs, parsers are PDAs, and the syntax/semantics split is forced by the hierarchy
+- [[theory-of-computation/index|Theory of Computation]] — **why this course is shaped the way it is**: lexers are DFAs, parsers are PDAs, and the syntax/semantics split is forced by the hierarchy
 - [[languages/04-c/01-why-c-and-the-compilation-model|C: The Compilation Model]] — the four stages, concretely
-- [[foundations/os/index|Operating Systems]] — what the output runs on
-- [[foundations/computer-architecture/index|Computer Architecture]] — the machine codegen targets, and why its scheduling and register allocation matter
-- [[foundations/dsa/index|DSA]] — trees, graphs, and union-find, all used here
+- [[os/index|Operating Systems]] — what the output runs on
+- [[computer-architecture/index|Computer Architecture]] — the machine codegen targets, and why its scheduling and register allocation matter
+- [[dsa/index|DSA]] — trees, graphs, and union-find, all used here
 - [[languages/03-rust/17-macros|Rust: Macros]] — compile-time code generation from the user's side
 - [[BUILD-PLAN|Build Plan]] — `build-your-own-shit/` is next

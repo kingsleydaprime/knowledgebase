@@ -18,7 +18,7 @@ An 8-character password from 62 alphanumerics: $62^8 \approx 2.2 \times 10^{14}$
 
 **Sum rule** — mutually exclusive alternatives add.
 
-**Getting these two straight is most of elementary counting.** "And" multiplies, "or" (disjoint) adds — the same structure as [[foundations/mathematics/02-discrete-math/02-logic|logic]] and [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]], which is not a coincidence.
+**Getting these two straight is most of elementary counting.** "And" multiplies, "or" (disjoint) adds — the same structure as [[mathematics/02-discrete-math/02-logic|logic]] and [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]], which is not a coincidence.
 
 ## Permutations and combinations
 
@@ -50,7 +50,7 @@ Can items repeat?
 
 $$\binom{n}{k} = \binom{n}{n-k} \qquad \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k} \qquad \sum_{k=0}^{n}\binom{n}{k} = 2^n$$
 
-**The middle one is Pascal's rule** — and it's a recurrence, so it's the DP formulation of binomial coefficients. **The last one says the subsets of an $n$-set number $2^n$**, counted by size, which connects straight back to [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|power sets]].
+**The middle one is Pascal's rule** — and it's a recurrence, so it's the DP formulation of binomial coefficients. **The last one says the subsets of an $n$-set number $2^n$**, counted by size, which connects straight back to [[mathematics/02-discrete-math/04-sets-relations-and-functions|power sets]].
 
 ## The pigeonhole principle
 
@@ -68,7 +68,7 @@ $$\binom{n}{k} = \binom{n}{n-k} \qquad \binom{n}{k} = \binom{n-1}{k-1} + \binom{
 
 **In any set of $n+1$ integers from $1..2n$, two are coprime** — a genuinely non-obvious result from a very obvious principle.
 
-**Two people in London have the same number of head hairs.** Non-constructive: certainly true, and you'll never know who. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
+**Two people in London have the same number of head hairs.** Non-constructive: certainly true, and you'll never know who. → [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 ## Inclusion–exclusion
 
@@ -80,7 +80,7 @@ $$|A\cup B\cup C| = |A|+|B|+|C| - |A\cap B| - |A\cap C| - |B\cap C| + |A\cap B\c
 
 **Alternating signs, and in general $2^n - 1$ terms** — which is why it's elegant and often impractical for large $n$.
 
-**Where it shows up:** counting query results across overlapping conditions, derangements (permutations with no fixed point), and Euler's totient function in [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|number theory]].
+**Where it shows up:** counting query results across overlapping conditions, derangements (permutations with no fixed point), and Euler's totient function in [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|number theory]].
 
 ## The birthday problem
 
@@ -126,9 +126,9 @@ Which is why combinatorics comes first. Full treatment: [[ai-ml/00-foundations/0
 
 **Security and passwords.** Entropy is $\log_2(\text{number of possibilities})$. **A 12-character random password from 94 printable ASCII characters has $\log_2(94^{12}) \approx 79$ bits.** A memorable passphrase of 5 words from a 7,776-word list has $\log_2(7776^5) \approx 65$ bits — and is far easier to remember. **Counting is how you compare them honestly.** → [[cybersecurity/06-attacks-and-threats/index|Attacks and Threats]]
 
-**Complexity analysis.** "How many subsets?" ($2^n$) "How many permutations?" ($n!$) tells you immediately whether exhaustive search is possible. $n!$ at $n=20$ is $2.4\times10^{18}$. → [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]]
+**Complexity analysis.** "How many subsets?" ($2^n$) "How many permutations?" ($n!$) tells you immediately whether exhaustive search is possible. $n!$ at $n=20$ is $2.4\times10^{18}$. → [[theory-of-computation/07-complexity-classes|Complexity Classes]]
 
-**Hash table sizing.** Expected collisions, load factor, and why you resize. → [[foundations/dsa/04-data-structures/03-hash-maps|Hash Maps]]
+**Hash table sizing.** Expected collisions, load factor, and why you resize. → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
 
 **Test coverage.** Combinatorial explosion is why exhaustive testing is impossible and why pairwise testing exists — covering all *pairs* of parameter values is polynomial where all combinations is exponential.
 
@@ -157,7 +157,7 @@ Multiply then divide, in that order — the intermediate is always an integer.
 ---
 
 ## Related
-- [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — power sets and cardinality
+- [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — power sets and cardinality
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — where counting becomes probability
 - [[cybersecurity/05-cryptography/03-hashing-and-integrity|Hashing and Integrity]] — the birthday bound applied
-- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]
+- [[mathematics/02-discrete-math/index|Discrete maths map]]

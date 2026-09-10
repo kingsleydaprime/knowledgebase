@@ -29,7 +29,7 @@ let count = 3;        // JavaScript: declare it's a variable, type inferred
 
 **Identical meaning. Three sets of rules.** What varies is which decisions the language makes you state explicitly:
 
-- Must you declare the **type**? Java yes, the others no → [[foundations/programming-fundamentals/02-languages-and-the-translation-problem|note 02]]
+- Must you declare the **type**? Java yes, the others no → [[programming-fundamentals/02-languages-and-the-translation-problem|note 02]]
 - Must you mark that it's a **new** variable? JavaScript yes (`let`), Python no
 - How does a statement **end**? Semicolon, or newline
 
@@ -66,7 +66,7 @@ Once you've seen these, an unfamiliar language stops looking foreign.
 ```
 name = "Kingsley"
 ```
-Note `=` means *assign*, not *equals*. Comparison is `==`, and confusing them is one of the two most common beginner errors → [[foundations/programming-fundamentals/06-control-flow|note 06]].
+Note `=` means *assign*, not *equals*. Comparison is `==`, and confusing them is one of the two most common beginner errors → [[programming-fundamentals/06-control-flow|note 06]].
 
 **Function call** — a name, then parentheses containing arguments.
 ```
@@ -103,7 +103,7 @@ scores["maths"]
 - `==` equal, `!=` not equal, `<` `>` `<=` `>=`
 - `&&`/`and`, `||`/`or`, `!`/`not`
 
-**One trap worth naming now:** `+` means addition for numbers and *joining* for text (**concatenation**). So `"3" + "4"` is `"34"`, not `7`. In some languages `3 + "4"` is an error; in others it quietly produces `"34"`. Neither is what you meant. → [[foundations/programming-fundamentals/05-variables-and-types|note 05]].
+**One trap worth naming now:** `+` means addition for numbers and *joining* for text (**concatenation**). So `"3" + "4"` is `"34"`, not `7`. In some languages `3 + "4"` is an error; in others it quietly produces `"34"`. Neither is what you meant. → [[programming-fundamentals/05-variables-and-types|note 05]].
 
 ## Reading an error message
 
@@ -128,16 +128,16 @@ Four pieces of information: the **file**, the **line**, a **caret at the positio
 
 Syntax is what the machine requires. **Style is what the next reader requires**, and the next reader is usually you in three months.
 
-- **Naming** — `camelCase` (Java, JS), `snake_case` (Python, Rust), `PascalCase` for types nearly everywhere. Follow the language's convention rather than your preference; consistency is the entire point → [[foundations/programming-fundamentals/05-variables-and-types|note 05]]
+- **Naming** — `camelCase` (Java, JS), `snake_case` (Python, Rust), `PascalCase` for types nearly everywhere. Follow the language's convention rather than your preference; consistency is the entire point → [[programming-fundamentals/05-variables-and-types|note 05]]
 - **Consistent indentation** — via a formatter
 - **Comments explaining *why*, not *what*.** `# add 1 to i` is noise. `# skip the header row` is information. If a comment is needed to explain *what*, the code usually wants renaming instead
 
 **Code is read many more times than it is written.** That single economic fact is the root of nearly everything in [[concepts/04-best-practices/01-clean-code|clean code]].
 
 ## Related
-- [[foundations/programming-fundamentals/05-variables-and-types|variables and types]] — the first real building block
-- [[foundations/programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the other two kinds of error
-- [[foundations/compilers/02-lexical-analysis|lexing and parsing]] — what's actually reading your syntax
+- [[programming-fundamentals/05-variables-and-types|variables and types]] — the first real building block
+- [[programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the other two kinds of error
+- [[compilers/02-lexical-analysis|lexing and parsing]] — what's actually reading your syntax
 - [[concepts/04-best-practices/01-clean-code|clean code]] — style, taken seriously
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course.*

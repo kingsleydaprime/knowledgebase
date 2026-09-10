@@ -62,7 +62,7 @@ Assume $P(j)$ for **all** $j \leq k$, not just $P(k)$.
 >
 > **Step:** a node with subtrees of $n_L$ and $n_R$ nodes has $n_L + n_R + 1$ nodes, and by hypothesis $(n_L+1) + (n_R+1) = n_L+n_R+2$ null links, which is (nodes) + 1. ✓ $\blacksquare$
 
-**This is the workhorse for anything tree-shaped**, which is most of computing: ASTs, JSON, file systems, expression evaluation, [[foundations/compilers/04-asts-and-semantic-analysis|semantic analysis]], and type-soundness proofs.
+**This is the workhorse for anything tree-shaped**, which is most of computing: ASTs, JSON, file systems, expression evaluation, [[compilers/04-asts-and-semantic-analysis|semantic analysis]], and type-soundness proofs.
 
 **It works because algebraic data types are recursively defined**, and it's why [[languages/03-rust/06-structs-enums-and-pattern-matching|pattern matching]] on an enum feels like doing a proof: each arm is a case, and exhaustiveness checking is the compiler verifying you covered every constructor.
 
@@ -96,7 +96,7 @@ For $T(n) = a\,T(n/b) + f(n)$ — the shape of every divide-and-conquer algorith
 | $T(n)=T(n-1)+n$ | $\Theta(n^2)$ | worst-case quicksort |
 | $T(n)=2T(n-1)+1$ | $\Theta(2^n)$ | towers of Hanoi |
 
-> **The two rows to compare are rows 1 and 2.** Same recursion, different combine cost, and the whole difference between $\Theta(n)$ and $\Theta(n\log n)$ comes from whether merging costs linear time. **That's the kind of thing you can't see by staring at code and can see immediately from the recurrence.** → [[foundations/dsa/05-algorithms/04-sorting|Sorting]]
+> **The two rows to compare are rows 1 and 2.** Same recursion, different combine cost, and the whole difference between $\Theta(n)$ and $\Theta(n\log n)$ comes from whether merging costs linear time. **That's the kind of thing you can't see by staring at code and can see immediately from the recurrence.** → [[dsa/05-algorithms/04-sorting|Sorting]]
 
 **The Master Theorem doesn't cover everything** — unequal splits, non-polynomial $f$. Then use the **recursion tree method** (draw the levels, sum the work per level) or **substitution** (guess, verify by induction). The recursion tree is the most intuitive and is usually enough.
 
@@ -104,15 +104,15 @@ For $T(n) = a\,T(n/b) + f(n)$ — the shape of every divide-and-conquer algorith
 
 **Where the maths meets the machine.**
 
-**Every recursive call costs a stack frame.** Deep recursion overflows the stack — a hard limit around a few thousand frames in Python, more in C but still finite. → [[foundations/os/02-processes-and-threads|Processes and Threads]]
+**Every recursive call costs a stack frame.** Deep recursion overflows the stack — a hard limit around a few thousand frames in Python, more in C but still finite. → [[os/02-processes-and-threads|Processes and Threads]]
 
-**Tail calls can be optimised away.** If the recursive call is the *last* operation, the frame can be reused, turning recursion into iteration. **Guaranteed in Scheme and functional languages, not guaranteed in C/C++, and absent in Python and the JVM by design.** Don't rely on it unless your language promises it. → [[foundations/compilers/07-optimisation|Optimisation]]
+**Tail calls can be optimised away.** If the recursive call is the *last* operation, the frame can be reused, turning recursion into iteration. **Guaranteed in Scheme and functional languages, not guaranteed in C/C++, and absent in Python and the JVM by design.** Don't rely on it unless your language promises it. → [[compilers/07-optimisation|Optimisation]]
 
 **Naive recursion can be exponentially wasteful.** Fibonacci recomputes the same subproblems:
 
 $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 
-**Memoisation collapses it to $\Theta(n)$** by ensuring each subproblem is solved once. **That observation is the whole of dynamic programming** — overlapping subproblems plus optimal substructure. → [[foundations/dsa/06-patterns/15-dynamic-programming|Dynamic Programming]]
+**Memoisation collapses it to $\Theta(n)$** by ensuring each subproblem is solved once. **That observation is the whole of dynamic programming** — overlapping subproblems plus optimal substructure. → [[dsa/06-patterns/15-dynamic-programming|Dynamic Programming]]
 
 **Any recursion can be made iterative** with an explicit stack. Sometimes clearer, sometimes much worse. Use recursion when the *data* is recursive.
 
@@ -122,17 +122,17 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 
 **Formally:** the recursion must be on a **well-founded** partial order — one with no infinite descending chains. $\mathbb{N}$ under $<$ is well-founded; $\mathbb{Z}$ is not, and $\mathbb{R}$ under $<$ on $[0,1]$ is not (you can always halve).
 
-**The practical rule:** identify what decreases and what its floor is. If you can't name it, you may not have termination — **the same variant argument as a loop**, because it's the same argument. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
+**The practical rule:** identify what decreases and what its floor is. If you can't name it, you may not have termination — **the same variant argument as a loop**, because it's the same argument. → [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 **And this is why total-functional languages (Coq, Agda, Lean) reject recursion they can't prove terminating.** They must — a non-terminating function would let you "prove" anything, since an infinite loop inhabits every type. It's the Curry–Howard correspondence enforcing itself.
 
 ## Where induction shows up
 
-**Loop invariants** — induction on iterations. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
+**Loop invariants** — induction on iterations. → [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 **Algorithm correctness** — every divide-and-conquer proof is strong induction.
 
-**Type soundness** — "well-typed programs don't go wrong" is proved by structural induction on typing derivations. → [[foundations/compilers/05-type-systems-and-checking|Type Systems]]
+**Type soundness** — "well-typed programs don't go wrong" is proved by structural induction on typing derivations. → [[compilers/05-type-systems-and-checking|Type Systems]]
 
 **Compiler correctness** — induction over the AST.
 
@@ -143,7 +143,7 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 ---
 
 ## Related
-- [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — the other methods
-- [[foundations/dsa/06-patterns/15-dynamic-programming|Dynamic Programming]] — recursion plus memoisation
-- [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — where these complexities land
-- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]
+- [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — the other methods
+- [[dsa/06-patterns/15-dynamic-programming|Dynamic Programming]] — recursion plus memoisation
+- [[dsa/05-algorithms/01-algorithms|Algorithms]] — where these complexities land
+- [[mathematics/02-discrete-math/index|Discrete maths map]]

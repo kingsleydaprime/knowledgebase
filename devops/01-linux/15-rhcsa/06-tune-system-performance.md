@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. Builds on [[devops/01-linux/06-process-management|Process Management]], which already covers `top` and the `NI` (nice) column shown there.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Builds on [[devops/01-linux/06-process-management|Process Management]], which already covers `top` and the `NI` (nice) column shown there.
 
 ---
 

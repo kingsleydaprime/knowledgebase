@@ -10,7 +10,7 @@ $$y_i = f(x_i)$$
 
 **Perfectly parallel, no communication, linear speedup.** The easy case, and it's what element-wise operations in NumPy or PyTorch are.
 
-**The only real concern is memory access order** — read and write contiguously so accesses coalesce. → [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Coalescing]]
+**The only real concern is memory access order** — read and write contiguously so accesses coalesce. → [[gpu-and-parallel-computing/05-memory-and-data-movement|Coalescing]]
 
 ## Reduce
 
@@ -32,7 +32,7 @@ $$y_i = f(x_i)$$
 
 > **Associativity is what makes this legal.** $(a+b)+c = a+(b+c)$, so the tree can regroup freely.
 >
-> **Floating-point addition is not associative**, so **a parallel reduction gives a different answer than a serial one** — and a different answer depending on how many threads you use. **This is why ML training isn't bit-reproducible across GPU counts**, and it isn't a bug. → [[foundations/numerical-methods/02-floating-point-and-error|Summation]]
+> **Floating-point addition is not associative**, so **a parallel reduction gives a different answer than a serial one** — and a different answer depending on how many threads you use. **This is why ML training isn't bit-reproducible across GPU counts**, and it isn't a bug. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Summation]]
 
 **The GPU implementation, and the standard escalation:**
 
@@ -90,7 +90,7 @@ $$y_i = x_0 \oplus x_1 \oplus \cdots \oplus x_i$$
 
 $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 
-**Convolutions, image filters, finite-difference PDE solvers, cellular automata, blur kernels.** → [[foundations/numerical-methods/09-partial-differential-equations|Finite Differences]]
+**Convolutions, image filters, finite-difference PDE solvers, cellular automata, blur kernels.** → [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations|Finite Differences]]
 
 **The optimisation that matters: shared memory tiling.**
 
@@ -135,7 +135,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 1. **Each block builds a private histogram in shared memory** (atomics there are much cheaper)
 2. **One atomic per bin per block** to merge into the global histogram
 
-**Often 10× faster**, and it generalises: **privatise the contended resource, then combine.** That's the same principle as per-thread accumulators on a CPU. → [[foundations/computer-architecture/11-multicore-and-memory-models|Sharding]]
+**Often 10× faster**, and it generalises: **privatise the contended resource, then combine.** That's the same principle as per-thread accumulators on a CPU. → [[computer-architecture/11-multicore-and-memory-models|Sharding]]
 
 **Sub-histograms per warp** help further when bin counts are small enough to fit.
 
@@ -155,7 +155,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
      __syncthreads()
 ```
 
-**Each element is loaded $n/T$ times instead of $n$** — arithmetic intensity rises by the tile size $T$, and that's what moves the kernel from bandwidth-bound to compute-bound. → [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|The Roofline Model]]
+**Each element is loaded $n/T$ times instead of $n$** — arithmetic intensity rises by the tile size $T$, and that's what moves the kernel from bandwidth-bound to compute-bound. → [[gpu-and-parallel-computing/06-performance-and-the-roofline|The Roofline Model]]
 
 **Production implementations add:** register-level tiling (each thread computes a small tile, not one element), double buffering to overlap loads with compute, tensor core intrinsics, and per-architecture tuning.
 
@@ -193,12 +193,12 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 
 **Fuse aggressively**, or use a compiler that does.
 
-**Measure arithmetic intensity.** It tells you whether tiling will help or whether you're already compute-bound. → [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|Roofline]]
+**Measure arithmetic intensity.** It tells you whether tiling will help or whether you're already compute-bound. → [[gpu-and-parallel-computing/06-performance-and-the-roofline|Roofline]]
 
 ---
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — why tiling works
-- [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — knowing which bound you're against
-- [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — the sequential versions
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]
+- [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — why tiling works
+- [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — knowing which bound you're against
+- [[dsa/05-algorithms/01-algorithms|Algorithms]] — the sequential versions
+- [[gpu-and-parallel-computing/index|GPU and parallel map]]

@@ -46,7 +46,7 @@ A typical PostgreSQL build uses 8 KiB pages, InnoDB defaults to 16 KiB, and SQLi
 - A cache can reserve equal-sized frames for pages rather than allocate differently sized space for every row.
 - A page number identifies a location in a file; a slot identifies a record within that page.
 
-An SQL query asks for rows, but the storage machinery commonly fetches and caches the pages containing those rows. See [[foundations/computer-architecture/08-the-memory-hierarchy|the memory hierarchy]] for the same reasoning at the CPU-cache level.
+An SQL query asks for rows, but the storage machinery commonly fetches and caches the pages containing those rows. See [[computer-architecture/08-the-memory-hierarchy|the memory hierarchy]] for the same reasoning at the CPU-cache level.
 
 ## Inside a page
 
@@ -102,7 +102,7 @@ This is why slots are useful: references to a surviving slot need not change jus
 
 Real rows also need information such as null markers, field lengths, and transaction visibility. A page header may carry a checksum and an **LSN** (log sequence number: a position in the recovery log). You do not need those to understand slot indirection; [[databases/09-mvcc-and-concurrency-control|MVCC]] and [[databases/10-durability-and-recovery|recovery]] explain why they are needed.
 
-PostgreSQL does **not** automatically reorder your columns to minimise padding. Field alignment and declared column order can affect row size; the exact layout also depends on nulls and variable-width values. See [[foundations/computer-architecture/02-data-representation|data representation]] for alignment. Measure before redesigning a schema for a possible space saving.
+PostgreSQL does **not** automatically reorder your columns to minimise padding. Field alignment and declared column order can affect row size; the exact layout also depends on nulls and variable-width values. See [[computer-architecture/02-data-representation|data representation]] for alignment. Measure before redesigning a schema for a possible space saving.
 
 Oversized values need another strategy. PostgreSQL's **TOAST** mechanism can compress eligible values and/or store them out of line in chunks. Retrieving large values may require extra reads and decompression, so select the columns you need rather than routinely returning every large field.
 
@@ -372,7 +372,7 @@ Columns often compress well because adjacent values share a type and may repeat:
 | Delta       | `1000, 1002, 1003` → base `1000`, differences `2, 1`        | Small changes between neighbours |
 | Bit-packing | Integers from 0 to 1000 fit in 10 bits                      | Unused high-order bits           |
 
-Columnar engines can also process batches rather than one row at a time. This **vectorised execution** can reduce per-row overhead and sometimes use [[foundations/computer-architecture/03-instruction-sets|SIMD instructions]]. Systems such as DuckDB and ClickHouse combine these techniques; do not assume a fixed speedup without measuring your query.
+Columnar engines can also process batches rather than one row at a time. This **vectorised execution** can reduce per-row overhead and sometimes use [[computer-architecture/03-instruction-sets|SIMD instructions]]. Systems such as DuckDB and ClickHouse combine these techniques; do not assume a fixed speedup without measuring your query.
 
 Hybrid analytical formats such as Parquet and ORC partition data into row groups or stripes and then store columns within those groups. This balances column-wise access with manageable chunks. It is related to the partition-attributes-across layout idea, rather than literally the small slotted page from our lab.
 
@@ -435,7 +435,7 @@ For a larger implementation, [[build-your-own-shit/06-your-own-database|build yo
 
 - [[databases/04-b-trees-and-indexes|B-Trees and Indexes]] — the structure built on these pages
 - [[databases/05-lsm-trees|LSM Trees]] — the write-optimised alternative
-- [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the same argument, one level down
+- [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the same argument, one level down
 - [[databases/index|Databases map]]
 
 ## Further reading

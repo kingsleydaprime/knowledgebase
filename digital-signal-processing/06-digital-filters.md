@@ -19,7 +19,7 @@ By type of what it passes:
    band-stop   ▔▔╲_╱▔▔     cut a band (notch)               (kill 50/60Hz hum)
 ```
 
-The **cutoff frequency** is where it transitions; the **transition band** is how sharply (a real filter can't cut instantly); the **passband** and **stopband** are what it keeps and rejects. A filter is fundamentally a [[foundations/digital-signal-processing/05-convolution-and-lti-systems|frequency response `H(f)`]] — a gain to apply at each frequency — and applying it is [[foundations/digital-signal-processing/05-convolution-and-lti-systems|convolution]] with its impulse response.
+The **cutoff frequency** is where it transitions; the **transition band** is how sharply (a real filter can't cut instantly); the **passband** and **stopband** are what it keeps and rejects. A filter is fundamentally a [[digital-signal-processing/05-convolution-and-lti-systems|frequency response `H(f)`]] — a gain to apply at each frequency — and applying it is [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] with its impulse response.
 
 ## FIR — Finite Impulse Response
 
@@ -36,7 +36,7 @@ The impulse response is finite (`M+1` taps, then it stops) — it's literally th
 - **Linear phase achievable** — with symmetric coefficients, every frequency is delayed by the *same* amount, so the waveform shape is preserved (no phase distortion). **Essential for audio and for anything where the shape matters** (ECG, data)
 - **The cost:** to cut sharply you need many taps (long kernel = more computation and more latency)
 
-**Design methods:** the window method (take the ideal response, truncate it with a [[foundations/digital-signal-processing/07-spectral-analysis|window]]), or Parks–McClellan for optimal equiripple designs. In practice, `scipy.signal.firwin`.
+**Design methods:** the window method (take the ideal response, truncate it with a [[digital-signal-processing/07-spectral-analysis|window]]), or Parks–McClellan for optimal equiripple designs. In practice, `scipy.signal.firwin`.
 
 ## IIR — Infinite Impulse Response
 
@@ -71,18 +71,18 @@ The feedback means the impulse response rings on forever (infinite), and it's th
 
 ## Poles, zeros and the z-transform
 
-To reason about IIR stability, DSP uses the **z-transform** — the discrete-time analogue of the Laplace transform → [[engineering/02-control-theory/index|control theory]]. It turns the filter's difference equation into a ratio of polynomials, the **transfer function `H(z)`**:
+To reason about IIR stability, DSP uses the **z-transform** — the discrete-time analogue of the Laplace transform → [[control-theory/index|control theory]]. It turns the filter's difference equation into a ratio of polynomials, the **transfer function `H(z)`**:
 
 - **Zeros** (roots of the numerator) — frequencies the filter *nulls*
 - **Poles** (roots of the denominator) — frequencies the filter *boosts*, and the source of feedback/resonance
 
 **The stability rule is exact and simple:** plot the poles on the complex plane. **A digital filter is stable if and only if all its poles lie inside the unit circle** (`|z| < 1`). A pole on or outside the circle means the feedback grows without bound — the filter rings forever or explodes.
 
-**This is the same pole/stability analysis as [[engineering/02-control-theory/05-stability-and-root-locus|control theory]]**, with the unit circle playing the role that the left-half-plane plays for continuous systems. If you know control theory, IIR filter stability is the same idea in `z` instead of `s`.
+**This is the same pole/stability analysis as [[control-theory/05-stability-and-root-locus|control theory]]**, with the unit circle playing the role that the left-half-plane plays for continuous systems. If you know control theory, IIR filter stability is the same idea in `z` instead of `s`.
 
 ## Practical warnings
 
-- **Fixed-point arithmetic** on cheap hardware causes coefficient rounding that can move a pole *outside* the unit circle — a filter that's stable in floating-point maths becomes unstable when quantised. Real embedded concern → [[foundations/digital-signal-processing/09-dsp-in-practice|fixed-point]]
+- **Fixed-point arithmetic** on cheap hardware causes coefficient rounding that can move a pole *outside* the unit circle — a filter that's stable in floating-point maths becomes unstable when quantised. Real embedded concern → [[digital-signal-processing/09-dsp-in-practice|fixed-point]]
 - **Cascade IIR filters as second-order sections (biquads)** rather than one high-order filter — high-order direct forms are numerically fragile, and biquads are the standard robust building block
 - **Don't hand-roll the coefficients** — use `scipy.signal`. Getting them right by hand is error-prone, and the design functions encode decades of care
 
@@ -91,9 +91,9 @@ To reason about IIR stability, DSP uses the **z-transform** — the discrete-tim
 **A filter is a frequency response you apply by convolution, and the FIR-vs-IIR choice is the trade between guaranteed stability with linear phase (FIR, but many taps) and high efficiency with low latency (IIR, but it can go unstable).** IIR stability reduces to one geometric rule — all poles inside the unit circle — which is the same pole analysis as control theory, and the practical craft is choosing the family for your constraints and letting a library compute the coefficients rather than hand-deriving them.
 
 ## Related
-- [[foundations/digital-signal-processing/05-convolution-and-lti-systems|convolution]] — applying a filter *is* convolution
-- [[foundations/digital-signal-processing/07-spectral-analysis|spectral analysis]] — windows, used in FIR design
-- [[engineering/02-control-theory/05-stability-and-root-locus|control theory: stability]] — the same pole analysis in `s`
-- [[foundations/digital-signal-processing/09-dsp-in-practice|DSP in practice]] — fixed-point pitfalls
+- [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] — applying a filter *is* convolution
+- [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — windows, used in FIR design
+- [[control-theory/05-stability-and-root-locus|control theory: stability]] — the same pole analysis in `s`
+- [[digital-signal-processing/09-dsp-in-practice|DSP in practice]] — fixed-point pitfalls
 
 *Source: [reference] — Aug 2026.*

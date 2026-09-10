@@ -14,10 +14,10 @@ An interactive shell: read a line, parse it, run the command, repeat. By the end
 
 | You should know | Where |
 |---|---|
-| **Processes** — `fork`, `exec`, `wait`, and zombies | [[foundations/os/02-processes-and-threads\|os/02]] — **the core prerequisite** |
-| **File descriptors** — what 0, 1, 2 are, and `dup2` | [[foundations/os/01-what-an-os-is\|os/01]] |
-| **Pipes and signals** | [[foundations/os/10-signals-and-ipc\|os/10]] |
-| **Basic tokenising** | [[foundations/compilers/02-lexical-analysis\|compilers/02]] — light touch; the grammar is tiny |
+| **Processes** — `fork`, `exec`, `wait`, and zombies | [[os/02-processes-and-threads\|os/02]] — **the core prerequisite** |
+| **File descriptors** — what 0, 1, 2 are, and `dup2` | [[os/01-what-an-os-is\|os/01]] |
+| **Pipes and signals** | [[os/10-signals-and-ipc\|os/10]] |
+| **Basic tokenising** | [[compilers/02-lexical-analysis\|compilers/02]] — light touch; the grammar is tiny |
 
 You **don't** need: parsing theory beyond splitting on whitespace, networking, or threads.
 
@@ -70,7 +70,7 @@ if (pid == 0) {
 - **After a successful `exec`, nothing below it runs** — the process image is replaced. Code after `execvp` is the failure path only
 - **`_exit`, not `exit`, in the child** after a failed exec — `exit` flushes stdio buffers the child inherited, which duplicates output
 - **`execvp` searches `$PATH`; `execv` doesn't.** Use `execvp` unless you're implementing PATH lookup yourself (which is a worthwhile exercise)
-- **Reap your children**, or you accumulate zombies → [[foundations/os/02-processes-and-threads|Processes and Threads]]
+- **Reap your children**, or you accumulate zombies → [[os/02-processes-and-threads|Processes and Threads]]
 
 ### 4. Exit status
 
@@ -174,7 +174,7 @@ Background: don't `waitpid` immediately. Track the PID in a job table, and reap 
 
 - **Ctrl-C must kill the foreground job, not your shell.** The shell ignores `SIGINT`; the child gets the default handler restored after `fork`
 - **Process groups.** Each job gets its own group (`setpgid`), and the terminal's foreground group is set with `tcsetpgrp` — that's what makes Ctrl-C reach the right processes
-- **Reap in the handler carefully** — only async-signal-safe functions → [[foundations/os/10-signals-and-ipc|Signals]]
+- **Reap in the handler carefully** — only async-signal-safe functions → [[os/10-signals-and-ipc|Signals]]
 
 Job control is genuinely the hardest part of a shell and the least essential. **Background jobs are worth doing; full `fg`/`bg`/Ctrl-Z is optional.**
 
@@ -280,8 +280,8 @@ This pairs naturally with [[build-your-own-shit/01-http-server|the HTTP server]]
 ---
 
 ## Related
-- [[foundations/os/02-processes-and-threads|Processes and Threads]] — `fork`/`exec`, the core prerequisite
-- [[foundations/os/10-signals-and-ipc|Signals and IPC]] — pipes, `dup2`, signal handling
+- [[os/02-processes-and-threads|Processes and Threads]] — `fork`/`exec`, the core prerequisite
+- [[os/10-signals-and-ipc|Signals and IPC]] — pipes, `dup2`, signal handling
 - [[devops/01-linux/12-bash-scripting|Bash Scripting]] — the thing you're reimplementing
 - [[devops/01-linux/06-process-management|Linux: Process Management]] — jobs and signals from the user side
 - [[build-your-own-shit/index|build-your-own-shit]]

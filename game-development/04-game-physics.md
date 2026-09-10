@@ -21,7 +21,7 @@ Testing every pair of *n* objects is **O(n²)** — 1,000 objects is half a mill
 
 ## Integration
 
-Given force, find motion — numerically, at discrete steps → [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]].
+Given force, find motion — numerically, at discrete steps → [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]].
 
 **Explicit Euler** — the obvious one, and wrong:
 ```
@@ -85,9 +85,9 @@ Euler angles suffer **gimbal lock** — at certain orientations two axes align a
 **Author by hand:** the player character's movement, almost always.
 
 ## Related
-- [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators, properly
+- [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators, properly
 - [[robotics/04-rigid-body-transforms|rigid body transforms]] — quaternions, already written
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — the fixed timestep
-- [[engineering/01-continuum-mechanics/index|continuum mechanics]] — what real simulation looks like
+- [[continuum-mechanics/index|continuum mechanics]] — what real simulation looks like
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

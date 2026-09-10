@@ -456,4 +456,4 @@ Pass <code>band_gap_ev</code> through to <code>intrinsic_carriers()</code> — i
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/02-mosfet-physics|Module 12 — MOSFET Physics]] — where SiO₂'s 9 eV gap becomes the gate insulator
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — where the mobility asymmetry sets transistor sizing
-- [[foundations/information-theory/index|information-theory/]] — $kT$ reappears there as the thermodynamic cost of erasing a bit
+- [[information-theory/index|information-theory/]] — $kT$ reappears there as the thermodynamic cost of erasing a bit

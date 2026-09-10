@@ -21,7 +21,7 @@
 
 **Three traps worth naming, because each has caused real production incidents:**
 
-**`HttpClient` must be reused, not created per request.** A `using var client = new HttpClient()` in a loop exhausts sockets — disposed clients leave connections in `TIME_WAIT` → [[foundations/networking/06-tcp-connection-lifecycle|TCP]]. **Use `IHttpClientFactory`**, which also handles DNS rotation, which a long-lived static `HttpClient` does not.
+**`HttpClient` must be reused, not created per request.** A `using var client = new HttpClient()` in a loop exhausts sockets — disposed clients leave connections in `TIME_WAIT` → [[networking/06-tcp-connection-lifecycle|TCP]]. **Use `IHttpClientFactory`**, which also handles DNS rotation, which a long-lived static `HttpClient` does not.
 
 **`DateTime` is ambiguous; `DateTimeOffset` isn't.** `DateTime` carries a `Kind` (Utc/Local/Unspecified) that is easy to lose across serialisation. **Store UTC, use `DateTimeOffset` for anything with a real instant**, and `DateOnly` for birthdays and calendar dates → [[languages/06-python/11-the-standard-library|the same rule in Python]].
 
@@ -98,7 +98,7 @@ foreach (var o in db.Orders.ToList())     // 1 query
 
 **The ecosystem is narrower than the JVM's or Python's** for data science, ML and scientific computing — ML.NET exists and is not where the field is.
 
-**Microsoft dependency.** Open source, .NET Foundation governed, and still overwhelmingly one company's roadmap. **Some people consider that a risk; it's a legitimate input to a trade study** → [[foundations/systems-engineering/05-trade-studies|trade studies]].
+**Microsoft dependency.** Open source, .NET Foundation governed, and still overwhelmingly one company's roadmap. **Some people consider that a risk; it's a legitimate input to a trade study** → [[systems-engineering/05-trade-studies|trade studies]].
 
 ## Related
 - [[languages/07-csharp/12-testing-and-tooling|testing and tooling]]

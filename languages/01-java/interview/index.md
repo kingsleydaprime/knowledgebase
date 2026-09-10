@@ -27,6 +27,6 @@ The strongest material you have is your own code. Have a crisp story ready for e
 
 ## Related
 - [[languages/01-java/index|Java course]]
-- [[foundations/networking/interview/index|Networking interview prep]] — 02 Q11 needs it
+- [[networking/interview/index|Networking interview prep]] — 02 Q11 needs it
 - [[architecture/interview/index|Architecture interview prep]] — the system design round
-- [[foundations/dsa/interview/index|DSA interview prep]] — the coding round
+- [[dsa/interview/index|DSA interview prep]] — the coding round

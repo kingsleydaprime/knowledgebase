@@ -122,5 +122,5 @@ await pipeline(readable, transform, writable);
 
 ## Related
 - [[backend/interview/01-production-debugging|Production Debugging]] — the other half of this interview
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets & the Network API]] — the event loop from the OS side: `epoll`, C10K, why blocking costs what it costs
-- [[foundations/os/interview/01-processes-memory-and-io|OS: blocking vs non-blocking vs async I/O]]
+- [[networking/09-sockets-and-the-network-api|Sockets & the Network API]] — the event loop from the OS side: `epoll`, C10K, why blocking costs what it costs
+- [[os/interview/01-processes-memory-and-io|OS: blocking vs non-blocking vs async I/O]]

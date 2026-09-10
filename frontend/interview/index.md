@@ -13,5 +13,5 @@ From [[frontend/index|frontend/]] and [[frontend/index|frontend]].
 
 ## Related
 - [[frontend/index|Concepts: frontend]] — the framework-agnostic half
-- [[foundations/networking/interview/03-dns-tls-http|Networking: HTTP]] — web performance questions bottom out here
+- [[networking/interview/03-dns-tls-http|Networking: HTTP]] — web performance questions bottom out here
 - [[concepts/interview/01-apis-auth-and-practices|Concepts: auth]] — token storage, CSRF, and XSS come up in frontend rounds

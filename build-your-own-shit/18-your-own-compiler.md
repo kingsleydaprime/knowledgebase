@@ -50,12 +50,12 @@ program output:
 **Required:**
 
 - **A parser you have written before.** Recursive descent, from [[build-your-own-shit/04-your-own-language|guide 04]] or [[how-computers-work/08-capstone/06-build-the-language|Pebble]]. This guide assumes lexing and parsing are familiar and spends its time after the AST.
-- **Comfort reading assembly.** [[foundations/computer-architecture/04-assembly|computer-architecture/assembly]] is enough. You need to recognise `movq`, `addq`, `cmpq`, `jne`, `call`, `ret`.
+- **Comfort reading assembly.** [[computer-architecture/04-assembly|computer-architecture/assembly]] is enough. You need to recognise `movq`, `addq`, `cmpq`, `jne`, `call`, `ret`.
 - **A toolchain:** `gcc` (or `clang`) and `objdump`. Any Linux or macOS machine has them.
 
 **Helpful:**
 
-- [[foundations/compilers/06-intermediate-representations|compilers/IR]] and [[foundations/compilers/07-optimisation|compilers/optimisation]] for the theory this makes concrete.
+- [[compilers/06-intermediate-representations|compilers/IR]] and [[compilers/07-optimisation|compilers/optimisation]] for the theory this makes concrete.
 - [[how-computers-work/index|How Computers Work]] if you want to know what the instructions you emit physically do.
 
 **Honest note:** this guide targets **x86-64 on Linux** because that is what most readers can run natively. ARM64 has a far cleaner encoding and everything here transfers; the differences are register names, the argument registers, and the calling convention's details.
@@ -228,11 +228,11 @@ Write the `.s` file, invoke `gcc` to assemble and link, run it. Now you have a c
 
 **A. A control-flow graph.** Replace the flat instruction list with basic blocks and edges. This makes the module-4 bugs *impossible* rather than merely avoided, and unlocks real dataflow analysis. **The highest-value next step.**
 
-**B. SSA form.** Each virtual register assigned exactly once, with φ-nodes where control flow merges. It is what LLVM and every serious compiler uses, and it makes most optimisations dramatically simpler. → [[foundations/compilers/06-intermediate-representations|compilers/06]]
+**B. SSA form.** Each virtual register assigned exactly once, with φ-nodes where control flow merges. It is what LLVM and every serious compiler uses, and it makes most optimisations dramatically simpler. → [[compilers/06-intermediate-representations|compilers/06]]
 
-**C. More optimisations.** Common subexpression elimination, strength reduction (`x * 8` → `x << 3`), inlining, loop-invariant code motion. → [[foundations/compilers/07-optimisation|compilers/07]]
+**C. More optimisations.** Common subexpression elimination, strength reduction (`x * 8` → `x << 3`), inlining, loop-invariant code motion. → [[compilers/07-optimisation|compilers/07]]
 
-**D. A type checker.** → [[foundations/compilers/05-type-systems-and-checking|compilers/05]], and [[build-your-own-shit/04-your-own-language|guide 04]] option B.
+**D. A type checker.** → [[compilers/05-type-systems-and-checking|compilers/05]], and [[build-your-own-shit/04-your-own-language|guide 04]] option B.
 
 **E. Retarget it.** Emit ARM64, or PRIME-1 assembly from [[build-your-own-shit/17-your-own-cpu/index|guide 17]]. **A second target is the real test of whether your IR was well designed** — if the back end was properly separated, the front end and optimiser should need no changes at all.
 
@@ -280,6 +280,6 @@ Write the `.s` file, invoke `gcc` to assemble and link, run it. Now you have a c
 - [[build-your-own-shit/04-your-own-language|Your Own Language]] — the interpreter this is the sequel to
 - [[build-your-own-shit/17-your-own-cpu/index|Your Own CPU]] — retarget this compiler at PRIME-1 and close the loop
 - [[how-computers-work/08-capstone/06-build-the-language|How Computers Work, module 33]] — the minimal version, compiling to a 16-bit CPU
-- [[foundations/compilers/index|compilers/]] — the reference course for every stage here
-- [[foundations/computer-architecture/04-assembly|computer-architecture/assembly]] — the target language
+- [[compilers/index|compilers/]] — the reference course for every stage here
+- [[computer-architecture/04-assembly|computer-architecture/assembly]] — the target language
 - [[build-your-own-shit/index|Build Your Own Shit index]]

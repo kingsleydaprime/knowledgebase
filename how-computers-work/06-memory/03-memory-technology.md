@@ -123,7 +123,7 @@ Every row must be read and rewritten before its charge decays — typically ever
 > [!NOTE]
 > **Reading DRAM is destructive**, which surprises people. The tiny stored charge is shared onto the much larger bit line capacitance, producing a swing of only ~100 mV — far too small for the logic levels of module 5. A **sense amplifier** amplifies it back to a full rail.
 >
-> But the act of reading has drained the cell. **So every read is followed by a write-back**, and this is why DRAM has a row cycle time longer than its access time, and why the "row buffer" exists: once a row is opened and sensed, reading more columns from it is cheap. That asymmetry is why sequential memory access is so much faster than random access — and it is the hardware reason [[foundations/dsa/04-data-structures/01-arrays|arrays outperform linked lists]] far more than their Big-O suggests.
+> But the act of reading has drained the cell. **So every read is followed by a write-back**, and this is why DRAM has a row cycle time longer than its access time, and why the "row buffer" exists: once a row is opened and sensed, reading more columns from it is cheap. That asymmetry is why sequential memory access is so much faster than random access — and it is the hardware reason [[dsa/04-data-structures/01-arrays|arrays outperform linked lists]] far more than their Big-O suggests.
 
 ---
 
@@ -200,7 +200,7 @@ If SRAM were merely more expensive, you would buy less of it. If DRAM were merel
 
 **So the machine uses a small amount of the fast one and a large amount of the cheap one**, and tries hard to keep the data it needs in the fast one. That "tries hard" is **caching**, and it works only because real programs exhibit locality — they reuse recent data and access neighbouring addresses.
 
-**The memory hierarchy is not a design someone chose.** It is what you are forced into when no single technology is both fast and cheap. If someone invented a memory that was as fast as SRAM and as dense as DRAM, the hierarchy would collapse to one level and a large part of [[foundations/computer-architecture/08-the-memory-hierarchy|computer architecture]] would become unnecessary.
+**The memory hierarchy is not a design someone chose.** It is what you are forced into when no single technology is both fast and cheap. If someone invented a memory that was as fast as SRAM and as dense as DRAM, the hierarchy would collapse to one level and a large part of [[computer-architecture/08-the-memory-hierarchy|computer architecture]] would become unnecessary.
 </details>
 
 ---
@@ -502,7 +502,7 @@ The reason: at high hit rates the average is dominated by the <em>miss</em> term
 - **Cell areas are approximate and process-dependent.** F² normalises across nodes but real cells vary with design rules, port counts and vendor. Use these for reasoning about ratios, not for datasheet numbers.
 - **Modern NAND is 3D.** Cells are stacked in over 200 layers, so effective area per bit is far below the planar figures here. The floating-gate principle (or charge-trap variants) is unchanged.
 - **Emerging technologies aim at the gap.** MRAM, ReRAM, phase-change and ferroelectric memories all target "fast, dense and non-volatile". None has yet displaced DRAM at scale.
-- **This module ignores error correction entirely.** Server DRAM uses ECC, and flash relies on strong LDPC codes — without which TLC would be unusable. That is [[foundations/information-theory/06-error-correcting-codes|information-theory/error-correcting codes]].
+- **This module ignores error correction entirely.** Server DRAM uses ECC, and flash relies on strong LDPC codes — without which TLC would be unusable. That is [[information-theory/06-error-correcting-codes|information-theory/error-correcting codes]].
 
 ---
 
@@ -527,6 +527,6 @@ The reason: at high hit rates the average is dominated by the <em>miss</em> term
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 24]] — the bistable loop inside every SRAM cell
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the decoders addressing the array
-- [[foundations/computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] — where this hierarchy is exploited
-- [[foundations/computer-architecture/09-caches-in-depth|computer-architecture/caches in depth]] — the machinery built on top of these tradeoffs
-- [[foundations/dsa/04-data-structures/01-arrays|dsa/arrays]] — why locality beats complexity analysis
+- [[computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] — where this hierarchy is exploited
+- [[computer-architecture/09-caches-in-depth|computer-architecture/caches in depth]] — the machinery built on top of these tradeoffs
+- [[dsa/04-data-structures/01-arrays|dsa/arrays]] — why locality beats complexity analysis

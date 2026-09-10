@@ -11,9 +11,9 @@
 ## What you need first
 
 - **C, and pointers you're comfortable with** → [[languages/04-c/index|C]]
-- **What the stack and heap actually are** → [[foundations/os/05-memory-allocation|memory allocation]]
-- **`sbrk` or `mmap`** — how a process asks the kernel for memory → [[foundations/os/09-syscalls-interrupts-and-the-abi|syscalls]]
-- Helpful: [[foundations/computer-architecture/08-the-memory-hierarchy|the memory hierarchy]]
+- **What the stack and heap actually are** → [[os/05-memory-allocation|memory allocation]]
+- **`sbrk` or `mmap`** — how a process asks the kernel for memory → [[os/09-syscalls-interrupts-and-the-abi|syscalls]]
+- Helpful: [[computer-architecture/08-the-memory-hierarchy|the memory hierarchy]]
 
 **C is the natural language** — you need raw pointers and pointer arithmetic. Rust with `unsafe` works and fights you productively.
 
@@ -76,7 +76,7 @@ Segregate free lists by size to avoid walking a long list for a small request. T
 
 **Alignment.** If your header is 24 bytes, payloads land at 24-byte offsets — misaligned. Round the header up.
 
-**`LD_PRELOAD` bootstrapping.** The dynamic linker may call `malloc` before your allocator initialises. A small static buffer for early allocations is the usual fix, and hitting this is instructive about how processes start → [[foundations/os/12-boot-and-init|boot and init]].
+**`LD_PRELOAD` bootstrapping.** The dynamic linker may call `malloc` before your allocator initialises. A small static buffer for early allocations is the usual fix, and hitting this is instructive about how processes start → [[os/12-boot-and-init|boot and init]].
 
 **Freeing a pointer you didn't allocate**, or twice. Real allocators detect some of this; yours will corrupt silently. **A magic number in the header catches it cheaply.**
 
@@ -95,12 +95,12 @@ Segregate free lists by size to avoid walking a long list for a small request. T
 
 **Stop after `LD_PRELOAD` works and you've measured fragmentation.** Thread safety, per-thread arenas, and the security hardening real allocators do are each large projects that teach much less per hour.
 
-**You will have learned:** what a pointer returned by `malloc` actually points into, why `free` needs no size, why fragmentation is the hard problem, why alignment exists, and why heap corruption surfaces far from its cause — which makes [[foundations/programming-fundamentals/10-errors-and-debugging|debugging]] C a different activity afterwards.
+**You will have learned:** what a pointer returned by `malloc` actually points into, why `free` needs no size, why fragmentation is the hard problem, why alignment exists, and why heap corruption surfaces far from its cause — which makes [[programming-fundamentals/10-errors-and-debugging|debugging]] C a different activity afterwards.
 
 **And it makes [[languages/03-rust/index|Rust's]] ownership model land differently**: you'll have written the bugs it exists to prevent.
 
 ## Related
-- [[foundations/os/05-memory-allocation|memory allocation]] — the theory
+- [[os/05-memory-allocation|memory allocation]] — the theory
 - [[languages/04-c/index|C]] — the language, and undefined behaviour
 - [[build-your-own-shit/05-your-own-os|your own OS]] — where you'd write the layer below this
 - [[languages/07-csharp/08-memory-gc-and-spans|garbage collection]] — the other approach

@@ -14,4 +14,4 @@ Also: for anything offensive, **always frame it within authorisation** — scope
 ## Related
 - [[cybersecurity/index|Cybersecurity course]]
 - [[concepts/interview/01-apis-auth-and-practices|Concepts: auth questions]] — heavy overlap
-- [[foundations/networking/interview/03-dns-tls-http|Networking: TLS & DNS]]
+- [[networking/interview/03-dns-tls-http|Networking: TLS & DNS]]

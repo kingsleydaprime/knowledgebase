@@ -65,14 +65,14 @@ top     # the %st column; anything sustained above ~5% means you're fighting nei
 
 **Memory is oversubscribed far more cautiously than CPU**, because the failure mode is swapping rather than waiting, and swapping is catastrophic rather than merely slow.
 
-This is the mechanism behind the **noisy neighbour** problem, and the reason dedicated/metal instance types exist and cost more. See [[foundations/os/03-scheduling|scheduling]] for why queuing behaves this way.
+This is the mechanism behind the **noisy neighbour** problem, and the reason dedicated/metal instance types exist and cost more. See [[os/03-scheduling|scheduling]] for why queuing behaves this way.
 
 ## VMs and containers are not the same tool
 
 The most common confusion in this area, and worth being precise about.
 
 **A VM virtualises the hardware.** Each guest runs a full kernel.
-**A container virtualises the operating system.** All containers share the host kernel; they're isolated by [[foundations/os/11-isolation-and-containers|namespaces and cgroups]] — namespaces control what a process can *see*, cgroups control what it can *use*.
+**A container virtualises the operating system.** All containers share the host kernel; they're isolated by [[os/11-isolation-and-containers|namespaces and cgroups]] — namespaces control what a process can *see*, cgroups control what it can *use*.
 
 | | **VM** | **Container** |
 |---|---|---|
@@ -107,12 +107,12 @@ Virtualisation is not free, and the bill has three lines:
 
 1. **Performance** — a few percent on CPU, more on I/O-heavy workloads
 2. **Resource duplication** — every VM runs a full kernel and full system services. Thirty VMs means thirty kernels' worth of RAM you're not using for work
-3. **A new attack surface** — hypervisor escape is rare and devastating. Shared-hardware side channels (Spectre/Meltdown, see [[foundations/computer-architecture/07-branch-prediction-and-speculation|speculation]]) are cross-tenant risks that simply don't exist on a machine you own
+3. **A new attack surface** — hypervisor escape is rare and devastating. Shared-hardware side channels (Spectre/Meltdown, see [[computer-architecture/07-branch-prediction-and-speculation|speculation]]) are cross-tenant risks that simply don't exist on a machine you own
 
 ## Related
 - [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] — the problems this solved
 - [[devops/02-docker/index|Docker]] — the container half, in depth
-- [[foundations/os/11-isolation-and-containers|namespaces and cgroups]] — the kernel primitives containers are built from
+- [[os/11-isolation-and-containers|namespaces and cgroups]] — the kernel primitives containers are built from
 - [[build-your-own-shit/08-your-own-container|build your own container]] — where this stops being reading
 - [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|cloud security]] — multi-tenancy as a threat model
 

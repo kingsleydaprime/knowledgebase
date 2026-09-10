@@ -14,14 +14,14 @@ Games were one of the three reasons you came into tech. That's reason enough to 
 
 | Roadmap area | Already written, elsewhere |
 |---|---|
-| Vectors, matrices, transforms, **quaternions** | [[foundations/computer-graphics/02-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
-| Rendering, rasterisation, PBR, shading, ray tracing | [[foundations/computer-graphics/index\|computer graphics]] — 9 notes |
-| Shaders, GPU parallelism | [[foundations/gpu-and-parallel-computing/index\|GPU & parallel computing]] |
-| Integration, stability, ODEs | [[foundations/numerical-methods/index\|numerical methods]] |
-| BVH, trees, A\*, graphs | [[foundations/dsa/index\|DSA]] · [[foundations/mathematics/02-discrete-math/07-graph-theory\|graph theory]] |
+| Vectors, matrices, transforms, **quaternions** | [[computer-graphics/02-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
+| Rendering, rasterisation, PBR, shading, ray tracing | [[computer-graphics/index\|computer graphics]] — 9 notes |
+| Shaders, GPU parallelism | [[gpu-and-parallel-computing/index\|GPU & parallel computing]] |
+| Integration, stability, ODEs | [[mathematics/07-applied-and-computational/01-numerical-methods/index\|numerical methods]] |
+| BVH, trees, A\*, graphs | [[dsa/index\|DSA]] · [[mathematics/02-discrete-math/07-graph-theory\|graph theory]] |
 | Neural nets, decision trees, RL | [[ai-ml/index\|AI & ML]] |
-| Caches, data-oriented design | [[foundations/computer-architecture/index\|computer architecture]] |
-| UDP, latency, distributed state | [[foundations/networking/index\|networking]] |
+| Caches, data-oriented design | [[computer-architecture/index\|computer architecture]] |
+| UDP, latency, distributed state | [[networking/index\|networking]] |
 
 **Game development is largely an integration discipline** — which is also why the skills transfer outward into simulation, visualisation, robotics and film.
 
@@ -98,7 +98,7 @@ Games were one of the three reasons you came into tech. That's reason enough to 
 
 ## Related
 - [[game-development/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
-- [[foundations/computer-graphics/index|computer graphics]] — the rendering half
+- [[computer-graphics/index|computer graphics]] — the rendering half
 - [[robotics/index|robotics]] — the other reason you came into tech, same maths
-- [[foundations/gpu-and-parallel-computing/index|GPU & parallel computing]]
+- [[gpu-and-parallel-computing/index|GPU & parallel computing]]
 - [[project-ideas|project ideas]] · [[BUILD-PLAN|Build Plan]]

@@ -98,6 +98,6 @@ Reading the layout of a contract you wrote is a five-minute exercise that makes 
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — the cost of touching storage
 - [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|upgradeability and proxies]] — where this becomes dangerous
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]]
-- [[foundations/dsa/04-data-structures/05-trees/01-trees|trees and tries]]
+- [[dsa/04-data-structures/05-trees/01-trees|trees and tries]]
 
 *Source: [reference] — Aug 2026.*

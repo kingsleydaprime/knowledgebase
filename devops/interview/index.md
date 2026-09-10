@@ -13,6 +13,6 @@ The [[project-ideas|project-ideas]] list has the 🟡 projects that close this s
 
 ## Related
 - [[devops/index|DevOps course]] · [[devops/devops-reference|devops cheat-sheet]]
-- [[foundations/networking/interview/04-debugging-and-scenarios|Networking debugging scenarios]] — heavy overlap; the same investigation method
-- [[foundations/os/interview/index|OS interview prep]]
+- [[networking/interview/04-debugging-and-scenarios|Networking debugging scenarios]] — heavy overlap; the same investigation method
+- [[os/interview/index|OS interview prep]]
 - [[PRIMETECHIE|The Primetechie Path]] — Rank II gate

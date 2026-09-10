@@ -67,8 +67,8 @@ So each section below gives you:
 
 **Read:**
 
-- [[foundations/computer-architecture/01-what-architecture-is|computer-architecture/what architecture is]]
-- [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]] — **the central note for this part**
+- [[computer-architecture/01-what-architecture-is|computer-architecture/what architecture is]]
+- [[computer-architecture/05-the-datapath|computer-architecture/the datapath]] — **the central note for this part**
 
 **What to watch for:** the datapath diagram will look familiar, because you built every box in it. **The new idea is the control unit** — the block turning an opcode into the signals steering everything else.
 
@@ -82,8 +82,8 @@ You have already met it concretely: the control table in [[build-your-own-shit/1
 
 **Read:**
 
-- [[foundations/computer-architecture/03-instruction-sets|computer-architecture/instruction sets]] — RISC vs CISC, encoding, addressing modes
-- [[foundations/computer-architecture/04-assembly|computer-architecture/assembly]] — actually writing it
+- [[computer-architecture/03-instruction-sets|computer-architecture/instruction sets]] — RISC vs CISC, encoding, addressing modes
+- [[computer-architecture/04-assembly|computer-architecture/assembly]] — actually writing it
 
 **What to watch for:** the ISA is where the two directions of this course meet. **Everything below it is physics; everything above it is software** — and the ISA is deliberately positioned as the one interface both sides agree on, which is why the same binary runs on chips with wildly different microarchitectures.
 
@@ -97,9 +97,9 @@ You have already met it concretely: the control table in [[build-your-own-shit/1
 
 **Read:**
 
-- [[foundations/computer-architecture/08-the-memory-hierarchy|computer-architecture/the memory hierarchy]]
-- [[foundations/computer-architecture/09-caches-in-depth|computer-architecture/caches in depth]]
-- [[foundations/os/04-virtual-memory|os/virtual memory]] — address translation, page tables, the TLB
+- [[computer-architecture/08-the-memory-hierarchy|computer-architecture/the memory hierarchy]]
+- [[computer-architecture/09-caches-in-depth|computer-architecture/caches in depth]]
+- [[os/04-virtual-memory|os/virtual memory]] — address translation, page tables, the TLB
 
 **What to watch for:** caching only works because programs exhibit **locality**. Nothing in the hardware guarantees that — it is an empirical property of real code, and a program that violates it (random access over a huge array) gets no benefit at all.
 
@@ -115,14 +115,14 @@ Also connect it back: [[how-computers-work/06-memory/03-memory-technology|module
 
 **Read, in order:**
 
-- [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]] — stages, hazards, forwarding, stalls
-- [[foundations/computer-architecture/07-branch-prediction-and-speculation|computer-architecture/branch prediction]]
-- [[foundations/computer-architecture/10-out-of-order-and-superscalar|computer-architecture/out-of-order and superscalar]]
-- [[foundations/computer-architecture/12-performance|computer-architecture/performance]] — CPI, Amdahl's law, and the power wall
+- [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — stages, hazards, forwarding, stalls
+- [[computer-architecture/07-branch-prediction-and-speculation|computer-architecture/branch prediction]]
+- [[computer-architecture/10-out-of-order-and-superscalar|computer-architecture/out-of-order and superscalar]]
+- [[computer-architecture/12-performance|computer-architecture/performance]] — CPI, Amdahl's law, and the power wall
 
 **What to watch for:** the **read-after-write hazard** in pipelining is the exact timing question from [[how-computers-work/06-memory/02-registers-and-counters|module 25]] — an instruction reading a register before an earlier instruction's write has landed. You met it as "reads see the old value"; here it becomes a problem needing forwarding logic.
 
-And [[foundations/computer-architecture/12-performance|performance]] will discuss the power wall. **You derived it** in [[how-computers-work/01-electricity/02-resistance-and-ohms-law|module 2]] and again in [[how-computers-work/03-transistors/02-mosfet-physics|module 12]]: $P = \alpha CV^2f$, with $V$ floored by the 60 mV/decade subthreshold limit. Read it as confirmation rather than new information.
+And [[computer-architecture/12-performance|performance]] will discuss the power wall. **You derived it** in [[how-computers-work/01-electricity/02-resistance-and-ohms-law|module 2]] and again in [[how-computers-work/03-transistors/02-mosfet-physics|module 12]]: $P = \alpha CV^2f$, with $V$ floored by the 60 mV/decade subthreshold limit. Read it as confirmation rather than new information.
 
 ---
 
@@ -132,9 +132,9 @@ And [[foundations/computer-architecture/12-performance|performance]] will discus
 
 **Read:**
 
-- [[foundations/compilers/08-code-generation|compilers/code generation]] — covers assembly output, object files, symbols and relocation
-- [[foundations/languages/04-c/01-why-c-and-the-compilation-model|languages/c/the compilation model]] — the four stages, and why headers exist
-- [[foundations/os/09-syscalls-interrupts-and-the-abi|os/syscalls, interrupts and the ABI]] — the calling convention and how a program talks to the kernel
+- [[compilers/08-code-generation|compilers/code generation]] — covers assembly output, object files, symbols and relocation
+- [[languages/04-c/01-why-c-and-the-compilation-model|languages/c/the compilation model]] — the four stages, and why headers exist
+- [[os/09-syscalls-interrupts-and-the-abi|os/syscalls, interrupts and the ABI]] — the calling convention and how a program talks to the kernel
 
 > [!NOTE]
 > **Honest gap.** This vault has no dedicated note on **linkers and executable formats**. Static versus dynamic linking, relocation entries, the ELF layout and the dynamic loader are covered *in passing* across the three notes above rather than taught as a unit.
@@ -149,13 +149,13 @@ And [[foundations/computer-architecture/12-performance|performance]] will discus
 
 **The dependency:** [[how-computers-work/06-memory/03-memory-technology|Module 26]] gave you physical memory. An OS is what shares one machine between many programs that each think they own it.
 
-**Read** [[foundations/os/index|os/]] in order. The essential path:
+**Read** [[os/index|os/]] in order. The essential path:
 
-- [[foundations/os/01-what-an-os-is|what an OS is]] — kernel vs user space, privilege levels
-- [[foundations/os/02-processes-and-threads|processes and threads]]
-- [[foundations/os/03-scheduling|scheduling]]
-- [[foundations/os/04-virtual-memory|virtual memory]] — if you skipped it in Part X, read it now
-- [[foundations/os/09-syscalls-interrupts-and-the-abi|syscalls and interrupts]]
+- [[os/01-what-an-os-is|what an OS is]] — kernel vs user space, privilege levels
+- [[os/02-processes-and-threads|processes and threads]]
+- [[os/03-scheduling|scheduling]]
+- [[os/04-virtual-memory|virtual memory]] — if you skipped it in Part X, read it now
+- [[os/09-syscalls-interrupts-and-the-abi|syscalls and interrupts]]
 
 **What to watch for:** **interrupts are a hardware mechanism.** A device asserts a line, the CPU finishes its current instruction, saves the PC, and jumps to a handler. That is your program counter ([[how-computers-work/06-memory/02-registers-and-counters|module 25]]) being loaded by something other than the program — the same mechanism as a branch, triggered externally.
 
@@ -171,12 +171,12 @@ And the interrupt controller deciding *which* device wins is a **priority encode
 
 | Part | Course |
 | :--- | :--- |
-| XIV — Programming languages | [[foundations/programming-language-theory/index\|programming-language-theory/]] — syntax, semantics, type systems |
-| XV — Compilers | [[foundations/compilers/index\|compilers/]] modules 1–8 — lexing, parsing, ASTs, IR, optimisation, codegen |
-| XVI — Interpreters and VMs | [[foundations/compilers/10-bytecode-and-virtual-machines\|bytecode and VMs]], [[foundations/compilers/12-jit-compilation\|JIT]] |
-| XVII — Runtime systems | [[foundations/compilers/11-garbage-collection\|garbage collection]], [[foundations/os/05-memory-allocation\|os/memory allocation]] |
+| XIV — Programming languages | [[programming-language-theory/index\|programming-language-theory/]] — syntax, semantics, type systems |
+| XV — Compilers | [[compilers/index\|compilers/]] modules 1–8 — lexing, parsing, ASTs, IR, optimisation, codegen |
+| XVI — Interpreters and VMs | [[compilers/10-bytecode-and-virtual-machines\|bytecode and VMs]], [[compilers/12-jit-compilation\|JIT]] |
+| XVII — Runtime systems | [[compilers/11-garbage-collection\|garbage collection]], [[os/05-memory-allocation\|os/memory allocation]] |
 
-**What to watch for:** [[foundations/compilers/07-optimisation|optimisation]] will describe **strength reduction** — replacing `x * 8` with `x << 3`. You know exactly why that is worth doing: a constant shift is free wiring, while a multiply is $O(n^2)$ gates ([[how-computers-work/05-combinational/03-multipliers-and-comparators|module 22]]).
+**What to watch for:** [[compilers/07-optimisation|optimisation]] will describe **strength reduction** — replacing `x * 8` with `x << 3`. You know exactly why that is worth doing: a constant shift is free wiring, while a multiply is $O(n^2)$ gates ([[how-computers-work/05-combinational/03-multipliers-and-comparators|module 22]]).
 
 **Most compiler optimisations become obvious once you know the hardware costs.** That is the payoff for having gone bottom-up.
 
@@ -200,9 +200,9 @@ The capstone builds the machine end of this. [[how-computers-work/08-capstone/07
 
 **If you want the shortest path to the capstone** (you can start building after this):
 
-1. [[foundations/computer-architecture/05-the-datapath|the datapath]]
-2. [[foundations/computer-architecture/03-instruction-sets|instruction sets]]
-3. [[foundations/computer-architecture/04-assembly|assembly]]
+1. [[computer-architecture/05-the-datapath|the datapath]]
+2. [[computer-architecture/03-instruction-sets|instruction sets]]
+3. [[computer-architecture/04-assembly|assembly]]
 4. → start [[how-computers-work/08-capstone/01-design-the-cpu|the capstone]]
 
 That is four notes. **Everything else can follow while you build**, and building will make it stick better anyway.
@@ -230,8 +230,8 @@ That is four notes. **Everything else can follow while you build**, and building
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[foundations/computer-architecture/index|computer-architecture/]]
-- [[foundations/os/index|os/]]
-- [[foundations/compilers/index|compilers/]]
-- [[foundations/programming-language-theory/index|programming-language-theory/]]
+- [[computer-architecture/index|computer-architecture/]]
+- [[os/index|os/]]
+- [[compilers/index|compilers/]]
+- [[programming-language-theory/index|programming-language-theory/]]
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU — the four build tracks]]

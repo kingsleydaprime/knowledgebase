@@ -182,7 +182,7 @@ Transistors occupy only the bottom surface of the die. **Everything above them i
 >
 > As transistors shrank, wires shrank too — but a thinner wire has *higher* resistance and, packed closer to its neighbours, similar capacitance. So while gates got faster with every process generation, **wires got relatively slower.**
 >
-> In modern chips, crossing the die can take longer than several gate delays. This is a major reason architectures became multicore and locality-obsessed: **it is now cheaper to compute a value again nearby than to fetch it from far away.** The memory hierarchy of [[foundations/computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] is partly a response to wire delay.
+> In modern chips, crossing the die can take longer than several gate delays. This is a major reason architectures became multicore and locality-obsessed: **it is now cheaper to compute a value again nearby than to fetch it from far away.** The memory hierarchy of [[computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] is partly a response to wire delay.
 
 ### Standard cells and place-and-route
 
@@ -524,4 +524,4 @@ As $D$ grows, the exponential punishes large dies far harder. Sweep $D$ from 0.0
 - [[how-computers-work/02-semiconductors/04-doping|Module 9]] — ion implantation through a mask
 - [[how-computers-work/03-transistors/03-cmos|Module 13]] — the device being built here
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — FPGAs, and why mask cost makes them worth it
-- [[foundations/computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] — partly a response to wire delay
+- [[computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] — partly a response to wire delay

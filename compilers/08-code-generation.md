@@ -50,7 +50,7 @@ The one that matters most for output quality.
 
 The classic formulation:
 
-1. Compute **live ranges** — where each value is live (from definition to last use) → [[foundations/compilers/06-intermediate-representations|dataflow analysis]]
+1. Compute **live ranges** — where each value is live (from definition to last use) → [[compilers/06-intermediate-representations|dataflow analysis]]
 2. Build an **interference graph** — an edge between values live at the same time
 3. **Colour** the graph with K colours (K = number of registers), where adjacent nodes differ
 4. Uncolourable nodes get **spilled**
@@ -79,7 +79,7 @@ Callee-saved vs caller-saved registers interact with this — a value live acros
 
 ## Calling conventions
 
-The ABI contract, and it's not negotiable. → [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]]
+The ABI contract, and it's not negotiable. → [[os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]]
 
 **System V AMD64** (Linux, macOS, BSD):
 
@@ -168,7 +168,7 @@ DWARF records the mapping from machine code back to source: line numbers, variab
 
 If you're building a language, **don't write a native code generator first.**
 
-**A bytecode VM is the right target.** No register allocation, no calling convention, no ABI, no linker, portable by construction. → [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode VMs]]
+**A bytecode VM is the right target.** No register allocation, no calling convention, no ABI, no linker, portable by construction. → [[compilers/10-bytecode-and-virtual-machines|Bytecode VMs]]
 
 If you do want native code:
 
@@ -176,13 +176,13 @@ If you do want native code:
 2. **Or emit C** and let a C compiler do it. Genuinely legitimate — Nim, Vala, and early C++ all did
 3. **Write your own only to learn.** It's the most educational part and by far the largest
 
-For a JIT specifically, Cranelift or a hand-rolled assembler over a small instruction subset is the realistic path. → [[foundations/compilers/12-jit-compilation|JIT]]
+For a JIT specifically, Cranelift or a hand-rolled assembler over a small instruction subset is the realistic path. → [[compilers/12-jit-compilation|JIT]]
 
 ---
 
 ## Related
-- [[foundations/compilers/06-intermediate-representations|Intermediate Representations]] — the input
-- [[foundations/compilers/07-optimisation|Optimisation]] — what runs before this
-- [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]] — the calling convention as a contract
+- [[compilers/06-intermediate-representations|Intermediate Representations]] — the input
+- [[compilers/07-optimisation|Optimisation]] — what runs before this
+- [[os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]] — the calling convention as a contract
 - [[languages/04-c/12-build-systems|C: Build Systems]] — assembling and linking, practically
-- [[foundations/compilers/index|Compilers course map]]
+- [[compilers/index|Compilers course map]]

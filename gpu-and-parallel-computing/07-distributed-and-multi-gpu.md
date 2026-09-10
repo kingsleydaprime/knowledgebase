@@ -138,7 +138,7 @@
 
 **Quantisation** — INT8, FP8, or 4-bit weights. **Weights dominate memory in inference, and 4-bit quantisation makes a 70B model fit on one 48 GB card.** GPTQ, AWQ, bitsandbytes.
 
-**KV cache management** is the central problem for LLM serving. **The cache grows with sequence length and batch size, and naive allocation fragments badly.** **PagedAttention (vLLM)** applies [[foundations/os/04-virtual-memory|virtual-memory paging]] to the KV cache — non-contiguous blocks with a page table — and dramatically improves throughput. **A genuinely elegant borrowing from OS design.**
+**KV cache management** is the central problem for LLM serving. **The cache grows with sequence length and batch size, and naive allocation fragments badly.** **PagedAttention (vLLM)** applies [[os/04-virtual-memory|virtual-memory paging]] to the KV cache — non-contiguous blocks with a page table — and dramatically improves throughput. **A genuinely elegant borrowing from OS design.**
 
 **Continuous batching** — add and remove sequences from a batch as they arrive and finish, rather than waiting for a whole batch. **Large throughput win** for serving, and standard in vLLM and TGI.
 
@@ -158,7 +158,7 @@
 
 **Straggler detection.** One slow GPU (thermal throttling, a bad link) **slows every collective**, because all-reduce waits for the slowest participant. **Monitor per-rank step times.**
 
-**Determinism is hard.** Different device counts change reduction order, and floating-point addition isn't associative. **Bit-exact reproducibility across cluster sizes is generally not achievable** — and this is the same non-associativity from [[foundations/numerical-methods/02-floating-point-and-error|note 02]], at scale.
+**Determinism is hard.** Different device counts change reduction order, and floating-point addition isn't associative. **Bit-exact reproducibility across cluster sizes is generally not achievable** — and this is the same non-associativity from [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|note 02]], at scale.
 
 > **Large training runs are distributed systems**, with all that implies: partial failure, stragglers, coordination overhead, and the need for observability. → [[architecture/04-distributed-systems/index|Distributed Systems]]
 
@@ -183,7 +183,7 @@
 ---
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — single-device optimisation first
+- [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — single-device optimisation first
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — the general theory
 - [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] — running training at scale
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]
+- [[gpu-and-parallel-computing/index|GPU and parallel map]]

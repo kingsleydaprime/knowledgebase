@@ -29,7 +29,7 @@ function DIAGONAL(P):
 
 **The engine is self-reference plus negation** — build something that does the opposite of what's predicted about it. **Cantor's diagonal argument, Russell's paradox, and Gödel's incompleteness theorems all run on the same mechanism.** Gödel's is the closest relative: a statement asserting its own unprovability.
 
-**And the counting argument from [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|note 04]] says the same thing less sharply:** programs are countable, problems are uncountable, so **most problems have no program.** The halting problem is a specific, natural one.
+**And the counting argument from [[mathematics/02-discrete-math/04-sets-relations-and-functions|note 04]] says the same thing less sharply:** programs are countable, problems are uncountable, so **most problems have no program.** The halting problem is a specific, natural one.
 
 > **What it does *not* say.** It doesn't say you can never tell whether a program halts. **Often you can** — a `for` loop with a constant bound obviously terminates. It says **no single algorithm works for every program.** Termination checkers exist, work well, and answer "yes", "no", or "don't know". **That third answer is where the theorem lives.**
 
@@ -99,19 +99,19 @@ Given $(P, w)$, construct machine $M$ that ignores its input, runs $P$ on $w$, a
 | **Optimising compilers** | Sound. Miss optimisations they can't prove |
 | Bug finders (Coverity, Infer) | Unsound, tuned for a low false-positive rate |
 
-> **This is the answer to "why does the type checker reject my obviously-correct code?"** It's not that the designers weren't clever enough. **A sound checker must reject some correct programs, because accepting exactly the correct ones is undecidable.** The design question is only *which* correct programs to sacrifice. → [[foundations/compilers/05-type-systems-and-checking|Type Systems]]
+> **This is the answer to "why does the type checker reject my obviously-correct code?"** It's not that the designers weren't clever enough. **A sound checker must reject some correct programs, because accepting exactly the correct ones is undecidable.** The design question is only *which* correct programs to sacrifice. → [[compilers/05-type-systems-and-checking|Type Systems]]
 
 **Concrete consequences you've met:**
 
-**Compilers can't optimise perfectly.** "Is this branch ever taken?" is undecidable, so they use conservative analysis and profile data. → [[foundations/compilers/07-optimisation|Optimisation]]
+**Compilers can't optimise perfectly.** "Is this branch ever taken?" is undecidable, so they use conservative analysis and profile data. → [[compilers/07-optimisation|Optimisation]]
 
 **Dead code elimination is approximate.** "Unreachable" is undecidable in general.
 
-**Garbage collectors over-approximate.** "Will this object be used again?" is undecidable, so GCs use *reachability* — a decidable, conservative proxy. **Reachable-but-never-used objects are retained**, and that's a memory leak the collector cannot fix by being smarter. → [[foundations/compilers/11-garbage-collection|Garbage Collection]]
+**Garbage collectors over-approximate.** "Will this object be used again?" is undecidable, so GCs use *reachability* — a decidable, conservative proxy. **Reachable-but-never-used objects are retained**, and that's a memory leak the collector cannot fix by being smarter. → [[compilers/11-garbage-collection|Garbage Collection]]
 
 **Antivirus cannot be perfect.** "Is this program malicious?" is semantic. **Signature matching is the syntactic proxy**, which is why novel malware gets through and why heuristics produce false positives. **Provably no perfect virus scanner exists** (Cohen, 1987).
 
-**eBPF requires provable termination.** The kernel verifier rejects anything it can't prove halts — bounded loops only. **Rather than solve an undecidable problem, they restricted the language.** → [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]]
+**eBPF requires provable termination.** The kernel verifier rejects anything it can't prove halts — bounded loops only. **Rather than solve an undecidable problem, they restricted the language.** → [[os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]]
 
 **Total languages (Coq, Agda, Idris) reject general recursion** for the same reason: to keep type checking decidable, they give up Turing completeness. **A deliberate, principled trade.**
 
@@ -121,7 +121,7 @@ Worth recognising, because they show the reach:
 
 **Post Correspondence Problem** — given dominoes with top and bottom strings, is there an ordering where top matches bottom? **Deceptively simple, undecidable**, and the standard tool for proving grammar problems undecidable.
 
-**Grammar problems** — is a CFG ambiguous? Are two CFGs equivalent? Is a CFG's language equal to $\Sigma^*$? **All undecidable**, which is why parser generators report conflicts rather than a verdict. → [[foundations/theory-of-computation/04-context-free-languages|Context-Free Languages]]
+**Grammar problems** — is a CFG ambiguous? Are two CFGs equivalent? Is a CFG's language equal to $\Sigma^*$? **All undecidable**, which is why parser generators report conflicts rather than a verdict. → [[theory-of-computation/04-context-free-languages|Context-Free Languages]]
 
 **Hilbert's tenth problem** — does a polynomial with integer coefficients have integer roots? **Undecidable** (Matiyasevich, 1970), settling one of Hilbert's 1900 problems negatively.
 
@@ -161,7 +161,7 @@ Worth recognising, because they show the reach:
 ---
 
 ## Related
-- [[foundations/theory-of-computation/05-turing-machines|Turing Machines]] — the machines this is about
-- [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — hard rather than impossible
-- [[foundations/compilers/05-type-systems-and-checking|Type Systems]] — soundness/completeness in practice
-- [[foundations/theory-of-computation/index|Theory of computation map]]
+- [[theory-of-computation/05-turing-machines|Turing Machines]] — the machines this is about
+- [[theory-of-computation/07-complexity-classes|Complexity Classes]] — hard rather than impossible
+- [[compilers/05-type-systems-and-checking|Type Systems]] — soundness/completeness in practice
+- [[theory-of-computation/index|Theory of computation map]]

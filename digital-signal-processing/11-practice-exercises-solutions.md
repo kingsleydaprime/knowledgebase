@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Intermediate]** · Worked answers and expected results for [[foundations/digital-signal-processing/10-practice-exercises|note 10]]. **Attempt each yourself first** — a spectrum you plotted teaches more than one you read about. These give the expected outcome and the *why*, not full code you can paste.
+> **[Intermediate]** · Worked answers and expected results for [[digital-signal-processing/10-practice-exercises|note 10]]. **Attempt each yourself first** — a spectrum you plotted teaches more than one you read about. These give the expected outcome and the *why*, not full code you can paste.
 
 ---
 
@@ -42,5 +42,5 @@
 If a result surprised you — the alias sounding real (#2), the Gibbs overshoot refusing to vanish (#3), leakage from an off-bin tone (#9), or a pole crossing the circle and the output exploding (#8) — that surprise *is* the learning. Each is a place where the maths in the notes becomes something you've now seen with your own eyes.
 
 ## Related
-- [[foundations/digital-signal-processing/10-practice-exercises|the exercises]]
-- [[foundations/digital-signal-processing/index|the DSP course]]
+- [[digital-signal-processing/10-practice-exercises|the exercises]]
+- [[digital-signal-processing/index|the DSP course]]

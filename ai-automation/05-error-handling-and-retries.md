@@ -61,7 +61,7 @@ A failing workflow is loud. A workflow whose trigger quietly stopped — an expi
 - **A heartbeat.** The workflow records a timestamp on each successful run, and a separate scheduled check alerts if it's stale
 - **Volume alerting.** *"Fewer than 10 orders processed today"* catches what error alerting structurally cannot
 
-**This is the same argument as symptom-based alerting in [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]]** — page on the user-visible outcome, not on internal causes. And it's the same instinct as **converting silent failure into loud failure** in [[foundations/systems-engineering/08-risk-and-failure-analysis|FMEA]]: the detection column, not the severity column, is usually what you can cheaply improve.
+**This is the same argument as symptom-based alerting in [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]]** — page on the user-visible outcome, not on internal causes. And it's the same instinct as **converting silent failure into loud failure** in [[systems-engineering/08-risk-and-failure-analysis|FMEA]]: the detection column, not the severity column, is usually what you can cheaply improve.
 
 ## Partial failure
 
@@ -91,7 +91,7 @@ Workflow-level timeouts matter too — a run that legitimately takes 10 minutes 
 - Send a duplicate webhook and confirm the idempotency check holds
 - Return a 429 (many APIs have a sandbox that will)
 
-**This is chaos engineering at the smallest possible scale**, and it takes twenty minutes → [[architecture/04-distributed-systems/15-testing-distributed-systems|testing distributed systems]] · [[foundations/systems-engineering/06-verification-and-validation|V&V]].
+**This is chaos engineering at the smallest possible scale**, and it takes twenty minutes → [[architecture/04-distributed-systems/15-testing-distributed-systems|testing distributed systems]] · [[systems-engineering/06-verification-and-validation|V&V]].
 
 ## Related
 - [[ai-automation/03-connecting-apis-and-webhooks|connecting APIs and webhooks]] — idempotency

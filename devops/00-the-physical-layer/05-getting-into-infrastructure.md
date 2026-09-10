@@ -35,7 +35,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 
 **1. Linux, deeply.** Not "I can `cd`" — processes, systemd, networking, storage, permissions, logs, troubleshooting a box that won't boot. **This is the single highest-return skill in infrastructure and there is no way around it** → [[devops/01-linux/index|01-linux]], and the [[devops/01-linux/15-rhcsa/index|RHCSA track]] is a genuinely good structure for it.
 
-**2. Networking.** Subnetting, routing, DNS, TLS, firewalls, and the ability to debug why two machines can't talk. **The most common gap in self-taught infrastructure people** → [[foundations/networking/index|networking]].
+**2. Networking.** Subnetting, routing, DNS, TLS, firewalls, and the ability to debug why two machines can't talk. **The most common gap in self-taught infrastructure people** → [[networking/index|networking]].
 
 **3. One cloud, properly.** Not three shallowly. AWS has the largest market; Azure dominates enterprise; GCP is strong in data/ML → [[devops/03-cloud/index|03-cloud]].
 
@@ -67,7 +67,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 
 **From a technician role.** Genuinely available with few prerequisites, and the way to use it is to automate your own job and move sideways into engineering.
 
-**From a degree.** Systems engineering is directly relevant — capacity, power, cooling, reliability and interfaces are the discipline → [[foundations/systems-engineering/index|systems engineering]].
+**From a degree.** Systems engineering is directly relevant — capacity, power, cooling, reliability and interfaces are the discipline → [[systems-engineering/index|systems engineering]].
 
 ## What to build
 
@@ -86,7 +86,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 - [[devops/index|devops]] — the whole track, in order
 - [[devops/00-the-physical-layer/index|the physical layer]] — notes 01–04
 - [[devops/12-sre-and-platform-engineering/index|SRE and platform engineering]] — where the ceiling is
-- [[foundations/networking/index|networking]] — the most-skipped prerequisite
+- [[networking/index|networking]] — the most-skipped prerequisite
 - [[PRIMETECHIE|the Primetechie path]] — the gated progression
 
 *Source: [reference] — written Aug 2026; cross-referenced against the [roadmap.sh devops](https://roadmap.sh/devops) and [network-engineer](https://roadmap.sh/network-engineer) roadmaps.*

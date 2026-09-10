@@ -2,7 +2,7 @@
 
 The round that asks *"can you work in a codebase with other people?"* It shows up as a design-patterns question, a code-review exercise, or a "how would you refactor this" — and the grading is almost entirely about judgement rather than recall.
 
-From [[concepts/03-design-patterns/index|design patterns]], [[concepts/04-best-practices/index|best practices]], and [[foundations/software-engineering/index|software engineering]].
+From [[concepts/03-design-patterns/index|design patterns]], [[concepts/04-best-practices/index|best practices]], and [[software-engineering/index|software engineering]].
 
 ---
 
@@ -33,7 +33,7 @@ From [[concepts/03-design-patterns/index|design patterns]], [[concepts/04-best-p
 
 - **Untestable** — tests can't substitute it, and state leaks between them, producing order-dependent failures
 - **Hidden dependency** — a class using a singleton has a dependency its signature doesn't declare, so you can't tell what it needs by reading it
-- **Concurrency** — shared mutable state across threads → [[foundations/os/06-concurrency-primitives|concurrency primitives]]
+- **Concurrency** — shared mutable state across threads → [[os/06-concurrency-primitives|concurrency primitives]]
 - **Lifecycle is unmanaged** — you can't control initialisation order or shut it down cleanly
 
 **What to do instead:** create one instance and **inject** it. You get a single instance *and* substitutability, which is the actual requirement — "there should be one" and "it must be globally reachable" are different demands, and Singleton conflates them.
@@ -48,9 +48,9 @@ From [[concepts/03-design-patterns/index|design patterns]], [[concepts/04-best-p
 
 **Most useful in practice — Single Responsibility and Dependency Inversion.** SRP as *"one reason to change"* is the one that prevents the 2,000-line service. DI is what makes anything testable.
 
-**The one worth arguing about — Open/Closed.** *"Open for extension, closed for modification"* was formulated when recompiling and redistributing was expensive. **With version control, tests and CI, editing a class is cheap.** Designing extension points speculatively usually produces indirection for variation that never arrives → [[foundations/systems-engineering/05-trade-studies|YAGNI]].
+**The one worth arguing about — Open/Closed.** *"Open for extension, closed for modification"* was formulated when recompiling and redistributing was expensive. **With version control, tests and CI, editing a class is cheap.** Designing extension points speculatively usually produces indirection for variation that never arrives → [[systems-engineering/05-trade-studies|YAGNI]].
 
-**Liskov** matters and is usually violated by inheritance that shouldn't exist — the square/rectangle case is really an argument for composition → [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]].
+**Liskov** matters and is usually violated by inheritance that shouldn't exist — the square/rectangle case is really an argument for composition → [[programming-fundamentals/13-objects-and-classes|objects and classes]].
 
 **The senior point:** SOLID is object-oriented-shaped. In a functional or data-oriented codebase the underlying goals — small pieces, explicit dependencies, substitutable parts — survive; the specific five don't map cleanly. **Knowing they're heuristics, not laws, is the answer.**
 
@@ -118,7 +118,7 @@ The failure mode is abstracting two things that *look* alike but aren't the same
 **The heuristics worth naming:**
 - **Rule of three** — wait for a third occurrence before extracting; two data points don't establish a pattern
 - **"Duplication is far cheaper than the wrong abstraction"** (Sandi Metz) — the standard formulation, and the one to cite
-- **Ask whether they'd change together.** Two pieces of code that would always change for the same reason are one concept. Coincidentally identical code is two → [[foundations/systems-engineering/04-architecture-and-interfaces|cohesion]]
+- **Ask whether they'd change together.** Two pieces of code that would always change for the same reason are one concept. Coincidentally identical code is two → [[systems-engineering/04-architecture-and-interfaces|cohesion]]
 - **Un-abstracting is harder than abstracting**, because callers have accumulated
 
 **The senior point:** DRY is about **knowledge**, not characters — *"every piece of knowledge should have a single authoritative representation."* Two identical validation functions encoding *different business rules* that happen to agree today are not a DRY violation.
@@ -128,7 +128,7 @@ The failure mode is abstracting two things that *look* alike but aren't the same
 ## Related
 - [[concepts/interview/01-apis-auth-and-practices|APIs, auth & practices]]
 - [[concepts/03-design-patterns/index|design patterns]] · [[concepts/04-best-practices/index|best practices]]
-- [[foundations/software-engineering/index|software engineering]] — what the profession is
+- [[software-engineering/index|software engineering]] — what the profession is
 - [[backend/interview/index|Backend interview prep]]
 
 *Source: [reference] — assembled Aug 2026.*

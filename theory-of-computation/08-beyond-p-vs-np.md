@@ -18,7 +18,7 @@
 
 > **The historical case study is primality testing.** Miller–Rabin (randomised, 1976) was fast and practical. **AKS (2002) proved primality is in P** — deterministic polynomial time. **The randomised algorithm is still what everyone uses**, because it's vastly faster.
 >
-> **That's the honest lesson: complexity class membership and practical choice are different questions.** → [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Primality testing]]
+> **That's the honest lesson: complexity class membership and practical choice are different questions.** → [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Primality testing]]
 
 **Where randomisation earns its place in practice:**
 
@@ -27,7 +27,7 @@
 - **Monte Carlo methods** — integration in high dimensions, where deterministic quadrature fails
 - **Randomised load balancing** — power of two choices
 - **Skip lists** — probabilistic balancing, far simpler than a red-black tree
-- **Bloom filters** — one-sided error, huge space saving. **A "no" is certain, a "yes" is probable** → [[foundations/dsa/04-data-structures/03-hash-maps|Hash Maps]]
+- **Bloom filters** — one-sided error, huge space saving. **A "no" is certain, a "yes" is probable** → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
 
 **The pattern in every case: randomness buys simplicity and robustness against adversarial input**, not raw asymptotic power.
 
@@ -81,7 +81,7 @@
 - **Authentication without revealing a password**
 - **Verifiable computation** — proving an outsourced computation was done correctly
 
-**The PCP theorem** ($\text{NP} = \text{PCP}(\log n, 1)$) says every NP proof can be rewritten so a verifier checking **a constant number of randomly chosen bits** catches errors with high probability. **A startling result**, and it's the foundation of modern inapproximability proofs. → [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]]
+**The PCP theorem** ($\text{NP} = \text{PCP}(\log n, 1)$) says every NP proof can be rewritten so a verifier checking **a constant number of randomly chosen bits** catches errors with high probability. **A startling result**, and it's the foundation of modern inapproximability proofs. → [[theory-of-computation/07-complexity-classes|Complexity Classes]]
 
 ## Space complexity
 
@@ -103,7 +103,7 @@
 
 **Randomised algorithms — high value.** Bloom filters, skip lists, random pivots, sketches. You'll use these.
 
-**Knowing why static analysis is imperfect — moderate.** Explains a class of frustrations and stops you filing impossible feature requests. → [[foundations/theory-of-computation/06-decidability|Decidability]]
+**Knowing why static analysis is imperfect — moderate.** Explains a class of frustrations and stops you filing impossible feature requests. → [[theory-of-computation/06-decidability|Decidability]]
 
 **The rest — low, honestly.** The specific inclusions between PSPACE and EXPTIME will not affect your code. **They're worth knowing because they're the shared vocabulary of the literature**, not because they'll come up in a code review.
 
@@ -125,6 +125,6 @@
 ---
 
 ## Related
-- [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — P, NP and the reductions
+- [[theory-of-computation/07-complexity-classes|Complexity Classes]] — P, NP and the reductions
 - [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|Cryptographic Best Practices]] — where post-quantum lands
-- [[foundations/theory-of-computation/index|Theory of computation map]]
+- [[theory-of-computation/index|Theory of computation map]]

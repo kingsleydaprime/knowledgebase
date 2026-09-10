@@ -14,7 +14,7 @@
 
 **Soft real-time** — late degrades quality. Video display, logging, UI.
 
-**Why a missed deadline is a correctness failure**, not a performance one: the control maths assumed a fixed sample interval $T$. Your integral and derivative terms are computed with it. **Miss a deadline and your effective gains change** — you're now running a different controller than the one you tuned. → [[engineering/02-control-theory/12-digital-control|Digital Control]]
+**Why a missed deadline is a correctness failure**, not a performance one: the control maths assumed a fixed sample interval $T$. Your integral and derivative terms are computed with it. **Miss a deadline and your effective gains change** — you're now running a different controller than the one you tuned. → [[control-theory/12-digital-control|Digital Control]]
 
 **And jitter is worse than latency.** A consistent 5 ms delay you can design around — model it, add phase margin. A delay varying between 1 and 10 ms you cannot, because the plant you're controlling changes every cycle.
 
@@ -39,7 +39,7 @@
 | **Stock Linux** | poor | tens of *milliseconds* of jitter. Fine for planning, not control |
 | **Python / JVM / Go** | poor | GC pauses. Never in a control loop |
 
-→ [[foundations/os/03-scheduling|Scheduling]], [[foundations/os/index|Operating Systems]]
+→ [[os/03-scheduling|Scheduling]], [[os/index|Operating Systems]]
 
 **The standard architecture, and it's the right default:**
 
@@ -168,6 +168,6 @@ Dual encoders that disagree indicate a fault. **Comparison is itself a detection
 
 ## Related
 - [[robotics/09-robot-control|Robot Control]] — the loops with the deadlines
-- [[foundations/os/03-scheduling|Scheduling]] — how an OS meets or misses them
+- [[os/03-scheduling|Scheduling]] — how an OS meets or misses them
 - [[robotics/13-ros-and-robot-software|ROS and Robot Software]] — and where it isn't appropriate
 - [[robotics/index|Robotics map]]

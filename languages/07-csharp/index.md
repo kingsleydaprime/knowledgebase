@@ -59,7 +59,7 @@ The language, and the .NET platform around it. **Not the frameworks** — ASP.NE
 | [[languages/01-java/index\|Java]]                                         | The closest neighbour — compare constantly |
 | [[backend/index\|backend course]]                                         | The concepts ASP.NET Core implements       |
 | [[languages/06-python/index\|Python]] · [[languages/03-rust/index\|Rust]] | The async and pattern-matching comparisons |
-| [[foundations/computer-architecture/09-caches-in-depth\|caches]]          | Why structs beat classes in arrays         |
+| [[computer-architecture/09-caches-in-depth\|caches]]          | Why structs beat classes in arrays         |
 
 ## The honest note
 

@@ -83,6 +83,6 @@ This is a general lesson: **always think about what happens when your app shuts 
 ## The general version of this
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency (Java course)]] — the standalone treatment: memory model, locks, atomics
 - [[languages/01-java/02-jvm-and-concurrency/exercises/index|Concurrency exercises]] — build a bounded blocking queue and a rate limiter
-- [[foundations/os/interview/01-processes-memory-and-io|OS: what a context switch actually costs]]
+- [[os/interview/01-processes-memory-and-io|OS: what a context switch actually costs]]
 
 ↑ [[projects/index|All projects and the domains they exercise]]

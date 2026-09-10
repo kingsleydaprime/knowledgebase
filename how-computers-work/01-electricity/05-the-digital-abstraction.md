@@ -396,5 +396,5 @@ This is the end of Part II. You are ready for Part III when you can, closed-book
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — the circuit that delivers rail-to-rail outputs and sharp transitions
 - [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 22 — Latches and Flip-Flops]] — metastability, the abstraction's unavoidable failure mode
-- [[foundations/information-theory/01-what-information-is|information-theory/what information is]] — the mathematical treatment of what a bit is
-- [[foundations/networking/index|networking/]] — where noise margins reappear as bit error rates and coding gain
+- [[information-theory/01-what-information-is|information-theory/what information is]] — the mathematical treatment of what a bit is
+- [[networking/index|networking/]] — where noise margins reappear as bit error rates and coding gain

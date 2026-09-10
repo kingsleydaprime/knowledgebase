@@ -49,9 +49,9 @@ Between organisations, shortest path is the wrong goal. Cost, contracts, and pol
 - Route selection considers **local preference** (business policy) *before* AS-path length. The internet routinely takes a longer path because it's cheaper.
 - It is built on trust. Historically, **any AS could announce any prefix** and much of the internet would believe it. That's **BGP hijacking** — the mechanism behind Pakistan Telecom taking YouTube offline globally in 2008, and multiple cryptocurrency thefts since. Mitigations (RPKI origin validation) are being deployed, slowly.
 
-The takeaway for an engineer who isn't a network operator: **the internet's core routing is consensus-free, policy-driven, and trust-based.** Your traffic's path is a business decision made by strangers, it changes without warning, and it is not authenticated. That is a load-bearing assumption behind why you encrypt everything ([[foundations/networking/12-tls-and-transport-security|TLS]]) and why latency to a given host can change overnight for no reason you control.
+The takeaway for an engineer who isn't a network operator: **the internet's core routing is consensus-free, policy-driven, and trust-based.** Your traffic's path is a business decision made by strangers, it changes without warning, and it is not authenticated. That is a load-bearing assumption behind why you encrypt everything ([[networking/12-tls-and-transport-security|TLS]]) and why latency to a given host can change overnight for no reason you control.
 
-**Anycast** is the useful trick built on BGP: announce the *same* prefix from many locations, and each client's traffic naturally lands on the topologically nearest one. This is how [[foundations/networking/10-dns-in-depth|DNS root servers]] and CDN edges work — one IP address, hundreds of physical sites.
+**Anycast** is the useful trick built on BGP: announce the *same* prefix from many locations, and each client's traffic naturally lands on the topologically nearest one. This is how [[networking/10-dns-in-depth|DNS root servers]] and CDN edges work — one IP address, hundreds of physical sites.
 
 ## TTL, ICMP, and how traceroute works
 
@@ -71,7 +71,7 @@ Reading traceroute output correctly requires knowing its limits, which is where 
 No entity on the internet knows the route your packet takes. Routing is an **emergent, continuously renegotiated agreement** between independent parties with conflicting incentives — which is why the path is asymmetric, changes without notice, is optimised for money rather than speed, and is not authenticated. Design as if the network between two points is an untrusted stranger who reroutes you at will, because it is.
 
 ## Related
-- [[foundations/networking/03-ip-addressing-and-subnetting|IP Addressing & Subnetting]] — the prefixes routers match on
-- [[foundations/networking/16-debugging-networks|Debugging Networks]] — traceroute/mtr in practice
-- [[foundations/networking/15-network-performance|Network Performance]] — why path length is a latency floor
+- [[networking/03-ip-addressing-and-subnetting|IP Addressing & Subnetting]] — the prefixes routers match on
+- [[networking/16-debugging-networks|Debugging Networks]] — traceroute/mtr in practice
+- [[networking/15-network-performance|Network Performance]] — why path length is a latency floor
 - [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection & Membership]] — gossip, the same convergence problem one layer up

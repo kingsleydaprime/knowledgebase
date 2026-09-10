@@ -103,7 +103,7 @@ PostgreSQL, managed (RDS).
 
 **The "alternatives considered" section is the one that pays.** In eighteen months someone will ask "why didn't we use Dynamo?" — and this answers it in ten seconds instead of a three-day re-investigation.
 
-This is exactly the `DECISIONS.md` habit in [[foundations/software-engineering/01-what-software-engineering-is|the engineering habits]], and it's the same instinct as [[concepts/04-best-practices/03-documentation-practices|documentation practices]].
+This is exactly the `DECISIONS.md` habit in [[software-engineering/01-what-software-engineering-is|the engineering habits]], and it's the same instinct as [[concepts/04-best-practices/03-documentation-practices|documentation practices]].
 
 ## When not to run one
 
@@ -112,8 +112,8 @@ This is exactly the `DECISIONS.md` habit in [[foundations/software-engineering/0
 The useful test is **reversibility**: a decision you can undo in an afternoon should be made in an afternoon. A decision that commits a supplier, a schema, a public API or a factory tool deserves the full method. Amazon's *one-way vs two-way doors* is the same idea, and the common failure is treating two-way doors as one-way — deliberating for a fortnight over something you could have tried.
 
 ## Related
-- [[foundations/systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what you're choosing between
-- [[foundations/systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — quantifying the downside
+- [[systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what you're choosing between
+- [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — quantifying the downside
 - [[concepts/04-best-practices/03-documentation-practices|documentation practices]] — ADRs
 - [[architecture/01-system-design-fundamentals/index|system design]] — trade-offs as the core skill
 

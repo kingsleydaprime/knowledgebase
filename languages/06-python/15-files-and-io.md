@@ -176,7 +176,7 @@ if not target.is_relative_to(base.resolve()):     # 3.9+
 ## Related
 - [[languages/06-python/11-the-standard-library|the standard library]] — `pathlib`, `json`, `csv` in context
 - [[languages/06-python/17-asyncio-in-depth|asyncio]] — why async file I/O barely exists
-- [[foundations/os/07-filesystems-and-storage|filesystems and storage]] — what `fsync` actually does
-- [[foundations/os/08-io-models|I/O models]] — blocking, non-blocking, io_uring
+- [[os/07-filesystems-and-storage|filesystems and storage]] — what `fsync` actually does
+- [[os/08-io-models|I/O models]] — blocking, non-blocking, io_uring
 
 *Source: [reference] — from the Python docs; roadmap.sh-cross-referenced.*

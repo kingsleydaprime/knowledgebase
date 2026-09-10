@@ -97,6 +97,6 @@ The unglamorous but critical part: **an ambiguous metric definition means every 
 - [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]] — walking the metric tree to explain a change
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — the specific product metrics
 - [[data-analysis/07-dashboards-and-bi|dashboards and BI]] — where metrics get surfaced (and their definitions live)
-- [[foundations/systems-engineering/05-trade-studies|trade studies]] — weighting criteria, the same "what do we optimise" problem
+- [[systems-engineering/05-trade-studies|trade studies]] — weighting criteria, the same "what do we optimise" problem
 
 *Source: [reference] — Goodhart's Law, and modern analytics practice. Sep 2026.*

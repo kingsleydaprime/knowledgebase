@@ -8,7 +8,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🟢 ⭐ **Do a game jam.** Ludum Dare, GMTK, or any of the hundreds on itch.io. A theme, 48 hours, ship something. **The single highest-value item in this section** — it forces scope discipline and an actual finish line, and produces a public artefact with feedback from strangers → [[game-development/08-getting-started|08]].
 - 🟢 **Ship Pong, then Breakout.** Two weekends, publicly on itch.io. Menus, sound, a build someone else can run. **The last 20% is where the learning is** → [[game-development/08-getting-started|the ladder]].
-- 🟢 **Write a shader that colours a surface by its normal**, then by a light direction. Ten lines on Shadertoy. **It demystifies the whole of graphics** → [[foundations/computer-graphics/10-practice-exercises|graphics exercise 1]].
+- 🟢 **Write a shader that colours a surface by its normal**, then by a light direction. Ten lines on Shadertoy. **It demystifies the whole of graphics** → [[computer-graphics/10-practice-exercises|graphics exercise 1]].
 - 🟢 **Implement Euler integration and watch a pendulum gain energy**, then change two lines to semi-implicit and watch it stop. **Ten minutes, and note 04's central claim becomes a memory** → [[game-development/04-game-physics|04]].
 - 🟡 **A platformer with good feel** — coyote time, jump buffering, variable jump height, all hand-authored rather than physics-driven. **Feel is a real, teachable skill and it's what interviews ask about** → [[game-development/04-game-physics|04]].
 - 🟡 **Profile a frame with RenderDoc.** Capture, find where 16 ms goes, fix one thing, re-measure. **Seeing the budget is worth more than reading about it** → [[game-development/03-graphics-for-games|03]].

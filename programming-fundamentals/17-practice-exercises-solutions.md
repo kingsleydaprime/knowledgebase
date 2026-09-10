@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Beginner]** · Worked answers to [[foundations/programming-fundamentals/16-practice-exercises|note 16]]. **Try each first.**
+> **[Beginner]** · Worked answers to [[programming-fundamentals/16-practice-exercises|note 16]]. **Try each first.**
 
 These explain *why*, not just *what*. Where an exercise has no single right answer, the solution says so and gives you the thing to judge against instead.
 
@@ -47,7 +47,7 @@ If the third language took much longer than the second, it was probably the *too
 
 **The unclosed bracket is the one that misreports**, and the reason is mechanical: the parser doesn't know you *meant* to close it. It keeps consuming tokens as part of the unfinished expression until it meets something that cannot possibly continue — which may be lines later. **So when a syntax error points at a line that looks fine, look up.**
 
-The misspelled name is different in kind: it's not a syntax error at all. The program is grammatically valid, so it runs until execution reaches that line. In a compiled or statically typed language it would have been caught before running — that's the trade in [[foundations/programming-fundamentals/02-languages-and-the-translation-problem|note 02]].
+The misspelled name is different in kind: it's not a syntax error at all. The program is grammatically valid, so it runs until execution reaches that line. In a compiled or statically typed language it would have been caught before running — that's the trade in [[programming-fundamentals/02-languages-and-the-translation-problem|note 02]].
 
 ### 4. Check five things
 
@@ -112,7 +112,7 @@ print(f"£{total_pence / 100:.2f}")     # £10.00 — convert only to DISPLAY
 
 Or `decimal.Decimal("0.10")`, which is slower but exact for decimal fractions.
 
-**Why rounding at the end is not the fix:** it hides this instance and leaves the class of bug in place. With enough operations the error exceeds your rounding precision, and you get a discrepancy nobody can reproduce. Financial systems use integers or decimals for exactly this reason → [[foundations/numerical-methods/02-floating-point-and-error|floating point]].
+**Why rounding at the end is not the fix:** it hides this instance and leaves the class of bug in place. With enough operations the error exceeds your rounding precision, and you get a discrepancy nobody can reproduce. Financial systems use integers or decimals for exactly this reason → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]].
 
 ### 7. FizzBuzz, then FizzBuzz differently
 
@@ -125,7 +125,7 @@ for n in range(1, 101):
     else:             print(n)
 ```
 
-Note `% 15` must come **first** — order matters in an `elif` chain → [[foundations/programming-fundamentals/06-control-flow|note 06]].
+Note `% 15` must come **first** — order matters in an `elif` chain → [[programming-fundamentals/06-control-flow|note 06]].
 
 ```python
 # version 2 — rules as data
@@ -138,7 +138,7 @@ for n in range(1, 101):
 
 **Why this matters more than it looks:** version 1 needs a new branch *and* a new combined case for every rule added — 4 rules means 15 combinations. Version 2 needs one tuple. **The combinatorial explosion vanishes because the rules became data instead of control flow**, and `"".join(...)` handles combinations for free.
 
-This is the same instinct as configuration over code, [[foundations/programming-fundamentals/14-programming-paradigms|declarative over imperative]], and data-driven design in [[game-development/07-tools-and-production|games]].
+This is the same instinct as configuration over code, [[programming-fundamentals/14-programming-paradigms|declarative over imperative]], and data-driven design in [[game-development/07-tools-and-production|games]].
 
 ### 8. Earn the four orders of magnitude
 
@@ -162,7 +162,7 @@ print(f"list {list_time:.4f}s   set {set_time:.6f}s   ratio {list_time/set_time:
 
 Typical: **500–2000×**. The list scans on average 10,000 entries per lookup; the set hashes once and jumps.
 
-**The exact ratio doesn't matter — the shape does.** The list's cost grows with the collection; the set's doesn't. Double the data and the gap doubles → [[foundations/dsa/index|DSA]].
+**The exact ratio doesn't matter — the shape does.** The list's cost grows with the collection; the set's doesn't. Double the data and the gap doubles → [[dsa/index|DSA]].
 
 ### 9. Refactor until each does one thing
 
@@ -177,7 +177,7 @@ def main(path):              # wires them together
 
 **The test that matters: `grade(85.0)` is now testable with no file, no I/O and no setup.** In the 40-line version, testing the grade boundaries required a file on disk. That's the practical payoff — not aesthetics.
 
-Note `main` is the only function that knows about all the others, and the only one with side effects. **Pure logic in the middle, effects at the edge** → [[foundations/programming-fundamentals/14-programming-paradigms|note 14]].
+Note `main` is the only function that knows about all the others, and the only one with side effects. **Pure logic in the middle, effects at the edge** → [[programming-fundamentals/14-programming-paradigms|note 14]].
 
 ### 10. Hunt the off-by-one
 
@@ -190,7 +190,7 @@ def last_n(items, n):
 
 Behaviour: `n=0` → `[]`; `n=1` → last item; `n=len` → everything; `n>len` → everything (no error); empty list → `[]`.
 
-**The trap:** without the guard, `items[-0:]` is `items[0:]` — **the whole list**, because `-0 == 0`. So `last_n(x, 0)` silently returns everything. No error, wrong answer: a [[foundations/programming-fundamentals/10-errors-and-debugging|logic error]], the expensive kind.
+**The trap:** without the guard, `items[-0:]` is `items[0:]` — **the whole list**, because `-0 == 0`. So `last_n(x, 0)` silently returns everything. No error, wrong answer: a [[programming-fundamentals/10-errors-and-debugging|logic error]], the expensive kind.
 
 Returning everything for `n > len` is defensible; raising is also defensible. **Deciding is the exercise.**
 
@@ -202,7 +202,7 @@ Returning everything for `n > len` is defensible; raising is also defensible. **
 
 `factorial(100_000)` → `RecursionError: maximum recursion depth exceeded`.
 
-**What ran out: stack frames**, not memory generally. Each call pushes a frame holding `n` and a return address; 100,000 nested calls exceed the limit (~1,000 in Python by default) → [[foundations/programming-fundamentals/09-recursion-and-the-call-stack|note 09]].
+**What ran out: stack frames**, not memory generally. Each call pushes a frame holding `n` and a return address; 100,000 nested calls exceed the limit (~1,000 in Python by default) → [[programming-fundamentals/09-recursion-and-the-call-stack|note 09]].
 
 ```python
 def factorial(n):
@@ -255,7 +255,7 @@ No single answer; the number is the finding.
 
 **Typical result: 1–2 restructures when planned, 4–8 when not.** The unplanned version usually discovers the PIN-attempt counter needs to live outside the loop *after* writing the loop, and that quitting needs to break out of two levels.
 
-**If planning made no difference, the problem was too small** — which is also a valid finding, and exactly what [[foundations/programming-fundamentals/11-planning-before-you-type|note 11]] says about calibration. Try it again on something with 5+ branches.
+**If planning made no difference, the problem was too small** — which is also a valid finding, and exactly what [[programming-fundamentals/11-planning-before-you-type|note 11]] says about calibration. Try it again on something with 5+ branches.
 
 ### 15. Model something with invariants
 
@@ -286,7 +286,7 @@ class BankAccount:
 
 **In Python you can still break it:** `acct._balance = -500` works. The underscore is convention, not enforcement.
 
-**That's the honest answer to the exercise.** Python trades enforcement for introspectability. Java's `private` genuinely prevents it; Rust's ownership and visibility rules do too. Knowing *which* your language gives you is the point — and in Python the defence is that `_balance` announces intent, and code reviews and linters enforce it socially rather than mechanically → [[foundations/programming-fundamentals/13-objects-and-classes|note 13]].
+**That's the honest answer to the exercise.** Python trades enforcement for introspectability. Java's `private` genuinely prevents it; Rust's ownership and visibility rules do too. Knowing *which* your language gives you is the point — and in Python the defence is that `_balance` announces intent, and code reviews and linters enforce it socially rather than mechanically → [[programming-fundamentals/13-objects-and-classes|note 13]].
 
 ### 16. The same problem, two paradigms
 
@@ -310,10 +310,10 @@ Arguments for declarative: no mutable accumulator, expresses *what* rather than 
 
 **Here the imperative version is genuinely better** — `groupby` needs pre-sorted input (a real trap → [[languages/06-python/06-iterators-generators-and-comprehensions|note 06]]), which adds an O(n log n) sort for no benefit. A `defaultdict(int)` version is cleaner still.
 
-**The lesson isn't "declarative good".** It's that you should be able to write both and pick deliberately → [[foundations/programming-fundamentals/14-programming-paradigms|note 14]].
+**The lesson isn't "declarative good".** It's that you should be able to write both and pick deliberately → [[programming-fundamentals/14-programming-paradigms|note 14]].
 
 ## Related
-- [[foundations/programming-fundamentals/16-practice-exercises|the exercises]]
-- [[foundations/programming-fundamentals/index|the course]]
+- [[programming-fundamentals/16-practice-exercises|the exercises]]
+- [[programming-fundamentals/index|the course]]
 
 *Source: [reference] — written Aug 2026.*

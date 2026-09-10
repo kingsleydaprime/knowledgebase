@@ -74,7 +74,7 @@ C's remaining unassailable niches: **the ABI everything speaks**, targets with n
 ## Known gaps
 
 - **No project.** The largest gap
-- **Concurrency** — pthreads, C11 `<threads.h>`, atomics and the memory model get a mention and no note. It's a real omission; the material lives partly in [[foundations/os/fundamentals|OS Fundamentals]]
+- **Concurrency** — pthreads, C11 `<threads.h>`, atomics and the memory model get a mention and no note. It's a real omission; the material lives partly in [[os/fundamentals|OS Fundamentals]]
 - **Signals** — `signal`/`sigaction` and async-signal-safety
 - **Embedded C specifically** — freestanding implementations, linker scripts, `volatile` for registers. Adjacent to [[hardware/index|hardware/]]
 - **C23** — mentioned, not covered in depth
@@ -84,6 +84,6 @@ C's remaining unassailable niches: **the ABI everything speaks**, targets with n
 ## Related
 - [[languages/03-rust/index|Rust]] — the language built to replace this one
 - [[languages/index|Languages]] — the language/framework split rule
-- [[foundations/os/index|Operating Systems]] — written in C, all of them
+- [[os/index|Operating Systems]] — written in C, all of them
 - [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Exploits]] — where C's failure modes lead
 - [[BUILD-PLAN|Build Plan]] — C++ is next

@@ -24,7 +24,7 @@ The field's most recognisable diagram. Decomposition down the left, integration 
 
 **And that's the discipline the V actually enforces: if you cannot write the test now, the requirement isn't finished.** Everything else about the V is scheduling. This is the part worth keeping even if you never draw one.
 
-**The asymmetry to notice:** defects are *injected* on the left and *found* on the right. The further apart injection and detection are, the more expensive the fix — which is the cost curve from [[foundations/systems-engineering/01-what-systems-engineering-is|note 01]] restated as a process.
+**The asymmetry to notice:** defects are *injected* on the left and *found* on the right. The further apart injection and detection are, the more expensive the fix — which is the cost curve from [[systems-engineering/01-what-systems-engineering-is|note 01]] restated as a process.
 
 ## Verification and validation are different questions
 
@@ -33,7 +33,7 @@ The distinction the V makes visible, and the most-confused pair of words in the 
 - **Verification** — *did we build the thing right?* Against the specification.
 - **Validation** — *did we build the right thing?* Against the actual need.
 
-**A system can pass every verification and fail validation.** That's the Mars Climate Orbiter: correct against its spec, wrong against reality. It's also every product that meets its requirements and nobody wants → [[foundations/systems-engineering/06-verification-and-validation|note 06]].
+**A system can pass every verification and fail validation.** That's the Mars Climate Orbiter: correct against its spec, wrong against reality. It's also every product that meets its requirements and nobody wants → [[systems-engineering/06-verification-and-validation|note 06]].
 
 ## The lifecycle
 
@@ -47,7 +47,7 @@ The V covers development. The **lifecycle** is the whole life, and ISO/IEC 15288
 - Software: the maintenance phase is most of the total spend, and it's decided by choices made in a fortnight of design
 - **Retirement is a real engineering problem** — decommissioning a nuclear plant, recycling a battery pack, migrating off a system 200 other systems depend on
 
-**Design for the whole life, not the handover.** Concretely: maintainability, upgradability, diagnosability, and data migration are requirements, not afterthoughts. The software-shaped version of this argument is in [[foundations/software-engineering/01-what-software-engineering-is|what software engineering is]] — code is read and changed far longer than it is written.
+**Design for the whole life, not the handover.** Concretely: maintainability, upgradability, diagnosability, and data migration are requirements, not afterthoughts. The software-shaped version of this argument is in [[software-engineering/01-what-software-engineering-is|what software engineering is]] — code is read and changed far longer than it is written.
 
 ## The V is not opposed to agile
 
@@ -71,7 +71,7 @@ The real variable is **how big a batch you push through**, exactly as in [[devop
 - **Incremental V** — several passes, each a complete V over a subset of capability
 - **Spiral (Boehm)** — repeated risk-driven cycles; *"identify the biggest risk, and do the work that retires it"*. Genuinely underrated as a general planning heuristic
 - **Agile hardware** — software iterates weekly *within* a hardware V that iterates yearly. Very common in robotics and automotive, and the interface between the two cadences is the hard part
-- **Digital twin / model-based** — iterate on a simulation cheaply, commit to physical build rarely → [[foundations/systems-engineering/07-mbse-and-modelling|MBSE]]
+- **Digital twin / model-based** — iterate on a simulation cheaply, commit to physical build rarely → [[systems-engineering/07-mbse-and-modelling|MBSE]]
 
 ## Gates and reviews
 
@@ -100,9 +100,9 @@ NASA's 1–9 scale for how proven a technology is:
 **Directly transferable to software:** "we'll use this new database" is a TRL question. Has *your team* run it in production under *your* load? If not, that's a risk with a mitigation (spike it, prototype it, keep a fallback), not a decision that's already been made.
 
 ## Related
-- [[foundations/systems-engineering/06-verification-and-validation|verification and validation]] — the right-hand side, properly
-- [[foundations/systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — what gates are looking for
+- [[systems-engineering/06-verification-and-validation|verification and validation]] — the right-hand side, properly
+- [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — what gates are looking for
 - [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved|how delivery practice evolved]] — the same batch-size argument in software
-- [[foundations/software-engineering/02-the-software-development-lifecycle|the SDLC]]
+- [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
 
 *Source: [reference] — from ISO/IEC/IEEE 15288, the NASA SE Handbook, and INCOSE.*

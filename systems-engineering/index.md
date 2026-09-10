@@ -20,35 +20,35 @@ The gap mattered in both directions:
 
 **01–03 are the frame. 04–05 are design. 06–08 are proving it works and what to do about what you missed.**
 
-1. [[foundations/systems-engineering/01-what-systems-engineering-is|What Systems Engineering Is]] — **[Beginner]** — emergence, the three canonical failures, **where lifecycle cost is committed**, and why this isn't senior software engineering
-2. [[foundations/systems-engineering/02-requirements|Requirements]] — **[Beginner → Intermediate]** — the hierarchy, what makes one good, **why "verifiable" kills most bad requirements**, traceability, and the SLO correspondence
-3. [[foundations/systems-engineering/03-the-lifecycle-and-the-v-model|The Lifecycle and the V-Model]] — **[Beginner → Intermediate]** — the V, verification vs validation, **why the V isn't opposed to agile**, gates, and TRLs
-4. [[foundations/systems-engineering/04-architecture-and-interfaces|Architecture and Interfaces]] — **[Intermediate]** — functional vs physical decomposition, the coupling types software doesn't have, **the ICD**, N² diagrams, margin, Conway's Law
-5. [[foundations/systems-engineering/05-trade-studies|Trade Studies]] — **[Intermediate]** — the method, **the four ways a scoring matrix lies**, sensitivity analysis, TCO, and ADRs
-6. [[foundations/systems-engineering/06-verification-and-validation|Verification and Validation]] — **[Intermediate]** — the four methods, testing like reality, **why coverage isn't confidence**, independence, human factors
-7. [[foundations/systems-engineering/07-mbse-and-modelling|MBSE and Modelling]] — **[Intermediate]** — SysML, **why v2's textual notation matters**, digital twins, and the software parallels
-8. [[foundations/systems-engineering/08-risk-and-failure-analysis|Risk and Failure Analysis]] — **[Intermediate]** — FMEA, fault trees, common-cause failure, **and normalisation of deviance**
+1. [[systems-engineering/01-what-systems-engineering-is|What Systems Engineering Is]] — **[Beginner]** — emergence, the three canonical failures, **where lifecycle cost is committed**, and why this isn't senior software engineering
+2. [[systems-engineering/02-requirements|Requirements]] — **[Beginner → Intermediate]** — the hierarchy, what makes one good, **why "verifiable" kills most bad requirements**, traceability, and the SLO correspondence
+3. [[systems-engineering/03-the-lifecycle-and-the-v-model|The Lifecycle and the V-Model]] — **[Beginner → Intermediate]** — the V, verification vs validation, **why the V isn't opposed to agile**, gates, and TRLs
+4. [[systems-engineering/04-architecture-and-interfaces|Architecture and Interfaces]] — **[Intermediate]** — functional vs physical decomposition, the coupling types software doesn't have, **the ICD**, N² diagrams, margin, Conway's Law
+5. [[systems-engineering/05-trade-studies|Trade Studies]] — **[Intermediate]** — the method, **the four ways a scoring matrix lies**, sensitivity analysis, TCO, and ADRs
+6. [[systems-engineering/06-verification-and-validation|Verification and Validation]] — **[Intermediate]** — the four methods, testing like reality, **why coverage isn't confidence**, independence, human factors
+7. [[systems-engineering/07-mbse-and-modelling|MBSE and Modelling]] — **[Intermediate]** — SysML, **why v2's textual notation matters**, digital twins, and the software parallels
+8. [[systems-engineering/08-risk-and-failure-analysis|Risk and Failure Analysis]] — **[Intermediate]** — FMEA, fault trees, common-cause failure, **and normalisation of deviance**
 
 ## The things worth carrying
 
-1. **A system has properties none of its parts have.** That's the entire justification for the discipline → [[foundations/systems-engineering/01-what-systems-engineering-is|01]]
-2. **~80% of lifecycle cost is committed before ~15% is spent.** The highest-leverage engineering happens before anyone is confident → [[foundations/systems-engineering/01-what-systems-engineering-is|01]]
-3. **If you can't write the test, the requirement isn't finished** → [[foundations/systems-engineering/02-requirements|02]] · [[foundations/systems-engineering/03-the-lifecycle-and-the-v-model|03]]
-4. **An SLO is a verifiable non-functional requirement.** SRE reinvented the discipline's oldest idea → [[foundations/systems-engineering/02-requirements|02]]
-5. **Batch size should follow the cost of being wrong.** Nobody iterates a bridge; nobody writes a requirements baseline for a landing page → [[foundations/systems-engineering/03-the-lifecycle-and-the-v-model|03]]
-6. **A gate that has never returned "no" is a status meeting** → [[foundations/systems-engineering/03-the-lifecycle-and-the-v-model|03]]
-7. **Do the functional decomposition before the physical one**, or you've chosen a solution before considering alternatives → [[foundations/systems-engineering/04-architecture-and-interfaces|04]]
-8. **The interface is owned by neither side, and is harder to change than either implementation** → [[foundations/systems-engineering/04-architecture-and-interfaces|04]]
-9. **Margin is the physical form of "don't run at 100% utilisation"** — and it's the first thing cut under schedule pressure → [[foundations/systems-engineering/04-architecture-and-interfaces|04]]
-10. **Weight the criteria before you score.** Whoever sets the weights has made the decision → [[foundations/systems-engineering/05-trade-studies|05]]
-11. **Report the break-even, not the winner** → [[foundations/systems-engineering/05-trade-studies|05]]
-12. **Decide in proportion to reversibility.** Two-way doors deserve an afternoon → [[foundations/systems-engineering/05-trade-studies|05]]
-13. **The people who built it share the assumptions that would cause the failure.** That's what independence buys → [[foundations/systems-engineering/06-verification-and-validation|06]]
-14. **"The user made a mistake" is almost always a system finding** → [[foundations/systems-engineering/06-verification-and-validation|06]]
-15. **Whatever is executable becomes the truth; everything else becomes decoration** → [[foundations/systems-engineering/07-mbse-and-modelling|07]]
-16. **The cheapest fix is often "make it fail loudly", not "make it fail less"** → [[foundations/systems-engineering/08-risk-and-failure-analysis|08]]
-17. **Redundancy only helps against failures that are genuinely independent** → [[foundations/systems-engineering/08-risk-and-failure-analysis|08]]
-18. **Each survival of a known anomaly is treated as evidence of safety.** It isn't → [[foundations/systems-engineering/08-risk-and-failure-analysis|08]]
+1. **A system has properties none of its parts have.** That's the entire justification for the discipline → [[systems-engineering/01-what-systems-engineering-is|01]]
+2. **~80% of lifecycle cost is committed before ~15% is spent.** The highest-leverage engineering happens before anyone is confident → [[systems-engineering/01-what-systems-engineering-is|01]]
+3. **If you can't write the test, the requirement isn't finished** → [[systems-engineering/02-requirements|02]] · [[systems-engineering/03-the-lifecycle-and-the-v-model|03]]
+4. **An SLO is a verifiable non-functional requirement.** SRE reinvented the discipline's oldest idea → [[systems-engineering/02-requirements|02]]
+5. **Batch size should follow the cost of being wrong.** Nobody iterates a bridge; nobody writes a requirements baseline for a landing page → [[systems-engineering/03-the-lifecycle-and-the-v-model|03]]
+6. **A gate that has never returned "no" is a status meeting** → [[systems-engineering/03-the-lifecycle-and-the-v-model|03]]
+7. **Do the functional decomposition before the physical one**, or you've chosen a solution before considering alternatives → [[systems-engineering/04-architecture-and-interfaces|04]]
+8. **The interface is owned by neither side, and is harder to change than either implementation** → [[systems-engineering/04-architecture-and-interfaces|04]]
+9. **Margin is the physical form of "don't run at 100% utilisation"** — and it's the first thing cut under schedule pressure → [[systems-engineering/04-architecture-and-interfaces|04]]
+10. **Weight the criteria before you score.** Whoever sets the weights has made the decision → [[systems-engineering/05-trade-studies|05]]
+11. **Report the break-even, not the winner** → [[systems-engineering/05-trade-studies|05]]
+12. **Decide in proportion to reversibility.** Two-way doors deserve an afternoon → [[systems-engineering/05-trade-studies|05]]
+13. **The people who built it share the assumptions that would cause the failure.** That's what independence buys → [[systems-engineering/06-verification-and-validation|06]]
+14. **"The user made a mistake" is almost always a system finding** → [[systems-engineering/06-verification-and-validation|06]]
+15. **Whatever is executable becomes the truth; everything else becomes decoration** → [[systems-engineering/07-mbse-and-modelling|07]]
+16. **The cheapest fix is often "make it fail loudly", not "make it fail less"** → [[systems-engineering/08-risk-and-failure-analysis|08]]
+17. **Redundancy only helps against failures that are genuinely independent** → [[systems-engineering/08-risk-and-failure-analysis|08]]
+18. **Each survival of a known anomaly is treated as evidence of safety.** It isn't → [[systems-engineering/08-risk-and-failure-analysis|08]]
 
 ## The bridge to the rest of the vault
 
@@ -57,7 +57,7 @@ The gap mattered in both directions:
 | Systems engineering | Already in this vault as |
 |---|---|
 | Requirements & non-functional properties | [[architecture/01-system-design-fundamentals/index\|system design]] · [[devops/10-observability/01-observability-fundamentals\|SLOs]] |
-| The V-model | [[foundations/software-engineering/02-the-software-development-lifecycle\|the SDLC]] |
+| The V-model | [[software-engineering/02-the-software-development-lifecycle\|the SDLC]] |
 | Batch size vs cost of error | [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved\|how delivery practice evolved]] |
 | Interface control documents | [[backend/02-api-design/index\|API contracts]] |
 | Coupling & cohesion | [[concepts/04-best-practices/05-solid-principles\|SOLID]] |
@@ -66,7 +66,7 @@ The gap mattered in both directions:
 | FMEA / fault trees | [[cybersecurity/06-attacks-and-threats/index\|threat modelling]] · [[architecture/04-distributed-systems/index\|failure modes]] |
 | IV&V, blameless review | [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering\|postmortems]] |
 | MBSE | [[devops/07-infrastructure-as-code/01-provisioning-and-terraform\|infrastructure as code]] |
-| Multi-disciplinary systems | [[robotics/index\|robotics]] · [[hardware/08-iot-architecture\|IoT]] · [[engineering/index\|engineering]] |
+| Multi-disciplinary systems | [[robotics/index\|robotics]] · [[hardware/08-iot-architecture\|IoT]] · [[control-theory/index\|control theory]] · [[continuum-mechanics/index\|continuum mechanics]] |
 
 ## Note on roadmap.sh
 
@@ -91,7 +91,7 @@ The standards are the substitute, and they're the real syllabus: **INCOSE System
 → [[PRIMETECHIE|Reading is not a rank.]]
 
 ## Related
-- [[foundations/software-engineering/index|software engineering]] — the sibling discipline
+- [[software-engineering/index|software engineering]] — the sibling discipline
 - [[architecture/index|architecture]] — this, for software
-- [[engineering/index|engineering]] — the physical domains this coordinates
+- [[control-theory/index|control theory]] · [[continuum-mechanics/index|continuum mechanics]] — the physical domains this coordinates
 - [[BUILD-PLAN|Build Plan]]

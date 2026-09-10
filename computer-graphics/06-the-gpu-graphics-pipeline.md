@@ -2,7 +2,7 @@
 
 **[Intermediate → Advanced]** — Shader stages, the modern APIs, and how the graphics pipeline relates to the compute model.
 
-> **[[foundations/gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] covers the hardware** — SMs, warps, memory. **This note is the graphics-specific programming model built on it.**
+> **[[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] covers the hardware** — SMs, warps, memory. **This note is the graphics-specific programming model built on it.**
 
 ## The stages
 
@@ -20,9 +20,9 @@
 
 **Programmable stages you write; fixed-function stages you configure.**
 
-**Vertex shader** — runs once per vertex. **Transform to clip space**, pass through attributes. → [[foundations/computer-graphics/02-the-transform-pipeline|Transforms]]
+**Vertex shader** — runs once per vertex. **Transform to clip space**, pass through attributes. → [[computer-graphics/02-the-transform-pipeline|Transforms]]
 
-**Fragment (pixel) shader** — runs once per covered fragment. **Compute colour.** This is where shading and texturing happen, and **it's usually where the time goes.** → [[foundations/computer-graphics/04-shading-and-lighting|Shading]]
+**Fragment (pixel) shader** — runs once per covered fragment. **Compute colour.** This is where shading and texturing happen, and **it's usually where the time goes.** → [[computer-graphics/04-shading-and-lighting|Shading]]
 
 **Geometry shader** — can emit new primitives. **Flexible and slow on most hardware** — it serialises output ordering. **Compute shaders are almost always the better answer**, and GS is essentially deprecated in practice.
 
@@ -32,7 +32,7 @@
 
 **The stage that broke the pipeline open.**
 
-**A compute shader is a general-purpose kernel with no fixed-function graphics around it** — the same model as [[foundations/gpu-and-parallel-computing/03-the-programming-model|CUDA]]: workgroups, shared memory, barriers.
+**A compute shader is a general-purpose kernel with no fixed-function graphics around it** — the same model as [[gpu-and-parallel-computing/03-the-programming-model|CUDA]]: workgroups, shared memory, barriers.
 
 **What it enabled:**
 
@@ -78,7 +78,7 @@ layout(location=0) out vec4 colour;
 void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 ```
 
-**Shader performance rules, and they're the [[foundations/gpu-and-parallel-computing/02-gpu-architecture|warp]] rules restated:**
+**Shader performance rules, and they're the [[gpu-and-parallel-computing/02-gpu-architecture|warp]] rules restated:**
 
 **Avoid divergent branches.** Threads in a warp execute both paths. **Uniform branches (same for the whole draw) are free.**
 
@@ -86,7 +86,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 
 **Watch register pressure.** Complex shaders reduce occupancy.
 
-**Avoid `discard`** — it disables early-Z. → [[foundations/computer-graphics/03-rasterisation|Early-Z]]
+**Avoid `discard`** — it disables early-Z. → [[computer-graphics/03-rasterisation|Early-Z]]
 
 **Prefer built-ins** (`dot`, `mix`, `clamp`, `fma`) — they map to single instructions.
 
@@ -148,7 +148,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 
 **Are you CPU- or GPU-bound?** Reduce resolution: **if the frame rate doesn't change, you're CPU-bound** and optimising shaders is wasted effort. **A ten-second test that saves days.**
 
-**Shader complexity vs bandwidth.** Same roofline reasoning as compute. → [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|Roofline]]
+**Shader complexity vs bandwidth.** Same roofline reasoning as compute. → [[gpu-and-parallel-computing/06-performance-and-the-roofline|Roofline]]
 
 **Pipeline stalls** from synchronisation — visible on a timeline as GPU gaps.
 
@@ -171,7 +171,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 ---
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware underneath
-- [[foundations/computer-graphics/03-rasterisation|Rasterisation]] — the fixed-function stage
-- [[foundations/gpu-and-parallel-computing/03-the-programming-model|The Compute Programming Model]] — the sibling model
-- [[foundations/computer-graphics/index|Computer graphics map]]
+- [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware underneath
+- [[computer-graphics/03-rasterisation|Rasterisation]] — the fixed-function stage
+- [[gpu-and-parallel-computing/03-the-programming-model|The Compute Programming Model]] — the sibling model
+- [[computer-graphics/index|Computer graphics map]]

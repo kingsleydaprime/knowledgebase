@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Beginner → Intermediate]** · Worked answers to [[foundations/mathematics/02-discrete-math/09-practice-exercises|note 09]]. **Write yours first.**
+> **[Beginner → Intermediate]** · Worked answers to [[mathematics/02-discrete-math/09-practice-exercises|note 09]]. **Write yours first.**
 
 Proofs are given in the form you should be writing — prose with the logical skeleton visible, not symbol soup.
 
@@ -103,7 +103,7 @@ which is the formula at $k+1$. ∎
 
 Every $n \ge 2$ has a prime factorisation. If $n$ is prime, done. Otherwise $n = ab$ with $1 < a,b < n$. **Both $a$ and $b$ are smaller than $n$ but neither is necessarily $n-1$** — so we need the hypothesis for *all* smaller values, which is strong induction. Apply it to $a$ and $b$, concatenate. ∎
 
-**Ordinary induction is awkward because the factors aren't the predecessor.** Whenever a recursive structure splits into arbitrary smaller pieces — mergesort, quicksort, divide-and-conquer generally — strong induction is the natural tool → [[foundations/programming-fundamentals/09-recursion-and-the-call-stack|recursion]].
+**Ordinary induction is awkward because the factors aren't the predecessor.** Whenever a recursive structure splits into arbitrary smaller pieces — mergesort, quicksort, divide-and-conquer generally — strong induction is the natural tool → [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]].
 
 ### 11. All horses
 
@@ -128,7 +128,7 @@ while lo <= hi:
     assert not (target in arr) or lo <= arr.index(target) <= hi   # the invariant, checked
 ```
 
-**Run it on 1000 random arrays.** This is the exercise that makes the course pay: an invariant is a precise statement about a loop that you can *both* prove and assert. **The overflow bug in `mid = (lo + hi) // 2` that lived in the JDK for nine years was an invariant violation nobody had stated** → [[foundations/dsa/index|DSA]].
+**Run it on 1000 random arrays.** This is the exercise that makes the course pay: an invariant is a precise statement about a loop that you can *both* prove and assert. **The overflow bug in `mid = (lo + hi) // 2` that lived in the JDK for nine years was an invariant violation nobody had stated** → [[dsa/index|DSA]].
 
 ---
 
@@ -177,10 +177,10 @@ $e = 7$; $\gcd(7,120)=1$ ✓. Extended Euclid gives $d = 103$ (check: $7 \times 
 
 **The infeasible step at 300 digits is computing $\phi(n)$, which requires factoring $n$.** Everything else — modular exponentiation by squaring, the extended Euclidean algorithm — is fast at any size.
 
-**RSA's security is exactly the gap between multiplying (easy) and factoring (believed hard).** Note "believed": there is no proof factoring is hard, and Shor's algorithm factors in polynomial time on a quantum computer → [[foundations/theory-of-computation/08-beyond-p-vs-np|beyond P vs NP]] · [[cybersecurity/05-cryptography/index|cryptography]].
+**RSA's security is exactly the gap between multiplying (easy) and factoring (believed hard).** Note "believed": there is no proof factoring is hard, and Shor's algorithm factors in polynomial time on a quantum computer → [[theory-of-computation/08-beyond-p-vs-np|beyond P vs NP]] · [[cybersecurity/05-cryptography/index|cryptography]].
 
 ## Related
-- [[foundations/mathematics/02-discrete-math/09-practice-exercises|the exercises]]
-- [[foundations/mathematics/02-discrete-math/index|the course]]
+- [[mathematics/02-discrete-math/09-practice-exercises|the exercises]]
+- [[mathematics/02-discrete-math/index|the course]]
 
 *Source: [reference] — RSA and counterexample arithmetic verified computationally, August 2026.*

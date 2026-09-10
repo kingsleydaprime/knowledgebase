@@ -8,20 +8,20 @@
 
 **By the end you'll have** `match(pattern, text)` supporting concatenation, alternation `|`, Kleene star `*`, `+`, `?`, character classes, anchors, and capture groups.
 
-**What you're deliberately not building:** backreferences (`\1`), lookahead/lookbehind, or lazy quantifiers. **Not because they're too hard — because they're not regular.** They're exactly what forces real engines into exponential backtracking, and leaving them out is what buys you the linear-time guarantee. → [[foundations/theory-of-computation/03-regular-languages|Regular Languages]]
+**What you're deliberately not building:** backreferences (`\1`), lookahead/lookbehind, or lazy quantifiers. **Not because they're too hard — because they're not regular.** They're exactly what forces real engines into exponential backtracking, and leaving them out is what buys you the linear-time guarantee. → [[theory-of-computation/03-regular-languages|Regular Languages]]
 
 > **This is the one build guide where the theory tells you the answer in advance.** Kleene's theorem says regex ≡ NFA ≡ DFA, and the constructions are known and small. **You're not inventing an algorithm; you're implementing three that fit on a page each** — and watching them turn out to actually work is the point.
 
 ## What you need first
 
 **Required:**
-- **Recursive descent parsing** — the pattern is a small grammar → [[foundations/compilers/03-parsing|Parsing]]
-- **Graphs and traversal** — an NFA is a graph, and simulation is a BFS → [[foundations/dsa/05-algorithms/03-bfs|BFS]]
+- **Recursive descent parsing** — the pattern is a small grammar → [[compilers/03-parsing|Parsing]]
+- **Graphs and traversal** — an NFA is a graph, and simulation is a BFS → [[dsa/05-algorithms/03-bfs|BFS]]
 - **Sets** — the subset construction is literally sets of states
 
 **Strongly recommended, and it's what makes this build land:**
-- [[foundations/theory-of-computation/02-finite-automata|Finite Automata]] — Thompson's construction and the subset construction are described there
-- [[foundations/theory-of-computation/03-regular-languages|Regular Languages]] — why backreferences change the complexity class
+- [[theory-of-computation/02-finite-automata|Finite Automata]] — Thompson's construction and the subset construction are described there
+- [[theory-of-computation/03-regular-languages|Regular Languages]] — why backreferences change the complexity class
 
 **Honest note:** you can build this without reading either, and you'll re-derive worse versions of both constructions. **Read those two notes first; they're an hour.**
 
@@ -49,7 +49,7 @@ class       := '[' '^'? (CHAR | CHAR '-' CHAR)* ']'
 
 **Recursive descent, one function per level.** ~80 lines.
 
-> **Note the grammar encodes precedence exactly as an arithmetic grammar does** — alternation binds loosest, then concatenation, then the postfix quantifiers. **Same structure as `E → E + T`.** → [[foundations/theory-of-computation/04-context-free-languages|Context-Free Languages]]
+> **Note the grammar encodes precedence exactly as an arithmetic grammar does** — alternation binds loosest, then concatenation, then the postfix quantifiers. **Same structure as `E → E + T`.** → [[theory-of-computation/04-context-free-languages|Context-Free Languages]]
 
 **Test:** parse `a(b|c)*d` and print the tree. Confirm `ab|cd` parses as `(ab)|(cd)`, not `a(b|c)d`.
 
@@ -109,7 +109,7 @@ for each char c in input:
 
 **Anchors are conditions on position**, not characters. `^` matches only at offset 0.
 
-**Test:** `^[a-z]+@[a-z]+\.[a-z]{2,}$` on a handful of strings. (Not a correct email validator — [[foundations/theory-of-computation/03-regular-languages|nothing is]] — but a good exercise.)
+**Test:** `^[a-z]+@[a-z]+\.[a-z]{2,}$` on a handful of strings. (Not a correct email validator — [[theory-of-computation/03-regular-languages|nothing is]] — but a good exercise.)
 
 ### Milestone 6 — Subset construction (NFA → DFA)
 
@@ -181,7 +181,7 @@ for _ in range(100000):
 | Python `re` / PCRE | **minutes to hours** |
 | Yours | **microseconds** |
 
-**That single comparison is the whole argument** for why RE2, Go's `regexp` and Rust's `regex` exist, and why you should never run a user-supplied pattern through a backtracking engine. → [[foundations/theory-of-computation/02-finite-automata|ReDoS]]
+**That single comparison is the whole argument** for why RE2, Go's `regexp` and Rust's `regex` exist, and why you should never run a user-supplied pattern through a backtracking engine. → [[theory-of-computation/02-finite-automata|ReDoS]]
 
 **Also test:** the empty pattern, patterns matching empty strings, nested stars, long alternations, and Unicode if you're feeling brave (it's a genuine complication — character classes over code points, not bytes).
 
@@ -203,7 +203,7 @@ for _ in range(100000):
 ---
 
 ## Related
-- [[foundations/theory-of-computation/02-finite-automata|Finite Automata]] — the constructions, explained
-- [[foundations/theory-of-computation/03-regular-languages|Regular Languages]] — why the limits are where they are
-- [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — the same machinery, industrially
+- [[theory-of-computation/02-finite-automata|Finite Automata]] — the constructions, explained
+- [[theory-of-computation/03-regular-languages|Regular Languages]] — why the limits are where they are
+- [[compilers/02-lexical-analysis|Lexical Analysis]] — the same machinery, industrially
 - [[build-your-own-shit/index|build-your-own-shit]]

@@ -81,7 +81,7 @@ switch (day) {
 }
 ```
 
-**In C-family languages a missing `break` "falls through" to the next case** — occasionally what you want, usually a bug, and the reason the construct has a bad reputation. Newer designs (Python's `match`, Rust's `match`, modern `switch` expressions) removed the trap and added **pattern matching**, which can destructure values rather than just compare them. If your language has that form, prefer it. → [[foundations/programming-language-theory/index|PL theory]].
+**In C-family languages a missing `break` "falls through" to the next case** — occasionally what you want, usually a bug, and the reason the construct has a bad reputation. Newer designs (Python's `match`, Rust's `match`, modern `switch` expressions) removed the trap and added **pattern matching**, which can destructure values rather than just compare them. If your language has that form, prefer it. → [[programming-language-theory/index|PL theory]].
 
 `default` / `_` is the `else` of a switch, and the same argument applies: always include it.
 
@@ -99,7 +99,7 @@ for (let i = 0; i < 5; i++) {
 
 Three parts: **start** (`i = 0`), **condition to continue** (`i < 5`), **step** (`i++`). It runs 5 times, and `i` ends at 4 — because the check happens *before* each pass, and `5 < 5` is false.
 
-**Starting at 0 and using `<` is deliberate**, not a stylistic quirk: it makes `i` line up with collection indices, which start at 0 → [[foundations/programming-fundamentals/07-collections|note 07]].
+**Starting at 0 and using `<` is deliberate**, not a stylistic quirk: it makes `i` line up with collection indices, which start at 0 → [[programming-fundamentals/07-collections|note 07]].
 
 ### `for-each` — once per item
 
@@ -173,13 +173,13 @@ for row in grid:
 
 **Nesting multiplies the work.** An outer loop of 1,000 with an inner loop of 1,000 is a million iterations. Add a third level and it's a billion — the point where "it works on my test data" and "it works on real data" diverge sharply.
 
-This is where [[foundations/dsa/index|DSA]] starts: not as an interview ritual, but as the answer to *how much work does this actually do as the input grows?* You don't need it yet. **You do need the instinct that nested loops over large inputs deserve a second look.**
+This is where [[dsa/index|DSA]] starts: not as an interview ritual, but as the answer to *how much work does this actually do as the input grows?* You don't need it yet. **You do need the instinct that nested loops over large inputs deserve a second look.**
 
 ## Related
-- [[foundations/programming-fundamentals/07-collections|collections]] — what you'll mostly be looping over
-- [[foundations/programming-fundamentals/08-functions|functions]] — packaging this up
-- [[foundations/programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — the other way to repeat
-- [[foundations/dsa/index|DSA]] — when "how many times does this run?" starts to matter
-- [[foundations/computer-architecture/07-branch-prediction-and-speculation|branch prediction]] — what an `if` costs the hardware
+- [[programming-fundamentals/07-collections|collections]] — what you'll mostly be looping over
+- [[programming-fundamentals/08-functions|functions]] — packaging this up
+- [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — the other way to repeat
+- [[dsa/index|DSA]] — when "how many times does this run?" starts to matter
+- [[computer-architecture/07-branch-prediction-and-speculation|branch prediction]] — what an `if` costs the hardware
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course.*

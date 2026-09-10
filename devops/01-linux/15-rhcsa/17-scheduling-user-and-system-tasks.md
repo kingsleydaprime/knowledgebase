@@ -2,7 +2,7 @@
 
 > RHCSA V10 — added after reviewing the official RH134 course book (Red Hat System Administration II, RHEL 10.0), which covers this as its own two-chapter topic not previously in this folder.
 
-Part of [[README|RHCSA V10]]. Recurring jobs (`cron`) already have a general note at [[devops/01-linux/11-cron-jobs|cron-jobs]] — this note covers what that one doesn't: **one-time** deferred jobs (`at`), and the RHEL-10-specific shift toward **systemd timers** for system-level scheduling, plus **systemd-tmpfiles** for managing temporary files.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Recurring jobs (`cron`) already have a general note at [[devops/01-linux/11-cron-jobs|cron-jobs]] — this note covers what that one doesn't: **one-time** deferred jobs (`at`), and the RHEL-10-specific shift toward **systemd timers** for system-level scheduling, plus **systemd-tmpfiles** for managing temporary files.
 
 ---
 

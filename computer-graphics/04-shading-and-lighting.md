@@ -10,7 +10,7 @@
 
 $$L_o = \sum_{\text{lights}} f_r(\omega_i, \omega_o)\, L_i\,(\omega_i\cdot\mathbf{n})$$
 
-**Everything below is a choice of $f_r$** — the BRDF. → [[foundations/computer-graphics/01-how-rendering-works|The Rendering Equation]]
+**Everything below is a choice of $f_r$** — the BRDF. → [[computer-graphics/01-how-rendering-works|The Rendering Equation]]
 
 ## The classical models
 
@@ -90,7 +90,7 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 
 ## Shadows
 
-**Rasterisation's fundamental weakness** — a fragment can't see other geometry. → [[foundations/computer-graphics/01-how-rendering-works|How Rendering Works]]
+**Rasterisation's fundamental weakness** — a fragment can't see other geometry. → [[computer-graphics/01-how-rendering-works|How Rendering Works]]
 
 **Shadow mapping** is the standard workaround:
 
@@ -155,7 +155,7 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 ---
 
 ## Related
-- [[foundations/computer-graphics/05-textures-and-sampling|Textures and Sampling]] — where the material parameters come from
-- [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing]] — solving the light transport properly
-- [[foundations/computer-graphics/01-how-rendering-works|How Rendering Works]] — the rendering equation
-- [[foundations/computer-graphics/index|Computer graphics map]]
+- [[computer-graphics/05-textures-and-sampling|Textures and Sampling]] — where the material parameters come from
+- [[computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing]] — solving the light transport properly
+- [[computer-graphics/01-how-rendering-works|How Rendering Works]] — the rendering equation
+- [[computer-graphics/index|Computer graphics map]]

@@ -34,7 +34,7 @@ Two properties that shape everything above them:
 
 **Propagation is not instant.** A block takes on the order of hundreds of milliseconds to reach most of the network. That delay is *why* competing blocks and reorgs exist at all, and it's why block times are seconds rather than milliseconds — the interval must exceed propagation time by a comfortable margin or the network forks constantly.
 
-**Bandwidth, not CPU, is usually the binding constraint** on decentralisation. Raising the gas limit raises the bandwidth needed to keep up, which prices out home nodes. "Why not just make blocks bigger" has this as its real answer, and it's a genuine engineering constraint rather than conservatism → [[foundations/networking/index|networking]].
+**Bandwidth, not CPU, is usually the binding constraint** on decentralisation. Raising the gas limit raises the bandwidth needed to keep up, which prices out home nodes. "Why not just make blocks bigger" has this as its real answer, and it's a genuine engineering constraint rather than conservatism → [[networking/index|networking]].
 
 ## Node types, and what each can prove
 
@@ -73,7 +73,7 @@ This is real and worth being blunt about:
 **A blockchain's decentralisation is bounded by what an ordinary person can afford to run.** Every parameter — block size, gas limit, state growth, block time — is really a knob trading throughput against how many people can independently verify. And the layer most dapps actually depend on, the hosted RPC, has quietly opted out of verification altogether.
 
 ## Related
-- [[foundations/networking/index|networking]] — the P2P, TCP and DNS mechanics underneath
+- [[networking/index|networking]] — the P2P, TCP and DNS mechanics underneath
 - [[web3/04-smart-contract-security/06-mev-front-running-and-ordering|MEV]] — what the public mempool enables
 - [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing chain state]] — the JSON-RPC API in practice
 - [[build-your-own-shit/14-your-own-blockchain|build your own blockchain]] — the gossip layer is milestone 5

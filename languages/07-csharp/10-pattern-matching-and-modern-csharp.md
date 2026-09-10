@@ -118,6 +118,6 @@ var (lo, hi) = MinMax(numbers);
 ## Related
 - [[languages/07-csharp/03-classes-records-and-structs|records]] — what you match on
 - [[languages/03-rust/index|Rust]] — where the pattern matching came from
-- [[foundations/programming-language-theory/04-type-systems-formally|type systems]] — exhaustiveness
+- [[programming-language-theory/04-type-systems-formally|type systems]] — exhaustiveness
 
 *Source: [reference] — from the C# language reference, Aug 2026.*

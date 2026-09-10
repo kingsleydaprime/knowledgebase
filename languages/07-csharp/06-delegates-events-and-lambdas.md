@@ -105,6 +105,6 @@ Expression<Func<int,bool>> e = x => x > 5;   // a DATA STRUCTURE describing the 
 ## Related
 - [[languages/07-csharp/04-collections-and-linq|collections and LINQ]] — built on all of this
 - [[languages/07-csharp/07-async-await-and-tasks|async and tasks]]
-- [[foundations/programming-fundamentals/14-programming-paradigms|paradigms]] — functions as values
+- [[programming-fundamentals/14-programming-paradigms|paradigms]] — functions as values
 
 *Source: [reference] — from the C# language reference, Aug 2026.*

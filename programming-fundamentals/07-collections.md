@@ -40,7 +40,7 @@ items.append("apple")      # grows as needed
 items.append("bread")
 ```
 
-Internally it keeps a fixed array with spare capacity. When it fills, it allocates a bigger one (typically double) and copies. Because the size doubles, the copies get rarer as it grows, and **the average cost per append stays constant** even though occasional appends are expensive. (This is *amortised* O(1) — the reasoning is worth meeting properly in [[foundations/dsa/index|DSA]].)
+Internally it keeps a fixed array with spare capacity. When it fills, it allocates a bigger one (typically double) and copies. Because the size doubles, the copies get rarer as it grows, and **the average cost per append stays constant** even though occasional appends are expensive. (This is *amortised* O(1) — the reasoning is worth meeting properly in [[dsa/index|DSA]].)
 
 **Use a dynamic array by default.** In most languages it's what you get from the literal syntax anyway.
 
@@ -93,7 +93,7 @@ Two things sets are ideal for and lists are bad at: **deduplication** (`list(set
 
 ## Iterating
 
-Almost always for-each → [[foundations/programming-fundamentals/06-control-flow|note 06]]:
+Almost always for-each → [[programming-fundamentals/06-control-flow|note 06]]:
 
 ```python
 for score in scores:
@@ -131,13 +131,13 @@ Everything above is built from two physical arrangements: **contiguous memory** 
 
 From those two, everything else: stacks, queues, linked lists, trees, graphs, heaps. Each trades the cost of one operation against another, and choosing well is most of what makes a program fast.
 
-**That's [[foundations/dsa/index|DSA]], and it's the natural next thing after this course.** You don't need it to write useful programs. You need it the first time something works on 100 items and takes four minutes on 100,000.
+**That's [[dsa/index|DSA]], and it's the natural next thing after this course.** You don't need it to write useful programs. You need it the first time something works on 100 items and takes four minutes on 100,000.
 
 ## Related
-- [[foundations/programming-fundamentals/06-control-flow|control flow]] — iterating over these
-- [[foundations/programming-fundamentals/08-functions|functions]] — passing collections around (and note 05's sharing trap applies)
-- [[foundations/dsa/index|DSA]] — the depth version of this note
-- [[foundations/programming-fundamentals/05-variables-and-types|variables and types]] — why `list2 = list1` doesn't copy
+- [[programming-fundamentals/06-control-flow|control flow]] — iterating over these
+- [[programming-fundamentals/08-functions|functions]] — passing collections around (and note 05's sharing trap applies)
+- [[dsa/index|DSA]] — the depth version of this note
+- [[programming-fundamentals/05-variables-and-types|variables and types]] — why `list2 = list1` doesn't copy
 - [[databases/02-the-relational-model|the relational model]] — collections that outlive the program
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with sets, hashing and the complexity comparisons it left for later.*

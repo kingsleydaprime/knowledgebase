@@ -54,11 +54,11 @@ The disciplines, and roughly how a team divides:
 
 **Essential, immediately** — vectors (add, dot, cross, normalise), and enough trigonometry to point things at other things. Dot product for angles and projection; cross product for perpendiculars and winding. **If you understand the dot product, you can write gameplay code.**
 
-**Essential for 3D** — matrices and transforms, and quaternions for rotation. Not the theory; the operations and what they mean → [[foundations/computer-graphics/02-the-transform-pipeline|transforms]] and [[robotics/04-rigid-body-transforms|rigid body transforms]], which this vault already has because robotics needed exactly the same maths.
+**Essential for 3D** — matrices and transforms, and quaternions for rotation. Not the theory; the operations and what they mean → [[computer-graphics/02-the-transform-pipeline|transforms]] and [[robotics/04-rigid-body-transforms|rigid body transforms]], which this vault already has because robotics needed exactly the same maths.
 
-**For physics** — Newtonian mechanics, integration, and why Euler integration explodes → [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]].
+**For physics** — Newtonian mechanics, integration, and why Euler integration explodes → [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]].
 
-**For graphics** — linear algebra properly, plus the rendering equation → [[foundations/computer-graphics/index|computer graphics]].
+**For graphics** — linear algebra properly, plus the rendering equation → [[computer-graphics/index|computer graphics]].
 
 **You don't need most of it to start.** A 2D game needs vectors and nothing else.
 
@@ -81,7 +81,7 @@ The disciplines, and roughly how a team divides:
 ## Related
 - [[game-development/02-engines-and-the-game-loop|engines and the game loop]] — the technical starting point
 - [[game-development/08-getting-started|getting started]] — what to actually build first
-- [[foundations/computer-graphics/index|computer graphics]] — the rendering half, already here
-- [[foundations/programming-fundamentals/index|programming fundamentals]] — if this is where you're starting from
+- [[computer-graphics/index|computer graphics]] — the rendering half, already here
+- [[programming-fundamentals/index|programming fundamentals]] — if this is where you're starting from
 
 *Source: [reference] — cross-referenced against the [roadmap.sh game developer roadmap](https://roadmap.sh/game-developer).*

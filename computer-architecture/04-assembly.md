@@ -113,12 +113,12 @@ main:
     ret
 ```
 
-> **Look at `main`.** The call is gone entirely — inlined, then constant-folded. **This is why microbenchmarks lie:** if the result isn't used, the compiler deletes the work. Use `volatile`, a `black_box`, or a benchmarking framework that defeats it. → [[foundations/computer-architecture/12-performance|Performance]]
+> **Look at `main`.** The call is gone entirely — inlined, then constant-folded. **This is why microbenchmarks lie:** if the result isn't used, the compiler deletes the work. Use `volatile`, a `black_box`, or a benchmarking framework that defeats it. → [[computer-architecture/12-performance|Performance]]
 
 **Recognising call patterns:**
 
 - **Direct call** — `call func`. Predictable, cheap
-- **Indirect call** — `call [rax]` or `call rax`. Function pointer, virtual method, or dynamic dispatch. **Costs a load plus a branch prediction** → [[foundations/computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]]
+- **Indirect call** — `call [rax]` or `call rax`. Function pointer, virtual method, or dynamic dispatch. **Costs a load plus a branch prediction** → [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]]
 - **PLT call** — `call func@plt`. A dynamically-linked library call through the procedure linkage table
 - **Tail call** — `jmp func` instead of `call`. The frame is reused, so no stack growth
 
@@ -212,12 +212,12 @@ uint64_t rdtsc(void) {
 
 **Symbols matter.** Build with `-g` and keep symbols, or your stack traces are hex addresses. `addr2line` and `c++filt` recover what you can.
 
-**Don't over-interpret instruction counts.** A longer instruction sequence can be faster if it has more instruction-level parallelism or fewer cache misses. **Measure.** → [[foundations/computer-architecture/12-performance|Performance]]
+**Don't over-interpret instruction counts.** A longer instruction sequence can be faster if it has more instruction-level parallelism or fewer cache misses. **Measure.** → [[computer-architecture/12-performance|Performance]]
 
 ---
 
 ## Related
-- [[foundations/computer-architecture/03-instruction-sets|Instruction Sets]] — the vocabulary
-- [[foundations/compilers/08-code-generation|Code Generation]] — what produces this
-- [[foundations/computer-architecture/12-performance|Performance]] — using it to make things fast
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/03-instruction-sets|Instruction Sets]] — the vocabulary
+- [[compilers/08-code-generation|Code Generation]] — what produces this
+- [[computer-architecture/12-performance|Performance]] — using it to make things fast
+- [[computer-architecture/index|Architecture map]]

@@ -97,7 +97,7 @@ Autoscaling is not a substitute. Autoscaling reacts within its configured limits
 | Measures | Deploy frequency, lead time | Availability, latency, error rate, toil % |
 | Paged for | Usually not | **Yes** |
 
-They overlap heavily in skills — both need Linux, cloud, Kubernetes, networking, scripting. **What differs is what you're accountable for.** As [[foundations/software-engineering/03-the-engineering-roles|the roles note]] puts it: the honest way to tell roles apart is what failure you fear. DevOps fears a broken pipeline. **SRE fears the pager.**
+They overlap heavily in skills — both need Linux, cloud, Kubernetes, networking, scripting. **What differs is what you're accountable for.** As [[software-engineering/03-the-engineering-roles|the roles note]] puts it: the honest way to tell roles apart is what failure you fear. DevOps fears a broken pipeline. **SRE fears the pager.**
 
 ## The four numbers that tie it together
 

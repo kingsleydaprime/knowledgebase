@@ -66,4 +66,4 @@ Until now this folder was a **219-word stub** with a planned reading order and n
 
 ## Related
 - [[ai-ml/index|AI & ML]] — the models this orchestrates
-- [[README|Vault README]] · [[BUILD-PLAN|Build Plan]]
+- [[HOME|Vault README]] · [[BUILD-PLAN|Build Plan]]

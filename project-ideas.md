@@ -29,14 +29,14 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 | [[cybersecurity/projects\|Cybersecurity]] | PortSwigger's Academy, then secure your own app |
 | [[web3/projects\|Web3]] | Token and wallet from scratch, then break your own contract |
 | [[ai-ml/projects\|AI & ML]] | **RAG over this vault** |
-| [[foundations/projects\|Foundations]] | The regex engine — one evening, theory becomes code |
+| [[projects\|Foundations]] | The regex engine — one evening, theory becomes code |
 | [[languages/projects\|Languages]] | The same program in three languages |
 | [[mobile/projects\|Mobile]] | Survive process death, then **ship a small app to a store** |
 | [[git/projects\|Git]] | The disaster drill — an hour, and git stops being scary |
 | [[hardware/projects\|Hardware]] | Rev 2 of the IoT Bridge |
 | [[robotics/projects\|Robotics]] | Something moving in ROS 2 + Gazebo |
 | [[game-development/projects\|Game Dev]] | Ship a game jam entry |
-| [[engineering/projects\|Engineering]] | Balance a physical inverted pendulum |
+| [[control-theory/projects\|Control theory]] | Balance a physical inverted pendulum |
 
 ---
 
@@ -78,9 +78,9 @@ Highest signal for where you're aiming, across all four columns of [[PRIMETECHIE
 | 🟠 | [[build-your-own-shit/08-your-own-container\|Container]] | ~200 lines, one evening, and Docker stops being magical |
 | 🔴 | [[build-your-own-shit/02-your-own-git\|Git]] | Real Git reads your repository. Permanently demystifies it |
 | 🔴 ⭐ | [[build-your-own-shit/03-your-own-redis\|Redis]] | Data structures + networking + durability. The real `redis-cli` connects |
-| 🔴 | [[build-your-own-shit/04-your-own-language\|Language / interpreter]] | The deepest single lesson. → [[foundations/compilers/index\|compilers]] is the course behind it |
+| 🔴 | [[build-your-own-shit/04-your-own-language\|Language / interpreter]] | The deepest single lesson. → [[compilers/index\|compilers]] is the course behind it |
 | 🔴 | [[build-your-own-shit/06-your-own-database\|Database]] | B-tree, SQL subset, WAL. `kill -9` mid-write and the data survives |
-| 🔴 | [[build-your-own-shit/05-your-own-os\|Operating system]] | Weeks, not a weekend. Boots from a USB stick → [[foundations/os/index\|os]] |
+| 🔴 | [[build-your-own-shit/05-your-own-os\|Operating system]] | Weeks, not a weekend. Boots from a USB stick → [[os/index\|os]] |
 
 **Not yet a guide, and the best distributed-systems project there is:**
 

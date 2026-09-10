@@ -12,7 +12,7 @@
 5. Free
 ```
 
-**Steps 2 and 4 are frequently the bottleneck**, which is the first thing to design around. → [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]]
+**Steps 2 and 4 are frequently the bottleneck**, which is the first thing to design around. → [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]]
 
 ## Kernels
 
@@ -75,7 +75,7 @@ float left = shared_data[threadIdx.x - 1];
 
 **Cheap on modern hardware for shared memory, expensive when many threads hit the same global address** — they serialise. **The standard fix is a two-stage reduction:** reduce within each block using shared memory, then one atomic per block instead of one per thread.
 
-**`atomicAdd` on floats is non-deterministic** — the summation order varies between runs, and floating-point addition isn't associative. **So your results won't be bit-reproducible.** Usually fine; occasionally a real problem for debugging or regulatory reproducibility. → [[foundations/numerical-methods/02-floating-point-and-error|Non-associativity]]
+**`atomicAdd` on floats is non-deterministic** — the summation order varies between runs, and floating-point addition isn't associative. **So your results won't be bit-reproducible.** Usually fine; occasionally a real problem for debugging or regulatory reproducibility. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Non-associativity]]
 
 ## Streams and asynchrony
 
@@ -135,9 +135,9 @@ float left = shared_data[threadIdx.x - 1];
 | **NCCL** | **multi-GPU collectives** — all-reduce, broadcast |
 | cuRAND | random numbers |
 
-**A hand-written matrix multiply typically reaches 10–30% of cuBLAS.** Closing that gap means tiling, double buffering, tensor core intrinsics, and per-architecture tuning. → [[foundations/gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]]
+**A hand-written matrix multiply typically reaches 10–30% of cuBLAS.** Closing that gap means tiling, double buffering, tensor core intrinsics, and per-architecture tuning. → [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]]
 
-**NCCL matters for distributed training** — it implements ring and tree all-reduce over NVLink and InfiniBand, and it's what makes multi-GPU gradient synchronisation efficient. → [[foundations/gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]]
+**NCCL matters for distributed training** — it implements ring and tree all-reduce over NVLink and InfiniBand, and it's what makes multi-GPU gradient synchronisation efficient. → [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]]
 
 ## Debugging
 
@@ -177,7 +177,7 @@ float left = shared_data[threadIdx.x - 1];
 
 **Start with a working CPU version** and validate the GPU output against it numerically. **Expect small floating-point differences** from different summation orders — compare with a tolerance, not equality.
 
-**Profile before optimising.** Nsight Compute reports achieved occupancy, memory throughput, and whether you're compute- or bandwidth-bound. **That last number determines everything you do next.** → [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|The Roofline Model]]
+**Profile before optimising.** Nsight Compute reports achieved occupancy, memory throughput, and whether you're compute- or bandwidth-bound. **That last number determines everything you do next.** → [[gpu-and-parallel-computing/06-performance-and-the-roofline|The Roofline Model]]
 
 **Minimise transfers before optimising kernels.** Keep data resident on the device across operations. **A fused pipeline that never returns to host memory beats faster individual kernels.**
 
@@ -188,7 +188,7 @@ float left = shared_data[threadIdx.x - 1];
 ---
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — the algorithms to build with
-- [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — where the performance is
-- [[foundations/gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware this maps to
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]
+- [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — the algorithms to build with
+- [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — where the performance is
+- [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware this maps to
+- [[gpu-and-parallel-computing/index|GPU and parallel map]]

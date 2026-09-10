@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. **These aren't two independent, parallel loggers** — `systemd-journald` is the actual collection point for everything (kernel messages, early boot output, every daemon's stdout/stderr, and syslog events), and `rsyslog` sits *downstream* of it, reading from the journal (via its `imjournal` module) to sort messages into the traditional text files under `/var/log/`. journald's own copy is structured/binary and — by default — **not persistent across reboots**; rsyslog's text files in `/var/log/` are what actually survives long-term, which is exactly why "make the journal persistent" (below) is worth doing rather than relying on rsyslog's copy alone.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. **These aren't two independent, parallel loggers** — `systemd-journald` is the actual collection point for everything (kernel messages, early boot output, every daemon's stdout/stderr, and syslog events), and `rsyslog` sits *downstream* of it, reading from the journal (via its `imjournal` module) to sort messages into the traditional text files under `/var/log/`. journald's own copy is structured/binary and — by default — **not persistent across reboots**; rsyslog's text files in `/var/log/` are what actually survives long-term, which is exactly why "make the journal persistent" (below) is worth doing rather than relying on rsyslog's copy alone.
 
 ---
 

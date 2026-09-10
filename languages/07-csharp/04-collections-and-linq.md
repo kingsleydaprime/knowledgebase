@@ -16,7 +16,7 @@
 | `ImmutableArray<T>` etc. | Immutable | Cheap reads, copy on write |
 | `ConcurrentDictionary<K,V>` | Thread-safe | For concurrent access |
 
-**Same costs as everywhere** → [[foundations/programming-fundamentals/07-collections|collections]]. And the same commonest mistake: `list.Contains(x)` in a loop is O(n·m); a `HashSet<T>` makes it O(n).
+**Same costs as everywhere** → [[programming-fundamentals/07-collections|collections]]. And the same commonest mistake: `list.Contains(x)` in a loop is O(n·m); a `HashSet<T>` makes it O(n).
 
 **Interfaces matter here.** Accept the least specific thing that works — `IEnumerable<T>` for "I'll iterate it once", `IReadOnlyList<T>` for "I need indexing", `ICollection<T>` if you must add. **Returning `IEnumerable<T>` from a method that does I/O is how you accidentally re-query.**
 
@@ -83,11 +83,11 @@ db.Orders.ToList().Where(o => o.Total > 100);        // ✗ loads EVERY order, f
 
 **Unity code frequently bans LINQ in `Update`** for exactly this reason, and that's a legitimate rule — not a general indictment.
 
-**The judgement:** write LINQ by default because it's clearer; replace it with a loop where a profiler says it matters. **Not before** → [[foundations/computer-architecture/12-performance|performance method]].
+**The judgement:** write LINQ by default because it's clearer; replace it with a loop where a profiler says it matters. **Not before** → [[computer-architecture/12-performance|performance method]].
 
 ## Related
 - [[languages/07-csharp/06-delegates-events-and-lambdas|delegates and lambdas]] — what LINQ is built on
 - [[languages/07-csharp/08-memory-gc-and-spans|memory and GC]] — LINQ's cost
-- [[foundations/programming-fundamentals/07-collections|collections]] · [[databases/index|databases]]
+- [[programming-fundamentals/07-collections|collections]] · [[databases/index|databases]]
 
 *Source: [reference] — from the .NET documentation, Aug 2026.*

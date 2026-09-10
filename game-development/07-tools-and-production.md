@@ -65,7 +65,7 @@ Games are **large binary assets** — textures, models, audio, video. Git handle
 
 **Then the milestones** — prototype → vertical slice → alpha (feature complete) → beta (content complete) → gold. The definitions matter because *feature complete* and *content complete* are different dates and conflating them is a scheduling failure.
 
-**Playtesting is the only real feedback.** Watch someone play without helping them. **What players do bears little relation to what designers expected**, and there's no substitute for the discomfort of watching someone fail at something you thought was obvious. It's [[foundations/systems-engineering/06-verification-and-validation|operational validation]], and the same finding recurs: technically correct systems fail on human factors.
+**Playtesting is the only real feedback.** Watch someone play without helping them. **What players do bears little relation to what designers expected**, and there's no substitute for the discomfort of watching someone fail at something you thought was obvious. It's [[systems-engineering/06-verification-and-validation|operational validation]], and the same finding recurs: technically correct systems fail on human factors.
 
 **Scope is the killer.** Almost every failed indie project failed on scope, not skill. The reliable heuristic: **estimate, then cut to a third**, and ship the third.
 
@@ -75,7 +75,7 @@ Games profile continuously, not at the end — because a frame budget is a hard 
 
 **Profile on the target hardware.** A game running at 120 fps on a development machine may run at 22 on a base console or a mid-range Android. **The dev machine is the least representative hardware you own.**
 
-Tools: engine profilers, RenderDoc (frame capture), platform vendor tools (PIX, Instruments, Nsight). And the same method as everywhere else — **measure, hypothesise, change one thing, measure again** → [[foundations/computer-architecture/12-performance|performance method]].
+Tools: engine profilers, RenderDoc (frame capture), platform vendor tools (PIX, Instruments, Nsight). And the same method as everywhere else — **measure, hypothesise, change one thing, measure again** → [[computer-architecture/12-performance|performance method]].
 
 ## Shipping
 
@@ -87,6 +87,6 @@ Tools: engine profilers, RenderDoc (frame capture), platform vendor tools (PIX, 
 - [[game-development/08-getting-started|getting started]] — scope, applied to you
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the same productivity argument
 - [[git/index|git]] — and where it doesn't fit
-- [[foundations/systems-engineering/06-verification-and-validation|V&V]] — playtesting as validation
+- [[systems-engineering/06-verification-and-validation|V&V]] — playtesting as validation
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

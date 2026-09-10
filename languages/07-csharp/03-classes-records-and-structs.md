@@ -4,7 +4,7 @@
 
 ## Classes
 
-Reference types, the workhorse. Standard OOP → [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]].
+Reference types, the workhorse. Standard OOP → [[programming-fundamentals/13-objects-and-classes|objects and classes]].
 
 ```csharp
 public class Account
@@ -113,7 +113,7 @@ public interface IRepository<T>
 
 C# has single inheritance, `virtual`/`override`, and `sealed`.
 
-**The modern consensus applies here as everywhere: prefer composition** → [[foundations/programming-fundamentals/13-objects-and-classes|note 13]]. Deep hierarchies age badly, and C#'s records, interfaces with default implementations, and generics cover most of what inheritance used to be reached for.
+**The modern consensus applies here as everywhere: prefer composition** → [[programming-fundamentals/13-objects-and-classes|note 13]]. Deep hierarchies age badly, and C#'s records, interfaces with default implementations, and generics cover most of what inheritance used to be reached for.
 
 **`sealed` is worth using deliberately** — it documents intent and lets the JIT devirtualise calls, which is a small real performance win.
 
@@ -129,6 +129,6 @@ C# has single inheritance, `virtual`/`override`, and `sealed`.
 ## Related
 - [[languages/07-csharp/02-the-type-system|the type system]] — value vs reference
 - [[languages/07-csharp/10-pattern-matching-and-modern-csharp|pattern matching]] — records exist partly to be matched on
-- [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]]
+- [[programming-fundamentals/13-objects-and-classes|objects and classes]]
 
 *Source: [reference] — from the C# language reference, Aug 2026.*

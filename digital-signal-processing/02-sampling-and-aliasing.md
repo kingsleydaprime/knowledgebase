@@ -34,7 +34,7 @@ The value `f_max` (half the sampling rate, `fs/2`) is the **Nyquist frequency** 
 
 **Why "twice"?** A sinusoid needs at least two samples per cycle to have its frequency unambiguously determined — one for a peak-ish and one for a trough-ish. Fewer than two, and the samples fit *multiple* different sinusoids, so the frequency is ambiguous, and the reconstruction picks the wrong one.
 
-**The remarkable part:** if you obey it, reconstruction is **perfect** — the discrete samples contain *all* the information in the original continuous signal. Nothing is lost. This is deeply counterintuitive (a finite set of snapshots fully determines a continuous wave) and it's why digital audio can be indistinguishable from analog → [[foundations/information-theory/01-what-information-is|information]].
+**The remarkable part:** if you obey it, reconstruction is **perfect** — the discrete samples contain *all* the information in the original continuous signal. Nothing is lost. This is deeply counterintuitive (a finite set of snapshots fully determines a continuous wave) and it's why digital audio can be indistinguishable from analog → [[information-theory/01-what-information-is|information]].
 
 ## Aliasing — what goes wrong
 
@@ -59,7 +59,7 @@ Since aliasing is irreversible, **you must remove frequencies above `fs/2` *befo
               removes what would alias, while it still can
 ```
 
-**This is a hardware step that cannot be skipped or done later**, because once the ADC has sampled, the aliased frequencies are already indistinguishable from real ones. It's why real ADC front-ends always include one → [[foundations/digital-signal-processing/06-digital-filters|filters]].
+**This is a hardware step that cannot be skipped or done later**, because once the ADC has sampled, the aliased frequencies are already indistinguishable from real ones. It's why real ADC front-ends always include one → [[digital-signal-processing/06-digital-filters|filters]].
 
 ## Why the standard rates are what they are
 
@@ -83,9 +83,9 @@ Sampling discretises *time*; **quantisation discretises *amplitude*.** The ADC c
 **Sampling perfectly captures a continuous signal *if and only if* you sample at more than twice its highest frequency — and if you don't, the excess frequencies don't vanish, they fold down and masquerade as lower ones you can never remove.** That irreversibility is why the anti-aliasing filter is a mandatory analog step *before* the ADC, and why every sample rate you've ever seen is "just over twice the top frequency of interest." Nyquist for time, bit depth for amplitude — those two numbers define a digital signal.
 
 ## Related
-- [[foundations/digital-signal-processing/03-the-frequency-domain|the frequency domain]] — "highest frequency" only means something in the frequency domain
-- [[foundations/digital-signal-processing/07-spectral-analysis|spectral analysis]] — seeing aliasing in a spectrum
-- [[foundations/information-theory/01-what-information-is|information theory]] — sampling as an information bound
+- [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] — "highest frequency" only means something in the frequency domain
+- [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — seeing aliasing in a spectrum
+- [[information-theory/01-what-information-is|information theory]] — sampling as an information bound
 - [[hardware/02-digital-and-analog|digital and analog]] — the ADC/DAC hardware
 
 *Source: [reference] — Aug 2026.*

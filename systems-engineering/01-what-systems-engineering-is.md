@@ -20,11 +20,11 @@ A car has 30,000 parts, made by hundreds of suppliers, designed by thousands of 
 
 ## The three things it actually does
 
-**1. Turn a need into a specification.** Stakeholders say "safer" and "faster". Somebody has to convert that into numbers a supplier can build against, and be answerable when the numbers were wrong → [[foundations/systems-engineering/02-requirements|requirements]].
+**1. Turn a need into a specification.** Stakeholders say "safer" and "faster". Somebody has to convert that into numbers a supplier can build against, and be answerable when the numbers were wrong → [[systems-engineering/02-requirements|requirements]].
 
-**2. Decompose, and own the seams.** Split the system into subsystems, define their interfaces exactly, and hold the boundaries stable while specialists work behind them → [[foundations/systems-engineering/04-architecture-and-interfaces|architecture and interfaces]].
+**2. Decompose, and own the seams.** Split the system into subsystems, define their interfaces exactly, and hold the boundaries stable while specialists work behind them → [[systems-engineering/04-architecture-and-interfaces|architecture and interfaces]].
 
-**3. Prove the whole works.** Not "each part passed" — that the integrated system satisfies the original need in its real environment → [[foundations/systems-engineering/06-verification-and-validation|V&V]].
+**3. Prove the whole works.** Not "each part passed" — that the integrated system satisfies the original need in its real environment → [[systems-engineering/06-verification-and-validation|V&V]].
 
 ## Emergence — the concept underneath all of it
 
@@ -74,7 +74,7 @@ Genuine overlaps exist — decomposition, interfaces, trade-offs, non-functional
 | **Disciplines** | Mostly one | Mechanical + electrical + software + human + legal |
 | **Lifespan** | Rewritten in 5 years | **Aircraft: 40 years. Nuclear plant: 60** |
 
-**That first row explains nearly all the cultural distance.** Agile's core move — reduce batch size, learn from feedback — assumes changing your mind is cheap. When a wrong decision costs a tooling change, you buy confidence upfront with analysis instead → [[foundations/systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]].
+**That first row explains nearly all the cultural distance.** Agile's core move — reduce batch size, learn from feedback — assumes changing your mind is cheap. When a wrong decision costs a tooling change, you buy confidence upfront with analysis instead → [[systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]].
 
 **Neither culture is right.** The mistake is applying either where its assumption doesn't hold: heavyweight requirements documents for a web app, or "we'll iterate" for a satellite.
 
@@ -83,15 +83,15 @@ Genuine overlaps exist — decomposition, interfaces, trade-offs, non-functional
 Deliberately: **the systems-engineering habit is already all over here without the name.**
 
 - [[architecture/01-system-design-fundamentals/index|System design]] is systems engineering for software — requirements, decomposition, interfaces, trade-offs, non-functional properties
-- [[foundations/software-engineering/02-the-software-development-lifecycle|The SDLC]] is the V-model with the arms shortened
+- [[software-engineering/02-the-software-development-lifecycle|The SDLC]] is the V-model with the arms shortened
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] is operational systems engineering: measure the emergent property (reliability), budget it, feed it back
 - [[hardware/08-iot-architecture|IoT architecture]] and [[robotics/index|robotics]] are multi-disciplinary systems where the seams are the whole problem
-- [[engineering/02-control-theory/index|Control theory]] is the mathematics of one emergent behaviour: stability under feedback
+- [[control-theory/index|Control theory]] is the mathematics of one emergent behaviour: stability under feedback
 
 ## Related
-- [[foundations/systems-engineering/02-requirements|requirements]] — where it starts, and where it fails
-- [[foundations/systems-engineering/03-the-lifecycle-and-the-v-model|the lifecycle and the V-model]]
+- [[systems-engineering/02-requirements|requirements]] — where it starts, and where it fails
+- [[systems-engineering/03-the-lifecycle-and-the-v-model|the lifecycle and the V-model]]
 - [[architecture/index|architecture]] — the software-shaped version
-- [[foundations/software-engineering/01-what-software-engineering-is|what software engineering is]] — the sibling note
+- [[software-engineering/01-what-software-engineering-is|what software engineering is]] — the sibling note
 
 *Source: [reference] — from the INCOSE Systems Engineering Handbook, NASA SE Handbook (SP-2016-6105), and the standard case studies.*

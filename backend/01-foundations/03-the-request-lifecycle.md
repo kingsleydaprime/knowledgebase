@@ -27,7 +27,7 @@ request
 response
 ```
 
-**1. Accept and parse.** The server accepts a TCP connection and parses the HTTP message. Usually not your code — but it's where body-size limits, header limits, and keep-alive live, and those are security controls. → [[foundations/networking/06-tcp-connection-lifecycle|TCP]] · [[foundations/networking/11-http-evolution|HTTP]]
+**1. Accept and parse.** The server accepts a TCP connection and parses the HTTP message. Usually not your code — but it's where body-size limits, header limits, and keep-alive live, and those are security controls. → [[networking/06-tcp-connection-lifecycle|TCP]] · [[networking/11-http-evolution|HTTP]]
 
 **2. Global middleware.** Runs for every request. Assign a **correlation ID here, first** — everything downstream logs it, and without it you cannot follow one request through your logs. Also: CORS, body parsing (with a size cap), compression, rate limiting.
 

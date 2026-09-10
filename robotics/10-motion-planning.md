@@ -45,7 +45,7 @@ So planning becomes: **find a curve from $q_{start}$ to $q_{goal}$ that stays in
 
 ## Grid and graph search
 
-For low-dimensional problems (mobile robots in 2D/3D), discretise and search. → [[foundations/dsa/05-algorithms/06-dijkstra|Dijkstra and graph search]]
+For low-dimensional problems (mobile robots in 2D/3D), discretise and search. → [[dsa/05-algorithms/06-dijkstra|Dijkstra and graph search]]
 
 **A\*** — the standard. Optimal given an admissible heuristic, and Euclidean distance is admissible for a mobile robot.
 
@@ -174,5 +174,5 @@ Above motion planning sits _what to do_.
 
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — called constantly inside planning
 - [[robotics/09-robot-control|Robot Control]] — executing what this produces
-- [[foundations/dsa/05-algorithms/06-dijkstra|Dijkstra and graph search]] — A*, Dijkstra, graph search
+- [[dsa/05-algorithms/06-dijkstra|Dijkstra and graph search]] — A*, Dijkstra, graph search
 - [[robotics/index|Robotics map]]

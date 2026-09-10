@@ -82,7 +82,7 @@ You don't implement the cryptography; you write **circuits**:
 ## Related
 - [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|rollups]] — the main application
 - [[cybersecurity/05-cryptography/index|cryptography]] — the foundations
-- [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|number theory]] — the maths underneath
-- [[foundations/theory-of-computation/08-beyond-p-vs-np|beyond P vs NP]] — the complexity-theory framing of "verifying is easier than solving"
+- [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|number theory]] — the maths underneath
+- [[theory-of-computation/08-beyond-p-vs-np|beyond P vs NP]] — the complexity-theory framing of "verifying is easier than solving"
 
 *Source: [reference] — Aug 2026.*

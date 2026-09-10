@@ -207,7 +207,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[010-valid-palindrome|Valid Palindrome]] (LeetCode #125) — the simplest form: one pointer from each end, skip what does not count, compare.
 2. [[011-two-sum-ii|Two Sum II]] (LeetCode #167) — the sorted-input version the lab implements; the sum tells you which pointer to move.

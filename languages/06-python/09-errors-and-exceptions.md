@@ -122,7 +122,7 @@ KeyError: 'user_id'
 
 **"Most recent call last" means read from the bottom.** The last frame is where it broke; the ones above are how you got there.
 
-In a long traceback, most frames are library code — **find the deepest frame that is yours.** That's nearly always where the actual mistake is → [[foundations/programming-fundamentals/10-errors-and-debugging|debugging]].
+In a long traceback, most frames are library code — **find the deepest frame that is yours.** That's nearly always where the actual mistake is → [[programming-fundamentals/10-errors-and-debugging|debugging]].
 
 ## Exceptions and control flow
 
@@ -138,7 +138,7 @@ except* ValueError as eg: ...
 
 ## Related
 - [[languages/06-python/07-decorators-and-context-managers|context managers]] — `finally`, packaged
-- [[foundations/programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the language-agnostic version
+- [[programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the language-agnostic version
 - [[languages/02-go/05-errors|errors in Go]] — the errors-as-values contrast
 - [[backend/06-cross-cutting/index|cross-cutting concerns]] — error handling at an API boundary
 

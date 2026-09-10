@@ -3,7 +3,7 @@
 **[Intermediate→Advanced]** — how a protocol builds a perfectly ordered, lossless byte stream on top of a medium that loses, duplicates, and reorders. Two separate problems live here, and keeping them apart is most of the battle:
 
 - **Flow control** — don't overwhelm the **receiver**. Solved by the receive window.
-- **Congestion control** — don't overwhelm the **network**. Solved by the congestion window. → [[foundations/networking/08-congestion-control|next note]]
+- **Congestion control** — don't overwhelm the **network**. Solved by the congestion window. → [[networking/08-congestion-control|next note]]
 
 Both limit how much you can send. They have nothing else to do with each other, and confusing them makes TCP performance impossible to reason about.
 
@@ -27,7 +27,7 @@ The ACK is **cumulative**, and it means something precise that people misread: `
 
 That definition has a sharp consequence. If you send bytes 1000–1999, 2000–2999, 3000–3999 and the middle one is lost, the receiver **cannot** say "I got the first and third." It can only keep saying `ack=2000`. The receiver holds 3000–3999 in its buffer but cannot deliver it to the application — bytes must be delivered in order.
 
-That is **head-of-line blocking**, and it's not a bug; it's the direct price of the in-order byte-stream abstraction. If your connection is carrying twenty independent HTTP requests ([[foundations/networking/11-http-evolution|HTTP/2]]), one lost packet stalls all twenty. This single fact is why [[foundations/networking/13-quic-and-modern-transport|QUIC]] exists.
+That is **head-of-line blocking**, and it's not a bug; it's the direct price of the in-order byte-stream abstraction. If your connection is carrying twenty independent HTTP requests ([[networking/11-http-evolution|HTTP/2]]), one lost packet stalls all twenty. This single fact is why [[networking/13-quic-and-modern-transport|QUIC]] exists.
 
 **SACK** (Selective Acknowledgement, RFC 2018) patches the diagnostic half of the problem: an option that says "additionally, I have 3000–3999." The sender then retransmits only the true gap instead of everything after it. Universally supported and a large real-world win — but note it fixes *sender efficiency*, not head-of-line blocking. The receiver still can't deliver out of order.
 
@@ -77,7 +77,7 @@ This is worth carrying as a general lesson beyond TCP: **two locally-sensible op
 TCP's reliability is built from exactly two primitives — **number everything, and acknowledge a contiguous prefix** — and every other mechanism (SACK, fast retransmit, RACK, the persist timer, Nagle) is a patch on a specific way that minimal design underperforms. The one thing none of them can patch is **head-of-line blocking**, because that isn't an implementation flaw — it's the definition of the abstraction TCP promises. To escape it you can't fix TCP; you have to stop asking for a single ordered byte stream.
 
 ## Related
-- [[foundations/networking/08-congestion-control|Congestion Control]] — the other window, and the harder problem
-- [[foundations/networking/13-quic-and-modern-transport|QUIC]] — what you get when you drop the single-stream abstraction
-- [[foundations/networking/15-network-performance|Network Performance]] — bandwidth-delay product, why windows govern throughput
-- [[foundations/networking/16-debugging-networks|Debugging Networks]] — spotting retransmissions and zero windows in `ss -i` / tcpdump
+- [[networking/08-congestion-control|Congestion Control]] — the other window, and the harder problem
+- [[networking/13-quic-and-modern-transport|QUIC]] — what you get when you drop the single-stream abstraction
+- [[networking/15-network-performance|Network Performance]] — bandwidth-delay product, why windows govern throughput
+- [[networking/16-debugging-networks|Debugging Networks]] — spotting retransmissions and zero windows in `ss -i` / tcpdump

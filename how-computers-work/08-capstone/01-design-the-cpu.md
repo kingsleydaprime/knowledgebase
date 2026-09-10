@@ -5,7 +5,7 @@
 ## Before you start
 
 - You have completed modules 1–26 and can build every component of a CPU.
-- You have read [[how-computers-work/07-the-bridge|module 27]] and at minimum [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]].
+- You have read [[how-computers-work/07-the-bridge|module 27]] and at minimum [[computer-architecture/05-the-datapath|computer-architecture/the datapath]].
 
 **After this lesson you will be able to:**
 
@@ -408,7 +408,7 @@ design_lab: passed
 
 <details><summary>Hint for (b), only if stuck</summary>
 "Simultaneously live" means values you need to keep at the same time. Trace your program and, at each line, count the variables that will be read later. The maximum across all lines is your minimum register count — anything beyond that must <strong>spill</strong> to memory, costing a load and a store each time.<br>
-This is exactly what a compiler's <strong>register allocator</strong> computes ([[foundations/compilers/07-optimisation|compilers/optimisation]]), and doing it by hand once makes register pressure stop being an abstraction.
+This is exactly what a compiler's <strong>register allocator</strong> computes ([[compilers/07-optimisation|compilers/optimisation]]), and doing it by hand once makes register pressure stop being an abstraction.
 </details>
 
 ---
@@ -416,7 +416,7 @@ This is exactly what a compiler's <strong>register allocator</strong> computes (
 ## 13. Tradeoffs and limits
 
 - **This is a load-store architecture by omission.** PRIME-1's ALU operations work only on registers; memory is reached only by `LD` and `ST`. That is the RISC convention and it simplifies the datapath enormously — but it is a choice, and CISC machines that compute directly on memory operands exist.
-- **No interrupt mechanism is designed here.** Adding one requires saving the PC and flags, a vector table, and a way to disable interrupts — a substantial extension, and the reason [[foundations/os/index|os/]] is a separate course.
+- **No interrupt mechanism is designed here.** Adding one requires saving the PC and flags, a vector table, and a way to disable interrupts — a substantial extension, and the reason [[os/index|os/]] is a separate course.
 - **No consideration of pipelining.** A pipelined implementation would want to avoid instructions with variable latency and might change the encoding to simplify decode. Designing for a single-cycle implementation first is the right order.
 - **Real ISA design is workload-driven at enormous scale.** Vendors profile billions of instructions across representative software before adding one. This module's "design against your own program" is the same method, four orders of magnitude smaller.
 
@@ -440,5 +440,5 @@ This is exactly what a compiler's <strong>register allocator</strong> computes (
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU]] — the four build tracks implementing this design
-- [[foundations/computer-architecture/03-instruction-sets|computer-architecture/instruction sets]] — RISC vs CISC in depth
+- [[computer-architecture/03-instruction-sets|computer-architecture/instruction sets]] — RISC vs CISC in depth
 - [[how-computers-work/06-memory/02-registers-and-counters|module 25]] — the register file whose cost drives decision 2

@@ -21,9 +21,9 @@ That principle still holds, and this bank exists anyway — **added on request, 
 2. **Performance reasoning under a hard budget** — *"is this CPU- or GPU-bound, and how would you find out?"* is the shape of most technical follow-ups
 3. **Evidence you finish things** — the largest single factor, and the one you cannot revise for
 
-**Specialisation matters more than in general software.** Gameplay, engine, graphics, tools, AI and network programming are genuinely different roles with different rounds — this bank covers the shared core → [[foundations/software-engineering/04-the-kinds-of-software-engineering|kinds of software engineering]].
+**Specialisation matters more than in general software.** Gameplay, engine, graphics, tools, AI and network programming are genuinely different roles with different rounds — this bank covers the shared core → [[software-engineering/04-the-kinds-of-software-engineering|kinds of software engineering]].
 
 ## Related
 - [[game-development/index|the course]] · [[game-development/engines/index|engines]]
-- [[foundations/computer-graphics/index|computer graphics]] — the depth behind the graphics questions
+- [[computer-graphics/index|computer graphics]] — the depth behind the graphics questions
 - [[INTERVIEW|Interview Prep Index]]

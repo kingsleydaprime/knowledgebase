@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · The `re` module, the syntax worth memorising, and the performance cliff that has taken down real websites.
 
-Named in the [roadmap.sh Python track](https://roadmap.sh/python) and previously a one-line mention in this course. Regex is a language in its own right → [[foundations/theory-of-computation/03-regular-languages|regular languages]] explains what it can and cannot express, and [[build-your-own-shit/09-your-own-regex-engine|build your own regex engine]] builds one.
+Named in the [roadmap.sh Python track](https://roadmap.sh/python) and previously a one-line mention in this course. Regex is a language in its own right → [[theory-of-computation/03-regular-languages|regular languages]] explains what it can and cannot express, and [[build-your-own-shit/09-your-own-regex-engine|build your own regex engine]] builds one.
 
 ## Always use raw strings
 
@@ -115,7 +115,7 @@ line.split(",")                       # not a regex split
 Path(f).suffix == ".csv"              # not a filename pattern
 ```
 
-**Never parse HTML, XML or JSON with regex.** They're nested structures; regex describes regular languages, which by definition cannot count nesting depth → [[foundations/theory-of-computation/04-context-free-languages|context-free languages]]. Use a parser: `lxml`, `BeautifulSoup`, `json`.
+**Never parse HTML, XML or JSON with regex.** They're nested structures; regex describes regular languages, which by definition cannot count nesting depth → [[theory-of-computation/04-context-free-languages|context-free languages]]. Use a parser: `lxml`, `BeautifulSoup`, `json`.
 
 **And for real formats, prefer the real library.** Email addresses, URLs and dates all have specifications far messier than any pattern you'll write — an RFC-5322-compliant email regex is thousands of characters and still wrong. Validate by *sending* the email.
 
@@ -124,7 +124,7 @@ Path(f).suffix == ".csv"              # not a filename pattern
 **If the pattern needs a comment to be understood, and it isn't in `re.X` form, it's too clever.** A three-line loop that a colleague can read at 3 a.m. beats a 90-character pattern that nobody dares change.
 
 ## Related
-- [[foundations/theory-of-computation/03-regular-languages|regular languages]] — what regex provably can't do
+- [[theory-of-computation/03-regular-languages|regular languages]] — what regex provably can't do
 - [[build-your-own-shit/09-your-own-regex-engine|build your own regex engine]] — where this stops being reading
 - [[devops/01-linux/16-sed-and-awk|sed and awk]] — regex at the shell
 - [[cybersecurity/06-attacks-and-threats/index|attacks and threats]] — ReDoS

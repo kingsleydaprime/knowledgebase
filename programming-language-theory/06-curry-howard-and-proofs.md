@@ -34,7 +34,7 @@
 
 $$\frac{f : A \to B \qquad a : A}{f\,a : B}$$
 
-> **This is not a resemblance. The inference rules of natural deduction and the typing rules of the lambda calculus are the same rules.** → [[foundations/programming-language-theory/02-lambda-calculus|Lambda Calculus]]
+> **This is not a resemblance. The inference rules of natural deduction and the typing rules of the lambda calculus are the same rules.** → [[programming-language-theory/02-lambda-calculus|Lambda Calculus]]
 
 ## Proving by programming
 
@@ -78,7 +78,7 @@ $$\text{Excluded middle} \quad\longleftrightarrow\quad \texttt{forall a. Either 
 
 > **The practical meaning: a constructive proof carries an algorithm.** Prove "there exists an $x$ with property $P$" and **you have produced an $x$** — the proof *is* the construction.
 >
-> **A classical proof by contradiction gives you existence with no witness.** For mathematics that's fine; **for programming it's useless**, because you cannot run it. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Non-constructive proofs]]
+> **A classical proof by contradiction gives you existence with no witness.** For mathematics that's fine; **for programming it's useless**, because you cannot run it. → [[mathematics/02-discrete-math/03-proof-techniques|Non-constructive proofs]]
 
 **Classical reasoning is recoverable** — via continuations, remarkably. **`callcc` has the type of Peirce's law**, $((A\Rightarrow B)\Rightarrow A)\Rightarrow A$, which is equivalent to the excluded middle. **Control operators correspond to classical logic** (Griffin, 1990), which is a genuinely startling connection between exception handling and proof theory.
 
@@ -129,7 +129,7 @@ sorted : (xs : List Nat) -> (ys : List Nat ** (IsSorted ys, Permutation xs ys))
 
 **The Feit–Thompson theorem** — a 255-page group theory proof, verified in Coq (2012).
 
-**CompCert** — a C compiler **proven to preserve source semantics.** Used in avionics, and a Csmith study found bugs in every mainstream compiler tested **and none in CompCert's verified core.** → [[foundations/programming-language-theory/03-semantics|Semantics]]
+**CompCert** — a C compiler **proven to preserve source semantics.** Used in avionics, and a Csmith study found bugs in every mainstream compiler tested **and none in CompCert's verified core.** → [[programming-language-theory/03-semantics|Semantics]]
 
 **seL4** — a microkernel with a machine-checked proof of functional correctness, plus proofs of confidentiality and integrity.
 
@@ -155,7 +155,7 @@ enum State {
 
 **The empty type has uses.** Rust's `!` (never) types a function that doesn't return; a `Result<T, Infallible>` says the error case is impossible. **`Void` in a type means "this cannot happen", checked.**
 
-**Parametricity constrains behaviour.** A more polymorphic signature is a *stronger* statement about what the function can do. → [[foundations/programming-language-theory/01-what-pl-theory-is|Theorems for free]]
+**Parametricity constrains behaviour.** A more polymorphic signature is a *stronger* statement about what the function can do. → [[programming-language-theory/01-what-pl-theory-is|Theorems for free]]
 
 **Total functions are proofs; partial ones aren't.** A function that can throw, loop forever, or return null **is not a proof of its type** — which is precisely why proof assistants require totality.
 
@@ -169,12 +169,12 @@ enum State {
 
 **Extraction gaps.** Coq extracts to OCaml, and the extraction itself is generally unverified.
 
-> **Which is why the interesting direction isn't full verification — it's *lightweight* methods that get some of the benefit cheaply:** refinement types checked by SMT (Liquid Haskell, F*), property-based testing, model checking, and **richer type systems in ordinary languages.** Rust's borrow checker is the best current example: **a substructural type system, from this lineage, that mainstream programmers use without knowing the theory.** → [[foundations/programming-language-theory/07-effects-and-substructural-types|Substructural Types]]
+> **Which is why the interesting direction isn't full verification — it's *lightweight* methods that get some of the benefit cheaply:** refinement types checked by SMT (Liquid Haskell, F*), property-based testing, model checking, and **richer type systems in ordinary languages.** Rust's borrow checker is the best current example: **a substructural type system, from this lineage, that mainstream programmers use without knowing the theory.** → [[programming-language-theory/07-effects-and-substructural-types|Substructural Types]]
 
 ---
 
 ## Related
-- [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness
-- [[foundations/mathematics/02-discrete-math/02-logic|Logic]] — the other half of the correspondence
-- [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — constructive vs classical
-- [[foundations/programming-language-theory/index|PL theory map]]
+- [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness
+- [[mathematics/02-discrete-math/02-logic|Logic]] — the other half of the correspondence
+- [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — constructive vs classical
+- [[programming-language-theory/index|PL theory map]]

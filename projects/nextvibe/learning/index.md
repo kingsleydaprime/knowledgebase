@@ -10,7 +10,7 @@
 2. [[projects/nextvibe/learning/backend/02-auth|02 — Auth]] → [[backend/05-auth/01-authentication-flows|auth flows]], [[concepts/interview/01-apis-auth-and-practices|interview]]
 3. [[projects/nextvibe/learning/backend/03-modules|03 — Modules]]
 4. [[projects/nextvibe/learning/backend/04-games-ai|04 — Games & AI]] → [[ai-ml/03-ai-engineer/index|AI engineering]]
-5. [[projects/nextvibe/learning/backend/05-realtime|05 — Realtime]] → [[foundations/networking/11-http-evolution|HTTP/WebSockets]], [[architecture/02-building-blocks/04-messaging-and-async|async]]
+5. [[projects/nextvibe/learning/backend/05-realtime|05 — Realtime]] → [[networking/11-http-evolution|HTTP/WebSockets]], [[architecture/02-building-blocks/04-messaging-and-async|async]]
 6. [[projects/nextvibe/learning/backend/06-money-ledger-and-payouts|06 — Money, Ledger & Payouts]] → [[architecture/interview/01-system-design-round|system design Q9: correctness over availability]] ⭐
 
 ## Frontend

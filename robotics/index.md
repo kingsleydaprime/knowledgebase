@@ -56,14 +56,14 @@ Robotics is unusual in this vault because it's genuinely a **join** of domains t
 
 | Draws on | For |
 |---|---|
-| [[engineering/02-control-theory/index\|control theory]] | **The whole theory half** — PID, cascade loops, observers/Kalman, LQR, digital implementation |
-| [[engineering/01-continuum-mechanics/index\|continuum mechanics]] | Structural compliance, resonances, soft robotics |
+| [[control-theory/index\|control theory]] | **The whole theory half** — PID, cascade loops, observers/Kalman, LQR, digital implementation |
+| [[continuum-mechanics/index\|continuum mechanics]] | Structural compliance, resonances, soft robotics |
 | [[hardware/index\|hardware/]] | Microcontrollers, motor drivers, power, I2C/SPI to sensors |
 | [[ai-ml/02-ml-engineer/08-other-architectures/03-reinforcement-learning\|reinforcement learning]] | Learned control policies |
 | [[ai-ml/02-ml-engineer/06-computer-vision/index\|computer vision]] | Perception from cameras |
-| [[foundations/os/index\|operating systems]] | Real-time scheduling, RTOS, priority inversion |
+| [[os/index\|operating systems]] | Real-time scheduling, RTOS, priority inversion |
 | [[architecture/04-distributed-systems/03-time-and-ordering\|time & ordering]] | Multi-node robots are distributed systems with a physical body |
-| [[foundations/networking/index\|networking]] | Robot ↔ base station links, and their latency budgets |
+| [[networking/index\|networking]] | Robot ↔ base station links, and their latency budgets |
 
 **That's the argument for the domain existing:** most of the prerequisites were already written, and this track mostly connects them to physical hardware.
 
@@ -71,9 +71,9 @@ Robotics is unusual in this vault because it's genuinely a **join** of domains t
 
 Two things live elsewhere on purpose, so you don't go looking:
 
-**Control theory** — [[engineering/02-control-theory/index|engineering/02-control-theory/]]. This README originally planned it as note 4 here. It became its own 13-note track instead, because it's a real subject that applies far beyond robots (a TCP congestion controller and an autoscaler are feedback loops with the same pathologies). **Note 09 here is the robotics-specific part** — cascaded joint loops, trajectory following, compliance — and points there for the theory.
+**Control theory** — [[control-theory/index|engineering/02-control-theory/]]. This README originally planned it as note 4 here. It became its own 13-note track instead, because it's a real subject that applies far beyond robots (a TCP congestion controller and an autoscaler are feedback loops with the same pathologies). **Note 09 here is the robotics-specific part** — cascaded joint loops, trajectory following, compliance — and points there for the theory.
 
-**Kalman filtering** — the algorithm is in [[engineering/02-control-theory/10-observers-and-kalman|Observers and Kalman Filters]]. **Note 11 here is the application** — what robots fuse, why odometry drifts, delayed measurements.
+**Kalman filtering** — the algorithm is in [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]]. **Note 11 here is the application** — what robots fuse, why odometry drifts, delayed measurements.
 
 ## The honest note
 
@@ -89,7 +89,7 @@ The vault's own principle: [[PRIMETECHIE|reading is not a rank]].
 
 **The cheapest way to close the gap**, roughly in order of effort:
 
-1. **A servo and a potentiometer.** Close a position loop by hand. Watch it oscillate when you raise the gain. Everything in [[engineering/02-control-theory/04-pid-control|PID]] becomes concrete in an afternoon
+1. **A servo and a potentiometer.** Close a position loop by hand. Watch it oscillate when you raise the gain. Everything in [[control-theory/04-pid-control|PID]] becomes concrete in an afternoon
 2. **A two-wheeled balancing robot.** MPU-6050, two motors, an MCU. It's an unstable plant, so it *cannot* work without feedback — you'll implement a complementary filter and a real cascade, and it'll fall over until both are right
 3. **A 3-DOF arm** from hobby servos. Forward kinematics, then inverse. **A tape measure will settle more arguments than any simulation**
 4. **A differential-drive robot in ROS 2**, with `slam_toolbox` and Nav2. Odometry drift stops being a paragraph and becomes a thing you watch happen
@@ -103,7 +103,7 @@ Within the track: no worked examples end to end, no code beyond pseudocode, noth
 
 ## Related
 - [[robotics/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
-- [[engineering/02-control-theory/index|Control Theory]] — the theory half, deliberately housed elsewhere
+- [[control-theory/index|Control Theory]] — the theory half, deliberately housed elsewhere
 - [[hardware/index|Hardware & Embedded]] — the layer below, and the one that's actually built
 - [[PRIMETECHIE|The Primetechie Path]] — where this direction sits
 - [[project-ideas|Project Ideas]] — no robotics builds listed yet; the first one belongs there

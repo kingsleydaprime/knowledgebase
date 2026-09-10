@@ -159,7 +159,7 @@ The fix is **priority inheritance** — the lock holder temporarily inherits the
 pthread_mutexattr_setprotocol(&attr, PTHREAD_PRIO_INHERIT);
 ```
 
-Linux futexes support this (`FUTEX_LOCK_PI`), and it's what `PTHREAD_PRIO_INHERIT` uses. → [[foundations/os/06-concurrency-primitives|Concurrency Primitives]]
+Linux futexes support this (`FUTEX_LOCK_PI`), and it's what `PTHREAD_PRIO_INHERIT` uses. → [[os/06-concurrency-primitives|Concurrency Primitives]]
 
 ## Diagnosing
 
@@ -177,8 +177,8 @@ cat /proc/pressure/cpu               # PSI — how much time is LOST to CPU cont
 ---
 
 ## Related
-- [[foundations/os/02-processes-and-threads|Processes and Threads]] — what's being scheduled
-- [[foundations/os/11-isolation-and-containers|Isolation and Containers]] — cgroups in full
-- [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] — blocking, and priority inheritance
+- [[os/02-processes-and-threads|Processes and Threads]] — what's being scheduled
+- [[os/11-isolation-and-containers|Isolation and Containers]] — cgroups in full
+- [[os/06-concurrency-primitives|Concurrency Primitives]] — blocking, and priority inheritance
 - [[languages/02-go/13-performance-and-runtime|Go: the G-M-P scheduler]] — a user-space scheduler on top of this
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

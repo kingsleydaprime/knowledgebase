@@ -156,7 +156,7 @@ $$\tau = RC = 5000 \times 10^{-14} = 5 \times 10^{-11} \text{ s} = 50 \text{ ps}
 
 Settled (5τ) at about **250 picoseconds**.
 
-If a signal had to cross twenty such stages in series before the next clock edge, that is 5 nanoseconds, capping the clock at 200 MHz. Real high-speed designs keep the number of gate delays per stage small precisely because of this multiplication — which is the entire motivation for **pipelining** in [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]].
+If a signal had to cross twenty such stages in series before the next clock edge, that is 5 nanoseconds, capping the clock at 200 MHz. Real high-speed designs keep the number of gate delays per stage small precisely because of this multiplication — which is the entire motivation for **pipelining** in [[computer-architecture/06-pipelining|computer-architecture/pipelining]].
 </details>
 
 ---
@@ -199,7 +199,7 @@ $$f_{max} = \frac{1}{450 \times 10^{-12}} \approx 2.22 \text{ GHz}$$
 
 $$T_{min} = 30 + 200 + 20 = 250 \text{ ps} \qquad f_{max} = 4.0 \text{ GHz}$$
 
-**Halving the critical path raised the clock by 1.8×, not 2×** — the fixed register overheads ($t_{cq} + t_{setup}$ = 50 ps) do not shrink. Push this far enough and the overheads dominate, which is why pipelines have an optimal depth rather than getting better forever. That result is derived properly in [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]]; you now know where the numbers come from.
+**Halving the critical path raised the clock by 1.8×, not 2×** — the fixed register overheads ($t_{cq} + t_{setup}$ = 50 ps) do not shrink. Push this far enough and the overheads dominate, which is why pipelines have an optimal depth rather than getting better forever. That result is derived properly in [[computer-architecture/06-pipelining|computer-architecture/pipelining]]; you now know where the numbers come from.
 
 **This is the single most important practical consequence of Part II.** A processor's clock speed is not chosen. It is *deduced* from the slowest chain of gates on the chip, which is deduced from RC time constants, which are deduced from the physics of Part III.
 
@@ -355,6 +355,6 @@ Every stage shares one clock, so the clock period must accommodate the <em>slowe
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]] — where critical-path shortening becomes an architecture
-- [[foundations/computer-architecture/12-performance|computer-architecture/performance]] — clock frequency in context
-- [[foundations/digital-signal-processing/index|digital-signal-processing/]] — the mathematical treatment of signals
+- [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — where critical-path shortening becomes an architecture
+- [[computer-architecture/12-performance|computer-architecture/performance]] — clock frequency in context
+- [[digital-signal-processing/index|digital-signal-processing/]] — the mathematical treatment of signals

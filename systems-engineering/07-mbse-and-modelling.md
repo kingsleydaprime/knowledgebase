@@ -20,7 +20,7 @@ SysML is a UML profile adapted for systems rather than software. Nine diagram ty
 
 **Block Definition Diagram (BDD)** — what the system is made of. Blocks, their properties, and composition. The structural taxonomy.
 
-**Internal Block Diagram (IBD)** — how blocks connect *inside* a parent: ports, connectors, what flows across them. **This is the ICD, formalised** → [[foundations/systems-engineering/04-architecture-and-interfaces|interfaces]].
+**Internal Block Diagram (IBD)** — how blocks connect *inside* a parent: ports, connectors, what flows across them. **This is the ICD, formalised** → [[systems-engineering/04-architecture-and-interfaces|interfaces]].
 
 **Activity / State Machine diagrams** — behaviour. What happens in what order; what states the system occupies and what triggers transitions. State machines are the most immediately useful diagram in the set for anyone who has debugged a mode-confusion bug.
 
@@ -53,7 +53,7 @@ The progression, and each step costs more:
 
 Used for predictive maintenance, operator training, testing changes before making them, and diagnosing a system you can't physically reach — a wind turbine offshore, a rover on Mars.
 
-**The honest limit: a model is only as good as its assumptions**, and a twin that has drifted from its physical counterpart is worse than no twin, because it's confidently wrong. Validating the model is a real, ongoing, funded activity → [[foundations/systems-engineering/06-verification-and-validation|V&V]].
+**The honest limit: a model is only as good as its assumptions**, and a twin that has drifted from its physical counterpart is worse than no twin, because it's confidently wrong. Validating the model is a real, ongoing, funded activity → [[systems-engineering/06-verification-and-validation|V&V]].
 
 ## The software parallels
 
@@ -80,12 +80,12 @@ Software has arrived at MBSE's central idea repeatedly without calling it that. 
 
 **Not worth it when:** the system is small, the team is one, or the design will change faster than the model can be maintained.
 
-**The useful middle ground, and the one most people should actually occupy:** take the ideas without the tooling. **Traceability from need to test. A written, owned interface contract. Diagrams generated from something real rather than drawn by hand. Decisions recorded.** All of that is available in markdown and git, at close to zero cost, and it captures most of the value → [[foundations/systems-engineering/05-trade-studies|ADRs]].
+**The useful middle ground, and the one most people should actually occupy:** take the ideas without the tooling. **Traceability from need to test. A written, owned interface contract. Diagrams generated from something real rather than drawn by hand. Decisions recorded.** All of that is available in markdown and git, at close to zero cost, and it captures most of the value → [[systems-engineering/05-trade-studies|ADRs]].
 
 ## Related
-- [[foundations/systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what gets modelled
-- [[foundations/systems-engineering/02-requirements|requirements]] — traceability, mechanised
+- [[systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what gets modelled
+- [[systems-engineering/02-requirements|requirements]] — traceability, mechanised
 - [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]] — the same idea, in software
-- [[engineering/02-control-theory/index|control theory]] — models with dynamics
+- [[control-theory/index|control theory]] — models with dynamics
 
 *Source: [reference] — from OMG SysML specifications, INCOSE's MBSE initiative, and the digital-twin literature.*

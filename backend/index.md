@@ -71,5 +71,5 @@ Not numbered; there's no reading order. Pick yours.
 ## Related
 - [[backend/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[architecture/index|Architecture]] — the same questions at system scale
-- [[databases/interview/index|Databases]] · [[foundations/networking/index|Networking]] · [[devops/index|DevOps]]
+- [[databases/interview/index|Databases]] · [[networking/index|Networking]] · [[devops/index|DevOps]]
 - [[PRIMETECHIE|The Primetechie Path]] · [[INTERVIEW|Interview index]]

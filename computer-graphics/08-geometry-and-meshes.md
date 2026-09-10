@@ -17,7 +17,7 @@
 
 **The subtlety: a vertex is a bundle of attributes, not just a position.** A cube corner has three different normals (one per face) and usually different UVs, **so it must be duplicated** — you can't share it. **This is why a "8-vertex cube" is actually 24 vertices in a renderer**, and it surprises people.
 
-**Winding order** determines facing. Counter-clockwise is front-facing by convention in OpenGL. **A mirrored transform flips winding**, which is why negatively-scaled objects render inside-out. → [[foundations/computer-graphics/02-the-transform-pipeline|Coordinate systems]]
+**Winding order** determines facing. Counter-clockwise is front-facing by convention in OpenGL. **A mirrored transform flips winding**, which is why negatively-scaled objects render inside-out. → [[computer-graphics/02-the-transform-pipeline|Coordinate systems]]
 
 ### Connectivity structures
 
@@ -51,7 +51,7 @@ $$\mathbf{B}(t) = \sum_{i=0}^{n}\binom{n}{i}(1-t)^{n-i}t^i\,\mathbf{P}_i$$
 
 > **This is the CAD/graphics divide.** **CAD uses NURBS** because manufacturing needs exact analytic surfaces. **Real-time graphics tessellates everything to triangles** because that's what GPUs rasterise. **Importing CAD into a renderer means tessellating**, and the tessellation tolerance is a real quality/performance knob.
 
-→ [[foundations/numerical-methods/06-interpolation-and-approximation|Splines]]
+→ [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Splines]]
 
 **Subdivision surfaces** — start with a coarse control mesh, repeatedly refine.
 
@@ -125,9 +125,9 @@ repeat:
 
 **Smoothing** — Laplacian smoothing moves each vertex toward its neighbours' centroid. **Simple, and it shrinks the mesh**; Taubin smoothing alternates positive and negative steps to preserve volume.
 
-**Parameterisation (UV unwrapping)** — minimise distortion, cut into charts, pack. **Genuinely hard**, and Gauss's *Theorema Egregium* says perfect flattening is impossible for curved surfaces. → [[foundations/computer-graphics/05-textures-and-sampling|UV mapping]]
+**Parameterisation (UV unwrapping)** — minimise distortion, cut into charts, pack. **Genuinely hard**, and Gauss's *Theorema Egregium* says perfect flattening is impossible for curved surfaces. → [[computer-graphics/05-textures-and-sampling|UV mapping]]
 
-**Remeshing** — improve triangle quality. **Sliver triangles cause numerical problems** in both rendering and simulation. → [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM mesh quality]]
+**Remeshing** — improve triangle quality. **Sliver triangles cause numerical problems** in both rendering and simulation. → [[continuum-mechanics/13-computational-methods-and-fem|FEM mesh quality]]
 
 **Repair** — fill holes, fix non-manifold edges, correct inconsistent winding. **Necessary before almost any serious processing**, and before 3D printing.
 
@@ -139,18 +139,18 @@ repeat:
 
 **Choose the representation for the operation.** Meshes for rendering, half-edge for editing, SDFs for booleans and blending, NURBS for CAD, point clouds for capture.
 
-**Check for degenerate triangles** — zero area, duplicate vertices. **They produce NaN normals** that propagate silently. → [[foundations/numerical-methods/02-floating-point-and-error|NaN]]
+**Check for degenerate triangles** — zero area, duplicate vertices. **They produce NaN normals** that propagate silently. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|NaN]]
 
 **Validate manifoldness** before running anything topological.
 
 **Use a library.** `meshoptimizer` (optimisation and simplification), CGAL (robust computational geometry), libigl (research-friendly), Open3D (point clouds), Assimp (loading).
 
-**Watch triangle count *and* draw calls.** A million triangles in one draw is usually fine; a thousand draws of a thousand triangles usually isn't. → [[foundations/computer-graphics/06-the-gpu-graphics-pipeline|Batching]]
+**Watch triangle count *and* draw calls.** A million triangles in one draw is usually fine; a thousand draws of a thousand triangles usually isn't. → [[computer-graphics/06-the-gpu-graphics-pipeline|Batching]]
 
 ---
 
 ## Related
-- [[foundations/numerical-methods/06-interpolation-and-approximation|Interpolation]] — the spline mathematics
-- [[foundations/computer-graphics/09-animation-and-simulation|Animation and Simulation]] — deforming these
-- [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] — meshes for simulation rather than rendering
-- [[foundations/computer-graphics/index|Computer graphics map]]
+- [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation]] — the spline mathematics
+- [[computer-graphics/09-animation-and-simulation|Animation and Simulation]] — deforming these
+- [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — meshes for simulation rather than rendering
+- [[computer-graphics/index|Computer graphics map]]

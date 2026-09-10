@@ -98,7 +98,7 @@ With `httpx.AsyncClient`, fetch 10 URLs with sequential `await`s and time it. Sw
 
 ## Then
 
-**Build something.** These are reps → [[foundations/programming-fundamentals/12-choosing-what-to-build-next|what to build next]].
+**Build something.** These are reps → [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]].
 
 ## Related
 - [[languages/06-python/19-practice-exercises-solutions|Solutions]] — after you've tried

@@ -14,7 +14,7 @@ Each folder is a real project with two things in it:
 
 | Project | What it is | Domains it exercises |
 |---|---|---|
-| **[[projects/nextvibe/learning/00-sys-design\|nextvibe]]** (142k words — the biggest) | NestJS platform: auth, realtime, games/AI, payments ledger | [[backend/index\|backend]] · [[backend/05-auth/01-authentication-flows\|auth]] · [[architecture/02-building-blocks/04-messaging-and-async\|realtime/async]] · [[databases/database-design-reference\|data modelling]] · [[foundations/networking/11-http-evolution\|websockets/HTTP]] |
+| **[[projects/nextvibe/learning/00-sys-design\|nextvibe]]** (142k words — the biggest) | NestJS platform: auth, realtime, games/AI, payments ledger | [[backend/index\|backend]] · [[backend/05-auth/01-authentication-flows\|auth]] · [[architecture/02-building-blocks/04-messaging-and-async\|realtime/async]] · [[databases/database-design-reference\|data modelling]] · [[networking/11-http-evolution\|websockets/HTTP]] |
 | **[[projects/socioboom/learning/archive/original-flat-backend-learning\|socioboom]]** (67k) | Social publishing + AI agents + queues | [[architecture/02-building-blocks/04-messaging-and-async\|queues]] · [[ai-ml/03-ai-engineer/08-agents\|agents]] · [[devops/index\|deployment]] |
 | **[[projects/gees-arise/learning/09-sys-design\|gees-arise]]** (32k) | Next.js + Supabase, Postgres RLS | [[databases/sql-reference\|SQL]] · [[backend/05-auth/02-authorization\|authorization]] · [[cybersecurity/04-web-security/index\|web security]] · [[git/index\|git]] · [[devops/01-linux/index\|shell]] |
 | **[[projects/record-id-generator-java/learning/01-java-fundamentals\|record-id-generator-java]]** (31k) | High-throughput ID generation, RabbitMQ, MySQL | [[languages/01-java/index\|Java]] · [[languages/01-java/02-jvm-and-concurrency/index\|concurrency]] · [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq\|messaging]] · [[databases/mysql-reference\|MySQL]] · [[architecture/index\|throughput/perf]] |
@@ -23,7 +23,7 @@ Each folder is a real project with two things in it:
 | **[[projects/iot-bridge-pcb/kicad-walkthrough\|iot-bridge-pcb]]** (25k) | Hardware — schematic, power, RF, KiCad | [[hardware/index\|hardware]] · [[hardware/10-kicad-basics\|KiCad]] |
 | **[[projects/arete/learning/backend/01-fundamentals-and-nestjs\|arete]]** (20k) | NestJS + Prisma + React Native | [[backend/index\|backend]] · [[devops/01-linux/index\|shell/devops]] · frontend (mobile) |
 | **[[projects/kingsley-iheme/learning/index\|kingsley-iheme]]** (15k) | Next.js 16 + Sanity CMS portfolio site; env-gated integrations | [[frontend/frameworks/next/index\|Next.js 16]] · [[frontend/index\|Tailwind v4]] · **Sanity/headless CMS** · [[backend/02-api-design/index\|API design]] · [[devops/09-secret-management/index\|env/secrets]] |
-| **[[projects/json-healer/learning\|json-healer]]** (13k) | TS library — parsing/repair, packaging | [[foundations/dsa/05-algorithms/01-algorithms\|algorithms]] · [[concepts/04-best-practices/index\|library design]] |
+| **[[projects/json-healer/learning\|json-healer]]** (13k) | TS library — parsing/repair, packaging | [[dsa/05-algorithms/01-algorithms\|algorithms]] · [[concepts/04-best-practices/index\|library design]] |
 | **[[projects/strictenv/learning\|strictenv]]** (9k) | TS library — typed env validation | [[concepts/04-best-practices/index\|API design]] · [[devops/09-secret-management/index\|config/secrets]] |
 | **[[projects/sorepoint/learning/index\|sorepoint]]** (9k) | Crawling pipeline + Supabase/Postgres | [[backend/index\|backend]] · [[databases/sql-reference\|Postgres]] · [[devops/01-linux/index\|shell]] |
 | **[[projects/my-applicant/learning/02-ai-sdk-and-byok\|my-applicant]]** (7k) | AI pipeline, BYOK, AI SDK | [[ai-ml/03-ai-engineer/index\|AI engineering]] · [[ai-ml/03-ai-engineer/04-calling-models\|calling models]] |
@@ -85,6 +85,6 @@ Two of these are now fixed by indexing rather than moving: [[frontend/index|fron
 - **No project has a unit-testing story.** The only testing notes are [[projects/gees-arise/learning/07-testing|gees-arise's Playwright E2E]] and Java's JUnit work — which is why [[backend/07-practices/02-testing-a-backend|testing a backend]] had to be written from scratch rather than distilled.
 
 ## Related
-- [[README|Vault README]] · [[project-ideas|Project Ideas]] — what to build next
+- [[HOME|Vault README]] · [[project-ideas|Project Ideas]] — what to build next
 - [[INTERVIEW|Interview index]] — every project's `interview/` folder plus the domain banks
 - [[PRIMETECHIE|The Primetechie Path]] — where these projects sit in the progression

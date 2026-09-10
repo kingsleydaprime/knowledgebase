@@ -549,4 +549,4 @@ Feeding a raw asynchronous signal into the debouncer means <em>each</em> of its 
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the forbidden zone metastability lives in
 - [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] — propagation delay and the clock period
 - [[how-computers-work/06-memory/03-memory-technology|Module 26]] — why this feedback pair makes SRAM volatile
-- [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]] — flip-flops as pipeline registers
+- [[computer-architecture/05-the-datapath|computer-architecture/the datapath]] — flip-flops as pipeline registers

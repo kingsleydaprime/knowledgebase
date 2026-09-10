@@ -5,7 +5,7 @@
 ## Before you start
 
 - You have a working CPU, assembler and emulator — modules [[how-computers-work/08-capstone/03-build-the-hardware|30]]–[[how-computers-work/08-capstone/05-build-the-emulator|32]].
-- You have read [[foundations/compilers/02-lexical-analysis|compilers/lexical analysis]] through [[foundations/compilers/08-code-generation|code generation]], or are prepared to learn them here.
+- You have read [[compilers/02-lexical-analysis|compilers/lexical analysis]] through [[compilers/08-code-generation|code generation]], or are prepared to learn them here.
 - Ideally you have built [[build-your-own-shit/04-your-own-language|Your Own Language]], though this module is self-contained.
 
 **After this lesson you will be able to:**
@@ -150,7 +150,7 @@ The obvious translation of `while (cond) body` is:
 
 ### Output
 
-PRIME-1 has no I/O instruction. **`print` writes to memory address 31, and the emulator watches that address** — memory-mapped I/O, exactly as described in [[foundations/os/09-syscalls-interrupts-and-the-abi|os/syscalls and interrupts]], and how real hardware exposes peripherals.
+PRIME-1 has no I/O instruction. **`print` writes to memory address 31, and the emulator watches that address** — memory-mapped I/O, exactly as described in [[os/09-syscalls-interrupts-and-the-abi|os/syscalls and interrupts]], and how real hardware exposes peripherals.
 
 Address 31 is used because `ST` takes a 6-bit signed displacement, so 31 is the highest directly reachable slot. **The ISA's encoding budget decided where the output port lives.**
 
@@ -194,7 +194,7 @@ Pebble compiles `sum = sum + i;` into a load, a load, an add, and a store — **
 2. **An interference graph** — which variables are live simultaneously and so cannot share a register?
 3. **Graph colouring** — assign registers so no two interfering variables collide, spilling when there are not enough colours.
 
-**This is the single biggest performance gap** between a teaching compiler and a real one, and it is why [[foundations/compilers/07-optimisation|compilers/optimisation]] spends so long on it. It is also the concrete reason module 28's register-count decision mattered: more registers means less spilling.
+**This is the single biggest performance gap** between a teaching compiler and a real one, and it is why [[compilers/07-optimisation|compilers/optimisation]] spends so long on it. It is also the concrete reason module 28's register-count decision mattered: more registers means less spilling.
 </details>
 
 ---
@@ -638,8 +638,8 @@ In Pebble's code generator, emit a small loop rather than trying to unroll it �
 
 ## 11. Tradeoffs and limits
 
-- **No type checking.** Everything is a 16-bit integer. A real compiler has a semantic analysis phase between parsing and codegen that catches type errors, undefined variables and scope violations ([[foundations/compilers/04-asts-and-semantic-analysis|compilers/ASTs and semantic analysis]]).
-- **No intermediate representation.** Pebble goes straight from AST to assembly. Real compilers lower to an IR first, because optimisation is far easier on a flat, uniform representation than on a tree ([[foundations/compilers/06-intermediate-representations|compilers/IR]]).
+- **No type checking.** Everything is a 16-bit integer. A real compiler has a semantic analysis phase between parsing and codegen that catches type errors, undefined variables and scope violations ([[compilers/04-asts-and-semantic-analysis|compilers/ASTs and semantic analysis]]).
+- **No intermediate representation.** Pebble goes straight from AST to assembly. Real compilers lower to an IR first, because optimisation is far easier on a flat, uniform representation than on a tree ([[compilers/06-intermediate-representations|compilers/IR]]).
 - **No optimisation at all.** No constant folding, no dead code elimination, no common subexpression elimination. Every one is a genuine improvement and (d) is the easiest place to start.
 - **No scope or functions.** Every variable is global. Adding scope means a symbol table with nesting; adding functions means a calling convention and a stack.
 
@@ -663,5 +663,5 @@ In Pebble's code generator, emit a small loop rather than trying to unroll it �
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[build-your-own-shit/04-your-own-language|Your Own Language]] — the fuller treatment, with a bytecode VM and closures
-- [[foundations/compilers/index|compilers/]] — lexing through code generation, properly
+- [[compilers/index|compilers/]] — lexing through code generation, properly
 - [[how-computers-work/08-capstone/01-design-the-cpu|Module 28]] — the ISA decisions this compiler works around

@@ -32,7 +32,7 @@ The point is the **proof**: to convince someone `tx3` is in a block whose root t
 
 That is what makes light clients possible: a phone wallet can hold only block headers (80 bytes each in Bitcoin) and still verify its own transactions were included. Without Merkle proofs, every wallet would need the full chain.
 
-Ethereum uses a variant, the **Merkle Patricia Trie**, which is also a *map* — it proves "account X has balance Y" and, crucially, proves **absence** ("this key is not in the state"), which a plain Merkle tree can't do → [[foundations/dsa/04-data-structures/05-trees/01-trees|trees]].
+Ethereum uses a variant, the **Merkle Patricia Trie**, which is also a *map* — it proves "account X has balance Y" and, crucially, proves **absence** ("this key is not in the state"), which a plain Merkle tree can't do → [[dsa/04-data-structures/05-trees/01-trees|trees]].
 
 ## 3. Digital signatures — authorisation with no accounts
 

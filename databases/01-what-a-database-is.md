@@ -130,7 +130,7 @@ Worth knowing because the vocabulary is still around.
 **08–10 are transactions** — ACID, MVCC, and crash recovery.
 **11–12 are scaling and operating.**
 
-**Prerequisites:** you should be able to write SQL. [[foundations/dsa/04-data-structures/05-trees/01-trees|Trees]] and [[foundations/computer-architecture/08-the-memory-hierarchy|the memory hierarchy]] make notes 03–05 much more concrete.
+**Prerequisites:** you should be able to write SQL. [[dsa/04-data-structures/05-trees/01-trees|Trees]] and [[computer-architecture/08-the-memory-hierarchy|the memory hierarchy]] make notes 03–05 much more concrete.
 
 ---
 

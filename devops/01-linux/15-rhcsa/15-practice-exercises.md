@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. Goal-only tasks, no walkthroughs — this mirrors the actual exam format: you're told the end state you need, not the commands to get there. Each task has a **Verify** line so you can confirm you actually got there, not just that you think you did.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkthroughs — this mirrors the actual exam format: you're told the end state you need, not the commands to get there. Each task has a **Verify** line so you can confirm you actually got there, not just that you think you did.
 
 ## How to use this
 

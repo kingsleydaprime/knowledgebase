@@ -413,5 +413,5 @@ That is three literals plus one OR — a dramatic reduction from the canonical f
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/04-logic/01-gates-from-transistors|Module 15]] — the transistor costs used for pricing
 - [[how-computers-work/04-logic/04-universal-gates|Module 18]] — where De Morgan leads: NAND alone suffices
-- [[foundations/mathematics/02-discrete-math/02-logic|discrete-math/logic]] — the same algebra as propositional logic
-- [[foundations/theory-of-computation/index|theory-of-computation/]] — Boolean circuits as a model of computation
+- [[mathematics/02-discrete-math/02-logic|discrete-math/logic]] — the same algebra as propositional logic
+- [[theory-of-computation/index|theory-of-computation/]] — Boolean circuits as a model of computation

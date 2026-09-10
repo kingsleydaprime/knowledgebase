@@ -45,7 +45,7 @@ Port conventions: **0–1023** are well-known and require root to bind on Unix (
 Given that it guarantees nothing, why is it everywhere? Because for a large class of applications **TCP's guarantees are actively harmful**:
 
 - **Retransmission is useless for real-time media.** In a voice call, a packet of audio that arrives 400ms late is worse than a packet that never arrives — you'd have to either play it out of order or stall the whole stream to wait for it. Better to conceal the gap and keep going. This is the single strongest argument for UDP.
-- **Head-of-line blocking.** TCP delivers bytes strictly in order, so one lost packet stalls delivery of *everything behind it*, even data that already arrived intact and belongs to an unrelated message. For anything multiplexing independent streams, that's a self-inflicted wound. → this is exactly the flaw [[foundations/networking/13-quic-and-modern-transport|QUIC]] was built to fix.
+- **Head-of-line blocking.** TCP delivers bytes strictly in order, so one lost packet stalls delivery of *everything behind it*, even data that already arrived intact and belongs to an unrelated message. For anything multiplexing independent streams, that's a self-inflicted wound. → this is exactly the flaw [[networking/13-quic-and-modern-transport|QUIC]] was built to fix.
 - **One-shot request/response doesn't need a connection.** A DNS query is one small packet out, one small packet back. A TCP handshake would *triple* the cost. If it's lost, just ask again.
 - **You want to build your own semantics.** Game networking, QUIC, and modern RPC systems all want reliability *for some things* and not others, custom congestion control, or connection migration. TCP is baked into the kernel and can't be reshaped; UDP is a blank slate.
 
@@ -53,7 +53,7 @@ Real users: **DNS** (queries), **QUIC/HTTP3**, **WebRTC** (voice/video), **DTLS*
 
 ## The trap: UDP without congestion control
 
-Here's the part that gets skipped, and it matters. TCP's [[foundations/networking/08-congestion-control|congestion control]] is not just for TCP's benefit — it's what stops the internet collapsing. Every TCP flow voluntarily slows down when the network is loaded.
+Here's the part that gets skipped, and it matters. TCP's [[networking/08-congestion-control|congestion control]] is not just for TCP's benefit — it's what stops the internet collapsing. Every TCP flow voluntarily slows down when the network is loaded.
 
 A UDP application that just blasts packets at a fixed rate does **not** back off. Deployed at scale, it starves every TCP flow sharing the path (they back off, it doesn't) and can drive the network into **congestion collapse** — the 1986 NSFNET event where throughput dropped by a factor of a thousand because everyone was retransmitting into an already-saturated network.
 
@@ -70,14 +70,14 @@ The related operational reality: UDP is the workhorse of **amplification DDoS**.
 | You don't want to think about loss | You need custom reliability/congestion semantics |
 | You'd otherwise reimplement TCP badly | You're multiplexing independent streams (→ use QUIC) |
 
-The honest default is TCP. If your reason for UDP is "TCP is slow," you're probably reaching for the wrong fix — measure first ([[foundations/networking/15-network-performance|performance]]), and consider QUIC, which gives you UDP's flexibility with reliability already correctly implemented.
+The honest default is TCP. If your reason for UDP is "TCP is slow," you're probably reaching for the wrong fix — measure first ([[networking/15-network-performance|performance]]), and consider QUIC, which gives you UDP's flexibility with reliability already correctly implemented.
 
 ## Key insight
 
 UDP is not "TCP without the good parts" — it's **the transport layer with the end-to-end principle taken seriously**. It provides only what genuinely cannot be done at the application layer (demultiplexing to the right process), and leaves every other decision to the application that actually knows its own requirements. That's why the most sophisticated modern transport, QUIC, is built *on top of* the dumbest one.
 
 ## Related
-- [[foundations/networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — what a connection costs
-- [[foundations/networking/08-congestion-control|Congestion Control]] — the responsibility UDP hands you
-- [[foundations/networking/13-quic-and-modern-transport|QUIC]] — what happens when you rebuild TCP properly on UDP
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets]] — the 4-tuple in code
+- [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — what a connection costs
+- [[networking/08-congestion-control|Congestion Control]] — the responsibility UDP hands you
+- [[networking/13-quic-and-modern-transport|QUIC]] — what happens when you rebuild TCP properly on UDP
+- [[networking/09-sockets-and-the-network-api|Sockets]] — the 4-tuple in code

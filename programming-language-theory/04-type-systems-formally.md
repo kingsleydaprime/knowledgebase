@@ -2,7 +2,7 @@
 
 **[Advanced]** — What soundness actually means, why variance is confusing, and the theorem behind "well-typed programs don't go wrong".
 
-> **[[foundations/compilers/05-type-systems-and-checking|Compilers: Type Systems]] covers the implementation.** This note is the theory — what a type system *guarantees* and how that's proved.
+> **[[compilers/05-type-systems-and-checking|Compilers: Type Systems]] covers the implementation.** This note is the theory — what a type system *guarantees* and how that's proved.
 
 ## What a type system is
 
@@ -14,7 +14,7 @@
 
 **Static** — before execution.
 
-**Conservative** — **it rejects some correct programs.** Unavoidable, by Rice's theorem: "does this program go wrong" is undecidable, so any decidable checker must err somewhere. → [[foundations/theory-of-computation/06-decidability|Decidability]]
+**Conservative** — **it rejects some correct programs.** Unavoidable, by Rice's theorem: "does this program go wrong" is undecidable, so any decidable checker must err somewhere. → [[theory-of-computation/06-decidability|Decidability]]
 
 > **This is the answer to "why does the type checker reject my obviously-correct code?"** It's not that the designers weren't clever enough — **a sound decidable checker must reject some correct programs.** The only design question is *which ones.*
 
@@ -40,7 +40,7 @@ $$\text{If } \vdash e : \tau \text{ and } e \to e' \text{ then } \vdash e' : \ta
 >
 > **Note what soundness does *not* promise.** Not termination. Not absence of exceptions (those are defined behaviour). Not correctness. **Only that the specific errors the type system models cannot occur** — and the value of a type system is exactly how many real errors it models.
 
-**Both proofs are structural induction on typing derivations.** → [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|Structural Induction]]
+**Both proofs are structural induction on typing derivations.** → [[mathematics/02-discrete-math/05-induction-and-recursion|Structural Induction]]
 
 ## Soundness in real languages
 
@@ -101,7 +101,7 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 
 **Parametric** — the same code for all types. `List<T>`, `∀a. a -> a`.
 
-**Gives you [[foundations/programming-language-theory/01-what-pl-theory-is|parametricity]]** — a function of type `∀a. [a] -> [a]` cannot inspect the elements, so its behaviour is enormously constrained by the type alone.
+**Gives you [[programming-language-theory/01-what-pl-theory-is|parametricity]]** — a function of type `∀a. [a] -> [a]` cannot inspect the elements, so its behaviour is enormously constrained by the type alone.
 
 **Ad-hoc (overloading)** — different implementations per type. **Typeclasses (Haskell), traits (Rust), protocols (Swift), concepts (C++20).**
 
@@ -119,7 +119,7 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 
 ## Type inference
 
-**Covered fully in [[foundations/programming-language-theory/05-type-inference|note 05]]** — the short version:
+**Covered fully in [[programming-language-theory/05-type-inference|note 05]]** — the short version:
 
 **Hindley–Milner infers everything with no annotations**, in practice near-linear time. **The restriction that makes it work is that polymorphism is limited to `let`-bound values** (prenex/rank-1).
 
@@ -131,13 +131,13 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 
 **Dependent types** — types depending on values. `Vec 3 Int`, `sorted : (xs : List) -> Proof (isSorted xs)`.
 
-**Enormously expressive — you can encode arbitrary specifications in types.** Type checking becomes theorem proving, so **full inference is impossible and you write proofs.** Idris, Agda, Lean, Coq. → [[foundations/programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]]
+**Enormously expressive — you can encode arbitrary specifications in types.** Type checking becomes theorem proving, so **full inference is impossible and you write proofs.** Idris, Agda, Lean, Coq. → [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]]
 
 **Refinement types** — a base type plus a predicate: `{v: Int | v > 0}`. **Less expressive than dependent types, and decidable via SMT solvers.** Liquid Haskell, F*, and this is the pragmatic middle ground that's most likely to reach mainstream languages.
 
 **Gradual typing** — mix static and dynamic, with runtime checks at the boundary. **TypeScript, Python's type hints, Sorbet for Ruby.** The theory (Siek and Taha) is well developed; **the performance of sound gradual typing at the boundary is a real unsolved problem**, which is why TypeScript erases rather than checking.
 
-**Effect systems, linear and session types** → [[foundations/programming-language-theory/07-effects-and-substructural-types|note 07]].
+**Effect systems, linear and session types** → [[programming-language-theory/07-effects-and-substructural-types|note 07]].
 
 ## The trade-offs
 
@@ -156,7 +156,7 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 ---
 
 ## Related
-- [[foundations/programming-language-theory/05-type-inference|Type Inference]] — Hindley–Milner
-- [[foundations/programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — where types become proofs
-- [[foundations/compilers/05-type-systems-and-checking|Compilers: Type Systems]] — the implementation
-- [[foundations/programming-language-theory/index|PL theory map]]
+- [[programming-language-theory/05-type-inference|Type Inference]] — Hindley–Milner
+- [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — where types become proofs
+- [[compilers/05-type-systems-and-checking|Compilers: Type Systems]] — the implementation
+- [[programming-language-theory/index|PL theory map]]

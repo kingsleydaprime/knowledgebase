@@ -36,11 +36,11 @@ $$\boxed{M(\boldsymbol\theta)\ddot{\boldsymbol\theta} + C(\boldsymbol\theta, \do
 
 **Three properties worth carrying:**
 
-**$M$ is configuration-dependent.** An extended arm has far more inertia about the shoulder than a folded one — by a large factor. **So a fixed-gain joint controller is well-tuned in one configuration and badly tuned in another**, which is the practical reason gain scheduling appears in robotics. → [[engineering/02-control-theory/13-nonlinear-and-modern-control|Gain scheduling]]
+**$M$ is configuration-dependent.** An extended arm has far more inertia about the shoulder than a folded one — by a large factor. **So a fixed-gain joint controller is well-tuned in one configuration and badly tuned in another**, which is the practical reason gain scheduling appears in robotics. → [[control-theory/13-nonlinear-and-modern-control|Gain scheduling]]
 
 **$M$ is symmetric and positive definite.** Always invertible, which is what makes forward dynamics well-posed.
 
-**The system is coupled.** Moving joint 2 exerts torque on joints 1 and 3. **Joints are not independent**, and treating them as independent SISO loops is an approximation that degrades as speed rises. → [[engineering/02-control-theory/08-state-space|MIMO]]
+**The system is coupled.** Moving joint 2 exerts torque on joints 1 and 3. **Joints are not independent**, and treating them as independent SISO loops is an approximation that degrades as speed rises. → [[control-theory/08-state-space|MIMO]]
 
 **Coriolis and centrifugal terms scale with velocity squared**, which is why they're negligible when jogging and dominant when moving fast.
 
@@ -102,7 +102,7 @@ $$\boldsymbol\tau = M(\boldsymbol\theta)\left[\ddot{\boldsymbol\theta}_d + K_v\d
 
 $$\ddot{\mathbf{e}} + K_v\dot{\mathbf{e}} + K_p\mathbf{e} = 0$$
 
-**Each joint now behaves like an independent second-order system with whatever poles you choose** — and crucially, **the same gains work in every configuration**, because the configuration-dependence has been cancelled. → [[engineering/02-control-theory/13-nonlinear-and-modern-control|Feedback linearisation]]
+**Each joint now behaves like an independent second-order system with whatever poles you choose** — and crucially, **the same gains work in every configuration**, because the configuration-dependence has been cancelled. → [[control-theory/13-nonlinear-and-modern-control|Feedback linearisation]]
 
 **What it needs, and where it fails:**
 
@@ -147,7 +147,7 @@ $Y$ is the **regressor** and $\boldsymbol\pi$ the parameter vector. **So it's a 
 
 **Trajectory design matters.** You must excite all the parameters — the standard approach optimises a periodic trajectory to minimise the condition number of the regressor. A lazy trajectory gives a badly conditioned fit and nonsense parameters.
 
-**Only *base parameters* are identifiable.** Some combinations of mass and inertia never affect the torque and cannot be recovered from any experiment. Trying to identify them gives numerical garbage — you fit the identifiable combinations and accept the rest are unobservable. → [[engineering/02-control-theory/09-controllability-observability-and-pole-placement|Observability]]
+**Only *base parameters* are identifiable.** Some combinations of mass and inertia never affect the torque and cannot be recovered from any experiment. Trying to identify them gives numerical garbage — you fit the identifiable combinations and accept the rest are unobservable. → [[control-theory/09-controllability-observability-and-pole-placement|Observability]]
 
 ## Practical notes
 
@@ -155,7 +155,7 @@ $Y$ is the **regressor** and $\boldsymbol\pi$ the parameter vector. **So it's a 
 
 **A payload changes everything.** Picking up a 5 kg object changes $M$ and $\mathbf{g}$ substantially. **Update the model when the payload changes** — most industrial controllers have a payload parameter for exactly this, and running with it wrong is a common cause of degraded accuracy and nuisance faults.
 
-**Joint flexibility is the unmodelled thing that bites.** Harmonic drives and belts are compliant, so motor position ≠ joint position. That introduces a resonance, and it's the practical limit on bandwidth for most arms. → [[engineering/02-control-theory/06-frequency-response|Resonance]]
+**Joint flexibility is the unmodelled thing that bites.** Harmonic drives and belts are compliant, so motor position ≠ joint position. That introduces a resonance, and it's the practical limit on bandwidth for most arms. → [[control-theory/06-frequency-response|Resonance]]
 
 **Friction is worse than the models say.** Stiction, Stribeck effects, and position-dependence. It's what causes hunting around a setpoint at very low velocity, and it doesn't yield to better PID tuning.
 
@@ -168,5 +168,5 @@ $Y$ is the **regressor** and $\boldsymbol\pi$ the parameter vector. **So it's a 
 ## Related
 - [[robotics/09-robot-control|Robot Control]] — putting this into a loop
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — where $J^T$ maps forces
-- [[engineering/01-continuum-mechanics/index|Continuum Mechanics]] — the deformation this assumes away
+- [[continuum-mechanics/index|Continuum Mechanics]] — the deformation this assumes away
 - [[robotics/index|Robotics map]]

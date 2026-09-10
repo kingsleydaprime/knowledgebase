@@ -5,7 +5,7 @@
 ## Before you start
 
 - You know what a compiler emits — [[08-code-generation|code generation]].
-- You can read basic assembly and know what an address is — [[foundations/computer-architecture/04-assembly|computer-architecture/assembly]].
+- You can read basic assembly and know what an address is — [[computer-architecture/04-assembly|computer-architecture/assembly]].
 - Access to `gcc`, `nm` and `readelf`. Any Linux machine has them.
 
 **What you will be able to do after this lesson:**
@@ -102,7 +102,7 @@ When the compiler emits a call to a function it cannot locate, it writes a place
 
 **The format matters.** `PC32` means "a 32-bit offset relative to the program counter" — so the value written is not the address but the *distance* to it. That is what makes code relocatable: move the whole block and the relative distances still hold.
 
-**This is the same idea as [[foundations/how-computers-work/08-capstone/02-the-isa|PRIME-1's PC-relative branches]]**, and it is why the disassembler in that module needed to know an instruction's address. Position-dependent encodings must be adjusted when code moves — and relocation is that adjustment, done once at link time.
+**This is the same idea as [[how-computers-work/08-capstone/02-the-isa|PRIME-1's PC-relative branches]]**, and it is why the disassembler in that module needed to know an instruction's address. Position-dependent encodings must be adjusted when code moves — and relocation is that adjustment, done once at link time.
 
 ## 6. What the linker actually does
 
@@ -445,7 +445,7 @@ linker_lab: passed
 ## Related
 
 - [[08-code-generation|Code generation]] — where the object files come from
-- [[foundations/os/09-syscalls-interrupts-and-the-abi|os/syscalls and the ABI]] — the calling convention the linker assumes
-- [[foundations/how-computers-work/07-the-bridge|How Computers Work — the bridge]] — which flagged this as the missing link
+- [[os/09-syscalls-interrupts-and-the-abi|os/syscalls and the ABI]] — the calling convention the linker assumes
+- [[how-computers-work/07-the-bridge|How Computers Work — the bridge]] — which flagged this as the missing link
 - [[build-your-own-shit/11-your-own-memory-allocator|Your own memory allocator]] — uses `LD_PRELOAD`
 - [[build-your-own-shit/18-your-own-compiler|Your own compiler]] — emits the assembly this links

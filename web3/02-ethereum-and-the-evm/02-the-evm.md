@@ -81,8 +81,8 @@ Two consequences: **the constructor is not part of the deployed contract** (you 
 
 ## Related
 - [[web3/02-ethereum-and-the-evm/03-gas-and-fees|gas and fees]] · [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|storage layout]]
-- [[foundations/compilers/10-bytecode-and-virtual-machines|bytecode VMs]] · [[foundations/compilers/index|compilers]] — Solidity is a compiler target problem
-- [[foundations/computer-architecture/03-instruction-sets|instruction sets]] — the contrast with real ISAs
+- [[compilers/10-bytecode-and-virtual-machines|bytecode VMs]] · [[compilers/index|compilers]] — Solidity is a compiler target problem
+- [[computer-architecture/03-instruction-sets|instruction sets]] — the contrast with real ISAs
 - [[build-your-own-shit/15-your-own-smart-contract-vm|build your own smart contract VM]]
 
 *Source: [reference] — from the Yellow Paper, evm.codes, and the execution specs. Aug 2026.*

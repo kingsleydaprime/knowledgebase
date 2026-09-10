@@ -16,7 +16,7 @@
 
 > **The central problem: a pixel covers an *area* of texture, not a point.** Sampling one texel per pixel is point-sampling a continuous signal, and that aliases.
 
-**This is exactly the Nyquist problem.** → [[foundations/information-theory/01-what-information-is|Information Theory]]
+**This is exactly the Nyquist problem.** → [[information-theory/01-what-information-is|Information Theory]]
 
 **The two failure directions:**
 
@@ -46,7 +46,7 @@
  level 2:  128×128     ... down to 1×1
 ```
 
-**At render time, pick the level where one texel ≈ one pixel**, chosen from the screen-space derivatives of the UV coordinates (which is why fragments are shaded in 2×2 quads — you need neighbours to compute the derivative). → [[foundations/computer-graphics/03-rasterisation|Quads]]
+**At render time, pick the level where one texel ≈ one pixel**, chosen from the screen-space derivatives of the UV coordinates (which is why fragments are shaded in 2×2 quads — you need neighbours to compute the derivative). → [[computer-graphics/03-rasterisation|Quads]]
 
 > **Mipmapping is pre-filtering.** Instead of averaging many texels per pixel at runtime, you average them once, offline. **A band-limited version of the signal, ready at every scale.**
 >
@@ -91,7 +91,7 @@
 
 **Streaming** — load mip levels on demand based on what's visible. **Distant objects need only small mips.** The characteristic artefact is a texture visibly "popping" to higher resolution as you approach.
 
-**Virtual texturing / sparse textures** — treat texture memory like [[foundations/os/04-virtual-memory|virtual memory]], with page tables and on-demand residency. **The same idea as OS paging, applied to textures**, and it's what allows enormous unique-textured worlds.
+**Virtual texturing / sparse textures** — treat texture memory like [[os/04-virtual-memory|virtual memory]], with page tables and on-demand residency. **The same idea as OS paging, applied to textures**, and it's what allows enormous unique-textured worlds.
 
 **Texture atlases and arrays** — pack many textures together to reduce state changes and draw calls. **Atlases have bleeding problems at mip boundaries** (neighbouring textures blur into each other), which is why texture *arrays* are usually better where available.
 
@@ -119,11 +119,11 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 
 **The same theory applies throughout rendering**, which is the reason this note connects outward:
 
-**Antialiasing** — sampling geometry coverage. → [[foundations/computer-graphics/03-rasterisation|MSAA and TAA]]
+**Antialiasing** — sampling geometry coverage. → [[computer-graphics/03-rasterisation|MSAA and TAA]]
 
 **Shadow maps** — sampling a depth texture, with PCF as the filter.
 
-**Monte Carlo integration** in path tracing — sampling the light integral. → [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|Path Tracing]]
+**Monte Carlo integration** in path tracing — sampling the light integral. → [[computer-graphics/07-ray-tracing-and-path-tracing|Path Tracing]]
 
 **Temporal sampling** — motion blur is sampling over time; TAA accumulates samples across frames.
 
@@ -139,7 +139,7 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 
 **Use the right compression format per texture type** — BC5 for normals, BC6H for HDR.
 
-**Mark colour textures as sRGB, and data textures as linear.** Normal, roughness and metallic maps are **data** — sRGB-decoding them is a real and subtle bug. → [[foundations/computer-graphics/04-shading-and-lighting|Colour space]]
+**Mark colour textures as sRGB, and data textures as linear.** Normal, roughness and metallic maps are **data** — sRGB-decoding them is a real and subtle bug. → [[computer-graphics/04-shading-and-lighting|Colour space]]
 
 **Watch for texture bleeding** in atlases — pad each entry by the mip chain's worth of border.
 
@@ -150,7 +150,7 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 ---
 
 ## Related
-- [[foundations/computer-graphics/04-shading-and-lighting|Shading and Lighting]] — what the textures feed
-- [[foundations/computer-graphics/03-rasterisation|Rasterisation]] — antialiasing, the same sampling problem
-- [[foundations/information-theory/01-what-information-is|Information Theory]] — sampling and band-limiting
-- [[foundations/computer-graphics/index|Computer graphics map]]
+- [[computer-graphics/04-shading-and-lighting|Shading and Lighting]] — what the textures feed
+- [[computer-graphics/03-rasterisation|Rasterisation]] — antialiasing, the same sampling problem
+- [[information-theory/01-what-information-is|Information Theory]] — sampling and band-limiting
+- [[computer-graphics/index|Computer graphics map]]

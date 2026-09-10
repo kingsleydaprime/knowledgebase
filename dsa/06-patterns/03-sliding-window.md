@@ -269,7 +269,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[015-best-time-to-buy-and-sell-stock|Best Time to Buy and Sell Stock]] (LeetCode #121) — the degenerate window: track the minimum so far.
 2. [[016-longest-substring-without-repeating-characters|Longest Substring Without Repeating Characters]] (LeetCode #3) — grow on the right, shrink from the left the moment a repeat appears.

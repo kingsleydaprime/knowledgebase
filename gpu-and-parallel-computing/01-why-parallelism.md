@@ -2,7 +2,7 @@
 
 **[Intermediate]** — The free lunch ended, what Amdahl actually limits, and the taxonomy that tells you which kind of parallel you need.
 
-**Source:** `[reference]` — see [[foundations/gpu-and-parallel-computing/index|the domain note]].
+**Source:** `[reference]` — see [[gpu-and-parallel-computing/index|the domain note]].
 
 ## The end of free performance
 
@@ -12,7 +12,7 @@
 
 $$P \approx CV^2f + \text{leakage}$$
 
-**Power scales with frequency and with the square of voltage** — and higher clocks need higher voltage to switch reliably. **Around 4 GHz, a chip can no longer dissipate the heat.** → [[foundations/computer-architecture/01-what-architecture-is|Where performance comes from]]
+**Power scales with frequency and with the square of voltage** — and higher clocks need higher voltage to switch reliably. **Around 4 GHz, a chip can no longer dissipate the heat.** → [[computer-architecture/01-what-architecture-is|Where performance comes from]]
 
 **Moore's Law continued** — transistor counts kept rising. **They went into cores, caches, and specialised units instead of frequency.**
 
@@ -51,11 +51,11 @@ $$S = \frac{1}{(1-p) + p/N}$$
 | **Single data** | **SISD** — classic scalar CPU | MISD — rare |
 | **Multiple data** | **SIMD** — vector units, GPUs | **MIMD** — multicore, clusters |
 
-**SIMD** — one instruction, many data elements. **AVX, NEON, and the heart of a GPU.** Requires the same operation on everything, which is exactly what array maths is. → [[foundations/computer-architecture/03-instruction-sets|SIMD]]
+**SIMD** — one instruction, many data elements. **AVX, NEON, and the heart of a GPU.** Requires the same operation on everything, which is exactly what array maths is. → [[computer-architecture/03-instruction-sets|SIMD]]
 
 **MIMD** — independent instruction streams. **Threads on a multicore CPU, processes across a cluster.** Flexible, and much higher overhead per unit of work.
 
-**SIMT** — "single instruction, multiple threads" — is NVIDIA's term for the GPU model, and it sits between the two: **it looks like MIMD to the programmer and executes like SIMD in hardware.** That gap is where most GPU performance surprises come from. → [[foundations/gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]]
+**SIMT** — "single instruction, multiple threads" — is NVIDIA's term for the GPU model, and it sits between the two: **it looks like MIMD to the programmer and executes like SIMD in hardware.** That gap is where most GPU performance surprises come from. → [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]]
 
 ## Kinds of parallelism
 
@@ -90,13 +90,13 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 | Node → node (InfiniBand) | ~1–2 µs |
 | Node → node (Ethernet) | ~50 µs |
 
-> **The CPU↔GPU line is the one that catches people.** Moving data across PCIe costs microseconds and limited bandwidth. **A GPU kernel that takes 50 µs and needs 200 µs of transfer is a net loss** — and this is the single most common reason a first GPU port is *slower* than the CPU version. → [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]]
+> **The CPU↔GPU line is the one that catches people.** Moving data across PCIe costs microseconds and limited bandwidth. **A GPU kernel that takes 50 µs and needs 200 µs of transfer is a net loss** — and this is the single most common reason a first GPU port is *slower* than the CPU version. → [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]]
 
 **Load imbalance.** If one worker gets twice the work, you've halved your efficiency. **Dynamic scheduling and work stealing** address it at some overhead.
 
-**Contention.** Shared cache lines, memory bandwidth, a hot lock. **[[foundations/computer-architecture/09-caches-in-depth|False sharing]] can make a parallel program slower than the serial one** — independent variables on the same cache line, ping-ponging between cores.
+**Contention.** Shared cache lines, memory bandwidth, a hot lock. **[[computer-architecture/09-caches-in-depth|False sharing]] can make a parallel program slower than the serial one** — independent variables on the same cache line, ping-ponging between cores.
 
-**Correctness.** Race conditions, deadlocks, and memory-ordering bugs that appear once in $10^9$ runs on one architecture. → [[foundations/computer-architecture/11-multicore-and-memory-models|Memory Models]]
+**Correctness.** Race conditions, deadlocks, and memory-ordering bugs that appear once in $10^9$ runs on one architecture. → [[computer-architecture/11-multicore-and-memory-models|Memory Models]]
 
 ## Which hardware
 
@@ -124,7 +124,7 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 
 **The practical procedure:**
 
-1. **Profile the serial version first.** Parallelising unoptimised code just wastes more cores → [[foundations/computer-architecture/12-performance|Performance]]
+1. **Profile the serial version first.** Parallelising unoptimised code just wastes more cores → [[computer-architecture/12-performance|Performance]]
 2. **Find the parallelisable fraction.** Amdahl tells you the ceiling before you start
 3. **Start with the coarsest granularity that works.** Fine-grained parallelism has proportionally more overhead
 4. **Measure at 1, 2, 4, 8, … workers.** **Plot it.** Where the curve bends is where your bottleneck is
@@ -147,7 +147,7 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 ---
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — what a GPU actually is
-- [[foundations/computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — the correctness side
-- [[foundations/computer-architecture/12-performance|Performance]] — profile before parallelising
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]
+- [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — what a GPU actually is
+- [[computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — the correctness side
+- [[computer-architecture/12-performance|Performance]] — profile before parallelising
+- [[gpu-and-parallel-computing/index|GPU and parallel map]]

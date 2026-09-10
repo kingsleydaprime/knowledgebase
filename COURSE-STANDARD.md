@@ -18,7 +18,7 @@ This does not mean every note becomes a textbook chapter. A 10-minute pattern no
 
 ## What to borrow from data structures
 
-The strongest patterns in [[foundations/dsa/04-data-structures/01-arrays|arrays]], [[foundations/dsa/04-data-structures/02-dynamic-arrays|dynamic arrays]], and [[foundations/dsa/04-data-structures/03-hash-maps|hash maps]] are:
+The strongest patterns in [[dsa/04-data-structures/01-arrays|arrays]], [[dsa/04-data-structures/02-dynamic-arrays|dynamic arrays]], and [[dsa/04-data-structures/03-hash-maps|hash maps]] are:
 
 - Motivation before machinery: what problem does this solve?
 - Plain-English definitions before a wall of terminology.

@@ -86,7 +86,7 @@ if (!post && decoded !== slug) {
 
 **Fixing the read without fixing the data is a loan.** Attempt 1 shipped in minutes and would have been paid for indefinitely. Two commits later there is a permanent fix, a repair script, and a comment explaining the invariant.
 
-**Related:** [[projects/munakalati/learning/05-migration/05-repair-scripts|migration/05]] · [[foundations/networking/index|networking]] (percent-encoding is RFC 3986)
+**Related:** [[projects/munakalati/learning/05-migration/05-repair-scripts|migration/05]] · [[networking/index|networking]] (percent-encoding is RFC 3986)
 
 ---
 

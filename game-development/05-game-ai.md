@@ -73,7 +73,7 @@ Each factor is a curve a designer tunes.
 
 ## Pathfinding
 
-The most-used algorithm in games, and one this vault already covers → [[foundations/dsa/05-algorithms/06-dijkstra|Dijkstra]] and [[foundations/dsa/05-algorithms/03-bfs|BFS]].
+The most-used algorithm in games, and one this vault already covers → [[dsa/05-algorithms/06-dijkstra|Dijkstra]] and [[dsa/05-algorithms/03-bfs|BFS]].
 
 **A\*** is Dijkstra plus a heuristic — an estimate of remaining distance that steers the search toward the goal:
 
@@ -109,8 +109,8 @@ Where it does appear:
 **Reinforcement learning is a genuinely good fit for balancing**, not for the agents themselves → [[ai-ml/index|AI & ML]].
 
 ## Related
-- [[foundations/dsa/05-algorithms/06-dijkstra|Dijkstra]] · [[foundations/dsa/05-algorithms/03-bfs|BFS]] — pathfinding's foundation
-- [[foundations/mathematics/02-discrete-math/07-graph-theory|graph theory]] — what a navmesh is
+- [[dsa/05-algorithms/06-dijkstra|Dijkstra]] · [[dsa/05-algorithms/03-bfs|BFS]] — pathfinding's foundation
+- [[mathematics/02-discrete-math/07-graph-theory|graph theory]] — what a navmesh is
 - [[ai-ml/index|AI & ML]] — the other kind of AI
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — where AI ticks
 

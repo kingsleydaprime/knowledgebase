@@ -14,11 +14,11 @@ An HTTP/1.1 server that accepts TCP connections, parses requests, routes them, a
 
 | You should know | Where |
 |---|---|
-| **Sockets** — `socket`/`bind`/`listen`/`accept`, and what a file descriptor is | [[foundations/networking/09-sockets-and-the-network-api\|networking/09]] |
-| **TCP basics** — the connection lifecycle, why `TIME_WAIT` exists | [[foundations/networking/06-tcp-connection-lifecycle\|networking/06]] |
-| **HTTP semantics** — methods, status codes, headers | [[foundations/networking/11-http-evolution\|networking/11]] |
-| **Blocking vs non-blocking I/O** | [[foundations/os/08-io-models\|os/08]] |
-| **Processes and threads** (for the concurrency milestone) | [[foundations/os/02-processes-and-threads\|os/02]] |
+| **Sockets** — `socket`/`bind`/`listen`/`accept`, and what a file descriptor is | [[networking/09-sockets-and-the-network-api\|networking/09]] |
+| **TCP basics** — the connection lifecycle, why `TIME_WAIT` exists | [[networking/06-tcp-connection-lifecycle\|networking/06]] |
+| **HTTP semantics** — methods, status codes, headers | [[networking/11-http-evolution\|networking/11]] |
+| **Blocking vs non-blocking I/O** | [[os/08-io-models\|os/08]] |
+| **Processes and threads** (for the concurrency milestone) | [[os/02-processes-and-threads\|os/02]] |
 
 You **don't** need: parsing theory (the grammar is trivial), TLS knowledge, or any framework experience.
 
@@ -145,7 +145,7 @@ Pick one:
 
 **Test:** `ab -n 1000 -c 50 http://localhost:8080/` or `wrk`. Compare against your single-threaded version.
 
-**Watch for:** shared state now needs synchronisation. **Ignore `SIGPIPE`** (or use `MSG_NOSIGNAL`), or a client disconnecting mid-response kills your process. → [[foundations/os/10-signals-and-ipc|Signals]]
+**Watch for:** shared state now needs synchronisation. **Ignore `SIGPIPE`** (or use `MSG_NOSIGNAL`), or a client disconnecting mid-response kills your process. → [[os/10-signals-and-ipc|Signals]]
 
 If you choose the event loop, you'll need a **per-connection state machine** — a request can arrive across several reads, so parser state can't live on the stack. → [[backend/frameworks/c/01-the-accept-loop-and-event-loops|The Accept Loop]]
 
@@ -251,8 +251,8 @@ The natural follow-on from here is **your own Redis** (guide 03, planned) — sa
 ---
 
 ## Related
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the syscalls
-- [[foundations/os/08-io-models|I/O Models]] — blocking, epoll, io_uring
+- [[networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the syscalls
+- [[os/08-io-models|I/O Models]] — blocking, epoll, io_uring
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|C: The Accept Loop]] — milestone 8 in depth
 - [[backend/frameworks/c/02-parsing-http-safely|C: Parsing HTTP Safely]] — read before milestone 2 if you're in C
 - [[build-your-own-shit/index|build-your-own-shit]]

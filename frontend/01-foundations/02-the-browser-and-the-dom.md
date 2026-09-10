@@ -14,7 +14,7 @@ DNS → TCP → TLS → HTTP request → HTML arrives
    → composite (stack the layers)
 ```
 
-**The first four steps are [[foundations/networking/index|networking]]** and are often the bulk of the time on a first visit.
+**The first four steps are [[networking/index|networking]]** and are often the bulk of the time on a first visit.
 
 **Each later step depends on the one before**, which is why the order of your `<head>` matters and why "just move the script tag" is real advice rather than folklore.
 
@@ -111,7 +111,7 @@ list.addEventListener("click", (e) => {
 ## Related
 - [[frontend/02-rendering/index|rendering]] — CSR, SSR, hydration
 - [[frontend/07-practices/index|practices]] — Core Web Vitals
-- [[foundations/networking/11-http-evolution|HTTP]] — the first four steps
-- [[foundations/computer-graphics/index|computer graphics]] — what paint and composite actually do
+- [[networking/11-http-evolution|HTTP]] — the first four steps
+- [[computer-graphics/index|computer graphics]] — what paint and composite actually do
 
 *Source: [reference] — written Aug 2026.*

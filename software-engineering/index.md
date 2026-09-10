@@ -10,14 +10,14 @@ Everything else here teaches a subject — a language, a protocol, a database. T
 
 ## Reading order
 
-1. [[foundations/software-engineering/01-what-software-engineering-is|what-software-engineering-is]] — **[Beginner]** — programming vs engineering, where the time actually goes, the three habits (abstraction, decomposition, trade-offs)
-2. [[foundations/software-engineering/02-the-software-development-lifecycle|the-software-development-lifecycle]] — **[Beginner]** — the six phases, what breaks when each is skipped, waterfall vs agile as batch size
-3. [[foundations/software-engineering/03-the-engineering-roles|the-engineering-roles]] — **[Beginner]** — the eleven roles, what genuinely differs (the failure you fear), and the seniority ladder
-4. [[foundations/software-engineering/04-the-kinds-of-software-engineering|the-kinds-of-software-engineering]] — **[Beginner]** — the field cut by *constraint* rather than product: embedded, real-time/safety-critical, systems, games, HPC, desktop, firmware. **Which specialisations are hard to switch into later, and why the asymmetry runs one way**
+1. [[software-engineering/01-what-software-engineering-is|what-software-engineering-is]] — **[Beginner]** — programming vs engineering, where the time actually goes, the three habits (abstraction, decomposition, trade-offs)
+2. [[software-engineering/02-the-software-development-lifecycle|the-software-development-lifecycle]] — **[Beginner]** — the six phases, what breaks when each is skipped, waterfall vs agile as batch size
+3. [[software-engineering/03-the-engineering-roles|the-engineering-roles]] — **[Beginner]** — the eleven roles, what genuinely differs (the failure you fear), and the seniority ladder
+4. [[software-engineering/04-the-kinds-of-software-engineering|the-kinds-of-software-engineering]] — **[Beginner]** — the field cut by *constraint* rather than product: embedded, real-time/safety-critical, systems, games, HPC, desktop, firmware. **Which specialisations are hard to switch into later, and why the asymmetry runs one way**
 
 ## Then
 
-This is week 1 of [[learning/swe-101/04-scheme-of-work|SWE 101]] and nothing else depends on it. From here the vault splits by subject — [[README|the root README]] has the full map, and [[PRIMETECHIE|PRIMETECHIE]] has an order to do it in.
+This is week 1 of [[learning/swe-101/04-scheme-of-work|SWE 101]] and nothing else depends on it. From here the vault splits by subject — [[HOME|the root README]] has the full map, and [[PRIMETECHIE|PRIMETECHIE]] has an order to do it in.
 
 ## Related
 - [[concepts/04-best-practices/index|best practices]] — the habits that follow from "code is read more than written"

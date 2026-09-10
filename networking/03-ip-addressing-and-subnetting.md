@@ -77,8 +77,8 @@ Because many hosts share one public IP, the port number is doing the disambiguat
 
 The consequences are enormous and mostly bad:
 
-- **Inbound connections don't work.** There's no table entry until the inside host sends first. This breaks peer-to-peer, and is why VoIP/games/WebRTC need [[foundations/networking/14-nat-firewalls-and-middleboxes|STUN/TURN/ICE]].
-- **It breaks the end-to-end principle** from [[foundations/networking/01-what-a-network-is|note 01]]. A middlebox now rewrites headers, so the network is no longer transparent — with knock-on effects on protocol evolution.
+- **Inbound connections don't work.** There's no table entry until the inside host sends first. This breaks peer-to-peer, and is why VoIP/games/WebRTC need [[networking/14-nat-firewalls-and-middleboxes|STUN/TURN/ICE]].
+- **It breaks the end-to-end principle** from [[networking/01-what-a-network-is|note 01]]. A middlebox now rewrites headers, so the network is no longer transparent — with knock-on effects on protocol evolution.
 - **It is not a firewall,** though it accidentally behaves like one. Don't rely on it as a security control.
 - **Connections die silently** when the NAT table entry times out (often 5 minutes of idle for TCP). This is the actual cause of "my long-lived WebSocket / database connection drops after a few minutes idle" — and why TCP keepalives and application-level pings exist.
 
@@ -91,7 +91,7 @@ What actually changes in practice:
 - **No NAT.** Every device gets a globally routable address. End-to-end connectivity comes back. (Firewalls now do the filtering that NAT accidentally did.)
 - **`/64` is the standard subnet**, always. Not because you need 18 quintillion hosts on a LAN, but because SLAAC (address autoconfiguration) requires it. A site typically gets a `/48` or `/56` and carves `/64`s from it. Subnetting stops being arithmetic and starts being bookkeeping.
 - **No broadcast** — multicast and NDP replace ARP.
-- **Routers don't fragment**, so [[foundations/networking/02-the-link-layer|Path MTU Discovery]] is mandatory, which makes blocking ICMPv6 genuinely fatal rather than merely harmful.
+- **Routers don't fragment**, so [[networking/02-the-link-layer|Path MTU Discovery]] is mandatory, which makes blocking ICMPv6 genuinely fatal rather than merely harmful.
 - **Dual-stack and Happy Eyeballs** — hosts usually run both, and try IPv6 and IPv4 connections in parallel, taking whichever answers first, so a broken IPv6 path doesn't hang the user.
 
 ## Key insight
@@ -99,7 +99,7 @@ What actually changes in practice:
 An IP address is not a name for a *machine* — it's a name for a **location in the routing hierarchy**, which is why it changes when the machine moves and why a laptop has a different address on Wi-Fi than on Ethernet. Identity (who you are) and location (where you are) are conflated in IP, and almost every hard problem in mobility, multi-homing, and NAT traversal traces back to that one conflation.
 
 ## Related
-- [[foundations/networking/04-routing|Routing]] — what routers do with these prefixes
-- [[foundations/networking/14-nat-firewalls-and-middleboxes|NAT, Firewalls & Middleboxes]] — NAT traversal in full
+- [[networking/04-routing|Routing]] — what routers do with these prefixes
+- [[networking/14-nat-firewalls-and-middleboxes|NAT, Firewalls & Middleboxes]] — NAT traversal in full
 - [[devops/03-cloud/index|Cloud]] — VPC/subnet design is this arithmetic applied
-- [[foundations/networking/16-debugging-networks|Debugging Networks]] — `ip addr`, `ip route`, reading a routing table
+- [[networking/16-debugging-networks|Debugging Networks]] — `ip addr`, `ip route`, reading a routing table

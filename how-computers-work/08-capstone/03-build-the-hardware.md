@@ -6,7 +6,7 @@
 
 - You have an exact instruction encoding — [[how-computers-work/08-capstone/02-the-isa|module 29]].
 - You can build every datapath component: ALU ([[how-computers-work/05-combinational/04-the-alu|module 23]]), register file and PC ([[how-computers-work/06-memory/02-registers-and-counters|module 25]]), memory ([[how-computers-work/06-memory/03-memory-technology|module 26]]).
-- You have read [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]].
+- You have read [[computer-architecture/05-the-datapath|computer-architecture/the datapath]].
 
 **After this lesson you will be able to:**
 
@@ -162,7 +162,7 @@ PRIME-1 is **single-cycle**: every instruction completes in one clock, so the cl
 1. **Multi-cycle** — break each instruction into steps and let each take only the cycles it needs. `ADD` takes 4, `LD` takes 5. This needs a state machine in the control unit rather than a flat table.
 2. **Pipelining** — keep the single-cycle-per-stage structure but overlap instructions, so a new one starts every cycle even though each takes five. Same clock period as multi-cycle, roughly five times the throughput.
 
-**Pipelining is why real processors are fast**, and it is the subject of [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]]. **Build the single-cycle version first** — it is correct, comprehensible, and the thing pipelining is an optimisation *of*.
+**Pipelining is why real processors are fast**, and it is the subject of [[computer-architecture/06-pipelining|computer-architecture/pipelining]]. **Build the single-cycle version first** — it is correct, comprehensible, and the thing pipelining is an optimisation *of*.
 </details>
 
 ---
@@ -437,7 +437,7 @@ On a physical build you also want it to <strong>stop the clock</strong> or light
 ## 12. Tradeoffs and limits
 
 - **Single-cycle is the simplest correct design and the slowest.** Every instruction pays the cost of the slowest one. Multi-cycle and pipelined designs fix this at the cost of a control state machine.
-- **No hazard handling.** With one instruction in flight there are no hazards. Pipelining introduces them all at once — see [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]].
+- **No hazard handling.** With one instruction in flight there are no hazards. Pipelining introduces them all at once — see [[computer-architecture/06-pipelining|computer-architecture/pipelining]].
 - **No exceptions or interrupts.** The control unit has no path for "abandon this instruction and go somewhere else", which a real machine needs.
 - **The derivation assumes one control word per instruction.** Multi-cycle or microprogrammed designs need a *sequence*, which is a state machine rather than a lookup — a genuinely bigger step.
 
@@ -462,5 +462,5 @@ On a physical build you also want it to <strong>stop the clock</strong> or light
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU]] — the four build tracks
 - [[how-computers-work/08-capstone/02-the-isa|Module 29]] — the ISA this control unit derives from
-- [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]]
-- [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]] — the answer to single-cycle inefficiency
+- [[computer-architecture/05-the-datapath|computer-architecture/the datapath]]
+- [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — the answer to single-cycle inefficiency

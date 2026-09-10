@@ -70,7 +70,7 @@ If the goal is photorealism, you would spend years reproducing that.
 
 **Build sizes are large**, which matters for mobile and web.
 
-**The royalty:** 5% of gross revenue above a threshold (currently $1M per title), after which it's a real cost — and worth modelling in the trade study rather than discovering later → [[foundations/systems-engineering/05-trade-studies|trade studies]].
+**The royalty:** 5% of gross revenue above a threshold (currently $1M per title), after which it's a real cost — and worth modelling in the trade study rather than discovering later → [[systems-engineering/05-trade-studies|trade studies]].
 
 ## Related
 - [[game-development/engines/index|engines/]] · [[game-development/engines/unity|Unity]]

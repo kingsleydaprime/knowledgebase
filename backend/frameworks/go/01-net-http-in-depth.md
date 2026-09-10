@@ -189,7 +189,7 @@ Three real bugs live here:
 srv.ListenAndServeTLS("cert.pem", "key.pem")
 ```
 
-In practice you usually terminate TLS at a reverse proxy or load balancer and run plain HTTP behind it. If you do terminate in Go, `autocert` handles Let's Encrypt. → [[foundations/networking/12-tls-and-transport-security|TLS]]
+In practice you usually terminate TLS at a reverse proxy or load balancer and run plain HTTP behind it. If you do terminate in Go, `autocert` handles Let's Encrypt. → [[networking/12-tls-and-transport-security|TLS]]
 
 ## What the stdlib doesn't give you
 

@@ -68,7 +68,7 @@ add x1, x5, x6     ; writes x1    — WAW: a NAME conflict only
 
 > **The ROB is what makes speculation safe.** Instructions execute out of order, but **they commit in order**, and nothing becomes architecturally visible until it retires. On a misprediction or exception, everything after the offending instruction is simply discarded from the ROB — **it never happened.**
 >
-> **That's the illusion the whole design maintains: massive internal reordering, perfectly sequential observable behaviour.** And it's precisely the illusion Spectre broke, by observing the *microarchitectural* traces of work that "never happened". → [[foundations/computer-architecture/07-branch-prediction-and-speculation|Speculation]]
+> **That's the illusion the whole design maintains: massive internal reordering, perfectly sequential observable behaviour.** And it's precisely the illusion Spectre broke, by observing the *microarchitectural* traces of work that "never happened". → [[computer-architecture/07-branch-prediction-and-speculation|Speculation]]
 
 **Tomasulo's algorithm** (IBM 360/91, 1967) is the origin of all this — renaming plus reservation stations plus a common data bus. **Sixty years old and still the shape of every high-performance core.**
 
@@ -119,7 +119,7 @@ s0 += a[i]; s1 += a[i+1]; s2 += a[i+2]; s3 += a[i+3];
 sum = s0 + s1 + s2 + s3;
 ```
 
-**Note this changes floating-point results** (addition isn't associative), which is why the compiler won't do it without `-ffast-math`. **For integers it will.** → [[foundations/computer-architecture/02-data-representation|Floating point]]
+**Note this changes floating-point results** (addition isn't associative), which is why the compiler won't do it without `-ffast-math`. **For integers it will.** → [[computer-architecture/02-data-representation|Floating point]]
 
 **Branch mispredictions** flush everything speculative.
 
@@ -142,7 +142,7 @@ sum = s0 + s1 + s2 + s3;
 - **Compute-bound code with good ILP** — both threads compete for the same units, and cache pressure doubles. **Can be a net loss**
 - **Cache-sensitive workloads** — halving the effective L1/L2 per thread
 - **Latency-critical services** where predictable tail latency matters more than throughput
-- **Security** — shared microarchitectural state across threads is a side channel. **Cloud providers no longer co-locate untrusted tenants on sibling threads**, and OpenBSD disables SMT by default → [[foundations/computer-architecture/07-branch-prediction-and-speculation|Spectre]]
+- **Security** — shared microarchitectural state across threads is a side channel. **Cloud providers no longer co-locate untrusted tenants on sibling threads**, and OpenBSD disables SMT by default → [[computer-architecture/07-branch-prediction-and-speculation|Spectre]]
 
 **Benchmark it.** Databases and HPC codes frequently disable SMT and gain.
 
@@ -158,7 +158,7 @@ sum = s0 + s1 + s2 + s3;
 
 **Reduce unpredictable branches** — a flush discards everything in flight.
 
-**Improve locality first.** **A cache miss costs more than any ILP gain**, so memory comes before instruction scheduling. → [[foundations/computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
+**Improve locality first.** **A cache miss costs more than any ILP gain**, so memory comes before instruction scheduling. → [[computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
 
 **Avoid division and long-latency ops** in inner loops.
 
@@ -182,7 +182,7 @@ perf stat ./program     # look at insn per cycle
 ---
 
 ## Related
-- [[foundations/computer-architecture/06-pipelining|Pipelining]] — the simpler model
-- [[foundations/computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]] — what feeds the front end
-- [[foundations/computer-architecture/12-performance|Performance]] — the methodology
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/06-pipelining|Pipelining]] — the simpler model
+- [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]] — what feeds the front end
+- [[computer-architecture/12-performance|Performance]] — the methodology
+- [[computer-architecture/index|Architecture map]]

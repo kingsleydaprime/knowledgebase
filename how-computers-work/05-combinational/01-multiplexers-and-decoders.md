@@ -70,7 +70,7 @@ Each output is one AND gate testing a specific combination of the select bits �
 >
 > **That is why memory access is $O(1)$** — the "random access" in RAM. It is not that the hardware searches quickly; it is that a decoder activates the right row directly, in one gate delay. The array does not care whether you asked for address 0 or address 4 billion.
 >
-> This is the hardware fact underneath the constant-time array indexing in [[foundations/dsa/04-data-structures/01-arrays|dsa/arrays]]. The $O(1)$ you rely on in software is a decoder.
+> This is the hardware fact underneath the constant-time array indexing in [[dsa/04-data-structures/01-arrays|dsa/arrays]]. The $O(1)$ you rely on in software is a decoder.
 
 **The cost:** a decoder needs $2^n$ AND gates. A 32-bit address decoded flat would need $2^{32}$ gates — impossible. Real memories decode **hierarchically**: split the address into row and column parts and decode each separately, so $2^{16} + 2^{16}$ gates replace $2^{32}$. That structure is why memory has rows and columns at all, and it returns in [[how-computers-work/06-memory/03-memory-technology|module 24]].
 
@@ -121,7 +121,7 @@ That assumption fails constantly in practice. Several devices raise interrupts i
 | `1010` | 2 | 1 |
 | `1111` | 3 | 1 |
 
-**Interrupt controllers are priority encoders.** When the disk and the timer and the network card all interrupt at once, a priority encoder decides which the CPU services first. You will meet this again as interrupt handling in [[foundations/os/09-syscalls-interrupts-and-the-abi|os/syscalls and interrupts]].
+**Interrupt controllers are priority encoders.** When the disk and the timer and the network card all interrupt at once, a priority encoder decides which the CPU services first. You will meet this again as interrupt handling in [[os/09-syscalls-interrupts-and-the-abi|os/syscalls and interrupts]].
 
 ---
 
@@ -448,5 +448,5 @@ So <strong>larger, power-of-two-sized, properly aligned regions are cheaper to d
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/04-logic/04-universal-gates|Module 18]] — the other universality result
 - [[how-computers-work/06-memory/03-memory-technology|Module 24]] — where hierarchical decoding returns
-- [[foundations/dsa/04-data-structures/01-arrays|dsa/arrays]] — the O(1) indexing this module explains
-- [[foundations/os/09-syscalls-interrupts-and-the-abi|os/syscalls and interrupts]] — priority encoders as interrupt controllers
+- [[dsa/04-data-structures/01-arrays|dsa/arrays]] — the O(1) indexing this module explains
+- [[os/09-syscalls-interrupts-and-the-abi|os/syscalls and interrupts]] — priority encoders as interrupt controllers

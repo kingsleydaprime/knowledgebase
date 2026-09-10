@@ -61,11 +61,11 @@ Mixing these in a contract is how you end up arguing about whether something was
 
 **The stated need isn't the real need.** *"We need a faster horse."* The technique is to keep asking *why* until you reach the underlying goal, because that's the level where alternatives exist.
 
-**Implementation smuggled in as requirement.** *"The system shall use a PostgreSQL database"* is a design decision wearing a requirement's clothes. It removes an option you may need later. The requirement is about durability and query characteristics; the database is a solution → [[foundations/systems-engineering/05-trade-studies|trade studies]].
+**Implementation smuggled in as requirement.** *"The system shall use a PostgreSQL database"* is a design decision wearing a requirement's clothes. It removes an option you may need later. The requirement is about durability and query characteristics; the database is a solution → [[systems-engineering/05-trade-studies|trade studies]].
 
 **Requirements churn.** Change is inevitable; *uncontrolled* change is what kills projects. Hence a baseline, and a change process that makes the cost of each change visible before it's accepted.
 
-**The unstated assumption.** Ariane 5 → [[foundations/systems-engineering/01-what-systems-engineering-is|note 01]]. The requirement was met; the assumption about the flight profile was never written down, so nobody rechecked it.
+**The unstated assumption.** Ariane 5 → [[systems-engineering/01-what-systems-engineering-is|note 01]]. The requirement was met; the assumption about the flight profile was never written down, so nobody rechecked it.
 
 ## Eliciting them
 
@@ -110,9 +110,9 @@ Bureaucratic-looking, and it answers three questions nothing else can:
 **The SLO row is the most useful correspondence in this note.** An SLO *is* a verifiable non-functional requirement with an agreed measurement and an agreed consequence for missing it — the same thing the discipline has always asked for, arrived at independently by [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]].
 
 ## Related
-- [[foundations/systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]] — requirements' matching verification
-- [[foundations/systems-engineering/05-trade-studies|trade studies]] — choosing between solutions
+- [[systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]] — requirements' matching verification
+- [[systems-engineering/05-trade-studies|trade studies]] — choosing between solutions
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach system design]] — the software version
-- [[foundations/software-engineering/02-the-software-development-lifecycle|the SDLC]]
+- [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
 
 *Source: [reference] — from the INCOSE Guide to Writing Requirements and the NASA SE Handbook.*

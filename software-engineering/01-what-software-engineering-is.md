@@ -43,8 +43,8 @@ Practically, these are used interchangeably in job ads and you should not read m
 The useful version isn't a hierarchy of people, it's a question about *scope of responsibility*. "Does it work?" is programming. "Will it still work at 10× traffic, and what happens at 3am when it doesn't?" is engineering.
 
 ## Related
-- [[foundations/software-engineering/02-the-software-development-lifecycle|the SDLC]] — the shape of the work
-- [[foundations/software-engineering/03-the-engineering-roles|the roles]] — who does which part
+- [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — the shape of the work
+- [[software-engineering/03-the-engineering-roles|the roles]] — who does which part
 - [[PRIMETECHIE|the Primetechie path]] — the tiered progression through this whole vault
 
 *Source: [reference] — written as the introduction the rest of this vault assumed but never wrote down.*

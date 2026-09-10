@@ -24,7 +24,7 @@ public class AppDb(DbContextOptions<AppDb> options) : DbContext(options)
 }
 ```
 
-**`HasPrecision` on money is not optional.** Mapping a monetary column to a floating-point type is the [[foundations/programming-fundamentals/05-variables-and-types|float-money bug]] at the database layer. C#'s `decimal` and SQL `numeric` are the correct pair.
+**`HasPrecision` on money is not optional.** Mapping a monetary column to a floating-point type is the [[programming-fundamentals/05-variables-and-types|float-money bug]] at the database layer. C#'s `decimal` and SQL `numeric` are the correct pair.
 
 ## The three mistakes
 

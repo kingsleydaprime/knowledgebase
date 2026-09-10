@@ -93,7 +93,7 @@ enum OpCode {
 }
 ```
 
-**`GetLocal(u8)` is where the speed comes from.** The variable name was resolved to a stack slot at compile time, so runtime access is `stack[frame_base + slot]` — an array index, not a hash lookup. → [[foundations/compilers/04-asts-and-semantic-analysis|Semantic Analysis]]
+**`GetLocal(u8)` is where the speed comes from.** The variable name was resolved to a stack slot at compile time, so runtime access is `stack[frame_base + slot]` — an array index, not a hash lookup. → [[compilers/04-asts-and-semantic-analysis|Semantic Analysis]]
 
 **Jumps are relative**, so code is position-independent and can be moved or spliced.
 
@@ -239,7 +239,7 @@ enum Upvalue {
 
 While the enclosing function is alive, an upvalue **points at the stack slot**, so reads and writes are shared correctly. When that function returns, the upvalue is **closed** — the value is copied into the upvalue object, which the closure now owns.
 
-That two-state design is Lua's, and it's why the common case (an uncaptured local) stays a plain stack slot with no indirection. → [[foundations/compilers/04-asts-and-semantic-analysis|closures and upvalues]]
+That two-state design is Lua's, and it's why the common case (an uncaptured local) stays a plain stack slot with no indirection. → [[compilers/04-asts-and-semantic-analysis|closures and upvalues]]
 
 ## Making it faster
 
@@ -251,7 +251,7 @@ In rough order of payoff:
 4. **NaN boxing** — halves memory traffic
 5. **Constant folding at compile time** — free, do it in the compiler
 6. **Avoid allocating per operation.** Interning strings and reusing buffers matters enormously
-7. **Then, a JIT** → [[foundations/compilers/12-jit-compilation|JIT compilation]]
+7. **Then, a JIT** → [[compilers/12-jit-compilation|JIT compilation]]
 
 **Inline caching deserves emphasis.** In a dynamic language `obj.field` requires a hash lookup every time. Caching "last time at this site, the object had shape X and the field was at offset 3" turns it into a shape check plus an indexed load. V8's hidden classes are exactly this.
 
@@ -263,15 +263,15 @@ For [[BUILD-PLAN|build-your-own-language]]:
 2. **A tagged union for values.** NaN-box later if you care
 3. **Slot-resolved locals.** The biggest easy win
 4. **Computed goto** once it works
-5. **Mark-and-sweep GC** when you add closures and objects → [[foundations/compilers/11-garbage-collection|GC]]
+5. **Mark-and-sweep GC** when you add closures and objects → [[compilers/11-garbage-collection|GC]]
 
 *Crafting Interpreters* builds exactly this — `clox`, in C, with NaN boxing and a mark-sweep collector. It is the best available guide to this specific task.
 
 ---
 
 ## Related
-- [[foundations/compilers/11-garbage-collection|Garbage Collection]] — what a VM with objects needs next
-- [[foundations/compilers/12-jit-compilation|JIT Compilation]] — where VMs go for speed
-- [[foundations/compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — slot resolution and upvalues
+- [[compilers/11-garbage-collection|Garbage Collection]] — what a VM with objects needs next
+- [[compilers/12-jit-compilation|JIT Compilation]] — where VMs go for speed
+- [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — slot resolution and upvalues
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — a production example
-- [[foundations/compilers/index|Compilers course map]]
+- [[compilers/index|Compilers course map]]

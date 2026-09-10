@@ -56,7 +56,7 @@
 
 **Small data structures fit in one line.** A 64-byte struct is one fetch; a 72-byte struct is two.
 
-**Alignment matters.** A struct straddling a line boundary costs two fetches. → [[foundations/computer-architecture/02-data-representation|Alignment]]
+**Alignment matters.** A struct straddling a line boundary costs two fetches. → [[computer-architecture/02-data-representation|Alignment]]
 
 **The demonstration everyone should run once:**
 
@@ -98,9 +98,9 @@ struct Particles { float x[N], y[N], z[N], vx[N], vy[N], vz[N]; };  // SoA
 
 > **A linked list has the same $O(n)$ traversal as an array and can be 10× slower.** The loads are *serially dependent* — you can't fetch node $n+1$ until node $n$ arrives — so there's no memory-level parallelism and the prefetcher can't help.
 >
-> **This is the clearest case where Big-O misleads.** `std::vector` beats `std::list` for almost everything, including insertion in the middle at moderate sizes, because memmove is sequential and pointer chasing isn't. → [[foundations/dsa/04-data-structures/04-linked-lists|Linked Lists]]
+> **This is the clearest case where Big-O misleads.** `std::vector` beats `std::list` for almost everything, including insertion in the middle at moderate sizes, because memmove is sequential and pointer chasing isn't. → [[dsa/04-data-structures/04-linked-lists|Linked Lists]]
 
-**Hash maps** — open addressing (linear probing) is usually faster than chaining, because probes stay in the same cache line. **The pointer chasing in chained buckets is the cost.** → [[foundations/dsa/04-data-structures/03-hash-maps|Hash Maps]]
+**Hash maps** — open addressing (linear probing) is usually faster than chaining, because probes stay in the same cache line. **The pointer chasing in chained buckets is the cost.** → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
 
 **Trees** — B-trees beat binary trees on real hardware even in memory, because a node sized to a cache line does many comparisons per fetch. **A binary tree does one comparison per cache miss**; a B-tree with 16-way fanout does four levels' worth. This is why database indexes are B-trees and why `absl::btree_map` exists.
 
@@ -147,7 +147,7 @@ for (ii = 0; ii < N; ii += B)
 
 **TLB reach** — entries × page size — is often only a few MB with 4 KB pages. **Working sets larger than that thrash the TLB even if the data is in L3.**
 
-**Huge pages (2 MB / 1 GB)** multiply the reach by 512×. **Significant for databases, JVM heaps, and large in-memory workloads**, and often worth enabling explicitly. → [[foundations/os/04-virtual-memory|Virtual Memory]]
+**Huge pages (2 MB / 1 GB)** multiply the reach by 512×. **Significant for databases, JVM heaps, and large in-memory workloads**, and often worth enabling explicitly. → [[os/04-virtual-memory|Virtual Memory]]
 
 ## Measuring
 
@@ -178,7 +178,7 @@ perf stat -e cache-references,cache-misses,\
 
 **2. Compact beats sparse.** Smaller data means more fits in cache. `uint16_t` instead of `int` can double your effective cache.
 
-**3. Contiguous beats pointer-linked.** Arrays over lists, indices over pointers, arenas over scattered allocation. → [[foundations/os/05-memory-allocation|Memory Allocation]]
+**3. Contiguous beats pointer-linked.** Arrays over lists, indices over pointers, arenas over scattered allocation. → [[os/05-memory-allocation|Memory Allocation]]
 
 **4. Split hot from cold.** Keep frequently-accessed fields together; move rarely-used ones out. **A hot 16-byte struct beats a hot-and-cold 200-byte one.**
 
@@ -186,7 +186,7 @@ perf stat -e cache-references,cache-misses,\
 
 **6. Reorder struct fields** largest-first to eliminate padding.
 
-**7. Align to cache lines** for anything written by multiple threads. → [[foundations/computer-architecture/11-multicore-and-memory-models|False Sharing]]
+**7. Align to cache lines** for anything written by multiple threads. → [[computer-architecture/11-multicore-and-memory-models|False Sharing]]
 
 **8. Reduce indirection.** Each pointer hop is a potential miss.
 
@@ -195,7 +195,7 @@ perf stat -e cache-references,cache-misses,\
 ---
 
 ## Related
-- [[foundations/computer-architecture/09-caches-in-depth|Caches in Depth]] — how they actually work
-- [[foundations/os/04-virtual-memory|Virtual Memory]] — the TLB and page tables
-- [[foundations/computer-architecture/12-performance|Performance]] — the full methodology
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/09-caches-in-depth|Caches in Depth]] — how they actually work
+- [[os/04-virtual-memory|Virtual Memory]] — the TLB and page tables
+- [[computer-architecture/12-performance|Performance]] — the full methodology
+- [[computer-architecture/index|Architecture map]]

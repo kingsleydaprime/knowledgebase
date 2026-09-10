@@ -65,4 +65,4 @@ The backend is **the boundary where claims become facts.** The client can reques
 - [[backend/01-foundations/02-http-servers|HTTP Servers]] — how requests physically arrive
 - [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]] — what happens to one
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — how many happen at once
-- [[foundations/networking/index|Networking]] — the layer underneath all of it
+- [[networking/index|Networking]] — the layer underneath all of it

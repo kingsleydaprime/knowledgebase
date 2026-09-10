@@ -19,7 +19,7 @@ By the end you will have:
 5. A **compiler** for a small language, targeting your own instruction set
 6. A program you wrote, in a language you designed, compiled by your compiler, running on your processor
 
-**What you're deliberately not building:** pipelining, caches, interrupts, virtual memory, or an operating system. Those are [[foundations/computer-architecture/index|computer-architecture/]] and [[build-your-own-shit/05-your-own-os|your own OS]]. PRIME-1 is a *correct* processor, not a fast one — and getting a correct one running is the lesson.
+**What you're deliberately not building:** pipelining, caches, interrupts, virtual memory, or an operating system. Those are [[computer-architecture/index|computer-architecture/]] and [[build-your-own-shit/05-your-own-os|your own OS]]. PRIME-1 is a *correct* processor, not a fast one — and getting a correct one running is the lesson.
 
 ## What you need first
 
@@ -190,12 +190,12 @@ Whichever track you take, build in this sequence. **Each milestone runs.**
 
 **Worth continuing to:** the assembler (it makes writing test programs bearable), then a compiler for a tiny language — that is where the two halves of [[how-computers-work/index|How Computers Work]] finally meet.
 
-**Not worth it here:** pipelining, caches or superscalar execution. They are the subject of [[foundations/computer-architecture/index|computer-architecture/]], and bolting them onto a first CPU teaches less than reading about them and building a second one later.
+**Not worth it here:** pipelining, caches or superscalar execution. They are the subject of [[computer-architecture/index|computer-architecture/]], and bolting them onto a first CPU teaches less than reading about them and building a second one later.
 
 ## Related
 
 - [[how-computers-work/index|How Computers Work]] — the course this is the capstone of
 - [[build-your-own-shit/04-your-own-language|Your Own Language]] — the compiler that will target PRIME-1
 - [[build-your-own-shit/05-your-own-os|Your Own OS]] — what runs on a *real* CPU
-- [[foundations/computer-architecture/index|computer-architecture/]] — pipelining, caches, and everything PRIME-1 leaves out
+- [[computer-architecture/index|computer-architecture/]] — pipelining, caches, and everything PRIME-1 leaves out
 - [[build-your-own-shit/index|Build Your Own Shit index]]

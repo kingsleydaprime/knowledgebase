@@ -11,7 +11,7 @@ Titles are inconsistent across companies — the same work is "backend engineer"
 | **Full-stack** | Both, end to end | Owning a feature from database to button. Common at startups | both |
 | **Mobile** | iOS/Android apps | Platform APIs, offline state, app-store release cycles, device fragmentation | [[projects/arete/learning/backend/01-fundamentals-and-nestjs\|arete]] |
 | **Embedded** | Software on hardware | C, constrained memory, interrupts, no OS or a small one, hardware that lies | [[hardware/index\|hardware]] |
-| **Systems** | The layer everything runs on | OS internals, compilers, databases, performance measured in microseconds | [[foundations/os/index\|OS]] · [[foundations/compilers/index\|compilers]] |
+| **Systems** | The layer everything runs on | OS internals, compilers, databases, performance measured in microseconds | [[os/index\|OS]] · [[compilers/index\|compilers]] |
 | **DevOps / SRE** | Delivery and uptime | Pipelines, infrastructure, monitoring, incidents, being on call | [[devops/index\|devops]] |
 | **Security** | Making attacks expensive | Threat modelling, reviews, testing, incident response | [[cybersecurity/index\|cybersecurity]] |
 | **Data** | Data other people depend on | Pipelines, warehouses, the correctness of numbers people make decisions on | [[ai-ml/01-data-scientist/index\|data scientist]] |
@@ -20,7 +20,7 @@ Titles are inconsistent across companies — the same work is "backend engineer"
 
 ## What actually differs
 
-Less than the table suggests. Every role above runs the same six [[foundations/software-engineering/02-the-software-development-lifecycle|SDLC]] phases and uses the same three habits. What changes:
+Less than the table suggests. Every role above runs the same six [[software-engineering/02-the-software-development-lifecycle|SDLC]] phases and uses the same three habits. What changes:
 
 **The failure you fear.** Frontend fears a broken layout on a device you don't own. Backend fears data loss. SRE fears the pager. Security fears the breach nobody detects. Embedded fears the bug that needs a physical recall. **This is the most honest way to tell roles apart** — it shapes every trade-off the role makes.
 
@@ -40,7 +40,7 @@ Roughly, and independent of which row you're in:
 **The jump from junior to mid is mostly about tolerance for ambiguity, not volume of knowledge.** Worth knowing when reading job ads: "3 years experience" is usually a proxy for "has been on the hook for something in production."
 
 ## Related
-- [[foundations/software-engineering/01-what-software-engineering-is|what software engineering is]]
+- [[software-engineering/01-what-software-engineering-is|what software engineering is]]
 - [[PRIMETECHIE|the Primetechie path]] — how these layers connect rather than sitting in silos
 - [[INTERVIEW|the interview banks]] — organised by these same domains
 

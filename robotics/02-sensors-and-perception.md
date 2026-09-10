@@ -34,7 +34,7 @@ B  ─┐  ┌──┐  ┌──┐  ┌───
 
 **What bites:**
 
-- **Resolution vs quantisation noise.** Differentiating position to get velocity amplifies quantisation directly. At low speed you get very few counts per sample and the velocity estimate is garbage. **Estimate velocity with a filter or an observer, don't just difference.** → [[engineering/02-control-theory/12-digital-control|Digital Control]]
+- **Resolution vs quantisation noise.** Differentiating position to get velocity amplifies quantisation directly. At low speed you get very few counts per sample and the velocity estimate is garbage. **Estimate velocity with a filter or an observer, don't just difference.** → [[control-theory/12-digital-control|Digital Control]]
 - **Counting on the wrong edges.** Use hardware quadrature decoding (most MCUs have it) rather than interrupts. At speed, software counting drops edges and the position silently drifts.
 - **Encoder on the motor vs on the joint.** With a gearbox, motor-side gives resolution and joint-side gives truth. **Backlash lives between them** and the difference is real.
 
@@ -62,7 +62,7 @@ $$\theta_k = \alpha\left(\theta_{k-1} + \omega\,\Delta t\right) + (1-\alpha)\,\t
 
 with $\alpha \approx 0.98$. **Five lines of code, and on a balancing robot it works.** The Kalman filter is the principled version of exactly this, with the blend chosen by the noise statistics instead of by hand. → [[robotics/11-state-estimation-and-filtering|State Estimation]]
 
-**Estimate gyro bias as a state.** It drifts slowly with temperature, and a filter that tracks and subtracts it is the difference between an attitude estimate that holds and one that doesn't. → [[engineering/02-control-theory/10-observers-and-kalman|Observers and Kalman Filters]]
+**Estimate gyro bias as a state.** It drifts slowly with temperature, and a filter that tracks and subtracts it is the difference between an attitude estimate that holds and one that doesn't. → [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]]
 
 **Yaw is the hard one.** Roll and pitch have gravity as an absolute reference. **Yaw has nothing** except the magnetometer or an external fix, so indoors, where the magnetometer is unreliable, yaw drifts and there's no clean fix. This is a real, common, and frequently underestimated problem.
 
@@ -100,7 +100,7 @@ The richest sensor and the hardest to use.
 
 - **Calibration is mandatory.** Intrinsics (focal length, principal point, distortion) *and* the extrinsic transform from camera to robot. **An uncalibrated camera gives confidently wrong 3D positions**, and the OpenCV checkerboard routine takes twenty minutes
 - **Lighting changes everything.** A pipeline tuned at your desk fails in the afternoon sun. This is the single commonest reason a vision demo doesn't reproduce
-- **Latency.** Capture, transfer, process — 50–100 ms is normal, and that's a very long time in a control loop. → [[engineering/02-control-theory/03-time-response|Time delay]]
+- **Latency.** Capture, transfer, process — 50–100 ms is normal, and that's a very long time in a control loop. → [[control-theory/03-time-response|Time delay]]
 - **One camera gives no scale.** Monocular vision recovers structure only up to an unknown scale factor. Stereo, depth, or a known-size object resolves it
 
 ## Force and torque
@@ -137,7 +137,7 @@ What experience teaches, compressed:
 
 **4. Calibrate, then calibrate again.** Most "algorithm" problems are calibration problems.
 
-**5. Reject outliers explicitly.** One bad reading through an unguarded filter corrupts the estimate. Gate on the innovation. → [[engineering/02-control-theory/10-observers-and-kalman|Observers and Kalman]]
+**5. Reject outliers explicitly.** One bad reading through an unguarded filter corrupts the estimate. Gate on the innovation. → [[control-theory/10-observers-and-kalman|Observers and Kalman]]
 
 **6. Check units and signs first.** Degrees vs radians, and a flipped axis, account for an embarrassing share of robotics bugs. The robot moving smoothly in exactly the wrong direction is the signature.
 

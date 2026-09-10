@@ -6,7 +6,7 @@
 
 **Store poses at key times; interpolate between them.**
 
-**Interpolating positions is straightforward** — linear, or a spline for smoothness. → [[foundations/numerical-methods/06-interpolation-and-approximation|Interpolation]]
+**Interpolating positions is straightforward** — linear, or a spline for smoothness. → [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation]]
 
 **Interpolating rotations is not.**
 
@@ -43,7 +43,7 @@ $$\mathbf{v}' = \sum_i w_i\,M_i\,B_i^{-1}\,\mathbf{v}$$
 
 ## Rigid body physics
 
-**Integrate the equations of motion.** → [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]]
+**Integrate the equations of motion.** → [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]]
 
 $$\dot{\mathbf{x}} = \mathbf{v}, \qquad \dot{\mathbf{v}} = \mathbf{F}/m$$
 $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\omega} + \boldsymbol\omega\times I\boldsymbol\omega = \boldsymbol\tau$$
@@ -58,7 +58,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 
 **Velocity Verlet** — second-order, symplectic, time-reversible. **The standard for anything needing long-term energy conservation.**
 
-> **This is the same argument as [[foundations/numerical-methods/08-ordinary-differential-equations|note 08]]:** for physics you want **long-term qualitative correctness** — the simulation shouldn't gain energy and fly apart — **rather than per-step accuracy.** RK4 is more accurate per step and drifts in energy; symplectic integrators don't.
+> **This is the same argument as [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|note 08]]:** for physics you want **long-term qualitative correctness** — the simulation shouldn't gain energy and fly apart — **rather than per-step accuracy.** RK4 is more accurate per step and drifts in energy; symplectic integrators don't.
 >
 > **A fixed timestep is essential.** Variable timesteps break the symplectic property and make simulations non-deterministic. **Use a fixed physics step with an accumulator**, interpolating for rendering — the standard "fix your timestep" pattern.
 
@@ -90,9 +90,9 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 
 **Cloth** — a mass-spring system (structural, shear and bend springs) or a proper continuum FEM model. **Position-based dynamics dominates in games**, FEM in film.
 
-**Soft bodies** — FEM with a hyperelastic material model, or shape matching. **This is [[engineering/01-continuum-mechanics/10-finite-deformation|finite deformation]] applied at interactive rates.**
+**Soft bodies** — FEM with a hyperelastic material model, or shape matching. **This is [[continuum-mechanics/10-finite-deformation|finite deformation]] applied at interactive rates.**
 
-**Fluids** — **SPH** (particles, Lagrangian) or **grid-based** (Eulerian, solving Navier–Stokes). **FLIP/PIC hybrids** are the film standard. → [[engineering/01-continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]]
+**Fluids** — **SPH** (particles, Lagrangian) or **grid-based** (Eulerian, solving Navier–Stokes). **FLIP/PIC hybrids** are the film standard. → [[continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]]
 
 **Hair and fur** — strands as constrained particle chains, with the difficulty being self-collision at enormous count.
 
@@ -102,7 +102,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 
 **Many simple entities, updated independently.**
 
-**Perfect for GPU compute** — the canonical data-parallel workload. Update positions in a compute shader, render with instancing, **never touching the CPU.** → [[foundations/gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]]
+**Perfect for GPU compute** — the canonical data-parallel workload. Update positions in a compute shader, render with instancing, **never touching the CPU.** → [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]]
 
 **Sorting for correct alpha blending** is the usual bottleneck — a GPU radix sort per frame, or accept the artefacts.
 
@@ -132,7 +132,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 
 **Enable CCD only for fast small objects.** It's expensive and unnecessary for most bodies.
 
-**Normalise quaternions every step.** Numerical drift accumulates. → [[foundations/numerical-methods/02-floating-point-and-error|Error accumulation]]
+**Normalise quaternions every step.** Numerical drift accumulates. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Error accumulation]]
 
 **Check the sign before SLERP.**
 
@@ -142,6 +142,6 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 
 ## Related
 - [[robotics/08-dynamics|Robot Dynamics]] — the same equations, more rigour
-- [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators and why symplectic matters
-- [[foundations/computer-graphics/08-geometry-and-meshes|Geometry and Meshes]] — what gets deformed
-- [[foundations/computer-graphics/index|Computer graphics map]]
+- [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators and why symplectic matters
+- [[computer-graphics/08-geometry-and-meshes|Geometry and Meshes]] — what gets deformed
+- [[computer-graphics/index|Computer graphics map]]

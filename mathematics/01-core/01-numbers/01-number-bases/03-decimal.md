@@ -88,4 +88,4 @@ You do not need to factorise the base properly — dividing out each of its prim
 ## Related
 
 - [[01-introduction|Number bases]] · [[02-binary|Binary]]
-- [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]] — floating point in detail
+- [[computer-architecture/02-data-representation|computer-architecture/data representation]] — floating point in detail

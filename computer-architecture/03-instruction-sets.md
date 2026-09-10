@@ -12,7 +12,7 @@
 
 **Control flow** — jump, branch, call, return.
 
-**System** — syscall, interrupt handling, privileged operations. → [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]]
+**System** — syscall, interrupt handling, privileged operations. → [[os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]]
 
 ## Registers
 
@@ -27,7 +27,7 @@
 
 > **Register count matters more than it sounds.** With few registers the compiler must **spill** values to the stack and reload them, which costs memory traffic. **x86-64 doubling the register count was a bigger performance win than the 64-bit addressing** for most code.
 >
-> But note the twist: modern x86 chips have **hundreds of physical registers** and rename the architectural ones onto them. The ISA exposes 16; the hardware has far more. → [[foundations/computer-architecture/10-out-of-order-and-superscalar|Register Renaming]]
+> But note the twist: modern x86 chips have **hundreds of physical registers** and rename the architectural ones onto them. The ISA exposes 16; the hardware has far more. → [[computer-architecture/10-out-of-order-and-superscalar|Register Renaming]]
 
 **Special registers:** the **program counter** (RIP/PC), the **stack pointer** (RSP/SP), and **flags** (zero, carry, sign, overflow) set by arithmetic and tested by branches.
 
@@ -130,13 +130,13 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 
 **How to actually use it:**
 
-**Auto-vectorisation** — the compiler does it. **Fragile**: it needs no loop-carried dependencies, known alignment, no aliasing between pointers, and a trip count it can reason about. Use `-fopt-info-vec-missed` to find out why it didn't fire. → [[foundations/compilers/07-optimisation|Optimisation]]
+**Auto-vectorisation** — the compiler does it. **Fragile**: it needs no loop-carried dependencies, known alignment, no aliasing between pointers, and a trip count it can reason about. Use `-fopt-info-vec-missed` to find out why it didn't fire. → [[compilers/07-optimisation|Optimisation]]
 
 **Intrinsics** — write the vector operations explicitly. Full control, unreadable, and tied to one ISA.
 
 **Libraries** — BLAS, Eigen, `std::simd`, `ndarray`. **Usually the right answer.**
 
-> **Two practical warnings.** **AVX-512 causes frequency throttling** on many Intel chips — heavy use downclocks the core, and it can be a net loss for mixed workloads. And **vectorisation only helps if you're compute-bound**; if you're waiting on memory, wider registers change nothing. **Check with a profiler before reaching for intrinsics.** → [[foundations/computer-architecture/12-performance|Performance]]
+> **Two practical warnings.** **AVX-512 causes frequency throttling** on many Intel chips — heavy use downclocks the core, and it can be a net loss for mixed workloads. And **vectorisation only helps if you're compute-bound**; if you're waiting on memory, wider registers change nothing. **Check with a profiler before reaching for intrinsics.** → [[computer-architecture/12-performance|Performance]]
 
 **ARM SVE and RISC-V's vector extension are the modern design**: the code doesn't specify the vector width, so the same binary uses 128-bit or 2048-bit hardware. **No recompiling for each generation** — a genuinely better approach than AVX's fixed widths.
 
@@ -147,7 +147,7 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 - **AES-NI** — AES rounds in hardware, ~10× faster and **constant-time**, which removes a whole class of timing side channels → [[cybersecurity/05-cryptography/02-symmetric-encryption|Symmetric Encryption]]
 - **CRC32, SHA extensions** — checksums and hashing
 - **`popcnt`, `lzcnt`, `tzcnt`** — bit counting, used in bitboards, compression, and set operations
-- **Atomics and `cmpxchg`** — the foundation of every lock-free data structure → [[foundations/os/06-concurrency-primitives|Concurrency Primitives]]
+- **Atomics and `cmpxchg`** — the foundation of every lock-free data structure → [[os/06-concurrency-primitives|Concurrency Primitives]]
 - **`rdtsc`** — cycle counter, useful for microbenchmarks and dangerous for timing attacks
 - **Matrix extensions** — Intel AMX, ARM SME. Systolic arrays for ML, in the CPU
 
@@ -168,7 +168,7 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 ---
 
 ## Related
-- [[foundations/computer-architecture/04-assembly|Assembly]] — reading and writing this
-- [[foundations/computer-architecture/05-the-datapath|The Datapath]] — how instructions execute
-- [[foundations/compilers/08-code-generation|Code Generation]] — what emits these
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/04-assembly|Assembly]] — reading and writing this
+- [[computer-architecture/05-the-datapath|The Datapath]] — how instructions execute
+- [[compilers/08-code-generation|Code Generation]] — what emits these
+- [[computer-architecture/index|Architecture map]]

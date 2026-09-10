@@ -1,6 +1,6 @@
 # Networking Interview — DNS, TLS & HTTP
 
-From [[foundations/networking/10-dns-in-depth|10-dns-in-depth]], [[foundations/networking/11-http-evolution|11-http-evolution]], [[foundations/networking/12-tls-and-transport-security|12-tls-and-transport-security]], [[foundations/networking/13-quic-and-modern-transport|13-quic-and-modern-transport]].
+From [[networking/10-dns-in-depth|10-dns-in-depth]], [[networking/11-http-evolution|11-http-evolution]], [[networking/12-tls-and-transport-security|12-tls-and-transport-security]], [[networking/13-quic-and-modern-transport|13-quic-and-modern-transport]].
 
 ---
 

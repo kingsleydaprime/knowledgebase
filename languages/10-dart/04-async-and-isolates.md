@@ -133,4 +133,4 @@ await Isolate.run(() => heavyLoop());
 - [[languages/10-dart/03-classes-and-collections|collections]] — `Iterable` laziness is a related idea
 - [[mobile/frameworks/flutter/index|Flutter]] — where blocking the loop is visible
 - [[languages/09-kotlin/05-coroutines-and-flow|Kotlin coroutines]] — the comparison
-- [[foundations/os/08-io-models|I/O models]] — event loops generally
+- [[os/08-io-models|I/O models]] — event loops generally

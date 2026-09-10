@@ -4,7 +4,7 @@
 
 ## The kid version first
 
-In theory the [[foundations/digital-signal-processing/04-the-fft|FFT]] hands you a signal's exact frequency content. In practice you only ever have a *finite chunk* of a signal, and that chunk lies to you in two specific ways: it smears sharp frequencies (**leakage**), and it forces a trade between knowing *what* frequencies are present and *when* (**the resolution trade**).
+In theory the [[digital-signal-processing/04-the-fft|FFT]] hands you a signal's exact frequency content. In practice you only ever have a *finite chunk* of a signal, and that chunk lies to you in two specific ways: it smears sharp frequencies (**leakage**), and it forces a trade between knowing *what* frequencies are present and *when* (**the resolution trade**).
 
 Spectral analysis is the craft of getting a trustworthy picture of a real signal's frequencies despite both.
 
@@ -84,9 +84,9 @@ f, t, Sxx = signal.spectrogram(x, fs, window='hann', nperseg=1024)
 **A finite chunk of signal lies about its spectrum in two fixed ways — leakage (smearing from the window's edges) and the resolution/latency trade (you can't pin down frequency *and* time at once) — and spectral analysis is the craft of managing both.** Windowing (Hann by default) buys leakage suppression at a resolution cost you can't escape, and the spectrogram makes the time-frequency trade visible by sliding short FFTs along the signal. The uncertainty principle here isn't a limitation to engineer around; it's the terrain.
 
 ## Related
-- [[foundations/digital-signal-processing/04-the-fft|the FFT]] — what spectral analysis runs on
-- [[foundations/digital-signal-processing/02-sampling-and-aliasing|sampling]] — the other way a spectrum can mislead
+- [[digital-signal-processing/04-the-fft|the FFT]] — what spectral analysis runs on
+- [[digital-signal-processing/02-sampling-and-aliasing|sampling]] — the other way a spectrum can mislead
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/index|sequence models]] — spectrograms as ML input
-- [[foundations/information-theory/index|information theory]] — the uncertainty/entropy connections
+- [[information-theory/index|information theory]] — the uncertainty/entropy connections
 
 *Source: [reference] — Aug 2026.*

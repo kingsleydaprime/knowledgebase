@@ -23,7 +23,7 @@ dis.dis(lambda x: x + 1)
 
 Four costs, and they're inherent to the design rather than fixable bugs:
 
-**Everything is a heap object.** A C `int` is 4 bytes in a register. A Python `int` is a heap-allocated object with a refcount, a type pointer and arbitrary precision — **28+ bytes**, reached through a pointer. A list of a million ints is a million objects and a million pointer dereferences, which destroys cache locality → [[foundations/computer-architecture/09-caches-in-depth|caches]].
+**Everything is a heap object.** A C `int` is 4 bytes in a register. A Python `int` is a heap-allocated object with a refcount, a type pointer and arbitrary precision — **28+ bytes**, reached through a pointer. A list of a million ints is a million objects and a million pointer dereferences, which destroys cache locality → [[computer-architecture/09-caches-in-depth|caches]].
 
 **Dynamic dispatch on every operation.** `a + b` must check both types at runtime and find the right `__add__`. The compiler cannot specialise it, because the types could be anything.
 
@@ -51,13 +51,13 @@ pip install memray && memray run script.py            # memory
 python -m timeit -s "setup" "statement"               # micro-benchmarks, done right
 ```
 
-**Profile before changing anything, and measure after.** "It should be faster" is a hypothesis → [[foundations/computer-architecture/12-performance|performance method]].
+**Profile before changing anything, and measure after.** "It should be faster" is a hypothesis → [[computer-architecture/12-performance|performance method]].
 
 ## The ordered list
 
 ### 1. Fix the algorithm
 
-An O(n²) loop is not rescued by a faster language. `x in list` inside a loop → use a `set`. Repeated `list.pop(0)` → use `deque`. **This is where the big wins are and it's language-independent** → [[foundations/dsa/index|DSA]].
+An O(n²) loop is not rescued by a faster language. `x in list` inside a loop → use a `set`. Repeated `list.pop(0)` → use `deque`. **This is where the big wins are and it's language-independent** → [[dsa/index|DSA]].
 
 ### 2. Fix the I/O
 
@@ -135,9 +135,9 @@ Then: **generators** instead of lists for large sequences → [[languages/06-pyt
 ## Related
 
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — the parallelism half
-- [[foundations/computer-architecture/12-performance|performance method]] — how to measure anything
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel computing]] — where the numeric work actually goes
-- [[foundations/compilers/12-jit-compilation|JIT compilation]] — what PyPy and 3.13 are doing
+- [[computer-architecture/12-performance|performance method]] — how to measure anything
+- [[gpu-and-parallel-computing/index|GPU and parallel computing]] — where the numeric work actually goes
+- [[compilers/12-jit-compilation|JIT compilation]] — what PyPy and 3.13 are doing
 - [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — vectorisation, hands-on
 
 _Source: [reference] — from CPython internals documentation, PEP 659, and the profiling tools' own docs._

@@ -191,13 +191,13 @@ So $\log_2 1000 = \dfrac{\log_{10} 1000}{\log_{10} 2} = \dfrac{3}{0.30103} \appr
 > [!NOTE]
 > **This is why complexity analysis never states the base.** Changing base only multiplies by a constant — $\log_2 n$ and $\log_{10} n$ differ by a factor of about 3.32, forever.
 >
-> Since Big-O discards constant factors, $O(\log_2 n)$ and $O(\log_{10} n)$ are **the same class**. That is why [[foundations/dsa/05-algorithms/01-algorithms|complexity analysis]] writes $O(\log n)$ with no base and means it.
+> Since Big-O discards constant factors, $O(\log_2 n)$ and $O(\log_{10} n)$ are **the same class**. That is why [[dsa/05-algorithms/01-algorithms|complexity analysis]] writes $O(\log n)$ with no base and means it.
 
 ## 5. Where logarithms actually show up
 
 - **Complexity.** Binary search is $O(\log n)$ because each step halves the problem, and $\log_2 n$ is precisely "how many times can you halve $n$ before reaching 1".
 - **Tree height.** A balanced binary tree over $n$ nodes has height $\log_2 n$ — the same fact from the other direction.
-- **Information.** A quantity with $n$ equally likely outcomes needs $\log_2 n$ bits to identify one. Eight outcomes need 3 bits. This is the foundation of [[foundations/information-theory/index|information theory]].
+- **Information.** A quantity with $n$ equally likely outcomes needs $\log_2 n$ bits to identify one. Eight outcomes need 3 bits. This is the foundation of [[information-theory/index|information theory]].
 - **Decibels, pH, Richter.** All logarithmic scales, because human perception and physical ranges are multiplicative rather than additive. A Richter 7 is not slightly worse than a 6 — it is about 32 times the energy.
 - **Log plots.** Plotting on a log axis turns exponential growth into a straight line, which is why it is the standard way to see whether growth *is* exponential.
 

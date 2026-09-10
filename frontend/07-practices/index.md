@@ -7,5 +7,5 @@ Habits and measurement.
 4. [[frontend/07-practices/04-end-to-end-with-playwright|End-to-End with Playwright]] — **[Intermediate]** — **why auto-waiting is the whole design**, locators as descriptions, `await expect` vs `expect(await`, fixtures over `beforeEach`, and the trace viewer
 
 ## Related
-- [[frontend/index|the course]] · [[foundations/computer-architecture/12-performance|performance method]]
+- [[frontend/index|the course]] · [[computer-architecture/12-performance|performance method]]
 - [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] · [[backend/07-practices/02-testing-a-backend|testing a backend]]

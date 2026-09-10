@@ -2,17 +2,17 @@
 
 **[Beginner → Intermediate]** — The ISA as a contract, the layers between your code and the electrons, and why the constants matter.
 
-**Source:** `[reference]` — see [[foundations/computer-architecture/index|the domain note]].
+**Source:** `[reference]` — see [[computer-architecture/index|the domain note]].
 
 ## The gap this fills
 
-**Above:** [[foundations/os/index|operating systems]] assume a CPU that executes instructions and a memory that stores things.
+**Above:** [[os/index|operating systems]] assume a CPU that executes instructions and a memory that stores things.
 
 **Below:** [[hardware/02-digital-and-analog|digital logic]] gives you gates and flip-flops.
 
 **Between them is architecture** — how you get from NAND gates to something that runs a program, and why that machine has the performance characteristics it does.
 
-> **The practical reason to care:** every performance note in this vault quotes constants — "cache miss", "branch misprediction", "false sharing", "memory barrier". **This domain is where those constants come from.** Big-O tells you how an algorithm scales; architecture tells you why one $O(n)$ loop is thirty times slower than another. → [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]]
+> **The practical reason to care:** every performance note in this vault quotes constants — "cache miss", "branch misprediction", "false sharing", "memory barrier". **This domain is where those constants come from.** Big-O tells you how an algorithm scales; architecture tells you why one $O(n)$ loop is thirty times slower than another. → [[dsa/05-algorithms/01-algorithms|Algorithms]]
 
 ## The layers
 
@@ -48,9 +48,9 @@
 
 **Performance is not in the contract.** Same instructions, wildly different speed. **This is the leak you'll actually hit**, and most of this track is about it.
 
-**Timing side channels.** Spectre and Meltdown exploited *microarchitectural* state (caches, speculation) to leak data the *architectural* contract said was inaccessible. **The abstraction was violated by the implementation**, and it took a decade to notice. → [[foundations/computer-architecture/07-branch-prediction-and-speculation|Speculation]]
+**Timing side channels.** Spectre and Meltdown exploited *microarchitectural* state (caches, speculation) to leak data the *architectural* contract said was inaccessible. **The abstraction was violated by the implementation**, and it took a decade to notice. → [[computer-architecture/07-branch-prediction-and-speculation|Speculation]]
 
-**Memory ordering.** What other cores observe depends on the model, and it differs sharply between x86 and ARM. **This is a real portability trap.** → [[foundations/computer-architecture/11-multicore-and-memory-models|Memory Models]]
+**Memory ordering.** What other cores observe depends on the model, and it differs sharply between x86 and ARM. **This is a real portability trap.** → [[computer-architecture/11-multicore-and-memory-models|Memory Models]]
 
 ## The major ISAs
 
@@ -94,8 +94,8 @@
 
 **The consequences you live with:**
 
-- **Free lunch over.** Single-threaded performance improves slowly now. **To go faster, go parallel** → [[foundations/os/02-processes-and-threads|Threads]]
-- **Memory is the bottleneck**, not compute. CPUs got much faster than DRAM, so most programs wait on memory → [[foundations/computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
+- **Free lunch over.** Single-threaded performance improves slowly now. **To go faster, go parallel** → [[os/02-processes-and-threads|Threads]]
+- **Memory is the bottleneck**, not compute. CPUs got much faster than DRAM, so most programs wait on memory → [[computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
 - **Dark silicon** — you can't power all the transistors at once, so chips include specialised units used intermittently
 - **Specialisation** — GPUs, TPUs, video encoders, crypto units. **When general-purpose scaling stops, build specific hardware**
 
@@ -115,7 +115,7 @@
 
 > **Memory is 50× slower than L1.** That single ratio explains cache-friendly data structures, why an array of structs beats a struct of pointers, why linked lists underperform their Big-O, and why "just add an index" sometimes makes a database slower.
 
-**Throughput vs latency** is the other distinction. A modern core issues 4–6 instructions per cycle **if they're independent.** A dependency chain runs at the latency of each step. **Same instruction count, several times the runtime** — which is why loop unrolling and instruction-level parallelism matter. → [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]]
+**Throughput vs latency** is the other distinction. A modern core issues 4–6 instructions per cycle **if they're independent.** A dependency chain runs at the latency of each step. **Same instruction count, several times the runtime** — which is why loop unrolling and instruction-level parallelism matter. → [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]]
 
 ## The abstractions that leak
 
@@ -148,7 +148,7 @@
 ---
 
 ## Related
-- [[foundations/computer-architecture/02-data-representation|Data Representation]] — how numbers are actually stored
-- [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the most practically important part
+- [[computer-architecture/02-data-representation|Data Representation]] — how numbers are actually stored
+- [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the most practically important part
 - [[hardware/index|Hardware & Embedded]] — the layer below
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/index|Architecture map]]

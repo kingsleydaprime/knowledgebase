@@ -23,7 +23,7 @@ app.exec()
 
 **Signals and slots** are Qt's event system and its most-copied idea — a decoupled observer pattern with type checking, predating most of what web frameworks reinvented.
 
-**Licensing needs actual attention.** Qt is dual-licensed: **LGPLv3** (free, but you must allow users to relink — practically, dynamic linking) or **commercial** (paid, permits static linking and removes obligations). **Check this before building a product on it**, not after → [[foundations/systems-engineering/05-trade-studies|trade studies]].
+**Licensing needs actual attention.** Qt is dual-licensed: **LGPLv3** (free, but you must allow users to relink — practically, dynamic linking) or **commercial** (paid, permits static linking and removes obligations). **Check this before building a product on it**, not after → [[systems-engineering/05-trade-studies|trade studies]].
 
 **Python bindings are first-class.** **PySide6** is the official one (LGPL); **PyQt6** is third-party (GPL or commercial). For a Python developer wanting a genuinely native desktop app, this is the strongest option → [[languages/06-python/index|Python]].
 

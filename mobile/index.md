@@ -57,6 +57,6 @@ TypeScript for React Native is already covered → [[frontend/frameworks/react/i
 - [[backend/index|backend]] — the other side of the API contract
 - [[desktop/index|desktop]] — the same cross-platform argument, one layer over
 - [[cybersecurity/index|cybersecurity]] — [[mobile/12-security-on-device|note 12]] is applied version of it
-- [[foundations/os/index|operating systems]] — what "the OS kills your process" means underneath
+- [[os/index|operating systems]] — what "the OS kills your process" means underneath
 
 *Source: [reference] — Aug 2026. Nothing here has been shipped to a store by its author; [[mobile/projects|projects]] exists to change that.*

@@ -22,7 +22,7 @@ Assume $p$, derive $q$, conclude $p \to q$. **The default; try it first.**
 
 ## Proof by contraposition
 
-To prove $p \to q$, prove $\neg q \to \neg p$ instead. **Same statement** — see [[foundations/mathematics/02-discrete-math/02-logic|note 02]] — and often far easier.
+To prove $p \to q$, prove $\neg q \to \neg p$ instead. **Same statement** — see [[mathematics/02-discrete-math/02-logic|note 02]] — and often far easier.
 
 > **Claim:** If $n^2$ is even, then $n$ is even.
 >
@@ -44,7 +44,7 @@ Assume the statement is **false**, derive something impossible, conclude it must
 
 **It can obscure.** A direct proof usually *explains why*; a proof by contradiction often just shows the alternative is impossible. Prefer direct when you have the choice.
 
-**It's non-constructive.** Proving "a solution exists" by contradiction doesn't tell you what the solution is. (Constructive mathematics rejects this move entirely, which matters for [[foundations/compilers/05-type-systems-and-checking|type theory]] and proof assistants — a constructive proof *is* a program that produces the object.)
+**It's non-constructive.** Proving "a solution exists" by contradiction doesn't tell you what the solution is. (Constructive mathematics rejects this move entirely, which matters for [[compilers/05-type-systems-and-checking|type theory]] and proof assistants — a constructive proof *is* a program that produces the object.)
 
 **Where it's the natural tool:** proving something *doesn't* exist, or that a set is infinite. **Euclid's proof that there are infinitely many primes** is the classic — assume finitely many, multiply them all and add 1, and you've produced a number that's either prime or has a prime factor not in your list.
 
@@ -80,13 +80,13 @@ Split into exhaustive cases and prove each.
 
 **The domino intuition:** the base case knocks the first one over; the inductive step guarantees each knocks over the next.
 
-Fully developed in [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|note 05]], including strong induction and structural induction.
+Fully developed in [[mathematics/02-discrete-math/05-induction-and-recursion|note 05]], including strong induction and structural induction.
 
 ## Existence and uniqueness
 
 **Existence** — show something exists. **Constructive** proofs exhibit one; **non-constructive** proofs show one must exist without producing it.
 
-The pigeonhole principle gives beautifully non-constructive proofs: *some* two people in London have the same number of hairs on their heads, and you'll never learn who. → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|Combinatorics]]
+The pigeonhole principle gives beautifully non-constructive proofs: *some* two people in London have the same number of hairs on their heads, and you'll never learn who. → [[mathematics/02-discrete-math/06-combinatorics-and-counting|Combinatorics]]
 
 **Uniqueness** — the standard move: assume two objects $a$ and $b$ both satisfy the property, then prove $a = b$.
 
@@ -109,7 +109,7 @@ Where this becomes concrete, and the reason CS students learn it.
 
 **Partial correctness** — *if* it terminates, the answer is right. **Termination** — it does terminate.
 
-**They're separate obligations**, and proving termination generally is impossible — that's the halting problem. → [[foundations/theory-of-computation/06-decidability|Decidability]]
+**They're separate obligations**, and proving termination generally is impossible — that's the halting problem. → [[theory-of-computation/06-decidability|Decidability]]
 
 **The practical technique** is a *variant*: a quantity that strictly decreases each iteration and cannot go below a bound. `hi - lo` above; the remaining list length in a recursion. **If you can't name the variant, you may not have termination** — and that's a genuinely useful review question to ask about any loop that isn't obviously bounded.
 
@@ -148,7 +148,7 @@ Where this becomes concrete, and the reason CS students learn it.
 ---
 
 ## Related
-- [[foundations/mathematics/02-discrete-math/02-logic|Logic]] — the reasoning these formalise
-- [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — the technique that matters most
-- [[foundations/theory-of-computation/06-decidability|Decidability]] — where proofs establish impossibility
-- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]
+- [[mathematics/02-discrete-math/02-logic|Logic]] — the reasoning these formalise
+- [[mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — the technique that matters most
+- [[theory-of-computation/06-decidability|Decidability]] — where proofs establish impossibility
+- [[mathematics/02-discrete-math/index|Discrete maths map]]

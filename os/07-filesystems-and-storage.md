@@ -96,7 +96,7 @@ grep -E 'Dirty|Writeback' /proc/meminfo
 
 Hitting `dirty_ratio` makes every writer block until flushing catches up — a common cause of a system that suddenly stalls under heavy write load.
 
-Reads use the same cache: a second read of the same file is a memory copy. → [[foundations/os/04-virtual-memory|Virtual Memory]]
+Reads use the same cache: a second read of the same file is a memory copy. → [[os/04-virtual-memory|Virtual Memory]]
 
 ## `fsync` and the durability boundary
 
@@ -204,8 +204,8 @@ splice(fd_in, NULL, fd_out, NULL, len, 0);         // via a pipe, more general
 ---
 
 ## Related
-- [[foundations/os/08-io-models|I/O Models]] — blocking, epoll, io_uring
-- [[foundations/os/04-virtual-memory|Virtual Memory]] — the page cache from the memory side
+- [[os/08-io-models|I/O Models]] — blocking, epoll, io_uring
+- [[os/04-virtual-memory|Virtual Memory]] — the page cache from the memory side
 - [[devops/01-linux/18-disks-and-filesystems|Linux: Disks and Filesystems]] — the operational view
 - [[databases/database-design-reference|Database Design]] — why durability costs what it does
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

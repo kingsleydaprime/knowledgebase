@@ -19,7 +19,7 @@
  └──────────────────────┘          └──────────────────────┘
 ```
 
-**A CPU spends most of its transistors on making *one* instruction stream fast** — branch prediction, out-of-order execution, speculation, deep caches. → [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]]
+**A CPU spends most of its transistors on making *one* instruction stream fast** — branch prediction, out-of-order execution, speculation, deep caches. → [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]]
 
 **A GPU spends them on arithmetic units** and hides latency a completely different way.
 
@@ -99,7 +99,7 @@ if (threadIdx.x % 2 == 0) {
 
 **Two things differ sharply from a CPU:**
 
-**Shared memory is software-managed.** It's a scratchpad you explicitly load and use — **not a cache that works automatically.** Using it well is most of hand-optimised GPU programming. → [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]]
+**Shared memory is software-managed.** It's a scratchpad you explicitly load and use — **not a cache that works automatically.** Using it well is most of hand-optimised GPU programming. → [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]]
 
 **Global memory bandwidth is enormous and latency is terrible.** An H100 has ~3.35 TB/s of HBM3 bandwidth — **roughly 30× a high-end CPU** — but each access takes hundreds of cycles. **Bandwidth is the resource; latency is hidden by parallelism.**
 
@@ -123,7 +123,7 @@ $$D = A\times B + C \qquad\text{for small tiles, e.g. } 16\times16$$
 | FP16 | 16 | needs loss scaling to avoid gradient underflow |
 | FP8, FP4 | 8, 4 | inference, and increasingly training |
 
-**BF16 beat FP16 for training** because gradients span an enormous dynamic range. **Keeping FP32's exponent matters more than keeping its mantissa** — an information-theoretic point about where the bits should go. → [[foundations/computer-architecture/02-data-representation|Data Representation]]
+**BF16 beat FP16 for training** because gradients span an enormous dynamic range. **Keeping FP32's exponent matters more than keeping its mantissa** — an information-theoretic point about where the bits should go. → [[computer-architecture/02-data-representation|Data Representation]]
 
 **Tensor cores are only used if your shapes cooperate** — dimensions should be multiples of 8 or 16. **A matrix of size 4095 can be substantially slower than 4096**, which is a real and surprising effect worth knowing.
 
@@ -153,14 +153,14 @@ $$D = A\times B + C \qquad\text{for small tiles, e.g. } 16\times16$$
 
 **Latency-critical single requests.** GPUs give throughput, not low latency for one item.
 
-**Anything transfer-dominated.** If arithmetic intensity is low, PCIe is your bottleneck and more FLOPS don't help. → [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|The Roofline Model]]
+**Anything transfer-dominated.** If arithmetic intensity is low, PCIe is your bottleneck and more FLOPS don't help. → [[gpu-and-parallel-computing/06-performance-and-the-roofline|The Roofline Model]]
 
 > **The realistic expectation: 5–20× over a well-optimised multithreaded CPU implementation** for suitable workloads. **The "100× speedup" papers usually compare against single-threaded unoptimised CPU code** — a comparison that flatters the GPU by roughly the factor you'd get from using the CPU properly.
 
 ---
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/03-the-programming-model|The Programming Model]] — writing code for this
-- [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — coalescing and shared memory
-- [[foundations/computer-architecture/01-what-architecture-is|Computer Architecture]] — the CPU it's contrasted with
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]
+- [[gpu-and-parallel-computing/03-the-programming-model|The Programming Model]] — writing code for this
+- [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — coalescing and shared memory
+- [[computer-architecture/01-what-architecture-is|Computer Architecture]] — the CPU it's contrasted with
+- [[gpu-and-parallel-computing/index|GPU and parallel map]]

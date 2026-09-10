@@ -32,13 +32,13 @@ An image is a filesystem plus metadata, and it's only as safe as its contents:
 The container process on the node, and the defaults are the danger:
 
 - **Don't run as root.** A container running as root that escapes its isolation is root *on the host*. Set a non-root `USER`; enforce it with a policy so nobody forgets → **the single highest-value container-runtime control**
-- **Drop Linux capabilities.** Containers get a default set of kernel capabilities; most workloads need almost none. Drop `ALL` and add back only what's required → [[foundations/os/index|OS capabilities]]
+- **Drop Linux capabilities.** Containers get a default set of kernel capabilities; most workloads need almost none. Drop `ALL` and add back only what's required → [[os/index|OS capabilities]]
 - **Read-only root filesystem** where possible — malware can't write a payload to a filesystem it can't modify
 - **No privileged containers.** `--privileged` disables most isolation and is a near-guaranteed host takeover if compromised. Ban it
 - **Resource limits** — CPU/memory limits so one container can't starve the node (a container-level [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|resource-exhaustion]] defence)
 - **Runtime detection** — tools like Falco watch for anomalous container behaviour (a shell spawned in a container that should never spawn one, unexpected network connections) → [[cybersecurity/07-security-operations/index|detection]]
 
-**The container is not a security boundary as strong as a VM.** It shares the host kernel, so a kernel exploit escapes it. For hostile multi-tenant workloads, stronger isolation (gVisor, Kata Containers, Firecracker microVMs) is warranted → [[foundations/os/11-isolation-and-containers|isolation]].
+**The container is not a security boundary as strong as a VM.** It shares the host kernel, so a kernel exploit escapes it. For hostile multi-tenant workloads, stronger isolation (gVisor, Kata Containers, Firecracker microVMs) is warranted → [[os/11-isolation-and-containers|isolation]].
 
 ## Kubernetes security — the cluster
 
@@ -61,7 +61,7 @@ Every item is the same instinct — **minimise privilege and blast radius at eac
 
 ## Related
 - [[devops/02-docker/index|Docker]] · [[devops/05-orchestration/index|Kubernetes]] — the mechanics being secured
-- [[foundations/os/11-isolation-and-containers|isolation and containers]] — namespaces, cgroups, the kernel boundary
+- [[os/11-isolation-and-containers|isolation and containers]] — namespaces, cgroups, the kernel boundary
 - [[cybersecurity/09-cloud-security/05-cloud-native-defence|cloud-native defence]] — scanning and policy-as-code
 - [[cybersecurity/03-network-security/02-network-segmentation|network segmentation]] — the network-policy principle
 

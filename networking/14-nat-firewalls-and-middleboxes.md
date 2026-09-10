@@ -13,7 +13,7 @@ Two consequences follow, and they explain a huge amount of modern networking:
 
 ## NAT traversal — the hardest common problem
 
-[[foundations/networking/03-ip-addressing-and-subnetting|NAT]] means an inside host has no address the outside can reach. Fine for client-server: you initiate, the mapping is created, replies come back. Fatal for **peer-to-peer** — video calls, games, file sharing — where both parties are behind NATs and neither can be reached first.
+[[networking/03-ip-addressing-and-subnetting|NAT]] means an inside host has no address the outside can reach. Fine for client-server: you initiate, the mapping is created, replies come back. Fatal for **peer-to-peer** — video calls, games, file sharing — where both parties are behind NATs and neither can be reached first.
 
 **NAT types**, and the reason they matter:
 
@@ -49,7 +49,7 @@ A firewall filters by rules on the 4-tuple and connection state. Two categories 
 
 So: *"connection refused" instantly = you reached something and it said no. A 30-second hang = something is silently dropping.* That one diagnostic split will save you hours, repeatedly. It's also why cloud security groups (which DROP) produce hangs, while a service that simply isn't running produces instant refusals.
 
-**Stateful firewalls have finite tables.** `conntrack` table exhaustion under load produces mysterious dropped connections with `nf_conntrack: table full` in dmesg — a real and easily-missed production failure. And stateful timeouts are why idle connections silently die (see [[foundations/networking/06-tcp-connection-lifecycle|keepalives]]).
+**Stateful firewalls have finite tables.** `conntrack` table exhaustion under load produces mysterious dropped connections with `nf_conntrack: table full` in dmesg — a real and easily-missed production failure. And stateful timeouts are why idle connections silently die (see [[networking/06-tcp-connection-lifecycle|keepalives]]).
 
 ## Proxies and load balancers
 
@@ -63,7 +63,7 @@ So: *"connection refused" instantly = you reached something and it said no. A 30
 Two recurring practical problems:
 
 - **The client IP disappears.** Behind a proxy, your server sees the proxy's address. `X-Forwarded-For` / the `PROXY` protocol restore it — and **`X-Forwarded-For` is client-controllable**, so trusting it blindly lets anyone spoof their IP past your rate limiter or IP allowlist. Only trust the hops you control (count from the right).
-- **TLS termination boundaries.** Terminating at the edge means plaintext internally. Fine if the internal network is trusted; [[foundations/networking/12-tls-and-transport-security|mTLS]]/service mesh exists because that assumption keeps turning out to be wrong.
+- **TLS termination boundaries.** Terminating at the edge means plaintext internally. Fine if the internal network is trusted; [[networking/12-tls-and-transport-security|mTLS]]/service mesh exists because that assumption keeps turning out to be wrong.
 
 Also worth internalising: L7 proxies **re-parse and re-serialise HTTP**, and when the front-end and back-end disagree about how to parse a request (`Content-Length` vs `Transfer-Encoding`), you get **request smuggling** — one of the highest-severity web vulnerability classes, and a direct consequence of having a middlebox interpret a layer it doesn't own. → [[cybersecurity/04-web-security/index|web security]]
 
@@ -74,9 +74,9 @@ The end-to-end principle said the middle of the network should be dumb. It isn't
 The consequence is that **the internet has become resistant to change at exactly the layers it was designed to evolve at**:
 
 - **TCP Fast Open** — standardised 2014, still not reliably deployable; middleboxes strip the option or drop the SYN.
-- **ECN** — a strictly better congestion signal ([[foundations/networking/08-congestion-control|note 08]]), delayed ~20 years because some middleboxes dropped packets with those bits set.
+- **ECN** — a strictly better congestion signal ([[networking/08-congestion-control|note 08]]), delayed ~20 years because some middleboxes dropped packets with those bits set.
 - **MPTCP** — multipath TCP, heavily constrained by what middleboxes tolerate.
-- **New IP protocol numbers** — effectively impossible to deploy. This is *why* [[foundations/networking/13-quic-and-modern-transport|QUIC]] is built on UDP rather than as a new protocol: UDP is one of the two things guaranteed to pass.
+- **New IP protocol numbers** — effectively impossible to deploy. This is *why* [[networking/13-quic-and-modern-transport|QUIC]] is built on UDP rather than as a new protocol: UDP is one of the two things guaranteed to pass.
 
 QUIC's response — encrypt the headers so middleboxes physically cannot inspect them — is the strongest available statement about how bad this got. **The protocol hides from the network to preserve its right to change.**
 
@@ -84,10 +84,10 @@ There's a general engineering lesson here that transfers well past networking: *
 
 ## Key insight
 
-The clean layered model in [[foundations/networking/01-what-a-network-is|note 01]] describes how the internet was designed, not how it runs. In practice a packet crosses NATs that rewrite it, firewalls that judge it, and proxies that reassemble it — each violating layer boundaries for a locally-good reason. Every one of those violations bought something real (address scarcity relief, security, scalability) and cost the same thing: **the ability of the network to evolve.** Modern protocol design is largely the work of routing *around* that accumulated cost.
+The clean layered model in [[networking/01-what-a-network-is|note 01]] describes how the internet was designed, not how it runs. In practice a packet crosses NATs that rewrite it, firewalls that judge it, and proxies that reassemble it — each violating layer boundaries for a locally-good reason. Every one of those violations bought something real (address scarcity relief, security, scalability) and cost the same thing: **the ability of the network to evolve.** Modern protocol design is largely the work of routing *around* that accumulated cost.
 
 ## Related
-- [[foundations/networking/03-ip-addressing-and-subnetting|IP Addressing]] — NAT's origin
-- [[foundations/networking/13-quic-and-modern-transport|QUIC]] — the response to ossification
+- [[networking/03-ip-addressing-and-subnetting|IP Addressing]] — NAT's origin
+- [[networking/13-quic-and-modern-transport|QUIC]] — the response to ossification
 - [[architecture/02-building-blocks/01-load-balancing-and-proxies|Load Balancing & Proxies]] — the architecture view
 - [[cybersecurity/03-network-security/01-firewalls|Firewalls]] — the security view

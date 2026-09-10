@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Advanced]** · Worked answers to [[foundations/gpu-and-parallel-computing/08-practice-exercises|note 08]].
+> **[Advanced]** · Worked answers to [[gpu-and-parallel-computing/08-practice-exercises|note 08]].
 
 **An honest caveat this file must carry:** the GPU figures below are **representative values from vendor documentation and published benchmarks, not measurements I made.** This vault has no GPU. The CPU-side exercises (1, 2) and the roofline reasoning (10, 11) *are* verifiable here and stated as such. **Where a number is borrowed rather than measured, it says so** — and that distinction is exactly the honesty this vault's `[reference]` marker exists for.
 
@@ -17,7 +17,7 @@ $$S(n) = \frac{1}{s + \frac{1-s}{n}} \qquad\text{and}\qquad \lim_{n\to\infty} S(
 
 **The uncomfortable consequence:** at $s = 0.1$, the ceiling is 10× **on infinite hardware**. Adding cores past that buys nothing.
 
-**Which is why the first question about any parallelisation is "what fraction is actually parallel?"** — not "how many cores can I get?" Gustafson's law is the optimistic counterpart: if the *problem* grows with the machine, the serial fraction shrinks. Both are true; they answer different questions → [[foundations/gpu-and-parallel-computing/01-why-parallelism|note 01]].
+**Which is why the first question about any parallelisation is "what fraction is actually parallel?"** — not "how many cores can I get?" Gustafson's law is the optimistic counterpart: if the *problem* grows with the machine, the serial fraction shrinks. Both are true; they answer different questions → [[gpu-and-parallel-computing/01-why-parallelism|note 01]].
 
 ### 2. Where parallelism loses
 
@@ -45,7 +45,7 @@ __global__ void vadd(const float* a, const float* b, float* c, int n) {
 
 `blockIdx.x * blockDim.x + threadIdx.x` computes a **globally unique index** for this thread: which block am I in, times how big a block is, plus my position within it.
 
-**It's the standard idiom because the model is deliberately two-level** — blocks are scheduled independently onto SMs (which gives scalability across GPU sizes), and threads within a block can cooperate via shared memory. The flat index reconstructs a 1-D view over that 2-D hierarchy → [[foundations/gpu-and-parallel-computing/03-the-programming-model|note 03]].
+**It's the standard idiom because the model is deliberately two-level** — blocks are scheduled independently onto SMs (which gives scalability across GPU sizes), and threads within a block can cooperate via shared memory. The flat index reconstructs a 1-D view over that 2-D hierarchy → [[gpu-and-parallel-computing/03-the-programming-model|note 03]].
 
 ### 4. Launch configuration
 
@@ -60,7 +60,7 @@ Representative shape (from vendor guidance):
 
 **Block size 1 wastes 31/32 of every warp.** A warp is 32 threads executing in lockstep — the hardware's actual scheduling unit. A block of 1 thread still occupies a whole warp slot, so you use 3% of the machine.
 
-**Always make block size a multiple of 32.** Above that, the trade is occupancy against per-thread resources; 128 or 256 is the standard starting point → [[foundations/gpu-and-parallel-computing/02-gpu-architecture|note 02]].
+**Always make block size a multiple of 32.** Above that, the trade is occupancy against per-thread resources; 128 or 256 is the standard starting point → [[gpu-and-parallel-computing/02-gpu-architecture|note 02]].
 
 ### 5. Out-of-bounds thread
 
@@ -86,7 +86,7 @@ Representative for $10^8$ floats (400 MB per array) over PCIe 4.0 (~25 GB/s effe
 
 **This is the most important number in the course.** Vector addition does 1 FLOP per 12 bytes moved — hopeless arithmetic intensity. **The GPU is not the bottleneck; the bus is.**
 
-**The consequences shape all real GPU code:** keep data resident on the device across many kernels, fuse operations to avoid round trips, overlap transfer with compute using streams, and **do not offload an operation whose data movement costs more than the computation saves.** It's also why unified memory, NVLink and on-package memory exist → [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|note 05]].
+**The consequences shape all real GPU code:** keep data resident on the device across many kernels, fuse operations to avoid round trips, overlap transfer with compute using streams, and **do not offload an operation whose data movement costs more than the computation saves.** It's also why unified memory, NVLink and on-package memory exist → [[gpu-and-parallel-computing/05-memory-and-data-movement|note 05]].
 
 ### 7. Coalescing
 
@@ -96,7 +96,7 @@ Representative: **stride-32 access is roughly 10–30× slower** than consecutiv
 
 **Same instruction count. Same FLOPs. 32× the memory traffic.**
 
-**This is the GPU version of exercise 5 in [[foundations/computer-architecture/13-practice-exercises|the architecture exercises]]** — cache-line utilisation — and it is why data layout (struct-of-arrays over array-of-structs) dominates GPU performance work.
+**This is the GPU version of exercise 5 in [[computer-architecture/13-practice-exercises|the architecture exercises]]** — cache-line utilisation — and it is why data layout (struct-of-arrays over array-of-structs) dominates GPU performance work.
 
 ### 8. Shared memory tiling
 
@@ -107,7 +107,7 @@ Representative: **stride-32 access is roughly 10–30× slower** than consecutiv
 
 Typical speedup **5–10×**, from reuse alone. The arithmetic is identical.
 
-**Shared memory is a programmer-managed cache**, and tiling is the canonical use: stage a tile cooperatively, `__syncthreads()`, compute from it, move on → [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|note 06]].
+**Shared memory is a programmer-managed cache**, and tiling is the canonical use: stage a tile cooperatively, `__syncthreads()`, compute from it, move on → [[gpu-and-parallel-computing/06-performance-and-the-roofline|note 06]].
 
 ### 9. Warp divergence
 
@@ -144,7 +144,7 @@ Plotted log-log, that's a diagonal (bandwidth-limited) meeting a horizontal ceil
 
 No answer — the log is the artefact.
 
-**The systematic error is underestimating the transfer tax.** People predict "the copy is maybe 20% of the time" and it's 90%+. **Being wrong here is more instructive than being right**, and it's the same calibration habit as [[foundations/computer-architecture/13-practice-exercises|architecture exercise 12]].
+**The systematic error is underestimating the transfer tax.** People predict "the copy is maybe 20% of the time" and it's 90%+. **Being wrong here is more instructive than being right**, and it's the same calibration habit as [[computer-architecture/13-practice-exercises|architecture exercise 12]].
 
 ### 12. Profile a real kernel
 
@@ -157,7 +157,7 @@ Nsight Compute reports **achieved occupancy** (active warps vs maximum), **memor
 **If the profiler disagrees with your roofline**, the usual causes are uncoalesced access (so effective bandwidth is far below peak), shared-memory bank conflicts, or register spilling to local memory. **The discrepancy is the finding** — it means one of your assumptions about the memory pattern was wrong.
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/08-practice-exercises|the exercises]]
-- [[foundations/gpu-and-parallel-computing/index|the course]]
+- [[gpu-and-parallel-computing/08-practice-exercises|the exercises]]
+- [[gpu-and-parallel-computing/index|the course]]
 
 *Source: [reference] — **GPU figures are representative values from vendor documentation, not measured here** (this vault has no GPU). The Amdahl and roofline reasoning is hardware-independent.*

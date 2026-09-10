@@ -72,7 +72,7 @@ trace(ray, depth):
 
 $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 
-**4× the samples for 2× less noise.** → [[foundations/numerical-methods/07-numerical-integration|Monte Carlo]]
+**4× the samples for 2× less noise.** → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Monte Carlo]]
 
 **Which is why film renders take hours per frame at thousands of samples**, and why the noise-reduction techniques below are not optional extras.
 
@@ -92,7 +92,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 
 **Low-discrepancy sequences** — Sobol or Halton instead of pure random. **Better-distributed samples converge faster**, approaching $O(1/N)$ for smooth integrands.
 
-**Blue-noise sample distribution across pixels** — the error becomes high-frequency, which denoisers and the eye handle far better than clumped noise. → [[foundations/computer-graphics/05-textures-and-sampling|Sampling]]
+**Blue-noise sample distribution across pixels** — the error becomes high-frequency, which denoisers and the eye handle far better than clumped noise. → [[computer-graphics/05-textures-and-sampling|Sampling]]
 
 **Bidirectional path tracing** traces from the camera *and* the light and connects them — **much better for caustics and light through small openings**, which forward paths find by chance almost never.
 
@@ -136,7 +136,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 
 **The same machinery, elsewhere:**
 
-**Collision detection and physics** — ray casts and sweeps. → [[foundations/computer-graphics/09-animation-and-simulation|Simulation]]
+**Collision detection and physics** — ray casts and sweeps. → [[computer-graphics/09-animation-and-simulation|Simulation]]
 
 **Robotics** — lidar simulation is literally ray casting, and visibility queries for planning. → [[robotics/12-localisation-and-slam|SLAM]]
 
@@ -158,18 +158,18 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 
 **Use Russian roulette** rather than a hard depth cap.
 
-**Watch for self-intersection.** A ray starting exactly on a surface re-hits it due to floating-point error — **shadow acne, again.** Offset the ray origin along the normal, or use a minimum $t$. **This is the first bug every ray tracer hits.** → [[foundations/numerical-methods/02-floating-point-and-error|Floating point]]
+**Watch for self-intersection.** A ray starting exactly on a surface re-hits it due to floating-point error — **shadow acne, again.** Offset the ray origin along the normal, or use a minimum $t$. **This is the first bug every ray tracer hits.** → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Floating point]]
 
-**Trace in linear colour space** and tone map at the end. → [[foundations/computer-graphics/04-shading-and-lighting|Colour]]
+**Trace in linear colour space** and tone map at the end. → [[computer-graphics/04-shading-and-lighting|Colour]]
 
-**Validate with a furnace test:** a scene with a uniform environment light and a white diffuse object should render the object exactly the same brightness as the background. **Any deviation means your BRDF isn't energy-conserving or your sampling weights are wrong.** It's the manufactured-solution idea applied to rendering, and it catches a whole class of subtle bugs. → [[foundations/numerical-methods/09-partial-differential-equations|Verification]]
+**Validate with a furnace test:** a scene with a uniform environment light and a white diffuse object should render the object exactly the same brightness as the background. **Any deviation means your BRDF isn't energy-conserving or your sampling weights are wrong.** It's the manufactured-solution idea applied to rendering, and it catches a whole class of subtle bugs. → [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations|Verification]]
 
 **Start with a CPU path tracer.** *Ray Tracing in One Weekend* is genuinely a weekend, produces a real image, and teaches the whole structure before any API complexity.
 
 ---
 
 ## Related
-- [[foundations/computer-graphics/01-how-rendering-works|How Rendering Works]] — the rendering equation
-- [[foundations/numerical-methods/07-numerical-integration|Numerical Integration]] — Monte Carlo and variance reduction
-- [[foundations/computer-graphics/04-shading-and-lighting|Shading and Lighting]] — the BRDFs being sampled
-- [[foundations/computer-graphics/index|Computer graphics map]]
+- [[computer-graphics/01-how-rendering-works|How Rendering Works]] — the rendering equation
+- [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Numerical Integration]] — Monte Carlo and variance reduction
+- [[computer-graphics/04-shading-and-lighting|Shading and Lighting]] — the BRDFs being sampled
+- [[computer-graphics/index|Computer graphics map]]

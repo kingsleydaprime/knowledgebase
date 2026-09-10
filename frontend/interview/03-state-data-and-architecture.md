@@ -65,7 +65,7 @@ From [[frontend/04-state-and-data/01-state-management|state management]], [[fron
 
 **Strong answer covers:** **feature-based over type-based.** `features/checkout/{components,hooks,api,types}` rather than a top-level `components/` with 200 files.
 
-**Why:** a change to checkout touches one directory. Type-based grouping means every feature change touches five directories, and two people working on different features constantly collide → [[foundations/systems-engineering/04-architecture-and-interfaces|coupling and cohesion]].
+**Why:** a change to checkout touches one directory. Type-based grouping means every feature change touches five directories, and two people working on different features constantly collide → [[systems-engineering/04-architecture-and-interfaces|coupling and cohesion]].
 
 **Other things worth raising:**
 - **A shared `ui/` layer** of genuinely generic primitives — and the discipline to keep business logic out of it
@@ -74,7 +74,7 @@ From [[frontend/04-state-and-data/01-state-management|state management]], [[fron
 - **Where the API layer lives** — one typed client, not `fetch` scattered through components
 - **Barrel files** (`index.ts`) help imports and can hurt tree-shaking and build time — know the trade
 
-**The senior point:** Conway's law applies to frontends too. **Structure the code the way you want teams to be able to work in parallel** → [[foundations/systems-engineering/04-architecture-and-interfaces|Conway]].
+**The senior point:** Conway's law applies to frontends too. **Structure the code the way you want teams to be able to work in parallel** → [[systems-engineering/04-architecture-and-interfaces|Conway]].
 
 ---
 
@@ -106,7 +106,7 @@ From [[frontend/04-state-and-data/01-state-management|state management]], [[fron
 
 **The fixes worth naming:** code splitting per route, `next/image`-style responsive images with modern formats, preloading the LCP resource, deferring third-party scripts (**usually the biggest single win, and the least technical**), virtualising long lists, memoising genuinely expensive subtrees.
 
-**The senior point:** *"I'd profile before optimising"* is the answer, and the follow-up that scores is naming the **specific** tool and metric you'd look at first — the same method as [[foundations/computer-architecture/12-performance|performance method]] one layer down.
+**The senior point:** *"I'd profile before optimising"* is the answer, and the follow-up that scores is naming the **specific** tool and metric you'd look at first — the same method as [[computer-architecture/12-performance|performance method]] one layer down.
 
 ---
 

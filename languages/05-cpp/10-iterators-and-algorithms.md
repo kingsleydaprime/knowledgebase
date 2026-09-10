@@ -102,7 +102,7 @@ std::minmax_element(b, e);
 std::clamp(v, lo, hi);              // C++17
 ```
 
-**`std::nth_element`** is under-used: it puts the *n*th element where it would be if sorted, in O(n), which is the right tool for medians and top-k. → [[foundations/dsa/06-patterns/07-top-k-elements|Top-K Elements]]
+**`std::nth_element`** is under-used: it puts the *n*th element where it would be if sorted, in O(n), which is the right tool for medians and top-k. → [[dsa/06-patterns/07-top-k-elements|Top-K Elements]]
 
 **`std::lower_bound`** is binary search that returns a position rather than a bool — the building block for sorted-vector lookups and insert-in-order.
 
@@ -237,6 +237,6 @@ One argument, and it's parallel — though `libstdc++` needs Intel TBB linked fo
 ## Related
 - [[languages/05-cpp/09-the-stl-containers|The STL Containers]] — what iterators point into, and invalidation
 - [[languages/05-cpp/08-templates-and-concepts|Templates and Concepts]] — how all of this is implemented
-- [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — what these implement
+- [[dsa/05-algorithms/01-algorithms|Algorithms]] — what these implement
 - [[languages/03-rust/11-collections-and-iterators|Rust: Iterators]] — the same design, memory-safe
 - [[languages/05-cpp/index|C++ course map]]

@@ -88,6 +88,6 @@ Distributed processing is expensive: a cluster to run and pay for, more complex 
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses and lakes]] — DuckDB, and the single-node case
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — Spark does both
 - [[architecture/04-distributed-systems/13-partitioning|partitioning]] — the skew problem
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel computing]] — parallelism, one layer down
+- [[gpu-and-parallel-computing/index|GPU and parallel computing]] — parallelism, one layer down
 
 *Source: [reference] — Aug 2026.*
