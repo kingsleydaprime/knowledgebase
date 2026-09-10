@@ -166,7 +166,7 @@ The alternatives:
 |---|---|
 | **Cranelift** | Rust, designed for **fast compilation** over peak output. Used by Wasmtime, and as rustc's debug back end |
 | **QBE** | tiny (~10k lines), 70% of LLVM's performance, genuinely readable |
-| **Your own** | for a bytecode VM you don't need any of this → [[foundations/compilers/09-bytecode-and-virtual-machines\|Bytecode VMs]] |
+| **Your own** | for a bytecode VM you don't need any of this → [[foundations/compilers/10-bytecode-and-virtual-machines\|Bytecode VMs]] |
 | **C as a target** | emit C and let a C compiler do the work. Ugly, portable, and completely legitimate — Nim and early C++ did this |
 
 **For build-your-own-language, target a bytecode VM.** LLVM is a project in itself.

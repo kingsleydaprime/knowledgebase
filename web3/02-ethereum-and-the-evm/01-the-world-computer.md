@@ -96,6 +96,6 @@ When contract A calls contract B, that's a **message call** — it appears in no
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — what step 3 runs on
 - [[web3/02-ethereum-and-the-evm/03-gas-and-fees|gas and fees]] — the metering
 - [[web3/01-foundations/04-blocks-chains-and-state|blocks, chains and state]] — the account model vs UTXO
-- [[foundations/compilers/09-bytecode-and-virtual-machines|bytecode VMs]] — the general shape of what the EVM is
+- [[foundations/compilers/10-bytecode-and-virtual-machines|bytecode VMs]] — the general shape of what the EVM is
 
 *Source: [reference] — from the Yellow Paper and the execution specs. Aug 2026.*

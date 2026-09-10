@@ -167,16 +167,15 @@ def min_eating_speed(piles: List[int], h: int) -> int:
 def min_ship_capacity(weights: List[int], days: int) -> int:
     """Find minimum ship capacity to ship all weights in given days."""
     def can_ship(capacity: int) -> bool:
-        current_load = 0
+        days_needed, current_load = 1, 0
         for weight in weights:
-            if weight > capacity:
+            if weight > capacity:        # a single package cannot be split
                 return False
-            current_load += weight
-            if current_load > capacity:
-                return False
-            if current_load == capacity:
+            if current_load + weight > capacity:
+                days_needed += 1         # start a new day
                 current_load = 0
-        return True
+            current_load += weight
+        return days_needed <= days
 
     lo, hi = max(weights), sum(weights)
     result = hi
@@ -212,7 +211,9 @@ if __name__ == "__main__":
     days3 = 5
     result3 = min_ship_capacity(weights3, days3)
     print(f"\nTest 3 - ship capacity:")
-    print(f"weights={weights3}, days={days3} -> capacity {result3}")\n    print("\nmodified_binary_search_lab: passed")
+    print(f"weights={weights3}, days={days3} -> capacity {result3}")
+
+    print("\nmodified_binary_search_lab: passed")
 ```
 
 Expected output:
@@ -222,7 +223,7 @@ Test 1 - search in rotated sorted array:
 nums=[4, 5, 6, 7, 0, 1, 2], target=0 -> index 4
 
 Test 2 - Koko eating bananas:
- piles=[3, 6, 7, 11], h=8 -> speed 4
+piles=[3, 6, 7, 11], h=8 -> speed 4
 
 Test 3 - ship capacity:
 weights=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], days=5 -> capacity 15

@@ -21,12 +21,13 @@ How source text becomes something that runs. Lexing, parsing, type checking, IRs
 6. [[foundations/compilers/06-intermediate-representations|Intermediate Representations]] — **[Advanced]** — the CFG, **SSA and φ-functions**, LLVM IR, and whether to target it
 7. [[foundations/compilers/07-optimisation|Optimisation]] — **[Advanced]** — the passes, **why inlining is the one that matters**, and the honest limits
 8. [[foundations/compilers/08-code-generation|Code Generation]] — **[Advanced]** — instruction selection, register allocation, calling conventions, linking
+9. [[compilers/09-linking-and-loading|Linking and Loading]] — symbols, relocations, static vs dynamic linking, and the dynamic loader. **The step between machine code and a running program**
 
 **Runtimes**
 
-9. [[foundations/compilers/09-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — **[Intermediate → Advanced]** — **the realistic target for a language you build.** Stack vs register, dispatch, NaN boxing, closures
-10. [[foundations/compilers/10-garbage-collection|Garbage Collection]] — **[Advanced]** — reachability, mark-sweep, generational collection, and the three-way tradeoff
-11. [[foundations/compilers/11-jit-compilation|JIT Compilation]] — **[Advanced]** — tiered execution, speculation and deoptimisation, inline caching, warm-up
+9. [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — **[Intermediate → Advanced]** — **the realistic target for a language you build.** Stack vs register, dispatch, NaN boxing, closures
+10. [[foundations/compilers/11-garbage-collection|Garbage Collection]] — **[Advanced]** — reachability, mark-sweep, generational collection, and the three-way tradeoff
+11. [[foundations/compilers/12-jit-compilation|JIT Compilation]] — **[Advanced]** — tiered execution, speculation and deoptimisation, inline caching, warm-up
 
 ## If you're building a language
 

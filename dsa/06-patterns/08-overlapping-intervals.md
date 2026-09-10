@@ -49,7 +49,7 @@ Once sorted by start time, two intervals `[a, b]` and `[c, d]` (with `c` coming 
 
 ```python
 def merge_intervals(intervals):
-    intervals.sort(key=lambda pair: pair[0])   # sort by start time — the step that makes this linear after
+    intervals = sorted(intervals, key=lambda pair: pair[0])   # sort by start time — the step that makes this linear after
     merged = [intervals[0]]
     for start, end in intervals[1:]:
         last_start, last_end = merged[-1]
@@ -84,7 +84,7 @@ def merge_intervals(intervals):
     if not intervals:
         return []
 
-    intervals.sort(key=lambda pair: pair[0])   # sort by start time
+    intervals = sorted(intervals, key=lambda pair: pair[0])   # sort by start time
     merged = [intervals[0]]
 
     for start, end in intervals[1:]:
@@ -99,8 +99,7 @@ def merge_intervals(intervals):
 
 def insert_interval(intervals, new_interval):
     """Insert a new interval and merge if necessary."""
-    intervals.append(new_interval)
-    return merge_intervals(intervals)
+    return merge_intervals(intervals + [new_interval])   # copy: never mutate the caller's list
 
 
 def erase_overlap_intervals(intervals):
@@ -108,7 +107,7 @@ def erase_overlap_intervals(intervals):
     if not intervals:
         return 0
 
-    intervals.sort(key=lambda pair: pair[1])   # sort by end time
+    intervals = sorted(intervals, key=lambda pair: pair[1])   # sort by end time
 
     count = 0
     end = intervals[0][1]
@@ -124,7 +123,7 @@ def erase_overlap_intervals(intervals):
 
 def can_attend_all_meetings(intervals):
     """Check if a person can attend all meetings (no overlaps)."""
-    intervals.sort(key=lambda pair: pair[0])   # sort by start time
+    intervals = sorted(intervals, key=lambda pair: pair[0])   # sort by start time
 
     for i in range(1, len(intervals)):
         if intervals[i][0] < intervals[i-1][1]:  # overlaps
@@ -177,19 +176,19 @@ Expected output:
 
 ```
 Test 1 - merge intervals:
-intervals=[[1,3], [2,6], [8,10], [15,18]] -> [[1,6], [8,10], [15,18]]
+intervals=[[1, 3], [2, 6], [8, 10], [15, 18]] -> [[1, 6], [8, 10], [15, 18]]
 
 Test 2 - insert interval:
-intervals=[[1,3], [6,9]], new=[2,5] -> [[1,5], [6,9]]
+intervals=[[1, 3], [6, 9]], new=[2,5] -> [[1, 5], [6, 9]]
 
 Test 3 - erase overlap intervals:
-intervals=[[1,2], [2,3], [3,4], [1,3]] -> 1
+intervals=[[1, 2], [2, 3], [3, 4], [1, 3]] -> 1
 
 Test 4 - can attend all meetings:
-intervals=[[0,30], [5,10], [15,20]] -> False
+intervals=[[0, 30], [5, 10], [15, 20]] -> False
 
 Test 5 - can attend all meetings (no overlap):
-intervals=[[7,10], [2,4]] -> True
+intervals=[[7, 10], [2, 4]] -> True
 
 overlapping_intervals_lab: passed
 ```

@@ -17,32 +17,54 @@ This course is **partly written**, and the table below is honest about which par
 
 **Every lesson linked below is written**, with prerequisites, worked examples, problems and hidden answers. The gaps that remain are *topics not yet started* — listed at the bottom — rather than empty files.
 
-## The foundations sequence
+## Structure
 
-Read in order. Each lesson names its prerequisites and ends with problems whose answers are hidden until you attempt them.
+The folders follow your two curricula: **`01-core`** mirrors the [[ss1-ss3-course-outline|SS1-SS3 NERDC outline]] term by term, and the later folders follow the [[uni-math-course-outline|university track]]. **Empty folders are reserved slots** for topics not yet written, kept so the shape of the curriculum stays visible.
 
-1. [[02-number-systems|Number Systems]] — **[Beginner]** — naturals → integers → rationals → reals, and the question each one answers
-2. [[01-sets|Sets]] — **[Beginner]** — notation, operations, Venn diagrams, inclusion–exclusion
-3. [[01-variables|Variables]] — **[Beginner]** — naming the unknown, and why `=` means something different in code
-4. [[02-equations|Equations]] — **[Beginner]** — solving, simultaneous equations, changing the subject
-5. [[03-algebraic-manipulation|Algebraic Manipulation]] — **[Beginner]** — expanding, factorising, and why an identical expression can compute better
-6. [[04-indices-and-logarithms|Exponents]] — **[Beginner]** — the laws *derived* rather than memorised, and why exponential growth defeats intuition
-7. [[03-approximation-and-standard-form|Scientific Notation]] — **[Beginner]** — very large and very small numbers, significant figures, order-of-magnitude estimation
+```
+mathematics/
+|- 01-core/                     foundations + secondary curriculum
+|  |- 00-foundations/           written - precedes the curriculum proper
+|  |- 01-numbers/               bases / modular* / indices+logs / sets
+|  \- 02-algebra/               linear equations / the rest*
+|- 02-discrete-math/            written in full
+|- 03-calculus/                 Calculus 1-3 written / intro*, ODE*, PDE*
+|- 04-geometry-trigonometry/    reserved*
+|- 05-linear-algebra/           reserved*
+\- 06-probability-statistics/   reserved*
+                                              (* = not yet written)
+```
 
-## Number bases
+## 00 - Foundations
 
-The first topic in the [[ss1-ss3-course-outline|SS1 curriculum]], and the one [[foundations/how-computers-work/index|How Computers Work]] depends on directly.
+What the curriculum assumes. Read first if any of it is shaky.
 
-- [[core/01-numbers/01-number-bases/01-introduction|Number Bases]] — **[Beginner]** — place value in any base, conversion both ways, arithmetic, **with a runnable lab**
-- [[core/01-numbers/01-number-bases/02-binary|Binary]] — bits, bytes, the powers of two, and the kilobyte problem
-- [[core/01-numbers/01-number-bases/03-decimal|Decimal]] — why ten, which fractions terminate, and why $0.999\ldots = 1$
-- [[core/01-numbers/01-number-bases/04-hexadecimal|Hexadecimal]] — why $16 = 2^4$ is the entire reason it exists
+1. [[01-core/00-foundations/01-number-systems|Number Systems]] - **[Beginner]** - naturals to integers to rationals to reals, and the question each one answers
+2. [[01-core/00-foundations/02-variables|Variables]] - **[Beginner]** - naming the unknown, and why `=` means something different in code
+3. [[01-core/00-foundations/03-algebraic-manipulation|Algebraic Manipulation]] - **[Beginner]** - expanding, factorising, and why an identical expression can compute better
+4. [[01-core/00-foundations/04-approximation-and-standard-form|Approximation and Standard Form]] - **[Beginner]** - scientific notation, significant figures, order-of-magnitude estimation
+
+## 01 - Numbers *(SS1 Term 1)*
+
+- [[01-core/01-numbers/01-number-bases/01-introduction|Number Bases]] - **[Beginner]** - place value in any base, conversion both ways, arithmetic, **with a runnable lab**
+  - [[01-core/01-numbers/01-number-bases/02-binary|Binary]] - bits, bytes, powers of two, and the kilobyte problem
+  - [[01-core/01-numbers/01-number-bases/03-decimal|Decimal]] - why ten, which fractions terminate, and why $0.999\ldots = 1$
+  - [[01-core/01-numbers/01-number-bases/04-hexadecimal|Hexadecimal]] - why $16 = 2^4$ is the entire reason it exists
+- **Modular arithmetic** - *reserved*; covered for now by [[02-discrete-math/08-number-theory-and-modular-arithmetic|discrete-math]]
+- [[01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|Indices and Logarithms]] - **[Beginner]** - the laws *derived* rather than memorised, and why complexity analysis omits the base
+- [[01-core/01-numbers/04-sets/01-sets|Sets]] - **[Beginner]** - notation, operations, Venn diagrams, inclusion-exclusion
+
+## 02 - Algebra *(SS1 Term 2 onward)*
+
+- **Logical reasoning** - *reserved*; covered for now by [[02-discrete-math/02-logic|discrete-math/logic]]
+- [[01-core/02-algebra/02-linear-equations/01-linear-equations|Linear Equations]] - **[Beginner]** - solving, simultaneous equations, changing the subject
+- **Variations, quadratics, simultaneous linear-and-quadratic, inequalities, algebraic fractions** - *reserved*
 
 ## Discrete mathematics
 
 **The most complete part of this course**, and the one computing draws on most.
 
-→ [[discrete-math/index|discrete-math/]] — logic and truth tables, proof techniques, sets and relations, induction and recursion, combinatorics, graph theory, number theory and modular arithmetic, plus exercises and solutions.
+→ [[02-discrete-math/index|discrete-math/]] — logic and truth tables, proof techniques, sets and relations, induction and recursion, combinatorics, graph theory, number theory and modular arithmetic, plus exercises and solutions.
 
 ## Calculus
 
@@ -50,26 +72,26 @@ Written in full. Read in order; each lesson names its prerequisites.
 
 **Calculus 1 — limits and derivatives**
 
-1. [[calculus/02-calculus-1/01-preview/01-preview|Preview]] — the two problems calculus exists to solve, and the one idea underneath both
-2. [[calculus/02-calculus-1/02-limit-of-function/01-definition|The Limit of a Function]] — why the value *at* a point is irrelevant to the limit *near* it
-3. [[calculus/02-calculus-1/03-limit-laws/01-laws|Limit Laws]] — the rules, the indeterminate forms, and the Squeeze Theorem
-4. [[calculus/02-calculus-1/04-continuity/01-definition|Continuity]] — what makes substitution legal, and the theorem behind `git bisect`
-5. [[calculus/02-calculus-1/05-precise-definition/01-epsilon-delta|The Precise Definition]] — **[Advanced]** — $\varepsilon$–$\delta$, and why rigour arrived 150 years late
-6. [[calculus/02-calculus-1/06-defining-derivative/01-definition|Defining the Derivative]] — one limit, from which all of differential calculus follows
-7. [[calculus/02-calculus-1/07-derivative-rules/01-rules|Derivative Rules]] — each derived, and the chain rule that backpropagation is built on
-8. [[calculus/02-calculus-1/08-applications/01-related-rates|Applications]] — related rates and optimisation
+1. [[03-calculus/02-calculus-1/01-preview/01-preview|Preview]] — the two problems calculus exists to solve, and the one idea underneath both
+2. [[03-calculus/02-calculus-1/02-limit-of-function/01-definition|The Limit of a Function]] — why the value *at* a point is irrelevant to the limit *near* it
+3. [[03-calculus/02-calculus-1/03-limit-laws/01-laws|Limit Laws]] — the rules, the indeterminate forms, and the Squeeze Theorem
+4. [[03-calculus/02-calculus-1/04-continuity/01-definition|Continuity]] — what makes substitution legal, and the theorem behind `git bisect`
+5. [[03-calculus/02-calculus-1/05-precise-definition/01-epsilon-delta|The Precise Definition]] — **[Advanced]** — $\varepsilon$–$\delta$, and why rigour arrived 150 years late
+6. [[03-calculus/02-calculus-1/06-defining-derivative/01-definition|Defining the Derivative]] — one limit, from which all of differential calculus follows
+7. [[03-calculus/02-calculus-1/07-derivative-rules/01-rules|Derivative Rules]] — each derived, and the chain rule that backpropagation is built on
+8. [[03-calculus/02-calculus-1/08-applications/01-related-rates|Applications]] — related rates and optimisation
 
 **Calculus 2 — integration**
 
-9. [[calculus/03-calculus-2/01-integration-by-parts|Integration and Integration by Parts]] — antidifferentiation, the Fundamental Theorem, and why integration is harder
-10. [[calculus/03-calculus-2/02-partial-fractions|Partial Fractions]] — algebra in service of calculus
-11. [[calculus/03-calculus-2/03-applications|Applications of Integration]] — volumes, arc length, averages, probability
+9. [[03-calculus/03-calculus-2/01-integration-by-parts|Integration and Integration by Parts]] — antidifferentiation, the Fundamental Theorem, and why integration is harder
+10. [[03-calculus/03-calculus-2/02-partial-fractions|Partial Fractions]] — algebra in service of calculus
+11. [[03-calculus/03-calculus-2/03-applications|Applications of Integration]] — volumes, arc length, averages, probability
 
 **Calculus 3 — multivariable**
 
-12. [[calculus/04-calculus-3/01-partial-derivatives|Partial Derivatives]] — the gradient, and why gradient descent works
-13. [[calculus/04-calculus-3/02-multiple-integrals|Multiple Integrals]] — accumulation over a region, and the Jacobian factor
-14. [[calculus/04-calculus-3/03-optimization|Multivariable Optimisation]] — saddle points, and why they dominate in high dimensions
+12. [[03-calculus/04-calculus-3/01-partial-derivatives|Partial Derivatives]] — the gradient, and why gradient descent works
+13. [[03-calculus/04-calculus-3/02-multiple-integrals|Multiple Integrals]] — accumulation over a region, and the Jacobian factor
+14. [[03-calculus/04-calculus-3/03-optimization|Multivariable Optimisation]] — saddle points, and why they dominate in high dimensions
 
 ## The two curricula this follows
 
@@ -93,21 +115,22 @@ Written in full. Read in order; each lesson names its prerequisites.
 ## How to study this
 
 1. **Do the problems.** Reading mathematics produces the feeling of understanding without the substance. Every lesson here ends with problems whose answers are hidden for that reason.
-2. **Derive rather than memorise.** [[04-indices-and-logarithms|Exponents]] shows the pattern: $a^0 = 1$ is not a convention to remember, it is forced by requiring the division law to keep working. Anything you can derive, you cannot forget.
+2. **Derive rather than memorise.** [[01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|Indices and Logarithms]] shows the pattern: $a^0 = 1$ is not a convention to remember, it is forced by requiring the division law to keep working. Anything you can derive, you cannot forget.
 3. **Follow the "why does this exist" thread.** Each topic answers a question the previous one could not.
 4. **Go in order.** Unlike most of this vault, the dependencies here are strict — you cannot manipulate equations before you can substitute into expressions.
 
 ## Still to write
 
-The lessons above are complete. These **topics from the two outlines have no file yet** — they are gaps in coverage, not stub files:
+Every lesson linked above is complete. The **reserved folders** below exist and are empty - they mark planned topics so the curriculum's shape is visible even where the content is not:
 
-- **Geometry and mensuration** — deductive geometry, circle theorems, areas and volumes
-- **Trigonometry** — ratios, graphs, sine and cosine rules
-- **Coordinate geometry** — gradients, distance, equations of lines
-- **Quadratics, inequalities, sequences and series, variation** — the rest of SS algebra
-- **Statistics and probability** — beyond what [[discrete-math/06-combinatorics-and-counting|combinatorics]] covers
-- **Matrices, vectors, surds** — SS3 topics
-- **Linear algebra, differential equations, real analysis** — the university track
+| Reserved folder | From |
+| :--- | :--- |
+| `01-core/01-numbers/02-modular-arithmetic/` | SS1 Term 1 |
+| `01-core/02-algebra/` - variations, quadratics, simultaneous, inequalities, algebraic fractions | SS1 T2 - SS2 |
+| `03-calculus/01-intro-calculus/`, `05-ode/`, `06-pde/` | SS3 intro, university |
+| `04-geometry-trigonometry/` - deductive, circle, coordinate, trigonometry | SS1 T3 - SS2 T3 |
+| `05-linear-algebra/` - vector spaces, eigenvalues | university Year 1-2 |
+| `06-probability-statistics/` | SS1 T3, SS2 T3 |
 
 ## Related
 

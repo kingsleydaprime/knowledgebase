@@ -168,7 +168,7 @@ DWARF records the mapping from machine code back to source: line numbers, variab
 
 If you're building a language, **don't write a native code generator first.**
 
-**A bytecode VM is the right target.** No register allocation, no calling convention, no ABI, no linker, portable by construction. → [[foundations/compilers/09-bytecode-and-virtual-machines|Bytecode VMs]]
+**A bytecode VM is the right target.** No register allocation, no calling convention, no ABI, no linker, portable by construction. → [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode VMs]]
 
 If you do want native code:
 
@@ -176,7 +176,7 @@ If you do want native code:
 2. **Or emit C** and let a C compiler do it. Genuinely legitimate — Nim, Vala, and early C++ all did
 3. **Write your own only to learn.** It's the most educational part and by far the largest
 
-For a JIT specifically, Cranelift or a hand-rolled assembler over a small instruction subset is the realistic path. → [[foundations/compilers/11-jit-compilation|JIT]]
+For a JIT specifically, Cranelift or a hand-rolled assembler over a small instruction subset is the realistic path. → [[foundations/compilers/12-jit-compilation|JIT]]
 
 ---
 

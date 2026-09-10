@@ -20,8 +20,8 @@ By the end **you will run a non-trivial program written in your own language.** 
 | **Lexing**                                      | [[foundations/compilers/02-lexical-analysis\|compilers/02]]                    |
 | **Recursive descent and Pratt parsing**         | [[foundations/compilers/03-parsing\|compilers/03]] — **the core prerequisite** |
 | **ASTs, scopes, closures**                      | [[foundations/compilers/04-asts-and-semantic-analysis\|compilers/04]]          |
-| **Bytecode VMs** (for the second half)          | [[foundations/compilers/09-bytecode-and-virtual-machines\|compilers/09]]       |
-| **Garbage collection** (once you have closures) | [[foundations/compilers/10-garbage-collection\|compilers/10]]                  |
+| **Bytecode VMs** (for the second half)          | [[foundations/compilers/10-bytecode-and-virtual-machines\|compilers/09]]       |
+| **Garbage collection** (once you have closures) | [[foundations/compilers/11-garbage-collection\|compilers/10]]                  |
 
 **[Crafting Interpreters](https://craftinginterpreters.com) is the companion to this guide.** It builds exactly this — a tree-walker in Java, then a bytecode VM in C — and it's free. This guide is the language-agnostic map; that book is the detailed walkthrough.
 
@@ -130,7 +130,7 @@ Compile the AST to a flat instruction array, then interpret that. Typically **10
 1 + 2 * 3  →  CONST 1 / CONST 2 / CONST 3 / MUL / ADD
 ```
 
-Start with a stack machine — code generation is a post-order walk with no register-allocation decisions. → [[foundations/compilers/09-bytecode-and-virtual-machines|compilers/09]]
+Start with a stack machine — code generation is a post-order walk with no register-allocation decisions. → [[foundations/compilers/10-bytecode-and-virtual-machines|compilers/09]]
 
 The single biggest win: **resolve variables to stack slot indices at compile time** so runtime access is an array index rather than a hash lookup.
 
@@ -140,7 +140,7 @@ A pass between parsing and execution that assigns and verifies types. Start with
 
 **C. Garbage collection** (necessary once you have closures and objects)
 
-Mark-and-sweep is a few hundred lines: track allocations, mark from roots, sweep. → [[foundations/compilers/10-garbage-collection|compilers/10]]
+Mark-and-sweep is a few hundred lines: track allocations, mark from roots, sweep. → [[foundations/compilers/11-garbage-collection|compilers/10]]
 
 **The essential technique: a stress mode that collects on every allocation**, run against your whole test suite. A missed root is otherwise an intermittent heisenbug that appears months later.
 
@@ -239,6 +239,6 @@ You'll have learned:
 ## Related
 
 - [[foundations/compilers/index|Compilers]] — the whole domain, written to unblock this
-- [[foundations/compilers/03-parsing|Parsing]] · [[foundations/compilers/09-bytecode-and-virtual-machines|Bytecode VMs]] · [[foundations/compilers/10-garbage-collection|GC]]
+- [[foundations/compilers/03-parsing|Parsing]] · [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode VMs]] · [[foundations/compilers/11-garbage-collection|GC]]
 - [[build-your-own-shit/06-your-own-database|Your Own Database]] — reuses the parser for SQL
 - [[build-your-own-shit/index|build-your-own-shit]]

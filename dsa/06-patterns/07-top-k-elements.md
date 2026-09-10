@@ -82,7 +82,7 @@ def kth_smallest(nums, k):
 
 ## 4. Implementation — complete runnable example
 
-**Runnable example:** save as `top_k_elements_lab.py` and run `python bython3 top_k_elements_lab.py`. It uses only Python's standard library and creates no external files.
+**Runnable example:** save as `top_k_elements_lab.py` and run `python3 top_k_elements_lab.py`. It uses only Python's standard library and creates no external files.
 
 ```python
 import heapq
@@ -123,8 +123,8 @@ def top_k_frequent(nums: List[int], k: int) -> List[int]:
         if len(heap) > k:
             heapq.heappop(heap)      # discard the least frequent
 
-    # Extract elements from heap
-    return [num for count, num in heap]
+    # Extract elements, most frequent first
+    return [num for count, num in sorted(heap, reverse=True)]
 
 
 def k_closest_points(points: List[List[int]], k: int) -> List[List[int]]:
@@ -137,12 +137,12 @@ def k_closest_points(points: List[List[int]], k: int) -> List[List[int]]:
     heap = []
     for point in points:
         dist = distance_sq(point)
-        heapq.heappush(heap, (dist, point))
+        heapq.heappush(heap, (-dist, point))   # negate: max-heap by distance
         if len(heap) > k:
-            heapq.heappop(heap)      # discard the farthest point
+            heapq.heappop(heap)      # root is the farthest so far -> discard it
 
     # Extract points from heap
-    return [point for dist, point in heap]
+    return [point for neg_dist, point in heap]
 
 
 if __name__ == "__main__":
@@ -178,7 +178,7 @@ if __name__ == "__main__":
     print(f"\nTest 4 - k closest points:")
     print(f"points={points4}, k={k4} -> {result4}")
     expected4 = [[1, 3], [2, -1]]
-    assert len(result4) == 2, f"Expected 2 points, got {len(result4)}"
+    assert sorted(result4) == sorted(expected4), f"Expected {expected4}, got {result4}"
 
     print("\ntop_k_elements_lab: passed")
 ```
@@ -196,7 +196,7 @@ Test 3 - top k frequent:
 nums=[1, 1, 1, 2, 2, 3], k=2 -> [1, 2]
 
 Test 4 - k closest points:
-points=[[1, 3], [3, 4], [2, -1]] -> [[1, 3], [2, -1]]
+points=[[1, 3], [3, 4], [2, -1]], k=2 -> [[1, 3], [2, -1]]
 
 top_k_elements_lab: passed
 ```
