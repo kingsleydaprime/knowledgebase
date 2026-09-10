@@ -81,4 +81,4 @@ Kept in [[dsa/interview/index|the folder README]] — the table mapping "what th
 - **Solve, then re-solve from scratch three days later.** Recognition is not recall. If you can't reproduce it cold, you didn't learn it.
 - **Do them out loud, standing up, on a timer.** Interviews are a performance under time pressure; practising silently at your own pace trains the wrong skill.
 - **After each problem, write one line: what was the *signal* that pointed at this pattern?** That line is what transfers to a problem you haven't seen. The solution itself doesn't transfer.
-- **Prefer breadth of pattern over depth of problem count.** Fifteen patterns well understood beats three hundred problems half-remembered — which is why [[dsa/06-patterns/index|the patterns folder]] is structured the way it is.
+- **Prefer breadth of pattern over depth of problem count.** Fifteen patterns well understood beats three hundred problems half-remembered — which is why [[dsa/04-patterns/index|the patterns folder]] is structured the way it is.

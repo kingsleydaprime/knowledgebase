@@ -125,7 +125,7 @@ for (i = 0; i < N; i++) expensive_function(x);   // result unused → removed en
 
 ## The techniques, ordered by payoff
 
-**1. Better algorithm.** $O(n^2) \to O(n\log n)$ beats every micro-optimisation, and no amount of cache tuning saves a quadratic algorithm at scale. → [[dsa/05-algorithms/01-algorithms|Algorithms]]
+**1. Better algorithm.** $O(n^2) \to O(n\log n)$ beats every micro-optimisation, and no amount of cache tuning saves a quadratic algorithm at scale. → [[dsa/03-algorithms/01-algorithms|Algorithms]]
 
 **2. Do less work.** Cache results, avoid recomputation, exit early, batch operations, **eliminate the work entirely.** The fastest code is the code that doesn't run.
 
@@ -196,5 +196,5 @@ Starting point:                          10.0 s
 ## Related
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — where most of the wins are
 - [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — reading IPC
-- [[dsa/05-algorithms/01-algorithms|Algorithms]] — the step that beats everything else
+- [[dsa/03-algorithms/01-algorithms|Algorithms]] — the step that beats everything else
 - [[computer-architecture/index|Architecture map]]

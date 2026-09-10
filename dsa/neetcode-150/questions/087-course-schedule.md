@@ -47,5 +47,5 @@ Courses in a cycle never reach in-degree 0 (each waits on another), so they're n
 **"Can everything be ordered under dependencies?" = "is the dependency graph acyclic?" → topological sort.** Half of graph problems are secretly cycle detection; recognizing the topological-sort framing behind a scheduling story is the move.
 
 ## Related
-- concept: [[11-topological-sort|topological-sort]], [[06-graphs|graphs]]
+- concept: [[11-topological-sort|topological-sort]], [[06-graphs/index|graphs]]
 - prev: [[086-walls-and-gates|Walls and Gates]] · next: [[088-course-schedule-ii|Course Schedule II]]

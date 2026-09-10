@@ -123,7 +123,7 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 
 ## Where else it's used
 
-**Hashing.** $h(k) = k \bmod m$ — and **choosing $m$ prime** matters, because a composite modulus lets patterns in the keys collapse onto few buckets. → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
+**Hashing.** $h(k) = k \bmod m$ — and **choosing $m$ prime** matters, because a composite modulus lets patterns in the keys collapse onto few buckets. → [[dsa/02-data-structures/03-hash-maps|Hash Maps]]
 
 **Checksums.** ISBN, IBAN, credit card numbers (Luhn), and CRC are all modular arithmetic. **A check digit catches single-digit and transposition errors** by construction.
 

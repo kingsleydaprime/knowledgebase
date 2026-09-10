@@ -1,6 +1,6 @@
 # Clone Graph
 
-**LeetCode 133** · Graphs · concepts: [[06-graphs|graphs]], [[03-hash-maps|hash-maps]]
+**LeetCode 133** · Graphs · concepts: [[06-graphs/index|graphs]], [[03-hash-maps|hash-maps]]
 
 ## Problem
 
@@ -37,6 +37,6 @@ Inserting `clones[n] = copy` **before** visiting neighbors is essential: in a cy
 **Cloning any linked/graph structure → traverse with an `original → copy` map that doubles as the visited set.** The map serves triple duty: dedupe, cycle-break, and neighbor-translation. Same technique as copying a linked list with random pointers.
 
 ## Related
-- concepts: [[06-graphs|graphs]], [[03-hash-maps|hash-maps]], [[02-dfs|dfs]]
+- concepts: [[06-graphs/index|graphs]], [[03-hash-maps|hash-maps]], [[02-dfs|dfs]]
 - relative: [[039-copy-list-with-random-pointer|Copy List with Random Pointer]]
 - prev: [[080-number-of-islands|Number of Islands]] · next: [[082-max-area-of-island|Max Area of Island]]

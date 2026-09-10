@@ -177,6 +177,6 @@ for item in items:           # Outer loop runs n times
 ---
 
 ## Related Modules
-- [[dsa/05-algorithms/01-algorithms|Algorithms & Complexity Analysis]] — Formalizing Big-O, $\Omega$, $\Theta$, and space complexity
+- [[dsa/03-algorithms/01-algorithms|Algorithms & Complexity Analysis]] — Formalizing Big-O, $\Omega$, $\Theta$, and space complexity
 - [[01-arrays|Arrays]] — Why array indexing is $O(1)$ without loops
 - [[03-hash-maps|Hash Maps]] — How hash maps eliminate hidden lookup loops

@@ -223,5 +223,5 @@ The lesson for a language designer: **ambiguity you resolve by rule is ambiguity
 
 - [[compilers/02-lexical-analysis|Lexical Analysis]] — where the tokens come from
 - [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — the tree being built
-- [[dsa/04-data-structures/05-trees/01-trees|Trees]] · [[dsa/04-data-structures/07-stacks-and-queues|Stacks]] — the structures underneath
+- [[dsa/02-data-structures/05-trees/01-trees|Trees]] · [[dsa/02-data-structures/07-stacks-and-queues|Stacks]] — the structures underneath
 - [[compilers/index|Compilers course map]]

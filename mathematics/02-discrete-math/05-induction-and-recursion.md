@@ -96,7 +96,7 @@ For $T(n) = a\,T(n/b) + f(n)$ — the shape of every divide-and-conquer algorith
 | $T(n)=T(n-1)+n$ | $\Theta(n^2)$ | worst-case quicksort |
 | $T(n)=2T(n-1)+1$ | $\Theta(2^n)$ | towers of Hanoi |
 
-> **The two rows to compare are rows 1 and 2.** Same recursion, different combine cost, and the whole difference between $\Theta(n)$ and $\Theta(n\log n)$ comes from whether merging costs linear time. **That's the kind of thing you can't see by staring at code and can see immediately from the recurrence.** → [[dsa/05-algorithms/04-sorting|Sorting]]
+> **The two rows to compare are rows 1 and 2.** Same recursion, different combine cost, and the whole difference between $\Theta(n)$ and $\Theta(n\log n)$ comes from whether merging costs linear time. **That's the kind of thing you can't see by staring at code and can see immediately from the recurrence.** → [[dsa/03-algorithms/04-sorting/index|Sorting]]
 
 **The Master Theorem doesn't cover everything** — unequal splits, non-polynomial $f$. Then use the **recursion tree method** (draw the levels, sum the work per level) or **substitution** (guess, verify by induction). The recursion tree is the most intuitive and is usually enough.
 
@@ -112,7 +112,7 @@ For $T(n) = a\,T(n/b) + f(n)$ — the shape of every divide-and-conquer algorith
 
 $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 
-**Memoisation collapses it to $\Theta(n)$** by ensuring each subproblem is solved once. **That observation is the whole of dynamic programming** — overlapping subproblems plus optimal substructure. → [[dsa/06-patterns/15-dynamic-programming|Dynamic Programming]]
+**Memoisation collapses it to $\Theta(n)$** by ensuring each subproblem is solved once. **That observation is the whole of dynamic programming** — overlapping subproblems plus optimal substructure. → [[dsa/04-patterns/15-dynamic-programming|Dynamic Programming]]
 
 **Any recursion can be made iterative** with an explicit stack. Sometimes clearer, sometimes much worse. Use recursion when the *data* is recursive.
 
@@ -144,6 +144,6 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 
 ## Related
 - [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — the other methods
-- [[dsa/06-patterns/15-dynamic-programming|Dynamic Programming]] — recursion plus memoisation
-- [[dsa/05-algorithms/01-algorithms|Algorithms]] — where these complexities land
+- [[dsa/04-patterns/15-dynamic-programming|Dynamic Programming]] — recursion plus memoisation
+- [[dsa/03-algorithms/01-algorithms|Algorithms]] — where these complexities land
 - [[mathematics/02-discrete-math/index|Discrete maths map]]

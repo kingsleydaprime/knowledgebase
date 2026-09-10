@@ -64,7 +64,7 @@ def topKFrequent(nums, k):
                 return result
 ```
 
-**Time O(n), space O(n).** Bucket sort works here precisely because the sort key (frequency) is a **bounded integer** in `[0, n]` — the same non-comparison-sort trick covered in [[04-sorting|sorting]]. It beats the O(n log n)/O(n log k) approaches by giving up on ordering *within* a frequency, which the problem doesn't require.
+**Time O(n), space O(n).** Bucket sort works here precisely because the sort key (frequency) is a **bounded integer** in `[0, n]` — the same non-comparison-sort trick covered in [[04-sorting/index|sorting]]. It beats the O(n log n)/O(n log k) approaches by giving up on ordering *within* a frequency, which the problem doesn't require.
 
 ## Complexity summary
 
@@ -79,5 +79,5 @@ def topKFrequent(nums, k):
 Two lessons stacked: (1) "k most/least frequent" → **count map + heap** is the general tool; (2) when the sort key is a **bounded integer** (here, frequency ≤ n), **bucket sort** beats any comparison-based method and hits O(n). Recognizing the bounded-key opportunity is what separates the optimal answer from the "good enough" heap.
 
 ## Related
-- concepts: [[03-hash-maps|hash-maps]], [[07-top-k-elements|top-k]], [[08-heaps|heaps]], [[04-sorting|bucket sort]]
+- concepts: [[03-hash-maps|hash-maps]], [[07-top-k-elements|top-k]], [[08-heaps|heaps]], [[04-sorting/index|bucket sort]]
 - prev: [[004-group-anagrams|Group Anagrams]] · next: [[006-encode-and-decode-strings|Encode and Decode Strings]]

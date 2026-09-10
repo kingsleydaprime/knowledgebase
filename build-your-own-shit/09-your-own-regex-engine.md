@@ -16,7 +16,7 @@
 
 **Required:**
 - **Recursive descent parsing** — the pattern is a small grammar → [[compilers/03-parsing|Parsing]]
-- **Graphs and traversal** — an NFA is a graph, and simulation is a BFS → [[dsa/05-algorithms/03-bfs|BFS]]
+- **Graphs and traversal** — an NFA is a graph, and simulation is a BFS → [[dsa/03-algorithms/03-bfs|BFS]]
 - **Sets** — the subset construction is literally sets of states
 
 **Strongly recommended, and it's what makes this build land:**

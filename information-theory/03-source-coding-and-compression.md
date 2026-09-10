@@ -51,7 +51,7 @@ Repeatedly: take the two least-probable nodes,
 The tree gives the codes.
 ```
 
-**A greedy algorithm that is provably optimal** — one of the relatively few cases where greedy is exactly right. → [[dsa/05-algorithms/10-greedy-algorithms|Greedy Algorithms]]
+**A greedy algorithm that is provably optimal** — one of the relatively few cases where greedy is exactly right. → [[dsa/03-algorithms/10-greedy-algorithms|Greedy Algorithms]]
 
 **The limitation, and it's fundamental:**
 

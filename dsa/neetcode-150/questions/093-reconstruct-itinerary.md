@@ -38,5 +38,5 @@ A naive "always take the smallest edge" can strand you at a dead-end with ticket
 **"Use every edge exactly once" → Eulerian path via Hierholzer's post-order DFS.** The counterintuitive move — record nodes as the DFS unwinds, then reverse — handles dead-ends automatically, which greedy forward construction can't.
 
 ## Related
-- concept: [[02-dfs|dfs]], [[06-graphs|graphs]]
+- concept: [[02-dfs|dfs]], [[06-graphs/index|graphs]]
 - next: [[094-min-cost-to-connect-all-points|Min Cost to Connect All Points]]

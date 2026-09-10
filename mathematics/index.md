@@ -16,6 +16,7 @@ This course is **partly written**, and the table below is honest about which par
 | **Geometry and trigonometry** | ✅ **written** — 16 lessons, deductive geometry through to quadric surfaces |
 | **Linear algebra** | ✅ **written** — 6 lessons, matrices through to eigenvalues and PageRank |
 | **Numerical methods** | ✅ **written** — 13 notes, floating point through to numerical optimisation |
+| **Probability and statistics** | ✅ **written** — 6 lessons, descriptive stats through to Markov chains and queues |
 | **Calculus** | ✅ **written** — limits, continuity, derivatives, integration, multivariable |
 
 **Every lesson linked below is written**, with prerequisites, worked examples, problems and hidden answers. The gaps that remain are *topics not yet started* — listed at the bottom — rather than empty files.
@@ -32,7 +33,7 @@ mathematics/
 |- 02-discrete-math/              logic, proof, counting, graphs                    [written]
 |- 03-geometry-trigonometry/      deductive -> circle -> trig -> mensuration     [written]
 |- 04-linear-algebra/             matrices -> systems -> spaces -> eigenvalues     [written]
-|- 05-probability-statistics/     descriptive stats through to inference
+|- 05-probability-statistics/     descriptive stats through to queues   [written]
 |- 06-calculus/                   intro -> Calculus 1-3 -> ODE/PDE -> analysis      [1-3 written]
 |- 07-applied-and-computational/  numerical methods [written], optimisation
 \- 08-exam-practice/              WAEC/NECO and JAMB/UTME revision
@@ -85,6 +86,12 @@ Highlights worth knowing are there: **SSA producing two different triangles** fr
 
 → [[04-linear-algebra/index|linear-algebra/]] — the running theme is that **a matrix is a function**: the multiplication rule is function composition, the determinant is an area factor, and eigenvectors are the directions the function does not turn.
 
+## 05-probability-statistics
+
+**Written in full — 6 lessons.** Descriptive statistics, dispersion, probability, distributions, inference and stochastic processes, merging the SS1–SS3 statistics strand with the university probability course.
+
+→ [[05-probability-statistics/index|probability-statistics/]] — the running theme is that **every summary discards something**, and each lesson names what: Anscombe's quartet for summary statistics, the $n-1$ bias for variance, the base rate for diagnostic tests, and coverage measurement for confidence intervals.
+
 ## 06-calculus
 
 Calculus 1–3 are written in full; the SS3 introduction, ODEs, PDEs and the analysis strand are reserved. Read in order; each lesson names its prerequisites.
@@ -130,10 +137,10 @@ Calculus 1–3 are written in full; the SS3 introduction, ODEs, PDEs and the ana
 | This course | Feeds |
 | :--- | :--- |
 | Number bases | [[how-computers-work/index\|How Computers Work]], [[computer-architecture/02-data-representation\|data representation]] |
-| Exponents, logarithms | [[dsa/05-algorithms/01-algorithms\|complexity analysis]] — every $\log n$ |
+| Exponents, logarithms | [[dsa/03-algorithms/01-algorithms\|complexity analysis]] — every $\log n$ |
 | Sets, logic, proof | [[mathematics/02-discrete-math/index\|discrete-math]], [[theory-of-computation/index\|theory of computation]] |
 | Combinatorics | [[dsa/index\|DSA]] — counting arrangements in backtracking and DP |
-| Graph theory | [[dsa/04-data-structures/06-graphs\|graphs]], [[networking/index\|networking]] |
+| Graph theory | [[dsa/02-data-structures/06-graphs/index\|graphs]], [[networking/index\|networking]] |
 | Modular arithmetic | [[cybersecurity/05-cryptography/index\|cryptography]], hashing |
 | Calculus | [[ai-ml/index\|ai-ml]] — gradients and backpropagation |
 
@@ -207,12 +214,12 @@ Every topic in both outlines, and the folder it belongs to. ✅ = written, every
 
 | Folder | Collects | From |
 | :--- | :--- | :--- |
-| `01-descriptive-statistics/` | frequency tables, bar charts, histograms, pie charts, mean, median, mode | SS1 T3 |
-| `02-dispersion-and-cumulative-frequency/` | ogives, range, variance, standard deviation | SS2 T3 |
-| `03-probability/` | basic probability; mutually exclusive and independent events, tree diagrams | SS2 T3, SS3 T2 |
-| `04-random-variables-and-distributions/` | probability spaces, random variables, Normal, Binomial, Poisson, joint distributions | Uni Y3S2 |
-| `05-inference-and-estimation/` | central limit theorem, parameter estimation | Uni Y3S2 |
-| `06-stochastic-processes/` | Markov chains, Poisson processes | Uni Y4S2 |
+| `01-descriptive-statistics/` ✅ | frequency tables, bar charts, histograms, pie charts, mean, median, mode | SS1 T3 |
+| `02-dispersion-and-cumulative-frequency/` ✅ | ogives, range, variance, standard deviation | SS2 T3 |
+| `03-probability/` ✅ | basic probability; mutually exclusive and independent events, tree diagrams | SS2 T3, SS3 T2 |
+| `04-random-variables-and-distributions/` ✅ | probability spaces, random variables, Normal, Binomial, Poisson, joint distributions | Uni Y3S2 |
+| `05-inference-and-estimation/` ✅ | central limit theorem, parameter estimation | Uni Y3S2 |
+| `06-stochastic-processes/` ✅ | Markov chains, Poisson processes | Uni Y4S2 |
 
 ### `06-calculus`
 

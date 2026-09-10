@@ -45,7 +45,7 @@ How you get from logic gates to something that runs a program, and why that mach
 | [[hardware/02-digital-and-analog\|hardware/]] | The gates and signals below |
 | [[compilers/08-code-generation\|compilers]] | Codegen, register allocation and scheduling target this machine |
 | [[languages/04-c/index\|C]] · [[languages/05-cpp/index\|C++]] · [[languages/03-rust/index\|Rust]] | Where you can actually control layout and see the effects |
-| [[dsa/05-algorithms/01-algorithms\|algorithms]] | Big-O's constants live here |
+| [[dsa/03-algorithms/01-algorithms\|algorithms]] | Big-O's constants live here |
 | [[cybersecurity/05-cryptography/index\|cryptography]] | Constant-time code, and why timing is a leak |
 
 ## The honest note

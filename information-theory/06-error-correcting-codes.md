@@ -58,7 +58,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 
 **Instead of blocks, a sliding window: output bits depend on the current input and the last $K-1$ inputs.**
 
-**Decoded with the Viterbi algorithm** — dynamic programming over the trellis of encoder states, finding the maximum-likelihood path. → [[dsa/06-patterns/15-dynamic-programming|Dynamic Programming]]
+**Decoded with the Viterbi algorithm** — dynamic programming over the trellis of encoder states, finding the maximum-likelihood path. → [[dsa/04-patterns/15-dynamic-programming|Dynamic Programming]]
 
 **Optimal decoding in polynomial time**, which is why it was so widely deployed: GSM, 802.11, satellite links, and Voyager's inner code.
 

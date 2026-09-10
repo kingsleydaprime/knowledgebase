@@ -38,7 +38,7 @@ What can be computed at all, and what can be computed quickly. Automata, Turing 
 |---|---|
 | [[mathematics/02-discrete-math/index\|discrete maths]] | **The prerequisite.** Proof, countability, induction |
 | [[compilers/index\|compilers]] | **The direct application.** Lexers are DFAs, parsers are PDAs, and the syntax/semantics split is forced by the hierarchy |
-| [[dsa/05-algorithms/01-algorithms\|algorithms]] | Complexity analysis, and why some problems have no good algorithm |
+| [[dsa/03-algorithms/01-algorithms\|algorithms]] | Complexity analysis, and why some problems have no good algorithm |
 | [[cybersecurity/05-cryptography/index\|cryptography]] | Rests entirely on believed-hard problems |
 | [[computer-architecture/01-what-architecture-is\|computer architecture]] | The universal machine, realised in silicon |
 

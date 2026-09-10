@@ -12,7 +12,7 @@
 
 **Between them is architecture** — how you get from NAND gates to something that runs a program, and why that machine has the performance characteristics it does.
 
-> **The practical reason to care:** every performance note in this vault quotes constants — "cache miss", "branch misprediction", "false sharing", "memory barrier". **This domain is where those constants come from.** Big-O tells you how an algorithm scales; architecture tells you why one $O(n)$ loop is thirty times slower than another. → [[dsa/05-algorithms/01-algorithms|Algorithms]]
+> **The practical reason to care:** every performance note in this vault quotes constants — "cache miss", "branch misprediction", "false sharing", "memory barrier". **This domain is where those constants come from.** Big-O tells you how an algorithm scales; architecture tells you why one $O(n)$ loop is thirty times slower than another. → [[dsa/03-algorithms/01-algorithms|Algorithms]]
 
 ## The layers
 

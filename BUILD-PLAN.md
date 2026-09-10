@@ -4,7 +4,7 @@
 
 The historical phases below track topics written. They do **not** establish that those topics teach well enough for independent study. This pass changes the priority from adding subjects to improving the path from explanation to implementation.
 
-**Standard:** [[COURSE-STANDARD|From reading to independent work]], inspired by the visual, motivation-first lessons in `foundations/dsa/04-data-structures/`. Preserve that clarity while adding explicit prerequisites, worked traces, complete setup, independent practice, and feedback. Keep reference files and interview banks in their existing formats.
+**Standard:** [[COURSE-STANDARD|From reading to independent work]], inspired by the visual, motivation-first lessons in `foundations/dsa/02-data-structures/`. Preserve that clarity while adding explicit prerequisites, worked traces, complete setup, independent practice, and feedback. Keep reference files and interview banks in their existing formats.
 
 ### First batch
 

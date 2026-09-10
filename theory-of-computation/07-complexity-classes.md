@@ -22,7 +22,7 @@
 
 **Empirically, natural problems in P have small exponents.** $n^{100}$ algorithms are constructed to make a point; real ones are $n$, $n\log n$, $n^2$, $n^3$.
 
-**The honest caveat:** P is a theoretical convenience, not a practical guarantee. $n^3$ on $n=10^6$ is already infeasible, and an $O(n\log n)$ algorithm with a huge constant may lose to $O(n^2)$. **P vs NP is about asymptotic structure, not about whether your code is fast.** → [[dsa/05-algorithms/01-algorithms|Algorithms]]
+**The honest caveat:** P is a theoretical convenience, not a practical guarantee. $n^3$ on $n=10^6$ is already infeasible, and an $O(n\log n)$ algorithm with a huge constant may lose to $O(n^2)$. **P vs NP is about asymptotic structure, not about whether your code is fast.** → [[dsa/03-algorithms/01-algorithms|Algorithms]]
 
 ## NP
 
@@ -153,5 +153,5 @@ $$\text{L} \subseteq \text{NL} \subseteq \text{P} \subseteq \text{NP} \subseteq 
 ## Related
 - [[theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]] — randomness, quantum, approximation
 - [[theory-of-computation/06-decidability|Decidability]] — impossible rather than slow
-- [[dsa/05-algorithms/01-algorithms|Algorithms]] — where complexity is applied
+- [[dsa/03-algorithms/01-algorithms|Algorithms]] — where complexity is applied
 - [[theory-of-computation/index|Theory of computation map]]

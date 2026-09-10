@@ -128,7 +128,7 @@ Which is why combinatorics comes first. Full treatment: [[ai-ml/00-foundations/0
 
 **Complexity analysis.** "How many subsets?" ($2^n$) "How many permutations?" ($n!$) tells you immediately whether exhaustive search is possible. $n!$ at $n=20$ is $2.4\times10^{18}$. → [[theory-of-computation/07-complexity-classes|Complexity Classes]]
 
-**Hash table sizing.** Expected collisions, load factor, and why you resize. → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
+**Hash table sizing.** Expected collisions, load factor, and why you resize. → [[dsa/02-data-structures/03-hash-maps|Hash Maps]]
 
 **Test coverage.** Combinatorial explosion is why exhaustive testing is impossible and why pairwise testing exists — covering all *pairs* of parameter values is polynomial where all combinations is exponential.
 

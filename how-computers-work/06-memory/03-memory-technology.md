@@ -123,7 +123,7 @@ Every row must be read and rewritten before its charge decays — typically ever
 > [!NOTE]
 > **Reading DRAM is destructive**, which surprises people. The tiny stored charge is shared onto the much larger bit line capacitance, producing a swing of only ~100 mV — far too small for the logic levels of module 5. A **sense amplifier** amplifies it back to a full rail.
 >
-> But the act of reading has drained the cell. **So every read is followed by a write-back**, and this is why DRAM has a row cycle time longer than its access time, and why the "row buffer" exists: once a row is opened and sensed, reading more columns from it is cheap. That asymmetry is why sequential memory access is so much faster than random access — and it is the hardware reason [[dsa/04-data-structures/01-arrays|arrays outperform linked lists]] far more than their Big-O suggests.
+> But the act of reading has drained the cell. **So every read is followed by a write-back**, and this is why DRAM has a row cycle time longer than its access time, and why the "row buffer" exists: once a row is opened and sensed, reading more columns from it is cheap. That asymmetry is why sequential memory access is so much faster than random access — and it is the hardware reason [[dsa/02-data-structures/01-arrays|arrays outperform linked lists]] far more than their Big-O suggests.
 
 ---
 
@@ -529,4 +529,4 @@ The reason: at high hit rates the average is dominated by the <em>miss</em> term
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the decoders addressing the array
 - [[computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] — where this hierarchy is exploited
 - [[computer-architecture/09-caches-in-depth|computer-architecture/caches in depth]] — the machinery built on top of these tradeoffs
-- [[dsa/04-data-structures/01-arrays|dsa/arrays]] — why locality beats complexity analysis
+- [[dsa/02-data-structures/01-arrays|dsa/arrays]] — why locality beats complexity analysis

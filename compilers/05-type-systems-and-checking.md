@@ -157,7 +157,7 @@ fn unify(&mut self, a: Type, b: Type) -> Result<(), TypeError> {
 
 **The occurs check** prevents infinite types: unifying `α` with `List<α>` would loop forever. It's the thing people forget when implementing this, and the symptom is a hang rather than an error.
 
-**Union-find** is the right data structure for the substitution map — it's the same structure as [[dsa/04-data-structures/10-union-find|union-find]], and it makes unification near-linear.
+**Union-find** is the right data structure for the substitution map — it's the same structure as [[dsa/02-data-structures/10-union-find|union-find]], and it makes unification near-linear.
 
 **Let-polymorphism** — generalise at `let` so a function can be used at multiple types:
 
@@ -235,5 +235,5 @@ For a language you're building:
 - [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — the pass before this
 - [[compilers/06-intermediate-representations|Intermediate Representations]] — what comes after
 - [[languages/03-rust/09-traits|Rust: Traits]] · [[languages/05-cpp/08-templates-and-concepts|C++: Concepts]] — constrained polymorphism in practice
-- [[dsa/04-data-structures/10-union-find|Union-Find]] — the structure unification uses
+- [[dsa/02-data-structures/10-union-find|Union-Find]] — the structure unification uses
 - [[compilers/index|Compilers course map]]

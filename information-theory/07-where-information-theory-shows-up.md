@@ -71,7 +71,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 
 **Compression in column stores** works because a single column is homogeneous — **low entropy given the context**, which is exactly why run-length and dictionary encoding get 10× ratios there and not on rows. → [[databases/03-storage-and-page-layout|Storage and Page Layout]]
 
-**Bloom filters** are an information-theoretic trade: **accept one-sided error to store far less than the set itself.** The optimal bits-per-element for a target false-positive rate is $-1.44\log_2\epsilon$ — **a hard bound, derived from counting.** → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
+**Bloom filters** are an information-theoretic trade: **accept one-sided error to store far less than the set itself.** The optimal bits-per-element for a target false-positive rate is $-1.44\log_2\epsilon$ — **a hard bound, derived from counting.** → [[dsa/02-data-structures/03-hash-maps|Hash Maps]]
 
 **HyperLogLog** estimates cardinality in ~1.5 KB regardless of set size, by tracking the maximum number of leading zeros in hashed values. **The intuition is pure information theory: seeing $k$ leading zeros suggests you've drawn about $2^k$ items.**
 

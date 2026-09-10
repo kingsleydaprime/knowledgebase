@@ -46,7 +46,7 @@ Method is [[learning/02-the-learning-loop|yours]] and doesn't change:
 
 > Study 1–2 worked solutions → extract *what makes it that kind of problem* → **close them** → solve new ones cold. Never copy a third.
 
-Work through [[dsa/06-patterns/index|the 15 patterns]] already written here. One pattern per week, roughly:
+Work through [[dsa/04-patterns/index|the 15 patterns]] already written here. One pattern per week, roughly:
 
 arrays/hashing → two pointers → sliding window → binary search → stack → linked list → trees/BFS/DFS → heap → backtracking → graphs → intervals → greedy → DP (2 weeks) → tries → bit manipulation
 

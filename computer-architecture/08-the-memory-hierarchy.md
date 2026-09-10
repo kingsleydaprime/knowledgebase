@@ -98,9 +98,9 @@ struct Particles { float x[N], y[N], z[N], vx[N], vy[N], vz[N]; };  // SoA
 
 > **A linked list has the same $O(n)$ traversal as an array and can be 10× slower.** The loads are *serially dependent* — you can't fetch node $n+1$ until node $n$ arrives — so there's no memory-level parallelism and the prefetcher can't help.
 >
-> **This is the clearest case where Big-O misleads.** `std::vector` beats `std::list` for almost everything, including insertion in the middle at moderate sizes, because memmove is sequential and pointer chasing isn't. → [[dsa/04-data-structures/04-linked-lists|Linked Lists]]
+> **This is the clearest case where Big-O misleads.** `std::vector` beats `std::list` for almost everything, including insertion in the middle at moderate sizes, because memmove is sequential and pointer chasing isn't. → [[dsa/02-data-structures/04-linked-lists|Linked Lists]]
 
-**Hash maps** — open addressing (linear probing) is usually faster than chaining, because probes stay in the same cache line. **The pointer chasing in chained buckets is the cost.** → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
+**Hash maps** — open addressing (linear probing) is usually faster than chaining, because probes stay in the same cache line. **The pointer chasing in chained buckets is the cost.** → [[dsa/02-data-structures/03-hash-maps|Hash Maps]]
 
 **Trees** — B-trees beat binary trees on real hardware even in memory, because a node sized to a cache line does many comparisons per fetch. **A binary tree does one comparison per cache miss**; a B-tree with 16-way fanout does four levels' worth. This is why database indexes are B-trees and why `absl::btree_map` exists.
 
