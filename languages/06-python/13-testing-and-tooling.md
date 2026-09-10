@@ -58,7 +58,7 @@ def test_describe(value, expected):
     assert describe(value) == expected
 ```
 
-**Four tests, reported separately, one function.** This is the single highest-return pytest feature — it makes covering edge cases cheap enough that you actually do it → [[foundations/programming-fundamentals/10-errors-and-debugging|test the edges]].
+**Four tests, reported separately, one function.** This is the single highest-return pytest feature — it makes covering edge cases cheap enough that you actually do it → [[programming-fundamentals/10-errors-and-debugging|test the edges]].
 
 ### The rest of the daily kit
 

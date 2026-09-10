@@ -138,7 +138,7 @@ DETAIL: Process 123 waits for ShareLock on transaction 456; blocked by process 7
 
 Postgres detects the cycle in the wait-for graph after `deadlock_timeout` (default 1s) and kills one transaction as the victim.
 
-**The fix is ordering: always acquire locks in a consistent order** — e.g. always update the lower account id first. That makes a cycle impossible by construction, which is the same reasoning as lock-ordering in [[foundations/os/06-concurrency-primitives|OS concurrency]].
+**The fix is ordering: always acquire locks in a consistent order** — e.g. always update the lower account id first. That makes a cycle impossible by construction, which is the same reasoning as lock-ordering in [[os/06-concurrency-primitives|OS concurrency]].
 
 **Deadlocks are not prevented by retrying**, though retrying is a necessary backstop. They're prevented by ordering.
 
@@ -170,7 +170,7 @@ Postgres detects the cycle in the wait-for graph after `deadlock_timeout` (defau
 
 **What (c) gives up, precisely:** with `synchronous_commit = off`, a commit returns *before* the WAL is flushed. You keep **atomicity and consistency** — recovery never leaves a torn transaction — but lose **durability** for a small window (~0.5s). A crash loses recently committed transactions that the client was told had succeeded.
 
-**That's a legitimate trade for analytics and a catastrophic one for payments**, and it should be a deliberate decision recorded somewhere → [[foundations/systems-engineering/05-trade-studies|trade studies]].
+**That's a legitimate trade for analytics and a catastrophic one for payments**, and it should be a deliberate decision recorded somewhere → [[systems-engineering/05-trade-studies|trade studies]].
 
 ### 14. Kill it mid-write
 

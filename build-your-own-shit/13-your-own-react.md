@@ -136,6 +136,6 @@ Rebuild the same app with **fine-grained reactivity** — a `signal()` that trac
 - [[frontend/frameworks/react/01-the-react-model|the React model]] — what you're reimplementing
 - [[frontend/frameworks/index|frameworks/]] — the reactivity-model comparison step 10 illuminates
 - [[build-your-own-shit/04-your-own-language|your own language]] — the same premise, other end of the stack
-- [[foundations/compilers/index|compilers]] — JSX transpilation
+- [[compilers/index|compilers]] — JSX transpilation
 
 *Source: [reference] — build guide, Aug 2026.*

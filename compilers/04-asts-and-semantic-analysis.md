@@ -173,7 +173,7 @@ enum VarRef {
 }
 ```
 
-Turning a name into an index is one of the biggest single wins available to an interpreter — array indexing instead of hashing on every variable access. → [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode VMs]]
+Turning a name into an index is one of the biggest single wins available to an interpreter — array indexing instead of hashing on every variable access. → [[compilers/10-bytecode-and-virtual-machines|Bytecode VMs]]
 
 ## Closures and upvalues
 
@@ -222,13 +222,13 @@ Things that are neither parsing nor typing:
 
 **Ownership and borrowing** — Rust's borrow checker is a semantic pass operating on a CFG, after type checking.
 
-These mostly need a **control-flow graph** rather than the AST, which is one of the motivations for lowering to an IR. → [[foundations/compilers/06-intermediate-representations|IR]]
+These mostly need a **control-flow graph** rather than the AST, which is one of the motivations for lowering to an IR. → [[compilers/06-intermediate-representations|IR]]
 
 ---
 
 ## Related
-- [[foundations/compilers/03-parsing|Parsing]] — what produces the AST
-- [[foundations/compilers/05-type-systems-and-checking|Type Systems and Checking]] — the next pass
-- [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode VMs]] — where slot resolution pays off
+- [[compilers/03-parsing|Parsing]] — what produces the AST
+- [[compilers/05-type-systems-and-checking|Type Systems and Checking]] — the next pass
+- [[compilers/10-bytecode-and-virtual-machines|Bytecode VMs]] — where slot resolution pays off
 - [[concepts/03-design-patterns/03-behavioral-patterns|Design Patterns: Visitor]]
-- [[foundations/compilers/index|Compilers course map]]
+- [[compilers/index|Compilers course map]]

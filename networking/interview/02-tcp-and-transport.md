@@ -1,6 +1,6 @@
 # Networking Interview — TCP & Transport
 
-From [[foundations/networking/05-udp-and-ports|05-udp-and-ports]], [[foundations/networking/06-tcp-connection-lifecycle|06-tcp-connection-lifecycle]], [[foundations/networking/07-tcp-reliability-and-flow-control|07-tcp-reliability-and-flow-control]], [[foundations/networking/08-congestion-control|08-congestion-control]], [[foundations/networking/09-sockets-and-the-network-api|09-sockets-and-the-network-api]].
+From [[networking/05-udp-and-ports|05-udp-and-ports]], [[networking/06-tcp-connection-lifecycle|06-tcp-connection-lifecycle]], [[networking/07-tcp-reliability-and-flow-control|07-tcp-reliability-and-flow-control]], [[networking/08-congestion-control|08-congestion-control]], [[networking/09-sockets-and-the-network-api|09-sockets-and-the-network-api]].
 
 ---
 

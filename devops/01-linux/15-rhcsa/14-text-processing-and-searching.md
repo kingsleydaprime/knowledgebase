@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]] — the depth-and-examples layer behind "Improving Command Line Productivity Using Shell Scripts" and "Manage files from the Command Line." The base syntax for these tools already exists in [[devops/01-linux/linux-reference|Linux Reference]] (§6 text processing, §20.1 find) and [[devops/01-linux/03-file-operations|File Operations & Text Manipulation]] — this note is the exam-drill version: more examples, more combining-tools-into-pipelines, because that's exactly the shape RHCSA tasks take ("find every file matching X, then do Y to it").
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]] — the depth-and-examples layer behind "Improving Command Line Productivity Using Shell Scripts" and "Manage files from the Command Line." The base syntax for these tools already exists in [[devops/01-linux/linux-reference|Linux Reference]] (§6 text processing, §20.1 find) and [[devops/01-linux/03-file-operations|File Operations & Text Manipulation]] — this note is the exam-drill version: more examples, more combining-tools-into-pipelines, because that's exactly the shape RHCSA tasks take ("find every file matching X, then do Y to it").
 
 These are also, not coincidentally, the exact commands I lean on constantly while working in this repo — `grep` to locate a section across files, `wc -l` to size up a file before reading it, `find` to locate something by name or type. Muscle memory here pays off far beyond the exam.
 

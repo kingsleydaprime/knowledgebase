@@ -44,7 +44,7 @@ await db.StartAsync();
 
 **This replaced the EF In-Memory provider**, which was a persistent source of false confidence — it doesn't enforce constraints, doesn't do real SQL translation, and passes tests that fail against an actual database. **The EF team now recommends against it for testing.**
 
-**The general rule from [[foundations/systems-engineering/06-verification-and-validation|V&V]]: test in an environment that resembles the one that matters.** A fake database is a different environment.
+**The general rule from [[systems-engineering/06-verification-and-validation|V&V]]: test in an environment that resembles the one that matters.** A fake database is a different environment.
 
 ## Observability
 

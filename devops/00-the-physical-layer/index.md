@@ -44,8 +44,8 @@ This is numbered `00` because it sits *under* Linux, not after it. It is also th
 |---|---|
 | [[devops/03-cloud/index\|03-cloud/]] | **The direct consumer.** Instance types, regions, AZs — this is what they're renting |
 | [[devops/02-docker/index\|02-docker/]] | Note 02's other half, in depth |
-| [[foundations/networking/index\|networking]] | Note 04 is the DC-shaped inversion of that course's assumptions |
-| [[foundations/os/11-isolation-and-containers\|OS: isolation]] | The kernel primitives under containers |
+| [[networking/index\|networking]] | Note 04 is the DC-shaped inversion of that course's assumptions |
+| [[os/11-isolation-and-containers\|OS: isolation]] | The kernel primitives under containers |
 | [[architecture/01-system-design-fundamentals/03-availability-and-reliability\|availability]] | Where the tier numbers turn into design |
 | [[hardware/index\|hardware/]] | The layer below this one — boards, not buildings |
 
@@ -61,7 +61,7 @@ This is numbered `00` because it sits *under* Linux, not after it. It is also th
 4. **Trace a packet out of a container** and count the encapsulation. `tcpdump` on the underlay while pinging across a VPC makes note 04's overlay point undeniable
 5. **Ask for a tour.** Most colocation providers will show a prospective customer a hall. Twenty minutes in a cold aisle beats any amount of reading here
 
-**What's missing:** liquid and immersion cooling in any depth, power distribution below the rack PDU, Fibre Channel specifics, RDMA/RoCE beyond a mention, GPU-cluster fabrics (NVLink, InfiniBand) — a real gap given [[foundations/gpu-and-parallel-computing/index|the GPU course]] — and anything about the economics of actually buying capacity.
+**What's missing:** liquid and immersion cooling in any depth, power distribution below the rack PDU, Fibre Channel specifics, RDMA/RoCE beyond a mention, GPU-cluster fabrics (NVLink, InfiniBand) — a real gap given [[gpu-and-parallel-computing/index|the GPU course]] — and anything about the economics of actually buying capacity.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
 

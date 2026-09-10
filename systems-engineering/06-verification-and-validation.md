@@ -20,7 +20,7 @@ Every requirement is verified by one of these, and **choosing the method is part
 
 **Prefer test.** Use analysis where a test is impossible — you cannot test a bridge to destruction, or a satellite in orbit before launch, or a 40-year fatigue life.
 
-**And when you rely on analysis, the model becomes the thing that must be trusted.** That's where a whole discipline lives → [[foundations/numerical-methods/index|numerical methods]] on conditioning and error, and [[engineering/01-continuum-mechanics/13-computational-methods-and-fem|FEM]] on whether your simulation resembles reality.
+**And when you rely on analysis, the model becomes the thing that must be trusted.** That's where a whole discipline lives → [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical methods]] on conditioning and error, and [[continuum-mechanics/13-computational-methods-and-fem|FEM]] on whether your simulation resembles reality.
 
 ## The levels
 
@@ -53,7 +53,7 @@ Physical systems test against the environment explicitly — thermal cycling, vi
 
 Every requirement traced to a verification activity gives you a **verification cross-reference matrix**, and it answers "have we checked everything we said?"
 
-**It cannot answer "have we thought of everything?"** — which is the question that actually matters, and the reason [[foundations/systems-engineering/08-risk-and-failure-analysis|FMEA and hazard analysis]] exist as separate activities. They look for failures nobody wrote a requirement about.
+**It cannot answer "have we thought of everything?"** — which is the question that actually matters, and the reason [[systems-engineering/08-risk-and-failure-analysis|FMEA and hazard analysis]] exist as separate activities. They look for failures nobody wrote a requirement about.
 
 The software version is the same trap: **line coverage measures what ran, not what was checked** → [[languages/06-python/13-testing-and-tooling|testing and tooling]]. 100% coverage of the behaviour you thought of says nothing about the behaviour you didn't.
 
@@ -78,8 +78,8 @@ Physical programmes call it operational test and evaluation, sea trials, or flig
 **"The user made a mistake" is almost always a system finding, not a user finding.** That's the same reasoning as blameless postmortems, and it's why human factors is part of the discipline rather than a nicety.
 
 ## Related
-- [[foundations/systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]] — where V&V sits
-- [[foundations/systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — finding what you didn't specify
+- [[systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]] — where V&V sits
+- [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — finding what you didn't specify
 - [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] — the software version
 - [[architecture/04-distributed-systems/15-testing-distributed-systems|testing distributed systems]]
 

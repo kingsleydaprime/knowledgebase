@@ -46,7 +46,7 @@ The disciplines that come *after* DevOps — and why each of them exists because
 | [[devops/06-ci-cd/index\|06-ci-cd/]] | The pipeline all four notes assume |
 | [[devops/11-delivery-and-advanced/01-gitops\|GitOps]] | The deploy mechanism most IDPs sit on |
 | [[cybersecurity/index\|cybersecurity]] | Note 04's other half, at depth |
-| [[foundations/software-engineering/03-the-engineering-roles\|the engineering roles]] | What each of these is like to *hold* as a job |
+| [[software-engineering/03-the-engineering-roles\|the engineering roles]] | What each of these is like to *hold* as a job |
 | [[architecture/01-system-design-fundamentals/03-availability-and-reliability\|availability]] | Where the nines come from |
 
 ## The honest note

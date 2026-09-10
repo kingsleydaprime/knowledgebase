@@ -101,7 +101,7 @@ obj.field
 - **Polymorphic** — 2–4 shapes. A small inline check chain
 - **Megamorphic** — many shapes. Fall back to a hash lookup. Slow
 
-**This is why "monomorphic code is fast" is real advice in JavaScript.** Passing consistently-shaped objects keeps sites monomorphic; a function called with ten different object shapes goes megamorphic and loses the optimisation entirely. V8's hidden classes exist to make shape comparison a pointer compare. → [[foundations/compilers/10-bytecode-and-virtual-machines|inline caching]]
+**This is why "monomorphic code is fast" is real advice in JavaScript.** Passing consistently-shaped objects keeps sites monomorphic; a function called with ten different object shapes goes megamorphic and loses the optimisation entirely. V8's hidden classes exist to make shape comparison a pointer compare. → [[compilers/10-bytecode-and-virtual-machines|inline caching]]
 
 ## Warm-up
 
@@ -148,7 +148,7 @@ Rather than emitting bytes by hand, use a backend: **Cranelift** (designed for f
 
 ## Should you write one?
 
-**For build-your-own-language: no.** A JIT is comparable in effort to everything else in the language combined. Get a good bytecode VM first — [[foundations/compilers/10-bytecode-and-virtual-machines|computed goto, inline caching, NaN boxing]] deliver a large fraction of the benefit for a fraction of the work.
+**For build-your-own-language: no.** A JIT is comparable in effort to everything else in the language combined. Get a good bytecode VM first — [[compilers/10-bytecode-and-virtual-machines|computed goto, inline caching, NaN boxing]] deliver a large fraction of the benefit for a fraction of the work.
 
 **Consider it when** you have a well-defined hot inner loop and a genuine need — a regex engine compiling patterns, a query engine compiling plans, a template engine, a numeric DSL. Those are tractable because the domain is narrow.
 
@@ -161,15 +161,15 @@ The interpreter/JIT/AOT distinction is blurring:
 - **CPython 3.13** added a copy-and-patch JIT — a lightweight technique that stencils precompiled machine-code templates together, far simpler than a traditional JIT
 - **GraalVM** AOT-compiles Java *and* provides Truffle, a framework for building self-optimising interpreters that become JITs almost for free
 - **WebAssembly** is a compilation target that browsers JIT, and `wasmtime` AOT-compiles
-- **eBPF** JITs verified bytecode inside the kernel → [[foundations/os/09-syscalls-interrupts-and-the-abi|eBPF]]
+- **eBPF** JITs verified bytecode inside the kernel → [[os/09-syscalls-interrupts-and-the-abi|eBPF]]
 
 **Copy-and-patch is worth knowing about** if you want JIT-like speed without writing a compiler: you precompile small machine-code templates for each bytecode operation at build time, then at runtime concatenate and patch them. It's ~2× faster than an interpreter for a small fraction of a real JIT's complexity, and it's a genuinely practical option for a hobby language.
 
 ---
 
 ## Related
-- [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — what a JIT sits on top of
-- [[foundations/compilers/07-optimisation|Optimisation]] — the same passes, with runtime information
-- [[foundations/compilers/11-garbage-collection|Garbage Collection]] — the other half of a managed runtime
+- [[compilers/10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — what a JIT sits on top of
+- [[compilers/07-optimisation|Optimisation]] — the same passes, with runtime information
+- [[compilers/11-garbage-collection|Garbage Collection]] — the other half of a managed runtime
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — HotSpot's tiers in practice
-- [[foundations/compilers/index|Compilers course map]]
+- [[compilers/index|Compilers course map]]

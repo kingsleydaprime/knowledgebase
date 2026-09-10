@@ -8,7 +8,7 @@
 
 Secondary: cost at volume (cloud plans price per execution), no execution limits, and network access to internal systems a hosted service cannot reach.
 
-**Against it, honestly:** you now operate a stateful service with a database, backups, upgrades, TLS and monitoring. **That is a real, ongoing cost**, and for a small team the cloud plan is frequently the better trade → [[foundations/systems-engineering/05-trade-studies|trade studies]].
+**Against it, honestly:** you now operate a stateful service with a database, backups, upgrades, TLS and monitoring. **That is a real, ongoing cost**, and for a small team the cloud plan is frequently the better trade → [[systems-engineering/05-trade-studies|trade studies]].
 
 ## The licence, stated plainly
 

@@ -2,7 +2,7 @@
 
 **[Beginner]** — The mathematics of things you can count, and why it's the one maths course that turns out to be load-bearing for programmers.
 
-**Source:** `[reference]` — see [[foundations/mathematics/02-discrete-math/index|the domain note]].
+**Source:** `[reference]` — see [[mathematics/02-discrete-math/index|the domain note]].
 
 ## Continuous vs discrete
 
@@ -18,13 +18,13 @@ The honest pitch for this domain: **you have been using it for years without the
 
 | You already do | It's really |
 |---|---|
-| `if (a && !b \|\| c)` | propositional logic → [[foundations/mathematics/02-discrete-math/02-logic\|02]] |
-| Reasoning about a loop invariant | induction → [[foundations/mathematics/02-discrete-math/05-induction-and-recursion\|05]] |
-| A hash set, a SQL `JOIN`, a `UNIQUE` constraint | set theory → [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions\|04]] |
-| Big-O analysis | asymptotics and recurrences → [[foundations/mathematics/02-discrete-math/05-induction-and-recursion\|05]] |
-| A dependency graph, a router table, a social graph | graph theory → [[foundations/mathematics/02-discrete-math/07-graph-theory\|07]] |
-| "How many combinations does this password have?" | combinatorics → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting\|06]] |
-| RSA, Diffie–Hellman, a hash function | number theory → [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic\|08]] |
+| `if (a && !b \|\| c)` | propositional logic → [[mathematics/02-discrete-math/02-logic\|02]] |
+| Reasoning about a loop invariant | induction → [[mathematics/02-discrete-math/05-induction-and-recursion\|05]] |
+| A hash set, a SQL `JOIN`, a `UNIQUE` constraint | set theory → [[mathematics/02-discrete-math/04-sets-relations-and-functions\|04]] |
+| Big-O analysis | asymptotics and recurrences → [[mathematics/02-discrete-math/05-induction-and-recursion\|05]] |
+| A dependency graph, a router table, a social graph | graph theory → [[mathematics/02-discrete-math/07-graph-theory\|07]] |
+| "How many combinations does this password have?" | combinatorics → [[mathematics/02-discrete-math/06-combinatorics-and-counting\|06]] |
+| RSA, Diffie–Hellman, a hash function | number theory → [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic\|08]] |
 | A type checker rejecting your program | logic, again |
 | Normalising a database schema | relations, literally — that's where "relational" comes from |
 
@@ -48,25 +48,25 @@ Papers in algorithms, cryptography, databases, PL and distributed systems are wr
 
 **4. You know when something is impossible.**
 
-**This is the most practically valuable one.** Knowing that a problem is NP-complete stops you looking for an efficient exact algorithm and starts you looking for an approximation. Knowing the halting problem is undecidable tells you why your linter can't catch everything. → [[foundations/theory-of-computation/index|Theory of Computation]]
+**This is the most practically valuable one.** Knowing that a problem is NP-complete stops you looking for an efficient exact algorithm and starts you looking for an approximation. Knowing the halting problem is undecidable tells you why your linter can't catch everything. → [[theory-of-computation/index|Theory of Computation]]
 
 > **The counter-argument, stated fairly:** most working programmers never explicitly use any of this and ship fine software. That's true. **The claim isn't that you can't work without it — it's that certain classes of problem are opaque without it**, and you won't know which ones you're missing.
 
 ## The pieces
 
-**Logic** — how to state things precisely and reason validly. The foundation everything else sits on. → [[foundations/mathematics/02-discrete-math/02-logic|02]]
+**Logic** — how to state things precisely and reason validly. The foundation everything else sits on. → [[mathematics/02-discrete-math/02-logic|02]]
 
-**Proof** — how to establish that something is true for all cases. Direct, contradiction, contraposition, induction. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|03]]
+**Proof** — how to establish that something is true for all cases. Direct, contradiction, contraposition, induction. → [[mathematics/02-discrete-math/03-proof-techniques|03]]
 
-**Sets, relations, functions** — the vocabulary for describing structure. → [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|04]]
+**Sets, relations, functions** — the vocabulary for describing structure. → [[mathematics/02-discrete-math/04-sets-relations-and-functions|04]]
 
-**Induction and recursion** — the two faces of one idea, and the bridge between defining a structure and proving things about it. → [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|05]]
+**Induction and recursion** — the two faces of one idea, and the bridge between defining a structure and proving things about it. → [[mathematics/02-discrete-math/05-induction-and-recursion|05]]
 
-**Combinatorics** — counting without enumerating. → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|06]]
+**Combinatorics** — counting without enumerating. → [[mathematics/02-discrete-math/06-combinatorics-and-counting|06]]
 
-**Graph theory** — the single most reusable modelling tool in the subject. → [[foundations/mathematics/02-discrete-math/07-graph-theory|07]]
+**Graph theory** — the single most reusable modelling tool in the subject. → [[mathematics/02-discrete-math/07-graph-theory|07]]
 
-**Number theory** — divisibility, primes, modular arithmetic. Pure mathematics until 1977, then the basis of all public-key cryptography. → [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|08]]
+**Number theory** — divisibility, primes, modular arithmetic. Pure mathematics until 1977, then the basis of all public-key cryptography. → [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|08]]
 
 ## A worked taste
 
@@ -74,11 +74,11 @@ To show what "recognising the shape" means, three problems that look unrelated a
 
 **"In any group of 367 people, two share a birthday."**
 
-Obvious. 367 people, 366 possible birthdays, so two must collide. **That's the pigeonhole principle**, and stated generally it proves things that aren't obvious at all — that lossless compression cannot shrink every input, for instance. → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|06]]
+Obvious. 367 people, 366 possible birthdays, so two must collide. **That's the pigeonhole principle**, and stated generally it proves things that aren't obvious at all — that lossless compression cannot shrink every input, for instance. → [[mathematics/02-discrete-math/06-combinatorics-and-counting|06]]
 
 **"Can this build succeed?"**
 
-A build system has tasks with dependencies. **That's a directed graph**, and "can it succeed" means "is it acyclic". The build order is a topological sort. → [[foundations/dsa/05-algorithms/11-topological-sort|Topological Sort]]
+A build system has tasks with dependencies. **That's a directed graph**, and "can it succeed" means "is it acyclic". The build order is a topological sort. → [[dsa/05-algorithms/11-topological-sort|Topological Sort]]
 
 **"Is this program correct?"**
 
@@ -94,12 +94,12 @@ For a loop, you find a property true before it starts, preserved by each iterati
 
 **Prerequisites:** none beyond high-school algebra. **This is genuinely the ground floor** — which is why it's the first-year course, and why it's a reasonable entry point even if the rest of the vault's maths (linear algebra, calculus) is unfamiliar.
 
-**What this track is not:** a problem set. Discrete maths is learned by *doing proofs*, and reading proofs is to writing them what reading code is to writing it. The honest note in [[foundations/mathematics/02-discrete-math/index|the README]] says more.
+**What this track is not:** a problem set. Discrete maths is learned by *doing proofs*, and reading proofs is to writing them what reading code is to writing it. The honest note in [[mathematics/02-discrete-math/index|the README]] says more.
 
 ---
 
 ## Related
-- [[foundations/mathematics/02-discrete-math/02-logic|Logic]] — the next note, and the foundation
-- [[foundations/theory-of-computation/index|Theory of Computation]] — where this leads directly
-- [[foundations/dsa/index|Data Structures & Algorithms]] — where it's already being applied
-- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]
+- [[mathematics/02-discrete-math/02-logic|Logic]] — the next note, and the foundation
+- [[theory-of-computation/index|Theory of Computation]] — where this leads directly
+- [[dsa/index|Data Structures & Algorithms]] — where it's already being applied
+- [[mathematics/02-discrete-math/index|Discrete maths map]]

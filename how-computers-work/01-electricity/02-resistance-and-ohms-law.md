@@ -157,7 +157,7 @@ $$\frac{P_{\text{modern}}}{P_{\text{old}}} = \frac{V_m^2 f_m}{V_o^2 f_o} = \frac
 
 **This is why processors went multicore.** With single-core frequency capped by heat, the only way to spend more transistors usefully was to run several cores at a *lower* clock — trading the linear-in-$f$ power cost for parallelism. Every "why do I have 8 cores instead of one 30 GHz core" question terminates in the $V^2 f$ term above.
 
-You will meet the consequences again in [[how-computers-work/03-transistors/03-cmos|module 13]] (why CMOS burns almost nothing when idle) and throughout [[foundations/computer-architecture/12-performance|computer-architecture/performance]].
+You will meet the consequences again in [[how-computers-work/03-transistors/03-cmos|module 13]] (why CMOS burns almost nothing when idle) and throughout [[computer-architecture/12-performance|computer-architecture/performance]].
 
 ---
 
@@ -315,5 +315,5 @@ Exact value is $(3.3 - 2.1)/0.015$. Round <em>up</em> to the next standard value
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/01-charge-current-and-voltage|Module 1 — Charge, Current and Voltage]]
-- [[foundations/computer-architecture/12-performance|computer-architecture/performance]] — where the power wall's architectural consequences are worked out
-- [[foundations/hardware/01-electricity|hardware/electricity]] — practical component selection
+- [[computer-architecture/12-performance|computer-architecture/performance]] — where the power wall's architectural consequences are worked out
+- [[hardware/01-electricity|hardware/electricity]] — practical component selection

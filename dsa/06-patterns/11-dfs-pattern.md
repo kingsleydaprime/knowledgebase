@@ -216,7 +216,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[047-maximum-depth-of-binary-tree|Maximum Depth of Binary Tree]] (LeetCode #104) — the smallest complete DFS.
 2. [[048-diameter-of-binary-tree|Diameter of Binary Tree]] (LeetCode #543) — return one thing, track another — the pattern for "path through a node".

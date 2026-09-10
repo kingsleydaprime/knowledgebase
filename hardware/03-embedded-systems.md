@@ -85,5 +85,5 @@ gpio_set_level(GPIO_NUM_2, 1);  // HIGH
 ## Related
 - [[hardware/04-microcontrollers|Microcontrollers]] — the chips this runs on
 - [[hardware/02-digital-and-analog|Digital vs Analog]] — what GPIO and ADC pins are reading
-- [[foundations/os/index|Operating Systems]] — the same scheduling ideas, with megabytes instead of kilobytes
+- [[os/index|Operating Systems]] — the same scheduling ideas, with megabytes instead of kilobytes
 - [[devops/01-linux/19-the-boot-process|The Boot Process]] — the grown-up version of a bootloader handing off

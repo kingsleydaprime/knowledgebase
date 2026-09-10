@@ -16,9 +16,9 @@ By the end, **killing the process mid-write and reopening leaves your data intac
 
 | You should know | Where |
 |---|---|
-| **`fsync` and the durability boundary** | [[foundations/os/07-filesystems-and-storage\|os/07]] — **the load-bearing prerequisite** |
-| **B-trees and how they differ from BSTs** | [[foundations/dsa/04-data-structures/05-trees/01-trees\|trees]] |
-| **Parsing** — you're writing a SQL parser | [[foundations/compilers/03-parsing\|compilers/03]] |
+| **`fsync` and the durability boundary** | [[os/07-filesystems-and-storage\|os/07]] — **the load-bearing prerequisite** |
+| **B-trees and how they differ from BSTs** | [[dsa/04-data-structures/05-trees/01-trees\|trees]] |
+| **Parsing** — you're writing a SQL parser | [[compilers/03-parsing\|compilers/03]] |
 | **SQL semantics** | [[databases/sql-reference\|sql-reference]] |
 | **Transactions and isolation** | [[architecture/04-distributed-systems/10-distributed-transactions\|transactions]] |
 
@@ -73,7 +73,7 @@ db > select
 
 The heart of it. Replace the append-only heap with a B-tree keyed by primary key, so lookups are O(log n) instead of O(n).
 
-**Why a B-tree and not a BST:** each node is one page, holding *many* keys. A tree of depth 3 with 4KB pages indexes millions of rows — so a lookup is 3 disk reads rather than 20. **The branching factor is chosen to match the page size**, and that's the entire insight. → [[foundations/dsa/04-data-structures/05-trees/01-trees|trees]]
+**Why a B-tree and not a BST:** each node is one page, holding *many* keys. A tree of depth 3 with 4KB pages indexes millions of rows — so a lookup is 3 disk reads rather than 20. **The branching factor is chosen to match the page size**, and that's the entire insight. → [[dsa/04-data-structures/05-trees/01-trees|trees]]
 
 ```
                   [ 7 | 16 ]                    internal: keys + child pointers
@@ -97,7 +97,7 @@ Build it in stages:
 
 ### 5. A SQL parser
 
-Now a real one. Lexer → recursive descent → an AST of statements. → [[foundations/compilers/03-parsing|parsing]]
+Now a real one. Lexer → recursive descent → an AST of statements. → [[compilers/03-parsing|parsing]]
 
 ```sql
 SELECT id, name FROM users WHERE age > 21;
@@ -155,11 +155,11 @@ kill -9 <pid>       # mid-write, no cleanup
 
 **Watch for:**
 
-- **`write()` is not durable.** You must `fsync` the log before applying changes, and it costs milliseconds — which is exactly why databases batch commits (**group commit**) rather than fsyncing per transaction. → [[foundations/os/07-filesystems-and-storage|fsync]]
+- **`write()` is not durable.** You must `fsync` the log before applying changes, and it costs milliseconds — which is exactly why databases batch commits (**group commit**) rather than fsyncing per transaction. → [[os/07-filesystems-and-storage|fsync]]
 - **Checksum your log records**, or a torn write (a partial page from a power cut) gets replayed as valid garbage
 - **`fsync` the directory too** after creating the log file, or the file's *name* may not survive
 
-This milestone is where the [[foundations/os/07-filesystems-and-storage|filesystems note]] stops being theory.
+This milestone is where the [[os/07-filesystems-and-storage|filesystems note]] stops being theory.
 
 ### 8. Extras, in order of value
 
@@ -273,8 +273,8 @@ diff expected.txt actual.txt
 
 ## Related
 - [[databases/index|Databases]] — the internals course: pages, B-trees, LSM, WAL, MVCC. **Read notes 03–05 and 10 before milestone 3**
-- [[foundations/os/07-filesystems-and-storage|Filesystems and Storage]] — `fsync`, the page cache, journaling
-- [[foundations/dsa/04-data-structures/05-trees/01-trees|Trees]] — the B-tree's ancestry
+- [[os/07-filesystems-and-storage|Filesystems and Storage]] — `fsync`, the page cache, journaling
+- [[dsa/04-data-structures/05-trees/01-trees|Trees]] — the B-tree's ancestry
 - [[databases/database-design-reference|Database Design]] · [[databases/sql-reference|SQL Reference]]
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — B-tree vs LSM in production
 - [[build-your-own-shit/index|build-your-own-shit]]

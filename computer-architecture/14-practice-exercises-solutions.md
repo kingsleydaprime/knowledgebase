@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Intermediate → Advanced]** · Worked answers to [[foundations/computer-architecture/13-practice-exercises|note 13]].
+> **[Intermediate → Advanced]** · Worked answers to [[computer-architecture/13-practice-exercises|note 13]].
 
 **Measured on an Intel i7-8650U** (4 cores / 8 threads, L1d 32 KB per core, L2 256 KB per core, L3 8 MB shared), GCC, August 2026. **Your absolute numbers will differ; the ratios and the shape should not.**
 
@@ -18,7 +18,7 @@ The integer boundary is **2⁵³ = 9,007,199,254,740,992**. Beyond it, `float(n)
 
 **Why exactly there:** a double has 52 stored mantissa bits plus one implicit leading bit = 53 bits of precision. Integers up to 2⁵³ are exactly representable; above that the gap between representable values is ≥ 2, so odd numbers vanish.
 
-53 bits ≈ **15–17 significant decimal digits**. This is why JavaScript (all numbers are doubles) cannot represent large 64-bit database IDs, and why APIs return them as strings → [[foundations/computer-architecture/02-data-representation|note 02]].
+53 bits ≈ **15–17 significant decimal digits**. This is why JavaScript (all numbers are doubles) cannot represent large 64-bit database IDs, and why APIs return them as strings → [[computer-architecture/02-data-representation|note 02]].
 
 ### 2. Overflow three ways
 
@@ -69,7 +69,7 @@ Same arithmetic. Same result. **6.5× at N=1024.**
 
 `ijk` walks `B` **down a column** — stride *N*×8 bytes, so every access is a new cache line and nearly every one misses. `ikj` walks both `B` and `C` along rows, so each fetched line is fully consumed.
 
-**And the reason the effect is only 2.4× at N=512 is the point of running both:** at N=512, `B` is 512×512×8 = 2 MB and largely fits in the 8 MB L3, so column-walking is punished mildly. At N=1024 it's 8 MB and doesn't. **The penalty appears when the working set exceeds the cache** — which is exactly why benchmarks on small inputs mislead → [[foundations/computer-architecture/09-caches-in-depth|note 09]].
+**And the reason the effect is only 2.4× at N=512 is the point of running both:** at N=512, `B` is 512×512×8 = 2 MB and largely fits in the 8 MB L3, so column-walking is punished mildly. At N=1024 it's 8 MB and doesn't. **The penalty appears when the working set exceeds the cache** — which is exactly why benchmarks on small inputs mislead → [[computer-architecture/09-caches-in-depth|note 09]].
 
 Blocking adds little over `ikj` here because `-O2` already vectorises the inner loop well; on a larger matrix or with a bigger tile the gap widens.
 
@@ -86,7 +86,7 @@ Blocking adds little over `ikj` here because `-O2` already vectorises the inner 
 -O2:   unsorted 0.024 s    sorted 0.022 s     ← ~none
 ```
 
-At `-O0` the `if (data[i] >= 128)` is a real conditional branch. On random data it's unpredictable, so the predictor is right about half the time and each miss costs a pipeline flush of ~15–20 cycles. Sorting makes the branch almost perfectly predictable, and the penalty disappears → [[foundations/computer-architecture/07-branch-prediction-and-speculation|note 07]].
+At `-O0` the `if (data[i] >= 128)` is a real conditional branch. On random data it's unpredictable, so the predictor is right about half the time and each miss costs a pipeline flush of ~15–20 cycles. Sorting makes the branch almost perfectly predictable, and the penalty disappears → [[computer-architecture/07-branch-prediction-and-speculation|note 07]].
 
 **At `-O2` the branch does not exist.** Grep the assembly:
 
@@ -115,7 +115,7 @@ On the `-O0` build, `perf stat -e branches,branch-misses`:
 
 Unpadded counters in adjacent array slots share one 64-byte line. Two cores writing to that line ping-pong exclusive ownership between their caches on every increment — **false sharing**. Padding each counter to its own line typically gives **3–10×**.
 
-Nothing is logically shared. The variables are independent. **The hardware's unit of coherence is the line, not the variable**, and that mismatch is the entire bug → [[foundations/computer-architecture/11-multicore-and-memory-models|note 11]].
+Nothing is logically shared. The variables are independent. **The hardware's unit of coherence is the line, not the variable**, and that mismatch is the entire bug → [[computer-architecture/11-multicore-and-memory-models|note 11]].
 
 This is why real concurrent structures pad their per-thread state, and why `alignas(64)` appears in high-performance code.
 
@@ -147,10 +147,10 @@ No answer — the log is the artefact.
 
 **The common wrong predictions:** people guess 10× for exercise 6 (it's 6.5× at N=1024 and 2.4× at N=512), and almost nobody predicts that exercise 7 shows *nothing* at `-O2`.
 
-**Being wrong is the deliverable.** An engineer who predicts and checks develops calibration; one who only measures develops a collection of numbers → [[foundations/systems-engineering/05-trade-studies|trade studies]] makes the same argument about sensitivity analysis.
+**Being wrong is the deliverable.** An engineer who predicts and checks develops calibration; one who only measures develops a collection of numbers → [[systems-engineering/05-trade-studies|trade studies]] makes the same argument about sensitivity analysis.
 
 ## Related
-- [[foundations/computer-architecture/13-practice-exercises|the exercises]]
-- [[foundations/computer-architecture/index|the course]]
+- [[computer-architecture/13-practice-exercises|the exercises]]
+- [[computer-architecture/index|the course]]
 
 *Source: [reference] — measured on an i7-8650U with GCC, August 2026.*

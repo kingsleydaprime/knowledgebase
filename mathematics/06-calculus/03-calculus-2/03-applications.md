@@ -136,4 +136,4 @@ $$P(a \le X \le b) = \int_a^b f(x)\,dx \qquad\text{and}\qquad \int_{-\infty}^{\i
 ## Related
 
 - [[01-integration-by-parts|Integration]] · [[02-partial-fractions|Partial fractions]]
-- [[foundations/ai-ml/01-data-scientist/03-inferential-statistics|ai-ml/inferential statistics]] — where these densities are used
+- [[ai-ml/01-data-scientist/03-inferential-statistics|ai-ml/inferential statistics]] — where these densities are used

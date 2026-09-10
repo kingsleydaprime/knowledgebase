@@ -164,5 +164,5 @@ The Go team's own guidance: **use channels for passing ownership of data and for
 - [[languages/02-go/07-concurrency-patterns|Concurrency Patterns]] — `sync`, worker pools, and the race detector
 - [[languages/02-go/08-context|Context]] — cancellation done properly
 - [[languages/01-java/02-jvm-and-concurrency/index|Java: JVM & Concurrency]] — threads, and virtual threads arriving at the same place
-- [[foundations/os/index|Operating Systems]] — what the runtime is scheduling onto
+- [[os/index|Operating Systems]] — what the runtime is scheduling onto
 - [[languages/02-go/index|Go course map]]

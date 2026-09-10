@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. RHEL's firewall stack — where Ubuntu/Debian notes in this vault use `ufw` (see [[devops/01-linux/13-network-fundamentals|Networking Fundamentals]]), RHEL uses **firewalld**. The actual kernel-level packet filter underneath is **`nftables`** — the modern successor to the older `iptables`/`ip6tables` (still convertible via `iptables-translate`) — and `firewalld` is the recommended, higher-level front end to it; you almost never touch `nftables` rules directly.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. RHEL's firewall stack — where Ubuntu/Debian notes in this vault use `ufw` (see [[devops/01-linux/13-network-fundamentals|Networking Fundamentals]]), RHEL uses **firewalld**. The actual kernel-level packet filter underneath is **`nftables`** — the modern successor to the older `iptables`/`ip6tables` (still convertible via `iptables-translate`) — and `firewalld` is the recommended, higher-level front end to it; you almost never touch `nftables` rules directly.
 
 ---
 

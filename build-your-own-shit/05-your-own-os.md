@@ -19,11 +19,11 @@ By the end **it boots from a USB stick on a real machine.** That's the hook, and
 | You should know | Where |
 |---|---|
 | **C**, thoroughly — pointers, memory layout, `volatile`, UB | [[languages/04-c/index\|the C course]] |
-| **The boot chain** | [[foundations/os/12-boot-and-init\|os/12]] |
-| **Virtual memory and page tables** | [[foundations/os/04-virtual-memory\|os/04]] — **the hardest milestone depends on this** |
-| **Processes, context switching** | [[foundations/os/02-processes-and-threads\|os/02]] · [[foundations/os/03-scheduling\|os/03]] |
-| **Interrupts, syscalls, the ABI** | [[foundations/os/09-syscalls-interrupts-and-the-abi\|os/09]] |
-| **Some x86-64 assembly** | not covered in the vault — see the gaps note in [[foundations/os/index\|os/index]] |
+| **The boot chain** | [[os/12-boot-and-init\|os/12]] |
+| **Virtual memory and page tables** | [[os/04-virtual-memory\|os/04]] — **the hardest milestone depends on this** |
+| **Processes, context switching** | [[os/02-processes-and-threads\|os/02]] · [[os/03-scheduling\|os/03]] |
+| **Interrupts, syscalls, the ABI** | [[os/09-syscalls-interrupts-and-the-abi\|os/09]] |
+| **Some x86-64 assembly** | not covered in the vault — see the gaps note in [[os/index\|os/index]] |
 
 **You'll also need the [OSDev Wiki](https://wiki.osdev.org)**, which is the canonical reference and effectively the specification for this project. [Philipp Oppermann's *Writing an OS in Rust*](https://os.phil-opp.com) is the best modern tutorial in any language.
 
@@ -37,7 +37,7 @@ x86_64-elf-gcc          # a cross-compiler, built or installed
 clang --target=x86_64-elf -ffreestanding -nostdlib -mno-red-zone
 ```
 
-`-ffreestanding` says "no standard library, no assumptions". `-mno-red-zone` is **mandatory for kernel code** — the [[foundations/os/09-syscalls-interrupts-and-the-abi|red zone]] is 128 bytes below the stack pointer that leaf functions may use, and an interrupt handler will silently corrupt it.
+`-ffreestanding` says "no standard library, no assumptions". `-mno-red-zone` is **mandatory for kernel code** — the [[os/09-syscalls-interrupts-and-the-abi|red zone]] is 128 bytes below the stack pointer that leaf functions may use, and an interrupt handler will silently corrupt it.
 
 **QEMU**, and use it for everything:
 
@@ -76,7 +76,7 @@ Two descriptor tables the CPU requires.
 
 **GDT** (Global Descriptor Table) — memory segments. In 64-bit mode segmentation is mostly vestigial, so you need a minimal flat GDT plus a **TSS** (Task State Segment) that holds the kernel stack pointer used when an interrupt arrives from user mode.
 
-**IDT** (Interrupt Descriptor Table) — 256 entries mapping interrupt vectors to handler addresses. → [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls and Interrupts]]
+**IDT** (Interrupt Descriptor Table) — 256 entries mapping interrupt vectors to handler addresses. → [[os/09-syscalls-interrupts-and-the-abi|Syscalls and Interrupts]]
 
 **Test:** load both without the machine resetting. Then deliberately divide by zero and see your handler run.
 
@@ -106,14 +106,14 @@ A **bitmap allocator** is the simplest: one bit per 4KB frame. A free-list of fr
 
 **The hardest milestone**, and the one that separates a toy from a kernel.
 
-Build 4-level page tables, map physical frames to virtual addresses, handle page faults. → [[foundations/os/04-virtual-memory|Virtual Memory]]
+Build 4-level page tables, map physical frames to virtual addresses, handle page faults. → [[os/04-virtual-memory|Virtual Memory]]
 
 **Test:** map a fresh frame to an arbitrary virtual address, write to it, read it back. Unmap it and confirm the access faults.
 
 **Watch for:**
 
 - **You must not unmap the code you're currently executing.** Higher-half mapping (kernel at `0xFFFF800000000000`+) exists so kernel and user mappings coexist
-- **Flush the TLB** after changing a mapping (`invlpg`, or reload CR3). Stale translations produce bugs that look like memory corruption → [[foundations/os/04-virtual-memory|TLB]]
+- **Flush the TLB** after changing a mapping (`invlpg`, or reload CR3). Stale translations produce bugs that look like memory corruption → [[os/04-virtual-memory|TLB]]
 - **Every page-table level needs the present and writable bits set correctly.** A missing bit three levels up makes the mapping silently absent
 - Identity-map what you need before switching, or the instruction after the switch faults
 
@@ -121,7 +121,7 @@ Build 4-level page tables, map physical frames to virtual addresses, handle page
 
 ### 6. A heap
 
-`kmalloc`/`kfree` on top of the frame allocator. A bump allocator first, then a free-list or slab allocator. → [[foundations/os/05-memory-allocation|Memory Allocation]]
+`kmalloc`/`kfree` on top of the frame allocator. A bump allocator first, then a free-list or slab allocator. → [[os/05-memory-allocation|Memory Allocation]]
 
 **Test:** allocate varied sizes, free in mixed order, allocate again. Assert no overlaps.
 
@@ -149,7 +149,7 @@ Implement `write`, `exit`, `read`.
 
 ### 9. Processes and scheduling
 
-A process structure (page tables, registers, state, kernel stack), a context switch in assembly, and a round-robin scheduler driven by the timer. → [[foundations/os/03-scheduling|Scheduling]]
+A process structure (page tables, registers, state, kernel stack), a context switch in assembly, and a round-robin scheduler driven by the timer. → [[os/03-scheduling|Scheduling]]
 
 **Test:** two user processes printing alternately, preempted by the timer.
 
@@ -159,7 +159,7 @@ A process structure (page tables, registers, state, kernel stack), a context swi
 
 Simplest useful path: an **initrd** — a tar archive loaded by the bootloader, read-only, parsed in memory. Enough to load user programs.
 
-A real driver (FAT32 is the friendliest) plus a VFS layer is a whole project after that. → [[foundations/os/07-filesystems-and-storage|Filesystems]]
+A real driver (FAT32 is the friendliest) plus a VFS layer is a whole project after that. → [[os/07-filesystems-and-storage|Filesystems]]
 
 **Test:** load and execute a program from the initrd.
 
@@ -253,8 +253,8 @@ This is the natural endpoint of [[build-your-own-shit/07-your-own-shell|the shel
 ---
 
 ## Related
-- [[foundations/os/index|Operating Systems]] — the whole domain, written to unblock this
-- [[foundations/os/04-virtual-memory|Virtual Memory]] — the hardest milestone
-- [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — milestones 2, 3 and 8
+- [[os/index|Operating Systems]] — the whole domain, written to unblock this
+- [[os/04-virtual-memory|Virtual Memory]] — the hardest milestone
+- [[os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — milestones 2, 3 and 8
 - [[languages/04-c/index|C]] — the language most of this is written in
 - [[build-your-own-shit/index|build-your-own-shit]]

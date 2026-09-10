@@ -37,4 +37,4 @@ Reading this course won't make you a researcher — **doing** will. The path tha
 - [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — experimental design & statistics, the empirical backbone
 - [[ai-ml/01-data-scientist/03-inferential-statistics|Inferential Statistics]] — significance, confidence, the stats behind honest results
 - [[ai-ml/02-ml-engineer/10-mlops/01-mlops-fundamentals|MLOps]] — reproducibility & experiment tracking for ML research
-- [[foundations/dsa/index|DSA]] · [[architecture/04-distributed-systems/index|Distributed Systems]] — example fields you might research *in*
+- [[dsa/index|DSA]] · [[architecture/04-distributed-systems/index|Distributed Systems]] — example fields you might research *in*

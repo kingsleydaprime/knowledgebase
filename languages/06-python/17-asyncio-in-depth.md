@@ -163,7 +163,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 ## What has no async version
 
-**Async file I/O barely exists.** The OS has no good non-blocking interface for regular files, so `aiofiles` uses a threadpool underneath — it isn't faster, it just stops blocking the loop. Disk I/O is usually fast enough that `to_thread` is fine → [[foundations/os/08-io-models|I/O models]].
+**Async file I/O barely exists.** The OS has no good non-blocking interface for regular files, so `aiofiles` uses a threadpool underneath — it isn't faster, it just stops blocking the loop. Disk I/O is usually fast enough that `to_thread` is fine → [[os/08-io-models|I/O models]].
 
 **Async is for network I/O.** For files, for CPU work, and for anything else, it's the wrong tool.
 
@@ -180,7 +180,7 @@ logging.basicConfig(level=logging.DEBUG)
 ## Related
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — the prerequisite
 - [[backend/frameworks/python/01-fastapi/index|FastAPI]] — asyncio in production
-- [[foundations/os/08-io-models|I/O models]] — epoll, and what the loop sits on
+- [[os/08-io-models|I/O models]] — epoll, and what the loop sits on
 - [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]] — the cross-language comparison
 
 *Source: [reference] — from the asyncio documentation; roadmap.sh-cross-referenced.*

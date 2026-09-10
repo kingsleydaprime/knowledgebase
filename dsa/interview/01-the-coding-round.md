@@ -1,6 +1,6 @@
 # DSA Interview — The Coding Round
 
-From [[foundations/dsa/index|the DSA course]]. **This note is about method, not problems.** The problems are in [[foundations/dsa/neetcode-150/interview-playbook|the NeetCode playbook]]; what most people are actually missing is the process around them.
+From [[dsa/index|the DSA course]]. **This note is about method, not problems.** The problems are in [[dsa/neetcode-150/interview-playbook|the NeetCode playbook]]; what most people are actually missing is the process around them.
 
 ---
 
@@ -72,7 +72,7 @@ Not to recite — to *use* without slowing down:
 
 ## The pattern lookup
 
-Kept in [[foundations/dsa/interview/index|the folder README]] — the table mapping "what the problem says" to "what to reach for." If you internalise one thing from this folder, make it that table plus **binary search on the answer**.
+Kept in [[dsa/interview/index|the folder README]] — the table mapping "what the problem says" to "what to reach for." If you internalise one thing from this folder, make it that table plus **binary search on the answer**.
 
 ---
 
@@ -81,4 +81,4 @@ Kept in [[foundations/dsa/interview/index|the folder README]] — the table mapp
 - **Solve, then re-solve from scratch three days later.** Recognition is not recall. If you can't reproduce it cold, you didn't learn it.
 - **Do them out loud, standing up, on a timer.** Interviews are a performance under time pressure; practising silently at your own pace trains the wrong skill.
 - **After each problem, write one line: what was the *signal* that pointed at this pattern?** That line is what transfers to a problem you haven't seen. The solution itself doesn't transfer.
-- **Prefer breadth of pattern over depth of problem count.** Fifteen patterns well understood beats three hundred problems half-remembered — which is why [[foundations/dsa/06-patterns/index|the patterns folder]] is structured the way it is.
+- **Prefer breadth of pattern over depth of problem count.** Fifteen patterns well understood beats three hundred problems half-remembered — which is why [[dsa/06-patterns/index|the patterns folder]] is structured the way it is.

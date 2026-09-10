@@ -10,37 +10,37 @@ What can be computed at all, and what can be computed quickly. Automata, Turing 
 
 **02–04 climb the hierarchy. 05–06 are Turing machines and their limits. 07–08 are complexity.** Strictly in order.
 
-1. [[foundations/theory-of-computation/01-what-computation-is|What Computation Is]] — **[Intermediate]** — languages as problems, the Chomsky hierarchy, the Church–Turing thesis, and **why a Turing-complete config language is a bug**
-2. [[foundations/theory-of-computation/02-finite-automata|Finite Automata]] — **[Intermediate]** — DFAs, NFAs, the subset construction, and **catastrophic backtracking as a real availability bug**
-3. [[foundations/theory-of-computation/03-regular-languages|Regular Languages]] — **[Intermediate]** — closure, the pumping lemma, Myhill–Nerode, and **why parsing HTML with a regex is provably impossible**
-4. [[foundations/theory-of-computation/04-context-free-languages|Context-Free Languages]] — **[Intermediate]** — grammars, ambiguity, pushdown automata, and **why no programming language is truly context-free**
-5. [[foundations/theory-of-computation/05-turing-machines|Turing Machines]] — **[Intermediate → Advanced]** — the model, its robustness, **the universal machine as the stored-program computer**, and decidable vs recognisable
-6. [[foundations/theory-of-computation/06-decidability|Decidability]] — **[Advanced]** — the halting problem, reductions, **Rice's theorem**, and why every static analyser must be incomplete or unsound
-7. [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — **[Advanced]** — P, NP, NP-completeness, and **what to actually do when your problem is NP-hard.** The most useful note here
-8. [[foundations/theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]] — **[Advanced]** — randomised algorithms, quantum and post-quantum crypto, zero-knowledge proofs, and an honest account of which parts pay rent
+1. [[theory-of-computation/01-what-computation-is|What Computation Is]] — **[Intermediate]** — languages as problems, the Chomsky hierarchy, the Church–Turing thesis, and **why a Turing-complete config language is a bug**
+2. [[theory-of-computation/02-finite-automata|Finite Automata]] — **[Intermediate]** — DFAs, NFAs, the subset construction, and **catastrophic backtracking as a real availability bug**
+3. [[theory-of-computation/03-regular-languages|Regular Languages]] — **[Intermediate]** — closure, the pumping lemma, Myhill–Nerode, and **why parsing HTML with a regex is provably impossible**
+4. [[theory-of-computation/04-context-free-languages|Context-Free Languages]] — **[Intermediate]** — grammars, ambiguity, pushdown automata, and **why no programming language is truly context-free**
+5. [[theory-of-computation/05-turing-machines|Turing Machines]] — **[Intermediate → Advanced]** — the model, its robustness, **the universal machine as the stored-program computer**, and decidable vs recognisable
+6. [[theory-of-computation/06-decidability|Decidability]] — **[Advanced]** — the halting problem, reductions, **Rice's theorem**, and why every static analyser must be incomplete or unsound
+7. [[theory-of-computation/07-complexity-classes|Complexity Classes]] — **[Advanced]** — P, NP, NP-completeness, and **what to actually do when your problem is NP-hard.** The most useful note here
+8. [[theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]] — **[Advanced]** — randomised algorithms, quantum and post-quantum crypto, zero-knowledge proofs, and an honest account of which parts pay rent
 
 ## The things worth carrying
 
-1. **The hierarchy is about memory.** If the structure nests arbitrarily, you need at least a stack — that's a parser, not a regex → [[foundations/theory-of-computation/03-regular-languages|03]]
-2. **Language choice never changes what's computable**, only what's convenient. Every general-purpose language is Turing-complete → [[foundations/theory-of-computation/01-what-computation-is|01]]
-3. **A Turing-complete config format is a liability.** eBPF, Bitcoin Script and Dhall are deliberately limited so their behaviour can be analysed → [[foundations/theory-of-computation/01-what-computation-is|01]]
-4. **Rice's theorem: every non-trivial semantic property of programs is undecidable.** That's *one* theorem covering "does it terminate", "is this equivalent", "is this reachable", "is this malicious" → [[foundations/theory-of-computation/06-decidability|06]]
-5. **So every static analyser is unsound, incomplete, or both.** Type checkers choose sound-and-conservative, which is why they reject correct programs → [[foundations/theory-of-computation/06-decidability|06]]
-6. **"Undecidable" and "intractable" are different failures.** One says change the problem; the other says approximate → [[foundations/theory-of-computation/05-turing-machines|05]]
-7. **NP-complete means: give up exact, efficient, or general — pick one.** Recognising this in the first five minutes rather than the sixth month is the practical payoff of the whole domain → [[foundations/theory-of-computation/07-complexity-classes|07]]
-8. **Reductions go known-hard → your problem.** Reducing yours to a hard one proves nothing, and it's the classic error → [[foundations/theory-of-computation/06-decidability|06]]
-9. **Quantum computers are not parallel search.** They exploit interference, which needs structure — hence Shor's exponential speedup on factoring and only Grover's quadratic one on general search → [[foundations/theory-of-computation/08-beyond-p-vs-np|08]]
-10. **Symmetric crypto survives quantum by doubling key sizes. Public-key does not survive** → [[foundations/theory-of-computation/08-beyond-p-vs-np|08]]
+1. **The hierarchy is about memory.** If the structure nests arbitrarily, you need at least a stack — that's a parser, not a regex → [[theory-of-computation/03-regular-languages|03]]
+2. **Language choice never changes what's computable**, only what's convenient. Every general-purpose language is Turing-complete → [[theory-of-computation/01-what-computation-is|01]]
+3. **A Turing-complete config format is a liability.** eBPF, Bitcoin Script and Dhall are deliberately limited so their behaviour can be analysed → [[theory-of-computation/01-what-computation-is|01]]
+4. **Rice's theorem: every non-trivial semantic property of programs is undecidable.** That's *one* theorem covering "does it terminate", "is this equivalent", "is this reachable", "is this malicious" → [[theory-of-computation/06-decidability|06]]
+5. **So every static analyser is unsound, incomplete, or both.** Type checkers choose sound-and-conservative, which is why they reject correct programs → [[theory-of-computation/06-decidability|06]]
+6. **"Undecidable" and "intractable" are different failures.** One says change the problem; the other says approximate → [[theory-of-computation/05-turing-machines|05]]
+7. **NP-complete means: give up exact, efficient, or general — pick one.** Recognising this in the first five minutes rather than the sixth month is the practical payoff of the whole domain → [[theory-of-computation/07-complexity-classes|07]]
+8. **Reductions go known-hard → your problem.** Reducing yours to a hard one proves nothing, and it's the classic error → [[theory-of-computation/06-decidability|06]]
+9. **Quantum computers are not parallel search.** They exploit interference, which needs structure — hence Shor's exponential speedup on factoring and only Grover's quadratic one on general search → [[theory-of-computation/08-beyond-p-vs-np|08]]
+10. **Symmetric crypto survives quantum by doubling key sizes. Public-key does not survive** → [[theory-of-computation/08-beyond-p-vs-np|08]]
 
 ## Where this connects
 
 | | |
 |---|---|
-| [[foundations/mathematics/02-discrete-math/index\|discrete maths]] | **The prerequisite.** Proof, countability, induction |
-| [[foundations/compilers/index\|compilers]] | **The direct application.** Lexers are DFAs, parsers are PDAs, and the syntax/semantics split is forced by the hierarchy |
-| [[foundations/dsa/05-algorithms/01-algorithms\|algorithms]] | Complexity analysis, and why some problems have no good algorithm |
+| [[mathematics/02-discrete-math/index\|discrete maths]] | **The prerequisite.** Proof, countability, induction |
+| [[compilers/index\|compilers]] | **The direct application.** Lexers are DFAs, parsers are PDAs, and the syntax/semantics split is forced by the hierarchy |
+| [[dsa/05-algorithms/01-algorithms\|algorithms]] | Complexity analysis, and why some problems have no good algorithm |
 | [[cybersecurity/05-cryptography/index\|cryptography]] | Rests entirely on believed-hard problems |
-| [[foundations/computer-architecture/01-what-architecture-is\|computer architecture]] | The universal machine, realised in silicon |
+| [[computer-architecture/01-what-architecture-is\|computer architecture]] | The universal machine, realised in silicon |
 
 **The compilers connection is the strongest.** That course was built first, for practical reasons; **this one explains why it's structured the way it is** — why lexing and parsing are separate phases, why type checking can't be part of parsing, and why parser generators report conflicts instead of verdicts.
 
@@ -63,11 +63,11 @@ The facts are memorable and cheap — "HTML isn't regular", "SAT is NP-complete"
 
 ## Practice
 
-- [[foundations/theory-of-computation/09-practice-exercises|Practice Exercises]] — fourteen problems — three proofs from scratch, plus a regex engine and a SAT solver to build
-- [[foundations/theory-of-computation/10-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
+- [[theory-of-computation/09-practice-exercises|Practice Exercises]] — fourteen problems — three proofs from scratch, plus a regex engine and a SAT solver to build
+- [[theory-of-computation/10-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
-- [[foundations/mathematics/02-discrete-math/index|Discrete Mathematics]] — the prerequisite
-- [[foundations/compilers/index|Compilers]] — the applied version of notes 02–04
-- [[foundations/computer-architecture/index|Computer Architecture]] — the third domain in this batch
+- [[mathematics/02-discrete-math/index|Discrete Mathematics]] — the prerequisite
+- [[compilers/index|Compilers]] — the applied version of notes 02–04
+- [[computer-architecture/index|Computer Architecture]] — the third domain in this batch
 - [[BUILD-PLAN|Build Plan]]

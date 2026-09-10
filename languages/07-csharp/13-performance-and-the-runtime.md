@@ -48,9 +48,9 @@ Compiles to a **self-contained native binary** ahead of time. No JIT, no runtime
 
 ## The optimisation ladder
 
-**Same order as everywhere** → [[foundations/computer-architecture/12-performance|performance method]]:
+**Same order as everywhere** → [[computer-architecture/12-performance|performance method]]:
 
-**1. Algorithm.** `List.Contains` in a loop → `HashSet`. No runtime feature rescues O(n²) → [[foundations/dsa/index|DSA]].
+**1. Algorithm.** `List.Contains` in a loop → `HashSet`. No runtime feature rescues O(n²) → [[dsa/index|DSA]].
 
 **2. I/O.** Most "slow C#" in production is an N+1 query, a missing index, or serial HTTP calls that should be `Task.WhenAll` → [[databases/13-practice-exercises|databases]] · [[languages/07-csharp/07-async-await-and-tasks|note 07]].
 
@@ -64,7 +64,7 @@ var sum = Vector<float>.Zero;
 for (int i = 0; i < span.Length; i += Vector<float>.Count)
     sum += new Vector<float>(span.Slice(i));
 ```
-**This is unusual for a managed language** and genuinely closes much of the gap with C for numeric loops → [[foundations/gpu-and-parallel-computing/index|parallel computing]].
+**This is unusual for a managed language** and genuinely closes much of the gap with C for numeric loops → [[gpu-and-parallel-computing/index|parallel computing]].
 
 **6. `unsafe` and pointers** — available, rarely necessary, and you've left the safety guarantees.
 
@@ -92,7 +92,7 @@ dotnet-dump collect -p <pid>              # heap analysis
 
 ## Related
 - [[languages/07-csharp/08-memory-gc-and-spans|memory, GC and spans]]
-- [[foundations/computer-architecture/12-performance|performance method]]
+- [[computer-architecture/12-performance|performance method]]
 - [[languages/01-java/index|Java]] — the closest comparison
 
 *Source: [reference] — from the .NET runtime documentation, Aug 2026.*

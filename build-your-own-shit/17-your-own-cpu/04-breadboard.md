@@ -255,4 +255,4 @@ These are hardware problems, and none of them look like logic bugs — which is 
 - [[build-your-own-shit/17-your-own-cpu/01-digital-simulator|Track 1]] — the control table this ROM is generated from
 - [[build-your-own-shit/17-your-own-cpu/03-python-emulator|Track 3]] — the oracle to step against
 - [[how-computers-work/03-transistors/04-making-a-chip|module 14]] — what you are doing by hand, done photographically
-- [[foundations/hardware/index|hardware/]] — practical electronics, breadboarding and components
+- [[hardware/index|hardware/]] — practical electronics, breadboarding and components

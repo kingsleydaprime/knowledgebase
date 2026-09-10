@@ -115,7 +115,7 @@ $$\text{PPL} = 2^{H(p,q)} = e^{\mathcal{L}} \quad\text{(nats)}$$
 
 **The equivalence that ties this track together.**
 
-**A language model outputs $q(\text{next token} \mid \text{context})$. Feed that to an [[foundations/information-theory/03-source-coding-and-compression|arithmetic coder]] and you have a compressor** achieving $H(p,q)$ bits per token.
+**A language model outputs $q(\text{next token} \mid \text{context})$. Feed that to an [[information-theory/03-source-coding-and-compression|arithmetic coder]] and you have a compressor** achieving $H(p,q)$ bits per token.
 
 $$\text{better model} \iff \text{lower cross-entropy} \iff \text{better compression}$$
 
@@ -142,7 +142,7 @@ loss = F.cross_entropy(logits, y)       # ✓ fused, numerically stable
 
 $$\log\sum e^{x_i} = m + \log\sum e^{x_i - m}, \qquad m = \max_i x_i$$
 
-**PyTorch's `cross_entropy` takes raw logits** and does this internally. **Passing it post-softmax probabilities is a common and silent bug** — you apply softmax twice, gradients shrink, and training just underperforms without erroring. → [[foundations/numerical-methods/02-floating-point-and-error|Numerical stability]]
+**PyTorch's `cross_entropy` takes raw logits** and does this internally. **Passing it post-softmax probabilities is a common and silent bug** — you apply softmax twice, gradients shrink, and training just underperforms without erroring. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Numerical stability]]
 
 **Zero probabilities give infinite loss.** $\log 0 = -\infty$. Clamp, or use label smoothing.
 
@@ -161,7 +161,7 @@ $$D_{KL}(\mathcal{N}(\mu,\sigma^2)\|\mathcal{N}(0,1)) = \tfrac{1}{2}\left(\mu^2 
 ---
 
 ## Related
-- [[foundations/information-theory/03-source-coding-and-compression|Source Coding]] — the compression half of the equivalence
+- [[information-theory/03-source-coding-and-compression|Source Coding]] — the compression half of the equivalence
 - [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]] — where this loss is used
 - [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — perplexity and next-token prediction
-- [[foundations/information-theory/index|Information theory map]]
+- [[information-theory/index|Information theory map]]

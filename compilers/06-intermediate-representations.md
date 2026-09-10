@@ -68,7 +68,7 @@ print(y);
 
 **Now `while`, `for`, `goto` and early `return` all look the same** — they're just edges. One implementation of an optimisation handles every source construct.
 
-The CFG is what dataflow analysis runs on, and it's why several semantic checks (definite assignment, reachability, Rust's borrow checker) happen *after* lowering rather than on the AST. → [[foundations/compilers/04-asts-and-semantic-analysis|Semantic Analysis]]
+The CFG is what dataflow analysis runs on, and it's why several semantic checks (definite assignment, reachability, Rust's borrow checker) happen *after* lowering rather than on the AST. → [[compilers/04-asts-and-semantic-analysis|Semantic Analysis]]
 
 **Dominance** is the key relation: block A **dominates** B if every path from entry to B goes through A. It's how you find loop headers, where it's safe to hoist code to, and where to place φ-functions.
 
@@ -166,7 +166,7 @@ The alternatives:
 |---|---|
 | **Cranelift** | Rust, designed for **fast compilation** over peak output. Used by Wasmtime, and as rustc's debug back end |
 | **QBE** | tiny (~10k lines), 70% of LLVM's performance, genuinely readable |
-| **Your own** | for a bytecode VM you don't need any of this → [[foundations/compilers/10-bytecode-and-virtual-machines\|Bytecode VMs]] |
+| **Your own** | for a bytecode VM you don't need any of this → [[compilers/10-bytecode-and-virtual-machines\|Bytecode VMs]] |
 | **C as a target** | emit C and let a C compiler do the work. Ugly, portable, and completely legitimate — Nim and early C++ did this |
 
 **For build-your-own-language, target a bytecode VM.** LLVM is a project in itself.
@@ -214,7 +214,7 @@ Liveness (backwards):
 
 **Forward** analyses (reaching definitions, constant propagation, available expressions) flow entry→exit; **backward** ones (liveness, very-busy expressions) flow exit→entry.
 
-**Liveness is the important one** — it drives register allocation (a variable that's dead needs no register) and dead-store elimination. → [[foundations/compilers/08-code-generation|Code Generation]]
+**Liveness is the important one** — it drives register allocation (a variable that's dead needs no register) and dead-store elimination. → [[compilers/08-code-generation|Code Generation]]
 
 The theory is **lattices and monotone functions**, which guarantees the iteration terminates. In practice you use a worklist rather than iterating over everything.
 
@@ -223,8 +223,8 @@ The theory is **lattices and monotone functions**, which guarantees the iteratio
 ---
 
 ## Related
-- [[foundations/compilers/07-optimisation|Optimisation]] — what runs on this
-- [[foundations/compilers/08-code-generation|Code Generation]] — turning IR into instructions
-- [[foundations/compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — what gets lowered
-- [[foundations/dsa/04-data-structures/06-graphs|Graphs]] — the CFG is one, and dominance is a graph property
-- [[foundations/compilers/index|Compilers course map]]
+- [[compilers/07-optimisation|Optimisation]] — what runs on this
+- [[compilers/08-code-generation|Code Generation]] — turning IR into instructions
+- [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — what gets lowered
+- [[dsa/04-data-structures/06-graphs|Graphs]] — the CFG is one, and dominance is a graph property
+- [[compilers/index|Compilers course map]]

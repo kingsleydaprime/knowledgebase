@@ -37,7 +37,7 @@ stack:  [ main | processOrder | calculateTax ]
                                     ↑ pops first
 ```
 
-This is not an abstraction invented for teaching — it's how the CPU actually works, with a register pointing at the top of the stack. → [[foundations/computer-architecture/04-assembly|assembly]] and [[foundations/os/02-processes-and-threads|processes and threads]].
+This is not an abstraction invented for teaching — it's how the CPU actually works, with a register pointing at the top of the stack. → [[computer-architecture/04-assembly|assembly]] and [[os/02-processes-and-threads|processes and threads]].
 
 Now recursion is unmysterious. `countdown(3)` produces:
 
@@ -96,7 +96,7 @@ def total_size(folder):
     return total
 ```
 
-**Divide and conquer.** Split in half, solve each half, combine. [[foundations/dsa/05-algorithms/04-sorting|Binary search, merge sort, quicksort]] are all this shape — and the reason binary search is O(log n) is that each call discards half the remaining data.
+**Divide and conquer.** Split in half, solve each half, combine. [[dsa/05-algorithms/04-sorting|Binary search, merge sort, quicksort]] are all this shape — and the reason binary search is O(log n) is that each call discards half the remaining data.
 
 **Anything defined recursively.** Parsing nested expressions, walking a graph, generating permutations.
 
@@ -116,7 +116,7 @@ def fib(n):
     return fib(n - 1) + fib(n - 2)
 ```
 
-`fib(5)` computes `fib(3)` twice, `fib(2)` three times. The work grows **exponentially** — `fib(50)` is billions of calls and will not finish. The fix is **memoisation**: cache each result the first time, and the same function runs in linear time. That single change is the entry point to [[foundations/dsa/index|dynamic programming]].
+`fib(5)` computes `fib(3)` twice, `fib(2)` three times. The work grows **exponentially** — `fib(50)` is billions of calls and will not finish. The fix is **memoisation**: cache each result the first time, and the same function runs in linear time. That single change is the entry point to [[dsa/index|dynamic programming]].
 
 **Some languages optimise a special case.** If the recursive call is the _last_ thing a function does (**tail recursion**), the current frame isn't needed any more and can be reused, making it as cheap as a loop. Scheme, Haskell and Scala guarantee this; **Python and Java deliberately don't**, so don't rely on it unless you know your language does it.
 
@@ -124,18 +124,18 @@ def fib(n):
 
 Understanding the stack pays off well beyond recursion:
 
-**Stack traces.** The list of frames printed when something crashes, innermost first. It's a literal snapshot of the stack at the moment of failure — read from the top for _where_, and downward for _how you got there_. Learning to read these properly is one of the highest-return debugging skills → [[foundations/programming-fundamentals/10-errors-and-debugging|note 10]].
+**Stack traces.** The list of frames printed when something crashes, innermost first. It's a literal snapshot of the stack at the moment of failure — read from the top for _where_, and downward for _how you got there_. Learning to read these properly is one of the highest-return debugging skills → [[programming-fundamentals/10-errors-and-debugging|note 10]].
 
-**Stack vs heap.** Local variables and frames live on the **stack** — fast, automatically freed on return, limited in size. Larger and longer-lived data lives on the **heap** — flexible, and either garbage-collected or freed by you. This is why returning a pointer to a local variable is a classic C bug: the frame is gone → [[languages/04-c/index|C]] and [[foundations/os/05-memory-allocation|memory allocation]].
+**Stack vs heap.** Local variables and frames live on the **stack** — fast, automatically freed on return, limited in size. Larger and longer-lived data lives on the **heap** — flexible, and either garbage-collected or freed by you. This is why returning a pointer to a local variable is a classic C bug: the frame is gone → [[languages/04-c/index|C]] and [[os/05-memory-allocation|memory allocation]].
 
-**Each thread gets its own stack**, which is part of why threads are cheaper than processes and why deep recursion in many threads exhausts memory quickly → [[foundations/os/02-processes-and-threads|threads]].
+**Each thread gets its own stack**, which is part of why threads are cheaper than processes and why deep recursion in many threads exhausts memory quickly → [[os/02-processes-and-threads|threads]].
 
 ## Related
 
-- [[foundations/programming-fundamentals/08-functions|functions]] — the prerequisite
-- [[foundations/dsa/05-algorithms/01-algorithms|algorithms]] — where recursion becomes the default tool
-- [[foundations/os/05-memory-allocation|memory allocation]] — stack and heap properly
-- [[foundations/computer-architecture/04-assembly|assembly]] — the stack as the hardware sees it
-- [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|induction and recursion]] — the maths of why base cases work
+- [[programming-fundamentals/08-functions|functions]] — the prerequisite
+- [[dsa/05-algorithms/01-algorithms|algorithms]] — where recursion becomes the default tool
+- [[os/05-memory-allocation|memory allocation]] — stack and heap properly
+- [[computer-architecture/04-assembly|assembly]] — the stack as the hardware sees it
+- [[mathematics/02-discrete-math/05-induction-and-recursion|induction and recursion]] — the maths of why base cases work
 
 _Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the frame-level model, tail calls and the memoisation case._

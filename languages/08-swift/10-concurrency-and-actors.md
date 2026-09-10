@@ -117,5 +117,5 @@ final class FeedViewModel: ObservableObject {
 ## Related
 - [[languages/08-swift/06-error-handling|error handling]] — cancellation is an error
 - [[languages/09-kotlin/index|Kotlin coroutines]] — the same problem, similar shape
-- [[foundations/os/06-concurrency-primitives|concurrency primitives]] — what's underneath
+- [[os/06-concurrency-primitives|concurrency primitives]] — what's underneath
 - [[languages/03-rust/13-concurrency|Rust's Send/Sync]] — the direct analogue of `Sendable`

@@ -33,9 +33,9 @@ A **type** is what kind of value it is, which determines what operations make se
 
 Notes that save real time later:
 
-**Integers have limits.** A 32-bit signed integer stops at 2,147,483,647. Exceed it and it either errors or silently *wraps* to a large negative number. Python grows integers automatically; most languages don't. → [[foundations/computer-architecture/02-data-representation|data representation]].
+**Integers have limits.** A 32-bit signed integer stops at 2,147,483,647. Exceed it and it either errors or silently *wraps* to a large negative number. Python grows integers automatically; most languages don't. → [[computer-architecture/02-data-representation|data representation]].
 
-**Floats are approximations.** `0.1 + 0.2` does not equal `0.3` — it's `0.30000000000000004`. This isn't a bug in your language; it's a consequence of representing decimals in binary, and it's the same in every language. **Never compare floats with `==`, and never use them for money** — use integer minor units (pence, cents) or a decimal type. → [[foundations/numerical-methods/02-floating-point-and-error|floating point]].
+**Floats are approximations.** `0.1 + 0.2` does not equal `0.3` — it's `0.30000000000000004`. This isn't a bug in your language; it's a consequence of representing decimals in binary, and it's the same in every language. **Never compare floats with `==`, and never use them for money** — use integer minor units (pence, cents) or a decimal type. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]].
 
 **A character is not a one-character string.** `'A'` and `"A"` are different types in languages that distinguish them. Python doesn't; Java and C do.
 
@@ -58,7 +58,7 @@ const TAX = 0.075;      // JavaScript: cannot be reassigned
 
 `const`/`final`/`val` says **this must not be reassigned**. Use it by default and reach for a mutable variable when you need one — a value that can't change is one fewer thing to track when you're reading code later.
 
-Underneath, the variable is a **name bound to a location in memory**. The name is for you; the machine works in addresses. That's the whole of the model you need for now — [[foundations/os/04-virtual-memory|virtual memory]] and [[foundations/computer-architecture/08-the-memory-hierarchy|the memory hierarchy]] are there when you want the real thing.
+Underneath, the variable is a **name bound to a location in memory**. The name is for you; the machine works in addresses. That's the whole of the model you need for now — [[os/04-virtual-memory|virtual memory]] and [[computer-architecture/08-the-memory-hierarchy|the memory hierarchy]] are there when you want the real thing.
 
 ## Where the box metaphor breaks
 
@@ -86,7 +86,7 @@ print(list1)         # [1, 2, 3, 4]  ← list1 changed too
 
 The fix is an explicit copy when you want one (`list1.copy()`, `[...list1]`, `list(list1)`) — and note that this copies one level. A "shallow" copy of a list of lists still shares the inner lists; a **deep copy** goes all the way down.
 
-**The rule to carry:** *simple values are copied; everything else is shared unless you say otherwise.* (Why languages do this, and the mutable/immutable axis that decides when you can even notice, is [[foundations/programming-fundamentals/15-how-types-actually-work|note 15]].) This is the root of a large fraction of "why did that change?" bugs, and it's why immutability is treated as a virtue in [[concepts/04-best-practices/index|best practices]].
+**The rule to carry:** *simple values are copied; everything else is shared unless you say otherwise.* (Why languages do this, and the mutable/immutable axis that decides when you can even notice, is [[programming-fundamentals/15-how-types-actually-work|note 15]].) This is the root of a large fraction of "why did that change?" bugs, and it's why immutability is treated as a virtue in [[concepts/04-best-practices/index|best practices]].
 
 ## Conversion, explicit and otherwise
 
@@ -121,7 +121,7 @@ print(result)        # NameError — never existed out here
 - **Local** — inside a function or block. Created on entry, gone on exit
 - **Global** — visible everywhere in the file or program
 
-**Prefer local.** A global can be changed from anywhere, which means when it holds the wrong value, the suspect list is the entire program. Scope is a tool for shrinking that list, and functions get their power partly from it → [[foundations/programming-fundamentals/08-functions|note 08]].
+**Prefer local.** A global can be changed from anywhere, which means when it holds the wrong value, the suspect list is the entire program. Scope is a tool for shrinking that list, and functions get their power partly from it → [[programming-fundamentals/08-functions|note 08]].
 
 ## Naming, properly
 
@@ -138,11 +138,11 @@ What actually matters:
 **Naming is genuinely hard and genuinely worth the time.** A well-named variable removes the need for a comment, and it removes the need to reread the code that produced it.
 
 ## Related
-- [[foundations/programming-fundamentals/15-how-types-actually-work|how types actually work]] — **the deeper version of this note**: the bit-level story, and value/reference, mutable/immutable, static/dynamic and strong/weak as four separate questions
-- [[foundations/programming-fundamentals/06-control-flow|control flow]] — making decisions with these values
-- [[foundations/programming-fundamentals/07-collections|collections]] — many values under one name
-- [[foundations/numerical-methods/02-floating-point-and-error|floating point]] — why `0.1 + 0.2` isn't `0.3`
-- [[foundations/computer-architecture/02-data-representation|data representation]] — how these are actually stored
+- [[programming-fundamentals/15-how-types-actually-work|how types actually work]] — **the deeper version of this note**: the bit-level story, and value/reference, mutable/immutable, static/dynamic and strong/weak as four separate questions
+- [[programming-fundamentals/06-control-flow|control flow]] — making decisions with these values
+- [[programming-fundamentals/07-collections|collections]] — many values under one name
+- [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]] — why `0.1 + 0.2` isn't `0.3`
+- [[computer-architecture/02-data-representation|data representation]] — how these are actually stored
 - [[concepts/04-best-practices/01-clean-code|clean code]] — naming, at length
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the reference-vs-value and float-precision material it left out.*

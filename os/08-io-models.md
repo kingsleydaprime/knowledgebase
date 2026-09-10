@@ -26,7 +26,7 @@ ssize_t n = read(fd, buf, size);      // returns when data is ready. Thread slee
 
 Simple, and correct. The thread is descheduled and costs nothing while waiting — the problem is that **you need a thread per concurrent operation.**
 
-At 10,000 connections that's 10,000 threads: ~80GB of virtual stack, ~100MB of kernel structures, and a scheduler spending more time context-switching than working. That's **C10K**, and the reason everything below exists. → [[foundations/os/02-processes-and-threads|Processes and Threads]]
+At 10,000 connections that's 10,000 threads: ~80GB of virtual stack, ~100MB of kernel structures, and a scheduler spending more time context-switching than working. That's **C10K**, and the reason everything below exists. → [[os/02-processes-and-threads|Processes and Threads]]
 
 ## Non-blocking
 
@@ -175,8 +175,8 @@ A high syscall count per request is the signature of a poorly-batched I/O loop �
 ---
 
 ## Related
-- [[foundations/os/07-filesystems-and-storage|Filesystems and Storage]] — the page cache and `fsync`
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the same material, network-side
+- [[os/07-filesystems-and-storage|Filesystems and Storage]] — the page cache and `fsync`
+- [[networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the same material, network-side
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|Building an Event Loop]] — writing one
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — how frameworks expose this
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

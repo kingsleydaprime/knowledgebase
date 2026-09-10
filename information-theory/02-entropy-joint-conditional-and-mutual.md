@@ -89,7 +89,7 @@ $$I(X;Y) = H(X) + H(Y) - H(X,Y) = \sum_{x,y}p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)}$
 
 *(Gini impurity is the common alternative and behaves similarly — it's a second-order approximation to entropy, and cheaper because there's no logarithm.)*
 
-**Channel capacity.** $C = \max_{p(x)}I(X;Y)$ — capacity is the mutual information between input and output, maximised over input distributions. → [[foundations/information-theory/05-channel-capacity-and-noise|Channel Capacity]]
+**Channel capacity.** $C = \max_{p(x)}I(X;Y)$ — capacity is the mutual information between input and output, maximised over input distributions. → [[information-theory/05-channel-capacity-and-noise|Channel Capacity]]
 
 **Representation learning.** The **information bottleneck** frames learning as compressing $X$ while preserving information about $Y$: minimise $I(X;Z) - \beta I(Z;Y)$. InfoNCE and contrastive methods maximise a lower bound on mutual information between views. → [[ai-ml/02-ml-engineer/08-other-architectures/01-autoencoders-and-gans|Autoencoders]]
 
@@ -166,8 +166,8 @@ $$h(X) = -\int p(x)\log p(x)\,dx$$
 ---
 
 ## Related
-- [[foundations/information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the ML-facing measures
-- [[foundations/information-theory/05-channel-capacity-and-noise|Channel Capacity]] — mutual information, maximised
+- [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the ML-facing measures
+- [[information-theory/05-channel-capacity-and-noise|Channel Capacity]] — mutual information, maximised
 - [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|Causal Inference]] — where conditioning-on-colliders bites
-- [[foundations/information-theory/index|Information theory map]]
+- [[information-theory/index|Information theory map]]
 

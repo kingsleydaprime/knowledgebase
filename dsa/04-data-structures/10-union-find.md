@@ -351,7 +351,7 @@ You are done with this module when you can, closed-book:
 
 **Recap:** Union-find tracks which elements belong to the same group, supporting union and find in effectively constant amortised time. Union by rank hangs the shorter tree under the taller so height grows as slowly as possible; path compression flattens the path to the root as a side effect of querying. Together they reduce a chain that would cost O(n) per query to a nearly flat structure. A union that reports the elements were already connected is a cycle detection, which is exactly the test Kruskal's algorithm needs.
 
-**This is the last structure in this folder.** Next is [[foundations/dsa/05-algorithms/01-algorithms|algorithms and complexity]], where these structures stop being the subject and start being the tools.
+**This is the last structure in this folder.** Next is [[dsa/05-algorithms/01-algorithms|algorithms and complexity]], where these structures stop being the subject and start being the tools.
 
 ## Related Modules
 - [[06-graphs|Graphs]] — Graph definitions and connectivity

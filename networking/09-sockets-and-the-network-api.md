@@ -27,10 +27,10 @@ close()                         close()
 
 Two things worth pinning down, because they're the source of a lot of confusion:
 
-- **`accept()` returns a different file descriptor.** The listening socket is identified by `(local IP, local port)`; each accepted socket by the full [[foundations/networking/05-udp-and-ports|4-tuple]]. That's how the kernel routes incoming packets to the right connection.
-- **`connect()` blocks for a full round trip** — it's performing the [[foundations/networking/06-tcp-connection-lifecycle|handshake]]. In an async runtime, this is the call that must never happen on your event loop thread.
+- **`accept()` returns a different file descriptor.** The listening socket is identified by `(local IP, local port)`; each accepted socket by the full [[networking/05-udp-and-ports|4-tuple]]. That's how the kernel routes incoming packets to the right connection.
+- **`connect()` blocks for a full round trip** — it's performing the [[networking/06-tcp-connection-lifecycle|handshake]]. In an async runtime, this is the call that must never happen on your event loop thread.
 
-**"Everything is a file"** is doing real work here: a socket is a file descriptor, so `read`/`write`/`close`/`select` all work on it, and so do pipes and files. This is why Unix's I/O model composes so well, and it links directly to [[foundations/os/fundamentals|OS fundamentals]].
+**"Everything is a file"** is doing real work here: a socket is a file descriptor, so `read`/`write`/`close`/`select` all work on it, and so do pipes and files. This is why Unix's I/O model composes so well, and it links directly to [[os/fundamentals|OS fundamentals]].
 
 ## The socket options you will actually need
 
@@ -38,7 +38,7 @@ Most socket options are trivia. These five are not:
 
 - **`SO_REUSEADDR`** — allows binding to a port still in `TIME_WAIT` from a previous process. **This is why your server can't restart immediately** with "address already in use," and setting it is standard practice for any server you'll restart. It does *not* let two live processes share a port.
 - **`SO_REUSEPORT`** (Linux 3.9+) — genuinely lets **multiple processes bind the same port**, with the kernel load-balancing incoming connections across them. This is how modern multi-process servers (nginx workers, Go/Rust servers, Node's `cluster`) scale across cores without a single accepting thread becoming the bottleneck. It also enables zero-downtime restarts: start the new process, let it bind alongside the old one, drain the old one.
-- **`TCP_NODELAY`** — disables [[foundations/networking/07-tcp-reliability-and-flow-control|Nagle's algorithm]]. Set by virtually every RPC framework and database driver, for the 40ms-stall reason.
+- **`TCP_NODELAY`** — disables [[networking/07-tcp-reliability-and-flow-control|Nagle's algorithm]]. Set by virtually every RPC framework and database driver, for the 40ms-stall reason.
 - **`SO_KEEPALIVE`** + `TCP_KEEPIDLE`/`KEEPINTVL`/`KEEPCNT` — detect dead peers. Defaults (2 hours) are useless; if you use it, tune it.
 - **`SO_LINGER`** — controls what `close()` does with unsent data. Setting it to 0 makes close send a **RST** instead of a FIN, skipping `TIME_WAIT`. Occasionally the right call for a proxy under extreme connection churn; usually a footgun that discards data in flight.
 
@@ -79,7 +79,7 @@ The socket API's abstraction leaks in specific, predictable ways. These cause re
 The socket API models the network as **a file you can read and write**, and that abstraction is what made networking programmable by ordinary developers. But every hard networking bug you will ever hit is a place where the file metaphor breaks: files don't have message boundaries that vanish, files don't silently die between writes, files don't succeed on write and lose your data. **Learn where the metaphor stops being true, and you've learned most of practical network programming.**
 
 ## Related
-- [[foundations/networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states behind these calls
-- [[foundations/os/fundamentals|OS Fundamentals]] — file descriptors, threads, context switching
+- [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states behind these calls
+- [[os/fundamentals|OS Fundamentals]] — file descriptors, threads, context switching
 - [[languages/01-java/02-jvm-and-concurrency/index|JVM & Concurrency]] — NIO, Netty, and virtual threads
-- [[foundations/networking/16-debugging-networks|Debugging Networks]] — `lsof`, `ss`, and finding fd leaks
+- [[networking/16-debugging-networks|Debugging Networks]] — `lsof`, `ss`, and finding fd leaks

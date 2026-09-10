@@ -67,7 +67,7 @@ $$\boxed{p \to q \equiv \neg q \to \neg p}$$
 
 **Confusing a statement with its converse is the most common reasoning error there is** — in code review, in debugging, in medical statistics, everywhere. "All bugs of this type show symptom X" does not mean "symptom X means this bug type".
 
-**The contrapositive is a proof technique.** If proving $p \to q$ directly is awkward, prove $\neg q \to \neg p$ instead — it's the same statement and is often much easier. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
+**The contrapositive is a proof technique.** If proving $p \to q$ directly is awkward, prove $\neg q \to \neg p$ instead — it's the same statement and is often much easier. → [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 ## Equivalences worth knowing
 
@@ -92,7 +92,7 @@ $$\text{Contradiction: } p \wedge \neg p \equiv \text{F} \qquad \text{Tautology:
 
 **Tautology** — true under every assignment. **Contradiction** — false under every assignment. **Satisfiable** — true under at least one.
 
-> **That last word is doing a lot of work in practice.** Determining whether a propositional formula is satisfiable is **SAT**, the original NP-complete problem — and modern SAT solvers, despite the worst case being exponential, routinely handle formulas with millions of variables. They're what verify hardware designs, solve package-dependency resolution, and drive symbolic execution engines. → [[foundations/theory-of-computation/07-complexity-classes|NP-completeness]]
+> **That last word is doing a lot of work in practice.** Determining whether a propositional formula is satisfiable is **SAT**, the original NP-complete problem — and modern SAT solvers, despite the worst case being exponential, routinely handle formulas with millions of variables. They're what verify hardware designs, solve package-dependency resolution, and drive symbolic execution engines. → [[theory-of-computation/07-complexity-classes|NP-completeness]]
 
 ## Predicate logic
 
@@ -163,7 +163,7 @@ An **argument** is premises plus a conclusion. It's **valid** if the conclusion 
 
 **Digital circuits** — AND/OR/NOT gates *are* the connectives in silicon. Circuit minimisation is logical simplification. → [[hardware/02-digital-and-analog|Digital and Analog]]
 
-**Type systems** — the **Curry–Howard correspondence** says *propositions are types and proofs are programs*. A function of type `A → B` is a proof that $A$ implies $B$. This isn't an analogy; it's an isomorphism, and it's the foundation of proof assistants like Coq, Lean and Agda. → [[foundations/compilers/05-type-systems-and-checking|Type Systems]]
+**Type systems** — the **Curry–Howard correspondence** says *propositions are types and proofs are programs*. A function of type `A → B` is a proof that $A$ implies $B$. This isn't an analogy; it's an isomorphism, and it's the foundation of proof assistants like Coq, Lean and Agda. → [[compilers/05-type-systems-and-checking|Type Systems]]
 
 **SQL `WHERE` clauses** — predicate logic, and `NULL` introduces a genuine third truth value, which is why `NULL = NULL` is neither true nor false and catches people out. → [[databases/database-design-reference|Databases]]
 
@@ -174,7 +174,7 @@ An **argument** is premises plus a conclusion. It's **valid** if the conclusion 
 ---
 
 ## Related
-- [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — using this to establish things
-- [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the objects logic talks about
-- [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — where SAT becomes central
-- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]
+- [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — using this to establish things
+- [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the objects logic talks about
+- [[theory-of-computation/07-complexity-classes|Complexity Classes]] — where SAT becomes central
+- [[mathematics/02-discrete-math/index|Discrete maths map]]

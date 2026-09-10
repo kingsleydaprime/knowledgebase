@@ -71,7 +71,7 @@ builder.Services.AddHttpClient<GitHubClient>();             // pooled HttpClient
 
 **Scoped means per-request**, which is why `DbContext` is scoped — it accumulates tracked entities and isn't thread-safe.
 
-**`AddHttpClient` matters more than it looks.** It gives you `IHttpClientFactory`, which pools handlers and rotates DNS. A `new HttpClient()` per request exhausts sockets; a long-lived static one never notices a DNS change → [[foundations/networking/06-tcp-connection-lifecycle|TCP]].
+**`AddHttpClient` matters more than it looks.** It gives you `IHttpClientFactory`, which pools handlers and rotates DNS. A `new HttpClient()` per request exhausts sockets; a long-lived static one never notices a DNS change → [[networking/06-tcp-connection-lifecycle|TCP]].
 
 **Leave scope validation on.** In development the container detects a scoped service captured by a singleton and throws at startup — catching a bug that would otherwise be a slow leak.
 

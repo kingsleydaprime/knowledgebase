@@ -33,5 +33,5 @@ Other languages (Zig, Elixir) would slot in as further numbered tracks if notes 
 - [[languages/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[backend/frameworks/index|backend/frameworks/]] — the frameworks these languages host
 - [[backend/index|backend course]] — the framework-agnostic concepts those frameworks implement
-- [[foundations/dsa/index|foundations/dsa]] — the CS underneath all of them
+- [[dsa/index|foundations/dsa]] — the CS underneath all of them
 - [[projects/record-id-generator-java/learning/01-java-fundamentals|record-id-generator]] and [[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct-debit-sandbox]] — the project notes the Java track was distilled from

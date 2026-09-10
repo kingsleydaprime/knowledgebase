@@ -11,7 +11,7 @@ TCP has four problems that can't be fixed *inside* TCP:
 3. Move from Wi-Fi to mobile data and the connection **dies**, because its identity is its address.
 4. Improving TCP means updating every operating system and every router on Earth. That takes a decade, if it happens at all.
 
-QUIC's answer: **build a new transport on top of [[foundations/networking/05-udp-and-ports|UDP]], in userspace.** UDP is just "here are some bytes, for this port" — a blank slate that already passes through every network on Earth. Everything TCP does well gets reimplemented on top, properly, in a library that ships with the application and can be updated in a browser release rather than a kernel release.
+QUIC's answer: **build a new transport on top of [[networking/05-udp-and-ports|UDP]], in userspace.** UDP is just "here are some bytes, for this port" — a blank slate that already passes through every network on Earth. Everything TCP does well gets reimplemented on top, properly, in a library that ships with the application and can be updated in a browser release rather than a kernel release.
 
 ## What QUIC actually fixes
 
@@ -19,7 +19,7 @@ QUIC's answer: **build a new transport on top of [[foundations/networking/05-udp
 
 The headline. QUIC has **independent streams**, each with its own sequence numbering and delivery guarantee. A lost packet blocks **only the stream whose data it carried**; every other stream keeps delivering.
 
-This is the thing [[foundations/networking/11-http-evolution|HTTP/2]] wanted and could not have, because it was multiplexing on top of a transport that insists on total ordering. QUIC moves the multiplexing *below* the reliability boundary, so ordering is per-stream rather than per-connection.
+This is the thing [[networking/11-http-evolution|HTTP/2]] wanted and could not have, because it was multiplexing on top of a transport that insists on total ordering. QUIC moves the multiplexing *below* the reliability boundary, so ordering is per-stream rather than per-connection.
 
 The consequence: **HTTP/3 on a lossy network (mobile, congested Wi-Fi) substantially outperforms HTTP/2**, which is precisely where HTTP/2 could lose to HTTP/1.1.
 
@@ -27,7 +27,7 @@ The consequence: **HTTP/3 on a lossy network (mobile, congested Wi-Fi) substanti
 
 TCP+TLS 1.3 is 2 RTT (one for TCP, one for TLS). QUIC **fuses the transport and cryptographic handshakes into one exchange**: 1 RTT for a new connection, **0 RTT** for a resumed one — application data rides in the very first packet.
 
-The security caveat from [[foundations/networking/12-tls-and-transport-security|TLS]] carries over exactly: 0-RTT data is replayable, so restrict it to idempotent requests.
+The security caveat from [[networking/12-tls-and-transport-security|TLS]] carries over exactly: 0-RTT data is replayable, so restrict it to idempotent requests.
 
 ### 3. Connection migration
 
@@ -73,7 +73,7 @@ HTTP/3 keeps HTTP's semantics unchanged (same methods, headers, status codes) an
 QUIC's most important contribution isn't multiplexing or 0-RTT — it's **relocating the transport layer to somewhere it can still be changed.** Layering was supposed to allow independent evolution, but middleboxes broke that by inspecting layers that weren't theirs, freezing TCP in place. QUIC restores evolvability by two moves: **encrypt the layer so nobody downstack can read it, and implement it in userspace so it deploys at application speed.** The lesson generalises far past networking: *an interface that everyone can see and depend on will ossify, so hide what you intend to keep changing.*
 
 ## Related
-- [[foundations/networking/07-tcp-reliability-and-flow-control|TCP Reliability]] — the head-of-line blocking QUIC escapes
-- [[foundations/networking/12-tls-and-transport-security|TLS]] — the handshake QUIC absorbed
-- [[foundations/networking/11-http-evolution|HTTP Evolution]] — the story this concludes
-- [[foundations/networking/14-nat-firewalls-and-middleboxes|Middleboxes]] — the ossification QUIC routes around
+- [[networking/07-tcp-reliability-and-flow-control|TCP Reliability]] — the head-of-line blocking QUIC escapes
+- [[networking/12-tls-and-transport-security|TLS]] — the handshake QUIC absorbed
+- [[networking/11-http-evolution|HTTP Evolution]] — the story this concludes
+- [[networking/14-nat-firewalls-and-middleboxes|Middleboxes]] — the ossification QUIC routes around

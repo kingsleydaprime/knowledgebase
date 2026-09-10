@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. Builds directly on [[08-maintain-basic-storage|maintain-basic-storage]] — LVM sits on top of raw partitions, and RHEL's default install layout is already LVM (see [[02-installing-rhel|installing-rhel]]), so this is the normal state of things, not an advanced edge case.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Builds directly on [[08-maintain-basic-storage|maintain-basic-storage]] — LVM sits on top of raw partitions, and RHEL's default install layout is already LVM (see [[02-installing-rhel|installing-rhel]]), so this is the normal state of things, not an advanced edge case.
 
 ---
 

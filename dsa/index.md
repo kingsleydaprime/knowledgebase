@@ -2,7 +2,7 @@
 
 **How to store data, and how to operate on it without wasting time or memory.** The layer under every backend service, database query and rendering loop you'll ever write — and the one that interviews test directly.
 
-**~39,900 words across 30 concept notes**, plus **~49,900 words** working all 150 problems in [[foundations/dsa/neetcode-150/index|neetcode-150/]]. `[reference]`.
+**~39,900 words across 30 concept notes**, plus **~49,900 words** working all 150 problems in [[dsa/neetcode-150/index|neetcode-150/]]. `[reference]`.
 
 > **The one idea:** every data structure is a **bet about which operation you'll do most**, paid for by making the others slower. An array buys O(1) indexing with O(n) insertion. A hash map buys O(1) lookup by destroying order. A heap buys O(1) access to the smallest by giving up on everything else. **There is no structure that is good at everything, and there cannot be one** — so the skill isn't memorising structures, it's recognising which operation your problem does in its inner loop, and picking the bet that makes *that* one cheap.
 
@@ -56,11 +56,11 @@ Whether you are an absolute beginner or looking for deep computer science intuit
 **Start here — the measuring system**
 
 1. [[01-loops-and-what-they-cost|Loops and What They Cost]] — **[Beginner]** — counting iterations, why nested doesn't always mean O(n²), and **the hidden loops that make one-loop code quadratic**
-2. [[foundations/dsa/05-algorithms/01-algorithms|Algorithms and Complexity Analysis]] — **[Beginner → Intermediate]** — **O, Ω and Θ and why they're not interchangeable**, best/average/worst as a separate axis, space complexity and the call stack, amortized vs average, recurrences, and reading a constraint to guess the intended complexity
+2. [[dsa/05-algorithms/01-algorithms|Algorithms and Complexity Analysis]] — **[Beginner → Intermediate]** — **O, Ω and Θ and why they're not interchangeable**, best/average/worst as a separate axis, space complexity and the call stack, amortized vs average, recurrences, and reading a constraint to guess the intended complexity
 
 Everything after this is quoted in the vocabulary those two establish, so they genuinely come first.
 
-> **Prerequisite, not part of this course:** what a type actually is at the bit level, and why fixed-size types are what make array indexing O(1), now lives in [[foundations/programming-fundamentals/15-how-types-actually-work|how types actually work]]. Those two notes used to sit in this folder — they're type-system material rather than DSA, and they read better alongside the rest of the fundamentals. Worth a detour before [[01-arrays|arrays]] if "the same 32 bits mean different things depending on the type" isn't already obvious.
+> **Prerequisite, not part of this course:** what a type actually is at the bit level, and why fixed-size types are what make array indexing O(1), now lives in [[programming-fundamentals/15-how-types-actually-work|how types actually work]]. Those two notes used to sit in this folder — they're type-system material rather than DSA, and they read better alongside the rest of the fundamentals. Worth a detour before [[01-arrays|arrays]] if "the same 32 bits mean different things depending on the type" isn't already obvious.
 
 **Data structures**
 
@@ -71,10 +71,10 @@ Everything after this is quoted in the vocabulary those two establish, so they g
 7. [[01-trees|trees]] — **[Intermediate]** — full/complete/perfect/balanced, BSTs, AVL and red-black rotations, **and the B+ trees under every database index**
    - [[02-traversal|traversal]] — **[Intermediate]** — pre/in/post/level-order (companion note)
 8. [[06-graphs|graphs]] — **[Intermediate]** — directed/weighted/cyclic/bipartite, three representations, **and implicit graphs: the ones with no graph object at all**
-9. [[foundations/dsa/04-data-structures/07-stacks-and-queues|stacks-and-queues]] — **[Beginner]** — LIFO/FIFO, the circular buffer trick
-10. [[foundations/dsa/04-data-structures/08-heaps|heaps]] — **[Intermediate]** — priority queues, complete-tree-in-an-array, O(n) heapify, the two-heap median trick
-11. [[foundations/dsa/04-data-structures/09-tries|tries]] — **[Intermediate]** — prefix trees, O(L) prefix queries a hash map can't do
-12. [[foundations/dsa/04-data-structures/10-union-find|union-find]] — **[Advanced]** — disjoint sets, path compression + union by rank → O(α(n))
+9. [[dsa/04-data-structures/07-stacks-and-queues|stacks-and-queues]] — **[Beginner]** — LIFO/FIFO, the circular buffer trick
+10. [[dsa/04-data-structures/08-heaps|heaps]] — **[Intermediate]** — priority queues, complete-tree-in-an-array, O(n) heapify, the two-heap median trick
+11. [[dsa/04-data-structures/09-tries|tries]] — **[Intermediate]** — prefix trees, O(L) prefix queries a hash map can't do
+12. [[dsa/04-data-structures/10-union-find|union-find]] — **[Advanced]** — disjoint sets, path compression + union by rank → O(α(n))
 
 **Algorithms**
 
@@ -83,32 +83,32 @@ Everything after this is quoted in the vocabulary those two establish, so they g
 15. [[04-sorting|sorting]] — **[Intermediate]** — bubble/insertion/merge/quicksort, stability, Timsort, counting sort
 16. [[05-searching|searching]] — **[Beginner]** — linear vs binary search
 17. [[06-dijkstra|dijkstra]] — **[Advanced]** — shortest path in weighted graphs, BFS generalized with a min-heap
-18. [[foundations/dsa/05-algorithms/07-number-theory-basics|number-theory-basics]] — **[Intermediate]** — primality, Sieve of Eratosthenes, factorization, GCD/LCM
-19. [[foundations/dsa/05-algorithms/08-leader-algorithm|leader-algorithm]] — **[Intermediate]** — majority element via Boyer-Moore voting
-20. [[foundations/dsa/05-algorithms/09-max-slice-algorithms|max-slice-algorithms]] — **[Intermediate]** — Kadane's algorithm, maximum subarray sum
-21. [[foundations/dsa/05-algorithms/10-greedy-algorithms|greedy-algorithms]] — **[Advanced]** — locally-optimal choices, and why they aren't always globally correct
-22. [[foundations/dsa/05-algorithms/11-topological-sort|topological-sort]] — **[Intermediate]** — ordering a DAG, doubling as cycle detection
-23. [[foundations/dsa/05-algorithms/12-minimum-spanning-tree|minimum-spanning-tree]] — **[Advanced]** — Prim's and Kruskal's, the cut property
-24. [[foundations/dsa/05-algorithms/13-bit-manipulation|bit-manipulation]] — **[Intermediate]** — bitwise operators, XOR tricks, `x & (x-1)`, masks
-25. [[foundations/dsa/05-algorithms/14-math-and-geometry|math-and-geometry]] — **[Intermediate]** — in-place matrix ops, fast exponentiation, grade-school arithmetic
+18. [[dsa/05-algorithms/07-number-theory-basics|number-theory-basics]] — **[Intermediate]** — primality, Sieve of Eratosthenes, factorization, GCD/LCM
+19. [[dsa/05-algorithms/08-leader-algorithm|leader-algorithm]] — **[Intermediate]** — majority element via Boyer-Moore voting
+20. [[dsa/05-algorithms/09-max-slice-algorithms|max-slice-algorithms]] — **[Intermediate]** — Kadane's algorithm, maximum subarray sum
+21. [[dsa/05-algorithms/10-greedy-algorithms|greedy-algorithms]] — **[Advanced]** — locally-optimal choices, and why they aren't always globally correct
+22. [[dsa/05-algorithms/11-topological-sort|topological-sort]] — **[Intermediate]** — ordering a DAG, doubling as cycle detection
+23. [[dsa/05-algorithms/12-minimum-spanning-tree|minimum-spanning-tree]] — **[Advanced]** — Prim's and Kruskal's, the cut property
+24. [[dsa/05-algorithms/13-bit-manipulation|bit-manipulation]] — **[Intermediate]** — bitwise operators, XOR tricks, `x & (x-1)`, masks
+25. [[dsa/05-algorithms/14-math-and-geometry|math-and-geometry]] — **[Intermediate]** — in-place matrix ops, fast exponentiation, grade-school arithmetic
 
 Still unwritten and welcome here: A*, Bellman-Ford, the KMP string match, and segment/Fenwick trees.
 
 ## Next layer — LeetCode patterns
 
-With the fundamentals above in place, [[foundations/dsa/06-patterns/index|patterns/]] covers the 15 reusable patterns that recur across problems — recognizing which pattern a problem is testing is most of the battle under time pressure. Patterns sit above both `data-structures/` and `algorithms/` because most combine a structure with a procedure (a heap plus a scanning pass for [[07-top-k-elements|top-k-elements]]).
+With the fundamentals above in place, [[dsa/06-patterns/index|patterns/]] covers the 15 reusable patterns that recur across problems — recognizing which pattern a problem is testing is most of the battle under time pressure. Patterns sit above both `data-structures/` and `algorithms/` because most combine a structure with a procedure (a heap plus a scanning pass for [[07-top-k-elements|top-k-elements]]).
 
 ## Putting it to work — NeetCode 150
 
-[[foundations/dsa/neetcode-150/index|neetcode-150/]] holds all 150 problems from the [NeetCode 150](https://neetcode.io/practice) list — its README is the index (every problem → the concept note behind it, grouped by topic) with a **signal → tool** cheat-sheet, and each problem is worked in its own file in a flat `questions/` folder numbered 001–150 (**all 150 solved**). Start with the [[foundations/dsa/neetcode-150/interview-playbook|interview playbook]] for the meta-skill: the UMPIRE process (reword → clarify → examples → brute-force-then-optimize → code → test), and reading a problem's constraints to guess the intended approach.
+[[dsa/neetcode-150/index|neetcode-150/]] holds all 150 problems from the [NeetCode 150](https://neetcode.io/practice) list — its README is the index (every problem → the concept note behind it, grouped by topic) with a **signal → tool** cheat-sheet, and each problem is worked in its own file in a flat `questions/` folder numbered 001–150 (**all 150 solved**). Start with the [[dsa/neetcode-150/interview-playbook|interview playbook]] for the meta-skill: the UMPIRE process (reword → clarify → examples → brute-force-then-optimize → code → test), and reading a problem's constraints to guess the intended approach.
 
 ## How this folder was built
 
-The `pdfs/` folder holds the original Codility course material these notes were written against. Cross-referencing the notes against those PDFs surfaced five topics with zero coverage, since written: [[foundations/dsa/04-data-structures/07-stacks-and-queues|stacks-and-queues]], [[foundations/dsa/05-algorithms/07-number-theory-basics|number-theory-basics]], [[foundations/dsa/05-algorithms/08-leader-algorithm|leader-algorithm]], [[foundations/dsa/05-algorithms/09-max-slice-algorithms|max-slice-algorithms]], and [[foundations/dsa/05-algorithms/10-greedy-algorithms|greedy-algorithms]]. The same pass deepened [[04-sorting|sorting]] with non-comparison sorts, [[foundations/dsa/05-algorithms/01-algorithms|algorithms]] with the constraint-size heuristic, and [[foundations/dsa/06-patterns/09-modified-binary-search|modified-binary-search]] with "binary search on the answer."
+The `pdfs/` folder holds the original Codility course material these notes were written against. Cross-referencing the notes against those PDFs surfaced five topics with zero coverage, since written: [[dsa/04-data-structures/07-stacks-and-queues|stacks-and-queues]], [[dsa/05-algorithms/07-number-theory-basics|number-theory-basics]], [[dsa/05-algorithms/08-leader-algorithm|leader-algorithm]], [[dsa/05-algorithms/09-max-slice-algorithms|max-slice-algorithms]], and [[dsa/05-algorithms/10-greedy-algorithms|greedy-algorithms]]. The same pass deepened [[04-sorting|sorting]] with non-comparison sorts, [[dsa/05-algorithms/01-algorithms|algorithms]] with the constraint-size heuristic, and [[dsa/06-patterns/09-modified-binary-search|modified-binary-search]] with "binary search on the answer."
 
-Running the same cross-reference against the NeetCode 150 is what surfaced the [[foundations/dsa/04-data-structures/08-heaps|heaps]], [[foundations/dsa/04-data-structures/09-tries|tries]], [[foundations/dsa/04-data-structures/10-union-find|union-find]], [[foundations/dsa/05-algorithms/11-topological-sort|topological-sort]], [[foundations/dsa/05-algorithms/12-minimum-spanning-tree|MST]], [[foundations/dsa/05-algorithms/13-bit-manipulation|bit-manipulation]] and [[foundations/dsa/05-algorithms/14-math-and-geometry|math-and-geometry]] gaps, plus the worked 1-D/2-D recurrences in [[foundations/dsa/06-patterns/15-dynamic-programming|dynamic-programming]].
+Running the same cross-reference against the NeetCode 150 is what surfaced the [[dsa/04-data-structures/08-heaps|heaps]], [[dsa/04-data-structures/09-tries|tries]], [[dsa/04-data-structures/10-union-find|union-find]], [[dsa/05-algorithms/11-topological-sort|topological-sort]], [[dsa/05-algorithms/12-minimum-spanning-tree|MST]], [[dsa/05-algorithms/13-bit-manipulation|bit-manipulation]] and [[dsa/05-algorithms/14-math-and-geometry|math-and-geometry]] gaps, plus the worked 1-D/2-D recurrences in [[dsa/06-patterns/15-dynamic-programming|dynamic-programming]].
 
 ## Related
-- [[foundations/programming-fundamentals/index|programming fundamentals]] — the on-ramp, if the code here isn't readable yet
-- [[foundations/theory-of-computation/index|theory of computation]] — one level up: what's provably impossible or intractable, rather than merely slow
+- [[programming-fundamentals/index|programming fundamentals]] — the on-ramp, if the code here isn't readable yet
+- [[theory-of-computation/index|theory of computation]] — one level up: what's provably impossible or intractable, rather than merely slow
 - [[databases/index|databases]] — where B+ trees, hashing and sorting do their production work

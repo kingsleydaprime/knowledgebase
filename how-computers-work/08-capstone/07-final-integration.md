@@ -492,11 +492,11 @@ For each layer, answer three questions — the ones [[how-computers-work/index|t
 
 | Direction | Where |
 | :--- | :--- |
-| Make the CPU fast | [[foundations/computer-architecture/06-pipelining\|pipelining]], [[foundations/computer-architecture/09-caches-in-depth\|caches]], [[foundations/computer-architecture/10-out-of-order-and-superscalar\|out-of-order]] |
+| Make the CPU fast | [[computer-architecture/06-pipelining\|pipelining]], [[computer-architecture/09-caches-in-depth\|caches]], [[computer-architecture/10-out-of-order-and-superscalar\|out-of-order]] |
 | Run programs on it | [[build-your-own-shit/05-your-own-os\|Your Own OS]] |
 | Make the language real | [[build-your-own-shit/04-your-own-language\|Your Own Language]] — bytecode VM, closures, GC |
-| Optimise the compiler | [[foundations/compilers/07-optimisation\|compilers/optimisation]] — register allocation is the big win |
-| Go lower | Quantum mechanics, or [[foundations/hardware/index\|hardware/]] for practical electronics |
+| Optimise the compiler | [[compilers/07-optimisation\|compilers/optimisation]] — register allocation is the big win |
+| Go lower | Quantum mechanics, or [[hardware/index\|hardware/]] for practical electronics |
 
 **The gap worth knowing about:** [[how-computers-work/07-the-bridge|the bridge]] flagged that this vault has no dedicated treatment of **linkers and executable formats**. If you want the source-to-CPU chain genuinely complete, that is the missing link.
 

@@ -84,7 +84,7 @@ Almost every robotics problem is one of these, and naming which one you're on is
 
 **"How do I get there?"** — [[robotics/10-motion-planning|motion planning]], trajectory generation, and [[robotics/06-inverse-kinematics|inverse kinematics]] for "what joint angles put the gripper *there*".
 
-**"How do I make the hardware do it?"** — [[robotics/09-robot-control|control]], [[robotics/08-dynamics|dynamics]], and the [[engineering/02-control-theory/index|control theory]] underneath.
+**"How do I make the hardware do it?"** — [[robotics/09-robot-control|control]], [[robotics/08-dynamics|dynamics]], and the [[control-theory/index|control theory]] underneath.
 
 ## Kinds of robot
 
@@ -100,7 +100,7 @@ The vocabulary differs by type, and the maths splits along the same line:
 
 **Mobile manipulators** — both, and the errors compound. A 2 cm base localisation error is a 2 cm gripper error before the arm has done anything wrong.
 
-**Drones and legged robots** — the additional problem is that **they're unstable open-loop**. A quadcopter with the controller off falls out of the sky; a bipedal robot falls over. Control isn't improving performance, it's the only thing keeping the machine intact — which is the case [[engineering/02-control-theory/01-what-control-theory-is|control theory]] exists for.
+**Drones and legged robots** — the additional problem is that **they're unstable open-loop**. A quadcopter with the controller off falls out of the sky; a bipedal robot falls over. Control isn't improving performance, it's the only thing keeping the machine intact — which is the case [[control-theory/01-what-control-theory-is|control theory]] exists for.
 
 ## Degrees of freedom
 
@@ -138,12 +138,12 @@ The gap between the subject and the practice.
 
 **13–14 are the engineering around it** — the software architecture and the safety obligations.
 
-**Prerequisites:** linear algebra (matrices, rotations, eigenvalues), calculus, and [[engineering/02-control-theory/index|control theory]] for notes 08–09. The control track carries the feedback theory this domain applies.
+**Prerequisites:** linear algebra (matrices, rotations, eigenvalues), calculus, and [[control-theory/index|control theory]] for notes 08–09. The control track carries the feedback theory this domain applies.
 
 ---
 
 ## Related
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — the sense half
 - [[robotics/09-robot-control|Robot Control]] — the act half
-- [[engineering/02-control-theory/index|Control Theory]] — the theory underneath all of it
+- [[control-theory/index|Control Theory]] — the theory underneath all of it
 - [[robotics/index|Robotics map]]

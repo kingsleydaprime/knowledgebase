@@ -162,7 +162,7 @@ Or in C++: `alignas(std::hardware_destructive_interference_size)`.
 
 **Find it with `perf c2c`**, which is built specifically to detect it and reports the exact line and offending offsets.
 
-**The opposite — true sharing** — is genuinely shared data, and it can't be padded away. The fix is algorithmic: **per-thread accumulators combined at the end**, which is why sharded counters and thread-local aggregation exist. → [[foundations/os/06-concurrency-primitives|Concurrency Primitives]]
+**The opposite — true sharing** — is genuinely shared data, and it can't be padded away. The fix is algorithmic: **per-thread accumulators combined at the end**, which is why sharded counters and thread-local aggregation exist. → [[os/06-concurrency-primitives|Concurrency Primitives]]
 
 ## Inclusive vs exclusive
 
@@ -220,7 +220,7 @@ Or in C++: `alignas(std::hardware_destructive_interference_size)`.
 ---
 
 ## Related
-- [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the practical rules
-- [[foundations/computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — ordering on top of coherence
-- [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] — what runs on this
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the practical rules
+- [[computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — ordering on top of coherence
+- [[os/06-concurrency-primitives|Concurrency Primitives]] — what runs on this
+- [[computer-architecture/index|Architecture map]]

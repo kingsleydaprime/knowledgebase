@@ -85,7 +85,7 @@ Python signals it by convention (`_balance` means "internal, don't touch") rathe
 
 **Why it matters isn't secrecy — it's that you can change the inside without breaking the outside.** If `balance` becomes a computed sum of a transaction list, every caller of `deposit()` keeps working. Every caller of `account.balance` breaks.
 
-**This is the same abstraction move as [[foundations/programming-fundamentals/08-functions|note 08]]**, applied to state as well as steps: a boundary, a promise about what's on the other side, and freedom to change what's behind it.
+**This is the same abstraction move as [[programming-fundamentals/08-functions|note 08]]**, applied to state as well as steps: a boundary, a promise about what's on the other side, and freedom to change what's behind it.
 
 ## Inheritance
 
@@ -138,7 +138,7 @@ OOP is not the only way to organise code and is not always the best one. The hon
 
 **Not everything is an object.** Forcing procedural work into classes produces `DataManagerFactoryHelper` — classes that are just namespaces for functions, with the ceremony and none of the benefit.
 
-**Mutable shared state is the hard part of software**, and objects are, by default, mutable shared state. An object passed to three places can be modified by all of them → [[foundations/programming-fundamentals/05-variables-and-types|note 05]]. This is precisely what makes concurrency difficult, and it's the core of the functional-programming argument.
+**Mutable shared state is the hard part of software**, and objects are, by default, mutable shared state. An object passed to three places can be modified by all of them → [[programming-fundamentals/05-variables-and-types|note 05]]. This is precisely what makes concurrency difficult, and it's the core of the functional-programming argument.
 
 **Deep hierarchies are genuinely bad.** Beyond two or three levels, working out what a method does means reading five files.
 
@@ -153,7 +153,7 @@ OOP is not the only way to organise code and is not always the best one. The hon
 - **Don't force it.** A function that transforms input to output should stay a function
 
 ## Related
-- [[foundations/programming-fundamentals/14-programming-paradigms|programming paradigms]] — where OOP fits among the alternatives
+- [[programming-fundamentals/14-programming-paradigms|programming paradigms]] — where OOP fits among the alternatives
 - [[languages/01-java/01-language/02-oop|OOP in Java]] — the same ideas with enforcement and full syntax
 - [[languages/05-cpp/03-classes-and-raii|classes and RAII in C++]] — objects tied to resource lifetime
 - [[concepts/03-design-patterns/index|design patterns]] — the catalogue built on top of this

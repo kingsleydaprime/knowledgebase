@@ -46,7 +46,7 @@ let grade = if score >= 90 { "A" } else { "B" };     // if is an expression
 
 and why Python needs a separate conditional-expression form (`"A" if score >= 90 else "B"`) — its `if` is a statement and produces nothing.
 
-**"Everything is an expression" is a design goal**, not a quirk: expressions compose, statements don't. You can nest an expression inside another anywhere; a statement has to go on its own line and communicate by side effect. → [[foundations/compilers/03-parsing|parsing]].
+**"Everything is an expression" is a design goal**, not a quirk: expressions compose, statements don't. You can nest an expression inside another anywhere; a statement has to go on its own line and communicate by side effect. → [[compilers/03-parsing|parsing]].
 
 ## The four styles you'll actually meet
 
@@ -54,13 +54,13 @@ and why Python needs a separate conditional-expression form (`"A" if score >= 90
 Imperative code organised into procedures (functions) that operate on data passed to them. Data and behaviour are **separate**. C is the canonical example, and most scripts you write are this whether or not you call it that.
 
 **Good for:** scripts, systems code, anything that's fundamentally a sequence of transformations.
-**Breaks down when:** state and the rules governing it drift apart — the problem [[foundations/programming-fundamentals/13-objects-and-classes|note 13]] opens with.
+**Breaks down when:** state and the rules governing it drift apart — the problem [[programming-fundamentals/13-objects-and-classes|note 13]] opens with.
 
 ### Object-oriented
 Data and behaviour **bundled** into objects. Organised around encapsulation, inheritance and polymorphism. Java, C#, Python, Ruby, C++.
 
 **Good for:** domains with clear entities that carry invariants; large codebases where a boundary per concept keeps people out of each other's way; anything that benefits from swapping implementations behind a shared interface.
-**Breaks down when:** it's forced onto work that's really a pipeline, or hierarchies get deep. → [[foundations/programming-fundamentals/13-objects-and-classes|note 13]]
+**Breaks down when:** it's forced onto work that's really a pipeline, or hierarchies get deep. → [[programming-fundamentals/13-objects-and-classes|note 13]]
 
 ### Functional
 Programs built from **pure functions** — same input, same output, no side effects — composed together, with data treated as **immutable**. Haskell is the strict case; Lisp, Elixir, F#, Scala are practical ones.
@@ -78,7 +78,7 @@ in_stock = [i for i in cart if i.in_stock]
 total = sum(i.price for i in in_stock)
 ```
 
-**Why it's ascendant:** immutability and purity are the most effective defence against concurrency bugs there is, because a value nobody can change needs no lock. As machines went multi-core, that stopped being an aesthetic preference. → [[foundations/os/06-concurrency-primitives|concurrency]].
+**Why it's ascendant:** immutability and purity are the most effective defence against concurrency bugs there is, because a value nobody can change needs no lock. As machines went multi-core, that stopped being an aesthetic preference. → [[os/06-concurrency-primitives|concurrency]].
 
 **Breaks down when:** the problem is genuinely stateful (a game loop, a device driver) and the contortions to avoid state cost more than the state would have.
 
@@ -101,9 +101,9 @@ The tribal era is over. Python has classes, first-class functions, comprehension
 **And one heuristic that's worth more than the taxonomy:** *push the pure logic apart from the effects.* Keep the calculating, deciding and transforming in pure functions, and confine the mutation, I/O and state changes to a thin shell around them. The pure part is testable, movable and reusable; the shell is small enough to reason about. Every paradigm above agrees with this, which is a decent sign it's the real lesson.
 
 ## Related
-- [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]] — the OO paradigm in depth
-- [[foundations/programming-fundamentals/08-functions|functions]] — purity, introduced
-- [[foundations/programming-language-theory/index|PL theory]] — the formal treatment, much later
+- [[programming-fundamentals/13-objects-and-classes|objects and classes]] — the OO paradigm in depth
+- [[programming-fundamentals/08-functions|functions]] — purity, introduced
+- [[programming-language-theory/index|PL theory]] — the formal treatment, much later
 - [[languages/03-rust/index|Rust]] · [[languages/02-go/index|Go]] — two modern languages that deliberately dropped inheritance
 - [[concepts/04-best-practices/index|best practices]] — the habits these produce
 

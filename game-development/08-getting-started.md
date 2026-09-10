@@ -8,7 +8,7 @@
 
 **2. Scope.** The classic first project is an open-world multiplayer RPG. It will not be finished. **Every experienced developer's advice converges on the same instruction: make something absurdly small, and finish it.**
 
-**3. Endless tutorials.** Following a tutorial teaches you to follow tutorials → [[foundations/programming-fundamentals/12-choosing-what-to-build-next|tutorial hell]]. Do one, then build something different without one.
+**3. Endless tutorials.** Following a tutorial teaches you to follow tutorials → [[programming-fundamentals/12-choosing-what-to-build-next|tutorial hell]]. Do one, then build something different without one.
 
 ## The ladder
 
@@ -22,7 +22,7 @@ Each step introduces exactly one new thing. **Finish each — including menus, s
 
 **4. A top-down shooter or roguelike.** Enemy AI (state machines → [[game-development/05-game-ai|game AI]]), spawning, pathfinding, procedural levels, progression.
 
-**5. Something 3D and small.** Transforms and cameras in 3D → [[foundations/computer-graphics/02-the-transform-pipeline|transforms]], lighting, models and animation.
+**5. Something 3D and small.** Transforms and cameras in 3D → [[computer-graphics/02-the-transform-pipeline|transforms]], lighting, models and animation.
 
 **6. Then pick a direction** — graphics, gameplay systems, tools, engine, networking.
 
@@ -51,17 +51,17 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 
 | Roadmap area | Already in this vault |
 |---|---|
-| Linear algebra, vectors, matrices, transforms | [[foundations/computer-graphics/02-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
+| Linear algebra, vectors, matrices, transforms | [[computer-graphics/02-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
 | **Quaternions** | [[robotics/04-rigid-body-transforms\|robotics 04]] |
-| Rendering, rasterisation, PBR, shading, ray tracing | [[foundations/computer-graphics/index\|computer graphics]] — 9 notes |
-| GPU pipeline, shaders, parallelism | [[foundations/gpu-and-parallel-computing/index\|GPU & parallel computing]] |
-| Integration, ODEs, numerical stability | [[foundations/numerical-methods/index\|numerical methods]] |
-| Trees, BVH, spatial partitioning, A\*, graphs | [[foundations/dsa/index\|DSA]] · [[foundations/mathematics/02-discrete-math/07-graph-theory\|graph theory]] |
+| Rendering, rasterisation, PBR, shading, ray tracing | [[computer-graphics/index\|computer graphics]] — 9 notes |
+| GPU pipeline, shaders, parallelism | [[gpu-and-parallel-computing/index\|GPU & parallel computing]] |
+| Integration, ODEs, numerical stability | [[mathematics/07-applied-and-computational/01-numerical-methods/index\|numerical methods]] |
+| Trees, BVH, spatial partitioning, A\*, graphs | [[dsa/index\|DSA]] · [[mathematics/02-discrete-math/07-graph-theory\|graph theory]] |
 | Neural nets, decision trees, RL, naive Bayes | [[ai-ml/index\|AI & ML]] |
-| Memory, caches, data-oriented design | [[foundations/computer-architecture/index\|computer architecture]] |
+| Memory, caches, data-oriented design | [[computer-architecture/index\|computer architecture]] |
 | C++, Rust, Python | [[languages/index\|languages]] |
-| Networking, UDP, latency | [[foundations/networking/index\|networking]] |
-| Rigid body dynamics, materials | [[engineering/01-continuum-mechanics/index\|continuum mechanics]] |
+| Networking, UDP, latency | [[networking/index\|networking]] |
+| Rigid body dynamics, materials | [[continuum-mechanics/index\|continuum mechanics]] |
 
 **Game development is largely an integration discipline.** The maths and systems are the same ones robotics, graphics and simulation need — which is exactly why the skills transfer outward, and why the time isn't wasted even if you never ship a commercial game.
 
@@ -76,7 +76,7 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 
 ## Related
 - [[game-development/01-what-game-development-actually-is|what game development is]] — including the industry, honestly
-- [[foundations/programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — the same argument, generally
+- [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — the same argument, generally
 - [[learning/04-one-active-course|one active course]] — **read this before starting**
 - [[project-ideas|project ideas]] — the vault's build list
 

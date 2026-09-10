@@ -2,7 +2,7 @@
 
 **[Advanced]** — Building the thing every other framework in this vault is built on. This is where Node's event loop, Go's netpoller and tokio's reactor actually live.
 
-**Source:** `[reference]`. Assumes [[languages/04-c/index|the C course]] and [[foundations/networking/09-sockets-and-the-network-api|sockets]].
+**Source:** `[reference]`. Assumes [[languages/04-c/index|the C course]] and [[networking/09-sockets-and-the-network-api|sockets]].
 
 ## The blocking server
 
@@ -102,7 +102,7 @@ for (;;) {
 
 The portability layer: `epoll` on Linux, `kqueue` on BSD/macOS, IOCP on Windows. `libuv` (which Node uses) and `libevent` paper over the difference.
 
-`io_uring` is the newer Linux interface — genuinely asynchronous *operations* rather than readiness notification, so you submit a read and get the completed data rather than "you may now read". Meaningfully faster; much more complex. → [[foundations/networking/09-sockets-and-the-network-api|Sockets]]
+`io_uring` is the newer Linux interface — genuinely asynchronous *operations* rather than readiness notification, so you submit a read and get the completed data rather than "you may now read". Meaningfully faster; much more complex. → [[networking/09-sockets-and-the-network-api|Sockets]]
 
 ## Non-blocking is mandatory
 
@@ -217,7 +217,7 @@ Also: idle timeouts (walk connections by `last_active`, or use a `timerfd`), fil
 
 ## Related
 - [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] — the dangerous half
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the syscalls
+- [[networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the syscalls
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — where this sits
 - [[languages/03-rust/14-async-and-tokio|Rust: Async]] — the state machine, generated
 - [[backend/frameworks/c/index|C backends]]

@@ -60,11 +60,11 @@ unify(σ₁→σ₂, τ₁→τ₂) → unify(σ₁,τ₁); unify(σ₂,τ₂)
 
 **The occurs check** is the crucial guard: **binding $\alpha := \alpha \to \text{Int}$ would create an infinite type.**
 
-> **Rejecting infinite types is what makes self-application $x\,x$ untypable** — and therefore what makes the [[foundations/programming-language-theory/02-lambda-calculus|Y combinator]] untypable in Hindley–Milner. **The occurs check is why HM languages need an explicit `let rec` or `fix` for recursion.**
+> **Rejecting infinite types is what makes self-application $x\,x$ untypable** — and therefore what makes the [[programming-language-theory/02-lambda-calculus|Y combinator]] untypable in Hindley–Milner. **The occurs check is why HM languages need an explicit `let rec` or `fix` for recursion.**
 >
 > **Skipping the occurs check gives you equirecursive types** — OCaml offers this behind `-rectypes`, and it's off by default because the error messages become dreadful.
 
-**Union-find is the efficient implementation** — type variables as nodes, unification as merging. **That's why HM is near-linear in practice** despite a pathological exponential worst case. → [[foundations/dsa/04-data-structures/10-union-find|Union-Find]]
+**Union-find is the efficient implementation** — type variables as nodes, unification as merging. **That's why HM is near-linear in practice** despite a pathological exponential worst case. → [[dsa/04-data-structures/10-union-find|Union-Find]]
 
 ## Let-polymorphism
 
@@ -164,7 +164,7 @@ List.hd !r ^ "boom"     (* treats an int as a string *)
 ---
 
 ## Related
-- [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what's being inferred
-- [[foundations/compilers/05-type-systems-and-checking|Compilers: Type Systems]] — implementation
-- [[foundations/dsa/04-data-structures/10-union-find|Union-Find]] — the data structure behind unification
-- [[foundations/programming-language-theory/index|PL theory map]]
+- [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what's being inferred
+- [[compilers/05-type-systems-and-checking|Compilers: Type Systems]] — implementation
+- [[dsa/04-data-structures/10-union-find|Union-Find]] — the data structure behind unification
+- [[programming-language-theory/index|PL theory map]]

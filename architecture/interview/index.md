@@ -16,7 +16,7 @@ The two failure modes, in order of frequency:
 
 ## Related
 - [[architecture/index|Architecture course]] · [[architecture/system-design-reference|system-design cheat-sheet]]
-- [[foundations/networking/interview/index|Networking interview prep]] — latency, tail latency, and load balancing all live there
+- [[networking/interview/index|Networking interview prep]] — latency, tail latency, and load balancing all live there
 - [[databases/interview/index|Databases interview prep]] — the storage half of every design
 - [[languages/01-java/interview/index|Java interview prep]]
 - [[PRIMETECHIE|The Primetechie Path]] — Ranks III–IV

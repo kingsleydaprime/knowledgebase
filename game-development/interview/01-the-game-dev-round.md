@@ -14,7 +14,7 @@ From the [[game-development/index|game development course]].
 - **Is the enemy in front of me?** `dot(forward, toTarget) > 0`
 - **Field-of-view check** — `dot(forward, normalize(toTarget)) > cos(fovRadians/2)`. **Cheaper and more robust than computing the angle**, because no `acos`
 - **Backface culling** — `dot(normal, viewDir) < 0`
-- **Diffuse lighting** — `max(0, dot(normal, lightDir))` → [[foundations/computer-graphics/04-shading-and-lighting|shading]]
+- **Diffuse lighting** — `max(0, dot(normal, lightDir))` → [[computer-graphics/04-shading-and-lighting|shading]]
 - **Projection** of one vector onto another
 
 **The cross product**, for contrast: gives a perpendicular; used for surface normals, "is the target to my left or right" (sign of the y component in 2D), and torque.
@@ -68,10 +68,10 @@ render(accumulator / FIXED_DT)      // interpolate between the last two states
 
 **Details that matter:**
 - In C#/Unity the concern is the managed heap and GC spikes → [[languages/07-csharp/index|C#]]
-- In C++ it's fragmentation and allocator cost, and the answer is usually an **arena or pool allocator** → [[foundations/os/05-memory-allocation|memory allocation]]
+- In C++ it's fragmentation and allocator cost, and the answer is usually an **arena or pool allocator** → [[os/05-memory-allocation|memory allocation]]
 - **Pooling has a cost:** objects must be reset properly on reuse, and stale state is a classic bug — a pooled enemy that remembers its old health
 
-**The senior point:** this is the same instinct as data-oriented design — **contiguous, reused memory beats scattered allocation**, and the reason is cache locality as much as GC → [[foundations/computer-architecture/09-caches-in-depth|caches]].
+**The senior point:** this is the same instinct as data-oriented design — **contiguous, reused memory beats scattered allocation**, and the reason is cache locality as much as GC → [[computer-architecture/09-caches-in-depth|caches]].
 
 ---
 
@@ -117,9 +117,9 @@ In an OO hierarchy, objects are scattered on the heap; iterating them chases poi
 
 **A cache miss costs hundreds of cycles; the arithmetic costs one.** That ratio is the whole argument, and it's often 10× or more.
 
-**The secondary benefit — and the reason it was adopted before performance mattered:** composition over inheritance. A rock that should now take damage gets a `Health` component; no hierarchy changes → [[foundations/programming-fundamentals/13-objects-and-classes|note 13]].
+**The secondary benefit — and the reason it was adopted before performance mattered:** composition over inheritance. A rock that should now take damage gets a `Health` component; no hierarchy changes → [[programming-fundamentals/13-objects-and-classes|note 13]].
 
-**The senior point:** ECS is not free — it's harder to debug, harder to reason about one entity, and overkill for a small game. **"We used plain GameObjects because we had 200 entities, not 200,000"** is a strong answer → [[foundations/computer-architecture/08-the-memory-hierarchy|memory hierarchy]].
+**The senior point:** ECS is not free — it's harder to debug, harder to reason about one entity, and overkill for a small game. **"We used plain GameObjects because we had 200 entities, not 200,000"** is a strong answer → [[computer-architecture/08-the-memory-hierarchy|memory hierarchy]].
 
 ---
 
@@ -140,7 +140,7 @@ In an OO hierarchy, objects are scattered on the heap; iterating them chases poi
 
 ## Related
 - [[game-development/index|the course]] · [[game-development/engines/index|engines]]
-- [[foundations/computer-graphics/10-practice-exercises|graphics exercises]] — the reps behind Q1 and Q3
+- [[computer-graphics/10-practice-exercises|graphics exercises]] — the reps behind Q1 and Q3
 - [[project-ideas|project ideas]] — the game-development tier
 - [[INTERVIEW|Interview Prep Index]]
 

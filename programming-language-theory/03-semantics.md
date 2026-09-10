@@ -10,7 +10,7 @@
 
 **JavaScript's `==`** — the coercion rules are famously surprising *because* they were specified operationally without a guiding principle.
 
-**Memory models** — "what can another thread observe?" is unanswerable without a formal semantics, which is why C++11 and Java both needed one written. → [[foundations/computer-architecture/11-multicore-and-memory-models|Memory Models]]
+**Memory models** — "what can another thread observe?" is unanswerable without a formal semantics, which is why C++11 and Java both needed one written. → [[computer-architecture/11-multicore-and-memory-models|Memory Models]]
 
 > **And you cannot prove a compiler correct without one.** "Correct" means *preserves meaning*, so meaning must be defined. **CompCert — a C compiler verified in Coq — required formalising a large subset of C first**, and that formalisation found real ambiguities in the standard.
 
@@ -52,7 +52,7 @@ $$[\![e_1 + e_2]\!]\rho = [\![e_1]\!]\rho + [\![e_2]\!]\rho$$
 
 > **$\bot$ is the key idea: non-termination is a *value*.** It's the least-defined one, and every recursive definition converges to a least fixed point in that order.
 >
-> **This is where lattices earn their keep**, and it's the same machinery as [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|partial orders]] and as dataflow analysis in compilers. → [[foundations/compilers/07-optimisation|Optimisation]]
+> **This is where lattices earn their keep**, and it's the same machinery as [[mathematics/02-discrete-math/04-sets-relations-and-functions|partial orders]] and as dataflow analysis in compilers. → [[compilers/07-optimisation|Optimisation]]
 
 **Denotational semantics is best for proving *equivalences*** — two programs are equal if their denotations are. **That's exactly what an optimisation must establish.**
 
@@ -78,9 +78,9 @@ $$\overline{\{Q[x := e]\}\ x := e\ \{Q\}}$$
 
 $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wedge \neg B\}}$$
 
-> **$I$ is the loop invariant, and this rule *is* [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|induction]]** — true before, preserved by each iteration, therefore true at the end.
+> **$I$ is the loop invariant, and this rule *is* [[mathematics/02-discrete-math/05-induction-and-recursion|induction]]** — true before, preserved by each iteration, therefore true at the end.
 >
-> **Note the triple only promises partial correctness** — "if it terminates". **Termination is a separate obligation** requiring a variant: a quantity that strictly decreases and is bounded below. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
+> **Note the triple only promises partial correctness** — "if it terminates". **Termination is a separate obligation** requiring a variant: a quantity that strictly decreases and is bounded below. → [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 **Where this is used in practice:** design-by-contract (Eiffel, JML, Ada SPARK), and **verification tools** — Dafny, Why3, Frama-C, and the SMT-backed verifiers behind them. **`assert` statements are Hoare postconditions**, informally.
 
@@ -119,7 +119,7 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 
 **Sequential semantics doesn't extend cleanly.**
 
-**Interleaving semantics** — concurrent execution is *some* interleaving of atomic steps. **Simple, and it assumes sequential consistency, which real hardware doesn't provide.** → [[foundations/computer-architecture/11-multicore-and-memory-models|Memory Models]]
+**Interleaving semantics** — concurrent execution is *some* interleaving of atomic steps. **Simple, and it assumes sequential consistency, which real hardware doesn't provide.** → [[computer-architecture/11-multicore-and-memory-models|Memory Models]]
 
 **Weak memory models** must be specified formally, and it's genuinely difficult. **The C++11 memory model took years and had known bugs** (the "out-of-thin-air" problem, where a value appears from a self-justifying cycle, was unresolved for a decade).
 
@@ -142,7 +142,7 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 ---
 
 ## Related
-- [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness, proved against these semantics
-- [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — loop invariants as induction
+- [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness, proved against these semantics
+- [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — loop invariants as induction
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — semantics deliberately left open
-- [[foundations/programming-language-theory/index|PL theory map]]
+- [[programming-language-theory/index|PL theory map]]

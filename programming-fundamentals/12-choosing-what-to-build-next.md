@@ -16,7 +16,7 @@ The vault has a name for this: [[PRIMETECHIE|reading is not a rank]].
 
 ## Pick a language and commit for a while
 
-You've probably already chosen → [[foundations/programming-fundamentals/02-languages-and-the-translation-problem|note 02]]. If not: **Python** unless you have a specific reason otherwise.
+You've probably already chosen → [[programming-fundamentals/02-languages-and-the-translation-problem|note 02]]. If not: **Python** unless you have a specific reason otherwise.
 
 **Then stay there for a few months.** Switching languages at every friction point feels like progress and is avoidance — the difficulty is almost never the language. The concepts transfer; the fluency doesn't, and fluency is what you're building.
 
@@ -33,7 +33,7 @@ Good first projects share three properties: **you can describe them in one sente
 - A password generator with configurable rules
 - A script that fetches something from an API and formats it
 
-**Then extend the one you built.** Add persistence. Add error handling for every bad input you can think of. Add tests. Give it a config file. **Extending an existing project teaches you more than starting a new one**, because you're forced to read and modify code — which is the actual job → [[foundations/software-engineering/01-what-software-engineering-is|where the time goes]].
+**Then extend the one you built.** Add persistence. Add error handling for every bad input you can think of. Add tests. Give it a config file. **Extending an existing project teaches you more than starting a new one**, because you're forced to read and modify code — which is the actual job → [[software-engineering/01-what-software-engineering-is|where the time goes]].
 
 When you want bigger, the vault has two lists: [[project-ideas|project ideas]] across every domain, and [[build-your-own-shit/index|build your own shit]] for when you want to build the tools themselves.
 
@@ -41,7 +41,7 @@ When you want bigger, the vault has two lists: [[project-ideas|project ideas]] a
 
 Sites with small, self-contained problems — Exercism, Codewars, LeetCode, Advent of Code — are genuinely useful for fluency: loops, string handling, collections, thinking in code without looking things up.
 
-**Two honest limits.** They're all *given a specification, produce an answer* — no design decisions, no structure, no naming, no maintenance, which is most of real work. And **LeetCode specifically is interview preparation**, a distinct skill from building software, and starting it now is premature. The vault's position on this is in [[foundations/dsa/index|DSA]] and [[INTERVIEW|the interview index]].
+**Two honest limits.** They're all *given a specification, produce an answer* — no design decisions, no structure, no naming, no maintenance, which is most of real work. And **LeetCode specifically is interview preparation**, a distinct skill from building software, and starting it now is premature. The vault's position on this is in [[dsa/index|DSA]] and [[INTERVIEW|the interview index]].
 
 **Roughly 20% exercises, 80% projects** is a reasonable split at this stage. The reverse is a way of feeling productive while avoiding the hard thing.
 
@@ -51,7 +51,7 @@ Concepts aren't the whole of programming. Three things are worth starting immedi
 
 **[[git/index|Git]].** Start on your first project, not your fifth. Learning version control on a codebase you care about is significantly worse.
 
-**The [[devops/01-linux/index|command line]].** Every tool, server and CI system assumes it → [[foundations/programming-fundamentals/03-where-code-gets-written|note 03]].
+**The [[devops/01-linux/index|command line]].** Every tool, server and CI system assumes it → [[programming-fundamentals/03-where-code-gets-written|note 03]].
 
 **Reading other people's code.** Deeply uncomfortable and enormously effective. Pick a small library you use, open the source, and work out how one function does its job. You will be surprised how ordinary it is — and that demystification is itself the lesson.
 
@@ -77,10 +77,10 @@ Once you can build small things unaided, the vault opens up:
 | A specific language, properly | [[languages/index\|languages/]] |
 | Web servers, APIs, databases | [[backend/index\|backend]] |
 | Browsers, interfaces | [[frontend/index\|frontend]] · [[frontend/index\|frontend concepts]] |
-| Efficiency, interviews | [[foundations/dsa/index\|DSA]] |
+| Efficiency, interviews | [[dsa/index\|DSA]] |
 | Data, models | [[ai-ml/index\|AI & ML]] |
 | Servers, deployment, cloud | [[devops/index\|devops]] |
-| How the machine works | [[foundations/os/index\|OS]] · [[foundations/computer-architecture/index\|architecture]] |
+| How the machine works | [[os/index\|OS]] · [[computer-architecture/index\|architecture]] |
 | Breaking things, defensively | [[cybersecurity/index\|cybersecurity]] |
 
 **And [[learning/index|how I learn]]** for the method behind all of it — the reading list is not the point; the reps are.
@@ -98,6 +98,6 @@ Once you can build small things unaided, the vault opens up:
 - [[build-your-own-shit/index|build your own shit]] — where reading stops
 - [[PRIMETECHIE|the Primetechie path]] — an order to do all of this in
 - [[learning/index|how I learn]] — the method
-- [[foundations/software-engineering/index|software engineering]] — what this becomes professionally
+- [[software-engineering/index|software engineering]] — what this becomes professionally
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course (closing segments), extended with this vault's own position on tutorial hell and AI-assisted learning.*

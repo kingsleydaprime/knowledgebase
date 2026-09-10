@@ -2,7 +2,7 @@
 
 **[Beginner → Intermediate]** — The kernel/user split, why hardware enforces it, and the three jobs an operating system actually does.
 
-**Source:** `[reference]` — built out August 2026 from the plan in [[foundations/os/index|the OS README]]. The overview note [[foundations/os/fundamentals|fundamentals]] covers the same ground more briefly.
+**Source:** `[reference]` — built out August 2026 from the plan in [[os/index|the OS README]]. The overview note [[os/fundamentals|fundamentals]] covers the same ground more briefly.
 
 ## The three jobs
 
@@ -42,7 +42,7 @@ The central structural fact:
 
 That hardware enforcement is what makes isolation real rather than a convention. Without it, "don't touch other processes' memory" would be a request.
 
-The consequence you feel daily: **anything interesting requires asking the kernel**, and asking costs a privilege transition. → [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]]
+The consequence you feel daily: **anything interesting requires asking the kernel**, and asking costs a privilege transition. → [[os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]]
 
 ## Why a bug in the kernel is different
 
@@ -79,7 +79,7 @@ The Tanenbaum–Torvalds debate (1992) argued this out publicly, and the practic
 
 Meanwhile microkernels won where correctness is non-negotiable: seL4 is formally verified and used in aviation and defence; QNX runs in cars.
 
-**Where this matters to you:** it explains why a Linux driver bug is a kernel panic, why FUSE filesystems are slower, and why "just do it in user space" is a real performance strategy for I/O. → [[foundations/os/08-io-models|I/O Models]]
+**Where this matters to you:** it explains why a Linux driver bug is a kernel panic, why FUSE filesystems are slower, and why "just do it in user space" is a real performance strategy for I/O. → [[os/08-io-models|I/O Models]]
 
 ## The abstractions the kernel exposes
 
@@ -87,12 +87,12 @@ Almost everything a program does resolves to one of these:
 
 | Abstraction | Really is | Note |
 |---|---|---|
-| **Process** | an address space + threads + open files | → [[foundations/os/02-processes-and-threads\|02]] |
+| **Process** | an address space + threads + open files | → [[os/02-processes-and-threads\|02]] |
 | **Thread** | a schedulable execution context | shares the address space |
 | **File descriptor** | an index into a per-process table | the universal I/O handle |
-| **Virtual memory** | a per-process address→page mapping | → [[foundations/os/04-virtual-memory\|04]] |
-| **Signal** | asynchronous notification | → [[foundations/os/10-signals-and-ipc\|10]] |
-| **Socket** | a file descriptor for a network endpoint | → [[foundations/networking/09-sockets-and-the-network-api\|sockets]] |
+| **Virtual memory** | a per-process address→page mapping | → [[os/04-virtual-memory\|04]] |
+| **Signal** | asynchronous notification | → [[os/10-signals-and-ipc\|10]] |
+| **Socket** | a file descriptor for a network endpoint | → [[networking/09-sockets-and-the-network-api\|sockets]] |
 
 ### "Everything is a file"
 
@@ -131,8 +131,8 @@ Two pseudo-filesystems that are the practical interface to kernel state:
 Worth being precise, because it's commonly misunderstood:
 
 - **`printf` is not a syscall.** It's libc, which formats into a buffer and eventually calls `write`
-- **`malloc` is not a syscall.** It's an allocator that calls `brk` or `mmap` occasionally → [[foundations/os/05-memory-allocation|05]]
-- **Threads are not a libc concept.** `pthread_create` calls `clone` → [[foundations/os/02-processes-and-threads|02]]
+- **`malloc` is not a syscall.** It's an allocator that calls `brk` or `mmap` occasionally → [[os/05-memory-allocation|05]]
+- **Threads are not a libc concept.** `pthread_create` calls `clone` → [[os/02-processes-and-threads|02]]
 
 The C standard library is a *user-space* layer that batches, caches, and abstracts over syscalls. Confusing the two makes performance reasoning wrong — buffered `printf` in a loop costs almost nothing, unbuffered `write` in a loop costs a syscall each time.
 
@@ -150,8 +150,8 @@ These notes exist so the vocabulary is in place and the cross-domain links work.
 ---
 
 ## Related
-- [[foundations/os/fundamentals|OS Fundamentals]] — the original overview note
-- [[foundations/os/02-processes-and-threads|Processes and Threads]] — the first real abstraction
-- [[foundations/os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — crossing the boundary
+- [[os/fundamentals|OS Fundamentals]] — the original overview note
+- [[os/02-processes-and-threads|Processes and Threads]] — the first real abstraction
+- [[os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — crossing the boundary
 - [[devops/01-linux/index|Linux]] — the same machine from the command line
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

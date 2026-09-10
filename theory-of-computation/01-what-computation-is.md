@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Why you'd formalise something as obvious as "computing", and what the hierarchy of machines is for.
 
-**Source:** `[reference]` — see [[foundations/theory-of-computation/index|the domain note]].
+**Source:** `[reference]` — see [[theory-of-computation/index|the domain note]].
 
 ## The question
 
@@ -63,7 +63,7 @@ The formal setup. It looks like bureaucracy and it buys you precision.
 
 > **The hierarchy is exactly about memory.** No memory, a stack, a bounded tape, an unbounded tape. **Each step up buys strictly more power**, and every containment is proper — there are provably languages at each level that the level below cannot recognise.
 
-**And the practical reading:** the hierarchy tells you **which tool to reach for**. Matching keywords needs no memory, so a regex is right. Matching nested brackets needs a stack, so a regex is *provably* the wrong tool. → [[foundations/theory-of-computation/03-regular-languages|Regular Languages]]
+**And the practical reading:** the hierarchy tells you **which tool to reach for**. Matching keywords needs no memory, so a regex is right. Matching nested brackets needs a stack, so a regex is *provably* the wrong tool. → [[theory-of-computation/03-regular-languages|Regular Languages]]
 
 ## The Church–Turing thesis
 
@@ -84,9 +84,9 @@ Multiple people, from different directions, formalised "computable" in the 1930s
 
 **Language choice doesn't affect *what* is computable.** Python, Haskell, x86 assembly and Brainfuck are all Turing-complete. **They differ in convenience, speed and safety — never in power.** So "which language can solve this?" is never the right question.
 
-**A limit proved for Turing machines is a limit for everything.** The halting problem isn't a limitation of a particular formalism; it's a limitation of computation. That's what makes the impossibility results in [[foundations/theory-of-computation/06-decidability|note 06]] worth knowing.
+**A limit proved for Turing machines is a limit for everything.** The halting problem isn't a limitation of a particular formalism; it's a limitation of computation. That's what makes the impossibility results in [[theory-of-computation/06-decidability|note 06]] worth knowing.
 
-**Quantum computers don't change this.** They compute the same *class* of functions, potentially much faster for some. **Shor's algorithm doesn't make anything newly computable** — it makes factoring fast. → [[foundations/theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]]
+**Quantum computers don't change this.** They compute the same *class* of functions, potentially much faster for some. **Shor's algorithm doesn't make anything newly computable** — it makes factoring fast. → [[theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]]
 
 ## Turing completeness in the wild
 
@@ -123,7 +123,7 @@ A concept that recurs in every note here, so worth introducing now.
 | Turing machines | **No** for computability — same class |
 | Turing machines | **Unknown** for efficiency — **that's P vs NP** |
 
-> **P vs NP is exactly the question of whether nondeterminism helps *efficiency* for Turing machines.** Every other row in that table is settled. That one is the biggest open problem in the field. → [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]]
+> **P vs NP is exactly the question of whether nondeterminism helps *efficiency* for Turing machines.** Every other row in that table is settled. That one is the biggest open problem in the field. → [[theory-of-computation/07-complexity-classes|Complexity Classes]]
 
 ## What this track is for
 
@@ -137,12 +137,12 @@ A concept that recurs in every note here, so worth introducing now.
 
 **Reading order:** 02–04 climb the hierarchy (finite automata → regular → context-free). 05–06 are Turing machines and what they can't do. 07–08 are complexity — what they can't do *quickly*.
 
-**Prerequisites:** [[foundations/mathematics/02-discrete-math/index|discrete maths]], particularly proof technique, countability, and induction. **The proofs here are the point**, so the ability to follow one matters more than any specific fact.
+**Prerequisites:** [[mathematics/02-discrete-math/index|discrete maths]], particularly proof technique, countability, and induction. **The proofs here are the point**, so the ability to follow one matters more than any specific fact.
 
 ---
 
 ## Related
-- [[foundations/theory-of-computation/02-finite-automata|Finite Automata]] — the bottom of the hierarchy
-- [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — countability, the prerequisite for undecidability
-- [[foundations/compilers/index|Compilers]] — where the hierarchy is applied daily
-- [[foundations/theory-of-computation/index|Theory of computation map]]
+- [[theory-of-computation/02-finite-automata|Finite Automata]] — the bottom of the hierarchy
+- [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — countability, the prerequisite for undecidability
+- [[compilers/index|Compilers]] — where the hierarchy is applied daily
+- [[theory-of-computation/index|Theory of computation map]]

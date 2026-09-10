@@ -47,17 +47,17 @@ The curriculum opens with **Part 0 (mathematics)** and **Part I (information and
 
 | Curriculum topic | Where it is taught |
 | :--- | :--- |
-| Number bases, binary, decimal, hexadecimal, base conversion | [[foundations/mathematics/01-core/01-numbers/01-number-bases/01-introduction\|mathematics/number bases]] → [[foundations/mathematics/01-core/01-numbers/01-number-bases/02-binary\|binary]], [[foundations/mathematics/01-core/01-numbers/01-number-bases/04-hexadecimal\|hexadecimal]] |
-| Exponents, logarithms, scientific notation | [[foundations/mathematics/01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms\|mathematics/exponents]], [[foundations/mathematics/01-core/00-foundations/04-approximation-and-standard-form\|scientific notation]] |
-| Sets, functions, algebraic manipulation | [[foundations/mathematics/01-core/01-numbers/04-sets/01-sets\|sets]], [[foundations/mathematics/01-core/00-foundations/03-algebraic-manipulation\|algebraic manipulation]] |
-| Boolean logic, proof, modular arithmetic | [[foundations/mathematics/02-discrete-math/index\|discrete-math/]] |
-| Derivatives and integrals *(used only qualitatively here)* | [[foundations/mathematics/06-calculus/02-calculus-1/06-defining-derivative/01-definition\|calculus/the derivative]] |
-| **Signed integers, two's complement, overflow** | [[foundations/computer-architecture/02-data-representation\|computer-architecture/data representation]] |
-| **Fixed-point and floating-point, IEEE-754** | [[foundations/computer-architecture/02-data-representation\|computer-architecture/data representation]] |
-| Endianness, alignment, text encoding | [[foundations/computer-architecture/02-data-representation\|computer-architecture/data representation]] |
-| Information, entropy, encoding, error tolerance | [[foundations/information-theory/index\|information-theory/]] |
+| Number bases, binary, decimal, hexadecimal, base conversion | [[mathematics/01-core/01-numbers/01-number-bases/01-introduction\|mathematics/number bases]] → [[mathematics/01-core/01-numbers/01-number-bases/02-binary\|binary]], [[mathematics/01-core/01-numbers/01-number-bases/04-hexadecimal\|hexadecimal]] |
+| Exponents, logarithms, scientific notation | [[mathematics/01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms\|mathematics/exponents]], [[mathematics/01-core/00-foundations/04-approximation-and-standard-form\|scientific notation]] |
+| Sets, functions, algebraic manipulation | [[mathematics/01-core/01-numbers/04-sets/01-sets\|sets]], [[mathematics/01-core/00-foundations/03-algebraic-manipulation\|algebraic manipulation]] |
+| Boolean logic, proof, modular arithmetic | [[mathematics/02-discrete-math/index\|discrete-math/]] |
+| Derivatives and integrals *(used only qualitatively here)* | [[mathematics/06-calculus/02-calculus-1/06-defining-derivative/01-definition\|calculus/the derivative]] |
+| **Signed integers, two's complement, overflow** | [[computer-architecture/02-data-representation\|computer-architecture/data representation]] |
+| **Fixed-point and floating-point, IEEE-754** | [[computer-architecture/02-data-representation\|computer-architecture/data representation]] |
+| Endianness, alignment, text encoding | [[computer-architecture/02-data-representation\|computer-architecture/data representation]] |
+| Information, entropy, encoding, error tolerance | [[information-theory/index\|information-theory/]] |
 
-**The one you will actually need early:** [[foundations/computer-architecture/02-data-representation|two's complement]]. [[how-computers-work/05-combinational/02-adders|Module 21]] builds a subtractor from it, and [[how-computers-work/05-combinational/04-the-alu|module 23]] uses its overflow rules for the flags. **Read that note before module 21** if the phrase "invert and add one" is not already familiar.
+**The one you will actually need early:** [[computer-architecture/02-data-representation|two's complement]]. [[how-computers-work/05-combinational/02-adders|Module 21]] builds a subtractor from it, and [[how-computers-work/05-combinational/04-the-alu|module 23]] uses its overflow rules for the flags. **Read that note before module 21** if the phrase "invert and add one" is not already familiar.
 
 Everything else on this list can be looked up when you meet it.
 
@@ -153,7 +153,7 @@ This course is built to answer a specific list of questions — see [[how-comput
 
 **Helpful but introduced as needed:** exponents and logarithms (for orders of magnitude and bit counts); the idea of a derivative (for rates of change in signals — used qualitatively, never solved).
 
-**Where to top up:** [[foundations/mathematics/index|mathematics/]] for the algebra and logarithms. Part 0 of the original curriculum listed calculus; in practice this course uses it only to say "how fast something is changing", and you can read every lesson without having taken a calculus course.
+**Where to top up:** [[mathematics/index|mathematics/]] for the algebra and logarithms. Part 0 of the original curriculum listed calculus; in practice this course uses it only to say "how fast something is changing", and you can read every lesson without having taken a calculus course.
 
 **Not required:** any prior electronics, physics beyond secondary school, or hardware. No lab equipment is needed — every experiment in Parts II–VII is either a pencil-and-paper derivation or a free logic simulator.
 
@@ -220,11 +220,11 @@ HUMAN IDEAS
 
 ## Related courses
 
-- [[foundations/computer-architecture/index|Computer Architecture]] — where Parts VIII–XII are taught
-- [[foundations/os/index|Operating Systems]] — Part XIII
-- [[foundations/compilers/index|Compilers]] — Parts XV–XVII
-- [[foundations/programming-language-theory/index|Programming Language Theory]] — Part XIV, the formal side
-- [[foundations/information-theory/index|Information Theory]] — Part I in its mathematical form
-- [[foundations/hardware/index|Hardware]] — the practical, build-things-with-microcontrollers counterpart to Part II
-- [[foundations/mathematics/index|Mathematics]] — Part 0 prerequisites
+- [[computer-architecture/index|Computer Architecture]] — where Parts VIII–XII are taught
+- [[os/index|Operating Systems]] — Part XIII
+- [[compilers/index|Compilers]] — Parts XV–XVII
+- [[programming-language-theory/index|Programming Language Theory]] — Part XIV, the formal side
+- [[information-theory/index|Information Theory]] — Part I in its mathematical form
+- [[hardware/index|Hardware]] — the practical, build-things-with-microcontrollers counterpart to Part II
+- [[mathematics/index|Mathematics]] — Part 0 prerequisites
 - [[COURSE-STANDARD|Course standard]] — the teaching shape every lesson here follows

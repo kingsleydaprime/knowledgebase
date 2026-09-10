@@ -2,7 +2,7 @@
 
 Every problem of the [NeetCode 150](https://neetcode.io/practice) list, each in its own file, worked **extensively**: problem statement → brute force → optimal, with code, complexity, and the key insight. The one-line "why this problem is here" and the link to the underlying **concept note** stay in the tables below; the files are the full solutions.
 
-This complements the concept notes in the folders above ([[foundations/dsa/04-data-structures/03-hash-maps|data-structures]], [[foundations/dsa/05-algorithms/01-algorithms|algorithms]], [[foundations/dsa/06-patterns/index|patterns]]) — read the concept first to learn the tool, then these to see it applied.
+This complements the concept notes in the folders above ([[dsa/04-data-structures/03-hash-maps|data-structures]], [[dsa/05-algorithms/01-algorithms|algorithms]], [[dsa/06-patterns/index|patterns]]) — read the concept first to learn the tool, then these to see it applied.
 
 **Structure:** every solution lives flat in **`questions/`**, numbered `001`–`150` in NeetCode order (so the folder reads in curriculum order without nesting). The topic grouping lives *here in this index*, not in the folder layout — this README is the map, `questions/` is the content.
 
@@ -34,7 +34,7 @@ Most of the interview battle is **recognizing which of ~18 tools a problem is as
 | O(1) space demanded, "appears once", XOR hints, powers of two | **Bit manipulation** (XOR cancel, `n & (n-1)`) | [[13-bit-manipulation\|bit-manipulation]] |
 | rotate/spiral/zero a matrix in place, fast `xⁿ`, big-int arithmetic | **Math & geometry** (in-place tricks, binary exponentiation) | [[14-math-and-geometry\|math-and-geometry]] |
 
-**Also read the constraints first.** The input size `n` usually leaks the intended complexity — `n ≤ 20` hints at exponential backtracking/bitmask, `n ≤ ~5000` at O(n²) DP, `n ≤ 10⁵` at O(n log n) or O(n), `n ≥ 10⁹` at O(log n) or math. See the constraint→complexity heuristic in [[foundations/dsa/05-algorithms/01-algorithms\|algorithms]].
+**Also read the constraints first.** The input size `n` usually leaks the intended complexity — `n ≤ 20` hints at exponential backtracking/bitmask, `n ≤ ~5000` at O(n²) DP, `n ≤ 10⁵` at O(n log n) or O(n), `n ≥ 10⁹` at O(log n) or math. See the constraint→complexity heuristic in [[dsa/05-algorithms/01-algorithms\|algorithms]].
 
 ## Progress
 
@@ -302,5 +302,5 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 7 | [[150-reverse-integer\|Reverse Integer]] | reverse digits with overflow guard |
 
 ## Related
-- [[README|DSA index]] — the concept notes underneath
-- [[foundations/dsa/06-patterns/index|patterns overview]] — the pattern layer these drill
+- [[dsa/neetcode-150/index|DSA index]] — the concept notes underneath
+- [[dsa/06-patterns/index|patterns overview]] — the pattern layer these drill

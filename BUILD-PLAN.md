@@ -16,7 +16,7 @@ The historical phases below track topics written. They do **not** establish that
 
 ### Flagged while building How Computers Work (2026-09-09)
 
-- [x] **`mathematics/` is too thin for the courses that depend on it.** *(closed 2026-09-10: number bases, the foundations sequence and all of calculus written; logarithms added. Remaining gaps are unstarted topics, listed in the maths index.)* Originally: Concretely: `core/01-numbers/01-number-bases/` covers binary, decimal and hexadecimal but there is **no note on signed representations** — two's complement lives only in [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]], which is a Part IX course being used as a Part I prerequisite. Also thin: no dedicated logarithms note (only inside `06-exponents`), and the calculus tree jumps from limits to multivariable with gaps.
+- [x] **`mathematics/` is too thin for the courses that depend on it.** *(closed 2026-09-10: number bases, the foundations sequence and all of calculus written; logarithms added. Remaining gaps are unstarted topics, listed in the maths index.)* Originally: Concretely: `core/01-numbers/01-number-bases/` covers binary, decimal and hexadecimal but there is **no note on signed representations** — two's complement lives only in [[computer-architecture/02-data-representation|computer-architecture/data representation]], which is a Part IX course being used as a Part I prerequisite. Also thin: no dedicated logarithms note (only inside `06-exponents`), and the calculus tree jumps from limits to multivariable with gaps.
 - [x] **No note anywhere on linkers and executable formats.** *(closed 2026-09-10: written as `compilers/09-linking-and-loading`, with a lab that inspects real ELF object files.)* Originally: Static vs dynamic linking, relocation, ELF layout and the dynamic loader are covered only in passing across `compilers/08-code-generation` and `languages/04-c/01-why-c-and-the-compilation-model`. Flagged in [[how-computers-work/07-the-bridge|the bridge]] as the weakest link in the source-to-CPU chain.
 
 ### Next batches — proposed, not completed
@@ -536,4 +536,4 @@ Batches 5 and 6 are inserted before `build-your-own-shit/` because the OS and co
 
 - [[project-ideas|Project Ideas]] — the tiered build list this plan's Phase 2 goes deep on
 - [[PRIMETECHIE|The Primetechie Path]] — the ranks these are meant to serve
-- [[README|Vault README]] — the current map
+- [[HOME|the home page]] — the current map

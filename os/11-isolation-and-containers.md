@@ -40,7 +40,7 @@ That last command gives you a shell that believes it's root with PID 1 — no Do
 
 Three consequences worth knowing:
 
-**PID namespaces explain the PID 1 problem.** Your app becomes PID 1, which has special duties: it must reap orphaned children, and **the kernel doesn't apply default signal handlers to it**. A process with no explicit `SIGTERM` handler ignores it entirely as PID 1 — so `docker stop` waits 10 seconds and then `SIGKILL`s. That's why `--init` and `tini` exist. → [[foundations/os/10-signals-and-ipc|Signals]]
+**PID namespaces explain the PID 1 problem.** Your app becomes PID 1, which has special duties: it must reap orphaned children, and **the kernel doesn't apply default signal handlers to it**. A process with no explicit `SIGTERM` handler ignores it entirely as PID 1 — so `docker stop` waits 10 seconds and then `SIGKILL`s. That's why `--init` and `tini` exist. → [[os/10-signals-and-ipc|Signals]]
 
 **Network namespaces are why containers need veth pairs and NAT.** A container's netns has no interfaces at all; the runtime creates a virtual ethernet pair, puts one end inside, and bridges the other.
 
@@ -74,9 +74,9 @@ echo $$ > /sys/fs/cgroup/mygroup/cgroup.procs      # move this shell into it
 
 **The two operationally important behaviours**, both covered in more depth elsewhere but worth stating together:
 
-**CPU throttling is a cliff, not a slope.** Exhaust your quota 40ms into a 100ms period and every thread freezes for 60ms. The symptom is p99 latency spikes at low average CPU. Check `nr_throttled`. → [[foundations/os/03-scheduling|Scheduling]]
+**CPU throttling is a cliff, not a slope.** Exhaust your quota 40ms into a 100ms period and every thread freezes for 60ms. The symptom is p99 latency spikes at low average CPU. Check `nr_throttled`. → [[os/03-scheduling|Scheduling]]
 
-**Memory limits kill; they don't slow.** Hitting `memory.max` triggers an OOM kill inside the cgroup — exit code 137, `OOMKilled` in Kubernetes. `memory.high` applies reclaim pressure instead, and is usually what you actually want. → [[foundations/os/04-virtual-memory|Virtual Memory]]
+**Memory limits kill; they don't slow.** Hitting `memory.max` triggers an OOM kill inside the cgroup — exit code 137, `OOMKilled` in Kubernetes. `memory.high` applies reclaim pressure instead, and is usually what you actually want. → [[os/04-virtual-memory|Virtual Memory]]
 
 **And runtimes must be told the limits**, because they read the host's CPU count and RAM:
 
@@ -152,7 +152,7 @@ docker run --security-opt seccomp=profile.json ...
 grep Seccomp /proc/<pid>/status              # 0=off 1=strict 2=filtered
 ```
 
-This is also why **`io_uring` is disabled in some environments** — it's a large new syscall surface with a history of vulnerabilities. → [[foundations/os/08-io-models|I/O Models]]
+This is also why **`io_uring` is disabled in some environments** — it's a large new syscall surface with a history of vulnerabilities. → [[os/08-io-models|I/O Models]]
 
 ## LSMs, and what containers don't isolate
 
@@ -198,9 +198,9 @@ That's the whole trick. **Docker is a convenient wrapper around eight kernel fea
 ---
 
 ## Related
-- [[foundations/os/03-scheduling|Scheduling]] — cgroup CPU throttling
-- [[foundations/os/04-virtual-memory|Virtual Memory]] — cgroup memory limits and the OOM killer
+- [[os/03-scheduling|Scheduling]] — cgroup CPU throttling
+- [[os/04-virtual-memory|Virtual Memory]] — cgroup memory limits and the OOM killer
 - [[devops/02-docker/index|Docker]] — the same thing from above
 - [[devops/05-orchestration/index|Orchestration]] — where the limits get set
 - [[cybersecurity/09-cloud-security/index|Cloud Security]] — container escape as a threat model
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

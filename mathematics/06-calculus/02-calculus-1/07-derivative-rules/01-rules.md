@@ -85,7 +85,7 @@ $$\frac{d}{dx}(3x^2+1)^5 = 5(3x^2+1)^4 \cdot 6x = 30x(3x^2+1)^4$$
 >
 > A network is a deep composition: $f_n(f_{n-1}(\cdots f_1(x)))$. To adjust a weight in an early layer you need the derivative of the final loss with respect to that weight — and the chain rule says that is the product of the local derivatives along the path.
 >
-> **Backpropagation is the chain rule applied systematically**, computing those products from the output backwards and reusing shared sub-products. It is not a separate algorithm — it is bookkeeping over this one rule. See [[foundations/ai-ml/index|ai-ml]] and [[build-your-own-shit/10-your-own-neural-network|build your own neural network]].
+> **Backpropagation is the chain rule applied systematically**, computing those products from the output backwards and reusing shared sub-products. It is not a separate algorithm — it is bookkeeping over this one rule. See [[ai-ml/index|ai-ml]] and [[build-your-own-shit/10-your-own-neural-network|build your own neural network]].
 
 ## 4. Choosing the rule
 

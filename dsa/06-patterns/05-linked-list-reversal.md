@@ -253,7 +253,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[035-reverse-linked-list|Reverse Linked List]] (LeetCode #206) — the three-pointer flip everything else here builds on.
 2. [[045-reverse-nodes-in-k-group|Reverse Nodes in k-Group]] (LeetCode #25) — the same flip applied blockwise; the tail reconnection is the hard part.

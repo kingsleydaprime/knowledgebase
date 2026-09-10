@@ -8,7 +8,7 @@ A small dynamically-typed language with variables, arithmetic, control flow, fun
 
 By the end **you will run a non-trivial program written in your own language.** That's the hook.
 
-**What you're deliberately not building:** a type checker (a large separate project — [[foundations/compilers/05-type-systems-and-checking|note 05]] if you want one), native code generation, a module system, or a standard library beyond a handful of builtins.
+**What you're deliberately not building:** a type checker (a large separate project — [[compilers/05-type-systems-and-checking|note 05]] if you want one), native code generation, a module system, or a standard library beyond a handful of builtins.
 
 **Why this one:** every other program you write runs on top of something like this. Building one converts "I use a language" into "I know what a language _is_" — and the tree-walker milestone arrives fast enough to stay motivating.
 
@@ -16,12 +16,12 @@ By the end **you will run a non-trivial program written in your own language.** 
 
 | You should know                                 | Where                                                                          |
 | ----------------------------------------------- | ------------------------------------------------------------------------------ |
-| **The compiler pipeline**                       | [[foundations/compilers/01-what-a-compiler-is\|compilers/01]]                  |
-| **Lexing**                                      | [[foundations/compilers/02-lexical-analysis\|compilers/02]]                    |
-| **Recursive descent and Pratt parsing**         | [[foundations/compilers/03-parsing\|compilers/03]] — **the core prerequisite** |
-| **ASTs, scopes, closures**                      | [[foundations/compilers/04-asts-and-semantic-analysis\|compilers/04]]          |
-| **Bytecode VMs** (for the second half)          | [[foundations/compilers/10-bytecode-and-virtual-machines\|compilers/09]]       |
-| **Garbage collection** (once you have closures) | [[foundations/compilers/11-garbage-collection\|compilers/10]]                  |
+| **The compiler pipeline**                       | [[compilers/01-what-a-compiler-is\|compilers/01]]                  |
+| **Lexing**                                      | [[compilers/02-lexical-analysis\|compilers/02]]                    |
+| **Recursive descent and Pratt parsing**         | [[compilers/03-parsing\|compilers/03]] — **the core prerequisite** |
+| **ASTs, scopes, closures**                      | [[compilers/04-asts-and-semantic-analysis\|compilers/04]]          |
+| **Bytecode VMs** (for the second half)          | [[compilers/10-bytecode-and-virtual-machines\|compilers/09]]       |
+| **Garbage collection** (once you have closures) | [[compilers/11-garbage-collection\|compilers/10]]                  |
 
 **[Crafting Interpreters](https://craftinginterpreters.com) is the companion to this guide.** It builds exactly this — a tree-walker in Java, then a bytecode VM in C — and it's free. This guide is the language-agnostic map; that book is the detailed walkthrough.
 
@@ -130,17 +130,17 @@ Compile the AST to a flat instruction array, then interpret that. Typically **10
 1 + 2 * 3  →  CONST 1 / CONST 2 / CONST 3 / MUL / ADD
 ```
 
-Start with a stack machine — code generation is a post-order walk with no register-allocation decisions. → [[foundations/compilers/10-bytecode-and-virtual-machines|compilers/09]]
+Start with a stack machine — code generation is a post-order walk with no register-allocation decisions. → [[compilers/10-bytecode-and-virtual-machines|compilers/09]]
 
 The single biggest win: **resolve variables to stack slot indices at compile time** so runtime access is an array index rather than a hash lookup.
 
 **B. A type checker** (the rigour path)
 
-A pass between parsing and execution that assigns and verifies types. Start with local inference and required function signatures — the best cost/benefit by a distance. → [[foundations/compilers/05-type-systems-and-checking|compilers/05]]
+A pass between parsing and execution that assigns and verifies types. Start with local inference and required function signatures — the best cost/benefit by a distance. → [[compilers/05-type-systems-and-checking|compilers/05]]
 
 **C. Garbage collection** (necessary once you have closures and objects)
 
-Mark-and-sweep is a few hundred lines: track allocations, mark from roots, sweep. → [[foundations/compilers/11-garbage-collection|compilers/10]]
+Mark-and-sweep is a few hundred lines: track allocations, mark from roots, sweep. → [[compilers/11-garbage-collection|compilers/10]]
 
 **The essential technique: a stress mode that collects on every allocation**, run against your whole test suite. A missed root is otherwise an intermittent heisenbug that appears months later.
 
@@ -232,13 +232,13 @@ You'll have learned:
 
 **Real languages additionally have:** a type system, a module system, a standard library, a package manager, a debugger, an LSP server, JIT compilation, and years of semantics arguments. **The implementation is the easy part** — designing something people want to write in is the hard one.
 
-**If you want to go further:** add **classes with inline caching** (the foundation of every fast dynamic-language runtime), or write a **compiler to a real target** — WebAssembly is the friendliest, since it's a stack machine and your bytecode is already close. → [[foundations/compilers/08-code-generation|code generation]]
+**If you want to go further:** add **classes with inline caching** (the foundation of every fast dynamic-language runtime), or write a **compiler to a real target** — WebAssembly is the friendliest, since it's a stack machine and your bytecode is already close. → [[compilers/08-code-generation|code generation]]
 
 ---
 
 ## Related
 
-- [[foundations/compilers/index|Compilers]] — the whole domain, written to unblock this
-- [[foundations/compilers/03-parsing|Parsing]] · [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode VMs]] · [[foundations/compilers/11-garbage-collection|GC]]
+- [[compilers/index|Compilers]] — the whole domain, written to unblock this
+- [[compilers/03-parsing|Parsing]] · [[compilers/10-bytecode-and-virtual-machines|Bytecode VMs]] · [[compilers/11-garbage-collection|GC]]
 - [[build-your-own-shit/06-your-own-database|Your Own Database]] — reuses the parser for SQL
 - [[build-your-own-shit/index|build-your-own-shit]]

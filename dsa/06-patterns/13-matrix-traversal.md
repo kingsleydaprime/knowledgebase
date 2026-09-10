@@ -279,7 +279,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[080-number-of-islands|Number of Islands]] (LeetCode #200) — the flood fill everything else here varies.
 2. [[082-max-area-of-island|Max Area of Island]] (LeetCode #695) — flood fill that returns a value.

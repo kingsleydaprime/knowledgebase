@@ -63,7 +63,7 @@ Span<int> nums = stackalloc int[64];        // on the STACK, no heap at all
 - A `List<Vector3>` of structs is **one contiguous block** — cache-friendly, no per-element allocation
 - A `List<Vector3>` of classes is a pointer array plus N scattered heap objects — a cache miss per element
 
-**On modern hardware that difference is often 10× or more**, because a cache miss costs hundreds of cycles → [[foundations/computer-architecture/09-caches-in-depth|caches]]. **This is why game engines use structs for maths types**, and it's the same data-oriented argument as [[game-development/02-engines-and-the-game-loop|ECS]].
+**On modern hardware that difference is often 10× or more**, because a cache miss costs hundreds of cycles → [[computer-architecture/09-caches-in-depth|caches]]. **This is why game engines use structs for maths types**, and it's the same data-oriented argument as [[game-development/02-engines-and-the-game-loop|ECS]].
 
 ## `IDisposable` — deterministic cleanup
 
@@ -88,11 +88,11 @@ dotnet-trace collect --process-id <pid>        # traces for analysis
 
 **BenchmarkDotNet** is the standard for microbenchmarks and reports **allocations per operation** alongside time — which is exactly the number you're optimising here.
 
-**Measure before optimising.** Allocation-free C# is meaningfully harder to read, and most code has no reason to be → [[foundations/computer-architecture/12-performance|performance method]].
+**Measure before optimising.** Allocation-free C# is meaningfully harder to read, and most code has no reason to be → [[computer-architecture/12-performance|performance method]].
 
 ## Related
 - [[languages/07-csharp/02-the-type-system|the type system]] — boxing
 - [[languages/07-csharp/13-performance-and-the-runtime|performance and the runtime]]
-- [[foundations/os/05-memory-allocation|memory allocation]] · [[game-development/engines/unity|Unity]]
+- [[os/05-memory-allocation|memory allocation]] · [[game-development/engines/unity|Unity]]
 
 *Source: [reference] — from the .NET GC documentation, Aug 2026.*

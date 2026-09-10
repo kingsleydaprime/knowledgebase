@@ -252,7 +252,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[053-binary-tree-level-order-traversal|Binary Tree Level Order Traversal]] (LeetCode #102) — BFS where the level structure *is* the answer.
 2. [[054-binary-tree-right-side-view|Binary Tree Right Side View]] (LeetCode #199) — the last node of each level.

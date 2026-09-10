@@ -12,11 +12,11 @@
 
 **The consequences:**
 
-**No compressor beats entropy.** Every "compresses any file by 50%" claim is provably false — and the pigeonhole argument from [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|combinatorics]] says the same thing more crudely: **there are more $n$-bit strings than shorter strings, so any lossless compressor must expand some inputs.**
+**No compressor beats entropy.** Every "compresses any file by 50%" claim is provably false — and the pigeonhole argument from [[mathematics/02-discrete-math/06-combinatorics-and-counting|combinatorics]] says the same thing more crudely: **there are more $n$-bit strings than shorter strings, so any lossless compressor must expand some inputs.**
 
 **Random data doesn't compress.** Maximum entropy, no redundancy, nothing to exploit. **Which is why already-compressed files (JPEG, ZIP, MP4) don't shrink further** — and why a compression ratio near 1.0 on a file is decent evidence it's encrypted or compressed.
 
-**Compression is prediction.** To achieve entropy you need the true distribution. **A better model of the source gives better compression** — and this equivalence turns out to run very deep. → [[foundations/information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy]]
+**Compression is prediction.** To achieve entropy you need the true distribution. **A better model of the source gives better compression** — and this equivalence turns out to run very deep. → [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy]]
 
 ## Prefix codes
 
@@ -51,7 +51,7 @@ Repeatedly: take the two least-probable nodes,
 The tree gives the codes.
 ```
 
-**A greedy algorithm that is provably optimal** — one of the relatively few cases where greedy is exactly right. → [[foundations/dsa/05-algorithms/10-greedy-algorithms|Greedy Algorithms]]
+**A greedy algorithm that is provably optimal** — one of the relatively few cases where greedy is exactly right. → [[dsa/05-algorithms/10-greedy-algorithms|Greedy Algorithms]]
 
 **The limitation, and it's fundamental:**
 
@@ -142,7 +142,7 @@ $$K(x) = \text{length of the shortest program that outputs } x$$
 
 **Entropy is a property of a source; $K$ is a property of an object.** *"What's the entropy of `"hello"`?"* isn't well-posed. *"What's $K(\text{"hello"})$?"* is.
 
-> **And $K$ is uncomputable.** No algorithm computes it for arbitrary input — the proof is a [[foundations/theory-of-computation/06-decidability|halting-problem reduction]], and it also yields Chaitin's incompleteness theorem.
+> **And $K$ is uncomputable.** No algorithm computes it for arbitrary input — the proof is a [[theory-of-computation/06-decidability|halting-problem reduction]], and it also yields Chaitin's incompleteness theorem.
 >
 > **So the best possible compressor cannot exist.** Every real compressor is an upper bound on $K$, and there's no way to know how far off you are.
 
@@ -169,7 +169,7 @@ $$K(x) = \text{length of the shortest program that outputs } x$$
 ---
 
 ## Related
-- [[foundations/information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — compression as prediction, made precise
-- [[foundations/information-theory/01-what-information-is|What Information Is]] — where the entropy floor comes from
-- [[foundations/theory-of-computation/06-decidability|Decidability]] — why $K$ is uncomputable
-- [[foundations/information-theory/index|Information theory map]]
+- [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — compression as prediction, made precise
+- [[information-theory/01-what-information-is|What Information Is]] — where the entropy floor comes from
+- [[theory-of-computation/06-decidability|Decidability]] — why $K$ is uncomputable
+- [[information-theory/index|Information theory map]]

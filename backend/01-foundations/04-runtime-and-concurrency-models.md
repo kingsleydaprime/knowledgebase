@@ -27,7 +27,7 @@ That's the whole taxonomy. Everything below is detail.
 
 Each request gets an OS thread. Blocking is *free* from the programmer's view — `db.query()` just waits and the OS schedules something else.
 
-The cost is per-connection, not per-work: 10,000 connections means 10,000 threads means ~10 GB of stacks plus heavy context switching, when most are idle. That's the **C10K problem**. → [[foundations/networking/09-sockets-and-the-network-api|sockets]]
+The cost is per-connection, not per-work: 10,000 connections means 10,000 threads means ~10 GB of stacks plus heavy context switching, when most are idle. That's the **C10K problem**. → [[networking/09-sockets-and-the-network-api|sockets]]
 
 ### Event loop
 
@@ -73,6 +73,6 @@ A backend framework is mostly **a set of ergonomic choices made on top of one co
 
 ## Related
 - [[backend/frameworks/index|frameworks/]] — each framework's model, named
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets & the Network API]] — C10K, `select`→`epoll`→`io_uring` from the OS side
-- [[foundations/os/interview/01-processes-memory-and-io|OS: blocking vs non-blocking vs async I/O]]
+- [[networking/09-sockets-and-the-network-api|Sockets & the Network API]] — C10K, `select`→`epoll`→`io_uring` from the OS side
+- [[os/interview/01-processes-memory-and-io|OS: blocking vs non-blocking vs async I/O]]
 - [[languages/01-java/02-jvm-and-concurrency/03-virtual-threads|Virtual Threads (Java)]] · [[backend/interview/02-node-runtime-and-api|Node runtime interview]]

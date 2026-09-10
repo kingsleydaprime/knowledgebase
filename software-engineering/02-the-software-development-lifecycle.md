@@ -47,7 +47,7 @@ Everything else — Scrum, Kanban, XP — is a specific set of rituals for organ
 You have already done all six phases across twelve projects, unnamed. The value of the vocabulary is being able to say *which phase a problem belongs to* — "this is a requirements failure, not a coding failure" is often the single most useful sentence in a post-mortem, because it stops a team fixing the wrong layer.
 
 ## Related
-- [[foundations/software-engineering/01-what-software-engineering-is|what software engineering is]]
+- [[software-engineering/01-what-software-engineering-is|what software engineering is]]
 - [[architecture/01-system-design-fundamentals/index|system design fundamentals]] — the design phase, in depth
 - [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — how modern delivery compresses phases 4–6
 

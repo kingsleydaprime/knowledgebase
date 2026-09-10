@@ -2,7 +2,7 @@
 
 > RHCSA V10 — added after reviewing the official RH134 course book (Red Hat System Administration II, RHEL 10.0), which gives this its own two chapters not previously covered in this folder in any depth (the RHCSA README only pointed to a brief `tar`/`scp` mention in [[devops/01-linux/linux-reference|Linux Reference]]).
 
-Part of [[README|RHCSA V10]]. Two related but distinct problems: **archiving** bundles many files into one (for backup, or to move a whole tree at once), **transferring** moves files between machines securely over SSH.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Two related but distinct problems: **archiving** bundles many files into one (for backup, or to move a whole tree at once), **transferring** moves files between machines securely over SSH.
 
 ---
 

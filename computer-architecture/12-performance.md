@@ -125,19 +125,19 @@ for (i = 0; i < N; i++) expensive_function(x);   // result unused → removed en
 
 ## The techniques, ordered by payoff
 
-**1. Better algorithm.** $O(n^2) \to O(n\log n)$ beats every micro-optimisation, and no amount of cache tuning saves a quadratic algorithm at scale. → [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]]
+**1. Better algorithm.** $O(n^2) \to O(n\log n)$ beats every micro-optimisation, and no amount of cache tuning saves a quadratic algorithm at scale. → [[dsa/05-algorithms/01-algorithms|Algorithms]]
 
 **2. Do less work.** Cache results, avoid recomputation, exit early, batch operations, **eliminate the work entirely.** The fastest code is the code that doesn't run.
 
-**3. Better data layout.** **Usually the largest win after algorithm.** Contiguous over pointer-linked, SoA where appropriate, hot/cold splitting, smaller types. → [[foundations/computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
+**3. Better data layout.** **Usually the largest win after algorithm.** Contiguous over pointer-linked, SoA where appropriate, hot/cold splitting, smaller types. → [[computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
 
-**4. Reduce allocation.** Arena and pool allocators, reuse buffers, stack over heap, reserve capacity upfront. **Allocation is often a surprising fraction of runtime**, and it fragments your cache. → [[foundations/os/05-memory-allocation|Memory Allocation]]
+**4. Reduce allocation.** Arena and pool allocators, reuse buffers, stack over heap, reserve capacity upfront. **Allocation is often a surprising fraction of runtime**, and it fragments your cache. → [[os/05-memory-allocation|Memory Allocation]]
 
-**5. Parallelise** — after the single-threaded version is good. **Parallelising bad code just uses more cores badly.** → [[foundations/computer-architecture/11-multicore-and-memory-models|Multicore]]
+**5. Parallelise** — after the single-threaded version is good. **Parallelising bad code just uses more cores badly.** → [[computer-architecture/11-multicore-and-memory-models|Multicore]]
 
 **6. Compiler flags.** `-O2`, `-march=native`, LTO, PGO. **PGO is underused and gives 5–20%** on branch-heavy code for essentially no effort — it lets the compiler lay out code according to actual behaviour.
 
-**7. SIMD** — for data-parallel inner loops. Check auto-vectorisation first. → [[foundations/computer-architecture/03-instruction-sets|SIMD]]
+**7. SIMD** — for data-parallel inner loops. Check auto-vectorisation first. → [[computer-architecture/03-instruction-sets|SIMD]]
 
 **8. Micro-optimisation** — branchless code, multiple accumulators, unrolling. **Last, and only where the profiler points.**
 
@@ -194,7 +194,7 @@ Starting point:                          10.0 s
 ---
 
 ## Related
-- [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — where most of the wins are
-- [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — reading IPC
-- [[foundations/dsa/05-algorithms/01-algorithms|Algorithms]] — the step that beats everything else
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — where most of the wins are
+- [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — reading IPC
+- [[dsa/05-algorithms/01-algorithms|Algorithms]] — the step that beats everything else
+- [[computer-architecture/index|Architecture map]]

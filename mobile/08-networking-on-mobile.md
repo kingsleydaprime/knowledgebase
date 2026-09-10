@@ -77,7 +77,7 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 ## Related
 - [[mobile/07-data-and-offline-first|offline-first]] — where responses go
 - [[mobile/11-performance-and-battery|performance and battery]] — the radio tail
-- [[foundations/networking/index|networking]] — TCP, TLS and HTTP properly
+- [[networking/index|networking]] — TCP, TLS and HTTP properly
 - [[backend/02-api-design/index|API design]] — the other side of this contract
 
 *Source: [reference] — Aug 2026.*

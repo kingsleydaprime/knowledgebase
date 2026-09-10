@@ -403,4 +403,4 @@ You are done with this lesson when you can:
 - [[01-matrices-and-determinants|Matrices and Determinants]] — where $A\mathbf{x} = \mathbf{b}$ came from
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — rank, null space, and the rank–nullity theorem
 - [[01-lines-and-planes|Lines and Planes in Space]] — the geometry of the three outcomes
-- [[foundations/numerical-methods/index|numerical-methods/]] — conditioning and iterative solvers
+- [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical-methods/]] — conditioning and iterative solvers

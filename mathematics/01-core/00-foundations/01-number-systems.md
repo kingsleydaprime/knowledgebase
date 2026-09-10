@@ -346,7 +346,7 @@ Attempt all of these before opening the answers.
 1. $-7 \in \mathbb{Z}$; $\frac{22}{7} \in \mathbb{Q}$; $\sqrt{2} \in \mathbb{R}$ (irrational); $0 \in \mathbb{N}$ by most modern conventions, otherwise $\mathbb{Z}$; $\pi \in \mathbb{R}$; $3.75 \in \mathbb{Q}$ (it is $\frac{15}{4}$); $\sqrt{-1} \in \mathbb{C}$.
 2. $\mathbb{N}$: closed under $+$ and $\times$ only. $\mathbb{Z}$: adds closure under $-$. $\mathbb{Q}$: adds closure under $\div$ (except by zero). $\mathbb{R}$: adds closure under limits, which is what makes $\sqrt{2}$ and $\pi$ exist. <strong>Each system is the previous one plus whatever was needed to close an operation.</strong>
 3. If $\sqrt{2} = \frac{a}{b}$ in lowest terms, then $a^2 = 2b^2$, so $a^2$ is even, so $a$ is even. Write $a = 2k$: then $4k^2 = 2b^2$, so $b^2 = 2k^2$ and $b$ is even too. But then $a$ and $b$ share a factor of 2, contradicting "lowest terms".
-4. It is <strong>finite</strong> (a 32-bit int stops at about 2.1 billion and wraps or overflows), and it is <strong>not closed under division</strong> (integer division truncates). See [[foundations/computer-architecture/02-data-representation|data representation]].
+4. It is <strong>finite</strong> (a 32-bit int stops at about 2.1 billion and wraps or overflows), and it is <strong>not closed under division</strong> (integer division truncates). See [[computer-architecture/02-data-representation|data representation]].
 </details>
 
 ## Before moving on

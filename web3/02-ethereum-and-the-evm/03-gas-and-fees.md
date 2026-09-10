@@ -10,7 +10,7 @@ The reason is simple: nobody can tell in advance whether a program will ever sto
 
 ## Why gas exists — the halting problem, priced
 
-You cannot decide whether an arbitrary program terminates → [[foundations/theory-of-computation/06-decidability|decidability]]. On a network where every node must execute every program, an infinite loop is a network-wide denial of service.
+You cannot decide whether an arbitrary program terminates → [[theory-of-computation/06-decidability|decidability]]. On a network where every node must execute every program, an infinite loop is a network-wide denial of service.
 
 **Gas converts an undecidable question into an economic one.** Rather than proving termination, you bound it: every operation costs, the budget is finite, and execution halts when the budget is exhausted. Simultaneously it prices resource use — storage costs more than arithmetic because storage burdens every node forever.
 
@@ -91,7 +91,7 @@ Since **EIP-4844** (Dencun, March 2024) there is a **second, separate fee market
 ## Related
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — what's being metered
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]] — acting on this
-- [[foundations/theory-of-computation/06-decidability|decidability]] — the halting problem this prices around
+- [[theory-of-computation/06-decidability|decidability]] — the halting problem this prices around
 - [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|rollups]] — the actual answer to high fees
 
 *Source: [reference] — Aug 2026.*

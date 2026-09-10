@@ -62,13 +62,13 @@ The distinction is less binary than it's usually taught.
 **Bytecode VM** — compile to a compact instruction set, interpret that.
 
 - 3–10× slower than native, portable, fast startup
-- CPython, early JVM, Lua, Ruby → [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode VMs]]
+- CPython, early JVM, Lua, Ruby → [[compilers/10-bytecode-and-virtual-machines|Bytecode VMs]]
 
 **JIT** — compile to machine code *at runtime*, guided by observed behaviour.
 
 - Approaches or beats AOT on long-running programs, because it knows things AOT can't
 - Warm-up time, memory overhead, and enormous implementation complexity
-- HotSpot, V8, LuaJIT, PyPy, .NET → [[foundations/compilers/12-jit-compilation|JIT]]
+- HotSpot, V8, LuaJIT, PyPy, .NET → [[compilers/12-jit-compilation|JIT]]
 
 **Where real languages actually sit:**
 
@@ -119,7 +119,7 @@ What makes it good: the exact span, both the expectation and what was found, *wh
 
 That requires **every token and AST node to carry its source location** — a span, not just a line number. Retrofitting spans is painful, so put them in from the first line of code. This is the single most valuable piece of advice for anyone writing a compiler.
 
-Also: **recover from errors and keep going.** Reporting one error per compile is a miserable experience. → [[foundations/compilers/03-parsing|Parsing]]
+Also: **recover from errors and keep going.** Reporting one error per compile is a miserable experience. → [[compilers/03-parsing|Parsing]]
 
 ## Static and dynamic
 
@@ -133,11 +133,11 @@ That's the same argument [[languages/03-rust/index|Rust]] makes about ownership,
 
 For [[BUILD-PLAN|build-your-own-language]], the realistic path:
 
-1. **Lexer** — a few hundred lines. → [[foundations/compilers/02-lexical-analysis|02]]
-2. **Parser** producing an AST — recursive descent + Pratt. → [[foundations/compilers/03-parsing|03]] · [[foundations/compilers/04-asts-and-semantic-analysis|04]]
+1. **Lexer** — a few hundred lines. → [[compilers/02-lexical-analysis|02]]
+2. **Parser** producing an AST — recursive descent + Pratt. → [[compilers/03-parsing|03]] · [[compilers/04-asts-and-semantic-analysis|04]]
 3. **Tree-walking interpreter** with environments and closures. **You now have a working language.**
-4. Then either **a bytecode VM** (→ [[foundations/compilers/10-bytecode-and-virtual-machines|09]]) or **a type checker** (→ [[foundations/compilers/05-type-systems-and-checking|05]]), depending on what interests you
-5. Eventually **GC**, once you have closures and objects. → [[foundations/compilers/11-garbage-collection|10]]
+4. Then either **a bytecode VM** (→ [[compilers/10-bytecode-and-virtual-machines|09]]) or **a type checker** (→ [[compilers/05-type-systems-and-checking|05]]), depending on what interests you
+5. Eventually **GC**, once you have closures and objects. → [[compilers/11-garbage-collection|10]]
 
 Step 3 is the milestone. A tree-walking interpreter for a small language is a weekend, and everything afterwards is optimisation or rigour.
 
@@ -151,7 +151,7 @@ Step 3 is the milestone. A tree-walking interpreter for a small language is a we
 ---
 
 ## Related
-- [[foundations/compilers/02-lexical-analysis|Lexical Analysis]] — the first phase
-- [[foundations/compilers/06-intermediate-representations|Intermediate Representations]] — the front/back-end boundary
+- [[compilers/02-lexical-analysis|Lexical Analysis]] — the first phase
+- [[compilers/06-intermediate-representations|Intermediate Representations]] — the front/back-end boundary
 - [[languages/04-c/01-why-c-and-the-compilation-model|C: The Compilation Model]] — preprocess/compile/assemble/link, concretely
-- [[foundations/compilers/index|Compilers course map]]
+- [[compilers/index|Compilers course map]]

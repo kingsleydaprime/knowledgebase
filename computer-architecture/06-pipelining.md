@@ -51,7 +51,7 @@ sub x4, x1, x5     ; needs x1 in ID  (cycle 3)  ← too early
 | WAR | write after read | No — a naming conflict |
 | WAW | write after write | No — a naming conflict |
 
-**RAW is fundamental** — the second instruction genuinely needs the first's result. **WAR and WAW are artefacts of reusing register names**, and [[foundations/computer-architecture/10-out-of-order-and-superscalar|register renaming]] eliminates them entirely.
+**RAW is fundamental** — the second instruction genuinely needs the first's result. **WAR and WAW are artefacts of reusing register names**, and [[computer-architecture/10-out-of-order-and-superscalar|register renaming]] eliminates them entirely.
 
 ### Forwarding
 
@@ -78,9 +78,9 @@ add x3, x1, x4     ; needs it in EX (cycle 4) — not there yet
 
 **A load's result isn't ready until MEM completes**, so the dependent instruction must stall one cycle.
 
-**The compiler's job:** schedule an independent instruction into that slot. **This is why instruction scheduling is a real compiler optimisation** — reordering to fill load-use delay slots is measurable. → [[foundations/compilers/07-optimisation|Optimisation]]
+**The compiler's job:** schedule an independent instruction into that slot. **This is why instruction scheduling is a real compiler optimisation** — reordering to fill load-use delay slots is measurable. → [[compilers/07-optimisation|Optimisation]]
 
-**And it's a reason to prefer flat data over pointer chasing:** a linked-list traversal is a chain of dependent loads, each waiting for the previous, and there's nothing to fill the gap. **Latency-bound, not throughput-bound.** → [[foundations/computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
+**And it's a reason to prefer flat data over pointer chasing:** a linked-list traversal is a chain of dependent loads, each waiting for the previous, and there's nothing to fill the gap. **Latency-bound, not throughput-bound.** → [[computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
 
 ## Control hazards
 
@@ -102,7 +102,7 @@ b.eq label         ; outcome known in EX (cycle 3)
 
 **Branch delay slots** — MIPS's approach: the instruction after a branch always executes. **An ISA-visible hack** that worked at 5 stages and became actively harmful at 20. **A cautionary tale about exposing microarchitecture in the ISA** — MIPS was stuck with it forever.
 
-**Prediction won**, and it's the subject of the next note. Modern predictors exceed 95% accuracy, which makes speculation overwhelmingly profitable. → [[foundations/computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]]
+**Prediction won**, and it's the subject of the next note. Modern predictors exceed 95% accuracy, which makes speculation overwhelmingly profitable. → [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]]
 
 ## The cost of a flush
 
@@ -128,7 +128,7 @@ $$\text{penalty} \approx \text{pipeline depth to resolution}$$
 
 **But:** worse misprediction penalty, more pipeline-register overhead per stage, more power, and more forwarding complexity.
 
-**Modern designs sit at 14–20 stages.** The Pentium 4's 31 was a well-documented mistake. → [[foundations/computer-architecture/05-the-datapath|Clocking]]
+**Modern designs sit at 14–20 stages.** The Pentium 4's 31 was a well-documented mistake. → [[computer-architecture/05-the-datapath|Clocking]]
 
 ## What this means for your code
 
@@ -164,12 +164,12 @@ max = a > b ? a : b;    // compiler often emits cmov
 perf stat -e branches,branch-misses ./program
 ```
 
-**A miss rate above ~5% in a hot loop is worth investigating.** Below that, look elsewhere. → [[foundations/computer-architecture/12-performance|Performance]]
+**A miss rate above ~5% in a hot loop is worth investigating.** Below that, look elsewhere. → [[computer-architecture/12-performance|Performance]]
 
 ---
 
 ## Related
-- [[foundations/computer-architecture/07-branch-prediction-and-speculation|Branch Prediction and Speculation]] — solving the control hazard
-- [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — hiding the data hazards
-- [[foundations/computer-architecture/05-the-datapath|The Datapath]] — the stages being pipelined
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction and Speculation]] — solving the control hazard
+- [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — hiding the data hazards
+- [[computer-architecture/05-the-datapath|The Datapath]] — the stages being pipelined
+- [[computer-architecture/index|Architecture map]]

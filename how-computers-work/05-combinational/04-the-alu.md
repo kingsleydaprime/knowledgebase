@@ -339,7 +339,7 @@ With a 64-bit carry-lookahead adder at 280 ps and a MUX at ~40 ps, that is aroun
 
 1. **Adder design is disproportionately important.** Shaving 50 ps off the carry chain lifts the whole chip's clock.
 2. **Complex ALU operations get their own path.** Multiply and divide are far slower than add, so they are given multiple cycles or a separate pipelined unit rather than being allowed to set the clock for everything.
-3. **This motivates pipelining.** If the ALU cannot be made faster, split the work across cycles so a *new* operation can start each cycle even though each takes several — throughput without latency reduction. That is [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]].
+3. **This motivates pipelining.** If the ALU cannot be made faster, split the work across cycles so a *new* operation can start each cycle even though each takes several — throughput without latency reduction. That is [[computer-architecture/06-pipelining|computer-architecture/pipelining]].
 
 ---
 
@@ -435,5 +435,5 @@ SLTU is decided by the carry flag (borrow), SLT by $N \oplus V$. This is precise
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/05-combinational/02-adders|Module 21 — Adders]] — the carry chain inside this block
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the MUX that selects the operation
-- [[foundations/computer-architecture/05-the-datapath|computer-architecture/the datapath]] — where the ALU sits in a processor
-- [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]] — the answer to a slow ALU
+- [[computer-architecture/05-the-datapath|computer-architecture/the datapath]] — where the ALU sits in a processor
+- [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — the answer to a slow ALU

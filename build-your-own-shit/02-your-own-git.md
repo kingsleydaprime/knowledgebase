@@ -17,7 +17,7 @@ A content-addressable object store plus the commands that operate on it: `init`,
 | **Git's object model** — blobs, trees, commits, refs | [[git/01-how-git-works\|git/01]] — **read this first; it's the spec** |
 | **The three trees** — working directory, index, HEAD | [[git/03-the-three-trees\|git/03]] |
 | **Hashing** — what SHA-1 gives you | [[cybersecurity/05-cryptography/index\|cryptography]] |
-| **Filesystem basics** — paths, permissions, recursion | [[foundations/os/07-filesystems-and-storage\|os/07]] |
+| **Filesystem basics** — paths, permissions, recursion | [[os/07-filesystems-and-storage\|os/07]] |
 
 [[git/01-how-git-works|How Git Actually Works]] is effectively the specification for this project. Everything below is implementing what that note describes.
 
@@ -138,7 +138,7 @@ Checkout: read the commit → read its tree → write those files to the working
 
 Compare two trees, or a tree against the working directory. Recursively walk both; for each path, compare hashes.
 
-For line-level output you need a diff algorithm — **Myers' algorithm** is the standard, and a longest-common-subsequence via dynamic programming is a perfectly good first version. → [[foundations/dsa/06-patterns/15-dynamic-programming|Dynamic Programming]]
+For line-level output you need a diff algorithm — **Myers' algorithm** is the standard, and a longest-common-subsequence via dynamic programming is a perfectly good first version. → [[dsa/06-patterns/15-dynamic-programming|Dynamic Programming]]
 
 **Test:** your diff against `git diff` for the same change.
 
@@ -153,7 +153,7 @@ For line-level output you need a diff algorithm — **Myers' algorithm** is the 
 
 **Test:** merge two branches that touched different files (clean), then two that touched the same lines (conflict).
 
-**Watch for:** the merge base is a graph problem — LCA on a DAG, not a tree, so a node can have several. → [[foundations/dsa/04-data-structures/06-graphs|Graphs]]
+**Watch for:** the merge base is a graph problem — LCA on a DAG, not a tree, so a node can have several. → [[dsa/04-data-structures/06-graphs|Graphs]]
 
 ## Per-language toolkit
 
@@ -248,5 +248,5 @@ Compare with what you learned in [[git/index|the git course]] — the difference
 - [[git/01-how-git-works|How Git Actually Works]] — the specification for this project
 - [[git/03-the-three-trees|The Three Trees]] — what the index milestone implements
 - [[git/16-power-tools|Git: Power Tools]] — what you're choosing not to build
-- [[foundations/dsa/04-data-structures/06-graphs|Graphs]] — the merge-base problem
+- [[dsa/04-data-structures/06-graphs|Graphs]] — the merge-base problem
 - [[build-your-own-shit/index|build-your-own-shit]]

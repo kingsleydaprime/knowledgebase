@@ -82,7 +82,7 @@ MALLOC_ARENA_MAX=2 ./prog          # fewer glibc arenas
 LD_PRELOAD=/usr/lib/libjemalloc.so ./prog     # swap allocator without recompiling
 ```
 
-That `LD_PRELOAD` swap is worth knowing — it's a one-line experiment that sometimes cuts RSS substantially, and it works because `malloc` is a dynamically-linked symbol. → [[foundations/os/12-boot-and-init|dynamic linking]]
+That `LD_PRELOAD` swap is worth knowing — it's a one-line experiment that sometimes cuts RSS substantially, and it works because `malloc` is a dynamically-linked symbol. → [[os/12-boot-and-init|dynamic linking]]
 
 ## Which allocator
 
@@ -149,7 +149,7 @@ madvise(addr, len, MADV_HUGEPAGE);
 mmap(..., MAP_HUGETLB, ...);          // explicit, from a preallocated pool
 ```
 
-2MB pages reduce TLB pressure for large working sets — worth real percentages for databases and JVMs with big heaps. Explicit hugepages (`vm.nr_hugepages`) are predictable; transparent hugepages can stall you at allocation time while `khugepaged` compacts. → [[foundations/os/04-virtual-memory|Virtual Memory]]
+2MB pages reduce TLB pressure for large working sets — worth real percentages for databases and JVMs with big heaps. Explicit hugepages (`vm.nr_hugepages`) are predictable; transparent hugepages can stall you at allocation time while `khugepaged` compacts. → [[os/04-virtual-memory|Virtual Memory]]
 
 ## Debugging
 
@@ -168,7 +168,7 @@ For "is this a leak or fragmentation?": a leak grows without bound and the alloc
 ---
 
 ## Related
-- [[foundations/os/04-virtual-memory|Virtual Memory]] — where the pages come from
+- [[os/04-virtual-memory|Virtual Memory]] — where the pages come from
 - [[languages/04-c/07-memory-management|C: Memory Management]] — the user-space view, and arenas
 - [[languages/02-go/13-performance-and-runtime|Go: Performance]] — escape analysis and the GC
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

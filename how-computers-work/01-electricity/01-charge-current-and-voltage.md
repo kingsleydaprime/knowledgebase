@@ -338,5 +338,5 @@ You are ready for module 2 when you can, closed-book:
 ## Related
 
 - [[how-computers-work/index|How Computers Work — course index]]
-- [[foundations/hardware/01-electricity|hardware/electricity]] — the practical counterpart: picking resistors, driving LEDs, working with real components
+- [[hardware/01-electricity|hardware/electricity]] — the practical counterpart: picking resistors, driving LEDs, working with real components
 - [[how-computers-work/02-semiconductors/01-atoms-and-electrons|Module 6 — Atoms and Electrons]] — why some materials have free electrons at all

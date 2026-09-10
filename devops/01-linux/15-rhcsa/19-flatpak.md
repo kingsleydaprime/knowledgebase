@@ -2,7 +2,7 @@
 
 > RHCSA V10 — added after reviewing the official RH124 course book (Red Hat System Administration I, RHEL 10.0), which gives Flatpak its own chapter. Zero prior coverage in this vault — everything so far has been RPM/`dnf`.
 
-Part of [[README|RHCSA V10]]. Builds on the package-management comparison table in [[01-getting-started-with-rhel|getting-started-with-rhel]] — Flatpak is a genuinely different packaging model from RPM, not just an alternate syntax for the same idea.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Builds on the package-management comparison table in [[01-getting-started-with-rhel|getting-started-with-rhel]] — Flatpak is a genuinely different packaging model from RPM, not just an alternate syntax for the same idea.
 
 ---
 

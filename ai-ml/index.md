@@ -33,6 +33,6 @@ Restructured (2026-07-31) by cross-referencing against roadmap.sh's `ai-data-sci
 - [[data-engineering/index|data engineering]] — the pipelines that feed models; MLOps is largely data engineering
 - [[ai-ml/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[using-ai/index|Using AI]] — the non-programmer on-ramp that feeds into this domain
-- [[foundations/dsa/index|DSA fundamentals]] — different domain, same "orientation → build" approach
+- [[dsa/index|DSA fundamentals]] — different domain, same "orientation → build" approach
 - [[devops/index|DevOps]] — the MLOps half of the ML Engineer path cross-links here
 - [[ai-automation/index|ai-automation/]] — the no-code/automation-tooling angle on applied AI

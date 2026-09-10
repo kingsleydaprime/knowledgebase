@@ -83,7 +83,7 @@ $f'(a)$ means three things at once, and the useful skill is switching between th
 
 $$f(x) \approx f(a) + f'(a)(x-a)$$
 
-**This third reading is the one that matters computationally.** It says the derivative tells you how the output responds to a small nudge in the input — which is exactly what gradient descent uses to decide which way to step, and why backpropagation is the chain rule ([[foundations/ai-ml/index|ai-ml]]).
+**This third reading is the one that matters computationally.** It says the derivative tells you how the output responds to a small nudge in the input — which is exactly what gradient descent uses to decide which way to step, and why backpropagation is the chain rule ([[ai-ml/index|ai-ml]]).
 
 ## 5. When the derivative does not exist
 
@@ -133,4 +133,4 @@ $$f(x) \approx f(a) + f'(a)(x-a)$$
 ## Related
 
 - [[01-preview|Calculus preview]] · [[01-definition|Continuity]]
-- [[foundations/ai-ml/index|ai-ml]] — where the linear-approximation reading does the work
+- [[ai-ml/index|ai-ml]] — where the linear-approximation reading does the work

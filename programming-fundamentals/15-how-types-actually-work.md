@@ -1,10 +1,10 @@
 # How Types Actually Work
 
-> **[Beginner → Intermediate]** · What a type *is* underneath the bits, and the five independent questions hiding inside the phrase "data type". The note that explains **why** the rules in [[foundations/programming-fundamentals/05-variables-and-types|note 05]] are the way they are.
+> **[Beginner → Intermediate]** · What a type *is* underneath the bits, and the five independent questions hiding inside the phrase "data type". The note that explains **why** the rules in [[programming-fundamentals/05-variables-and-types|note 05]] are the way they are.
 
-[[foundations/programming-fundamentals/05-variables-and-types|Note 05]] gave you the working knowledge: here are the types, here's the reference-vs-value trap, convert at the boundary. That's enough to write correct code, and if you're mid-course you can keep going.
+[[programming-fundamentals/05-variables-and-types|Note 05]] gave you the working knowledge: here are the types, here's the reference-vs-value trap, convert at the boundary. That's enough to write correct code, and if you're mid-course you can keep going.
 
-This note is the layer under it, and it's here at the end deliberately — it makes far more sense once you've met [[foundations/programming-fundamentals/07-collections|collections]], [[foundations/programming-fundamentals/13-objects-and-classes|objects]] and [[foundations/programming-fundamentals/14-programming-paradigms|paradigms]], because the distinctions below are exactly what separate those ideas.
+This note is the layer under it, and it's here at the end deliberately — it makes far more sense once you've met [[programming-fundamentals/07-collections|collections]], [[programming-fundamentals/13-objects-and-classes|objects]] and [[programming-fundamentals/14-programming-paradigms|paradigms]], because the distinctions below are exactly what separate those ideas.
 
 ## The same bits mean different things
 
@@ -29,7 +29,7 @@ This has a consequence you can feel. In C you can force the machine to reinterpr
 
 Because an `int32` is *always* 4 bytes, a hundred of them in a row occupy a predictable 400 bytes, and the address of element `i` is `base + i * 4`. One multiply, one add, no searching.
 
-**That is the entire reason array indexing is instant**, and it only works because the type pins down the size in advance. Variable-sized elements would mean walking from the start to find anything. This is where this course hands off to [[foundations/dsa/04-data-structures/01-arrays|arrays]] in DSA — the performance story there is built directly on the fact established here.
+**That is the entire reason array indexing is instant**, and it only works because the type pins down the size in advance. Variable-sized elements would mean walking from the start to find anything. This is where this course hands off to [[dsa/04-data-structures/01-arrays|arrays]] in DSA — the performance story there is built directly on the fact established here.
 
 ### What the type system buys
 
@@ -79,7 +79,7 @@ s += " world"    # does NOT modify the original string —
                  # it builds a new one and points s at it
 ```
 
-Immutability is why strings and tuples work as dictionary keys and lists don't: a key that could change after being stored would break the structure that indexed it. It's also why the string loop in [[foundations/dsa/04-data-structures/01-arrays|arrays]] is accidentally O(n²) — every `+=` copies the whole string.
+Immutability is why strings and tuples work as dictionary keys and lists don't: a key that could change after being stored would break the structure that indexed it. It's also why the string loop in [[dsa/04-data-structures/01-arrays|arrays]] is accidentally O(n²) — every `+=` copies the whole string.
 
 **Immutable is not the same as "can't be reassigned."** A name pointing at an immutable value can be pointed somewhere else freely; what it can't do is change the value in place. `const`/`final` restrict the *name*; immutability restricts the *value*. A `const` list in JavaScript can still have items pushed onto it.
 
@@ -133,15 +133,15 @@ Reading across a row is how you predict a type's behaviour without memorising ru
 - **"Is Python pass-by-reference or pass-by-value?"** Neither, cleanly — it's *pass by object reference*. The reference is passed by value, so **reassigning** a parameter inside a function doesn't affect the caller, but **mutating** the object it points to does. Both halves surprise people, in opposite directions.
 - **Immutability is shallow.** A tuple can't be modified, but a tuple *containing a list* has a list you can freely change. "Immutable" applies to one level.
 - **Equality vs identity.** `==` asks "same value?", `is` (Python) / `==` on objects (Java) asks "same object?". Reference types make these come apart, and small-integer caching means `a is b` can be `True` for `256` and `False` for `257`. Compare values with `==` unless you specifically mean identity.
-- **Fixed-width types overflow and floats approximate** — both covered in [[foundations/programming-fundamentals/05-variables-and-types|note 05]], and both are direct consequences of the bit-level story above rather than separate curiosities.
+- **Fixed-width types overflow and floats approximate** — both covered in [[programming-fundamentals/05-variables-and-types|note 05]], and both are direct consequences of the bit-level story above rather than separate curiosities.
 
 ## Related
-- [[foundations/programming-fundamentals/05-variables-and-types|variables and types]] — the working version of this; read that first
-- [[foundations/programming-fundamentals/07-collections|collections]] — where mutable vs immutable starts to bite daily
-- [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]] — composite types you define yourself
-- [[foundations/computer-architecture/02-data-representation|data representation]] — two's complement and IEEE-754 in full
-- [[foundations/dsa/04-data-structures/01-arrays|arrays]] — where fixed-size types turn into O(1) indexing
-- [[foundations/dsa/04-data-structures/03-hash-maps|hash maps]] — why keys must be immutable
+- [[programming-fundamentals/05-variables-and-types|variables and types]] — the working version of this; read that first
+- [[programming-fundamentals/07-collections|collections]] — where mutable vs immutable starts to bite daily
+- [[programming-fundamentals/13-objects-and-classes|objects and classes]] — composite types you define yourself
+- [[computer-architecture/02-data-representation|data representation]] — two's complement and IEEE-754 in full
+- [[dsa/04-data-structures/01-arrays|arrays]] — where fixed-size types turn into O(1) indexing
+- [[dsa/04-data-structures/03-hash-maps|hash maps]] — why keys must be immutable
 - [[languages/index|languages]] — how individual languages answer axes 4 and 5
 
 *Source: [reference] — consolidated from the type notes that previously sat in `foundations/dsa/`, where they were prerequisites rather than DSA material.*

@@ -6,7 +6,7 @@
 
 - You can build any function from gates, and know XOR is the expensive one — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]], [[how-computers-work/04-logic/04-universal-gates|module 18]].
 - You know that gate delays accumulate along a path and the critical path sets $f_{max}$ — [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
-- You have met **two's complement**. If not, read [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]] first — this module builds a subtractor from it, and [[how-computers-work/05-combinational/04-the-alu|module 23]] uses its overflow rules for the flags.
+- You have met **two's complement**. If not, read [[computer-architecture/02-data-representation|computer-architecture/data representation]] first — this module builds a subtractor from it, and [[how-computers-work/05-combinational/04-the-alu|module 23]] uses its overflow rules for the flags.
 
 **After this lesson you will be able to:**
 
@@ -220,7 +220,7 @@ $$C_3 = G_2 + P_2 G_1 + P_2 P_1 G_0 + P_2 P_1 P_0 C_0$$
 >
 > Real adders therefore use **hierarchical lookahead**: 4-bit lookahead blocks, themselves combined by a second level of lookahead. Modern designs use refinements like Kogge–Stone and Brent–Kung, which are different points on the same area-versus-depth tradeoff.
 >
-> **This is the recurring shape of digital design:** a sequential dependency is the enemy, and you pay area to convert it into a parallel tree. You will see exactly this pattern again in pipelining ([[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]]) and in parallel prefix algorithms.
+> **This is the recurring shape of digital design:** a sequential dependency is the enemy, and you pay area to convert it into a parallel tree. You will see exactly this pattern again in pipelining ([[computer-architecture/06-pipelining|computer-architecture/pipelining]]) and in parallel prefix algorithms.
 
 ---
 
@@ -270,7 +270,7 @@ Interpreted as **signed**, `10000000` is **−128**.
 
 So the machine computes $100 + 28 = -128$. Flags: **V = 1** (signed overflow — the true result 128 exceeds the maximum 127), **N = 1** (sign bit set), **C = 0** (no unsigned overflow; 128 fits fine in 8 unsigned bits).
 
-**Two positive numbers added to give a negative result** — the classic signature of signed overflow, and exactly what V exists to detect. This is the hardware behind the `INT_MIN` and overflow bugs described in [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]], and why signed overflow is undefined behaviour in C: the compiler is entitled to assume V never gets set.
+**Two positive numbers added to give a negative result** — the classic signature of signed overflow, and exactly what V exists to detect. This is the hardware behind the `INT_MIN` and overflow bugs described in [[computer-architecture/02-data-representation|computer-architecture/data representation]], and why signed overflow is undefined behaviour in C: the compiler is entitled to assume V never gets set.
 </details>
 
 ---
@@ -521,7 +521,7 @@ Note `full_adder` calls `half_adder` twice — the hierarchy is real, not decora
 3. **A CPU has a 64-bit ripple-carry ALU on its critical path. Marketing wants 4 GHz. What must change?**
    <details><summary>Answer</summary>
    4 GHz means a 250 ps period. A 64-bit ripple-carry adder needs 2560 ps — <strong>ten times too slow</strong>. No amount of process improvement closes a 10× gap.<br>
-   The fix is architectural: replace ripple-carry with carry-lookahead (280 ps, from the table) or a parallel-prefix adder. Alternatively, <em>pipeline</em> the adder across several cycles — which raises throughput without reducing latency, and introduces the hazards handled in [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]].<br>
+   The fix is architectural: replace ripple-carry with carry-lookahead (280 ps, from the table) or a parallel-prefix adder. Alternatively, <em>pipeline</em> the adder across several cycles — which raises throughput without reducing latency, and introduces the hazards handled in [[computer-architecture/06-pipelining|computer-architecture/pipelining]].<br>
    This is a concrete instance of module 4's lesson: clock speed is deduced from the critical path, so making a chip faster means finding and shortening that path.
    </details>
 
@@ -529,7 +529,7 @@ Note `full_adder` calls `half_adder` twice — the hierarchy is real, not decora
    <details><summary>Answer</summary>
    Because subtraction becomes addition. $A - B = A + \overline{B} + 1$, so <strong>one adder plus a row of XORs handles both operations</strong> — no separate subtractor, no special-casing of signs.<br>
    Sign-magnitude requires comparing magnitudes, deciding which to subtract from which, and fixing up the result sign. It also has two representations of zero ($+0$ and $-0$), which breaks equality comparison.<br>
-   Two's complement has one zero and reuses the adder unchanged. The cost is an asymmetric range — $-128$ has no positive counterpart in 8 bits — which is the source of the `abs(INT_MIN)` bug in [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]].
+   Two's complement has one zero and reuses the adder unchanged. The cost is an asymmetric range — $-128$ has no positive counterpart in 8 bits — which is the source of the `abs(INT_MIN)` bug in [[computer-architecture/02-data-representation|computer-architecture/data representation]].
    </details>
 
 ---
@@ -584,5 +584,5 @@ The two flags genuinely answer different questions, which is why hardware provid
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] — critical path and clock frequency
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the MUX that selects the ALU's operation
-- [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]] — two's complement and real overflow bugs
-- [[foundations/computer-architecture/06-pipelining|computer-architecture/pipelining]] — the other answer to a long critical path
+- [[computer-architecture/02-data-representation|computer-architecture/data representation]] — two's complement and real overflow bugs
+- [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — the other answer to a long critical path

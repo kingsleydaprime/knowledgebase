@@ -130,7 +130,7 @@ def process(value: str | None) -> str:
 ## Related
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — Protocol vs ABC
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — mypy in CI
-- [[foundations/programming-language-theory/04-type-systems-formally|type systems]] — the theory
+- [[programming-language-theory/04-type-systems-formally|type systems]] — the theory
 - [[languages/03-rust/index|Rust]] — the other end of the spectrum
 
 *Source: [reference] — from PEP 484 and successors, and the mypy documentation.*

@@ -12,7 +12,7 @@ $$\frac{990\times10^{12}\text{ FLOP/s}}{3.35\times10^{12}\text{ byte/s}} \approx
 
 **To keep the arithmetic units busy you need ~300 floating-point operations for every byte you load.** Most code does nothing close.
 
-**Which means most kernels are bandwidth-bound**, and optimising arithmetic in a bandwidth-bound kernel achieves nothing. → [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|The Roofline Model]]
+**Which means most kernels are bandwidth-bound**, and optimising arithmetic in a bandwidth-bound kernel achieves nothing. → [[gpu-and-parallel-computing/06-performance-and-the-roofline|The Roofline Model]]
 
 ## Coalescing
 
@@ -61,7 +61,7 @@ value = matrix[row * width + col];
  SoA: [x0 x1 x2][y0 y1 y2][z0 z1 z2]   reading all x = contiguous ✓
 ```
 
-→ [[foundations/computer-architecture/08-the-memory-hierarchy|AoS vs SoA]]
+→ [[computer-architecture/08-the-memory-hierarchy|AoS vs SoA]]
 
 **Alignment matters too** — a 128-byte transaction starting mid-boundary spans two transactions. `cudaMalloc` returns 256-byte-aligned memory; `cudaMallocPitch` pads 2D allocations so each row starts aligned.
 
@@ -79,7 +79,7 @@ __syncthreads();                    // everyone has written
 // now every thread can read any element cheaply
 ```
 
-**This is what makes tiled matrix multiply and stencil computations fast.** → [[foundations/gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]]
+**This is what makes tiled matrix multiply and stencil computations fast.** → [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]]
 
 ### Bank conflicts
 
@@ -129,7 +129,7 @@ __shared__ float tile[32][33];   // ← one extra column
 
 **Pinned (page-locked) host memory** — `cudaMallocHost`. **Required for true async transfer**, and roughly 2× faster than pageable. Pageable memory forces a staged copy through a driver buffer, synchronously.
 
-**Overlap with streams** — copy chunk $n+1$ while computing on chunk $n$. **Can nearly double throughput** on transfer-heavy work. → [[foundations/gpu-and-parallel-computing/03-the-programming-model|Streams]]
+**Overlap with streams** — copy chunk $n+1$ while computing on chunk $n$. **Can nearly double throughput** on transfer-heavy work. → [[gpu-and-parallel-computing/03-the-programming-model|Streams]]
 
 **Unified memory** (`cudaMallocManaged`) — one pointer, the driver migrates pages on demand. **Convenient, and it can thrash** if the access pattern ping-pongs. Use `cudaMemPrefetchAsync` to hint.
 
@@ -191,14 +191,14 @@ Compute-bound near peak FLOPS           → you're done
 
 **Prefer smaller types where precision allows.** FP16/BF16 halves your bandwidth requirement, **which for a bandwidth-bound kernel is a straight 2× speedup** — independently of tensor cores.
 
-**Fuse kernels.** Every avoided round trip to global memory is bandwidth saved. → [[foundations/gpu-and-parallel-computing/04-parallel-patterns|Kernel Fusion]]
+**Fuse kernels.** Every avoided round trip to global memory is bandwidth saved. → [[gpu-and-parallel-computing/04-parallel-patterns|Kernel Fusion]]
 
 **Check for register spills** before blaming the algorithm.
 
 ---
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — which bound you're against
-- [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the CPU analogue
-- [[foundations/gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — tiling and fusion
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]
+- [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — which bound you're against
+- [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the CPU analogue
+- [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — tiling and fusion
+- [[gpu-and-parallel-computing/index|GPU and parallel map]]

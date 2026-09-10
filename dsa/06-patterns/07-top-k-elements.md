@@ -303,7 +303,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[005-top-k-frequent-elements|Top K Frequent Elements]] (LeetCode #347) — count, then heap — though bucket sort beats the heap here, which is worth seeing.
 2. [[067-kth-largest-element-in-an-array|Kth Largest Element in an Array]] (LeetCode #215) — the size-$k$ heap versus Quickselect trade discussed above.

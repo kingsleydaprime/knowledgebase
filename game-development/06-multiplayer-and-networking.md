@@ -48,11 +48,11 @@ Used by RTS games — *Age of Empires*, *StarCraft*. With 500 units per player, 
 
 **UDP for game state; TCP for everything else.**
 
-TCP's ordering guarantee is the problem: a lost packet blocks every packet behind it while it retransmits — **head-of-line blocking** → [[foundations/networking/06-tcp-connection-lifecycle|TCP]]. In a game, a 100 ms-old position update is *worthless* — you already have a newer one. Waiting for it delays everything.
+TCP's ordering guarantee is the problem: a lost packet blocks every packet behind it while it retransmits — **head-of-line blocking** → [[networking/06-tcp-connection-lifecycle|TCP]]. In a game, a 100 ms-old position update is *worthless* — you already have a newer one. Waiting for it delays everything.
 
 So games use UDP and build only what they need on top: sequence numbers, selective reliability (reliable for "you died", unreliable for position), and delta compression against the last acknowledged state.
 
-**This is exactly the reasoning behind [[foundations/networking/13-quic-and-modern-transport|QUIC]]** — independent streams over UDP to avoid head-of-line blocking. Games arrived there twenty years earlier.
+**This is exactly the reasoning behind [[networking/13-quic-and-modern-transport|QUIC]]** — independent streams over UDP to avoid head-of-line blocking. Games arrived there twenty years earlier.
 
 **Bandwidth is managed by not sending things:** delta-encode against the last acknowledged state, quantise (positions don't need 32-bit floats), send at 10–30 Hz rather than per frame, and **use relevance filtering** — don't send what a player can't see, which is also an anti-cheat measure, since anything sent to the client can be read by a cheat.
 
@@ -71,8 +71,8 @@ For MMOs: **sharding** by zone, **interest management** so a server only tracks 
 **If you do:** use your engine's networking (Unity Netcode/Mirror, Unreal's replication, Godot's high-level multiplayer) rather than sockets. And read Valve's *Source Multiplayer Networking* and Gabriel Gambetta's *Fast-Paced Multiplayer* — both short, free, and they explain prediction and reconciliation better than anything else available.
 
 ## Related
-- [[foundations/networking/index|networking]] — **the full course; this note assumes it**
-- [[foundations/networking/13-quic-and-modern-transport|QUIC]] — the same head-of-line reasoning
+- [[networking/index|networking]] — **the full course; this note assumes it**
+- [[networking/13-quic-and-modern-transport|QUIC]] — the same head-of-line reasoning
 - [[architecture/04-distributed-systems/index|distributed systems]] — consistency under latency
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — why determinism matters
 

@@ -40,7 +40,7 @@ The four responses: **avoid** (change the design so it can't happen), **mitigate
 
 **The detection column is the one people underuse and the one that most often changes a design.** Row 2 and row 3 are the same sensor failing. Row 3 is fine — the system knows and shuts down safely. Row 2 is a fire, entirely because the failure is *silent*.
 
-**So the cheapest fix is frequently not "make it fail less" but "make it fail loudly"** — a range check, a plausibility check against a second sensor, a heartbeat. That's the same instinct as ECC memory in [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] and checksums in [[foundations/networking/02-the-link-layer|the link layer]]: **convert silent failure into loud failure.**
+**So the cheapest fix is frequently not "make it fail less" but "make it fail loudly"** — a range check, a plausibility check against a second sensor, a heartbeat. That's the same instinct as ECC memory in [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] and checksums in [[networking/02-the-link-layer|the link layer]]: **convert silent failure into loud failure.**
 
 **RPN is a flawed number** — it multiplies ordinal scales, so 9×3×7 and 3×9×7 rank equally despite one being catastrophic. Use it to sort, then judge; never treat it as a threshold.
 
@@ -93,10 +93,10 @@ Formal methods exist because informal judgement fails predictably:
 
 **FMEA and FTA are structured precisely so that they don't depend on someone happening to think of the right thing.** That's their real value: exhaustiveness over inspiration.
 
-**And the same reasoning is why [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|blameless postmortems]] and [[foundations/systems-engineering/06-verification-and-validation|independent V&V]] exist.** All three are mechanisms for surfacing what the people closest to the work cannot see.
+**And the same reasoning is why [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|blameless postmortems]] and [[systems-engineering/06-verification-and-validation|independent V&V]] exist.** All three are mechanisms for surfacing what the people closest to the work cannot see.
 
 ## Related
-- [[foundations/systems-engineering/06-verification-and-validation|verification and validation]] — proving what you did specify
+- [[systems-engineering/06-verification-and-validation|verification and validation]] — proving what you did specify
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — incident response and postmortems
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] — the numbers
 - [[cybersecurity/06-attacks-and-threats/index|threat modelling]] — FMEA with an adversary

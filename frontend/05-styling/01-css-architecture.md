@@ -100,7 +100,7 @@ Screen is `1 - (1-source)(1-backdrop)`, so a source of `0` returns the backdrop 
 
 **Semantic names survive a rebrand; literal ones don't.** `--blue-500` used for a warning is a lie the day the brand changes.
 
-**Tokens are the boundary between design and code**, and they're what design-system tooling (Style Dictionary, Figma variables) exchanges → [[foundations/systems-engineering/04-architecture-and-interfaces|interfaces]].
+**Tokens are the boundary between design and code**, and they're what design-system tooling (Style Dictionary, Figma variables) exchanges → [[systems-engineering/04-architecture-and-interfaces|interfaces]].
 
 ## Responsive, and the two habits
 

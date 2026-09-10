@@ -20,7 +20,7 @@ It is not stupid. It's the right shape when requirements genuinely are fixed, ch
 
 Ship in two-to-four-week increments. Gather requirements continuously. Test as you go.
 
-The insight is smaller than the industry that grew around it: **most of Agile's benefit comes from reducing batch size**, which shortens the feedback loop, which means errors are found while they're cheap and while you still remember the code. See [[foundations/software-engineering/02-the-software-development-lifecycle|the SDLC]] — the phases didn't disappear, they got smaller and started repeating.
+The insight is smaller than the industry that grew around it: **most of Agile's benefit comes from reducing batch size**, which shortens the feedback loop, which means errors are found while they're cheap and while you still remember the code. See [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — the phases didn't disappear, they got smaller and started repeating.
 
 It worked. Development got dramatically faster. And that created the next problem.
 
@@ -85,13 +85,13 @@ DevSecOps distributes it instead: threat modelling in planning, static analysis 
 
 **Each transition moved the bottleneck rather than removing it.** That's the [[architecture/01-system-design-fundamentals/index|theory of constraints]] applied to a delivery pipeline, and it predicts what breaks next: optimise anything, and the constraint relocates. Knowing where yours currently is matters more than knowing the vocabulary.
 
-**Titles lag reality badly.** A "DevOps Engineer" role may be any of these depending on the company — at a fifty-person startup it's usually all five at once. Read the responsibilities, not the title. See [[foundations/software-engineering/03-the-engineering-roles|the engineering roles]].
+**Titles lag reality badly.** A "DevOps Engineer" role may be any of these depending on the company — at a fifty-person startup it's usually all five at once. Read the responsibilities, not the title. See [[software-engineering/03-the-engineering-roles|the engineering roles]].
 
 ## Related
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — the reliability discipline in depth
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the scaling answer
 - [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]] — security in the pipeline
-- [[foundations/software-engineering/02-the-software-development-lifecycle|the SDLC]] — the phases all of this is rearranging
+- [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — the phases all of this is rearranging
 - [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — the automation DevOps rests on
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (final module), cross-checked against the Google SRE book and the DORA/Accelerate research.*

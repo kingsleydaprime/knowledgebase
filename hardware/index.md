@@ -42,13 +42,13 @@ Everything else in this vault assumes a working machine. This domain is where "w
 Honest, in the vault's usual style:
 
 - **Nothing on test and bring-up** — how you actually power a new board for the first time without releasing the smoke. There's a project for it in [[project-ideas|project-ideas]] and a debugging walkthrough in [[hardware/interview/01-electronics-and-embedded|the interview bank]]; the note should follow the build, not precede it.
-- **No robotics *build*** — motion, control and autonomy now have notes ([[robotics/index|robotics/]], 14 of them), but they're `[reference]`: nothing there has been run on hardware, and that folder says so plainly. The *control theory* half is its own track: [[engineering/02-control-theory/index|engineering/02-control-theory/]], including the digital-implementation note that covers sampling, discretisation, and fixed-point on a microcontroller.
+- **No robotics *build*** — motion, control and autonomy now have notes ([[robotics/index|robotics/]], 14 of them), but they're `[reference]`: nothing there has been run on hardware, and that folder says so plainly. The *control theory* half is its own track: [[control-theory/index|engineering/02-control-theory/]], including the digital-implementation note that covers sampling, discretisation, and fixed-point on a microcontroller.
 
 ## Related
 - [[hardware/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[robotics/index|Robotics]] — the layer above: actuation, control, autonomy. Written, not built
-- [[engineering/02-control-theory/index|Control Theory]] — why an op-amp's feedback loop and a motor's servo loop are the same subject, and [[engineering/02-control-theory/12-digital-control|how to implement one on an MCU]]
-- [[foundations/computer-architecture/index|Computer Architecture]] — the layer directly above the gates: how you get from digital logic to something that runs a program
-- [[foundations/os/index|Operating Systems]] — what runs once the hardware works
-- [[foundations/networking/index|Networking]] — the protocol stack above the physical layer this domain builds
+- [[control-theory/index|Control Theory]] — why an op-amp's feedback loop and a motor's servo loop are the same subject, and [[control-theory/12-digital-control|how to implement one on an MCU]]
+- [[computer-architecture/index|Computer Architecture]] — the layer directly above the gates: how you get from digital logic to something that runs a program
+- [[os/index|Operating Systems]] — what runs once the hardware works
+- [[networking/index|Networking]] — the protocol stack above the physical layer this domain builds
 - [[PRIMETECHIE|The Primetechie Path]] — where the hardware gates sit in the progression

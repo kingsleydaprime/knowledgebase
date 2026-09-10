@@ -71,7 +71,7 @@ Modern Linux has a cleaner answer:
 int sfd = signalfd(-1, &mask, 0);      // signals arrive as READABLE DATA on a fd
 ```
 
-`signalfd` turns signals into ordinary file descriptors — no handler, no async-safety constraints, and it composes with [[foundations/os/08-io-models|epoll]]. Same idea as `timerfd` and `eventfd`. **Prefer this in any event-driven program.**
+`signalfd` turns signals into ordinary file descriptors — no handler, no async-safety constraints, and it composes with [[os/08-io-models|epoll]]. Same idea as `timerfd` and `eventfd`. **Prefer this in any event-driven program.**
 
 ### The ones that bite
 
@@ -86,7 +86,7 @@ Every network program must do one of these. Go and Rust handle it in their runti
 
 **`SIGTERM` is the graceful-shutdown contract.** Kubernetes sends `SIGTERM`, waits `terminationGracePeriodSeconds` (default 30), then `SIGKILL`. A process that ignores `SIGTERM` gets killed mid-request every deploy. → [[devops/05-orchestration/index|Orchestration]]
 
-**`SIGCHLD` and zombies.** Ignore it explicitly or reap with `waitpid`, or children accumulate. → [[foundations/os/02-processes-and-threads|Processes and Threads]]
+**`SIGCHLD` and zombies.** Ignore it explicitly or reap with `waitpid`, or children accumulate. → [[os/02-processes-and-threads|Processes and Threads]]
 
 **Signals and threads.** A signal is delivered to *one arbitrary thread* that hasn't blocked it. The usual discipline: block signals in all threads, then have one dedicated thread call `sigwait` — which is exactly what `signalfd` replaces more cleanly.
 
@@ -159,7 +159,7 @@ void *p = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 
 Both processes map the same physical pages. A write by one is instantly visible to the other — **there is no send or receive.**
 
-Which is also the problem: **no synchronisation comes with it.** You need a mutex or semaphore in the shared region itself (`PTHREAD_PROCESS_SHARED`), and all the memory-ordering concerns from [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] apply across processes.
+Which is also the problem: **no synchronisation comes with it.** You need a mutex or semaphore in the shared region itself (`PTHREAD_PROCESS_SHARED`), and all the memory-ordering concerns from [[os/06-concurrency-primitives|Concurrency Primitives]] apply across processes.
 
 Use it for large data at high frequency — databases (Postgres's shared buffers), video pipelines, `/dev/shm`. Avoid it when a socket is fast enough, because the correctness burden is real.
 
@@ -182,7 +182,7 @@ Use it for large data at high frequency — databases (Postgres's shared buffers
 | Peer identity, or passing an fd | **Unix socket** (`SO_PEERCRED` / `SCM_RIGHTS`) |
 | Large data, high frequency | **shared memory** + explicit synchronisation |
 | Notification only | **eventfd** / **signalfd** |
-| Across machines | **TCP** → [[foundations/networking/index\|networking]] |
+| Across machines | **TCP** → [[networking/index\|networking]] |
 | Interrupting a process | **signal** |
 
 > **Default to Unix domain sockets.** They're fast, they're the same API as network sockets (so the code ports), they carry authenticated credentials, and they integrate with event loops. Reach for shared memory only when profiling shows the copy is the bottleneck.
@@ -190,8 +190,8 @@ Use it for large data at high frequency — databases (Postgres's shared buffers
 ---
 
 ## Related
-- [[foundations/os/02-processes-and-threads|Processes and Threads]] — `fork`, and zombies
-- [[foundations/os/08-io-models|I/O Models]] — `signalfd`/`eventfd` in an event loop
-- [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] — synchronising shared memory
+- [[os/02-processes-and-threads|Processes and Threads]] — `fork`, and zombies
+- [[os/08-io-models|I/O Models]] — `signalfd`/`eventfd` in an event loop
+- [[os/06-concurrency-primitives|Concurrency Primitives]] — synchronising shared memory
 - [[devops/01-linux/06-process-management|Linux: Process Management]] — signals from the shell
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

@@ -64,7 +64,7 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 - **MAST** (Hubble, JWST, TESS, Kepler), **ESA archives** (Gaia), **SDSS**, **NASA Exoplanet Archive**
 - **arXiv** — nearly every paper, free, usually before journal publication
 
-**A concrete first project:** download a TESS light curve, plot it, and **find the transit dip yourself**. It's an afternoon with Python and Astropy, it uses real data from a real spacecraft, and it produces a plot you can explain → [[foundations/numerical-methods/index|numerical methods]] for the fitting.
+**A concrete first project:** download a TESS light curve, plot it, and **find the transit dip yourself**. It's an afternoon with Python and Astropy, it uses real data from a real spacecraft, and it produces a plot you can explain → [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical methods]] for the fitting.
 
 **That project is the reason this domain is worth a folder in a software vault:** modern astronomy is a data-analysis discipline, and the skills transfer both ways.
 

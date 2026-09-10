@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Advanced]** · Worked answers to [[foundations/programming-language-theory/08-practice-exercises|note 08]].
+> **[Advanced]** · Worked answers to [[programming-language-theory/08-practice-exercises|note 08]].
 
 ---
 
@@ -26,7 +26,7 @@ Correctly: alpha-convert first, $\lambda y.\,x \equiv \lambda y'.\,x$, then subs
 
 **The rule: when substituting into a term with a binder, rename the bound variable if it would capture a free variable of what you're substituting.**
 
-**Every first implementation of substitution has this bug**, and it's why real implementations use De Bruijn indices (bound variables as numbers, so there are no names to collide) or a locally-nameless representation. It's also the same phenomenon as **unhygienic macros** capturing user variables → [[foundations/compilers/index|compilers]].
+**Every first implementation of substitution has this bug**, and it's why real implementations use De Bruijn indices (bound variables as numbers, so there are no names to collide) or a locally-nameless representation. It's also the same phenomenon as **unhygienic macros** capturing user variables → [[compilers/index|compilers]].
 
 ### 3. Church numerals
 
@@ -38,7 +38,7 @@ $$\text{succ} = \lambda n.\lambda f.\lambda x.\,f\,(n\,f\,x) \qquad \text{plus} 
 
 $1+1$: apply $f$ once, then once more — $\lambda f.\lambda x.\,f(f\,x) = 2$. ✓
 
-**The point of the exercise is that data is unnecessary.** Numbers, booleans, pairs and lists are all encodable as functions. The lambda calculus has *only* abstraction and application and is still Turing-complete → [[foundations/theory-of-computation/05-turing-machines|Turing machines]].
+**The point of the exercise is that data is unnecessary.** Numbers, booleans, pairs and lists are all encodable as functions. The lambda calculus has *only* abstraction and application and is still Turing-complete → [[theory-of-computation/05-turing-machines|Turing machines]].
 
 ### 4. Y combinator
 
@@ -50,7 +50,7 @@ $Y\,g = (\lambda x.g(x\,x))(\lambda x.g(x\,x)) \to g\big((\lambda x.g(x\,x))(\la
 
 **$Z$ fixes it by eta-expansion:** $Z = \lambda f.(\lambda x.f(\lambda v.\,x\,x\,v))(\lambda x.f(\lambda v.\,x\,x\,v))$. Wrapping the self-application in $\lambda v$ makes it a *value*, so CBV stops early and unfolds only on demand.
 
-**This is why strict languages need $Z$ and lazy ones can use $Y$**, and it's the cleanest demonstration that evaluation strategy is not a mere implementation detail — it changes which programs terminate → [[foundations/programming-language-theory/03-semantics|note 03]].
+**This is why strict languages need $Z$ and lazy ones can use $Y$**, and it's the cleanest demonstration that evaluation strategy is not a mere implementation detail — it changes which programs terminate → [[programming-language-theory/03-semantics|note 03]].
 
 ---
 
@@ -87,7 +87,7 @@ Bidirectional checking splits into two mutually recursive functions: `infer(Γ, 
 
 $(\lambda x{:}\text{Int}.\,x)\,\text{true}$ fails: the function infers $\text{Int}\to\text{Int}$, so `true` is checked against `Int` and fails.
 
-**Bidirectional is the practical approach because it produces good error messages** — you know what was *expected* at the failure point, so you can say "expected Int, found Bool" rather than "unification failed". It also needs far fewer annotations than naive checking → [[foundations/compilers/05-type-systems-and-checking|compilers]].
+**Bidirectional is the practical approach because it produces good error messages** — you know what was *expected* at the failure point, so you can say "expected Int, found Bool" rather than "unification failed". It also needs far fewer annotations than naive checking → [[compilers/05-type-systems-and-checking|compilers]].
 
 ### 8. Progress and preservation
 
@@ -140,7 +140,7 @@ let id = λx.x in (id 1, id true)      -- ✓  id : ∀α. α → α
 
 **$A \lor \lnot A$ has no inhabitant.** To construct a value of `Either A (A → Void)` you must supply *either* an $A$ *or* a refutation of $A$ — and for an arbitrary, unknown $A$ you can do neither. **A constructive proof must produce a witness**, and excluded middle asserts a disjunction without saying which side holds.
 
-**That is why Coq, Agda and Lean are constructive by default**, and why classical reasoning must be added as an axiom — which then blocks extracting a running program from the proof → [[foundations/programming-language-theory/06-curry-howard-and-proofs|note 06]].
+**That is why Coq, Agda and Lean are constructive by default**, and why classical reasoning must be added as an axiom — which then blocks extracting a running program from the proof → [[programming-language-theory/06-curry-howard-and-proofs|note 06]].
 
 ### 12. Linearity
 
@@ -166,7 +166,7 @@ Each variable goes to exactly one subterm, and there is no rule permitting dupli
 **This is the vault's clearest case of theory arriving in industry**: substructural type systems from the 1980s became the borrow checker, and "the type system tracks how many times you use a value" is the whole idea → [[languages/03-rust/index|Rust]].
 
 ## Related
-- [[foundations/programming-language-theory/08-practice-exercises|the exercises]]
-- [[foundations/programming-language-theory/index|the course]]
+- [[programming-language-theory/08-practice-exercises|the exercises]]
+- [[programming-language-theory/index|the course]]
 
 *Source: [reference] — from Pierce's *Types and Programming Languages* and the course's primary sources.*

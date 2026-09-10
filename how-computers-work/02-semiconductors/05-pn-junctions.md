@@ -457,4 +457,4 @@ The total exposed positive charge must equal the total exposed negative charge �
 - [[how-computers-work/02-semiconductors/04-doping|Module 9 — Doping]] — the two materials joined here
 - [[how-computers-work/03-transistors/02-mosfet-physics|Module 12 — MOSFET Physics]] — where the controllable barrier becomes a switch
 - [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] — the third-terminal requirement stated
-- [[foundations/hardware/01-electricity|hardware/electricity]] — diodes as practical components
+- [[hardware/01-electricity|hardware/electricity]] — diodes as practical components

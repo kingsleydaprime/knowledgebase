@@ -100,7 +100,7 @@ bool compare_exchange(atomic<T>& obj, T& expected, T desired);
 
 **LL/SC (load-linked / store-conditional)** is the ARM and RISC-V equivalent — load with a reservation, store only if untouched since. **Avoids the ABA problem** that CAS has, at the cost of spurious failures.
 
-**Cost:** an uncontended atomic RMW is ~20 cycles; **contended, it's 100s** because of cache-line ping-ponging. → [[foundations/computer-architecture/09-caches-in-depth|Cache Coherence]]
+**Cost:** an uncontended atomic RMW is ~20 cycles; **contended, it's 100s** because of cache-line ping-ponging. → [[computer-architecture/09-caches-in-depth|Cache Coherence]]
 
 **The ABA problem** — you read A, someone changes it to B and back to A, your CAS succeeds but the world changed underneath. **Real, and the reason lock-free stacks use tagged pointers or hazard pointers.**
 
@@ -117,7 +117,7 @@ bool compare_exchange(atomic<T>& obj, T& expected, T desired);
 
 **And the payoff is often negative.** A well-implemented mutex is fast when uncontended (a single atomic op), and modern futex-based locks avoid syscalls entirely in the fast path. **Lock-free helps under high contention or when you need progress guarantees** (real-time, signal handlers, interrupt context) — not as a general performance technique.
 
-> **Use a library.** `folly`, `crossbeam`, `boost::lockfree`, or the concurrent collections in your standard library. **These are written by specialists and verified with model checkers.** Writing your own is a research project that looks like a coding task. → [[foundations/os/06-concurrency-primitives|Concurrency Primitives]]
+> **Use a library.** `folly`, `crossbeam`, `boost::lockfree`, or the concurrent collections in your standard library. **These are written by specialists and verified with model checkers.** Writing your own is a research project that looks like a coding task. → [[os/06-concurrency-primitives|Concurrency Primitives]]
 
 ## Testing concurrent code
 
@@ -141,11 +141,11 @@ bool compare_exchange(atomic<T>& obj, T& expected, T desired);
 
 $$S = \frac{1}{(1-p) + p/n}$$
 
-**With 5% serial work, the maximum speedup is 20×** — no matter how many cores. **The serial fraction dominates**, and finding it matters more than adding threads. → [[foundations/computer-architecture/12-performance|Performance]]
+**With 5% serial work, the maximum speedup is 20×** — no matter how many cores. **The serial fraction dominates**, and finding it matters more than adding threads. → [[computer-architecture/12-performance|Performance]]
 
 **Contention.** Shared cache lines serialise regardless of your algorithm.
 
-**False sharing.** Independent data on one line. → [[foundations/computer-architecture/09-caches-in-depth|False Sharing]]
+**False sharing.** Independent data on one line. → [[computer-architecture/09-caches-in-depth|False Sharing]]
 
 **Memory bandwidth.** Cores share a memory controller. **A bandwidth-bound workload does not scale with cores** — this is common and frequently misdiagnosed as a locking problem.
 
@@ -176,7 +176,7 @@ $$S = \frac{1}{(1-p) + p/n}$$
 ---
 
 ## Related
-- [[foundations/computer-architecture/09-caches-in-depth|Caches in Depth]] — coherence, which this sits on top of
-- [[foundations/os/06-concurrency-primitives|Concurrency Primitives]] — locks, futexes, and what to use instead
+- [[computer-architecture/09-caches-in-depth|Caches in Depth]] — coherence, which this sits on top of
+- [[os/06-concurrency-primitives|Concurrency Primitives]] — locks, futexes, and what to use instead
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — the same problem, one scale up
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/index|Architecture map]]

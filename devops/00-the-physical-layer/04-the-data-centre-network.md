@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · Leaf-spine, east–west traffic, oversubscription, and why the network inside a data centre is built on the opposite assumptions to the internet.
 
-[[foundations/networking/index|The networking course]] teaches the internet: a wide-area network of untrusted, unequal, variable-latency links where you must assume loss and congestion. **A data centre network inverts nearly every one of those assumptions**, and the result is a genuinely different design.
+[[networking/index|The networking course]] teaches the internet: a wide-area network of untrusted, unequal, variable-latency links where you must assume loss and congestion. **A data centre network inverts nearly every one of those assumptions**, and the result is a genuinely different design.
 
 | | **The internet** | **Inside a data centre** |
 |---|---|---|
@@ -86,7 +86,7 @@ So the tenant network is an **overlay** — virtual networks encapsulated inside
 
 It also explains two things that otherwise look arbitrary:
 
-- **MTU quirks.** Encapsulation adds ~50 bytes of headers. If the underlay doesn't carry jumbo frames, the usable payload shrinks, and the symptom is the classic "small requests fine, large ones hang" — see [[foundations/networking/14-nat-firewalls-and-middleboxes|middleboxes]] and path MTU discovery
+- **MTU quirks.** Encapsulation adds ~50 bytes of headers. If the underlay doesn't carry jumbo frames, the usable payload shrinks, and the symptom is the classic "small requests fine, large ones hang" — see [[networking/14-nat-firewalls-and-middleboxes|middleboxes]] and path MTU discovery
 - **Security groups are not switches.** They're rules enforced at the virtual interface. Nothing is being physically segregated
 
 ## Storage on the network
@@ -113,12 +113,12 @@ Many servers respond to one requester simultaneously — a fan-out query returni
 
 **The result: a request that should take 500 microseconds takes 200 milliseconds.** Not because anything is broken — because a congestion-control algorithm tuned for wide-area links is making wide-area assumptions on a network where they're wrong.
 
-This is why data centres run **DCTCP** and ECN-based schemes that mark packets rather than dropping them, and why RDMA fabrics need lossless Ethernet. See [[foundations/networking/08-congestion-control|congestion control]] — the DC case is the clearest illustration that congestion control is a set of assumptions, not a law.
+This is why data centres run **DCTCP** and ECN-based schemes that mark packets rather than dropping them, and why RDMA fabrics need lossless Ethernet. See [[networking/08-congestion-control|congestion control]] — the DC case is the clearest illustration that congestion control is a set of assumptions, not a law.
 
 ## Related
 - [[devops/00-the-physical-layer/03-data-centres|data centres]] — the building these racks sit in
-- [[foundations/networking/index|networking]] — the protocols, in depth
-- [[foundations/networking/15-network-performance|network performance]] — latency budgets
+- [[networking/index|networking]] — the protocols, in depth
+- [[networking/15-network-performance|network performance]] — latency budgets
 - [[devops/08-networking-and-web/index|networking and web]] — the operator's view
 - [[architecture/04-distributed-systems/index|distributed systems]] — what all this east–west traffic is doing
 

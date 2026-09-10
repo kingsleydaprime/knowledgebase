@@ -36,7 +36,7 @@ $$\delta: Q\times\Gamma \to Q\times\Gamma\times\{L,R\}$$
 - Moves attention locally
 - Acts on what they see and remember
 
-**The machine is a formalisation of a human clerk**, argued from first principles about what mechanical procedure *means*. That's why the Church–Turing thesis is persuasive rather than arbitrary — it wasn't reverse-engineered from hardware, and hardware later matched it. → [[foundations/theory-of-computation/01-what-computation-is|Church–Turing thesis]]
+**The machine is a formalisation of a human clerk**, argued from first principles about what mechanical procedure *means*. That's why the Church–Turing thesis is persuasive rather than arbitrary — it wasn't reverse-engineered from hardware, and hardware later matched it. → [[theory-of-computation/01-what-computation-is|Church–Turing thesis]]
 
 ## Robustness
 
@@ -55,9 +55,9 @@ $$\delta: Q\times\Gamma \to Q\times\Gamma\times\{L,R\}$$
 >
 > **This robustness is the evidence for the Church–Turing thesis.** A definition that survives every modification is capturing something real, rather than an artefact of the formalism.
 
-**Note the slowdowns matter for [[foundations/theory-of-computation/07-complexity-classes|complexity]] even though they don't matter for computability.** *Whether* you can compute it is model-independent; *how fast* is not — which is why complexity theory has to fix a model and why "polynomial time" is the robust notion (all reasonable models are polynomially related).
+**Note the slowdowns matter for [[theory-of-computation/07-complexity-classes|complexity]] even though they don't matter for computability.** *Whether* you can compute it is model-independent; *how fast* is not — which is why complexity theory has to fix a model and why "polynomial time" is the robust notion (all reasonable models are polynomially related).
 
-**Turing-complete systems** are everything that can simulate this: every general-purpose language, λ-calculus, cellular automata, and a long list of accidental cases. → [[foundations/theory-of-computation/01-what-computation-is|Turing completeness in the wild]]
+**Turing-complete systems** are everything that can simulate this: every general-purpose language, λ-calculus, cellular automata, and a long list of accidental cases. → [[theory-of-computation/01-what-computation-is|Turing completeness in the wild]]
 
 ## The Universal Turing Machine
 
@@ -67,11 +67,11 @@ $$\delta: Q\times\Gamma \to Q\times\Gamma\times\{L,R\}$$
 
 **A machine that runs other machines.**
 
-**This is the stored-program computer.** Before it, a "computing machine" meant hardware built for one task. **The UTM says: build one machine, feed it a description of the task.** Von Neumann's architecture is this idea in silicon — **programs and data in the same memory, because to the UTM they're the same thing.** → [[foundations/computer-architecture/01-what-architecture-is|Computer Architecture]]
+**This is the stored-program computer.** Before it, a "computing machine" meant hardware built for one task. **The UTM says: build one machine, feed it a description of the task.** Von Neumann's architecture is this idea in silicon — **programs and data in the same memory, because to the UTM they're the same thing.** → [[computer-architecture/01-what-architecture-is|Computer Architecture]]
 
 **It's also every interpreter you've used.** CPython running Python is a UTM. A JVM is. A CPU decoding instructions is. **`eval` is a universal machine, and virtualisation is one machine simulating another.**
 
-**And it's the source of the impossibility results.** Because machines can be encoded as strings and fed to other machines, you can ask "what does this machine do on itself?" — and that self-reference is what produces the halting problem. → [[foundations/theory-of-computation/06-decidability|Decidability]]
+**And it's the source of the impossibility results.** Because machines can be encoded as strings and fed to other machines, you can ask "what does this machine do on itself?" — and that self-reference is what produces the halting problem. → [[theory-of-computation/06-decidability|Decidability]]
 
 ## Decidable vs recognisable
 
@@ -114,9 +114,9 @@ $$L \text{ decidable} \iff L \text{ and } \bar{L} \text{ are both recognisable}$
 
 **Two separate limits, and conflating them is a common error:**
 
-**Undecidable** — no algorithm exists, at any speed. The halting problem. **A permanent limit.** → [[foundations/theory-of-computation/06-decidability|Decidability]]
+**Undecidable** — no algorithm exists, at any speed. The halting problem. **A permanent limit.** → [[theory-of-computation/06-decidability|Decidability]]
 
-**Intractable** — an algorithm exists but takes infeasibly long. NP-hard problems, if P≠NP. **A limit on resources, not on possibility.** → [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]]
+**Intractable** — an algorithm exists but takes infeasibly long. NP-hard problems, if P≠NP. **A limit on resources, not on possibility.** → [[theory-of-computation/07-complexity-classes|Complexity Classes]]
 
 > **"Impossible" and "too slow" are different failures and call for different responses.** Undecidable means change the problem. Intractable means approximate, restrict the input, or accept exponential time on small instances.
 
@@ -139,7 +139,7 @@ $$BB(1)=1 \quad BB(2)=6 \quad BB(3)=21 \quad BB(4)=107 \quad BB(5)=47{,}176{,}87
 ---
 
 ## Related
-- [[foundations/theory-of-computation/06-decidability|Decidability]] — what these machines cannot decide
-- [[foundations/theory-of-computation/01-what-computation-is|What Computation Is]] — the Church–Turing thesis
-- [[foundations/computer-architecture/01-what-architecture-is|Computer Architecture]] — the UTM, built
-- [[foundations/theory-of-computation/index|Theory of computation map]]
+- [[theory-of-computation/06-decidability|Decidability]] — what these machines cannot decide
+- [[theory-of-computation/01-what-computation-is|What Computation Is]] — the Church–Turing thesis
+- [[computer-architecture/01-what-architecture-is|Computer Architecture]] — the UTM, built
+- [[theory-of-computation/index|Theory of computation map]]

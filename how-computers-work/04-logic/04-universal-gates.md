@@ -430,4 +430,4 @@ This gap — mechanical correctness versus structural insight — is exactly the
 - [[how-computers-work/04-logic/01-gates-from-transistors|Module 15]] — why NAND beats NOR in silicon
 - [[how-computers-work/04-logic/02-boolean-algebra|Module 16]] — De Morgan, the tool behind the constructions
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the previous abstraction boundary
-- [[foundations/theory-of-computation/index|theory-of-computation/]] — circuit complexity, where depth and size are studied formally
+- [[theory-of-computation/index|theory-of-computation/]] — circuit complexity, where depth and size are studied formally

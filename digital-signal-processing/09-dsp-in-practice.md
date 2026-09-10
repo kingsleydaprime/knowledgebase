@@ -30,7 +30,7 @@ plt.specgram(x, Fs=fs)                           # a spectrogram, one call
 - Vendor libraries for DSP chips (TI, Analog Devices)
 - The maths is identical; the constraints (fixed-point, latency, memory) are the whole difficulty
 
-**For radio — GNU Radio** + an RTL-SDR dongle → [[foundations/digital-signal-processing/08-modulation-and-sdr|SDR]]. **MATLAB/Octave** remains common in academia and legacy signal-processing shops.
+**For radio — GNU Radio** + an RTL-SDR dongle → [[digital-signal-processing/08-modulation-and-sdr|SDR]]. **MATLAB/Octave** remains common in academia and legacy signal-processing shops.
 
 ## Fixed-point vs floating-point — the hardware reality
 
@@ -40,9 +40,9 @@ Your NumPy code uses floating-point — huge dynamic range, you never think abou
 
 - **You manage the decimal point yourself** (Q-format: how many bits are the fractional part). Get the scaling wrong and values overflow or lose all precision
 - **Overflow wraps or saturates** — a large intermediate result silently becomes garbage or clamps
-- **Coefficient quantisation destabilises filters** — an [[foundations/digital-signal-processing/06-digital-filters|IIR filter]] that's perfectly stable in floating-point can have a pole pushed *outside* the unit circle when its coefficients are rounded to fixed-point, and then it oscillates or explodes. **This is a real, shipped-product failure mode**
+- **Coefficient quantisation destabilises filters** — an [[digital-signal-processing/06-digital-filters|IIR filter]] that's perfectly stable in floating-point can have a pole pushed *outside* the unit circle when its coefficients are rounded to fixed-point, and then it oscillates or explodes. **This is a real, shipped-product failure mode**
 
-**Why bother with fixed-point:** it's faster, cheaper, and lower-power — critical for battery devices and high-volume chips. **The craft of embedded DSP is largely making floating-point algorithms survive fixed-point**, and it's why "it worked in my simulation" is not the end of the job → [[foundations/computer-architecture/02-data-representation|data representation]].
+**Why bother with fixed-point:** it's faster, cheaper, and lower-power — critical for battery devices and high-volume chips. **The craft of embedded DSP is largely making floating-point algorithms survive fixed-point**, and it's why "it worked in my simulation" is not the end of the job → [[computer-architecture/02-data-representation|data representation]].
 
 ## DSP is genuinely everywhere
 
@@ -50,17 +50,17 @@ The point of this note is to make the ubiquity concrete — you interact with DS
 
 **Audio:**
 - Every noise-cancelling headphone runs adaptive filters in real time
-- MP3/AAC compression transforms to a frequency domain and discards the inaudible → [[foundations/information-theory/03-source-coding-and-compression|compression]]
-- Voice assistants convert speech to [[foundations/digital-signal-processing/07-spectral-analysis|mel-spectrograms]] before the ML model sees it
+- MP3/AAC compression transforms to a frequency domain and discards the inaudible → [[information-theory/03-source-coding-and-compression|compression]]
+- Voice assistants convert speech to [[digital-signal-processing/07-spectral-analysis|mel-spectrograms]] before the ML model sees it
 - EQ, autotune, reverb, and every audio effect is filtering and convolution
 
 **Images and video:**
 - JPEG *is* DSP — the DCT (a Fourier relative), quantise, discard imperceptible detail
-- Blur, sharpen, edge-detect are 2-D [[foundations/digital-signal-processing/05-convolution-and-lti-systems|convolution]] → [[foundations/computer-graphics/index|graphics]]
+- Blur, sharpen, edge-detect are 2-D [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] → [[computer-graphics/index|graphics]]
 
-**Communications** — every phone, Wi-Fi router, GPS receiver and satellite link is DSP modulating and demodulating → [[foundations/digital-signal-processing/08-modulation-and-sdr|modulation]].
+**Communications** — every phone, Wi-Fi router, GPS receiver and satellite link is DSP modulating and demodulating → [[digital-signal-processing/08-modulation-and-sdr|modulation]].
 
-**Sensors and control** — filtering noisy accelerometer/gyro data (a Kalman filter has DSP in it), extracting a heartbeat from a noisy ECG → [[engineering/02-control-theory/10-observers-and-kalman|state estimation]], [[robotics/index|robotics]].
+**Sensors and control** — filtering noisy accelerometer/gyro data (a Kalman filter has DSP in it), extracting a heartbeat from a noisy ECG → [[control-theory/10-observers-and-kalman|state estimation]], [[robotics/index|robotics]].
 
 **Machine learning — the connection worth internalising:**
 - **A CNN's convolution layer is DSP convolution** with learned kernels → [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]]
@@ -74,17 +74,17 @@ The point of this note is to make the ubiquity concrete — you interact with DS
 How real signal work actually goes:
 
 1. **Look at it — in both domains.** Plot the time signal *and* its spectrum before doing anything. Half of all "bugs" are visible immediately (a DC offset, a mains hum spike, clipping, obvious aliasing)
-2. **Check the sample rate and units.** Most confusion is a mislabelled frequency axis or a wrong `fs` → [[foundations/digital-signal-processing/02-sampling-and-aliasing|sampling]]
+2. **Check the sample rate and units.** Most confusion is a mislabelled frequency axis or a wrong `fs` → [[digital-signal-processing/02-sampling-and-aliasing|sampling]]
 3. **Filter conservatively.** It's easy to filter out signal along with noise; compare before/after spectra
 4. **Prototype in Python, then port.** Get it right in floating-point NumPy where it's easy to inspect, *then* deal with fixed-point and real-time constraints
-5. **Validate against reality**, like all of [[engineering/index|engineering]] — a filter that looks right in simulation must be checked on real recorded data with real noise
+5. **Validate against reality**, like all of [[control-theory/index|control theory]] — a filter that looks right in simulation must be checked on real recorded data with real noise
 
 ## Key insight
 
 **DSP in practice is "sample, transform, filter, reconstruct" — a few lines of SciPy for analysis — and the one thing that separates it from textbook DSP is fixed-point arithmetic, where a filter that's stable in floating-point can destabilise once its coefficients are quantised for a cheap chip.** The reason to learn it despite the maths is ubiquity: audio, images, comms, sensors and even CNNs all reduce to the same handful of operations, so understanding convolution and the frequency domain pays off across an unusually wide span of the vault.
 
 ## Related
-- [[foundations/digital-signal-processing/index|the DSP course]]
+- [[digital-signal-processing/index|the DSP course]]
 - [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]] — convolution, learned
 - [[hardware/03-embedded-systems|embedded systems]] — where fixed-point bites
 - [[ai-ml/00-foundations/04-python-and-data-tools/index|the Python data stack]] — NumPy/SciPy

@@ -51,10 +51,10 @@ The observational science of everything beyond Earth — and an honest treatment
 
 | | |
 |---|---|
-| [[foundations/systems-engineering/index\|systems engineering]] | **The discipline spaceflight invented** — and Mars Climate Orbiter is its canonical failure |
+| [[systems-engineering/index\|systems engineering]] | **The discipline spaceflight invented** — and Mars Climate Orbiter is its canonical failure |
 | [[languages/06-python/index\|Python]] | Modern astronomy's working language; Astropy is the stack |
-| [[foundations/numerical-methods/index\|numerical methods]] | Orbits, fitting, simulation |
-| [[foundations/information-theory/index\|information theory]] | Extracting weak signals from noise |
+| [[mathematics/07-applied-and-computational/01-numerical-methods/index\|numerical methods]] | Orbits, fitting, simulation |
+| [[information-theory/index\|information theory]] | Extracting weak signals from noise |
 | [[ai-ml/index\|AI & ML]] | Survey classification at Rubin Observatory scale |
 | [[research/index\|research]] | How claims here are tested — and note 09's case study |
 
@@ -77,5 +77,5 @@ The observational science of everything beyond Earth — and an honest treatment
 → [[PRIMETECHIE|Reading is not a rank.]]
 
 ## Related
-- [[foundations/systems-engineering/index|systems engineering]] · [[languages/06-python/index|Python]]
-- [[README|Vault README]] · [[BUILD-PLAN|Build Plan]]
+- [[systems-engineering/index|systems engineering]] · [[languages/06-python/index|Python]]
+- [[HOME|Vault README]] · [[BUILD-PLAN|Build Plan]]

@@ -15,9 +15,9 @@ A server speaking the Redis protocol, holding data in memory, supporting the cor
 | You should know | Where |
 |---|---|
 | **Sockets and an accept loop** | [[build-your-own-shit/01-http-server\|guide 01]] — build that first |
-| **Hash maps** — what they cost and why | [[foundations/dsa/04-data-structures/03-hash-maps\|dsa/03-hash-maps]] |
-| **Event loops** — `epoll`/`kqueue` | [[foundations/os/08-io-models\|os/08]] |
-| **`fsync` and durability** | [[foundations/os/07-filesystems-and-storage\|os/07]] — **the AOF milestone depends on this** |
+| **Hash maps** — what they cost and why | [[dsa/04-data-structures/03-hash-maps\|dsa/03-hash-maps]] |
+| **Event loops** — `epoll`/`kqueue` | [[os/08-io-models\|os/08]] |
+| **`fsync` and durability** | [[os/07-filesystems-and-storage\|os/07]] — **the AOF milestone depends on this** |
 | **Caching concepts** — TTL, eviction | [[architecture/02-building-blocks/02-caching\|caching]] |
 
 **Do the HTTP server first.** It teaches the socket layer with easier debugging (text you can read in a browser), and this guide assumes it.
@@ -128,11 +128,11 @@ ZADD/ZRANGE/ZRANGEBYSCORE   sorted sets — the interesting one
 
 **Sorted sets are the one to implement properly.** They need ordering by score *and* O(1) lookup by member, so real Redis uses a **skip list plus a hash map** — the skip list for range queries, the map for membership.
 
-A skip list is a genuinely elegant structure: probabilistic balancing, much simpler to implement than a red-black tree, and comparable performance. → [[foundations/dsa/04-data-structures/08-heaps|heaps]] and [[foundations/dsa/04-data-structures/05-trees/01-trees|trees]]
+A skip list is a genuinely elegant structure: probabilistic balancing, much simpler to implement than a red-black tree, and comparable performance. → [[dsa/04-data-structures/08-heaps|heaps]] and [[dsa/04-data-structures/05-trees/01-trees|trees]]
 
 **Test:** `redis-cli zadd leaderboard 100 alice 200 bob`, then `zrange leaderboard 0 -1 withscores`.
 
-**Watch for:** each type needs its own commands to reject wrong-type keys — `LPUSH` on a string key must return `WRONGTYPE`, not corrupt it. That means values are a tagged union of types, which is the same shape as [[foundations/compilers/10-bytecode-and-virtual-machines|a VM's value type]].
+**Watch for:** each type needs its own commands to reject wrong-type keys — `LPUSH` on a string key must return `WRONGTYPE`, not corrupt it. That means values are a tagged union of types, which is the same shape as [[compilers/10-bytecode-and-virtual-machines|a VM's value type]].
 
 ### 7. Persistence
 
@@ -140,7 +140,7 @@ Two mechanisms, and the contrast between them is the lesson.
 
 **RDB — point-in-time snapshot.** Serialise the whole dataset to a file periodically.
 
-Real Redis `fork()`s and lets the child write the snapshot while the parent keeps serving — **copy-on-write means the child sees a frozen view for free.** That's a beautiful use of the OS primitive, and it has a real cost: if the parent takes heavy writes during the save, COW can approach a full memory copy. → [[foundations/os/04-virtual-memory|copy-on-write]]
+Real Redis `fork()`s and lets the child write the snapshot while the parent keeps serving — **copy-on-write means the child sees a frozen view for free.** That's a beautiful use of the OS primitive, and it has a real cost: if the parent takes heavy writes during the save, COW can approach a full memory copy. → [[os/04-virtual-memory|copy-on-write]]
 
 **AOF — append-only log.** Append every write command to a file; replay it on startup.
 
@@ -160,7 +160,7 @@ appendfsync everysec   fsync once a second  — the default; up to 1s of loss
 appendfsync no         let the OS decide    — fastest, unbounded loss
 ```
 
-**`write()` returning does not mean durable.** Without `fsync`, a `kill -9` loses nothing (the OS still has the buffer) but a power cut loses everything written since the last flush. Implementing all three modes and measuring the throughput difference is the most instructive part of this whole guide. → [[foundations/os/07-filesystems-and-storage|fsync]]
+**`write()` returning does not mean durable.** Without `fsync`, a `kill -9` loses nothing (the OS still has the buffer) but a power cut loses everything written since the last flush. Implementing all three modes and measuring the throughput difference is the most instructive part of this whole guide. → [[os/07-filesystems-and-storage|fsync]]
 
 AOF grows forever, so real Redis **rewrites** it periodically — dumps current state as a minimal command set. Worth implementing; it's the same idea as log compaction.
 
@@ -261,7 +261,7 @@ Compare behaviour against real Redis for edge cases — `GET` on a missing key, 
 
 ## Related
 - [[build-your-own-shit/01-http-server|Build Your Own HTTP Server]] — do this first
-- [[foundations/os/07-filesystems-and-storage|Filesystems and Storage]] — the `fsync` milestone
-- [[foundations/os/08-io-models|I/O Models]] — the event loop
+- [[os/07-filesystems-and-storage|Filesystems and Storage]] — the `fsync` milestone
+- [[os/08-io-models|I/O Models]] — the event loop
 - [[architecture/02-building-blocks/02-caching|Caching]] — what you're building, conceptually
 - [[build-your-own-shit/index|build-your-own-shit]]

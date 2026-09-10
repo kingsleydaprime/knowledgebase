@@ -12,7 +12,7 @@
 
 The lexer (or scanner, or tokeniser) groups characters into **tokens** — the smallest meaningful units. It also discards whitespace and comments, and it's where you attach source positions.
 
-Why separate it from parsing at all? The parser gets much simpler when it can think about `IDENT` rather than "a letter followed by zero or more alphanumerics". And lexing is a *regular* language problem while parsing needs *context-free* machinery — different tools, cleanly split. → [[foundations/compilers/03-parsing|Parsing]]
+Why separate it from parsing at all? The parser gets much simpler when it can think about `IDENT` rather than "a letter followed by zero or more alphanumerics". And lexing is a *regular* language problem while parsing needs *context-free* machinery — different tools, cleanly split. → [[compilers/03-parsing|Parsing]]
 
 ## The token
 
@@ -38,7 +38,7 @@ enum TokenKind {
 }
 ```
 
-> **Put spans in from the first line of code.** Every token, and later every AST node, carries where it came from. Retrofitting this is genuinely painful, and without it you cannot produce the kind of error message that makes a compiler pleasant to use. → [[foundations/compilers/01-what-a-compiler-is|What a Compiler Is]]
+> **Put spans in from the first line of code.** Every token, and later every AST node, carries where it came from. Retrofitting this is genuinely painful, and without it you cannot produce the kind of error message that makes a compiler pleasant to use. → [[compilers/01-what-a-compiler-is|What a Compiler Is]]
 
 Byte offsets are better than `(line, column)` — smaller, and you convert to line/column only when printing an error, using a precomputed table of line starts.
 
@@ -200,7 +200,7 @@ fn unterminated_string_reports_at_open_quote() {
 ---
 
 ## Related
-- [[foundations/compilers/03-parsing|Parsing]] — what consumes these tokens
-- [[foundations/compilers/01-what-a-compiler-is|What a Compiler Is]] — where this sits
+- [[compilers/03-parsing|Parsing]] — what consumes these tokens
+- [[compilers/01-what-a-compiler-is|What a Compiler Is]] — where this sits
 - [[languages/04-c/03-the-preprocessor|C: The Preprocessor]] — a separate token-level pass before the real lexer
-- [[foundations/compilers/index|Compilers course map]]
+- [[compilers/index|Compilers course map]]

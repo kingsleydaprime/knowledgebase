@@ -226,7 +226,7 @@ The C standard has no files-as-descriptors, no networking, no processes, no thre
 <sys/mman.h>   mmap
 ```
 
-This is what [[foundations/os/fundamentals|OS Fundamentals]] and [[foundations/networking/09-sockets-and-the-network-api|the sockets note]] cover, and it's what you'll actually use to build anything real. Portability to Windows means a compatibility layer or a library.
+This is what [[os/fundamentals|OS Fundamentals]] and [[networking/09-sockets-and-the-network-api|the sockets note]] cover, and it's what you'll actually use to build anything real. Portability to Windows means a compatibility layer or a library.
 
 ## Rules
 
@@ -244,6 +244,6 @@ This is what [[foundations/os/fundamentals|OS Fundamentals]] and [[foundations/n
 ## Related
 - [[languages/04-c/06-arrays-strings-and-decay|Arrays, Strings and Decay]] — the string functions in detail
 - [[languages/04-c/07-memory-management|Memory Management]] — `malloc` and friends
-- [[foundations/os/fundamentals|OS Fundamentals]] — where POSIX takes over
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets]] — the networking C doesn't have
+- [[os/fundamentals|OS Fundamentals]] — where POSIX takes over
+- [[networking/09-sockets-and-the-network-api|Sockets]] — the networking C doesn't have
 - [[languages/04-c/index|C course map]]

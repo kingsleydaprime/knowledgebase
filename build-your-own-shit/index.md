@@ -49,7 +49,7 @@ The milestone ordering is the load-bearing part. **You should always have someth
 **Three added Aug 2026**, chosen against this folder's own criterion — build a toy version of something you rely on, and the real thing stops being opaque:
 
 - **Neural network** — the largest domain in the vault (`ai-ml/`, ~98 notes) had no build guide at all. The most conspicuous gap
-- **Memory allocator** — best effort-to-insight ratio after the container guide, and it makes [[foundations/os/05-memory-allocation|OS memory]] and [[languages/04-c/index|C]] concrete
+- **Memory allocator** — best effort-to-insight ratio after the container guide, and it makes [[os/05-memory-allocation|OS memory]] and [[languages/04-c/index|C]] concrete
 - **Physics engine** — completes the [[game-development/index|game development track]], and it's the rare project where a wrong integrator is *visible*
 - **React** *(added later)* — the frontend equivalent of the language guide, and it explains the hook rules by making you implement the array they depend on
 
@@ -98,5 +98,5 @@ The milestone ordering is the load-bearing part. **You should always have someth
 - [[BUILD-PLAN|Build Plan]] — the queue these come from
 - [[project-ideas|Project Ideas]] — the wider tiered build list
 - [[PRIMETECHIE|The Primetechie Path]] — where these sit as rank gates
-- [[foundations/os/index|Operating Systems]] · [[foundations/compilers/index|Compilers]] — the two prerequisites written specifically to unblock this folder
+- [[os/index|Operating Systems]] · [[compilers/index|Compilers]] — the two prerequisites written specifically to unblock this folder
 - [[web3/index|Web3 & Blockchain]] — the domain guides 14-16 make concrete

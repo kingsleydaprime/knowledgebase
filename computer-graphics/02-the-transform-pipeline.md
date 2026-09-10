@@ -124,7 +124,7 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 
 **This is exactly [[robotics/04-rigid-body-transforms|the transform tree]]** — and `tf2` in ROS solves the same problem with the same maths. **Graphics calls it a scene graph; robotics calls it a kinematic chain.**
 
-**Practical notes:** cache world transforms and mark dirty on change rather than recomputing every frame; flatten the hierarchy for rendering (GPUs want flat arrays, not tree traversal); and **watch for accumulated floating-point error in deep hierarchies** — renormalise rotation matrices periodically. → [[foundations/numerical-methods/02-floating-point-and-error|Error accumulation]]
+**Practical notes:** cache world transforms and mark dirty on change rather than recomputing every frame; flatten the hierarchy for rendering (GPUs want flat arrays, not tree traversal); and **watch for accumulated floating-point error in deep hierarchies** — renormalise rotation matrices periodically. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Error accumulation]]
 
 ## Culling
 
@@ -158,6 +158,6 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 
 ## Related
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — the same maths, more depth on rotations
-- [[foundations/computer-graphics/03-rasterisation|Rasterisation]] — what happens after this
+- [[computer-graphics/03-rasterisation|Rasterisation]] — what happens after this
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the prerequisite
-- [[foundations/computer-graphics/index|Computer graphics map]]
+- [[computer-graphics/index|Computer graphics map]]

@@ -86,7 +86,7 @@ let items: [Circle] = [...]        // contiguous, no indirection
 - **`reserveCapacity`** when you know the size
 - **`lazy` on expensive chains** over large collections
 - **`@inlinable`** for cross-module inlining in a library — it exposes the body as API, so use it deliberately
-- **Profile before any of this.** Instruments' Time Profiler, on a release build → [[foundations/computer-architecture/12-performance|performance method]]
+- **Profile before any of this.** Instruments' Time Profiler, on a release build → [[computer-architecture/12-performance|performance method]]
 
 **And for a mobile app, none of this is usually the bottleneck.** Image decoding, main-thread I/O, and network round trips dominate → [[mobile/11-performance-and-battery|performance and battery]]. **Micro-optimising Swift while decoding a 4000px image on the main thread is the wrong order.**
 

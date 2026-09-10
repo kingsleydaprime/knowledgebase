@@ -8,7 +8,7 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 
 ## Why this exists
 
-[[languages/index|languages/index]] listed "Python at depth" as a track that would slot in _if notes got written_. They hadn't been — despite Python appearing throughout the vault: the [[ai-ml/index|entire ML domain]] is written in it, [[devops/index|devops]] assumes it for automation, and [[foundations/programming-fundamentals/index|programming fundamentals]] uses it for most examples.
+[[languages/index|languages/index]] listed "Python at depth" as a track that would slot in _if notes got written_. They hadn't been — despite Python appearing throughout the vault: the [[ai-ml/index|entire ML domain]] is written in it, [[devops/index|devops]] assumes it for automation, and [[programming-fundamentals/index|programming fundamentals]] uses it for most examples.
 
 **So the vault taught Python-the-tool everywhere and Python-the-language nowhere.** This closes that.
 
@@ -80,10 +80,10 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | [[backend/frameworks/python/index\|backend/frameworks/python/]]          | FastAPI, Django, Flask — **the frameworks, per the languages/ rule** |
 | [[ai-ml/00-foundations/04-python-and-data-tools/index\|Python for data]] | NumPy, pandas, matplotlib — the numeric stack                        |
-| [[foundations/programming-fundamentals/index\|programming fundamentals]] | **If this is your first language, start there**                      |
+| [[programming-fundamentals/index\|programming fundamentals]] | **If this is your first language, start there**                      |
 | [[devops/01-linux/12-bash-scripting\|bash scripting]]                     | When a shell script should have been Python                          |
 | [[languages/02-go/index\|Go]] · [[languages/03-rust/index\|Rust]]       | The other end of the trade — types and concurrency enforced          |
-| [[foundations/compilers/index\|compilers]]                               | What "bytecode on a VM" means                                        |
+| [[compilers/index\|compilers]]                               | What "bytecode on a VM" means                                        |
 
 ## Against the roadmap
 
@@ -95,10 +95,10 @@ Audited against the [roadmap.sh Python track](https://roadmap.sh/python) (August
 
 | Roadmap topic                                                                                               | Where it lives                                                                                                                                            |
 | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data structures & algorithms, sorting, arrays, linked lists, hashmaps, heaps/stacks/queues, BSTs, recursion | [[foundations/dsa/index\|foundations/dsa/]]                                                                                                              |
+| Data structures & algorithms, sorting, arrays, linked lists, hashmaps, heaps/stacks/queues, BSTs, recursion | [[dsa/index\|foundations/dsa/]]                                                                                                              |
 | Django, Flask, FastAPI, Pydantic                                                                            | [[backend/frameworks/python/index\|backend/frameworks/python/]] — **per [[languages/index\|the languages/ rule]]**                                      |
 | NumPy, pandas, plotting                                                                                     | [[ai-ml/00-foundations/04-python-and-data-tools/index\|ai-ml/00-foundations]]                                                                            |
-| Git, clean code, paradigms                                                                                  | [[git/index\|git/]], [[concepts/04-best-practices/index\|best practices]], [[foundations/programming-fundamentals/14-programming-paradigms\|paradigms]] |
+| Git, clean code, paradigms                                                                                  | [[git/index\|git/]], [[concepts/04-best-practices/index\|best practices]], [[programming-fundamentals/14-programming-paradigms\|paradigms]] |
 
 **Deliberately skipped** — the alternative-framework long tail (Tornado, Sanic, Pyramid, aiohttp, gevent, Plotly Dash), the formatter/doc long tail (yapf, sphinx, doctest, tox, pyre). **These are lookups, not understanding**, and listing them would imply coverage that adds nothing over their own documentation.
 

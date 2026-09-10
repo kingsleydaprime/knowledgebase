@@ -19,7 +19,7 @@
 
 $$C = \max_{p(x)} I(X;Y)$$
 
-**The maximum mutual information between input and output, over all input distributions.** → [[foundations/information-theory/02-entropy-joint-conditional-and-mutual|Mutual Information]]
+**The maximum mutual information between input and output, over all input distributions.** → [[information-theory/02-entropy-joint-conditional-and-mutual|Mutual Information]]
 
 **For the binary symmetric channel:**
 
@@ -69,7 +69,7 @@ with $H(p)$ the binary entropy function.
 
 **The proof is non-constructive**, and famously so: Shannon showed that a **randomly chosen** code works, on average, with high probability. **He proved good codes exist without exhibiting one.**
 
-> **That gap defined the next fifty years of coding theory.** Shannon said the limit was reachable in 1948; **codes that actually approach it — turbo codes (1993) and rediscovered LDPC codes (1996) — took until the 1990s.** → [[foundations/information-theory/06-error-correcting-codes|Error-Correcting Codes]]
+> **That gap defined the next fifty years of coding theory.** Shannon said the limit was reachable in 1948; **codes that actually approach it — turbo codes (1993) and rediscovered LDPC codes (1996) — took until the 1990s.** → [[information-theory/06-error-correcting-codes|Error-Correcting Codes]]
 
 ## Shannon–Hartley
 
@@ -109,7 +109,7 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 
 **The concept generalises well beyond radio.**
 
-**Networking.** Bandwidth-delay product, and why TCP needs window scaling to fill a fast long link. **Note that "bandwidth" in networking means bits/second (capacity), while in signal processing it means Hz** — a genuinely confusing overload. → [[foundations/networking/15-network-performance|Network Performance]]
+**Networking.** Bandwidth-delay product, and why TCP needs window scaling to fill a fast long link. **Note that "bandwidth" in networking means bits/second (capacity), while in signal processing it means Hz** — a genuinely confusing overload. → [[networking/15-network-performance|Network Performance]]
 
 **Storage.** A hard drive or SSD is a channel — write, wait, read, with noise. **Modern SSDs are so noisy at the cell level that they're unusable without LDPC codes**, and read latency rises as cells wear and decoding gets harder.
 
@@ -156,7 +156,7 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 ---
 
 ## Related
-- [[foundations/information-theory/06-error-correcting-codes|Error-Correcting Codes]] — how capacity is actually approached
-- [[foundations/information-theory/02-entropy-joint-conditional-and-mutual|Mutual Information]] — what capacity maximises
+- [[information-theory/06-error-correcting-codes|Error-Correcting Codes]] — how capacity is actually approached
+- [[information-theory/02-entropy-joint-conditional-and-mutual|Mutual Information]] — what capacity maximises
 - [[hardware/06-radio-frequency|Radio Frequency]] — the physical layer
-- [[foundations/information-theory/index|Information theory map]]
+- [[information-theory/index|Information theory map]]

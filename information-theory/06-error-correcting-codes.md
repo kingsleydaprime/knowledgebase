@@ -36,15 +36,15 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 >
 > Hamming invented this out of frustration: his weekend batch jobs kept failing on parity errors, and the machine could detect the problem but not fix it. **"If it can detect the error, why can't it correct it?"**
 
-**Extended Hamming (SECDED)** adds an overall parity bit, giving $d = 4$: **single error correction, double error detection.** This is what ECC memory uses — and it's why servers with ECC RAM survive the cosmic-ray bit flips that silently corrupt data on consumer machines. → [[foundations/computer-architecture/index|Computer Architecture]]
+**Extended Hamming (SECDED)** adds an overall parity bit, giving $d = 4$: **single error correction, double error detection.** This is what ECC memory uses — and it's why servers with ECC RAM survive the cosmic-ray bit flips that silently corrupt data on consumer machines. → [[computer-architecture/index|Computer Architecture]]
 
 ## Reed–Solomon
 
 **The workhorse of the pre-2000s, and still everywhere.**
 
-**Operates on symbols (bytes) rather than bits, over a finite field $GF(2^m)$.** → [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Modular arithmetic and finite fields]]
+**Operates on symbols (bytes) rather than bits, over a finite field $GF(2^m)$.** → [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Modular arithmetic and finite fields]]
 
-**The idea:** treat the $k$ data symbols as coefficients of a polynomial, and **evaluate it at $n$ points.** Any $k$ of those $n$ values reconstruct the polynomial — **it's polynomial interpolation as error correction.** → [[foundations/numerical-methods/06-interpolation-and-approximation|Interpolation]]
+**The idea:** treat the $k$ data symbols as coefficients of a polynomial, and **evaluate it at $n$ points.** Any $k$ of those $n$ values reconstruct the polynomial — **it's polynomial interpolation as error correction.** → [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation]]
 
 **RS$(n,k)$ corrects $\lfloor(n-k)/2\rfloor$ symbol errors**, or $n-k$ erasures.
 
@@ -58,7 +58,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 
 **Instead of blocks, a sliding window: output bits depend on the current input and the last $K-1$ inputs.**
 
-**Decoded with the Viterbi algorithm** — dynamic programming over the trellis of encoder states, finding the maximum-likelihood path. → [[foundations/dsa/06-patterns/15-dynamic-programming|Dynamic Programming]]
+**Decoded with the Viterbi algorithm** — dynamic programming over the trellis of encoder states, finding the maximum-likelihood path. → [[dsa/06-patterns/15-dynamic-programming|Dynamic Programming]]
 
 **Optimal decoding in polynomial time**, which is why it was so widely deployed: GSM, 802.11, satellite links, and Voyager's inner code.
 
@@ -108,7 +108,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 
 **Not error-correcting codes, and used for different threats.**
 
-**Checksums (CRC)** detect *accidental* errors. **CRC-32 catches all burst errors up to 32 bits** and is cheap in hardware. **Ethernet, ZIP, PNG.** → [[foundations/networking/02-the-link-layer|The Link Layer]]
+**Checksums (CRC)** detect *accidental* errors. **CRC-32 catches all burst errors up to 32 bits** and is cheap in hardware. **Ethernet, ZIP, PNG.** → [[networking/02-the-link-layer|The Link Layer]]
 
 **Cryptographic hashes** (SHA-256) detect *deliberate* tampering. **Much more expensive, and CRC is trivially forgeable** — an attacker can adjust the payload to keep the CRC unchanged.
 
@@ -133,7 +133,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 ---
 
 ## Related
-- [[foundations/information-theory/05-channel-capacity-and-noise|Channel Capacity]] — the limit these approach
-- [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Number Theory]] — the finite fields Reed–Solomon needs
+- [[information-theory/05-channel-capacity-and-noise|Channel Capacity]] — the limit these approach
+- [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Number Theory]] — the finite fields Reed–Solomon needs
 - [[architecture/04-distributed-systems/05-replication|Replication]] — erasure coding in storage
-- [[foundations/information-theory/index|Information theory map]]
+- [[information-theory/index|Information theory map]]

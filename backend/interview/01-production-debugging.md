@@ -44,7 +44,7 @@
 
 7. **Tail amplification.** If one request fans out to N downstream calls, you wait for the slowest. At p99=1s and N=200, you hit it essentially every time. → Q3.
 
-8. **Infrastructure:** noisy neighbour, autoscaling cold starts, TLS handshakes from connection churn (no keep-alive), DNS timeouts, [[foundations/networking/15-network-performance|RTO after tail loss or incast]].
+8. **Infrastructure:** noisy neighbour, autoscaling cold starts, TLS handshakes from connection churn (no keep-alive), DNS timeouts, [[networking/15-network-performance|RTO after tail loss or incast]].
 
 **What scores:** name your instrument for each hypothesis rather than listing causes. "I'd look at event loop delay percentiles first, because Node's failure mode is that one blocking operation makes a burst of requests slow, which is the p99-up/p50-flat shape."
 
@@ -179,6 +179,6 @@ The prerequisite for all of it is **having tagged your telemetry with the dimens
 
 ## Related
 - [[backend/interview/02-node-runtime-and-api|Node Runtime & API]] — the language half of the same interview
-- [[foundations/networking/interview/04-debugging-and-scenarios|Networking: debugging scenarios]] — the same method one layer down
+- [[networking/interview/04-debugging-and-scenarios|Networking: debugging scenarios]] — the same method one layer down
 - [[devops/interview/01-linux-containers-and-operations|DevOps: incidents & observability]]
 - [[PRIMETECHIE|The Primetechie Path]] — this is Rank II, in full

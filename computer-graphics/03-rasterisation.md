@@ -105,7 +105,7 @@ $$C = \alpha_{\text{src}}C_{\text{src}} + (1-\alpha_{\text{src}})C_{\text{dst}}$
 
 ## Antialiasing
 
-**A pixel is an area, not a point** — so a hard in/out coverage test aliases. → [[foundations/computer-graphics/01-how-rendering-works|Rendering as sampling]]
+**A pixel is an area, not a point** — so a hard in/out coverage test aliases. → [[computer-graphics/01-how-rendering-works|Rendering as sampling]]
 
 | Technique | How | Cost |
 |---|---|---|
@@ -135,7 +135,7 @@ $$C = \alpha_{\text{src}}C_{\text{src}} + (1-\alpha_{\text{src}})C_{\text{dst}}$
 
 ## Practical notes
 
-**Cull before rasterising.** Frustum and backface culling are nearly free. → [[foundations/computer-graphics/02-the-transform-pipeline|Culling]]
+**Cull before rasterising.** Frustum and backface culling are nearly free. → [[computer-graphics/02-the-transform-pipeline|Culling]]
 
 **Minimise overdraw.** Draw roughly front-to-back for opaque geometry so early-Z rejects more; back-to-front for transparent.
 
@@ -152,7 +152,7 @@ $$C = \alpha_{\text{src}}C_{\text{src}} + (1-\alpha_{\text{src}})C_{\text{dst}}$
 ---
 
 ## Related
-- [[foundations/computer-graphics/04-shading-and-lighting|Shading and Lighting]] — computing the colour
-- [[foundations/computer-graphics/06-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — how this runs in hardware
-- [[foundations/computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — what feeds this
-- [[foundations/computer-graphics/index|Computer graphics map]]
+- [[computer-graphics/04-shading-and-lighting|Shading and Lighting]] — computing the colour
+- [[computer-graphics/06-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — how this runs in hardware
+- [[computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — what feeds this
+- [[computer-graphics/index|Computer graphics map]]

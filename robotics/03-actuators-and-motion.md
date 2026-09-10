@@ -53,7 +53,7 @@ Better in almost every way, and more complicated to drive.
 
 **The appeal: position control with no encoder.** Count the steps you sent and you know where you are — that's why 3D printers and CNC machines use them, and why they're cheap to integrate.
 
-**The catch, and it's a big one: that's open loop.** Push too hard, accelerate too fast, or hit an obstacle, and the motor **skips steps silently**. The controller believes it's at position 100 while the machine is at 94, and nothing reports the discrepancy. → [[engineering/02-control-theory/01-what-control-theory-is|Open loop vs closed loop]]
+**The catch, and it's a big one: that's open loop.** Push too hard, accelerate too fast, or hit an obstacle, and the motor **skips steps silently**. The controller believes it's at position 100 while the machine is at 94, and nothing reports the discrepancy. → [[control-theory/01-what-control-theory-is|Open loop vs closed loop]]
 
 **Also:**
 
@@ -86,7 +86,7 @@ $$\text{Output torque} = \tau_{motor} \times N \times \eta \qquad \text{Output s
 | **Worm** | low | **low** (~50%) | **self-locking** — holds without power |
 | **Belt/cable** | low | high | moves the motor mass off the joint |
 
-**Backlash is the one that ruins control.** Free play between gear teeth means the output doesn't move when you reverse direction — until it does, suddenly. **It's a hard nonlinearity, it cannot be tuned away, and it causes limit cycles in a position loop.** → [[engineering/02-control-theory/13-nonlinear-and-modern-control|Nonlinear Control]]
+**Backlash is the one that ruins control.** Free play between gear teeth means the output doesn't move when you reverse direction — until it does, suddenly. **It's a hard nonlinearity, it cannot be tuned away, and it causes limit cycles in a position loop.** → [[control-theory/13-nonlinear-and-modern-control|Nonlinear Control]]
 
 Which is why precision arms use harmonic drives despite the cost, and why a cheap gearbox caps your achievable accuracy no matter how good your controller is.
 
@@ -143,7 +143,7 @@ Tying it together — the chain from "move there" to actual movement:
                               [CURRENT LOOP] → PWM → motor
 ```
 
-**Three nested loops, each faster than the one outside it** — typically 100 Hz / 1 kHz / 10–20 kHz. That's [[engineering/02-control-theory/04-pid-control|cascade control]], and it's how essentially every robot joint is driven. The inner loops absorb disturbances and linearise the actuator before the outer loop ever sees them. → [[robotics/09-robot-control|Robot Control]]
+**Three nested loops, each faster than the one outside it** — typically 100 Hz / 1 kHz / 10–20 kHz. That's [[control-theory/04-pid-control|cascade control]], and it's how essentially every robot joint is driven. The inner loops absorb disturbances and linearise the actuator before the outer loop ever sees them. → [[robotics/09-robot-control|Robot Control]]
 
 **The physical limits your planner must respect:**
 

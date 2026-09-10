@@ -351,7 +351,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[028-binary-search|Binary Search]] (LeetCode #704) — the baseline — settle your loop invariant here, once.
 2. [[029-search-a-2d-matrix|Search a 2D Matrix]] (LeetCode #74) — index arithmetic turns the grid into one sorted array.

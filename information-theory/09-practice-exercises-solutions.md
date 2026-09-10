@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Intermediate]** · Worked answers to [[foundations/information-theory/08-practice-exercises|note 08]]. **Measured, August 2026.**
+> **[Intermediate]** · Worked answers to [[information-theory/08-practice-exercises|note 08]]. **Measured, August 2026.**
 
 ---
 
@@ -22,7 +22,7 @@ xz                                                   10,272 bytes
 
 gzip exploits exactly that — LZ77 replaces repeated substrings with back-references, capturing correlations an order-0 model ignores. Under a **better model** (conditional entropy given previous bytes), the true entropy is much lower, and gzip is respecting *that* floor.
 
-**The correct statement: entropy is the compression floor *for a given source model*.** A better model has lower entropy and permits more compression. This is the same fact as *compression ≡ prediction* → [[foundations/information-theory/04-cross-entropy-and-kl-divergence|note 04]], and it's why a large language model is an extraordinary compressor.
+**The correct statement: entropy is the compression floor *for a given source model*.** A better model has lower entropy and permits more compression. This is the same fact as *compression ≡ prediction* → [[information-theory/04-cross-entropy-and-kl-divergence|note 04]], and it's why a large language model is an extraordinary compressor.
 
 **What is still impossible** is exercise 9's counting argument — no scheme compresses *every* input.
 
@@ -93,7 +93,7 @@ Coding blocks of $k$ symbols amortises the rounding over $k$ symbols, so the exc
 
 **The cost is an alphabet of $2^k$ blocks** — exponential table growth for linear improvement.
 
-**Arithmetic coding sidesteps it entirely** by encoding the whole message as a single number in $[0,1)$, never committing to a per-symbol boundary. It achieves within ~2 bits of $H$ for the *entire message*, and it takes fractional probabilities natively — which is why modern compressors (and ANS in Zstandard) use it rather than Huffman → [[foundations/information-theory/03-source-coding-and-compression|note 03]].
+**Arithmetic coding sidesteps it entirely** by encoding the whole message as a single number in $[0,1)$, never committing to a per-symbol boundary. It achieves within ~2 bits of $H$ for the *entire message*, and it takes fractional probabilities natively — which is why modern compressors (and ANS in Zstandard) use it rather than Huffman → [[information-theory/03-source-coding-and-compression|note 03]].
 
 ### 9. No compressor compresses everything
 
@@ -101,7 +101,7 @@ There are $2^n$ inputs of length $n$, and only $2^n - 1$ possible strings of len
 
 **Stronger:** at most half of all $n$-bit inputs can be shortened by even one bit.
 
-**The one-sentence dismissal:** *"If it compresses every input, apply it repeatedly and reach one bit — which cannot be decoded back to anything."* Every recursive-compression claim dies to this, and several have been patented anyway → [[foundations/mathematics/02-discrete-math/09-practice-exercises|pigeonhole]].
+**The one-sentence dismissal:** *"If it compresses every input, apply it repeatedly and reach one bit — which cannot be decoded back to anything."* Every recursive-compression claim dies to this, and several have been patented anyway → [[mathematics/02-discrete-math/09-practice-exercises|pigeonhole]].
 
 ---
 
@@ -122,7 +122,7 @@ Target: a bimodal mixture. Fitting one Gaussian:
 - **Forward, $D_{KL}(p\|q)$ — mean-seeking.** Penalises $q$ being small where $p$ is large, so $q$ spreads to cover **both** modes, placing most mass in the valley between them where the target has none
 - **Reverse, $D_{KL}(q\|p)$ — mode-seeking.** Penalises $q$ being large where $p$ is small, so $q$ collapses onto **one** mode and ignores the other
 
-**Neither is "correct" — they fail differently, and knowing which you're minimising tells you which failure to expect.** Variational inference minimises reverse KL, which is why VI is known to underestimate variance; maximum likelihood minimises forward KL, which is why it produces over-broad models. **Mode collapse in generative models is this** → [[foundations/information-theory/04-cross-entropy-and-kl-divergence|note 04]].
+**Neither is "correct" — they fail differently, and knowing which you're minimising tells you which failure to expect.** Variational inference minimises reverse KL, which is why VI is known to underestimate variance; maximum likelihood minimises forward KL, which is why it produces over-broad models. **Mode collapse in generative models is this** → [[information-theory/04-cross-entropy-and-kl-divergence|note 04]].
 
 ### 12. Hamming(7,4)
 
@@ -133,7 +133,7 @@ Three parity bits at positions 1, 2, 4 covering overlapping subsets. Recomputing
 **Hence SECDED** — add an overall parity bit for distance 4, giving single-error correction *and* double-error detection. **That's what ECC memory in [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] actually implements**, and why the guarantee is stated as "corrects single-bit, detects double-bit" rather than "corrects errors".
 
 ## Related
-- [[foundations/information-theory/08-practice-exercises|the exercises]]
-- [[foundations/information-theory/index|the course]]
+- [[information-theory/08-practice-exercises|the exercises]]
+- [[information-theory/index|the course]]
 
 *Source: [reference] — entropy and compression figures measured August 2026.*

@@ -151,6 +151,6 @@ In competitive programming and technical interviews, the problem's **input size 
 ---
 
 ## Related Modules
-- [[foundations/dsa/01-loops-and-what-they-cost|Loops and What They Cost]] — Practical loop counting rules
+- [[dsa/01-loops-and-what-they-cost|Loops and What They Cost]] — Practical loop counting rules
 - [[02-dynamic-arrays|Dynamic Arrays]] — Amortized analysis application
 - [[04-sorting|Sorting Algorithms]] — Comparison sort lower bounds ($O(n \log n)$)

@@ -423,4 +423,4 @@ Delay is roughly inversely proportional to drive current, so delay rises by $1/0
 - [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] — the divider table this circuit implements
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the gain and rail-to-rail requirements now met
 - [[how-computers-work/01-electricity/02-resistance-and-ohms-law|Module 2]] — where the power equation was first used
-- [[foundations/computer-architecture/12-performance|computer-architecture/performance]] — the architectural consequences of the power wall
+- [[computer-architecture/12-performance|computer-architecture/performance]] — the architectural consequences of the power wall

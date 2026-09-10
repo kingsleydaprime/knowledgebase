@@ -38,7 +38,7 @@ What makes it a *server* is not the parts list. It's four things about how it's 
 
 If you want a single technical marker separating "server" from "expensive desktop", it's **ECC RAM** (Error-Correcting Code). Cosmic rays and electrical noise genuinely flip bits in memory — rarely per machine, constantly across a fleet. ECC detects two-bit errors and silently corrects single-bit ones.
 
-Without it, a flipped bit is a corrupted value with no error, no log line, and no way to reason about it afterwards. **This is the reliability story in miniature: not "prevent all failures" but "convert silent failures into loud ones."** The same instinct shows up as checksums in [[foundations/networking/02-the-link-layer|the link layer]], WAL in [[databases/10-durability-and-recovery|databases]], and health checks in [[devops/05-orchestration/index|orchestration]].
+Without it, a flipped bit is a corrupted value with no error, no log line, and no way to reason about it afterwards. **This is the reliability story in miniature: not "prevent all failures" but "convert silent failures into loud ones."** The same instinct shows up as checksums in [[networking/02-the-link-layer|the link layer]], WAL in [[databases/10-durability-and-recovery|databases]], and health checks in [[devops/05-orchestration/index|orchestration]].
 
 ## Storage: the number that isn't capacity
 
@@ -52,7 +52,7 @@ Terabytes are the easy number and rarely the interesting one. The interesting on
 
 That's a **five-orders-of-magnitude** spread on random access from the same shelf of hardware. A spinning disk has to physically move a head; an SSD does not. This is the entire reason [[databases/04-b-trees-and-indexes|B-trees]] are shaped the way they are — they were designed to minimise seeks on a device where a seek cost 10ms — and why [[databases/05-lsm-trees|LSM trees]] became attractive once sequential writes stopped being the only fast thing.
 
-**When someone says a database is "slow", ask what the storage is before you look at the query.** See [[foundations/computer-architecture/09-caches-in-depth|the memory hierarchy]] for the layers above this.
+**When someone says a database is "slow", ask what the storage is before you look at the query.** See [[computer-architecture/09-caches-in-depth|the memory hierarchy]] for the layers above this.
 
 ## Why one application per server was the norm — and the bill it created
 
@@ -88,8 +88,8 @@ Pick any cloud instance type and you're choosing these same five numbers, plus a
 ## Related
 - [[devops/00-the-physical-layer/02-virtualisation-and-hypervisors|virtualisation]] — how one of these became many
 - [[devops/00-the-physical-layer/03-data-centres|data centres]] — the building it lives in
-- [[foundations/computer-architecture/index|computer architecture]] — what's happening inside the CPU
-- [[foundations/os/01-what-an-os-is|what an OS is]] — the software that makes the hardware usable
+- [[computer-architecture/index|computer architecture]] — what's happening inside the CPU
+- [[os/01-what-an-os-is|what an OS is]] — the software that makes the hardware usable
 - [[devops/03-cloud/01-cloud-fundamentals|cloud fundamentals]] — renting all of the above
 
 *Source: [reference] — distilled from the freeCodeCamp IT Fundamentals course (modules 1–2), cross-checked against vendor documentation.*

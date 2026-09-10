@@ -82,7 +82,7 @@ Visible light is a sliver. **Each band shows you different physics, and each nee
 ## Related
 - [[astronomy/04-stars|stars]] — what the spectra are telling you about
 - [[astronomy/07-cosmology|cosmology]] — redshift as a distance measure
-- [[foundations/information-theory/index|information theory]] — extracting signal from noise
-- [[foundations/computer-graphics/index|computer graphics]] — the imaging maths
+- [[information-theory/index|information theory]] — extracting signal from noise
+- [[computer-graphics/index|computer graphics]] — the imaging maths
 
 *Source: [reference] — written Aug 2026.*

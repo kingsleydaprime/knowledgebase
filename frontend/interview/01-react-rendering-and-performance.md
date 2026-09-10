@@ -45,11 +45,11 @@ From [[frontend/index|frontend]], [[frontend/frameworks/gsap/07-performance-and-
 ### Q4. [Intermediate] What are Core Web Vitals and how do you fix each?
 
 **Strong answer covers:**
-- **LCP** (Largest Contentful Paint) — when the main content appears. Usually fixed at the **network** layer, not in JS: preload the hero image, use a CDN, serve modern formats, reduce round trips before the image is discoverable. → [[foundations/networking/15-network-performance|network performance]]
+- **LCP** (Largest Contentful Paint) — when the main content appears. Usually fixed at the **network** layer, not in JS: preload the hero image, use a CDN, serve modern formats, reduce round trips before the image is discoverable. → [[networking/15-network-performance|network performance]]
 - **INP** (Interaction to Next Paint, which replaced FID) — responsiveness across the whole session. Fixed by breaking up long tasks, deferring non-critical JS, and moving work off the main thread.
 - **CLS** (Cumulative Layout Shift) — visual stability. Fixed by reserving space: width/height on images, `aspect-ratio`, no injecting content above existing content, and `font-display: optional`/`swap` with a matched fallback metric.
 
-**The point that lifts this:** most LCP problems are **network** problems (round trips, render-blocking resources) and most INP problems are **main-thread** problems. Knowing which axis you're on tells you where to look — the same bisect-the-layers instinct as [[foundations/networking/16-debugging-networks|network debugging]].
+**The point that lifts this:** most LCP problems are **network** problems (round trips, render-blocking resources) and most INP problems are **main-thread** problems. Knowing which axis you're on tells you where to look — the same bisect-the-layers instinct as [[networking/16-debugging-networks|network debugging]].
 
 ---
 

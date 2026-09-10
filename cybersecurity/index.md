@@ -43,7 +43,7 @@ A map of this folder. Sections **01–05** are the original course — fundament
 
 ## Binary Exploitation **[Intermediate → Advanced]**
 
-[[cybersecurity/11-binary-exploitation/index|11-binary-exploitation/]] — the `pwn` category, and the natural application of [[languages/04-c/index|C]] and [[foundations/computer-architecture/index|computer architecture]]. The memory model and bug taxonomy → the classic stack overflow and `ret2win` → shellcode and its three strange constraints → **the mitigations (NX, canaries, ASLR, PIE, RELRO) and reading `checksec` as a recipe** → bypassing them with ret2libc and ROP → format strings and the heap → pwntools, pwndbg, and where to practise. **The one idea: modern exploitation reuses the target's own code rather than injecting new code.**
+[[cybersecurity/11-binary-exploitation/index|11-binary-exploitation/]] — the `pwn` category, and the natural application of [[languages/04-c/index|C]] and [[computer-architecture/index|computer architecture]]. The memory model and bug taxonomy → the classic stack overflow and `ret2win` → shellcode and its three strange constraints → **the mitigations (NX, canaries, ASLR, PIE, RELRO) and reading `checksec` as a recipe** → bypassing them with ret2libc and ROP → format strings and the heap → pwntools, pwndbg, and where to practise. **The one idea: modern exploitation reuses the target's own code rather than injecting new code.**
 
 ## Active Directory **[Intermediate → Advanced]**
 
@@ -64,4 +64,4 @@ A map of this folder. Sections **01–05** are the original course — fundament
 ## Related
 - [[cybersecurity/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[ai-ml/index|ai-ml curriculum map]] — same "orientation → deep dive → practice" shape
-- [[foundations/dsa/index|DSA fundamentals]]
+- [[dsa/index|DSA fundamentals]]

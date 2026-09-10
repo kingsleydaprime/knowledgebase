@@ -14,4 +14,4 @@ The platform underneath every JS backend framework. Notes here are runtime-level
 → Full depth in [[backend/interview/02-node-runtime-and-api|the Node runtime interview bank]], which was written from a real interview.
 
 ## Related
-- [[backend/frameworks/javascript/index|JavaScript backends]] · [[foundations/networking/09-sockets-and-the-network-api|Sockets & epoll]]
+- [[backend/frameworks/javascript/index|JavaScript backends]] · [[networking/09-sockets-and-the-network-api|Sockets & epoll]]

@@ -10,7 +10,7 @@ $$e ::= x \mid \lambda x.\,e \mid e_1\,e_2$$
 
 **That's it.** No numbers, no booleans, no conditionals, no loops, no data structures.
 
-> **And it's Turing-complete** (Church, 1936). Everything computable is expressible in those three constructs. **Church arrived at this independently of Turing's machine, and they turned out to define the same class** — which is the main evidence for the Church–Turing thesis. → [[foundations/theory-of-computation/01-what-computation-is|Church–Turing]]
+> **And it's Turing-complete** (Church, 1936). Everything computable is expressible in those three constructs. **Church arrived at this independently of Turing's machine, and they turned out to define the same class** — which is the main evidence for the Church–Turing thesis. → [[theory-of-computation/01-what-computation-is|Church–Turing]]
 
 **Conventions:** application is left-associative ($f\,x\,y$ means $(f\,x)\,y$), and abstraction extends as far right as possible.
 
@@ -123,19 +123,19 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 >
 > **Which means it is no longer Turing-complete.** $Y$ cannot be typed — self-application $x\,x$ requires $x$ to have a type that contains itself.
 >
-> **Adding types removed computational power, and gained you a guarantee.** That trade is the entire subject of type theory, and it's why total languages like Coq and Agda restrict recursion. → [[foundations/theory-of-computation/01-what-computation-is|Turing completeness]]
+> **Adding types removed computational power, and gained you a guarantee.** That trade is the entire subject of type theory, and it's why total languages like Coq and Agda restrict recursion. → [[theory-of-computation/01-what-computation-is|Turing completeness]]
 
 **Real languages add general recursion back** via a `fix` primitive or recursive definitions — **regaining Turing completeness and losing the termination guarantee.**
 
 ## The extensions worth naming
 
-**System F** — parametric polymorphism. $\Lambda\alpha.\,e$ abstracts over *types*. **This is generics**, and full type inference for System F is undecidable — which is why Java and C# require type annotations where ML doesn't. → [[foundations/programming-language-theory/05-type-inference|Type Inference]]
+**System F** — parametric polymorphism. $\Lambda\alpha.\,e$ abstracts over *types*. **This is generics**, and full type inference for System F is undecidable — which is why Java and C# require type annotations where ML doesn't. → [[programming-language-theory/05-type-inference|Type Inference]]
 
 **System F$_\omega$** — type operators. Higher-kinded types, `Functor f`.
 
-**Dependent types** — types depending on *values*. `Vec n a`, where the length is in the type. Coq, Agda, Idris. → [[foundations/programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]]
+**Dependent types** — types depending on *values*. `Vec n a`, where the length is in the type. Coq, Agda, Idris. → [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]]
 
-**Linear types** — every value used **exactly once**. **Rust's ownership is affine types** (at most once), and it's the same idea. → [[foundations/programming-language-theory/07-effects-and-substructural-types|Substructural Types]]
+**Linear types** — every value used **exactly once**. **Rust's ownership is affine types** (at most once), and it's the same idea. → [[programming-language-theory/07-effects-and-substructural-types|Substructural Types]]
 
 **The lambda cube** organises these along three axes: terms depending on types (polymorphism), types depending on types (operators), types depending on terms (dependency). **The Calculus of Constructions has all three**, and it's what Coq is built on.
 
@@ -145,7 +145,7 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 
 **Every functional language is sugar over this.** Haskell, OCaml, F#, Scala, Elm — **desugar far enough and you reach lambda calculus.** So do JavaScript's arrow functions and Python's `lambda`.
 
-**Compilers use it as an IR.** GHC's Core is System F with extensions. **Optimisations are provably-correct lambda-term transformations.** → [[foundations/compilers/06-intermediate-representations|Intermediate Representations]]
+**Compilers use it as an IR.** GHC's Core is System F with extensions. **Optimisations are provably-correct lambda-term transformations.** → [[compilers/06-intermediate-representations|Intermediate Representations]]
 
 **Continuations, CPS and async.** Continuation-passing style is a lambda calculus transformation, and **async/await is essentially a CPS transform** the compiler does for you.
 
@@ -156,7 +156,7 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 ---
 
 ## Related
-- [[foundations/programming-language-theory/03-semantics|Semantics]] — giving meaning rigorously
-- [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what types buy you
+- [[programming-language-theory/03-semantics|Semantics]] — giving meaning rigorously
+- [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what types buy you
 - [[build-your-own-shit/04-your-own-language|Build Your Own Language]] — implementing closures, which is this
-- [[foundations/programming-language-theory/index|PL theory map]]
+- [[programming-language-theory/index|PL theory map]]

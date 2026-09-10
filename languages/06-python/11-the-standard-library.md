@@ -133,7 +133,7 @@ Free `--help`, type conversion and validation. For anything bigger, `click` or `
 | Temp files/dirs | `tempfile` |
 | Zip/tar | `zipfile`, `tarfile` |
 | Config files | `configparser`, `tomllib` (3.11+, read-only) |
-| Decimal money | `decimal` → [[foundations/numerical-methods/02-floating-point-and-error\|floating point]] |
+| Decimal money | `decimal` → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error\|floating point]] |
 | Concurrency | `threading`, `asyncio`, `multiprocessing`, `concurrent.futures` → note 12 |
 | Timing/profiling | `time.perf_counter`, `timeit`, `cProfile` → note 14 |
 | Tests | `unittest` (but use `pytest`) → note 13 |

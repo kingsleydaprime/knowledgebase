@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 }
 ```
 
-**This is composition over inheritance** → [[foundations/programming-fundamentals/13-objects-and-classes|note 13]], and it's the same argument ECS makes more strictly → [[game-development/02-engines-and-the-game-loop|note 02]].
+**This is composition over inheritance** → [[programming-fundamentals/13-objects-and-classes|note 13]], and it's the same argument ECS makes more strictly → [[game-development/02-engines-and-the-game-loop|note 02]].
 
 **The lifecycle hooks, in order:** `Awake` → `OnEnable` → `Start` → [`FixedUpdate`] → `Update` → `LateUpdate` → `OnDestroy`.
 
@@ -65,7 +65,7 @@ Unity is free below a revenue threshold, then per-seat subscriptions.
 
 **In September 2023 Unity announced a per-install runtime fee, retroactively applicable.** The backlash was severe, studios publicly announced migrations to Godot and Unreal, and **the policy was substantially reversed and then cancelled** in 2024. Leadership changed.
 
-**The lesson isn't "Unity is bad" — it's that licence terms on a proprietary engine are a dependency you don't control**, and that belongs in the trade study before you build on it → [[foundations/systems-engineering/05-trade-studies|trade studies]]. Godot's MIT licence is the direct answer to exactly this risk.
+**The lesson isn't "Unity is bad" — it's that licence terms on a proprietary engine are a dependency you don't control**, and that belongs in the trade study before you build on it → [[systems-engineering/05-trade-studies|trade studies]]. Godot's MIT licence is the direct answer to exactly this risk.
 
 ## What it does badly, honestly
 

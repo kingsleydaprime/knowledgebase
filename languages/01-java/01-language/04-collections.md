@@ -95,7 +95,7 @@ System.out.println(payout > 0 ? "You win " + payout : "You lose");
 
 - **`Queue<E>`** — FIFO; `offer`/`poll`/`peek`.
 - **`Deque<E>`** — double-ended; push/pop/peek at *both* ends. Serves as both a stack and a queue.
-- **`PriorityQueue<E>`** — not FIFO; `poll` returns the smallest element by natural order or a `Comparator`, backed by a binary heap (O(log n) insert/poll). This is the structure behind Dijkstra and top-K ([[foundations/dsa/index|DSA]]).
+- **`PriorityQueue<E>`** — not FIFO; `poll` returns the smallest element by natural order or a `Comparator`, backed by a binary heap (O(log n) insert/poll). This is the structure behind Dijkstra and top-K ([[dsa/index|DSA]]).
 
 **Use `ArrayDeque`, not `Stack` or `LinkedList`.** The legacy `Stack` class is synchronized and effectively deprecated; `ArrayDeque` is the modern choice for both stack (`push`/`pop`) and queue (`offer`/`poll`) semantics, with better locality than `LinkedList`. (`BlockingQueue`, the concurrent producer/consumer variant, is in [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] — and re-implementing one by hand is one of the [[languages/01-java/02-jvm-and-concurrency/exercises/index|exercises]].)
 
@@ -137,4 +137,4 @@ Getting this choice right is often a bigger performance win than any micro-optim
 - [[languages/01-java/01-language/03-generics|Generics]] — every collection is generic
 - [[languages/01-java/01-language/05-functional-programming|Functional Programming]] — streams operate over collections
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] — the thread-safe collection variants
-- [[foundations/dsa/index|DSA]] — the data structures and their Big-O, language-agnostic
+- [[dsa/index|DSA]] — the data structures and their Big-O, language-agnostic

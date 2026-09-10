@@ -16,7 +16,7 @@
 - **Newton's laws**, and $F = ma$
 - **The fixed timestep**, and why → [[game-development/02-engines-and-the-game-loop|the game loop]]
 - **The theory this implements** → [[game-development/04-game-physics|game physics]]
-- Helpful: [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]]
+- Helpful: [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]]
 
 **Any language with a simple drawing surface.** Python + pygame, JS + canvas, C++ + SDL, Rust + macroquad. **Rendering must be trivial or it becomes the project.**
 
@@ -80,7 +80,7 @@ Bodies below a velocity threshold for N frames stop being simulated until touche
 
 **The 2D cross product.** In 2D, `cross(a,b)` is the scalar `a.x*b.y - a.y*b.x`, and `cross(scalar, vec)` is a different operation. Mixing them silently produces wrong torque.
 
-**Floating-point drift** in long-running stacks — small errors accumulate → [[foundations/numerical-methods/02-floating-point-and-error|floating point]].
+**Floating-point drift** in long-running stacks — small errors accumulate → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]].
 
 ## How to know it works
 
@@ -103,7 +103,7 @@ Bodies below a velocity threshold for N frames stop being simulated until touche
 ## Related
 - [[game-development/04-game-physics|game physics]] — the theory this implements
 - [[game-development/engines/from-scratch|from scratch]] — where this fits in an engine
-- [[foundations/numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators properly
-- [[engineering/01-continuum-mechanics/index|continuum mechanics]] — what real simulation looks like
+- [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators properly
+- [[continuum-mechanics/index|continuum mechanics]] — what real simulation looks like
 
 *Source: [reference] — build guide, Aug 2026.*

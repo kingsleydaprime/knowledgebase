@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. Leads into [[devops/01-linux/02-navigating-file-system|Navigating the Filesystem]] for the commands themselves.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Leads into [[devops/01-linux/02-navigating-file-system|Navigating the Filesystem]] for the commands themselves.
 
 ---
 

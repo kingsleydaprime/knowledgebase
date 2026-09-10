@@ -48,7 +48,7 @@ def modify(lst, num):
 
 Same rule as everywhere else in the language: **you can mutate what you're given; you cannot rebind the caller's name.**
 
-**Which is why mutating an argument is a design decision, not an accident.** A function that quietly modifies what it was handed is a function whose call sites all need reading. Prefer returning a new value → [[foundations/programming-fundamentals/08-functions|functions]].
+**Which is why mutating an argument is a design decision, not an accident.** A function that quietly modifies what it was handed is a function whose call sites all need reading. Prefer returning a new value → [[programming-fundamentals/08-functions|functions]].
 
 ## Scope, and the LEGB rule
 
@@ -151,6 +151,6 @@ Annotations are **not enforced at runtime** — Python ignores them. They exist 
 - [[languages/06-python/07-decorators-and-context-managers|decorators]] — closures, applied
 - [[languages/06-python/08-typing-and-type-hints|typing]] — making the annotations mean something
 - [[languages/06-python/02-the-data-model|the data model]] — why passing behaves as it does
-- [[foundations/programming-fundamentals/08-functions|functions]] — the language-agnostic version
+- [[programming-fundamentals/08-functions|functions]] — the language-agnostic version
 
 *Source: [reference] — from the Python language reference.*

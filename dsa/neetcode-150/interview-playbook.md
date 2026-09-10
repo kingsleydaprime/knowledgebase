@@ -1,6 +1,6 @@
 # The interview playbook — how to run a problem
 
-The [[README|pattern cheat-sheet]] tells you *which tool* a problem shape wants. This note is the layer above it: **how to run the whole interview**, and how to **reverse-engineer the intended approach from the clues** before you've solved anything. In a real interview, *how* you get to the answer is graded as heavily as the answer — a clean process under a hard problem beats a lucky guess.
+The [[dsa/neetcode-150/index|pattern cheat-sheet]] tells you *which tool* a problem shape wants. This note is the layer above it: **how to run the whole interview**, and how to **reverse-engineer the intended approach from the clues** before you've solved anything. In a real interview, *how* you get to the answer is graded as heavily as the answer — a clean process under a hard problem beats a lucky guess.
 
 Two halves: a repeatable **process** (what to do, in order) and a set of **signals** (how to read the problem for hints).
 
@@ -28,7 +28,7 @@ Take the given example and **trace it by hand**, then invent your **own** — es
 ### 4. Plan — brainstorm *multiple* solutions, brute force first
 Always start by stating the **brute-force** approach and its complexity, even if it's obviously too slow: *"The naive answer is check every pair, O(n²) time, O(1) space."* This does three things: it guarantees you have *something* correct to fall back on, it gives you a baseline to beat, and the inefficiency usually points at the fix (*"the O(n²) is because I re-search for the complement each time — a hash map makes that lookup O(1), dropping it to O(n)"*). Then propose the optimized approach and **state its complexity before coding**. If you can see two viable approaches, name the trade-off (time vs. space) and let the interviewer weigh in — that's a signal, not indecision.
 
-> Optimize by attacking the bottleneck: **repeated work → memoize/cache** ([[README|DP]]), **repeated search → hash map or sort-then-two-pointers**, **recomputing over a window → sliding window**, **re-scanning for next-greater → monotonic stack**.
+> Optimize by attacking the bottleneck: **repeated work → memoize/cache** ([[dsa/neetcode-150/index|DP]]), **repeated search → hash map or sort-then-two-pointers**, **recomputing over a window → sliding window**, **re-scanning for next-greater → monotonic stack**.
 
 ### 5. Implement — write the code
 Only start coding once you and the interviewer agree on the approach. Narrate as you go (*"this loop walks the right pointer, and I shrink from the left whenever the window's invalid"*). Prefer clear names over clever one-liners; you can micro-optimize after it works. If you blank on a language detail, say so and keep moving — an interviewer will hand you a syntax detail; they won't hand you the algorithm.
@@ -43,11 +43,11 @@ Don't announce "done" and stop. **Trace your code line-by-line on a small exampl
 Before you brute-force, scan the prompt for tells. Problems are written with a target solution in mind, and the constraints, the stated complexity, and the exact wording all leak it.
 
 ### Signal A — the input-size constraint tells you the complexity
-Machines do ~10⁸ operations/second and problems allow ~1–10s, so the bound on `n` reveals what complexity is *expected* — often before you've even found the approach. Full table lives in [[foundations/dsa/05-algorithms/01-algorithms|algorithms]]; the reflex version:
+Machines do ~10⁸ operations/second and problems allow ~1–10s, so the bound on `n` reveals what complexity is *expected* — often before you've even found the approach. Full table lives in [[dsa/05-algorithms/01-algorithms|algorithms]]; the reflex version:
 
 | Constraint on `n` | Expected complexity | What that usually means |
 |---|---|---|
-| `n ≤ ~20` | O(2ⁿ) / O(n!) | try **every** subset/permutation → [[README\|backtracking]] or bitmask DP |
+| `n ≤ ~20` | O(2ⁿ) / O(n!) | try **every** subset/permutation → [[dsa/neetcode-150/index\|backtracking]] or bitmask DP |
 | `n ≤ ~500` | O(n³) | triple loop is fine — often interval / 2-D DP |
 | `n ≤ ~5,000` | O(n²) | a nested loop or O(n²) DP is intended |
 | `n ≤ 10⁵–10⁶` | O(n) or O(n log n) | one pass, or **sort first**, or a hash map — *not* a nested loop |
@@ -67,7 +67,7 @@ If the problem says "do it in O(...)", work backwards from it:
 | **O(1) space** you'd expect to need a set | Often **XOR cancellation** or the **index-as-hash** trick (mark `nums[abs(x)]` negative). |
 
 ### Signal C — the wording itself names the pattern
-The vocabulary of the prompt maps to tools (this is the [[README|cheat-sheet]] in reverse):
+The vocabulary of the prompt maps to tools (this is the [[dsa/neetcode-150/index|cheat-sheet]] in reverse):
 - *"contiguous" subarray/substring* → sliding window or prefix sums.
 - *"sorted"* (given, or "you may sort") → two pointers or binary search.
 - *"k largest / smallest / most frequent / closest"* → heap of size k.
@@ -93,6 +93,6 @@ The vocabulary of the prompt maps to tools (this is the [[README|cheat-sheet]] i
 The single highest-leverage habit: **talk through all of it**. A silent solve of the optimal answer scores worse than a narrated walk from brute force to optimal, because the interview is measuring how you think, not whether you've seen the problem before.
 
 ## Related
-- [[README|NeetCode 150 index & pattern cheat-sheet]] — signal → tool, once you know *what* you're building
-- [[foundations/dsa/05-algorithms/01-algorithms|algorithms]] — the full constraint → complexity table and Big-O reasoning
-- [[foundations/dsa/06-patterns/index|patterns]] · [[foundations/dsa/04-data-structures/03-hash-maps|data structures]] — the tools themselves
+- [[dsa/neetcode-150/index|NeetCode 150 index & pattern cheat-sheet]] — signal → tool, once you know *what* you're building
+- [[dsa/05-algorithms/01-algorithms|algorithms]] — the full constraint → complexity table and Big-O reasoning
+- [[dsa/06-patterns/index|patterns]] · [[dsa/04-data-structures/03-hash-maps|data structures]] — the tools themselves

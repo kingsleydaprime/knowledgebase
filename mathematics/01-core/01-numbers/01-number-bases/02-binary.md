@@ -5,7 +5,7 @@
 ## Before you start
 
 - You can convert between decimal and any base — [[01-introduction|number bases]].
-- You know what a power is — [[foundations/mathematics/01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|exponents]].
+- You know what a power is — [[mathematics/01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|exponents]].
 
 **What you will be able to do after this lesson:**
 
@@ -51,7 +51,7 @@ Binary uses only `0` and `1`. Every place is worth twice the one to its right:
 | **byte** | 8 bits | 256 possible values; the standard unit of memory |
 | **word** | machine-dependent | 16, 32 or 64 bits — whatever the CPU handles naturally |
 
-**A byte holds 256 values** — 0 to 255 unsigned, or −128 to 127 signed ([[foundations/computer-architecture/02-data-representation|two's complement]]).
+**A byte holds 256 values** — 0 to 255 unsigned, or −128 to 127 signed ([[computer-architecture/02-data-representation|two's complement]]).
 
 ## 3. The kilobyte problem
 
@@ -93,4 +93,4 @@ IPv4's $2^{32} \approx 4.3$ billion looked limitless in 1981 and ran out because
 ## Related
 
 - [[01-introduction|Number bases]] · [[04-hexadecimal|Hexadecimal]]
-- [[foundations/how-computers-work/01-electricity/05-the-digital-abstraction|How Computers Work — the digital abstraction]]
+- [[how-computers-work/01-electricity/05-the-digital-abstraction|How Computers Work — the digital abstraction]]

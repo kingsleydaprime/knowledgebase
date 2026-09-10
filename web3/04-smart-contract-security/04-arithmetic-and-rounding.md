@@ -123,7 +123,7 @@ Fuzz tests catch most of these almost for free, because the fuzzer will try zero
 
 ## Related
 - [[web3/03-smart-contracts-with-solidity/07-token-standards|ERC-4626]] — where rounding is normative
-- [[foundations/numerical-methods/02-floating-point-and-error|floating point and error]] — the same problems, different representation
+- [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point and error]] — the same problems, different representation
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — where this maths lives
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|fuzz testing]]
 

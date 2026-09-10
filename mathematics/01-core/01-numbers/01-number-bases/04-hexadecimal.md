@@ -91,7 +91,7 @@ That correspondence is why hex is everywhere bytes are:
 - **(a)** Convert by sight, no arithmetic: `0x3F`, `0xC0`, `0xA7`, `0xFFFF` to binary.
 - **(b)** Convert to hex by sight: `1101 0110`, `0000 1111`, `1111 0000 1010 0101`.
 - **(c)** What colour is `#00FF00`? What is `#808080`? What does `#FFFFFF` mean, and why?
-- **(d)** A 32-bit value is `0x80000000`. Which single bit is set? What does that bit mean in a signed integer ([[foundations/computer-architecture/02-data-representation|two's complement]])?
+- **(d)** A 32-bit value is `0x80000000`. Which single bit is set? What does that bit mean in a signed integer ([[computer-architecture/02-data-representation|two's complement]])?
 - **(e)** Write `mask(bits)` returning the hex mask that selects the low `n` bits — `mask(4)` should give `0xF`, `mask(8)` gives `0xFF`, `mask(12)` gives `0xFFF`. Explain the pattern.
 - **(f)** Given `0xAB` and the mask `0x0F`, what does a bitwise AND produce? What does that operation extract, and why is it a common idiom?
 
@@ -112,10 +112,10 @@ The mask for the low $n$ bits is $2^n - 1$, which in hex is a run of <code>F</co
 
 **Recap:** Hexadecimal uses sixteen digits, 0–9 then A–F. It exists because $16 = 2^4$, so one hex digit is exactly four bits and conversion is digit-by-digit with no arithmetic — and a byte, being 8 bits, is exactly two hex digits. That locality means changing one bit changes exactly one hex digit, which is why memory dumps, colours, masks and addresses are all written in hex rather than decimal.
 
-**Next:** [[foundations/mathematics/01-core/00-foundations/01-number-systems|Number systems]] — from *how* numbers are written to *what kinds* of number exist.
+**Next:** [[mathematics/01-core/00-foundations/01-number-systems|Number systems]] — from *how* numbers are written to *what kinds* of number exist.
 
 ## Related
 
 - [[01-introduction|Number bases]] · [[02-binary|Binary]] · [[03-decimal|Decimal]]
-- [[foundations/computer-architecture/02-data-representation|computer-architecture/data representation]] — where these bytes get meaning
-- [[foundations/how-computers-work/index|How Computers Work]] — the course this unblocks
+- [[computer-architecture/02-data-representation|computer-architecture/data representation]] — where these bytes get meaning
+- [[how-computers-work/index|How Computers Work]] — the course this unblocks

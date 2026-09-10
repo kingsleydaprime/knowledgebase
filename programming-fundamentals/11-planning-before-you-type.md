@@ -4,7 +4,7 @@
 
 The instinct when given a problem is to open an editor and start typing. For anything past twenty lines, this reliably produces code you rewrite three times, discover a missing case halfway through, and then bolt something on at the end.
 
-**Most professional programming time goes to thinking, reading and deciding rather than typing** — see [[foundations/software-engineering/01-what-software-engineering-is|what software engineering is]]. This note is the beginner-scale version of that.
+**Most professional programming time goes to thinking, reading and deciding rather than typing** — see [[software-engineering/01-what-software-engineering-is|what software engineering is]]. This note is the beginner-scale version of that.
 
 ## Understand the problem first
 
@@ -37,7 +37,7 @@ Break the problem into pieces small enough to hold in your head, then check the 
 7. Format the output
 8. Print it
 
-**Each of those is a [[foundations/programming-fundamentals/08-functions|function]], and now each is small enough to be obviously right.** You can also write and test them one at a time, in any order, rather than having a program that either works completely or not at all.
+**Each of those is a [[programming-fundamentals/08-functions|function]], and now each is small enough to be obviously right.** You can also write and test them one at a time, in any order, rather than having a program that either works completely or not at all.
 
 **The failure mode is splitting along the wrong seam** — pieces that need to know too much about each other. If step 5 needs to understand the file format, the split was wrong.
 
@@ -150,9 +150,9 @@ A note about *why* — why this structure, what else you considered, what constr
 At professional scale this becomes an architecture decision record → [[concepts/04-best-practices/03-documentation-practices|documentation practices]].
 
 ## Related
-- [[foundations/programming-fundamentals/08-functions|functions]] — what decomposition produces
-- [[foundations/programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — where to apply this
-- [[foundations/software-engineering/02-the-software-development-lifecycle|the SDLC]] — this, at professional scale
+- [[programming-fundamentals/08-functions|functions]] — what decomposition produces
+- [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — where to apply this
+- [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — this, at professional scale
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach system design]] — this, at system scale
 - [[learning/index|how I learn]] — the board-and-notebook version of the same instinct
 

@@ -1,6 +1,6 @@
 # Networking Interview — Debugging & Scenarios
 
-From [[foundations/networking/14-nat-firewalls-and-middleboxes|14-nat-firewalls-and-middleboxes]], [[foundations/networking/15-network-performance|15-network-performance]], [[foundations/networking/16-debugging-networks|16-debugging-networks]].
+From [[networking/14-nat-firewalls-and-middleboxes|14-nat-firewalls-and-middleboxes]], [[networking/15-network-performance|15-network-performance]], [[networking/16-debugging-networks|16-debugging-networks]].
 
 **These are the questions that actually differentiate people.** Reciting the handshake is table stakes; driving an investigation is the signal. In every one of these, *say your method out loud* — the interviewer is grading how you narrow the search space, not whether you guess right immediately.
 
@@ -92,7 +92,7 @@ From [[foundations/networking/14-nat-firewalls-and-middleboxes|14-nat-firewalls-
 
 ### Q8. [Intermediate→Advanced] 🔥 Two users behind different home routers want a direct peer-to-peer connection. How?
 
-**Strong answer covers:** both are behind [[foundations/networking/03-ip-addressing-and-subnetting|NAT]] with no publicly reachable address, and a NAT only forwards packets matching an existing outbound mapping. So:
+**Strong answer covers:** both are behind [[networking/03-ip-addressing-and-subnetting|NAT]] with no publicly reachable address, and a NAT only forwards packets matching an existing outbound mapping. So:
 
 - **STUN** — each peer asks a public server "what does my address look like from outside?" to discover its external IP:port.
 - **Hole punching** — both peers send packets to each other's discovered external addresses *simultaneously*. Each outbound packet creates a mapping in its own NAT, so the peer's incoming packet now matches an existing entry and is let through. You're deliberately tricking both NATs into believing each side initiated.

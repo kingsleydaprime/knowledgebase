@@ -23,7 +23,7 @@ var x = new T();                               // works, given new()
 
 **Three practical consequences:**
 
-**`List<int>` stores unboxed ints** in a contiguous `int[]`. Java's `List<Integer>` stores boxed objects on the heap. **For numeric collections this is a large, real performance gap** → [[foundations/computer-architecture/09-caches-in-depth|caches]].
+**`List<int>` stores unboxed ints** in a contiguous `int[]`. Java's `List<Integer>` stores boxed objects on the heap. **For numeric collections this is a large, real performance gap** → [[computer-architecture/09-caches-in-depth|caches]].
 
 **No type tokens.** Java code is full of `Class<T> clazz` parameters passed purely to recover the erased type. C# doesn't need them.
 
@@ -103,6 +103,6 @@ Swap(ref x, ref y);           // T inferred as int — no <int> needed
 ## Related
 - [[languages/07-csharp/02-the-type-system|the type system]]
 - [[languages/07-csharp/04-collections-and-linq|collections and LINQ]] — generics' biggest consumer
-- [[foundations/programming-language-theory/04-type-systems-formally|type systems]] — variance, formally
+- [[programming-language-theory/04-type-systems-formally|type systems]] — variance, formally
 
 *Source: [reference] — from the C# language reference, Aug 2026.*

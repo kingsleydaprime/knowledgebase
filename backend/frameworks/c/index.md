@@ -55,6 +55,6 @@ If the reason is an existing native codebase, look at [[backend/frameworks/cpp/i
 
 ## Related
 - [[backend/frameworks/index|frameworks/]] · [[languages/04-c/index|the C course]]
-- [[foundations/networking/09-sockets-and-the-network-api|Sockets and the Network API]]
+- [[networking/09-sockets-and-the-network-api|Sockets and the Network API]]
 - [[backend/frameworks/rust/index|Rust backends]] — the direct replacement
 - [[cybersecurity/04-web-security/index|Web Security]]

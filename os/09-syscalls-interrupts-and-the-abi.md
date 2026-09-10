@@ -115,7 +115,7 @@ ethtool -l eth0            # queue count
 cat /proc/irq/<n>/smp_affinity     # which CPU handles this IRQ
 ```
 
-**IRQ affinity matters at high packet rates**: pinning a NIC queue's interrupt to the same core as the thread processing it keeps the data in that core's cache. `irqbalance` does this automatically and is sometimes worth disabling in favour of manual pinning. → [[foundations/networking/15-network-performance|Network Performance]]
+**IRQ affinity matters at high packet rates**: pinning a NIC queue's interrupt to the same core as the thread processing it keeps the data in that core's cache. `irqbalance` does this automatically and is sometimes worth disabling in favour of manual pinning. → [[networking/15-network-performance|Network Performance]]
 
 ## Faults and exceptions
 
@@ -123,7 +123,7 @@ Synchronous traps caused by the instruction being executed:
 
 | Fault | Cause | Result |
 |---|---|---|
-| **Page fault** | address not currently mapped | usually **fixed transparently** → [[foundations/os/04-virtual-memory\|VM]] |
+| **Page fault** | address not currently mapped | usually **fixed transparently** → [[os/04-virtual-memory\|VM]] |
 | **General protection** | privileged instruction in ring 3 | `SIGSEGV` |
 | **Divide by zero** | | `SIGFPE` |
 | **Invalid opcode** | | `SIGILL` |
@@ -181,8 +181,8 @@ This is what `bcc`, `bpftrace`, Cilium, Falco and most modern observability tool
 ---
 
 ## Related
-- [[foundations/os/01-what-an-os-is|What an OS Is]] — the privilege boundary being crossed
-- [[foundations/os/08-io-models|I/O Models]] — why batching syscalls matters
-- [[foundations/os/10-signals-and-ipc|Signals and IPC]] — the kernel interrupting *you*
+- [[os/01-what-an-os-is|What an OS Is]] — the privilege boundary being crossed
+- [[os/08-io-models|I/O Models]] — why batching syscalls matters
+- [[os/10-signals-and-ipc|Signals and IPC]] — the kernel interrupting *you*
 - [[languages/03-rust/15-unsafe-and-ffi|Rust: FFI]] — the ABI in use
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

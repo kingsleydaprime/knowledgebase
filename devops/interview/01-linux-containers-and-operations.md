@@ -74,7 +74,7 @@ Fix by restarting the process or truncating via `/proc/<pid>/fd/<n>`.
 - The **scheduler** notices unscheduled pods and binds each to a node (filter feasible nodes, then score).
 - The **kubelet** on that node notices a pod bound to it, pulls images, and asks the container runtime to start it.
 
-**The concept to name — this is the actual answer:** the **reconciliation loop**. Every controller watches for a difference between desired and actual state and takes one step to close it. It's declarative, level-triggered rather than edge-triggered, so a missed event doesn't break anything — the next loop sees the same difference. That's why Kubernetes is resilient to controller restarts, and it's the same control-plane/data-plane split as [[foundations/networking/04-routing|routing]].
+**The concept to name — this is the actual answer:** the **reconciliation loop**. Every controller watches for a difference between desired and actual state and takes one step to close it. It's declarative, level-triggered rather than edge-triggered, so a missed event doesn't break anything — the next loop sees the same difference. That's why Kubernetes is resilient to controller restarts, and it's the same control-plane/data-plane split as [[networking/04-routing|routing]].
 
 ---
 

@@ -49,7 +49,7 @@ What the client actually checks, in order — and each is a real-world failure m
 3. **Name matches** — the `Subject Alternative Name` must cover the hostname. (Common Name has been deprecated for this since 2017; browsers ignore it entirely.)
 4. **Not revoked.** The weakest link. CRLs are huge and stale; **OCSP** requires an online check that leaks browsing to the CA and fails open (soft-fail) — an attacker who can MITM can also block the OCSP query. **OCSP stapling** improves this by having the *server* fetch and attach a signed freshness proof. Chrome largely abandoned OCSP for CRLSets; the industry's real answer has become **short-lived certificates** — a 90-day (soon 47-day) cert that expires before revocation would have mattered.
 
-**Certificate Transparency** is the systemic fix for misissuance: every cert must be logged to public append-only logs, so a domain owner can detect a CA issuing certs for their domain. **CAA records** ([[foundations/networking/10-dns-in-depth|DNS]]) let you declare which CAs may issue for you at all. Both are cheap and worth setting.
+**Certificate Transparency** is the systemic fix for misissuance: every cert must be logged to public append-only logs, so a domain owner can detect a CA issuing certs for their domain. **CAA records** ([[networking/10-dns-in-depth|DNS]]) let you declare which CAs may issue for you at all. Both are cheap and worth setting.
 
 ## The handshake, and what TLS 1.3 changed
 
@@ -84,6 +84,6 @@ TLS's hardest problem was never encryption — it's **authentication**, and TLS 
 
 ## Related
 - [[cybersecurity/05-cryptography/index|Cryptography]] — the primitives underneath
-- [[foundations/networking/13-quic-and-modern-transport|QUIC]] — TLS 1.3 fused into the transport itself
-- [[foundations/networking/11-http-evolution|HTTP Evolution]] — ALPN, and why h2 requires TLS in practice
+- [[networking/13-quic-and-modern-transport|QUIC]] — TLS 1.3 fused into the transport itself
+- [[networking/11-http-evolution|HTTP Evolution]] — ALPN, and why h2 requires TLS in practice
 - [[cybersecurity/03-network-security/03-vpns-and-encryption-in-transit|Encryption in Transit]] — the operator's view

@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · What real-time rendering adds to the graphics you already have — the frame budget, culling, batching, and why games cheat everywhere.
 
-**This vault already has [[foundations/computer-graphics/index|a nine-note graphics course]]** — the rendering equation, the transform pipeline, rasterisation, shading and PBR, textures, the GPU pipeline, ray tracing, meshes and animation. Read that for the theory.
+**This vault already has [[computer-graphics/index|a nine-note graphics course]]** — the rendering equation, the transform pipeline, rasterisation, shading and PBR, textures, the GPU pipeline, ray tracing, meshes and animation. Read that for the theory.
 
 **This note is only what changes when you have 16 milliseconds.**
 
@@ -50,11 +50,11 @@ Everything here is about **not drawing things**:
 
 **Level of detail (LOD)** — swap in simpler meshes with distance. A character might have 50k triangles up close and 500 at range. **The pop when it switches is the artefact you're trading against**, which is why LOD transitions get blended.
 
-**Spatial partitioning** makes culling fast: quadtrees (2D), octrees, BVH, spatial hashes. **These are the [[foundations/dsa/index|tree structures]] you already know**, applied to space — the question "what is near this point" is the same as "what is in this subtree".
+**Spatial partitioning** makes culling fast: quadtrees (2D), octrees, BVH, spatial hashes. **These are the [[dsa/index|tree structures]] you already know**, applied to space — the question "what is near this point" is the same as "what is in this subtree".
 
 ## Shaders
 
-Programs that run on the GPU, massively in parallel → [[foundations/gpu-and-parallel-computing/index|GPU and parallel computing]].
+Programs that run on the GPU, massively in parallel → [[gpu-and-parallel-computing/index|GPU and parallel computing]].
 
 - **Vertex shader** — runs per vertex; transforms into clip space
 - **Fragment/pixel shader** — runs per pixel; computes colour. **This is where the cost is**, because there are far more pixels than vertices
@@ -82,24 +82,24 @@ The techniques that make real-time rendering possible, each an approximation:
 
 **Deferred rendering** — render surface properties to a G-buffer, then light in screen space. Decouples lighting cost from geometry, so hundreds of lights become affordable. Costs you cheap transparency and MSAA.
 
-**Ray tracing** is now viable for parts of a frame on recent hardware (RTX, DXR) — typically hybrid: rasterise, then ray-trace reflections or shadows, then heavily denoise → [[foundations/computer-graphics/07-ray-tracing-and-path-tracing|ray tracing]].
+**Ray tracing** is now viable for parts of a frame on recent hardware (RTX, DXR) — typically hybrid: rasterise, then ray-trace reflections or shadows, then heavily denoise → [[computer-graphics/07-ray-tracing-and-path-tracing|ray tracing]].
 
 ## What to actually learn
 
 **In order, and the first three cover most games:**
 
-1. **The transform pipeline** — model → world → view → clip → screen. Understand it once and the rest follows → [[foundations/computer-graphics/02-the-transform-pipeline|transforms]]
+1. **The transform pipeline** — model → world → view → clip → screen. Understand it once and the rest follows → [[computer-graphics/02-the-transform-pipeline|transforms]]
 2. **Write a simple shader.** Colour a surface by its normal. Then by a light direction. **Ten lines, and it demystifies the whole subject**
 3. **Textures and UVs** — how images map onto geometry
-4. **Basic lighting** — diffuse, specular, then PBR → [[foundations/computer-graphics/04-shading-and-lighting|shading]]
+4. **Basic lighting** — diffuse, specular, then PBR → [[computer-graphics/04-shading-and-lighting|shading]]
 5. **Profile a frame.** RenderDoc, or your engine's profiler. **Seeing where 16 ms actually goes is worth more than any amount of reading**
 
 **For 2D games you need almost none of this.** Sprites, transforms and a camera. Don't let the 3D pipeline put you off starting.
 
 ## Related
-- [[foundations/computer-graphics/index|computer graphics]] — **the theory, already written**
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel computing]] — the hardware
+- [[computer-graphics/index|computer graphics]] — **the theory, already written**
+- [[gpu-and-parallel-computing/index|GPU and parallel computing]] — the hardware
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — where rendering sits
-- [[foundations/dsa/index|data structures]] — the trees under spatial partitioning
+- [[dsa/index|data structures]] — the trees under spatial partitioning
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

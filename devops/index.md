@@ -34,4 +34,4 @@ A map of this folder, in reading order. **00 is the physical layer underneath ev
 - [[devops/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
 - [[git/index|git/]] — version control, the roadmap's VCS pillar
 - [[languages/index|languages/]] — a programming language for automation/tooling
-- [[foundations/dsa/index|DSA fundamentals]]
+- [[dsa/index|DSA fundamentals]]

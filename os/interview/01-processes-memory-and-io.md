@@ -1,6 +1,6 @@
 # OS Interview — Processes, Memory & I/O
 
-From [[foundations/os/fundamentals|OS fundamentals]]. Depth probes — they're checking whether your model bottoms out at the runtime or goes below it.
+From [[os/fundamentals|OS fundamentals]]. Depth probes — they're checking whether your model bottoms out at the runtime or goes below it.
 
 ---
 
@@ -37,7 +37,7 @@ From [[foundations/os/fundamentals|OS fundamentals]]. Depth probes — they're c
 
 **The cost:** the mode switch itself is now fairly cheap (`syscall`/`sysret` instructions), on the order of 100ns. But: it pollutes caches and branch predictors, may cause a reschedule, and — since **Spectre/Meltdown mitigations** (KPTI) — involves page-table switching that made syscalls significantly more expensive again. That's a nice detail to know: a *security* mitigation measurably changed the performance calculus for syscall-heavy workloads.
 
-**Why it matters:** it's why batching syscalls is a real optimisation, and it drives the whole progression in [[foundations/networking/09-sockets-and-the-network-api|the sockets note]] — `select` → `epoll` → **`io_uring`**, where io_uring's headline feature is submitting many operations through a shared ring buffer with *no syscall at all* in the steady state.
+**Why it matters:** it's why batching syscalls is a real optimisation, and it drives the whole progression in [[networking/09-sockets-and-the-network-api|the sockets note]] — `select` → `epoll` → **`io_uring`**, where io_uring's headline feature is submitting many operations through a shared ring buffer with *no syscall at all* in the steady state.
 
 ---
 
@@ -125,4 +125,4 @@ From [[foundations/os/fundamentals|OS fundamentals]]. Depth probes — they're c
 
 **What it buys:** composability. `epoll` works on sockets *and* pipes *and* timerfd *and* signalfd, so an event loop can wait on network I/O, timers, and signals in **one** call. Shell redirection and pipes work uniformly across every program ever written. A tool that reads stdin works on a file, a socket, or another program's output without knowing the difference.
 
-**Where the abstraction leaks — and naming this is what separates a good answer:** an fd doesn't tell you message boundaries ([[foundations/networking/09-sockets-and-the-network-api|TCP is a byte stream]]), a successful `write` doesn't mean delivery, regular files are always "ready" so `epoll` is useless on them, and `open()` on a network filesystem can block for minutes in a way a local `open` never does. The uniform interface hides genuinely different failure modes, which is precisely where the hard bugs live.
+**Where the abstraction leaks — and naming this is what separates a good answer:** an fd doesn't tell you message boundaries ([[networking/09-sockets-and-the-network-api|TCP is a byte stream]]), a successful `write` doesn't mean delivery, regular files are always "ready" so `epoll` is useless on them, and `open()` on a network filesystem can block for minutes in a way a local `open` never does. The uniform interface hides genuinely different failure modes, which is precisely where the hard bugs live.

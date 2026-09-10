@@ -74,7 +74,7 @@ def fib(n):
     return n if n <= 1 else fib(n-1) + fib(n-2)
 ```
 
-That's memoisation → [[foundations/programming-fundamentals/09-recursion-and-the-call-stack|recursion]]. Two cautions: arguments must be hashable, and an unbounded cache on a long-running process is a memory leak — use `@lru_cache(maxsize=1000)` when the input space is large.
+That's memoisation → [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]]. Two cautions: arguments must be hashable, and an unbounded cache on a long-running process is a memory leak — use `@lru_cache(maxsize=1000)` when the input space is large.
 
 ## Context managers
 

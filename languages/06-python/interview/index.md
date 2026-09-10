@@ -17,7 +17,7 @@ From [[languages/06-python/index|the Python course]]. **Python interviews test t
 |---|---|
 | Frameworks (FastAPI/Django/Flask) | [[backend/frameworks/python/index\|backend/frameworks/python/]] |
 | Data stack (NumPy/pandas) | [[ai-ml/00-foundations/04-python-and-data-tools/index\|ai-ml]] |
-| Algorithms | [[foundations/dsa/interview/index\|DSA interview prep]] |
+| Algorithms | [[dsa/interview/index\|DSA interview prep]] |
 | API/auth/testing, stack-agnostic | [[concepts/interview/index\|Concepts]] |
 
 ## Related

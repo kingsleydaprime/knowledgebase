@@ -23,4 +23,4 @@ Things used daily with no notes yet:
 ## Related
 - [[devops/01-linux/index|Linux]] — the environment these tools run in
 - [[git/index|Git]] — the tool with the deepest coverage, promoted out of here into its own course
-- [[README|Vault README]]
+- [[HOME|Vault README]]

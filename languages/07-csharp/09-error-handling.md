@@ -118,6 +118,6 @@ ArgumentOutOfRangeException.ThrowIfNegative(amount);
 ## Related
 - [[languages/07-csharp/07-async-await-and-tasks|async and tasks]] — exceptions across await
 - [[languages/06-python/09-errors-and-exceptions|Python's version]] · [[languages/02-go/05-errors|Go's]]
-- [[foundations/programming-fundamentals/10-errors-and-debugging|errors and debugging]]
+- [[programming-fundamentals/10-errors-and-debugging|errors and debugging]]
 
 *Source: [reference] — from the .NET documentation, Aug 2026.*

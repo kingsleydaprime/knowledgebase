@@ -265,7 +265,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[025-daily-temperatures|Daily Temperatures]] (LeetCode #739) — the canonical next-greater-element problem.
 2. [[027-largest-rectangle-in-histogram|Largest Rectangle in Histogram]] (LeetCode #84) — the hardest classic; the stack finds each bar's left and right limits.

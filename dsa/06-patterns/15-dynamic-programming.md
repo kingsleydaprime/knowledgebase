@@ -316,7 +316,7 @@ Attempt these without the note, then compare your reasoning below.
 
 ## Practice problems
 
-**In the [[foundations/dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
+**In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
 1. [[099-climbing-stairs|Climbing Stairs]] (LeetCode #70) — Fibonacci — the first recurrence to write down.
 2. [[100-min-cost-climbing-stairs|Min Cost Climbing Stairs]] (LeetCode #746) — the same shape with a cost attached.

@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Intermediate → Advanced]** · Worked answers to [[foundations/theory-of-computation/09-practice-exercises|note 09]].
+> **[Intermediate → Advanced]** · Worked answers to [[theory-of-computation/09-practice-exercises|note 09]].
 
 ---
 
@@ -14,7 +14,7 @@
 
 **This is the one worth doing.** It shows a finite machine handling arbitrarily large numbers — because it never stores the number, only the residue. **Bounded memory, unbounded input** is the whole idea of the model.
 
-**(c) Contains `101`.** Four states tracking the longest prefix of `101` matched so far: none / `1` / `10` / `101` (accepting, absorbing). **This is exactly what Knuth–Morris–Pratt builds** → [[foundations/dsa/index|DSA]].
+**(c) Contains `101`.** Four states tracking the longest prefix of `101` matched so far: none / `1` / `10` / `101` (accepting, absorbing). **This is exactly what Knuth–Morris–Pratt builds** → [[dsa/index|DSA]].
 
 ### 2. Subset construction
 
@@ -70,7 +70,7 @@ $$E \to E + T \mid T \qquad T \to T \times F \mid F \qquad F \to (\,E\,) \mid \t
 
 Now `1 + 2 * 3` has exactly one tree, yielding 7. **Left recursion ($E \to E+T$) gives left-associativity**; the layering gives precedence.
 
-**This is what you do every time you write a grammar for a parser generator**, and the shift/reduce conflicts such tools report are ambiguity being detected mechanically → [[foundations/compilers/03-parsing|parsing]].
+**This is what you do every time you write a grammar for a parser generator**, and the shift/reduce conflicts such tools report are ambiguity being detected mechanically → [[compilers/03-parsing|parsing]].
 
 ### 8. $\{a^nb^nc^n\}$ is not context-free
 
@@ -117,7 +117,7 @@ So $H$ cannot exist. ∎
 
 **The one-sentence version:** *$D$ is built to do the opposite of whatever it's predicted to do, so asking it about itself makes the prediction self-refuting.*
 
-**Same shape as Russell's paradox and Cantor's diagonal** — self-reference plus negation. And it's not an artefact: Rice's theorem generalises it to **every** non-trivial semantic property of programs, which is why perfect static analysis of program behaviour is impossible in principle, not merely hard → [[foundations/compilers/index|compilers]].
+**Same shape as Russell's paradox and Cantor's diagonal** — self-reference plus negation. And it's not an artefact: Rice's theorem generalises it to **every** non-trivial semantic property of programs, which is why perfect static analysis of program behaviour is impossible in principle, not merely hard → [[compilers/index|compilers]].
 
 ### 11. Reduce: "does this TM print `z`?"
 
@@ -169,10 +169,10 @@ Unit propagation (a clause with one unassigned literal forces it), pure literal 
 
 **Unit propagation is by far the biggest win** — typically the difference between minutes and milliseconds. Modern CDCL solvers add clause learning (on conflict, derive a new clause that prevents repeating the mistake) and non-chronological backtracking.
 
-**The practical upshot, which is the reason this exercise is here:** SAT is NP-complete, and industrial solvers routinely handle instances with **millions** of variables. **NP-complete means no known polynomial *worst-case* algorithm — not that instances you meet are hard.** Confusing those two is the most common misuse of complexity theory in engineering arguments → [[foundations/theory-of-computation/07-complexity-classes|note 07]].
+**The practical upshot, which is the reason this exercise is here:** SAT is NP-complete, and industrial solvers routinely handle instances with **millions** of variables. **NP-complete means no known polynomial *worst-case* algorithm — not that instances you meet are hard.** Confusing those two is the most common misuse of complexity theory in engineering arguments → [[theory-of-computation/07-complexity-classes|note 07]].
 
 ## Related
-- [[foundations/theory-of-computation/09-practice-exercises|the exercises]]
-- [[foundations/theory-of-computation/index|the course]]
+- [[theory-of-computation/09-practice-exercises|the exercises]]
+- [[theory-of-computation/index|the course]]
 
 *Source: [reference] — the 23-second figure measured on Python 3.14, August 2026.*

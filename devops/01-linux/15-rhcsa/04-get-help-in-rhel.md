@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. This matters more than it looks on the exam — you get zero internet access during RHCSA, so `man` and `--help` are the *only* references you have.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. This matters more than it looks on the exam — you get zero internet access during RHCSA, so `man` and `--help` are the *only* references you have.
 
 ---
 

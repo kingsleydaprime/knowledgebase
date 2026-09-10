@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. RHCSA tests the **client** side of this — mounting storage that lives on another machine — not standing up an NFS server yourself.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. RHCSA tests the **client** side of this — mounting storage that lives on another machine — not standing up an NFS server yourself.
 
 ---
 

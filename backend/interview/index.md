@@ -26,7 +26,7 @@ That's [[PRIMETECHIE|Rank II — the Diagnostician]], almost item for item. It's
 3. **Know the retry trio cold:** full jitter, retry budgets, and *retry at one layer only*. Amplification is the thing that turns a blip into an outage.
 
 ## Related
-- [[foundations/networking/interview/04-debugging-and-scenarios|Networking: debugging scenarios]] — the same bisecting method, one layer down
+- [[networking/interview/04-debugging-and-scenarios|Networking: debugging scenarios]] — the same bisecting method, one layer down
 - [[databases/interview/01-sql-modelling-and-internals|Databases]] — connection pool sizing, query plans
 - [[devops/interview/01-linux-containers-and-operations|DevOps]] — incident response, cgroup CPU throttling
 - [[architecture/interview/01-system-design-round|Architecture]] — resilience patterns, caching

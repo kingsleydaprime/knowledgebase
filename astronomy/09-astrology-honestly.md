@@ -57,7 +57,7 @@ A **natal chart** is a map of the sky at a specific time and place — the posit
 
 Statements like *"you have a need for others to like you, yet you tend to be critical of yourself"* feel specific and apply to nearly everyone. **Astrological descriptions are dense with them**, and so are most personality tests you'll meet at work.
 
-**Confirmation bias.** Hits are memorable, misses evaporate. A prediction of "a difficult conversation this week" is confirmed by one awkward exchange and quietly forgotten otherwise → [[foundations/systems-engineering/08-risk-and-failure-analysis|the same bias in engineering]].
+**Confirmation bias.** Hits are memorable, misses evaporate. A prediction of "a difficult conversation this week" is confirmed by one awkward exchange and quietly forgotten otherwise → [[systems-engineering/08-risk-and-failure-analysis|the same bias in engineering]].
 
 **Subjective validation.** Told a description applies to you, you actively search memory for supporting instances — and memory is more than happy to supply them.
 

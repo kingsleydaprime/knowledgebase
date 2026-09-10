@@ -8,7 +8,7 @@
 
 **The editor is written in Godot.** The engine is legible in a way Unity and Unreal are not: you can read the source of the thing you're using, and the whole download is ~100 MB.
 
-**GDScript is close to Python** → [[languages/06-python/index|Python]], so if you've done [[foundations/programming-fundamentals/index|programming fundamentals]] you can be productive immediately.
+**GDScript is close to Python** → [[languages/06-python/index|Python]], so if you've done [[programming-fundamentals/index|programming fundamentals]] you can be productive immediately.
 
 ## The model: everything is a node
 
@@ -47,7 +47,7 @@ func take_damage(amount: int) -> void:
     health_changed.emit(health)      # anyone listening reacts
 ```
 
-**Why it matters architecturally: signals point *upward*.** A child emits; a parent connects. That keeps children ignorant of their context, so a health bar doesn't need to know what a player is — which is exactly the coupling argument from [[foundations/systems-engineering/04-architecture-and-interfaces|interfaces]].
+**Why it matters architecturally: signals point *upward*.** A child emits; a parent connects. That keeps children ignorant of their context, so a health bar doesn't need to know what a player is — which is exactly the coupling argument from [[systems-engineering/04-architecture-and-interfaces|interfaces]].
 
 **The Godot idiom is "call down, signal up."** Get that and the architecture mostly writes itself.
 

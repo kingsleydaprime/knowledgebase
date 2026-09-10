@@ -16,7 +16,7 @@ You broke the grammar. A missing bracket, a misspelled keyword, bad indentation.
 SyntaxError: expected ':' (app.py, line 12)
 ```
 
-**The easiest kind**, because the program refuses to start and tells you where. Your editor usually catches them before you save. → [[foundations/programming-fundamentals/04-syntax-and-the-shape-of-a-statement|note 04]].
+**The easiest kind**, because the program refuses to start and tells you where. Your editor usually catches them before you save. → [[programming-fundamentals/04-syntax-and-the-shape-of-a-statement|note 04]].
 
 ### Runtime errors — it starts, then crashes
 
@@ -51,7 +51,7 @@ Beginners skim errors; the message usually contains the answer. Three parts:
 
 - **Type** — `TypeError`, `IndexError`. Tells you the *category*
 - **Message** — often the fix, stated in English
-- **Stack trace** — the chain of calls that got you there → [[foundations/programming-fundamentals/09-recursion-and-the-call-stack|note 09]]
+- **Stack trace** — the chain of calls that got you there → [[programming-fundamentals/09-recursion-and-the-call-stack|note 09]]
 
 **Read stack traces from the top for *where*, then downward for *how you got there*.** In a long trace, most frames are library code — find the deepest line that is *yours*. That's nearly always the real location.
 
@@ -131,7 +131,7 @@ Explain the code, line by line, out loud, to something that isn't listening. **T
 **AI is genuinely good at this specific task** — pasting an error and the relevant code gets useful answers. Two cautions: it will confidently invent functions that don't exist, and *understanding* the fix is the entire point. A fix you can't explain is a bug you'll have again. → [[using-ai/06-verifying-what-it-tells-you|verifying what it tells you]].
 
 ## Related
-- [[foundations/programming-fundamentals/11-planning-before-you-type|planning]] — the errors you avoid by thinking first
+- [[programming-fundamentals/11-planning-before-you-type|planning]] — the errors you avoid by thinking first
 - [[concepts/04-best-practices/04-testing-fundamentals|testing]] — automating the checks
 - [[git/09-investigating-history|investigating history]] — `git bisect` and `git blame`
 - [[backend/interview/01-production-debugging|production debugging]] — the same skill, higher stakes

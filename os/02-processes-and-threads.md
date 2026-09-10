@@ -76,7 +76,7 @@ Copying an entire address space would make `fork` unusably slow. It doesn't:
 
 **Both processes' page tables point at the same physical pages, marked read-only. On the first write, the CPU faults, and the kernel copies just that page.**
 
-So `fork` costs a page-table copy, not a memory copy. A process using 1GB forks in microseconds, and pages are only duplicated as they're actually modified. → [[foundations/os/04-virtual-memory|Virtual Memory]]
+So `fork` costs a page-table copy, not a memory copy. A process using 1GB forks in microseconds, and pages are only duplicated as they're actually modified. → [[os/04-virtual-memory|Virtual Memory]]
 
 This is why `fork()` + immediately `exec()` is cheap — almost nothing gets copied before the address space is replaced entirely.
 
@@ -150,7 +150,7 @@ signal(SIGCHLD, SIG_IGN);        // or: tell the kernel you don't care
 
 Zombies accumulate if a parent spawns children and never waits. They're harmless individually and eventually exhaust the PID table.
 
-**An orphan is the opposite** — the parent died first. Orphans are re-parented to PID 1, which reaps them automatically. That's why `init`/`systemd` matters, and why **PID 1 in a container must reap children** — a container whose PID 1 is your application, and which spawns subprocesses, accumulates zombies unless you handle `SIGCHLD` or use `--init`. → [[foundations/os/11-isolation-and-containers|Isolation and Containers]]
+**An orphan is the opposite** — the parent died first. Orphans are re-parented to PID 1, which reaps them automatically. That's why `init`/`systemd` matters, and why **PID 1 in a container must reap children** — a container whose PID 1 is your application, and which spawns subprocesses, accumulates zombies unless you handle `SIGCHLD` or use `--init`. → [[os/11-isolation-and-containers|Isolation and Containers]]
 
 ```bash
 ps aux | awk '$8 ~ /^Z/'     # find zombies (state Z, "defunct")
@@ -167,7 +167,7 @@ A thread is a schedulable execution context. Threads in one process share almost
 | current directory, uid | thread ID |
 | signal *handlers* | signal *mask*, pending signals |
 
-**Sharing the address space is the whole point and the whole problem.** Communication is free — just write to a global. Correctness requires synchronisation, because two threads writing one variable is a data race. → [[foundations/os/06-concurrency-primitives|Concurrency Primitives]]
+**Sharing the address space is the whole point and the whole problem.** Communication is free — just write to a global. Correctness requires synchronisation, because two threads writing one variable is a data race. → [[os/06-concurrency-primitives|Concurrency Primitives]]
 
 On Linux, the distinction is thinner than it appears:
 
@@ -191,7 +191,7 @@ That's why Linux threads are relatively cheap compared to systems where processe
 | Context switch, same process | ~1–2µs |
 | Context switch, different process | more — the TLB and cache suffer |
 
-The 8MB is virtual reservation, not RAM — a thousand threads reserve 8GB of address space and use far less physically. But **thousands of threads is still the wrong design**: the scheduler overhead and cache pressure dominate. That's the C10K problem, and the reason for [[foundations/os/08-io-models|event loops]], goroutines, and virtual threads.
+The 8MB is virtual reservation, not RAM — a thousand threads reserve 8GB of address space and use far less physically. But **thousands of threads is still the wrong design**: the scheduler overhead and cache pressure dominate. That's the C10K problem, and the reason for [[os/08-io-models|event loops]], goroutines, and virtual threads.
 
 ```c
 pthread_attr_setstacksize(&attr, 512 * 1024);    // if you really need many threads
@@ -215,8 +215,8 @@ The catch is the same in all of them: **a green thread that blocks in a syscall 
 ---
 
 ## Related
-- [[foundations/os/03-scheduling|Scheduling]] — how the kernel picks what runs
-- [[foundations/os/04-virtual-memory|Virtual Memory]] — copy-on-write, in full
-- [[foundations/os/10-signals-and-ipc|Signals and IPC]] — how processes talk
+- [[os/03-scheduling|Scheduling]] — how the kernel picks what runs
+- [[os/04-virtual-memory|Virtual Memory]] — copy-on-write, in full
+- [[os/10-signals-and-ipc|Signals and IPC]] — how processes talk
 - [[devops/01-linux/06-process-management|Linux: Process Management]] — the same thing from the shell
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

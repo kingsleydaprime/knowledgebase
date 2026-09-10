@@ -22,7 +22,7 @@
 3. Fix one thing
 4. **Measure again**
 
-**Guessing is the expensive path** — the same method as [[foundations/computer-architecture/12-performance|performance method]] several layers down.
+**Guessing is the expensive path** — the same method as [[computer-architecture/12-performance|performance method]] several layers down.
 
 ## Network
 
@@ -88,6 +88,6 @@ CLS ≤ 0.1
 - [[frontend/07-practices/01-frontend-best-practices|frontend best practices]]
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser and the DOM]]
 - [[frontend/02-rendering/index|rendering]] — strategy affects LCP directly
-- [[foundations/computer-architecture/12-performance|performance method]]
+- [[computer-architecture/12-performance|performance method]]
 
 *Source: [reference] — from web.dev and the Core Web Vitals documentation, Aug 2026.*

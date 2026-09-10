@@ -14,7 +14,7 @@
 
 - **Hashing and digital signatures** → [[cybersecurity/05-cryptography/03-hashing-and-integrity|hashing]] · [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures]]
 - **The concepts** → [[web3/01-foundations/index|web3/01-foundations]] — notes 02, 04 and 05 in particular
-- **Sockets and a request/response loop** → [[foundations/networking/index|networking]]
+- **Sockets and a request/response loop** → [[networking/index|networking]]
 - Helpful: [[build-your-own-shit/01-http-server|the HTTP server guide]] — you'll want a small HTTP API, and this is the same accept loop
 
 **Python or Go are the natural choices.** Python for speed of writing (`hashlib` and `ecdsa` do the crypto); Go if you want the concurrency to be pleasant, since mining and networking must run simultaneously. **Avoid Rust for this one unless you already know it** — you'll fight the borrow checker over shared mutable chain state and learn less about blockchains.

@@ -293,20 +293,20 @@ By Sunday: what must be true before the week closes
 
 # Week 1 — Introduction to Software Engineering, and the audit
 
-**Read:** [[foundations/software-engineering/index|Introduction to Software Engineering]] (01–03) · [[projects/index|projects/index]] — what you've already built and which domains it exercises
+**Read:** [[software-engineering/index|Introduction to Software Engineering]] (01–03) · [[projects/index|projects/index]] — what you've already built and which domains it exercises
 
 **Topics**
-- **1.1** Programming vs engineering; where the time actually goes → [[foundations/software-engineering/01-what-software-engineering-is|01]]
-- **1.2** The SDLC: requirements → design → implementation → testing → deployment → maintenance, **and what breaks when each is skipped** → [[foundations/software-engineering/02-the-software-development-lifecycle|02]]
-- **1.3** The engineering roles — and the honest way to tell them apart (*the failure you fear*) → [[foundations/software-engineering/03-the-engineering-roles|03]]
-- **1.4** Abstraction, decomposition, trade-offs → [[foundations/software-engineering/01-what-software-engineering-is|01]] · [[PRIMETECHIE|PRIMETECHIE]] frames the whole vault this way
+- **1.1** Programming vs engineering; where the time actually goes → [[software-engineering/01-what-software-engineering-is|01]]
+- **1.2** The SDLC: requirements → design → implementation → testing → deployment → maintenance, **and what breaks when each is skipped** → [[software-engineering/02-the-software-development-lifecycle|02]]
+- **1.3** The engineering roles — and the honest way to tell them apart (*the failure you fear*) → [[software-engineering/03-the-engineering-roles|03]]
+- **1.4** Abstraction, decomposition, trade-offs → [[software-engineering/01-what-software-engineering-is|01]] · [[PRIMETECHIE|PRIMETECHIE]] frames the whole vault this way
 - **1.5** **The audit** → [[learning/swe-101/05-week-1-audit|the checklist]] — mark every topic in weeks 2–30 *know it / half know it / don't know it*
 
-**DSA:** D1 → [[foundations/dsa/06-patterns/01-prefix-sum|Prefix sum]]
+**DSA:** D1 → [[dsa/06-patterns/01-prefix-sum|Prefix sum]]
 
 **By Sunday:** the audit is done, and "What is a software engineer?" is written in your own words, one page, nothing open.
 
-> **This gap is now closed.** Topics 1.1–1.3 had no chapter — the vault is written for practitioners and never wrote down what the profession *is*. [[foundations/software-engineering/index|foundations/software-engineering/]] was written to fill exactly this week. It's deliberately short: you're twelve projects deep, so most of it will confirm what you already know by doing, and its real value is vocabulary. **1.5 is still the actual deliverable of the week.**
+> **This gap is now closed.** Topics 1.1–1.3 had no chapter — the vault is written for practitioners and never wrote down what the profession *is*. [[software-engineering/index|foundations/software-engineering/]] was written to fill exactly this week. It's deliberately short: you're twelve projects deep, so most of it will confirm what you already know by doing, and its real value is vocabulary. **1.5 is still the actual deliverable of the week.**
 
 ---
 
@@ -323,7 +323,7 @@ By Sunday: what must be true before the week closes
 - **2.6** SOLID, one letter at a time — **and when it's over-engineering** → [[concepts/04-best-practices/05-solid-principles|SOLID principles]]
 - **2.7** Composition over inheritance → [[concepts/03-design-patterns/02-structural-patterns|structural patterns]]
 
-**DSA:** D2 → [[foundations/dsa/06-patterns/02-two-pointers|Two pointers]]
+**DSA:** D2 → [[dsa/06-patterns/02-two-pointers|Two pointers]]
 
 **By Sunday:** closed-book — *name three places in your own code where coupling hurt you.*
 
@@ -339,7 +339,7 @@ By Sunday: what must be true before the week closes
 - **3.3** Behavioural — strategy, observer, command, state → [[concepts/03-design-patterns/03-behavioral-patterns|behavioural]]
 - **3.4** Dependency injection and wiring → [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|DI & wiring]]
 
-**DSA:** D3 → [[foundations/dsa/06-patterns/03-sliding-window|Sliding window]]
+**DSA:** D3 → [[dsa/06-patterns/03-sliding-window|Sliding window]]
 
 **By Sunday:** closed-book — *pick three patterns; for each, the problem it solves and what it costs you.*
 
@@ -355,7 +355,7 @@ By Sunday: what must be true before the week closes
 - **4.3** Hexagonal and clean architecture → [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal]]
 - **4.4** Modular monolith → services, and when to split → [[backend/03-structuring-a-backend/05-modular-monolith-to-services|modular monolith]]
 
-**DSA:** D4 → [[foundations/dsa/06-patterns/04-fast-slow-pointers|Fast & slow pointers]]
+**DSA:** D4 → [[dsa/06-patterns/04-fast-slow-pointers|Fast & slow pointers]]
 
 **By Sunday:** **Design a banking system. Don't code it.** Entities, relationships, responsibilities, interfaces, data, failures, security, scalability. *(Your original exercise, kept — it's the best one in the document, and "don't code it" is what makes it work.)*
 
@@ -371,7 +371,7 @@ By Sunday: what must be true before the week closes
 - **5.3** Back-of-envelope estimation → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|same chapter]]
 - **5.4** Scalability and performance, vertical vs horizontal → [[architecture/01-system-design-fundamentals/02-scalability-and-performance|scalability]]
 
-**DSA:** D5 → [[foundations/dsa/06-patterns/05-linked-list-reversal|Linked list reversal]]
+**DSA:** D5 → [[dsa/06-patterns/05-linked-list-reversal|Linked list reversal]]
 
 **By Sunday:** design a **URL shortener** on the board, 45 minutes, out loud, *before* reading anything. Then compare and write only the gap.
 
@@ -387,7 +387,7 @@ By Sunday: what must be true before the week closes
 - **6.3** Load balancing, proxies, reverse proxies → [[architecture/02-building-blocks/01-load-balancing-and-proxies|LB & proxies]]
 - **6.4** Caching, and cache invalidation → [[architecture/02-building-blocks/02-caching|caching]]
 
-**DSA:** D6 → [[foundations/dsa/06-patterns/06-monotonic-stack|Monotonic stack]]
+**DSA:** D6 → [[dsa/06-patterns/06-monotonic-stack|Monotonic stack]]
 
 **By Sunday:** design a **chat application**.
 
@@ -402,7 +402,7 @@ By Sunday: what must be true before the week closes
 - **7.2** Messaging and async → [[architecture/02-building-blocks/04-messaging-and-async|messaging]]
 - **7.3** REST, gRPC, GraphQL, WebSockets → [[architecture/02-building-blocks/05-communication|communication]]
 
-**DSA:** D7 → [[foundations/dsa/06-patterns/07-top-k-elements|Top-K elements]]
+**DSA:** D7 → [[dsa/06-patterns/07-top-k-elements|Top-K elements]]
 
 **By Sunday:** design a **notification system**. You have real RabbitMQ reps — this one should come from experience.
 
@@ -419,7 +419,7 @@ By Sunday: what must be true before the week closes
 - **8.4** Microservices patterns → [[architecture/03-architectural-patterns/04-microservices-patterns|microservices]]
 - **8.5** **Trade-off articulation** — saying "I'd choose X because Y" instead of "it depends" → [[architecture/interview/01-system-design-round|the round]]
 
-**DSA:** D8 → [[foundations/dsa/06-patterns/08-overlapping-intervals|Overlapping intervals]]
+**DSA:** D8 → [[dsa/06-patterns/08-overlapping-intervals|Overlapping intervals]]
 
 **By Sunday:** design a **payment system**. Do this one carefully — you built a payments ledger in nextvibe and a direct-debit sandbox in Java, and interviewers can hear the difference between experience and theory.
 
@@ -435,7 +435,7 @@ By Sunday: what must be true before the week closes
 - **9.3** Normalisation, and when to denormalise on purpose → [[databases/database-design-reference|design reference]]
 - **9.4** SQL: SELECT, JOIN, GROUP BY, aggregates, subqueries, CTEs → [[databases/sql-reference|SQL reference]]
 
-**DSA:** D9 → [[foundations/dsa/06-patterns/09-modified-binary-search|Modified binary search]]
+**DSA:** D9 → [[dsa/06-patterns/09-modified-binary-search|Modified binary search]]
 
 **By Sunday:** closed-book — *draw the schema of one of your own projects from memory, then diff it against the real one.*
 
@@ -453,7 +453,7 @@ By Sunday: what must be true before the week closes
 - **10.5** Join algorithms and the optimiser → [[databases/07-join-algorithms-and-the-optimiser|07]]
 - **10.6** **`EXPLAIN ANALYZE` — estimated vs actual rows as *the* diagnostic** → [[databases/07-join-algorithms-and-the-optimiser|07]]
 
-**DSA:** D10 → [[foundations/dsa/06-patterns/10-binary-tree-traversal-pattern|Binary tree traversal]]
+**DSA:** D10 → [[dsa/06-patterns/10-binary-tree-traversal-pattern|Binary tree traversal]]
 
 **By Sunday:** take a genuinely slow query from a real project, `EXPLAIN ANALYZE` it, fix it, record before/after and *why*.
 
@@ -470,7 +470,7 @@ By Sunday: what must be true before the week closes
 - **11.4** Replication and scaling — *"replication is not a backup"* → [[databases/11-replication-and-scaling|11]]
 - **11.5** Operating: migrations, `lock_timeout`, pooling, backups → [[databases/12-operating-a-database|12]]
 
-**DSA:** D11 → [[foundations/dsa/06-patterns/11-dfs-pattern|DFS]]
+**DSA:** D11 → [[dsa/06-patterns/11-dfs-pattern|DFS]]
 
 **By Sunday:** closed-book — *why does adding an index sometimes make things slower?*
 
@@ -478,15 +478,15 @@ By Sunday: what must be true before the week closes
 
 # Week 12 — The network and IP
 
-**Read:** [[foundations/networking/01-what-a-network-is|01]] → [[foundations/networking/04-routing|04]]
+**Read:** [[networking/01-what-a-network-is|01]] → [[networking/04-routing|04]]
 
 **Topics**
-- **12.1** What a network is; the layered model → [[foundations/networking/01-what-a-network-is|01]]
-- **12.2** The link layer, MAC addresses → [[foundations/networking/02-the-link-layer|02]]
-- **12.3** IP addressing and subnetting → [[foundations/networking/03-ip-addressing-and-subnetting|03]]
-- **12.4** Routing → [[foundations/networking/04-routing|04]]
+- **12.1** What a network is; the layered model → [[networking/01-what-a-network-is|01]]
+- **12.2** The link layer, MAC addresses → [[networking/02-the-link-layer|02]]
+- **12.3** IP addressing and subnetting → [[networking/03-ip-addressing-and-subnetting|03]]
+- **12.4** Routing → [[networking/04-routing|04]]
 
-**DSA:** D12 → [[foundations/dsa/06-patterns/12-bfs-pattern|BFS]]
+**DSA:** D12 → [[dsa/06-patterns/12-bfs-pattern|BFS]]
 
 **By Sunday:** subnet a /24 by hand, no calculator.
 
@@ -494,16 +494,16 @@ By Sunday: what must be true before the week closes
 
 # Week 13 — TCP and UDP
 
-**Read:** [[foundations/networking/05-udp-and-ports|05]] → [[foundations/networking/09-sockets-and-the-network-api|09]]
+**Read:** [[networking/05-udp-and-ports|05]] → [[networking/09-sockets-and-the-network-api|09]]
 
 **Topics**
-- **13.1** UDP and ports → [[foundations/networking/05-udp-and-ports|05]]
-- **13.2** TCP connection lifecycle — handshake, teardown, states → [[foundations/networking/06-tcp-connection-lifecycle|06]]
-- **13.3** Reliability and flow control → [[foundations/networking/07-tcp-reliability-and-flow-control|07]]
-- **13.4** Congestion control → [[foundations/networking/08-congestion-control|08]]
-- **13.5** Sockets and the network API → [[foundations/networking/09-sockets-and-the-network-api|09]]
+- **13.1** UDP and ports → [[networking/05-udp-and-ports|05]]
+- **13.2** TCP connection lifecycle — handshake, teardown, states → [[networking/06-tcp-connection-lifecycle|06]]
+- **13.3** Reliability and flow control → [[networking/07-tcp-reliability-and-flow-control|07]]
+- **13.4** Congestion control → [[networking/08-congestion-control|08]]
+- **13.5** Sockets and the network API → [[networking/09-sockets-and-the-network-api|09]]
 
-**DSA:** D13 → [[foundations/dsa/06-patterns/13-matrix-traversal|Matrix traversal]]
+**DSA:** D13 → [[dsa/06-patterns/13-matrix-traversal|Matrix traversal]]
 
 **By Sunday:** closed-book — *draw the TCP state machine for a connection that opens, transfers, and closes.*
 
@@ -511,16 +511,16 @@ By Sunday: what must be true before the week closes
 
 # Week 14 — DNS, HTTP, TLS
 
-**Read:** [[foundations/networking/10-dns-in-depth|10]] → [[foundations/networking/13-quic-and-modern-transport|13]]
+**Read:** [[networking/10-dns-in-depth|10]] → [[networking/13-quic-and-modern-transport|13]]
 
 **Topics**
-- **14.1** DNS in depth → [[foundations/networking/10-dns-in-depth|10]]
-- **14.2** HTTP and its evolution — 1.1, 2, 3 → [[foundations/networking/11-http-evolution|11]]
-- **14.3** TLS and transport security → [[foundations/networking/12-tls-and-transport-security|12]]
-- **14.4** QUIC → [[foundations/networking/13-quic-and-modern-transport|13]]
+- **14.1** DNS in depth → [[networking/10-dns-in-depth|10]]
+- **14.2** HTTP and its evolution — 1.1, 2, 3 → [[networking/11-http-evolution|11]]
+- **14.3** TLS and transport security → [[networking/12-tls-and-transport-security|12]]
+- **14.4** QUIC → [[networking/13-quic-and-modern-transport|13]]
 - **14.5** Cookies, sessions, headers → [[backend/05-auth/01-authentication-flows|auth flows]]
 
-**DSA:** D14 → [[foundations/dsa/06-patterns/14-backtracking|Backtracking]]
+**DSA:** D14 → [[dsa/06-patterns/14-backtracking|Backtracking]]
 
 **By Sunday:** **"What actually happens when I type google.com?"** — one page, from memory. This is the question that gets asked.
 
@@ -528,15 +528,15 @@ By Sunday: what must be true before the week closes
 
 # Week 15 — The edge, performance, debugging
 
-**Read:** [[foundations/networking/14-nat-firewalls-and-middleboxes|14]] → [[foundations/networking/16-debugging-networks|16]]
+**Read:** [[networking/14-nat-firewalls-and-middleboxes|14]] → [[networking/16-debugging-networks|16]]
 
 **Topics**
-- **15.1** NAT, firewalls, middleboxes → [[foundations/networking/14-nat-firewalls-and-middleboxes|14]]
+- **15.1** NAT, firewalls, middleboxes → [[networking/14-nat-firewalls-and-middleboxes|14]]
 - **15.2** Proxies, reverse proxies, CDNs → [[architecture/02-building-blocks/01-load-balancing-and-proxies|LB & proxies]]
-- **15.3** Latency vs bandwidth, RTT, head-of-line blocking → [[foundations/networking/15-network-performance|15]]
-- **15.4** Debugging: `dig`, `curl -v`, `ss`, `tcpdump` → [[foundations/networking/16-debugging-networks|16]]
+- **15.3** Latency vs bandwidth, RTT, head-of-line blocking → [[networking/15-network-performance|15]]
+- **15.4** Debugging: `dig`, `curl -v`, `ss`, `tcpdump` → [[networking/16-debugging-networks|16]]
 
-**DSA:** D15a → [[foundations/dsa/06-patterns/15-dynamic-programming|Dynamic programming]], part 1
+**DSA:** D15a → [[dsa/06-patterns/15-dynamic-programming|Dynamic programming]], part 1
 
 **By Sunday:** rewrite the google.com answer and diff it against week 14's version.
 
@@ -553,7 +553,7 @@ By Sunday: what must be true before the week closes
 - **16.4** OAuth 2.0 / OIDC → [[backend/05-auth/03-oauth-provider-integrations|OAuth]]
 - **16.5** Least privilege → [[backend/05-auth/02-authorization|authz]]
 
-**DSA:** D15b → [[foundations/dsa/06-patterns/15-dynamic-programming|Dynamic programming]], part 2
+**DSA:** D15b → [[dsa/06-patterns/15-dynamic-programming|Dynamic programming]], part 2
 
 **By Sunday:** closed-book — *draw your flagship's full auth flow, including refresh and logout.*
 
@@ -726,13 +726,13 @@ By Sunday: what must be true before the week closes
 
 # Week 26 — Concurrency
 
-**Read:** [[foundations/os/02-processes-and-threads|processes & threads]] · [[foundations/os/03-scheduling|scheduling]] · [[foundations/os/06-concurrency-primitives|primitives]] · [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]]
+**Read:** [[os/02-processes-and-threads|processes & threads]] · [[os/03-scheduling|scheduling]] · [[os/06-concurrency-primitives|primitives]] · [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]]
 
 **Topics**
-- **26.1** Processes vs threads → [[foundations/os/02-processes-and-threads|02]]
-- **26.2** Scheduling → [[foundations/os/03-scheduling|03]]
+- **26.1** Processes vs threads → [[os/02-processes-and-threads|02]]
+- **26.2** Scheduling → [[os/03-scheduling|03]]
 - **26.3** Concurrency vs parallelism; **the Node event loop** → [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]]
-- **26.4** Locks, mutexes, deadlock, race conditions → [[foundations/os/06-concurrency-primitives|primitives]]
+- **26.4** Locks, mutexes, deadlock, race conditions → [[os/06-concurrency-primitives|primitives]]
 
 **DSA:** mixed review + **first timed mock**, 45 min, unseen medium
 
@@ -806,20 +806,20 @@ By Sunday: what must be true before the week closes
 
 # Week 31+ — The CS spine (ongoing)
 
-**Read:** [[foundations/os/index|OS]] · [[foundations/computer-architecture/index|architecture]] · [[foundations/theory-of-computation/index|theory]] · [[foundations/compilers/index|compilers]]
+**Read:** [[os/index|OS]] · [[computer-architecture/index|architecture]] · [[theory-of-computation/index|theory]] · [[compilers/index|compilers]]
 
 No deadline, no interviewer asking. **This is the unit that answers your actual objective — *"understand why software is built the way it is."***
 
-- **31.1** How a program runs — compile, link, load → [[foundations/compilers/01-what-a-compiler-is|compilers 01]]
-- **31.2** Memory: stack, heap, process layout → [[foundations/os/05-memory-allocation|allocation]]
-- **31.3** Virtual memory and the MMU → [[foundations/os/04-virtual-memory|virtual memory]]
-- **31.4** The memory hierarchy and caches → [[foundations/computer-architecture/08-the-memory-hierarchy|hierarchy]] · [[foundations/computer-architecture/09-caches-in-depth|caches]]
-- **31.5** Syscalls and the kernel boundary → [[foundations/os/09-syscalls-interrupts-and-the-abi|syscalls]]
-- **31.6** Complexity classes, P vs NP — **knowing when to stop looking** → [[foundations/theory-of-computation/07-complexity-classes|complexity]]
-- **31.7** Automata — why regexes and parsers look the way they do → [[foundations/theory-of-computation/02-finite-automata|automata]]
-- **31.8** Compilers: lexer → parser → IR → codegen → [[foundations/compilers/02-lexical-analysis|lexing]] · [[foundations/compilers/03-parsing|parsing]]
-- **31.9** Garbage collection → [[foundations/compilers/11-garbage-collection|GC]]
-- **31.10** Why one O(n) loop is 30× slower than another → [[foundations/computer-architecture/12-performance|performance]]
+- **31.1** How a program runs — compile, link, load → [[compilers/01-what-a-compiler-is|compilers 01]]
+- **31.2** Memory: stack, heap, process layout → [[os/05-memory-allocation|allocation]]
+- **31.3** Virtual memory and the MMU → [[os/04-virtual-memory|virtual memory]]
+- **31.4** The memory hierarchy and caches → [[computer-architecture/08-the-memory-hierarchy|hierarchy]] · [[computer-architecture/09-caches-in-depth|caches]]
+- **31.5** Syscalls and the kernel boundary → [[os/09-syscalls-interrupts-and-the-abi|syscalls]]
+- **31.6** Complexity classes, P vs NP — **knowing when to stop looking** → [[theory-of-computation/07-complexity-classes|complexity]]
+- **31.7** Automata — why regexes and parsers look the way they do → [[theory-of-computation/02-finite-automata|automata]]
+- **31.8** Compilers: lexer → parser → IR → codegen → [[compilers/02-lexical-analysis|lexing]] · [[compilers/03-parsing|parsing]]
+- **31.9** Garbage collection → [[compilers/11-garbage-collection|GC]]
+- **31.10** Why one O(n) loop is 30× slower than another → [[computer-architecture/12-performance|performance]]
 
 **Exercise:** `perf stat` on your own code; explain the IPC.
 
@@ -827,27 +827,27 @@ No deadline, no interviewer asking. **This is the unit that answers your actual 
 
 # Section D — DSA, every week
 
-**Read:** [[foundations/dsa/index|DSA course]] → [[foundations/dsa/06-patterns/index|the 15 patterns]] · [[foundations/dsa/interview/index|the coding round]]
+**Read:** [[dsa/index|DSA course]] → [[dsa/06-patterns/index|the 15 patterns]] · [[dsa/interview/index|the coding round]]
 
 Back of the notebook, worked forward. One page per pattern — format in [[learning/swe-101/03-notebook-method|the method]].
 
 | Week | Pattern |
 |---|---|
-| 1 | [[foundations/dsa/06-patterns/01-prefix-sum\|Prefix sum]] |
-| 2 | [[foundations/dsa/06-patterns/02-two-pointers\|Two pointers]] |
-| 3 | [[foundations/dsa/06-patterns/03-sliding-window\|Sliding window]] |
-| 4 | [[foundations/dsa/06-patterns/04-fast-slow-pointers\|Fast & slow pointers]] |
-| 5 | [[foundations/dsa/06-patterns/05-linked-list-reversal\|Linked list reversal]] |
-| 6 | [[foundations/dsa/06-patterns/06-monotonic-stack\|Monotonic stack]] |
-| 7 | [[foundations/dsa/06-patterns/07-top-k-elements\|Top-K elements]] |
-| 8 | [[foundations/dsa/06-patterns/08-overlapping-intervals\|Overlapping intervals]] |
-| 9 | [[foundations/dsa/06-patterns/09-modified-binary-search\|Modified binary search]] |
-| 10 | [[foundations/dsa/06-patterns/10-binary-tree-traversal-pattern\|Binary tree traversal]] |
-| 11 | [[foundations/dsa/06-patterns/11-dfs-pattern\|DFS]] |
-| 12 | [[foundations/dsa/06-patterns/12-bfs-pattern\|BFS]] |
-| 13 | [[foundations/dsa/06-patterns/13-matrix-traversal\|Matrix traversal]] |
-| 14 | [[foundations/dsa/06-patterns/14-backtracking\|Backtracking]] |
-| 15–16 | [[foundations/dsa/06-patterns/15-dynamic-programming\|Dynamic programming]] |
+| 1 | [[dsa/06-patterns/01-prefix-sum\|Prefix sum]] |
+| 2 | [[dsa/06-patterns/02-two-pointers\|Two pointers]] |
+| 3 | [[dsa/06-patterns/03-sliding-window\|Sliding window]] |
+| 4 | [[dsa/06-patterns/04-fast-slow-pointers\|Fast & slow pointers]] |
+| 5 | [[dsa/06-patterns/05-linked-list-reversal\|Linked list reversal]] |
+| 6 | [[dsa/06-patterns/06-monotonic-stack\|Monotonic stack]] |
+| 7 | [[dsa/06-patterns/07-top-k-elements\|Top-K elements]] |
+| 8 | [[dsa/06-patterns/08-overlapping-intervals\|Overlapping intervals]] |
+| 9 | [[dsa/06-patterns/09-modified-binary-search\|Modified binary search]] |
+| 10 | [[dsa/06-patterns/10-binary-tree-traversal-pattern\|Binary tree traversal]] |
+| 11 | [[dsa/06-patterns/11-dfs-pattern\|DFS]] |
+| 12 | [[dsa/06-patterns/12-bfs-pattern\|BFS]] |
+| 13 | [[dsa/06-patterns/13-matrix-traversal\|Matrix traversal]] |
+| 14 | [[dsa/06-patterns/14-backtracking\|Backtracking]] |
+| 15–16 | [[dsa/06-patterns/15-dynamic-programming\|Dynamic programming]] |
 | 17–30 | **Mixed review, patterns drawn at random, 5/week + timed mocks from week 26** |
 
 **Weeks 17–30 are the important half.** Solving a sliding-window problem in sliding-window week is recognition. Solving one when you don't know what kind it is, is the actual skill — and that's what an interview measures.

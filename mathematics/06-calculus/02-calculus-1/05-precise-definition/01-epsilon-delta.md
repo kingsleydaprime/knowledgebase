@@ -135,4 +135,4 @@ Since $\varepsilon$ was arbitrary, the limit is 7. ∎
 ## Related
 
 - [[01-definition|The limit of a function]] · [[01-laws|Limit laws]]
-- [[foundations/mathematics/02-discrete-math/03-proof-techniques|discrete-math/proof techniques]] — the proof style used here
+- [[mathematics/02-discrete-math/03-proof-techniques|discrete-math/proof techniques]] — the proof style used here

@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · Dunder methods, properties, dataclasses, and why Python's OOP is a set of *protocols* rather than a set of *declarations*.
 
-Python has classes, inheritance and polymorphism → [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]]. What makes it different from Java or C# is that **behaviour is opted into by implementing methods with specific names, not by declaring that you implement an interface.**
+Python has classes, inheritance and polymorphism → [[programming-fundamentals/13-objects-and-classes|objects and classes]]. What makes it different from Java or C# is that **behaviour is opted into by implementing methods with specific names, not by declaring that you implement an interface.**
 
 ## The basics
 
@@ -138,7 +138,7 @@ C.__mro__          # the exact order attribute lookup follows
 
 `super()` doesn't mean "my parent" — it means **"the next class in the MRO"**, which in multiple inheritance is not necessarily a parent at all. Always call `super().__init__()` in a class designed to be inherited from.
 
-**Prefer composition** → [[foundations/programming-fundamentals/13-objects-and-classes|note 13]]. Where you do want a contract, use `abc`:
+**Prefer composition** → [[programming-fundamentals/13-objects-and-classes|note 13]]. Where you do want a contract, use `abc`:
 
 ```python
 from abc import ABC, abstractmethod
@@ -153,7 +153,7 @@ Or, better for duck-typed code, a **`Protocol`** — structural typing, no inher
 ## Related
 - [[languages/06-python/08-typing-and-type-hints|typing]] — Protocols and generics
 - [[languages/06-python/07-decorators-and-context-managers|decorators]] — `@property` is one
-- [[foundations/programming-fundamentals/13-objects-and-classes|objects and classes]] — the concepts, language-agnostic
+- [[programming-fundamentals/13-objects-and-classes|objects and classes]] — the concepts, language-agnostic
 - [[concepts/03-design-patterns/index|design patterns]] — many of which Python makes trivial or unnecessary
 
 *Source: [reference] — from the Python data model documentation.*

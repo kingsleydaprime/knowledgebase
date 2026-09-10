@@ -92,8 +92,8 @@ $$\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$
 ## 5. Where you already rely on it
 
 - **Physics.** Velocity is the derivative of position; acceleration of velocity. Every equation of motion is calculus.
-- **Machine learning.** Training a model means minimising a loss function, and you minimise by following its **gradient** downhill. Backpropagation is the chain rule applied systematically — see [[foundations/ai-ml/index|ai-ml]].
-- **Signal processing.** Fourier analysis is built on integrals — see [[foundations/digital-signal-processing/index|DSP]].
+- **Machine learning.** Training a model means minimising a loss function, and you minimise by following its **gradient** downhill. Backpropagation is the chain rule applied systematically — see [[ai-ml/index|ai-ml]].
+- **Signal processing.** Fourier analysis is built on integrals — see [[digital-signal-processing/index|DSP]].
 - **Probability.** A continuous distribution's probability is the *area* under its density curve; the total is an integral equal to 1.
 - **Anything with "rate" or "total" in it.** Interest, growth, decay, flow, dosage, throughput.
 
@@ -118,5 +118,5 @@ $$\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$
 
 ## Related
 
-- [[foundations/mathematics/index|Mathematics index]]
-- [[foundations/ai-ml/index|ai-ml]] — where derivatives do the most work
+- [[mathematics/index|Mathematics index]]
+- [[ai-ml/index|ai-ml]] — where derivatives do the most work

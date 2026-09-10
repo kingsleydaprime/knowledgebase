@@ -122,6 +122,6 @@ via_ir = true             # better optimisation, slower compiles
 - [[web3/02-ethereum-and-the-evm/03-gas-and-fees|gas and fees]] — where the numbers come from
 - [[web3/03-smart-contracts-with-solidity/03-storage-memory-calldata|storage, memory, calldata]]
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing and tooling]] — measuring it
-- [[foundations/computer-architecture/12-performance|performance method]] — measure first, generally
+- [[computer-architecture/12-performance|performance method]] — measure first, generally
 
 *Source: [reference] — Aug 2026.*

@@ -102,7 +102,7 @@ Process greys until none remain; whites are garbage.
 
 **Mark-compact** avoids the 2× overhead: mark, then slide live objects together and fix pointers. Slower than copying, no space waste.
 
-Compaction requires **moving objects**, which requires knowing every pointer precisely — so it needs a **precise** GC. C++ and C can't have one, because a `void*` cast makes the pointer set unknowable. That's the fundamental reason `malloc` can't defragment and a JVM can. → [[foundations/os/05-memory-allocation|Memory Allocation]]
+Compaction requires **moving objects**, which requires knowing every pointer precisely — so it needs a **precise** GC. C++ and C can't have one, because a `void*` cast makes the pointer set unknowable. That's the fundamental reason `malloc` can't defragment and a JVM can. → [[os/05-memory-allocation|Memory Allocation]]
 
 ## Generational collection
 
@@ -171,7 +171,7 @@ GOMEMLIMIT=4GiB              # soft limit — the GC works harder as you approac
 -Xmx4g -XX:MaxGCPauseMillis=100   # JVM
 ```
 
-`GOMEMLIMIT` and container limits interact directly with [[foundations/os/04-virtual-memory|the OOM killer]] — a runtime that doesn't know its cgroup limit gets killed before its GC feels pressure.
+`GOMEMLIMIT` and container limits interact directly with [[os/04-virtual-memory|the OOM killer]] — a runtime that doesn't know its cgroup limit gets killed before its GC feels pressure.
 
 ## Precise vs conservative
 
@@ -198,8 +198,8 @@ The standard defence: **a stress mode that collects on every allocation**, run a
 ---
 
 ## Related
-- [[foundations/compilers/10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — the runtime this serves
-- [[foundations/os/05-memory-allocation|Memory Allocation]] — the manual alternative, and why `malloc` can't compact
+- [[compilers/10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — the runtime this serves
+- [[os/05-memory-allocation|Memory Allocation]] — the manual alternative, and why `malloc` can't compact
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — the type-system alternative
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] · [[languages/02-go/13-performance-and-runtime|Go's GC]]
-- [[foundations/compilers/index|Compilers course map]]
+- [[compilers/index|Compilers course map]]

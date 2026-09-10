@@ -101,6 +101,6 @@ The corollary is worth stating plainly: **three instances in one AZ are not a re
 - [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] — what fills the racks
 - [[devops/03-cloud/01-cloud-fundamentals|cloud fundamentals]] — regions and AZs as an API
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] — turning these numbers into design
-- [[foundations/networking/08-congestion-control|congestion control]] — why DC networks behave unlike the internet
+- [[networking/08-congestion-control|congestion control]] — why DC networks behave unlike the internet
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (module 3), extended with Uptime Institute tier definitions and cloud-provider AZ documentation.*

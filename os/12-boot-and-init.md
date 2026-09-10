@@ -8,7 +8,7 @@
 Power → firmware (UEFI/BIOS) → bootloader (GRUB) → kernel → initramfs → PID 1 (systemd) → services
 ```
 
-[[foundations/os/fundamentals|The fundamentals note]] covers this at a high level; this one goes into what each stage actually does and where it goes wrong.
+[[os/fundamentals|The fundamentals note]] covers this at a high level; this one goes into what each stage actually does and where it goes wrong.
 
 ## 1. Firmware
 
@@ -81,7 +81,7 @@ lsinitrd /boot/initramfs-$(uname -r).img | head    # what's inside
 dracut -f                                          # rebuild it
 ```
 
-Then `pivot_root` (the same call [[foundations/os/11-isolation-and-containers|containers]] use) switches to the real root and `exec`s the real init.
+Then `pivot_root` (the same call [[os/11-isolation-and-containers|containers]] use) switches to the real root and `exec`s the real init.
 
 **This is a common failure point.** A kernel update that regenerates the initramfs without the right storage driver produces a boot that hangs at "waiting for root device" — the kernel is fine, it just can't see the disk.
 
@@ -95,7 +95,7 @@ PID 1 has special properties, all of which matter:
 - **If it exits, the kernel panics**
 - **Orphaned processes are re-parented to it**, and it must reap them
 
-Those last two are why containers have a PID 1 problem: your application becomes PID 1, ignores `SIGTERM` by default, and doesn't reap orphans. → [[foundations/os/02-processes-and-threads|Processes and Threads]]
+Those last two are why containers have a PID 1 problem: your application becomes PID 1, ignores `SIGTERM` by default, and doesn't reap orphans. → [[os/02-processes-and-threads|Processes and Threads]]
 
 ### systemd
 
@@ -103,7 +103,7 @@ Replaced SysV init and won, controversially. What it actually changed:
 
 **Parallel startup by dependency graph** rather than sequential numbered scripts. Boot time went from ~30s to a few seconds.
 
-**Socket activation** — systemd creates the listening socket and starts the service on first connection, passing the socket via `SCM_RIGHTS`. Services can start in any order because the socket exists before any of them do. → [[foundations/os/10-signals-and-ipc|IPC]]
+**Socket activation** — systemd creates the listening socket and starts the service on first connection, passing the socket via `SCM_RIGHTS`. Services can start in any order because the socket exists before any of them do. → [[os/10-signals-and-ipc|IPC]]
 
 **cgroup-based supervision.** Every service gets its own cgroup, so systemd knows exactly which processes belong to it — no PID files, no guessing, and `systemctl stop` reliably kills the whole tree. SysV init could never do this.
 
@@ -207,8 +207,8 @@ Every stage hands control to the next and disappears. By the time you have a log
 ---
 
 ## Related
-- [[foundations/os/fundamentals|OS Fundamentals]] — the shorter version of this chain
-- [[foundations/os/02-processes-and-threads|Processes and Threads]] — PID 1's duties
-- [[foundations/os/11-isolation-and-containers|Isolation and Containers]] — the primitives systemd uses for hardening
+- [[os/fundamentals|OS Fundamentals]] — the shorter version of this chain
+- [[os/02-processes-and-threads|Processes and Threads]] — PID 1's duties
+- [[os/11-isolation-and-containers|Isolation and Containers]] — the primitives systemd uses for hardening
 - [[devops/01-linux/19-the-boot-process|Linux: The Boot Process]] · [[devops/01-linux/07-systemd-and-services|systemd and Services]]
-- [[foundations/os/index|OS course map]]
+- [[os/index|OS course map]]

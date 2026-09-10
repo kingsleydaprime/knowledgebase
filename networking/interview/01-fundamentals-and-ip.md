@@ -1,6 +1,6 @@
 # Networking Interview — Fundamentals & IP
 
-From [[foundations/networking/01-what-a-network-is|01-what-a-network-is]], [[foundations/networking/02-the-link-layer|02-the-link-layer]], [[foundations/networking/03-ip-addressing-and-subnetting|03-ip-addressing-and-subnetting]], [[foundations/networking/04-routing|04-routing]].
+From [[networking/01-what-a-network-is|01-what-a-network-is]], [[networking/02-the-link-layer|02-the-link-layer]], [[networking/03-ip-addressing-and-subnetting|03-ip-addressing-and-subnetting]], [[networking/04-routing|04-routing]].
 
 ---
 

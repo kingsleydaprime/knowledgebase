@@ -143,4 +143,4 @@ Let $x$ be the two perpendicular sides and $y$ the side parallel to the river.
 ## Related
 
 - [[01-rules|Derivative rules]] · [[01-definition|Continuity]]
-- [[foundations/ai-ml/index|ai-ml]] — optimisation is what training a model *is*
+- [[ai-ml/index|ai-ml]] — optimisation is what training a model *is*

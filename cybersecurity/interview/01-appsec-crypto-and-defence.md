@@ -98,7 +98,7 @@ That's the escalation path: a webhook or image-fetch feature becomes full cloud 
 
 **A good concrete example (SSRF, from Q4):** application-layer URL allowlisting → resolve-and-validate the IP → IMDSv2 so metadata needs a token → network egress filtering → an IAM role scoped to almost nothing → alerting on unusual metadata access. Any one of those can be bypassed; all six failing simultaneously is unlikely.
 
-**The mindset to state:** **assume breach.** Perimeter security assumes the inside is trustworthy, which is why lateral movement is so easy once someone's in. Zero-trust means authenticating and authorising every request regardless of network position — which is what [[foundations/networking/12-tls-and-transport-security|mTLS]] and service mesh identity exist to provide. → [[cybersecurity/07-security-operations/01-defensive-architecture|defensive architecture]]
+**The mindset to state:** **assume breach.** Perimeter security assumes the inside is trustworthy, which is why lateral movement is so easy once someone's in. Zero-trust means authenticating and authorising every request regardless of network position — which is what [[networking/12-tls-and-transport-security|mTLS]] and service mesh identity exist to provide. → [[cybersecurity/07-security-operations/01-defensive-architecture|defensive architecture]]
 
 ---
 

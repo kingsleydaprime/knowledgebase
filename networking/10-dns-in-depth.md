@@ -11,7 +11,7 @@ You know your friend's *name* but not their *house number*. So you ask someone.
 - That office: "who knows about `example.com`?" → "ask *their* office."
 - That office finally: "it's at 93.184.216.34."
 
-Each office only knows **who to ask next**, not the answer — exactly like [[foundations/networking/04-routing|routing]]. And everyone writes the answer down for a while so they don't have to ask again. That "writes it down for a while" is the source of nearly every DNS problem you'll ever have.
+Each office only knows **who to ask next**, not the answer — exactly like [[networking/04-routing|routing]]. And everyone writes the answer down for a while so they don't have to ask again. That "writes it down for a while" is the source of nearly every DNS problem you'll ever have.
 
 ## The resolution walk
 
@@ -30,7 +30,7 @@ Two words to keep straight, because interviewers love this one:
 - **Recursive** — "go find the answer for me, I'll wait." What your machine asks its resolver.
 - **Iterative** — "tell me what you know, I'll follow up." What the resolver does to each server in the chain. Root and TLD servers only answer iteratively — if they did recursion for everyone, they'd melt.
 
-**Root servers** are the 13 *named* root servers (`a.root-servers.net` … `m.root-servers.net`) — a limit set by what fit in a 512-byte UDP packet, not by machine count. There are actually well over 1,000 physical instances, reachable because each name is announced by **[[foundations/networking/04-routing|anycast]]** from many locations. Your query goes to the topologically nearest one.
+**Root servers** are the 13 *named* root servers (`a.root-servers.net` … `m.root-servers.net`) — a limit set by what fit in a 512-byte UDP packet, not by machine count. There are actually well over 1,000 physical instances, reachable because each name is announced by **[[networking/04-routing|anycast]]** from many locations. Your query goes to the topologically nearest one.
 
 ## Record types worth knowing
 
@@ -86,7 +86,7 @@ Because it's a dependency of *everything*, is cached invisibly, and fails in way
 DNS is the internet's most successful distributed system, and it achieves that by making a trade nobody would accept today: **it gives up consistency almost entirely in exchange for availability and cacheability.** Every DNS problem — stale records after a migration, negative-cache confusion, slow failover, split-brain between resolvers — is that trade presenting its bill. Think of DNS as an eventually-consistent cache with a TTL-shaped staleness bound, not as a database, and its behaviour becomes predictable.
 
 ## Related
-- [[foundations/networking/04-routing|Routing]] — anycast, which DNS depends on
-- [[foundations/networking/15-network-performance|Network Performance]] — DNS as the first round trip
+- [[networking/04-routing|Routing]] — anycast, which DNS depends on
+- [[networking/15-network-performance|Network Performance]] — DNS as the first round trip
 - [[cybersecurity/03-network-security/index|Network Security]] — poisoning, DNSSEC, exfiltration over DNS
 - [[devops/08-networking-and-web/01-networking-and-protocols|Networking & Protocols (devops)]] — the operator's DNS record cheat-sheet

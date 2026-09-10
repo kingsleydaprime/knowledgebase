@@ -15,5 +15,5 @@ Two different questions that get collapsed into one word: **authentication** (wh
 - [[cybersecurity/14-api-security/02-authentication-for-apis|API authentication]] — tokens, JWT pitfalls, and the API-specific auth story
 - [[backend/index|Backend course]]
 - [[concepts/interview/01-apis-auth-and-practices|Interview: auth questions]] — sessions vs JWT, OAuth + PKCE, password storage
-- [[cybersecurity/04-web-security/index|Web Security]] · [[foundations/networking/12-tls-and-transport-security|TLS]]
+- [[cybersecurity/04-web-security/index|Web Security]] · [[networking/12-tls-and-transport-security|TLS]]
 - [[projects/gees-arise/learning/04-supabase|gees-arise: Postgres RLS]] — authorization enforced at the data layer, for real

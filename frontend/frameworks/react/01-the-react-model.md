@@ -10,7 +10,7 @@ $$\text{UI} = f(\text{state})$$
 
 **Two consequences:**
 - **To change the screen, change state.** Reaching for `document.querySelector` in React code means you've left the model
-- **Your component function may run many times.** It must be a pure function of props and state — same inputs, same output, no side effects during render → [[foundations/programming-fundamentals/14-programming-paradigms|purity]]
+- **Your component function may run many times.** It must be a pure function of props and state — same inputs, same output, no side effects during render → [[programming-fundamentals/14-programming-paradigms|purity]]
 
 ## Render is not the DOM
 

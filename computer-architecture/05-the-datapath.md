@@ -72,7 +72,7 @@
 
 **Better utilisation** (a fast instruction finishes in fewer cycles) and **hardware reuse** — one ALU can serve address computation and arithmetic in different cycles. **But only one instruction is in flight at a time**, so most of the hardware sits idle each cycle.
 
-**Pipelining** is the fix: keep every stage busy with a *different* instruction. That's the next note, and it's where real performance comes from. → [[foundations/computer-architecture/06-pipelining|Pipelining]]
+**Pipelining** is the fix: keep every stage busy with a *different* instruction. That's the next note, and it's where real performance comes from. → [[computer-architecture/06-pipelining|Pipelining]]
 
 ## Instruction execution, traced
 
@@ -108,7 +108,7 @@
 | MEM | nothing |
 | WB | nothing — but **the PC is updated** |
 
-> **The branch problem is visible right here.** The outcome isn't known until EX, but the *next* instruction had to be fetched in the meantime. **Something must be fetched, and it might be wrong.** That's what branch prediction exists to solve. → [[foundations/computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]]
+> **The branch problem is visible right here.** The outcome isn't known until EX, but the *next* instruction had to be fetched in the meantime. **Something must be fetched, and it might be wrong.** That's what branch prediction exists to solve. → [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]]
 
 ## Control signals
 
@@ -149,7 +149,7 @@ $$\text{clock period} \geq \text{longest combinational path} + \text{setup time}
 
 $$P \approx C V^2 f + \text{leakage}$$
 
-**Power scales with frequency and with the *square* of voltage.** Higher clocks need higher voltage to switch reliably, so **power grows super-linearly.** Around 2005 that hit the limit of what a chip could dissipate — the end of frequency scaling and the start of multicore. → [[foundations/computer-architecture/01-what-architecture-is|Where performance comes from]]
+**Power scales with frequency and with the *square* of voltage.** Higher clocks need higher voltage to switch reliably, so **power grows super-linearly.** Around 2005 that hit the limit of what a chip could dissipate — the end of frequency scaling and the start of multicore. → [[computer-architecture/01-what-architecture-is|Where performance comes from]]
 
 ## What real CPUs do instead
 
@@ -163,14 +163,14 @@ $$P \approx C V^2 f + \text{leakage}$$
 - **Retires in order**, to preserve the illusion of sequential execution
 - **Has 14–20 pipeline stages**, sometimes more
 
-**But the five stages are still the right mental model** — fetch, decode, execute, memory, writeback happen to every instruction. **Everything else is about doing many of them at once.** → [[foundations/computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]]
+**But the five stages are still the right mental model** — fetch, decode, execute, memory, writeback happen to every instruction. **Everything else is about doing many of them at once.** → [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]]
 
 **In-order cores are far from obsolete.** Efficiency cores (Intel E-cores, ARM's little cores), microcontrollers, and most embedded processors are in-order — **much smaller, much lower power, and adequate when the workload isn't latency-critical.** → [[hardware/04-microcontrollers|Microcontrollers]]
 
 ---
 
 ## Related
-- [[foundations/computer-architecture/06-pipelining|Pipelining]] — overlapping these stages
+- [[computer-architecture/06-pipelining|Pipelining]] — overlapping these stages
 - [[hardware/02-digital-and-analog|Digital and Analog]] — the gates underneath
-- [[foundations/computer-architecture/03-instruction-sets|Instruction Sets]] — what's being executed
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/03-instruction-sets|Instruction Sets]] — what's being executed
+- [[computer-architecture/index|Architecture map]]

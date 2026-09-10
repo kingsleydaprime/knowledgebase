@@ -16,7 +16,7 @@ An **IDE** (Integrated Development Environment) is a text editor plus the tools 
 
 **Go-to-definition and find-references.** Jump to where something is defined; find everywhere it's used. Trivial-sounding, and the thing that makes an unfamiliar codebase navigable. You'll use it far more than autocomplete.
 
-**Integrated debugger.** Pause execution and inspect state. → [[foundations/programming-fundamentals/10-errors-and-debugging|note 10]].
+**Integrated debugger.** Pause execution and inspect state. → [[programming-fundamentals/10-errors-and-debugging|note 10]].
 
 **Refactoring.** Rename a variable everywhere it means *this* variable — not everywhere the text appears. The editor knows the difference; find-and-replace doesn't.
 
@@ -26,8 +26,8 @@ An **IDE** (Integrated Development Environment) is a text editor plus the tools 
 
 The editor is a window. The actual work is done by programs it calls:
 
-- **A compiler or interpreter** — turns your code into something that runs → [[foundations/programming-fundamentals/02-languages-and-the-translation-problem|note 02]]
-- **A package manager** — fetches libraries other people wrote (`pip`, `npm`, `cargo`, `go get`) → [[foundations/programming-fundamentals/08-functions|note 08]]
+- **A compiler or interpreter** — turns your code into something that runs → [[programming-fundamentals/02-languages-and-the-translation-problem|note 02]]
+- **A package manager** — fetches libraries other people wrote (`pip`, `npm`, `cargo`, `go get`) → [[programming-fundamentals/08-functions|note 08]]
 - **A build tool** — orchestrates the steps for anything non-trivial
 - **A debugger**
 - **A formatter and a linter** — one fixes layout, one flags suspicious patterns
@@ -73,7 +73,7 @@ System.out.println("hello");   // Java
 
 **Output for a user.** Fine for a command-line tool. Not fine for an app with a real interface — the console is a developer surface, and end users never see it.
 
-**Instrumentation for you.** Printing a value to find out what it actually is at that moment. Crude, universally available, and genuinely one of the most effective debugging tools there is. → [[foundations/programming-fundamentals/10-errors-and-debugging|note 10]].
+**Instrumentation for you.** Printing a value to find out what it actually is at that moment. Crude, universally available, and genuinely one of the most effective debugging tools there is. → [[programming-fundamentals/10-errors-and-debugging|note 10]].
 
 **In real systems, printing grows up into [[devops/10-observability/index|logging]]** — same idea, with severity levels, timestamps, and somewhere durable to go. When you eventually meet structured logging, it's this.
 
@@ -104,8 +104,8 @@ Available in Python (`python3`), JavaScript (`node`), Ruby, and increasingly els
 Press **F12** in your browser right now and you have a JavaScript REPL. That's a genuinely fine place to work through the next several notes.
 
 ## Related
-- [[foundations/programming-fundamentals/04-syntax-and-the-shape-of-a-statement|syntax]] — what the editor is checking
-- [[foundations/programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the debugger, properly
+- [[programming-fundamentals/04-syntax-and-the-shape-of-a-statement|syntax]] — what the editor is checking
+- [[programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the debugger, properly
 - [[git/index|git/]] — start using it now, not later
 - [[devops/01-linux/index|Linux]] — where the terminal goes next
 - [[tools/neovim/neovim-setup|Neovim]] — if the editor itself becomes an interest

@@ -496,4 +496,4 @@ The optimum balances the two, and lands near a branching factor of <strong>3 to 
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the noise margin droop threatens
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — decoders as contention-proof enables
 - [[build-your-own-shit/17-your-own-cpu/04-breadboard|PRIME-1 breadboard track]] — where these three faults actually bite
-- [[foundations/hardware/index|hardware/]] — practical electronics and components
+- [[hardware/index|hardware/]] — practical electronics and components

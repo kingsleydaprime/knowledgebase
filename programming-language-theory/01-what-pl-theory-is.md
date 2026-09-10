@@ -2,11 +2,11 @@
 
 **[Intermediate]** — Studying languages as mathematical objects, and why it produced things you use daily.
 
-**Source:** `[reference]` — see [[foundations/programming-language-theory/index|the domain note]].
+**Source:** `[reference]` — see [[programming-language-theory/index|the domain note]].
 
 ## The question
 
-**[[foundations/compilers/index|Compilers]] asks: how do I *implement* a language?**
+**[[compilers/index|Compilers]] asks: how do I *implement* a language?**
 
 **PL theory asks: what does a program *mean*, and what can I prove about it?**
 
@@ -24,7 +24,7 @@
 
 **2. It predicts what's coming.** Effect systems, dependent types, linear types and gradual typing are in research languages now and will be in mainstream ones in a decade. **The pattern has held for forty years.**
 
-**3. It tells you what's impossible.** Rice's theorem bounds what any type checker can do. **The soundness/completeness trade is a theorem, not an engineering shortfall.** → [[foundations/theory-of-computation/06-decidability|Decidability]]
+**3. It tells you what's impossible.** Rice's theorem bounds what any type checker can do. **The soundness/completeness trade is a theorem, not an engineering shortfall.** → [[theory-of-computation/06-decidability|Decidability]]
 
 **4. It gives you a vocabulary for design.** *Variance, parametricity, referential transparency, evaluation strategy* — precise names for things you already reason about vaguely.
 
@@ -32,7 +32,7 @@
 
 ## The three pillars
 
-**Syntax** — what programs *look* like. Grammars and parsing. **Well understood, and mostly [[foundations/theory-of-computation/04-context-free-languages|solved]].** → [[foundations/compilers/03-parsing|Parsing]]
+**Syntax** — what programs *look* like. Grammars and parsing. **Well understood, and mostly [[theory-of-computation/04-context-free-languages|solved]].** → [[compilers/03-parsing|Parsing]]
 
 **Semantics** — what programs *mean*. **The hard and interesting part**, and the subject of note 03.
 
@@ -52,19 +52,19 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 
 **Judgements** are the statements being derived: $\Gamma \vdash e : \tau$ (typing), $e \to e'$ (evaluation), $\Gamma \vdash e_1 \equiv e_2$ (equivalence).
 
-> **Once you can read an inference rule, most PL papers become accessible.** It's a small notational investment with a large payoff — and it's the same structure as the natural-deduction proofs in [[foundations/mathematics/02-discrete-math/02-logic|logic]], which isn't a coincidence.
+> **Once you can read an inference rule, most PL papers become accessible.** It's a small notational investment with a large payoff — and it's the same structure as the natural-deduction proofs in [[mathematics/02-discrete-math/02-logic|logic]], which isn't a coincidence.
 
 ## The results worth knowing
 
 **Even if you never read a paper, these five shaped what you use:**
 
-**The lambda calculus is Turing-complete** (Church, 1936). **Three constructs — variables, abstraction, application — compute everything.** → [[foundations/programming-language-theory/02-lambda-calculus|Lambda Calculus]]
+**The lambda calculus is Turing-complete** (Church, 1936). **Three constructs — variables, abstraction, application — compute everything.** → [[programming-language-theory/02-lambda-calculus|Lambda Calculus]]
 
-**Type soundness** — "well-typed programs don't go wrong" (Milner, 1978). **Progress and preservation**, and it's what a type system is *for*. → [[foundations/programming-language-theory/04-type-systems-formally|Type Systems]]
+**Type soundness** — "well-typed programs don't go wrong" (Milner, 1978). **Progress and preservation**, and it's what a type system is *for*. → [[programming-language-theory/04-type-systems-formally|Type Systems]]
 
-**Hindley–Milner inference** — full type inference without annotations, in near-linear time. **ML, Haskell, and the ancestor of every `var` and `auto` you write.** → [[foundations/programming-language-theory/05-type-inference|Type Inference]]
+**Hindley–Milner inference** — full type inference without annotations, in near-linear time. **ML, Haskell, and the ancestor of every `var` and `auto` you write.** → [[programming-language-theory/05-type-inference|Type Inference]]
 
-**Curry–Howard** — **propositions are types; proofs are programs.** Not an analogy. The basis of Coq, Lean and Agda. → [[foundations/programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]]
+**Curry–Howard** — **propositions are types; proofs are programs.** Not an analogy. The basis of Coq, Lean and Agda. → [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]]
 
 **Parametricity** — "theorems for free" (Wadler, 1989). **A polymorphic type constrains behaviour so tightly that you can derive theorems from the signature alone.**
 
@@ -87,11 +87,11 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 | Traits / typeclasses | Wadler & Blott, 1989 |
 | Null safety (Kotlin, Swift) | option types, finally |
 
-**In tools:** type checkers, linters, static analysers, refactoring tools that preserve meaning, and **compiler optimisations that must provably preserve semantics.** → [[foundations/compilers/07-optimisation|Optimisation]]
+**In tools:** type checkers, linters, static analysers, refactoring tools that preserve meaning, and **compiler optimisations that must provably preserve semantics.** → [[compilers/07-optimisation|Optimisation]]
 
 **In verification:** Coq, Lean, Agda, Idris. **CompCert is a C compiler proven correct in Coq** — its output is proven to preserve the source's semantics, which is why it's used in avionics. **seL4** is a formally verified microkernel.
 
-**In security:** information-flow types tracking whether secret data can reach public output — **making non-interference a type-checkable property.** → [[foundations/information-theory/07-where-information-theory-shows-up|Information leakage]]
+**In security:** information-flow types tracking whether secret data can reach public output — **making non-interference a type-checkable property.** → [[information-theory/07-where-information-theory-shows-up|Information leakage]]
 
 ## The paradigms, formally
 
@@ -103,7 +103,7 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 
 **Logic** — programs are relations, and execution is proof search. Prolog.
 
-**Object-oriented** — the formal account is messier than the others. **Subtyping, variance and inheritance interact in ways that took decades to get right** — and Java's covariant arrays, a known unsoundness, are the standard cautionary example. → [[foundations/programming-language-theory/04-type-systems-formally|Variance]]
+**Object-oriented** — the formal account is messier than the others. **Subtyping, variance and inheritance interact in ways that took decades to get right** — and Java's covariant arrays, a known unsoundness, are the standard cautionary example. → [[programming-language-theory/04-type-systems-formally|Variance]]
 
 ## Reading this track
 
@@ -111,12 +111,12 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 
 **07–08 are effects and where the field is going.**
 
-**Prerequisites:** [[foundations/mathematics/02-discrete-math/02-logic|logic]] and [[foundations/mathematics/02-discrete-math/03-proof-techniques|proof by induction]] — **structural induction especially**, since every soundness proof is one. [[foundations/compilers/index|Compilers]] helps for grounding but isn't required.
+**Prerequisites:** [[mathematics/02-discrete-math/02-logic|logic]] and [[mathematics/02-discrete-math/03-proof-techniques|proof by induction]] — **structural induction especially**, since every soundness proof is one. [[compilers/index|Compilers]] helps for grounding but isn't required.
 
 ---
 
 ## Related
-- [[foundations/programming-language-theory/02-lambda-calculus|Lambda Calculus]] — the foundation
-- [[foundations/compilers/index|Compilers]] — the implementation counterpart
-- [[foundations/theory-of-computation/index|Theory of Computation]] — the sibling theory domain
-- [[foundations/programming-language-theory/index|PL theory map]]
+- [[programming-language-theory/02-lambda-calculus|Lambda Calculus]] — the foundation
+- [[compilers/index|Compilers]] — the implementation counterpart
+- [[theory-of-computation/index|Theory of Computation]] — the sibling theory domain
+- [[programming-language-theory/index|PL theory map]]

@@ -86,6 +86,6 @@ The classes worth handling separately:
 - [[ai-automation/05-error-handling-and-retries|error handling and retries]] — the workflow-level machinery
 - [[ai-automation/02-n8n-core-concepts|n8n core concepts]]
 - [[backend/02-api-design/index|API design]] — the other side of every integration
-- [[foundations/networking/index|networking]] — what a timeout actually means
+- [[networking/index|networking]] — what a timeout actually means
 
 *Source: [reference] — written Aug 2026.*

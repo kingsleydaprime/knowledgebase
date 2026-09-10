@@ -56,7 +56,7 @@ An **ICD** specifies precisely what crosses a boundary, and it is the field's mo
 - **Timing** — latency, jitter, sequence
 - **Environmental** — the conditions it must survive
 
-**"Units" is on that list because of Mars Climate Orbiter** → [[foundations/systems-engineering/01-what-systems-engineering-is|note 01]]. Pound-seconds versus newton-seconds, in an interface that both teams believed they understood.
+**"Units" is on that list because of Mars Climate Orbiter** → [[systems-engineering/01-what-systems-engineering-is|note 01]]. Pound-seconds versus newton-seconds, in an interface that both teams believed they understood.
 
 **Why an ICD is powerful:** once it's agreed, two teams can work independently for months and their outputs will fit. **The interface is the contract, and it is owned by neither side** — which is the point, because an interface owned by one side quietly changes to suit that side.
 
@@ -91,7 +91,7 @@ The systems-engineering read is more actionable than the usual software one: **a
 The deliberate use — **the inverse Conway manoeuvre** — is to organise teams to match the architecture you want. It's the same reasoning behind [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]]'s team-shape argument.
 
 ## Related
-- [[foundations/systems-engineering/05-trade-studies|trade studies]] — choosing between architectures
+- [[systems-engineering/05-trade-studies|trade studies]] — choosing between architectures
 - [[architecture/02-building-blocks/index|building blocks]] — the software vocabulary
 - [[backend/02-api-design/index|API design]] — the ICD, for software
 - [[concepts/04-best-practices/05-solid-principles|SOLID]] — coupling and cohesion at code scale

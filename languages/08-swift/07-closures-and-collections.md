@@ -82,7 +82,7 @@ Collection      // can be iterated repeatedly, has count and indices
 
 Conform to `Sequence` and you get `map`, `filter`, `reduce`, `first(where:)` and the rest **free** — that's protocol extensions doing the work → [[languages/08-swift/04-protocols-and-generics|protocols]].
 
-**Complexity is worth knowing:** `Array` index access is O(1) but `insert(at: 0)` is O(n). `Set` and `Dictionary` are O(1) average. **`Array.contains` is O(n)** — if you're calling it in a loop, you want a `Set` → [[foundations/dsa/index|DSA]].
+**Complexity is worth knowing:** `Array` index access is O(1) but `insert(at: 0)` is O(n). `Set` and `Dictionary` are O(1) average. **`Array.contains` is O(n)** — if you're calling it in a loop, you want a `Set` → [[dsa/index|DSA]].
 
 ## Strings are not arrays
 
@@ -104,4 +104,4 @@ For heavy text processing, work with `s.utf8` or index-based traversal rather th
 ## Related
 - [[languages/08-swift/04-protocols-and-generics|protocols]] — where these methods come from
 - [[languages/08-swift/03-memory-and-arc|ARC]] — closures and retain cycles
-- [[foundations/dsa/index|DSA]] — the complexity behind the collections
+- [[dsa/index|DSA]] — the complexity behind the collections

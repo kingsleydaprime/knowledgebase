@@ -179,6 +179,6 @@ Server = ?Request . !Response . end      -- the dual
 
 ## Related
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — affine types in production
-- [[foundations/programming-language-theory/04-type-systems-formally|Type Systems Formally]] — the foundations
-- [[foundations/programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — types as specifications
-- [[foundations/programming-language-theory/index|PL theory map]]
+- [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — the foundations
+- [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — types as specifications
+- [[programming-language-theory/index|PL theory map]]

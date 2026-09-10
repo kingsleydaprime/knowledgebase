@@ -432,4 +432,4 @@ If your hand answer has more terms than the tool's, you probably missed a wrap-a
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/04-logic/02-boolean-algebra|Module 16]] — the laws this method applies visually
 - [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] — the gate delays that cause hazards
-- [[foundations/mathematics/02-discrete-math/index|discrete-math/]] — the combinatorial background
+- [[mathematics/02-discrete-math/index|discrete-math/]] — the combinatorial background

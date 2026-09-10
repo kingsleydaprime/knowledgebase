@@ -134,7 +134,7 @@ From [[hardware/01-electricity|01-electricity]], [[hardware/02-digital-and-analo
 5. **Then the passive prerequisites** — reset line held correctly? Crystal oscillating (scope it)? Boot-mode strapping pins in the right state?
 6. **Only then suspect firmware.**
 
-**The detail worth adding:** state explicitly that you'd check the **absolute maximum ratings** before applying anything unusual, and that you keep the schematic open the whole time. The generalisable point — the same one as bisecting network layers in [[foundations/networking/interview/04-debugging-and-scenarios|the networking bank]] — is that you're **halving the search space with each measurement**, not poking hopefully. Interviewers care far more about that than about any specific component.
+**The detail worth adding:** state explicitly that you'd check the **absolute maximum ratings** before applying anything unusual, and that you keep the schematic open the whole time. The generalisable point — the same one as bisecting network layers in [[networking/interview/04-debugging-and-scenarios|the networking bank]] — is that you're **halving the search space with each measurement**, not poking hopefully. Interviewers care far more about that than about any specific component.
 
 ---
 

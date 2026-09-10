@@ -82,7 +82,7 @@ func eval(_ e: Expr) -> Int {
 }
 ```
 
-**`indirect` adds the box needed for recursion.** This is how you'd write an AST → [[foundations/compilers/04-asts-and-semantic-analysis|ASTs]].
+**`indirect` adds the box needed for recursion.** This is how you'd write an AST → [[compilers/04-asts-and-semantic-analysis|ASTs]].
 
 ## Raw values and `CaseIterable`
 
@@ -133,4 +133,4 @@ extension LoadState {
 - [[languages/08-swift/06-error-handling|error handling]] — `throws` and `Result`
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Rust's enums]] — the same idea, same power
 - [[mobile/05-state-and-architecture|state modelling]] — where this pays off most
-- [[foundations/programming-language-theory/04-type-systems-formally|type systems]] — sum types formally
+- [[programming-language-theory/04-type-systems-formally|type systems]] — sum types formally

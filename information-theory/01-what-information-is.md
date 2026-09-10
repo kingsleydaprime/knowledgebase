@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Shannon's definition, why surprise is the right measure, and where the bit comes from.
 
-**Source:** `[reference]` — see [[foundations/information-theory/index|the domain note]].
+**Source:** `[reference]` — see [[information-theory/index|the domain note]].
 
 ## The question
 
@@ -54,7 +54,7 @@ $$H(X) = -\sum_x p(x)\log_2 p(x) = \mathbb{E}[-\log_2 p(X)]$$
 
 > **$H(X)$ is the average number of bits needed to encode a value drawn from $X$, using the best possible code.**
 >
-> **Not "could be" — the minimum, provably.** That's Shannon's source coding theorem. → [[foundations/information-theory/03-source-coding-and-compression|Source Coding]]
+> **Not "could be" — the minimum, provably.** That's Shannon's source coding theorem. → [[information-theory/03-source-coding-and-compression|Source Coding]]
 
 **The properties:**
 
@@ -127,22 +127,22 @@ $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 
 **The rest of the track builds on this one definition:**
 
-**Multiple variables** — joint, conditional and mutual information → [[foundations/information-theory/02-entropy-joint-conditional-and-mutual|note 02]]
+**Multiple variables** — joint, conditional and mutual information → [[information-theory/02-entropy-joint-conditional-and-mutual|note 02]]
 
-**Compression** — entropy is the hard floor → [[foundations/information-theory/03-source-coding-and-compression|note 03]]
+**Compression** — entropy is the hard floor → [[information-theory/03-source-coding-and-compression|note 03]]
 
-**Machine learning** — cross-entropy loss and KL divergence are this, directly → [[foundations/information-theory/04-cross-entropy-and-kl-divergence|note 04]]
+**Machine learning** — cross-entropy loss and KL divergence are this, directly → [[information-theory/04-cross-entropy-and-kl-divergence|note 04]]
 
-**Communication** — how much can a noisy channel carry → [[foundations/information-theory/05-channel-capacity-and-noise|note 05]]
+**Communication** — how much can a noisy channel carry → [[information-theory/05-channel-capacity-and-noise|note 05]]
 
-**Reliability** — error-correcting codes → [[foundations/information-theory/06-error-correcting-codes|note 06]]
+**Reliability** — error-correcting codes → [[information-theory/06-error-correcting-codes|note 06]]
 
 **Prerequisites:** [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]] — distributions, expectation, independence, conditional probability. Logarithms. **Nothing else.**
 
 ---
 
 ## Related
-- [[foundations/information-theory/02-entropy-joint-conditional-and-mutual|Joint, Conditional and Mutual Information]] — the toolkit
-- [[foundations/information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the note the ML material needs
+- [[information-theory/02-entropy-joint-conditional-and-mutual|Joint, Conditional and Mutual Information]] — the toolkit
+- [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the note the ML material needs
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — the prerequisite
-- [[foundations/information-theory/index|Information theory map]]
+- [[information-theory/index|Information theory map]]

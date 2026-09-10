@@ -80,6 +80,6 @@ JavaScript execution, layout, paint and user input all share **one main thread**
 - [[frontend/02-rendering/index|rendering]] — how state becomes pixels
 - [[frontend/index|the frontend course]]
 - [[backend/01-foundations/01-what-a-backend-is|what a backend is]] — the other half
-- [[foundations/programming-fundamentals/index|programming fundamentals]] — if this is your first code
+- [[programming-fundamentals/index|programming fundamentals]] — if this is your first code
 
 *Source: [reference] — written Aug 2026.*

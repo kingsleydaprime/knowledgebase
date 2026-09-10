@@ -133,7 +133,7 @@ For `0x12345678` at address 100:
 
 **Where it bites:**
 
-- **Network protocols.** Always convert: `htons`, `htonl`, `ntohs`, `ntohl` → [[foundations/networking/03-ip-addressing-and-subnetting|IP]]
+- **Network protocols.** Always convert: `htons`, `htonl`, `ntohs`, `ntohl` → [[networking/03-ip-addressing-and-subnetting|IP]]
 - **Binary file formats.** Specify the byte order or the file isn't portable
 - **Casting a struct to bytes** and writing it out. Works on your machine, not necessarily elsewhere
 - **Debugging a hex dump** — bytes appear "backwards" on little-endian, which is confusing the first hundred times
@@ -161,11 +161,11 @@ struct Good { int b; char a; char c; };  // 8 bytes
 //            bbbb  a  c  pad2
 ```
 
-> **Order fields largest-to-smallest and you get the packing for free.** On a struct allocated millions of times this is a real memory saving — and a real *cache* saving, which usually matters more. → [[foundations/computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
+> **Order fields largest-to-smallest and you get the packing for free.** On a struct allocated millions of times this is a real memory saving — and a real *cache* saving, which usually matters more. → [[computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
 
 **`#pragma pack(1)`** removes padding for wire formats — at the cost of unaligned access. **Use it for serialisation, not for hot data.**
 
-**Cache line alignment** is the other side: two variables written by different cores should be on **different** 64-byte lines, or you get false sharing. → [[foundations/computer-architecture/11-multicore-and-memory-models|False Sharing]]
+**Cache line alignment** is the other side: two variables written by different cores should be on **different** 64-byte lines, or you get false sharing. → [[computer-architecture/11-multicore-and-memory-models|False Sharing]]
 
 ## Practical notes
 
@@ -187,6 +187,6 @@ struct Good { int b; char a; char c; };  // 8 bytes
 
 ## Related
 - [[languages/04-c/04-types-and-integers|C: Types and Integers]] — the language-level view
-- [[foundations/computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — why layout matters so much
-- [[foundations/computer-architecture/03-instruction-sets|Instruction Sets]] — what operates on this data
-- [[foundations/computer-architecture/index|Architecture map]]
+- [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — why layout matters so much
+- [[computer-architecture/03-instruction-sets|Instruction Sets]] — what operates on this data
+- [[computer-architecture/index|Architecture map]]

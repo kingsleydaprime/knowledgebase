@@ -34,7 +34,7 @@ If you're doing performance work on an existing codebase, checking whether these
 
 **Statelessness and how it's worked around.** The server keeps no memory between requests. Cookies, tokens, and sessions all exist to reintroduce state on top — which is what makes horizontal scaling easy (any server can handle any request) and is the foundation of the [[backend/05-auth/01-authentication-flows|auth flows]] notes.
 
-**Persistent connections.** `Connection: keep-alive` is the default in 1.1. This is the single biggest 1.1 performance feature, because it amortises the [[foundations/networking/06-tcp-connection-lifecycle|TCP handshake]] and [[foundations/networking/12-tls-and-transport-security|TLS handshake]] — and lets [[foundations/networking/08-congestion-control|congestion control]] escape slow start, which matters more than most people realise.
+**Persistent connections.** `Connection: keep-alive` is the default in 1.1. This is the single biggest 1.1 performance feature, because it amortises the [[networking/06-tcp-connection-lifecycle|TCP handshake]] and [[networking/12-tls-and-transport-security|TLS handshake]] — and lets [[networking/08-congestion-control|congestion control]] escape slow start, which matters more than most people realise.
 
 **Content-Length vs chunked encoding.** The receiver needs to know where a response ends. Either declare the length upfront, or use `Transfer-Encoding: chunked` and send length-prefixed chunks with a zero-length terminator (necessary for streamed/generated content). Getting the interaction between these two wrong — where a front-end proxy and back-end server disagree about which one governs — is exactly the **request smuggling** vulnerability class. → [[cybersecurity/04-web-security/index|web security]]
 
@@ -56,19 +56,19 @@ Derived from Google's SPDY, standardised 2015. Same semantics (methods, headers,
 - **Stream prioritisation** — clients express dependency/weight so CSS can outrank an image. In practice server implementations varied so much it was largely a disappointment; replaced by a simpler scheme in RFC 9218.
 - **Server push** — send resources unrequested. **Removed from Chrome in 2022.** It usually wasted bandwidth pushing things the client already had cached. A good cautionary tale: a feature that's obviously good in theory and measurably bad in deployment. `103 Early Hints` is the surviving, better idea.
 
-**The flaw it can't fix:** HTTP/2 multiplexes on **one TCP connection**, and TCP guarantees ordered delivery of the whole byte stream. One lost packet stalls *every* stream, because TCP won't hand the receiver anything past the gap — even for streams whose data arrived perfectly. → [[foundations/networking/07-tcp-reliability-and-flow-control|TCP head-of-line blocking]]
+**The flaw it can't fix:** HTTP/2 multiplexes on **one TCP connection**, and TCP guarantees ordered delivery of the whole byte stream. One lost packet stalls *every* stream, because TCP won't hand the receiver anything past the gap — even for streams whose data arrived perfectly. → [[networking/07-tcp-reliability-and-flow-control|TCP head-of-line blocking]]
 
 So HTTP/2 moved head-of-line blocking from the application layer down to the transport layer. On a clean network it's a large win. **On a lossy network, HTTP/2 can be slower than HTTP/1.1 with six connections**, because those six connections fail independently while HTTP/2's single connection has one shared fate.
 
-That single fact is the entire justification for [[foundations/networking/13-quic-and-modern-transport|HTTP/3]].
+That single fact is the entire justification for [[networking/13-quic-and-modern-transport|HTTP/3]].
 
 ## Key insight
 
 Every version of HTTP after 1.0 is an attack on the same two costs: **the number of round trips, and one slow thing blocking everything behind it.** 1.1 attacked round trips with keep-alive. 2 attacked blocking with multiplexing — and hit the transport layer's floor. 3 gave up on fixing HTTP and replaced the transport instead. Note the trajectory: the protocol kept pushing the problem *down* the stack until it ran out of stack and had to rebuild the layer below.
 
 ## Related
-- [[foundations/networking/13-quic-and-modern-transport|QUIC & HTTP/3]] — where this story ends
-- [[foundations/networking/12-tls-and-transport-security|TLS]] — h2 requires it in practice; ALPN is how it's negotiated
-- [[foundations/networking/15-network-performance|Network Performance]] — measuring which of these actually matters
+- [[networking/13-quic-and-modern-transport|QUIC & HTTP/3]] — where this story ends
+- [[networking/12-tls-and-transport-security|TLS]] — h2 requires it in practice; ALPN is how it's negotiated
+- [[networking/15-network-performance|Network Performance]] — measuring which of these actually matters
 - [[backend/02-api-design/01-apis-and-rest|APIs]] — HTTP semantics as an API design surface
 - [[cybersecurity/04-web-security/index|Web Security]] — smuggling, caching attacks, header handling

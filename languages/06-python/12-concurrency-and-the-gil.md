@@ -30,7 +30,7 @@ So the shape is: threads are useless for computation and excellent for waiting.
 | Hard part | Race conditions | One blocking call ruins it | Serialisation cost |
 
 ### `threading`
-For blocking I/O with an existing synchronous library. Simple to bolt on; you inherit every classic concurrency bug — races, deadlocks, and shared mutable state → [[foundations/os/06-concurrency-primitives|concurrency primitives]].
+For blocking I/O with an existing synchronous library. Simple to bolt on; you inherit every classic concurrency bug — races, deadlocks, and shared mutable state → [[os/06-concurrency-primitives|concurrency primitives]].
 
 ```python
 from concurrent.futures import ThreadPoolExecutor
@@ -105,13 +105,13 @@ The costs are real: arguments and results are **pickled** across the boundary (s
 
 The trade is honest: removing the GIL costs single-threaded performance (finer-grained locking isn't free) and requires C extensions to be updated for thread safety. The whole ecosystem has to move.
 
-**What it changes:** `threading` becomes genuinely parallel for CPU-bound Python, and the multiprocessing tax disappears for a large class of work. **What it doesn't:** every race condition threads have always had is still there, and now they actually happen. → [[foundations/os/06-concurrency-primitives|concurrency primitives]] and [[foundations/computer-architecture/11-multicore-and-memory-models|memory models]] stop being optional reading.
+**What it changes:** `threading` becomes genuinely parallel for CPU-bound Python, and the multiprocessing tax disappears for a large class of work. **What it doesn't:** every race condition threads have always had is still there, and now they actually happen. → [[os/06-concurrency-primitives|concurrency primitives]] and [[computer-architecture/11-multicore-and-memory-models|memory models]] stop being optional reading.
 
 For now: assume the GIL, treat free-threading as something to track rather than deploy.
 
 ## Related
-- [[foundations/os/02-processes-and-threads|processes and threads]] — what's underneath
-- [[foundations/os/06-concurrency-primitives|concurrency primitives]] — locks, and why they're hard
+- [[os/02-processes-and-threads|processes and threads]] — what's underneath
+- [[os/06-concurrency-primitives|concurrency primitives]] — locks, and why they're hard
 - [[backend/01-foundations/04-runtime-and-concurrency-models|runtime and concurrency models]] — the cross-language comparison
 - [[languages/02-go/06-goroutines-and-channels|goroutines]] — the model Python doesn't have
 

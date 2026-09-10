@@ -252,5 +252,5 @@ Note that this is *dynamic* detection — the same position [[languages/02-go/07
 - [[languages/05-cpp/03-classes-and-raii|Classes and RAII]] — what makes `lock_guard` work
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — the same primitives, statically checked
 - [[languages/02-go/07-concurrency-patterns|Go: Concurrency Patterns]] — the dynamic-checking alternative
-- [[foundations/os/fundamentals|OS Fundamentals]] — threads and scheduling underneath
+- [[os/fundamentals|OS Fundamentals]] — threads and scheduling underneath
 - [[languages/05-cpp/index|C++ course map]]

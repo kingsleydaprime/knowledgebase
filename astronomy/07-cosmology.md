@@ -81,7 +81,7 @@ Determined by dark energy's behaviour, which is not well constrained:
 ## Related
 - [[astronomy/06-gravity-and-relativity|gravity and relativity]] — the framework
 - [[astronomy/04-stars|stars]] — where the elements came from
-- [[foundations/information-theory/index|information theory]] — entropy and heat death
+- [[information-theory/index|information theory]] — entropy and heat death
 - [[research/index|research]] — how claims like these get tested
 
 *Source: [reference] — written Aug 2026 from standard cosmology texts and current survey results.*

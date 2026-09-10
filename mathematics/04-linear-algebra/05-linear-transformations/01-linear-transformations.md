@@ -396,4 +396,4 @@ You are done with this lesson when you can:
 - [[01-matrices-and-determinants|Matrices and Determinants]] — the multiplication rule this lesson explains
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — kernel and image under their other names
 - [[02-graphs-and-identities|Graphs and Identities]] — the addition formulas block 4 recovers
-- [[foundations/computer-graphics/index|computer-graphics/]] — where homogeneous coordinates are used in earnest
+- [[computer-graphics/index|computer-graphics/]] — where homogeneous coordinates are used in earnest

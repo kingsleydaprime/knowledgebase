@@ -59,6 +59,6 @@ The project-grounded high-throughput work — the strongest "real engineering" s
 ## Related
 - [[languages/index|languages course map]]
 - [[backend/index|backend]] — the Node.js/Express/Nest equivalent
-- [[foundations/dsa/index|DSA]] — language-agnostic algorithms behind [[languages/01-java/01-language/04-collections|collections]]
+- [[dsa/index|DSA]] — language-agnostic algorithms behind [[languages/01-java/01-language/04-collections|collections]]
 - [[concepts/03-design-patterns/index|design patterns]]
 - [[devops/02-docker/index|Docker]]

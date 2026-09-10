@@ -30,7 +30,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 
 ## Machine learning — the loss function
 
-**Cross-entropy loss, KL divergence, perplexity.** Fully covered in [[foundations/information-theory/04-cross-entropy-and-kl-divergence|note 04]] — the short version:
+**Cross-entropy loss, KL divergence, perplexity.** Fully covered in [[information-theory/04-cross-entropy-and-kl-divergence|note 04]] — the short version:
 
 **Minimising cross-entropy = maximising likelihood = minimising KL to the data distribution.** Three framings, one objective.
 
@@ -48,7 +48,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 
 ## Compression — and the LLM connection
 
-**A model that predicts well compresses well**, because they're the same quantity. → [[foundations/information-theory/03-source-coding-and-compression|Source Coding]]
+**A model that predicts well compresses well**, because they're the same quantity. → [[information-theory/03-source-coding-and-compression|Source Coding]]
 
 **The striking demonstration:** DeepMind showed in 2023 that **Chinchilla, trained only on text, compresses ImageNet patches better than PNG and audio better than FLAC.** Learned structure transfers, and compression measures it.
 
@@ -56,13 +56,13 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 
 ## Networking — capacity and coding
 
-**Shannon–Hartley sets the physical layer's ceiling.** → [[foundations/information-theory/05-channel-capacity-and-noise|Channel Capacity]]
+**Shannon–Hartley sets the physical layer's ceiling.** → [[information-theory/05-channel-capacity-and-noise|Channel Capacity]]
 
 **Every layer of the stack is information theory:**
 
 - **Physical** — modulation and coding rate chosen against measured SNR
-- **Link** — CRC for error detection, LDPC/turbo for correction → [[foundations/networking/02-the-link-layer|Link Layer]]
-- **Transport** — TCP infers congestion from loss, which is **inference from a very low-bandwidth signal** → [[foundations/networking/08-congestion-control|Congestion Control]]
+- **Link** — CRC for error detection, LDPC/turbo for correction → [[networking/02-the-link-layer|Link Layer]]
+- **Transport** — TCP infers congestion from loss, which is **inference from a very low-bandwidth signal** → [[networking/08-congestion-control|Congestion Control]]
 - **Application** — HTTP compression, Brotli's built-in dictionary
 
 **Adaptive bitrate streaming** is a rate–distortion problem solved live: estimate the channel, choose the quality level whose rate fits.
@@ -71,11 +71,11 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 
 **Compression in column stores** works because a single column is homogeneous — **low entropy given the context**, which is exactly why run-length and dictionary encoding get 10× ratios there and not on rows. → [[databases/03-storage-and-page-layout|Storage and Page Layout]]
 
-**Bloom filters** are an information-theoretic trade: **accept one-sided error to store far less than the set itself.** The optimal bits-per-element for a target false-positive rate is $-1.44\log_2\epsilon$ — **a hard bound, derived from counting.** → [[foundations/dsa/04-data-structures/03-hash-maps|Hash Maps]]
+**Bloom filters** are an information-theoretic trade: **accept one-sided error to store far less than the set itself.** The optimal bits-per-element for a target false-positive rate is $-1.44\log_2\epsilon$ — **a hard bound, derived from counting.** → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
 
 **HyperLogLog** estimates cardinality in ~1.5 KB regardless of set size, by tracking the maximum number of leading zeros in hashed values. **The intuition is pure information theory: seeing $k$ leading zeros suggests you've drawn about $2^k$ items.**
 
-**Erasure coding** for durability at 40–50% overhead instead of 200%. → [[foundations/information-theory/06-error-correcting-codes|Error-Correcting Codes]]
+**Erasure coding** for durability at 40–50% overhead instead of 200%. → [[information-theory/06-error-correcting-codes|Error-Correcting Codes]]
 
 ## Security — leakage as a channel
 
@@ -83,8 +83,8 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 
 **This makes "how bad is this leak" quantitative:**
 
-- **Timing** — a secret-dependent branch leaks; constant-time code targets zero capacity → [[foundations/computer-architecture/07-branch-prediction-and-speculation|Spectre]]
-- **Compression + encryption** — CRIME and BREACH extract secrets by watching compressed length. **The leak is real bits, and you can count them** → [[foundations/information-theory/03-source-coding-and-compression|Compression]]
+- **Timing** — a secret-dependent branch leaks; constant-time code targets zero capacity → [[computer-architecture/07-branch-prediction-and-speculation|Spectre]]
+- **Compression + encryption** — CRIME and BREACH extract secrets by watching compressed length. **The leak is real bits, and you can count them** → [[information-theory/03-source-coding-and-compression|Compression]]
 - **Padding oracles** — one bit per query, and one bit per query is enough
 - **Differential privacy** bounds information leakage explicitly: the $\epsilon$ in $\epsilon$-DP is a bound on how much any individual's data can shift the output distribution
 
@@ -142,7 +142,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 ---
 
 ## Related
-- [[foundations/information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the ML-facing half
-- [[foundations/information-theory/05-channel-capacity-and-noise|Channel Capacity]] — the communications half
+- [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the ML-facing half
+- [[information-theory/05-channel-capacity-and-noise|Channel Capacity]] — the communications half
 - [[cybersecurity/05-cryptography/index|Cryptography]] — entropy as security
-- [[foundations/information-theory/index|Information theory map]]
+- [[information-theory/index|Information theory map]]

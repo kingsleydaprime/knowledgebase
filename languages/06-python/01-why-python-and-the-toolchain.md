@@ -93,7 +93,7 @@ Python's interactive prompt is a genuine part of the workflow, not a toy:
 >>> help(str.split)
 ```
 
-`python3 -i script.py` runs a script and **drops you into a REPL with its state still loaded** — frequently faster than adding print statements. → [[foundations/programming-fundamentals/03-where-code-gets-written|where code gets written]].
+`python3 -i script.py` runs a script and **drops you into a REPL with its state still loaded** — frequently faster than adding print statements. → [[programming-fundamentals/03-where-code-gets-written|where code gets written]].
 
 ## The philosophy, and where it bends
 
@@ -109,7 +109,7 @@ The word for code that follows the community's grain is **Pythonic**, and it's a
 - [[languages/06-python/02-the-data-model|the data model]] — the idea everything else follows from
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — ruff, mypy, pytest
 - [[languages/06-python/14-performance-and-the-runtime|performance]] — what CPython is actually doing
-- [[foundations/programming-fundamentals/index|programming fundamentals]] — if this is your first language
+- [[programming-fundamentals/index|programming fundamentals]] — if this is your first language
 - [[ai-ml/00-foundations/04-python-and-data-tools/index|Python for data]] — the numeric stack, elsewhere in this vault
 
 *Source: [reference] — from the official docs, PEPs, and the packaging ecosystem's own guidance.*

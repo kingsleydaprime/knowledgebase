@@ -76,7 +76,7 @@ The intuition is wrong here, so it's worth stating the order:
 
 ## Measure before you optimise
 
-Same discipline as everywhere → [[foundations/computer-architecture/12-performance|performance method]]:
+Same discipline as everywhere → [[computer-architecture/12-performance|performance method]]:
 
 | | Tool |
 |---|---|
@@ -94,6 +94,6 @@ Same discipline as everywhere → [[foundations/computer-architecture/12-perform
 - [[mobile/08-networking-on-mobile|networking]] — the radio tail
 - [[mobile/04-declarative-ui|declarative UI]] — recomposition cost
 - [[mobile/10-background-work-and-push|background work]] — why the OS restricts you
-- [[foundations/computer-architecture/12-performance|performance method]] — measure first
+- [[computer-architecture/12-performance|performance method]] — measure first
 
 *Source: [reference] — Aug 2026.*

@@ -2,7 +2,7 @@
 
 > RHCSA V10
 
-Part of [[README|RHCSA V10]]. RHEL's container tooling is **Podman**, not Docker — this shows up on newer RHCSA objectives (RHEL 8+) as its own section.
+Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. RHEL's container tooling is **Podman**, not Docker — this shows up on newer RHCSA objectives (RHEL 8+) as its own section.
 
 ---
 

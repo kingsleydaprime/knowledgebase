@@ -2,7 +2,7 @@
 
 The language round. **Every frontend and full-stack interview has one**, and it's the round most candidates under-prepare because they've been writing framework code rather than language code.
 
-From [[frontend/index|frontend]], [[backend/frameworks/javascript/01-node-runtime/index|the Node runtime]], and [[foundations/programming-fundamentals/index|programming fundamentals]].
+From [[frontend/index|frontend]], [[backend/frameworks/javascript/01-node-runtime/index|the Node runtime]], and [[programming-fundamentals/index|programming fundamentals]].
 
 ---
 
@@ -57,7 +57,7 @@ Fix with the updater form `setCount(c => c + 1)`, or add the dep. **This is the 
 - `NaN !== NaN`. Test with `Number.isNaN`, and note `isNaN("foo")` is `true` because it coerces — `Number.isNaN` doesn't
 - `0 == "0"` true, `0 == []` true, `"0" == []` **false** — three coercions, no transitivity
 - `typeof null === "object"` — a bug from 1995, unfixable for compatibility
-- **Objects compare by reference.** `{} === {}` is false → [[foundations/programming-fundamentals/05-variables-and-types|reference vs value]]
+- **Objects compare by reference.** `{} === {}` is false → [[programming-fundamentals/05-variables-and-types|reference vs value]]
 
 **The senior point:** this is trivia *unless* you can say why it matters — coercion bugs surface at boundaries where data arrives as strings (query params, form inputs, env vars, JSON). **Parse at the boundary**, then the rest of your code never faces the question.
 

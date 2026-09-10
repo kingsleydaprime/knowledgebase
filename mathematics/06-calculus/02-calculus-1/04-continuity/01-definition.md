@@ -87,7 +87,7 @@ $$f(1) = 1 - 1 - 1 = -1 \qquad f(2) = 8 - 2 - 1 = 5$$
 $f$ is a polynomial, so continuous. It goes from $-1$ to $5$, so it must pass through $0$ somewhere in between. **A root exists in $(1,2)$** — proved without finding it.
 
 > [!NOTE]
-> **This is bisection, and you have used it.** Halve the interval, check which side changes sign, repeat. It is exactly [[foundations/dsa/06-patterns/09-modified-binary-search|binary search]] over a continuous domain, and it is how numerical root-finders work — see [[foundations/numerical-methods/index|numerical methods]].
+> **This is bisection, and you have used it.** Halve the interval, check which side changes sign, repeat. It is exactly [[dsa/06-patterns/09-modified-binary-search|binary search]] over a continuous domain, and it is how numerical root-finders work — see [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical methods]].
 >
 > It is also `git bisect`: the "function" is *does the build pass*, the interval is your commit history, and you are finding where it changed sign.
 
@@ -131,4 +131,4 @@ $f$ is a polynomial, so continuous. It goes from $-1$ to $5$, so it must pass th
 
 ## Related
 
-- [[01-laws|Limit laws]] · [[foundations/numerical-methods/index|numerical methods]]
+- [[01-laws|Limit laws]] · [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical methods]]

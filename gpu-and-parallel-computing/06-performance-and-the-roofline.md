@@ -109,19 +109,19 @@ cudaDeviceSynchronize();  end = now();     // ✓
 
 **Small batch size.** Underutilises the hardware and makes launch overhead significant. **Larger batches (with a scaled learning rate) usually improve throughput substantially.**
 
-**Unfused element-wise chains.** Bandwidth-bound, and `torch.compile` fixes most of them for free. → [[foundations/gpu-and-parallel-computing/04-parallel-patterns|Kernel Fusion]]
+**Unfused element-wise chains.** Bandwidth-bound, and `torch.compile` fixes most of them for free. → [[gpu-and-parallel-computing/04-parallel-patterns|Kernel Fusion]]
 
-**Not using tensor cores.** FP32 without TF32, or shapes not multiples of 8/16. **A dimension of 4095 instead of 4096 can cost you a large fraction of peak.** → [[foundations/gpu-and-parallel-computing/02-gpu-architecture|Tensor Cores]]
+**Not using tensor cores.** FP32 without TF32, or shapes not multiples of 8/16. **A dimension of 4095 instead of 4096 can cost you a large fraction of peak.** → [[gpu-and-parallel-computing/02-gpu-architecture|Tensor Cores]]
 
 **Host↔device sync in the training loop.** Any `.item()`, `.cpu()`, or `print(loss)` **forces a synchronisation and stalls the pipeline.** Accumulate on device and log every N steps.
 
 **Memory-bound attention** — solved by FlashAttention, which fuses the computation so the $N\times N$ matrix never reaches global memory.
 
-**Gradient synchronisation** in multi-GPU training. → [[foundations/gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]]
+**Gradient synchronisation** in multi-GPU training. → [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]]
 
 ## The optimisation order
 
-**Same discipline as [[foundations/computer-architecture/12-performance|CPU performance]], different specifics:**
+**Same discipline as [[computer-architecture/12-performance|CPU performance]], different specifics:**
 
 ```
 1. PROFILE               Nsight Systems for the timeline
@@ -154,7 +154,7 @@ cudaDeviceSynchronize();  end = now();     // ✓
 ---
 
 ## Related
-- [[foundations/gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — the memory-bound fixes
-- [[foundations/computer-architecture/12-performance|Performance]] — the CPU-side methodology
-- [[foundations/gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]] — when one GPU isn't enough
-- [[foundations/gpu-and-parallel-computing/index|GPU and parallel map]]
+- [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — the memory-bound fixes
+- [[computer-architecture/12-performance|Performance]] — the CPU-side methodology
+- [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]] — when one GPU isn't enough
+- [[gpu-and-parallel-computing/index|GPU and parallel map]]

@@ -6,7 +6,7 @@
 
 A huge amount of business data is a **time series** — a number measured repeatedly over time: daily revenue, hourly traffic, monthly signups. It looks simple, but it has a trap: **the points aren't independent** (today depends on yesterday), which breaks the ordinary statistics that assume they are. And the eye is easily fooled — a "spike" might just be Monday, a "trend" might just be Christmas. Time series analysis is the toolkit for telling a real signal from the rhythm and the noise.
 
-This is the analyst-and-business side of time; the signal-processing side (Fourier, filters) lives in [[foundations/digital-signal-processing/index|DSP]].
+This is the analyst-and-business side of time; the signal-processing side (Fourier, filters) lives in [[digital-signal-processing/index|DSP]].
 
 ## Why time series is its own thing
 
@@ -69,7 +69,7 @@ Time series has specific, common footguns:
 - **Spurious correlation** — two unrelated series that both trend upward will correlate strongly (ice-cream sales and drownings both rise in summer). **Trending series correlate by default; it means nothing** → [[data-analysis/04-exploratory-and-diagnostic-analysis|correlation ≠ causation]]
 - **Overfitting a forecast** — a model that fits history perfectly often predicts the future terribly; validate on held-out *later* data, never a random split (that leaks the future)
 - **Ignoring changepoints** — a real structural break (a new pricing model, a pandemic) means the past no longer predicts the future, and a naive forecast sails straight through it
-- **Anomaly vs noise** — flagging normal variation as an "anomaly." Set thresholds against the series' actual seasonal variation, not a flat line → [[foundations/digital-signal-processing/07-spectral-analysis|the same signal-vs-noise problem]]
+- **Anomaly vs noise** — flagging normal variation as an "anomaly." Set thresholds against the series' actual seasonal variation, not a flat line → [[digital-signal-processing/07-spectral-analysis|the same signal-vs-noise problem]]
 
 ## Key insight
 
@@ -78,7 +78,7 @@ Time series has specific, common footguns:
 ## Related
 - [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]] — "is this change real or seasonal?"
 - [[data-analysis/02-sql-for-analysis|SQL for analysis]] — moving averages and period-over-period in SQL
-- [[foundations/digital-signal-processing/index|DSP]] — the signal-processing side of time (Fourier, filters)
+- [[digital-signal-processing/index|DSP]] — the signal-processing side of time (Fourier, filters)
 - [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|econometrics]] — time series for causal inference
 
 *Source: [reference] — Sep 2026.*

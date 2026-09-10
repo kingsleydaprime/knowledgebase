@@ -37,4 +37,4 @@ A parallel track for **technical users who don't yet build with AI** — coding 
 - [[ai-ml/index|AI & ML]] — the three builder paths (data scientist, ML engineer, AI engineer)
 - [[ai-ml/03-ai-engineer/index|AI Engineer track]] — the direct next step for anyone who writes code
 - [[ai-automation/index|AI Automation]] — when the task should run on a schedule without you
-- [[README|Vault index]]
+- [[HOME|Vault index]]

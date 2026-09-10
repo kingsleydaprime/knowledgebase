@@ -102,7 +102,7 @@ The core relation is **happens-before**. It's established by: program order with
 
 **Strong answer covers:** lightweight threads scheduled by the JVM onto a small pool of carrier (platform) threads. When a virtual thread blocks on I/O, the JVM **unmounts** it from its carrier and runs something else — so blocking a virtual thread costs almost nothing.
 
-**The problem solved:** you no longer choose between _readable_ (blocking, sequential, debuggable, stack traces that make sense) and _scalable_ (async/reactive, callback or `CompletableFuture` soup). Thread-per-request comes back, at a million threads. → [[foundations/networking/09-sockets-and-the-network-api|the same event-loop tradeoff, from the sockets side]]
+**The problem solved:** you no longer choose between _readable_ (blocking, sequential, debuggable, stack traces that make sense) and _scalable_ (async/reactive, callback or `CompletableFuture` soup). Thread-per-request comes back, at a million threads. → [[networking/09-sockets-and-the-network-api|the same event-loop tradeoff, from the sockets side]]
 
 **The caveats that show you've actually used them:**
 
@@ -130,7 +130,7 @@ The core relation is **happens-before**. It's established by: program order with
 
 1. **GC pauses** — check GC logs / JFR. Is p99 ≈ a pause duration? Then it's allocation rate or live-set size.
 2. **Lock contention** — JFR or async-profiler in lock mode; a hot `synchronized` block serialises everything.
-3. **The network/transport layer** — [[foundations/networking/15-network-performance|RTO after tail loss, incast, bufferbloat]]. This one gets missed constantly because it's invisible to application profiling.
+3. **The network/transport layer** — [[networking/15-network-performance|RTO after tail loss, incast, bufferbloat]]. This one gets missed constantly because it's invisible to application profiling.
 4. **Fan-out amplification** — if one request makes 100 downstream calls, you wait for the slowest; a 1% tail becomes a 63% chance of being hit.
 5. **JIT deoptimisation / warmup**, cold caches, connection-pool exhaustion, a noisy neighbour.
 

@@ -104,7 +104,7 @@ This bites especially with strings and other immutable values: `text.upper()` **
 
 That last property has a name — a **pure** function: same inputs, same output, no side effects. Not everything can be pure (something has to write the file), but **pushing the pure logic apart from the effects is one of the highest-return structural habits there is**. It's the core of [[concepts/03-design-patterns/index|a lot of design]] and the whole premise of functional programming.
 
-**Watch the sharing trap.** Passing a list or object into a function passes a *reference* → [[foundations/programming-fundamentals/05-variables-and-types|note 05]]. Modifying it inside changes the caller's copy. Sometimes intended; frequently a surprise.
+**Watch the sharing trap.** Passing a list or object into a function passes a *reference* → [[programming-fundamentals/05-variables-and-types|note 05]]. Modifying it inside changes the caller's copy. Sometimes intended; frequently a surprise.
 
 ## Using other people's functions
 
@@ -128,15 +128,15 @@ Beyond the standard library, a **package manager** fetches third-party code — 
 
 ## Scope, and closures in one paragraph
 
-Variables created inside a function are **local** — they exist while it runs and vanish after. That isolation is most of why functions are safe to reason about: a local can't be changed by anything outside → [[foundations/programming-fundamentals/05-variables-and-types|note 05]].
+Variables created inside a function are **local** — they exist while it runs and vanish after. That isolation is most of why functions are safe to reason about: a local can't be changed by anything outside → [[programming-fundamentals/05-variables-and-types|note 05]].
 
 A function *can* usually see variables from the scope enclosing it, and in many languages it can **capture** them and keep them alive after that scope has ended. That's a **closure** — a function bundled with the environment it was created in. You don't need it yet; you'll meet it the first time a callback behaves strangely, and it'll make sense then.
 
 ## Related
-- [[foundations/programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — functions calling themselves, and how calls actually work
-- [[foundations/programming-fundamentals/11-planning-before-you-type|planning]] — deciding what your functions should be
+- [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — functions calling themselves, and how calls actually work
+- [[programming-fundamentals/11-planning-before-you-type|planning]] — deciding what your functions should be
 - [[concepts/04-best-practices/04-testing-fundamentals|testing]] — what functions make possible
 - [[concepts/04-best-practices/05-solid-principles|SOLID]] — "do one thing", scaled up
-- [[foundations/software-engineering/01-what-software-engineering-is|abstraction]] — the habit this note is an instance of
+- [[software-engineering/01-what-software-engineering-is|abstraction]] — the habit this note is an instance of
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with purity, dependency judgement and closures.*

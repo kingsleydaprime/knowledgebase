@@ -12,11 +12,11 @@
 
 ## What you need first
 
-- **Arrays and loops** → [[foundations/programming-fundamentals/index|programming fundamentals]]
+- **Arrays and loops** → [[programming-fundamentals/index|programming fundamentals]]
 - **The chain rule.** Genuinely all the calculus required
 - **Matrix multiplication** — what shape times what shape gives what shape
-- **Cross-entropy**, and why it's the loss → [[foundations/information-theory/04-cross-entropy-and-kl-divergence|information theory 04]]
-- Helpful, not required: [[foundations/numerical-methods/10-numerical-optimisation|numerical optimisation]] · [[ai-ml/index|ai-ml]]
+- **Cross-entropy**, and why it's the loss → [[information-theory/04-cross-entropy-and-kl-divergence|information theory 04]]
+- Helpful, not required: [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|numerical optimisation]] · [[ai-ml/index|ai-ml]]
 
 **Python + NumPy is the natural choice** (NumPy for the matrix multiply, nothing else). Any language with arrays works — the pure-Python version is instructive and slow.
 
@@ -66,7 +66,7 @@ $$\frac{\partial L}{\partial w} \approx \frac{L(w + \varepsilon) - L(w - \vareps
 
 Compare against your backprop gradient; relative error should be < 10⁻⁷.
 
-**Use $\varepsilon \approx 10^{-5}$**, and know why: too large and truncation error dominates, too small and floating-point cancellation destroys it. **That's the U-curve from [[foundations/numerical-methods/11-practice-exercises|numerical methods exercise 1]]**, and this is the same problem in a different costume.
+**Use $\varepsilon \approx 10^{-5}$**, and know why: too large and truncation error dominates, too small and floating-point cancellation destroys it. **That's the U-curve from [[mathematics/07-applied-and-computational/01-numerical-methods/11-practice-exercises|numerical methods exercise 1]]**, and this is the same problem in a different costume.
 
 **Check a few parameters, not all of them** — it's O(n) forward passes per parameter.
 
@@ -76,7 +76,7 @@ Compare against your backprop gradient; relative error should be < 10⁻⁷.
 
 **Forgetting to zero gradients** between batches — they accumulate, and the network diverges.
 
-**Softmax overflow.** `exp(1000)` is `inf`. **Subtract the max before exponentiating** — mathematically identical, numerically essential. This is the single most common numerical bug in the project → [[foundations/numerical-methods/02-floating-point-and-error|floating point]].
+**Softmax overflow.** `exp(1000)` is `inf`. **Subtract the max before exponentiating** — mathematically identical, numerically essential. This is the single most common numerical bug in the project → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]].
 
 **Log of zero** in cross-entropy → `-inf`. Clip, or use a fused log-softmax.
 
@@ -105,8 +105,8 @@ Compare against your backprop gradient; relative error should be < 10⁻⁷.
 
 ## Related
 - [[ai-ml/index|AI & ML]] — the 98 notes this makes concrete
-- [[foundations/information-theory/04-cross-entropy-and-kl-divergence|cross-entropy]] — why that loss
-- [[foundations/numerical-methods/10-numerical-optimisation|numerical optimisation]] — gradient descent properly
-- [[foundations/gpu-and-parallel-computing/index|GPU]] — why the real ones run elsewhere
+- [[information-theory/04-cross-entropy-and-kl-divergence|cross-entropy]] — why that loss
+- [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|numerical optimisation]] — gradient descent properly
+- [[gpu-and-parallel-computing/index|GPU]] — why the real ones run elsewhere
 
 *Source: [reference] — build guide, Aug 2026.*

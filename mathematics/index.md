@@ -15,6 +15,7 @@ This course is **partly written**, and the table below is honest about which par
 | **Discrete mathematics** | ✅ **written** — logic, proof, sets, induction, combinatorics, graphs, number theory |
 | **Geometry and trigonometry** | ✅ **written** — 16 lessons, deductive geometry through to quadric surfaces |
 | **Linear algebra** | ✅ **written** — 6 lessons, matrices through to eigenvalues and PageRank |
+| **Numerical methods** | ✅ **written** — 13 notes, floating point through to numerical optimisation |
 | **Calculus** | ✅ **written** — limits, continuity, derivatives, integration, multivariable |
 
 **Every lesson linked below is written**, with prerequisites, worked examples, problems and hidden answers. The gaps that remain are *topics not yet started* — listed at the bottom — rather than empty files.
@@ -33,7 +34,7 @@ mathematics/
 |- 04-linear-algebra/             matrices -> systems -> spaces -> eigenvalues     [written]
 |- 05-probability-statistics/     descriptive stats through to inference
 |- 06-calculus/                   intro -> Calculus 1-3 -> ODE/PDE -> analysis      [1-3 written]
-|- 07-applied-and-computational/  numerical methods, optimisation, control
+|- 07-applied-and-computational/  numerical methods [written], optimisation
 \- 08-exam-practice/              WAEC/NECO and JAMB/UTME revision
 ```
 
@@ -111,6 +112,12 @@ Calculus 1–3 are written in full; the SS3 introduction, ODEs, PDEs and the ana
 13. [[06-calculus/04-calculus-3/02-multiple-integrals|Multiple Integrals]] — accumulation over a region, and the Jacobian factor
 14. [[06-calculus/04-calculus-3/03-optimization|Multivariable Optimisation]] — saddle points, and why they dominate in high dimensions
 
+## 07-applied-and-computational
+
+**Partly written.** Numerical methods is complete and moved here from the vault root, where it sat awkwardly beside the software domains — it is mathematics, and everything in it depends on [[04-linear-algebra/index|linear algebra]] and calculus.
+
+→ [[07-applied-and-computational/01-numerical-methods/index|numerical-methods/]] — **[Intermediate → Advanced]** · 13 notes — why exact answers are often unavailable → floating point and error → root finding → linear systems → eigenvalues → interpolation → quadrature → ODEs → PDEs → optimisation, with exercises and solutions.
+
 ## The two curricula this follows
 
 - [[ss1-ss3-course-outline|Senior Secondary (SS1–SS3)]] — the Nigerian NERDC curriculum. The foundations sequence and number bases cover its early terms.
@@ -122,13 +129,13 @@ Calculus 1–3 are written in full; the SS3 introduction, ODEs, PDEs and the ana
 
 | This course | Feeds |
 | :--- | :--- |
-| Number bases | [[foundations/how-computers-work/index\|How Computers Work]], [[foundations/computer-architecture/02-data-representation\|data representation]] |
-| Exponents, logarithms | [[foundations/dsa/05-algorithms/01-algorithms\|complexity analysis]] — every $\log n$ |
-| Sets, logic, proof | [[foundations/mathematics/02-discrete-math/index\|discrete-math]], [[foundations/theory-of-computation/index\|theory of computation]] |
-| Combinatorics | [[foundations/dsa/index\|DSA]] — counting arrangements in backtracking and DP |
-| Graph theory | [[foundations/dsa/04-data-structures/06-graphs\|graphs]], [[foundations/networking/index\|networking]] |
-| Modular arithmetic | [[foundations/cybersecurity/05-cryptography/index\|cryptography]], hashing |
-| Calculus | [[foundations/ai-ml/index\|ai-ml]] — gradients and backpropagation |
+| Number bases | [[how-computers-work/index\|How Computers Work]], [[computer-architecture/02-data-representation\|data representation]] |
+| Exponents, logarithms | [[dsa/05-algorithms/01-algorithms\|complexity analysis]] — every $\log n$ |
+| Sets, logic, proof | [[mathematics/02-discrete-math/index\|discrete-math]], [[theory-of-computation/index\|theory of computation]] |
+| Combinatorics | [[dsa/index\|DSA]] — counting arrangements in backtracking and DP |
+| Graph theory | [[dsa/04-data-structures/06-graphs\|graphs]], [[networking/index\|networking]] |
+| Modular arithmetic | [[cybersecurity/05-cryptography/index\|cryptography]], hashing |
+| Calculus | [[ai-ml/index\|ai-ml]] — gradients and backpropagation |
 
 ## How to study this
 
@@ -226,12 +233,12 @@ Every topic in both outlines, and the folder it belongs to. ✅ = written, every
 
 | Folder | Collects | From |
 | :--- | :--- | :--- |
-| `01-numerical-methods/` | Newton-Raphson, Simpson's and trapezoidal rules, Euler and Runge-Kutta, interpolation | Uni Y3S2 |
-| `02-numerical-pdes/` | finite difference and finite element methods, stability and convergence | Uni Y4S1 |
-| `03-optimization-and-operations-research/` | linear programming and the simplex method, non-linear optimisation, duality, Kuhn-Tucker, dynamic programming | Uni Y4S1 |
-| `04-control-theory/` | state-space representation, Lyapunov stability, feedback loops | Uni Y4S2 |
-| `05-fluid-dynamics-and-continuum-mechanics/` | fluid kinematics, Navier-Stokes, inviscid flow, stress and strain tensors | Uni Y4S2 |
-| `06-capstone-project/` | the final-year project or thesis: applying the theory to a real engineering problem | Uni Y4S2 |
+| `01-numerical-methods/` ✅ | floating point and error, root finding, linear systems, eigenvalues, interpolation, quadrature, ODEs, PDEs, optimisation — **13 notes, moved here from the vault root** | Uni Y3S2 |
+| `02-numerical-pdes/` | finite element methods, stability and convergence for engineering simulation | Uni Y4S1 |
+| `03-optimization-and-operations-research/` | linear programming and the simplex method, duality, Kuhn-Tucker, dynamic programming | Uni Y4S1 |
+| `06-capstone-project/` | the final-year project or thesis: applying the theory to a real problem | Uni Y4S2 |
+
+**Control theory** and **continuum mechanics** were in this umbrella's plan and are **not** here: they are engineering disciplines that happen to use this mathematics, not branches of it. They live at the vault root as [[control-theory/index|control-theory/]] and [[continuum-mechanics/index|continuum-mechanics/]].
 
 ### `08-exam-practice`
 
@@ -242,7 +249,7 @@ Every topic in both outlines, and the folder it belongs to. ✅ = written, every
 
 ## Related
 
-- [[foundations/mathematics/02-discrete-math/index|discrete-math/]] — the written continuation
-- [[foundations/numerical-methods/index|numerical-methods/]] — what happens when exact answers are unavailable
-- [[foundations/how-computers-work/index|How Computers Work]] — the course this one feeds most directly
+- [[mathematics/02-discrete-math/index|discrete-math/]] — the written continuation
+- [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical-methods/]] — what happens when exact answers are unavailable
+- [[how-computers-work/index|How Computers Work]] — the course this one feeds most directly
 - [[COURSE-STANDARD|Course standard]] — the teaching shape these lessons follow

@@ -4,7 +4,7 @@
 
 This course's own honest note names the gap precisely: the equivalences are *"described rather than derived"*. These derive them.
 
-**Paper for A–C. A compiler for D.** Solutions in [[foundations/theory-of-computation/10-practice-exercises-solutions|note 10]].
+**Paper for A–C. A compiler for D.** Solutions in [[theory-of-computation/10-practice-exercises-solutions|note 10]].
 
 ---
 
@@ -14,13 +14,13 @@ This course's own honest note names the gap precisely: the equivalences are *"de
 (a) strings with an even number of 0s
 (b) strings whose binary value is divisible by 3
 (c) strings containing `101` as a substring
-**Done when:** each is drawn with every state's meaning **named in words**. (b) is the one worth the effort — the states are the remainders → [[foundations/theory-of-computation/02-finite-automata|note 02]].
+**Done when:** each is drawn with every state's meaning **named in words**. (b) is the one worth the effort — the states are the remainders → [[theory-of-computation/02-finite-automata|note 02]].
 
 **2. Subset construction.** Take an NFA for "strings ending in `01`" and convert it to a DFA by hand.
 **Done when:** you can state the worst-case blow-up and give a language family that achieves it.
 
 **3. Prove $\{a^n b^n\}$ is not regular.**
-**Done when:** you've written a complete pumping-lemma proof **without looking**, including the quantifier structure — who chooses $p$, who chooses $w$, who chooses the decomposition, and who chooses $i$. **Getting that order wrong is the commonest way these proofs fail** → [[foundations/theory-of-computation/03-regular-languages|note 03]].
+**Done when:** you've written a complete pumping-lemma proof **without looking**, including the quantifier structure — who chooses $p$, who chooses $w$, who chooses the decomposition, and who chooses $i$. **Getting that order wrong is the commonest way these proofs fail** → [[theory-of-computation/03-regular-languages|note 03]].
 
 **4. Pump the wrong thing.**
 Attempt a pumping-lemma "proof" that $\{a^nb^m : n,m \ge 0\}$ is non-regular. It *is* regular, so your proof must fail.
@@ -37,7 +37,7 @@ Attempt a pumping-lemma "proof" that $\{a^nb^m : n,m \ge 0\}$ is non-regular. It
 
 **7. Show ambiguity, then remove it.**
 The grammar $E \to E + E \mid E \times E \mid \text{num}$ is ambiguous. Give a string with two distinct parse trees, then rewrite the grammar to enforce precedence and left-associativity.
-**Done when:** your fixed grammar gives exactly one tree for `1 + 2 * 3`, and the tree matches arithmetic. **This is precisely what a parser generator makes you do** → [[foundations/compilers/03-parsing|parsing]].
+**Done when:** your fixed grammar gives exactly one tree for `1 + 2 * 3`, and the tree matches arithmetic. **This is precisely what a parser generator makes you do** → [[compilers/03-parsing|parsing]].
 
 **8. Prove $\{a^nb^nc^n\}$ is not context-free**, with the pumping lemma for CFLs.
 **Done when:** you've handled every case for where the pumped substrings can sit — **the case analysis is the proof**.
@@ -49,13 +49,13 @@ The grammar $E \to E + E \mid E \times E \mid \text{num}$ is ambiguous. Give a s
 **9. Program a Turing machine.** Write the transition table for a TM that decides $\{a^nb^n\}$. Trace it on `aabb` and on `aab`.
 
 **10. Prove the halting problem undecidable.** Full diagonalisation, from scratch.
-**Done when:** you can explain **what goes wrong when the contradictory machine is run on itself** — in one sentence, to someone who hasn't seen it → [[foundations/theory-of-computation/06-decidability|note 06]].
+**Done when:** you can explain **what goes wrong when the contradictory machine is run on itself** — in one sentence, to someone who hasn't seen it → [[theory-of-computation/06-decidability|note 06]].
 
 **11. Reduce.** Prove that "does this TM ever print the letter `z`?" is undecidable by reducing the halting problem to it.
 **Done when:** your reduction is in the **right direction** — this is where most attempts fail, and stating which problem you're assuming solvable is the check.
 
 **12. One NP-completeness reduction.** Reduce 3-SAT to VERTEX COVER. Construct the graph, state $k$, and prove both directions.
-**Done when:** you've proved *both* "satisfiable ⇒ cover exists" and "cover exists ⇒ satisfiable". **One direction is not a reduction** → [[foundations/theory-of-computation/07-complexity-classes|note 07]].
+**Done when:** you've proved *both* "satisfiable ⇒ cover exists" and "cover exists ⇒ satisfiable". **One direction is not a reduction** → [[theory-of-computation/07-complexity-classes|note 07]].
 
 ---
 
@@ -72,9 +72,9 @@ Unit propagation, pure literal elimination, and branching. Test it on a small gr
 ---
 
 ## Related
-- [[foundations/theory-of-computation/10-practice-exercises-solutions|Solutions]]
-- [[foundations/theory-of-computation/index|the course]]
-- [[foundations/compilers/index|compilers]] — where the CFG material gets used
-- [[foundations/mathematics/02-discrete-math/09-practice-exercises|discrete maths exercises]] — the proof technique underneath
+- [[theory-of-computation/10-practice-exercises-solutions|Solutions]]
+- [[theory-of-computation/index|the course]]
+- [[compilers/index|compilers]] — where the CFG material gets used
+- [[mathematics/02-discrete-math/09-practice-exercises|discrete maths exercises]] — the proof technique underneath
 
 *Source: [reference] — built from this course's own "what would close the gap" list.*
