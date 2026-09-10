@@ -6,6 +6,23 @@ While [[03-bfs|BFS]] finds shortest paths in terms of **number of hops** (unweig
 
 ---
 
+## Before you start
+
+- You know BFS and why it stops working on weighted graphs — [[03-bfs|breadth-first search]].
+- You know what a min-heap gives you — [[08-heaps|heaps]].
+- You know weighted-graph vocabulary — [[06-graphs/01-what-a-graph-is|what a graph is]].
+
+**After this lesson you will be able to:**
+
+1. Implement Dijkstra with a priority queue, and reconstruct the path.
+2. Explain the **greedy invariant** that makes it correct — and the exact assumption it needs.
+3. **Demonstrate it failing** on a graph with a negative edge, and say why the failure is structural rather than a bug.
+4. Choose between Dijkstra, BFS, Bellman–Ford and A* from the graph's properties.
+
+**Study route:** read 1–5, attempt the prediction in section 4, then run the lab. Block 3 breaks it on purpose.
+
+---
+
 ## 1. Real-World Motivation & Physical Metaphors
 
 Imagine planning a **GPS Driving Route**:
@@ -106,6 +123,217 @@ def dijkstra(graph: dict, source: str) -> dict:
 
 ---
 
+## Implementation — complete runnable example
+
+**Runnable example:** save as `dijkstra_lab.py` in any empty directory and run `python3 dijkstra_lab.py`. Standard library only; writes no files.
+
+```python
+"""Dijkstra: the algorithm, the path, and the assumption it cannot do without."""
+import heapq
+from collections import defaultdict
+
+
+def build(edges, directed=False):
+    adj = defaultdict(list)
+    for u, v, w in edges:
+        adj[u].append((v, w))
+        if not directed:
+            adj[v].append((u, w))
+        else:
+            adj.setdefault(v, [])
+    return adj
+
+
+def dijkstra(adj, start):
+    """Returns (distances, parents). Lazy deletion: stale heap entries are skipped."""
+    dist = {start: 0}
+    parent = {start: None}
+    done = set()
+    pq = [(0, start)]
+    pops = 0
+    while pq:
+        d, v = heapq.heappop(pq)
+        pops += 1
+        if v in done:
+            continue                     # a stale entry from before v was improved
+        done.add(v)
+        for w, weight in adj.get(v, []):
+            if w in done:
+                continue                 # FINALISED: Dijkstra never revises it.
+            nd = d + weight
+            if w not in dist or nd < dist[w]:
+                dist[w] = nd
+                parent[w] = v
+                heapq.heappush(pq, (nd, w))
+    return dist, parent, pops
+
+
+def path_to(parent, goal):
+    if goal not in parent:
+        return None
+    out = [goal]
+    while parent[out[-1]] is not None:
+        out.append(parent[out[-1]])
+    return out[::-1]
+
+
+def brute_force_shortest(adj, start, goal):
+    """Every simple path, exhaustively. Correct, exponential, and a good oracle."""
+    best = [None, float("inf")]
+
+    def walk(v, seen, cost, path):
+        if cost >= best[1]:
+            return
+        if v == goal:
+            best[0], best[1] = list(path), cost
+            return
+        for w, weight in adj.get(v, []):
+            if w not in seen:
+                walk(w, seen | {w}, cost + weight, path + [w])
+
+    walk(start, {start}, 0, [start])
+    return best[0], best[1]
+
+
+def bellman_ford(adj, start, vertices):
+    """Handles negative edges, and detects a negative cycle. O(VE)."""
+    dist = {v: float("inf") for v in vertices}
+    dist[start] = 0
+    for _ in range(len(vertices) - 1):
+        for u in adj:
+            for v, w in adj[u]:
+                if dist[u] + w < dist[v]:
+                    dist[v] = dist[u] + w
+    for u in adj:                        # one more pass: any improvement means a negative cycle
+        for v, w in adj[u]:
+            if dist[u] + w < dist[v]:
+                return None
+    return dist
+
+
+if __name__ == "__main__":
+    G = build([("A", "B", 4), ("A", "C", 2), ("B", "C", 1), ("B", "D", 5),
+               ("C", "D", 8), ("C", "E", 10), ("D", "E", 2), ("D", "F", 6),
+               ("E", "F", 3)])
+
+    print("Block 1 - shortest distances and the paths themselves")
+    dist, parent, pops = dijkstra(G, "A")
+    for v in sorted(dist):
+        print(f"    A -> {v}: distance {dist[v]:2}   path {path_to(parent, v)}")
+    assert dist["A"] == 0 and dist["C"] == 2 and dist["B"] == 3
+    assert path_to(parent, "B") == ["A", "C", "B"]
+    print("  note A->B is 3 via C, not the direct edge of weight 4 -")
+    print("  a shortest path need not use the direct edge, or the fewest edges")
+
+    print()
+    print("Block 2 - checked against exhaustive search")
+    for goal in sorted(dist):
+        bpath, bcost = brute_force_shortest(G, "A", goal)
+        print(f"    {goal}: dijkstra {dist[goal]:2}   brute force {bcost:2}   agree: {dist[goal] == bcost}")
+        assert dist[goal] == bcost
+    print("  every distance matches an exhaustive search over all simple paths")
+
+    print()
+    print("Block 3 - the assumption: NON-NEGATIVE weights")
+    neg = build([("A", "B", 0), ("A", "C", 1), ("C", "B", -10)], directed=True)
+    d_dij, _, _ = dijkstra(neg, "A")
+    d_bf = bellman_ford(neg, "A", ["A", "B", "C"])
+    print("  graph: A->B (0), A->C (1), C->B (-10)")
+    print(f"    dijkstra says      A->B = {d_dij['B']}")
+    print(f"    bellman-ford says  A->B = {d_bf['B']}")
+    print(f"    truth: A->C->B costs 1 + (-10) = {1 + (-10)}")
+    assert d_dij["B"] == 0 and d_bf["B"] == -9
+    print("  Dijkstra is WRONG here, and not because of a coding error.")
+    print("  It pops B first (distance 0) and FINALISES it. Only later does it reach")
+    print("  C and find the -10 edge back to B - but B is already settled, and")
+    print("  Dijkstra never revises a settled vertex. That refusal is the whole basis")
+    print("  of its efficiency, and a negative edge is exactly what invalidates it:")
+    print("  going further can now REDUCE the total, so 'closest first' stops working.")
+
+    print()
+    print("Block 4 - lazy deletion, and why the heap can exceed V entries")
+    dist2, _, pops2 = dijkstra(G, "A")
+    print(f"  graph has {len(G)} vertices; the heap was popped {pops2} times")
+    print("  extra pops are STALE entries - a vertex whose distance improved after")
+    print("  it was pushed. Skipping them with a 'done' set is simpler and faster")
+    print("  than the decrease-key operation a textbook heap would need.")
+    assert pops2 >= len(G)
+
+    print()
+    print("Block 5 - choosing the right tool")
+    print("   situation                              use")
+    rows = [("unweighted graph", "BFS - O(V+E), no heap needed"),
+            ("non-negative weights", "Dijkstra - O((V+E) log V)"),
+            ("any weights, need cycle detection", "Bellman-Ford - O(VE)"),
+            ("one target, good heuristic available", "A* - Dijkstra with a priority bonus"),
+            ("all pairs, dense graph", "Floyd-Warshall - O(V^3)")]
+    for a, b in rows:
+        print(f"   {a:38} {b}")
+    unweighted = build([("A", "B", 1), ("B", "C", 1), ("A", "C", 1)])
+    du, _, _ = dijkstra(unweighted, "A")
+    print(f"  on an unweighted graph Dijkstra agrees with BFS: {dict(sorted(du.items()))}")
+    assert du["C"] == 1
+    print("  but BFS gets there without a heap, so use BFS when all weights are equal")
+
+    print()
+    print("dijkstra_lab: passed")
+```
+
+Expected output:
+
+```
+Block 1 - shortest distances and the paths themselves
+    A -> A: distance  0   path ['A']
+    A -> B: distance  3   path ['A', 'C', 'B']
+    A -> C: distance  2   path ['A', 'C']
+    A -> D: distance  8   path ['A', 'C', 'B', 'D']
+    A -> E: distance 10   path ['A', 'C', 'B', 'D', 'E']
+    A -> F: distance 13   path ['A', 'C', 'B', 'D', 'E', 'F']
+  note A->B is 3 via C, not the direct edge of weight 4 -
+  a shortest path need not use the direct edge, or the fewest edges
+
+Block 2 - checked against exhaustive search
+    A: dijkstra  0   brute force  0   agree: True
+    B: dijkstra  3   brute force  3   agree: True
+    C: dijkstra  2   brute force  2   agree: True
+    D: dijkstra  8   brute force  8   agree: True
+    E: dijkstra 10   brute force 10   agree: True
+    F: dijkstra 13   brute force 13   agree: True
+  every distance matches an exhaustive search over all simple paths
+
+Block 3 - the assumption: NON-NEGATIVE weights
+  graph: A->B (0), A->C (1), C->B (-10)
+    dijkstra says      A->B = 0
+    bellman-ford says  A->B = -9
+    truth: A->C->B costs 1 + (-10) = -9
+  Dijkstra is WRONG here, and not because of a coding error.
+  It pops B first (distance 0) and FINALISES it. Only later does it reach
+  C and find the -10 edge back to B - but B is already settled, and
+  Dijkstra never revises a settled vertex. That refusal is the whole basis
+  of its efficiency, and a negative edge is exactly what invalidates it:
+  going further can now REDUCE the total, so 'closest first' stops working.
+
+Block 4 - lazy deletion, and why the heap can exceed V entries
+  graph has 6 vertices; the heap was popped 10 times
+  extra pops are STALE entries - a vertex whose distance improved after
+  it was pushed. Skipping them with a 'done' set is simpler and faster
+  than the decrease-key operation a textbook heap would need.
+
+Block 5 - choosing the right tool
+   situation                              use
+   unweighted graph                       BFS - O(V+E), no heap needed
+   non-negative weights                   Dijkstra - O((V+E) log V)
+   any weights, need cycle detection      Bellman-Ford - O(VE)
+   one target, good heuristic available   A* - Dijkstra with a priority bonus
+   all pairs, dense graph                 Floyd-Warshall - O(V^3)
+  on an unweighted graph Dijkstra agrees with BFS: {'A': 0, 'B': 1, 'C': 1}
+  but BFS gets there without a heap, so use BFS when all weights are equal
+
+dijkstra_lab: passed
+```
+
+Block 3 is the lesson. Dijkstra returns $2$ where the true answer is $-4$, and no amount of debugging fixes it: the algorithm's correctness *rests* on the assumption that extending a path cannot make it cheaper.
+
 ## 6. Common Pitfalls & Traps
 
 1. **Forgetting the Stale Entry Check**: Skipping `if current_dist > distances[current_node]: continue` will not cause incorrect answers, but it wastes massive CPU cycles re-exploring outdated graph paths.
@@ -126,6 +354,28 @@ def dijkstra(graph: dict, source: str) -> dict:
    - <details><summary>Click for Answer</summary><b>Answer:</b> <b>No!</b> Dijkstra assumes that adding edges can only increase cumulative path cost. Negative edges violate this greedy assumption. Use the <b>Bellman-Ford Algorithm</b> instead.</details>
 
 ---
+
+## Practice — independent task
+
+Implement **A\*** — Dijkstra guided by a heuristic — and measure what the guidance buys.
+
+1. Take a grid with obstacles. Implement Dijkstra on it, then A\* using Manhattan distance as the heuristic $h$. The only change is the priority: $g + h$ instead of $g$.
+2. Count **vertices expanded** by each. Report the ratio on several grids of increasing size.
+3. **Test admissibility.** A heuristic is admissible if it never overestimates the true remaining cost. Verify Manhattan distance is admissible for 4-directional movement, then deliberately break it — multiply by 1.5 — and show A\* returning a **suboptimal path**. Report by how much.
+4. Explain the trade in a comment: an inadmissible heuristic expands fewer nodes but loses the optimality guarantee. Say when that trade is worth making.
+5. Then set $h = 0$ and confirm A\* becomes exactly Dijkstra — same expansions, same path. That is the cleanest way to see that A\* is a generalisation, not a different algorithm.
+
+**Edge cases:** no path exists; start equals goal; a grid that is entirely obstacles except the endpoints; a heuristic that is admissible but not *consistent* (look up the difference and say which one A\* actually needs).
+
+**Done when:** A\* and Dijkstra return the same path length on every solvable grid, your inadmissible version demonstrably returns a worse path, and $h=0$ reproduces Dijkstra exactly.
+
+## Before moving on
+
+You can implement Dijkstra with a heap, reconstruct paths, explain its greedy invariant, and demonstrate its failure on negative edges.
+
+**Recap:** Dijkstra repeatedly finalises the closest unfinalised vertex; correct **only** for non-negative weights, because the greedy step assumes extending a path cannot reduce its cost; $O((V+E)\log V)$ with a binary heap; lazy deletion means the heap can hold more than $V$ entries and stale ones are skipped; use BFS when weights are equal, Bellman–Ford for negative weights or cycle detection, A* when you have a heuristic.
+
+**Next:** [[11-topological-sort|Topological Sort]] — ordering a DAG, and the other thing DFS post-order is for.
 
 ## Related Modules
 - [[03-bfs|Breadth-First Search (BFS)]] — Unweighted shortest paths ($O(V+E)$)
