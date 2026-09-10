@@ -16,7 +16,7 @@
 
 ## A table is a relation
 
-**Literally**, in the sense from [[foundations/discrete-math/04-sets-relations-and-functions|set theory]]:
+**Literally**, in the sense from [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|set theory]]:
 
 **A relation is a subset of the Cartesian product of its attribute domains.**
 
@@ -166,5 +166,5 @@ GROUP BY c.name;
 ## Related
 - [[databases/06-the-query-pipeline|The Query Pipeline]] — where this algebra gets used
 - [[databases/database-design-reference|Database Design Reference]] — modelling, normalisation, keys in depth
-- [[foundations/discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the maths
+- [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the maths
 - [[databases/index|Databases map]]

@@ -12,7 +12,7 @@
 
 **The consequences:**
 
-**No compressor beats entropy.** Every "compresses any file by 50%" claim is provably false — and the pigeonhole argument from [[foundations/discrete-math/06-combinatorics-and-counting|combinatorics]] says the same thing more crudely: **there are more $n$-bit strings than shorter strings, so any lossless compressor must expand some inputs.**
+**No compressor beats entropy.** Every "compresses any file by 50%" claim is provably false — and the pigeonhole argument from [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|combinatorics]] says the same thing more crudely: **there are more $n$-bit strings than shorter strings, so any lossless compressor must expand some inputs.**
 
 **Random data doesn't compress.** Maximum entropy, no redundancy, nothing to exploit. **Which is why already-compressed files (JPEG, ZIP, MP4) don't shrink further** — and why a compression ratio near 1.0 on a file is decent evidence it's encrypted or compressed.
 

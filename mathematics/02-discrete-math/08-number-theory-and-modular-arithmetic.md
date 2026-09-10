@@ -16,7 +16,7 @@ $$\gcd(a, b) = \gcd(b, a \bmod b), \qquad \gcd(a, 0) = a$$
 gcd(48, 18) → gcd(18, 12) → gcd(12, 6) → gcd(6, 0) = 6
 ```
 
-**It runs in $O(\log \min(a,b))$** — the worst case is consecutive Fibonacci numbers, which is a nice connection to [[foundations/discrete-math/05-induction-and-recursion|recurrences]]. **Extraordinarily fast**, and that efficiency is what makes RSA key generation practical.
+**It runs in $O(\log \min(a,b))$** — the worst case is consecutive Fibonacci numbers, which is a nice connection to [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|recurrences]]. **Extraordinarily fast**, and that efficiency is what makes RSA key generation practical.
 
 **Extended Euclid** additionally finds $x, y$ with
 
@@ -32,7 +32,7 @@ $$ax + by = \gcd(a,b) \qquad \text{(Bézout's identity)}$$
 
 **The Fundamental Theorem of Arithmetic:** every integer > 1 has a **unique** prime factorisation.
 
-**Euclid: there are infinitely many primes.** Assume finitely many, multiply them all and add 1 — the result is divisible by none of them. → [[foundations/discrete-math/03-proof-techniques|Proof by contradiction]]
+**Euclid: there are infinitely many primes.** Assume finitely many, multiply them all and add 1 — the result is divisible by none of them. → [[foundations/mathematics/02-discrete-math/03-proof-techniques|Proof by contradiction]]
 
 **The Prime Number Theorem:** primes near $n$ have density about $1/\ln n$.
 
@@ -52,7 +52,7 @@ $$ax + by = \gcd(a,b) \qquad \text{(Bézout's identity)}$$
 
 $$17 \equiv 5 \pmod{12}$$
 
-**It's an [[foundations/discrete-math/04-sets-relations-and-functions|equivalence relation]]**, partitioning $\mathbb{Z}$ into $n$ residue classes, and that's what $\mathbb{Z}_n$ means.
+**It's an [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|equivalence relation]]**, partitioning $\mathbb{Z}$ into $n$ residue classes, and that's what $\mathbb{Z}_n$ means.
 
 **Arithmetic is well-defined on classes:**
 
@@ -151,6 +151,6 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 
 ## Related
 - [[cybersecurity/05-cryptography/04-asymmetric-encryption|Asymmetric Encryption]] — RSA and ECC in practice
-- [[foundations/discrete-math/06-combinatorics-and-counting|Combinatorics]] — the birthday bound on key sizes
+- [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|Combinatorics]] — the birthday bound on key sizes
 - [[foundations/theory-of-computation/07-complexity-classes|Complexity Classes]] — why factoring's hardness is only conjectured
-- [[foundations/discrete-math/index|Discrete maths map]]
+- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]

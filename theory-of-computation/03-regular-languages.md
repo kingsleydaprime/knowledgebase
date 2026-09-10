@@ -43,7 +43,7 @@ $$\text{union } L_1\cup L_2 \qquad \text{concatenation } L_1L_2 \qquad \text{Kle
 > 2. $|xy| \leq p$
 > 3. **$xy^iz \in L$ for every $i \geq 0$**
 
-**Where it comes from, which is more useful than memorising it:** a DFA with $p$ states reading a string of length $\geq p$ must **revisit a state** — pigeonhole. The substring consumed between the two visits is a **loop**, and a loop can be traversed any number of times. **So the pumped strings must also be accepted.** → [[foundations/discrete-math/06-combinatorics-and-counting|Pigeonhole]]
+**Where it comes from, which is more useful than memorising it:** a DFA with $p$ states reading a string of length $\geq p$ must **revisit a state** — pigeonhole. The substring consumed between the two visits is a **loop**, and a loop can be traversed any number of times. **So the pumped strings must also be accepted.** → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|Pigeonhole]]
 
 ### Using it
 
@@ -68,7 +68,7 @@ $$\text{union } L_1\cup L_2 \qquad \text{concatenation } L_1L_2 \qquad \text{Kle
 
 **It's necessary, not sufficient.** Passing the pumping lemma does *not* prove regularity — there are non-regular languages that pump. **For a proof of regularity, build an automaton or use Myhill–Nerode.**
 
-**Get the quantifiers right.** You don't get to choose the split; the adversary does. Handling only one convenient split is the commonest error in a pumping proof. → [[foundations/discrete-math/02-logic|Quantifier order]]
+**Get the quantifiers right.** You don't get to choose the split; the adversary does. Handling only one convenient split is the commonest error in a pumping proof. → [[foundations/mathematics/02-discrete-math/02-logic|Quantifier order]]
 
 ## Myhill–Nerode
 
@@ -80,7 +80,7 @@ Define $x \equiv_L y$ if **no suffix distinguishes them**: for every $z$, $xz\in
 >
 > **And the number of classes is exactly the number of states in the minimal DFA.**
 
-**The intuition:** a state is precisely "everything the machine needs to remember", and two strings need the same state exactly when no future input can tell them apart. **Finitely many things to remember ⟺ finite automaton.** → [[foundations/discrete-math/04-sets-relations-and-functions|Equivalence relations]]
+**The intuition:** a state is precisely "everything the machine needs to remember", and two strings need the same state exactly when no future input can tell them apart. **Finitely many things to remember ⟺ finite automaton.** → [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|Equivalence relations]]
 
 **Applied to $\{a^nb^n\}$:** $a^1, a^2, a^3, \ldots$ are pairwise distinguishable — $a^ib^i \in L$ but $a^jb^i \notin L$ for $j\neq i$. **Infinitely many classes, so not regular.** Cleaner than the pumping argument, and it also tells you the minimal machine.
 

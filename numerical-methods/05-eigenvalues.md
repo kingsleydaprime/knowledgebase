@@ -24,7 +24,7 @@
 | [[engineering/01-continuum-mechanics/02-index-notation-and-tensors\|Continuum mechanics]] | principal stresses and strains |
 | Structural analysis | **vibration modes and natural frequencies** |
 | [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index\|PCA]] | eigenvectors of the covariance matrix |
-| [[foundations/discrete-math/07-graph-theory\|Graphs]] | PageRank is a dominant eigenvector; spectral clustering |
+| [[foundations/mathematics/02-discrete-math/07-graph-theory\|Graphs]] | PageRank is a dominant eigenvector; spectral clustering |
 | Quantum mechanics | energy levels |
 | [[foundations/numerical-methods/04-linear-systems\|Iterative solvers]] | convergence rates depend on the spectrum |
 
@@ -48,7 +48,7 @@ $$\text{convergence rate} \propto \left|\frac{\lambda_2}{\lambda_1}\right|^k$$
 
 **Limitations:** finds only the dominant eigenvalue; fails if $|\lambda_1| = |\lambda_2|$; needs $v_0$ to have a component along $v_1$ (random almost always does).
 
-> **PageRank is the power method**, on the web's link matrix. Google's original contribution was less the algorithm than making it work at that scale — plus the damping factor, which guarantees a unique dominant eigenvector. → [[foundations/discrete-math/07-graph-theory|Graph Theory]]
+> **PageRank is the power method**, on the web's link matrix. Google's original contribution was less the algorithm than making it work at that scale — plus the damping factor, which guarantees a unique dominant eigenvector. → [[foundations/mathematics/02-discrete-math/07-graph-theory|Graph Theory]]
 
 **Two useful variants:**
 

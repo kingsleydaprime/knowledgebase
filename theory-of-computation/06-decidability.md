@@ -29,7 +29,7 @@ function DIAGONAL(P):
 
 **The engine is self-reference plus negation** — build something that does the opposite of what's predicted about it. **Cantor's diagonal argument, Russell's paradox, and Gödel's incompleteness theorems all run on the same mechanism.** Gödel's is the closest relative: a statement asserting its own unprovability.
 
-**And the counting argument from [[foundations/discrete-math/04-sets-relations-and-functions|note 04]] says the same thing less sharply:** programs are countable, problems are uncountable, so **most problems have no program.** The halting problem is a specific, natural one.
+**And the counting argument from [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions|note 04]] says the same thing less sharply:** programs are countable, problems are uncountable, so **most problems have no program.** The halting problem is a specific, natural one.
 
 > **What it does *not* say.** It doesn't say you can never tell whether a program halts. **Often you can** — a `for` loop with a constant bound obviously terminates. It says **no single algorithm works for every program.** Termination checkers exist, work well, and answer "yes", "no", or "don't know". **That third answer is where the theorem lives.**
 

@@ -136,6 +136,6 @@ Understanding the stack pays off well beyond recursion:
 - [[foundations/dsa/05-algorithms/01-algorithms|algorithms]] — where recursion becomes the default tool
 - [[foundations/os/05-memory-allocation|memory allocation]] — stack and heap properly
 - [[foundations/computer-architecture/04-assembly|assembly]] — the stack as the hardware sees it
-- [[foundations/discrete-math/05-induction-and-recursion|induction and recursion]] — the maths of why base cases work
+- [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|induction and recursion]] — the maths of why base cases work
 
 _Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the frame-level model, tail calls and the memoisation case._

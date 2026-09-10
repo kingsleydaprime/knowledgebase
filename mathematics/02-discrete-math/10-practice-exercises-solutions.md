@@ -1,6 +1,6 @@
 # Practice Exercises — Solutions
 
-> **[Beginner → Intermediate]** · Worked answers to [[foundations/discrete-math/09-practice-exercises|note 09]]. **Write yours first.**
+> **[Beginner → Intermediate]** · Worked answers to [[foundations/mathematics/02-discrete-math/09-practice-exercises|note 09]]. **Write yours first.**
 
 Proofs are given in the form you should be writing — prose with the logical skeleton visible, not symbol soup.
 
@@ -180,7 +180,7 @@ $e = 7$; $\gcd(7,120)=1$ ✓. Extended Euclid gives $d = 103$ (check: $7 \times 
 **RSA's security is exactly the gap between multiplying (easy) and factoring (believed hard).** Note "believed": there is no proof factoring is hard, and Shor's algorithm factors in polynomial time on a quantum computer → [[foundations/theory-of-computation/08-beyond-p-vs-np|beyond P vs NP]] · [[cybersecurity/05-cryptography/index|cryptography]].
 
 ## Related
-- [[foundations/discrete-math/09-practice-exercises|the exercises]]
-- [[foundations/discrete-math/index|the course]]
+- [[foundations/mathematics/02-discrete-math/09-practice-exercises|the exercises]]
+- [[foundations/mathematics/02-discrete-math/index|the course]]
 
 *Source: [reference] — RSA and counterexample arithmetic verified computationally, August 2026.*

@@ -101,7 +101,7 @@ There are $2^n$ inputs of length $n$, and only $2^n - 1$ possible strings of len
 
 **Stronger:** at most half of all $n$-bit inputs can be shortened by even one bit.
 
-**The one-sentence dismissal:** *"If it compresses every input, apply it repeatedly and reach one bit — which cannot be decoded back to anything."* Every recursive-compression claim dies to this, and several have been patented anyway → [[foundations/discrete-math/09-practice-exercises|pigeonhole]].
+**The one-sentence dismissal:** *"If it compresses every input, apply it repeatedly and reach one bit — which cannot be decoded back to anything."* Every recursive-compression claim dies to this, and several have been patented anyway → [[foundations/mathematics/02-discrete-math/09-practice-exercises|pigeonhole]].
 
 ---
 

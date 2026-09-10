@@ -22,7 +22,7 @@ Assume $p$, derive $q$, conclude $p \to q$. **The default; try it first.**
 
 ## Proof by contraposition
 
-To prove $p \to q$, prove $\neg q \to \neg p$ instead. **Same statement** — see [[foundations/discrete-math/02-logic|note 02]] — and often far easier.
+To prove $p \to q$, prove $\neg q \to \neg p$ instead. **Same statement** — see [[foundations/mathematics/02-discrete-math/02-logic|note 02]] — and often far easier.
 
 > **Claim:** If $n^2$ is even, then $n$ is even.
 >
@@ -80,13 +80,13 @@ Split into exhaustive cases and prove each.
 
 **The domino intuition:** the base case knocks the first one over; the inductive step guarantees each knocks over the next.
 
-Fully developed in [[foundations/discrete-math/05-induction-and-recursion|note 05]], including strong induction and structural induction.
+Fully developed in [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|note 05]], including strong induction and structural induction.
 
 ## Existence and uniqueness
 
 **Existence** — show something exists. **Constructive** proofs exhibit one; **non-constructive** proofs show one must exist without producing it.
 
-The pigeonhole principle gives beautifully non-constructive proofs: *some* two people in London have the same number of hairs on their heads, and you'll never learn who. → [[foundations/discrete-math/06-combinatorics-and-counting|Combinatorics]]
+The pigeonhole principle gives beautifully non-constructive proofs: *some* two people in London have the same number of hairs on their heads, and you'll never learn who. → [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|Combinatorics]]
 
 **Uniqueness** — the standard move: assume two objects $a$ and $b$ both satisfy the property, then prove $a = b$.
 
@@ -148,7 +148,7 @@ Where this becomes concrete, and the reason CS students learn it.
 ---
 
 ## Related
-- [[foundations/discrete-math/02-logic|Logic]] — the reasoning these formalise
-- [[foundations/discrete-math/05-induction-and-recursion|Induction and Recursion]] — the technique that matters most
+- [[foundations/mathematics/02-discrete-math/02-logic|Logic]] — the reasoning these formalise
+- [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — the technique that matters most
 - [[foundations/theory-of-computation/06-decidability|Decidability]] — where proofs establish impossibility
-- [[foundations/discrete-math/index|Discrete maths map]]
+- [[foundations/mathematics/02-discrete-math/index|Discrete maths map]]

@@ -42,7 +42,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 
 **The workhorse of the pre-2000s, and still everywhere.**
 
-**Operates on symbols (bytes) rather than bits, over a finite field $GF(2^m)$.** → [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|Modular arithmetic and finite fields]]
+**Operates on symbols (bytes) rather than bits, over a finite field $GF(2^m)$.** → [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Modular arithmetic and finite fields]]
 
 **The idea:** treat the $k$ data symbols as coefficients of a polynomial, and **evaluate it at $n$ points.** Any $k$ of those $n$ values reconstruct the polynomial — **it's polynomial interpolation as error correction.** → [[foundations/numerical-methods/06-interpolation-and-approximation|Interpolation]]
 
@@ -134,6 +134,6 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 
 ## Related
 - [[foundations/information-theory/05-channel-capacity-and-noise|Channel Capacity]] — the limit these approach
-- [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|Number Theory]] — the finite fields Reed–Solomon needs
+- [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Number Theory]] — the finite fields Reed–Solomon needs
 - [[architecture/04-distributed-systems/05-replication|Replication]] — erasure coding in storage
 - [[foundations/information-theory/index|Information theory map]]

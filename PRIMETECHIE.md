@@ -284,7 +284,7 @@ Assessed against this vault as of **August 2026** — an honest read, not a flat
 | 🧠 **ML & Data** | Deep on paper — ml-engineer 42 notes, data-scientist 8 (thinnest track) | **Zero. No project has trained a model** |
 | 🤖 **Robotics** | [[robotics/index\|14 notes, `[reference]`]] | None. Written, not built — the notes say so |
 | 📐 **Engineering** | [[engineering/index\|26 notes, `[reference]`]] — continuum mechanics + control theory | None. Validates against an experiment there isn't one of |
-| 🧮 **CS theory** | [[foundations/discrete-math/index\|discrete maths]] · [[foundations/theory-of-computation/index\|theory of computation]] · [[foundations/computer-architecture/index\|architecture]] · [[foundations/numerical-methods/index\|numerical methods]] · [[foundations/information-theory/index\|information theory]] · [[foundations/programming-language-theory/index\|PL theory]] — 68 notes | None — **and this is the column where reps are free.** `perf`, a compiler, an afternoon |
+| 🧮 **CS theory** | [[foundations/mathematics/02-discrete-math/index\|discrete maths]] · [[foundations/theory-of-computation/index\|theory of computation]] · [[foundations/computer-architecture/index\|architecture]] · [[foundations/numerical-methods/index\|numerical methods]] · [[foundations/information-theory/index\|information theory]] · [[foundations/programming-language-theory/index\|PL theory]] — 68 notes | None — **and this is the column where reps are free.** `perf`, a compiler, an afternoon |
 | 🎮 **Graphics & GPU** | [[foundations/computer-graphics/index\|graphics]] · [[foundations/gpu-and-parallel-computing/index\|GPU & parallel]] — 16 notes | None. **Best reps-to-effort ratio in the vault** — a broken renderer *looks* broken |
 
 Two asymmetries worth naming:

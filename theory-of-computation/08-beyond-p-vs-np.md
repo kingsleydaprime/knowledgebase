@@ -18,7 +18,7 @@
 
 > **The historical case study is primality testing.** Miller–Rabin (randomised, 1976) was fast and practical. **AKS (2002) proved primality is in P** — deterministic polynomial time. **The randomised algorithm is still what everyone uses**, because it's vastly faster.
 >
-> **That's the honest lesson: complexity class membership and practical choice are different questions.** → [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|Primality testing]]
+> **That's the honest lesson: complexity class membership and practical choice are different questions.** → [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Primality testing]]
 
 **Where randomisation earns its place in practice:**
 

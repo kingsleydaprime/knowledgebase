@@ -36,7 +36,7 @@ What can be computed at all, and what can be computed quickly. Automata, Turing 
 
 | | |
 |---|---|
-| [[foundations/discrete-math/index\|discrete maths]] | **The prerequisite.** Proof, countability, induction |
+| [[foundations/mathematics/02-discrete-math/index\|discrete maths]] | **The prerequisite.** Proof, countability, induction |
 | [[foundations/compilers/index\|compilers]] | **The direct application.** Lexers are DFAs, parsers are PDAs, and the syntax/semantics split is forced by the hierarchy |
 | [[foundations/dsa/05-algorithms/01-algorithms\|algorithms]] | Complexity analysis, and why some problems have no good algorithm |
 | [[cybersecurity/05-cryptography/index\|cryptography]] | Rests entirely on believed-hard problems |
@@ -67,7 +67,7 @@ The facts are memorable and cheap — "HTML isn't regular", "SAT is NP-complete"
 - [[foundations/theory-of-computation/10-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
 ## Related
-- [[foundations/discrete-math/index|Discrete Mathematics]] — the prerequisite
+- [[foundations/mathematics/02-discrete-math/index|Discrete Mathematics]] — the prerequisite
 - [[foundations/compilers/index|Compilers]] — the applied version of notes 02–04
 - [[foundations/computer-architecture/index|Computer Architecture]] — the third domain in this batch
 - [[BUILD-PLAN|Build Plan]]

@@ -12,7 +12,7 @@ Shannon's measure of surprise, and the surprising number of things it turns out 
 
 **Cross-entropy loss and KL divergence appear throughout `ai-ml/` — 98 notes — and were never explained.** [[foundations/information-theory/04-cross-entropy-and-kl-divergence|Note 04]] is that explanation, and it's the load-bearing one.
 
-**Key entropy is referenced in [[foundations/discrete-math/06-combinatorics-and-counting|discrete-math 06]]**, Shannon capacity belongs under [[foundations/networking/index|networking]], and error-correcting codes sit on [[foundations/discrete-math/08-number-theory-and-modular-arithmetic|finite fields]]. **All of it existed in pieces.**
+**Key entropy is referenced in [[foundations/mathematics/02-discrete-math/06-combinatorics-and-counting|discrete-math 06]]**, Shannon capacity belongs under [[foundations/networking/index|networking]], and error-correcting codes sit on [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|finite fields]]. **All of it existed in pieces.**
 
 ## Reading order
 
@@ -49,7 +49,7 @@ Shannon's measure of surprise, and the surprising number of things it turns out 
 | [[cybersecurity/05-cryptography/index\|cryptography]] | Key entropy, perfect secrecy, side-channel capacity |
 | [[foundations/networking/index\|networking]] | Shannon–Hartley, CRC, the coding in every physical layer |
 | [[databases/03-storage-and-page-layout\|databases]] | Column-store compression, Bloom filters, erasure coding |
-| [[foundations/discrete-math/08-number-theory-and-modular-arithmetic\|number theory]] | The finite fields Reed–Solomon needs |
+| [[foundations/mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic\|number theory]] | The finite fields Reed–Solomon needs |
 | [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index\|probability]] | **The prerequisite** |
 
 ## The honest note
@@ -78,6 +78,6 @@ Shannon's measure of surprise, and the surprising number of things it turns out 
 ## Related
 - [[foundations/digital-signal-processing/index|digital signal processing]] — sampling (Nyquist), the frequency domain, and modulation: information theory's applied sibling
 - [[ai-ml/index|AI & ML]] — the domain that needed note 04
-- [[foundations/discrete-math/index|Discrete Mathematics]] — probability and counting underneath
+- [[foundations/mathematics/02-discrete-math/index|Discrete Mathematics]] — probability and counting underneath
 - [[cybersecurity/05-cryptography/index|Cryptography]] — entropy as security
 - [[BUILD-PLAN|Build Plan]]

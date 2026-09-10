@@ -60,7 +60,7 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 | [[architecture/04-distributed-systems/index\|distributed systems]]               | **Deliberate division of labour** — consensus, CAP, consistency models and distributed transactions live there. Note 11 is the operator's view |
 | [[foundations/computer-architecture/08-the-memory-hierarchy\|memory hierarchy]]   | Pages, buffer pools and B-tree fanout are the same argument one level up                                                                       |
 | [[foundations/compilers/index\|compilers]]                                       | The query pipeline _is_ a compiler pipeline                                                                                                    |
-| [[foundations/discrete-math/04-sets-relations-and-functions\|sets and relations]] | A table is a relation, literally — Codd's 1970 paper                                                                                           |
+| [[foundations/mathematics/02-discrete-math/04-sets-relations-and-functions\|sets and relations]] | A table is a relation, literally — Codd's 1970 paper                                                                                           |
 | [[backend/04-data-and-persistence/index\|backend/data]]                          | Using a database from an application                                                                                                           |
 | [[build-your-own-shit/06-your-own-database\|build-your-own-database]]             | The build guide these notes explain                                                                                                            |
 

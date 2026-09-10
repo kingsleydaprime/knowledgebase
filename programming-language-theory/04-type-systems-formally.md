@@ -40,7 +40,7 @@ $$\text{If } \vdash e : \tau \text{ and } e \to e' \text{ then } \vdash e' : \ta
 >
 > **Note what soundness does *not* promise.** Not termination. Not absence of exceptions (those are defined behaviour). Not correctness. **Only that the specific errors the type system models cannot occur** — and the value of a type system is exactly how many real errors it models.
 
-**Both proofs are structural induction on typing derivations.** → [[foundations/discrete-math/05-induction-and-recursion|Structural Induction]]
+**Both proofs are structural induction on typing derivations.** → [[foundations/mathematics/02-discrete-math/05-induction-and-recursion|Structural Induction]]
 
 ## Soundness in real languages
 
