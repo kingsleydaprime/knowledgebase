@@ -190,5 +190,5 @@ _, exists := set["a"]
 ## Related
 - [[languages/02-go/04-methods-and-interfaces|Methods and Interfaces]] — attaching behaviour to these
 - [[languages/02-go/13-performance-and-runtime|Performance and the Runtime]] — why preallocating matters
-- [[dsa/04-data-structures/02-dynamic-arrays|Dynamic Arrays]] and [[dsa/04-data-structures/03-hash-maps|Hash Maps]] — what a slice and a map are underneath
+- [[dsa/02-data-structures/02-dynamic-arrays|Dynamic Arrays]] and [[dsa/02-data-structures/03-hash-maps|Hash Maps]] — what a slice and a map are underneath
 - [[languages/02-go/index|Go course map]]

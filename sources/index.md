@@ -8,7 +8,7 @@ Nothing in here is a note. These are inputs that notes were (or will be) distill
 
 | File | Source of |
 |---|---|
-| `Neetcode 150 transcript.md` (448k words) | [[dsa/neetcode-150/interview-playbook\|the NeetCode 150 playbook]] and [[dsa/06-patterns/index\|the 15 patterns]] |
+| `Neetcode 150 transcript.md` (448k words) | [[dsa/neetcode-150/interview-playbook\|the NeetCode 150 playbook]] and [[dsa/04-patterns/index\|the 15 patterns]] |
 | `java transcript.md` (96k words) | [[languages/01-java/index\|the Java course]] |
 | `dsa-in-java-transcript.md` (63k words) | [[dsa/index\|DSA]] |
 | `4484555-rh124v10.pdf`, `4484556-rh134v10.pdf` | [[devops/01-linux/15-rhcsa/index\|the RHCSA cert track]] — gitignored (75 MB) |

@@ -16,7 +16,7 @@ A size-k min-heap gives O(n log k); or `heapq.nlargest(k, nums)[-1]`. Reliable, 
 
 ## Approach 2 — Quickselect (optimal average)
 
-Quickselect is [[04-sorting|quicksort]]'s partition without the full recursion: pick a pivot, partition so smaller elements go one side and larger the other, and recurse into **only** the side containing the target rank. It reaches the k-th element in **O(n) average**.
+Quickselect is [[04-sorting/index|quicksort]]'s partition without the full recursion: pick a pivot, partition so smaller elements go one side and larger the other, and recurse into **only** the side containing the target rank. It reaches the k-th element in **O(n) average**.
 
 ```python
 import random
@@ -54,5 +54,5 @@ def findKthLargest(nums, k):
 **Selection (k-th order statistic) doesn't need a full sort — partition toward the target rank (Quickselect), or bound a size-k heap.** Random pivoting keeps Quickselect near-linear; the heap wins when data streams in.
 
 ## Related
-- concepts: [[08-heaps|heaps]], [[05-searching|searching]], [[04-sorting|sorting]]
+- concepts: [[08-heaps|heaps]], [[05-searching|searching]], [[04-sorting/index|sorting]]
 - prev: [[066-k-closest-points-to-origin|K Closest Points to Origin]] · next: [[068-task-scheduler|Task Scheduler]]

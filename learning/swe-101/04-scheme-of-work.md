@@ -302,7 +302,7 @@ By Sunday: what must be true before the week closes
 - **1.4** Abstraction, decomposition, trade-offs → [[software-engineering/01-what-software-engineering-is|01]] · [[PRIMETECHIE|PRIMETECHIE]] frames the whole vault this way
 - **1.5** **The audit** → [[learning/swe-101/05-week-1-audit|the checklist]] — mark every topic in weeks 2–30 *know it / half know it / don't know it*
 
-**DSA:** D1 → [[dsa/06-patterns/01-prefix-sum|Prefix sum]]
+**DSA:** D1 → [[dsa/04-patterns/01-prefix-sum|Prefix sum]]
 
 **By Sunday:** the audit is done, and "What is a software engineer?" is written in your own words, one page, nothing open.
 
@@ -323,7 +323,7 @@ By Sunday: what must be true before the week closes
 - **2.6** SOLID, one letter at a time — **and when it's over-engineering** → [[concepts/04-best-practices/05-solid-principles|SOLID principles]]
 - **2.7** Composition over inheritance → [[concepts/03-design-patterns/02-structural-patterns|structural patterns]]
 
-**DSA:** D2 → [[dsa/06-patterns/02-two-pointers|Two pointers]]
+**DSA:** D2 → [[dsa/04-patterns/02-two-pointers|Two pointers]]
 
 **By Sunday:** closed-book — *name three places in your own code where coupling hurt you.*
 
@@ -339,7 +339,7 @@ By Sunday: what must be true before the week closes
 - **3.3** Behavioural — strategy, observer, command, state → [[concepts/03-design-patterns/03-behavioral-patterns|behavioural]]
 - **3.4** Dependency injection and wiring → [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|DI & wiring]]
 
-**DSA:** D3 → [[dsa/06-patterns/03-sliding-window|Sliding window]]
+**DSA:** D3 → [[dsa/04-patterns/03-sliding-window|Sliding window]]
 
 **By Sunday:** closed-book — *pick three patterns; for each, the problem it solves and what it costs you.*
 
@@ -355,7 +355,7 @@ By Sunday: what must be true before the week closes
 - **4.3** Hexagonal and clean architecture → [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal]]
 - **4.4** Modular monolith → services, and when to split → [[backend/03-structuring-a-backend/05-modular-monolith-to-services|modular monolith]]
 
-**DSA:** D4 → [[dsa/06-patterns/04-fast-slow-pointers|Fast & slow pointers]]
+**DSA:** D4 → [[dsa/04-patterns/04-fast-slow-pointers|Fast & slow pointers]]
 
 **By Sunday:** **Design a banking system. Don't code it.** Entities, relationships, responsibilities, interfaces, data, failures, security, scalability. *(Your original exercise, kept — it's the best one in the document, and "don't code it" is what makes it work.)*
 
@@ -371,7 +371,7 @@ By Sunday: what must be true before the week closes
 - **5.3** Back-of-envelope estimation → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|same chapter]]
 - **5.4** Scalability and performance, vertical vs horizontal → [[architecture/01-system-design-fundamentals/02-scalability-and-performance|scalability]]
 
-**DSA:** D5 → [[dsa/06-patterns/05-linked-list-reversal|Linked list reversal]]
+**DSA:** D5 → [[dsa/04-patterns/05-linked-list-reversal|Linked list reversal]]
 
 **By Sunday:** design a **URL shortener** on the board, 45 minutes, out loud, *before* reading anything. Then compare and write only the gap.
 
@@ -387,7 +387,7 @@ By Sunday: what must be true before the week closes
 - **6.3** Load balancing, proxies, reverse proxies → [[architecture/02-building-blocks/01-load-balancing-and-proxies|LB & proxies]]
 - **6.4** Caching, and cache invalidation → [[architecture/02-building-blocks/02-caching|caching]]
 
-**DSA:** D6 → [[dsa/06-patterns/06-monotonic-stack|Monotonic stack]]
+**DSA:** D6 → [[dsa/04-patterns/06-monotonic-stack|Monotonic stack]]
 
 **By Sunday:** design a **chat application**.
 
@@ -402,7 +402,7 @@ By Sunday: what must be true before the week closes
 - **7.2** Messaging and async → [[architecture/02-building-blocks/04-messaging-and-async|messaging]]
 - **7.3** REST, gRPC, GraphQL, WebSockets → [[architecture/02-building-blocks/05-communication|communication]]
 
-**DSA:** D7 → [[dsa/06-patterns/07-top-k-elements|Top-K elements]]
+**DSA:** D7 → [[dsa/04-patterns/07-top-k-elements|Top-K elements]]
 
 **By Sunday:** design a **notification system**. You have real RabbitMQ reps — this one should come from experience.
 
@@ -419,7 +419,7 @@ By Sunday: what must be true before the week closes
 - **8.4** Microservices patterns → [[architecture/03-architectural-patterns/04-microservices-patterns|microservices]]
 - **8.5** **Trade-off articulation** — saying "I'd choose X because Y" instead of "it depends" → [[architecture/interview/01-system-design-round|the round]]
 
-**DSA:** D8 → [[dsa/06-patterns/08-overlapping-intervals|Overlapping intervals]]
+**DSA:** D8 → [[dsa/04-patterns/08-overlapping-intervals|Overlapping intervals]]
 
 **By Sunday:** design a **payment system**. Do this one carefully — you built a payments ledger in nextvibe and a direct-debit sandbox in Java, and interviewers can hear the difference between experience and theory.
 
@@ -435,7 +435,7 @@ By Sunday: what must be true before the week closes
 - **9.3** Normalisation, and when to denormalise on purpose → [[databases/database-design-reference|design reference]]
 - **9.4** SQL: SELECT, JOIN, GROUP BY, aggregates, subqueries, CTEs → [[databases/sql-reference|SQL reference]]
 
-**DSA:** D9 → [[dsa/06-patterns/09-modified-binary-search|Modified binary search]]
+**DSA:** D9 → [[dsa/04-patterns/09-modified-binary-search|Modified binary search]]
 
 **By Sunday:** closed-book — *draw the schema of one of your own projects from memory, then diff it against the real one.*
 
@@ -453,7 +453,7 @@ By Sunday: what must be true before the week closes
 - **10.5** Join algorithms and the optimiser → [[databases/07-join-algorithms-and-the-optimiser|07]]
 - **10.6** **`EXPLAIN ANALYZE` — estimated vs actual rows as *the* diagnostic** → [[databases/07-join-algorithms-and-the-optimiser|07]]
 
-**DSA:** D10 → [[dsa/06-patterns/10-binary-tree-traversal-pattern|Binary tree traversal]]
+**DSA:** D10 → [[dsa/04-patterns/10-binary-tree-traversal-pattern|Binary tree traversal]]
 
 **By Sunday:** take a genuinely slow query from a real project, `EXPLAIN ANALYZE` it, fix it, record before/after and *why*.
 
@@ -470,7 +470,7 @@ By Sunday: what must be true before the week closes
 - **11.4** Replication and scaling — *"replication is not a backup"* → [[databases/11-replication-and-scaling|11]]
 - **11.5** Operating: migrations, `lock_timeout`, pooling, backups → [[databases/12-operating-a-database|12]]
 
-**DSA:** D11 → [[dsa/06-patterns/11-dfs-pattern|DFS]]
+**DSA:** D11 → [[dsa/04-patterns/11-dfs-pattern|DFS]]
 
 **By Sunday:** closed-book — *why does adding an index sometimes make things slower?*
 
@@ -486,7 +486,7 @@ By Sunday: what must be true before the week closes
 - **12.3** IP addressing and subnetting → [[networking/03-ip-addressing-and-subnetting|03]]
 - **12.4** Routing → [[networking/04-routing|04]]
 
-**DSA:** D12 → [[dsa/06-patterns/12-bfs-pattern|BFS]]
+**DSA:** D12 → [[dsa/04-patterns/12-bfs-pattern|BFS]]
 
 **By Sunday:** subnet a /24 by hand, no calculator.
 
@@ -503,7 +503,7 @@ By Sunday: what must be true before the week closes
 - **13.4** Congestion control → [[networking/08-congestion-control|08]]
 - **13.5** Sockets and the network API → [[networking/09-sockets-and-the-network-api|09]]
 
-**DSA:** D13 → [[dsa/06-patterns/13-matrix-traversal|Matrix traversal]]
+**DSA:** D13 → [[dsa/04-patterns/13-matrix-traversal|Matrix traversal]]
 
 **By Sunday:** closed-book — *draw the TCP state machine for a connection that opens, transfers, and closes.*
 
@@ -520,7 +520,7 @@ By Sunday: what must be true before the week closes
 - **14.4** QUIC → [[networking/13-quic-and-modern-transport|13]]
 - **14.5** Cookies, sessions, headers → [[backend/05-auth/01-authentication-flows|auth flows]]
 
-**DSA:** D14 → [[dsa/06-patterns/14-backtracking|Backtracking]]
+**DSA:** D14 → [[dsa/04-patterns/14-backtracking|Backtracking]]
 
 **By Sunday:** **"What actually happens when I type google.com?"** — one page, from memory. This is the question that gets asked.
 
@@ -536,7 +536,7 @@ By Sunday: what must be true before the week closes
 - **15.3** Latency vs bandwidth, RTT, head-of-line blocking → [[networking/15-network-performance|15]]
 - **15.4** Debugging: `dig`, `curl -v`, `ss`, `tcpdump` → [[networking/16-debugging-networks|16]]
 
-**DSA:** D15a → [[dsa/06-patterns/15-dynamic-programming|Dynamic programming]], part 1
+**DSA:** D15a → [[dsa/04-patterns/15-dynamic-programming|Dynamic programming]], part 1
 
 **By Sunday:** rewrite the google.com answer and diff it against week 14's version.
 
@@ -553,7 +553,7 @@ By Sunday: what must be true before the week closes
 - **16.4** OAuth 2.0 / OIDC → [[backend/05-auth/03-oauth-provider-integrations|OAuth]]
 - **16.5** Least privilege → [[backend/05-auth/02-authorization|authz]]
 
-**DSA:** D15b → [[dsa/06-patterns/15-dynamic-programming|Dynamic programming]], part 2
+**DSA:** D15b → [[dsa/04-patterns/15-dynamic-programming|Dynamic programming]], part 2
 
 **By Sunday:** closed-book — *draw your flagship's full auth flow, including refresh and logout.*
 
@@ -827,27 +827,27 @@ No deadline, no interviewer asking. **This is the unit that answers your actual 
 
 # Section D — DSA, every week
 
-**Read:** [[dsa/index|DSA course]] → [[dsa/06-patterns/index|the 15 patterns]] · [[dsa/interview/index|the coding round]]
+**Read:** [[dsa/index|DSA course]] → [[dsa/04-patterns/index|the 15 patterns]] · [[dsa/interview/index|the coding round]]
 
 Back of the notebook, worked forward. One page per pattern — format in [[learning/swe-101/03-notebook-method|the method]].
 
 | Week | Pattern |
 |---|---|
-| 1 | [[dsa/06-patterns/01-prefix-sum\|Prefix sum]] |
-| 2 | [[dsa/06-patterns/02-two-pointers\|Two pointers]] |
-| 3 | [[dsa/06-patterns/03-sliding-window\|Sliding window]] |
-| 4 | [[dsa/06-patterns/04-fast-slow-pointers\|Fast & slow pointers]] |
-| 5 | [[dsa/06-patterns/05-linked-list-reversal\|Linked list reversal]] |
-| 6 | [[dsa/06-patterns/06-monotonic-stack\|Monotonic stack]] |
-| 7 | [[dsa/06-patterns/07-top-k-elements\|Top-K elements]] |
-| 8 | [[dsa/06-patterns/08-overlapping-intervals\|Overlapping intervals]] |
-| 9 | [[dsa/06-patterns/09-modified-binary-search\|Modified binary search]] |
-| 10 | [[dsa/06-patterns/10-binary-tree-traversal-pattern\|Binary tree traversal]] |
-| 11 | [[dsa/06-patterns/11-dfs-pattern\|DFS]] |
-| 12 | [[dsa/06-patterns/12-bfs-pattern\|BFS]] |
-| 13 | [[dsa/06-patterns/13-matrix-traversal\|Matrix traversal]] |
-| 14 | [[dsa/06-patterns/14-backtracking\|Backtracking]] |
-| 15–16 | [[dsa/06-patterns/15-dynamic-programming\|Dynamic programming]] |
+| 1 | [[dsa/04-patterns/01-prefix-sum\|Prefix sum]] |
+| 2 | [[dsa/04-patterns/02-two-pointers\|Two pointers]] |
+| 3 | [[dsa/04-patterns/03-sliding-window\|Sliding window]] |
+| 4 | [[dsa/04-patterns/04-fast-slow-pointers\|Fast & slow pointers]] |
+| 5 | [[dsa/04-patterns/05-linked-list-reversal\|Linked list reversal]] |
+| 6 | [[dsa/04-patterns/06-monotonic-stack\|Monotonic stack]] |
+| 7 | [[dsa/04-patterns/07-top-k-elements\|Top-K elements]] |
+| 8 | [[dsa/04-patterns/08-overlapping-intervals\|Overlapping intervals]] |
+| 9 | [[dsa/04-patterns/09-modified-binary-search\|Modified binary search]] |
+| 10 | [[dsa/04-patterns/10-binary-tree-traversal-pattern\|Binary tree traversal]] |
+| 11 | [[dsa/04-patterns/11-dfs-pattern\|DFS]] |
+| 12 | [[dsa/04-patterns/12-bfs-pattern\|BFS]] |
+| 13 | [[dsa/04-patterns/13-matrix-traversal\|Matrix traversal]] |
+| 14 | [[dsa/04-patterns/14-backtracking\|Backtracking]] |
+| 15–16 | [[dsa/04-patterns/15-dynamic-programming\|Dynamic programming]] |
 | 17–30 | **Mixed review, patterns drawn at random, 5/week + timed mocks from week 26** |
 
 **Weeks 17–30 are the important half.** Solving a sliding-window problem in sliding-window week is recognition. Solving one when you don't know what kind it is, is the actual skill — and that's what an interview measures.

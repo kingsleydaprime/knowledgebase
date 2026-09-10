@@ -92,7 +92,7 @@ For a relation $R$ on a set $A$:
 
 > **An equivalence relation partitions its set** into disjoint **equivalence classes** covering everything. Partition and equivalence relation are two views of the same thing.
 
-Where it shows up: **hashing** (buckets are classes under "same hash"), **modular arithmetic** ($\mathbb{Z}_n$ is the set of classes), **[[dsa/04-data-structures/10-union-find|union-find]]** (maintaining classes under merging), **type unification**, and **[[theory-of-computation/03-regular-languages|the Myhill–Nerode theorem]]**, where states of a minimal automaton *are* equivalence classes.
+Where it shows up: **hashing** (buckets are classes under "same hash"), **modular arithmetic** ($\mathbb{Z}_n$ is the set of classes), **[[dsa/02-data-structures/10-union-find|union-find]]** (maintaining classes under merging), **type unification**, and **[[theory-of-computation/03-regular-languages|the Myhill–Nerode theorem]]**, where states of a minimal automaton *are* equivalence classes.
 
 **And the `equals()` contract in Java or `Eq` in Rust is exactly these three axioms.** Violating transitivity — easy to do with a "fuzzy" comparison — breaks hash sets in ways that look like memory corruption.
 
@@ -104,7 +104,7 @@ Where it shows up: **hashing** (buckets are classes under "same hash"), **modula
 
 **Where it matters:**
 
-- **Dependency graphs.** A build's task order is a partial order, and [[dsa/05-algorithms/11-topological-sort|topological sort]] extends it to a total order — that's exactly what topological sorting *is*
+- **Dependency graphs.** A build's task order is a partial order, and [[dsa/03-algorithms/11-topological-sort|topological sort]] extends it to a total order — that's exactly what topological sorting *is*
 - **Version constraints**, semver ranges
 - **Happens-before in [[architecture/04-distributed-systems/03-time-and-ordering|distributed systems]]** — the canonical partial order. Concurrent events are simply *incomparable*, and Lamport's whole point is that physical time forces a false total order onto a genuinely partial one
 - **Lattices** — partial orders where every pair has a least upper bound. The basis of [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs]] and of dataflow analysis in [[compilers/07-optimisation|compilers]]
@@ -113,7 +113,7 @@ Where it shows up: **hashing** (buckets are classes under "same hash"), **modula
 
 The **transitive closure** of $R$ adds every pair reachable by a chain. Given "directly depends on", the transitive closure is "depends on, however indirectly".
 
-**Computed by Floyd–Warshall or repeated traversal**, and it's what you want for full dependency resolution or reachability. → [[dsa/04-data-structures/06-graphs|Graphs]]
+**Computed by Floyd–Warshall or repeated traversal**, and it's what you want for full dependency resolution or reachability. → [[dsa/02-data-structures/06-graphs/index|Graphs]]
 
 ## Functions
 

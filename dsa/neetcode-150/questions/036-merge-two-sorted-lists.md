@@ -38,8 +38,8 @@ Without it, you'd branch on whether the result list is empty every iteration to 
 
 ## Key insight
 
-**Merging sorted sequences → advance the pointer at the smaller head.** It's the merge step of [[04-sorting|merge sort]], on linked nodes instead of arrays — and the building block of [[044-merge-k-sorted-lists|Merge K Sorted Lists]]. The dummy-head trick is the reusable technique.
+**Merging sorted sequences → advance the pointer at the smaller head.** It's the merge step of [[04-sorting/index|merge sort]], on linked nodes instead of arrays — and the building block of [[044-merge-k-sorted-lists|Merge K Sorted Lists]]. The dummy-head trick is the reusable technique.
 
 ## Related
-- concept: [[04-linked-lists|linked-lists]]; merge step of [[04-sorting|sorting]]
+- concept: [[04-linked-lists|linked-lists]]; merge step of [[04-sorting/index|sorting]]
 - prev: [[035-reverse-linked-list|Reverse Linked List]] · next: [[037-reorder-list|Reorder List]]

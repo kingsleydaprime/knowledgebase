@@ -29,23 +29,24 @@ Interviews test it because it's the one body of knowledge shared across every sp
 ```
 dsa/
 ├── 01-loops-and-what-they-cost.md   # the on-ramp: counting iterations
-├── 04-data-structures/
-│   ├── arrays, dynamic-arrays, hash-maps, linked-lists, graphs, stacks-and-queues
+├── 02-data-structures/
+│   ├── arrays, dynamic-arrays, hash-maps, linked-lists, stacks-and-queues
 │   ├── heaps, tries, union-find
-│   └── 05-trees/  — trees.md + traversal.md
-├── 05-algorithms/
+│   ├── 05-trees/   — trees.md + traversal.md
+│   └── 06-graphs/  — vocabulary, connectivity, trees & forests, representations
+├── 03-algorithms/
 │   ├── 01-algorithms.md          # complexity analysis — read this early
 │   ├── dfs, bfs, sorting, searching, dijkstra
 │   ├── number-theory-basics, leader-algorithm, max-slice-algorithms, greedy-algorithms
 │   └── topological-sort, minimum-spanning-tree, bit-manipulation, math-and-geometry
-├── 06-patterns/                     # the 15 LeetCode patterns — a layer above both
+├── 04-patterns/                     # the 15 LeetCode patterns — a layer above both
 ├── neetcode-150/                    # all 150 problems worked, + interview playbook
 └── pdfs/                            # the original Codility course material
 ```
 
-**The rule for where a note goes:** if it's a way of *storing* data, it's under `04-data-structures/` (with a subfolder when a structure has companion notes, as trees has traversal). If it's a *procedure* operating on data — including ones that don't belong to a single structure, like Dijkstra across a weighted graph — it's under `05-algorithms/`. Patterns sit above both, since most combine a structure with a procedure.
+**The rule for where a note goes:** if it's a way of *storing* data, it's under `02-data-structures/` (with a subfolder when a structure has companion notes, as trees has traversal). If it's a *procedure* operating on data — including ones that don't belong to a single structure, like Dijkstra across a weighted graph — it's under `03-algorithms/`. Patterns sit above both, since most combine a structure with a procedure.
 
-**Note on numbering:** the folder numbers order the *folders*; the reading order below is what actually matters and doesn't follow them exactly. Complexity analysis lives at `05-algorithms/01-algorithms.md` for filing reasons but should be read second.
+**Note on numbering:** the folders are numbered in reading order, and there are no gaps. The one exception is complexity analysis, which lives at `03-algorithms/01-algorithms.md` for filing reasons but should be read **second**, right after the loops note.
 
 ## Reading order & University Course Approach
 
@@ -56,7 +57,7 @@ Whether you are an absolute beginner or looking for deep computer science intuit
 **Start here — the measuring system**
 
 1. [[01-loops-and-what-they-cost|Loops and What They Cost]] — **[Beginner]** — counting iterations, why nested doesn't always mean O(n²), and **the hidden loops that make one-loop code quadratic**
-2. [[dsa/05-algorithms/01-algorithms|Algorithms and Complexity Analysis]] — **[Beginner → Intermediate]** — **O, Ω and Θ and why they're not interchangeable**, best/average/worst as a separate axis, space complexity and the call stack, amortized vs average, recurrences, and reading a constraint to guess the intended complexity
+2. [[dsa/03-algorithms/01-algorithms|Algorithms and Complexity Analysis]] — **[Beginner → Intermediate]** — **O, Ω and Θ and why they're not interchangeable**, best/average/worst as a separate axis, space complexity and the call stack, amortized vs average, recurrences, and reading a constraint to guess the intended complexity
 
 Everything after this is quoted in the vocabulary those two establish, so they genuinely come first.
 
@@ -70,33 +71,33 @@ Everything after this is quoted in the vocabulary those two establish, so they g
 6. [[04-linked-lists|linked-lists]] — **[Intermediate]** — singly/doubly/circular, the sentinel trick, **and why they lose to arrays in practice despite the Big-O**
 7. [[01-trees|trees]] — **[Intermediate]** — full/complete/perfect/balanced, BSTs, AVL and red-black rotations, **and the B+ trees under every database index**
    - [[02-traversal|traversal]] — **[Intermediate]** — pre/in/post/level-order (companion note)
-8. [[06-graphs|graphs]] — **[Intermediate]** — directed/weighted/cyclic/bipartite, three representations, **and implicit graphs: the ones with no graph object at all**
-9. [[dsa/04-data-structures/07-stacks-and-queues|stacks-and-queues]] — **[Beginner]** — LIFO/FIFO, the circular buffer trick
-10. [[dsa/04-data-structures/08-heaps|heaps]] — **[Intermediate]** — priority queues, complete-tree-in-an-array, O(n) heapify, the two-heap median trick
-11. [[dsa/04-data-structures/09-tries|tries]] — **[Intermediate]** — prefix trees, O(L) prefix queries a hash map can't do
-12. [[dsa/04-data-structures/10-union-find|union-find]] — **[Advanced]** — disjoint sets, path compression + union by rank → O(α(n))
+8. [[06-graphs/index|graphs]] — **[Intermediate]** — directed/weighted/cyclic/bipartite, three representations, **and implicit graphs: the ones with no graph object at all**
+9. [[dsa/02-data-structures/07-stacks-and-queues|stacks-and-queues]] — **[Beginner]** — LIFO/FIFO, the circular buffer trick
+10. [[dsa/02-data-structures/08-heaps|heaps]] — **[Intermediate]** — priority queues, complete-tree-in-an-array, O(n) heapify, the two-heap median trick
+11. [[dsa/02-data-structures/09-tries|tries]] — **[Intermediate]** — prefix trees, O(L) prefix queries a hash map can't do
+12. [[dsa/02-data-structures/10-union-find|union-find]] — **[Advanced]** — disjoint sets, path compression + union by rank → O(α(n))
 
 **Algorithms**
 
 13. [[02-dfs|dfs]] — **[Intermediate]** — depth-first search
 14. [[03-bfs|bfs]] — **[Intermediate]** — breadth-first search
-15. [[04-sorting|sorting]] — **[Intermediate]** — bubble/insertion/merge/quicksort, stability, Timsort, counting sort
+15. [[04-sorting/index|sorting]] — **[Intermediate]** — bubble/insertion/merge/quicksort, stability, Timsort, counting sort
 16. [[05-searching|searching]] — **[Beginner]** — linear vs binary search
 17. [[06-dijkstra|dijkstra]] — **[Advanced]** — shortest path in weighted graphs, BFS generalized with a min-heap
-18. [[dsa/05-algorithms/07-number-theory-basics|number-theory-basics]] — **[Intermediate]** — primality, Sieve of Eratosthenes, factorization, GCD/LCM
-19. [[dsa/05-algorithms/08-leader-algorithm|leader-algorithm]] — **[Intermediate]** — majority element via Boyer-Moore voting
-20. [[dsa/05-algorithms/09-max-slice-algorithms|max-slice-algorithms]] — **[Intermediate]** — Kadane's algorithm, maximum subarray sum
-21. [[dsa/05-algorithms/10-greedy-algorithms|greedy-algorithms]] — **[Advanced]** — locally-optimal choices, and why they aren't always globally correct
-22. [[dsa/05-algorithms/11-topological-sort|topological-sort]] — **[Intermediate]** — ordering a DAG, doubling as cycle detection
-23. [[dsa/05-algorithms/12-minimum-spanning-tree|minimum-spanning-tree]] — **[Advanced]** — Prim's and Kruskal's, the cut property
-24. [[dsa/05-algorithms/13-bit-manipulation|bit-manipulation]] — **[Intermediate]** — bitwise operators, XOR tricks, `x & (x-1)`, masks
-25. [[dsa/05-algorithms/14-math-and-geometry|math-and-geometry]] — **[Intermediate]** — in-place matrix ops, fast exponentiation, grade-school arithmetic
+18. [[dsa/03-algorithms/07-number-theory-basics|number-theory-basics]] — **[Intermediate]** — primality, Sieve of Eratosthenes, factorization, GCD/LCM
+19. [[dsa/03-algorithms/08-leader-algorithm|leader-algorithm]] — **[Intermediate]** — majority element via Boyer-Moore voting
+20. [[dsa/03-algorithms/09-max-slice-algorithms|max-slice-algorithms]] — **[Intermediate]** — Kadane's algorithm, maximum subarray sum
+21. [[dsa/03-algorithms/10-greedy-algorithms|greedy-algorithms]] — **[Advanced]** — locally-optimal choices, and why they aren't always globally correct
+22. [[dsa/03-algorithms/11-topological-sort|topological-sort]] — **[Intermediate]** — ordering a DAG, doubling as cycle detection
+23. [[dsa/03-algorithms/12-minimum-spanning-tree|minimum-spanning-tree]] — **[Advanced]** — Prim's and Kruskal's, the cut property
+24. [[dsa/03-algorithms/13-bit-manipulation|bit-manipulation]] — **[Intermediate]** — bitwise operators, XOR tricks, `x & (x-1)`, masks
+25. [[dsa/03-algorithms/14-math-and-geometry|math-and-geometry]] — **[Intermediate]** — in-place matrix ops, fast exponentiation, grade-school arithmetic
 
 Still unwritten and welcome here: A*, Bellman-Ford, the KMP string match, and segment/Fenwick trees.
 
 ## Next layer — LeetCode patterns
 
-With the fundamentals above in place, [[dsa/06-patterns/index|patterns/]] covers the 15 reusable patterns that recur across problems — recognizing which pattern a problem is testing is most of the battle under time pressure. Patterns sit above both `data-structures/` and `algorithms/` because most combine a structure with a procedure (a heap plus a scanning pass for [[07-top-k-elements|top-k-elements]]).
+With the fundamentals above in place, [[dsa/04-patterns/index|patterns/]] covers the 15 reusable patterns that recur across problems — recognizing which pattern a problem is testing is most of the battle under time pressure. Patterns sit above both `data-structures/` and `algorithms/` because most combine a structure with a procedure (a heap plus a scanning pass for [[07-top-k-elements|top-k-elements]]).
 
 ## Putting it to work — NeetCode 150
 
@@ -104,9 +105,9 @@ With the fundamentals above in place, [[dsa/06-patterns/index|patterns/]] covers
 
 ## How this folder was built
 
-The `pdfs/` folder holds the original Codility course material these notes were written against. Cross-referencing the notes against those PDFs surfaced five topics with zero coverage, since written: [[dsa/04-data-structures/07-stacks-and-queues|stacks-and-queues]], [[dsa/05-algorithms/07-number-theory-basics|number-theory-basics]], [[dsa/05-algorithms/08-leader-algorithm|leader-algorithm]], [[dsa/05-algorithms/09-max-slice-algorithms|max-slice-algorithms]], and [[dsa/05-algorithms/10-greedy-algorithms|greedy-algorithms]]. The same pass deepened [[04-sorting|sorting]] with non-comparison sorts, [[dsa/05-algorithms/01-algorithms|algorithms]] with the constraint-size heuristic, and [[dsa/06-patterns/09-modified-binary-search|modified-binary-search]] with "binary search on the answer."
+The `pdfs/` folder holds the original Codility course material these notes were written against. Cross-referencing the notes against those PDFs surfaced five topics with zero coverage, since written: [[dsa/02-data-structures/07-stacks-and-queues|stacks-and-queues]], [[dsa/03-algorithms/07-number-theory-basics|number-theory-basics]], [[dsa/03-algorithms/08-leader-algorithm|leader-algorithm]], [[dsa/03-algorithms/09-max-slice-algorithms|max-slice-algorithms]], and [[dsa/03-algorithms/10-greedy-algorithms|greedy-algorithms]]. The same pass deepened [[04-sorting/index|sorting]] with non-comparison sorts, [[dsa/03-algorithms/01-algorithms|algorithms]] with the constraint-size heuristic, and [[dsa/04-patterns/09-modified-binary-search|modified-binary-search]] with "binary search on the answer."
 
-Running the same cross-reference against the NeetCode 150 is what surfaced the [[dsa/04-data-structures/08-heaps|heaps]], [[dsa/04-data-structures/09-tries|tries]], [[dsa/04-data-structures/10-union-find|union-find]], [[dsa/05-algorithms/11-topological-sort|topological-sort]], [[dsa/05-algorithms/12-minimum-spanning-tree|MST]], [[dsa/05-algorithms/13-bit-manipulation|bit-manipulation]] and [[dsa/05-algorithms/14-math-and-geometry|math-and-geometry]] gaps, plus the worked 1-D/2-D recurrences in [[dsa/06-patterns/15-dynamic-programming|dynamic-programming]].
+Running the same cross-reference against the NeetCode 150 is what surfaced the [[dsa/02-data-structures/08-heaps|heaps]], [[dsa/02-data-structures/09-tries|tries]], [[dsa/02-data-structures/10-union-find|union-find]], [[dsa/03-algorithms/11-topological-sort|topological-sort]], [[dsa/03-algorithms/12-minimum-spanning-tree|MST]], [[dsa/03-algorithms/13-bit-manipulation|bit-manipulation]] and [[dsa/03-algorithms/14-math-and-geometry|math-and-geometry]] gaps, plus the worked 1-D/2-D recurrences in [[dsa/04-patterns/15-dynamic-programming|dynamic-programming]].
 
 ## Related
 - [[programming-fundamentals/index|programming fundamentals]] — the on-ramp, if the code here isn't readable yet

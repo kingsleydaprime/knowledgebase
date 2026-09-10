@@ -200,5 +200,5 @@ fn process(items: impl IntoIterator<Item = String>) { }
 - [[languages/03-rust/09-traits|Traits]] — default methods, which `Iterator` exploits fully
 - [[languages/03-rust/18-performance-and-zero-cost|Performance and Zero-Cost Abstractions]] — why the chains are free
 - [[languages/03-rust/03-ownership|Ownership]] — `iter` vs `into_iter`
-- [[dsa/04-data-structures/03-hash-maps|Hash Maps]] and [[dsa/04-data-structures/08-heaps|Heaps]] — what is underneath these
+- [[dsa/02-data-structures/03-hash-maps|Hash Maps]] and [[dsa/02-data-structures/08-heaps|Heaps]] — what is underneath these
 - [[languages/03-rust/index|Rust course map]]

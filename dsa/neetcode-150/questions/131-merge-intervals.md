@@ -37,5 +37,5 @@ After sorting by start, any interval that overlaps an earlier one must overlap t
 **Interval merging → sort by start, then extend-or-append in one pass.** Almost every interval problem opens with this sort; overlapping candidates become neighbors, collapsing an O(n²) all-pairs comparison to O(n log n).
 
 ## Related
-- concept: [[08-overlapping-intervals|overlapping-intervals]], [[04-sorting|sorting]]
+- concept: [[08-overlapping-intervals|overlapping-intervals]], [[04-sorting/index|sorting]]
 - prev: [[130-insert-interval|Insert Interval]] · next: [[132-non-overlapping-intervals|Non-overlapping Intervals]]

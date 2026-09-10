@@ -35,7 +35,7 @@ The FFT computes the same DFT in **O(N log N)**:
                           ↓ recurse                ↓ recurse
 ```
 
-The combine step (the "butterfly") reuses shared computations that the naive DFT redundantly repeats — **that reuse is where the saving comes from** → [[dsa/05-algorithms/01-algorithms|divide and conquer]].
+The combine step (the "butterfly") reuses shared computations that the naive DFT redundantly repeats — **that reuse is where the saving comes from** → [[dsa/03-algorithms/01-algorithms|divide and conquer]].
 
 **It works best when `N` is a power of 2** (the halving is clean). Libraries handle other sizes, but they may pad to a power of 2, which is why you'll see FFT lengths of 1024, 2048, 4096.
 
@@ -81,6 +81,6 @@ Two things bite everyone, and both get their own treatment in [[digital-signal-p
 - [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] — the DFT the FFT computes
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] — made fast by the FFT
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — leakage, windowing, the resolution trade
-- [[dsa/05-algorithms/01-algorithms|algorithms]] — divide and conquer, and O(N log N)
+- [[dsa/03-algorithms/01-algorithms|algorithms]] — divide and conquer, and O(N log N)
 
 *Source: [reference] — Aug 2026.*

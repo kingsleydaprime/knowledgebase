@@ -1,6 +1,6 @@
 # Number of Islands
 
-**LeetCode 200** · Graphs · concepts: [[13-matrix-traversal|matrix-traversal]], [[06-graphs|graphs]]
+**LeetCode 200** · Graphs · concepts: [[13-matrix-traversal|matrix-traversal]], [[06-graphs/index|graphs]]
 
 ## Problem
 
@@ -33,12 +33,12 @@ def numIslands(grid):
 
 ## A grid is a graph
 
-Each cell is a node connected to its neighbors; "island" = connected component. Counting components is "loop over all nodes, start a fresh traversal from each unvisited one" — the disconnected-graph handling from [[06-graphs|graphs]]. Sinking cells to `"0"` is the visited-marking.
+Each cell is a node connected to its neighbors; "island" = connected component. Counting components is "loop over all nodes, start a fresh traversal from each unvisited one" — the disconnected-graph handling from [[06-graphs/index|graphs]]. Sinking cells to `"0"` is the visited-marking.
 
 ## Key insight
 
 **Count connected regions on a grid → for each unvisited land cell, flood fill and increment.** The traversal marks a whole component in one shot, so the number of launches equals the number of components. The foundational grid-graph problem.
 
 ## Related
-- concepts: [[13-matrix-traversal|matrix-traversal]], [[06-graphs|graphs]], [[02-dfs|dfs]]
+- concepts: [[13-matrix-traversal|matrix-traversal]], [[06-graphs/index|graphs]], [[02-dfs|dfs]]
 - next: [[081-clone-graph|Clone Graph]]

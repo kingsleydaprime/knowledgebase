@@ -96,7 +96,7 @@ def total_size(folder):
     return total
 ```
 
-**Divide and conquer.** Split in half, solve each half, combine. [[dsa/05-algorithms/04-sorting|Binary search, merge sort, quicksort]] are all this shape — and the reason binary search is O(log n) is that each call discards half the remaining data.
+**Divide and conquer.** Split in half, solve each half, combine. [[dsa/03-algorithms/04-sorting/index|Binary search, merge sort, quicksort]] are all this shape — and the reason binary search is O(log n) is that each call discards half the remaining data.
 
 **Anything defined recursively.** Parsing nested expressions, walking a graph, generating permutations.
 
@@ -133,7 +133,7 @@ Understanding the stack pays off well beyond recursion:
 ## Related
 
 - [[programming-fundamentals/08-functions|functions]] — the prerequisite
-- [[dsa/05-algorithms/01-algorithms|algorithms]] — where recursion becomes the default tool
+- [[dsa/03-algorithms/01-algorithms|algorithms]] — where recursion becomes the default tool
 - [[os/05-memory-allocation|memory allocation]] — stack and heap properly
 - [[computer-architecture/04-assembly|assembly]] — the stack as the hardware sees it
 - [[mathematics/02-discrete-math/05-induction-and-recursion|induction and recursion]] — the maths of why base cases work

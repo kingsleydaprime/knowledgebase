@@ -18,7 +18,7 @@ This does not mean every note becomes a textbook chapter. A 10-minute pattern no
 
 ## What to borrow from data structures
 
-The strongest patterns in [[dsa/04-data-structures/01-arrays|arrays]], [[dsa/04-data-structures/02-dynamic-arrays|dynamic arrays]], and [[dsa/04-data-structures/03-hash-maps|hash maps]] are:
+The strongest patterns in [[dsa/02-data-structures/01-arrays|arrays]], [[dsa/02-data-structures/02-dynamic-arrays|dynamic arrays]], and [[dsa/02-data-structures/03-hash-maps|hash maps]] are:
 
 - Motivation before machinery: what problem does this solve?
 - Plain-English definitions before a wall of terminology.
@@ -108,9 +108,9 @@ Point to the next lesson and explain the dependency. Keep a short recap suitable
 
 Two folders in this vault reached university quality by slightly different routes, and the standard is the union of both, not a choice between them.
 
-`dsa/04-data-structures/` contributes the **visual teaching**: a physical analogy up front, a plain-English terminology table before any jargon is used, ASCII diagrams carrying real numbers rather than abstract letters, an explicit pitfalls list, and self-assessment questions whose answers are hidden behind `<details>` so the reader must attempt first.
+`dsa/02-data-structures/` contributes the **visual teaching**: a physical analogy up front, a plain-English terminology table before any jargon is used, ASCII diagrams carrying real numbers rather than abstract letters, an explicit pitfalls list, and self-assessment questions whose answers are hidden behind `<details>` so the reader must attempt first.
 
-`dsa/06-patterns/` contributes the **bridge to independent work**: a difficulty tag, prerequisites stated as things the reader can already do, observable outcomes, a complete runnable artifact with its exact command and expected output, an independent task with a "done when" condition, and answers placed after the attempt.
+`dsa/04-patterns/` contributes the **bridge to independent work**: a difficulty tag, prerequisites stated as things the reader can already do, observable outcomes, a complete runnable artifact with its exact command and expected output, an independent task with a "done when" condition, and answers placed after the attempt.
 
 A lesson meeting this standard has both halves. Explanation without the bridge produces a reader who recognises the heading; the bridge without the explanation produces a reader who cannot start.
 

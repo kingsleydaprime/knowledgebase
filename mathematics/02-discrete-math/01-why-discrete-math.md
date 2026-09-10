@@ -78,7 +78,7 @@ Obvious. 367 people, 366 possible birthdays, so two must collide. **That's the p
 
 **"Can this build succeed?"**
 
-A build system has tasks with dependencies. **That's a directed graph**, and "can it succeed" means "is it acyclic". The build order is a topological sort. → [[dsa/05-algorithms/11-topological-sort|Topological Sort]]
+A build system has tasks with dependencies. **That's a directed graph**, and "can it succeed" means "is it acyclic". The build order is a topological sort. → [[dsa/03-algorithms/11-topological-sort|Topological Sort]]
 
 **"Is this program correct?"**
 

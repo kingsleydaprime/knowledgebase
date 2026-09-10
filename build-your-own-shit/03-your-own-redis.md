@@ -15,7 +15,7 @@ A server speaking the Redis protocol, holding data in memory, supporting the cor
 | You should know | Where |
 |---|---|
 | **Sockets and an accept loop** | [[build-your-own-shit/01-http-server\|guide 01]] — build that first |
-| **Hash maps** — what they cost and why | [[dsa/04-data-structures/03-hash-maps\|dsa/03-hash-maps]] |
+| **Hash maps** — what they cost and why | [[dsa/02-data-structures/03-hash-maps\|dsa/03-hash-maps]] |
 | **Event loops** — `epoll`/`kqueue` | [[os/08-io-models\|os/08]] |
 | **`fsync` and durability** | [[os/07-filesystems-and-storage\|os/07]] — **the AOF milestone depends on this** |
 | **Caching concepts** — TTL, eviction | [[architecture/02-building-blocks/02-caching\|caching]] |
@@ -128,7 +128,7 @@ ZADD/ZRANGE/ZRANGEBYSCORE   sorted sets — the interesting one
 
 **Sorted sets are the one to implement properly.** They need ordering by score *and* O(1) lookup by member, so real Redis uses a **skip list plus a hash map** — the skip list for range queries, the map for membership.
 
-A skip list is a genuinely elegant structure: probabilistic balancing, much simpler to implement than a red-black tree, and comparable performance. → [[dsa/04-data-structures/08-heaps|heaps]] and [[dsa/04-data-structures/05-trees/01-trees|trees]]
+A skip list is a genuinely elegant structure: probabilistic balancing, much simpler to implement than a red-black tree, and comparable performance. → [[dsa/02-data-structures/08-heaps|heaps]] and [[dsa/02-data-structures/05-trees/01-trees|trees]]
 
 **Test:** `redis-cli zadd leaderboard 100 alice 200 bob`, then `zrange leaderboard 0 -1 withscores`.
 

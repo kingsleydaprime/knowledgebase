@@ -29,7 +29,7 @@ This has a consequence you can feel. In C you can force the machine to reinterpr
 
 Because an `int32` is *always* 4 bytes, a hundred of them in a row occupy a predictable 400 bytes, and the address of element `i` is `base + i * 4`. One multiply, one add, no searching.
 
-**That is the entire reason array indexing is instant**, and it only works because the type pins down the size in advance. Variable-sized elements would mean walking from the start to find anything. This is where this course hands off to [[dsa/04-data-structures/01-arrays|arrays]] in DSA — the performance story there is built directly on the fact established here.
+**That is the entire reason array indexing is instant**, and it only works because the type pins down the size in advance. Variable-sized elements would mean walking from the start to find anything. This is where this course hands off to [[dsa/02-data-structures/01-arrays|arrays]] in DSA — the performance story there is built directly on the fact established here.
 
 ### What the type system buys
 
@@ -79,7 +79,7 @@ s += " world"    # does NOT modify the original string —
                  # it builds a new one and points s at it
 ```
 
-Immutability is why strings and tuples work as dictionary keys and lists don't: a key that could change after being stored would break the structure that indexed it. It's also why the string loop in [[dsa/04-data-structures/01-arrays|arrays]] is accidentally O(n²) — every `+=` copies the whole string.
+Immutability is why strings and tuples work as dictionary keys and lists don't: a key that could change after being stored would break the structure that indexed it. It's also why the string loop in [[dsa/02-data-structures/01-arrays|arrays]] is accidentally O(n²) — every `+=` copies the whole string.
 
 **Immutable is not the same as "can't be reassigned."** A name pointing at an immutable value can be pointed somewhere else freely; what it can't do is change the value in place. `const`/`final` restrict the *name*; immutability restricts the *value*. A `const` list in JavaScript can still have items pushed onto it.
 
@@ -140,8 +140,8 @@ Reading across a row is how you predict a type's behaviour without memorising ru
 - [[programming-fundamentals/07-collections|collections]] — where mutable vs immutable starts to bite daily
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]] — composite types you define yourself
 - [[computer-architecture/02-data-representation|data representation]] — two's complement and IEEE-754 in full
-- [[dsa/04-data-structures/01-arrays|arrays]] — where fixed-size types turn into O(1) indexing
-- [[dsa/04-data-structures/03-hash-maps|hash maps]] — why keys must be immutable
+- [[dsa/02-data-structures/01-arrays|arrays]] — where fixed-size types turn into O(1) indexing
+- [[dsa/02-data-structures/03-hash-maps|hash maps]] — why keys must be immutable
 - [[languages/index|languages]] — how individual languages answer axes 4 and 5
 
 *Source: [reference] — consolidated from the type notes that previously sat in `foundations/dsa/`, where they were prerequisites rather than DSA material.*

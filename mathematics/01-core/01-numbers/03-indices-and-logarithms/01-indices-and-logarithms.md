@@ -191,7 +191,7 @@ So $\log_2 1000 = \dfrac{\log_{10} 1000}{\log_{10} 2} = \dfrac{3}{0.30103} \appr
 > [!NOTE]
 > **This is why complexity analysis never states the base.** Changing base only multiplies by a constant — $\log_2 n$ and $\log_{10} n$ differ by a factor of about 3.32, forever.
 >
-> Since Big-O discards constant factors, $O(\log_2 n)$ and $O(\log_{10} n)$ are **the same class**. That is why [[dsa/05-algorithms/01-algorithms|complexity analysis]] writes $O(\log n)$ with no base and means it.
+> Since Big-O discards constant factors, $O(\log_2 n)$ and $O(\log_{10} n)$ are **the same class**. That is why [[dsa/03-algorithms/01-algorithms|complexity analysis]] writes $O(\log n)$ with no base and means it.
 
 ## 5. Where logarithms actually show up
 

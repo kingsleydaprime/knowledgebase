@@ -30,7 +30,7 @@ Recognising these tells you which algorithms apply:
 
 **Tree** — connected and acyclic. **Exactly $|V| - 1$ edges**, and a unique path between any two vertices. Adding any edge creates exactly one cycle; removing any edge disconnects it.
 
-**DAG** — directed, acyclic. **The shape of every dependency structure**: build systems, task schedulers, git history, spreadsheet formulas, neural network computation graphs, Makefiles. **A DAG always has a topological order**, and the existence of that order is equivalent to acyclicity. → [[dsa/05-algorithms/11-topological-sort|Topological Sort]]
+**DAG** — directed, acyclic. **The shape of every dependency structure**: build systems, task schedulers, git history, spreadsheet formulas, neural network computation graphs, Makefiles. **A DAG always has a topological order**, and the existence of that order is equivalent to acyclicity. → [[dsa/03-algorithms/11-topological-sort|Topological Sort]]
 
 **Bipartite** — vertices split into two sets with edges only between them. **Equivalent to having no odd-length cycle**, and equivalent to being 2-colourable. Matching problems (job assignment, stable marriage, ad auctions) live here.
 
@@ -49,13 +49,13 @@ Recognising these tells you which algorithms apply:
 | Iterate neighbours | $O(V)$ | $O(\deg v)$ |
 | Best for | **dense**, frequent edge queries | **sparse** — almost everything real |
 
-> **Real graphs are overwhelmingly sparse.** A social network has billions of users and hundreds of friends each, not billions. **Adjacency list is the default**; reach for a matrix only when the graph is dense or you need matrix operations (as in [[dsa/04-data-structures/06-graphs|Floyd–Warshall]] or spectral methods).
+> **Real graphs are overwhelmingly sparse.** A social network has billions of users and hundreds of friends each, not billions. **Adjacency list is the default**; reach for a matrix only when the graph is dense or you need matrix operations (as in [[dsa/02-data-structures/06-graphs/index|Floyd–Warshall]] or spectral methods).
 
 ## Traversal
 
-**BFS** — explore level by level with a queue. **Finds shortest paths in unweighted graphs**, because it reaches every vertex at its minimum edge-distance first. → [[dsa/05-algorithms/03-bfs|BFS]]
+**BFS** — explore level by level with a queue. **Finds shortest paths in unweighted graphs**, because it reaches every vertex at its minimum edge-distance first. → [[dsa/03-algorithms/03-bfs|BFS]]
 
-**DFS** — go deep with a stack or recursion. **Finds cycles, topological order, connected components, and bridges.** → [[dsa/05-algorithms/02-dfs|DFS]]
+**DFS** — go deep with a stack or recursion. **Finds cycles, topological order, connected components, and bridges.** → [[dsa/03-algorithms/02-dfs|DFS]]
 
 **Both are $O(V + E)$** — you touch each vertex and each edge a constant number of times. **That bound is worth internalising**, because it means traversal is essentially free relative to anything more complex.
 
@@ -73,9 +73,9 @@ Recognising these tells you which algorithms apply:
 | **A\*** | with a heuristic | faster in practice |
 | **Floyd–Warshall** | all pairs | $O(V^3)$ |
 
-**Dijkstra fails on negative edges** — it commits to a vertex when first finalised, and a negative edge could improve it later. **This is a real trap**, and Bellman–Ford is the fix. → [[dsa/05-algorithms/06-dijkstra|Dijkstra]]
+**Dijkstra fails on negative edges** — it commits to a vertex when first finalised, and a negative edge could improve it later. **This is a real trap**, and Bellman–Ford is the fix. → [[dsa/03-algorithms/06-dijkstra|Dijkstra]]
 
-**Minimum spanning tree** — Kruskal (sort edges, union-find) or Prim (grow from a vertex). Network design, clustering. → [[dsa/05-algorithms/12-minimum-spanning-tree|MST]]
+**Minimum spanning tree** — Kruskal (sort edges, union-find) or Prim (grow from a vertex). Network design, clustering. → [[dsa/03-algorithms/12-minimum-spanning-tree|MST]]
 
 **Max flow / min cut** — Ford–Fulkerson, Edmonds–Karp, Dinic. **The max-flow min-cut theorem** says the maximum flow equals the minimum cut capacity, which is a beautiful duality and turns "how much can I push through" into "where's the bottleneck". Bipartite matching reduces to max flow.
 
@@ -134,7 +134,7 @@ Recognising these tells you which algorithms apply:
 ---
 
 ## Related
-- [[dsa/04-data-structures/06-graphs|Graphs (data structure)]] — the implementation view
-- [[dsa/05-algorithms/06-dijkstra|Dijkstra]] · [[dsa/05-algorithms/11-topological-sort|Topological Sort]] — the algorithms
+- [[dsa/02-data-structures/06-graphs/index|Graphs (data structure)]] — the implementation view
+- [[dsa/03-algorithms/06-dijkstra|Dijkstra]] · [[dsa/03-algorithms/11-topological-sort|Topological Sort]] — the algorithms
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — a graph is a relation
 - [[mathematics/02-discrete-math/index|Discrete maths map]]

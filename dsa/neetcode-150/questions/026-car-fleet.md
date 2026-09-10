@@ -39,5 +39,5 @@ Two cars merge iff the behind car would otherwise reach the target *sooner* — 
 **Convert a physical "catch up" condition into a comparison of a single scalar (arrival time), then sweep in order.** Sorting by position and reasoning about times turns a messy simulation into one linear pass — the reframing *is* the solution.
 
 ## Related
-- concept: [[06-monotonic-stack|monotonic-stack]], [[04-sorting|sorting]]
+- concept: [[06-monotonic-stack|monotonic-stack]], [[04-sorting/index|sorting]]
 - prev: [[025-daily-temperatures|Daily Temperatures]] · next: [[027-largest-rectangle-in-histogram|Largest Rectangle in Histogram]]

@@ -27,7 +27,7 @@
 - **Monte Carlo methods** — integration in high dimensions, where deterministic quadrature fails
 - **Randomised load balancing** — power of two choices
 - **Skip lists** — probabilistic balancing, far simpler than a red-black tree
-- **Bloom filters** — one-sided error, huge space saving. **A "no" is certain, a "yes" is probable** → [[dsa/04-data-structures/03-hash-maps|Hash Maps]]
+- **Bloom filters** — one-sided error, huge space saving. **A "no" is certain, a "yes" is probable** → [[dsa/02-data-structures/03-hash-maps|Hash Maps]]
 
 **The pattern in every case: randomness buys simplicity and robustness against adversarial input**, not raw asymptotic power.
 

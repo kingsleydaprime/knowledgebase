@@ -59,7 +59,7 @@ Most engineering vaults are column one with a bit of column two. The point of th
 
 ### The core
 
-- [[dsa/index|dsa/]] — **[Beginner → Advanced]** — **the largest course here.** Iterations and what they cost → data types → [[dsa/04-data-structures/index|data structures]] → algorithms → [[dsa/06-patterns/index|15 LeetCode patterns]] → a [[dsa/neetcode-150/index|NeetCode 150]] bank and an [[dsa/interview/index|interview]] folder
+- [[dsa/index|dsa/]] — **[Beginner → Advanced]** — **the largest course here.** Iterations and what they cost → data types → [[dsa/02-data-structures/index|data structures]] → algorithms → [[dsa/04-patterns/index|15 LeetCode patterns]] → a [[dsa/neetcode-150/index|NeetCode 150]] bank and an [[dsa/interview/index|interview]] folder
 - [[how-computers-work/index|how-computers-work/]] — **[Beginner → Advanced]** · 34 modules — **electricity → semiconductors → logic gates → arithmetic → memory → a CPU you build yourself.** Every lab verified; ends in a working 16-bit machine with an assembler, an emulator and a language
 - [[networking/index|networking/]] — **[Intermediate]** · 22 notes — the model and the link layer → IP and routing → UDP, TCP, congestion, sockets → DNS, HTTP, TLS, QUIC → middleboxes, performance, debugging
 - [[os/index|os/]] — **[Intermediate → Advanced]** · 16 notes — the kernel/user split → processes and threads → scheduling → virtual memory → allocation → concurrency → filesystems → I/O models → syscalls and the ABI → isolation and containers → boot and init
@@ -99,7 +99,7 @@ Every course folder has an `index.md` entry point and notes numbered in reading 
 
 **Older notes** follow one shape: the kid version first — plain-language intuition before any depth · the actual content — tables, worked examples, real failure modes · key insight · related links out.
 
-**Newer courses are held to [[COURSE-STANDARD|the course standard]]**, which asks for more: stated prerequisites, observable outcomes, a terminology table before any jargon, the mechanism built one step at a time, a **runnable lab whose expected output was generated from an actual run**, practice with answers hidden behind a fold, and a demonstrable finish line. `dsa/04-data-structures`, `dsa/06-patterns`, `how-computers-work`, `mathematics` and `compilers` are the ones converted so far.
+**Newer courses are held to [[COURSE-STANDARD|the course standard]]**, which asks for more: stated prerequisites, observable outcomes, a terminology table before any jargon, the mechanism built one step at a time, a **runnable lab whose expected output was generated from an actual run**, practice with answers hidden behind a fold, and a demonstrable finish line. `dsa/02-data-structures`, `dsa/04-patterns`, `how-computers-work`, `mathematics` and `compilers` are the ones converted so far.
 
 Where a lab claims an output, that output came from executing the code — not from predicting it. Several labs exist specifically to check a claim the prose makes rather than to illustrate it: that omitting partial pivoting silently returns a wrong answer, that two triangles satisfy the same SSA data, that a hanging chain is not a parabola.
 

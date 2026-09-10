@@ -201,7 +201,7 @@ if (flags & FLAG_ACTIVE) { }                            // test
 uint32_t prio = (flags & PRIORITY_MASK) >> 1;           // extract
 ```
 
-More verbose, completely defined. → [[dsa/05-algorithms/13-bit-manipulation|Bit Manipulation]]
+More verbose, completely defined. → [[dsa/03-algorithms/13-bit-manipulation|Bit Manipulation]]
 
 ## Enums
 
