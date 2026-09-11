@@ -104,6 +104,57 @@ A lesson is finished when the learner can explain the idea, trace an unfamiliar 
 
 Point to the next lesson and explain the dependency. Keep a short recap suitable for later lookup so the expanded teaching material remains useful as a knowledge base.
 
+## Writing conventions
+
+These are not stylistic preferences; each one exists because its absence made a
+lesson harder to read.
+
+### Definitions are a numbered list in plain English
+
+Not a table. A table forces definitions into fragments, and a fragment reads as
+though the reader already knows the term. Give each one a full sentence, and give
+a synonym its own sentence:
+
+> 1. **Vertex**: This is also known as a **node**. This is a point in a graph
+>    that can be connected to other points by edges.
+
+Use a heading that says what it is — "Terms used in graphs" — rather than
+"Terminology".
+
+### State a result in words before you write the formula
+
+The sentence comes first, the symbols second. The formula is a compression of the
+sentence, and a reader who has not yet got the sentence cannot decompress it:
+
+> The handshaking lemma states that in any undirected graph, the sum of all the
+> vertex degrees is exactly twice the total number of edges. It is a fundamental
+> principle because each edge connects exactly two vertices.
+>
+> $$\sum_{v \in V} \deg(v) = 2\lvert E\rvert$$
+
+### Expand every acronym and abbreviation the first time it appears
+
+Put the full meaning in brackets immediately after it, in every lesson that uses
+it — not once across the vault. A reader arriving from a search has not read the
+lesson where it was first expanded.
+
+> ADT (abstract data type) · DAG (directed acyclic graph) · SCC (strongly
+> connected component) · BFS (breadth-first search) · MST (minimum spanning tree)
+
+### The abstract data type comes before the implementation
+
+For any data structure, describe **what it does** before showing **how it is
+built**. List the operations with a plain-English line each, saying what the
+operation is for and what it costs:
+
+> `adjacent(v, u)` — Returns `true` if there is an edge between `v` and `u`.
+> Use it when you have two specific vertices and want to know whether they are
+> joined. Cost depends on the representation: $O(1)$ for an adjacency matrix,
+> $O(\deg v)$ for an adjacency list.
+
+Code answers "how". The reader needs "what" and "why" first, and cannot reliably
+reconstruct either by reading an implementation.
+
 ## The lesson shape
 
 Two folders in this vault reached university quality by slightly different routes, and the standard is the union of both, not a choice between them.
@@ -132,11 +183,19 @@ Study route: which sections to read, where to stop and attempt.
 One concrete situation. Show why the simpler approach is insufficient.
 A physical analogy is welcome — then say where it stops matching.
 
-## 2. Terminology
+## Terms used in <topic>
 
-| Term | Plain-English definition | Example / analogy |
+A **numbered list**, not a table. One entry per term, written in full sentences
+and plain English. Give the synonym its own sentence. Define every term before
+the section that uses it, and never define a term using two other undefined ones.
 
-Define every term before the section that uses it.
+1. **Term**: This is also known as a **synonym**. This is <what it is, in words a
+   beginner already has>. <A concrete example.>
+
+## The abstract data type
+
+Before any code: the operations the structure supports, what each one is *for*,
+and what it costs. One line of explanation per operation, in plain English.
 
 ## 3..N. How it works — step by step
 
@@ -187,6 +246,10 @@ Revision should preserve useful existing detail, links, and file locations. Fix 
 ## Review checklist
 
 - [ ] The prerequisites and outcomes are explicit and realistic.
+- [ ] Definitions are a numbered list in plain full sentences, not a table.
+- [ ] Every result is stated in words before its formula appears.
+- [ ] Every acronym is expanded in brackets on first use **in this lesson**.
+- [ ] For a data structure, the abstract data type and its operations come before any code.
 - [ ] The running example teaches the steps between intuition and formalism.
 - [ ] The learner can execute the worked example without guessing missing setup.
 - [ ] At least one task requires prediction and one requires independent work.

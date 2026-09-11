@@ -18,11 +18,11 @@
 
 ---
 
-## 1. Why this exists
+## Why this exists
 
 You have a big graph and want a piece of it: the servers in one datacentre, the roads inside a city, the part of a dependency graph one package touches. That is a **subgraph** — and there are three different notions, which get confused.
 
-Then there is the other direction. A **tree** appeared in this course as a data structure with a root, parents and children. In graph theory a tree is something much barer: a connected graph with no cycles. No root, no ordering, no children. The two are related, and knowing exactly how is the point of section 4 — it explains why a tree has $n-1$ edges, why there is exactly one path between any two nodes, and why adding a single edge anywhere creates exactly one cycle.
+Then there is the other direction. A **tree** appeared in this course as a data structure with a root, parents and children. In graph theory a tree is something much barer: a connected graph with no cycles. No root, no ordering, no children. The two are related, and knowing exactly how is the point of the last section — it explains why a tree has $n-1$ edges, why there is exactly one path between any two nodes, and why adding a single edge anywhere creates exactly one cycle.
 
 ## Terms used for pieces of a graph
 
@@ -38,7 +38,7 @@ There are four worth naming. The two special ones — induced and spanning — v
 
 4. **Clique**: This is an induced subgraph in which every pair of vertices is joined by an edge — a group where everyone is connected to everyone. Finding the largest clique in a graph is NP-hard, which is worth knowing before you try.
 
-## 3. Trees and forests, as graphs
+## Trees and forests, as graphs
 
 A **forest** is a graph with no cycles. A **tree** is a **connected** forest. So a forest is a disjoint union of trees, one per connected component.
 
@@ -68,11 +68,11 @@ Definition 4 is the one that connects to data structures. **Exactly one path** b
 
 A **spanning tree** of a connected graph is a spanning subgraph that is a tree: all $n$ vertices, $n-1$ edges, no cycles.
 
-Every connected graph has at least one — run BFS or DFS from any vertex and keep only the edges by which you first reached each vertex. That produces $n-1$ edges (one per vertex except the start) and cannot contain a cycle, because each edge reaches a previously-unseen vertex.
+Every connected graph has at least one — run BFS (breadth-first search) or DFS (depth-first search) from any vertex and keep only the edges by which you first reached each vertex. That produces $n-1$ edges (one per vertex except the start) and cannot contain a cycle, because each edge reaches a previously-unseen vertex.
 
 Most connected graphs have many. Cayley's formula says the complete graph $K_n$ has $n^{n-2}$ of them — $K_4$ has $16$, $K_5$ has $125$. Choosing the cheapest is the [[12-minimum-spanning-tree|minimum spanning tree]] problem.
 
-## 4. How this relates to the trees folder
+## How this relates to the trees folder
 
 The [[05-trees/01-trees|trees data structure]] adds three things to the graph-theory tree:
 
@@ -80,7 +80,7 @@ The [[05-trees/01-trees|trees data structure]] adds three things to the graph-th
 
 2. **An order on the children**: Once a node's children are put in a definite order, "left" and "right" become meaningful. A binary search tree needs this; a graph-theoretic tree has no such notion.
 
-3. **Values and an invariant**: The nodes carry data, and a rule is imposed on how that data is arranged — the BST ordering property, or the heap property, and so on.
+3. **Values and an invariant**: The nodes carry data, and a rule is imposed on how that data is arranged — the BST (binary search tree) ordering property, or the heap property, and so on.
 
 **Vocabulary correspondence:**
 
@@ -350,7 +350,7 @@ Block 2 is the theorem made concrete: four of the six definitions computed indep
 4. **$n$.** Removing any single edge from the cycle leaves a path, which is a spanning tree, and there are $n$ edges to choose from.
 5. Because a tree already has exactly one path between the endpoints of the new edge. The new edge gives a second route between them, and those two routes together form exactly one cycle. No more, because any additional cycle would need a second pre-existing path, which a tree does not have.
 
-**And the prediction from section 3:** it is **not** a tree — a tree on 7 vertices has exactly 6 edges, and this has 9. You must remove $9 - 6 = 3$ edges, each breaking a cycle without disconnecting the graph. There are generally **many** possible results: the graph has several spanning trees, and which one you get depends on which edges you drop.
+**And the prediction from the tree definitions:** it is **not** a tree — a tree on 7 vertices has exactly 6 edges, and this has 9. You must remove $9 - 6 = 3$ edges, each breaking a cycle without disconnecting the graph. There are generally **many** possible results: the graph has several spanning trees, and which one you get depends on which edges you drop.
 </details>
 
 ## Practice — independent task

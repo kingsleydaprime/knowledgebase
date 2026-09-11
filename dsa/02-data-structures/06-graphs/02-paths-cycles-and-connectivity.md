@@ -12,13 +12,13 @@
 1. Distinguish **walk, trail, path** and **simple path**, and the same four for closed routes ending in **cycle**.
 2. Find **connected components** of an undirected graph.
 3. Distinguish **strongly** from **weakly connected** in a directed graph, and compute **strongly connected components**.
-4. Detect whether a directed graph is a **DAG**, and say why that matters.
+4. Detect whether a directed graph is a **DAG (directed acyclic graph)**, and say why that matters.
 
 **Study route:** read the terms first, attempt the prediction just before the lab, then run it. Block 4 is the one that shows why direction changes everything.
 
 ---
 
-## 1. Why this exists
+## Why this exists
 
 "Is there a route from A to B?" sounds like one question. It is at least four, because *route* is ambiguous — may it revisit a junction? may it reuse a road? — and because in a directed graph "A reaches B" does not imply "B reaches A".
 
@@ -63,7 +63,7 @@ In a **simple** graph a cycle needs at least three vertices. With only two you w
 
 8. **Connected component**: This is a maximal group of vertices that can all reach each other. "Maximal" means you cannot add another vertex to the group without breaking that property. Every vertex belongs to exactly one component, so the components split the graph up completely with nothing left over and nothing counted twice.
 
-Finding the components is one BFS or DFS started from each vertex you have not visited yet, which costs $O(V+E)$ altogether.
+Finding the components is one BFS (breadth-first search) or DFS (depth-first search) started from each vertex you have not visited yet, which costs $O(V+E)$ altogether.
 
 **Directed graphs.** Once edges have arrows, "connected" splits into two different ideas, and the difference matters in practice.
 
@@ -71,7 +71,7 @@ Finding the components is one BFS or DFS started from each vertex you have not v
 
 10. **Weakly connected**: This means the graph is connected once you rub out all the arrows and treat every edge as two-way. It is a much weaker promise.
 
-11. **Strongly connected component**, usually shortened to **SCC**: This is a maximal group of vertices that can all reach each other following the arrows. It is the directed version of a connected component.
+11. **Strongly connected component**, usually shortened to **SCC (strongly connected component)**: This is a maximal group of vertices that can all reach each other following the arrows. It is the directed version of a connected component.
 
 Strong always implies weak. The reverse fails constantly. A one-way street system can look perfectly joined up on a map — weakly connected — while some junction cannot actually be left once you drive into it, which is a strong-connectivity failure and a real problem for anyone using it.
 
@@ -86,7 +86,7 @@ DAGs are the shape of dependency: build targets, task schedules, spreadsheet for
 > [!TIP]
 > **Predict before running the lab.** Take a triangle $A \to B \to C \to A$ and reverse just one edge, giving $A \to B$, $C \to B$, $A \to C$. Is the result still strongly connected? Is it weakly connected? Is it a DAG? Decide all three before opening the answers.
 
-## 4. Worked example — runnable
+## Worked example — runnable
 
 **Runnable example:** save as `connectivity.py` in any empty directory and run `python3 connectivity.py`. Standard library only; writes no files.
 

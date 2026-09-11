@@ -22,9 +22,9 @@ Use this to find which lesson defines a term.
 | complete graph, dense, sparse, handshake lemma | 01 |
 | walk, trail, path, simple path | 02 |
 | closed walk, circuit, cycle, simple cycle | 02 |
-| directed path, directed cycle, DAG | 02 |
+| directed path, directed cycle, DAG (directed acyclic graph) | 02 |
 | connected, connected component | 02 |
-| strongly connected, weakly connected, SCC, condensation | 02 |
+| strongly connected, weakly connected, SCC (strongly connected component), condensation | 02 |
 | subgraph, induced subgraph, spanning subgraph, clique | 03 |
 | forest, tree, spanning tree | 03 |
 | edge list, adjacency list, adjacency map | 04 |
@@ -34,7 +34,7 @@ Use this to find which lesson defines a term.
 
 | Question / goal | Reach for |
 | :--- | :--- |
-| **Is there any path between A and B?** | [[02-dfs|DFS]] or [[03-bfs|BFS]] |
+| **Is there any path between A and B?** | [[02-dfs|DFS (depth-first search)]] or [[03-bfs|BFS (breadth-first search)]] |
 | **Shortest path, unweighted graph or grid** | [[03-bfs|BFS]] |
 | **Shortest path, weighted with non-negative weights** | [[06-dijkstra|Dijkstra]] — BFS plus a [[08-heaps|min-heap]] |
 | **A valid order of dependencies** | [[11-topological-sort|Topological sort]] — needs a DAG |

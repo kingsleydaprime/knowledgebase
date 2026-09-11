@@ -14,11 +14,11 @@
 3. Explain why the adjacency list is the default and when it is the wrong default.
 4. Recognise an **implicit graph** and traverse it without building one.
 
-**Study route:** read 1–4, attempt the prediction in section 3, then run the lab. Block 3 measures the costs rather than asserting them.
+**Study route:** read the five representations, then how to choose between them. Attempt the prediction before the lab, then run it. Block 3 measures the costs rather than asserting them.
 
 ---
 
-## 1. Why this exists
+## Why this exists
 
 A graph is an abstract object: a set of vertices and a set of edges. To compute with it you must pick a concrete layout, and that choice decides your program's complexity more than the algorithm does.
 
@@ -26,7 +26,7 @@ Ask "does edge $(u,v)$ exist?" a million times and an adjacency matrix answers e
 
 There is no universally best choice. There is a right one per problem.
 
-## 2. The five representations
+## The five representations
 
 Take this graph throughout:
 
@@ -57,7 +57,7 @@ For each vertex, the list of its neighbours.
 
 Space $O(V + E)$. Neighbours are $O(\deg v)$ — optimal. Checking one specific edge is $O(\deg v)$, since you scan the list.
 
-**This is the default**, because BFS, DFS, Dijkstra and topological sort all iterate neighbours and never ask about a random pair.
+**This is the default**, because BFS (breadth-first search), DFS (depth-first search), Dijkstra and topological sort all iterate neighbours and never ask about a random pair.
 
 ### Adjacency map (adjacency set / dict-of-dicts)
 
@@ -101,16 +101,20 @@ Space $O(V \times E)$ — the largest of all, and rarely used for computation. I
 
 Each **column sums to 2** in the undirected case, because every edge has two endpoints. That is the handshake lemma again.
 
-## 3. Choosing
+## Choosing a representation
 
-| | Edge list | Adjacency list | Adjacency map | Adjacency matrix | Incidence matrix |
+This is the table promised in [[01-what-a-graph-is|lesson 1]]: the same ADT (abstract data type) operations, costed under each way of storing the graph. Nothing here changes *what* the operations mean — only what they cost.
+
+| ADT operation | Edge list | Adjacency list | Adjacency map | Adjacency matrix | Incidence matrix |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| Space | $O(E)$ | $O(V+E)$ | $O(V+E)$ | $O(V^2)$ | $O(VE)$ |
-| Has edge $(u,v)$? | $O(E)$ | $O(\deg u)$ | $O(1)$ | $O(1)$ | $O(E)$ |
-| Neighbours of $u$ | $O(E)$ | $O(\deg u)$ | $O(\deg u)$ | $O(V)$ | $O(E)$ |
-| Add edge | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(VE)$ rebuild |
-| Remove edge | $O(E)$ | $O(\deg u)$ | $O(1)$ | $O(1)$ | $O(VE)$ rebuild |
-| Iterate all edges | $O(E)$ | $O(V+E)$ | $O(V+E)$ | $O(V^2)$ | $O(VE)$ |
+| *space used* | $O(E)$ | $O(V+E)$ | $O(V+E)$ | $O(V^2)$ | $O(VE)$ |
+| `adjacent(u, v)` | $O(E)$ | $O(\deg u)$ | $O(1)$ | $O(1)$ | $O(E)$ |
+| `neighbours(u)` | $O(E)$ | $O(\deg u)$ | $O(\deg u)$ | $O(V)$ | $O(E)$ |
+| `add_edge(u, v)` | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(VE)$ rebuild |
+| `remove_edge(u, v)` | $O(E)$ | $O(\deg u)$ | $O(1)$ | $O(1)$ | $O(VE)$ rebuild |
+| `edges()` | $O(E)$ | $O(V+E)$ | $O(V+E)$ | $O(V^2)$ | $O(VE)$ |
+
+**Read the two middle rows together.** `adjacent(u, v)` asks about one specific pair; `neighbours(u)` asks for a whole list. The adjacency matrix wins the first and loses the second; the adjacency list does the opposite. **That single trade is what choosing a representation actually is**, and it is why the question "which is best?" has no answer until you know which operation your algorithm calls most.
 
 **The decision, in practice:**
 
@@ -125,7 +129,7 @@ The crossover is roughly $E \sim V^2/32$ if you store matrix bits, or where $V^2
 > [!TIP]
 > **Predict before running the lab.** A social network has $10^6$ users averaging $200$ friends each. Compare the storage for an adjacency list against an adjacency matrix — roughly what is the ratio? Decide the order of magnitude before opening the answers.
 
-## 4. Implicit graphs
+## Implicit graphs
 
 Sometimes the best representation is **none at all**. A grid maze is a graph — each cell a vertex, each open neighbour an edge — but building the adjacency list wastes time and memory when the neighbours are computable:
 
@@ -286,7 +290,7 @@ if __name__ == "__main__":
     assert probes["adjacency map"] < probes["adjacency list"] < probes["edge list"]
     print(f"  the edge list does {probes['edge list']//probes['adjacency list']}x the work "
           "of the adjacency list, which does")
-    print(f"  {probes['adjacency list']//base}x the work of the map - exactly the table in section 3")
+    print(f"  {probes['adjacency list']//base}x the work of the map - exactly the cost table above")
 
     print("Block 5 - why a matrix is impossible at scale")
     print("        V     adjacency list entries    adjacency matrix cells      ratio")
@@ -372,7 +376,7 @@ Block 4 - the costs, counted on a sparse graph
     adjacency list     O(deg u)              809                2.8
     edge list          O(E)              855,808             2992.3
   the edge list does 1057x the work of the adjacency list, which does
-  2x the work of the map - exactly the table in section 3
+  2x the work of the map - exactly the cost table above
 Block 5 - why a matrix is impossible at scale
         V     adjacency list entries    adjacency matrix cells      ratio
          10                       40                      100           2x
@@ -417,7 +421,7 @@ Block 3 is the adjacency matrix's real justification: $M^k[i][j]$ counts walks o
 4. Because each column represents one edge, and every edge has exactly two endpoints, so exactly two rows are marked. It is the handshake lemma in matrix form.
 5. An **edge list**. Kruskal sorts all edges by weight and processes them in order; it never asks for a vertex's neighbours, so an adjacency structure would be wasted.
 
-**And the prediction from section 3:** the adjacency list holds about $2\times10^8$ entries; the matrix needs $10^{12}$ cells — a ratio of about **5,000×**. At one byte per cell that is a terabyte for the matrix, and the graph is only $0.02\%$ dense.
+**And the prediction from the choosing section:** the adjacency list holds about $2\times10^8$ entries; the matrix needs $10^{12}$ cells — a ratio of about **5,000×**. At one byte per cell that is a terabyte for the matrix, and the graph is only $0.02\%$ dense.
 </details>
 
 ## Practice — independent task
@@ -440,7 +444,7 @@ You can build all five, state their costs, choose from density and operation mix
 
 **Recap:** edge list $O(E)$, good for sorting edges; adjacency list $O(V+E)$, the default for traversal; adjacency map $O(V+E)$ with $O(1)$ lookup and deletion, best for changing graphs; adjacency matrix $O(V^2)$, $O(1)$ lookup and $M^k$ counts walks; incidence matrix $O(VE)$, handles parallel edges and gives the cycle space; implicit graphs need no storage at all.
 
-**Next:** the algorithms that run on these — [[02-dfs|DFS]], [[03-bfs|BFS]], [[06-dijkstra|Dijkstra]], [[11-topological-sort|topological sort]], [[12-minimum-spanning-tree|MST]].
+**Next:** the algorithms that run on these — [[02-dfs|DFS]], [[03-bfs|BFS]], [[06-dijkstra|Dijkstra]], [[11-topological-sort|topological sort]], [[12-minimum-spanning-tree|MST (minimum spanning tree)]].
 
 ## Related
 
