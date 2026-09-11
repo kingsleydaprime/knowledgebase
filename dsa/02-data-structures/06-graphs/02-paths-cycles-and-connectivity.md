@@ -12,7 +12,7 @@
 1. Distinguish **walk, trail, path** and **simple path**, and the same four for closed routes ending in **cycle**.
 2. Find **connected components** of an undirected graph.
 3. Distinguish **strongly** from **weakly connected** in a directed graph, and compute **strongly connected components**.
-4. Detect whether a directed graph is a **DAG (directed acyclic graph)**, and say why that matters.
+4. Detect whether a directed graph is a **DAG**, and say why that matters.
 
 **Study route:** read the terms first, attempt the prediction just before the lab, then run it. Block 4 is the one that shows why direction changes everything.
 
@@ -22,7 +22,7 @@
 
 "Is there a route from A to B?" sounds like one question. It is at least four, because *route* is ambiguous — may it revisit a junction? may it reuse a road? — and because in a directed graph "A reaches B" does not imply "B reaches A".
 
-Every graph algorithm you will meet is stated in this vocabulary. Dijkstra finds a shortest **path**. Cycle detection looks for a **cycle**. Topological sort requires a **DAG (directed acyclic graph)**. Getting the terms loose makes the algorithms' preconditions invisible, which is how you end up running one on input it cannot handle.
+Every graph algorithm you will meet is stated in this vocabulary. Dijkstra finds a shortest **path**. Cycle detection looks for a **cycle**. Topological sort requires a **DAG**. Getting the terms loose makes the algorithms' preconditions invisible, which is how you end up running one on input it cannot handle.
 
 ## Terms used for routes through a graph
 
@@ -63,7 +63,7 @@ In a **simple** graph a cycle needs at least three vertices. With only two you w
 
 8. **Connected component**: This is a maximal group of vertices that can all reach each other. "Maximal" means you cannot add another vertex to the group without breaking that property. Every vertex belongs to exactly one component, so the components split the graph up completely with nothing left over and nothing counted twice.
 
-Finding the components is one BFS (breadth-first search) or DFS (depth-first search) started from each vertex you have not visited yet, which costs $O(V+E)$ altogether.
+Finding the components is one BFS or DFS started from each vertex you have not visited yet, which costs $O(V+E)$ altogether.
 
 **Directed graphs.** Once edges have arrows, "connected" splits into two different ideas, and the difference matters in practice.
 
@@ -75,16 +75,16 @@ Finding the components is one BFS (breadth-first search) or DFS (depth-first sea
 
 Strong always implies weak. The reverse fails constantly. A one-way street system can look perfectly joined up on a map — weakly connected — while some junction cannot actually be left once you drive into it, which is a strong-connectivity failure and a real problem for anyone using it.
 
-**Condensing** a directed graph means collapsing each SCC (strongly connected component) down to a single point. Doing that **always** produces a DAG (directed acyclic graph). That is a genuinely useful fact: any tangle of circular dependencies becomes acyclic once each mutually-dependent group is treated as one unit, which is how a build tool reports "these five packages form a cycle" instead of looping forever.
+**Condensing** a directed graph means collapsing each SCC down to a single point. Doing that **always** produces a DAG. That is a genuinely useful fact: any tangle of circular dependencies becomes acyclic once each mutually-dependent group is treated as one unit, which is how a build tool reports "these five packages form a cycle" instead of looping forever.
 
 ### DAGs
 
 12. **DAG (directed acyclic graph)**: The letters stand for those three words. It is a directed graph with no directed cycle anywhere in it — you can follow the arrows for as long as you like and you will never arrive back where you started.
 
-DAGs are the shape of dependency: build targets, task schedules, spreadsheet formulas, course prerequisites, git commits. They matter because a DAG (directed acyclic graph) — and only a DAG (directed acyclic graph) — can be put in a **topological order**, which is a straight line arrangement where every edge points forwards. A directed cycle makes that impossible, because each vertex on the cycle would have to come before itself.
+DAGs are the shape of dependency: build targets, task schedules, spreadsheet formulas, course prerequisites, git commits. They matter because a DAG — and only a DAG — can be put in a **topological order**, which is a straight line arrangement where every edge points forwards. A directed cycle makes that impossible, because each vertex on the cycle would have to come before itself.
 
 > [!TIP]
-> **Predict before running the lab.** Take a triangle $A \to B \to C \to A$ and reverse just one edge, giving $A \to B$, $C \to B$, $A \to C$. Is the result still strongly connected? Is it weakly connected? Is it a DAG (directed acyclic graph)? Decide all three before opening the answers.
+> **Predict before running the lab.** Take a triangle $A \to B \to C \to A$ and reverse just one edge, giving $A \to B$, $C \to B$, $A \to C$. Is the result still strongly connected? Is it weakly connected? Is it a DAG? Decide all three before opening the answers.
 
 ## Worked example — runnable
 
@@ -361,23 +361,23 @@ Block 5 - condensing the SCCs of a digraph always yields a DAG
 connectivity: passed
 ```
 
-Block 5 is the structural result worth carrying: **any** directed graph, however tangled, becomes a DAG (directed acyclic graph) once each strongly connected component is collapsed to a point. That is how a build tool reports "these five packages form a dependency cycle" instead of looping forever.
+Block 5 is the structural result worth carrying: **any** directed graph, however tangled, becomes a DAG once each strongly connected component is collapsed to a point. That is how a build tool reports "these five packages form a dependency cycle" instead of looping forever.
 
 ## Common pitfalls and traps
 
 - **Using "path" without checking the convention.** In this course it means no repeated vertices. Some textbooks use it for any walk. *Walk* is the unambiguous word.
 - **Counting length in vertices.** Length is edges. A route through $k$ vertices has length $k-1$.
 - **Assuming weakly connected implies strongly connected.** It does not, and the gap is exactly the one-way-street problem.
-- **Running topological sort on a graph with cycles.** It requires a DAG (directed acyclic graph). Detect first, or your sort silently omits vertices.
+- **Running topological sort on a graph with cycles.** It requires a DAG. Detect first, or your sort silently omits vertices.
 - **Forgetting that self-loops and parallel edges are cycles.** In a multigraph the shortest cycle can have length 1 or 2, which breaks algorithms assuming 3.
-- **Recursing on a large graph.** Python's default recursion limit is around 1000; a long path overflows it. The lab's DFS (depth-first search) is iterative for this reason.
+- **Recursing on a large graph.** Python's default recursion limit is around 1000; a long path overflows it. The lab's DFS is iterative for this reason.
 
 ## Check your understanding
 
 1. Classify $A\!-\!B\!-\!C\!-\!A\!-\!D$ in a graph containing all those edges.
 2. What is the length of a cycle through 5 distinct vertices?
 3. Give a digraph that is weakly but not strongly connected.
-4. Why does collapsing SCCs (strongly connected components) always give a DAG (directed acyclic graph)?
+4. Why does collapsing SCCs always give a DAG?
 5. A graph has 10 vertices and 3 connected components. What is the fewest edges it can have?
 
 <details><summary>Answers — open only after an attempt</summary>
@@ -385,10 +385,10 @@ Block 5 is the structural result worth carrying: **any** directed graph, however
 1. It repeats vertex $A$ but no edge, so it is a **trail** — and not closed, since it ends at $D$.
 2. **5.** A cycle through $k$ distinct vertices has $k$ edges, because the last edge returns to the start.
 3. $A \to B$, $A \to C$: ignoring directions it is connected, but nothing reaches $A$, so it is not strongly connected.
-4. Because if the condensation had a cycle, every component on that cycle would be mutually reachable with every other — so they would all have been a *single* SCC (strongly connected component) in the first place. Their being separate SCCs (strongly connected components) contradicts the cycle's existence.
+4. Because if the condensation had a cycle, every component on that cycle would be mutually reachable with every other — so they would all have been a *single* SCC in the first place. Their being separate SCCs contradicts the cycle's existence.
 5. Each component with $k$ vertices needs at least $k-1$ edges (a tree). With 10 vertices in 3 components the total is $10 - 3 = 7$ edges.
 
-**And the prediction from the connectivity section:** with $A\to B$, $C\to B$, $A\to C$ — it is **not strongly connected** (nothing leaves $B$, so $B$ reaches nothing), it **is weakly connected** (ignore directions and it is a triangle), and it **is a DAG (directed acyclic graph)** (no directed cycle: the only routes are $A\to B$, $A\to C\to B$).
+**And the prediction from the connectivity section:** with $A\to B$, $C\to B$, $A\to C$ — it is **not strongly connected** (nothing leaves $B$, so $B$ reaches nothing), it **is weakly connected** (ignore directions and it is a triangle), and it **is a DAG** (no directed cycle: the only routes are $A\to B$, $A\to C\to B$).
 </details>
 
 ## Practice — independent task
@@ -397,7 +397,7 @@ Implement `bridges(graph)` and `articulation_points(graph)` — the edges and ve
 
 1. A **bridge** is an edge whose removal increases the number of connected components. An **articulation point** is a vertex whose removal does.
 2. Implement the naive version first: remove each edge (then each vertex) in turn, recount components, compare. $O(E(V+E))$.
-3. Then implement **Tarjan's** linear-time algorithm using DFS (depth-first search) discovery times and low-link values. Assert it agrees with the naive version on at least twenty random graphs.
+3. Then implement **Tarjan's** linear-time algorithm using DFS discovery times and low-link values. Assert it agrees with the naive version on at least twenty random graphs.
 4. Explain in a comment what the low-link value *means* — you should be able to state it as a sentence about which ancestors a subtree can reach.
 5. Apply it to something real: model a small network where bridges are single points of failure, and report which links have no redundancy.
 
@@ -407,14 +407,14 @@ Implement `bridges(graph)` and `articulation_points(graph)` — the edges and ve
 
 ## Before moving on
 
-You can state all four route words precisely, find components, tell strong from weak connectivity, and detect a DAG (directed acyclic graph).
+You can state all four route words precisely, find components, tell strong from weak connectivity, and detect a DAG.
 
-**Recap:** walk (anything) ⊃ trail (no repeated edge) ⊃ path (no repeated vertex); closed versions are closed walk ⊃ circuit ⊃ cycle; length counts edges; components partition $V$; strongly connected means mutual directed reachability, weakly means connected ignoring direction; a DAG (directed acyclic graph) has no directed cycle and is exactly what admits a topological order; condensing SCCs (strongly connected components) always yields a DAG (directed acyclic graph).
+**Recap:** walk (anything) ⊃ trail (no repeated edge) ⊃ path (no repeated vertex); closed versions are closed walk ⊃ circuit ⊃ cycle; length counts edges; components partition $V$; strongly connected means mutual directed reachability, weakly means connected ignoring direction; a DAG has no directed cycle and is exactly what admits a topological order; condensing SCCs always yields a DAG.
 
 **Next:** [[03-subgraphs-trees-and-forests|Subgraphs, Trees and Forests]] — the pieces of a graph, and where trees come from.
 
 ## Related
 
-- [[02-dfs|DFS (depth-first search)]] · [[03-bfs|BFS (breadth-first search)]] — the traversals every result here is computed with
-- [[11-topological-sort|Topological Sort]] — what a DAG (directed acyclic graph) buys you
+- [[02-dfs|DFS]] · [[03-bfs|BFS]] — the traversals every result here is computed with
+- [[11-topological-sort|Topological Sort]] — what a DAG buys you
 - [[10-union-find|Union-Find]] — components maintained incrementally

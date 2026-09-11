@@ -57,7 +57,7 @@ For each vertex, the list of its neighbours.
 
 Space $O(V + E)$. Neighbours are $O(\deg v)$ — optimal. Checking one specific edge is $O(\deg v)$, since you scan the list.
 
-**This is the default**, because BFS (breadth-first search), DFS (depth-first search), Dijkstra and topological sort all iterate neighbours and never ask about a random pair.
+**This is the default**, because BFS, DFS, Dijkstra and topological sort all iterate neighbours and never ask about a random pair.
 
 ### Adjacency map (adjacency set / dict-of-dicts)
 
@@ -103,9 +103,9 @@ Each **column sums to 2** in the undirected case, because every edge has two end
 
 ## Choosing a representation
 
-This is the table promised in [[01-what-a-graph-is|lesson 1]]: the same ADT (abstract data type) operations, costed under each way of storing the graph. Nothing here changes *what* the operations mean — only what they cost.
+This is the table promised in [[01-what-a-graph-is|lesson 1]]: the same ADT operations, costed under each way of storing the graph. Nothing here changes *what* the operations mean — only what they cost.
 
-| ADT (abstract data type) operation | Edge list | Adjacency list | Adjacency map | Adjacency matrix | Incidence matrix |
+| ADT operation | Edge list | Adjacency list | Adjacency map | Adjacency matrix | Incidence matrix |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | *space used* | $O(E)$ | $O(V+E)$ | $O(V+E)$ | $O(V^2)$ | $O(VE)$ |
 | `adjacent(u, v)` | $O(E)$ | $O(\deg u)$ | $O(1)$ | $O(1)$ | $O(E)$ |
@@ -444,10 +444,10 @@ You can build all five, state their costs, choose from density and operation mix
 
 **Recap:** edge list $O(E)$, good for sorting edges; adjacency list $O(V+E)$, the default for traversal; adjacency map $O(V+E)$ with $O(1)$ lookup and deletion, best for changing graphs; adjacency matrix $O(V^2)$, $O(1)$ lookup and $M^k$ counts walks; incidence matrix $O(VE)$, handles parallel edges and gives the cycle space; implicit graphs need no storage at all.
 
-**Next:** the algorithms that run on these — [[02-dfs|DFS (depth-first search)]], [[03-bfs|BFS (breadth-first search)]], [[06-dijkstra|Dijkstra]], [[11-topological-sort|topological sort]], [[12-minimum-spanning-tree|MST (minimum spanning tree)]].
+**Next:** the algorithms that run on these — [[02-dfs|DFS]], [[03-bfs|BFS]], [[06-dijkstra|Dijkstra]], [[11-topological-sort|topological sort]], [[12-minimum-spanning-tree|MST]].
 
 ## Related
 
 - [[01-arrays|Arrays]] · [[03-hash-maps|Hash Maps]] — what each representation is built from
 - [[04-linear-algebra/01-matrices-and-determinants/01-matrices-and-determinants|Matrices]] — why $M^k$ counts walks
-- [[12-minimum-spanning-tree|MST (minimum spanning tree)]] — the algorithm that wants an edge list
+- [[12-minimum-spanning-tree|MST]] — the algorithm that wants an edge list

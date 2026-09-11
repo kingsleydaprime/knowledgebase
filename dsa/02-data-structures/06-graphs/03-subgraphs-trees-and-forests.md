@@ -68,7 +68,7 @@ Definition 4 is the one that connects to data structures. **Exactly one path** b
 
 A **spanning tree** of a connected graph is a spanning subgraph that is a tree: all $n$ vertices, $n-1$ edges, no cycles.
 
-Every connected graph has at least one — run BFS (breadth-first search) or DFS (depth-first search) from any vertex and keep only the edges by which you first reached each vertex. That produces $n-1$ edges (one per vertex except the start) and cannot contain a cycle, because each edge reaches a previously-unseen vertex.
+Every connected graph has at least one — run BFS or DFS from any vertex and keep only the edges by which you first reached each vertex. That produces $n-1$ edges (one per vertex except the start) and cannot contain a cycle, because each edge reaches a previously-unseen vertex.
 
 Most connected graphs have many. Cayley's formula says the complete graph $K_n$ has $n^{n-2}$ of them — $K_4$ has $16$, $K_5$ has $125$. Choosing the cheapest is the [[12-minimum-spanning-tree|minimum spanning tree]] problem.
 
@@ -80,7 +80,7 @@ The [[05-trees/01-trees|trees data structure]] adds three things to the graph-th
 
 2. **An order on the children**: Once a node's children are put in a definite order, "left" and "right" become meaningful. A binary search tree needs this; a graph-theoretic tree has no such notion.
 
-3. **Values and an invariant**: The nodes carry data, and a rule is imposed on how that data is arranged — the BST (binary search tree) ordering property, or the heap property, and so on.
+3. **Values and an invariant**: The nodes carry data, and a rule is imposed on how that data is arranged — the BST ordering property, or the heap property, and so on.
 
 **Vocabulary correspondence:**
 

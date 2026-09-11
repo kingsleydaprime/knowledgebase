@@ -67,7 +67,7 @@ Every graph question starts by fixing these four. Get one wrong and the algorith
 | Dimension        | Options                         | What it changes                             |
 | :--------------- | :------------------------------ | :------------------------------------------ |
 | **Direction**    | Undirected / directed (digraph) | Whether an edge can be traversed both ways  |
-| **Weight**       | Unweighted / weighted           | Whether BFS (breadth-first search) suffices or you need Dijkstra   |
+| **Weight**       | Unweighted / weighted           | Whether BFS suffices or you need Dijkstra   |
 | **Cycles**       | Cyclic / acyclic                | Whether you need a visited set to terminate |
 | **Connectivity** | Connected / disconnected        | Whether one traversal reaches everything    |
 
@@ -85,9 +85,9 @@ Each of those four rows is a question with two answers. Here is what all twelve 
 
 4. **Weight**: This is the question of whether the edges carry numbers. Those numbers might be distances, costs, capacities, travel times, or anything else you are measuring.
 
-5. **Unweighted**: This means the edges carry no numbers, so every edge counts the same. "Shortest path" then simply means "fewest edges", which is a question BFS (breadth-first search) answers directly.
+5. **Unweighted**: This means the edges carry no numbers, so every edge counts the same. "Shortest path" then simply means "fewest edges", which is a question BFS answers directly.
 
-6. **Weighted**: This means every edge carries a number. Now "shortest path" means "smallest total weight", which is a completely different question — a route with more edges can easily be cheaper. BFS (breadth-first search) no longer works, and you need [[06-dijkstra|Dijkstra's algorithm]] instead.
+6. **Weighted**: This means every edge carries a number. Now "shortest path" means "smallest total weight", which is a completely different question — a route with more edges can easily be cheaper. BFS no longer works, and you need [[06-dijkstra|Dijkstra's algorithm]] instead.
 
 ### Cycles
 
@@ -95,7 +95,7 @@ Each of those four rows is a question with two answers. Here is what all twelve 
 
 8. **Cyclic**: This means the graph contains at least one cycle. Any traversal must keep a **visited set** — a record of where it has already been — or it will go round the cycle forever and never stop.
 
-9. **Acyclic**: This means the graph contains no cycle anywhere. A directed graph with no cycles is a DAG (directed acyclic graph), and those are the shape of dependency: build steps, task schedules, course prerequisites, spreadsheet formulas.
+9. **Acyclic**: This means the graph contains no cycle anywhere. A directed graph with no cycles is a DAG, and those are the shape of dependency: build steps, task schedules, course prerequisites, spreadsheet formulas.
 
 ### Connectivity
 
@@ -120,9 +120,9 @@ An immediate consequence: **the number of odd-degree vertices is always even.** 
 > [!TIP]
 > **Predict before running the lab.** A simple undirected graph has $6$ vertices. What is the largest possible number of edges? And could such a graph have exactly three vertices of odd degree? Decide before opening the answers.
 
-## The graph ADT (abstract data type)
+## The graph ADT
 
-An **ADT (abstract data type)** is a description of *what* a structure does, written down before you decide *how* to build it. It lists the operations you can perform, says what each one means, and says nothing at all about arrays, lists or hash maps. That separation is the point: the same ADT (abstract data type) can be built several different ways, and [[04-representations|lesson 4]] shows five of them, each making different operations cheap.
+An **ADT** is a description of *what* a structure does, written down before you decide *how* to build it. It lists the operations you can perform, says what each one means, and says nothing at all about arrays, lists or hash maps. That separation is the point: the same ADT can be built several different ways, and [[04-representations|lesson 4]] shows five of them, each making different operations cheap.
 
 Read this before the code below. The code answers "how"; this answers "what" and "why", and you cannot reliably work those out by reading an implementation.
 
