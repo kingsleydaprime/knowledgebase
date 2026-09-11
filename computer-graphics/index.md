@@ -12,7 +12,7 @@ Turning a 3D scene description into a 2D image. Rasterisation, shading, ray trac
 
 **What it does earn its place on:**
 
-**It's where three other tracks meet concretely.** [[robotics/04-rigid-body-transforms|The transform maths]] is the same matrices as robotics. [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Monte Carlo integration]] is the same as numerical methods. [[gpu-and-parallel-computing/index|The GPU]] exists because of this workload. **Graphics is the application that makes all three tangible at once.**
+**It's where three other tracks meet concretely.** [[robotics/04-rigid-body-transforms|The transform maths]] is the same matrices as robotics. [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Monte Carlo integration]] is the same as numerical methods. [[gpu-and-parallel-computing/index|The GPU]] exists because of this workload. **Graphics is the application that makes all three tangible at once.**
 
 **It's the most visual subject in computing.** A bug you can *see* is a bug you can debug, which makes it unusually good for building intuition — and unusually motivating.
 
@@ -53,7 +53,7 @@ Turning a 3D scene description into a 2D image. Rasterisation, shading, ray trac
 |---|---|
 | [[gpu-and-parallel-computing/index\|GPU and parallel]] | **This workload is why GPUs exist** |
 | [[robotics/04-rigid-body-transforms\|robotics]] | Identical transform maths; and robot simulators are rendering + physics |
-| [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration\|numerical methods]] | Monte Carlo, splines, ODE integrators |
+| [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index\|numerical methods]] | Monte Carlo, splines, ODE integrators |
 | [[information-theory/01-what-information-is\|information theory]] | Sampling, aliasing, band-limiting |
 | [[continuum-mechanics/index\|continuum mechanics]] | Cloth, soft bodies and fluids are the same equations |
 | [[ai-ml/02-ml-engineer/06-computer-vision/index\|computer vision]] | The inverse problem — image to scene |

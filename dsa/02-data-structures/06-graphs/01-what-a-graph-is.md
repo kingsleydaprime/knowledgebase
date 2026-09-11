@@ -26,26 +26,39 @@ Arrays and trees both impose a shape: an array is a line, a tree is a hierarchy 
 
 This lesson is almost entirely definitions. That is deliberate. Nearly every confusion later in this folder traces back to a term used loosely here.
 
-## 2. Terminology
+## Terms used in graphs
 
-| Term                       | Plain-English definition                                                                                                                                                                                                           | Example                          |
-| :------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- |
-| **Vertex** (node)          | One of the things. This is a point in a graph that can be connected to other points by edges                                                                                                                                       | A city                           |
-| **Edge** (arc, link)       | A connection or line between two vertices                                                                                                                                                                                          | A road                           |
-| **Endpoints**              | The two vertices an edge joins. An endpoint is one of the two vertices that are connected by a particular edge.                                                                                                                    | —                                |
-| **Incident**               | An edge _is incident to_ the vertices it joins. The relationship between a vertex and an edge; if a vertex is an edpoint of an edge, they are incident to each other.                                                              | Edge–vertex relation             |
-| **Adjacent** (neighbours)  | Two vertices joined by an edge. Adjacent vertices are two nodes that are connected by the same edge, and adjacent edges are two edges that connect to the same vertex                                                              | Vertex–vertex relation           |
-| **Degree** $\deg(v)$       | How many edge-ends meet at $v$. The degree of a vertex is the number of edges connected to it                                                                                                                                      | A self-loop counts **twice**     |
-| **In-degree / out-degree** | Edges arriving at / leaving $v$. In degree is the number of edges coming in to a vertex and out degree is the nummber of edges leaving it (usually for directed graphs)                                                            | Directed graphs only             |
-| **Self-loop**              | An edge from a vertex to itself. This is an edge that connects a vertex to itself.                                                                                                                                                 | A page linking to itself         |
-| **Parallel edges**         | Two or more edges with the same endpoints. These are multiple edges that connect to the same pair of vertices                                                                                                                      | Two roads between the same towns |
-| **Simple graph**           | Undirected graph with No self-loops, no parallel edges                                                                                                                                                                             | What most algorithms assume      |
-| **Multigraph**             | Parallel edges allowed and self loops allowed                                                                                                                                                                                      | Road networks, circuit diagrams  |
-| **Weighted**               | Each edge carries a number                                                                                                                                                                                                         | Distance, cost, capacity         |
-| **Order / size**           | Number of vertices $\lvert V\rvert$ / edges $\lvert E\rvert$                                                                                                                                                                       | Often written $n$ and $m$        |
-| **Dense / sparse**         | $\lvert E\rvert$ near $\lvert V\rvert^2$ / near $\lvert V\rvert$ Dense graph has a number of edges close to the maximum possible number of edges, while a sparse graph has relatively few edges compared to its number of vertices | Decides the representation       |
+These are all the words the rest of this folder is written in. None of them are hard, but they are used precisely, so it is worth reading them once slowly.
 
-**Incident and adjacent are not interchangeable.** _Incident_ relates an edge to a vertex; _adjacent_ relates two vertices. Textbooks are strict about this and so are exam questions.
+1. **Vertex**: This is also known as a **node**. This is a point in a graph that can be connected to other points by edges. If the graph is a map, a vertex is a city.
+
+2. **Edge**: This is also known as an **arc** or a **link**. This is a connection or line between two vertices. If a vertex is a city, an edge is a road between two cities.
+
+3. **Endpoints**: An endpoint is one of the two vertices that are connected by a particular edge. Every edge has exactly two of them, and that fact is used more often than you would expect.
+
+4. **Incident**: This is the relationship between a vertex and an edge. If a vertex is an endpoint of an edge, then the vertex and the edge are incident to each other.
+
+5. **Adjacent**: This is also called being **neighbours**. Adjacent vertices are two nodes that are connected by the same edge, and adjacent edges are two edges that connect to the same vertex.
+
+6. **Degree**: The degree of a vertex is the number of edges connected to it. It is written $\deg(v)$. A self-loop is the one exception worth remembering — it counts **twice**, because both of its ends are attached to the same vertex.
+
+7. **In-degree and out-degree**: In-degree is the number of edges coming in to a vertex, and out-degree is the number of edges leaving it. These only mean something in a directed graph, where edges have a direction.
+
+8. **Self-loop**: This is an edge that connects a vertex to itself. A web page that links to itself is a self-loop.
+
+9. **Parallel edges**: These are multiple edges that connect the same pair of vertices. Two separate roads between the same two towns are parallel edges.
+
+10. **Simple graph**: This is a graph with no self-loops and no parallel edges. Most algorithms quietly assume they are given one of these, so it is worth checking that your input really is simple before trusting them.
+
+11. **Multigraph**: This is a graph where parallel edges and self-loops are both allowed. Road networks and circuit diagrams are usually multigraphs.
+
+12. **Weighted graph**: This is a graph where each edge carries a number. That number might be a distance, a cost, a capacity, or a travel time, depending on what you are modelling.
+
+13. **Order and size**: The order of a graph is the number of vertices, written $\lvert V\rvert$. The size is the number of edges, written $\lvert E\rvert$. These are often shortened to $n$ and $m$.
+
+14. **Dense and sparse**: A dense graph has a number of edges close to the maximum possible number of edges. A sparse graph has relatively few edges compared to its number of vertices. Which one you have decides how you should store the graph, which is the whole subject of [[04-representations|lesson 4]].
+
+**Incident and adjacent are not interchangeable.** *Incident* relates an edge to a vertex. *Adjacent* relates two vertices to each other. Textbooks are strict about this and so are exam questions.
 
 ## 3. The four dimensions
 
@@ -309,7 +322,7 @@ Implement `degree_sequence(graph)` and `is_graphical(sequence)`.
 
 ## Before moving on
 
-You can define every term in section 2 without hesitating, state the handshake lemma and why odd-degree vertices come in pairs, and classify a graph along all four dimensions.
+You can define every term in the terms list without hesitating, state the handshake lemma and why odd-degree vertices come in pairs, and classify a graph along all four dimensions.
 
 **Recap:** vertices and edges; edges are _incident_, vertices are _adjacent_; degree counts edge-ends, and a self-loop counts twice; simple = no loops, no parallel edges; the four dimensions are direction, weight, cycles, connectivity; $\sum\deg(v) = 2\lvert E\rvert$; a simple graph on $n$ vertices has at most $\binom{n}{2}$ edges.
 
