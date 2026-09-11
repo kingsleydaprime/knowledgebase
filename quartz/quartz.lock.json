@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "plugins": {
+    "abbreviations": {
+      "source": "../quartz-plugins/abbreviations",
+      "resolved": "/home/kingsleydaprime/code/personal/knowledgebase/quartz-plugins/abbreviations",
+      "commit": "local",
+      "installedAt": "2026-09-11T08:23:12.517Z"
+    }
+  }
+}
