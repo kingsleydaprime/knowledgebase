@@ -44,7 +44,14 @@ The milestone ordering is the load-bearing part. **You should always have someth
 
 18. [[build-your-own-shit/18-your-own-compiler|Your Own Compiler]] — **[Advanced]** — AST → **IR** → constant folding and DCE → **liveness and register allocation** → real x86-64 that runs on your machine. The sequel to guide 04, which stops before code generation, and to [[how-computers-work/08-capstone/06-build-the-language|Pebble]], which skips the middle. **The middle is where the interesting problems live**
 
-**All eighteen are written.**
+19. [[build-your-own-shit/19-your-own-tcp-ip-stack|Your Own TCP/IP Stack]] — **[Advanced]** — TUN/TAP → Ethernet → ARP → IPv4 → ICMP → UDP → the TCP state machine → retransmission → congestion control. **`ping` answers, and then guide 01's HTTP server runs on top of your own TCP** — the first guide here that plugs into another one
+20. [[build-your-own-shit/20-your-own-raft-kv-store|Your Own Raft Key-Value Store]] — **[Advanced]** — RPC → leader election → log replication → the commit rule → persistence → exactly-once clients → snapshots → **deliberate partitions**. **Kill the leader mid-write and no committed data is lost**
+21. [[build-your-own-shit/21-your-own-compressor|Your Own Compressor]] — **[Intermediate]** — measure the entropy floor first → Huffman → canonical codes → LZ77 → DEFLATE → a real gzip container. **A weekend, and `gunzip` decompresses your output**
+22. [[build-your-own-shit/22-your-own-ray-tracer|Your Own Ray Tracer]] — **[Intermediate]** — spheres → antialiasing → diffuse bounces → metal and glass → a camera → meshes → a BVH. **Soft shadows and colour bleeding appear without you implementing either**
+23. [[build-your-own-shit/23-your-own-debugger|Your Own Debugger]] — **[Advanced]** — `ptrace` → `0xCC` breakpoints → registers → ELF symbols → DWARF line tables → source stepping → backtraces → locals by name. **`gdb` is installed already, so you have an oracle at every step**
+24. [[build-your-own-shit/24-your-own-llm|Your Own LLM]] — **[Advanced]** — tokenisers and why they explain the failures → a bigram baseline → attention in four stages → blocks and residuals → training → temperature and top-p → a KV cache. **The sequel to guide 10**
+
+**All twenty-four are written.**
 
 **Three added Aug 2026**, chosen against this folder's own criterion — build a toy version of something you rely on, and the real thing stops being opaque:
 
@@ -59,13 +66,28 @@ The milestone ordering is the load-bearing part. **You should always have someth
 - **Smart contract VM** — **the deepest of the three.** Gas, reverts and `DELEGATECALL` stop being rules and become mechanisms, which makes [[web3/03-smart-contracts-with-solidity/index|Solidity]] stop feeling arbitrary
 - **Token and wallet** — **the best first one.** An evening each, and it ends with a token on a public chain and an HD wallet whose addresses match MetaMask's
 
-**Considered and not written:** a text editor (overlaps the shell guide's terminal handling), a BitTorrent client (more protocol plumbing than insight per hour), and a browser engine (too large to finish, which breaks rule 7).
+**Six added Sep 2026**, chosen by asking two questions at once — *which domains in this vault never turn into a build?* and *what does [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) have that this folder does not?* Eleven domains had no link into this folder at all; these six close the most valuable of them:
+
+- **TCP/IP stack** — **the only one that closes a hole *inside* this folder rather than at its edge.** Guide 01 begins at `accept()`, so everything below the socket was still reading. `networking/` had 16 notes and no build
+- **Raft key-value store** — [[project-ideas|project-ideas.md]] has called this *"the best distributed-systems project there is"* since it was written, and `architecture/` had no guide at all. **The one project where your intuition is actively wrong** and only the code corrects it
+- **Compressor** — the strongest ending-to-effort ratio here. A weekend, and a tool that predates you reads your output byte for byte. `information-theory/` had nine notes and nowhere to put them
+- **Ray tracer** — the shortest distance in the folder to a result you want to look at, and `computer-graphics/` was eleven notes of theory
+- **Debugger** — **sits on top of more of the vault than any other guide**: processes and signals, ELF, assembly, and process memory all at once. It is also the only project where `gdb` gives you a reference implementation to check against, instruction by instruction
+- **LLM** — guide 10 stopped at a multilayer perceptron, which left the largest domain in the vault with a build guide that ends two decades before the interesting part
+
+**Considered and not written:** a text editor (overlaps the shell guide's terminal handling), a BitTorrent client (more protocol plumbing than insight per hour), and a browser engine (too large to finish, which breaks rule 7). **Also declined from build-your-own-x:** bots, augmented reality, voxel engines, template engines and command-line tools — all "follow a tutorial for a thing" rather than *build a toy version of something you rely on*, which is this folder's whole criterion. A CHIP-8 emulator is declined for a different reason: guide 17's Python emulator already covers it.
 
 ## Which to start with
 
 | If you want | Build |
 |---|---|
 | The fastest satisfying result | **HTTP server** |
+| An image you want to look at | **ray tracer** |
+| A tool that predates you to read your output | **compressor** (`gunzip` is the test) |
+| To stop the socket being the bottom of the world | **TCP/IP stack** |
+| To find out your intuition is wrong | **Raft** |
+| To open up `-g` | **debugger** |
+| To stop attention being a diagram | **your own LLM** |
 | Something to show someone tonight | **token and wallet** |
 | To stop `DELEGATECALL` being frightening | **smart contract VM** |
 | To watch distributed consensus actually happen | **blockchain** |
@@ -100,3 +122,4 @@ The milestone ordering is the load-bearing part. **You should always have someth
 - [[PRIMETECHIE|The Primetechie Path]] — where these sit as rank gates
 - [[os/index|Operating Systems]] · [[compilers/index|Compilers]] — the two prerequisites written specifically to unblock this folder
 - [[web3/index|Web3 & Blockchain]] — the domain guides 14-16 make concrete
+- [[networking/index|Networking]] · [[architecture/04-distributed-systems/index|Distributed Systems]] · [[information-theory/index|Information Theory]] · [[computer-graphics/index|Computer Graphics]] — the four domains guides 19-22 gave a build to for the first time

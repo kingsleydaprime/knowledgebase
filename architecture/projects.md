@@ -28,6 +28,8 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 **Raft.** Every distributed-systems idea in this folder — leaders, terms, quorums, split brain, linearisability — stops being vocabulary the first time your own cluster elects a leader after you killed one.
 
+**The full build guide is [[build-your-own-shit/20-your-own-raft-kv-store|Your Own Raft Key-Value Store]]** — milestones from RPC through election, replication, the commit rule and snapshots, with the chaos-testing harness as its own step.
+
 ## Related
 - [[architecture/index|the architecture course]] · [[architecture/interview/index|interview bank]]
 - [[architecture/system-design-reference|system design cheat sheet]]

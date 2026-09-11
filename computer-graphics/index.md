@@ -83,6 +83,10 @@ Unlike a numerical method that returns a plausible wrong number, **a broken rend
 - [[computer-graphics/10-practice-exercises|Practice Exercises]] — twelve exercises — colour-by-normal, the transform chain by hand, gamma, and a ray tracer in a weekend
 - [[computer-graphics/11-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
+## Build it
+
+- [[build-your-own-shit/22-your-own-ray-tracer|Your Own Ray Tracer]] — **[Intermediate]** — note 07 as running code, and the long version of exercise 10's weekend ray tracer: spheres, antialiasing, diffuse bounces, metal and glass, a movable camera, meshes and a BVH. **Soft shadows and colour bleeding arrive without you implementing either**, and the furnace test tells you whether your renderer conserves energy
+
 ## Related
 - [[gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical Methods]] — the maths underneath

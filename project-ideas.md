@@ -81,17 +81,19 @@ Highest signal for where you're aiming, across all four columns of [[PRIMETECHIE
 | 🔴 | [[build-your-own-shit/04-your-own-language\|Language / interpreter]] | The deepest single lesson. → [[compilers/index\|compilers]] is the course behind it |
 | 🔴 | [[build-your-own-shit/06-your-own-database\|Database]] | B-tree, SQL subset, WAL. `kill -9` mid-write and the data survives |
 | 🔴 | [[build-your-own-shit/05-your-own-os\|Operating system]] | Weeks, not a weekend. Boots from a USB stick → [[os/index\|os]] |
-
-**Not yet a guide, and the best distributed-systems project there is:**
-
-- 🔴 ⭐ **A Raft key-value store** — [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] made real: leader election, log replication, safety, then a replicated KV store on top, tested against crashes and partitions. It forces you to confront every edge case the [[architecture/04-distributed-systems/index|theory]] describes. (MIT 6.824 labs are the gold standard.)
+| 🔴 ⭐ | [[build-your-own-shit/20-your-own-raft-kv-store\|Raft key-value store]] | **The best distributed-systems project there is.** Kill the leader mid-write and nothing committed is lost |
+| 🔴 | [[build-your-own-shit/19-your-own-tcp-ip-stack\|TCP/IP stack]] | `ping` answers, then the HTTP server above runs on your own TCP |
+| 🟠 | [[build-your-own-shit/21-your-own-compressor\|Compressor]] | A weekend, and `gunzip` reads your output |
+| 🟠 | [[build-your-own-shit/22-your-own-ray-tracer\|Ray tracer]] | The shortest path here to something you want to look at |
+| 🔴 | [[build-your-own-shit/23-your-own-debugger\|Debugger]] | `ptrace`, ELF and DWARF — and `gdb` to check yourself against |
+| 🔴 | [[build-your-own-shit/24-your-own-llm\|Your own LLM]] | Attention, trained from scratch. The sequel to the neural network |
 
 Pair each with a short write-up of what you learned; these are portfolio-grade signal on their own.
 
 ---
 
 ## Related
-- [[build-your-own-shit/index|Build Your Own Shit]] — the sixteen full build guides
+- [[build-your-own-shit/index|Build Your Own Shit]] — the twenty-four full build guides
 - [[BUILD-PLAN|Build Plan]] — what gets written next
 - [[PRIMETECHIE|The Primetechie Path]] — where these sit as rank gates
 - [[INTERVIEW|Interview Prep Index]] — the other half of proving ability

@@ -43,6 +43,8 @@ _The analysis/inference half — the deliverable is a trustworthy answer, well c
 
 **RAG over this vault.** It dogfoods your own notes, it's the single most transferable AI-engineering pattern, and the retrieval quality problem it exposes is the real lesson.
 
+**And if you want the layer underneath it:** [[build-your-own-shit/24-your-own-llm|build your own LLM]] — a transformer trained from scratch, the sequel to [[build-your-own-shit/10-your-own-neural-network|the neural network guide]]. Attention, tokenisation, temperature and the KV cache stop being API parameters.
+
 ## Related
 
 - [[ai-ml/index|the ai-ml curriculum map]] · [[ai-ml/interview/index|interview bank]]

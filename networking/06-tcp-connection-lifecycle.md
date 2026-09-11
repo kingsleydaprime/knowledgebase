@@ -110,3 +110,4 @@ A TCP connection is **soft state held only at the two endpoints** — the networ
 - [[networking/09-sockets-and-the-network-api|Sockets & the Network API]] — these states from the code side
 - [[networking/16-debugging-networks|Debugging Networks]] — `ss`, `netstat`, and reading state tables
 - [[cybersecurity/06-attacks-and-threats/index|Attacks & Threats]] — SYN floods and connection-exhaustion DoS
+- [[build-your-own-shit/19-your-own-tcp-ip-stack|Your Own TCP/IP Stack]] — **implement this state machine**, and `TIME_WAIT` stops being trivia

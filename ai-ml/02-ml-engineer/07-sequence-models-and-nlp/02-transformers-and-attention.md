@@ -47,3 +47,4 @@ Transformers also crossed over into [[ai-ml/02-ml-engineer/06-computer-vision/in
 - [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — the applied view of what these enable
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/01-rnns-lstms-grus|RNNs/LSTMs]] — what transformers replaced
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|Dot Product]] — the similarity operation attention is built on
+- [[build-your-own-shit/24-your-own-llm|Your Own LLM]] — **this note as running code**: attention built up in four stages, then blocks, training and sampling

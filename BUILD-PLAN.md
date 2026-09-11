@@ -502,6 +502,19 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 ---
 
+### Phase 17 — six more build guides (2026-09-11)
+
+**His question, and it was the right one to ask:** *from this knowledgebase and from the build-your-own-x repo, are there projects I haven't added yet?* Two audits answered it. **Eleven vault domains had zero links into `build-your-own-shit/`** — `networking/`, `architecture/`, `computer-graphics/`, `information-theory/`, `data-engineering/`, `gpu-and-parallel-computing/`, `digital-signal-processing/`, `dsa/`, `mobile/`, `robotics/` and `desktop/` — against `web3/`, which links out from eleven files. And the [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) README has 31 categories, eight of them unanswered here after removing the three already declined.
+
+- [x] **`build-your-own-shit/` 19–24** — ✅ ~10,100 words, Sep 2026. Chosen by intersecting two lists: **eleven vault domains had no link into the build folder at all**, and the [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) README has categories this folder never answered. **19 TCP/IP stack** — the only one that closes a hole *inside* the folder: guide 01 starts at `accept()`, and this builds what it was standing on, ending with 01 running on top of it. **20 Raft key-value store** — `project-ideas` had called this the best distributed-systems project there is since the file was written, and `architecture/` had no guide. **21 compressor** — the best ratio of ending to effort here: a weekend, and `gunzip` reads your output. **22 ray tracer** — the shortest path to something worth looking at, and `computer-graphics/` was eleven notes of pure theory. **23 debugger** — sits on top of more of the vault than any other guide, and `gdb` is an oracle at every milestone. **24 LLM** — guide 10 stopped at a multilayer perceptron, leaving the largest domain in the vault ending two decades early
+- [x] **Wiring, which was the point** — ✅ `networking/`, `architecture/04-distributed-systems/`, `information-theory/` and `computer-graphics/` gained a **Build it** section or a Related entry pointing at their first guide; plus the four matching topic notes, `cybersecurity/11-binary-exploitation`, `compilers/09-linking-and-loading`, `ai-ml/projects`, `architecture/projects`, `project-ideas` and `HOME`. **Declined explicitly in the index** rather than silently: bots, augmented reality, voxel engines, template engines, command-line tools, and a CHIP-8 emulator (guide 17 already covers it)
+
+**The filter matters as much as the additions.** byox's bots, augmented reality, voxel engines, template engines and command-line tools were declined on the folder's own stated criterion — *build a toy version of something you rely on* — and that reasoning is now written into the index rather than left implicit. A CHIP-8 emulator was declined separately: guide 17's Python emulator already covers it.
+
+**Still unwritten and defensible:** a DNS server, an append-only log in the shape of Kafka, a search engine (inverted index, TF-IDF, BM25), a reverse proxy and load balancer, a module bundler, and an actual game — the physics guide built the hard half and stopped.
+
+---
+
 ## Suggested order
 
 Each line is roughly one working session.

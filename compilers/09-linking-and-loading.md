@@ -449,3 +449,4 @@ linker_lab: passed
 - [[how-computers-work/07-the-bridge|How Computers Work — the bridge]] — which flagged this as the missing link
 - [[build-your-own-shit/11-your-own-memory-allocator|Your own memory allocator]] — uses `LD_PRELOAD`
 - [[build-your-own-shit/18-your-own-compiler|Your own compiler]] — emits the assembly this links
+- [[build-your-own-shit/23-your-own-debugger|Your own debugger]] — **uses this note as its reference**: parse ELF sections and symbols, then the DWARF a compiler emits alongside them

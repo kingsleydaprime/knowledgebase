@@ -15,6 +15,8 @@ everywhere at once.
 
 | Abbreviation | Stands for |
 | :--- | :--- |
+| **ABI** | application binary interface |
+| **ACK** | acknowledgement, a TCP flag confirming received data |
 | **ADT** | abstract data type |
 | **AI** | artificial intelligence |
 | **ALU** | arithmetic logic unit |
@@ -28,6 +30,7 @@ everywhere at once.
 | **BIOS** | basic input/output system |
 | **BLAS** | basic linear algebra subprograms |
 | **BST** | binary search tree |
+| **BVH** | bounding volume hierarchy |
 | **CDN** | content delivery network |
 | **CI** | continuous integration |
 | **CLI** | command-line interface |
@@ -35,6 +38,7 @@ everywhere at once.
 | **CMS** | content management system |
 | **CORS** | cross-origin resource sharing |
 | **CPU** | central processing unit |
+| **CRC** | cyclic redundancy check |
 | **CRUD** | create, read, update, delete |
 | **CSRF** | cross-site request forgery |
 | **CSS** | cascading style sheets |
@@ -49,16 +53,21 @@ everywhere at once.
 | **DSA** | data structures and algorithms |
 | **DSP** | digital signal processing |
 | **DSU** | disjoint set union |
+| **DWARF** | the debugging data format that accompanies ELF binaries |
+| **ELF** | executable and linkable format |
 | **FDM** | finite difference method |
 | **FEM** | finite element method |
 | **FFT** | fast Fourier transform |
 | **FIFO** | first in, first out |
+| **FIN** | finish, the TCP flag that begins a connection teardown |
 | **FIR** | finite impulse response |
 | **GC** | garbage collection |
+| **GPT** | generative pre-trained transformer |
 | **GPU** | graphics processing unit |
 | **HTML** | hypertext markup language |
 | **HTTP** | hypertext transfer protocol |
 | **HTTPS** | hypertext transfer protocol secure |
+| **ICMP** | internet control message protocol |
 | **IDE** | integrated development environment |
 | **IIR** | infinite impulse response |
 | **IP** | internet protocol |
@@ -67,11 +76,13 @@ everywhere at once.
 | **JSON** | JavaScript object notation |
 | **JVM** | Java virtual machine |
 | **JWT** | JSON web token |
+| **KV** | key-value |
 | **LAPACK** | linear algebra package |
 | **LIFO** | last in, first out |
 | **LLM** | large language model |
 | **LRU** | least recently used |
 | **LTI** | linear time-invariant |
+| **LZ77** | Lempel-Ziv 1977, the sliding-window compression algorithm |
 | **ML** | machine learning |
 | **MMU** | memory management unit |
 | **MST** | minimum spanning tree |
@@ -86,12 +97,17 @@ everywhere at once.
 | **PCA** | principal component analysis |
 | **PDE** | partial differential equation |
 | **PID** | proportional-integral-derivative |
+| **PIE** | position-independent executable |
+| **PPM** | portable pixmap, a plain-text image format |
 | **PWM** | pulse-width modulation |
 | **RAG** | retrieval-augmented generation |
 | **RAM** | random-access memory |
 | **REST** | representational state transfer |
 | **RF** | radio frequency |
+| **RFC** | request for comments, the document series that specifies internet protocols |
+| **RGB** | red, green, blue |
 | **RPC** | remote procedure call |
+| **RST** | reset, the TCP flag that aborts a connection |
 | **RTOS** | real-time operating system |
 | **SCC** | strongly connected component |
 | **SCCs** | strongly connected components |
@@ -103,10 +119,14 @@ everywhere at once.
 | **SSD** | solid-state drive |
 | **SSH** | secure shell |
 | **SVD** | singular value decomposition |
+| **SYN** | synchronise, the TCP flag that opens a connection |
+| **TAP** | a virtual network interface carrying Ethernet frames |
 | **TCP** | transmission control protocol |
 | **TLB** | translation lookaside buffer |
 | **TLS** | transport layer security |
 | **TSP** | travelling salesman problem |
+| **TTL** | time to live |
+| **TUN** | a virtual network interface carrying IP packets |
 | **UART** | universal asynchronous receiver-transmitter |
 | **UDP** | user datagram protocol |
 | **UI** | user interface |
@@ -126,6 +146,7 @@ Some capitalised words look like acronyms and are not, so the tooltip skips them
 2. **SELECT**, **INSERT**, **UPDATE**: These are SQL keywords, not abbreviations.
 3. **ID**: Short for "identifier", but so common that a tooltip on every occurrence adds nothing.
 4. **README**: A filename.
+5. **MAC**: It means three different things in this vault — *media access control* address in [[networking/02-the-link-layer|the link layer]], *message authentication code* in [[cybersecurity/05-cryptography/index|cryptography]], and *mandatory access control* in access-control models. A single tooltip would be wrong two times in three.
 
 ## Related
 
