@@ -132,11 +132,16 @@ sentence, and a reader who has not yet got the sentence cannot decompress it:
 >
 > $$\sum_{v \in V} \deg(v) = 2\lvert E\rvert$$
 
-### Expand every acronym and abbreviation the first time it appears
+### Expand every acronym and abbreviation on every use
 
-Put the full meaning in brackets immediately after it, in every lesson that uses
-it — not once across the vault. A reader arriving from a search has not read the
-lesson where it was first expanded.
+Put the full meaning in brackets immediately after it — **every single time it
+appears**, not merely the first time in a lesson and not once across the vault.
+
+This looks repetitive when you read a lesson top to bottom. That is not how these
+are read. People arrive mid-page from a search, jump to the section they need, or
+come back weeks later having forgotten. An expansion three screens above them is
+no help at all. The repetition costs a few words; the alternative costs the reader
+the sentence.
 
 > ADT (abstract data type) · DAG (directed acyclic graph) · SCC (strongly
 > connected component) · BFS (breadth-first search) · MST (minimum spanning tree)
@@ -248,7 +253,7 @@ Revision should preserve useful existing detail, links, and file locations. Fix 
 - [ ] The prerequisites and outcomes are explicit and realistic.
 - [ ] Definitions are a numbered list in plain full sentences, not a table.
 - [ ] Every result is stated in words before its formula appears.
-- [ ] Every acronym is expanded in brackets on first use **in this lesson**.
+- [ ] Every acronym is expanded in brackets on **every** use, not just the first.
 - [ ] For a data structure, the abstract data type and its operations come before any code.
 - [ ] The running example teaches the steps between intuition and formalism.
 - [ ] The learner can execute the worked example without guessing missing setup.
