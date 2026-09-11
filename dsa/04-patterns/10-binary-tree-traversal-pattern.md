@@ -22,7 +22,7 @@
 
 Imagine you're building a file system browser. You need to display the directory structure as a tree. To build the display, you need to visit every directory and file in a specific order: you might want to list a directory before its contents (preorder), list contents before the directory summary (postorder), or list everything in alphabetical order (inorder for BSTs).
 
-The mechanics of preorder/inorder/postorder are covered in [[02-traversal|traversal]] — this note is about _recognizing when each order is the right tool_, since that's the part that actually shows up as a decision in interview problems.
+The mechanics of preorder/inorder/postorder are covered in [[04-traversal/index|traversal]] — this note is about _recognizing when each order is the right tool_, since that's the part that actually shows up as a decision in interview problems.
 
 ---
 
@@ -278,7 +278,7 @@ You are done with this pattern when you can, closed-book:
 
 ## 9. Related
 
-- [[02-traversal|traversal]] — the mechanics of preorder/inorder/postorder
+- [[04-traversal/index|traversal]] — the mechanics of preorder/inorder/postorder
 - [[01-trees|trees]] — the underlying data structure
 - [[11-dfs-pattern|dfs-pattern]] — DFS as a problem-solving pattern
 - [[10-binary-tree-traversal-pattern|binary-tree-traversal-pattern]] — this note

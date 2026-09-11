@@ -30,12 +30,12 @@ def isValidBST(root):
 
 ## Alternative — in-order traversal must be sorted
 
-A BST's [[02-traversal|in-order traversal]] yields strictly increasing values. So walk in-order and verify each value exceeds the previous — an equally valid O(n) approach, and a neat use of the in-order property.
+A BST's [[04-traversal/index|in-order traversal]] yields strictly increasing values. So walk in-order and verify each value exceeds the previous — an equally valid O(n) approach, and a neat use of the in-order property.
 
 ## Key insight
 
 **BST validity is a range constraint that propagates from ancestors — carry (min, max) bounds down the DFS.** The naive local check fails precisely because the constraint is global to the path. This is the [[055-count-good-nodes-in-binary-tree|top-down-state]] pattern with an interval instead of a single max.
 
 ## Related
-- concept: [[11-dfs-pattern|dfs-pattern]], [[02-traversal|traversal]]
+- concept: [[11-dfs-pattern|dfs-pattern]], [[04-traversal/index|traversal]]
 - prev: [[055-count-good-nodes-in-binary-tree|Count Good Nodes]] · next: [[057-kth-smallest-element-in-a-bst|Kth Smallest Element in a BST]]

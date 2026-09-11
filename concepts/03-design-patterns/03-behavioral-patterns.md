@@ -82,7 +82,7 @@ class Range {
 for (const n of new Range(1, 5)) { console.log(n); }   // 1 2 3 4
 ```
 
-JavaScript's `for...of` loop and the iterator protocol above are a language-level implementation of exactly this pattern — see [[02-traversal|traversal]] in the DSA notes for the underlying structures (trees, graphs) this same idea generalizes to beyond simple linear collections.
+JavaScript's `for...of` loop and the iterator protocol above are a language-level implementation of exactly this pattern — see [[04-traversal/index|traversal]] in the DSA notes for the underlying structures (trees, graphs) this same idea generalizes to beyond simple linear collections.
 
 ## Gotchas
 
@@ -93,4 +93,4 @@ JavaScript's `for...of` loop and the iterator protocol above are a language-leve
 ## Related
 - [[01-creational-patterns|creational-patterns]]
 - [[02-structural-patterns|structural-patterns]]
-- [[dsa/02-data-structures/05-trees/02-traversal|traversal]] — the same iteration idea generalized to trees and graphs
+- [[dsa/02-data-structures/05-trees/04-traversal/index|traversal]] — the same iteration idea generalized to trees and graphs

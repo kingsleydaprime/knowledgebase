@@ -1,6 +1,6 @@
 # Serialize and Deserialize Binary Tree
 
-**LeetCode 297** · Trees · concept: [[02-traversal|traversal]]
+**LeetCode 297** · Trees · concept: [[04-traversal/index|traversal]]
 
 ## Problem
 
@@ -47,7 +47,7 @@ def deserialize(data):
 **A traversal + null markers is a complete, reversible encoding of tree shape.** This is the tree analogue of [[006-encode-and-decode-strings|length-prefixed serialization]] — capture enough structure (here, the nulls) that decoding is deterministic. BFS-with-markers works equally well; the preorder recursion is the cleanest.
 
 ## Related
-- concept: [[02-traversal|traversal]]
+- concept: [[04-traversal/index|traversal]]
 - relative: [[006-encode-and-decode-strings|Encode and Decode Strings]] (serialization design)
 - prev: [[059-binary-tree-maximum-path-sum|Binary Tree Maximum Path Sum]] — end of Trees
 - next category: Tries

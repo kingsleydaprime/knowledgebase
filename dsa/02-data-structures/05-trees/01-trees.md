@@ -1,24 +1,24 @@
-# Module: Trees — Hierarchical Data Structures
+# Module: Trees (Hierarchy, and the Shapes It Comes In)
 
-Welcome to the **Trees** course module. In linear data structures like Arrays and Linked Lists, elements follow one after another in a straight line. In this module, we introduce **hierarchical data structures**, where elements branch out in parent-child relationships.
-
----
+**[Intermediate]** — what a tree is, the many kinds there are, and why this course concentrates on one of them.
 
 ## Before you start
 
-- You understand linked structures and pointers. See [[04-linked-lists|linked lists]].
-- You know what recursion is and that it uses a call stack.
+- You know what a [[04-linked-lists|linked list]] is, and that following a pointer is how you move between nodes.
+- You know what [[06-graphs/index|a graph]] is, or you can read this first and meet graphs later — a tree is a special kind of graph, and [[06-graphs/03-subgraphs-trees-and-forests|the graphs folder]] proves the connection.
 
-**What you will be able to do after this lesson:**
+**After this lesson you will be able to:**
 
-1. Explain why a balanced binary search tree gives O(log n) lookup.
-2. Explain what makes a tree degenerate, and why that costs O(n).
-3. Explain why in-order traversal of a BST produces sorted output.
-4. State why self-balancing trees exist and what they guarantee.
+1. Explain what makes a structure a tree, and why "no cycles" is the condition that matters.
+2. Use the vocabulary — root, parent, child, leaf, subtree, height, depth — precisely.
+3. Name the **main kinds of tree** and say what each one is for.
+4. Say why this course focuses on binary trees, and what that leaves out.
 
-**Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
+**Study route:** read the terms, then the height-versus-depth trap, then the catalogue of tree types at the end.
 
-## 1. Why Do We Need Trees? (Real-World Motivation)
+---
+
+## Why do we need trees?
 
 Before diving into formal computer science definitions, let's understand why linear data structures (Arrays and Linked Lists) are not always enough.
 
@@ -45,7 +45,7 @@ You interact with trees every single day when using software:
 
 ---
 
-## 2. What Is a Tree? (Intuition & Visual Anatomy)
+## What is a tree?
 
 In computer science, a **Tree** is a collection of nodes connected by edges, organized in a parent-child hierarchy with **no loops or cycles**.
 
@@ -63,7 +63,6 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
               (D)   (E)      (F)  <-- Leaves
 ```
 
-### Key Terminology Demystified
 
 ### Terms used with trees
 
@@ -93,7 +92,7 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
 
 13. **Level**: This is how far down a node sits. The root is at level 0, its children at level 1, and so on.
 
-## 3. Height vs. Depth (The Classic Off-By-One Trap)
+## Height versus depth — the classic off-by-one trap
 
 Two measurements describe the position of nodes inside a tree: **Depth** and **Height**. Computer science students often confuse them:
 
@@ -118,7 +117,7 @@ Level 2 ------------> (D) (E)  (F)      Depth of D = 2, Height of D = 0
 
 ---
 
-## 4. Formal Definition & The Recursive Nature of Trees
+## The formal definition, and why trees are recursive
 
 Formally, a tree with $n$ nodes is a connected, acyclic graph with exactly **$n - 1$ edges**.
 
@@ -131,423 +130,61 @@ This is why almost every tree algorithm (traversals, searches, insertions) is wr
 
 ---
 
-## 5. Binary Trees: Definition and Common Shapes
-
-A **Binary Tree** is the most widely used variation of a tree. The rule is simple: **Every node can have AT MOST two children**, conventionally named `left` and `right`.
-
-### Python Implementation of a Tree Node
-```python
-class TreeNode:
-    """Represents a single node in a Binary Tree."""
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val        # The value stored in this node
-        self.left = left      # Reference to left child (TreeNode or None)
-        self.right = right    # Reference to right child (TreeNode or None)
-```
-
-### The 5 Standard Shapes of Binary Trees
-
-Understanding these shapes is critical because a tree's shape directly dictates its performance ($O(\log n)$ vs $O(n)$).
-
-#### 1. Full (Proper) Binary Tree
-Every node has **either 0 or 2 children**. No node has only 1 child.
-```
-       1
-      / \
-     2   3
-    / \
-   4   5
-```
-*Where it's used*: Arithmetic expression trees (e.g. `(4 + 5) * 3`), where operators (`+`, `*`) take 2 operands, and numbers take 0.
-
-#### 2. Complete Binary Tree
-Every level is completely filled, except possibly the last level, which is filled **strictly from left to right**.
-```
-       1
-      / \
-     2   3
-    / \  /
-   4  5 6
-```
-*Where it's used*: **Heaps** and Priority Queues! Because there are no gaps, a complete binary tree can be stored efficiently in a flat Array without using pointers.
-
-#### 3. Perfect Binary Tree
-All internal nodes have 2 children, and **all leaves are at the exact same depth**.
-```
-       1
-      / \
-     2   3
-    / \ / \
-   4  5 6  7
-```
-*Formula*: A perfect binary tree of height $h$ has total nodes $n = 2^{h+1} - 1$. For height 2, $n = 2^3 - 1 = 7$ nodes.
-
-#### 4. Balanced Binary Tree
-A tree where the height of the left and right subtrees of *every node* differs by at most 1.
-```
-       1
-      / \
-     2   3
-    /
-   4
-```
-*Why it matters*: Keeps tree height bounded to $O(\log n)$, guaranteeing fast searches.
-
-#### 5. Degenerate (Pathological) Binary Tree
-Every node has only 1 child. The tree degrades into a single straight line.
-```
-   1
-    \
-     2
-      \
-       3
-        \
-         4
-```
-*Why it's dangerous*: Structurally identical to a **Linked List**. Height becomes $n-1$, and operations slow down from $O(\log n)$ to $O(n)$.
-
----
-
-## 6. Binary Search Trees (BSTs)
-
-A **Binary Search Tree (BST)** is a binary tree with a special ordering rule called the **BST Invariant**:
-
-> **The BST Invariant**: For every node $X$:
-> - All values in $X$'s **left subtree** must be strictly **smaller** than $X$'s value.
-> - All values in $X$'s **right subtree** must be strictly **larger** than $X$'s value.
-
-### Visualizing a Valid BST
-
-```
-            (8)
-          /     \
-        (3)     (10)
-       /   \        \
-     (1)   (6)      (14)
-          /   \     /
-        (4)   (7) (13)
-```
-Notice:
-- Left of `8`: `{1, 3, 4, 6, 7}` (all $< 8$).
-- Right of `8`: `{10, 13, 14}` (all $> 8$).
-
-### How Searching Works in a BST ($O(\log n)$)
+## The kinds of tree
 
-Searching a BST mimics **Binary Search** on a sorted array:
-1. Start at the root.
-2. If `target == current.val`, you found it!
-3. If `target < current.val`, go **left** (discard the entire right half of the tree).
-4. If `target > current.val`, go **right** (discard the entire left half of the tree).
+"Tree" is a shape, not a single structure. Many different things are trees, built for very different jobs. Here are the ones worth knowing by name.
 
-#### Python Implementation of BST Search
+### Trees grouped by how many children a node may have
 
-```python
-def bst_search(node: TreeNode, target: int) -> TreeNode:
-    """Recursively search for target in a Binary Search Tree."""
-    # Base Case: target not found (None) or target found
-    if node is None or node.val == target:
-        return node
-    
-    # If target is smaller than current node, search left subtree
-    if target < node.val:
-        return bst_search(node.left, target)
-    
-    # Otherwise, target is larger, search right subtree
-    return bst_search(node.right, target)
-```
+1. **Binary tree**: Every node has **at most two** children, called the left child and the right child. This is the kind this course concentrates on, and [[02-binary-trees|the next lesson]] covers it properly.
 
-### Two Essential BST Properties to Remember
+2. **N-ary tree**: Every node may have up to **N** children. A file system is an n-ary tree — a folder can hold any number of items.
 
-1. **Inorder Traversal of a BST yields SORTED order!**
-   - If you visit `Left Subtree -> Root -> Right Subtree`, you will visit the values in strictly ascending order: `1, 3, 4, 6, 7, 8, 10, 13, 14`.
-2. **The BST invariant applies to ENTIRE subtrees, not just immediate children!**
-   - *Common Bug*: Only checking `node.left.val < node.val` is NOT enough. A node deep inside the left subtree could still be greater than the root!
+3. **General tree**: Every node may have **any** number of children, with no limit. The DOM in a web page is one of these.
 
----
+### Trees that keep their data in order
 
-## 7. Self-Balancing Trees & Production Use
+4. **Binary search tree**: This is a binary tree with a rule added — everything in a node's left subtree is smaller than it, and everything in the right subtree is larger. That rule is what turns a tree into a searchable structure, and it is [[03-binary-search-trees|lesson 3]].
 
-What happens if you insert already sorted data (`1, 2, 3, 4, 5`) into a plain BST?
-- `1` becomes root. `2` goes right of `1`. `3` goes right of `2`...
-- You get a **Degenerate Tree** (Linked List), and search time degrades to $O(n)$!
+5. **AVL tree**: This is a binary search tree that **rebalances itself** after every insertion and deletion, keeping its height close to $\log n$. It is strictly balanced, which makes lookups fast and modifications slightly more expensive.
 
-To prevent this, production software uses **Self-Balancing Binary Search Trees**, which perform mathematical re-arrangements called **Tree Rotations** to keep height at $O(\log n)$.
+6. **Red-black tree**: This is another self-balancing binary search tree, with looser balance rules than an AVL tree. Rebalancing is cheaper, lookups are slightly slower, and it is what most standard libraries actually use — Java's  and C++'s  are red-black trees.
 
-```
-   Right Rotation on Node 5:
-        (5)                   (3)
-       /   \                 /   \
-     (3)   (D)    -->      (A)   (5)
-    /   \                       /   \
-  (A)   (C)                   (C)   (D)
-```
+7. **B-tree**: This is a self-balancing tree where each node holds **many** keys and has **many** children, rather than one key and two children. The wide, shallow shape means fewer disk reads to reach any key, which is why almost every database index is a B-tree.
 
-### Types of Self-Balancing Trees
+8. **B+ tree**: This is a B-tree variant where all the actual data lives in the leaves, and the leaves are linked together in a chain. That chain makes range queries — "everything between these two values" — very fast, which is why it, rather than the plain B-tree, is what databases most often use.
 
-1. **AVL Trees**:
-   - Enforces strict balance: height difference between left and right subtrees $\le 1$.
-   - *Best for*: Read-heavy workloads where fast lookup is critical.
-2. **Red-Black Trees**:
-   - Uses node colors (Red/Black) and rules to ensure the longest path is at most $2\times$ the shortest path.
-   - Requires fewer rotations during insertions/deletions than AVL trees.
-   - *Where it's used*: Java `TreeMap`, C++ `std::map`, Linux kernel process scheduler.
-3. **B-Trees & B+ Trees**:
-   - Nodes hold **hundreds of keys** and have **hundreds of children** instead of just 2.
-   - *Why*: Reduces tree height to just 3-4 levels for billions of records, minimizing expensive **Disk Reads/Seeks**.
-   - *Where it's used*: **Every major database index** (PostgreSQL, MySQL InnoDB, SQLite) and Filesystem (ext4, NTFS).
-
----
-
-## 8. Summary of Complexity
-
-| Structure / Tree Type | Average Search | Worst Case Search | Average Insert | Worst Case Insert |
-| :--- | :--- | :--- | :--- | :--- |
-| **Unbalanced BST** | $O(\log n)$ | $O(n)$ (degenerate) | $O(\log n)$ | $O(n)$ |
-| **AVL Tree** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
-| **Red-Black Tree** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
-| **B+ Tree (Disk)** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
-
----
-
-## The binary search tree ADT
-
-A tree is a **shape**, not an ADT — many different structures are trees. What has an ADT is the thing you build with that shape, and the most important one here is the **binary search tree**, usually shortened to **BST**.
-
-A BST answers the questions a [[03-hash-maps|hash map]] cannot, and that is precisely why it exists alongside one.
-
-1. `insert(value)` — Adds `value`, walking down from the root and going left when smaller and right when larger. **$O(h)$**, where $h$ is the height.
-
-2. `search(value)` — Returns whether the value is present. **$O(h)$**. Each comparison discards half the remaining tree, which is binary search made into a structure.
-
-3. `delete(value)` — Removes a value. **$O(h)$**, and the fiddliest operation — a node with two children must be replaced by its in-order successor.
-
-4. `min()` and `max()` — Return the smallest and largest values. **$O(h)$**: walk left as far as possible, or right as far as possible. A hash map cannot do this at all without checking everything.
-
-5. `successor(value)` — Returns the next value in sorted order. **$O(h)$**. Again impossible in a hash map.
-
-6. `range(low, high)` — Returns every value between two bounds. **$O(h + k)$** for $k$ results. **This is the operation databases are built on.**
-
-7. `in_order()` — Returns every value in **sorted** order. $O(n)$. See [[02-traversal|traversal]].
-
-### Everything depends on $h$, and $h$ is not guaranteed
-
-Notice that no cost above is stated in terms of $n$. They are all $O(h)$, and the relationship between $h$ and $n$ is where the entire subject lives:
-
-- A **balanced** tree has $h \approx \log_2 n$. For a million items that is about 20 comparisons.
-- A **degenerate** tree has $h = n$. Every operation becomes $O(n)$, and the structure is a [[04-linked-lists|linked list]] wearing a tree's clothes.
-
-And degeneracy is not an exotic case — **inserting already-sorted data produces it every time**, because every new value goes to the right of the last. Sorted input is the most common input there is, which is why unbalanced BSTs are essentially never used in production and why [[05-trees/01-trees|self-balancing trees]] — AVL, red-black, B-trees — exist. They add rotations to keep $h$ at $\log n$ no matter what order the data arrives in.
-
-### BST versus hash map
-
-| | Hash map | Balanced BST |
-| :--- | :---: | :---: |
-| `search`, `insert`, `delete` | $O(1)$ average | $O(\log n)$ guaranteed |
-| `min` / `max` | $O(n)$ | $O(\log n)$ |
-| Range query | not possible | $O(\log n + k)$ |
-| In sorted order | $O(n \log n)$ — sort it | $O(n)$ |
-| Worst case | $O(n)$ | $O(\log n)$ |
-
-A hash map is faster on average for the operations it supports. A balanced tree is slower but **guaranteed**, and it keeps the ordering that hashing throws away. That is why a database index is a B-tree: `WHERE age BETWEEN 20 AND 30` is a range query, and a hash index simply cannot answer it.
-
-## Implementation - complete runnable example
-
-**Runnable example:** save as `trees_lab.py` and run `python3 trees_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
-
-```python
-"""Trees: a BST, and why balance is the whole story."""
-
-class BST:
-    class Node:
-        __slots__ = ("key", "left", "right")
-        def __init__(self, key):
-            self.key, self.left, self.right = key, None, None
-
-    def __init__(self):
-        self.root, self.comparisons = None, 0
-
-    def insert(self, key):
-        """Iterative on purpose. A recursive insert into a DEGENERATE tree
-        recurses once per level -- 1000 sorted keys would blow the stack,
-        which is the failure this lesson is about."""
-        if self.root is None:
-            self.root = BST.Node(key)
-            return
-        node = self.root
-        while True:
-            self.comparisons += 1
-            if key < node.key:
-                if node.left is None:
-                    node.left = BST.Node(key); return
-                node = node.left
-            elif key > node.key:
-                if node.right is None:
-                    node.right = BST.Node(key); return
-                node = node.right
-            else:
-                return
-
-    def contains(self, key):
-        node = self.root
-        while node:
-            self.comparisons += 1
-            if key == node.key:
-                return True
-            node = node.left if key < node.key else node.right
-        return False
-
-    def height(self):
-        """Iterative, for the same reason as insert."""
-        if self.root is None:
-            return 0
-        best, stack = 0, [(self.root, 1)]
-        while stack:
-            node, depth = stack.pop()
-            best = max(best, depth)
-            if node.left:  stack.append((node.left, depth + 1))
-            if node.right: stack.append((node.right, depth + 1))
-        return best
-
-    def in_order(self):
-        """Iterative in-order with an explicit stack."""
-        out, stack, node = [], [], self.root
-        while stack or node:
-            while node:
-                stack.append(node); node = node.left
-            node = stack.pop()
-            out.append(node.key)
-            node = node.right
-        return out
-
-if __name__ == "__main__":
-    print("A BALANCED TREE -- height grows like log2(n)")
-    print(f"  {'n':>7s} {'height':>8s} {'log2(n)':>9s} {'lookups (worst)':>16s}")
-    for n in (7, 15, 1023, 65535):
-        t = BST()
-        # insert in an order that happens to balance: middle-out
-        def build(lo, hi):
-            if lo > hi: return
-            mid = (lo + hi) // 2
-            t.insert(mid); build(lo, mid-1); build(mid+1, hi)
-        build(0, n-1)
-        import math
-        print(f"  {n:7d} {t.height():8d} {math.log2(n+1):9.1f} {t.height():16d}")
-    print("  -> each comparison discards HALF the remaining tree.")
-    print()
-
-    print("THE SAME KEYS, INSERTED IN SORTED ORDER")
-    sorted_tree = BST()
-    for i in range(1000):
-        sorted_tree.insert(i)
-    balanced = BST()
-    def build2(lo, hi):
-        if lo > hi: return
-        mid = (lo + hi) // 2
-        balanced.insert(mid); build2(lo, mid-1); build2(mid+1, hi)
-    build2(0, 999)
-    print(f"  sorted insertion : height {sorted_tree.height():5d}")
-    print(f"  balanced         : height {balanced.height():5d}")
-    sorted_tree.comparisons = balanced.comparisons = 0
-    sorted_tree.contains(999); balanced.contains(999)
-    print(f"  finding key 999  : {sorted_tree.comparisons:4d} vs "
-          f"{balanced.comparisons:3d} comparisons")
-    print("  -> a BST with sorted input IS a linked list. Same code, same")
-    print("     keys, O(n) instead of O(log n). This is why self-balancing")
-    print("     trees (AVL, red-black) exist -- they refuse to degenerate.")
-    print()
-
-    print("IN-ORDER TRAVERSAL OF A BST YIELDS SORTED OUTPUT")
-    t = BST()
-    for k in (50, 30, 70, 20, 40, 60, 80):
-        t.insert(k)
-    print(f"  inserted: 50 30 70 20 40 60 80")
-    print(f"  in-order: {t.in_order()}")
-    print("  -> the BST property (left < node < right) applied recursively")
-    print("     IS the definition of sorted.")
-
-    assert t.in_order() == sorted(t.in_order())
-    assert t.contains(60) and not t.contains(65)
-    assert sorted_tree.height() == 1000, "sorted insertion degenerates fully"
-    assert balanced.height() <= 12, "balanced tree stays logarithmic"
-    print()
-    print("trees_lab: passed")
-```
-
-Expected output:
-
-```
-A BALANCED TREE -- height grows like log2(n)
-        n   height   log2(n)  lookups (worst)
-        7        3       3.0                3
-       15        4       4.0                4
-     1023       10      10.0               10
-    65535       16      16.0               16
-  -> each comparison discards HALF the remaining tree.
-
-THE SAME KEYS, INSERTED IN SORTED ORDER
-  sorted insertion : height  1000
-  balanced         : height    10
-  finding key 999  : 1000 vs  10 comparisons
-  -> a BST with sorted input IS a linked list. Same code, same
-     keys, O(n) instead of O(log n). This is why self-balancing
-     trees (AVL, red-black) exist -- they refuse to degenerate.
-
-IN-ORDER TRAVERSAL OF A BST YIELDS SORTED OUTPUT
-  inserted: 50 30 70 20 40 60 80
-  in-order: [20, 30, 40, 50, 60, 70, 80]
-  -> the BST property (left < node < right) applied recursively
-     IS the definition of sorted.
-
-trees_lab: passed
-```
-
-## 9. Check Your Understanding (University Self-Assessment)
-
-Try answering these questions to verify what you've learned:
-
-1. **Question**: A binary tree has a root node $A$. Node $A$ has left child $B$ and right child $C$. Node $B$ has left child $D$. What is the **Depth** of $D$ and what is the **Height** of $A$?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Depth of D is <b>2</b> (path: A -> B -> D). Height of A is <b>2</b> (longest path to leaf D: A -> B -> D).</details>
-
-2. **Question**: Why does a database like PostgreSQL use a B+ Tree instead of a standard Binary Search Tree?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Database records live on disk. Reading from disk is millions of times slower than RAM. A B+ Tree has hundreds of keys per node, keeping the tree height to 3–4 levels, requiring only 3–4 disk seeks instead of ~30 seeks for a BST.</details>
-
-3. **Question**: What traversal order on a Binary Search Tree produces values in sorted order?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>Inorder Traversal</b> (Left Subtree -> Root -> Right Subtree).</details>
-
----
-
-## Practice - independent task
-
-Implement `delete(key)` on the BST - the operation everyone skips.
-
-- The easy cases: a leaf (just remove it) and a node with one child (splice it out).
-- The hard case: a node with **two children**. You must replace it with either its in-order predecessor or successor, then delete that node instead.
-- Implement it, then verify: after any sequence of inserts and deletes, `in_order()` must still be sorted and `contains()` must agree with a Python `set`.
-- Test with 200 random insert/delete operations against a `set` as the oracle.
-
-**Done when:** your tree survives 200 random operations with in-order output still sorted, including deleting the root and deleting the last node.
-
-<details><summary>Hint - open only after an attempt</summary>
-For a node with two children, the replacement must preserve the BST property: everything left is smaller, everything right is larger. Only two keys can sit there - the <strong>largest key in the left subtree</strong> (the in-order predecessor) or the <strong>smallest in the right subtree</strong> (the successor).<br>
-Both are guaranteed to have at most one child, so removing them recurses into an easy case. That is why the two-child case reduces to a one-child case rather than recursing forever.
-</details>
+### Trees built for one particular job
+
+9. **Trie**: This is a tree where the **path spells a word** rather than any node holding one. It is built for prefix questions, and it is [[09-tries|its own lesson]].
+
+10. **Heap**: This is a tree with a much weaker rule than a binary search tree — each parent is merely ordered relative to its children, with no rule between siblings. That weakness is deliberate and makes it cheap to maintain. It is [[08-heaps|its own lesson]] too.
+
+11. **Segment tree**: This stores a summary of a range in each node, so questions like "what is the sum between positions 5 and 900?" can be answered in (\log n)$ while still allowing updates.
+
+12. **Fenwick tree**: Also called a **binary indexed tree**. It answers the same sort of range question as a segment tree, using less memory and much shorter code, at the cost of being harder to reason about.
+
+13. **Suffix tree**: This stores every suffix of a string, which makes substring searching extremely fast. It is heavily used in bioinformatics for matching DNA sequences.
+
+14. **k-d tree**: This splits space rather than a list, so it can answer "which stored point is nearest to this one?" It underlies nearest-neighbour search in graphics and machine learning.
+
+### What this course covers
+
+**This course focuses on binary trees**, and within them on binary search trees, because they are where the core ideas live: recursion over a hierarchy, the relationship between height and cost, and the fact that **balance is what makes a tree fast**. Once those are clear, the others are variations rather than new subjects.
+
+Heaps and tries have their own lessons here because they are used constantly in practice. B-trees and B+ trees appear in [[databases/index|databases]], where the reason for their shape — minimising disk reads — actually makes sense. Segment trees, Fenwick trees, suffix trees and k-d trees are specialist tools, worth knowing exist so that you recognise the problem shape when you meet it.
 
 ## Before moving on
 
-You are done with this module when you can, closed-book:
+You can define a tree, use the vocabulary without hesitating, tell height from depth, and name the main kinds of tree and what each is for.
 
-- [ ] Explain why each comparison discards half a balanced tree.
-- [ ] Explain what input order causes a BST to degenerate, and what it becomes.
-- [ ] Explain why in-order traversal of a BST is sorted.
-- [ ] State what a self-balancing tree guarantees that a plain BST does not.
+**Recap:** a tree is a connected structure with no cycles and exactly one root; every node has one parent except the root; a leaf has no children; every node is the root of its own subtree, which is why tree algorithms are naturally recursive; **depth** counts downwards from the root and **height** counts upwards from the deepest leaf; trees come in many kinds, and this course concentrates on binary trees because that is where the core ideas live.
 
-**Recap:** A binary search tree keeps every key in the left subtree smaller than the node and every key on the right larger, so each comparison discards half the remaining tree - O(log n) when balanced. Balance is not automatic: inserting sorted keys produces a tree of height n, which is a linked list wearing a tree's shape, and lookup degrades to O(n). Self-balancing variants such as AVL and red-black trees restructure on insertion to guarantee logarithmic height.
+**Next:** [[02-binary-trees|Binary Trees]] — at most two children, and the five shapes worth naming.
 
-**Next:** [[02-traversal|Tree Traversal]] - having built the tree, the next question is in what order to visit it - and the choice is decided by the problem.
+## Related
 
-## Related Modules
-- [[02-traversal|Tree Traversal]] — Pre-order, In-order, Post-order, and Level-order walkthroughs
-- [[04-linked-lists|Linked Lists]] — The 1-child linear precursor to trees
-- [[06-graphs/index|Graphs]] — Generalizing trees to allow cycles and multiple parents
-- [[08-heaps|Heaps]] — Priority queues implemented as complete binary trees in flat arrays
-- [[databases/index|Databases]] — Practical application of B+ Trees in indexing
+- [[index|the trees folder]] — the rest of this course
+- [[02-binary-trees|Binary Trees]] — the next lesson, and where this course goes
+- [[06-graphs/03-subgraphs-trees-and-forests|Graphs: trees and forests]] — the same object, defined without a root
+- [[04-linked-lists|Linked Lists]] — what a tree degenerates into when it loses its balance

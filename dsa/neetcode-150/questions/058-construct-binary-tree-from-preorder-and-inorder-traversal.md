@@ -1,6 +1,6 @@
 # Construct Binary Tree from Preorder and Inorder Traversal
 
-**LeetCode 105** · Trees · concept: [[02-traversal|traversal]]
+**LeetCode 105** · Trees · concept: [[04-traversal/index|traversal]]
 
 ## Problem
 
@@ -47,5 +47,5 @@ Preorder is consumed strictly left to right — root, then the *entire* left sub
 **Preorder gives roots in order; inorder gives the left/right split.** Combining "which node is the root" (preorder) with "how big is each subtree" (inorder) uniquely rebuilds the tree. (Postorder + inorder works the same way, consuming postorder from the right.)
 
 ## Related
-- concept: [[02-traversal|traversal]]
+- concept: [[04-traversal/index|traversal]]
 - prev: [[057-kth-smallest-element-in-a-bst|Kth Smallest in a BST]] · next: [[059-binary-tree-maximum-path-sum|Binary Tree Maximum Path Sum]]

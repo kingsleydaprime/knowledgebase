@@ -45,5 +45,5 @@ Grabbing `len(queue)` *before* the inner loop freezes how many nodes belong to t
 **Level-by-level processing → BFS with a per-level size snapshot.** This template powers Right Side View (take the last of each level), level averages, zigzag order, and any "do something per level" tree problem — the whole [[12-bfs-pattern|BFS pattern]] on trees.
 
 ## Related
-- concepts: [[03-bfs|bfs]], [[12-bfs-pattern|bfs-pattern]], [[02-traversal|traversal]]
+- concepts: [[03-bfs|bfs]], [[12-bfs-pattern|bfs-pattern]], [[04-traversal/index|traversal]]
 - prev: [[052-lowest-common-ancestor-of-a-bst|LCA of a BST]] · next: [[054-binary-tree-right-side-view|Binary Tree Right Side View]]

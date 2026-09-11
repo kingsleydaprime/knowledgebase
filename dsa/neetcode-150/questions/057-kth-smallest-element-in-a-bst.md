@@ -1,6 +1,6 @@
 # Kth Smallest Element in a BST
 
-**LeetCode 230** · Trees · concept: [[02-traversal|traversal]]
+**LeetCode 230** · Trees · concept: [[04-traversal/index|traversal]]
 
 ## Problem
 
@@ -40,5 +40,5 @@ Sorting all values is O(n log n) and ignores the structure. The BST already *enc
 **BST + "k-th smallest / sorted position" → in-order traversal, halted at k.** The whole trick is knowing that in-order = sorted for a BST; the iterative stack form is what lets you stop early instead of collecting everything.
 
 ## Related
-- concept: [[02-traversal|traversal]], [[01-trees|trees]]
+- concept: [[04-traversal/index|traversal]], [[01-trees|trees]]
 - prev: [[056-validate-binary-search-tree|Validate BST]] · next: [[058-construct-binary-tree-from-preorder-and-inorder-traversal|Construct Tree from Preorder & Inorder]]

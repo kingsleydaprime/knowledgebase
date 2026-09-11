@@ -136,7 +136,7 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 23 | [[044-merge-k-sorted-lists\|Merge K Sorted Lists]] | min-heap of k heads |
 | 25 | [[045-reverse-nodes-in-k-group\|Reverse Nodes in k-Group]] | reverse each k-block |
 
-## Trees — [[01-trees|trees]] · [[02-traversal|traversal]]
+## Trees — [[01-trees|trees]] · [[04-traversal/index|traversal]]
 
 | # | Problem | Key idea |
 |---|---|---|
