@@ -70,7 +70,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 >
 > **Every rendering algorithm ever written is a way of approximating this integral.** Rasterised direct lighting truncates it at one bounce with no integral at all. Path tracing estimates it by Monte Carlo. **Knowing the equation tells you exactly what each technique is throwing away.**
 
-**And note the integral is high-dimensional**, which is why Monte Carlo is the method of choice — quadrature dies above ~4 dimensions and Monte Carlo's error is dimension-independent. → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Monte Carlo]]
+**And note the integral is high-dimensional**, which is why Monte Carlo is the method of choice — quadrature dies above ~4 dimensions and Monte Carlo's error is dimension-independent. → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Monte Carlo]]
 
 ## The real-time pipeline
 

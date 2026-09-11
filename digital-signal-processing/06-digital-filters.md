@@ -90,6 +90,27 @@ To reason about IIR stability, DSP uses the **z-transform** — the discrete-tim
 
 **A filter is a frequency response you apply by convolution, and the FIR-vs-IIR choice is the trade between guaranteed stability with linear phase (FIR, but many taps) and high efficiency with low latency (IIR, but it can go unstable).** IIR stability reduces to one geometric rule — all poles inside the unit circle — which is the same pole analysis as control theory, and the practical craft is choosing the family for your constraints and letting a library compute the coefficients rather than hand-deriving them.
 
+## Designing an IIR filter from an analog one
+
+**The usual route to an IIR filter is not to design it digitally at all.** Analog filter design is a solved, century-old subject — Butterworth, Chebyshev, elliptic — so the standard move is to take a known analog prototype and *convert* it. There are two ways, and they fail differently.
+
+**Bilinear transform**, also called **Tustin's method**. Substitute
+
+$$s = \frac{2}{T}\cdot\frac{z-1}{z+1}$$
+
+into the analog transfer function. This is **the trapezoidal rule applied to a system** rather than to an integral — it approximates the integration inside the filter by averaging the two ends of each sample interval, which is exactly what a trapezium does. Its great virtue is that it maps the entire left half of the $s$-plane into the unit circle, so **a stable analog filter always becomes a stable digital one**. Its cost is **frequency warping**: the whole infinite analog frequency axis is squashed into a finite digital one, so frequencies are compressed near Nyquist. The fix is *pre-warping* — deliberately distorting the design frequencies beforehand so they land where you wanted after the squash.
+
+**Impulse invariance.** Sample the analog filter's impulse response directly, so the digital filter's impulse response matches the analog one at every sample instant. That preserves the time-domain behaviour exactly, which matters when the transient response is what you care about. Its cost is the one this whole folder is about: the analog frequency response is not band-limited, so sampling it **aliases**. High-frequency content folds back down and corrupts the passband, which makes the method unusable for high-pass and band-stop filters.
+
+| | Bilinear / Tustin | Impulse invariance |
+| :--- | :--- | :--- |
+| Preserves | stability, and the shape of the response | the impulse response, sample for sample |
+| Distorts | the frequency axis (warping) | the frequency response (aliasing) |
+| Fixable by | pre-warping the design frequencies | nothing — it is inherent |
+| Safe for high-pass? | yes | **no** |
+
+**Bilinear is the default**, and impulse invariance is reached for only when matching the time-domain response matters more than the frequency response. The same bilinear substitution is how a continuous PID controller becomes a difference equation — see [[control-theory/12-digital-control|digital control]], which does it from the control side.
+
 ## Related
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] — applying a filter *is* convolution
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — windows, used in FIR design

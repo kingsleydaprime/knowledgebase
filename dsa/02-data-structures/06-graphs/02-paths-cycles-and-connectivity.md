@@ -14,7 +14,7 @@
 3. Distinguish **strongly** from **weakly connected** in a directed graph, and compute **strongly connected components**.
 4. Detect whether a directed graph is a **DAG**, and say why that matters.
 
-**Study route:** read 1–4, attempt the prediction in section 3, then run the lab. Block 4 is the one that shows why direction changes everything.
+**Study route:** read the terms first, attempt the prediction just before the lab, then run it. Block 4 is the one that shows why direction changes everything.
 
 ---
 
@@ -24,58 +24,64 @@
 
 Every graph algorithm you will meet is stated in this vocabulary. Dijkstra finds a shortest **path**. Cycle detection looks for a **cycle**. Topological sort requires a **DAG**. Getting the terms loose makes the algorithms' preconditions invisible, which is how you end up running one on input it cannot handle.
 
-## 2. Routes: four words, precisely
+## Terms used for routes through a graph
 
-Let a **route** be a sequence $v_0, e_1, v_1, e_2, \dots, v_k$ where each $e_i$ joins $v_{i-1}$ and $v_i$.
+A **route** is any sequence of vertices where each one is joined to the next by an edge. There are four words for different kinds of route, and they are not synonyms. People use them loosely in conversation and precisely in textbooks, which is exactly why they cause trouble.
 
-| Term | Restriction | May repeat vertices? | May repeat edges? |
-| :--- | :--- | :---: | :---: |
-| **Walk** | none | yes | yes |
-| **Trail** | no repeated **edge** | yes | no |
-| **Path** | no repeated **vertex** | no | no |
-| **Simple path** | same as path — the usual synonym | no | no |
+1. **Walk**: This is the most general kind of route. You start at a vertex and keep stepping along edges to neighbouring vertices. You are allowed to revisit any vertex you like, and you are allowed to reuse any edge you like. Every route is a walk.
 
-Note the containment: every path is a trail, and every trail is a walk. Not the reverse.
+2. **Trail**: This is a walk with one restriction — you may **not reuse an edge**. You may still revisit a vertex, as long as you arrive by a road you have not driven before.
 
-**A note on convention, because textbooks differ.** Some authors use *path* to mean what this table calls a walk, and then say *simple path* for the no-repeated-vertex version. Others — including most algorithms literature and this course — use **path** to mean no repeated vertices, and treat *simple path* as an emphatic synonym. Whenever a source says "path", check which it means. The word that is never ambiguous is **walk**.
+3. **Path**: This is a walk with a stronger restriction — you may **not revisit a vertex**. Since you never return to a vertex, you can never reuse an edge either, so every path is also a trail.
 
-**Closed routes** return to where they started, $v_0 = v_k$:
+4. **Simple path**: This means exactly the same thing as a path. The word "simple" is added for emphasis, because some books use "path" loosely to mean any walk.
 
-| Term | Restriction |
-| :--- | :--- |
-| **Closed walk** | ends where it started |
-| **Circuit** (closed trail) | no repeated edge |
-| **Cycle** (simple cycle) | no repeated vertex except the first, which is also the last |
+So each one is a stricter version of the one before it: every path is a trail, and every trail is a walk. Going the other way is not true — a walk is usually not a path.
 
-In a **simple** undirected graph a cycle needs at least three vertices — with two you would have to reuse the single edge, making it a walk rather than a cycle. A **self-loop** is a cycle of length 1; **parallel edges** form one of length 2. This is one reason algorithms usually demand simple graphs.
+> [!WARNING]
+> **Books disagree about the word "path".** Some authors use *path* to mean what this lesson calls a walk, and then say *simple path* when they mean no repeated vertices. This course uses **path** to mean no repeated vertices, which is what algorithms literature almost always means. Whenever a source says "path", check which one it means. The one word that is never ambiguous is **walk**.
 
-**Directed versions.** A **directed path** must follow every edge *in its direction*; a **directed cycle** likewise. A directed graph can easily contain an undirected cycle and no directed one — the lab shows exactly that.
+## Terms used for routes that come back to the start
 
-**Length** is the number of **edges**, not vertices. A path through 4 vertices has length 3. Off-by-one errors here are endemic.
+A route is **closed** when it ends at the vertex it started from. The same three levels of strictness apply, with different names.
 
-## 3. Connectivity
+5. **Closed walk**: This is a walk that ends where it started. Nothing else is restricted, so you may reuse vertices and edges freely.
 
-**Undirected.** A graph is **connected** if there is a path between every pair of vertices. If not, it splits into **connected components** — maximal sets of mutually reachable vertices. Every vertex is in exactly one component, so components partition $V$.
+6. **Circuit**: This is also called a **closed trail**. It is a closed walk that does not reuse an edge. You may pass through the same vertex more than once, as long as you never drive the same road twice.
 
-Finding them is one BFS or DFS per unvisited vertex, in $O(V+E)$.
+7. **Cycle**: This is also called a **simple cycle**. It is a closed route that does not revisit any vertex, apart from the starting vertex, which is also the finishing vertex.
 
-**Directed.** Direction splits connectivity into two ideas:
+In a **simple** graph a cycle needs at least three vertices. With only two you would have to drive back along the single edge joining them, which makes it a walk rather than a cycle. A self-loop is a cycle of length 1, and a pair of parallel edges makes one of length 2 — which is one more reason algorithms usually ask for a simple graph.
 
-| Term | Meaning |
-| :--- | :--- |
-| **Strongly connected** | For every pair $u, v$: a directed path $u \to v$ **and** one $v \to u$ |
-| **Weakly connected** | Connected once you ignore all the directions |
-| **Strongly connected component (SCC)** | A maximal strongly connected subgraph |
+**Directed versions.** In a directed graph, a **directed path** must follow every edge in the direction it points, and a **directed cycle** is the same idea for a closed route. A directed graph can easily contain a cycle when you ignore the arrows and no directed cycle at all — the lab below shows exactly that.
 
-Strong implies weak; the reverse fails constantly. A one-way street system can be weakly connected — the map looks joined — while some junction cannot be left, which is a strong-connectivity failure and a real problem.
+**Length** is counted in **edges**, not vertices. A route through four vertices has length 3. Off-by-one mistakes here are extremely common.
 
-**Condensing** a digraph by collapsing each SCC to a single node always produces a **DAG**. That is a genuinely useful fact: any cyclic dependency structure becomes acyclic once mutually-dependent groups are treated as units, which is how build systems report circular dependencies as one group rather than an infinite loop.
+## Terms used for connectivity
+
+**Undirected graphs.** A graph is **connected** if you can get from any vertex to any other vertex by some path. If you cannot, the graph falls apart into pieces.
+
+8. **Connected component**: This is a maximal group of vertices that can all reach each other. "Maximal" means you cannot add another vertex to the group without breaking that property. Every vertex belongs to exactly one component, so the components split the graph up completely with nothing left over and nothing counted twice.
+
+Finding the components is one BFS or DFS started from each vertex you have not visited yet, which costs $O(V+E)$ altogether.
+
+**Directed graphs.** Once edges have arrows, "connected" splits into two different ideas, and the difference matters in practice.
+
+9. **Strongly connected**: This means that for **every** pair of vertices $u$ and $v$, there is a directed path from $u$ to $v$ **and** a directed path back from $v$ to $u$. Everywhere can reach everywhere else, following the arrows.
+
+10. **Weakly connected**: This means the graph is connected once you rub out all the arrows and treat every edge as two-way. It is a much weaker promise.
+
+11. **Strongly connected component**, usually shortened to **SCC**: This is a maximal group of vertices that can all reach each other following the arrows. It is the directed version of a connected component.
+
+Strong always implies weak. The reverse fails constantly. A one-way street system can look perfectly joined up on a map — weakly connected — while some junction cannot actually be left once you drive into it, which is a strong-connectivity failure and a real problem for anyone using it.
+
+**Condensing** a directed graph means collapsing each SCC down to a single point. Doing that **always** produces a DAG. That is a genuinely useful fact: any tangle of circular dependencies becomes acyclic once each mutually-dependent group is treated as one unit, which is how a build tool reports "these five packages form a cycle" instead of looping forever.
 
 ### DAGs
 
-A **directed acyclic graph** has no directed cycle. DAGs are the shape of dependency: build targets, task schedules, spreadsheet formulas, course prerequisites, git commits.
+12. **DAG**: This stands for **directed acyclic graph**. It is a directed graph with no directed cycle anywhere in it.
 
-They matter because a DAG — and only a DAG — admits a **topological order**: a linear arrangement in which every edge points forwards. A directed cycle makes that impossible, since each vertex in the cycle would have to precede itself.
+DAGs are the shape of dependency: build targets, task schedules, spreadsheet formulas, course prerequisites, git commits. They matter because a DAG — and only a DAG — can be put in a **topological order**, which is a straight line arrangement where every edge points forwards. A directed cycle makes that impossible, because each vertex on the cycle would have to come before itself.
 
 > [!TIP]
 > **Predict before running the lab.** Take a triangle $A \to B \to C \to A$ and reverse just one edge, giving $A \to B$, $C \to B$, $A \to C$. Is the result still strongly connected? Is it weakly connected? Is it a DAG? Decide all three before opening the answers.
@@ -382,7 +388,7 @@ Block 5 is the structural result worth carrying: **any** directed graph, however
 4. Because if the condensation had a cycle, every component on that cycle would be mutually reachable with every other — so they would all have been a *single* SCC in the first place. Their being separate SCCs contradicts the cycle's existence.
 5. Each component with $k$ vertices needs at least $k-1$ edges (a tree). With 10 vertices in 3 components the total is $10 - 3 = 7$ edges.
 
-**And the prediction from section 3:** with $A\to B$, $C\to B$, $A\to C$ — it is **not strongly connected** (nothing leaves $B$, so $B$ reaches nothing), it **is weakly connected** (ignore directions and it is a triangle), and it **is a DAG** (no directed cycle: the only routes are $A\to B$, $A\to C\to B$).
+**And the prediction from the connectivity section:** with $A\to B$, $C\to B$, $A\to C$ — it is **not strongly connected** (nothing leaves $B$, so $B$ reaches nothing), it **is weakly connected** (ignore directions and it is a triangle), and it **is a DAG** (no directed cycle: the only routes are $A\to B$, $A\to C\to B$).
 </details>
 
 ## Practice — independent task

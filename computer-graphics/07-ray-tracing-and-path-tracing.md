@@ -72,7 +72,7 @@ trace(ray, depth):
 
 $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 
-**4× the samples for 2× less noise.** → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Monte Carlo]]
+**4× the samples for 2× less noise.** → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Monte Carlo]]
 
 **Which is why film renders take hours per frame at thousands of samples**, and why the noise-reduction techniques below are not optional extras.
 
@@ -170,6 +170,6 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 
 ## Related
 - [[computer-graphics/01-how-rendering-works|How Rendering Works]] — the rendering equation
-- [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Numerical Integration]] — Monte Carlo and variance reduction
+- [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Numerical Integration]] — Monte Carlo and variance reduction
 - [[computer-graphics/04-shading-and-lighting|Shading and Lighting]] — the BRDFs being sampled
 - [[computer-graphics/index|Computer graphics map]]

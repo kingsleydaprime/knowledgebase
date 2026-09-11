@@ -88,7 +88,7 @@ $$\frac{d}{dt}\int_{V}u\,dV + \oint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 
 
 **Full treatment in [[continuum-mechanics/13-computational-methods-and-fem|Computational Methods and FEM]]** — this note is the numerical-methods view of where it sits.
 
-**The numerical ingredients FEM needs**, all from earlier notes: **[[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Gauss quadrature]]** for element integrals, **[[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|sparse linear solvers]]** for $Ku=f$, **[[mathematics/07-applied-and-computational/01-numerical-methods/05-eigenvalues|eigenvalue solvers]]** for modal analysis, and **[[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODE integrators]]** for transient problems.
+**The numerical ingredients FEM needs**, all from earlier notes: **[[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Gauss quadrature]]** for element integrals, **[[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|sparse linear solvers]]** for $Ku=f$, **[[mathematics/07-applied-and-computational/01-numerical-methods/05-eigenvalues|eigenvalue solvers]]** for modal analysis, and **[[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODE integrators]]** for transient problems.
 
 ## Choosing
 

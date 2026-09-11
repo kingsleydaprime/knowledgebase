@@ -24,7 +24,9 @@
 
 **Trapezoid:** $\frac{h}{2}(f_0 + 2f_1 + \cdots + 2f_{n-1} + f_n)$ — error $O(h^2)$
 
-**Simpson's:** $\frac{h}{3}(f_0 + 4f_1 + 2f_2 + 4f_3 + \cdots + f_n)$ — **error $O(h^4)$**
+**Simpson's 1/3:** $\frac{h}{3}(f_0 + 4f_1 + 2f_2 + 4f_3 + \cdots + f_n)$ — **error $O(h^4)$**. Fits a **parabola** through each group of three points, so it needs an even number of intervals.
+
+**Simpson's 3/8:** $\frac{3h}{8}(f_0 + 3f_1 + 3f_2 + 2f_3 + 3f_4 + \cdots + f_n)$ — also $O(h^4)$. Fits a **cubic** through each group of four points, so it needs a multiple of three intervals. It is slightly *less* accurate per evaluation than the 1/3 rule, and exists mainly to mop up the leftover intervals when your count is not even — combine one 3/8 panel with the rest as 1/3 panels.
 
 > **Simpson's is free accuracy.** Same number of function evaluations as the trapezoid rule, two orders better. **Halving $h$ cuts the error by 16× instead of 4×.**
 >

@@ -14,7 +14,7 @@
 3. Build a **spanning tree**, and say why every connected graph has at least one.
 4. Explain the relationship between the graph-theory tree and the rooted tree of the data-structures course.
 
-**Study route:** read 1–4, attempt the prediction in section 3, then run the lab. Block 2 checks four definitions against each other on every small graph.
+**Study route:** read the terms, then the tree definitions, attempt the prediction, then run the lab. Block 2 checks four definitions against each other on every small graph.
 
 ---
 
@@ -24,19 +24,19 @@ You have a big graph and want a piece of it: the servers in one datacentre, the 
 
 Then there is the other direction. A **tree** appeared in this course as a data structure with a root, parents and children. In graph theory a tree is something much barer: a connected graph with no cycles. No root, no ordering, no children. The two are related, and knowing exactly how is the point of section 4 — it explains why a tree has $n-1$ edges, why there is exactly one path between any two nodes, and why adding a single edge anywhere creates exactly one cycle.
 
-## 2. Subgraphs
+## Terms used for pieces of a graph
 
-$H$ is a **subgraph** of $G$ when $V(H) \subseteq V(G)$ and $E(H) \subseteq E(G)$, and every edge of $H$ has both endpoints in $V(H)$. That last clause matters — you cannot keep an edge whose endpoint you dropped.
+$H$ is a **subgraph** of $G$ when its vertices all come from $G$, its edges all come from $G$, and every edge it keeps still has both of its endpoints present. That last condition is the one people forget: you cannot keep an edge whose endpoint you threw away, because an edge with only one end is not a thing.
 
-| Kind | Definition | Think of it as |
-| :--- | :--- | :--- |
-| **Subgraph** | Any subset of vertices and edges that is itself a graph | Delete anything |
-| **Induced subgraph** $G[S]$ | Take $S \subseteq V$, keep **every** edge of $G$ with both ends in $S$ | Delete only *vertices* |
-| **Spanning subgraph** | Keep **all** vertices, drop some edges | Delete only *edges* |
+There are four worth naming. The two special ones — induced and spanning — vary opposite things, which is the distinction people mix up.
 
-The two named cases are the extremes. An **induced** subgraph is what you get from "look only at these vertices" — you have no freedom about edges. A **spanning** subgraph keeps everything connected-to, but thins the connections; "spanning" always means *touches every vertex*.
+1. **Subgraph**: This is any piece of a graph that is still a graph. You may delete whatever you like — vertices, edges, or both — as long as no edge is left dangling. Think of it as "delete anything".
 
-A **clique** is an induced subgraph that is complete — every pair adjacent. Finding the largest is NP-hard, which is worth knowing before you try.
+2. **Induced subgraph**: This is what you get when you pick a set of vertices and then keep **every** edge of the original graph that has both of its ends inside that set. You have no choice about the edges at all — picking the vertices decides them for you. Think of it as "delete only vertices". It is written $G[S]$, where $S$ is the set of vertices you picked.
+
+3. **Spanning subgraph**: This is what you get when you keep **every** vertex and delete only edges. The word **spanning** always means "touches every vertex", and it will come back in a moment with spanning trees. Think of it as "delete only edges".
+
+4. **Clique**: This is an induced subgraph in which every pair of vertices is joined by an edge — a group where everyone is connected to everyone. Finding the largest clique in a graph is NP-hard, which is worth knowing before you try.
 
 ## 3. Trees and forests, as graphs
 
@@ -76,15 +76,11 @@ Most connected graphs have many. Cayley's formula says the complete graph $K_n$ 
 
 The [[05-trees/01-trees|trees data structure]] adds three things to the graph-theory tree:
 
-| Added | What it gives you |
-| :--- | :--- |
-| **A root** | A direction: every edge now points away from the root, so "parent" and "child" are defined |
-| **An order on children** | "Left" and "right" become meaningful — needed for a BST |
-| **Values and an invariant** | The BST ordering property, the heap property, and so on |
+1. **A root**: One vertex is singled out and called the root. That gives every edge a direction — away from the root — which is what finally makes the words "parent" and "child" mean something.
 
-None of that is present in the graph-theoretic object. Rooting is a *choice*: any of the $n$ vertices can be the root, giving $n$ different rooted trees from the same underlying tree.
+2. **An order on the children**: Once a node's children are put in a definite order, "left" and "right" become meaningful. A binary search tree needs this; a graph-theoretic tree has no such notion.
 
-That is why the $n-1$ edge count and the unique-path property carry over unchanged to the data structure — they are properties of the underlying graph, not of the rooting.
+3. **Values and an invariant**: The nodes carry data, and a rule is imposed on how that data is arranged — the BST ordering property, or the heap property, and so on.
 
 **Vocabulary correspondence:**
 

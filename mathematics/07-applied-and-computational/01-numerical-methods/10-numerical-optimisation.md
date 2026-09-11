@@ -147,7 +147,7 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 
 **Scale your variables.** The highest-value single action, and it's the conditioning fix. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Scaling]]
 
-**Provide analytic gradients** if you can, or use automatic differentiation. **Finite-difference gradients are $n+1$ function evaluations and inherit the [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|differentiation error floor]]** — accurate to about $\sqrt{\epsilon}$ at best.
+**Provide analytic gradients** if you can, or use automatic differentiation. **Finite-difference gradients are $n+1$ function evaluations and inherit the [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|differentiation error floor]]** — accurate to about $\sqrt{\epsilon}$ at best.
 
 **Check your gradient.** Compare against finite differences on a random point. **A gradient bug is the most common cause of an optimiser that mysteriously won't converge**, and this check takes two minutes.
 

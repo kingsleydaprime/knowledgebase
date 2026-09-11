@@ -59,7 +59,7 @@ y_{n+1} &= y_n + \tfrac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
 
 > **Halving the step reduces error by 16×, at 2× the cost.** That's the trade that makes high-order methods win, and it's why RK4 has been the workhorse since 1901. **Four function evaluations per step for four orders of accuracy** — the sweet spot; above order 4 you need more evaluations than orders.
 
-**The weights $(1,2,2,1)/6$ are Simpson's rule.** RK4 is [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Simpson's quadrature]] applied to the integral form of the ODE — the connection is exact, not an analogy.
+**The weights $(1,2,2,1)/6$ are Simpson's rule.** RK4 is [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Simpson's quadrature]] applied to the integral form of the ODE — the connection is exact, not an analogy.
 
 ## Adaptive step size
 

@@ -52,11 +52,11 @@ Interpolate $f(x) = 1/(1+25x^2)$ on $[-1,1]$ with polynomials through 5, 10, and
 
 **9. Do a convergence study.**
 Integrate $\int_0^1 e^x dx$ with the trapezoid rule and with Simpson's, halving $h$ five times. Compute the ratio of successive errors.
-**Done when:** the ratios sit near 4 (trapezoid, $O(h^2)$) and 16 (Simpson, $O(h^4)$). **This is the single most useful habit in the domain** — if your ratio isn't what the theory promises, your implementation is wrong → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|note 07]].
+**Done when:** the ratios sit near 4 (trapezoid, $O(h^2)$) and 16 (Simpson, $O(h^4)$). **This is the single most useful habit in the domain** — if your ratio isn't what the theory promises, your implementation is wrong → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|note 07]].
 
 **10. Defeat a quadrature rule.**
 Integrate something with a singularity ($1/\sqrt{x}$ on $[0,1]$) and something oscillatory ($\sin(100x)$) with your fixed-step rules.
-**Done when:** you can say *why* each fails and name the class of method that handles it → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|note 07]].
+**Done when:** you can say *why* each fails and name the class of method that handles it → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|note 07]].
 
 ---
 

@@ -138,7 +138,7 @@ $$\min_\beta \|A\beta - y\|^2 + \lambda\|\beta\|^2 \qquad\text{(ridge / Tikhonov
 ---
 
 ## Related
-- [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration|Numerical Integration]] — built on interpolation
+- [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Numerical Integration]] — built on interpolation
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — least squares solved properly
 - [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]] — regression as statistical fitting
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
