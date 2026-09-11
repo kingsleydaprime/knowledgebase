@@ -132,19 +132,31 @@ sentence, and a reader who has not yet got the sentence cannot decompress it:
 >
 > $$\sum_{v \in V} \deg(v) = 2\lvert E\rvert$$
 
-### Expand every acronym and abbreviation on every use
+### Every acronym carries its full meaning, on every use
 
-Put the full meaning in brackets immediately after it — **every single time it
-appears**, not merely the first time in a lesson and not once across the vault.
+A reader arriving mid-page from a search, or returning weeks later, must be able
+to find out what an acronym means without scrolling back. An expansion given once
+at the top of a lesson does not serve them.
 
-This looks repetitive when you read a lesson top to bottom. That is not how these
-are read. People arrive mid-page from a search, jump to the section they need, or
-come back weeks later having forgotten. An expansion three screens above them is
-no help at all. The repetition costs a few words; the alternative costs the reader
-the sentence.
+**You do not write the expansion by hand.** Write the bare acronym in the
+markdown, and the `abbreviations` plugin wraps every occurrence in `<abbr>` at
+build time, so hovering shows the full meaning. Writing `API (application
+programming interface)` at all ~3,100 acronym occurrences in this vault would add
+roughly 167 KB of markup and make the notes unpleasant to edit.
 
-> ADT (abstract data type) · DAG (directed acyclic graph) · SCC (strongly
-> connected component) · BFS (breadth-first search) · MST (minimum spanning tree)
+**Your one job is to keep the list current.** If you use an acronym that is not in
+`quartz-plugins/abbreviations/glossary.json`, add it. One entry makes it work
+everywhere at once, and it appears on the published [[glossary]] page too.
+
+**Two places still spell it out in the prose:**
+
+1. **The definition-list entry** that introduces the term, because there the
+   expansion *is* the definition: "**DAG (directed acyclic graph)**: The letters
+   stand for those three words. It is a directed graph with no directed cycle..."
+2. **Anywhere the expansion carries the argument**, where the words themselves are
+   doing explanatory work rather than just naming the thing.
+
+Hovering does not work on touch devices, which is why the [[glossary]] page exists.
 
 ### The abstract data type comes before the implementation
 
@@ -253,7 +265,7 @@ Revision should preserve useful existing detail, links, and file locations. Fix 
 - [ ] The prerequisites and outcomes are explicit and realistic.
 - [ ] Definitions are a numbered list in plain full sentences, not a table.
 - [ ] Every result is stated in words before its formula appears.
-- [ ] Every acronym is expanded in brackets on **every** use, not just the first.
+- [ ] Every acronym used is present in `quartz-plugins/abbreviations/glossary.json`.
 - [ ] For a data structure, the abstract data type and its operations come before any code.
 - [ ] The running example teaches the steps between intuition and formalism.
 - [ ] The learner can execute the worked example without guessing missing setup.

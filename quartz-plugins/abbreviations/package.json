@@ -1,0 +1,27 @@
+{
+  "name": "quartz-plugin-abbreviations",
+  "version": "0.1.0",
+  "description": "Wraps known acronyms in <abbr> so the full meaning appears on hover",
+  "type": "module",
+  "license": "MIT",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "glossary.json"
+  ],
+  "scripts": {
+    "build": "node -e \"JSON.parse(require('fs').readFileSync('glossary.json'));console.log('glossary ok')\""
+  },
+  "keywords": [
+    "quartz",
+    "quartz-plugin",
+    "abbreviations",
+    "glossary"
+  ],
+  "dependencies": {
+    "unist-util-visit": "^5.0.0"
+  }
+}
