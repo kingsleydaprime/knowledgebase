@@ -41,18 +41,29 @@ Imagine a **supermarket checkout line**:
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used with stacks and queues
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **LIFO** | Last-In, First-Out (Stack behavior). | Undo history (`Ctrl + Z`). |
-| **FIFO** | First-In, First-Out (Queue behavior). | Printer print job queue. |
-| **Push / Enqueue** | Adding a new element to the collection. | Adding a plate to top of stack / joining back of line. |
-| **Pop / Dequeue** | Removing an element from the collection. | Taking top plate off stack / serving customer at front of line. |
-| **Peek (Top / Front)**| Looking at the next element without removing it. | Checking what's at the top of the stack. |
-| **Circular Buffer** | Implementing a fixed-capacity FIFO queue in a flat array using modulo `% N`. | Ring buffer for audio streaming. |
+1. **Collection**: This is any structure that holds a group of items. A stack and a queue are both collections; what separates them is the single rule deciding **which item comes out next**.
 
----
+2. **LIFO**: This stands for **last in, first out**. The most recently added item is the first one removed. A stack of plates behaves this way — you take the plate you put down most recently, because it is on top. Pressing undo repeatedly walks backwards through your most recent actions for the same reason.
+
+3. **FIFO**: This stands for **first in, first out**. The item that has been waiting longest is the first one removed. A queue at a counter behaves this way, and so does a printer working through print jobs.
+
+4. **Push**: This is the word for adding an item to a **stack**. The new item goes on top.
+
+5. **Pop**: This is the word for removing an item from a **stack**. It takes the item off the top and gives it to you.
+
+6. **Enqueue**: This is the word for adding an item to a **queue**. The new item joins the back.
+
+7. **Dequeue**: This is the word for removing an item from a **queue**. It takes the item from the front and gives it to you.
+
+8. **Peek**: This means looking at the item that would come out next **without removing it**. On a stack it is often called `top`, and on a queue `front`.
+
+9. **Underflow**: This is what happens when you try to remove an item from an empty collection. Every implementation must decide what to do — raise an error, or return a "nothing here" value — and must say which.
+
+10. **Overflow**: This is what happens when you try to add an item to a collection with no room left. It only applies to fixed-capacity implementations.
+
+11. **Circular buffer**: This is also called a **ring buffer**. It is a way of building a fixed-capacity queue inside a flat array, where the front and back positions wrap around to the start using the remainder operator `%`. It avoids ever shifting elements, which is what keeps the operations $O(1)$.
 
 ## 3. Stacks: Mechanics & Applications
 
@@ -170,6 +181,42 @@ class CircularQueue:
 3. **Queue Underflow / Empty Pop**: Popping from an empty stack or queue without checking `is_empty()` crashes with index errors.
 
 ---
+
+## The stack and queue ADTs
+
+These two belong together, because **they are the same ADT with one rule changed**. That rule is the whole difference, and everything else follows from it.
+
+Both are defined purely by their operations. Unlike an array, neither says anything about memory or layout — you can build either on an array or on a [[04-linked-lists|linked list]] and the ADT does not change.
+
+### The stack ADT — LIFO
+
+1. `push(item)` — Adds `item` to the top of the stack. $O(1)$.
+
+2. `pop()` — Removes and returns the item on top, which is the one added most recently. $O(1)$. If the stack is empty this is an error, and your implementation must say what it does.
+
+3. `peek()` — Returns the top item **without** removing it. $O(1)$. Useful when you must decide what to do based on what is next, before committing to taking it.
+
+4. `is_empty()` — Returns `true` when there are no items. $O(1)$.
+
+5. `size()` — Returns how many items are held. $O(1)$.
+
+### The queue ADT — FIFO
+
+6. `enqueue(item)` — Adds `item` to the back of the queue. $O(1)$.
+
+7. `dequeue()` — Removes and returns the item at the front, which is the one that has waited longest. $O(1)$.
+
+8. `front()` — Returns the front item without removing it. $O(1)$.
+
+9. `is_empty()` and `size()` — Exactly as for the stack.
+
+### What the ADT deliberately refuses to give you
+
+Neither structure lets you reach into the middle. **There is no `get(i)`.** That is not a missing feature — it is the entire point.
+
+By refusing random access, a stack or queue guarantees the order things come out in, and that guarantee is what makes them useful for reasoning. When you see a stack in an algorithm you immediately know the most recent thing comes back first, which is exactly what [[02-dfs|depth-first search]], undo histories, the function call stack and bracket matching all need. A queue's guarantee — oldest first — is what makes [[03-bfs|breadth-first search]] explore level by level, and what makes a print queue fair.
+
+**Choosing a stack or a queue is choosing a guarantee, not choosing a container.**
 
 ## Implementation - complete runnable example
 

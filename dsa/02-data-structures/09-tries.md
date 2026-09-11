@@ -42,16 +42,19 @@ User types "app"  --->  Trie follows path: 'a' -> 'p' -> 'p'
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used with tries
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **Root Node** | The empty starting node of the Trie. | Represents the empty string `""`. |
-| **Character Edge** | The link between nodes representing a single letter. | Edge labeled `'a'` or `'b'`. |
-| **`is_end` Flag** | A boolean flag marking if a full word terminates at this node. | Differentiates `"app"` (valid word) from `"appl"` (just a prefix). |
-| **Alphabet Size ($\Sigma$)** | The number of possible child branches per node. | $\Sigma = 26$ for lowercase English letters. |
+1. **Trie**: This is a tree where the **path you walk spells out a word**, rather than any single node holding one. It is also called a **prefix tree**. The name comes from "retrieval" and is usually pronounced "try".
 
----
+2. **Root node**: This is the starting node, representing the empty string. Every word's path begins here.
+
+3. **Character edge**: This is a link from one node to the next, labelled with a single character. Walking the edge labelled `a` then the edge labelled `p` puts you at the node for the prefix `"ap"`.
+
+4. **Prefix**: This is the beginning of a word. `"ap"` is a prefix of `"apple"`. **A trie's defining feature is that every prefix is an actual place in the structure**, which is why prefix questions are cheap.
+
+5. **`is_end` flag**: This is a true-or-false marker on a node saying "a complete word ends here". It is needed because a node can be passed through on the way to a longer word without being a word itself — the flag is what separates `"app"`, which is a word, from `"appl"`, which is only a stop along the way to `"apple"`.
+
+6. **Alphabet size**: This is how many different characters can follow any node, written $\Sigma$. It is 26 for lowercase English letters, 128 for ASCII, and over a million for full Unicode. **This number decides how much memory a trie costs**, which is its main drawback.
 
 ## 3. Visual Anatomy of a Trie
 
@@ -76,6 +79,32 @@ Below is a Trie containing the words **`"app"`, `"apple"`, `"apt"`, and `"cat"`*
 Notice how `"app"`, `"apple"`, and `"apt"` all share the initial path `'a' -> 'p'`!
 
 ---
+
+## The trie ADT
+
+A trie stores a set of strings, like a [[03-hash-maps|hash set]] would. The difference is entirely in the **third** operation below, and that one operation is the reason tries exist.
+
+Throughout, $L$ is the length of the word being handled — **not** the number of words stored. That is the unusual and valuable part.
+
+1. `insert(word)` — Adds `word` to the trie. **$O(L)$** — walk one node per character, creating nodes as needed.
+
+2. `search(word)` — Returns whether the exact word is present. **$O(L)$**. Note this does not depend on how many words the trie holds: searching a trie of ten words and a trie of ten million words costs the same for a five-letter word.
+
+3. `starts_with(prefix)` — Returns whether **any** stored word begins with `prefix`. **$O(L)$**. *This is the operation a hash set cannot do at all.* A hash set would have to check every stored word, because hashing destroys the relationship between `"app"` and `"apple"`.
+
+4. `delete(word)` — Removes a word, clearing its `is_end` flag and pruning any nodes now leading nowhere. $O(L)$.
+
+5. `words_with_prefix(prefix)` — Returns every stored word beginning with `prefix`. Costs $O(L)$ to walk to the prefix node, plus the time to collect what hangs below it. **This is autocomplete.**
+
+### The trade
+
+Compared with a hash set, a trie:
+
+- **Gains** prefix search, ordered iteration (walking children alphabetically yields sorted words), and a lookup cost that does not grow with the number of stored words.
+- **Costs** far more memory. Every node may hold up to $\Sigma$ child pointers, and most sit empty. A trie over full Unicode is impractical without a compressed variant.
+- **Loses** on plain exact-match lookup in practice: a hash set is $O(1)$ against the trie's $O(L)$, and has much better cache behaviour, since trie nodes are scattered like [[04-linked-lists|linked list]] nodes.
+
+**Use a trie when the question is about prefixes.** If you only ever ask "is this exact word present?", use a hash set.
 
 ## 4. Technical Deep Dive: Trie Implementation
 

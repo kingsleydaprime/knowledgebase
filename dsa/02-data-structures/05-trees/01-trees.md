@@ -65,21 +65,33 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
 
 ### Key Terminology Demystified
 
-| Term | Plain-English Definition | Example from Diagram Above |
-| :--- | :--- | :--- |
-| **Node** | An individual container holding data and pointers to other nodes. | `A`, `B`, `C`, `D`, `E`, `F` |
-| **Edge** | The connection/link between two nodes. | Line between `A` and `B` |
-| **Root** | The absolute top node of the tree. It has **no parent**. | Node `A` |
-| **Parent** | A node that points directly down to a child node. | Node `A` is parent to `B` and `C` |
-| **Child** | A node directly connected to a parent node above it. | `B` and `C` are children of `A` |
-| **Siblings** | Nodes that share the exact same parent node. | `B` and `C` are siblings; `D` and `E` are siblings |
-| **Leaf (Terminal Node)** | A node that has **zero children** (the end of a branch). | Nodes `D`, `E`, and `F` |
-| **Internal Node** | Any node that is not a leaf (i.e., has at least one child). | Nodes `A`, `B`, `C` |
-| **Ancestor** | Any node on the path from the root down to a given node. | Ancestors of `D` are `B` and `A` |
-| **Descendant** | Any node reachable by moving downward from a given node. | Descendants of `A` are `B`, `C`, `D`, `E`, `F` |
-| **Subtree** | A node and all of its descendants. (Every node is the root of its own subtree). | `B-D-E` forms a subtree rooted at `B` |
+### Terms used with trees
 
----
+1. **Node**: This is one item in the tree. It holds a value and pointers to the nodes beneath it. In the diagram above, `A` through `F` are all nodes.
+
+2. **Edge**: This is the link between two nodes — the line drawn between `A` and `B`.
+
+3. **Root**: This is the single node at the very top, the one with **no parent**. Node `A` is the root. A tree has exactly one, and it is where every traversal begins.
+
+4. **Parent**: This is a node that points directly down to another. `A` is the parent of `B` and `C`. Every node has exactly one parent, except the root, which has none.
+
+5. **Child**: This is a node directly below a parent. `B` and `C` are the children of `A`.
+
+6. **Siblings**: These are nodes sharing the same parent. `B` and `C` are siblings, and so are `D` and `E`.
+
+7. **Leaf**: This is a node with **no children** — the end of a branch. `D`, `E` and `F` are leaves. It is also called a **terminal node**.
+
+8. **Internal node**: This is any node that is not a leaf, meaning it has at least one child. `A`, `B` and `C` are internal nodes.
+
+9. **Ancestor**: This is any node on the path from the root down to a given node. The ancestors of `D` are `B` and `A`.
+
+10. **Descendant**: This is any node you can reach by moving downwards from a given node. The descendants of `A` are every other node in the tree.
+
+11. **Subtree**: This is a node together with all of its descendants. `B` with `D` and `E` forms a subtree rooted at `B`. **Every node is the root of its own subtree**, and that fact is what makes tree algorithms naturally recursive.
+
+12. **Degree**: This is how many children a node has. A leaf has degree 0.
+
+13. **Level**: This is how far down a node sits. The root is at level 0, its children at level 1, and so on.
 
 ## 3. Height vs. Depth (The Classic Off-By-One Trap)
 
@@ -296,6 +308,47 @@ To prevent this, production software uses **Self-Balancing Binary Search Trees**
 | **B+ Tree (Disk)** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
 
 ---
+
+## The binary search tree ADT
+
+A tree is a **shape**, not an ADT — many different structures are trees. What has an ADT is the thing you build with that shape, and the most important one here is the **binary search tree**, usually shortened to **BST**.
+
+A BST answers the questions a [[03-hash-maps|hash map]] cannot, and that is precisely why it exists alongside one.
+
+1. `insert(value)` — Adds `value`, walking down from the root and going left when smaller and right when larger. **$O(h)$**, where $h$ is the height.
+
+2. `search(value)` — Returns whether the value is present. **$O(h)$**. Each comparison discards half the remaining tree, which is binary search made into a structure.
+
+3. `delete(value)` — Removes a value. **$O(h)$**, and the fiddliest operation — a node with two children must be replaced by its in-order successor.
+
+4. `min()` and `max()` — Return the smallest and largest values. **$O(h)$**: walk left as far as possible, or right as far as possible. A hash map cannot do this at all without checking everything.
+
+5. `successor(value)` — Returns the next value in sorted order. **$O(h)$**. Again impossible in a hash map.
+
+6. `range(low, high)` — Returns every value between two bounds. **$O(h + k)$** for $k$ results. **This is the operation databases are built on.**
+
+7. `in_order()` — Returns every value in **sorted** order. $O(n)$. See [[02-traversal|traversal]].
+
+### Everything depends on $h$, and $h$ is not guaranteed
+
+Notice that no cost above is stated in terms of $n$. They are all $O(h)$, and the relationship between $h$ and $n$ is where the entire subject lives:
+
+- A **balanced** tree has $h \approx \log_2 n$. For a million items that is about 20 comparisons.
+- A **degenerate** tree has $h = n$. Every operation becomes $O(n)$, and the structure is a [[04-linked-lists|linked list]] wearing a tree's clothes.
+
+And degeneracy is not an exotic case — **inserting already-sorted data produces it every time**, because every new value goes to the right of the last. Sorted input is the most common input there is, which is why unbalanced BSTs are essentially never used in production and why [[05-trees/01-trees|self-balancing trees]] — AVL, red-black, B-trees — exist. They add rotations to keep $h$ at $\log n$ no matter what order the data arrives in.
+
+### BST versus hash map
+
+| | Hash map | Balanced BST |
+| :--- | :---: | :---: |
+| `search`, `insert`, `delete` | $O(1)$ average | $O(\log n)$ guaranteed |
+| `min` / `max` | $O(n)$ | $O(\log n)$ |
+| Range query | not possible | $O(\log n + k)$ |
+| In sorted order | $O(n \log n)$ — sort it | $O(n)$ |
+| Worst case | $O(n)$ | $O(\log n)$ |
+
+A hash map is faster on average for the operations it supports. A balanced tree is slower but **guaranteed**, and it keeps the ordering that hashing throws away. That is why a database index is a B-tree: `WHERE age BETWEEN 20 AND 30` is a range query, and a hash index simply cannot answer it.
 
 ## Implementation - complete runnable example
 
