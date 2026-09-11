@@ -75,6 +75,10 @@ Shannon's measure of surprise, and the surprising number of things it turns out 
 - [[information-theory/08-practice-exercises|Practice Exercises]] — twelve exercises over real data — **including why gzip beats your entropy 'floor'**
 - [[information-theory/09-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
 
+## Build it
+
+- [[build-your-own-shit/21-your-own-compressor|Your Own Compressor]] — **[Intermediate]** — note 03 as running code: measure the entropy floor from note 02, then Huffman, then LZ77, then DEFLATE and a real gzip container. **A weekend, and `gunzip` decompresses your output.** It also answers exercise 8's question about why gzip beats the floor — by making you build the thing that does it
+
 ## Related
 - [[digital-signal-processing/index|digital signal processing]] — sampling (Nyquist), the frequency domain, and modulation: information theory's applied sibling
 - [[ai-ml/index|AI & ML]] — the domain that needed note 04

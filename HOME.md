@@ -119,6 +119,8 @@ Where a folder is a plan rather than a course, it says so in its first paragraph
 
 **The cheapest way to close a `[reference]` gap is a rep.** [[build-your-own-shit/index|build-your-own-shit/]] has the deep ones as full guides; the single best is [[build-your-own-shit/09-your-own-regex-engine|the regex engine]] — one evening, ~200 lines, and it turns the most abstract folder in the vault into running code.
 
+**Four of the theory-spine folders got their first build guide in Sep 2026** — [[build-your-own-shit/21-your-own-compressor|a compressor]] for information theory, [[build-your-own-shit/22-your-own-ray-tracer|a ray tracer]] for graphics, [[build-your-own-shit/19-your-own-tcp-ip-stack|a TCP/IP stack]] for networking and [[build-your-own-shit/20-your-own-raft-kv-store|a Raft key-value store]] for distributed systems. **The compressor is the cheapest of the four**: a weekend, and `gunzip` decompresses your output.
+
 ---
 
 ## Related

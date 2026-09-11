@@ -173,3 +173,4 @@ $$K(x) = \text{length of the shortest program that outputs } x$$
 - [[information-theory/01-what-information-is|What Information Is]] — where the entropy floor comes from
 - [[theory-of-computation/06-decidability|Decidability]] — why $K$ is uncomputable
 - [[information-theory/index|Information theory map]]
+- [[build-your-own-shit/21-your-own-compressor|Your Own Compressor]] — **this note as running code**: Huffman, canonical codes, LZ77, DEFLATE, and a gzip file `gunzip` accepts

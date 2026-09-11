@@ -77,6 +77,7 @@ This is worth carrying as a general lesson beyond TCP: **two locally-sensible op
 TCP's reliability is built from exactly two primitives — **number everything, and acknowledge a contiguous prefix** — and every other mechanism (SACK, fast retransmit, RACK, the persist timer, Nagle) is a patch on a specific way that minimal design underperforms. The one thing none of them can patch is **head-of-line blocking**, because that isn't an implementation flaw — it's the definition of the abstraction TCP promises. To escape it you can't fix TCP; you have to stop asking for a single ordered byte stream.
 
 ## Related
+- [[build-your-own-shit/19-your-own-tcp-ip-stack|Your Own TCP/IP Stack]] — retransmission timers, the receive window and the congestion sawtooth, built and then tested under `tc netem` packet loss
 - [[networking/08-congestion-control|Congestion Control]] — the other window, and the harder problem
 - [[networking/13-quic-and-modern-transport|QUIC]] — what you get when you drop the single-stream abstraction
 - [[networking/15-network-performance|Network Performance]] — bandwidth-delay product, why windows govern throughput

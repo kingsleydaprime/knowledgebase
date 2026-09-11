@@ -173,3 +173,4 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 - [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Numerical Integration]] — Monte Carlo and variance reduction
 - [[computer-graphics/04-shading-and-lighting|Shading and Lighting]] — the BRDFs being sampled
 - [[computer-graphics/index|Computer graphics map]]
+- [[build-your-own-shit/22-your-own-ray-tracer|Your Own Ray Tracer]] — **this note as running code**, in a weekend, ending with a BVH and the furnace test

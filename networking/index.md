@@ -66,6 +66,13 @@ sudo tc qdisc add dev lo root netem delay 100ms loss 1%
 sudo tc qdisc del dev lo root          # undo
 ```
 
+## Build it
+
+**The reps for this folder are in [[build-your-own-shit/index|build-your-own-shit/]]**, and there are two:
+
+- [[build-your-own-shit/19-your-own-tcp-ip-stack|Your Own TCP/IP Stack]] — **[Advanced]** — the whole of notes 02-09 as running code: Ethernet, ARP, IPv4, ICMP, UDP and the TCP state machine, on a TUN/TAP device. **`ping` answers, `curl` fetches a page, and the `√p` in note 15 becomes a sawtooth you plotted yourself**
+- [[build-your-own-shit/01-http-server|Your Own HTTP Server]] — **[Intermediate]** — note 11 as running code. **Build it second and run it on top of your own TCP**
+
 ## Related
 - [[os/fundamentals|OS Fundamentals]] — sockets are file descriptors; this sits directly on top
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — what happens when unreliable networks meet multiple machines
