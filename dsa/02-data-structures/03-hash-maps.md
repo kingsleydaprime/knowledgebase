@@ -39,18 +39,27 @@ A Hash Map acts like that coat check attendant: it takes **any arbitrary key**, 
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used with hash maps
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **Key** | The identifier used to store and look up data. | `"user_alice"`, SSN, Product ID. |
-| **Value** | The payload data associated with a key. | User profile object, balance. |
-| **Hash Function** | A mathematical function that converts a key into a large integer. | `hash("apple") -> 2166136261`. |
-| **Bucket Array** | The underlying array where key-value pairs are stored. | Array of size $N$. |
-| **Collision** | When two *different* keys produce the exact same bucket index. | Both `"apple"` and `"grape"` map to bucket #5. |
-| **Load Factor ($\alpha$)** | The ratio of occupied entries to total bucket slots ($\frac{\text{entries}}{\text{capacity}}$). | 7 entries in 10 slots ($\alpha = 0.7$). |
+1. **Hash map**: This is a structure that stores pairs of things, so you can look one up by the other almost instantly. It is also called a **hash table**, a **dictionary** or `dict` in Python, a **map** in C++ and Java, and an **object** in JavaScript.
 
----
+2. **Key**: This is the thing you look something up *by* — a username, a product code, a word. Keys must be unique within the map, and storing a pair with an existing key overwrites the old value.
+
+3. **Value**: This is the thing stored *against* a key — the user's profile, the product's price. Values have no restrictions at all; they can repeat freely.
+
+4. **Hash function**: This is a function that takes a key and returns a large integer. The same key always produces the same integer, and different keys usually produce different ones. It is what turns "look up this word" into "go to this array position".
+
+5. **Bucket**: This is one slot in the underlying array where entries are kept. The hash function's job is to decide which bucket a key belongs in, usually by taking the hash value modulo the number of buckets.
+
+6. **Collision**: This is when two **different** keys end up in the same bucket. Collisions are not a bug and cannot be avoided — there are more possible keys than buckets, so some must share. The design question is never how to prevent them, only how to handle them.
+
+7. **Chaining**: This is one way of handling collisions. Each bucket holds a small list of all the entries that landed there, and a lookup walks that short list.
+
+8. **Open addressing**: This is the other way. When a bucket is taken, the entry goes into some other bucket found by a fixed rule — the simplest being "try the next one along", which is called **linear probing**.
+
+9. **Load factor**: This is how full the map is: the number of stored entries divided by the number of buckets, written $\alpha$. As it rises, collisions become more common and lookups slow down.
+
+10. **Rehashing**: This is what happens when the load factor gets too high. The map allocates a larger bucket array and **recomputes the bucket for every existing entry**, because the bucket depends on the array size. It is $O(n)$ and it is why a hash map's excellent average performance is amortised rather than guaranteed.
 
 ## 3. How a Hash Map Works (The 3-Step Pipeline)
 
@@ -178,6 +187,37 @@ Hash Maps are extraordinarily fast, but they come with trade-offs:
 | **Space Complexity** | $O(n)$ | $O(n)$ |
 
 ---
+
+## The hash map ADT
+
+A hash map answers one question extremely well: **"what value did I store under this key?"** It answers almost nothing else.
+
+1. `put(key, value)` — Stores `value` under `key`, replacing any value already there. **$O(1)$ on average**, $O(n)$ in the worst case.
+
+2. `get(key)` — Returns the value stored under `key`, or reports that there is none. **$O(1)$ on average**.
+
+3. `contains(key)` — Returns whether the key is present. **$O(1)$ on average**. A **hash set** is simply a hash map that stores keys and no values, exposing only this operation and `add`.
+
+4. `delete(key)` — Removes the pair. **$O(1)$ on average**.
+
+5. `size()` — How many pairs are stored. $O(1)$.
+
+6. `keys()`, `values()`, `items()` — Return everything, in **no guaranteed order**. $O(n)$.
+
+### What a hash map cannot do, and why
+
+This list is short but decisive, and each absence follows from the same cause: **hashing deliberately destroys order**. A good hash function scatters similar keys to unrelated buckets — that scattering is what avoids collisions — and in scattering it throws away every relationship between keys.
+
+So a hash map cannot answer:
+
+- **"What is the smallest key?"** — the smallest key is in an arbitrary bucket. You would have to check all $n$. A [[08-heaps|heap]] or a balanced [[05-trees/01-trees|tree]] answers this in $O(1)$ or $O(\log n)$.
+- **"Which keys fall between 100 and 200?"** — a range query. Nearby keys are nowhere near each other in memory. A [[05-trees/01-trees|B-tree]] answers this efficiently, which is exactly why databases index with B-trees rather than hash tables.
+- **"What comes after this key?"** — there is no "after". The order you get from iterating is an artefact of the bucket layout.
+
+> [!NOTE]
+> Python's `dict` does preserve **insertion** order, as of Python 3.7. That is a guarantee about the order you added things, not about sorted order, and it comes from an extra list kept alongside the buckets. It does not give you any of the three operations above.
+
+**The average-case asterisk.** Every $O(1)$ above says "on average". With a bad hash function, or an attacker deliberately choosing keys that collide, every entry can land in one bucket and lookups degrade to $O(n)$. That attack is real and has a name — a **hash collision denial-of-service** — and it is why languages now randomise their hash seed at startup.
 
 ## Implementation - complete runnable example
 

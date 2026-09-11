@@ -32,17 +32,21 @@ Static arrays demand a fixed size at creation time. Dynamic arrays eliminate tha
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used with dynamic arrays
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **Length (Size)** | The number of elements currently stored in the array. | 3 active items. |
-| **Capacity** | The actual maximum size of the allocated memory block. | 4 available slots. |
-| **Headroom** | The empty slots remaining (`capacity - length`). | 1 empty slot remaining. |
-| **Growth Factor** | The multiplier used to expand capacity when full (usually $2\times$ or $1.5\times$). | Doubling 4 slots to 8 slots. |
-| **Amortized $O(1)$** | The average time per operation across a long sequence of calls. | Expensive resizes are rare enough that the average cost stays $O(1)$. |
+1. **Dynamic array**: This is an array that can grow. It is also called a **resizable array**, a **vector** in C++, an **ArrayList** in Java, and simply a **list** in Python. Underneath it is still a plain fixed-size array — the growing is a trick played on top.
 
----
+2. **Length**: This is how many elements are actually stored right now. This is the number you get from `len()`.
+
+3. **Capacity**: This is how many elements the underlying memory block could hold before it runs out. It is usually **larger** than the length, and it is invisible from outside.
+
+4. **Headroom**: This is the spare space, `capacity - length`. It is what lets an append happen without any copying, and it is the whole reason appends are usually instant.
+
+5. **Growth factor**: This is the multiplier used when the block runs out of room — commonly $2\times$, sometimes $1.5\times$. The array allocates a new, larger block and copies everything across. **That it is a multiplier and not a fixed amount is the single most important detail**, and section 3 shows why.
+
+6. **Reallocation**: This is the expensive step: request a bigger block, copy every existing element into it, then release the old block. It is $O(n)$, and it is what you are trying to do rarely.
+
+7. **Amortised $O(1)$**: This means that although a single operation can occasionally be slow, the **average** cost across a long run of operations is constant. Appending is amortised $O(1)$: most appends are instant, the occasional one copies everything, and the total still works out to constant time per append. It is a statement about the *total*, never a promise about any *one* call.
 
 ## 3. How Dynamic Resizing Works
 
@@ -131,6 +135,28 @@ $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
 2. **Front Operations Are Still $O(n)$**: Dynamic arrays solve the dynamic sizing problem, but inserting at index 0 still requires shifting every item. If you need fast front insertions, use [[07-stacks-and-queues|Queues]] or [[04-linked-lists|Linked Lists]].
 
 ---
+
+## The dynamic array ADT
+
+A dynamic array supports everything [[01-arrays|a plain array]] does, and adds the operation an array cannot have.
+
+1. `get(i)` and `set(i, value)` — Exactly as for a plain array. **$O(1)$**. The underlying storage is still one contiguous block, so the address arithmetic is unchanged.
+
+2. `append(value)` — Adds `value` to the end. **Amortised $O(1)$**. Usually it writes into spare headroom and returns immediately. Occasionally there is no headroom left, and it must allocate a bigger block and copy everything, which is $O(n)$ for that one call.
+
+3. `pop()` — Removes and returns the last element. **$O(1)$**. Nothing needs to move, because nothing sits after it.
+
+4. `insert(i, value)` — Inserts at position `i`, shifting everything after it up one place. **$O(n)$**. The shifting is unavoidable: contiguous storage means there is no gap to insert into.
+
+5. `delete(i)` — Removes the element at `i` and shifts everything after it down. **$O(n)$**, for the same reason.
+
+6. `length()` — How many elements are stored. $O(1)$.
+
+### The one claim worth being precise about
+
+**"Appending is $O(1)$" is a statement about a sequence, not about a single call.** Any individual append may be the unlucky one that triggers a copy of a million elements. If you are writing something latency-sensitive — an audio callback, a control loop, a game frame — that occasional $O(n)$ spike is real and will show up in your worst-case timing, even though your average looks perfect.
+
+The fix, when it matters, is to **reserve capacity up front** if you know roughly how many elements are coming. Most languages expose this: `reserve()` in C++, `ensureCapacity()` in Java. Python does not expose it directly, which is one reason building a list by repeated `append` in a hot loop is sometimes replaced by preallocating a list of the right size.
 
 ## Implementation - complete runnable example
 

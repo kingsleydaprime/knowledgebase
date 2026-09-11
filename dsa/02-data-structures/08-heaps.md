@@ -46,18 +46,27 @@ Imagine an **Hospital Emergency Room Triage Desk**:
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used with heaps
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **Min-Heap** | A tree where every parent node is $\le$ its children. | The root (top) is ALWAYS the absolute global minimum. |
-| **Max-Heap** | A tree where every parent node is $\ge$ its children. | The root (top) is ALWAYS the absolute global maximum. |
-| **Complete Binary Tree** | A binary tree where every level is fully filled except possibly the last level (filled left-to-right). | Allows storing a tree inside a flat array with zero pointers! |
-| **Sift-Up (Bubble-Up)** | Moving a newly inserted element UP the tree until heap property is restored. | Moving a critical patient to the front of triage. |
-| **Sift-Down (Bubble-Down)** | Moving a node DOWN the tree after replacing the root to restore heap property. | Re-sorting triage after top patient enters operating room. |
-| **Heapify** | Converting an unsorted array into a valid heap in **$O(n)$ time**. | Organizing a raw batch of ER patients at once. |
+1. **Heap**: This is a tree-shaped structure with one rule — every parent is ordered relative to its children. That single rule is weaker than full sorting, and the weakness is what makes it cheap to maintain.
 
----
+2. **Heap property**: This is the rule itself. In a **min-heap** every parent is less than or equal to both of its children. In a **max-heap** every parent is greater than or equal to both. Note it says nothing about siblings: two children of the same parent are in no particular order relative to each other.
+
+3. **Min-heap**: This is a heap where the smallest item is always at the root. If you repeatedly need "the smallest thing left", this is the structure.
+
+4. **Max-heap**: This is a heap where the largest item is always at the root.
+
+5. **Root**: This is the item at the top. In a min-heap it is the global minimum, and finding it costs nothing — you simply look at it.
+
+6. **Complete binary tree**: This means every level of the tree is completely full, except possibly the last, which fills from the left. This shape is not decoration: it is what lets the whole tree be stored in a plain array with **no pointers at all**, because a node at index $i$ has its children at $2i+1$ and $2i+2$.
+
+7. **Sift-up**: This is also called **bubble-up**. After adding an item at the bottom, it is compared with its parent and swapped upwards until the heap property holds again. It costs $O(\log n)$, because the tree's height is $\log n$.
+
+8. **Sift-down**: This is also called **bubble-down**. After removing the root, the last item is moved to the top and then swapped downwards with its smaller child until the property holds. Also $O(\log n)$.
+
+9. **Heapify**: This is turning an unordered array into a valid heap. Done naively — inserting items one at a time — it costs $O(n\log n)$. Done properly, sifting down from the middle of the array backwards, it costs **$O(n)$**, which is a genuinely surprising result worth understanding.
+
+10. **Priority queue**: This is the **ADT**; a heap is the usual **implementation** of it. The distinction matters and is the subject of the next section.
 
 ## 3. The Array Representation (Zero Pointers Required!)
 
@@ -94,6 +103,36 @@ $$\text{Right Child Index} = 2i + 2$$
 4. Repeat swapping DOWN until both children are larger (or it hits a leaf).
 
 ---
+
+## The priority queue ADT
+
+**This is the clearest example in the folder of why ADTs and implementations are different things**, and it is worth being careful about the words.
+
+A **priority queue** is an ADT: a collection where you add items freely and always remove the one with the highest priority. A **heap** is a way of building one. You could also build a priority queue from a sorted list, or an unsorted list, and it would satisfy the same ADT with different costs — which is exactly the comparison in the table below.
+
+1. `insert(item)` — Adds `item` to the collection. **$O(\log n)$** with a heap: place it at the end and sift up.
+
+2. `peek_min()` — Returns the smallest item **without** removing it. **$O(1)$** — it is the root, so you just read it. This is the operation heaps exist for.
+
+3. `extract_min()` — Removes and returns the smallest item. **$O(\log n)$**: take the root, move the last item to the top, sift down.
+
+4. `is_empty()` and `size()` — $O(1)$.
+
+5. `heapify(list)` — Builds a heap from an existing list in **$O(n)$**, which is faster than inserting the items one by one.
+
+6. `decrease_key(item, new_priority)` — Lowers an item's priority value and sifts it up. $O(\log n)$, but it needs a way to *find* the item first, which a plain heap does not provide. This is why [[06-dijkstra|Dijkstra's algorithm]] usually pushes a duplicate entry and skips stale ones instead.
+
+### Why a heap rather than a sorted list
+
+| Operation | Unsorted list | Sorted list | **Heap** |
+| :--- | :---: | :---: | :---: |
+| `insert` | $O(1)$ | $O(n)$ | $O(\log n)$ |
+| `peek_min` | $O(n)$ | $O(1)$ | $O(1)$ |
+| `extract_min` | $O(n)$ | $O(1)$ | $O(\log n)$ |
+
+A sorted list beats a heap on both read operations and loses badly on insert. An unsorted list is the mirror image. **The heap's whole value is that it is good at all three at once**, by maintaining exactly enough order to know the minimum and no more.
+
+That is the key idea and it is easy to miss: a heap is **not** a sorted structure. Printing a heap's array gives you something that looks almost random. It maintains one relationship — parent versus child — and refuses to do the extra work of ordering siblings, because knowing the minimum never required that work.
 
 ## 5. Python Implementation (`heapq` Module)
 

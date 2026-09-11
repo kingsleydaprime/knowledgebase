@@ -13,7 +13,7 @@ Welcome to the **Arrays** module. An array is the simplest, most fundamental dat
 
 1. Compute the memory address of any element from the base address and index.
 2. Explain why indexing is O(1) and why searching an unsorted array is not.
-3. Explain how a 2-D grid is flattened, and why row-major scanning is faster.
+3. Explain how a 2-D grid is flattened, the difference between **row-major and column-major** order, and why matching your loop order to the layout changes speed without changing complexity.
 4. Explain why building a string with += in a loop is O(n^2).
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
@@ -36,17 +36,27 @@ That property—storing items back-to-back in memory—is called **contiguity**,
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used with arrays
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **Contiguous Memory** | Data items placed directly next to each other in memory with zero gaps. | Parked cars in adjacent spaces. |
-| **Index** | The zero-based position number of an item in the array. | Element 0 is the 1st item. |
-| **Base Address** | The memory address where the very first element (`index 0`) lives. | Memory address `1000`. |
-| **Element Size** | The amount of bytes a single item consumes (e.g. 4 bytes for an integer). | 4 bytes per integer. |
-| **O(1) Access** | Instant lookup time regardless of array size ($n$). | Grabbing item #500 instantly. |
+1. **Array**: This is a block of memory holding a fixed number of items, all of the same type, laid out one after another with no gaps. Because the items are all the same size and sit next to each other, the computer can jump straight to any one of them.
 
----
+2. **Contiguous memory**: This means the items are placed directly next to each other in memory, with nothing in between. Think of parked cars in adjacent spaces rather than scattered around a city.
+
+3. **Element**: This is a single item stored in the array.
+
+4. **Index**: This is the position number of an element. It counts from **zero**, so the first element is at index 0, the second at index 1, and the last element of an array of length $n$ is at index $n-1$.
+
+5. **Base address**: This is the memory address where the very first element lives — the address of index 0. Everything else is worked out relative to it.
+
+6. **Element size**: This is how many bytes one item takes up. A 4-byte integer means every element is 4 bytes, and that sameness is what makes the arithmetic work.
+
+7. **Length**: This is how many elements the array holds. For a plain array it is fixed when the array is created and never changes — growing it is what [[02-dynamic-arrays|dynamic arrays]] are for.
+
+8. **Random access**: This means you can reach any element directly, without walking past the ones before it. Getting element 500 costs exactly what getting element 1 costs. This is the array's defining property.
+
+9. **Cache line**: This is the chunk of memory the processor actually fetches when you ask for a single byte — typically 64 bytes. You never fetch one item; you fetch the block it sits in, which is why reading neighbouring elements is nearly free.
+
+10. **Cache locality**: This means arranging your reads so that the things you use next are in the block you have already fetched. Good locality can make identical work run many times faster, without changing the complexity at all.
 
 ## 3. How Array Math Works ($O(1)$ Address Calculation)
 
@@ -76,20 +86,56 @@ The CPU jumps directly to address `1012`. It takes the exact same fraction of a 
 
 Memory in a computer chip is strictly 1-dimensional—a long single row of byte addresses. To store a 2D grid (matrix), languages must **flatten** the grid into a single 1D array.
 
-### Row-Major Order (C, C++, Python, Java)
-Rows are stored one after another in memory:
+There are two ways to do that flattening, and which one a language picks changes which loop order is fast.
+
+### Row-major order
+
+**Row-major means whole rows are stored one after another.** All of row 0, then all of row 1, and so on. Reading left to right across a row walks straight along memory.
 
 ```
 grid = [[1, 2, 3],
         [4, 5, 6]]
 
-Flattened in RAM:  [ 1, 2, 3,  4, 5, 6 ]
-                   ^-------^  ^-------^
-                    Row 0      Row 1
+Flattened in memory:  [ 1, 2, 3,  4, 5, 6 ]
+                      ^-------^  ^-------^
+                        Row 0      Row 1
 ```
 
-To access `grid[row][col]` in a grid with `num_cols`:
+To find `grid[r][c]` you skip `r` whole rows and then `c` elements:
+
 $$\text{Address}(r, c) = \text{Base} + (r \times \text{num\_cols} + c) \times \text{Element Size}$$
+
+**Used by:** C, C++, Java, Python, Rust, Go, and NumPy by default.
+
+### Column-major order
+
+**Column-major means whole columns are stored one after another.** All of column 0, then all of column 1. It is the same grid and the same idea, with the roles of rows and columns swapped.
+
+```
+grid = [[1, 2, 3],
+        [4, 5, 6]]
+
+Flattened in memory:  [ 1, 4,  2, 5,  3, 6 ]
+                      ^----^  ^----^  ^----^
+                      Col 0   Col 1   Col 2
+```
+
+Now you skip `c` whole columns and then `r` elements, so the multiplication uses the number of **rows** instead:
+
+$$\text{Address}(r, c) = \text{Base} + (c \times \text{num\_rows} + r) \times \text{Element Size}$$
+
+**Used by:** Fortran, MATLAB, R, Julia, and the BLAS and LAPACK numerical libraries that almost all scientific computing sits on top of.
+
+### Why the difference matters
+
+Neither layout is better. **What matters is that your loop order matches your layout**, because the processor fetches a whole 64-byte block whenever you read one element.
+
+- In a **row-major** language, make the **column** index the inner loop. You then read neighbouring addresses, and each fetched block serves many iterations.
+- In a **column-major** language, make the **row** index the inner loop, for exactly the same reason.
+
+Get it backwards and every single read lands in a different block. The complexity is unchanged — it is $O(\text{rows} \times \text{cols})$ either way — but the running time is not, and the lab below measures a **16×** difference in blocks fetched.
+
+This is also the single most common source of confusion when moving numerical code between Python and MATLAB, or when calling a Fortran library from C. The array contents are identical; only the order in memory differs. NumPy makes the choice explicit with `order='C'` for row-major and `order='F'` for column-major — the letters standing for C and Fortran.
 
 ### Performance Consequence: Cache Locality
 When your CPU loads `arr[i]` from RAM into its ultra-fast L1 cache, it automatically grabs a **64-byte block (Cache Line)** containing adjacent elements (`arr[i+1]`, `arr[i+2]`, etc.).
@@ -149,6 +195,25 @@ result = "".join(char_list)
 
 ---
 
+## The array ADT
+
+An ADT is a description of **what** a structure does, listed before you decide **how** it is built. For an array the list is strikingly short, and that is the point — an array does almost nothing, extremely fast.
+
+1. `get(i)` — Returns the element at index `i`. Costs $O(1)$: the computer does one multiplication and one addition to work out the address, then reads it. It does not matter whether `i` is 0 or 4,000,000.
+
+2. `set(i, value)` — Replaces the element at index `i` with `value`. Also $O(1)$, for the same reason.
+
+3. `length()` — Returns how many elements the array holds. $O(1)$, because the length is stored, not counted.
+
+That is the entire ADT of a fixed array. Notice what is **absent**:
+
+- There is no `insert(i, value)`. To make room in the middle you must shift every later element up by one, which is $O(n)$ work, and the array has no spare room at the end anyway.
+- There is no `delete(i)`. Removing from the middle leaves a hole, and closing it means shifting everything after it down — again $O(n)$.
+- There is no `append(value)`. The length is fixed at creation. Getting one is the whole subject of [[02-dynamic-arrays|dynamic arrays]].
+- There is no `find(value)`. You can scan for it yourself in $O(n)$, but the array does not help — it knows nothing about what it contains, only where things sit.
+
+**The trade in one sentence.** An array gives you the fastest possible access *by position* and offers nothing else. Every other structure in this folder is, in some sense, paying an access-time cost to buy back one of those missing operations.
+
 ## Implementation - complete runnable example
 
 **Runnable example:** save as `arrays_lab.py` and run `python3 arrays_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
@@ -164,8 +229,16 @@ def address_of(base, index, element_size):
     return base + index * element_size
 
 def flat_index(row, col, n_cols):
-    """Row-major: a 2-D grid laid out as one 1-D run of memory."""
+    """Row-major: skip whole ROWS, then step along the row.
+
+    Used by C, C++, Java, Python, Rust, Go and NumPy by default."""
     return row * n_cols + col
+
+def flat_index_col_major(row, col, n_rows):
+    """Column-major: skip whole COLUMNS, then step down the column.
+
+    Used by Fortran, MATLAB, R, Julia, and the BLAS/LAPACK libraries."""
+    return col * n_rows + row
 
 def scan_order(rows, cols, row_major):
     """Return the flat indices a nested loop touches, in order."""
@@ -203,6 +276,30 @@ if __name__ == "__main__":
     print("  the same one multiplication and one addition, whatever i is.")
     print()
 
+    print("TWO LAYOUTS -- the same grid, flattened two different ways")
+    grid = [[1, 2, 3], [4, 5, 6]]
+    n_rows, n_cols = len(grid), len(grid[0])
+    row_major_flat = [None] * (n_rows * n_cols)
+    col_major_flat = [None] * (n_rows * n_cols)
+    for r in range(n_rows):
+        for c in range(n_cols):
+            row_major_flat[flat_index(r, c, n_cols)] = grid[r][c]
+            col_major_flat[flat_index_col_major(r, c, n_rows)] = grid[r][c]
+    print(f"  grid            {grid}")
+    print(f"  row-major    -> {row_major_flat}")
+    print(f"  column-major -> {col_major_flat}")
+    assert row_major_flat == [1, 2, 3, 4, 5, 6]
+    assert col_major_flat == [1, 4, 2, 5, 3, 6]
+    # both formulas must recover the same element from their own layout
+    for r in range(n_rows):
+        for c in range(n_cols):
+            assert row_major_flat[flat_index(r, c, n_cols)] == grid[r][c]
+            assert col_major_flat[flat_index_col_major(r, c, n_rows)] == grid[r][c]
+    print("  both address formulas recover every element correctly from their own")
+    print("  layout. Neither is 'right' - they are different conventions, and the")
+    print("  one your language uses decides which loop order is cache-friendly.")
+
+    print()
     print("ROW-MAJOR LAYOUT -- a 2-D grid is a lie told over 1-D memory")
     grid = [[1, 2, 3], [4, 5, 6]]
     flat = [v for row in grid for v in row]
@@ -247,6 +344,14 @@ ADDRESS ARITHMETIC -- why arr[i] is O(1)
   arr[  4] lives at 1000 + 4 x 4 = 1016
   arr[500] lives at 1000 + 500 x 4 = 3000
   the same one multiplication and one addition, whatever i is.
+
+TWO LAYOUTS -- the same grid, flattened two different ways
+  grid            [[1, 2, 3], [4, 5, 6]]
+  row-major    -> [1, 2, 3, 4, 5, 6]
+  column-major -> [1, 4, 2, 5, 3, 6]
+  both address formulas recover every element correctly from their own
+  layout. Neither is 'right' - they are different conventions, and the
+  one your language uses decides which loop order is cache-friendly.
 
 ROW-MAJOR LAYOUT -- a 2-D grid is a lie told over 1-D memory
   grid  = [[1, 2, 3], [4, 5, 6]]

@@ -46,17 +46,47 @@ Now, if someone asks: *"Are Alice and Charlie in the same friend network?"*, `fi
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used with union-find
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **Disjoint Set** | A collection of sets where no element belongs to more than one set. | Non-overlapping sports teams. |
-| **Root Representative** | The canonical "leader" node of a group. | The team captain. |
-| **Path Compression** | Flattening tree paths during `find()` so future lookups are instant. | Shortcuts straight to the captain. |
-| **Union by Rank** | Always attaching the shorter tree under the taller tree to keep depth small. | Merging smaller team into larger team. |
-| **Inverse Ackermann ($\alpha(n)$)** | A mathematical function that grows so slowly it is $\le 4$ for all numbers in the universe! | Effectively **$O(1)$ Constant Time**. |
+1. **Union-find**: This is a structure for keeping track of which things are grouped together, when groups can only ever **merge** and never split. It is also called a **disjoint set union**, shortened to **DSU**.
 
----
+2. **Disjoint sets**: This means a collection of groups where nothing belongs to more than one group. Every element is in exactly one group at any moment.
+
+3. **Representative**: This is one chosen member of a group that stands for the whole group. It is also called the **root** or the **leader**. Two elements are in the same group exactly when they have the same representative — and that is the entire trick, because comparing two representatives is one comparison rather than a search.
+
+4. **Parent pointer**: This is a reference from each element to another element in its group. Following parents repeatedly eventually reaches the representative, which is its own parent.
+
+5. **Find**: This is the operation that returns an element's representative, by following parent pointers to the top.
+
+6. **Union**: This is the operation that merges two groups, by making one group's representative point at the other's.
+
+7. **Path compression**: This is an optimisation applied during `find`. Once you have walked up to the representative, you go back and point every element you passed **directly** at it, so the next `find` on any of them is immediate. It makes the structure flatter every time you use it.
+
+8. **Union by rank**: This is the other optimisation. When merging, always attach the **shorter** tree underneath the taller one, so the result never gets deeper than it needs to be. A close relative, **union by size**, attaches the smaller group under the larger and works just as well.
+
+9. **Inverse Ackermann function**: This is written $\alpha(n)$, and it is the cost of each operation once both optimisations are used. It grows so extraordinarily slowly that it is **less than 5 for any $n$ you could ever store**, so in practice the operations are treated as constant time — though strictly they are not.
+
+## The union-find ADT
+
+Union-find answers one question, very fast, under one restriction: **groups merge and never split.**
+
+1. `make_set(x)` — Creates a new group containing only `x`. $O(1)$.
+
+2. `find(x)` — Returns the representative of `x`'s group. **$O(\alpha(n))$**, effectively constant. You rarely care about the representative's identity; you care that two elements sharing one are in the same group.
+
+3. `union(x, y)` — Merges the groups containing `x` and `y`. **$O(\alpha(n))$**. Usually it returns whether a merge actually happened — if `x` and `y` were already together, that is a useful signal, and it is exactly how [[12-minimum-spanning-tree|Kruskal's algorithm]] detects that an edge would create a cycle.
+
+4. `connected(x, y)` — Returns whether the two are in the same group. This is just `find(x) == find(y)`.
+
+5. `count()` — How many separate groups remain. Start it at the number of elements and decrement on every successful union.
+
+### The restriction is the point
+
+**There is no `split` operation, and there cannot be one.** Path compression works by discarding the history of how groups were built — it rewires pointers straight to the representative — so the information needed to undo a merge is deliberately thrown away. That is precisely what makes it so fast.
+
+So union-find is the right structure when connections are only ever **added**: building a [[12-minimum-spanning-tree|minimum spanning tree]], detecting a cycle as edges arrive, counting connected components in a [[06-graphs/index|graph]] that grows, or grouping accounts as duplicates are discovered.
+
+If connections can be **removed**, union-find cannot help, and you are usually back to recomputing components with [[02-dfs|DFS]] or [[03-bfs|BFS]] — or reaching for a considerably more complex dynamic-connectivity structure.
 
 ## 3. High-Performance Implementation (Python)
 

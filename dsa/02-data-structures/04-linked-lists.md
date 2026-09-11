@@ -34,17 +34,27 @@ In computer science, this is a **Linked List**. Because nodes are connected pure
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used with linked lists
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **Node** | A container object holding a data value and pointer(s). | A single scavenger clue card. |
-| **Pointer (`next`)** | A memory address reference pointing to another node. | Address written on a sticky note. |
-| **Head** | A pointer pointing to the very first node in the list. | The starting clue at Base Camp. |
-| **Tail** | The final node in the list (`next` points to `None`). | The final clue card. |
-| **Sentinel (Dummy Head)** | A fake initial node added to simplify pointer code. | An empty placeholder envelope at the start. |
+1. **Node**: This is a small container holding two things: one data value, and a pointer to another node. A linked list is nothing more than a chain of these. Think of a treasure-hunt clue card holding a message and telling you where the next card is.
 
----
+2. **Pointer**: This is a stored memory address — a note saying "the next item lives over there". Following a pointer is how you move from one node to the next. In Python it is a reference held in a variable; in C it is a literal address.
+
+3. **`next`**: This is the usual name for the pointer inside a node that points to the following node.
+
+4. **Head**: This is the pointer to the very first node. It is the only way in — lose the head and the whole list becomes unreachable, because nothing else points at the start.
+
+5. **Tail**: This is the last node in the list. Its `next` points at nothing, written `None` in Python and `NULL` in C, and that nothing is how you know you have reached the end.
+
+6. **Traversal**: This means walking the list from the head, following `next` pointers one at a time. It is the only way to reach the middle, which is why reaching position $i$ costs $O(i)$ rather than $O(1)$.
+
+7. **Singly linked list**: This is a list where each node points only **forwards**. You can walk from head to tail but never backwards.
+
+8. **Doubly linked list**: This is a list where each node holds **two** pointers, one to the next node and one to the previous. It costs extra memory per node and buys backwards traversal and $O(1)$ deletion when you already hold the node.
+
+9. **Sentinel**: This is also called a **dummy head**. It is a fake node placed before the real first one, holding no useful data. Its purpose is to remove special cases: with a sentinel there is always a node before the one you are working on, so inserting at the front is the same code as inserting anywhere else.
+
+10. **Cycle**: This is when some node's `next` points back to an earlier node, so the chain loops forever instead of ending. Detecting one is what [[04-patterns/04-fast-slow-pointers|fast and slow pointers]] are for.
 
 ## 3. The 4 Main Variations of Linked Lists
 
@@ -146,6 +156,36 @@ Address 100         Address 8500        Address 410
 3. **Infinite Loops in Circular Lists**: A circular list has no `None` at the end. Looping `while current:` creates an infinite loop. You must loop `while current is not start_node`.
 
 ---
+
+## The linked list ADT
+
+A linked list holds items in order, like an array, but makes the **opposite trade**. Reading this beside [[01-arrays|the array ADT]] is the quickest way to see why both exist.
+
+1. `insert_front(item)` — Adds `item` at the start. **$O(1)$** — make a node, point it at the current head, move the head. Nothing else moves. An array cannot do this without shifting every element.
+
+2. `delete_front()` — Removes the first item. **$O(1)$**, for the same reason.
+
+3. `insert_after(node, item)` — Adds `item` directly after a node you already hold. **$O(1)$**: two pointer assignments, whatever the list length.
+
+4. `delete_after(node)` — Removes the node after the one you hold. **$O(1)$**.
+
+5. `get(i)` — Returns the item at position `i`. **$O(i)$** — you must walk from the head following `i` pointers. There is no arithmetic shortcut, because the nodes are scattered in memory rather than laid out in a row.
+
+6. `find(value)` — Returns the first node holding `value`. $O(n)$, by walking.
+
+7. `is_empty()` and `size()` — Whether the list is empty, and how many nodes it holds. $O(1)$ if you keep a running count, $O(n)$ if you do not.
+
+### The trade, stated plainly
+
+An array gives you **$O(1)$ access by position** and charges **$O(n)$** for insertion and deletion in the middle.
+
+A linked list gives you **$O(1)$ insertion and deletion** — *provided you already hold the node* — and charges **$O(n)$** for access by position.
+
+That proviso does a lot of work and is the most commonly missed point. "Deleting from a linked list is $O(1)$" is only true once you are standing at the right node. If all you have is an index you must walk there first, and the walk is $O(i)$ — so deleting the $i$th item is $O(i)$ overall. The $O(1)$ claim is genuine when the node reference comes from somewhere else, which is exactly the situation in an LRU cache, where a hash map hands you the node directly.
+
+### The cost the complexity table does not show
+
+Array elements sit next to each other, so reading one pulls its neighbours into cache for free. Linked list nodes are allocated separately and may be anywhere in memory, so every `next` you follow can be a cache miss. **In practice this makes walking a linked list several times slower than scanning an array of the same length, even though both are $O(n)$.** That is much of why arrays are the default and linked lists are reached for only when their specific $O(1)$ splice genuinely matters.
 
 ## Implementation - complete runnable example
 

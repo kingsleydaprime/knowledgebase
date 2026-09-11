@@ -20,10 +20,13 @@ everywhere at once.
 | **ALU** | arithmetic logic unit |
 | **API** | application programming interface |
 | **ARP** | address resolution protocol |
+| **ASCII** | American standard code for information interchange |
 | **AST** | abstract syntax tree |
+| **AVL** | Adelson-Velsky and Landis, the inventors of the self-balancing tree |
 | **AWS** | Amazon Web Services |
 | **BFS** | breadth-first search |
 | **BIOS** | basic input/output system |
+| **BLAS** | basic linear algebra subprograms |
 | **BST** | binary search tree |
 | **CDN** | content delivery network |
 | **CI** | continuous integration |
@@ -45,6 +48,7 @@ everywhere at once.
 | **DRAM** | dynamic random-access memory |
 | **DSA** | data structures and algorithms |
 | **DSP** | digital signal processing |
+| **DSU** | disjoint set union |
 | **FDM** | finite difference method |
 | **FEM** | finite element method |
 | **FFT** | fast Fourier transform |
@@ -63,6 +67,7 @@ everywhere at once.
 | **JSON** | JavaScript object notation |
 | **JVM** | Java virtual machine |
 | **JWT** | JSON web token |
+| **LAPACK** | linear algebra package |
 | **LIFO** | last in, first out |
 | **LLM** | large language model |
 | **LRU** | least recently used |
@@ -73,6 +78,8 @@ everywhere at once.
 | **MTU** | maximum transmission unit |
 | **MVC** | model-view-controller |
 | **NAT** | network address translation |
+| **NP** | nondeterministic polynomial time |
+| **NTFS** | new technology file system |
 | **ODE** | ordinary differential equation |
 | **ORM** | object-relational mapping |
 | **OS** | operating system |
