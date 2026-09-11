@@ -14,11 +14,11 @@
 3. Classify any graph along the four dimensions: **directed/undirected, weighted/unweighted, cyclic/acyclic, connected/disconnected**.
 4. State and verify the **handshake lemma**.
 
-**Study route:** read 1–4, attempt the prediction in section 3, then run the lab.
+**Study route:** read the terms first, then the four dimensions, then the abstract data type. Attempt the prediction before the lab, then run it.
 
 ---
 
-## 1. Why this exists
+## Why this exists
 
 A graph is the structure you reach for when **the relationships matter as much as the things**. Cities and roads. Users and follows. Tasks and dependencies. Web pages and links.
 
@@ -60,14 +60,14 @@ These are all the words the rest of this folder is written in. None of them are 
 
 **Incident and adjacent are not interchangeable.** *Incident* relates an edge to a vertex. *Adjacent* relates two vertices to each other. Textbooks are strict about this and so are exam questions.
 
-## 3. The four dimensions
+## The four dimensions of a graph
 
 Every graph question starts by fixing these four. Get one wrong and the algorithm you choose is wrong.
 
 | Dimension        | Options                         | What it changes                             |
 | :--------------- | :------------------------------ | :------------------------------------------ |
 | **Direction**    | Undirected / directed (digraph) | Whether an edge can be traversed both ways  |
-| **Weight**       | Unweighted / weighted           | Whether BFS suffices or you need Dijkstra   |
+| **Weight**       | Unweighted / weighted           | Whether BFS (breadth-first search) suffices or you need Dijkstra   |
 | **Cycles**       | Cyclic / acyclic                | Whether you need a visited set to terminate |
 | **Connectivity** | Connected / disconnected        | Whether one traversal reaches everything    |
 
@@ -88,7 +88,49 @@ An immediate consequence: **the number of odd-degree vertices is always even.** 
 > [!TIP]
 > **Predict before running the lab.** A simple undirected graph has $6$ vertices. What is the largest possible number of edges? And could such a graph have exactly three vertices of odd degree? Decide before opening the answers.
 
-## 4. Worked example — runnable
+## The graph ADT (abstract data type)
+
+An **ADT (abstract data type)** is a description of *what* a structure does, written down before you decide *how* to build it. It lists the operations you can perform, says what each one means, and says nothing at all about arrays, lists or hash maps. That separation is the point: the same ADT (abstract data type) can be built several different ways, and [[04-representations|lesson 4]] shows five of them, each making different operations cheap.
+
+Read this before the code below. The code answers "how"; this answers "what" and "why", and you cannot reliably work those out by reading an implementation.
+
+A graph supports these operations.
+
+**Building it**
+
+1. `add_vertex(v)` — Adds a new vertex `v` to the graph, with no edges attached to it yet. Use it when a new thing appears: a new city, a new user, a new task. If the vertex is already there, nothing should happen.
+
+2. `add_edge(u, v)` — Creates a connection between the two vertices `u` and `v`. In an undirected graph this makes them neighbours of each other. In a directed graph it means you can go from `u` to `v`, and says nothing about going back.
+
+3. `remove_edge(u, v)` — Deletes the connection between `u` and `v`, leaving both vertices in place. Use it when a road closes but the two towns still exist.
+
+4. `remove_vertex(v)` — Deletes the vertex `v` **and every edge attached to it**. That second part is not optional: an edge with only one endpoint is not a thing, so removing a vertex must remove its edges too.
+
+**Asking questions about it**
+
+5. `adjacent(u, v)` — Returns `true` if there is an edge between `u` and `v`, and `false` otherwise. Use it when you have two specific vertices in mind and want to know whether they are joined — "is there a direct flight from Lagos to Accra?"
+
+6. `neighbours(v)` — Returns all the vertices directly connected to `v`. Use it when you are standing at one vertex and want to know where you can go next. This is the operation every traversal actually runs on, which is why it is the one worth making fast.
+
+7. `degree(v)` — Returns how many edges are attached to `v`. For an undirected graph this is just the number of neighbours, except that a self-loop counts twice.
+
+8. `vertices()` — Returns every vertex in the graph.
+
+9. `edges()` — Returns every edge in the graph. Some algorithms want exactly this and nothing else — [[12-minimum-spanning-tree|Kruskal's algorithm]] sorts the whole edge list and never asks for a single vertex's neighbours.
+
+10. `order()` and `size()` — Return the number of vertices and the number of edges respectively.
+
+**Weighted graphs add two more**
+
+11. `set_weight(u, v, w)` — Attaches the number `w` to the edge between `u` and `v`.
+
+12. `weight(u, v)` — Returns the number attached to that edge.
+
+**Why the operations matter more than they look.** Notice that `adjacent(u, v)` and `neighbours(v)` are different questions. The first asks about one specific pair; the second asks for a whole list. No single way of storing a graph makes both cheap — an adjacency matrix answers `adjacent` instantly but has to scan a whole row for `neighbours`, and an adjacency list is the other way round. **Choosing a representation is really choosing which of these operations you are willing to make slow**, and you can only make that choice once you know which ones your algorithm actually calls.
+
+The costs of each operation under each representation are tabulated in [[04-representations|lesson 4]], once the representations themselves have been introduced.
+
+## Worked example — runnable
 
 **Runnable example:** save as `graph_basics.py` in any empty directory and run `python3 graph_basics.py`. Standard library only; writes no files.
 
@@ -303,7 +345,7 @@ graph_basics: passed
 4. An edge is **incident** to the two vertices it joins. Two vertices are **adjacent** when an edge joins them.
 5. Because degree counts _edge-ends_ at a vertex, and a self-loop has both of its ends at the same vertex.
 
-**And the prediction from section 3:** the maximum is $\binom{6}{2} = 15$ edges — the complete graph $K_6$, where every pair is joined. And **no**, it cannot have exactly three odd-degree vertices: the degree sum must be even, so odd-degree vertices always come in pairs.
+**And the prediction from the four dimensions section:** the maximum is $\binom{6}{2} = 15$ edges — the complete graph $K_6$, where every pair is joined. And **no**, it cannot have exactly three odd-degree vertices: the degree sum must be even, so odd-degree vertices always come in pairs.
 </details>
 
 ## Practice — independent task
