@@ -70,7 +70,7 @@ Everything after this is quoted in the vocabulary those two establish, so they g
 5. [[03-hash-maps|hash-maps]] — **[Beginner]** — hashing, collisions, chaining vs open addressing, hash sets, **and what a hash map gives up to buy O(1)**
 6. [[04-linked-lists|linked-lists]] — **[Intermediate]** — singly/doubly/circular, the sentinel trick, **and why they lose to arrays in practice despite the Big-O**
 7. [[01-trees|trees]] — **[Intermediate]** — full/complete/perfect/balanced, BSTs, AVL and red-black rotations, **and the B+ trees under every database index**
-   - [[02-traversal|traversal]] — **[Intermediate]** — pre/in/post/level-order (companion note)
+   - [[04-traversal/index|traversal]] — **[Intermediate]** — pre/in/post/level-order (companion note)
 8. [[06-graphs/index|graphs]] — **[Intermediate]** — directed/weighted/cyclic/bipartite, three representations, **and implicit graphs: the ones with no graph object at all**
 9. [[dsa/02-data-structures/07-stacks-and-queues|stacks-and-queues]] — **[Beginner]** — LIFO/FIFO, the circular buffer trick
 10. [[dsa/02-data-structures/08-heaps|heaps]] — **[Intermediate]** — priority queues, complete-tree-in-an-array, O(n) heapify, the two-heap median trick

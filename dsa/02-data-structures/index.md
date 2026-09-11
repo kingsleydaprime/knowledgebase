@@ -15,7 +15,7 @@ Ordered so each builds on the last — dynamic arrays assume arrays, heaps assum
 3. [[03-hash-maps|Hash Maps & Hash Sets]] — hashing, collision resolution, load factor, and when O(1) degrades
 4. [[04-linked-lists|Linked Lists]] — pointer-based nodes, O(1) splicing, and the cost of losing random access
 5. [[05-trees/01-trees|Trees]] — hierarchy, height vs. size, and why an unbalanced BST degenerates to a list
-   - [[05-trees/02-traversal|Tree Traversal]] — pre-order, in-order, post-order, level-order, and what each one is *for*
+   - [[05-trees/04-traversal/index|Tree Traversal]] — pre-order, in-order, post-order, level-order, and what each one is *for*
 6. [[06-graphs/index|Graphs]] — vertices and edges, adjacency list vs. matrix, and the space/time tradeoff between them
 7. [[07-stacks-and-queues|Stacks and Queues]] — LIFO and FIFO, and the problems whose shape each one matches
 8. [[08-heaps|Heaps & Priority Queues]] — the heap property, sift-up/sift-down, and O(log n) extreme-value access

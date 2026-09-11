@@ -1,24 +1,22 @@
-# Module: Tree Traversal (Visiting Every Node)
+# Module: Depth-First Traversals (Pre-order, In-order, Post-order)
 
-Welcome to the **Tree Traversal** module. Traversal means systematically visiting every single node in a data structure exactly once.
-
-In linear structures like [[01-arrays|Arrays]] or [[04-linked-lists|Linked Lists]], traversal is simple—you start at the beginning and move in a straight line to the end. In branching structures like [[01-trees|Trees]] and [[06-graphs/index|Graphs]], traversal requires a defined strategy because each node can have multiple paths leading away from it.
-
----
+**[Intermediate]** — three orders that differ by one line, and the different jobs each one is right for.
 
 ## Before you start
 
-- You understand tree structure and the BST property. See [[01-trees|trees]].
-- You know that recursion uses a call stack. See [[07-stacks-and-queues|stacks and queues]].
+- You know what a binary tree is — [[../02-binary-trees|binary trees]].
+- You can trace a recursive call, and you know what a stack does — [[../../07-stacks-and-queues|stacks and queues]].
 
-**What you will be able to do after this lesson:**
+**After this lesson you will be able to:**
 
-1. State what pre-, in- and post-order produce and when each is correct.
-2. Choose the right traversal from the direction the data flows.
-3. Implement a traversal both recursively and with an explicit stack.
-4. Explain why level-order needs a queue rather than a stack.
+1. Perform all three depth-first traversals by hand on a given tree.
+2. Say which job each order is right for, and why.
+3. Write each one recursively **and** iteratively with an explicit stack.
+4. Explain why in-order traversal of a binary search tree comes out sorted.
 
-**Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
+**Study route:** read the orders, trace each on the reference tree by hand, then run the lab.
+
+---
 
 ## 1. Why Tree Traversal Strategies Matter (Real-World Motivation)
 
@@ -46,16 +44,23 @@ Throughout this module, we will trace the 4 primary traversal orders using this 
 
 ---
 
-## 3. Plain-English Terminology & Concept Table
+## Terms used with tree traversal
 
-| Traversal Strategy | Mnemonic Rule | Visited Sequence | Common Use Case |
-| :--- | :--- | :--- | :--- |
-| **Preorder** | **Node** $\rightarrow$ Left $\rightarrow$ Right | `1, 2, 4, 5, 3` | Cloning/serializing a tree, folder hierarchy printing. |
-| **Inorder** | Left $\rightarrow$ **Node** $\rightarrow$ Right | `4, 2, 5, 1, 3` | **BST sorted order retrieval**. |
-| **Postorder** | Left $\rightarrow$ Right $\rightarrow$ **Node** | `4, 5, 2, 3, 1` | Deleting nodes bottom-up, evaluating expression trees. |
-| **Level-Order** | Level by Level (Left to Right) | `1, 2, 3, 4, 5` | Printing org charts, finding shortest path in unweighted graphs. |
+1. **Traversal**: This means visiting every node in a tree exactly once, in some definite order. The tree itself does not change; what changes is the **sequence** in which you see the nodes.
 
----
+2. **Visit**: This is the moment you actually do something with a node — print it, add it to a list, compare it. The whole difference between the traversal orders is *when* the visit happens relative to the recursive calls.
+
+3. **Depth-first traversal**: This means going as deep as possible down one branch before backing up and trying another. It uses a stack, either an explicit one or the call stack that recursion provides.
+
+4. **Breadth-first traversal**: This means visiting every node at one depth before moving to the next depth down. It uses a queue. It is also called **level-order traversal**.
+
+5. **Pre-order**: Visit the node **first**, then its left subtree, then its right subtree. The root comes out first, which is what makes it right for copying a tree or writing it out to a file.
+
+6. **In-order**: Visit the left subtree, then the node, then the right subtree. On a [[../03-binary-search-trees|binary search tree]] this produces the values in **sorted order**, which is its main use.
+
+7. **Post-order**: Visit the left subtree, then the right subtree, then the node **last**. A node is only visited after everything beneath it, which is what makes it right for deleting a tree or evaluating an expression.
+
+8. **Level-order**: Visit all nodes at depth 0, then all at depth 1, and so on. This is [[../../../03-algorithms/03-bfs|breadth-first search]] applied to a tree.
 
 ## 4. Depth-First Traversals (Preorder, Inorder, Postorder)
 
@@ -115,61 +120,6 @@ def postorder(node: TreeNode, result: list):
 # Visited Order: [4, 5, 2, 3, 1]
 ```
 *Why Postorder is special*: Essential when a parent node requires calculation results from both of its children before it can compute its own answer (e.g. calculating directory file sizes, freeing memory in C).
-
----
-
-## 5. Breadth-First Traversal (Level-Order Traversal)
-
-Unlike DFS traversals, **Level-Order Traversal** visits nodes level by level from top to bottom, left to right.
-
-Because recursion uses a LIFO call stack, Level-Order cannot be written recursively. It uses an explicit **Queue (FIFO)** data structure:
-
-```python
-from collections import deque
-
-def level_order(root: TreeNode) -> list:
-    """Level-order traversal using an explicit Queue."""
-    if root is None:
-        return []
-    
-    result = []
-    queue = deque([root])  # Initialize FIFO Queue with root
-    
-    while queue:
-        current = queue.popleft()  # Remove next node from queue
-        result.append(current.val)
-        
-        # Enqueue left child if it exists
-        if current.left:
-            queue.append(current.left)
-            
-        # Enqueue right child if it exists
-        if current.right:
-            queue.append(current.right)
-            
-    return result
-
-# Visited Order: [1, 2, 3, 4, 5]
-```
-
----
-
-## 6. Time & Space Complexity Summary
-
-| Traversal Type | Time Complexity | Space Complexity (Auxiliary Stack/Queue) |
-| :--- | :--- | :--- |
-| **Preorder (DFS)** | $O(n)$ | $O(h)$ call stack space ($h = \text{height of tree}$). |
-| **Inorder (DFS)** | $O(n)$ | $O(h)$ call stack space ($O(\log n)$ balanced, $O(n)$ degenerate). |
-| **Postorder (DFS)** | $O(n)$ | $O(h)$ call stack space. |
-| **Level-Order (BFS)** | $O(n)$ | $O(w)$ queue space ($w = \text{max width of tree}$, up to $N/2$ leaves). |
-
----
-
-## 7. Common Pitfalls & Traps
-
-1. **Stack Overflow on Deep Trees**: Recursive DFS uses the CPU call stack. For a degenerate tree of height $10,000$, recursive traversal causes a `RecursionError` / Stack Overflow. Use an explicit iterative stack for deep trees.
-2. **Queue vs Stack Trap in BFS**: Level-order requires a **FIFO Queue** (`popleft()`). Accidental use of a LIFO Stack (`pop()`) turns BFS into a bizarre right-to-left DFS traversal!
-3. **Inorder Fallacy**: Inorder traversal only produces sorted output on **Binary Search Trees (BSTs)**. On arbitrary binary trees, it does not guarantee sorted order.
 
 ---
 
@@ -365,19 +315,14 @@ The two-stack trick avoids that entirely: do a modified pre-order visiting node-
 
 ## Before moving on
 
-You are done with this module when you can, closed-book:
+You can perform all three orders by hand, write each recursively and iteratively, and say what each is for.
 
-- [ ] State the three depth-first orders and what each produces on a sample tree.
-- [ ] Choose the correct order given whether a node's answer depends on ancestors or children.
-- [ ] Implement pre-order with an explicit stack and explain the push order.
-- [ ] Explain why level-order uses a queue and what that costs in memory.
+**Recap:** all three are depth-first and all three cost $O(n)$ time and $O(h)$ space; they differ only in **when the node is visited** relative to its subtrees — **pre-order** visits the node first and is for copying or serialising, **in-order** visits it in the middle and yields sorted output on a binary search tree, **post-order** visits it last and is for deleting or evaluating. The recursive versions are three lines each; the iterative versions replace the call stack with an explicit one, and post-order is the awkward one.
 
-**Recap:** The three depth-first orders differ only in when the node is visited relative to its subtrees, and that timing is the entire choice. Pre-order suits top-down problems where a node's answer depends on its ancestors; post-order suits bottom-up problems where it depends on its children; in-order on a BST yields sorted output. Level-order uses a queue instead of a stack and visits by distance from the root. Recursion is an implicit stack, so any traversal can be written iteratively - and must be, when depth could overflow.
+**Next:** [[02-level-order-traversal|Level-Order Traversal]] — the one that is not depth-first.
 
-**Next:** [[06-graphs/index|Graphs]] - a tree is a graph with no cycles - remove that restriction and traversal needs one more thing.
+## Related
 
-## Related Modules
-- [[01-trees|Trees]] — Binary Tree definitions, heights, and shapes
-- [[02-dfs|Depth-First Search (DFS)]] — DFS algorithms on graphs
-- [[03-bfs|Breadth-First Search (BFS)]] — BFS shortest path algorithms
-- [[07-stacks-and-queues|Stacks and Queues]] — Detailed queue and stack mechanics
+- [[index|the traversal folder]]
+- [[../03-binary-search-trees|Binary Search Trees]] — where in-order matters most
+- [[../../../03-algorithms/02-dfs|Depth-First Search]] — the same idea on a general graph, where you also need a visited set
