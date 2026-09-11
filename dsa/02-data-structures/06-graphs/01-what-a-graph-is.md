@@ -71,7 +71,39 @@ Every graph question starts by fixing these four. Get one wrong and the algorith
 | **Cycles**       | Cyclic / acyclic                | Whether you need a visited set to terminate |
 | **Connectivity** | Connected / disconnected        | Whether one traversal reaches everything    |
 
-An undirected edge $\{u,v\}$ means $u$ and $v$ are mutually adjacent. A directed edge $(u,v)$ means you can go from $u$ to $v$ and says **nothing** about the reverse. "Following" on social media is directed; "friendship" on most platforms is undirected.
+Each of those four rows is a question with two answers. Here is what all twelve words mean.
+
+### Direction
+
+1. **Direction**: This is the question of whether an edge can be travelled both ways or only one way. It is the first thing to settle about any graph, because almost every algorithm behaves differently depending on the answer.
+
+2. **Undirected**: This means every edge works in both directions. An undirected edge between $u$ and $v$ is written $\{u,v\}$ with curly brackets, and it makes $u$ and $v$ neighbours of each other — if you can get from $u$ to $v$ then you can always get back. Friendship on most platforms is undirected: if I am your friend, you are mine.
+
+3. **Directed**: This means every edge points one way only. A directed graph is also called a **digraph**. A directed edge from $u$ to $v$ is written $(u,v)$ with round brackets, and it says you can go from $u$ to $v$ and says **nothing at all** about going back. Following someone on social media is directed: you following them does not mean they follow you.
+
+### Weight
+
+4. **Weight**: This is the question of whether the edges carry numbers. Those numbers might be distances, costs, capacities, travel times, or anything else you are measuring.
+
+5. **Unweighted**: This means the edges carry no numbers, so every edge counts the same. "Shortest path" then simply means "fewest edges", which is a question BFS (breadth-first search) answers directly.
+
+6. **Weighted**: This means every edge carries a number. Now "shortest path" means "smallest total weight", which is a completely different question — a route with more edges can easily be cheaper. BFS (breadth-first search) no longer works, and you need [[06-dijkstra|Dijkstra's algorithm]] instead.
+
+### Cycles
+
+7. **Cycles**: This is the question of whether the graph contains any route that comes back to where it started.
+
+8. **Cyclic**: This means the graph contains at least one cycle. Any traversal must keep a **visited set** — a record of where it has already been — or it will go round the cycle forever and never stop.
+
+9. **Acyclic**: This means the graph contains no cycle anywhere. A directed graph with no cycles is a DAG (directed acyclic graph), and those are the shape of dependency: build steps, task schedules, course prerequisites, spreadsheet formulas.
+
+### Connectivity
+
+10. **Connectivity**: This is the question of whether the graph is all one piece, or several separate pieces.
+
+11. **Connected**: This means you can get from any vertex to any other vertex by following edges. One traversal, started anywhere, will reach everything.
+
+12. **Disconnected**: This means the graph falls into two or more separate pieces with no edges between them. A single traversal will only ever cover the piece it started in, so to visit everything you must start a fresh traversal from each vertex you have not yet reached. Those pieces are called **connected components**, and they are the subject of [[02-paths-cycles-and-connectivity|lesson 2]].
 
 ### The handshake lemma
 
