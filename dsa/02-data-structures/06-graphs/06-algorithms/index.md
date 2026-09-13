@@ -16,11 +16,13 @@
 
 2. [[02-dijkstra|Dijkstra's Algorithm]] — **[Advanced]** — the shortest path when edges have non-negative weights. BFS with the queue replaced by a [[08-heaps|min-heap]], plus a lab showing it return $0$ where the true distance is $-9$ on a graph with one negative edge.
 
-Three more belong in this section and are **not yet written**: **Bellman–Ford** (slower, but survives negative weights and detects negative cycles), **Floyd–Warshall** (all pairs at once, in $O(V^3)$, and the cleanest three-line dynamic program in the subject), and **A\*** (Dijkstra plus a heuristic that aims the search at the goal, with admissibility and consistency as the conditions for it staying correct).
+3. [[03-bellman-ford|Bellman–Ford]] — **[Advanced]** — shortest paths that survive **negative weights**, in $O(VE)$, with no priority queue and no finalisation. Why $V-1$ rounds, and the extra pass that detects a negative cycle — including a lab where Dijkstra silently returns 3 for a distance that is really 1.
+4. [[04-floyd-warshall|Floyd–Warshall]] — **[Advanced]** — **every** pair at once in $\Theta(V^3)$, by permitting one more intermediate vertex per round. Negative cycles on the diagonal, path recovery via a `next` matrix, and a lab showing the wrong loop order failing on **105 of 200** random graphs.
+5. [[05-a-star|A\*]] — **[Advanced]** — Dijkstra with the queue keyed on $f = g + h$. Admissible versus consistent, building a heuristic by relaxing the problem, weighted A\*, and **tie-breaking** — which takes the lab from 233 expanded cells to 38 for the identical path.
 
 ### Structure
 
-3. [[06-minimum-spanning-tree|Minimum Spanning Tree]] — **[Advanced]** — connecting everything at minimum total cost. Prim's and Kruskal's, the cut property that makes both correct, and why one wants a heap and the other a [[10-union-find|union-find]].
+6. [[06-minimum-spanning-tree|Minimum Spanning Tree]] — **[Advanced]** — connecting everything at minimum total cost. Prim's and Kruskal's, the cut property that makes both correct, and why one wants a heap and the other a [[10-union-find|union-find]].
 
 ## Which algorithm answers which question
 
@@ -29,9 +31,10 @@ Three more belong in this section and are **not yet written**: **Bellman–Ford*
 | Is there **any** path from A to B? | [[01-depth-first-search\|DFS]] or [[02-breadth-first-search\|BFS]] | $O(V+E)$ |
 | Shortest path, **unweighted** graph or grid | [[02-breadth-first-search\|BFS]] | $O(V+E)$ |
 | Shortest path, **non-negative** weights | [[02-dijkstra\|Dijkstra]] | $O(E \log V)$ |
-| Shortest path, weights may be **negative** | Bellman–Ford *(not yet written)* | $O(VE)$ |
-| Shortest path between **every** pair | Floyd–Warshall *(not yet written)* | $O(V^3)$ |
-| Shortest path with a **known goal and a distance estimate** | A\* *(not yet written)* | depends on the heuristic |
+| Shortest path, weights may be **negative** | [[03-bellman-ford\|Bellman–Ford]] | $O(VE)$ |
+| Shortest path between **every** pair | [[04-floyd-warshall\|Floyd–Warshall]] | $\Theta(V^3)$ |
+| Shortest path with a **known goal and a distance estimate** | [[05-a-star\|A\*]] | depends on the heuristic |
+| **All pairs**, sparse graph, negative weights | Johnson's — [[04-floyd-warshall\|see lesson 04]] | $O(VE\log V)$ |
 | A valid **dependency order** | [[01-topological-sort\|Topological sort]] | $O(V+E)$ |
 | Does a **directed cycle** exist? | DFS back edges, or Kahn's leftover count | $O(V+E)$ |
 | Does an **undirected cycle** exist? | [[10-union-find\|Union-find]], or DFS ignoring the parent edge | $O(E\,\alpha(V))$ |
@@ -53,7 +56,15 @@ Every algorithm in this folder is a traversal with one thing changed:
 | Prim | a min-heap keyed by edge weight, not path length |
 | Kahn's topological sort | a queue, fed by vertices whose in-degree has dropped to zero |
 
-Bellman–Ford and Floyd–Warshall are the two that break the pattern: they are dynamic programs over the graph rather than traversals, which is exactly why they tolerate negative weights.
+**Bellman–Ford and Floyd–Warshall are the two that break the pattern**: they are dynamic programs over the graph rather than traversals — no frontier, no finalisation, just repeated relaxation — and that is exactly why they tolerate negative weights. A\* is the opposite extreme: a traversal so aggressively steered that it may touch only a tenth of the graph.
+
+## What is verified
+
+| Lesson | What the lab demonstrates |
+| :--- | :--- |
+| [[03-bellman-ford\|Bellman–Ford]] | Dijkstra returning **3** where the true distance is **1**, silently; the $V-1$ bound being tight under a worst-case edge order and finishing in one round under a good one |
+| [[04-floyd-warshall\|Floyd–Warshall]] | the wrong loop order disagreeing with Bellman–Ford ground truth on **105 of 200** random graphs; negative cycles appearing on the diagonal |
+| [[05-a-star\|A\*]] | tie-breaking alone cutting expansions from **233 to 38**; weighted A\* trading a cost-18 path for a cost-20 one while halving the work; and admissibility violations at $w{=}1.2$ that do **not** yet cost optimality |
 
 ## Related
 

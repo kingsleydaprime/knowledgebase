@@ -2,7 +2,7 @@
 
 **[Beginner → Intermediate]** — A recursive function calls itself. That is the mechanical description and it is nearly useless as an explanation, because it tells you what recursion *looks like* rather than what it *is for*. This lesson is about the thing it is for: **turning a problem you cannot solve into a smaller instance of the same problem, plus a small amount of work.**
 
-Everything downstream depends on this — [[02-recursion-trees-and-recurrences|recursion trees]], [[03-the-master-theorem|the Master Theorem]], divide and conquer *(not yet written)*, [[01-depth-first-search|DFS]], [[04-sorting/03-merge-sort|merge sort]], [[14-backtracking|backtracking]], and all of dynamic programming.
+Everything downstream depends on this — [[02-recursion-trees-and-recurrences|recursion trees]], [[03-the-master-theorem|the Master Theorem]], [[03-divide-and-conquer|divide and conquer]], [[01-depth-first-search|DFS]], [[04-sorting/03-merge-sort|merge sort]], [[14-backtracking|backtracking]], and all of dynamic programming.
 
 ---
 
@@ -507,7 +507,7 @@ Recursion is not one technique; it is the substrate for four, and telling them a
 | If the recursion... | You have | Cost shape | Covered in |
 | :--- | :--- | :--- | :--- |
 | shrinks by 1 each time | linear recursion — usually a loop in disguise | $O(n)$ depth | this lesson |
-| splits into halves and combines | **divide and conquer** | $O(\log n)$ depth | divide and conquer *(not yet written)* |
+| splits into halves and combines | **divide and conquer** | $O(\log n)$ depth | [[03-divide-and-conquer|divide and conquer]] |
 | revisits the same subproblems | **dynamic programming** (memoise it) | depends on state count | [[15-dynamic-programming\|dynamic programming]] |
 | explores choices and undoes them | **backtracking** | often exponential | [[14-backtracking\|backtracking]] |
 | walks a structure with children | **traversal** | $O(\text{size})$ | [[01-depth-first-search\|DFS]], [[01-depth-first-traversals\|tree traversals]] |
