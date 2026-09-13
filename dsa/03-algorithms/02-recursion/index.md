@@ -23,7 +23,7 @@ Three lessons, written to [[COURSE-STANDARD|the course standard]]. The first tea
 **The routing question for everything downstream is: do the recursive calls overlap?**
 
 1. If two branches ever solve the identical subproblem, cache it — you are in [[15-dynamic-programming|dynamic programming]], and the cache is the whole algorithm.
-2. If they never do, a cache is pure overhead, and you are in divide and conquer *(not yet written)* or [[01-depth-first-search|traversal]].
+2. If they never do, a cache is pure overhead, and you are in [[03-divide-and-conquer|divide and conquer]] or [[01-depth-first-search|traversal]].
 3. If the recursion makes a choice and then *undoes* it, you are in [[14-backtracking|backtracking]].
 
 ## What is verified
@@ -40,7 +40,7 @@ Every lab was executed and its expected output generated from that run:
 
 - [[03-algorithms/index|03-algorithms]] — the parent folder
 - [[01-complexity-analysis/index|Complexity Analysis]] — the measuring system these lessons extend
-- Divide and conquer — *not yet written*; [[04-sorting/03-merge-sort|merge sort]] is the worked instance
+- [[03-divide-and-conquer|Divide and Conquer]] — the technique these recurrences describe
 - [[15-dynamic-programming|Dynamic Programming]] — memoisation, generalised
 - [[14-backtracking|Backtracking]] — recursion that undoes its choices
 - [[09-recursion-and-the-call-stack|Programming fundamentals: recursion and the call stack]] — the mechanics, if they are still shaky

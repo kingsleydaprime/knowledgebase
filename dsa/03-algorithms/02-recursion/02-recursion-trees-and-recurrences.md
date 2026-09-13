@@ -508,7 +508,7 @@ You can turn recursive code into a recurrence, draw its tree, compute the work a
 
 - [[01-recursion-fundamentals|Recursion Fundamentals]] — the previous lesson
 - [[03-the-master-theorem|The Master Theorem]] — this lesson's three cases, formalised
-- Divide and Conquer *(not yet written)* — the algorithm family these recurrences describe
+- [[03-divide-and-conquer|Divide and Conquer]] — the algorithm family these recurrences describe
 - [[01-growth-and-asymptotic-notation|Growth and Asymptotic Notation]] — the notation being solved for
 - [[04-sorting/03-merge-sort|Merge Sort]] · [[04-sorting/04-quicksort|Quicksort]] — the worked cases
 - [[05-induction-and-recursion|Discrete maths: induction and recursion]] — the substitution method's proof machinery
