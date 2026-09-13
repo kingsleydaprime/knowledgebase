@@ -43,7 +43,7 @@ dsa/
 │   ├── 01-complexity-analysis/  — growth & asymptotics, recurrences, amortised analysis
 │   ├── 02-recursion, 03-divide-and-conquer
 │   ├── 04-sorting/, 05-searching/
-│   ├── 06-dynamic-programming/
+│   ├── 06-dynamic-programming/  — the two properties, state & transition, 1-D and 2-D classics
 │   ├── greedy-algorithms, max-slice-algorithms, leader-algorithm
 │   └── number-theory-basics, bit-manipulation, math-and-geometry
 ├── 04-patterns/                     # the 15 LeetCode patterns — a layer above both
@@ -102,7 +102,7 @@ Everything after this is quoted in the vocabulary those two establish, so they g
 21. [[11-bit-manipulation|bit-manipulation]] — **[Intermediate]** — bitwise operators, XOR tricks, `x & (x-1)`, masks
 22. [[12-math-and-geometry|math-and-geometry]] — **[Intermediate]** — in-place matrix ops, fast exponentiation, grade-school arithmetic
 
-**Being written now** — the gaps a real interview exposed, tracked in [[disgrace-from-interview|the gap-analysis list]]: recursion and recursion trees, recurrence relations and the Master Theorem, amortised analysis (aggregate, accounting and potential methods), divide and conquer, dynamic programming as a folder, state-space search, A\*, Bellman-Ford and Floyd-Warshall.
+**Written in response to a real interview**, tracked in [[disgrace-from-interview|the gap-analysis list]]: [[02-amortized-analysis|amortised analysis]] (aggregate, accounting and potential methods), the [[02-recursion/index|recursion folder]] (recursion trees, recurrence relations, the Master Theorem), [[03-divide-and-conquer|divide and conquer]], the [[06-dynamic-programming/index|dynamic programming folder]], [[02-binary-search-on-the-answer|binary search on the answer]], [[03-state-space-search|state-space search]], [[05-a-star|A\*]], [[03-bellman-ford|Bellman–Ford]] and [[04-floyd-warshall|Floyd–Warshall]].
 
 Still unwritten and welcome here beyond that: the KMP string match, and segment/Fenwick trees.
 

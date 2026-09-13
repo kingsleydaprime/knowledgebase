@@ -8,6 +8,7 @@ The test: if the config file has opinions in it, the opinions belong here.
 
 - [[tools/quartz/index|quartz/]] — **6 notes** — the static site generator publishing this vault. Build pipeline, configuration, theming, layout, the graph view, and the deploy setup. Fully grounded in this site's actual config
 - [[tools/agent-skills/index|agent-skills/]] — **1 note** — the `SKILL.md` format, its YAML frontmatter contract, and why a skill silently fails to load
+- [[tools/npm/index|npm/]] — **2 notes** — not how to use npm, but the configuration layer under it: registries, `.npmrc` precedence and the local-prefix rule, scoped registries, and the authentication that works locally and fails in CI
 - [[tools/neovim/neovim-setup|neovim-setup]] — editor configuration
 
 ## Known gaps
