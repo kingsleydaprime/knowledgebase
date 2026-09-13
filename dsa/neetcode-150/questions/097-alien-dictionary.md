@@ -1,6 +1,6 @@
 # Alien Dictionary
 
-**LeetCode 269** · Advanced Graphs · concept: [[11-topological-sort|topological-sort]]
+**LeetCode 269** · Advanced Graphs · concept: [[01-topological-sort|topological-sort]]
 
 ## Problem
 
@@ -12,7 +12,7 @@ Given words sorted by an unknown alphabet's rules, derive a possible ordering of
 
 ## The idea — build precedence edges, then topologically sort
 
-Adjacent words in a sorted list reveal **one** ordering fact: the first differing character gives `c1 → c2` (c1 comes before c2). Collect these edges over all adjacent pairs, then [[11-topological-sort|topologically sort]] the letters.
+Adjacent words in a sorted list reveal **one** ordering fact: the first differing character gives `c1 → c2` (c1 comes before c2). Collect these edges over all adjacent pairs, then [[01-topological-sort|topologically sort]] the letters.
 
 ```python
 from collections import defaultdict, deque
@@ -57,5 +57,5 @@ The topological sort itself is routine; correctly *building the graph* is where 
 **Turn ordering evidence into precedence edges, then topological-sort.** Alien Dictionary is the classic "extract a DAG from constraints, then order it" — the modeling (which pairs give which edges, and the invalid cases) is the challenge, not the sort.
 
 ## Related
-- concept: [[11-topological-sort|topological-sort]]
+- concept: [[01-topological-sort|topological-sort]]
 - prev: [[096-swim-in-rising-water|Swim in Rising Water]] · next: [[098-cheapest-flights-within-k-stops|Cheapest Flights Within K Stops]]

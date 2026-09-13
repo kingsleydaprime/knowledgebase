@@ -40,5 +40,5 @@ Each cell is a node connected to its neighbors; "island" = connected component. 
 **Count connected regions on a grid → for each unvisited land cell, flood fill and increment.** The traversal marks a whole component in one shot, so the number of launches equals the number of components. The foundational grid-graph problem.
 
 ## Related
-- concepts: [[13-matrix-traversal|matrix-traversal]], [[06-graphs/index|graphs]], [[02-dfs|dfs]]
+- concepts: [[13-matrix-traversal|matrix-traversal]], [[06-graphs/index|graphs]], [[01-depth-first-search|dfs]]
 - next: [[081-clone-graph|Clone Graph]]

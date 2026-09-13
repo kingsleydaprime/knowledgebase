@@ -1,6 +1,6 @@
 # Cheapest Flights Within K Stops
 
-**LeetCode 787** · Advanced Graphs · concept: [[06-dijkstra|dijkstra]]
+**LeetCode 787** · Advanced Graphs · concept: [[02-dijkstra|dijkstra]]
 
 ## Problem
 
@@ -38,6 +38,6 @@ Relaxing against a **frozen copy** guarantees each round adds at most one edge t
 **Shortest path with an edge-count (hop) constraint → Bellman-Ford bounded to that many rounds, relaxing against a per-round snapshot.** When a second constraint (stops) breaks Dijkstra's greedy finalization, Bellman-Ford's round structure naturally encodes "paths of ≤ i edges."
 
 ## Related
-- concept: [[06-dijkstra|dijkstra]] (and Bellman-Ford as its constraint-friendly cousin)
+- concept: [[02-dijkstra|dijkstra]] (and Bellman-Ford as its constraint-friendly cousin)
 - prev: [[097-alien-dictionary|Alien Dictionary]] — end of Advanced Graphs
 - next category: 1-D Dynamic Programming

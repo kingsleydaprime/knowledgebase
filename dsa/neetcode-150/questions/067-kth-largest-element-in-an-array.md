@@ -1,6 +1,6 @@
 # Kth Largest Element in an Array
 
-**LeetCode 215** · Heap / Priority Queue · concepts: [[08-heaps|heaps]], [[05-searching|searching]]
+**LeetCode 215** · Heap / Priority Queue · concepts: [[08-heaps|heaps]], [[01-linear-and-binary-search|searching]]
 
 ## Problem
 
@@ -54,5 +54,5 @@ def findKthLargest(nums, k):
 **Selection (k-th order statistic) doesn't need a full sort — partition toward the target rank (Quickselect), or bound a size-k heap.** Random pivoting keeps Quickselect near-linear; the heap wins when data streams in.
 
 ## Related
-- concepts: [[08-heaps|heaps]], [[05-searching|searching]], [[04-sorting/index|sorting]]
+- concepts: [[08-heaps|heaps]], [[01-linear-and-binary-search|searching]], [[04-sorting/index|sorting]]
 - prev: [[066-k-closest-points-to-origin|K Closest Points to Origin]] · next: [[068-task-scheduler|Task Scheduler]]

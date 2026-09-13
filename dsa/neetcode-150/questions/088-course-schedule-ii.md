@@ -1,6 +1,6 @@
 # Course Schedule II
 
-**LeetCode 210** · Graphs · concept: [[11-topological-sort|topological-sort]]
+**LeetCode 210** · Graphs · concept: [[01-topological-sort|topological-sort]]
 
 ## Problem
 
@@ -43,6 +43,6 @@ The only change from Course Schedule is capturing `order`. A node is emitted exa
 **A topological sort's *by-product* is the ordering** — Kahn's emits nodes in dependency-respecting order for free. Any "sequence things under prerequisite constraints" problem (build order, task scheduling) is this exact algorithm.
 
 ## Related
-- concept: [[11-topological-sort|topological-sort]]
+- concept: [[01-topological-sort|topological-sort]]
 - builds on: [[087-course-schedule|Course Schedule]]
 - prev: [[087-course-schedule|Course Schedule]] · next: [[089-redundant-connection|Redundant Connection]]

@@ -2,7 +2,7 @@
 
 Welcome to the **Depth-First Search (DFS)** module. DFS is a fundamental graph and tree traversal algorithm that explores as far down a single branch as possible before **backtracking** to try alternative paths.
 
-Where [[03-bfs|BFS]] spreads out evenly level-by-level like a pebble dropped in water, DFS charges headfirst down one path until it hits a dead end, then unwinds to explore unvisited branches.
+Where [[02-breadth-first-search|BFS]] spreads out evenly level-by-level like a pebble dropped in water, DFS charges headfirst down one path until it hits a dead end, then unwinds to explore unvisited branches.
 
 ---
 
@@ -43,14 +43,15 @@ In software, DFS powers **Puzzle Solvers (Sudoku, N-Queens)**, **Dependency Orde
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used in depth-first search
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **Depth-First** | Committing to explore a branch to its maximum depth before backtracking. | Reading a book chapter-by-chapter rather than skimming page 1 of all books. |
-| **Backtracking** | Unwinding execution back to the previous decision point when hitting a dead end. | Reversing steps at a maze dead-end. |
-| **Call Stack (LIFO)** | The system stack that tracks active recursive function calls. | Function frames stacked in CPU memory. |
-| **Visited Set** | A set tracking which vertices have already been explored to prevent infinite loops. | Marking explored cave walls with chalk. |
+1. **Depth-first**: This is the commitment to explore one branch all the way to its end before looking at any alternative. It is the difference between reading one book cover to cover and reading page one of every book on the shelf.
+2. **Backtracking**: This is what the search does when it reaches a vertex with no unvisited neighbours — it returns to the previous decision point and tries the next option there. At a maze dead end, backtracking is walking back to the last junction.
+3. **Call stack**: This is also known as the **execution stack**. This is the region of memory that holds one frame per function call that has started and not yet returned, in **LIFO (last-in, first-out)** order. Recursive DFS does not create a stack of its own — it borrows this one, which is why it is shorter to write and why it can run out of room.
+4. **Explicit stack**: This is a stack you declare yourself, usually a plain list, holding the vertices still to be examined. Iterative DFS uses one to do exactly what the call stack was doing, with the difference that a list grows into ordinary heap memory and the call stack does not.
+5. **Visited set**: This is a set recording which vertices the search has already reached, consulted before descending into any vertex. On a graph containing a cycle it is not an optimisation — **without it the search never terminates.** It is the chalk mark on the cave wall.
+6. **Pre-order**: This is doing the work for a vertex **on arrival**, before descending into its neighbours. Use it when a vertex's answer depends on what is above it, such as its depth or the route taken to reach it.
+7. **Post-order**: This is doing the work for a vertex **on departure**, after every neighbour has been fully explored. Use it when a vertex's answer depends on what is below it — and it is the order [[01-topological-sort|topological sort]] is built on.
 
 ---
 
@@ -339,7 +340,7 @@ Block 5 is the practical warning: the recursive form is clearer and fails on inp
 
 1. **Forgetting the `visited` Set**: On cyclic graphs, omitting a `visited` set causes infinite recursion loops.
 2. **Recursion Limit Crash**: In Python, default maximum recursion depth is 1,000. For deep graphs, use `sys.setrecursionlimit()` or the **Iterative DFS** implementation.
-3. **DFS Does NOT Find Shortest Paths**: DFS explores arbitrary deep paths first. It does **NOT** guarantee finding the shortest path on unweighted graphs! Use [[03-bfs|BFS]] for shortest paths.
+3. **DFS Does NOT Find Shortest Paths**: DFS explores arbitrary deep paths first. It does **NOT** guarantee finding the shortest path on unweighted graphs! Use [[02-breadth-first-search|BFS]] for shortest paths.
 
 ---
 
@@ -376,9 +377,13 @@ You can implement DFS both ways, use pre- and post-order deliberately, detect cy
 
 **Recap:** DFS goes deep before wide, using a stack (explicit or the call stack); $O(V+E)$ time, $O(V)$ space; pre-order records on arrival, post-order on exit — and post-order is what topological sort needs; undirected cycle detection ignores the edge you arrived on, directed needs three colours to distinguish "finished" from "on the current path"; the recursive form dies on deep graphs.
 
-**Next:** [[03-bfs|Breadth-First Search]] — the same traversal cost, a different order, and the one that gives shortest paths.
+**Next:** [[02-breadth-first-search|Breadth-First Search]] — the same traversal cost, a different order, and the one that gives shortest paths. After that, [[03-traversal-trees-and-edge-classification|traversal trees and edge classification]] turns the timestamps this search already produces into cycle detection, topological sort and connected components.
 
-## Related Modules
-- [[03-bfs|Breadth-First Search (BFS)]] — Level-by-level graph traversal
-- [[06-graphs/index|Graphs]] — Graph representations and properties
-- [[07-stacks-and-queues|Stacks & Queues]] — LIFO stack mechanics
+## Related
+
+- [[02-breadth-first-search|Breadth-First Search]] — level-by-level graph traversal, and the shortest-path guarantee
+- [[03-traversal-trees-and-edge-classification|Traversal Trees and Edge Classification]] — discovery and finish times, and why a back edge *is* a directed cycle
+- [[06-graphs/index|Graphs]] — the vocabulary and representations this assumes
+- [[07-stacks-and-queues|Stacks and Queues]] — LIFO stack mechanics
+- [[01-depth-first-traversals|Tree depth-first traversals]] — the same three orders without cycles, where no visited set is needed
+- [[05-traversal/index|the traversal folder]]

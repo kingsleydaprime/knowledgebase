@@ -1,0 +1,29 @@
+# Complexity Analysis
+
+**The measuring system.** Every other note in this course is written in the vocabulary this folder establishes, which is why it is numbered `01` and why it should be read second, immediately after [[01-loops-and-what-they-cost|loops and what they cost]].
+
+> **The one idea:** you are never measuring *how long* an algorithm takes — that depends on the machine, the language, the compiler and what else is running. You are measuring **how the time changes when the input grows**. That number is a property of the algorithm itself, it survives being moved to different hardware, and it is the only one worth arguing about.
+
+## Why this is a folder and not one note
+
+Three genuinely different questions hide under the word "complexity", and conflating them is where most confusion comes from:
+
+1. **How does the cost grow with input size?** — asymptotic notation, $O$, $\Omega$, $\Theta$, best/average/worst case. Lesson 01.
+2. **How do I get that growth rate when the algorithm calls itself?** — recurrence relations, the recursion-tree method, the Master Theorem. Lesson 02.
+3. **How do I cost a *sequence* of operations when individual ones vary wildly?** — amortised analysis: the aggregate, accounting and potential methods. Lesson 03.
+
+The third is the one that gets skipped, and it is the one interviews reach for when they want to go past "what is $O(n)$?". A dynamic array append is $O(n)$ in the worst case and $O(1)$ amortised, and being able to say *why*, with a method rather than a hand-wave, is a different skill from reading a nested loop.
+
+## The lessons
+
+1. [[01-growth-and-asymptotic-notation|Growth and Asymptotic Notation]] — **[Beginner → Intermediate]** — what an algorithm is; growth rate instead of wall-clock time; $O$, $\Omega$ and $\Theta$ and why they are not interchangeable; best, average and worst case as a *separate axis* from the notation; space complexity including the call stack; reading a constraint to guess the intended complexity.
+2. **Recurrences and the Master Theorem** — *not yet written* — turning `T(n) = 2T(n/2) + O(n)` into $O(n \log n)$ by three different routes: the recursion tree, substitution, and the Master Theorem's three cases.
+3. **Amortised Analysis** — *not yet written* — the aggregate, accounting and potential methods; amortised versus average-case; dynamic array resizing, the multipop stack, the two-stack queue, and union-find; and how to take a table of operation costs and produce an amortised cost per operation.
+
+## Related
+
+- [[01-loops-and-what-they-cost|Loops and What They Cost]] — the on-ramp: counting iterations before naming the growth
+- [[03-algorithms/index|03-algorithms]] — the parent folder
+- [[02-dynamic-arrays|Dynamic Arrays]] — where amortised analysis first earns its keep
+- [[10-union-find|Union-Find]] — the $O(\alpha(n))$ result that only amortised analysis can prove
+- [[05-induction-and-recursion|Discrete maths: induction and recursion]] — the proof machinery behind the Master Theorem

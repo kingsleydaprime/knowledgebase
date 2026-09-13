@@ -425,7 +425,7 @@ You are done with this lesson when you can:
 
 **Recap for later lookup:** $O$ is an upper bound, $\Omega$ a lower bound, $\Theta$ both; worst case is the production standard because it is the only guarantee; a recurrence $T(n) = aT(n/b) + f(n)$ is read off the recursion tree — levels times work per level; amortised cost averages over a sequence, and doubling makes total copying $< 2n$; roughly $10^8$ simple operations per second is the rule for reading constraints.
 
-**Next:** [[02-dfs|Depth-First Search]] — the first algorithm whose cost you will analyse with this vocabulary.
+**Next:** [[01-depth-first-search|Depth-First Search]] — the first algorithm whose cost you will analyse with this vocabulary.
 
 ## Related Modules
 - [[dsa/01-loops-and-what-they-cost|Loops and What They Cost]] — Practical loop counting rules

@@ -1,6 +1,6 @@
 # Missing Number
 
-**LeetCode 268** · Bit Manipulation · concept: [[13-bit-manipulation|bit-manipulation]]
+**LeetCode 268** · Bit Manipulation · concept: [[11-bit-manipulation|bit-manipulation]]
 
 ## Problem
 
@@ -38,6 +38,6 @@ Pairing each index with its value, `result` XORs together `0^0 ^ 1^1 ^ …` for 
 **"One missing from a complete range" → XOR indices against values so matched pairs cancel** (or use the arithmetic-series sum). The XOR form avoids overflow and needs no extra space — the cleaner of the two.
 
 ## Related
-- concept: [[13-bit-manipulation|bit-manipulation]]
+- concept: [[11-bit-manipulation|bit-manipulation]]
 - relative: [[144-single-number|Single Number]]
 - prev: [[147-reverse-bits|Reverse Bits]] · next: [[149-sum-of-two-integers|Sum of Two Integers]]

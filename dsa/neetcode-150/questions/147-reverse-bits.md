@@ -1,6 +1,6 @@
 # Reverse Bits
 
-**LeetCode 190** · Bit Manipulation · concept: [[13-bit-manipulation|bit-manipulation]]
+**LeetCode 190** · Bit Manipulation · concept: [[11-bit-manipulation|bit-manipulation]]
 
 ## Problem
 
@@ -34,6 +34,6 @@ Each step: `result << 1` opens a new low slot, `| (n & 1)` fills it with the inp
 **Bit-order reversal → pop the lowest bit of the source and push it as the highest bit of the destination, repeated for the word width.** The "shift out one side, shift in the other" pattern is the same shape as reversing a number's decimal digits ([[150-reverse-integer|Reverse Integer]]) or a linked list.
 
 ## Related
-- concept: [[13-bit-manipulation|bit-manipulation]]
+- concept: [[11-bit-manipulation|bit-manipulation]]
 - relative: [[150-reverse-integer|Reverse Integer]]
 - prev: [[146-counting-bits|Counting Bits]] · next: [[148-missing-number|Missing Number]]

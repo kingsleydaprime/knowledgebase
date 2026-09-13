@@ -214,7 +214,7 @@ Both are defined purely by their operations. Unlike an array, neither says anyth
 
 Neither structure lets you reach into the middle. **There is no `get(i)`.** That is not a missing feature — it is the entire point.
 
-By refusing random access, a stack or queue guarantees the order things come out in, and that guarantee is what makes them useful for reasoning. When you see a stack in an algorithm you immediately know the most recent thing comes back first, which is exactly what [[02-dfs|depth-first search]], undo histories, the function call stack and bracket matching all need. A queue's guarantee — oldest first — is what makes [[03-bfs|breadth-first search]] explore level by level, and what makes a print queue fair.
+By refusing random access, a stack or queue guarantees the order things come out in, and that guarantee is what makes them useful for reasoning. When you see a stack in an algorithm you immediately know the most recent thing comes back first, which is exactly what [[01-depth-first-search|depth-first search]], undo histories, the function call stack and bracket matching all need. A queue's guarantee — oldest first — is what makes [[02-breadth-first-search|breadth-first search]] explore level by level, and what makes a print queue fair.
 
 **Choosing a stack or a queue is choosing a guarantee, not choosing a container.**
 
@@ -399,4 +399,4 @@ You are done with this module when you can, closed-book:
 ## Related Modules
 - [[01-arrays|Arrays]] — The memory structure backing array-based stacks
 - [[04-linked-lists|Linked Lists]] — Node structure backing `collections.deque`
-- [[02-dfs|DFS]] & [[03-bfs|BFS]] — Traversals powered by Stacks and Queues
+- [[01-depth-first-search|DFS]] & [[02-breadth-first-search|BFS]] — Traversals powered by Stacks and Queues

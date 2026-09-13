@@ -237,6 +237,6 @@ One argument, and it's parallel — though `libstdc++` needs Intel TBB linked fo
 ## Related
 - [[languages/05-cpp/09-the-stl-containers|The STL Containers]] — what iterators point into, and invalidation
 - [[languages/05-cpp/08-templates-and-concepts|Templates and Concepts]] — how all of this is implemented
-- [[dsa/03-algorithms/01-algorithms|Algorithms]] — what these implement
+- [[01-growth-and-asymptotic-notation|Algorithms]] — what these implement
 - [[languages/03-rust/11-collections-and-iterators|Rust: Iterators]] — the same design, memory-safe
 - [[languages/05-cpp/index|C++ course map]]

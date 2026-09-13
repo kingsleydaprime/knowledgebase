@@ -145,5 +145,5 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 ## Related
 - [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — the other methods
 - [[dsa/04-patterns/15-dynamic-programming|Dynamic Programming]] — recursion plus memoisation
-- [[dsa/03-algorithms/01-algorithms|Algorithms]] — where these complexities land
+- [[01-growth-and-asymptotic-notation|Algorithms]] — where these complexities land
 - [[mathematics/02-discrete-math/index|Discrete maths map]]

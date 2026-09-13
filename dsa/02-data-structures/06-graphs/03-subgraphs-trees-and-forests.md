@@ -70,7 +70,7 @@ A **spanning tree** of a connected graph is a spanning subgraph that is a tree: 
 
 Every connected graph has at least one — run BFS or DFS from any vertex and keep only the edges by which you first reached each vertex. That produces $n-1$ edges (one per vertex except the start) and cannot contain a cycle, because each edge reaches a previously-unseen vertex.
 
-Most connected graphs have many. Cayley's formula says the complete graph $K_n$ has $n^{n-2}$ of them — $K_4$ has $16$, $K_5$ has $125$. Choosing the cheapest is the [[12-minimum-spanning-tree|minimum spanning tree]] problem.
+Most connected graphs have many. Cayley's formula says the complete graph $K_n$ has $n^{n-2}$ of them — $K_4$ has $16$, $K_5$ has $125$. Choosing the cheapest is the [[06-minimum-spanning-tree|minimum spanning tree]] problem.
 
 ## How this relates to the trees folder
 
@@ -378,6 +378,6 @@ You can distinguish the three subgraph kinds, state and use the tree characteris
 ## Related
 
 - [[05-trees/01-trees|Trees (data structure)]] — what rooting adds
-- [[12-minimum-spanning-tree|Minimum Spanning Tree]] — choosing the cheapest spanning tree
+- [[06-minimum-spanning-tree|Minimum Spanning Tree]] — choosing the cheapest spanning tree
 - [[10-union-find|Union-Find]] — the structure Kruskal's algorithm needs
 - [[02-discrete-math/07-graph-theory|Discrete maths: graph theory]] — proofs of the characterisations

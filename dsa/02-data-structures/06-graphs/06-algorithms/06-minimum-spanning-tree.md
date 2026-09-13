@@ -368,7 +368,7 @@ Block 2 is the check worth having: exhaustive search over every spanning tree co
 ## 6. Common Pitfalls & Traps
 
 1. **MST is for Undirected Graphs**: Directed graphs use a completely different, more complex structure called a *Minimum Arborescence* (Edmonds' Algorithm).
-2. **MST vs. Shortest Path**: An MST minimizes **total global edge weight**, NOT individual path lengths between nodes! A path between two nodes in an MST can be much longer than their shortest path in the original graph (use [[06-dijkstra|Dijkstra]] for shortest paths).
+2. **MST vs. Shortest Path**: An MST minimizes **total global edge weight**, NOT individual path lengths between nodes! A path between two nodes in an MST can be much longer than their shortest path in the original graph (use [[02-dijkstra|Dijkstra]] for shortest paths).
 3. **Disconnected Graphs**: If a graph has isolated components, no single spanning tree exists ($V - 1$ edges cannot be placed).
 
 ---
@@ -406,9 +406,9 @@ You can implement both algorithms, state the cut property, and verify minimality
 
 **Recap:** an MST is a spanning tree of minimum total weight, with $n-1$ edges; **Kruskal** sorts all edges and adds any that joins two components, using union-find, $O(E\log E)$, wants an edge list; **Prim** grows one tree taking the cheapest leaving edge, using a min-heap, $O(E\log V)$, wants an adjacency list; both are justified by the **cut property** — the cheapest edge across any cut belongs to some MST; the MST is unique when all weights are distinct.
 
-**Next:** [[13-bit-manipulation|Bit Manipulation]], or back to [[index|the algorithms index]].
+**Next:** [[11-bit-manipulation|Bit Manipulation]], or back to [[06-algorithms/index|the graph algorithms index]].
 
 ## Related Modules
 - [[10-union-find|Union-Find]] — Core engine powering Kruskal's algorithm
 - [[08-heaps|Heaps & Priority Queues]] — Core engine powering Prim's algorithm
-- [[06-dijkstra|Dijkstra's Algorithm]] — Contrast between shortest path vs. minimum spanning tree
+- [[02-dijkstra|Dijkstra's Algorithm]] — Contrast between shortest path vs. minimum spanning tree

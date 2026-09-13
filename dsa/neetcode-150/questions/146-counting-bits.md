@@ -1,6 +1,6 @@
 # Counting Bits
 
-**LeetCode 338** · Bit Manipulation · concepts: [[13-bit-manipulation|bit-manipulation]], [[15-dynamic-programming|dynamic-programming]]
+**LeetCode 338** · Bit Manipulation · concepts: [[11-bit-manipulation|bit-manipulation]], [[15-dynamic-programming|dynamic-programming]]
 
 ## Problem
 
@@ -33,6 +33,6 @@ def countBits(n):
 **Bit counts over a range → DP, because a number's popcount relates to a smaller number's (`i>>1` or `i&(i-1)`).** This is a lovely bridge between bit manipulation and dynamic programming — the same result each number's bits build on an already-solved subproblem.
 
 ## Related
-- concepts: [[13-bit-manipulation|bit-manipulation]], [[15-dynamic-programming|dynamic-programming]]
+- concepts: [[11-bit-manipulation|bit-manipulation]], [[15-dynamic-programming|dynamic-programming]]
 - builds on: [[145-number-of-1-bits|Number of 1 Bits]]
 - prev: [[145-number-of-1-bits|Number of 1 Bits]] · next: [[147-reverse-bits|Reverse Bits]]

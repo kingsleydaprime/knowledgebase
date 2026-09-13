@@ -1,6 +1,6 @@
 # Min Cost to Connect All Points
 
-**LeetCode 1584** · Advanced Graphs · concept: [[12-minimum-spanning-tree|minimum-spanning-tree]]
+**LeetCode 1584** · Advanced Graphs · concept: [[06-minimum-spanning-tree|minimum-spanning-tree]]
 
 ## Problem
 
@@ -8,7 +8,7 @@ Given points on a plane, connect them all with minimum total cost, where the cos
 
 ## The reframing — minimum spanning tree
 
-The points form a complete weighted graph (every pair connectable); the cheapest way to connect them all with no redundancy is the **[[12-minimum-spanning-tree|MST]]**.
+The points form a complete weighted graph (every pair connectable); the cheapest way to connect them all with no redundancy is the **[[06-minimum-spanning-tree|MST]]**.
 
 ## Approach — Prim's algorithm (heap)
 
@@ -46,5 +46,5 @@ Prim's fits the dense complete graph — it grows outward without enumerating al
 **"Connect everything as cheaply as possible" → minimum spanning tree** (Prim's with a heap, or Kruskal's with Union-Find). Spotting that "connect all points, minimize total" *is* an MST is the entire problem.
 
 ## Related
-- concepts: [[12-minimum-spanning-tree|MST]], [[08-heaps|heaps]], [[10-union-find|union-find]]
+- concepts: [[06-minimum-spanning-tree|MST]], [[08-heaps|heaps]], [[10-union-find|union-find]]
 - prev: [[093-reconstruct-itinerary|Reconstruct Itinerary]] · next: [[095-network-delay-time|Network Delay Time]]

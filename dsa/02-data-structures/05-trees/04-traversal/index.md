@@ -27,5 +27,5 @@ A tree holds its data in a shape, not in a sequence. So the moment you want to *
 - [[../02-binary-trees|Binary Trees]] — the structure being walked
 - [[../03-binary-search-trees|Binary Search Trees]] — where in-order earns its place
 - [[../../07-stacks-and-queues|Stacks and Queues]] — the stack and the queue these are built on
-- [[../../../03-algorithms/02-dfs|Depth-First Search]] · [[../../../03-algorithms/03-bfs|Breadth-First Search]] — the same two ideas on a general graph, where cycles mean you also need a visited set
+- [[01-depth-first-search|Depth-First Search]] · [[02-breadth-first-search|Breadth-First Search]] — the same two ideas on a general graph, where cycles mean you also need a visited set
 - [[../index|the trees folder]]

@@ -1,6 +1,6 @@
 # Sum of Two Integers
 
-**LeetCode 371** · Bit Manipulation · concept: [[13-bit-manipulation|bit-manipulation]]
+**LeetCode 371** · Bit Manipulation · concept: [[11-bit-manipulation|bit-manipulation]]
 
 ## Problem
 
@@ -35,5 +35,5 @@ def getSum(a, b):
 **Addition = XOR (partial sum) + carry (AND, shifted), iterated.** This exposes what `+` actually compiles to, and the same decomposition underlies [[142-multiply-strings|grade-school arithmetic]] and ALU design — the deepest "what is a number operation, really" bit problem.
 
 ## Related
-- concept: [[13-bit-manipulation|bit-manipulation]]
+- concept: [[11-bit-manipulation|bit-manipulation]]
 - prev: [[148-missing-number|Missing Number]] · next: [[150-reverse-integer|Reverse Integer]]

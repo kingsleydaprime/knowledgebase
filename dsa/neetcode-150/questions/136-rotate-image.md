@@ -1,6 +1,6 @@
 # Rotate Image
 
-**LeetCode 48** · Math & Geometry · concept: [[14-math-and-geometry|math-and-geometry]]
+**LeetCode 48** · Math & Geometry · concept: [[12-math-and-geometry|math-and-geometry]]
 
 ## Problem
 
@@ -30,8 +30,8 @@ Transposing sends element `(i, j)` → `(j, i)`; reversing each row then sends `
 
 ## Key insight
 
-**In-place matrix rotation → decompose the transform into simple whole-matrix operations (transpose + row reverse).** Rather than juggling four-way cyclic swaps, expressing the rotation as two easy passes is cleaner and less bug-prone — the theme of [[14-math-and-geometry|in-place matrix manipulation]].
+**In-place matrix rotation → decompose the transform into simple whole-matrix operations (transpose + row reverse).** Rather than juggling four-way cyclic swaps, expressing the rotation as two easy passes is cleaner and less bug-prone — the theme of [[12-math-and-geometry|in-place matrix manipulation]].
 
 ## Related
-- concept: [[14-math-and-geometry|math-and-geometry]]
+- concept: [[12-math-and-geometry|math-and-geometry]]
 - next: [[137-spiral-matrix|Spiral Matrix]]

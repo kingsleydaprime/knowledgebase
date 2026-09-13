@@ -66,7 +66,7 @@ def fib_tabulation(n):
     return dp[n]
 ```
 
-Both are O(n) — the exponential blowup is gone the moment repeated subproblems stop being recomputed. Bottom-up avoids recursion's call-stack overhead entirely (see the space-complexity note in [[01-algorithms|algorithms]]); top-down is often easier to derive first, since it mirrors the natural recursive definition of the problem.
+Both are O(n) — the exponential blowup is gone the moment repeated subproblems stop being recomputed. Bottom-up avoids recursion's call-stack overhead entirely (see the space-complexity note in [[01-growth-and-asymptotic-notation|algorithms]]); top-down is often easier to derive first, since it mirrors the natural recursive definition of the problem.
 
 Fibonacci specifically can go even faster than O(n) — O(log n) via matrix exponentiation (`[[1,1],[1,0]]^n` encodes the recurrence), or a closed-form (Binet's formula, using the golden ratio). Neither is worth reaching for by default — they're a well-known footnote once O(n) DP stops being fast enough, not the normal answer.
 
@@ -362,10 +362,10 @@ You are done with this pattern when you can, closed-book:
 
 ## 10. Related
 
-- [[01-algorithms|algorithms]] — where the exponential-vs-polynomial framing comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the exponential-vs-polynomial framing comes from
 - [[14-backtracking|backtracking]] — same recursive-exploration shape, but without reusing overlapping subproblem results
 - [[09-modified-binary-search|modified-binary-search]] — the O(n log n) LIS optimization
-- [[13-bit-manipulation|bit manipulation]] — the Counting Bits DP recurrence, and bitmask DP over subsets
+- [[11-bit-manipulation|bit manipulation]] — the Counting Bits DP recurrence, and bitmask DP over subsets
 - [[15-dynamic-programming|dynamic-programming]] — this note
 
 ---

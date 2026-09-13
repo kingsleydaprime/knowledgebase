@@ -286,7 +286,7 @@ You are done with this pattern when you can, closed-book:
 
 - [[04-linked-lists|linked-lists]] — the underlying data structure
 - [[04-fast-slow-pointers|fast-slow-pointers]] — used in some reversal algorithms
-- [[01-algorithms|algorithms]] — where the O(1) space framing comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the O(1) space framing comes from
 - [[05-linked-list-reversal|linked-list-reversal]] — this note
 
 ---

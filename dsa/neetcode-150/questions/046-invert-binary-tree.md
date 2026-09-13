@@ -33,5 +33,5 @@ An iterative BFS/DFS with a queue/stack does the same, swapping children as you 
 **Most binary-tree problems are "do something at this node, then recurse into both subtrees."** Invert is the minimal example of that shape — the base case (`None`) plus a per-node action plus two recursive calls. Internalize this skeleton; nearly every tree problem below reuses it.
 
 ## Related
-- concept: [[01-trees|trees]], [[02-dfs|dfs]]
+- concept: [[01-trees|trees]], [[01-depth-first-search|dfs]]
 - next: [[047-maximum-depth-of-binary-tree|Maximum Depth of Binary Tree]]

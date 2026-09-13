@@ -9,7 +9,7 @@ It answers the universal question: *"Given a collection of tasks with prerequisi
 ## Before you start
 
 - You know what a DAG is and how to detect one — [[06-graphs/02-paths-cycles-and-connectivity|paths and connectivity]].
-- You know DFS post-order — [[02-dfs|depth-first search]].
+- You know DFS post-order — [[01-depth-first-search|depth-first search]].
 - You know how a queue behaves — [[07-stacks-and-queues|stacks and queues]].
 
 **After this lesson you will be able to:**
@@ -358,9 +358,9 @@ You can implement both algorithms, detect and report cycles, and explain why the
 
 **Recap:** a topological order exists **iff** the graph is a DAG; Kahn's repeatedly removes a zero in-degree vertex and detects a cycle by finishing short; the DFS method takes post-order and reverses it, detecting a cycle via a vertex still on the current path; both are $O(V+E)$; the order is generally **not unique**, so never assert one specific answer; the number of parallel waves equals the longest dependency chain.
 
-**Next:** [[12-minimum-spanning-tree|Minimum Spanning Tree]] — connecting everything at least total cost.
+**Next:** [[06-minimum-spanning-tree|Minimum Spanning Tree]] — connecting everything at least total cost.
 
 ## Related Modules
 - [[06-graphs/index|Graphs]] — Directed graphs and adjacency lists
-- [[03-bfs|Breadth-First Search (BFS)]] — FIFO queue mechanics powering Kahn's algorithm
-- [[02-dfs|Depth-First Search (DFS)]] — DFS post-order alternative for topological sort
+- [[02-breadth-first-search|Breadth-First Search (BFS)]] — FIFO queue mechanics powering Kahn's algorithm
+- [[01-depth-first-search|Depth-First Search (DFS)]] — DFS post-order alternative for topological sort

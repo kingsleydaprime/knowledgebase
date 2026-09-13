@@ -296,7 +296,7 @@ You are done with this pattern when you can, closed-book:
 
 ## 10. Related
 
-- [[01-algorithms|algorithms]] — where the amortized analysis comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the amortized analysis comes from
 - [[01-arrays|arrays]] — the underlying data structure
 - [[07-stacks-and-queues|stacks and queues]] — the stack data structure
 - [[06-monotonic-stack|monotonic-stack]] — this note

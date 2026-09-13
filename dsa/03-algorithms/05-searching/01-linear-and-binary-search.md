@@ -10,7 +10,7 @@ The choice of search algorithm depends entirely on one fundamental question: **I
 
 - You know what sorted order buys you — [[04-sorting/index|sorting]].
 - You can reason about a loop invariant — [[04-sorting/02-elementary-sorts|elementary sorts]].
-- You know $O$ and $\log$ — [[01-algorithms|complexity analysis]].
+- You know $O$ and $\log$ — [[01-growth-and-asymptotic-notation|complexity analysis]].
 
 **After this lesson you will be able to:**
 
@@ -443,9 +443,9 @@ You can write binary search correctly, find first and last occurrences, and reco
 
 **Recap:** binary search needs **sorted** input and is $O(\log n)$; `lo <= hi` with `hi = mid - 1`, or `lo < hi` with `hi = mid` — mixing the two conventions is what causes infinite loops and missed elements; use `lo + (hi-lo)//2` out of habit; `lower_bound` gives the first index $\ge$ target and `upper_bound` the first $>$, so their difference is the count; **search on the answer** works whenever the feasibility predicate is monotonic, and needs no array at all.
 
-**Next:** [[06-dijkstra|Dijkstra's Algorithm]] — BFS plus a priority queue, for when edges have weights.
+**Next:** [[02-dijkstra|Dijkstra's Algorithm]] — BFS plus a priority queue, for when edges have weights.
 
 ## Related Modules
 - [[04-sorting/index|Sorting Algorithms]] — Precondition for binary search
-- [[01-algorithms|Algorithms & Complexity Analysis]] — Logarithmic bounds derivation
+- [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Logarithmic bounds derivation
 - [[01-trees|Trees]] — Binary Search Trees (pointer-based binary search)

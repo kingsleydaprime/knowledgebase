@@ -1,6 +1,6 @@
 # Course Schedule
 
-**LeetCode 207** · Graphs · concept: [[11-topological-sort|topological-sort]]
+**LeetCode 207** · Graphs · concept: [[01-topological-sort|topological-sort]]
 
 ## Problem
 
@@ -8,7 +8,7 @@ Given `numCourses` and `prerequisites` (pairs `[a, b]` meaning "b before a"), re
 
 ## The reframing — cycle detection on a DAG
 
-"Can all courses be completed?" ⇔ "does the prerequisite graph have a **valid ordering**?" ⇔ "is it **acyclic**?" A cycle (`A needs B needs A`) makes completion impossible. So this is [[11-topological-sort|topological sort]] feasibility.
+"Can all courses be completed?" ⇔ "does the prerequisite graph have a **valid ordering**?" ⇔ "is it **acyclic**?" A cycle (`A needs B needs A`) makes completion impossible. So this is [[01-topological-sort|topological sort]] feasibility.
 
 ## Approach — Kahn's algorithm (BFS on in-degrees)
 
@@ -47,5 +47,5 @@ Courses in a cycle never reach in-degree 0 (each waits on another), so they're n
 **"Can everything be ordered under dependencies?" = "is the dependency graph acyclic?" → topological sort.** Half of graph problems are secretly cycle detection; recognizing the topological-sort framing behind a scheduling story is the move.
 
 ## Related
-- concept: [[11-topological-sort|topological-sort]], [[06-graphs/index|graphs]]
+- concept: [[01-topological-sort|topological-sort]], [[06-graphs/index|graphs]]
 - prev: [[086-walls-and-gates|Walls and Gates]] · next: [[088-course-schedule-ii|Course Schedule II]]

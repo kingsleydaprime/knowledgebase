@@ -2,13 +2,13 @@
 
 Welcome to the **Breadth-First Search (BFS)** module. BFS is a fundamental graph and tree traversal algorithm that explores nodes **level-by-level**, expanding outward in concentric rings from a starting vertex.
 
-Where [[02-dfs|DFS]] dives deep down one branch before backtracking, BFS explores all immediate neighbors at distance $k$ before moving to any neighbor at distance $k+1$.
+Where [[01-depth-first-search|DFS]] dives deep down one branch before backtracking, BFS explores all immediate neighbors at distance $k$ before moving to any neighbor at distance $k+1$.
 
 ---
 
 ## Before you start
 
-- You know DFS and what it does *not* guarantee — [[02-dfs|depth-first search]].
+- You know DFS and what it does *not* guarantee — [[01-depth-first-search|depth-first search]].
 - You know how a queue behaves — [[07-stacks-and-queues|stacks and queues]].
 - You know graph connectivity vocabulary — [[06-graphs/02-paths-cycles-and-connectivity|paths and connectivity]].
 
@@ -49,14 +49,15 @@ Because BFS explores every node at distance $k$ before touching distance $k+1$, 
 
 ---
 
-## 2. Plain-English Terminology & Concept Table
+## Terms used in breadth-first search
 
-| Term | Plain-English Definition | Example / Analogy |
-| :--- | :--- | :--- |
-| **Breadth-First** | Expanding uniformly across all neighbors at the current level before going deeper. | Concentric water ripples expanding. |
-| **Queue (FIFO)** | First-In, First-Out collection used to schedule nodes for exploration. | Supermarket line. |
-| **Frontier** | The active set of nodes sitting in the queue waiting to be processed. | The expanding outer edge of the water wave. |
-| **Unweighted Graph** | A graph where all edges have equal weight (cost = 1). | Simple grid mazes, friendship links. |
+1. **Breadth-first**: This is expanding uniformly across every neighbour at the current distance before considering anything further away. It is the shape of concentric ripples from a pebble dropped in water — the wave reaches everything one metre away before it reaches anything two metres away.
+2. **Queue**: This is a **FIFO (first-in, first-out)** collection: things leave in the order they arrived, like a supermarket line. Scheduling vertices through a queue is the entire difference between BFS and [[01-depth-first-search|DFS]], which uses a stack.
+3. **Frontier**: This is also known as the **open set**. This is the set of vertices that have been discovered but not yet expanded — in BFS, exactly the contents of the queue. It is the advancing outer edge of the wave, and its size is what determines BFS's memory use.
+4. **Level**: This is also known as the **layer** or the **distance from the source**. This is the number of edges on the shortest route from the starting vertex. The source is level 0, its neighbours are level 1, and so on. BFS assigns every vertex its correct level the first time it reaches it, which is the whole reason the algorithm exists.
+5. **Unweighted graph**: This is a graph where every edge counts the same — cost 1, or no cost at all. Grid mazes and friendship links are unweighted. **BFS's shortest-path guarantee holds only here**, because BFS counts edges and nothing else.
+6. **Parent map**: This is also known as the **predecessor map**. This is a dictionary recording, for each vertex, which vertex the search arrived from. It is what lets you recover an actual path at the end instead of only a distance, by walking backwards from the goal to the source and reversing.
+7. **Multi-source BFS**: This is BFS started from several vertices at once, by putting all of them in the queue at distance 0 before the loop begins. It computes, for every vertex, the distance to the *nearest* source — in one pass, at the same $O(V+E)$ cost as a single-source run.
 
 ---
 
@@ -343,7 +344,7 @@ Block 4 is the one to remember. BFS is not "the shortest path algorithm" — it 
 ## 6. Common Pitfalls & Traps
 
 1. **`list.pop(0)` Performance Trap**: Never write `queue.pop(0)` on a Python list! It takes $O(n)$ time to shift remaining elements, ruining BFS performance. Always use `collections.deque.popleft()` ($O(1)$).
-2. **BFS on Weighted Graphs is WRONG**: BFS only finds shortest paths on **unweighted graphs** (or equal-cost edges). If edges have varying costs/distances, a path with 2 heavy edges can cost more than 3 light edges. Use **[[06-dijkstra|Dijkstra's Algorithm]]** for weighted graphs!
+2. **BFS on Weighted Graphs is WRONG**: BFS only finds shortest paths on **unweighted graphs** (or equal-cost edges). If edges have varying costs/distances, a path with 2 heavy edges can cost more than 3 light edges. Use **[[02-dijkstra|Dijkstra's Algorithm]]** for weighted graphs!
 3. **Marking Visited on Dequeue**: If you mark `visited.add(node)` when *dequeuing* instead of *enqueuing*, multiple neighbors will enqueue duplicate copies of the same node, blowing up memory and runtime!
 
 ---
@@ -379,12 +380,16 @@ Implement `word_ladder(begin, end, wordlist)` — the shortest chain of one-lett
 
 You can implement BFS, reconstruct paths, use multi-source BFS, and state exactly where the shortest-path guarantee stops.
 
-**Recap:** BFS uses a **queue** and explores level by level; $O(V+E)$ time; memory is the widest level, where DFS's is the deepest path; the first time BFS reaches a vertex is via the fewest edges, which is why it gives shortest paths on **unweighted** graphs only; multi-source BFS seeds the queue with every source at distance 0; with weighted edges, use [[06-dijkstra|Dijkstra]].
+**Recap:** BFS uses a **queue** and explores level by level; $O(V+E)$ time; memory is the widest level, where DFS's is the deepest path; the first time BFS reaches a vertex is via the fewest edges, which is why it gives shortest paths on **unweighted** graphs only; multi-source BFS seeds the queue with every source at distance 0; with weighted edges, use [[02-dijkstra|Dijkstra]].
 
-**Next:** [[04-sorting/index|Sorting]], then [[05-searching|Searching]] — or jump straight to [[06-dijkstra|Dijkstra]], which is BFS with a priority queue.
+**Next:** [[03-traversal-trees-and-edge-classification|Traversal Trees and Edge Classification]] — what both searches leave behind, and the timestamps that cycle detection and topological sort are built on. After that, [[02-dijkstra|Dijkstra]] is this algorithm with the queue swapped for a priority queue.
 
-## Related Modules
-- [[02-dfs|Depth-First Search (DFS)]] — Deep exploration traversal
-- [[06-graphs/index|Graphs]] — Graph definitions and adjacency lists
-- [[06-dijkstra|Dijkstra's Algorithm]] — Shortest path for weighted graphs
-- [[07-stacks-and-queues|Stacks & Queues]] — Queue mechanics (`collections.deque`)
+## Related
+
+- [[01-depth-first-search|Depth-First Search]] — the other traversal, and what changes when the queue becomes a stack
+- [[03-traversal-trees-and-edge-classification|Traversal Trees and Edge Classification]] — the BFS tree, the level property, and the bipartite test that falls out of it
+- [[02-dijkstra|Dijkstra's Algorithm]] — the same search with a min-heap, for when edges have weights
+- [[06-graphs/index|Graphs]] — graph definitions and adjacency lists
+- [[07-stacks-and-queues|Stacks and Queues]] — queue mechanics, and why `collections.deque` rather than a list
+- [[02-level-order-traversal|Tree level-order traversal]] — this algorithm on a tree, where the visited set is unnecessary
+- [[05-traversal/index|the traversal folder]]

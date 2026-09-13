@@ -4,7 +4,7 @@
 
 ## Before you start
 
-- You can read a complexity bound — [[01-algorithms|algorithms and complexity]].
+- You can read a complexity bound — [[01-growth-and-asymptotic-notation|algorithms and complexity]].
 - You know what an array costs to index and to shift — [[01-arrays|arrays]].
 
 **After this lesson you will be able to:**
@@ -305,6 +305,6 @@ You can define stability, in-place and adaptive; prove the lower bound; and say 
 
 ## Related
 
-- [[01-algorithms|Complexity Analysis]] — the notation used throughout
-- [[05-searching|Searching]] — what sorting enables
+- [[01-growth-and-asymptotic-notation|Complexity Analysis]] — the notation used throughout
+- [[01-linear-and-binary-search|Searching]] — what sorting enables
 - [[08-heaps|Heaps]] — the structure heapsort is built on

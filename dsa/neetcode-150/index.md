@@ -2,7 +2,7 @@
 
 Every problem of the [NeetCode 150](https://neetcode.io/practice) list, each in its own file, worked **extensively**: problem statement → brute force → optimal, with code, complexity, and the key insight. The one-line "why this problem is here" and the link to the underlying **concept note** stay in the tables below; the files are the full solutions.
 
-This complements the concept notes in the folders above ([[dsa/02-data-structures/03-hash-maps|data-structures]], [[dsa/03-algorithms/01-algorithms|algorithms]], [[dsa/04-patterns/index|patterns]]) — read the concept first to learn the tool, then these to see it applied.
+This complements the concept notes in the folders above ([[dsa/02-data-structures/03-hash-maps|data-structures]], [[01-growth-and-asymptotic-notation|algorithms]], [[dsa/04-patterns/index|patterns]]) — read the concept first to learn the tool, then these to see it applied.
 
 **Structure:** every solution lives flat in **`questions/`**, numbered `001`–`150` in NeetCode order (so the folder reads in curriculum order without nesting). The topic grouping lives *here in this index*, not in the folder layout — this README is the map, `questions/` is the content.
 
@@ -25,16 +25,16 @@ Most of the interview battle is **recognizing which of ~18 tools a problem is as
 | "k largest/smallest", "top k", running median, merge k sorted | **Heap** (size-k, or two-heap) | [[08-heaps\|heaps]] · [[07-top-k-elements\|top-k]] |
 | "generate **all** subsets / permutations / combinations", place-then-undo | **Backtracking** (choose → recurse → un-choose) | [[14-backtracking\|backtracking]] |
 | grid connectivity, islands, flood fill, fewest steps on a grid | **Graph DFS/BFS** (multi-source BFS for nearest) | [[13-matrix-traversal\|matrix-traversal]] · [[06-graphs/index\|graphs]] |
-| prerequisites, build/task ordering, "can everything be ordered?" | **Topological sort** (Kahn's) = cycle detection | [[11-topological-sort\|topological-sort]] |
+| prerequisites, build/task ordering, "can everything be ordered?" | **Topological sort** (Kahn's) = cycle detection | [[01-topological-sort\|topological-sort]] |
 | "same group?", dynamic connectivity, cycle in an **undirected** graph | **Union-Find** (a failed `union` = a cycle) | [[10-union-find\|union-find]] |
-| shortest path with **weights**; OR connect everything at min cost | **Dijkstra** · **MST** (Prim/Kruskal); hop-limited → Bellman-Ford | [[06-dijkstra\|dijkstra]] · [[12-minimum-spanning-tree\|MST]] |
+| shortest path with **weights**; OR connect everything at min cost | **Dijkstra** · **MST** (Prim/Kruskal); hop-limited → Bellman-Ford | [[02-dijkstra\|dijkstra]] · [[06-minimum-spanning-tree\|MST]] |
 | "count the ways", min/max over choices, **overlapping subproblems** | **Dynamic programming** (find the recurrence) | [[15-dynamic-programming\|DP]] |
 | a locally-optimal choice that's provably globally optimal | **Greedy** (justify with an exchange argument) | [[10-greedy-algorithms\|greedy]] |
 | overlapping ranges, merge intervals, meeting rooms | **Intervals** — sort by start/end, then sweep (+ heap) | [[08-overlapping-intervals\|overlapping-intervals]] |
-| O(1) space demanded, "appears once", XOR hints, powers of two | **Bit manipulation** (XOR cancel, `n & (n-1)`) | [[13-bit-manipulation\|bit-manipulation]] |
-| rotate/spiral/zero a matrix in place, fast `xⁿ`, big-int arithmetic | **Math & geometry** (in-place tricks, binary exponentiation) | [[14-math-and-geometry\|math-and-geometry]] |
+| O(1) space demanded, "appears once", XOR hints, powers of two | **Bit manipulation** (XOR cancel, `n & (n-1)`) | [[11-bit-manipulation\|bit-manipulation]] |
+| rotate/spiral/zero a matrix in place, fast `xⁿ`, big-int arithmetic | **Math & geometry** (in-place tricks, binary exponentiation) | [[12-math-and-geometry\|math-and-geometry]] |
 
-**Also read the constraints first.** The input size `n` usually leaks the intended complexity — `n ≤ 20` hints at exponential backtracking/bitmask, `n ≤ ~5000` at O(n²) DP, `n ≤ 10⁵` at O(n log n) or O(n), `n ≥ 10⁹` at O(log n) or math. See the constraint→complexity heuristic in [[dsa/03-algorithms/01-algorithms\|algorithms]].
+**Also read the constraints first.** The input size `n` usually leaks the intended complexity — `n ≤ 20` hints at exponential backtracking/bitmask, `n ≤ ~5000` at O(n²) DP, `n ≤ 10⁵` at O(n log n) or O(n), `n ≥ 10⁹` at O(log n) or math. See the constraint→complexity heuristic in [[01-growth-and-asymptotic-notation\|algorithms]].
 
 ## Progress
 
@@ -208,7 +208,7 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 261 | [[091-graph-valid-tree\|Graph Valid Tree]] | union-find; n−1 edges, no cycle |
 | 127 | [[092-word-ladder\|Word Ladder]] | BFS over one-letter-change neighbors |
 
-## Advanced Graphs — [[06-dijkstra|dijkstra]] · [[12-minimum-spanning-tree|MST]] · [[11-topological-sort|topo-sort]]
+## Advanced Graphs — [[02-dijkstra|dijkstra]] · [[06-minimum-spanning-tree|MST]] · [[01-topological-sort|topo-sort]]
 
 | # | Problem | Key idea |
 |---|---|---|
@@ -276,7 +276,7 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 253 | [[134-meeting-rooms-ii\|Meeting Rooms II]] | min-heap of end times |
 | 1851 | [[135-minimum-interval-to-include-each-query\|Minimum Interval to Include Each Query]] | sort + heap by size |
 
-## Math & Geometry — [[14-math-and-geometry|math-and-geometry]]
+## Math & Geometry — [[12-math-and-geometry|math-and-geometry]]
 
 | # | Problem | Key idea |
 |---|---|---|
@@ -289,7 +289,7 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 43 | [[142-multiply-strings\|Multiply Strings]] | digit-by-digit multiply |
 | 2013 | [[143-detect-squares\|Detect Squares]] | point-count hash map |
 
-## Bit Manipulation — [[13-bit-manipulation|bit-manipulation]]
+## Bit Manipulation — [[11-bit-manipulation|bit-manipulation]]
 
 | # | Problem | Key idea |
 |---|---|---|

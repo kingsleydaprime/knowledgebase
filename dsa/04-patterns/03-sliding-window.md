@@ -304,7 +304,7 @@ You are done with this pattern when you can, closed-book:
 - [[02-two-pointers|two-pointers]] — sliding window is a specialization where both pointers move in the same direction
 - [[03-hash-maps|hash maps]] — used in variable-size windows for fast membership testing
 - [[06-monotonic-stack|monotonic-stack]] — alternative for sliding window maximum
-- [[01-algorithms|algorithms]] — where the amortized O(n) framing comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the amortized O(n) framing comes from
 - [[03-sliding-window|sliding-window]] — this note
 
 ---

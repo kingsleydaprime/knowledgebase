@@ -338,7 +338,7 @@ You are done with this pattern when you can, closed-book:
 - [[01-trees|trees]] — the heap data structure
 - [[04-sorting/index|sorting]] — the O(n log n) alternative this pattern beats when k << n
 - [[03-hash-maps|hash maps]] — used for frequency counting
-- [[01-algorithms|algorithms]] — where the O(n log k) vs O(n log n) comparison comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the O(n log k) vs O(n log n) comparison comes from
 - [[07-top-k-elements|top-k-elements]] — this note
 
 ---

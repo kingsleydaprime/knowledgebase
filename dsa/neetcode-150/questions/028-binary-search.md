@@ -1,6 +1,6 @@
 # Binary Search
 
-**LeetCode 704** · Binary Search · concepts: [[05-searching|searching]], [[09-modified-binary-search|modified-binary-search]]
+**LeetCode 704** · Binary Search · concepts: [[01-linear-and-binary-search|searching]], [[09-modified-binary-search|modified-binary-search]]
 
 ## Problem
 
@@ -41,5 +41,5 @@ def search(nums, target):
 **Sorted data + one comparison that eliminates half → O(log n).** Every binary-search variant is this loop with a different "which half can I discard?" rule. Master the invariant (`target ∈ [l, r]`) and the boundary updates; the variations below only change the comparison.
 
 ## Related
-- concepts: [[05-searching|searching]], [[09-modified-binary-search|modified-binary-search]]
+- concepts: [[01-linear-and-binary-search|searching]], [[09-modified-binary-search|modified-binary-search]]
 - next: [[029-search-a-2d-matrix|Search a 2D Matrix]]

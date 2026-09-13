@@ -163,5 +163,5 @@ Modern FE software will produce a smooth, colourful, professional-looking result
 - [[continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — the energy principle FEM implements
 - [[continuum-mechanics/10-finite-deformation|Finite Deformation]] — nonlinear solution
 - [[continuum-mechanics/09-beams-and-structures|Beams and Structures]] — the hand calculations that check FE
-- [[dsa/03-algorithms/01-algorithms|Algorithms]] — the linear solvers underneath
+- [[01-growth-and-asymptotic-notation|Algorithms]] — the linear solvers underneath
 - [[continuum-mechanics/index|Continuum mechanics map]]

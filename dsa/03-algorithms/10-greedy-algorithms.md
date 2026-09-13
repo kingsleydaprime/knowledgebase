@@ -8,7 +8,7 @@ The appeal is speed: greedy solutions are often dramatically faster than dynamic
 
 ## Before you start
 
-- You can reason about complexity — [[01-algorithms|complexity analysis]].
+- You can reason about complexity — [[01-growth-and-asymptotic-notation|complexity analysis]].
 - You have seen sorting used as a preprocessing step — [[04-sorting/index|sorting]].
 - Helpful: [[03-proof-techniques|proof techniques]], since the interesting part here is *proving* a greedy choice correct.
 

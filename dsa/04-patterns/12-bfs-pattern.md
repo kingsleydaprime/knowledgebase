@@ -4,7 +4,7 @@
 
 ## Before you start
 
-- You should understand BFS traversal. See [[03-bfs|bfs]] if needed.
+- You should understand BFS traversal. See [[02-breadth-first-search|bfs]] if needed.
 - You should understand queues. See [[07-stacks-and-queues|stacks and queues]] if needed.
 
 **What you will be able to do after this lesson:**
@@ -22,7 +22,7 @@
 
 Imagine you're building a social network and you want to find the shortest connection path between two people. You could check all paths of length 1, then all paths of length 2, and so on. This is exactly what BFS does: explore nodes level by level, expanding outward in concentric rings from a starting vertex.
 
-The mechanics — queue-based, level by level, why it guarantees shortest paths — are covered in [[03-bfs|bfs]]. This note is about recognizing the problem shape: **anything phrased as "minimum steps/levels/time to reach X"** in an unweighted setting is almost always BFS from the start state.
+The mechanics — queue-based, level by level, why it guarantees shortest paths — are covered in [[02-breadth-first-search|bfs]]. This note is about recognizing the problem shape: **anything phrased as "minimum steps/levels/time to reach X"** in an unweighted setting is almost always BFS from the start state.
 
 ---
 
@@ -285,10 +285,10 @@ You are done with this pattern when you can, closed-book:
 
 ## 9. Related
 
-- [[03-bfs|bfs]] — the underlying traversal algorithm
+- [[02-breadth-first-search|bfs]] — the underlying traversal algorithm
 - [[13-matrix-traversal|matrix-traversal]] — grid-specific BFS
 - [[10-binary-tree-traversal-pattern|binary-tree-traversal-pattern]] — tree-specific BFS
-- [[01-algorithms|algorithms]] — where the O(V + E) framing comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the O(V + E) framing comes from
 - [[12-bfs-pattern|bfs-pattern]] — this note
 
 ---

@@ -52,7 +52,7 @@ Every lab was executed and its expected output generated from that run. Several 
 ## Related
 
 - [[index|03-algorithms]] — the parent folder
-- [[01-algorithms|Complexity Analysis]] — the notation used throughout
-- [[05-searching|Searching]] — what sorting enables
+- [[01-growth-and-asymptotic-notation|Complexity Analysis]] — the notation used throughout
+- [[01-linear-and-binary-search|Searching]] — what sorting enables
 - [[08-heaps|Heaps]] — heapsort, and the $k$-way merge's engine
 - [[04-patterns/index|04-patterns]] — where sorting shows up as a problem-solving move

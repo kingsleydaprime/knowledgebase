@@ -4,7 +4,7 @@
 
 ## Before you start
 
-- You should understand binary search. See [[05-searching|binary search]] if needed.
+- You should understand binary search. See [[01-linear-and-binary-search|binary search]] if needed.
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
 
 **What you will be able to do after this lesson:**
@@ -385,9 +385,9 @@ You are done with this pattern when you can, closed-book:
 
 ## 10. Related
 
-- [[05-searching|searching]] — the baseline binary search algorithm
+- [[01-linear-and-binary-search|searching]] — the baseline binary search algorithm
 - [[04-sorting/index|sorting]] — prerequisite for rotated array search
-- [[01-algorithms|algorithms]] — where the O(log n) vs O(n log n) comparison comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the O(log n) vs O(n log n) comparison comes from
 - [[09-modified-binary-search|modified-binary-search]] — this note
 
 ---

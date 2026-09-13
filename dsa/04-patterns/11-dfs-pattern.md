@@ -4,7 +4,7 @@
 
 ## Before you start
 
-- You should understand DFS traversal. See [[02-dfs|dfs]] if needed.
+- You should understand DFS traversal. See [[01-depth-first-search|dfs]] if needed.
 - You should understand recursion. See [[languages/06-python/04-functions-and-scope|Python functions and scope]] if needed.
 
 **What you will be able to do after this lesson:**
@@ -22,7 +22,7 @@
 
 Imagine you're exploring a maze. You could walk down each path until you hit a dead end, then backtrack and try another path. This is exactly what DFS does: explore as far as possible along each branch before backtracking.
 
-The mechanics — recursive/iterative, `visited` sets, complexity — are covered in [[02-dfs|dfs]]. This note is about the shape of problem where DFS is the right tool: **anything that asks you to explore every path or branch of a tree/graph**, not just find one answer and stop.
+The mechanics — recursive/iterative, `visited` sets, complexity — are covered in [[01-depth-first-search|dfs]]. This note is about the shape of problem where DFS is the right tool: **anything that asks you to explore every path or branch of a tree/graph**, not just find one answer and stop.
 
 ---
 
@@ -251,10 +251,10 @@ You are done with this pattern when you can, closed-book:
 
 ## 9. Related
 
-- [[02-dfs|dfs]] — the underlying traversal algorithm
+- [[01-depth-first-search|dfs]] — the underlying traversal algorithm
 - [[14-backtracking|backtracking]] — DFS with an explicit "undo" step
 - [[10-binary-tree-traversal-pattern|binary-tree-traversal-pattern]] — tree-specific DFS
-- [[01-algorithms|algorithms]] — where the O(V + E) framing comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the O(V + E) framing comes from
 - [[11-dfs-pattern|dfs-pattern]] — this note
 
 ---

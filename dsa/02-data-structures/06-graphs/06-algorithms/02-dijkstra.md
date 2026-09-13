@@ -2,13 +2,13 @@
 
 Welcome to the **Dijkstra's Algorithm** module. Dijkstra finds the shortest path from a starting source node to every other node in a **weighted graph with non-negative edge weights**.
 
-While [[03-bfs|BFS]] finds shortest paths in terms of **number of hops** (unweighted edges), Dijkstra finds shortest paths in terms of **total cumulative cost/distance** (weighted edges).
+While [[02-breadth-first-search|BFS]] finds shortest paths in terms of **number of hops** (unweighted edges), Dijkstra finds shortest paths in terms of **total cumulative cost/distance** (weighted edges).
 
 ---
 
 ## Before you start
 
-- You know BFS and why it stops working on weighted graphs — [[03-bfs|breadth-first search]].
+- You know BFS and why it stops working on weighted graphs — [[02-breadth-first-search|breadth-first search]].
 - You know what a min-heap gives you — [[08-heaps|heaps]].
 - You know weighted-graph vocabulary — [[06-graphs/01-what-a-graph-is|what a graph is]].
 
@@ -375,9 +375,9 @@ You can implement Dijkstra with a heap, reconstruct paths, explain its greedy in
 
 **Recap:** Dijkstra repeatedly finalises the closest unfinalised vertex; correct **only** for non-negative weights, because the greedy step assumes extending a path cannot reduce its cost; $O((V+E)\log V)$ with a binary heap; lazy deletion means the heap can hold more than $V$ entries and stale ones are skipped; use BFS when weights are equal, Bellman–Ford for negative weights or cycle detection, A* when you have a heuristic.
 
-**Next:** [[11-topological-sort|Topological Sort]] — ordering a DAG, and the other thing DFS post-order is for.
+**Next:** [[01-topological-sort|Topological Sort]] — ordering a DAG, and the other thing DFS post-order is for.
 
 ## Related Modules
-- [[03-bfs|Breadth-First Search (BFS)]] — Unweighted shortest paths ($O(V+E)$)
+- [[02-breadth-first-search|Breadth-First Search (BFS)]] — Unweighted shortest paths ($O(V+E)$)
 - [[08-heaps|Heaps & Priority Queues]] — Min-Heap mechanics powering Dijkstra
 - [[06-graphs/index|Graphs]] — Weighted graph adjacency lists

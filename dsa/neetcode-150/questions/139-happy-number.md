@@ -1,6 +1,6 @@
 # Happy Number
 
-**LeetCode 202** · Math & Geometry · concepts: [[04-fast-slow-pointers|fast-slow-pointers]], [[14-math-and-geometry|math-and-geometry]]
+**LeetCode 202** · Math & Geometry · concepts: [[04-fast-slow-pointers|fast-slow-pointers]], [[12-math-and-geometry|math-and-geometry]]
 
 ## Problem
 
@@ -37,6 +37,6 @@ For any starting number, the digit-square-sum sequence is bounded (large numbers
 **A deterministic "next value" sequence that might loop → cycle detection (set or Floyd's).** Recognizing a *numeric* sequence as a linked list — where `next` is an arithmetic function — is the same leap as [[042-find-the-duplicate-number|Find the Duplicate Number]], applied to math.
 
 ## Related
-- concepts: [[04-fast-slow-pointers|fast-slow-pointers]], [[14-math-and-geometry|math-and-geometry]]
+- concepts: [[04-fast-slow-pointers|fast-slow-pointers]], [[12-math-and-geometry|math-and-geometry]]
 - relative: [[041-linked-list-cycle|Linked List Cycle]]
 - prev: [[138-set-matrix-zeroes|Set Matrix Zeroes]] · next: [[140-plus-one|Plus One]]

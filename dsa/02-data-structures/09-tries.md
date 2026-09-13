@@ -404,4 +404,4 @@ You are done with this module when you can, closed-book:
 ## Related Modules
 - [[03-hash-maps|Hash Maps]] — The $O(1)$ exact-match alternative
 - [[01-trees|Trees]] — General tree hierarchies
-- [[02-dfs|Depth-First Search (DFS)]] — Traversing Tries for wildcard and grid search (Word Search II)
+- [[01-depth-first-search|Depth-First Search (DFS)]] — Traversing Tries for wildcard and grid search (Word Search II)

@@ -40,7 +40,7 @@ After "Bob & Charlie become friends" -> union(Bob, Charlie):
 Now, if someone asks: *"Are Alice and Charlie in the same friend network?"*, `find(Alice) == find(Charlie)` returns **True** instantly!
 
 ### Why Not Just Use DFS / BFS?
-- If all graph edges are static and known upfront, [[02-dfs|DFS]] or [[03-bfs|BFS]] can find connected components in $O(V + E)$ time.
+- If all graph edges are static and known upfront, [[01-depth-first-search|DFS]] or [[02-breadth-first-search|BFS]] can find connected components in $O(V + E)$ time.
 - But if edges arrive **dynamically one-by-one over time**, re-running DFS/BFS after every new edge takes $O(V + E)$ per query, degrading to a slow $O(E \cdot (V + E))$.
 - **Union-Find** updates connectivity dynamically in **$O(\alpha(n)) \approx O(1)$** time per edge!
 
@@ -74,7 +74,7 @@ Union-find answers one question, very fast, under one restriction: **groups merg
 
 2. `find(x)` — Returns the representative of `x`'s group. **$O(\alpha(n))$**, effectively constant. You rarely care about the representative's identity; you care that two elements sharing one are in the same group.
 
-3. `union(x, y)` — Merges the groups containing `x` and `y`. **$O(\alpha(n))$**. Usually it returns whether a merge actually happened — if `x` and `y` were already together, that is a useful signal, and it is exactly how [[12-minimum-spanning-tree|Kruskal's algorithm]] detects that an edge would create a cycle.
+3. `union(x, y)` — Merges the groups containing `x` and `y`. **$O(\alpha(n))$**. Usually it returns whether a merge actually happened — if `x` and `y` were already together, that is a useful signal, and it is exactly how [[06-minimum-spanning-tree|Kruskal's algorithm]] detects that an edge would create a cycle.
 
 4. `connected(x, y)` — Returns whether the two are in the same group. This is just `find(x) == find(y)`.
 
@@ -84,9 +84,9 @@ Union-find answers one question, very fast, under one restriction: **groups merg
 
 **There is no `split` operation, and there cannot be one.** Path compression works by discarding the history of how groups were built — it rewires pointers straight to the representative — so the information needed to undo a merge is deliberately thrown away. That is precisely what makes it so fast.
 
-So union-find is the right structure when connections are only ever **added**: building a [[12-minimum-spanning-tree|minimum spanning tree]], detecting a cycle as edges arrive, counting connected components in a [[06-graphs/index|graph]] that grows, or grouping accounts as duplicates are discovered.
+So union-find is the right structure when connections are only ever **added**: building a [[06-minimum-spanning-tree|minimum spanning tree]], detecting a cycle as edges arrive, counting connected components in a [[06-graphs/index|graph]] that grows, or grouping accounts as duplicates are discovered.
 
-If connections can be **removed**, union-find cannot help, and you are usually back to recomputing components with [[02-dfs|DFS]] or [[03-bfs|BFS]] — or reaching for a considerably more complex dynamic-connectivity structure.
+If connections can be **removed**, union-find cannot help, and you are usually back to recomputing components with [[01-depth-first-search|DFS]] or [[02-breadth-first-search|BFS]] — or reaching for a considerably more complex dynamic-connectivity structure.
 
 ## 3. High-Performance Implementation (Python)
 
@@ -191,7 +191,7 @@ This single property powers:
 ## 8. Common Pitfalls & Traps
 
 1. **Forgetting Path Compression or Rank**: Skipping either optimization turns Union-Find into an $O(n)$ or $O(\log n)$ structure instead of $O(1)$. Always include both in interviews!
-2. **Union-Find Cannot Find Paths**: Union-Find answers *"Are X and Y connected?"*, but it **cannot** tell you the path or shortest distance between X and Y. Use [[03-bfs|BFS]] or [[06-dijkstra|Dijkstra]] for paths!
+2. **Union-Find Cannot Find Paths**: Union-Find answers *"Are X and Y connected?"*, but it **cannot** tell you the path or shortest distance between X and Y. Use [[02-breadth-first-search|BFS]] or [[02-dijkstra|Dijkstra]] for paths!
 3. **No Support for Edge Deletions**: Union-Find only supports adding edges. If a problem deletes edges over time, process queries **in reverse order** (turning deletions into additions)!
 
 ---
@@ -381,9 +381,9 @@ You are done with this module when you can, closed-book:
 
 **Recap:** Union-find tracks which elements belong to the same group, supporting union and find in effectively constant amortised time. Union by rank hangs the shorter tree under the taller so height grows as slowly as possible; path compression flattens the path to the root as a side effect of querying. Together they reduce a chain that would cost O(n) per query to a nearly flat structure. A union that reports the elements were already connected is a cycle detection, which is exactly the test Kruskal's algorithm needs.
 
-**This is the last structure in this folder.** Next is [[dsa/03-algorithms/01-algorithms|algorithms and complexity]], where these structures stop being the subject and start being the tools.
+**This is the last structure in this folder.** Next is [[01-growth-and-asymptotic-notation|algorithms and complexity]], where these structures stop being the subject and start being the tools.
 
 ## Related Modules
 - [[06-graphs/index|Graphs]] — Graph definitions and connectivity
-- [[02-dfs|DFS]] & [[03-bfs|BFS]] — Graph traversal alternatives
-- [[12-minimum-spanning-tree|Minimum Spanning Tree]] — Kruskal's algorithm powered by Union-Find
+- [[01-depth-first-search|DFS]] & [[02-breadth-first-search|BFS]] — Graph traversal alternatives
+- [[06-minimum-spanning-tree|Minimum Spanning Tree]] — Kruskal's algorithm powered by Union-Find

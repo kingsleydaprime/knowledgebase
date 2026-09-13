@@ -1,6 +1,6 @@
 # Spiral Matrix
 
-**LeetCode 54** · Math & Geometry · concept: [[14-math-and-geometry|math-and-geometry]]
+**LeetCode 54** · Math & Geometry · concept: [[12-math-and-geometry|math-and-geometry]]
 
 ## Problem
 
@@ -48,5 +48,5 @@ After walking the top row and right column, the `if top <= bottom` and `if left 
 **Spiral/layered traversal → four boundaries that shrink after each edge, with guards for the single-line remainder.** The mechanics are simple; the *edge cases* (non-square grids, the final row/column) are the whole challenge — a lesson in careful boundary management.
 
 ## Related
-- concept: [[14-math-and-geometry|math-and-geometry]]
+- concept: [[12-math-and-geometry|math-and-geometry]]
 - prev: [[136-rotate-image|Rotate Image]] · next: [[138-set-matrix-zeroes|Set Matrix Zeroes]]

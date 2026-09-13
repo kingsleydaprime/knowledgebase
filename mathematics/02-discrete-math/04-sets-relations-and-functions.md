@@ -104,7 +104,7 @@ Where it shows up: **hashing** (buckets are classes under "same hash"), **modula
 
 **Where it matters:**
 
-- **Dependency graphs.** A build's task order is a partial order, and [[dsa/03-algorithms/11-topological-sort|topological sort]] extends it to a total order — that's exactly what topological sorting *is*
+- **Dependency graphs.** A build's task order is a partial order, and [[01-topological-sort|topological sort]] extends it to a total order — that's exactly what topological sorting *is*
 - **Version constraints**, semver ranges
 - **Happens-before in [[architecture/04-distributed-systems/03-time-and-ordering|distributed systems]]** — the canonical partial order. Concurrent events are simply *incomparable*, and Lamport's whole point is that physical time forces a false total order onto a genuinely partial one
 - **Lattices** — partial orders where every pair has a least upper bound. The basis of [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs]] and of dataflow analysis in [[compilers/07-optimisation|compilers]]

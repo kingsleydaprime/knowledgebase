@@ -1,6 +1,6 @@
 # Network Delay Time
 
-**LeetCode 743** · Advanced Graphs · concept: [[06-dijkstra|dijkstra]]
+**LeetCode 743** · Advanced Graphs · concept: [[02-dijkstra|dijkstra]]
 
 ## Problem
 
@@ -8,7 +8,7 @@ A signal starts at node `k` in a weighted **directed** graph. Return the time fo
 
 ## Approach — Dijkstra from the source (optimal)
 
-Single-source shortest paths with non-negative weights → [[06-dijkstra|Dijkstra]]. Run it from `k`; the answer is the **maximum** of the shortest distances (the last node to hear the signal), or `-1` if any node is never reached.
+Single-source shortest paths with non-negative weights → [[02-dijkstra|Dijkstra]]. Run it from `k`; the answer is the **maximum** of the shortest distances (the last node to hear the signal), or `-1` if any node is never reached.
 
 ```python
 import heapq
@@ -44,5 +44,5 @@ Dijkstra pops nodes in increasing distance, finalizing each shortest path the fi
 **Single-source shortest paths, non-negative weights → Dijkstra (greedy + min-heap).** "Time for a signal to reach everyone" is a thin story over shortest-paths; the aggregate you report (max over nodes) is the only twist.
 
 ## Related
-- concept: [[06-dijkstra|dijkstra]], [[08-heaps|heaps]]
+- concept: [[02-dijkstra|dijkstra]], [[08-heaps|heaps]]
 - prev: [[094-min-cost-to-connect-all-points|Min Cost to Connect All Points]] · next: [[096-swim-in-rising-water|Swim in Rising Water]]

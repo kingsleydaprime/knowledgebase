@@ -1,6 +1,6 @@
 # Plus One
 
-**LeetCode 66** · Math & Geometry · concept: [[14-math-and-geometry|math-and-geometry]]
+**LeetCode 66** · Math & Geometry · concept: [[12-math-and-geometry|math-and-geometry]]
 
 ## Problem
 
@@ -36,6 +36,6 @@ The only time the array **grows** is `9…9 → 10…0`, needing a new leading d
 **Grade-school arithmetic on a digit array → propagate a carry from the least-significant end, handling the length-growth edge case.** Simple, but it's the base-10 version of the carry logic in [[040-add-two-numbers|Add Two Numbers]] and [[149-sum-of-two-integers|Sum of Two Integers]] — carrying is the unifying idea.
 
 ## Related
-- concept: [[14-math-and-geometry|math-and-geometry]]
+- concept: [[12-math-and-geometry|math-and-geometry]]
 - relative: [[040-add-two-numbers|Add Two Numbers]]
 - prev: [[139-happy-number|Happy Number]] · next: [[141-pow-x-n|Pow(x, n)]]

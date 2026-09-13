@@ -311,7 +311,7 @@ You can implement counting and radix sort, explain their relationship to the low
 
 **Recap:** these avoid the bound by not comparing — they use keys as indices or digits; counting sort is $O(n+k)$, worth it when $k$ is $O(n)$, and stable **only if you walk the input backwards**; radix sort is $O(d(n+b))$ LSD passes and is correct **only** with a stable inner sort; bucket sort is $O(n)$ average **only** for uniformly distributed input.
 
-**Where next:** back to [[index|the sorting index]] for the comparison table, or on to [[05-searching|searching]] — what sorting enables.
+**Where next:** back to [[index|the sorting index]] for the comparison table, or on to [[01-linear-and-binary-search|searching]] — what sorting enables.
 
 ## Related
 
