@@ -1,6 +1,6 @@
 # Non-overlapping Intervals
 
-**LeetCode 435** · Intervals · concepts: [[08-overlapping-intervals|overlapping-intervals]], [[10-greedy-algorithms|greedy]]
+**LeetCode 435** · Intervals · concepts: [[08-overlapping-intervals|overlapping-intervals]], [[01-when-greedy-works|greedy]]
 
 ## Problem
 
@@ -38,5 +38,5 @@ The interval that **ends earliest** always leaves the maximum room for the rest,
 **"Maximize non-overlapping intervals kept" (= minimize removed) → sort by end, greedily take the earliest-finishing.** This is textbook activity selection; the end-time sort is the crucial, easily-mistaken detail that makes the greedy optimal.
 
 ## Related
-- concepts: [[08-overlapping-intervals|overlapping-intervals]], [[10-greedy-algorithms|greedy]]
+- concepts: [[08-overlapping-intervals|overlapping-intervals]], [[01-when-greedy-works|greedy]]
 - prev: [[131-merge-intervals|Merge Intervals]] · next: [[133-meeting-rooms|Meeting Rooms]]

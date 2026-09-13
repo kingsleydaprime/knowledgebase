@@ -1,6 +1,6 @@
 # Jump Game
 
-**LeetCode 55** · Greedy · concept: [[10-greedy-algorithms|greedy]]
+**LeetCode 55** · Greedy · concept: [[01-when-greedy-works|greedy]]
 
 ## Problem
 
@@ -38,5 +38,5 @@ A DP ("is index i reachable?") is O(n²). The greedy insight: you don't need to 
 **Reachability with variable steps → track a single farthest-reachable frontier.** Collapsing "all the ways to get here" into one running maximum is the greedy move that turns O(n²) DP into O(n).
 
 ## Related
-- concept: [[10-greedy-algorithms|greedy]]
+- concept: [[01-when-greedy-works|greedy]]
 - prev: [[122-maximum-subarray|Maximum Subarray]] · next: [[124-jump-game-ii|Jump Game II]]

@@ -11,7 +11,7 @@ But it only works on problems with two specific properties, and being able to *c
 - You can write a recursive function and identify its base case, recursive case and cost — [[01-recursion-fundamentals|recursion fundamentals]].
 - You know what **memoisation** is, and have seen naive Fibonacci go from 2,692,537 calls to 59 — same lesson.
 - You can distinguish [[03-divide-and-conquer|divide and conquer]] from a plain recursion.
-- You have met [[10-greedy-algorithms|greedy algorithms]] and know they are not always correct.
+- You have met [[01-when-greedy-works|greedy algorithms]] and know they are not always correct.
 
 **After this lesson you will be able to:**
 
@@ -140,7 +140,7 @@ The lab measures it, with the DP asserted against brute force rather than merely
 | yes | no | no efficient method known — longest simple path, NP-hard |
 | no | no | brute force or [[14-backtracking\|backtracking]] |
 
-**And a fifth case sits inside row two:** when a *local* rule provably picks the right subproblem, you can skip the table entirely and use a [[10-greedy-algorithms|greedy algorithm]] — faster, but it needs a proof, not a feeling.
+**And a fifth case sits inside row two:** when a *local* rule provably picks the right subproblem, you can skip the table entirely and use a [[01-when-greedy-works|greedy algorithm]] — faster, but it needs a proof, not a feeling.
 
 ---
 
@@ -506,6 +506,6 @@ You can measure overlap rather than guess at it, state what optimal substructure
 - [[02-memoisation-and-tabulation|Memoisation and Tabulation]] — the next lesson: how to actually write one
 - [[01-recursion-fundamentals|Recursion Fundamentals]] — where memoisation first appears
 - [[03-divide-and-conquer|Divide and Conquer]] — the technique for when subproblems do *not* overlap
-- [[10-greedy-algorithms|Greedy Algorithms]] — when a local rule is provably enough
+- [[01-when-greedy-works|Greedy Algorithms]] — when a local rule is provably enough
 - [[04-floyd-warshall|Floyd–Warshall]] — a DP over graphs, and optimal substructure in action
 - [[06-dynamic-programming/index|the dynamic programming folder]]

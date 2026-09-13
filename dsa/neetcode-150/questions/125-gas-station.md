@@ -1,6 +1,6 @@
 # Gas Station
 
-**LeetCode 134** · Greedy · concept: [[10-greedy-algorithms|greedy]]
+**LeetCode 134** · Greedy · concept: [[01-when-greedy-works|greedy]]
 
 ## Problem
 
@@ -38,5 +38,5 @@ If you run out of fuel going from `start` to `i+1`, then **no** station between 
 **Circular "can you make it around" → total-feasibility check + a greedy restart whenever the running tank goes negative.** The non-obvious part is *proving* the skipped stations can't be starts, which is what licenses the single pass.
 
 ## Related
-- concept: [[10-greedy-algorithms|greedy]]
+- concept: [[01-when-greedy-works|greedy]]
 - prev: [[124-jump-game-ii|Jump Game II]] · next: [[126-hand-of-straights|Hand of Straights]]

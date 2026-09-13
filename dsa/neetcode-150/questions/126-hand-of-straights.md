@@ -1,6 +1,6 @@
 # Hand of Straights
 
-**LeetCode 846** · Greedy · concepts: [[10-greedy-algorithms|greedy]], [[03-hash-maps|hash-maps]]
+**LeetCode 846** · Greedy · concepts: [[01-when-greedy-works|greedy]], [[03-hash-maps|hash-maps]]
 
 ## Problem
 
@@ -48,5 +48,5 @@ The smallest card can only ever be the **left end** of a group — no smaller ca
 **"Partition into consecutive/constrained groups" → greedily commit the forced element (the smallest) and let it dictate its group.** Counting + always resolving the smallest first turns a combinatorial partition into a deterministic sweep. (Same idea solves Divide Array in Sets of K Consecutive Numbers.)
 
 ## Related
-- concepts: [[10-greedy-algorithms|greedy]], [[08-heaps|heaps]], [[03-hash-maps|hash-maps]]
+- concepts: [[01-when-greedy-works|greedy]], [[08-heaps|heaps]], [[03-hash-maps|hash-maps]]
 - prev: [[125-gas-station|Gas Station]] · next: [[127-merge-triplets-to-form-target-triplet|Merge Triplets to Form Target Triplet]]

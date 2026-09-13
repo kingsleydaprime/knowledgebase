@@ -30,7 +30,7 @@ Everything in this course is quoted in the vocabulary that folder establishes, s
 ### Techniques
 
 6. [[06-dynamic-programming/index|Dynamic Programming]] — **[Intermediate → Advanced]** — a folder: the two properties that make DP apply (both *measured*, not asserted); state, transition and base case; memoisation versus tabulation and why the transition dictates the fill order; space optimisation; and the classic one- and two-dimensional problems with reconstruction.
-7. [[10-greedy-algorithms|Greedy Algorithms]] — **[Intermediate]** — when taking the locally best choice is provably right, and a lab where it is not: coin change failing on $\{1,3,4\}$, and 0/1 knapsack failing on the rule that is optimal for the fractional version.
+7. [[10-greedy-algorithms/index|Greedy Algorithms]] — **[Intermediate → Advanced]** — a folder: when the locally best choice is provably right and the exchange argument that proves it; the coin-change trap; and the **selection and scheduling** family — hire-K-workers, where a group's cost is a product rather than a sum, and interval scheduling, where only one of three plausible sort keys is correct.
 8. [[09-max-slice-algorithms|Max Slice]] — **[Intermediate]** — Kadane's algorithm and the maximum-subarray family.
 9. [[08-leader-algorithm|Leader / Majority]] — **[Intermediate]** — Boyer–Moore voting in $O(1)$ space.
 
@@ -75,11 +75,12 @@ Several labs exist to **break** the algorithm rather than to show it working:
 | [[03-divide-and-conquer\|divide and conquer]] | the $O(n\log n)$ max-subarray solution losing to Kadane's linear scan by ~20x at $n=64{,}000$ — applicable is not optimal |
 | [[02-binary-search-on-the-answer\|binary search on the answer]] | the floor/ceil midpoint bug hanging at `hi == lo + 1`, and 300 random instances cross-checked against linear scan |
 | [[03-state-space-search\|state-space search]] | tree search costing **60x** graph search by solution depth 10, because the state space is finite while the search tree is not |
+| [[02-selection-and-scheduling\|greedy selection]] | hire-K greedy agreeing with brute force **400/400** while "take the K cheapest wages" is wrong on **130/400**; two plausible interval sort keys each failing on one input and tying on another |
 | [[06-dynamic-programming/index\|dynamic programming]] | a reversed fill order returning **0** instead of 34 with no error; the rolling knapsack's upward loop returning **15** where the answer is 5; and merge sort's subproblem redundancy measured at exactly 1.0x |
 | [[01-linear-and-binary-search\|searching]] | all three classic binary-search bugs failing: an infinite loop, a missed single element, and the JDK's nine-year overflow |
 | [[08-leader-algorithm\|leader]] | the voting phase confidently returning a candidate that is not a majority |
 | [[09-max-slice-algorithms\|max slice]] | `max(0, ...)` Kadane's answering a different question on all-negative input |
-| [[10-greedy-algorithms\|greedy]] | greedy coin change failing on $\{1,3,4\}$ and $\{1,7,10\}$, and 0/1 knapsack failing on the rule that is optimal for the fractional version |
+| [[01-when-greedy-works\|greedy]] | greedy coin change failing on $\{1,3,4\}$ and $\{1,7,10\}$, and 0/1 knapsack failing on the rule that is optimal for the fractional version |
 | [[12-math-and-geometry\|geometry]] | float slopes calling three points collinear when exact integer cross products say otherwise |
 
 Where a lab claims an output, that output came from executing the code.

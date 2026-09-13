@@ -8,6 +8,12 @@
 
 ## Reading order
 
+> **Start with lesson 00.** It is numbered `00` because it is the simplest algorithm here and the right first one to read — counting clusters is the first thing anyone does with a traversal.
+
+### Grouping
+
+0. [[00-connected-components|Connected Components]] — **[Intermediate]** — how many separate clusters, and who is in each. Flood fill with DFS or BFS, union-find and the identity **components = V − merges**, why an isolated vertex counts, and the measured ~500× gap when edges arrive over time. Plus weak versus strong connectivity for directed graphs.
+
 ### Ordering
 
 1. [[01-topological-sort|Topological Sort]] — **[Intermediate]** — a valid order for a set of dependencies. Kahn's algorithm with in-degree counts, and the DFS variant that is just "decreasing finish time". Both detect a cycle for free, and a cycle is exactly when no order exists.
@@ -39,7 +45,8 @@
 | Does a **directed cycle** exist? | DFS back edges, or Kahn's leftover count | $O(V+E)$ |
 | Does an **undirected cycle** exist? | [[10-union-find\|Union-find]], or DFS ignoring the parent edge | $O(E\,\alpha(V))$ |
 | Connect everything at **minimum total cost** | [[06-minimum-spanning-tree\|MST]] | $O(E \log V)$ |
-| Which vertices are **mutually reachable**? | SCCs — [[02-paths-cycles-and-connectivity\|lesson 02]] | $O(V+E)$ |
+| **How many separate clusters?** | [[00-connected-components\|Connected components]] | $O(V+E)$ |
+| Which vertices are **mutually reachable**? | SCCs — [[00-connected-components\|lesson 00]] | $O(V+E)$ |
 
 **The row that catches people out is the third versus the fourth.** "Dijkstra is the shortest-path algorithm" is a half-truth; it is the shortest-path algorithm *for non-negative weights*, and it fails silently — returning a wrong number rather than an error — the moment that assumption breaks.
 
@@ -62,6 +69,7 @@ Every algorithm in this folder is a traversal with one thing changed:
 
 | Lesson | What the lab demonstrates |
 | :--- | :--- |
+| [[00-connected-components\|connected components]] | DFS, BFS and union-find agreeing on **400/400** random graphs; union-find beating a re-run traversal by ~**500x** when edges arrive incrementally |
 | [[03-bellman-ford\|Bellman–Ford]] | Dijkstra returning **3** where the true distance is **1**, silently; the $V-1$ bound being tight under a worst-case edge order and finishing in one round under a good one |
 | [[04-floyd-warshall\|Floyd–Warshall]] | the wrong loop order disagreeing with Bellman–Ford ground truth on **105 of 200** random graphs; negative cycles appearing on the diagonal |
 | [[05-a-star\|A\*]] | tie-breaking alone cutting expansions from **233 to 38**; weighted A\* trading a cost-18 path for a cost-20 one while halving the work; and admissibility violations at $w{=}1.2$ that do **not** yet cost optimality |

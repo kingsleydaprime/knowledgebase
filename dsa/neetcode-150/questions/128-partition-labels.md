@@ -1,6 +1,6 @@
 # Partition Labels
 
-**LeetCode 763** · Greedy · concepts: [[10-greedy-algorithms|greedy]], [[03-hash-maps|hash-maps]]
+**LeetCode 763** · Greedy · concepts: [[01-when-greedy-works|greedy]], [[03-hash-maps|hash-maps]]
 
 ## Problem
 
@@ -38,5 +38,5 @@ A part is valid only if no letter inside it appears outside it — so it must ex
 **"Partition so no element spans two parts" → track the farthest last-occurrence and cut when the scan reaches it.** Precomputing last-indices turns the constraint into a running boundary — a merge-of-intervals idea (each letter is an interval from first to last use) expressed as a one-pass greedy.
 
 ## Related
-- concepts: [[10-greedy-algorithms|greedy]], [[08-overlapping-intervals|overlapping-intervals]]
+- concepts: [[01-when-greedy-works|greedy]], [[08-overlapping-intervals|overlapping-intervals]]
 - prev: [[127-merge-triplets-to-form-target-triplet|Merge Triplets]] · next: [[129-valid-parenthesis-string|Valid Parenthesis String]]

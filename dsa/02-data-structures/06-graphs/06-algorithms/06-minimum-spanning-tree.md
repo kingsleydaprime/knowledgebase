@@ -10,7 +10,7 @@ A **Minimum Spanning Tree (MST)** is the spanning tree that achieves the **minim
 
 - You know what a spanning tree is and that a connected graph has many — [[06-graphs/03-subgraphs-trees-and-forests|subgraphs, trees and forests]].
 - You know union-find — [[10-union-find|union-find]] — and heaps — [[08-heaps|heaps]].
-- You have seen a greedy argument — [[10-greedy-algorithms|greedy algorithms]].
+- You have seen a greedy argument — [[01-when-greedy-works|greedy algorithms]].
 
 **After this lesson you will be able to:**
 
