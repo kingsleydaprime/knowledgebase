@@ -13,14 +13,14 @@
 
 ### The foundation — read this before any data structure
 
-1. [[01-complexity-analysis/index|Complexity Analysis]] — **[Beginner → Intermediate]** — a folder. $O$, $\Omega$ and $\Theta$ and why they are not interchangeable; best, average and worst case; recurrences and the Master Theorem; amortised analysis and the three methods for doing it.
+1. [[01-complexity-analysis/index|Complexity Analysis]] — **[Beginner → Intermediate]** — a folder. $O$, $\Omega$ and $\Theta$ and why they are not interchangeable; best, average and worst case; space complexity; and **amortised analysis with all three methods** — aggregate, accounting and potential.
 
 Everything in this course is quoted in the vocabulary that folder establishes, so it genuinely comes first — right after [[01-loops-and-what-they-cost|loops and what they cost]].
 
 ### Recursion and the techniques built on it
 
-2. **Recursion** — *not yet written* — base cases, recursive cases, the call stack, problem decomposition, recursion trees, and memoisation as the bridge to dynamic programming.
-3. **Divide and Conquer** — *not yet written* — split, solve, combine; why merge sort, quicksort and binary search are all one idea; and the recurrence shape it always produces.
+2. [[02-recursion/index|Recursion]] — **[Beginner → Advanced]** — a folder: the three questions that produce a recursive function; the call stack and why space is the depth; **recursion trees and recurrence relations**; and **the Master Theorem**, including the two famous recurrences it cannot solve.
+3. **Divide and Conquer** — *not yet written* — split, solve, combine; why merge sort, quicksort and binary search are all one idea; and choosing $a$, $b$ and $f$ deliberately.
 
 ### Sorting and searching
 
@@ -69,6 +69,9 @@ Several labs exist to **break** the algorithm rather than to show it working:
 | Lesson | What the lab demonstrates |
 | :--- | :--- |
 | [[01-growth-and-asymptotic-notation\|complexity]] | the ratio per doubling *is* the complexity — 2.00x for $O(n)$, 4.01x for $O(n^2)$ — and growing an array by one instead of doubling makes append $O(n)$ |
+| [[02-amortized-analysis\|amortised analysis]] | a charge of **2** per append going into debt at $-510$ while a charge of 3 never does; and the potential function holding the amortised cost at a flat 3 while actual costs run 1, 2, 3, 1, 5 |
+| [[01-recursion-fundamentals\|recursion]] | `getrecursionlimit()` reporting 1,000 while only **996** frames are usable; and naive Fibonacci making 242,785 calls for **26** distinct subproblems |
+| [[03-the-master-theorem\|Master Theorem]] | the $n\log n$ gap case measuring doubling ratios of 2.55/2.49/2.44 — distinguishable from the wrong Case-3 answer by the numbers alone |
 | [[01-linear-and-binary-search\|searching]] | all three classic binary-search bugs failing: an infinite loop, a missed single element, and the JDK's nine-year overflow |
 | [[08-leader-algorithm\|leader]] | the voting phase confidently returning a candidate that is not a majority |
 | [[09-max-slice-algorithms\|max slice]] | `max(0, ...)` Kadane's answering a different question on all-negative input |
