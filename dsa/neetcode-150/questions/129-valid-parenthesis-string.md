@@ -1,6 +1,6 @@
 # Valid Parenthesis String
 
-**LeetCode 678** · Greedy · concept: [[10-greedy-algorithms|greedy]]
+**LeetCode 678** · Greedy · concept: [[01-when-greedy-works|greedy]]
 
 ## Problem
 
@@ -49,6 +49,6 @@ The `*` wildcard means you can't commit to one open-count — so you carry the *
 **Wildcards over a counted constraint → track the min/max feasible count as an interval, clamping and failing on its bounds.** Instead of trying every `*` interpretation, the reachable-range collapses them into two numbers — a broadly useful greedy for "some assignment works" questions.
 
 ## Related
-- concept: [[10-greedy-algorithms|greedy]]; contrast the stack in [[021-valid-parentheses|Valid Parentheses]]
+- concept: [[01-when-greedy-works|greedy]]; contrast the stack in [[021-valid-parentheses|Valid Parentheses]]
 - prev: [[128-partition-labels|Partition Labels]] — end of Greedy
 - next category: Intervals

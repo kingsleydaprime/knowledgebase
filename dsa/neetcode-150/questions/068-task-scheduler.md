@@ -45,5 +45,5 @@ The bottleneck is the **most frequent** task — its copies force the widest spa
 **Greedy scheduling → always run the highest-count available job (max-heap) + a cooldown queue.** The heap surfaces the current bottleneck; the queue enforces the timing constraint. This heap+queue pairing generalizes to rate-limited/cooldown scheduling.
 
 ## Related
-- concept: [[08-heaps|heaps]], [[10-greedy-algorithms|greedy]]
+- concept: [[08-heaps|heaps]], [[01-when-greedy-works|greedy]]
 - prev: [[067-kth-largest-element-in-an-array|Kth Largest in an Array]] · next: [[069-design-twitter|Design Twitter]]

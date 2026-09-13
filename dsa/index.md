@@ -44,7 +44,8 @@ dsa/
 │   ├── 02-recursion, 03-divide-and-conquer
 │   ├── 04-sorting/, 05-searching/
 │   ├── 06-dynamic-programming/  — the two properties, state & transition, 1-D and 2-D classics
-│   ├── greedy-algorithms, max-slice-algorithms, leader-algorithm
+│   ├── 10-greedy-algorithms/     — when greedy is safe; selection & scheduling
+│   ├── max-slice-algorithms, leader-algorithm
 │   └── number-theory-basics, bit-manipulation, math-and-geometry
 ├── 04-patterns/                     # the 15 LeetCode patterns — a layer above both
 ├── neetcode-150/                    # all 150 problems worked, + interview playbook
@@ -98,7 +99,7 @@ Everything after this is quoted in the vocabulary those two establish, so they g
 17. [[dsa/03-algorithms/07-number-theory-basics|number-theory-basics]] — **[Intermediate]** — primality, Sieve of Eratosthenes, factorization, GCD/LCM
 18. [[dsa/03-algorithms/08-leader-algorithm|leader-algorithm]] — **[Intermediate]** — majority element via Boyer-Moore voting
 19. [[dsa/03-algorithms/09-max-slice-algorithms|max-slice-algorithms]] — **[Intermediate]** — Kadane's algorithm, maximum subarray sum
-20. [[dsa/03-algorithms/10-greedy-algorithms|greedy-algorithms]] — **[Advanced]** — locally-optimal choices, and why they aren't always globally correct
+20. [[10-greedy-algorithms/index|greedy-algorithms]] — **[Intermediate → Advanced]** — a folder: locally-optimal choices and why they aren't always globally correct, plus the selection-and-scheduling family (hire-K-workers, interval scheduling)
 21. [[11-bit-manipulation|bit-manipulation]] — **[Intermediate]** — bitwise operators, XOR tricks, `x & (x-1)`, masks
 22. [[12-math-and-geometry|math-and-geometry]] — **[Intermediate]** — in-place matrix ops, fast exponentiation, grade-school arithmetic
 
@@ -116,7 +117,7 @@ With the fundamentals above in place, [[dsa/04-patterns/index|patterns/]] covers
 
 ## How this folder was built
 
-The `pdfs/` folder holds the original Codility course material these notes were written against. Cross-referencing the notes against those PDFs surfaced five topics with zero coverage, since written: [[dsa/02-data-structures/07-stacks-and-queues|stacks-and-queues]], [[dsa/03-algorithms/07-number-theory-basics|number-theory-basics]], [[dsa/03-algorithms/08-leader-algorithm|leader-algorithm]], [[dsa/03-algorithms/09-max-slice-algorithms|max-slice-algorithms]], and [[dsa/03-algorithms/10-greedy-algorithms|greedy-algorithms]]. The same pass deepened [[04-sorting/index|sorting]] with non-comparison sorts, [[01-growth-and-asymptotic-notation|algorithms]] with the constraint-size heuristic, and [[dsa/04-patterns/09-modified-binary-search|modified-binary-search]] with "binary search on the answer."
+The `pdfs/` folder holds the original Codility course material these notes were written against. Cross-referencing the notes against those PDFs surfaced five topics with zero coverage, since written: [[dsa/02-data-structures/07-stacks-and-queues|stacks-and-queues]], [[dsa/03-algorithms/07-number-theory-basics|number-theory-basics]], [[dsa/03-algorithms/08-leader-algorithm|leader-algorithm]], [[dsa/03-algorithms/09-max-slice-algorithms|max-slice-algorithms]], and [[01-when-greedy-works|greedy-algorithms]]. The same pass deepened [[04-sorting/index|sorting]] with non-comparison sorts, [[01-growth-and-asymptotic-notation|algorithms]] with the constraint-size heuristic, and [[dsa/04-patterns/09-modified-binary-search|modified-binary-search]] with "binary search on the answer."
 
 Running the same cross-reference against the NeetCode 150 is what surfaced the [[dsa/02-data-structures/08-heaps|heaps]], [[dsa/02-data-structures/09-tries|tries]], [[dsa/02-data-structures/10-union-find|union-find]], [[01-topological-sort|topological-sort]], [[06-minimum-spanning-tree|MST]], [[11-bit-manipulation|bit-manipulation]] and [[12-math-and-geometry|math-and-geometry]] gaps, plus the worked 1-D/2-D recurrences in [[dsa/04-patterns/15-dynamic-programming|dynamic-programming]].
 

@@ -43,7 +43,7 @@ A note that starts at step 4 teaches you to recognise problems you have already 
 | yes | no | no efficient method known (longest simple path is NP-hard) |
 | no | no | brute force or [[14-backtracking\|backtracking]] |
 
-And inside row two: when a *local* rule provably selects the right subproblem, skip the table and use a [[10-greedy-algorithms|greedy algorithm]] — which needs a proof, not a feeling.
+And inside row two: when a *local* rule provably selects the right subproblem, skip the table and use a [[01-when-greedy-works|greedy algorithm]] — which needs a proof, not a feeling.
 
 ## What is verified
 
@@ -61,7 +61,7 @@ Every lab was executed and its expected output generated from that run. **Every 
 - [[03-algorithms/index|03-algorithms]] — the parent folder
 - [[02-recursion/index|Recursion]] — where memoisation first appears, and the recurrences behind the costs
 - [[03-divide-and-conquer|Divide and Conquer]] — the technique for when subproblems do *not* overlap
-- [[10-greedy-algorithms|Greedy Algorithms]] — the special case where a local rule is provably enough
+- [[01-when-greedy-works|Greedy Algorithms]] — the special case where a local rule is provably enough
 - [[15-dynamic-programming|The DP pattern note]] — the problem-recognition layer above this folder
 - [[04-floyd-warshall|Floyd–Warshall]] — a DP over graphs
 - [[dsa/neetcode-150/index|NeetCode 150]] — the DP section, for fluency

@@ -1,6 +1,6 @@
 # Merge Triplets to Form Target Triplet
 
-**LeetCode 1899** · Greedy · concept: [[10-greedy-algorithms|greedy]]
+**LeetCode 1899** · Greedy · concept: [[01-when-greedy-works|greedy]]
 
 ## Problem
 
@@ -32,5 +32,5 @@ A triplet exceeding the target in any component can never be merged in (max is m
 **Element-wise-max merges → discard anything that would overshoot, then check each coordinate is achievable.** The greedy realization "an over-target component is permanently disqualifying" filters the input, after which the answer is a simple per-position coverage check.
 
 ## Related
-- concept: [[10-greedy-algorithms|greedy]]
+- concept: [[01-when-greedy-works|greedy]]
 - prev: [[126-hand-of-straights|Hand of Straights]] · next: [[128-partition-labels|Partition Labels]]

@@ -119,7 +119,7 @@ Compress the same file three ways — Huffman alone, LZ77 alone, both — and ta
 
 - [[information-theory/03-source-coding-and-compression|Source coding and compression]] — the reference note for this guide
 - [[information-theory/02-entropy-joint-conditional-and-mutual|Entropy]] — the limit you will measure against
-- [[dsa/03-algorithms/10-greedy-algorithms|Greedy algorithms]] — Huffman's tree construction is the classic proof-carrying greedy algorithm
+- [[01-when-greedy-works|Greedy algorithms]] — Huffman's tree construction is the classic proof-carrying greedy algorithm
 - [[build-your-own-shit/06-your-own-database|Your Own Database]] — where you would use this next, on pages
 - [[build-your-own-shit/index|Build Your Own Shit index]]
 

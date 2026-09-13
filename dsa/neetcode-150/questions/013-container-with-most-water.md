@@ -50,5 +50,5 @@ The area is capped by the **shorter** wall. If you moved the *taller* wall inwar
 **When the objective is width × min(ends), start widest and shrink toward the taller side.** The insight isn't the two-pointer mechanic — it's *proving* which pointer to move by showing the alternative can't beat what you've already seen. That "the shorter wall bounds you, so advancing it is the only improving move" logic is the transferable idea.
 
 ## Related
-- concept: [[02-two-pointers|two-pointers]], [[10-greedy-algorithms|greedy]]
+- concept: [[02-two-pointers|two-pointers]], [[01-when-greedy-works|greedy]]
 - prev: [[012-3sum|3Sum]] · next: [[014-trapping-rain-water|Trapping Rain Water]]

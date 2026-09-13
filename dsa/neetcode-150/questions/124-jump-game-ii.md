@@ -1,6 +1,6 @@
 # Jump Game II
 
-**LeetCode 45** · Greedy · concept: [[10-greedy-algorithms|greedy]]
+**LeetCode 45** · Greedy · concept: [[01-when-greedy-works|greedy]]
 
 ## Problem
 
@@ -33,6 +33,6 @@ Each "level" is the set of indices reachable in exactly `k` jumps; the next leve
 **Fewest jumps → greedy level-expansion (implicit BFS): from the current reachable window, jump to the farthest it can reach.** It reframes "minimum jumps" as "how many BFS levels to cover the array," giving O(n) instead of an O(n²) DP.
 
 ## Related
-- concept: [[10-greedy-algorithms|greedy]], [[02-breadth-first-search|bfs]]
+- concept: [[01-when-greedy-works|greedy]], [[02-breadth-first-search|bfs]]
 - builds on: [[123-jump-game|Jump Game]]
 - prev: [[123-jump-game|Jump Game]] · next: [[125-gas-station|Gas Station]]

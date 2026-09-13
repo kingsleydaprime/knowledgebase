@@ -1,6 +1,6 @@
 # Maximum Subarray
 
-**LeetCode 53** · Greedy · concepts: [[09-max-slice-algorithms|max-slice]], [[10-greedy-algorithms|greedy]], [[01-prefix-sum|prefix-sum]]
+**LeetCode 53** · Greedy · concepts: [[09-max-slice-algorithms|max-slice]], [[01-when-greedy-works|greedy]], [[01-prefix-sum|prefix-sum]]
 
 ## Problem
 
@@ -30,7 +30,7 @@ def maxSubArray(nums):
 
 ## Why dropping a negative prefix is safe
 
-If the sum of everything before position `i` is negative, then any subarray that *includes* that prefix would be larger without it. So the optimal subarray never starts with a negative-sum prefix — resetting `running` to 0 discards exactly those useless prefixes. That local "throw away what can't help" choice is provably globally optimal — the essence of [[10-greedy-algorithms|greedy]].
+If the sum of everything before position `i` is negative, then any subarray that *includes* that prefix would be larger without it. So the optimal subarray never starts with a negative-sum prefix — resetting `running` to 0 discards exactly those useless prefixes. That local "throw away what can't help" choice is provably globally optimal — the essence of [[01-when-greedy-works|greedy]].
 
 ### The same argument in prefix-sum terms
 
@@ -43,5 +43,5 @@ Kadane's reset *is* that running minimum, in disguise: setting `running = 0` whe
 **Maximum subarray → [[09-max-slice-algorithms|Kadane's]]: extend the running sum, reset it when it turns negative.** The one-line greedy insight ("a negative running total should be abandoned") is the whole algorithm, and the seed of the max/min-tracking variant in [[107-maximum-product-subarray|Maximum Product Subarray]].
 
 ## Related
-- concepts: [[09-max-slice-algorithms|max-slice / Kadane's]], [[10-greedy-algorithms|greedy]], [[01-prefix-sum|prefix-sum]]
+- concepts: [[09-max-slice-algorithms|max-slice / Kadane's]], [[01-when-greedy-works|greedy]], [[01-prefix-sum|prefix-sum]]
 - next: [[123-jump-game|Jump Game]]

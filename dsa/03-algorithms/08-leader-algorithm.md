@@ -390,5 +390,5 @@ You can implement voting, explain the cancellation, and say why verification is 
 **Next:** [[09-max-slice-algorithms|Max Slice]] — another one-pass array algorithm with a running value.
 
 ## Related Modules
-- [[10-greedy-algorithms|Greedy Algorithms]] — Boyer-Moore is a greedy approach
+- [[01-when-greedy-works|Greedy Algorithms]] — Boyer-Moore is a greedy approach
 - [[04-sorting/index|Sorting Algorithms]] — $O(n \log n)$ sort-based solution

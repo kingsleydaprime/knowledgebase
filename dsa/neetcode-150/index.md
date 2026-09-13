@@ -29,7 +29,7 @@ Most of the interview battle is **recognizing which of ~18 tools a problem is as
 | "same group?", dynamic connectivity, cycle in an **undirected** graph | **Union-Find** (a failed `union` = a cycle) | [[10-union-find\|union-find]] |
 | shortest path with **weights**; OR connect everything at min cost | **Dijkstra** · **MST** (Prim/Kruskal); hop-limited → Bellman-Ford | [[02-dijkstra\|dijkstra]] · [[06-minimum-spanning-tree\|MST]] |
 | "count the ways", min/max over choices, **overlapping subproblems** | **Dynamic programming** (find the recurrence) | [[15-dynamic-programming\|DP]] |
-| a locally-optimal choice that's provably globally optimal | **Greedy** (justify with an exchange argument) | [[10-greedy-algorithms\|greedy]] |
+| a locally-optimal choice that's provably globally optimal | **Greedy** (justify with an exchange argument) | [[01-when-greedy-works\|greedy]] |
 | overlapping ranges, merge intervals, meeting rooms | **Intervals** — sort by start/end, then sweep (+ heap) | [[08-overlapping-intervals\|overlapping-intervals]] |
 | O(1) space demanded, "appears once", XOR hints, powers of two | **Bit manipulation** (XOR cancel, `n & (n-1)`) | [[11-bit-manipulation\|bit-manipulation]] |
 | rotate/spiral/zero a matrix in place, fast `xⁿ`, big-int arithmetic | **Math & geometry** (in-place tricks, binary exponentiation) | [[12-math-and-geometry\|math-and-geometry]] |
@@ -252,7 +252,7 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 312 | [[120-burst-balloons\|Burst Balloons]] | interval DP on last balloon |
 | 10 | [[121-regular-expression-matching\|Regular Expression Matching]] | 2-D with `*`/`.` transitions |
 
-## Greedy — [[10-greedy-algorithms|greedy]]
+## Greedy — [[01-when-greedy-works|greedy]]
 
 | # | Problem | Key idea |
 |---|---|---|

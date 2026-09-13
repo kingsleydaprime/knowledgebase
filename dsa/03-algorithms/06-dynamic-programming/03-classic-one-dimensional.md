@@ -10,7 +10,7 @@ The third one is the important one. Its obvious state definition does not work, 
 
 - You can name a state, transition and base case, and write either a memoised or a tabulated implementation — [[02-memoisation-and-tabulation|memoisation and tabulation]].
 - You know that a DP's complexity is *states × transition cost* — same lesson.
-- You have seen [[10-greedy-algorithms|greedy]] fail on coin change — [[01-what-makes-a-problem-dp|what makes a problem DP]].
+- You have seen [[01-when-greedy-works|greedy]] fail on coin change — [[01-what-makes-a-problem-dp|what makes a problem DP]].
 
 **After this lesson you will be able to:**
 
@@ -78,7 +78,7 @@ Traced on coins $\{1, 3, 4\}$, amount 6:
    best[a] |   0   1   2   1   1   2   2
 ```
 
-The answer is 2 coins — $3 + 3$ — where [[10-greedy-algorithms|greedy]] takes $4 + 1 + 1$ and gets 3. Verified against brute force here and on **300 random inputs**.
+The answer is 2 coins — $3 + 3$ — where [[01-when-greedy-works|greedy]] takes $4 + 1 + 1$ and gets 3. Verified against brute force here and on **300 random inputs**.
 
 **The infinity sentinel matters.** For coins $\{2, 5\}$ and amount 3, no combination works, and `best[3]` stays infinite — which is how the algorithm reports impossibility rather than returning a wrong small number. Use a real infinity or a value provably larger than any valid answer (`amount + 1` works), **never zero**.
 
@@ -569,7 +569,7 @@ You can derive a state by asking what decision happens at index $i$; explain why
 
 - [[02-memoisation-and-tabulation|Memoisation and Tabulation]] — the previous lesson: state, transition, base case
 - [[04-classic-two-dimensional|Classic 2-D DP]] — the next dimension
-- [[10-greedy-algorithms|Greedy Algorithms]] — why greedy coin change fails
+- [[01-when-greedy-works|Greedy Algorithms]] — why greedy coin change fails
 - [[09-max-slice-algorithms|Max Slice / Kadane's]] — a 1-D scan that is DP in disguise
 - [[15-dynamic-programming|The DP pattern note]] — the recognition layer above this folder
 - [[06-dynamic-programming/index|the dynamic programming folder]]
