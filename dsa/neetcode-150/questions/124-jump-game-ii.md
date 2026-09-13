@@ -8,7 +8,7 @@ Same jump rules as [[123-jump-game|Jump Game]], but return the **minimum number 
 
 ## Approach — greedy BFS by "jump levels" (optimal)
 
-Think in levels, like [[03-bfs|BFS]]: from the current jump's range `[l, r]`, one more jump reaches the farthest any index in that window allows. Expand level by level, counting jumps, until a level covers the end.
+Think in levels, like [[02-breadth-first-search|BFS]]: from the current jump's range `[l, r]`, one more jump reaches the farthest any index in that window allows. Expand level by level, counting jumps, until a level covers the end.
 
 ```python
 def jump(nums):
@@ -33,6 +33,6 @@ Each "level" is the set of indices reachable in exactly `k` jumps; the next leve
 **Fewest jumps → greedy level-expansion (implicit BFS): from the current reachable window, jump to the farthest it can reach.** It reframes "minimum jumps" as "how many BFS levels to cover the array," giving O(n) instead of an O(n²) DP.
 
 ## Related
-- concept: [[10-greedy-algorithms|greedy]], [[03-bfs|bfs]]
+- concept: [[10-greedy-algorithms|greedy]], [[02-breadth-first-search|bfs]]
 - builds on: [[123-jump-game|Jump Game]]
 - prev: [[123-jump-game|Jump Game]] · next: [[125-gas-station|Gas Station]]

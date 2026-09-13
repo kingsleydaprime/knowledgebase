@@ -28,7 +28,7 @@ def maxDepth(root):
 ## Alternatives
 
 - **Iterative DFS** with an explicit stack of `(node, depth)` pairs.
-- **BFS level-order** ([[03-bfs|BFS]]): count the levels as you drain the queue one level at a time — the depth is the number of levels.
+- **BFS level-order** ([[02-breadth-first-search|BFS]]): count the levels as you drain the queue one level at a time — the depth is the number of levels.
 
 All three are O(n); the recursion is just the shortest.
 
@@ -37,5 +37,5 @@ All three are O(n); the recursion is just the shortest.
 **Tree height obeys `height(node) = 1 + max(height(children))`** — a bottom-up aggregation. This "combine children's results into the parent's answer" recursion is the backbone of Diameter, Balanced, and Max Path Sum; depth is its simplest instance.
 
 ## Related
-- concept: [[01-trees|trees]], [[03-bfs|bfs]]
+- concept: [[01-trees|trees]], [[02-breadth-first-search|bfs]]
 - prev: [[046-invert-binary-tree|Invert Binary Tree]] · next: [[048-diameter-of-binary-tree|Diameter of Binary Tree]]

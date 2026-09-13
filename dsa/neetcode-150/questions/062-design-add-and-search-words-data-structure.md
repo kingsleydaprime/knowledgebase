@@ -1,6 +1,6 @@
 # Design Add and Search Words Data Structure
 
-**LeetCode 211** · Tries · concepts: [[09-tries|tries]], [[02-dfs|dfs]]
+**LeetCode 211** · Tries · concepts: [[09-tries|tries]], [[01-depth-first-search|dfs]]
 
 ## Problem
 
@@ -49,6 +49,6 @@ A concrete character means one path; a `.` means the search **splits** into ever
 **Wildcards turn a trie lookup into a DFS: fixed char → one branch, wildcard → all branches.** The trie provides the structure; DFS provides the "try all possibilities" at each unknown — a pairing that recurs whenever partial-match search meets a prefix structure.
 
 ## Related
-- concepts: [[09-tries|tries]], [[02-dfs|dfs]]
+- concepts: [[09-tries|tries]], [[01-depth-first-search|dfs]]
 - builds on: [[061-implement-trie-prefix-tree|Implement Trie]]
 - prev: [[061-implement-trie-prefix-tree|Implement Trie]] · next: [[063-word-search-ii|Word Search II]]

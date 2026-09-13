@@ -27,7 +27,7 @@ The single highest-value thing from [[dsa/04-patterns/index|the patterns folder]
 | all paths / connected components / islands | DFS | [[dsa/04-patterns/11-dfs-pattern\|11]] |
 | all combinations/permutations/subsets | backtracking | [[dsa/04-patterns/14-backtracking\|14]] |
 | "how many ways", "min/max cost", overlapping subproblems | DP | [[dsa/04-patterns/15-dynamic-programming\|15]] |
-| dependencies / ordering / prerequisites | topological sort | [[dsa/03-algorithms/11-topological-sort\|topo sort]] |
+| dependencies / ordering / prerequisites | topological sort | [[01-topological-sort\|topo sort]] |
 | dynamic connectivity, grouping | union-find | [[dsa/02-data-structures/10-union-find\|union-find]] |
 
 **"Binary search on the answer"** is the most under-used entry there — any problem of the form "find the minimum X such that a check passes," where the check is monotonic, is a binary search over the answer space rather than over an array. Recognising it turns a lot of hard-looking problems into medium ones.

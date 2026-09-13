@@ -174,7 +174,7 @@ def my_pow(x: float, n: int) -> float:
     return result
 ```
 
-This leverages [[13-bit-manipulation|bit manipulation]] directly—iterating through the binary digits of the exponent.
+This leverages [[11-bit-manipulation|bit manipulation]] directly—iterating through the binary digits of the exponent.
 
 ### 4.2 Happy Number — Cycle Detection via Floyd's Algorithm
 
@@ -491,5 +491,5 @@ You can rotate and traverse matrices, use the cross product for orientation, and
 **Where next:** back to [[index|the algorithms index]] — this is the last note in the folder.
 
 ## Related Modules
-- [[13-bit-manipulation|Bit Manipulation]] — Binary exponentiation uses bit-shift operators
+- [[11-bit-manipulation|Bit Manipulation]] — Binary exponentiation uses bit-shift operators
 - [[07-number-theory-basics|Number Theory Basics]] — Integer arithmetic techniques

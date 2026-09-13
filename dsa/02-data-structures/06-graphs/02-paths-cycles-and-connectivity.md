@@ -415,6 +415,6 @@ You can state all four route words precisely, find components, tell strong from 
 
 ## Related
 
-- [[02-dfs|DFS]] · [[03-bfs|BFS]] — the traversals every result here is computed with
-- [[11-topological-sort|Topological Sort]] — what a DAG buys you
+- [[01-depth-first-search|DFS]] · [[02-breadth-first-search|BFS]] — the traversals every result here is computed with
+- [[01-topological-sort|Topological Sort]] — what a DAG buys you
 - [[10-union-find|Union-Find]] — components maintained incrementally

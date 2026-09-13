@@ -120,7 +120,7 @@ A **priority queue** is an ADT: a collection where you add items freely and alwa
 
 5. `heapify(list)` — Builds a heap from an existing list in **$O(n)$**, which is faster than inserting the items one by one.
 
-6. `decrease_key(item, new_priority)` — Lowers an item's priority value and sifts it up. $O(\log n)$, but it needs a way to *find* the item first, which a plain heap does not provide. This is why [[06-dijkstra|Dijkstra's algorithm]] usually pushes a duplicate entry and skips stale ones instead.
+6. `decrease_key(item, new_priority)` — Lowers an item's priority value and sifts it up. $O(\log n)$, but it needs a way to *find* the item first, which a plain heap does not provide. This is why [[02-dijkstra|Dijkstra's algorithm]] usually pushes a duplicate entry and skips stale ones instead.
 
 ### Why a heap rather than a sorted list
 
@@ -416,5 +416,5 @@ You are done with this module when you can, closed-book:
 
 ## Related Modules
 - [[01-arrays|Arrays]] — The flat 1D storage array underlying heaps
-- [[06-dijkstra|Dijkstra's Algorithm]] — Priority queues driving weighted shortest path search
+- [[02-dijkstra|Dijkstra's Algorithm]] — Priority queues driving weighted shortest path search
 - [[04-sorting/index|Sorting]] — Heapsort ($O(n \log n)$ in-place sort)

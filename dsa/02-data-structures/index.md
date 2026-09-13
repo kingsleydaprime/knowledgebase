@@ -26,4 +26,4 @@ Ordered so each builds on the last — dynamic arrays assume arrays, heaps assum
 
 - [[dsa/index|DSA notes]] — the parent folder
 - [[dsa/04-patterns/index|04-patterns]] — the 15 recurring problem-solving patterns
-- [[dsa/03-algorithms/01-algorithms|03-algorithms]] — sorting, searching, and graph algorithms built on these structures
+- [[01-growth-and-asymptotic-notation|03-algorithms]] — sorting, searching, and graph algorithms built on these structures

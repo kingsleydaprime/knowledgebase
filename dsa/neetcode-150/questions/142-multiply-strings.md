@@ -1,6 +1,6 @@
 # Multiply Strings
 
-**LeetCode 43** · Math & Geometry · concept: [[14-math-and-geometry|math-and-geometry]]
+**LeetCode 43** · Math & Geometry · concept: [[12-math-and-geometry|math-and-geometry]]
 
 ## Problem
 
@@ -42,5 +42,5 @@ The key fact: multiplying the digit at index `i` (from the right, in reversed th
 **Big-number arithmetic without native ints → simulate the schoolbook algorithm, tracking digit positions and carries in an array.** The `i+j` / `i+j+1` placement rule is the crux; it generalizes to any base and is the arithmetic cousin of [[141-pow-x-n|Pow]]'s and [[149-sum-of-two-integers|Sum of Two Integers]]' manual computation.
 
 ## Related
-- concept: [[14-math-and-geometry|math-and-geometry]]
+- concept: [[12-math-and-geometry|math-and-geometry]]
 - prev: [[141-pow-x-n|Pow(x, n)]] · next: [[143-detect-squares|Detect Squares]]

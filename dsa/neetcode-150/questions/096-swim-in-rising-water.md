@@ -1,6 +1,6 @@
 # Swim in Rising Water
 
-**LeetCode 778** · Advanced Graphs · concept: [[06-dijkstra|dijkstra]]
+**LeetCode 778** · Advanced Graphs · concept: [[02-dijkstra|dijkstra]]
 
 ## Problem
 
@@ -8,7 +8,7 @@ In an `n × n` grid of elevations, water level rises over time; at time `t` you 
 
 ## The idea — minimize the maximum elevation on a path
 
-You want the path whose **highest cell is as low as possible** (that peak determines when you can finish). This is a "minimax path" — a [[06-dijkstra|Dijkstra]] variant where a path's cost is the **max** elevation along it, not the sum.
+You want the path whose **highest cell is as low as possible** (that peak determines when you can finish). This is a "minimax path" — a [[02-dijkstra|Dijkstra]] variant where a path's cost is the **max** elevation along it, not the sum.
 
 ```python
 import heapq
@@ -41,5 +41,5 @@ The only change from standard Dijkstra is the edge relaxation: instead of `dist 
 **"Minimize the maximum along a path" → Dijkstra with a max-based cost.** Recognizing that the objective is a bottleneck (peak) rather than a sum, and that Dijkstra's greedy expansion still works with `max` in place of `+`, is the leap.
 
 ## Related
-- concept: [[06-dijkstra|dijkstra]]; alt: [[09-modified-binary-search|binary search on the answer]]
+- concept: [[02-dijkstra|dijkstra]]; alt: [[09-modified-binary-search|binary search on the answer]]
 - prev: [[095-network-delay-time|Network Delay Time]] · next: [[097-alien-dictionary|Alien Dictionary]]

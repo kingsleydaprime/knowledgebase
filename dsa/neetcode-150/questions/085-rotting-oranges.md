@@ -1,6 +1,6 @@
 # Rotting Oranges
 
-**LeetCode 994** · Graphs · concepts: [[03-bfs|bfs]], [[12-bfs-pattern|bfs-pattern]]
+**LeetCode 994** · Graphs · concepts: [[02-breadth-first-search|bfs]], [[12-bfs-pattern|bfs-pattern]]
 
 ## Problem
 
@@ -49,6 +49,6 @@ Seeding the queue with all rotten oranges makes them spread **in parallel** — 
 **Simultaneous spread from many sources, measuring time/distance → multi-source BFS (all sources in the initial queue), counting levels.** BFS gives shortest distance, and multi-source parallelizes it — the template for "fire/infection/flood spreading" and nearest-source problems.
 
 ## Related
-- concepts: [[03-bfs|bfs]], [[12-bfs-pattern|bfs-pattern]]
+- concepts: [[02-breadth-first-search|bfs]], [[12-bfs-pattern|bfs-pattern]]
 - relative: [[086-walls-and-gates|Walls and Gates]] (same multi-source BFS)
 - prev: [[084-surrounded-regions|Surrounded Regions]] · next: [[086-walls-and-gates|Walls and Gates]]

@@ -4,7 +4,7 @@
 
 ## Before you start
 
-- You should understand DFS. See [[02-dfs|dfs]] if needed.
+- You should understand DFS. See [[01-depth-first-search|dfs]] if needed.
 - You should understand recursion. See [[languages/06-python/04-functions-and-scope|Python functions and scope]] if needed.
 
 **What you will be able to do after this lesson:**
@@ -283,7 +283,7 @@ You are done with this pattern when you can, closed-book:
 ## 9. Related
 
 - [[11-dfs-pattern|dfs-pattern]] — DFS as a problem-solving pattern
-- [[01-algorithms|algorithms]] — exponential complexity classes
+- [[01-growth-and-asymptotic-notation|algorithms]] — exponential complexity classes
 - [[programming-fundamentals/15-how-types-actually-work|data-type-classification]] — why copying matters when recording a mutable path
 - [[14-backtracking|backtracking]] — this note
 

@@ -1,6 +1,6 @@
 # Pow(x, n)
 
-**LeetCode 50** · Math & Geometry · concepts: [[14-math-and-geometry|math-and-geometry]], [[13-bit-manipulation|bit-manipulation]]
+**LeetCode 50** · Math & Geometry · concepts: [[12-math-and-geometry|math-and-geometry]], [[11-bit-manipulation|bit-manipulation]]
 
 ## Problem
 
@@ -27,12 +27,12 @@ def myPow(x, n):
 
 ## Why squaring halves the work
 
-Each squaring doubles the exponent that `x` represents (`x`, `x²`, `x⁴`, `x⁸`, …). The binary representation of `n` says which of those powers to multiply together — so you need only `log₂ n` multiplications instead of `n`. The `n & 1` / `n >>= 1` walk over `n`'s bits is why this ties directly to [[13-bit-manipulation|bit manipulation]].
+Each squaring doubles the exponent that `x` represents (`x`, `x²`, `x⁴`, `x⁸`, …). The binary representation of `n` says which of those powers to multiply together — so you need only `log₂ n` multiplications instead of `n`. The `n & 1` / `n >>= 1` walk over `n`'s bits is why this ties directly to [[11-bit-manipulation|bit manipulation]].
 
 ## Key insight
 
 **Exponentiation (or any associative "repeat k times") → binary exponentiation, O(log n) via squaring.** The same doubling idea powers matrix exponentiation (O(log n) Fibonacci) and modular exponentiation in cryptography.
 
 ## Related
-- concepts: [[14-math-and-geometry|math-and-geometry]], [[13-bit-manipulation|bit-manipulation]]
+- concepts: [[12-math-and-geometry|math-and-geometry]], [[11-bit-manipulation|bit-manipulation]]
 - prev: [[140-plus-one|Plus One]] · next: [[142-multiply-strings|Multiply Strings]]

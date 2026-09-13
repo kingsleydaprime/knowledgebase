@@ -41,5 +41,5 @@ The size-k heap is the sweet spot when k ≪ n: O(n log k) and O(k) space.
 **"K closest/smallest by a metric" → size-k heap on that metric** (max-heap when finding the *smallest* k). Compare on the cheapest monotonic proxy (squared distance) rather than the exact value.
 
 ## Related
-- concepts: [[08-heaps|heaps]], [[07-top-k-elements|top-k]]; Quickselect in [[05-searching|searching]]
+- concepts: [[08-heaps|heaps]], [[07-top-k-elements|top-k]]; Quickselect in [[01-linear-and-binary-search|searching]]
 - prev: [[065-last-stone-weight|Last Stone Weight]] · next: [[067-kth-largest-element-in-an-array|Kth Largest Element in an Array]]

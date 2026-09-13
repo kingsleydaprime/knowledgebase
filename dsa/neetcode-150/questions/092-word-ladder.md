@@ -1,6 +1,6 @@
 # Word Ladder
 
-**LeetCode 127** · Graphs · concepts: [[03-bfs|bfs]], [[12-bfs-pattern|bfs-pattern]]
+**LeetCode 127** · Graphs · concepts: [[02-breadth-first-search|bfs]], [[12-bfs-pattern|bfs-pattern]]
 
 ## Problem
 
@@ -12,7 +12,7 @@ Given `beginWord`, `endWord`, and a `wordList`, return the length of the **short
 
 ## The graph view — words are nodes, one-letter-changes are edges
 
-Each word is a node; two words are adjacent if they differ by exactly one letter. "Shortest transformation" = **shortest path in an unweighted graph** = [[03-bfs|BFS]].
+Each word is a node; two words are adjacent if they differ by exactly one letter. "Shortest transformation" = **shortest path in an unweighted graph** = [[02-breadth-first-search|BFS]].
 
 ## Approach — BFS with wildcard adjacency (optimal)
 
@@ -55,6 +55,6 @@ BFS explores by distance, so the first time it reaches `endWord` is the shortest
 **"Fewest one-step transformations" → model states as graph nodes and run BFS.** The creative parts are *seeing* the implicit graph (words + one-letter edges) and building adjacency cheaply (wildcard patterns) rather than comparing all pairs.
 
 ## Related
-- concepts: [[03-bfs|bfs]], [[12-bfs-pattern|bfs-pattern]]
+- concepts: [[02-breadth-first-search|bfs]], [[12-bfs-pattern|bfs-pattern]]
 - prev: [[091-graph-valid-tree|Graph Valid Tree]] — end of Graphs
 - next category: Advanced Graphs

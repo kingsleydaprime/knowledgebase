@@ -87,7 +87,7 @@ Each of those four rows is a question with two answers. Here is what all twelve 
 
 5. **Unweighted**: This means the edges carry no numbers, so every edge counts the same. "Shortest path" then simply means "fewest edges", which is a question BFS answers directly.
 
-6. **Weighted**: This means every edge carries a number. Now "shortest path" means "smallest total weight", which is a completely different question — a route with more edges can easily be cheaper. BFS no longer works, and you need [[06-dijkstra|Dijkstra's algorithm]] instead.
+6. **Weighted**: This means every edge carries a number. Now "shortest path" means "smallest total weight", which is a completely different question — a route with more edges can easily be cheaper. BFS no longer works, and you need [[02-dijkstra|Dijkstra's algorithm]] instead.
 
 ### Cycles
 
@@ -148,7 +148,7 @@ A graph supports these operations.
 
 8. `vertices()` — Returns every vertex in the graph.
 
-9. `edges()` — Returns every edge in the graph. Some algorithms want exactly this and nothing else — [[12-minimum-spanning-tree|Kruskal's algorithm]] sorts the whole edge list and never asks for a single vertex's neighbours.
+9. `edges()` — Returns every edge in the graph. Some algorithms want exactly this and nothing else — [[06-minimum-spanning-tree|Kruskal's algorithm]] sorts the whole edge list and never asks for a single vertex's neighbours.
 
 10. `order()` and `size()` — Return the number of vertices and the number of edges respectively.
 

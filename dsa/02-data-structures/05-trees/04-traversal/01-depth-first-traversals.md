@@ -61,7 +61,7 @@ Throughout this module, we will trace the traversal orders using this binary tre
 
 7. **Post-order**: Visit the left subtree, then the right subtree, then the node **last**. A node is only visited after everything beneath it, which is what makes it right for deleting a tree or evaluating an expression.
 
-8. **Level-order**: Visit all nodes at depth 0, then all at depth 1, and so on. This is [[../../../03-algorithms/03-bfs|breadth-first search]] applied to a tree.
+8. **Level-order**: Visit all nodes at depth 0, then all at depth 1, and so on. This is [[02-breadth-first-search|breadth-first search]] applied to a tree.
 
 9. **The call stack**: This is the private area of memory the language uses to remember where it was. Every time a function calls another function, the computer pushes a record onto the call stack saying which line to come back to and what the local variables were. When the function returns, that record is popped off. **Recursion is not magic — it is a stack you did not have to write.**
 
@@ -609,4 +609,4 @@ You can perform all three orders by hand, write each recursively and iteratively
 - [[../02-binary-trees|Binary Trees]] — including the degenerate shape that breaks the recursive versions
 - [[../03-binary-search-trees|Binary Search Trees]] — where in-order matters most
 - [[../../07-stacks-and-queues|Stacks and Queues]] — the structure the iterative versions are built on
-- [[../../../03-algorithms/02-dfs|Depth-First Search]] — the same idea on a general graph, where you also need a visited set
+- [[01-depth-first-search|Depth-First Search]] — the same idea on a general graph, where you also need a visited set

@@ -1,6 +1,6 @@
 # Reverse Integer
 
-**LeetCode 7** · Bit Manipulation · concept: [[14-math-and-geometry|math-and-geometry]]
+**LeetCode 7** · Bit Manipulation · concept: [[12-math-and-geometry|math-and-geometry]]
 
 ## Problem
 
@@ -43,6 +43,6 @@ The digit reversal is trivial; the interview point is catching overflow **before
 **Digit reversal is easy; the skill is pre-emptive overflow checking** — test whether the next operation *would* exceed the bound and bail, rather than overflowing and detecting after. A discipline that applies to any bounded-integer arithmetic.
 
 ## Related
-- concepts: [[14-math-and-geometry|math-and-geometry]], [[13-bit-manipulation|bit-manipulation]]
+- concepts: [[12-math-and-geometry|math-and-geometry]], [[11-bit-manipulation|bit-manipulation]]
 - relative: [[147-reverse-bits|Reverse Bits]] (same pop/push, on bits)
 - prev: [[149-sum-of-two-integers|Sum of Two Integers]] — **end of the NeetCode 150** 🎉

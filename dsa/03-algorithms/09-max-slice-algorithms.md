@@ -9,7 +9,7 @@ This is one of the most elegant problems in computer science, illustrating how a
 ## Before you start
 
 - You can reason about prefix sums — [[04-patterns/01-prefix-sum|prefix sum]].
-- You know what $O(n^2)$ and $O(n)$ mean in practice — [[01-algorithms|complexity analysis]].
+- You know what $O(n^2)$ and $O(n)$ mean in practice — [[01-growth-and-asymptotic-notation|complexity analysis]].
 
 **After this lesson you will be able to:**
 
@@ -387,8 +387,8 @@ You can implement Kadane's, return indices, handle all-negative input, and expla
 
 **Recap:** at each element, either extend the running slice or start fresh — whichever is larger; $O(n)$ time, $O(1)$ space; initialise with `xs[0]`, **not** 0, unless the empty slice is explicitly allowed; return indices by tracking where the current slice started; equivalently, the best slice ending at $j$ is $\text{prefix}[j]$ minus the smallest earlier prefix.
 
-**Next:** [[13-bit-manipulation|Bit Manipulation]], or back to [[index|the algorithms index]].
+**Next:** [[11-bit-manipulation|Bit Manipulation]], or back to [[index|the algorithms index]].
 
 ## Related Modules
-- [[01-algorithms|Algorithms & Complexity Analysis]] — Recurrence derivation and notation
+- [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Recurrence derivation and notation
 - [[04-sorting/index|Sorting Algorithms]] — $O(n \log n)$ sort-first approaches

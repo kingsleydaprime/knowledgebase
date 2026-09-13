@@ -200,5 +200,5 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 ## Related
 - [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — why tiling works
 - [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — knowing which bound you're against
-- [[dsa/03-algorithms/01-algorithms|Algorithms]] — the sequential versions
+- [[01-growth-and-asymptotic-notation|Algorithms]] — the sequential versions
 - [[gpu-and-parallel-computing/index|GPU and parallel map]]

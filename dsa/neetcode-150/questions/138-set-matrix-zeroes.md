@@ -1,6 +1,6 @@
 # Set Matrix Zeroes
 
-**LeetCode 73** · Math & Geometry · concept: [[14-math-and-geometry|math-and-geometry]]
+**LeetCode 73** · Math & Geometry · concept: [[12-math-and-geometry|math-and-geometry]]
 
 ## Problem
 
@@ -48,5 +48,5 @@ The first row and column serve as the "which rows/cols to zero" registers — th
 **O(1)-space in-place transforms → reuse part of the input as your bookkeeping.** Folding the marker arrays into row 0 / column 0 is the space-saving trick; the deeper lesson is separating the *detect* phase from the *mutate* phase so writes don't corrupt reads.
 
 ## Related
-- concept: [[14-math-and-geometry|math-and-geometry]]
+- concept: [[12-math-and-geometry|math-and-geometry]]
 - prev: [[137-spiral-matrix|Spiral Matrix]] · next: [[139-happy-number|Happy Number]]

@@ -30,5 +30,5 @@ Three conditions cover everything: both null (match), exactly one null or unequa
 **Compare two trees by recursing on both simultaneously.** This "parallel DFS over a pair of structures" is the reusable primitive — it's the subroutine called at every node of [[051-subtree-of-another-tree|Subtree of Another Tree]] and mirrors the structure of symmetric-tree checks.
 
 ## Related
-- concept: [[01-trees|trees]], [[02-dfs|dfs]]
+- concept: [[01-trees|trees]], [[01-depth-first-search|dfs]]
 - prev: [[049-balanced-binary-tree|Balanced Binary Tree]] · next: [[051-subtree-of-another-tree|Subtree of Another Tree]]

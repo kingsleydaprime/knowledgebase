@@ -37,7 +37,7 @@ def addTwoNumbers(l1, l2):
 
 ## Key insight
 
-**Reverse-order digits let you add from the head with a running carry** — the same full-adder idea as [[13-bit-manipulation|Sum of Two Integers]], base 10 instead of base 2. `divmod(total, 10)` splits each column into carry and digit in one step.
+**Reverse-order digits let you add from the head with a running carry** — the same full-adder idea as [[11-bit-manipulation|Sum of Two Integers]], base 10 instead of base 2. `divmod(total, 10)` splits each column into carry and digit in one step.
 
 ## Related
 - concept: [[04-linked-lists|linked-lists]]

@@ -53,7 +53,7 @@ Without a transaction, a crash or error between the two operations above leaves 
 
 ## Indexing — the difference between a fast query and a slow one at scale
 
-Without an index, finding rows matching a condition means scanning every row in a table (a **full table scan**) — fine on a table with a hundred rows, ruinous on one with a hundred million. An index is a separate, ordered data structure (commonly a B-tree) that lets the database jump directly to matching rows instead of scanning everything — conceptually the same win [[05-searching|binary search]] provides over linear search, applied to database rows instead of an in-memory array.
+Without an index, finding rows matching a condition means scanning every row in a table (a **full table scan**) — fine on a table with a hundred rows, ruinous on one with a hundred million. An index is a separate, ordered data structure (commonly a B-tree) that lets the database jump directly to matching rows instead of scanning everything — conceptually the same win [[01-linear-and-binary-search|binary search]] provides over linear search, applied to database rows instead of an in-memory array.
 
 ```sql
 CREATE INDEX idx_users_email ON users(email);
@@ -72,4 +72,4 @@ Indexes aren't free — they speed up reads on the indexed column(s) but slow do
 ## Related
 - [[backend/02-api-design/01-apis-and-rest|APIs]]
 - [[backend/07-practices/01-backend-best-practices|backend best practices]]
-- [[05-searching|searching]] — why indexing provides the speedup it does
+- [[01-linear-and-binary-search|searching]] — why indexing provides the speedup it does

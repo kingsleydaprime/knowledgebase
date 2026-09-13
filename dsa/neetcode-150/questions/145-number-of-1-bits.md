@@ -1,6 +1,6 @@
 # Number of 1 Bits
 
-**LeetCode 191** · Bit Manipulation · concept: [[13-bit-manipulation|bit-manipulation]]
+**LeetCode 191** · Bit Manipulation · concept: [[11-bit-manipulation|bit-manipulation]]
 
 ## Problem
 
@@ -39,5 +39,5 @@ Subtracting 1 flips the lowest set bit to 0 and turns all bits below it to 1; AN
 **`n & (n - 1)` removes the lowest set bit** — the foundational bit idiom. Kernighan's algorithm counts 1s in O(set bits); the same "peel the lowest bit" move detects powers of two (`n & (n-1) == 0`) and drives the DP in [[146-counting-bits|Counting Bits]].
 
 ## Related
-- concept: [[13-bit-manipulation|bit-manipulation]]
+- concept: [[11-bit-manipulation|bit-manipulation]]
 - prev: [[144-single-number|Single Number]] · next: [[146-counting-bits|Counting Bits]]

@@ -83,4 +83,4 @@ You can implement level-order traversal, group its output by level, and say when
 
 - [[index|the traversal folder]]
 - [[01-depth-first-traversals|Depth-First Traversals]] — the other three orders
-- [[../../../03-algorithms/03-bfs|Breadth-First Search]] — the same idea on a general graph
+- [[02-breadth-first-search|Breadth-First Search]] — the same idea on a general graph

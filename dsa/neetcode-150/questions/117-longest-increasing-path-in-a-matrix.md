@@ -1,6 +1,6 @@
 # Longest Increasing Path in a Matrix
 
-**LeetCode 329** · 2-D DP · concepts: [[15-dynamic-programming|dynamic-programming]], [[02-dfs|dfs]]
+**LeetCode 329** · 2-D DP · concepts: [[15-dynamic-programming|dynamic-programming]], [[01-depth-first-search|dfs]]
 
 ## Problem
 
@@ -39,5 +39,5 @@ Without memo, overlapping paths recompute the same cells exponentially. Since st
 **Longest path on an implicit DAG (grid with a monotonic move rule) → DFS + memoization (top-down DP).** The strict-increase constraint is what turns a would-be exponential search into an O(cells) memoized DP and removes the need for cycle-guarding.
 
 ## Related
-- concepts: [[15-dynamic-programming|dynamic-programming]], [[02-dfs|dfs]], [[13-matrix-traversal|matrix-traversal]]
+- concepts: [[15-dynamic-programming|dynamic-programming]], [[01-depth-first-search|dfs]], [[13-matrix-traversal|matrix-traversal]]
 - prev: [[116-interleaving-string|Interleaving String]] · next: [[118-distinct-subsequences|Distinct Subsequences]]

@@ -1,6 +1,6 @@
 # Single Number
 
-**LeetCode 136** · Bit Manipulation · concept: [[13-bit-manipulation|bit-manipulation]]
+**LeetCode 136** · Bit Manipulation · concept: [[11-bit-manipulation|bit-manipulation]]
 
 ## Problem
 
@@ -33,6 +33,6 @@ Because XOR is order-independent, the array effectively regroups as `(a^a) ^ (b^
 **"Find the element with odd multiplicity" → XOR the whole collection; even-count values self-cancel.** This XOR-sum trick reappears in [[148-missing-number|Missing Number]] and any "find the unpaired value" problem — the single most useful bit identity.
 
 ## Related
-- concept: [[13-bit-manipulation|bit-manipulation]]
+- concept: [[11-bit-manipulation|bit-manipulation]]
 - relative: [[148-missing-number|Missing Number]]
 - next: [[145-number-of-1-bits|Number of 1 Bits]]

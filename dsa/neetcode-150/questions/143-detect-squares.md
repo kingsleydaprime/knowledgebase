@@ -1,6 +1,6 @@
 # Detect Squares
 
-**LeetCode 2013** · Math & Geometry · concepts: [[14-math-and-geometry|math-and-geometry]], [[03-hash-maps|hash-maps]]
+**LeetCode 2013** · Math & Geometry · concepts: [[12-math-and-geometry|math-and-geometry]], [[03-hash-maps|hash-maps]]
 
 ## Problem
 
@@ -42,6 +42,6 @@ An axis-aligned square is fixed by one diagonal pair: pick the opposite corner `
 **Counting geometric configurations → fix the defining points (here a diagonal), derive the rest, and multiply their hashed counts.** Detect Squares is a [[03-hash-maps|hashing]] problem wearing a geometry costume — the insight is which points *determine* a square.
 
 ## Related
-- concepts: [[14-math-and-geometry|math-and-geometry]], [[03-hash-maps|hash-maps]]
+- concepts: [[12-math-and-geometry|math-and-geometry]], [[03-hash-maps|hash-maps]]
 - prev: [[142-multiply-strings|Multiply Strings]] — end of Math & Geometry
 - next category: Bit Manipulation

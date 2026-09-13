@@ -133,7 +133,7 @@ Understanding the stack pays off well beyond recursion:
 ## Related
 
 - [[programming-fundamentals/08-functions|functions]] — the prerequisite
-- [[dsa/03-algorithms/01-algorithms|algorithms]] — where recursion becomes the default tool
+- [[01-growth-and-asymptotic-notation|algorithms]] — where recursion becomes the default tool
 - [[os/05-memory-allocation|memory allocation]] — stack and heap properly
 - [[computer-architecture/04-assembly|assembly]] — the stack as the hardware sees it
 - [[mathematics/02-discrete-math/05-induction-and-recursion|induction and recursion]] — the maths of why base cases work

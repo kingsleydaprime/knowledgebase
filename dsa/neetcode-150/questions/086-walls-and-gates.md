@@ -1,6 +1,6 @@
 # Walls and Gates
 
-**LeetCode 286** · Graphs · concepts: [[03-bfs|bfs]], [[12-bfs-pattern|bfs-pattern]]
+**LeetCode 286** · Graphs · concepts: [[02-breadth-first-search|bfs]], [[12-bfs-pattern|bfs-pattern]]
 
 ## Problem
 
@@ -43,6 +43,6 @@ Running BFS from each gate separately and taking the min is O(gates · mn). Seed
 **"Distance to the nearest of many sources" → single multi-source BFS from all sources at once.** Identical machinery to [[085-rotting-oranges|Rotting Oranges]] — seed all sources, let the wavefronts meet, and each cell's first visit is its nearest-source distance.
 
 ## Related
-- concepts: [[03-bfs|bfs]], [[12-bfs-pattern|bfs-pattern]]
+- concepts: [[02-breadth-first-search|bfs]], [[12-bfs-pattern|bfs-pattern]]
 - relative: [[085-rotting-oranges|Rotting Oranges]]
 - prev: [[085-rotting-oranges|Rotting Oranges]] · next: [[087-course-schedule|Course Schedule]]

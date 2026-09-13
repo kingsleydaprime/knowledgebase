@@ -325,7 +325,7 @@ You are done with this pattern when you can, closed-book:
 
 - [[04-sorting/index|sorting]] — prerequisite for this pattern
 - [[01-arrays|arrays]] — the underlying data structure
-- [[01-algorithms|algorithms]] — where the O(n log n) vs O(n²) comparison comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the O(n log n) vs O(n²) comparison comes from
 - [[08-overlapping-intervals|overlapping-intervals]] — this note
 
 ---

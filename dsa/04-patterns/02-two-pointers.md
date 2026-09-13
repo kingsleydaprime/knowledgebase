@@ -244,4 +244,4 @@ You are done with this pattern when you can, closed-book:
 - [[03-sliding-window|sliding-window]] — a specialization where both pointers move in the same direction
 - [[04-fast-slow-pointers|fast-slow-pointers]] — another pointer pattern for cycle detection
 - [[03-hash-maps|hash maps]] — alternative for unsorted input (O(n) time, O(n) space)
-- [[01-algorithms|algorithms]] — where the O(n²) vs O(n) complexity framing comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the O(n²) vs O(n) complexity framing comes from

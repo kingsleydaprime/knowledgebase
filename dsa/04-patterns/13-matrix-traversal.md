@@ -4,7 +4,7 @@
 
 ## Before you start
 
-- You should understand DFS and BFS. See [[02-dfs|dfs]] and [[03-bfs|bfs]] if needed.
+- You should understand DFS and BFS. See [[01-depth-first-search|dfs]] and [[02-breadth-first-search|bfs]] if needed.
 - You should understand 2D arrays. See [[01-arrays|arrays]] if needed.
 
 **What you will be able to do after this lesson:**
@@ -315,7 +315,7 @@ You are done with this pattern when you can, closed-book:
 
 ## 9. Related
 
-- [[02-dfs|dfs]] — the underlying traversal algorithm
+- [[01-depth-first-search|dfs]] — the underlying traversal algorithm
 - [[12-bfs-pattern|bfs-pattern]] — BFS variant for matrix traversal
 - [[06-graphs/index|graphs]] — grids as implicit graphs
 - [[01-arrays|arrays]] — the underlying data structure

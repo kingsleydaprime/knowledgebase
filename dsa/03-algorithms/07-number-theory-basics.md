@@ -9,7 +9,7 @@ Understanding prime numbers, factorization, and greatest common divisors is esse
 ## Before you start
 
 - You know modular arithmetic informally — [[02-discrete-math/08-number-theory-and-modular-arithmetic|discrete maths: number theory]] proves what this note uses.
-- You can reason about $O(\sqrt{n})$ versus $O(n)$ — [[01-algorithms|complexity analysis]].
+- You can reason about $O(\sqrt{n})$ versus $O(n)$ — [[01-growth-and-asymptotic-notation|complexity analysis]].
 
 **After this lesson you will be able to:**
 
@@ -431,8 +431,8 @@ You can test primality, sieve, compute GCDs, and do modular exponentiation effic
 
 **Recap:** trial division to $\sqrt{n}$ suffices because divisors pair up; the sieve of Eratosthenes is $O(n\log\log n)$ and marks from $i^2$; Euclid's $\gcd(a,b) = \gcd(b, a \bmod b)$ is $O(\log\min(a,b))$, worst case on consecutive Fibonacci numbers; $\text{lcm}(a,b) = ab/\gcd(a,b)$; modular exponentiation by squaring is $O(\log e)$; a modular inverse exists exactly when $\gcd(a,m) = 1$, found by extended Euclid.
 
-**Next:** [[13-bit-manipulation|Bit Manipulation]] — the other place where a constant-factor trick changes what is feasible.
+**Next:** [[11-bit-manipulation|Bit Manipulation]] — the other place where a constant-factor trick changes what is feasible.
 
 ## Related Modules
-- [[01-algorithms|Algorithms & Complexity Analysis]] — Asymptotic growth bounds
-- [[05-searching|Searching Algorithms]] — Binary Search applications
+- [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Asymptotic growth bounds
+- [[01-linear-and-binary-search|Searching Algorithms]] — Binary Search applications

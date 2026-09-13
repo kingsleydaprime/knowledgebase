@@ -5,7 +5,7 @@
 ## Before you start
 
 - You know what a binary tree is and can name its shapes — [[02-binary-trees|binary trees]].
-- You know binary search on an array — [[05-searching|searching]]. A binary search tree is that idea made into a structure.
+- You know binary search on an array — [[01-linear-and-binary-search|searching]]. A binary search tree is that idea made into a structure.
 - You know what a [[03-hash-maps|hash map]] gives you, so the comparison at the end lands.
 
 **After this lesson you will be able to:**

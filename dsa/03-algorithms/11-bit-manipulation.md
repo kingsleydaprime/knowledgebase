@@ -413,8 +413,8 @@ You can use all the single-bit idioms, explain `x & -x`, apply XOR cancellation,
 
 **Recap:** `1 << i` is the mask; OR sets, AND-with-NOT clears, XOR toggles, shift-and-AND tests; `x & -x` isolates the lowest set bit and `x & (x-1)` clears it, which makes Kernighan's count run once per **set** bit; `a ^ a = 0` and `a ^ 0 = a`, so XOR cancels pairs regardless of order; an integer below $2^n$ is a subset, making bitmask enumeration natural but $O(2^n)$ — good to about $n = 20$.
 
-**Next:** [[14-math-and-geometry|Math and Geometry]], or back to [[index|the algorithms index]].
+**Next:** [[12-math-and-geometry|Math and Geometry]], or back to [[index|the algorithms index]].
 
 ## Related Modules
 - [[07-number-theory-basics|Number Theory Basics]] — Arithmetic cousin (GCD, primality, modular arithmetic)
-- [[01-algorithms|Algorithms & Complexity Analysis]] — Space vs. time tradeoffs
+- [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Space vs. time tradeoffs

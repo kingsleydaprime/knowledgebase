@@ -444,10 +444,10 @@ You can build all five, state their costs, choose from density and operation mix
 
 **Recap:** edge list $O(E)$, good for sorting edges; adjacency list $O(V+E)$, the default for traversal; adjacency map $O(V+E)$ with $O(1)$ lookup and deletion, best for changing graphs; adjacency matrix $O(V^2)$, $O(1)$ lookup and $M^k$ counts walks; incidence matrix $O(VE)$, handles parallel edges and gives the cycle space; implicit graphs need no storage at all.
 
-**Next:** the algorithms that run on these — [[02-dfs|DFS]], [[03-bfs|BFS]], [[06-dijkstra|Dijkstra]], [[11-topological-sort|topological sort]], [[12-minimum-spanning-tree|MST]].
+**Next:** the algorithms that run on these — [[01-depth-first-search|DFS]], [[02-breadth-first-search|BFS]], [[02-dijkstra|Dijkstra]], [[01-topological-sort|topological sort]], [[06-minimum-spanning-tree|MST]].
 
 ## Related
 
 - [[01-arrays|Arrays]] · [[03-hash-maps|Hash Maps]] — what each representation is built from
 - [[04-linear-algebra/01-matrices-and-determinants/01-matrices-and-determinants|Matrices]] — why $M^k$ counts walks
-- [[12-minimum-spanning-tree|MST]] — the algorithm that wants an edge list
+- [[06-minimum-spanning-tree|MST]] — the algorithm that wants an edge list

@@ -288,7 +288,7 @@ You are done with this pattern when you can, closed-book:
 - [[04-linked-lists|linked-lists]] — the original application of this pattern
 - [[03-hash-maps|hash maps]] — alternative for cycle detection (O(n) space)
 - [[11-dfs-pattern|dfs-pattern]] — another pattern for exploring graphs
-- [[01-algorithms|algorithms]] — where the O(1) space framing comes from
+- [[01-growth-and-asymptotic-notation|algorithms]] — where the O(1) space framing comes from
 - [[04-fast-slow-pointers|fast-slow-pointers]] — this note
 
 ---
