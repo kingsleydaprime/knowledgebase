@@ -1,8 +1,8 @@
 # Databases
 
-How a database actually works underneath — pages, B-trees, query planning, MVCC, the write-ahead log — plus four deep reference files for the surface layer.
+How a database actually works underneath — pages, B-trees, query planning, MVCC, the write-ahead log — plus five deep reference files for the surface layer.
 
-**Course: ~20,500 words across 14 notes** (built August 2026, including practice + solutions). **References: ~11,300 lines across 4 files** (older, and still the place to look up syntax). `[reference]` throughout.
+**Course: ~20,500 words across 14 notes** (built August 2026, including practice + solutions). **References: ~11,600 lines across 5 files** (older, and still the place to look up syntax). `[reference]` throughout.
 
 > **Why the split.** The four reference files were already comprehensive on _what to type_ — every join type, every window function, every normalisation form, every MongoDB operator. **What was missing was the layer underneath: why the planner chose that plan, why your update bloated the table, why the migration locked everything.** The numbered course is that layer, and it doesn't repeat the references.
 
@@ -16,6 +16,7 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 | **Schema design** — keys, normalisation, cardinality, patterns  | [[databases/database-design-reference\|database-design-reference]] · 2,700 lines |
 | **MySQL specifics** — admin, storage engines, replication setup | [[databases/mysql-reference\|mysql-reference]] · 2,100 lines                     |
 | **MongoDB, Redis, Cassandra, Neo4j, Elasticsearch**             | [[databases/nosql-reference\|nosql-reference]] · 2,000 lines                     |
+| **Schema migrations** — drift, failed migrations, safe renames  | [[databases/migrations-reference\|migrations-reference]] · 330 lines            |
 
 **Want to understand what's happening?** Read the course, in order.
 
