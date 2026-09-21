@@ -811,3 +811,73 @@ the link valid if the home directory is ever moved or the tree is copied
 elsewhere — the same reasoning as relative imports inside a project.
 
 → general: [[devops/01-linux/09-symbolic-links|symbolic links]]
+
+## Part N+8 — When the editor and the compiler disagree, the compiler wins (2026-09-21)
+
+Zed reported `Cannot find module '@/components/ui/skeleton'`. The file existed.
+Every other `@/…` import in the same file was flagged too — but `lucide-react`
+resolved fine.
+
+That asymmetry is the whole diagnosis. `lucide-react` resolves through
+`node_modules`, which needs no config. `@/*` resolves through the `paths` block
+in `tsconfig.json`. So: **node_modules resolution working while aliases fail
+means the language server never loaded the tsconfig.**
+
+The arbiter is the compiler, not the editor (see `npx tsc --noEmit` above):
+
+```bash
+cd frontend && npx tsc --noEmit 2>&1 | grep 'components/ui'   # → nothing
+```
+
+Zero alias errors from `tsc`, many from the editor → the code is fine and the
+LSP is wrong. Never start "fixing" imports on the editor's word alone.
+
+### The actual cause: one syntax error poisons the whole project
+
+`tsc` reported exactly one error, in a *different* file:
+
+```
+attendee-postcard-creator.tsx(32,10): error TS1005: ',' expected.
+```
+
+A find-and-replace had dropped a string literal into the middle of an
+identifier — `Attend"pre-event"eePostcardLeaderboardProps`.
+
+When the TS server can't parse a file in the program, `vtsls` can fall back to
+an **inferred project** for open files, and inferred projects don't apply
+`tsconfig.json` — so `paths` stops working *everywhere*, not just in the broken
+file. The phantom import errors were a symptom two files away from the cause.
+
+**Debugging order that follows from this:**
+
+1. Run `tsc --noEmit`. It sees the real program, the editor sees a cache.
+2. Fix **syntax** errors first — they cascade into fake semantic errors.
+3. Only then restart the language server
+   (Zed: `editor: restart language server`).
+4. Still broken? Check the **project root**. `vtsls` looks for a tsconfig near
+   the worktree root; open `frontend/` and `backend/` as their own worktrees
+   rather than the parent folder that contains neither tsconfig.
+
+### Counting errors before reading them
+
+```bash
+npx tsc --noEmit 2>&1 | grep -c 'error TS'
+```
+
+`grep -c` prints a count instead of the lines. One number tells you whether
+you're looking at a clean tree, a handful of real errors, or a cascade — worth
+knowing before you scroll.
+
+### `find` to test a relative import by hand
+
+A failing relative import is worth resolving manually rather than trusting the
+path as written:
+
+```bash
+find frontend/src -name 'postcard-grid*'
+```
+
+It turned up the file in a *different route group* than the import assumed —
+which is why the import could never have worked.
+
+→ general: [[devops/01-linux/03-grep-and-friends|grep and friends]]

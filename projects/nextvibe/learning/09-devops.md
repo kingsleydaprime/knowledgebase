@@ -1057,3 +1057,257 @@ silently, because nothing errors when they disagree; the app just points at the 
 When a deployed frontend can't reach its API, check the host's env config before the code. And
 confirm in the browser's Network tab which host the requests actually go to — that is the only
 answer that isn't a guess.
+
+## Part 60 — Recovering From a Failed Migration in Production (P3009, 2026-09-21)
+
+`prisma migrate deploy` against the Aiven production database:
+
+```
+Error: P3009
+migrate found failed migrations in the target database, new migrations will not be applied.
+The `20260908091547_init_logs_table` migration started at 2026-09-21 19:25:31 UTC failed
+```
+
+Every subsequent `deploy` returned the same thing. **P3009 is a latch, not a
+transient error** — Prisma records the failure in the database and refuses to
+apply anything further until you explicitly clear it. Retrying accomplishes
+nothing, which is worth knowing before you retry it five times.
+
+### The migration ledger is just a table — query it
+
+`prisma migrate status` tells you *which* migration failed. It does not tell you
+*why*. That lives in `_prisma_migrations`, an ordinary table:
+
+```sql
+SELECT migration_name, started_at, finished_at, rolled_back_at,
+       applied_steps_count, logs
+FROM _prisma_migrations
+WHERE finished_at IS NULL OR rolled_back_at IS NOT NULL
+ORDER BY started_at DESC;
+```
+
+Result:
+
+```
+applied_steps_count = 0
+finished_at         = (null)
+rolled_back_at      = (null)
+logs                = Database error code: 42710
+                      ERROR: type "WithdrawalStatus" already exists
+```
+
+**`applied_steps_count` is the single most important field.** It decides which
+recovery verb is correct, and nothing else in the output substitutes for it.
+
+Read the log unwrapped or psql will pad it into unreadable columns:
+
+```bash
+psql "$U" -At -c "SELECT logs FROM _prisma_migrations WHERE migration_name='...';"
+```
+
+`-A` disables column alignment, `-t` drops headers.
+
+### `--rolled-back` vs `--applied` — the consequential choice
+
+| `applied_steps_count` | Reality | Command |
+|---|---|---|
+| `0` | Nothing landed | `migrate resolve --rolled-back <name>` |
+| all steps | Everything landed | `migrate resolve --applied <name>` |
+| partial | Some landed | Make idempotent, then `--rolled-back` |
+
+Neither command touches your schema. Both only edit the ledger:
+
+- **`--rolled-back`** deletes the failure row, so `deploy` will *retry the file*.
+- **`--applied`** writes a success row, so `deploy` will *skip the file forever*.
+
+Getting this backwards is the expensive mistake. Here, `--applied` would have
+claimed `logs` and `withdrawals` existed when `logs` did not — and every future
+migration would be authored against a schema Prisma believed in but Postgres
+had never had. You would not find out until something queried the missing table
+in production.
+
+**`prisma migrate reset` drops every table.** It has no place anywhere near a
+production database. It is in every tutorial because tutorials run locally.
+
+### The fix is idempotent SQL, not editing history
+
+`--rolled-back` makes `deploy` re-run the file, so re-running has to succeed.
+The failure was `42710 — type already exists`: an object created **outside**
+migration history. So each statement gets guarded.
+
+Postgres has native guards for most things:
+
+```sql
+ALTER TABLE "coupons" DROP CONSTRAINT IF EXISTS "coupons_createdById_fkey";
+ALTER TABLE "events"  ADD COLUMN IF NOT EXISTS "reminder1DaySent" BOOLEAN NOT NULL DEFAULT false;
+CREATE TABLE IF NOT EXISTS "logs" (...);
+CREATE INDEX IF NOT EXISTS "logs_level_idx" ON "logs"("level");
+```
+
+**But two DDL statements have no `IF NOT EXISTS`** — `CREATE TYPE` and
+`ADD CONSTRAINT`. Those need a catalog check:
+
+```sql
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'WithdrawalStatus') THEN
+    CREATE TYPE "WithdrawalStatus" AS ENUM ('PENDING','APPROVED','REJECTED','PAID');
+  END IF;
+END $$;
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'withdrawals_eventId_fkey') THEN
+    ALTER TABLE "withdrawals" ADD CONSTRAINT "withdrawals_eventId_fkey"
+      FOREIGN KEY ("eventId") REFERENCES "events"("id") ON DELETE RESTRICT;
+  END IF;
+END $$;
+```
+
+Prisma runs a migration file as one script, so `DO $$ … $$` blocks are fine.
+
+`ALTER COLUMN … DROP NOT NULL` needs no guard — it is already a no-op when the
+column is nullable. Worth knowing which statements are naturally idempotent so
+you do not wrap everything reflexively.
+
+### ⚠️ `IF NOT EXISTS` skips on *name*, not on *shape*
+
+This is the trap in the fix itself. `CREATE TABLE IF NOT EXISTS "withdrawals"`
+skips a table called `withdrawals` **whatever columns it has**. If the drifted
+version differs from the migration's definition, the skip is silent and your
+schema permanently disagrees with your Prisma schema.
+
+So verify shape before deploying, never just existence:
+
+```sql
+-- enum values, in order
+SELECT t.typname, string_agg(e.enumlabel, ', ' ORDER BY e.enumsortorder)
+FROM pg_type t JOIN pg_enum e ON e.enumtypid = t.oid
+WHERE t.typname IN ('WithdrawalStatus','LogLevel')
+GROUP BY t.typname;
+
+-- column counts as a cheap first pass
+SELECT table_name, count(*) FROM information_schema.columns
+WHERE table_schema='public' AND table_name IN ('logs','withdrawals')
+GROUP BY table_name;
+```
+
+What that turned up: `WithdrawalStatus` existed with exactly the right four
+values; `withdrawals` and `BirthdayCampaignSignup` existed with matching column
+counts; `LogLevel` and `logs` did not exist at all. So the drift was narrow —
+someone created most of it by hand and never got to `logs`.
+
+### Root cause: `db:deploy` papers over drift by design
+
+```json
+"db:deploy": "prisma migrate resolve --applied 20260430114843_add_ticket_purchase || true && prisma migrate resolve --applied 20260430162220_one_to_one_vibe_tag || true && prisma migrate resolve --applied 20260430162958_implement_one_to_one_relationship_for_vibetag || true && prisma migrate deploy"
+```
+
+Three hardcoded `--applied` calls, each with `|| true` to swallow failure, then
+`deploy`. This is not a deploy script; it is a standing instruction to lie to
+the ledger. It exists because migrations were once applied by hand, and it
+guarantees the habit continues:
+
+- `--applied` marks migrations run **without running them**
+- `|| true` hides whether it even worked
+- the hardcoded list only ever grows
+
+Every use widens the gap between the ledger and reality. P3009 was that gap
+finally becoming load-bearing. The script should be plain
+`prisma migrate deploy`, with drift resolved once, deliberately, and recorded.
+
+### The prevention that actually matters: a shadow database
+
+`.env` has `SHADOW_DATABASE_URL` **commented out**. A shadow database is a
+throwaway copy that `migrate dev` uses to verify a migration applies cleanly to
+a schema built purely from migration history. Without one, migrations are
+authored against whatever production has drifted into.
+
+That absence explains the shape of the broken migration: one file named
+`init_logs_table` that also altered `coupons`, added six columns to `events`,
+added a column to `postcard_media`, and created `withdrawals` and
+`BirthdayCampaignSignup`. That is not a change — that is a diff against drift.
+
+**And never run `prisma db push` at a database with migration history.** It
+mutates schema and writes nothing to `_prisma_migrations`. It is for
+prototyping against a scratch database, and it is the most likely origin of
+this incident.
+
+### Renames: Prisma cannot see them, so it destroys them
+
+A separate migration in the same pending batch:
+
+```sql
+-- Prisma's own generated output, warning included
+ALTER TABLE "BirthdayCampaignSignup" DROP COLUMN "ercaspayReference",
+ADD COLUMN     "bachsReference" TEXT;
+```
+
+The differ sees a removed field and an added field. It cannot know they are the
+same column, so it writes drop-and-add — which nulls every value. Rewritten as
+a guarded `RENAME COLUMN`.
+
+**Always read generated migrations for `DROP COLUMN`.** A field rename in
+`schema.prisma` is the single most common way to generate silent data loss.
+
+(In this database the destructive version would have *errored* rather than lost
+data, because the column had already been renamed by hand — so it would have
+produced a second P3009 instead. The rewrite still matters: any environment
+where the manual rename had not happened would have lost the data.)
+
+### Connection strings are not portable between tools
+
+Four failed attempts to run one `psql` query, each a different layer:
+
+**1. `psql` does not read `.env`.** Loading a dotenv file is a convention each
+framework implements, not a shell feature. Prisma connected fine because Prisma
+loads `.env` itself; `psql` fell back to a local socket and reported
+`/var/run/postgresql/.s.PGSQL.5432: No such file`. That error means "no URL",
+not "server down".
+
+```bash
+set -a; . ./.env; set +a          # blunt but handles quoting like the app does
+```
+
+**2. `.env` values may use either quote style.** This file mixes them —
+commented-out entries used `"`, the live one used `'`. A stripper handling only
+one produces a string starting with a literal quote, which fails far away from
+the cause:
+
+```bash
+U="$(grep '^DATABASE_URL=' .env | cut -d'=' -f2- | tr -d "\"'")"
+```
+
+`cut -d'=' -f2-` keeps everything after the *first* `=`, so `?sslmode=require`
+survives intact.
+
+**3. `sslmode=no-verify` is Prisma vocabulary, not libpq's.** libpq accepts only
+`disable | allow | prefer | require | verify-ca | verify-full`. Prisma's
+`no-verify` means encrypt-but-do-not-validate, whose libpq equivalent is
+`require` — same security posture, different spelling:
+
+```bash
+U="${U//sslmode=no-verify/sslmode=require}"
+```
+
+**4. Only then does the query run.** The general lesson: a connection string
+that works in one tool is not portable to another, because each layer has its
+own dialect for the same concepts. Also worth noting `no-verify`/`require`
+accepts *any* certificate, so an active MITM is possible; Aiven publishes a CA
+cert if you want `verify-full`.
+
+### The procedure, condensed
+
+1. `SELECT … FROM _prisma_migrations WHERE finished_at IS NULL` — get `logs` and `applied_steps_count`
+2. Read the actual Postgres error code. Do not guess
+3. Verify what exists **and its shape** — enum values, column counts
+4. Make the migration idempotent for whatever already exists
+5. `migrate resolve --rolled-back <name>` (only if `applied_steps_count = 0`)
+6. `migrate deploy`
+7. Expect the *next* pending migration to hit the same drift. Repeat
+
+Step 4 before step 5, always. Resolving first and deploying into an unfixed
+migration just re-fails and puts you back at step 1.
+
+→ general: [[databases/migrations-reference|schema migrations reference]]
+→ see also Part 56 above for `migrate deploy` vs `migrate dev`

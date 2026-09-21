@@ -12,6 +12,7 @@
 4. [[projects/nextvibe/learning/backend/04-games-ai|04 — Games & AI]] → [[ai-ml/03-ai-engineer/index|AI engineering]]
 5. [[projects/nextvibe/learning/backend/05-realtime|05 — Realtime]] → [[networking/11-http-evolution|HTTP/WebSockets]], [[architecture/02-building-blocks/04-messaging-and-async|async]]
 6. [[projects/nextvibe/learning/backend/06-money-ledger-and-payouts|06 — Money, Ledger & Payouts]] → [[architecture/interview/01-system-design-round|system design Q9: correctness over availability]] ⭐
+7. [[projects/nextvibe/learning/backend/07-validation-and-query-contracts|07 — Validation & Query Contracts]] → [[backend/index|backend concepts]]
 
 ## Frontend
 1. [[projects/nextvibe/learning/frontend/01-routing|01 — Routing]]
@@ -23,6 +24,8 @@
 7. [[projects/nextvibe/learning/frontend/07-payments-games|07 — Payments & Games]]
 8. [[projects/nextvibe/learning/frontend/08-performance-debugging|08 — Performance & Debugging]] → [[frontend/interview/01-react-rendering-and-performance|frontend interview]]
 9. [[projects/nextvibe/learning/frontend/09-payouts-and-multicurrency-ui|09 — Payouts & Multi-currency UI]]
+10. [[projects/nextvibe/learning/frontend/10-typed-api-contracts|10 — Typed API Contracts]]
+11. [[projects/nextvibe/learning/frontend/11-guest-identity-and-conversion|11 — Guest Identity & Conversion]]
 
 ## Ops
 - [[projects/nextvibe/learning/09-devops|09 — DevOps]] → [[devops/index|devops]]
