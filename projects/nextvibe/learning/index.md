@@ -26,6 +26,7 @@
 9. [[projects/nextvibe/learning/frontend/09-payouts-and-multicurrency-ui|09 — Payouts & Multi-currency UI]]
 10. [[projects/nextvibe/learning/frontend/10-typed-api-contracts|10 — Typed API Contracts]]
 11. [[projects/nextvibe/learning/frontend/11-guest-identity-and-conversion|11 — Guest Identity & Conversion]]
+12. [[projects/nextvibe/learning/frontend/12-rtk-query-and-api-slices|12 — RTK Query & API Slices]]
 
 ## Ops
 - [[projects/nextvibe/learning/09-devops|09 — DevOps]] → [[devops/index|devops]]
