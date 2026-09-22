@@ -298,6 +298,186 @@ toast.error(err?.data?.message ?? err?.message ?? "AI generation failed.");
 
 ---
 
+## 7. A tag nobody provides does nothing
+
+A mutation can shout `invalidatesTags: ["Events"]` all it likes. If no query
+ever said `providesTags: ["Events"]`, there is nothing labelled to bin.
+
+That was a live bug here:
+
+```
+getEvents           providesTags:    ["Events"]      ✓
+createEvent         invalidatesTags: ["Events"]      ✓
+getMyCreatedEvents  (no tags)                        ✗
+```
+
+So creating an event refreshed the main list but **not** "My Created Events".
+The organizer made an event and it was not there. No error — the cached copy
+was simply still valid as far as RTK Query knew.
+
+The fix is one line on the query:
+
+```ts
+getMyCreatedEvents: builder.query({
+  query: () => "/v1/events/me/created?limit=100",
+  providesTags: ["Events"],
+})
+```
+
+**Checking for this is easy and worth doing once per feature:** list every query
+that shows a collection, and make sure each has a `providesTags`. A query
+without one can never be refreshed by anything. It is not an optimisation to
+add them later — it is the difference between the screen updating and not.
+
+It also has to live in the same `createApi` as the mutation, which is section 3
+again from a different angle. We nearly moved this endpoint into another slice;
+that would have made the bug unfixable rather than a one-liner.
+
+---
+
+## 8. Two hooks, one name
+
+`useGetVibeTagsQuery` existed twice:
+
+```
+discoverApi.getVibeTags  → /v1/discover/tags        platform interest tags
+eventApi.getVibeTags     → /v1/vibe-tags?eventId=   one event's tags
+```
+
+Both real, both used, completely different data. Import from the wrong module
+and you get the wrong list — **no type error, no runtime error**, just wrong
+content on the screen. Autocomplete happily offers either.
+
+Renamed to `getInterestTags` and `getEventVibeTags`, so the name says which one
+you are holding.
+
+Worth periodically checking for. A short script over the api folder finds them:
+
+```python
+# count how many slices define each endpoint name
+for f in pathlib.Path('store/api').rglob('*.ts'):
+    for m in re.finditer(r'^\s+([a-zA-Z]+): build(?:er)?\.(query|mutation)', f.read_text(), re.M):
+        endpoints[m.group(1)].append(f.stem)
+```
+
+Not every duplicate is wrong — `admin.getEvents` and `eventApi.getEvents`
+genuinely are different endpoints for different audiences, and the module name
+at the import site makes that obvious. The dangerous ones are duplicates where
+both names sound equally right for what you want.
+
+### The `/v1` tell
+
+A related thing worth knowing about this codebase: dead endpoints are
+identifiable by a **missing `/v1` prefix**.
+
+```
+/games                     ← legacy, no consumers
+/events/explore/upcoming   ← legacy, no consumers
+/v1/events/me/created      ← live
+```
+
+Everything current goes through `/v1`. When the API moved, the old endpoints
+were left in the frontend and simply stopped being called. Grepping for query
+strings that do not start with `/v1` found two whole dead clusters — 15 hooks
+in one, 6 in another.
+
+---
+
+## 9. Pagination: why "Load more" showed page 2 instead of pages 1–2
+
+The button did this:
+
+```ts
+onClick={() => setPage((p) => p + 1)}
+```
+
+and the list came from:
+
+```ts
+const items = data?.data?.data ?? [];
+```
+
+Tap it and 40 postcards were **replaced** by the next 40.
+
+The reason is worth stating plainly: **the page number is part of the cache
+key.** `{eventId, page: 1}` and `{eventId, page: 2}` are two separate cache
+entries. The component asks for one of them and renders it. Nothing anywhere
+was keeping the earlier one.
+
+RTK Query is doing exactly what it was told. "Give me page 2" is not the same
+request as "give me everything up to page 2".
+
+### Accumulating, and the three things that go wrong
+
+```ts
+const [state, setState] = useState<{ key: unknown; pages: Record<number, T[]> }>(
+  { key: resetKey, pages: {} },
+);
+
+useEffect(() => {
+  if (!pageItems) return;
+  setState((s) =>
+    s.key !== resetKey
+      ? { key: resetKey, pages: { [page]: pageItems } }        // start over
+      : { key: s.key, pages: { ...s.pages, [page]: pageItems } },
+  );
+}, [pageItems, page, resetKey]);
+```
+
+**Store pages in an object keyed by page number, do not push onto an array.**
+Pushing looks simpler and duplicates everything the first time anything
+refetches — and refetches are common, because creating a postcard invalidates
+the `Gallery` tag. Keying by number makes it idempotent: receiving page 2 again
+overwrites slot 2.
+
+**Do the reset inside the state updater, not in its own effect.** With a
+separate `useEffect(() => setPages({}), [filter])`, a page can arrive in the
+same tick as a filter change and land in the list before the reset runs. Doing
+the comparison inside the setter makes it one atomic step.
+
+**Pass the raw array, filter afterwards.** `data?.data?.data` keeps the same
+reference between renders while the cache entry is unchanged.
+`(... ?? []).filter(...)` is a brand-new array on every render, so as an effect
+dependency it re-runs forever.
+
+### `isLoading` is true on every page
+
+This one nearly shipped. The render was:
+
+```tsx
+{isLoading ? <Skeletons /> : <Grid items={items} />}
+```
+
+`isLoading` means "no data for *these* arguments yet". Change the page, change
+the arguments, and it is true again — so every "Load more" tap would blank the
+grid to skeletons and then bring it back one page longer.
+
+```tsx
+{isLoading && items.length === 0 ? <Skeletons /> : <Grid items={items} />}
+```
+
+Rule of thumb: **`isLoading` = "have I got anything to show for these exact
+args", `isFetching` = "is a request in flight right now".** For anything
+paginated or filtered, `isLoading` alone is almost always the wrong gate.
+
+### Why not `serializeQueryArgs` + `merge`
+
+RTK Query has a built-in way to do this: `serializeQueryArgs` to drop `page`
+from the cache key so all pages share one entry, and `merge` to append. It is
+the documented approach and it is genuinely better — *when the endpoint has one
+kind of consumer*.
+
+Here `getEventPostcards` also feeds a count in another component that never
+passes `page` at all. Strip `page` from the cache key and that count starts
+reading the accumulated list instead of a single page.
+
+**The general point:** endpoint-level configuration changes behaviour for every
+caller. Component-level state changes it for one. When consumers of the same
+endpoint want different things, the component is the right place — even though
+the framework offers something tidier.
+
+---
+
 ## 7. Short version
 
 - An API slice is a **reducer**, not a fetch helper. That is why it lives in `store/`.
@@ -307,3 +487,9 @@ toast.error(err?.data?.message ?? err?.message ?? "AI generation failed.");
 - Do the **conversion** as its own no-op commit, then carve off one subject per commit.
 - **Text markers beat line numbers** for finding ranges; line numbers go stale mid-edit.
 - Let **`tsc`** find the callers — which requires not ignoring build errors.
+- A **tag nobody provides** does nothing. Every collection query needs `providesTags` or it can never refresh.
+- **Two slices can export the same hook name.** No error, wrong data. Check for duplicates.
+- **The page number is part of the cache key**, which is why "Load more" replaced the list.
+- Accumulate pages **keyed by page number** so refetches overwrite instead of duplicating.
+- **`isLoading` is true for every new page.** Gate skeletons on having nothing to show.
+- **Endpoint config affects every caller**; component state affects one. Pick by who the consumers are.

@@ -115,10 +115,72 @@ const mutation = useMutation({
 
 **The URL row is the one people skip.** Filters in `useState` mean the page can't be shared, bookmarked, or back-buttoned correctly. **If a user would expect to send someone the link and have them see the same thing, it belongs in the URL** — and it's free persistence.
 
+## Pagination cache coherence
+
+**The cache key contains every argument — including the page number.** TanStack's `queryKey`, SWR's key, RTK Query's serialised args: all the same idea.
+
+So `["postcards", eventId, 1]` and `["postcards", eventId, 2]` are **two separate cache entries**. A component asks for one and renders it.
+
+**Which is why the naive "Load more" replaces the list instead of extending it:**
+
+```jsx
+<button onClick={() => setPage(p => p + 1)}>Load more</button>
+const items = data?.items ?? [];        // ← page 2's items, not pages 1–2
+```
+
+Nothing is broken. "Give me page 2" is simply not the same request as "give me everything through page 2". The library did exactly what it was asked.
+
+**Two ways out, and the choice is about who else uses the query.**
+
+**1. Query-level — the library's built-in.** TanStack's `useInfiniteQuery`, RTK Query's `serializeQueryArgs` + `merge`, SWR's `useSWRInfinite`. All page-fetches collapse into one cache entry that grows. This is the better answer **when the query has one kind of consumer**.
+
+**The catch:** it changes behaviour for *every* caller. If some other component uses the same query without a page argument — a count, a picker, a preview — it now reads the accumulated list instead of one page. Query-level config is global config.
+
+**2. Component-level accumulation.** Keep the pages separate in the cache, stitch them together in the component that wants a growing list. Affects one caller.
+
+### Three things that go wrong when you accumulate by hand
+
+**Store pages keyed by page number, don't push onto an array.**
+
+```js
+{ 1: [...], 2: [...] }      // not  [...page1, ...page2]
+```
+
+Pushing duplicates everything the first time anything refetches — and refetches are routine, because creating an item invalidates the list. Keying by number is idempotent: receiving page 2 again overwrites slot 2.
+
+**Reset inside the state updater, not in a separate effect.** A filter change and an in-flight page can land in the same tick, and the page will join the old list before a separate `useEffect(() => reset(), [filter])` runs. Compare the key inside the setter so it's one atomic step.
+
+**Feed it the raw array and filter afterwards.** A cached array keeps a stable reference between renders; `(data ?? []).filter(...)` is a new array every render, so as an effect dependency it never stops firing.
+
+### `isLoading` is true on every page
+
+**`isLoading` means "no data for *these exact arguments* yet". `isFetching` means "a request is in flight".**
+
+Change the page, change the arguments — `isLoading` is true again. So this blanks the list on every "Load more":
+
+```jsx
+{isLoading ? <Skeleton /> : <List items={items} />}
+```
+
+```jsx
+{isLoading && items.length === 0 ? <Skeleton /> : <List items={items} />}
+```
+
+**For anything paginated or filtered, `isLoading` alone is almost always the wrong gate** — it's the "first fetch" flag, and every new filter value is a first fetch. This is the same mistake as blanking the screen on a background refetch, in the section above.
+
+### Invalidation only works if something is labelled
+
+Cache libraries invalidate by key or tag. **A mutation that invalidates `["events"]` does nothing if no query ever registered under it.**
+
+Seen in the wild: `createEvent` invalidated `"Events"`, the main list provided `"Events"`, but "My Created Events" provided nothing at all. Creating an event refreshed one list and not the other, with no error anywhere — the second cache entry was still perfectly valid as far as the library knew.
+
+**Worth auditing once per feature:** every query that renders a collection needs a tag or key that some mutation invalidates. One without is a list that can never refresh.
+
 ## Related
 - [[frontend/04-state-and-data/01-state-management|state management]] — the client half
 - [[frontend/02-rendering/02-hydration-and-the-server-boundary|the server boundary]]
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] — the other end of the same problem
 - [[frontend/interview/03-state-data-and-architecture|the interview round]]
+- [[projects/nextvibe/learning/frontend/12-rtk-query-and-api-slices|nextvibe — RTK Query & API slices]] — all of the above hit in one codebase
 
 *Source: [reference] — written Aug 2026.*
