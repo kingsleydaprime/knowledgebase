@@ -5,3 +5,7 @@ test.py
 blog-ideas.md
 blog-drafts/
 .obsidian/
+.asnotes/
+.asnotesignore
+templates/
+.vscode/settings.json
