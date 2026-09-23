@@ -28,6 +28,17 @@ Two structures in this folder are trees but have their own lessons, because what
 
 And [[../06-graphs/03-subgraphs-trees-and-forests|the graphs folder]] defines a tree without a root at all — connected and acyclic — which is where the $n-1$ edge count and the one-path-between-any-two-nodes property actually come from.
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-trees-qb|Trees]]
+- [[02-binary-trees-qb|Binary Trees]]
+- [[03-binary-search-trees-qb|Binary Search Trees]]
+- [[04-traversal/index|Traversal]] — banks for that folder's lessons
+
+---
+
 ## Related
 
 - [[../index|02-data-structures]] — the parent folder

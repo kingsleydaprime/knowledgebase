@@ -22,6 +22,15 @@ A tree holds its data in a shape, not in a sequence. So the moment you want to *
 
 **Recursion is a stack you did not have to write.** Both lessons make that concrete: the iterative versions do exactly the same work as the recursive ones, with the bookkeeping moved from the call stack into a list you control. It matters because the call stack is small and fixed, and a list is not — which is why a 3,000-node chain crashes one version and not the other.
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-depth-first-traversals-qb|Depth-First Traversals]]
+- [[02-level-order-traversal-qb|Level-Order Traversal]]
+
+---
+
 ## Related
 
 - [[../02-binary-trees|Binary Trees]] — the structure being walked

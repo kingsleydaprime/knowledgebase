@@ -49,6 +49,18 @@ Every lab was executed and its expected output generated from that run. Several 
 - **Radix sort with an unstable inner sort produces an unsorted array**, demonstrating why that dependency is load-bearing.
 - **Bucket sort collapsing** on clustered input: 4,996 items in one bucket against a uniform 122.
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-the-lower-bound-qb|The Sorting Lower Bound]]
+- [[02-elementary-sorts-qb|Elementary Sorts]]
+- [[03-merge-sort-qb|Merge Sort]]
+- [[04-quicksort-qb|Quicksort]]
+- [[05-non-comparison-sorts-qb|Non-Comparison Sorts]]
+
+---
+
 ## Related
 
 - [[index|03-algorithms]] — the parent folder

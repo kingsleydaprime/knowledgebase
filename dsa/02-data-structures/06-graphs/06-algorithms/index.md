@@ -74,6 +74,20 @@ Every algorithm in this folder is a traversal with one thing changed:
 | [[04-floyd-warshall\|Floyd–Warshall]] | the wrong loop order disagreeing with Bellman–Ford ground truth on **105 of 200** random graphs; negative cycles appearing on the diagonal |
 | [[05-a-star\|A\*]] | tie-breaking alone cutting expansions from **233 to 38**; weighted A\* trading a cost-18 path for a cost-20 one while halving the work; and admissibility violations at $w{=}1.2$ that do **not** yet cost optimality |
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[00-connected-components-qb|Connected Components]]
+- [[01-topological-sort-qb|Topological Sort]]
+- [[02-dijkstra-qb|Dijkstra's Algorithm]]
+- [[03-bellman-ford-qb|Bellman–Ford]]
+- [[04-floyd-warshall-qb|Floyd–Warshall]]
+- [[05-a-star-qb|A\* Search]]
+- [[06-minimum-spanning-tree-qb|Minimum Spanning Tree]]
+
+---
+
 ## Related
 
 - [[06-graphs/index|the graphs folder]] — the vocabulary and representations these assume

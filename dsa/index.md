@@ -121,6 +121,18 @@ The `pdfs/` folder holds the original Codility course material these notes were 
 
 Running the same cross-reference against the NeetCode 150 is what surfaced the [[dsa/02-data-structures/08-heaps|heaps]], [[dsa/02-data-structures/09-tries|tries]], [[dsa/02-data-structures/10-union-find|union-find]], [[01-topological-sort|topological-sort]], [[06-minimum-spanning-tree|MST]], [[11-bit-manipulation|bit-manipulation]] and [[12-math-and-geometry|math-and-geometry]] gaps, plus the worked 1-D/2-D recurrences in [[dsa/04-patterns/15-dynamic-programming|dynamic-programming]].
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-loops-and-what-they-cost-qb|Loops and What They Cost]]
+- [[02-data-structures/index|Data Structures]] — banks for that folder's lessons
+- [[03-algorithms/index|Algorithms]] — banks for that folder's lessons
+- [[04-patterns/index|LeetCode Patterns]] — banks for that folder's lessons
+- [[interview/index|DSA — Interview Prep]] — banks for that folder's lessons
+
+---
+
 ## Related
 - [[programming-fundamentals/index|programming fundamentals]] — the on-ramp, if the code here isn't readable yet
 - [[theory-of-computation/index|theory of computation]] — one level up: what's provably impossible or intractable, rather than merely slow

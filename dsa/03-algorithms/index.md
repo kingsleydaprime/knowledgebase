@@ -85,6 +85,25 @@ Several labs exist to **break** the algorithm rather than to show it working:
 
 Where a lab claims an output, that output came from executing the code.
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[03-divide-and-conquer-qb|Divide and Conquer]]
+- [[07-number-theory-basics-qb|Number Theory Basics]]
+- [[08-leader-algorithm-qb|The Leader Algorithm]]
+- [[09-max-slice-algorithms-qb|Max Slice Algorithms]]
+- [[11-bit-manipulation-qb|Bit Manipulation]]
+- [[12-math-and-geometry-qb|Math & Geometry]]
+- [[01-complexity-analysis/index|Complexity Analysis]] — banks for that folder's lessons
+- [[02-recursion/index|Recursion]] — banks for that folder's lessons
+- [[04-sorting/index|Sorting]] — banks for that folder's lessons
+- [[05-searching/index|Searching]] — banks for that folder's lessons
+- [[06-dynamic-programming/index|Dynamic Programming]] — banks for that folder's lessons
+- [[10-greedy-algorithms/index|Greedy Algorithms]] — banks for that folder's lessons
+
+---
+
 ## Related
 
 - [[dsa/index|dsa/]] — the parent course and full reading order

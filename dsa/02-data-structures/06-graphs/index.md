@@ -63,6 +63,19 @@ Every lab was executed and its expected output generated from that run:
 - **Cayley's formula** $n^{n-2}$, confirmed by exhaustive search up to $K_5$.
 - **$M^k$ counts walks of length $k$**, and the measured cost gap between edge list, adjacency list and adjacency map on a 2,000-vertex graph.
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-what-a-graph-is-qb|What a Graph Is]]
+- [[02-paths-cycles-and-connectivity-qb|Paths, Cycles and Connectivity]]
+- [[03-subgraphs-trees-and-forests-qb|Subgraphs, Trees and Forests]]
+- [[04-representations-qb|Graph Representations]]
+- [[05-traversal/index|Traversal]] — banks for that folder's lessons
+- [[06-algorithms/index|Graph Algorithms]] — banks for that folder's lessons
+
+---
+
 ## Related
 
 - [[02-data-structures/index|02-data-structures]] — the parent folder
