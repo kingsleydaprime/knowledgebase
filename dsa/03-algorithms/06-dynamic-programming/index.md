@@ -56,6 +56,17 @@ Every lab was executed and its expected output generated from that run. **Every 
 | [[03-classic-one-dimensional\|1-D]] | house robber, coin change and LIS each agreeing with brute force on 300–400 random inputs; the $O(n\log n)$ LIS `tails` array shown **not** to be a subsequence of the input |
 | [[04-classic-two-dimensional\|2-D]] | the rolling knapsack's **upward** loop returning 15 where the answer is 5 — and the first test instance hiding the bug by coincidence |
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-what-makes-a-problem-dp-qb|What Makes a Problem DP]]
+- [[02-memoisation-and-tabulation-qb|Memoisation & Tabulation]]
+- [[03-classic-one-dimensional-qb|Classic One-Dimensional DP]]
+- [[04-classic-two-dimensional-qb|Classic Two-Dimensional DP]]
+
+---
+
 ## Related
 
 - [[03-algorithms/index|03-algorithms]] — the parent folder

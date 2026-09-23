@@ -38,6 +38,16 @@ Every lab in this folder was executed and its expected output generated from tha
 | [[02-breadth-first-search\|BFS]] | BFS returning the heavier of two equal-length paths, because it never looks at weight |
 | [[03-traversal-trees-and-edge-classification\|traversal trees]] | the parenthesis theorem checked over all 30 ordered pairs; back-edge count invariant under changing the start vertex while the forward/cross split is not; undirected DFS producing exactly zero forward and cross edges |
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-depth-first-search-qb|Depth-First Search]]
+- [[02-breadth-first-search-qb|Breadth-First Search]]
+- [[03-traversal-trees-and-edge-classification-qb|Traversal Trees & Edge Classification]]
+
+---
+
 ## Related
 
 - [[06-graphs/index|the graphs folder]] — the vocabulary these are written in

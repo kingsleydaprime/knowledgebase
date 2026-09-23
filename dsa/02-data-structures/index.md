@@ -22,6 +22,23 @@ Ordered so each builds on the last — dynamic arrays assume arrays, heaps assum
 9. [[09-tries|Tries / Prefix Trees]] — shared prefixes, and trading memory for prefix queries
 10. [[10-union-find|Union-Find]] — dynamic connectivity, path compression, and union by rank
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-arrays-qb|Arrays]]
+- [[02-dynamic-arrays-qb|Dynamic Arrays]]
+- [[03-hash-maps-qb|Hash Maps & Hash Sets]]
+- [[04-linked-lists-qb|Linked Lists]]
+- [[07-stacks-and-queues-qb|Stacks and Queues]]
+- [[08-heaps-qb|Heaps & Priority Queues]]
+- [[09-tries-qb|Tries / Prefix Trees]]
+- [[10-union-find-qb|Union-Find]]
+- [[05-trees/index|Trees]] — banks for that folder's lessons
+- [[06-graphs/index|Graphs]] — banks for that folder's lessons
+
+---
+
 ## Related
 
 - [[dsa/index|DSA notes]] — the parent folder

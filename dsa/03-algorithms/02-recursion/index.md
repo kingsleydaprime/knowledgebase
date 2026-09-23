@@ -36,6 +36,16 @@ Every lab was executed and its expected output generated from that run:
 | [[02-recursion-trees-and-recurrences\|recursion trees]] | the level-by-level work table for five recurrences, each matching its **exact** closed form; and the doubling test returning 2.00 for linear, 4.00 for quadratic, 3.02 for $n^{\log_2 3}$, and a slowly-falling 2.2 for $n\log n$ |
 | [[03-the-master-theorem\|Master Theorem]] | each case's verdict checked against measured work; Strassen's constant ratio to $n^{2.807}$ holding at 2.32; and the $n\log n$ gap case measuring 2.55/2.49/2.44 — **distinguishable from the wrong answer by the numbers alone** |
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-recursion-fundamentals-qb|Recursion Fundamentals]]
+- [[02-recursion-trees-and-recurrences-qb|Recursion Trees & Recurrences]]
+- [[03-the-master-theorem-qb|The Master Theorem]]
+
+---
+
 ## Related
 
 - [[03-algorithms/index|03-algorithms]] — the parent folder

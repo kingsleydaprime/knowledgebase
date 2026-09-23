@@ -26,6 +26,28 @@ Roughly ordered easiest to hardest to first get comfortable with — later ones 
 14. [[14-backtracking|backtracking]] — **[Advanced]** — explore + undo, generate all valid arrangements
 15. [[15-dynamic-programming|dynamic-programming]] — **[Advanced]** — cache overlapping subproblems, memoization vs tabulation
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-prefix-sum-qb|Prefix Sum]]
+- [[02-two-pointers-qb|Two Pointers]]
+- [[03-sliding-window-qb|Sliding Window]]
+- [[04-fast-slow-pointers-qb|Fast & Slow Pointers]]
+- [[05-linked-list-reversal-qb|Linked List Reversal]]
+- [[06-monotonic-stack-qb|Monotonic Stack]]
+- [[07-top-k-elements-qb|Top K Elements]]
+- [[08-overlapping-intervals-qb|Overlapping Intervals]]
+- [[09-modified-binary-search-qb|Modified Binary Search]]
+- [[10-binary-tree-traversal-pattern-qb|Binary Tree Traversal Pattern]]
+- [[11-dfs-pattern-qb|DFS Pattern]]
+- [[12-bfs-pattern-qb|BFS Pattern]]
+- [[13-matrix-traversal-qb|Matrix Traversal]]
+- [[14-backtracking-qb|Backtracking]]
+- [[15-dynamic-programming-qb|Dynamic Programming Pattern]]
+
+---
+
 ## Related
 
 - [[dsa/index|DSA fundamentals index]]

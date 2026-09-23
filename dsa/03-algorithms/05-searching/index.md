@@ -27,6 +27,16 @@ Both are called search. Only the second one has a frontier, a heuristic, or a re
 
 **Read down the last four rows and only one thing changes: what the priority queue is keyed on.** That is the payoff of treating these as one family rather than five algorithms.
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-linear-and-binary-search-qb|Linear & Binary Search]]
+- [[02-binary-search-on-the-answer-qb|Binary Search on the Answer]]
+- [[03-state-space-search-qb|State-Space Search]]
+
+---
+
 ## Related
 
 - [[04-sorting/index|Sorting]] — what you do first to make binary search possible, and when that trade pays

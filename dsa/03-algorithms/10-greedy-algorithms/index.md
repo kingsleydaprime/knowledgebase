@@ -45,6 +45,15 @@ Every lab was executed and its expected output generated from that run. **Every 
 | [[01-when-greedy-works\|when greedy works]] | greedy coin change failing on $\{1,3,4\}$ and $\{1,7,10\}$, and 0/1 knapsack failing on the rule that is optimal for the fractional version |
 | [[02-selection-and-scheduling\|selection and scheduling]] | hire-K greedy agreeing with brute force **400/400** while "take the K cheapest wages" is wrong on **130/400**; earliest-start and shortest-duration each failing on one input and tying on another; interval scheduling and the room sweep each **300/300** |
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-when-greedy-works-qb|When Greedy Works]]
+- [[02-selection-and-scheduling-qb|Selection & Scheduling]]
+
+---
+
 ## Related
 
 - [[03-algorithms/index|03-algorithms]] — the parent folder

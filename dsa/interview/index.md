@@ -32,6 +32,14 @@ The single highest-value thing from [[dsa/04-patterns/index|the patterns folder]
 
 **"Binary search on the answer"** is the most under-used entry there — any problem of the form "find the minimum X such that a check passes," where the check is monotonic, is a binary search over the answer space rather than over an array. Recognising it turns a lot of hard-looking problems into medium ones.
 
+## Question banks
+
+One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+
+- [[01-the-coding-round-qb|The Coding Round]]
+
+---
+
 ## Related
 - [[dsa/index|DSA course]] · [[dsa/04-patterns/index|the 15 patterns]]
 - [[dsa/neetcode-150/interview-playbook|NeetCode 150 playbook]]
