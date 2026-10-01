@@ -1,0 +1,9 @@
+[tool.importlinter]
+root_package = "apps"
+
+[[tool.importlinter.contracts]]
+name = "Apps use each other only through services.py"
+type = "forbidden"
+source_modules = ["apps.orders"]
+forbidden_modules = ["apps.users.models", "apps.users.views"]
+allow_indirect_imports = true

@@ -1,0 +1,13 @@
+{
+  "name": "lab-layer-vs-feature-eslint",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test" },
+  "devDependencies": {
+    "eslint": "^9.39.0",
+    "eslint-import-resolver-typescript": "^4.4.0",
+    "eslint-plugin-import": "^2.32.0",
+    "typescript": "^6.0.0",
+    "typescript-eslint": "^8.71.0"
+  }
+}

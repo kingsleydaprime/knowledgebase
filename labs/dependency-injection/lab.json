@@ -1,0 +1,13 @@
+{
+  "lesson": "backend/03-structuring-a-backend/03-dependency-injection-and-wiring.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "app.ts",
+    "app.test.ts"
+  ]
+}

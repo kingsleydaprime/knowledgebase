@@ -1,0 +1,13 @@
+{
+  "lesson": "concepts/04-best-practices/01-clean-code.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "after.mjs",
+    "after.test.mjs"
+  ]
+}
