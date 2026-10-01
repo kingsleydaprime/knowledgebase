@@ -1,0 +1,25 @@
+{
+  "lesson": "backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature.md",
+  "run": [
+    [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    [
+      "cargo",
+      "test",
+      "--quiet"
+    ],
+    [
+      "sh",
+      "check-boundary.sh"
+    ]
+  ],
+  "embedded": [
+    "src/lib.rs",
+    "src/orders/mod.rs",
+    "src/orders/repository.rs",
+    "check-boundary.sh"
+  ]
+}
