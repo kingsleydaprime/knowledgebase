@@ -1,0 +1,13 @@
+{
+  "lesson": "architecture/03-architectural-patterns/05-transactional-outbox.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "outbox.mjs",
+    "outbox.test.mjs"
+  ]
+}

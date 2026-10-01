@@ -1,0 +1,14 @@
+{
+  "lesson": "concepts/03-design-patterns/01-creational-patterns.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "limiter.ts",
+    "builder.ts",
+    "create.test.ts"
+  ]
+}

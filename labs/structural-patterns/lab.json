@@ -1,0 +1,13 @@
+{
+  "lesson": "concepts/03-design-patterns/02-structural-patterns.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "rates.ts",
+    "rates.test.ts"
+  ]
+}

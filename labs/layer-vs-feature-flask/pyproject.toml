@@ -1,0 +1,15 @@
+[tool.importlinter]
+root_package = "app"
+
+[[tool.importlinter.contracts]]
+name = "Shared code never imports a feature"
+type = "forbidden"
+source_modules = ["app.extensions"]
+forbidden_modules = ["app.orders", "app.users"]
+
+[[tool.importlinter.contracts]]
+name = "Features use each other only through services"
+type = "forbidden"
+source_modules = ["app.orders"]
+forbidden_modules = ["app.users.models", "app.users.routes"]
+allow_indirect_imports = true
