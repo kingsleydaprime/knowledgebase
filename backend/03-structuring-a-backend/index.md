@@ -6,7 +6,9 @@ Read in order; each note assumes the previous.
 
 1. [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|Layers — Controllers, Services, Repositories]] — **[Beginner→Intermediate]** — the three jobs every backend separates, the rule that tells you when you've broken it, and the honest caveats (anaemic pass-through services, the "swappable database" myth)
 2. [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|Organising by Layer vs by Feature]] — **[Beginner→Intermediate]** — the folder argument that isn't bikeshedding: change locality, deletability, and how `shared/` rots
+   - [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages|…in Go, Java, Rust, C, C++ and C#]] — **[Intermediate]** — the companion: where the compiler or build system enforces the boundary itself, and why by-layer switches it off
 3. [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|Dependency Injection & Wiring]] — **[Intermediate]** — being handed your tools instead of making them; constructor injection, when interfaces earn their keep, and the scope bugs
+   - [[backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages|…in other languages]] — **[Intermediate]** — Spring and .NET containers, Go and Rust by hand, C's function-pointer structs, and which languages catch the scope bug
 4. [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal & Clean Architecture]] — **[Intermediate→Advanced]** — inverting the dependency so business rules depend on nothing; four names for one idea, and an honest account of what it costs
 5. [[backend/03-structuring-a-backend/05-modular-monolith-to-services|Modular Monolith → Services]] — **[Intermediate→Advanced]** — where boundaries actually belong, why to discover them in the cheap medium first, and what changes the moment a call crosses a network
 

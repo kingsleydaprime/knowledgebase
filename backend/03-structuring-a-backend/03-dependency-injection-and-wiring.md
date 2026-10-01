@@ -278,6 +278,7 @@ You can wire an app by hand, explain what a container automates, and reproduce a
 DI is not a framework, a container, or an annotation — it's the single rule that **a class should declare what it needs and be given it, rather than going out and getting it.** You can follow that rule with plain constructors and twenty lines in `main`. Everything else — containers, decorators, autowiring — is convenience for when the object graph gets big. Teams that learn the container before the rule end up with magic they can't test.
 
 ## Related
+- [[backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages|Dependency injection in other languages]] — Python, Go, Java, Rust, C, C++ and C#, and what each does about the scope bug
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|Layers]] — what's being wired together
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal & Clean Architecture]] — where interfaces genuinely earn their place
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency Injection (Java)]] — Spring's implementation

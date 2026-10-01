@@ -19,6 +19,7 @@ A lab **fails** if any of its commands exits non-zero, **or** if a file it lists
 - **Node 23.6 or later** for the JavaScript and TypeScript labs. They use the built-in test runner (`node --test`) and run `.ts` files directly by stripping types, so they can't use TypeScript features that generate code: parameter properties (`constructor(private x: T)`) and enums. `transactional-outbox` uses `node:sqlite`, built in since Node 22.5. Checked with Node 26.
 - **npm** for `layer-vs-feature-eslint`. The first run does `npm ci`; `node_modules/` is git-ignored.
 - **Go, a JDK, Rust (cargo), GCC and CMake** for the five compiled-language layer-vs-feature labs. Checked with Go 1.26, Java 21, Rust 1.96, GCC 16 and CMake 4.3.
+- **Podman** (or Docker) for C# labs: they run inside the official .NET SDK image, so .NET doesn't need installing. The first run downloads the image, about 1 GB.
 - **uv** for the Python labs. Each command declares its own packages (`uv run --no-project --with django ...`), so there is no virtualenv to manage. The first run needs a network connection to fetch them.
 
 ## Adding a lab
@@ -48,15 +49,16 @@ A lab **fails** if any of its commands exits non-zero, **or** if a file it lists
 | `security-headers` | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy\|security headers]] | Security headers, CORS allowlist vs reflected origin, CORS is not access control, cookie flags |
 | `solid-principles` | [[concepts/04-best-practices/05-solid-principles\|SOLID]] | Open/closed fees, dependency-inverted checkout, a Liskov violation |
 | `input-validation-and-output-encoding` | [[cybersecurity/04-web-security/01-input-validation-and-output-encoding\|input validation and output encoding]] | SQL injection and XSS working, then fixed; a denylist failing; encoding by context |
-| `layer-vs-feature-rust` | same | Private modules — rustc refuses the path with E0603 |
+| `layer-vs-feature-rust` | [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages\|…in compiled languages]] | Private modules — rustc refuses the path with E0603 |
 | `layers` | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories\|layers]] | Controller, service, repository with no framework |
-| `layer-vs-feature-c` | same | A header per feature, opaque structs and `static` functions; the compiler and linker refuse cross-feature access |
-| `layer-vs-feature-cpp` | same | One CMake target per feature; a `PRIVATE` include directory the build refuses to share |
+| `layer-vs-feature-c` | [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages\|…in compiled languages]] | A header per feature, opaque structs and `static` functions; the compiler and linker refuse cross-feature access |
+| `layer-vs-feature-cpp` | [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages\|…in compiled languages]] | One CMake target per feature; a `PRIVATE` include directory the build refuses to share |
 | `layer-vs-feature-eslint` | [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature\|layer vs feature]] | Express and React feature boundaries enforced by ESLint |
+| `layer-vs-feature-csharp` | [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages\|…in compiled languages]] | One project per feature; `internal` — the C# compiler refuses with CS0122 (runs in the .NET SDK container) |
 | `layer-vs-feature-django-by-feature` | same | Apps in `apps/`, cross-app services, an import-linter contract |
 | `layer-vs-feature-django-by-layer` | same | One `core` app with model and view packages |
-| `layer-vs-feature-go` | same | `internal/` packages — the Go compiler refuses the cross-feature import |
-| `layer-vs-feature-java` | same | Package-private classes — `javac` refuses the cross-feature access (no Maven or Gradle needed) |
+| `layer-vs-feature-go` | [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages\|…in compiled languages]] | `internal/` packages — the Go compiler refuses the cross-feature import |
+| `layer-vs-feature-java` | [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages\|…in compiled languages]] | Package-private classes — `javac` refuses the cross-feature access (no Maven or Gradle needed) |
 | `layer-vs-feature-flask` | same | Blueprints per feature, an app factory, import-linter contracts |
 | `dependency-injection` | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring\|DI and wiring]] | The request-scope bug, reproduced and fixed two ways |
 | `hexagonal-architecture` | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture\|hexagonal]] | Ports in the domain, adapters outside, tests with no infrastructure |

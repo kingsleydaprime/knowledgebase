@@ -5,7 +5,7 @@ export LC_ALL=C  # plain ASCII compiler messages, whatever the locale
 work=$(mktemp -d)
 trap 'rm -rf "$work"' EXIT
 javac -d "$work/out" $(find src -name '*.java')
-output=$(java -cp "$work/out" shop.App)
+output=$(java -cp "$work/out" shop.App) || { echo "the app failed to run"; exit 1; }
 expected='Order[id=1, userId=u1, totalKobo=500000]
 rejected: unknown user: nobody'
 [ "$output" = "$expected" ] || { echo "unexpected output:"; echo "$output"; exit 1; }

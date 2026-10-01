@@ -13,8 +13,10 @@ Usage, from the vault root:
     python3 labs/run.py                 run every lab
     python3 labs/run.py layers solid    run the named labs
     python3 labs/run.py --drift-only    only check lessons against lab files (fast, offline)
+    python3 labs/run.py --sync NAME     after editing a lab file, copy it into the lesson's code block
+                                        (the block whose first two lines match the file's)
 """
-import json, pathlib, subprocess, sys, time
+import json, pathlib, re, subprocess, sys, time
 
 LABS = pathlib.Path(__file__).resolve().parent
 VAULT = LABS.parent
@@ -24,6 +26,28 @@ def drift(lab: pathlib.Path, spec: dict) -> list[str]:
     """Files listed in `embedded` whose exact content is no longer in the lesson."""
     lesson = (VAULT / spec["lesson"]).read_text()
     return [f for f in spec.get("embedded", []) if (lab / f).read_text().strip() not in lesson]
+
+
+def sync(lab: pathlib.Path, spec: dict) -> list[str]:
+    """Replace each embedded file's code block in the lesson with the file's current content.
+    A block is matched by its first two lines, which must appear in exactly one block."""
+    lesson_path = VAULT / spec["lesson"]
+    lesson = lesson_path.read_text()
+    notes = []
+    for name in spec.get("embedded", []):
+        content = (lab / name).read_text().strip()
+        if content in lesson:
+            continue
+        first = content.splitlines()[:2]
+        blocks = [m for m in re.finditer(r"```[^\n]*\n(.*?)\n```", lesson, re.S) if m.group(1).splitlines()[:2] == first]
+        if len(blocks) != 1:
+            notes.append(f"{name}: {len(blocks)} blocks start with {first!r}; fix by hand")
+            continue
+        m = blocks[0]
+        lesson = lesson[: m.start(1)] + content + lesson[m.end(1):]
+        notes.append(f"{name}: synced")
+    lesson_path.write_text(lesson)
+    return notes
 
 
 def run(lab: pathlib.Path, spec: dict) -> str | None:
@@ -43,6 +67,12 @@ def run(lab: pathlib.Path, spec: dict) -> str | None:
 def main() -> int:
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     drift_only = "--drift-only" in sys.argv
+    if "--sync" in sys.argv:
+        for lab in sorted(p.parent for p in LABS.glob("*/lab.json")):
+            if lab.name in args:
+                for note in sync(lab, json.loads((lab / "lab.json").read_text())):
+                    print(f"{lab.name}: {note}")
+        return 0
     labs = sorted(p.parent for p in LABS.glob("*/lab.json"))
     if args:
         labs = [l for l in labs if l.name in args]

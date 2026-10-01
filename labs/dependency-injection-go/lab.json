@@ -1,0 +1,24 @@
+{
+  "lesson": "backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages.md",
+  "run": [
+    [
+      "go",
+      "vet",
+      "./..."
+    ],
+    [
+      "sh",
+      "-c",
+      "test -z \"$(gofmt -l .)\""
+    ],
+    [
+      "sh",
+      "check-race.sh"
+    ]
+  ],
+  "embedded": [
+    "audit.go",
+    "audit_test.go",
+    "check-race.sh"
+  ]
+}

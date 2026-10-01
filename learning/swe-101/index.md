@@ -91,7 +91,7 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 
 - **DSA — graphs I, DFS:** 080 number of islands · 082 max area of island · 081 clone graph · 084 surrounded regions · 090 number of connected components. Refresh first, only if needed: [[dsa/04-patterns/11-dfs-pattern|DFS pattern]].
 - **Learn (core):** [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|layers]] · [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|layer vs feature]]
-- **Learn (optional):** [[software-engineering/01-what-software-engineering-is|what software engineering is]] · [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
+- **Learn (optional):** [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages|layer vs feature in compiled languages]] · [[software-engineering/01-what-software-engineering-is|what software engineering is]] · [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
 - **Build:** **pick the flagship** — harden nextvibe or my-applicant rather than starting fresh. Then the audit, and decide its folder structure.
 - **Apply:** Friday hour. Link the Quartz site and the flagship from the CV.
 - **By Sunday:** the flagship is named, its structure is drawn on the board, and the audit is done.
@@ -100,7 +100,7 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 
 - **DSA — graphs II, BFS:** 085 rotting oranges · 086 walls and gates · 083 Pacific Atlantic water flow · 091 graph valid tree · 092 word ladder. Refresh: [[dsa/04-patterns/12-bfs-pattern|BFS pattern]].
 - **Learn (core):** [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|dependency injection and wiring]] · [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]]
-- **Learn (optional):** [[backend/07-practices/02-testing-a-backend|testing a backend]]
+- **Learn (optional):** [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages|DI in other languages]]
 - **Build:** a composition root, a boundary lint rule, and the first real tests running in CI.
 - **Apply:** Friday hour.
 - **By Sunday:** CI is green on the flagship, and a pull request that breaks a test turns it red.

@@ -10,12 +10,13 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 14 of 43 meet the standard. Optional: 5 of 33.**
+**Core lessons: 14 of 43 meet the standard. Optional: 6 of 34.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
 | SWE 101 | 1 | core | ✅ meets | — | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories\|01-layers-controllers-services-repositories]] |
 | SWE 101 | 1 | core | ✅ meets | — | [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature\|02-organising-by-layer-vs-by-feature]] |
+| SWE 101 | 1 | optional | ✅ meets | — | [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages\|02b-organising-by-feature-in-compiled-languages]] |
 | SWE 101 | 1 | optional | ✅ meets | — | [[software-engineering/01-what-software-engineering-is\|01-what-software-engineering-is]] |
 | SWE 101 | 1 | optional | ✅ meets | — | [[software-engineering/02-the-software-development-lifecycle\|02-the-software-development-lifecycle]] |
 | SWE 101 | 2 | core | ✅ meets | — | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring\|03-dependency-injection-and-wiring]] |

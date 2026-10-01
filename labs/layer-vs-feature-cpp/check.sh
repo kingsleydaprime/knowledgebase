@@ -7,9 +7,12 @@ trap 'rm -rf "$work"' EXIT
 
 cmake -S . -B "$work/build" -DCMAKE_BUILD_TYPE=Debug >/dev/null
 cmake --build "$work/build" -j >/dev/null
-ctest --test-dir "$work/build" --output-on-failure >/dev/null && echo "ok: orders tests passed"
-[ "$("$work/build/shop")" = "u1: order 1
-nobody: rejected" ] && echo "ok: the app runs"
+ctest --test-dir "$work/build" --output-on-failure >/dev/null || { echo "tests failed"; exit 1; }
+echo "ok: orders tests passed"
+output=$("$work/build/shop")
+[ "$output" = "u1: order 1
+nobody: rejected" ] || { echo "unexpected output: $output"; exit 1; }
+echo "ok: the app runs"
 
 cp -r . "$work/src"
 mkdir -p "$work/src/sneak"
