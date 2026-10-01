@@ -196,6 +196,8 @@ test("the domain rejects a fractional total before any payment is attempted", as
 });
 ```
 
+**Lab:** these files are in `labs/hexagonal-architecture/`. From the vault root, `python3 labs/run.py hexagonal-architecture` runs them and checks this page still shows the same code.
+
 **Run it.** From the `hex/` folder: `node --test`. Node 23.6 or later runs these `.ts` files directly; checked with Node 26. Expected:
 
 ```

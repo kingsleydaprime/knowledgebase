@@ -312,11 +312,11 @@ By Sunday: what must be true before the week closes
 
 # Week 2 — Design principles
 
-**Read:** [[concepts/04-best-practices/01-clean-code|clean code]] · [[concepts/04-best-practices/05-solid-principles|SOLID principles]]
+**Read:** [[concepts/04-best-practices/01-clean-code|clean code]] · [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] · [[concepts/04-best-practices/05-solid-principles|SOLID principles]]
 
 **Topics**
 - **2.1** Modularity — what a module is, and what makes a bad one → [[concepts/04-best-practices/01-clean-code|clean code]]
-- **2.2** Coupling and cohesion → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|layers]]
+- **2.2** Coupling and cohesion → [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]]
 - **2.3** Abstraction and interfaces → [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal & clean architecture]]
 - **2.4** Separation of concerns → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|by layer vs by feature]]
 - **2.5** DRY, KISS, YAGNI — **and where each one is wrong** → [[concepts/04-best-practices/01-clean-code|clean code]]
@@ -415,7 +415,7 @@ By Sunday: what must be true before the week closes
 **Topics**
 - **8.1** Monolith vs microservices vs serverless → [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|the three]]
 - **8.2** Resilience: timeouts, retries, backoff, circuit breakers, bulkheads → [[architecture/03-architectural-patterns/02-resilience-patterns|resilience]]
-- **8.3** Data and integration patterns → [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data & integration]]
+- **8.3** Data and integration patterns → [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data & integration]] · [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]]
 - **8.4** Microservices patterns → [[architecture/03-architectural-patterns/04-microservices-patterns|microservices]]
 - **8.5** **Trade-off articulation** — saying "I'd choose X because Y" instead of "it depends" → [[architecture/interview/01-system-design-round|the round]]
 
