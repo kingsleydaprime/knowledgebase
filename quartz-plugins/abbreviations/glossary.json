@@ -37,6 +37,7 @@
   "DSA": "data structures and algorithms",
   "DSP": "digital signal processing",
   "DSU": "disjoint set union",
+  "DTO": "data transfer object, a plain shape for data crossing a boundary such as a request body",
   "DWARF": "the debugging data format that accompanies ELF binaries",
   "ELF": "executable and linkable format",
   "FDM": "finite difference method",
