@@ -12,6 +12,8 @@ First clear instance (gees-arise, 2026-07-27): proposed defaulting every circle'
 
 **Recurred 2026-10-01 (SWE 101).** After a review showed the course was overloaded, said unprompted: *"20 something weeks is a lot"* and proposed splitting it into 6–12-week courses (101, 102, 103). A real structural catch — shorter courses give a nearer finish line, which is the condition his own JAMB result came from.
 
+**Recurred 2026-10-01 (vault work), process this time.** Mid-way through a long batch of generated lessons — seven companions, about 50 labs, nothing committed — asked unprompted: *"don't you think this should be done in batches… let's commit before going on."* The risk was real (one bad step could have tangled a large uncommitted change) and the AI doing the work hadn't raised it. Same instinct as the timezone catch, applied to a workflow rather than a design.
+
 ## Recurring blind spots / things to watch
 
 **Proposing a new default without fully tracing through an architectural decision made moments earlier in the same conversation.**

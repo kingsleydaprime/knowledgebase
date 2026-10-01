@@ -382,6 +382,7 @@ You can pick the right level for a test, use each kind of test double for its jo
 **Next.** Week 3: [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] — and a tool that measures the flagship's.
 
 ## Related
+- [[concepts/04-best-practices/04b-testing-fundamentals-in-other-languages|Testing Fundamentals in Other Languages]] — runners, doubles, clocks and integration tools in seven languages
 - [[backend/07-practices/02-testing-a-backend|Testing a backend]] — Testcontainers, test data, time, auth
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|Dependency injection]] — what makes code testable with doubles
 - [[concepts/04-best-practices/01-clean-code|Clean code]] — pinning behaviour with tests before refactoring

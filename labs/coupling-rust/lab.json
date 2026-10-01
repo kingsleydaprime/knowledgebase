@@ -1,0 +1,12 @@
+{
+  "lesson": "concepts/04-best-practices/08b-coupling-and-cohesion-in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check-cycle.sh"
+    ]
+  ],
+  "embedded": [
+    "check-cycle.sh"
+  ]
+}

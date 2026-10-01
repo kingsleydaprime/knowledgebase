@@ -292,6 +292,7 @@ You can name the behavioural patterns in real code, model a lifecycle as a trans
 **Next.** [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|Dependency injection and wiring]] — where all these objects get created and connected.
 
 ## Related
+- [[concepts/03-design-patterns/03b-behavioral-patterns-in-other-languages|Behavioural Patterns in Other Languages]] — which patterns are built in, and Rust's typestate
 - [[concepts/03-design-patterns/01-creational-patterns|creational patterns]]
 - [[concepts/03-design-patterns/02-structural-patterns|structural patterns]]
 - [[dsa/02-data-structures/05-trees/04-traversal/index|traversal]] — the same iteration idea generalized to trees and graphs

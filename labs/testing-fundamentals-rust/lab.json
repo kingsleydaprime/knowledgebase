@@ -1,0 +1,18 @@
+{
+  "lesson": "concepts/04-best-practices/04b-testing-fundamentals-in-other-languages.md",
+  "run": [
+    [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    [
+      "cargo",
+      "test",
+      "--quiet"
+    ]
+  ],
+  "embedded": [
+    "src/lib.rs"
+  ]
+}

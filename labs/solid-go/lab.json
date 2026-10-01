@@ -1,0 +1,24 @@
+{
+  "lesson": "concepts/04-best-practices/05b-solid-in-other-languages.md",
+  "run": [
+    [
+      "go",
+      "vet",
+      "./..."
+    ],
+    [
+      "sh",
+      "-c",
+      "test -z \"$(gofmt -l .)\""
+    ],
+    [
+      "go",
+      "test",
+      "./..."
+    ]
+  ],
+  "embedded": [
+    "fees.go",
+    "fees_test.go"
+  ]
+}

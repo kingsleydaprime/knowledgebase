@@ -1,0 +1,8 @@
+[package]
+name = "reminders"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# The standard library has no calendar dates; chrono is the usual choice.
+chrono = { version = "0.4", default-features = false, features = ["std"] }
