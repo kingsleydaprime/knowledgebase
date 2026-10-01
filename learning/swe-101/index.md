@@ -92,6 +92,8 @@ The whole restructure is this: **one track produces the job, the other produces 
 
 [[learning/swe-101/03-notebook-method|The method]] — the 8-part topic structure, and the rule that keeps this notebook from duplicating 1,150 notes that already exist.
 
+[[learning/swe-101/06-lesson-quality|Lesson quality]] — which of the lessons each week links to meet the course standard yet. They're converted a block ahead of you; log anywhere a converted lesson still left you guessing.
+
 ## 7. Review
 
 Every 4 weeks, in the notebook, three lines: what's ticked, what slipped, what changes. Not a journal — a checkpoint. The first one that says "applications: 0" is the one that matters.

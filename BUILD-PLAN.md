@@ -14,6 +14,16 @@ The historical phases below track topics written. They do **not** establish that
 - [x] Connect both pilots to their course indexes and existing practice material.
 - [ ] Study the pilots closed-book and record where the explanation, setup, or exercise still requires guessing. Editorial completion is not learner validation.
 
+### SWE 101 — converting the lessons it links to, in week order (2026-10-01)
+
+SWE 101 is the active course, so its lessons are converted a block ahead of study. Progress is generated, not hand-kept: [[learning/swe-101/06-lesson-quality|lesson quality]] (`python3 learning/swe-101/scripts/audit-standard.py`). The standard now also requires a **kid version** in every lesson.
+
+- [x] **Software design block, weeks 1–4 — 13 lessons.** Every runnable example executed with Node 26 (`node --test`), or with Django 6.1 / Flask 3.1 / import-linter / ESLint 9 for layer-vs-feature. Fixed on the way: SOLID linked "strategy" to creational patterns; the structural-patterns lesson had no composition-over-inheritance section although week 2.7 pointed to it; behavioural patterns had no State pattern although week 3.3 listed it; layer-vs-feature called Django by-layer (its apps are feature folders); the roles note linked "mobile" to a NestJS backend note.
+- [ ] **Study the block closed-book** and log where a lesson still needed guessing, before converting the next block.
+- [ ] Architecture & system design, weeks 5–8 — 13 lessons.
+- [ ] Databases, weeks 9–11; then networking, security, and the rest, in scheme order.
+- **Gap found:** no note covers the transactional outbox pattern; it belongs in `architecture/03-architectural-patterns/03-data-and-integration-patterns`.
+
 ### Flagged while building How Computers Work (2026-09-09)
 
 - [x] **`mathematics/` is too thin for the courses that depend on it.** *(closed 2026-09-10: number bases, the foundations sequence and all of calculus written; logarithms added. Remaining gaps are unstarted topics, listed in the maths index.)* Originally: Concretely: `core/01-numbers/01-number-bases/` covers binary, decimal and hexadecimal but there is **no note on signed representations** — two's complement lives only in [[computer-architecture/02-data-representation|computer-architecture/data representation]], which is a Part IX course being used as a Part I prerequisite. Also thin: no dedicated logarithms note (only inside `06-exponents`), and the calculus tree jumps from limits to multivariable with gaps.
