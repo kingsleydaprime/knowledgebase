@@ -1,0 +1,13 @@
+{
+  "lesson": "cybersecurity/04-web-security/04b-security-headers-in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "-c",
+      "podman run --rm -v \"$PWD\":/lab:Z -w /lab mcr.microsoft.com/dotnet/sdk:10.0 sh check.sh"
+    ]
+  ],
+  "embedded": [
+    "Api/Program.cs"
+  ]
+}

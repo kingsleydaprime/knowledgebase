@@ -255,6 +255,7 @@ You can name the three pillars and what connects them, compute and explain perce
 **Next.** Week 7: [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation and output encoding]].
 
 ## Related
+- [[devops/10-observability/01b-observability-in-other-languages|Observability in Other Languages]] — histograms, estimated percentiles and each ecosystem's metrics library
 - [[languages/01-java/03-tooling/05-logging-and-observability|Logging & observability (Java)]] — the application side, grounded in a real pipeline
 - [[devops/10-observability/02-the-observability-stack|The observability stack]] — the tools that implement these pillars
 - [[backend/07-practices/01-backend-best-practices|Backend best practices]] — the structured logs this lesson reads

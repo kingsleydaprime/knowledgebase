@@ -1,0 +1,12 @@
+{
+  "lesson": "backend/07-practices/01b-backend-best-practices-in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "token_bucket.cpp"
+  ]
+}

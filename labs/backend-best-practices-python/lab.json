@@ -1,0 +1,13 @@
+{
+  "lesson": "backend/07-practices/01b-backend-best-practices-in-other-languages.md",
+  "run": [
+    [
+      "python3",
+      "-m",
+      "unittest"
+    ]
+  ],
+  "embedded": [
+    "practices.py"
+  ]
+}

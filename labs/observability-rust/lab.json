@@ -1,0 +1,18 @@
+{
+  "lesson": "devops/10-observability/01b-observability-in-other-languages.md",
+  "run": [
+    [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    [
+      "cargo",
+      "test",
+      "--quiet"
+    ]
+  ],
+  "embedded": [
+    "src/lib.rs"
+  ]
+}
