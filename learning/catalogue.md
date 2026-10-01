@@ -5,12 +5,12 @@
 
 ## Active
 
-**[[learning/swe-101/index|SWE 101]]** — the course is written. Started 2026-08-21. Reps live in the physical notebook.
+**[[learning/swe-101/index|SWE 101]] — building a production codebase, and graphs under pressure.** 8 weeks, from 2026-10-05. Reps live in the physical notebook.
 
 **Target:** a remote full-stack / AI-engineering role. Full-stack and AI engineering converge on one profile — *a TS full-stack engineer who ships AI product features and can prove they work* — so they are one prep surface, not two.
-**Timeline:** 6–9 months at 10–15 h/week, school in session.
-**Two tracks:** [[learning/swe-101/01-hire-track|Hire]] (weeks 1–28, wins every conflict) and [[learning/swe-101/02-foundation-track|Foundation]] (weeks 1–52+, continues past employment).
-**The notebook:** [[learning/swe-101/03-notebook-method|method]] — the vault is the library; the notebook is reconstruction and reps only.
+**The series:** SWE 101 (8 weeks) → [[learning/swe-102/index|SWE 102 — AI engineering]] (6 weeks) → [[learning/swe-103/index|SWE 103 — systems and interviews]] (11 weeks). Run one after another, never in parallel — 102 and 103 are **queued, not active**. Each week has four lanes — DSA, Apply, Build, Learn — dropped from the bottom when a week collapses.
+**Restructured 2026-10-01:** the first version (a 28-week hire track beside a 30-week scheme, started 2026-08-21) wasn't followed and contradicted itself. It's in [[learning/swe-101/archive/index|the archive]].
+**The notebook:** [[learning/swe-101/03-notebook-method|method]] — the vault is the library; the notebook is reconstruction and reps only. Sections are numbered course.week (101.3).
 
 *Why this one: the near-term mission is financial capability through software engineering. Not because the others matter less — because this one funds the others.*
 

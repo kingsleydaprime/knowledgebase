@@ -1,99 +1,179 @@
-# SWE 101
+# SWE 101 — Building a Production Codebase, and Graphs Under Pressure
 
-**Started:** 2026-08-21 · **Status:** active (the one active course — see [[learning/catalogue|catalogue]])
-**Where the reps happen:** physical notebook + the board. This folder is the map, not the notes.
+**Status:** active — the one active course (see [[learning/catalogue|catalogue]]) · **Length:** 8 weeks · **Starts:** Monday 2026-10-05
+**Where the reps happen:** the board and the physical notebook. This file is the map, not the notes.
+**Then:** [[learning/swe-102/index|SWE 102 — AI engineering]] (6 weeks) → [[learning/swe-103/index|SWE 103 — systems and interviews]] (11 weeks).
 
 ---
 
-## 1. Objective
+## The SWE series
 
-**Land a remote full-stack / AI-engineering role, and be a genuinely better engineer on the way there — in that order of urgency, not that order of importance.**
+### The objective
 
-Measurable version, so there's something to tick:
+**Land a remote full-stack / AI-engineering role, and be a genuinely better engineer on the way there.**
 
-| Target | By |
-|---|---|
-| 150 DSA problems solved cold, by pattern | week 28 |
-| 1 flagship project deployed, tested, with an evals harness, publicly linkable | week 12 |
-| 100 applications sent | week 20 |
-| 5 real interview loops entered | week 24 |
-| Offer | month 6–9 |
+The target profile is one thing, not two: **a TypeScript full-stack engineer who ships AI product features and can prove they work.** Today's AI-engineering jobs are mostly exactly that — streaming UIs, retrieval, tool calls, evals, cost and latency — and it's where remote junior hiring is still happening. Java/Spring, mobile, embedded and robotics stay parked: a CV aimed at four roles reads as aimed at none.
 
-## 2. What the role actually involves
+### Why three short courses instead of one long plan
 
-Two targets, and they converge — this is the important realisation:
+The first version of SWE 101 was a 30-week scheme beside a 28-week hire track, in four documents. It didn't hold: the weeks weren't followed, reading drifted across the vault, and the two tracks contradicted each other — the flagship needed tests in week 4 and evals in week 9, while the scheme taught them in weeks 24 and 23. (The old files are in [[learning/swe-101/archive/index|the archive]].)
 
-**Full-stack (TS)** and **AI engineering** are not two prep surfaces. Today's AI-engineering job is overwhelmingly *a TypeScript full-stack engineer who ships LLM product features* — streaming UIs, RAG, agents, tool calls, evals, cost and latency control. That is nextvibe's games/AI work, my-applicant's BYOK pipeline, and socioboom's agents, already.
+A course you can finish in two months has a finish line you can see — the condition the JAMB result came from. So the series is three courses run **one after another**, each with a measurable finish line:
 
-So the profile is one thing:
+| Course | Weeks | Finish line |
+|---|---|---|
+| **SWE 101** — production codebase + graphs | 8 | Flagship deployed, structured, tested in CI, threat-modelled · graph mediums solved cold |
+| [[learning/swe-102/index\|SWE 102]] — AI engineering | 6 | Flagship's AI feature has evals running in CI, with numbers you can quote · DP and linked lists cold |
+| [[learning/swe-103/index\|SWE 103]] — systems and interviews | 11 | Two system-design mocks and two coding mocks passed · the project story at three lengths |
 
-> **A TS full-stack engineer who ships AI product features and can prove they work.**
+**Applications never stop for a course.** They already produced the most useful finding so far: the graph questions in real DSA rounds.
 
-That's also the answer to "remote juniors don't get hired." Generic junior full-stack, remote, is the most competitive segment in the market. The AI-product angle is where remote junior hiring is actually still happening, and it's where the existing portfolio is unusually strong for someone with no full-time role yet.
+### Where I'm starting from
 
-**Parked, not dropped** — Java/Spring, mobile, embedded/hardware, robotics. All real, all evidenced, none of them on the CV for *this* job search. A CV aimed at four roles reads as aimed at none. See [[learning/04-one-active-course|One Active Course]].
+Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault, and real interviews already taken.
 
-## 3. Honest timeline
+**Already proven — don't re-learn it:** Node/NestJS backends, auth, realtime and a payments ledger (nextvibe, arete, socioboom) · queues, retries, idempotency (socioboom, record-id-generator, direct-debit-sandbox) · Postgres, Supabase, RLS, Prisma (gees-arise, sorepoint, nextvibe) · React, Next, React Native · deployment, CI/CD, Linux, git · published libraries (strictenv, json-healer) · AI SDK, BYOK, agents (my-applicant, socioboom, nextvibe).
 
-**10–15 focused hours/week, school in session, remote-first, no full-time experience yet: 6–9 months to offer.**
+**The real gaps, most binding first:**
 
-That's not a softer version of the 52-week plan — it's the same duration, spent differently. The 52-week scheme wasn't wrong about how long this takes. It was wrong about *ordering*: it put projects at week 49 and applications nowhere at all.
+1. **DSA under interview conditions — graphs, confirmed by real interviews.** Read, typed, but not owned under time pressure.
+2. **No flagship.** Twelve projects and no single "start here" a stranger can click.
+3. **Evals for AI features.** What separates "built a chatbot" from "AI engineer". → SWE 102
+4. **System design out loud, under time.** The notes are written; the reps are zero. → SWE 103
+5. **Visibility.** Finished blog drafts unpublished; the Quartz site isn't linked from the CV.
 
-**What remote-first specifically costs, and it is a real cost:**
-- No referral network by default → public artifacts have to do the work a referral would
-- Competing globally, not locally → the DSA bar is higher at the companies that pay well
-- Remote hiring skews senior, because junior mentorship is expensive over async → the portfolio has to close that gap
-- Slower loops, more silence, more rejection volume
+### How every week works
 
-**What's already in hand for it:** WAT is UTC+1, which is clean overlap with EU and workable with US East mornings. Written English is strong. And there's a published Quartz knowledgebase, which almost no junior applicant has.
+**Four lanes, in priority order.** When a week collapses — and with school in session, some will — drop from the bottom up:
 
-## 4. Where I'm starting from
+| Lane | Hours | When the week collapses |
+|---|---|---|
+| **DSA** — two sessions, problems solved cold | ~3 | Never dropped |
+| **Apply** — Friday, plus a same-day debrief after any interview | ~1 | Never dropped |
+| **Build** — this week's flagship milestone | ~3–4 | Shrinks; never skipped |
+| **Learn** — two core lessons and one practice task | 2–4 | Optional lessons go first, then core |
 
-**Not week one.** Twelve projects in [[projects/index|projects/]], ~1,150 notes in this vault. The audit below is evidence-based, not self-assessment — it's what the project notes actually show.
+**About 10–12 hours a week.** The rotation is one thing per day, not everything every day:
 
-### Strong evidence — do not re-learn this
+| Mon | Tue | Wed | Thu | Fri | Sat | Sun |
+|---|---|---|---|---|---|---|
+| DSA | Learn | DSA | Build | Apply · Learn practice | Build block | Reconstruct & explain |
 
-| Area | Where it's proven |
-|---|---|
-| Node / NestJS backend, auth, realtime, payments ledger | nextvibe (142k words), arete, socioboom |
-| Queues, async, retries, idempotency | socioboom, record-id-generator, direct-debit-sandbox |
-| Postgres / Supabase / RLS / Prisma, data modelling | gees-arise, sorepoint, nextvibe |
-| React / Next / React Native | gees-arise, nextvibe, arete |
-| **Testing** | `gees-arise/learning/07-testing`, strictenv + json-healer testing/packaging banks |
-| **Deployment, CI/CD, Linux, git** | nextvibe `09-devops`, socioboom `08-devops-and-deployment`, gees-arise `08-devops` |
-| Library design + packaging | strictenv, json-healer (both published) |
-| AI SDK, BYOK, agents | my-applicant, socioboom, nextvibe |
+**Sunday is not optional.** Close everything and teach the week to the board from memory. It's step 3 of [[learning/02-the-learning-loop|the learning loop]], and the one that gets skipped.
 
-**This is why Phases 1–7 of the original scheme get cut, and Phases 10 and 12 get compressed.** Seven weeks on variables, loops and inheritance, and a fresh testing phase at week 30, are weeks spent proving something the repos already prove.
+**The rules for each lane:**
 
-### Real gaps — this is what the course is actually for
+- **DSA — solve cold.** Attempt each problem on the board first, for up to 25 minutes. Open its file in [[dsa/neetcode-150/index|NeetCode 150]] only after a real attempt. Log every problem in the notebook: pattern, cold or not, minutes taken. **If you can't restate the pattern on a blank page before starting, you're matching, not knowing.**
+- **Learn — core first.** Each week lists two core lessons. Read them, close them, write the notebook page, do the practice task. Optional lessons are for when the audit says **D**.
+- **Build — the practice task is the build** wherever a lesson allows it. Studying and building should be the same hours.
+- **Apply — write the questions down within the hour.** The graph questions from your last interviews are gone because nobody wrote them down. After any interview, the same day, in the notebook: what was asked, what you tried, where it broke.
 
-1. **DSA under interview conditions.** Read, typed, not owned. The #1 blocker for remote.
-2. **Evals for AI features.** Two incidental mentions across twelve projects. The single highest-leverage gap, because it's the thing that separates "built a chatbot" from "AI engineer."
-3. **Public visibility.** Three finished blog drafts unpublished. The Quartz site isn't linked from anywhere a hiring manager looks.
-4. **System design articulation under time pressure.** [[architecture/index|The notes]] are excellent; the reps are zero.
-5. **Application volume.** Zero. This is a gap, not a later step.
-6. **A single flagship a stranger can click.** Twelve projects, no clear "start here."
+**The notebook:** [[learning/swe-101/03-notebook-method|the method]] is unchanged, except that sections are numbered **course.week** — section 101.3 is SWE 101, week 3. Core topics get the full 8-part page; optional topics get one line in the index.
 
-## 5. The two tracks
+**Week 1's first job is the audit.** Go through every core and optional lesson in this course and mark each **K** (could explain it now, closed book), **H** (met it, would need to look it up) or **D** (don't know it). K → skip it, H → core only, D → core plus optional.
 
-The whole restructure is this: **one track produces the job, the other produces the engineer. They run in parallel, and the first one is front-loaded.**
+---
 
-**Start here in week 1: [[learning/swe-101/05-week-1-audit|the audit]]** — 148 topics, tick K/H/D, and it decides how long every week below actually takes.
+## SWE 101 — the eight weeks
 
-**The syllabus itself — [[learning/swe-101/04-scheme-of-work|the scheme of work]]** — is the unit-by-unit outline you write into the notebook: 12 units plus a DSA section, each with its textbook chapters, topic list, exercise and closed-book question.
+**Course finish line, every item checkable:**
 
-- **[[learning/swe-101/01-hire-track|Track A — Hire]]** · weeks 1–28. DSA continuously, flagship shipped by week 12, applications from week 7. This is what gets the offer.
-- **[[learning/swe-101/02-foundation-track|Track B — Foundation]]** · weeks 1–52+. The original 15 phases, re-sequenced and mapped onto the vault. Continues after employment — most of it always was going to.
+- [ ] Flagship deployed at a public URL, with a README that opens with what it does and a GIF
+- [ ] Its structure is feature-based, with a lint rule that fails on a cross-feature import
+- [ ] Real tests running in CI on every push
+- [ ] A written threat model: the top five risks, and what was done about each
+- [ ] An architecture note explaining one hard trade-off
+- [ ] **Graphs:** three unseen graph mediums, each solved cold in under 30 minutes
+- [ ] About 38 DSA problems logged, at least 25 of them cold
+- [ ] Applications every Friday; every interview debriefed in writing the same day
 
-**Track A wins every conflict.** In a week where school eats everything, DSA and applications survive; the foundation reading is what gets dropped. Naming that in advance is what stops it being decided by whichever felt more interesting on the day.
+### Week 1 — Pick the flagship, and structure it
 
-## 6. The notebook
+- **DSA — graphs I, DFS:** 080 number of islands · 082 max area of island · 081 clone graph · 084 surrounded regions · 090 number of connected components. Refresh first, only if needed: [[dsa/04-patterns/11-dfs-pattern|DFS pattern]].
+- **Learn (core):** [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|layers]] · [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|layer vs feature]]
+- **Learn (optional):** [[software-engineering/01-what-software-engineering-is|what software engineering is]] · [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
+- **Build:** **pick the flagship** — harden nextvibe or my-applicant rather than starting fresh. Then the audit, and decide its folder structure.
+- **Apply:** Friday hour. Link the Quartz site and the flagship from the CV.
+- **By Sunday:** the flagship is named, its structure is drawn on the board, and the audit is done.
 
-[[learning/swe-101/03-notebook-method|The method]] — the 8-part topic structure, and the rule that keeps this notebook from duplicating 1,150 notes that already exist.
+### Week 2 — Wire it, and test it
 
-[[learning/swe-101/06-lesson-quality|Lesson quality]] — which of the lessons each week links to meet the course standard yet. They're converted a block ahead of you; log anywhere a converted lesson still left you guessing.
+- **DSA — graphs II, BFS:** 085 rotting oranges · 086 walls and gates · 083 Pacific Atlantic water flow · 091 graph valid tree · 092 word ladder. Refresh: [[dsa/04-patterns/12-bfs-pattern|BFS pattern]].
+- **Learn (core):** [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|dependency injection and wiring]] · [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]]
+- **Learn (optional):** [[backend/07-practices/02-testing-a-backend|testing a backend]]
+- **Build:** a composition root, a boundary lint rule, and the first real tests running in CI.
+- **Apply:** Friday hour.
+- **By Sunday:** CI is green on the flagship, and a pull request that breaks a test turns it red.
 
-## 7. Review
+### Week 3 — Measure the coupling
 
-Every 4 weeks, in the notebook, three lines: what's ticked, what slipped, what changes. Not a journal — a checkpoint. The first one that says "applications: 0" is the one that matters.
+- **DSA — graphs III, ordering and weights:** 087 course schedule · 088 course schedule II · 089 redundant connection · 095 network delay time · 094 min cost to connect all points. Refresh: [[dsa/02-data-structures/06-graphs/06-algorithms/01-topological-sort|topological sort]] · [[dsa/02-data-structures/06-graphs/06-algorithms/02-dijkstra|Dijkstra]].
+- **Learn (core):** [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] · [[concepts/04-best-practices/05-solid-principles|SOLID]]
+- **Learn (optional):** [[concepts/04-best-practices/01-clean-code|clean code]]
+- **Build:** run the coupling tool on the flagship (`node labs/coupling-and-cohesion/coupling.mjs <flagship>/src`). Fix one cycle or one dependency pointing the wrong way.
+- **Apply:** Friday hour.
+- **By Sunday:** before-and-after coupling output for the flagship, and one graph medium solved cold under 30 minutes.
+
+### Week 4 — Patterns in the core feature
+
+- **DSA — trees:** 048 diameter of binary tree · 053 level order traversal · 054 right side view · 056 validate BST · 058 construct tree from preorder and inorder. Refresh: [[dsa/04-patterns/10-binary-tree-traversal-pattern|binary tree traversal]].
+- **Learn (core):** [[concepts/03-design-patterns/03-behavioral-patterns|behavioural patterns]] · [[concepts/03-design-patterns/02-structural-patterns|structural patterns]]
+- **Learn (optional):** [[concepts/03-design-patterns/01-creational-patterns|creational patterns]]
+- **Build:** the flagship's core feature, end to end. Use one pattern where it genuinely fits — a state machine for a lifecycle, or wrappers around an external API.
+- **Apply:** Friday hour.
+- **By Sunday:** one sentence on which pattern you used in the flagship, and why it beat the plain version.
+
+### Week 5 — Boundaries that last
+
+- **DSA — backtracking:** 071 subsets · 072 combination sum · 073 permutations · 076 word search · 079 N-queens. Refresh: [[dsa/04-patterns/14-backtracking|backtracking]].
+- **Learn (core):** [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal architecture]] · [[backend/03-structuring-a-backend/05-modular-monolith-to-services|modular monolith to services]]
+- **Learn (optional):** [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]]
+- **Build:** put the one external API most likely to change — payments, email, or the model provider — behind a port, with a fake adapter in tests.
+- **Apply:** Friday hour.
+- **By Sunday:** the flagship's core logic has a test that runs with no network.
+
+### Week 6 — Hardening
+
+- **DSA — two pointers and sliding window:** 012 3sum · 013 container with most water · 016 longest substring without repeating characters · 017 longest repeating character replacement · 019 minimum window substring.
+- **Learn (core):** [[backend/07-practices/01-backend-best-practices|backend best practices]] (validation, error contracts, rate limits, idempotency) · [[devops/10-observability/01-observability-fundamentals|observability fundamentals]]
+- **Learn (optional):** [[devops/10-observability/02-the-observability-stack|the observability stack]]
+- **Build:** consistent error responses, rate limits on the expensive routes, and structured logs.
+- **Apply:** Friday hour.
+- **By Sunday:** you can answer "is it up, is it fast, and what broke last" for the flagship without opening the code.
+
+### Week 7 — Securing what you built
+
+- **DSA — binary search and heaps:** 030 Koko eating bananas · 032 search in rotated sorted array · 066 K closest points · 067 Kth largest element · 070 find median from data stream.
+- **Learn (core):** [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation and output encoding]] · [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy|security headers and same-origin policy]]
+- **Learn (optional):** [[devops/09-secret-management/01-secret-management|secret management]] · [[backend/05-auth/01-authentication-flows|authentication flows]]
+- **Build:** threat-model the flagship and fix the top risk.
+- **Apply:** Friday hour.
+- **By Sunday:** the threat model is written — top five risks, and what was done about each.
+
+### Week 8 — Ship it, and a timed mock
+
+- **DSA — timed mock:** three unseen mediums, 45 minutes each, back to back: 098 cheapest flights within K stops · 068 task scheduler · 131 merge intervals. Score honestly.
+- **Learn:** no new lessons. Re-read only what the mock exposed.
+- **Build:** README with a GIF and a live URL at the top, the architecture note, and a short write-up you could post.
+- **Apply:** Friday hour, with the flagship link in every application from now on.
+- **By Sunday:** every box in the course finish line is ticked — or the unticked ones have a date. **Then SWE 102 starts the following Monday.**
+
+---
+
+## If a week goes wrong
+
+- **A week lost to school:** repeat it; don't skip it. The course is 8 weeks of work, not 8 calendar weeks.
+- **Graph mocks still failing at week 8:** add a ninth week of graph reps before SWE 102. That's the gap interviews have already exposed, so it outranks everything else in the plan.
+- **An interview turns up a new gap:** write it down that day. If it's DSA, it goes into next week's DSA lane. If it's anything else, it goes into the parking lot below, and is checked at the start of the next course.
+
+**Gaps found in interviews, waiting for a slot:**
+
+| Date | Gap | Where it goes |
+|---|---|---|
+| Before 2026-10-01 | Graph questions in DSA rounds — the questions weren't recorded | SWE 101 weeks 1–3 and the week 8 mock |
+
+## Related
+
+- [[learning/swe-101/03-notebook-method|The notebook method]] · [[learning/swe-101/06-lesson-quality|lesson quality]] — which lessons meet the course standard
+- [[learning/02-the-learning-loop|The learning loop]] · [[learning/04-one-active-course|one active course]]
+- [[dsa/neetcode-150/interview-playbook|The interview playbook]] — the process to run on every problem, out loud

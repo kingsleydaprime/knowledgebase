@@ -1,8 +1,10 @@
 # Track A — Hire
 
+> **Archived 2026-10-01.** Superseded by the three-course series — [[learning/swe-101/index|SWE 101]] → [[learning/swe-102/index|SWE 102]] → [[learning/swe-103/index|SWE 103]]. Kept for the reasoning it records; it is no longer the plan.
+
 > Weeks 1–28. The track that produces the offer. At 10–15 h/week this is roughly 8–10 of those hours.
 
-**The one rule:** this track wins every conflict with [[learning/swe-101/02-foundation-track|Track B]]. When a week collapses, DSA and applications survive.
+**The one rule:** this track wins every conflict with [[learning/swe-101/archive/02-foundation-track|Track B]]. When a week collapses, DSA and applications survive.
 
 ---
 
@@ -96,7 +98,7 @@ Keep a spreadsheet: company, date, source, stage, outcome. **Track reply rate.**
 Runs alongside applications, not after.
 
 - **Coding rounds** — the DSA log is the prep; add timed mock sessions from week 12
-- **System design** — [[architecture/interview/01-system-design-round|the round]], then one design per fortnight from [[learning/swe-101/02-foundation-track|Track B]]'s list, **out loud, whiteboard, 45 minutes**
+- **System design** — [[architecture/interview/01-system-design-round|the round]], then one design per fortnight from [[learning/swe-101/archive/02-foundation-track|Track B]]'s list, **out loud, whiteboard, 45 minutes**
 - **The project story** — [[projects/nextvibe/interview/05-platform-payments-and-story|nextvibe's story bank]] is the model. Be able to tell the flagship in 2 minutes, 5 minutes, and 20 minutes of depth.
 - **Behavioural** — 6 stories, STAR, from real projects. Remote roles probe async communication hard.
 - **The banks already exist** — [[INTERVIEW|13 domains]]. Cover the answer, say it out loud, then compare. Recognition is not knowledge.

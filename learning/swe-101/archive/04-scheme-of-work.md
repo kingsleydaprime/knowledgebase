@@ -1,10 +1,12 @@
 # SWE 101 — Scheme of Work
 
+> **Archived 2026-10-01.** Superseded by the three-course series — [[learning/swe-101/index|SWE 101]] → [[learning/swe-102/index|SWE 102]] → [[learning/swe-103/index|SWE 103]]. Kept for the reasoning it records; it is no longer the plan.
+
 > **Week by week.** Each week has a topic, its sub-topics, and a link straight to the chapter in this vault. Read the link, close the laptop, write the notebook page.
 >
 > **Week number = notebook section number.** Topic 13.4 in this file is page-marked 13.4 in the book.
 
-**Companion files:** [[learning/swe-101/01-hire-track|Track A — Hire]] · [[learning/swe-101/02-foundation-track|why it's ordered this way]] · [[learning/swe-101/03-notebook-method|notebook method]]
+**Companion files:** [[learning/swe-101/archive/01-hire-track|Track A — Hire]] · [[learning/swe-101/archive/02-foundation-track|why it's ordered this way]] · [[learning/swe-101/03-notebook-method|notebook method]]
 
 ---
 
@@ -300,7 +302,7 @@ By Sunday: what must be true before the week closes
 - **1.2** The SDLC: requirements → design → implementation → testing → deployment → maintenance, **and what breaks when each is skipped** → [[software-engineering/02-the-software-development-lifecycle|02]]
 - **1.3** The engineering roles — and the honest way to tell them apart (*the failure you fear*) → [[software-engineering/03-the-engineering-roles|03]]
 - **1.4** Abstraction, decomposition, trade-offs → [[software-engineering/01-what-software-engineering-is|01]] · [[PRIMETECHIE|PRIMETECHIE]] frames the whole vault this way
-- **1.5** **The audit** → [[learning/swe-101/05-week-1-audit|the checklist]] — mark every topic in weeks 2–30 *know it / half know it / don't know it*
+- **1.5** **The audit** → [[learning/swe-101/archive/05-week-1-audit|the checklist]] — mark every topic in weeks 2–30 *know it / half know it / don't know it*
 
 **DSA:** D1 → [[dsa/04-patterns/01-prefix-sum|Prefix sum]]
 

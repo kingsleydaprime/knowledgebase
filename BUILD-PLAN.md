@@ -14,14 +14,15 @@ The historical phases below track topics written. They do **not** establish that
 - [x] Connect both pilots to their course indexes and existing practice material.
 - [ ] Study the pilots closed-book and record where the explanation, setup, or exercise still requires guessing. Editorial completion is not learner validation.
 
-### SWE 101 — converting the lessons it links to, in week order (2026-10-01)
+### The SWE courses — converting the lessons they link to, core first (2026-10-01)
 
-SWE 101 is the active course, so its lessons are converted a block ahead of study. Progress is generated, not hand-kept: [[learning/swe-101/06-lesson-quality|lesson quality]] (`python3 learning/swe-101/scripts/audit-standard.py`). The standard now also requires a **kid version** in every lesson.
+**Restructured 2026-10-01:** SWE 101 is now the first of three short courses ([[learning/swe-101/index|101]] → [[learning/swe-102/index|102]] → [[learning/swe-103/index|103]]); the old 30-week scheme is archived. Core lessons are converted one course ahead of study. Progress is generated, not hand-kept: [[learning/swe-101/06-lesson-quality|lesson quality]] (`python3 learning/swe-101/scripts/audit-standard.py`). The standard now also requires a **kid version** in every lesson.
 
 - [x] **Software design block, weeks 1–4 — 13 lessons.** Every runnable example executed with Node 26 (`node --test`), or with Django 6.1 / Flask 3.1 / import-linter / ESLint 9 for layer-vs-feature. Fixed on the way: SOLID linked "strategy" to creational patterns; the structural-patterns lesson had no composition-over-inheritance section although week 2.7 pointed to it; behavioural patterns had no State pattern although week 3.3 listed it; layer-vs-feature called Django by-layer (its apps are feature folders); the roles note linked "mobile" to a NestJS backend note.
-- [ ] **Study the block closed-book** and log where a lesson still needed guessing, before converting the next block.
-- [ ] Architecture & system design, weeks 5–8 — 13 lessons.
-- [ ] Databases, weeks 9–11; then networking, security, and the rest, in scheme order.
+- [ ] **SWE 101 core — the remaining 5:** testing fundamentals (week 2, most urgent), backend best practices and observability fundamentals (week 6), the two web-security lessons (week 7).
+- [ ] **SWE 102 core — 11 lessons**, the AI-engineering track, before SWE 102 starts.
+- [ ] SWE 103 core, then optional lessons.
+- [ ] Log closed-book study problems in the [[learning/swe-101/06-lesson-quality|review log]] and adjust the format before converting further.
 - [x] **Gaps filled (2026-10-01):** [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] (week 2.2 now points to it) and [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]] (linked from week 8.3, sagas, and behavioural patterns). Both written to the standard with labs.
 - [x] **`labs/` set up:** every verified example now lives in `labs/<name>/` with a `lab.json`; `python3 labs/run.py` runs them all and fails if a lesson no longer shows the code that runs (`--drift-only` for a fast offline check).
 
