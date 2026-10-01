@@ -1,0 +1,90 @@
+// Adds a separate "study" agent for reading the knowledgebase. Your existing default agent
+// and its Telegram connection are unchanged.
+// Check:  openclaw config patch --file tools/openclaw-study-partner/study-agent.patch.json5 --dry-run
+// Apply:  openclaw config patch --file tools/openclaw-study-partner/study-agent.patch.json5
+{
+  agents: {
+    list: [
+      { id: "main", default: true },          // the current default agent, as it is
+      {
+        id: "study",
+        workspace: "/home/kingsleydaprime/.openclaw/workspace-study",
+        model: "ollama/qwen3.5:4b",
+        tools: {
+          profile: "minimal",                 // no shell, no web, no file writes...
+          alsoAllow: ["read"],                // ...only reading files
+        },
+      },
+    ],
+  },
+  models: {
+    providers: {
+      ollama: {
+        // A patch replaces arrays, so this repeats your two existing models and adds qwen3.5:4b.
+        // contextWindow is held at 32K: the model supports more, but this laptop's RAM doesn't.
+        models: [
+        {
+          "id": "gemma4:latest",
+          "name": "gemma4:latest",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "ollama"
+        },
+        {
+          "id": "qwen3.5:latest",
+          "name": "qwen3.5:latest",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262144,
+          "maxTokens": 8192,
+          "compat": {
+            "supportsUsageInStreaming": true,
+            "supportsTools": true
+          },
+          "api": "ollama"
+        },
+        {
+          "id": "qwen3.5:4b",
+          "name": "qwen3.5:4b",
+          "input": [
+            "text",
+            "image"
+          ],
+          "reasoning": true,
+          "contextWindow": 32768,
+          "maxTokens": 4096,
+          "compat": {
+            "supportsTools": true,
+            "supportsUsageInStreaming": true
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ],
+      },
+    },
+  },
+}
