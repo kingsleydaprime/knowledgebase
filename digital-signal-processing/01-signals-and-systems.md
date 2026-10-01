@@ -32,7 +32,8 @@ A few idealised signals recur everywhere, because complex signals are built from
 
 A system transforms an input signal into an output signal. We classify systems by their properties, because the properties determine what maths applies:
 
-- **Linear** — scaling the input scales the output, and inputs add: `system(a·x + b·y) = a·system(x) + b·system(y)`. **Superposition.** This is the property that lets you decompose a hard signal into simple parts, process each, and add the results
+- **Linear** — scaling the input scales the output, and inputs add: $system(a·x + b·y) = a·system(x) + b·system(y)$.
+- **Superposition.** This is the property that lets you decompose a hard signal into simple parts, process each, and add the results
 - **Time-invariant** — the system behaves the same today as tomorrow; delaying the input just delays the output. The rules don't change over time
 - **Causal** — the output depends only on present and past inputs, not the future. Required for real-time processing (you can't use samples you haven't received yet)
 - **Stable** — a bounded input produces a bounded output; it doesn't blow up → [[digital-signal-processing/06-digital-filters|filter stability]]
