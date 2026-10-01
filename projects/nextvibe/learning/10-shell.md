@@ -881,3 +881,80 @@ It turned up the file in a *different route group* than the import assumed —
 which is why the import could never have worked.
 
 → general: [[devops/01-linux/03-grep-and-friends|grep and friends]]
+
+---
+
+## Part N+9 — Finding every env var the app reads (2026-09-25)
+
+Goal: a complete list of env var names the backend reads, to build startup validation and
+to compare against production.
+
+### My first attempt
+
+```bash
+grep -rni "process.env" src/
+grep -rni "configService.get" src/
+```
+
+Good: caught both access patterns (`process.env.X` in `src/config/*.ts`, and
+`configService.get('X')` in services). Problems:
+
+- `-i` (ignore case) isn't needed — `process.env` is always lowercase. Don't add flags "just
+  in case"; each one should have a reason.
+- In grep patterns `.` means **any character**, so `process.env` also matches `processXenv`.
+  `-F` = treat the pattern as a **fixed string** (plain text, no regex).
+- The real gap: it assumes every service names its variable `configService`.
+
+### Checking the assumption
+
+**My command:**
+
+```bash
+grep -rnF ": ConfigService" backend/src/
+```
+
+`-F` applied, and `": ConfigService"` (colon + space) targets **type annotations** — the
+constructor parameters — rather than every mention of the word (imports etc.). The output
+showed two names in use: `configService` (most files) and `config` (`games.service.ts`,
+`push.service.ts`, `payouts.service.ts`, the reminders and birthday-campaign files, and
+the `useFactory` in `auth.module.ts`). My first grep would have silently missed every env
+var those files read.
+
+**Lesson:** when a search depends on a naming convention, verify the convention before
+trusting the search. A search that returns results *looks* complete — that's what makes a
+partial one dangerous.
+
+---
+
+## Part N+10 — Two techniques from the Stripe handoff (2026-09-25)
+
+Used while wiring Stripe in "take control" mode — worth knowing even though you didn't type them.
+
+### Generating a migration without touching a database
+
+```bash
+mkdir -p /tmp/old-schema
+for f in $(git ls-files prisma/schema); do git show HEAD:$f > /tmp/old-schema/$(basename $f); done
+npx prisma migrate diff --from-schema /tmp/old-schema --to-schema prisma/schema --script
+```
+
+- `git show HEAD:<path>` prints a file **as it was in the last commit**, without checking
+  anything out. Looping over `git ls-files` rebuilds the whole old schema folder.
+- `prisma migrate diff --from-schema A --to-schema B --script` prints the SQL to turn A into
+  B. Comparing two schema *files* needs no database at all (unlike `migrate dev`).
+- Bonus check: if the output contains only your change, the schema was otherwise in sync
+  with the last commit.
+
+### "Did I make lint worse?" — compare against a baseline
+
+A file with 115 pre-existing lint errors hides whether *you* added any. Lint the committed
+version too, and diff the counts:
+
+```bash
+git show HEAD:src/x.ts | npx eslint --stdin --stdin-filename src/x.ts -f json > old.json
+npx eslint src/x.ts -f json > new.json
+```
+
+`--stdin-filename` makes ESLint apply the same config as if the text were that file. Then
+compare `(rule, message)` counts between the two JSON files. It's the same idea as the
+`grep | grep -v` completeness check: measure the difference, don't eyeball the total.
