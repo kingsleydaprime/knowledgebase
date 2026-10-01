@@ -1,6 +1,6 @@
 # Organising by Layer vs by Feature
 
-**[Beginner→Intermediate]** — the folder-structure argument every team has, usually badly. It looks like bikeshedding and isn't: it determines how far you have to scroll to make one change, and how easy it is to delete something. This lesson shows both layouts, **with the wiring, in Express, NestJS, Django, Flask and React.**
+**[Beginner→Intermediate]** — the folder-structure argument every team has, usually badly. It looks like bikeshedding and isn't: it determines how far you have to scroll to make one change, and how easy it is to delete something. This lesson shows both layouts, **with the wiring, in Express, NestJS, React, Django, Flask, Go, Java, Rust, C and C++.**
 
 ## Before you start
 
@@ -11,14 +11,14 @@ You can already:
 
 After this lesson you will be able to:
 
-1. Lay out the same small app both ways in Express, NestJS, Django, Flask and React.
+1. Lay out the same small app both ways in Express, NestJS, React, Django, Flask, Go, Java, Rust, C and C++.
 2. Write the **registration code** each framework needs to plug a feature in — `app.use`, `imports: []`, `INSTALLED_APPS`, `register_blueprint`, the router — and say why it lives in exactly one place.
 3. Turn a forbidden import between features into a **lint failure**, not a code-review argument.
 4. Choose a layout for a given codebase and defend the choice.
 
-**Study route.** Sections 1–5 are the core idea. Then read **only the framework sections you use** — §8 (React) is required if you do any frontend work. Stop at *Check your understanding* and answer before opening anything. The practice task at the end is the actual finish line.
+**Study route.** Sections 1–5 are the core idea. Then read **only the framework sections you use** — §8 (React) is required if you do any frontend work. §11–15 (Go, Java, Rust, C, C++) share one lesson worth reading even if you use none of them: **in those languages the compiler or build system enforces the boundary**, where JavaScript and Python need a lint rule. Stop at *Check your understanding* and answer before opening anything. The practice task at the end is the actual finish line.
 
-**Labs.** The verified examples are in `labs/layer-vs-feature-eslint/` (Express and React), `labs/layer-vs-feature-django-by-feature/`, `labs/layer-vs-feature-django-by-layer/` and `labs/layer-vs-feature-flask/`. From the vault root, `python3 labs/run.py layer-vs-feature-flask` (for example) runs one and checks this page still matches it.
+**Labs.** The verified examples are in `labs/layer-vs-feature-eslint/` (Express and React), `labs/layer-vs-feature-django-by-feature/`, `labs/layer-vs-feature-django-by-layer/`, `labs/layer-vs-feature-flask/`, and one each for `-go`, `-java`, `-rust`, `-c` and `-cpp`. From the vault root, `python3 labs/run.py layer-vs-feature-flask` (for example) runs one and checks this page still matches it.
 
 ## The kid version first
 
@@ -52,7 +52,7 @@ By layer: `controllers/`, `services/`, `repositories/`, `dtos/`, `tests/` — **
 4. **Public API of a feature**: This is the small set of things a feature allows other code to use, usually re-exported from one file (`index.ts`, `services.py`, a Nest module's `exports`). Everything else in the folder is private by agreement, or by a lint rule.
 5. **Composition root**: This is also known as the **wiring point** or **registration point**. It is the one place in the app that knows which features exist and plugs them in — mounting routers, importing modules, listing installed apps. Deleting a feature means deleting its folder and its one line here.
 6. **Shared folder**: This is also known as `shared/`, `common/`, `lib/` or `core/`. It holds code that several features genuinely use and that knows nothing about any of them — a database client, a button, an error type.
-7. **Boundary enforcement**: This is a tool that makes a forbidden import fail the build. In this lesson that is ESLint's `import/no-restricted-paths` for JavaScript and TypeScript, NestJS's own module system, and `import-linter` for Python.
+7. **Boundary enforcement**: This is a tool that makes a forbidden import fail the build. In this lesson that is ESLint's `import/no-restricted-paths` for JavaScript and TypeScript, NestJS's own module system, and `import-linter` for Python. In Go, Java, Rust, C and C++ the compiler or the build system does it, with no extra tool.
 
 ## 2. The two layouts
 
@@ -965,7 +965,749 @@ allow_indirect_imports = true
 
 ---
 
-## 11. Side by side
+## 11. Go
+
+Go code is organised by **package**, one per folder, and a package exports only names that start with a capital letter. Two consequences decide the layout question.
+
+### By layer — fighting the language
+
+```
+shop/
+├── cmd/server/main.go
+├── handlers/      orders.go  users.go      package handlers
+├── services/      orders.go  users.go      package services
+└── repositories/  orders.go  users.go      package repositories
+```
+
+Every handler has to call into `services`, so every service method must be exported — and so must every repository method, because services live in another package. **Nothing can be private between features**, because the features share packages. The names also stutter: `services.OrdersService`, `repositories.OrdersRepository`. Go's style guide pushes the other way.
+
+### By feature — the Go way, with `internal/` (verified, Go 1.26)
+
+```
+shop/
+├── go.mod                          module shop
+├── cmd/server/
+│   ├── main.go                     composition root
+│   └── main_test.go
+└── internal/
+    ├── users/users.go              package users
+    └── orders/
+        ├── orders.go               package orders — Routes() is its public API
+        └── internal/store/store.go private to orders
+```
+
+**`internal/` is enforced by the Go compiler.** A package whose path contains `internal/` can only be imported by code rooted at the folder that contains that `internal/`. So `shop/internal/orders/internal/store` is importable from `shop/internal/orders/...` and from nowhere else — not from `users`, not from `main`. The outer `shop/internal/` does the same for the whole module: other Go modules can't import any of it.
+
+```go
+// Package store is private to orders: Go only lets code under internal/orders import it.
+package store
+
+type Order struct {
+	ID     int    `json:"id"`
+	UserID string `json:"userId"`
+	Kobo   int    `json:"totalKobo"`
+}
+
+type Memory struct{ orders []Order }
+
+func (m *Memory) Insert(userID string, kobo int) Order {
+	o := Order{ID: len(m.orders) + 1, UserID: userID, Kobo: kobo}
+	m.orders = append(m.orders, o)
+	return o
+}
+```
+
+```go
+// Package orders is a feature: handler, service and storage together.
+package orders
+
+import (
+	"encoding/json"
+	"errors"
+	"net/http"
+
+	"shop/internal/orders/internal/store"
+)
+
+// UserChecker is what orders needs from users — declared here, where it's used.
+type UserChecker interface{ Exists(id string) bool }
+
+var errUnknownUser = errors.New("unknown user")
+
+type service struct {
+	users UserChecker
+	store *store.Memory
+}
+
+func (s *service) place(userID string, kobo int) (store.Order, error) {
+	if !s.users.Exists(userID) {
+		return store.Order{}, errUnknownUser
+	}
+	return s.store.Insert(userID, kobo), nil
+}
+
+// Routes is the feature's public API: the composition root mounts it.
+func Routes(users UserChecker) http.Handler {
+	svc := &service{users: users, store: &store.Memory{}}
+	mux := http.NewServeMux()
+	mux.HandleFunc("POST /orders", func(w http.ResponseWriter, r *http.Request) {
+		var body struct {
+			UserID string `json:"userId"`
+			Kobo   int    `json:"totalKobo"`
+		}
+		if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+			http.Error(w, "invalid JSON", http.StatusBadRequest)
+			return
+		}
+		order, err := svc.place(body.UserID, body.Kobo)
+		if errors.Is(err, errUnknownUser) {
+			http.Error(w, err.Error(), http.StatusUnprocessableEntity)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusCreated)
+		json.NewEncoder(w).Encode(order)
+	})
+	return mux
+}
+```
+
+Notice that `orders` declares the small interface it needs from users, `UserChecker`, in its **own** file. That's idiomatic Go — "accept interfaces, return structs" — and it means `orders` doesn't import `users` at all; the composition root connects them:
+
+```go
+// The composition root: the only place that knows every feature.
+package main
+
+import (
+	"log"
+	"net/http"
+
+	"shop/internal/orders"
+	"shop/internal/users"
+)
+
+func newMux() http.Handler {
+	mux := http.NewServeMux()
+	mux.Handle("/orders", orders.Routes(users.NewService()))
+	return mux
+}
+
+func main() {
+	log.Fatal(http.ListenAndServe(":8080", newMux()))
+}
+```
+
+**Proving the boundary.** The lab's check copies the project, adds a file to `users` that imports orders' private store, and expects the build to fail:
+
+```sh
+#!/bin/sh
+# Prove the boundary is real: copy the project, add a forbidden import, and expect the build to fail.
+set -eu
+export LC_ALL=C  # plain ASCII compiler messages, whatever the locale
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+cp -r . "$work"
+cat > "$work/internal/users/sneak.go" <<'GO'
+package users
+
+import "shop/internal/orders/internal/store"
+
+var _ = store.Memory{}
+GO
+if (cd "$work" && go build ./... 2>"$work/err.txt"); then
+  echo "FAIL: users imported orders' private store and the build still passed"; exit 1
+fi
+grep -q "use of internal package shop/internal/orders/internal/store not allowed" "$work/err.txt"
+echo "ok: the compiler refused the cross-feature import"
+```
+
+It does, with `use of internal package shop/internal/orders/internal/store not allowed`. No lint rule, no configuration — the boundary is part of the language. More on wiring Go services: [[backend/frameworks/go/04-structuring-a-go-service|structuring a Go service]].
+
+---
+
+## 12. Java (and Spring Boot)
+
+Java's unit of organisation is the **package**, and it has a visibility level that most Java developers forget exists: **package-private** — no modifier at all — meaning visible only inside the same package.
+
+### By layer — everything must be public
+
+```
+src/main/java/com/shop/
+├── controller/   OrdersController.java  UsersController.java
+├── service/      OrdersService.java     UsersService.java
+├── repository/   OrdersRepository.java  UsersRepository.java
+└── ShopApplication.java
+```
+
+`OrdersController` in `controller` calls `OrdersService` in `service`, which calls `OrdersRepository` in `repository` — three packages, so all three must be `public`. **And once `OrdersRepository` is public, `UsersService` can use it too.** The by-layer layout throws away the language's own boundary.
+
+### By feature — package-private does the work (verified with plain `javac`, Java 21)
+
+```
+src/shop/
+├── App.java                     composition root
+├── users/UsersService.java      public: the users API
+└── orders/
+    ├── Order.java               public record
+    ├── OrdersService.java       public: the orders API
+    └── OrdersRepository.java    package-private: invisible outside shop.orders
+```
+
+```java
+package shop.orders;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// No "public": only code in shop.orders can see this class. That's the boundary.
+final class OrdersRepository {
+    private final List<Order> orders = new ArrayList<>();
+
+    Order insert(String userId, long totalKobo) {
+        Order order = new Order(orders.size() + 1, userId, totalKobo);
+        orders.add(order);
+        return order;
+    }
+}
+```
+
+```java
+package shop.orders;
+
+import shop.users.UsersService;
+
+// Public: the orders feature's API. Its repository stays package-private.
+public final class OrdersService {
+    private final UsersService users;
+    private final OrdersRepository repository = new OrdersRepository();
+
+    public OrdersService(UsersService users) {
+        this.users = users;
+    }
+
+    public Order place(String userId, long totalKobo) {
+        if (!users.exists(userId)) {
+            throw new IllegalArgumentException("unknown user: " + userId);
+        }
+        return repository.insert(userId, totalKobo);
+    }
+}
+```
+
+```java
+package shop;
+
+import shop.orders.Order;
+import shop.orders.OrdersService;
+import shop.users.UsersService;
+
+// The composition root: builds each feature and connects them.
+public final class App {
+    public static OrdersService wire() {
+        return new OrdersService(new UsersService());
+    }
+
+    public static void main(String[] args) {
+        OrdersService orders = wire();
+        Order order = orders.place("u1", 500_000);
+        System.out.println(order);
+        try {
+            orders.place("nobody", 1);
+        } catch (IllegalArgumentException e) {
+            System.out.println("rejected: " + e.getMessage());
+        }
+    }
+}
+```
+
+**Proving the boundary.** The lab's `check.sh` compiles and runs the app, then adds a class to `shop.users` that tries `new shop.orders.OrdersRepository()`:
+
+```sh
+#!/bin/sh
+# Compile, run, and prove another feature can't reach orders' package-private repository.
+set -eu
+export LC_ALL=C  # plain ASCII compiler messages, whatever the locale
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+javac -d "$work/out" $(find src -name '*.java')
+output=$(java -cp "$work/out" shop.App)
+expected='Order[id=1, userId=u1, totalKobo=500000]
+rejected: unknown user: nobody'
+[ "$output" = "$expected" ] || { echo "unexpected output:"; echo "$output"; exit 1; }
+echo "ok: the app runs"
+
+cp -r src "$work/src"
+cat > "$work/src/shop/users/Sneak.java" <<'JAVA'
+package shop.users;
+
+class Sneak {
+    Object reach() { return new shop.orders.OrdersRepository(); }
+}
+JAVA
+if javac -d "$work/bad" $(find "$work/src" -name '*.java') 2>"$work/err.txt"; then
+  echo "FAIL: users reached orders' repository and it compiled"; exit 1
+fi
+grep -q "OrdersRepository is not public in shop.orders; cannot be accessed from outside package" "$work/err.txt"
+echo "ok: the compiler refused the cross-feature access"
+```
+
+`javac` refuses: `OrdersRepository is not public in shop.orders; cannot be accessed from outside package`.
+
+### In Spring Boot
+
+Spring's component scanning finds `@Service` and `@Repository` classes whether they're public or not, so **the same layout works**: one package per feature directly under the application's package, controllers, services and repositories inside it, and only the API marked `public`.
+
+```
+src/main/java/com/shop/
+├── ShopApplication.java        @SpringBootApplication — scans everything below
+├── orders/
+│   ├── OrdersController.java   @RestController (package-private is fine)
+│   ├── OrdersService.java      public — the API other features may use
+│   └── OrdersRepository.java   package-private
+└── users/
+```
+
+For checks beyond one package — a feature split across sub-packages — **Spring Modulith** treats each direct sub-package of the application package as a module and verifies the dependencies in a test (fragment, not run here):
+
+```java
+@Test
+void modulesRespectTheirBoundaries() {
+    ApplicationModules.of(ShopApplication.class).verify(); // fails on cycles and on access to another module's internals
+}
+```
+
+Java's module system (`module-info.java`, with `exports` listing the packages others may use) is the strictest option, but it's rarely used in Spring applications. Spring itself: [[backend/frameworks/java/01-spring-boot|Spring Boot]].
+
+---
+
+## 13. Rust
+
+Rust's modules are **private by default**: an item is visible to its own module and its children, and nothing else, unless marked `pub`. So the by-feature boundary costs nothing — it's what happens if you don't type `pub`.
+
+### By layer
+
+```
+src/
+├── main.rs
+├── handlers/      mod.rs  orders.rs  users.rs
+├── services/      mod.rs  orders.rs  users.rs
+└── repositories/  mod.rs  orders.rs  users.rs
+```
+
+`handlers::orders` needs `services::orders`, which needs `repositories::orders`, so all of it ends up `pub` or `pub(crate)` — visible to the whole crate, including every other feature.
+
+### By feature (verified, Rust 1.96, edition 2024)
+
+```
+src/
+├── lib.rs                 pub mod orders; pub mod users;
+├── main.rs                composition root
+├── users.rs
+└── orders/
+    ├── mod.rs             the orders API; declares `mod repository;` without pub
+    └── repository.rs      private to orders
+```
+
+```rust
+// lib.rs — one module per feature. What each one marks `pub` is its public API.
+pub mod orders;
+pub mod users;
+```
+
+```rust
+// The orders feature. `repository` is declared without `pub`, so nothing outside
+// `orders` can name it — the compiler enforces the boundary.
+mod repository;
+
+use crate::users::Users;
+pub use repository::Order;
+use repository::Repository;
+
+#[derive(Debug, PartialEq)]
+pub enum PlaceError {
+    UnknownUser,
+}
+
+pub struct Orders<'a> {
+    users: &'a Users,
+    repository: Repository,
+}
+
+impl<'a> Orders<'a> {
+    pub fn new(users: &'a Users) -> Self {
+        Orders {
+            users,
+            repository: Repository::default(),
+        }
+    }
+
+    pub fn place(&mut self, user_id: &str, total_kobo: u64) -> Result<Order, PlaceError> {
+        if !self.users.exists(user_id) {
+            return Err(PlaceError::UnknownUser);
+        }
+        Ok(self.repository.insert(user_id, total_kobo))
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn places_an_order_for_a_known_user() {
+        let users = Users::new();
+        let mut orders = Orders::new(&users);
+        let order = orders.place("u1", 500_000).unwrap();
+        assert_eq!(
+            order,
+            Order {
+                id: 1,
+                user_id: "u1".into(),
+                total_kobo: 500_000
+            }
+        );
+    }
+
+    #[test]
+    fn rejects_an_unknown_user() {
+        let users = Users::new();
+        let mut orders = Orders::new(&users);
+        assert_eq!(orders.place("nobody", 1), Err(PlaceError::UnknownUser));
+    }
+}
+```
+
+```rust
+// Private to the orders module.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Order {
+    pub id: u32,
+    pub user_id: String,
+    pub total_kobo: u64,
+}
+
+#[derive(Default)]
+pub(super) struct Repository {
+    orders: Vec<Order>,
+}
+
+impl Repository {
+    pub(super) fn insert(&mut self, user_id: &str, total_kobo: u64) -> Order {
+        let order = Order {
+            id: self.orders.len() as u32 + 1,
+            user_id: user_id.into(),
+            total_kobo,
+        };
+        self.orders.push(order.clone());
+        order
+    }
+}
+```
+
+`pub(super)` means "visible to the parent module" — here, `orders` and nothing above it. `pub use repository::Order` re-exports the one type callers need, so the module stays private while its result type is public.
+
+**Proving the boundary:**
+
+```sh
+#!/bin/sh
+# Prove the boundary is real: users tries to use orders' private repository module.
+set -eu
+export LC_ALL=C  # plain ASCII compiler messages, whatever the locale
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+cp -r Cargo.toml src "$work/"
+cat >> "$work/src/users.rs" <<'RS'
+
+pub fn sneak() {
+    let _ = crate::orders::repository::Order { id: 0, user_id: String::new(), total_kobo: 0 };
+}
+RS
+if (cd "$work" && cargo build --quiet 2>"$work/err.txt"); then
+  echo "FAIL: users reached orders' private module and it compiled"; exit 1
+fi
+grep -q "error\[E0603\]: module \`repository\` is private" "$work/err.txt"
+echo "ok: the compiler refused the cross-feature access"
+```
+
+The build fails with ``error[E0603]: module `repository` is private`` — even though `Order` itself is public, the *path* through the private module isn't.
+
+### With Axum, and with a workspace
+
+Each feature exposes a `Router`, and `main` nests them — fragment:
+
+```rust
+let app = Router::new()
+    .nest("/orders", orders::router(state.clone()))
+    .nest("/users", users::router(state));
+```
+
+For a hard boundary between teams, make each feature its own **crate** in a Cargo workspace (`crates/orders`, `crates/users`). A crate can only use another crate listed in its `Cargo.toml`, so the dependency graph is written down and checked by Cargo. More: [[backend/frameworks/rust/01-axum-and-the-tower-stack|Axum and the Tower stack]].
+
+---
+
+## 14. C
+
+C has no modules and no packages. Its tools are older and blunter, and they're enough: **a header per feature as its public API, `static` for file-private functions, and opaque structs**. Large C codebases have always been organised by feature — the Linux kernel is `net/`, `fs/`, `mm/`, `drivers/`, not `functions/` and `structs/`.
+
+```
+src/
+├── main.c               composition root
+├── users/   users.h  users.c
+└── orders/  orders.h  orders.c
+tests/test_orders.c
+```
+
+```c
+/* orders.h — the orders feature's public API.
+ * `struct orders` is declared but not defined here: callers hold a pointer
+ * and can't see or touch its fields. That's an opaque type. */
+#ifndef ORDERS_H
+#define ORDERS_H
+
+#include <stdbool.h>
+
+typedef struct orders orders;
+typedef bool (*user_exists_fn)(const char *user_id); /* what orders needs from users */
+
+orders *orders_new(user_exists_fn user_exists);
+void orders_free(orders *o);
+/* Returns the new order's id, or 0 if the user is unknown. */
+int orders_place(orders *o, const char *user_id, long total_kobo);
+long orders_total_kobo(const orders *o);
+
+#endif
+```
+
+```c
+#include "orders.h"
+
+#include <stdlib.h>
+
+/* The definition lives only here, so only this file can read the fields. */
+struct orders {
+    user_exists_fn user_exists;
+    int count;
+    long total_kobo;
+};
+
+/* static: a private helper — other files can't call it, even if they declare it. */
+static int next_id(orders *o) { return ++o->count; }
+
+orders *orders_new(user_exists_fn user_exists) {
+    orders *o = calloc(1, sizeof *o);
+    if (o) o->user_exists = user_exists;
+    return o;
+}
+
+void orders_free(orders *o) { free(o); }
+
+int orders_place(orders *o, const char *user_id, long total_kobo) {
+    if (!o->user_exists(user_id)) return 0;
+    o->total_kobo += total_kobo;
+    return next_id(o);
+}
+
+long orders_total_kobo(const orders *o) { return o->total_kobo; }
+```
+
+```c
+/* main.c — the composition root: it hands orders the users check. */
+#include <stdio.h>
+
+#include "orders/orders.h"
+#include "users/users.h"
+
+int main(void) {
+    orders *o = orders_new(users_exists);
+    printf("order %d\n", orders_place(o, "u1", 500000));
+    printf("order %d\n", orders_place(o, "nobody", 1));
+    orders_free(o);
+    return 0;
+}
+```
+
+Two boundaries, proven by the lab (verified with GCC 16):
+
+```sh
+#!/bin/sh
+# Build and test, then prove the two C boundaries hold: opaque types and static functions.
+set -eu
+export LC_ALL=C  # plain ASCII quotes in compiler messages, whatever the locale
+CC="${CC:-gcc}"
+FLAGS="-std=c17 -Wall -Wextra -Werror -Isrc"
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+
+$CC $FLAGS -o "$work/test" tests/test_orders.c src/orders/orders.c
+"$work/test"
+$CC $FLAGS -o "$work/shop" src/main.c src/orders/orders.c src/users/users.c
+[ "$("$work/shop")" = "order 1
+order 0" ] && echo "ok: the app runs"
+
+# 1. Another feature reads a field of the opaque struct.
+cat > "$work/peek.c" <<'C'
+#include "orders/orders.h"
+long peek(orders *o) { return o->total_kobo; }
+C
+if $CC $FLAGS -c "$work/peek.c" -o "$work/peek.o" 2>"$work/err1.txt"; then
+  echo "FAIL: read a private field"; exit 1
+fi
+grep -q "invalid use of incomplete typedef 'orders'" "$work/err1.txt"
+echo "ok: the compiler refused to read a private field"
+
+# 2. Another feature calls orders' static helper by declaring it itself.
+cat > "$work/sneak.c" <<'C'
+#include "orders/orders.h"
+int next_id(orders *o);
+int sneak(orders *o) { return next_id(o); }
+int main(void) { return 0; }
+C
+if $CC $FLAGS -o "$work/sneak" "$work/sneak.c" src/orders/orders.c 2>"$work/err2.txt"; then
+  echo "FAIL: called a static function"; exit 1
+fi
+grep -q "undefined reference to .next_id." "$work/err2.txt"
+echo "ok: the linker refused to call a private function"
+```
+
+1. **An opaque type.** Reading `o->total_kobo` outside `orders.c` fails to compile: `invalid use of incomplete typedef 'orders'`. Callers can hold the pointer, and nothing else.
+2. **A `static` function.** Declaring `next_id` yourself and calling it gets past the compiler but fails at the **link** step: `undefined reference to 'next_id'`, because `static` gives the function no external name.
+
+Note how `orders` gets "does this user exist?" as a **function pointer** from `main` rather than including `users.h` — the C version of the composition root passing in a dependency. More on C backends: [[backend/frameworks/c/index|C]].
+
+---
+
+## 15. C++
+
+C++ has `namespace`s, which organise names but enforce nothing, and anonymous namespaces, which work like C's `static`. **The real boundary is in the build**: with CMake, each feature is a library target, and a target's include directories are either `PUBLIC` — given to whoever links it — or `PRIVATE` — kept to itself.
+
+```
+CMakeLists.txt
+app/main.cpp                          composition root
+users/include/users/users.hpp         public header
+users/src/users.cpp
+orders/include/orders/orders.hpp      public header
+orders/src/orders.cpp
+orders/src/repository.hpp             private header: a PRIVATE include directory
+tests/test_orders.cpp
+```
+
+```cmake
+cmake_minimum_required(VERSION 3.25)
+project(shop LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_compile_options(-Wall -Wextra -Werror)
+
+# One library target per feature. PUBLIC include dirs are its API; PRIVATE ones stay inside.
+add_library(users users/src/users.cpp)
+target_include_directories(users PUBLIC users/include)
+
+add_library(orders orders/src/orders.cpp)
+target_include_directories(orders PUBLIC orders/include PRIVATE orders/src)
+target_link_libraries(orders PUBLIC users)
+
+# The composition root.
+add_executable(shop app/main.cpp)
+target_link_libraries(shop PRIVATE orders)
+
+enable_testing()
+add_executable(test_orders tests/test_orders.cpp)
+target_link_libraries(test_orders PRIVATE orders)
+add_test(NAME orders COMMAND test_orders)
+```
+
+```cpp
+#pragma once
+#include <memory>
+#include <optional>
+#include <string>
+
+#include "users/users.hpp"
+
+namespace shop::orders {
+
+struct Order {
+    int id;
+    std::string user_id;
+    long total_kobo;
+};
+
+class Repository;  // defined in a private header; callers never see it
+
+// The orders feature's public API.
+class Orders {
+public:
+    explicit Orders(const users::Users& users);
+    ~Orders();
+    std::optional<Order> place(const std::string& user_id, long total_kobo);
+
+private:
+    const users::Users& users_;
+    std::unique_ptr<Repository> repository_;
+};
+
+}  // namespace shop::orders
+```
+
+```cpp
+#include "orders/orders.hpp"
+
+#include "repository.hpp"
+
+namespace shop::orders {
+
+Orders::Orders(const users::Users& users) : users_(users), repository_(std::make_unique<Repository>()) {}
+Orders::~Orders() = default;
+
+std::optional<Order> Orders::place(const std::string& user_id, long total_kobo) {
+    if (!users_.exists(user_id)) return std::nullopt;
+    return repository_->insert(user_id, total_kobo);
+}
+
+}  // namespace shop::orders
+```
+
+The public header only forward-declares `Repository` and holds it through a `std::unique_ptr` — the **pimpl** idea — so callers never need the private header to compile. That's also why `~Orders()` is defined in the `.cpp`, where `Repository` is a complete type.
+
+**Proving the boundary** (verified with GCC 16 and CMake 4.3):
+
+```sh
+#!/bin/sh
+# Configure, build, test, then prove another target can't include orders' private header.
+set -eu
+export LC_ALL=C  # plain ASCII compiler messages, whatever the locale
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+
+cmake -S . -B "$work/build" -DCMAKE_BUILD_TYPE=Debug >/dev/null
+cmake --build "$work/build" -j >/dev/null
+ctest --test-dir "$work/build" --output-on-failure >/dev/null && echo "ok: orders tests passed"
+[ "$("$work/build/shop")" = "u1: order 1
+nobody: rejected" ] && echo "ok: the app runs"
+
+cp -r . "$work/src"
+mkdir -p "$work/src/sneak"
+cat > "$work/src/sneak/sneak.cpp" <<'CPP'
+#include "repository.hpp"  // orders' private header
+int main() { return 0; }
+CPP
+cat >> "$work/src/CMakeLists.txt" <<'CMAKE'
+add_executable(sneak sneak/sneak.cpp)
+target_link_libraries(sneak PRIVATE orders)  # links orders, but gets only its PUBLIC headers
+CMAKE
+cmake -S "$work/src" -B "$work/bad" >/dev/null
+if cmake --build "$work/bad" --target sneak >"$work/err.txt" 2>&1; then
+  echo "FAIL: another target included orders' private header"; exit 1
+fi
+grep -q "repository.hpp: No such file or directory" "$work/err.txt"
+echo "ok: the build refused orders' private header"
+```
+
+The `sneak` target links `orders` but only receives its `PUBLIC` include directory, so `#include "repository.hpp"` fails: `repository.hpp: No such file or directory`. The build file *is* the dependency rule. More on C++ backends: [[backend/frameworks/cpp/index|C++]].
+
+---
+
+## 16. Side by side
 
 | Framework | Default lean | Composition root | Boundary enforced by |
 |---|---|---|---|
@@ -974,8 +1716,13 @@ allow_indirect_imports = true
 | Django | **by feature** (apps) | `INSTALLED_APPS` + `include()` | import-linter |
 | Flask | none (tutorials vary) | `register_blueprint` in `create_app` | import-linter |
 | React | none (tutorials lean by type) | router + providers in `app/` | ESLint `no-restricted-paths` |
+| Go | **by feature** (packages) | `main.go` | **the compiler** — `internal/` |
+| Java / Spring | by layer in tutorials | `main` / component scan | **the compiler** — package-private · Spring Modulith |
+| Rust | **by feature** (modules) | `main.rs` | **the compiler** — private modules · workspace crates |
+| C | **by feature** (subsystems) | `main.c` | the compiler and linker — opaque types, `static` |
+| C++ | by feature (libraries) | `main.cpp` | **the build** — CMake `PRIVATE` include directories |
 
-## 12. Getting the details right
+## 17. Getting the details right
 
 **Inside a feature, keep the layers.** By-feature doesn't mean abandoning [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|controller/service/repository]] — it means those three files sit next to each other. Both axes, feature outer, layer inner.
 
@@ -985,7 +1732,7 @@ allow_indirect_imports = true
 
 **Duplication across features is often correct.** Two features having similar-looking code is fine; prematurely extracting it into `shared/` couples them, and they'll diverge. **Wait for the third occurrence.** The wrong abstraction costs more than the duplication.
 
-**Enforce boundaries mechanically, not by discipline.** Nobody remembers architectural rules under deadline. Every framework section above ends with the rule that makes a forbidden import a build failure.
+**Enforce boundaries mechanically, not by discipline.** Nobody remembers architectural rules under deadline. Every framework section above ends with the rule that makes a forbidden import a build failure. In the compiled languages it costs nothing, because the language already has the boundary — the only mistake is choosing a layout that forces everything public.
 
 ## Common pitfalls
 
@@ -1008,6 +1755,7 @@ Answer each before opening its fold.
 5. In React, `CartItem` is shown on the cart page and in the checkout summary. Where should it live? Does your answer change if it's a plain row with a picture, a name and a price and knows nothing about carts?
 6. Your by-feature Flask app's `flask db migrate` produces an empty migration after you added `payments/models.py`. Name two likely causes.
 7. Why must `shared/` never import from a feature, even "just one helper"?
+8. In Go, Java and Rust, why does a by-layer layout throw away a boundary the language would otherwise give you for free?
 
 <details>
 <summary>Answers — after your attempt</summary>
@@ -1019,12 +1767,13 @@ Answer each before opening its fold.
 5. If only the cart feature uses it — including checkout, when checkout is part of the cart feature — it lives in `features/cart/components/` and is exported from `index.ts` only if something outside needs it. If it's a pure presentational row with no cart knowledge and two features already use it, it's a `shared/ui` component that takes props. The deciding question is "does it know about the cart?", not "is it a component?".
 6. The `payments` blueprint isn't registered in `create_app`, so nothing imports `payments/models.py`; or the blueprint is registered but no imported module (routes → services → models) imports the model file.
 7. Then `shared/` depends on that feature, every other feature depends on `shared/`, and so every feature now transitively depends on that one. You can no longer delete it or extract it, and the boundary graph has a cycle.
+8. Their boundaries are per package or module — `internal/`, package-private, private modules. By layer, a feature's controller, service and repository sit in different packages, so each must be made public for the next layer to reach it — and once public, every other feature can reach it too. By feature, a feature's internals share one package and can stay private.
 
 </details>
 
 ## Practice — independent task
 
-**Build both, then convert.** Pick Express or Flask (backend) **and** React (frontend).
+**Build both, then convert.** Pick Express or Flask — or Go, Java or Rust, using the language's own boundary instead of a lint rule — for the backend, **and** React for the frontend.
 
 **Backend.** Three features — users, products, orders — each with a list and a create endpoint, using an in-memory store or SQLite. Creating an order must call the users feature to check the customer exists.
 
@@ -1061,5 +1810,5 @@ You're done when you can lay out the shop app both ways in your main framework f
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|Dependency injection and wiring]] — how the composition root builds each feature
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services|Modular Monolith → Services]] — where good feature boundaries pay off
 - [[frontend/03-structuring-a-frontend/01-components-and-composition|Components and composition]] — the React side of the slot pattern
-- [[backend/frameworks/javascript/02-express/index|Express]] · [[backend/frameworks/javascript/03-nest/index|NestJS]] · [[backend/frameworks/python/02-django/index|Django]] · [[backend/frameworks/python/03-flask/index|Flask]]
+- [[backend/frameworks/javascript/02-express/index|Express]] · [[backend/frameworks/javascript/03-nest/index|NestJS]] · [[backend/frameworks/python/02-django/index|Django]] · [[backend/frameworks/python/03-flask/index|Flask]] · [[backend/frameworks/go/index|Go]] · [[backend/frameworks/java/index|Java]] · [[backend/frameworks/rust/index|Rust]] · [[backend/frameworks/c/index|C]] · [[backend/frameworks/cpp/index|C++]]
 - [[concepts/04-best-practices/01-clean-code|Clean Code]] — the duplication-vs-abstraction argument
