@@ -28,6 +28,15 @@ The historical phases below track topics written. They do **not** establish that
 - [x] **Gaps filled (2026-10-01):** [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] (week 2.2 now points to it) and [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]] (linked from week 8.3, sagas, and behavioural patterns). Both written to the standard with labs.
 - [x] **`labs/` set up:** every verified example now lives in `labs/<name>/` with a `lab.json`; `python3 labs/run.py` runs them all and fails if a lesson no longer shows the code that runs (`--drift-only` for a fast offline check).
 
+### Companion lessons in other languages (2026-10-01)
+
+Every lesson whose code is in one language gets a companion in TypeScript/JavaScript, Python, Go, Java, Rust, C, C++ and C# — C and C++ only where the idea exists there. Convention: [[COURSE-STANDARD#Companion lessons in other languages|the course standard]]. Progress: [[LANGUAGE-COVERAGE|language coverage]] (`python3 labs/language_coverage.py`). Every language's example runs in a lab; C# runs in the .NET SDK container.
+
+- [x] **Pilot: dependency injection** — seven labs, each showing what the language does about the scope bug (silent, `-race`, `ValidateScopes`, rustc E0524).
+- [x] Layer vs feature split: the compiled languages, plus C#, moved to their own companion.
+- [ ] Feedback on the pilot's format before the rest of SWE 101 core.
+- [ ] SWE 101 core, then SWE 102, SWE 103, then everything else — 351 lessons to go.
+
 ### Flagged while building How Computers Work (2026-09-09)
 
 - [x] **`mathematics/` is too thin for the courses that depend on it.** *(closed 2026-09-10: number bases, the foundations sequence and all of calculus written; logarithms added. Remaining gaps are unstarted topics, listed in the maths index.)* Originally: Concretely: `core/01-numbers/01-number-bases/` covers binary, decimal and hexadecimal but there is **no note on signed representations** — two's complement lives only in [[computer-architecture/02-data-representation|computer-architecture/data representation]], which is a Part IX course being used as a Part I prerequisite. Also thin: no dedicated logarithms note (only inside `06-exponents`), and the calculus tree jumps from limits to multivariable with gaps.

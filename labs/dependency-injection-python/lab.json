@@ -1,0 +1,14 @@
+{
+  "lesson": "backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages.md",
+  "run": [
+    [
+      "python3",
+      "-m",
+      "unittest"
+    ]
+  ],
+  "embedded": [
+    "audit.py",
+    "test_audit.py"
+  ]
+}

@@ -10,8 +10,10 @@ trap 'rm -rf "$work"' EXIT
 $CC $FLAGS -o "$work/test" tests/test_orders.c src/orders/orders.c
 "$work/test"
 $CC $FLAGS -o "$work/shop" src/main.c src/orders/orders.c src/users/users.c
-[ "$("$work/shop")" = "order 1
-order 0" ] && echo "ok: the app runs"
+output=$("$work/shop")
+[ "$output" = "order 1
+order 0" ] || { echo "unexpected output: $output"; exit 1; }
+echo "ok: the app runs"
 
 # 1. Another feature reads a field of the opaque struct.
 cat > "$work/peek.c" <<'C'

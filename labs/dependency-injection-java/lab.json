@@ -1,0 +1,13 @@
+{
+  "lesson": "backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "src/audit/Audit.java",
+    "src/audit/Check.java"
+  ]
+}
