@@ -1,5 +1,7 @@
 # Track B — Foundation
 
+> **Archived 2026-10-01.** Superseded by the three-course series — [[learning/swe-101/index|SWE 101]] → [[learning/swe-102/index|SWE 102]] → [[learning/swe-103/index|SWE 103]]. Kept for the reasoning it records; it is no longer the plan.
+
 > Weeks 1–52+. Your original 15 phases, re-sequenced for job relevance and mapped onto notes that already exist. Roughly 2–4 h/week — the Tuesday slot, plus whatever Saturday has left.
 
 **This track continues past employment.** It always was going to. Treating it as a prerequisite for applying is what pushed the original plan to 52 weeks before a single CV went out.

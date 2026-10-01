@@ -1,8 +1,9 @@
-"""Regenerate the Contents block in 04-scheme-of-work.md from the weeks below it.
+"""ARCHIVED with the old scheme (2026-10-01); kept only so the archived file can still be regenerated.
+Regenerate the Contents block in 04-scheme-of-work.md from the weeks below it.
 Run after editing any week; the TOC is derived, never hand-maintained."""
 import re, pathlib
 
-SRC = pathlib.Path("learning/swe-101/04-scheme-of-work.md")
+SRC = pathlib.Path("learning/swe-101/archive/04-scheme-of-work.md")
 START, END = "<!-- CONTENTS:START -->", "<!-- CONTENTS:END -->"
 
 BLOCKS = [  # (first week, last week, block name)

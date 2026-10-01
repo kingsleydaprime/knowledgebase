@@ -1,5 +1,7 @@
 # Week 1 — The Audit
 
+> **Archived 2026-10-01.** Superseded by the three-course series — [[learning/swe-101/index|SWE 101]] → [[learning/swe-102/index|SWE 102]] → [[learning/swe-103/index|SWE 103]]. Kept for the reasoning it records; it is no longer the plan.
+
 > The first thing you do, and the only deliverable of week 1. Tick one box per topic. **Be honest — an inflated audit costs you months, because it hides the gap that's actually binding.**
 
 **K** = I could explain this to someone right now, closed book.
@@ -369,4 +371,4 @@ K  H  D
 
 ---
 
-**Related:** [[learning/swe-101/04-scheme-of-work|the scheme of work]] · [[learning/swe-101/03-notebook-method|notebook method]] · [[learning/swe-101/01-hire-track|hire track]]
+**Related:** [[learning/swe-101/archive/04-scheme-of-work|the scheme of work]] · [[learning/swe-101/03-notebook-method|notebook method]] · [[learning/swe-101/archive/01-hire-track|hire track]]

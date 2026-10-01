@@ -4,6 +4,10 @@
 
 ---
 
+## Numbering
+
+**Sections are numbered course.week.** Section 101.3 is SWE 101, week 3; 102.4 is SWE 102, week 4. Core topics get the full 8-part page below. Optional topics get one line in the index. DSA is worked from the back of the book forward, so its log never cuts through a course.
+
 ## The 8-part structure
 
 Yours, kept verbatim. For every topic:
@@ -73,7 +77,7 @@ PROBLEMS
   1  ...               Y      12m    off-by-one on shrink
 ```
 
-The problems table is the visible progress — the equivalent of the JAMB board. It's also, by week 20, the honest answer to "how much DSA have you actually done."
+The problems table is the visible progress — the equivalent of the JAMB board. It's also, by the end of the series, the honest answer to "how much DSA have you actually done."
 
 ## The Sunday session
 

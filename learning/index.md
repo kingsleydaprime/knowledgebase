@@ -16,7 +16,7 @@ Every other folder in this vault is the output. This one is the method.
 | 05 | [[learning/05-attention-and-stillness\|Attention and Stillness]] | Rebuilding boredom · impulsivity, described accurately · reading as the pressure valve |
 | 06 | [[learning/06-ai-as-sparring-partner\|AI as Sparring Partner]] | The rule that stops AI hollowing out the rest of the system |
 
-**The active course:** [[learning/swe-101/index|SWE 101]] — target, gap audit, and the two tracks (hire + foundation).
+**The active course:** [[learning/swe-101/index|SWE 101]] — the first of three short courses ([[learning/swe-102/index|102]], [[learning/swe-103/index|103]] follow), with the target, the gaps, and the four weekly lanes.
 
 **Working files:** [[learning/catalogue|catalogue]] (active course + the parking lot) · [[learning/COURSE-TEMPLATE|COURSE-TEMPLATE]] (copy this to start a new one)
 
