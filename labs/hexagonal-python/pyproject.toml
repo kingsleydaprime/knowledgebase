@@ -1,0 +1,7 @@
+[tool.importlinter]
+root_package = "shop"
+
+[[tool.importlinter.contracts]]
+name = "The dependency rule: adapters may import the domain, never the reverse"
+type = "layers"
+layers = ["shop.adapters", "shop.domain"]

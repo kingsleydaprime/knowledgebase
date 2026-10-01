@@ -1,0 +1,13 @@
+{
+  "lesson": "concepts/03-design-patterns/02b-structural-patterns-in-other-languages.md",
+  "run": [
+    [
+      "python3",
+      "-m",
+      "unittest"
+    ]
+  ],
+  "embedded": [
+    "rates.py"
+  ]
+}

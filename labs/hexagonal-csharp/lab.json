@@ -1,0 +1,13 @@
+{
+  "lesson": "backend/03-structuring-a-backend/04b-hexagonal-architecture-in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "-c",
+      "podman run --rm -v \"$PWD\":/lab:Z -w /lab mcr.microsoft.com/dotnet/sdk:10.0 sh check-direction.sh"
+    ]
+  ],
+  "embedded": [
+    "Shop.Domain/Ordering.cs"
+  ]
+}
