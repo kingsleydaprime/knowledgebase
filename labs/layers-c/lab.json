@@ -1,0 +1,13 @@
+{
+  "lesson": "backend/03-structuring-a-backend/01b-layers-in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "orders.h",
+    "orders.c"
+  ]
+}

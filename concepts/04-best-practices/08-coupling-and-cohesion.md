@@ -333,6 +333,7 @@ You can name the kinds of coupling and cohesion in real code, compute fan-in, fa
 **Next.** [[concepts/04-best-practices/05-solid-principles|SOLID]] — "one reason to change" and "depend on what you need" as five named principles, and where they become over-engineering.
 
 ## Related
+- [[concepts/04-best-practices/08b-coupling-and-cohesion-in-other-languages|Coupling and Cohesion in Other Languages]] — which dependency cycles each language's toolchain refuses
 - [[concepts/04-best-practices/01-clean-code|Clean code]] — modules, and the one-sentence test
 - [[concepts/04-best-practices/05-solid-principles|SOLID]] — the same ideas as five principles
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|Layer vs feature]] — enforcing which imports are allowed

@@ -10,22 +10,22 @@
 
 <!-- COVERAGE:START -->
 
-**1 of 352 single-language lessons have a companion.**
+**6 of 352 single-language lessons have a companion.**
 
 By area: dsa 67 · backend 42 · ai-ml 40 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · databases 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · architecture 1 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
 
 | Priority | Lesson | Written in | Companion |
 |---|---|---|---|
-| SWE 101 core | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories\|backend/03-structuring-a-backend/01-layers-controllers-services-repositories]] | TS/JS | — |
+| SWE 101 core | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories\|backend/03-structuring-a-backend/01-layers-controllers-services-repositories]] | TS/JS | [[backend/03-structuring-a-backend/01b-layers-in-other-languages\|✅]] |
 | SWE 101 core | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring\|backend/03-structuring-a-backend/03-dependency-injection-and-wiring]] | TS/JS | [[backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages\|✅]] |
 | SWE 101 core | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture\|backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture]] | TS/JS | — |
 | SWE 101 core | [[backend/03-structuring-a-backend/05-modular-monolith-to-services\|backend/03-structuring-a-backend/05-modular-monolith-to-services]] | TS/JS | — |
 | SWE 101 core | [[backend/07-practices/01-backend-best-practices\|backend/07-practices/01-backend-best-practices]] | TS/JS | — |
 | SWE 101 core | [[concepts/03-design-patterns/02-structural-patterns\|concepts/03-design-patterns/02-structural-patterns]] | TS/JS | — |
-| SWE 101 core | [[concepts/03-design-patterns/03-behavioral-patterns\|concepts/03-design-patterns/03-behavioral-patterns]] | TS/JS | — |
-| SWE 101 core | [[concepts/04-best-practices/04-testing-fundamentals\|concepts/04-best-practices/04-testing-fundamentals]] | TS/JS | — |
-| SWE 101 core | [[concepts/04-best-practices/05-solid-principles\|concepts/04-best-practices/05-solid-principles]] | TS/JS | — |
-| SWE 101 core | [[concepts/04-best-practices/08-coupling-and-cohesion\|concepts/04-best-practices/08-coupling-and-cohesion]] | TS/JS | — |
+| SWE 101 core | [[concepts/03-design-patterns/03-behavioral-patterns\|concepts/03-design-patterns/03-behavioral-patterns]] | TS/JS | [[concepts/03-design-patterns/03b-behavioral-patterns-in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/04-best-practices/04-testing-fundamentals\|concepts/04-best-practices/04-testing-fundamentals]] | TS/JS | [[concepts/04-best-practices/04b-testing-fundamentals-in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/04-best-practices/05-solid-principles\|concepts/04-best-practices/05-solid-principles]] | TS/JS | [[concepts/04-best-practices/05b-solid-in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/04-best-practices/08-coupling-and-cohesion\|concepts/04-best-practices/08-coupling-and-cohesion]] | TS/JS | [[concepts/04-best-practices/08b-coupling-and-cohesion-in-other-languages\|✅]] |
 | SWE 101 core | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy\|cybersecurity/04-web-security/04-security-headers-and-same-origin-policy]] | TS/JS | — |
 | SWE 101 core | [[devops/10-observability/01-observability-fundamentals\|devops/10-observability/01-observability-fundamentals]] | TS/JS | — |
 | SWE 102 core | [[ai-ml/03-ai-engineer/04-calling-models\|ai-ml/03-ai-engineer/04-calling-models]] | TS/JS | — |

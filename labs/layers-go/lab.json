@@ -1,0 +1,24 @@
+{
+  "lesson": "backend/03-structuring-a-backend/01b-layers-in-other-languages.md",
+  "run": [
+    [
+      "go",
+      "vet",
+      "./..."
+    ],
+    [
+      "sh",
+      "-c",
+      "test -z \"$(gofmt -l .)\""
+    ],
+    [
+      "go",
+      "test",
+      "./..."
+    ]
+  ],
+  "embedded": [
+    "orders.go",
+    "orders_test.go"
+  ]
+}

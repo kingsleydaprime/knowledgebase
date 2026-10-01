@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 14 of 43 meet the standard. Optional: 6 of 34.**
+**Core lessons: 14 of 43 meet the standard. Optional: 7 of 35.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -22,6 +22,7 @@
 | SWE 101 | 2 | core | ✅ meets | — | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring\|03-dependency-injection-and-wiring]] |
 | SWE 101 | 2 | core | ✅ meets | — | [[concepts/04-best-practices/04-testing-fundamentals\|04-testing-fundamentals]] |
 | SWE 101 | 2 | optional | 🟡 partial | start, terms, checks, practice | [[backend/07-practices/02-testing-a-backend\|02-testing-a-backend]] |
+| SWE 101 | 2 | optional | ✅ meets | — | [[backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages\|03b-dependency-injection-in-other-languages]] |
 | SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/08-coupling-and-cohesion\|08-coupling-and-cohesion]] |
 | SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/05-solid-principles\|05-solid-principles]] |
 | SWE 101 | 3 | optional | ✅ meets | — | [[concepts/04-best-practices/01-clean-code\|01-clean-code]] |

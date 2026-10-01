@@ -293,6 +293,7 @@ You can state each principle in plain words, show its smell in code, and argue w
 **Next.** [[concepts/03-design-patterns/02-structural-patterns|Structural patterns]] — including composition over inheritance, which is the usual fix for a Liskov violation.
 
 ## Related
+- [[concepts/04-best-practices/05b-solid-in-other-languages|SOLID in Other Languages]] — what languages without inheritance, and with exhaustive matching, do to SOLID
 - [[concepts/04-best-practices/01-clean-code|clean code]] — naming, function scope, DRY and its limits
 - [[concepts/03-design-patterns/index|design patterns]] — several of these principles *are* patterns
 - [[backend/03-structuring-a-backend/index|structuring a backend]] — where DIP and SRP show up architecturally

@@ -296,6 +296,7 @@ You can say what each layer may and may not know, place a new rule in the right 
 Layering isn't about having three folders — it's about **which direction knowledge flows**. The outer layers may know about the inner ones; the inner ones must never know about the outer. A service that knows what HTTP is has been welded to one delivery mechanism, and every test, every reuse, and every future entry point pays for it forever. If you remember one thing: **the dependency arrow points inward, toward the business rules.**
 
 ## Related
+- [[backend/03-structuring-a-backend/01b-layers-in-other-languages|Layers in Other Languages]] — how each language represents and maps domain errors
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|Organising by layer vs by feature]] — how these map onto folders
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|Dependency Injection]] — how the layers get connected
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal & Clean Architecture]] — layering with the dependency rule enforced
