@@ -40,9 +40,11 @@ Give two to four observable outcomes. “Understand BFS” is vague. “Trace it
 
 Name the artifact: a working function, a proof, a circuit measurement, a query plan, a design with justified tradeoffs. State tools and versions where relevant. Do not promise “zero prior background” for an intermediate lesson.
 
-### 2. Begin with a problem worth solving
+### 2. Open with the kid version, then a problem worth solving
 
-Use one concrete situation and show why the simpler approach is insufficient. An analogy can provide intuition, but explain where it stops matching the real mechanism.
+Every lesson opens with **a kid version**: the whole idea explained in a few sentences a twelve-year-old could follow, using an everyday picture (a toolbox, a queue at a shop, a library card index). It comes before the definitions and before any code. Then say where the picture stops matching the real mechanism — an analogy left unchecked teaches the wrong edge cases. See [Writing conventions](#the-kid-version-comes-first).
+
+After the kid version, use one concrete situation and show why the simpler approach is insufficient.
 
 A short motivating example is enough. Three production name-drops are not a substitute for a problem the reader can work through.
 
@@ -108,6 +110,28 @@ Point to the next lesson and explain the dependency. Keep a short recap suitable
 
 These are not stylistic preferences; each one exists because its absence made a
 lesson harder to read.
+
+### The kid version comes first
+
+Before the terms, before the mechanism, explain the whole idea as if to a
+twelve-year-old: three to six sentences, one everyday picture, no jargon. It gives
+the reader a hook to hang every later detail on, and it is a test for the writer —
+if you cannot write the kid version, you do not yet understand the topic well
+enough to teach it.
+
+End it with **where the analogy stops working**, in one or two sentences. That
+sentence is not optional: it is where the reader learns the real mechanism's
+edge, instead of carrying the analogy's.
+
+> **The kid version.** You're organising a toolbox. By type: all screwdrivers in
+> one drawer, all wrenches in another. By job: a "bike box" holding everything
+> for the bike. To fix the bike you open four drawers, or grab one box...
+>
+> **Where the analogy stops working.** A box on a shelf does nothing until you
+> plug it in — in software, every feature must be registered with the app somewhere.
+
+Call the section "The kid version" (or "The kid version first") so it is easy to
+find and skip on a re-read.
 
 ### Definitions are a numbered list in plain English
 
@@ -195,10 +219,14 @@ Prerequisites as things you can already do, each with one direct link.
 "After this lesson you will be able to:" — two to four observable outcomes.
 Study route: which sections to read, where to stop and attempt.
 
+## The kid version
+
+The whole idea in three to six sentences a twelve-year-old could follow, with one
+everyday picture. Then: where the analogy stops working.
+
 ## 1. Why this exists (real-world motivation)
 
 One concrete situation. Show why the simpler approach is insufficient.
-A physical analogy is welcome — then say where it stops matching.
 
 ## Terms used in <topic>
 
@@ -263,6 +291,7 @@ Revision should preserve useful existing detail, links, and file locations. Fix 
 ## Review checklist
 
 - [ ] The prerequisites and outcomes are explicit and realistic.
+- [ ] A kid version opens the lesson, and says where its analogy stops working.
 - [ ] Definitions are a numbered list in plain full sentences, not a table.
 - [ ] Every result is stated in words before its formula appears.
 - [ ] Every acronym used is present in `quartz-plugins/abbreviations/glossary.json`.
