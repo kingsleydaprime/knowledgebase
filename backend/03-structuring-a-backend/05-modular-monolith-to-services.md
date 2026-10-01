@@ -243,6 +243,8 @@ test("at-least-once delivery + an idempotent consumer = correct", async () => {
 });
 ```
 
+**Lab:** these files are in `labs/modular-monolith/`. From the vault root, `python3 labs/run.py modular-monolith` runs them and checks this page still shows the same code.
+
 **Run it.** From `mono/`: `node --test` (Node 23.6 or later; checked with Node 26). Expected:
 
 ```
@@ -253,7 +255,7 @@ test("at-least-once delivery + an idempotent consumer = correct", async () => {
 
 **The answer: 1,000,000 kobo** — the customer has been credited twice for one payment. The second test asserts that wrong value on purpose. Nothing in `orders` or `payments` changed. The only thing that changed was the transport, and that's the point: **the event seam lets you swap the transport without touching the call sites, but it doesn't make the network's guarantees go away.** The fix is in the consumer — remember each `eventId` you've handled — and the third test shows it still counts a genuinely second payment, which has a new `eventId`.
 
-**In production**, `seen` would be a database table with a unique constraint on `event_id`, written in the same transaction as the balance update, so a crash can't record one without the other.
+**In production**, `seen` would be a database table with a unique constraint on `event_id`, written in the same transaction as the balance update, so a crash can't record one without the other. The producer side has the matching problem — saving and publishing as one step — and the [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]] solves it.
 
 ## Check your understanding
 
