@@ -19,7 +19,8 @@ The historical phases below track topics written. They do **not** establish that
 **Restructured 2026-10-01:** SWE 101 is now the first of three short courses ([[learning/swe-101/index|101]] → [[learning/swe-102/index|102]] → [[learning/swe-103/index|103]]); the old 30-week scheme is archived. Core lessons are converted one course ahead of study. Progress is generated, not hand-kept: [[learning/swe-101/06-lesson-quality|lesson quality]] (`python3 learning/swe-101/scripts/audit-standard.py`). The standard now also requires a **kid version** in every lesson.
 
 - [x] **Software design block, weeks 1–4 — 13 lessons.** Every runnable example executed with Node 26 (`node --test`), or with Django 6.1 / Flask 3.1 / import-linter / ESLint 9 for layer-vs-feature. Fixed on the way: SOLID linked "strategy" to creational patterns; the structural-patterns lesson had no composition-over-inheritance section although week 2.7 pointed to it; behavioural patterns had no State pattern although week 3.3 listed it; layer-vs-feature called Django by-layer (its apps are feature folders); the roles note linked "mobile" to a NestJS backend note.
-- [ ] **SWE 101 core — the remaining 5:** testing fundamentals (week 2, most urgent), backend best practices and observability fundamentals (week 6), the two web-security lessons (week 7).
+- [x] **Testing fundamentals** (SWE 101 week 2) — converted 2026-10-01: test doubles and flaky-test sections added (neither existed), lab `labs/testing-fundamentals/`.
+- [ ] **SWE 101 core — the remaining 4:** backend best practices and observability fundamentals (week 6), the two web-security lessons (week 7).
 - [ ] **SWE 102 core — 11 lessons**, the AI-engineering track, before SWE 102 starts.
 - [ ] SWE 103 core, then optional lessons.
 - [ ] Log closed-book study problems in the [[learning/swe-101/06-lesson-quality|review log]] and adjust the format before converting further.
