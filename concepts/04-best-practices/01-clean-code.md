@@ -228,6 +228,8 @@ test("an empty order is rejected before anything is saved", () => {
 });
 ```
 
+**Lab:** these files are in `labs/clean-code/`. From the vault root, `python3 labs/run.py clean-code` runs them and checks this page still shows the same code.
+
 **Run it.** Put both files in an empty folder and run, from that folder:
 
 ```bash
@@ -289,7 +291,7 @@ You can take messy code, pin it with tests, and refactor it into named pieces �
 
 **Recap.** Optimise for the reader. Good modules have high cohesion and low coupling. Name things so comments aren't needed for *what*; comment only for *why*. DRY is about knowledge, not text. KISS means no unnecessary complexity. YAGNI applies to features, not foundations.
 
-**Next.** [[concepts/04-best-practices/05-solid-principles|SOLID]] turns "one reason to change" and "low coupling" into five named principles — and shows where they become over-engineering.
+**Next.** [[concepts/04-best-practices/08-coupling-and-cohesion|Coupling and cohesion]] — the two properties §2 introduced, in depth, with a tool that measures them on your own code.
 
 ## Related
 - [[concepts/04-best-practices/05-solid-principles|SOLID principles]] — the same ideas, formalised
