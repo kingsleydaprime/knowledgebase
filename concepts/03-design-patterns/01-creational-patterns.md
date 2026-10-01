@@ -232,6 +232,8 @@ test("builder: build() rejects an incomplete or contradictory email", () => {
 });
 ```
 
+**Lab:** these files are in `labs/creational-patterns/`. From the vault root, `python3 labs/run.py creational-patterns` runs them and checks this page still shows the same code.
+
 **Run it.** Put the three files in one folder and run `node --test` from it (Node 23.6 or later; checked with Node 26). Expected:
 
 ```

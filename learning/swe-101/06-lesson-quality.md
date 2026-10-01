@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**13 of 126 lessons meet the standard.**
+**15 of 128 lessons meet the standard.**
 
 | Week | Status | Missing | Lesson |
 |---|---|---|---|
@@ -19,14 +19,15 @@
 | 1 | ✅ meets | — | [[software-engineering/03-the-engineering-roles\|03-the-engineering-roles]] |
 | 1 | n/a | keeps its own shape | [[PRIMETECHIE\|PRIMETECHIE]] |
 | 2 | ✅ meets | — | [[concepts/04-best-practices/01-clean-code\|01-clean-code]] |
+| 2 | ✅ meets | — | [[concepts/04-best-practices/08-coupling-and-cohesion\|08-coupling-and-cohesion]] |
 | 2 | ✅ meets | — | [[concepts/04-best-practices/05-solid-principles\|05-solid-principles]] |
-| 2 | ✅ meets | — | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories\|01-layers-controllers-services-repositories]] |
 | 2 | ✅ meets | — | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture\|04-hexagonal-and-clean-architecture]] |
 | 2 | ✅ meets | — | [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature\|02-organising-by-layer-vs-by-feature]] |
 | 2 | ✅ meets | — | [[concepts/03-design-patterns/02-structural-patterns\|02-structural-patterns]] |
 | 3 | ✅ meets | — | [[concepts/03-design-patterns/01-creational-patterns\|01-creational-patterns]] |
 | 3 | ✅ meets | — | [[concepts/03-design-patterns/03-behavioral-patterns\|03-behavioral-patterns]] |
 | 3 | ✅ meets | — | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring\|03-dependency-injection-and-wiring]] |
+| 4 | ✅ meets | — | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories\|01-layers-controllers-services-repositories]] |
 | 4 | ✅ meets | — | [[backend/03-structuring-a-backend/05-modular-monolith-to-services\|05-modular-monolith-to-services]] |
 | 5 | ⬜ not started | kid, start, terms, checks, practice | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design\|01-how-to-approach-system-design]] |
 | 5 | ⬜ not started | kid, start, terms, checks, practice | [[architecture/01-system-design-fundamentals/02-scalability-and-performance\|02-scalability-and-performance]] |
@@ -41,6 +42,7 @@
 | 8 | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/01-monolith-microservices-serverless\|01-monolith-microservices-serverless]] |
 | 8 | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/02-resilience-patterns\|02-resilience-patterns]] |
 | 8 | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/03-data-and-integration-patterns\|03-data-and-integration-patterns]] |
+| 8 | ✅ meets | — | [[architecture/03-architectural-patterns/05-transactional-outbox\|05-transactional-outbox]] |
 | 8 | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/04-microservices-patterns\|04-microservices-patterns]] |
 | 9 | ⬜ not started | kid, start, terms, checks, practice | [[databases/01-what-a-database-is\|01-what-a-database-is]] |
 | 9 | ⬜ not started | kid, start, terms, checks, practice | [[databases/02-the-relational-model\|02-the-relational-model]] |

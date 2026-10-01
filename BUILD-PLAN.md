@@ -22,7 +22,8 @@ SWE 101 is the active course, so its lessons are converted a block ahead of stud
 - [ ] **Study the block closed-book** and log where a lesson still needed guessing, before converting the next block.
 - [ ] Architecture & system design, weeks 5–8 — 13 lessons.
 - [ ] Databases, weeks 9–11; then networking, security, and the rest, in scheme order.
-- **Gap found:** no note covers the transactional outbox pattern; it belongs in `architecture/03-architectural-patterns/03-data-and-integration-patterns`.
+- [x] **Gaps filled (2026-10-01):** [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] (week 2.2 now points to it) and [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]] (linked from week 8.3, sagas, and behavioural patterns). Both written to the standard with labs.
+- [x] **`labs/` set up:** every verified example now lives in `labs/<name>/` with a `lab.json`; `python3 labs/run.py` runs them all and fails if a lesson no longer shows the code that runs (`--drift-only` for a fast offline check).
 
 ### Flagged while building How Computers Work (2026-09-09)
 

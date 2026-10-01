@@ -220,6 +220,8 @@ test("FIX 2: AsyncLocalStorage gives each request its own context", async () => 
 });
 ```
 
+**Lab:** these files are in `labs/dependency-injection/`. From the vault root, `python3 labs/run.py dependency-injection` runs them and checks this page still shows the same code.
+
 **Run it.** Both files in one folder; `node --test` from it (Node 23.6 or later; checked with Node 26). Expected:
 
 ```
