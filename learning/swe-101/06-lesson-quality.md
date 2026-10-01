@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 9 of 43 meet the standard. Optional: 5 of 33.**
+**Core lessons: 10 of 43 meet the standard. Optional: 5 of 33.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -19,7 +19,7 @@
 | SWE 101 | 1 | optional | ✅ meets | — | [[software-engineering/01-what-software-engineering-is\|01-what-software-engineering-is]] |
 | SWE 101 | 1 | optional | ✅ meets | — | [[software-engineering/02-the-software-development-lifecycle\|02-the-software-development-lifecycle]] |
 | SWE 101 | 2 | core | ✅ meets | — | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring\|03-dependency-injection-and-wiring]] |
-| SWE 101 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[concepts/04-best-practices/04-testing-fundamentals\|04-testing-fundamentals]] |
+| SWE 101 | 2 | core | ✅ meets | — | [[concepts/04-best-practices/04-testing-fundamentals\|04-testing-fundamentals]] |
 | SWE 101 | 2 | optional | 🟡 partial | start, terms, checks, practice | [[backend/07-practices/02-testing-a-backend\|02-testing-a-backend]] |
 | SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/08-coupling-and-cohesion\|08-coupling-and-cohesion]] |
 | SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/05-solid-principles\|05-solid-principles]] |

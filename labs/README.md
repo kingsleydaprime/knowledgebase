@@ -56,6 +56,7 @@ A lab **fails** if any of its commands exits non-zero, **or** if a file it lists
 | `creational-patterns` | [[concepts/03-design-patterns/01-creational-patterns\|creational patterns]] | A singleton leaking state between tests; a checking builder |
 | `structural-patterns` | [[concepts/03-design-patterns/02-structural-patterns\|structural patterns]] | Retry, cache and log wrappers, and why their order matters |
 | `behavioral-patterns` | [[concepts/03-design-patterns/03-behavioral-patterns\|behavioural patterns]] | An order lifecycle as a state machine with observers |
+| `testing-fundamentals` | [[concepts/04-best-practices/04-testing-fundamentals\|testing fundamentals]] | Stub, spy and fake clock; a month-end bug reproduced with fake timers; integration tests over real HTTP and SQLite |
 | `transactional-outbox` | [[architecture/03-architectural-patterns/05-transactional-outbox\|transactional outbox]] | Lost and phantom events, the outbox and relay, deduplication |
 
 Older labs written before this folder existed — the `dsa/04-patterns` labs, the databases and compilers labs — still live inside their lessons and are not run by this script yet.
