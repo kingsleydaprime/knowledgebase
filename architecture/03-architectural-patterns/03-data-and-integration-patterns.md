@@ -36,6 +36,8 @@ Order → Payment → Inventory → Shipping
 
 Sagas give you eventual consistency across services (not the atomic isolation of a real [[architecture/04-distributed-systems/10-distributed-transactions|distributed transaction]]) — a mid-saga observer can see partial state. Usually the right tradeoff, because true distributed transactions (2PC) are slow and fragile.
 
+Each step must save its local change **and** announce the next step reliably — which is exactly the dual-write problem. The standard answer is the [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]]: write the event in the same local transaction as the change, and let a relay publish it.
+
 ## Materialized View
 
 A precomputed, stored result of an expensive query (a join/aggregation), refreshed as data changes — so reads are a cheap lookup instead of recomputing every time. A [[architecture/02-building-blocks/02-caching|caching]]/[[architecture/02-building-blocks/03-databases-at-scale|denormalization]] idea at the database level, and often *how* a CQRS read model is built.
@@ -49,6 +51,7 @@ The pattern for **incrementally** migrating a [[architecture/03-architectural-pa
 Every pattern here manages the same fundamental loss: **once data crosses a transaction/service boundary, you trade strong consistency and simple queries for scale and decoupling.** CQRS/materialized views recover query performance; event sourcing recovers history; sagas recover cross-service "transactions" (as eventual consistency); strangler fig lets you get there safely. Adopt each only when its specific pain is real — they all add complexity you don't want prematurely.
 
 ## Related
+- [[architecture/03-architectural-patterns/05-transactional-outbox|Transactional Outbox]] — how each saga step announces itself reliably
 - [[architecture/02-building-blocks/04-messaging-and-async|Messaging & Async]] — the event backbone these run on
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — 2PC, the alternative sagas avoid
 - [[languages/01-java/06-applied-systems/index|Applied Systems (Java)]] — a real payment/ledger domain

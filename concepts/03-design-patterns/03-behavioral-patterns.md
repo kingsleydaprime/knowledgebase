@@ -228,6 +228,8 @@ test("the UI can ask which buttons to show", () => {
 });
 ```
 
+**Lab:** these files are in `labs/behavioral-patterns/`. From the vault root, `python3 labs/run.py behavioral-patterns` runs them and checks this page still shows the same code.
+
 **Run it.** Both files in one folder; `node --test` from it (Node 23.6 or later; checked with Node 26). Expected:
 
 ```
@@ -242,7 +244,7 @@ test("the UI can ask which buttons to show", () => {
 - The email listener and the audit listener don't know about each other, and `Order` doesn't know about either. Adding a WhatsApp notification is one `onChange` call in the composition root.
 - `allowedActions()` comes free from the table. The UI can render exactly the buttons the current state allows, so the backend and frontend share one source of truth.
 
-**The limits.** Listeners here run synchronously, in the same process, inside `apply`. If the email listener throws, `apply` throws *after* the status already changed. Production systems usually save the state change and an event record together, then deliver the event separately — the **transactional outbox** pattern. ⚠️ No note in this vault covers it yet; [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data and integration patterns]] is where it belongs.
+**The limits.** Listeners here run synchronously, in the same process, inside `apply`. If the email listener throws, `apply` throws *after* the status already changed. Production systems usually save the state change and an event record together, then deliver the event separately — the [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]] pattern.
 
 ## Common pitfalls
 
