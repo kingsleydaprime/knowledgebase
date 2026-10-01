@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 10 of 43 meet the standard. Optional: 5 of 33.**
+**Core lessons: 14 of 43 meet the standard. Optional: 5 of 33.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -30,11 +30,11 @@
 | SWE 101 | 5 | core | ✅ meets | — | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture\|04-hexagonal-and-clean-architecture]] |
 | SWE 101 | 5 | core | ✅ meets | — | [[backend/03-structuring-a-backend/05-modular-monolith-to-services\|05-modular-monolith-to-services]] |
 | SWE 101 | 5 | optional | ✅ meets | — | [[architecture/03-architectural-patterns/05-transactional-outbox\|05-transactional-outbox]] |
-| SWE 101 | 6 | core | ⬜ not started | kid, start, terms, checks, practice | [[backend/07-practices/01-backend-best-practices\|01-backend-best-practices]] |
-| SWE 101 | 6 | core | ⬜ not started | kid, start, terms, checks, practice | [[devops/10-observability/01-observability-fundamentals\|01-observability-fundamentals]] |
+| SWE 101 | 6 | core | ✅ meets | — | [[backend/07-practices/01-backend-best-practices\|01-backend-best-practices]] |
+| SWE 101 | 6 | core | ✅ meets | — | [[devops/10-observability/01-observability-fundamentals\|01-observability-fundamentals]] |
 | SWE 101 | 6 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/10-observability/02-the-observability-stack\|02-the-observability-stack]] |
-| SWE 101 | 7 | core | ⬜ not started | kid, start, terms, checks, practice | [[cybersecurity/04-web-security/01-input-validation-and-output-encoding\|01-input-validation-and-output-encoding]] |
-| SWE 101 | 7 | core | ⬜ not started | kid, start, terms, checks, practice | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy\|04-security-headers-and-same-origin-policy]] |
+| SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/01-input-validation-and-output-encoding\|01-input-validation-and-output-encoding]] |
+| SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy\|04-security-headers-and-same-origin-policy]] |
 | SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/09-secret-management/01-secret-management\|01-secret-management]] |
 | SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[backend/05-auth/01-authentication-flows\|01-authentication-flows]] |
 | SWE 102 | 1 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/02-how-llms-work\|02-how-llms-work]] |

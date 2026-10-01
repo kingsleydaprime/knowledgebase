@@ -16,3 +16,4 @@ labs/**/__pycache__/
 labs/**/.import_linter_cache/
 labs/**/*.sqlite3
 labs/**/shop.db
+labs/**/target/

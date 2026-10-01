@@ -1,0 +1,5 @@
+{
+  "lesson": "devops/10-observability/01-observability-fundamentals.md",
+  "run": [["node", "--test"]],
+  "embedded": ["signals.mjs", "signals.test.mjs"]
+}

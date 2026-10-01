@@ -20,7 +20,8 @@ The historical phases below track topics written. They do **not** establish that
 
 - [x] **Software design block, weeks 1–4 — 13 lessons.** Every runnable example executed with Node 26 (`node --test`), or with Django 6.1 / Flask 3.1 / import-linter / ESLint 9 for layer-vs-feature. Fixed on the way: SOLID linked "strategy" to creational patterns; the structural-patterns lesson had no composition-over-inheritance section although week 2.7 pointed to it; behavioural patterns had no State pattern although week 3.3 listed it; layer-vs-feature called Django by-layer (its apps are feature folders); the roles note linked "mobile" to a NestJS backend note.
 - [x] **Testing fundamentals** (SWE 101 week 2) — converted 2026-10-01: test doubles and flaky-test sections added (neither existed), lab `labs/testing-fundamentals/`.
-- [ ] **SWE 101 core — the remaining 4:** backend best practices and observability fundamentals (week 6), the two web-security lessons (week 7).
+- [x] **SWE 101 core complete (14/14), 2026-10-01.** The last four — backend best practices (added rate limiting and idempotency, which week 6 promised and the lesson lacked), observability, input validation (Python examples replaced with TypeScript, SSRF added), security headers (CORS reflection and "CORS is not access control") — each with a lab.
+- [x] **Layer vs feature: Go, Java, Rust, C and C++ added (2026-10-01)**, each with a lab proving the compiler or build system refuses a cross-feature import. The lesson is now ~9,600 words; consider splitting the language sections into a companion lesson.
 - [ ] **SWE 102 core — 11 lessons**, the AI-engineering track, before SWE 102 starts.
 - [ ] SWE 103 core, then optional lessons.
 - [ ] Log closed-book study problems in the [[learning/swe-101/06-lesson-quality|review log]] and adjust the format before converting further.

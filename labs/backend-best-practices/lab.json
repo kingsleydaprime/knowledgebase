@@ -1,0 +1,5 @@
+{
+  "lesson": "backend/07-practices/01-backend-best-practices.md",
+  "run": [["node", "--test"], ["node", "--test", "--test-randomize"]],
+  "embedded": ["practices.mjs", "app.mjs", "app.test.mjs"]
+}
