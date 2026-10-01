@@ -1,0 +1,24 @@
+{
+  "lesson": "backend/07-practices/01b-backend-best-practices-in-other-languages.md",
+  "run": [
+    [
+      "go",
+      "vet",
+      "./..."
+    ],
+    [
+      "sh",
+      "-c",
+      "test -z \"$(gofmt -l .)\""
+    ],
+    [
+      "go",
+      "test",
+      "./..."
+    ]
+  ],
+  "embedded": [
+    "practices.go",
+    "practices_test.go"
+  ]
+}

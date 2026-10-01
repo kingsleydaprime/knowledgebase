@@ -292,6 +292,7 @@ You can explain what the browser enforces and what it doesn't, configure CORS sa
 **Next.** Week 8: ship the flagship, and a timed DSA mock — the end of [[learning/swe-101/index|SWE 101]].
 
 ## Related
+- [[cybersecurity/04-web-security/04b-security-headers-in-other-languages|Security Headers in Other Languages]] — where each framework sets headers and CORS, and what it sets by default
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|Input validation and output encoding]]
 - [[cybersecurity/04-web-security/02-secure-authentication|Secure authentication]] — sessions, and the cookie in context
 - [[cybersecurity/04-web-security/03-https-and-tls|HTTPS and TLS]] — what HSTS enforces

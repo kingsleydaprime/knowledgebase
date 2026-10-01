@@ -1,0 +1,23 @@
+{
+  "lesson": "devops/10-observability/01b-observability-in-other-languages.md",
+  "run": [
+    [
+      "go",
+      "vet",
+      "./..."
+    ],
+    [
+      "sh",
+      "-c",
+      "test -z \"$(gofmt -l .)\""
+    ],
+    [
+      "go",
+      "test",
+      "./..."
+    ]
+  ],
+  "embedded": [
+    "histogram.go"
+  ]
+}

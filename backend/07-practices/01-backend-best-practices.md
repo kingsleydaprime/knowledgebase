@@ -450,6 +450,7 @@ You can make errors predictable, validate at the boundary, write logs someone ca
 **Next.** [[devops/10-observability/01-observability-fundamentals|Observability fundamentals]] — the other half of week 6: turning those logs into answers to "is it up, and is it fast?"
 
 ## Related
+- [[backend/07-practices/01b-backend-best-practices-in-other-languages|Backend Best Practices in Other Languages]] — each ecosystem's tools, rate limiting and redacted logging
 - [[backend/frameworks/javascript/01-node-runtime/02-error-handling|Node error handling]] · [[backend/frameworks/javascript/01-node-runtime/01-env-validation|environment validation]]
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|Input validation and output encoding]] — the security half of validation
 - [[backend/05-auth/01-authentication-flows|Authentication flows]] — where rate limiting matters most
