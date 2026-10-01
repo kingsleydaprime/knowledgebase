@@ -10,6 +10,7 @@ The test: if the config file has opinions in it, the opinions belong here.
 - [[tools/agent-skills/index|agent-skills/]] — **1 note** — the `SKILL.md` format, its YAML frontmatter contract, and why a skill silently fails to load
 - [[tools/npm/index|npm/]] — **2 notes** — not how to use npm, but the configuration layer under it: registries, `.npmrc` precedence and the local-prefix rule, scoped registries, and the authentication that works locally and fails in CI
 - [[tools/neovim/neovim-setup|neovim-setup]] — editor configuration
+- [[tools/openclaw-study-partner/index|openclaw-study-partner/]] — a local AI study partner: a read-only OpenClaw agent on `qwen3.5:4b` through Ollama, sized for this laptop, with a sparring-partner persona
 
 ## Known gaps
 
