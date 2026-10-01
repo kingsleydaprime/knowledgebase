@@ -300,6 +300,7 @@ You can argue monolith-first with reasons, build modules that talk through event
 The choice isn't monolith vs microservices — it's **where your boundaries are and how strongly they're enforced.** A modular monolith and a microservice architecture can have identical boundaries; they differ only in whether crossing one is a function call or a network call. So get the boundaries right *first*, in the cheap medium, and treat the network as a deployment decision you make later for a specific reason. **A distributed big ball of mud is the worst of both worlds, and it is the most common outcome of starting with microservices.**
 
 ## Related
+- [[backend/03-structuring-a-backend/05b-modular-monolith-in-other-languages|The Modular Monolith in Other Languages]] — event plumbing and idempotent consumers in seven languages
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|By layer vs by feature]] — the module boundaries this depends on
 - [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|Monolith / Microservices / Serverless]] — the system-design framing
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — saga, event sourcing, strangler fig

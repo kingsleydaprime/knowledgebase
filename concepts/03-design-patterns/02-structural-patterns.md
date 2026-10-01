@@ -320,6 +320,7 @@ You can explain composition over inheritance, identify the four structural patte
 **Next.** [[concepts/03-design-patterns/01-creational-patterns|Creational patterns]] — how the objects you're composing get built (week 3).
 
 ## Related
+- [[concepts/03-design-patterns/02b-structural-patterns-in-other-languages|Structural Patterns in Other Languages]] — decorators, proxies and adapters as each language does them
 - [[concepts/03-design-patterns/01-creational-patterns|creational patterns]]
 - [[concepts/03-design-patterns/03-behavioral-patterns|behavioural patterns]]
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal architecture]] — adapters at the scale of a whole system

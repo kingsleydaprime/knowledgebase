@@ -1,0 +1,18 @@
+{
+  "lesson": "backend/03-structuring-a-backend/05b-modular-monolith-in-other-languages.md",
+  "run": [
+    [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    [
+      "cargo",
+      "test",
+      "--quiet"
+    ]
+  ],
+  "embedded": [
+    "src/lib.rs"
+  ]
+}

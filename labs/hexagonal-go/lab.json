@@ -1,0 +1,29 @@
+{
+  "lesson": "backend/03-structuring-a-backend/04b-hexagonal-architecture-in-other-languages.md",
+  "run": [
+    [
+      "go",
+      "vet",
+      "./..."
+    ],
+    [
+      "sh",
+      "-c",
+      "test -z \"$(gofmt -l .)\""
+    ],
+    [
+      "go",
+      "test",
+      "./..."
+    ],
+    [
+      "sh",
+      "check-direction.sh"
+    ]
+  ],
+  "embedded": [
+    "domain/order.go",
+    "adapters/memory/memory.go",
+    "check-direction.sh"
+  ]
+}

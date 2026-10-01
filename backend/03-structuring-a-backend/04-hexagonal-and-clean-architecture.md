@@ -291,6 +291,7 @@ You can draw the hexagon with its arrows, build a use case against ports, and ar
 Layering organises code; hexagonal architecture **inverts a dependency**. The move is that the inner layer *declares* what it needs and the outer layer *conforms* — so your business rules stop being a passenger in someone else's framework and become the thing everything else plugs into. That's genuinely valuable when the rules are the hard part. When the rules are `INSERT INTO orders`, you've built scaffolding around an empty room.
 
 ## Related
+- [[backend/03-structuring-a-backend/04b-hexagonal-architecture-in-other-languages|Hexagonal Architecture in Other Languages]] — how each language's build enforces the dependency rule
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|Layers]] — the cheaper default
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|Dependency Injection]] — the mechanism that makes inversion possible
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services|Modular Monolith → Services]] — boundaries at the next scale up
