@@ -17,7 +17,7 @@
 
 **Why it pays: the presentational half is the part you'll reuse, and coupling it to a data source is what stops that.** A `<Table>` that fetches its own rows can only ever show those rows.
 
-**This is the same layering argument as [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|controllers, services, repositories]]** — separate the thing that *decides* from the thing that *displays*.
+**This is the same layering argument as [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|controllers, services, repositories]]** — separate the thing that *decides* from the thing that *displays*.
 
 ## Prop drilling, and the wrong reflex
 
@@ -59,7 +59,7 @@ src/
 
 **Not** a top-level `components/` with 200 files.
 
-**Why: change locality.** A checkout change touches one directory. With type-based folders, every feature change touches five directories, and two people on different features collide constantly → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|by layer vs by feature]].
+**Why: change locality.** A checkout change touches one directory. With type-based folders, every feature change touches five directories, and two people on different features collide constantly → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|by layer vs by feature]].
 
 **Keep business logic out of `ui/`.** A `Button` that knows about orders isn't a primitive. The test: could you copy `ui/` into another product unchanged?
 

@@ -40,7 +40,7 @@ The cultural claim underneath the tooling: *you build it, you run it.* Being on 
 
 Google's answer, and the reframe is sharp: **treat operations as a software problem, and treat reliability as something you can measure, budget and spend** rather than something you promise and hope for.
 
-The mechanism is the [[devops/10-observability/01-observability-fundamentals|SLO and error budget]]: pick an availability target, and the shortfall becomes a budget. Budget remaining → ship aggressively. Budget exhausted → stop shipping features and stabilise.
+The mechanism is the [[devops/10-observability/01-observability-fundamentals/index|SLO and error budget]]: pick an availability target, and the shortfall becomes a budget. Budget remaining → ship aggressively. Budget exhausted → stop shipping features and stabilise.
 
 **This is the important structural move, and it's easy to miss.** It converts the dev-vs-ops argument from a values dispute into arithmetic. Nobody has to argue about whether to prioritise reliability; the number decides, and both sides agreed to the number in advance.
 

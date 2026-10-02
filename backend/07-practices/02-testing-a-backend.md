@@ -1,6 +1,6 @@
 # Testing a Backend
 
-**[Intermediate]** — assumes [[concepts/04-best-practices/04-testing-fundamentals|Testing Fundamentals]] for the pyramid and TDD. This note is only the part that's *specific to a backend*: the database, the I/O boundaries, test data, and why backend suites go flaky.
+**[Intermediate]** — assumes [[concepts/04-best-practices/04-testing-fundamentals/index|Testing Fundamentals]] for the pyramid and TDD. This note is only the part that's *specific to a backend*: the database, the I/O boundaries, test data, and why backend suites go flaky.
 
 ## The kid version first
 
@@ -93,7 +93,7 @@ The same applies to anything that generates ordering: `ORDER BY created_at` with
 
 ## What to test at each layer
 
-- **Unit** — pure domain logic: pricing rules, state machines, validation, permission checks. Fast, no I/O. This is where [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal architecture]] pays off — the more logic sits behind ports, the more of it is unit-testable.
+- **Unit** — pure domain logic: pricing rules, state machines, validation, permission checks. Fast, no I/O. This is where [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal architecture]] pays off — the more logic sits behind ports, the more of it is unit-testable.
 - **Integration** — a repository against the real database, a service against real collaborators. The layer that catches the most real bugs per unit of effort in a typical backend.
 - **API/E2E** — drive the actual HTTP endpoint: request in, status and body out, database in the expected state. Cover the main path of each endpoint plus its auth failures. Keep the count low; these are the slow, brittle ones.
 - **Contract** — if other services call you, assert the shape of what you return, so you learn you've broken them before they do.
@@ -131,8 +131,8 @@ Framework behaviour (your ORM can save a row), getters and setters, third-party 
 Backend testing comes down to one decision repeated: real, faked, or ignored. Use a real database in a container against your real migrations, fake everything you don't own, inject the clock, and make every test build its own data. Almost every slow, flaky, or falsely-green backend suite is one of those four choices made wrong.
 
 ## Related
-- [[concepts/04-best-practices/04-testing-fundamentals|Testing Fundamentals]] — the pyramid, TDD, and what makes any test valuable
-- [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal & Clean Architecture]] — why ports and adapters make more of your code unit-testable
+- [[concepts/04-best-practices/04-testing-fundamentals/index|Testing Fundamentals]] — the pyramid, TDD, and what makes any test valuable
+- [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal & Clean Architecture]] — why ports and adapters make more of your code unit-testable
 - [[backend/05-auth/index|Auth]] — the 401/403 cases above
 - [[languages/01-java/03-tooling/04-testing|Java Testing]] — JUnit 5, Mockito and Testcontainers in depth
 - [[backend/frameworks/javascript/03-nest/01-nestjs-reference|NestJS reference]] — the three testing levels in that stack

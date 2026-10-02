@@ -108,7 +108,7 @@ myservice/
 - **`cmd/<name>/main.go`** — one directory per binary. Skip it entirely if you have one.
 - **`internal/`** — everything else, unless you're publishing a library.
 - **`pkg/`** — a convention for "importable by others". Widely considered unnecessary; if it's importable, just put it at the top level.
-- **Organise by feature, not by layer.** `internal/user/` beats `internal/handlers/`, `internal/services/`, `internal/repositories/` — adding a feature touches one directory instead of three, and Go's package-level visibility actually enforces the boundary. → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|Organising by Layer vs by Feature]]
+- **Organise by feature, not by layer.** `internal/user/` beats `internal/handlers/`, `internal/services/`, `internal/repositories/` — adding a feature touches one directory instead of three, and Go's package-level visibility actually enforces the boundary. → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by Layer vs by Feature]]
 
 **Start flat.** A `main.go` and a couple of packages is a perfectly good Go service. Structure when the flatness hurts, not before — the cost of moving a file is one `git mv` and the compiler telling you what broke.
 
@@ -139,7 +139,7 @@ That's the whole distribution model: a git tag. See [[git/11-tags-and-versioning
 ---
 
 ## Related
-- [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|Organising by Layer vs by Feature]] — the argument, in general
+- [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by Layer vs by Feature]] — the argument, in general
 - [[git/11-tags-and-versioning|Tags and Versioning]] — SemVer, which Go enforces structurally
 - [[devops/06-ci-cd/10-pipeline-security|Securing the Pipeline]] — the checksum database in context
 - [[languages/01-java/03-tooling/01-build-tools|Java: Build Tools]] — Maven/Gradle, for contrast

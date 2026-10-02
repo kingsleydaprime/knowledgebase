@@ -23,7 +23,7 @@ You've already been using them. `print()` is a function. So is `len()`, `max()`,
 
 **Naming intent.** `calculateTax(amount)` says what's happening. Eight lines of inline arithmetic makes the reader work it out, every time they pass.
 
-**Making things testable.** A function with inputs and an output can be checked in isolation, which is what makes [[concepts/04-best-practices/04-testing-fundamentals|automated tests]] possible at all.
+**Making things testable.** A function with inputs and an output can be checked in isolation, which is what makes [[concepts/04-best-practices/04-testing-fundamentals/index|automated tests]] possible at all.
 
 **Shrinking what you hold in your head.** This is the real one. Once `calculateTax` is written and works, you stop thinking about tax calculation and think about `calculateTax`. **The point of a function is to let you forget its contents** — and that forgetting is what allows a program larger than the few dozen lines a person can hold at once.
 
@@ -135,8 +135,8 @@ A function *can* usually see variables from the scope enclosing it, and in many 
 ## Related
 - [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — functions calling themselves, and how calls actually work
 - [[programming-fundamentals/11-planning-before-you-type|planning]] — deciding what your functions should be
-- [[concepts/04-best-practices/04-testing-fundamentals|testing]] — what functions make possible
-- [[concepts/04-best-practices/05-solid-principles|SOLID]] — "do one thing", scaled up
+- [[concepts/04-best-practices/04-testing-fundamentals/index|testing]] — what functions make possible
+- [[concepts/04-best-practices/05-solid-principles/index|SOLID]] — "do one thing", scaled up
 - [[software-engineering/01-what-software-engineering-is|abstraction]] — the habit this note is an instance of
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with purity, dependency judgement and closures.*

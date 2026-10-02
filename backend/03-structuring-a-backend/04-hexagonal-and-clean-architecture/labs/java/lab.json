@@ -1,0 +1,12 @@
+{
+  "lesson": "backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check-direction.sh"
+    ]
+  ],
+  "embedded": [
+    "src/shop/domain/Ports.java"
+  ]
+}

@@ -146,7 +146,7 @@
 
 **Tensor parallelism for inference** when the model doesn't fit, accepting the per-layer communication cost.
 
-→ [[ai-ml/03-ai-engineer/16-local-and-open-models|Local and Open Models]]
+→ [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local and Open Models]]
 
 ## Failure and scale
 

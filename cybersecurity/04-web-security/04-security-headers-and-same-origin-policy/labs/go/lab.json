@@ -1,0 +1,23 @@
+{
+  "lesson": "cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/in-other-languages.md",
+  "run": [
+    [
+      "go",
+      "vet",
+      "./..."
+    ],
+    [
+      "sh",
+      "-c",
+      "test -z \"$(gofmt -l .)\""
+    ],
+    [
+      "go",
+      "test",
+      "./..."
+    ]
+  ],
+  "embedded": [
+    "headers.go"
+  ]
+}

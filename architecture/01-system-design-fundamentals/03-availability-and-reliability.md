@@ -24,7 +24,7 @@ The practical lessons: **each nine costs disproportionately more** (five-nines r
 
 ## SLA, SLO, SLI
 
-The vocabulary for committing to availability (shared with [[devops/10-observability/01-observability-fundamentals|observability]]):
+The vocabulary for committing to availability (shared with [[devops/10-observability/01-observability-fundamentals/index|observability]]):
 
 - **SLI** (Indicator) — the measured signal (% of successful requests, p99 latency).
 - **SLO** (Objective) — your internal target (99.95% over 30 days).

@@ -68,7 +68,7 @@ GET /api/users/me
 PATCH /api/users/me
 { "name": "Ada", "isAdmin": true }      ← the client added isAdmin. The API set it. Privilege escalation.
 ```
-**Fix: allowlist the fields a client may set** (explicit input schemas / DTOs, never `Object.assign(user, req.body)`). Bind only what you meant to expose → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation]].
+**Fix: allowlist the fields a client may set** (explicit input schemas / DTOs, never `Object.assign(user, req.body)`). Bind only what you meant to expose → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]].
 
 ## The unifying principle
 

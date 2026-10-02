@@ -48,7 +48,7 @@ JWT is powerful and *dangerous* — its failures are famous because everyone rei
 A stolen token *is* the user, so how the client stores it matters:
 
 - **Mobile** — the Keychain/Keystore, never plain storage → [[mobile/12-security-on-device|secure storage]]
-- **SPA / browser** — the hard case. `localStorage` is readable by any XSS → a single script steals the token. An **httpOnly cookie** isn't readable by JS (XSS-resistant) but is sent automatically → CSRF-exposed. **The modern answer leans to httpOnly cookies + CSRF protection, or short-lived in-memory tokens with a refresh flow** → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy|CSRF]]
+- **SPA / browser** — the hard case. `localStorage` is readable by any XSS → a single script steals the token. An **httpOnly cookie** isn't readable by JS (XSS-resistant) but is sent automatically → CSRF-exposed. **The modern answer leans to httpOnly cookies + CSRF protection, or short-lived in-memory tokens with a refresh flow** → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|CSRF]]
 - **Server-to-server** — a secret manager, never in code or committed config → [[devops/09-secret-management/index|secret management]]
 
 ## Common authentication failures (OWASP API2)

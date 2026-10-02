@@ -35,7 +35,7 @@ Content-Security-Policy:
 
 **The fix is a per-response nonce** or a hash allowlist. It requires moving inline scripts out — real work, and the reason CSP adoption is patchy.
 
-**Roll it out with `Content-Security-Policy-Report-Only` first**, collect violation reports, then enforce. Enforcing a guessed policy breaks production → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy|security headers]].
+**Roll it out with `Content-Security-Policy-Report-Only` first**, collect violation reports, then enforce. Enforcing a guessed policy breaks production → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|security headers]].
 
 ## CORS — what it is and isn't
 

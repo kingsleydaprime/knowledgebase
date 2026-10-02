@@ -63,7 +63,7 @@ Almost everything in this vault is one of three moves applied to a different sub
 
 **Abstraction** — hiding detail behind an interface so you can reason about the whole without holding all of it. A function name, an HTTP API, a database index, TCP: all the same move at different scales. The skill is choosing *where* to put the boundary, because a bad abstraction is worse than none — it costs you the detail *and* misleads you about what's underneath.
 
-**Decomposition** — splitting a problem until each piece fits in your head, then checking the pieces still compose. The failure mode is splitting along the wrong seam, so every change touches five modules. That's what [[concepts/04-best-practices/05-solid-principles|SOLID]] is mostly about.
+**Decomposition** — splitting a problem until each piece fits in your head, then checking the pieces still compose. The failure mode is splitting along the wrong seam, so every change touches five modules. That's what [[concepts/04-best-practices/05-solid-principles/index|SOLID]] is mostly about.
 
 **Trade-offs** — recognising there is no best option, only an option that's best given what you're optimising for. Faster or cheaper. Consistent or available. Simple now or flexible later. **Engineers are distinguished less by knowing more options than by being able to say why they chose one.** That's also what a system-design interview is measuring — see [[architecture/interview/01-system-design-round|the round]].
 

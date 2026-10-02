@@ -89,6 +89,6 @@ Store the original filename as **metadata**, and escape it when displaying it.
 ## Related
 - [[devops/03-cloud/03-object-storage-and-direct-uploads|object storage and direct uploads]]
 - [[backend/06-cross-cutting/06-security-headers-and-cors|security headers]]
-- [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation]]
+- [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]]
 
 *Source: [reference] — written Aug 2026, closing the gap the previous README named as "not covered anywhere yet".*

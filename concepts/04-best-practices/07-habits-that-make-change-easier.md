@@ -6,7 +6,7 @@
 
 Getting better as a developer isn't mostly about learning another language. Past a point, the biggest gains come from making your code **easier to understand, easier to change, and harder to break** — and experienced engineers rarely do this by writing *cleverer* code. They usually write *simpler* code. These are seven habits with one idea underneath them all: **make the next change easier**, because software gets hard not when you write the first version, but when the next fifty edits become harder than they should be.
 
-This is the practical, at-the-keyboard companion to [[concepts/04-best-practices/01-clean-code|clean code]] and [[concepts/04-best-practices/05-solid-principles|SOLID]].
+This is the practical, at-the-keyboard companion to [[concepts/04-best-practices/01-clean-code/index|clean code]] and [[concepts/04-best-practices/05-solid-principles/index|SOLID]].
 
 ## 1. Keep the main path easy to follow
 
@@ -29,7 +29,7 @@ These are **guard clauses** (early return). The goal isn't to eliminate all nest
 
 Avoid `data`, `result`, `item`, `temp` when the actual meaning is more specific. `pendingOrder` and `processOrder()` tell you what you're dealing with; `data` and `process()` send you hunting elsewhere to find out.
 
-**Good names reduce the detective work required to understand a codebase.** You don't need long names for everything — just make the important concepts obvious. This is the cheapest, highest-frequency readability win there is, and it's half of what "self-documenting code" actually means → [[concepts/04-best-practices/01-clean-code|clean code]], [[concepts/04-best-practices/03-documentation-practices|documentation]].
+**Good names reduce the detective work required to understand a codebase.** You don't need long names for everything — just make the important concepts obvious. This is the cheapest, highest-frequency readability win there is, and it's half of what "self-documenting code" actually means → [[concepts/04-best-practices/01-clean-code/index|clean code]], [[concepts/04-best-practices/03-documentation-practices|documentation]].
 
 ## 3. Keep external systems behind a boundary
 
@@ -71,7 +71,7 @@ GOOD: isEligible(user) → bool                           ← pure. Trivially te
       if isEligible(user): grantAccess(); sendEmail()   ← actions, separately
 ```
 
-Now you can test eligibility without touching the database or sending an email. This applies to permissions, pricing, validation, retries, notifications — any business rule. **Make important decisions easy to test without triggering the side effects they control** → [[concepts/04-best-practices/04-testing-fundamentals|testing]], and it's the functional-core/imperative-shell idea.
+Now you can test eligibility without touching the database or sending an email. This applies to permissions, pricing, validation, retries, notifications — any business rule. **Make important decisions easy to test without triggering the side effects they control** → [[concepts/04-best-practices/04-testing-fundamentals/index|testing]], and it's the functional-core/imperative-shell idea.
 
 ## 6. Make errors useful
 
@@ -111,8 +111,8 @@ Every habit serves the same goal:
 **These seven habits all reduce to one goal — make the next change easier — and none of them require cleverness; most make the code *simpler*.** Guard clauses keep the main path visible, intent-revealing names cut detective work, boundaries contain external churn, precise types make invalid states unbuildable, separating decisions from actions makes logic testable, coded errors make failures handleable, and focused changes stay reviewable. Experienced engineers write code that's easy to change not because they're smarter in the moment, but because they optimise for the fifty edits that come after — which is the whole game in software that lives.
 
 ## Related
-- [[concepts/04-best-practices/01-clean-code|clean code]] · [[concepts/04-best-practices/05-solid-principles|SOLID]] · [[concepts/04-best-practices/02-pr-structure|PR structure]]
-- [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] — habit 5 is what makes code testable
+- [[concepts/04-best-practices/01-clean-code/index|clean code]] · [[concepts/04-best-practices/05-solid-principles/index|SOLID]] · [[concepts/04-best-practices/02-pr-structure|PR structure]]
+- [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] — habit 5 is what makes code testable
 - [[architecture/03-architectural-patterns/index|architectural patterns]] — habit 3 (anti-corruption layer) and habit 5 at system scale
 - [[languages/08-swift/05-enums-and-pattern-matching|type-driven design]] — habit 4 across languages
 

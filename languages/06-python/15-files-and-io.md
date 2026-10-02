@@ -171,7 +171,7 @@ if not target.is_relative_to(base.resolve()):     # 3.9+
     raise ValueError("path traversal attempt")
 ```
 
-`user_input` of `../../etc/passwd` escapes your directory. **Path traversal is a top-tier web vulnerability**, and the defence is to resolve and then verify containment → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation]].
+`user_input` of `../../etc/passwd` escapes your directory. **Path traversal is a top-tier web vulnerability**, and the defence is to resolve and then verify containment → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]].
 
 ## Related
 - [[languages/06-python/11-the-standard-library|the standard library]] — `pathlib`, `json`, `csv` in context

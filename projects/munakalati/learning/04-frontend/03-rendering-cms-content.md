@@ -152,4 +152,4 @@ This is a **migration scaffold that outlived its migration.** Keeping the origin
 - [[projects/munakalati/learning/04-frontend/01-app-router-structure|01 — App Router structure]]
 - [[projects/munakalati/learning/03-sanity/02-schema-design|sanity/02 — the schemas behind these]]
 - [[frontend/03-structuring-a-frontend/01-components-and-composition|components and composition]]
-- [[concepts/04-best-practices/01-clean-code|clean code]] — dead code that still compiles
+- [[concepts/04-best-practices/01-clean-code/index|clean code]] — dead code that still compiles

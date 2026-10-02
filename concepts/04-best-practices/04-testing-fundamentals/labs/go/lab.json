@@ -1,0 +1,25 @@
+{
+  "lesson": "concepts/04-best-practices/04-testing-fundamentals/in-other-languages.md",
+  "run": [
+    [
+      "go",
+      "vet",
+      "./..."
+    ],
+    [
+      "sh",
+      "-c",
+      "test -z \"$(gofmt -l .)\""
+    ],
+    [
+      "go",
+      "test",
+      "-shuffle=on",
+      "./..."
+    ]
+  ],
+  "embedded": [
+    "reminders.go",
+    "reminders_test.go"
+  ]
+}

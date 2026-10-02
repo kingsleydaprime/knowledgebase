@@ -36,7 +36,7 @@ Traditional firewalls decide based on IP/port/protocol — a NGFW can also inspe
 
 ## Web Application Firewalls (WAF) — a specialized, higher-layer case
 
-A WAF sits in front of a web application specifically and filters based on HTTP-level patterns — blocking requests that look like SQL injection or XSS attempts (see [[07-exploitation-concepts|exploitation-concepts]]) before they reach the application at all. Valuable as a mitigating control, but explicitly a mitigation layered on top of secure coding (see [[01-input-validation-and-output-encoding|input-validation-and-output-encoding]]) — not a substitute for fixing the underlying vulnerability, since WAF rules can be bypassed with a sufficiently crafted payload.
+A WAF sits in front of a web application specifically and filters based on HTTP-level patterns — blocking requests that look like SQL injection or XSS attempts (see [[07-exploitation-concepts|exploitation-concepts]]) before they reach the application at all. Valuable as a mitigating control, but explicitly a mitigation layered on top of secure coding (see [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input-validation-and-output-encoding]]) — not a substitute for fixing the underlying vulnerability, since WAF rules can be bypassed with a sufficiently crafted payload.
 
 ## Gotchas
 

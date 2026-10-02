@@ -1,0 +1,23 @@
+{
+  "lesson": "concepts/03-design-patterns/02-structural-patterns/in-other-languages.md",
+  "run": [
+    [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    [
+      "cargo",
+      "test",
+      "--quiet"
+    ],
+    [
+      "sh",
+      "check-orphan.sh"
+    ]
+  ],
+  "embedded": [
+    "src/lib.rs",
+    "check-orphan.sh"
+  ]
+}

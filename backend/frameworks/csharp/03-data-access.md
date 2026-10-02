@@ -87,7 +87,7 @@ var orders = await conn.QueryAsync<Order>(
 
 **When to prefer it:** complex reporting queries, hot read paths, anything where you want the SQL to be exactly what you wrote. **A very common architecture is both** — EF Core for writes and the domain model, Dapper for read queries.
 
-**Parameters are non-negotiable in either.** `$"... WHERE id = {input}"` is SQL injection; the parameterised form is not → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation]].
+**Parameters are non-negotiable in either.** `$"... WHERE id = {input}"` is SQL injection; the parameterised form is not → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]].
 
 ## Transactions and concurrency
 

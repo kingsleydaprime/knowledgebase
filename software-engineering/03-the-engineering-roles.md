@@ -130,7 +130,7 @@ You can look at any software job and say what it owns, what it fears, and what l
 
 **Recap.** Titles vary; ownership doesn't. Tell roles apart by the failure they fear and their feedback loop. Seniority is about how ambiguous a problem you can be trusted with, and it matters more than which row you're in.
 
-**Next.** [[software-engineering/04-the-kinds-of-software-engineering|The kinds of software engineering]] cuts the same field by constraint rather than by product — optional for SWE 101, but useful if you're weighing embedded or systems work. Then week 2 starts design principles with [[concepts/04-best-practices/01-clean-code|clean code]].
+**Next.** [[software-engineering/04-the-kinds-of-software-engineering|The kinds of software engineering]] cuts the same field by constraint rather than by product — optional for SWE 101, but useful if you're weighing embedded or systems work. Then week 2 starts design principles with [[concepts/04-best-practices/01-clean-code/index|clean code]].
 
 ## Related
 - [[software-engineering/01-what-software-engineering-is|what software engineering is]]

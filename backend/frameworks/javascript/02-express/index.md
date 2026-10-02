@@ -7,7 +7,7 @@ Minimal and unopinionated: a router, a middleware chain, and nothing else. You s
 ## What to know
 - **Middleware is the whole model** — `(req, res, next)`, order matters, and the error handler takes four arguments (`err, req, res, next`) or it silently isn't one.
 - **Async errors are not caught automatically** in Express 4 — an async handler that rejects hangs the request unless you wrap it or use Express 5.
-- **It gives you no structure.** Impose [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|feature folders]] and [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|a composition root]] yourself, early.
+- **It gives you no structure.** Impose [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|feature folders]] and [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|a composition root]] yourself, early.
 
 ## Related
 - [[backend/frameworks/javascript/index|JavaScript backends]] · [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]]

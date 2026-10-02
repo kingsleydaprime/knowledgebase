@@ -1,0 +1,15 @@
+{
+  "lesson": "concepts/04-best-practices/08-coupling-and-cohesion/index.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "coupling.mjs",
+    "coupling.test.mjs",
+    "sample/src/orders/index.ts",
+    "sample/src/payments/index.ts"
+  ]
+}

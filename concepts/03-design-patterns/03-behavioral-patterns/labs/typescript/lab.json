@@ -1,0 +1,13 @@
+{
+  "lesson": "concepts/03-design-patterns/03-behavioral-patterns/index.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "order-state.ts",
+    "order-state.test.ts"
+  ]
+}

@@ -27,7 +27,7 @@ The previous notes were about *individual* vulnerabilities. This one is about th
 The catch-all for insecure defaults and sloppy setup — and it's common because secure-by-default is still rare:
 
 - **Verbose errors** leaking stack traces, SQL, internal paths, versions → attacker reconnaissance. Return generic errors to clients; log detail server-side
-- **Missing security headers** and **overly-permissive CORS** — `Access-Control-Allow-Origin: *` on an authenticated API lets any site call it → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy|CORS and headers]]
+- **Missing security headers** and **overly-permissive CORS** — `Access-Control-Allow-Origin: *` on an authenticated API lets any site call it → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|CORS and headers]]
 - **Unnecessary HTTP methods** enabled (`PUT`, `DELETE`, `TRACE`) where not needed
 - **Default credentials** on admin interfaces, databases, dashboards
 - **Missing TLS**, or accepting weak ciphers → [[cybersecurity/04-web-security/03-https-and-tls|TLS]]

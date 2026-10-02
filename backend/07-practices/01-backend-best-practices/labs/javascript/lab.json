@@ -1,0 +1,19 @@
+{
+  "lesson": "backend/07-practices/01-backend-best-practices/index.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ],
+    [
+      "node",
+      "--test",
+      "--test-randomize"
+    ]
+  ],
+  "embedded": [
+    "practices.mjs",
+    "app.mjs",
+    "app.test.mjs"
+  ]
+}

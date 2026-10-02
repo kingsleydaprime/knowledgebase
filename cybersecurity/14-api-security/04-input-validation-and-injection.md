@@ -6,7 +6,7 @@
 
 An API takes input from untrusted callers and does things with it — queries a database, calls other services, builds responses. **If it trusts that input, the caller can make it do things it shouldn't:** run their SQL, fetch a URL they chose, or crash it with a malicious payload.
 
-Most of this is the same injection story as [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|web security]] — with two API-specific twists: **schema validation matters more** (you're parsing structured data, not form fields), and **SSRF** has become a signature API vulnerability.
+Most of this is the same injection story as [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|web security]] — with two API-specific twists: **schema validation matters more** (you're parsing structured data, not form fields), and **SSRF** has become a signature API vulnerability.
 
 ## Validate the whole request, by schema
 
@@ -21,12 +21,12 @@ APIs receive structured data (JSON, usually), and the first defence is refusing 
 
 ## The injection classes — same story, API surface
 
-Injection is injection: **untrusted input is treated as code/commands instead of data.** The classes and their real fixes, which are the same as [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|web security]] and [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|exploitation concepts]]:
+Injection is injection: **untrusted input is treated as code/commands instead of data.** The classes and their real fixes, which are the same as [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|web security]] and [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|exploitation concepts]]:
 
 - **SQL injection** → **parameterised queries.** Never string-concatenate input into SQL → [[databases/sql-reference|SQL]]. An ORM helps but doesn't make you immune (raw queries, some query builders)
 - **NoSQL injection** — the API twist. JSON APIs over MongoDB et al. let attackers inject *operators*: `{"password": {"$ne": null}}` bypasses a login that expected a string. **Validate types** — a password field must be a *string*, not an object
 - **Command injection** → don't pass input to a shell; use library calls with argument arrays, never string interpolation → [[build-your-own-shit/07-your-own-shell|how shells parse]]
-- **XSS** — matters when API data is rendered by a browser client. **Output-encode at render** (the frontend's job), and set `Content-Type: application/json` so responses aren't interpreted as HTML → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy|CSP]]
+- **XSS** — matters when API data is rendered by a browser client. **Output-encode at render** (the frontend's job), and set `Content-Type: application/json` so responses aren't interpreted as HTML → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|CSP]]
 - **XXE (XML External Entity)** — if you parse XML, disable external entities. Less common now JSON dominates, still lurking in SOAP and file uploads
 
 **The through-line:** keep data and code separate — parameterise, use safe APIs, encode at the boundary. Validation reduces the attack surface; **these specific fixes are what actually stop injection.**
@@ -66,7 +66,7 @@ Injection is injection: **untrusted input is treated as code/commands instead of
 **Input-driven API attacks are the same "treat data as code" failure as web security — fixed the same way (parameterise, use safe APIs, allowlist by schema) — plus SSRF, which is the API era's signature vulnerability because servers now constantly fetch caller-supplied URLs from inside the trusted network.** Schema validation at the edge shrinks the surface, but the specific defences (parameterised queries, disabled XXE, SSRF allowlists + IMDSv2 + egress filtering) are what actually stop the attacks. When a user supplies a URL, assume SSRF; Capital One is the reminder of the stakes.
 
 ## Related
-- [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation and output encoding]] — the general treatment
+- [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation and output encoding]] — the general treatment
 - [[cybersecurity/09-cloud-security/index|cloud security]] — the SSRF-to-metadata attack path
 - [[cybersecurity/14-api-security/03-authorization-and-bola|authorization]] — the other "trust the input" family
 - [[backend/02-api-design/index|API design]] — schema validation while building

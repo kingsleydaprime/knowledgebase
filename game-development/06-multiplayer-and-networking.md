@@ -18,7 +18,7 @@ At 50 ms one-way latency, you are always seeing where everyone *was* 50 ms ago. 
 
 **The rule, and it is close to absolute: never trust the client.** A client that reports its own position will report being inside the enemy base with 10,000 health. The server simulates; the client *requests* and *predicts*.
 
-Clients that were once trusted for hit detection produced an entire generation of aimbots. **Treat the client as hostile input** — exactly the posture in [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation]].
+Clients that were once trusted for hit detection produced an entire generation of aimbots. **Treat the client as hostile input** — exactly the posture in [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]].
 
 ## The three techniques that make it playable
 

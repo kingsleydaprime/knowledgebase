@@ -80,7 +80,7 @@ Physical programmes call it operational test and evaluation, sea trials, or flig
 ## Related
 - [[systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]] — where V&V sits
 - [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — finding what you didn't specify
-- [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] — the software version
+- [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] — the software version
 - [[architecture/04-distributed-systems/15-testing-distributed-systems|testing distributed systems]]
 
 *Source: [reference] — from the NASA SE Handbook, INCOSE, and the standard human-factors case studies.*

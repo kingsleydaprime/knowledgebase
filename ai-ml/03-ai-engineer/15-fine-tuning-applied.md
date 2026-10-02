@@ -18,7 +18,7 @@ Concrete cases where it's the right call: locking a rigid output format or perso
 You take an already-trained base model and continue training it a little on **your** examples, nudging its weights toward your task. Two things make this practical without a GPU cluster:
 
 - **You rarely update all the weights.** **Parameter-efficient fine-tuning (PEFT)**, most commonly **LoRA** (Low-Rank Adaptation), freezes the giant base model and trains a tiny set of small "adapter" matrices bolted onto it. You end up training well under 1% of the parameters — cheap, fast, and you can keep many small adapters for one base model. This is what "fine-tuning" almost always means in practice today.
-- **Hosted providers hide even that.** The closed-API path is: upload a dataset of examples → the provider runs the training → you call a new model ID. No infrastructure, no PEFT knobs — you supply data and get an endpoint. Open-weight models ([[ai-ml/03-ai-engineer/16-local-and-open-models|local & open models]]) let you run LoRA yourself for more control and no per-token markup.
+- **Hosted providers hide even that.** The closed-API path is: upload a dataset of examples → the provider runs the training → you call a new model ID. No infrastructure, no PEFT knobs — you supply data and get an endpoint. Open-weight models ([[ai-ml/03-ai-engineer/16-local-and-open-models/index|local & open models]]) let you run LoRA yourself for more control and no per-token markup.
 
 ### Two flavors, by what your data looks like
 - **Supervised fine-tuning (SFT)** — the common one. Your dataset is `(input, ideal_output)` pairs; the model learns to produce the ideal output. This is how you teach format, tone, and narrow tasks.
@@ -55,5 +55,5 @@ You can also **combine** RAG and fine-tuning: fine-tune for *how to behave* (for
 ## Related
 - [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/03-fine-tuning|ML Engineer: Fine-Tuning]] — the deep mechanics (loss, epochs, RLHF, transfer learning)
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — the RAG-vs-fine-tuning decision in full
-- [[ai-ml/03-ai-engineer/16-local-and-open-models|Local & Open Models]] — running your own LoRA on open weights
+- [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local & Open Models]] — running your own LoRA on open weights
 - [[ai-ml/03-ai-engineer/12-evals|Evals]] — how you prove the fine-tune was worth it

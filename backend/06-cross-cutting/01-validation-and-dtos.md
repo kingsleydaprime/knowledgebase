@@ -85,6 +85,6 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 - [[backend/06-cross-cutting/03-error-handling|error handling]] — the response shape
 - [[backend/02-api-design/index|API design]] — contracts
 - [[backend/frameworks/cross-language-recipes|cross-language recipes]] — this in six stacks
-- [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation]] — the security view
+- [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]] — the security view
 
 *Source: [reference] — written Aug 2026.*

@@ -10,10 +10,10 @@ blog-drafts/
 templates/
 .vscode/settings.json
 
-# labs: installed or generated on each run
-labs/**/node_modules/
-labs/**/__pycache__/
-labs/**/.import_linter_cache/
-labs/**/*.sqlite3
-labs/**/shop.db
-labs/**/target/
+# labs: installed or generated on each run, wherever a lab lives (lesson-folder/labs/<language>/)
+**/labs/**/node_modules/
+**/labs/**/target/
+**/labs/**/__pycache__/
+**/labs/**/.import_linter_cache/
+**/labs/**/*.sqlite3
+**/labs/**/shop.db

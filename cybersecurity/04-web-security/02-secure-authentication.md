@@ -37,7 +37,7 @@ independently computable by both the server and the user's authenticator app wit
 Once authenticated, a **session token** (commonly stored in a cookie) represents "this request comes from an already-authenticated user," so the user doesn't have to re-authenticate on every single request. Getting this right matters as much as the login step itself:
 
 - Session tokens need to be long, random, and unguessable (predictable session IDs are a direct account-takeover vector).
-- Cookies holding session tokens should be marked `HttpOnly` (inaccessible to JavaScript, mitigating token theft via XSS — see [[01-input-validation-and-output-encoding|input-validation-and-output-encoding]]) and `Secure` (only ever sent over HTTPS, see [[03-https-and-tls|https-and-tls]]).
+- Cookies holding session tokens should be marked `HttpOnly` (inaccessible to JavaScript, mitigating token theft via XSS — see [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input-validation-and-output-encoding]]) and `Secure` (only ever sent over HTTPS, see [[03-https-and-tls|https-and-tls]]).
 - Sessions should expire, and critically, should be invalidated server-side on logout — a session token that still works after "logout" because only the client-side cookie was cleared is a common, subtle bug.
 
 ## JWTs — a common but frequently misused alternative
@@ -51,7 +51,7 @@ JSON Web Tokens are a popular way to represent authentication state without serv
 - Rate limiting login attempts is what actually stops online brute-force guessing (as opposed to the offline cracking covered in [[08-common-tools|common-tools]]) — an authentication endpoint with no attempt limiting is directly exploitable regardless of how strong the hashing is.
 
 ## Related
-- [[01-input-validation-and-output-encoding|input-validation-and-output-encoding]]
+- [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input-validation-and-output-encoding]]
 - [[03-https-and-tls|https-and-tls]]
 - [[07-exploitation-concepts|exploitation-concepts]]
 - [[03-hashing-and-integrity|hashing-and-integrity]] — general-purpose hashing vs. the deliberately slow password hashing covered above

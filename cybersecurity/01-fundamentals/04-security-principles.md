@@ -35,7 +35,7 @@ except Exception:
     authorized = False        # ← fail CLOSED. An error denies access, never grants it
 ```
 
-An error in an auth check should deny access, not accidentally grant it. A firewall that crashes should block traffic, not pass it. **Default to deny; allow only what's explicitly permitted** — an allowlist, not a blocklist, because you can enumerate what's safe far more reliably than what's dangerous. This recurs everywhere: [[cybersecurity/14-api-security/03-authorization-and-bola|API authorization]], [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation]], firewall rules.
+An error in an auth check should deny access, not accidentally grant it. A firewall that crashes should block traffic, not pass it. **Default to deny; allow only what's explicitly permitted** — an allowlist, not a blocklist, because you can enumerate what's safe far more reliably than what's dangerous. This recurs everywhere: [[cybersecurity/14-api-security/03-authorization-and-bola|API authorization]], [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]], firewall rules.
 
 ## Minimise the attack surface
 

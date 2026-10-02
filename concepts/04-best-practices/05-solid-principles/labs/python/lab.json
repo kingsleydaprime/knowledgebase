@@ -1,0 +1,18 @@
+{
+  "lesson": "concepts/04-best-practices/05-solid-principles/in-other-languages.md",
+  "run": [
+    [
+      "python3",
+      "-m",
+      "unittest"
+    ],
+    [
+      "sh",
+      "check-exhaustive.sh"
+    ]
+  ],
+  "embedded": [
+    "fees.py",
+    "check-exhaustive.sh"
+  ]
+}

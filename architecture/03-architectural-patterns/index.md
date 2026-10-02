@@ -6,7 +6,7 @@ How the [[architecture/02-building-blocks/index|building blocks]] are arranged i
 2. [[architecture/03-architectural-patterns/02-resilience-patterns|Resilience Patterns]] — **[Advanced]** — circuit breaker, bulkhead, retry, timeout, throttling — designing so partial failure stays partial
 3. [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — **[Advanced]** — CQRS, event sourcing, saga, materialized views, strangler fig
 4. [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices Patterns]] — **[Advanced]** — service discovery, API gateway/aggregation, sidecar/ambassador, backends-for-frontends, leader election
-5. [[architecture/03-architectural-patterns/05-transactional-outbox|Transactional Outbox]] — **[Intermediate→Advanced]** — saving a change *and* announcing it without a dual write: lost vs phantom events, the outbox table and relay, at-least-once delivery, idempotent consumers. **With a lab that crashes at the worst moments**
+5. [[architecture/03-architectural-patterns/05-transactional-outbox/index|Transactional Outbox]] — **[Intermediate→Advanced]** — saving a change *and* announcing it without a dual write: lost vs phantom events, the outbox table and relay, at-least-once delivery, idempotent consumers. **With a lab that crashes at the worst moments**
 
 ## Related
 - [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud Design Patterns (devops)]] — the same resilience patterns from the ops angle

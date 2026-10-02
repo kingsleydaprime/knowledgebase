@@ -1,0 +1,13 @@
+{
+  "lesson": "concepts/04-best-practices/08-coupling-and-cohesion/in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "-c",
+      "podman run --rm -v \"$PWD\":/lab:Z -w /lab mcr.microsoft.com/dotnet/sdk:10.0 sh check-cycle.sh"
+    ]
+  ],
+  "embedded": [
+    "check-cycle.sh"
+  ]
+}

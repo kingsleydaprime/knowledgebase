@@ -11,7 +11,7 @@ This section is deliberately thin because the depth already exists:
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed transactions]] — isolation and MVCC in depth
 
 ## The backend-specific parts
-- **Transaction boundaries belong in the service layer**, not the repository — the service knows what must succeed together. → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|layers]]
+- **Transaction boundaries belong in the service layer**, not the repository — the service knows what must succeed together. → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layers]]
 - **Concurrent writes are a correctness problem**: optimistic locking (`@Version`), pessimistic (`SELECT … FOR UPDATE`), or an atomic conditional `UPDATE … WHERE qty > 0`. Know which your isolation level requires.
 - **The connection pool is usually your real concurrency limit** — and smaller is often faster. Time spent waiting for a connection is invisible unless you instrument it.
 - **N+1 queries** are the most common performance regression, and they exhaust the pool, which makes them a *service-wide* incident. → [[backend/interview/01-production-debugging|production debugging]]

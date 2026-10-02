@@ -17,11 +17,11 @@ The contract you can't easily change. REST semantics, status codes, idempotency.
 
 ### [[backend/03-structuring-a-backend/index|03 — Structuring a Backend]] ⭐
 **The heart of the course.**
-1. [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|Layers — Controllers, Services, Repositories]] — the three jobs, and the test for when you've broken them
-2. [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|By Layer vs by Feature]] — change locality, deletability, how `shared/` rots
-3. [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|Dependency Injection & Wiring]] — be handed your tools, don't make them
-4. [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal & Clean Architecture]] — inverting the dependency, and what it honestly costs
-5. [[backend/03-structuring-a-backend/05-modular-monolith-to-services|Modular Monolith → Services]] — discover boundaries where being wrong is cheap
+1. [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|Layers — Controllers, Services, Repositories]] — the three jobs, and the test for when you've broken them
+2. [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|By Layer vs by Feature]] — change locality, deletability, how `shared/` rots
+3. [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency Injection & Wiring]] — be handed your tools, don't make them
+4. [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal & Clean Architecture]] — inverting the dependency, and what it honestly costs
+5. [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular Monolith → Services]] — discover boundaries where being wrong is cheap
 
 ### [[backend/04-data-and-persistence/index|04 — Data & Persistence]]
 Transactions, concurrent writes, connection pools, N+1, migrations.
@@ -36,7 +36,7 @@ Transactions, concurrent writes, connection pools, N+1, migrations.
 *Caching, observability and background jobs stay in [[architecture/02-building-blocks/index|building blocks]] and [[devops/10-observability/index|observability]] — linked, not duplicated. For the per-language implementations, see [[backend/frameworks/cross-language-recipes|cross-language recipes]].*
 
 ### [[backend/07-practices/index|07 — Practices]]
-[[backend/07-practices/01-backend-best-practices|Backend best practices]].
+[[backend/07-practices/01-backend-best-practices/index|Backend best practices]].
 
 ---
 

@@ -1,0 +1,12 @@
+{
+  "lesson": "concepts/03-design-patterns/03-behavioral-patterns/in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "src/orders/Order.java"
+  ]
+}

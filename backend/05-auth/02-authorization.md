@@ -74,7 +74,7 @@ await updatePost(req.params.id, req.body);
 
 ## Gotchas
 
-- Checking authorization only in the frontend/UI (hiding a button) provides zero actual security — see the client-side-validation gotcha in [[01-input-validation-and-output-encoding|input-validation-and-output-encoding]]; the same principle applies here identically. Every authorization check has to be enforced server-side.
+- Checking authorization only in the frontend/UI (hiding a button) provides zero actual security — see the client-side-validation gotcha in [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input-validation-and-output-encoding]]; the same principle applies here identically. Every authorization check has to be enforced server-side.
 - Object-level authorization is the single most commonly missed check in real applications — role/permission checks alone are not sufficient the moment "which specific resource" matters, which is almost always.
 - Overly broad roles (a "staff" role that's really "everything except admin") tend to accumulate over time as a team takes the path of least resistance — periodically auditing actual role permissions against what's genuinely needed is a real, ongoing task, not a one-time setup step.
 

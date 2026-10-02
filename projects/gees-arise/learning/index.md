@@ -12,7 +12,7 @@ The domain-file numbering here follows the standard learning-file convention —
 4. [[projects/gees-arise/learning/04-supabase|04 — Supabase & RLS]] ⭐ → [[backend/05-auth/02-authorization|authorization]], [[cybersecurity/04-web-security/index|web security]]
 5. [[projects/gees-arise/learning/05-backend|05 — Backend]] → [[backend/index|backend concepts]]
 6. [[projects/gees-arise/learning/06-frontend|06 — Frontend]] → [[frontend/index|frontend concepts]]
-7. [[projects/gees-arise/learning/07-testing|07 — Testing]] → [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]]
+7. [[projects/gees-arise/learning/07-testing|07 — Testing]] → [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]]
 8. [[projects/gees-arise/learning/08-devops|08 — DevOps]] → [[devops/index|devops]]
 9. [[projects/gees-arise/learning/09-sys-design|09 — System Design]] → [[architecture/index|architecture]]
 

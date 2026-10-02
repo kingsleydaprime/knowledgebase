@@ -32,8 +32,12 @@ def main():
     lessons, companions = [], {}
     for p in pathlib.Path(".").rglob("*.md"):
         s = str(p)
-        if s.startswith(SKIP) or "/interview" in s or s.endswith("-qb.md") or p.name in ("index.md", "projects.md"):
+        if s.startswith(SKIP) or "/interview" in s or s.endswith("-qb.md") or p.name == "projects.md":
             continue
+        if "labs" in p.parts or "node_modules" in p.parts:     # lab code beside a lesson
+            continue
+        if p.name == "index.md" and not (p.parent / "labs").exists() and not list(p.parent.glob("in-*.md")):
+            continue                                            # a folder index, not a lesson folder
         text = p.read_text(errors="ignore")
         head = text[:1500]
         m = re.search(r"A companion to \[\[([^\]|#]+)", head)

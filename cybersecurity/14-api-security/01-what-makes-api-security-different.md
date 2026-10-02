@@ -12,7 +12,7 @@ API security is web security with the browser's safety net removed and the data 
 
 OWASP maintains a **separate API Security Top 10** from its famous web Top 10 — that split is itself the signal that this is its own discipline. The reasons:
 
-**The browser's protections don't apply.** A huge amount of web security is enforced *by the browser* → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy|the same-origin policy]]. The Same-Origin Policy, CORS, cookie flags, CSP — these govern what a *browser* does. An API called by a phone app, a script, or `curl` gets none of that. **There is no browser to enforce anything**, so the API must enforce everything itself, on every request.
+**The browser's protections don't apply.** A huge amount of web security is enforced *by the browser* → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|the same-origin policy]]. The Same-Origin Policy, CORS, cookie flags, CSP — these govern what a *browser* does. An API called by a phone app, a script, or `curl` gets none of that. **There is no browser to enforce anything**, so the API must enforce everything itself, on every request.
 
 **The client is untrusted and inspectable.** A mobile app or SPA runs on the attacker's device → [[mobile/12-security-on-device|the app is on the attacker's hardware]]. They can read its code, watch its traffic, and replay or forge any request. **Any check done in the client is decorative** — the API must re-verify everything server-side.
 

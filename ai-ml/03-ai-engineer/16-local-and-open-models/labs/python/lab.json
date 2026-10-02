@@ -1,0 +1,15 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/16-local-and-open-models/index.md",
+  "run": [
+    [
+      "python3",
+      "-m",
+      "unittest"
+    ]
+  ],
+  "embedded": [
+    "sizing.py",
+    "test_sizing.py",
+    "measure.py"
+  ]
+}

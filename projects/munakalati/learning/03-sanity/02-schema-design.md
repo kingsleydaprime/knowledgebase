@@ -177,4 +177,4 @@ preview: {
 - [[projects/munakalati/learning/03-sanity/03-groq-queries|03 — GROQ queries]] — where the `defined()` guards pay off
 - [[projects/munakalati/learning/06-bugs-and-postmortems|06 — bugs and postmortems]]
 - [[databases/database-design-reference|database design reference]] — the relational counterpart to this
-- [[concepts/04-best-practices/01-clean-code|clean code]]
+- [[concepts/04-best-practices/01-clean-code/index|clean code]]

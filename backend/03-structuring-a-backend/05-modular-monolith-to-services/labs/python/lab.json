@@ -1,0 +1,13 @@
+{
+  "lesson": "backend/03-structuring-a-backend/05-modular-monolith-to-services/in-other-languages.md",
+  "run": [
+    [
+      "python3",
+      "-m",
+      "unittest"
+    ]
+  ],
+  "embedded": [
+    "shop.py"
+  ]
+}

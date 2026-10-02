@@ -1,0 +1,18 @@
+{
+  "lesson": "cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/in-other-languages.md",
+  "run": [
+    [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    [
+      "cargo",
+      "test",
+      "--quiet"
+    ]
+  ],
+  "embedded": [
+    "src/lib.rs"
+  ]
+}

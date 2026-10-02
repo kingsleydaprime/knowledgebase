@@ -9,7 +9,7 @@ Useful starting points:
 - `HOME.md` — the map of the whole vault.
 - `learning/swe-101/index.md`, `learning/swe-102/index.md`, `learning/swe-103/index.md` — his courses, week by week, with links to each lesson.
 - Every folder has an `index.md` listing its lessons in order.
-- Links look like `[[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|layers]]`. The file is that path plus `.md`.
+- Links look like `[[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layers]]`. The file is that path plus `.md`.
 
 ## Rules
 

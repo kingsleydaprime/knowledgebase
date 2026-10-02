@@ -31,9 +31,8 @@ def lessons_from_courses() -> list[pathlib.Path]:
             p = pathlib.Path(link + ".md")
             if p.exists() and not link.startswith(("learning/", "dsa/")) and p not in paths:
                 paths.append(p)
-                companion = next(p.parent.glob(p.name.split("-", 1)[0] + "b-*.md"), None)
-                if companion and companion not in paths:
-                    paths.append(companion)
+                if p.name == "index.md":                     # a lesson folder: include its companions
+                    paths += [c for c in sorted(p.parent.glob("*.md")) if c not in paths]
     return paths
 
 
