@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/13-reliability-and-plumbing/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Reliability/Reliability.cs", "Reliability/Program.cs"]
+}

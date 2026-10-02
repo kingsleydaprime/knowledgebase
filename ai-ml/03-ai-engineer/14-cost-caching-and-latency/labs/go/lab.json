@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/14-cost-caching-and-latency/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "./..."]],
+  "embedded": ["cost.go", "cost_test.go"]
+}
