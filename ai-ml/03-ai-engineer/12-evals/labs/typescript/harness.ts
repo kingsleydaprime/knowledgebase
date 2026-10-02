@@ -7,7 +7,7 @@ export type Case = { id: string; ticket: string; label: Label; tags: string[] };
 export type Classify = (ticket: string) => Promise<string>; // returns the raw reply
 
 /** The golden set is a file in version control: one JSON object per line, reviewed like code. */
-export function loadGolden(path = new URL("./golden.jsonl", import.meta.url)): Case[] {
+export function loadGolden(path = new URL("../shared/golden.jsonl", import.meta.url)): Case[] { // shared by every language
   return readFileSync(path, "utf8").split("\n").filter(Boolean).map((line) => JSON.parse(line));
 }
 
