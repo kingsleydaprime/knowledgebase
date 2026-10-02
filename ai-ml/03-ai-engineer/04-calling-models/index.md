@@ -532,6 +532,7 @@ You can write a chat request and read its response without looking anything up, 
 **Next.** [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — getting data back instead of prose (week 2).
 
 ## Related
+- [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages|Calling models in other languages]] — the same client in Python, Go, Java, Rust, C, C++ and C#
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — the settings sent on each call
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — what goes in the messages
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp|Tools and MCP]] — tool calling in depth

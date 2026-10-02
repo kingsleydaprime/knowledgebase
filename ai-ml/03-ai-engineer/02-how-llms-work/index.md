@@ -390,6 +390,7 @@ You can explain, without notes, how a model goes from a prompt to one next token
 **Next.** [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — where you set these values in a real request.
 
 ## Related
+- [[ai-ml/03-ai-engineer/02-how-llms-work/in-other-languages|How LLMs work in other languages]] — the same decoder in Python, Go, Java, Rust, C, C++ and C#
 - [[ai-ml/00-foundations/02-what-is-a-model|What is a model]] — the general "adjustable function" this specialises
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — shaping the input to this mechanism
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — where you set these settings in practice

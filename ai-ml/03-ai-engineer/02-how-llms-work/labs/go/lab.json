@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/02-how-llms-work/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "./..."]],
+  "embedded": ["decoding.go", "decoding_test.go"]
+}

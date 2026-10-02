@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages.md",
+  "run": [["sh", "-c", "podman run --rm -v \"$PWD/..\":/labs:Z -w /labs/csharp mcr.microsoft.com/dotnet/sdk:10.0 sh check.sh"]],
+  "embedded": ["Prompts/Prompts.cs", "Prompts/Program.cs"]
+}

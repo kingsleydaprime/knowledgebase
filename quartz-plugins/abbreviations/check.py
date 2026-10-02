@@ -37,7 +37,9 @@ def lessons_from_courses() -> list[pathlib.Path]:
 
 
 def prose(text: str) -> str:
-    text = re.sub(r"```.*?```", "", text, flags=re.S)   # code blocks
+    # code blocks: a fence opens and closes only at the start of a line, so a test string that
+    # contains ``` mid-line doesn't end the block early
+    text = re.sub(r"^ {0,3}(`{3,}|~{3,}).*?^ {0,3}\1[ \t]*$", "", text, flags=re.S | re.M)
     text = re.sub(r"``.*?``|`[^`]*`", "", text)          # inline code
     text = re.sub(r"\[\[[^\]]*\]\]", "", text)           # wikilinks
     text = re.sub(r"\]\([^)]*\)", "]", text)             # markdown link targets

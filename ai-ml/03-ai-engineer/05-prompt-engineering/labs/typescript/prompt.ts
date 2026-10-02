@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 
 /** Prompts live in version control as files, so a change is a diff you can review and roll back. */
 export function loadPrompt(name: string): string {
-  return readFileSync(new URL(`./prompts/${name}.md`, import.meta.url), "utf8");
+  return readFileSync(new URL(`../shared/prompts/${name}.md`, import.meta.url), "utf8"); // shared by every language
 }
 
 /** Fill {{name}} slots. A missing value is a bug, not an empty string. */

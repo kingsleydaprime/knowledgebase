@@ -469,6 +469,7 @@ You can say what each of the three modes guarantees, name the three checks in or
 **Next.** [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — the rest of week 2.
 
 ## Related
+- [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages|Structured output in other languages]] — Pydantic, Go struct tags, Jackson, serde and System.Text.Json
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — where the schema goes on the request
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp|Tools and MCP]] — the same schema machinery, aimed at function arguments
 - [[ai-ml/03-ai-engineer/12-evals|Evals]] — structural checks are the cheapest, most reliable eval
