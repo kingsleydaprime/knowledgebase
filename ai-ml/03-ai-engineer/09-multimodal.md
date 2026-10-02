@@ -21,7 +21,7 @@ Evaluation criteria differ entirely from text — aesthetic quality, prompt adhe
 
 - **Speech-to-text (ASR)** — audio in, transcript out. **Whisper** (OpenAI, open-weight) is the well-known one; the backbone of transcription, voice interfaces, and meeting/podcast pipelines.
 - **Text-to-speech (TTS)** — text in, synthesized (increasingly natural, voice-cloneable) speech out.
-- Together they enable **voice agents** — STT → [[ai-ml/03-ai-engineer/08-agents|LLM/agent]] → TTS — a full spoken loop.
+- Together they enable **voice agents** — STT → [[ai-ml/03-ai-engineer/08-agents/index|LLM/agent]] → TTS — a full spoken loop.
 
 ## Video
 

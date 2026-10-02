@@ -108,7 +108,7 @@ Three cases need different handling:
 
 ### Structured output and tool calling are the same machinery
 
-Tool calling ([[ai-ml/03-ai-engineer/07-tools-and-mcp|tools and MCP]]) is structured output aimed at a function's arguments instead of an answer. "Strict" tools use the same constrained decoding. If your stack only offers structured data through tools, define one tool whose parameters are your schema and force the model to call it.
+Tool calling ([[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools and MCP]]) is structured output aimed at a function's arguments instead of an answer. "Strict" tools use the same constrained decoding. If your stack only offers structured data through tools, define one tool whose parameters are your schema and force the model to call it.
 
 ## Worked example — extracting an invoice
 
@@ -471,7 +471,7 @@ You can say what each of the three modes guarantees, name the three checks in or
 ## Related
 - [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages|Structured output in other languages]] — Pydantic, Go struct tags, Jackson, serde and System.Text.Json
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — where the schema goes on the request
-- [[ai-ml/03-ai-engineer/07-tools-and-mcp|Tools and MCP]] — the same schema machinery, aimed at function arguments
+- [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] — the same schema machinery, aimed at function arguments
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — structural checks are the cheapest, most reliable eval
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety and production]] — refusals, and containing what a model outputs
 

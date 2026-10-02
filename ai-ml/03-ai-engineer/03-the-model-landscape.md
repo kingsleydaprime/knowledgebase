@@ -61,7 +61,7 @@ Rule of thumb: **self-host when privacy/offline is a hard requirement, volume ma
 "AI tool" spans wildly different categories that aren't actually competing — identify the category before comparing options within it:
 
 - **Chat assistants** (Claude, ChatGPT, Gemini) — general conversational LLM access.
-- **Coding assistants / agentic coding tools** (Copilot, Cursor, Claude Code) — evaluate on *how much autonomy/tool access* they have, from autocomplete to a full [[ai-ml/03-ai-engineer/08-agents|agent]] that runs your tests.
+- **Coding assistants / agentic coding tools** (Copilot, Cursor, Claude Code) — evaluate on *how much autonomy/tool access* they have, from autocomplete to a full [[ai-ml/03-ai-engineer/08-agents/index|agent]] that runs your tests.
 - **Image/video/audio generation** — diffusion-based, different evaluation criteria entirely.
 - **Search/RAG tools** — LLM + live search or a document store, grounding answers in sources.
 - **Embedding/vector infrastructure** — the building blocks behind semantic search and RAG (usually used indirectly).

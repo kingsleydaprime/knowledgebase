@@ -535,7 +535,7 @@ You can write a chat request and read its response without looking anything up, 
 - [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages|Calling models in other languages]] — the same client in Python, Go, Java, Rust, C, C++ and C#
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — the settings sent on each call
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — what goes in the messages
-- [[ai-ml/03-ai-engineer/07-tools-and-mcp|Tools and MCP]] — tool calling in depth
+- [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] — tool calling in depth
 - [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — retries, backoff and fallbacks
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal and clean architecture]] — ports and adapters in general
 

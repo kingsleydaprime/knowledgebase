@@ -1,0 +1,8 @@
+{
+  "name": "tools-and-mcp-lab",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.3.0"
+  }
+}

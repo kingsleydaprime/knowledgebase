@@ -61,7 +61,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 5 — Tools, agents, and when not to use them
 
 - **DSA — dynamic programming I (one dimension):** 101 house robber · 102 house robber II · 106 coin change · 108 word break · 109 longest increasing subsequence. Refresh: [[dsa/04-patterns/15-dynamic-programming|dynamic programming]].
-- **Learn (core):** [[ai-ml/03-ai-engineer/07-tools-and-mcp|tools and MCP]] · [[ai-ml/03-ai-engineer/08-agents|agents]]
+- **Learn (core):** [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools and MCP]] · [[ai-ml/03-ai-engineer/08-agents/index|agents]]
 - **Learn (optional):** [[ai-ml/03-ai-engineer/09-multimodal|multimodal]]
 - **Build:** only if the feature genuinely needs a tool call — otherwise, use the week to raise the eval pass rate and record what changed it.
 - **Apply:** Friday hour.

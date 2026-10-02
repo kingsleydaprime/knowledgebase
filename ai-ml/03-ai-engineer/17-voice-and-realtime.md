@@ -12,7 +12,7 @@ mic audio → [STT] → text → [LLM] → text → [TTS] → speaker audio
 ```
 
 - **STT (speech-to-text)** transcribes the user's speech ([[ai-ml/03-ai-engineer/09-multimodal|multimodal]]).
-- **The LLM** does the thinking — and everything else in this track still applies: [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompting]], [[ai-ml/03-ai-engineer/07-tools-and-mcp|tools]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]], [[ai-ml/03-ai-engineer/08-agents|the agent loop]].
+- **The LLM** does the thinking — and everything else in this track still applies: [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompting]], [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]], [[ai-ml/03-ai-engineer/08-agents/index|the agent loop]].
 - **TTS (text-to-speech)** voices the reply.
 
 **Pros:** you control and swap each stage independently, reuse your existing text-LLM stack (a voice agent is your chatbot with ears and a mouth), and can inspect the transcript at every hop. **Con:** latency stacks up across three sequential models, and you lose the *non-text* information in speech — tone, emotion, interruptions.
@@ -37,9 +37,9 @@ Beyond latency, conversation has mechanics that text doesn't:
 
 ## Everything else still applies — plus voice-specific safety
 
-A voice agent is still an LLM app, so the whole track carries over: it needs [[ai-ml/03-ai-engineer/07-tools-and-mcp|tools]] to *do* things, [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]] to know your data, [[ai-ml/03-ai-engineer/12-evals/index|evals]] to measure quality, and [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability plumbing]] underneath. Safety ([[ai-ml/03-ai-engineer/10-safety-and-production|safety & production]]) gains extra edges in voice:
+A voice agent is still an LLM app, so the whole track carries over: it needs [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools]] to *do* things, [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]] to know your data, [[ai-ml/03-ai-engineer/12-evals/index|evals]] to measure quality, and [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability plumbing]] underneath. Safety ([[ai-ml/03-ai-engineer/10-safety-and-production|safety & production]]) gains extra edges in voice:
 - **[[ai-ml/03-ai-engineer/10-safety-and-production|Prompt injection]] via spoken input** — the same attack surface as text, now arriving as transcribed speech; treat the transcript as untrusted.
-- **Higher stakes on errors** — voice interactions often *do* things (place orders, change bookings) and there's no "re-read the message" — a wrong action executes on a mishearing. Confirm before consequential, hard-to-reverse actions, and keep a [[ai-ml/03-ai-engineer/08-agents|human in the loop]] for the risky ones.
+- **Higher stakes on errors** — voice interactions often *do* things (place orders, change bookings) and there's no "re-read the message" — a wrong action executes on a mishearing. Confirm before consequential, hard-to-reverse actions, and keep a [[ai-ml/03-ai-engineer/08-agents/index|human in the loop]] for the risky ones.
 - **STT errors compound** — a misheard word propagates through the whole pipeline; the LLM should tolerate imperfect transcripts and ask for clarification rather than confidently acting on a mishearing.
 
 ## Gotchas
@@ -57,5 +57,5 @@ A voice agent is still an LLM app, so the whole track carries over: it needs [[a
 ## Related
 - [[ai-ml/03-ai-engineer/09-multimodal|Multimodal AI]] — STT and TTS as the building blocks
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, Caching & Latency]] — streaming and right-sizing for the latency budget
-- [[ai-ml/03-ai-engineer/08-agents|Agents]] — a voice agent is an agent that listens and speaks
+- [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — a voice agent is an agent that listens and speaks
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — the raised stakes of voice actions
