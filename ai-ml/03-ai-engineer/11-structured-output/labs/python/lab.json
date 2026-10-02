@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/11-structured-output/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "--with", "pydantic>=2.13,<3", "python", "-m", "unittest"]],
+  "embedded": ["invoice.py", "test_invoice.py"]
+}

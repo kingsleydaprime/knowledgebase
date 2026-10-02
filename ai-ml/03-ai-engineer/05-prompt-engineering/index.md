@@ -98,7 +98,7 @@ Past a point, the gain isn't a cleverer prompt but how you combine several:
 
 ## Worked example — zero-shot vs few-shot, measured
 
-The two prompts are files. They're identical except that the few-shot one has an `{{examples}}` slot:
+The two prompts are files in `labs/shared/prompts/`, shared by every language's lab in the [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages|companion]]. They're identical except that the few-shot one has an `{{examples}}` slot:
 
 ```markdown
 Classify the sentiment of the customer review as positive, negative or mixed.
@@ -132,7 +132,7 @@ import { readFileSync } from "node:fs";
 
 /** Prompts live in version control as files, so a change is a diff you can review and roll back. */
 export function loadPrompt(name: string): string {
-  return readFileSync(new URL(`./prompts/${name}.md`, import.meta.url), "utf8");
+  return readFileSync(new URL(`../shared/prompts/${name}.md`, import.meta.url), "utf8"); // shared by every language
 }
 
 /** Fill {{name}} slots. A missing value is a bug, not an empty string. */
@@ -264,6 +264,12 @@ test("evaluate scores a prompt and keeps the failures for reading", async () => 
   assert.ok(result.failures.every((f) => f.got !== f.expected));
   assert.ok(result.failures.some((f) => f.expected === "mixed")); // it can't say "mixed" at all
 });
+
+test("the shared reviews.json other languages read is the same data as reviews.ts", async () => {
+  const { readFileSync } = await import("node:fs");
+  const shared = JSON.parse(readFileSync(new URL("../shared/reviews.json", import.meta.url), "utf8"));
+  assert.deepEqual(shared, { examples, cases });
+});
 ```
 
 And the live comparison, at temperature 0 so the prompts are compared and not the dice:
@@ -302,7 +308,7 @@ for (const name of ["classify-zero-shot", "classify-few-shot"]) {
 
 **Not measured yet.** On the 16 GB laptop this is 24 calls, and the run took longer than a study session should wait for, so it was stopped before finishing. Running it is part of the practice task: write your predictions down first, then run `node live.ts` and record both scores and every failure here. Watch three cases in particular: "Not bad.", "Meh." and the injection attempt.
 
-**Lab:** these files are in [`ai-ml/03-ai-engineer/05-prompt-engineering/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/05-prompt-engineering/labs/typescript). From the vault root, `python3 labs/run.py prompt-engineering/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama running, so run it yourself from the lab folder with `node live.ts`.
+**Lab:** the code is in [`ai-ml/03-ai-engineer/05-prompt-engineering/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/05-prompt-engineering/labs/typescript), and the prompts in [`labs/shared/prompts/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/05-prompt-engineering/labs/shared/prompts). From the vault root, `python3 labs/run.py prompt-engineering/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama running, so run it yourself from the lab folder with `node live.ts`.
 
 ## Common pitfalls
 
@@ -355,6 +361,7 @@ You can turn a vague prompt into a specific one, explain the two few-shot rules,
 **Next.** [[ai-ml/03-ai-engineer/12-evals|Evals]] — week 3 turns the labelled set into a real harness.
 
 ## Related
+- [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages|Prompt engineering in other languages]] — the same prompt files, rendered and scored in Python, Go, Java, Rust and C#
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — why better context works
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — guaranteed shapes, beyond "please return JSON"
 - [[ai-ml/03-ai-engineer/12-evals|Evals]] — how you actually know a prompt change helped

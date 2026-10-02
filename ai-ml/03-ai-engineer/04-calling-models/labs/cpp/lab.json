@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/04-calling-models/in-other-languages.md",
+  "run": [["sh", "check.sh"]],
+  "embedded": ["models.cpp"]
+}

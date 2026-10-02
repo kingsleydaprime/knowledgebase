@@ -44,3 +44,9 @@ test("evaluate scores a prompt and keeps the failures for reading", async () => 
   assert.ok(result.failures.every((f) => f.got !== f.expected));
   assert.ok(result.failures.some((f) => f.expected === "mixed")); // it can't say "mixed" at all
 });
+
+test("the shared reviews.json other languages read is the same data as reviews.ts", async () => {
+  const { readFileSync } = await import("node:fs");
+  const shared = JSON.parse(readFileSync(new URL("../shared/reviews.json", import.meta.url), "utf8"));
+  assert.deepEqual(shared, { examples, cases });
+});

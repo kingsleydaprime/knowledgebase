@@ -19,6 +19,7 @@ A lab **fails** if any of its commands exits non-zero, **or** if a file it lists
 - **Node 23.6 or later** for the JavaScript and TypeScript labs. They use the built-in test runner (`node --test`) and run `.ts` files directly by stripping types, so they can't use TypeScript features that generate code: parameter properties (`constructor(private x: T)`) and enums. `transactional-outbox` uses `node:sqlite`, built in since Node 22.5. Checked with Node 26.
 - **npm** for `layer-vs-feature-eslint`. The first run does `npm ci`; `node_modules/` is git-ignored.
 - **Go, a JDK, Rust (cargo), GCC and CMake** for the five compiled-language layer-vs-feature labs. Checked with Go 1.26, Java 21, Rust 1.96, GCC 16 and CMake 4.3.
+- **Java labs with libraries** (Jackson, jmustache, the schema generator) don't use Maven or Gradle: their `check.sh` downloads the jars once from Maven Central into `~/.cache/knowledgebase-labs/jars`, so the first run needs a network connection.
 - **Podman** (or Docker) for C# labs: they run inside the official .NET SDK image, so .NET doesn't need installing. The first run downloads the image, about 1 GB.
 - **uv** for the Python labs. Each command declares its own packages (`uv run --no-project --with django ...`), so there is no virtualenv to manage. The first run needs a network connection to fetch them.
 
@@ -46,6 +47,10 @@ Each lesson that has labs is a folder: `index.md` is the lesson, `in-other-langu
 
 | Runner name | Lesson | Labs |
 |---|---|---|
+| `how-llms-work` | [[ai-ml/03-ai-engineer/02-how-llms-work/index\|how LLMs work]] · [[ai-ml/03-ai-engineer/02-how-llms-work/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
+| `calling-models` | [[ai-ml/03-ai-engineer/04-calling-models/index\|calling models]] · [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
+| `prompt-engineering` | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|prompt engineering]] · [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (prompts in `shared/`) |
+| `structured-output` | [[ai-ml/03-ai-engineer/11-structured-output/index\|structured output]] · [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp |
 | `local-and-open-models` | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|local and open models]] | python |
 | `transactional-outbox` | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|transactional outbox]] | javascript |
 | `layers-controllers-services-repositories` | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index\|layers controllers services repositories]] · [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
