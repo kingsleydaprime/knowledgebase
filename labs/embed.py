@@ -8,7 +8,7 @@ Run it once after writing a lesson; after that, `labs/run.py --sync` keeps the c
 import pathlib, re, sys
 
 FENCE = {".ts": "ts", ".py": "python", ".go": "go", ".java": "java", ".rs": "rust", ".c": "c",
-         ".cpp": "cpp", ".cs": "csharp", ".json": "json", ".md": "markdown", ".sh": "sh"}
+         ".cpp": "cpp", ".cs": "csharp", ".json": "json", ".jsonl": "json", ".md": "markdown", ".sh": "sh"}
 
 lesson = pathlib.Path(sys.argv[1])
 labs = lesson.parent / "labs"

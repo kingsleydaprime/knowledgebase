@@ -69,7 +69,7 @@ One project, shipped properly. Not five half-projects.
 5. An architecture note explaining one hard trade-off you made
 6. Observability — you can answer "is it up, and is it fast"
 
-**Item 4 is the whole point.** A golden set, a scoring function, a regression run on every prompt change, and numbers you can quote. Almost nobody applying to junior AI roles has this. [[ai-ml/03-ai-engineer/12-evals|The note is already written]] — this is the reps for it.
+**Item 4 is the whole point.** A golden set, a scoring function, a regression run on every prompt change, and numbers you can quote. Almost nobody applying to junior AI roles has this. [[ai-ml/03-ai-engineer/12-evals/index|The note is already written]] — this is the reps for it.
 
 Milestones (each independently shippable, per [[build-your-own-shit/index|the build-guide rule]]):
 - **w3–4** — scope, deploy the skeleton to production on day one, CI green

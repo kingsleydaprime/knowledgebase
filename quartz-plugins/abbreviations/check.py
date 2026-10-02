@@ -20,7 +20,8 @@ TERM = re.compile(r"\b(?:[A-Z][A-Z0-9]{1,6}|p\d{2,3})\b")
 ERROR_CODE = re.compile(r"[A-Z]{1,3}\d{3,}")
 # Language and standard names that look like acronyms but are names, not abbreviations.
 NOT_ACRONYMS = {"ID", "C11", "C17", "C23", "C99", "ASP", "NET", "OK", "II", "NVIDIA",
-                "NOT", "ONLY", "ALL", "NO", "AND", "OR", "WILL", "MUST"}  # emphasis, not acronyms
+                "NOT", "ONLY", "ALL", "NO", "AND", "OR", "WILL", "MUST",  # emphasis, not acronyms
+                "PWNED"}  # slang: the word attackers make a hijacked system say
 
 
 def lessons_from_courses() -> list[pathlib.Path]:

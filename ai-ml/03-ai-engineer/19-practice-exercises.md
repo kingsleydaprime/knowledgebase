@@ -4,7 +4,7 @@
 
 The track's own README says the reps here are *building*: a RAG system over your own docs, a small MCP server, an agent with real tools, an eval set. This is that list, made concrete. Each exercise names the note it exercises and what "done" looks like.
 
-Work in order — several build on earlier output. Budget roughly $2 total on small models.
+Work in order — several build on earlier output. Budget roughly $2 total on small hosted models, or nothing at all on local models through Ollama → [[ai-ml/03-ai-engineer/16-local-and-open-models/index|local and open models]]. `qwen3.5:4b` covers the chat exercises, slowly; 7–9 also need an embedding model, such as `nomic-embed-text`; and 4 and 14 compare against a larger model, which a 16 GB laptop can't run quickly — use a hosted one there, or skip the comparison. The track's lessons already include working TypeScript code for several exercises: 3 and 6 build on the [[ai-ml/03-ai-engineer/12-evals/index|evals]] and [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]] labs, and 2 on [[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]].
 
 ---
 
@@ -20,7 +20,7 @@ Ask the same creative question 5 times and diff the answers. Then find the setti
 
 **3. Build a ten-case golden set, then earn the improvement.**
 Pick one narrow task — classify support emails as `bug | billing | feature | other`, say. Hand-write 10 inputs with the correct label. Write a deliberately vague prompt, score it. Now improve the prompt and re-score.
-**Done when:** you have two numbers, before and after, from the same 10 cases — and you kept whichever prompt scored higher even if you preferred the other one's wording. This exercise is the whole discipline of [[ai-ml/03-ai-engineer/12-evals|evals]] in miniature; every later exercise is easier if you do this one properly.
+**Done when:** you have two numbers, before and after, from the same 10 cases — and you kept whichever prompt scored higher even if you preferred the other one's wording. This exercise is the whole discipline of [[ai-ml/03-ai-engineer/12-evals/index|evals]] in miniature; every later exercise is easier if you do this one properly.
 
 **4. Find the capability floor.**
 Take a task the small model fails at. Try to fix it with prompting alone — few-shot examples, chain-of-thought, decomposition.

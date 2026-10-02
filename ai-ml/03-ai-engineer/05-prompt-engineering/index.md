@@ -41,7 +41,7 @@ A team's support bot classifies reviews. Someone rewords the prompt so it "reads
 8. **Self-consistency**: This means sampling several reasoned answers and taking the most common one.
 9. **Prompt chaining**: This means splitting a task into several smaller prompts, where each step's output feeds the next.
 10. **Context engineering**: This means deciding what information goes into the context window, and in what order — retrieved documents, tool results, history and examples.
-11. **Labelled set**: This is a list of inputs with the correct answer for each, used to measure a prompt. It is also called an **eval set** → [[ai-ml/03-ai-engineer/12-evals|evals]].
+11. **Labelled set**: This is a list of inputs with the correct answer for each, used to measure a prompt. It is also called an **eval set** → [[ai-ml/03-ai-engineer/12-evals/index|evals]].
 12. **Accuracy**: This is the fraction of cases a prompt gets right.
 
 ## 2. Why prompting works
@@ -358,13 +358,13 @@ You can turn a vague prompt into a specific one, explain the two few-shot rules,
 
 **Recap.** Prompting works by giving the model more to condition on: specific instructions, defined terms, consistent examples. Fence user text and treat it as data; that lowers injection risk but doesn't remove it. Chain prompts when one does too much. Keep prompts as versioned files, and decide between them on a labelled set, never on a feeling.
 
-**Next.** [[ai-ml/03-ai-engineer/12-evals|Evals]] — week 3 turns the labelled set into a real harness.
+**Next.** [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — week 3 turns the labelled set into a real harness.
 
 ## Related
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages|Prompt engineering in other languages]] — the same prompt files, rendered and scored in Python, Go, Java, Rust and C#
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — why better context works
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — guaranteed shapes, beyond "please return JSON"
-- [[ai-ml/03-ai-engineer/12-evals|Evals]] — how you actually know a prompt change helped
+- [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how you actually know a prompt change helped
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — grounding, the fix for hallucination
 - [[ai-ml/03-ai-engineer/08-agents|Agents]] — the agent loop is a prompting pattern that runs itself
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety and production]] — prompt injection in depth

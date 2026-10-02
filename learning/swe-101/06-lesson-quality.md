@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 18 of 43 meet the standard. Optional: 8 of 36.**
+**Core lessons: 19 of 43 meet the standard. Optional: 8 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -47,7 +47,7 @@
 | SWE 102 | 2 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/11-structured-output/index\|index]] |
 | SWE 102 | 2 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|index]] |
 | SWE 102 | 2 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/06-rag-and-embeddings\|06-rag-and-embeddings]] |
-| SWE 102 | 3 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/12-evals\|12-evals]] |
+| SWE 102 | 3 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/12-evals/index\|index]] |
 | SWE 102 | 3 | core | n/a | keeps its own shape | [[ai-ml/03-ai-engineer/19-practice-exercises\|19-practice-exercises]] |
 | SWE 102 | 4 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing\|13-reliability-and-plumbing]] |
 | SWE 102 | 4 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency\|14-cost-caching-and-latency]] |

@@ -51,6 +51,7 @@ Each lesson that has labs is a folder: `index.md` is the lesson, `in-other-langu
 | `calling-models` | [[ai-ml/03-ai-engineer/04-calling-models/index\|calling models]] · [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
 | `prompt-engineering` | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|prompt engineering]] · [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (prompts in `shared/`) |
 | `structured-output` | [[ai-ml/03-ai-engineer/11-structured-output/index\|structured output]] · [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp |
+| `evals` | [[ai-ml/03-ai-engineer/12-evals/index\|evals]] | typescript |
 | `local-and-open-models` | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|local and open models]] | python |
 | `transactional-outbox` | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|transactional outbox]] | javascript |
 | `layers-controllers-services-repositories` | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index\|layers controllers services repositories]] · [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
