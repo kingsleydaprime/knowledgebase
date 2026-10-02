@@ -132,7 +132,7 @@ Explain the code, line by line, out loud, to something that isn't listening. **T
 
 ## Related
 - [[programming-fundamentals/11-planning-before-you-type|planning]] — the errors you avoid by thinking first
-- [[concepts/04-best-practices/04-testing-fundamentals|testing]] — automating the checks
+- [[concepts/04-best-practices/04-testing-fundamentals/index|testing]] — automating the checks
 - [[git/09-investigating-history|investigating history]] — `git bisect` and `git blame`
 - [[backend/interview/01-production-debugging|production debugging]] — the same skill, higher stakes
 - [[using-ai/06-verifying-what-it-tells-you|verifying AI output]]

@@ -1,5 +1,0 @@
-{
-  "lesson": "cybersecurity/04-web-security/01-input-validation-and-output-encoding.md",
-  "run": [["node", "--test"]],
-  "embedded": ["injection.mjs", "encoding.mjs", "security.test.mjs"]
-}

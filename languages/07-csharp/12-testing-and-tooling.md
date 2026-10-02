@@ -107,7 +107,7 @@ Add `dotnet format --verify-no-changes` to fail on unformatted code, and **`dotn
 
 ## Related
 - [[languages/07-csharp/11-the-standard-library-and-ecosystem|the ecosystem]]
-- [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]]
+- [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]]
 - [[languages/07-csharp/13-performance-and-the-runtime|performance]] — BenchmarkDotNet in anger
 
 *Source: [reference] — from the .NET testing documentation, Aug 2026.*

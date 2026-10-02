@@ -14,6 +14,15 @@ configuration:
     - .obsidian
     - sources/**
     - "**/*transcript*"
+    # Labs are not published: Quartz lowercases paths and renames a file named after its folder
+    # (go/go.mod -> go/index.mod), which breaks downloaded code. Lessons link to GitHub instead.
+    - "**/labs/**"
+    # Lab build output, in case a lab ever is published.
+    - "**/node_modules/**"
+    - "**/target/**"
+    - "**/__pycache__/**"
+    - "**/.import_linter_cache/**"
+    - "**/*.sqlite3"
   theme:
     fontOrigin: googleFonts
     cdnCaching: true

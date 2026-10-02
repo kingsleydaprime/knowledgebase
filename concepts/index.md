@@ -10,15 +10,15 @@ The engineering ideas that aren't *about* any one domain — design patterns, cl
 
 
 ### [[concepts/03-design-patterns/index|03 — Design Patterns]]
-1. [[concepts/03-design-patterns/01-creational-patterns|Creational]] — **[Intermediate]**
-2. [[concepts/03-design-patterns/02-structural-patterns|Structural]] — **[Intermediate]**
-3. [[concepts/03-design-patterns/03-behavioral-patterns|Behavioral]] — **[Intermediate]**
+1. [[concepts/03-design-patterns/01-creational-patterns/index|Creational]] — **[Intermediate]**
+2. [[concepts/03-design-patterns/02-structural-patterns/index|Structural]] — **[Intermediate]**
+3. [[concepts/03-design-patterns/03-behavioral-patterns/index|Behavioral]] — **[Intermediate]**
 
 ### [[concepts/04-best-practices/index|04 — Best Practices]]
-1. [[concepts/04-best-practices/01-clean-code|Clean Code]] — **[Beginner]**
+1. [[concepts/04-best-practices/01-clean-code/index|Clean Code]] — **[Beginner]**
 2. [[concepts/04-best-practices/02-pr-structure|PR Structure]] — **[Beginner]** — reviewable changes as a skill
 3. [[concepts/04-best-practices/03-documentation-practices|Documentation Practices]] — **[Beginner]**
-4. [[concepts/04-best-practices/04-testing-fundamentals|Testing Fundamentals]] — **[Intermediate]**
+4. [[concepts/04-best-practices/04-testing-fundamentals/index|Testing Fundamentals]] — **[Intermediate]**
 
 ## Interview prep
 [[concepts/interview/index|interview/]] — the questions these concepts get asked as.

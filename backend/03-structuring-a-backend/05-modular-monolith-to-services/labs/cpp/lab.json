@@ -1,0 +1,12 @@
+{
+  "lesson": "backend/03-structuring-a-backend/05-modular-monolith-to-services/in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "shop.cpp"
+  ]
+}

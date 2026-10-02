@@ -55,6 +55,6 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 ## Related
 - [[02-cia-triad|cia-triad]]
 - [[02-secure-authentication|secure-authentication]]
-- [[04-security-headers-and-same-origin-policy|security-headers-and-same-origin-policy]]
+- [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|security-headers-and-same-origin-policy]]
 - [[04-asymmetric-encryption|asymmetric-encryption]] — the Diffie-Hellman key exchange underneath the handshake above
 - [[05-digital-signatures-and-pki|digital-signatures-and-pki]] — the certificate chain of trust, one level deeper

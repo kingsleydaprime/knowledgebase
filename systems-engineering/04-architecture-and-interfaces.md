@@ -20,7 +20,7 @@ The mapping between them is rarely one-to-one:
 - **One component, several functions** — a phone's glass is display, input, and structural
 - **Both** — which is where complexity comes from
 
-**A component doing many unrelated functions is the physical form of low cohesion**, and it produces the same problem as in software: you can't change one thing without touching everything → [[concepts/04-best-practices/05-solid-principles|SOLID]].
+**A component doing many unrelated functions is the physical form of low cohesion**, and it produces the same problem as in software: you can't change one thing without touching everything → [[concepts/04-best-practices/05-solid-principles/index|SOLID]].
 
 ## Coupling and cohesion, in physical systems
 
@@ -94,6 +94,6 @@ The deliberate use — **the inverse Conway manoeuvre** — is to organise teams
 - [[systems-engineering/05-trade-studies|trade studies]] — choosing between architectures
 - [[architecture/02-building-blocks/index|building blocks]] — the software vocabulary
 - [[backend/02-api-design/index|API design]] — the ICD, for software
-- [[concepts/04-best-practices/05-solid-principles|SOLID]] — coupling and cohesion at code scale
+- [[concepts/04-best-practices/05-solid-principles/index|SOLID]] — coupling and cohesion at code scale
 
 *Source: [reference] — from the INCOSE handbook, NASA SE Handbook, and Conway (1967).*

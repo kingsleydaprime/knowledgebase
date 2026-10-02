@@ -166,11 +166,11 @@ The value isn't uniform, and the ordering is:
 
 Low value: getters, framework behaviour, and anything whose test is a restatement of the implementation.
 
-**In a dynamically typed language, tests carry load a compiler carries elsewhere.** A rename in Java breaks the build; in Python it breaks at runtime, in whatever code path hits it, possibly in production. Types and tests are how you get that back → [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]].
+**In a dynamically typed language, tests carry load a compiler carries elsewhere.** A rename in Java breaks the build; in Python it breaks at runtime, in whatever code path hits it, possibly in production. Types and tests are how you get that back → [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]].
 
 ## Related
 - [[languages/06-python/08-typing-and-type-hints|typing]] — the other half of the safety net
-- [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] — the concepts
+- [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] — the concepts
 - [[devops/06-ci-cd/index|CI/CD]] — where this runs automatically
 - [[languages/06-python/01-why-python-and-the-toolchain|the toolchain]] — venvs and pyproject.toml
 

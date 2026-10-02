@@ -132,12 +132,12 @@ Syntax is what the machine requires. **Style is what the next reader requires**,
 - **Consistent indentation** — via a formatter
 - **Comments explaining *why*, not *what*.** `# add 1 to i` is noise. `# skip the header row` is information. If a comment is needed to explain *what*, the code usually wants renaming instead
 
-**Code is read many more times than it is written.** That single economic fact is the root of nearly everything in [[concepts/04-best-practices/01-clean-code|clean code]].
+**Code is read many more times than it is written.** That single economic fact is the root of nearly everything in [[concepts/04-best-practices/01-clean-code/index|clean code]].
 
 ## Related
 - [[programming-fundamentals/05-variables-and-types|variables and types]] — the first real building block
 - [[programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the other two kinds of error
 - [[compilers/02-lexical-analysis|lexing and parsing]] — what's actually reading your syntax
-- [[concepts/04-best-practices/01-clean-code|clean code]] — style, taken seriously
+- [[concepts/04-best-practices/01-clean-code/index|clean code]] — style, taken seriously
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course.*

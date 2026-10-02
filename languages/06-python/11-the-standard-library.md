@@ -89,7 +89,7 @@ print(result.stdout)
 
 Three things that matter:
 
-- **Pass a list, not a string.** `shell=True` with interpolated input is command injection → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation]]
+- **Pass a list, not a string.** `shell=True` with interpolated input is command injection → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]]
 - **`check=True`** raises on a non-zero exit. Without it, failures are silent
 - **`text=True`** gives you `str` instead of `bytes`
 

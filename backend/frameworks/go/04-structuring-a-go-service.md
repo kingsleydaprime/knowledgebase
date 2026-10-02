@@ -79,7 +79,7 @@ func (s *UserStore) Get(ctx context.Context, id string) (*User, error) { ... }
 
 `postgres` doesn't import `server`, doesn't mention the interface, and doesn't declare that it implements anything. It just has the methods.
 
-That inverts the dependency direction with no framework and no configuration — [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal architecture]] falling out of the language. Compare with [[languages/01-java/03-tooling/02-dependency-injection|Spring's container]], which achieves the same inversion at runtime via reflection.
+That inverts the dependency direction with no framework and no configuration — [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal architecture]] falling out of the language. Compare with [[languages/01-java/03-tooling/02-dependency-injection|Spring's container]], which achieves the same inversion at runtime via reflection.
 
 Two rules that follow:
 
@@ -105,7 +105,7 @@ myservice/
 └── go.mod
 ```
 
-**Organise by feature, not by layer.** `internal/user/` beats `internal/handlers/` + `internal/services/` + `internal/repositories/` — adding a feature touches one directory, and Go's package-level visibility actually enforces the boundary. → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|Organising by Layer vs by Feature]]
+**Organise by feature, not by layer.** `internal/user/` beats `internal/handlers/` + `internal/services/` + `internal/repositories/` — adding a feature touches one directory, and Go's package-level visibility actually enforces the boundary. → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by Layer vs by Feature]]
 
 `internal/` is compiler-enforced: nothing outside your module can import it. That's real access control, and it's the right default for a service. → [[languages/02-go/12-modules-and-project-layout|Modules and Project Layout]]
 
@@ -218,7 +218,7 @@ func (s *UserService) Register(ctx context.Context, email string) (*User, error)
 }
 ```
 
-Go's culture leans toward fewer layers than Java's. Add one when it earns its place, not by default. → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|Layers]]
+Go's culture leans toward fewer layers than Java's. Add one when it earns its place, not by default. → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|Layers]]
 
 ## Wire, and whether you need it
 
@@ -234,5 +234,5 @@ For most services, hand-written wiring in `run()` is clearer and shorter than th
 - [[backend/frameworks/go/05-database-access|Database Access]] — what the store layer does
 - [[backend/frameworks/go/06-testing-and-production|Testing and Production]] — why small interfaces pay off
 - [[languages/02-go/04-methods-and-interfaces|Go: Methods and Interfaces]] — consumer-declared interfaces
-- [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|DI and Wiring]] — the concept, framework-agnostic
+- [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|DI and Wiring]] — the concept, framework-agnostic
 - [[backend/frameworks/go/index|Go backends]]

@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · What the discipline owns that DevOps doesn't: toil, on-call, incident command, blameless postmortems, and capacity planning.
 
-[[devops/10-observability/01-observability-fundamentals|Observability fundamentals]] already covers the vocabulary — SLI, SLO, SLA, error budgets — and [[devops/devops-reference|the devops reference]] has the maths. **This note is deliberately about the other half: the operational practices that are what SRE actually looks like day to day**, and which the numbers exist to serve.
+[[devops/10-observability/01-observability-fundamentals/index|Observability fundamentals]] already covers the vocabulary — SLI, SLO, SLA, error budgets — and [[devops/devops-reference|the devops reference]] has the maths. **This note is deliberately about the other half: the operational practices that are what SRE actually looks like day to day**, and which the numbers exist to serve.
 
 ## The founding claim
 
@@ -111,7 +111,7 @@ DORA's research (published in *Accelerate*) found that speed and stability are *
 The first two are DevOps-shaped, the last two SRE-shaped, and elite performers are strong on all four simultaneously. **Which is the point: the argument between shipping fast and staying up was empirically wrong.**
 
 ## Related
-- [[devops/10-observability/01-observability-fundamentals|observability fundamentals]] — SLI/SLO/SLA and error budgets, in depth
+- [[devops/10-observability/01-observability-fundamentals/index|observability fundamentals]] — SLI/SLO/SLA and error budgets, in depth
 - [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved|how delivery practice evolved]] — why SRE appeared when it did
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the next constraint
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] — how the nines compose

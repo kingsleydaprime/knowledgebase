@@ -79,4 +79,4 @@ Real systems frequently mix these — a public-facing REST or GraphQL API at the
 ## Related
 - [[backend/01-foundations/02-http-servers|HTTP servers]]
 - [[backend/04-data-and-persistence/01-databases-in-the-backend|databases]]
-- [[backend/07-practices/01-backend-best-practices|backend best practices]]
+- [[backend/07-practices/01-backend-best-practices/index|backend best practices]]

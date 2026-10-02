@@ -92,7 +92,7 @@ abstract class Expr { abstract <R> R accept(Visitor<R> v); }
 class Binary extends Expr { <R> R accept(Visitor<R> v) { return v.visitBinary(this); } }
 ```
 
-Verbose, and it recovers the "add a case, get an error everywhere" property via the interface. → [[concepts/03-design-patterns/03-behavioral-patterns|Visitor]]
+Verbose, and it recovers the "add a case, get an error everywhere" property via the interface. → [[concepts/03-design-patterns/03-behavioral-patterns/index|Visitor]]
 
 **Watch the recursion depth.** A deeply nested expression — a machine-generated file with 100,000 chained `+` — will blow the stack in a recursive walker. Real compilers either bound nesting depth explicitly (and report it as an error) or use an explicit stack. It's a genuine crash-on-untrusted-input bug, and fuzzing finds it immediately.
 
@@ -230,5 +230,5 @@ These mostly need a **control-flow graph** rather than the AST, which is one of 
 - [[compilers/03-parsing|Parsing]] — what produces the AST
 - [[compilers/05-type-systems-and-checking|Type Systems and Checking]] — the next pass
 - [[compilers/10-bytecode-and-virtual-machines|Bytecode VMs]] — where slot resolution pays off
-- [[concepts/03-design-patterns/03-behavioral-patterns|Design Patterns: Visitor]]
+- [[concepts/03-design-patterns/03-behavioral-patterns/index|Design Patterns: Visitor]]
 - [[compilers/index|Compilers course map]]

@@ -1,0 +1,12 @@
+{
+  "lesson": "devops/10-observability/01-observability-fundamentals/in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "histogram.cpp"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "lesson": "concepts/04-best-practices/04-testing-fundamentals/index.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ],
+    [
+      "node",
+      "--test",
+      "--test-randomize"
+    ]
+  ],
+  "embedded": [
+    "reminders.mjs",
+    "reminders.test.mjs",
+    "app.mjs",
+    "app.test.mjs",
+    "ci.yml"
+  ]
+}

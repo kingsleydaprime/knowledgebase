@@ -102,7 +102,7 @@ Bureaucratic-looking, and it answers three questions nothing else can:
 |---|---|
 | Stakeholder need | Problem statement / job to be done |
 | System requirement | Acceptance criteria |
-| Non-functional requirement | **SLO** → [[devops/10-observability/01-observability-fundamentals\|observability]] |
+| Non-functional requirement | **SLO** → [[devops/10-observability/01-observability-fundamentals/index\|observability]] |
 | Requirements baseline | The agreed scope of a milestone |
 | Traceability matrix | Issue → commit → test |
 | Change control board | Triage |

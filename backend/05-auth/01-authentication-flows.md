@@ -63,7 +63,7 @@ Lets a user authenticate once and gain access across multiple related applicatio
 
 ## Gotchas
 
-- Storing a JWT in `localStorage` instead of an `HttpOnly` cookie exposes it to theft via any XSS vulnerability (see [[01-input-validation-and-output-encoding|input-validation-and-output-encoding]]) — a genuinely common, serious real-world mistake covered from the cookie-flag side in [[02-secure-authentication|secure-authentication]].
+- Storing a JWT in `localStorage` instead of an `HttpOnly` cookie exposes it to theft via any XSS vulnerability (see [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input-validation-and-output-encoding]]) — a genuinely common, serious real-world mistake covered from the cookie-flag side in [[02-secure-authentication|secure-authentication]].
 - Treating a JWT's *expiration* as the only thing standing between a stolen token and account takeover is a real risk — short expiration times plus a refresh-token pattern (a separate, longer-lived token used only to obtain new short-lived access tokens) limits the exposure window of a stolen access token.
 - OAuth's Authorization Code flow requires validating the `state` parameter to prevent CSRF-style attacks against the login flow itself — skipping this check is a known, concrete vulnerability class in OAuth implementations.
 

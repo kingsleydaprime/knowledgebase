@@ -39,7 +39,7 @@ response
 
 The rule that matters: **parse, don't validate.** Don't check a blob and pass the blob along; convert it into a type that *cannot* hold invalid data. `CreateOrderDto` with a validated `quantity: PositiveInt` beats `if (body.quantity > 0)` followed by passing `body` around, because the type now carries the guarantee.
 
-**6. The handler.** Controller → service → repository. This is the only stage that's about *your product*; everything else is plumbing. → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|layers]]
+**6. The handler.** Controller → service → repository. This is the only stage that's about *your product*; everything else is plumbing. → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layers]]
 
 **7. Serialisation.** Domain object → response body. **This is where data leaks happen** — returning a user entity that still has `passwordHash` or `internalNotes` on it. Use an explicit response DTO or an allowlist; never `return user`.
 
@@ -99,5 +99,5 @@ The lifecycle is **a funnel of decreasing distrust.** At stage 1 you trust nothi
 ## Related
 - [[backend/01-foundations/02-http-servers|HTTP Servers]] — the layer underneath
 - [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — how stage 6 executes, and why frameworks differ
-- [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|Layers]] — what stage 6 looks like inside
+- [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|Layers]] — what stage 6 looks like inside
 - [[cybersecurity/04-web-security/index|Web Security]] — the attacks each stage defends against

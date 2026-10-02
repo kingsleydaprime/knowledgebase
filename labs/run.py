@@ -1,6 +1,6 @@
 """Run the vault's labs and check the lessons still show the code that runs.
 
-Labs are grouped by lesson, then language — labs/<lesson>/<language>/ — and each has a lab.json:
+Each lab lives beside its lesson — <lesson folder>/labs/<language>/ — with a lab.json:
 
     {
       "lesson": "concepts/04-best-practices/01-clean-code.md",
@@ -10,9 +10,9 @@ Labs are grouped by lesson, then language — labs/<lesson>/<language>/ — and 
     }
 
 Usage, from the vault root:
-    python3 labs/run.py                          run every lab
-    python3 labs/run.py dependency-injection     run every language of one lesson
-    python3 labs/run.py layers/go solid-principles/rust   run single labs
+    python3 labs/run.py                                    run every lab in the vault
+    python3 labs/run.py dependency-injection-and-wiring    run every language of one lesson
+    python3 labs/run.py solid-principles/rust layers-controllers-services-repositories/go   single labs
     python3 labs/run.py --drift-only    only check lessons against lab files (fast, offline)
     python3 labs/run.py --sync LESSON/LANG   after editing a lab file, copy it into the lesson's code block
                                         (the block whose first two lines match the file's)
@@ -21,6 +21,7 @@ import json, pathlib, re, subprocess, sys, time
 
 LABS = pathlib.Path(__file__).resolve().parent
 VAULT = LABS.parent
+SKIP_DIRS = {"node_modules", "quartz", ".git", "target", ".obsidian"}
 
 
 def drift(lab: pathlib.Path, spec: dict) -> list[str]:
@@ -65,19 +66,32 @@ def run(lab: pathlib.Path, spec: dict) -> str | None:
     return None
 
 
+def lesson_of(lab: pathlib.Path) -> str:
+    """<lesson folder>/labs/<language>: the lesson's folder name without its number."""
+    return re.sub(r"^\d+-", "", lab.parent.parent.name)
+
+
 def name_of(lab: pathlib.Path) -> str:
-    return f"{lab.parent.name}/{lab.name}"
+    return f"{lesson_of(lab)}/{lab.name}"
+
+
+def find_labs() -> list[pathlib.Path]:
+    found = []
+    for spec in VAULT.rglob("lab.json"):
+        if SKIP_DIRS.isdisjoint(spec.relative_to(VAULT).parts) and spec.parent.parent.name == "labs":
+            found.append(spec.parent)
+    return sorted(found, key=name_of)
 
 
 def selected(labs: list[pathlib.Path], args: list[str]) -> list[pathlib.Path]:
     """An argument names a whole lesson ("layers") or one lab ("layers/go")."""
-    return [l for l in labs if not args or name_of(l) in args or l.parent.name in args]
+    return [l for l in labs if not args or name_of(l) in args or lesson_of(l) in args]
 
 
 def main() -> int:
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     drift_only = "--drift-only" in sys.argv
-    every = sorted(p.parent for p in LABS.glob("*/*/lab.json"))
+    every = find_labs()
     if "--sync" in sys.argv:
         for lab in selected(every, args) if args else []:
             for note in sync(lab, json.loads((lab / "lab.json").read_text())):
@@ -85,7 +99,7 @@ def main() -> int:
         return 0
     labs = selected(every, args)
     if args:
-        known = {name_of(l) for l in every} | {l.parent.name for l in every}
+        known = {name_of(l) for l in every} | {lesson_of(l) for l in every}
         missing = set(args) - known
         if missing:
             print(f"no such lab: {', '.join(sorted(missing))}")

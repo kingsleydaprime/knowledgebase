@@ -19,13 +19,13 @@ The historical phases below track topics written. They do **not** establish that
 **Restructured 2026-10-01:** SWE 101 is now the first of three short courses ([[learning/swe-101/index|101]] → [[learning/swe-102/index|102]] → [[learning/swe-103/index|103]]); the old 30-week scheme is archived. Core lessons are converted one course ahead of study. Progress is generated, not hand-kept: [[learning/swe-101/06-lesson-quality|lesson quality]] (`python3 learning/swe-101/scripts/audit-standard.py`). The standard now also requires a **kid version** in every lesson.
 
 - [x] **Software design block, weeks 1–4 — 13 lessons.** Every runnable example executed with Node 26 (`node --test`), or with Django 6.1 / Flask 3.1 / import-linter / ESLint 9 for layer-vs-feature. Fixed on the way: SOLID linked "strategy" to creational patterns; the structural-patterns lesson had no composition-over-inheritance section although week 2.7 pointed to it; behavioural patterns had no State pattern although week 3.3 listed it; layer-vs-feature called Django by-layer (its apps are feature folders); the roles note linked "mobile" to a NestJS backend note.
-- [x] **Testing fundamentals** (SWE 101 week 2) — converted 2026-10-01: test doubles and flaky-test sections added (neither existed), lab `labs/testing-fundamentals/`.
+- [x] **Testing fundamentals** (SWE 101 week 2) — converted 2026-10-01: test doubles and flaky-test sections added (neither existed), lab [`concepts/04-best-practices/04-testing-fundamentals/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/concepts/04-best-practices/04-testing-fundamentals/labs/javascript).
 - [x] **SWE 101 core complete (14/14), 2026-10-01.** The last four — backend best practices (added rate limiting and idempotency, which week 6 promised and the lesson lacked), observability, input validation (Python examples replaced with TypeScript, SSRF added), security headers (CORS reflection and "CORS is not access control") — each with a lab.
 - [x] **Layer vs feature: Go, Java, Rust, C and C++ added (2026-10-01)**, each with a lab proving the compiler or build system refuses a cross-feature import. The lesson is now ~9,600 words; consider splitting the language sections into a companion lesson.
 - [ ] **SWE 102 core — 11 lessons**, the AI-engineering track, before SWE 102 starts.
 - [ ] SWE 103 core, then optional lessons.
 - [ ] Log closed-book study problems in the [[learning/swe-101/06-lesson-quality|review log]] and adjust the format before converting further.
-- [x] **Gaps filled (2026-10-01):** [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] (week 2.2 now points to it) and [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]] (linked from week 8.3, sagas, and behavioural patterns). Both written to the standard with labs.
+- [x] **Gaps filled (2026-10-01):** [[concepts/04-best-practices/08-coupling-and-cohesion/index|coupling and cohesion]] (week 2.2 now points to it) and [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]] (linked from week 8.3, sagas, and behavioural patterns). Both written to the standard with labs.
 - [x] **`labs/` set up:** every verified example now lives in `labs/<name>/` with a `lab.json`; `python3 labs/run.py` runs them all and fails if a lesson no longer shows the code that runs (`--drift-only` for a fast offline check).
 
 ### Companion lessons in other languages (2026-10-01)
@@ -315,7 +315,7 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 - [x] **Testing** — ✅ 2 notes, ~2,200 words. `@testing-library` appeared **nowhere** in the vault outside my own "what's missing" line, and Playwright had no note despite being a stated learning goal. `03-testing-a-frontend` (query priority, waiting properly, **MSW over module mocks**) and `04-end-to-end-with-playwright` — written to explain **why** the structure is what it is, not to list APIs
 
-**Backend testing was already covered** and did not need adding: [[backend/07-practices/02-testing-a-backend|testing a backend]] (1,600 words — Testcontainers, test-data isolation, time, per-layer, auth, flakiness), [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] for the pyramid and TDD, plus per-language notes in Go, Rust, Java, Python and C#.
+**Backend testing was already covered** and did not need adding: [[backend/07-practices/02-testing-a-backend|testing a backend]] (1,600 words — Testcontainers, test-data isolation, time, per-layer, auth, flakiness), [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] for the pyramid and TDD, plus per-language notes in Go, Rust, Java, Python and C#.
 
 **Phase 5j total: 18 files, ~11,600 words**
 

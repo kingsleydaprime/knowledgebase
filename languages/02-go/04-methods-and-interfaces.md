@@ -90,7 +90,7 @@ func NewService(store UserStore) *Service { ... }
 
 The `postgres` package never imports `service` and never mentions `UserStore`. It just has a `*Postgres` with a `GetUser` method. Dependency direction stays clean without anyone arranging it, and testing needs no mocking framework — a struct with the right method is a test double.
 
-This is [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal architecture]] falling out of the language rather than being imposed on it. Compare with [[languages/01-java/03-tooling/02-dependency-injection|Java's DI container]], which achieves the same inversion with a runtime framework.
+This is [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal architecture]] falling out of the language rather than being imposed on it. Compare with [[languages/01-java/03-tooling/02-dependency-injection|Java's DI container]], which achieves the same inversion with a runtime framework.
 
 ### Keep interfaces small
 
@@ -164,6 +164,6 @@ Every Go programmer meets this once. It's the reason `if err != nil` can be true
 ## Related
 - [[languages/02-go/05-errors|Errors]] — `error` is just an interface
 - [[languages/02-go/10-the-standard-library|The Standard Library]] — `io.Reader`/`io.Writer` in practice
-- [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|Hexagonal Architecture]] — what consumer-side interfaces give you for free
+- [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal Architecture]] — what consumer-side interfaces give you for free
 - [[languages/01-java/01-language/02-oop|Java: OOP]] — inheritance and explicit `implements`, for contrast
 - [[languages/02-go/index|Go course map]]

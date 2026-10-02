@@ -233,5 +233,5 @@ async fn creates_user(pool: PgPool) {
 - [[backend/frameworks/rust/02-extractors-and-responses|Extractors and Responses]] — how state reaches a handler
 - [[backend/frameworks/rust/04-async-pitfalls|Async Pitfalls]] — blocking, and what else stalls the runtime
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — `Arc<Mutex<T>>` and `Send`/`Sync`
-- [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|DI and Wiring]] — the concept
+- [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|DI and Wiring]] — the concept
 - [[backend/frameworks/rust/index|Rust backends]]

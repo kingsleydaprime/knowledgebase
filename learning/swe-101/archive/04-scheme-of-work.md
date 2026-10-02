@@ -314,16 +314,16 @@ By Sunday: what must be true before the week closes
 
 # Week 2 — Design principles
 
-**Read:** [[concepts/04-best-practices/01-clean-code|clean code]] · [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] · [[concepts/04-best-practices/05-solid-principles|SOLID principles]]
+**Read:** [[concepts/04-best-practices/01-clean-code/index|clean code]] · [[concepts/04-best-practices/08-coupling-and-cohesion/index|coupling and cohesion]] · [[concepts/04-best-practices/05-solid-principles/index|SOLID principles]]
 
 **Topics**
-- **2.1** Modularity — what a module is, and what makes a bad one → [[concepts/04-best-practices/01-clean-code|clean code]]
-- **2.2** Coupling and cohesion → [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]]
-- **2.3** Abstraction and interfaces → [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal & clean architecture]]
-- **2.4** Separation of concerns → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|by layer vs by feature]]
-- **2.5** DRY, KISS, YAGNI — **and where each one is wrong** → [[concepts/04-best-practices/01-clean-code|clean code]]
-- **2.6** SOLID, one letter at a time — **and when it's over-engineering** → [[concepts/04-best-practices/05-solid-principles|SOLID principles]]
-- **2.7** Composition over inheritance → [[concepts/03-design-patterns/02-structural-patterns|structural patterns]]
+- **2.1** Modularity — what a module is, and what makes a bad one → [[concepts/04-best-practices/01-clean-code/index|clean code]]
+- **2.2** Coupling and cohesion → [[concepts/04-best-practices/08-coupling-and-cohesion/index|coupling and cohesion]]
+- **2.3** Abstraction and interfaces → [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal & clean architecture]]
+- **2.4** Separation of concerns → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|by layer vs by feature]]
+- **2.5** DRY, KISS, YAGNI — **and where each one is wrong** → [[concepts/04-best-practices/01-clean-code/index|clean code]]
+- **2.6** SOLID, one letter at a time — **and when it's over-engineering** → [[concepts/04-best-practices/05-solid-principles/index|SOLID principles]]
+- **2.7** Composition over inheritance → [[concepts/03-design-patterns/02-structural-patterns/index|structural patterns]]
 
 **DSA:** D2 → [[dsa/04-patterns/02-two-pointers|Two pointers]]
 
@@ -336,10 +336,10 @@ By Sunday: what must be true before the week closes
 **Read:** [[concepts/03-design-patterns/index|design patterns]], all three chapters
 
 **Topics**
-- **3.1** Creational — factory, builder, **and why singleton is usually a mistake** → [[concepts/03-design-patterns/01-creational-patterns|creational]]
-- **3.2** Structural — adapter, decorator, facade, proxy → [[concepts/03-design-patterns/02-structural-patterns|structural]]
-- **3.3** Behavioural — strategy, observer, command, state → [[concepts/03-design-patterns/03-behavioral-patterns|behavioural]]
-- **3.4** Dependency injection and wiring → [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|DI & wiring]]
+- **3.1** Creational — factory, builder, **and why singleton is usually a mistake** → [[concepts/03-design-patterns/01-creational-patterns/index|creational]]
+- **3.2** Structural — adapter, decorator, facade, proxy → [[concepts/03-design-patterns/02-structural-patterns/index|structural]]
+- **3.3** Behavioural — strategy, observer, command, state → [[concepts/03-design-patterns/03-behavioral-patterns/index|behavioural]]
+- **3.4** Dependency injection and wiring → [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|DI & wiring]]
 
 **DSA:** D3 → [[dsa/04-patterns/03-sliding-window|Sliding window]]
 
@@ -352,10 +352,10 @@ By Sunday: what must be true before the week closes
 **Read:** [[backend/03-structuring-a-backend/index|structuring a backend]], all five chapters
 
 **Topics**
-- **4.1** Layers: controllers, services, repositories → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|layers]]
-- **4.2** Organising by layer vs by feature → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|by layer vs feature]]
-- **4.3** Hexagonal and clean architecture → [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal]]
-- **4.4** Modular monolith → services, and when to split → [[backend/03-structuring-a-backend/05-modular-monolith-to-services|modular monolith]]
+- **4.1** Layers: controllers, services, repositories → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layers]]
+- **4.2** Organising by layer vs by feature → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|by layer vs feature]]
+- **4.3** Hexagonal and clean architecture → [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal]]
+- **4.4** Modular monolith → services, and when to split → [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|modular monolith]]
 
 **DSA:** D4 → [[dsa/04-patterns/04-fast-slow-pointers|Fast & slow pointers]]
 
@@ -417,7 +417,7 @@ By Sunday: what must be true before the week closes
 **Topics**
 - **8.1** Monolith vs microservices vs serverless → [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|the three]]
 - **8.2** Resilience: timeouts, retries, backoff, circuit breakers, bulkheads → [[architecture/03-architectural-patterns/02-resilience-patterns|resilience]]
-- **8.3** Data and integration patterns → [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data & integration]] · [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]]
+- **8.3** Data and integration patterns → [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data & integration]] · [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]]
 - **8.4** Microservices patterns → [[architecture/03-architectural-patterns/04-microservices-patterns|microservices]]
 - **8.5** **Trade-off articulation** — saying "I'd choose X because Y" instead of "it depends" → [[architecture/interview/01-system-design-round|the round]]
 
@@ -566,10 +566,10 @@ By Sunday: what must be true before the week closes
 **Read:** [[cybersecurity/04-web-security/index|web security]] 01–04 · [[cybersecurity/05-cryptography/index|cryptography]] 01–06
 
 **Topics**
-- **17.1** Input validation and output encoding → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|01]]
-- **17.2** Injection: SQL, command, template → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|01]]
-- **17.3** XSS, CSRF, SSRF → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy|headers & SOP]]
-- **17.4** Security headers and same-origin policy → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy|04]]
+- **17.1** Input validation and output encoding → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|01]]
+- **17.2** Injection: SQL, command, template → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|01]]
+- **17.3** XSS, CSRF, SSRF → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|headers & SOP]]
+- **17.4** Security headers and same-origin policy → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|04]]
 - **17.5** Symmetric, asymmetric, signatures, PKI → [[cybersecurity/05-cryptography/02-symmetric-encryption|02]] · [[cybersecurity/05-cryptography/04-asymmetric-encryption|04]] · [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|05]]
 - **17.6** TLS in practice → [[cybersecurity/04-web-security/03-https-and-tls|HTTPS & TLS]]
 - **17.7** Secrets management → [[devops/09-secret-management/01-secret-management|secrets]]
@@ -603,12 +603,12 @@ By Sunday: what must be true before the week closes
 
 # Week 19 — Backend: cross-cutting concerns
 
-**Read:** [[backend/07-practices/01-backend-best-practices|best practices]] · [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[backend/04-data-and-persistence/01-databases-in-the-backend|persistence]]
+**Read:** [[backend/07-practices/01-backend-best-practices/index|best practices]] · [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[backend/04-data-and-persistence/01-databases-in-the-backend|persistence]]
 
 **Topics**
-- **19.1** Validation, error handling, error contracts → [[backend/07-practices/01-backend-best-practices|practices]]
-- **19.2** Rate limiting → [[backend/07-practices/01-backend-best-practices|practices]]
-- **19.3** Structured logging and configuration → [[backend/07-practices/01-backend-best-practices|practices]]
+- **19.1** Validation, error handling, error contracts → [[backend/07-practices/01-backend-best-practices/index|practices]]
+- **19.2** Rate limiting → [[backend/07-practices/01-backend-best-practices/index|practices]]
+- **19.3** Structured logging and configuration → [[backend/07-practices/01-backend-best-practices/index|practices]]
 - **19.4** Databases in the backend; pooling, migrations → [[backend/04-data-and-persistence/01-databases-in-the-backend|persistence]]
 - **19.5** Background jobs and queues → [[architecture/02-building-blocks/04-messaging-and-async|messaging & async]]
 - **19.6** Idempotency → [[concepts/interview/01-apis-auth-and-practices|APIs, auth & practices]]
@@ -689,16 +689,16 @@ By Sunday: what must be true before the week closes
 
 # Week 24 — Testing and quality
 
-**Read:** [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] · [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[concepts/04-best-practices/02-pr-structure|PR structure]] · [[devops/10-observability/01-observability-fundamentals|observability]]
+**Read:** [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] · [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[concepts/04-best-practices/02-pr-structure|PR structure]] · [[devops/10-observability/01-observability-fundamentals/index|observability]]
 
 **Depth: gap-fill.** Read, write only what surprised you.
 
 **Topics**
-- **24.1** The pyramid: unit, integration, e2e → [[concepts/04-best-practices/04-testing-fundamentals|fundamentals]]
-- **24.2** Test doubles: stub, mock, fake, spy → [[concepts/04-best-practices/04-testing-fundamentals|fundamentals]]
+- **24.1** The pyramid: unit, integration, e2e → [[concepts/04-best-practices/04-testing-fundamentals/index|fundamentals]]
+- **24.2** Test doubles: stub, mock, fake, spy → [[concepts/04-best-practices/04-testing-fundamentals/index|fundamentals]]
 - **24.3** **What not to test**; flaky tests → [[backend/07-practices/02-testing-a-backend|testing a backend]]
 - **24.4** Code review, giving and receiving → [[concepts/04-best-practices/02-pr-structure|PR structure]]
-- **24.5** Observability: logs, metrics, traces → [[devops/10-observability/01-observability-fundamentals|observability]] · [[devops/10-observability/02-the-observability-stack|the stack]]
+- **24.5** Observability: logs, metrics, traces → [[devops/10-observability/01-observability-fundamentals/index|observability]] · [[devops/10-observability/02-the-observability-stack|the stack]]
 
 **DSA:** mixed review, 5 problems
 

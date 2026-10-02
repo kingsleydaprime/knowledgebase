@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · Test what the user does, not what the component is — and the one rule that makes frontend tests survive a refactor.
 
-**The pyramid and TDD are in [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]]; the server side is in [[backend/07-practices/02-testing-a-backend|testing a backend]].** This is what's different about the browser.
+**The pyramid and TDD are in [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]]; the server side is in [[backend/07-practices/02-testing-a-backend|testing a backend]].** This is what's different about the browser.
 
 ## What makes frontend testing distinctive
 
@@ -135,7 +135,7 @@ server.use(http.get("/api/users/:id", () => new HttpResponse(null, { status: 500
 
 ## Related
 - [[frontend/07-practices/04-end-to-end-with-playwright|end-to-end with Playwright]]
-- [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] — the pyramid, TDD
+- [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] — the pyramid, TDD
 - [[backend/07-practices/02-testing-a-backend|testing a backend]] — the other half
 - [[frontend/06-cross-cutting/01-accessibility|accessibility]] — why role queries pay twice
 

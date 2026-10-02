@@ -1,0 +1,19 @@
+{
+  "lesson": "devops/10-observability/01-observability-fundamentals/in-other-languages.md",
+  "run": [
+    [
+      "uv",
+      "run",
+      "-q",
+      "--no-project",
+      "--with",
+      "prometheus_client",
+      "python",
+      "-m",
+      "unittest"
+    ]
+  ],
+  "embedded": [
+    "histogram.py"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "lesson": "backend/03-structuring-a-backend/03-dependency-injection-and-wiring/in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "audit.h",
+    "test_audit.c"
+  ]
+}

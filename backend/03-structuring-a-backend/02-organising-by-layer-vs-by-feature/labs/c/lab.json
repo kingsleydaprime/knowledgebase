@@ -1,0 +1,15 @@
+{
+  "lesson": "backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/in-compiled-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "src/orders/orders.h",
+    "src/orders/orders.c",
+    "src/main.c",
+    "check.sh"
+  ]
+}

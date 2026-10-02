@@ -1,0 +1,15 @@
+{
+  "lesson": "backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/in-compiled-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "src/shop/orders/OrdersRepository.java",
+    "src/shop/orders/OrdersService.java",
+    "src/shop/App.java",
+    "check.sh"
+  ]
+}

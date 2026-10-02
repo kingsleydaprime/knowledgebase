@@ -1,0 +1,12 @@
+{
+  "lesson": "concepts/03-design-patterns/02-structural-patterns/in-other-languages.md",
+  "run": [
+    [
+      "sh",
+      "check.sh"
+    ]
+  ],
+  "embedded": [
+    "src/rates/Rates.java"
+  ]
+}

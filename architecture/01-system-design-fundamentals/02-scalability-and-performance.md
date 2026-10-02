@@ -11,7 +11,7 @@ A system can be fast for one user and collapse at 10,000 (fast but not scalable)
 
 ## Latency vs throughput
 
-- **Latency** — time for a single operation (the round-trip for one request). Measured in ms; you care about the *distribution*, especially tail latency (**p99**), not the average — a 50ms average hiding a 2s p99 means 1% of users have a terrible time ([[devops/10-observability/01-observability-fundamentals|observability]]).
+- **Latency** — time for a single operation (the round-trip for one request). Measured in ms; you care about the *distribution*, especially tail latency (**p99**), not the average — a 50ms average hiding a 2s p99 means 1% of users have a terrible time ([[devops/10-observability/01-observability-fundamentals/index|observability]]).
 - **Throughput** — operations completed per unit time (requests/sec, rows/sec).
 
 They trade off and interact: batching improves throughput but adds latency; a queue smooths throughput at the cost of latency. Aim to maximize throughput at an *acceptable* latency, rather than optimizing one blindly.

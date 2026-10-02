@@ -6,7 +6,7 @@ Partly grounded: the [[languages/01-java/03-tooling/05-logging-and-observability
 
 ## Reading order
 
-1. [[devops/10-observability/01-observability-fundamentals|Observability Fundamentals]] — **[Advanced]** — the three pillars (metrics, logs, traces), monitoring vs observability, SLIs/SLOs/SLAs and error budgets, alerting, and the four golden signals
+1. [[devops/10-observability/01-observability-fundamentals/index|Observability Fundamentals]] — **[Advanced]** — the three pillars (metrics, logs, traces), monitoring vs observability, SLIs/SLOs/SLAs and error budgets, alerting, and the four golden signals
 2. [[devops/10-observability/02-the-observability-stack|The Observability Stack]] — **[Advanced]** — Prometheus + Grafana (metrics), the ELK stack / Loki / Graylog (logs), OpenTelemetry + Jaeger (tracing), and the APM landscape (Datadog, New Relic, Dynatrace)
 
 ## Related

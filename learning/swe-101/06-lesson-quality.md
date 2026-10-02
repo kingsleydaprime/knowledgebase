@@ -14,36 +14,36 @@
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
-| SWE 101 | 1 | core | ✅ meets | — | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories\|01-layers-controllers-services-repositories]] |
-| SWE 101 | 1 | core | ✅ meets | — | [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature\|02-organising-by-layer-vs-by-feature]] |
-| SWE 101 | 1 | optional | ✅ meets | — | [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages\|02b-organising-by-feature-in-compiled-languages]] |
+| SWE 101 | 1 | core | ✅ meets | — | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index\|index]] |
+| SWE 101 | 1 | core | ✅ meets | — | [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index\|index]] |
+| SWE 101 | 1 | optional | ✅ meets | — | [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/in-compiled-languages\|in-compiled-languages]] |
 | SWE 101 | 1 | optional | ✅ meets | — | [[software-engineering/01-what-software-engineering-is\|01-what-software-engineering-is]] |
 | SWE 101 | 1 | optional | ✅ meets | — | [[software-engineering/02-the-software-development-lifecycle\|02-the-software-development-lifecycle]] |
-| SWE 101 | 2 | core | ✅ meets | — | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring\|03-dependency-injection-and-wiring]] |
-| SWE 101 | 2 | core | ✅ meets | — | [[concepts/04-best-practices/04-testing-fundamentals\|04-testing-fundamentals]] |
+| SWE 101 | 2 | core | ✅ meets | — | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index\|index]] |
+| SWE 101 | 2 | core | ✅ meets | — | [[concepts/04-best-practices/04-testing-fundamentals/index\|index]] |
 | SWE 101 | 2 | optional | 🟡 partial | start, terms, checks, practice | [[backend/07-practices/02-testing-a-backend\|02-testing-a-backend]] |
-| SWE 101 | 2 | optional | ✅ meets | — | [[backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages\|03b-dependency-injection-in-other-languages]] |
-| SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/08-coupling-and-cohesion\|08-coupling-and-cohesion]] |
-| SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/05-solid-principles\|05-solid-principles]] |
-| SWE 101 | 3 | optional | ✅ meets | — | [[concepts/04-best-practices/01-clean-code\|01-clean-code]] |
-| SWE 101 | 4 | core | ✅ meets | — | [[concepts/03-design-patterns/03-behavioral-patterns\|03-behavioral-patterns]] |
-| SWE 101 | 4 | core | ✅ meets | — | [[concepts/03-design-patterns/02-structural-patterns\|02-structural-patterns]] |
-| SWE 101 | 4 | optional | ✅ meets | — | [[concepts/03-design-patterns/01-creational-patterns\|01-creational-patterns]] |
-| SWE 101 | 5 | core | ✅ meets | — | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture\|04-hexagonal-and-clean-architecture]] |
-| SWE 101 | 5 | core | ✅ meets | — | [[backend/03-structuring-a-backend/05-modular-monolith-to-services\|05-modular-monolith-to-services]] |
-| SWE 101 | 5 | optional | ✅ meets | — | [[architecture/03-architectural-patterns/05-transactional-outbox\|05-transactional-outbox]] |
-| SWE 101 | 6 | core | ✅ meets | — | [[backend/07-practices/01-backend-best-practices\|01-backend-best-practices]] |
-| SWE 101 | 6 | core | ✅ meets | — | [[devops/10-observability/01-observability-fundamentals\|01-observability-fundamentals]] |
+| SWE 101 | 2 | optional | ✅ meets | — | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/in-other-languages\|in-other-languages]] |
+| SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/08-coupling-and-cohesion/index\|index]] |
+| SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/05-solid-principles/index\|index]] |
+| SWE 101 | 3 | optional | ✅ meets | — | [[concepts/04-best-practices/01-clean-code/index\|index]] |
+| SWE 101 | 4 | core | ✅ meets | — | [[concepts/03-design-patterns/03-behavioral-patterns/index\|index]] |
+| SWE 101 | 4 | core | ✅ meets | — | [[concepts/03-design-patterns/02-structural-patterns/index\|index]] |
+| SWE 101 | 4 | optional | ✅ meets | — | [[concepts/03-design-patterns/01-creational-patterns/index\|index]] |
+| SWE 101 | 5 | core | ✅ meets | — | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index\|index]] |
+| SWE 101 | 5 | core | ✅ meets | — | [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index\|index]] |
+| SWE 101 | 5 | optional | ✅ meets | — | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|index]] |
+| SWE 101 | 6 | core | ✅ meets | — | [[backend/07-practices/01-backend-best-practices/index\|index]] |
+| SWE 101 | 6 | core | ✅ meets | — | [[devops/10-observability/01-observability-fundamentals/index\|index]] |
 | SWE 101 | 6 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/10-observability/02-the-observability-stack\|02-the-observability-stack]] |
-| SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/01-input-validation-and-output-encoding\|01-input-validation-and-output-encoding]] |
-| SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy\|04-security-headers-and-same-origin-policy]] |
+| SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index\|index]] |
+| SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index\|index]] |
 | SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/09-secret-management/01-secret-management\|01-secret-management]] |
 | SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[backend/05-auth/01-authentication-flows\|01-authentication-flows]] |
 | SWE 102 | 1 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/02-how-llms-work\|02-how-llms-work]] |
 | SWE 102 | 1 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/04-calling-models\|04-calling-models]] |
 | SWE 102 | 1 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/01-the-ai-engineer-role\|01-the-ai-engineer-role]] |
 | SWE 102 | 1 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/03-the-model-landscape\|03-the-model-landscape]] |
-| SWE 102 | 1 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/16-local-and-open-models\|16-local-and-open-models]] |
+| SWE 102 | 1 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|index]] |
 | SWE 102 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/11-structured-output\|11-structured-output]] |
 | SWE 102 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/05-prompt-engineering\|05-prompt-engineering]] |
 | SWE 102 | 2 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/06-rag-and-embeddings\|06-rag-and-embeddings]] |

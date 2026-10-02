@@ -16,28 +16,28 @@ By area: dsa 67 · backend 42 · ai-ml 41 · frontend 36 · mathematics 34 · ho
 
 | Priority | Lesson | Written in | Companion |
 |---|---|---|---|
-| SWE 101 core | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories\|backend/03-structuring-a-backend/01-layers-controllers-services-repositories]] | TS/JS | [[backend/03-structuring-a-backend/01b-layers-in-other-languages\|✅]] |
-| SWE 101 core | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring\|backend/03-structuring-a-backend/03-dependency-injection-and-wiring]] | TS/JS | [[backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages\|✅]] |
-| SWE 101 core | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture\|backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture]] | TS/JS | [[backend/03-structuring-a-backend/04b-hexagonal-architecture-in-other-languages\|✅]] |
-| SWE 101 core | [[backend/03-structuring-a-backend/05-modular-monolith-to-services\|backend/03-structuring-a-backend/05-modular-monolith-to-services]] | TS/JS | [[backend/03-structuring-a-backend/05b-modular-monolith-in-other-languages\|✅]] |
-| SWE 101 core | [[backend/07-practices/01-backend-best-practices\|backend/07-practices/01-backend-best-practices]] | TS/JS | [[backend/07-practices/01b-backend-best-practices-in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/03-design-patterns/02-structural-patterns\|concepts/03-design-patterns/02-structural-patterns]] | TS/JS | [[concepts/03-design-patterns/02b-structural-patterns-in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/03-design-patterns/03-behavioral-patterns\|concepts/03-design-patterns/03-behavioral-patterns]] | TS/JS | [[concepts/03-design-patterns/03b-behavioral-patterns-in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/04-best-practices/04-testing-fundamentals\|concepts/04-best-practices/04-testing-fundamentals]] | TS/JS | [[concepts/04-best-practices/04b-testing-fundamentals-in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/04-best-practices/05-solid-principles\|concepts/04-best-practices/05-solid-principles]] | TS/JS | [[concepts/04-best-practices/05b-solid-in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/04-best-practices/08-coupling-and-cohesion\|concepts/04-best-practices/08-coupling-and-cohesion]] | TS/JS | [[concepts/04-best-practices/08b-coupling-and-cohesion-in-other-languages\|✅]] |
-| SWE 101 core | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy\|cybersecurity/04-web-security/04-security-headers-and-same-origin-policy]] | TS/JS | [[cybersecurity/04-web-security/04b-security-headers-in-other-languages\|✅]] |
-| SWE 101 core | [[devops/10-observability/01-observability-fundamentals\|devops/10-observability/01-observability-fundamentals]] | TS/JS | [[devops/10-observability/01b-observability-in-other-languages\|✅]] |
+| SWE 101 core | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index\|backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index]] | TS/JS | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/in-other-languages\|✅]] |
+| SWE 101 core | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index\|backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index]] | TS/JS | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/in-other-languages\|✅]] |
+| SWE 101 core | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index\|backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index]] | TS/JS | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/in-other-languages\|✅]] |
+| SWE 101 core | [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index\|backend/03-structuring-a-backend/05-modular-monolith-to-services/index]] | TS/JS | [[backend/03-structuring-a-backend/05-modular-monolith-to-services/in-other-languages\|✅]] |
+| SWE 101 core | [[backend/07-practices/01-backend-best-practices/index\|backend/07-practices/01-backend-best-practices/index]] | TS/JS | [[backend/07-practices/01-backend-best-practices/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/03-design-patterns/02-structural-patterns/index\|concepts/03-design-patterns/02-structural-patterns/index]] | TS/JS | [[concepts/03-design-patterns/02-structural-patterns/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/03-design-patterns/03-behavioral-patterns/index\|concepts/03-design-patterns/03-behavioral-patterns/index]] | TS/JS | [[concepts/03-design-patterns/03-behavioral-patterns/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/04-best-practices/04-testing-fundamentals/index\|concepts/04-best-practices/04-testing-fundamentals/index]] | TS/JS | [[concepts/04-best-practices/04-testing-fundamentals/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/04-best-practices/05-solid-principles/index\|concepts/04-best-practices/05-solid-principles/index]] | TS/JS | [[concepts/04-best-practices/05-solid-principles/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/04-best-practices/08-coupling-and-cohesion/index\|concepts/04-best-practices/08-coupling-and-cohesion/index]] | TS/JS | [[concepts/04-best-practices/08-coupling-and-cohesion/in-other-languages\|✅]] |
+| SWE 101 core | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index\|cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index]] | TS/JS | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/in-other-languages\|✅]] |
+| SWE 101 core | [[devops/10-observability/01-observability-fundamentals/index\|devops/10-observability/01-observability-fundamentals/index]] | TS/JS | [[devops/10-observability/01-observability-fundamentals/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/04-calling-models\|ai-ml/03-ai-engineer/04-calling-models]] | TS/JS | — |
 | SWE 102 core | [[ai-ml/03-ai-engineer/11-structured-output\|ai-ml/03-ai-engineer/11-structured-output]] | TS/JS | — |
 | SWE 102 core | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing\|ai-ml/03-ai-engineer/13-reliability-and-plumbing]] | TS/JS | — |
 | SWE 102 core | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency\|ai-ml/03-ai-engineer/14-cost-caching-and-latency]] | TS/JS | — |
 | SWE 103 core | [[backend/01-foundations/03-the-request-lifecycle\|backend/01-foundations/03-the-request-lifecycle]] | TS/JS | — |
 | SWE 103 core | [[backend/05-auth/03-oauth-provider-integrations\|backend/05-auth/03-oauth-provider-integrations]] | TS/JS | — |
-| SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox\|architecture/03-architectural-patterns/05-transactional-outbox]] | TS/JS | — |
-| SWE 101 optional | [[concepts/03-design-patterns/01-creational-patterns\|concepts/03-design-patterns/01-creational-patterns]] | TS/JS | — |
-| SWE 101 optional | [[concepts/04-best-practices/01-clean-code\|concepts/04-best-practices/01-clean-code]] | TS/JS | — |
-| SWE 102 optional | [[ai-ml/03-ai-engineer/16-local-and-open-models\|ai-ml/03-ai-engineer/16-local-and-open-models]] | Python | — |
+| SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|architecture/03-architectural-patterns/05-transactional-outbox/index]] | TS/JS | — |
+| SWE 101 optional | [[concepts/03-design-patterns/01-creational-patterns/index\|concepts/03-design-patterns/01-creational-patterns/index]] | TS/JS | — |
+| SWE 101 optional | [[concepts/04-best-practices/01-clean-code/index\|concepts/04-best-practices/01-clean-code/index]] | TS/JS | — |
+| SWE 102 optional | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|ai-ml/03-ai-engineer/16-local-and-open-models/index]] | Python | — |
 | SWE 103 optional | [[backend/05-auth/02-authorization\|backend/05-auth/02-authorization]] | TS/JS | — |
 | SWE 103 optional | [[cybersecurity/05-cryptography/03-hashing-and-integrity\|cybersecurity/05-cryptography/03-hashing-and-integrity]] | Python | — |
 | SWE 103 optional | [[cybersecurity/05-cryptography/05-digital-signatures-and-pki\|cybersecurity/05-cryptography/05-digital-signatures-and-pki]] | Python | — |

@@ -56,11 +56,11 @@ The gap mattered in both directions:
 
 | Systems engineering | Already in this vault as |
 |---|---|
-| Requirements & non-functional properties | [[architecture/01-system-design-fundamentals/index\|system design]] · [[devops/10-observability/01-observability-fundamentals\|SLOs]] |
+| Requirements & non-functional properties | [[architecture/01-system-design-fundamentals/index\|system design]] · [[devops/10-observability/01-observability-fundamentals/index\|SLOs]] |
 | The V-model | [[software-engineering/02-the-software-development-lifecycle\|the SDLC]] |
 | Batch size vs cost of error | [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved\|how delivery practice evolved]] |
 | Interface control documents | [[backend/02-api-design/index\|API contracts]] |
-| Coupling & cohesion | [[concepts/04-best-practices/05-solid-principles\|SOLID]] |
+| Coupling & cohesion | [[concepts/04-best-practices/05-solid-principles/index\|SOLID]] |
 | Margin | [[architecture/01-system-design-fundamentals/03-availability-and-reliability\|headroom, error budgets]] |
 | Trade studies | ADRs → [[concepts/04-best-practices/03-documentation-practices\|documentation practices]] |
 | FMEA / fault trees | [[cybersecurity/06-attacks-and-threats/index\|threat modelling]] · [[architecture/04-distributed-systems/index\|failure modes]] |

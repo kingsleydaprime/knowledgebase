@@ -15,7 +15,7 @@ const user = await prisma.user.findUnique({ where: { id: 42 }, include: { posts:
 // SELECT * FROM posts WHERE author_id = 42;
 ```
 
-The ORM generates the SQL for you, handles connection pooling, and often provides protection against SQL injection by default (parameterizing queries automatically — see [[01-input-validation-and-output-encoding|input-validation-and-output-encoding]]) — a meaningful security benefit, not just convenience. The tradeoff: an ORM's generated SQL isn't always the most efficient query for a given case, and complex queries can be awkward or inefficient to express through an ORM's abstraction compared to hand-written SQL — most real projects end up dropping to raw SQL for the specific handful of queries where the ORM's abstraction gets in the way, rather than using purely one approach everywhere.
+The ORM generates the SQL for you, handles connection pooling, and often provides protection against SQL injection by default (parameterizing queries automatically — see [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input-validation-and-output-encoding]]) — a meaningful security benefit, not just convenience. The tradeoff: an ORM's generated SQL isn't always the most efficient query for a given case, and complex queries can be awkward or inefficient to express through an ORM's abstraction compared to hand-written SQL — most real projects end up dropping to raw SQL for the specific handful of queries where the ORM's abstraction gets in the way, rather than using purely one approach everywhere.
 
 ## Migrations — versioning your schema like you version your code
 
@@ -71,5 +71,5 @@ Indexes aren't free — they speed up reads on the indexed column(s) but slow do
 
 ## Related
 - [[backend/02-api-design/01-apis-and-rest|APIs]]
-- [[backend/07-practices/01-backend-best-practices|backend best practices]]
+- [[backend/07-practices/01-backend-best-practices/index|backend best practices]]
 - [[01-linear-and-binary-search|searching]] — why indexing provides the speedup it does

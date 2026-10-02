@@ -1,0 +1,13 @@
+{
+  "lesson": "backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "orders.ts",
+    "orders.test.ts"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "lesson": "backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "src/domain/order.ts",
+    "src/application/place-order.ts",
+    "src/adapters/in-memory.ts",
+    "place-order.test.ts"
+  ]
+}

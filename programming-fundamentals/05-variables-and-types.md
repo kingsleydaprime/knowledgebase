@@ -143,6 +143,6 @@ What actually matters:
 - [[programming-fundamentals/07-collections|collections]] — many values under one name
 - [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]] — why `0.1 + 0.2` isn't `0.3`
 - [[computer-architecture/02-data-representation|data representation]] — how these are actually stored
-- [[concepts/04-best-practices/01-clean-code|clean code]] — naming, at length
+- [[concepts/04-best-practices/01-clean-code/index|clean code]] — naming, at length
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the reference-vs-value and float-precision material it left out.*

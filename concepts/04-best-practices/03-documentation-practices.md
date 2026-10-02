@@ -5,7 +5,7 @@ Documentation exists to transfer context from someone who has it (right now, whi
 ## The layers of documentation, and what each is actually for
 
 - **README** — the entry point: what this project/module is, how to get it running, where to look next. Should answer "what is this and how do I start" in under a minute of reading, not require reading the entire codebase first.
-- **Inline code comments** — for the *why*, not the *what* (see [[01-clean-code|clean-code]]) — a non-obvious constraint, a workaround, a reason behind a surprising decision at that specific spot in the code.
+- **Inline code comments** — for the *why*, not the *what* (see [[concepts/04-best-practices/01-clean-code/index|clean-code]]) — a non-obvious constraint, a workaround, a reason behind a surprising decision at that specific spot in the code.
 - **API documentation** — the contract for how to call something: parameters, return values, error cases, example usage. This is what a *consumer* of a function/endpoint needs, independent of how it's implemented internally.
 - **Architecture Decision Records (ADRs)** — a short, dated record of a significant technical decision: what was decided, what alternatives were considered, and why. The value is almost entirely in the "why" and "what else was considered" — six months later, the decision itself is often visible in the code, but the reasoning behind it (and why the alternatives were rejected) is otherwise lost entirely.
 
@@ -40,11 +40,11 @@ Documentation that describes outdated behavior is often worse than no documentat
 
 ## Gotchas
 
-- Documenting *what* code does at a level a reader could get just as easily from reading well-named code itself is low-value effort — spend that effort on the *why* instead (see [[01-clean-code|clean-code]]'s comments section for the same principle applied to inline comments specifically).
+- Documenting *what* code does at a level a reader could get just as easily from reading well-named code itself is low-value effort — spend that effort on the *why* instead (see [[concepts/04-best-practices/01-clean-code/index|clean-code]]'s comments section for the same principle applied to inline comments specifically).
 - Comprehensive documentation written once and never revisited tends to decay into actively misleading territory faster than teams expect — a living document that's checked periodically beats an exhaustive one written once and abandoned.
 - Over-documenting a rapidly-changing, early-stage part of a system can create more maintenance burden (keeping docs in sync) than value delivered — matching documentation depth to how stable a given piece of the system actually is is a reasonable, deliberate tradeoff, not a nice-to-have.
 
 ## Related
-- [[01-clean-code|clean-code]]
+- [[concepts/04-best-practices/01-clean-code/index|clean-code]]
 - [[02-pr-structure|pr-structure]]
-- [[04-testing-fundamentals|testing-fundamentals]]
+- [[concepts/04-best-practices/04-testing-fundamentals/index|testing-fundamentals]]

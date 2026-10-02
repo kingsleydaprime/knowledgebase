@@ -54,12 +54,12 @@ Components, responsibilities, data, interfaces, failure modes. See [[architectur
 *Skip it and:* you get a structure by accident — whatever fell out of the order you happened to write things in. Usually discovered as "we can't change X without breaking Y."
 
 **3. Implementation — write it.**
-The part people think is the whole job. See [[concepts/04-best-practices/01-clean-code|clean code]].
+The part people think is the whole job. See [[concepts/04-best-practices/01-clean-code/index|clean code]].
 *Produces:* code.
 *Skip it and:* well, quite.
 
 **4. Testing — how do we know it works?**
-Not just tests — reviews, static analysis, manual checking. See [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]].
+Not just tests — reviews, static analysis, manual checking. See [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]].
 *Produces:* evidence that the code meets the requirements.
 *Skip it and:* your users do the testing, and they report results to your competitors.
 
@@ -109,7 +109,7 @@ Attempt each before reading the answer under it: *what's the earliest phase that
 2. **Adding a "gift message" to orders needs changes in eleven files across four folders.**
 <details><summary>Answer</summary>
 
-**Design.** The structure spreads one concept across the codebase — see [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|organising by layer vs by feature]].
+**Design.** The structure spreads one concept across the codebase — see [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|organising by layer vs by feature]].
 
 </details>
 

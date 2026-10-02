@@ -90,8 +90,8 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 ### Week 1 — Pick the flagship, and structure it
 
 - **DSA — graphs I, DFS:** 080 number of islands · 082 max area of island · 081 clone graph · 084 surrounded regions · 090 number of connected components. Refresh first, only if needed: [[dsa/04-patterns/11-dfs-pattern|DFS pattern]].
-- **Learn (core):** [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories|layers]] · [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|layer vs feature]]
-- **Learn (optional):** [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages|layer vs feature in compiled languages]] · [[software-engineering/01-what-software-engineering-is|what software engineering is]] · [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
+- **Learn (core):** [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layers]] · [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|layer vs feature]]
+- **Learn (optional):** [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/in-compiled-languages|layer vs feature in compiled languages]] · [[software-engineering/01-what-software-engineering-is|what software engineering is]] · [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
 - **Build:** **pick the flagship** — harden nextvibe or my-applicant rather than starting fresh. Then the audit, and decide its folder structure.
 - **Apply:** Friday hour. Link the Quartz site and the flagship from the CV.
 - **By Sunday:** the flagship is named, its structure is drawn on the board, and the audit is done.
@@ -99,8 +99,8 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 ### Week 2 — Wire it, and test it
 
 - **DSA — graphs II, BFS:** 085 rotting oranges · 086 walls and gates · 083 Pacific Atlantic water flow · 091 graph valid tree · 092 word ladder. Refresh: [[dsa/04-patterns/12-bfs-pattern|BFS pattern]].
-- **Learn (core):** [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring|dependency injection and wiring]] · [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]]
-- **Learn (optional):** [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[backend/03-structuring-a-backend/03b-dependency-injection-in-other-languages|DI in other languages]]
+- **Learn (core):** [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection and wiring]] · [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]]
+- **Learn (optional):** [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/in-other-languages|DI in other languages]]
 - **Build:** a composition root, a boundary lint rule, and the first real tests running in CI.
 - **Apply:** Friday hour.
 - **By Sunday:** CI is green on the flagship, and a pull request that breaks a test turns it red.
@@ -108,17 +108,17 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 ### Week 3 — Measure the coupling
 
 - **DSA — graphs III, ordering and weights:** 087 course schedule · 088 course schedule II · 089 redundant connection · 095 network delay time · 094 min cost to connect all points. Refresh: [[dsa/02-data-structures/06-graphs/06-algorithms/01-topological-sort|topological sort]] · [[dsa/02-data-structures/06-graphs/06-algorithms/02-dijkstra|Dijkstra]].
-- **Learn (core):** [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] · [[concepts/04-best-practices/05-solid-principles|SOLID]]
-- **Learn (optional):** [[concepts/04-best-practices/01-clean-code|clean code]]
-- **Build:** run the coupling tool on the flagship (`node labs/coupling-and-cohesion/javascript/coupling.mjs <flagship>/src`). Fix one cycle or one dependency pointing the wrong way.
+- **Learn (core):** [[concepts/04-best-practices/08-coupling-and-cohesion/index|coupling and cohesion]] · [[concepts/04-best-practices/05-solid-principles/index|SOLID]]
+- **Learn (optional):** [[concepts/04-best-practices/01-clean-code/index|clean code]]
+- **Build:** run the coupling tool on the flagship (`node concepts/04-best-practices/08-coupling-and-cohesion/labs/javascript/coupling.mjs <flagship>/src`). Fix one cycle or one dependency pointing the wrong way.
 - **Apply:** Friday hour.
 - **By Sunday:** before-and-after coupling output for the flagship, and one graph medium solved cold under 30 minutes.
 
 ### Week 4 — Patterns in the core feature
 
 - **DSA — trees:** 048 diameter of binary tree · 053 level order traversal · 054 right side view · 056 validate BST · 058 construct tree from preorder and inorder. Refresh: [[dsa/04-patterns/10-binary-tree-traversal-pattern|binary tree traversal]].
-- **Learn (core):** [[concepts/03-design-patterns/03-behavioral-patterns|behavioural patterns]] · [[concepts/03-design-patterns/02-structural-patterns|structural patterns]]
-- **Learn (optional):** [[concepts/03-design-patterns/01-creational-patterns|creational patterns]]
+- **Learn (core):** [[concepts/03-design-patterns/03-behavioral-patterns/index|behavioural patterns]] · [[concepts/03-design-patterns/02-structural-patterns/index|structural patterns]]
+- **Learn (optional):** [[concepts/03-design-patterns/01-creational-patterns/index|creational patterns]]
 - **Build:** the flagship's core feature, end to end. Use one pattern where it genuinely fits — a state machine for a lifecycle, or wrappers around an external API.
 - **Apply:** Friday hour.
 - **By Sunday:** one sentence on which pattern you used in the flagship, and why it beat the plain version.
@@ -126,8 +126,8 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 ### Week 5 — Boundaries that last
 
 - **DSA — backtracking:** 071 subsets · 072 combination sum · 073 permutations · 076 word search · 079 N-queens. Refresh: [[dsa/04-patterns/14-backtracking|backtracking]].
-- **Learn (core):** [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture|hexagonal architecture]] · [[backend/03-structuring-a-backend/05-modular-monolith-to-services|modular monolith to services]]
-- **Learn (optional):** [[architecture/03-architectural-patterns/05-transactional-outbox|transactional outbox]]
+- **Learn (core):** [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal architecture]] · [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|modular monolith to services]]
+- **Learn (optional):** [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]]
 - **Build:** put the one external API most likely to change — payments, email, or the model provider — behind a port, with a fake adapter in tests.
 - **Apply:** Friday hour.
 - **By Sunday:** the flagship's core logic has a test that runs with no network.
@@ -135,7 +135,7 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 ### Week 6 — Hardening
 
 - **DSA — two pointers and sliding window:** 012 3sum · 013 container with most water · 016 longest substring without repeating characters · 017 longest repeating character replacement · 019 minimum window substring.
-- **Learn (core):** [[backend/07-practices/01-backend-best-practices|backend best practices]] (validation, error contracts, rate limits, idempotency) · [[devops/10-observability/01-observability-fundamentals|observability fundamentals]]
+- **Learn (core):** [[backend/07-practices/01-backend-best-practices/index|backend best practices]] (validation, error contracts, rate limits, idempotency) · [[devops/10-observability/01-observability-fundamentals/index|observability fundamentals]]
 - **Learn (optional):** [[devops/10-observability/02-the-observability-stack|the observability stack]]
 - **Build:** consistent error responses, rate limits on the expensive routes, and structured logs.
 - **Apply:** Friday hour.
@@ -144,7 +144,7 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 ### Week 7 — Securing what you built
 
 - **DSA — binary search and heaps:** 030 Koko eating bananas · 032 search in rotated sorted array · 066 K closest points · 067 Kth largest element · 070 find median from data stream.
-- **Learn (core):** [[cybersecurity/04-web-security/01-input-validation-and-output-encoding|input validation and output encoding]] · [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy|security headers and same-origin policy]]
+- **Learn (core):** [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation and output encoding]] · [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|security headers and same-origin policy]]
 - **Learn (optional):** [[devops/09-secret-management/01-secret-management|secret management]] · [[backend/05-auth/01-authentication-flows|authentication flows]]
 - **Build:** threat-model the flagship and fix the top risk.
 - **Apply:** Friday hour.

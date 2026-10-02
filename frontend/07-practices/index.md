@@ -8,4 +8,4 @@ Habits and measurement.
 
 ## Related
 - [[frontend/index|the course]] · [[computer-architecture/12-performance|performance method]]
-- [[concepts/04-best-practices/04-testing-fundamentals|testing fundamentals]] · [[backend/07-practices/02-testing-a-backend|testing a backend]]
+- [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] · [[backend/07-practices/02-testing-a-backend|testing a backend]]

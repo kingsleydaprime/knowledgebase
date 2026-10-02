@@ -1,0 +1,23 @@
+{
+  "lesson": "backend/03-structuring-a-backend/03-dependency-injection-and-wiring/in-other-languages.md",
+  "run": [
+    [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    [
+      "cargo",
+      "test",
+      "--quiet"
+    ],
+    [
+      "sh",
+      "check-compile.sh"
+    ]
+  ],
+  "embedded": [
+    "src/lib.rs",
+    "check-compile.sh"
+  ]
+}

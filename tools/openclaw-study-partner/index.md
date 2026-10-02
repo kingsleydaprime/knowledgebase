@@ -1,6 +1,6 @@
 # OpenClaw Study Partner
 
-> A local AI that reads this knowledgebase and quizzes you on it, running on your own laptop with Ollama. The lesson behind the choices — sizing, speed, context and permissions — is [[ai-ml/03-ai-engineer/16-local-and-open-models|local and open models]]. Set up 2026-10-02, for sparring — hints, questions, critique — not for handing over answers. See [[learning/06-ai-as-sparring-partner|AI as a sparring partner]].
+> A local AI that reads this knowledgebase and quizzes you on it, running on your own laptop with Ollama. The lesson behind the choices — sizing, speed, context and permissions — is [[ai-ml/03-ai-engineer/16-local-and-open-models/index|local and open models]]. Set up 2026-10-02, for sparring — hints, questions, critique — not for handing over answers. See [[learning/06-ai-as-sparring-partner|AI as a sparring partner]].
 
 ## What this sets up
 

@@ -8,7 +8,7 @@ The disciplines that come *after* DevOps — and why each of them exists because
 
 ## Why this exists
 
-`devops/` had eleven sections covering the **tools** — pipelines, Terraform, Kubernetes, Prometheus — and [[devops/devops-reference|devops-reference]] had two paragraphs on the **disciplines** that decide how those tools get used. The vault knew what an error budget was ([[devops/10-observability/01-observability-fundamentals|observability 01]] covers SLI/SLO/SLA properly) but had **zero occurrences of "toil"**, nothing on on-call design, incident command or blameless postmortems, one passing mention of Internal Developer Platforms, and no note on DevSecOps at all.
+`devops/` had eleven sections covering the **tools** — pipelines, Terraform, Kubernetes, Prometheus — and [[devops/devops-reference|devops-reference]] had two paragraphs on the **disciplines** that decide how those tools get used. The vault knew what an error budget was ([[devops/10-observability/01-observability-fundamentals/index|observability 01]] covers SLI/SLO/SLA properly) but had **zero occurrences of "toil"**, nothing on on-call design, incident command or blameless postmortems, one passing mention of Internal Developer Platforms, and no note on DevSecOps at all.
 
 **So: the vocabulary of the roles the vault is preparing you to hold, which existed everywhere in job ads and nowhere in these notes.**
 

@@ -83,7 +83,7 @@ Contrapositive: assume $n$ even, $n = 2k$, so $n^2 = 4k^2 = 2(2k^2)$ — even. �
 
 **And you can see it without searching:** at $n=41$, every term has a factor of 41, so $41^2+41+41 = 41\cdot43$. Working backwards, $n=40$ also fails. **Euler's polynomial is prime for $n = 0..39$** — forty confirming cases, then failure.
 
-**That's the lesson.** No number of verified cases proves a universal claim. This is the difference between testing and proof, and it's why [[concepts/04-best-practices/04-testing-fundamentals|tests]] show the presence of bugs, not their absence.
+**That's the lesson.** No number of verified cases proves a universal claim. This is the difference between testing and proof, and it's why [[concepts/04-best-practices/04-testing-fundamentals/index|tests]] show the presence of bugs, not their absence.
 
 ---
 
