@@ -115,7 +115,7 @@ def exposition(registry: CollectorRegistry) -> str:
     return generate_latest(registry).decode()
 ```
 
-**Lab:** `labs/observability-python/` — checked with Python 3.14; `uv` fetches `prometheus_client`. The test checks the scrape text contains `request_duration_ms_bucket{le="25.0"} 60.0`.
+**Lab:** `labs/observability/javascript/python/` — checked with Python 3.14; `uv` fetches `prometheus_client`. The test checks the scrape text contains `request_duration_ms_bucket{le="25.0"} 60.0`.
 
 ## 4. Go
 
@@ -173,7 +173,7 @@ func EstimateQuantile(q float64, buckets []Bucket) float64 {
 }
 ```
 
-**Lab:** `labs/observability-go/` — checked with Go 1.26; `go test` downloads the client on the first run.
+**Lab:** `labs/observability/javascript/go/` — checked with Go 1.26; `go test` downloads the client on the first run.
 
 ## 5. Java
 
@@ -228,7 +228,7 @@ public final class Histogram {
 }
 ```
 
-**Lab:** `labs/observability-java/` — checked with Java 21.
+**Lab:** `labs/observability/javascript/java/` — checked with Java 21.
 
 ## 6. Rust
 
@@ -300,7 +300,7 @@ mod tests {
 }
 ```
 
-**Lab:** `labs/observability-rust/` — checked with Rust 1.96.
+**Lab:** `labs/observability/javascript/rust/` — checked with Rust 1.96.
 
 ## 7. C and C++
 
@@ -402,7 +402,7 @@ int main() {
 }
 ```
 
-**Labs:** `labs/observability-c/` and `labs/observability-cpp/` — checked with GCC 16.
+**Labs:** `labs/observability/javascript/c/` and `labs/observability/javascript/cpp/` — checked with GCC 16.
 
 ## 8. C#
 
@@ -453,7 +453,7 @@ double EstimateQuantile(double q)
 static void Check(bool ok, string what) { if (!ok) throw new Exception($"FAIL: {what}"); }
 ```
 
-**Lab:** `labs/observability-csharp/` — runs in the .NET 10 SDK container.
+**Lab:** `labs/observability/javascript/csharp/` — runs in the .NET 10 SDK container.
 
 ## Check your understanding
 

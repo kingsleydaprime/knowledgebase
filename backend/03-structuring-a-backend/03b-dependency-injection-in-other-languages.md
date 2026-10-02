@@ -154,7 +154,7 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-**Lab:** `labs/dependency-injection-python/` — run `python3 labs/run.py dependency-injection-python` from the vault root. Checked with Python 3.14; all three tests pass, the first by asserting the wrong result.
+**Lab:** `labs/dependency-injection/typescript/python/` — run `python3 labs/run.py dependency-injection/python` from the vault root. Checked with Python 3.14; all three tests pass, the first by asserting the wrong result.
 
 ## 3. Go
 
@@ -276,7 +276,7 @@ grep -q "WARNING: DATA RACE" "$out" || { echo "failed, but not with a data race:
 echo "ok: the race detector caught the per-request field on a shared service"
 ```
 
-**Lab:** `labs/dependency-injection-go/` — the check prints `ok: the race detector caught the per-request field on a shared service`. Checked with Go 1.26. **Run `go test -race ./...` in CI** for any Go service; it catches this whole class of bug for the cost of slower tests.
+**Lab:** `labs/dependency-injection/typescript/go/` — the check prints `ok: the race detector caught the per-request field on a shared service`. Checked with Go 1.26. **Run `go test -race ./...` in CI** for any Go service; it catches this whole class of bug for the cost of slower tests.
 
 ## 4. Java (and Spring)
 
@@ -397,7 +397,7 @@ public final class Check {
 }
 ```
 
-**Lab:** `labs/dependency-injection-java/` — prints `bug reproduced: [bayo: viewed invoice, bayo: viewed invoice]`, then `both fixes record the right users`. Checked with Java 21. Note the `finally` that clears the `ThreadLocal`: servers reuse threads, so a value left behind leaks into the next request. Java 25's `ScopedValue` removes that risk by design.
+**Lab:** `labs/dependency-injection/typescript/java/` — prints `bug reproduced: [bayo: viewed invoice, bayo: viewed invoice]`, then `both fixes record the right users`. Checked with Java 21. Note the `finally` that clears the `ThreadLocal`: servers reuse threads, so a value left behind leaks into the next request. Java 25's `ScopedValue` removes that risk by design.
 
 ## 5. Rust
 
@@ -535,7 +535,7 @@ mod tests {
 
 The first test passes by asserting **`bayo` twice**. The `Mutex` makes every access safe — no data race, no undefined behaviour — and the program is still wrong, because one shared value holds per-request data. **Rust prevents data races, not logic errors.** The fix is the same as in every other language.
 
-**Lab:** `labs/dependency-injection-rust/` — checked with Rust 1.96.
+**Lab:** `labs/dependency-injection/typescript/rust/` — checked with Rust 1.96.
 
 ## 6. C
 
@@ -593,7 +593,7 @@ int main(void) {
 }
 ```
 
-**Lab:** `labs/dependency-injection-c/` — checked with GCC 16. The scope bug in C is a global or `static` variable holding "the current user"; with threads, writing it unsynchronised is a data race and undefined behaviour. The fix is the argument; a `_Thread_local` variable is the C equivalent of a context variable.
+**Lab:** `labs/dependency-injection/typescript/c/` — checked with GCC 16. The scope bug in C is a global or `static` variable holding "the current user"; with threads, writing it unsynchronised is a data race and undefined behaviour. The fix is the argument; a `_Thread_local` variable is the C equivalent of a context variable.
 
 ## 7. C++
 
@@ -666,7 +666,7 @@ int main() {
 }
 ```
 
-**Lab:** `labs/dependency-injection-cpp/` — checked with GCC 16. A per-request field on a shared service is a data race, which is undefined behaviour; **ThreadSanitizer** (`-fsanitize=thread`) catches it at runtime, like Go's race detector. It isn't used in the lab because its runtime library isn't installed on the machine this was checked on — install `libtsan` and add the flag.
+**Lab:** `labs/dependency-injection/typescript/cpp/` — checked with GCC 16. A per-request field on a shared service is a data race, which is undefined behaviour; **ThreadSanitizer** (`-fsanitize=thread`) catches it at runtime, like Go's race detector. It isn't used in the lab because its runtime library isn't installed on the machine this was checked on — install `libtsan` and add the flag.
 
 ## 8. C#
 
@@ -736,7 +736,7 @@ sealed class AuditService(AuditLog log, RequestContext context)
 }
 ```
 
-**Lab:** `labs/dependency-injection-csharp/` — runs in the .NET 10 SDK container and prints:
+**Lab:** `labs/dependency-injection/typescript/csharp/` — runs in the .NET 10 SDK container and prints:
 
 ```
 caught at startup: … Cannot consume scoped service 'RequestContext' from singleton 'CaptiveAuditService'.

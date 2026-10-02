@@ -1,0 +1,8 @@
+# A CPU-only variant of qwen3.5:4b for this laptop.
+# Measured 2026-10-02: 5.09 tokens/s on CPU alone vs 3.91 when Ollama put 10% of the model
+# on the 2 GB MX130 — moving work to that GPU costs more than it saves.
+# Build it with:  ollama create study-qwen3.5:4b -f tools/openclaw-study-partner/Modelfile
+FROM qwen3.5:4b
+PARAMETER num_gpu 0
+# Match OpenClaw's 32K window; Ollama's default is 4K, which would cut the prompt short.
+PARAMETER num_ctx 32768

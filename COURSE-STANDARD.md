@@ -304,7 +304,7 @@ A lesson teaches in **one** language — TypeScript for software-engineering top
 - **Name and place.** Beside the lesson, with a `b` after its number: `03-dependency-injection-and-wiring.md` → `03b-dependency-injection-in-other-languages.md`. Its first lines say `A companion to [[<lesson path>|…]]` — that's how the tracker finds it.
 - **One section per language, the same shape each time:** the idiomatic way to do it, what the language *changes* about the idea, and one verified example. Write what's different, not a line-by-line translation — if a section would only translate syntax, keep it to a few sentences.
 - **Only where the language makes sense.** C and C++ get a section when the idea exists there (memory, concurrency, boundaries, error handling). A web-framework idea in C, or pandas in Rust, gets one sentence saying what's used instead, or nothing.
-- **Every example runs.** Each language's code lives in a lab (`labs/<lesson>-<language>/`) and is checked by `python3 labs/run.py`. C# labs run in the .NET SDK container.
+- **Every example runs.** Each language's code lives in a lab, grouped by lesson then language (`labs/<lesson>/<language>/`) and is checked by `python3 labs/run.py`. C# labs run in the .NET SDK container.
 - **The full lesson shape still applies** — a short kid version, terms, checks and a practice task — but the main lesson holds the explanation; the companion assumes it's been read.
 
 ## The course around the lessons

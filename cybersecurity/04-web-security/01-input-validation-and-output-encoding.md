@@ -226,7 +226,7 @@ test("context: </script> inside JSON ends the script block unless < is escaped",
 });
 ```
 
-**Lab:** these files are in `labs/input-validation-and-output-encoding/`. From the vault root, `python3 labs/run.py input-validation-and-output-encoding` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/input-validation-and-output-encoding/javascript/`. From the vault root, `python3 labs/run.py input-validation-and-output-encoding/javascript` runs them and checks this page still shows the same code.
 
 **Run it.** From the lab folder, `node --test` (Node 22.5 or later; checked with Node 26). Expected:
 

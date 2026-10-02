@@ -192,9 +192,9 @@ test("burn rate, and paging only on a fast burn that is still happening", () => 
 });
 ```
 
-**Lab:** these files are in `labs/observability/`. From the vault root, `python3 labs/run.py observability` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/observability/javascript/`. From the vault root, `python3 labs/run.py observability/javascript` runs them and checks this page still shows the same code.
 
-**Run it.** From `labs/observability/`, run `node --test` (checked with Node 26). Expected:
+**Run it.** From `labs/observability/javascript/`, run `node --test` (checked with Node 26). Expected:
 
 ```
 ℹ tests 4

@@ -1,11 +1,11 @@
 # OpenClaw Study Partner
 
-> A local AI that reads this knowledgebase and quizzes you on it, running on your own laptop with Ollama. Set up 2026-10-02, for sparring — hints, questions, critique — not for handing over answers. See [[learning/06-ai-as-sparring-partner|AI as a sparring partner]].
+> A local AI that reads this knowledgebase and quizzes you on it, running on your own laptop with Ollama. The lesson behind the choices — sizing, speed, context and permissions — is [[ai-ml/03-ai-engineer/16-local-and-open-models|local and open models]]. Set up 2026-10-02, for sparring — hints, questions, critique — not for handing over answers. See [[learning/06-ai-as-sparring-partner|AI as a sparring partner]].
 
 ## What this sets up
 
 - A **separate OpenClaw agent called `study`**. Your existing default agent and its Telegram connection don't change.
-- It runs **`qwen3.5:4b`** through Ollama: small enough for this laptop, with tool calling, which OpenClaw needs to read files.
+- It runs **`qwen3.5:4b`** through Ollama, CPU-only: small enough for this laptop, with tool calling, which OpenClaw needs to read files.
 - It can **read files and nothing else** — no shell, no web, no writing.
 - Its persona and rules live in [[tools/openclaw-study-partner/SOUL|SOUL.md]] and [[tools/openclaw-study-partner/AGENTS|AGENTS.md]], copied into its workspace.
 - It's only reachable from your terminal — it isn't connected to Telegram.
@@ -21,6 +21,10 @@ The laptop: 16 GB of RAM (about 7 GB free with your usual apps open), an Intel i
 | **`qwen3.5:4b`** | 3.4 GB | **Yes** — usable speed, tool calling, image input |
 | `qwen3.5:2b` | smaller | Faster fallback if 4B feels slow |
 
+**It runs on the CPU only.** Measured on 2026-10-02: Ollama on its own put 10% of the model on the MX130 and ran at **3.91 tokens per second**; on the CPU alone, **5.09** — about 30% faster, because moving work to and from a 2 GB GPU costs more than it saves. The `Modelfile` in this folder builds `study-qwen3.5:4b`, a variant with `num_gpu 0` built in. CPU temperature stayed at 40–55 °C under load, so heat isn't a limit. Its context window is **32K tokens**. OpenClaw's own instructions take about 8,800 tokens before you type anything, and it keeps about 8,400 in reserve for the reply. A 16K window, tried first to save memory, overflowed on the first message. 32K leaves room for OpenClaw, one lesson file and a conversation.
+
+**Thinking is off by default for this agent.** Qwen 3.5 reasons silently before answering unless told not to. Measured on this laptop on 2026-10-02: about 4.6 tokens per second, and the first test — "two sentences", with thinking on — produced 1,087 tokens and took four minutes. Most of that was hidden reasoning. With `thinkingDefault: "off"`, answers start in seconds. The first message after a while also waits about 20 seconds while Ollama loads the model into memory.
+
 **Small models get things wrong more often.** That's acceptable here because the notes are the source of truth — the agent is told to read the file first and name it. Treat it as a quiz partner, not an authority. If it says something the notes don't, check the notes.
 
 ## Setup — run these yourself
@@ -28,9 +32,11 @@ The laptop: 16 GB of RAM (about 7 GB free with your usual apps open), an Intel i
 From the vault root (`~/code/personal/knowledgebase`):
 
 ```bash
-# 1. Get the model, then check its speed. "eval rate" is tokens per second; 5+ is comfortable.
+# 1. Get the model, build the CPU-only variant from ./Modelfile, and check its speed.
+#    "eval rate" is tokens per second; expect about 5 on this laptop.
 ollama pull qwen3.5:4b
-ollama run qwen3.5:4b --verbose "Explain a token bucket in two sentences."
+ollama create study-qwen3.5:4b -f tools/openclaw-study-partner/Modelfile
+ollama run study-qwen3.5:4b --think=false --verbose "Explain a token bucket in two sentences."
 
 # 2. Back up OpenClaw's config, credentials and sessions before changing anything.
 openclaw backup create
@@ -82,4 +88,5 @@ Or restore the backup from step 2.
 
 - [[tools/openclaw-study-partner/SOUL|SOUL.md]] — persona: sparring partner, not answer machine
 - [[tools/openclaw-study-partner/AGENTS|AGENTS.md]] — where the notes are, and the rules: read first, cite the file, look up acronyms in `glossary.json`, don't reveal hidden answers
+- `Modelfile` — the CPU-only model variant
 - `study-agent.patch.json5` — the config change, validated with `--dry-run` against your config on 2026-10-02

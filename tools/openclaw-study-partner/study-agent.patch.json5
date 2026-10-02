@@ -9,7 +9,10 @@
       {
         id: "study",
         workspace: "/home/kingsleydaprime/.openclaw/workspace-study",
-        model: "ollama/qwen3.5:4b",
+        model: "ollama/study-qwen3.5:4b",   // the CPU-only variant built from ./Modelfile
+        // Thinking off: on this laptop, Qwen's hidden reasoning turned a two-sentence answer
+        // into ~1,000 tokens and four minutes. Turn it up per message when a question needs it.
+        thinkingDefault: "off",
         tools: {
           profile: "minimal",                 // no shell, no web, no file writes...
           alsoAllow: ["read"],                // ...only reading files
@@ -20,8 +23,10 @@
   models: {
     providers: {
       ollama: {
-        // A patch replaces arrays, so this repeats your two existing models and adds qwen3.5:4b.
-        // contextWindow is held at 32K: the model supports more, but this laptop's RAM doesn't.
+        // A patch replaces arrays, so this repeats your two existing models and adds the study model.
+        // contextWindow 32K. OpenClaw's own prompt is ~8,800 tokens before any message, and it keeps
+        // ~8,400 in reserve for the reply. 16K left an 8,000-token budget — every message, even "hi",
+        // overflowed (measured 2026-10-02). 32K leaves ~24,000: OpenClaw, one lesson, and a chat.
         models: [
         {
           "id": "gemma4:latest",
@@ -63,8 +68,8 @@
           "api": "ollama"
         },
         {
-          "id": "qwen3.5:4b",
-          "name": "qwen3.5:4b",
+          "id": "study-qwen3.5:4b",
+          "name": "study-qwen3.5:4b",
           "input": [
             "text",
             "image"

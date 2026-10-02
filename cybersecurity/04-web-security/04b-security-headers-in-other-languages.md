@@ -83,7 +83,7 @@ def security_middleware(app):
 application = security_middleware(api)
 ```
 
-**Lab:** `labs/security-headers-python/` — checked with Python 3.14, standard library only.
+**Lab:** `labs/security-headers/javascript/python/` — checked with Python 3.14, standard library only.
 
 ## 3. Go
 
@@ -123,7 +123,7 @@ func Me(w http.ResponseWriter, _ *http.Request) {
 }
 ```
 
-**Lab:** `labs/security-headers-go/` — checked with Go 1.26.
+**Lab:** `labs/security-headers/javascript/go/` — checked with Go 1.26.
 
 ## 4. Java
 
@@ -198,7 +198,7 @@ public final class Server {
 }
 ```
 
-**Lab:** `labs/security-headers-java/` — checked with Java 21. `Origin` is a restricted header in `java.net.http`, so the check script allows it with a system property — a reminder that browsers, not servers, set `Origin`.
+**Lab:** `labs/security-headers/javascript/java/` — checked with Java 21. `Origin` is a restricted header in `java.net.http`, so the check script allows it with a system property — a reminder that browsers, not servers, set `Origin`.
 
 ## 5. Rust
 
@@ -272,7 +272,7 @@ mod tests {
 }
 ```
 
-**Lab:** `labs/security-headers-rust/` — checked with Rust 1.96.
+**Lab:** `labs/security-headers/javascript/rust/` — checked with Rust 1.96.
 
 ## 6. C#
 
@@ -323,7 +323,7 @@ await app.StopAsync();
 static void Check(bool ok, string what) { if (!ok) throw new Exception($"FAIL: {what}"); }
 ```
 
-**Lab:** `labs/security-headers-csharp/` — runs a real Kestrel server inside the .NET 10 SDK container.
+**Lab:** `labs/security-headers/javascript/csharp/` — runs a real Kestrel server inside the .NET 10 SDK container.
 
 ## Check your understanding
 

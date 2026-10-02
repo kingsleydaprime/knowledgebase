@@ -97,7 +97,7 @@ class Order:
             yield status.value
 ```
 
-**Lab:** `labs/behavioral-patterns-python/` — checked with Python 3.14.
+**Lab:** `labs/behavioral-patterns/typescript/python/` — checked with Python 3.14.
 
 ## 3. Go
 
@@ -168,7 +168,7 @@ func (o *Order) History() iter.Seq[Status] {
 }
 ```
 
-**Lab:** `labs/behavioral-patterns-go/` — checked with Go 1.26.
+**Lab:** `labs/behavioral-patterns/typescript/go/` — checked with Go 1.26.
 
 ## 4. Java
 
@@ -218,7 +218,7 @@ public final class Order implements Iterable<Order.Status> {
 }
 ```
 
-**Lab:** `labs/behavioral-patterns-java/` — checked with Java 21.
+**Lab:** `labs/behavioral-patterns/typescript/java/` — checked with Java 21.
 
 ## 5. Rust — typestate
 
@@ -332,7 +332,7 @@ grep -q "error\[E0599\]: no method named \`cancel\` found for struct \`Order<Shi
 echo "ok: rustc refused to cancel a shipped order (E0599)"
 ```
 
-**Lab:** `labs/behavioral-patterns-rust/` — cancelling a shipped order fails with ``error[E0599]: no method named `cancel` found for struct `Order<Shipped>` ``. Checked with Rust 1.96.
+**Lab:** `labs/behavioral-patterns/typescript/rust/` — cancelling a shipped order fails with ``error[E0599]: no method named `cancel` found for struct `Order<Shipped>` ``. Checked with Rust 1.96.
 
 **When typestate fits:** the state is known while the code is written — a builder that must be configured before `build()`, a connection that must be opened before use. **When it doesn't:** orders loaded from a database, whose state is only known at runtime. For those, an enum with an exhaustive `match`, or the table, is the right tool.
 
@@ -396,7 +396,7 @@ int main(void) {
 }
 ```
 
-**Lab:** `labs/behavioral-patterns-c/` — checked with GCC 16.
+**Lab:** `labs/behavioral-patterns/typescript/c/` — checked with GCC 16.
 
 ## 7. C++
 
@@ -463,7 +463,7 @@ int main() {
 }
 ```
 
-**Lab:** `labs/behavioral-patterns-cpp/` — checked with GCC 16.
+**Lab:** `labs/behavioral-patterns/typescript/cpp/` — checked with GCC 16.
 
 ## 8. C#
 
@@ -521,7 +521,7 @@ sealed class Order(string id)
 }
 ```
 
-**Lab:** `labs/behavioral-patterns-csharp/` — runs in the .NET 10 SDK container. One `event` caveat: a subscriber that's never unsubscribed is kept alive by the publisher — a common source of memory leaks in long-running apps.
+**Lab:** `labs/behavioral-patterns/typescript/csharp/` — runs in the .NET 10 SDK container. One `event` caveat: a subscriber that's never unsubscribed is kept alive by the publisher — a common source of memory leaks in long-running apps.
 
 ## Check your understanding
 

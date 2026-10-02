@@ -230,9 +230,9 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 });
 ```
 
-**Lab:** these files are in `labs/transactional-outbox/`. From the vault root, `python3 labs/run.py transactional-outbox` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/transactional-outbox/javascript/`. From the vault root, `python3 labs/run.py transactional-outbox/javascript` runs them and checks this page still shows the same code.
 
-**Run it.** From `labs/transactional-outbox/`, run `node --test`. It needs Node 22.5 or later for `node:sqlite`; checked with Node 26, which prints no experimental warning. Expected:
+**Run it.** From `labs/transactional-outbox/javascript/`, run `node --test`. It needs Node 22.5 or later for `node:sqlite`; checked with Node 26, which prints no experimental warning. Expected:
 
 ```
 ℹ tests 5

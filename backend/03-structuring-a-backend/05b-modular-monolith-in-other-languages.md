@@ -123,7 +123,7 @@ class Orders:
         self.paid[event.order_id] = self.paid.get(event.order_id, 0) + event.amount_kobo
 ```
 
-**Lab:** `labs/modular-monolith-python/` — checked with Python 3.14.
+**Lab:** `labs/modular-monolith/typescript/python/` — checked with Python 3.14.
 
 ## 4. Go
 
@@ -193,7 +193,7 @@ func NewOrders(bus Bus, idempotent bool) *Orders {
 }
 ```
 
-**Lab:** `labs/modular-monolith-go/` — checked with Go 1.26.
+**Lab:** `labs/modular-monolith/typescript/go/` — checked with Go 1.26.
 
 ## 5. Java
 
@@ -261,7 +261,7 @@ public final class Shop {
 }
 ```
 
-**Lab:** `labs/modular-monolith-java/` — checked with Java 21. `Set.add` returning `false` for a repeat makes the check one line.
+**Lab:** `labs/modular-monolith/typescript/java/` — checked with Java 21. `Set.add` returning `false` for a repeat makes the check one line.
 
 ## 6. Rust
 
@@ -356,7 +356,7 @@ mod tests {
 }
 ```
 
-**Lab:** `labs/modular-monolith-rust/` — checked with Rust 1.96. In async services, `tokio::sync::broadcast` gives every subscriber its own copy of each event.
+**Lab:** `labs/modular-monolith/typescript/rust/` — checked with Rust 1.96. In async services, `tokio::sync::broadcast` gives every subscriber its own copy of each event.
 
 ## 7. C
 
@@ -411,7 +411,7 @@ int main(void) {
 }
 ```
 
-**Lab:** `labs/modular-monolith-c/` — checked with GCC 16.
+**Lab:** `labs/modular-monolith/typescript/c/` — checked with GCC 16.
 
 ## 8. C++
 
@@ -466,7 +466,7 @@ int main() {
 }
 ```
 
-**Lab:** `labs/modular-monolith-cpp/` — checked with GCC 16. `unordered_set::insert` returns a pair; `.second` says whether the item was new.
+**Lab:** `labs/modular-monolith/typescript/cpp/` — checked with GCC 16. `unordered_set::insert` returns a pair; `.second` says whether the item was new.
 
 ## 9. C#
 
@@ -521,7 +521,7 @@ sealed class Orders
 }
 ```
 
-**Lab:** `labs/modular-monolith-csharp/` — runs in the .NET 10 SDK container.
+**Lab:** `labs/modular-monolith/typescript/csharp/` — runs in the .NET 10 SDK container.
 
 ## Check your understanding
 

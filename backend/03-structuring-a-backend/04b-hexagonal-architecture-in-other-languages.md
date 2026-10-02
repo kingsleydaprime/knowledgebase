@@ -100,7 +100,7 @@ type = "layers"
 layers = ["shop.adapters", "shop.domain"]
 ```
 
-**Lab:** `labs/hexagonal-python/` — adding `from shop.adapters import memory` to the domain makes `lint-imports` fail with `shop.domain -> shop.adapters.memory`. Checked with Python 3.14.
+**Lab:** `labs/hexagonal-architecture/python/` — adding `from shop.adapters import memory` to the domain makes `lint-imports` fail with `shop.domain -> shop.adapters.memory`. Checked with Python 3.14.
 
 ## 3. Go
 
@@ -183,7 +183,7 @@ grep -q "import cycle not allowed" "$work/err.txt" || { cat "$work/err.txt"; exi
 echo "ok: go build refused domain -> adapters (import cycle)"
 ```
 
-**Lab:** `labs/hexagonal-go/` — checked with Go 1.26.
+**Lab:** `labs/hexagonal-architecture/go/` — checked with Go 1.26.
 
 ## 4. Java
 
@@ -208,7 +208,7 @@ public final class Ports {
 }
 ```
 
-**Lab:** `labs/hexagonal-java/` — the check shows javac compiling `shop.domain -> shop.adapters` and jdeps reporting it. Checked with Java 21.
+**Lab:** `labs/hexagonal-architecture/java/` — the check shows javac compiling `shop.domain -> shop.adapters` and jdeps reporting it. Checked with Java 21.
 
 ## 5. Rust
 
@@ -270,7 +270,7 @@ pub fn place_order(
 }
 ```
 
-**Lab:** `labs/hexagonal-rust/` — making the domain depend on adapters gives `cyclic package dependency`. Checked with Rust 1.96.
+**Lab:** `labs/hexagonal-architecture/rust/` — making the domain depend on adapters gives `cyclic package dependency`. Checked with Rust 1.96.
 
 ## 6. C
 
@@ -315,7 +315,7 @@ grep -q "in_memory.h: No such file or directory" "$work/err.txt" || { cat "$work
 echo "ok: the domain's build refused to include an adapter header"
 ```
 
-**Lab:** `labs/hexagonal-c/` — checked with GCC 16. **A trap found while building this lab:** the adapter header was first called `memory.h` — and the reversed include *compiled*, because glibc ships a `/usr/include/memory.h`. The compiler silently used the system file. Prefix project headers with their folder (`#include "adapters/in_memory.h"`) or give them unmistakable names.
+**Lab:** `labs/hexagonal-architecture/c/` — checked with GCC 16. **A trap found while building this lab:** the adapter header was first called `memory.h` — and the reversed include *compiled*, because glibc ships a `/usr/include/memory.h`. The compiler silently used the system file. Prefix project headers with their folder (`#include "adapters/in_memory.h"`) or give them unmistakable names.
 
 ## 7. C++
 
@@ -363,7 +363,7 @@ PlaceResult place_order(OrderRepository& orders, PaymentGateway& payments,
 }  // namespace domain
 ```
 
-**Lab:** `labs/hexagonal-cpp/` — `adapters/memory.hpp: No such file or directory` when the domain tries. Checked with GCC 16 and CMake 4.3.
+**Lab:** `labs/hexagonal-architecture/cpp/` — `adapters/memory.hpp: No such file or directory` when the domain tries. Checked with GCC 16 and CMake 4.3.
 
 ## 8. C#
 
@@ -393,7 +393,7 @@ public static class Ordering
 }
 ```
 
-**Lab:** `labs/hexagonal-csharp/` — runs in the .NET 10 SDK container.
+**Lab:** `labs/hexagonal-architecture/csharp/` — runs in the .NET 10 SDK container.
 
 ## Check your understanding
 

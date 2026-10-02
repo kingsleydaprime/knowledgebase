@@ -260,7 +260,7 @@ test("adapter: a client with the wrong shape plugs into the same stack", async (
 });
 ```
 
-**Lab:** these files are in `labs/structural-patterns/`. From the vault root, `python3 labs/run.py structural-patterns` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/structural-patterns/typescript/`. From the vault root, `python3 labs/run.py structural-patterns/typescript` runs them and checks this page still shows the same code.
 
 **Run it.** Save both files in one folder and, from it, run `node --test` (Node 23.6 or later; checked with Node 26). Expected:
 

@@ -107,7 +107,7 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-**Lab:** `labs/testing-fundamentals-python/` — checked with Python 3.14.
+**Lab:** `labs/testing-fundamentals/javascript/python/` — checked with Python 3.14.
 
 ## 3. Go
 
@@ -197,7 +197,7 @@ func TestSendTrialReminders(t *testing.T) {
 }
 ```
 
-**Lab:** `labs/testing-fundamentals-go/` — checked with Go 1.26. Add `-shuffle=on` to `go test` to run tests in random order.
+**Lab:** `labs/testing-fundamentals/javascript/go/` — checked with Go 1.26. Add `-shuffle=on` to `go test` to run tests in random order.
 
 ## 4. Java
 
@@ -264,7 +264,7 @@ public final class Check {
 }
 ```
 
-**Lab:** `labs/testing-fundamentals-java/` — checked with Java 21, with plain `javac` (no build tool installed here).
+**Lab:** `labs/testing-fundamentals/javascript/java/` — checked with Java 21, with plain `javac` (no build tool installed here).
 
 ## 5. Rust
 
@@ -369,7 +369,7 @@ mod tests {
 }
 ```
 
-**Lab:** `labs/testing-fundamentals-rust/` — checked with Rust 1.96; Cargo downloads `chrono` on the first run.
+**Lab:** `labs/testing-fundamentals/javascript/rust/` — checked with Rust 1.96; Cargo downloads `chrono` on the first run.
 
 ## 6. C
 
@@ -444,7 +444,7 @@ int main(void) {
 }
 ```
 
-**Lab:** `labs/testing-fundamentals-c/` — checked with GCC 16. `timegm` is standard from C23 and a GNU/BSD extension before it, hence `_DEFAULT_SOURCE`.
+**Lab:** `labs/testing-fundamentals/javascript/c/` — checked with GCC 16. `timegm` is standard from C23 and a GNU/BSD extension before it, hence `_DEFAULT_SOURCE`.
 
 ## 7. C++
 
@@ -510,7 +510,7 @@ int main() {
 }
 ```
 
-**Lab:** `labs/testing-fundamentals-cpp/` — checked with GCC 16 and `-std=c++20`.
+**Lab:** `labs/testing-fundamentals/javascript/cpp/` — checked with GCC 16 and `-std=c++20`.
 
 ## 8. C#
 
@@ -560,7 +560,7 @@ sealed class SpyMailer : IMailer
 sealed class FixedTime(DateTimeOffset now) : TimeProvider { public override DateTimeOffset GetUtcNow() => now; }
 ```
 
-**Lab:** `labs/testing-fundamentals-csharp/` — runs in the .NET 10 SDK container.
+**Lab:** `labs/testing-fundamentals/javascript/csharp/` — runs in the .NET 10 SDK container.
 
 ## Check your understanding
 

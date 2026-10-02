@@ -236,9 +236,9 @@ export const charge = (orderId: string) => { markPaid(orderId); return db; };
 
 **Predict before running.** Work out Ca, Ce and instability for `orders` and for `shared`. Is there a cycle?
 
-**Lab:** these files are in `labs/coupling-and-cohesion/`. From the vault root, `python3 labs/run.py coupling-and-cohesion` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/coupling-and-cohesion/javascript/`. From the vault root, `python3 labs/run.py coupling-and-cohesion/javascript` runs them and checks this page still shows the same code.
 
-**Run it.** From `labs/coupling-and-cohesion/`:
+**Run it.** From `labs/coupling-and-cohesion/javascript/`:
 
 ```bash
 node coupling.mjs sample/src
@@ -317,7 +317,7 @@ test("the orders <-> payments cycle is found; packages and aliases are handled",
 
 **Measure one of your own projects, then improve one number.**
 
-1. Run `node labs/coupling-and-cohesion/coupling.mjs <your-project>/src` (or `src/features`, or `src/modules`). Save the output.
+1. Run `node labs/coupling-and-cohesion/javascript/coupling.mjs <your-project>/src` (or `src/features`, or `src/modules`). Save the output.
 2. Find either a cycle or the module whose instability most violates "depend towards stability" — a low-instability module that imports a high-instability one.
 3. Fix it with one of: an event, moving an interface to the stable side, or passing data instead of a whole object.
 4. Run it again and save the new output.

@@ -103,7 +103,7 @@ def build(api: FlakyApi, log: list):
     return rate
 ```
 
-**Lab:** `labs/structural-patterns-python/` — the API is called three times (two failures, one success) and the second call comes from the cache. Checked with Python 3.14. `functools.wraps` keeps the original function's name and docstring on the wrapper — leave it out and debugging gets confusing.
+**Lab:** `labs/structural-patterns/typescript/python/` — the API is called three times (two failures, one success) and the second call comes from the cache. Checked with Python 3.14. `functools.wraps` keeps the original function's name and docstring on the wrapper — leave it out and debugging gets confusing.
 
 ## 3. Go
 
@@ -201,7 +201,7 @@ func Chain(src RateSource, mws ...Middleware) RateSource {
 }
 ```
 
-**Lab:** `labs/structural-patterns-go/` — checked with Go 1.26. Go needs fewer adapters than most languages: a third-party type that already has a method `Rate(string, string) (int, error)` satisfies `RateSource` with no wrapper at all.
+**Lab:** `labs/structural-patterns/typescript/go/` — checked with Go 1.26. Go needs fewer adapters than most languages: a third-party type that already has a method `Rate(string, string) (int, error)` satisfies `RateSource` with no wrapper at all.
 
 ## 4. Java
 
@@ -262,7 +262,7 @@ public final class Rates {
 }
 ```
 
-**Lab:** `labs/structural-patterns-java/` — checked with Java 21. One consequence of proxy-based AOP worth knowing: a bean calling *its own* `@Transactional` method bypasses the proxy, so the annotation does nothing.
+**Lab:** `labs/structural-patterns/typescript/java/` — checked with Java 21. One consequence of proxy-based AOP worth knowing: a bean calling *its own* `@Transactional` method bypasses the proxy, so the annotation does nothing.
 
 ## 5. Rust
 
@@ -403,7 +403,7 @@ grep -q "error\[E0117\]: only traits defined in the current crate can be impleme
 echo "ok: rustc applied the orphan rule (E0117) — wrap the type in a newtype instead"
 ```
 
-**Lab:** `labs/structural-patterns-rust/` — `error[E0117]: only traits defined in the current crate can be implemented for types defined outside of the crate`. Checked with Rust 1.96. Note `Cell` and `RefCell`: the API counts calls and the cache stores results through `&self`, so they need interior mutability.
+**Lab:** `labs/structural-patterns/typescript/rust/` — `error[E0117]: only traits defined in the current crate can be implemented for types defined outside of the crate`. Checked with Rust 1.96. Note `Cell` and `RefCell`: the API counts calls and the cache stores results through `&self`, so they need interior mutability.
 
 ## 6. C
 
@@ -469,7 +469,7 @@ int main(void) {
 }
 ```
 
-**Lab:** `labs/structural-patterns-c/` — checked with GCC 16.
+**Lab:** `labs/structural-patterns/typescript/c/` — checked with GCC 16.
 
 ## 7. C++
 
@@ -536,7 +536,7 @@ int main() {
 }
 ```
 
-**Lab:** `labs/structural-patterns-cpp/` — checked with GCC 16 and `-std=c++20`. `std::unique_ptr` and `std::shared_ptr` are the C++ proxies you use every day: they control access to the object they own.
+**Lab:** `labs/structural-patterns/typescript/cpp/` — checked with GCC 16 and `-std=c++20`. `std::unique_ptr` and `std::shared_ptr` are the C++ proxies you use every day: they control access to the object they own.
 
 ## 8. C#
 
@@ -598,7 +598,7 @@ sealed class Logging(IRateSource inner, List<string> log) : IRateSource
 }
 ```
 
-**Lab:** `labs/structural-patterns-csharp/` — runs in the .NET 10 SDK container.
+**Lab:** `labs/structural-patterns/typescript/csharp/` — runs in the .NET 10 SDK container.
 
 ## Check your understanding
 

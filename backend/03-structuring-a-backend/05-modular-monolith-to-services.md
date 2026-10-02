@@ -243,7 +243,7 @@ test("at-least-once delivery + an idempotent consumer = correct", async () => {
 });
 ```
 
-**Lab:** these files are in `labs/modular-monolith/`. From the vault root, `python3 labs/run.py modular-monolith` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/modular-monolith/typescript/`. From the vault root, `python3 labs/run.py modular-monolith/typescript` runs them and checks this page still shows the same code.
 
 **Run it.** From `mono/`: `node --test` (Node 23.6 or later; checked with Node 26). Expected:
 

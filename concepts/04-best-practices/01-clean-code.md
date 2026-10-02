@@ -228,7 +228,7 @@ test("an empty order is rejected before anything is saved", () => {
 });
 ```
 
-**Lab:** these files are in `labs/clean-code/`. From the vault root, `python3 labs/run.py clean-code` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/clean-code/javascript/`. From the vault root, `python3 labs/run.py clean-code/javascript` runs them and checks this page still shows the same code.
 
 **Run it.** Put both files in an empty folder and run, from that folder:
 

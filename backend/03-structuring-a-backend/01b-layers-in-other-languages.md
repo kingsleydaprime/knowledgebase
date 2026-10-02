@@ -153,7 +153,7 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-**Lab:** `labs/layers-python/` — checked with Python 3.14.
+**Lab:** `labs/layers/typescript/python/` — checked with Python 3.14.
 
 ## 4. Go
 
@@ -262,7 +262,7 @@ func TestStatusMappingSurvivesWrapping(t *testing.T) {
 }
 ```
 
-**Lab:** `labs/layers-go/` — checked with Go 1.26. In a real handler, `StatusFor(err)` sets the status and the error's message becomes the body; unknown errors become a logged 500, as in [[backend/07-practices/01-backend-best-practices|backend best practices]].
+**Lab:** `labs/layers/typescript/go/` — checked with Go 1.26. In a real handler, `StatusFor(err)` sets the status and the error's message becomes the body; unknown errors become a logged 500, as in [[backend/07-practices/01-backend-best-practices|backend best practices]].
 
 ## 5. Java (and Spring)
 
@@ -335,7 +335,7 @@ public final class Orders {
 }
 ```
 
-**Lab:** `labs/layers-java/` — checked with Java 21. Prefer unchecked exceptions for domain errors: Java's checked exceptions would force every layer in between to declare them.
+**Lab:** `labs/layers/typescript/java/` — checked with Java 21. Prefer unchecked exceptions for domain errors: Java's checked exceptions would force every layer in between to declare them.
 
 ## 6. Rust
 
@@ -427,7 +427,7 @@ mod tests {
 }
 ```
 
-**Lab:** `labs/layers-rust/` — checked with Rust 1.96.
+**Lab:** `labs/layers/typescript/rust/` — checked with Rust 1.96.
 
 ## 7. C
 
@@ -494,7 +494,7 @@ int status_for(place_result r) {
 }
 ```
 
-**Lab:** `labs/layers-c/` — checked with GCC 16.
+**Lab:** `labs/layers/typescript/c/` — checked with GCC 16.
 
 ## 8. C++
 
@@ -550,7 +550,7 @@ inline int status_for(const std::expected<int, PlaceError>& result) {
 }  // namespace orders
 ```
 
-**Lab:** `labs/layers-cpp/` — checked with GCC 16 and `-std=c++23`.
+**Lab:** `labs/layers/typescript/cpp/` — checked with GCC 16 and `-std=c++23`.
 
 ## 9. C#
 
@@ -625,7 +625,7 @@ static class Controller
 }
 ```
 
-**Lab:** `labs/layers-csharp/` — runs in the .NET 10 SDK container.
+**Lab:** `labs/layers/typescript/csharp/` — runs in the .NET 10 SDK container.
 
 ## Check your understanding
 

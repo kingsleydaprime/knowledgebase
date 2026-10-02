@@ -1,6 +1,6 @@
 """Run the vault's labs and check the lessons still show the code that runs.
 
-Each folder in labs/ with a lab.json is one lab:
+Labs are grouped by lesson, then language — labs/<lesson>/<language>/ — and each has a lab.json:
 
     {
       "lesson": "concepts/04-best-practices/01-clean-code.md",
@@ -10,10 +10,11 @@ Each folder in labs/ with a lab.json is one lab:
     }
 
 Usage, from the vault root:
-    python3 labs/run.py                 run every lab
-    python3 labs/run.py layers solid    run the named labs
+    python3 labs/run.py                          run every lab
+    python3 labs/run.py dependency-injection     run every language of one lesson
+    python3 labs/run.py layers/go solid-principles/rust   run single labs
     python3 labs/run.py --drift-only    only check lessons against lab files (fast, offline)
-    python3 labs/run.py --sync NAME     after editing a lab file, copy it into the lesson's code block
+    python3 labs/run.py --sync LESSON/LANG   after editing a lab file, copy it into the lesson's code block
                                         (the block whose first two lines match the file's)
 """
 import json, pathlib, re, subprocess, sys, time
@@ -64,19 +65,28 @@ def run(lab: pathlib.Path, spec: dict) -> str | None:
     return None
 
 
+def name_of(lab: pathlib.Path) -> str:
+    return f"{lab.parent.name}/{lab.name}"
+
+
+def selected(labs: list[pathlib.Path], args: list[str]) -> list[pathlib.Path]:
+    """An argument names a whole lesson ("layers") or one lab ("layers/go")."""
+    return [l for l in labs if not args or name_of(l) in args or l.parent.name in args]
+
+
 def main() -> int:
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     drift_only = "--drift-only" in sys.argv
+    every = sorted(p.parent for p in LABS.glob("*/*/lab.json"))
     if "--sync" in sys.argv:
-        for lab in sorted(p.parent for p in LABS.glob("*/lab.json")):
-            if lab.name in args:
-                for note in sync(lab, json.loads((lab / "lab.json").read_text())):
-                    print(f"{lab.name}: {note}")
+        for lab in selected(every, args) if args else []:
+            for note in sync(lab, json.loads((lab / "lab.json").read_text())):
+                print(f"{name_of(lab)}: {note}")
         return 0
-    labs = sorted(p.parent for p in LABS.glob("*/lab.json"))
+    labs = selected(every, args)
     if args:
-        labs = [l for l in labs if l.name in args]
-        missing = set(args) - {l.name for l in labs}
+        known = {name_of(l) for l in every} | {l.parent.name for l in every}
+        missing = set(args) - known
         if missing:
             print(f"no such lab: {', '.join(sorted(missing))}")
             return 2
@@ -96,11 +106,11 @@ def main() -> int:
         took = f"{time.monotonic() - start:5.1f}s"
         if problems:
             failures += 1
-            print(f"FAIL  {lab.name:40} {took}")
+            print(f"FAIL  {name_of(lab):45} {took}")
             for p in problems:
                 print("      " + p.replace("\n", "\n      "))
         else:
-            print(f"ok    {lab.name:40} {took}")
+            print(f"ok    {name_of(lab):45} {took}")
 
     print(f"\n{len(labs) - failures}/{len(labs)} labs passed" + (" (drift check only)" if drift_only else ""))
     return 1 if failures else 0

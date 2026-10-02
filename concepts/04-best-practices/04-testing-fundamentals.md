@@ -316,9 +316,9 @@ test("an invalid email is a 400, and nothing is written", async () => {
 });
 ```
 
-**Lab:** these files are in `labs/testing-fundamentals/`. From the vault root, `python3 labs/run.py testing-fundamentals` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/testing-fundamentals/javascript/`. From the vault root, `python3 labs/run.py testing-fundamentals/javascript` runs them and checks this page still shows the same code.
 
-**Run it.** From `labs/testing-fundamentals/`, run `node --test`. It needs Node 22.5 or later (for `node:sqlite`); checked with Node 26. Expected:
+**Run it.** From `labs/testing-fundamentals/javascript/`, run `node --test`. It needs Node 22.5 or later (for `node:sqlite`); checked with Node 26. Expected:
 
 ```
 ℹ tests 7

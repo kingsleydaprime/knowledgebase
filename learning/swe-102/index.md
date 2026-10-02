@@ -27,7 +27,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 
 - **DSA — arrays, hashing, prefix sums:** 004 group anagrams · 005 top K frequent elements · 007 product of array except self · 009 longest consecutive sequence. Refresh: [[dsa/04-patterns/01-prefix-sum|prefix sum]].
 - **Learn (core):** [[ai-ml/03-ai-engineer/02-how-llms-work|how LLMs work]] · [[ai-ml/03-ai-engineer/04-calling-models|calling models]]
-- **Learn (optional):** [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|the AI engineer role]] · [[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]]
+- **Learn (optional):** [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|the AI engineer role]] · [[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]] · [[ai-ml/03-ai-engineer/16-local-and-open-models|local and open models]] — measured on your own laptop
 - **Build:** the AI feature's skeleton — one model call through a port, streaming if the UI needs it, with a fake model adapter for tests.
 - **Apply:** Friday hour, 10 a week.
 - **By Sunday:** closed-book — *why does a model hallucinate, mechanically?*
