@@ -109,7 +109,7 @@ Temperature 0 isn't a guarantee of identical output across runs on a hosted API,
 
 Put §4–6 together. The network outputs scores for "what token is likely here". Training rewarded producing text that looks like its training data. **Nothing in that loop checks the text against the world.** When the training data clearly covers a fact, the likely continuation is also the true one, and you see 98.6% on "Paris". When it doesn't — an obscure person, a paper that doesn't exist, last week's news — the model still produces the most *answer-shaped* continuation. A citation format with plausible authors is very likely text, even when no such paper exists.
 
-So hallucination is structural; it isn't a bug waiting for a patch. The fixes all add a check from outside the model: put the facts in the context ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]), let it call a tool such as search ([[ai-ml/03-ai-engineer/07-tools-and-mcp|tools]]), validate its output ([[ai-ml/03-ai-engineer/11-structured-output/index|structured output]]), and measure how often it's wrong ([[ai-ml/03-ai-engineer/12-evals|evals]]).
+So hallucination is structural; it isn't a bug waiting for a patch. The fixes all add a check from outside the model: put the facts in the context ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]), let it call a tool such as search ([[ai-ml/03-ai-engineer/07-tools-and-mcp|tools]]), validate its output ([[ai-ml/03-ai-engineer/11-structured-output/index|structured output]]), and measure how often it's wrong ([[ai-ml/03-ai-engineer/12-evals/index|evals]]).
 
 ## Worked example — decoding by hand, then a real model
 

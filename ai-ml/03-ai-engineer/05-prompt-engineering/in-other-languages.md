@@ -932,4 +932,4 @@ You can set your language's template engine up for prompts, explain why the same
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — the main lesson
 - [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages|Structured output in other languages]] — parsing what comes back
 - [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages|Calling models in other languages]] — sending the rendered prompt
-- [[ai-ml/03-ai-engineer/12-evals|Evals]] — turning the labelled set into a real harness
+- [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — turning the labelled set into a real harness

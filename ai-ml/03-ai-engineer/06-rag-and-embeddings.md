@@ -69,7 +69,7 @@ The basic pipeline above gets you a demo. Production RAG is mostly a set of upgr
 - **GraphRAG** — when answers require connecting facts across documents ("how does X relate to Y?"), build a knowledge graph of entities/relationships and retrieve over *that* structure, not just isolated chunks. Heavier to build; shines on multi-hop questions plain chunk retrieval can't answer.
 - **Agentic RAG** — let an [[ai-ml/03-ai-engineer/08-agents|agent]] drive retrieval: decide *whether* to search, reformulate the query, search again if the first results were thin, and reason over multiple retrieval rounds — instead of a single fixed fetch. More capable, more expensive/slower.
 
-**And measure it.** Retrieval and generation are separately evaluable — context precision/recall for "did the right chunk come back?", faithfulness/answer-relevance for "did the model use it correctly?". Don't tune RAG by vibes; see [[ai-ml/03-ai-engineer/12-evals|evals]] (the RAG-evaluation section). Reach for these upgrades in response to *measured* failures — start simple, add the piece that fixes the retrieval miss you actually observe.
+**And measure it.** Retrieval and generation are separately evaluable — context precision/recall for "did the right chunk come back?", faithfulness/answer-relevance for "did the model use it correctly?". Don't tune RAG by vibes; see [[ai-ml/03-ai-engineer/12-evals/index|evals]] (the RAG-evaluation section). Reach for these upgrades in response to *measured* failures — start simple, add the piece that fixes the retrieval miss you actually observe.
 
 ## Gotchas
 
@@ -80,7 +80,7 @@ The basic pipeline above gets you a demo. Production RAG is mostly a set of upgr
 ## Related
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — embedding models as a model type
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt Engineering]] — context engineering, the broader discipline RAG feeds
-- [[ai-ml/03-ai-engineer/12-evals|Evals]] — evaluating retrieval vs. generation separately
+- [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — evaluating retrieval vs. generation separately
 - [[ai-ml/03-ai-engineer/08-agents|Agents]] — agentic RAG, where the model drives retrieval
 - [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-Tuning (Applied)]] — the other side of the RAG-vs-fine-tuning decision
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|Dot Product]] — the similarity math underneath

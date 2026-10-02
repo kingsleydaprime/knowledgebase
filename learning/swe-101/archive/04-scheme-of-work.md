@@ -670,10 +670,10 @@ By Sunday: what must be true before the week closes
 
 # Week 23 — Evals and production ⭐
 
-**Read:** [[ai-ml/03-ai-engineer/12-evals|12 — evals]] · [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|13]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|14]] · [[ai-ml/03-ai-engineer/10-safety-and-production|10]]
+**Read:** [[ai-ml/03-ai-engineer/12-evals/index|12 — evals]] · [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|13]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|14]] · [[ai-ml/03-ai-engineer/10-safety-and-production|10]]
 
 **Topics**
-- **23.1** **Evals — golden sets, scorers, regression runs in CI** → [[ai-ml/03-ai-engineer/12-evals|12]]
+- **23.1** **Evals — golden sets, scorers, regression runs in CI** → [[ai-ml/03-ai-engineer/12-evals/index|12]]
 - **23.2** Reliability and plumbing — retries, fallbacks, timeouts → [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|13]]
 - **23.3** Cost, caching, latency → [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|14]]
 - **23.4** Safety in production — PII, output filtering → [[ai-ml/03-ai-engineer/10-safety-and-production|10]]

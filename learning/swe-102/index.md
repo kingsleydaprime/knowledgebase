@@ -44,7 +44,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 3 — Evals ⭐
 
 - **DSA — stacks:** 021 valid parentheses · 024 generate parentheses · 025 daily temperatures · 026 car fleet · 027 largest rectangle in histogram. Refresh: [[dsa/04-patterns/06-monotonic-stack|monotonic stack]].
-- **Learn (core):** [[ai-ml/03-ai-engineer/12-evals|evals]] · [[ai-ml/03-ai-engineer/19-practice-exercises|AI engineering practice exercises]]
+- **Learn (core):** [[ai-ml/03-ai-engineer/12-evals/index|evals]] · [[ai-ml/03-ai-engineer/19-practice-exercises|AI engineering practice exercises]]
 - **Build:** write the golden set — at least 20 real inputs with what a good answer looks like — **before** building any harness. Include the cases you expect it to fail.
 - **Apply:** Friday hour.
 - **By Sunday:** the golden set exists, and a scorer runs over it locally and prints a pass rate.

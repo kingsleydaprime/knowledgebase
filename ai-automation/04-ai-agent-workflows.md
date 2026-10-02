@@ -86,7 +86,7 @@ Both change the shape of the workflow, and both surprise people:
 
 **Build a golden set before deploying**: 20–50 real inputs with correct outputs. Run changes against it and keep the number.
 
-**Without this you cannot tell whether a prompt change helped**, and prompt changes routinely make things worse in ways that are invisible without measurement → [[ai-ml/03-ai-engineer/12-evals|evals]].
+**Without this you cannot tell whether a prompt change helped**, and prompt changes routinely make things worse in ways that are invisible without measurement → [[ai-ml/03-ai-engineer/12-evals/index|evals]].
 
 **Then monitor in production:** log inputs and outputs, sample them, and watch the human-correction rate. **The rate at which humans override the model is your real accuracy metric**, and it's free.
 

@@ -27,7 +27,7 @@ You take an already-trained base model and continue training it a little on **yo
 ## The recipe (hosted path)
 
 1. **Build the dataset.** This *is* the project — quality and consistency matter far more than volume. A few hundred *clean, consistent* examples usually beat thousands of noisy ones. Every example must model exactly the behavior you want; one inconsistent label teaches the model to be inconsistent.
-2. **Split off a held-out eval set** *before* training. You need [[ai-ml/03-ai-engineer/12-evals|evals]] to answer "did it actually get better?" — and to catch overfitting.
+2. **Split off a held-out eval set** *before* training. You need [[ai-ml/03-ai-engineer/12-evals/index|evals]] to answer "did it actually get better?" — and to catch overfitting.
 3. **Train** — upload, kick off the job, keep it a small nudge (few epochs). Over-training makes the model **overfit**: brilliant on your examples, brittle and forgetful on everything else (it can even lose general capability — "catastrophic forgetting").
 4. **Evaluate against the base model** on the held-out set *and* on a general set. If the fine-tune doesn't clearly beat well-prompted base on your task — or if it regressed on general ability — it wasn't worth it.
 5. **Iterate on the data, not the hyperparameters.** At this layer, almost every quality gain comes from cleaning, balancing, and expanding the dataset — not from knob-twiddling.
@@ -50,10 +50,10 @@ You can also **combine** RAG and fine-tuning: fine-tune for *how to behave* (for
 
 ## Key insight
 
-**Fine-tuning changes *behavior*; RAG and prompting supply *knowledge* — reach for a fine-tune only after the cheaper levers are exhausted, and only when you need consistent style/format/skill that no prompt reliably pins down.** In practice it's PEFT/LoRA on a hosted or open model, and the whole game is a small, clean, consistent dataset plus an [[ai-ml/03-ai-engineer/12-evals|eval set]] that proves it beat well-prompted base without regressing. The strongest specialized systems often fine-tune for behavior *and* retrieve for knowledge.
+**Fine-tuning changes *behavior*; RAG and prompting supply *knowledge* — reach for a fine-tune only after the cheaper levers are exhausted, and only when you need consistent style/format/skill that no prompt reliably pins down.** In practice it's PEFT/LoRA on a hosted or open model, and the whole game is a small, clean, consistent dataset plus an [[ai-ml/03-ai-engineer/12-evals/index|eval set]] that proves it beat well-prompted base without regressing. The strongest specialized systems often fine-tune for behavior *and* retrieve for knowledge.
 
 ## Related
 - [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/03-fine-tuning|ML Engineer: Fine-Tuning]] — the deep mechanics (loss, epochs, RLHF, transfer learning)
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — the RAG-vs-fine-tuning decision in full
 - [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local & Open Models]] — running your own LoRA on open weights
-- [[ai-ml/03-ai-engineer/12-evals|Evals]] — how you prove the fine-tune was worth it
+- [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how you prove the fine-tune was worth it
