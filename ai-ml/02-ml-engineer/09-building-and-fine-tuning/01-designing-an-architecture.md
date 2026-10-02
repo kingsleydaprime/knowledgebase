@@ -6,7 +6,7 @@ Everything so far in this vault has been about using an existing architecture �
 
 The type of data almost always dictates the broad architecture family, echoing [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|choosing-the-right-ai-tool]] but one level more specific:
 - Grid-structured data (images) → convolutional layers (see [[01-cnns|cnns]]) or vision transformers.
-- Sequential data (text, time series, audio) → transformers (attention-based, see [[ai-ml/03-ai-engineer/02-how-llms-work|llms]]) or, for smaller-scale sequence tasks, recurrent architectures.
+- Sequential data (text, time series, audio) → transformers (attention-based, see [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]]) or, for smaller-scale sequence tasks, recurrent architectures.
 - Unordered, tabular data → plain fully-connected layers are often sufficient, or classic ML entirely (see [[ai-ml/03-ai-engineer/03-the-model-landscape|other-model-types]]) — a custom deep architecture is frequently the wrong tool here.
 - Graph-structured data (molecules, social networks) → graph neural networks, a more specialized architecture family not covered elsewhere in this vault yet.
 
@@ -21,7 +21,7 @@ There's no formula that hands you the right depth/width for a new problem — th
 
 - **Residual/skip connections** — let a layer's input bypass straight to a later layer in addition to going through the normal path, directly counteracting the vanishing-gradient problem in very deep networks by giving gradients a shorter path back during backpropagation.
 - **Normalization layers** (batch norm, layer norm) — rescale activations partway through the network, stabilizing training and often allowing higher learning rates than would otherwise be usable.
-- **Attention** (see [[ai-ml/03-ai-engineer/02-how-llms-work|llms]]) — lets a layer weigh how much every part of its input should influence every other part, rather than only processing local neighborhoods (convolution) or a fixed sequential order (older recurrent architectures).
+- **Attention** (see [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]]) — lets a layer weigh how much every part of its input should influence every other part, rather than only processing local neighborhoods (convolution) or a fixed sequential order (older recurrent architectures).
 
 Most modern successful architectures are combinations of these well-understood building blocks arranged for a specific data shape, rather than a wholly novel mechanism invented from scratch — genuinely new building blocks are rare, research-level contributions.
 

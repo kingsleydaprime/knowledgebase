@@ -44,7 +44,7 @@ model = nn.Sequential(
 
 ## Vision Transformers — the newer alternative
 
-More recent vision models increasingly use the same attention mechanism LLMs use (see [[ai-ml/03-ai-engineer/02-how-llms-work|llms]]) instead of, or alongside, convolution — splitting an image into fixed-size patches, treating each patch like a "token," and applying self-attention across them. CNNs remain common, well-understood, and often more data-efficient for smaller datasets; Vision Transformers tend to need more training data to reach their full potential but can outperform CNNs at scale.
+More recent vision models increasingly use the same attention mechanism LLMs use (see [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]]) instead of, or alongside, convolution — splitting an image into fixed-size patches, treating each patch like a "token," and applying self-attention across them. CNNs remain common, well-understood, and often more data-efficient for smaller datasets; Vision Transformers tend to need more training data to reach their full potential but can outperform CNNs at scale.
 
 ## Gotchas
 

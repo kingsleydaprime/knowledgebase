@@ -2,11 +2,11 @@
 
 **Source:** new for the track, from the [roadmap.sh ai-engineer](https://roadmap.sh/ai-engineer) multimodal branch. **[reference]**
 
-"Multimodal" means working with more than text — images, audio, video — either as input a model understands or as output a model generates. For an AI engineer these are mostly more API calls in the same shape as [[ai-ml/03-ai-engineer/04-calling-models|text calls]], so this is a capability map more than a deep dive.
+"Multimodal" means working with more than text — images, audio, video — either as input a model understands or as output a model generates. For an AI engineer these are mostly more API calls in the same shape as [[ai-ml/03-ai-engineer/04-calling-models/index|text calls]], so this is a capability map more than a deep dive.
 
 ## Vision — images as input
 
-Modern frontier LLMs are **vision-capable**: you send an image alongside text and the model reasons over both — describe a photo, extract text/data from a screenshot or document (OCR-plus-understanding), answer questions about a chart, debug a UI from a screenshot. Practically it's the same [[ai-ml/03-ai-engineer/04-calling-models|messages call]] with an image part in the content. Extremely useful for document/data extraction pipelines where the source is a PDF or scan rather than clean text.
+Modern frontier LLMs are **vision-capable**: you send an image alongside text and the model reasons over both — describe a photo, extract text/data from a screenshot or document (OCR-plus-understanding), answer questions about a chart, debug a UI from a screenshot. Practically it's the same [[ai-ml/03-ai-engineer/04-calling-models/index|messages call]] with an image part in the content. Extremely useful for document/data extraction pipelines where the source is a PDF or scan rather than clean text.
 
 ## Image generation — images as output
 
@@ -29,9 +29,9 @@ The newest, fastest-moving frontier: text/image → generated video (Sora-style)
 
 ## The practical framing
 
-For most AI-engineering work, multimodal = **pick a model that supports the modality and call it like any other model** ([[ai-ml/03-ai-engineer/04-calling-models|calling models]]). The engineering interest is usually in the *pipeline* around it — feed a scanned document to a vision model, extract structured data ([[ai-ml/03-ai-engineer/04-calling-models|structured output]]), act on it — rather than the model internals. The same [[ai-ml/03-ai-engineer/10-safety-and-production|safety]] and cost concerns apply, sometimes more sharply (image/video generation raises extra content-moderation and provenance/deepfake questions).
+For most AI-engineering work, multimodal = **pick a model that supports the modality and call it like any other model** ([[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]). The engineering interest is usually in the *pipeline* around it — feed a scanned document to a vision model, extract structured data ([[ai-ml/03-ai-engineer/04-calling-models/index|structured output]]), act on it — rather than the model internals. The same [[ai-ml/03-ai-engineer/10-safety-and-production|safety]] and cost concerns apply, sometimes more sharply (image/video generation raises extra content-moderation and provenance/deepfake questions).
 
 ## Related
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — diffusion and speech models as types
-- [[ai-ml/03-ai-engineer/04-calling-models|Calling Models]] — multimodal is the same call shape with more content types
+- [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — multimodal is the same call shape with more content types
 - [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision (ML-engineer)]] — the training-side view of vision models

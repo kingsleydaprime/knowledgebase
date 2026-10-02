@@ -12,7 +12,7 @@ mic audio → [STT] → text → [LLM] → text → [TTS] → speaker audio
 ```
 
 - **STT (speech-to-text)** transcribes the user's speech ([[ai-ml/03-ai-engineer/09-multimodal|multimodal]]).
-- **The LLM** does the thinking — and everything else in this track still applies: [[ai-ml/03-ai-engineer/05-prompt-engineering|prompting]], [[ai-ml/03-ai-engineer/07-tools-and-mcp|tools]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]], [[ai-ml/03-ai-engineer/08-agents|the agent loop]].
+- **The LLM** does the thinking — and everything else in this track still applies: [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompting]], [[ai-ml/03-ai-engineer/07-tools-and-mcp|tools]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]], [[ai-ml/03-ai-engineer/08-agents|the agent loop]].
 - **TTS (text-to-speech)** voices the reply.
 
 **Pros:** you control and swap each stage independently, reuse your existing text-LLM stack (a voice agent is your chatbot with ears and a mouth), and can inspect the transcript at every hop. **Con:** latency stacks up across three sequential models, and you lose the *non-text* information in speech — tone, emotion, interruptions.
@@ -24,7 +24,7 @@ A single **speech-to-speech** model takes audio in and emits audio out directly,
 
 In text, a second of delay is fine. In voice, **humans expect a reply in well under a second** — the natural gap between conversational turns is short, and a two-second pause feels broken, like the system froze. This single constraint reshapes every choice:
 
-- **Stream everything.** Don't wait for the full transcript, then the full LLM answer, then the full audio. **Stream STT** (transcribe as they speak), **stream the LLM** (start generating on partial input, emit tokens as they come — [[ai-ml/03-ai-engineer/04-calling-models|calling models]]), and **stream TTS** (start voicing the first sentence while the model is still writing the rest). Overlapping the stages is what gets you under the latency budget; running them sequentially never will.
+- **Stream everything.** Don't wait for the full transcript, then the full LLM answer, then the full audio. **Stream STT** (transcribe as they speak), **stream the LLM** (start generating on partial input, emit tokens as they come — [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]), and **stream TTS** (start voicing the first sentence while the model is still writing the rest). Overlapping the stages is what gets you under the latency budget; running them sequentially never will.
 - **Time-to-first-word** is the number users feel, not total response time. Optimize the *start* of the reply.
 - **Favor faster models** for the LLM step ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost, caching & latency]]) — a voice turn can't afford a slow frontier model unless the task truly needs it. A cascade (fast model for simple turns, escalate for hard ones) fits voice especially well.
 

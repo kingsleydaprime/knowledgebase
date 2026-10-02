@@ -38,7 +38,7 @@ generate({
 ## Lever 3 — latency (real and perceived)
 
 Latency has two halves, and you attack them differently:
-- **Perceived latency — stream.** Sending tokens as they generate ([[ai-ml/03-ai-engineer/04-calling-models|calling models]]) means the user sees output in ~1 second instead of staring at a blank screen for ten. It doesn't make the model faster; it makes the wait *feel* gone. This is the single biggest UX lever and the default for anything chat-shaped. **Time-to-first-token** is the number users actually feel.
+- **Perceived latency — stream.** Sending tokens as they generate ([[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]) means the user sees output in ~1 second instead of staring at a blank screen for ten. It doesn't make the model faster; it makes the wait *feel* gone. This is the single biggest UX lever and the default for anything chat-shaped. **Time-to-first-token** is the number users actually feel.
 - **Real latency — do less, in parallel.**
   - **Smaller/faster models** are lower-latency as well as cheaper — the same right-sizing lever pays twice.
   - **Shorter outputs** finish sooner (output tokens are generated one at a time, so length ≈ time). Cap `max_tokens`; ask for the terse form.
@@ -70,6 +70,6 @@ You can't optimize what you can't see. Log **tokens, cost, and latency per call*
 
 ## Related
 - [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|Reliability & Plumbing]] — the gateway that centralizes caching, routing, and cost tracking
-- [[ai-ml/03-ai-engineer/04-calling-models|Calling Models]] — streaming and the token knobs
+- [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — streaming and the token knobs
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — precise retrieval as a cost lever
 - [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|The AI-Engineer Role]] — choosing the right tool/model for the task

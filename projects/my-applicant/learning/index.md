@@ -5,7 +5,7 @@ An AI pipeline with BYOK (bring-your-own-key) model access, built on the AI SDK.
 ## Reading order
 
 1. [[projects/my-applicant/learning/01-shell|01 — Shell]] → general: [[devops/01-linux/index|linux]]
-2. [[projects/my-applicant/learning/02-ai-sdk-and-byok|02 — AI SDK & BYOK]] ⭐ → [[ai-ml/03-ai-engineer/04-calling-models|calling models]], [[ai-ml/03-ai-engineer/03-the-model-landscape|model landscape]]
+2. [[projects/my-applicant/learning/02-ai-sdk-and-byok|02 — AI SDK & BYOK]] ⭐ → [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]], [[ai-ml/03-ai-engineer/03-the-model-landscape|model landscape]]
 3. [[projects/my-applicant/learning/03-sys-design|03 — System Design]] → [[architecture/index|architecture]]
 
 ## The gap worth closing here

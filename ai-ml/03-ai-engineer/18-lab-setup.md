@@ -13,7 +13,7 @@ Notes 1–17 are the map. This is where the reps start. The same pattern as [[cy
 | **A spending limit** | Set it in the provider dashboard *before* your first call. Non-negotiable — see below |
 | **Roughly $2** | The whole set, if you use small models. An accidental loop can spend more |
 
-Python works equally well for all of this (`openai`, `anthropic`, or `litellm`); the solutions are TypeScript because that's what [[ai-ml/03-ai-engineer/04-calling-models|04-calling-models]] uses. Translate freely — the exercises are about the concepts, not the SDK.
+Python works equally well for all of this (`openai`, `anthropic`, or `litellm`); the solutions are TypeScript because that's what [[ai-ml/03-ai-engineer/04-calling-models/index|04-calling-models]] uses. Translate freely — the exercises are about the concepts, not the SDK.
 
 ## Setup
 
@@ -94,6 +94,6 @@ An applied-AI lab is three things: a key with a cap on it, a small model you're 
 
 ## Related
 - [[ai-ml/03-ai-engineer/19-practice-exercises|Practice Exercises]] — start here once this runs
-- [[ai-ml/03-ai-engineer/04-calling-models|Calling Models]] — what you just did, in depth
+- [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — what you just did, in depth
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|Cost, Caching & Latency]] — why `usage` is printed on every call above
 - [[cybersecurity/02-ethical-hacking/05-home-lab-setup|Ethical hacking home lab]] — the same lab-then-exercises pattern in another domain

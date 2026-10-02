@@ -109,7 +109,7 @@ $$\text{PPL} = 2^{H(p,q)} = e^{\mathcal{L}} \quad\text{(nats)}$$
 
 **Why report perplexity instead of loss:** it's on a meaningful scale. Going from loss 4.0 to 3.0 sounds modest; **going from perplexity 55 to 20 is obviously a large improvement.**
 
-**The caveat that makes cross-model comparison treacherous: perplexity depends on the tokeniser.** A model with a larger vocabulary predicts fewer, larger tokens, and its perplexity isn't comparable to one with a smaller vocabulary. **Bits-per-character normalises this** and is the honest comparison. → [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]]
+**The caveat that makes cross-model comparison treacherous: perplexity depends on the tokeniser.** A model with a larger vocabulary predicts fewer, larger tokens, and its perplexity isn't comparable to one with a smaller vocabulary. **Bits-per-character normalises this** and is the honest comparison. → [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]]
 
 ## Compression is prediction
 
@@ -163,5 +163,5 @@ $$D_{KL}(\mathcal{N}(\mu,\sigma^2)\|\mathcal{N}(0,1)) = \tfrac{1}{2}\left(\mu^2 
 ## Related
 - [[information-theory/03-source-coding-and-compression|Source Coding]] — the compression half of the equivalence
 - [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]] — where this loss is used
-- [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — perplexity and next-token prediction
+- [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — perplexity and next-token prediction
 - [[information-theory/index|Information theory map]]

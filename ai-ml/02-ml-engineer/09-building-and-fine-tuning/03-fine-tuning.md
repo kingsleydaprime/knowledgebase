@@ -30,7 +30,7 @@ Fine-tuning data is typically much smaller than pretraining data but needs to be
 
 Fine-tune when: the base model is broadly capable but needs to consistently follow a specific format, tone, or domain vocabulary that prompting alone doesn't reliably achieve, and you have at least a few hundred to a few thousand good-quality examples of the target behavior.
 
-Don't reach for fine-tuning when: the actual problem is that the model lacks specific factual/current knowledge — that's a retrieval/grounding problem (see [[ai-ml/03-ai-engineer/03-the-model-landscape|ai-tools-landscape]]), not a fine-tuning problem, since fine-tuning changes *behavior/style* far more reliably than it reliably injects new, precise factual knowledge. Also skip it when better prompting (see [[ai-ml/03-ai-engineer/05-prompt-engineering|prompting]]) already solves the problem — fine-tuning is more expensive and less flexible than a well-crafted prompt, and isn't worth it if the cheaper option already works.
+Don't reach for fine-tuning when: the actual problem is that the model lacks specific factual/current knowledge — that's a retrieval/grounding problem (see [[ai-ml/03-ai-engineer/03-the-model-landscape|ai-tools-landscape]]), not a fine-tuning problem, since fine-tuning changes *behavior/style* far more reliably than it reliably injects new, precise factual knowledge. Also skip it when better prompting (see [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompting]]) already solves the problem — fine-tuning is more expensive and less flexible than a well-crafted prompt, and isn't worth it if the cheaper option already works.
 
 ## Gotchas
 

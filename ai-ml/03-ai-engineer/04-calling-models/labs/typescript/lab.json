@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/04-calling-models/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["model.ts", "sse.ts", "openai-compatible.ts", "calling.test.ts", "live.ts"]
+}

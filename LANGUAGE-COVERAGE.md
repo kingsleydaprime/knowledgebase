@@ -10,9 +10,9 @@
 
 <!-- COVERAGE:START -->
 
-**12 of 353 single-language lessons have a companion.**
+**12 of 355 single-language lessons have a companion.**
 
-By area: dsa 67 · backend 42 · ai-ml 41 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · databases 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · architecture 1 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
+By area: dsa 67 · ai-ml 43 · backend 42 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · databases 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · architecture 1 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
 
 | Priority | Lesson | Written in | Companion |
 |---|---|---|---|
@@ -28,8 +28,10 @@ By area: dsa 67 · backend 42 · ai-ml 41 · frontend 36 · mathematics 34 · ho
 | SWE 101 core | [[concepts/04-best-practices/08-coupling-and-cohesion/index\|concepts/04-best-practices/08-coupling-and-cohesion/index]] | TS/JS | [[concepts/04-best-practices/08-coupling-and-cohesion/in-other-languages\|✅]] |
 | SWE 101 core | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index\|cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index]] | TS/JS | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/in-other-languages\|✅]] |
 | SWE 101 core | [[devops/10-observability/01-observability-fundamentals/index\|devops/10-observability/01-observability-fundamentals/index]] | TS/JS | [[devops/10-observability/01-observability-fundamentals/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/04-calling-models\|ai-ml/03-ai-engineer/04-calling-models]] | TS/JS | — |
-| SWE 102 core | [[ai-ml/03-ai-engineer/11-structured-output\|ai-ml/03-ai-engineer/11-structured-output]] | TS/JS | — |
+| SWE 102 core | [[ai-ml/03-ai-engineer/02-how-llms-work/index\|ai-ml/03-ai-engineer/02-how-llms-work/index]] | TS/JS | — |
+| SWE 102 core | [[ai-ml/03-ai-engineer/04-calling-models/index\|ai-ml/03-ai-engineer/04-calling-models/index]] | TS/JS | — |
+| SWE 102 core | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|ai-ml/03-ai-engineer/05-prompt-engineering/index]] | TS/JS | — |
+| SWE 102 core | [[ai-ml/03-ai-engineer/11-structured-output/index\|ai-ml/03-ai-engineer/11-structured-output/index]] | TS/JS | — |
 | SWE 102 core | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing\|ai-ml/03-ai-engineer/13-reliability-and-plumbing]] | TS/JS | — |
 | SWE 102 core | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency\|ai-ml/03-ai-engineer/14-cost-caching-and-latency]] | TS/JS | — |
 | SWE 103 core | [[backend/01-foundations/03-the-request-lifecycle\|backend/01-foundations/03-the-request-lifecycle]] | TS/JS | — |

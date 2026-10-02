@@ -17,7 +17,7 @@ Usage, from the vault root:
     python3 labs/run.py --sync LESSON/LANG   after editing a lab file, copy it into the lesson's code block
                                         (the block whose first two lines match the file's)
 """
-import json, pathlib, re, subprocess, sys, time
+import json, os, pathlib, re, subprocess, sys, time
 
 LABS = pathlib.Path(__file__).resolve().parent
 VAULT = LABS.parent
@@ -52,15 +52,20 @@ def sync(lab: pathlib.Path, spec: dict) -> list[str]:
     return notes
 
 
+# Labs compare tool output as text, so colour codes would break them. A shell with FORCE_COLOR
+# set makes Python 3.14 tracebacks and mypy colour their output even when it's piped.
+PLAIN = {k: v for k, v in os.environ.items() if k != "FORCE_COLOR"} | {"NO_COLOR": "1"}
+
+
 def run(lab: pathlib.Path, spec: dict) -> str | None:
     """Run setup (if needed) and every command. Returns an error description, or None."""
     if spec.get("setup") and not (lab / "node_modules").exists():
         for cmd in spec["setup"]:
-            done = subprocess.run(cmd, cwd=lab, capture_output=True, text=True)
+            done = subprocess.run(cmd, cwd=lab, capture_output=True, text=True, env=PLAIN)
             if done.returncode:
                 return f"setup `{' '.join(cmd)}` failed:\n{done.stdout}{done.stderr}"
     for cmd in spec["run"]:
-        done = subprocess.run(cmd, cwd=lab, capture_output=True, text=True)
+        done = subprocess.run(cmd, cwd=lab, capture_output=True, text=True, env=PLAIN)
         if done.returncode:
             return f"`{' '.join(cmd)}` exited {done.returncode}:\n{done.stdout[-3000:]}{done.stderr[-3000:]}"
     return None

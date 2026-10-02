@@ -15,7 +15,7 @@ Confusing these two is a common source of misunderstanding — "training a model
 
 ## Architecture — the shape of the function
 
-"Architecture" describes how the parameters are organized and connected — not their values, but the structure they sit in. A linear regression's architecture is a single weighted sum. A neural network's architecture is layers of weighted sums each followed by a nonlinear function, stacked on top of each other. A transformer (what LLMs are built from) is a specific architecture built around an "attention" mechanism that lets the model weigh how much every part of the input should influence every other part — enough of its own topic to warrant its own note in [[ai-ml/03-ai-engineer/02-how-llms-work|llms]] rather than covered fully here.
+"Architecture" describes how the parameters are organized and connected — not their values, but the structure they sit in. A linear regression's architecture is a single weighted sum. A neural network's architecture is layers of weighted sums each followed by a nonlinear function, stacked on top of each other. A transformer (what LLMs are built from) is a specific architecture built around an "attention" mechanism that lets the model weigh how much every part of the input should influence every other part — enough of its own topic to warrant its own note in [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]] rather than covered fully here.
 
 ## Why "bigger model" isn't automatically "better model"
 
@@ -32,9 +32,9 @@ The entire point of training isn't to get the right answer on the training examp
 
 - "The model has learned X" usually means "the model's parameters, after training, produce outputs correlated with X across the examples it saw" — not that it has an explicit, inspectable rule for X anywhere inside it.
 - A model performing perfectly on its training data and poorly on new data is the textbook overfitting signature — not a sign of a "smart" model, the opposite.
-- Inference isn't free of quirks either — the same trained model can give different-feeling answers depending on decoding settings (temperature, sampling strategy — see [[ai-ml/03-ai-engineer/02-how-llms-work|llms]]), which is a separate axis from anything learned during training.
+- Inference isn't free of quirks either — the same trained model can give different-feeling answers depending on decoding settings (temperature, sampling strategy — see [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]]), which is a separate axis from anything learned during training.
 
 ## Related
 - [[04-optimization|optimization]]
-- [[ai-ml/03-ai-engineer/02-how-llms-work|llms]]
+- [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]]
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|other-model-types]]

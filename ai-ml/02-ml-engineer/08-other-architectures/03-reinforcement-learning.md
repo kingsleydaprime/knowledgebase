@@ -30,9 +30,9 @@ RL shines where you can define a reward and simulate/interact cheaply: **game-pl
 
 ## RLHF — why an AI/ML engineer cares
 
-The most consequential recent application: **RLHF (Reinforcement Learning from Human Feedback)** is a key step in turning a raw pretrained LLM into a helpful, aligned assistant. Humans rank model outputs; a *reward model* is trained to predict those preferences; then RL (typically PPO) fine-tunes the LLM to maximize that reward — nudging it toward helpful, harmless, honest responses rather than merely statistically-likely text. This connects the modeling side directly to the [[ai-ml/03-ai-engineer/02-how-llms-work|instruction-tuning]] that makes the models the AI-engineer track uses behave the way they do. (Newer variants like DPO achieve similar alignment without full RL.)
+The most consequential recent application: **RLHF (Reinforcement Learning from Human Feedback)** is a key step in turning a raw pretrained LLM into a helpful, aligned assistant. Humans rank model outputs; a *reward model* is trained to predict those preferences; then RL (typically PPO) fine-tunes the LLM to maximize that reward — nudging it toward helpful, harmless, honest responses rather than merely statistically-likely text. This connects the modeling side directly to the [[ai-ml/03-ai-engineer/02-how-llms-work/index|instruction-tuning]] that makes the models the AI-engineer track uses behave the way they do. (Newer variants like DPO achieve similar alignment without full RL.)
 
 ## Related
 - [[ai-ml/02-ml-engineer/01-foundations-of-ml/01-what-is-ml-and-types|Types of Learning]] — where RL sits among the paradigms
-- [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — RLHF's role in instruction-tuning
+- [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — RLHF's role in instruction-tuning
 - [[ai-ml/00-foundations/03-mathematics/04-optimization|Optimization]] — policy gradients are gradient ascent on reward
