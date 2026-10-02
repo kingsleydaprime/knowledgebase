@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/12-evals/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "--with", "statsmodels>=0.14,<1", "python", "-m", "unittest"]],
+  "embedded": ["evals.py", "test_evals.py"]
+}

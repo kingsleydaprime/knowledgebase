@@ -110,7 +110,7 @@ A whole-pipeline score hides *where* a failure came from.
 
 ## Worked example — evaluating a ticket classifier
 
-The golden set: 20 tickets, each with a label and tags for the hard kinds. It's a file, so a change to it shows up in review.
+The golden set: 20 tickets, each with a label and tags for the hard kinds. It's a file in `labs/shared/`, so a change to it shows up in review, and every language's lab in the [[ai-ml/03-ai-engineer/12-evals/in-other-languages|companion]] scores the same cases.
 
 ```json
 {"id": "t01", "ticket": "The app crashes every time I open the camera on my Pixel 8.", "label": "bug", "tags": ["easy"]}
@@ -147,7 +147,7 @@ export type Case = { id: string; ticket: string; label: Label; tags: string[] };
 export type Classify = (ticket: string) => Promise<string>; // returns the raw reply
 
 /** The golden set is a file in version control: one JSON object per line, reviewed like code. */
-export function loadGolden(path = new URL("./golden.jsonl", import.meta.url)): Case[] {
+export function loadGolden(path = new URL("../shared/golden.jsonl", import.meta.url)): Case[] { // shared by every language
   return readFileSync(path, "utf8").split("\n").filter(Boolean).map((line) => JSON.parse(line));
 }
 
@@ -463,7 +463,7 @@ console.log("gate (floor 80%, must pass t18):", gate(llm, { minRate: 0.8, mustPa
 
 That timing is a lesson of its own: an eval you can't afford to run doesn't get run. Keep the golden set small enough to run on every change, and run the big version less often.
 
-**Lab:** these files are in [`ai-ml/03-ai-engineer/12-evals/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/12-evals/labs/typescript). From the vault root, `python3 labs/run.py evals/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama running and makes 20 calls, so run it yourself from the lab folder with `node live.ts`.
+**Lab:** the code is in [`ai-ml/03-ai-engineer/12-evals/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/12-evals/labs/typescript), and the golden set in [`labs/shared/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/12-evals/labs/shared). From the vault root, `python3 labs/run.py evals/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama running and makes 20 calls, so run it yourself from the lab folder with `node live.ts`.
 
 ## Common pitfalls
 
@@ -521,6 +521,7 @@ You can build a golden set with a labelling policy, choose a scorer, compare aga
 **Next.** [[ai-ml/03-ai-engineer/19-practice-exercises|Practice exercises]] — the rest of week 3. Then [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|reliability and plumbing]] in week 4, where the gate goes into CI.
 
 ## Related
+- [[ai-ml/03-ai-engineer/12-evals/in-other-languages|Evals in other languages]] — the same harness, baselines and judge checks in Python, Go, Java, Rust and C#
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — the first labelled set, and why you measure prompt changes
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — structural checks, the cheapest scorer
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — retrieval and generation metrics

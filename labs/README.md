@@ -41,6 +41,15 @@ A lab **fails** if any of its commands exits non-zero, **or** if a file it lists
 3. In the lesson, next to the "Run it" step, add: **Lab:** these files are in `labs/<language>/` beside this lesson. From the vault root, `python3 labs/run.py <lesson>/<language>` runs them and checks this page still shows the same code.
 4. Run `python3 labs/run.py <name>`.
 
+## Live runs still to do
+
+Some labs have a `live.ts` that calls a local model through Ollama. The runner never calls them; their measured output goes into the lesson by hand. These lessons still say "not measured yet" — run each one when the laptop is otherwise idle (check `uptime` and `free -h` first; a busy browser and swap turned a 12-second call into 230 seconds), write your prediction down, then put the real output in the lesson.
+
+| Lesson | Command, from the lab folder | Expected time on a quiet laptop |
+|---|---|---|
+| [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|prompt engineering]] | `node live.ts` (24 calls: zero-shot and few-shot) | about 5 minutes |
+| [[ai-ml/03-ai-engineer/12-evals/index\|evals]] | `node live.ts` (20 calls, plus both baselines) | about 4 minutes |
+
 ## The labs
 
 Each lesson that has labs is a folder: `index.md` is the lesson, `in-other-languages.md` its companion, and `labs/<language>/` the code. The runner names a lab by the lesson folder (without its number) and the language — `python3 labs/run.py dependency-injection-and-wiring/go`.
@@ -51,7 +60,7 @@ Each lesson that has labs is a folder: `index.md` is the lesson, `in-other-langu
 | `calling-models` | [[ai-ml/03-ai-engineer/04-calling-models/index\|calling models]] · [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
 | `prompt-engineering` | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|prompt engineering]] · [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (prompts in `shared/`) |
 | `structured-output` | [[ai-ml/03-ai-engineer/11-structured-output/index\|structured output]] · [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp |
-| `evals` | [[ai-ml/03-ai-engineer/12-evals/index\|evals]] | typescript |
+| `evals` | [[ai-ml/03-ai-engineer/12-evals/index\|evals]] · [[ai-ml/03-ai-engineer/12-evals/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (golden set in `shared/`) |
 | `local-and-open-models` | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|local and open models]] | python |
 | `transactional-outbox` | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|transactional outbox]] | javascript |
 | `layers-controllers-services-repositories` | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index\|layers controllers services repositories]] · [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
