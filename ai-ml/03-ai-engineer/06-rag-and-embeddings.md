@@ -67,7 +67,7 @@ The basic pipeline above gets you a demo. Production RAG is mostly a set of upgr
 - **Hybrid search** — combine semantic (vector) similarity with **keyword/BM25** search and fuse the rankings (e.g. reciprocal rank fusion). Vectors blur exact terms (names, codes, error IDs, acronyms); keyword search nails them. Hybrid reliably beats pure vector search in production.
 - **Reranking** — retrieve a *generous* candidate set (say top-50) cheaply, then run a **cross-encoder reranker** that scores each candidate against the query far more accurately than the initial vector similarity, and keep the top few for the prompt. Retrieve wide, rerank precise. This is one of the highest-ROI additions.
 - **GraphRAG** — when answers require connecting facts across documents ("how does X relate to Y?"), build a knowledge graph of entities/relationships and retrieve over *that* structure, not just isolated chunks. Heavier to build; shines on multi-hop questions plain chunk retrieval can't answer.
-- **Agentic RAG** — let an [[ai-ml/03-ai-engineer/08-agents|agent]] drive retrieval: decide *whether* to search, reformulate the query, search again if the first results were thin, and reason over multiple retrieval rounds — instead of a single fixed fetch. More capable, more expensive/slower.
+- **Agentic RAG** — let an [[ai-ml/03-ai-engineer/08-agents/index|agent]] drive retrieval: decide *whether* to search, reformulate the query, search again if the first results were thin, and reason over multiple retrieval rounds — instead of a single fixed fetch. More capable, more expensive/slower.
 
 **And measure it.** Retrieval and generation are separately evaluable — context precision/recall for "did the right chunk come back?", faithfulness/answer-relevance for "did the model use it correctly?". Don't tune RAG by vibes; see [[ai-ml/03-ai-engineer/12-evals/index|evals]] (the RAG-evaluation section). Reach for these upgrades in response to *measured* failures — start simple, add the piece that fixes the retrieval miss you actually observe.
 
@@ -81,6 +81,6 @@ The basic pipeline above gets you a demo. Production RAG is mostly a set of upgr
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — embedding models as a model type
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt Engineering]] — context engineering, the broader discipline RAG feeds
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — evaluating retrieval vs. generation separately
-- [[ai-ml/03-ai-engineer/08-agents|Agents]] — agentic RAG, where the model drives retrieval
+- [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — agentic RAG, where the model drives retrieval
 - [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-Tuning (Applied)]] — the other side of the RAG-vs-fine-tuning decision
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|Dot Product]] — the similarity math underneath

@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 21 of 43 meet the standard. Optional: 8 of 36.**
+**Core lessons: 23 of 43 meet the standard. Optional: 8 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -52,8 +52,8 @@
 | SWE 102 | 4 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|index]] |
 | SWE 102 | 4 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|index]] |
 | SWE 102 | 4 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/02-resilience-patterns\|02-resilience-patterns]] |
-| SWE 102 | 5 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/07-tools-and-mcp\|07-tools-and-mcp]] |
-| SWE 102 | 5 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/08-agents\|08-agents]] |
+| SWE 102 | 5 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|index]] |
+| SWE 102 | 5 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/08-agents/index\|index]] |
 | SWE 102 | 5 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/09-multimodal\|09-multimodal]] |
 | SWE 102 | 6 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/10-safety-and-production\|10-safety-and-production]] |
 | SWE 103 | 1 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design\|01-how-to-approach-system-design]] |

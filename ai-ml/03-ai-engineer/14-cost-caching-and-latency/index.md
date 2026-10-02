@@ -536,7 +536,7 @@ You can price a call from its usage, lay out a prompt so it caches and find what
 
 **Recap.** The bill is tokens times prices, with output about five times input, and context paid for on every call. Cache the stable prefix: freeze the front, vary the end, and hunt silent invalidators; caching pays from the second call within the TTL. Pick the cheapest model that passes your evals, and cascade only with a check you have tested, because the check sets the cascade's quality. Stream to cut the wait users feel; use smaller models, shorter output, parallel calls and caching to cut the real wait. Watch p95, not the mean. Send less: precise retrieval, short history, batch what can wait. Log tokens, cost and latency on every call.
 
-**Next.** Week 5: [[ai-ml/03-ai-engineer/07-tools-and-mcp|tools and MCP]] and [[ai-ml/03-ai-engineer/08-agents|agents]]. Agents make many calls per task, so everything in this lesson, especially history length and caching, matters more there.
+**Next.** Week 5: [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools and MCP]] and [[ai-ml/03-ai-engineer/08-agents/index|agents]]. Agents make many calls per task, so everything in this lesson, especially history length and caching, matters more there.
 
 ## Related
 - [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — the log line extended here, and the gateway that can do caching and cost tracking

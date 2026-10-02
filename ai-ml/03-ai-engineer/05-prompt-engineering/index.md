@@ -75,8 +75,8 @@ Two rules. Format the examples **exactly** like the real question, because consi
 Past a point, the gain isn't a cleverer prompt but how you combine several:
 
 - **Prompt chaining.** Extract → transform → summarise, one prompt each. Every step is simpler, and can be checked and debugged on its own. The cost is more calls and more latency → [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost and latency]].
-- **Decomposition.** The model or your code breaks a problem into parts, solves each, and combines them. This is the hand-run version of what an [[ai-ml/03-ai-engineer/08-agents|agent]] does by itself.
-- **ReAct (reason and act).** Reasoning alternates with tool calls: think, act, look at the result, think again. This is where prompting turns into [[ai-ml/03-ai-engineer/08-agents|agents]].
+- **Decomposition.** The model or your code breaks a problem into parts, solves each, and combines them. This is the hand-run version of what an [[ai-ml/03-ai-engineer/08-agents/index|agent]] does by itself.
+- **ReAct (reason and act).** Reasoning alternates with tool calls: think, act, look at the result, think again. This is where prompting turns into [[ai-ml/03-ai-engineer/08-agents/index|agents]].
 - **Meta-prompting.** Ask a model to critique and rewrite your prompt, or to draft few-shot examples. Then measure the result like any other change.
 
 **Context engineering.** As systems grow, the harder problem is *what* goes in the window, and in what order: retrieved documents ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]), tool results, history, examples. With a fixed context window, choosing the most relevant material, and summarising the rest, often matters more than clever wording.
@@ -366,7 +366,7 @@ You can turn a vague prompt into a specific one, explain the two few-shot rules,
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — guaranteed shapes, beyond "please return JSON"
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how you actually know a prompt change helped
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — grounding, the fix for hallucination
-- [[ai-ml/03-ai-engineer/08-agents|Agents]] — the agent loop is a prompting pattern that runs itself
+- [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — the agent loop is a prompting pattern that runs itself
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety and production]] — prompt injection in depth
 
 *Source: re-homed from the old `01-fundamentals/07-prompting.md`, deepened with techniques from [roadmap.sh prompt-engineering](https://roadmap.sh/prompt-engineering).*

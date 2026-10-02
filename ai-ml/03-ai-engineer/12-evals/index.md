@@ -106,7 +106,7 @@ The loop: **offline gate → ship → online signal → new golden cases → a t
 A whole-pipeline score hides *where* a failure came from.
 
 - **RAG** ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]]) splits into **retrieval** (was the right chunk fetched?) and **generation** (is the answer faithful to what was fetched, and does it answer the question?). A bad RAG answer is usually a retrieval miss that looks like a generation problem, so measure retrieval first.
-- **Agents** ([[ai-ml/03-ai-engineer/08-agents|agents]]): score the *trajectory* — the right tools, in a sensible order, without looping — as well as whether the task got done.
+- **Agents** ([[ai-ml/03-ai-engineer/08-agents/index|agents]]): score the *trajectory* — the right tools, in a sensible order, without looping — as well as whether the task got done.
 
 ## Worked example — evaluating a ticket classifier
 

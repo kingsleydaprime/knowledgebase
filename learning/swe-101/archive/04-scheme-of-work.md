@@ -655,11 +655,11 @@ By Sunday: what must be true before the week closes
 
 # Week 22 — Tools and agents
 
-**Read:** [[ai-ml/03-ai-engineer/07-tools-and-mcp|07]] · [[ai-ml/03-ai-engineer/08-agents|08]] · [[ai-ml/03-ai-engineer/09-multimodal|09]]
+**Read:** [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|07]] · [[ai-ml/03-ai-engineer/08-agents/index|08]] · [[ai-ml/03-ai-engineer/09-multimodal|09]]
 
 **Topics**
-- **22.1** Tools and MCP → [[ai-ml/03-ai-engineer/07-tools-and-mcp|07]]
-- **22.2** Agents, **and when not to use one** → [[ai-ml/03-ai-engineer/08-agents|08]]
+- **22.1** Tools and MCP → [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|07]]
+- **22.2** Agents, **and when not to use one** → [[ai-ml/03-ai-engineer/08-agents/index|08]]
 - **22.3** Multimodal → [[ai-ml/03-ai-engineer/09-multimodal|09]]
 
 **DSA:** mixed review, 5 problems

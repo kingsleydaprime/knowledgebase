@@ -1,0 +1,6 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/07-tools-and-mcp/index.md",
+  "setup": [["npm", "ci", "--silent"]],
+  "run": [["node", "--test"]],
+  "embedded": ["../shared/orders.json", "tools.ts", "support-tools.ts", "loop.ts", "tools.test.ts", "openai-tools.ts", "mcp-server.ts", "mcp-host.ts", "mcp.test.ts", "live.ts"]
+}

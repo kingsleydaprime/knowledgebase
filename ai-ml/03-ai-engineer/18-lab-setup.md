@@ -83,7 +83,7 @@ This is a habit, not a one-off. The notes in this track deliberately mark SDK co
 Three things that turn a cheap lab into an expensive one:
 
 - **No spending cap.** Set it in the dashboard now.
-- **An agent loop with no stop condition.** Every loop in these exercises gets a step limit ([[ai-ml/03-ai-engineer/08-agents|agents]]). A runaway ReAct loop calling a frontier model is how people wake up to a three-figure bill.
+- **An agent loop with no stop condition.** Every loop in these exercises gets a step limit ([[ai-ml/03-ai-engineer/08-agents/index|agents]]). A runaway ReAct loop calling a frontier model is how people wake up to a three-figure bill.
 - **A retry that retries on the wrong thing.** Retrying a 400 (your bad request) just spends money failing ([[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability]]).
 
 Add a `data/` folder for exercise inputs and a `results/` folder for eval output. Commit the lab — you'll want to diff prompt changes against eval scores later, and that only works if the prompts are in version control.

@@ -45,7 +45,7 @@ This narrows the field fast (see [[ai-ml/00-foundations/02-what-is-a-model|what 
 
 - **Simple, narrow, high-volume** (classify a ticket, extract a field) → a small/cheap model, or even classic ML. Matters once volume makes per-request cost add up.
 - **Complex reasoning, ambiguous, multi-step** → a larger frontier model earns its cost; small models degrade faster on genuinely hard reasoning.
-- **Needs to act, not just answer** → this is an [[ai-ml/03-ai-engineer/08-agents|agent]] question (tools + a loop), not a "bigger model" question.
+- **Needs to act, not just answer** → this is an [[ai-ml/03-ai-engineer/08-agents/index|agent]] question (tools + a loop), not a "bigger model" question.
 - **Needs to be current or cite sources** → grounding via [[ai-ml/03-ai-engineer/06-rag-and-embeddings|retrieval]] matters more than model size.
 
 ### Step 4 — hosted API or self-hosted open model?
@@ -54,7 +54,7 @@ Covered in [[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]] �
 
 ## The through-line
 
-"Can an LLM technically do this?" is almost always yes — the real question is whether it's the *most appropriate* tool given cost, reliability, and latency. And don't reach for an [[ai-ml/03-ai-engineer/08-agents|agent]] when a single good [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt]] would do; agents add latency, cost, and failure surface for the ability to take multiple steps — only worth it when the task needs them.
+"Can an LLM technically do this?" is almost always yes — the real question is whether it's the *most appropriate* tool given cost, reliability, and latency. And don't reach for an [[ai-ml/03-ai-engineer/08-agents/index|agent]] when a single good [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt]] would do; agents add latency, cost, and failure surface for the ability to take multiple steps — only worth it when the task needs them.
 
 ## Related
 - [[ai-ml/00-foundations/01-what-is-ai|What is AI]] — the AI/ML/DL nesting this role sits inside
