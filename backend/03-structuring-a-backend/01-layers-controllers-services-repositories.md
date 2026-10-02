@@ -224,7 +224,7 @@ test("controller: domain errors become status codes", () => {
 });
 ```
 
-**Lab:** these files are in `labs/layers/`. From the vault root, `python3 labs/run.py layers` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/layers/typescript/`. From the vault root, `python3 labs/run.py layers/typescript` runs them and checks this page still shows the same code.
 
 **Run it.** Save both files in one folder and, from that folder, run `node --test`. Node 23.6 or later runs TypeScript files directly by stripping the types; this was checked with Node 26. Expected:
 

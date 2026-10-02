@@ -18,7 +18,7 @@ After this lesson you will be able to:
 
 **Study route.** Sections 1–5 are the core idea. Then read **only the framework sections you use** — §8 (React) is required if you do any frontend work. Go, Java, Rust, C, C++ and C# are in a companion lesson, [[backend/03-structuring-a-backend/02b-organising-by-feature-in-compiled-languages|organising by feature in compiled languages]]. Stop at *Check your understanding* and answer before opening anything. The practice task at the end is the actual finish line.
 
-**Labs.** The verified examples are in `labs/layer-vs-feature-eslint/` (Express and React), `labs/layer-vs-feature-django-by-feature/`, `labs/layer-vs-feature-django-by-layer/`, `labs/layer-vs-feature-flask/`, and the compiled languages' labs are listed in the companion lesson. From the vault root, `python3 labs/run.py layer-vs-feature-flask` (for example) runs one and checks this page still matches it.
+**Labs.** The verified examples are in `labs/layer-vs-feature/eslint/` (Express and React), `labs/layer-vs-feature/django-by-feature/`, `labs/layer-vs-feature/django-by-layer/`, `labs/layer-vs-feature/flask/`, and the compiled languages' labs are listed in the companion lesson. From the vault root, `python3 labs/run.py layer-vs-feature/flask` (for example) runs one and checks this page still matches it.
 
 ## The kid version first
 

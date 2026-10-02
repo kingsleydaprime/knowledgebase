@@ -89,7 +89,7 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-**Lab:** `labs/coupling-python/` — checked with Python 3.14. The error's wording varies between versions; it always starts `ImportError: cannot import name 'mark_paid' from`. To *prevent* cycles rather than discover them, add an import-linter `independence` or `layers` contract, as in [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|layer vs feature]].
+**Lab:** `labs/coupling-and-cohesion/python/` — checked with Python 3.14. The error's wording varies between versions; it always starts `ImportError: cannot import name 'mark_paid' from`. To *prevent* cycles rather than discover them, add an import-linter `independence` or `layers` contract, as in [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature|layer vs feature]].
 
 ## 3. Go
 
@@ -124,7 +124,7 @@ grep -q "import cycle not allowed" "$work/err.txt" || { cat "$work/err.txt"; exi
 echo "ok: go build refused the orders <-> payments import cycle"
 ```
 
-**Lab:** `labs/coupling-go/` — prints `ok: go build refused the orders <-> payments import cycle`. Checked with Go 1.26. `go list -deps ./...` and `go mod graph` show the graph.
+**Lab:** `labs/coupling-and-cohesion/go/` — prints `ok: go build refused the orders <-> payments import cycle`. Checked with Go 1.26. `go list -deps ./...` and `go mod graph` show the graph.
 
 ## 4. Java
 
@@ -155,7 +155,7 @@ grep -Eq "shop\.payments +-> +shop\.orders" "$out/deps.txt" || { cat "$out/deps.
 echo "ok: jdeps shows both directions: shop.orders <-> shop.payments"
 ```
 
-**Lab:** `labs/coupling-java/` — checked with Java 21. `jdeps -verbose:package` prints `shop.orders -> shop.payments` *and* `shop.payments -> shop.orders`.
+**Lab:** `labs/coupling-and-cohesion/java/` — checked with Java 21. `jdeps -verbose:package` prints `shop.orders -> shop.payments` *and* `shop.payments -> shop.orders`.
 
 ## 5. Rust
 
@@ -196,7 +196,7 @@ RS
 echo "ok: modules inside one crate may form a cycle — only crates are checked"
 ```
 
-**Lab:** `labs/coupling-rust/` — checked with Rust 1.96. `cargo tree` shows the crate graph.
+**Lab:** `labs/coupling-and-cohesion/rust/` — checked with Rust 1.96. `cargo tree` shows the crate graph.
 
 ## 6. C
 
@@ -241,7 +241,7 @@ gcc -std=c17 -Wall -Wextra -Werror -c "$work/main.c" -o "$work/main.o"
 echo "ok: a forward declaration and a pointer break the cycle"
 ```
 
-**Lab:** `labs/coupling-c/` — checked with GCC 16. Fewer includes in headers also means faster builds: every header a header includes is recompiled by everyone who includes it. **include-what-you-use** finds unnecessary ones.
+**Lab:** `labs/coupling-and-cohesion/c/` — checked with GCC 16. Fewer includes in headers also means faster builds: every header a header includes is recompiled by everyone who includes it. **include-what-you-use** finds unnecessary ones.
 
 ## 7. C++
 
@@ -278,7 +278,7 @@ g++ -std=c++20 -Wall -Wextra -Werror -c "$work/main.cpp" -o "$work/main.o"
 echo "ok: a forward declaration and a pointer break the cycle"
 ```
 
-**Lab:** `labs/coupling-cpp/` — checked with GCC 16.
+**Lab:** `labs/coupling-and-cohesion/cpp/` — checked with GCC 16.
 
 ## 8. C#
 
@@ -303,7 +303,7 @@ grep -q "error MSB4006: There is a circular dependency" "$work/out.txt" || { cat
 echo "ok: the build refused the Orders <-> Payments project cycle"
 ```
 
-**Lab:** `labs/coupling-csharp/` — runs in the .NET 10 SDK container.
+**Lab:** `labs/coupling-and-cohesion/csharp/` — runs in the .NET 10 SDK container.
 
 ## Check your understanding
 

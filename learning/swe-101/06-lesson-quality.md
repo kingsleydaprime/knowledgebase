@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 14 of 43 meet the standard. Optional: 7 of 35.**
+**Core lessons: 14 of 43 meet the standard. Optional: 8 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -43,6 +43,7 @@
 | SWE 102 | 1 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/04-calling-models\|04-calling-models]] |
 | SWE 102 | 1 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/01-the-ai-engineer-role\|01-the-ai-engineer-role]] |
 | SWE 102 | 1 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/03-the-model-landscape\|03-the-model-landscape]] |
+| SWE 102 | 1 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/16-local-and-open-models\|16-local-and-open-models]] |
 | SWE 102 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/11-structured-output\|11-structured-output]] |
 | SWE 102 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/05-prompt-engineering\|05-prompt-engineering]] |
 | SWE 102 | 2 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/06-rag-and-embeddings\|06-rag-and-embeddings]] |

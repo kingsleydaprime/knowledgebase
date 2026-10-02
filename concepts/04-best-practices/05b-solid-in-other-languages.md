@@ -104,7 +104,7 @@ grep -q 'Argument 1 to "assert_never" has incompatible type "Literal\[Method.USS
 echo "ok: mypy refused the unhandled USSD member"
 ```
 
-**Lab:** `labs/solid-python/` — mypy reports `Argument 1 to "assert_never" has incompatible type "Literal[Method.USSD]"`. Run mypy in CI and this is as good as a compiler check.
+**Lab:** `labs/solid-principles/python/` — mypy reports `Argument 1 to "assert_never" has incompatible type "Literal[Method.USSD]"`. Run mypy in CI and this is as good as a compiler check.
 
 ## 4. Go
 
@@ -164,7 +164,7 @@ func TestForgottenCaseIsOnlyCaughtAtRuntime(t *testing.T) {
 }
 ```
 
-**Lab:** `labs/solid-go/` — checked with Go 1.26. The second test shows the gap: a new constant reaches `default` at runtime, and nothing warned at compile time.
+**Lab:** `labs/solid-principles/go/` — checked with Go 1.26. The second test shows the gap: a new constant reaches `default` at runtime, and nothing warned at compile time.
 
 ## 5. Java
 
@@ -204,7 +204,7 @@ public final class Fees {
 }
 ```
 
-**Lab:** `labs/solid-java/` — adding a `Ussd` record fails with `the switch expression does not cover all possible input values`. Checked with Java 21.
+**Lab:** `labs/solid-principles/java/` — adding a `Ussd` record fails with `the switch expression does not cover all possible input values`. Checked with Java 21.
 
 ## 6. Rust
 
@@ -281,7 +281,7 @@ grep -q "error\[E0004\]: non-exhaustive patterns: \`&Method::Ussd\` not covered"
 echo "ok: rustc refused the unhandled Ussd variant (E0004)"
 ```
 
-**Lab:** `labs/solid-rust/` — `error[E0004]: non-exhaustive patterns`. Checked with Rust 1.96.
+**Lab:** `labs/solid-principles/rust/` — `error[E0004]: non-exhaustive patterns`. Checked with Rust 1.96.
 
 ## 7. C
 
@@ -329,7 +329,7 @@ int main(void) {
 }
 ```
 
-**Lab:** `labs/solid-c/` — `enumeration value 'METHOD_USSD' not handled in switch`. Checked with GCC 16.
+**Lab:** `labs/solid-principles/c/` — `enumeration value 'METHOD_USSD' not handled in switch`. Checked with GCC 16.
 
 ## 8. C++
 
@@ -372,7 +372,7 @@ int main() {
 }
 ```
 
-**Lab:** `labs/solid-cpp/` — the error is long, as template errors are; its key line is `no type named 'type' in 'struct std::invoke_result<…, const Ussd&>'`. Checked with GCC 16.
+**Lab:** `labs/solid-principles/cpp/` — the error is long, as template errors are; its key line is `no type named 'type' in 'struct std::invoke_result<…, const Ussd&>'`. Checked with GCC 16.
 
 ## 9. C#
 
@@ -403,7 +403,7 @@ static long Fee(Method method, long amountKobo) => method switch
 enum Method { Card, Transfer }
 ```
 
-**Lab:** `labs/solid-csharp/` — runs in the .NET 10 SDK container; adding `Ussd` gives `error CS8509`.
+**Lab:** `labs/solid-principles/csharp/` — runs in the .NET 10 SDK container; adding `Ussd` gives `error CS8509`.
 
 ## Check your understanding
 

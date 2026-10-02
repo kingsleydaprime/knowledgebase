@@ -110,7 +110,7 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 - **DSA — graphs III, ordering and weights:** 087 course schedule · 088 course schedule II · 089 redundant connection · 095 network delay time · 094 min cost to connect all points. Refresh: [[dsa/02-data-structures/06-graphs/06-algorithms/01-topological-sort|topological sort]] · [[dsa/02-data-structures/06-graphs/06-algorithms/02-dijkstra|Dijkstra]].
 - **Learn (core):** [[concepts/04-best-practices/08-coupling-and-cohesion|coupling and cohesion]] · [[concepts/04-best-practices/05-solid-principles|SOLID]]
 - **Learn (optional):** [[concepts/04-best-practices/01-clean-code|clean code]]
-- **Build:** run the coupling tool on the flagship (`node labs/coupling-and-cohesion/coupling.mjs <flagship>/src`). Fix one cycle or one dependency pointing the wrong way.
+- **Build:** run the coupling tool on the flagship (`node labs/coupling-and-cohesion/javascript/coupling.mjs <flagship>/src`). Fix one cycle or one dependency pointing the wrong way.
 - **Apply:** Friday hour.
 - **By Sunday:** before-and-after coupling output for the flagship, and one graph medium solved cold under 30 minutes.
 

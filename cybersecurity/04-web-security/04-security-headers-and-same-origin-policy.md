@@ -227,9 +227,9 @@ test("the session cookie: HttpOnly, Secure, SameSite", async (t) => {
 });
 ```
 
-**Lab:** these files are in `labs/security-headers/`. From the vault root, `python3 labs/run.py security-headers` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/security-headers/javascript/`. From the vault root, `python3 labs/run.py security-headers/javascript` runs them and checks this page still shows the same code.
 
-**Run it.** From `labs/security-headers/`, `node --test` (checked with Node 26). Expected:
+**Run it.** From `labs/security-headers/javascript/`, `node --test` (checked with Node 26). Expected:
 
 ```
 ℹ tests 6

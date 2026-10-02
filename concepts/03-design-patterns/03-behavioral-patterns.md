@@ -228,7 +228,7 @@ test("the UI can ask which buttons to show", () => {
 });
 ```
 
-**Lab:** these files are in `labs/behavioral-patterns/`. From the vault root, `python3 labs/run.py behavioral-patterns` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/behavioral-patterns/typescript/`. From the vault root, `python3 labs/run.py behavioral-patterns/typescript` runs them and checks this page still shows the same code.
 
 **Run it.** Both files in one folder; `node --test` from it (Node 23.6 or later; checked with Node 26). Expected:
 

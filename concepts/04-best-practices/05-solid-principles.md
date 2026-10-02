@@ -233,7 +233,7 @@ test("LSP: Square breaks a caller written for Rectangle", () => {
 });
 ```
 
-**Lab:** these files are in `labs/solid-principles/`. From the vault root, `python3 labs/run.py solid-principles` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/solid-principles/javascript/`. From the vault root, `python3 labs/run.py solid-principles/javascript` runs them and checks this page still shows the same code.
 
 **Run it.** Put the three files in an empty folder and, from that folder, run `node --test`. Expected (checked with Node 26):
 

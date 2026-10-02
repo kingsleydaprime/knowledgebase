@@ -141,7 +141,7 @@ func TestLogsAreJSONAndRedacted(t *testing.T) {
 }
 ```
 
-**Lab:** `labs/backend-best-practices-go/` — checked with Go 1.26; `go test` downloads `golang.org/x/time` on the first run.
+**Lab:** `labs/backend-best-practices/javascript/go/` — checked with Go 1.26; `go test` downloads `golang.org/x/time` on the first run.
 
 ## 4. Python
 
@@ -200,7 +200,7 @@ def make_logger(stream) -> logging.Logger:
     return logger
 ```
 
-**Lab:** `labs/backend-best-practices-python/` — checked with Python 3.14.
+**Lab:** `labs/backend-best-practices/javascript/python/` — checked with Python 3.14.
 
 ## 5. Java
 
@@ -264,7 +264,7 @@ public final class TokenBucket {
 }
 ```
 
-**Lab:** `labs/backend-best-practices-java/` — checked with Java 21.
+**Lab:** `labs/backend-best-practices/javascript/java/` — checked with Java 21.
 
 ## 6. Rust
 
@@ -359,7 +359,7 @@ mod tests {
 }
 ```
 
-**Lab:** `labs/backend-best-practices-rust/` — checked with Rust 1.96.
+**Lab:** `labs/backend-best-practices/javascript/rust/` — checked with Rust 1.96.
 
 ## 7. C and C++
 
@@ -456,7 +456,7 @@ int main() {
 }
 ```
 
-**Labs:** `labs/backend-best-practices-c/` and `labs/backend-best-practices-cpp/` — checked with GCC 16.
+**Labs:** `labs/backend-best-practices/javascript/c/` and `labs/backend-best-practices/javascript/cpp/` — checked with GCC 16.
 
 ## 8. C#
 
@@ -499,7 +499,7 @@ Console.WriteLine("ok: the built-in TokenBucketRateLimiter");
 static void Check(bool ok, string what) { if (!ok) throw new Exception($"FAIL: {what}"); }
 ```
 
-**Lab:** `labs/backend-best-practices-csharp/` — runs in the .NET 10 SDK container. Finding this out took a probe: the first version assumed `TryReplenish()` refilled immediately, and the test failed.
+**Lab:** `labs/backend-best-practices/javascript/csharp/` — runs in the .NET 10 SDK container. Finding this out took a probe: the first version assumed `TryReplenish()` refilled immediately, and the test failed.
 
 ## Check your understanding
 

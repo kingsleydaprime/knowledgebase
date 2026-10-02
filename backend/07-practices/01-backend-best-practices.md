@@ -378,9 +378,9 @@ test("rate limiting: three at once, then 429 with Retry-After, then refilled ove
 });
 ```
 
-**Lab:** these files are in `labs/backend-best-practices/`. From the vault root, `python3 labs/run.py backend-best-practices` runs them and checks this page still shows the same code.
+**Lab:** these files are in `labs/backend-best-practices/javascript/`. From the vault root, `python3 labs/run.py backend-best-practices/javascript` runs them and checks this page still shows the same code.
 
-**Run it.** From `labs/backend-best-practices/`, run `node --test` (Node 22 or later; checked with Node 26). Expected:
+**Run it.** From `labs/backend-best-practices/javascript/`, run `node --test` (Node 22 or later; checked with Node 26). Expected:
 
 ```
 ℹ tests 6
