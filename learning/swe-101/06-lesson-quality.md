@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 19 of 43 meet the standard. Optional: 8 of 36.**
+**Core lessons: 21 of 43 meet the standard. Optional: 8 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -49,8 +49,8 @@
 | SWE 102 | 2 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/06-rag-and-embeddings\|06-rag-and-embeddings]] |
 | SWE 102 | 3 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/12-evals/index\|index]] |
 | SWE 102 | 3 | core | n/a | keeps its own shape | [[ai-ml/03-ai-engineer/19-practice-exercises\|19-practice-exercises]] |
-| SWE 102 | 4 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing\|13-reliability-and-plumbing]] |
-| SWE 102 | 4 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency\|14-cost-caching-and-latency]] |
+| SWE 102 | 4 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|index]] |
+| SWE 102 | 4 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|index]] |
 | SWE 102 | 4 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/02-resilience-patterns\|02-resilience-patterns]] |
 | SWE 102 | 5 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/07-tools-and-mcp\|07-tools-and-mcp]] |
 | SWE 102 | 5 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/08-agents\|08-agents]] |

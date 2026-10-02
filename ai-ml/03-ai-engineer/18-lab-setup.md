@@ -51,7 +51,7 @@ console.log(usage);            // always look at this
 
 If that prints, the lab works.
 
-**Print `usage` on every call while you're learning.** Input tokens, output tokens, and therefore cost. Developing the reflex of seeing the token count next to the output is what makes [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost & latency]] concrete rather than theoretical.
+**Print `usage` on every call while you're learning.** Input tokens, output tokens, and therefore cost. Developing the reflex of seeing the token count next to the output is what makes [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost & latency]] concrete rather than theoretical.
 
 ## Picking a model
 
@@ -84,7 +84,7 @@ Three things that turn a cheap lab into an expensive one:
 
 - **No spending cap.** Set it in the dashboard now.
 - **An agent loop with no stop condition.** Every loop in these exercises gets a step limit ([[ai-ml/03-ai-engineer/08-agents|agents]]). A runaway ReAct loop calling a frontier model is how people wake up to a three-figure bill.
-- **A retry that retries on the wrong thing.** Retrying a 400 (your bad request) just spends money failing ([[ai-ml/03-ai-engineer/13-reliability-and-plumbing|reliability]]).
+- **A retry that retries on the wrong thing.** Retrying a 400 (your bad request) just spends money failing ([[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability]]).
 
 Add a `data/` folder for exercise inputs and a `results/` folder for eval output. Commit the lab — you'll want to diff prompt changes against eval scores later, and that only works if the prompts are in version control.
 
@@ -95,5 +95,5 @@ An applied-AI lab is three things: a key with a cap on it, a small model you're 
 ## Related
 - [[ai-ml/03-ai-engineer/19-practice-exercises|Practice Exercises]] — start here once this runs
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — what you just did, in depth
-- [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|Cost, Caching & Latency]] — why `usage` is printed on every call above
+- [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, Caching & Latency]] — why `usage` is printed on every call above
 - [[cybersecurity/02-ethical-hacking/05-home-lab-setup|Ethical hacking home lab]] — the same lab-then-exercises pattern in another domain

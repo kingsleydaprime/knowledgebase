@@ -137,7 +137,7 @@ Measured from OpenClaw's own log: its prompt was **8,786 tokens with no messages
 
 **Hugging Face** is the hub: each open model in several formats and quantisations, with licences that vary and matter — "open weights" is not automatically "free for commercial use". Ollama's library re-packages popular models as ready-to-run tags such as `qwen3.5:4b`.
 
-An OpenAI-compatible local endpoint means **almost nothing else changes**: [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]], [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]], [[ai-ml/03-ai-engineer/07-tools-and-mcp|tool calling]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings|retrieval]] and [[ai-ml/03-ai-engineer/12-evals/index|evals]] all work the same way, pointed at your own server. An [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|AI gateway]] then makes hosted ↔ local a configuration change, including falling back between them.
+An OpenAI-compatible local endpoint means **almost nothing else changes**: [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]], [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]], [[ai-ml/03-ai-engineer/07-tools-and-mcp|tool calling]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings|retrieval]] and [[ai-ml/03-ai-engineer/12-evals/index|evals]] all work the same way, pointed at your own server. An [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|AI gateway]] then makes hosted ↔ local a configuration change, including falling back between them.
 
 ## Worked example — sizing and measuring
 
@@ -314,7 +314,7 @@ You can choose a local model that fits a machine, explain its speed from Ollama'
 - [[tools/openclaw-study-partner/index|OpenClaw study partner]] — the setup this lesson measured
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The model landscape]] — open vs. closed, self-hosted vs. API
 - [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-tuning (applied)]] — running your own LoRA on open weights
-- [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|Reliability and plumbing]] — gateways make hosted ↔ local a config change
-- [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|Cost, caching and latency]] — when owning the hardware wins on cost
+- [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — gateways make hosted ↔ local a config change
+- [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — when owning the hardware wins on cost
 
 *Source: §4–6 and the worked example are grounded — measured on the author's own laptop on 2026-10-02, with the study partner in [[tools/openclaw-study-partner/index|tools/openclaw-study-partner]]. §2–3 are [reference].*

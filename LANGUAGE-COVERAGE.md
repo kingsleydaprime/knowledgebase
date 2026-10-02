@@ -33,8 +33,8 @@ By area: dsa 67 · ai-ml 44 · backend 42 · frontend 36 · mathematics 34 · ho
 | SWE 102 core | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|ai-ml/03-ai-engineer/05-prompt-engineering/index]] | TS/JS | [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/11-structured-output/index\|ai-ml/03-ai-engineer/11-structured-output/index]] | TS/JS | [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/12-evals/index\|ai-ml/03-ai-engineer/12-evals/index]] | TS/JS | [[ai-ml/03-ai-engineer/12-evals/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing\|ai-ml/03-ai-engineer/13-reliability-and-plumbing]] | TS/JS | — |
-| SWE 102 core | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency\|ai-ml/03-ai-engineer/14-cost-caching-and-latency]] | TS/JS | — |
+| SWE 102 core | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|ai-ml/03-ai-engineer/13-reliability-and-plumbing/index]] | TS/JS | — |
+| SWE 102 core | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|ai-ml/03-ai-engineer/14-cost-caching-and-latency/index]] | TS/JS | — |
 | SWE 103 core | [[backend/01-foundations/03-the-request-lifecycle\|backend/01-foundations/03-the-request-lifecycle]] | TS/JS | — |
 | SWE 103 core | [[backend/05-auth/03-oauth-provider-integrations\|backend/05-auth/03-oauth-provider-integrations]] | TS/JS | — |
 | SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|architecture/03-architectural-patterns/05-transactional-outbox/index]] | TS/JS | — |

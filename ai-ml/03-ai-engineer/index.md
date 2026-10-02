@@ -25,8 +25,8 @@ The track is in two parts. **Part I (1–10)** is the core path — everything y
 
 11. [[ai-ml/03-ai-engineer/11-structured-output/index|Structured Output]] — **[Intermediate]** — JSON mode, schema-constrained decoding, and the discipline that turns an LLM into a reliable *function*
 12. [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — **[Intermediate → Advanced]** — the core applied-AI skill: golden datasets, LLM-as-judge (and its biases), offline gates vs online signal, evaluating RAG and agents
-13. [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|Reliability & Plumbing]] — **[Intermediate]** — retries/backoff, timeouts, rate limits, fallbacks, and AI gateways: making a flaky network call dependable
-14. [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|Cost, Caching & Latency]] — **[Intermediate]** — model routing/cascading, prompt caching (freeze the front), streaming for perceived latency, trimming tokens
+13. [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability & Plumbing]] — **[Intermediate]** — retries/backoff, timeouts, rate limits, fallbacks, and AI gateways: making a flaky network call dependable
+14. [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, Caching & Latency]] — **[Intermediate]** — model routing/cascading, prompt caching (freeze the front), streaming for perceived latency, trimming tokens
 15. [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-Tuning (Applied)]] — **[Advanced]** — when (rarely) to fine-tune, LoRA/PEFT, SFT vs DPO, the dataset-is-the-project reality
 16. [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local & Open Models]] — **[Intermediate]** — Ollama/vLLM, quantization (GGUF/AWQ), and when self-hosting an open model beats an API
 17. [[ai-ml/03-ai-engineer/17-voice-and-realtime|Voice & Realtime]] — **[Advanced]** — STT→LLM→TTS pipelines vs speech-native models, and the sub-second-latency constraint (streaming, turn-taking, barge-in)

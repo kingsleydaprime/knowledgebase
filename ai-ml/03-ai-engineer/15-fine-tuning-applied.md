@@ -36,7 +36,7 @@ You take an already-trained base model and continue training it a little on **yo
 
 - **Upfront cost:** curating a good dataset (real work), the training run, and an eval harness.
 - **Ongoing cost:** fine-tuned models are a **frozen snapshot** — to teach new facts or behavior you retrain. Knowledge that changes weekly should be RAG, not a fine-tune you re-bake constantly.
-- **The payoff, when it fits:** a smaller, cheaper, faster model that *reliably* does your narrow task, with a short prompt instead of a giant one — lower per-call cost and latency ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost, caching & latency]]) at scale.
+- **The payoff, when it fits:** a smaller, cheaper, faster model that *reliably* does your narrow task, with a short prompt instead of a giant one — lower per-call cost and latency ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost, caching & latency]]) at scale.
 
 You can also **combine** RAG and fine-tuning: fine-tune for *how to behave* (format, tone, how to use retrieved context) and use RAG for *what to know*. That's often the strongest setup for a specialized production assistant.
 
