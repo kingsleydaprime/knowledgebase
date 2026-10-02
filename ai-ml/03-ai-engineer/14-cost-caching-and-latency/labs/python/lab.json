@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/14-cost-caching-and-latency/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "python", "-m", "unittest"]],
+  "embedded": ["cost.py", "test_cost.py"]
+}
