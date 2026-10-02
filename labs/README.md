@@ -49,6 +49,8 @@ Some labs have a `live.ts` that calls a local model through Ollama. The runner n
 |---|---|---|
 | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|prompt engineering]] | `node live.ts` (24 calls: zero-shot and few-shot) | about 5 minutes |
 | [[ai-ml/03-ai-engineer/12-evals/index\|evals]] | `node live.ts` (20 calls, plus both baselines) | about 4 minutes |
+| [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|reliability and plumbing]] | `node live.ts` (3 calls: normal, 1-second timeout, unknown model) | about 1 minute |
+| [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|cost, caching and latency]] | `node live.ts` (4 calls of about 500 prompt tokens: cold, same prefix, timestamp first, streamed) | about 2 minutes |
 
 ## The labs
 
@@ -61,6 +63,8 @@ Each lesson that has labs is a folder: `index.md` is the lesson, `in-other-langu
 | `prompt-engineering` | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|prompt engineering]] · [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (prompts in `shared/`) |
 | `structured-output` | [[ai-ml/03-ai-engineer/11-structured-output/index\|structured output]] · [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp |
 | `evals` | [[ai-ml/03-ai-engineer/12-evals/index\|evals]] · [[ai-ml/03-ai-engineer/12-evals/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (golden set in `shared/`) |
+| `reliability-and-plumbing` | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|reliability and plumbing]] | typescript (reuses the evals lab's harness and golden set) |
+| `cost-caching-and-latency` | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|cost, caching and latency]] | typescript (reuses the evals lab's golden set) |
 | `local-and-open-models` | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|local and open models]] | python |
 | `transactional-outbox` | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|transactional outbox]] | javascript |
 | `layers-controllers-services-repositories` | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index\|layers controllers services repositories]] · [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |

@@ -74,7 +74,7 @@ Two rules. Format the examples **exactly** like the real question, because consi
 
 Past a point, the gain isn't a cleverer prompt but how you combine several:
 
-- **Prompt chaining.** Extract → transform → summarise, one prompt each. Every step is simpler, and can be checked and debugged on its own. The cost is more calls and more latency → [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost and latency]].
+- **Prompt chaining.** Extract → transform → summarise, one prompt each. Every step is simpler, and can be checked and debugged on its own. The cost is more calls and more latency → [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost and latency]].
 - **Decomposition.** The model or your code breaks a problem into parts, solves each, and combines them. This is the hand-run version of what an [[ai-ml/03-ai-engineer/08-agents|agent]] does by itself.
 - **ReAct (reason and act).** Reasoning alternates with tool calls: think, act, look at the result, think again. This is where prompting turns into [[ai-ml/03-ai-engineer/08-agents|agents]].
 - **Meta-prompting.** Ask a model to critique and rewrite your prompt, or to draft few-shot examples. Then measure the result like any other change.

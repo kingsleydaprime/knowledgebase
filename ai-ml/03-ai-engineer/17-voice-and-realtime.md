@@ -26,7 +26,7 @@ In text, a second of delay is fine. In voice, **humans expect a reply in well un
 
 - **Stream everything.** Don't wait for the full transcript, then the full LLM answer, then the full audio. **Stream STT** (transcribe as they speak), **stream the LLM** (start generating on partial input, emit tokens as they come — [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]), and **stream TTS** (start voicing the first sentence while the model is still writing the rest). Overlapping the stages is what gets you under the latency budget; running them sequentially never will.
 - **Time-to-first-word** is the number users feel, not total response time. Optimize the *start* of the reply.
-- **Favor faster models** for the LLM step ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost, caching & latency]]) — a voice turn can't afford a slow frontier model unless the task truly needs it. A cascade (fast model for simple turns, escalate for hard ones) fits voice especially well.
+- **Favor faster models** for the LLM step ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost, caching & latency]]) — a voice turn can't afford a slow frontier model unless the task truly needs it. A cascade (fast model for simple turns, escalate for hard ones) fits voice especially well.
 
 ## The hard parts unique to voice
 
@@ -37,7 +37,7 @@ Beyond latency, conversation has mechanics that text doesn't:
 
 ## Everything else still applies — plus voice-specific safety
 
-A voice agent is still an LLM app, so the whole track carries over: it needs [[ai-ml/03-ai-engineer/07-tools-and-mcp|tools]] to *do* things, [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]] to know your data, [[ai-ml/03-ai-engineer/12-evals/index|evals]] to measure quality, and [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|reliability plumbing]] underneath. Safety ([[ai-ml/03-ai-engineer/10-safety-and-production|safety & production]]) gains extra edges in voice:
+A voice agent is still an LLM app, so the whole track carries over: it needs [[ai-ml/03-ai-engineer/07-tools-and-mcp|tools]] to *do* things, [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]] to know your data, [[ai-ml/03-ai-engineer/12-evals/index|evals]] to measure quality, and [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability plumbing]] underneath. Safety ([[ai-ml/03-ai-engineer/10-safety-and-production|safety & production]]) gains extra edges in voice:
 - **[[ai-ml/03-ai-engineer/10-safety-and-production|Prompt injection]] via spoken input** — the same attack surface as text, now arriving as transcribed speech; treat the transcript as untrusted.
 - **Higher stakes on errors** — voice interactions often *do* things (place orders, change bookings) and there's no "re-read the message" — a wrong action executes on a mishearing. Confirm before consequential, hard-to-reverse actions, and keep a [[ai-ml/03-ai-engineer/08-agents|human in the loop]] for the risky ones.
 - **STT errors compound** — a misheard word propagates through the whole pipeline; the LLM should tolerate imperfect transcripts and ask for clarification rather than confidently acting on a mishearing.
@@ -56,6 +56,6 @@ A voice agent is still an LLM app, so the whole track carries over: it needs [[a
 
 ## Related
 - [[ai-ml/03-ai-engineer/09-multimodal|Multimodal AI]] — STT and TTS as the building blocks
-- [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|Cost, Caching & Latency]] — streaming and right-sizing for the latency budget
+- [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, Caching & Latency]] — streaming and right-sizing for the latency budget
 - [[ai-ml/03-ai-engineer/08-agents|Agents]] — a voice agent is an agent that listens and speaks
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — the raised stakes of voice actions

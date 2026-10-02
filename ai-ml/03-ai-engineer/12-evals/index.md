@@ -518,7 +518,7 @@ You can build a golden set with a labelling policy, choose a scorer, compare aga
 
 **Recap.** An eval is a golden set, a scorer and a number you track. Write the labelling policy first, cover the hard cases and tag them. Use the cheapest scorer the task allows, and shape tasks to be checkable. Always run a baseline; distrust small differences on small sets; compare case by case. Use a judge with binary criteria, in both orders, and only after measuring its agreement with a human. Gate every change in CI, and turn production failures into new cases.
 
-**Next.** [[ai-ml/03-ai-engineer/19-practice-exercises|Practice exercises]] — the rest of week 3. Then [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|reliability and plumbing]] in week 4, where the gate goes into CI.
+**Next.** [[ai-ml/03-ai-engineer/19-practice-exercises|Practice exercises]] — the rest of week 3. Then [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]] in week 4, where the gate goes into CI.
 
 ## Related
 - [[ai-ml/03-ai-engineer/12-evals/in-other-languages|Evals in other languages]] — the same harness, baselines and judge checks in Python, Go, Java, Rust and C#

@@ -1,0 +1,15 @@
+# .github/workflows/evals.yml — run the evals gate on every pull request that could change a score.
+name: evals
+on:
+  pull_request:
+    paths: ["src/ai/**", "evals/**"] # prompts, model settings, the golden set, the cassette
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5 # replaying recordings takes seconds; a hung job should fail, not run for six hours
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: node evals/ci-gate.ts --model qwen3.5:4b --floor 0.8

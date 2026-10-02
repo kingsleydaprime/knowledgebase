@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/13-reliability-and-plumbing/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["retry.ts", "breaker.ts", "fallback.ts", "limiter.ts", "resilient.ts", "reliability.test.ts", "cassette.ts", "ci-gate.ts", "evals.yml", "live.ts"]
+}

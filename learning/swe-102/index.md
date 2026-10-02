@@ -52,7 +52,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 4 — Evals in CI, and production behaviour
 
 - **DSA — intervals and greedy:** 128 partition labels · 130 insert interval · 131 merge intervals · 132 non-overlapping intervals · 134 meeting rooms II. Refresh: [[dsa/04-patterns/08-overlapping-intervals|overlapping intervals]].
-- **Learn (core):** [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|reliability and plumbing]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost, caching and latency]]
+- **Learn (core):** [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost, caching and latency]]
 - **Learn (optional):** [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
 - **Build:** the evals run in CI and fail the build below a threshold. Add timeouts, a retry with backoff, and per-request cost and latency logging.
 - **Apply:** Friday hour.

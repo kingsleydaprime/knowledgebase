@@ -76,7 +76,7 @@ The response gives you more than the text. Read these three fields every time:
 }
 ```
 
-`finish_reason: "length"` means the reply was **cut off**. If you're about to parse it as JSON, it's probably broken. `usage` is what you log for cost → [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost, caching and latency]].
+`finish_reason: "length"` means the reply was **cut off**. If you're about to parse it as JSON, it's probably broken. `usage` is what you log for cost → [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost, caching and latency]].
 
 Providers differ in the details. Anthropic's Messages API, for example, takes `system` as a top-level field rather than a message, requires `max_tokens`, and returns content as a list of blocks. That's exactly why §6 puts an adapter between your code and any one format.
 
@@ -109,7 +109,7 @@ Model calls fail far more often than database calls. Sort errors by whether a re
 - **429 (rate limited)** and **5xx (server error)**: retry, with backoff.
 - **400 (bad request)**, **401 (bad key)** and **404 (unknown model)**: a retry will fail the same way. Fix the request.
 
-Every call also needs a timeout, because a model can take a long time. Pass an `AbortSignal` so a slow call can be cancelled. Retries, backoff and fallbacks are covered in depth in [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|reliability and plumbing]]. Here the adapter just labels each error as retryable or not, so that later code can decide.
+Every call also needs a timeout, because a model can take a long time. Pass an `AbortSignal` so a slow call can be cancelled. Retries, backoff and fallbacks are covered in depth in [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]]. Here the adapter just labels each error as retryable or not, so that later code can decide.
 
 ## 6. A port, not a provider
 
@@ -536,7 +536,7 @@ You can write a chat request and read its response without looking anything up, 
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — the settings sent on each call
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — what goes in the messages
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp|Tools and MCP]] — tool calling in depth
-- [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|Reliability and plumbing]] — retries, backoff and fallbacks
+- [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — retries, backoff and fallbacks
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal and clean architecture]] — ports and adapters in general
 
 *Source: new for the AI-engineer track, grounded in the AI-feature work in these projects. SDK shapes change fast; check them against current docs.*
