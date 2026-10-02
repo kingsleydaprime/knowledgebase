@@ -6,8 +6,8 @@
 
 You can already:
 
-- Explain tokens, the context window and why models are measured in parameters → [[ai-ml/03-ai-engineer/02-how-llms-work|how LLMs work]].
-- Call a model over HTTP → [[ai-ml/03-ai-engineer/04-calling-models|calling models]].
+- Explain tokens, the context window and why models are measured in parameters → [[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]].
+- Call a model over HTTP → [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]].
 - Run a command in a terminal and read a JSON response.
 
 After this lesson you will be able to:
@@ -137,7 +137,7 @@ Measured from OpenClaw's own log: its prompt was **8,786 tokens with no messages
 
 **Hugging Face** is the hub: each open model in several formats and quantisations, with licences that vary and matter — "open weights" is not automatically "free for commercial use". Ollama's library re-packages popular models as ready-to-run tags such as `qwen3.5:4b`.
 
-An OpenAI-compatible local endpoint means **almost nothing else changes**: [[ai-ml/03-ai-engineer/04-calling-models|calling models]], [[ai-ml/03-ai-engineer/11-structured-output|structured output]], [[ai-ml/03-ai-engineer/07-tools-and-mcp|tool calling]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings|retrieval]] and [[ai-ml/03-ai-engineer/12-evals|evals]] all work the same way, pointed at your own server. An [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|AI gateway]] then makes hosted ↔ local a configuration change, including falling back between them.
+An OpenAI-compatible local endpoint means **almost nothing else changes**: [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]], [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]], [[ai-ml/03-ai-engineer/07-tools-and-mcp|tool calling]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings|retrieval]] and [[ai-ml/03-ai-engineer/12-evals|evals]] all work the same way, pointed at your own server. An [[ai-ml/03-ai-engineer/13-reliability-and-plumbing|AI gateway]] then makes hosted ↔ local a configuration change, including falling back between them.
 
 ## Worked example — sizing and measuring
 

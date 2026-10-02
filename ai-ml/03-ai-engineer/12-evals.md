@@ -24,7 +24,7 @@ Reach for the cheapest one that fits — most tasks mix several.
 
 | Method | How | Best for | Cost / caveat |
 |---|---|---|---|
-| **Exact / structural** | `===`, schema-valid, regex, "contains X" | classification, extraction, [[ai-ml/03-ai-engineer/11-structured-output\|structured output]], tool-arg correctness | free, deterministic, but only for checkable outputs |
+| **Exact / structural** | `===`, schema-valid, regex, "contains X" | classification, extraction, [[ai-ml/03-ai-engineer/11-structured-output/index\|structured output]], tool-arg correctness | free, deterministic, but only for checkable outputs |
 | **Programmatic metrics** | code compiles/tests pass; JSON parses; number in range; string-similarity (BLEU/ROUGE — weak) | code-gen, data extraction, bounded numeric answers | cheap, but similarity metrics correlate poorly with quality |
 | **LLM-as-judge** | a second model scores the output against a rubric | open-ended quality (summaries, chat, tone, helpfulness) | flexible and scalable, but has biases — see below |
 | **Human review** | a person grades | the hardest / highest-stakes cases; calibrating the judge | the gold standard, and the bottleneck — reserve it |
@@ -67,7 +67,7 @@ Whole-pipeline evals hide *where* a failure came from. Score the parts:
 
 ## Related
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — evals are one pillar of shipping safely
-- [[ai-ml/03-ai-engineer/05-prompt-engineering|Prompt Engineering]] — evals are how you know a prompt change helped
+- [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt Engineering]] — evals are how you know a prompt change helped
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — retrieval vs. generation metrics
-- [[ai-ml/03-ai-engineer/11-structured-output|Structured Output]] — structural checks are the cheapest eval
+- [[ai-ml/03-ai-engineer/11-structured-output/index|Structured Output]] — structural checks are the cheapest eval
 - [[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|ML Evaluation Metrics]] — the classical-ML sibling of this discipline

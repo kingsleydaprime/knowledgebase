@@ -15,4 +15,4 @@ Eigenvalues, singular value decomposition, and most of a formal linear algebra c
 ## Related
 - [[ai-ml/00-foundations/03-mathematics/02-calculus/index|calculus]] — the other half of how training actually works
 - [[ai-ml/00-foundations/02-what-is-a-model|what-is-a-model]]
-- [[ai-ml/03-ai-engineer/02-how-llms-work|llms]] — embeddings and attention are built directly on these operations
+- [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]] — embeddings and attention are built directly on these operations

@@ -24,7 +24,7 @@ opposite meaning/intent -> embeddings point opposite directions -> negative dot 
 ## Where this shows up in practice
 
 - **Semantic search / RAG** — comparing a query's embedding against every document's embedding via dot product to find the closest matches (see [[ai-ml/03-ai-engineer/03-the-model-landscape|other-model-types]] for embeddings more broadly).
-- **Attention in transformers** — an LLM computing how much every token should influence every other token is, mechanically, a large batch of dot products between token vectors (see [[ai-ml/03-ai-engineer/02-how-llms-work|llms]]).
+- **Attention in transformers** — an LLM computing how much every token should influence every other token is, mechanically, a large batch of dot products between token vectors (see [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]]).
 - **A single neuron's computation** — a layer's output for one unit is the dot product of the incoming vector with that unit's row of weights, plus a bias term — the building block that [[04-matrix-multiplication|matrix-multiplication]] batches across an entire layer at once.
 
 ## Gotchas

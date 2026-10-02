@@ -34,6 +34,6 @@ Regardless of whether it's classic ML or deep learning: you give the system a la
 
 ## Related
 - [[ai-ml/00-foundations/02-what-is-a-model|what-is-a-model]]
-- [[ai-ml/03-ai-engineer/02-how-llms-work|llms]]
+- [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]]
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|other-model-types]]
 - [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|choosing-the-right-ai-tool]]

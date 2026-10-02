@@ -628,9 +628,9 @@ By Sunday: what must be true before the week closes
 
 **Topics**
 - **20.1** What the role actually is → [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|01]]
-- **20.2** How LLMs work — enough to reason about *why* they fail → [[ai-ml/03-ai-engineer/02-how-llms-work|02]]
+- **20.2** How LLMs work — enough to reason about *why* they fail → [[ai-ml/03-ai-engineer/02-how-llms-work/index|02]]
 - **20.3** The model landscape → [[ai-ml/03-ai-engineer/03-the-model-landscape|03]]
-- **20.4** Calling models: streaming, tokens, temperature, context windows → [[ai-ml/03-ai-engineer/04-calling-models|04]]
+- **20.4** Calling models: streaming, tokens, temperature, context windows → [[ai-ml/03-ai-engineer/04-calling-models/index|04]]
 
 **DSA:** mixed review, 5 problems
 
@@ -640,11 +640,11 @@ By Sunday: what must be true before the week closes
 
 # Week 21 — Prompting, structure, retrieval
 
-**Read:** [[ai-ml/03-ai-engineer/05-prompt-engineering|05]] · [[ai-ml/03-ai-engineer/11-structured-output|11]] · [[ai-ml/03-ai-engineer/06-rag-and-embeddings|06]]
+**Read:** [[ai-ml/03-ai-engineer/05-prompt-engineering/index|05]] · [[ai-ml/03-ai-engineer/11-structured-output/index|11]] · [[ai-ml/03-ai-engineer/06-rag-and-embeddings|06]]
 
 **Topics**
-- **21.1** Prompt engineering; prompts as versioned artifacts → [[ai-ml/03-ai-engineer/05-prompt-engineering|05]]
-- **21.2** Structured output → [[ai-ml/03-ai-engineer/11-structured-output|11]]
+- **21.1** Prompt engineering; prompts as versioned artifacts → [[ai-ml/03-ai-engineer/05-prompt-engineering/index|05]]
+- **21.2** Structured output → [[ai-ml/03-ai-engineer/11-structured-output/index|11]]
 - **21.3** RAG and embeddings — chunking, hybrid search, reranking → [[ai-ml/03-ai-engineer/06-rag-and-embeddings|06]]
 
 **DSA:** mixed review, 5 problems

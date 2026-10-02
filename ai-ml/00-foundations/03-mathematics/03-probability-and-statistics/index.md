@@ -22,5 +22,5 @@ Every token an LLM generates comes from a probability distribution over its enti
 
 ## Related
 - [[04-optimization|optimization]] — loss functions are built on these ideas
-- [[ai-ml/03-ai-engineer/02-how-llms-work|llms]] — token sampling is exactly a probability distribution in action
+- [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]] — token sampling is exactly a probability distribution in action
 - [[ai-ml/00-foundations/02-what-is-a-model|what-is-a-model]]

@@ -15,7 +15,7 @@
 - **Backpropagation, written by hand at least once** — do [[build-your-own-shit/10-your-own-neural-network|guide 10]] first. This guide uses a framework's autodiff, and that is only safe if you have already written your own
 - **The training loop in PyTorch** → [[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch|training loop]]
 - **What a transformer is, and what attention computes** → [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|transformers and attention]]
-- **How LLMs work at the level of the application** → [[ai-ml/03-ai-engineer/02-how-llms-work|how LLMs work]]
+- **How LLMs work at the level of the application** → [[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]]
 - **Matrix multiplication, and being able to track shapes** → [[mathematics/04-linear-algebra/01-matrices-and-determinants/01-matrices-and-determinants|matrices]]
 - **Cross-entropy, which is the loss function and is not a coincidence** → [[information-theory/04-cross-entropy-and-kl-divergence|cross-entropy and KL divergence]]
 
@@ -67,7 +67,7 @@ Six layers, six heads, 384 embedding dimensions, a context of 256 tokens, dropou
 *Works when:* validation loss reaches about 1.48 on character-level Shakespeare and the samples have line breaks, speaker names and vaguely Elizabethan cadence. **It is meaningless text with perfect structure**, and that is exactly the point.
 
 **8. Sampling, and the knobs you have used from the other side.**
-Greedy decoding, then temperature, then top-k, then nucleus (top-p) sampling. **Generate from the same model at temperature 0.1 and at 1.5.** Every complaint you have ever had about a model being either boring or unhinged is visible in those two outputs, from a model whose weights did not change → [[ai-ml/03-ai-engineer/05-prompt-engineering|prompt engineering]].
+Greedy decoding, then temperature, then top-k, then nucleus (top-p) sampling. **Generate from the same model at temperature 0.1 and at 1.5.** Every complaint you have ever had about a model being either boring or unhinged is visible in those two outputs, from a model whose weights did not change → [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt engineering]].
 *Works when:* you can predict which setting produced which sample.
 
 **9. A KV cache.**

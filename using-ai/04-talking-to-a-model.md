@@ -76,4 +76,4 @@ Every prompting technique is the same technique: reduce what the model has to gu
 - [[using-ai/02-how-llms-work-plainly|How LLMs Work, Plainly]] — why removing guesswork is the whole game
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — the other half of a good brief: what's in the window
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — a well-briefed answer still isn't a checked answer
-- [[ai-ml/03-ai-engineer/05-prompt-engineering|Prompt Engineering]] — the builder's version: system prompts, chaining, evals, optimization
+- [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt Engineering]] — the builder's version: system prompts, chaining, evals, optimization

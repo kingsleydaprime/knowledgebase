@@ -7,7 +7,7 @@ A vector is an ordered list of numbers: `[0.2, -1.4, 3.0]`. That's the entire me
 Almost everything a model touches gets turned into a vector first:
 
 - **A data point** — a row of features (a house's square footage, age, location, price → one vector per house).
-- **A word, sentence, or document** — an "embedding," a vector positioned so that similar meanings sit close together in the space (see [[03-dot-product|dot-product]] for how "close" is measured, and [[ai-ml/03-ai-engineer/02-how-llms-work|llms]] for embeddings in context).
+- **A word, sentence, or document** — an "embedding," a vector positioned so that similar meanings sit close together in the space (see [[03-dot-product|dot-product]] for how "close" is measured, and [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]] for embeddings in context).
 - **A direction to move in** — during training, the update applied to a model's parameters at each step is itself a vector (see [[02-gradients|gradients]]).
 - **An image, flattened** — a grid of pixel values reshaped into one long vector (or, more commonly today, processed through a structure that preserves the 2D layout — but the underlying representation is still numeric and vector-like at each stage).
 
@@ -45,4 +45,4 @@ Vector addition and scaling are what make "move the parameters a little in this 
 ## Related
 - [[03-dot-product|dot-product]]
 - [[02-matrices|matrices]]
-- [[ai-ml/03-ai-engineer/02-how-llms-work|llms]] — embeddings are vectors
+- [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]] — embeddings are vectors

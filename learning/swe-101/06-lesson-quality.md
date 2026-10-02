@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 14 of 43 meet the standard. Optional: 8 of 36.**
+**Core lessons: 18 of 43 meet the standard. Optional: 8 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -39,13 +39,13 @@
 | SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index\|index]] |
 | SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/09-secret-management/01-secret-management\|01-secret-management]] |
 | SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[backend/05-auth/01-authentication-flows\|01-authentication-flows]] |
-| SWE 102 | 1 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/02-how-llms-work\|02-how-llms-work]] |
-| SWE 102 | 1 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/04-calling-models\|04-calling-models]] |
+| SWE 102 | 1 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/02-how-llms-work/index\|index]] |
+| SWE 102 | 1 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/04-calling-models/index\|index]] |
 | SWE 102 | 1 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/01-the-ai-engineer-role\|01-the-ai-engineer-role]] |
 | SWE 102 | 1 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/03-the-model-landscape\|03-the-model-landscape]] |
 | SWE 102 | 1 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|index]] |
-| SWE 102 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/11-structured-output\|11-structured-output]] |
-| SWE 102 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/05-prompt-engineering\|05-prompt-engineering]] |
+| SWE 102 | 2 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/11-structured-output/index\|index]] |
+| SWE 102 | 2 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|index]] |
 | SWE 102 | 2 | optional | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/06-rag-and-embeddings\|06-rag-and-embeddings]] |
 | SWE 102 | 3 | core | ⬜ not started | kid, start, terms, checks, practice | [[ai-ml/03-ai-engineer/12-evals\|12-evals]] |
 | SWE 102 | 3 | core | n/a | keeps its own shape | [[ai-ml/03-ai-engineer/19-practice-exercises\|19-practice-exercises]] |

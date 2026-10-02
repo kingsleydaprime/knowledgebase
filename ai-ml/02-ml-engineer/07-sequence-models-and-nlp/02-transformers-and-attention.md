@@ -1,6 +1,6 @@
 # Transformers & Attention
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. The architecture behind every modern LLM ([[ai-ml/03-ai-engineer/02-how-llms-work|how LLMs work]] is the applied view; this is the modeling view).
+**[reference]** — from the roadmap.sh `machine-learning` roadmap. The architecture behind every modern LLM ([[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]] is the applied view; this is the modeling view).
 
 ## The core idea: attention
 
@@ -38,13 +38,13 @@ The one cost: attention is **O(n²)** in sequence length (every token attends to
 ## The families
 
 - **Encoder-only** (BERT) — bidirectional, good for understanding/classification/embeddings.
-- **Decoder-only** (GPT, most LLMs) — autoregressive next-token prediction, good for generation ([[ai-ml/03-ai-engineer/02-how-llms-work|how LLMs work]]).
+- **Decoder-only** (GPT, most LLMs) — autoregressive next-token prediction, good for generation ([[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]]).
 - **Encoder-decoder** (T5, original translation model) — for sequence-to-sequence tasks.
 
 Transformers also crossed over into [[ai-ml/02-ml-engineer/06-computer-vision/index|vision]] (Vision Transformers) and other modalities — the architecture generalized far beyond text.
 
 ## Related
-- [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — the applied view of what these enable
+- [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — the applied view of what these enable
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/01-rnns-lstms-grus|RNNs/LSTMs]] — what transformers replaced
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|Dot Product]] — the similarity operation attention is built on
 - [[build-your-own-shit/24-your-own-llm|Your Own LLM]] — **this note as running code**: attention built up in four stages, then blocks, training and sampling

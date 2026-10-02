@@ -24,7 +24,7 @@ A single LLM call is stateless and can't verify anything beyond its training dat
 
 ## Memory
 
-The loop above is stateless beyond the [[ai-ml/03-ai-engineer/02-how-llms-work|context window]]. Real agents need memory:
+The loop above is stateless beyond the [[ai-ml/03-ai-engineer/02-how-llms-work/index|context window]]. Real agents need memory:
 
 - **Short-term** — the current conversation/task context (the window itself), often summarized/compacted as it fills.
 - **Long-term** — persisted across sessions, usually via [[ai-ml/03-ai-engineer/06-rag-and-embeddings|embeddings + a vector store]]: the agent writes facts/experiences and retrieves relevant ones later. This is how an assistant "remembers" you across sessions — the product layer stores and re-injects context, since the model itself doesn't.
@@ -37,7 +37,7 @@ Some tasks split across multiple agents — a **planner** that decomposes and de
 
 ## Frameworks and observability
 
-- **Frameworks** — LangChain / LangGraph, CrewAI, AutoGen, and the SDK-native agent abstractions (e.g. the AI SDK's agent/tool-loop helpers, [[ai-ml/03-ai-engineer/04-calling-models|calling models]]) handle the loop, tool wiring, and state so you don't hand-roll it. Useful, but understand the underlying loop first — frameworks hide it, and you debug what you understand.
+- **Frameworks** — LangChain / LangGraph, CrewAI, AutoGen, and the SDK-native agent abstractions (e.g. the AI SDK's agent/tool-loop helpers, [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]) handle the loop, tool wiring, and state so you don't hand-roll it. Useful, but understand the underlying loop first — frameworks hide it, and you debug what you understand.
 - **Observability** — agents are hard to debug because behavior spans many nondeterministic steps. Tracing tools (LangSmith, Langfuse, and general [[devops/10-observability/index|observability]] adapted for LLMs) capture each step — prompts, tool calls, token usage, latency — so you can see *why* an agent did what it did. Non-negotiable for anything beyond a toy.
 - **Evals** — because output is nondeterministic, you can't "unit test" an agent conventionally. You build **evaluation sets** (representative tasks + criteria) and measure success rate as you change prompts/tools/models ([[ai-ml/03-ai-engineer/10-safety-and-production|safety & production]]).
 
@@ -45,7 +45,7 @@ Some tasks split across multiple agents — a **planner** that decomposes and de
 
 - "Agent" is used loosely — sometimes "an LLM with tools," sometimes "any product with an LLM in it." Ask what tools/autonomy a system actually has rather than trusting the label.
 - More steps = more tokens (cost) and more chances for one bad step to derail the rest. Agent design is giving enough autonomy to be useful without so much that errors compound unchecked.
-- Tool *results* re-enter the [[ai-ml/03-ai-engineer/02-how-llms-work|context window]] — a tool returning a huge blob burns context fast; scope tool output.
+- Tool *results* re-enter the [[ai-ml/03-ai-engineer/02-how-llms-work/index|context window]] — a tool returning a huge blob burns context fast; scope tool output.
 
 ## Related
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp|Tools & MCP]] — the tool-calling primitive agents are built on

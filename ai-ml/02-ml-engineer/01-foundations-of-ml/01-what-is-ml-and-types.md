@@ -30,7 +30,7 @@ You have inputs but **no** labels; the model finds structure on its own:
 
 ### Self-supervised learning — labels from the data itself
 
-A hugely important modern middle ground: the model generates its *own* labels from unlabeled data by hiding part of the input and predicting it. **This is how LLMs are pretrained** — "predict the next token" is a label the text provides for free ([[ai-ml/03-ai-engineer/02-how-llms-work|how LLMs work]]). It unlocked training on internet-scale unlabeled data. **Semi-supervised** learning (a little labeled data + a lot of unlabeled) is the related cousin.
+A hugely important modern middle ground: the model generates its *own* labels from unlabeled data by hiding part of the input and predicting it. **This is how LLMs are pretrained** — "predict the next token" is a label the text provides for free ([[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]]). It unlocked training on internet-scale unlabeled data. **Semi-supervised** learning (a little labeled data + a lot of unlabeled) is the related cousin.
 
 ### Reinforcement learning — learning from reward
 

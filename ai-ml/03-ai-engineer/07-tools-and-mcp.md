@@ -4,7 +4,7 @@
 
 ## Function/tool calling — giving a model hands
 
-An LLM only outputs text ([[ai-ml/03-ai-engineer/02-how-llms-work|how LLMs work]]). **Tool calling** lets it *request* that your code run a function — turning "predict text" into "do things." The mechanism:
+An LLM only outputs text ([[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]]). **Tool calling** lets it *request* that your code run a function — turning "predict text" into "do things." The mechanism:
 
 1. You describe the available tools to the model — each a name, description, and a parameter schema (usually JSON Schema).
 2. Instead of a plain answer, the model can emit a **structured request** to call a tool with arguments (it's trained to recognize when a task needs one).
@@ -20,7 +20,7 @@ Model → calls convert_temp(29, "C", "F")     → your code runs it → {"temp_
 Model → "It's 29°C (84.2°F) in Lagos."
 ```
 
-The crucial point: **the model never runs code itself** — it produces a request that *trusted application code* fulfills. What tools exist, whether to actually execute a requested call, and what to return are all your decisions. That control boundary is where [[ai-ml/03-ai-engineer/10-safety-and-production|safety]] (sandboxing, permissioning, confirmation for high-stakes actions) lives. Good tool design: clear names/descriptions (the model picks tools from these), tight schemas, and results scoped small (tool output consumes [[ai-ml/03-ai-engineer/02-how-llms-work|context budget]]).
+The crucial point: **the model never runs code itself** — it produces a request that *trusted application code* fulfills. What tools exist, whether to actually execute a requested call, and what to return are all your decisions. That control boundary is where [[ai-ml/03-ai-engineer/10-safety-and-production|safety]] (sandboxing, permissioning, confirmation for high-stakes actions) lives. Good tool design: clear names/descriptions (the model picks tools from these), tight schemas, and results scoped small (tool output consumes [[ai-ml/03-ai-engineer/02-how-llms-work/index|context budget]]).
 
 This loop of call-tool → observe → decide is the backbone of [[ai-ml/03-ai-engineer/08-agents|agents]].
 
@@ -45,5 +45,5 @@ Host (e.g. an AI assistant)
 
 ## Related
 - [[ai-ml/03-ai-engineer/08-agents|Agents]] — the tool-calling loop, scaled into autonomous multi-step behavior
-- [[ai-ml/03-ai-engineer/04-calling-models|Calling Models]] — where tool definitions attach to a request
+- [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — where tool definitions attach to a request
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — tool sandboxing and permissioning

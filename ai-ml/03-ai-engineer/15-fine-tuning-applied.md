@@ -5,7 +5,7 @@
 ## First: are you sure you need it?
 
 Fine-tuning is the tool most reached for and least often correct. Before you touch it, exhaust the cheaper levers, because they solve most problems fine-tuning is blamed for:
-1. **Better prompting + few-shot examples** ([[ai-ml/03-ai-engineer/05-prompt-engineering|prompt engineering]]) — often closes the gap alone.
+1. **Better prompting + few-shot examples** ([[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt engineering]]) — often closes the gap alone.
 2. **RAG** — if the problem is "the model doesn't *know* our facts," that's a knowledge gap, and retrieval fixes it instantly and updatably. Fine-tuning is a bad and expensive way to inject knowledge.
 3. **A more capable model** — sometimes the fix is just a bigger base model, no training at all.
 

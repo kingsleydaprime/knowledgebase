@@ -36,7 +36,7 @@ Take 5 messy free-text inputs — job adverts, invoices, recipes, whatever you h
 
 **6. Classify with a closed set.**
 Same task as exercise 3, but constrain the output to the four labels at the API level rather than asking politely in the prompt.
-**Done when:** you can state the difference between a prompt that requests a format and a decoding constraint that guarantees one ([[ai-ml/03-ai-engineer/11-structured-output|structured output]]).
+**Done when:** you can state the difference between a prompt that requests a format and a decoding constraint that guarantees one ([[ai-ml/03-ai-engineer/11-structured-output/index|structured output]]).
 
 **7. Semantic search from scratch.**
 Embed 20 sentences on 3–4 distinct topics. Embed a query. Rank by cosine similarity, print the top 3.

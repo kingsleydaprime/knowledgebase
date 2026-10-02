@@ -10,7 +10,7 @@ Models do math on numbers ([[ai-ml/00-foundations/03-mathematics/01-linear-algeb
 
 The classic steps that prepare text (still relevant, though modern LLMs subsume some):
 
-- **Tokenization** — split text into units (tokens). Word-level is simple but has a huge vocabulary and can't handle unseen words; **subword tokenization** (BPE, WordPiece) — splitting rare words into pieces — is what modern models use, balancing vocabulary size against coverage ([[ai-ml/03-ai-engineer/02-how-llms-work|tokens]] in the applied view).
+- **Tokenization** — split text into units (tokens). Word-level is simple but has a huge vocabulary and can't handle unseen words; **subword tokenization** (BPE, WordPiece) — splitting rare words into pieces — is what modern models use, balancing vocabulary size against coverage ([[ai-ml/03-ai-engineer/02-how-llms-work/index|tokens]] in the applied view).
 - **Normalization** — lowercasing, removing punctuation, handling Unicode.
 - **Stemming** — chop words to a crude root (`running` → `run`, `studies` → `studi`) by rules; fast, imprecise.
 - **Lemmatization** — reduce to the real dictionary form (`better` → `good`, `studies` → `study`) using vocabulary/grammar; slower, correct.
@@ -38,4 +38,4 @@ The field has largely collapsed into "use a pretrained [[ai-ml/02-ml-engineer/07
 ## Related
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers & Attention]] — what produces contextual embeddings
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — embeddings applied in production
-- [[ai-ml/03-ai-engineer/02-how-llms-work|How LLMs Work]] — tokens in the applied view
+- [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — tokens in the applied view

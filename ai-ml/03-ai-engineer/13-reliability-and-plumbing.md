@@ -1,6 +1,6 @@
 # Reliability & Plumbing
 
-**Source:** Part II of the AI-engineer track. [[ai-ml/03-ai-engineer/04-calling-models|Calling models]] shows you *how* to make a call; this note is everything between "it works on my machine" and "it survives real traffic." None of it is glamorous — retries, timeouts, rate limits, fallbacks — and all of it is the difference between a demo and a service. Code is illustrative shape.
+**Source:** Part II of the AI-engineer track. [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] shows you *how* to make a call; this note is everything between "it works on my machine" and "it survives real traffic." None of it is glamorous — retries, timeouts, rate limits, fallbacks — and all of it is the difference between a demo and a service. Code is illustrative shape.
 
 ## The core reality: model calls are unreliable network calls
 
@@ -45,7 +45,7 @@ Most official SDKs retry 429/5xx automatically (often 2 retries by default). Kno
 Generation can take a long time, and a hung connection is worse than a fast failure. Two knobs:
 - **Set a request timeout** appropriate to the call. A short classification can time out at 10s; a long agentic run needs minutes.
 - **Beware "per-chunk" vs "total" timeouts.** Many HTTP clients' timeout is *per byte received*, not wall-clock — a slowly-trickling stream resets it forever and can hang indefinitely. For a hard deadline, track wall-clock time yourself at the call site.
-- **Stream long or large outputs.** Streaming ([[ai-ml/03-ai-engineer/04-calling-models|calling models]]) sidesteps the timeout entirely — bytes keep arriving, the connection never idles — and it's the standard fix for "my big-output request keeps timing out." (It also improves perceived latency; see [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost, caching & latency]].)
+- **Stream long or large outputs.** Streaming ([[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]) sidesteps the timeout entirely — bytes keep arriving, the connection never idles — and it's the standard fix for "my big-output request keeps timing out." (It also improves perceived latency; see [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|cost, caching & latency]].)
 
 ## Rate limits — design for them, don't just retry them
 
@@ -83,7 +83,7 @@ The payoff: your application code stays about the *feature*, and the cross-cutti
 **A model call is a slow, flaky network call, and shipping AI is mostly the boring engineering around that fact.** Retry the transient failures (backoff + jitter, honor `Retry-After`), never the permanent ones; set real timeouts and stream long outputs; shape traffic to rate limits (throttle, batch, tier up) instead of just absorbing 429s; and fall back across models/providers so an outage degrades instead of dies — ideally centralizing all of it behind an AI gateway. The capability is the easy part; **making it dependable is the job.**
 
 ## Related
-- [[ai-ml/03-ai-engineer/04-calling-models|Calling Models]] — the call this note hardens
+- [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — the call this note hardens
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency|Cost, Caching & Latency]] — the same gateway layer, aimed at spend and speed
 - [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — reliability is one axis of "production-ready"
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|MLOps: Serving & Monitoring]] — the classical-serving sibling

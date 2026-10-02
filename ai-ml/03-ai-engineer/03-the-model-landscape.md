@@ -29,7 +29,7 @@ Closed models give you the **best available capability with zero infrastructure*
 **Gateways / aggregators** — rather than integrate each provider separately, a gateway fronts many of them behind **one API and one key**, so you reach dozens of models (open *and* closed) with a `provider/model` string and can swap or fall back between them:
 
 - **OpenRouter** — the popular independent aggregator: one API keying into hundreds of models across all major providers (and many open ones), with unified billing and automatic fallback/routing. The fastest way to try many models, compare them, or avoid lock-in to a single provider's SDK.
-- **Vercel AI Gateway** — the same idea, tightly integrated with the AI SDK ([[ai-ml/03-ai-engineer/04-calling-models|calling models]]).
+- **Vercel AI Gateway** — the same idea, tightly integrated with the AI SDK ([[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]).
 
 Gateways add a small latency/markup hop but massively simplify multi-model work — genuinely useful early on and for model comparison.
 
@@ -70,5 +70,5 @@ Rule of thumb: **self-host when privacy/offline is a hard requirement, volume ma
 
 ## Related
 - [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|The AI Engineer Role]] — the decision process for picking from this landscape
-- [[ai-ml/03-ai-engineer/04-calling-models|Calling Models]] — actually invoking these via APIs/SDKs
+- [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — actually invoking these via APIs/SDKs
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — where embedding models earn their place

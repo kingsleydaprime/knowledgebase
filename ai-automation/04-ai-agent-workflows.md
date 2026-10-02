@@ -28,7 +28,7 @@ Powerful and the least predictable. → below.
 
 Then the graph branches on a field rather than a substring match.
 
-**And validate it anyway.** A schema-constrained response is well-*formed*, not correct — `"urgency": "high"` may be well-formed nonsense. **Well-formed and true are different guarantees**, and conflating them is the most common design error here → [[ai-ml/03-ai-engineer/11-structured-output|structured output]].
+**And validate it anyway.** A schema-constrained response is well-*formed*, not correct — `"urgency": "high"` may be well-formed nonsense. **Well-formed and true are different guarantees**, and conflating them is the most common design error here → [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]].
 
 **Ask for a confidence field and branch on it.** Below a threshold, route to a human. That single pattern converts most of the risk in uses 1–3 into a queue.
 

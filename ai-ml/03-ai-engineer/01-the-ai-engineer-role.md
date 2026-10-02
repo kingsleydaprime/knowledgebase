@@ -19,7 +19,7 @@ If you're building a chatbot, a RAG system over your docs, an agent, or an LLM f
 
 ## The paradigm shift
 
-The reason this role exists as something distinct is recent: **pre-trained frontier models made "intelligence" an API call.** You no longer need a dataset, GPUs, and weeks of training to get a capable model — you send text to an endpoint and get capable text back. The engineering problem moved from *building the model* to *building reliably around a model you don't control* — one that's non-deterministic, occasionally wrong ([[ai-ml/03-ai-engineer/02-how-llms-work|hallucination]]), and priced per token. That's a genuinely different discipline from classical ML.
+The reason this role exists as something distinct is recent: **pre-trained frontier models made "intelligence" an API call.** You no longer need a dataset, GPUs, and weeks of training to get a capable model — you send text to an endpoint and get capable text back. The engineering problem moved from *building the model* to *building reliably around a model you don't control* — one that's non-deterministic, occasionally wrong ([[ai-ml/03-ai-engineer/02-how-llms-work/index|hallucination]]), and priced per token. That's a genuinely different discipline from classical ML.
 
 ## Choosing the right tool — the decision process
 
@@ -54,7 +54,7 @@ Covered in [[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]] �
 
 ## The through-line
 
-"Can an LLM technically do this?" is almost always yes — the real question is whether it's the *most appropriate* tool given cost, reliability, and latency. And don't reach for an [[ai-ml/03-ai-engineer/08-agents|agent]] when a single good [[ai-ml/03-ai-engineer/05-prompt-engineering|prompt]] would do; agents add latency, cost, and failure surface for the ability to take multiple steps — only worth it when the task needs them.
+"Can an LLM technically do this?" is almost always yes — the real question is whether it's the *most appropriate* tool given cost, reliability, and latency. And don't reach for an [[ai-ml/03-ai-engineer/08-agents|agent]] when a single good [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt]] would do; agents add latency, cost, and failure surface for the ability to take multiple steps — only worth it when the task needs them.
 
 ## Related
 - [[ai-ml/00-foundations/01-what-is-ai|What is AI]] — the AI/ML/DL nesting this role sits inside

@@ -10,7 +10,7 @@ Closeness is measured by **cosine similarity** (or [[ai-ml/00-foundations/03-mat
 
 ## Why RAG exists
 
-An LLM only knows its training data and what's in the [[ai-ml/03-ai-engineer/02-how-llms-work|context window]]. It doesn't know your company's docs, and it [[ai-ml/03-ai-engineer/02-how-llms-work|hallucinates]] confidently when it doesn't know. **Retrieval-Augmented Generation (RAG)** fixes both: fetch the relevant slice of *your* data and put it in the prompt, so the model answers *from provided sources* instead of from memory. It's the standard cure for hallucination and the way to give a model private/current knowledge without training.
+An LLM only knows its training data and what's in the [[ai-ml/03-ai-engineer/02-how-llms-work/index|context window]]. It doesn't know your company's docs, and it [[ai-ml/03-ai-engineer/02-how-llms-work/index|hallucinates]] confidently when it doesn't know. **Retrieval-Augmented Generation (RAG)** fixes both: fetch the relevant slice of *your* data and put it in the prompt, so the model answers *from provided sources* instead of from memory. It's the standard cure for hallucination and the way to give a model private/current knowledge without training.
 
 ## The RAG pipeline
 
@@ -79,7 +79,7 @@ The basic pipeline above gets you a demo. Production RAG is mostly a set of upgr
 
 ## Related
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — embedding models as a model type
-- [[ai-ml/03-ai-engineer/05-prompt-engineering|Prompt Engineering]] — context engineering, the broader discipline RAG feeds
+- [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt Engineering]] — context engineering, the broader discipline RAG feeds
 - [[ai-ml/03-ai-engineer/12-evals|Evals]] — evaluating retrieval vs. generation separately
 - [[ai-ml/03-ai-engineer/08-agents|Agents]] — agentic RAG, where the model drives retrieval
 - [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-Tuning (Applied)]] — the other side of the RAG-vs-fine-tuning decision
