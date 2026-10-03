@@ -31,7 +31,7 @@ No new patterns. **Every week: five problems drawn at random from NeetCode 150 p
 
 ### Week 1 — How to approach a design
 
-- **Learn (core):** [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach system design]] · [[architecture/01-system-design-fundamentals/02-scalability-and-performance|scalability and performance]]
+- **Learn (core):** [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach system design]] · [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|scalability and performance]]
 - **Learn (optional):** [[architecture/interview/01-system-design-round|the system design round]]
 - **Design:** **URL shortener** — 45 minutes, out loud, *before* reading anything else. Then write only the gap.
 

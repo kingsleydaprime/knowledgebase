@@ -153,7 +153,7 @@ At professional scale this becomes an architecture decision record → [[concept
 - [[programming-fundamentals/08-functions|functions]] — what decomposition produces
 - [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — where to apply this
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — this, at professional scale
-- [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach system design]] — this, at system scale
+- [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach system design]] — this, at system scale
 - [[learning/index|how I learn]] — the board-and-notebook version of the same instinct
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course.*

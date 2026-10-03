@@ -112,4 +112,4 @@ Bandwidth has improved by orders of magnitude in thirty years; **latency has imp
 - [[networking/08-congestion-control|Congestion Control]] — slow start and the first-response ceiling
 - [[networking/13-quic-and-modern-transport|QUIC]] — the round-trip reduction endgame
 - [[architecture/02-building-blocks/02-caching|Caching]] — the request you don't make
-- [[architecture/01-system-design-fundamentals/02-scalability-and-performance|Scalability & Performance]] — the system-design framing
+- [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability & Performance]] — the system-design framing

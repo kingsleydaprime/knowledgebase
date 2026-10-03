@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["estimate.ts", "leaderboard.ts", "approach.test.ts"]
+}

@@ -1,6 +1,6 @@
 # Load Balancing & Proxies
 
-**[reference]** — from the roadmap.sh system-design roadmap. The traffic-routing layer that makes [[architecture/01-system-design-fundamentals/02-scalability-and-performance|horizontal scaling]] possible. Overlaps the ops view in [[devops/08-networking-and-web/02-web-servers-and-proxies|DevOps web servers & proxies]] — this is the system-design lens.
+**[reference]** — from the roadmap.sh system-design roadmap. The traffic-routing layer that makes [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|horizontal scaling]] possible. Overlaps the ops view in [[devops/08-networking-and-web/02-web-servers-and-proxies|DevOps web servers & proxies]] — this is the system-design lens.
 
 ## Load balancers — the front door to horizontal scale
 
@@ -47,6 +47,6 @@ A **Content Delivery Network** is geographically-distributed caching for *static
 CDNs are a special case of the [[architecture/02-building-blocks/02-caching|caching]] discussed next.
 
 ## Related
-- [[architecture/01-system-design-fundamentals/02-scalability-and-performance|Scalability & Performance]] — why load balancing enables scale
+- [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability & Performance]] — why load balancing enables scale
 - [[architecture/02-building-blocks/02-caching|Caching]] — CDN is edge caching
 - [[devops/08-networking-and-web/02-web-servers-and-proxies|Web Servers & Proxies (devops)]] — running Nginx/HAProxy in practice

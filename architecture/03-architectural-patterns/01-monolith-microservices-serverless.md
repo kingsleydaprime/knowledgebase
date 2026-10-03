@@ -41,7 +41,7 @@ Great for event-driven glue, spiky workloads, and cron-style jobs; not for laten
 | Many teams, proven need for independent scale/deploy | **Microservices** |
 | Spiky/event-driven/glue work, want zero ops | **Serverless** |
 
-The mature answer is often **a mix**: a core monolith, a few extracted services where they earn it, and serverless for event glue — architecture chosen per-component from the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|requirements]], not by fashion.
+The mature answer is often **a mix**: a core monolith, a few extracted services where they earn it, and serverless for event glue — architecture chosen per-component from the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|requirements]], not by fashion.
 
 ## Related
 - [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices Patterns]] — the machinery microservices require

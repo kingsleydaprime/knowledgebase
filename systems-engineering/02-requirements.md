@@ -112,7 +112,7 @@ Bureaucratic-looking, and it answers three questions nothing else can:
 ## Related
 - [[systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]] — requirements' matching verification
 - [[systems-engineering/05-trade-studies|trade studies]] — choosing between solutions
-- [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach system design]] — the software version
+- [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach system design]] — the software version
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
 
 *Source: [reference] — from the INCOSE Guide to Writing Requirements and the NASA SE Handbook.*

@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 24 of 43 meet the standard. Optional: 13 of 36.**
+**Core lessons: 26 of 43 meet the standard. Optional: 13 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -56,8 +56,8 @@
 | SWE 102 | 5 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/08-agents/index\|index]] |
 | SWE 102 | 5 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/09-multimodal/index\|index]] |
 | SWE 102 | 6 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/10-safety-and-production/index\|index]] |
-| SWE 103 | 1 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design\|01-how-to-approach-system-design]] |
-| SWE 103 | 1 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/01-system-design-fundamentals/02-scalability-and-performance\|02-scalability-and-performance]] |
+| SWE 103 | 1 | core | ✅ meets | — | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index\|index]] |
+| SWE 103 | 1 | core | ✅ meets | — | [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index\|index]] |
 | SWE 103 | 1 | optional | n/a | keeps its own shape | [[architecture/interview/01-system-design-round\|01-system-design-round]] |
 | SWE 103 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/02-building-blocks/02-caching\|02-caching]] |
 | SWE 103 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/02-building-blocks/01-load-balancing-and-proxies\|01-load-balancing-and-proxies]] |
