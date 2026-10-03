@@ -415,7 +415,7 @@ By Sunday: what must be true before the week closes
 **Read:** [[architecture/03-architectural-patterns/index|architectural patterns]] 01–04 · [[architecture/interview/01-system-design-round|the interview round]]
 
 **Topics**
-- **8.1** Monolith vs microservices vs serverless → [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|the three]]
+- **8.1** Monolith vs microservices vs serverless → [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|the three]]
 - **8.2** Resilience: timeouts, retries, backoff, circuit breakers, bulkheads → [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience]]
 - **8.3** Data and integration patterns → [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data & integration]] · [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]]
 - **8.4** Microservices patterns → [[architecture/03-architectural-patterns/04-microservices-patterns|microservices]]

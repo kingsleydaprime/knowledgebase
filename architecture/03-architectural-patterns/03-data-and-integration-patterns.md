@@ -1,6 +1,6 @@
 # Data & Integration Patterns
 
-**[reference]** — from the roadmap.sh system-design roadmap. The patterns for managing data and integration in systems too big for one database and one transaction — especially [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|microservices]], where each service owns its own data.
+**[reference]** — from the roadmap.sh system-design roadmap. The patterns for managing data and integration in systems too big for one database and one transaction — especially [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]], where each service owns its own data.
 
 ## The problem these solve
 
@@ -44,7 +44,7 @@ A precomputed, stored result of an expensive query (a join/aggregation), refresh
 
 ## Strangler Fig
 
-The pattern for **incrementally** migrating a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|monolith to microservices]] (or replacing any legacy system) without a risky big-bang rewrite. Put a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|proxy/gateway]] in front, then extract functionality one piece at a time — routing that piece's traffic to the new service while everything else still hits the monolith. The new system grows around the old (like a strangler fig around a tree) until the old one can be retired. The safe, boring, correct way to modernize — vastly less risky than a rewrite.
+The pattern for **incrementally** migrating a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|monolith to microservices]] (or replacing any legacy system) without a risky big-bang rewrite. Put a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|proxy/gateway]] in front, then extract functionality one piece at a time — routing that piece's traffic to the new service while everything else still hits the monolith. The new system grows around the old (like a strangler fig around a tree) until the old one can be retired. The safe, boring, correct way to modernize — vastly less risky than a rewrite.
 
 ## The through-line
 
