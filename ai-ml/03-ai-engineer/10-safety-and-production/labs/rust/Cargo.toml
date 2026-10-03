@@ -1,0 +1,11 @@
+[package]
+name = "safety"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+getrandom = "0.4"
+regex = "1"
+serde_json = "1"
+support_tools = { path = "../../../07-tools-and-mcp/labs/rust" }
+evals = { path = "../../../12-evals/labs/rust" }
