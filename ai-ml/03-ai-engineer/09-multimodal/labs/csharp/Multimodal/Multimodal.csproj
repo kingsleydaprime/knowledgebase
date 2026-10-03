@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- the structured-output lab's invoice record and Parse -->
+    <Compile Include="../../../../11-structured-output/labs/csharp/Invoices/Invoice.cs" Link="Invoice.cs" />
+  </ItemGroup>
+</Project>
