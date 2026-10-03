@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/03-architectural-patterns/01-monolith-microservices-serverless/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "./..."]],
+  "embedded": ["architecture.go", "architecture_test.go"]
+}

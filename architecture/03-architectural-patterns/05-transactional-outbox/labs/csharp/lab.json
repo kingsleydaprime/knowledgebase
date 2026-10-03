@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/03-architectural-patterns/05-transactional-outbox/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Outbox/Outbox.cs", "Outbox/Program.cs"]
+}

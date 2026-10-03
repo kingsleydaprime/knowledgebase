@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/03-architectural-patterns/05-transactional-outbox/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "./..."]],
+  "embedded": ["outbox.go", "outbox_test.go"]
+}

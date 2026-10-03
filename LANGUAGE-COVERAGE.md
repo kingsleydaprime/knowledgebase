@@ -10,9 +10,9 @@
 
 <!-- COVERAGE:START -->
 
-**31 of 368 single-language lessons have a companion.**
+**33 of 369 single-language lessons have a companion.**
 
-By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · os 9 · computer-architecture 9 · concepts 8 · architecture 8 · devops 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · databases 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
+By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · architecture 9 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · databases 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
 
 | Priority | Lesson | Written in | Companion |
 |---|---|---|---|
@@ -44,9 +44,10 @@ By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · ho
 | SWE 103 core | [[architecture/02-building-blocks/02-caching/index\|architecture/02-building-blocks/02-caching/index]] | TS/JS | [[architecture/02-building-blocks/02-caching/in-other-languages\|✅]] |
 | SWE 103 core | [[architecture/02-building-blocks/04-messaging-and-async/index\|architecture/02-building-blocks/04-messaging-and-async/index]] | TS/JS | [[architecture/02-building-blocks/04-messaging-and-async/in-other-languages\|✅]] |
 | SWE 103 core | [[architecture/02-building-blocks/05-communication/index\|architecture/02-building-blocks/05-communication/index]] | TS/JS | [[architecture/02-building-blocks/05-communication/in-other-languages\|✅]] |
+| SWE 103 core | [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index\|architecture/03-architectural-patterns/01-monolith-microservices-serverless/index]] | TS/JS | [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/in-other-languages\|✅]] |
 | SWE 103 core | [[backend/01-foundations/03-the-request-lifecycle\|backend/01-foundations/03-the-request-lifecycle]] | TS/JS | — |
 | SWE 103 core | [[backend/05-auth/03-oauth-provider-integrations\|backend/05-auth/03-oauth-provider-integrations]] | TS/JS | — |
-| SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|architecture/03-architectural-patterns/05-transactional-outbox/index]] | TS/JS | — |
+| SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|architecture/03-architectural-patterns/05-transactional-outbox/index]] | TS/JS | [[architecture/03-architectural-patterns/05-transactional-outbox/in-other-languages\|✅]] |
 | SWE 101 optional | [[concepts/03-design-patterns/01-creational-patterns/index\|concepts/03-design-patterns/01-creational-patterns/index]] | TS/JS | — |
 | SWE 101 optional | [[concepts/04-best-practices/01-clean-code/index\|concepts/04-best-practices/01-clean-code/index]] | TS/JS | — |
 | SWE 102 optional | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|ai-ml/03-ai-engineer/06-rag-and-embeddings/index]] | TS/JS | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/in-other-languages\|✅]] |
