@@ -7,7 +7,7 @@ Run it once after writing a lesson; after that, `labs/run.py --sync` keeps the c
 """
 import pathlib, re, sys
 
-FENCE = {".ts": "ts", ".py": "python", ".go": "go", ".java": "java", ".rs": "rust", ".c": "c",
+FENCE = {".ts": "ts", ".proto": "protobuf", ".py": "python", ".go": "go", ".java": "java", ".rs": "rust", ".c": "c",
          ".cpp": "cpp", ".cs": "csharp", ".json": "json", ".jsonl": "json", ".md": "markdown", ".sh": "sh", ".yml": "yaml"}
 
 lesson = pathlib.Path(sys.argv[1])

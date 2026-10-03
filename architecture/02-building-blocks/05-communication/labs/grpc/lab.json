@@ -1,0 +1,6 @@
+{
+  "lesson": "architecture/02-building-blocks/05-communication/index.md",
+  "setup": [["npm", "ci", "--silent"]],
+  "run": [["node", "--test"]],
+  "embedded": ["shop.proto", "server.ts", "grpc.test.ts"]
+}
