@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/12-tls-and-transport-security/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "-race", "./..."]],
+  "embedded": ["tlsmath.go", "tlsmath_test.go"]
+}

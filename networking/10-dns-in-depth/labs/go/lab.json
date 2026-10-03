@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/10-dns-in-depth/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "-race", "./..."]],
+  "embedded": ["dns.go", "dns_test.go"]
+}

@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/11-http-evolution/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "-race", "./..."]],
+  "embedded": ["web.go", "web_test.go"]
+}

@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/11-http-evolution/in-other-languages.md",
+  "run": [["cargo", "fmt", "--check"], ["cargo", "clippy", "--quiet", "--all-targets", "--", "-D", "warnings"], ["cargo", "test", "--quiet"]],
+  "embedded": ["src/lib.rs"]
+}

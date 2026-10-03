@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/11-http-evolution/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "python", "-m", "unittest"]],
+  "embedded": ["web.py", "test_web.py"]
+}
