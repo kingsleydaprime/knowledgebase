@@ -1,6 +1,6 @@
 # Microservices Patterns
 
-**[reference]** — from the roadmap.sh system-design roadmap. The infrastructure patterns that make a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|microservices]] architecture actually workable — the machinery you inherit the moment you split a system across the network.
+**[reference]** — from the roadmap.sh system-design roadmap. The infrastructure patterns that make a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]] architecture actually workable — the machinery you inherit the moment you split a system across the network.
 
 ## The problem: coordination at a distance
 
@@ -26,7 +26,7 @@ Keep the gateway *thin* (routing + cross-cutting only) — business logic in the
 
 ## Backends for Frontends (BFF)
 
-Instead of one API serving all clients, give each client type (web, mobile, third-party) its *own* gateway/backend tailored to its needs — the mobile BFF returns lean payloads, the web BFF returns richer ones. Avoids the compromise of a one-size-fits-all API (the over/under-fetching problem [[architecture/02-building-blocks/05-communication/index|GraphQL]] also addresses). Relevant to your [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|full-stack]] work where one product has web + mobile clients (Arete).
+Instead of one API serving all clients, give each client type (web, mobile, third-party) its *own* gateway/backend tailored to its needs — the mobile BFF returns lean payloads, the web BFF returns richer ones. Avoids the compromise of a one-size-fits-all API (the over/under-fetching problem [[architecture/02-building-blocks/05-communication/index|GraphQL]] also addresses). Relevant to your [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|full-stack]] work where one product has web + mobile clients (Arete).
 
 ## Sidecar & Ambassador
 
@@ -45,9 +45,9 @@ The pattern that makes microservices *operable*: because a request now spans man
 
 ## The honest summary
 
-These patterns are powerful, but note what they represent: **a whole platform of complexity that a monolith gets for free** (in-process calls need no discovery, one process needs no gateway, one app needs no distributed tracing). That's the real cost of microservices ([[architecture/03-architectural-patterns/01-monolith-microservices-serverless|when to adopt them]]) — you're signing up to build and run all of this. Managed platforms ([[devops/05-orchestration/index|Kubernetes]], [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]]) provide much of it, which is exactly why they exist.
+These patterns are powerful, but note what they represent: **a whole platform of complexity that a monolith gets for free** (in-process calls need no discovery, one process needs no gateway, one app needs no distributed tracing). That's the real cost of microservices ([[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|when to adopt them]]) — you're signing up to build and run all of this. Managed platforms ([[devops/05-orchestration/index|Kubernetes]], [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]]) provide much of it, which is exactly why they exist.
 
 ## Related
-- [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|Monolith / Microservices / Serverless]] — whether to take this on at all
+- [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|Monolith / Microservices / Serverless]] — whether to take this on at all
 - [[devops/05-orchestration/index|Orchestration (devops)]] — the platform that provides these
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — the theory under service discovery & leader election

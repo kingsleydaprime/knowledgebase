@@ -302,6 +302,6 @@ The choice isn't monolith vs microservices — it's **where your boundaries are 
 ## Related
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/in-other-languages|The Modular Monolith in Other Languages]] — event plumbing and idempotent consumers in seven languages
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|By layer vs by feature]] — the module boundaries this depends on
-- [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|Monolith / Microservices / Serverless]] — the system-design framing
+- [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|Monolith / Microservices / Serverless]] — the system-design framing
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — saga, event sourcing, strangler fig
 - [[architecture/interview/01-system-design-round|System design interview]] — "when would you *not* use microservices?"

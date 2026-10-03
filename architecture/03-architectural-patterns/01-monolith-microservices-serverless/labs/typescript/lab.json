@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/03-architectural-patterns/01-monolith-microservices-serverless/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["architecture.ts", "architecture.test.ts"]
+}

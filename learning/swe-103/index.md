@@ -49,7 +49,7 @@ No new patterns. **Every week: five problems drawn at random from NeetCode 150 p
 
 ### Week 4 — Architecture choices
 
-- **Learn (core):** [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|monolith, microservices, serverless]] · [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]]
+- **Learn (core):** [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|monolith, microservices, serverless]] · [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]]
 - **Learn (optional):** [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data and integration patterns]] · [[architecture/03-architectural-patterns/04-microservices-patterns|microservices patterns]]
 - **By Sunday:** closed-book — *when would you not use microservices?* — said as "I'd choose X because Y", not "it depends".
 

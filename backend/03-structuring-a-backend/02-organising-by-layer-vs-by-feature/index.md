@@ -82,7 +82,7 @@ src/
 
 **3. It makes coupling visible.** If `orders/` imports from `payments/internals`, that's obvious in a diff and reviewable. By layer, `orders.service` importing `payments.service` looks identical to every other import — everything is already in the same folder, so nothing stands out.
 
-**4. It's the extraction seam.** If a feature ever becomes its own service, a feature folder is already the boundary. A layer layout has to be untangled first. → [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|monolith → services]]
+**4. It's the extraction seam.** If a feature ever becomes its own service, a feature folder is already the boundary. A layer layout has to be untangled first. → [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|monolith → services]]
 
 **5. It scales with the team.** Teams own features, not layers. Ownership maps to folders, and `CODEOWNERS` becomes trivial.
 

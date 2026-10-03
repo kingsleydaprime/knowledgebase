@@ -12,7 +12,7 @@ Everything below is those two ideas, made precise — plus the *other* transacti
 
 ## Atomicity across nodes — Two-Phase Commit (2PC)
 
-A single-database ACID transaction gives atomicity for free. Spread the data across nodes ([[architecture/04-distributed-systems/13-partitioning|sharding]], or [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|microservices]] each with their own DB) and "debit A on node 1, credit B on node 2, atomically" gets hard — either node can fail mid-way. **2PC** is the classic protocol, run by a **coordinator**:
+A single-database ACID transaction gives atomicity for free. Spread the data across nodes ([[architecture/04-distributed-systems/13-partitioning|sharding]], or [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]] each with their own DB) and "debit A on node 1, credit B on node 2, atomically" gets hard — either node can fail mid-way. **2PC** is the classic protocol, run by a **coordinator**:
 
 1. **Prepare phase** — coordinator asks every participant *"can you commit?"* Each does the work tentatively, **locks the data**, writes it to durable storage, and votes **yes** ("I *promise* I can commit if told to") or **no**. A yes-vote is a binding promise it cannot take back.
 2. **Commit phase** — if *all* voted yes, the coordinator writes its decision durably and tells everyone *"commit"*; if *any* voted no (or timed out), *"abort."* Participants that promised must obey.

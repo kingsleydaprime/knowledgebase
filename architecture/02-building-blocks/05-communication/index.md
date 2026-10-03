@@ -528,7 +528,7 @@ You can count a screen's requests, round trips and bytes, explain and fix the N+
 
 **Recap.** REST is simple, universal and cacheable, but screens over-fetch and under-fetch: the order page took five requests, two round trips and 912 bytes to show 203. GraphQL lets the client ask for exactly that in one round trip, but moves the work to the server, where naive resolvers make N+1 queries; DataLoaders batch them, here from 41 down to 3. gRPC sends numbered fields as varints over HTTP/2, so the summary is 17 bytes instead of 50, with typed code generated on both sides; it suits internal calls, not browsers. Synchronous chains multiply availability and add latency, so parallelise or use messages. For live updates, use polling, then server-sent events, then WebSockets, in that order of cost.
 
-**Next.** Week 4, [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|monolith, microservices, serverless]]: once you know how services talk, whether to split them at all.
+**Next.** Week 4, [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|monolith, microservices, serverless]]: once you know how services talk, whether to split them at all.
 
 ## Related
 
