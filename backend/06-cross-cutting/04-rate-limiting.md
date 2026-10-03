@@ -59,7 +59,7 @@ INCR key
 EXPIRE key 60 NX        -- only set TTL on first increment
 ```
 
-**Do it atomically.** `GET` then `SET` races under concurrency and lets bursts through → [[databases/09-mvcc-and-concurrency-control|concurrency]].
+**Do it atomically.** `GET` then `SET` races under concurrency and lets bursts through → [[databases/09-mvcc-and-concurrency-control/index|concurrency]].
 
 **In-process is legitimate in exactly two cases:** a single-instance service, or a *second* layer protecting one instance from local overload beneath a distributed limiter.
 

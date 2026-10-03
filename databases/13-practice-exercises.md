@@ -61,7 +61,7 @@ Two connections. Set isolation to `READ UNCOMMITTED` and try to see uncommitted 
 
 **10. Cause a non-repeatable read and a phantom.** *(Postgres)*
 In `READ COMMITTED`, read a row twice in one transaction with another transaction committing between. Then repeat at `REPEATABLE READ`.
-**Done when:** you have produced the anomaly at one level and shown it prevented at the other → [[databases/08-transactions-and-acid|note 08]].
+**Done when:** you have produced the anomaly at one level and shown it prevented at the other → [[databases/08-transactions-and-acid/index|note 08]].
 
 **11. Deadlock on purpose.** *(Postgres)*
 Two transactions updating two rows in opposite order.
@@ -69,7 +69,7 @@ Two transactions updating two rows in opposite order.
 
 **12. Watch MVCC leave rubbish.** *(Postgres)*
 Update a row 10,000 times in a loop. Check table size before and after with `pg_relation_size`. Then `VACUUM` and check again.
-**Done when:** the table grew despite the row count being constant, and you can explain why an `UPDATE` is really an insert → [[databases/09-mvcc-and-concurrency-control|note 09]].
+**Done when:** the table grew despite the row count being constant, and you can explain why an `UPDATE` is really an insert → [[databases/09-mvcc-and-concurrency-control/index|note 09]].
 
 ---
 

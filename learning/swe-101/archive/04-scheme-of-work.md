@@ -463,11 +463,11 @@ By Sunday: what must be true before the week closes
 
 # Week 11 — Transactions, durability, operations
 
-**Read:** [[databases/08-transactions-and-acid|ACID]] · [[databases/09-mvcc-and-concurrency-control|MVCC]] · [[databases/10-durability-and-recovery|durability]] · [[databases/11-replication-and-scaling|replication]] · [[databases/12-operating-a-database|operations]]
+**Read:** [[databases/08-transactions-and-acid/index|ACID]] · [[databases/09-mvcc-and-concurrency-control/index|MVCC]] · [[databases/10-durability-and-recovery|durability]] · [[databases/11-replication-and-scaling|replication]] · [[databases/12-operating-a-database|operations]]
 
 **Topics**
-- **11.1** Transactions and ACID → [[databases/08-transactions-and-acid|08]]
-- **11.2** Isolation levels and MVCC → [[databases/09-mvcc-and-concurrency-control|09]]
+- **11.1** Transactions and ACID → [[databases/08-transactions-and-acid/index|08]]
+- **11.2** Isolation levels and MVCC → [[databases/09-mvcc-and-concurrency-control/index|09]]
 - **11.3** Durability, the WAL, recovery → [[databases/10-durability-and-recovery|10]]
 - **11.4** Replication and scaling — *"replication is not a backup"* → [[databases/11-replication-and-scaling|11]]
 - **11.5** Operating: migrations, `lock_timeout`, pooling, backups → [[databases/12-operating-a-database|12]]

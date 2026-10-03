@@ -119,7 +119,7 @@ Correlated columns are the reliable route: `WHERE city = 'Lagos' AND country = '
 
 **That's the exercise's real answer.** Postgres's MVCC means a transaction reads a *snapshot*; uncommitted rows have an invisible transaction id and simply aren't in it. **There is no mechanism by which a dirty read could occur** — the level is unimplementable rather than unimplemented.
 
-**The lesson: isolation levels are a standard, and each database implements a different subset with different mechanisms.** "REPEATABLE READ" does not mean the same thing in Postgres, MySQL/InnoDB and SQL Server. **Read your database's documentation, not the standard** → [[databases/08-transactions-and-acid|note 08]].
+**The lesson: isolation levels are a standard, and each database implements a different subset with different mechanisms.** "REPEATABLE READ" does not mean the same thing in Postgres, MySQL/InnoDB and SQL Server. **Read your database's documentation, not the standard** → [[databases/08-transactions-and-acid/index|note 08]].
 
 ### 10. Non-repeatable read and phantom
 
@@ -148,7 +148,7 @@ Postgres detects the cycle in the wait-for graph after `deadlock_timeout` (defau
 
 **An `UPDATE` in Postgres is an insert plus a mark-dead**, because MVCC requires old versions to remain visible to older snapshots. `VACUUM` reclaims the dead ones for reuse; `VACUUM FULL` rewrites the table to actually return space to the OS (and takes an exclusive lock).
 
-**This is why hot-updated tables bloat**, why autovacuum is critical, and why long-running transactions are harmful — they hold back the horizon, so nothing since can be vacuumed. **A forgotten idle-in-transaction session can bloat a database until the disk fills** → [[databases/09-mvcc-and-concurrency-control|note 09]] · [[databases/12-operating-a-database|note 12]].
+**This is why hot-updated tables bloat**, why autovacuum is critical, and why long-running transactions are harmful — they hold back the horizon, so nothing since can be vacuumed. **A forgotten idle-in-transaction session can bloat a database until the disk fills** → [[databases/09-mvcc-and-concurrency-control/index|note 09]] · [[databases/12-operating-a-database|note 12]].
 
 ---
 

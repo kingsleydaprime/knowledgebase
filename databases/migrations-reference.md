@@ -322,6 +322,6 @@ instance, migrations belong in a separate deploy step or a job that runs once.
 ## Related
 
 - [[databases/12-operating-a-database|12 — Operating a Database]]
-- [[databases/08-transactions-and-acid|08 — Transactions & ACID]] — why Postgres DDL rolls back
+- [[databases/08-transactions-and-acid/index|08 — Transactions & ACID]] — why Postgres DDL rolls back
 - [[databases/database-design-reference|Database Design Reference]]
 - [[projects/nextvibe/learning/09-devops|nextvibe — DevOps]] Part 56 and Part 60

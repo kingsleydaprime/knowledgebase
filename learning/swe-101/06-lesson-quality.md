@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 33 of 43 meet the standard. Optional: 13 of 36.**
+**Core lessons: 35 of 43 meet the standard. Optional: 13 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -74,8 +74,8 @@
 | SWE 103 | 5 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/01-what-a-database-is\|01-what-a-database-is]] |
 | SWE 103 | 5 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/02-the-relational-model\|02-the-relational-model]] |
 | SWE 103 | 5 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/06-the-query-pipeline\|06-the-query-pipeline]] |
-| SWE 103 | 6 | core | ⬜ not started | kid, start, terms, checks, practice | [[databases/08-transactions-and-acid\|08-transactions-and-acid]] |
-| SWE 103 | 6 | core | ⬜ not started | kid, start, terms, checks, practice | [[databases/09-mvcc-and-concurrency-control\|09-mvcc-and-concurrency-control]] |
+| SWE 103 | 6 | core | ✅ meets | — | [[databases/08-transactions-and-acid/index\|index]] |
+| SWE 103 | 6 | core | ✅ meets | — | [[databases/09-mvcc-and-concurrency-control/index\|index]] |
 | SWE 103 | 6 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/12-operating-a-database\|12-operating-a-database]] |
 | SWE 103 | 6 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/11-replication-and-scaling\|11-replication-and-scaling]] |
 | SWE 103 | 7 | core | 🟡 partial | start, terms, checks, practice | [[networking/10-dns-in-depth\|10-dns-in-depth]] |

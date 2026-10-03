@@ -100,7 +100,7 @@ This is why slots are useful: references to a surviving slot need not change jus
 
 ### What real tuples add
 
-Real rows also need information such as null markers, field lengths, and transaction visibility. A page header may carry a checksum and an **LSN** (log sequence number: a position in the recovery log). You do not need those to understand slot indirection; [[databases/09-mvcc-and-concurrency-control|MVCC]] and [[databases/10-durability-and-recovery|recovery]] explain why they are needed.
+Real rows also need information such as null markers, field lengths, and transaction visibility. A page header may carry a checksum and an **LSN** (log sequence number: a position in the recovery log). You do not need those to understand slot indirection; [[databases/09-mvcc-and-concurrency-control/index|MVCC]] and [[databases/10-durability-and-recovery|recovery]] explain why they are needed.
 
 PostgreSQL does **not** automatically reorder your columns to minimise padding. Field alignment and declared column order can affect row size; the exact layout also depends on nulls and variable-width values. See [[computer-architecture/02-data-representation|data representation]] for alignment. Measure before redesigning a schema for a possible space saving.
 
@@ -401,7 +401,7 @@ In PostgreSQL, old row versions can be reclaimed once no transaction needs them.
 
 `VACUUM FULL` rewrites a table and needs an exclusive lock. Rewriting/repacking tools have their own space, locking, and operational requirements; “online” does not mean risk-free or lock-free. Do not run maintenance experiments against a live database for this lesson.
 
-Fragmentation and **bloat** mean extra space and potentially more reads for the same useful data. MVCC's old versions are one cause, not a phenomenon unique to PostgreSQL. Read [[databases/09-mvcc-and-concurrency-control|MVCC]] before interpreting dead-tuple counts as a command to rebuild everything.
+Fragmentation and **bloat** mean extra space and potentially more reads for the same useful data. MVCC's old versions are one cause, not a phenomenon unique to PostgreSQL. Read [[databases/09-mvcc-and-concurrency-control/index|MVCC]] before interpreting dead-tuple counts as a command to rebuild everything.
 
 ## Check your understanding
 

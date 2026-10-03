@@ -73,7 +73,7 @@ There is no default answer — you must choose, and n8n makes you choose per nod
 - **Continue, routing failures to the error output** — right for independent items. **Usually correct**, and it needs the failed items captured
 - **Continue and ignore** — almost never right, and it's the setting that silently drops data
 
-**The question that decides it: is this batch a transaction, or 100 independent jobs?** Sending 100 unrelated emails is the latter. Writing 100 rows that must be consistent is the former, and that probably wants a real database transaction rather than a workflow → [[databases/08-transactions-and-acid|transactions]].
+**The question that decides it: is this batch a transaction, or 100 independent jobs?** Sending 100 unrelated emails is the latter. Writing 100 rows that must be consistent is the former, and that probably wants a real database transaction rather than a workflow → [[databases/08-transactions-and-acid/index|transactions]].
 
 ## Timeouts
 

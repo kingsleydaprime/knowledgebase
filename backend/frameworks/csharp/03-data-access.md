@@ -97,7 +97,7 @@ await using var tx = await db.Database.BeginTransactionAsync(ct);
 await tx.CommitAsync(ct);
 ```
 
-`SaveChanges` is already atomic for a single call — an explicit transaction is for spanning several, or for setting an isolation level → [[databases/08-transactions-and-acid|transactions]].
+`SaveChanges` is already atomic for a single call — an explicit transaction is for spanning several, or for setting an isolation level → [[databases/08-transactions-and-acid/index|transactions]].
 
 **Optimistic concurrency** with a `[Timestamp]`/`rowversion` column: EF adds the original value to the `WHERE` clause, and if zero rows update it throws `DbUpdateConcurrencyException`. **Handle it** — retry, or surface a conflict to the user. Ignoring it is a silent lost update.
 

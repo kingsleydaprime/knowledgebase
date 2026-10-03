@@ -8,7 +8,7 @@
 
 **The rule that governs everything here:**
 
-> **`ALTER TABLE` takes an `ACCESS EXCLUSIVE` lock, and it must wait for existing queries to finish — while every new query queues behind it.** One slow `SELECT` turns a millisecond migration into a full table stall. → [[databases/09-mvcc-and-concurrency-control|Locking]]
+> **`ALTER TABLE` takes an `ACCESS EXCLUSIVE` lock, and it must wait for existing queries to finish — while every new query queues behind it.** One slow `SELECT` turns a millisecond migration into a full table stall. → [[databases/09-mvcc-and-concurrency-control/index|Locking]]
 
 **Always:**
 
@@ -85,7 +85,7 @@ for order in Order.objects.all():        # 1 query
 
 **`SELECT *` by default** — pulling TOASTed columns you don't need. Use `.only()`/`.defer()`.
 
-**Hidden transactions.** Many ORMs wrap requests in a transaction. **Long request = long transaction = blocked vacuum.** → [[databases/09-mvcc-and-concurrency-control|MVCC]]
+**Hidden transactions.** Many ORMs wrap requests in a transaction. **Long request = long transaction = blocked vacuum.** → [[databases/09-mvcc-and-concurrency-control/index|MVCC]]
 
 **Generated SQL you've never read.** `EXPLAIN` what your ORM actually emits — it's frequently not what you pictured.
 
@@ -109,7 +109,7 @@ for order in Order.objects.all():        # 1 query
 
 **Bloat and dead tuples** — `pg_stat_user_tables`, and `last_autovacuum` timestamps.
 
-**Transaction ID age** — `age(datfrozenxid)`. **The wraparound alarm.** → [[databases/09-mvcc-and-concurrency-control|VACUUM]]
+**Transaction ID age** — `age(datfrozenxid)`. **The wraparound alarm.** → [[databases/09-mvcc-and-concurrency-control/index|VACUUM]]
 
 **Disk space** — including WAL. **A full WAL disk stops the database**, and abandoned replication slots are the usual cause.
 
