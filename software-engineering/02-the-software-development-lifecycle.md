@@ -49,7 +49,7 @@ Turning a vague request into something specific enough to build and check. The d
 *Skip it and:* you build the wrong thing correctly. The most expensive failure mode there is, because everything downstream was competent.
 
 **2. Design — how will it be structured?**
-Components, responsibilities, data, interfaces, failure modes. See [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach system design]].
+Components, responsibilities, data, interfaces, failure modes. See [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach system design]].
 *Produces:* a structure — sometimes a diagram, sometimes a paragraph and a schema.
 *Skip it and:* you get a structure by accident — whatever fell out of the order you happened to write things in. Usually discovered as "we can't change X without breaking Y."
 

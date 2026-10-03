@@ -2,7 +2,7 @@
 
 Where the theory becomes skill: applying the framework to design real systems, and the **build-your-own** projects that are the actual reps. Part of the [[architecture/index|Architecture course]].
 
-1. [[architecture/05-case-studies/01-designing-real-systems|Designing Real Systems]] — **[Advanced]** — the classic design problems (URL shortener, a news feed, a rate limiter, a chat system) worked through the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|framework]], and how to reason about each
+1. [[architecture/05-case-studies/01-designing-real-systems|Designing Real Systems]] — **[Advanced]** — the classic design problems (URL shortener, a news feed, a rate limiter, a chat system) worked through the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|framework]], and how to reason about each
 
 ## Build it to learn it
 

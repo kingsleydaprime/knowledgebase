@@ -368,10 +368,10 @@ By Sunday: what must be true before the week closes
 **Read:** [[architecture/01-system-design-fundamentals/index|system design fundamentals]] 01–02
 
 **Topics**
-- **5.1** The sequence, so you never freeze → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach it]]
-- **5.2** Functional vs non-functional requirements → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|same chapter]]
-- **5.3** Back-of-envelope estimation → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|same chapter]]
-- **5.4** Scalability and performance, vertical vs horizontal → [[architecture/01-system-design-fundamentals/02-scalability-and-performance|scalability]]
+- **5.1** The sequence, so you never freeze → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach it]]
+- **5.2** Functional vs non-functional requirements → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|same chapter]]
+- **5.3** Back-of-envelope estimation → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|same chapter]]
+- **5.4** Scalability and performance, vertical vs horizontal → [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|scalability]]
 
 **DSA:** D5 → [[dsa/04-patterns/05-linked-list-reversal|Linked list reversal]]
 

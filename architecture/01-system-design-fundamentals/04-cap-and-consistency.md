@@ -34,7 +34,7 @@ The design question is always "**how consistent does *this data* need to be?**" 
 - A **like count** can be eventually consistent (briefly wrong is fine) → favor availability.
 - An **account balance** or **inventory decrement** needs strong consistency (double-spend is unacceptable) → favor consistency, pay the coordination cost.
 
-Mature systems mix models: strong consistency for the money, eventual for the feed. The instinct to build — *from the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|requirements]], decide the weakest consistency each piece of data can tolerate, because weaker is cheaper and more available* — is exactly the senior judgment CAP is really about. The mechanisms that implement these guarantees (quorums, replication, consensus, conflict resolution/CRDTs) are the subject of [[architecture/04-distributed-systems/05-replication|distributed systems]].
+Mature systems mix models: strong consistency for the money, eventual for the feed. The instinct to build — *from the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|requirements]], decide the weakest consistency each piece of data can tolerate, because weaker is cheaper and more available* — is exactly the senior judgment CAP is really about. The mechanisms that implement these guarantees (quorums, replication, consensus, conflict resolution/CRDTs) are the subject of [[architecture/04-distributed-systems/05-replication|distributed systems]].
 
 ## Related
 - [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — how these guarantees are actually implemented

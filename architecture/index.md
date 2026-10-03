@@ -15,8 +15,8 @@ The existing [[architecture/system-design-reference|system-design-reference]] is
 
 ### [[architecture/01-system-design-fundamentals/index|01 — System Design Fundamentals]]
 The mental model and the core tradeoffs.
-1. [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|How to Approach System Design]] — the framework (requirements → estimation → high-level design → deep dive → tradeoffs); also how to pass the interview
-2. [[architecture/01-system-design-fundamentals/02-scalability-and-performance|Scalability & Performance]] — vertical vs horizontal scaling, latency vs throughput, performance vs scalability
+1. [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|How to Approach System Design]] — the framework (requirements → estimation → high-level design → deep dive → tradeoffs); also how to pass the interview
+2. [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability & Performance]] — vertical vs horizontal scaling, latency vs throughput, performance vs scalability
 3. [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability & Reliability]] — the nines, SLA/SLO, redundancy, failover, fault tolerance
 4. [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the CAP theorem, consistency models, and the availability-vs-consistency choice
 

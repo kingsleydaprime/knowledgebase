@@ -1,6 +1,6 @@
 # Designing Real Systems
 
-**[reference / practice]** — applying the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|framework]] to the classic design problems. The point isn't to memorize "the answer" (there isn't one) — it's to practice the *reasoning*, since that's what the skill and the interview reward.
+**[reference / practice]** — applying the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|framework]] to the classic design problems. The point isn't to memorize "the answer" (there isn't one) — it's to practice the *reasoning*, since that's what the skill and the interview reward.
 
 ## How to use these
 
@@ -14,7 +14,7 @@ For each problem, run the framework: **clarify requirements → estimate → hig
 ## A social feed / Twitter timeline
 
 - **The core** — users post; followers see a timeline.
-- **What it teaches** — the **fan-out** decision: *fan-out-on-write* (push each post to all followers' precomputed timelines — fast reads, expensive for celebrities with millions of followers) vs *fan-out-on-read* (assemble the timeline at read time — cheap writes, slow reads). The real answer is *hybrid* (push for most, pull for celebrities) — a perfect example of "it depends on the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|requirements]]." Also [[architecture/02-building-blocks/02-caching|caching]], [[architecture/02-building-blocks/03-databases-at-scale|sharding]] by user, and [[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]] (a slightly stale feed is fine).
+- **What it teaches** — the **fan-out** decision: *fan-out-on-write* (push each post to all followers' precomputed timelines — fast reads, expensive for celebrities with millions of followers) vs *fan-out-on-read* (assemble the timeline at read time — cheap writes, slow reads). The real answer is *hybrid* (push for most, pull for celebrities) — a perfect example of "it depends on the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|requirements]]." Also [[architecture/02-building-blocks/02-caching|caching]], [[architecture/02-building-blocks/03-databases-at-scale|sharding]] by user, and [[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]] (a slightly stale feed is fine).
 
 ## A rate limiter
 
@@ -45,6 +45,6 @@ Whether interviewing or designing for real, a strong design shows:
 Reading and whiteboarding get you far, but the deepest understanding comes from **building** — which is why the flagship [[project-ideas|projects]] are systems you implement yourself. Design a system on paper, then go build a piece of it for real.
 
 ## Related
-- [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|How to Approach System Design]] — the framework these apply
+- [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|How to Approach System Design]] — the framework these apply
 - [[architecture/system-design-reference|System Design Reference]] — the dense cheat-sheet for quick lookup
 - [[project-ideas|Project Ideas]] — build-your-own Redis / DB / git / Raft

@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/01-system-design-fundamentals/02-scalability-and-performance/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["scaling.ts", "scaling.test.ts"]
+}
