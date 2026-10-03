@@ -1,0 +1,10 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/07-tools-and-mcp/in-other-languages.md",
+  "run": [
+    ["go", "vet", "./..."],
+    ["sh", "-c", "test -z \"$(gofmt -l .)\""],
+    ["go", "test", "./..."],
+    ["sh", "../shared/conformance.sh", "go", "run", "./cmd/server"]
+  ],
+  "embedded": ["tools.go", "cmd/server/main.go", "tools_test.go"]
+}
