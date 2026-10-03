@@ -1,0 +1,276 @@
+{
+  "customers": [
+    {
+      "id": "c1",
+      "name": "Ada Obi",
+      "email": "ada@example.com",
+      "address": "10 Market Road, Lagos"
+    },
+    {
+      "id": "c2",
+      "name": "Bola Ade",
+      "email": "bola@example.com",
+      "address": "11 Market Road, Lagos"
+    },
+    {
+      "id": "c3",
+      "name": "Chidi Eze",
+      "email": "chidi@example.com",
+      "address": "12 Market Road, Lagos"
+    },
+    {
+      "id": "c4",
+      "name": "Dami Ola",
+      "email": "dami@example.com",
+      "address": "13 Market Road, Lagos"
+    },
+    {
+      "id": "c5",
+      "name": "Efe Uche",
+      "email": "efe@example.com",
+      "address": "14 Market Road, Lagos"
+    },
+    {
+      "id": "c6",
+      "name": "Femi Kola",
+      "email": "femi@example.com",
+      "address": "15 Market Road, Lagos"
+    },
+    {
+      "id": "c7",
+      "name": "Gbenga Ali",
+      "email": "gbenga@example.com",
+      "address": "16 Market Road, Lagos"
+    },
+    {
+      "id": "c8",
+      "name": "Halima Sani",
+      "email": "halima@example.com",
+      "address": "17 Market Road, Lagos"
+    },
+    {
+      "id": "c9",
+      "name": "Ife Ojo",
+      "email": "ife@example.com",
+      "address": "18 Market Road, Lagos"
+    },
+    {
+      "id": "c10",
+      "name": "Jide Bello",
+      "email": "jide@example.com",
+      "address": "19 Market Road, Lagos"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "Kettle",
+      "pricePence": 2499,
+      "description": "A 1.7 litre stainless steel kettle with a rapid-boil element, limescale filter, cordless base and automatic shut-off. Boils a full jug in about three minutes."
+    },
+    {
+      "id": "p2",
+      "name": "Toaster",
+      "pricePence": 3299,
+      "description": "A two-slice toaster with extra-wide slots for bagels and crumpets, six browning levels, defrost and reheat settings, and a removable crumb tray for easy cleaning."
+    },
+    {
+      "id": "p3",
+      "name": "Mug set",
+      "pricePence": 1599,
+      "description": "Four stoneware mugs in assorted glazes, 350 ml each, dishwasher and microwave safe. Each one is glazed by hand, so the colours vary slightly from mug to mug."
+    }
+  ],
+  "orders": [
+    {
+      "id": "o1",
+      "customerId": "c7",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 1
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 8996
+    },
+    {
+      "id": "o2",
+      "customerId": "c8",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 2
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 12295
+    },
+    {
+      "id": "o3",
+      "customerId": "c9",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 1
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 8996
+    },
+    {
+      "id": "o4",
+      "customerId": "c10",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 2
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 12295
+    },
+    {
+      "id": "o5",
+      "customerId": "c1",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 1
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 8996
+    },
+    {
+      "id": "o6",
+      "customerId": "c2",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 2
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 12295
+    },
+    {
+      "id": "o7",
+      "customerId": "c3",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 1
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 8996
+    },
+    {
+      "id": "o8",
+      "customerId": "c4",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 2
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 12295
+    },
+    {
+      "id": "o9",
+      "customerId": "c5",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 1
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 8996
+    },
+    {
+      "id": "o10",
+      "customerId": "c6",
+      "items": [
+        {
+          "productId": "p1",
+          "quantity": 1
+        },
+        {
+          "productId": "p2",
+          "quantity": 2
+        },
+        {
+          "productId": "p3",
+          "quantity": 2
+        }
+      ],
+      "totalPence": 12295
+    }
+  ]
+}

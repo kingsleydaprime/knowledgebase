@@ -119,7 +119,7 @@ Libraries: Polly (.NET), resilience4j (Java), `tower` middleware (Rust), `gobrea
 
 Message delivery gives you **at-most-once** or **at-least-once**. Not both. "Exactly-once processing" is achieved by **at-least-once delivery plus idempotent processing** — which is to say, by everything above.
 
-**So: assume duplicates, and design the handler to tolerate them.** That's the whole answer → [[architecture/02-building-blocks/04-messaging-and-async|messaging and async]].
+**So: assume duplicates, and design the handler to tolerate them.** That's the whole answer → [[architecture/02-building-blocks/04-messaging-and-async/index|messaging and async]].
 
 ## Related
 - [[backend/06-cross-cutting/04-rate-limiting|rate limiting]] — the server side of the same pressure

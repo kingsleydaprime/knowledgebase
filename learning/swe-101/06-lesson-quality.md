@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 28 of 43 meet the standard. Optional: 13 of 36.**
+**Core lessons: 30 of 43 meet the standard. Optional: 13 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -63,8 +63,8 @@
 | SWE 103 | 2 | core | ✅ meets | — | [[architecture/02-building-blocks/01-load-balancing-and-proxies/index\|index]] |
 | SWE 103 | 2 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/01-system-design-fundamentals/03-availability-and-reliability\|03-availability-and-reliability]] |
 | SWE 103 | 2 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/01-system-design-fundamentals/04-cap-and-consistency\|04-cap-and-consistency]] |
-| SWE 103 | 3 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/02-building-blocks/04-messaging-and-async\|04-messaging-and-async]] |
-| SWE 103 | 3 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/02-building-blocks/05-communication\|05-communication]] |
+| SWE 103 | 3 | core | ✅ meets | — | [[architecture/02-building-blocks/04-messaging-and-async/index\|index]] |
+| SWE 103 | 3 | core | ✅ meets | — | [[architecture/02-building-blocks/05-communication/index\|index]] |
 | SWE 103 | 3 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/02-building-blocks/03-databases-at-scale\|03-databases-at-scale]] |
 | SWE 103 | 4 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/01-monolith-microservices-serverless\|01-monolith-microservices-serverless]] |
 | SWE 103 | 4 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/03-data-and-integration-patterns\|03-data-and-integration-patterns]] |

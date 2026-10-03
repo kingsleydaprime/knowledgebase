@@ -24,7 +24,7 @@ For each problem, run the framework: **clarify requirements → estimate → hig
 ## A chat system (e.g. WhatsApp)
 
 - **The core** — real-time messaging, delivery, presence.
-- **What it teaches** — [[architecture/02-building-blocks/05-communication|WebSockets]] for real-time push, message [[architecture/02-building-blocks/04-messaging-and-async|queues]], delivery guarantees + [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|idempotency]] (exactly-once display), and connection state at scale.
+- **What it teaches** — [[architecture/02-building-blocks/05-communication/index|WebSockets]] for real-time push, message [[architecture/02-building-blocks/04-messaging-and-async/index|queues]], delivery guarantees + [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|idempotency]] (exactly-once display), and connection state at scale.
 
 ## Others worth working
 

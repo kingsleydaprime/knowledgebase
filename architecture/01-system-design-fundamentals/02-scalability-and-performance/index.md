@@ -152,7 +152,7 @@ When one server isn't enough, these are the standard moves, each with its own le
 1. **Add a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancer]]** and more stateless app servers, to scale compute horizontally.
 2. **[[architecture/02-building-blocks/02-caching/index|Cache]]** hot data to take reads off the database, which is usually the first bottleneck.
 3. **[[architecture/02-building-blocks/03-databases-at-scale|Scale the database]]**: read replicas for read-heavy load, sharding for write-heavy load.
-4. **[[architecture/02-building-blocks/04-messaging-and-async|Go asynchronous]]**: move slow work to a queue so requests return quickly.
+4. **[[architecture/02-building-blocks/04-messaging-and-async/index|Go asynchronous]]**: move slow work to a queue so requests return quickly.
 5. **Use a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|CDN]]** to serve static content from near users.
 
 ## 7. Runnable example: the numbers behind this lesson

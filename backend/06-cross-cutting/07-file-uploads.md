@@ -66,7 +66,7 @@ Store the original filename as **metadata**, and escape it when displaying it.
 
 ## After the upload
 
-**Process asynchronously.** Thumbnailing, transcoding and virus scanning belong in a background job, not the request → [[architecture/02-building-blocks/04-messaging-and-async|messaging and async]].
+**Process asynchronously.** Thumbnailing, transcoding and virus scanning belong in a background job, not the request → [[architecture/02-building-blocks/04-messaging-and-async/index|messaging and async]].
 
 **Scan for malware** if users can download each other's files. ClamAV is the usual starting point.
 

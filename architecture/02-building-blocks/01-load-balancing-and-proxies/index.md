@@ -501,7 +501,7 @@ You can choose a balancing algorithm for a workload and explain the simulation b
 
 **Recap.** A load balancer receives every request at one address and passes it to a healthy backend, which is what makes adding servers useful; it must be redundant itself. Layer 4 routes connections; layer 7 reads each HTTP request and can route by path. Round-robin is fine for equal requests; when they vary, use least-outstanding or two random choices, which wins most of the gain without herding. Health checks use fall and rise thresholds, and must not depend on shared dependencies. Keep app servers stateless rather than sticky. Spread keys over cache nodes with consistent hashing and virtual nodes, so adding a node moves only its share. Reverse proxies centralise TLS and routing, API gateways front many services and should stay thin, and CDNs cache shared content near users.
 
-**Next.** The week's optional lessons, [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability]] and [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP and consistency]], put numbers on what health checks and redundancy buy. Then week 3, [[architecture/02-building-blocks/04-messaging-and-async|messaging]], moves slow work off the request path altogether.
+**Next.** The week's optional lessons, [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability]] and [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP and consistency]], put numbers on what health checks and redundancy buy. Then week 3, [[architecture/02-building-blocks/04-messaging-and-async/index|messaging]], moves slow work off the request path altogether.
 
 ## Related
 

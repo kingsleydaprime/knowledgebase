@@ -16,7 +16,7 @@ This is the guide [[project-ideas|project-ideas.md]] has named as *"the best dis
 - **The impossibility results**, so you know what you are not allowed to achieve → [[architecture/04-distributed-systems/02-theoretical-limits|theoretical limits]]
 - **Consensus, and what it is for** → [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] · [[architecture/04-distributed-systems/08-raft-in-depth|Raft in depth]]
 - **The replicated state machine model** — the idea the whole thing rests on → [[architecture/04-distributed-systems/12-the-log-and-state-machines|the log and state machines]]
-- **RPC, and concurrency you trust** → [[architecture/02-building-blocks/05-communication|communication]]
+- **RPC, and concurrency you trust** → [[architecture/02-building-blocks/05-communication/index|communication]]
 - **The Raft paper itself**, *In Search of an Understandable Consensus Algorithm* (Ongaro and Ousterhout, 2014). **Figure 2 is one page and it is the entire specification.** Print it.
 
 **Go is the canonical language** — MIT's 6.824 labs are in Go, the reference implementations are in Go, and goroutines plus channels map onto this problem unusually well. **Rust** works and its type system genuinely helps with the state transitions. **Java** is fine. **Python** is fine if you are honest about the concurrency.
