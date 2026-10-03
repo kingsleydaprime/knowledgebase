@@ -35,9 +35,9 @@ Read this folder once, and the other two stop being lists of facts to memorise.
 
 ## Part C — Names, security, and the application layer
 
-10. [[networking/10-dns-in-depth|DNS in Depth]] — **[Intermediate]** — the resolution walk, TTL discipline, DNSSEC vs DoH (orthogonal, routinely confused), and why DNS causes so many outages
-11. [[networking/11-http-evolution|HTTP and Its Evolution]] — **[Intermediate]** — 1.1's flaws and the obsolete workarounds still in your codebase, HTTP/2 multiplexing, and the transport-layer flaw it couldn't fix
-12. [[networking/12-tls-and-transport-security|TLS & Transport Security]] — **[Intermediate→Advanced]** — forward secrecy, the chain of trust, what TLS 1.3 deleted and why deletion *was* the security fix, mTLS, and what the padlock does not mean
+10. [[networking/10-dns-in-depth/index|DNS in Depth]] — **[Intermediate]** — the resolution walk, TTL discipline, DNSSEC vs DoH (orthogonal, routinely confused), and why DNS causes so many outages
+11. [[networking/11-http-evolution/index|HTTP and Its Evolution]] — **[Intermediate]** — 1.1's flaws and the obsolete workarounds still in your codebase, HTTP/2 multiplexing, and the transport-layer flaw it couldn't fix
+12. [[networking/12-tls-and-transport-security/index|TLS & Transport Security]] — **[Intermediate→Advanced]** — forward secrecy, the chain of trust, what TLS 1.3 deleted and why deletion *was* the security fix, mTLS, and what the padlock does not mean
 13. [[networking/13-quic-and-modern-transport|QUIC & Modern Transport]] — **[Advanced]** — real stream multiplexing, connection migration, and escaping protocol ossification by hiding from the network
 
 ## Part D — Performance and operations

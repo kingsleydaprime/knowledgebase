@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 35 of 43 meet the standard. Optional: 13 of 36.**
+**Core lessons: 38 of 43 meet the standard. Optional: 13 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -78,9 +78,9 @@
 | SWE 103 | 6 | core | ✅ meets | — | [[databases/09-mvcc-and-concurrency-control/index\|index]] |
 | SWE 103 | 6 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/12-operating-a-database\|12-operating-a-database]] |
 | SWE 103 | 6 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/11-replication-and-scaling\|11-replication-and-scaling]] |
-| SWE 103 | 7 | core | 🟡 partial | start, terms, checks, practice | [[networking/10-dns-in-depth\|10-dns-in-depth]] |
-| SWE 103 | 7 | core | 🟡 partial | start, terms, checks, practice | [[networking/11-http-evolution\|11-http-evolution]] |
-| SWE 103 | 7 | core | 🟡 partial | start, terms, checks, practice | [[networking/12-tls-and-transport-security\|12-tls-and-transport-security]] |
+| SWE 103 | 7 | core | ✅ meets | — | [[networking/10-dns-in-depth/index\|index]] |
+| SWE 103 | 7 | core | ✅ meets | — | [[networking/11-http-evolution/index\|index]] |
+| SWE 103 | 7 | core | ✅ meets | — | [[networking/12-tls-and-transport-security/index\|index]] |
 | SWE 103 | 7 | optional | 🟡 partial | start, terms, checks, practice | [[networking/06-tcp-connection-lifecycle\|06-tcp-connection-lifecycle]] |
 | SWE 103 | 8 | core | 🟡 partial | start, terms, checks, practice | [[backend/01-foundations/03-the-request-lifecycle\|03-the-request-lifecycle]] |
 | SWE 103 | 8 | core | 🟡 partial | start, terms, checks, practice | [[backend/01-foundations/04-runtime-and-concurrency-models\|04-runtime-and-concurrency-models]] |

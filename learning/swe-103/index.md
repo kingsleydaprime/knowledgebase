@@ -68,7 +68,7 @@ No new patterns. **Every week: five problems drawn at random from NeetCode 150 p
 
 ### Week 7 — The web, end to end
 
-- **Learn (core):** [[networking/10-dns-in-depth|DNS]] · [[networking/11-http-evolution|HTTP and its evolution]] · [[networking/12-tls-and-transport-security|TLS]] — three this week; they're one story.
+- **Learn (core):** [[networking/10-dns-in-depth/index|DNS]] · [[networking/11-http-evolution/index|HTTP and its evolution]] · [[networking/12-tls-and-transport-security/index|TLS]] — three this week; they're one story.
 - **Learn (optional):** [[networking/06-tcp-connection-lifecycle|TCP connection lifecycle]]
 - **Design:** **chat application**.
 - **By Sunday:** **"What happens when I type google.com?"** — one page, from memory.

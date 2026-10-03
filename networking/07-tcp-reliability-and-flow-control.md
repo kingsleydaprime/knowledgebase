@@ -27,7 +27,7 @@ The ACK is **cumulative**, and it means something precise that people misread: `
 
 That definition has a sharp consequence. If you send bytes 1000–1999, 2000–2999, 3000–3999 and the middle one is lost, the receiver **cannot** say "I got the first and third." It can only keep saying `ack=2000`. The receiver holds 3000–3999 in its buffer but cannot deliver it to the application — bytes must be delivered in order.
 
-That is **head-of-line blocking**, and it's not a bug; it's the direct price of the in-order byte-stream abstraction. If your connection is carrying twenty independent HTTP requests ([[networking/11-http-evolution|HTTP/2]]), one lost packet stalls all twenty. This single fact is why [[networking/13-quic-and-modern-transport|QUIC]] exists.
+That is **head-of-line blocking**, and it's not a bug; it's the direct price of the in-order byte-stream abstraction. If your connection is carrying twenty independent HTTP requests ([[networking/11-http-evolution/index|HTTP/2]]), one lost packet stalls all twenty. This single fact is why [[networking/13-quic-and-modern-transport|QUIC]] exists.
 
 **SACK** (Selective Acknowledgement, RFC 2018) patches the diagnostic half of the problem: an option that says "additionally, I have 3000–3999." The sender then retransmits only the true gap instead of everything after it. Universally supported and a large real-world win — but note it fixes *sender efficiency*, not head-of-line blocking. The receiver still can't deliver out of order.
 

@@ -33,7 +33,7 @@ Two things are being agreed, and it's worth separating them:
 
 **Why the ISN is random rather than 0:** if it were predictable, an off-path attacker could forge packets into an existing connection (**sequence prediction / TCP injection**) or complete a handshake while spoofing someone else's address. RFC 6528 specifies a randomised ISN derived from a hash including a secret. This is a security control hiding inside a mechanism that looks purely functional — a good example of how much of TCP's design is scar tissue.
 
-**Cost:** one full round trip (RTT) before any data moves. On a 100ms path that's 100ms of nothing, and then [[networking/12-tls-and-transport-security|TLS]] wants 1–2 more. This accumulated handshake tax is the single strongest motivation for [[networking/13-quic-and-modern-transport|QUIC]] and for connection reuse everywhere.
+**Cost:** one full round trip (RTT) before any data moves. On a 100ms path that's 100ms of nothing, and then [[networking/12-tls-and-transport-security/index|TLS]] wants 1–2 more. This accumulated handshake tax is the single strongest motivation for [[networking/13-quic-and-modern-transport|QUIC]] and for connection reuse everywhere.
 
 ## The SYN backlog and SYN floods
 

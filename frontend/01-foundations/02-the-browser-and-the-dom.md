@@ -111,7 +111,7 @@ list.addEventListener("click", (e) => {
 ## Related
 - [[frontend/02-rendering/index|rendering]] — CSR, SSR, hydration
 - [[frontend/07-practices/index|practices]] — Core Web Vitals
-- [[networking/11-http-evolution|HTTP]] — the first four steps
+- [[networking/11-http-evolution/index|HTTP]] — the first four steps
 - [[computer-graphics/index|computer graphics]] — what paint and composite actually do
 
 *Source: [reference] — written Aug 2026.*
