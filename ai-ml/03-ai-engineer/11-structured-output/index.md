@@ -473,6 +473,6 @@ You can say what each of the three modes guarantees, name the three checks in or
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — where the schema goes on the request
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] — the same schema machinery, aimed at function arguments
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — structural checks are the cheapest, most reliable eval
-- [[ai-ml/03-ai-engineer/10-safety-and-production|Safety and production]] — refusals, and containing what a model outputs
+- [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — refusals, and containing what a model outputs
 
 *Source: Part II of the AI-engineer track. SDK shapes change fast; check them against current docs.*

@@ -8,7 +8,7 @@ A model can be accurate and still unusable if no one can tell *why* it decided s
 
 - **Trust** — stakeholders won't deploy a black box making consequential calls (loans, medical, hiring).
 - **Debugging** — a model can be right for the wrong reason (the famous case: a classifier that detected "husky vs wolf" by looking at snow in the background). Explanations expose that.
-- **Fairness & bias** — checking a model isn't keying off a protected attribute ([[ai-ml/03-ai-engineer/10-safety-and-production|bias & fairness]]).
+- **Fairness & bias** — checking a model isn't keying off a protected attribute ([[ai-ml/03-ai-engineer/10-safety-and-production/index|bias & fairness]]).
 - **Regulation** — laws (GDPR's "right to explanation," financial/medical rules) increasingly *require* explanations for automated decisions.
 
 ## The interpretability spectrum
@@ -42,9 +42,9 @@ shap.summary_plot(shap_values, X)          # global view; force_plot for a singl
 ## The honest caveats
 
 - **An explanation is an approximation**, not the model's actual reasoning — especially for LIME. Treat explanations as evidence, not ground truth.
-- **Explaining LLMs is much harder** — SHAP/LIME target tabular/feature-based models. For [[ai-ml/03-ai-engineer/index|LLMs]], "interpretability" means different, less mature techniques (attention analysis, mechanistic interpretability), and in practice grounding/citation ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]) and [[ai-ml/03-ai-engineer/10-safety-and-production|evals]] do more for trust than feature attribution.
+- **Explaining LLMs is much harder** — SHAP/LIME target tabular/feature-based models. For [[ai-ml/03-ai-engineer/index|LLMs]], "interpretability" means different, less mature techniques (attention analysis, mechanistic interpretability), and in practice grounding/citation ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]) and [[ai-ml/03-ai-engineer/10-safety-and-production/index|evals]] do more for trust than feature attribution.
 
 ## Related
 - [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|Trees & Ensembles]] — feature importances, and SHAP's home turf
 - [[ai-ml/02-ml-engineer/04-model-evaluation/03-validation-and-tuning|Validation & Tuning]] — interpretability as a model-selection axis
-- [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — bias/fairness, where explanations are checked
+- [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety & Production]] — bias/fairness, where explanations are checked

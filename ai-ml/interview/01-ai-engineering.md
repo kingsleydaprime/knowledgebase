@@ -102,7 +102,7 @@ From [[ai-ml/03-ai-engineer/index|03-ai-engineer]].
 - **Constrain outputs structurally** — a model that can only emit a value from an enum can't emit an attack.
 - **Log and monitor** tool calls for anomalies.
 
-**The framing that scores:** *"design so that a successful injection is survivable, because you can't design so it's impossible."* → [[ai-ml/03-ai-engineer/10-safety-and-production|safety & production]]
+**The framing that scores:** *"design so that a successful injection is survivable, because you can't design so it's impossible."* → [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety & production]]
 
 ---
 

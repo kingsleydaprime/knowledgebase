@@ -29,7 +29,7 @@ The newest, fastest-moving frontier: text/image → generated video (Sora-style)
 
 ## The practical framing
 
-For most AI-engineering work, multimodal = **pick a model that supports the modality and call it like any other model** ([[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]). The engineering interest is usually in the *pipeline* around it — feed a scanned document to a vision model, extract structured data ([[ai-ml/03-ai-engineer/04-calling-models/index|structured output]]), act on it — rather than the model internals. The same [[ai-ml/03-ai-engineer/10-safety-and-production|safety]] and cost concerns apply, sometimes more sharply (image/video generation raises extra content-moderation and provenance/deepfake questions).
+For most AI-engineering work, multimodal = **pick a model that supports the modality and call it like any other model** ([[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]). The engineering interest is usually in the *pipeline* around it — feed a scanned document to a vision model, extract structured data ([[ai-ml/03-ai-engineer/04-calling-models/index|structured output]]), act on it — rather than the model internals. The same [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety]] and cost concerns apply, sometimes more sharply (image/video generation raises extra content-moderation and provenance/deepfake questions).
 
 ## Related
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — diffusion and speech models as types

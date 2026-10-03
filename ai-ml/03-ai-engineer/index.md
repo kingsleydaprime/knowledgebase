@@ -19,7 +19,7 @@ The track is in two parts. **Part I (1–10)** is the core path — everything y
 7. [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools & MCP]] — **[Intermediate]** — function/tool calling and the Model Context Protocol (servers, clients, hosts)
 8. [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — **[Advanced]** — the agentic (ReAct) loop, memory, multi-agent systems, frameworks, and observability
 9. [[ai-ml/03-ai-engineer/09-multimodal|Multimodal AI]] — **[Intermediate]** — vision input, image generation, speech (STT/TTS), and video
-10. [[ai-ml/03-ai-engineer/10-safety-and-production|Safety & Production]] — **[Advanced]** — prompt injection, guardrails, evals, cost, observability — turning a demo into a shipped product
+10. [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety & Production]] — **[Advanced]** — prompt injection, guardrails, evals, cost, observability — turning a demo into a shipped product
 
 ### Part II — Depth & Production
 

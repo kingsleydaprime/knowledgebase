@@ -478,7 +478,7 @@ for (const question of ["Where is my refund for order A123?", "Where is my refun
 ## Tradeoffs, limits and extensions
 
 - **Plan first, then act.** Some agents write a plan, show it to a person, and only then start. It's slower, and easier to approve and audit.
-- **Sandboxes.** Agents that run code or use a computer need an isolated environment with limited network and file access, not your machine ([[ai-ml/03-ai-engineer/10-safety-and-production|safety and production]]).
+- **Sandboxes.** Agents that run code or use a computer need an isolated environment with limited network and file access, not your machine ([[ai-ml/03-ai-engineer/10-safety-and-production/index|safety and production]]).
 - **Context engineering.** Long-running agents depend on what's kept in context: clearing old tool results, summarising, and writing notes to files the agent can reread.
 - **Hosted agents.** Model providers now run the loop and a sandbox for you. The controls in this lesson still apply; you configure them rather than write them.
 
@@ -488,14 +488,14 @@ You can say when an agent is the wrong design and what to build instead, add the
 
 **Recap.** In a workflow code decides the steps; in an agent the model does, at a cost in money, latency, predictability and safety. Prefer a single call or a workflow (chain, route, parallel calls, orchestrator and workers, evaluate and improve) whenever the steps are known, mistakes are costly, results can't be checked, budgets are tight or untrusted content meets powerful tools. When an agent is right, give its loop a step limit, a token budget, stuck detection, approval for side effects, and a trace with a stop reason. Evaluate the trajectory as well as the answer, over several runs. Short-term memory is the history, so compact it; long-term memory is your store, so write to it carefully. Start with one agent.
 
-**Next.** Week 6: [[ai-ml/03-ai-engineer/10-safety-and-production|safety and production]] — prompt injection and personal data, which agents make both more likely and more costly.
+**Next.** Week 6: [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety and production]] — prompt injection and personal data, which agents make both more likely and more costly.
 
 ## Related
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] — the loop and the controls on each call
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — golden sets and gates, which trajectory scoring extends
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — why long runs get expensive
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — the usual store for long-term memory
-- [[ai-ml/03-ai-engineer/10-safety-and-production|Safety and production]] — injection, sandboxing, guardrails
+- [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — injection, sandboxing, guardrails
 
 ## Seen in the wild
 - [[projects/socioboom/interview/03-ai-and-agents|socioboom]] — agents doing real publishing work

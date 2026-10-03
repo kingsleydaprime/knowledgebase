@@ -70,7 +70,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 6 — Safety, the write-up, and a timed mock
 
 - **DSA — dynamic programming II (two dimensions), then a mock:** 111 unique paths · 112 longest common subsequence · 114 coin change II. Then one timed mock: two unseen mediums, 45 minutes each.
-- **Learn (core):** [[ai-ml/03-ai-engineer/10-safety-and-production|safety and production]] — prompt injection and PII
+- **Learn (core):** [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety and production]] — prompt injection and PII
 - **Build:** the AI feature write-up, with the evals numbers and one failure the evals caught.
 - **Apply:** Friday hour, with the write-up linked.
 - **By Sunday:** every box in the finish line is ticked, or has a date. **SWE 103 starts the following Monday.**
