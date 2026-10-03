@@ -1,0 +1,8 @@
+{
+  "name": "b-trees-and-indexes-lab",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "pg": "8.23.1"
+  }
+}

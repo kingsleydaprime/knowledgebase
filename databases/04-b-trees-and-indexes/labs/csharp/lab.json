@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/04-b-trees-and-indexes/in-other-languages.md",
+  "run": [["sh", "../shared/with-postgres.sh", "sh", "container.sh"]],
+  "embedded": ["BTree/BTree.cs", "BTree/Program.cs"]
+}

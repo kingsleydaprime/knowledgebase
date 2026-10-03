@@ -492,7 +492,7 @@ You can trace the three join algorithms and say which fits which sizes and condi
 
 **Recap.** A nested loop is right for a small outer side with an indexed inner side, and catastrophic for a large one; a hash join is right for large equality joins, if the build side fits in `work_mem`; a merge join suits inputs already sorted. PostgreSQL needs equality for both hash and merge joins. The planner picks from estimates built on statistics, and its classic failures are correlated columns, stale statistics, skew and functions: in the lab, 900 estimated against 3,000 actual, fixed exactly by `CREATE STATISTICS`. Diagnose by finding the lowest node where `rows=` and `actual rows=` differ, then fix the cheapest way: `ANALYZE`, statistics, an index, a rewrite. And `OFFSET` reads everything it skips, so page with keysets.
 
-**Next.** Week 6: [[databases/08-transactions-and-acid|transactions and ACID]] and [[databases/09-mvcc-and-concurrency-control|isolation and MVCC]], which change data safely while other queries read it.
+**Next.** Week 6: [[databases/08-transactions-and-acid/index|transactions and ACID]] and [[databases/09-mvcc-and-concurrency-control/index|isolation and MVCC]], which change data safely while other queries read it.
 
 ## Related
 

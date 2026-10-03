@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/04-b-trees-and-indexes/in-other-languages.md",
+  "run": [["cargo", "fmt", "--check"], ["cargo", "clippy", "--quiet", "--all-targets", "--", "-D", "warnings"], ["sh", "../shared/with-postgres.sh", "cargo", "test", "--quiet", "--release"]],
+  "embedded": ["src/lib.rs", "tests/postgres.rs"]
+}

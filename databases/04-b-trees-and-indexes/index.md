@@ -122,7 +122,7 @@ SELECT total FROM orders WHERE customer_id = 42;
 -- both columns are in the index → no heap access
 ```
 
-**PostgreSQL calls it an *index-only scan*, and it needs the visibility map to confirm each page is all-visible.** Otherwise it must check the heap for each row's visibility anyway. In the lab, right after `VACUUM`, the plan shows `Index Only Scan` with **`Heap Fetches: 0`**. After an `UPDATE` of customer 42's orders, with no vacuum since, the same query shows `Heap Fetches: 40`: still called an index-only scan, but reading the table for every row. **So a table that hasn't been vacuumed recently loses index-only scans**, which is a real and confusing performance regression → [[databases/09-mvcc-and-concurrency-control|MVCC]].
+**PostgreSQL calls it an *index-only scan*, and it needs the visibility map to confirm each page is all-visible.** Otherwise it must check the heap for each row's visibility anyway. In the lab, right after `VACUUM`, the plan shows `Index Only Scan` with **`Heap Fetches: 0`**. After an `UPDATE` of customer 42's orders, with no vacuum since, the same query shows `Heap Fetches: 40`: still called an index-only scan, but reading the table for every row. **So a table that hasn't been vacuumed recently loses index-only scans**, which is a real and confusing performance regression → [[databases/09-mvcc-and-concurrency-control/index|MVCC]].
 
 **`INCLUDE` columns** (PostgreSQL 11+, SQL Server) store extra columns in the leaves **without** making them part of the key, so they don't affect ordering or uniqueness, and don't bloat the internal nodes.
 
@@ -229,7 +229,7 @@ FROM pg_stat_user_indexes WHERE idx_scan = 0;
 
 `btree.py` is a B+ tree you can watch: inserts with splits, lookups and range scans that count page reads, the `levels` arithmetic, and the leftmost-prefix rule. `test_btree.py` checks the model. `test_postgres.py` loads a million orders into a real PostgreSQL database and checks every PostgreSQL claim in this lesson by reading `EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON)`: the index depth with `pageinspect`, the four pages per lookup, the composite and skip-scan plans, index-only scans before and after an update, the selectivity and expression-index cases, the partial index's size, and the write cost in WAL bytes.
 
-[`labs/shared/with-postgres.sh`](https://github.com/kingsleydaprime/knowledgebase/tree/main/databases/04-b-trees-and-indexes/labs/shared) creates a throwaway PostgreSQL cluster in a temporary folder, reachable only through a socket there, runs the tests, and deletes it. It turns off autovacuum and parallel query, so plans are the same on every run, and durability, because nothing is kept.
+[`labs/shared/with-postgres.sh`](https://github.com/kingsleydaprime/knowledgebase/tree/main/databases/04-b-trees-and-indexes/labs/shared) creates a throwaway PostgreSQL cluster in a temporary folder, reachable through a socket there and a random port on 127.0.0.1 only, runs the tests, and deletes it. It turns off autovacuum and parallel query, so plans are the same on every run, and durability, because nothing is kept.
 
 ```python
 """A B+ tree you can watch, the arithmetic of its height, and the leftmost-prefix rule of composite indexes.
