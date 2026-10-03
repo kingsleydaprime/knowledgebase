@@ -10,9 +10,9 @@
 
 <!-- COVERAGE:START -->
 
-**25 of 364 single-language lessons have a companion.**
+**29 of 366 single-language lessons have a companion.**
 
-By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · programming-fundamentals 7 · web3 5 · architecture 4 · mobile 4 · tools 4 · databases 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
+By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · programming-fundamentals 7 · architecture 6 · web3 5 · mobile 4 · tools 4 · databases 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
 
 | Priority | Lesson | Written in | Companion |
 |---|---|---|---|
@@ -38,8 +38,10 @@ By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · ho
 | SWE 102 core | [[ai-ml/03-ai-engineer/12-evals/index\|ai-ml/03-ai-engineer/12-evals/index]] | TS/JS | [[ai-ml/03-ai-engineer/12-evals/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|ai-ml/03-ai-engineer/13-reliability-and-plumbing/index]] | TS/JS | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|ai-ml/03-ai-engineer/14-cost-caching-and-latency/index]] | TS/JS | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/in-other-languages\|✅]] |
-| SWE 103 core | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index\|architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index]] | TS/JS | — |
-| SWE 103 core | [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index\|architecture/01-system-design-fundamentals/02-scalability-and-performance/index]] | TS/JS | — |
+| SWE 103 core | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index\|architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index]] | TS/JS | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/in-other-languages\|✅]] |
+| SWE 103 core | [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index\|architecture/01-system-design-fundamentals/02-scalability-and-performance/index]] | TS/JS | [[architecture/01-system-design-fundamentals/02-scalability-and-performance/in-other-languages\|✅]] |
+| SWE 103 core | [[architecture/02-building-blocks/01-load-balancing-and-proxies/index\|architecture/02-building-blocks/01-load-balancing-and-proxies/index]] | TS/JS | [[architecture/02-building-blocks/01-load-balancing-and-proxies/in-other-languages\|✅]] |
+| SWE 103 core | [[architecture/02-building-blocks/02-caching/index\|architecture/02-building-blocks/02-caching/index]] | TS/JS | [[architecture/02-building-blocks/02-caching/in-other-languages\|✅]] |
 | SWE 103 core | [[backend/01-foundations/03-the-request-lifecycle\|backend/01-foundations/03-the-request-lifecycle]] | TS/JS | — |
 | SWE 103 core | [[backend/05-auth/03-oauth-provider-integrations\|backend/05-auth/03-oauth-provider-integrations]] | TS/JS | — |
 | SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|architecture/03-architectural-patterns/05-transactional-outbox/index]] | TS/JS | — |

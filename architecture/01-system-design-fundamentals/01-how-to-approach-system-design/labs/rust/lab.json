@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/01-system-design-fundamentals/01-how-to-approach-system-design/in-other-languages.md",
+  "run": [["cargo", "fmt", "--check"], ["cargo", "clippy", "--quiet", "--all-targets", "--", "-D", "warnings"], ["cargo", "test", "--quiet"]],
+  "embedded": ["src/lib.rs"]
+}

@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/01-system-design-fundamentals/02-scalability-and-performance/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "python", "-m", "unittest"]],
+  "embedded": ["scaling.py", "test_scaling.py"]
+}
