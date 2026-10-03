@@ -8,7 +8,7 @@ You can already:
 
 - Explain why horizontal scaling needs stateless servers, and read p50 and p99 → [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|scalability and performance]].
 - Explain how a cache's hit ratio sets the database's load, and what a cold cache does → [[architecture/02-building-blocks/02-caching/index|caching]].
-- Say what TCP, an IP address and a port are, and what an HTTP request contains (method, path, headers) → [[networking/11-http-evolution|HTTP and its evolution]] (a skim is enough).
+- Say what TCP, an IP address and a port are, and what an HTTP request contains (method, path, headers) → [[networking/11-http-evolution/index|HTTP and its evolution]] (a skim is enough).
 - Run a TypeScript test file with Node 26 (`node --test`).
 
 After this lesson you will be able to:
@@ -492,7 +492,7 @@ test("virtual nodes even out how many keys each server gets", () => {
 
 - **A balancer sees counts, not costs.** Least-outstanding treats a 10 ms and a 200 ms request alike. Balancers that track each server's recent latency, such as "peak EWMA" in some proxies, do better when servers slow down unevenly.
 - **Consistent hashing can still overload one node with one hot key.** All of that key's traffic goes to one node, however even the ring is. Hot keys need replicating to several nodes, or a small in-process cache in front.
-- **Global balancing** across regions is done with DNS that answers each user with their nearest healthy region, and with anycast, where many sites share one IP address and the network delivers to the nearest. [[networking/10-dns-in-depth|DNS in depth]] covers how.
+- **Global balancing** across regions is done with DNS that answers each user with their nearest healthy region, and with anycast, where many sites share one IP address and the network delivers to the nearest. [[networking/10-dns-in-depth/index|DNS in depth]] covers how.
 - **Retries at the balancer** hide one failed backend, but multiply load when every backend is struggling. [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience patterns]] covers retry budgets.
 
 ## Before moving on

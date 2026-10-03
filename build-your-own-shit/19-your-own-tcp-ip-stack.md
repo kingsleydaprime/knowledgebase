@@ -141,7 +141,7 @@ Wrap the stack in `listen`/`accept`/`read`/`write`/`close` with the signatures y
 
 - [[networking/index|networking/]] — the reference course for every layer here
 - [[build-your-own-shit/01-http-server|Your Own HTTP Server]] — the layer above, and the final test of this one
-- [[networking/12-tls-and-transport-security|TLS]] — the next layer up, if you want to keep climbing
+- [[networking/12-tls-and-transport-security/index|TLS]] — the next layer up, if you want to keep climbing
 - [[build-your-own-shit/05-your-own-os|Your Own OS]] — where a stack like this would live in kernel space
 - [[build-your-own-shit/index|Build Your Own Shit index]]
 

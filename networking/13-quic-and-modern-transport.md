@@ -19,7 +19,7 @@ QUIC's answer: **build a new transport on top of [[networking/05-udp-and-ports|U
 
 The headline. QUIC has **independent streams**, each with its own sequence numbering and delivery guarantee. A lost packet blocks **only the stream whose data it carried**; every other stream keeps delivering.
 
-This is the thing [[networking/11-http-evolution|HTTP/2]] wanted and could not have, because it was multiplexing on top of a transport that insists on total ordering. QUIC moves the multiplexing *below* the reliability boundary, so ordering is per-stream rather than per-connection.
+This is the thing [[networking/11-http-evolution/index|HTTP/2]] wanted and could not have, because it was multiplexing on top of a transport that insists on total ordering. QUIC moves the multiplexing *below* the reliability boundary, so ordering is per-stream rather than per-connection.
 
 The consequence: **HTTP/3 on a lossy network (mobile, congested Wi-Fi) substantially outperforms HTTP/2**, which is precisely where HTTP/2 could lose to HTTP/1.1.
 
@@ -27,7 +27,7 @@ The consequence: **HTTP/3 on a lossy network (mobile, congested Wi-Fi) substanti
 
 TCP+TLS 1.3 is 2 RTT (one for TCP, one for TLS). QUIC **fuses the transport and cryptographic handshakes into one exchange**: 1 RTT for a new connection, **0 RTT** for a resumed one — application data rides in the very first packet.
 
-The security caveat from [[networking/12-tls-and-transport-security|TLS]] carries over exactly: 0-RTT data is replayable, so restrict it to idempotent requests.
+The security caveat from [[networking/12-tls-and-transport-security/index|TLS]] carries over exactly: 0-RTT data is replayable, so restrict it to idempotent requests.
 
 ### 3. Connection migration
 
@@ -74,6 +74,6 @@ QUIC's most important contribution isn't multiplexing or 0-RTT — it's **reloca
 
 ## Related
 - [[networking/07-tcp-reliability-and-flow-control|TCP Reliability]] — the head-of-line blocking QUIC escapes
-- [[networking/12-tls-and-transport-security|TLS]] — the handshake QUIC absorbed
-- [[networking/11-http-evolution|HTTP Evolution]] — the story this concludes
+- [[networking/12-tls-and-transport-security/index|TLS]] — the handshake QUIC absorbed
+- [[networking/11-http-evolution/index|HTTP Evolution]] — the story this concludes
 - [[networking/14-nat-firewalls-and-middleboxes|Middleboxes]] — the ossification QUIC routes around

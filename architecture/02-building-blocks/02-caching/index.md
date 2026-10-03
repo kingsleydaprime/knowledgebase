@@ -511,7 +511,7 @@ test("jitter spreads out expiry, so keys cached together don't all miss together
 - **A shared cache is another network hop and another system to run.** For data that's tiny, hot and rarely changed, such as feature flags or a country list, an in-process cache with a short TTL is simpler and faster.
 - **Large or many values cost memory and network.** Caching a 1 MB page per user per request can need more memory than it saves. Cache the expensive part, such as the query result, not the whole response.
 - **Negative caching.** Caching "this product doesn't exist" for a short TTL stops repeated lookups for missing keys from reaching the database. That matters when someone is scanning made-up IDs.
-- **HTTP caching** has a richer vocabulary than this lesson needs: validators that let a browser ask "has this changed?", `private` versus `public`, and `Vary`. [[networking/11-http-evolution|HTTP and its evolution]] and [[devops/08-networking-and-web/02-web-servers-and-proxies|web servers and proxies]] go further.
+- **HTTP caching** has a richer vocabulary than this lesson needs: validators that let a browser ask "has this changed?", `private` versus `public`, and `Vary`. [[networking/11-http-evolution/index|HTTP and its evolution]] and [[devops/08-networking-and-web/02-web-servers-and-proxies|web servers and proxies]] go further.
 - **Splitting a cache across many nodes** raises the question of which node holds which key, and what happens when a node is added. The next lesson answers it with consistent hashing.
 
 ## Before moving on

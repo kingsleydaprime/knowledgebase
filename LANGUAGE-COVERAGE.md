@@ -10,7 +10,7 @@
 
 <!-- COVERAGE:START -->
 
-**35 of 373 single-language lessons have a companion.**
+**37 of 373 single-language lessons have a companion.**
 
 By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · architecture 9 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · databases 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
 
@@ -49,8 +49,8 @@ By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · ho
 | SWE 103 core | [[backend/05-auth/03-oauth-provider-integrations\|backend/05-auth/03-oauth-provider-integrations]] | TS/JS | — |
 | SWE 103 core | [[databases/04-b-trees-and-indexes/index\|databases/04-b-trees-and-indexes/index]] | Python | [[databases/04-b-trees-and-indexes/in-other-languages\|✅]] |
 | SWE 103 core | [[databases/07-join-algorithms-and-the-optimiser/index\|databases/07-join-algorithms-and-the-optimiser/index]] | Python | [[databases/07-join-algorithms-and-the-optimiser/in-other-languages\|✅]] |
-| SWE 103 core | [[databases/08-transactions-and-acid/index\|databases/08-transactions-and-acid/index]] | Python | — |
-| SWE 103 core | [[databases/09-mvcc-and-concurrency-control/index\|databases/09-mvcc-and-concurrency-control/index]] | Python | — |
+| SWE 103 core | [[databases/08-transactions-and-acid/index\|databases/08-transactions-and-acid/index]] | Python | [[databases/08-transactions-and-acid/in-other-languages\|✅]] |
+| SWE 103 core | [[databases/09-mvcc-and-concurrency-control/index\|databases/09-mvcc-and-concurrency-control/index]] | Python | [[databases/09-mvcc-and-concurrency-control/in-other-languages\|✅]] |
 | SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|architecture/03-architectural-patterns/05-transactional-outbox/index]] | TS/JS | [[architecture/03-architectural-patterns/05-transactional-outbox/in-other-languages\|✅]] |
 | SWE 101 optional | [[concepts/03-design-patterns/01-creational-patterns/index\|concepts/03-design-patterns/01-creational-patterns/index]] | TS/JS | — |
 | SWE 101 optional | [[concepts/04-best-practices/01-clean-code/index\|concepts/04-best-practices/01-clean-code/index]] | TS/JS | — |

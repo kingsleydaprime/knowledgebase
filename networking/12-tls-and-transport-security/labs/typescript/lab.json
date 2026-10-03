@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/12-tls-and-transport-security/index.md",
+  "run": [["node", "--test", "--test-timeout=20000"]],
+  "embedded": ["tlsmath.ts", "tls.test.ts"]
+}

@@ -6,7 +6,7 @@
 
 You can already:
 
-- Say what an HTTP request is made of (method, path, headers, body) and what a round trip is → [[networking/11-http-evolution|HTTP and its evolution]] (a skim is enough).
+- Say what an HTTP request is made of (method, path, headers, body) and what a round trip is → [[networking/11-http-evolution/index|HTTP and its evolution]] (a skim is enough).
 - Explain why a synchronous call couples the caller to the callee, and what a queue changes → [[architecture/02-building-blocks/04-messaging-and-async/index|messaging and async]].
 - Write async TypeScript, and run a test file with Node 26 (`node --test`).
 
@@ -731,4 +731,4 @@ You can count a screen's requests, round trips and bytes, explain and fix the N+
 - [[backend/frameworks/java/03-api-design-and-documentation|API design and documentation (Java)]]: REST and OpenAPI in real code
 - [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging and async]]: the asynchronous alternative to request and response
 - [[devops/08-networking-and-web/01-networking-and-protocols|Networking and protocols (DevOps)]]: the transport layer
-- [[networking/11-http-evolution|HTTP and its evolution]]: HTTP/1.1, 2 and 3 in depth
+- [[networking/11-http-evolution/index|HTTP and its evolution]]: HTTP/1.1, 2 and 3 in depth

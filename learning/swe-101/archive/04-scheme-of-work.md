@@ -513,12 +513,12 @@ By Sunday: what must be true before the week closes
 
 # Week 14 — DNS, HTTP, TLS
 
-**Read:** [[networking/10-dns-in-depth|10]] → [[networking/13-quic-and-modern-transport|13]]
+**Read:** [[networking/10-dns-in-depth/index|10]] → [[networking/13-quic-and-modern-transport|13]]
 
 **Topics**
-- **14.1** DNS in depth → [[networking/10-dns-in-depth|10]]
-- **14.2** HTTP and its evolution — 1.1, 2, 3 → [[networking/11-http-evolution|11]]
-- **14.3** TLS and transport security → [[networking/12-tls-and-transport-security|12]]
+- **14.1** DNS in depth → [[networking/10-dns-in-depth/index|10]]
+- **14.2** HTTP and its evolution — 1.1, 2, 3 → [[networking/11-http-evolution/index|11]]
+- **14.3** TLS and transport security → [[networking/12-tls-and-transport-security/index|12]]
 - **14.4** QUIC → [[networking/13-quic-and-modern-transport|13]]
 - **14.5** Cookies, sessions, headers → [[backend/05-auth/01-authentication-flows|auth flows]]
 

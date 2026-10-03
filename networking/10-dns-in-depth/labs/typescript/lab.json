@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/10-dns-in-depth/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["dns.ts", "dns.test.ts"]
+}

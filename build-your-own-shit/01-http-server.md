@@ -16,7 +16,7 @@ An HTTP/1.1 server that accepts TCP connections, parses requests, routes them, a
 |---|---|
 | **Sockets** — `socket`/`bind`/`listen`/`accept`, and what a file descriptor is | [[networking/09-sockets-and-the-network-api\|networking/09]] |
 | **TCP basics** — the connection lifecycle, why `TIME_WAIT` exists | [[networking/06-tcp-connection-lifecycle\|networking/06]] |
-| **HTTP semantics** — methods, status codes, headers | [[networking/11-http-evolution\|networking/11]] |
+| **HTTP semantics** — methods, status codes, headers | [[networking/11-http-evolution/index\|networking/11]] |
 | **Blocking vs non-blocking I/O** | [[os/08-io-models\|os/08]] |
 | **Processes and threads** (for the concurrency milestone) | [[os/02-processes-and-threads\|os/02]] |
 

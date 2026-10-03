@@ -29,7 +29,7 @@ dig -x 93.184.216.34               # reverse lookup
 
 `+trace` is the one worth learning — it shows *which* level of the hierarchy is broken, rather than just "no answer." `@8.8.8.8` immediately distinguishes "the record is wrong" from "my resolver has a stale/broken cache."
 
-Read the **TTL** in the answer: a TTL counting down tells you it's a cached answer and how long ago it was fetched. If you just changed a record and are still seeing the old one, the remaining TTL is exactly how long you'll keep seeing it. → [[networking/10-dns-in-depth|DNS in depth]]
+Read the **TTL** in the answer: a TTL counting down tells you it's a cached answer and how long ago it was fetched. If you just changed a record and are still seeing the old one, the remaining TTL is exactly how long you'll keep seeing it. → [[networking/10-dns-in-depth/index|DNS in depth]]
 
 `getent hosts example.com` is worth knowing too — it uses the OS resolver path (`/etc/hosts`, nsswitch, resolver config) which `dig` **bypasses**. If `dig` works and your app doesn't, the difference is here.
 
