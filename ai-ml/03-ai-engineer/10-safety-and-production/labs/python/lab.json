@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/10-safety-and-production/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "--with", "jsonschema>=4.23,<5", "python", "-m", "unittest"]],
+  "embedded": ["safety.py", "test_safety.py"]
+}

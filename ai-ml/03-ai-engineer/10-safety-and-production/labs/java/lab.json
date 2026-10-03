@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/10-safety-and-production/in-other-languages.md",
+  "run": [["sh", "check.sh"]],
+  "embedded": ["src/safety/Safety.java", "src/safety/SafetyCheck.java"]
+}

@@ -10,7 +10,7 @@
 
 <!-- COVERAGE:START -->
 
-**21 of 359 single-language lessons have a companion.**
+**22 of 359 single-language lessons have a companion.**
 
 By area: dsa 67 · ai-ml 47 · backend 42 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · databases 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · architecture 1 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
 
@@ -33,7 +33,7 @@ By area: dsa 67 · ai-ml 47 · backend 42 · frontend 36 · mathematics 34 · ho
 | SWE 102 core | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|ai-ml/03-ai-engineer/05-prompt-engineering/index]] | TS/JS | [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|ai-ml/03-ai-engineer/07-tools-and-mcp/index]] | TS/JS | [[ai-ml/03-ai-engineer/07-tools-and-mcp/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/08-agents/index\|ai-ml/03-ai-engineer/08-agents/index]] | TS/JS | [[ai-ml/03-ai-engineer/08-agents/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/10-safety-and-production/index\|ai-ml/03-ai-engineer/10-safety-and-production/index]] | TS/JS | — |
+| SWE 102 core | [[ai-ml/03-ai-engineer/10-safety-and-production/index\|ai-ml/03-ai-engineer/10-safety-and-production/index]] | TS/JS | [[ai-ml/03-ai-engineer/10-safety-and-production/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/11-structured-output/index\|ai-ml/03-ai-engineer/11-structured-output/index]] | TS/JS | [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/12-evals/index\|ai-ml/03-ai-engineer/12-evals/index]] | TS/JS | [[ai-ml/03-ai-engineer/12-evals/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|ai-ml/03-ai-engineer/13-reliability-and-plumbing/index]] | TS/JS | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/in-other-languages\|✅]] |
