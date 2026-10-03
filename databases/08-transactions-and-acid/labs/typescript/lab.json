@@ -1,0 +1,6 @@
+{
+  "lesson": "databases/08-transactions-and-acid/in-other-languages.md",
+  "setup": [["npm", "ci", "--silent"]],
+  "run": [["sh", "../shared/with-postgres.sh", "node", "--test", "--test-concurrency=1", "isolation.test.ts"]],
+  "embedded": ["isolation.test.ts"]
+}
