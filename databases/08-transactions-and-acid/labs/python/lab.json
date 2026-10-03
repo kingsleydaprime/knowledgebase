@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/08-transactions-and-acid/index.md",
+  "run": [["sh", "../shared/with-postgres.sh", "uv", "run", "-q", "--no-project", "--with", "psycopg[binary]==3.3.6", "python", "-m", "unittest"]],
+  "embedded": ["test_isolation.py"]
+}

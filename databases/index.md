@@ -33,8 +33,8 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 5. [[databases/05-lsm-trees|LSM Trees]] — **[Advanced]** — the write-optimised alternative, compaction, bloom filters, and the RUM conjecture
 6. [[databases/06-the-query-pipeline|The Query Pipeline]] — **[Intermediate → Advanced]** — parse → bind → rewrite → plan → execute. **A database is a compiler**
 7. [[databases/07-join-algorithms-and-the-optimiser/index|Join Algorithms and the Optimiser]] — **[Advanced]** — the three joins, join ordering, cost estimation, and **the four ways estimates go wrong**
-8. [[databases/08-transactions-and-acid|Transactions and ACID]] — **[Intermediate → Advanced]** — the anomalies precisely, isolation levels, and **why your default is weaker than your code assumes**
-9. [[databases/09-mvcc-and-concurrency-control|MVCC and Concurrency Control]] — **[Advanced]** — how isolation is implemented, why Postgres needs `VACUUM`, transaction ID wraparound, and deadlocks
+8. [[databases/08-transactions-and-acid/index|Transactions and ACID]] — **[Intermediate → Advanced]** — the anomalies precisely, isolation levels, and **why your default is weaker than your code assumes**
+9. [[databases/09-mvcc-and-concurrency-control/index|MVCC and Concurrency Control]] — **[Advanced]** — how isolation is implemented, why Postgres needs `VACUUM`, transaction ID wraparound, and deadlocks
 10. [[databases/10-durability-and-recovery|Durability and Recovery]] — **[Advanced]** — the WAL, ARIES, checkpoints, and **the ways `fsync` lies**
 11. [[databases/11-replication-and-scaling|Replication and Scaling]] — **[Advanced]** — replicas, failover and split brain, partitioning vs sharding, connection pooling
 12. [[databases/12-operating-a-database|Operating a Database]] — **[Intermediate → Advanced]** — migrations that don't cause outages, N+1, monitoring, and how to choose
@@ -47,8 +47,8 @@ How a database actually works underneath — pages, B-trees, query planning, MVC
 4. **The leftmost prefix rule.** An index on `(a,b,c)` can't serve `WHERE b = 2`, and equality columns belong before range columns → [[databases/04-b-trees-and-indexes/index|04]]
 5. **Estimated vs actual rows in `EXPLAIN ANALYZE` is the single most useful diagnostic.** Find the lowest node with a bad estimate → [[databases/07-join-algorithms-and-the-optimiser/index|07]]
 6. **`random_page_cost = 4.0` assumes spinning disks.** Set it to 1.1 on SSDs — one line, large effect → [[databases/07-join-algorithms-and-the-optimiser/index|07]]
-7. **You're probably running at Read Committed**, which permits lost updates and write skew. Most code assumes serializable → [[databases/08-transactions-and-acid|08]]
-8. **Long transactions are the root of most MVCC problems** — bloat, blocked vacuum, lock pileups → [[databases/09-mvcc-and-concurrency-control|09]]
+7. **You're probably running at Read Committed**, which permits lost updates and write skew. Most code assumes serializable → [[databases/08-transactions-and-acid/index|08]]
+8. **Long transactions are the root of most MVCC problems** — bloat, blocked vacuum, lock pileups → [[databases/09-mvcc-and-concurrency-control/index|09]]
 9. **`SET lock_timeout` before every migration.** One slow `SELECT` otherwise stalls the whole table → [[databases/12-operating-a-database|12]]
 10. **Replication is not a backup.** A replica replicates `DROP TABLE` in milliseconds → [[databases/10-durability-and-recovery|10]]
 11. **Scale up before you scale out.** Indexes, pooling, caching, a bigger machine — most systems never need more → [[databases/11-replication-and-scaling|11]]

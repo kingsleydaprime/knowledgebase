@@ -64,7 +64,7 @@ The magic is the **open table format** — a layer over Parquet files that adds 
 
 What the transaction log buys you over raw Parquet:
 
-- **ACID transactions** — concurrent writers don't corrupt each other; a failed job doesn't leave partial data visible → [[databases/08-transactions-and-acid|ACID]]
+- **ACID transactions** — concurrent writers don't corrupt each other; a failed job doesn't leave partial data visible → [[databases/08-transactions-and-acid/index|ACID]]
 - **Time travel** — query the table as of last Tuesday; the log records every version
 - **Schema evolution** — add or change columns safely
 - **Upserts and deletes** — genuinely hard on raw files, routine with a table format (and needed for GDPR "delete this user")

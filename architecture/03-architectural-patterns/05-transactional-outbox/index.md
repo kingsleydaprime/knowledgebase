@@ -6,7 +6,7 @@
 
 You can already:
 
-- Explain what a database transaction guarantees → [[databases/08-transactions-and-acid|transactions and ACID]].
+- Explain what a database transaction guarantees → [[databases/08-transactions-and-acid/index|transactions and ACID]].
 - Publish and consume events, and explain why a broker's at-least-once delivery requires idempotent consumers → [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|modular monolith to services]].
 
 After this lesson you will be able to:
@@ -312,6 +312,6 @@ You can name both dual-write failures, implement an outbox and relay, and explai
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data and integration patterns]] — saga, CQRS, event sourcing
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular monolith to services]] — at-least-once delivery and idempotent consumers
 - [[concepts/03-design-patterns/03-behavioral-patterns/index|Behavioural patterns]] — the observer pattern this replaces at system scale
-- [[databases/08-transactions-and-acid|Transactions and ACID]] — the guarantee the pattern is built on
+- [[databases/08-transactions-and-acid/index|Transactions and ACID]] — the guarantee the pattern is built on
 
 *Source: [reference] — the lab's behaviour was executed; production details (CDC tooling, relay locking) are from documentation, not from operating one.*

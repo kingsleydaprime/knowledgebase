@@ -51,7 +51,7 @@ Idempotency-Key: 8f14e45f-ea6a-4d1f-9f2a-9b1c3d4e5f60
 
 **The client generates the key**, once, and reuses it across retries. A key generated per attempt does nothing.
 
-**Store the key and the result in the same transaction as the work.** If the charge commits and the key doesn't, you've built an elaborate no-op → [[databases/08-transactions-and-acid|transactions]].
+**Store the key and the result in the same transaction as the work.** If the charge commits and the key doesn't, you've built an elaborate no-op → [[databases/08-transactions-and-acid/index|transactions]].
 
 **Expire keys** — 24 hours is typical. Storing them forever is a slow leak.
 

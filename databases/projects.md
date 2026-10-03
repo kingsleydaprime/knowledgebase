@@ -10,9 +10,9 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🟢 **Break it with a missing index** — the same exercise inverted: find an N+1 in a real app and fix it. **Done when:** query count per request drops and you have both numbers.
 
-- 🟢 **Watch isolation levels differ** — two `psql` sessions, one table. Reproduce a dirty read, a non-repeatable read, and a phantom by changing only the isolation level. **Done when:** you've seen all three and can say which level your app actually uses. Exercises: [[databases/08-transactions-and-acid|isolation levels]].
+- 🟢 **Watch isolation levels differ** — two `psql` sessions, one table. Reproduce a dirty read, a non-repeatable read, and a phantom by changing only the isolation level. **Done when:** you've seen all three and can say which level your app actually uses. Exercises: [[databases/08-transactions-and-acid/index|isolation levels]].
 
-- 🟡 **Cause a deadlock on purpose, then fix it** — two transactions, opposite lock order. **Done when:** you've read the deadlock in the logs and fixed it by ordering acquisitions consistently. Exercises: [[databases/09-mvcc-and-concurrency-control|MVCC]].
+- 🟡 **Cause a deadlock on purpose, then fix it** — two transactions, opposite lock order. **Done when:** you've read the deadlock in the logs and fixed it by ordering acquisitions consistently. Exercises: [[databases/09-mvcc-and-concurrency-control/index|MVCC]].
 
 - 🟡 **A zero-downtime migration** — add a NOT NULL column to a large, live table without locking it: expand → backfill in batches → contract. **Done when:** you ran it against a table under concurrent write load and nothing blocked. **This is the single most valuable database skill nobody practises.**
 

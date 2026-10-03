@@ -62,7 +62,7 @@ No new patterns. **Every week: five problems drawn at random from NeetCode 150 p
 
 ### Week 6 — Databases II: changing data safely
 
-- **Learn (core):** [[databases/08-transactions-and-acid|transactions and ACID]] · [[databases/09-mvcc-and-concurrency-control|isolation and MVCC]]
+- **Learn (core):** [[databases/08-transactions-and-acid/index|transactions and ACID]] · [[databases/09-mvcc-and-concurrency-control/index|isolation and MVCC]]
 - **Learn (optional):** [[databases/12-operating-a-database|operating a database]] · [[databases/11-replication-and-scaling|replication and scaling]]
 - **By Sunday:** closed-book — *why does adding an index sometimes make things slower?*
 

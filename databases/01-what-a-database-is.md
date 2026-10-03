@@ -18,7 +18,7 @@ Store your records as JSON on disk. Then:
 
 **Memory limits.** The data exceeds RAM. **You need a buffer pool and a page-based format.** → [[databases/03-storage-and-page-layout|Storage and Page Layout]]
 
-**Atomicity across records.** Transfer money between two accounts — both writes must happen or neither. **You need transactions.** → [[databases/08-transactions-and-acid|Transactions and ACID]]
+**Atomicity across records.** Transfer money between two accounts — both writes must happen or neither. **You need transactions.** → [[databases/08-transactions-and-acid/index|Transactions and ACID]]
 
 **Consistency rules.** "Every order must reference a real customer." **You need constraints.**
 
@@ -36,13 +36,13 @@ Store your records as JSON on disk. Then:
 
 > **The C is the odd one out.** Atomicity, isolation and durability are properties the *database* provides. **Consistency is a property of your application's rules** — the database just enforces the constraints you declared. Several database researchers have observed that C is in the acronym mostly because ACID is pronounceable.
 
-**Isolation** — concurrent transactions don't interfere. **The one with degrees**, and the one people misunderstand. → [[databases/09-mvcc-and-concurrency-control|MVCC]]
+**Isolation** — concurrent transactions don't interfere. **The one with degrees**, and the one people misunderstand. → [[databases/09-mvcc-and-concurrency-control/index|MVCC]]
 
 **Durability** — once committed, it survives a crash. **Implemented by fsync on the log.**
 
 **The honest caveats:**
 
-**Isolation is almost never full.** Most databases default to Read Committed or Snapshot Isolation, **not** Serializable. **You are probably running with anomalies your code doesn't handle.** → [[databases/08-transactions-and-acid|Isolation levels]]
+**Isolation is almost never full.** Most databases default to Read Committed or Snapshot Isolation, **not** Serializable. **You are probably running with anomalies your code doesn't handle.** → [[databases/08-transactions-and-acid/index|Isolation levels]]
 
 **Durability depends on fsync actually working.** Disks lie about flushing, filesystems buffer, and virtualised storage adds layers. **"Committed" is only as strong as your weakest layer.**
 
