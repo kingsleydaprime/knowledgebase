@@ -1,0 +1,8 @@
+[
+  { "id": "q1", "question": "How do I get a refund for a double charge?", "relevant": "refunds", "kind": "shared words" },
+  { "id": "q2", "question": "My login doesn't work any more.", "relevant": "password", "kind": "no shared words" },
+  { "id": "q3", "question": "What does E1042 mean?", "relevant": "export", "kind": "exact code" },
+  { "id": "q4", "question": "When will my parcel arrive?", "relevant": "shipping", "kind": "shared words" },
+  { "id": "q5", "question": "Can I make the app darker?", "relevant": "appearance", "kind": "no shared words" },
+  { "id": "q6", "question": "Do you sell gift cards?", "relevant": null, "kind": "not in the help centre" }
+]

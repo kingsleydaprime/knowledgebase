@@ -155,7 +155,7 @@ To make it actually faster:
 
 Every token you send is paid for on every call, so the cheapest token is the one you don't send:
 
-- **Retrieve precisely.** In [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]], a few relevant chunks beat many loosely related ones: cheaper, faster, and usually more accurate, because irrelevant text distracts the model.
+- **Retrieve precisely.** In [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]], a few relevant chunks beat many loosely related ones: cheaper, faster, and usually more accurate, because irrelevant text distracts the model.
 - **Keep history short.** A chat resends the whole conversation on every turn. Twenty turns of 200 tokens each send 200 + 400 + … + 4,000 = **42,000** input tokens in total, for 4,000 tokens of conversation. Summarise or drop old turns; since the start stays fixed, keep what's cached at the front.
 - **Batch what can wait** at half price, as in [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]] §7: re-running a large eval, nightly enrichment, relabelling.
 
@@ -543,7 +543,7 @@ You can price a call from its usage, lay out a prompt so it caches and find what
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — usage, streaming and `max_tokens`
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — tokens, attention, and generating one token at a time
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how to tell whether a cheaper option is good enough
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — precise retrieval as a cost lever
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — precise retrieval as a cost lever
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The model landscape]] — choosing models by task
 
 *Source: Part II of the AI-engineer track. Prices from Anthropic's list on 2026-10-02.*

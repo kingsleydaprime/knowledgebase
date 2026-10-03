@@ -1,6 +1,6 @@
 # Fine-Tuning (Applied)
 
-**Source:** Part II of the AI-engineer track. [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & embeddings]] covered *when* to fine-tune vs. retrieve; this note is the applied *how* — from the perspective of someone building on pre-trained models, not training from scratch. The deep mechanics (backprop, the training loop, RLHF) live in the ML-engineer track's [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/03-fine-tuning|fine-tuning note]]; this is the API-side, decision-and-recipe view.
+**Source:** Part II of the AI-engineer track. [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & embeddings]] covered *when* to fine-tune vs. retrieve; this note is the applied *how* — from the perspective of someone building on pre-trained models, not training from scratch. The deep mechanics (backprop, the training loop, RLHF) live in the ML-engineer track's [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/03-fine-tuning|fine-tuning note]]; this is the API-side, decision-and-recipe view.
 
 ## First: are you sure you need it?
 
@@ -54,6 +54,6 @@ You can also **combine** RAG and fine-tuning: fine-tune for *how to behave* (for
 
 ## Related
 - [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/03-fine-tuning|ML Engineer: Fine-Tuning]] — the deep mechanics (loss, epochs, RLHF, transfer learning)
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — the RAG-vs-fine-tuning decision in full
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — the RAG-vs-fine-tuning decision in full
 - [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local & Open Models]] — running your own LoRA on open weights
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how you prove the fine-tune was worth it

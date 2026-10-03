@@ -79,7 +79,7 @@ Past a point, the gain isn't a cleverer prompt but how you combine several:
 - **ReAct (reason and act).** Reasoning alternates with tool calls: think, act, look at the result, think again. This is where prompting turns into [[ai-ml/03-ai-engineer/08-agents/index|agents]].
 - **Meta-prompting.** Ask a model to critique and rewrite your prompt, or to draft few-shot examples. Then measure the result like any other change.
 
-**Context engineering.** As systems grow, the harder problem is *what* goes in the window, and in what order: retrieved documents ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]), tool results, history, examples. With a fixed context window, choosing the most relevant material, and summarising the rest, often matters more than clever wording.
+**Context engineering.** As systems grow, the harder problem is *what* goes in the window, and in what order: retrieved documents ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]]), tool results, history, examples. With a fixed context window, choosing the most relevant material, and summarising the rest, often matters more than clever wording.
 
 ## 5. Prompts are code — version them, measure them
 
@@ -92,7 +92,7 @@ Past a point, the gain isn't a cleverer prompt but how you combine several:
 
 - **Vague or wrongly shaped output** → be specific about format, length and audience; add an example.
 - **Ignores part of a long instruction** → split it into steps or a chain. Prompts with fifteen caveats reliably drop several.
-- **Confidently wrong** → this is grounding, not wording ([[ai-ml/03-ai-engineer/02-how-llms-work/index|hallucination]]). Give it the source material ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]).
+- **Confidently wrong** → this is grounding, not wording ([[ai-ml/03-ai-engineer/02-how-llms-work/index|hallucination]]). Give it the source material ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]]).
 - **Inconsistent across runs** → that's sampling. Lower the temperature.
 - **Can't do it however you ask** → it's a capability gap. Use a bigger or different model → [[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]].
 
@@ -365,7 +365,7 @@ You can turn a vague prompt into a specific one, explain the two few-shot rules,
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — why better context works
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — guaranteed shapes, beyond "please return JSON"
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how you actually know a prompt change helped
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — grounding, the fix for hallucination
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — grounding, the fix for hallucination
 - [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — the agent loop is a prompting pattern that runs itself
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — prompt injection in depth
 

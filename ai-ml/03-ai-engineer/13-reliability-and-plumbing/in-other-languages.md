@@ -2511,4 +2511,4 @@ You can name your ecosystem's resilience and rate-limiting libraries, cancel a s
 - [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — the main lesson
 - [[ai-ml/03-ai-engineer/12-evals/in-other-languages|Evals in other languages]] — the keyword rules every fallback here imports
 - [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages|Calling models in other languages]] — each language's HTTP client and error types
-- [[architecture/03-architectural-patterns/02-resilience-patterns|Resilience patterns]] — the general patterns, for any dependency
+- [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience patterns]] — the general patterns, for any dependency

@@ -416,7 +416,7 @@ By Sunday: what must be true before the week closes
 
 **Topics**
 - **8.1** Monolith vs microservices vs serverless → [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|the three]]
-- **8.2** Resilience: timeouts, retries, backoff, circuit breakers, bulkheads → [[architecture/03-architectural-patterns/02-resilience-patterns|resilience]]
+- **8.2** Resilience: timeouts, retries, backoff, circuit breakers, bulkheads → [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience]]
 - **8.3** Data and integration patterns → [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data & integration]] · [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]]
 - **8.4** Microservices patterns → [[architecture/03-architectural-patterns/04-microservices-patterns|microservices]]
 - **8.5** **Trade-off articulation** — saying "I'd choose X because Y" instead of "it depends" → [[architecture/interview/01-system-design-round|the round]]
@@ -640,12 +640,12 @@ By Sunday: what must be true before the week closes
 
 # Week 21 — Prompting, structure, retrieval
 
-**Read:** [[ai-ml/03-ai-engineer/05-prompt-engineering/index|05]] · [[ai-ml/03-ai-engineer/11-structured-output/index|11]] · [[ai-ml/03-ai-engineer/06-rag-and-embeddings|06]]
+**Read:** [[ai-ml/03-ai-engineer/05-prompt-engineering/index|05]] · [[ai-ml/03-ai-engineer/11-structured-output/index|11]] · [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|06]]
 
 **Topics**
 - **21.1** Prompt engineering; prompts as versioned artifacts → [[ai-ml/03-ai-engineer/05-prompt-engineering/index|05]]
 - **21.2** Structured output → [[ai-ml/03-ai-engineer/11-structured-output/index|11]]
-- **21.3** RAG and embeddings — chunking, hybrid search, reranking → [[ai-ml/03-ai-engineer/06-rag-and-embeddings|06]]
+- **21.3** RAG and embeddings — chunking, hybrid search, reranking → [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|06]]
 
 **DSA:** mixed review, 5 problems
 
@@ -655,12 +655,12 @@ By Sunday: what must be true before the week closes
 
 # Week 22 — Tools and agents
 
-**Read:** [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|07]] · [[ai-ml/03-ai-engineer/08-agents/index|08]] · [[ai-ml/03-ai-engineer/09-multimodal|09]]
+**Read:** [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|07]] · [[ai-ml/03-ai-engineer/08-agents/index|08]] · [[ai-ml/03-ai-engineer/09-multimodal/index|09]]
 
 **Topics**
 - **22.1** Tools and MCP → [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|07]]
 - **22.2** Agents, **and when not to use one** → [[ai-ml/03-ai-engineer/08-agents/index|08]]
-- **22.3** Multimodal → [[ai-ml/03-ai-engineer/09-multimodal|09]]
+- **22.3** Multimodal → [[ai-ml/03-ai-engineer/09-multimodal/index|09]]
 
 **DSA:** mixed review, 5 problems
 

@@ -930,7 +930,7 @@ Practice exercise 13 in [[ai-ml/03-ai-engineer/19-practice-exercises|practice ex
 - **Mid-stream failures.** A stream can drop after half the answer. Decide per feature whether to discard it, show the partial answer, or retry from the start.
 - **Bulkheads.** Give each feature its own limit on concurrent model calls, so one runaway feature can't use up the whole quota.
 
-The general versions of these patterns, for any dependency, are in [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]] (this week's optional reading).
+The general versions of these patterns, for any dependency, are in [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]] (this week's optional reading).
 
 ## Before moving on
 
@@ -944,7 +944,7 @@ You can sort a failure into retryable or not, write a retry loop with jitter and
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — the call this lesson hardens
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — the gate that now runs in CI, and the baseline used as the fallback
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — the same gateway layer, aimed at spend and speed
-- [[architecture/03-architectural-patterns/02-resilience-patterns|Resilience patterns]] — retries, breakers and bulkheads for any dependency
+- [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience patterns]] — retries, breakers and bulkheads for any dependency
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — reliability is one part of production-ready
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|MLOps: serving and monitoring]] — the classical-serving sibling
 

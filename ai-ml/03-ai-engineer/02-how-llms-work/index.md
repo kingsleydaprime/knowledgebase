@@ -61,7 +61,7 @@ This is not trivia. **Tokens are the unit of pricing and of context limits.** Fo
 
 ## 3. The context window — the working memory
 
-The **context window** is the most tokens, input and output combined, that the model can take into account at once. Anything outside it doesn't exist for that request. It hasn't been forgotten; it was never in view. That's why long conversations need summarising or trimming. It's also why [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]] exists: it feeds the model only the relevant slice of a large set of documents instead of needing an infinite window.
+The **context window** is the most tokens, input and output combined, that the model can take into account at once. Anything outside it doesn't exist for that request. It hasn't been forgotten; it was never in view. That's why long conversations need summarising or trimming. It's also why [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]] exists: it feeds the model only the relevant slice of a large set of documents instead of needing an infinite window.
 
 Modern windows are large, often hundreds of thousands of tokens, but they aren't free. More context costs more and is slower. Past a point, the model also pays less attention to any single detail; facts in the middle of a long input get used less than facts at the start or end ("lost in the middle"). On a laptop the limit is memory: the window you set (`num_ctx` in Ollama) has to fit in RAM alongside the model → [[ai-ml/03-ai-engineer/16-local-and-open-models/index|local and open models]].
 
@@ -109,7 +109,7 @@ Temperature 0 isn't a guarantee of identical output across runs on a hosted API,
 
 Put §4–6 together. The network outputs scores for "what token is likely here". Training rewarded producing text that looks like its training data. **Nothing in that loop checks the text against the world.** When the training data clearly covers a fact, the likely continuation is also the true one, and you see 98.6% on "Paris". When it doesn't — an obscure person, a paper that doesn't exist, last week's news — the model still produces the most *answer-shaped* continuation. A citation format with plausible authors is very likely text, even when no such paper exists.
 
-So hallucination is structural; it isn't a bug waiting for a patch. The fixes all add a check from outside the model: put the facts in the context ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]), let it call a tool such as search ([[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools]]), validate its output ([[ai-ml/03-ai-engineer/11-structured-output/index|structured output]]), and measure how often it's wrong ([[ai-ml/03-ai-engineer/12-evals/index|evals]]).
+So hallucination is structural; it isn't a bug waiting for a patch. The fixes all add a check from outside the model: put the facts in the context ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]]), let it call a tool such as search ([[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools]]), validate its output ([[ai-ml/03-ai-engineer/11-structured-output/index|structured output]]), and measure how often it's wrong ([[ai-ml/03-ai-engineer/12-evals/index|evals]]).
 
 ## Worked example — decoding by hand, then a real model
 

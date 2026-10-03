@@ -352,4 +352,4 @@ And the meta-point: **you validated the judge against hand labels.** That's the 
 - [[ai-ml/03-ai-engineer/19-practice-exercises|The exercises]]
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — exercises 3 and 15, properly
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety & Production]] — exercise 12, properly
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — exercises 7–9
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — exercises 7–9

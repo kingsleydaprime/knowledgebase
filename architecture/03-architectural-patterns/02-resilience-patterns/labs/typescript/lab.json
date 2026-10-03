@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/03-architectural-patterns/02-resilience-patterns/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["simulate.ts", "bulkhead.ts", "resilience.test.ts"]
+}

@@ -9,4 +9,4 @@ Architectures for ordered data — text, time series, audio — culminating in t
 ## Related
 - [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]] — the fundamentals these build on
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — the applied view of the transformers this section explains from the modeling side
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — embeddings put to work in applications
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — embeddings put to work in applications

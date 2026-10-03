@@ -1,0 +1,27 @@
+[
+  {
+    "id": "refunds",
+    "title": "Refunds",
+    "body": "## How refunds work\nIf you were charged twice or cancelled within 14 days, you can ask for a refund from the Billing page. Refunds go back to the card you paid with.\n\n## How long a refund takes\nMost refunds arrive within 5 to 10 working days. Your bank may take a few more days to show it.\n\n## Refunds on annual plans\nAnnual plans are refunded in full in the first 30 days, and pro rata after that."
+  },
+  {
+    "id": "password",
+    "title": "Resetting your password",
+    "body": "## Reset your password\nChoose Forgot password on the sign-in screen and we will email you a reset link. The link works for one hour.\n\n## Locked out\nAfter five wrong attempts your account is locked for 15 minutes, then you can try again."
+  },
+  {
+    "id": "export",
+    "title": "Exporting your data",
+    "body": "## Export to CSV\nOpen Reports, choose Export, and pick CSV. Large exports are emailed to you as a download link.\n\n## Error E1042\nE1042 means the export was larger than 50 MB. Narrow the date range and export again."
+  },
+  {
+    "id": "appearance",
+    "title": "Appearance",
+    "body": "## Dark mode\nDark mode follows your system setting. You can also choose Light or Dark under Settings, Appearance."
+  },
+  {
+    "id": "shipping",
+    "title": "Shipping",
+    "body": "## Delivery times\nOrders ship within 2 working days. Standard delivery takes 3 to 5 days after that; express delivery arrives the next day.\n\n## Tracking a parcel\nEvery order gets a tracking number by email once it ships."
+  }
+]

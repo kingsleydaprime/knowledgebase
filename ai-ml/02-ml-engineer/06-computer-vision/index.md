@@ -9,4 +9,4 @@ Deep learning specialized for images — the same [[ai-ml/02-ml-engineer/05-deep
 ## Related
 - [[digital-signal-processing/05-convolution-and-lti-systems|DSP: convolution]] — what a conv layer actually computes, from the signal-processing side
 - [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]] — the fundamentals CNNs specialize
-- [[ai-ml/03-ai-engineer/09-multimodal|Multimodal AI]] — the applied/AI-engineer view of vision models
+- [[ai-ml/03-ai-engineer/09-multimodal/index|Multimodal AI]] — the applied/AI-engineer view of vision models

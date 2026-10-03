@@ -28,7 +28,7 @@ KNeighborsClassifier(n_neighbors=5).fit(X_train, y_train)
 - **Prediction is slow** (must compare to all training points) and it degrades in high dimensions (the "curse of dimensionality" — distances become meaningless when there are many features). Needs scaling, since it's distance-based.
 - `k` is the key hyperparameter: small `k` overfits (noisy), large `k` oversmooths.
 
-The *idea* — "similar inputs have similar outputs, measured by distance" — is exactly the intuition behind [[ai-ml/03-ai-engineer/06-rag-and-embeddings|semantic search over embeddings]], which is essentially KNN in a learned vector space.
+The *idea* — "similar inputs have similar outputs, measured by distance" — is exactly the intuition behind [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|semantic search over embeddings]], which is essentially KNN in a learned vector space.
 
 ## Naive Bayes
 
@@ -54,4 +54,4 @@ All three are worth recognizing, but for most tabular problems [[ai-ml/02-ml-eng
 ## Related
 - [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|Trees & Ensembles]] — the usual stronger default
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/03-bayes-theorem|Bayes' Theorem]] — the basis for Naive Bayes
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — KNN's idea applied at scale
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — KNN's idea applied at scale

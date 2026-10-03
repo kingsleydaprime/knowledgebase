@@ -15,10 +15,10 @@ The track is in two parts. **Part I (1–10)** is the core path — everything y
 3. [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — **[Beginner]** — kinds of models, the LLM provider ecosystem, open vs closed/self-hosting, and the AI-tools categories
 4. [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — **[Intermediate]** — provider APIs, the messages format, SDKs (streaming, structured output, tool calling), and the discipline of a fast-moving toolchain
 5. [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt Engineering]] — **[Beginner → Intermediate]** — system/user/roles, zero/few-shot, chain-of-thought, structured output, and context engineering
-6. [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — **[Intermediate → Advanced]** — embeddings, semantic search, the RAG pipeline, vector databases, and RAG vs fine-tuning
+6. [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — **[Intermediate → Advanced]** — embeddings, semantic search, the RAG pipeline, vector databases, and RAG vs fine-tuning
 7. [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools & MCP]] — **[Intermediate]** — function/tool calling and the Model Context Protocol (servers, clients, hosts)
 8. [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — **[Advanced]** — the agentic (ReAct) loop, memory, multi-agent systems, frameworks, and observability
-9. [[ai-ml/03-ai-engineer/09-multimodal|Multimodal AI]] — **[Intermediate]** — vision input, image generation, speech (STT/TTS), and video
+9. [[ai-ml/03-ai-engineer/09-multimodal/index|Multimodal AI]] — **[Intermediate]** — vision input, image generation, speech (STT/TTS), and video
 10. [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety & Production]] — **[Advanced]** — prompt injection, guardrails, evals, cost, observability — turning a demo into a shipped product
 
 ### Part II — Depth & Production
