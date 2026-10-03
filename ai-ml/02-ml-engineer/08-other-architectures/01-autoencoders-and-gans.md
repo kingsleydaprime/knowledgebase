@@ -40,9 +40,9 @@ GANs produced a leap in realistic image generation (faces, art, super-resolution
 
 ## Where these sit now
 
-Both matter to recognize, but the generative frontier has largely moved to **diffusion models** ([[ai-ml/03-ai-engineer/09-multimodal|multimodal]]), which are more stable to train and produce higher-quality, more diverse images — they power today's image generators. Autoencoders remain widely useful for representation learning, anomaly detection, and as components (the VAE in some diffusion pipelines); GANs remain relevant for specific generation and super-resolution tasks. The through-line — encoder/decoder and adversarial training — recurs across modern architectures.
+Both matter to recognize, but the generative frontier has largely moved to **diffusion models** ([[ai-ml/03-ai-engineer/09-multimodal/index|multimodal]]), which are more stable to train and produce higher-quality, more diverse images — they power today's image generators. Autoencoders remain widely useful for representation learning, anomaly detection, and as components (the VAE in some diffusion pipelines); GANs remain relevant for specific generation and super-resolution tasks. The through-line — encoder/decoder and adversarial training — recurs across modern architectures.
 
 ## Related
 - [[ai-ml/02-ml-engineer/03-classical-ml/04-unsupervised-clustering-and-pca|Clustering & PCA]] — the linear version of dimensionality reduction
-- [[ai-ml/03-ai-engineer/09-multimodal|Multimodal AI]] — diffusion models, the current generative frontier
+- [[ai-ml/03-ai-engineer/09-multimodal/index|Multimodal AI]] — diffusion models, the current generative frontier
 - [[ai-ml/02-ml-engineer/05-deep-learning/01-neural-network-fundamentals|Neural Network Fundamentals]] — the building blocks

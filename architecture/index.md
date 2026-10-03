@@ -31,7 +31,7 @@ The reusable components every large system is assembled from.
 ### [[architecture/03-architectural-patterns/index|03 — Architectural Patterns]]
 How components are arranged into whole architectures.
 1. [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|Monolith / Microservices / Serverless]] — the big structural choice and when each fits
-2. [[architecture/03-architectural-patterns/02-resilience-patterns|Resilience Patterns]] — circuit breaker, bulkhead, retry, timeout, throttling — designing for failure
+2. [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience Patterns]] — circuit breaker, bulkhead, retry, timeout, throttling — designing for failure
 3. [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — CQRS, event sourcing, saga, materialized views, strangler fig
 4. [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices Patterns]] — service discovery, API gateway, sidecar/ambassador, BFF, leader election
 

@@ -44,7 +44,7 @@ The cost: the new components are **linear combinations** of original features, s
 
 ## Where these fit
 
-Unsupervised methods are often a *step* in a pipeline rather than the end: cluster to create segment labels, or PCA to compress features before feeding a supervised model. They're also central to the [[ai-ml/01-data-scientist/index|Data Scientist]] path's exploratory analysis. And the "compress to a meaningful lower-dimensional representation" idea reappears, learned rather than linear, in [[ai-ml/02-ml-engineer/08-other-architectures/01-autoencoders-and-gans|autoencoders]] and in [[ai-ml/03-ai-engineer/06-rag-and-embeddings|embeddings]].
+Unsupervised methods are often a *step* in a pipeline rather than the end: cluster to create segment labels, or PCA to compress features before feeding a supervised model. They're also central to the [[ai-ml/01-data-scientist/index|Data Scientist]] path's exploratory analysis. And the "compress to a meaningful lower-dimensional representation" idea reappears, learned rather than linear, in [[ai-ml/02-ml-engineer/08-other-architectures/01-autoencoders-and-gans|autoencoders]] and in [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|embeddings]].
 
 ## Related
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvectors, the basis of PCA

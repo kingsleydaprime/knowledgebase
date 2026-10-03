@@ -54,6 +54,8 @@ Some labs have a `live.ts` that calls a local model through Ollama. The runner n
 | [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|tools and MCP]] | `node live.ts` (4 questions, 2–3 calls each: lookups, a bad ID, the injected note, a declined refund) | about 8 minutes |
 | [[ai-ml/03-ai-engineer/08-agents/index\|agents]] | `node live.ts` (3 questions, agent and workflow each) | about 8 minutes |
 | [[ai-ml/03-ai-engineer/10-safety-and-production/index\|safety and production]] | `node live.ts` (the 8-case attack set, undefended and defended: 16 calls) | about 4 minutes |
+| [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|RAG and embeddings]] | `ollama pull nomic-embed-text`, then `node live.ts` (about 20 embeddings and 1 chat call) | about 3 minutes |
+| [[ai-ml/03-ai-engineer/09-multimodal/index\|multimodal]] | `node live.ts your-receipt.jpg` (1 vision call on a photo of your own) | about 2 minutes |
 
 ## The labs
 
@@ -71,6 +73,9 @@ Each lesson that has labs is a folder: `index.md` is the lesson, `in-other-langu
 | `tools-and-mcp` | [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|tools and MCP]] · [[ai-ml/03-ai-engineer/07-tools-and-mcp/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (orders in `shared/`; every MCP server is checked by the official client via `shared/conformance.sh`) |
 | `agents` | [[ai-ml/03-ai-engineer/08-agents/index\|agents]] · [[ai-ml/03-ai-engineer/08-agents/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's tools and evals labs) |
 | `safety-and-production` | [[ai-ml/03-ai-engineer/10-safety-and-production/index\|safety and production]] · [[ai-ml/03-ai-engineer/10-safety-and-production/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (attack set in `shared/`; each imports its language's tools and evals labs) |
+| `rag-and-embeddings` | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|RAG and embeddings]] | typescript (help centre and questions in `shared/`) |
+| `multimodal` | [[ai-ml/03-ai-engineer/09-multimodal/index\|multimodal]] | typescript (imports the structured-output lab) |
+| `resilience-patterns` | [[architecture/03-architectural-patterns/02-resilience-patterns/index\|resilience patterns]] | typescript |
 | `local-and-open-models` | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|local and open models]] | python |
 | `transactional-outbox` | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|transactional outbox]] | javascript |
 | `layers-controllers-services-repositories` | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index\|layers controllers services repositories]] · [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |

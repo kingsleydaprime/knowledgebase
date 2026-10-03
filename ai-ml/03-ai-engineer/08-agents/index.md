@@ -108,7 +108,7 @@ The lab's `scoreTrajectory` checks these and names each failure, in the style of
 
 **Short-term memory** is the history in the context window. In a long run it grows until it's slow, expensive or too big. The usual fixes are to drop old tool results once they've been used, or to replace older steps with a summary, keeping the opening instructions and the most recent steps intact. Keep the start of the history fixed where you can, so the [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|prompt cache]] still hits.
 
-**Long-term memory** is anything kept between runs: a user's preferences, facts learned earlier, what happened last time. The model keeps none of it. Your application writes it to a store, usually with embeddings so it can be searched ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]]), and puts the relevant parts back into the prompt next time. It helps to separate **episodic** memory (what happened) from **semantic** memory (facts that are true). Decide deliberately what gets written: a memory that an injected instruction managed to write is an injection that comes back in every future run.
+**Long-term memory** is anything kept between runs: a user's preferences, facts learned earlier, what happened last time. The model keeps none of it. Your application writes it to a store, usually with embeddings so it can be searched ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]]), and puts the relevant parts back into the prompt next time. It helps to separate **episodic** memory (what happened) from **semantic** memory (facts that are true). Decide deliberately what gets written: a memory that an injected instruction managed to write is an injection that comes back in every future run.
 
 ## 7. More than one agent
 
@@ -494,7 +494,7 @@ You can say when an agent is the wrong design and what to build instead, add the
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] — the loop and the controls on each call
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — golden sets and gates, which trajectory scoring extends
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — why long runs get expensive
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — the usual store for long-term memory
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — the usual store for long-term memory
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — injection, sandboxing, guardrails
 
 ## Seen in the wild

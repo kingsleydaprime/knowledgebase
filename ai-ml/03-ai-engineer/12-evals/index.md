@@ -105,7 +105,7 @@ The loop: **offline gate → ship → online signal → new golden cases → a t
 
 A whole-pipeline score hides *where* a failure came from.
 
-- **RAG** ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]]) splits into **retrieval** (was the right chunk fetched?) and **generation** (is the answer faithful to what was fetched, and does it answer the question?). A bad RAG answer is usually a retrieval miss that looks like a generation problem, so measure retrieval first.
+- **RAG** ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]]) splits into **retrieval** (was the right chunk fetched?) and **generation** (is the answer faithful to what was fetched, and does it answer the question?). A bad RAG answer is usually a retrieval miss that looks like a generation problem, so measure retrieval first.
 - **Agents** ([[ai-ml/03-ai-engineer/08-agents/index|agents]]): score the *trajectory* — the right tools, in a sensible order, without looping — as well as whether the task got done.
 
 ## Worked example — evaluating a ticket classifier
@@ -524,7 +524,7 @@ You can build a golden set with a labelling policy, choose a scorer, compare aga
 - [[ai-ml/03-ai-engineer/12-evals/in-other-languages|Evals in other languages]] — the same harness, baselines and judge checks in Python, Go, Java, Rust and C#
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — the first labelled set, and why you measure prompt changes
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — structural checks, the cheapest scorer
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — retrieval and generation metrics
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — retrieval and generation metrics
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — evals as one part of shipping safely
 - [[concepts/04-best-practices/04-testing-fundamentals/index|Testing fundamentals]] — the deterministic cousin of this discipline
 - [[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|ML evaluation metrics]] — precision, recall and the classical side

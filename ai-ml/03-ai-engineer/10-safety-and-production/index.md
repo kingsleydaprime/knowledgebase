@@ -91,7 +91,7 @@ Personal data leaks through more places than the prompt:
 ## 5. The rest of production, briefly
 
 - **Moderation.** Check user input and model output against your content policy with a moderation model or API before showing either.
-- **Hallucination.** Ground answers in retrieved sources with citations ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]), keep the feature's scope narrow, and let it say "I don't know".
+- **Hallucination.** Ground answers in retrieved sources with citations ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]]), keep the feature's scope narrow, and let it say "I don't know".
 - **Bias.** A model that influences decisions about people needs its errors checked across groups: tag your golden set's cases, and compare pass rates by tag.
 - **A way to turn it off.** A feature flag that switches the AI feature to its fallback ([[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]]) is your incident response when something goes wrong at 2 a.m.
 - **Evals, cost and observability** are the subjects of weeks 3 and 4: measure quality on every change, log every call, and watch cost and latency per request.

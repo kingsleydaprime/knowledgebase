@@ -29,7 +29,7 @@ Embeddings are learned as a byproduct of training (the input layer of any langua
 
 ## Why embeddings matter downstream
 
-Embeddings are the bridge from the modeling side to the applied side: they power **semantic search**, **clustering**, **classification**, and **recommendation** ([[ai-ml/02-ml-engineer/08-other-architectures/02-recommendation-systems|recsys]]) by turning "is this similar in meaning?" into "are these vectors close?" ([[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|cosine similarity]]). This is exactly the foundation the AI-engineer [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]] system is built on — same embeddings, put to work retrieving relevant context for an LLM.
+Embeddings are the bridge from the modeling side to the applied side: they power **semantic search**, **clustering**, **classification**, and **recommendation** ([[ai-ml/02-ml-engineer/08-other-architectures/02-recommendation-systems|recsys]]) by turning "is this similar in meaning?" into "are these vectors close?" ([[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|cosine similarity]]). This is exactly the foundation the AI-engineer [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]] system is built on — same embeddings, put to work retrieving relevant context for an LLM.
 
 ## Modern NLP
 
@@ -37,5 +37,5 @@ The field has largely collapsed into "use a pretrained [[ai-ml/02-ml-engineer/07
 
 ## Related
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers & Attention]] — what produces contextual embeddings
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — embeddings applied in production
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — embeddings applied in production
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — tokens in the applied view

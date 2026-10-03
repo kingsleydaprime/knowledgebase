@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/06-rag-and-embeddings/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["../shared/help.json", "../shared/questions.json", "chunk.ts", "search.ts", "rag.ts", "rag.test.ts", "live.ts"]
+}

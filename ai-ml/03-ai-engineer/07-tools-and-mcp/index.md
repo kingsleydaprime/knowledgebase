@@ -27,7 +27,7 @@ A librarian can't leave the front desk. When you ask a question they can't answe
 
 ## 1. Why this exists
 
-A customer asks: "Where is my refund for order A123?" A model on its own can't know; it will either say so or, worse, invent a plausible answer. Putting your help pages into the prompt ([[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]) doesn't help either, because the answer isn't in any document: it's a row in your database that changed this morning. **The model needs to look it up**, and it can't, because all it does is produce text. Tool calling gives it a way to ask your code to look it up, in a form your code can check before doing anything.
+A customer asks: "Where is my refund for order A123?" A model on its own can't know; it will either say so or, worse, invent a plausible answer. Putting your help pages into the prompt ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]]) doesn't help either, because the answer isn't in any document: it's a row in your database that changed this morning. **The model needs to look it up**, and it can't, because all it does is produce text. Tool calling gives it a way to ask your code to look it up, in a form your code can check before doing anything.
 
 ## Terms used in this lesson
 

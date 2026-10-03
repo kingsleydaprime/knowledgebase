@@ -3,7 +3,7 @@
 How the [[architecture/02-building-blocks/index|building blocks]] are arranged into whole-system architectures, and the patterns that make them resilient and evolvable. Part of the [[architecture/index|Architecture course]].
 
 1. [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|Monolith / Microservices / Serverless]] — **[Intermediate]** — the fundamental structural choice, and the honest tradeoffs (microservices are not a default)
-2. [[architecture/03-architectural-patterns/02-resilience-patterns|Resilience Patterns]] — **[Advanced]** — circuit breaker, bulkhead, retry, timeout, throttling — designing so partial failure stays partial
+2. [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience Patterns]] — **[Advanced]** — circuit breaker, bulkhead, retry, timeout, throttling — designing so partial failure stays partial
 3. [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — **[Advanced]** — CQRS, event sourcing, saga, materialized views, strangler fig
 4. [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices Patterns]] — **[Advanced]** — service discovery, API gateway/aggregation, sidecar/ambassador, backends-for-frontends, leader election
 5. [[architecture/03-architectural-patterns/05-transactional-outbox/index|Transactional Outbox]] — **[Intermediate→Advanced]** — saving a change *and* announcing it without a dual write: lost vs phantom events, the outbox table and relay, at-least-once delivery, idempotent consumers. **With a lab that crashes at the worst moments**

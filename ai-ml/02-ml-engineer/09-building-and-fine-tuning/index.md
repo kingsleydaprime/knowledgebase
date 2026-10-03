@@ -10,4 +10,4 @@ Putting it together: designing a model rather than reusing one, deciding when to
 ## Related
 - [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]] — the building blocks
 - [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] — shipping what you've built
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG vs Fine-Tuning (AI-engineer)]] — the applied decision this informs
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG vs Fine-Tuning (AI-engineer)]] — the applied decision this informs

@@ -36,7 +36,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 
 - **DSA — linked lists:** 037 reorder list · 038 remove Nth node from end · 041 linked list cycle · 042 find the duplicate number · 043 LRU cache. Refresh: [[dsa/04-patterns/04-fast-slow-pointers|fast and slow pointers]] · [[dsa/04-patterns/05-linked-list-reversal|linked list reversal]].
 - **Learn (core):** [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]] · [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt engineering]]
-- **Learn (optional):** [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — **core instead** if the flagship's feature retrieves documents
+- **Learn (optional):** [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — **core instead** if the flagship's feature retrieves documents
 - **Build:** the feature returns schema-validated output, and the prompt lives in version control as a file, not a string in the code.
 - **Apply:** Friday hour.
 - **By Sunday:** the AI feature works end to end in production.
@@ -53,7 +53,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 
 - **DSA — intervals and greedy:** 128 partition labels · 130 insert interval · 131 merge intervals · 132 non-overlapping intervals · 134 meeting rooms II. Refresh: [[dsa/04-patterns/08-overlapping-intervals|overlapping intervals]].
 - **Learn (core):** [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost, caching and latency]]
-- **Learn (optional):** [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
+- **Learn (optional):** [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 - **Build:** the evals run in CI and fail the build below a threshold. Add timeouts, a retry with backoff, and per-request cost and latency logging.
 - **Apply:** Friday hour.
 - **By Sunday:** **the evals harness runs in CI, with numbers you can quote.**
@@ -62,7 +62,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 
 - **DSA — dynamic programming I (one dimension):** 101 house robber · 102 house robber II · 106 coin change · 108 word break · 109 longest increasing subsequence. Refresh: [[dsa/04-patterns/15-dynamic-programming|dynamic programming]].
 - **Learn (core):** [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools and MCP]] · [[ai-ml/03-ai-engineer/08-agents/index|agents]]
-- **Learn (optional):** [[ai-ml/03-ai-engineer/09-multimodal|multimodal]]
+- **Learn (optional):** [[ai-ml/03-ai-engineer/09-multimodal/index|multimodal]]
 - **Build:** only if the feature genuinely needs a tool call — otherwise, use the week to raise the eval pass rate and record what changed it.
 - **Apply:** Friday hour.
 - **By Sunday:** closed-book — *when is an agent the wrong architecture?*

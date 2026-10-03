@@ -33,5 +33,5 @@ A subtle, important issue: recommenders **shape the behavior they then learn fro
 
 ## Related
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/03-nlp-and-embeddings|NLP & Embeddings]] — the embedding idea recommenders rely on
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — the same similarity-search machinery, applied
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — the same similarity-search machinery, applied
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|Serving & Operations]] — A/B testing and feedback loops

@@ -135,7 +135,7 @@ Then: redirect uses **301 vs 302** — and this is a real tradeoff worth naming:
 - **Graceful degradation** — serve stale cache or a reduced feature set rather than an error.
 - **Backpressure** — reject work you can't handle instead of queueing forever. A queue that grows without bound is just a slower way to fail.
 
-**The framing that lands:** the goal isn't preventing failure, it's **containing the blast radius**. Then mention testing it — chaos engineering, or at minimum a game day. → [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
+**The framing that lands:** the goal isn't preventing failure, it's **containing the blast radius**. Then mention testing it — chaos engineering, or at minimum a game day. → [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 
 ---
 

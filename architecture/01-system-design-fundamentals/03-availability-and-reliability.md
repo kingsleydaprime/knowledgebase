@@ -40,7 +40,7 @@ The core principle: **eliminate single points of failure through redundancy.** I
   - **Active-passive (failover)** — a standby takes over when the primary fails; simpler but the standby sits idle.
 - **Failover** — detecting a failure and switching to a backup. The hard parts are *fast, correct* detection (health checks — [[architecture/03-architectural-patterns/04-microservices-patterns|health monitoring]]) and avoiding **split-brain** (two nodes both think they're primary — a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] problem).
 - **Geographic distribution** — spread across availability zones/regions ([[devops/03-cloud/01-cloud-fundamentals|cloud regions/AZs]]) so a data-center outage doesn't take you down.
-- **Graceful degradation** — when a dependency fails, serve a reduced experience (stale cache, a default) instead of an error ([[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]). The site stays up with less functionality.
+- **Graceful degradation** — when a dependency fails, serve a reduced experience (stale cache, a default) instead of an error ([[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]). The site stays up with less functionality.
 
 ## Reliability: don't lose data
 
@@ -52,9 +52,9 @@ Availability keeps you serving; reliability keeps the data correct:
 
 ## The mindset
 
-The core shift for reliability engineering: **assume everything fails** — disks, networks, machines, whole data centers — and design so that failure is *contained and survivable* rather than catastrophic. This is the same "design for failure" instinct behind the [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]] and the entire [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|distributed-systems]] discipline.
+The core shift for reliability engineering: **assume everything fails** — disks, networks, machines, whole data centers — and design so that failure is *contained and survivable* rather than catastrophic. This is the same "design for failure" instinct behind the [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]] and the entire [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|distributed-systems]] discipline.
 
 ## Related
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the availability-vs-consistency tradeoff
-- [[architecture/03-architectural-patterns/02-resilience-patterns|Resilience Patterns]] — designing for graceful failure
+- [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience Patterns]] — designing for graceful failure
 - [[devops/10-observability/index|Observability (devops)]] — measuring and alerting on availability

@@ -137,7 +137,7 @@ Measured from OpenClaw's own log: its prompt was **8,786 tokens with no messages
 
 **Hugging Face** is the hub: each open model in several formats and quantisations, with licences that vary and matter — "open weights" is not automatically "free for commercial use". Ollama's library re-packages popular models as ready-to-run tags such as `qwen3.5:4b`.
 
-An OpenAI-compatible local endpoint means **almost nothing else changes**: [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]], [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]], [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tool calling]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings|retrieval]] and [[ai-ml/03-ai-engineer/12-evals/index|evals]] all work the same way, pointed at your own server. An [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|AI gateway]] then makes hosted ↔ local a configuration change, including falling back between them.
+An OpenAI-compatible local endpoint means **almost nothing else changes**: [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]], [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]], [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tool calling]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|retrieval]] and [[ai-ml/03-ai-engineer/12-evals/index|evals]] all work the same way, pointed at your own server. An [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|AI gateway]] then makes hosted ↔ local a configuration change, including falling back between them.
 
 ## Worked example — sizing and measuring
 
