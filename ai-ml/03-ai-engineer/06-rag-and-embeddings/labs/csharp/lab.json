@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/06-rag-and-embeddings/in-other-languages.md",
+  "run": [["sh", "-c", "podman run --rm -v \"$PWD/..\":/labs:Z -w /labs/csharp mcr.microsoft.com/dotnet/sdk:10.0 sh check.sh"]],
+  "embedded": ["Rag/Rag.cs", "Rag/Program.cs"]
+}

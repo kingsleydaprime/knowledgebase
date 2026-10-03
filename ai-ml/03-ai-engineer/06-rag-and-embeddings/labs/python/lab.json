@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/06-rag-and-embeddings/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "--with", "numpy>=2,<3", "--with", "rank-bm25>=0.2.2,<0.3", "python", "-m", "unittest"]],
+  "embedded": ["rag.py", "test_rag.py"]
+}
