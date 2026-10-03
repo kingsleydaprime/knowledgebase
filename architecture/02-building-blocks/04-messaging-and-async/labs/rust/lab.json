@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/02-building-blocks/04-messaging-and-async/in-other-languages.md",
+  "run": [["cargo", "fmt", "--check"], ["cargo", "clippy", "--quiet", "--all-targets", "--", "-D", "warnings"], ["cargo", "test", "--quiet"]],
+  "embedded": ["src/lib.rs"]
+}

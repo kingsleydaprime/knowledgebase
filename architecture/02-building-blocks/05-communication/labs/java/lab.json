@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/02-building-blocks/05-communication/in-other-languages.md",
+  "run": [["sh", "check.sh"]],
+  "embedded": ["src/communication/Communication.java", "src/communication/CommunicationCheck.java"]
+}

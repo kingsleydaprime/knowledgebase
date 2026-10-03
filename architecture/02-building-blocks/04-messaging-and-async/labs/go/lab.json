@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/02-building-blocks/04-messaging-and-async/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "-race", "./..."]],
+  "embedded": ["broker.go", "broker_test.go"]
+}
