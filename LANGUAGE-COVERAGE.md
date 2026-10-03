@@ -10,7 +10,7 @@
 
 <!-- COVERAGE:START -->
 
-**22 of 362 single-language lessons have a companion.**
+**25 of 362 single-language lessons have a companion.**
 
 By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · databases 3 · compilers 3 · digital-signal-processing 3 · architecture 2 · desktop 2 · game-development 2 · programming-language-theory 2 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
 
@@ -43,10 +43,10 @@ By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · ho
 | SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|architecture/03-architectural-patterns/05-transactional-outbox/index]] | TS/JS | — |
 | SWE 101 optional | [[concepts/03-design-patterns/01-creational-patterns/index\|concepts/03-design-patterns/01-creational-patterns/index]] | TS/JS | — |
 | SWE 101 optional | [[concepts/04-best-practices/01-clean-code/index\|concepts/04-best-practices/01-clean-code/index]] | TS/JS | — |
-| SWE 102 optional | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|ai-ml/03-ai-engineer/06-rag-and-embeddings/index]] | TS/JS | — |
-| SWE 102 optional | [[ai-ml/03-ai-engineer/09-multimodal/index\|ai-ml/03-ai-engineer/09-multimodal/index]] | TS/JS | — |
+| SWE 102 optional | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|ai-ml/03-ai-engineer/06-rag-and-embeddings/index]] | TS/JS | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/in-other-languages\|✅]] |
+| SWE 102 optional | [[ai-ml/03-ai-engineer/09-multimodal/index\|ai-ml/03-ai-engineer/09-multimodal/index]] | TS/JS | [[ai-ml/03-ai-engineer/09-multimodal/in-other-languages\|✅]] |
 | SWE 102 optional | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|ai-ml/03-ai-engineer/16-local-and-open-models/index]] | Python | — |
-| SWE 102 optional | [[architecture/03-architectural-patterns/02-resilience-patterns/index\|architecture/03-architectural-patterns/02-resilience-patterns/index]] | TS/JS | — |
+| SWE 102 optional | [[architecture/03-architectural-patterns/02-resilience-patterns/index\|architecture/03-architectural-patterns/02-resilience-patterns/index]] | TS/JS | [[architecture/03-architectural-patterns/02-resilience-patterns/in-other-languages\|✅]] |
 | SWE 103 optional | [[backend/05-auth/02-authorization\|backend/05-auth/02-authorization]] | TS/JS | — |
 | SWE 103 optional | [[cybersecurity/05-cryptography/03-hashing-and-integrity\|cybersecurity/05-cryptography/03-hashing-and-integrity]] | Python | — |
 | SWE 103 optional | [[cybersecurity/05-cryptography/05-digital-signatures-and-pki\|cybersecurity/05-cryptography/05-digital-signatures-and-pki]] | Python | — |

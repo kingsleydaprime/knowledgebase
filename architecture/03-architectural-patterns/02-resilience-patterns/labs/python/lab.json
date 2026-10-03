@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/03-architectural-patterns/02-resilience-patterns/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "python", "-m", "unittest"]],
+  "embedded": ["resilience.py", "test_resilience.py"]
+}

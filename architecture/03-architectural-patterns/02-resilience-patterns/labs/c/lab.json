@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/03-architectural-patterns/02-resilience-patterns/in-other-languages.md",
+  "run": [["sh", "check.sh"]],
+  "embedded": ["resilience.c"]
+}
