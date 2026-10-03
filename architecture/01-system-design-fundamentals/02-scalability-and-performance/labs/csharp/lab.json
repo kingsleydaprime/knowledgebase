@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/01-system-design-fundamentals/02-scalability-and-performance/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Scaling/Scaling.cs", "Scaling/Program.cs"]
+}

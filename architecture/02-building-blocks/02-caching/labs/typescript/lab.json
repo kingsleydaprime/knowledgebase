@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/02-building-blocks/02-caching/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["cache.ts", "cache.test.ts"]
+}

@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/02-building-blocks/01-load-balancing-and-proxies/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Balancing/Balancing.cs", "Balancing/Program.cs"]
+}

@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/01-system-design-fundamentals/02-scalability-and-performance/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "./..."]],
+  "embedded": ["scaling.go", "scaling_test.go"]
+}

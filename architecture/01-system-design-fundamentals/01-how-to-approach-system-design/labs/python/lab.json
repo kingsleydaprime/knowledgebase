@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/01-system-design-fundamentals/01-how-to-approach-system-design/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "python", "-m", "unittest"]],
+  "embedded": ["approach.py", "test_approach.py"]
+}

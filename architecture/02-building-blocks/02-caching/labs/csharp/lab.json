@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/02-building-blocks/02-caching/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Caching/Caching.cs", "Caching/Program.cs"]
+}

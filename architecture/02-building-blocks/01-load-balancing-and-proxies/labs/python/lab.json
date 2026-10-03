@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/02-building-blocks/01-load-balancing-and-proxies/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "python", "-m", "unittest"]],
+  "embedded": ["balancer.py", "test_balancer.py"]
+}

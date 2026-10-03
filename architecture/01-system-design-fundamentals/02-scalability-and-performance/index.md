@@ -124,12 +124,12 @@ There are two ways to handle more load:
 | | Vertical (scale up) | Horizontal (scale out) |
 |---|---|---|
 | How | a bigger machine (more processors and memory) | more machines |
-| Simplicity | simple: no code changes, no distribution | complex: needs [[architecture/02-building-blocks/01-load-balancing-and-proxies\|load balancing]], stateless servers, [[architecture/04-distributed-systems/index\|distributed-systems]] concerns |
+| Simplicity | simple: no code changes, no distribution | complex: needs [[architecture/02-building-blocks/01-load-balancing-and-proxies/index\|load balancing]], stateless servers, [[architecture/04-distributed-systems/index\|distributed-systems]] concerns |
 | Ceiling | a hard limit: the biggest machine you can buy | much higher, but not unlimited (below) |
 | Failure | a single point of failure | survives losing a machine |
 | Cost | expensive at the top end | commodity hardware, but more of it |
 
-**Start vertical**, because it's simpler and modern machines are huge; don't distribute before you must. **Scale horizontally when you hit the ceiling or need to survive a machine failing.** Horizontal scaling needs statelessness: application servers hold no per-user state, so any server can serve any request, and state lives in a shared [[architecture/02-building-blocks/03-databases-at-scale|database]] or [[architecture/02-building-blocks/02-caching|cache]].
+**Start vertical**, because it's simpler and modern machines are huge; don't distribute before you must. **Scale horizontally when you hit the ceiling or need to survive a machine failing.** Horizontal scaling needs statelessness: application servers hold no per-user state, so any server can serve any request, and state lives in a shared [[architecture/02-building-blocks/03-databases-at-scale|database]] or [[architecture/02-building-blocks/02-caching/index|cache]].
 
 ### Why adding machines has a ceiling
 
@@ -149,11 +149,11 @@ With 5% contention and 0.1% coherence cost, capacity peaks at about $\sqrt{(1 - 
 
 When one server isn't enough, these are the standard moves, each with its own lesson:
 
-1. **Add a [[architecture/02-building-blocks/01-load-balancing-and-proxies|load balancer]]** and more stateless app servers, to scale compute horizontally.
-2. **[[architecture/02-building-blocks/02-caching|Cache]]** hot data to take reads off the database, which is usually the first bottleneck.
+1. **Add a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancer]]** and more stateless app servers, to scale compute horizontally.
+2. **[[architecture/02-building-blocks/02-caching/index|Cache]]** hot data to take reads off the database, which is usually the first bottleneck.
 3. **[[architecture/02-building-blocks/03-databases-at-scale|Scale the database]]**: read replicas for read-heavy load, sharding for write-heavy load.
 4. **[[architecture/02-building-blocks/04-messaging-and-async|Go asynchronous]]**: move slow work to a queue so requests return quickly.
-5. **Use a [[architecture/02-building-blocks/01-load-balancing-and-proxies|CDN]]** to serve static content from near users.
+5. **Use a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|CDN]]** to serve static content from near users.
 
 ## 7. Runnable example: the numbers behind this lesson
 
@@ -376,7 +376,7 @@ You can tell a performance problem from a scalability problem, read a latency di
 
 **Recap.** Performance is speed for one request; scalability is keeping that speed as load grows. Compare latency at light and heavy load to tell them apart. Latency is a distribution: report p50, p95 and p99, never only the average. Waiting grows as work ÷ (1 − utilisation), slowly and then suddenly, so leave headroom. A system's throughput is its slowest stage's, so find that stage before scaling. Start vertical, scale out with stateless servers, and remember that work which can't be split, contention and coherence put a ceiling on adding machines. Scaling is finding the current bottleneck and relieving it, again and again, guided by measurements.
 
-**Next.** [[architecture/02-building-blocks/02-caching|Caching]] and [[architecture/02-building-blocks/01-load-balancing-and-proxies|load balancing]] in week 2: the first two moves in the scaling toolkit, and where they put new bottlenecks.
+**Next.** [[architecture/02-building-blocks/02-caching/index|Caching]] and [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancing]] in week 2: the first two moves in the scaling toolkit, and where they put new bottlenecks.
 
 ## Related
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|How to approach system design]] — where finding bottlenecks fits in a design

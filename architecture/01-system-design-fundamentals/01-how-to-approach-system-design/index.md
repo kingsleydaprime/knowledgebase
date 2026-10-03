@@ -76,7 +76,7 @@ Then say which number matters. Usually one of them decides the design, and the r
 
 ### Step 3: High-level design
 
-Draw the big boxes and how requests flow through them: client → [[architecture/02-building-blocks/01-load-balancing-and-proxies|load balancer]] → application servers → [[architecture/02-building-blocks/02-caching|cache]] and [[architecture/02-building-blocks/03-databases-at-scale|database]], plus [[architecture/02-building-blocks/04-messaging-and-async|queues]] for slow work. Write the main API calls and the data model. Get the *shape* right before optimising any piece; the deep dive needs something to attach to.
+Draw the big boxes and how requests flow through them: client → [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancer]] → application servers → [[architecture/02-building-blocks/02-caching/index|cache]] and [[architecture/02-building-blocks/03-databases-at-scale|database]], plus [[architecture/02-building-blocks/04-messaging-and-async|queues]] for slow work. Write the main API calls and the data model. Get the *shape* right before optimising any piece; the deep dive needs something to attach to.
 
 ### Step 4: Deep dive
 
@@ -84,7 +84,7 @@ Zoom into the one or two components that are hardest or most important for *this
 
 ### Step 5: Bottlenecks and tradeoffs
 
-Find the single points of failure, the hot paths and the scaling limits, and address them with [[architecture/01-system-design-fundamentals/03-availability-and-reliability|redundancy]], [[architecture/02-building-blocks/02-caching|caching]] or [[architecture/02-building-blocks/03-databases-at-scale|replication]]. Above all, **say the tradeoffs out loud**: "I'm choosing eventual consistency here to stay available, which means a user might briefly see a stale count. That's fine for likes, not for an account balance." There is no perfect design, only tradeoffs you chose on purpose and ones that surprised you later.
+Find the single points of failure, the hot paths and the scaling limits, and address them with [[architecture/01-system-design-fundamentals/03-availability-and-reliability|redundancy]], [[architecture/02-building-blocks/02-caching/index|caching]] or [[architecture/02-building-blocks/03-databases-at-scale|replication]]. Above all, **say the tradeoffs out loud**: "I'm choosing eventual consistency here to stay available, which means a user might briefly see a stale count. That's fine for likes, not for an account balance." There is no perfect design, only tradeoffs you chose on purpose and ones that surprised you later.
 
 ## 3. Worked example: a game leaderboard, start to finish
 
