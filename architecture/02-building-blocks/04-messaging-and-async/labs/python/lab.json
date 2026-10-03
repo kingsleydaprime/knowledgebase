@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/02-building-blocks/04-messaging-and-async/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "python", "-m", "unittest"]],
+  "embedded": ["broker.py", "test_broker.py"]
+}
