@@ -1,6 +1,6 @@
 # Communication
 
-> **[Intermediate]** · From the roadmap.sh system-design roadmap. How the pieces of a system talk to each other and to their clients, and what each style costs. This lesson counts those costs for one screen: requests, round trips and bytes with REST and with GraphQL; the N+1 queries a naive GraphQL server makes and the batching that fixes them; how gRPC's Protocol Buffers fit a message in a third of JSON's bytes; what calling services in a chain does to availability and latency; and the options for pushing updates in real time. The worked example chooses a style for each of the shop's connections. The lab checks every number.
+> **[Intermediate]** · From the roadmap.sh system-design roadmap. How the pieces of a system talk to each other and to their clients, and what each style costs. This lesson counts those costs for one screen: requests, round trips and bytes with REST and with GraphQL; the N+1 queries a naive GraphQL server makes and the batching that fixes them; how gRPC's Protocol Buffers fit a message in a third of JSON's bytes; what calling services in a chain does to availability and latency; and the options for pushing updates in real time. The worked example chooses a style for each of the shop's connections. The first lab checks every number; the second runs a real gRPC server and client, built from a `.proto` schema.
 
 ## Before you start
 
@@ -16,8 +16,9 @@ After this lesson you will be able to:
 2. Explain the N+1 problem in a GraphQL server, and how batching turns 41 queries into 3.
 3. Encode a small message in Protocol Buffers by hand, and say why it's smaller than JSON.
 4. Work out the availability and latency of a chain of synchronous calls, and choose between polling, server-sent events and WebSockets for live updates.
+5. Write a `.proto` schema, serve it with gRPC, and call it with a deadline, handling its status codes and a server stream.
 
-**Study route:** sections 1–3 set up the costs. Stop at the predictions in sections 3, 4 and 5 and try them before reading on. Section 10 is the worked example and section 11 the lab. Sections 8 and 9 are shorter and can be read on their own.
+**Study route:** sections 1–3 set up the costs. Stop at the predictions in sections 3, 4 and 5 and try them before reading on. Section 10 is the worked example, section 11 the lab, and section 12 the hands-on gRPC lab. Sections 8 and 9 are shorter and can be read on their own.
 
 ## The kid version
 
@@ -462,6 +463,200 @@ test("a synchronous chain: availabilities multiply and latencies add up", () => 
 
 **Lab:** the code is in [`architecture/02-building-blocks/05-communication/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/02-building-blocks/05-communication/labs/typescript). From the vault root, `python3 labs/run.py communication/typescript` runs the tests and checks this page still shows the same code. Inside the folder, `node --test` runs the tests alone. Expect six passing tests in well under a second.
 
+## 12. Hands-on gRPC: a real server and client
+
+Section 5 encoded protobuf by hand. Here the same `OrderSummary` goes through a real gRPC server and client, on a local port, with Node's `@grpc/grpc-js`. Everything starts from the contract:
+
+```protobuf
+// shop.proto — the contract. Client and server are both built from this file, so they can't disagree about it.
+syntax = "proto3";
+
+package shop.v1;
+
+service Orders {
+  // Unary: one request, one response.
+  rpc GetSummary(GetSummaryRequest) returns (OrderSummary);
+  // Server streaming: one request, then a stream of responses until the server is done.
+  rpc WatchOrder(WatchOrderRequest) returns (stream OrderEvent);
+}
+
+message GetSummaryRequest {
+  uint32 id = 1;
+}
+
+// The same message the communication lesson encodes by hand.
+message OrderSummary {
+  uint32 id = 1;
+  string customer = 2;
+  uint32 total_pence = 3;
+}
+
+message WatchOrderRequest {
+  uint32 id = 1;
+}
+
+message OrderEvent {
+  uint32 id = 1;
+  string status = 2;
+}
+```
+
+Three things in it are new compared with REST:
+
+1. **The service is part of the schema.** `rpc GetSummary(GetSummaryRequest) returns (OrderSummary)` says exactly what goes in and what comes out. Both sides load this file, so a renamed or retyped field is caught when the code is built or loaded, not discovered in production.
+2. **`stream` in a return type** makes it a server stream: one request, then any number of responses until the server ends the call. gRPC also has client streaming and bidirectional streaming, written with `stream` on the request side.
+3. **`package shop.v1`** puts a version in the name, so a breaking change can live beside the old one as `shop.v2`.
+
+The server and client:
+
+```ts
+// server.ts — a real gRPC server and client for shop.proto, on a local port. proto-loader reads the .proto at run
+// time; the alternative is to generate typed code from it ahead of time (protobuf-es, ts-proto), which most
+// production services do.
+import * as grpc from "@grpc/grpc-js";
+import * as protoLoader from "@grpc/proto-loader";
+
+const definition = protoLoader.loadSync(new URL("./shop.proto", import.meta.url).pathname, {
+  longs: Number, // uint32 fits in a JavaScript number; 64-bit fields would need care
+  defaults: true, // a field the sender left out reads as its zero value, as proto3 specifies
+});
+const shop = grpc.loadPackageDefinition(definition).shop as any;
+
+const ORDERS = new Map([[1, { id: 1, customer: "Gbenga Ali", totalPence: 8996 }]]);
+
+/** Starts the Orders service on a free port. `delayMs` makes GetSummary slow, to test deadlines. */
+export async function startServer(options: { delayMs?: number } = {}) {
+  const server = new grpc.Server();
+  const seen = { cancelled: 0 }; // calls the server noticed the client had given up on
+  server.addService(shop.v1.Orders.service, {
+    async GetSummary(call: grpc.ServerUnaryCall<{ id: number }, unknown>, reply: grpc.sendUnaryData<unknown>) {
+      if (options.delayMs) await new Promise((r) => setTimeout(r, options.delayMs));
+      if (call.cancelled) {
+        seen.cancelled++; // the client's deadline passed: don't do work nobody will read
+        return;
+      }
+      const order = ORDERS.get(call.request.id);
+      if (!order) return reply({ code: grpc.status.NOT_FOUND, details: `no order ${call.request.id}` });
+      reply(null, order);
+    },
+    WatchOrder(call: grpc.ServerWritableStream<{ id: number }, unknown>) {
+      for (const status of ["created", "paid", "shipped"]) call.write({ id: call.request.id, status });
+      call.end();
+    },
+  });
+  const port = await new Promise<number>((resolve, reject) =>
+    server.bindAsync("127.0.0.1:0", grpc.ServerCredentials.createInsecure(), (err, p) => (err ? reject(err) : resolve(p))),
+  );
+  return { port, seen, stop: () => new Promise<void>((resolve) => server.tryShutdown(() => resolve())) };
+}
+
+/** A client for the same service. Insecure (no TLS) because it only ever talks to 127.0.0.1 in this lab. */
+export function connect(port: number) {
+  const client = new shop.v1.Orders(`127.0.0.1:${port}`, grpc.credentials.createInsecure());
+  return {
+    /** A unary call with a deadline: the moment after which the client stops waiting, and tells the server so. */
+    getSummary(id: number, deadlineMs = 1_000): Promise<{ id: number; customer: string; totalPence: number }> {
+      return new Promise((resolve, reject) =>
+        client.GetSummary({ id }, { deadline: Date.now() + deadlineMs }, (err: grpc.ServiceError | null, res: any) => (err ? reject(err) : resolve(res))),
+      );
+    },
+    /** A server stream, collected into a list. */
+    watchOrder(id: number): Promise<string[]> {
+      return new Promise((resolve, reject) => {
+        const statuses: string[] = [];
+        client.WatchOrder({ id }).on("data", (e: { status: string }) => statuses.push(e.status)).on("end", () => resolve(statuses)).on("error", reject);
+      });
+    },
+    close: () => client.close(),
+  };
+}
+```
+
+Two habits from that code matter in every gRPC service:
+
+- **Every call gets a deadline.** A deadline isn't a timeout counted separately on each side. It's an absolute moment sent with the request, so every service the call passes through knows how long is left. When it passes, the client gets `DEADLINE_EXCEEDED`, and the server's `call.cancelled` turns true, so a well-behaved handler stops working on an answer nobody will read. Without a deadline, a slow dependency holds the call open indefinitely: the cascade from [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]].
+- **Errors are status codes, not HTTP numbers.** gRPC has its own set: `NOT_FOUND`, `INVALID_ARGUMENT`, `DEADLINE_EXCEEDED`, `UNAVAILABLE` (safe to retry), `PERMISSION_DENIED`, and so on, each with a details string. Return the most specific one; clients decide whether to retry from the code.
+
+**Predict before reading on.** The `OrderSummary` schema gains a fourth field, `string currency = 4`. An old client, still built from the three-field schema, receives a message from the new server. What happens? And what does a new client see in `currency` when it reads a message from an old server?
+
+<details>
+<summary>After your prediction</summary>
+
+The old client **skips field 4** and reads the other three normally, with no error: an unknown field number is simply passed over, because every field carries its wire type and length. The new client reads `currency` as **`""`**, the zero value, because proto3 doesn't distinguish "absent" from "empty". That's why adding fields is safe and renumbering or reusing them isn't, and why a field whose absence matters needs `optional` in its definition. The lab's last test checks both directions. It also checks that a message whose fields are all zero values encodes to **0 bytes**, and that the real encoder produces exactly the 17 bytes section 5 worked out by hand.
+
+</details>
+
+```ts
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import * as grpc from "@grpc/grpc-js";
+import protobuf from "protobufjs";
+import { connect, startServer } from "./server.ts";
+import { encodeOrderSummary } from "../typescript/communication.ts";
+
+test("a unary call: one request, one typed response", async () => {
+  const server = await startServer();
+  const client = connect(server.port);
+  assert.deepEqual(await client.getSummary(1), { id: 1, customer: "Gbenga Ali", totalPence: 8996 });
+  client.close();
+  await server.stop();
+});
+
+test("errors are status codes, not HTTP numbers: NOT_FOUND with details", async () => {
+  const server = await startServer();
+  const client = connect(server.port);
+  await assert.rejects(client.getSummary(404), (err: grpc.ServiceError) => {
+    assert.equal(err.code, grpc.status.NOT_FOUND);
+    assert.equal(err.details, "no order 404");
+    return true;
+  });
+  client.close();
+  await server.stop();
+});
+
+test("a deadline: the client stops waiting, and the server learns the call was cancelled", async () => {
+  const server = await startServer({ delayMs: 200 });
+  const client = connect(server.port);
+  await assert.rejects(client.getSummary(1, 50), (err: grpc.ServiceError) => err.code === grpc.status.DEADLINE_EXCEEDED);
+  await new Promise((r) => setTimeout(r, 250)); // let the slow handler finish its wait
+  assert.equal(server.seen.cancelled, 1); // it checked, and skipped the work
+  client.close();
+  await server.stop();
+});
+
+test("a server stream: one request, several responses in order", async () => {
+  const server = await startServer();
+  const client = connect(server.port);
+  assert.deepEqual(await client.watchOrder(1), ["created", "paid", "shipped"]);
+  client.close();
+  await server.stop();
+});
+
+test("the bytes on the wire are exactly the ones the lesson encodes by hand", async () => {
+  const root = await protobuf.load(new URL("./shop.proto", import.meta.url).pathname);
+  const OrderSummary = root.lookupType("shop.v1.OrderSummary");
+  const wire = OrderSummary.encode({ id: 1, customer: "Gbenga Ali", totalPence: 8996 }).finish();
+  assert.deepEqual([...wire], encodeOrderSummary({ id: 1, customer: "Gbenga Ali", totalPence: 8996 }));
+  assert.equal(wire.length, 17);
+  // proto3 doesn't send fields at their zero value: an empty summary is zero bytes.
+  assert.equal(OrderSummary.encode({ id: 0, customer: "", totalPence: 0 }).finish().length, 0);
+});
+
+test("adding a field: old readers skip it, new readers see a default for old messages", () => {
+  const v1 = protobuf.parse(`syntax = "proto3"; message OrderSummary { uint32 id = 1; string customer = 2; uint32 total_pence = 3; }`).root.lookupType("OrderSummary");
+  const v2 = protobuf.parse(`syntax = "proto3"; message OrderSummary { uint32 id = 1; string customer = 2; uint32 total_pence = 3; string currency = 4; }`).root.lookupType("OrderSummary");
+  const fromNew = v2.encode({ id: 1, customer: "Gbenga Ali", totalPence: 8996, currency: "GBP" }).finish();
+  const oldReads = v1.toObject(v1.decode(fromNew));
+  assert.deepEqual(oldReads, { id: 1, customer: "Gbenga Ali", totalPence: 8996 }); // field 4 is skipped, no error
+  const fromOld = v1.encode({ id: 1, customer: "Gbenga Ali", totalPence: 8996 }).finish();
+  assert.equal(v2.toObject(v2.decode(fromOld), { defaults: true }).currency, ""); // missing: the zero value
+});
+```
+
+**Lab:** the code is in [`architecture/02-building-blocks/05-communication/labs/grpc/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/02-building-blocks/05-communication/labs/grpc). From the vault root, `python3 labs/run.py communication/grpc` installs the three packages on the first run (`npm ci`), starts a server on a free local port for each test, and checks this page still shows the same code. Expect six passing tests in under a second; the deadline test waits about a quarter of a second on purpose.
+
+To go further on your own: add a client-streaming `rpc AddItems(stream AddItemRequest) returns (OrderSummary)`, and add an interceptor that reads a `x-request-id` from the call's metadata (gRPC's headers) and logs it. In production you'd also generate typed client and server code from the `.proto` with `buf` and protobuf-es or ts-proto, rather than loading it at run time.
+
 ## Common pitfalls
 
 1. **Sequential requests that could go together.** A screen that waits for each REST call in turn pays a round trip per call. Send independent requests at once.
@@ -471,6 +666,7 @@ test("a synchronous chain: availabilities multiply and latencies add up", () => 
 5. **Long synchronous chains.** Availability multiplies down and latency adds up. Parallelise, cache, or make it a message.
 6. **WebSockets where server-sent events would do.** Two-way connections cost more to run and scale. Use them when the client really sends too.
 7. **Renumbering protobuf fields.** The number *is* the field on the wire. Never reuse or change one; add new numbers instead.
+8. **gRPC calls without a deadline.** A slow dependency then holds every caller open. Set one on every call, and check for cancellation in long handlers.
 
 ## Check your understanding
 
@@ -524,9 +720,9 @@ test("a synchronous chain: availabilities multiply and latencies add up", () => 
 
 ## Before moving on
 
-You can count a screen's requests, round trips and bytes, explain and fix the N+1 problem, encode a protobuf message by hand, work out what a synchronous chain does to availability and latency, and choose a way to push updates.
+You can count a screen's requests, round trips and bytes, explain and fix the N+1 problem, encode a protobuf message by hand and serve it over real gRPC with deadlines and status codes, work out what a synchronous chain does to availability and latency, and choose a way to push updates.
 
-**Recap.** REST is simple, universal and cacheable, but screens over-fetch and under-fetch: the order page took five requests, two round trips and 912 bytes to show 203. GraphQL lets the client ask for exactly that in one round trip, but moves the work to the server, where naive resolvers make N+1 queries; DataLoaders batch them, here from 41 down to 3. gRPC sends numbered fields as varints over HTTP/2, so the summary is 17 bytes instead of 50, with typed code generated on both sides; it suits internal calls, not browsers. Synchronous chains multiply availability and add latency, so parallelise or use messages. For live updates, use polling, then server-sent events, then WebSockets, in that order of cost.
+**Recap.** REST is simple, universal and cacheable, but screens over-fetch and under-fetch: the order page took five requests, two round trips and 912 bytes to show 203. GraphQL lets the client ask for exactly that in one round trip, but moves the work to the server, where naive resolvers make N+1 queries; DataLoaders batch them, here from 41 down to 3. gRPC sends numbered fields as varints over HTTP/2, so the summary is 17 bytes instead of 50, with both sides built from one `.proto` contract; every call carries a deadline, errors are status codes, and responses can stream. It suits internal calls, not browsers. Synchronous chains multiply availability and add latency, so parallelise or use messages. For live updates, use polling, then server-sent events, then WebSockets, in that order of cost.
 
 **Next.** Week 4, [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|monolith, microservices, serverless]]: once you know how services talk, whether to split them at all.
 

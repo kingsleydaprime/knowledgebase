@@ -1,0 +1,31 @@
+// shop.proto — the contract. Client and server are both built from this file, so they can't disagree about it.
+syntax = "proto3";
+
+package shop.v1;
+
+service Orders {
+  // Unary: one request, one response.
+  rpc GetSummary(GetSummaryRequest) returns (OrderSummary);
+  // Server streaming: one request, then a stream of responses until the server is done.
+  rpc WatchOrder(WatchOrderRequest) returns (stream OrderEvent);
+}
+
+message GetSummaryRequest {
+  uint32 id = 1;
+}
+
+// The same message the communication lesson encodes by hand.
+message OrderSummary {
+  uint32 id = 1;
+  string customer = 2;
+  uint32 total_pence = 3;
+}
+
+message WatchOrderRequest {
+  uint32 id = 1;
+}
+
+message OrderEvent {
+  uint32 id = 1;
+  string status = 2;
+}
