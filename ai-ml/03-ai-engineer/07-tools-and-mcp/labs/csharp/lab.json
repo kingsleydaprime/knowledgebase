@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/07-tools-and-mcp/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Tools/Tools.cs", "Tools/Server.cs", "Tools/Program.cs"]
+}

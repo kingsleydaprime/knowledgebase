@@ -1,0 +1,37 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/07-tools-and-mcp/in-other-languages.md",
+  "run": [
+    [
+      "uv",
+      "run",
+      "-q",
+      "--no-project",
+      "--with",
+      "jsonschema>=4.23,<5",
+      "python",
+      "-m",
+      "unittest"
+    ],
+    [
+      "sh",
+      "../shared/conformance.sh",
+      "uv",
+      "run",
+      "-q",
+      "--no-project",
+      "--with",
+      "mcp==2.2.0",
+      "--with",
+      "jsonschema>=4.23,<5",
+      "python",
+      "server.py"
+    ]
+  ],
+  "embedded": [
+    "../typescript/conformance.ts",
+    "../shared/conformance.sh",
+    "tools.py",
+    "server.py",
+    "test_tools.py"
+  ]
+}

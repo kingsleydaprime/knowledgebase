@@ -67,7 +67,7 @@ From [[ai-ml/03-ai-engineer/index|03-ai-engineer]].
 
 **Why it exists:** it's the **N×M problem**. Without a standard, every model host needs a bespoke integration with every tool — M hosts × N tools. With one, a tool is written once and works everywhere. It's USB-C for model integrations, and the analogy is fine because it's accurate.
 
-**Say what you've done with it** — you *use* MCP servers; building one closes the loop and is a 🟡 in [[project-ideas|project-ideas]]. → [[ai-ml/03-ai-engineer/07-tools-and-mcp|tools & MCP]]
+**Say what you've done with it** — you *use* MCP servers; building one closes the loop and is a 🟡 in [[project-ideas|project-ideas]]. → [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools & MCP]]
 
 ---
 

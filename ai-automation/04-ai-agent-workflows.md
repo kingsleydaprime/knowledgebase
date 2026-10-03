@@ -46,7 +46,7 @@ An **agent** node is given tools and a goal, and loops: think → call a tool �
 - **A timeout**
 - **Log every step** — the tool calls and the reasoning. When it does something strange, that log is the only evidence
 
-**The honest position: most workflows labelled "agentic" would be better as five deterministic nodes.** Agents are the right tool for genuinely open-ended tasks and the wrong one for a process you already understand → [[ai-ml/03-ai-engineer/08-agents|agents]].
+**The honest position: most workflows labelled "agentic" would be better as five deterministic nodes.** Agents are the right tool for genuinely open-ended tasks and the wrong one for a process you already understand → [[ai-ml/03-ai-engineer/08-agents/index|agents]].
 
 ## Prompt injection is the security model
 

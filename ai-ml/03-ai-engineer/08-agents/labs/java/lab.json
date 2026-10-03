@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/08-agents/in-other-languages.md",
+  "run": [["sh", "check.sh"]],
+  "embedded": ["src/agents/Agent.java", "src/agents/AgentCheck.java"]
+}
