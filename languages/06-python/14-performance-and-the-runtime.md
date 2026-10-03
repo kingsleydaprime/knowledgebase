@@ -61,7 +61,7 @@ An O(n²) loop is not rescued by a faster language. `x in list` inside a loop �
 
 ### 2. Fix the I/O
 
-Most "slow Python" in real systems is N+1 queries, an unindexed column, or serial network calls that should be concurrent → [[databases/04-b-trees-and-indexes|indexes]], [[languages/06-python/12-concurrency-and-the-gil|concurrency]]. **Check this before touching the code.**
+Most "slow Python" in real systems is N+1 queries, an unindexed column, or serial network calls that should be concurrent → [[databases/04-b-trees-and-indexes/index|indexes]], [[languages/06-python/12-concurrency-and-the-gil|concurrency]]. **Check this before touching the code.**
 
 ### 3. Use the right built-ins
 

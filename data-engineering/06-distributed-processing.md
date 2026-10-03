@@ -28,7 +28,7 @@ Apache Spark kept the model and fixed the speed by **keeping data in memory betw
 
 Spark's key ideas:
 
-**The DataFrame** — a distributed table with a SQL-like API. You express *what* you want; Spark's optimiser (Catalyst) plans *how* → [[databases/07-join-algorithms-and-the-optimiser|query optimisers]]:
+**The DataFrame** — a distributed table with a SQL-like API. You express *what* you want; Spark's optimiser (Catalyst) plans *how* → [[databases/07-join-algorithms-and-the-optimiser/index|query optimisers]]:
 
 ```python
 df = spark.read.parquet("s3://data/orders/")

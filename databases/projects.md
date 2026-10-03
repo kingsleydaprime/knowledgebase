@@ -6,7 +6,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## The ladder
 
-- 🟢 ⭐ **Make a query 100× faster** — take a slow query on a table with a million rows, read `EXPLAIN ANALYZE`, add the right index, and measure. **Done when:** you can point at the line in the plan that changed from Seq Scan to Index Scan, and explain why your index and not another. Exercises: [[databases/07-join-algorithms-and-the-optimiser|the optimiser]].
+- 🟢 ⭐ **Make a query 100× faster** — take a slow query on a table with a million rows, read `EXPLAIN ANALYZE`, add the right index, and measure. **Done when:** you can point at the line in the plan that changed from Seq Scan to Index Scan, and explain why your index and not another. Exercises: [[databases/07-join-algorithms-and-the-optimiser/index|the optimiser]].
 
 - 🟢 **Break it with a missing index** — the same exercise inverted: find an N+1 in a real app and fix it. **Done when:** query count per request drops and you have both numbers.
 
@@ -18,7 +18,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🟡 **Set up replication and fail over** — a primary and a replica, then kill the primary and promote. **Done when:** you know your actual replication lag and what you lost. Exercises: [[databases/11-replication-and-scaling|replication]].
 
-- 🟡 **Benchmark B-tree vs LSM** — the same write-heavy workload against Postgres and RocksDB/Cassandra. **Done when:** you can show write amplification differing and explain it from [[databases/05-lsm-trees|LSM]] and [[databases/04-b-trees-and-indexes|B-trees]].
+- 🟡 **Benchmark B-tree vs LSM** — the same write-heavy workload against Postgres and RocksDB/Cassandra. **Done when:** you can show write amplification differing and explain it from [[databases/05-lsm-trees|LSM]] and [[databases/04-b-trees-and-indexes/index|B-trees]].
 
 - 🔴 **Build your own database** — the guide: [[build-your-own-shit/06-your-own-database|06-your-own-database]]. Pager → B-tree → SQL subset → **WAL**. **Done when:** `kill -9` mid-write and the data survives.
 

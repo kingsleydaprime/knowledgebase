@@ -427,13 +427,13 @@ Attempt these without the note, then compare your reasoning below.
 - Start by observing. PostgreSQL's `pg_stat_user_tables` and the `pgstattuple` extension can help investigate space use, but some inspection operations themselves cost work.
 - Consider a columnar engine for analytical scans, rather than assuming more indexes on an operational database are always the answer.
 
-**Next:** [[databases/04-b-trees-and-indexes|B-Trees and Indexes]] uses pages to find records without scanning everything. Later, [[databases/13-practice-exercises|practice exercises]] 1–5 connect page and index reasoning to actual query plans; exercise 5 asks you to identify a heap/table fetch that an index can avoid. Use a disposable local database for those experiments.
+**Next:** [[databases/04-b-trees-and-indexes/index|B-Trees and Indexes]] uses pages to find records without scanning everything. Later, [[databases/13-practice-exercises|practice exercises]] 1–5 connect page and index reasoning to actual query plans; exercise 5 asks you to identify a heap/table fetch that an index can avoid. Use a disposable local database for those experiments.
 
 For a larger implementation, [[build-your-own-shit/06-your-own-database|build your own database]] extends beyond this in-memory model into files, indexes, and recovery. Passing the lab proves your teaching model behaves as specified, not that you have implemented a production storage engine.
 
 ## Related
 
-- [[databases/04-b-trees-and-indexes|B-Trees and Indexes]] — the structure built on these pages
+- [[databases/04-b-trees-and-indexes/index|B-Trees and Indexes]] — the structure built on these pages
 - [[databases/05-lsm-trees|LSM Trees]] — the write-optimised alternative
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the same argument, one level down
 - [[databases/index|Databases map]]

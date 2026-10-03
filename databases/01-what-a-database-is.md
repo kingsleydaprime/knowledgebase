@@ -14,7 +14,7 @@ Store your records as JSON on disk. Then:
 
 **Crash safety.** The power fails mid-write. **Half a record is on disk.** You need write-ahead logging and recovery. → [[databases/10-durability-and-recovery|Durability and Recovery]]
 
-**Finding things.** "All orders over £100 from last month" means reading every record. **You need indexes.** → [[databases/04-b-trees-and-indexes|B-Trees and Indexes]]
+**Finding things.** "All orders over £100 from last month" means reading every record. **You need indexes.** → [[databases/04-b-trees-and-indexes/index|B-Trees and Indexes]]
 
 **Memory limits.** The data exceeds RAM. **You need a buffer pool and a page-based format.** → [[databases/03-storage-and-page-layout|Storage and Page Layout]]
 

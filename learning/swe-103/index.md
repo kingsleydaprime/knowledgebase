@@ -55,7 +55,7 @@ No new patterns. **Every week: five problems drawn at random from NeetCode 150 p
 
 ### Week 5 — Databases I: querying well
 
-- **Learn (core):** [[databases/04-b-trees-and-indexes|B-trees and indexes]] · [[databases/07-join-algorithms-and-the-optimiser|join algorithms, the optimiser, and EXPLAIN ANALYZE]]
+- **Learn (core):** [[databases/04-b-trees-and-indexes/index|B-trees and indexes]] · [[databases/07-join-algorithms-and-the-optimiser/index|join algorithms, the optimiser, and EXPLAIN ANALYZE]]
 - **Learn (optional):** [[databases/01-what-a-database-is|what a database is]] · [[databases/02-the-relational-model|the relational model]] · [[databases/06-the-query-pipeline|the query pipeline]]
 - **Design:** **payment system** — from your nextvibe ledger and the direct-debit sandbox. Interviewers can hear experience.
 - **By Sunday:** one slow query from a real project, `EXPLAIN ANALYZE`d and fixed, before and after recorded.

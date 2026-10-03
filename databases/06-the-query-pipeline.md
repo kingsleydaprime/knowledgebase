@@ -35,7 +35,7 @@
 - Resolve `*` into an explicit column list
 - Insert **implicit casts**
 
-> **Implicit casts are a common silent performance bug.** `WHERE varchar_col = 12345` may cast the *column* rather than the literal, and **a function applied to a column disables the index on it.** The query works, returns correct rows, and does a sequential scan. **`EXPLAIN` is how you catch it.** → [[databases/04-b-trees-and-indexes|When indexes aren't used]]
+> **Implicit casts are a common silent performance bug.** `WHERE varchar_col = 12345` may cast the *column* rather than the literal, and **a function applied to a column disables the index on it.** The query works, returns correct rows, and does a sequential scan. **`EXPLAIN` is how you catch it.** → [[databases/04-b-trees-and-indexes/index|When indexes aren't used]]
 
 ## Rewrite
 
@@ -112,7 +112,7 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
 
 **What to look for, in order:**
 
-**Estimated vs actual rows.** `(cost=... rows=100) (actual rows=1000000)` — **a 10,000× misestimate means the whole plan above it is built on a false premise.** This is the single most useful signal in a plan, and it points at stale or insufficient statistics. → [[databases/07-join-algorithms-and-the-optimiser|Statistics]]
+**Estimated vs actual rows.** `(cost=... rows=100) (actual rows=1000000)` — **a 10,000× misestimate means the whole plan above it is built on a false premise.** This is the single most useful signal in a plan, and it points at stale or insufficient statistics. → [[databases/07-join-algorithms-and-the-optimiser/index|Statistics]]
 
 **Sequential scan on a large table** where you expected an index.
 
@@ -141,7 +141,7 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
 ---
 
 ## Related
-- [[databases/07-join-algorithms-and-the-optimiser|Join Algorithms and the Optimiser]] — the planning stage in depth
+- [[databases/07-join-algorithms-and-the-optimiser/index|Join Algorithms and the Optimiser]] — the planning stage in depth
 - [[compilers/index|Compilers]] — the same pipeline, for languages
 - [[databases/sql-reference|SQL Reference]] — §26, query optimisation from the query-writing side
 - [[databases/index|Databases map]]

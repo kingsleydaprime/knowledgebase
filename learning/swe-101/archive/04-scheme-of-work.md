@@ -445,15 +445,15 @@ By Sunday: what must be true before the week closes
 
 # Week 10 — Database internals
 
-**Read:** [[databases/03-storage-and-page-layout|storage]] · [[databases/04-b-trees-and-indexes|B-trees]] · [[databases/05-lsm-trees|LSM]] · [[databases/06-the-query-pipeline|query pipeline]] · [[databases/07-join-algorithms-and-the-optimiser|joins & optimiser]]
+**Read:** [[databases/03-storage-and-page-layout|storage]] · [[databases/04-b-trees-and-indexes/index|B-trees]] · [[databases/05-lsm-trees|LSM]] · [[databases/06-the-query-pipeline|query pipeline]] · [[databases/07-join-algorithms-and-the-optimiser/index|joins & optimiser]]
 
 **Topics**
 - **10.1** Storage and page layout → [[databases/03-storage-and-page-layout|03]]
-- **10.2** B-trees and indexes → [[databases/04-b-trees-and-indexes|04]]
+- **10.2** B-trees and indexes → [[databases/04-b-trees-and-indexes/index|04]]
 - **10.3** LSM trees, and why new engines choose them → [[databases/05-lsm-trees|05]]
 - **10.4** The query pipeline → [[databases/06-the-query-pipeline|06]]
-- **10.5** Join algorithms and the optimiser → [[databases/07-join-algorithms-and-the-optimiser|07]]
-- **10.6** **`EXPLAIN ANALYZE` — estimated vs actual rows as *the* diagnostic** → [[databases/07-join-algorithms-and-the-optimiser|07]]
+- **10.5** Join algorithms and the optimiser → [[databases/07-join-algorithms-and-the-optimiser/index|07]]
+- **10.6** **`EXPLAIN ANALYZE` — estimated vs actual rows as *the* diagnostic** → [[databases/07-join-algorithms-and-the-optimiser/index|07]]
 
 **DSA:** D10 → [[dsa/04-patterns/10-binary-tree-traversal-pattern|Binary tree traversal]]
 

@@ -81,7 +81,7 @@ Order.objects.select_related("customer")          # SQL JOIN — for FK / one-to
 Order.objects.prefetch_related("items")           # 2nd query + join in Python — for many-to-many / reverse FK
 ```
 
-**Install `django-debug-toolbar` and look at the query count on every page you build.** It's the cheapest defence there is → [[databases/07-join-algorithms-and-the-optimiser|joins]].
+**Install `django-debug-toolbar` and look at the query count on every page you build.** It's the cheapest defence there is → [[databases/07-join-algorithms-and-the-optimiser/index|joins]].
 
 ## The admin
 

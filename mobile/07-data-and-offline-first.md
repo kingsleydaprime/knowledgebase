@@ -34,7 +34,7 @@ The UI subscribes to a query. Sync updates the database. **The UI updates automa
 | **Cross-platform** | SQLDelight, Realm, WatermelonDB, Drift | — |
 | **Sync-as-a-service** | PowerSync, ElectricSQL, Replicache, Firebase | — |
 
-**SQLite underlies most of these**, and it's excellent — everything in [[databases/index|the databases course]] about indexes and query plans applies → [[databases/04-b-trees-and-indexes|indexes]].
+**SQLite underlies most of these**, and it's excellent — everything in [[databases/index|the databases course]] about indexes and query plans applies → [[databases/04-b-trees-and-indexes/index|indexes]].
 
 **A note on the sync services:** offline sync is genuinely hard, and using a service that solves it is a legitimate engineering decision rather than a shortcut. Weigh it against the lock-in.
 
