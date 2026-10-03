@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/03-architectural-patterns/05-transactional-outbox/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "python", "-m", "unittest"]],
+  "embedded": ["outbox.py", "test_outbox.py"]
+}
