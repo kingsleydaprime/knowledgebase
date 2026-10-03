@@ -18,7 +18,7 @@ A server speaking the Redis protocol, holding data in memory, supporting the cor
 | **Hash maps** — what they cost and why | [[dsa/02-data-structures/03-hash-maps\|dsa/03-hash-maps]] |
 | **Event loops** — `epoll`/`kqueue` | [[os/08-io-models\|os/08]] |
 | **`fsync` and durability** | [[os/07-filesystems-and-storage\|os/07]] — **the AOF milestone depends on this** |
-| **Caching concepts** — TTL, eviction | [[architecture/02-building-blocks/02-caching\|caching]] |
+| **Caching concepts** — TTL, eviction | [[architecture/02-building-blocks/02-caching/index\|caching]] |
 
 **Do the HTTP server first.** It teaches the socket layer with easier debugging (text you can read in a browser), and this guide assumes it.
 
@@ -263,5 +263,5 @@ Compare behaviour against real Redis for edge cases — `GET` on a missing key, 
 - [[build-your-own-shit/01-http-server|Build Your Own HTTP Server]] — do this first
 - [[os/07-filesystems-and-storage|Filesystems and Storage]] — the `fsync` milestone
 - [[os/08-io-models|I/O Models]] — the event loop
-- [[architecture/02-building-blocks/02-caching|Caching]] — what you're building, conceptually
+- [[architecture/02-building-blocks/02-caching/index|Caching]] — what you're building, conceptually
 - [[build-your-own-shit/index|build-your-own-shit]]

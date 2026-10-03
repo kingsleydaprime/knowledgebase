@@ -187,4 +187,4 @@ The category is checked against a **known list** rather than passed through — 
 ## Related
 - [[projects/munakalati/learning/03-sanity/03-groq-queries|sanity/03 — GROQ]] · [[projects/munakalati/learning/04-frontend/03-rendering-cms-content|03 — the fallback pattern]]
 - [[frontend/02-rendering/01-rendering-strategies|rendering strategies]] — CSR/SSR/SSG/ISR
-- [[architecture/02-building-blocks/02-caching|caching]] — layered caches and staleness
+- [[architecture/02-building-blocks/02-caching/index|caching]] — layered caches and staleness

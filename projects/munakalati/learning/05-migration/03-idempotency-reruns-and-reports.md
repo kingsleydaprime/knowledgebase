@@ -147,7 +147,7 @@ Three attempts, 1.5s apart, then **give up and return `null` rather than throwin
 
 `await new Promise(r => setTimeout(r, ms))` is the standard sleep idiom in JS — there's no built-in `sleep`, and this is what everyone means by one.
 
-**What's missing:** the delay is fixed, not exponential (1.5s, 1.5s), and there's no jitter. Proper backoff doubles (1s, 2s, 4s) with a random offset so that N clients retrying after an outage don't synchronise into a thundering herd. For a single-operator script hitting a big CDN it doesn't matter; **for anything running in production against a rate-limited API it very much does** → [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]].
+**What's missing:** the delay is fixed, not exponential (1.5s, 1.5s), and there's no jitter. Proper backoff doubles (1s, 2s, 4s) with a random offset so that N clients retrying after an outage don't synchronise into a thundering herd. For a single-operator script hitting a big CDN it doesn't matter; **for anything running in production against a rate-limited API it very much does** → [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]].
 
 Also missing: it retries *everything*. A 404 is not going to succeed on the third attempt — retrying only 5xx and 429 would be strictly better and no harder to write.
 
@@ -189,5 +189,5 @@ Before running any bulk import against real data:
 
 ## Related
 - [[concepts/04-best-practices/06-data-migrations|the general playbook]]
-- [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] · [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
+- [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] · [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 - [[projects/direct-debit-sandbox-java/learning/05-async-scheduling-retry|direct-debit — the same problem in Java]]

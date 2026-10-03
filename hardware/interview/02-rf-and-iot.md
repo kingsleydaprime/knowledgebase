@@ -134,7 +134,7 @@ life = 2000 mAh / 4.01 mA  ≈ 499 h ≈ 21 days
 
 **Also:** cryptographically **sign** images and verify in the bootloader, or your update channel is a remote code execution channel. Stage the rollout — a canary group before the fleet. And version the protocol, because you will one day have devices several versions behind.
 
-**The detail worth adding:** the rollback trigger must be **automatic and watchdog-driven** — the new image has to affirmatively prove it works (connect, check in) within a timeout, or the watchdog resets and the bootloader reverts. If rollback requires someone to notice and press a button, it isn't a rollback. This is the same "design for failure" instinct as [[architecture/03-architectural-patterns/02-resilience-patterns|circuit breakers]], with the crucial difference that you can't SSH into a bricked device.
+**The detail worth adding:** the rollback trigger must be **automatic and watchdog-driven** — the new image has to affirmatively prove it works (connect, check in) within a timeout, or the watchdog resets and the bootloader reverts. If rollback requires someone to notice and press a button, it isn't a rollback. This is the same "design for failure" instinct as [[architecture/03-architectural-patterns/02-resilience-patterns/index|circuit breakers]], with the crucial difference that you can't SSH into a bricked device.
 
 ---
 

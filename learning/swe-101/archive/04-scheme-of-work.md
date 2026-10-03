@@ -381,13 +381,13 @@ By Sunday: what must be true before the week closes
 
 # Week 6 — Availability, caching, load balancing
 
-**Read:** [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability]] · [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP]] · [[architecture/02-building-blocks/01-load-balancing-and-proxies|load balancing]] · [[architecture/02-building-blocks/02-caching|caching]]
+**Read:** [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability]] · [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP]] · [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancing]] · [[architecture/02-building-blocks/02-caching/index|caching]]
 
 **Topics**
 - **6.1** Availability, reliability, what "three nines" actually costs → [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability]]
 - **6.2** CAP and consistency → [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP]]
-- **6.3** Load balancing, proxies, reverse proxies → [[architecture/02-building-blocks/01-load-balancing-and-proxies|LB & proxies]]
-- **6.4** Caching, and cache invalidation → [[architecture/02-building-blocks/02-caching|caching]]
+- **6.3** Load balancing, proxies, reverse proxies → [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|LB & proxies]]
+- **6.4** Caching, and cache invalidation → [[architecture/02-building-blocks/02-caching/index|caching]]
 
 **DSA:** D6 → [[dsa/04-patterns/06-monotonic-stack|Monotonic stack]]
 
@@ -534,7 +534,7 @@ By Sunday: what must be true before the week closes
 
 **Topics**
 - **15.1** NAT, firewalls, middleboxes → [[networking/14-nat-firewalls-and-middleboxes|14]]
-- **15.2** Proxies, reverse proxies, CDNs → [[architecture/02-building-blocks/01-load-balancing-and-proxies|LB & proxies]]
+- **15.2** Proxies, reverse proxies, CDNs → [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|LB & proxies]]
 - **15.3** Latency vs bandwidth, RTT, head-of-line blocking → [[networking/15-network-performance|15]]
 - **15.4** Debugging: `dig`, `curl -v`, `ss`, `tcpdump` → [[networking/16-debugging-networks|16]]
 
@@ -612,7 +612,7 @@ By Sunday: what must be true before the week closes
 - **19.4** Databases in the backend; pooling, migrations → [[backend/04-data-and-persistence/01-databases-in-the-backend|persistence]]
 - **19.5** Background jobs and queues → [[architecture/02-building-blocks/04-messaging-and-async|messaging & async]]
 - **19.6** Idempotency → [[concepts/interview/01-apis-auth-and-practices|APIs, auth & practices]]
-- **19.7** Caching layers → [[architecture/02-building-blocks/02-caching|caching]]
+- **19.7** Caching layers → [[architecture/02-building-blocks/02-caching/index|caching]]
 
 **DSA:** mixed review, 5 problems
 

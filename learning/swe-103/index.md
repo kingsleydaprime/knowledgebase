@@ -37,7 +37,7 @@ No new patterns. **Every week: five problems drawn at random from NeetCode 150 p
 
 ### Week 2 — Caching and load balancing
 
-- **Learn (core):** [[architecture/02-building-blocks/02-caching|caching]] · [[architecture/02-building-blocks/01-load-balancing-and-proxies|load balancing and proxies]]
+- **Learn (core):** [[architecture/02-building-blocks/02-caching/index|caching]] · [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancing and proxies]]
 - **Learn (optional):** [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability]] · [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP and consistency]]
 - **By Sunday:** closed-book — *where would you put a cache in the URL shortener, and what goes stale?*
 

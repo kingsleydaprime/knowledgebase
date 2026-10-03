@@ -14,6 +14,7 @@ explains the ideas well enough to rebuild them from scratch.
 | [02-content-modelling.md](02-content-modelling.md) | Blocks vs named fields, Zod as the runtime boundary, cross-field validation, why the type and the validator must be one definition |
 | [03-frontend.md](03-frontend.md) | `next/image` with fixed-background logos, the YouTube facade, alt text vs `aria-label`, grid orphans, presentational props vs content |
 | [04-third-party-data.md](04-third-party-data.md) | Reading a vendor API: loose validation, anti-corruption layers, ISR as outage absorption, `server-only`, timezone formatting |
+| [05-maps-and-structured-data.md](05-maps-and-structured-data.md) | Web Mercator and map tiles, pre-rendering a static map, storing address parts vs display text, JSON-LD and the `<script>` injection escape, NAP consistency |
 
 ## See also (general vault)
 

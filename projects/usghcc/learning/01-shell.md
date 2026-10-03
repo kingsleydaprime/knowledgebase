@@ -226,6 +226,31 @@ because the challenge requires executing JavaScript — no amount of header
 spoofing substitutes for a JS engine. At that point stop scraping and use the
 credentialed path (SFTP, or the host's file manager).
 
+### The same trap wearing a different hat: identical sizes
+
+Later, probing a map-tile CDN, the headers were clean — `200 OK`,
+`content-type: image/png`, and the file really was a PNG. The tell was the
+size:
+
+```bash
+for u in "$A" "$B" "$C"; do
+  printf '%-70s ' "${u#https://}"
+  curl -s -o out.png -w '%{http_code} %{size_download}b\n' -m 20 -A "$UA" "$u"
+done
+# → 200 2049b
+# → 200 2049b
+# → 200 2049b
+```
+
+Three different styles, three different map locations — **exactly 2049 bytes
+every time.** Real tiles vary with how much is drawn on them; a dense city
+block was 25 KB from a working server. Byte-identical responses to requests for
+*different content* means you are being served a placeholder.
+
+Generalise it: after `file` says the type is right, ask whether the **size
+varies the way the content should**. A constant size across varying requests is
+a stub, a cached error page, or a quota wall — regardless of the status code.
+
 ---
 
 ## 5. Small things worth keeping

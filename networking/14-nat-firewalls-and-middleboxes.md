@@ -89,5 +89,5 @@ The clean layered model in [[networking/01-what-a-network-is|note 01]] describes
 ## Related
 - [[networking/03-ip-addressing-and-subnetting|IP Addressing]] — NAT's origin
 - [[networking/13-quic-and-modern-transport|QUIC]] — the response to ossification
-- [[architecture/02-building-blocks/01-load-balancing-and-proxies|Load Balancing & Proxies]] — the architecture view
+- [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|Load Balancing & Proxies]] — the architecture view
 - [[cybersecurity/03-network-security/01-firewalls|Firewalls]] — the security view

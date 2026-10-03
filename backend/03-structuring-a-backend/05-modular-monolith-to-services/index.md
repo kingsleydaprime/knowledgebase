@@ -131,7 +131,7 @@ The things people forget, and then rediscover in an incident:
 - **Versioning is now permanent.** You can no longer change a function signature and fix all callers in one commit. Every interface change needs a backward-compatible rollout.
 - **Debugging needs distributed tracing** before you need it, not after.
 
-→ [[architecture/04-distributed-systems/index|distributed systems]] · [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
+→ [[architecture/04-distributed-systems/index|distributed systems]] · [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 
 ## 7. Worked example — two modules, one event, and a broker that delivers twice
 
@@ -293,7 +293,7 @@ You can argue monolith-first with reasons, build modules that talk through event
 
 **Recap.** Microservices trade local complexity for distributed complexity, and are mainly an organisational tool. Find boundaries in a modular monolith first: published APIs, no shared tables, events between modules, enforced by tooling. Extract for a named reason, using the strangler fig. Over a network, everything can fail, duplicate or arrive late.
 
-**Next.** That closes the Software design block. Week 5 starts architecture with [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|how to approach system design]].
+**Next.** That closes the Software design block. Week 5 starts architecture with [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach system design]].
 
 ## Key insight
 

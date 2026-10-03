@@ -20,7 +20,7 @@ Why it works so well:
 
 - It removes the fabrication problem at the root. The model isn't recalling, it's reading.
 - It can quote, and you can check the quote against the text in front of you.
-- It's the same mechanism serious AI products are built on (they call it retrieval — see [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]]), except you're doing the retrieval by hand, which for a handful of documents is better anyway.
+- It's the same mechanism serious AI products are built on (they call it retrieval — see [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]]), except you're doing the retrieval by hand, which for a handful of documents is better anyway.
 
 Caveats worth knowing: scanned PDFs may come through garbled or not at all; very long documents may be read in pieces, so "summarize this 300-page report" is weaker than asking about specific sections; and spreadsheets are read as text, so it can misread numbers it "sees" perfectly well.
 
@@ -69,4 +69,4 @@ You are not talking to something that remembers you. You're filling a whiteboard
 - [[using-ai/02-how-llms-work-plainly|How LLMs Work, Plainly]] — where the context window comes from
 - [[using-ai/04-talking-to-a-model|Talking to a Model]] — what to put on the whiteboard
 - [[using-ai/07-privacy-and-what-not-to-share|Privacy and What Not to Share]] — the flip side of uploading everything
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG & Embeddings]] — automating "give it the source material," for builders
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — automating "give it the source material," for builders

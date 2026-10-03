@@ -42,5 +42,5 @@ When the database is the bottleneck, escalate in roughly this order (cheap/simpl
 
 ## Related
 - [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — how replication actually works
-- [[architecture/02-building-blocks/02-caching|Caching]] — the layer that protects the database
+- [[architecture/02-building-blocks/02-caching/index|Caching]] — the layer that protects the database
 - [[databases/database-design-reference|Databases reference]] — SQL/schema/indexing fundamentals

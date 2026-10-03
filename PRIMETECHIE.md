@@ -146,7 +146,7 @@ Depth becomes bedrock. You stop treating infrastructure as magic because you've 
 **Also at this rank, whatever your column:**
 - [ ] Write concurrent code and **prove** it correct — where "prove" means a stress test that actually fails on a bad version → [[languages/01-java/02-jvm-and-concurrency/index|concurrency]]
 - [ ] Explain memory: stack vs heap, cache lines, why the memory model exists → [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM internals]]
-- [ ] Design a system on a whiteboard with explicit tradeoffs and named failure modes → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design|system design]]
+- [ ] Design a system on a whiteboard with explicit tradeoffs and named failure modes → [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|system design]]
 - [ ] Reason about consistency without saying "eventually consistent" as though it settles anything → [[architecture/04-distributed-systems/04-consistency-models|consistency models]]
 
 **Capstone:** the 🔴 ⭐ **in-memory order book + matching engine**, benchmarked with JMH, p99 measured and explained. Or your own Redis with persistence. Or a working board you designed.
@@ -167,7 +167,7 @@ Where most senior engineers stop, and where the genuinely hard problems start.
 - [ ] Explain CAP correctly — including why most people quoting it are wrong → [[architecture/04-distributed-systems/02-theoretical-limits|PACELC]]
 - [ ] Debug a p99 problem that turns out to be transport-layer → [[networking/15-network-performance|tail latency]], incast, RTO
 - [ ] Run something in production that **other people depend on**, and carry the pager for it
-- [ ] Design for failure explicitly: circuit breakers, backpressure, graceful degradation → [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
+- [ ] Design for failure explicitly: circuit breakers, backpressure, graceful degradation → [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 
 **The same shape in the other columns, if that's where you live:**
 - 🔐 Run an incident end to end — detect, contain, eradicate, recover, postmortem → [[cybersecurity/07-security-operations/04-incident-response|incident response]]
@@ -200,7 +200,7 @@ Depth in **one** domain deep enough that you're the escalation point. Pick a lan
 - [ ] Take a model from a notebook to a served endpoint with a **reproducible** training pipeline — same data and seed, same model → [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]]
 - [ ] Detect drift in production and retrain on a schedule you can justify → [[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|monitoring]]
 - [ ] Defend a metric choice to someone who wanted accuracy, using the confusion matrix and the actual cost of each error type
-- [ ] Know when **not** to train — when a heuristic, a bought API, or [[ai-ml/03-ai-engineer/06-rag-and-embeddings|retrieval]] beats a model you'd have to maintain forever
+- [ ] Know when **not** to train — when a heuristic, a bought API, or [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|retrieval]] beats a model you'd have to maintain forever
 
 **📊 Data science**
 - [ ] Design and run an experiment that changes a decision — with the power calculation done *before* the data, not after → [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|experimentation]]

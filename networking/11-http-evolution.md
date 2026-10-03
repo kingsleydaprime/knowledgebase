@@ -44,7 +44,7 @@ If you're doing performance work on an existing codebase, checking whether these
 - `immutable` for content-hashed assets; `stale-while-revalidate` to serve stale instantly while refreshing in the background
 - The pattern that wins: **hash your asset filenames and cache them forever; keep HTML short-lived.**
 
-**Idempotency and safety.** `GET`/`HEAD` are safe (no side effects); `GET`/`PUT`/`DELETE` are idempotent (repeating is harmless); `POST` is neither. This isn't pedantry — it determines what intermediaries and clients may **retry automatically**, which is precisely why a retried payment `POST` can double-charge and why you need idempotency keys. → [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
+**Idempotency and safety.** `GET`/`HEAD` are safe (no side effects); `GET`/`PUT`/`DELETE` are idempotent (repeating is harmless); `POST` is neither. This isn't pedantry — it determines what intermediaries and clients may **retry automatically**, which is precisely why a retried payment `POST` can double-charge and why you need idempotency keys. → [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 
 ## HTTP/2 — binary, multiplexed, and one big remaining flaw
 

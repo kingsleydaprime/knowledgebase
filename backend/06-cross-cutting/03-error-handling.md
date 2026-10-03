@@ -83,7 +83,7 @@ Logs:    the exception, the stack trace, the inputs, the user, the trace ID
 
 - **Timeout / unavailable** → **503**, with `Retry-After` if you can estimate it
 - **A dependency returned a 4xx because *you* called it wrong** → **500**, because that's your bug
-- **A dependency is degraded but you can serve stale data** → **200 with a staleness indicator**, which is often the best answer → [[architecture/02-building-blocks/02-caching|caching]]
+- **A dependency is degraded but you can serve stale data** → **200 with a staleness indicator**, which is often the best answer → [[architecture/02-building-blocks/02-caching/index|caching]]
 
 **Don't let a dependency's error shape leak through.** Translate it. A client should never see a Stripe error object from your API.
 

@@ -10,14 +10,14 @@ Split one app into dozens of services and you create new problems the monolith n
 
 Services scale up/down and move (new instances, failures, [[devops/05-orchestration/01-kubernetes|k8s]] reschedules), so their addresses aren't fixed. **Service discovery** lets a service find the current healthy instances of another by *name* rather than a hardcoded IP:
 
-- **Server-side** — the caller hits a [[architecture/02-building-blocks/01-load-balancing-and-proxies|load balancer]] that knows the instances (k8s Services work this way).
+- **Server-side** — the caller hits a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancer]] that knows the instances (k8s Services work this way).
 - **Client-side** — the caller queries a **service registry** (Consul, etcd, Eureka) and picks an instance itself.
 
 The registry is kept current by health checks. This is what makes "call the payment service" resolve to a live instance despite constant churn — and it relies on [[architecture/04-distributed-systems/index|distributed-systems]] machinery underneath.
 
 ## API Gateway
 
-The single entry point for external clients (from [[architecture/02-building-blocks/01-load-balancing-and-proxies|load balancing]]): it routes to the right service and centralizes cross-cutting concerns — authentication, rate limiting, TLS, logging — so each service doesn't reimplement them. Two related patterns:
+The single entry point for external clients (from [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancing]]): it routes to the right service and centralizes cross-cutting concerns — authentication, rate limiting, TLS, logging — so each service doesn't reimplement them. Two related patterns:
 
 - **Gateway aggregation** — combine multiple service calls into one client response (so the client makes one request, not six).
 - **Gateway offloading** — move shared functionality (auth, SSL) into the gateway.
