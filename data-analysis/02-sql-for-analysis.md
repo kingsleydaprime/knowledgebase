@@ -13,7 +13,7 @@ This note assumes you know [[databases/sql-reference|basic SQL]] (SELECT, JOIN, 
 Not Python, not a BI tool — **SQL is where analysts spend most of their time**, because:
 
 - **The data is already in the warehouse**, and SQL runs *in* the warehouse — no exporting, no moving gigabytes to your laptop → [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses]]
-- **It's declarative** — you say *what* you want, the engine figures out *how*, over billions of rows → [[databases/07-join-algorithms-and-the-optimiser|the optimiser]]
+- **It's declarative** — you say *what* you want, the engine figures out *how*, over billions of rows → [[databases/07-join-algorithms-and-the-optimiser/index|the optimiser]]
 - **It's the shared language** — analysts, engineers, and BI tools all speak it, so a SQL analysis is reproducible and reviewable
 - **BI tools generate SQL underneath** — understanding it means you can debug and extend what the dashboard does → [[data-analysis/07-dashboards-and-bi|BI]]
 
@@ -121,7 +121,7 @@ FROM user_funnel;
 
 Analytical SQL has specific footguns worth naming:
 
-- **`COUNT(*)` vs `COUNT(DISTINCT x)`** — a JOIN that fans out rows makes `COUNT(*)` wrong. **Fan-out is the #1 analytical SQL bug** — a one-to-many join silently multiplies your numbers → [[databases/07-join-algorithms-and-the-optimiser|joins]]
+- **`COUNT(*)` vs `COUNT(DISTINCT x)`** — a JOIN that fans out rows makes `COUNT(*)` wrong. **Fan-out is the #1 analytical SQL bug** — a one-to-many join silently multiplies your numbers → [[databases/07-join-algorithms-and-the-optimiser/index|joins]]
 - **NULLs break aggregates quietly** — `AVG` ignores NULLs, `COUNT(column)` skips them, `x = NULL` is never true (use `IS NULL`). A NULL you didn't expect skews the answer without an error
 - **Integer division** — `sales / total` in integer columns truncates to 0. `100.0 * ...` or cast → [[web3/04-smart-contract-security/04-arithmetic-and-rounding|the same trap everywhere]]
 - **Timezone and date-boundary bugs** — "today" depends on the timezone; `date_trunc` and `BETWEEN` on timestamps have off-by-one edges

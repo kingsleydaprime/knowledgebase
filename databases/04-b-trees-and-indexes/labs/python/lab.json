@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/04-b-trees-and-indexes/index.md",
+  "run": [["sh", "../shared/with-postgres.sh", "uv", "run", "-q", "--no-project", "--with", "psycopg[binary]==3.3.6", "python", "-m", "unittest"]],
+  "embedded": ["btree.py", "test_btree.py", "test_postgres.py"]
+}

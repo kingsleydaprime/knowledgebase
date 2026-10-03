@@ -17,7 +17,7 @@ Solutions with measured results in [[databases/14-practice-exercises-solutions|n
 
 **1. Earn the index.**
 Load 500k users with an `email` column. Time 200 lookups by email with no index. Add `CREATE INDEX`. Time the same 200.
-**Done when:** you have both timings and the ratio, and **`EXPLAIN QUERY PLAN` changed its wording** in a way you can quote → [[databases/04-b-trees-and-indexes|note 04]].
+**Done when:** you have both timings and the ratio, and **`EXPLAIN QUERY PLAN` changed its wording** in a way you can quote → [[databases/04-b-trees-and-indexes/index|note 04]].
 
 **2. Read the plan, not the clock.**
 Run `EXPLAIN` (Postgres: `EXPLAIN ANALYZE`) on: a lookup by primary key, a lookup on an unindexed column, a range query, and a `LIKE '%foo%'`.
@@ -25,7 +25,7 @@ Run `EXPLAIN` (Postgres: `EXPLAIN ANALYZE`) on: a lookup by primary key, a looku
 
 **3. Kill your own index, four ways.**
 Get the optimiser to ignore an index you created, by: wrapping the column in a function, comparing against a different type, using a leading wildcard, and selecting most of the table.
-**Done when:** you have four plans showing a scan, and can state the general rule that covers all four. **The fourth is not a bug** → [[databases/07-join-algorithms-and-the-optimiser|note 07]].
+**Done when:** you have four plans showing a scan, and can state the general rule that covers all four. **The fourth is not a bug** → [[databases/07-join-algorithms-and-the-optimiser/index|note 07]].
 
 **4. Composite index column order.**
 Create `INDEX(a, b)`. Query on `a` alone, on `b` alone, and on both.
@@ -41,7 +41,7 @@ Find a query where adding a column to the index removes a table lookup entirely.
 
 **6. Watch the optimiser change its mind.**
 Take a join between a large and a small table. Run `EXPLAIN`. Now `ANALYZE` (update statistics) and run it again. Then delete 90% of one table, re-analyze, and look again.
-**Done when:** the join *algorithm* changed, and you can name the statistic that drove it → [[databases/07-join-algorithms-and-the-optimiser|note 07]].
+**Done when:** the join *algorithm* changed, and you can name the statistic that drove it → [[databases/07-join-algorithms-and-the-optimiser/index|note 07]].
 
 **7. Reproduce N+1.**
 Write application code that fetches 100 orders then loops fetching each customer. Count queries. Rewrite as a single join.

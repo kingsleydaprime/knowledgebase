@@ -44,7 +44,7 @@ Physical systems test against the environment explicitly — thermal cycling, vi
 - **Load** — at realistic and at 2× realistic concurrency
 - **Soak** — run for days. Memory leaks and file-descriptor leaks are invisible in a five-minute test → [[languages/06-python/15-files-and-io|files and I/O]]
 - **Chaos** — kill dependencies and see what happens → [[architecture/04-distributed-systems/15-testing-distributed-systems|testing distributed systems]]
-- **Data realism** — production-shaped volumes and production-shaped ugliness. **An index missing on a 1,000-row test database is invisible and fatal at 10 million** → [[databases/04-b-trees-and-indexes|indexes]]
+- **Data realism** — production-shaped volumes and production-shaped ugliness. **An index missing on a 1,000-row test database is invisible and fatal at 10 million** → [[databases/04-b-trees-and-indexes/index|indexes]]
 - **Degraded conditions** — slow network, packet loss, partial outage
 
 **"It works on my machine" and "it passed in staging" are the same statement**: verified in an environment that isn't the one that matters.

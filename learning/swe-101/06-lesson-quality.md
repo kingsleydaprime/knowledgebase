@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 31 of 43 meet the standard. Optional: 13 of 36.**
+**Core lessons: 33 of 43 meet the standard. Optional: 13 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -69,8 +69,8 @@
 | SWE 103 | 4 | core | ✅ meets | — | [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index\|index]] |
 | SWE 103 | 4 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/03-data-and-integration-patterns\|03-data-and-integration-patterns]] |
 | SWE 103 | 4 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/03-architectural-patterns/04-microservices-patterns\|04-microservices-patterns]] |
-| SWE 103 | 5 | core | ⬜ not started | kid, start, terms, checks, practice | [[databases/04-b-trees-and-indexes\|04-b-trees-and-indexes]] |
-| SWE 103 | 5 | core | ⬜ not started | kid, start, terms, checks, practice | [[databases/07-join-algorithms-and-the-optimiser\|07-join-algorithms-and-the-optimiser]] |
+| SWE 103 | 5 | core | ✅ meets | — | [[databases/04-b-trees-and-indexes/index\|index]] |
+| SWE 103 | 5 | core | ✅ meets | — | [[databases/07-join-algorithms-and-the-optimiser/index\|index]] |
 | SWE 103 | 5 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/01-what-a-database-is\|01-what-a-database-is]] |
 | SWE 103 | 5 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/02-the-relational-model\|02-the-relational-model]] |
 | SWE 103 | 5 | optional | ⬜ not started | kid, start, terms, checks, practice | [[databases/06-the-query-pipeline\|06-the-query-pipeline]] |

@@ -25,7 +25,7 @@ Without the index, each lookup reads all 500,000 rows: 200 × 500,000 = 100 mill
 
 **Note the plan says *covering*** — the index contains `email` and, implicitly, the rowid, so SQLite answered `SELECT id` from the index alone without touching the table. That's exercise 5, for free.
 
-**The plan changing is more reliable evidence than the clock**, because a warm cache can make a bad plan look acceptable → [[databases/04-b-trees-and-indexes|note 04]].
+**The plan changing is more reliable evidence than the clock**, because a warm cache can make a bad plan look acceptable → [[databases/04-b-trees-and-indexes/index|note 04]].
 
 ### 2. Read the plan
 
@@ -84,7 +84,7 @@ Small table joined to large: expect a **hash join** (build a hash of the small s
 
 After deleting 90% and re-analysing, the plan often flips — commonly to a **merge join** or a different join order.
 
-**The statistic driving it is the estimated row count**, from the table's histogram and distinct-value counts. Stale statistics are the single most common cause of a plan that was fine yesterday and terrible today — **the data changed and nobody told the planner** → [[databases/07-join-algorithms-and-the-optimiser|note 07]].
+**The statistic driving it is the estimated row count**, from the table's histogram and distinct-value counts. Stale statistics are the single most common cause of a plan that was fine yesterday and terrible today — **the data changed and nobody told the planner** → [[databases/07-join-algorithms-and-the-optimiser/index|note 07]].
 
 Hence autovacuum/auto-analyze, and hence `ANALYZE` after a bulk load.
 

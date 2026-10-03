@@ -56,7 +56,7 @@ $$R \cap S = R - (R - S) \qquad\text{(intersection)}$$
 
 > **The join definition is worth staring at.** A join is *defined* as a Cartesian product followed by a filter. **Executing it that way would be catastrophic** — a million rows joined to a million is $10^{12}$ intermediate rows.
 >
-> **So the optimiser's entire job is to never do what the algebra literally says.** It pushes the filter down into the product, and it picks a physical algorithm (hash, merge, nested loop) that computes the same *result* without materialising the product. **The algebra defines correctness; the physical plan defines cost.** → [[databases/07-join-algorithms-and-the-optimiser|Join Algorithms]]
+> **So the optimiser's entire job is to never do what the algebra literally says.** It pushes the filter down into the product, and it picks a physical algorithm (hash, merge, nested loop) that computes the same *result* without materialising the product. **The algebra defines correctness; the physical plan defines cost.** → [[databases/07-join-algorithms-and-the-optimiser/index|Join Algorithms]]
 
 **Extensions SQL adds** that aren't in the pure algebra: aggregation with grouping, outer joins (which need NULL), sorting, and window functions.
 
@@ -97,7 +97,7 @@ GROUP BY c.name;
 
 **Performance is unpredictable across data changes.** A query fast at 10,000 rows can pick a different plan at 10 million and become pathological. **The query didn't change; the plan did.**
 
-**You must read plans to debug.** `EXPLAIN` is not optional — it's the only window into what actually happened. → [[databases/07-join-algorithms-and-the-optimiser|Reading EXPLAIN]]
+**You must read plans to debug.** `EXPLAIN` is not optional — it's the only window into what actually happened. → [[databases/07-join-algorithms-and-the-optimiser/index|Reading EXPLAIN]]
 
 ## NULL
 
@@ -131,7 +131,7 @@ GROUP BY c.name;
 
 **The constraints that make a relation more than a spreadsheet.**
 
-**Primary key** — uniquely identifies a row. **Every table should have one**, and it determines physical clustering in some engines. → [[databases/04-b-trees-and-indexes|Clustered Indexes]]
+**Primary key** — uniquely identifies a row. **Every table should have one**, and it determines physical clustering in some engines. → [[databases/04-b-trees-and-indexes/index|Clustered Indexes]]
 
 **Natural vs surrogate keys** — a real-world identifier (email, ISBN) versus a generated one (auto-increment, UUID).
 

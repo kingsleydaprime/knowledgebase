@@ -50,7 +50,7 @@ Terabytes are the easy number and rarely the interesting one. The interesting on
 | **SATA SSD** | ~0.1 ms | ~50,000–100,000 |
 | **NVMe SSD** | ~0.02 ms | 500,000+ |
 
-That's a **five-orders-of-magnitude** spread on random access from the same shelf of hardware. A spinning disk has to physically move a head; an SSD does not. This is the entire reason [[databases/04-b-trees-and-indexes|B-trees]] are shaped the way they are — they were designed to minimise seeks on a device where a seek cost 10ms — and why [[databases/05-lsm-trees|LSM trees]] became attractive once sequential writes stopped being the only fast thing.
+That's a **five-orders-of-magnitude** spread on random access from the same shelf of hardware. A spinning disk has to physically move a head; an SSD does not. This is the entire reason [[databases/04-b-trees-and-indexes/index|B-trees]] are shaped the way they are — they were designed to minimise seeks on a device where a seek cost 10ms — and why [[databases/05-lsm-trees|LSM trees]] became attractive once sequential writes stopped being the only fast thing.
 
 **When someone says a database is "slow", ask what the storage is before you look at the query.** See [[computer-architecture/09-caches-in-depth|the memory hierarchy]] for the layers above this.
 

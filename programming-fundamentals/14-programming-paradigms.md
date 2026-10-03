@@ -27,7 +27,7 @@ SELECT SUM(price) FROM cart WHERE in_stock = true;
 
 Same result. The first specifies the loop, the counter and the mutation. The second specifies the outcome.
 
-**The trade:** declarative is shorter, harder to get subtly wrong, and easier to optimise automatically — an SQL engine rewrites your query into a plan you never see, and a good one beats what you'd have written. What you give up is control: when it's slow, the *how* is somebody else's, and you need to understand the machinery anyway to fix it → [[databases/07-join-algorithms-and-the-optimiser|the query optimiser]].
+**The trade:** declarative is shorter, harder to get subtly wrong, and easier to optimise automatically — an SQL engine rewrites your query into a plan you never see, and a good one beats what you'd have written. What you give up is control: when it's slow, the *how* is somebody else's, and you need to understand the machinery anyway to fix it → [[databases/07-join-algorithms-and-the-optimiser/index|the query optimiser]].
 
 You already write declarative code constantly. HTML, CSS, SQL, [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|Terraform]], and every CI YAML file are declarative. So is React's render model.
 

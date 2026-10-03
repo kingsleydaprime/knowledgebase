@@ -73,7 +73,7 @@
 
 **Reclaims dead tuples**, marking space reusable (not returned to the OS — that needs `VACUUM FULL`, which locks the table exclusively).
 
-**Updates the visibility map**, which is what enables **index-only scans**. → [[databases/04-b-trees-and-indexes|Index-only scans]]
+**Updates the visibility map**, which is what enables **index-only scans**. → [[databases/04-b-trees-and-indexes/index|Index-only scans]]
 
 **Updates statistics** (with `ANALYZE`).
 
