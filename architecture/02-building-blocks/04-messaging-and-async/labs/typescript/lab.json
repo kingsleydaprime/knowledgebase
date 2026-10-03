@@ -1,0 +1,5 @@
+{
+  "lesson": "architecture/02-building-blocks/04-messaging-and-async/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["broker.ts", "broker.test.ts"]
+}

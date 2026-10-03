@@ -8,7 +8,7 @@ High-throughput record ID generation: CSV in, RabbitMQ in the middle, MySQL out.
 2. [[projects/record-id-generator-java/learning/02-build-tools-and-architecture|02 — Build Tools & Architecture]] → [[languages/01-java/03-tooling/01-build-tools|build tools]]
 3. [[projects/record-id-generator-java/learning/03-lombok-and-configuration|03 — Lombok & Configuration]] → [[languages/01-java/03-tooling/03-lombok-and-builders|lombok & builders]]
 4. [[projects/record-id-generator-java/learning/04-database-mysql-flyway|04 — MySQL & Flyway]] → [[databases/mysql-reference|MySQL reference]], [[databases/interview/01-sql-modelling-and-internals|db interview]]
-5. [[projects/record-id-generator-java/learning/05-rabbitmq-messaging|05 — RabbitMQ Messaging]] → [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|messaging]], [[architecture/02-building-blocks/04-messaging-and-async|messaging & async]]
+5. [[projects/record-id-generator-java/learning/05-rabbitmq-messaging|05 — RabbitMQ Messaging]] → [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|messaging]], [[architecture/02-building-blocks/04-messaging-and-async/index|messaging & async]]
 6. [[projects/record-id-generator-java/learning/06-concurrency-and-threads|06 — Concurrency & Threads]] → [[languages/01-java/02-jvm-and-concurrency/02-concurrency|concurrency]] ⭐
 7. [[projects/record-id-generator-java/learning/07-id-generation-and-idempotency|07 — ID Generation & Idempotency]] → [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|id generation]] ⭐
 8. [[projects/record-id-generator-java/learning/08-csv-parsing-and-data-quality|08 — CSV Parsing & Data Quality]]

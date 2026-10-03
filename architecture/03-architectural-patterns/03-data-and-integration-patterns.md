@@ -11,13 +11,13 @@ In a monolith, one database and ACID transactions handle everything. Once data i
 Separate the **write** model from the **read** model. Instead of one representation serving both, commands (writes) go to a write-optimized store, and queries (reads) hit one or more read-optimized stores (denormalized, indexed for specific queries, often a different database).
 
 - **Why** — reads and writes have very different needs and volumes; separating them lets each scale and be optimized independently (a read model shaped exactly for a screen, updated from write events).
-- **Cost** — two models to keep in sync (usually via [[architecture/02-building-blocks/04-messaging-and-async|events]]), so the read side is eventually consistent, and it's more complex. Reach for it when read/write asymmetry is genuinely painful — not by default.
+- **Cost** — two models to keep in sync (usually via [[architecture/02-building-blocks/04-messaging-and-async/index|events]]), so the read side is eventually consistent, and it's more complex. Reach for it when read/write asymmetry is genuinely painful — not by default.
 
 ## Event Sourcing
 
 Instead of storing the *current state*, store the **sequence of events** that produced it (append-only log). Current state is derived by replaying events.
 
-- **Why** — a perfect audit log (every change, forever), the ability to reconstruct any past state or fix a bug and replay, and a natural fit with [[architecture/02-building-blocks/04-messaging-and-async|event-driven]] systems and CQRS (events update the read models).
+- **Why** — a perfect audit log (every change, forever), the ability to reconstruct any past state or fix a bug and replay, and a natural fit with [[architecture/02-building-blocks/04-messaging-and-async/index|event-driven]] systems and CQRS (events update the read models).
 - **Cost** — a big mental shift, event schema evolution is tricky, and "what's the current state?" requires replay (or snapshots). Powerful for domains where history/audit is first-class (finance, ledgers — the [[languages/01-java/06-applied-systems/index|payment domain]]); overkill for simple CRUD.
 
 CQRS and event sourcing pair naturally but are independent — you can use either alone.
@@ -52,6 +52,6 @@ Every pattern here manages the same fundamental loss: **once data crosses a tran
 
 ## Related
 - [[architecture/03-architectural-patterns/05-transactional-outbox/index|Transactional Outbox]] — how each saga step announces itself reliably
-- [[architecture/02-building-blocks/04-messaging-and-async|Messaging & Async]] — the event backbone these run on
+- [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging & Async]] — the event backbone these run on
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — 2PC, the alternative sagas avoid
 - [[languages/01-java/06-applied-systems/index|Applied Systems (Java)]] — a real payment/ledger domain

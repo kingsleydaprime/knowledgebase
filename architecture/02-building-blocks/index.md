@@ -5,8 +5,8 @@ The reusable components every large system is assembled from. Learn these and mo
 1. [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|Load Balancing & Proxies]] — **[Intermediate]** — L4/L7 load balancing, algorithms, reverse proxy, API gateway, CDN
 2. [[architecture/02-building-blocks/02-caching/index|Caching]] — **[Intermediate]** — the cache strategies (cache-aside/write-through/write-behind), where to cache, eviction, and invalidation
 3. [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — **[Intermediate → Advanced]** — SQL vs NoSQL, replication, sharding, indexing, denormalization
-4. [[architecture/02-building-blocks/04-messaging-and-async|Messaging & Async]] — **[Intermediate]** — message queues, pub/sub, event-driven design, back-pressure, queue-based load leveling
-5. [[architecture/02-building-blocks/05-communication|Communication]] — **[Intermediate]** — REST vs gRPC vs GraphQL, sync vs async, and the protocols underneath
+4. [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging & Async]] — **[Intermediate]** — message queues, pub/sub, event-driven design, back-pressure, queue-based load leveling
+5. [[architecture/02-building-blocks/05-communication/index|Communication]] — **[Intermediate]** — REST vs gRPC vs GraphQL, sync vs async, and the protocols underneath
 
 ## Related
 

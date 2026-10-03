@@ -43,7 +43,7 @@ No new patterns. **Every week: five problems drawn at random from NeetCode 150 p
 
 ### Week 3 — Messaging and communication
 
-- **Learn (core):** [[architecture/02-building-blocks/04-messaging-and-async|messaging and async]] · [[architecture/02-building-blocks/05-communication|REST, gRPC, GraphQL, WebSockets]]
+- **Learn (core):** [[architecture/02-building-blocks/04-messaging-and-async/index|messaging and async]] · [[architecture/02-building-blocks/05-communication/index|REST, gRPC, GraphQL, WebSockets]]
 - **Learn (optional):** [[architecture/02-building-blocks/03-databases-at-scale|databases at scale]]
 - **Design:** **notification system**. You have real RabbitMQ reps — this one should come from experience.
 

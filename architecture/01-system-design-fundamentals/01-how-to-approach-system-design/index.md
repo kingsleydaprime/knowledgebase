@@ -76,7 +76,7 @@ Then say which number matters. Usually one of them decides the design, and the r
 
 ### Step 3: High-level design
 
-Draw the big boxes and how requests flow through them: client → [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancer]] → application servers → [[architecture/02-building-blocks/02-caching/index|cache]] and [[architecture/02-building-blocks/03-databases-at-scale|database]], plus [[architecture/02-building-blocks/04-messaging-and-async|queues]] for slow work. Write the main API calls and the data model. Get the *shape* right before optimising any piece; the deep dive needs something to attach to.
+Draw the big boxes and how requests flow through them: client → [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancer]] → application servers → [[architecture/02-building-blocks/02-caching/index|cache]] and [[architecture/02-building-blocks/03-databases-at-scale|database]], plus [[architecture/02-building-blocks/04-messaging-and-async/index|queues]] for slow work. Write the main API calls and the data model. Get the *shape* right before optimising any piece; the deep dive needs something to attach to.
 
 ### Step 4: Deep dive
 

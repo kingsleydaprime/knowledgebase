@@ -73,7 +73,7 @@ No. With a 3-second timeout, each search holds a worker for 3 seconds, and 20 ×
 
 ## 4. Back-pressure and queues
 
-Queues absorb bursts, but a queue in front of a service that's slower than its arrivals only grows, and every request in it gets older. Two rules follow. **Bound every queue**, and decide what happens when it's full: reject, as load shedding does, or slow the producer down. And when one component feeds another through a message queue, let the consumer's pace set the producer's ([[architecture/02-building-blocks/04-messaging-and-async|messaging and async]]): that's back-pressure. A queue that's allowed to grow forever hides a failure until it becomes a much bigger one.
+Queues absorb bursts, but a queue in front of a service that's slower than its arrivals only grows, and every request in it gets older. Two rules follow. **Bound every queue**, and decide what happens when it's full: reject, as load shedding does, or slow the producer down. And when one component feeds another through a message queue, let the consumer's pace set the producer's ([[architecture/02-building-blocks/04-messaging-and-async/index|messaging and async]]): that's back-pressure. A queue that's allowed to grow forever hides a failure until it becomes a much bigger one.
 
 ## Worked example — a cascade, a timeout and bulkheads
 
@@ -361,6 +361,6 @@ You can explain how a slow dependency cascades, predict it with Little's law, ch
 - [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud design patterns]] — the same patterns from the operations side
 - [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices patterns]] — where they're needed most
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability and reliability]] — what these patterns protect
-- [[architecture/02-building-blocks/04-messaging-and-async|Messaging and async]] — queues and back-pressure
+- [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging and async]] — queues and back-pressure
 
 *Source: the roadmap.sh system-design roadmap.*

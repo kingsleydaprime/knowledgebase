@@ -25,8 +25,8 @@ The reusable components every large system is assembled from.
 1. [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|Load Balancing & Proxies]] — L4/L7 load balancing, algorithms, reverse proxy, API gateway, CDN
 2. [[architecture/02-building-blocks/02-caching/index|Caching]] — cache strategies, where to cache, eviction, and the invalidation problem
 3. [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — SQL vs NoSQL, replication, sharding/partitioning, indexing, denormalization
-4. [[architecture/02-building-blocks/04-messaging-and-async|Messaging & Async]] — message queues, pub/sub, event-driven, back-pressure, queue-based load leveling
-5. [[architecture/02-building-blocks/05-communication|Communication]] — REST vs gRPC vs GraphQL, sync vs async, and the protocols underneath
+4. [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging & Async]] — message queues, pub/sub, event-driven, back-pressure, queue-based load leveling
+5. [[architecture/02-building-blocks/05-communication/index|Communication]] — REST vs gRPC vs GraphQL, sync vs async, and the protocols underneath
 
 ### [[architecture/03-architectural-patterns/index|03 — Architectural Patterns]]
 How components are arranged into whole architectures.

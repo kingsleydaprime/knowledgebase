@@ -578,7 +578,7 @@ for (const entry of entries) {
 ---
 
 ## The general version of this
-- [[architecture/02-building-blocks/04-messaging-and-async|Messaging & Async]] — push vs pull as a design choice
+- [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging & Async]] — push vs pull as a design choice
 - [[networking/11-http-evolution|HTTP evolution]] — what WebSockets sit on top of
 - [[networking/06-tcp-connection-lifecycle|TCP lifecycle]] — why idle connections die and you need heartbeats
 

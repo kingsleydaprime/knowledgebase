@@ -397,12 +397,12 @@ By Sunday: what must be true before the week closes
 
 # Week 7 — Data, messaging, communication
 
-**Read:** [[architecture/02-building-blocks/03-databases-at-scale|databases at scale]] · [[architecture/02-building-blocks/04-messaging-and-async|messaging]] · [[architecture/02-building-blocks/05-communication|communication]]
+**Read:** [[architecture/02-building-blocks/03-databases-at-scale|databases at scale]] · [[architecture/02-building-blocks/04-messaging-and-async/index|messaging]] · [[architecture/02-building-blocks/05-communication/index|communication]]
 
 **Topics**
 - **7.1** Databases at scale → [[architecture/02-building-blocks/03-databases-at-scale|at scale]]
-- **7.2** Messaging and async → [[architecture/02-building-blocks/04-messaging-and-async|messaging]]
-- **7.3** REST, gRPC, GraphQL, WebSockets → [[architecture/02-building-blocks/05-communication|communication]]
+- **7.2** Messaging and async → [[architecture/02-building-blocks/04-messaging-and-async/index|messaging]]
+- **7.3** REST, gRPC, GraphQL, WebSockets → [[architecture/02-building-blocks/05-communication/index|communication]]
 
 **DSA:** D7 → [[dsa/04-patterns/07-top-k-elements|Top-K elements]]
 
@@ -610,7 +610,7 @@ By Sunday: what must be true before the week closes
 - **19.2** Rate limiting → [[backend/07-practices/01-backend-best-practices/index|practices]]
 - **19.3** Structured logging and configuration → [[backend/07-practices/01-backend-best-practices/index|practices]]
 - **19.4** Databases in the backend; pooling, migrations → [[backend/04-data-and-persistence/01-databases-in-the-backend|persistence]]
-- **19.5** Background jobs and queues → [[architecture/02-building-blocks/04-messaging-and-async|messaging & async]]
+- **19.5** Background jobs and queues → [[architecture/02-building-blocks/04-messaging-and-async/index|messaging & async]]
 - **19.6** Idempotency → [[concepts/interview/01-apis-auth-and-practices|APIs, auth & practices]]
 - **19.7** Caching layers → [[architecture/02-building-blocks/02-caching/index|caching]]
 
