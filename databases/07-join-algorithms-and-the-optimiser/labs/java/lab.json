@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/07-join-algorithms-and-the-optimiser/in-other-languages.md",
+  "run": [["sh", "../shared/with-postgres.sh", "sh", "check.sh"]],
+  "embedded": ["src/joins/Joins.java", "src/joins/JoinsCheck.java"]
+}

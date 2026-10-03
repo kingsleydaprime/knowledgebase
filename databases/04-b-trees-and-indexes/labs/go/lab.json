@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/04-b-trees-and-indexes/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["sh", "../shared/with-postgres.sh", "go", "test", "./..."]],
+  "embedded": ["btree.go", "btree_test.go", "postgres_test.go"]
+}

@@ -1,0 +1,6 @@
+{
+  "lesson": "databases/07-join-algorithms-and-the-optimiser/in-other-languages.md",
+  "setup": [["npm", "ci", "--silent"]],
+  "run": [["node", "--test", "joins.test.ts"], ["sh", "../shared/with-postgres.sh", "node", "--test", "postgres.test.ts"]],
+  "embedded": ["joins.ts", "joins.test.ts", "postgres.test.ts"]
+}

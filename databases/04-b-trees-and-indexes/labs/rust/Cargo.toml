@@ -1,0 +1,10 @@
+[package]
+name = "btree"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[dev-dependencies]
+postgres = { version = "0.19", features = ["with-serde_json-1"] }
+serde_json = "1"

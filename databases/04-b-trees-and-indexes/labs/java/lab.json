@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/04-b-trees-and-indexes/in-other-languages.md",
+  "run": [["sh", "../shared/with-postgres.sh", "sh", "check.sh"]],
+  "embedded": ["src/btree/BTree.java", "src/btree/BTreeCheck.java"]
+}

@@ -1,0 +1,6 @@
+{
+  "lesson": "databases/04-b-trees-and-indexes/in-other-languages.md",
+  "setup": [["npm", "ci", "--silent"]],
+  "run": [["node", "--test", "btree.test.ts"], ["sh", "../shared/with-postgres.sh", "node", "--test", "postgres.test.ts"]],
+  "embedded": ["btree.ts", "btree.test.ts", "postgres.test.ts"]
+}

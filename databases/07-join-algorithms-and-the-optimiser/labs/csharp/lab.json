@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/07-join-algorithms-and-the-optimiser/in-other-languages.md",
+  "run": [["sh", "../shared/with-postgres.sh", "sh", "container.sh"]],
+  "embedded": ["Joins/Joins.cs", "Joins/Program.cs"]
+}
