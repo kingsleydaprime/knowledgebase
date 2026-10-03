@@ -1,0 +1,6 @@
+{
+  "lesson": "databases/09-mvcc-and-concurrency-control/in-other-languages.md",
+  "setup": [["npm", "ci", "--silent"]],
+  "run": [["sh", "../shared/with-postgres.sh", "node", "--test", "--test-concurrency=1", "mvcc.test.ts"]],
+  "embedded": ["mvcc.test.ts"]
+}

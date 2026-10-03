@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/09-mvcc-and-concurrency-control/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["sh", "../shared/with-postgres.sh", "go", "test", "./..."]],
+  "embedded": ["mvcc.go", "mvcc_test.go"]
+}

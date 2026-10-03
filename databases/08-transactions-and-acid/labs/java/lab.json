@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/08-transactions-and-acid/in-other-languages.md",
+  "run": [["sh", "../shared/with-postgres.sh", "sh", "check.sh"]],
+  "embedded": ["src/isolation/Isolation.java", "src/isolation/IsolationCheck.java"]
+}

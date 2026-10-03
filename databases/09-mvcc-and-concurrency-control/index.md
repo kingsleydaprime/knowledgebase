@@ -451,7 +451,7 @@ You can explain how versions and snapshots let readers and writers work without 
 
 **Recap.** MVCC keeps several versions of each row, marked with the transactions that created and replaced them, so each transaction reads its snapshot's versions without read locks: readers and writers don't block each other, though writers still block writers. PostgreSQL keeps old versions in the table, so updates write whole new versions (touching every index unless the update is HOT), dead versions accumulate, and `VACUUM` must clean them up. Any open snapshot, anywhere, stops that. Freeze old transaction IDs before wraparound. Deadlocks are detected and one transaction is cancelled; consistent lock order prevents them. And a waiting `ALTER TABLE` queues every query behind it unless it has a `lock_timeout`.
 
-**Next.** Week 7, the web end to end: [[networking/10-dns-in-depth|DNS]], [[networking/11-http-evolution|HTTP]] and [[networking/12-tls-and-transport-security|TLS]].
+**Next.** Week 7, the web end to end: [[networking/10-dns-in-depth/index|DNS]], [[networking/11-http-evolution/index|HTTP]] and [[networking/12-tls-and-transport-security/index|TLS]].
 
 ## Related
 

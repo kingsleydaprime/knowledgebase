@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/08-transactions-and-acid/in-other-languages.md",
+  "run": [["sh", "../shared/with-postgres.sh", "sh", "container.sh"]],
+  "embedded": ["Isolation/Program.cs"]
+}

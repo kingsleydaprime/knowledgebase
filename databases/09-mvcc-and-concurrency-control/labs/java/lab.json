@@ -1,0 +1,5 @@
+{
+  "lesson": "databases/09-mvcc-and-concurrency-control/in-other-languages.md",
+  "run": [["sh", "../shared/with-postgres.sh", "sh", "check.sh"]],
+  "embedded": ["src/mvcc/MvccCheck.java"]
+}
