@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-ml/03-ai-engineer/06-rag-and-embeddings/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "./..."]],
+  "embedded": ["rag.go", "rag_test.go"]
+}
