@@ -174,7 +174,7 @@ async fn get_user(&self, id: u64) -> Result<User> {
 }
 ```
 
-**A cache write failure should never fail the request.** `.ok()` discards it deliberately — the cache is an optimisation, not a source of truth. → [[architecture/02-building-blocks/02-caching|Caching]]
+**A cache write failure should never fail the request.** `.ok()` discards it deliberately — the cache is an optimisation, not a source of truth. → [[architecture/02-building-blocks/02-caching/index|Caching]]
 
 ## Testing
 

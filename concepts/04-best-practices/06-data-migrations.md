@@ -188,7 +188,7 @@ Small scripts, one class of damage each. The template that keeps them safe:
 
 ## Related
 - [[projects/munakalati/learning/05-migration/index|munakalati — the worked example]]
-- [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] · [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
+- [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] · [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data and integration patterns]]
 - [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modelling]] — designing the target
 - [[devops/01-linux/12-bash-scripting|bash scripting]] — the flag conventions

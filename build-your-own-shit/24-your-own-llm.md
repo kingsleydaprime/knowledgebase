@@ -116,7 +116,7 @@ Train four models of increasing size on the same data and plot final loss agains
 
 - [[build-your-own-shit/10-your-own-neural-network|Your Own Neural Network]] — the prerequisite, and where the backpropagation lives
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers and attention]] — the reference note for this guide
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — the natural next project, and the one `ai-ml/projects` names first
+- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — the natural next project, and the one `ai-ml/projects` names first
 - [[information-theory/04-cross-entropy-and-kl-divergence|Cross-entropy]] — why the loss function is the one it is
 - [[build-your-own-shit/index|Build Your Own Shit index]]
 

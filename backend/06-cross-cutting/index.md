@@ -38,7 +38,7 @@ Not everything cross-cutting belongs here — some of it has a better home and t
 
 | Concern | Where |
 |---|---|
-| **Caching** | [[architecture/02-building-blocks/02-caching\|caching]] — strategies, stampede, penetration |
+| **Caching** | [[architecture/02-building-blocks/02-caching/index\|caching]] — strategies, stampede, penetration |
 | **Logging & observability** | [[devops/10-observability/index\|observability]] · [[backend/interview/01-production-debugging\|what to log]] |
 | **Background jobs** | [[architecture/02-building-blocks/04-messaging-and-async\|messaging & async]] |
 | **Auth itself** | [[backend/05-auth/index\|05-auth]] — flows, authorization, OAuth |

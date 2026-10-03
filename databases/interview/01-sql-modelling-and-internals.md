@@ -82,7 +82,7 @@ From [[databases/sql-reference|sql-reference]], [[databases/database-design-refe
 - **Key-value** (Redis, DynamoDB) — known access path, extreme throughput, simple lookups.
 - **Wide-column** (Cassandra) — massive write throughput, time-series, tunable consistency, no single point of failure.
 - **Graph** (Neo4j) — relationship traversal *is* the query (recommendations, fraud rings).
-- **Vector** (pgvector, Pinecone) — similarity search for [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]].
+- **Vector** (pgvector, Pinecone) — similarity search for [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]].
 
 **Two things that make this answer better than most:**
 1. "NoSQL scales, SQL doesn't" is outdated. Postgres with partitioning and read replicas handles the vast majority of applications, and modern distributed SQL (CockroachDB, Spanner, Vitess) gives horizontal scale without giving up joins or transactions.

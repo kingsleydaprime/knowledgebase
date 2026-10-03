@@ -38,7 +38,7 @@ From [[architecture/01-system-design-fundamentals/index|01-fundamentals]], [[arc
 
 Then: redirect uses **301 vs 302** — and this is a real tradeoff worth naming: 301 is cached by the browser so subsequent hits never reach you (great for load, fatal for analytics); 302 keeps every hit visible.
 
-**The deep dive to steer toward:** caching. It's read-heavy with a small hot set, so an LRU cache in front of the store absorbs almost everything. → [[architecture/02-building-blocks/02-caching|caching]]
+**The deep dive to steer toward:** caching. It's read-heavy with a small hot set, so an LRU cache in front of the store absorbs almost everything. → [[architecture/02-building-blocks/02-caching/index|caching]]
 
 ---
 

@@ -40,11 +40,11 @@ Each step must save its local change **and** announce the next step reliably —
 
 ## Materialized View
 
-A precomputed, stored result of an expensive query (a join/aggregation), refreshed as data changes — so reads are a cheap lookup instead of recomputing every time. A [[architecture/02-building-blocks/02-caching|caching]]/[[architecture/02-building-blocks/03-databases-at-scale|denormalization]] idea at the database level, and often *how* a CQRS read model is built.
+A precomputed, stored result of an expensive query (a join/aggregation), refreshed as data changes — so reads are a cheap lookup instead of recomputing every time. A [[architecture/02-building-blocks/02-caching/index|caching]]/[[architecture/02-building-blocks/03-databases-at-scale|denormalization]] idea at the database level, and often *how* a CQRS read model is built.
 
 ## Strangler Fig
 
-The pattern for **incrementally** migrating a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|monolith to microservices]] (or replacing any legacy system) without a risky big-bang rewrite. Put a [[architecture/02-building-blocks/01-load-balancing-and-proxies|proxy/gateway]] in front, then extract functionality one piece at a time — routing that piece's traffic to the new service while everything else still hits the monolith. The new system grows around the old (like a strangler fig around a tree) until the old one can be retired. The safe, boring, correct way to modernize — vastly less risky than a rewrite.
+The pattern for **incrementally** migrating a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless|monolith to microservices]] (or replacing any legacy system) without a risky big-bang rewrite. Put a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|proxy/gateway]] in front, then extract functionality one piece at a time — routing that piece's traffic to the new service while everything else still hits the monolith. The new system grows around the old (like a strangler fig around a tree) until the old one can be retired. The safe, boring, correct way to modernize — vastly less risky than a rewrite.
 
 ## The through-line
 

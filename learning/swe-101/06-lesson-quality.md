@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 26 of 43 meet the standard. Optional: 13 of 36.**
+**Core lessons: 28 of 43 meet the standard. Optional: 13 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -59,8 +59,8 @@
 | SWE 103 | 1 | core | ✅ meets | — | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index\|index]] |
 | SWE 103 | 1 | core | ✅ meets | — | [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index\|index]] |
 | SWE 103 | 1 | optional | n/a | keeps its own shape | [[architecture/interview/01-system-design-round\|01-system-design-round]] |
-| SWE 103 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/02-building-blocks/02-caching\|02-caching]] |
-| SWE 103 | 2 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/02-building-blocks/01-load-balancing-and-proxies\|01-load-balancing-and-proxies]] |
+| SWE 103 | 2 | core | ✅ meets | — | [[architecture/02-building-blocks/02-caching/index\|index]] |
+| SWE 103 | 2 | core | ✅ meets | — | [[architecture/02-building-blocks/01-load-balancing-and-proxies/index\|index]] |
 | SWE 103 | 2 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/01-system-design-fundamentals/03-availability-and-reliability\|03-availability-and-reliability]] |
 | SWE 103 | 2 | optional | ⬜ not started | kid, start, terms, checks, practice | [[architecture/01-system-design-fundamentals/04-cap-and-consistency\|04-cap-and-consistency]] |
 | SWE 103 | 3 | core | ⬜ not started | kid, start, terms, checks, practice | [[architecture/02-building-blocks/04-messaging-and-async\|04-messaging-and-async]] |

@@ -167,7 +167,7 @@ The critical detail: **the key insert and the effect must be in the same transac
 
 7. **Server-side load shedding.** The receiving side must protect itself — reject fast with 429/503 when the queue is deep. You can't rely on every client being well-behaved.
 
-→ [[architecture/03-architectural-patterns/02-resilience-patterns|resilience patterns]]
+→ [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 
 ---
 
