@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/10-dns-in-depth/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Dns/Dns.cs", "Dns/Program.cs"]
+}

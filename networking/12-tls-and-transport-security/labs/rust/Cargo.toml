@@ -1,0 +1,12 @@
+[package]
+name = "tlsmath"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+aes-gcm = "0.11.1"
+hkdf = "0.13.0"
+num-bigint = "0.5.1"
+rustls = "0.23.45"
+sha2 = "0.11.0"
+x25519-dalek = { version = "3.0.0", features = ["getrandom"] }

@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/11-http-evolution/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Web/Site.cs", "Web/Program.cs"]
+}

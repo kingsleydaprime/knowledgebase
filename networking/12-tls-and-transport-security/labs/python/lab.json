@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/12-tls-and-transport-security/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "--with", "cryptography==50.0.2", "python", "-m", "unittest"]],
+  "embedded": ["tlsmath.py", "test_tls.py"]
+}

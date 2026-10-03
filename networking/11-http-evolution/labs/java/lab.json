@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/11-http-evolution/in-other-languages.md",
+  "run": [["sh", "check.sh"]],
+  "embedded": ["src/web/Site.java", "src/web/SiteCheck.java"]
+}

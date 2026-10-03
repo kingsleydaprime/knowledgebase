@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/10-dns-in-depth/in-other-languages.md",
+  "run": [["uv", "run", "-q", "--no-project", "python", "-m", "unittest"]],
+  "embedded": ["dns.py", "test_dns.py"]
+}

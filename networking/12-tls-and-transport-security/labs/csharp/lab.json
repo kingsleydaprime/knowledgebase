@@ -1,0 +1,5 @@
+{
+  "lesson": "networking/12-tls-and-transport-security/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Tls/TlsMath.cs", "Tls/Program.cs"]
+}

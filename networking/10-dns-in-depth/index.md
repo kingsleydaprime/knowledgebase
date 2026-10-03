@@ -298,7 +298,7 @@ export async function startServer(zone: Map<string, ZoneRecord[]>): Promise<{ po
       fixed.writeUInt16BE(rdata.length, 8);
       return Buffer.concat([encodeName(n), fixed, rdata]);
     });
-    const questionBytes = query.subarray(12);
+    const questionBytes = query.subarray(12, readName(query, 12)[1] + 4); // exactly the question: anything after it (EDNS0) isn't echoed
     let answerBytes = Buffer.concat(body);
     const truncated = 12 + questionBytes.length + answerBytes.length > 512;
     if (truncated) answerBytes = Buffer.alloc(0); // a truncated UDP reply carries no answers: "ask again over TCP"
