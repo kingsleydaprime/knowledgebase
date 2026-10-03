@@ -64,7 +64,7 @@ Review: "Shipping was slow but the product is fine." →
 
 Two rules. Format the examples **exactly** like the real question, because consistency matters more than explanation. And **never measure a prompt on its own examples.** That tests memory, not skill.
 
-**Delimit user input.** Put anything you didn't write — user text, documents, web pages — inside clear markers, and say in the instructions that it is data to process, never instructions. Stop the text from closing your marker early. This makes [[ai-ml/03-ai-engineer/10-safety-and-production|prompt injection]] harder; it doesn't make it impossible. A model can still follow instructions that sit inside the tags, so never give a model's output more power than you'd give the user who supplied its input.
+**Delimit user input.** Put anything you didn't write — user text, documents, web pages — inside clear markers, and say in the instructions that it is data to process, never instructions. Stop the text from closing your marker early. This makes [[ai-ml/03-ai-engineer/10-safety-and-production/index|prompt injection]] harder; it doesn't make it impossible. A model can still follow instructions that sit inside the tags, so never give a model's output more power than you'd give the user who supplied its input.
 
 **Let it reason first.** Asking for step-by-step reasoning (CoT), or turning on a reasoning model's thinking, measurably improves multi-step problems. Each reasoning token becomes context the answer builds on. The costs are tokens and time — the [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]] lab watched thinking use up a whole 120-token budget. For a one-word classification, it usually isn't worth it.
 
@@ -367,6 +367,6 @@ You can turn a vague prompt into a specific one, explain the two few-shot rules,
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how you actually know a prompt change helped
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — grounding, the fix for hallucination
 - [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — the agent loop is a prompting pattern that runs itself
-- [[ai-ml/03-ai-engineer/10-safety-and-production|Safety and production]] — prompt injection in depth
+- [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — prompt injection in depth
 
 *Source: re-homed from the old `01-fundamentals/07-prompting.md`, deepened with techniques from [roadmap.sh prompt-engineering](https://roadmap.sh/prompt-engineering).*

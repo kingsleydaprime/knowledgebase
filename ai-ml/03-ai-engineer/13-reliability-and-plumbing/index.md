@@ -945,7 +945,7 @@ You can sort a failure into retryable or not, write a retry loop with jitter and
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — the gate that now runs in CI, and the baseline used as the fallback
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — the same gateway layer, aimed at spend and speed
 - [[architecture/03-architectural-patterns/02-resilience-patterns|Resilience patterns]] — retries, breakers and bulkheads for any dependency
-- [[ai-ml/03-ai-engineer/10-safety-and-production|Safety and production]] — reliability is one part of production-ready
+- [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — reliability is one part of production-ready
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|MLOps: serving and monitoring]] — the classical-serving sibling
 
 *Source: Part II of the AI-engineer track.*

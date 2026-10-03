@@ -53,6 +53,7 @@ Some labs have a `live.ts` that calls a local model through Ollama. The runner n
 | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|cost, caching and latency]] | `node live.ts` (4 calls of about 500 prompt tokens: cold, same prefix, timestamp first, streamed) | about 2 minutes |
 | [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|tools and MCP]] | `node live.ts` (4 questions, 2–3 calls each: lookups, a bad ID, the injected note, a declined refund) | about 8 minutes |
 | [[ai-ml/03-ai-engineer/08-agents/index\|agents]] | `node live.ts` (3 questions, agent and workflow each) | about 8 minutes |
+| [[ai-ml/03-ai-engineer/10-safety-and-production/index\|safety and production]] | `node live.ts` (the 8-case attack set, undefended and defended: 16 calls) | about 4 minutes |
 
 ## The labs
 
@@ -69,6 +70,7 @@ Each lesson that has labs is a folder: `index.md` is the lesson, `in-other-langu
 | `cost-caching-and-latency` | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|cost, caching and latency]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's evals lab) |
 | `tools-and-mcp` | [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|tools and MCP]] · [[ai-ml/03-ai-engineer/07-tools-and-mcp/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (orders in `shared/`; every MCP server is checked by the official client via `shared/conformance.sh`) |
 | `agents` | [[ai-ml/03-ai-engineer/08-agents/index\|agents]] · [[ai-ml/03-ai-engineer/08-agents/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's tools and evals labs) |
+| `safety-and-production` | [[ai-ml/03-ai-engineer/10-safety-and-production/index\|safety and production]] | typescript (attack set in `shared/`; imports the tools and evals labs) |
 | `local-and-open-models` | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|local and open models]] | python |
 | `transactional-outbox` | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|transactional outbox]] | javascript |
 | `layers-controllers-services-repositories` | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index\|layers controllers services repositories]] · [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |

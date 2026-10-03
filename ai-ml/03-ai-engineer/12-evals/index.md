@@ -525,7 +525,7 @@ You can build a golden set with a labelling policy, choose a scorer, compare aga
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — the first labelled set, and why you measure prompt changes
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — structural checks, the cheapest scorer
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG and embeddings]] — retrieval and generation metrics
-- [[ai-ml/03-ai-engineer/10-safety-and-production|Safety and production]] — evals as one part of shipping safely
+- [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — evals as one part of shipping safely
 - [[concepts/04-best-practices/04-testing-fundamentals/index|Testing fundamentals]] — the deterministic cousin of this discipline
 - [[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|ML evaluation metrics]] — precision, recall and the classical side
 

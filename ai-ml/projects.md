@@ -10,10 +10,10 @@ _Your strongest applied area (AI SDK / MCP). These produce shippable, demoable p
 
 - 🟢 ⭐ **RAG over this vault** — a chatbot that answers questions about _this knowledgebase_: chunk the markdown, embed it, store in [[ai-ml/03-ai-engineer/06-rag-and-embeddings|pgvector/Chroma]], retrieve + answer with citations. Dogfoods your own notes and is a perfect [[ai-ml/03-ai-engineer/06-rag-and-embeddings|RAG]] project.
 - 🟡 **Build an MCP server** — wrap a real system (your notes, a database, an API) as an [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|MCP server]] with tools + resources, and use it from an MCP host. You already _use_ MCP — building one closes the loop.
-- 🟡 **An agent with real tools + an eval set** — an [[ai-ml/03-ai-engineer/08-agents/index|agent]] (via the AI SDK's agent loop) that does a multi-step task with 2–3 tools, plus an [[ai-ml/03-ai-engineer/10-safety-and-production|eval set]] measuring success rate as you change the prompt/model. The evals are what make it engineering, not a demo.
+- 🟡 **An agent with real tools + an eval set** — an [[ai-ml/03-ai-engineer/08-agents/index|agent]] (via the AI SDK's agent loop) that does a multi-step task with 2–3 tools, plus an [[ai-ml/03-ai-engineer/10-safety-and-production/index|eval set]] measuring success rate as you change the prompt/model. The evals are what make it engineering, not a demo.
 - 🟡 **Structured extraction pipeline** — feed scanned docs/receipts to a [[ai-ml/03-ai-engineer/09-multimodal|vision model]], extract typed JSON with [[ai-ml/03-ai-engineer/04-calling-models/index|structured output]], validate against a schema. A genuinely useful, sellable tool.
 - 🟢 **Model bake-off via OpenRouter** — same prompt/eval set across 5 models through [[ai-ml/03-ai-engineer/03-the-model-landscape|OpenRouter]], compare quality/latency/cost. Cheap, fast, and teaches model selection.
-- 🔴 **Prompt-injection red-team** — build a small agent, then try to break it (direct + indirect [[ai-ml/03-ai-engineer/10-safety-and-production|injection]]); document what worked and the mitigations. Rare, valuable security-adjacent signal.
+- 🔴 **Prompt-injection red-team** — build a small agent, then try to break it (direct + indirect [[ai-ml/03-ai-engineer/10-safety-and-production/index|injection]]); document what worked and the mitigations. Rare, valuable security-adjacent signal.
 
 ## ML Engineer
 

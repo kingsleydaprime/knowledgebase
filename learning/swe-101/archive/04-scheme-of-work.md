@@ -573,7 +573,7 @@ By Sunday: what must be true before the week closes
 - **17.5** Symmetric, asymmetric, signatures, PKI → [[cybersecurity/05-cryptography/02-symmetric-encryption|02]] · [[cybersecurity/05-cryptography/04-asymmetric-encryption|04]] · [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|05]]
 - **17.6** TLS in practice → [[cybersecurity/04-web-security/03-https-and-tls|HTTPS & TLS]]
 - **17.7** Secrets management → [[devops/09-secret-management/01-secret-management|secrets]]
-- **17.8** **Prompt injection and LLM-specific risk** → [[ai-ml/03-ai-engineer/10-safety-and-production|safety & production]]
+- **17.8** **Prompt injection and LLM-specific risk** → [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety & production]]
 
 **DSA:** mixed review begins — 5 problems/week, patterns drawn at random. **This is what interviews actually are.**
 
@@ -670,13 +670,13 @@ By Sunday: what must be true before the week closes
 
 # Week 23 — Evals and production ⭐
 
-**Read:** [[ai-ml/03-ai-engineer/12-evals/index|12 — evals]] · [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|13]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|14]] · [[ai-ml/03-ai-engineer/10-safety-and-production|10]]
+**Read:** [[ai-ml/03-ai-engineer/12-evals/index|12 — evals]] · [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|13]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|14]] · [[ai-ml/03-ai-engineer/10-safety-and-production/index|10]]
 
 **Topics**
 - **23.1** **Evals — golden sets, scorers, regression runs in CI** → [[ai-ml/03-ai-engineer/12-evals/index|12]]
 - **23.2** Reliability and plumbing — retries, fallbacks, timeouts → [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|13]]
 - **23.3** Cost, caching, latency → [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|14]]
-- **23.4** Safety in production — PII, output filtering → [[ai-ml/03-ai-engineer/10-safety-and-production|10]]
+- **23.4** Safety in production — PII, output filtering → [[ai-ml/03-ai-engineer/10-safety-and-production/index|10]]
 - **23.5** Practice → [[ai-ml/03-ai-engineer/19-practice-exercises|exercises]] · [[ai-ml/03-ai-engineer/20-practice-exercises-solutions|solutions]]
 
 **DSA:** mixed review, 5 problems
