@@ -228,6 +228,23 @@ awk -F: '$3 >= 1000 {print $1}' /etc/passwd
 
 ---
 
+### Gotcha: a pattern range re-opens every time the start matches
+
+`sed -n '/START/,/END/p'` and `awk '/START/,/END/'` don't stop after the first
+block. Whenever `START` matches again after a block has closed, a new range
+opens and runs to the next `END`. Extracting one SQL function with
+`/function foo/,/^\$\$;/` also picked up a later `revoke all on function foo(...)`
+line, which opened a second range that ran to the end of a *different* function.
+
+```sh
+awk '/function foo/,/^\$\$;/' f.sql                          # ✗ also fires on "revoke … function foo"
+awk '/^create (or replace )?function foo/,/^\$\$;/' f.sql     # ✓ anchored to the definition
+```
+
+The fix is to anchor `START` (`^`) to the one line you mean. The same applies to
+`grep -l` when hunting for definitions. Checking the result with
+`diff <(old) <(new)` is what exposed it.
+
 ## Combining them
 
 The pipeline idiom: `grep` narrows, `sed` reshapes, `awk` computes.
@@ -252,6 +269,7 @@ the signal to stop and write a script instead.
 - [[devops/01-linux/linux-reference|linux-reference]] — lookup reference
 
 ## Seen in the wild
+- [[projects/mypaddie/learning/04-shell|mypaddie: shell]] — `awk` range + `sed` + `diff <(…) <(…)` to re-create a SQL function from its latest migration, and the re-opening range gotcha above
 - [[projects/arete/learning/devops/08-sed-and-awk|arete: sed & awk]] — a deeper treatment written against real files
 - [[projects/arete/learning/devops/07-regex-from-zero-to-advanced|arete: regex from zero to advanced]] — the regex layer underneath
 - [[projects/arete/learning/devops/05-grep-in-depth|grep]] and [[projects/arete/learning/devops/06-find-in-depth|find]] in depth — currently the vault's deepest shell material, and it lives in a project folder

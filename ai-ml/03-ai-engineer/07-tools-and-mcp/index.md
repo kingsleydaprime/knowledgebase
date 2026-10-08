@@ -875,5 +875,6 @@ You can trace a tool-calling round trip, design a tool the model uses well, put 
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — schemas and validation, which tool arguments reuse
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — prompt injection and sandboxing
 - [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — tools that call networks fail like model calls do
+- Seen in the wild: [[projects/mypaddie/learning/05-mcp-server|mypaddie: the MCP server]] — a remote MCP server over HTTP with OAuth, per-user RLS, and tool-design lessons from real bugs (results the model must say out loud, never guessing IDs, policy in descriptions)
 
 *Source: Part II of the AI-engineer track; MCP checked against the 2026-07-28 specification and the official v2 TypeScript client.*
