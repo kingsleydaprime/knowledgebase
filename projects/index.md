@@ -27,6 +27,7 @@ Each folder is a real project with two things in it:
 | **[[projects/json-healer/learning\|json-healer]]** (13k) | TS library — parsing/repair, packaging | [[01-growth-and-asymptotic-notation\|algorithms]] · [[concepts/04-best-practices/index\|library design]] |
 | **[[projects/strictenv/learning\|strictenv]]** (9k) | TS library — typed env validation | [[concepts/04-best-practices/index\|API design]] · [[devops/09-secret-management/index\|config/secrets]] |
 | **[[projects/sorepoint/learning/index\|sorepoint]]** (9k) | Crawling pipeline + Supabase/Postgres | [[backend/index\|backend]] · [[databases/sql-reference\|Postgres]] · [[devops/01-linux/index\|shell]] |
+| **[[projects/mypaddie/learning/index\|mypaddie]]** (new) | Private life-coaching rules engine: XP, modes, money stages; Supabase + RLS, Next.js PWA, MCP | [[databases/sql-reference\|Postgres/RLS]] · [[backend/05-auth/02-authorization\|authorization]] · ledgers & idempotency · testing pure logic · [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|MCP server design]] · pg_cron & web push · time and dates · [[devops/01-linux/index\|shell]] |
 | **[[projects/my-applicant/learning/02-ai-sdk-and-byok\|my-applicant]]** (7k) | AI pipeline, BYOK, AI SDK | [[ai-ml/03-ai-engineer/index\|AI engineering]] · [[ai-ml/03-ai-engineer/04-calling-models/index\|calling models]] |
 
 ---
