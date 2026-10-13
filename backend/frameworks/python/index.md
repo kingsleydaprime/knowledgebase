@@ -49,7 +49,7 @@ Three genuinely co-equal frameworks, which is why this takes the **folder shape*
 
 ## Read this first
 
-[[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]], then [[languages/06-python/12-concurrency-and-the-gil|the GIL note]]. **The WSGI/ASGI split is the single most consequential difference here**, and it decides how each of these scales, how you deploy it, and which libraries you're allowed to use.
+[[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]], then [[languages/06-python/12-concurrency-and-the-gil|the GIL note]]. **The WSGI/ASGI split is the single most consequential difference here**, and it decides how each of these scales, how you deploy it, and which libraries you're allowed to use.
 
 ## Where this connects
 

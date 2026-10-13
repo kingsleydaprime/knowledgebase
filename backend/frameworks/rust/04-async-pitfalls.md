@@ -238,5 +238,5 @@ Function colouring is the ongoing tax: `async fn` can only be awaited from async
 - [[backend/frameworks/rust/03-state-and-shared-data|State and Shared Data]] — locking decisions
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the model underneath
 - [[backend/frameworks/rust/05-database-and-persistence|Database and Persistence]] — where most awaits go
-- [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]]
+- [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]]
 - [[backend/frameworks/rust/index|Rust backends]]

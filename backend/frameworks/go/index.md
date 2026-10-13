@@ -1,6 +1,6 @@
 # Go Backends
 
-**Concurrency model: goroutines** — green threads, since Go 1.0. You write blocking code; the runtime multiplexes onto OS threads. No `async`/`await`, so no "coloured function" split in the ecosystem. → [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]]
+**Concurrency model: goroutines** — green threads, since Go 1.0. You write blocking code; the runtime multiplexes onto OS threads. No `async`/`await`, so no "coloured function" split in the ecosystem. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]]
 
 **~11,000 words across 6 notes.** `[reference]` — no Go service in this vault yet. Assumes [[languages/02-go/index|the Go course]] and the [[backend/index|backend course]]; these notes cover only what those don't.
 

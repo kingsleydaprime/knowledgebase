@@ -1,0 +1,36 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "XP engine and TypeScript domain changes. Adds 'miss_penalty' and 'honesty_bonus' to XpReason and TaskStatus in xp.ts, config constants for the miss penalty share and honesty bonus, the missedXp() function, and the isIgnoredNeed guard for missed tasks. Also adds 'missed' to EventLike.status in events.ts. Depends on FEAT-001 (database.types.ts must already have the new enum values).",
+  "status": "pending",
+  "steps": [
+    "In /home/kingsleydaprime/code/personal/mypaddie/src/features/xp/xp.ts:",
+    "  Add 'miss_penalty' and 'honesty_bonus' to the XpReason type union (keep alphabetical order; these mirror the Postgres enum values just added).",
+    "  Add 'missed' to the TaskStatus type union: type TaskStatus = 'pending' | 'done' | 'skipped' | 'cancelled' | 'missed';",
+    "  In isIgnoredNeed(), add task.status === 'missed' to the early-return guard that currently checks 'done' and 'cancelled': if (task.status === 'done' || task.status === 'cancelled' || task.status === 'missed' || task.doneAt !== null) return false;",
+    "  Add the missedXp() function after ignoredNeedDeduction(). Signature: export function missedXp(baseXp: number, weights: readonly PillarWeight[], selfReported: boolean, config: EngineConfig = currentConfig()): XpEntry[]. Body: penalty = entries(-scale(baseXp, config.xp.missPenaltyShare), weights, 'miss_penalty'); if (!selfReported) return penalty; bonus: XpEntry = { pillar: 'character', amount: config.xp.honestyBonus, reason: 'honesty_bonus' }; return [...penalty, bonus];",
+    "In /home/kingsleydaprime/code/personal/mypaddie/src/shared/config.ts:",
+    "  Add two fields to EngineConfig.xp: missPenaltyShare: number (share of base_xp deducted as penalty) and honestyBonus: number (flat XP added to Character when self-reported).",
+    "  Add to DEFAULT_CONFIG.xp: missPenaltyShare: 0.5, honestyBonus: 2.",
+    "In /home/kingsleydaprime/code/personal/mypaddie/src/features/events/events.ts:",
+    "  Change the status field of EventLike from 'upcoming' | 'done' | 'cancelled' to 'upcoming' | 'done' | 'cancelled' | 'missed'.",
+    "  No other logic changes needed — blockOn, upcoming(), and startable() already guard on status === 'upcoming', so missed events naturally fall out of time-blocking and scheduling.",
+    "In /home/kingsleydaprime/code/personal/mypaddie/src/features/tasks/tasks.repo.ts:",
+    "  In completeTask(), find the status guard that returns early for 'done' and 'cancelled', and add 'missed': if (task.status === 'done' || task.status === 'cancelled' || task.status === 'missed') return { result: 'already_done', title: task.title };",
+    "Write a unit test file /home/kingsleydaprime/code/personal/mypaddie/src/features/xp/xp.missed.test.ts covering: (a) missedXp with selfReported=true returns penalty entries + character bonus, (b) missedXp with selfReported=false returns only penalty entries (no bonus), (c) penalty amount = -scale(baseXp, 0.5), (d) honesty bonus amount = 2 to character pillar, (e) isIgnoredNeed returns false for a missed task.",
+    "Commit: git add src/features/xp/xp.ts src/shared/config.ts src/features/events/events.ts src/features/tasks/tasks.repo.ts src/features/xp/xp.missed.test.ts && git commit -m 'feat(xp): missedXp function, miss_penalty and honesty_bonus reasons, missed status guards'"
+  ],
+  "acceptance_criteria": [
+    "missedXp(10, [{pillar:'physical',weight:100}], true) returns two entries: {pillar:'physical', amount:-5, reason:'miss_penalty'} and {pillar:'character', amount:2, reason:'honesty_bonus'}",
+    "missedXp(10, [{pillar:'physical',weight:100}], false) returns only [{pillar:'physical', amount:-5, reason:'miss_penalty'}]",
+    "isIgnoredNeed({...task, status:'missed'}, [], now) returns false",
+    "bun test src/features/xp passes including the new test file",
+    "bun run typecheck passes"
+  ],
+  "verification": [
+    "cd /home/kingsleydaprime/code/personal/mypaddie && bun test src/features/xp",
+    "bun run typecheck"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

@@ -1,6 +1,6 @@
 # C Backends
 
-**Concurrency model: whatever you build.** C has no runtime, so the model is a design decision rather than a language feature — a process per connection (the old CGI/Apache model), a thread per connection, a thread pool, or a single-threaded event loop over `epoll`/`kqueue`. Nearly every modern C server is the last. → [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]]
+**Concurrency model: whatever you build.** C has no runtime, so the model is a design decision rather than a language feature — a process per connection (the old CGI/Apache model), a thread per connection, a thread pool, or a single-threaded event loop over `epoll`/`kqueue`. Nearly every modern C server is the last. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]]
 
 **~8,000 words across 4 notes.** `[reference]`. Assumes [[languages/04-c/index|the C course]].
 

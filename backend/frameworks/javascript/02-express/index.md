@@ -10,4 +10,4 @@ Minimal and unopinionated: a router, a middleware chain, and nothing else. You s
 - **It gives you no structure.** Impose [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|feature folders]] and [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|a composition root]] yourself, early.
 
 ## Related
-- [[backend/frameworks/javascript/index|JavaScript backends]] · [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]]
+- [[backend/frameworks/javascript/index|JavaScript backends]] · [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]]

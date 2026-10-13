@@ -106,7 +106,7 @@ gunicorn -w 4 -k gevent "app:create_app()"       # greenlets, for I/O-heavy load
 
 **Concurrency comes from processes and threads, not an event loop.** Perfectly adequate for most applications — but a long external API call occupies a worker for its duration, so `workers × threads` is your hard ceiling on concurrent requests.
 
-Flask 2.0 added `async def` views, but they run on an event loop *per request* inside a worker, so it doesn't give you asyncio's scaling. **If concurrency is the requirement, that's a reason to choose FastAPI**, not a thing to retrofit → [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]].
+Flask 2.0 added `async def` views, but they run on an event loop *per request* inside a worker, so it doesn't give you asyncio's scaling. **If concurrency is the requirement, that's a reason to choose FastAPI**, not a thing to retrofit → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]].
 
 ## When Flask is still right
 

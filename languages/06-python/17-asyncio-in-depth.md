@@ -181,6 +181,6 @@ logging.basicConfig(level=logging.DEBUG)
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — the prerequisite
 - [[backend/frameworks/python/01-fastapi/index|FastAPI]] — asyncio in production
 - [[os/08-io-models|I/O models]] — epoll, and what the loop sits on
-- [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]] — the cross-language comparison
+- [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]] — the cross-language comparison
 
 *Source: [reference] — from the asyncio documentation; roadmap.sh-cross-referenced.*

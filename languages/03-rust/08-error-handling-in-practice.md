@@ -168,7 +168,7 @@ async fn get_user(Path(id): Path<u64>) -> Result<Json<User>, ApiError> {
 
 Note the two things that separates this from a naive version: internal errors are **logged in full and reported as generic**, and `#[error(transparent)]` forwards `Display` to the wrapped error rather than adding a layer.
 
-This is the type-system version of Spring's `@ControllerAdvice` and Nest's exception filters — one place, checked by the compiler, no runtime reflection. → [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]]
+This is the type-system version of Spring's `@ControllerAdvice` and Nest's exception filters — one place, checked by the compiler, no runtime reflection. → [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]]
 
 ## Backtraces
 

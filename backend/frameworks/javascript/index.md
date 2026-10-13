@@ -1,6 +1,6 @@
 # JavaScript / TypeScript Backends
 
-**Concurrency model: [[backend/01-foundations/04-runtime-and-concurrency-models|event loop]].** One thread runs your JavaScript; I/O is handed to libuv and completions come back as callbacks. Everything distinctive about backend JS follows from that one fact — async-by-default APIs, "never block the event loop," `cluster` for multi-core, `worker_threads` for CPU work.
+**Concurrency model: [[backend/01-foundations/04-runtime-and-concurrency-models/index|event loop]].** One thread runs your JavaScript; I/O is handed to libuv and completions come back as callbacks. Everything distinctive about backend JS follows from that one fact — async-by-default APIs, "never block the event loop," `cluster` for multi-core, `worker_threads` for CPU work.
 
 ## Sections
 1. [[backend/frameworks/javascript/01-node-runtime/index|01 — Node Runtime]] — the platform Express and Nest both sit on

@@ -10,9 +10,9 @@
 
 <!-- COVERAGE:START -->
 
-**40 of 376 single-language lessons have a companion.**
+**40 of 377 single-language lessons have a companion.**
 
-By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · architecture 9 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · databases 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · networking 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
+By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · how-computers-work 33 · cybersecurity 13 · build-your-own-shit 13 · architecture 9 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · databases 7 · programming-fundamentals 7 · web3 5 · mobile 4 · tools 4 · networking 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
 
 | Priority | Lesson | Written in | Companion |
 |---|---|---|---|
@@ -45,7 +45,8 @@ By area: dsa 67 · ai-ml 49 · backend 42 · frontend 36 · mathematics 34 · ho
 | SWE 103 core | [[architecture/02-building-blocks/04-messaging-and-async/index\|architecture/02-building-blocks/04-messaging-and-async/index]] | TS/JS | [[architecture/02-building-blocks/04-messaging-and-async/in-other-languages\|✅]] |
 | SWE 103 core | [[architecture/02-building-blocks/05-communication/index\|architecture/02-building-blocks/05-communication/index]] | TS/JS | [[architecture/02-building-blocks/05-communication/in-other-languages\|✅]] |
 | SWE 103 core | [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index\|architecture/03-architectural-patterns/01-monolith-microservices-serverless/index]] | TS/JS | [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/in-other-languages\|✅]] |
-| SWE 103 core | [[backend/01-foundations/03-the-request-lifecycle\|backend/01-foundations/03-the-request-lifecycle]] | TS/JS | — |
+| SWE 103 core | [[backend/01-foundations/03-the-request-lifecycle/index\|backend/01-foundations/03-the-request-lifecycle/index]] | TS/JS | — |
+| SWE 103 core | [[backend/01-foundations/04-runtime-and-concurrency-models/index\|backend/01-foundations/04-runtime-and-concurrency-models/index]] | TS/JS | — |
 | SWE 103 core | [[backend/05-auth/03-oauth-provider-integrations\|backend/05-auth/03-oauth-provider-integrations]] | TS/JS | — |
 | SWE 103 core | [[databases/04-b-trees-and-indexes/index\|databases/04-b-trees-and-indexes/index]] | Python | [[databases/04-b-trees-and-indexes/in-other-languages\|✅]] |
 | SWE 103 core | [[databases/07-join-algorithms-and-the-optimiser/index\|databases/07-join-algorithms-and-the-optimiser/index]] | Python | [[databases/07-join-algorithms-and-the-optimiser/in-other-languages\|✅]] |

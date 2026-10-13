@@ -218,6 +218,6 @@ Also: idle timeouts (walk connections by `last_active`, or use a `timerfd`), fil
 ## Related
 - [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] — the dangerous half
 - [[networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the syscalls
-- [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — where this sits
+- [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — where this sits
 - [[languages/03-rust/14-async-and-tokio|Rust: Async]] — the state machine, generated
 - [[backend/frameworks/c/index|C backends]]

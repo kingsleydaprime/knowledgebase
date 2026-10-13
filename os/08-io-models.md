@@ -178,5 +178,5 @@ A high syscall count per request is the signature of a poorly-batched I/O loop �
 - [[os/07-filesystems-and-storage|Filesystems and Storage]] — the page cache and `fsync`
 - [[networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the same material, network-side
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|Building an Event Loop]] — writing one
-- [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — how frameworks expose this
+- [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — how frameworks expose this
 - [[os/index|OS course map]]

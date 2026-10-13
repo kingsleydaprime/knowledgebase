@@ -124,5 +124,5 @@ Being honest about it, since a language note that only lists strengths is useles
 - [[languages/02-go/02-language-fundamentals|Language Fundamentals]] — the syntax
 - [[languages/02-go/12-modules-and-project-layout|Modules and Project Layout]] — `go.mod` in depth
 - [[backend/frameworks/go/index|Go Backends]] — the frameworks built on this
-- [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — where goroutines sit among the alternatives
+- [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — where goroutines sit among the alternatives
 - [[languages/02-go/index|Go course map]]

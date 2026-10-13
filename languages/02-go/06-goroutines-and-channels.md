@@ -11,7 +11,7 @@ go func() { fmt.Println("hi") }()    // anonymous
 
 A goroutine is a function running concurrently, scheduled by the Go runtime onto OS threads. It starts at about **2KB of stack** which grows as needed — versus roughly 1MB for an OS thread. Hundreds of thousands of goroutines is normal; hundreds of thousands of threads is not.
 
-This is the **green threads / M:N** model: many goroutines multiplexed onto few OS threads. → [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]]
+This is the **green threads / M:N** model: many goroutines multiplexed onto few OS threads. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]]
 
 The consequence for how you write code: **you write blocking code and it scales anyway.** There is no `async`/`await`, so there's no function colouring — no split between async and sync versions of every library. When a goroutine blocks on I/O, the scheduler parks it and runs another on that thread. Java only got here with virtual threads in 21; Node never did.
 

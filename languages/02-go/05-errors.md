@@ -110,7 +110,7 @@ To make a custom type wrap another, give it an `Unwrap() error` method — then 
 
 ### Mapping errors to HTTP status
 
-The pattern that connects this to [[backend/01-foundations/03-the-request-lifecycle|the request lifecycle]] — done by hand in Go, where Spring uses `@ControllerAdvice` and Nest uses exception filters:
+The pattern that connects this to [[backend/01-foundations/03-the-request-lifecycle/index|the request lifecycle]] — done by hand in Go, where Spring uses `@ControllerAdvice` and Nest uses exception filters:
 
 ```go
 func statusFor(err error) int {
@@ -172,6 +172,6 @@ var tmpl = template.Must(template.ParseFiles("index.html"))
 ## Related
 - [[languages/02-go/04-methods-and-interfaces|Methods and Interfaces]] — the nil-interface trap, which shows up as a phantom error
 - [[languages/02-go/08-context|Context]] — `context.Canceled` and `DeadlineExceeded` as sentinels
-- [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]] — where error→status mapping belongs
+- [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]] — where error→status mapping belongs
 - [[languages/01-java/01-language/06-exceptions|Java: Exceptions]] — checked exceptions, the road not taken
 - [[languages/02-go/index|Go course map]]

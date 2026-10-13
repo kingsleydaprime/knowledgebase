@@ -252,7 +252,7 @@ Real systems add a few more, and it's worth knowing the names:
 - **DTOs** — the shape crossing the API boundary, separate from your domain objects, so an internal rename isn't a breaking API change. → [[backend/06-cross-cutting/index|validation]]
 - **Mappers** — DTO ↔ domain ↔ persistence conversion.
 - **Domain model** — where entities own their own invariants, rather than services manipulating dumb data bags. The difference between a "rich" and an "anaemic" domain model.
-- **Middleware / filters / interceptors** — cross-cutting concerns before or after the controller. → [[backend/01-foundations/03-the-request-lifecycle|request lifecycle]]
+- **Middleware / filters / interceptors** — cross-cutting concerns before or after the controller. → [[backend/01-foundations/03-the-request-lifecycle/index|request lifecycle]]
 
 ## Check your understanding
 

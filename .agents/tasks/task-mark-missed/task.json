@@ -1,0 +1,7 @@
+{
+  "task_id": "task-mark-missed",
+  "task_description": "Add a 'mark as missed' feature to MyPaddie. Users can explicitly mark tasks, habits, routine steps, and events as missed. This records the miss with a required reason, pays an XP penalty against the task's own pillars, and pays a smaller honesty bonus to the Character pillar — but only when self-reported. The feature requires a DB migration (new enum values, new table, new DB function), XP engine changes, a new misses repo+tools feature folder, and updates to events, reviews, and the MCP route.",
+  "status": "pending",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003"],
+  "blocked_reason": null
+}
