@@ -14,6 +14,7 @@
 6. [[projects/nextvibe/learning/backend/06-money-ledger-and-payouts|06 — Money, Ledger & Payouts]] → [[architecture/interview/01-system-design-round|system design Q9: correctness over availability]] ⭐
 7. [[projects/nextvibe/learning/backend/07-validation-and-query-contracts|07 — Validation & Query Contracts]] → [[backend/index|backend concepts]]
 8. [[projects/nextvibe/learning/backend/08-payments-and-webhooks|08 — Payments & Webhooks]] → exactly-once fulfilment, lock scope, IDOR, money as Decimal ⭐
+9. [[projects/nextvibe/learning/backend/09-testing|09 — Testing & Concurrency]] → load testing with k6, token pooling, throttler bypass, Prisma connection limits
 
 ## Frontend
 1. [[projects/nextvibe/learning/frontend/01-routing|01 — Routing]]
@@ -28,6 +29,7 @@
 10. [[projects/nextvibe/learning/frontend/10-typed-api-contracts|10 — Typed API Contracts]]
 11. [[projects/nextvibe/learning/frontend/11-guest-identity-and-conversion|11 — Guest Identity & Conversion]]
 12. [[projects/nextvibe/learning/frontend/12-rtk-query-and-api-slices|12 — RTK Query & API Slices]]
+13. [[projects/nextvibe/learning/frontend/13-testing|13 — Testing]] → Vitest unit testing, React Testing Library with Redux/RTK Query, MSW, Playwright E2E
 
 ## Ops
 - [[projects/nextvibe/learning/09-devops|09 — DevOps]] → [[devops/index|devops]]
