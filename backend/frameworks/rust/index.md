@@ -1,6 +1,6 @@
 # Rust Backends
 
-**Concurrency model: async/await on a runtime (usually tokio)** — green threads with explicit colouring. → [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]]
+**Concurrency model: async/await on a runtime (usually tokio)** — green threads with explicit colouring. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]]
 
 **~12,000 words across 6 notes.** `[reference]` — no Rust service in this vault yet. Assumes [[languages/03-rust/index|the Rust course]] and the [[backend/index|backend course]]; these cover only what those don't.
 

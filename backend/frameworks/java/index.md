@@ -2,7 +2,7 @@
 
 **Doing backend work in Java? Start here.** This is the Spring Boot material, and it's the deepest framework section in the vault — ~3,000 words distilled from a real Spring Boot payment sandbox, not from documentation.
 
-**Concurrency model: thread-per-request.** Spring MVC on a servlet container gives every request its own OS thread — simple to reason about, expensive at scale. From Java 21, **virtual threads** turn it into green threads *without a code change*, which is the biggest thing to happen to Java backends in a decade. Spring **WebFlux** is the event-loop/reactive alternative, and Loom has largely removed the reason to reach for it: you can now get the scalability without the reactive programming model. → [[backend/01-foundations/04-runtime-and-concurrency-models|runtime & concurrency models]]
+**Concurrency model: thread-per-request.** Spring MVC on a servlet container gives every request its own OS thread — simple to reason about, expensive at scale. From Java 21, **virtual threads** turn it into green threads *without a code change*, which is the biggest thing to happen to Java backends in a decade. Spring **WebFlux** is the event-loop/reactive alternative, and Loom has largely removed the reason to reach for it: you can now get the scalability without the reactive programming model. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime & concurrency models]]
 
 ## Reading order
 

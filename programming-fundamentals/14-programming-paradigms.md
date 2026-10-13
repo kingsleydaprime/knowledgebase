@@ -85,7 +85,7 @@ total = sum(i.price for i in in_stock)
 ### Event-driven
 Not usually listed beside the others, and you'll spend more time in it than in most of them: code registers **handlers** and a loop dispatches to them when things happen. Every UI, every server, every browser page.
 
-The inversion is the point — **you don't call the framework, it calls you** — and it's why callback-heavy code is hard to follow: control flow lives in a dispatcher you didn't write. → [[backend/01-foundations/04-runtime-and-concurrency-models|runtime and concurrency models]].
+The inversion is the point — **you don't call the framework, it calls you** — and it's why callback-heavy code is hard to follow: control flow lives in a dispatcher you didn't write. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime and concurrency models]].
 
 ## Almost everything is multi-paradigm now
 

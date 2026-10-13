@@ -478,7 +478,7 @@ You can name TLS's guarantees and their mechanisms, work Diffie-Hellman and an R
 
 **Recap.** TLS authenticates the server with a certificate chained to a trusted root (name, dates, signature, revocation), agrees a key with an ephemeral elliptic-curve Diffie-Hellman exchange (now often hybrid with ML-KEM against future quantum computers), proves the server took part by signing the handshake, derives separate keys with HKDF, and seals every record with AES-GCM, which rejects any change. The maths works because some operations are cheap forwards and infeasible backwards: 508 multiplications to compute, about $2^{126}$ steps to undo. TLS 1.3 does it in one round trip, makes forward secrecy mandatory, and removed the legacy options that caused a decade of attacks. The padlock means "encrypted to this name", never "trustworthy".
 
-**Next.** You now have the whole of week 7's story: DNS finds the address, TCP and TLS set up a private, authenticated channel, and HTTP carries the request. Write *what happens when I type google.com?* from memory, then week 8 follows the request into the server: [[backend/01-foundations/03-the-request-lifecycle|the request lifecycle]].
+**Next.** You now have the whole of week 7's story: DNS finds the address, TCP and TLS set up a private, authenticated channel, and HTTP carries the request. Write *what happens when I type google.com?* from memory, then week 8 follows the request into the server: [[backend/01-foundations/03-the-request-lifecycle/index|the request lifecycle]].
 
 ## Related
 

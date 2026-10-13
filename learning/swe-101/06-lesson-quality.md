@@ -10,7 +10,7 @@
 
 <!-- AUDIT:START -->
 
-**Core lessons: 38 of 43 meet the standard. Optional: 13 of 36.**
+**Core lessons: 40 of 43 meet the standard. Optional: 13 of 36.**
 
 | Course | Week | Lane | Status | Missing | Lesson |
 |---|---|---|---|---|---|
@@ -82,8 +82,8 @@
 | SWE 103 | 7 | core | ✅ meets | — | [[networking/11-http-evolution/index\|index]] |
 | SWE 103 | 7 | core | ✅ meets | — | [[networking/12-tls-and-transport-security/index\|index]] |
 | SWE 103 | 7 | optional | 🟡 partial | start, terms, checks, practice | [[networking/06-tcp-connection-lifecycle\|06-tcp-connection-lifecycle]] |
-| SWE 103 | 8 | core | 🟡 partial | start, terms, checks, practice | [[backend/01-foundations/03-the-request-lifecycle\|03-the-request-lifecycle]] |
-| SWE 103 | 8 | core | 🟡 partial | start, terms, checks, practice | [[backend/01-foundations/04-runtime-and-concurrency-models\|04-runtime-and-concurrency-models]] |
+| SWE 103 | 8 | core | ✅ meets | — | [[backend/01-foundations/03-the-request-lifecycle/index\|index]] |
+| SWE 103 | 8 | core | ✅ meets | — | [[backend/01-foundations/04-runtime-and-concurrency-models/index\|index]] |
 | SWE 103 | 8 | optional | ⬜ not started | kid, start, terms, checks, practice | [[networking/16-debugging-networks\|16-debugging-networks]] |
 | SWE 103 | 8 | optional | ⬜ not started | kid, start, terms, checks, practice | [[os/06-concurrency-primitives\|06-concurrency-primitives]] |
 | SWE 103 | 9 | core | ⬜ not started | kid, start, terms, checks, practice | [[backend/05-auth/03-oauth-provider-integrations\|03-oauth-provider-integrations]] |

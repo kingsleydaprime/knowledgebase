@@ -1,0 +1,42 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "The misses feature folder (repo + tools), MCP registration, and review integration. Creates src/features/misses/ with misses.repo.ts and misses.tools.ts, registers mark_missed and mark_event_missed in the Coaching area, and adds missed records to the weekly/monthly review digest. Depends on FEAT-001 (DB) and FEAT-002 (XP engine).",
+  "status": "pending",
+  "steps": [
+    "Create /home/kingsleydaprime/code/personal/mypaddie/src/features/misses/misses.repo.ts.",
+    "  Import: missedXp from @/features/xp/xp; currentConfig from @/shared/config; Db from @/shared/supabase/token-client.",
+    "  Internal helper loadTaskForMiss(db, taskId): queries tasks with task_pillars, returns {id, title, baseXp, weights} or null.",
+    "  Internal helper loadEventForMiss(db, eventId): queries events, returns {id, title, baseXp: 10} (events don't have base_xp; use 10 as the default) or null. Note: if events table has no base_xp column use a hardcoded default of 10 — record this in findings.",
+    "  Export async function markTaskMissed(db: Db, taskId: string, reason: string, now: Date). Loads task, computes missedXp(task.baseXp, task.weights, true, config), calls db.rpc('record_miss', {p_task_id: taskId, p_event_id: null, p_reason: reason, p_penalty_entries: penaltyEntries, p_honesty_entries: honestyEntries, p_self_reported: true}), returns {result, title, xpLost, honestyEarned}.",
+    "  Export async function markEventMissed(db: Db, eventId: string, reason: string, now: Date). Same pattern but for events.",
+    "  Separate penalty/honesty entries: penalty = entries with reason 'miss_penalty', honesty = entries with reason 'honesty_bonus'. Pass as separate jsonb params to record_miss.",
+    "Create /home/kingsleydaprime/code/personal/mypaddie/src/features/misses/misses.tools.ts.",
+    "  Register mark_missed tool: inputSchema = {task_id: z.uuid(), reason: z.string().trim().min(1).max(300).describe('What got in the way or why it was missed, in their words')}. Description (verbatim): 'Record that something didn\\'t happen and the user is owning up to it. Different from log_slip, which is skipping with a reason that Paddie judges: mark_missed means it didn\\'t happen, no excuse, honest acknowledgement. Deducts XP from the task\\'s own pillars and adds a smaller honesty bonus to Character — self-reporting is what earns the bonus. Works for regular tasks, habits and routine steps (they\\'re all tasks). A missed task stays missed and can\\'t be completed later.' On success: ok(await withMode(db, now, { ...res })). On failure: toolError(...).",
+    "  Register mark_event_missed tool: inputSchema = {event_id: z.uuid(), reason: z.string().trim().min(1).max(300)}. Description: 'Mark an event as missed — the user didn\\'t attend and is being honest. Same penalty + honesty bonus flow as mark_missed. Different from cancelling (update_event action=cancel: no penalty) and from complete_event not_at_it=true (that\\'s leaving deliberately, no penalty). Use this when they didn\\'t make it and want to own up.' Same ok/toolError pattern.",
+    "  Export function registerMissTools(server: McpServer) that registers both tools.",
+    "Create /home/kingsleydaprime/code/personal/mypaddie/src/features/misses/misses.repo.test.ts with unit tests: (a) markTaskMissed calls record_miss with correct penalty and honesty entries, (b) 'already_missed' result when RPC returns it, (c) 'not_found' result when task doesn't exist. Use bun:test mocking or a simple stub for db.rpc.",
+    "In /home/kingsleydaprime/code/personal/mypaddie/src/app/api/mcp/route.ts:",
+    "  Add import: import { registerMissTools } from '@/features/misses/misses.tools';",
+    "  Add registration: tools.area('Coaching', () => registerMissTools(server)); — place it after the registerSlipTools line.",
+    "In /home/kingsleydaprime/code/personal/mypaddie/src/features/reviews/reviews.repo.ts:",
+    "  In the parallel data fetch array (the Promise.all call around line 67), add: db.from('missed_tasks').select('reason, at, penalty_xp, honesty_xp, tasks(title), events(title)').gte('at', from).lt('at', to)",
+    "  Destructure the new result from the Promise.all return (add 'misses' alongside 'done, xp, slips...').",
+    "  Add to the returned digest object: misses: (misses.data ?? []).map((m) => ({ title: (m.tasks as {title:string}|null)?.title ?? (m.events as {title:string}|null)?.title ?? '(unknown)', reason: m.reason, xpLost: m.penalty_xp - m.honesty_xp })).slice(0, 10)",
+    "Commit: git add src/features/misses/ src/app/api/mcp/route.ts src/features/reviews/reviews.repo.ts && git commit -m 'feat(misses): mark_missed and mark_event_missed tools, review integration'"
+  ],
+  "acceptance_criteria": [
+    "mark_missed tool appears in the Coaching area of what_can_paddie_do",
+    "mark_event_missed tool appears in the Coaching area of what_can_paddie_do",
+    "bun test src/features/misses passes all new tests",
+    "bun run typecheck passes with zero errors",
+    "bun test src passes (no regressions in other features)"
+  ],
+  "verification": [
+    "cd /home/kingsleydaprime/code/personal/mypaddie && bun test src/features/misses",
+    "bun run typecheck",
+    "bun test src"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

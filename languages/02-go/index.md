@@ -70,6 +70,6 @@ The standard library source is famously readable and is the best available Go st
 ## Related
 - [[backend/frameworks/go/index|Go Backends]] — the frameworks
 - [[languages/index|Languages]] — the language/framework split rule
-- [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — goroutines among the alternatives
+- [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — goroutines among the alternatives
 - [[languages/01-java/index|Java]] — the other language course here, and a useful contrast on nearly every decision
 - [[project-ideas|Project Ideas]] — where the first Go build should be logged

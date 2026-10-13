@@ -49,5 +49,5 @@ Not everything cross-cutting belongs here — some of it has a better home and t
 **These notes are stack-agnostic on purpose.** For the implementations side by side — rate limiting, auth, headers, graceful shutdown in six stacks — see **[[backend/frameworks/cross-language-recipes|cross-language recipes]]**.
 
 ## Related
-- [[backend/index|Backend course]] · [[backend/01-foundations/03-the-request-lifecycle|the request lifecycle]]
+- [[backend/index|Backend course]] · [[backend/01-foundations/03-the-request-lifecycle/index|the request lifecycle]]
 - [[backend/frameworks/index|frameworks/]] · [[cybersecurity/04-web-security/index|web security]]

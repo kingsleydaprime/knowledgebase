@@ -17,7 +17,7 @@ public async Task<User> GetUserAsync(int id)
 
 **The compiler rewrites the method into a state machine.** At each `await`, if the awaited thing isn't finished, the method **returns** to its caller and registers a continuation. When the operation completes, the continuation resumes from that point.
 
-**The crucial consequence: `await` does not block a thread.** The thread is released back to the pool. That's the entire point — a server handling 10,000 concurrent requests doesn't need 10,000 threads → [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]].
+**The crucial consequence: `await` does not block a thread.** The thread is released back to the pool. That's the entire point — a server handling 10,000 concurrent requests doesn't need 10,000 threads → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]].
 
 ## Async is not parallel
 
@@ -108,7 +108,7 @@ await LoadAsync(cts.Token);        // a timeout, expressed as cancellation
 
 ## Related
 - [[languages/07-csharp/06-delegates-events-and-lambdas|delegates]] — `IAsyncEnumerable`
-- [[backend/01-foundations/04-runtime-and-concurrency-models|runtime and concurrency models]]
+- [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime and concurrency models]]
 - [[languages/06-python/17-asyncio-in-depth|asyncio]] · [[languages/01-java/index|Java's virtual threads]]
 
 *Source: [reference] — from the .NET async documentation, Aug 2026.*

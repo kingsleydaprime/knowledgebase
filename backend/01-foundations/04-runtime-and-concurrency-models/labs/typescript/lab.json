@@ -1,0 +1,5 @@
+{
+  "lesson": "backend/01-foundations/04-runtime-and-concurrency-models/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["runtime.ts", "runtime.test.ts"]
+}

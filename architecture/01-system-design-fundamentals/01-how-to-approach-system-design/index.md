@@ -8,7 +8,7 @@
 
 You can already:
 
-- Describe how a request travels from a browser to a server and a database and back → [[backend/01-foundations/03-the-request-lifecycle|the request lifecycle]].
+- Describe how a request travels from a browser to a server and a database and back → [[backend/01-foundations/03-the-request-lifecycle/index|the request lifecycle]].
 - Do arithmetic with powers of ten in your head: 10 million × 5 is 50 million, and a day has about 100,000 seconds.
 - Run a TypeScript test file with Node 26 (`node --test`).
 

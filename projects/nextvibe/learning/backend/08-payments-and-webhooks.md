@@ -228,3 +228,167 @@ Lesson: a validation that makes things *stricter* is a breaking change to every
 environment that was quietly relying on the old looseness.
 
 **Decision:** option 3 — central `validate` in `ConfigModule.forRoot`.
+
+---
+
+## Part 43 — Reviewing a Fix: Check the Code, Not the Commit Message
+
+Added 2026-10-05, after reviewing a teammate's payment commits (`59003d6` "fixed payment
+races", `d53c409`, `361c003`). The messages said the races were fixed. Reading the code
+showed one of four backlog items was attempted, and that one had two gaps.
+
+**How to review a fix:**
+1. Restate the bug as a concrete failure ("two requests at the same instant both create a
+   purchase"), not as a label ("payment races").
+2. Walk that failure through the *new* code, step by step, with two requests side by side.
+3. Check every path, not only the one that was edited. Here Stripe was safe and Bachs wasn't.
+4. Look for what the change touched without saying so. `361c003` silently swapped
+   `pnpm-lock.yaml` for `package-lock.json`.
+
+A commit message describes what someone *meant* to do. Only the code tells you what it does.
+
+---
+
+## Part 44 — A Success Path That Never Sets the Final State
+
+The Bachs handler issued tickets but **never set the purchase to `COMPLETED`**. Stripe's
+path did. The two providers looked parallel, but one skipped the last step.
+
+Consequences:
+- `GET /payments/verify` told paid buyers "pending" forever.
+- Every webhook retry and every callback-page poll re-ran ticket issuance.
+
+### Why there weren't duplicate tickets anyway: accidental safety
+
+The retry's ledger credit hit the unique index `(type, sourceType, sourceId)`. In Postgres,
+**any error inside a transaction aborts the whole transaction**. Even the ledger service's
+`catch (P2002) → findUnique` fails, with "current transaction is aborted". So the tickets
+created earlier in that transaction rolled back too.
+
+That's safety by accident. Move the ledger write outside the transaction, or make it skip
+duplicates with `ON CONFLICT DO NOTHING`, and duplicate tickets start immediately.
+
+**Rule:** if correctness depends on a side effect you didn't design for, it isn't correct
+yet. Make the guard explicit: the claim (Part 41) at the *top* of the transaction.
+
+**Fix:** the Bachs path now calls the same `fulfilPurchase` as Stripe. The old unguarded
+functions were deleted so nobody calls them again.
+
+---
+
+## Part 45 — A Lock Only Covers Its Own Transaction
+
+`pg_advisory_xact_lock(key)` = "only one transaction holding this key at a time". The
+`xact` matters: **it's released when the transaction commits.**
+
+The teammate's version:
+
+```ts
+const order = await this.prisma.$transaction(async (tx) => {
+  await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${eventId}))`;
+  // ...check availability...
+});                                      // ← commit: lock released here
+const purchase = await createPendingPurchase(order);   // ← reservation written here
+```
+
+The lock guarded the *check* but not the *write*. A double tap:
+
+| Step | Tap A | Tap B |
+|---|---|---|
+| 1 | lock → check (no pending) → commit, lock released | waiting |
+| 2 | writing purchase row… | lock → check: still sees nothing |
+| 3 | committed | writes a second purchase |
+
+**Rule:** a lock protects only what happens *before its transaction commits*. Everything
+the lock is meant to make safe has to be inside that transaction:
+check → decide → **write**.
+
+**Fix:** `priceOrder` + `createPendingPurchase` merged into `reserveOrder`, with one
+transaction for the lock, the check and the insert.
+
+---
+
+## Part 46 — Shared Resources Need Global Counts
+
+Seats belong to the **event**, not to a buyer. The held-seat count was filtered by
+`userId`, so it only saw *this* buyer's checkouts. Two strangers could both get the last
+seat.
+
+Two different questions were mixed together in one query:
+- "Has **this buyer** already got this cart open?" → filter by user. Used to reuse a double tap.
+- "How many seats are **held by anyone**?" → no user filter. Used for availability.
+
+**Rule:** for every filter in a query, ask whose resource it is. Capacity, stock, and
+unique usernames are global. Carts, drafts and preferences are per user.
+
+---
+
+## Part 47 — Money Is Never a Float
+
+```js
+1.15 * 3        // 3.4499999999999997
+0.1 + 0.2       // 0.30000000000000004
+```
+
+Binary floats can't represent most decimals exactly. The checkout summed
+`Number(price) * qty`. `toStripeAmount` (correctly) throws if an amount has more decimal
+places than the currency allows, so **some prices couldn't be paid by card at all**.
+The error was a 500, not a wrong charge, but only because of that strict check.
+
+**Rule:** keep money in a decimal type (`Prisma.Decimal`) or integer minor units (kobo,
+cents) the whole way through, and convert to a JS number once, at the edge, only where an
+API demands it. See also `06-money-ledger-and-payouts.md` (the ledger stores money as Decimal).
+
+---
+
+## Part 48 — 404, Not 403, for Other People's Records
+
+`GET /payments/verify/:purchaseId` required a login but never checked *whose* purchase it
+was. Any signed-in user with an id got the buyer's tickets, including the QR codes used at
+the door. This is an **IDOR** (insecure direct object reference): authenticated, but not
+authorised for *that object*.
+
+Fix: compare `purchase.userId` with the caller. Then decide which status to return:
+- `403 Forbidden` says "it exists, but it's not yours". That still leaks that the id is real.
+- `404 Not Found` makes someone else's record identical to a missing one. **Preferred.**
+
+Also: run the ownership check **before** any side effect (here, a Stripe lookup that can
+trigger fulfilment).
+
+**Rule:** for every route that takes an id, ask: "who is allowed to see *this* row?"
+Logging in answers "who are you", not "can you see this".
+
+---
+
+## Part 49 — Resume, Don't Refuse
+
+The double-tap guard found an open checkout and said "already in progress" for 30
+minutes, even when the buyer had just closed the Payment Sheet and wanted to try again.
+The guard was correct but made for a bad experience.
+
+Better: an idempotent checkout **gives back the same in-flight thing**:
+- Bachs: the same `checkoutUrl`.
+- Stripe: the same PaymentIntent's `client_secret`. It's refused only if Stripe says it's
+  already `succeeded`/`processing`, since paying again would double-charge.
+
+Two follow-ons:
+- The provider is part of the cart key. A web checkout page must never be handed back to
+  the mobile app.
+- A checkout that can never complete (the provider setup failed) is marked `FAILED`
+  straight away, so its seats aren't held for nothing.
+
+---
+
+### Self-quiz (answer on paper, then check the Parts above)
+
+1. A handler reads `status`, and if it isn't `COMPLETED`, issues tickets. Name the bug and
+   the one-statement fix. (Part 41)
+2. Why didn't the Bachs path create duplicate tickets, even though it never set
+   `COMPLETED`? Why is that not good enough? (Part 44)
+3. An advisory lock is taken, the check runs, the transaction commits, then the row is
+   inserted. What can still go wrong? (Part 45)
+4. Which filter belongs on "held seats", and which on "my open cart"? (Part 46)
+5. What does `1.15 * 3` give in JS, and what broke because of it? (Part 47)
+6. Another user's purchase id: 403 or 404, and why? (Part 48)
+7. The buyer closes the Payment Sheet and taps Buy again. What should the server return?
+   When should it refuse? (Part 49)

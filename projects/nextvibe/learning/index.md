@@ -13,6 +13,7 @@
 5. [[projects/nextvibe/learning/backend/05-realtime|05 — Realtime]] → [[networking/11-http-evolution/index|HTTP/WebSockets]], [[architecture/02-building-blocks/04-messaging-and-async/index|async]]
 6. [[projects/nextvibe/learning/backend/06-money-ledger-and-payouts|06 — Money, Ledger & Payouts]] → [[architecture/interview/01-system-design-round|system design Q9: correctness over availability]] ⭐
 7. [[projects/nextvibe/learning/backend/07-validation-and-query-contracts|07 — Validation & Query Contracts]] → [[backend/index|backend concepts]]
+8. [[projects/nextvibe/learning/backend/08-payments-and-webhooks|08 — Payments & Webhooks]] → exactly-once fulfilment, lock scope, IDOR, money as Decimal ⭐
 
 ## Frontend
 1. [[projects/nextvibe/learning/frontend/01-routing|01 — Routing]]

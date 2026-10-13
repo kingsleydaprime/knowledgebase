@@ -21,7 +21,7 @@ Deliberately **not numbered**: there's no reading order. Pick the one you're usi
 
 ## Read this first
 
-Before any framework: [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]].
+Before any framework: [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]].
 
 Frameworks look like twenty different things to learn. They're mostly **three concurrency models wearing different vocabularies**, and the model determines far more than the syntax does — how you scale it, how you tune it, what breaks under load, and why the API is shaped the way it is.
 
@@ -73,5 +73,5 @@ Keep it to what the course *doesn't* already cover:
 **The concept table above translates vocabulary; that page translates code.**
 
 ## Related
-- [[backend/index|Backend course]] · [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]]
+- [[backend/index|Backend course]] · [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]]
 - [[backend/interview/index|Backend interview prep]] — built from a real Node interview

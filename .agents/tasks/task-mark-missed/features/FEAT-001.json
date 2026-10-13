@@ -1,0 +1,32 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Database foundation: new migration 20261115090000_missed_tasks.sql that adds the 'missed' status to task_status enum and events.status check, adds 'miss_penalty' and 'honesty_bonus' to the xp_reason enum, creates the missed_tasks table with RLS, and creates the record_miss DB function. Then regenerates database.types.ts to keep TypeScript in sync.",
+  "status": "pending",
+  "steps": [
+    "Create /home/kingsleydaprime/code/personal/mypaddie/supabase/migrations/20261115090000_missed_tasks.sql with the following sections:",
+    "  Section 1 — task_status enum: ALTER TYPE public.task_status ADD VALUE IF NOT EXISTS 'missed';",
+    "  Section 2 — events.status check: in the events table the status is a text column with check constraint. Find the constraint name by reading 20261005182548_events.sql, drop the old check, add new: check (status in ('upcoming', 'done', 'cancelled', 'missed')).",
+    "  Section 3 — xp_reason enum: ALTER TYPE public.xp_reason ADD VALUE IF NOT EXISTS 'miss_penalty'; ALTER TYPE public.xp_reason ADD VALUE IF NOT EXISTS 'honesty_bonus';",
+    "  Section 4 — missed_tasks table: CREATE TABLE public.missed_tasks (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), user_id uuid NOT NULL REFERENCES auth.users ON DELETE CASCADE, task_id uuid REFERENCES public.tasks(id) ON DELETE CASCADE, event_id uuid REFERENCES public.events(id) ON DELETE CASCADE, reason text NOT NULL CHECK (char_length(reason) BETWEEN 1 AND 300), penalty_xp integer NOT NULL, honesty_xp integer NOT NULL DEFAULT 0, self_reported boolean NOT NULL DEFAULT true, at timestamptz NOT NULL DEFAULT now(), CONSTRAINT missed_one_source CHECK ((task_id IS NULL) != (event_id IS NULL)), CONSTRAINT missed_task_once UNIQUE (task_id), CONSTRAINT missed_event_once UNIQUE (event_id)); — then composite indexes on (user_id, task_id) and (user_id, event_id) for FK perf (per DECISIONS.md: composite FK indexes).",
+    "  Section 5 — RLS on missed_tasks: ENABLE ROW LEVEL SECURITY; REVOKE ALL ON public.missed_tasks FROM anon, authenticated; GRANT SELECT, INSERT ON public.missed_tasks TO authenticated; CREATE POLICY 'owner can read' FOR SELECT USING ((SELECT auth.uid()) = user_id); CREATE POLICY 'owner can insert' FOR INSERT WITH CHECK ((SELECT auth.uid()) = user_id);",
+    "  Section 6 — record_miss function: CREATE FUNCTION public.record_miss(p_task_id uuid, p_event_id uuid, p_reason text, p_penalty_entries jsonb, p_honesty_entries jsonb, p_self_reported boolean) RETURNS jsonb LANGUAGE plpgsql SECURITY INVOKER SET search_path = '' AS $$ ... $$;. Body: (a) if p_task_id not null, UPDATE public.tasks SET status = 'missed' WHERE id = p_task_id AND status = 'pending' returning title; if not found, check if already missed → return 'already_missed' else 'not_found'. (b) if p_event_id not null, UPDATE public.events SET status = 'missed' WHERE id = p_event_id AND status = 'upcoming'; same not-found logic. (c) INSERT INTO public.missed_tasks (...) ON CONFLICT DO NOTHING; (d) PERFORM public.award_xp(p_penalty_entries || p_honesty_entries); (e) RETURN jsonb_build_object('result', 'recorded', 'title', <title>). REVOKE ALL ON FUNCTION … FROM public, anon; GRANT EXECUTE ON FUNCTION … TO authenticated.",
+    "Run: cd /home/kingsleydaprime/code/personal/mypaddie && bun run db:reset --local to apply the migration.",
+    "Run: bun run db:types to regenerate src/shared/supabase/database.types.ts — this adds 'missed' to task_status and 'miss_penalty'/'honesty_bonus' to xp_reason in the TypeScript types.",
+    "Commit: git add supabase/migrations/20261115090000_missed_tasks.sql src/shared/supabase/database.types.ts && git commit -m 'feat(db): missed_tasks table, record_miss function, enum extensions'"
+  ],
+  "acceptance_criteria": [
+    "bun run db:reset --local completes without errors",
+    "bun run db:types completes and the new database.types.ts contains 'missed' in task_status and 'miss_penalty'/'honesty_bonus' in xp_reason",
+    "bun run typecheck passes with the updated database.types.ts",
+    "bun test src passes (no regressions)"
+  ],
+  "verification": [
+    "cd /home/kingsleydaprime/code/personal/mypaddie && bun run db:reset --local",
+    "bun run db:types",
+    "bun run typecheck",
+    "bun test src"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

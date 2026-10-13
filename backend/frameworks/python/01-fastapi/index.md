@@ -88,7 +88,7 @@ If you must block inside `async`:
 await asyncio.to_thread(blocking_call, arg)
 ```
 
-→ [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] and [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]].
+→ [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] and [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]].
 
 ## Pydantic
 

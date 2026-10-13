@@ -6,7 +6,7 @@ Opinionated TypeScript framework: a DI container, modules, decorators, and the [
 
 ## What to know
 - **It's Angular's architecture for the backend** — modules, providers, decorator-based DI.
-- **The request pipeline is explicit**: middleware → guards → interceptors → pipes → handler → interceptors → exception filters. That maps almost exactly onto [[backend/01-foundations/03-the-request-lifecycle|the request lifecycle]].
+- **The request pipeline is explicit**: middleware → guards → interceptors → pipes → handler → interceptors → exception filters. That maps almost exactly onto [[backend/01-foundations/03-the-request-lifecycle/index|the request lifecycle]].
 - **Validation decorators are inert without a `ValidationPipe`** — the classic "my validation isn't running" bug. Set `whitelist: true` so clients can't smuggle extra fields.
 - **`forwardRef()` is a smell**, not a fix — a circular dependency is a design problem. → [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|DI]]
 - It still runs on Express (or Fastify) underneath, so the [[backend/frameworks/javascript/01-node-runtime/index|runtime]] rules all still apply.

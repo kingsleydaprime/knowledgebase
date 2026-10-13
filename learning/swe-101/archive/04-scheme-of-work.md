@@ -590,8 +590,8 @@ By Sunday: what must be true before the week closes
 **Topics**
 - **18.1** What a backend is → [[backend/01-foundations/01-what-a-backend-is|01]]
 - **18.2** HTTP servers; rate limiting at the edge → [[backend/01-foundations/02-http-servers|02]]
-- **18.3** The request lifecycle end to end → [[backend/01-foundations/03-the-request-lifecycle|03]]
-- **18.4** Runtime and concurrency models — **the Node event loop** → [[backend/01-foundations/04-runtime-and-concurrency-models|04]]
+- **18.3** The request lifecycle end to end → [[backend/01-foundations/03-the-request-lifecycle/index|03]]
+- **18.4** Runtime and concurrency models — **the Node event loop** → [[backend/01-foundations/04-runtime-and-concurrency-models/index|04]]
 - **18.5** REST design and resource modelling → [[backend/02-api-design/01-apis-and-rest|APIs & REST]]
 - **18.6** ⚠️ API versioning — *no dedicated chapter; thin coverage only*
 
@@ -728,12 +728,12 @@ By Sunday: what must be true before the week closes
 
 # Week 26 — Concurrency
 
-**Read:** [[os/02-processes-and-threads|processes & threads]] · [[os/03-scheduling|scheduling]] · [[os/06-concurrency-primitives|primitives]] · [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]]
+**Read:** [[os/02-processes-and-threads|processes & threads]] · [[os/03-scheduling|scheduling]] · [[os/06-concurrency-primitives|primitives]] · [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]]
 
 **Topics**
 - **26.1** Processes vs threads → [[os/02-processes-and-threads|02]]
 - **26.2** Scheduling → [[os/03-scheduling|03]]
-- **26.3** Concurrency vs parallelism; **the Node event loop** → [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]]
+- **26.3** Concurrency vs parallelism; **the Node event loop** → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]]
 - **26.4** Locks, mutexes, deadlock, race conditions → [[os/06-concurrency-primitives|primitives]]
 
 **DSA:** mixed review + **first timed mock**, 45 min, unseen medium

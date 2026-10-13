@@ -1,6 +1,6 @@
 # 05 — Auth
 
-Two different questions that get collapsed into one word: **authentication** (who are you) and **authorization** (what may you do). Different failure modes, different status codes, different places in [[backend/01-foundations/03-the-request-lifecycle|the request lifecycle]].
+Two different questions that get collapsed into one word: **authentication** (who are you) and **authorization** (what may you do). Different failure modes, different status codes, different places in [[backend/01-foundations/03-the-request-lifecycle/index|the request lifecycle]].
 
 1. [[backend/05-auth/01-authentication-flows|Authentication Flows]] — **[Intermediate]** — sessions vs tokens, JWT's real tradeoffs, password storage
 2. [[backend/05-auth/02-authorization|Authorization]] — **[Intermediate]** — RBAC/ABAC/ReBAC, and why authz ≠ authn

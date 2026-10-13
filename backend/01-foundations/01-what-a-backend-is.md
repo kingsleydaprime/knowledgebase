@@ -31,7 +31,7 @@ Not because users are malicious (mostly they aren't) but because **you do not co
 
 This single rule generates most of the backend's design:
 
-- Validate **on the server**, always — client validation is UX, not security. → [[backend/01-foundations/03-the-request-lifecycle|the request lifecycle]]
+- Validate **on the server**, always — client validation is UX, not security. → [[backend/01-foundations/03-the-request-lifecycle/index|the request lifecycle]]
 - Authorise on the server, at the **data** layer — hiding a button isn't a permission check.
 - Prices, totals, and permissions are computed server-side; never accept an amount the client calculated.
 - Sensitive logic and secrets live server-side, because anything shipped to a client is public.
@@ -63,6 +63,6 @@ The backend is **the boundary where claims become facts.** The client can reques
 
 ## Related
 - [[backend/01-foundations/02-http-servers|HTTP Servers]] — how requests physically arrive
-- [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]] — what happens to one
-- [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — how many happen at once
+- [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]] — what happens to one
+- [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — how many happen at once
 - [[networking/index|Networking]] — the layer underneath all of it

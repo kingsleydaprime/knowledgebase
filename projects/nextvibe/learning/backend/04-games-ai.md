@@ -793,3 +793,228 @@ export function normaliseWord(word: unknown): string {
 ```
 
 **When two places must apply the same rule, share the function, not the rule.**
+
+---
+
+## Which AI failures to retry (2026-10-08)
+
+The question: a game generation can fail six ways. For each, retry or not, and if
+so, the same request or with feedback?
+
+### My answers, as I gave them
+
+| | Failure | My answer |
+|---|---|---|
+| a | OpenRouter timeout / 502 | Retry, max 3, then tell the organizer the AI provider is down |
+| b | 429 too many requests | We wait |
+| c | 401 bad API key | Can't try again |
+| d | Reply isn't valid JSON | Retry |
+| e | Valid JSON, "round 2 has no questions" | Regenerate only round 2 |
+| f | Word won't fit the grid | Maybe regenerate just the word |
+
+### Sharpened
+
+The sorting rule underneath all six: **will trying again plausibly give a different
+result?**
+
+- **Their problem, temporary (a, b):** retry the *same* request, waiting longer
+  each time (1s, 2s, 4s — called **backoff**). Cap by **total time**, not only by
+  count: the organizer is staring at a spinner, and three retries of a 20-second call
+  is over a minute. For 429, read the `Retry-After` header — if the wait is short,
+  wait; if long, fail fast with a clear message.
+- **Our problem, permanent (c):** never retry — the fourth attempt fails exactly
+  like the first. Log it loudly (it's a config bug *we* must fix) and show the
+  organizer a generic "something went wrong on our side", not "your key is invalid".
+- **The model's mistake (d, e, f):** retry *with feedback* — send the error back
+  ("Round 2 had no questions") so the next attempt isn't the same dice roll.
+
+Two upgrades on my e/f answers:
+- **Prevent before you retry.** Some rules can go in the structured-output schema
+  so the model *can't* break them: "at least 1 question per round" (`minItems`),
+  "word at most MAX_SIZE letters" (`maxLength`). Cheaper than any retry.
+- **Regenerate one round** is the right instinct, but it's feature 4 (regenerate one
+  question). It needs a prompt that keeps the new round consistent with the others.
+  First version: retry the whole draft with the error fed back; targeted regen later.
+
+`word-grid.ts` already retries placement itself (25 random attempts per size, growing
+the grid) — so when it still throws, the *words* are the problem, not bad luck.
+That's a model-mistake failure: feed it back ("use fewer or shorter words").
+
+---
+
+## Making AI generation solid — the questions and their answers (2026-10-08)
+
+I handed this one over ("just do the work"), so these are written as questions to
+quiz myself on. Cover the answer, try it, then check.
+
+Files: `backend/src/modules/games/ai-draft.schema.ts`, `ai-draft.quality.ts`,
+`ai-generator.service.ts`, `shared/redis/redis.service.ts`; frontend
+`game-creation-wizard.tsx`, `ai-generation-progress.tsx`.
+
+### Q1. The reply shape has to be described to the AI *and* checked afterwards. How do you write it only once?
+
+**Answer:** describe it once in a schema library (zod), then *derive* both uses from
+it. `z.toJSONSchema(schema)` produces the JSON Schema sent as `response_format`;
+`schema.safeParse(reply)` validates the answer. Add a field in one place and both
+move together. Before, the shape lived in three places (a JSON example in the
+prompt, a bullet list in the prompt, a hand-written `validateDraft`) — three
+things to keep in sync means they eventually won't be.
+
+The name for this is **single source of truth**: every fact lives in exactly one
+place, and everything else is computed from it.
+
+**The wrinkle:** providers' strict modes reject some JSON Schema keywords
+(Anthropic: `maxLength`, `minimum`, `pattern`, `minItems > 1`…). Deleting them
+would lose the rules. `relaxForProvider()` moves them into the field's
+`description` instead: the model still *reads* "at least 4 items", and zod still
+*enforces* it. That's the same trick Anthropic's own SDK uses.
+
+### Q2. What does structured output fix, and what doesn't it?
+
+**Fixes:** "the reply isn't JSON" and "a field is missing or the wrong type". The
+model is constrained while it writes, so we stop cutting `{...}` out of prose.
+
+**Doesn't fix:** well-formed nonsense. Duplicate questions, a clue that contains
+its own answer, a correct option twice as long as the others. A schema checks
+each value on its own; these rules compare values *with each other*. That's what
+`ai-draft.quality.ts` is for.
+
+### Q3. Which failures get retried, and how? (my answers are in the section above)
+
+The rule: **will trying again give a different result?**
+
+| Failure | Who handles it | How |
+|---|---|---|
+| Timeout, 5xx, connection error | the OpenAI SDK (`maxRetries: 2`) | same request, exponential backoff |
+| 429 | the SDK | waits for `Retry-After`, then retries |
+| 401 / 402 / 403 / 400 | nobody — never retried | logged at error level; organizer sees a generic message |
+| bad JSON / schema / quality / grid won't fit | our loop (`runWithRetries`) | **send the reply back with the problems listed** |
+
+Fact worth knowing: the OpenAI SDK *already* retries connection errors, 408, 409,
+429 and 5xx with backoff by default. Writing our own retry for those would have
+doubled it. Our loop only handles bad *content*, which the SDK can't judge.
+
+### Q4. Why is the retry limit a *time budget* and not just "3 attempts"?
+
+Because the organizer is staring at a spinner, and the browser gives up at 60s
+(`timeout: 60000` in `endpoints/games.ts`). Three attempts of 20s each is
+already over that. So: `DEADLINE_MS = 50_000` for everything, and a retry only
+starts if at least `MIN_ATTEMPT_MS` remains. Stopping at 50s means the organizer
+gets a real error message instead of a browser timeout.
+
+`AbortSignal.timeout(remaining)` bounds the *whole* call including the SDK's own
+retries. The SDK's `timeout` option alone applies per retry and could overshoot.
+
+### Q5. Quality problems: when do we fix it ourselves vs send it back to the model?
+
+**Fix ourselves** when the fix is mechanical and can't make things worse:
+shuffling options (models put the right answer in slot A far more than 25% of the
+time; shuffling makes the position random *by construction*), trimming extra
+questions, uppercasing `cow` → `COW`.
+
+**Send back** when only rewriting fixes it: duplicates, a clue that spells out the
+word, every true/false answer being "true".
+
+Every problem the model can't make is one fewer retry. That's why
+THIS_OR_THAT now asks the model for `isTrue: boolean` and the server builds
+`options: ["True","False"]`, and why the model writes a flat `questions` list that
+the server wraps into `rounds[0]`.
+
+### Q6. Why the one-at-a-time lock, on top of a daily limit?
+
+The daily limit caps the bill. The lock stops a double-click, or a client
+retrying after its own timeout, from paying for *the same game twice in
+parallel*. Different problems, so both are needed.
+
+**How the lock works:** `SET key token NX EX 70`. NX means "only if it doesn't
+exist", so whoever sets it holds the lock. The 70s expiry frees it even if the
+server crashes mid-generation. Releasing it uses a tiny Lua script that deletes
+the key **only if it still holds our token**. A plain `DEL` could delete a lock
+someone *else* took after ours expired.
+
+**Why the counter uses Lua too:** `INCR` then `EXPIRE` as two calls has a gap. If
+the process dies between them, the counter never expires and that organizer is
+rate-limited forever. Lua runs both inside Redis as one atomic step.
+
+The name for "check and act as one step that nothing can interrupt" is
+**atomicity**. The same idea as `getdel` in the same file.
+
+### Q7. Whose fault is a failure, and does it cost the organizer a daily slot?
+
+Provider outage, provider busy, our bad key → **refunded** (`redis.decr`). The
+organizer did nothing wrong. "The model couldn't produce a valid game after 3
+tries" → **counted**, because it cost us real money. Rephrasing the topic is the
+organizer's lever.
+
+### Q8. Why does the `ai_generations` cost table have no foreign key to User or Event?
+
+Same reason as `Log`: deleting an account or an event must not erase what we
+spent. It's a ledger of *our* costs, and costs don't un-happen. (This will matter
+for the delete-account feature: these rows survive it by design.)
+
+### Q9. Why did regenerating one word-puzzle word need a whole new grid?
+
+A word's `startCell`/`endCell` only mean anything *inside the grid it was placed
+in*. The old regenerate asked for a fresh puzzle, took its first word with *its*
+cells, and dropped it into a round whose saved grid came from a different
+question. The coordinates pointed at letters that spelled something else, so
+players could never find the word. The fix sends the remaining words as
+`keepWords`, builds one new grid holding all of them plus the new word, and
+updates **every** question's grid and cells.
+
+The general lesson: **coordinates are relative to something.** Moving data between
+two coordinate systems without converting it is a classic silent bug.
+
+### Q10. The progress messages are timed, not real. Is that OK?
+
+The backend answers in one response, so there's no real progress signal without
+streaming (SSE). The stages roughly match what the server does, and the elapsed
+counter is the honest part: it shows the request is still alive. Real progress
+is parked in the backlog. It's only worth building if the timed stages turn out
+to mislead people.
+
+---
+
+## Keeping game answers secret (2026-10-08)
+
+I wasn't sure about either question below at first. These are the explanations
+that made it click.
+
+### Q1. Why doesn't hashing the answer protect a trivia question?
+
+A hash can't be reversed, but you don't need to reverse it. A cheater can see
+the four options, hashes all four, and sees which one matches the hash the
+server sent. Four tries, microseconds. Hashing only protects something when
+there are **too many possible values to try** (a password). Four options, or
+True/False, are never protected this way.
+
+### Q2. Why must the server treat the first answer as final?
+
+Without it, a player sends "Lyon" → wrong, "Nice" → wrong, "Paris" → right, and
+scores on every question while knowing nothing. Recording the first answer
+before replying (Redis `HSETNX`: "set only if not set", atomic, so two taps at
+once can't both win) turns the check into a real commitment.
+
+And submit must score from **those recorded answers**, not the submitted list.
+Otherwise: answer wrong, get shown the right option, submit the right one.
+
+### The rule underneath both
+
+**Whatever reaches the player's device, they can read; any check the device
+does, they can skip.** The answer, and the decision about whether a tap is
+right, have to live on the server.
+
+### The word-puzzle twist
+
+The word list is shown to players on purpose (a word bank), so the secret is
+*where* the words are, not what they are. The bigger hole was submit: scoring
+"every word in the list I sent" meant sending the word bank back scored full
+marks. Now only finds the server confirmed (a drag whose start and end cells
+match a word) count.
+
+### What's still open, and why it's accepted
+
+A second identity (a throwaway guest id) can answer first to learn the right
+option. The only full fix is revealing correctness after the round ends, which
+kills the instant flash. Knowing which gaps you've **chosen** to leave open, and
+writing them down, is part of the job.

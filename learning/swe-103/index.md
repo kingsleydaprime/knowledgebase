@@ -75,7 +75,7 @@ No new patterns. **Every week: five problems drawn at random from NeetCode 150 p
 
 ### Week 8 — The request path and the event loop
 
-- **Learn (core):** [[backend/01-foundations/03-the-request-lifecycle|the request lifecycle]] · [[backend/01-foundations/04-runtime-and-concurrency-models|runtime and concurrency models]]
+- **Learn (core):** [[backend/01-foundations/03-the-request-lifecycle/index|the request lifecycle]] · [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime and concurrency models]]
 - **Learn (optional):** [[networking/16-debugging-networks|debugging networks]] · [[os/06-concurrency-primitives|locks, races and deadlock]]
 - **By Sunday:** closed-book — *what blocks the Node event loop, and how would you find out it's blocked?*
 

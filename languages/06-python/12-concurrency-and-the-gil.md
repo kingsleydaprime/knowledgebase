@@ -112,7 +112,7 @@ For now: assume the GIL, treat free-threading as something to track rather than 
 ## Related
 - [[os/02-processes-and-threads|processes and threads]] — what's underneath
 - [[os/06-concurrency-primitives|concurrency primitives]] — locks, and why they're hard
-- [[backend/01-foundations/04-runtime-and-concurrency-models|runtime and concurrency models]] — the cross-language comparison
+- [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime and concurrency models]] — the cross-language comparison
 - [[languages/02-go/06-goroutines-and-channels|goroutines]] — the model Python doesn't have
 
 *Source: [reference] — from CPython documentation, PEP 703, and the `asyncio`/`multiprocessing` docs.*

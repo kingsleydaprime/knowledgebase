@@ -1,0 +1,5 @@
+{
+  "lesson": "backend/01-foundations/03-the-request-lifecycle/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["lifecycle.ts", "lifecycle.test.ts"]
+}

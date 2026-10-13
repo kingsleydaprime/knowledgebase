@@ -210,5 +210,5 @@ None of these are hard. They're each 10–50 lines you write once. The question 
 - [[backend/frameworks/go/02-middleware-as-composition|Middleware as Composition]] — the next layer up
 - [[backend/frameworks/go/06-testing-and-production|Testing and Production]] — `httptest` and observability
 - [[languages/02-go/10-the-standard-library|Go: The Standard Library]] — the `io` interfaces underneath
-- [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]] — the model this implements
+- [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]] — the model this implements
 - [[backend/frameworks/go/index|Go backends]]

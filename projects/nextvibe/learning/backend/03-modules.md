@@ -1145,3 +1145,50 @@ The first two already loaded the vibe tag; `addMedia` didn't, and needed
 otherwise a video added to an existing postcard silently loses its tag. Worth
 grepping for *every* writer of a table before adding a column to it; a column
 that's only populated on two of three paths is worse than no column.
+
+---
+
+## Deleting an account when you must keep the money trail (2026-10-08)
+
+### Q. A user deletes their account but bought tickets. What happens to the purchases?
+
+My instinct: purchases are tricky "in case there's need for auditing or analysis."
+That's the right worry. The answer is **anonymize, don't delete**:
+
+- Financial records (purchases, ledger, payouts) are kept. Tax and audit rules
+  require it, and data-protection law (Nigeria's NDPA, GDPR) explicitly allows
+  keeping what a legal obligation requires.
+- They point at the user's id, so the `users` row **stays**, with every personal
+  field wiped: email becomes `deleted-<id>@deleted.invalid`, the name becomes
+  "Deleted user", and the password and OAuth link are removed.
+- Content that's only personal (postcards, likes, follows) is deleted outright.
+
+There's a name for this: **pseudonymization / anonymization**. You keep the
+record, but it can no longer be tied to a person.
+
+### Q. Why `.invalid` for the email?
+
+`.invalid` is a top-level domain reserved so it can **never** resolve. No mail
+can be delivered there by accident, the address stays unique (the column is
+`@unique`), and the real address is freed for a new sign-up.
+
+### Q. How does one call sign the user out on every device?
+
+There's no list of their tokens to delete. Instead, the code already refuses any
+token issued before `passwordChangedAt` (`JwtStrategy.validate`,
+`AuthService.refresh`). Setting it to *now* kills every token everywhere in one
+write. It's the same trick a password reset uses.
+
+### Q. Why ask for the password again when they're already signed in?
+
+Being signed in proves someone **has a session**, not that they're the owner. A
+stolen phone or a leaked token shouldn't be able to delete an account. Users with
+no password (Google sign-in) instead need a sign-in from the last 15 minutes. The
+name is **step-up authentication**.
+
+### Q. Why delete files *after* the database transaction, not inside it?
+
+S3 isn't part of the database transaction, so it can't be rolled back. Deleting
+files first and then having the transaction fail would leave a live account
+with missing photos. Deleting them after, best-effort, means the worst case is
+an orphaned file, never a half-deleted account.

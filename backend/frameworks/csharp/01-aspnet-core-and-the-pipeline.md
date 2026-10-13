@@ -98,7 +98,7 @@ builder.Services.Configure<StripeOptions>(builder.Configuration.GetSection("Stri
 
 **Reverse proxy or not?** Kestrel can face the internet directly and is designed to. Putting nginx or YARP in front buys you TLS termination, static file serving, rate limiting and shared-port routing → [[devops/08-networking-and-web/index|networking and web]]. **Behind a proxy, configure `ForwardedHeaders`** or every request appears to come from the proxy's IP — which breaks logging, rate limiting and geo rules.
 
-**The concurrency model is async all the way down** — a thread-pool thread per *active* request, released during I/O waits, rather than one thread pinned per connection → [[languages/07-csharp/07-async-await-and-tasks|note 07]] · [[backend/01-foundations/04-runtime-and-concurrency-models|runtime models]].
+**The concurrency model is async all the way down** — a thread-pool thread per *active* request, released during I/O waits, rather than one thread pinned per connection → [[languages/07-csharp/07-async-await-and-tasks|note 07]] · [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]].
 
 ## Related
 - [[backend/frameworks/csharp/02-minimal-apis-and-mvc|minimal APIs and MVC]] — the two endpoint styles

@@ -9,8 +9,8 @@ Restructured August 2026. Previously the concepts lived in `concepts/01-backend/
 ### [[backend/01-foundations/index|01 — Foundations]]
 1. [[backend/01-foundations/01-what-a-backend-is|What a Backend Actually Is]] — **[Beginner]** — the four responsibilities, and "never trust the client" as the rule everything follows from
 2. [[backend/01-foundations/02-http-servers|HTTP Servers]] — **[Beginner]** — how requests physically arrive
-3. [[backend/01-foundations/03-the-request-lifecycle|The Request Lifecycle]] — **[Beginner→Intermediate]** — the nine stages, the middleware onion, symptom→stage debugging
-4. [[backend/01-foundations/04-runtime-and-concurrency-models|Runtime & Concurrency Models]] — **[Intermediate]** ⭐ — thread-per-request vs event loop vs green threads, and **why frameworks differ at all**
+3. [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]] — **[Beginner→Intermediate]** — the nine stages, the middleware onion, symptom→stage debugging
+4. [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — **[Intermediate]** ⭐ — thread-per-request vs event loop vs green threads, and **why frameworks differ at all**
 
 ### [[backend/02-api-design/index|02 — API Design]]
 The contract you can't easily change. REST semantics, status codes, idempotency.
@@ -53,7 +53,7 @@ Not numbered; there's no reading order. Pick yours.
 - **[[backend/frameworks/cpp/index|C++]]** · **[[backend/frameworks/c/index|C]]** — when you'd actually reach for them, and when you wouldn't
 - **[[backend/frameworks/cross-language-recipes|Cross-Language Recipes]]** ⭐ — **rate limiting, JWT, CORS, headers, graceful shutdown and structured logging in all six, side by side**
 
-**Read [[backend/01-foundations/04-runtime-and-concurrency-models|note 01.4]] before any of them.** Frameworks look like twenty things to learn; they're three concurrency models wearing different vocabularies.
+**Read [[backend/01-foundations/04-runtime-and-concurrency-models/index|note 01.4]] before any of them.** Frameworks look like twenty things to learn; they're three concurrency models wearing different vocabularies.
 
 ## [[backend/interview/index|interview/]]
 
