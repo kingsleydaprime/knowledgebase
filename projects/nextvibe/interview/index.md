@@ -23,6 +23,7 @@ bugs with root causes* — which is exactly what senior interviews are made of.
 | [03-realtime-and-notifications.md](03-realtime-and-notifications.md) | WebSocket auth, ws/wss/Socket.IO, gateway errors, producer/consumer split, dedup, badges |
 | [04-frontend-nextjs-and-state.md](04-frontend-nextjs-and-state.md) | App Router, server vs client, middleware, Suspense, RTK Query cache tags, forms, uploads |
 | [05-platform-payments-and-story.md](05-platform-payments-and-story.md) | Deployment, MinIO/presigned URLs, OOM, webhooks, AI games, trade-offs, behavioural |
+| [06-wishlist-spin-wheel-and-multitenancy.md](06-wishlist-spin-wheel-and-multitenancy.md) | Gift registry with self-reported money, public vs private data, linking guest data by verified email, spin-the-wheel races and row locks, weighted random, claim codes, list-vs-detail bug, multi-tenancy planning, 4 behavioural stories |
 
 ---
 

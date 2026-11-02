@@ -4,6 +4,7 @@
 
 ## System design
 - [[projects/nextvibe/learning/00-sys-design|00 — System Design]] → general: [[architecture/index|architecture]]
+- [[projects/nextvibe/learning/11-multi-tenancy-planning|11 — Multi-tenancy & White-label Planning]] → isolation models, RLS vs app-layer filtering, tenant resolution
 
 ## Backend
 1. [[projects/nextvibe/learning/backend/01-core|01 — Core]] → [[backend/index|backend concepts]]
@@ -15,6 +16,7 @@
 7. [[projects/nextvibe/learning/backend/07-validation-and-query-contracts|07 — Validation & Query Contracts]] → [[backend/index|backend concepts]]
 8. [[projects/nextvibe/learning/backend/08-payments-and-webhooks|08 — Payments & Webhooks]] → exactly-once fulfilment, lock scope, IDOR, money as Decimal ⭐
 9. [[projects/nextvibe/learning/backend/09-testing|09 — Testing & Concurrency]] → load testing with k6, token pooling, throttler bypass, Prisma connection limits
+10. [[projects/nextvibe/learning/backend/10-wishlist-and-spin-wheel|10 — Wishlist & Spin the Wheel]] → public vs private data, verified-email linking, row locks, weighted random, claim codes ⭐
 
 ## Frontend
 1. [[projects/nextvibe/learning/frontend/01-routing|01 — Routing]]
@@ -30,6 +32,7 @@
 11. [[projects/nextvibe/learning/frontend/11-guest-identity-and-conversion|11 — Guest Identity & Conversion]]
 12. [[projects/nextvibe/learning/frontend/12-rtk-query-and-api-slices|12 — RTK Query & API Slices]]
 13. [[projects/nextvibe/learning/frontend/13-testing|13 — Testing]] → Vitest unit testing, React Testing Library with Redux/RTK Query, MSW, Playwright E2E
+14. [[projects/nextvibe/learning/frontend/14-wheel-ui-and-list-vs-detail-data|14 — Wheel UI & List-vs-Detail Data]] → the postcard carousel bug, animating to a server result, `key` remounts
 
 ## Ops
 - [[projects/nextvibe/learning/09-devops|09 — DevOps]] → [[devops/index|devops]]
