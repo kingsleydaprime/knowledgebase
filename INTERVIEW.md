@@ -28,6 +28,8 @@
 
 Plus the project-specific bank: [[projects/arete/interview/01-backend-and-data|arete/interview/]] — the original, and still the best template because every answer is anchored in code you actually wrote.
 
+NextVibe has its own bank too: [[projects/nextvibe/interview/index|nextvibe/interview/]] — the largest one, including [[projects/nextvibe/interview/06-wishlist-spin-wheel-and-multitenancy|06: wishlist, spin the wheel, multi-tenancy]] (race conditions, row locks, public vs private data, and four behavioural stories).
+
 ## How to use these
 
 **Cover the answer. Say it out loud. Then compare.** Recognition feels like knowledge and isn't — the gap between "I could follow that" and "I could say that" is exactly what an interview measures.
