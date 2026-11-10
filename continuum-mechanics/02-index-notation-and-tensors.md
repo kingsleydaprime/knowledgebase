@@ -10,7 +10,7 @@ Index notation writes components and lets bookkeeping rules do the work:
 
 $$\mathbf{a} \cdot \mathbf{b} = a_i b_i \qquad\qquad \sigma_{ij} = C_{ijkl}\,\varepsilon_{kl}$$
 
-The second one is the general form of Hooke's law. There is no vector-notation equivalent that's readable.
+The second one is the general form of Hooke's law. Vector notation can write it as $\boldsymbol\sigma = \mathbb{C} : \boldsymbol\varepsilon$, but that hides which indices pair up with which, and that pairing is exactly what you need when you work with it.
 
 > **Tensor algebra is the language of continuum mechanics.** Stress, strain, the deformation gradient, the stiffness of a material: all of them are tensors. This note builds that language from the bottom: vectors and bases first, then the shorthand, then the three ways to multiply vectors, then tensors.
 
@@ -64,7 +64,7 @@ The trick is **mixing a letter with a number**: the letter says *what kind* of t
 
 1. **Fewer symbols.** The Cartesian form needs 6 different letters ($\alpha, \beta, \gamma, \mathbf{i}, \mathbf{j}, \mathbf{k}$). The indexed form needs 2 ($a$ and $\mathbf{e}$).
 2. **It scales.** In a 10D space, the old way needs 10 component letters plus 10 basis letters, about 20 symbols, and you'd run out of Greek. The indexed way still needs just 2: $\mathbf{f} = \sum_{i=1}^{10} a_i\mathbf{e}_i$.
-3. **It works for any basis.** The $\mathbf{e}_i$ don't have to be $\mathbf{i}, \mathbf{j}, \mathbf{k}$. They can be any independent set, which matters as soon as you rotate the axes (see "Changing basis" below).
+3. **It works for any basis.** The $\mathbf{e}_i$ don't have to be $\mathbf{i}, \mathbf{j}, \mathbf{k}$. They can be any independent set, which matters as soon as you rotate the axes (see "Changing basis" below). **From here on, the basis is always orthonormal** (rotated or not), because the shortcuts below, especially $\mathbf{e}_i\cdot\mathbf{e}_j = \delta_{ij}$, only hold for orthonormal bases.
 
 ### Standard summation, before Einstein
 
@@ -86,6 +86,8 @@ Notice something about every one of these sums: **the index being summed always 
 
 **A repeated index in a term is summed over.** Einstein's convention, and it removes an enormous amount of $\sum$ clutter. It is the standard notation for vectors and tensors, and every text in this field assumes it without saying so.
 
+$$a_i b_i \equiv \sum_{i=1}^{3} a_i b_i = a_1b_1 + a_2b_2 + a_3b_3$$
+
 So $\mathbf{f} = \sum_i a_i\mathbf{e}_i$ becomes just $\mathbf{f} = a_i\mathbf{e}_i$, and $y_i = \sum_j a_{ij}x_j$ becomes $y_i = a_{ij}x_j$.
 
 ### What a "term" is
@@ -95,8 +97,6 @@ The convention says "repeated **in a term**", so the word matters. A **term** is
 1. $a_{ij}x_j$ is one term. $j$ appears twice in it, so it's summed.
 2. $a_i b_i + c_i d_i$ has two terms. $i$ is repeated in each one separately, so each term is its own sum: $(a_1b_1 + a_2b_2 + a_3b_3) + (c_1d_1 + c_2d_2 + c_3d_3)$.
 3. $a_i + b_i$ has two terms, and $i$ appears **once** in each, so there's no sum. $i$ is free, and it's the same free index in both terms, which is required.
-
-$$a_i b_i \equiv \sum_{i=1}^{3} a_i b_i = a_1b_1 + a_2b_2 + a_3b_3$$
 
 Two kinds of index:
 
@@ -110,7 +110,7 @@ Here $j$ is dummy (summed), $i$ is free. This is three equations, one per value 
 
 **The rules that catch errors:**
 
-1. **Free indices must match on both sides.** $c_i = A_{ij}b_j$ ✓. $c_i = A_{ij}b_i$ ✗ — the left has one free index, the right has none
+1. **Free indices must match on both sides.** $c_i = A_{ij}b_j$ ✓. $c_i = A_{ij}b_i$ ✗ — on the right, $i$ is repeated (so summed) and $j$ is left free, so the left's free index is $i$ but the right's is $j$
 2. **An index may appear at most twice per term.** $a_i b_i c_i$ is meaningless
 3. **Rename dummy indices freely**, but never to collide with a free index
 
@@ -134,7 +134,7 @@ $$b_{12} = a_{11}a_{12} + a_{12}a_{22} + a_{13}a_{32}$$
 
 That's row 1 of $\mathbf{A}$ multiplied entry by entry with column 2 of $\mathbf{A}$, then added up. It is exactly how you'd compute entry $(1,2)$ of the matrix product $\mathbf{A}\mathbf{A}$. So the index equation **is** the matrix equation $\mathbf{A}\mathbf{A} = \mathbf{B}$, written one entry at a time.
 
-The general pattern: **a repeated index sitting next to each other** (the second index of the first factor and the first index of the second factor, like the $j$ in $a_{ij}a_{jk}$) is a matrix product. Move the repeated index and the meaning changes. $a_{ji}a_{jk}$ sums down column $i$ against column $k$, which is $\mathbf{A}^\mathsf{T}\mathbf{A}$.
+The general pattern: **a repeated index on the inside** (the second index of the first factor and the first index of the second factor, like the $j$ in $a_{ij}a_{jk}$) is a matrix product. Move the repeated index and the meaning changes. $a_{ji}a_{jk}$ sums down column $i$ against column $k$, which is $\mathbf{A}^\mathsf{T}\mathbf{A}$.
 
 ## The Kronecker delta
 
@@ -234,7 +234,7 @@ These three get mixed up constantly, so here they are side by side. Each one is 
 | Cross | $\mathbf{a}\times\mathbf{b}$ | vector | $\epsilon_{ijk}a_j b_k$ (component $i$) | vector product |
 | Dyad | $\mathbf{a}\otimes\mathbf{b}$ | second-order tensor | $a_i b_j$ | dyadic product, **outer product**, tensor product |
 
-> **A common mix-up:** it's the **dot** product that gives a scalar and is called the inner product. The **cross** product gives a vector. If your notes say "cross product → scalar → inner product", swap "cross" for "dot".
+> **Keep the outputs straight:** the **dot** product gives a scalar and is the inner product; the **cross** product gives a vector. When the two are chained, order matters — see the [[#The scalar triple product|scalar triple product]] below.
 
 ### Dot product in component form
 
@@ -251,6 +251,25 @@ So component $i$ is $(\mathbf{a}\times\mathbf{b})_i = \epsilon_{ijk}a_j b_k$ (us
 $$(\mathbf{a}\times\mathbf{b})_1 = \epsilon_{123}a_2b_3 + \epsilon_{132}a_3b_2 = a_2b_3 - a_3b_2$$
 
 Every other term has a repeated index, so it's zero. The result is a vector at right angles to both $\mathbf{a}$ and $\mathbf{b}$. The cross product only exists in 3D.
+
+### The scalar triple product
+
+Chain the two products: **cross first, then dot**.
+
+$$\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})$$
+
+1. **Cross product first.** $\mathbf{b}\times\mathbf{c}$ gives a vector, with components $\epsilon_{ijk}b_jc_k$.
+2. **Then the inner (dot) product.** Dotting $\mathbf{a}$ with that vector gives a **scalar**.
+
+In index form the whole thing is one term:
+
+$$\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c}) = a_i\,\epsilon_{ijk}b_jc_k = \epsilon_{ijk}\,a_ib_jc_k$$
+
+All three indices are repeated, so nothing is free and the result is a number. Geometrically, it's the **signed volume** of the box (parallelepiped) with edges $\mathbf{a}, \mathbf{b}, \mathbf{c}$: positive when the three form a right-handed set, negative when left-handed, and zero when they lie in one plane (that is, when they are linearly dependent). It equals the determinant of the matrix with those three vectors as rows.
+
+**Why the order is forced.** $(\mathbf{a}\cdot\mathbf{b})\times\mathbf{c}$ is meaningless: $\mathbf{a}\cdot\mathbf{b}$ is a scalar, and you can't cross a scalar with a vector. So the cross product must happen first, and the brackets are often dropped: $\mathbf{a}\cdot\mathbf{b}\times\mathbf{c}$.
+
+Because $\epsilon_{ijk}$ doesn't change under a cyclic shift, neither does the triple product: $\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c}) = \mathbf{b}\cdot(\mathbf{c}\times\mathbf{a}) = \mathbf{c}\cdot(\mathbf{a}\times\mathbf{b})$. Swapping any two vectors flips the sign.
 
 ### The dyad (dyadic product, outer product)
 
@@ -288,7 +307,7 @@ The **trace** is the sum of the diagonal entries, $\operatorname{tr}\mathbf{T} =
 
 $$\operatorname{tr}(\mathbf{a}\otimes\mathbf{b}) = a_ib_i = \mathbf{a}\cdot\mathbf{b}$$
 
-**The trace of the outer product is the inner product.** That's the link between the two: setting the two free indices of $a_ib_j$ equal (a contraction) sums them away and leaves a scalar. The trace doesn't change when you rotate the axes, which is why $\sigma_{kk}$ (the trace of stress) measures pressure in any coordinate system.
+**The trace of the outer product is the inner product.** That's the link between the two: setting the two free indices of $a_ib_j$ equal (a contraction) sums them away and leaves a scalar. The trace doesn't change when you rotate the axes, which is why the pressure, $p = -\tfrac{1}{3}\sigma_{kk}$, comes out the same in any coordinate system.
 
 ## Changing basis: coordinate transformations
 
@@ -413,7 +432,7 @@ $$\text{Laplacian:} \quad \nabla^2\phi = \phi_{,ii}$$
 
 $$\int_S \sigma_{ij}n_j\,dS = \int_V \sigma_{ij,j}\,dV$$
 
-Every balance law in this field is derived by writing it as a surface plus volume integral, applying this, and arguing that since the volume is arbitrary the integrand must vanish. **That derivation pattern appears four times in note 05** — learn it once. → [[continuum-mechanics/06-conservation-laws|Conservation Laws]]
+Every balance law in this field is derived by writing it as a surface plus volume integral, applying this, and arguing that since the volume is arbitrary the integrand must vanish. **That derivation pattern appears four times in note 06** — learn it once. → [[continuum-mechanics/06-conservation-laws|Conservation Laws]]
 
 ## Practical advice
 
