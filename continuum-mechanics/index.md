@@ -13,7 +13,7 @@ Notes 01–07 are the foundation and build strictly on each other. After that, 0
 **The foundation**
 
 1. [[continuum-mechanics/01-what-continuum-mechanics-is|What Continuum Mechanics Is]] — **[Intermediate]** — the continuum hypothesis and where it breaks, why solids and fluids are one theory, and the three ingredients every problem is assembled from
-2. [[continuum-mechanics/02-index-notation-and-tensors|Index Notation and Tensors]] — **[Intermediate → Advanced]** — the language. Summation convention, what a tensor actually is, invariants, and the decompositions that recur everywhere
+2. [[continuum-mechanics/02-index-notation-and-tensors|Index Notation and Tensors]] — **[Intermediate → Advanced]** — the language. Vectors, bases and linear independence, the summation convention, Kronecker delta and Levi-Civita, dot vs cross vs dyad, what a tensor actually is, invariants, and the decompositions that recur everywhere
 3. [[continuum-mechanics/03-kinematics-of-deformation|Kinematics of Deformation]] — **[Intermediate → Advanced]** — Lagrangian vs Eulerian, the material derivative, the deformation gradient, and polar decomposition
 4. [[continuum-mechanics/04-strain-measures|Strain Measures]] — **[Intermediate → Advanced]** — why there are several, the engineering-shear factor of two, and **why small-strain theory fails on rotation rather than strain**
 5. [[continuum-mechanics/05-stress|Stress]] — **[Intermediate → Advanced]** — Cauchy's theorem, why symmetry is forced, principal stresses, and the three stress tensors finite deformation requires
