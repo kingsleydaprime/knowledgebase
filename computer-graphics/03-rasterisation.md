@@ -28,7 +28,7 @@ $$E(\mathbf{p}) = (\mathbf{b}_x - \mathbf{a}_x)(\mathbf{p}_y - \mathbf{a}_y) - (
 
 > **A point is inside the triangle iff all three edge functions have the same sign.** Three cross products, three sign checks. **That's the entire coverage test.**
 >
-> **And it's incremental:** $E$ is linear, so stepping one pixel right adds a constant. **The inner loop is three additions and three sign tests** — which is why this maps so beautifully to hardware, and why Pineda's 1988 formulation replaced scanline algorithms.
+> **And it's incremental:** $E$ is linear, so stepping one pixel right adds a constant. **The inner loop is three additions and three sign tests** — which is why this maps so beautifully to hardware, and why Pineda's 1988 formulation replaced scanline algorithms ([[computer-graphics/14-circles-and-polygon-filling|note 14]] works the scan-line polygon fill by hand, and [[computer-graphics/13-line-drawing-and-antialiasing|note 13]] the line algorithms that came before).
 
 **Real hardware refines this:** tile-based traversal (test 8×8 blocks before individual pixels), hierarchical rejection, and **fragments processed in 2×2 quads** — because screen-space derivatives for texture filtering need neighbouring pixels. **That quad requirement is why a thin triangle wastes up to 75% of the shading work**, and it's a real cost of highly tessellated geometry.
 
@@ -73,6 +73,8 @@ for each fragment:
 
 **Per-pixel, order-independent, trivially parallel.** Catmull, 1974.
 
+**Depth across a triangle is linear in screen space**, so it is stepped incrementally: from the plane $Ax + By + Cz + D = 0$, one pixel right changes $z$ by $-A/C$. **Depth conventions differ** — this pseudocode keeps the *smaller* $z$; many textbooks clear to 0 and keep the *larger*. Both are fine if consistent. The full family of visibility methods (back-face detection, painter's, BSP trees, Warnock, the scan-line method) is in [[computer-graphics/18-visible-surface-detection|note 18]].
+
 > **The z-buffer won because it needs no sorting.** The alternative — the painter's algorithm, drawing back to front — **fails on mutually overlapping triangles**, where no valid order exists. And sorting is $O(n\log n)$ per frame with global knowledge, which is exactly what rasterisation is trying to avoid.
 >
 > **The cost is memory and bandwidth**, which was prohibitive in 1974 and is trivial now.
@@ -106,6 +108,8 @@ $$C = \alpha_{\text{src}}C_{\text{src}} + (1-\alpha_{\text{src}})C_{\text{dst}}$
 ## Antialiasing
 
 **A pixel is an area, not a point** — so a hard in/out coverage test aliases. → [[computer-graphics/01-how-rendering-works|Rendering as sampling]]
+
+The classical, per-line methods — area sampling (Wu's lines), supersampling and pixel phasing — are in [[computer-graphics/13-line-drawing-and-antialiasing|note 13]]. The modern ones:
 
 | Technique | How | Cost |
 |---|---|---|
@@ -155,4 +159,6 @@ $$C = \alpha_{\text{src}}C_{\text{src}} + (1-\alpha_{\text{src}})C_{\text{dst}}$
 - [[computer-graphics/04-shading-and-lighting|Shading and Lighting]] — computing the colour
 - [[computer-graphics/06-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — how this runs in hardware
 - [[computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — what feeds this
+- [[computer-graphics/18-visible-surface-detection|Visible Surface Detection]] — the classical visibility methods
+- [[computer-graphics/13-line-drawing-and-antialiasing|Line Drawing]] — DDA and Bresenham
 - [[computer-graphics/index|Computer graphics map]]

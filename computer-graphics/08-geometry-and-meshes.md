@@ -45,6 +45,8 @@ $$\mathbf{B}(t) = \sum_{i=0}^{n}\binom{n}{i}(1-t)^{n-i}t^i\,\mathbf{P}_i$$
 
 **De Casteljau's algorithm** evaluates them by repeated linear interpolation. **Numerically stable, geometrically obvious, and it splits the curve for free** — which is how curves get subdivided for rendering.
 
+**Worked by hand** — control points from velocities, de Casteljau tables, splitting, the derivative, flattening to a tolerance, and Chaikin corner cutting — in [[computer-graphics/17-curves-bezier-and-b-splines|note 17]].
+
 **B-splines** — local control. **Moving one control point affects only a local region**, unlike a Bézier where every point influences the whole curve. Essential for editing complex shapes.
 
 **NURBS** — rational B-splines. **Can represent conic sections exactly** — a true circle, not an approximation. **The CAD standard**, because engineering needs exact circles and cylinders.
@@ -150,6 +152,7 @@ repeat:
 ---
 
 ## Related
+- [[computer-graphics/17-curves-bezier-and-b-splines|Curves: Bézier and B-splines]] — the hand calculations, and the Cox–de Boor recursion
 - [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation]] — the spline mathematics
 - [[computer-graphics/09-animation-and-simulation|Animation and Simulation]] — deforming these
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — meshes for simulation rather than rendering
