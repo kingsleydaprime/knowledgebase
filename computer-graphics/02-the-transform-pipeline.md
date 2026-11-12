@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Model to world to camera to screen. The matrix chain every vertex goes through.
 
-> **[[robotics/04-rigid-body-transforms|Rigid Body Transforms]] covers rotations, quaternions and homogeneous matrices** — the same mathematics, in a different field's vocabulary. **This note is the graphics-specific part**: the projection matrices and the clip-space conventions.
+> **[[robotics/04-rigid-body-transforms|Rigid Body Transforms]] covers rotations, quaternions and homogeneous matrices** — the same mathematics, in a different field's vocabulary. **This note is the graphics-specific part**: the projection matrices and the clip-space conventions. **For the basic 2D and 3D matrices worked by hand** — shear, reflection, recognising a matrix by its pattern, rotating about a pivot, row- versus column-vector conventions — see [[computer-graphics/16-2d-and-3d-transformations|note 16]].
 
 ## The chain
 
@@ -53,7 +53,7 @@ with field of view $f$, aspect ratio $a$, near plane $n$, far plane $f$.
 
 $$-w \leq x,y,z \leq w$$
 
-**Clipping happens here**, before the divide, because the divide breaks for $w \leq 0$ — points behind the camera. **A triangle straddling the near plane must be clipped or the maths produces garbage.**
+**Clipping happens here**, before the divide (the algorithms — Cohen–Sutherland extended to six planes, Cyrus–Beck — are in [[computer-graphics/15-clipping|note 15]]), because the divide breaks for $w \leq 0$ — points behind the camera. **A triangle straddling the near plane must be clipped or the maths produces garbage.**
 
 **After dividing by $w$ you're in normalised device coordinates**, and then a viewport transform maps to pixels.
 
@@ -159,5 +159,7 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 ## Related
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — the same maths, more depth on rotations
 - [[computer-graphics/03-rasterisation|Rasterisation]] — what happens after this
+- [[computer-graphics/16-2d-and-3d-transformations|2D and 3D Transformations]] — the basic matrices, by hand
+- [[computer-graphics/15-clipping|Clipping]] — the clipping algorithms
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the prerequisite
 - [[computer-graphics/index|Computer graphics map]]

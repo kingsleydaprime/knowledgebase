@@ -1,8 +1,8 @@
 # Computer Graphics
 
-Turning a 3D scene description into a 2D image. Rasterisation, shading, ray tracing, and the geometry and animation underneath.
+Turning a 3D scene description into a 2D image. Rasterisation, shading, ray tracing, and the geometry and animation underneath — **plus, in Part 2, the classical raster algorithms a university course examines**: line and circle drawing, filling, clipping, transforms and curves by hand.
 
-**~14,100 words across 11 notes** (including practice + solutions). Built August 2026. `[reference]`.
+**~40,000 words across 21 notes** (including practice, solutions, a question bank and a formula sheet). Part 1 built August 2026; **Part 2 added November 2026 from the SSG 511 course notes**. `[reference]`.
 
 > **The one idea:** every rendering algorithm is an approximation of the **rendering equation** — light leaving a point equals what it emits plus everything arriving, weighted by the material. **Rasterisation truncates it at one bounce; path tracing estimates it by Monte Carlo.** Knowing the equation tells you exactly what each technique is throwing away.
 
@@ -20,6 +20,10 @@ Turning a 3D scene description into a 2D image. Rasterisation, shading, ray trac
 
 ## Reading order
 
+**Two parts.** **Part 1 (01–09) is the modern view** — the GPU pipeline, physically based shading, path tracing. **Part 2 (12–18) is classical raster graphics** — the by-hand algorithms underneath. **If pixels, Bresenham and homogeneous matrices are new, read Part 2 first (12 → 18), then Part 1.** If you are revising for SSG 511, Part 2 plus notes 19–21 is the whole exam.
+
+### Part 1 — modern rendering
+
 **02–06 are the rasterisation pipeline** and build strictly in order. **07 is ray tracing**, independent. **08–09 are geometry and motion.**
 
 1. [[computer-graphics/01-how-rendering-works|How Rendering Works]] — **[Intermediate]** — rasterisation vs ray tracing, **the rendering equation**, and rendering as a sampling problem
@@ -31,6 +35,24 @@ Turning a 3D scene description into a 2D image. Rasterisation, shading, ray trac
 7. [[computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — **[Advanced]** — BVHs, Monte Carlo light transport, **next event estimation**, denoising, hardware RT
 8. [[computer-graphics/08-geometry-and-meshes|Geometry and Meshes]] — **[Intermediate → Advanced]** — indexed meshes, half-edge, Béziers and NURBS, **SDFs where booleans are trivial**, LOD
 9. [[computer-graphics/09-animation-and-simulation|Animation and Simulation]] — **[Intermediate → Advanced]** — SLERP, skinning, rigid body physics, collision detection, and **the sim-to-real gap**
+
+### Part 2 — classical raster graphics (SSG 511)
+
+**12–14 build in order** (hardware → lines → circles and fills). **15–18 can be read in any order after 13**, though 15's Bézier clipping uses 17.
+
+12. [[computer-graphics/12-graphics-systems-and-display-hardware|Graphics Systems and Display Hardware]] — **[Beginner → Intermediate]** — visual problem solving, interactive computing, the GUI, **CRT, raster versus random scan**, frame-buffer sums, refresh rate, double buffering, bitmap versus vector
+13. [[computer-graphics/13-line-drawing-and-antialiasing|Line Drawing and Antialiasing]] — **[Intermediate]** — DDA, **Bresenham derived for both slopes**, midpoint lines, worked tables, an integer-only program, shapes and dashed lines, four antialiasing methods
+14. [[computer-graphics/14-circles-and-polygon-filling|Circles and Polygon Filling]] — **[Intermediate]** — eight-way symmetry, **midpoint and Bresenham circles**, ellipses, scan-line fill with edge tables, flood and boundary fill, **4- versus 8-connected leaking**
+15. [[computer-graphics/15-clipping|Clipping]] — **[Intermediate]** — region codes, **Cohen–Sutherland**, midpoint subdivision, Cyrus–Beck, **Liang–Barsky as a check**, 3D frustum and Bézier clipping
+16. [[computer-graphics/16-2d-and-3d-transformations|2D and 3D Transformations]] — **[Intermediate]** — homogeneous matrices, **reading a matrix by its pattern**, row versus column vectors, the pivot check, the four blocks of a 4 × 4, the cone method
+17. [[computer-graphics/17-curves-bezier-and-b-splines|Curves: Bézier and B-splines]] — **[Intermediate → Advanced]** — where the Bernstein weights come from, **control points from velocities**, de Casteljau and splitting, Cox–de Boor, Chaikin, flattening to a tolerance
+18. [[computer-graphics/18-visible-surface-detection|Visible Surface Detection]] — **[Intermediate]** — object versus image space, **the depth buffer by hand**, back-face detection, painter's, BSP trees, scan-line, Warnock, ray casting
+
+**Exam support:**
+
+19. [[computer-graphics/19-ssg-511-question-bank|SSG 511 Question Bank]] — the exam paper and every assignment question, **unsolved on purpose**, each pointing to its note, with an exam-coverage table and a study order
+20. [[computer-graphics/20-comsol-ink-jet-breakup|COMSOL: Modelling Ink Jet Breakup]] — **[Advanced]** — the model answer to exam Q3 (fluid dynamics, not graphics — and skippable)
+21. [[computer-graphics/21-ssg-511-formula-sheet|SSG 511 Formula Sheet]] — every Part 2 formula on one page
 
 ## The things worth carrying
 
@@ -46,6 +68,11 @@ Turning a 3D scene description into a 2D image. Rasterisation, shading, ray trac
 10. **Next event estimation is not optional in a path tracer.** Without it, small lights are never found → [[computer-graphics/07-ray-tracing-and-path-tracing|07]]
 11. **Never interpolate Euler angles or rotation matrices. SLERP, and check the sign first** → [[computer-graphics/09-animation-and-simulation|09]]
 12. **Fix your timestep**, and use semi-implicit Euler or Verlet — never explicit Euler → [[computer-graphics/09-animation-and-simulation|09]]
+13. **Bresenham is "which of two pixels is closer?", answered with integers.** Multiply the distance difference by $dx$ to clear the fraction, and the sign is all you need → [[computer-graphics/13-line-drawing-and-antialiasing|13]]
+14. **Step the long axis.** For $|m| > 1$, step $y$ and swap every $x$ and $y$ in the derivation; $p_0 = 2dx - dy$ → [[computer-graphics/13-line-drawing-and-antialiasing|13]]
+15. **AND = 0000 means *maybe* visible, not visible.** Clip and recompute the code until accept or reject → [[computer-graphics/15-clipping|15]]
+16. **Homogeneous coordinates exist because translation isn't a 2 × 2 multiplication.** Then state your vector convention, and check the pivot lands where it should → [[computer-graphics/16-2d-and-3d-transformations|16]]
+17. **$P_1 = P_0 + v_0/3$, $P_2 = P_3 - v_1/3$** — and the left edge of the de Casteljau triangle is the first half → [[computer-graphics/17-curves-bezier-and-b-splines|17]]
 
 ## Where this connects
 
@@ -74,7 +101,7 @@ Unlike a numerical method that returns a plausible wrong number, **a broken rend
 6. **[Shadertoy](https://shadertoy.com)** for SDFs and ray marching — a whole scene in one fragment shader, with instant feedback
 7. **The books:** *Real-Time Rendering* (Akenine-Möller et al.) — the standard reference; ***Physically Based Rendering*** (Pharr, Jakob, Humphreys) — **free online, a literate program, and the best book in the field**; *Fundamentals of Computer Graphics* (Marschner & Shirley) for the basics
 
-**What's missing:** ~~exercises~~ — **closed by notes 10–11 (Aug 2026)**; colour science in depth, volumetric rendering and participating media, subsurface scattering, procedural generation beyond noise, VR/AR specifics, video codecs, and the whole 2D/vector graphics and typography side.
+**What's missing:** ~~exercises~~ — **closed by notes 10–11 (Aug 2026)**; ~~the classical 2D raster algorithms~~ — **closed by Part 2, notes 12–21 (Nov 2026)**; colour science in depth, volumetric rendering and participating media, subsurface scattering, procedural generation beyond noise, VR/AR specifics, video codecs, and vector rendering of fonts and paths (typography, GPU path rendering).
 
 → [[PRIMETECHIE|Reading is not a rank.]]
 
@@ -82,6 +109,7 @@ Unlike a numerical method that returns a plausible wrong number, **a broken rend
 
 - [[computer-graphics/10-practice-exercises|Practice Exercises]] — twelve exercises — colour-by-normal, the transform chain by hand, gamma, and a ray tracer in a weekend
 - [[computer-graphics/11-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
+- [[computer-graphics/19-ssg-511-question-bank|SSG 511 question bank]] — Part 2's practice: the exam paper and assignments, unsolved, with runnable checkers in notes 13, 15 and 17
 
 ## Build it
 

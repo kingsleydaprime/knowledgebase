@@ -70,8 +70,13 @@ Add a bounding volume hierarchy. Time before and after on a scene of 500+ sphere
 Load an OBJ, compute face normals, then smooth vertex normals by averaging. Render both.
 **Done when:** you can see faceting versus smooth shading, and can explain why a cube should **not** have smoothed normals → [[computer-graphics/08-geometry-and-meshes|note 08]].
 
+## Part D — Classical raster graphics (notes 12–18)
+
+**The SSG 511 exam and assignment questions are the practice set for Part 2** — Bresenham tables, Cohen–Sutherland clipping, transforming shapes, Bézier control points and de Casteljau splits. They are in the [[computer-graphics/19-ssg-511-question-bank|question bank]], deliberately unsolved; each teaching note ends with its own independent task, and the runnable scripts in notes 13, 15 and 17 check your hand work.
+
 ## Related
 - [[computer-graphics/11-practice-exercises-solutions|Solutions]]
+- [[computer-graphics/19-ssg-511-question-bank|SSG 511 question bank]]
 - [[computer-graphics/index|the course]]
 - [[game-development/03-graphics-for-games|graphics for games]] — the same material under a frame budget
 
