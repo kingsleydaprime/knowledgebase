@@ -42,6 +42,20 @@ Every lesson whose code is in one language gets a companion in TypeScript/JavaSc
 - [x] **`mathematics/` is too thin for the courses that depend on it.** *(closed 2026-09-10: number bases, the foundations sequence and all of calculus written; logarithms added. Remaining gaps are unstarted topics, listed in the maths index.)* Originally: Concretely: `core/01-numbers/01-number-bases/` covers binary, decimal and hexadecimal but there is **no note on signed representations** — two's complement lives only in [[computer-architecture/02-data-representation|computer-architecture/data representation]], which is a Part IX course being used as a Part I prerequisite. Also thin: no dedicated logarithms note (only inside `06-exponents`), and the calculus tree jumps from limits to multivariable with gaps.
 - [x] **No note anywhere on linkers and executable formats.** *(closed 2026-09-10: written as `compilers/09-linking-and-loading`, with a lab that inspects real ELF object files.)* Originally: Static vs dynamic linking, relocation, ELF layout and the dynamic loader are covered only in passing across `compilers/08-code-generation` and `languages/04-c/01-why-c-and-the-compilation-model`. Flagged in [[how-computers-work/07-the-bridge|the bridge]] as the weakest link in the source-to-CPU chain.
 
+### Plain-language pass (2026-11-14)
+
+Prompted by reading the computer graphics course for the first time: it opened with jargon ("rasterisation, shading, ray tracing"), word counts and a note on why the domain was chosen, instead of saying what computer graphics *is*. The SSG 511 notes ("drawing pictures on a computer screen with the help of programming") are the model for tone. The rule is now in [[COURSE-STANDARD|the course standard]] under "A course index opens with what the subject is".
+
+- [x] **All 41 course indexes rewritten** to open with a plain sentence saying what the subject is, then everyday examples, what you'll be able to do, and where to start. Word counts, build history and "not covered yet" moved to an "About this course" section at the end.
+- [x] **Courses renumbered into reading order:** computer graphics (beginner half first), DSA, frontend sections, devops sections, and concepts (best practices before design patterns). Links updated vault-wide each time.
+- [x] **Beginner lessons added:** [[databases/00-your-first-sql|Your First SQL Queries]] and [[frontend/01-foundations/00-your-first-web-page|Your First Web Page]], both with every example run and checked.
+- [x] **`§` explained on hover** through the abbreviations plugin, and listed in the [[glossary]].
+- [ ] **Rewrite each course's first lesson the same way.** Many still open with terminology before the plain explanation, so the jargon reappears one click after the index. Start with the courses a beginner meets first: programming fundamentals, DSA, databases, networking, git. Then work outward.
+- [ ] **Continuum mechanics has two `01` files.** `01-intro.md` is a gentler introduction that nothing linked to; the index now offers it as an optional first step. Merge it into `01-what-continuum-mechanics-is.md` or delete it.
+- [ ] **Operations research: six SciPy scripts never run.** Checked by hand only. The list is in [[operations-research/index|the course index]]'s About section.
+- [ ] **No JavaScript or TypeScript language course,** although the frontend runs on them. Your First Web Page covers the basics; a full course would sit in `languages/`.
+- [ ] **Broken link in `projects/nextvibe/learning/10-shell.md`:** it points to `devops/01-linux/03-grep-and-friends`, which has never existed.
+
 ### Next batches — proposed, not completed
 
 1. **Processes/threads and virtual memory:** explicit C/Linux prerequisites, parent/child and address-translation traces, bounded local labs, expected observations, and safety boundaries. Retain advanced operational material without making it the entry point.
