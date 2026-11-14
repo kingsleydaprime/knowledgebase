@@ -18,6 +18,8 @@ COURSES = ["learning/swe-101/index.md", "learning/swe-102/index.md", "learning/s
 # Upper-case acronyms (SLO, OAuth-style mixed case is not caught) and percentile notation (p99).
 TERM = re.compile(r"\b(?:[A-Z][A-Z0-9]{1,6}|p\d{2,3})\b")
 ERROR_CODE = re.compile(r"[A-Z]{1,3}\d{3,}")
+# One capital and one digit is a label in an example (region R1, job J2, column C1), not an acronym.
+LABEL = re.compile(r"[A-Z]\d")
 # Language and standard names that look like acronyms but are names, not abbreviations.
 NOT_ACRONYMS = {"ID", "C11", "C17", "C23", "C99", "ASP", "NET", "OK", "II", "NVIDIA",
                 "NOT", "ONLY", "ALL", "NO", "AND", "OR", "WILL", "MUST",  # emphasis, not acronyms
@@ -44,7 +46,8 @@ def prose(text: str) -> str:
     text = re.sub(r"``.*?``|`[^`]*`", "", text)          # inline code
     text = re.sub(r"\[\[[^\]]*\]\]", "", text)           # wikilinks
     text = re.sub(r"\]\([^)]*\)", "]", text)             # markdown link targets
-    return re.sub(r"\$\$.*?\$\$", "", text, flags=re.S)  # maths
+    text = re.sub(r"\$\$.*?\$\$", "", text, flags=re.S)  # display maths
+    return re.sub(r"\$[^$\n]+\$", "", text)              # inline maths: $\frac{DS}{Q}$ is symbols, not an acronym
 
 
 def main() -> int:
@@ -52,7 +55,8 @@ def main() -> int:
     missing: dict[str, list[str]] = {}
     for f in files:
         for term in set(TERM.findall(prose(f.read_text()))):
-            if term in GLOSSARY or term in NOT_ACRONYMS or ERROR_CODE.fullmatch(term):
+            if (term in GLOSSARY or term in NOT_ACRONYMS or ERROR_CODE.fullmatch(term)
+                    or LABEL.fullmatch(term)):
                 continue
             missing.setdefault(term, []).append(str(f))
     for term, where in sorted(missing.items()):
