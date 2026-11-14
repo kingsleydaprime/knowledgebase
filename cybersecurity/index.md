@@ -1,67 +1,88 @@
 # Cybersecurity
 
-A map of this folder. Sections **01–05** are the original course — fundamentals, offensive security (ethical hacking), the network/web defensive domains, and cryptography. Sections **06–09** (added by cross-referencing the [roadmap.sh cyber-security roadmap](https://roadmap.sh/cyber-security)) fill in the rest of the field: a systematic **attacks & threats** taxonomy, the **security-operations / blue-team** half (SIEM, threat hunting, incident response, forensics) that was the biggest gap, **governance/risk/compliance**, and **cloud security**.
+## What cybersecurity is
 
-## Fundamentals **[Beginner]**
-1. [[01-what-is-cybersecurity|what-is-cybersecurity]] — defensive vs offensive security, the major domains, why "fully secure" isn't a real state
-2. [[02-cia-triad|cia-triad]] — confidentiality, integrity, availability — the vocabulary nearly every security discussion reduces to
-3. [[03-attacker-and-hacker-types|attacker-and-hacker-types]] — white/grey/black hat, script kiddies through APTs, and why insider threats matter
-4. [[01-fundamentals/04-security-principles|security-principles]] — the durable design principles (defence in depth, least privilege, fail securely, zero trust) — a reasoning tool, not a checklist
-5. [[01-fundamentals/05-threat-modeling|threat-modeling]] — the four-question planning tool, STRIDE, and trust boundaries — turning "be secure" into a concrete prioritised list
+**Cybersecurity is protecting computers, networks and data from people who want to steal, change or break them.**
 
-## Ethical Hacking (offensive, in depth) **[Beginner → Advanced]**
+Every day, people try to guess passwords, trick staff into clicking fake links, break into websites, and lock companies' files until a ransom is paid. Cybersecurity is the work of stopping them, and of noticing and recovering when they get through anyway.
 
-[[cybersecurity/02-ethical-hacking/index|ethical-hacking/]] — the full offensive-security methodology: rules of engagement and legal grounding, reconnaissance, scanning/enumeration, exploitation concepts (the major vulnerability classes and why they work), post-exploitation and reporting, the standard tool landscape (with concrete usage examples), Wi-Fi/document security testing on your own devices, lab/OS setup, and the career path to senior level.
+The field has two sides that need each other. **Defenders** (the "blue team") build protections, watch for attacks and respond to them. **Ethical hackers** (the "red team") attack systems with permission, to find weaknesses before criminals do. Nothing is ever perfectly secure; the goal is to make attacks hard, noticeable and limited in the damage they can do.
 
-## Network Security (defensive) **[Intermediate]**
+## What you'll be able to do
 
-[[cybersecurity/03-network-security/index|network-security/]] — firewalls, network segmentation (VLANs, DMZs, Zero Trust), VPNs and encryption in transit, intrusion detection/prevention (IDS/IPS, SIEM). The network-layer counterpart to ethical-hacking's offensive framing.
+By the end you will be able to:
+- protect your own accounts and devices, and help family and friends do the same;
+- explain the main ways attackers get in, and how each is stopped;
+- think through what could go wrong in a system before building it;
+- secure a website or API against the most common attacks;
+- explain how encryption keeps data private and proves who sent it;
+- describe how a security team detects and responds to an attack;
+- find weaknesses yourself in a legal practice lab.
 
-## Web / Application Security (defensive) **[Intermediate]**
+## Where to start
 
-[[cybersecurity/04-web-security/index|web-security/]] — secure authentication (password hashing, MFA, sessions), input validation and output encoding (the actual fixes for injection and XSS), HTTPS/TLS, security headers and the same-origin policy (CORS, CSP, clickjacking, CSRF). The defensive counterpart to exploitation-concepts' vulnerability categories.
+**Not working in security?** Start with [[cybersecurity/10-protecting-yourself/index|Protecting Yourself]]. It's eight notes with no jargon, for keeping you and your family safe.
 
-## Cryptography (the foundation underneath the rest of this folder) **[Intermediate → Advanced]**
+**Want to work in security?** Read the fundamentals first, then follow your interest. Sections 03 to 09 can be read in any order once the fundamentals are done.
 
-[[cybersecurity/05-cryptography/index|cryptography/]] — the four goals (confidentiality, integrity, authentication, non-repudiation), symmetric encryption (AES, modes of operation), asymmetric encryption (RSA, Diffie-Hellman, ECC, hybrid encryption), hashing and HMAC, digital signatures and the PKI chain of trust, and the attacks/best practices (padding oracles, side channels, weak randomness, key management) that account for almost every real-world cryptography failure.
+### Fundamentals (start here)
 
-## Attacks & Threats (the threat catalog) **[Beginner → Advanced]**
+1. [[cybersecurity/01-fundamentals/01-what-is-cybersecurity|What Is Cybersecurity]]: defenders and attackers, the main areas of the field, and why nothing is ever "fully secure".
+2. [[cybersecurity/01-fundamentals/02-cia-triad|The CIA Triad]]: the three things security protects: keeping data secret, keeping it correct, and keeping it available.
+3. [[cybersecurity/01-fundamentals/03-attacker-and-hacker-types|Attacker and Hacker Types]]: who attacks and why, from beginners using ready-made tools to government-backed groups and insiders.
+4. [[cybersecurity/01-fundamentals/04-security-principles|Security Principles]]: lasting design rules, such as giving every person and program only the access it needs.
+5. [[cybersecurity/01-fundamentals/05-threat-modeling|Threat Modelling]]: a simple method for listing what could go wrong in a system and deciding what to fix first.
 
-[[cybersecurity/06-attacks-and-threats/index|06-attacks-and-threats/]] — a systematic taxonomy of how attacks work: social engineering, network attacks (MITM, ARP/DNS poisoning, DoS, Wi-Fi), the OWASP Top 10 web attacks, and password/malware/exploitation. The structured "know your enemy" companion to ethical-hacking.
+### Protecting yourself
 
-## Security Operations (the defensive / blue-team half) **[Intermediate → Advanced]**
+- [[cybersecurity/10-protecting-yourself/index|Protecting Yourself]]: passwords and why reusing them is the real danger, why text-message codes are the weakest kind of two-step login, spotting scams now that AI writes them, backups, privacy, and a checklist for when you've already been hacked.
 
-[[cybersecurity/07-security-operations/index|07-security-operations/]] — detecting and responding to attacks, the SOC/DFIR side: defensive architecture (defense-in-depth, zero-trust), logging/SIEM/detection, threat intelligence and hunting, the frameworks (cyber kill chain, MITRE ATT&CK), incident response, and forensics/malware analysis.
+### How attacks work
 
-## Governance, Risk & Compliance **[Intermediate]**
+- [[cybersecurity/06-attacks-and-threats/index|Attacks and Threats]]: a catalogue of the main attacks: tricking people, attacking networks, attacking websites, cracking passwords and malware.
+- [[cybersecurity/02-ethical-hacking/index|Ethical Hacking]]: attacking systems with permission to find weaknesses: the rules, the steps, the tools, setting up a practice lab, and the career path.
 
-[[cybersecurity/08-governance-risk-and-compliance/index|08-governance-risk-and-compliance/]] — the management side: risk assessment, the standard frameworks (NIST, ISO 27001, CIS) and compliance regimes, and the certification/career landscape.
+### Defending systems
 
-## Cloud Security **[Advanced]**
+- [[cybersecurity/03-network-security/index|Network Security]]: firewalls, splitting networks into zones, VPNs, and systems that spot intruders.
+- [[cybersecurity/04-web-security/index|Web Security]]: protecting websites: storing passwords safely, two-step login, blocking the most common website attacks, and browser security settings.
+- [[cybersecurity/14-api-security/index|API Security]]: protecting APIs, where the most common bug is letting a user see someone else's data by changing a number in a request.
+- [[cybersecurity/05-cryptography/index|Cryptography]]: the maths that keeps data secret and proves who sent it: encryption, hashing and digital signatures, and the mistakes that break them.
+- [[cybersecurity/09-cloud-security/index|Cloud Security]]: securing apps on AWS and other clouds: who's responsible for what, access control, and containers.
 
-[[cybersecurity/09-cloud-security/index|09-cloud-security/]] — securing cloud workloads: shared responsibility, IAM, the cloud attack surface, and container/Kubernetes/IaC security — cross-linking the DevOps domain for the infrastructure mechanics.
+### Running security in an organisation
 
-## Binary Exploitation **[Intermediate → Advanced]**
+- [[cybersecurity/07-security-operations/index|Security Operations]]: the defenders' daily work: collecting logs, detecting attacks, hunting for intruders, responding to incidents and investigating afterwards.
+- [[cybersecurity/08-governance-risk-and-compliance/index|Governance, Risk and Compliance]]: the management side: judging risk, following security standards, and certifications for your career.
 
-[[cybersecurity/11-binary-exploitation/index|11-binary-exploitation/]] — the `pwn` category, and the natural application of [[languages/04-c/index|C]] and [[computer-architecture/index|computer architecture]]. The memory model and bug taxonomy → the classic stack overflow and `ret2win` → shellcode and its three strange constraints → **the mitigations (NX, canaries, ASLR, PIE, RELRO) and reading `checksec` as a recipe** → bypassing them with ret2libc and ROP → format strings and the heap → pwntools, pwndbg, and where to practise. **The one idea: modern exploitation reuses the target's own code rather than injecting new code.**
+### Advanced specialisms
 
-## Active Directory **[Intermediate → Advanced]**
+- [[cybersecurity/11-binary-exploitation/index|Binary Exploitation]]: breaking compiled programs through memory bugs, and the defences against it. Needs [[languages/04-c/index|C]] and [[computer-architecture/index|Computer Architecture]].
+- [[cybersecurity/13-malware-and-reverse-engineering/index|Malware Analysis and Reverse Engineering]]: taking apart malicious programs safely to understand what they do and how to detect them.
+- [[cybersecurity/12-active-directory/index|Active Directory]]: attacking and defending the system most companies use to manage staff logins, the core of real internal security testing.
 
-[[cybersecurity/12-active-directory/index|12-active-directory/]] — **what internal penetration testing actually is, and the biggest blind spot for people who learned on CTFs.** What AD is and the attacker's graph model → Kerberos, and why "every ticket is encrypted with an account's hash" generates nearly every named attack → enumeration and **BloodHound** → credential attacks (Kerberoasting, pass-the-hash, mimikatz) → lateral movement and escalation (DCSync, Golden Tickets, ACL/delegation/ADCS abuse) → the blue-team mirror (tiering, gMSA, LAPS, honeytokens). **The one idea: compromise is graph traversal with stolen credentials, not vulnerability exploitation.**
+## Practice
 
-## Malware Analysis & Reverse Engineering **[Intermediate → Advanced]**
+- [[cybersecurity/projects|Projects]]: hands-on tasks, from easy (🟢) to hard (🔴), each with a clear "done when".
+- [[cybersecurity/interview/index|Cybersecurity interview prep]].
+- **Only practise attacks on systems you own or have written permission to test.** The [[cybersecurity/02-ethical-hacking/index|Ethical Hacking]] section explains how to set up a legal practice lab.
 
-[[cybersecurity/13-malware-and-reverse-engineering/index|13-malware-and-reverse-engineering/]] — **the defensive twin of [[cybersecurity/11-binary-exploitation/index|binary exploitation]]:** understanding compiled programs rather than breaking them. What RE is and the legal line → static analysis (**the cheap tells — hash, strings, imports — reveal purpose before you read code**) → dynamic analysis (running safely, unpacking in memory) → how malware works (**one lifecycle, recurring techniques**) → evasion (**why signature detection is losing**) → the workflow (safe lab, IOCs, YARA). **The one idea: alternate static and dynamic views to rebuild what a program does, in a safe lab, to produce detection.**
+## Key ideas to remember
 
-## API Security **[Intermediate → Advanced]**
-
-[[cybersecurity/14-api-security/index|14-api-security/]] — **web security with the browser's safety net removed and the data served raw to machine clients.** Built around the OWASP API Security Top 10: what makes APIs different (**authorization dominates, not injection**) → authentication (API keys, **JWT pitfalls**, OAuth) → **BOLA/IDOR, the #1 API bug**, plus BFLA and mass assignment → injection and **SSRF (the API-era signature vuln)** → rate limiting and business-flow abuse → the lifecycle (shadow/zombie APIs, gateways, testing). **The one idea: the API must enforce on every request what a browser used to enforce for free — and it keeps forgetting the authorization check.**
-
-## Protecting Yourself (for people who don't work in security) **[Beginner]**
-
-[[cybersecurity/10-protecting-yourself/index|10-protecting-yourself/]] — **the odd one out, and deliberately so.** Sections 01–09 are written for someone defending an organisation; this one is for you, your family, and the people who ring you when something goes wrong. Eight notes, no jargon: your actual threat model (you are almost certainly not being targeted), passwords and why *reuse* is the whole problem, why SMS 2FA is the weak kind, the phishing tells that still work now AI has killed the old ones, devices and an honest answer about VPNs, backups and why sync isn't one, your privacy footprint as an attacker's research budget, and **an ordered checklist for when it's already happened.**
+1. **Nothing is perfectly secure.** Make attacks hard, noticeable and limited in damage. → [[cybersecurity/01-fundamentals/01-what-is-cybersecurity|What Is Cybersecurity]]
+2. **Give every person and program only the access it needs.** A break-in then reaches less. → [[cybersecurity/01-fundamentals/04-security-principles|Security Principles]]
+3. **Reusing a password is the real danger,** not a weak one: one leaked site unlocks all the others. → [[cybersecurity/10-protecting-yourself/index|Protecting Yourself]]
+4. **Most attacks start by tricking a person,** not by breaking technology. → [[cybersecurity/06-attacks-and-threats/index|Attacks and Threats]]
+5. **Check permission on every request,** not just at login. Forgetting is the most common API bug. → [[cybersecurity/14-api-security/index|API Security]]
 
 ## Related
-- [[cybersecurity/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
-- [[ai-ml/index|ai-ml curriculum map]] — same "orientation → deep dive → practice" shape
-- [[dsa/index|DSA fundamentals]]
+
+- [[networking/index|Networking]]: how the networks being protected work.
+- [[backend/index|Backend]]: where most security checks in an app live.
+- [[devops/index|DevOps]]: the infrastructure behind cloud security.
+
+---
+
+## About this course
+
+- **How it grew:** sections 01–05 are the original course. Sections 06–09 were added by checking the vault against the [roadmap.sh cybersecurity roadmap](https://roadmap.sh/cyber-security); security operations (the defenders' daily work) was the biggest gap. Sections 10–14 were added later. That's why the section numbers don't follow the reading order above.

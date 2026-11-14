@@ -1,37 +1,56 @@
 # Languages
 
-Language-specific deep dives. Where [[backend/index|backend/]] and [[frontend/index|frontend/]] are organised by *framework*, this domain is organised by *language* — the parts of a language and its core ecosystem that aren't specific to any one framework built on top of it.
+## What this section is
 
-## The rule
+**Each course here teaches one programming language properly: how it works, what makes it different, and how to use it well.**
 
-> **`languages/` teaches the language. `backend/frameworks/` teaches the frameworks built on it.**
+All programming languages share the same basic ideas (variables, loops, functions), which [[programming-fundamentals/index|Programming Fundamentals]] teaches. But each language makes its own choices: how it handles memory, how it deals with errors, how it runs several things at once. Those choices are why a bug that's impossible in one language is common in another, and why some languages suit phones, some suit servers and some suit games.
 
-So the JVM, goroutines, the borrow checker, generics, testing and tooling live here. Spring Boot, Gin, Axum, Express and NestJS live in [[backend/frameworks/index|backend/frameworks/]], where they can be compared against each other instead of being filed under the language they happen to be written in.
+These courses teach the language itself and its core tools. Web frameworks built on a language, such as Spring Boot for Java or FastAPI for Python, are taught in [[backend/frameworks/index|Backend: frameworks]], where they can be compared side by side.
 
-That comparison is the whole point of the split. Spring's `@RestController`/`@Service` and Nest's `@Controller`/`@Injectable` are the same idea in different spelling — obvious when they share a folder, invisible when they don't.
+## Which language should I learn?
 
-Applied in August 2026 by **moving** (not copying) Java's Spring Boot material out of `languages/01-java/05-web-and-api/` into [[backend/frameworks/java/index|backend/frameworks/java/]]. Go and Rust follow the same shape from the start.
+- **Python:** the easiest start. Used for automation, data and AI, and backends.
+- **Java or C#:** large company backends. C# is also the language of the Unity game engine.
+- **Go:** simple, fast servers and cloud tools.
+- **C:** to understand how computers really work underneath.
+- **C++:** games, high-performance software, and anything where speed matters most.
+- **Rust:** fast and safe systems software, without C's memory bugs.
+- **Swift:** iPhone and Mac apps.
+- **Kotlin:** Android apps.
+- **Dart:** apps for phones and the web with Flutter.
 
-## Tracks
+If you're unsure, start with Python, and learn a second language once you're comfortable. The second one is much faster to learn than the first.
 
-1. [[languages/01-java/index|01-java/]] — **[Beginner → Advanced]** — a full course in six themed sections: the **language** (fundamentals, OOP, generics, collections, functional, exceptions, modern Java, core APIs) → **JVM & concurrency** (internals, GC, the memory model, virtual threads) → **tooling** (build/DI/testing/logging) → **persistence** → *web & API ([[backend/frameworks/java/index|now in backend/]])* → **applied systems**. Cross-referenced against [roadmap.sh Java](https://roadmap.sh/java); the applied-systems material is distilled from two real SIWES projects.
-2. [[languages/02-go/index|02-go/]] — **[Beginner → Advanced]** — 13 notes: the toolchain, the type system, slices and maps properly, interfaces and implicit satisfaction, errors as values, goroutines and channels, concurrency patterns, `context`, generics, the standard library, testing, modules, and the runtime. **[reference]**
-3. [[languages/03-rust/index|03-rust/]] — **[Beginner → Advanced]** — 18 notes: ownership, borrowing and lifetimes (the hard part), sum types and exhaustive matching, `Result` and `?`, traits and monomorphised generics, iterators, smart pointers, `Send`/`Sync` concurrency, async and Tokio, `unsafe` and FFI, macros, and what "zero-cost" actually claims. **[reference]**
-4. [[languages/04-c/index|04-c/]] — **[Beginner → Advanced]** — 13 notes: the compilation model, **headers and the translation unit**, the preprocessor, integer promotion, pointers, array decay and strings, manual memory, struct layout, the (small) standard library, **undefined behaviour**, modular C, build systems, and the tooling that substitutes for a safety net. **[reference]**
-5. [[languages/05-cpp/index|05-cpp/]] — **[Beginner → Advanced]** — 15 notes: RAII (the central idea), references and `const`, the Rule of Zero/Five, smart pointers, virtual dispatch and vtables, operator overloading, templates and concepts, the STL and ranges, exception safety, `constexpr`, the memory model, the modern subset to write, and CMake. **[reference]**
+## The courses
 
-6. [[languages/06-python/index|06-python/]] — **[Beginner → Advanced]** — 14 notes: the toolchain and virtual environments, **the data model** (names bind to objects — the source of most Python surprises), collections and their costs, scope and closures, dunder protocols and dataclasses, generators and laziness, decorators and context managers, gradual typing, EAFP, the import system, the standard library, **the GIL and the three concurrency models**, pytest and ruff, and why CPython is slow. Deliberately excludes the web frameworks ([[backend/frameworks/python/index|backend/frameworks/python/]]) and the numeric stack ([[ai-ml/00-foundations/04-python-and-data-tools/index|ai-ml]]). **[reference]**
-7. [[languages/07-csharp/index|07-csharp/]] — **[Beginner → Advanced]** — 13 notes: the .NET naming mess untangled, **value vs reference types and nullable reference types**, records/structs/classes, **LINQ and the `IQueryable` trap**, reified generics and variance, delegates and events-as-leaks, **the async model everyone copied**, GC and `Span<T>`, exception filters, pattern matching, DI as a platform feature, xUnit and Roslyn analyzers, tiered JIT and Native AOT. **Written because it's [[game-development/engines/unity|Unity's language]]** and the vault had none. **[reference]**
+Every course goes from beginner to advanced.
 
-8. [[languages/08-swift/index|08-swift/]] — **[Beginner → Advanced]** — 12 notes: value types and copy-on-write, **optionals**, ARC and retain cycles, protocol extensions instead of base classes (**and `some` vs `any`, where the performance lives**), enums as sum types, `throws` and the three `try`s, closures, initialisation rules, Codable, **structured concurrency and Swift 6's data-race safety**, Swift Testing, and Objective-C interop. Written because it's the only way onto iOS. **[reference]**
-9. [[languages/09-kotlin/index|09-kotlin/]] — **[Beginner → Advanced]** — 8 notes: what transfers from Java (most of it), **null safety and the platform-type hole**, `data class` and **sealed hierarchies**, extension functions and the scope functions, **coroutines, Flow and structured concurrency** (the one that takes longest), the object model and `@Jvm*` interop, kotlinx.serialization and `runTest`, and KMP. Deliberately short because [[languages/01-java/index|the Java course]] already covers the JVM. **[reference]**
-10. [[languages/10-dart/index|10-dart/]] — **[Beginner → Advanced]** — 6 notes: **the JIT/AOT trick behind hot reload**, sound null safety, mixins and control flow inside collection literals, **a single-threaded event loop plus isolates**, testing and Dart's help-free exception model, and `build_runner`/`freezed`. Written for [[mobile/frameworks/flutter/index|Flutter]]. **[reference]**
+1. [[languages/01-java/index|Java]]: the language, then how the Java Virtual Machine runs it, tools, working with databases, and real systems built from two internship projects.
+2. [[languages/02-go/index|Go]]: 13 notes. Go's simple type system, handling errors as ordinary values, and running many tasks at once with goroutines and channels.
+3. [[languages/03-rust/index|Rust]]: 18 notes. Ownership (Rust's rules for who owns each piece of memory, the hard part), handling errors, traits, and safe concurrency.
+4. [[languages/04-c/index|C]]: 13 notes. How C code is compiled, pointers, managing memory by hand, and the mistakes C doesn't protect you from.
+5. [[languages/05-cpp/index|C++]]: 15 notes. Automatic clean-up of resources (RAII, the central idea), smart pointers, templates, the standard library, and which parts of modern C++ to actually use.
+6. [[languages/06-python/index|Python]]: 14 notes. How Python really stores values (the source of most Python surprises), its built-in collections and their costs, generators, decorators, type hints, and why Python is slow at some things.
+7. [[languages/07-csharp/index|C#]]: 13 notes. The .NET platform, LINQ for querying data, async code, and memory. Written because C# is Unity's language.
+8. [[languages/08-swift/index|Swift]]: 12 notes. Optionals (values that might be missing), memory management, protocols, and safe concurrency. The language for iOS.
+9. [[languages/09-kotlin/index|Kotlin]]: 8 notes. What carries over from Java, safety from missing values, and coroutines. Short, because the Java course covers the shared platform.
+10. [[languages/10-dart/index|Dart]]: 6 notes. How hot reload works, safety from missing values, and how Dart runs several things at once. Written for Flutter.
 
-Other languages (Zig, Elixir) would slot in as further numbered tracks if notes get written for them.
+## Practice
+
+- [[languages/projects|Projects]]: hands-on tasks, from easy (🟢) to hard (🔴), each with a clear "done when".
 
 ## Related
-- [[languages/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
-- [[backend/frameworks/index|backend/frameworks/]] — the frameworks these languages host
-- [[backend/index|backend course]] — the framework-agnostic concepts those frameworks implement
-- [[dsa/index|foundations/dsa]] — the CS underneath all of them
-- [[projects/record-id-generator-java/learning/01-java-fundamentals|record-id-generator]] and [[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct-debit-sandbox]] — the project notes the Java track was distilled from
+
+- [[programming-fundamentals/index|Programming Fundamentals]]: the ideas every language shares. Start there if you're new.
+- [[backend/frameworks/index|Backend: frameworks]]: the web frameworks built on these languages.
+- [[dsa/index|Data Structures and Algorithms]]: the computer science underneath all of them.
+
+---
+
+## About this section
+
+- **Why frameworks live elsewhere:** in August 2026 Java's Spring Boot material moved from here into [[backend/frameworks/java/index|Backend: Java]], so frameworks in different languages sit side by side. Spring's `@RestController` and Nest's `@Controller` are the same idea in different spelling, which is obvious when they share a folder.
+- **Where it came from:** the Java course was checked against the [roadmap.sh Java roadmap](https://roadmap.sh/java), and its applied section comes from two real internship projects ([[projects/record-id-generator-java/learning/01-java-fundamentals|record ID generator]] and [[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct debit sandbox]]). The others were written from reference sources.
+- **Not covered yet:** JavaScript and TypeScript (the languages of the web, used throughout [[frontend/index|Frontend]]), and others such as Zig and Elixir.
