@@ -1,3 +1,7 @@
+---
+id: 53992400-1b82-4ac0-977d-7a02ffb76e14
+---
+
 # Concurrency Primitives
 
 **[Advanced]** — What a mutex actually is, why an uncontended lock costs nothing, and the memory barriers underneath every concurrency abstraction you use.

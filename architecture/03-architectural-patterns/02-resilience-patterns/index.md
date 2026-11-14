@@ -1,3 +1,7 @@
+---
+id: 97c24680-2a20-4004-ab61-65d42957606a
+---
+
 # Resilience patterns
 
 > **[Intermediate]** · Covers the patterns that keep one failing dependency from taking a whole service down: timeouts, retries, circuit breakers, bulkheads, load shedding, back-pressure and graceful degradation, and the arithmetic that says when you need them. The worked example simulates a service with two endpoints and one slow dependency, minute by minute, and shows a cascade happen, a timeout fail to stop it, and bulkheads contain it, with the same numbers on every run. It also contains a real concurrency bug from writing the bulkhead, and the test that caught it.

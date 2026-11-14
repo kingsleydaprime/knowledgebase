@@ -1,3 +1,7 @@
+---
+id: 1f8c3d4c-2e12-4758-a560-66482e29f295
+---
+
 # Debugging Networks
 
 **[Intermediate]** — the practical payoff. Everything above becomes useful when something is broken at 2am and you need to find out *where*. This note is a method plus a toolkit, in the order you should actually use them.

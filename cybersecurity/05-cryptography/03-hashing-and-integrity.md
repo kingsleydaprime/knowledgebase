@@ -1,3 +1,7 @@
+---
+id: 02abaad4-4366-4a4c-8767-328f191bd438
+---
+
 # Hashing & Integrity
 
 A hash function takes input of any size and produces a fixed-size output (a "digest"), deterministically — the same input always produces the same hash — but with **no way to reverse it** back to the original input. This one-way property is what makes hashing useful for integrity checking and, in a specifically hardened form, password storage (see [[02-secure-authentication|secure-authentication]]) — but general-purpose hashing and password hashing solve different problems and use deliberately different kinds of algorithms, covered below.

@@ -1,3 +1,7 @@
+---
+id: e00d7fb5-9fbc-439c-8a60-89da3ea76100
+---
+
 # Backend Best Practices — Errors, Validation, Logging, Rate Limits, Idempotency
 
 > **[Intermediate]** · What separates a backend that works from one you can run in production: it fails predictably, rejects bad input at the door, leaves a useful trail, can't be flooded, and doesn't charge a customer twice when their phone retries. Most of what makes being on call bearable comes from these five.

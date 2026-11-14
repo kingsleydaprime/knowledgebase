@@ -1,3 +1,7 @@
+---
+id: bc728575-0cc9-4ccf-947f-eabb9a039f4a
+---
+
 # Testing a Backend
 
 **[Intermediate]** — assumes [[concepts/04-best-practices/04-testing-fundamentals/index|Testing Fundamentals]] for the pyramid and TDD. This note is only the part that's *specific to a backend*: the database, the I/O boundaries, test data, and why backend suites go flaky.

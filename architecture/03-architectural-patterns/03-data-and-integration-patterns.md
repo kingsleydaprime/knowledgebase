@@ -1,3 +1,7 @@
+---
+id: 27125b0a-3c59-422a-b8c2-68bb4e551a04
+---
+
 # Data & Integration Patterns
 
 **[reference]** — from the roadmap.sh system-design roadmap. The patterns for managing data and integration in systems too big for one database and one transaction — especially [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]], where each service owns its own data.

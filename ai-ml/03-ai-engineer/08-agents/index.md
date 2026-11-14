@@ -1,3 +1,7 @@
+---
+id: ba795cf9-2877-4c57-aaac-30db9b6436a9
+---
+
 # Agents
 
 > **[Intermediate]** · Covers what turns the tool-calling loop into an agent, and the harder question of when not to build one: workflows versus agents, the controls an agent's loop needs (step and token limits, stopping when it repeats itself, approval, a trace), evaluating the path an agent took as well as its answer, memory, and multi-agent systems. The worked example runs the support assistant as an agent and as a fixed workflow on the same questions. **Most tasks that look like they need an agent need a workflow.**

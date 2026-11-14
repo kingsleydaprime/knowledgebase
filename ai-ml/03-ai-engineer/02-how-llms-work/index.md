@@ -1,3 +1,7 @@
+---
+id: 47ca552e-9092-4e7d-bfde-c3e09635c637
+---
+
 # How LLMs Work
 
 > **[Beginner]** · Covers what a large language model actually does: tokens, the context window, attention, generating one token at a time, and the decoding settings you choose in every call. The worked example builds the decoding step yourself and then asks a real local model for its probabilities. The numbers in it were measured on 2026-10-02.

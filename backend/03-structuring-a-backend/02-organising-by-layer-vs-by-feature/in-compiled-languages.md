@@ -1,3 +1,7 @@
+---
+id: c8ef07aa-6cac-4988-8cde-6699cbc709d1
+---
+
 # Organising by Feature in Go, Java, Rust, C, C++ and C#
 
 > **[Intermediate]** · A companion to [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|organising by layer vs by feature]]. In JavaScript and Python, feature boundaries need a lint rule. **In these six languages the compiler or the build system enforces them** — as long as you pick the layout that lets it.

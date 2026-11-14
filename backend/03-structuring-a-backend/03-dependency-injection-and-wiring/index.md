@@ -1,3 +1,7 @@
+---
+id: ee53633f-6e52-47e2-b8ea-b74a5db828b9
+---
+
 # Dependency Injection & Wiring
 
 **[Intermediate]** — how the layers actually get connected, and why the answer isn't "just import it."

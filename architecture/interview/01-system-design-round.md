@@ -1,3 +1,7 @@
+---
+id: e681ffa5-9f92-4fc0-a0ab-002eda01b585
+---
+
 # Architecture Interview — The System Design Round
 
 From [[architecture/01-system-design-fundamentals/index|01-fundamentals]], [[architecture/02-building-blocks/index|02-building-blocks]], [[architecture/03-architectural-patterns/index|03-patterns]].

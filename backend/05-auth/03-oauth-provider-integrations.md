@@ -1,3 +1,7 @@
+---
+id: 5cb6fa2c-1527-4497-8ef3-9cae0dcf9260
+---
+
 # OAuth Provider Integrations — The Practical Cut
 
 [[backend/05-auth/01-authentication-flows|05-authentication-flows]] covers what OAuth 2.0

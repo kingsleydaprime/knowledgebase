@@ -1,3 +1,7 @@
+---
+id: 944d2e93-e77f-4c0e-adf8-eb53eac4c76c
+---
+
 # Structural Patterns
 
 > **[Intermediate]** · How objects are **composed** into larger structures — adapting an interface you don't control, adding behaviour without editing a class, controlling access, and hiding a complicated subsystem. Plus the principle underneath all four: **composition over inheritance**.

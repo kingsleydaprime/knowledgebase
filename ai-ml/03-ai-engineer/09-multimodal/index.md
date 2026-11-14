@@ -1,3 +1,7 @@
+---
+id: 7f490df2-4488-46fd-918f-c567d6cd4b84
+---
+
 # Multimodal
 
 > **[Intermediate]** · Covers working with more than text: images as input to a model that can see, images, audio and video as output, and speech in and out. For an AI engineer most of this is the same call with more kinds of content, so the lesson spends its time on the engineering around it: checking what an uploaded file really is, what an image costs in tokens and how to cut that, sending it in each provider's format, and checking data read from an image as strictly as data read from text. The worked example reads an invoice from a photo.

@@ -1,3 +1,7 @@
+---
+id: bcc225fa-5fd4-4cbd-90b9-7b6ea474bc4f
+---
+
 # Creational Patterns
 
 > **[Beginner]** · How objects get created — moving the decision of *which* class, *how configured*, and *how many* into one place instead of scattering `new SomeClass()` everywhere. And why the most famous one, singleton, is usually a mistake.

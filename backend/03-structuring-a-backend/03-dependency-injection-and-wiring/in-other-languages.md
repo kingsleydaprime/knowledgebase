@@ -1,3 +1,7 @@
+---
+id: b6230c24-9a02-40cd-8907-7eb3a9ad3b2c
+---
+
 # Dependency Injection in Other Languages
 
 > **[Intermediate]** · A companion to [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection and wiring]], which teaches the idea in TypeScript. Here: the same rule — *be handed your dependencies, don't make them* — in Python, Go, Java, Rust, C, C++ and C#, and what each language does with the main lesson's scope bug.

@@ -1,3 +1,7 @@
+---
+id: 85fd2af5-7000-42ca-96ef-22abf5dc7078
+---
+
 # Local & Open Models
 
 > **[Intermediate]** · Running a model on your own machine: when it's worth it, which runtime to use, whether a model will fit, what decides its speed, and how much context an agent framework eats before you type. The worked example is real — a study partner set up on a 16 GB laptop on 2026-10-02, with every number measured.

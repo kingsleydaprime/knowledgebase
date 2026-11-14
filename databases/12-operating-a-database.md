@@ -1,3 +1,7 @@
+---
+id: 08afbaa9-89d6-47e9-8a4f-1844807fdf3f
+---
+
 # Operating a Database
 
 **[Intermediate → Advanced]** — Migrations that don't cause outages, ORMs and N+1, what to monitor, and how to choose.

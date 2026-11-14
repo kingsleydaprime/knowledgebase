@@ -1,3 +1,7 @@
+---
+id: 71c1c846-75fd-48e4-99bd-ed8412cf2406
+---
+
 # SOLID Principles
 
 > **[Beginner→Intermediate]** · Five principles that answer one question — *when requirements change, how much of your code has to change with them?* — and the warning that comes with them.

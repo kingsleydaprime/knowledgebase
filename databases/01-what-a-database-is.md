@@ -1,3 +1,7 @@
+---
+id: 9750bed2-c86f-4e68-af45-77410ab78dfc
+---
+
 # What a Database Is
 
 **[Beginner → Intermediate]** — Why not just use files, what ACID actually buys you, and how the landscape is shaped.

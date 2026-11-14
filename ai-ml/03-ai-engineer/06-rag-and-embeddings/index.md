@@ -1,3 +1,7 @@
+---
+id: 50418732-8497-41cd-bbc1-d0ae612f980f
+---
+
 # RAG and embeddings
 
 > **[Intermediate]** · Covers how to make a model answer from *your* documents: embeddings and similarity, chunking, keyword and vector search and how to combine them, scoring retrieval on its own, and a grounded prompt whose citations are checked before the answer is shown. The worked example searches a five-article help centre three ways — keywords, a small embedding built by hand so you can read it, and both together — and shows with real numbers that each misses something the others catch. RAG (retrieval-augmented generation) is the most-used applied-AI pattern after prompting.

@@ -1,3 +1,7 @@
+---
+id: 7a1ad5b0-3603-467a-92af-87e3d27720e2
+---
+
 # TLS & Transport Security
 
 **[Intermediate → Advanced]** — How two machines that have never met set up a private, authenticated channel across a network run by strangers. This lesson covers the protocol, and then, in section 7, the **maths underneath**, worked by hand with small numbers: Diffie-Hellman, why it can't be run backwards, RSA signatures, how one shared secret becomes many keys, and how AES-GCM encrypts and detects tampering. The lab does the maths by hand, then for real, then runs a real TLS 1.3 handshake on your machine with a certificate authority it creates, and breaks it three ways.

@@ -1,3 +1,7 @@
+---
+id: c05f62a2-7851-4718-bd93-ead604af330c
+---
+
 # Monolith / Microservices / Serverless
 
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. The biggest structural decision in a system's architecture, and the one most often made for the wrong reasons. This lesson puts numbers on the trade-offs: how coordination grows with the number of people, how often a shared release breaks, what moving a module behind the network costs in latency and availability, when paying per request beats paying for a server, and how often a serverless function starts cold. It also builds the checker that keeps a modular monolith modular. The worked example follows the shop from four developers to six teams. The lab checks every number.

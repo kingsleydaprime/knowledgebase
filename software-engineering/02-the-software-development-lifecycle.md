@@ -1,3 +1,7 @@
+---
+id: 57be8664-3656-48dd-bb1a-fdd81bd1a251
+---
+
 # The Software Development Lifecycle
 
 > **[Beginner]** · Six phases, what each is for, and what breaks when you skip it.

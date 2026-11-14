@@ -1,3 +1,7 @@
+---
+id: 3ccc37cd-2a98-4b01-ac2c-10371b182524
+---
+
 # Modular Monolith → Services
 
 **[Intermediate→Advanced]** — the structural decision people get wrong most expensively, because both failure modes take a year to become obvious.

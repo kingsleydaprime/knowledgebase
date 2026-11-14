@@ -1,3 +1,7 @@
+---
+id: 92ba88db-d632-4600-a184-c042eb60bf54
+---
+
 # Prompt Engineering
 
 > **[Beginner]** · Covers shaping what a model sees so its predictions land where you want: specific instructions, examples, delimited user input, reasoning, and composing several prompts. Also covers treating prompts as code: versioned files, measured against a labelled set. The worked example compares zero-shot and few-shot prompts on twelve labelled reviews with a local model. The numbers were measured on 2026-10-02.

@@ -1,3 +1,7 @@
+---
+id: 4a0a9a02-71a3-4c63-954d-64849094e21d
+---
+
 # Authorization
 
 Authentication ([[backend/05-auth/01-authentication-flows|authentication flows]]) answers "who are you." Authorization answers a completely separate question: "what are you allowed to do, now that I know who you are." Conflating the two is a common source of security bugs — a system can authenticate a user perfectly and still let them do things they shouldn't, if authorization checks are missing or incomplete (this is exactly the [[07-exploitation-concepts|broken access control]] vulnerability category from a defensive angle).

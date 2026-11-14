@@ -1,3 +1,7 @@
+---
+id: 8e188194-516c-4f16-98b9-677bea5787f1
+---
+
 # Join Algorithms and the Optimiser
 
 **[Advanced]** — The three ways to join two tables, how the planner chooses between them, and why it sometimes chooses catastrophically. You'll learn to read `EXPLAIN ANALYZE` for the one number that diagnoses most bad plans. Every claim about PostgreSQL here is checked by the lab on a real PostgreSQL 18 database.

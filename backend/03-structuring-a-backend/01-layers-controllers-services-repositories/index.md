@@ -1,3 +1,7 @@
+---
+id: ff543b63-afd9-40b6-813f-fd90b33468f0
+---
+
 # Layers — Controllers, Services, Repositories
 
 **[Beginner→Intermediate]** — the structure almost every backend converges on, in every language. Spring calls them `@RestController`/`@Service`/`@Repository`; NestJS calls them controller/service/repository; Django calls them views/services/managers; Rails calls them controllers/services/models. **Same three jobs, different vocabulary** — which is exactly why this note lives in the course and not in a framework folder.

@@ -1,3 +1,7 @@
+---
+id: a3e376e0-ebfd-4411-b5a5-7497c28fda73
+---
+
 # Consistency Models
 
 **[reference]** — from the canon (DDIA ch. 9, Herlihy & Wing on linearizability, Jepsen's consistency map). A **consistency model** is the *promise* a storage system makes about what a read is allowed to return. [[architecture/04-distributed-systems/02-theoretical-limits|PACELC]] said you *must* pick a point on a spectrum; this note is the spectrum, from strongest to weakest.

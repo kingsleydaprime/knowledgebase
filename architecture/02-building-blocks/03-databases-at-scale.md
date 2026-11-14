@@ -1,3 +1,7 @@
+---
+id: 5482315c-f930-47ac-900a-3be8d053e8e4
+---
+
 # Databases at Scale
 
 **[reference]** — from the roadmap.sh system-design roadmap. The database is almost always the first thing to buckle under load, so scaling it is central to system design. This is the *scaling* view; the [[databases/database-design-reference|databases reference]] covers the fundamentals.

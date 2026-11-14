@@ -1,3 +1,7 @@
+---
+id: ba371252-0536-41d0-9678-71bb091ffc96
+---
+
 # How to Approach System Design
 
 > **[Beginner]** · From the roadmap.sh system-design roadmap. A repeatable five-step method for designing a system, explaining one, or getting through a system-design interview: requirements, estimates, a high-level design, a deep dive, then bottlenecks and tradeoffs. The worked example designs a leaderboard for a game with 10 million daily players, from the first question to the tradeoffs. Its lab checks the estimates and builds the structure the deep dive picks.

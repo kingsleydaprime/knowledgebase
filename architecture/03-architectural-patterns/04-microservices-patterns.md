@@ -1,3 +1,7 @@
+---
+id: 4fa50063-85c8-423c-9e92-70ce31f6d804
+---
+
 # Microservices Patterns
 
 **[reference]** — from the roadmap.sh system-design roadmap. The infrastructure patterns that make a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]] architecture actually workable — the machinery you inherit the moment you split a system across the network.

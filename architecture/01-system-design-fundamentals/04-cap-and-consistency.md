@@ -1,3 +1,7 @@
+---
+id: 67aeb836-f730-4ade-8ede-e10394de3f86
+---
+
 # CAP & Consistency
 
 **[reference]** — from the roadmap.sh system-design roadmap. The theorem every system-design discussion invokes (often wrongly), and the consistency spectrum underneath it. The bridge from system-design fundamentals into [[architecture/04-distributed-systems/index|distributed systems]].

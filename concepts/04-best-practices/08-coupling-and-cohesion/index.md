@@ -1,3 +1,7 @@
+---
+id: cf357f6b-4c5b-443a-9afd-bdd62e011e0a
+---
+
 # Coupling and Cohesion
 
 > **[Beginner→Intermediate]** · The two measures under nearly every design principle: how much one module depends on another's insides, and how well the insides of one module belong together. With a tool that measures the first on your own code.

@@ -1,3 +1,7 @@
+---
+id: ebc93ff6-603a-47d5-9fc8-25298f35fbac
+---
+
 # Runtime and Concurrency Models
 
 **[Intermediate]** — Why backend frameworks differ at all. Once you know which concurrency model a framework sits on, most of its API design, its performance under load and its failure modes follow. There are three models: a thread per request, an event loop, and green threads. This lesson explains all three, then measures the one you'll run most, Node's event loop: one request's CPU work stalling ten others, how to detect that, the hidden four-thread pool, and the limits that actually cap your concurrency. The lab runs on your machine with no setup.

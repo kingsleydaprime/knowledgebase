@@ -1,3 +1,7 @@
+---
+id: bc3029dd-8a48-49b1-b5b2-c18f30b00411
+---
+
 # Reliability and plumbing
 
 > **[Intermediate]** · Covers what keeps an AI feature working when the model doesn't: sorting failures into "retry" and "don't", backoff with jitter, timeouts and deadlines, a circuit breaker, fallbacks that degrade instead of failing, pacing under a rate limit, and running the evals gate in CI. The worked example wraps the support-ticket classifier from [[ai-ml/03-ai-engineer/12-evals/index|evals]] in every layer, falls back to its keyword rules, and gates it in CI with recorded replies. None of it is glamorous, and all of it is the difference between a demo and a service.

@@ -1,3 +1,7 @@
+---
+id: c3b7e75b-381b-4867-ae92-b9f9a75153de
+---
+
 # Availability & Reliability
 
 **[reference]** — from the roadmap.sh system-design roadmap. Designing systems that stay up — because at scale, hardware *will* fail, and the design decides whether that's a blip or an outage.
