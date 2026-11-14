@@ -95,7 +95,7 @@ def num_islands(grid):
     return count
 ```
 
-This "loop over every node, start a fresh traversal from any unvisited one" structure is exactly the disconnected-graph handling described in [[06-graphs/index|graphs]] — a grid is just a graph that happens to have a lot of disconnected components (the separate islands).
+This "loop over every node, start a fresh traversal from any unvisited one" structure is exactly the disconnected-graph handling described in [[09-graphs/index|graphs]] — a grid is just a graph that happens to have a lot of disconnected components (the separate islands).
 
 ---
 
@@ -317,7 +317,7 @@ You are done with this pattern when you can, closed-book:
 
 - [[01-depth-first-search|dfs]] — the underlying traversal algorithm
 - [[12-bfs-pattern|bfs-pattern]] — BFS variant for matrix traversal
-- [[06-graphs/index|graphs]] — grids as implicit graphs
+- [[09-graphs/index|graphs]] — grids as implicit graphs
 - [[01-arrays|arrays]] — the underlying data structure
 - [[13-matrix-traversal|matrix-traversal]] — this note
 

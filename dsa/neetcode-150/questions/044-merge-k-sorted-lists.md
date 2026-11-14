@@ -1,6 +1,6 @@
 # Merge K Sorted Lists
 
-**LeetCode 23** · Linked List · concepts: [[08-heaps|heaps]], [[04-linked-lists|linked-lists]]
+**LeetCode 23** · Linked List · concepts: [[07-heaps|heaps]], [[04-linked-lists|linked-lists]]
 
 ## Problem
 
@@ -12,7 +12,7 @@ Fold list 2 into list 1, then list 3, etc. If all lists have ~n nodes, the accum
 
 ## Approach 2 — min-heap of the k heads (optimal)
 
-At any moment the next output node is the **smallest among the current heads** of all lists — exactly what a [[08-heaps|min-heap]] gives in O(log k). Pop the smallest, append it, and push its successor.
+At any moment the next output node is the **smallest among the current heads** of all lists — exactly what a [[07-heaps|min-heap]] gives in O(log k). Pop the smallest, append it, and push its successor.
 
 ```python
 import heapq
@@ -47,6 +47,6 @@ Heap entries are `(val, i, node)` — the middle `i` is essential: when two head
 **"Merge k sorted things" → min-heap of the k frontier elements**, popping the global min each step. It's the k-way generalization of the two-list merge, and the archetypal heap application (also the shape of external merge sort).
 
 ## Related
-- concepts: [[08-heaps|heaps]], [[04-linked-lists|linked-lists]]
+- concepts: [[07-heaps|heaps]], [[04-linked-lists|linked-lists]]
 - builds on: [[036-merge-two-sorted-lists|Merge Two Sorted Lists]]
 - prev: [[043-lru-cache|LRU Cache]] · next: [[045-reverse-nodes-in-k-group|Reverse Nodes in k-Group]]

@@ -44,5 +44,5 @@ The number of valid strings is the **n-th Catalan number** ≈ 4ⁿ / (n^1.5 √
 **Generate-all-valid-configurations → backtracking with pruning invariants.** The invariant `close < open ≤ n` is what keeps the search inside the space of valid strings instead of generating all 2^(2n) strings and filtering. Encoding validity as guards on the recursion is the transferable skill.
 
 ## Related
-- concept: [[14-backtracking|backtracking]], [[07-stacks-and-queues|stacks-and-queues]]
+- concept: [[14-backtracking|backtracking]], [[05-stacks-and-queues|stacks-and-queues]]
 - prev: [[023-evaluate-reverse-polish-notation|Evaluate RPN]] · next: [[025-daily-temperatures|Daily Temperatures]]

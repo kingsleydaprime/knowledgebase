@@ -241,5 +241,5 @@ Treat an integer as a row of switches — XOR cancels pairs, `x & (x-1)` erases 
 ## Related
 
 - [[11-bit-manipulation|Bit Manipulation]] — the module
-- [[07-number-theory-basics-qb|Number Theory Basics — Question Bank]]
+- [[08-number-theory-basics-qb|Number Theory Basics — Question Bank]]
 - [[12-math-and-geometry-qb|Math & Geometry — Question Bank]]

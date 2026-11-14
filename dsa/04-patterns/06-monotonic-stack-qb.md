@@ -196,5 +196,5 @@ Keep a stack in sorted order and let each arriving element evict everything it d
 ## Related
 
 - [[06-monotonic-stack|Monotonic Stack]] — the pattern
-- [[dsa/02-data-structures/07-stacks-and-queues-qb|Stacks and Queues — Question Bank]]
+- [[dsa/02-data-structures/05-stacks-and-queues-qb|Stacks and Queues — Question Bank]]
 - [[03-sliding-window-qb|Sliding Window — Question Bank]] — where the monotonic deque appears

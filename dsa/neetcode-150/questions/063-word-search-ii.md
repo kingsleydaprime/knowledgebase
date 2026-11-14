@@ -1,6 +1,6 @@
 # Word Search II
 
-**LeetCode 212** · Tries · concepts: [[09-tries|tries]], [[14-backtracking|backtracking]]
+**LeetCode 212** · Tries · concepts: [[08-tries|tries]], [[14-backtracking|backtracking]]
 
 ## Problem
 
@@ -12,7 +12,7 @@ Running a separate grid DFS for each word is O(words × cells × 4^L) — hopele
 
 ## Approach — build a trie of the words, DFS the grid through it (optimal)
 
-Put **all words into one [[09-tries|trie]]**, then run a single [[14-backtracking|backtracking]] DFS from every cell, walking the board and the trie **in lockstep**: only continue into a cell if its character is a child of the current trie node. When you reach a node marking a word end, record that word. The trie prunes dead ends across *all* words at once.
+Put **all words into one [[08-tries|trie]]**, then run a single [[14-backtracking|backtracking]] DFS from every cell, walking the board and the trie **in lockstep**: only continue into a cell if its character is a child of the current trie node. When you reach a node marking a word end, record that word. The trie prunes dead ends across *all* words at once.
 
 ```python
 def findWords(board, words):
@@ -57,6 +57,6 @@ Instead of "for each word, search the grid," it's "search the grid once, guided 
 **Multi-pattern search on a grid → one trie of the patterns + a single backtracking DFS driven by it.** The trie turns "which of many words fits here?" into an O(1) child check, and backtracking (mark `#`, recurse, restore) explores paths without a separate visited set. The premier trie-meets-backtracking problem.
 
 ## Related
-- concepts: [[09-tries|tries]], [[14-backtracking|backtracking]], [[13-matrix-traversal|matrix-traversal]]
+- concepts: [[08-tries|tries]], [[14-backtracking|backtracking]], [[13-matrix-traversal|matrix-traversal]]
 - prev: [[062-design-add-and-search-words-data-structure|Design Add and Search Words]] — end of Tries
 - next category: Heap / Priority Queue

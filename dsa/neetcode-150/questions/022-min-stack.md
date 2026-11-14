@@ -1,6 +1,6 @@
 # Min Stack
 
-**LeetCode 155** · Stack · concept: [[07-stacks-and-queues|stacks-and-queues]]
+**LeetCode 155** · Stack · concept: [[05-stacks-and-queues|stacks-and-queues]]
 
 ## Problem
 
@@ -46,5 +46,5 @@ The minimum is a property of a *prefix* of the stack. By storing, at each level,
 **To make an aggregate (min/max) O(1) under push/pop, store the running aggregate alongside each element.** The stack's LIFO discipline means level `i`'s aggregate is always valid when level `i` is on top — a reusable "augment the stack with precomputed state" technique.
 
 ## Related
-- concept: [[07-stacks-and-queues|stacks-and-queues]]
+- concept: [[05-stacks-and-queues|stacks-and-queues]]
 - prev: [[021-valid-parentheses|Valid Parentheses]] · next: [[023-evaluate-reverse-polish-notation|Evaluate Reverse Polish Notation]]

@@ -492,4 +492,4 @@ You can rotate and traverse matrices, use the cross product for orientation, and
 
 ## Related Modules
 - [[11-bit-manipulation|Bit Manipulation]] — Binary exponentiation uses bit-shift operators
-- [[07-number-theory-basics|Number Theory Basics]] — Integer arithmetic techniques
+- [[08-number-theory-basics|Number Theory Basics]] — Integer arithmetic techniques

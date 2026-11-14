@@ -4,7 +4,7 @@
 
 ## Before you start
 
-- You should understand stacks. See [[07-stacks-and-queues|stacks and queues]] if needed.
+- You should understand stacks. See [[05-stacks-and-queues|stacks and queues]] if needed.
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
 
 **What you will be able to do after this lesson:**
@@ -298,7 +298,7 @@ You are done with this pattern when you can, closed-book:
 
 - [[01-growth-and-asymptotic-notation|algorithms]] — where the amortized analysis comes from
 - [[01-arrays|arrays]] — the underlying data structure
-- [[07-stacks-and-queues|stacks and queues]] — the stack data structure
+- [[05-stacks-and-queues|stacks and queues]] — the stack data structure
 - [[06-monotonic-stack|monotonic-stack]] — this note
 
 ---

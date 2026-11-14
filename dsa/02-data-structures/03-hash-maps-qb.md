@@ -319,7 +319,7 @@ An attacker submits keys chosen to collide (e.g. as form fields or JSON keys), f
 
 <details><summary>Answer</summary>
 
-The smallest key sits in an arbitrary bucket, so you would have to check all $n$ of them. A [[08-heaps|heap]] does this in $O(1)$; a balanced tree in $O(\log n)$.
+The smallest key sits in an arbitrary bucket, so you would have to check all $n$ of them. A [[07-heaps|heap]] does this in $O(1)$; a balanced tree in $O(\log n)$.
 
 </details>
 
@@ -407,4 +407,4 @@ It buys $O(1)$ lookup by any key, and pays with the entire notion of order — p
 
 - [[03-hash-maps|Hash Maps & Hash Sets]] — the module
 - [[02-dynamic-arrays-qb|Dynamic Arrays — Question Bank]] — where the same doubling/amortised argument appears
-- [[05-trees/03-binary-search-trees|Binary Search Trees]] — the ordered alternative
+- [[06-trees/03-binary-search-trees|Binary Search Trees]] — the ordered alternative

@@ -150,7 +150,7 @@ Start it at the number of elements and **decrement on every successful union**.
 
 <details><summary>Answer</summary>
 
-Whether a merge **actually happened**. If `x` and `y` were already together, that is a useful signal — and it is exactly how [[06-graphs/06-algorithms/06-minimum-spanning-tree|Kruskal's algorithm]] detects an edge that would create a cycle.
+Whether a merge **actually happened**. If `x` and `y` were already together, that is a useful signal — and it is exactly how [[09-graphs/06-algorithms/06-minimum-spanning-tree|Kruskal's algorithm]] detects an edge that would create a cycle.
 
 </details>
 
@@ -194,7 +194,7 @@ Building a minimum spanning tree; detecting a cycle as edges arrive; counting co
 
 <details><summary>Answer</summary>
 
-Recompute components with [[06-graphs/05-traversal/01-depth-first-search|DFS]] or BFS, or reach for a considerably more complex dynamic-connectivity structure.
+Recompute components with [[09-graphs/05-traversal/01-depth-first-search|DFS]] or BFS, or reach for a considerably more complex dynamic-connectivity structure.
 
 </details>
 
@@ -222,7 +222,7 @@ Kruskal's MST (add cheapest edges, skip any where `union` returns `False`) and r
 
 <details><summary>Answer</summary>
 
-No. Union-find has no notion of direction — it only knows "connected". Directed cycle detection needs [[06-graphs/05-traversal/03-traversal-trees-and-edge-classification|DFS back edges]].
+No. Union-find has no notion of direction — it only knows "connected". Directed cycle detection needs [[09-graphs/05-traversal/03-traversal-trees-and-edge-classification|DFS back edges]].
 
 </details>
 
@@ -274,5 +274,5 @@ Track group membership by pointing everything at a representative and flattening
 ## Related
 
 - [[10-union-find|Union-Find]] — the module
-- [[06-graphs/06-algorithms/00-connected-components-qb|Connected Components — Question Bank]]
-- [[06-graphs/06-algorithms/06-minimum-spanning-tree-qb|MST — Question Bank]] — Kruskal's use of it
+- [[09-graphs/06-algorithms/00-connected-components-qb|Connected Components — Question Bank]]
+- [[09-graphs/06-algorithms/06-minimum-spanning-tree-qb|MST — Question Bank]] — Kruskal's use of it

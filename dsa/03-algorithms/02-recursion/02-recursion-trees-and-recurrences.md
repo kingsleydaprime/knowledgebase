@@ -160,7 +160,7 @@ The lab confirms both halves. The level totals at $n = 64$ are $64, 96, 144, 216
 | $T(n) = T(n/2) + O(1)$ | $O(\log n)$ | [[01-linear-and-binary-search\|binary search]] |
 | $T(n) = T(n/2) + O(n)$ | $O(n)$ | quickselect, average case |
 | $T(n) = 2T(n/2) + O(1)$ | $O(n)$ | tree traversal, heapify |
-| $T(n) = 2T(n/2) + O(n)$ | $O(n\log n)$ | [[04-sorting/03-merge-sort\|merge sort]], [[04-sorting/04-quicksort\|quicksort]] average |
+| $T(n) = 2T(n/2) + O(n)$ | $O(n\log n)$ | [[05-sorting/03-merge-sort\|merge sort]], [[05-sorting/04-quicksort\|quicksort]] average |
 | $T(n) = 2T(n/2) + O(n^2)$ | $O(n^2)$ | root-dominated divide and conquer |
 | $T(n) = 3T(n/2) + O(n)$ | $O(n^{1.585})$ | Karatsuba multiplication |
 | $T(n) = 7T(n/2) + O(n^2)$ | $O(n^{2.807})$ | Strassen matrix multiplication |
@@ -484,7 +484,7 @@ Build a **recurrence solver you can check against reality**.
 
 **Part 2 — the classifier.** Write `classify(a, b, f, n)` that decides, *from measurements only*, whether the recurrence is root-dominated, balanced, or leaf-dominated. Compare the work at level 0 with the work at the deepest level, and with the total. State the threshold you chose and defend it.
 
-**Part 3 — against real code.** Instrument actual implementations of [[01-linear-and-binary-search|binary search]], [[04-sorting/03-merge-sort|merge sort]] and a balanced-tree traversal to count their real operations. Check the counts against your simulator's prediction for the matching recurrence. **They should agree to within a constant factor; if they do not, one of the two is wrong and finding out which is the exercise.**
+**Part 3 — against real code.** Instrument actual implementations of [[01-linear-and-binary-search|binary search]], [[05-sorting/03-merge-sort|merge sort]] and a balanced-tree traversal to count their real operations. Check the counts against your simulator's prediction for the matching recurrence. **They should agree to within a constant factor; if they do not, one of the two is wrong and finding out which is the exercise.**
 
 **Part 4 — the doubling test.** Write `growth_exponent(fn, sizes)` that runs a function at doubling sizes and returns the estimated exponent $k$ such that the cost is $O(n^k)$, by taking $\log_2$ of the ratio between successive runs. Test it on known $O(n)$, $O(n\log n)$ and $O(n^2)$ functions and report how close it gets.
 
@@ -508,8 +508,8 @@ You can turn recursive code into a recurrence, draw its tree, compute the work a
 
 - [[01-recursion-fundamentals|Recursion Fundamentals]] — the previous lesson
 - [[03-the-master-theorem|The Master Theorem]] — this lesson's three cases, formalised
-- [[03-divide-and-conquer|Divide and Conquer]] — the algorithm family these recurrences describe
+- [[04-divide-and-conquer|Divide and Conquer]] — the algorithm family these recurrences describe
 - [[01-growth-and-asymptotic-notation|Growth and Asymptotic Notation]] — the notation being solved for
-- [[04-sorting/03-merge-sort|Merge Sort]] · [[04-sorting/04-quicksort|Quicksort]] — the worked cases
+- [[05-sorting/03-merge-sort|Merge Sort]] · [[05-sorting/04-quicksort|Quicksort]] — the worked cases
 - [[05-induction-and-recursion|Discrete maths: induction and recursion]] — the substitution method's proof machinery
 - [[02-recursion/index|the recursion folder]]

@@ -1,6 +1,6 @@
 # Valid Parentheses
 
-**LeetCode 20** · Stack · concept: [[07-stacks-and-queues|stacks-and-queues]]
+**LeetCode 20** · Stack · concept: [[05-stacks-and-queues|stacks-and-queues]]
 
 ## Problem
 
@@ -42,5 +42,5 @@ def isValid(s):
 **Nested/matched structure → stack.** "The most recent unclosed thing must close first" is the definition of LIFO. This is the gateway stack problem; the whole category is variations on "the stack remembers what's still open / still pending."
 
 ## Related
-- concept: [[07-stacks-and-queues|stacks-and-queues]]
+- concept: [[05-stacks-and-queues|stacks-and-queues]]
 - next: [[022-min-stack|Min Stack]]

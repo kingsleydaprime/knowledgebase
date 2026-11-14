@@ -1,6 +1,6 @@
 # Meeting Rooms II
 
-**LeetCode 253** · Intervals · concepts: [[08-overlapping-intervals|overlapping-intervals]], [[08-heaps|heaps]]
+**LeetCode 253** · Intervals · concepts: [[08-overlapping-intervals|overlapping-intervals]], [[07-heaps|heaps]]
 
 ## Problem
 
@@ -12,7 +12,7 @@ Return the **minimum number of rooms** needed so no two meetings share a room �
 
 ## Approach 1 — min-heap of end times (optimal)
 
-Sort by start. A [[08-heaps|min-heap]] holds the **end times of rooms currently in use**. For each meeting, if the earliest-ending room (heap top) is free by its start, reuse that room (pop); otherwise allocate a new one (don't pop). The heap size peaks at the answer.
+Sort by start. A [[07-heaps|min-heap]] holds the **end times of rooms currently in use**. For each meeting, if the earliest-ending room (heap top) is free by its start, reuse that room (pop); otherwise allocate a new one (don't pop). The heap size peaks at the answer.
 
 ```python
 import heapq
@@ -42,5 +42,5 @@ Sort start times and end times separately; sweep both with two pointers, increme
 **"Minimum resources for overlapping intervals" = "peak concurrent overlap" → min-heap of end times (reuse the earliest-freeing) or a sweep line of start/end events.** The heap-of-end-times is the canonical interval-scheduling-with-resources pattern.
 
 ## Related
-- concepts: [[08-overlapping-intervals|overlapping-intervals]], [[08-heaps|heaps]]
+- concepts: [[08-overlapping-intervals|overlapping-intervals]], [[07-heaps|heaps]]
 - prev: [[133-meeting-rooms|Meeting Rooms]] · next: [[135-minimum-interval-to-include-each-query|Minimum Interval to Include Each Query]]

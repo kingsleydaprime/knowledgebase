@@ -73,7 +73,7 @@ For queues and other systems that evolve over time, you don't simulate every sec
 
 Their time in the system is end minus arrival. That's the whole simulation for first-come first-served with one server — about ten lines.
 
-For more complex systems (several servers, priorities, breakdowns), you keep a **future event list** — a priority queue of upcoming events sorted by time — and repeatedly pop the earliest, update the state, and schedule any events it causes → [[dsa/02-data-structures/08-heaps|DSA: heaps]]. Libraries like SimPy handle that bookkeeping.
+For more complex systems (several servers, priorities, breakdowns), you keep a **future event list** — a priority queue of upcoming events sorted by time — and repeatedly pop the earliest, update the state, and schedule any events it causes → [[dsa/02-data-structures/07-heaps|DSA: heaps]]. Libraries like SimPy handle that bookkeeping.
 
 ## 4. Worked example — simulating M/M/1 against the formula
 
@@ -188,5 +188,5 @@ You're ready when you can write a Monte Carlo estimate with a confidence interva
 - [[operations-research/12-queueing-theory|Queueing Theory]] — the formulas to verify against
 - [[operations-research/06-network-models|Network Models]] — the project being simulated
 - [[mathematics/05-probability-statistics/05-inference-and-estimation|Inference and estimation]] — confidence intervals
-- [[dsa/02-data-structures/08-heaps|DSA: heaps]] — the future event list
+- [[dsa/02-data-structures/07-heaps|DSA: heaps]] — the future event list
 - [[operations-research/index|Operations research map]]

@@ -430,4 +430,4 @@ You are done with this lesson when you can:
 ## Related Modules
 - [[dsa/01-loops-and-what-they-cost|Loops and What They Cost]] — Practical loop counting rules
 - [[02-dynamic-arrays|Dynamic Arrays]] — Amortized analysis application
-- [[04-sorting/index|Sorting Algorithms]] — Comparison sort lower bounds ($O(n \log n)$)
+- [[05-sorting/index|Sorting Algorithms]] — Comparison sort lower bounds ($O(n \log n)$)

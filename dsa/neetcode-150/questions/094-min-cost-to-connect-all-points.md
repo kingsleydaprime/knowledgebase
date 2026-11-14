@@ -12,7 +12,7 @@ The points form a complete weighted graph (every pair connectable); the cheapest
 
 ## Approach — Prim's algorithm (heap)
 
-Grow a tree from one point, each step adding the **cheapest edge to a point not yet in the tree**, using a [[08-heaps|min-heap]] of candidate edges. Prim's avoids materializing all O(n²) edges up front.
+Grow a tree from one point, each step adding the **cheapest edge to a point not yet in the tree**, using a [[07-heaps|min-heap]] of candidate edges. Prim's avoids materializing all O(n²) edges up front.
 
 ```python
 import heapq
@@ -46,5 +46,5 @@ Prim's fits the dense complete graph — it grows outward without enumerating al
 **"Connect everything as cheaply as possible" → minimum spanning tree** (Prim's with a heap, or Kruskal's with Union-Find). Spotting that "connect all points, minimize total" *is* an MST is the entire problem.
 
 ## Related
-- concepts: [[06-minimum-spanning-tree|MST]], [[08-heaps|heaps]], [[10-union-find|union-find]]
+- concepts: [[06-minimum-spanning-tree|MST]], [[07-heaps|heaps]], [[10-union-find|union-find]]
 - prev: [[093-reconstruct-itinerary|Reconstruct Itinerary]] · next: [[095-network-delay-time|Network Delay Time]]

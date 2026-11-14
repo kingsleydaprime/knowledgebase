@@ -2,7 +2,7 @@
 
 Micro-questions over [[11-dfs-pattern|the DFS pattern]]. Answer in a full sentence before opening the toggle. Format explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
 
-This bank is about **recognising** the problem shape. The mechanics are in [[dsa/02-data-structures/06-graphs/05-traversal/01-depth-first-search-qb|the DFS bank]].
+This bank is about **recognising** the problem shape. The mechanics are in [[dsa/02-data-structures/09-graphs/05-traversal/01-depth-first-search-qb|the DFS bank]].
 
 ---
 
@@ -159,5 +159,5 @@ Reach for DFS when the question is about whole paths or about finishing dependen
 ## Related
 
 - [[11-dfs-pattern|DFS Pattern]] — the pattern
-- [[dsa/02-data-structures/06-graphs/05-traversal/01-depth-first-search-qb|Depth-First Search — Question Bank]] — the mechanics
+- [[dsa/02-data-structures/09-graphs/05-traversal/01-depth-first-search-qb|Depth-First Search — Question Bank]] — the mechanics
 - [[14-backtracking-qb|Backtracking — Question Bank]]

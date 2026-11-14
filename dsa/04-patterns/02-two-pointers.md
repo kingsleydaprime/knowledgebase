@@ -240,7 +240,7 @@ You are done with this pattern when you can, closed-book:
 ## 9. Related
 
 - [[01-arrays|arrays]] — the underlying structure
-- [[04-sorting/index|sorting]] — prerequisite for this pattern
+- [[05-sorting/index|sorting]] — prerequisite for this pattern
 - [[03-sliding-window|sliding-window]] — a specialization where both pointers move in the same direction
 - [[04-fast-slow-pointers|fast-slow-pointers]] — another pointer pattern for cycle detection
 - [[03-hash-maps|hash maps]] — alternative for unsorted input (O(n) time, O(n) space)

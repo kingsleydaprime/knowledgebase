@@ -44,5 +44,5 @@ Dijkstra pops nodes in increasing distance, finalizing each shortest path the fi
 **Single-source shortest paths, non-negative weights → Dijkstra (greedy + min-heap).** "Time for a signal to reach everyone" is a thin story over shortest-paths; the aggregate you report (max over nodes) is the only twist.
 
 ## Related
-- concept: [[02-dijkstra|dijkstra]], [[08-heaps|heaps]]
+- concept: [[02-dijkstra|dijkstra]], [[07-heaps|heaps]]
 - prev: [[094-min-cost-to-connect-all-points|Min Cost to Connect All Points]] · next: [[096-swim-in-rising-water|Swim in Rising Water]]

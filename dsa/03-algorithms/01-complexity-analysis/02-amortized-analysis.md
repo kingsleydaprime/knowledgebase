@@ -10,7 +10,7 @@
 
 - You can read $O$, $\Omega$ and $\Theta$, and you know that they describe growth rather than time — [[01-growth-and-asymptotic-notation|growth and asymptotic notation]].
 - You know how a [[02-dynamic-arrays|dynamic array]] grows, and that it doubles rather than adding one slot.
-- You can trace a [[07-stacks-and-queues|stack and a queue]] through a sequence of operations.
+- You can trace a [[05-stacks-and-queues|stack and a queue]] through a sequence of operations.
 - You are comfortable with a geometric series — that $1 + 2 + 4 + \dots + 2^k$ is a little less than $2^{k+1}$.
 
 **After this lesson you will be able to:**
@@ -718,6 +718,6 @@ You can distinguish worst-case, average-case and amortised precisely; apply the 
 - [[01-growth-and-asymptotic-notation|Growth and Asymptotic Notation]] — the $O$, $\Omega$, $\Theta$ vocabulary this is written in
 - [[01-complexity-analysis/index|the complexity analysis folder]] — the parent folder and reading route
 - [[02-dynamic-arrays|Dynamic Arrays]] — the structure analysed here, from the implementation side
-- [[07-stacks-and-queues|Stacks and Queues]] — multipop and the two-stack queue
+- [[05-stacks-and-queues|Stacks and Queues]] — multipop and the two-stack queue
 - [[10-union-find|Union-Find]] — the $O(\alpha(n))$ result that only a potential argument can reach
 - [[03-hash-maps|Hash Maps]] — the contrast case: average-case, not amortised

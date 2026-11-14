@@ -5,7 +5,7 @@
 ## Before you start
 
 - You should understand BFS traversal. See [[02-breadth-first-search|bfs]] if needed.
-- You should understand queues. See [[07-stacks-and-queues|stacks and queues]] if needed.
+- You should understand queues. See [[05-stacks-and-queues|stacks and queues]] if needed.
 
 **What you will be able to do after this lesson:**
 

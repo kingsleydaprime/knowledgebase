@@ -17,14 +17,14 @@ Most of the interview battle is **recognizing which of ~18 tools a problem is as
 | "have I seen this?", count occurrences, dedupe, find a pair by value | **Hash map / set** — trade space for O(1) lookup | [[03-hash-maps\|hash-maps]] |
 | **sorted** array + find a pair/triplet, palindrome, work from both ends | **Two pointers** converging inward (O(1) space) | [[02-two-pointers\|two-pointers]] |
 | longest/shortest **contiguous** substring/subarray meeting a constraint | **Sliding window** — grow right, shrink left when invalid | [[03-sliding-window\|sliding-window]] |
-| matched brackets, "most recent unclosed", **next greater/smaller** element | **Stack** / **monotonic stack** | [[07-stacks-and-queues\|stacks]] · [[06-monotonic-stack\|monotonic-stack]] |
+| matched brackets, "most recent unclosed", **next greater/smaller** element | **Stack** / **monotonic stack** | [[05-stacks-and-queues\|stacks]] · [[06-monotonic-stack\|monotonic-stack]] |
 | **sorted** input & search; OR "minimize the max / min feasible speed/capacity" | **Binary search** — incl. **on the answer** (monotonic predicate) | [[09-modified-binary-search\|modified-binary-search]] |
 | reverse a list, detect a cycle, find the middle / n-th from end | **Linked-list pointers** — reversal, **fast/slow** | [[05-linked-list-reversal\|reversal]] · [[04-fast-slow-pointers\|fast-slow]] |
 | "do X at every node, combine children"; OR level-by-level | **Tree DFS** (return up / carry down) · **BFS** by level | [[11-dfs-pattern\|dfs]] · [[12-bfs-pattern\|bfs]] |
-| prefix / autocomplete queries, search many words in a grid | **Trie** (+ backtracking for grids) | [[09-tries\|tries]] |
-| "k largest/smallest", "top k", running median, merge k sorted | **Heap** (size-k, or two-heap) | [[08-heaps\|heaps]] · [[07-top-k-elements\|top-k]] |
+| prefix / autocomplete queries, search many words in a grid | **Trie** (+ backtracking for grids) | [[08-tries\|tries]] |
+| "k largest/smallest", "top k", running median, merge k sorted | **Heap** (size-k, or two-heap) | [[07-heaps\|heaps]] · [[07-top-k-elements\|top-k]] |
 | "generate **all** subsets / permutations / combinations", place-then-undo | **Backtracking** (choose → recurse → un-choose) | [[14-backtracking\|backtracking]] |
-| grid connectivity, islands, flood fill, fewest steps on a grid | **Graph DFS/BFS** (multi-source BFS for nearest) | [[13-matrix-traversal\|matrix-traversal]] · [[06-graphs/index\|graphs]] |
+| grid connectivity, islands, flood fill, fewest steps on a grid | **Graph DFS/BFS** (multi-source BFS for nearest) | [[13-matrix-traversal\|matrix-traversal]] · [[09-graphs/index\|graphs]] |
 | prerequisites, build/task ordering, "can everything be ordered?" | **Topological sort** (Kahn's) = cycle detection | [[01-topological-sort\|topological-sort]] |
 | "same group?", dynamic connectivity, cycle in an **undirected** graph | **Union-Find** (a failed `union` = a cycle) | [[10-union-find\|union-find]] |
 | shortest path with **weights**; OR connect everything at min cost | **Dijkstra** · **MST** (Prim/Kruskal); hop-limited → Bellman-Ford | [[02-dijkstra\|dijkstra]] · [[06-minimum-spanning-tree\|MST]] |
@@ -96,7 +96,7 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 76 | [[019-minimum-window-substring\|Minimum Window Substring]] | expand to satisfy, contract to minimize |
 | 239 | [[020-sliding-window-maximum\|Sliding Window Maximum]] | monotonic deque of candidate maxima |
 
-## Stack — [[07-stacks-and-queues|stacks-and-queues]]
+## Stack — [[05-stacks-and-queues|stacks-and-queues]]
 
 | # | Problem | Key idea |
 |---|---|---|
@@ -156,7 +156,7 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 124 | [[059-binary-tree-maximum-path-sum\|Binary Tree Maximum Path Sum]] | DFS best-arm + global max |
 | 297 | [[060-serialize-and-deserialize-binary-tree\|Serialize and Deserialize Binary Tree]] | pre-order with null markers |
 
-## Tries — [[09-tries|tries]]
+## Tries — [[08-tries|tries]]
 
 | # | Problem | Key idea |
 |---|---|---|
@@ -164,7 +164,7 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 211 | [[062-design-add-and-search-words-data-structure\|Design Add and Search Words]] | wildcard `.` → branch DFS |
 | 212 | [[063-word-search-ii\|Word Search II]] | one trie + grid backtracking |
 
-## Heap / Priority Queue — [[08-heaps|heaps]] · [[07-top-k-elements|top-k]]
+## Heap / Priority Queue — [[07-heaps|heaps]] · [[07-top-k-elements|top-k]]
 
 | # | Problem | Key idea |
 |---|---|---|
@@ -190,7 +190,7 @@ Trade space for O(1) lookup; recognize when a hash map/set collapses an O(n²) s
 | 17 | [[078-letter-combinations-of-a-phone-number\|Letter Combinations of a Phone Number]] | product over digit→letters |
 | 51 | [[079-n-queens\|N-Queens]] | place per row; column/diagonal sets |
 
-## Graphs — [[06-graphs/index|graphs]] · [[13-matrix-traversal|matrix-traversal]]
+## Graphs — [[09-graphs/index|graphs]] · [[13-matrix-traversal|matrix-traversal]]
 
 | # | Problem | Key idea |
 |---|---|---|

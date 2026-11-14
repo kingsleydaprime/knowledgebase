@@ -13,7 +13,7 @@ Return the largest product of any contiguous subarray.
 
 ## Why max-only (Kadane) fails
 
-For sums, [[09-max-slice-algorithms|Kadane's]] tracks a single running max. Products break that: a **negative × negative = positive**, so the *smallest* (most negative) running product can suddenly become the largest when multiplied by another negative. You must track both.
+For sums, [[10-max-slice-algorithms|Kadane's]] tracks a single running max. Products break that: a **negative × negative = positive**, so the *smallest* (most negative) running product can suddenly become the largest when multiplied by another negative. You must track both.
 
 ## Approach — track running max AND min (optimal)
 
@@ -41,5 +41,5 @@ A large negative running product is a *latent maximum* — one more negative num
 **With products (or any sign-flipping operation), track both the max and the min running value.** The optimum can hide in the most-negative state until a sign flip reveals it — a refinement of the single-state Kadane pattern.
 
 ## Related
-- concept: [[15-dynamic-programming|dynamic-programming]]; contrast [[09-max-slice-algorithms|Kadane's]]
+- concept: [[15-dynamic-programming|dynamic-programming]]; contrast [[10-max-slice-algorithms|Kadane's]]
 - prev: [[106-coin-change|Coin Change]] · next: [[108-word-break|Word Break]]

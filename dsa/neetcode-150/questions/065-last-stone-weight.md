@@ -1,6 +1,6 @@
 # Last Stone Weight
 
-**LeetCode 1046** · Heap / Priority Queue · concept: [[08-heaps|heaps]]
+**LeetCode 1046** · Heap / Priority Queue · concept: [[07-heaps|heaps]]
 
 ## Problem
 
@@ -39,5 +39,5 @@ def lastStoneWeight(stones):
 **"Repeatedly take the largest/smallest, then reinsert a derived value" → a heap.** The simulation would be O(n²) with re-sorting each round; the heap makes each "grab the top two, push one back" step O(log n). A clean, minimal max-heap drill.
 
 ## Related
-- concept: [[08-heaps|heaps]]
+- concept: [[07-heaps|heaps]]
 - prev: [[064-kth-largest-element-in-a-stream|Kth Largest in a Stream]] · next: [[066-k-closest-points-to-origin|K Closest Points to Origin]]

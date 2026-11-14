@@ -6,7 +6,7 @@
 
 ## Before you start
 
-You should have met dynamic programming as a coding pattern — memoisation and tabulation → [[dsa/03-algorithms/06-dynamic-programming/index|DSA: dynamic programming]]. If you haven't, this note still works, but the DSA version gives you more reps. You should know what an expected value is → [[mathematics/05-probability-statistics/04-random-variables-and-distributions|random variables]].
+You should have met dynamic programming as a coding pattern — memoisation and tabulation → [[dsa/03-algorithms/07-dynamic-programming/index|DSA: dynamic programming]]. If you haven't, this note still works, but the DSA version gives you more reps. You should know what an expected value is → [[mathematics/05-probability-statistics/04-random-variables-and-distributions|random variables]].
 
 After this lesson you will be able to:
 
@@ -112,7 +112,7 @@ Only one state matters here: we start with the full budget, $s = 3$.
 
 **Allocation: R1 = 0, R2 = 2, R3 = 1. Total return: 13.**
 
-Notice R1 gets nothing even though its first unit is worth 4 — more than R2's first unit. That's because R2's *second* unit is worth 5 (from 3 to 8), and greedy "best next unit" reasoning misses it. That's exactly the kind of interaction dynamic programming handles and greedy doesn't → [[dsa/03-algorithms/10-greedy-algorithms/01-when-greedy-works|when greedy works]].
+Notice R1 gets nothing even though its first unit is worth 4 — more than R2's first unit. That's because R2's *second* unit is worth 5 (from 3 to 8), and greedy "best next unit" reasoning misses it. That's exactly the kind of interaction dynamic programming handles and greedy doesn't → [[dsa/03-algorithms/06-greedy-algorithms/01-when-greedy-works|when greedy works]].
 
 ### What it cost
 
@@ -254,7 +254,7 @@ You're ready when you can name the stages, state, decision and transition for a 
 
 ## Related
 
-- [[dsa/03-algorithms/06-dynamic-programming/index|DSA: dynamic programming]] — the coding pattern, with practice problems
+- [[dsa/03-algorithms/07-dynamic-programming/index|DSA: dynamic programming]] — the coding pattern, with practice problems
 - [[dsa/04-patterns/15-dynamic-programming|DSA pattern: dynamic programming]] — the interview framing
 - [[operations-research/06-network-models|Network Models]] — shortest path is a dynamic program
 - [[control-theory/11-optimal-control-and-lqr|Optimal control and LQR]] — dynamic programming in continuous state

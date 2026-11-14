@@ -128,7 +128,7 @@ ZADD/ZRANGE/ZRANGEBYSCORE   sorted sets — the interesting one
 
 **Sorted sets are the one to implement properly.** They need ordering by score *and* O(1) lookup by member, so real Redis uses a **skip list plus a hash map** — the skip list for range queries, the map for membership.
 
-A skip list is a genuinely elegant structure: probabilistic balancing, much simpler to implement than a red-black tree, and comparable performance. → [[dsa/02-data-structures/08-heaps|heaps]] and [[dsa/02-data-structures/05-trees/01-trees|trees]]
+A skip list is a genuinely elegant structure: probabilistic balancing, much simpler to implement than a red-black tree, and comparable performance. → [[dsa/02-data-structures/07-heaps|heaps]] and [[dsa/02-data-structures/06-trees/01-trees|trees]]
 
 **Test:** `redis-cli zadd leaderboard 100 alice 200 bob`, then `zrange leaderboard 0 -1 withscores`.
 

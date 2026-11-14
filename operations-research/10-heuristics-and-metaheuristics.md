@@ -233,6 +233,6 @@ You're ready when you can build a nearest-neighbour tour and improve it with 2-o
 ## Related
 
 - [[operations-research/07-integer-programming|Integer Programming]] — the exact alternative, and the source of lower bounds
-- [[dsa/03-algorithms/10-greedy-algorithms/index|DSA: greedy algorithms]] — constructive heuristics are greedy algorithms without the proof
+- [[dsa/03-algorithms/06-greedy-algorithms/index|DSA: greedy algorithms]] — constructive heuristics are greedy algorithms without the proof
 - [[dsa/04-patterns/14-backtracking|DSA: backtracking]] — exhaustive search, the thing heuristics avoid
 - [[operations-research/index|Operations research map]]

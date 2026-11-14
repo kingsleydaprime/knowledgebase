@@ -2,7 +2,7 @@
 
 Micro-questions over [[15-dynamic-programming|the DP pattern note]]. Answer in a full sentence before opening the toggle. Format explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
 
-This bank is about **recognising recurrence shapes**. The theory is in [[dsa/03-algorithms/06-dynamic-programming/01-what-makes-a-problem-dp-qb|what makes a problem DP]].
+This bank is about **recognising recurrence shapes**. The theory is in [[dsa/03-algorithms/07-dynamic-programming/01-what-makes-a-problem-dp-qb|what makes a problem DP]].
 
 ---
 
@@ -231,6 +231,6 @@ Find the recurrence, decide whether the state is one index or two, and recognise
 ## Related
 
 - [[15-dynamic-programming|Dynamic Programming Pattern]] — the pattern
-- [[dsa/03-algorithms/06-dynamic-programming/01-what-makes-a-problem-dp-qb|What Makes a Problem DP — Question Bank]]
-- [[dsa/03-algorithms/06-dynamic-programming/03-classic-one-dimensional-qb|Classic 1-D DP — Question Bank]]
-- [[dsa/03-algorithms/06-dynamic-programming/04-classic-two-dimensional-qb|Classic 2-D DP — Question Bank]]
+- [[dsa/03-algorithms/07-dynamic-programming/01-what-makes-a-problem-dp-qb|What Makes a Problem DP — Question Bank]]
+- [[dsa/03-algorithms/07-dynamic-programming/03-classic-one-dimensional-qb|Classic 1-D DP — Question Bank]]
+- [[dsa/03-algorithms/07-dynamic-programming/04-classic-two-dimensional-qb|Classic 2-D DP — Question Bank]]

@@ -5,7 +5,7 @@
 ## Before you start
 
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
-- You should understand sorting. See [[04-sorting/index|sorting]] if needed.
+- You should understand sorting. See [[05-sorting/index|sorting]] if needed.
 
 **What you will be able to do after this lesson:**
 
@@ -246,7 +246,7 @@ def employee_free_time(schedules):
 
 ## 6. Complexity
 
-O(n log n) — dominated by the initial sort; the merge pass itself is O(n). This is the same shape as most patterns that need sorted input first: see [[09-modified-binary-search|modified-binary-search]] and [[04-sorting/index|sorting]].
+O(n log n) — dominated by the initial sort; the merge pass itself is O(n). This is the same shape as most patterns that need sorted input first: see [[09-modified-binary-search|modified-binary-search]] and [[05-sorting/index|sorting]].
 
 ---
 
@@ -323,7 +323,7 @@ You are done with this pattern when you can, closed-book:
 
 ## 10. Related
 
-- [[04-sorting/index|sorting]] — prerequisite for this pattern
+- [[05-sorting/index|sorting]] — prerequisite for this pattern
 - [[01-arrays|arrays]] — the underlying data structure
 - [[01-growth-and-asymptotic-notation|algorithms]] — where the O(n log n) vs O(n²) comparison comes from
 - [[08-overlapping-intervals|overlapping-intervals]] — this note

@@ -139,7 +139,7 @@ class Range {
 for (const n of new Range(1, 5)) { console.log(n); }   // 1 2 3 4
 ```
 
-JavaScript's `for...of` loop and the iterator protocol above are a language-level implementation of exactly this pattern — see [[dsa/02-data-structures/05-trees/04-traversal/index|traversal]] in the DSA notes for the underlying structures (trees, graphs) this same idea generalizes to beyond simple linear collections.
+JavaScript's `for...of` loop and the iterator protocol above are a language-level implementation of exactly this pattern — see [[dsa/02-data-structures/06-trees/04-traversal/index|traversal]] in the DSA notes for the underlying structures (trees, graphs) this same idea generalizes to beyond simple linear collections.
 
 ## 7. Worked example — an order lifecycle with State and Observer
 
@@ -299,4 +299,4 @@ You can name the behavioural patterns in real code, model a lifecycle as a trans
 - [[concepts/03-design-patterns/03-behavioral-patterns/in-other-languages|Behavioural Patterns in Other Languages]] — which patterns are built in, and Rust's typestate
 - [[concepts/03-design-patterns/01-creational-patterns/index|creational patterns]]
 - [[concepts/03-design-patterns/02-structural-patterns/index|structural patterns]]
-- [[dsa/02-data-structures/05-trees/04-traversal/index|traversal]] — the same iteration idea generalized to trees and graphs
+- [[dsa/02-data-structures/06-trees/04-traversal/index|traversal]] — the same iteration idea generalized to trees and graphs
