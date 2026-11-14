@@ -1,6 +1,6 @@
 # SSG 511 Formula Sheet
 
-> **Lookup reference** for Part 2 (notes 12–18). Every key formula on one page, for revision and for checking hand work. **Matrices use column vectors** ($p' = Mp$); for row vectors ($P' = PT$, as in the SSG 511 assignment) transpose each one. The explanation of each formula lives in the linked note — this page is for after you have understood it.
+> **Lookup reference** for Part 1 (notes 12–18). Every key formula on one page, for revision and for checking hand work. **Matrices use column vectors** ($p' = Mp$); for row vectors ($P' = PT$, as in the SSG 511 assignment) transpose each one. The explanation of each formula lives in the linked note — this page is for after you have understood it.
 
 ## Display → [[computer-graphics/12-graphics-systems-and-display-hardware|note 12]]
 

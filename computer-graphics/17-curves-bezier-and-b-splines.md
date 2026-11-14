@@ -2,7 +2,7 @@
 
 **[Intermediate → Advanced]** — Implicit, explicit and parametric curves; affine and barycentric combinations; where the Bézier weights come from; position, velocity, de Casteljau and splitting; B-splines and the Cox–de Boor recursion; Chaikin corner cutting; and drawing a curve with straight lines to a tolerance.
 
-> Part 2 of the course. [[computer-graphics/08-geometry-and-meshes|Note 08]] gives the big picture (NURBS, subdivision surfaces, CAD versus real-time). **This note is the hand-calculation version that SSG 511 Q1(c) is worth 15 marks on.**
+> Part 1 of the course. [[computer-graphics/08-geometry-and-meshes|Note 08]] gives the big picture (NURBS, subdivision surfaces, CAD versus real-time). **This note is the hand-calculation version that SSG 511 Q1(c) is worth 15 marks on.**
 
 ## Before you start
 

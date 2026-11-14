@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Removing everything outside the viewing window before it is drawn: point clipping, the three classes of line, Cohen–Sutherland, midpoint subdivision, Cyrus–Beck and Liang–Barsky, and extending them to a 3D frustum and to Bézier curves.
 
-> Part 2 of the course. The 3D, clip-space version of this lives in [[computer-graphics/02-the-transform-pipeline|note 02]] ("Clip space and NDC") — this note is where the algorithms behind it are worked by hand.
+> Part 1 of the course. The 3D, clip-space version of this lives in [[computer-graphics/02-the-transform-pipeline|note 02]] ("Clip space and NDC") — this note is where the algorithms behind it are worked by hand.
 
 ## Before you start
 

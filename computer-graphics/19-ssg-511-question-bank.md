@@ -149,5 +149,5 @@ All in [[computer-graphics/13-line-drawing-and-antialiasing|note 13]].
 
 ## Related
 - [[computer-graphics/21-ssg-511-formula-sheet|Formula sheet]] — everything you need to memorise, on one page
-- [[computer-graphics/10-practice-exercises|Part 1 practice exercises]] — the modern-pipeline exercises
+- [[computer-graphics/10-practice-exercises|Part 2 practice exercises]] — the modern-pipeline exercises
 - [[computer-graphics/index|Computer graphics map]]

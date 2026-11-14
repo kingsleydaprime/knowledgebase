@@ -131,7 +131,7 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 
 **08–09 are geometry and animation.**
 
-**12–18 are Part 2, classical raster graphics** — display hardware, line and circle drawing, filling, clipping, 2D/3D transforms by hand, Bézier and B-spline curves, and visible-surface methods. **They are the university-course foundations (SSG 511), and the place to start if pixels, Bresenham and homogeneous matrices are new** → [[computer-graphics/12-graphics-systems-and-display-hardware|note 12]].
+**12–18 are Part 1, classical raster graphics** — display hardware, line and circle drawing, filling, clipping, 2D/3D transforms by hand, Bézier and B-spline curves, and visible-surface methods. **They are the university-course foundations (SSG 511), and the place to start if pixels, Bresenham and homogeneous matrices are new** → [[computer-graphics/12-graphics-systems-and-display-hardware|note 12]].
 
 **Prerequisites:** [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 02 already** if you've read it.
 

@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Scan-converting a line: the naive algorithm, DDA, Bresenham (both slopes, derived in full), the midpoint view, building shapes and dashed lines from the line primitive, and how antialiasing softens the staircase.
 
-> Part 2 of the course, after [[computer-graphics/12-graphics-systems-and-display-hardware|note 12]]. **This is the most-examined topic in SSG 511** — the Bresenham derivation for slope > 1 alone is worth 15 marks.
+> Part 1 of the course, after [[computer-graphics/12-graphics-systems-and-display-hardware|note 12]]. **This is the most-examined topic in SSG 511** — the Bresenham derivation for slope > 1 alone is worth 15 marks.
 
 ## Before you start
 

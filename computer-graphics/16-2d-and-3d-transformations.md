@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Translation, scaling, rotation, shear and reflection as homogeneous matrices; reading a matrix by its pattern; composing transforms (and why order matters); row- versus column-vector conventions; and the "move this object so its features end up there" method for 3D questions.
 
-> Part 2 of the course. [[computer-graphics/02-the-transform-pipeline|Note 02]] uses these matrices in the camera pipeline; [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] goes deeper on rotations. **This note is the by-hand, exam version.**
+> Part 1 of the course. [[computer-graphics/02-the-transform-pipeline|Note 02]] uses these matrices in the camera pipeline; [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] goes deeper on rotations. **This note is the by-hand, exam version.**
 
 ## Before you start
 
