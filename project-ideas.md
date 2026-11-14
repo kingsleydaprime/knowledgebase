@@ -37,6 +37,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 | [[robotics/projects\|Robotics]] | Something moving in ROS 2 + Gazebo |
 | [[game-development/projects\|Game Dev]] | Ship a game jam entry |
 | [[control-theory/projects\|Control theory]] | Balance a physical inverted pendulum |
+| [[operations-research/projects\|Operations research]] | Model a decision you actually make, and live with the answer for a week |
 
 ---
 
@@ -89,6 +90,21 @@ Highest signal for where you're aiming, across all four columns of [[PRIMETECHIE
 | 🔴 | [[build-your-own-shit/24-your-own-llm\|Your own LLM]] | Attention, trained from scratch. The sequel to the neural network |
 
 Pair each with a short write-up of what you learned; these are portfolio-grade signal on their own.
+
+---
+
+## Product ideas
+*Parked ideas for things other people would use, not just practice reps. Parked 2026-11-14 while NextVibe (work) is the active build.*
+
+- 🔴 **An e-learning platform, W3Schools-style.** Lessons in order with next/back, quizzes after every few lessons, and "write your own code" exercises checked by real tests. The vault already has the content (course standard, checks sections, labs with tests), so the platform is the product, not the material. What makes it a platform rather than a static site:
+  - **Accounts and progress** that follow you across devices (auth plus a database).
+  - **A code runner.** JS/TS in a Web Worker and Python via Pyodide both run in the browser. Go, Rust, C, Java and C# need a sandboxed server that runs untrusted code (Judge0-style), which is its own security project.
+  - **Grading:** the learner's code runs against the lesson's lab tests, and the pass/fail result is stored.
+  - Later, maybe: certificates, payments, authoring tools for other teachers.
+  - *Questions to settle first:* who is it for beyond me? Why would they pick it over W3Schools, freeCodeCamp or Exercism? Which languages at launch?
+  - *Done when:* one full course (SWE 101) is live with accounts, quizzes and in-browser JS + Python exercises, and 10 people outside my circle have finished at least one week of it.
+- 🟢 **Interactive knowledgebase (the small version of the above).** Add it to the Quartz site, all on the front end: prev/next links from the course index order, a ```` ```quiz ```` block plugin (like `quartz-plugins/abbreviations`) with progress in `localStorage`, and an in-browser JS/Python runner for one lesson. Doubles as the prototype for the platform's lesson and quiz format.
+  - *Done when:* one SWE 101 lesson has all three, and I've used its quiz while actually studying it.
 
 ---
 

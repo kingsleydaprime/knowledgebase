@@ -242,10 +242,9 @@ Every topic in both outlines, and the folder it belongs to. ✅ = written, every
 | :--- | :--- | :--- |
 | `01-numerical-methods/` ✅ | floating point and error, root finding, linear systems, eigenvalues, interpolation, quadrature, ODEs, PDEs, optimisation — **13 notes, moved here from the vault root** | Uni Y3S2 |
 | `02-numerical-pdes/` | finite element methods, stability and convergence for engineering simulation | Uni Y4S1 |
-| `03-optimization-and-operations-research/` | linear programming and the simplex method, duality, Kuhn-Tucker, dynamic programming | Uni Y4S1 |
 | `06-capstone-project/` | the final-year project or thesis: applying the theory to a real problem | Uni Y4S2 |
 
-**Control theory** and **continuum mechanics** were in this umbrella's plan and are **not** here: they are engineering disciplines that happen to use this mathematics, not branches of it. They live at the vault root as [[control-theory/index|control-theory/]] and [[continuum-mechanics/index|continuum-mechanics/]].
+**Control theory** and **continuum mechanics** were in this umbrella's plan and are **not** here: they are engineering disciplines that happen to use this mathematics, not branches of it. They live at the vault root as [[control-theory/index|control-theory/]] and [[continuum-mechanics/index|continuum-mechanics/]]. **Optimisation and operations research** (linear programming, simplex, duality, Kuhn-Tucker, dynamic programming — planned here for Uni Y4S1) went the same way for the same reason: it's a decision-making discipline with its own methods, and it lives at [[operations-research/index|operations-research/]].
 
 ### `08-exam-practice`
 
