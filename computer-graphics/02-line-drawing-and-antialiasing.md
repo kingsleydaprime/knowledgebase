@@ -2,11 +2,11 @@
 
 **[Intermediate]** — Scan-converting a line: the naive algorithm, DDA, Bresenham (both slopes, derived in full), the midpoint view, building shapes and dashed lines from the line primitive, and how antialiasing softens the staircase.
 
-> Part 1 of the course, after [[computer-graphics/12-graphics-systems-and-display-hardware|note 12]]. **This is the most-examined topic in SSG 511** — the Bresenham derivation for slope > 1 alone is worth 15 marks.
+> Part 1 of the course, after [[computer-graphics/01-graphics-systems-and-display-hardware|note 01]]. **This is the most-examined topic in SSG 511** — the Bresenham derivation for slope > 1 alone is worth 15 marks.
 
 ## Before you start
 
-You can use `setpixel(x, y, colour)` on a grid ([[computer-graphics/12-graphics-systems-and-display-hardware|note 12]]), find a line's slope $m = \frac{y_1 - y_0}{x_1 - x_0}$, and write a Python `for` loop.
+You can use `setpixel(x, y, colour)` on a grid ([[computer-graphics/01-graphics-systems-and-display-hardware|note 01]]), find a line's slope $m = \frac{y_1 - y_0}{x_1 - x_0}$, and write a Python `for` loop.
 
 **After this note you will be able to:**
 1. Explain why line algorithms matter and give three reasons Bresenham beats DDA.
@@ -35,7 +35,7 @@ You want to draw a diagonal line on squared paper, but you are only allowed to c
 
 Every picture on a raster screen is built from lines and curves, and the screen is a grid, so **every line or curve must be scan-converted**. It happens thousands to millions of times per picture, so the algorithm must be:
 
-1. **Fast** — to keep interaction smooth ([[computer-graphics/12-graphics-systems-and-display-hardware|the feedback loop]]).
+1. **Fast** — to keep interaction smooth ([[computer-graphics/01-graphics-systems-and-display-hardware|the feedback loop]]).
 2. **Accurate** — the line looks straight and hits its end points.
 3. **Simple** — simple enough to build into hardware.
 
@@ -268,7 +268,7 @@ $dx = 7$, $dy = 16$: step $y$; $x$ moves left ($sx = -1$). $p_0 = 2dx - dy = -2$
 - $F(M) < 0$: the midpoint is above the line, so the line is nearer the lower pixel — plot $(x_k + 1, y_k)$.
 - $F(M) \ge 0$: plot $(x_k + 1, y_k + 1)$.
 
-With $d = 2F(M)$: $d_0 = 2dy - dx$, then $d \mathrel{+}= 2dy$ (lower) or $d \mathrel{+}= 2(dy - dx)$ (upper). **For lines it is exactly Bresenham. Its advantage is that it extends to circles and ellipses** → [[computer-graphics/14-circles-and-polygon-filling|note 14]].
+With $d = 2F(M)$: $d_0 = 2dy - dx$, then $d \mathrel{+}= 2dy$ (lower) or $d \mathrel{+}= 2(dy - dx)$ (upper). **For lines it is exactly Bresenham. Its advantage is that it extends to circles and ellipses** → [[computer-graphics/03-circles-and-polygon-filling|note 03]].
 
 | Algorithm | Arithmetic | Main idea | Notes |
 |---|---|---|---|
@@ -364,13 +364,13 @@ For a horizontal line of 14 pixels ($x = 0$ to $13$) with on = 4, off = 3, this 
 
 **Antialiasing is a set of techniques that reduce the jagged, stair-step look of lines and edges that should be smooth.**
 
-**Why jaggies happen.** A line is continuous, but the screen is a grid with limited resolution. Scan conversion samples the shape at only a few points, so smooth edges become staircases. The same problem shows up as crawling or flickering edges in animation, and odd patterns on fine detail. **The cause is the output device not having enough resolution to show the shape exactly** — the raster weakness from note 12. → [[computer-graphics/01-how-rendering-works|Rendering as sampling]] for the signal-processing view.
+**Why jaggies happen.** A line is continuous, but the screen is a grid with limited resolution. Scan conversion samples the shape at only a few points, so smooth edges become staircases. The same problem shows up as crawling or flickering edges in animation, and odd patterns on fine detail. **The cause is the output device not having enough resolution to show the shape exactly** — the raster weakness from note 01. → [[computer-graphics/08-how-rendering-works|Rendering as sampling]] for the signal-processing view.
 
 **Four methods:**
 
 1. **Higher resolution.** More, smaller pixels make smaller steps. It works, but costs memory and time.
 2. **Area sampling** (shading the in-between pixels). **Set each pixel's intensity in proportion to how much of it the line covers.** A line covering 30% of a pixel gives it 30% of the line's intensity — shades of grey on a monochrome screen, or shades of the line colour. **Wu's line algorithm** is the well-known example.
-3. **Supersampling.** Compute the image at higher resolution (say 4 samples per pixel), then average each pixel's samples. Simple and works for any shape, but cost multiplies with the sample count. **MSAA** is the cheaper hardware version that takes extra samples only near edges → [[computer-graphics/03-rasterisation|note 03]].
+3. **Supersampling.** Compute the image at higher resolution (say 4 samples per pixel), then average each pixel's samples. Simple and works for any shape, but cost multiplies with the sample count. **MSAA** is the cheaper hardware version that takes extra samples only near edges → [[computer-graphics/10-rasterisation|note 10]].
 4. **Pixel phasing** (smoothing). The output device shifts pixel positions by fractions of a pixel, adjusting dot size and horizontal alignment so lines and curves land more exactly.
 
 **Trade-off:** antialiased lines look smoother but also **softer (fuzzier)**, and need more computation.
@@ -415,10 +415,10 @@ All of these are collected, with the rest of the paper, in the [[computer-graphi
 
 ## Before moving on
 
-You can derive both Bresenham cases from the distances, trace a table, and run your code against it. **Next:** [[computer-graphics/14-circles-and-polygon-filling|Circles and Polygon Filling]], where the midpoint idea earns its keep.
+You can derive both Bresenham cases from the distances, trace a table, and run your code against it. **Next:** [[computer-graphics/03-circles-and-polygon-filling|Circles and Polygon Filling]], where the midpoint idea earns its keep.
 
 ## Related
-- [[computer-graphics/03-rasterisation|Rasterisation]] — the modern triangle version of the same problem
-- [[computer-graphics/14-circles-and-polygon-filling|Circles and Polygon Filling]]
+- [[computer-graphics/10-rasterisation|Rasterisation]] — the modern triangle version of the same problem
+- [[computer-graphics/03-circles-and-polygon-filling|Circles and Polygon Filling]]
 - [[computer-graphics/21-ssg-511-formula-sheet|Formula sheet]]
 - [[computer-graphics/index|Computer graphics map]]

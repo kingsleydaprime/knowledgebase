@@ -2,7 +2,7 @@
 
 **[Intermediate → Advanced]** — Implicit, explicit and parametric curves; affine and barycentric combinations; where the Bézier weights come from; position, velocity, de Casteljau and splitting; B-splines and the Cox–de Boor recursion; Chaikin corner cutting; and drawing a curve with straight lines to a tolerance.
 
-> Part 1 of the course. [[computer-graphics/08-geometry-and-meshes|Note 08]] gives the big picture (NURBS, subdivision surfaces, CAD versus real-time). **This note is the hand-calculation version that SSG 511 Q1(c) is worth 15 marks on.**
+> Part 1 of the course. [[computer-graphics/15-geometry-and-meshes|Note 15]] gives the big picture (NURBS, subdivision surfaces, CAD versus real-time). **This note is the hand-calculation version that SSG 511 Q1(c) is worth 15 marks on.**
 
 ## Before you start
 
@@ -59,7 +59,7 @@ The weights $(1 - t)$ and $t$ sum to 1. **A sum $\alpha_1P_1 + \alpha_2P_2 + \do
 
 $$P = P_1 + \alpha_2(P_2 - P_1) + \alpha_3(P_3 - P_1) = (1 - \alpha_2 - \alpha_3)P_1 + \alpha_2P_2 + \alpha_3P_3$$
 
-Call $P_1$'s weight $\alpha_1 = 1 - \alpha_2 - \alpha_3$. Then $\alpha_1 + \alpha_2 + \alpha_3 = 1$ always. **This is a barycentric combination** — the same coordinates the rasteriser interpolates with in [[computer-graphics/03-rasterisation|note 03]].
+Call $P_1$'s weight $\alpha_1 = 1 - \alpha_2 - \alpha_3$. Then $\alpha_1 + \alpha_2 + \alpha_3 = 1$ always. **This is a barycentric combination** — the same coordinates the rasteriser interpolates with in [[computer-graphics/10-rasterisation|note 10]].
 
 ## 3. Where the Bézier weights come from
 
@@ -147,7 +147,7 @@ and the second half has control points $Q_3$, $\frac{P_1 + 2P_2 + P_3}{4}$, $\fr
 ### Properties
 
 1. **Convexity of the basis:** the weights are never negative and sum to 1.
-2. **Convex-hull property:** the curve lies inside the convex hull of its control points. (This is what makes cheap curve clipping possible → [[computer-graphics/15-clipping|note 15]].)
+2. **Convex-hull property:** the curve lies inside the convex hull of its control points. (This is what makes cheap curve clipping possible → [[computer-graphics/04-clipping|note 04]].)
 3. **Affine invariance:** transforming the curve equals transforming its control points and redrawing — **which is why you move a Bézier curve by moving four points.**
 4. **Linear precision:** control points on a line give that line.
 5. **Variation diminishing:** no straight line crosses the curve more often than it crosses the control polygon.
@@ -329,10 +329,10 @@ From SSG 511 — full wording in the [[computer-graphics/19-ssg-511-question-ban
 
 ## Before moving on
 
-**Next:** [[computer-graphics/18-visible-surface-detection|Visible Surface Detection]].
+**Next:** [[computer-graphics/07-visible-surface-detection|Visible Surface Detection]].
 
 ## Related
-- [[computer-graphics/08-geometry-and-meshes|Geometry and Meshes]] — NURBS, subdivision surfaces, the CAD divide
-- [[computer-graphics/09-animation-and-simulation|Animation]] — curves as motion paths
+- [[computer-graphics/15-geometry-and-meshes|Geometry and Meshes]] — NURBS, subdivision surfaces, the CAD divide
+- [[computer-graphics/16-animation-and-simulation|Animation]] — curves as motion paths
 - [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation and splines]]
 - [[computer-graphics/index|Computer graphics map]]

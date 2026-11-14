@@ -32,29 +32,29 @@ If you're revising for the SSG 511 exam, Part 1 plus the three exam notes at the
 
 ### Part 1: Drawing on the screen (start here)
 
-Read 12 → 13 → 14 in order. After that, 15 to 18 can be read in any order.
+Read 01 → 02 → 03 in order. After that, 04 to 07 can be read in any order.
 
-12. [[computer-graphics/12-graphics-systems-and-display-hardware|Graphics Systems and Display Hardware]]: what graphics is for, how a screen draws a picture line by line, and how much memory a picture needs.
-13. [[computer-graphics/13-line-drawing-and-antialiasing|Line Drawing and Antialiasing]]: how a computer draws a straight line out of square pixels, and how to make it look less jagged.
-14. [[computer-graphics/14-circles-and-polygon-filling|Circles and Polygon Filling]]: drawing circles and ellipses, and colouring in the inside of a shape.
-15. [[computer-graphics/15-clipping|Clipping]]: cutting off the parts of a drawing that fall outside the window you're looking through.
-16. [[computer-graphics/16-2d-and-3d-transformations|2D and 3D Transformations]]: moving, turning and resizing shapes with matrices.
-17. [[computer-graphics/17-curves-bezier-and-b-splines|Curves: Bézier and B-splines]]: drawing smooth curves, like the pen tool in a design app, from a few control points.
-18. [[computer-graphics/18-visible-surface-detection|Visible Surface Detection]]: working out which objects are in front, so hidden ones aren't drawn.
+1. [[computer-graphics/01-graphics-systems-and-display-hardware|Graphics Systems and Display Hardware]]: what graphics is for, how a screen draws a picture line by line, and how much memory a picture needs.
+2. [[computer-graphics/02-line-drawing-and-antialiasing|Line Drawing and Antialiasing]]: how a computer draws a straight line out of square pixels, and how to make it look less jagged.
+3. [[computer-graphics/03-circles-and-polygon-filling|Circles and Polygon Filling]]: drawing circles and ellipses, and colouring in the inside of a shape.
+4. [[computer-graphics/04-clipping|Clipping]]: cutting off the parts of a drawing that fall outside the window you're looking through.
+5. [[computer-graphics/05-2d-and-3d-transformations|2D and 3D Transformations]]: moving, turning and resizing shapes with matrices.
+6. [[computer-graphics/06-curves-bezier-and-b-splines|Curves: Bézier and B-splines]]: drawing smooth curves, like the pen tool in a design app, from a few control points.
+7. [[computer-graphics/07-visible-surface-detection|Visible Surface Detection]]: working out which objects are in front, so hidden ones aren't drawn.
 
 ### Part 2: How modern 3D pictures are made
 
-02 to 06 build on each other, so read them in order. 07 stands on its own. 08 and 09 are about shapes and movement.
+09 to 13 build on each other, so read them in order. 14 stands on its own. 15 and 16 are about shapes and movement.
 
-1. [[computer-graphics/01-how-rendering-works|How Rendering Works]]: the two ways to turn a 3D scene into a flat picture, and the one equation both are trying to solve.
-2. [[computer-graphics/02-the-transform-pipeline|The Transform Pipeline]]: the steps that carry a 3D object from where it sits in the world to a spot on your screen.
-3. [[computer-graphics/03-rasterisation|Rasterisation]]: how a graphics card fills in triangles pixel by pixel, and keeps track of what's in front.
-4. [[computer-graphics/04-shading-and-lighting|Shading and Lighting]]: how light and materials decide each pixel's colour, so metal looks like metal and wood like wood.
-5. [[computer-graphics/05-textures-and-sampling|Textures and Sampling]]: wrapping images around 3D shapes, and keeping them sharp but not shimmering.
-6. [[computer-graphics/06-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]]: how a graphics card is programmed, and which tools to learn it with.
-7. [[computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]]: following rays of light around a scene, the way films get realistic lighting.
-8. [[computer-graphics/08-geometry-and-meshes|Geometry and Meshes]]: how 3D shapes are stored as many small triangles, and other ways to describe them.
-9. [[computer-graphics/09-animation-and-simulation|Animation and Simulation]]: making things move: turning smoothly, bending characters, and simple physics.
+8. [[computer-graphics/08-how-rendering-works|How Rendering Works]]: the two ways to turn a 3D scene into a flat picture, and the one equation both are trying to solve.
+9. [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]]: the steps that carry a 3D object from where it sits in the world to a spot on your screen.
+10. [[computer-graphics/10-rasterisation|Rasterisation]]: how a graphics card fills in triangles pixel by pixel, and keeps track of what's in front.
+11. [[computer-graphics/11-shading-and-lighting|Shading and Lighting]]: how light and materials decide each pixel's colour, so metal looks like metal and wood like wood.
+12. [[computer-graphics/12-textures-and-sampling|Textures and Sampling]]: wrapping images around 3D shapes, and keeping them sharp but not shimmering.
+13. [[computer-graphics/13-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]]: how a graphics card is programmed, and which tools to learn it with.
+14. [[computer-graphics/14-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]]: following rays of light around a scene, the way films get realistic lighting.
+15. [[computer-graphics/15-geometry-and-meshes|Geometry and Meshes]]: how 3D shapes are stored as many small triangles, and other ways to describe them.
+16. [[computer-graphics/16-animation-and-simulation|Animation and Simulation]]: making things move: turning smoothly, bending characters, and simple physics.
 
 ### Exam support (SSG 511)
 
@@ -64,25 +64,25 @@ Read 12 → 13 → 14 in order. After that, 15 to 18 can be read in any order.
 
 ## Practice
 
-- [[computer-graphics/10-practice-exercises|Practice Exercises]]: twelve exercises, from colouring a shape by hand to writing a small program that draws a picture.
-- [[computer-graphics/11-practice-exercises-solutions|Solutions]]: worked answers. Try first.
-- [[computer-graphics/19-ssg-511-question-bank|SSG 511 Question Bank]]: Part 1's practice. Notes 13, 15 and 17 have small programs to check your answers.
+- [[computer-graphics/17-practice-exercises|Practice Exercises]]: twelve exercises, from colouring a shape by hand to writing a small program that draws a picture.
+- [[computer-graphics/18-practice-exercises-solutions|Solutions]]: worked answers. Try first.
+- [[computer-graphics/19-ssg-511-question-bank|SSG 511 Question Bank]]: Part 1's practice. Notes 02, 04 and 06 have small programs to check your answers.
 - [[build-your-own-shit/22-your-own-ray-tracer|Build your own ray tracer]]: a step-by-step project. You write a program that draws a 3D scene with realistic light, from scratch.
 
 ## Key ideas to remember
 
 Once you've read the notes, these are the points worth keeping. Each links to where it's explained.
 
-1. **Drawing a line is a choice between two pixels at every step:** which one is closer to the true line? A computer answers that using only whole numbers, which is fast. → [[computer-graphics/13-line-drawing-and-antialiasing|13]]
-2. **Always step along the longer direction of a line,** or it comes out with gaps. → [[computer-graphics/13-line-drawing-and-antialiasing|13]]
-3. **In clipping, a "maybe" isn't a "yes".** When a line's codes don't rule it out, you still have to cut it and check again. → [[computer-graphics/15-clipping|15]]
-4. **Moving a shape can't be done by multiplying with a 2 × 2 grid.** That's why graphics adds an extra coordinate, so moving, turning and resizing all become one multiplication. → [[computer-graphics/16-2d-and-3d-transformations|16]]
-5. **A smooth curve can be split in half at any point** using a simple averaging trick, which is how computers draw curves. → [[computer-graphics/17-curves-bezier-and-b-splines|17]]
-6. **There are two ways to draw a 3D scene.** Fill in triangles one at a time (fast; used by games), or follow rays of light (slow but realistic; used by films). → [[computer-graphics/01-how-rendering-works|01]]
-7. **The depth buffer won because it needs no sorting.** Each pixel remembers how far away its colour came from, and a nearer object simply replaces it. → [[computer-graphics/03-rasterisation|03]]
-8. **Do lighting maths before converting colours for the screen,** or the picture comes out too dark with washed-out highlights. → [[computer-graphics/04-shading-and-lighting|04]]
-9. **To find out what's slowing a game down, lower the resolution.** If it doesn't get faster, the graphics card isn't the problem. → [[computer-graphics/06-the-gpu-graphics-pipeline|06]]
-10. **Move physics forward in fixed steps,** not "however long the last frame took", or the simulation behaves differently on fast and slow machines. → [[computer-graphics/09-animation-and-simulation|09]]
+1. **Drawing a line is a choice between two pixels at every step:** which one is closer to the true line? A computer answers that using only whole numbers, which is fast. → [[computer-graphics/02-line-drawing-and-antialiasing|02]]
+2. **Always step along the longer direction of a line,** or it comes out with gaps. → [[computer-graphics/02-line-drawing-and-antialiasing|02]]
+3. **In clipping, a "maybe" isn't a "yes".** When a line's codes don't rule it out, you still have to cut it and check again. → [[computer-graphics/04-clipping|04]]
+4. **Moving a shape can't be done by multiplying with a 2 × 2 grid.** That's why graphics adds an extra coordinate, so moving, turning and resizing all become one multiplication. → [[computer-graphics/05-2d-and-3d-transformations|05]]
+5. **A smooth curve can be split in half at any point** using a simple averaging trick, which is how computers draw curves. → [[computer-graphics/06-curves-bezier-and-b-splines|06]]
+6. **There are two ways to draw a 3D scene.** Fill in triangles one at a time (fast; used by games), or follow rays of light (slow but realistic; used by films). → [[computer-graphics/08-how-rendering-works|08]]
+7. **The depth buffer won because it needs no sorting.** Each pixel remembers how far away its colour came from, and a nearer object simply replaces it. → [[computer-graphics/10-rasterisation|10]]
+8. **Do lighting maths before converting colours for the screen,** or the picture comes out too dark with washed-out highlights. → [[computer-graphics/11-shading-and-lighting|11]]
+9. **To find out what's slowing a game down, lower the resolution.** If it doesn't get faster, the graphics card isn't the problem. → [[computer-graphics/13-the-gpu-graphics-pipeline|13]]
+10. **Move physics forward in fixed steps,** not "however long the last frame took", or the simulation behaves differently on fast and slow machines. → [[computer-graphics/16-animation-and-simulation|16]]
 
 ## Where to go next
 
@@ -102,6 +102,5 @@ Once you've read the notes, these are the points worth keeping. Each links to wh
 ## About this course
 
 - **Size:** 21 notes, about 40,000 words, including practice, solutions, a question bank and a formula sheet.
-- **History:** Part 2 (modern rendering, notes 01–11) was written in August 2026. Part 1 (classical drawing, notes 12–21) was added in November 2026 from the SSG 511 course notes.
+- **History:** Part 2 (modern 3D, notes 08–18) was written in August 2026. Part 1 (drawing on the screen, notes 01–07) and the exam notes (19–21) were added in November 2026 from the SSG 511 course notes, and the notes were renumbered so the beginner part comes first.
 - **Not covered yet:** colour science in depth, smoke and fog, light passing through skin, generating content procedurally, VR and AR, video compression, and drawing text and fonts.
-- **Why the parts are numbered this way:** the files kept the order they were written in, so Part 1's notes are numbered 12–18. Read in the order above, not by number.

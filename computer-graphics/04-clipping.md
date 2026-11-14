@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Removing everything outside the viewing window before it is drawn: point clipping, the three classes of line, Cohen–Sutherland, midpoint subdivision, Cyrus–Beck and Liang–Barsky, and extending them to a 3D frustum and to Bézier curves.
 
-> Part 1 of the course. The 3D, clip-space version of this lives in [[computer-graphics/02-the-transform-pipeline|note 02]] ("Clip space and NDC") — this note is where the algorithms behind it are worked by hand.
+> Part 1 of the course. The 3D, clip-space version of this lives in [[computer-graphics/09-the-transform-pipeline|note 09]] ("Clip space and NDC") — this note is where the algorithms behind it are worked by hand.
 
 ## Before you start
 
@@ -229,11 +229,11 @@ $t_E = 1/3 < t_L = 1/2$: accept. $P(1/3) = (2, 5.33)$, $P(1/2) = (3, 6)$ — **t
 3. Otherwise pick an outside end point and a plane named by one of its 1 bits, and intersect. With $P(t) = P_0 + t(P_1 - P_0)$ and a plane such as $x = xw$: $t = (xw - x_0)/(x_1 - x_0)$, then $y$ and $z$ follow from the same $t$.
 4. Replace the end point, recompute its code, repeat.
 
-**It is much simpler after the perspective transformation.** In the canonical view volume the planes become $x = \pm1$, $y = \pm1$, $z = \pm1$; in homogeneous clip coordinates the test is $-w \le x, y, z \le w$ — exactly what GPUs do → [[computer-graphics/02-the-transform-pipeline|note 02]]. **Cyrus–Beck with six planes also works, because the frustum is convex.**
+**It is much simpler after the perspective transformation.** In the canonical view volume the planes become $x = \pm1$, $y = \pm1$, $z = \pm1$; in homogeneous clip coordinates the test is $-w \le x, y, z \le w$ — exactly what GPUs do → [[computer-graphics/09-the-transform-pipeline|note 09]]. **Cyrus–Beck with six planes also works, because the frustum is convex.**
 
 ## 8. Clipping a Bézier curve against a rectangle
 
-**Use the convex-hull property** (the curve always lies inside the hull of its control points) **and de Casteljau splitting** → [[computer-graphics/17-curves-bezier-and-b-splines|note 17]]:
+**Use the convex-hull property** (the curve always lies inside the hull of its control points) **and de Casteljau splitting** → [[computer-graphics/06-curves-bezier-and-b-splines|note 06]]:
 
 1. If the control points' bounding box is entirely inside the window, draw the whole curve.
 2. If it is entirely outside, discard the curve.
@@ -295,9 +295,9 @@ print(liang_barsky(1, 5, 4, 1, 4, 4, 10, 8))    # None
 
 ## Before moving on
 
-**Next:** [[computer-graphics/16-2d-and-3d-transformations|2D and 3D Transformations]].
+**Next:** [[computer-graphics/05-2d-and-3d-transformations|2D and 3D Transformations]].
 
 ## Related
-- [[computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — clipping in homogeneous clip space
-- [[computer-graphics/17-curves-bezier-and-b-splines|Curves]] — the de Casteljau split used above
+- [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]] — clipping in homogeneous clip space
+- [[computer-graphics/06-curves-bezier-and-b-splines|Curves]] — the de Casteljau split used above
 - [[computer-graphics/index|Computer graphics map]]

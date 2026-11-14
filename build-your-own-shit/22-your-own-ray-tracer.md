@@ -12,12 +12,12 @@
 
 ## What you need first
 
-- **What rendering is, and the two families of approach** → [[computer-graphics/01-how-rendering-works|how rendering works]]
-- **Ray tracing and path tracing specifically** → [[computer-graphics/07-ray-tracing-and-path-tracing|ray tracing and path tracing]]
+- **What rendering is, and the two families of approach** → [[computer-graphics/08-how-rendering-works|how rendering works]]
+- **Ray tracing and path tracing specifically** → [[computer-graphics/14-ray-tracing-and-path-tracing|ray tracing and path tracing]]
 - **Vectors, dot and cross products** — the dot product is in almost every line of this project → [[mathematics/04-linear-algebra/02-vectors/01-vectors|vectors]]
 - **Lines in 3D, and solving a quadratic** → [[mathematics/03-geometry-trigonometry/07-analytic-geometry-3d/01-lines-and-planes|lines and planes]]
 - **Expectation and sampling**, because a path tracer is a Monte Carlo integrator → [[mathematics/05-probability-statistics/03-probability/01-probability|probability]]
-- Helpful: [[computer-graphics/04-shading-and-lighting|shading and lighting]] for the physical model
+- Helpful: [[computer-graphics/11-shading-and-lighting|shading and lighting]] for the physical model
 
 **C++ and Rust are the usual choices** and the speed matters more here than in most guides — a scene is millions of rays. **Go is comfortable.** **Python is educational but painfully slow** unless you vectorise with NumPy, which changes the shape of the code considerably.
 
@@ -107,11 +107,11 @@ Rendering is embarrassingly parallel — one thread per row of pixels, with **it
 
 **Not worth it here:** spectral rendering, subsurface scattering, bidirectional path tracing, Metropolis light transport, or a GPU port. Each is a real technique and each is a separate project — and the GPU port in particular teaches you about GPUs, not about light → [[gpu-and-parallel-computing/index|GPU and parallel computing]].
 
-**You will have learned** why offline rendering and real-time rendering are different disciplines rather than different budgets, why noise is the fundamental currency, and what a rendering equation is an equation *about*. **The [[computer-graphics/03-rasterisation|rasterisation]] note will read completely differently afterwards** — as the other answer to the same question, arrived at from the opposite direction.
+**You will have learned** why offline rendering and real-time rendering are different disciplines rather than different budgets, why noise is the fundamental currency, and what a rendering equation is an equation *about*. **The [[computer-graphics/10-rasterisation|rasterisation]] note will read completely differently afterwards** — as the other answer to the same question, arrived at from the opposite direction.
 
 ## Related
 
-- [[computer-graphics/07-ray-tracing-and-path-tracing|Ray tracing and path tracing]] — the reference note for this guide
+- [[computer-graphics/14-ray-tracing-and-path-tracing|Ray tracing and path tracing]] — the reference note for this guide
 - [[computer-graphics/index|computer-graphics/]] — the full course
 - [[build-your-own-shit/12-your-own-physics-engine|Your Own Physics Engine]] — the other half of a renderer's world, and the same vector maths
 - [[game-development/03-graphics-for-games|Graphics for games]] — where the real-time constraint changes every answer
