@@ -215,6 +215,7 @@
   "MCP": "Model Context Protocol, an open standard for connecting models to tools and data sources",
   "MD5": "Message Digest 5 (a broken hash)",
   "MDC": "mapped diagnostic context, per-thread values added to every Java log line",
+  "MDN": "MDN Web Docs (originally Mozilla Developer Network), the standard free reference for HTML, CSS and JavaScript",
   "MFA": "multi-factor authentication",
   "MILP": "mixed-integer linear program, a linear program in which some variables must be whole numbers",
   "MIP": "mixed-integer program, usually the same as a mixed-integer linear program",

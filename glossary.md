@@ -89,6 +89,7 @@ everywhere at once.
 | **LRU** | least recently used |
 | **LTI** | linear time-invariant |
 | **LZ77** | Lempel-Ziv 1977, the sliding-window compression algorithm |
+| **MDN** | MDN Web Docs (originally Mozilla Developer Network), the standard free reference for HTML, CSS and JavaScript |
 | **ML** | machine learning |
 | **MMU** | memory management unit |
 | **MST** | minimum spanning tree |

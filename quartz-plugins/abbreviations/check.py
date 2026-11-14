@@ -23,7 +23,8 @@ LABEL = re.compile(r"[A-Z]\d")
 # Language and standard names that look like acronyms but are names, not abbreviations.
 NOT_ACRONYMS = {"ID", "C11", "C17", "C23", "C99", "ASP", "NET", "OK", "II", "NVIDIA",
                 "NOT", "ONLY", "ALL", "NO", "AND", "OR", "WILL", "MUST",  # emphasis, not acronyms
-                "PWNED"}  # slang: the word attackers make a hijacked system say
+                "PWNED",  # slang: the word attackers make a hijacked system say
+                "F12", "VS"}  # a keyboard key, and the "VS" in the product name "VS Code"
 
 
 def lessons_from_courses() -> list[pathlib.Path]:
