@@ -7,7 +7,10 @@
  *   - the end-of-note card: "Mark as done", previous/next in folder order, and "back to";
  *   - on folder index pages: a progress bar and a "Start" / "Continue" button;
  *   - on the home page: a dashboard of subjects as coloured cards with progress;
- *   - on every other page: a floating "Subjects" button that opens a quick-jump sheet.
+ *   - on every other page: a floating "Subjects" button that opens a quick-jump sheet;
+ *   - flashcards: every "Answer" toggle becomes a card. Each note and folder gets a deck,
+ *     written by the StudyDecks emitter (bottom of this file) to static/decks/ and
+ *     static/cards/, and a "Practise" button that opens it.
  *
  * Progress itself lives in the browser (localStorage) and is drawn by
  * components/scripts/interactive-learning.inline.ts, which reads the data-*
@@ -20,7 +23,10 @@ import fs from "fs"
 import path from "path"
 import { visit, SKIP } from "unist-util-visit"
 import type { Root, Element, ElementContent } from "hast"
-import { QuartzTransformerPlugin } from "../types"
+import { find, html as htmlSchema, svg as svgSchema } from "property-information"
+import { QuartzEmitterPlugin, QuartzTransformerPlugin } from "../types"
+import { ProcessedContent } from "../vfile"
+import { write } from "../emitters/helpers"
 import { BuildCtx } from "../../util/ctx"
 import { FullSlug, resolveRelative } from "../../util/path"
 
@@ -102,12 +108,14 @@ interface NoteInfo {
   node: string // slug without a trailing "/index"; "" for the home page
   title: string
   explicitTitle: boolean
+  hasAnswers: boolean // the raw markdown has an "Answer" toggle, so it will have cards
 }
 interface Tree {
   notes: Map<string, NoteInfo> // by node
   bySlug: Map<string, NoteInfo>
   children: Map<string, string[]> // node → ordered child nodes
   totals: Map<string, number> // node → number of notes under it
+  withCards: Set<string> // nodes with at least one card in them or below them
 }
 
 let cache: { key: unknown; tree: Tree } | undefined
@@ -137,13 +145,20 @@ function prettyStem(stem: string): string {
 }
 
 /** Title from the raw markdown: frontmatter `title`, else the first `# H1` outside code, else the filename. */
-function readTitle(file: string, fallback: string): { title: string; explicit: boolean } {
+const ANSWER_SUMMARY = /<summary>\s*Answers?\b/i
+
+function readNote(file: string, fallback: string): { title: string; explicit: boolean; hasAnswers: boolean } {
   let text = ""
   try {
-    text = fs.readFileSync(file, "utf8").slice(0, 20000)
+    text = fs.readFileSync(file, "utf8")
   } catch {
-    return { title: fallback, explicit: false }
+    return { title: fallback, explicit: false, hasAnswers: false }
   }
+  return { ...readTitle(text, fallback), hasAnswers: ANSWER_SUMMARY.test(text) }
+}
+
+function readTitle(full: string, fallback: string): { title: string; explicit: boolean } {
+  const text = full.slice(0, 20000)
   const fm = text.match(/^---\r?\n([\s\S]*?)\r?\n---/)
   if (fm) {
     const t = fm[1].match(/^title:\s*(.+?)\s*$/m)
@@ -172,15 +187,22 @@ function buildTree(ctx: BuildCtx): Tree {
     const node = nodeOf(slug)
     const stem = path.basename(fp, ".md")
     const fallback = prettyStem(stem === "index" ? path.basename(path.dirname(fp)) : stem)
-    const { title, explicit } = readTitle(path.join(ctx.argv.directory, fp), fallback)
-    const info = { slug, node, title, explicitTitle: explicit }
+    const { title, explicit, hasAnswers } = readNote(path.join(ctx.argv.directory, fp), fallback)
+    const info = { slug, node, title, explicitTitle: explicit, hasAnswers }
     notes.set(node, info)
     bySlug.set(slug, info)
   })
 
   const children = new Map<string, string[]>()
   const totals = new Map<string, number>()
-  for (const node of notes.keys()) {
+  const withCards = new Set<string>()
+  for (const [node, info] of notes) {
+    if (info.hasAnswers) {
+      for (let p = node; ; p = parentOf(p)) {
+        withCards.add(p)
+        if (p === "") break
+      }
+    }
     if (node === "") continue
     // count this note toward every folder above it
     let p = parentOf(node)
@@ -202,12 +224,167 @@ function buildTree(ctx: BuildCtx): Tree {
       return na - nb || sa.localeCompare(sb)
     })
   }
-  return { notes, bySlug, children, totals }
+  return { notes, bySlug, children, totals, withCards }
 }
 
 function getTree(ctx: BuildCtx): Tree {
   if (!cache || cache.key !== ctx.allSlugs) cache = { key: ctx.allSlugs, tree: buildTree(ctx) }
   return cache.tree
+}
+
+// ── Flashcards: turning "Answer" toggles into cards ──────────────────────────
+// Notes write checks in three ways, and all three become cards:
+//   1. a question paragraph, then <details><summary>Answer</summary>…</details>;
+//   2. a list item holding the question and its own <details>;
+//   3. a numbered list of questions, then one <details><summary>Answers</summary> holding a
+//      numbered list of answers. Question 1 pairs with answer 1, and so on.
+export interface StudyCard {
+  id: string // stable while the question text and the note stay the same
+  q: string // question, as HTML
+  a: string // answer, as HTML
+  s: string // the note's path from the site root ("databases/03-b-trees", "databases/")
+  t: string // the note's title
+}
+
+declare module "vfile" {
+  interface DataMap {
+    studyCards: StudyCard[]
+  }
+}
+
+const isEl = (n: unknown): n is Element => (n as Element)?.type === "element"
+const isBlank = (n: ElementContent) => n.type === "text" && n.value.trim() === ""
+const STOP_TAGS = new Set(["h1", "h2", "h3", "h4", "h5", "h6", "hr", "details"])
+
+function textOf(n: ElementContent | Root): string {
+  if (n.type === "text") return n.value
+  if (n.type === "element" || n.type === "root") return (n.children as ElementContent[]).map(textOf).join("")
+  return ""
+}
+
+/** FNV-1a, 32-bit, as base 36: short and stable. */
+function hash(s: string): string {
+  let x = 0x811c9dc5
+  for (let i = 0; i < s.length; i++) {
+    x ^= s.charCodeAt(i)
+    x = Math.imul(x, 0x01000193)
+  }
+  return (x >>> 0).toString(36)
+}
+
+const VOID = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"])
+const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+
+/** hast → HTML string, for the deck files. */
+function toHtml(nodes: ElementContent[], inSvg = false): string {
+  let out = ""
+  for (const n of nodes) {
+    if (n.type === "text") out += esc(n.value)
+    else if (n.type === "element") {
+      const svg = inSvg || n.tagName === "svg"
+      let attrs = ""
+      for (const [k, v] of Object.entries(n.properties ?? {})) {
+        if (v === null || v === undefined || v === false) continue
+        if (k === "id") continue // heading ids would clash with the page the deck opens on
+        const info = find(svg ? svgSchema : htmlSchema, k)
+        if (v === true) {
+          attrs += ` ${info.attribute}`
+          continue
+        }
+        const val = Array.isArray(v) ? v.join(info.commaSeparated ? "," : " ") : String(v)
+        attrs += ` ${info.attribute}="${esc(val).replace(/"/g, "&quot;")}"`
+      }
+      out += `<${n.tagName}${attrs}>`
+      if (VOID.has(n.tagName)) continue
+      out += toHtml(n.children as ElementContent[], svg && n.tagName !== "foreignObject")
+      out += `</${n.tagName}>`
+    } else if ((n as { type: string }).type === "raw") out += (n as unknown as { value: string }).value
+  }
+  return out
+}
+
+function answerSummary(d: Element): string | null {
+  const summary = d.children.find((c) => isEl(c) && c.tagName === "summary")
+  if (!summary) return null
+  const text = textOf(summary as Element).trim()
+  return /^answers?\b/i.test(text) ? text : null
+}
+
+const listItems = (ol: Element) => ol.children.filter((c): c is Element => isEl(c) && c.tagName === "li")
+
+function rateRow(id: string): Element {
+  return h(
+    "div",
+    { className: ["su-rate"], dataSuCard: id },
+    h("button", { type: "button", className: ["su-rate-btn", "again"], dataRate: "again" }, "↺ Again"),
+    h("button", { type: "button", className: ["su-rate-btn", "good"], dataRate: "good" }, "✓ Got it"),
+  )
+}
+
+/**
+ * Finds the cards in one page, marks each answer with data-su-card (so the page and
+ * the deck agree on ids) and adds "Again / Got it" buttons under each answer.
+ */
+function extractCards(root: Root, me: NoteInfo): StudyCard[] {
+  const cards: StudyCard[] = []
+  const seen = new Map<string, number>()
+  const s = me.slug === "index" ? "" : me.slug.replace(/\/index$/, "/")
+  const add = (q: ElementContent[], a: ElementContent[], mark: Element) => {
+    const qText = q.map(textOf).join(" ").replace(/\s+/g, " ").trim()
+    if (qText.length < 3 || a.every(isBlank)) return
+    let id = hash(me.node + "|" + qText)
+    const n = seen.get(id) ?? 0 // the same question twice on one page
+    seen.set(id, n + 1)
+    if (n) id += "-" + n
+    cards.push({ id, q: toHtml(q), a: toHtml(a), s, t: me.title })
+    mark.properties = { ...mark.properties, dataSuCard: id }
+    mark.children.push(rateRow(id))
+  }
+
+  const walk = (parent: Element | Root) => {
+    const kids = parent.children as ElementContent[]
+    for (let i = 0; i < kids.length; i++) {
+      const d = kids[i]
+      if (!isEl(d)) continue
+      if (d.tagName !== "details") {
+        walk(d)
+        continue
+      }
+      const summaryText = answerSummary(d)
+      if (summaryText === null) continue
+      const body = d.children.filter((c) => !(isEl(c) && c.tagName === "summary") && !isBlank(c))
+      const innerOl = body.length === 1 && isEl(body[0]) && body[0].tagName === "ol" ? body[0] : null
+
+      // previous element siblings, nearest first, up to a heading or another answer
+      const before: Element[] = []
+      for (let j = i - 1; j >= 0 && before.length < 4; j--) {
+        const c = kids[j]
+        if (!isEl(c)) continue
+        if (STOP_TAGS.has(c.tagName)) break
+        before.push(c)
+      }
+
+      // pattern 3: numbered questions, numbered answers
+      if (innerOl) {
+        const answers = listItems(innerOl)
+        const qs = before.find((c) => c.tagName === "ol" && listItems(c).length === answers.length)
+        if (qs) {
+          const questions = listItems(qs)
+          answers.forEach((li, k) => add(questions[k].children, [...li.children], li))
+          continue
+        }
+      }
+      // pattern 2: the question and its answer share a list item
+      if (isEl(parent) && parent.tagName === "li") {
+        add(kids.slice(0, i).filter((c) => !isBlank(c)), body, d)
+        continue
+      }
+      // pattern 1: the question is the paragraph (or list) just before
+      if (before[0]) add([before[0]], body, d)
+    }
+  }
+  walk(root)
+  return cards
 }
 
 // ── Pieces of UI ─────────────────────────────────────────────────────────────
@@ -241,7 +418,7 @@ function pagerCard(tree: Tree, from: FullSlug, node: string | undefined, dir: "p
   )
 }
 
-function lessonEnd(tree: Tree, me: NoteInfo): Element {
+function lessonEnd(tree: Tree, me: NoteInfo, cardCount: number, hasHero: boolean): Element {
   const sibs = siblingsOf(tree, me.node)
   const i = sibs.indexOf(me.node)
   const prev = i > 0 ? sibs[i - 1] : undefined
@@ -269,6 +446,7 @@ function lessonEnd(tree: Tree, me: NoteInfo): Element {
   return h(
     "section",
     { className: ["su-lesson-end"], dataSlug: me.slug },
+    cardCount && !hasHero ? practiceButton(me.node, me.title, cardCount) : null,
     h(
       "button",
       { className: ["su-done-btn"], type: "button", dataSlug: me.slug },
@@ -288,6 +466,21 @@ function lessonEnd(tree: Tree, me: NoteInfo): Element {
           `↑ Back to ${parentInfo.title}`,
         )
       : null,
+  )
+}
+
+/** "Practice" opens the deck for `node`. The script fills in the counts once the deck has loaded. */
+function practiceButton(node: string, title: string, count?: number): Element {
+  return h(
+    "div",
+    { className: ["su-practice"] },
+    h(
+      "button",
+      { className: ["su-btn", "su-btn-cards", "su-practice-btn"], type: "button", dataDeck: node, dataTitle: title },
+      h("span", { ariaHidden: "true" }, "🃏"),
+      h("span", { className: ["su-practice-label"] }, count ? `Practise ${count} card${count === 1 ? "" : "s"}` : "Practise cards"),
+    ),
+    h("span", { className: ["su-practice-meta"] }),
   )
 }
 
@@ -315,6 +508,7 @@ function folderHero(tree: Tree, me: NoteInfo): Element | null {
       h("span", { className: ["su-continue-label"] }, "Start here"),
       h("span", { className: ["su-continue-title"] }, order[0][2]),
     ),
+    tree.withCards.has(me.node) ? practiceButton(me.node, me.title) : null,
   )
 }
 
@@ -378,6 +572,12 @@ function homeDashboard(tree: Tree, me: NoteInfo): Element {
               "Open SWE 101",
             )
           : null,
+      ),
+      h(
+        "button",
+        { className: ["su-btn", "su-btn-cards", "su-review-btn"], type: "button", hidden: true },
+        h("span", { ariaHidden: "true" }, "🃏"),
+        h("span", { className: ["su-practice-label"] }, "Review due cards"),
       ),
       progressBar("", total, "su-progress-hero"),
     ),
@@ -491,11 +691,72 @@ export const StudyNav: QuartzTransformerPlugin = () => {
             tree.children.unshift(homeDashboard(notes, me))
             return
           }
+          const cards = me.hasAnswers ? extractCards(tree, me) : []
+          file.data.studyCards = cards
           const hero = folderHero(notes, me)
           if (hero) tree.children.unshift(hero)
-          tree.children.push(lessonEnd(notes, me), launcher(notes, me))
+          tree.children.push(lessonEnd(notes, me, cards.length, !!hero), launcher(notes, me))
         },
       ]
     },
   }
 }
+
+// ── The deck files ───────────────────────────────────────────────────────────
+// Two kinds, so a page only downloads what it shows:
+//   static/cards/<note>.json  the note's own cards, with their HTML: { title, cards }
+//   static/decks/<node>.json  every card id in a note or folder, in reading order, and the
+//                             note each lives in: { title, notes: [note, …], cards: [[id, i], …] }
+//                             where i points into notes (each path is written once, not per card)
+// A folder page loads its deck (ids only, small even for 2,000 cards) to show counts, and a
+// practice session then loads just the notes its 20 cards come from.
+async function* writeDecks(ctx: BuildCtx, content: ProcessedContent[]) {
+  const tree = getTree(ctx)
+  const own = new Map<string, StudyCard[]>()
+  for (const [, file] of content) {
+    const info = file.data.slug ? tree.bySlug.get(file.data.slug) : undefined
+    if (info && file.data.studyCards?.length) own.set(info.node, file.data.studyCards)
+  }
+  for (const [node, cards] of own) {
+    if (node === "") continue
+    yield write({
+      ctx,
+      slug: `static/cards/${node}` as FullSlug,
+      ext: ".json",
+      content: JSON.stringify({ title: tree.notes.get(node)?.title ?? node, cards }),
+    })
+  }
+
+  const decks = new Map<string, [string, string][]>()
+  const deckOf = (node: string): [string, string][] => {
+    let d = decks.get(node)
+    if (!d) {
+      const mine = (own.get(node) ?? []).map((c): [string, string] => [c.id, node])
+      d = [...mine, ...(tree.children.get(node) ?? []).flatMap(deckOf)]
+      decks.set(node, d)
+    }
+    return d
+  }
+  deckOf("")
+  for (const [node, entries] of decks) {
+    if (node === "" || entries.length === 0) continue
+    const notes: string[] = []
+    const index = new Map<string, number>()
+    const cards = entries.map(([id, note]) => {
+      if (!index.has(note)) index.set(note, notes.push(note) - 1)
+      return [id, index.get(note)!]
+    })
+    yield write({
+      ctx,
+      slug: `static/decks/${node}` as FullSlug,
+      ext: ".json",
+      content: JSON.stringify({ title: tree.notes.get(node)?.title ?? node, notes, cards }),
+    })
+  }
+}
+
+export const StudyDecks: QuartzEmitterPlugin = () => ({
+  name: "StudyDecks",
+  emit: (ctx, content) => writeDecks(ctx, content),
+  partialEmit: (ctx, content) => writeDecks(ctx, content),
+})

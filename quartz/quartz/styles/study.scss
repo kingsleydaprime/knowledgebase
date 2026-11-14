@@ -83,6 +83,7 @@ h1.article-title {
 
 // Generic button
 .su-btn {
+  font-family: inherit; // <button>s don't inherit the page font by default
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -779,6 +780,415 @@ article details {
       padding: 0 1rem;
       animation: su-fade 0.2s ease;
     }
+  }
+}
+
+// ── Flashcards ───────────────────────────────────────────────────────────────
+// The Practice button (folder pages, end of notes, home) and the practice screen.
+// Warm amber marks cards, so they stand apart from blue navigation and green progress.
+:root {
+  --su-card-accent: #f59e0b;
+  --su-good: #059669;
+  --su-again: #e11d48;
+}
+:root[saved-theme="dark"] {
+  --su-card-accent: #fbbf24;
+  --su-good: #34d399;
+  --su-again: #fb7185;
+}
+
+.su-practice {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  margin: 0.9rem 0 0;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.su-btn-cards {
+  background: color-mix(in srgb, var(--su-card-accent) 14%, var(--light));
+  color: var(--dark) !important;
+  border-color: color-mix(in srgb, var(--su-card-accent) 55%, transparent);
+
+  &:hover {
+    background: color-mix(in srgb, var(--su-card-accent) 24%, var(--light));
+    transform: translateY(-1px);
+  }
+
+  // cards waiting for review get a gentle pulse
+  &.has-due {
+    animation: su-due 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes su-due {
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--su-card-accent) 20%, transparent);
+  }
+}
+
+.su-practice-meta {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.su-lesson-end .su-practice {
+  margin: 0 0 1rem;
+}
+
+.su-hero .su-review-btn {
+  margin-top: 0.9rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a !important;
+  border-color: transparent;
+}
+
+// In-note answers: "Again / Got it", and a mark once a card is learned.
+article .su-rate {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin: 0.4rem 0 0.8rem;
+  padding: 0 1rem;
+}
+
+.su-rate-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  background: var(--light);
+  transition: transform 0.12s ease;
+
+  &.again {
+    color: var(--su-again);
+    border: 1px solid color-mix(in srgb, var(--su-again) 45%, transparent);
+  }
+  &.good {
+    color: var(--su-good);
+    border: 1px solid color-mix(in srgb, var(--su-good) 45%, transparent);
+  }
+  &:active {
+    transform: scale(0.94);
+  }
+  &.su-pop {
+    animation: su-pop 0.5s ease;
+  }
+}
+
+article details.su-card-learned > summary::before {
+  content: "✅";
+}
+article details.su-card-due > summary::before {
+  content: "🔁";
+}
+article li.su-card-learned::marker {
+  color: var(--su-good);
+}
+
+// The practice screen
+html.su-practice-open {
+  overflow: hidden;
+}
+
+.su-pr {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(1200px 500px at 0% 0%, color-mix(in srgb, var(--secondary) 16%, transparent), transparent),
+    radial-gradient(900px 500px at 100% 100%, color-mix(in srgb, var(--tertiary) 16%, transparent), transparent),
+    var(--light);
+  animation: su-fade 0.18s ease;
+  overflow-y: auto;
+
+  > * {
+    width: 100%;
+    max-width: 680px;
+  }
+}
+
+.su-pr-top {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr); // minmax(0, …) lets a long title shrink
+  grid-template-rows: auto auto;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+
+.su-pr-close {
+  grid-row: span 2;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--darkgray);
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--highlight);
+  }
+}
+
+.su-pr-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 700;
+  color: var(--darkgray);
+}
+
+.su-pr-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.su-pr-count {
+  flex-shrink: 0;
+  color: var(--gray);
+  font-variant-numeric: tabular-nums;
+}
+
+.su-pr-track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--lightgray);
+  overflow: hidden;
+}
+
+.su-pr-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--su-grad);
+  transition: width 0.3s ease;
+}
+
+.su-pr-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 0;
+  min-height: 0;
+}
+
+.su-pr-card {
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 1.6rem 1.5rem 1.2rem;
+  border-radius: 22px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-top: 6px solid var(--su-card-accent);
+  box-shadow: var(--su-shadow-hover);
+  cursor: pointer;
+  touch-action: pan-y;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    border-color 0.2s ease;
+  outline: none;
+
+  &.su-pr-enter {
+    animation: su-card-in 0.28s cubic-bezier(0.2, 0.8, 0.3, 1.2);
+  }
+  &.is-flipped {
+    cursor: grab;
+    border-top-color: var(--secondary);
+  }
+  &.is-retry {
+    border-top-color: var(--su-again);
+  }
+  &.is-leaning-right {
+    border-color: var(--su-good);
+  }
+  &.is-leaning-left {
+    border-color: var(--su-again);
+  }
+  &.su-pr-out-right {
+    transform: translateX(60%) rotate(8deg);
+    opacity: 0;
+  }
+  &.su-pr-out-left {
+    transform: translateX(-60%) rotate(-8deg);
+    opacity: 0;
+  }
+
+  // content inside the card: keep note styles, but tighter
+  p,
+  li {
+    line-height: 1.6;
+  }
+  > div > :first-child {
+    margin-top: 0;
+  }
+  > div > :last-child {
+    margin-bottom: 0;
+  }
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@keyframes su-card-in {
+  from {
+    transform: translateY(18px) scale(0.97);
+    opacity: 0;
+  }
+}
+
+.su-pr-q {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.su-pr-hint {
+  margin: 1.4rem 0 0.2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.su-pr-a {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 2px dashed color-mix(in srgb, var(--tertiary) 40%, transparent);
+  color: var(--darkgray);
+  animation: su-fade 0.25s ease;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.su-pr-source {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 0.8rem;
+  color: var(--gray) !important;
+  text-decoration: none !important;
+
+  &:hover {
+    color: var(--secondary) !important;
+  }
+}
+
+.su-pr-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+
+  > .su-btn {
+    flex: 1;
+    justify-content: center;
+    max-width: 320px;
+  }
+}
+
+.su-pr-rate {
+  flex: 1;
+  max-width: 260px;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--su-shadow);
+  transition: transform 0.12s ease;
+
+  &.again {
+    background: var(--su-again);
+  }
+  &.good {
+    background: var(--su-good);
+  }
+  &:hover {
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.su-pr-keys {
+  margin: 0.8rem 0 0;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--gray);
+}
+
+.su-pr-loading {
+  color: var(--gray);
+  animation: su-fade 0.4s ease;
+}
+
+.su-pr-done {
+  text-align: center;
+  cursor: default;
+  border-top-color: var(--tertiary);
+}
+
+.su-pr-done-emoji {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.su-pr-done-title {
+  margin: 0.3rem 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--su-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.su-pr-done-stats,
+.su-pr-done-note {
+  margin: 0.3rem 0;
+  color: var(--darkgray);
+}
+
+.su-pr-done-note {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+@media all and ($mobile) {
+  .su-pr {
+    padding: 0.75rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom));
+  }
+  .su-pr-card {
+    padding: 1.3rem 1.1rem 1rem;
+  }
+  .su-pr-q {
+    font-size: 1.05rem;
+  }
+  .su-pr-keys {
+    display: none; // no keyboard on a phone: swipe instead
   }
 }
 

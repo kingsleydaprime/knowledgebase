@@ -497,6 +497,7 @@ export async function loadQuartzConfig(
     builtinPlugins.ComponentResources(),
     builtinPlugins.Assets(),
     builtinPlugins.Static(),
+    builtinPlugins.StudyDecks(), // flashcard decks, from the cards StudyNav found
   ]
   const builtinPageTypes = [builtinPlugins.PageTypes.NotFoundPageType()]
 
