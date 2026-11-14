@@ -1,139 +1,106 @@
 # Data Structures & Algorithms
 
-**How to store data, and how to operate on it without wasting time or memory.** The layer under every backend service, database query and rendering loop you'll ever write — and the one that interviews test directly.
+## What data structures and algorithms are
 
-**~39,900 words across 30 concept notes**, plus **~49,900 words** working all 150 problems in [[dsa/neetcode-150/index|neetcode-150/]]. `[reference]`.
+**A data structure is a way of organising information in a computer so it's easy to use. An algorithm is a step-by-step method for solving a problem.**
 
-> **The one idea:** every data structure is a **bet about which operation you'll do most**, paid for by making the others slower. An array buys O(1) indexing with O(n) insertion. A hash map buys O(1) lookup by destroying order. A heap buys O(1) access to the smallest by giving up on everything else. **There is no structure that is good at everything, and there cannot be one** — so the skill isn't memorising structures, it's recognising which operation your problem does in its inner loop, and picking the bet that makes *that* one cheap.
+Think of a contacts list. You could write names in the order you met people, which makes adding someone easy, but finding "Tunde" means reading the whole list. Or you could keep them in alphabetical order, which makes finding someone fast, but adding someone means squeezing them into the right place. Neither way is best at everything. **Each data structure is good at some jobs and slow at others**, and choosing well is most of the skill.
 
-## What this is actually about
+The method you use to search the list is an **algorithm**. Reading every name one by one works, but for a million names it's slow. Opening the alphabetical list in the middle and halving the search each time finds anyone in about 20 steps. That difference, between a method that takes days and one that takes a fraction of a second, is what this subject is about.
 
-**A data structure is a decision about how to lay out data in memory.** That's it — memory is a flat, addressable line of bytes, and a data structure is a scheme for arranging your data along it, plus the rules for finding things again afterwards. Put elements side by side and you can compute any element's address instantly, but inserting means shifting everything after it. Scatter them and connect them with pointers and insertion is free, but finding the tenth element means walking past nine others. **Those two paragraphs are arrays and linked lists, and everything else in this folder is a more elaborate version of the same tradeoff.**
+You'll rarely build these from scratch at work, because languages provide them. But you'll choose between them every day, and the choice decides whether your code is fast or painfully slow. They're also what most coding interviews test.
 
-**An algorithm is a finite sequence of well-defined steps from input to output.** A recipe qualifies. What makes the subject non-trivial isn't finding *an* algorithm — brute force nearly always exists — it's that the obvious one is often unusably slow, and the gap is much wider than intuition suggests. Checking every pair in a million-element list is a trillion operations, about **11 days**. The right structure often takes the same problem to a fifth of a second. That gap, not elegance, is why this material exists.
+## What you'll be able to do
 
-The two halves are inseparable, which is why they're taught as one subject: **an algorithm's speed is usually determined by the structure it runs on**, not by how cleverly it's written. Dijkstra's algorithm is O(V²) with an array and O(E log V) with a heap — same algorithm, same code shape, different container. Choosing the structure *is* choosing the complexity.
+By the end you will be able to:
+- estimate how a piece of code slows down as its input grows (called **Big-O**);
+- pick the right container for a job: list, dictionary, set, queue, heap and more;
+- explain how trees and graphs store things like folders, maps and social networks;
+- search and sort efficiently, and know why some methods are faster;
+- recognise common problem shapes and the standard technique for each;
+- solve coding interview problems with a clear, repeatable process.
 
-### Why bother, when the library already has these?
+## Where to start
 
-You will almost never implement a hash map professionally. You will constantly **choose** one, and that choice is invisible in the code and decisive in production. Three things this material buys you that reaching for the default doesn't:
+**Need to learn to code first?** Start with [[programming-fundamentals/index|Programming Fundamentals]]; this course assumes you can read a short program.
 
-1. **Knowing which container to reach for**, and what it costs. The dict-versus-list decision is one character of diff and the difference between O(n) and O(n²).
-2. **Reading your own code's performance** before it's in production, rather than after a customer reports a timeout.
-3. **Recognising problem shapes.** "Find pairs summing to a target", "shortest route", "valid dependency order" are all solved problems, and knowing that is the difference between a twenty-minute task and a week of reinvention.
+Read in the order below. **It's not the same as the file numbers in places:** for example stacks and queues are filed after trees and graphs, but they're easier and graphs use them, so read them first.
 
-Interviews test it because it's the one body of knowledge shared across every specialism — and, less charitably, because it's easy to grade. That's a reason to be fluent, not a reason to pretend it's the whole of the job.
+### Step 1: Measuring how fast code is
 
-## Structure
+1. [[dsa/01-loops-and-what-they-cost|Loops and What They Cost]]: counting how many times code repeats, and spotting hidden loops that make code slow.
+2. [[dsa/03-algorithms/01-complexity-analysis/01-growth-and-asymptotic-notation|Growth and Big-O notation]]: the shorthand everyone uses to describe how code slows down as the input grows. Everything after this uses it.
 
-```
-dsa/
-├── 01-loops-and-what-they-cost.md   # the on-ramp: counting iterations
-├── 02-data-structures/
-│   ├── arrays, dynamic-arrays, hash-maps, linked-lists, stacks-and-queues
-│   ├── heaps, tries, union-find
-│   ├── 05-trees/
-│   │   ├── trees, binary-trees, binary-search-trees
-│   │   └── 04-traversal/    — pre/in/post-order, level-order
-│   └── 06-graphs/
-│       ├── what-a-graph-is, paths-cycles-connectivity, subgraphs-trees-forests, representations
-│       ├── 05-traversal/    — DFS, BFS, traversal trees & edge classification
-│       └── 06-algorithms/   — topological sort, Dijkstra, MST, shortest paths, A*
-├── 03-algorithms/
-│   ├── 01-complexity-analysis/  — growth & asymptotics, recurrences, amortised analysis
-│   ├── 02-recursion, 03-divide-and-conquer
-│   ├── 04-sorting/, 05-searching/
-│   ├── 06-dynamic-programming/  — the two properties, state & transition, 1-D and 2-D classics
-│   ├── 10-greedy-algorithms/     — when greedy is safe; selection & scheduling
-│   ├── max-slice-algorithms, leader-algorithm
-│   └── number-theory-basics, bit-manipulation, math-and-geometry
-├── 04-patterns/                     # the 15 LeetCode patterns — a layer above both
-├── neetcode-150/                    # all 150 problems worked, + interview playbook
-└── pdfs/                            # the original Codility course material
-```
+### Step 2: The basic containers
 
-**The rule for where a note goes:** if it's a way of *storing* data, it's under `02-data-structures/`. If it's a *procedure* operating on data, it's under `03-algorithms/` — **unless that procedure belongs to exactly one structure**, in which case it is filed with the structure, in a sub-folder. That is why tree traversal sits under `05-trees/`, and why graph traversal *and* the graph algorithms sit under `06-graphs/`: none of them are readable without the vocabulary of the structure they operate on, and all of them assume it on the first line. Patterns sit above everything, since most combine a structure with a procedure.
+3. [[dsa/02-data-structures/01-arrays|Arrays]]: items stored side by side, so you can jump straight to any position.
+4. [[dsa/02-data-structures/02-dynamic-arrays|Dynamic Arrays]]: arrays that grow when they're full, like Python's list.
+5. [[dsa/02-data-structures/03-hash-maps|Hash Maps]]: finding a value by its name almost instantly, like Python's dictionary.
+6. [[dsa/02-data-structures/04-linked-lists|Linked Lists]]: items chained together, each pointing to the next.
+7. [[dsa/02-data-structures/07-stacks-and-queues|Stacks and Queues]]: last in, first out (a stack of plates) and first in, first out (a queue at the bank).
 
-**Note on numbering:** the folders are numbered in reading order, and there are no gaps.
+### Step 3: Recursion
 
-## Reading order & University Course Approach
+8. [[dsa/03-algorithms/02-recursion/index|Recursion]]: solving a problem by solving smaller copies of it. Trees and many algorithms depend on it.
 
-Every module in this folder is structured like a **University Course Lecture**: starting with **real-world motivation** and everyday physical analogies before moving into formal definitions, step-by-step visual diagrams, annotated code, and self-assessment practice questions.
+### Step 4: Trees
 
-Whether you are an absolute beginner or looking for deep computer science intuition, you can read these modules sequentially from top to bottom.
+9. [[dsa/02-data-structures/05-trees/index|Trees]]: information arranged in branches, like folders on a computer, including the search trees used for fast lookups.
+10. [[dsa/02-data-structures/05-trees/04-traversal/index|Tree Traversal]]: the standard ways to visit every item in a tree.
+11. [[dsa/02-data-structures/08-heaps|Heaps]]: always getting the smallest (or largest) item quickly, as in a priority queue.
+12. [[dsa/02-data-structures/09-tries|Tries]]: trees for words, used for autocomplete.
 
-**Start here — the measuring system**
+### Step 5: Graphs
 
-1. [[01-loops-and-what-they-cost|Loops and What They Cost]] — **[Beginner]** — counting iterations, why nested doesn't always mean O(n²), and **the hidden loops that make one-loop code quadratic**
-2. [[01-complexity-analysis/index|Complexity Analysis]] — **[Beginner → Intermediate]** — a folder: **O, Ω and Θ and why they're not interchangeable**, best/average/worst as a separate axis, space complexity and the call stack, recurrences and the Master Theorem, and **amortised analysis with all three methods** — aggregate, accounting and potential
+13. [[dsa/02-data-structures/06-graphs/index|Graphs]]: things connected to other things, like roads between cities or friends on social media.
+14. [[dsa/02-data-structures/06-graphs/05-traversal/index|Graph Traversal]]: exploring a graph, going deep first (DFS) or wide first (BFS).
+15. [[dsa/02-data-structures/06-graphs/06-algorithms/index|Graph Algorithms]]: shortest routes, putting tasks in a valid order, and connecting everything as cheaply as possible.
+16. [[dsa/02-data-structures/10-union-find|Union-Find]]: quickly tracking which items belong to the same group.
 
-Everything after this is quoted in the vocabulary those two establish, so they genuinely come first.
+### Step 6: Classic algorithms
 
-> **Prerequisite, not part of this course:** what a type actually is at the bit level, and why fixed-size types are what make array indexing O(1), now lives in [[programming-fundamentals/15-how-types-actually-work|how types actually work]]. Those two notes used to sit in this folder — they're type-system material rather than DSA, and they read better alongside the rest of the fundamentals. Worth a detour before [[01-arrays|arrays]] if "the same 32 bits mean different things depending on the type" isn't already obvious.
+17. [[dsa/03-algorithms/05-searching/index|Searching]]: looking through items one by one, and halving the search each time (binary search).
+18. [[dsa/03-algorithms/04-sorting/index|Sorting]]: putting things in order, and why some methods are much faster than others.
+19. [[dsa/03-algorithms/03-divide-and-conquer|Divide and Conquer]]: splitting a problem in half, solving each half, and combining the answers.
+20. [[dsa/03-algorithms/10-greedy-algorithms/index|Greedy Algorithms]]: taking the best-looking choice at each step, and when that's safe.
+21. [[dsa/03-algorithms/06-dynamic-programming/index|Dynamic Programming]]: remembering answers to smaller problems so you never solve the same one twice.
 
-**Data structures**
+### Step 7: Extra techniques (read as needed)
 
-3. [[01-arrays|arrays]] — **[Beginner]** — contiguous memory, O(1) indexing, row-major layout, **and why loop order alone can make a matrix scan several times slower**
-4. [[02-dynamic-arrays|dynamic-arrays]] — **[Beginner]** — resizable arrays, and why doubling is what makes append amortized O(1)
-5. [[03-hash-maps|hash-maps]] — **[Beginner]** — hashing, collisions, chaining vs open addressing, hash sets, **and what a hash map gives up to buy O(1)**
-6. [[04-linked-lists|linked-lists]] — **[Intermediate]** — singly/doubly/circular, the sentinel trick, **and why they lose to arrays in practice despite the Big-O**
-7. [[01-trees|trees]] — **[Intermediate]** — full/complete/perfect/balanced, BSTs, AVL and red-black rotations, **and the B+ trees under every database index**
-   - [[04-traversal/index|traversal]] — **[Intermediate]** — pre/in/post/level-order (companion folder)
-8. [[06-graphs/index|graphs]] — **[Intermediate]** — directed/weighted/cyclic/bipartite, three representations, **and implicit graphs: the ones with no graph object at all**
-   - [[05-traversal/index|traversal]] — **[Intermediate]** — DFS, BFS, and edge classification (companion folder)
-   - [[06-algorithms/index|algorithms]] — **[Advanced]** — topological sort, Dijkstra, MST (companion folder)
-9. [[dsa/02-data-structures/07-stacks-and-queues|stacks-and-queues]] — **[Beginner]** — LIFO/FIFO, the circular buffer trick
-10. [[dsa/02-data-structures/08-heaps|heaps]] — **[Intermediate]** — priority queues, complete-tree-in-an-array, O(n) heapify, the two-heap median trick
-11. [[dsa/02-data-structures/09-tries|tries]] — **[Intermediate]** — prefix trees, O(L) prefix queries a hash map can't do
-12. [[dsa/02-data-structures/10-union-find|union-find]] — **[Advanced]** — disjoint sets, path compression + union by rank → O(α(n))
+- [[dsa/03-algorithms/01-complexity-analysis/02-amortized-analysis|Amortised Analysis]]: why an operation that's occasionally slow can still be fast on average.
+- [[dsa/03-algorithms/07-number-theory-basics|Number Theory Basics]]: prime numbers, and the greatest common divisor (the largest number that divides two others).
+- [[dsa/03-algorithms/08-leader-algorithm|Leader Algorithm]]: finding the item that appears more than half the time.
+- [[dsa/03-algorithms/09-max-slice-algorithms|Max Slice Algorithms]]: finding the stretch of numbers with the biggest total.
+- [[dsa/03-algorithms/11-bit-manipulation|Bit Manipulation]]: tricks that work directly on the 0s and 1s of a number.
+- [[dsa/03-algorithms/12-math-and-geometry|Math and Geometry]]: grid and maths techniques that come up in problems.
 
-**Graph traversal and graph algorithms** — filed with the structure, under `06-graphs/`
+## Practice
 
-13. [[05-traversal/index|graph traversal]] — **[Intermediate]** — a folder: [[01-depth-first-search|DFS]], [[02-breadth-first-search|BFS]], and [[03-traversal-trees-and-edge-classification|what the search leaves behind]] — traversal trees, discovery/finish times, and why a back edge *is* a directed cycle
-14. [[06-algorithms/index|graph algorithms]] — **[Intermediate → Advanced]** — a folder: [[01-topological-sort|topological sort]] (Kahn's and the DFS variant), [[02-dijkstra|Dijkstra]], [[06-minimum-spanning-tree|minimum spanning trees]], and the rest of the shortest-path family
+- **Question banks:** every lesson has a matching `-qb` note: short questions with hidden answers, for testing yourself without looking. Start with [[dsa/01-loops-and-what-they-cost-qb|Loops and What They Cost: question bank]]. The method is explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
+- **Patterns:** [[dsa/04-patterns/index|LeetCode Patterns]] covers 15 techniques that keep coming up in problems, such as two pointers and sliding window. Recognising which one a problem needs is most of the battle. Do these after Step 6.
+- **Problems:** [[dsa/neetcode-150/index|NeetCode 150]] has all 150 problems from a well-known practice list, each worked through and linked to the lesson behind it.
+- **Interviews:** [[dsa/interview/index|DSA interview prep]], and the [[dsa/neetcode-150/interview-playbook|interview playbook]] for a step-by-step process to use in a coding interview.
 
-**General algorithms** — the ones that are not the property of a single structure
+## Key ideas to remember
 
-15. [[04-sorting/index|sorting]] — **[Intermediate]** — a folder: the $\Omega(n\log n)$ lower bound, bubble/insertion/merge/quicksort, stability, Timsort, and the counting/radix/bucket sorts that beat the bound
-16. [[05-searching/index|searching]] — **[Beginner → Intermediate]** — a folder: linear and binary search, binary search on the answer, and state-space search
-17. [[dsa/03-algorithms/07-number-theory-basics|number-theory-basics]] — **[Intermediate]** — primality, Sieve of Eratosthenes, factorization, GCD/LCM
-18. [[dsa/03-algorithms/08-leader-algorithm|leader-algorithm]] — **[Intermediate]** — majority element via Boyer-Moore voting
-19. [[dsa/03-algorithms/09-max-slice-algorithms|max-slice-algorithms]] — **[Intermediate]** — Kadane's algorithm, maximum subarray sum
-20. [[10-greedy-algorithms/index|greedy-algorithms]] — **[Intermediate → Advanced]** — a folder: locally-optimal choices and why they aren't always globally correct, plus the selection-and-scheduling family (hire-K-workers, interval scheduling)
-21. [[11-bit-manipulation|bit-manipulation]] — **[Intermediate]** — bitwise operators, XOR tricks, `x & (x-1)`, masks
-22. [[12-math-and-geometry|math-and-geometry]] — **[Intermediate]** — in-place matrix ops, fast exponentiation, grade-school arithmetic
+1. **Every data structure makes some jobs fast by making others slow.** There's no structure that's best at everything. → [[dsa/02-data-structures/01-arrays|Arrays]]
+2. **Ask which operation your code does most,** then pick the structure that makes that one fast.
+3. **Searching a list is slow; looking up a dictionary is fast.** Swapping one for the other is often the biggest speed-up available. → [[dsa/02-data-structures/03-hash-maps|Hash Maps]]
+4. **A loop inside a loop usually means trouble at scale.** A million items checked against a million items is a trillion steps. → [[dsa/01-loops-and-what-they-cost|Loops and What They Cost]]
+5. **Halving the problem each step is enormously fast.** A million items takes about 20 steps. → [[dsa/03-algorithms/05-searching/index|Searching]]
 
-**Written in response to a real interview**, tracked in [[disgrace-from-interview|the gap-analysis list]]: [[02-amortized-analysis|amortised analysis]] (aggregate, accounting and potential methods), the [[02-recursion/index|recursion folder]] (recursion trees, recurrence relations, the Master Theorem), [[03-divide-and-conquer|divide and conquer]], the [[06-dynamic-programming/index|dynamic programming folder]], [[02-binary-search-on-the-answer|binary search on the answer]], [[03-state-space-search|state-space search]], [[05-a-star|A\*]], [[03-bellman-ford|Bellman–Ford]] and [[04-floyd-warshall|Floyd–Warshall]].
+## Related
 
-Still unwritten and welcome here beyond that: the KMP string match, and segment/Fenwick trees.
-
-## Next layer — LeetCode patterns
-
-With the fundamentals above in place, [[dsa/04-patterns/index|patterns/]] covers the 15 reusable patterns that recur across problems — recognizing which pattern a problem is testing is most of the battle under time pressure. Patterns sit above both `data-structures/` and `algorithms/` because most combine a structure with a procedure (a heap plus a scanning pass for [[07-top-k-elements|top-k-elements]]).
-
-## Putting it to work — NeetCode 150
-
-[[dsa/neetcode-150/index|neetcode-150/]] holds all 150 problems from the [NeetCode 150](https://neetcode.io/practice) list — its README is the index (every problem → the concept note behind it, grouped by topic) with a **signal → tool** cheat-sheet, and each problem is worked in its own file in a flat `questions/` folder numbered 001–150 (**all 150 solved**). Start with the [[dsa/neetcode-150/interview-playbook|interview playbook]] for the meta-skill: the UMPIRE process (reword → clarify → examples → brute-force-then-optimize → code → test), and reading a problem's constraints to guess the intended approach.
-
-## How this folder was built
-
-The `pdfs/` folder holds the original Codility course material these notes were written against. Cross-referencing the notes against those PDFs surfaced five topics with zero coverage, since written: [[dsa/02-data-structures/07-stacks-and-queues|stacks-and-queues]], [[dsa/03-algorithms/07-number-theory-basics|number-theory-basics]], [[dsa/03-algorithms/08-leader-algorithm|leader-algorithm]], [[dsa/03-algorithms/09-max-slice-algorithms|max-slice-algorithms]], and [[01-when-greedy-works|greedy-algorithms]]. The same pass deepened [[04-sorting/index|sorting]] with non-comparison sorts, [[01-growth-and-asymptotic-notation|algorithms]] with the constraint-size heuristic, and [[dsa/04-patterns/09-modified-binary-search|modified-binary-search]] with "binary search on the answer."
-
-Running the same cross-reference against the NeetCode 150 is what surfaced the [[dsa/02-data-structures/08-heaps|heaps]], [[dsa/02-data-structures/09-tries|tries]], [[dsa/02-data-structures/10-union-find|union-find]], [[01-topological-sort|topological-sort]], [[06-minimum-spanning-tree|MST]], [[11-bit-manipulation|bit-manipulation]] and [[12-math-and-geometry|math-and-geometry]] gaps, plus the worked 1-D/2-D recurrences in [[dsa/04-patterns/15-dynamic-programming|dynamic-programming]].
-
-## Question banks
-
-One bank per lesson: micro-questions with the answers hidden behind toggles, for closed-book recall rather than reading. Method explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
-
-- [[01-loops-and-what-they-cost-qb|Loops and What They Cost]]
-- [[02-data-structures/index|Data Structures]] — banks for that folder's lessons
-- [[03-algorithms/index|Algorithms]] — banks for that folder's lessons
-- [[04-patterns/index|LeetCode Patterns]] — banks for that folder's lessons
-- [[interview/index|DSA — Interview Prep]] — banks for that folder's lessons
+- [[programming-fundamentals/index|Programming Fundamentals]]: the course before this one.
+- [[databases/index|Databases]]: where trees, hashing and sorting do real work.
+- [[theory-of-computation/index|Theory of Computation]]: what computers can't do at all, rather than just slowly.
 
 ---
 
-## Related
-- [[programming-fundamentals/index|programming fundamentals]] — the on-ramp, if the code here isn't readable yet
-- [[theory-of-computation/index|theory of computation]] — one level up: what's provably impossible or intractable, rather than merely slow
-- [[databases/index|databases]] — where B+ trees, hashing and sorting do their production work
+## About this course
+
+- **Size:** about 40,000 words across 30 lesson notes, each with a question bank, plus about 50,000 words working through all 150 NeetCode problems.
+- **Where it came from:** written against a Codility course (its material is in `dsa/pdfs/`), then checked against the NeetCode 150 list to fill gaps. Several lessons (amortised analysis, recursion, dynamic programming, A\*, and others) were added after a real interview showed they were missing; see [[disgrace-from-interview|the interview gap list]].
+- **How the files are organised:** ways of storing data are in `02-data-structures/`; methods are in `03-algorithms/`, unless a method belongs to one structure, in which case it's filed with that structure (so graph searching lives under `06-graphs/`).
+- **File numbers vs reading order:** a few files are numbered out of reading order (stacks and queues after trees and graphs). Follow the order on this page.
+- **Not covered yet:** fast text searching (the KMP algorithm), and segment and Fenwick trees.
