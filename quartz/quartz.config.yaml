@@ -27,30 +27,30 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
-      body: Source Sans Pro
-      code: IBM Plex Mono
+      header: Plus Jakarta Sans
+      body: Inter
+      code: JetBrains Mono
     colors:
       lightMode:
-        light: "#fbf9f5"
-        lightgray: "#d9d1c3"
-        gray: "#a89f92"
-        darkgray: "#4d4740"
-        dark: "#22201d"
-        secondary: "#9c4221"
-        tertiary: "#3d7068"
-        highlight: rgba(156, 66, 33, 0.09)
-        textHighlight: "#f5c96b88"
+        light: "#f7f9fc"
+        lightgray: "#dbe2ee"
+        gray: "#667085"
+        darkgray: "#2b3548"
+        dark: "#0f172a"
+        secondary: "#2563eb"
+        tertiary: "#059669"
+        highlight: rgba(37, 99, 235, 0.08)
+        textHighlight: "#fde04788"
       darkMode:
-        light: "#17161a"
-        lightgray: "#4a4653"
-        gray: "#6f6a75"
-        darkgray: "#d6d2cc"
-        dark: "#eceae6"
-        secondary: "#e08a54"
-        tertiary: "#6fb3a5"
-        highlight: rgba(224, 138, 84, 0.12)
-        textHighlight: "#d9a44e66"
+        light: "#0d1321"
+        lightgray: "#2a3550"
+        gray: "#8590a8"
+        darkgray: "#d3dae7"
+        dark: "#f1f5fb"
+        secondary: "#60a5fa"
+        tertiary: "#34d399"
+        highlight: rgba(96, 165, 250, 0.12)
+        textHighlight: "#facc1555"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: false
@@ -121,8 +121,24 @@ plugins:
     order: 92
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    options:
+      header:
+        name: Plus Jakarta Sans
+        weights: [600, 700, 800]
+      title:
+        name: Plus Jakarta Sans
+        weights: [800]
+      body:
+        name: Inter
+        weights: [400, 500, 600, 700]
+        includeItalic: true
+      code:
+        name: JetBrains Mono
+        weights: [400, 600]
+  # Off: it loads Obsidian's default theme (~418 KB of CSS per page) and overrides
+  # the palette above with Obsidian purple. The study UI uses the palette instead.
   - source: "@quartz-themes/core"
-    enabled: true
+    enabled: false
     options:
       theme: default
       mode: both
@@ -249,7 +265,7 @@ plugins:
       priority: 35
       group: toolbar
   - source: "@quartz-community/breadcrumbs"
-    enabled: false
+    enabled: true
     layout:
       position: beforeBody
       priority: 5

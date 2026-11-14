@@ -501,7 +501,13 @@ export async function loadQuartzConfig(
   const builtinPageTypes = [builtinPlugins.PageTypes.NotFoundPageType()]
 
   const plugins: PluginTypes = {
-    transformers: [...builtinTransformers, ...(await instantiate(transformers, "transformer"))],
+    // StudyNav runs last so its prev/next links are added after crawl-links has collected
+    // the note's real links (otherwise every note would "link" to its neighbours in the graph).
+    transformers: [
+      ...builtinTransformers,
+      ...(await instantiate(transformers, "transformer")),
+      builtinPlugins.StudyNav(),
+    ],
     filters: await instantiate(filters, "filter"),
     emitters: [...builtinEmitters, ...(await instantiate(emitters, "emitter"))],
     pageTypes: [...(await instantiate(pageTypes, "pageType")), ...builtinPageTypes],

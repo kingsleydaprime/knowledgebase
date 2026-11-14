@@ -1,4 +1,5 @@
 @use "./variables.scss" as *;
+@use "./study.scss";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Custom styles for kingsleydaprime's knowledge base.
@@ -93,10 +94,9 @@ article {
 // ── Headings ─────────────────────────────────────────────────────────────────
 // Long course notes need clearer section boundaries than the default gives.
 article {
+  // the accent bar on h2 lives in study.scss
   h2 {
     margin-top: 2.4rem;
-    padding-bottom: 0.3rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--lightgray) 60%, transparent);
   }
 
   h3 {
