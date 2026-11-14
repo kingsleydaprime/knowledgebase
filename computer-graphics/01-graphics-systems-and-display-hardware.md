@@ -16,7 +16,12 @@ You need nothing beyond school maths: coordinates, multiplication, and the idea 
 
 ## The kid version
 
-Imagine a huge wall of tiny light bulbs, each one able to glow any colour. To show a picture, someone has to tell every bulb what colour to be, and they have to keep telling them many times a second, because the bulbs fade. **Computer graphics is the job of deciding what every bulb should show.** A raster screen walks along every row of bulbs in order; an old vector screen instead moved a single pen of light only along the lines of the drawing.
+Imagine a huge wall of tiny light bulbs, each one able to glow any colour. To show a picture, someone has to tell every bulb what colour to be, and they have to keep telling them many times a second, because the bulbs fade. **Computer graphics is the job of deciding what every bulb should show.**
+
+There are two ways a screen can go round the wall lighting bulbs:
+
+1. **Like reading a page of a book.** Start at the top-left bulb and go along the row, setting every bulb to its colour. Then drop to the next row, and so on to the bottom. Then go back to the top and start again. Every bulb gets visited every time, even the ones that stay dark. This is called a **raster** screen, and almost every screen today, including your phone and laptop, works this way.
+2. **Like drawing with a pen.** If the picture is a triangle, trace just its three edges and skip the rest of the wall entirely. Old screens called **vector** screens worked like this. They drew sharp, clean lines, but filling in a solid shape meant scribbling over all of it. And the more lines in the picture, the longer each trip round took, until the first lines faded before the last were drawn and the picture flickered.
 
 **Where the analogy stops working.** Modern LCD and LED panels do not fade like the old CRT phosphor: each pixel holds its colour until it is told to change. The "keep telling them" part survives as the refresh rate, but for a different reason (showing *new* pictures, not stopping the old one from vanishing).
 
@@ -108,17 +113,21 @@ The primary output device of a graphics system is the **video monitor**, and the
 
 ## 5. Raster scan versus random scan
 
+A CRT has one beam, so it has to move that beam around the screen to build the whole picture. There are two ways to move it. These are the "reading a page" and "drawing with a pen" pictures from the kid version.
+
 **Raster scan.** The beam sweeps the whole screen one row at a time, top to bottom, switching intensity on and off to make a pattern of spots.
 
 - The picture lives in the **frame buffer** as an intensity value for every screen point.
 - The values are read back and "painted" one row at a time.
-- After each row, **horizontal retrace**; after the last, **vertical retrace**. The beam is off during both.
+- After each row, the beam switches off and jumps back to the left edge of the next row, like moving to the start of the next line when you read. This jump is the **horizontal retrace**. After the last row it jumps back to the top-left corner: the **vertical retrace**.
 
 **Random scan.** Also called a **vector display**, **stroke-writing display** or **calligraphic display**. The beam goes **only where the picture is**, instead of scanning everything.
 
 - The picture lives in the **display file** as line-drawing commands.
 - The system cycles through the commands, drawing each line in turn.
 - It typically redraws the picture **30 to 60 times a second** — that figure is its refresh rate.
+
+**The same triangle on both.** A raster screen sweeps every one of its points, row by row, and lights only the points that fall on the triangle's edges. That's around 2 million points on a modern screen, for three lines. A random-scan screen moves the beam along the three edges and nothing else. That's why random scan drew line pictures so cleanly, and why it couldn't keep up once a picture had thousands of lines or large filled areas.
 
 | | Raster scan | Random scan |
 |---|---|---|

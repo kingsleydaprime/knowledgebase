@@ -11,6 +11,12 @@ If an acronym is missing a tooltip, it is missing from
 `quartz-plugins/abbreviations/glossary.json` — add it there and it will work
 everywhere at once.
 
+## Symbols
+
+| Symbol | Means |
+| :--- | :--- |
+| **§** | section. "Note 02 §4" means note 02, section 4. |
+
 ## The list
 
 | Abbreviation | Stands for |
