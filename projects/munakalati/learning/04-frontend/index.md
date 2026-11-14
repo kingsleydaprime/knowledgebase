@@ -15,6 +15,6 @@
 **A migration scaffold needs a demolition date.** Nine components exist twice, and the dead half still compiles.
 
 ## Related
-- General: [[frontend/frameworks/next/index|Next.js]] · [[frontend/02-rendering/index|rendering]] · [[frontend/04-state-and-data/index|state and data]]
+- General: [[frontend/frameworks/next/index|Next.js]] · [[frontend/06-rendering/index|rendering]] · [[frontend/03-state-and-data/index|state and data]]
 - [[projects/munakalati/learning/03-sanity/index|03 — Sanity]] — where the data comes from
 - [[projects/munakalati/interview/02-nextjs-and-rendering|interview: Next.js and rendering]]

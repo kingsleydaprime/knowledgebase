@@ -146,4 +146,4 @@ headlineEnd        "Africa's future"
 ## Related
 
 - [[projects/munakalati/learning/03-sanity/index|learning/03-sanity]]
-- [[frontend/frameworks/sanity/index|the general Sanity course]] · [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modelling]]
+- [[frontend/frameworks/sanity/index|the general Sanity course]] · [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|content modelling]]

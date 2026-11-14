@@ -34,7 +34,7 @@ The catch-all for insecure defaults and sloppy setup — and it's common because
 - **Debug mode on in production** — the framework default that leaks everything
 - **Unpatched dependencies** — the API framework and its libraries → [[devops/index|dependency management]]
 
-**The defence is discipline, not cleverness:** harden defaults, minimise the surface, automate configuration (so prod matches a reviewed baseline), and scan for drift → [[devops/07-infrastructure-as-code/index|infrastructure as code]].
+**The defence is discipline, not cleverness:** harden defaults, minimise the surface, automate configuration (so prod matches a reviewed baseline), and scan for drift → [[devops/09-infrastructure-as-code/index|infrastructure as code]].
 
 ## API10: Unsafe Consumption of APIs
 
@@ -53,7 +53,7 @@ The infrastructure that enforces the previous notes:
 
 - **API Gateway** — the front door: centralised authN, rate limiting, request validation, logging, routing. **The single best place to enforce cross-cutting controls** consistently instead of per-service (Kong, cloud API gateways, Apigee) → [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|rate limiting]]
 - **WAF (Web Application Firewall)** — pattern-based filtering of known attacks; a useful layer, **not a substitute** for fixing the code (WAFs are bypassable)
-- **Secrets management** — API keys and tokens in a vault, never in code or config → [[devops/09-secret-management/index|secret management]]
+- **Secrets management** — API keys and tokens in a vault, never in code or config → [[devops/06-secret-management/index|secret management]]
 - **Logging and monitoring** — log auth failures, authZ denials, rate-limit hits, and anomalies; feed them to detection → [[cybersecurity/07-security-operations/index|security operations]]
 - **mTLS between internal services** — don't trust the network perimeter alone → [[cybersecurity/03-network-security/index|zero trust]]
 
@@ -61,7 +61,7 @@ The infrastructure that enforces the previous notes:
 
 Security is a state you fall out of. Build testing in:
 
-- **In CI:** schema validation, dependency scanning (SCA), SAST, and secrets scanning on every commit → [[devops/06-ci-cd/index|CI/CD]]
+- **In CI:** schema validation, dependency scanning (SCA), SAST, and secrets scanning on every commit → [[devops/05-ci-cd/index|CI/CD]]
 - **DAST / API scanners** — automated scanning against a running API (OWASP ZAP, Burp)
 - **Manual API pentesting** — **Burp Suite** and **Postman** are the workhorses. The highest-value manual tests are the ones tools miss: **BOLA** (two accounts, swap IDs) and **BFLA** (guess admin routes) → [[cybersecurity/14-api-security/03-authorization-and-bola|testing authZ]], [[cybersecurity/02-ethical-hacking/08-common-tools|tools]]
 - **The OpenAPI spec as a test oracle** — anything reachable that *isn't* in the spec is a shadow endpoint; anything in the spec without auth is a finding
@@ -76,6 +76,6 @@ Security is a state you fall out of. Build testing in:
 - [[cybersecurity/14-api-security/index|the API security course]]
 - [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|rate limiting]] — enforced at the gateway
 - [[cybersecurity/07-security-operations/index|security operations]] — logging and detection
-- [[devops/06-ci-cd/index|CI/CD]] — where testing lives · [[devops/09-secret-management/index|secret management]]
+- [[devops/05-ci-cd/index|CI/CD]] — where testing lives · [[devops/06-secret-management/index|secret management]]
 
 *Source: [reference] — OWASP API8/API9/API10. Aug 2026.*

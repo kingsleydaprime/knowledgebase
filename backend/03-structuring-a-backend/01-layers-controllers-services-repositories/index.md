@@ -11,7 +11,7 @@ id: ff543b63-afd9-40b6-813f-fd90b33468f0
 You can already:
 
 - Build an HTTP endpoint in any backend framework — Express, NestJS, Django, Flask, Spring.
-- Explain cohesion and coupling → [[concepts/04-best-practices/01-clean-code/index|clean code]], and dependency inversion → [[concepts/04-best-practices/05-solid-principles/index|SOLID]].
+- Explain cohesion and coupling → [[concepts/01-best-practices/01-clean-code/index|clean code]], and dependency inversion → [[concepts/01-best-practices/07-solid-principles/index|SOLID]].
 
 After this lesson you will be able to:
 
@@ -304,4 +304,4 @@ Layering isn't about having three folders — it's about **which direction knowl
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by layer vs by feature]] — how these map onto folders
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency Injection]] — how the layers get connected
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal & Clean Architecture]] — layering with the dependency rule enforced
-- [[concepts/03-design-patterns/index|Design Patterns]] — repository, adapter, and friends
+- [[concepts/02-design-patterns/index|Design Patterns]] — repository, adapter, and friends

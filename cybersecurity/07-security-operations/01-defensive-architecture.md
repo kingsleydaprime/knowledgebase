@@ -32,7 +32,7 @@ Zero Trust is why a phished credential ([[cybersecurity/06-attacks-and-threats/0
 - Apply the principle of least functionality — a server runs only what it must.
 - Enforce secure configuration baselines (the **CIS Benchmarks** — [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|frameworks]]).
 - Patch promptly, enforce least-privilege permissions, enable OS security features (ASLR/DEP, SELinux/AppArmor, [[devops/01-linux/index|Linux]] controls).
-- **Group Policy** (Windows) / configuration management (Ansible — [[devops/07-infrastructure-as-code/02-configuration-management|IaC]]) to enforce hardening at scale.
+- **Group Policy** (Windows) / configuration management (Ansible — [[devops/09-infrastructure-as-code/02-configuration-management|IaC]]) to enforce hardening at scale.
 
 Every disabled service is one fewer thing to exploit or patch — hardening directly reduces the [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|exploit surface]].
 

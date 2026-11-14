@@ -2,7 +2,7 @@
 
 **~1,250 words across 2 notes.** `[reference]`.
 
-The concepts — cascade, specificity, tokens, modern CSS — are in [[frontend/05-styling/index|05-styling]]. **This is how specific tools do it.**
+The concepts — cascade, specificity, tokens, modern CSS — are in [[frontend/04-styling/index|04-styling]]. **This is how specific tools do it.**
 
 ## Files
 - [[frontend/frameworks/css/tailwind|Tailwind CSS]] — **[Intermediate]** — the utility-first argument and the honest objection, v4's move into CSS, `cn()`, **and the dynamic-class-name bug that fails silently**
@@ -18,8 +18,8 @@ The concepts — cascade, specificity, tokens, modern CSS — are in [[frontend/
 | **CSS-in-JS** | Highly dynamic styling — and mind the runtime cost and RSC fit |
 | **vanilla-extract / Panda** | Types and zero runtime |
 
-**Whatever you choose, choose one.** The bad outcome is Tailwind *and* styled-components *and* three global stylesheets — at which point nobody can predict what a change does → [[frontend/05-styling/01-css-architecture|CSS architecture]].
+**Whatever you choose, choose one.** The bad outcome is Tailwind *and* styled-components *and* three global stylesheets — at which point nobody can predict what a change does → [[frontend/04-styling/01-css-architecture|CSS architecture]].
 
 ## Related
-- [[frontend/05-styling/index|05-styling]] — the concepts
-- [[frontend/frameworks/index|frameworks/]] · [[frontend/06-cross-cutting/01-accessibility|accessibility]]
+- [[frontend/04-styling/index|04-styling]] — the concepts
+- [[frontend/frameworks/index|frameworks/]] · [[frontend/05-cross-cutting/01-accessibility|accessibility]]

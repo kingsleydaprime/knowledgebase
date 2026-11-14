@@ -225,10 +225,10 @@ optimiser once the host is known; do not let it become a new failure mode.
 ## Outstanding — promote to the general vault
 
 - [ ] Two validation boundaries with opposite failure modes (own data vs
-      vendor data) → `concepts/04-best-practices/`
+      vendor data) → `concepts/01-best-practices/`
 - [ ] Anti-corruption layer / adapter pattern → `architecture/`
-- [ ] ISR as outage absorption; `revalidate` + tags → `frontend/02-rendering/`
+- [ ] ISR as outage absorption; `revalidate` + tags → `frontend/06-rendering/`
 - [ ] `server-only`, `NEXT_PUBLIC_` semantics, `git check-ignore -v` →
-      `devops/09-secret-management/`
+      `devops/06-secret-management/`
 - [ ] `Intl.DateTimeFormat` explicit `timeZone` and the hydration-mismatch
       class of bug → `frontend/`

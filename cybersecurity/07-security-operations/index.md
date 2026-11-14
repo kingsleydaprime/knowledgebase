@@ -13,4 +13,4 @@ The **defensive / blue-team** half of security — detecting, investigating, and
 ## Related
 - [[cybersecurity/06-attacks-and-threats/index|Attacks & Threats]] — what this section detects and responds to
 - [[cybersecurity/03-network-security/04-intrusion-detection-and-prevention|IDS/IPS & SIEM (network-security)]] — the network-layer detection this builds on
-- [[devops/10-observability/index|Observability (DevOps)]] — the same logging/monitoring foundation, from the ops-reliability angle
+- [[devops/07-observability/index|Observability (DevOps)]] — the same logging/monitoring foundation, from the ops-reliability angle

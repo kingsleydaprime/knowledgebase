@@ -9,6 +9,6 @@ The operations half of the ML Engineer role: running models in production reliab
 
 ## Related
 - [[devops/index|DevOps]] — the shared infrastructure MLOps runs on
-- [[devops/10-observability/index|Observability (DevOps)]] — monitoring, adapted for model drift
-- [[devops/06-ci-cd/index|CI/CD (DevOps)]] — pipelines, extended to data + models
+- [[devops/07-observability/index|Observability (DevOps)]] — monitoring, adapted for model drift
+- [[devops/05-ci-cd/index|CI/CD (DevOps)]] — pipelines, extended to data + models
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Data pipelines (Java)]] — the same data-engineering concerns elsewhere

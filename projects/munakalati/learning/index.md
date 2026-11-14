@@ -10,7 +10,7 @@ Written up at handover (August 2026), so these notes are retrospective and inclu
 2. [[projects/munakalati/learning/02-shell|02 — Shell]] — bun as an ops runner, `curl` before code, the audit commands used to write these notes, heredoc technique → [[devops/01-linux/index|linux]]
 3. [[projects/munakalati/learning/03-sanity/index|03 — Sanity]] ⭐ _(5 notes)_ — setup, schema design, GROQ, images and Portable Text, the embedded Studio → [[frontend/frameworks/sanity/index|frameworks/sanity]]
 4. [[projects/munakalati/learning/04-frontend/index|04 — Frontend]] _(3 notes)_ — App Router structure, ISR and fetch waterfalls, **the CMS fallback pattern** → [[frontend/index|frontend]] · [[frontend/frameworks/next/index|next]]
-5. [[projects/munakalati/learning/05-migration/index|05 — Migration]] ⭐ _(5 notes)_ — the whole Wix→Sanity story: anatomy, reading a hostile API, idempotency and reruns, rich-text conversion, repair scripts → [[concepts/04-best-practices/06-data-migrations|data migrations]]
+5. [[projects/munakalati/learning/05-migration/index|05 — Migration]] ⭐ _(5 notes)_ — the whole Wix→Sanity story: anatomy, reading a hostile API, idempotency and reruns, rich-text conversion, repair scripts → [[concepts/01-best-practices/08-data-migrations|data migrations]]
 6. [[projects/munakalati/learning/06-bugs-and-postmortems|06 — Bugs and Postmortems]] ⭐ — six real failures written up end to end, plus a standing-issues table
 7. [[projects/munakalati/learning/07-study-path|07 — Study Path]] — what this exercised, what it didn't, and the five things to do next
 

@@ -314,16 +314,16 @@ By Sunday: what must be true before the week closes
 
 # Week 2 — Design principles
 
-**Read:** [[concepts/04-best-practices/01-clean-code/index|clean code]] · [[concepts/04-best-practices/08-coupling-and-cohesion/index|coupling and cohesion]] · [[concepts/04-best-practices/05-solid-principles/index|SOLID principles]]
+**Read:** [[concepts/01-best-practices/01-clean-code/index|clean code]] · [[concepts/01-best-practices/06-coupling-and-cohesion/index|coupling and cohesion]] · [[concepts/01-best-practices/07-solid-principles/index|SOLID principles]]
 
 **Topics**
-- **2.1** Modularity — what a module is, and what makes a bad one → [[concepts/04-best-practices/01-clean-code/index|clean code]]
-- **2.2** Coupling and cohesion → [[concepts/04-best-practices/08-coupling-and-cohesion/index|coupling and cohesion]]
+- **2.1** Modularity — what a module is, and what makes a bad one → [[concepts/01-best-practices/01-clean-code/index|clean code]]
+- **2.2** Coupling and cohesion → [[concepts/01-best-practices/06-coupling-and-cohesion/index|coupling and cohesion]]
 - **2.3** Abstraction and interfaces → [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal & clean architecture]]
 - **2.4** Separation of concerns → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|by layer vs by feature]]
-- **2.5** DRY, KISS, YAGNI — **and where each one is wrong** → [[concepts/04-best-practices/01-clean-code/index|clean code]]
-- **2.6** SOLID, one letter at a time — **and when it's over-engineering** → [[concepts/04-best-practices/05-solid-principles/index|SOLID principles]]
-- **2.7** Composition over inheritance → [[concepts/03-design-patterns/02-structural-patterns/index|structural patterns]]
+- **2.5** DRY, KISS, YAGNI — **and where each one is wrong** → [[concepts/01-best-practices/01-clean-code/index|clean code]]
+- **2.6** SOLID, one letter at a time — **and when it's over-engineering** → [[concepts/01-best-practices/07-solid-principles/index|SOLID principles]]
+- **2.7** Composition over inheritance → [[concepts/02-design-patterns/02-structural-patterns/index|structural patterns]]
 
 **DSA:** D2 → [[dsa/04-patterns/02-two-pointers|Two pointers]]
 
@@ -333,12 +333,12 @@ By Sunday: what must be true before the week closes
 
 # Week 3 — Design patterns
 
-**Read:** [[concepts/03-design-patterns/index|design patterns]], all three chapters
+**Read:** [[concepts/02-design-patterns/index|design patterns]], all three chapters
 
 **Topics**
-- **3.1** Creational — factory, builder, **and why singleton is usually a mistake** → [[concepts/03-design-patterns/01-creational-patterns/index|creational]]
-- **3.2** Structural — adapter, decorator, facade, proxy → [[concepts/03-design-patterns/02-structural-patterns/index|structural]]
-- **3.3** Behavioural — strategy, observer, command, state → [[concepts/03-design-patterns/03-behavioral-patterns/index|behavioural]]
+- **3.1** Creational — factory, builder, **and why singleton is usually a mistake** → [[concepts/02-design-patterns/01-creational-patterns/index|creational]]
+- **3.2** Structural — adapter, decorator, facade, proxy → [[concepts/02-design-patterns/02-structural-patterns/index|structural]]
+- **3.3** Behavioural — strategy, observer, command, state → [[concepts/02-design-patterns/03-behavioral-patterns/index|behavioural]]
 - **3.4** Dependency injection and wiring → [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|DI & wiring]]
 
 **DSA:** D3 → [[dsa/04-patterns/03-sliding-window|Sliding window]]
@@ -572,7 +572,7 @@ By Sunday: what must be true before the week closes
 - **17.4** Security headers and same-origin policy → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|04]]
 - **17.5** Symmetric, asymmetric, signatures, PKI → [[cybersecurity/05-cryptography/02-symmetric-encryption|02]] · [[cybersecurity/05-cryptography/04-asymmetric-encryption|04]] · [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|05]]
 - **17.6** TLS in practice → [[cybersecurity/04-web-security/03-https-and-tls|HTTPS & TLS]]
-- **17.7** Secrets management → [[devops/09-secret-management/01-secret-management|secrets]]
+- **17.7** Secrets management → [[devops/06-secret-management/01-secret-management|secrets]]
 - **17.8** **Prompt injection and LLM-specific risk** → [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety & production]]
 
 **DSA:** mixed review begins — 5 problems/week, patterns drawn at random. **This is what interviews actually are.**
@@ -689,16 +689,16 @@ By Sunday: what must be true before the week closes
 
 # Week 24 — Testing and quality
 
-**Read:** [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] · [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[concepts/04-best-practices/02-pr-structure|PR structure]] · [[devops/10-observability/01-observability-fundamentals/index|observability]]
+**Read:** [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] · [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[concepts/01-best-practices/04-pr-structure|PR structure]] · [[devops/07-observability/01-observability-fundamentals/index|observability]]
 
 **Depth: gap-fill.** Read, write only what surprised you.
 
 **Topics**
-- **24.1** The pyramid: unit, integration, e2e → [[concepts/04-best-practices/04-testing-fundamentals/index|fundamentals]]
-- **24.2** Test doubles: stub, mock, fake, spy → [[concepts/04-best-practices/04-testing-fundamentals/index|fundamentals]]
+- **24.1** The pyramid: unit, integration, e2e → [[concepts/01-best-practices/03-testing-fundamentals/index|fundamentals]]
+- **24.2** Test doubles: stub, mock, fake, spy → [[concepts/01-best-practices/03-testing-fundamentals/index|fundamentals]]
 - **24.3** **What not to test**; flaky tests → [[backend/07-practices/02-testing-a-backend|testing a backend]]
-- **24.4** Code review, giving and receiving → [[concepts/04-best-practices/02-pr-structure|PR structure]]
-- **24.5** Observability: logs, metrics, traces → [[devops/10-observability/01-observability-fundamentals/index|observability]] · [[devops/10-observability/02-the-observability-stack|the stack]]
+- **24.4** Code review, giving and receiving → [[concepts/01-best-practices/04-pr-structure|PR structure]]
+- **24.5** Observability: logs, metrics, traces → [[devops/07-observability/01-observability-fundamentals/index|observability]] · [[devops/07-observability/02-the-observability-stack|the stack]]
 
 **DSA:** mixed review, 5 problems
 
@@ -708,17 +708,17 @@ By Sunday: what must be true before the week closes
 
 # Week 25 — DevOps and delivery
 
-**Read:** [[devops/02-docker/index|docker]] · [[devops/06-ci-cd/index|CI/CD]] 01, 08, 09 · [[devops/09-secret-management/01-secret-management|secrets]]
+**Read:** [[devops/03-docker/index|docker]] · [[devops/05-ci-cd/index|CI/CD]] 01, 08, 09 · [[devops/06-secret-management/01-secret-management|secrets]]
 
 **Depth: gap-fill.**
 
 **Topics**
-- **25.1** Docker — layers, caching, multi-stage → [[devops/02-docker/01-new-docker|docker]] · [[devops/02-docker/04-multi-stage-builds|multi-stage]]
-- **25.2** CI/CD concepts → [[devops/06-ci-cd/01-ci-cd-concepts|concepts]]
-- **25.3** CI pipelines — what runs on every push → [[devops/06-ci-cd/08-ci-pipelines|CI pipelines]]
-- **25.4** CD, deployment strategies, releases → [[devops/06-ci-cd/09-cd-and-deployment|CD & deployment]]
-- **25.5** Pipeline security and secrets → [[devops/06-ci-cd/10-pipeline-security|pipeline security]] · [[devops/09-secret-management/01-secret-management|secrets]]
-- **25.6** Troubleshooting workflows → [[devops/06-ci-cd/12-troubleshooting-workflows|troubleshooting]]
+- **25.1** Docker — layers, caching, multi-stage → [[devops/03-docker/01-new-docker|docker]] · [[devops/03-docker/04-multi-stage-builds|multi-stage]]
+- **25.2** CI/CD concepts → [[devops/05-ci-cd/01-ci-cd-concepts|concepts]]
+- **25.3** CI pipelines — what runs on every push → [[devops/05-ci-cd/08-ci-pipelines|CI pipelines]]
+- **25.4** CD, deployment strategies, releases → [[devops/05-ci-cd/09-cd-and-deployment|CD & deployment]]
+- **25.5** Pipeline security and secrets → [[devops/05-ci-cd/10-pipeline-security|pipeline security]] · [[devops/06-secret-management/01-secret-management|secrets]]
+- **25.6** Troubleshooting workflows → [[devops/05-ci-cd/12-troubleshooting-workflows|troubleshooting]]
 
 **DSA:** mixed review, 5 problems
 

@@ -173,7 +173,7 @@ What you get instead:
 - **Shared data** → composition; put the common struct in a field
 - **Polymorphism** → generics (static) or `dyn Trait` (dynamic)
 
-This means no fragile base class problem, no diamond problem, and no "where is this method actually defined" archaeology. It also means genuinely deep hierarchies are awkward — which is mostly a feature, since [[concepts/03-design-patterns/index|composition over inheritance]] is the advice everywhere anyway. Rust just removed the option.
+This means no fragile base class problem, no diamond problem, and no "where is this method actually defined" archaeology. It also means genuinely deep hierarchies are awkward — which is mostly a feature, since [[concepts/02-design-patterns/index|composition over inheritance]] is the advice everywhere anyway. Rust just removed the option.
 
 ---
 

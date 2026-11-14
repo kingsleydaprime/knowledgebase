@@ -19,6 +19,6 @@ Sanity is the domain this project taught most thoroughly — a headless CMS is t
 **The projection is where GROQ performance lives.** Swapping a 20-field projection for `{"slug": slug.current}` was the fix in commit `f2b69dc`, not a change to the filter.
 
 ## Related
-- General: [[frontend/frameworks/sanity/index|frontend/frameworks/sanity/]] · [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modeling and headless CMS]]
+- General: [[frontend/frameworks/sanity/index|frontend/frameworks/sanity/]] · [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|content modeling and headless CMS]]
 - [[projects/munakalati/learning/05-migration/index|05 — the migration]] — how the content got in
 - [[projects/munakalati/interview/01-sanity-and-content-modeling|interview: Sanity and content modelling]]

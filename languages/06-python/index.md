@@ -98,7 +98,7 @@ Audited against the [roadmap.sh Python track](https://roadmap.sh/python) (August
 | Data structures & algorithms, sorting, arrays, linked lists, hashmaps, heaps/stacks/queues, BSTs, recursion | [[dsa/index\|foundations/dsa/]]                                                                                                              |
 | Django, Flask, FastAPI, Pydantic                                                                            | [[backend/frameworks/python/index\|backend/frameworks/python/]] — **per [[languages/index\|the languages/ rule]]**                                      |
 | NumPy, pandas, plotting                                                                                     | [[ai-ml/00-foundations/04-python-and-data-tools/index\|ai-ml/00-foundations]]                                                                            |
-| Git, clean code, paradigms                                                                                  | [[git/index\|git/]], [[concepts/04-best-practices/index\|best practices]], [[programming-fundamentals/14-programming-paradigms\|paradigms]] |
+| Git, clean code, paradigms                                                                                  | [[git/index\|git/]], [[concepts/01-best-practices/index\|best practices]], [[programming-fundamentals/14-programming-paradigms\|paradigms]] |
 
 **Deliberately skipped** — the alternative-framework long tail (Tornado, Sanic, Pyramid, aiohttp, gevent, Plotly Dash), the formatter/doc long tail (yapf, sphinx, doctest, tox, pyre). **These are lookups, not understanding**, and listing them would imply coverage that adds nothing over their own documentation.
 

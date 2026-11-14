@@ -97,7 +97,7 @@ const char *url = std::getenv("DATABASE_URL");
 if (!url) { LOG_FATAL << "DATABASE_URL not set"; return 1; }
 ```
 
-**Fail at startup on missing config**, loudly. A service that boots and fails on first request is worse than one that refuses to boot. → [[devops/09-secret-management/index|Secret Management]]
+**Fail at startup on missing config**, loudly. A service that boots and fails on first request is worse than one that refuses to boot. → [[devops/06-secret-management/index|Secret Management]]
 
 ## Logging and metrics
 
@@ -117,7 +117,7 @@ The gap versus [[languages/02-go/index|Go's `slog`]] or Rust's `tracing` is real
 
 **Metrics:** `prometheus-cpp` exposes a `/metrics` endpoint. Same cardinality rule as everywhere — **label with the route pattern, never the actual path**, or you'll take down your Prometheus.
 
-**Tracing:** the OpenTelemetry C++ SDK exists and is more manual than other languages' — no automatic instrumentation, so you create spans by hand at each boundary. → [[devops/10-observability/index|Observability]]
+**Tracing:** the OpenTelemetry C++ SDK exists and is more manual than other languages' — no automatic instrumentation, so you create spans by hand at each boundary. → [[devops/07-observability/index|Observability]]
 
 ## Deployment
 
@@ -161,7 +161,7 @@ drogon::app().registerBeginningAdvice([] { LOG_INFO << "started"; });
 std::signal(SIGTERM, [](int) { drogon::app().quit(); });
 ```
 
-`quit()` stops the event loops after in-flight requests finish. Without it, a deploy kills requests mid-flight — and under [[devops/05-orchestration/index|Kubernetes]] a pod receives `SIGTERM` while the load balancer may still be sending it traffic.
+`quit()` stops the event loops after in-flight requests finish. Without it, a deploy kills requests mid-flight — and under [[devops/10-orchestration/index|Kubernetes]] a pod receives `SIGTERM` while the load balancer may still be sending it traffic.
 
 **And ignore `SIGPIPE`**, or a client disconnecting mid-response terminates your process:
 
@@ -205,5 +205,5 @@ cmake -B build-tsan -DCMAKE_CXX_FLAGS="-fsanitize=thread -g"     # separate — 
 - [[backend/frameworks/cpp/02-async-models-and-asio|Async Models and asio]] — why sync database drivers stall the loop
 - [[backend/frameworks/cpp/05-when-to-choose-cpp|When to Choose C++]] — the decision
 - [[languages/05-cpp/15-build-tooling-and-ecosystem|C++: Build Tooling]] — CMake, sanitizers, clang-tidy
-- [[backend/04-data-and-persistence/index|Data and Persistence]] · [[devops/10-observability/index|Observability]]
+- [[backend/04-data-and-persistence/index|Data and Persistence]] · [[devops/07-observability/index|Observability]]
 - [[backend/frameworks/cpp/index|C++ backends]]

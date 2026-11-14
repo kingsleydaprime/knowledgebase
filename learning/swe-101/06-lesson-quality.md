@@ -20,24 +20,24 @@
 | SWE 101 | 1 | optional | ✅ meets | — | [[software-engineering/01-what-software-engineering-is\|01-what-software-engineering-is]] |
 | SWE 101 | 1 | optional | ✅ meets | — | [[software-engineering/02-the-software-development-lifecycle\|02-the-software-development-lifecycle]] |
 | SWE 101 | 2 | core | ✅ meets | — | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index\|index]] |
-| SWE 101 | 2 | core | ✅ meets | — | [[concepts/04-best-practices/04-testing-fundamentals/index\|index]] |
+| SWE 101 | 2 | core | ✅ meets | — | [[concepts/01-best-practices/03-testing-fundamentals/index\|index]] |
 | SWE 101 | 2 | optional | 🟡 partial | start, terms, checks, practice | [[backend/07-practices/02-testing-a-backend\|02-testing-a-backend]] |
 | SWE 101 | 2 | optional | ✅ meets | — | [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/in-other-languages\|in-other-languages]] |
-| SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/08-coupling-and-cohesion/index\|index]] |
-| SWE 101 | 3 | core | ✅ meets | — | [[concepts/04-best-practices/05-solid-principles/index\|index]] |
-| SWE 101 | 3 | optional | ✅ meets | — | [[concepts/04-best-practices/01-clean-code/index\|index]] |
-| SWE 101 | 4 | core | ✅ meets | — | [[concepts/03-design-patterns/03-behavioral-patterns/index\|index]] |
-| SWE 101 | 4 | core | ✅ meets | — | [[concepts/03-design-patterns/02-structural-patterns/index\|index]] |
-| SWE 101 | 4 | optional | ✅ meets | — | [[concepts/03-design-patterns/01-creational-patterns/index\|index]] |
+| SWE 101 | 3 | core | ✅ meets | — | [[concepts/01-best-practices/06-coupling-and-cohesion/index\|index]] |
+| SWE 101 | 3 | core | ✅ meets | — | [[concepts/01-best-practices/07-solid-principles/index\|index]] |
+| SWE 101 | 3 | optional | ✅ meets | — | [[concepts/01-best-practices/01-clean-code/index\|index]] |
+| SWE 101 | 4 | core | ✅ meets | — | [[concepts/02-design-patterns/03-behavioral-patterns/index\|index]] |
+| SWE 101 | 4 | core | ✅ meets | — | [[concepts/02-design-patterns/02-structural-patterns/index\|index]] |
+| SWE 101 | 4 | optional | ✅ meets | — | [[concepts/02-design-patterns/01-creational-patterns/index\|index]] |
 | SWE 101 | 5 | core | ✅ meets | — | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index\|index]] |
 | SWE 101 | 5 | core | ✅ meets | — | [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index\|index]] |
 | SWE 101 | 5 | optional | ✅ meets | — | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|index]] |
 | SWE 101 | 6 | core | ✅ meets | — | [[backend/07-practices/01-backend-best-practices/index\|index]] |
-| SWE 101 | 6 | core | ✅ meets | — | [[devops/10-observability/01-observability-fundamentals/index\|index]] |
-| SWE 101 | 6 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/10-observability/02-the-observability-stack\|02-the-observability-stack]] |
+| SWE 101 | 6 | core | ✅ meets | — | [[devops/07-observability/01-observability-fundamentals/index\|index]] |
+| SWE 101 | 6 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/07-observability/02-the-observability-stack\|02-the-observability-stack]] |
 | SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index\|index]] |
 | SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index\|index]] |
-| SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/09-secret-management/01-secret-management\|01-secret-management]] |
+| SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/06-secret-management/01-secret-management\|01-secret-management]] |
 | SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[backend/05-auth/01-authentication-flows\|01-authentication-flows]] |
 | SWE 102 | 1 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/02-how-llms-work/index\|index]] |
 | SWE 102 | 1 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/04-calling-models/index\|index]] |

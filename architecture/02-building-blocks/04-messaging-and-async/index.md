@@ -163,7 +163,7 @@ Three. The fourth `put` waits for space, and so does the producer, until somethi
 
 Taken further, services stop calling each other and instead **publish what happened** and **react to what others publish**. A new consumer just subscribes, with no change to the producer, so services are decoupled and scale independently. The costs are real:
 
-- **The flow is implicit.** No single piece of code shows what happens when an order is placed; you have to find every subscriber. Tracing across services ([[devops/10-observability/01-observability-fundamentals/index|observability]]) becomes essential.
+- **The flow is implicit.** No single piece of code shows what happens when an order is placed; you have to find every subscriber. Tracing across services ([[devops/07-observability/01-observability-fundamentals/index|observability]]) becomes essential.
 - **Everything downstream is eventually consistent.** The dashboard lags the orders by seconds, or by minutes during a spike.
 - **The broker is now critical infrastructure.** It needs replication and monitoring like a database.
 - **Publishing and saving must agree.** If checkout saves the order and then crashes before publishing, the warehouse never hears of it. If it publishes and then the save fails, the warehouse ships an order that doesn't exist. The [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]] (next week) solves this by saving the message in the same transaction as the order.

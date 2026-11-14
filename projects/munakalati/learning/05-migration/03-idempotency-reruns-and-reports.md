@@ -1,7 +1,7 @@
 # Idempotency, Reruns and Run Reports
 
 **Split from:** the munakalati migration domain. **See also:** [[projects/munakalati/learning/05-migration/01-anatomy-of-a-migration|01 — anatomy]] · [[projects/munakalati/learning/05-migration/05-repair-scripts|05 — repair scripts]]
-**General version:** [[concepts/04-best-practices/06-data-migrations|data migrations]] · [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]]
+**General version:** [[concepts/01-best-practices/08-data-migrations|data migrations]] · [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]]
 
 ---
 
@@ -188,6 +188,6 @@ Before running any bulk import against real data:
 8. **A backup taken before the first destructive run** — here, `sanity dataset export` → 70MB `sanity-export.tar.gz`.
 
 ## Related
-- [[concepts/04-best-practices/06-data-migrations|the general playbook]]
+- [[concepts/01-best-practices/08-data-migrations|the general playbook]]
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] · [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 - [[projects/direct-debit-sandbox-java/learning/05-async-scheduling-retry|direct-debit — the same problem in Java]]

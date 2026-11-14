@@ -19,13 +19,13 @@ The historical phases below track topics written. They do **not** establish that
 **Restructured 2026-10-01:** SWE 101 is now the first of three short courses ([[learning/swe-101/index|101]] → [[learning/swe-102/index|102]] → [[learning/swe-103/index|103]]); the old 30-week scheme is archived. Core lessons are converted one course ahead of study. Progress is generated, not hand-kept: [[learning/swe-101/06-lesson-quality|lesson quality]] (`python3 learning/swe-101/scripts/audit-standard.py`). The standard now also requires a **kid version** in every lesson.
 
 - [x] **Software design block, weeks 1–4 — 13 lessons.** Every runnable example executed with Node 26 (`node --test`), or with Django 6.1 / Flask 3.1 / import-linter / ESLint 9 for layer-vs-feature. Fixed on the way: SOLID linked "strategy" to creational patterns; the structural-patterns lesson had no composition-over-inheritance section although week 2.7 pointed to it; behavioural patterns had no State pattern although week 3.3 listed it; layer-vs-feature called Django by-layer (its apps are feature folders); the roles note linked "mobile" to a NestJS backend note.
-- [x] **Testing fundamentals** (SWE 101 week 2) — converted 2026-10-01: test doubles and flaky-test sections added (neither existed), lab [`concepts/04-best-practices/04-testing-fundamentals/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/concepts/04-best-practices/04-testing-fundamentals/labs/javascript).
+- [x] **Testing fundamentals** (SWE 101 week 2) — converted 2026-10-01: test doubles and flaky-test sections added (neither existed), lab [`concepts/01-best-practices/03-testing-fundamentals/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/concepts/01-best-practices/03-testing-fundamentals/labs/javascript).
 - [x] **SWE 101 core complete (14/14), 2026-10-01.** The last four — backend best practices (added rate limiting and idempotency, which week 6 promised and the lesson lacked), observability, input validation (Python examples replaced with TypeScript, SSRF added), security headers (CORS reflection and "CORS is not access control") — each with a lab.
 - [x] **Layer vs feature: Go, Java, Rust, C and C++ added (2026-10-01)**, each with a lab proving the compiler or build system refuses a cross-feature import. The lesson is now ~9,600 words; consider splitting the language sections into a companion lesson.
 - [ ] **SWE 102 core — 11 lessons**, the AI-engineering track, before SWE 102 starts.
 - [ ] SWE 103 core, then optional lessons.
 - [ ] Log closed-book study problems in the [[learning/swe-101/06-lesson-quality|review log]] and adjust the format before converting further.
-- [x] **Gaps filled (2026-10-01):** [[concepts/04-best-practices/08-coupling-and-cohesion/index|coupling and cohesion]] (week 2.2 now points to it) and [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]] (linked from week 8.3, sagas, and behavioural patterns). Both written to the standard with labs.
+- [x] **Gaps filled (2026-10-01):** [[concepts/01-best-practices/06-coupling-and-cohesion/index|coupling and cohesion]] (week 2.2 now points to it) and [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]] (linked from week 8.3, sagas, and behavioural patterns). Both written to the standard with labs.
 - [x] **`labs/` set up:** every verified example now lives in `labs/<name>/` with a `lab.json`; `python3 labs/run.py` runs them all and fails if a lesson no longer shows the code that runs (`--drift-only` for a fast offline check).
 
 ### Companion lessons in other languages (2026-10-01)
@@ -130,7 +130,7 @@ Following the [[languages/index|rule]]: frameworks live here, languages live the
 - [x] **`05-your-own-os.md`** ✅ — bootloader → protected/long mode → VGA or serial output → interrupts → memory management → paging → processes → scheduler → syscalls → filesystem. The longest and hardest; **blocked on the OS gap below**
 - [x] **`06-your-own-database.md`** ✅ — pager → B-tree or LSM → record format → a SQL subset parser → query execution → transactions and a WAL
 - [x] **`07-your-own-shell.md`** ✅ — the best small one. Read-eval loop → tokenising → `fork`/`exec` → redirection → pipes → job control → builtins
-- [x] **`08-your-own-container.md`** ✅ — namespaces → cgroups → chroot/pivot_root → a layered filesystem. Ties [[devops/02-docker/index|Docker]] to what the kernel actually does
+- [x] **`08-your-own-container.md`** ✅ — namespaces → cgroups → chroot/pivot_root → a layered filesystem. Ties [[devops/03-docker/index|Docker]] to what the kernel actually does
 
 Once this folder exists, [[project-ideas|project-ideas.md]]'s "build your own shit" tier should link into it rather than duplicating it.
 
@@ -183,7 +183,7 @@ Ordered by dependency. Chosen 2026-08-16 after grepping every README for its own
 Added 2026-08-22. Both from freeCodeCamp transcripts in `sources/`, gap-analysed against the vault before anything was written — **most of what the IT-fundamentals course covers (IP addressing, subnetting, TCP/IP, DNS, firewalls, NAT, Linux, VPC/security groups, CI/CD) was already here and was deliberately not duplicated.** Three folders survived the filter.
 
 - [x] **`foundations/programming-fundamentals/`** — ✅ **DONE** — README + 12 notes, ~13,700 words. **The vault had no way in.** 900+ notes assumed you could already read code; `using-ai/` was written as the on-ramp for non-programmers into _AI_, and there was no equivalent into _programming_. Language-agnostic: what a program is → translation → tooling → syntax → variables/types → control flow → collections → functions → recursion/the call stack → errors/debugging → planning → what to build next
-- [x] **`devops/00-the-physical-layer/`** — ✅ **DONE** — README + 4 notes, ~5,100 words. The gap was exactly one layer wide: `hardware/` covers boards, `devops/03-cloud` opens with "someone else's computers" and never mentions the computers. Servers → virtualisation/hypervisors → data centres → the leaf-spine network. **`hot aisle` had 0 hits vault-wide**
+- [x] **`devops/00-the-physical-layer/`** — ✅ **DONE** — README + 4 notes, ~5,100 words. The gap was exactly one layer wide: `hardware/` covers boards, `devops/08-cloud` opens with "someone else's computers" and never mentions the computers. Servers → virtualisation/hypervisors → data centres → the leaf-spine network. **`hot aisle` had 0 hits vault-wide**
 - [x] **`devops/12-sre-and-platform-engineering/`** — ✅ **DONE** — README + 4 notes, ~5,400 words. `devops/` had eleven sections of _tools_ and two paragraphs of _disciplines_. **`toil` had 0 hits**; IDPs appeared once; DevSecOps had no note. The evolution spine (waterfall → agile → DevOps → SRE → platform → DevSecOps, each fixing the last one's bottleneck) → SRE practices → platform engineering → DevSecOps. Deliberately does **not** restate SLO/error-budget material already in `10-observability/`
 
 **Total so far: 3 READMEs + 20 notes, ~27,400 words.**
@@ -315,7 +315,7 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 - [x] **Testing** — ✅ 2 notes, ~2,200 words. `@testing-library` appeared **nowhere** in the vault outside my own "what's missing" line, and Playwright had no note despite being a stated learning goal. `03-testing-a-frontend` (query priority, waiting properly, **MSW over module mocks**) and `04-end-to-end-with-playwright` — written to explain **why** the structure is what it is, not to list APIs
 
-**Backend testing was already covered** and did not need adding: [[backend/07-practices/02-testing-a-backend|testing a backend]] (1,600 words — Testcontainers, test-data isolation, time, per-layer, auth, flakiness), [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] for the pyramid and TDD, plus per-language notes in Go, Rust, Java, Python and C#.
+**Backend testing was already covered** and did not need adding: [[backend/07-practices/02-testing-a-backend|testing a backend]] (1,600 words — Testcontainers, test-data isolation, time, per-layer, auth, flakiness), [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] for the pyramid and TDD, plus per-language notes in Go, Rust, Java, Python and C#.
 
 **Phase 5j total: 18 files, ~11,600 words**
 
@@ -498,7 +498,7 @@ Asked to "fill in the scaffolds — go, rust, c, cpp". **They weren't scaffolds.
 
 ### Queued (not yet done)
 
-- [x] **Distilled `sources/Developer habits.md`** — ✅ → [[concepts/04-best-practices/07-habits-that-make-change-easier|concepts/04-best-practices/07]], the 7 habits under one through-line (_make the next change easier_), cross-linked to clean-code, SOLID, type-driven design and the anti-corruption-layer pattern
+- [x] **Distilled `sources/Developer habits.md`** — ✅ → [[concepts/01-best-practices/02-habits-that-make-change-easier|concepts/01-best-practices/07]], the 7 habits under one through-line (_make the next change easier_), cross-linked to clean-code, SOLID, type-driven design and the anti-corruption-layer pattern
 - [x] **Practice-exercise files where they genuinely fit** — ✅ added drill+solution files to **DSP** (`10`/`11` — the one foundations theory course that lacked them, now consistent with all its siblings) and **data-analysis** (`09`/`10` — SQL is inherently drillable). **Deliberately NOT added to the applied build-domains** (backend, frontend, architecture, devops, mobile, etc.) — those use `projects.md` as their rep mechanism by design, and drill files there would be forced padding
 
 ## Queue after Phase 8

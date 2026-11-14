@@ -38,7 +38,7 @@ $space: 1rem;
 | Media query variables | **Container queries**, `@custom-media` coming |
 | `@extend` | **`@layer`** solves the problem `@extend` was abused for |
 
-**The custom-properties row is the important one.** A Sass `$variable` is compiled away — it's a build-time find-and-replace. A CSS custom property **exists at runtime**, cascades, can be overridden per-component, and can be changed by JavaScript. **That's why theming and dark mode moved to custom properties**, and it's a capability Sass structurally cannot provide → [[frontend/05-styling/01-css-architecture|CSS architecture]].
+**The custom-properties row is the important one.** A Sass `$variable` is compiled away — it's a build-time find-and-replace. A CSS custom property **exists at runtime**, cascades, can be overridden per-component, and can be changed by JavaScript. **That's why theming and dark mode moved to custom properties**, and it's a capability Sass structurally cannot provide → [[frontend/04-styling/01-css-architecture|CSS architecture]].
 
 ## What Sass still does better
 
@@ -73,7 +73,7 @@ CSS has no loops. If you're generating a scale, Sass still wins.
 ## If you are using it
 
 - **`@use` and `@forward`, not `@import`** — the old `@import` is deprecated, and it duplicates output and leaks globals
-- **Keep nesting to ~3 levels.** Deep nesting generates high-specificity selectors, which is the specificity ratchet in a nicer syntax → [[frontend/05-styling/01-css-architecture|specificity]]
+- **Keep nesting to ~3 levels.** Deep nesting generates high-specificity selectors, which is the specificity ratchet in a nicer syntax → [[frontend/04-styling/01-css-architecture|specificity]]
 - **Avoid `@extend`.** It moves selectors around the output in ways that surprise people and can bloat the file. Use a mixin
 - **Emit custom properties from Sass variables** so you get build-time ergonomics *and* runtime theming:
 ```scss
@@ -84,6 +84,6 @@ CSS has no loops. If you're generating a scale, Sass still wins.
 
 ## Related
 - [[frontend/frameworks/css/index|css/]] · [[frontend/frameworks/css/tailwind|Tailwind]]
-- [[frontend/05-styling/01-css-architecture|CSS architecture]] — the modern CSS Sass no longer needs to provide
+- [[frontend/04-styling/01-css-architecture|CSS architecture]] — the modern CSS Sass no longer needs to provide
 
 *Source: [reference] — from the Sass documentation, Aug 2026.*

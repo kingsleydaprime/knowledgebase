@@ -159,5 +159,5 @@ Network debugging is **binary search over the stack**, and the reason it feels h
 ## Related
 - [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states `ss` reports
 - [[networking/15-network-performance|Network Performance]] — interpreting the timings
-- [[devops/10-observability/index|Observability]] — turning this into monitoring rather than firefighting
+- [[devops/07-observability/index|Observability]] — turning this into monitoring rather than firefighting
 - [[devops/01-linux/index|Linux]] — the shell fluency this assumes

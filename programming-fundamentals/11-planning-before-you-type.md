@@ -147,7 +147,7 @@ A workable calibration:
 
 A note about *why* — why this structure, what else you considered, what constraint forced it — costs two minutes and saves an hour when you or someone else comes back in three months. The code shows *what*; only you know *why*, and you will not remember.
 
-At professional scale this becomes an architecture decision record → [[concepts/04-best-practices/03-documentation-practices|documentation practices]].
+At professional scale this becomes an architecture decision record → [[concepts/01-best-practices/05-documentation-practices|documentation practices]].
 
 ## Related
 - [[programming-fundamentals/08-functions|functions]] — what decomposition produces

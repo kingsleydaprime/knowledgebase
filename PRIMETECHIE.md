@@ -17,7 +17,7 @@ That's the actual trait, and it decomposes into four things you can deliberately
 | **Depth** | knowing the layer *below* the one you work at | [[networking/index\|networking]], [[os/fundamentals\|OS]], [[architecture/04-distributed-systems/index\|distributed systems]], [[dsa/index\|DSA]], [[hardware/index\|hardware]] |
 | **Debugging** | narrowing the search space instead of guessing | [[networking/16-debugging-networks\|bisecting layers]], reading errors properly, profilers, a multimeter |
 | **Shipping** | finishing, deploying, operating, being on call for it | [[project-ideas\|projects]], [[devops/index\|devops]] |
-| **Communication** | making others faster — writing, reviewing, teaching | [[research/index\|research & writing]], [[concepts/04-best-practices/02-pr-structure\|PR structure]], this vault |
+| **Communication** | making others faster — writing, reviewing, teaching | [[research/index\|research & writing]], [[concepts/01-best-practices/04-pr-structure\|PR structure]], this vault |
 
 **Three of those are not code.** That's the part the movie leaves out, and it's the part most engineers skip for a decade.
 
@@ -66,7 +66,7 @@ The baseline. You can take an idea to a running thing without help.
 - [ ] Read a stack trace top-to-bottom and fix the root cause, **not the symptom**
 
 **☁️ Infra**
-- [ ] Deploy that app yourself → [[devops/04-vps/vps-setup|VPS]], [[devops/02-docker/index|Docker]]
+- [ ] Deploy that app yourself → [[devops/04-vps/vps-setup|VPS]], [[devops/03-docker/index|Docker]]
 - [ ] Explain what happens between typing a URL and seeing a page → [[networking/01-what-a-network-is|note 01]]
 - [ ] Find out why a service won't start **from its logs**, not from guessing → [[devops/01-linux/17-logs-and-journald|logs & journald]]
 
@@ -214,7 +214,7 @@ Depth in **one** domain deep enough that you're the escalation point. Pick a lan
 **☁️ Infrastructure**
 - [ ] Run a multi-region system and survive losing a region
 - [ ] Reduce a cloud bill by 50% with a written explanation of *why* it was high
-- [ ] Rebuild your entire environment from code, from nothing, and have it work → [[devops/07-infrastructure-as-code/index|IaC]]
+- [ ] Rebuild your entire environment from code, from nothing, and have it work → [[devops/09-infrastructure-as-code/index|IaC]]
 
 **🔌 Hardware & embedded**
 - [ ] Take a board from schematic to a **manufactured, working revision two** — where rev 2 exists because you found rev 1's mistakes
@@ -231,7 +231,7 @@ Depth in **one** domain deep enough that you're the escalation point. Pick a lan
 The rank almost nobody plans for. It's not management — it's the point where **the constraint on your impact stops being your own throughput.** Domain-independent by nature; this is the rank where the columns rejoin.
 
 - [ ] Write something technical that **changes how other people work** → your blog drafts, [[research/09-scientific-writing-craft|writing craft]]
-- [ ] Review code so that the author is better afterwards, not just the code → [[concepts/04-best-practices/02-pr-structure|PR structure]]
+- [ ] Review code so that the author is better afterwards, not just the code → [[concepts/01-best-practices/04-pr-structure|PR structure]]
 - [ ] Make a decision under genuine uncertainty, write down the reasoning, and **be publicly wrong about one** → `DECISIONS.md`
 - [ ] Mentor someone from Rank I to Rank II
 - [ ] Say no to a technically interesting project for a correct business reason

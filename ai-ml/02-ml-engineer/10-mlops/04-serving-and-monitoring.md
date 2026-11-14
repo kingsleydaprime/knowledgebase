@@ -1,6 +1,6 @@
 # Serving & Operations
 
-**Source:** the original project's deployment note, re-homed into the MLOps section and trimmed so drift/monitoring depth lives in its own note ([[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|monitoring & edge]]). Getting a trained model out of a notebook and operating it: serving predictions, versioning, safe rollout, and retraining. The infra underneath is [[devops/index|DevOps]] ([[devops/02-docker/index|Docker]]/[[devops/05-orchestration/index|k8s]]/[[devops/10-observability/index|observability]]) — this is the ML-specific layer on top.
+**Source:** the original project's deployment note, re-homed into the MLOps section and trimmed so drift/monitoring depth lives in its own note ([[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|monitoring & edge]]). Getting a trained model out of a notebook and operating it: serving predictions, versioning, safe rollout, and retraining. The infra underneath is [[devops/index|DevOps]] ([[devops/03-docker/index|Docker]]/[[devops/10-orchestration/index|k8s]]/[[devops/07-observability/index|observability]]) — this is the ML-specific layer on top.
 
 ## Serving — getting predictions out of a model
 
@@ -29,7 +29,7 @@ A production ML system must record which exact **model version** served which pr
 
 ## A/B testing and gradual rollout
 
-Don't swap the whole production model at once. Route a small % of real traffic to the new version and compare *real-world* performance before full rollout — the same canary/blue-green ideas as [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD deployment strategies]]. This matters more in ML than in ordinary software because offline metrics ([[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|evaluation]]) don't perfectly predict live performance, and a model's decisions change user behavior in ways only visible on live traffic ([[ai-ml/02-ml-engineer/08-other-architectures/02-recommendation-systems|feedback loops]]).
+Don't swap the whole production model at once. Route a small % of real traffic to the new version and compare *real-world* performance before full rollout — the same canary/blue-green ideas as [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD deployment strategies]]. This matters more in ML than in ordinary software because offline metrics ([[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|evaluation]]) don't perfectly predict live performance, and a model's decisions change user behavior in ways only visible on live traffic ([[ai-ml/02-ml-engineer/08-other-architectures/02-recommendation-systems|feedback loops]]).
 
 ## Retraining pipelines
 

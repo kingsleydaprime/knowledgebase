@@ -2,7 +2,7 @@
 
 > **[Intermediate]** · Test what the user does, not what the component is — and the one rule that makes frontend tests survive a refactor.
 
-**The pyramid and TDD are in [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]]; the server side is in [[backend/07-practices/02-testing-a-backend|testing a backend]].** This is what's different about the browser.
+**The pyramid and TDD are in [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]; the server side is in [[backend/07-practices/02-testing-a-backend|testing a backend]].** This is what's different about the browser.
 
 ## What makes frontend testing distinctive
 
@@ -29,7 +29,7 @@ expect(component.state.isLoading).toBe(true);
 expect(screen.getByRole("button", { name: /submit/i })).toBeDisabled();
 ```
 
-**The second version also happens to test accessibility**, because `getByRole` only finds the button if it's exposed correctly to assistive technology. **That's the quiet reason to prefer role queries: a test that can't find your button is telling you a screen reader can't either** → [[frontend/06-cross-cutting/01-accessibility|accessibility]].
+**The second version also happens to test accessibility**, because `getByRole` only finds the button if it's exposed correctly to assistive technology. **That's the quiet reason to prefer role queries: a test that can't find your button is telling you a screen reader can't either** → [[frontend/05-cross-cutting/01-accessibility|accessibility]].
 
 ## The query priority
 
@@ -101,7 +101,7 @@ const server = setupServer(
 server.use(http.get("/api/users/:id", () => new HttpResponse(null, { status: 500 })));
 ```
 
-**Test the error state, the empty state and the slow state** — those are the states users actually hit and the ones that never get built properly → [[frontend/04-state-and-data/02-data-fetching-and-server-state|the five states]].
+**Test the error state, the empty state and the slow state** — those are the states users actually hit and the ones that never get built properly → [[frontend/03-state-and-data/02-data-fetching-and-server-state|the five states]].
 
 ## What to test, and what not to
 
@@ -135,8 +135,8 @@ server.use(http.get("/api/users/:id", () => new HttpResponse(null, { status: 500
 
 ## Related
 - [[frontend/07-practices/04-end-to-end-with-playwright|end-to-end with Playwright]]
-- [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]] — the pyramid, TDD
+- [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — the pyramid, TDD
 - [[backend/07-practices/02-testing-a-backend|testing a backend]] — the other half
-- [[frontend/06-cross-cutting/01-accessibility|accessibility]] — why role queries pay twice
+- [[frontend/05-cross-cutting/01-accessibility|accessibility]] — why role queries pay twice
 
 *Source: [reference] — from the Testing Library and MSW documentation, Aug 2026.*

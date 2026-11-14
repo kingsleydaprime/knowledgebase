@@ -21,7 +21,7 @@ Grouped by level and focus:
 
 **Foundational / entry:**
 - **CompTIA Security+** — the standard entry-level cert; broad fundamentals, widely required as a baseline. A sensible first cert.
-- **CompTIA Network+ / A+ / Linux+** — the IT/networking foundation beneath security (much of it overlaps [[devops/01-linux/index|Linux]] and [[devops/08-networking-and-web/01-networking-and-protocols|networking]]).
+- **CompTIA Network+ / A+ / Linux+** — the IT/networking foundation beneath security (much of it overlaps [[devops/01-linux/index|Linux]] and [[devops/02-networking-and-web/01-networking-and-protocols|networking]]).
 
 **Offensive:**
 - **CEH** (Certified Ethical Hacker) — broad, well-known, theory-heavy.

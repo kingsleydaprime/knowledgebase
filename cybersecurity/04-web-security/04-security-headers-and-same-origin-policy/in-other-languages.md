@@ -87,7 +87,7 @@ application = security_middleware(api)
 
 ## 3. Go
 
-A middleware wraps `http.Handler` and sets headers before calling the next one — the [[concepts/03-design-patterns/02-structural-patterns/in-other-languages|decorator shape]] from structural patterns. `httptest.NewRecorder` tests it with no network.
+A middleware wraps `http.Handler` and sets headers before calling the next one — the [[concepts/02-design-patterns/02-structural-patterns/in-other-languages|decorator shape]] from structural patterns. `httptest.NewRecorder` tests it with no network.
 
 ```go
 // Package headers: security headers and a CORS allowlist as net/http middleware.
@@ -360,4 +360,4 @@ You can set the headers and CORS allowlist where your framework expects, and tes
 
 ## Related
 - [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|Security headers and the same-origin policy]] — the main lesson
-- [[concepts/03-design-patterns/02-structural-patterns/in-other-languages|Structural patterns in other languages]] — middleware as decorators
+- [[concepts/02-design-patterns/02-structural-patterns/in-other-languages|Structural patterns in other languages]] — middleware as decorators

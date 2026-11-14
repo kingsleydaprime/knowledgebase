@@ -1,7 +1,7 @@
 # Anatomy of a Content Migration
 
 **Split from:** the munakalati migration domain. **See also:** [[projects/munakalati/learning/05-migration/02-reading-the-wix-api|02 — the Wix API]] · [[projects/munakalati/learning/05-migration/03-idempotency-reruns-and-reports|03 — idempotency and reruns]] · [[projects/munakalati/learning/05-migration/05-repair-scripts|05 — repair scripts]]
-**General version:** [[concepts/04-best-practices/06-data-migrations|concepts/04 — data migrations]]
+**General version:** [[concepts/01-best-practices/08-data-migrations|concepts/04 — data migrations]]
 
 ---
 
@@ -108,6 +108,6 @@ That is the single most instructive failure in this project, and the lesson gene
 **The pagination row is the one worth dwelling on.** v1 loops `while (cursor)`, reading `data.meta?.nextCursor` — a field the Wix endpoint does not return. `undefined` ends the loop after one iteration, silently. No error, no warning: it just quietly migrated the first page and reported success. **A pagination bug that under-fetches is invisible unless you check the count**, which is exactly why phase 4 (verify) is a phase and not an afterthought. The general habit: after any bulk extract, assert that what you got matches the source's own reported total *before* you transform anything.
 
 ## Related
-- [[concepts/04-best-practices/06-data-migrations|the general playbook]] — the framework-agnostic version of this note
+- [[concepts/01-best-practices/08-data-migrations|the general playbook]] — the framework-agnostic version of this note
 - [[projects/munakalati/learning/06-bugs-and-postmortems|06 — bugs and postmortems]]
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data and integration patterns]]

@@ -4,7 +4,7 @@
 
 ## What an artifact is
 
-An **artifact** is a build output — the packaged, deployable result of your CI pipeline: a container image, a `.jar`/`.war`, an npm/PyPI package, a compiled binary, a Helm chart. The [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD principle "build once, promote the artifact"]] only works if there's somewhere to *store* that one build and pull it into each environment — that somewhere is an artifact repository.
+An **artifact** is a build output — the packaged, deployable result of your CI pipeline: a container image, a `.jar`/`.war`, an npm/PyPI package, a compiled binary, a Helm chart. The [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD principle "build once, promote the artifact"]] only works if there's somewhere to *store* that one build and pull it into each environment — that somewhere is an artifact repository.
 
 ## Why a dedicated repository
 
@@ -21,7 +21,7 @@ The most common artifact today is the container image, stored in a **registry**:
 - **Cloud registries** — AWS ECR, Google Artifact Registry, Azure ACR — integrated with each cloud's IAM and k8s.
 - **GitHub/GitLab registries** — bundled with the CI, so the image lives next to the code and pipeline.
 
-`docker push`/`pull` (or the [[devops/05-orchestration/01-kubernetes|Kubernetes]] node pulling an image) talks to a registry; tags (`:1.4.0`, `:latest`) name versions. Immutable, digest-pinned tags (`@sha256:...`) are the safe way to reference exactly one image in production.
+`docker push`/`pull` (or the [[devops/10-orchestration/01-kubernetes|Kubernetes]] node pulling an image) talks to a registry; tags (`:1.4.0`, `:latest`) name versions. Immutable, digest-pinned tags (`@sha256:...`) are the safe way to reference exactly one image in production.
 
 ## Repository managers (multi-format)
 
@@ -38,6 +38,6 @@ These sit between your builds and both public registries and your deploys: your 
 Artifact management is increasingly a **security** topic, not just storage. Knowing exactly what's in a build (an SBOM — software bill of materials), scanning artifacts for vulnerabilities, and signing them (Sigstore/cosign) so you can verify an image wasn't tampered with are now standard concerns — a reaction to supply-chain attacks where compromised dependencies or images poison everyone downstream (the same class of risk as the Log4Shell incident noted in [[languages/01-java/03-tooling/05-logging-and-observability|logging]]).
 
 ## Related
-- [[devops/06-ci-cd/index|CI/CD]] — produces the artifacts stored here
-- [[devops/05-orchestration/01-kubernetes|Kubernetes]] — pulls images from a registry
+- [[devops/05-ci-cd/index|CI/CD]] — produces the artifacts stored here
+- [[devops/10-orchestration/01-kubernetes|Kubernetes]] — pulls images from a registry
 - [[languages/01-java/03-tooling/01-build-tools|Build Tools]] — (in the Java domain) publishing built jars

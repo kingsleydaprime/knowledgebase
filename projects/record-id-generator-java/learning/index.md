@@ -12,7 +12,7 @@ High-throughput record ID generation: CSV in, RabbitMQ in the middle, MySQL out.
 6. [[projects/record-id-generator-java/learning/06-concurrency-and-threads|06 — Concurrency & Threads]] → [[languages/01-java/02-jvm-and-concurrency/02-concurrency|concurrency]] ⭐
 7. [[projects/record-id-generator-java/learning/07-id-generation-and-idempotency|07 — ID Generation & Idempotency]] → [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|id generation]] ⭐
 8. [[projects/record-id-generator-java/learning/08-csv-parsing-and-data-quality|08 — CSV Parsing & Data Quality]]
-9. [[projects/record-id-generator-java/learning/09-logging-and-observability|09 — Logging & Observability]] → [[devops/10-observability/index|observability]]
+9. [[projects/record-id-generator-java/learning/09-logging-and-observability|09 — Logging & Observability]] → [[devops/07-observability/index|observability]]
 10. [[projects/record-id-generator-java/learning/10-docker-and-performance-tuning|10 — Docker & Performance Tuning]] → [[languages/01-java/06-applied-systems/04-docker-for-java-apps|docker for java]]
 
 ⭐ = the two that carry the most interview weight.

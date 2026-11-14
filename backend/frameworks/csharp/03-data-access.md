@@ -71,7 +71,7 @@ dotnet ef migrations script --idempotent      # for production
 
 **Always read the generated migration before applying it.** EF infers intent from a model diff, and a *rename* is frequently detected as **drop-and-create — which is data loss** → [[databases/13-practice-exercises|databases exercise 4]].
 
-**In production, apply migrations deliberately** — a generated SQL script reviewed and run by your deploy pipeline, not `Database.Migrate()` on startup. Startup migration races between instances and gives you no rollback → [[devops/06-ci-cd/index|CI/CD]].
+**In production, apply migrations deliberately** — a generated SQL script reviewed and run by your deploy pipeline, not `Database.Migrate()` on startup. Startup migration races between instances and gives you no rollback → [[devops/05-ci-cd/index|CI/CD]].
 
 ## Dapper
 

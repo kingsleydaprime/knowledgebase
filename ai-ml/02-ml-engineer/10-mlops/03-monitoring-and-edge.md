@@ -4,9 +4,9 @@
 
 ## Monitoring — a model degrades without erroring
 
-The defining difference from [[devops/10-observability/index|ordinary observability]]: traditional monitoring catches _errors and latency_; ML monitoring must also catch a model that keeps running fine while getting quietly **worse**. You watch two layers:
+The defining difference from [[devops/07-observability/index|ordinary observability]]: traditional monitoring catches _errors and latency_; ML monitoring must also catch a model that keeps running fine while getting quietly **worse**. You watch two layers:
 
-- **Operational** (same as any service — reuse [[devops/10-observability/index|DevOps observability]]): latency, throughput, error rate, resource use of the model service.
+- **Operational** (same as any service — reuse [[devops/07-observability/index|DevOps observability]]): latency, throughput, error rate, resource use of the model service.
 - **Model quality** (ML-specific): is the model still accurate?
 
 ### Drift — the core ML failure mode
@@ -17,7 +17,7 @@ The defining difference from [[devops/10-observability/index|ordinary observabil
 
 The hard part: **ground truth is delayed or missing.** You often don't learn whether a prediction was right until much later (did the flagged transaction turn out fraudulent?), or never. So monitoring leans on _proxy_ signals — input distribution shifts, prediction distribution shifts, confidence drops — to raise an alarm before accuracy data confirms the damage.
 
-Tools: **Evidently**, **WhyLabs**, **Arize**, or cloud-native model monitors compute drift metrics and dashboards; they feed the same alerting stack as [[devops/10-observability/index|DevOps observability]]. When drift crosses a threshold, it triggers investigation or an automated [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|retraining pipeline]].
+Tools: **Evidently**, **WhyLabs**, **Arize**, or cloud-native model monitors compute drift metrics and dashboards; they feed the same alerting stack as [[devops/07-observability/index|DevOps observability]]. When drift crosses a threshold, it triggers investigation or an automated [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|retraining pipeline]].
 
 ## Edge AI — models off the server
 
@@ -41,5 +41,5 @@ Edge shifts the MLOps problem: updating a model means pushing it to thousands of
 ## Related
 
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|Serving & Operations]] — retraining pipelines drift triggers
-- [[devops/10-observability/index|Observability (DevOps)]] — the operational-monitoring foundation this extends
+- [[devops/07-observability/index|Observability (DevOps)]] — the operational-monitoring foundation this extends
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — quantization for LLMs, the same idea

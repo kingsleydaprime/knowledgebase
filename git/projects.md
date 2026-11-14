@@ -16,7 +16,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🟡 **Write hooks that earn their keep** — a pre-commit hook that formats and lints, and a commit-msg hook enforcing Conventional Commits. **Done when:** they run on your real projects and you haven't disabled them after a week. Exercises: [[git/17-hooks-and-signing|hooks]].
 
-- 🟡 **Run a proper PR workflow on yourself** — branch protection, required checks, a real review pass on your own PR a day later. **Done when:** you've rejected your own PR for a good reason. Exercises: [[git/13-branching-strategies|team workflow]], [[concepts/04-best-practices/index|code review]].
+- 🟡 **Run a proper PR workflow on yourself** — branch protection, required checks, a real review pass on your own PR a day later. **Done when:** you've rejected your own PR for a good reason. Exercises: [[git/13-branching-strategies|team workflow]], [[concepts/01-best-practices/index|code review]].
 
 - 🔴 ⭐ **Build your own git** — the guide: [[build-your-own-shit/02-your-own-git|02-your-own-git]]. **Done when:** real `git log` reads a repository your program created.
 

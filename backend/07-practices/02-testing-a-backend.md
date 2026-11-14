@@ -4,7 +4,7 @@ id: bc728575-0cc9-4ccf-947f-eabb9a039f4a
 
 # Testing a Backend
 
-**[Intermediate]** — assumes [[concepts/04-best-practices/04-testing-fundamentals/index|Testing Fundamentals]] for the pyramid and TDD. This note is only the part that's *specific to a backend*: the database, the I/O boundaries, test data, and why backend suites go flaky.
+**[Intermediate]** — assumes [[concepts/01-best-practices/03-testing-fundamentals/index|Testing Fundamentals]] for the pyramid and TDD. This note is only the part that's *specific to a backend*: the database, the I/O boundaries, test data, and why backend suites go flaky.
 
 ## The kid version first
 
@@ -135,7 +135,7 @@ Framework behaviour (your ORM can save a row), getters and setters, third-party 
 Backend testing comes down to one decision repeated: real, faked, or ignored. Use a real database in a container against your real migrations, fake everything you don't own, inject the clock, and make every test build its own data. Almost every slow, flaky, or falsely-green backend suite is one of those four choices made wrong.
 
 ## Related
-- [[concepts/04-best-practices/04-testing-fundamentals/index|Testing Fundamentals]] — the pyramid, TDD, and what makes any test valuable
+- [[concepts/01-best-practices/03-testing-fundamentals/index|Testing Fundamentals]] — the pyramid, TDD, and what makes any test valuable
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal & Clean Architecture]] — why ports and adapters make more of your code unit-testable
 - [[backend/05-auth/index|Auth]] — the 401/403 cases above
 - [[languages/01-java/03-tooling/04-testing|Java Testing]] — JUnit 5, Mockito and Testcontainers in depth

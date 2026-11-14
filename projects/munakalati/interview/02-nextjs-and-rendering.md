@@ -169,4 +169,4 @@ The key move is that `photoSrc` is a plain string in the view model — fallback
 
 ## Related
 - [[projects/munakalati/learning/04-frontend/index|learning/04-frontend]]
-- [[frontend/02-rendering/index|rendering strategies]] · [[frontend/frameworks/next/index|Next.js]]
+- [[frontend/06-rendering/index|rendering strategies]] · [[frontend/frameworks/next/index|Next.js]]

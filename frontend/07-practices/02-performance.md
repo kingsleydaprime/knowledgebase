@@ -54,8 +54,8 @@
 
 **Most "React is slow" is one of four things:**
 
-1. **Rendering the whole tree on every keystroke** — state too high. Move it down → [[frontend/03-structuring-a-frontend/01-components-and-composition|components]]
-2. **A context whose value is a new object each render** — every consumer re-renders → [[frontend/04-state-and-data/01-state-management|state]]
+1. **Rendering the whole tree on every keystroke** — state too high. Move it down → [[frontend/02-structuring-a-frontend/01-components-and-composition|components]]
+2. **A context whose value is a new object each render** — every consumer re-renders → [[frontend/03-state-and-data/01-state-management|state]]
 3. **Unstable props** — inline objects, arrays and functions break `memo`
 4. **Unvirtualised long lists**
 
@@ -87,7 +87,7 @@ CLS ≤ 0.1
 ## Related
 - [[frontend/07-practices/01-frontend-best-practices|frontend best practices]]
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser and the DOM]]
-- [[frontend/02-rendering/index|rendering]] — strategy affects LCP directly
+- [[frontend/06-rendering/index|rendering]] — strategy affects LCP directly
 - [[computer-architecture/12-performance|performance method]]
 
 *Source: [reference] — from web.dev and the Core Web Vitals documentation, Aug 2026.*

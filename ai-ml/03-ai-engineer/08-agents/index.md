@@ -124,7 +124,7 @@ It also multiplies everything in §3. Each agent has its own loop, its own token
 
 Frameworks run the loop for you: LangGraph, the OpenAI Agents SDK, the Vercel AI SDK's agent classes, the Claude Agent SDK, and hosted agent services from the model providers. They're useful, but each hides the loop in this lesson behind its own names, so learn the loop first. When an agent misbehaves, you debug the loop, not the framework.
 
-**Observability** for agents means a trace per run: every model call with its prompt, tokens and time, every tool call with its arguments and result, and the stop reason. Tools such as Langfuse and LangSmith collect them, and OpenTelemetry has conventions for recording model calls, so they fit into the [[devops/10-observability/index|observability]] you'd use for any service. The lab's trace is the smallest useful version.
+**Observability** for agents means a trace per run: every model call with its prompt, tokens and time, every tool call with its arguments and result, and the stop reason. Tools such as Langfuse and LangSmith collect them, and OpenTelemetry has conventions for recording model calls, so they fit into the [[devops/07-observability/index|observability]] you'd use for any service. The lab's trace is the smallest useful version.
 
 ## Worked example — the support assistant, as an agent and as a workflow
 

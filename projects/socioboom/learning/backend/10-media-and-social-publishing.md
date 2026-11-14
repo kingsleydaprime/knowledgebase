@@ -355,7 +355,7 @@ different flows for the same provider, decided by how the app was created. We su
 
 2. **Redirect URIs must be `https`.** No localhost exception for web apps — it's the only
    provider of the six with this rule. Fix is a tunnel
-   ([[devops/08-networking-and-web/03-local-https-tunnels|cloudflared]]), and crucially the
+   ([[devops/02-networking-and-web/03-local-https-tunnels|cloudflared]]), and crucially the
    redirect base had to become **per-platform**, because pointing `APP_URL` at a tunnel would
    silently invalidate every Meta redirect URI at once.
 

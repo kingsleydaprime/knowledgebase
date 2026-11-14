@@ -1,6 +1,6 @@
 # Logging, SIEM & Detection
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. The eyes and ears of the [[cybersecurity/07-security-operations/index|SOC]] — you can't respond to what you can't see. This is the same logging/monitoring foundation as [[devops/10-observability/index|DevOps observability]], turned toward _security_ signals.
+**[reference]** — from the roadmap.sh cyber-security roadmap. The eyes and ears of the [[cybersecurity/07-security-operations/index|SOC]] — you can't respond to what you can't see. This is the same logging/monitoring foundation as [[devops/07-observability/index|DevOps observability]], turned toward _security_ signals.
 
 ## Logs — the raw material
 
@@ -22,7 +22,7 @@ A **SIEM** (Security Information and Event Management) aggregates logs from ever
 - **Alerting** — fire on detection rules (correlated patterns, thresholds, known-bad indicators).
 - **Dashboards & search** — for analysts to investigate and hunt.
 
-Examples: Splunk, Elastic Security, Microsoft Sentinel, Wazuh (open-source). The eternal challenge is **tuning** — too many alerts and analysts drown in false positives (alert fatigue → real alerts ignored, the same failure mode as [[devops/10-observability/01-observability-fundamentals/index|noisy DevOps alerting]]); too few rules and real attacks slip through. **SOAR** (Security Orchestration, Automation and Response) sits alongside, automating repetitive response steps (enrich an alert, isolate a host) to fight the volume — see [[cybersecurity/07-security-operations/04-incident-response|incident response]].
+Examples: Splunk, Elastic Security, Microsoft Sentinel, Wazuh (open-source). The eternal challenge is **tuning** — too many alerts and analysts drown in false positives (alert fatigue → real alerts ignored, the same failure mode as [[devops/07-observability/01-observability-fundamentals/index|noisy DevOps alerting]]); too few rules and real attacks slip through. **SOAR** (Security Orchestration, Automation and Response) sits alongside, automating repetitive response steps (enrich an alert, isolate a host) to fight the volume — see [[cybersecurity/07-security-operations/04-incident-response|incident response]].
 
 ## Detection systems
 
@@ -103,7 +103,7 @@ Writing the rule is an afternoon. Making it survivable is the work:
 
 - **Baseline before you threshold.** Run the query without the `where` clause for a week and look at the distribution. A threshold of 20 is a guess; the 99th percentile of your own traffic is a decision.
 - **Exclude by identity, not by silence.** Suppress the known vulnerability scanner _by its source IP and only during its window_, rather than dropping the threshold until it stops firing.
-- **Every alert needs a next step.** If the analyst's only possible response is "hmm," it's a dashboard panel, not an alert. This is the same discipline as [[devops/10-observability/01-observability-fundamentals/index|actionable alerting]] in DevOps, and it fails the same way.
+- **Every alert needs a next step.** If the analyst's only possible response is "hmm," it's a dashboard panel, not an alert. This is the same discipline as [[devops/07-observability/01-observability-fundamentals/index|actionable alerting]] in DevOps, and it fails the same way.
 - **Test your detection by performing the attack.** Spray your own lab box ([[cybersecurity/02-ethical-hacking/05-home-lab-setup|home lab]]) and confirm the alert fires. An untested detection rule is a belief, not a control — and detections silently break when a log format changes upstream.
 
 The uncomfortable truth of most SOCs: the rules exist, and nobody has verified since deployment that they still fire.
@@ -114,4 +114,4 @@ The uncomfortable truth of most SOCs: the rules exist, and nobody has verified s
 - [[devops/01-linux/17-logs-and-journald|Logs and journald]] — reading the raw material above on a single host
 - [[devops/01-linux/20-firewalls-and-hardening|Firewalls & Hardening]] — keys-only SSH, which eliminates the attack this rule detects
 - [[cybersecurity/07-security-operations/04-incident-response|Incident Response]] — what happens when an alert is real
-- [[devops/10-observability/index|Observability (DevOps)]] — the same telemetry foundation for reliability
+- [[devops/07-observability/index|Observability (DevOps)]] — the same telemetry foundation for reliability

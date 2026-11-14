@@ -23,7 +23,7 @@ Almost none of this is Wix- or Sanity-specific. **It's the general skill of movi
 **Phase 5 always exists.** You cannot know how inconsistent the source data is until you've pulled all of it, so plan for repair scripts rather than treating them as evidence of failure.
 
 ## Related
-- General: [[concepts/04-best-practices/06-data-migrations|concepts/04 — data migrations]]
+- General: [[concepts/01-best-practices/08-data-migrations|concepts/04 — data migrations]]
 - [[projects/munakalati/learning/03-sanity/index|03 — Sanity]] — the target system
 - [[projects/munakalati/interview/03-migration-and-data-integrity|interview: migration and data integrity]]
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]]

@@ -1,7 +1,7 @@
 # Data Fetching, ISR and Caching
 
 **Split from:** the munakalati frontend domain. **See also:** [[projects/munakalati/learning/04-frontend/01-app-router-structure|01 — App Router structure]] · [[projects/munakalati/learning/03-sanity/03-groq-queries|sanity/03 — the queries themselves]]
-**General version:** [[frontend/02-rendering/01-rendering-strategies|rendering strategies]] · [[frontend/04-state-and-data/02-data-fetching-and-server-state|data fetching and server state]]
+**General version:** [[frontend/06-rendering/01-rendering-strategies|rendering strategies]] · [[frontend/03-state-and-data/02-data-fetching-and-server-state|data fetching and server state]]
 
 ---
 
@@ -186,5 +186,5 @@ The category is checked against a **known list** rather than passed through — 
 
 ## Related
 - [[projects/munakalati/learning/03-sanity/03-groq-queries|sanity/03 — GROQ]] · [[projects/munakalati/learning/04-frontend/03-rendering-cms-content|03 — the fallback pattern]]
-- [[frontend/02-rendering/01-rendering-strategies|rendering strategies]] — CSR/SSR/SSG/ISR
+- [[frontend/06-rendering/01-rendering-strategies|rendering strategies]] — CSR/SSR/SSG/ISR
 - [[architecture/02-building-blocks/02-caching/index|caching]] — layered caches and staleness

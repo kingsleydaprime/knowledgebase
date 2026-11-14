@@ -19,7 +19,7 @@
 
 **The objection is immediate — "this is inline styles with extra steps" — and it's worth answering properly, because the answer is the whole case:**
 
-**You never name anything.** Naming is the hard part of CSS, and utilities remove it entirely. No more `.card__header--compact` → [[frontend/05-styling/01-css-architecture|CSS architecture]].
+**You never name anything.** Naming is the hard part of CSS, and utilities remove it entirely. No more `.card__header--compact` → [[frontend/04-styling/01-css-architecture|CSS architecture]].
 
 **Styles are colocated with markup**, so deleting a component deletes its styles. **CSS files only ever grow** because nobody dares remove a rule they can't prove is unused.
 
@@ -45,7 +45,7 @@
 }
 ```
 
-**No more `tailwind.config.js`** for most projects. Theme values become **native CSS custom properties**, so they're readable at runtime and by other tooling → [[frontend/05-styling/01-css-architecture|custom properties]].
+**No more `tailwind.config.js`** for most projects. Theme values become **native CSS custom properties**, so they're readable at runtime and by other tooling → [[frontend/04-styling/01-css-architecture|custom properties]].
 
 Also: a **much faster Rust engine** (Oxide), automatic content detection (no `content` globs), and native `@layer`, container queries and `oklch` colours.
 
@@ -80,11 +80,11 @@ className={color === "red" ? "text-red-500" : "text-blue-500"}   // ✓ full str
 
 **Less good for:** content-heavy pages where you don't control markup (a CMS's HTML), teams with a dedicated CSS specialist who'd rather write CSS, and situations where markup readability is paramount.
 
-**With component libraries:** **shadcn/ui** is the common pairing — it copies Radix-based components *into your repo* rather than installing them as a dependency, so you own and can edit them. That combination — Radix for accessibility, Tailwind for styling, your repo for ownership — is close to a default for React apps in 2026 → [[frontend/03-structuring-a-frontend/01-components-and-composition|headless components]].
+**With component libraries:** **shadcn/ui** is the common pairing — it copies Radix-based components *into your repo* rather than installing them as a dependency, so you own and can edit them. That combination — Radix for accessibility, Tailwind for styling, your repo for ownership — is close to a default for React apps in 2026 → [[frontend/02-structuring-a-frontend/01-components-and-composition|headless components]].
 
 ## Related
 - [[frontend/frameworks/css/index|css/]] · [[frontend/frameworks/css/sass|Sass]]
-- [[frontend/05-styling/01-css-architecture|CSS architecture]] — where utility-first sits among the options
-- [[frontend/06-cross-cutting/01-accessibility|accessibility]] — Tailwind styles it; Radix makes it correct
+- [[frontend/04-styling/01-css-architecture|CSS architecture]] — where utility-first sits among the options
+- [[frontend/05-cross-cutting/01-accessibility|accessibility]] — Tailwind styles it; Radix makes it correct
 
 *Source: [reference] — from the Tailwind CSS v4 documentation, Aug 2026.*

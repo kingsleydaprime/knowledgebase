@@ -177,6 +177,6 @@ For any script that modifies production data:
 10. **A backup first.** `sanity dataset export` — 70MB well spent.
 
 ## Related
-- [[concepts/04-best-practices/06-data-migrations|the general playbook]]
+- [[concepts/01-best-practices/08-data-migrations|the general playbook]]
 - [[devops/01-linux/12-bash-scripting|bash scripting]] — the dry-run/apply flag convention
 - [[projects/munakalati/learning/02-shell|02 — shell]]

@@ -3,7 +3,7 @@
 Each lab lives beside its lesson — <lesson folder>/labs/<language>/ — with a lab.json:
 
     {
-      "lesson": "concepts/04-best-practices/01-clean-code.md",
+      "lesson": "concepts/01-best-practices/01-clean-code.md",
       "setup":  [["npm", "ci", "--silent"]],   optional; runs once, when node_modules/ is missing
       "run":    [["node", "--test"]],          every command must exit 0
       "embedded": ["after.mjs"]                files that must appear verbatim in the lesson

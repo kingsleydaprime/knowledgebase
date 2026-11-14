@@ -4,7 +4,7 @@ id: 85d212b1-d570-4959-9e4f-1e0ea502657f
 
 # Load Balancing & Proxies
 
-> **[Intermediate]** · From the roadmap.sh system-design roadmap. The traffic-routing layer that makes [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|horizontal scaling]] possible: how a load balancer picks a server and why the choice matters most in the slow tail, how health checks take a broken server out and put it back, what layer 4 and layer 7 mean, and how consistent hashing spreads keys over cache nodes without moving most of them when one is added. Reverse proxies, API gateways and CDNs complete the picture. The worked example scales week 1's shop from one app server to four. Overlaps the operations view in [[devops/08-networking-and-web/02-web-servers-and-proxies|DevOps web servers and proxies]]; this is the system-design view.
+> **[Intermediate]** · From the roadmap.sh system-design roadmap. The traffic-routing layer that makes [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|horizontal scaling]] possible: how a load balancer picks a server and why the choice matters most in the slow tail, how health checks take a broken server out and put it back, what layer 4 and layer 7 mean, and how consistent hashing spreads keys over cache nodes without moving most of them when one is added. Reverse proxies, API gateways and CDNs complete the picture. The worked example scales week 1's shop from one app server to four. Overlaps the operations view in [[devops/02-networking-and-web/02-web-servers-and-proxies|DevOps web servers and proxies]]; this is the system-design view.
 
 ## Before you start
 
@@ -157,7 +157,7 @@ The same idea shows up whenever keys must be spread over machines that come and 
 
 ## 8. Reverse proxies and API gateways
 
-A **reverse proxy** sits in front of servers, receives clients' requests and forwards them; the client never talks to the backends directly. A layer 7 load balancer is a reverse proxy, and the term also covers a single proxy fronting one app. It's where you put concerns that don't belong in application code: TLS termination, compression, caching responses, limiting request rates, and routing. A *forward* proxy is the reverse: it fronts clients, not servers (see [[devops/08-networking-and-web/02-web-servers-and-proxies|proxies]]).
+A **reverse proxy** sits in front of servers, receives clients' requests and forwards them; the client never talks to the backends directly. A layer 7 load balancer is a reverse proxy, and the term also covers a single proxy fronting one app. It's where you put concerns that don't belong in application code: TLS termination, compression, caching responses, limiting request rates, and routing. A *forward* proxy is the reverse: it fronts clients, not servers (see [[devops/02-networking-and-web/02-web-servers-and-proxies|proxies]]).
 
 For [[architecture/03-architectural-patterns/04-microservices-patterns|microservices]], an **API gateway** is a reverse proxy that's the single entry point for all clients. It handles what every service would otherwise repeat: checking who the caller is, limiting request rates, routing to the right service, combining several service calls into one response, and translating between protocols. Clients then don't need to know how the services are laid out. The trap is putting business logic in the gateway. It then becomes a bottleneck that every team must change, a monolith in disguise, so keep it thin.
 
@@ -511,5 +511,5 @@ You can choose a balancing algorithm for a workload and explain the simulation b
 
 - [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability and performance]]: why load balancing enables scale
 - [[architecture/02-building-blocks/02-caching/index|Caching]]: CDNs are caching at the edge, and the cache tier is what consistent hashing spreads
-- [[devops/08-networking-and-web/02-web-servers-and-proxies|Web servers and proxies (DevOps)]]: running Nginx and HAProxy in practice
+- [[devops/02-networking-and-web/02-web-servers-and-proxies|Web servers and proxies (DevOps)]]: running Nginx and HAProxy in practice
 - [[architecture/04-distributed-systems/13-partitioning|Partitioning]]: consistent hashing for databases

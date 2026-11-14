@@ -12,7 +12,7 @@ Split one app into dozens of services and you create new problems the monolith n
 
 ## Service Discovery
 
-Services scale up/down and move (new instances, failures, [[devops/05-orchestration/01-kubernetes|k8s]] reschedules), so their addresses aren't fixed. **Service discovery** lets a service find the current healthy instances of another by *name* rather than a hardcoded IP:
+Services scale up/down and move (new instances, failures, [[devops/10-orchestration/01-kubernetes|k8s]] reschedules), so their addresses aren't fixed. **Service discovery** lets a service find the current healthy instances of another by *name* rather than a hardcoded IP:
 
 - **Server-side** — the caller hits a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancer]] that knows the instances (k8s Services work this way).
 - **Client-side** — the caller queries a **service registry** (Consul, etcd, Eureka) and picks an instance itself.
@@ -34,7 +34,7 @@ Instead of one API serving all clients, give each client type (web, mobile, thir
 
 ## Sidecar & Ambassador
 
-Deploy a helper *alongside* each service (in the same [[devops/05-orchestration/01-kubernetes|pod]]) to handle infrastructure concerns, so the service code stays focused on business logic:
+Deploy a helper *alongside* each service (in the same [[devops/10-orchestration/01-kubernetes|pod]]) to handle infrastructure concerns, so the service code stays focused on business logic:
 
 - **Sidecar** — a companion container adding capabilities (logging, config, TLS, metrics) without changing the service. The basis of a [[devops/11-delivery-and-advanced/03-service-mesh|service mesh]] (an Envoy sidecar per service handling all networking — mTLS, retries, observability — transparently).
 - **Ambassador** — a sidecar specifically for *outbound* calls (proxying/managing connections to external services).
@@ -45,13 +45,13 @@ When multiple instances of a service run for availability but only *one* should 
 
 ## Cross-cutting: observability
 
-The pattern that makes microservices *operable*: because a request now spans many services, you *need* distributed [[devops/10-observability/index|tracing]] (a request/trace ID threaded through every hop), centralized logging, and per-service health endpoints — or debugging becomes impossible. This isn't optional the way it is in a monolith; it's the price of admission.
+The pattern that makes microservices *operable*: because a request now spans many services, you *need* distributed [[devops/07-observability/index|tracing]] (a request/trace ID threaded through every hop), centralized logging, and per-service health endpoints — or debugging becomes impossible. This isn't optional the way it is in a monolith; it's the price of admission.
 
 ## The honest summary
 
-These patterns are powerful, but note what they represent: **a whole platform of complexity that a monolith gets for free** (in-process calls need no discovery, one process needs no gateway, one app needs no distributed tracing). That's the real cost of microservices ([[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|when to adopt them]]) — you're signing up to build and run all of this. Managed platforms ([[devops/05-orchestration/index|Kubernetes]], [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]]) provide much of it, which is exactly why they exist.
+These patterns are powerful, but note what they represent: **a whole platform of complexity that a monolith gets for free** (in-process calls need no discovery, one process needs no gateway, one app needs no distributed tracing). That's the real cost of microservices ([[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|when to adopt them]]) — you're signing up to build and run all of this. Managed platforms ([[devops/10-orchestration/index|Kubernetes]], [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]]) provide much of it, which is exactly why they exist.
 
 ## Related
 - [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|Monolith / Microservices / Serverless]] — whether to take this on at all
-- [[devops/05-orchestration/index|Orchestration (devops)]] — the platform that provides these
+- [[devops/10-orchestration/index|Orchestration (devops)]] — the platform that provides these
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — the theory under service discovery & leader election

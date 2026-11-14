@@ -163,7 +163,7 @@ Previous read at 0x00c000018098 by main goroutine:
   main.main()
 ```
 
-It's a **dynamic** detector — it only finds races on code paths that actually execute, so it needs decent test coverage to be useful. It costs ~10x CPU and ~5x memory, so it's a CI and local-test tool, not a production one. Wire it into the test job in [[devops/06-ci-cd/08-ci-pipelines|your CI pipeline]].
+It's a **dynamic** detector — it only finds races on code paths that actually execute, so it needs decent test coverage to be useful. It costs ~10x CPU and ~5x memory, so it's a CI and local-test tool, not a production one. Wire it into the test job in [[devops/05-ci-cd/08-ci-pipelines|your CI pipeline]].
 
 Go's memory model is explicit that a data race is undefined behaviour, not merely "a stale read". Anything unsynchronised is a bug even if it appears to work.
 

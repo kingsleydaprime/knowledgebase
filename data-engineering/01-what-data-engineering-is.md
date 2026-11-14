@@ -73,7 +73,7 @@ Almost every data system, however grand its tooling, is this:
 
 It emerged because building reliable data pipelines is neither database administration nor software engineering nor data science, but overlaps all three:
 
-- **From software engineering:** version control, testing, CI/CD, idempotency, code review — pipelines are code → [[concepts/04-best-practices/index|best practices]]
+- **From software engineering:** version control, testing, CI/CD, idempotency, code review — pipelines are code → [[concepts/01-best-practices/index|best practices]]
 - **From databases:** SQL, storage internals, query optimisation, modelling → [[databases/index|databases]]
 - **From distributed systems:** partitioning, replication, consistency, and the fact that **things fail partway through** → [[architecture/04-distributed-systems/index|distributed systems]]
 - **Its own:** the tools (warehouses, Kafka, Spark, orchestrators), the modelling patterns, and a deep respect for **idempotency and reprocessing**, because pipelines break and must be re-runnable

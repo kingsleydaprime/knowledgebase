@@ -11,7 +11,7 @@ id: f9c4e752-2ee1-47ad-8f7d-4badbb1bbee3
 You can already:
 
 - Separate a controller, a service and a repository, and explain why services throw domain errors → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layers]].
-- Explain dependency inversion — "depend on what you need, not on a vendor" → [[concepts/04-best-practices/05-solid-principles/index|SOLID]].
+- Explain dependency inversion — "depend on what you need, not on a vendor" → [[concepts/01-best-practices/07-solid-principles/index|SOLID]].
 
 After this lesson you will be able to:
 
@@ -299,5 +299,5 @@ Layering organises code; hexagonal architecture **inverts a dependency**. The mo
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|Layers]] — the cheaper default
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency Injection]] — the mechanism that makes inversion possible
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular Monolith → Services]] — boundaries at the next scale up
-- [[concepts/03-design-patterns/02-structural-patterns/index|Structural Patterns]] — adapter, facade
+- [[concepts/02-design-patterns/02-structural-patterns/index|Structural Patterns]] — adapter, facade
 - [[architecture/03-architectural-patterns/index|Architectural Patterns]] — the system-level view

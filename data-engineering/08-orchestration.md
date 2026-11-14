@@ -73,6 +73,6 @@ Idempotent:       DELETE yesterday's partition, then INSERT   ← re-run → sam
 - [[data-engineering/04-ingestion-and-change-data-capture|ingestion]] — idempotent loads, the same idea at the source
 - [[data-engineering/07-transformation-and-dbt|transformation and dbt]] — a major thing orchestrators run
 - [[data-engineering/10-data-quality-governance-and-the-stack|data quality]] — where alerts go
-- [[devops/06-ci-cd/index|CI/CD]] · [[architecture/03-architectural-patterns/index|architectural patterns]] — pipelines-as-code
+- [[devops/05-ci-cd/index|CI/CD]] · [[architecture/03-architectural-patterns/index|architectural patterns]] — pipelines-as-code
 
 *Source: [reference] — Aug 2026.*

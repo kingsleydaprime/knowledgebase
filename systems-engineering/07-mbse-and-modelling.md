@@ -61,7 +61,7 @@ Software has arrived at MBSE's central idea repeatedly without calling it that. 
 
 | MBSE idea | Software equivalent |
 |---|---|
-| Model as source of truth | **Infrastructure as code** → [[devops/07-infrastructure-as-code/01-provisioning-and-terraform\|Terraform]] |
+| Model as source of truth | **Infrastructure as code** → [[devops/09-infrastructure-as-code/01-provisioning-and-terraform\|Terraform]] |
 | Generated documentation | OpenAPI → generated client + docs → [[backend/02-api-design/index\|API design]] |
 | Consistency checked mechanically | **Type checking** → [[languages/06-python/08-typing-and-type-hints\|typing]] |
 | Parametric constraints | Property-based testing; SLO burn calculations |
@@ -85,7 +85,7 @@ Software has arrived at MBSE's central idea repeatedly without calling it that. 
 ## Related
 - [[systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what gets modelled
 - [[systems-engineering/02-requirements|requirements]] — traceability, mechanised
-- [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]] — the same idea, in software
+- [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]] — the same idea, in software
 - [[control-theory/index|control theory]] — models with dynamics
 
 *Source: [reference] — from OMG SysML specifications, INCOSE's MBSE initiative, and the digital-twin literature.*

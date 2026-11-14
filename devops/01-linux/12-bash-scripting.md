@@ -941,5 +941,5 @@ dotenv -e .env.staging -- node scripts/cleanup.js
 - [[devops/01-linux/16-sed-and-awk|sed and awk]] — when the transformation is line-shaped
 - [[devops/01-linux/03-file-operations|file operations]] — `find`, `grep -r`, and the search flags
 - [[git/09-investigating-history|investigating history]] — the git equivalent of a verification pass
-- [[concepts/04-best-practices/06-data-migrations|data migrations]] — where the dry-run/apply conventions above come from
+- [[concepts/01-best-practices/08-data-migrations|data migrations]] — where the dry-run/apply conventions above come from
 - [[projects/munakalati/learning/02-shell|munakalati — shell]] — these techniques against a real codebase

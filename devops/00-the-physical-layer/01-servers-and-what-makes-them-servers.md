@@ -2,7 +2,7 @@
 
 > **[Beginner]** · The machine under the abstraction. Same five components as your laptop — different economics, and that difference explains everything above it.
 
-Every layer in this vault eventually runs on a physical box in a building. [[devops/03-cloud/01-cloud-fundamentals|Cloud fundamentals]] opens with "the cloud is someone else's computers" and then, reasonably, never mentions the computers again. This note is the computers.
+Every layer in this vault eventually runs on a physical box in a building. [[devops/08-cloud/01-cloud-fundamentals|Cloud fundamentals]] opens with "the cloud is someone else's computers" and then, reasonably, never mentions the computers again. This note is the computers.
 
 ## A server is not a different kind of machine
 
@@ -38,7 +38,7 @@ What makes it a *server* is not the parts list. It's four things about how it's 
 
 If you want a single technical marker separating "server" from "expensive desktop", it's **ECC RAM** (Error-Correcting Code). Cosmic rays and electrical noise genuinely flip bits in memory — rarely per machine, constantly across a fleet. ECC detects two-bit errors and silently corrects single-bit ones.
 
-Without it, a flipped bit is a corrupted value with no error, no log line, and no way to reason about it afterwards. **This is the reliability story in miniature: not "prevent all failures" but "convert silent failures into loud ones."** The same instinct shows up as checksums in [[networking/02-the-link-layer|the link layer]], WAL in [[databases/10-durability-and-recovery|databases]], and health checks in [[devops/05-orchestration/index|orchestration]].
+Without it, a flipped bit is a corrupted value with no error, no log line, and no way to reason about it afterwards. **This is the reliability story in miniature: not "prevent all failures" but "convert silent failures into loud ones."** The same instinct shows up as checksums in [[networking/02-the-link-layer|the link layer]], WAL in [[databases/10-durability-and-recovery|databases]], and health checks in [[devops/10-orchestration/index|orchestration]].
 
 ## Storage: the number that isn't capacity
 
@@ -90,6 +90,6 @@ Pick any cloud instance type and you're choosing these same five numbers, plus a
 - [[devops/00-the-physical-layer/03-data-centres|data centres]] — the building it lives in
 - [[computer-architecture/index|computer architecture]] — what's happening inside the CPU
 - [[os/01-what-an-os-is|what an OS is]] — the software that makes the hardware usable
-- [[devops/03-cloud/01-cloud-fundamentals|cloud fundamentals]] — renting all of the above
+- [[devops/08-cloud/01-cloud-fundamentals|cloud fundamentals]] — renting all of the above
 
 *Source: [reference] — distilled from the freeCodeCamp IT Fundamentals course (modules 1–2), cross-checked against vendor documentation.*

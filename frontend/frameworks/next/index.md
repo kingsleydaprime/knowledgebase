@@ -17,13 +17,13 @@ app/
 └── products/[id]/page.tsx
 ```
 
-**File-system routing**, with **Server Components by default** → [[frontend/02-rendering/02-hydration-and-the-server-boundary|the server boundary]].
+**File-system routing**, with **Server Components by default** → [[frontend/06-rendering/02-hydration-and-the-server-boundary|the server boundary]].
 
 ## The things worth knowing
 
-**Server Components are the default; `"use client"` opts out.** That directive marks a _boundary_ — everything imported below it becomes client code, so **one misplaced directive near the root ships your whole tree** → [[frontend/02-rendering/02-hydration-and-the-server-boundary|note 02]].
+**Server Components are the default; `"use client"` opts out.** That directive marks a _boundary_ — everything imported below it becomes client code, so **one misplaced directive near the root ships your whole tree** → [[frontend/06-rendering/02-hydration-and-the-server-boundary|note 02]].
 
-**Rendering is per route, not per app.** Static, dynamic, or revalidating — and mixing them deliberately is the whole point → [[frontend/02-rendering/01-rendering-strategies|rendering strategies]].
+**Rendering is per route, not per app.** Static, dynamic, or revalidating — and mixing them deliberately is the whole point → [[frontend/06-rendering/01-rendering-strategies|rendering strategies]].
 
 **Server Actions** let a form call a server function directly, with no API route. Convenient, and **they are public HTTP endpoints** — authorise inside them exactly as you would a route handler → [[backend/06-cross-cutting/01-validation-and-dtos|validation]].
 
@@ -44,5 +44,5 @@ Plus everything in [[frontend/frameworks/react/index|React]]'s index.
 ## Related
 
 - [[frontend/frameworks/react/index|React]] · [[frontend/frameworks/index|frameworks/]]
-- [[frontend/02-rendering/index|rendering]] — the concepts this implements
+- [[frontend/06-rendering/index|rendering]] — the concepts this implements
 - [[backend/frameworks/javascript/index|Node backends]] — what runs on the server side

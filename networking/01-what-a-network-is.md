@@ -33,7 +33,7 @@ The solution is a **stack of layers**, each one solving exactly one problem and 
 | 2 | **Link** | How do I reach the next machine *on this wire*? | MAC address | Ethernet, Wi-Fi |
 | 1 | **Physical** | How do I turn a bit into a signal? | — | copper, fiber, radio |
 
-(You'll also meet the 7-layer **OSI** model, which splits the application layer into three. Nobody implements OSI; it survives as vocabulary — "that's a layer 7 load balancer" means "it reads HTTP." The 5-layer model above is what the internet actually is. The ops-facing view of the same map is in [[devops/08-networking-and-web/01-networking-and-protocols|devops networking & protocols]].)
+(You'll also meet the 7-layer **OSI** model, which splits the application layer into three. Nobody implements OSI; it survives as vocabulary — "that's a layer 7 load balancer" means "it reads HTTP." The 5-layer model above is what the internet actually is. The ops-facing view of the same map is in [[devops/02-networking-and-web/01-networking-and-protocols|devops networking & protocols]].)
 
 The contract between layers is deliberately narrow: **the layer below promises to move a chunk of bytes to a destination, and promises nothing else.** IP does not promise the packet arrives. Ethernet does not know what an IP address is. HTTP does not know whether it's running over TCP or QUIC.
 
@@ -75,4 +75,4 @@ The internet is not a network. It is an **agreement to interoperate**: a minimal
 ## Related
 - [[networking/index|Networking course map]]
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes Distributed Systems Hard]] — the consequences of unreliable networks, one layer up
-- [[devops/08-networking-and-web/01-networking-and-protocols|Networking & Protocols (devops)]] — the same territory from the operator's chair
+- [[devops/02-networking-and-web/01-networking-and-protocols|Networking & Protocols (devops)]] — the same territory from the operator's chair

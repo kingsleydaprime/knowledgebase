@@ -38,7 +38,7 @@
 
 **Limit expensive endpoints separately.** A search endpoint hitting the database and a static health check should not share a budget.
 
-**Behind a proxy, the client IP is the proxy's** unless you configure forwarded headers — so you rate-limit your own load balancer and either block everyone or nobody. **And `X-Forwarded-For` is client-controlled**: trust it only from proxies you control, and take the right entry in the chain → [[devops/08-networking-and-web/index|networking and web]].
+**Behind a proxy, the client IP is the proxy's** unless you configure forwarded headers — so you rate-limit your own load balancer and either block everyone or nobody. **And `X-Forwarded-For` is client-controlled**: trust it only from proxies you control, and take the right entry in the chain → [[devops/02-networking-and-web/index|networking and web]].
 
 ## In-process doesn't work
 

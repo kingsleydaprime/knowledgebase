@@ -197,4 +197,4 @@ That cast exists because `types.ts` declares `body?: unknown[]` by hand. It read
 ## Related
 - [[projects/munakalati/learning/05-migration/04-portable-text-conversion|migration/04 — building Portable Text from Wix nodes]]
 - [[frontend/07-practices/02-performance|performance]] — images are most of a content site's bytes
-- [[frontend/06-cross-cutting/01-accessibility|accessibility]] — the alt-text debt above
+- [[frontend/05-cross-cutting/01-accessibility|accessibility]] — the alt-text debt above

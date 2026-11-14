@@ -7,7 +7,7 @@ From the [[devops/index|DevOps course]]. Weighted toward Linux, containers, and 
 
 ## Be honest about the gap
 
-Much of [[devops/index|devops/]] sections 05–11 is reference material you haven't yet run — k8s, Terraform, and Prometheus are read, not operated. **Say so if asked.** "I've read the material but haven't run a cluster in anger; here's what I'd expect to be surprised by" is a far better answer than a confident recitation that collapses on the first follow-up.
+Much of [[devops/index|devops/]] sections 02, 05–07 and 09–11 is reference material you haven't yet run — k8s, Terraform, and Prometheus are read, not operated. **Say so if asked.** "I've read the material but haven't run a cluster in anger; here's what I'd expect to be surprised by" is a far better answer than a confident recitation that collapses on the first follow-up.
 
 The [[project-ideas|project-ideas]] list has the 🟡 projects that close this specific gap — a local k8s deploy and an observability stack are the two highest-value ones.
 

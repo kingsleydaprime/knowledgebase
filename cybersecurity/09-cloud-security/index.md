@@ -21,8 +21,8 @@ Securing workloads in the cloud, where **the perimeter dissolves and misconfigur
 3. **A single misconfiguration is instantly internet-reachable** — so catch it in the PR (shift-left) and scan production continuously ([[cybersecurity/09-cloud-security/05-cloud-native-defence|05]]).
 
 ## Related
-- [[devops/03-cloud/01-cloud-fundamentals|Cloud Fundamentals (DevOps)]] — the shared-responsibility model, from the ops side
-- [[devops/09-secret-management/index|Secret Management (DevOps)]] — keeping keys out of code
-- [[devops/05-orchestration/index|Kubernetes (DevOps)]] — what container security secures
+- [[devops/08-cloud/01-cloud-fundamentals|Cloud Fundamentals (DevOps)]] — the shared-responsibility model, from the ops side
+- [[devops/06-secret-management/index|Secret Management (DevOps)]] — keeping keys out of code
+- [[devops/10-orchestration/index|Kubernetes (DevOps)]] — what container security secures
 - [[cybersecurity/07-security-operations/index|Security Operations]] — cloud detection & response
 - [[cybersecurity/14-api-security/04-input-validation-and-injection|API security: SSRF]] — the metadata-service attack path

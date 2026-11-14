@@ -12,7 +12,7 @@ You can already:
 
 - Score a prompt on a labelled set and compare two prompts → [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt engineering]].
 - Check model output against a schema and invariants → [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]].
-- Write ordinary tests and explain what a regression is → [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]].
+- Write ordinary tests and explain what a regression is → [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]].
 
 After this lesson you will be able to:
 
@@ -530,7 +530,7 @@ You can build a golden set with a labelling policy, choose a scorer, compare aga
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — structural checks, the cheapest scorer
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — retrieval and generation metrics
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — evals as one part of shipping safely
-- [[concepts/04-best-practices/04-testing-fundamentals/index|Testing fundamentals]] — the deterministic cousin of this discipline
+- [[concepts/01-best-practices/03-testing-fundamentals/index|Testing fundamentals]] — the deterministic cousin of this discipline
 - [[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|ML evaluation metrics]] — precision, recall and the classical side
 
 *Source: Part II of the AI-engineer track; evals had been one paragraph in safety and production.*

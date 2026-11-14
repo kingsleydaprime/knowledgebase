@@ -1,0 +1,14 @@
+{
+  "lesson": "concepts/01-best-practices/07-solid-principles/index.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "fees.mjs",
+    "checkout.mjs",
+    "solid.test.mjs"
+  ]
+}

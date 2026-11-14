@@ -119,7 +119,7 @@ for order in Order.objects.all():        # 1 query
 
 **Checkpoint frequency** — `log_checkpoints = on`. Frequent checkpoints mean `max_wal_size` is too small.
 
-**Set `log_min_duration_statement`** to log anything slow, and `auto_explain` to capture plans for them. → [[devops/10-observability/index|Observability]]
+**Set `log_min_duration_statement`** to log anything slow, and `auto_explain` to capture plans for them. → [[devops/07-observability/index|Observability]]
 
 ## Security
 
@@ -190,5 +190,5 @@ for order in Order.objects.all():        # 1 query
 ## Related
 - [[databases/11-replication-and-scaling|Replication and Scaling]] — when one machine isn't enough
 - [[databases/interview/01-sql-modelling-and-internals|Databases interview]] — what gets asked about all this
-- [[devops/10-observability/index|Observability]] — the monitoring layer
+- [[devops/07-observability/index|Observability]] — the monitoring layer
 - [[databases/index|Databases map]]

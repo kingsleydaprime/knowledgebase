@@ -476,6 +476,6 @@ You can state npm's precedence order and find where any value came from, route s
 
 - [[02-authentication-and-private-packages|Authentication and Private Packages]] — the credential half
 - [[devops/01-linux/10-environment-variables|Environment Variables]] — what `${VAR}` substitution depends on
-- [[devops/09-secret-management/index|Secret Management]] — where tokens should actually live
-- [[devops/06-ci-cd/10-pipeline-security|Pipeline Security]] — credentials in CI
+- [[devops/06-secret-management/index|Secret Management]] — where tokens should actually live
+- [[devops/05-ci-cd/10-pipeline-security|Pipeline Security]] — credentials in CI
 - [[tools/index|tools/]] — the parent folder

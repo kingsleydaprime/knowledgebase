@@ -149,7 +149,7 @@ func main() {
 
 `Shutdown` stops accepting new connections and waits for in-flight requests to finish, up to the deadline. Without it, a deploy kills requests mid-flight.
 
-This matters more than it sounds under [[devops/05-orchestration/index|Kubernetes]]: the moment a pod is marked terminating, it gets `SIGTERM` while the load balancer may still send it traffic for a few seconds. Handle the signal, drain, then exit.
+This matters more than it sounds under [[devops/10-orchestration/index|Kubernetes]]: the moment a pod is marked terminating, it gets `SIGTERM` while the load balancer may still send it traffic for a few seconds. Handle the signal, drain, then exit.
 
 `ErrServerClosed` is the expected return from `ListenAndServe` after `Shutdown` — treating it as an error is a common noisy-log bug.
 

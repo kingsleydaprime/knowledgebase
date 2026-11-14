@@ -175,4 +175,4 @@ if (posts.length !== reportedTotal)
 
 ## Related
 - [[projects/munakalati/learning/05-migration/index|learning/05-migration]]
-- [[concepts/04-best-practices/06-data-migrations|the general playbook]] · [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]]
+- [[concepts/01-best-practices/08-data-migrations|the general playbook]] · [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]]

@@ -7,6 +7,6 @@ How to work on a backend, as opposed to how to build one.
 3. [[backend/07-practices/03-load-and-performance-testing|Load & Performance Testing]] — **[Intermediate]** — concurrency bugs, k6 vs Artillery, token pooling pattern, connection pools, and reading percentiles
 
 ## Related
-- [[concepts/04-best-practices/index|Best Practices]] — the domain-neutral versions: clean code, PR structure, testing, documentation
-- [[concepts/04-best-practices/04-testing-fundamentals/index|Testing Fundamentals]] — the pyramid and TDD, which note 02 above assumes rather than repeats
+- [[concepts/01-best-practices/index|Best Practices]] — the domain-neutral versions: clean code, PR structure, testing, documentation
+- [[concepts/01-best-practices/03-testing-fundamentals/index|Testing Fundamentals]] — the pyramid and TDD, which note 02 above assumes rather than repeats
 - [[backend/interview/index|Backend interview prep]]

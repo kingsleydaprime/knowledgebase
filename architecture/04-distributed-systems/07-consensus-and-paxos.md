@@ -34,7 +34,7 @@ It hides under a surprising range of features — all of them "get everyone to a
 - **Atomic commit** — agree to commit-or-abort a [[architecture/04-distributed-systems/10-distributed-transactions|transaction]] across shards.
 - **Locks, configuration, membership** — one agreed source of truth.
 
-This is why **etcd** and **ZooKeeper** ([[architecture/04-distributed-systems/09-coordination-services|coordination services]]) exist: they package consensus as a service so other systems ([[devops/05-orchestration/01-kubernetes|Kubernetes]] stores everything in etcd) don't reinvent it.
+This is why **etcd** and **ZooKeeper** ([[architecture/04-distributed-systems/09-coordination-services|coordination services]]) exist: they package consensus as a service so other systems ([[devops/10-orchestration/01-kubernetes|Kubernetes]] stores everything in etcd) don't reinvent it.
 
 ## Paxos — the original, correct, famously baffling
 

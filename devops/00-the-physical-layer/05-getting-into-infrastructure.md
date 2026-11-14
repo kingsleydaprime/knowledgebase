@@ -37,15 +37,15 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 
 **2. Networking.** Subnetting, routing, DNS, TLS, firewalls, and the ability to debug why two machines can't talk. **The most common gap in self-taught infrastructure people** → [[networking/index|networking]].
 
-**3. One cloud, properly.** Not three shallowly. AWS has the largest market; Azure dominates enterprise; GCP is strong in data/ML → [[devops/03-cloud/index|03-cloud]].
+**3. One cloud, properly.** Not three shallowly. AWS has the largest market; Azure dominates enterprise; GCP is strong in data/ML → [[devops/08-cloud/index|08-cloud]].
 
-**4. Infrastructure as code.** Terraform, and configuration management. **The line between "sysadmin" and "infrastructure engineer" is essentially whether your infrastructure is in git** → [[devops/07-infrastructure-as-code/index|07-IaC]].
+**4. Infrastructure as code.** Terraform, and configuration management. **The line between "sysadmin" and "infrastructure engineer" is essentially whether your infrastructure is in git** → [[devops/09-infrastructure-as-code/index|07-IaC]].
 
 **5. A scripting language.** Python and Bash → [[languages/06-python/index|Python]] · [[devops/01-linux/12-bash-scripting|Bash]].
 
-**6. Containers and orchestration.** Docker, then Kubernetes → [[devops/02-docker/index|02-docker]] · [[devops/05-orchestration/index|05-orchestration]].
+**6. Containers and orchestration.** Docker, then Kubernetes → [[devops/03-docker/index|03-docker]] · [[devops/10-orchestration/index|10-orchestration]].
 
-**Then:** observability → [[devops/10-observability/index|10]], CI/CD → [[devops/06-ci-cd/index|06]], and security posture → [[cybersecurity/09-cloud-security/index|cloud security]].
+**Then:** observability → [[devops/07-observability/index|07]], CI/CD → [[devops/05-ci-cd/index|05]], and security posture → [[cybersecurity/09-cloud-security/index|cloud security]].
 
 ## Certifications — where they actually help
 
@@ -75,8 +75,8 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 
 1. **A real VPS, doing something real.** Buy one, harden it, deploy something, keep it up → [[devops/04-vps/vps-setup|04-vps]]. **Publicly reachable and actually used beats any lab**
 2. **Everything in Terraform**, in a public repo. VPC, subnets, security groups, an instance. Destroy and recreate it from scratch — that's the claim IaC makes, and doing it proves you understand it
-3. **A CI/CD pipeline** that deploys on push → [[devops/06-ci-cd/index|06-ci-cd]]
-4. **Monitoring, with an alert that has actually fired** → [[devops/10-observability/index|10]]
+3. **A CI/CD pipeline** that deploys on push → [[devops/05-ci-cd/index|05-ci-cd]]
+4. **Monitoring, with an alert that has actually fired** → [[devops/07-observability/index|07]]
 5. **A small Kubernetes cluster** — k3s on cheap VPSes teaches more than a managed control plane, because you have to fix it
 6. **A home lab**, if hardware appeals — an old machine, a hypervisor, some VMs → [[devops/00-the-physical-layer/02-virtualisation-and-hypervisors|virtualisation]]. This is where the physical notes stop being abstract
 

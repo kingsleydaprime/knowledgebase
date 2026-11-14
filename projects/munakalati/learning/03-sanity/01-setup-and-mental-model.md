@@ -2,7 +2,7 @@
 
 **Domain:** Sanity CMS, as it showed up in [[projects/munakalati/learning/index|munakalati]] (the Muna Kalati / MunaWorld site).
 **See also:** [[projects/munakalati/learning/03-sanity/02-schema-design|02 — schema design]] · [[projects/munakalati/learning/03-sanity/03-groq-queries|03 — GROQ]] · [[projects/munakalati/learning/03-sanity/04-images-and-portable-text|04 — images & Portable Text]] · [[projects/munakalati/learning/03-sanity/05-embedded-studio-and-structure|05 — the embedded Studio]]
-**General version:** [[frontend/frameworks/sanity/index|frontend/frameworks/sanity/]] · concept-level: [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modeling and headless CMS]]
+**General version:** [[frontend/frameworks/sanity/index|frontend/frameworks/sanity/]] · concept-level: [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|content modeling and headless CMS]]
 
 ---
 
@@ -138,4 +138,4 @@ src/sanity/
 ## Related
 - [[projects/munakalati/learning/index|munakalati learning index]]
 - [[frontend/frameworks/sanity/01-the-sanity-model|general: the Sanity model]]
-- [[devops/09-secret-management/index|secret management]] — why `NEXT_PUBLIC_` is a boundary
+- [[devops/06-secret-management/index|secret management]] — why `NEXT_PUBLIC_` is a boundary

@@ -234,6 +234,6 @@ Compiled, run as a test *and* rendered in the generated docs. Documentation that
 ## Related
 - [[languages/02-go/07-concurrency-patterns|Concurrency Patterns]] — `-race` belongs in every test run
 - [[languages/02-go/13-performance-and-runtime|Performance and the Runtime]] — pprof, after benchmarks tell you where to look
-- [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — wiring `go test -race ./...` into a gate
+- [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — wiring `go test -race ./...` into a gate
 - [[languages/01-java/03-tooling/04-testing|Java: Testing]] — JUnit and Mockito, the framework-heavy alternative
 - [[languages/02-go/index|Go course map]]

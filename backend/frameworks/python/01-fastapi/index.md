@@ -109,7 +109,7 @@ class Order(BaseModel):
 
 **Pydantic parses rather than merely validating** — it coerces `"5"` to `5` where sensible and gives you a typed object afterwards, so downstream code doesn't re-check. This is the *parse, don't validate* idea, and it's why the annotation gap in note 08 (hints are unenforced at runtime) closes exactly at the API boundary.
 
-`pydantic-settings` does the same for environment variables, which is the cleanest config story in Python → [[devops/09-secret-management/index|secrets]].
+`pydantic-settings` does the same for environment variables, which is the cleanest config story in Python → [[devops/06-secret-management/index|secrets]].
 
 ## Running it
 

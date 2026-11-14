@@ -16,7 +16,7 @@
 | **`Permissions-Policy`** | Disables camera, mic, geolocation by default |
 | `Cache-Control: no-store` | On authenticated responses, so shared caches don't retain them |
 
-**Set them centrally.** Helmet (Node), `SecurityHeaders` middleware (.NET), `secure` (Python), or at the reverse proxy → [[devops/08-networking-and-web/index|networking and web]].
+**Set them centrally.** Helmet (Node), `SecurityHeaders` middleware (.NET), `secure` (Python), or at the reverse proxy → [[devops/02-networking-and-web/index|networking and web]].
 
 ## CSP is the one worth effort
 

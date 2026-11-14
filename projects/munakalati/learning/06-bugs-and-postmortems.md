@@ -290,5 +290,5 @@ Five of the six were **silent**. No exception, no failing build, no red console 
 
 ## Related
 - [[projects/munakalati/interview/04-bugs-and-story|interview: bugs and story]] — these, as questions
-- [[concepts/04-best-practices/06-data-migrations|data migrations]]
+- [[concepts/01-best-practices/08-data-migrations|data migrations]]
 - [[problem-solving/thinking-patterns|thinking patterns]]

@@ -97,6 +97,6 @@ Workflow-level timeouts matter too — a run that legitimately takes 10 minutes 
 - [[ai-automation/03-connecting-apis-and-webhooks|connecting APIs and webhooks]] — idempotency
 - [[ai-automation/06-self-hosting-n8n|self-hosting]] — where the alerting runs
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — alerting philosophy
-- [[devops/10-observability/index|observability]]
+- [[devops/07-observability/index|observability]]
 
 *Source: [reference] — written Aug 2026.*

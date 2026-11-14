@@ -23,7 +23,7 @@ You've already been using them. `print()` is a function. So is `len()`, `max()`,
 
 **Naming intent.** `calculateTax(amount)` says what's happening. Eight lines of inline arithmetic makes the reader work it out, every time they pass.
 
-**Making things testable.** A function with inputs and an output can be checked in isolation, which is what makes [[concepts/04-best-practices/04-testing-fundamentals/index|automated tests]] possible at all.
+**Making things testable.** A function with inputs and an output can be checked in isolation, which is what makes [[concepts/01-best-practices/03-testing-fundamentals/index|automated tests]] possible at all.
 
 **Shrinking what you hold in your head.** This is the real one. Once `calculateTax` is written and works, you stop thinking about tax calculation and think about `calculateTax`. **The point of a function is to let you forget its contents** — and that forgetting is what allows a program larger than the few dozen lines a person can hold at once.
 
@@ -102,7 +102,7 @@ This bites especially with strings and other immutable values: `text.upper()` **
 
 **Prefer returning over mutating.** A function that takes inputs and returns an output, changing nothing else, is trivially understandable and trivially testable. One that quietly modifies a global or its own arguments is neither.
 
-That last property has a name — a **pure** function: same inputs, same output, no side effects. Not everything can be pure (something has to write the file), but **pushing the pure logic apart from the effects is one of the highest-return structural habits there is**. It's the core of [[concepts/03-design-patterns/index|a lot of design]] and the whole premise of functional programming.
+That last property has a name — a **pure** function: same inputs, same output, no side effects. Not everything can be pure (something has to write the file), but **pushing the pure logic apart from the effects is one of the highest-return structural habits there is**. It's the core of [[concepts/02-design-patterns/index|a lot of design]] and the whole premise of functional programming.
 
 **Watch the sharing trap.** Passing a list or object into a function passes a *reference* → [[programming-fundamentals/05-variables-and-types|note 05]]. Modifying it inside changes the caller's copy. Sometimes intended; frequently a surprise.
 
@@ -135,8 +135,8 @@ A function *can* usually see variables from the scope enclosing it, and in many 
 ## Related
 - [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — functions calling themselves, and how calls actually work
 - [[programming-fundamentals/11-planning-before-you-type|planning]] — deciding what your functions should be
-- [[concepts/04-best-practices/04-testing-fundamentals/index|testing]] — what functions make possible
-- [[concepts/04-best-practices/05-solid-principles/index|SOLID]] — "do one thing", scaled up
+- [[concepts/01-best-practices/03-testing-fundamentals/index|testing]] — what functions make possible
+- [[concepts/01-best-practices/07-solid-principles/index|SOLID]] — "do one thing", scaled up
 - [[software-engineering/01-what-software-engineering-is|abstraction]] — the habit this note is an instance of
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with purity, dependency judgement and closures.*

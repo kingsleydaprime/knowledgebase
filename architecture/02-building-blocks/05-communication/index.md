@@ -176,7 +176,7 @@ Use the simplest that meets the need: polling for "check every minute", server-s
 
 ## 9. The protocols underneath
 
-These all ride on the same stack ([[devops/08-networking-and-web/01-networking-and-protocols|networking and protocols]]):
+These all ride on the same stack ([[devops/02-networking-and-web/01-networking-and-protocols|networking and protocols]]):
 
 - **HTTP/1.1** sends one request at a time per connection.
 - **HTTP/2** carries many at once on one connection; it's what gRPC uses.
@@ -734,5 +734,5 @@ You can count a screen's requests, round trips and bytes, explain and fix the N+
 
 - [[backend/frameworks/java/03-api-design-and-documentation|API design and documentation (Java)]]: REST and OpenAPI in real code
 - [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging and async]]: the asynchronous alternative to request and response
-- [[devops/08-networking-and-web/01-networking-and-protocols|Networking and protocols (DevOps)]]: the transport layer
+- [[devops/02-networking-and-web/01-networking-and-protocols|Networking and protocols (DevOps)]]: the transport layer
 - [[networking/11-http-evolution/index|HTTP and its evolution]]: HTTP/1.1, 2 and 3 in depth

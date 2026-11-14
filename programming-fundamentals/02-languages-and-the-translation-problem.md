@@ -71,7 +71,7 @@ Static typing costs you some verbosity and buys a class of error caught for free
 
 **Query** — SQL. You describe *what you want*, not how to get it, and something else works out the plan. → [[databases/sql-reference|SQL reference]].
 
-**Domain-specific** — HCL for [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|Terraform]], YAML for CI config, regex for text patterns. You'll learn dozens of these incidentally and none of them deliberately.
+**Domain-specific** — HCL for [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|Terraform]], YAML for CI config, regex for text patterns. You'll learn dozens of these incidentally and none of them deliberately.
 
 ## Choosing a first language
 

@@ -1,0 +1,14 @@
+{
+  "lesson": "concepts/01-best-practices/03-testing-fundamentals/in-other-languages.md",
+  "run": [
+    [
+      "python3",
+      "-m",
+      "unittest"
+    ]
+  ],
+  "embedded": [
+    "reminders.py",
+    "test_reminders.py"
+  ]
+}

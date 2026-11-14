@@ -138,7 +138,7 @@ const [featured, posts, total] = await Promise.all([
 ]);
 ```
 
-**`Promise.all` here is the whole performance story of the page.** Three sequential awaits would be three round trips to Sanity stacked end to end before the page can render; in parallel it's one round trip's worth of latency. This is the single highest-value habit in server-component data fetching → [[frontend/04-state-and-data/02-data-fetching-and-server-state|the general note on fetch waterfalls]].
+**`Promise.all` here is the whole performance story of the page.** Three sequential awaits would be three round trips to Sanity stacked end to end before the page can render; in parallel it's one round trip's worth of latency. This is the single highest-value habit in server-component data fetching → [[frontend/03-state-and-data/02-data-fetching-and-server-state|the general note on fetch waterfalls]].
 
 **The duplication trap it creates:** the filter is now written twice — once in `pagedPostsQuery`, once inside `count()` in `postCountQuery` — and they must stay identical or the page count won't match the pages. They *are* identical here (minus the `_id != $featuredId`, which is itself the bug above). It's a real maintenance hazard: change one, get a phantom empty last page.
 

@@ -58,7 +58,7 @@ The rules are simple, and the simplicity is the point:
 
 What that buys:
 
-**Predictable latency.** Two hops, always. Rack placement stops being a performance variable — which is what makes a scheduler like [[devops/05-orchestration/index|Kubernetes]] free to put a pod anywhere.
+**Predictable latency.** Two hops, always. Rack placement stops being a performance variable — which is what makes a scheduler like [[devops/10-orchestration/index|Kubernetes]] free to put a pod anywhere.
 
 **All links active.** Instead of STP, leaf-spine networks are routed at layer 3 with **ECMP** (equal-cost multi-path) — traffic is hashed across every available spine path. Add a spine and every leaf gets more bandwidth immediately.
 
@@ -82,7 +82,7 @@ The physical fabric is a stable layer-3 routed network. But tenants want their o
 
 So the tenant network is an **overlay** — virtual networks encapsulated inside the physical one, usually with **VXLAN** (an Ethernet frame wrapped in UDP), with the physical fabric acting as the **underlay** that carries the tunnels.
 
-**This is what a VPC actually is.** When you define `10.0.0.0/16` in a [[devops/03-cloud/aws-cloud-reference|VPC]], no physical wire changed. You described an overlay; the provider's control plane programmed encapsulation rules; the packets still cross the same leaf-spine fabric alongside every other tenant's. It's the same move as [[devops/00-the-physical-layer/02-virtualisation-and-hypervisors|virtualisation]], applied to the network: **decouple the addressing from the wiring, and the wiring stops constraining you.**
+**This is what a VPC actually is.** When you define `10.0.0.0/16` in a [[devops/08-cloud/aws-cloud-reference|VPC]], no physical wire changed. You described an overlay; the provider's control plane programmed encapsulation rules; the packets still cross the same leaf-spine fabric alongside every other tenant's. It's the same move as [[devops/00-the-physical-layer/02-virtualisation-and-hypervisors|virtualisation]], applied to the network: **decouple the addressing from the wiring, and the wiring stops constraining you.**
 
 It also explains two things that otherwise look arbitrary:
 
@@ -103,7 +103,7 @@ Three ways servers reach storage, and the distinction is *what abstraction cross
 
 **NAS gives you files, with the file server arbitrating access.** Which is why many machines can mount it at once, and why it's slower for random I/O.
 
-The cloud mapping is direct: **EBS is a SAN** (block, one attachment, format it yourself), **EFS/Azure Files is a NAS** (POSIX filesystem, many mounts), and **S3 is neither** — object storage, HTTP API, no filesystem semantics at all. Choosing wrongly here is one of the most common and most expensive early architecture mistakes; see [[devops/03-cloud/03-object-storage-and-direct-uploads|object storage]].
+The cloud mapping is direct: **EBS is a SAN** (block, one attachment, format it yourself), **EFS/Azure Files is a NAS** (POSIX filesystem, many mounts), and **S3 is neither** — object storage, HTTP API, no filesystem semantics at all. Choosing wrongly here is one of the most common and most expensive early architecture mistakes; see [[devops/08-cloud/03-object-storage-and-direct-uploads|object storage]].
 
 ## Incast — the DC-specific failure mode
 
@@ -119,7 +119,7 @@ This is why data centres run **DCTCP** and ECN-based schemes that mark packets r
 - [[devops/00-the-physical-layer/03-data-centres|data centres]] — the building these racks sit in
 - [[networking/index|networking]] — the protocols, in depth
 - [[networking/15-network-performance|network performance]] — latency budgets
-- [[devops/08-networking-and-web/index|networking and web]] — the operator's view
+- [[devops/02-networking-and-web/index|networking and web]] — the operator's view
 - [[architecture/04-distributed-systems/index|distributed systems]] — what all this east–west traffic is doing
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (data centre networking section), extended with Clos/ECMP, VXLAN overlay and incast detail from primary sources.*

@@ -190,7 +190,7 @@ func LoadConfig() (*Config, error) {
 }
 ```
 
-**Validate config at startup and fail loudly.** A service that boots with a missing database URL and fails on the first request is worse than one that refuses to start. → [[devops/09-secret-management/index|Secret Management]]
+**Validate config at startup and fail loudly.** A service that boots with a missing database URL and fails on the first request is worse than one that refuses to start. → [[devops/06-secret-management/index|Secret Management]]
 
 `envconfig` or `viper` if you want tags and file support; plain `os.Getenv` is fine and dependency-free for a handful of values.
 

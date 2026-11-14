@@ -58,17 +58,17 @@ Components, responsibilities, data, interfaces, failure modes. See [[architectur
 *Skip it and:* you get a structure by accident — whatever fell out of the order you happened to write things in. Usually discovered as "we can't change X without breaking Y."
 
 **3. Implementation — write it.**
-The part people think is the whole job. See [[concepts/04-best-practices/01-clean-code/index|clean code]].
+The part people think is the whole job. See [[concepts/01-best-practices/01-clean-code/index|clean code]].
 *Produces:* code.
 *Skip it and:* well, quite.
 
 **4. Testing — how do we know it works?**
-Not just tests — reviews, static analysis, manual checking. See [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]].
+Not just tests — reviews, static analysis, manual checking. See [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]].
 *Produces:* evidence that the code meets the requirements.
 *Skip it and:* your users do the testing, and they report results to your competitors.
 
 **5. Deployment — get it in front of people.**
-Build, release, configuration, rollback. See [[devops/06-ci-cd/09-cd-and-deployment|CD and deployment]].
+Build, release, configuration, rollback. See [[devops/05-ci-cd/09-cd-and-deployment|CD and deployment]].
 *Produces:* a running version, and a record of which version that is.
 *Skip it and:* it works on your machine, which helps nobody.
 
@@ -187,6 +187,6 @@ You can name the six phases from memory and classify a failure you haven't seen 
 ## Related
 - [[software-engineering/01-what-software-engineering-is|what software engineering is]]
 - [[architecture/01-system-design-fundamentals/index|system design fundamentals]] — the design phase, in depth
-- [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — how modern delivery compresses phases 4–6
+- [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — how modern delivery compresses phases 4–6
 
 *Source: [reference]*

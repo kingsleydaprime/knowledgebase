@@ -20,7 +20,7 @@ The obvious design — client uploads to your server, your server writes to stor
 5. your API: verify the object exists, check its real size and type, record it
 ```
 
-**Your server never touches the bytes.** It authorises, and it verifies afterwards → [[devops/03-cloud/03-object-storage-and-direct-uploads|object storage and direct uploads]].
+**Your server never touches the bytes.** It authorises, and it verifies afterwards → [[devops/08-cloud/03-object-storage-and-direct-uploads|object storage and direct uploads]].
 
 **Step 5 is not optional.** Between steps 2 and 4 the client controls what was actually uploaded — so re-check size and content type from storage metadata, never from what the client told you.
 
@@ -87,7 +87,7 @@ Store the original filename as **metadata**, and escape it when displaying it.
 - [ ] A deletion and reconciliation story
 
 ## Related
-- [[devops/03-cloud/03-object-storage-and-direct-uploads|object storage and direct uploads]]
+- [[devops/08-cloud/03-object-storage-and-direct-uploads|object storage and direct uploads]]
 - [[backend/06-cross-cutting/06-security-headers-and-cors|security headers]]
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]]
 

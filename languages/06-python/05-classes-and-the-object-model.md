@@ -154,6 +154,6 @@ Or, better for duck-typed code, a **`Protocol`** — structural typing, no inher
 - [[languages/06-python/08-typing-and-type-hints|typing]] — Protocols and generics
 - [[languages/06-python/07-decorators-and-context-managers|decorators]] — `@property` is one
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]] — the concepts, language-agnostic
-- [[concepts/03-design-patterns/index|design patterns]] — many of which Python makes trivial or unnecessary
+- [[concepts/02-design-patterns/index|design patterns]] — many of which Python makes trivial or unnecessary
 
 *Source: [reference] — from the Python data model documentation.*

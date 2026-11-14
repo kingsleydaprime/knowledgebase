@@ -1,7 +1,7 @@
 # The Sanity Model
 
 **Part of [[frontend/frameworks/sanity/index|frameworks/sanity]].** `[reference]`
-**Concepts:** [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modelling and headless CMS]] · **Real code:** [[projects/munakalati/learning/03-sanity/01-setup-and-mental-model|munakalati]]
+**Concepts:** [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|content modelling and headless CMS]] · **Real code:** [[projects/munakalati/learning/03-sanity/01-setup-and-mental-model|munakalati]]
 
 ---
 
@@ -184,4 +184,4 @@ Reads your schema **and** every `groq`-tagged query, and emits a type per query 
 ## Related
 - [[frontend/frameworks/sanity/02-groq|02 — GROQ]] · [[frontend/frameworks/sanity/03-portable-text-and-images|03 — Portable Text and images]]
 - [[projects/munakalati/learning/03-sanity/index|munakalati — Sanity in practice]]
-- [[devops/09-secret-management/index|secret management]]
+- [[devops/06-secret-management/index|secret management]]

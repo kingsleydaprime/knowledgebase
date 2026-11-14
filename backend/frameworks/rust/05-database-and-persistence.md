@@ -114,7 +114,7 @@ sqlx::migrate!("./migrations").run(&pool).await?;    // embedded in the binary
 
 `sqlx::migrate!` compiles the migration files **into the binary**, so deployment is one artefact with no separate migration files to ship. Convenient, and it interacts badly with multiple replicas starting at once — sqlx takes an advisory lock, so it's safe, but a failed migration inside app startup is harder to diagnose than a failed deploy step.
 
-**Prefer running migrations as a separate step** in your pipeline. → [[devops/06-ci-cd/09-cd-and-deployment|CD and Deployment]]
+**Prefer running migrations as a separate step** in your pipeline. → [[devops/05-ci-cd/09-cd-and-deployment|CD and Deployment]]
 
 ## The alternatives
 

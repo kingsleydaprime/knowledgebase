@@ -26,7 +26,7 @@ Cloud attackers rarely break the cloud itself — the provider's infrastructure 
 - **In logs, error messages, and CI output** — secrets printed and retained
 - **In infrastructure-as-code state files** — Terraform state stores secrets in plaintext by default
 
-**Leaked long-lived credentials are the fastest path to a cloud breach**, which is the direct argument for the [[cybersecurity/09-cloud-security/02-identity-is-the-perimeter|"no static keys"]] discipline — you can't leak a credential that expires in an hour and never existed as a file. Defences: secret scanning in CI (gitleaks, trufflehog), a secret manager, and short-lived credentials → [[devops/09-secret-management/index|secret management]].
+**Leaked long-lived credentials are the fastest path to a cloud breach**, which is the direct argument for the [[cybersecurity/09-cloud-security/02-identity-is-the-perimeter|"no static keys"]] discipline — you can't leak a credential that expires in an hour and never existed as a file. Defences: secret scanning in CI (gitleaks, trufflehog), a secret manager, and short-lived credentials → [[devops/06-secret-management/index|secret management]].
 
 ## Over-permissioned identities
 

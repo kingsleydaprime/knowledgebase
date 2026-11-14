@@ -47,7 +47,7 @@ Edit both when the vault's shape changes. This is the easiest thing in the whole
 
 ## The deploy workflow
 
-`.github/workflows/deploy.yml` — a real, working pipeline, and the grounding example the [[devops/06-ci-cd/02-ci-cd-tools|CI/CD tools note]] dissects.
+`.github/workflows/deploy.yml` — a real, working pipeline, and the grounding example the [[devops/05-ci-cd/02-ci-cd-tools|CI/CD tools note]] dissects.
 
 ```yaml
 on:
@@ -133,8 +133,8 @@ The `.gitignore` route is the only one that keeps content off *GitHub* as well a
 ---
 
 ## Related
-- [[devops/06-ci-cd/02-ci-cd-tools|CI/CD Tools]] — this workflow annotated line by line
-- [[devops/06-ci-cd/03-github-actions-fundamentals|GitHub Actions Fundamentals]] — the syntax it's written in
+- [[devops/05-ci-cd/02-ci-cd-tools|CI/CD Tools]] — this workflow annotated line by line
+- [[devops/05-ci-cd/03-github-actions-fundamentals|GitHub Actions Fundamentals]] — the syntax it's written in
 - [[git/15-the-github-cli|The GitHub CLI]] — watching the deploy from the terminal
 - [[tools/quartz/02-configuration|Configuration]] — `ignorePatterns` and the plugin list
 - [[tools/quartz/index|Quartz notes]]

@@ -168,13 +168,13 @@ process.on("SIGTERM", () => server.close(() => { pool.end(); process.exit(0); })
 builder.Services.Configure<HostOptions>(o => o.ShutdownTimeout = TimeSpan.FromSeconds(15));
 ```
 
-**Kubernetes sends SIGTERM, waits `terminationGracePeriodSeconds`, then SIGKILL.** Your drain timeout must be *shorter* than that grace period, or you're killed mid-request anyway → [[devops/05-orchestration/index|orchestration]].
+**Kubernetes sends SIGTERM, waits `terminationGracePeriodSeconds`, then SIGKILL.** Your drain timeout must be *shorter* than that grace period, or you're killed mid-request anyway → [[devops/10-orchestration/index|orchestration]].
 
 **And remove yourself from the load balancer first** — fail readiness immediately on SIGTERM, keep serving for a few seconds, *then* drain. Otherwise traffic is still being routed to you while you shut down.
 
 ---
 
-## 6. Structured logging → [[devops/10-observability/index|observability]]
+## 6. Structured logging → [[devops/07-observability/index|observability]]
 
 **Fields, not interpolated strings**, in every stack:
 

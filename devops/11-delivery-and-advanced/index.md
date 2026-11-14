@@ -12,6 +12,6 @@ The advanced delivery topics that sit on top of everything before: driving deplo
 4. [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud Design Patterns]] — **[Advanced]** — availability, scalability, and resilience patterns (retry, circuit breaker, bulkhead, cache-aside) for architecting on the cloud
 
 ## Related
-- [[devops/05-orchestration/index|Orchestration]] — what GitOps and service meshes operate on
-- [[devops/06-ci-cd/index|CI/CD]] — GitOps is the delivery half of the pipeline
+- [[devops/10-orchestration/index|Orchestration]] — what GitOps and service meshes operate on
+- [[devops/05-ci-cd/index|CI/CD]] — GitOps is the delivery half of the pipeline
 - [[devops/index|DevOps curriculum map]]

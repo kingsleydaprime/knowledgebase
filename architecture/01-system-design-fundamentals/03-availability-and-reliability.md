@@ -28,7 +28,7 @@ The practical lessons: **each nine costs disproportionately more** (five-nines r
 
 ## SLA, SLO, SLI
 
-The vocabulary for committing to availability (shared with [[devops/10-observability/01-observability-fundamentals/index|observability]]):
+The vocabulary for committing to availability (shared with [[devops/07-observability/01-observability-fundamentals/index|observability]]):
 
 - **SLI** (Indicator) — the measured signal (% of successful requests, p99 latency).
 - **SLO** (Objective) — your internal target (99.95% over 30 days).
@@ -43,7 +43,7 @@ The core principle: **eliminate single points of failure through redundancy.** I
   - **Active-active** — all instances serve traffic (also load-balances); on failure, survivors absorb it.
   - **Active-passive (failover)** — a standby takes over when the primary fails; simpler but the standby sits idle.
 - **Failover** — detecting a failure and switching to a backup. The hard parts are *fast, correct* detection (health checks — [[architecture/03-architectural-patterns/04-microservices-patterns|health monitoring]]) and avoiding **split-brain** (two nodes both think they're primary — a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] problem).
-- **Geographic distribution** — spread across availability zones/regions ([[devops/03-cloud/01-cloud-fundamentals|cloud regions/AZs]]) so a data-center outage doesn't take you down.
+- **Geographic distribution** — spread across availability zones/regions ([[devops/08-cloud/01-cloud-fundamentals|cloud regions/AZs]]) so a data-center outage doesn't take you down.
 - **Graceful degradation** — when a dependency fails, serve a reduced experience (stale cache, a default) instead of an error ([[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]). The site stays up with less functionality.
 
 ## Reliability: don't lose data
@@ -61,4 +61,4 @@ The core shift for reliability engineering: **assume everything fails** — disk
 ## Related
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the availability-vs-consistency tradeoff
 - [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience Patterns]] — designing for graceful failure
-- [[devops/10-observability/index|Observability (devops)]] — measuring and alerting on availability
+- [[devops/07-observability/index|Observability (devops)]] — measuring and alerting on availability

@@ -61,7 +61,7 @@ setCount(c => c + 1);        // updater form — use when the new value depends 
 | Transforming data for display | Calculate during render, `useMemo` if genuinely costly |
 | Responding to a user event | **Put it in the event handler** |
 | Resetting state when a prop changes | **Change the `key`** to remount |
-| Fetching data | **A query library** → [[frontend/04-state-and-data/02-data-fetching-and-server-state\|note 02]] |
+| Fetching data | **A query library** → [[frontend/03-state-and-data/02-data-fetching-and-server-state\|note 02]] |
 
 **"Why does my effect run twice?"** — StrictMode in development double-invokes effects deliberately, to surface missing cleanup. **It's a feature**: if double-mounting breaks your component, there's a real bug (an unremoved listener, an uncancelled fetch). It doesn't happen in production.
 
@@ -87,7 +87,7 @@ useSyncExternalStore(...);                     // subscribe to a non-React store
 
 - **Actions and `useActionState`** — form submission with pending and error state built in
 - **`use()`** — read a promise or context, integrating with Suspense
-- **Server Components / Server Actions** → [[frontend/frameworks/next/index|Next.js]] · [[frontend/02-rendering/02-hydration-and-the-server-boundary|the server boundary]]
+- **Server Components / Server Actions** → [[frontend/frameworks/next/index|Next.js]] · [[frontend/06-rendering/02-hydration-and-the-server-boundary|the server boundary]]
 - **React Compiler** — automatic memoisation
 - `forwardRef` largely unnecessary — `ref` is a normal prop now
 
@@ -101,7 +101,7 @@ useSyncExternalStore(...);                     // subscribe to a non-React store
 
 ## Related
 - [[frontend/frameworks/react/index|React]] · [[frontend/frameworks/next/index|Next.js]]
-- [[frontend/03-structuring-a-frontend/01-components-and-composition|components and composition]]
+- [[frontend/02-structuring-a-frontend/01-components-and-composition|components and composition]]
 - [[frontend/interview/01-react-rendering-and-performance|the interview round]]
 
 *Source: [reference] — from the React documentation, Aug 2026.*

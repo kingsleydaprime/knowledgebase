@@ -21,13 +21,13 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | SWE 101 core | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index\|backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index]] | TS/JS | [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/in-other-languages\|✅]] |
 | SWE 101 core | [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index\|backend/03-structuring-a-backend/05-modular-monolith-to-services/index]] | TS/JS | [[backend/03-structuring-a-backend/05-modular-monolith-to-services/in-other-languages\|✅]] |
 | SWE 101 core | [[backend/07-practices/01-backend-best-practices/index\|backend/07-practices/01-backend-best-practices/index]] | TS/JS | [[backend/07-practices/01-backend-best-practices/in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/03-design-patterns/02-structural-patterns/index\|concepts/03-design-patterns/02-structural-patterns/index]] | TS/JS | [[concepts/03-design-patterns/02-structural-patterns/in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/03-design-patterns/03-behavioral-patterns/index\|concepts/03-design-patterns/03-behavioral-patterns/index]] | TS/JS | [[concepts/03-design-patterns/03-behavioral-patterns/in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/04-best-practices/04-testing-fundamentals/index\|concepts/04-best-practices/04-testing-fundamentals/index]] | TS/JS | [[concepts/04-best-practices/04-testing-fundamentals/in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/04-best-practices/05-solid-principles/index\|concepts/04-best-practices/05-solid-principles/index]] | TS/JS | [[concepts/04-best-practices/05-solid-principles/in-other-languages\|✅]] |
-| SWE 101 core | [[concepts/04-best-practices/08-coupling-and-cohesion/index\|concepts/04-best-practices/08-coupling-and-cohesion/index]] | TS/JS | [[concepts/04-best-practices/08-coupling-and-cohesion/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/02-design-patterns/02-structural-patterns/index\|concepts/02-design-patterns/02-structural-patterns/index]] | TS/JS | [[concepts/02-design-patterns/02-structural-patterns/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/02-design-patterns/03-behavioral-patterns/index\|concepts/02-design-patterns/03-behavioral-patterns/index]] | TS/JS | [[concepts/02-design-patterns/03-behavioral-patterns/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/01-best-practices/03-testing-fundamentals/index\|concepts/01-best-practices/03-testing-fundamentals/index]] | TS/JS | [[concepts/01-best-practices/03-testing-fundamentals/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/01-best-practices/07-solid-principles/index\|concepts/01-best-practices/07-solid-principles/index]] | TS/JS | [[concepts/01-best-practices/07-solid-principles/in-other-languages\|✅]] |
+| SWE 101 core | [[concepts/01-best-practices/06-coupling-and-cohesion/index\|concepts/01-best-practices/06-coupling-and-cohesion/index]] | TS/JS | [[concepts/01-best-practices/06-coupling-and-cohesion/in-other-languages\|✅]] |
 | SWE 101 core | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index\|cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index]] | TS/JS | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/in-other-languages\|✅]] |
-| SWE 101 core | [[devops/10-observability/01-observability-fundamentals/index\|devops/10-observability/01-observability-fundamentals/index]] | TS/JS | [[devops/10-observability/01-observability-fundamentals/in-other-languages\|✅]] |
+| SWE 101 core | [[devops/07-observability/01-observability-fundamentals/index\|devops/07-observability/01-observability-fundamentals/index]] | TS/JS | [[devops/07-observability/01-observability-fundamentals/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/02-how-llms-work/index\|ai-ml/03-ai-engineer/02-how-llms-work/index]] | TS/JS | [[ai-ml/03-ai-engineer/02-how-llms-work/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/04-calling-models/index\|ai-ml/03-ai-engineer/04-calling-models/index]] | TS/JS | [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages\|✅]] |
 | SWE 102 core | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|ai-ml/03-ai-engineer/05-prompt-engineering/index]] | TS/JS | [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages\|✅]] |
@@ -56,8 +56,8 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | SWE 103 core | [[networking/11-http-evolution/index\|networking/11-http-evolution/index]] | TS/JS | [[networking/11-http-evolution/in-other-languages\|✅]] |
 | SWE 103 core | [[networking/12-tls-and-transport-security/index\|networking/12-tls-and-transport-security/index]] | TS/JS | [[networking/12-tls-and-transport-security/in-other-languages\|✅]] |
 | SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|architecture/03-architectural-patterns/05-transactional-outbox/index]] | TS/JS | [[architecture/03-architectural-patterns/05-transactional-outbox/in-other-languages\|✅]] |
-| SWE 101 optional | [[concepts/03-design-patterns/01-creational-patterns/index\|concepts/03-design-patterns/01-creational-patterns/index]] | TS/JS | — |
-| SWE 101 optional | [[concepts/04-best-practices/01-clean-code/index\|concepts/04-best-practices/01-clean-code/index]] | TS/JS | — |
+| SWE 101 optional | [[concepts/02-design-patterns/01-creational-patterns/index\|concepts/02-design-patterns/01-creational-patterns/index]] | TS/JS | — |
+| SWE 101 optional | [[concepts/01-best-practices/01-clean-code/index\|concepts/01-best-practices/01-clean-code/index]] | TS/JS | — |
 | SWE 102 optional | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|ai-ml/03-ai-engineer/06-rag-and-embeddings/index]] | TS/JS | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/in-other-languages\|✅]] |
 | SWE 102 optional | [[ai-ml/03-ai-engineer/09-multimodal/index\|ai-ml/03-ai-engineer/09-multimodal/index]] | TS/JS | [[ai-ml/03-ai-engineer/09-multimodal/in-other-languages\|✅]] |
 | SWE 102 optional | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|ai-ml/03-ai-engineer/16-local-and-open-models/index]] | Python | — |
@@ -163,7 +163,7 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | other | [[computer-architecture/10-out-of-order-and-superscalar\|computer-architecture/10-out-of-order-and-superscalar]] | C | — |
 | other | [[computer-architecture/11-multicore-and-memory-models\|computer-architecture/11-multicore-and-memory-models]] | C | — |
 | other | [[computer-architecture/12-performance\|computer-architecture/12-performance]] | C | — |
-| other | [[concepts/04-best-practices/06-data-migrations\|concepts/04-best-practices/06-data-migrations]] | TS/JS | — |
+| other | [[concepts/01-best-practices/08-data-migrations\|concepts/01-best-practices/08-data-migrations]] | TS/JS | — |
 | other | [[cybersecurity/01-fundamentals/04-security-principles\|cybersecurity/01-fundamentals/04-security-principles]] | Python | — |
 | other | [[cybersecurity/04-web-security/02-secure-authentication\|cybersecurity/04-web-security/02-secure-authentication]] | Python | — |
 | other | [[cybersecurity/05-cryptography/02-symmetric-encryption\|cybersecurity/05-cryptography/02-symmetric-encryption]] | Python | — |
@@ -180,9 +180,9 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | other | [[desktop/frameworks/electron\|desktop/frameworks/electron]] | TS/JS | — |
 | other | [[desktop/frameworks/qt\|desktop/frameworks/qt]] | Python | — |
 | other | [[devops/01-linux/12-bash-scripting\|devops/01-linux/12-bash-scripting]] | TS/JS | — |
-| other | [[devops/02-docker/01-new-docker\|devops/02-docker/01-new-docker]] | TS/JS | — |
-| other | [[devops/03-cloud/02-serverless\|devops/03-cloud/02-serverless]] | Python | — |
-| other | [[devops/03-cloud/03-object-storage-and-direct-uploads\|devops/03-cloud/03-object-storage-and-direct-uploads]] | TS/JS | — |
+| other | [[devops/03-docker/01-new-docker\|devops/03-docker/01-new-docker]] | TS/JS | — |
+| other | [[devops/08-cloud/02-serverless\|devops/08-cloud/02-serverless]] | Python | — |
+| other | [[devops/08-cloud/03-object-storage-and-direct-uploads\|devops/08-cloud/03-object-storage-and-direct-uploads]] | TS/JS | — |
 | other | [[devops/04-vps/vps-deployment-reference\|devops/04-vps/vps-deployment-reference]] | TS/JS | — |
 | other | [[devops/devops-reference\|devops/devops-reference]] | TS/JS | — |
 | other | [[digital-signal-processing/04-the-fft\|digital-signal-processing/04-the-fft]] | Python | — |
@@ -256,10 +256,10 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | other | [[dsa/04-patterns/14-backtracking\|dsa/04-patterns/14-backtracking]] | Python | — |
 | other | [[dsa/04-patterns/15-dynamic-programming\|dsa/04-patterns/15-dynamic-programming]] | Python | — |
 | other | [[frontend/01-foundations/02-the-browser-and-the-dom\|frontend/01-foundations/02-the-browser-and-the-dom]] | TS/JS | — |
-| other | [[frontend/02-rendering/02-hydration-and-the-server-boundary\|frontend/02-rendering/02-hydration-and-the-server-boundary]] | TS/JS | — |
-| other | [[frontend/03-structuring-a-frontend/01-components-and-composition\|frontend/03-structuring-a-frontend/01-components-and-composition]] | TS/JS | — |
-| other | [[frontend/04-state-and-data/01-state-management\|frontend/04-state-and-data/01-state-management]] | TS/JS | — |
-| other | [[frontend/04-state-and-data/02-data-fetching-and-server-state\|frontend/04-state-and-data/02-data-fetching-and-server-state]] | TS/JS | — |
+| other | [[frontend/06-rendering/02-hydration-and-the-server-boundary\|frontend/06-rendering/02-hydration-and-the-server-boundary]] | TS/JS | — |
+| other | [[frontend/02-structuring-a-frontend/01-components-and-composition\|frontend/02-structuring-a-frontend/01-components-and-composition]] | TS/JS | — |
+| other | [[frontend/03-state-and-data/01-state-management\|frontend/03-state-and-data/01-state-management]] | TS/JS | — |
+| other | [[frontend/03-state-and-data/02-data-fetching-and-server-state\|frontend/03-state-and-data/02-data-fetching-and-server-state]] | TS/JS | — |
 | other | [[frontend/07-practices/03-testing-a-frontend\|frontend/07-practices/03-testing-a-frontend]] | TS/JS | — |
 | other | [[frontend/07-practices/04-end-to-end-with-playwright\|frontend/07-practices/04-end-to-end-with-playwright]] | TS/JS | — |
 | other | [[frontend/frameworks/css/tailwind\|frontend/frameworks/css/tailwind]] | TS/JS | — |

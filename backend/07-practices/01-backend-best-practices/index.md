@@ -11,7 +11,7 @@ id: e00d7fb5-9fbc-439c-8a60-89da3ea76100
 You can already:
 
 - Build an HTTP endpoint and split it into controller, service and repository → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layers]].
-- Test code with stubs, spies and fake clocks → [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]].
+- Test code with stubs, spies and fake clocks → [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]].
 
 After this lesson you will be able to:
 
@@ -451,7 +451,7 @@ You can make errors predictable, validate at the boundary, write logs someone ca
 
 **Recap.** One error shape from one handler; internals stay in the logs. Allowlist validation at the boundary, all problems at once, known fields only. Structured, levelled, correlated, redacted logs. Token-bucket rate limits on expensive and sensitive routes, with shared storage in production. Idempotency keys wherever a retry could double the effect.
 
-**Next.** [[devops/10-observability/01-observability-fundamentals/index|Observability fundamentals]] — the other half of week 6: turning those logs into answers to "is it up, and is it fast?"
+**Next.** [[devops/07-observability/01-observability-fundamentals/index|Observability fundamentals]] — the other half of week 6: turning those logs into answers to "is it up, and is it fast?"
 
 ## Related
 - [[backend/07-practices/01-backend-best-practices/in-other-languages|Backend Best Practices in Other Languages]] — each ecosystem's tools, rate limiting and redacted logging

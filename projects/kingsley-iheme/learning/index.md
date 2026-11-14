@@ -39,5 +39,5 @@ Kept here rather than buried, because postmortems are the part worth rereading. 
 - [[frontend/index|frontend]] — Tailwind lives here; this project is the vault's Tailwind **v4** instance
 - [[projects/munakalati/learning/03-sanity/index|munakalati — Sanity]] — the deeper Sanity course (11k words); read it alongside [[projects/kingsley-iheme/learning/02-sanity|02]]
 - [[backend/02-api-design/index|backend/api-design]] — the status-code contract in 03 is that material, applied
-- [[devops/09-secret-management/index|devops/secret-management]] — the env-var half of 04
+- [[devops/06-secret-management/index|devops/secret-management]] — the env-var half of 04
 - [[cybersecurity/04-web-security/index|web security]] — `NEXT_PUBLIC_` and what it means to ship a variable to the browser

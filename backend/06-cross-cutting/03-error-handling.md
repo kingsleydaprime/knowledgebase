@@ -27,7 +27,7 @@ handler throws  →  central handler  →  map to status + body  →  log with c
 }
 ```
 
-**Include the trace ID.** It's the single most useful field in the body — a user pastes it into a support ticket and you find the exact request in your logs → [[devops/10-observability/index|observability]].
+**Include the trace ID.** It's the single most useful field in the body — a user pastes it into a support ticket and you find the exact request in your logs → [[devops/07-observability/index|observability]].
 
 ## Mapping to status codes
 
@@ -102,6 +102,6 @@ Clients branch on `code`. **`detail` is for humans and may be reworded or locali
 ## Related
 - [[backend/06-cross-cutting/01-validation-and-dtos|validation]] — where 400s come from
 - [[backend/06-cross-cutting/04-rate-limiting|rate limiting]] — where 429s come from
-- [[backend/02-api-design/index|API design]] · [[devops/10-observability/index|observability]]
+- [[backend/02-api-design/index|API design]] · [[devops/07-observability/index|observability]]
 
 *Source: [reference] — written Aug 2026.*

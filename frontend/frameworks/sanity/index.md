@@ -2,7 +2,7 @@
 
 **A full course — 3 notes.** The headless CMS: a hosted document store, a query language of its own, and a schema that doubles as the editing UI.
 
-Sanity is the **implementation**; the framework-agnostic half — what a headless CMS is for, and how to model content — lives in [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|04 — content modelling and headless CMS]]. Read that first if you've never modelled content before.
+Sanity is the **implementation**; the framework-agnostic half — what a headless CMS is for, and how to model content — lives in [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|04 — content modelling and headless CMS]]. Read that first if you've never modelled content before.
 
 ## The notes
 
@@ -28,6 +28,6 @@ Three consequences worth holding onto:
 - [[projects/munakalati/learning/05-migration/index|munakalati — the Wix→Sanity migration]] *(5 notes)* — the harder half
 
 ## Related
-- [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modelling and headless CMS]] — the concepts this implements
+- [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|content modelling and headless CMS]] — the concepts this implements
 - [[frontend/frameworks/next/index|Next.js]] — the framework it's usually paired with
 - [[frontend/frameworks/index|frameworks/]]

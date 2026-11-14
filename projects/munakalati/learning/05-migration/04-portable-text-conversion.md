@@ -180,4 +180,4 @@ And one meta-rule: **convert a handful of representative posts first and read th
 ## Related
 - [[projects/munakalati/learning/03-sanity/04-images-and-portable-text|sanity/04 — rendering the result]]
 - [[projects/munakalati/learning/06-bugs-and-postmortems|06 — postmortems]]
-- [[concepts/04-best-practices/06-data-migrations|the general playbook]]
+- [[concepts/01-best-practices/08-data-migrations|the general playbook]]

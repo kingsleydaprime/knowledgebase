@@ -156,6 +156,6 @@ aderyn                       # Rust-based, newer, good output
 - [[web3/frameworks/solidity/index|the Solidity toolchain]] — installing and configuring these
 - [[web3/04-smart-contract-security/07-the-audit-process|the audit process]] — what comes after
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]] — measuring
-- [[concepts/04-best-practices/index|best practices]] — testing generally
+- [[concepts/01-best-practices/index|best practices]] — testing generally
 
 *Source: [reference] — Foundry, Aug 2026.*

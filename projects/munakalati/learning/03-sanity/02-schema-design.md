@@ -1,7 +1,7 @@
 # Sanity — Schema Design
 
 **Split from:** the munakalati Sanity domain. **See also:** [[projects/munakalati/learning/03-sanity/01-setup-and-mental-model|01 — setup]] · [[projects/munakalati/learning/03-sanity/03-groq-queries|03 — GROQ]] · [[projects/munakalati/learning/03-sanity/04-images-and-portable-text|04 — images & Portable Text]]
-**General version:** [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|content modeling and headless CMS]]
+**General version:** [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|content modeling and headless CMS]]
 
 ---
 
@@ -177,4 +177,4 @@ preview: {
 - [[projects/munakalati/learning/03-sanity/03-groq-queries|03 — GROQ queries]] — where the `defined()` guards pay off
 - [[projects/munakalati/learning/06-bugs-and-postmortems|06 — bugs and postmortems]]
 - [[databases/database-design-reference|database design reference]] — the relational counterpart to this
-- [[concepts/04-best-practices/01-clean-code/index|clean code]]
+- [[concepts/01-best-practices/01-clean-code/index|clean code]]

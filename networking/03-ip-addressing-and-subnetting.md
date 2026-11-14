@@ -101,5 +101,5 @@ An IP address is not a name for a *machine* — it's a name for a **location in 
 ## Related
 - [[networking/04-routing|Routing]] — what routers do with these prefixes
 - [[networking/14-nat-firewalls-and-middleboxes|NAT, Firewalls & Middleboxes]] — NAT traversal in full
-- [[devops/03-cloud/index|Cloud]] — VPC/subnet design is this arithmetic applied
+- [[devops/08-cloud/index|Cloud]] — VPC/subnet design is this arithmetic applied
 - [[networking/16-debugging-networks|Debugging Networks]] — `ip addr`, `ip route`, reading a routing table
