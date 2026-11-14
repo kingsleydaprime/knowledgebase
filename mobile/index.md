@@ -1,62 +1,76 @@
 # Mobile
 
-A map of this folder. **A 14-note numbered course, `frameworks/` for four stacks, and an `interview/` bank** — built Aug 2026 to close what was the vault's biggest structural gap: `frontend/`, `backend/`, `desktop/` and `game-development/` all existed, and there was nothing for the platform most people actually use.
+## What mobile development is
 
-**Sections 01–14 are platform-agnostic** and hold whether you write Swift, Kotlin, Dart or TypeScript. That's deliberate, and it's most of the job — the platform-specific part is the smaller half.
+**Mobile development is building apps for phones and tablets: the apps you install from the App Store or Google Play.**
 
-> **The one idea:** mobile is programming for an environment that **can pause you, kill you, deny you resources, and refuse to ship your code.** Every practice here follows from not being in control of your own process.
+There are two main platforms: **iOS** (iPhones and iPads, made by Apple) and **Android** (phones from Samsung, Tecno, Google and many others). You can build an app separately for each, using each platform's own language, or build one app that runs on both, using tools like Flutter or React Native.
 
-## The course
+Building for phones is different from building websites, because you're not in control. The phone can pause your app the moment the user switches away, close it completely to free memory, refuse to let it run in the background, and deny it the camera or location. Apple and Google also review every app and can refuse to publish it. Most of this course is about writing apps that cope with all of that.
 
-**Start with 01–03.** They're the constraints; everything after is a response to them.
+## What you'll be able to do
 
-1. [[mobile/01-what-makes-mobile-different|what-makes-mobile-different]] — **[Beginner]** — the six constraints, what changes versus web, and what's genuinely nicer
-2. [[mobile/02-the-two-platforms|the-two-platforms]] — **[Beginner]** — iOS and Android compared on what affects your work; **what's actually the same** (more than the tribalism suggests); and where to start
-3. [[mobile/03-the-app-lifecycle|the-app-lifecycle]] — **[Intermediate]** — **the note that shapes the most code.** The OS owns your process; the three durations of state; and **simulating process death, which most developers never do**
-4. [[mobile/04-declarative-ui|declarative-ui]] — **[Intermediate]** — SwiftUI and Compose are the same idea, and it's React's. State hoisting, stable keys, and accessibility
-5. [[mobile/05-state-and-architecture|state-and-architecture]] — **[Intermediate]** — the layered shape both platforms converged on; **modelling UI state as one sealed type**; and events that should happen once
-6. [[mobile/06-navigation|navigation]] — **[Intermediate]** — the back stack, type-safe routes, **and deep links from a cold start**, which is where it gets hard
-7. [[mobile/07-data-and-offline-first|data-and-offline-first]] — **[Advanced]** — **the single most important architectural decision**: the local database is the source of truth. Outbox, optimistic updates, and conflict resolution honestly
-8. [[mobile/08-networking-on-mobile|networking-on-mobile]] — **[Intermediate]** — the radio tail, batching, API design for clients that live for years, and testing on bad networks
-9. [[mobile/09-permissions-and-privacy|permissions-and-privacy]] — **[Intermediate]** — how to ask (and why priming doubles acceptance), the granular tiers people miss, store declarations, and the legal layer
-10. [[mobile/10-background-work-and-push|background-work-and-push]] — **[Advanced]** — what you can do when you're not on screen, which is much less than you think. Plus **the Android manufacturer tax**
-11. [[mobile/11-performance-and-battery|performance-and-battery]] — **[Intermediate]** — cold start, jank, memory, and **where battery actually goes** (the order is not what you'd guess)
-12. [[mobile/12-security-on-device|security-on-device]] — **[Advanced]** — the app runs on the attacker's hardware. **There are no secrets in your binary**; the server enforces everything
-13. [[mobile/13-release-and-distribution|release-and-distribution]] — **[Intermediate]** — review, staged rollout, and **the two switches you must add before you need them**
-14. [[mobile/14-native-vs-cross-platform|native-vs-cross-platform]] — **[Intermediate]** — the first real decision, made on team and app rather than tribally
+By the end you will be able to:
+- explain what makes phones different from web and desktop, and the differences between iOS and Android;
+- write an app that survives being paused or closed by the phone without losing the user's work;
+- build screens with modern tools (SwiftUI, Jetpack Compose, Flutter or React Native) and move between them;
+- make an app that keeps working without internet, and syncs when the connection comes back;
+- ask for permissions politely, keep the battery healthy, and keep data safe on the device;
+- release an app to the stores and roll out updates safely;
+- choose between building for each platform separately or for both at once.
 
-## Frameworks
+## Where to start
 
-[[mobile/frameworks/index|frameworks/]] — the per-stack implementation layer, copying the [[backend/frameworks/index|backend/frameworks]] convention:
+**Before you start:** basic programming ([[programming-fundamentals/index|Programming Fundamentals]]). Some [[frontend/index|frontend]] helps, because modern mobile screens are built the same way.
 
-- **[[mobile/frameworks/ios/index|ios/]]** — Swift + SwiftUI. Property wrappers, `@MainActor`, and why UIKit isn't optional knowledge
-- **[[mobile/frameworks/android/index|android/]]** — Kotlin + Compose + Jetpack. `collectAsStateWithLifecycle`, and the Android-specific taxes
-- **[[mobile/frameworks/flutter/index|flutter/]]** — Dart, and its own rendering engine. What that one decision buys and costs
-- **[[mobile/frameworks/react-native/index|react-native/]]** — TypeScript and real native components. **Use Expo**, and why pre-2024 performance criticism is stale
+The notes work whichever platform you choose. Start with 01–03: they're the limits phones put on you, and everything after is about working within them. **Read 14 right after 02** if you still need to choose between building for each platform separately or for both at once.
 
-## The languages
+1. [[mobile/01-what-makes-mobile-different|What Makes Mobile Different]]: the six limits of building for phones, what changes compared with the web, and what's actually nicer.
+2. [[mobile/02-the-two-platforms|The Two Platforms]]: iOS and Android compared on what affects your work, how much they share, and where to start.
+3. [[mobile/03-the-app-lifecycle|The App Lifecycle]]: the note that shapes the most code. The phone decides when your app runs, pauses and dies, and how to make sure the user loses nothing.
+4. [[mobile/04-declarative-ui|Declarative UI]]: building screens by describing what they should look like for the current data. SwiftUI, Compose and React all work this way.
+5. [[mobile/05-state-and-architecture|State and Architecture]]: how to organise an app's code and data, the way both platforms now recommend.
+6. [[mobile/06-navigation|Navigation]]: moving between screens, the back button, and opening the right screen from a link.
+7. [[mobile/07-data-and-offline-first|Data and Offline-First]]: the most important design decision: keep the data on the phone first, so the app works without internet, then sync it.
+8. [[mobile/08-networking-on-mobile|Networking on Mobile]]: why phone networks are slow and costly for the battery, and designing for apps that stay in use for years.
+9. [[mobile/09-permissions-and-privacy|Permissions and Privacy]]: asking for the camera, location and so on in a way users accept, and the privacy rules the stores enforce.
+10. [[mobile/10-background-work-and-push|Background Work and Push]]: what your app can do when it's not on screen (much less than you'd think), and push notifications.
+11. [[mobile/11-performance-and-battery|Performance and Battery]]: starting quickly, scrolling smoothly, and where the battery actually goes.
+12. [[mobile/12-security-on-device|Security on the Device]]: the app runs on hardware the user, or an attacker, controls. Nothing in your app is secret, so the server must check everything.
+13. [[mobile/13-release-and-distribution|Release and Distribution]]: getting through store review, releasing to a few users first, and two switches to build in before you need them.
+14. [[mobile/14-native-vs-cross-platform|Native vs Cross-Platform]]: choosing between separate apps for each platform and one app for both, based on your team and your app.
 
-Three new language courses were written alongside this track:
+## Frameworks: building for a specific platform
 
-- **[[languages/08-swift/index|Swift]]** — value types, optionals, ARC, protocols, structured concurrency
-- **[[languages/09-kotlin/index|Kotlin]]** — null safety, coroutines and Flow, and the JVM underneath
-- **[[languages/10-dart/index|Dart]]** — sound null safety, async, and the Flutter-shaped ecosystem
+- [[mobile/frameworks/ios/index|iOS]]: Swift and SwiftUI.
+- [[mobile/frameworks/android/index|Android]]: Kotlin and Jetpack Compose.
+- [[mobile/frameworks/flutter/index|Flutter]]: Dart, one app for both platforms, drawn by Flutter itself.
+- [[mobile/frameworks/react-native/index|React Native]]: TypeScript, one app for both platforms, using real native components. Start with Expo.
 
-TypeScript for React Native is already covered → [[frontend/frameworks/react/index|React]].
+The languages have their own courses: [[languages/08-swift/index|Swift]], [[languages/09-kotlin/index|Kotlin]] and [[languages/10-dart/index|Dart]]. For React Native's TypeScript, see [[frontend/frameworks/react/index|React]].
 
-## Build it
+## Practice
 
-[[mobile/projects|projects/]] — graded reps with a *done when* for each. **Start with "survive process death"** (an afternoon, and it teaches the core constraint), and **the one that matters most is shipping a small app to a store** — the pipeline is what you can't simulate.
+- [[mobile/projects|Projects]]: hands-on tasks, each with a clear "done when". Start with "survive process death", an afternoon that teaches the core idea. The one that matters most is publishing a small app to a store, because that process can't be practised any other way.
+- [[mobile/interview/index|Mobile interview prep]]: the questions about the app lifecycle are the ones that separate people who've shipped apps from people who've followed tutorials.
 
-## Interview
+## Key ideas to remember
 
-[[mobile/interview/index|interview/]] — the mobile round. **The lifecycle questions are the filter**; they separate people who've shipped from people who've followed tutorials.
+1. **The phone can close your app at any moment.** Save what matters so the user never loses work. → [[mobile/03-the-app-lifecycle|03]]
+2. **Keep the data on the phone first,** and treat the internet as something that comes and goes. → [[mobile/07-data-and-offline-first|07]]
+3. **Nothing inside your app is secret.** Anyone can take it apart; the server must check everything. → [[mobile/12-security-on-device|12]]
+4. **Build a way to switch features off remotely before you need it.** Once an app is released, users update slowly. → [[mobile/13-release-and-distribution|13]]
 
 ## Related
-- [[frontend/index|frontend]] — the sibling discipline, and [[mobile/04-declarative-ui|note 04]] is largely shared with it
-- [[backend/index|backend]] — the other side of the API contract
-- [[desktop/index|desktop]] — the same cross-platform argument, one layer over
-- [[cybersecurity/index|cybersecurity]] — [[mobile/12-security-on-device|note 12]] is applied version of it
-- [[os/index|operating systems]] — what "the OS kills your process" means underneath
 
-*Source: [reference] — Aug 2026. Nothing here has been shipped to a store by its author; [[mobile/projects|projects]] exists to change that.*
+- [[frontend/index|Frontend]]: the closest discipline; note 04 is largely shared with it.
+- [[backend/index|Backend]]: the server your app talks to.
+- [[desktop/index|Desktop]]: the same "one app or several?" question, for computers.
+- [[os/index|Operating Systems]]: what "the phone closes your app" means underneath.
+
+---
+
+## About this course
+
+- **Size:** 14 notes, plus guides for four frameworks and interview prep. Written in August 2026, when the vault had courses for web, desktop and games but nothing for phones.
+- **Where it came from:** reference sources. Nothing here has yet been published to a store by its author; the [[mobile/projects|projects]] exist to change that.

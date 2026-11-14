@@ -1,40 +1,56 @@
 # Using AI
 
-**A course for someone who has never seriously used an LLM — and doesn't write code.** Eight notes, readable in an evening, about *using* these tools well: what they are, why they behave as they do, how to brief them, how to check them, and what not to hand them.
+## What this course is about
 
-This is the on-ramp to the rest of the vault's AI material. Everything under [[ai-ml/index|ai-ml/]] assumes you're going to **build** with models — APIs, retrieval, agents, evals. This folder assumes you're going to **use** them, from a text box, for real work. No maths, no code, no jargon that isn't defined on the spot.
+**AI chatbots like ChatGPT, Claude and Gemini are programs you talk to in plain language. They can write, explain, summarise and answer questions. This course is about using them well.**
 
-If you already program and want to build AI features, skip this and start at [[ai-ml/03-ai-engineer/index|03-ai-engineer/]].
+They're genuinely useful, and also wrong in ways that are easy to miss: they can invent a fact, a quote or a reference and state it with total confidence. Using them well means knowing why that happens, how to ask clearly, how to check what you get back, and what you should never paste into one.
 
-## Reading order
+This course is for someone who **has never seriously used one and doesn't write code**. Eight short notes, readable in an evening, with no maths, no code, and every term explained where it first appears.
 
-Read 01–06 in order — each leans on the one before. 07 and 08 can be read any time and probably should be read early if you're using these tools at work.
+If you already program and want to build things with AI, skip this and start at the [[ai-ml/03-ai-engineer/index|AI Engineer]] course.
 
-1. [[using-ai/01-what-this-thing-is|What This Thing Actually Is]] — **[Beginner]** — AI vs machine learning vs deep learning, what a "model" is, training vs use, and why "narrow AI" is all that exists
-2. [[using-ai/02-how-llms-work-plainly|How LLMs Work, Plainly]] — **[Beginner]** — next-word prediction, tokens, the context window, and why that explains the miscounting, the made-up citations, and the different answer every time
-3. [[using-ai/03-choosing-a-tool|Choosing a Tool]] — **[Beginner]** — chat vs search-grounded vs deep research vs document tools vs image vs voice; free vs paid; the three questions that pick one
-4. [[using-ai/04-talking-to-a-model|Talking to a Model]] — **[Beginner]** — prompting as briefing: task, context, format, audience. The six techniques that matter, and the folklore that doesn't
-5. [[using-ai/05-context-and-long-chats|Context and Long Chats]] — **[Beginner]** — attach the source instead of asking from memory; why long chats degrade; memory and projects; when to start fresh
-6. [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — **[Beginner, load-bearing]** — the most important note here. Why confidence tells you nothing, what to check hardest, and why "are you sure?" isn't a check
-7. [[using-ai/07-privacy-and-what-not-to-share|Privacy and What Not to Share]] — **[Beginner]** — what happens to what you type, the redaction habit, and the work/client rules
-8. [[using-ai/08-living-with-it|Living With It]] — **[Beginner]** — where it earns its place, skill atrophy, disclosure norms, and where to go next
+## What you'll be able to do
 
-## If you only take three things
+By the end you will be able to:
+- explain in plain words what an AI chatbot is and why it makes the mistakes it does;
+- pick the right kind of AI tool for a task;
+- ask clearly, so you get useful answers first time;
+- check an answer properly, and know which answers need checking most;
+- keep private and work information safe;
+- decide where AI helps you and where it gets in the way of learning.
 
-1. **It's a next-word guesser, not a knower.** Every quirk follows from that ([[using-ai/02-how-llms-work-plainly|02]]).
-2. **Give it the source material.** Attaching your document beats asking from its memory, every time ([[using-ai/05-context-and-long-chats|05]]).
-3. **Ask "would I notice if this were wrong?"** — and if not, go and check outside the chat ([[using-ai/06-verifying-what-it-tells-you|06]]).
+## Where to start
 
-## Practice, not just notes
+Read notes 01–06 in order; each builds on the one before. Notes 07 and 08 can be read any time. If you use these tools at work, read 07 early.
 
-Same caveat as every course here: reading isn't reps. The reps are using it on something real — a document you actually need summarized, a letter you actually need to write, a topic you actually want explained. Do that for a fortnight and re-read note 06; it'll land differently once you've been confidently misled once.
+1. [[using-ai/01-what-this-thing-is|What This Thing Actually Is]]: what AI, machine learning and a "model" mean, and what today's AI can and can't do.
+2. [[using-ai/02-how-llms-work-plainly|How LLMs Work, Plainly]]: these chatbots predict the next word, one at a time, and that one fact explains why they miscount, invent references, and answer differently each time.
+3. [[using-ai/03-choosing-a-tool|Choosing a Tool]]: chat, search, research, document, image and voice tools; free or paid; and three questions that pick the right one.
+4. [[using-ai/04-talking-to-a-model|Talking to a Model]]: asking well is like briefing a new colleague: the task, the background, the format and who it's for. The six techniques that matter, and the myths that don't.
+5. [[using-ai/05-context-and-long-chats|Context and Long Chats]]: give it the document instead of asking from memory, why long chats get worse, and when to start a new one.
+6. [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]]: the most important note here. Why sounding confident means nothing, what to check hardest, and why asking "are you sure?" isn't a check.
+7. [[using-ai/07-privacy-and-what-not-to-share|Privacy and What Not to Share]]: what happens to what you type, removing private details first, and rules for work and client information.
+8. [[using-ai/08-living-with-it|Living With It]]: where it really helps, the risk of losing skills you stop practising, when to say you used it, and where to go next.
 
-## Planned
+## Practice
 
-A parallel track for **technical users who don't yet build with AI** — coding assistants and agentic editors, AI-assisted debugging and code review, what to let an agent touch, and reviewing generated code you didn't write. Not written yet; it slots between this folder and [[ai-ml/03-ai-engineer/index|03-ai-engineer/]].
+Reading isn't enough. Use it for something real: a document you actually need summarised, a letter you need to write, a topic you want explained. Do that for two weeks, then re-read note 06. It lands differently once a chatbot has confidently misled you.
+
+## Key ideas to remember
+
+1. **It guesses the next word; it doesn't look things up.** Every quirk follows from that. → [[using-ai/02-how-llms-work-plainly|02]]
+2. **Give it the source material.** Attaching your document beats asking it from memory, every time. → [[using-ai/05-context-and-long-chats|05]]
+3. **Ask yourself: "would I notice if this were wrong?"** If not, check it somewhere outside the chat. → [[using-ai/06-verifying-what-it-tells-you|06]]
 
 ## Related
-- [[ai-ml/index|AI & ML]] — the three builder paths (data scientist, ML engineer, AI engineer)
-- [[ai-ml/03-ai-engineer/index|AI Engineer track]] — the direct next step for anyone who writes code
-- [[ai-automation/index|AI Automation]] — when the task should run on a schedule without you
-- [[HOME|Vault index]]
+
+- [[ai-ml/index|AI & ML]]: how AI works, for people who want to build with it.
+- [[ai-automation/index|AI Automation]]: making AI tasks run automatically, on a schedule or when something happens.
+- [[HOME|The home page]]: the map of every subject.
+
+---
+
+## About this course
+
+- **Planned:** a course for technical people who don't yet build with AI: coding assistants, AI-assisted debugging and code review, what to let an AI agent change, and reviewing code you didn't write. It would sit between this course and the AI Engineer course.
