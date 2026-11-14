@@ -21,7 +21,12 @@ const SKIP = new Set(["code", "pre", "abbr", "a", "script", "style",
 
 // longest first, so "SCCs" is matched before "SCC"
 const TERMS = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
-const PATTERN = new RegExp(`\\b(${TERMS.map(escapeRe).join("|")})\\b`, "g");
+// A word boundary (\b) only makes sense next to a letter or digit. Symbols such as "§"
+// get no boundary on that side, so "§4" still matches; "API" still won't match inside "APIs".
+const isWordChar = (c) => /\w/.test(c);
+const bounded = (t) =>
+  (isWordChar(t[0]) ? "\\b" : "") + escapeRe(t) + (isWordChar(t[t.length - 1]) ? "\\b" : "");
+const PATTERN = new RegExp(`(${TERMS.map(bounded).join("|")})`, "g");
 
 function escapeRe(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
