@@ -22,10 +22,11 @@ By the end you will be able to:
 
 ## Where to start
 
-**If you've never used a database,** learn to write basic SQL first. The [[databases/sql-reference|SQL reference]] covers it, and [[backend/04-data-and-persistence/index|Backend: data and persistence]] shows how an app talks to a database. Then come back to this course.
+**If you've never used a database, start with note 00.** It teaches you to use one with SQL, with a small shop you build yourself. The rest of the course then explains what's happening inside.
 
-**If you can already write SQL,** read the course in order. Notes 02–05 are about how data is stored, 06–07 about how queries run, 08–10 about safety when many people use the database at once, and 11–12 about running a database for real.
+**If you can already write SQL,** start at note 01. Notes 02–05 are about how data is stored, 06–07 about how queries run, 08–10 about safety when many people use the database at once, and 11–12 about running a database for real.
 
+0. [[databases/00-your-first-sql|Your First SQL Queries]]: creating tables, asking questions, totals, combining two tables, and changing data safely. Everything you need before the rest of the course.
 1. [[databases/01-what-a-database-is|What a Database Is]]: why not just use files, the promises a database makes (called ACID), and the different kinds of database.
 2. [[databases/02-the-relational-model|The Relational Model]]: the idea behind tables, and why you describe *what* you want instead of *how* to get it.
 3. [[databases/03-storage-and-page-layout|Storage and Page Layout]]: how rows are actually laid out on disk, in fixed-size blocks called pages. It has a hands-on lab you can do without installing a database; do it before moving on.
@@ -80,6 +81,6 @@ These reference files are for looking things up, not reading through.
 
 - **Size:** the course is 14 notes, about 20,500 words, written in August 2026. The five reference files are older and much longer (about 11,600 lines).
 - **Where it came from:** the standard books (*Database Internals*, *Designing Data-Intensive Applications*, *Architecture of a Database System*) and the Postgres and MySQL documentation, not from running a large database in production. It's strongest on how things work, and thinner on judgement, such as how bad a given slowdown is in practice.
-- **Teaching quality:** note 03 has been revised to the full lesson standard (worked example, lab, checks). The other notes haven't yet.
-- **Not covered yet:** a beginner's "your first SQL queries" lesson (the SQL reference covers it for now), data warehouses, stream processing, vector databases, and time-series databases.
+- **Teaching quality:** notes 00 and 03 meet the full lesson standard (worked example, practice, checks). The others haven't been revised yet. Note 00 was added in November 2026.
+- **Not covered yet:** data warehouses, stream processing, vector databases, and time-series databases.
 - **Further reading:** *Database Internals* (Petrov), *Designing Data-Intensive Applications* (Kleppmann), *The Art of PostgreSQL*.
