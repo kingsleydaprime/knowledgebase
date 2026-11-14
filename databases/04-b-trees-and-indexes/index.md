@@ -1,3 +1,7 @@
+---
+id: dd5166cd-e07b-4a35-84f2-3495069f2e00
+---
+
 # B-Trees and Indexes
 
 **[Intermediate → Advanced]** — Why databases use B+ trees and not binary trees, how an index is actually used, what a composite index can and can't serve, and when adding one makes things worse. Every claim about PostgreSQL in this lesson is checked by the lab on a real PostgreSQL 18 database with a million rows.

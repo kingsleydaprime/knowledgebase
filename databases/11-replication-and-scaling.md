@@ -1,3 +1,7 @@
+---
+id: 30e0dd6c-8488-46be-a26c-3b41b703e599
+---
+
 # Replication and Scaling
 
 **[Advanced]** — Read replicas, failover, partitioning, and the order in which you should actually try things.

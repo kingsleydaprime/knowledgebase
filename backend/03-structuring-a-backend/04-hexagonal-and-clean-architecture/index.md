@@ -1,3 +1,7 @@
+---
+id: f9c4e752-2ee1-47ad-8f7d-4badbb1bbee3
+---
+
 # Hexagonal & Clean Architecture
 
 **[Intermediate→Advanced]** — layering with the dependency direction actually enforced. Also known as ports and adapters, onion architecture, and clean architecture — **largely the same idea under four names**, which is itself worth knowing so you don't think they're four things to learn.

@@ -1,3 +1,7 @@
+---
+id: 21cbf801-af77-4491-8275-164b9c8c0cdc
+---
+
 # Authentication Flows
 
 This note is about the *architectural shapes* authentication takes in a backend system — session-based vs token-based, how OAuth actually works, when an API key is the right tool. The security mechanics underneath each (password hashing, MFA, JWT signature verification) are covered in depth in [[02-secure-authentication|secure-authentication]] — this note assumes that foundation and focuses on how the pieces fit into an actual system design.

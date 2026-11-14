@@ -1,3 +1,7 @@
+---
+id: 2c774f65-cbc6-4d93-8f8d-87324b5f33df
+---
+
 # Distributed Transactions
 
 **[reference]** — from the canon (DDIA ch. 7 & 9). How to make an **all-or-nothing** operation span multiple nodes or services — the *atomicity* problem — and the **isolation** problem (how concurrent transactions interfere). This is the transaction cousin of [[architecture/04-distributed-systems/04-consistency-models|consistency models]]: consistency is about single-object recency; isolation is about multi-object interleaving.

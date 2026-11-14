@@ -1,3 +1,7 @@
+---
+id: 01ea2f2c-e07a-4118-9f9a-03451ca2cce9
+---
+
 # The Request Lifecycle
 
 **[Beginner→Intermediate]** — What happens between "a request arrives" and "a response leaves", in the order it happens. Every framework implements the same nine stages; only the names differ. Learn the stages and you can read any framework's docs in an afternoon. This lesson builds all nine by hand on Node's `http` module, about 300 lines with no framework, so you can see each one work and then break it by putting it in the wrong order.

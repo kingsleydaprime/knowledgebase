@@ -1,3 +1,7 @@
+---
+id: 88a1fa75-0006-4a9b-881f-7dc53af0f4e5
+---
+
 # Scalability & Performance
 
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. The vocabulary that's constantly confused, made precise: performance and scalability, latency and throughput, averages and percentiles, scaling up and scaling out. It also covers the arithmetic underneath: why a server's response time explodes as it nears full, why a system is only as fast as its slowest stage, and why adding machines eventually stops helping. The worked example follows a checkout service through a sale, from "it's slow" to a diagnosis and a fix. The lab checks every number.

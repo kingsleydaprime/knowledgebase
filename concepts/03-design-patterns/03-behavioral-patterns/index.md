@@ -1,3 +1,7 @@
+---
+id: 8b464306-7b5e-4eee-ab83-30bb60b280b0
+---
+
 # Behavioral Patterns
 
 > **[Intermediate]** · How objects **communicate and share responsibility** — reacting to changes, swapping algorithms, turning actions into objects, and changing behaviour as something moves through stages.

@@ -1,3 +1,7 @@
+---
+id: f98e18ce-bced-4309-b9e9-ba3cce5cc2ee
+---
+
 # Caching
 
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. Caching is the highest-leverage performance tool in system design, and the home of one of the two famously hard problems in computer science: invalidation. This lesson covers where caches live, the arithmetic that says how much load a cache takes off a database, why a small cache answers most reads, how cache and database are kept in step, and the two failures caching adds: stale data and the stampede. The worked example carries on with week 1's shop, now putting a cache in front of its product catalogue. The lab checks every number.

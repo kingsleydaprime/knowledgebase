@@ -1,3 +1,7 @@
+---
+id: e3fed3fe-7b08-4628-8f28-844a21025dbc
+---
+
 # What Software Engineering Is
 
 > **[Beginner]** · The distinction that actually matters, and why most of the job isn't typing.

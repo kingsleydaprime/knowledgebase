@@ -1,3 +1,7 @@
+---
+id: 5196b9bd-4677-46cc-92ef-b6c1ae0cf208
+---
+
 # Messaging & Async
 
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. How systems decouple and absorb load by *not* doing everything in the request path. This lesson covers what to keep synchronous and what to hand off, how a queue delivers a message at least once and what that does to your consumers, how a queue turns a traffic spike into a backlog instead of errors, the difference between a queue, a topic and a partitioned log, and back-pressure. The worked example moves the shop's order pipeline off the checkout request. The lab is a small in-memory broker, and it checks every number. Grounded in the real [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|RabbitMQ pipeline]].

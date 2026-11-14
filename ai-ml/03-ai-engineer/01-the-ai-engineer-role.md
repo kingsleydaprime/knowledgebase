@@ -1,3 +1,7 @@
+---
+id: 6dce78e0-190e-429f-b903-f3141950005d
+---
+
 # The AI engineer role
 
 > **[Beginner]** · What an AI engineer does, how it differs from an ML engineer, and the decision every AI feature starts with: whether to use a model at all, and if so which kind. The worked example runs four features from this course through the decision, step by step. It's the frame for the rest of SWE 102, so it's short, and its practice task is about your own flagship.

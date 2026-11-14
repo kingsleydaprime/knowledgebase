@@ -1,3 +1,7 @@
+---
+id: 9aa5ddcd-bcd3-44b0-afc2-83767ee0759e
+---
+
 # Tools and MCP
 
 > **[Intermediate]** · Covers how a model gets to *do* things: describing tools to it, the round trip in which it asks and your code runs, designing tools it can use well, the controls around anything with a side effect, and MCP, the open protocol for sharing tools between applications. The worked example gives a support assistant three tools over an order store, then exposes the same tools as an MCP server written by hand against the current protocol revision, 2026-07-28, and checked with the official client. **The model never runs anything itself: it asks, and your code decides.**

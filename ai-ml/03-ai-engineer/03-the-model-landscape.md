@@ -1,3 +1,7 @@
+---
+id: 0d5ff656-23cd-4c5d-a25b-7a317abc6dc7
+---
+
 # The model landscape
 
 > **[Beginner]** · A map of the models an AI engineer chooses between: the kinds of model, the companies that sell language models through APIs, gateways that put many of them behind one key, open-weight models you run yourself, and the tradeoff between hosted and self-run. The worked example decides where the ticket classifier should run, using real prices and a speed measured on a 16 GB laptop. The point is to choose well, so it teaches the questions that outlast any list of model names.

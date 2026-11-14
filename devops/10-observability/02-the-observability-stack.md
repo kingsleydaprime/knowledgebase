@@ -1,3 +1,7 @@
+---
+id: c376f738-4c82-4c77-bdd6-eb8ed172b268
+---
+
 # The Observability Stack
 
 **[reference]** — from roadmap.sh and vendor docs. The three-pillar concepts are in [[devops/10-observability/01-observability-fundamentals/index|the fundamentals note]]; this maps the tools that implement them.

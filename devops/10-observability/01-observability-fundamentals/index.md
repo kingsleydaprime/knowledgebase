@@ -1,3 +1,7 @@
+---
+id: b1db3e87-7a45-4d4d-b1e0-d14d11dcf442
+---
+
 # Observability Fundamentals
 
 > **[Beginner→Intermediate]** · How you answer "is it up, is it fast, and what broke?" about a system you can't step through in a debugger: metrics, logs and traces; the four golden signals; why averages lie; and SLOs and error budgets, which turn "reliable" into a number.

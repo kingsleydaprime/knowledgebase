@@ -1,3 +1,7 @@
+---
+id: ba7b49d5-fb8e-4cef-953e-f2466e9dd1b5
+---
+
 # Input Validation & Output Encoding
 
 > **[Beginner→Intermediate]** · The defensive half of injection and XSS. Both happen when untrusted input is treated as code — by a database, a shell, or a browser. The fix is two separate disciplines that are easy to confuse: **check what comes in, and encode what goes out for the place it's going.**

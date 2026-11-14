@@ -1,3 +1,7 @@
+---
+id: a2cc4147-ba95-45e9-affe-ea6183e4b4eb
+---
+
 # Structured Output
 
 > **[Intermediate]** · How to get typed, validated data back from a model instead of prose: the three ways to ask for JSON, why valid JSON can still be wrong, and the retry loop that makes a model usable as a function in your code. The worked example extracts an invoice with a local model, asking with a prompt only and then with a schema. The numbers were measured on 2026-10-02.

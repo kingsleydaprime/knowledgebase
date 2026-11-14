@@ -1,3 +1,7 @@
+---
+id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
+---
+
 # The Query Pipeline
 
 **[Intermediate → Advanced]** — What happens between typing a query and getting rows back.

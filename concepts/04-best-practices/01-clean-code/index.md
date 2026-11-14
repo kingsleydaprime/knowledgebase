@@ -1,3 +1,7 @@
+---
+id: f0754c19-2c4c-4b45-bfe4-0a4fec31b504
+---
+
 # Clean Code
 
 > **[Beginner]** · Code is read far more often than it's written, usually by someone with less context than you had. Every practice here serves that one reader.

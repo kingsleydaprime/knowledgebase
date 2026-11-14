@@ -1,3 +1,7 @@
+---
+id: 9f83f074-bfcb-4bed-920b-79aee0f2b4d6
+---
+
 # Cost, caching and latency
 
 > **[Intermediate]** · Covers how to make an AI feature cheap and fast enough to ship: how the bill is worked out from tokens, prompt caching and the prefix rule that governs it, choosing and cascading models, latency as users feel it (time to first token and p95), cutting what you send, and logging cost and latency on every call. The worked example prices the ticket classifier with real list prices, finds a cache-breaking timestamp, and cascades from keyword rules to a model. A demo that costs $2 a query or takes 15 seconds stays a demo.

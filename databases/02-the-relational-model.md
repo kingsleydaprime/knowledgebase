@@ -1,3 +1,7 @@
+---
+id: 69cd32ad-86f4-46d0-9eaa-f0af0d8fff96
+---
+
 # The Relational Model
 
 **[Intermediate]** — Codd's idea, why SQL is declarative, and the algebra the optimiser actually manipulates.

@@ -1,3 +1,7 @@
+---
+id: 475d7d74-dc61-4bd4-a459-6db006ec1d15
+---
+
 # Transactional Outbox
 
 > **[Intermediate→Advanced]** · How to save something to your database **and** tell other systems about it, without ever doing one and not the other. The fix for the "dual write" problem, with a lab that crashes at the worst moment on purpose.

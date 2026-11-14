@@ -1,3 +1,7 @@
+---
+id: d30c8b05-9eff-4385-a13a-f4c6e86844ff
+---
+
 # Safety and production
 
 > **[Intermediate]** · Covers the two risks that only appear once real users, and real attackers, reach an AI feature: **prompt injection**, which has no complete fix, so you bound what it can do; and **personal data**, which leaks through prompts, logs and evals unless you keep it out. The worked example attacks the ticket classifier with seven kinds of injection, defends it in layers and shows honestly which layers stop what, redacts personal data before it reaches a provider and puts it back after, and stops an agent from holding private data, untrusted content and a way to send things out at the same time. It ends with this week's Build: the write-up of your AI feature.

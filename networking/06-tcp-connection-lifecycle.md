@@ -1,3 +1,7 @@
+---
+id: 10e9be47-2260-410f-af8e-aa257cb33a30
+---
+
 # TCP Connection Lifecycle
 
 **[Intermediate]** — how a "connection" gets created and destroyed when there is no such physical thing. This note is the one that pays off most often in production debugging: `TIME_WAIT` exhaustion, SYN backlog drops, half-open connections, and "why is my connection pool broken" all live here.

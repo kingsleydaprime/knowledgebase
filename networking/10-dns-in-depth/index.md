@@ -1,3 +1,7 @@
+---
+id: 7e34fa52-e542-4878-940c-c7c4e1ebef84
+---
+
 # DNS in Depth
 
 **[Intermediate]** — The internet's naming system, and the single most common root cause of "the site is down". It's worth real study for one reason: **DNS is a globally distributed, eventually consistent, aggressively cached database that everything depends on and almost nobody monitors.** This lesson builds a DNS query byte by byte, runs a tiny DNS server that Node's own resolver queries, walks the resolution chain from the root, and puts numbers on caching: a migration done in the wrong order, a name that stays missing after you create it, and the four queries a Kubernetes pod sends for one lookup. The lab runs entirely on your machine.

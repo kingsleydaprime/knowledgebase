@@ -1,3 +1,7 @@
+---
+id: 459c4a62-da5e-4b84-854a-0141598f16ae
+---
+
 # Security Headers & the Same-Origin Policy
 
 > **[Beginner→Intermediate]** · Browsers enforce rules that keep websites from reading each other's data, and they'll enforce more if you ask with the right response headers. This lesson covers the same-origin policy, CORS and its most common misconfiguration, CSP, the cookie flags, and CSRF — and turns "the browser handles security" into a list of things you can check.

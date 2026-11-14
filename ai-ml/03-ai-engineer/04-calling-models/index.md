@@ -1,3 +1,7 @@
+---
+id: c1f62702-ae8b-468c-a5e6-996d83b2280c
+---
+
 # Calling Models
 
 > **[Beginner]** · Covers what a model call actually sends and receives: the messages format, streaming, finish reasons, errors, and why your app should talk to a model through a port rather than through one provider's SDK. The worked example builds a small provider-neutral client and runs it against a local model. The numbers were measured on 2026-10-02.

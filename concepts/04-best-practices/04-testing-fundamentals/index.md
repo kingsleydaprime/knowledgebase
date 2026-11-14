@@ -1,3 +1,7 @@
+---
+id: c859286b-0e35-4b52-bd25-91e49d330855
+---
+
 # Testing Fundamentals — Unit, Integration, E2E, Test Doubles, TDD
 
 > **[Beginner→Intermediate]** · Tests answer one question quickly, without a human re-checking by hand: *does this still work?* This lesson covers the kinds of test, the stand-ins you use in them, the tests that fail for no reason, and getting all of it running on every push.

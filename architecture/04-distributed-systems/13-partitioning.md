@@ -1,3 +1,7 @@
+---
+id: fcd1c284-7a66-407c-a957-6adaec039ac0
+---
+
 # Partitioning
 
 **[reference]** — from the canon (DDIA ch. 6). How data is **split across many nodes** so you can store more and serve more than one machine can hold — and how to split it *well*, so load stays even and queries stay cheap. (Knowing *who's alive* to route around failures is the sibling topic: [[architecture/04-distributed-systems/14-failure-detection-and-membership|failure detection & membership]].)

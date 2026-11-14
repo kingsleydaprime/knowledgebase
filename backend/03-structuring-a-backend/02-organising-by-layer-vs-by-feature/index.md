@@ -1,3 +1,7 @@
+---
+id: 38cfe629-669f-4d83-b209-db43bb0107eb
+---
+
 # Organising by Layer vs by Feature
 
 **[Beginner→Intermediate]** — the folder-structure argument every team has, usually badly. It looks like bikeshedding and isn't: it determines how far you have to scroll to make one change, and how easy it is to delete something. This lesson shows both layouts, **with the wiring, in Express, NestJS, React, Django and Flask** — and a companion lesson does the same for Go, Java, Rust, C, C++ and C#.

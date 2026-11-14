@@ -1,3 +1,7 @@
+---
+id: aa4fd667-3cef-4ab7-af22-95b042756ddc
+---
+
 # Practice Exercises
 
 **[Beginner → Advanced]** — fourteen exercises over the whole track. Assumes [[ai-ml/03-ai-engineer/18-lab-setup|the lab]] runs. Solutions in [[ai-ml/03-ai-engineer/20-practice-exercises-solutions|note 20]] — genuinely try each one before opening it.

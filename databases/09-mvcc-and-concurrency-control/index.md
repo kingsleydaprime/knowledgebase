@@ -1,3 +1,7 @@
+---
+id: 86a01ae5-0e15-4957-ae6e-14fe7235350c
+---
+
 # MVCC and Concurrency Control
 
 **[Advanced]** — How isolation is actually implemented: row versions instead of read locks, why PostgreSQL needs `VACUUM` and what stops it, why every PostgreSQL update can touch every index, where deadlocks come from, and the migration lock that takes production down. Every PostgreSQL behaviour here is checked by the lab, which looks directly at the row versions on a page.

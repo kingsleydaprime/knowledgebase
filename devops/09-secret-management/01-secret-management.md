@@ -1,3 +1,7 @@
+---
+id: 76f9a944-abc0-4c53-beb5-aed3125ffb7d
+---
+
 # Secret Management
 
 **[reference]** — from roadmap.sh and the Vault docs.

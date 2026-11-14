@@ -1,3 +1,7 @@
+---
+id: d8478ac1-950c-40b8-a83c-7bf49aea6223
+---
+
 # Digital Signatures & PKI
 
 A digital signature proves two things at once: the message hasn't been altered (integrity), and it genuinely came from whoever holds a specific private key (authentication) — and unlike [[03-hashing-and-integrity|HMAC]], it does this **without a shared secret**, using the public/private key pairs from [[04-asymmetric-encryption|asymmetric-encryption]]. That extra property — anyone can verify the signature using only the *public* key, with no shared secret required — is also what provides non-repudiation: only the private key holder could have produced it, so they can't credibly deny having signed it.

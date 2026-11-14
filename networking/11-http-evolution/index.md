@@ -1,3 +1,7 @@
+---
+id: 9f429d32-abbd-4352-a7f6-1e03a03ed235
+---
+
 # HTTP and Its Evolution
 
 **[Intermediate]** — The application protocol that ate the internet. The interesting story isn't the syntax, which you already know. It's that **three decades of HTTP versions are all fighting the same enemy: round trips, and one slow thing blocking everything behind it.** Understand that, and every version's design choices are obvious. The lab makes each one visible on your own machine: connections saved by keep-alive, a fast reply stuck behind a slow one on HTTP/1.1 and overtaking it on HTTP/2, a `304 Not Modified`, and chunked encoding as raw bytes.

@@ -1,3 +1,7 @@
+---
+id: 78dd10e2-e97d-4fc4-b85f-07c2170e981b
+---
+
 # Communication
 
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. How the pieces of a system talk to each other and to their clients, and what each style costs. This lesson counts those costs for one screen: requests, round trips and bytes with REST and with GraphQL; the N+1 queries a naive GraphQL server makes and the batching that fixes them; how gRPC's Protocol Buffers fit a message in a third of JSON's bytes; what calling services in a chain does to availability and latency; and the options for pushing updates in real time. The worked example chooses a style for each of the shop's connections. The first lab checks every number; the second runs a real gRPC server and client, built from a `.proto` schema.

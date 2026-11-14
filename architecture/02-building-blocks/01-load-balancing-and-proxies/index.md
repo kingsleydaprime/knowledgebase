@@ -1,3 +1,7 @@
+---
+id: 85d212b1-d570-4959-9e4f-1e0ea502657f
+---
+
 # Load Balancing & Proxies
 
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. The traffic-routing layer that makes [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|horizontal scaling]] possible: how a load balancer picks a server and why the choice matters most in the slow tail, how health checks take a broken server out and put it back, what layer 4 and layer 7 mean, and how consistent hashing spreads keys over cache nodes without moving most of them when one is added. Reverse proxies, API gateways and CDNs complete the picture. The worked example scales week 1's shop from one app server to four. Overlaps the operations view in [[devops/08-networking-and-web/02-web-servers-and-proxies|DevOps web servers and proxies]]; this is the system-design view.

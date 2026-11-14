@@ -1,3 +1,7 @@
+---
+id: db92936f-e3b4-4282-9e67-f1f3c09794c9
+---
+
 # Replication
 
 **[reference]** — from the canon (DDIA ch. 5, the Dynamo paper). Keeping multiple copies of the same data on multiple machines — the *mechanism* underneath availability, read-scaling, and the [[architecture/04-distributed-systems/04-consistency-models|consistency]] promises. This note is *how you keep copies*; [[architecture/04-distributed-systems/04-consistency-models|consistency models]] is *what you promise readers*, and [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]] is *what to do when copies disagree*.
