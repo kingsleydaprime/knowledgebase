@@ -22,7 +22,7 @@ By the end you will be able to:
 
 Read the parts in order. Part B is the heart of the course.
 
-Two other courses cover networking from different angles. This one explains **why** things work the way they do. [[devops/08-networking-and-web/index|DevOps: Networking and Web]] covers **setting things up**, such as configuring a domain name or a web server. [[cybersecurity/03-network-security/index|Network Security]] covers **attacks and defences**. Reading this one first makes the other two much easier.
+Two other courses cover networking from different angles. This one explains **why** things work the way they do. [[devops/02-networking-and-web/index|DevOps: Networking and Web]] covers **setting things up**, such as configuring a domain name or a web server. [[cybersecurity/03-network-security/index|Network Security]] covers **attacks and defences**. Reading this one first makes the other two much easier.
 
 ### Part A: How a message reaches the next machine
 

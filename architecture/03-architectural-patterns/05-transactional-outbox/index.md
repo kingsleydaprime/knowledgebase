@@ -315,7 +315,7 @@ You can name both dual-write failures, implement an outbox and relay, and explai
 ## Related
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data and integration patterns]] — saga, CQRS, event sourcing
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular monolith to services]] — at-least-once delivery and idempotent consumers
-- [[concepts/03-design-patterns/03-behavioral-patterns/index|Behavioural patterns]] — the observer pattern this replaces at system scale
+- [[concepts/02-design-patterns/03-behavioral-patterns/index|Behavioural patterns]] — the observer pattern this replaces at system scale
 - [[databases/08-transactions-and-acid/index|Transactions and ACID]] — the guarantee the pattern is built on
 
 *Source: [reference] — the lab's behaviour was executed; production details (CDC tooling, relay locking) are from documentation, not from operating one.*

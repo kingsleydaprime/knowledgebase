@@ -134,4 +134,4 @@ images: { remotePatterns: [{ hostname: 'cdn.sanity.io' }] }
 
 ## Related
 - [[frontend/frameworks/sanity/01-the-sanity-model|01 — the Sanity model]] · [[frontend/frameworks/sanity/02-groq|02 — GROQ]]
-- [[frontend/06-cross-cutting/01-accessibility|accessibility]] · [[frontend/07-practices/02-performance|performance]]
+- [[frontend/05-cross-cutting/01-accessibility|accessibility]] · [[frontend/07-practices/02-performance|performance]]

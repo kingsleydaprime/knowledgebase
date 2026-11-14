@@ -33,7 +33,7 @@ The editor is a window. The actual work is done by programs it calls:
 - **A formatter and a linter** — one fixes layout, one flags suspicious patterns
 - **[[git/index|Git]]** — version control, which is not optional and which you should start using on day one, not "once the project is real"
 
-**All of these exist independently of your editor.** That matters, because it's why the same project builds identically in [[devops/06-ci-cd/index|CI]] where there's no editor at all — and it's why "it works on my machine" is a solvable problem rather than a mystery.
+**All of these exist independently of your editor.** That matters, because it's why the same project builds identically in [[devops/05-ci-cd/index|CI]] where there's no editor at all — and it's why "it works on my machine" is a solvable problem rather than a mystery.
 
 ## The terminal
 
@@ -75,7 +75,7 @@ System.out.println("hello");   // Java
 
 **Instrumentation for you.** Printing a value to find out what it actually is at that moment. Crude, universally available, and genuinely one of the most effective debugging tools there is. → [[programming-fundamentals/10-errors-and-debugging|note 10]].
 
-**In real systems, printing grows up into [[devops/10-observability/index|logging]]** — same idea, with severity levels, timestamps, and somewhere durable to go. When you eventually meet structured logging, it's this.
+**In real systems, printing grows up into [[devops/07-observability/index|logging]]** — same idea, with severity levels, timestamps, and somewhere durable to go. When you eventually meet structured logging, it's this.
 
 ## The REPL
 

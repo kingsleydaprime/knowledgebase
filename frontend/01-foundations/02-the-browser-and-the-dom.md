@@ -65,7 +65,7 @@ The DOM is a live tree of nodes. Mutating it triggers the pipeline above.
 
 **It is genuinely slower than people expect** — not because the tree is slow, but because each mutation may invalidate layout for a subtree.
 
-**Which is what frameworks are optimising.** React's virtual DOM, Svelte's compiled updates and Vue's reactivity all exist to **batch and minimise real DOM mutations** → [[frontend/02-rendering/index|rendering]].
+**Which is what frameworks are optimising.** React's virtual DOM, Svelte's compiled updates and Vue's reactivity all exist to **batch and minimise real DOM mutations** → [[frontend/06-rendering/index|rendering]].
 
 **And it's why `key` matters in every framework's list rendering** — it tells the reconciler which DOM node corresponds to which item, and getting it wrong moves state to the wrong row.
 
@@ -109,7 +109,7 @@ list.addEventListener("click", (e) => {
 **The observers are the ones people miss.** A `scroll` listener firing hundreds of times a second, each doing `getBoundingClientRect()`, is a classic jank source. `IntersectionObserver` does the same job off the main thread.
 
 ## Related
-- [[frontend/02-rendering/index|rendering]] — CSR, SSR, hydration
+- [[frontend/06-rendering/index|rendering]] — CSR, SSR, hydration
 - [[frontend/07-practices/index|practices]] — Core Web Vitals
 - [[networking/11-http-evolution/index|HTTP]] — the first four steps
 - [[computer-graphics/index|computer graphics]] — what paint and composite actually do

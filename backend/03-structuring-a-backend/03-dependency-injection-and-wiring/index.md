@@ -11,7 +11,7 @@ id: ee53633f-6e52-47e2-b8ea-b74a5db828b9
 You can already:
 
 - Split code into controller, service and repository → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layers]].
-- Explain why a singleton makes testing hard → [[concepts/03-design-patterns/01-creational-patterns/index|creational patterns]].
+- Explain why a singleton makes testing hard → [[concepts/02-design-patterns/01-creational-patterns/index|creational patterns]].
 
 After this lesson you will be able to:
 

@@ -99,7 +99,7 @@ The corollary is worth stating plainly: **three instances in one AZ are not a re
 ## Related
 - [[devops/00-the-physical-layer/04-the-data-centre-network|the data centre network]] — how the racks are wired together
 - [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] — what fills the racks
-- [[devops/03-cloud/01-cloud-fundamentals|cloud fundamentals]] — regions and AZs as an API
+- [[devops/08-cloud/01-cloud-fundamentals|cloud fundamentals]] — regions and AZs as an API
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] — turning these numbers into design
 - [[networking/08-congestion-control|congestion control]] — why DC networks behave unlike the internet
 

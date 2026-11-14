@@ -1,6 +1,6 @@
 # Concepts Interview — APIs, Auth & Practices
 
-From [[backend/index|01-backend]], [[concepts/03-design-patterns/index|03-design-patterns]], [[concepts/04-best-practices/index|04-best-practices]].
+From [[backend/index|01-backend]], [[concepts/02-design-patterns/index|02-design-patterns]], [[concepts/01-best-practices/index|01-best-practices]].
 
 ---
 
@@ -104,7 +104,7 @@ From [[backend/index|01-backend]], [[concepts/03-design-patterns/index|03-design
 
 The description says **why**, not what (the diff already shows what) — the problem, the approach, what was considered and rejected. Self-review before requesting review. Keep refactors in separate commits (or PRs) from behaviour changes, so the reviewer isn't diffing formatting against logic.
 
-**As a reviewer:** distinguish blocking issues from preferences (say which). Ask questions rather than issuing commands — *"what happens if this is null?"* teaches; *"add a null check"* doesn't. Approve when it's better than what's on main, not when it's perfect. → [[concepts/04-best-practices/02-pr-structure|PR structure]]
+**As a reviewer:** distinguish blocking issues from preferences (say which). Ask questions rather than issuing commands — *"what happens if this is null?"* teaches; *"add a null check"* doesn't. Approve when it's better than what's on main, not when it's perfect. → [[concepts/01-best-practices/04-pr-structure|PR structure]]
 
 ---
 

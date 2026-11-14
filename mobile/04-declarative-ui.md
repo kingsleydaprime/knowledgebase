@@ -91,7 +91,7 @@ Both platforms ship strong accessibility support and both stores care:
 - **Respect the user's text size.** Dynamic Type and Android's font scale are widely used, especially by older users. **Test at 200%** — fixed-height containers break here
 - **Hit targets ≥ 44pt (iOS) / 48dp (Android)**
 - **Honour reduce-motion**
-- **Test with VoiceOver and TalkBack.** Ten minutes, and it finds things nothing else does → [[frontend/06-cross-cutting/index|accessibility]]
+- **Test with VoiceOver and TalkBack.** Ten minutes, and it finds things nothing else does → [[frontend/05-cross-cutting/index|accessibility]]
 
 ## Key insight
 
@@ -100,7 +100,7 @@ Both platforms ship strong accessibility support and both stores care:
 ## Related
 - [[mobile/05-state-and-architecture|state and architecture]] — where the state actually lives
 - [[frontend/frameworks/react/index|React]] — the same model, and where it came from
-- [[frontend/02-rendering/index|rendering]] — the general theory
+- [[frontend/06-rendering/index|rendering]] — the general theory
 - [[mobile/11-performance-and-battery|performance]]
 
 *Source: [reference] — Aug 2026.*

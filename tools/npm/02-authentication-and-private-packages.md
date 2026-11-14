@@ -272,9 +272,9 @@ You can choose and place a credential, diagnose a 401/403 by working four causes
 ## Related
 
 - [[01-registries-and-the-npmrc-file|Registries and the `.npmrc` File]] — the previous lesson: precedence, scopes, substitution
-- [[devops/09-secret-management/01-secret-management|Secret Management]] — where credentials should live
-- [[devops/06-ci-cd/10-pipeline-security|Pipeline Security]] — secrets in a pipeline
+- [[devops/06-secret-management/01-secret-management|Secret Management]] — where credentials should live
+- [[devops/05-ci-cd/10-pipeline-security|Pipeline Security]] — secrets in a pipeline
 - [[git/08-remotes-and-collaboration|Git Remotes and Collaboration]] — SSH versus HTTPS, which Git dependencies depend on
 - [[git/15-the-github-cli|The GitHub CLI]] — `gh auth`, and the token it manages
-- [[devops/02-docker/04-multi-stage-builds|Multi-Stage Builds]] — keeping credentials out of image layers
+- [[devops/03-docker/04-multi-stage-builds|Multi-Stage Builds]] — keeping credentials out of image layers
 - [[tools/npm/index|the npm folder]]

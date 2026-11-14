@@ -10,5 +10,5 @@ How the [[architecture/02-building-blocks/index|building blocks]] are arranged i
 
 ## Related
 - [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud Design Patterns (devops)]] — the same resilience patterns from the ops angle
-- [[devops/05-orchestration/index|Orchestration (devops)]] — what microservices run on
+- [[devops/10-orchestration/index|Orchestration (devops)]] — what microservices run on
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — the theory these patterns manage

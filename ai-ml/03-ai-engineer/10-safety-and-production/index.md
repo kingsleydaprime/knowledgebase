@@ -495,6 +495,6 @@ You can explain why injection is structural, defend a feature in layers and say 
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — attack sets are golden sets
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — where prompts are written, and attacked
 - [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local and open models]] — for data that mustn't leave
-- [[devops/10-observability/index|Observability]] — production monitoring, where logs must be redacted too
+- [[devops/07-observability/index|Observability]] — production monitoring, where logs must be redacted too
 
 *Source: Part II of the AI-engineer track; the lethal trifecta is Simon Willison's (2025), and the risk ranking is OWASP's Top 10 for LLM applications (2025).*

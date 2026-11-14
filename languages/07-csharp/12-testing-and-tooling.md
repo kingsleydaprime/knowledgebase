@@ -103,11 +103,11 @@ public class Benchmarks
 - run: dotnet test --no-build -c Release --collect:"XPlat Code Coverage"
 ```
 
-Add `dotnet format --verify-no-changes` to fail on unformatted code, and **`dotnet list package --vulnerable`** to catch known CVEs in dependencies → [[devops/06-ci-cd/index|CI/CD]].
+Add `dotnet format --verify-no-changes` to fail on unformatted code, and **`dotnet list package --vulnerable`** to catch known CVEs in dependencies → [[devops/05-ci-cd/index|CI/CD]].
 
 ## Related
 - [[languages/07-csharp/11-the-standard-library-and-ecosystem|the ecosystem]]
-- [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]]
+- [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]
 - [[languages/07-csharp/13-performance-and-the-runtime|performance]] — BenchmarkDotNet in anger
 
 *Source: [reference] — from the .NET testing documentation, Aug 2026.*

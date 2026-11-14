@@ -532,7 +532,7 @@ You know your ecosystem's tools for errors, validation, logging and rate limitin
 
 **Recap.** Go ships `slog` and maintains `x/time/rate`, which takes the time as an argument; .NET ships a rate limiter that reads the real clock; Spring has Bean Validation and the MDC; FastAPI has Pydantic; Rust has `tracing` and `governor`. Request IDs ride on each language's context mechanism.
 
-**Next.** Back to the course: [[devops/10-observability/01-observability-fundamentals/index|observability fundamentals]].
+**Next.** Back to the course: [[devops/07-observability/01-observability-fundamentals/index|observability fundamentals]].
 
 ## Related
 - [[backend/07-practices/01-backend-best-practices/index|Backend best practices]] — the main lesson

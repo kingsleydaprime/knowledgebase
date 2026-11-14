@@ -1,6 +1,6 @@
 # Network Attacks
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. Educational/defensive: how network-layer attacks work so you can detect and prevent them. The offensive counterpart to [[cybersecurity/03-network-security/index|network security]], and it assumes the networking basics also covered in [[devops/08-networking-and-web/01-networking-and-protocols|DevOps networking & protocols]].
+**[reference]** — from the roadmap.sh cyber-security roadmap. Educational/defensive: how network-layer attacks work so you can detect and prevent them. The offensive counterpart to [[cybersecurity/03-network-security/index|network security]], and it assumes the networking basics also covered in [[devops/02-networking-and-web/01-networking-and-protocols|DevOps networking & protocols]].
 
 ## Man-in-the-Middle (MITM)
 
@@ -41,5 +41,5 @@ Most of these exploit **protocols that trust by default** (ARP, DNS, DHCP have n
 
 ## Related
 - [[cybersecurity/03-network-security/index|Network Security]] — the defenses against these
-- [[devops/08-networking-and-web/01-networking-and-protocols|Networking & Protocols (DevOps)]] — the protocol fundamentals these abuse
+- [[devops/02-networking-and-web/01-networking-and-protocols|Networking & Protocols (DevOps)]] — the protocol fundamentals these abuse
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging & Detection]] — catching these in network telemetry

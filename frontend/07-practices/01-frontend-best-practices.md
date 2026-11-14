@@ -21,7 +21,7 @@ A meaningful fraction of users rely on assistive technology (screen readers, key
 
 ## Performance — what users actually feel
 
-- **Bundle size** — every kilobyte of JavaScript has to be downloaded, parsed, and executed before the page is interactive (see [[frontend/02-rendering/01-rendering-strategies|rendering strategies]]'s hydration section) — code-splitting (loading only the JavaScript a given page actually needs, not the entire app's bundle upfront) is the standard fix for apps that have grown large.
+- **Bundle size** — every kilobyte of JavaScript has to be downloaded, parsed, and executed before the page is interactive (see [[frontend/06-rendering/01-rendering-strategies|rendering strategies]]'s hydration section) — code-splitting (loading only the JavaScript a given page actually needs, not the entire app's bundle upfront) is the standard fix for apps that have grown large.
 - **Lazy loading** — deferring the loading of images, components, or routes until they're actually needed (about to scroll into view, or about to be navigated to) rather than loading everything upfront.
 - **Core Web Vitals** — Google's standardized performance metrics, worth knowing by name since they've become an industry-common vocabulary: **LCP** (Largest Contentful Paint — how long until the main content is visible), **CLS** (Cumulative Layout Shift — how much visible content unexpectedly jumps around as the page loads), **INP** (Interaction to Next Paint — how responsive the page feels to actual clicks/taps).
 - **Image optimization** — serving appropriately sized, modern-format (WebP/AVIF) images instead of a single oversized original — frequently one of the single highest-impact, lowest-effort performance fixes available on a typical content-heavy page.
@@ -30,7 +30,7 @@ A meaningful fraction of users rely on assistive technology (screen readers, key
 
 - **Composition over configuration** — building complex UI by combining small, focused components rather than one large component with a growing pile of conditional props controlling its every possible variation. A component with 15 boolean props is usually a sign it should be several smaller, composable components instead.
 - **Colocation** — keeping a component's logic, styles, and tests physically near each other (often in the same folder) rather than separated into far-apart, parallel directory structures organized purely by file type — easier to find everything relevant to one component when it's actually all in one place.
-- **Prop drilling awareness** — passing data down through several intermediate components that don't themselves use it, purely to reach a distant descendant, is a sign that data might belong in shared state instead (see [[frontend/04-state-and-data/01-state-management|state-management]]) — though as covered there, reaching for global state before this genuinely becomes painful is its own, opposite mistake.
+- **Prop drilling awareness** — passing data down through several intermediate components that don't themselves use it, purely to reach a distant descendant, is a sign that data might belong in shared state instead (see [[frontend/03-state-and-data/01-state-management|state-management]]) — though as covered there, reaching for global state before this genuinely becomes painful is its own, opposite mistake.
 
 ## Gotchas
 
@@ -39,6 +39,6 @@ A meaningful fraction of users rely on assistive technology (screen readers, key
 - A component broken down purely for the sake of "small components" without a genuine reuse or clarity benefit adds indirection (more files to jump between to understand one flow) without a real payoff — composition should serve clarity/reuse, not be a rule followed for its own sake.
 
 ## Related
-- [[frontend/02-rendering/01-rendering-strategies|rendering strategies]]
-- [[frontend/04-state-and-data/01-state-management|state-management]]
+- [[frontend/06-rendering/01-rendering-strategies|rendering strategies]]
+- [[frontend/03-state-and-data/01-state-management|state-management]]
 - [[cybersecurity/04-web-security/index|web-security]]

@@ -48,7 +48,7 @@ export default function FeedScreen() {
 | | |
 |---|---|
 | **Expo Router** | File-based navigation, like Next.js |
-| **TanStack Query** | Server state — **the biggest win you can adopt** → [[frontend/04-state-and-data/index\|server state]] |
+| **TanStack Query** | Server state — **the biggest win you can adopt** → [[frontend/03-state-and-data/index\|server state]] |
 | **Zustand / Jotai** | Client state. Redux if you need its ecosystem |
 | **Reanimated** | Animations **on the UI thread**, so they stay smooth |
 | **FlashList** | A faster `FlatList`. Use it for long lists |

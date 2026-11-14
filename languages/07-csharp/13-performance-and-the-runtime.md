@@ -42,7 +42,7 @@ Compiles to a **self-contained native binary** ahead of time. No JIT, no runtime
 - **Bigger binaries than a framework-dependent build** (though smaller than self-contained JIT)
 - **No profile-guided runtime optimisation** — you lose the JIT's machine-specific tricks
 
-**Where it wins clearly:** serverless functions (cold start is the whole cost model → [[devops/03-cloud/02-serverless|serverless]]), CLI tools, containers where image size matters, short-lived processes.
+**Where it wins clearly:** serverless functions (cold start is the whole cost model → [[devops/08-cloud/02-serverless|serverless]]), CLI tools, containers where image size matters, short-lived processes.
 
 **Where it doesn't:** long-running servers, where the JIT's advantages compound and startup is amortised to nothing.
 

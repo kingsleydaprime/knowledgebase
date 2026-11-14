@@ -38,4 +38,4 @@ If you read nothing else: **default to layered + by-feature + constructor inject
 - [[backend/index|Backend course]] · [[backend/01-foundations/index|01 — Foundations]]
 - [[backend/frameworks/index|frameworks/]] — how Nest, Spring, FastAPI and others implement all of this
 - [[architecture/index|Architecture]] — the same questions at system scale
-- [[concepts/03-design-patterns/index|Design Patterns]] — repository, adapter, facade
+- [[concepts/02-design-patterns/index|Design Patterns]] — repository, adapter, facade

@@ -56,16 +56,16 @@ The gap mattered in both directions:
 
 | Systems engineering | Already in this vault as |
 |---|---|
-| Requirements & non-functional properties | [[architecture/01-system-design-fundamentals/index\|system design]] · [[devops/10-observability/01-observability-fundamentals/index\|SLOs]] |
+| Requirements & non-functional properties | [[architecture/01-system-design-fundamentals/index\|system design]] · [[devops/07-observability/01-observability-fundamentals/index\|SLOs]] |
 | The V-model | [[software-engineering/02-the-software-development-lifecycle\|the SDLC]] |
 | Batch size vs cost of error | [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved\|how delivery practice evolved]] |
 | Interface control documents | [[backend/02-api-design/index\|API contracts]] |
-| Coupling & cohesion | [[concepts/04-best-practices/05-solid-principles/index\|SOLID]] |
+| Coupling & cohesion | [[concepts/01-best-practices/07-solid-principles/index\|SOLID]] |
 | Margin | [[architecture/01-system-design-fundamentals/03-availability-and-reliability\|headroom, error budgets]] |
-| Trade studies | ADRs → [[concepts/04-best-practices/03-documentation-practices\|documentation practices]] |
+| Trade studies | ADRs → [[concepts/01-best-practices/05-documentation-practices\|documentation practices]] |
 | FMEA / fault trees | [[cybersecurity/06-attacks-and-threats/index\|threat modelling]] · [[architecture/04-distributed-systems/index\|failure modes]] |
 | IV&V, blameless review | [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering\|postmortems]] |
-| MBSE | [[devops/07-infrastructure-as-code/01-provisioning-and-terraform\|infrastructure as code]] |
+| MBSE | [[devops/09-infrastructure-as-code/01-provisioning-and-terraform\|infrastructure as code]] |
 | Multi-disciplinary systems | [[robotics/index\|robotics]] · [[hardware/08-iot-architecture\|IoT]] · [[control-theory/index\|control theory]] · [[continuum-mechanics/index\|continuum mechanics]] |
 
 ## Note on roadmap.sh

@@ -103,7 +103,7 @@ log.info("processing %s items", count)   # lazy — %s formatted only if emitted
 log.exception("failed")                  # inside except: includes the traceback
 ```
 
-**Use `logging`, not `print`, for anything long-lived.** You get levels, timestamps, module names, and routing to files or a collector without changing call sites → [[devops/10-observability/index|observability]].
+**Use `logging`, not `print`, for anything long-lived.** You get levels, timestamps, module names, and routing to files or a collector without changing call sites → [[devops/07-observability/index|observability]].
 
 **Use `%s` placeholders rather than f-strings in log calls.** With an f-string the message is built even when the level is disabled; with placeholders it isn't. On a hot path that's real cost.
 

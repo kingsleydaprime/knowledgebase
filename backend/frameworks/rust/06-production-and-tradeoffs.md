@@ -44,7 +44,7 @@ OpenTelemetry export:
 .with(tracing_opentelemetry::layer().with_tracer(tracer))
 ```
 
-→ [[devops/10-observability/index|Observability]]
+→ [[devops/07-observability/index|Observability]]
 
 ## Metrics
 
@@ -118,7 +118,7 @@ let config: Config = envy::from_env().context("loading config")?;
 
 **Validate config at startup and fail loudly.** A service that boots with a missing database URL and fails on first request is worse than one that refuses to start.
 
-`secrecy::SecretString` prevents the classic accident of a `#[derive(Debug)]` config struct printing your database password into the logs. → [[devops/09-secret-management/index|Secret Management]]
+`secrecy::SecretString` prevents the classic accident of a `#[derive(Debug)]` config struct printing your database password into the logs. → [[devops/06-secret-management/index|Secret Management]]
 
 ## The health check split
 
@@ -131,7 +131,7 @@ async fn ready(State(s): State<AppState>) -> Result<StatusCode, AppError> {
 }
 ```
 
-**Liveness must not check dependencies.** If it does, a database blip makes Kubernetes restart every healthy pod and turns a partial outage into a total one. → [[devops/05-orchestration/index|Orchestration]]
+**Liveness must not check dependencies.** If it does, a database blip makes Kubernetes restart every healthy pod and turns a partial outage into a total one. → [[devops/10-orchestration/index|Orchestration]]
 
 ## Should you use Rust for this service?
 
@@ -190,5 +190,5 @@ The pattern: **infrastructure that many services depend on**, where the performa
 - [[backend/frameworks/rust/04-async-pitfalls|Async Pitfalls]] — compile times and the runtime traps
 - [[backend/frameworks/rust/01-axum-and-the-tower-stack|Axum and the Tower Stack]] — graceful shutdown
 - [[languages/03-rust/18-performance-and-zero-cost|Rust: Performance]] — what "zero cost" claims
-- [[devops/10-observability/index|Observability]] · [[devops/02-docker/index|Docker]]
+- [[devops/07-observability/index|Observability]] · [[devops/03-docker/index|Docker]]
 - [[backend/frameworks/rust/index|Rust backends]]

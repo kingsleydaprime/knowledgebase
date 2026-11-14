@@ -1,0 +1,15 @@
+{
+  "lesson": "concepts/01-best-practices/06-coupling-and-cohesion/in-other-languages.md",
+  "run": [
+    [
+      "python3",
+      "-m",
+      "unittest"
+    ]
+  ],
+  "embedded": [
+    "cycle/payments.py",
+    "fixed/payments.py",
+    "test_cycles.py"
+  ]
+}

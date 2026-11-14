@@ -200,7 +200,7 @@ async fn shutdown_signal() {
 }
 ```
 
-Graceful shutdown drains in-flight requests before exiting — the same requirement as [[backend/frameworks/go/01-net-http-in-depth|Go]], and equally necessary under [[devops/05-orchestration/index|Kubernetes]].
+Graceful shutdown drains in-flight requests before exiting — the same requirement as [[backend/frameworks/go/01-net-http-in-depth|Go]], and equally necessary under [[devops/10-orchestration/index|Kubernetes]].
 
 Timeouts come from `tower` rather than the server:
 

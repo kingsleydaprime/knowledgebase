@@ -143,7 +143,7 @@ java -XX:ActiveProcessorCount=2               # JVM (usually detects it, verify)
 UV_THREADPOOL_SIZE=4                          # Node's libuv pool
 ```
 
-**And prefer CPU *requests* over hard *limits*** in Kubernetes for latency-sensitive services. Requests give you a guaranteed share via `cpu.weight` without the throttle cliff. → [[devops/05-orchestration/index|Orchestration]]
+**And prefer CPU *requests* over hard *limits*** in Kubernetes for latency-sensitive services. Requests give you a guaranteed share via `cpu.weight` without the throttle cliff. → [[devops/10-orchestration/index|Orchestration]]
 
 This single mechanism explains a large fraction of "our service is slow in Kubernetes but fine locally" reports.
 

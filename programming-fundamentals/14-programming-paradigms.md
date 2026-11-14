@@ -29,7 +29,7 @@ Same result. The first specifies the loop, the counter and the mutation. The sec
 
 **The trade:** declarative is shorter, harder to get subtly wrong, and easier to optimise automatically — an SQL engine rewrites your query into a plan you never see, and a good one beats what you'd have written. What you give up is control: when it's slow, the *how* is somebody else's, and you need to understand the machinery anyway to fix it → [[databases/07-join-algorithms-and-the-optimiser/index|the query optimiser]].
 
-You already write declarative code constantly. HTML, CSS, SQL, [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|Terraform]], and every CI YAML file are declarative. So is React's render model.
+You already write declarative code constantly. HTML, CSS, SQL, [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|Terraform]], and every CI YAML file are declarative. So is React's render model.
 
 ## Expressions and statements
 
@@ -105,6 +105,6 @@ The tribal era is over. Python has classes, first-class functions, comprehension
 - [[programming-fundamentals/08-functions|functions]] — purity, introduced
 - [[programming-language-theory/index|PL theory]] — the formal treatment, much later
 - [[languages/03-rust/index|Rust]] · [[languages/02-go/index|Go]] — two modern languages that deliberately dropped inheritance
-- [[concepts/04-best-practices/index|best practices]] — the habits these produce
+- [[concepts/01-best-practices/index|best practices]] — the habits these produce
 
 *Source: [reference] — written Aug 2026 alongside note 13, prompted by `sources/100 CS concepts explained.md`.*

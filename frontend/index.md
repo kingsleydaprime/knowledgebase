@@ -28,37 +28,38 @@ By the end you will be able to:
 
 ## Where to start
 
-**Before you start:** this course assumes you can write basic HTML, CSS and JavaScript. The vault doesn't teach those basics yet; [MDN's "Getting started with the web"](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started) is a good free place to learn them. You'll also need basic programming ([[programming-fundamentals/index|Programming Fundamentals]]).
+**Never built a web page?** Start with note 0, which builds a small working page with HTML, CSS and JavaScript from scratch. Basic programming ([[programming-fundamentals/index|Programming Fundamentals]]) helps for the JavaScript.
 
-Read in the order below. **It isn't the section numbering in one place:** section 02 (Rendering) is more advanced, so read it after the sections that follow it.
+Read in the order below; the section numbers follow it.
 
 ### The browser
 
+0. [[frontend/01-foundations/00-your-first-web-page|Your First Web Page]]: build a small menu page with a working order total, using HTML, CSS and JavaScript, and look inside it with the browser's developer tools.
 1. [[frontend/01-foundations/01-what-a-frontend-is|What a Frontend Actually Is]]: a frontend's four jobs, and why the browser itself lasts longer than any framework.
 2. [[frontend/01-foundations/02-the-browser-and-the-dom|The Browser and the DOM]]: how a browser goes from a web address to pixels on screen, and the page structure your code changes (the DOM).
 
 ### Building pages from pieces
 
-3. [[frontend/03-structuring-a-frontend/01-components-and-composition|Components and Composition]]: splitting a page into reusable pieces, and the trap of passing data down through too many layers.
+3. [[frontend/02-structuring-a-frontend/01-components-and-composition|Components and Composition]]: splitting a page into reusable pieces, and the trap of passing data down through too many layers.
 
 ### Keeping track of information (the heart of the course)
 
-4. [[frontend/04-state-and-data/01-state-management|State Management]]: the information a page remembers while you use it, such as what's in your cart, and where to keep it.
-5. [[frontend/04-state-and-data/02-data-fetching-and-server-state|Data Fetching and Server State]]: getting data from a backend, and the timing bug almost every hand-written version has.
-6. [[frontend/04-state-and-data/03-content-modeling-and-headless-cms|Content Modelling and the Headless CMS]]: designing content that non-programmers edit, like blog posts and product pages.
+4. [[frontend/03-state-and-data/01-state-management|State Management]]: the information a page remembers while you use it, such as what's in your cart, and where to keep it.
+5. [[frontend/03-state-and-data/02-data-fetching-and-server-state|Data Fetching and Server State]]: getting data from a backend, and the timing bug almost every hand-written version has.
+6. [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|Content Modelling and the Headless CMS]]: designing content that non-programmers edit, like blog posts and product pages.
 
 ### Making it look right
 
-7. [[frontend/05-styling/01-css-architecture|CSS Architecture]]: why CSS gets messy as a site grows, and the ways teams keep it under control.
+7. [[frontend/04-styling/01-css-architecture|CSS Architecture]]: why CSS gets messy as a site grows, and the ways teams keep it under control.
 
 ### Making it work for everyone
 
-8. [[frontend/06-cross-cutting/01-accessibility|Accessibility]]: making pages usable by people with disabilities. It's a requirement, often a legal one, not an extra.
+8. [[frontend/05-cross-cutting/01-accessibility|Accessibility]]: making pages usable by people with disabilities. It's a requirement, often a legal one, not an extra.
 
 ### Where the page gets built
 
-9. [[frontend/02-rendering/01-rendering-strategies|Rendering Strategies]]: building the page in the browser, on a server for each visit, or once ahead of time, and when to use each.
-10. [[frontend/02-rendering/02-hydration-and-the-server-boundary|Hydration and the Server Boundary]]: the moment a server-built page "wakes up" in the browser, and the bugs that live in that gap.
+9. [[frontend/06-rendering/01-rendering-strategies|Rendering Strategies]]: building the page in the browser, on a server for each visit, or once ahead of time, and when to use each.
+10. [[frontend/06-rendering/02-hydration-and-the-server-boundary|Hydration and the Server Boundary]]: the moment a server-built page "wakes up" in the browser, and the bugs that live in that gap.
 
 ### Practices
 
@@ -86,9 +87,9 @@ Read in the order below. **It isn't the section numbering in one place:** sectio
 ## Key ideas to remember
 
 1. **Your code runs on hardware you don't own, over a network you don't control.** Test on a slow phone and a slow connection, not just your laptop. → [[frontend/01-foundations/01-what-a-frontend-is|What a Frontend Is]]
-2. **Data from a server is a copy that can go out of date,** not something your page owns. Treat it like a cache. → [[frontend/04-state-and-data/02-data-fetching-and-server-state|Data Fetching]]
-3. **Accessibility is part of "working",** not polish to add later. → [[frontend/06-cross-cutting/01-accessibility|Accessibility]]
-4. **A page can look ready before it actually responds to clicks.** That gap is where many server-rendering bugs live. → [[frontend/02-rendering/02-hydration-and-the-server-boundary|Hydration]]
+2. **Data from a server is a copy that can go out of date,** not something your page owns. Treat it like a cache. → [[frontend/03-state-and-data/02-data-fetching-and-server-state|Data Fetching]]
+3. **Accessibility is part of "working",** not polish to add later. → [[frontend/05-cross-cutting/01-accessibility|Accessibility]]
+4. **A page can look ready before it actually responds to clicks.** That gap is where many server-rendering bugs live. → [[frontend/06-rendering/02-hydration-and-the-server-boundary|Hydration]]
 
 ## Related
 
@@ -101,6 +102,7 @@ Read in the order below. **It isn't the section numbering in one place:** sectio
 ## About this course
 
 - **How it's organised:** sections 01–07 are true in any framework; how one tool does something goes in `frameworks/`; ideas that apply beyond frontend go in [[concepts/index|Concepts]]; notes from real projects stay in [[projects/index|Projects]].
-- **History:** restructured in August 2026 to mirror the [[backend/index|Backend]] course. The general ideas used to live in a separate `concepts/02-frontend/` folder.
+- **History:** restructured in August 2026 to mirror the [[backend/index|Backend]] course; the general ideas used to live in a separate `concepts/02-frontend/` folder. Renumbered in November 2026 so the sections follow the reading order, with rendering moved after the basics.
 - **Where it came from:** the course sections are written from reference sources; the animation and 3D courses and the project notes came from building real things.
-- **Not covered yet:** beginner HTML, CSS and JavaScript; forms in depth; translating a site into other languages; working offline; build tools like Vite; and Vue or Svelte beyond a comparison.
+- **Note 0** (your first web page) was added in November 2026.
+- **Not covered yet:** a full JavaScript course; forms in depth; translating a site into other languages; working offline; build tools like Vite; and Vue or Svelte beyond a comparison.

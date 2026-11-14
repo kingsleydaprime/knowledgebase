@@ -1,6 +1,6 @@
 # DevOps Interview — Linux, Containers & Operations
 
-From [[devops/01-linux/index|01-linux]], [[devops/02-docker/index|02-docker]], [[devops/06-ci-cd/index|06-ci-cd]], [[devops/10-observability/index|10-observability]].
+From [[devops/01-linux/index|01-linux]], [[devops/03-docker/index|03-docker]], [[devops/05-ci-cd/index|05-ci-cd]], [[devops/07-observability/index|07-observability]].
 
 ---
 

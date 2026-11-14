@@ -34,7 +34,7 @@ Three things here cost real time and aren't in any documentation:
 
 ## Related
 - [[tools/quartz/01-how-quartz-works|Start here]]
-- [[devops/06-ci-cd/02-ci-cd-tools|CI/CD Tools]] — the deploy pipeline dissected as a teaching example
+- [[devops/05-ci-cd/02-ci-cd-tools|CI/CD Tools]] — the deploy pipeline dissected as a teaching example
 - [[git/15-the-github-cli|The GitHub CLI]] — `gh run watch` for following a deploy
 - [[frontend/frameworks/next/index|Next.js]] — static generation with a runtime attached, for contrast
 - [[HOME|Vault README]] — what this site is publishing

@@ -99,7 +99,7 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 ### Week 2 — Wire it, and test it
 
 - **DSA — graphs II, BFS:** 085 rotting oranges · 086 walls and gates · 083 Pacific Atlantic water flow · 091 graph valid tree · 092 word ladder. Refresh: [[dsa/04-patterns/12-bfs-pattern|BFS pattern]].
-- **Learn (core):** [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection and wiring]] · [[concepts/04-best-practices/04-testing-fundamentals/index|testing fundamentals]]
+- **Learn (core):** [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection and wiring]] · [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]
 - **Learn (optional):** [[backend/07-practices/02-testing-a-backend|testing a backend]] · [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/in-other-languages|DI in other languages]]
 - **Build:** a composition root, a boundary lint rule, and the first real tests running in CI.
 - **Apply:** Friday hour.
@@ -108,17 +108,17 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 ### Week 3 — Measure the coupling
 
 - **DSA — graphs III, ordering and weights:** 087 course schedule · 088 course schedule II · 089 redundant connection · 095 network delay time · 094 min cost to connect all points. Refresh: [[dsa/02-data-structures/09-graphs/06-algorithms/01-topological-sort|topological sort]] · [[dsa/02-data-structures/09-graphs/06-algorithms/02-dijkstra|Dijkstra]].
-- **Learn (core):** [[concepts/04-best-practices/08-coupling-and-cohesion/index|coupling and cohesion]] · [[concepts/04-best-practices/05-solid-principles/index|SOLID]]
-- **Learn (optional):** [[concepts/04-best-practices/01-clean-code/index|clean code]]
-- **Build:** run the coupling tool on the flagship (`node concepts/04-best-practices/08-coupling-and-cohesion/labs/javascript/coupling.mjs <flagship>/src`). Fix one cycle or one dependency pointing the wrong way.
+- **Learn (core):** [[concepts/01-best-practices/06-coupling-and-cohesion/index|coupling and cohesion]] · [[concepts/01-best-practices/07-solid-principles/index|SOLID]]
+- **Learn (optional):** [[concepts/01-best-practices/01-clean-code/index|clean code]]
+- **Build:** run the coupling tool on the flagship (`node concepts/01-best-practices/06-coupling-and-cohesion/labs/javascript/coupling.mjs <flagship>/src`). Fix one cycle or one dependency pointing the wrong way.
 - **Apply:** Friday hour.
 - **By Sunday:** before-and-after coupling output for the flagship, and one graph medium solved cold under 30 minutes.
 
 ### Week 4 — Patterns in the core feature
 
 - **DSA — trees:** 048 diameter of binary tree · 053 level order traversal · 054 right side view · 056 validate BST · 058 construct tree from preorder and inorder. Refresh: [[dsa/04-patterns/10-binary-tree-traversal-pattern|binary tree traversal]].
-- **Learn (core):** [[concepts/03-design-patterns/03-behavioral-patterns/index|behavioural patterns]] · [[concepts/03-design-patterns/02-structural-patterns/index|structural patterns]]
-- **Learn (optional):** [[concepts/03-design-patterns/01-creational-patterns/index|creational patterns]]
+- **Learn (core):** [[concepts/02-design-patterns/03-behavioral-patterns/index|behavioural patterns]] · [[concepts/02-design-patterns/02-structural-patterns/index|structural patterns]]
+- **Learn (optional):** [[concepts/02-design-patterns/01-creational-patterns/index|creational patterns]]
 - **Build:** the flagship's core feature, end to end. Use one pattern where it genuinely fits — a state machine for a lifecycle, or wrappers around an external API.
 - **Apply:** Friday hour.
 - **By Sunday:** one sentence on which pattern you used in the flagship, and why it beat the plain version.
@@ -135,8 +135,8 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 ### Week 6 — Hardening
 
 - **DSA — two pointers and sliding window:** 012 3sum · 013 container with most water · 016 longest substring without repeating characters · 017 longest repeating character replacement · 019 minimum window substring.
-- **Learn (core):** [[backend/07-practices/01-backend-best-practices/index|backend best practices]] (validation, error contracts, rate limits, idempotency) · [[devops/10-observability/01-observability-fundamentals/index|observability fundamentals]]
-- **Learn (optional):** [[devops/10-observability/02-the-observability-stack|the observability stack]]
+- **Learn (core):** [[backend/07-practices/01-backend-best-practices/index|backend best practices]] (validation, error contracts, rate limits, idempotency) · [[devops/07-observability/01-observability-fundamentals/index|observability fundamentals]]
+- **Learn (optional):** [[devops/07-observability/02-the-observability-stack|the observability stack]]
 - **Build:** consistent error responses, rate limits on the expensive routes, and structured logs.
 - **Apply:** Friday hour.
 - **By Sunday:** you can answer "is it up, is it fast, and what broke last" for the flagship without opening the code.
@@ -145,7 +145,7 @@ Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault
 
 - **DSA — binary search and heaps:** 030 Koko eating bananas · 032 search in rotated sorted array · 066 K closest points · 067 Kth largest element · 070 find median from data stream.
 - **Learn (core):** [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation and output encoding]] · [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|security headers and same-origin policy]]
-- **Learn (optional):** [[devops/09-secret-management/01-secret-management|secret management]] · [[backend/05-auth/01-authentication-flows|authentication flows]]
+- **Learn (optional):** [[devops/06-secret-management/01-secret-management|secret management]] · [[backend/05-auth/01-authentication-flows|authentication flows]]
 - **Build:** threat-model the flagship and fix the top risk.
 - **Apply:** Friday hour.
 - **By Sunday:** the threat model is written — top five risks, and what was done about each.

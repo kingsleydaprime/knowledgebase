@@ -2,7 +2,7 @@
 
 The round that separates *"I can build a component"* from *"I can structure an application."* It's where senior frontend interviews spend most of their time, and where the answers are judgement rather than recall.
 
-From [[frontend/04-state-and-data/01-state-management|state management]], [[frontend/02-rendering/01-rendering-strategies|rendering]], and the React/Next material in [[projects/index|projects/]].
+From [[frontend/03-state-and-data/01-state-management|state management]], [[frontend/06-rendering/01-rendering-strategies|rendering]], and the React/Next material in [[projects/index|projects/]].
 
 ---
 

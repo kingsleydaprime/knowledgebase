@@ -45,8 +45,8 @@ It was run twice and diffed to confirm the output reproduces.
 
 ## Related
 
-- [[devops/09-secret-management/01-secret-management|Secret Management]] — the general problem this is one instance of
-- [[devops/06-ci-cd/10-pipeline-security|Pipeline Security]] — credentials in a pipeline
+- [[devops/06-secret-management/01-secret-management|Secret Management]] — the general problem this is one instance of
+- [[devops/05-ci-cd/10-pipeline-security|Pipeline Security]] — credentials in a pipeline
 - [[git/index|Git]] — Git dependencies authenticate through Git, not through npm
 - [[devops/01-linux/10-environment-variables|Environment Variables]] — what `${VAR}` substitution rests on
 - [[tools/index|tools/]] — the parent folder

@@ -185,7 +185,7 @@ migrate -database "$DATABASE_URL" -path db/migrations up
 
 `golang-migrate`, `goose`, or `atlas`. All do versioned up/down SQL files.
 
-**Run migrations as a separate step, not at application startup.** Multiple replicas starting simultaneously will race, and a failed migration inside your app's boot path is much harder to reason about than a failed deploy step. → [[devops/06-ci-cd/09-cd-and-deployment|CD and Deployment]]
+**Run migrations as a separate step, not at application startup.** Multiple replicas starting simultaneously will race, and a failed migration inside your app's boot path is much harder to reason about than a failed deploy step. → [[devops/05-ci-cd/09-cd-and-deployment|CD and Deployment]]
 
 ## Health checks
 
@@ -201,7 +201,7 @@ func (s *Server) handleReady(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-**Liveness must not check dependencies** — if it does, a database blip makes Kubernetes restart every healthy pod, turning a partial outage into a total one. Liveness answers "is this process wedged"; readiness answers "should I get traffic". → [[devops/05-orchestration/index|Orchestration]]
+**Liveness must not check dependencies** — if it does, a database blip makes Kubernetes restart every healthy pod, turning a partial outage into a total one. Liveness answers "is this process wedged"; readiness answers "should I get traffic". → [[devops/10-orchestration/index|Orchestration]]
 
 ---
 

@@ -1379,4 +1379,4 @@ You can name your ecosystem's eval tools, write the harness and gate in your lan
 ## Related
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — the main lesson
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages|Prompt engineering in other languages]] — the first shared fixture, and the prompts being measured
-- [[concepts/04-best-practices/04-testing-fundamentals/in-other-languages|Testing fundamentals in other languages]] — each language's test framework in general
+- [[concepts/01-best-practices/03-testing-fundamentals/in-other-languages|Testing fundamentals in other languages]] — each language's test framework in general

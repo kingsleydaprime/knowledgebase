@@ -115,7 +115,7 @@ The lab builds queries this way, sends them over UDP to its own tiny authoritati
 | **NS** | zone → its authoritative servers | delegation: how the hierarchy is built |
 | **MX** | domain → mail servers | with priority values |
 | **TXT** | arbitrary text | SPF, DKIM, DMARC, and domain-ownership checks |
-| **SRV** | service → host and port | service discovery; how [[devops/05-orchestration/index\|Kubernetes]] DNS exposes ports |
+| **SRV** | service → host and port | service discovery; how [[devops/10-orchestration/index\|Kubernetes]] DNS exposes ports |
 | **PTR** | IP → name | reverse lookups; mail servers check these |
 | **CAA** | domain → which certificate authorities may issue for it | a real, cheap security control: set it |
 | **SOA** | zone metadata | serial, refresh, and the **negative-caching TTL** |
@@ -594,4 +594,4 @@ You can trace a lookup and say which steps the cache skips, read a DNS message, 
 - [[networking/04-routing|Routing]]: anycast, which DNS depends on
 - [[networking/15-network-performance|Network performance]]: DNS as the first round trip
 - [[cybersecurity/03-network-security/index|Network security]]: poisoning, DNSSEC, exfiltration over DNS
-- [[devops/08-networking-and-web/01-networking-and-protocols|Networking and protocols (DevOps)]]: the operator's DNS record cheat sheet
+- [[devops/02-networking-and-web/01-networking-and-protocols|Networking and protocols (DevOps)]]: the operator's DNS record cheat sheet

@@ -6,7 +6,7 @@
 
 In Node you reach for a package. In Go you reach for the standard library first, and usually stop there. `net/http` is a production-grade HTTP server — not a toy you replace with Express. `encoding/json` is the JSON library. `database/sql` is the database layer.
 
-The consequence is a dependency graph you can read. A typical Go service has ten direct dependencies where the Node equivalent has four hundred, which changes the [[devops/06-ci-cd/10-pipeline-security|supply-chain]] and upgrade story completely.
+The consequence is a dependency graph you can read. A typical Go service has ten direct dependencies where the Node equivalent has four hundred, which changes the [[devops/05-ci-cd/10-pipeline-security|supply-chain]] and upgrade story completely.
 
 The trade is that the stdlib is *deliberately* minimal, so some things you'd expect are missing and you write them yourself.
 
@@ -189,7 +189,7 @@ slog.Info("request handled", "method", r.Method, "status", 200, "dur", elapsed)
 logger.With("request_id", id).Info("processing")
 ```
 
-Use it over `log` for anything that ships. JSON output is what makes logs queryable in [[devops/10-observability/index|an observability stack]] — the difference between grep and a real query.
+Use it over `log` for anything that ships. JSON output is what makes logs queryable in [[devops/07-observability/index|an observability stack]] — the difference between grep and a real query.
 
 ## The rest, briefly
 

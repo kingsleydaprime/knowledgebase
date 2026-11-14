@@ -38,7 +38,7 @@ Requested directly: *"same way there's backend then frameworks for different lan
 | [[frontend/index\|frontend]] | The UI half — most of a desktop app |
 | [[backend/index\|backend]] | The logic half, in the same process |
 | [[databases/index\|databases]] | SQLite is the usual local store |
-| [[devops/06-ci-cd/index\|CI/CD]] | Building, signing and releasing for three platforms |
+| [[devops/05-ci-cd/index\|CI/CD]] | Building, signing and releasing for three platforms |
 | [[languages/03-rust/index\|Rust]] · [[languages/06-python/index\|Python]] · [[languages/05-cpp/index\|C++]] | Tauri · PySide · Qt |
 | [[software-engineering/04-the-kinds-of-software-engineering\|kinds of software engineering]] | Where desktop sits in the tree |
 

@@ -47,7 +47,7 @@ services:
 volumes: { pgdata: {}, n8n_data: {} }
 ```
 
-Behind a reverse proxy terminating TLS → [[devops/08-networking-and-web/index|networking and web]].
+Behind a reverse proxy terminating TLS → [[devops/02-networking-and-web/index|networking and web]].
 
 **Five things in there that are load-bearing:**
 
@@ -96,8 +96,8 @@ The default is one process doing everything. Past a few hundred executions an ho
 
 ## Related
 - [[ai-automation/05-error-handling-and-retries|error handling and retries]]
-- [[devops/02-docker/index|Docker]] · [[devops/04-vps/vps-setup|VPS setup]]
-- [[devops/09-secret-management/index|secret management]] — the encryption-key argument
+- [[devops/03-docker/index|Docker]] · [[devops/04-vps/vps-setup|VPS setup]]
+- [[devops/06-secret-management/index|secret management]] — the encryption-key argument
 - [[databases/12-operating-a-database|operating a database]]
 
 *Source: [reference] — from the n8n self-hosting documentation, Aug 2026.*

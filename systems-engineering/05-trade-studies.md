@@ -103,7 +103,7 @@ PostgreSQL, managed (RDS).
 
 **The "alternatives considered" section is the one that pays.** In eighteen months someone will ask "why didn't we use Dynamo?" — and this answers it in ten seconds instead of a three-day re-investigation.
 
-This is exactly the `DECISIONS.md` habit in [[software-engineering/01-what-software-engineering-is|the engineering habits]], and it's the same instinct as [[concepts/04-best-practices/03-documentation-practices|documentation practices]].
+This is exactly the `DECISIONS.md` habit in [[software-engineering/01-what-software-engineering-is|the engineering habits]], and it's the same instinct as [[concepts/01-best-practices/05-documentation-practices|documentation practices]].
 
 ## When not to run one
 
@@ -114,7 +114,7 @@ The useful test is **reversibility**: a decision you can undo in an afternoon sh
 ## Related
 - [[systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what you're choosing between
 - [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — quantifying the downside
-- [[concepts/04-best-practices/03-documentation-practices|documentation practices]] — ADRs
+- [[concepts/01-best-practices/05-documentation-practices|documentation practices]] — ADRs
 - [[architecture/01-system-design-fundamentals/index|system design]] — trade-offs as the core skill
 
 *Source: [reference] — from the INCOSE handbook, NASA SE Handbook, and the ADR literature (Nygard).*

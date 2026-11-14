@@ -86,7 +86,7 @@ const redirectUriFor = (platform: string) =>
 ```
 
 Without that, pointing one provider at a tunnel silently invalidates every other provider's
-registered URI. See [[devops/08-networking-and-web/03-local-https-tunnels|local https tunnels]].
+registered URI. See [[devops/02-networking-and-web/03-local-https-tunnels|local https tunnels]].
 
 ### Scope lists vs. dashboard-defined permission sets
 
@@ -172,7 +172,7 @@ These aren't OAuth, but they determine architecture, so they belong in the same 
 **Some platforms fetch media by URL rather than accepting bytes.** Instagram and TikTok both
 do. That means a public HTTPS host is a *prerequisite* for the feature, not a deployment
 detail — see
-[[devops/03-cloud/03-object-storage-and-direct-uploads|object storage & direct uploads]].
+[[devops/08-cloud/03-object-storage-and-direct-uploads|object storage & direct uploads]].
 TikTok goes further and requires the **domain to be verified** in its developer portal.
 
 **Video publishing is asynchronous, and the initiating call returns success immediately.**
@@ -238,9 +238,9 @@ Answering these before writing code is roughly an hour and saves days.
 
 ## Related
 - [[backend/05-auth/01-authentication-flows|05-authentication-flows]] — the theory
-- [[devops/08-networking-and-web/03-local-https-tunnels|Local HTTPS tunnels]] — for https-only callbacks
-- [[devops/03-cloud/03-object-storage-and-direct-uploads|Object storage & direct uploads]] — for fetch-by-URL platforms
-- [[devops/09-secret-management/index|Secret management]] — storing provider tokens at rest
+- [[devops/02-networking-and-web/03-local-https-tunnels|Local HTTPS tunnels]] — for https-only callbacks
+- [[devops/08-cloud/03-object-storage-and-direct-uploads|Object storage & direct uploads]] — for fetch-by-URL platforms
+- [[devops/06-secret-management/index|Secret management]] — storing provider tokens at rest
 
 ## 7. Account Linking — One Human, Several Ways to Prove It
 

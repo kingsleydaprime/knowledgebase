@@ -40,10 +40,10 @@ A useful way to place a team: from **manual** (notebooks, hand-deployed models, 
 
 | MLOps needs | Lives in DevOps |
 |---|---|
-| Containerizing a model service | [[devops/02-docker/index\|Docker]] / [[devops/05-orchestration/index\|Kubernetes]] |
-| Automated pipelines | [[devops/06-ci-cd/index\|CI/CD]] |
-| Provisioning training/serving infra | [[devops/07-infrastructure-as-code/index\|Terraform/IaC]] |
-| Metrics/logs/dashboards | [[devops/10-observability/index\|Observability]] |
+| Containerizing a model service | [[devops/03-docker/index\|Docker]] / [[devops/10-orchestration/index\|Kubernetes]] |
+| Automated pipelines | [[devops/05-ci-cd/index\|CI/CD]] |
+| Provisioning training/serving infra | [[devops/09-infrastructure-as-code/index\|Terraform/IaC]] |
+| Metrics/logs/dashboards | [[devops/07-observability/index\|Observability]] |
 
 MLOps = these + data/model versioning + experiment tracking + drift monitoring + retraining. The next notes cover that ML-specific delta.
 

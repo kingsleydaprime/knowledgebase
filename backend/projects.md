@@ -10,7 +10,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🟢 **Add idempotency to an endpoint you already wrote** — an `Idempotency-Key` header, a store of key→response, and correct behaviour on retry. **Done when:** the same request sent twice creates one record and returns the same response body both times. Exercises: [[backend/02-api-design/index|API design]], [[backend/06-cross-cutting/index|cross-cutting]].
 
-- 🟢 **Instrument one service properly** — structured logs with a request ID propagated through every layer, RED metrics (rate/errors/duration), and one distributed trace end to end. **Done when:** you can take a slow request's ID from a log line and see its full span breakdown. Exercises: [[devops/10-observability/index|observability]].
+- 🟢 **Instrument one service properly** — structured logs with a request ID propagated through every layer, RED metrics (rate/errors/duration), and one distributed trace end to end. **Done when:** you can take a slow request's ID from a log line and see its full span breakdown. Exercises: [[devops/07-observability/index|observability]].
 
 - 🟢 **Write the failure tests you skipped** — what happens on a DB timeout, a duplicate key, a malformed payload, a 500 from an upstream. **Done when:** every error path in one module has a test that asserts the status code *and* the response shape. Exercises: [[backend/07-practices/index|practices]].
 

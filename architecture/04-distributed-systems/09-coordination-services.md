@@ -13,7 +13,7 @@ That hall monitor is **ZooKeeper** or **etcd**. The clever part is *how* it know
 
 ## ZooKeeper & etcd — the workhorses
 
-Both are small, consensus-backed ([[architecture/04-distributed-systems/07-consensus-and-paxos|ZAB / Raft]]) key-value stores whose *whole job* is coordination, not bulk data. [[devops/05-orchestration/01-kubernetes|Kubernetes]] stores **all** its cluster state in etcd; Kafka, HBase, and many others use ZooKeeper. The primitives that make them useful:
+Both are small, consensus-backed ([[architecture/04-distributed-systems/07-consensus-and-paxos|ZAB / Raft]]) key-value stores whose *whole job* is coordination, not bulk data. [[devops/10-orchestration/01-kubernetes|Kubernetes]] stores **all** its cluster state in etcd; Kafka, HBase, and many others use ZooKeeper. The primitives that make them useful:
 
 - **The data model** — a tiny filesystem-like tree of **znodes** (ZooKeeper) or a flat key-space (etcd). You store small values (config, who's-the-leader, membership lists) — kilobytes, not gigabytes.
 - **Ephemeral nodes** — a znode **tied to the client's session** that **automatically disappears when that client disconnects** (its heartbeats stop). *Kid version: the moment Sam leaves, his name-tag vanishes on its own.* This is the magic ingredient — it turns "is this client alive?" into "does its ephemeral node still exist?", giving you [[architecture/04-distributed-systems/14-failure-detection-and-membership|failure detection]], locks, and leader election almost for free.
@@ -70,4 +70,4 @@ Every coordination primitive is a [[architecture/04-distributed-systems/07-conse
 - [[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]] — the algorithm powering etcd/Consul
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — process pauses, the reason fencing exists
 - [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection & Membership]] — ephemeral nodes as a liveness signal
-- [[devops/05-orchestration/01-kubernetes|Kubernetes]] — the biggest etcd user
+- [[devops/10-orchestration/01-kubernetes|Kubernetes]] — the biggest etcd user

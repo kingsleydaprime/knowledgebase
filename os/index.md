@@ -73,7 +73,7 @@ Notes alone won't make this stick. The best way to learn operating systems is to
 - [[networking/index|Networking]]: built on top of the operating system's connections.
 - [[computer-architecture/index|Computer Architecture]]: the hardware underneath.
 - [[languages/04-c/index|C]]: the language operating systems are written in.
-- [[devops/02-docker/index|Docker]]: containers from the user's side.
+- [[devops/03-docker/index|Docker]]: containers from the user's side.
 
 ---
 

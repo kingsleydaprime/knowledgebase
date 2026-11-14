@@ -30,7 +30,7 @@ A webhook node gives you a URL. The external service POSTs to it; your workflow 
 | **HMAC signature** | Sign the request body | Byte-exact canonicalisation; constant-time compare |
 | **mTLS** | Client certificate | Rare, and awkward in hosted platforms |
 
-**The rule everywhere: the credential lives in the credential store, never in the node's parameters and never in a Code node.** → [[devops/09-secret-management/index|secret management]]
+**The rule everywhere: the credential lives in the credential store, never in the node's parameters and never in a Code node.** → [[devops/06-secret-management/index|secret management]]
 
 ## Pagination
 

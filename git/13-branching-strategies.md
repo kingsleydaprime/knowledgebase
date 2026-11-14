@@ -310,5 +310,5 @@ spike/postgres-migration
 ## Related
 - [[git/07-merge-vs-rebase|Merge vs Rebase]] — the per-commit decision inside each strategy
 - [[git/14-github-and-ci|GitHub as a Platform]] — branch protection is how a strategy gets enforced
-- [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — trunk-based development assumes a fast, trustworthy pipeline
+- [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — trunk-based development assumes a fast, trustworthy pipeline
 - [[git/index|Git course map]]

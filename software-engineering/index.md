@@ -34,7 +34,7 @@ Nothing here is required for anything else. From here, pick a subject:
 
 ## Related
 
-- [[concepts/04-best-practices/index|Best Practices]]: the habits that follow from "code is read more often than it's written".
+- [[concepts/01-best-practices/index|Best Practices]]: the habits that follow from "code is read more often than it's written".
 - [[architecture/index|Architecture]]: designing software, in depth.
 
 ---

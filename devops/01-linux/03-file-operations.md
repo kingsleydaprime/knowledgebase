@@ -157,7 +157,7 @@ wc -l *.md                         # line counts per file + a total
 
 ```bash
 grep -c "\[\[" git/*.md            # 0 means the note is a dead end
-wc -l devops/06-ci-cd/*.md         # is this module thin or fat?
+wc -l devops/05-ci-cd/*.md         # is this module thin or fat?
 ```
 
 ### A note on quoting

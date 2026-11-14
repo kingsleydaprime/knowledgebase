@@ -430,5 +430,5 @@ You can lay out ports and adapters in your language and make the build enforce t
 
 ## Related
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal and clean architecture]] — the main lesson
-- [[concepts/04-best-practices/08-coupling-and-cohesion/in-other-languages|Coupling and cohesion in other languages]] — which cycles each toolchain refuses
+- [[concepts/01-best-practices/06-coupling-and-cohesion/in-other-languages|Coupling and cohesion in other languages]] — which cycles each toolchain refuses
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/in-compiled-languages|Organising by feature in compiled languages]]

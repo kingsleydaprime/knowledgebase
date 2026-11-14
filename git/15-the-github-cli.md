@@ -117,7 +117,7 @@ gh run rerun <run-id> --failed  # rerun only the failed jobs
 gh run cancel <run-id>
 ```
 
-`gh run view --log-failed` beats the web UI decisively. A failed run in the browser means expanding jobs and scrolling collapsed step output; this prints just the part that broke. See [[devops/06-ci-cd/12-troubleshooting-workflows|Troubleshooting Workflows]] for what to do with the output.
+`gh run view --log-failed` beats the web UI decisively. A failed run in the browser means expanding jobs and scrolling collapsed step output; this prints just the part that broke. See [[devops/05-ci-cd/12-troubleshooting-workflows|Troubleshooting Workflows]] for what to do with the output.
 
 ## Releases
 
@@ -214,6 +214,6 @@ If a command changes commits, it's `git`. If it changes something you'd otherwis
 - [[git/14-github-and-ci|GitHub as a Platform, and Git in CI]] — the rules `gh pr merge` has to satisfy
 - [[git/08-remotes-and-collaboration|Remotes and Collaboration]] — the manual fork workflow `gh repo fork` automates
 - [[git/11-tags-and-versioning|Tags and Versioning]] — what `gh release create` is publishing
-- [[devops/06-ci-cd/12-troubleshooting-workflows|Troubleshooting Workflows]] — where `gh run view --log-failed` leads
+- [[devops/05-ci-cd/12-troubleshooting-workflows|Troubleshooting Workflows]] — where `gh run view --log-failed` leads
 - [[devops/01-linux/03-file-operations|File Operations (Linux)]] — the pipes and filters `--jq` output feeds into
 - [[git/index|Git course map]]

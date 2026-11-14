@@ -88,7 +88,7 @@ The root's public key ships with your operating system. That's the anchor, and i
 What the client checks, and each is a real-world failure:
 
 1. **The signature chain** leads to a trusted root.
-2. **Not expired.** The most common outage cause in this whole lesson. Automate renewal ([[devops/06-ci-cd/index|certbot or cert-manager]]) or you *will* be paged at 3 a.m. about it.
+2. **Not expired.** The most common outage cause in this whole lesson. Automate renewal ([[devops/05-ci-cd/index|certbot or cert-manager]]) or you *will* be paged at 3 a.m. about it.
 3. **The name matches.** The certificate's Subject Alternative Name list must cover the hostname. (Using the Common Name for this has been deprecated since 2017; browsers ignore it.)
 4. **Not revoked.** The weakest link. Revocation lists are huge and stale; **OCSP** needs an online check that leaks your browsing to the CA and fails open, so an attacker in the middle can just block it. **OCSP stapling** has the *server* fetch and attach a signed freshness proof. Browsers have largely moved on, and the industry's real answer is **short-lived certificates**: one that expires in weeks matters less if it can't be revoked.
 

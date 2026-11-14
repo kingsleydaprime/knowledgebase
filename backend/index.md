@@ -66,7 +66,7 @@ Read the sections in order. Section 03 is the heart of the course.
 20. [[backend/06-cross-cutting/06-security-headers-and-cors|Security Headers and CORS]]: browser rules that protect users, and how to allow other websites to call your API.
 21. [[backend/06-cross-cutting/07-file-uploads|File Uploads]]: accepting files from users safely.
 
-Caching, monitoring and background jobs are taught in [[architecture/02-building-blocks/index|Architecture: building blocks]] and [[devops/10-observability/index|DevOps: observability]].
+Caching, monitoring and background jobs are taught in [[architecture/02-building-blocks/index|Architecture: building blocks]] and [[devops/07-observability/index|DevOps: observability]].
 
 ### 07. Practices
 

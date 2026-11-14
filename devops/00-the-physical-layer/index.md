@@ -8,7 +8,7 @@ The machine, the building, and the wiring — the four notes this folder's neigh
 
 ## Why this exists
 
-[[devops/03-cloud/01-cloud-fundamentals|Cloud fundamentals]] opens with "the cloud is someone else's computers" and then never mentions the computers. [[devops/01-linux/index|01-linux]] starts with an OS already running on a machine that already exists. [[hardware/index|hardware/]] covers the layer below software but means microcontrollers and PCBs, not server rooms.
+[[devops/08-cloud/01-cloud-fundamentals|Cloud fundamentals]] opens with "the cloud is someone else's computers" and then never mentions the computers. [[devops/01-linux/index|01-linux]] starts with an OS already running on a machine that already exists. [[hardware/index|hardware/]] covers the layer below software but means microcontrollers and PCBs, not server rooms.
 
 **So the vault had a gap exactly one layer wide:** between a soldered circuit board and a rented `t3.medium`, nothing explained the actual machine, the building it lives in, or why an availability zone is a physical fact rather than a marketing word.
 
@@ -42,8 +42,8 @@ This is numbered `00` because it sits *under* Linux, not after it. It is also th
 
 | | |
 |---|---|
-| [[devops/03-cloud/index\|03-cloud/]] | **The direct consumer.** Instance types, regions, AZs — this is what they're renting |
-| [[devops/02-docker/index\|02-docker/]] | Note 02's other half, in depth |
+| [[devops/08-cloud/index\|08-cloud/]] | **The direct consumer.** Instance types, regions, AZs — this is what they're renting |
+| [[devops/03-docker/index\|03-docker/]] | Note 02's other half, in depth |
 | [[networking/index\|networking]] | Note 04 is the DC-shaped inversion of that course's assumptions |
 | [[os/11-isolation-and-containers\|OS: isolation]] | The kernel primitives under containers |
 | [[architecture/01-system-design-fundamentals/03-availability-and-reliability\|availability]] | Where the tier numbers turn into design |
@@ -67,5 +67,5 @@ This is numbered `00` because it sits *under* Linux, not after it. It is also th
 
 ## Related
 - [[devops/index|DevOps]] — the folder this sits under
-- [[devops/03-cloud/index|03-cloud/]] — where all of this gets rented instead
+- [[devops/08-cloud/index|08-cloud/]] — where all of this gets rented instead
 - [[BUILD-PLAN|Build Plan]]

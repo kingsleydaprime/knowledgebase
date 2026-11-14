@@ -69,7 +69,7 @@ p95       59 ms
 p99    2,208 ms   ← 1 in 100 requests: over 2 seconds
 ```
 
-The average is nearly double the typical request, yet far below what the unlucky 1% see. That's why service targets are written as percentiles: "p99 under 300 ms" ([[devops/10-observability/01-observability-fundamentals/index|observability]] covers measuring them). Tail latency matters more than it looks. A page that makes 20 calls has about an 18% chance that at least one of them is slower than p99 (1 − 0.99^20), and your most active users make the most requests.
+The average is nearly double the typical request, yet far below what the unlucky 1% see. That's why service targets are written as percentiles: "p99 under 300 ms" ([[devops/07-observability/01-observability-fundamentals/index|observability]] covers measuring them). Tail latency matters more than it looks. A page that makes 20 calls has about an 18% chance that at least one of them is slower than p99 (1 − 0.99^20), and your most active users make the most requests.
 
 To work out a percentile by the **nearest-rank method**: sort the measurements, and take the one at position ⌈p/100 × n⌉. For p99 of 1,000 measurements, that's the 990th smallest.
 
@@ -331,7 +331,7 @@ test("why adding machines stops helping, and can make things worse", () => {
 4. **Scaling the wrong stage.** More app servers do nothing when the database is the bottleneck. Find the slowest stage first.
 5. **Scaling out with state on the servers.** Sessions or baskets in server memory break as soon as a second server is added.
 6. **Assuming more machines always help.** Contention and coherence costs set a ceiling, and past it capacity falls.
-7. **Guessing the bottleneck.** You scale what the [[devops/10-observability/index|measurements]] say is the constraint, not what you assume. In the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|record-generator pipeline]], the bottleneck was the database write path, not the file reading. You have to measure to know.
+7. **Guessing the bottleneck.** You scale what the [[devops/07-observability/index|measurements]] say is the constraint, not what you assume. In the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|record-generator pipeline]], the bottleneck was the database write path, not the file reading. You have to measure to know.
 
 ## Check your understanding
 

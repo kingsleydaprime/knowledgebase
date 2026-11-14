@@ -8,7 +8,7 @@ Containers package an app with its dependencies so it runs anywhere; Kubernetes 
 
 ## The layers
 
-Container security stacks, and a weakness at any layer undermines the ones above → [[devops/02-docker/index|Docker]], [[devops/05-orchestration/index|Kubernetes]]:
+Container security stacks, and a weakness at any layer undermines the ones above → [[devops/03-docker/index|Docker]], [[devops/10-orchestration/index|Kubernetes]]:
 
 ```
    CLUSTER      Kubernetes RBAC, secrets, network policies, the API server
@@ -45,7 +45,7 @@ The container process on the node, and the defaults are the danger:
 Kubernetes adds a control plane and networking, each with its own traps:
 
 - **RBAC — least privilege for the cluster.** Kubernetes RBAC governs who (users and service accounts) can do what to which resources. **The defaults are often too broad**; a compromised pod's service-account token can, with loose RBAC, control the cluster. Scope it tightly → [[cybersecurity/09-cloud-security/02-identity-is-the-perimeter|least privilege]]
-- **Secrets are barely secret.** Native Kubernetes `Secret` objects are only **base64-encoded, not encrypted** — anyone with read access (or etcd access) sees them in plaintext. Enable encryption-at-rest for etcd, and use a real secrets manager (Vault, Sealed Secrets, cloud secret stores + CSI driver) → [[devops/09-secret-management/01-secret-management|secret management]]
+- **Secrets are barely secret.** Native Kubernetes `Secret` objects are only **base64-encoded, not encrypted** — anyone with read access (or etcd access) sees them in plaintext. Enable encryption-at-rest for etcd, and use a real secrets manager (Vault, Sealed Secrets, cloud secret stores + CSI driver) → [[devops/06-secret-management/01-secret-management|secret management]]
 - **Network policies — segment the cluster.** By default, **every pod can talk to every other pod.** A compromised pod reaches the whole cluster. Network policies enforce which pods may communicate, containing a breach — the [[cybersecurity/03-network-security/02-network-segmentation|segmentation]] principle applied inside the cluster
 - **Admission controllers** — policy checks at deploy time that *reject* non-compliant workloads (no root, no privileged, only signed images). OPA Gatekeeper and Kyverno are the standard — **policy-as-code that stops the misconfiguration before it runs** → [[cybersecurity/09-cloud-security/05-cloud-native-defence|policy as code]]
 - **Protect the API server and etcd** — the cluster's brain and its database. Exposed or weakly-authenticated, they're total cluster compromise. Restrict access, require strong auth, encrypt etcd
@@ -60,7 +60,7 @@ Every item is the same instinct — **minimise privilege and blast radius at eac
 **Containers and Kubernetes add three layers of attack surface — image, runtime, cluster — and every layer's defaults are insecure: containers run as root, pods can reach every other pod, and Kubernetes secrets are just base64.** Security is therefore opt-in, layer by layer, all following one instinct: minimise privilege and blast radius, so a compromise at any layer gains little and spreads to nothing. And remember the container itself is a weaker boundary than a VM — it shares the host kernel — so genuinely hostile workloads need stronger isolation, not just careful config.
 
 ## Related
-- [[devops/02-docker/index|Docker]] · [[devops/05-orchestration/index|Kubernetes]] — the mechanics being secured
+- [[devops/03-docker/index|Docker]] · [[devops/10-orchestration/index|Kubernetes]] — the mechanics being secured
 - [[os/11-isolation-and-containers|isolation and containers]] — namespaces, cgroups, the kernel boundary
 - [[cybersecurity/09-cloud-security/05-cloud-native-defence|cloud-native defence]] — scanning and policy-as-code
 - [[cybersecurity/03-network-security/02-network-segmentation|network segmentation]] — the network-policy principle

@@ -111,7 +111,7 @@ No — and the confusion is worth clearing up because it's common in job ads.
 - [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved|how delivery practice evolved]] — the bottleneck this answers
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — the discipline it sits beside
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the deploy mechanism most IDPs are built on
-- [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]] — what gets encoded into the platform
+- [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]] — what gets encoded into the platform
 - [[software-engineering/01-what-software-engineering-is|what software engineering is]] — abstraction, and how a bad one costs you twice
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (final module), extended with Team Topologies, the CNCF platforms white paper, and Backstage/Humanitec documentation.*

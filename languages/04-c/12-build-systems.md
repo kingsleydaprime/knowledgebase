@@ -225,7 +225,7 @@ check: clean all
 	./run_tests
 ```
 
-Build and test under sanitizers as a separate target, since they're too slow for normal development but are where the real bugs surface. → [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]]
+Build and test under sanitizers as a separate target, since they're too slow for normal development but are where the real bugs surface. → [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]]
 
 ---
 

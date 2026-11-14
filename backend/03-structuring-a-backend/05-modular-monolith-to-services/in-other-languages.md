@@ -557,4 +557,4 @@ You know your ecosystem's event plumbing and can write an idempotent consumer in
 ## Related
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular monolith to services]] — the main lesson
 - [[architecture/03-architectural-patterns/05-transactional-outbox/index|Transactional outbox]]
-- [[concepts/03-design-patterns/03-behavioral-patterns/in-other-languages|Behavioural patterns in other languages]] — observers and channels
+- [[concepts/02-design-patterns/03-behavioral-patterns/in-other-languages|Behavioural patterns in other languages]] — observers and channels

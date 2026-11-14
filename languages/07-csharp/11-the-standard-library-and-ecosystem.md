@@ -61,7 +61,7 @@ var app = builder.Build();
 | **ASP.NET Core** | Web APIs, MVC, Blazor, SignalR — **in the SDK, not a package** |
 | **Entity Framework Core** | The default ORM → [[databases/index\|databases]] |
 | **Dapper** | Micro-ORM; you write the SQL. Faster, more control |
-| **Serilog** | Structured logging → [[devops/10-observability/index\|observability]] |
+| **Serilog** | Structured logging → [[devops/07-observability/index\|observability]] |
 | **xUnit / NUnit** | Testing → [[languages/07-csharp/12-testing-and-tooling\|note 12]] |
 | **FluentValidation** | Validation rules as code |
 | **MediatR** | In-process messaging; popular, and easy to overuse |

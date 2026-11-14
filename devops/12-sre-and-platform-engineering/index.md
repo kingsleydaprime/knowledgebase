@@ -8,7 +8,7 @@ The disciplines that come *after* DevOps — and why each of them exists because
 
 ## Why this exists
 
-`devops/` had eleven sections covering the **tools** — pipelines, Terraform, Kubernetes, Prometheus — and [[devops/devops-reference|devops-reference]] had two paragraphs on the **disciplines** that decide how those tools get used. The vault knew what an error budget was ([[devops/10-observability/01-observability-fundamentals/index|observability 01]] covers SLI/SLO/SLA properly) but had **zero occurrences of "toil"**, nothing on on-call design, incident command or blameless postmortems, one passing mention of Internal Developer Platforms, and no note on DevSecOps at all.
+`devops/` had eleven sections covering the **tools** — pipelines, Terraform, Kubernetes, Prometheus — and [[devops/devops-reference|devops-reference]] had two paragraphs on the **disciplines** that decide how those tools get used. The vault knew what an error budget was ([[devops/07-observability/01-observability-fundamentals/index|observability 01]] covers SLI/SLO/SLA properly) but had **zero occurrences of "toil"**, nothing on on-call design, incident command or blameless postmortems, one passing mention of Internal Developer Platforms, and no note on DevSecOps at all.
 
 **So: the vocabulary of the roles the vault is preparing you to hold, which existed everywhere in job ads and nowhere in these notes.**
 
@@ -42,8 +42,8 @@ The disciplines that come *after* DevOps — and why each of them exists because
 
 | | |
 |---|---|
-| [[devops/10-observability/index\|10-observability/]] | **The prerequisite.** SLI/SLO/SLA and error budgets live there; note 02 deliberately doesn't repeat them |
-| [[devops/06-ci-cd/index\|06-ci-cd/]] | The pipeline all four notes assume |
+| [[devops/07-observability/index\|07-observability/]] | **The prerequisite.** SLI/SLO/SLA and error budgets live there; note 02 deliberately doesn't repeat them |
+| [[devops/05-ci-cd/index\|05-ci-cd/]] | The pipeline all four notes assume |
 | [[devops/11-delivery-and-advanced/01-gitops\|GitOps]] | The deploy mechanism most IDPs sit on |
 | [[cybersecurity/index\|cybersecurity]] | Note 04's other half, at depth |
 | [[software-engineering/03-the-engineering-roles\|the engineering roles]] | What each of these is like to *hold* as a job |

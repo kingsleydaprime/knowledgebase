@@ -149,7 +149,7 @@ Copy-on-write filesystems (btrfs, ZFS) take a different route — never overwrit
 | **btrfs** | CoW, snapshots, checksums, built-in RAID. Feature-rich; RAID5/6 still not recommended |
 | **ZFS** | CoW with checksums, integrated volume management. Excellent; licensing keeps it out of the kernel tree |
 | **tmpfs** | RAM-backed. `/dev/shm`, `/run`. Fast, volatile |
-| **overlayfs** | union mount — **the basis of container images** → [[devops/02-docker/index\|Docker]] |
+| **overlayfs** | union mount — **the basis of container images** → [[devops/03-docker/index\|Docker]] |
 | **NFS / CIFS** | network filesystems. The abstraction leaks: latency, partial failure, locking |
 
 **overlayfs is worth understanding** if you use containers. A container's filesystem is read-only image layers plus a writable upper layer; writing to a file in a lower layer **copies the whole file up first** (copy-up). That's why writing to a large file inside a container can be surprisingly slow the first time, and why write-heavy workloads should use a volume rather than the container filesystem.

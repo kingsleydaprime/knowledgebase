@@ -36,7 +36,7 @@ go mod graph                         # the full dependency graph
 
 `go mod tidy` before every commit. It's the `npm prune` you never remember to run, and it's fast enough to be a pre-commit hook.
 
-**`go.sum` is a checksum file, not a lockfile.** Versions are pinned in `go.mod`; `go.sum` records cryptographic hashes so a dependency can't be swapped underneath you. Commit both. Verification runs against the public checksum database by default, which is a meaningfully stronger [[devops/06-ci-cd/10-pipeline-security|supply-chain]] story than npm's.
+**`go.sum` is a checksum file, not a lockfile.** Versions are pinned in `go.mod`; `go.sum` records cryptographic hashes so a dependency can't be swapped underneath you. Commit both. Verification runs against the public checksum database by default, which is a meaningfully stronger [[devops/05-ci-cd/10-pipeline-security|supply-chain]] story than npm's.
 
 ## Minimal Version Selection
 
@@ -141,6 +141,6 @@ That's the whole distribution model: a git tag. See [[git/11-tags-and-versioning
 ## Related
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by Layer vs by Feature]] — the argument, in general
 - [[git/11-tags-and-versioning|Tags and Versioning]] — SemVer, which Go enforces structurally
-- [[devops/06-ci-cd/10-pipeline-security|Securing the Pipeline]] — the checksum database in context
+- [[devops/05-ci-cd/10-pipeline-security|Securing the Pipeline]] — the checksum database in context
 - [[languages/01-java/03-tooling/01-build-tools|Java: Build Tools]] — Maven/Gradle, for contrast
 - [[languages/02-go/index|Go course map]]

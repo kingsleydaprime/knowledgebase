@@ -11,7 +11,7 @@ id: 3ccc37cd-2a98-4b01-ac2c-10371b182524
 You can already:
 
 - Organise code by feature and enforce boundaries with a lint rule → [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|layer vs feature]].
-- Use the observer pattern to react to events → [[concepts/03-design-patterns/03-behavioral-patterns/index|behavioural patterns]].
+- Use the observer pattern to react to events → [[concepts/02-design-patterns/03-behavioral-patterns/index|behavioural patterns]].
 
 After this lesson you will be able to:
 

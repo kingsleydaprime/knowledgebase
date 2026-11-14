@@ -53,7 +53,7 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 | UI, state, components | [[frontend/index\|frontend]] · [[frontend/index\|frontend concepts]] |
 | The backend/business layer | [[backend/index\|backend]] |
 | Local storage | [[databases/index\|databases]] — SQLite is the usual answer |
-| Packaging, signing, CI releases | [[devops/06-ci-cd/index\|CI/CD]] |
+| Packaging, signing, CI releases | [[devops/05-ci-cd/index\|CI/CD]] |
 | Rust, for Tauri | [[languages/03-rust/index\|Rust]] |
 | C++/C#, for Qt/.NET | [[languages/05-cpp/index\|C++]] · [[languages/01-java/index\|Java]] (adjacent) |
 | Processes, filesystem, IPC | [[os/index\|OS]] |

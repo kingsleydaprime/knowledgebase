@@ -240,5 +240,5 @@ cargo test --doc        # run the examples
 ## Related
 - [[languages/03-rust/18-performance-and-zero-cost|Performance]] — release profiles and benchmarking
 - [[languages/02-go/12-modules-and-project-layout|Go: Modules and Layout]] — a different packaging model
-- [[devops/06-ci-cd/08-ci-pipelines|CI Pipelines]] — wiring `cargo test`, `clippy` and `fmt` into gates
+- [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — wiring `cargo test`, `clippy` and `fmt` into gates
 - [[languages/03-rust/index|Rust course map]]

@@ -28,7 +28,7 @@ It worked. Development got dramatically faster. And that created the next proble
 
 ## DevOps — extend the loop past the handoff
 
-DevOps deletes the wall. Same team, shared responsibility for the software from commit to production and beyond. Automate the handoff so it stops being a negotiation: [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD]], [[devops/07-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]], configuration management, automated testing, monitoring.
+DevOps deletes the wall. Same team, shared responsibility for the software from commit to production and beyond. Automate the handoff so it stops being a negotiation: [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD]], [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]], configuration management, automated testing, monitoring.
 
 **DevOps didn't replace Agile — it extended Agile's loop across the phases Agile left alone.** Same idea, more of the pipeline.
 
@@ -40,7 +40,7 @@ The cultural claim underneath the tooling: *you build it, you run it.* Being on 
 
 Google's answer, and the reframe is sharp: **treat operations as a software problem, and treat reliability as something you can measure, budget and spend** rather than something you promise and hope for.
 
-The mechanism is the [[devops/10-observability/01-observability-fundamentals/index|SLO and error budget]]: pick an availability target, and the shortfall becomes a budget. Budget remaining → ship aggressively. Budget exhausted → stop shipping features and stabilise.
+The mechanism is the [[devops/07-observability/01-observability-fundamentals/index|SLO and error budget]]: pick an availability target, and the shortfall becomes a budget. Budget remaining → ship aggressively. Budget exhausted → stop shipping features and stabilise.
 
 **This is the important structural move, and it's easy to miss.** It converts the dev-vs-ops argument from a values dispute into arithmetic. Nobody has to argue about whether to prioritise reliability; the number decides, and both sides agreed to the number in advance.
 
@@ -92,6 +92,6 @@ DevSecOps distributes it instead: threat modelling in planning, static analysis 
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the scaling answer
 - [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]] — security in the pipeline
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — the phases all of this is rearranging
-- [[devops/06-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — the automation DevOps rests on
+- [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — the automation DevOps rests on
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (final module), cross-checked against the Google SRE book and the DORA/Accelerate research.*

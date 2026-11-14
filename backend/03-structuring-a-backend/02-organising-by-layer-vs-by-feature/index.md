@@ -1078,6 +1078,6 @@ You're done when you can lay out the shop app both ways in your main framework f
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|Layers]] — what lives inside each feature folder
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection and wiring]] — how the composition root builds each feature
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular Monolith → Services]] — where good feature boundaries pay off
-- [[frontend/03-structuring-a-frontend/01-components-and-composition|Components and composition]] — the React side of the slot pattern
+- [[frontend/02-structuring-a-frontend/01-components-and-composition|Components and composition]] — the React side of the slot pattern
 - [[backend/frameworks/javascript/02-express/index|Express]] · [[backend/frameworks/javascript/03-nest/index|NestJS]] · [[backend/frameworks/python/02-django/index|Django]] · [[backend/frameworks/python/03-flask/index|Flask]] · [[backend/frameworks/go/index|Go]] · [[backend/frameworks/java/index|Java]] · [[backend/frameworks/rust/index|Rust]] · [[backend/frameworks/c/index|C]] · [[backend/frameworks/cpp/index|C++]]
-- [[concepts/04-best-practices/01-clean-code/index|Clean Code]] — the duplication-vs-abstraction argument
+- [[concepts/01-best-practices/01-clean-code/index|Clean Code]] — the duplication-vs-abstraction argument

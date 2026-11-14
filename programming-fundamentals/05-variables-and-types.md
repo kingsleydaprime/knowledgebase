@@ -86,7 +86,7 @@ print(list1)         # [1, 2, 3, 4]  ← list1 changed too
 
 The fix is an explicit copy when you want one (`list1.copy()`, `[...list1]`, `list(list1)`) — and note that this copies one level. A "shallow" copy of a list of lists still shares the inner lists; a **deep copy** goes all the way down.
 
-**The rule to carry:** *simple values are copied; everything else is shared unless you say otherwise.* (Why languages do this, and the mutable/immutable axis that decides when you can even notice, is [[programming-fundamentals/15-how-types-actually-work|note 15]].) This is the root of a large fraction of "why did that change?" bugs, and it's why immutability is treated as a virtue in [[concepts/04-best-practices/index|best practices]].
+**The rule to carry:** *simple values are copied; everything else is shared unless you say otherwise.* (Why languages do this, and the mutable/immutable axis that decides when you can even notice, is [[programming-fundamentals/15-how-types-actually-work|note 15]].) This is the root of a large fraction of "why did that change?" bugs, and it's why immutability is treated as a virtue in [[concepts/01-best-practices/index|best practices]].
 
 ## Conversion, explicit and otherwise
 
@@ -143,6 +143,6 @@ What actually matters:
 - [[programming-fundamentals/07-collections|collections]] — many values under one name
 - [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]] — why `0.1 + 0.2` isn't `0.3`
 - [[computer-architecture/02-data-representation|data representation]] — how these are actually stored
-- [[concepts/04-best-practices/01-clean-code/index|clean code]] — naming, at length
+- [[concepts/01-best-practices/01-clean-code/index|clean code]] — naming, at length
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the reference-vs-value and float-precision material it left out.*

@@ -8,9 +8,9 @@ The previous notes were the *problems*. This one is the *program*: how you keep 
 
 ## Shift left: security as code
 
-Since infrastructure is now [[devops/07-infrastructure-as-code/index|code]] (Terraform, CloudFormation, Pulumi), security moves *into the code and the pipeline* — catching problems before they exist in production:
+Since infrastructure is now [[devops/09-infrastructure-as-code/index|code]] (Terraform, CloudFormation, Pulumi), security moves *into the code and the pipeline* — catching problems before they exist in production:
 
-- **Scan IaC before apply** — Checkov, tfsec, Terrascan read your Terraform and flag insecure configs: the public bucket, the `0.0.0.0/0` database, the over-broad role. **Catch it in the pull request, not in a breach report** → [[devops/06-ci-cd/index|CI/CD]]
+- **Scan IaC before apply** — Checkov, tfsec, Terrascan read your Terraform and flag insecure configs: the public bucket, the `0.0.0.0/0` database, the over-broad role. **Catch it in the pull request, not in a breach report** → [[devops/05-ci-cd/index|CI/CD]]
 - **Policy as code** — encode guardrails (OPA/Sentinel, or Kubernetes admission controllers) so *non-compliant infrastructure cannot deploy at all*. "No public buckets, ever" becomes a rule the pipeline enforces, not a wiki page nobody reads → [[cybersecurity/09-cloud-security/04-container-and-kubernetes-security|admission control]]
 - **Secret scanning** — gitleaks/trufflehog in CI, blocking commits that contain credentials → [[cybersecurity/09-cloud-security/03-the-cloud-attack-surface|exposed secrets]]
 - **Never hardcode secrets** in IaC or state files; encrypt state
@@ -64,7 +64,7 @@ Each layer catches what the previous missed, and the whole thing is **automated 
 
 ## Related
 - [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|the shared responsibility model]] — where this all started
-- [[devops/07-infrastructure-as-code/index|infrastructure as code]] — what shift-left scans
+- [[devops/09-infrastructure-as-code/index|infrastructure as code]] — what shift-left scans
 - [[cybersecurity/07-security-operations/index|security operations]] — SIEM, detection, IR
 - [[devops/12-sre-and-platform-engineering/index|platform engineering]] — where DevSecOps lives
 

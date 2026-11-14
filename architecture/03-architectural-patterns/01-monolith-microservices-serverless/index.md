@@ -104,8 +104,8 @@ What you pay is **distributed-systems complexity**:
 
 - Calls can be slow or fail, so you need timeouts, retries and [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]].
 - There are no transactions across services, so you need [[architecture/03-architectural-patterns/05-transactional-outbox/index|the outbox]] and [[architecture/03-architectural-patterns/03-data-and-integration-patterns|sagas]], and you get [[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]].
-- A request crosses many services, so you need distributed tracing ([[devops/10-observability/index|observability]]).
-- Something has to run it all: [[devops/05-orchestration/index|orchestration]], [[architecture/03-architectural-patterns/04-microservices-patterns|service discovery and gateways]].
+- A request crosses many services, so you need distributed tracing ([[devops/07-observability/index|observability]]).
+- Something has to run it all: [[devops/10-orchestration/index|orchestration]], [[architecture/03-architectural-patterns/04-microservices-patterns|service discovery and gateways]].
 
 The network tax depends on the interface. In words: every in-process call that becomes a network call adds its round-trip time to the request, and adds one more chance for the request to fail, so availabilities multiply.
 
@@ -135,7 +135,7 @@ The widely endorsed path: **start with a modular monolith and keep its boundarie
 
 ## 6. Serverless
 
-Deploy functions; the platform starts instances when requests arrive, scales them, stops them when idle, and bills per request plus per **gigabyte-second** (memory × running time). [[devops/03-cloud/02-serverless|Serverless in depth]] covers the platforms.
+Deploy functions; the platform starts instances when requests arrive, scales them, stops them when idle, and bills per request plus per **gigabyte-second** (memory × running time). [[devops/08-cloud/02-serverless|Serverless in depth]] covers the platforms.
 
 In words: serverless cost grows in step with use, while a server costs the same whether it's busy or idle. So serverless is cheaper below some request rate and dearer above it. With a price per million requests and per gigabyte-second:
 
@@ -417,5 +417,5 @@ You can explain what microservices solve and cost, say when you wouldn't use the
 - [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices patterns]]: the machinery microservices require
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data and integration patterns]]: strangler fig and saga
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular monolith to services]]: the same question at the code level
-- [[devops/05-orchestration/index|Orchestration (DevOps)]]: what microservices run on
-- [[devops/03-cloud/02-serverless|Serverless (DevOps)]]: the platforms
+- [[devops/10-orchestration/index|Orchestration (DevOps)]]: what microservices run on
+- [[devops/08-cloud/02-serverless|Serverless (DevOps)]]: the platforms
