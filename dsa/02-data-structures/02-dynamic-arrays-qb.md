@@ -339,7 +339,7 @@ Up to nearly half its block under doubling, just after a resize. That wasted hea
 
 <details><summary>Answer</summary>
 
-A [[04-linked-lists|linked list]], or a deque / [[07-stacks-and-queues|queue]] — a ring buffer gives $O(1)$ at both ends while keeping contiguous storage.
+A [[04-linked-lists|linked list]], or a deque / [[05-stacks-and-queues|queue]] — a ring buffer gives $O(1)$ at both ends while keeping contiguous storage.
 
 </details>
 

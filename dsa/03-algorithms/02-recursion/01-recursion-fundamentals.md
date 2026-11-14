@@ -2,7 +2,7 @@
 
 **[Beginner → Intermediate]** — A recursive function calls itself. That is the mechanical description and it is nearly useless as an explanation, because it tells you what recursion *looks like* rather than what it *is for*. This lesson is about the thing it is for: **turning a problem you cannot solve into a smaller instance of the same problem, plus a small amount of work.**
 
-Everything downstream depends on this — [[02-recursion-trees-and-recurrences|recursion trees]], [[03-the-master-theorem|the Master Theorem]], [[03-divide-and-conquer|divide and conquer]], [[01-depth-first-search|DFS]], [[04-sorting/03-merge-sort|merge sort]], [[14-backtracking|backtracking]], and all of dynamic programming.
+Everything downstream depends on this — [[02-recursion-trees-and-recurrences|recursion trees]], [[03-the-master-theorem|the Master Theorem]], [[04-divide-and-conquer|divide and conquer]], [[01-depth-first-search|DFS]], [[05-sorting/03-merge-sort|merge sort]], [[14-backtracking|backtracking]], and all of dynamic programming.
 
 ---
 
@@ -60,7 +60,7 @@ photos/                      files(photos/)
 3. **Recursive case**: This is the branch that reduces the problem and calls itself. For factorial it is `n * factorial(n - 1)` — one multiplication, plus the same problem on `n - 1`.
 4. **Progress**: This is the requirement that every recursive call moves strictly closer to a base case. It is what separates a recursion from an infinite loop, and it is the property that is easiest to get subtly wrong.
 5. **Stack frame**: This is also known as an **activation record**. This is the block of memory holding one call's local variables, its arguments, and the address to return to. Every call in progress has one, and it is released when that call returns.
-6. **Call stack**: This is the stack of frames for all calls that have started and not yet finished. If `a` calls `b` and `b` calls `c`, there are three frames, and they unwind in reverse — [[07-stacks-and-queues|LIFO]].
+6. **Call stack**: This is the stack of frames for all calls that have started and not yet finished. If `a` calls `b` and `b` calls `c`, there are three frames, and they unwind in reverse — [[05-stacks-and-queues|LIFO]].
 7. **Recursion depth**: This is the number of frames on the stack at the deepest point. It is the *memory* cost of a recursion, and it is a different quantity from the number of calls: naive Fibonacci makes millions of calls at a depth of only $n$.
 8. **Stack overflow**: This is running out of room for frames. Python raises `RecursionError` at a configurable limit — 1,000 by default — rather than crashing, which is a courtesy most languages do not extend.
 9. **Winding and unwinding**: This is the two-phase shape of every recursion. **Winding** is the descent, where calls are made and frames pile up; **unwinding** is the return journey, where answers come back and frames are released. Work placed before the recursive call happens on the way down; work placed after it happens on the way back up.
@@ -507,7 +507,7 @@ Recursion is not one technique; it is the substrate for four, and telling them a
 | If the recursion... | You have | Cost shape | Covered in |
 | :--- | :--- | :--- | :--- |
 | shrinks by 1 each time | linear recursion — usually a loop in disguise | $O(n)$ depth | this lesson |
-| splits into halves and combines | **divide and conquer** | $O(\log n)$ depth | [[03-divide-and-conquer|divide and conquer]] |
+| splits into halves and combines | **divide and conquer** | $O(\log n)$ depth | [[04-divide-and-conquer|divide and conquer]] |
 | revisits the same subproblems | **dynamic programming** (memoise it) | depends on state count | [[15-dynamic-programming\|dynamic programming]] |
 | explores choices and undoes them | **backtracking** | often exponential | [[14-backtracking\|backtracking]] |
 | walks a structure with children | **traversal** | $O(\text{size})$ | [[01-depth-first-search\|DFS]], [[01-depth-first-traversals\|tree traversals]] |

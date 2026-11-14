@@ -96,7 +96,7 @@ For $T(n) = a\,T(n/b) + f(n)$ — the shape of every divide-and-conquer algorith
 | $T(n)=T(n-1)+n$ | $\Theta(n^2)$ | worst-case quicksort |
 | $T(n)=2T(n-1)+1$ | $\Theta(2^n)$ | towers of Hanoi |
 
-> **The two rows to compare are rows 1 and 2.** Same recursion, different combine cost, and the whole difference between $\Theta(n)$ and $\Theta(n\log n)$ comes from whether merging costs linear time. **That's the kind of thing you can't see by staring at code and can see immediately from the recurrence.** → [[dsa/03-algorithms/04-sorting/index|Sorting]]
+> **The two rows to compare are rows 1 and 2.** Same recursion, different combine cost, and the whole difference between $\Theta(n)$ and $\Theta(n\log n)$ comes from whether merging costs linear time. **That's the kind of thing you can't see by staring at code and can see immediately from the recurrence.** → [[dsa/03-algorithms/05-sorting/index|Sorting]]
 
 **The Master Theorem doesn't cover everything** — unequal splits, non-polynomial $f$. Then use the **recursion tree method** (draw the levels, sum the work per level) or **substitution** (guess, verify by induction). The recursion tree is the most intuitive and is usually enough.
 

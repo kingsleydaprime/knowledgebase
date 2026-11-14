@@ -96,7 +96,7 @@ def total_size(folder):
     return total
 ```
 
-**Divide and conquer.** Split in half, solve each half, combine. [[dsa/03-algorithms/04-sorting/index|Binary search, merge sort, quicksort]] are all this shape — and the reason binary search is O(log n) is that each call discards half the remaining data.
+**Divide and conquer.** Split in half, solve each half, combine. [[dsa/03-algorithms/05-sorting/index|Binary search, merge sort, quicksort]] are all this shape — and the reason binary search is O(log n) is that each call discards half the remaining data.
 
 **Anything defined recursively.** Parsing nested expressions, walking a graph, generating permutations.
 

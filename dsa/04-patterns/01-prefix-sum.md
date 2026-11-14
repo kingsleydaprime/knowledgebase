@@ -344,6 +344,6 @@ You are done with this pattern when you can, closed-book:
 - [[01-arrays|arrays]] — the underlying structure and why contiguous storage makes the O(1) lookup real
 - [[03-hash-maps|hash maps]] — what the prefix array becomes in the "find a subarray summing to k" variant
 - [[03-sliding-window|sliding-window]] — the other main tool for contiguous-subarray questions; prefer it when the array has no negatives and you need a window, prefer prefix sums when you need arbitrary ranges or the values can be negative
-- [[09-max-slice-algorithms|max-slice algorithms]] — Kadane and friends, where the running-prefix idea gets its own family
+- [[10-max-slice-algorithms|max-slice algorithms]] — Kadane and friends, where the running-prefix idea gets its own family
 - [[gpu-and-parallel-computing/04-parallel-patterns|parallel patterns]] — prefix sum as *scan*, and why it parallelises despite looking sequential
 - [[01-growth-and-asymptotic-notation|algorithms]]

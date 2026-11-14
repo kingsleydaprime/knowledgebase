@@ -386,7 +386,7 @@ You are done with this pattern when you can, closed-book:
 ## 10. Related
 
 - [[01-linear-and-binary-search|searching]] — the baseline binary search algorithm
-- [[04-sorting/index|sorting]] — prerequisite for rotated array search
+- [[05-sorting/index|sorting]] — prerequisite for rotated array search
 - [[01-growth-and-asymptotic-notation|algorithms]] — where the O(log n) vs O(n log n) comparison comes from
 - [[09-modified-binary-search|modified-binary-search]] — this note
 

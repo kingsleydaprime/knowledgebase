@@ -175,4 +175,4 @@ A grid is a graph whose edges you compute instead of store — so the only new c
 - [[13-matrix-traversal|Matrix Traversal]] — the pattern
 - [[11-dfs-pattern-qb|DFS Pattern — Question Bank]]
 - [[12-bfs-pattern-qb|BFS Pattern — Question Bank]]
-- [[dsa/02-data-structures/06-graphs/04-representations-qb|Graph Representations — Question Bank]] — where implicit graphs are defined
+- [[dsa/02-data-structures/09-graphs/04-representations-qb|Graph Representations — Question Bank]] — where implicit graphs are defined

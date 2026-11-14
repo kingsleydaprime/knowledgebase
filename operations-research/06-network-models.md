@@ -6,7 +6,7 @@
 
 ## Before you start
 
-You should know what a directed graph is, with nodes, edges and edge weights → [[dsa/02-data-structures/06-graphs/01-what-a-graph-is|DSA: what a graph is]]. You should be able to formulate a transportation LP → [[operations-research/02-formulating-linear-programs|note 02, pattern 3]] and know what a dual is → [[operations-research/05-duality-and-sensitivity|note 05]].
+You should know what a directed graph is, with nodes, edges and edge weights → [[dsa/02-data-structures/09-graphs/01-what-a-graph-is|DSA: what a graph is]]. You should be able to formulate a transportation LP → [[operations-research/02-formulating-linear-programs|note 02, pattern 3]] and know what a dual is → [[operations-research/05-duality-and-sensitivity|note 05]].
 
 After this lesson you will be able to:
 
@@ -60,7 +60,7 @@ The special cases, and what each fixes:
 
 ## 3. Shortest path
 
-You've met this in DSA: Dijkstra's algorithm repeatedly settles the closest unsettled node → [[dsa/02-data-structures/06-graphs/06-algorithms/index|DSA: graph algorithms]]. The operations research view adds one thing: **shortest path is an LP**, the min-cost flow with one unit of supply at $s$ and one unit of demand at $t$. Its dual assigns each node a "potential" $\pi_i$ — the shortest distance from $s$ — and the dual constraints $\pi_j - \pi_i \le c_{ij}$ are exactly the triangle inequality that Dijkstra and Bellman–Ford maintain. The algorithm *is* a dual method.
+You've met this in DSA: Dijkstra's algorithm repeatedly settles the closest unsettled node → [[dsa/02-data-structures/09-graphs/06-algorithms/index|DSA: graph algorithms]]. The operations research view adds one thing: **shortest path is an LP**, the min-cost flow with one unit of supply at $s$ and one unit of demand at $t$. Its dual assigns each node a "potential" $\pi_i$ — the shortest distance from $s$ — and the dual constraints $\pi_j - \pi_i \le c_{ij}$ are exactly the triangle inequality that Dijkstra and Bellman–Ford maintain. The algorithm *is* a dual method.
 
 The practical consequence: **when costs can be negative** (a route that earns money, like a backhaul load), Dijkstra breaks and you need Bellman–Ford. A negative-cost *cycle* makes the problem unbounded — note 03's fourth outcome, in network form.
 
@@ -270,8 +270,8 @@ You're ready when you can recognise each of the five network problems in a word 
 
 ## Related
 
-- [[dsa/02-data-structures/06-graphs/index|DSA: graphs]] — the data structure underneath
-- [[dsa/02-data-structures/06-graphs/06-algorithms/index|DSA: graph algorithms]] — Dijkstra, BFS and friends in code
+- [[dsa/02-data-structures/09-graphs/index|DSA: graphs]] — the data structure underneath
+- [[dsa/02-data-structures/09-graphs/06-algorithms/index|DSA: graph algorithms]] — Dijkstra, BFS and friends in code
 - [[operations-research/05-duality-and-sensitivity|Duality and Sensitivity]] — min cut is a dual
 - [[operations-research/07-integer-programming|Integer Programming]] — the next note
 - [[networking/index|Networking]] — routing protocols are shortest-path algorithms running on real routers

@@ -2,7 +2,7 @@
 
 Micro-questions over [[12-bfs-pattern|the BFS pattern]]. Answer in a full sentence before opening the toggle. Format explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
 
-This bank is about **recognising** the problem shape. The mechanics are in [[dsa/02-data-structures/06-graphs/05-traversal/02-breadth-first-search-qb|the BFS bank]].
+This bank is about **recognising** the problem shape. The mechanics are in [[dsa/02-data-structures/09-graphs/05-traversal/02-breadth-first-search-qb|the BFS bank]].
 
 ---
 
@@ -155,6 +155,6 @@ If the question is "how few steps", expand in rings with a queue — snapshot th
 ## Related
 
 - [[12-bfs-pattern|BFS Pattern]] — the pattern
-- [[dsa/02-data-structures/06-graphs/05-traversal/02-breadth-first-search-qb|Breadth-First Search — Question Bank]] — the mechanics
+- [[dsa/02-data-structures/09-graphs/05-traversal/02-breadth-first-search-qb|Breadth-First Search — Question Bank]] — the mechanics
 - [[11-dfs-pattern-qb|DFS Pattern — Question Bank]]
 - [[13-matrix-traversal-qb|Matrix Traversal — Question Bank]]

@@ -49,7 +49,7 @@ Recognising these tells you which algorithms apply:
 | Iterate neighbours | $O(V)$ | $O(\deg v)$ |
 | Best for | **dense**, frequent edge queries | **sparse** — almost everything real |
 
-> **Real graphs are overwhelmingly sparse.** A social network has billions of users and hundreds of friends each, not billions. **Adjacency list is the default**; reach for a matrix only when the graph is dense or you need matrix operations (as in [[dsa/02-data-structures/06-graphs/index|Floyd–Warshall]] or spectral methods).
+> **Real graphs are overwhelmingly sparse.** A social network has billions of users and hundreds of friends each, not billions. **Adjacency list is the default**; reach for a matrix only when the graph is dense or you need matrix operations (as in [[dsa/02-data-structures/09-graphs/index|Floyd–Warshall]] or spectral methods).
 
 ## Traversal
 
@@ -134,7 +134,7 @@ Recognising these tells you which algorithms apply:
 ---
 
 ## Related
-- [[dsa/02-data-structures/06-graphs/index|Graphs (data structure)]] — the implementation view
+- [[dsa/02-data-structures/09-graphs/index|Graphs (data structure)]] — the implementation view
 - [[02-dijkstra|Dijkstra]] · [[01-topological-sort|Topological Sort]] — the algorithms
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — a graph is a relation
 - [[mathematics/02-discrete-math/index|Discrete maths map]]

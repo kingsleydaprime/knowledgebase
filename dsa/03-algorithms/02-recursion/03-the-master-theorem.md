@@ -526,7 +526,7 @@ You can apply the decision procedure to an unfamiliar recurrence, say what "poly
 
 **Recap:** for $T(n) = aT(n/b) + f(n)$, compare $f(n)$ with $n^{\log_b a}$ — the root's work against the leaves' work. Polynomially smaller gives **Case 1**, $\Theta(n^{\log_b a})$; a match (possibly times $\log^k n$) gives **Case 2**, $\Theta(n^{\log_b a}\log^{k+1} n)$; polynomially larger, plus regularity, gives **Case 3**, $\Theta(f(n))$. **The word "polynomially" is the whole trap**: $n\log n$ is larger than $n$ but not polynomially so, which puts $T(n) = 2T(n/2)+n\log n$ outside Case 3 — its true answer is $\Theta(n\log^2 n)$. The theorem does not apply at all to subtractive recurrences like $T(n-1)$, nor to unequal splits like $T(n/3)+T(2n/3)$; for those, draw the tree. Merge sort is Case 2, binary search is Case 2 with critical exponent 0, and Strassen is Case 1 at $\Theta(n^{2.807})$.
 
-**Next:** [[03-divide-and-conquer|Divide and Conquer]] — the algorithm design technique these recurrences were describing all along, and how to choose $a$, $b$ and $f$ deliberately rather than discovering them after the fact.
+**Next:** [[04-divide-and-conquer|Divide and Conquer]] — the algorithm design technique these recurrences were describing all along, and how to choose $a$, $b$ and $f$ deliberately rather than discovering them after the fact.
 
 ---
 
@@ -534,8 +534,8 @@ You can apply the decision procedure to an unfamiliar recurrence, say what "poly
 
 - [[02-recursion-trees-and-recurrences|Recursion Trees and Recurrences]] — the previous lesson, and the fallback whenever the theorem does not apply
 - [[01-recursion-fundamentals|Recursion Fundamentals]] — where the recurrences come from
-- [[03-divide-and-conquer|Divide and Conquer]] — the technique these recurrences describe
-- [[04-sorting/03-merge-sort|Merge Sort]] — the canonical Case 2
+- [[04-divide-and-conquer|Divide and Conquer]] — the technique these recurrences describe
+- [[05-sorting/03-merge-sort|Merge Sort]] — the canonical Case 2
 - [[01-linear-and-binary-search|Binary Search]] — Case 2 with critical exponent 0
 - [[01-growth-and-asymptotic-notation|Growth and Asymptotic Notation]] — what $\Theta$ is claiming
 - [[05-induction-and-recursion|Discrete maths: induction and recursion]] — the proof of the theorem itself

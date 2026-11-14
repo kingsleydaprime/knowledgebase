@@ -140,7 +140,7 @@ Calculus 1–3 are written in full; the SS3 introduction, ODEs, PDEs and the ana
 | Exponents, logarithms | [[01-growth-and-asymptotic-notation\|complexity analysis]] — every $\log n$ |
 | Sets, logic, proof | [[mathematics/02-discrete-math/index\|discrete-math]], [[theory-of-computation/index\|theory of computation]] |
 | Combinatorics | [[dsa/index\|DSA]] — counting arrangements in backtracking and DP |
-| Graph theory | [[dsa/02-data-structures/06-graphs/index\|graphs]], [[networking/index\|networking]] |
+| Graph theory | [[dsa/02-data-structures/09-graphs/index\|graphs]], [[networking/index\|networking]] |
 | Modular arithmetic | [[cybersecurity/05-cryptography/index\|cryptography]], hashing |
 | Calculus | [[ai-ml/index\|ai-ml]] — gradients and backpropagation |
 

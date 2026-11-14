@@ -416,5 +416,5 @@ You can use all the single-bit idioms, explain `x & -x`, apply XOR cancellation,
 **Next:** [[12-math-and-geometry|Math and Geometry]], or back to [[index|the algorithms index]].
 
 ## Related Modules
-- [[07-number-theory-basics|Number Theory Basics]] — Arithmetic cousin (GCD, primality, modular arithmetic)
+- [[08-number-theory-basics|Number Theory Basics]] — Arithmetic cousin (GCD, primality, modular arithmetic)
 - [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Space vs. time tradeoffs

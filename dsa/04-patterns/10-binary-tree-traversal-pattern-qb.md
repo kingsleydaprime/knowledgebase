@@ -2,7 +2,7 @@
 
 Micro-questions over [[10-binary-tree-traversal-pattern|the tree traversal pattern]]. Answer in a full sentence before opening the toggle. Format explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
 
-This bank is about **choosing** an order. The mechanics are in [[dsa/02-data-structures/05-trees/04-traversal/01-depth-first-traversals-qb|the traversal bank]].
+This bank is about **choosing** an order. The mechanics are in [[dsa/02-data-structures/06-trees/04-traversal/01-depth-first-traversals-qb|the traversal bank]].
 
 ---
 
@@ -167,5 +167,5 @@ Pick the order by where the information flows — down from ancestors, up from c
 ## Related
 
 - [[10-binary-tree-traversal-pattern|Binary Tree Traversal Pattern]] — the pattern
-- [[dsa/02-data-structures/05-trees/04-traversal/01-depth-first-traversals-qb|Depth-First Traversals — Question Bank]] — the mechanics
+- [[dsa/02-data-structures/06-trees/04-traversal/01-depth-first-traversals-qb|Depth-First Traversals — Question Bank]] — the mechanics
 - [[11-dfs-pattern-qb|DFS Pattern — Question Bank]]

@@ -213,4 +213,4 @@ Make a choice, recurse, undo it — and prune as early as you can, because the s
 
 - [[14-backtracking|Backtracking]] — the pattern
 - [[11-dfs-pattern-qb|DFS Pattern — Question Bank]]
-- [[dsa/03-algorithms/05-searching/03-state-space-search-qb|State-Space Search — Question Bank]] — the genuine-tree case
+- [[dsa/03-algorithms/03-searching/03-state-space-search-qb|State-Space Search — Question Bank]] — the genuine-tree case

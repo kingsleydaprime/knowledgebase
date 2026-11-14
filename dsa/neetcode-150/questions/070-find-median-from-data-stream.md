@@ -1,6 +1,6 @@
 # Find Median from Data Stream
 
-**LeetCode 295** · Heap / Priority Queue · concept: [[08-heaps|heaps]]
+**LeetCode 295** · Heap / Priority Queue · concept: [[07-heaps|heaps]]
 
 ## Problem
 
@@ -56,6 +56,6 @@ Each `addNum` restores both with at most a couple of pushes/pops. Sorting on eve
 **Track the middle of a stream → two heaps guarding the median from below and above.** The max-heap/min-heap pair keeps the two central elements at the tops in O(1). The archetypal two-heap problem — reach for it on any running-median / "balance around a pivot" task.
 
 ## Related
-- concept: [[08-heaps|heaps]]
+- concept: [[07-heaps|heaps]]
 - prev: [[069-design-twitter|Design Twitter]] — end of Heap / Priority Queue
 - next category: Backtracking

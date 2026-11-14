@@ -1,6 +1,6 @@
 # Top K Frequent Elements
 
-**LeetCode 347** · Arrays & Hashing · concepts: [[03-hash-maps|hash-maps]], [[07-top-k-elements|top-k]], [[08-heaps|heaps]]
+**LeetCode 347** · Arrays & Hashing · concepts: [[03-hash-maps|hash-maps]], [[07-top-k-elements|top-k]], [[07-heaps|heaps]]
 
 ## Problem
 
@@ -33,7 +33,7 @@ def topKFrequent(nums, k):
 
 ## Approach 2 — heap of size k
 
-Keep a [[08-heaps|min-heap]] of the k most frequent seen so far (the [[07-top-k-elements|Top-K pattern]]). `heapq.nlargest` wraps this.
+Keep a [[07-heaps|min-heap]] of the k most frequent seen so far (the [[07-top-k-elements|Top-K pattern]]). `heapq.nlargest` wraps this.
 
 ```python
 import heapq
@@ -64,7 +64,7 @@ def topKFrequent(nums, k):
                 return result
 ```
 
-**Time O(n), space O(n).** Bucket sort works here precisely because the sort key (frequency) is a **bounded integer** in `[0, n]` — the same non-comparison-sort trick covered in [[04-sorting/index|sorting]]. It beats the O(n log n)/O(n log k) approaches by giving up on ordering *within* a frequency, which the problem doesn't require.
+**Time O(n), space O(n).** Bucket sort works here precisely because the sort key (frequency) is a **bounded integer** in `[0, n]` — the same non-comparison-sort trick covered in [[05-sorting/index|sorting]]. It beats the O(n log n)/O(n log k) approaches by giving up on ordering *within* a frequency, which the problem doesn't require.
 
 ## Complexity summary
 
@@ -79,5 +79,5 @@ def topKFrequent(nums, k):
 Two lessons stacked: (1) "k most/least frequent" → **count map + heap** is the general tool; (2) when the sort key is a **bounded integer** (here, frequency ≤ n), **bucket sort** beats any comparison-based method and hits O(n). Recognizing the bounded-key opportunity is what separates the optimal answer from the "good enough" heap.
 
 ## Related
-- concepts: [[03-hash-maps|hash-maps]], [[07-top-k-elements|top-k]], [[08-heaps|heaps]], [[04-sorting/index|bucket sort]]
+- concepts: [[03-hash-maps|hash-maps]], [[07-top-k-elements|top-k]], [[07-heaps|heaps]], [[05-sorting/index|bucket sort]]
 - prev: [[004-group-anagrams|Group Anagrams]] · next: [[006-encode-and-decode-strings|Encode and Decode Strings]]

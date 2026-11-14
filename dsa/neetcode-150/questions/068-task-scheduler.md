@@ -1,6 +1,6 @@
 # Task Scheduler
 
-**LeetCode 621** · Heap / Priority Queue · concept: [[08-heaps|heaps]]
+**LeetCode 621** · Heap / Priority Queue · concept: [[07-heaps|heaps]]
 
 ## Problem
 
@@ -12,7 +12,7 @@ tasks = ["A","A","A","B","B","B"], n = 2  ->  8   (A B _ A B _ A B)
 
 ## Approach — greedy: most-frequent-available first, via a heap
 
-Each interval, run the **most frequent remaining** task ([[08-heaps|max-heap]] of counts). After running it, it's on cooldown, so park it in a queue with the time it becomes available; return it to the heap when its cooldown expires.
+Each interval, run the **most frequent remaining** task ([[07-heaps|max-heap]] of counts). After running it, it's on cooldown, so park it in a queue with the time it becomes available; return it to the heap when its cooldown expires.
 
 ```python
 import heapq
@@ -45,5 +45,5 @@ The bottleneck is the **most frequent** task — its copies force the widest spa
 **Greedy scheduling → always run the highest-count available job (max-heap) + a cooldown queue.** The heap surfaces the current bottleneck; the queue enforces the timing constraint. This heap+queue pairing generalizes to rate-limited/cooldown scheduling.
 
 ## Related
-- concept: [[08-heaps|heaps]], [[01-when-greedy-works|greedy]]
+- concept: [[07-heaps|heaps]], [[01-when-greedy-works|greedy]]
 - prev: [[067-kth-largest-element-in-an-array|Kth Largest in an Array]] · next: [[069-design-twitter|Design Twitter]]

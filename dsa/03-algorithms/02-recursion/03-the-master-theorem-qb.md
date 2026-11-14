@@ -320,4 +320,4 @@ Compare root work $f(n)$ against leaf work $n^{\log_b a}$; whichever is **polyno
 
 - [[03-the-master-theorem|The Master Theorem]] — the module
 - [[02-recursion-trees-and-recurrences-qb|Recursion Trees & Recurrences — Question Bank]] — where the three cases are derived
-- [[../03-divide-and-conquer|Divide and Conquer]] — the design pattern it costs
+- [[../04-divide-and-conquer|Divide and Conquer]] — the design pattern it costs

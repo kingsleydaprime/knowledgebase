@@ -1,6 +1,6 @@
 # Minimum Interval to Include Each Query
 
-**LeetCode 1851** · Intervals · concepts: [[08-overlapping-intervals|overlapping-intervals]], [[08-heaps|heaps]]
+**LeetCode 1851** · Intervals · concepts: [[08-overlapping-intervals|overlapping-intervals]], [[07-heaps|heaps]]
 
 ## Problem
 
@@ -8,7 +8,7 @@ For each query `q`, return the size of the **smallest** interval `[l, r]` that c
 
 ## Approach — sort queries + heap of intervals by size (optimal)
 
-Sort both intervals (by start) and queries (ascending). Process queries in order; for each, **add all intervals that have started** (`l ≤ q`) into a [[08-heaps|min-heap keyed by interval size]], and **remove** intervals that have already ended (`r < q`). The heap top is then the smallest still-containing interval.
+Sort both intervals (by start) and queries (ascending). Process queries in order; for each, **add all intervals that have started** (`l ≤ q`) into a [[07-heaps|min-heap keyed by interval size]], and **remove** intervals that have already ended (`r < q`). The heap top is then the smallest still-containing interval.
 
 ```python
 import heapq
@@ -40,6 +40,6 @@ By answering queries in increasing order, intervals are added **once** (when the
 **Answer range-queries offline: sort queries, maintain a heap of currently-relevant intervals keyed by the quantity you want to minimize.** Combining interval sweeping with a size-ordered heap is the advanced interval pattern — the payoff of the whole category.
 
 ## Related
-- concepts: [[08-overlapping-intervals|overlapping-intervals]], [[08-heaps|heaps]]
+- concepts: [[08-overlapping-intervals|overlapping-intervals]], [[07-heaps|heaps]]
 - prev: [[134-meeting-rooms-ii|Meeting Rooms II]] — end of Intervals
 - next category: Math & Geometry

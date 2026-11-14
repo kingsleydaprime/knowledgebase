@@ -1,6 +1,6 @@
 # Maximum Subarray
 
-**LeetCode 53** · Greedy · concepts: [[09-max-slice-algorithms|max-slice]], [[01-when-greedy-works|greedy]], [[01-prefix-sum|prefix-sum]]
+**LeetCode 53** · Greedy · concepts: [[10-max-slice-algorithms|max-slice]], [[01-when-greedy-works|greedy]], [[01-prefix-sum|prefix-sum]]
 
 ## Problem
 
@@ -40,8 +40,8 @@ Kadane's reset *is* that running minimum, in disguise: setting `running = 0` whe
 
 ## Key insight
 
-**Maximum subarray → [[09-max-slice-algorithms|Kadane's]]: extend the running sum, reset it when it turns negative.** The one-line greedy insight ("a negative running total should be abandoned") is the whole algorithm, and the seed of the max/min-tracking variant in [[107-maximum-product-subarray|Maximum Product Subarray]].
+**Maximum subarray → [[10-max-slice-algorithms|Kadane's]]: extend the running sum, reset it when it turns negative.** The one-line greedy insight ("a negative running total should be abandoned") is the whole algorithm, and the seed of the max/min-tracking variant in [[107-maximum-product-subarray|Maximum Product Subarray]].
 
 ## Related
-- concepts: [[09-max-slice-algorithms|max-slice / Kadane's]], [[01-when-greedy-works|greedy]], [[01-prefix-sum|prefix-sum]]
+- concepts: [[10-max-slice-algorithms|max-slice / Kadane's]], [[01-when-greedy-works|greedy]], [[01-prefix-sum|prefix-sum]]
 - next: [[123-jump-game|Jump Game]]

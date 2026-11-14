@@ -275,7 +275,7 @@ Varies by sub-pattern, but the general win is turning an exponential brute-force
 
 ## 7. Tradeoffs and limitations
 
-- **Reaching for DP without confirming overlapping subproblems exist first** — if every subproblem is only ever solved once anyway, memoization adds overhead for no benefit; it's just plain recursion/divide-and-conquer (see [[04-sorting/index|merge sort]] for an example of recursion _without_ overlapping subproblems).
+- **Reaching for DP without confirming overlapping subproblems exist first** — if every subproblem is only ever solved once anyway, memoization adds overhead for no benefit; it's just plain recursion/divide-and-conquer (see [[05-sorting/index|merge sort]] for an example of recursion _without_ overlapping subproblems).
 - **Off-by-one errors in the base cases** (`dp[0]`, `dp[1]`) are the most common DP bug — get the smallest 1-2 states right by hand before trusting the recurrence for larger n.
 - **Space optimization.** Many DP problems can be optimized to use O(1) or O(n) space instead of O(n²) by only keeping the last row/few states.
 

@@ -1,6 +1,6 @@
 # Evaluate Reverse Polish Notation
 
-**LeetCode 150** · Stack · concept: [[07-stacks-and-queues|stacks-and-queues]]
+**LeetCode 150** · Stack · concept: [[05-stacks-and-queues|stacks-and-queues]]
 
 ## Problem
 
@@ -44,5 +44,5 @@ def evalRPN(tokens):
 **Postfix evaluation is the archetypal stack algorithm** — operands wait on the stack until their operator arrives. (Infix expressions are handled by the shunting-yard algorithm, which converts to postfix first.) The pattern generalizes to any "process operands, apply pending operations" evaluation.
 
 ## Related
-- concept: [[07-stacks-and-queues|stacks-and-queues]]
+- concept: [[05-stacks-and-queues|stacks-and-queues]]
 - prev: [[022-min-stack|Min Stack]] · next: [[024-generate-parentheses|Generate Parentheses]]

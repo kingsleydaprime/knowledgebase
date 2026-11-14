@@ -61,6 +61,6 @@ When a new large value arrives, every smaller value currently waiting is dominat
 **"Max/min of every sliding window" → monotonic deque of candidate indices.** It's the sliding-window analogue of the [[06-monotonic-stack|monotonic stack]]: maintain only elements that could still be the answer, discarding those a newer element dominates.
 
 ## Related
-- concepts: [[03-sliding-window|sliding-window]], [[06-monotonic-stack|monotonic-stack]], [[08-heaps|heaps]]
+- concepts: [[03-sliding-window|sliding-window]], [[06-monotonic-stack|monotonic-stack]], [[07-heaps|heaps]]
 - prev: [[019-minimum-window-substring|Minimum Window Substring]] — end of Sliding Window
 - next category: Stack

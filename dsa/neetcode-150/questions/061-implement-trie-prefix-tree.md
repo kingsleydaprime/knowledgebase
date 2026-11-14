@@ -1,6 +1,6 @@
 # Implement Trie (Prefix Tree)
 
-**LeetCode 208** · Tries · concept: [[09-tries|tries]]
+**LeetCode 208** · Tries · concept: [[08-tries|tries]]
 
 ## Problem
 
@@ -53,5 +53,5 @@ class Trie:
 **Prefix queries → a trie; the `is_end` flag separates "a word ends here" from "just a waypoint."** A [[03-hash-maps|hash set]] does exact membership but *can't* do `startsWith` without scanning every key — the trie's entire reason to exist.
 
 ## Related
-- concept: [[09-tries|tries]]
+- concept: [[08-tries|tries]]
 - next: [[062-design-add-and-search-words-data-structure|Design Add and Search Words]]

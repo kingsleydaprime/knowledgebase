@@ -374,9 +374,9 @@ You are done with this module when you can, closed-book:
 
 **Recap:** A linked list stores elements anywhere in memory, connected by pointers. Indexing therefore costs a walk - O(n) - because there is no address arithmetic to exploit. In exchange, inserting at the front or after a known node is O(1) with no shifting. Reversal rewires each node's pointer in place using three pointers, saving the forward link before destroying it. Neither structure is better; they are opposite bets about which operation dominates.
 
-**Next:** [[05-trees/01-trees|Trees]] - what happens when each node points to more than one other node.
+**Next:** [[05-stacks-and-queues|Stacks and Queues]] - two structures defined by *where* you're allowed to add and remove, often built on the arrays and linked lists you now know.
 
 ## Related Modules
 - [[01-arrays|Arrays]] — Contiguous memory alternative
-- [[07-stacks-and-queues|Stacks & Queues]] — Structures commonly backed by linked lists
+- [[05-stacks-and-queues|Stacks & Queues]] — Structures commonly backed by linked lists
 - [[03-hash-maps|Hash Maps]] — Using chaining linked lists to handle collisions

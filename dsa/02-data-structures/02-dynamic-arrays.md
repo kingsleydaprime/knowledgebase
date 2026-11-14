@@ -132,7 +132,7 @@ $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
 ## 6. Practical Optimizations & Gotchas
 
 1. **Pre-Allocation Optimization**: If you know you will store 100,000 items, pre-allocate the capacity upfront (`[None] * 100000` in Python or `vector.reserve(100000)` in C++) to prevent all resize copies!
-2. **Front Operations Are Still $O(n)$**: Dynamic arrays solve the dynamic sizing problem, but inserting at index 0 still requires shifting every item. If you need fast front insertions, use [[07-stacks-and-queues|Queues]] or [[04-linked-lists|Linked Lists]].
+2. **Front Operations Are Still $O(n)$**: Dynamic arrays solve the dynamic sizing problem, but inserting at index 0 still requires shifting every item. If you need fast front insertions, use [[05-stacks-and-queues|Queues]] or [[04-linked-lists|Linked Lists]].
 
 ---
 
@@ -330,4 +330,4 @@ You are done with this module when you can, closed-book:
 ## Related Modules
 - [[01-arrays|Arrays]] — The static contiguous foundation
 - [[04-linked-lists|Linked Lists]] — The pointer-based alternative with $O(1)$ front insertions
-- [[07-stacks-and-queues|Stacks and Queues]] — LIFO/FIFO structures built using dynamic arrays
+- [[05-stacks-and-queues|Stacks and Queues]] — LIFO/FIFO structures built using dynamic arrays

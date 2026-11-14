@@ -4,7 +4,7 @@
 
 ## Before you start
 
-- You should understand heaps. See [[08-heaps|heaps]] if needed.
+- You should understand heaps. See [[07-heaps|heaps]] if needed.
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
 
 **What you will be able to do after this lesson:**
@@ -336,7 +336,7 @@ You are done with this pattern when you can, closed-book:
 ## 10. Related
 
 - [[01-trees|trees]] — the heap data structure
-- [[04-sorting/index|sorting]] — the O(n log n) alternative this pattern beats when k << n
+- [[05-sorting/index|sorting]] — the O(n log n) alternative this pattern beats when k << n
 - [[03-hash-maps|hash maps]] — used for frequency counting
 - [[01-growth-and-asymptotic-notation|algorithms]] — where the O(n log k) vs O(n log n) comparison comes from
 - [[07-top-k-elements|top-k-elements]] — this note

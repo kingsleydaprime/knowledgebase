@@ -210,8 +210,8 @@ This list is short but decisive, and each absence follows from the same cause: *
 
 So a hash map cannot answer:
 
-- **"What is the smallest key?"** — the smallest key is in an arbitrary bucket. You would have to check all $n$. A [[08-heaps|heap]] or a balanced [[05-trees/01-trees|tree]] answers this in $O(1)$ or $O(\log n)$.
-- **"Which keys fall between 100 and 200?"** — a range query. Nearby keys are nowhere near each other in memory. A [[05-trees/01-trees|B-tree]] answers this efficiently, which is exactly why databases index with B-trees rather than hash tables.
+- **"What is the smallest key?"** — the smallest key is in an arbitrary bucket. You would have to check all $n$. A [[07-heaps|heap]] or a balanced [[06-trees/01-trees|tree]] answers this in $O(1)$ or $O(\log n)$.
+- **"Which keys fall between 100 and 200?"** — a range query. Nearby keys are nowhere near each other in memory. A [[06-trees/01-trees|B-tree]] answers this efficiently, which is exactly why databases index with B-trees rather than hash tables.
 - **"What comes after this key?"** — there is no "after". The order you get from iterating is an artefact of the bucket layout.
 
 > [!NOTE]
@@ -402,4 +402,4 @@ You are done with this module when you can, closed-book:
 - [[01-arrays|Arrays]] — The bucket array foundation underneath
 - [[02-dynamic-arrays|Dynamic Arrays]] — Amortized resizing principles
 - [[01-trees|Trees]] — Binary Search Trees for ordered key-value storage
-- [[09-tries|Tries]] — Prefix trees for string key searches
+- [[08-tries|Tries]] — Prefix trees for string key searches

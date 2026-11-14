@@ -398,4 +398,4 @@ Answer three questions — base case, recursive case assuming it works, and prog
 
 - [[01-recursion-fundamentals|Recursion Fundamentals]] — the module
 - [[02-recursion-trees-and-recurrences-qb|Recursion Trees & Recurrences — Question Bank]] — the next bank
-- [[../06-dynamic-programming/02-memoisation-and-tabulation|Memoisation and Tabulation]]
+- [[../07-dynamic-programming/02-memoisation-and-tabulation|Memoisation and Tabulation]]

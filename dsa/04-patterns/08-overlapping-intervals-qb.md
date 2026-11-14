@@ -182,4 +182,4 @@ Sort by the right endpoint for the question being asked, then sweep once compari
 ## Related
 
 - [[08-overlapping-intervals|Overlapping Intervals]] — the pattern
-- [[dsa/03-algorithms/10-greedy-algorithms/02-selection-and-scheduling-qb|Selection & Scheduling — Question Bank]] — where the sort key is proved
+- [[dsa/03-algorithms/06-greedy-algorithms/02-selection-and-scheduling-qb|Selection & Scheduling — Question Bank]] — where the sort key is proved

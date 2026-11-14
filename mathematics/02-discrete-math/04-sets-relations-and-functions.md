@@ -113,7 +113,7 @@ Where it shows up: **hashing** (buckets are classes under "same hash"), **modula
 
 The **transitive closure** of $R$ adds every pair reachable by a chain. Given "directly depends on", the transitive closure is "depends on, however indirectly".
 
-**Computed by Floyd–Warshall or repeated traversal**, and it's what you want for full dependency resolution or reachability. → [[dsa/02-data-structures/06-graphs/index|Graphs]]
+**Computed by Floyd–Warshall or repeated traversal**, and it's what you want for full dependency resolution or reachability. → [[dsa/02-data-structures/09-graphs/index|Graphs]]
 
 ## Functions
 

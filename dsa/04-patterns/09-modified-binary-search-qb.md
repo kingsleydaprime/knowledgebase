@@ -184,5 +184,5 @@ Binary search needs only a way to discard half the space — not sortedness — 
 ## Related
 
 - [[09-modified-binary-search|Modified Binary Search]] — the pattern
-- [[dsa/03-algorithms/05-searching/01-linear-and-binary-search-qb|Linear & Binary Search — Question Bank]]
-- [[dsa/03-algorithms/05-searching/02-binary-search-on-the-answer-qb|Binary Search on the Answer — Question Bank]] — the variant in depth
+- [[dsa/03-algorithms/03-searching/01-linear-and-binary-search-qb|Linear & Binary Search — Question Bank]]
+- [[dsa/03-algorithms/03-searching/02-binary-search-on-the-answer-qb|Binary Search on the Answer — Question Bank]] — the variant in depth

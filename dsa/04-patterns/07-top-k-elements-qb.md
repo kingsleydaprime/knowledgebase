@@ -184,5 +184,5 @@ Keep a size-$k$ heap ordered the *opposite* way to what you are looking for, so 
 ## Related
 
 - [[07-top-k-elements|Top K Elements]] — the pattern
-- [[dsa/02-data-structures/08-heaps-qb|Heaps — Question Bank]]
-- [[dsa/03-algorithms/04-sorting/04-quicksort-qb|Quicksort — Question Bank]] — where quickselect's partition comes from
+- [[dsa/02-data-structures/07-heaps-qb|Heaps — Question Bank]]
+- [[dsa/03-algorithms/05-sorting/04-quicksort-qb|Quicksort — Question Bank]] — where quickselect's partition comes from

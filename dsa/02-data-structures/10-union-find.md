@@ -11,7 +11,7 @@ It answers two fundamental operations in near-constant time:
 ## Before you start
 
 - You understand tree structure and height. See [[01-trees|trees]].
-- You have seen graph connectivity. See [[06-graphs/index|graphs]].
+- You have seen graph connectivity. See [[09-graphs/index|graphs]].
 
 **What you will be able to do after this lesson:**
 
@@ -84,7 +84,7 @@ Union-find answers one question, very fast, under one restriction: **groups merg
 
 **There is no `split` operation, and there cannot be one.** Path compression works by discarding the history of how groups were built — it rewires pointers straight to the representative — so the information needed to undo a merge is deliberately thrown away. That is precisely what makes it so fast.
 
-So union-find is the right structure when connections are only ever **added**: building a [[06-minimum-spanning-tree|minimum spanning tree]], detecting a cycle as edges arrive, counting connected components in a [[06-graphs/index|graph]] that grows, or grouping accounts as duplicates are discovered.
+So union-find is the right structure when connections are only ever **added**: building a [[06-minimum-spanning-tree|minimum spanning tree]], detecting a cycle as edges arrive, counting connected components in a [[09-graphs/index|graph]] that grows, or grouping accounts as duplicates are discovered.
 
 If connections can be **removed**, union-find cannot help, and you are usually back to recomputing components with [[01-depth-first-search|DFS]] or [[02-breadth-first-search|BFS]] — or reaching for a considerably more complex dynamic-connectivity structure.
 
@@ -384,6 +384,6 @@ You are done with this module when you can, closed-book:
 **This is the last structure in this folder.** Next is [[01-growth-and-asymptotic-notation|algorithms and complexity]], where these structures stop being the subject and start being the tools.
 
 ## Related Modules
-- [[06-graphs/index|Graphs]] — Graph definitions and connectivity
+- [[09-graphs/index|Graphs]] — Graph definitions and connectivity
 - [[01-depth-first-search|DFS]] & [[02-breadth-first-search|BFS]] — Graph traversal alternatives
 - [[06-minimum-spanning-tree|Minimum Spanning Tree]] — Kruskal's algorithm powered by Union-Find

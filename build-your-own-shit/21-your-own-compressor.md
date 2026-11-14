@@ -14,7 +14,7 @@
 
 - **Entropy, and what it is a limit on** — this guide is the applied half of that note → [[information-theory/02-entropy-joint-conditional-and-mutual|entropy]]
 - **Source coding, prefix codes and the Kraft inequality** → [[information-theory/03-source-coding-and-compression|source coding and compression]]
-- **A priority queue**, for building the Huffman tree → [[dsa/02-data-structures/08-heaps|heaps]]
+- **A priority queue**, for building the Huffman tree → [[dsa/02-data-structures/07-heaps|heaps]]
 - **Hash tables**, for finding matches → [[dsa/02-data-structures/03-hash-maps|hash maps]]
 - **Comfort with bit manipulation and byte order** → [[mathematics/01-core/01-numbers/01-number-bases/02-binary|binary]]
 

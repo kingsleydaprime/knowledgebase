@@ -24,7 +24,7 @@ By the end you will be able to:
 
 **Need to learn to code first?** Start with [[programming-fundamentals/index|Programming Fundamentals]]; this course assumes you can read a short program.
 
-Read in the order below. **It's not the same as the file numbers in places:** for example stacks and queues are filed after trees and graphs, but they're easier and graphs use them, so read them first.
+Read in the order below. Inside each folder, the file numbers follow this order. The only jumps between folders are Big-O (Step 1) and recursion (Step 3), which live in the algorithms folder but come before the data structures that use them.
 
 ### Step 1: Measuring how fast code is
 
@@ -37,7 +37,7 @@ Read in the order below. **It's not the same as the file numbers in places:** fo
 4. [[dsa/02-data-structures/02-dynamic-arrays|Dynamic Arrays]]: arrays that grow when they're full, like Python's list.
 5. [[dsa/02-data-structures/03-hash-maps|Hash Maps]]: finding a value by its name almost instantly, like Python's dictionary.
 6. [[dsa/02-data-structures/04-linked-lists|Linked Lists]]: items chained together, each pointing to the next.
-7. [[dsa/02-data-structures/07-stacks-and-queues|Stacks and Queues]]: last in, first out (a stack of plates) and first in, first out (a queue at the bank).
+7. [[dsa/02-data-structures/05-stacks-and-queues|Stacks and Queues]]: last in, first out (a stack of plates) and first in, first out (a queue at the bank).
 
 ### Step 3: Recursion
 
@@ -45,32 +45,32 @@ Read in the order below. **It's not the same as the file numbers in places:** fo
 
 ### Step 4: Trees
 
-9. [[dsa/02-data-structures/05-trees/index|Trees]]: information arranged in branches, like folders on a computer, including the search trees used for fast lookups.
-10. [[dsa/02-data-structures/05-trees/04-traversal/index|Tree Traversal]]: the standard ways to visit every item in a tree.
-11. [[dsa/02-data-structures/08-heaps|Heaps]]: always getting the smallest (or largest) item quickly, as in a priority queue.
-12. [[dsa/02-data-structures/09-tries|Tries]]: trees for words, used for autocomplete.
+9. [[dsa/02-data-structures/06-trees/index|Trees]]: information arranged in branches, like folders on a computer, including the search trees used for fast lookups.
+10. [[dsa/02-data-structures/06-trees/04-traversal/index|Tree Traversal]]: the standard ways to visit every item in a tree.
+11. [[dsa/02-data-structures/07-heaps|Heaps]]: always getting the smallest (or largest) item quickly, as in a priority queue.
+12. [[dsa/02-data-structures/08-tries|Tries]]: trees for words, used for autocomplete.
 
 ### Step 5: Graphs
 
-13. [[dsa/02-data-structures/06-graphs/index|Graphs]]: things connected to other things, like roads between cities or friends on social media.
-14. [[dsa/02-data-structures/06-graphs/05-traversal/index|Graph Traversal]]: exploring a graph, going deep first (DFS) or wide first (BFS).
-15. [[dsa/02-data-structures/06-graphs/06-algorithms/index|Graph Algorithms]]: shortest routes, putting tasks in a valid order, and connecting everything as cheaply as possible.
+13. [[dsa/02-data-structures/09-graphs/index|Graphs]]: things connected to other things, like roads between cities or friends on social media.
+14. [[dsa/02-data-structures/09-graphs/05-traversal/index|Graph Traversal]]: exploring a graph, going deep first (DFS) or wide first (BFS).
+15. [[dsa/02-data-structures/09-graphs/06-algorithms/index|Graph Algorithms]]: shortest routes, putting tasks in a valid order, and connecting everything as cheaply as possible.
 16. [[dsa/02-data-structures/10-union-find|Union-Find]]: quickly tracking which items belong to the same group.
 
 ### Step 6: Classic algorithms
 
-17. [[dsa/03-algorithms/05-searching/index|Searching]]: looking through items one by one, and halving the search each time (binary search).
-18. [[dsa/03-algorithms/04-sorting/index|Sorting]]: putting things in order, and why some methods are much faster than others.
-19. [[dsa/03-algorithms/03-divide-and-conquer|Divide and Conquer]]: splitting a problem in half, solving each half, and combining the answers.
-20. [[dsa/03-algorithms/10-greedy-algorithms/index|Greedy Algorithms]]: taking the best-looking choice at each step, and when that's safe.
-21. [[dsa/03-algorithms/06-dynamic-programming/index|Dynamic Programming]]: remembering answers to smaller problems so you never solve the same one twice.
+17. [[dsa/03-algorithms/03-searching/index|Searching]]: looking through items one by one, and halving the search each time (binary search).
+18. [[dsa/03-algorithms/04-divide-and-conquer|Divide and Conquer]]: splitting a problem in half, solving each half, and combining the answers.
+19. [[dsa/03-algorithms/05-sorting/index|Sorting]]: putting things in order, and why some methods are much faster than others. The fast ones are divide and conquer.
+20. [[dsa/03-algorithms/06-greedy-algorithms/index|Greedy Algorithms]]: taking the best-looking choice at each step, and when that's safe.
+21. [[dsa/03-algorithms/07-dynamic-programming/index|Dynamic Programming]]: remembering answers to smaller problems so you never solve the same one twice.
 
 ### Step 7: Extra techniques (read as needed)
 
 - [[dsa/03-algorithms/01-complexity-analysis/02-amortized-analysis|Amortised Analysis]]: why an operation that's occasionally slow can still be fast on average.
-- [[dsa/03-algorithms/07-number-theory-basics|Number Theory Basics]]: prime numbers, and the greatest common divisor (the largest number that divides two others).
-- [[dsa/03-algorithms/08-leader-algorithm|Leader Algorithm]]: finding the item that appears more than half the time.
-- [[dsa/03-algorithms/09-max-slice-algorithms|Max Slice Algorithms]]: finding the stretch of numbers with the biggest total.
+- [[dsa/03-algorithms/08-number-theory-basics|Number Theory Basics]]: prime numbers, and the greatest common divisor (the largest number that divides two others).
+- [[dsa/03-algorithms/09-leader-algorithm|Leader Algorithm]]: finding the item that appears more than half the time.
+- [[dsa/03-algorithms/10-max-slice-algorithms|Max Slice Algorithms]]: finding the stretch of numbers with the biggest total.
 - [[dsa/03-algorithms/11-bit-manipulation|Bit Manipulation]]: tricks that work directly on the 0s and 1s of a number.
 - [[dsa/03-algorithms/12-math-and-geometry|Math and Geometry]]: grid and maths techniques that come up in problems.
 
@@ -87,7 +87,7 @@ Read in the order below. **It's not the same as the file numbers in places:** fo
 2. **Ask which operation your code does most,** then pick the structure that makes that one fast.
 3. **Searching a list is slow; looking up a dictionary is fast.** Swapping one for the other is often the biggest speed-up available. → [[dsa/02-data-structures/03-hash-maps|Hash Maps]]
 4. **A loop inside a loop usually means trouble at scale.** A million items checked against a million items is a trillion steps. → [[dsa/01-loops-and-what-they-cost|Loops and What They Cost]]
-5. **Halving the problem each step is enormously fast.** A million items takes about 20 steps. → [[dsa/03-algorithms/05-searching/index|Searching]]
+5. **Halving the problem each step is enormously fast.** A million items takes about 20 steps. → [[dsa/03-algorithms/03-searching/index|Searching]]
 
 ## Related
 
@@ -101,6 +101,6 @@ Read in the order below. **It's not the same as the file numbers in places:** fo
 
 - **Size:** about 40,000 words across 30 lesson notes, each with a question bank, plus about 50,000 words working through all 150 NeetCode problems.
 - **Where it came from:** written against a Codility course (its material is in `dsa/pdfs/`), then checked against the NeetCode 150 list to fill gaps. Several lessons (amortised analysis, recursion, dynamic programming, A\*, and others) were added after a real interview showed they were missing; see [[disgrace-from-interview|the interview gap list]].
-- **How the files are organised:** ways of storing data are in `02-data-structures/`; methods are in `03-algorithms/`, unless a method belongs to one structure, in which case it's filed with that structure (so graph searching lives under `06-graphs/`).
-- **File numbers vs reading order:** a few files are numbered out of reading order (stacks and queues after trees and graphs). Follow the order on this page.
+- **How the files are organised:** ways of storing data are in `02-data-structures/`; methods are in `03-algorithms/`, unless a method belongs to one structure, in which case it's filed with that structure (so graph searching lives under `09-graphs/`).
+- **Renumbered in November 2026** so the files follow the reading order: stacks and queues now come before trees and graphs, and searching before sorting.
 - **Not covered yet:** fast text searching (the KMP algorithm), and segment and Fenwick trees.
