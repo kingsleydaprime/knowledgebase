@@ -72,7 +72,7 @@ Load an OBJ, compute face normals, then smooth vertex normals by averaging. Rend
 
 ## Part D — Classical raster graphics (notes 12–18)
 
-**The SSG 511 exam and assignment questions are the practice set for Part 2** — Bresenham tables, Cohen–Sutherland clipping, transforming shapes, Bézier control points and de Casteljau splits. They are in the [[computer-graphics/19-ssg-511-question-bank|question bank]], deliberately unsolved; each teaching note ends with its own independent task, and the runnable scripts in notes 13, 15 and 17 check your hand work.
+**The SSG 511 exam and assignment questions are the practice set for Part 1** — Bresenham tables, Cohen–Sutherland clipping, transforming shapes, Bézier control points and de Casteljau splits. They are in the [[computer-graphics/19-ssg-511-question-bank|question bank]], deliberately unsolved; each teaching note ends with its own independent task, and the runnable scripts in notes 13, 15 and 17 check your hand work.
 
 ## Related
 - [[computer-graphics/11-practice-exercises-solutions|Solutions]]

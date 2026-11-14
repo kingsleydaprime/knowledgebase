@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Deciding which surfaces the viewer can actually see: object-space versus image-space methods, the depth buffer worked by hand (including the plane-equation increment), back-face detection, the painter's algorithm, BSP trees, the scan-line method, Warnock's area subdivision, and ray casting.
 
-> Part 2 of the course. [[computer-graphics/03-rasterisation|Note 03]] covers the z-buffer as modern GPUs run it (early-Z, depth pre-pass, transparency); [[computer-graphics/02-the-transform-pipeline|note 02]] covers depth precision. **This note is the full classical family of methods.**
+> Part 1 of the course. [[computer-graphics/03-rasterisation|Note 03]] covers the z-buffer as modern GPUs run it (early-Z, depth pre-pass, transparency); [[computer-graphics/02-the-transform-pipeline|note 02]] covers depth precision. **This note is the full classical family of methods.**
 
 ## Before you start
 
@@ -142,7 +142,7 @@ Write a tiny software z-buffer in Python: a 20 × 20 grid, two overlapping trian
 
 ## Before moving on
 
-That ends the teaching notes of Part 2. **Next:** the [[computer-graphics/19-ssg-511-question-bank|SSG 511 question bank]] to test it, then Part 1 from [[computer-graphics/01-how-rendering-works|note 01]] for the modern view.
+That ends the teaching notes of Part 1. **Next:** the [[computer-graphics/19-ssg-511-question-bank|SSG 511 question bank]] to test it, then Part 2 from [[computer-graphics/01-how-rendering-works|note 01]] for the modern view.
 
 ## Related
 - [[computer-graphics/03-rasterisation|Rasterisation]] — the z-buffer on a GPU

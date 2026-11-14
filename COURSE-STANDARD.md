@@ -311,11 +311,26 @@ A lesson teaches in **one** language — TypeScript for software-engineering top
 
 A course index should specify the starting knowledge, dependency-aware reading order, practical stopping points, and a cumulative project or assessment. Distinguish core lessons from optional depth. Numbered filenames alone do not establish prerequisites.
 
+### A course index opens with what the subject is
+
+Someone opening a course for the first time has to know what the subject *is* before anything else. Write the index for that reader, not for someone who already knows the field.
+
+1. **Start with one plain sentence that says what the subject is,** in words a beginner already knows. "Computer graphics is drawing pictures on a computer screen with the help of programming." Then two or three sentences on where the reader has already met it in everyday life.
+2. **No unexplained terms above the reading list.** "Rasterisation, shading and ray tracing" means nothing yet. Say what the reader will be able to *do*, in plain words, and let the lessons introduce the names.
+3. **Each lesson in the reading list gets one plain line** saying what it teaches. Keep jargon out of the line, or explain it there.
+4. **Beginner material comes first** in the list, even if it was written later. Say clearly where to start.
+5. **Bold sparingly.** When half the page is bold, nothing stands out.
+6. **Bookkeeping goes in an "About this course" section at the very end:** word counts, when it was written or extended, the source it was built from, and what's missing. A reader studying the subject doesn't need it first.
+7. **Leave out why the course was chosen or how it fits the vault's plans.** "The weakest fit of the five domains in this batch" is a note to the author, not to a learner. Links to related courses go in a short "Related" list, with one plain line each.
+
+The SSG 511 study notes are the model for tone: plain definitions, everyday examples, one idea at a time. [[computer-graphics/index|Computer Graphics]] is the first index rewritten this way.
+
 Revision should preserve useful existing detail, links, and file locations. Fix inaccurate explanations while rewriting, but do not expand the task into unrelated topics. If a lesson becomes unwieldy, separate core and extension reading before splitting files and breaking links.
 
 ## Review checklist
 
 - [ ] The prerequisites and outcomes are explicit and realistic.
+- [ ] A course index opens with a plain sentence saying what the subject is, and keeps word counts and build history at the end.
 - [ ] A kid version opens the lesson, and says where its analogy stops working.
 - [ ] Definitions are a numbered list in plain full sentences, not a table.
 - [ ] Every result is stated in words before its formula appears.

@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Drawing circles with integers only (eight-way symmetry, the midpoint and Bresenham circle algorithms, ellipses), then colouring the inside of shapes: scan-line fill with edge tables, flood fill, boundary fill, and 4- versus 8-connectivity.
 
-> Part 2 of the course. Builds on the midpoint idea from [[computer-graphics/13-line-drawing-and-antialiasing|note 13]].
+> Part 1 of the course. Builds on the midpoint idea from [[computer-graphics/13-line-drawing-and-antialiasing|note 13]].
 
 ## Before you start
 

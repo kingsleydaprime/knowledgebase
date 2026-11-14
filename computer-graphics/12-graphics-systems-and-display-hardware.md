@@ -2,7 +2,7 @@
 
 **[Beginner → Intermediate]** — What computer graphics is for, why it is *interactive*, and the hardware the picture ends up on: the CRT, raster and random scan, the frame buffer, refresh rate, and bitmap versus vector images.
 
-> **Part 2 of this course — classical raster graphics.** Notes 12–21 are the foundations a university course such as SSG 511 examines: the algorithms that turn lines, circles and polygons into pixels, by hand. Part 1 (notes 01–09) is the modern GPU view. **If you are starting from zero, read 12–18 first, then 01.** Source: SSG 511 lecture and study notes, cross-checked against standard textbook treatments.
+> **Part 1 of this course — classical raster graphics.** Notes 12–21 are the foundations a university course such as SSG 511 examines: the algorithms that turn lines, circles and polygons into pixels, by hand. Part 2 (notes 01–09) is the modern GPU view. **If you are starting from zero, read 12–18 first, then 01.** Source: SSG 511 lecture and study notes, cross-checked against standard textbook treatments.
 
 ## Before you start
 
@@ -128,14 +128,14 @@ The primary output device of a graphics system is the **video monitor**, and the
 | Weak at | Jagged diagonal lines (the staircase effect) | Filled areas; many lines slow the cycle and it flickers |
 | Today | Almost every screen | Old vector and CAD displays |
 
-> **The raster weakness is the reason half of Part 2 exists.** A diagonal line on a grid of dots has to be approximated by pixels — which is exactly why DDA and Bresenham exist ([[computer-graphics/13-line-drawing-and-antialiasing|note 13]]), and why antialiasing exists.
+> **The raster weakness is the reason half of Part 1 exists.** A diagonal line on a grid of dots has to be approximated by pixels — which is exactly why DDA and Bresenham exist ([[computer-graphics/13-line-drawing-and-antialiasing|note 13]]), and why antialiasing exists.
 
 ### Raster basics
 
 - The screen is a **2D array of pixels**. OpenGL puts the origin **(0, 0) at the lower left**; upper left is the other common convention. *State which one you use.*
 - With **N bits per pixel**, each pixel can show one of $2^N$ intensities or colours.
 - Greyscale usually uses one byte per pixel: $2^8 = 256$ levels. Colour usually uses one byte per channel for red, green and blue: 3 bytes (24 bits) per pixel.
-- The two primitive operations are **`setpixel(x, y, color)`** and **`getpixel(x, y)`**. Every algorithm in Part 2 is built on them.
+- The two primitive operations are **`setpixel(x, y, color)`** and **`getpixel(x, y)`**. Every algorithm in Part 1 is built on them.
 
 **Frame-buffer size is width times height times bits per pixel.**
 
