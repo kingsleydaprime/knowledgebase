@@ -1,100 +1,85 @@
 # Databases
 
-How a database actually works underneath — pages, B-trees, query planning, MVCC, the write-ahead log — plus five deep reference files for the surface layer.
+## What a database is
 
-**Course: ~20,500 words across 14 notes** (built August 2026, including practice + solutions). **References: ~11,600 lines across 5 files** (older, and still the place to look up syntax). `[reference]` throughout.
+**A database is a program that stores information and lets you find it, change it and keep it safe, even when many people use it at once.**
 
-> **Why the split.** The four reference files were already comprehensive on _what to type_ — every join type, every window function, every normalisation form, every MongoDB operator. **What was missing was the layer underneath: why the planner chose that plan, why your update bloated the table, why the migration locked everything.** The numbered course is that layer, and it doesn't repeat the references.
+Your bank balance, your messages, the products in an online shop and the posts on social media all live in databases. You could store information in ordinary files, but files fall apart quickly: two people saving at the same moment can overwrite each other, a power cut halfway through a save can leave the file broken, and finding one customer among a million means reading the whole file. A database solves all of these problems for you.
 
-## Two ways in
+Most databases are **relational**: they store information in tables, like spreadsheets, with rows and columns. You talk to them in a language called **SQL**, for example `SELECT name FROM customers WHERE city = 'Lagos'`.
 
-**Looking something up?** Go straight to a reference:
+This course explains **how a database works inside**: how it stores data on disk, how it finds rows quickly, how it stops two people's changes from clashing, and how it survives a crash.
 
-| For                                                             | File                                                                             |
-| --------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| **SQL syntax** — joins, window functions, CTEs, subqueries      | [[databases/sql-reference\|sql-reference]] · 4,200 lines                         |
-| **Schema design** — keys, normalisation, cardinality, patterns  | [[databases/database-design-reference\|database-design-reference]] · 2,700 lines |
-| **MySQL specifics** — admin, storage engines, replication setup | [[databases/mysql-reference\|mysql-reference]] · 2,100 lines                     |
-| **MongoDB, Redis, Cassandra, Neo4j, Elasticsearch**             | [[databases/nosql-reference\|nosql-reference]] · 2,000 lines                     |
-| **Schema migrations** — drift, failed migrations, safe renames  | [[databases/migrations-reference\|migrations-reference]] · 330 lines            |
+## What you'll be able to do
 
-**Want to understand what's happening?** Read the course, in order.
+By the end you will be able to:
+- explain why databases exist and what they promise you;
+- understand why some queries are fast and others are slow, and make slow ones fast with **indexes**;
+- read a query plan, the database's explanation of how it will run your query;
+- explain what happens when two people change the same data at the same time, and avoid the bugs that causes;
+- explain how a database survives a crash without losing your data;
+- change a live database's structure without taking the app down.
 
-**Self-study pilot:** [[databases/03-storage-and-page-layout|Storage and Page Layout]] now includes prerequisites, a byte-by-byte page trace, a runnable in-memory Python model, and an independent compaction lab with checks. Stop and do that lab before continuing to indexes. It needs no database server. The remaining lessons have not yet received the same teaching-quality revision.
+## Where to start
 
-## The course
+**If you've never used a database,** learn to write basic SQL first. The [[databases/sql-reference|SQL reference]] covers it, and [[backend/04-data-and-persistence/index|Backend: data and persistence]] shows how an app talks to a database. Then come back to this course.
 
-**02–05 are storage. 06–07 are query processing. 08–10 are transactions. 11–12 are scale and operations.**
+**If you can already write SQL,** read the course in order. Notes 02–05 are about how data is stored, 06–07 about how queries run, 08–10 about safety when many people use the database at once, and 11–12 about running a database for real.
 
-1. [[databases/01-what-a-database-is|What a Database Is]] — **[Beginner → Intermediate]** — why not files, what ACID actually guarantees, OLTP vs OLAP, and an honest account of the NoSQL story
-2. [[databases/02-the-relational-model|The Relational Model]] — **[Intermediate]** — Codd's data independence, relational algebra, and **why the optimiser's whole job is to never do what the algebra literally says**
-3. [[databases/03-storage-and-page-layout|Storage and Page Layout]] — **[Intermediate → Advanced]** — pages, slotted layout, **implementing compaction with stable slots**, the buffer pool, row vs column storage, and clustered-key tradeoffs
-4. [[databases/04-b-trees-and-indexes/index|B-Trees and Indexes]] — **[Intermediate → Advanced]** — why B+ trees not binary trees, the leftmost prefix rule, index-only scans, and **when an index makes things worse**
-5. [[databases/05-lsm-trees|LSM Trees]] — **[Advanced]** — the write-optimised alternative, compaction, bloom filters, and the RUM conjecture
-6. [[databases/06-the-query-pipeline|The Query Pipeline]] — **[Intermediate → Advanced]** — parse → bind → rewrite → plan → execute. **A database is a compiler**
-7. [[databases/07-join-algorithms-and-the-optimiser/index|Join Algorithms and the Optimiser]] — **[Advanced]** — the three joins, join ordering, cost estimation, and **the four ways estimates go wrong**
-8. [[databases/08-transactions-and-acid/index|Transactions and ACID]] — **[Intermediate → Advanced]** — the anomalies precisely, isolation levels, and **why your default is weaker than your code assumes**
-9. [[databases/09-mvcc-and-concurrency-control/index|MVCC and Concurrency Control]] — **[Advanced]** — how isolation is implemented, why Postgres needs `VACUUM`, transaction ID wraparound, and deadlocks
-10. [[databases/10-durability-and-recovery|Durability and Recovery]] — **[Advanced]** — the WAL, ARIES, checkpoints, and **the ways `fsync` lies**
-11. [[databases/11-replication-and-scaling|Replication and Scaling]] — **[Advanced]** — replicas, failover and split brain, partitioning vs sharding, connection pooling
-12. [[databases/12-operating-a-database|Operating a Database]] — **[Intermediate → Advanced]** — migrations that don't cause outages, N+1, monitoring, and how to choose
+1. [[databases/01-what-a-database-is|What a Database Is]]: why not just use files, the promises a database makes (called ACID), and the different kinds of database.
+2. [[databases/02-the-relational-model|The Relational Model]]: the idea behind tables, and why you describe *what* you want instead of *how* to get it.
+3. [[databases/03-storage-and-page-layout|Storage and Page Layout]]: how rows are actually laid out on disk, in fixed-size blocks called pages. It has a hands-on lab you can do without installing a database; do it before moving on.
+4. [[databases/04-b-trees-and-indexes/index|B-Trees and Indexes]]: how an index lets the database find one row among millions in a few steps, like the index at the back of a book. And when an index makes things worse.
+5. [[databases/05-lsm-trees|LSM Trees]]: a different way of storing data that's built for writing very fast.
+6. [[databases/06-the-query-pipeline|The Query Pipeline]]: the steps your SQL goes through, from text to results.
+7. [[databases/07-join-algorithms-and-the-optimiser/index|Join Algorithms and the Optimiser]]: how the database combines tables, and how it guesses the fastest way to run your query (and how those guesses go wrong).
+8. [[databases/08-transactions-and-acid/index|Transactions and ACID]]: grouping changes so they all happen or none do, and what can go wrong when two people change data at once.
+9. [[databases/09-mvcc-and-concurrency-control/index|MVCC and Concurrency Control]]: how a database lets people read and write at the same time without blocking each other, and the clean-up work that causes.
+10. [[databases/10-durability-and-recovery|Durability and Recovery]]: how a database makes sure saved data survives a crash or power cut.
+11. [[databases/11-replication-and-scaling|Replication and Scaling]]: keeping copies of a database on several machines, and splitting data when one machine isn't enough.
+12. [[databases/12-operating-a-database|Operating a Database]]: changing a live database safely, the most common performance mistake, monitoring, and choosing a database.
 
-## The things worth carrying
+## For quick lookup
 
-1. **A database is what you get when you take concurrency, crash safety, indexing, memory limits, atomicity and constraints seriously.** Not a fancy file format → [[databases/01-what-a-database-is|01]]
-2. **Everything is pages**, and the page is the unit of I/O, caching and often locking → [[databases/03-storage-and-page-layout|03]]
-3. **B+ trees win because they do hundreds of comparisons per block fetched.** Same argument as cache lines → [[databases/04-b-trees-and-indexes/index|04]]
-4. **The leftmost prefix rule.** An index on `(a,b,c)` can't serve `WHERE b = 2`, and equality columns belong before range columns → [[databases/04-b-trees-and-indexes/index|04]]
-5. **Estimated vs actual rows in `EXPLAIN ANALYZE` is the single most useful diagnostic.** Find the lowest node with a bad estimate → [[databases/07-join-algorithms-and-the-optimiser/index|07]]
-6. **`random_page_cost = 4.0` assumes spinning disks.** Set it to 1.1 on SSDs — one line, large effect → [[databases/07-join-algorithms-and-the-optimiser/index|07]]
-7. **You're probably running at Read Committed**, which permits lost updates and write skew. Most code assumes serializable → [[databases/08-transactions-and-acid/index|08]]
-8. **Long transactions are the root of most MVCC problems** — bloat, blocked vacuum, lock pileups → [[databases/09-mvcc-and-concurrency-control/index|09]]
-9. **`SET lock_timeout` before every migration.** One slow `SELECT` otherwise stalls the whole table → [[databases/12-operating-a-database|12]]
-10. **Replication is not a backup.** A replica replicates `DROP TABLE` in milliseconds → [[databases/10-durability-and-recovery|10]]
-11. **Scale up before you scale out.** Indexes, pooling, caching, a bigger machine — most systems never need more → [[databases/11-replication-and-scaling|11]]
-12. **N+1 is the most common application-level database problem there is** → [[databases/12-operating-a-database|12]]
+These reference files are for looking things up, not reading through.
 
-## Where this connects
-
-|                                                                                   |                                                                                                                                                |
-| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [[architecture/04-distributed-systems/index\|distributed systems]]               | **Deliberate division of labour** — consensus, CAP, consistency models and distributed transactions live there. Note 11 is the operator's view |
-| [[computer-architecture/08-the-memory-hierarchy\|memory hierarchy]]   | Pages, buffer pools and B-tree fanout are the same argument one level up                                                                       |
-| [[compilers/index\|compilers]]                                       | The query pipeline _is_ a compiler pipeline                                                                                                    |
-| [[mathematics/02-discrete-math/04-sets-relations-and-functions\|sets and relations]] | A table is a relation, literally — Codd's 1970 paper                                                                                           |
-| [[backend/04-data-and-persistence/index\|backend/data]]                          | Using a database from an application                                                                                                           |
-| [[build-your-own-shit/06-your-own-database\|build-your-own-database]]             | The build guide these notes explain                                                                                                            |
-
-## The honest note
-
-**`[reference]`, with one qualification: the reference files predate this course and were written from wider use.** The numbered notes are the internals layer, assembled from the standard sources — Hellerstein & Stonebraker's _Architecture of a Database System_, _Designing Data-Intensive Applications_, Petrov's _Database Internals_, and the Postgres and InnoDB documentation. **Not from having operated a database at scale.**
-
-**The tell to watch for:** the notes are confident about _mechanisms_ and thinner on _judgement_ — how bad a particular bloat number is in practice, when a plan regression is worth chasing, what a real incident feels like. **Those come from operating one.**
-
-**What would close the gap, in rough order of value:**
-
-1. **Run `EXPLAIN (ANALYZE, BUFFERS)` on your own slow queries** and find one where estimated and actual rows diverge. **Twenty minutes, and note 07 stops being abstract**
-2. **Cause a deadlock deliberately.** Two `psql` sessions, opposite lock order. Read the log message
-3. **Watch bloat happen** — update a table in a loop with vacuum off, watch `n_dead_tup` and the table size grow, then vacuum
-4. **Do an expand–contract migration** on something real, including the separate contract release
-5. **Restore from a backup, timed.** Your RTO is what a restore actually takes → [[databases/10-durability-and-recovery|10]]
-6. **[[build-your-own-shit/06-your-own-database|Build a small database]]** — an append-only log, then a B-tree or LSM, then a WAL. `kill -9` mid-transaction and see the data survive. **The guide's verification hook is exactly the durability argument in note 10**
-7. **The books:** _Database Internals_ (Petrov) for storage and distribution; _Designing Data-Intensive Applications_ (Kleppmann) for the systems view; _The Art of PostgreSQL_ for the practitioner's; and the Postgres source, which is unusually readable
-
-**What's missing:** ~~exercises~~ — **closed by notes 13–14 (Aug 2026)**; worked schema examples beyond what the design reference has, anything on data warehousing and dimensional modelling, stream processing, vector databases and embeddings (a real gap given this vault's AI/ML material), and time-series databases in depth.
-
-→ [[PRIMETECHIE|Reading is not a rank.]]
+- [[databases/sql-reference|SQL reference]]: how to write queries: joins, window functions, subqueries.
+- [[databases/database-design-reference|Database design reference]]: designing tables: keys, normalisation (organising data to avoid repetition), and common patterns.
+- [[databases/mysql-reference|MySQL reference]]: MySQL-specific setup and administration.
+- [[databases/nosql-reference|NoSQL reference]]: databases that don't use tables: MongoDB, Redis, Cassandra, Neo4j and Elasticsearch.
+- [[databases/migrations-reference|Migrations reference]]: changing a database's structure safely over time.
 
 ## Practice
 
-- [[databases/13-practice-exercises|Practice Exercises]] — fourteen exercises against a real database — a 9,327× index speedup, N+1, deadlocks, MVCC bloat, and killing the server mid-write
-- [[databases/14-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
+- [[databases/13-practice-exercises|Practice Exercises]]: fourteen exercises against a real database, such as making a query thousands of times faster with one index, causing a deadlock on purpose, and killing the server mid-save to see what survives.
+- [[databases/14-practice-exercises-solutions|Solutions]]: worked answers. Try first.
+- [[databases/projects|Projects]]: hands-on tasks, from easy (🟢) to hard (🔴), each with a clear "done when".
+- [[build-your-own-shit/06-your-own-database|Build your own database]]: write a small database yourself, step by step.
+
+## Key ideas to remember
+
+1. **Everything is stored in pages,** fixed-size blocks the database reads and writes as a unit. → [[databases/03-storage-and-page-layout|03]]
+2. **An index on several columns only helps if your query uses the first one.** An index on `(a, b, c)` can't help `WHERE b = 2`. → [[databases/04-b-trees-and-indexes/index|04]]
+3. **When a query is slow, compare the database's guessed row counts with the real ones** (`EXPLAIN ANALYZE`). The first big mismatch usually points to the problem. → [[databases/07-join-algorithms-and-the-optimiser/index|07]]
+4. **Your database probably protects you less than you think by default.** Two people updating the same row can quietly lose one person's change. → [[databases/08-transactions-and-acid/index|08]]
+5. **Long-running transactions cause most slowdowns** in databases like Postgres. → [[databases/09-mvcc-and-concurrency-control/index|09]]
+6. **A copy of your database is not a backup.** If someone deletes a table, the copy deletes it too, a moment later. → [[databases/10-durability-and-recovery|10]]
+7. **Make one machine faster before splitting across many.** Indexes, caching and a bigger machine are enough for most apps. → [[databases/11-replication-and-scaling|11]]
+8. **The most common database mistake in apps is running one query per item in a loop** (called "N+1") instead of one query for all of them. → [[databases/12-operating-a-database|12]]
 
 ## Related
 
-- [[data-engineering/index|data engineering]] — moving analytical data _between_ databases: warehouses, Kafka, dbt, pipelines
-- [[databases/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a _done when_ for each
-- [[databases/interview/index|Databases — Interview Prep]] — what gets asked about all this
-- [[architecture/04-distributed-systems/index|Distributed Systems]] — the theory beyond one machine
-- [[backend/index|Backend]] — where databases get used
-- [[BUILD-PLAN|Build Plan]]
+- [[backend/index|Backend]]: where apps use databases.
+- [[data-engineering/index|Data Engineering]]: moving large amounts of data between databases for analysis.
+- [[architecture/04-distributed-systems/index|Distributed Systems]]: what changes when data is spread across many machines.
+- [[databases/interview/index|Databases interview prep]]: what interviewers ask about all this.
+
+---
+
+## About this course
+
+- **Size:** the course is 14 notes, about 20,500 words, written in August 2026. The five reference files are older and much longer (about 11,600 lines).
+- **Where it came from:** the standard books (*Database Internals*, *Designing Data-Intensive Applications*, *Architecture of a Database System*) and the Postgres and MySQL documentation, not from running a large database in production. It's strongest on how things work, and thinner on judgement, such as how bad a given slowdown is in practice.
+- **Teaching quality:** note 03 has been revised to the full lesson standard (worked example, lab, checks). The other notes haven't yet.
+- **Not covered yet:** a beginner's "your first SQL queries" lesson (the SQL reference covers it for now), data warehouses, stream processing, vector databases, and time-series databases.
+- **Further reading:** *Database Internals* (Petrov), *Designing Data-Intensive Applications* (Kleppmann), *The Art of PostgreSQL*.
