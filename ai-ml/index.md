@@ -1,38 +1,66 @@
 # AI & ML
 
-This domain is organized around a distinction that matters for how you actually learn and work: **"AI/ML" is three different career paths, not one.** roadmap.sh treats them as separate roadmaps (and even has explicit `ml-engineer-vs-ai-engineer` nodes) — so this domain is split the same way, over a shared foundation.
+## What AI and machine learning are
 
-> **New to AI entirely, and not a programmer?** Start with [[using-ai/index|using-ai/]] — an eight-note course on *using* LLMs well (briefing them, checking them, what not to paste). Everything below assumes you'll be building.
+**Machine learning is getting a computer to learn a task from examples instead of following rules a programmer wrote by hand. AI (artificial intelligence) is the wider goal: computers doing things that used to need human intelligence.**
 
-## The three paths — and how they differ
+To spot spam the old way, a programmer would write rules: "if the email says 'you've won', it's spam". Spammers soon learn to dodge the rules. With machine learning, you show the computer thousands of emails already labelled "spam" or "not spam", and it works out the patterns itself. The result of that learning is called a **model**: a program that takes new input (a new email) and makes a prediction (spam or not).
 
-| Path | Core question | Deliverable | Builds/trains models? |
+Chatbots like ChatGPT and Claude are built on a kind of model called a **large language model (LLM)**, trained on huge amounts of text until it can write, answer questions and follow instructions.
+
+## Which path is for you?
+
+"AI/ML" covers three different jobs. They share some basics but need different skills, so this course is split the same way.
+
+| Path | The question it answers | What you produce | Do you train models? |
 |---|---|---|---|
-| *[[using-ai/index\|(path zero: AI User)]]* | *"how do I use these tools well?"* | *better work, faster — no code* | *no — uses the products, not the APIs* |
-| **[[ai-ml/01-data-scientist/index\|Data Scientist]]** | "what does the data tell us?" | an answer, analysis, or insight (often a notebook + report) | sometimes — usually classical ML, interpreted |
-| **[[ai-ml/02-ml-engineer/index\|ML Engineer]]** | "how do we build and ship a model that works in production?" | a trained model running reliably as software | **yes** — trains models, then operationalizes them (MLOps) |
-| **[[ai-ml/03-ai-engineer/index\|AI Engineer]]** | "how do we build a product on top of existing models?" | an application using pre-trained models (LLMs) via APIs | **no** — uses pre-trained models; RAG/prompting/agents, not training |
+| [[ai-ml/01-data-scientist/index\|Data Scientist]] | "What does the data tell us?" | an answer or insight, often a report | sometimes, mostly simpler models |
+| [[ai-ml/02-ml-engineer/index\|ML Engineer]] | "How do we build a model and run it reliably in a real product?" | a trained model running as software | **yes** |
+| [[ai-ml/03-ai-engineer/index\|AI Engineer]] | "How do we build a product on top of models others have trained?" | an app that uses models like Claude or GPT | **no**, you use existing ones |
 
-The sharpest line is between **ML Engineer** (trains models, needs the math and the algorithm zoo) and **AI Engineer** (uses someone else's trained models, needs prompting/RAG/agents/APIs). The Data Scientist sits closer to the ML Engineer on the math/stats side but optimizes for *insight* over *shipping software*. Many real jobs blend two of these — the split is about emphasis, not walls.
+The biggest difference is between the last two. An ML engineer trains models, which needs a lot of maths. An AI engineer uses ready-made models through an API and needs much less maths but more software skill. Many real jobs mix two of these.
 
-## Shared foundation
+**Not a programmer, and just want to use AI tools well?** Start with [[using-ai/index|Using AI]], an eight-note course on using chatbots well, with no code.
 
-- [[ai-ml/00-foundations/index|00-foundations/]] — the common ground: **core concepts** (what AI/a model is) and **[[ai-ml/00-foundations/03-mathematics/index|mathematics]]** (linear algebra, calculus, probability/statistics, optimization). The Data Scientist and ML Engineer paths lean on this heavily; the AI Engineer path needs far less of it.
+## What you'll be able to do
 
-## The three tracks
+Depending on the path you take, you'll be able to:
+- explain what a model is, how it learns, and how to tell whether it's any good;
+- analyse data, run fair experiments, and avoid misleading conclusions (data scientist);
+- train models, including neural networks for images and text, and run them in production (ML engineer);
+- build apps with LLMs: prompting, giving a model your own documents to answer from, letting it use tools, and testing its output (AI engineer).
 
-1. [[ai-ml/01-data-scientist/index|01-data-scientist/]] — **[skeleton]** — statistics, EDA, experimentation, econometrics, classical ML for insight. The emptiest track; to be built out.
-2. [[ai-ml/02-ml-engineer/index|02-ml-engineer/]] — **[Intermediate → Advanced]** — the ML workflow, deep learning, computer vision, building your own models, and (to come) the algorithm zoo, RL, NLP, and MLOps. The most-built track — its current content was re-homed here from the old flat structure.
-3. [[ai-ml/03-ai-engineer/index|03-ai-engineer/]] — **[Beginner → Advanced]** — the applied-LLM track: how LLMs work, the model landscape, calling models (APIs/SDKs), prompt engineering, RAG & embeddings, tools & MCP, agents, multimodal, and safety. **The deep-built track** — it matches the applied AI work (AI SDK, MCP, agents) done elsewhere in these projects.
+## Where to start
 
-## Where the content comes from
+1. **Everyone:** [[ai-ml/00-foundations/index|Foundations]]: what AI and a model are, the maths (needed mostly for the data scientist and ML engineer paths), and Python's data tools.
+2. **Then pick a path:**
+   - [[ai-ml/01-data-scientist/index|Data Scientist]]: 7 notes on statistics, exploring data, charts, experiments and A/B tests, and telling cause from coincidence.
+   - [[ai-ml/02-ml-engineer/index|ML Engineer]]: 10 sections, from how machine learning works and preparing data, through classic methods and testing models, to deep learning, images, text, fine-tuning and running models in production (MLOps).
+   - [[ai-ml/03-ai-engineer/index|AI Engineer]]: about 20 notes on building with LLMs: how they work, calling them from code, writing prompts, giving them your documents (RAG), tools and agents, testing their answers, cost and speed, and running models on your own machine. It ends with practice exercises.
 
-Restructured (2026-07-31) by cross-referencing against roadmap.sh's `ai-data-scientist`, `machine-learning`, `mlops`, and `ai-engineer` roadmaps. The old single linear course ("fundamentals → maths → ml-engineering → CV → build your own") conflated all three paths; its content was re-homed into the path it actually belonged to, nothing dropped. The AI Engineer track was built out deeply this pass (folding in the old `01-fundamentals/` notes + roadmap gaps); Data Scientist and ML Engineer keep their existing content with gaps documented for later passes.
+## Practice
+
+- [[ai-ml/projects|Projects]]: hands-on tasks, from easy (🟢) to hard (🔴), each with a clear "done when".
+- [[ai-ml/interview/index|AI and ML interview prep]]: AI engineering, and machine learning and statistics basics.
+
+## Key ideas to remember
+
+1. **A model learns patterns from examples,** so it's only as good as its examples. Biased or messy data gives a biased or messy model.
+2. **Always test a model on data it didn't learn from.** Doing well on its own training examples proves nothing.
+3. **An LLM predicts likely text; it doesn't look facts up.** That's why it can sound confident and be wrong, and why you check its output.
+4. **For most products, use an existing model before training your own.** Training is expensive and rarely needed.
 
 ## Related
-- [[data-engineering/index|data engineering]] — the pipelines that feed models; MLOps is largely data engineering
-- [[ai-ml/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
-- [[using-ai/index|Using AI]] — the non-programmer on-ramp that feeds into this domain
-- [[dsa/index|DSA fundamentals]] — different domain, same "orientation → build" approach
-- [[devops/index|DevOps]] — the MLOps half of the ML Engineer path cross-links here
-- [[ai-automation/index|ai-automation/]] — the no-code/automation-tooling angle on applied AI
+
+- [[using-ai/index|Using AI]]: using AI tools well, without code.
+- [[ai-automation/index|AI Automation]]: connecting AI to everyday tools with little or no code.
+- [[data-engineering/index|Data Engineering]]: the pipelines that collect and clean the data models learn from.
+- [[data-analysis/index|Data Analysis]]: working with data before any machine learning.
+- [[mathematics/index|Mathematics]]: the maths behind machine learning.
+
+---
+
+## About this course
+
+- **How it's organised:** restructured on 31 July 2026 into the three paths, following roadmap.sh's separate data scientist, machine learning, MLOps and AI engineer roadmaps. Nothing from the earlier single course was dropped; each note moved to the path it belonged to.
+- **Where it came from:** the AI engineer path is the most developed, and matches real work in other projects here (the AI SDK, MCP tools and agents). The others were written from reference sources.
