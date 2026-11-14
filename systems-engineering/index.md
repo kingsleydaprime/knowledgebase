@@ -1,97 +1,60 @@
 # Systems Engineering
 
-The discipline of making a whole work when no one person understands all of it.
+## What systems engineering is
 
-**~8,200 words across 8 notes.** Built August 2026. `[reference]`.
+**Systems engineering is making a big, complicated thing work as a whole, when it's built by many teams and no single person understands every part.**
 
-> **The one idea:** **the failures live between the parts.** Every component can meet its specification and the system can still fail — because emergent behaviour, unowned interfaces and unstated assumptions belong to nobody. Systems engineering is the practice of claiming that space.
+Think of an aircraft, a power grid or a hospital's computer system. Each part can be built perfectly to its own specification, and the whole can still fail. The engine team assumed the fuel team would handle something; the fuel team assumed the opposite; nobody owned the gap between them. **Failures live between the parts.** Systems engineers own those gaps: they turn vague goals into clear, testable requirements, define exactly how parts connect, weigh up design choices fairly, check the finished system really does what was needed, and hunt for ways it could fail before it does.
 
-## Why this exists
+It began in aerospace and defence, but software needs it too. Many of its tools, like listing every way a part can fail and what happens next, are better than what software teams invented on their own.
 
-**This vault is written by and for a systems engineering student, and had nothing on systems engineering.** Zero hits vault-wide for INCOSE, MBSE, SysML, requirements engineering, or trade studies. `engineering/` meant continuum mechanics and control theory; `architecture/` meant distributed software.
+## What you'll be able to do
 
-The gap mattered in both directions:
+By the end you will be able to:
+- explain why a system can fail even when every part works;
+- write clear requirements that can actually be tested, and trace each one to what satisfies it;
+- explain the standard lifecycle of a system, and how it fits with agile work;
+- break a system into parts and define exactly how they connect;
+- compare design options fairly, and spot a comparison that's been rigged;
+- check that a system is built right *and* that it's the right system;
+- find likely failures early, using failure-mode tables and fault trees.
 
-**Toward the degree** — the vault's software material is full of systems-engineering reasoning under other names (coupling, interfaces, non-functional requirements, blast radius, postmortems) and none of it was connected to the vocabulary you're being examined on.
+## Where to start
 
-**Toward the software** — the reverse is more interesting. **Requirements traceability, FMEA, fault trees, interface control and margin are genuinely underused in software**, and several are better answers than what software has independently invented. A dependency FMEA takes an afternoon and finds more than most design reviews.
+No special background is needed, though some experience building software or hardware helps everything click.
 
-## Reading order
+Read in order. Notes 01–03 set the frame, 04–05 are about design, and 06–08 are about proving it works and handling what you missed.
 
-**01–03 are the frame. 04–05 are design. 06–08 are proving it works and what to do about what you missed.**
+1. [[systems-engineering/01-what-systems-engineering-is|What Systems Engineering Is]]: behaviour no single part has, the three classic failures, and why most of a project's cost is decided before anyone feels sure.
+2. [[systems-engineering/02-requirements|Requirements]]: what makes a requirement good, why "can it be tested?" catches most bad ones, and tracing each requirement through the design.
+3. [[systems-engineering/03-the-lifecycle-and-the-v-model|The Lifecycle and the V-Model]]: the standard stages, checking you built it right versus built the right thing, and why this isn't the opposite of agile.
+4. [[systems-engineering/04-architecture-and-interfaces|Architecture and Interfaces]]: splitting a system by what it does before deciding what it's made of, writing down exactly how parts connect, and leaving spare capacity.
+5. [[systems-engineering/05-trade-studies|Trade Studies]]: comparing design options properly, the four ways a scoring table misleads, and testing how sensitive the answer is.
+6. [[systems-engineering/06-verification-and-validation|Verification and Validation]]: the four ways of checking a system, testing in realistic conditions, and why "every line was tested" isn't the same as confidence.
+7. [[systems-engineering/07-mbse-and-modelling|MBSE and Modelling]]: describing a system as a model instead of documents, the SysML language, and "digital twins".
+8. [[systems-engineering/08-risk-and-failure-analysis|Risk and Failure Analysis]]: tables of how each part can fail, fault trees, failures that hit several parts at once, and how warning signs become normal until disaster.
 
-1. [[systems-engineering/01-what-systems-engineering-is|What Systems Engineering Is]] — **[Beginner]** — emergence, the three canonical failures, **where lifecycle cost is committed**, and why this isn't senior software engineering
-2. [[systems-engineering/02-requirements|Requirements]] — **[Beginner → Intermediate]** — the hierarchy, what makes one good, **why "verifiable" kills most bad requirements**, traceability, and the SLO correspondence
-3. [[systems-engineering/03-the-lifecycle-and-the-v-model|The Lifecycle and the V-Model]] — **[Beginner → Intermediate]** — the V, verification vs validation, **why the V isn't opposed to agile**, gates, and TRLs
-4. [[systems-engineering/04-architecture-and-interfaces|Architecture and Interfaces]] — **[Intermediate]** — functional vs physical decomposition, the coupling types software doesn't have, **the ICD**, N² diagrams, margin, Conway's Law
-5. [[systems-engineering/05-trade-studies|Trade Studies]] — **[Intermediate]** — the method, **the four ways a scoring matrix lies**, sensitivity analysis, TCO, and ADRs
-6. [[systems-engineering/06-verification-and-validation|Verification and Validation]] — **[Intermediate]** — the four methods, testing like reality, **why coverage isn't confidence**, independence, human factors
-7. [[systems-engineering/07-mbse-and-modelling|MBSE and Modelling]] — **[Intermediate]** — SysML, **why v2's textual notation matters**, digital twins, and the software parallels
-8. [[systems-engineering/08-risk-and-failure-analysis|Risk and Failure Analysis]] — **[Intermediate]** — FMEA, fault trees, common-cause failure, **and normalisation of deviance**
+## Key ideas to remember
 
-## The things worth carrying
-
-1. **A system has properties none of its parts have.** That's the entire justification for the discipline → [[systems-engineering/01-what-systems-engineering-is|01]]
-2. **~80% of lifecycle cost is committed before ~15% is spent.** The highest-leverage engineering happens before anyone is confident → [[systems-engineering/01-what-systems-engineering-is|01]]
-3. **If you can't write the test, the requirement isn't finished** → [[systems-engineering/02-requirements|02]] · [[systems-engineering/03-the-lifecycle-and-the-v-model|03]]
-4. **An SLO is a verifiable non-functional requirement.** SRE reinvented the discipline's oldest idea → [[systems-engineering/02-requirements|02]]
-5. **Batch size should follow the cost of being wrong.** Nobody iterates a bridge; nobody writes a requirements baseline for a landing page → [[systems-engineering/03-the-lifecycle-and-the-v-model|03]]
-6. **A gate that has never returned "no" is a status meeting** → [[systems-engineering/03-the-lifecycle-and-the-v-model|03]]
-7. **Do the functional decomposition before the physical one**, or you've chosen a solution before considering alternatives → [[systems-engineering/04-architecture-and-interfaces|04]]
-8. **The interface is owned by neither side, and is harder to change than either implementation** → [[systems-engineering/04-architecture-and-interfaces|04]]
-9. **Margin is the physical form of "don't run at 100% utilisation"** — and it's the first thing cut under schedule pressure → [[systems-engineering/04-architecture-and-interfaces|04]]
-10. **Weight the criteria before you score.** Whoever sets the weights has made the decision → [[systems-engineering/05-trade-studies|05]]
-11. **Report the break-even, not the winner** → [[systems-engineering/05-trade-studies|05]]
-12. **Decide in proportion to reversibility.** Two-way doors deserve an afternoon → [[systems-engineering/05-trade-studies|05]]
-13. **The people who built it share the assumptions that would cause the failure.** That's what independence buys → [[systems-engineering/06-verification-and-validation|06]]
-14. **"The user made a mistake" is almost always a system finding** → [[systems-engineering/06-verification-and-validation|06]]
-15. **Whatever is executable becomes the truth; everything else becomes decoration** → [[systems-engineering/07-mbse-and-modelling|07]]
-16. **The cheapest fix is often "make it fail loudly", not "make it fail less"** → [[systems-engineering/08-risk-and-failure-analysis|08]]
-17. **Redundancy only helps against failures that are genuinely independent** → [[systems-engineering/08-risk-and-failure-analysis|08]]
-18. **Each survival of a known anomaly is treated as evidence of safety.** It isn't → [[systems-engineering/08-risk-and-failure-analysis|08]]
-
-## The bridge to the rest of the vault
-
-**The systems-engineering habit is everywhere here under other names.** This table is the point of the folder:
-
-| Systems engineering | Already in this vault as |
-|---|---|
-| Requirements & non-functional properties | [[architecture/01-system-design-fundamentals/index\|system design]] · [[devops/07-observability/01-observability-fundamentals/index\|SLOs]] |
-| The V-model | [[software-engineering/02-the-software-development-lifecycle\|the SDLC]] |
-| Batch size vs cost of error | [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved\|how delivery practice evolved]] |
-| Interface control documents | [[backend/02-api-design/index\|API contracts]] |
-| Coupling & cohesion | [[concepts/01-best-practices/07-solid-principles/index\|SOLID]] |
-| Margin | [[architecture/01-system-design-fundamentals/03-availability-and-reliability\|headroom, error budgets]] |
-| Trade studies | ADRs → [[concepts/01-best-practices/05-documentation-practices\|documentation practices]] |
-| FMEA / fault trees | [[cybersecurity/06-attacks-and-threats/index\|threat modelling]] · [[architecture/04-distributed-systems/index\|failure modes]] |
-| IV&V, blameless review | [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering\|postmortems]] |
-| MBSE | [[devops/09-infrastructure-as-code/01-provisioning-and-terraform\|infrastructure as code]] |
-| Multi-disciplinary systems | [[robotics/index\|robotics]] · [[hardware/08-iot-architecture\|IoT]] · [[control-theory/index\|control theory]] · [[continuum-mechanics/index\|continuum mechanics]] |
-
-## Note on roadmap.sh
-
-Most domains in this vault are cross-referenced against [roadmap.sh](https://roadmap.sh). **This one can't be — there is no systems-engineering roadmap**, because roadmap.sh covers software and adjacent tech roles only. The nearest neighbours are [software-architect](https://roadmap.sh/software-architect) and [system-design](https://roadmap.sh/system-design), and both are software architecture rather than the INCOSE discipline.
-
-The standards are the substitute, and they're the real syllabus: **INCOSE Systems Engineering Handbook** (the reference), **NASA/SP-2016-6105** (free, excellent, and more readable than INCOSE's), **ISO/IEC/IEEE 15288** (lifecycle processes), and **INCOSE's Guide to Writing Requirements**.
-
-## The honest note
-
-**`[reference]`, and the gap is unusually large here** — this is a discipline whose entire value shows up on projects with many people, many disciplines, long lifecycles and expensive mistakes. **None of those conditions exist in a solo project**, so nothing in this folder has been tested by me against the thing it's for.
-
-**What would close the gap, in rising order of realism:**
-
-1. **Write a requirements spec for something you've already built** — the [[projects/index|IoT bridge PCB]] is the natural candidate, since it's genuinely multi-disciplinary. Then check the built thing against it. **The gap between what you built and what you'd have specified is the lesson**
-2. **Run a dependency FMEA on one real service.** Every external dependency × {slow, down, wrong data, stale data, silently no-op}. An afternoon, and it will find something
-3. **Draw the N² diagram for a project you know.** Any filled cell you didn't expect is an interface nobody owns
-4. **Write three ADRs retrospectively** for decisions already made. Notice which ones you can no longer justify
-5. **Coursework is the real gap-closer here**, and it's the one thing you have that this vault doesn't: an actual multi-disciplinary project with a grade attached
-
-**What's missing:** cost estimation and earned value management, configuration management as its own discipline, logistics and supportability, human systems integration at depth, systems-of-systems, agile-systems-engineering hybrids in practice, and the entire contractual/programme-management side, which is a large part of the real job.
-
-→ [[PRIMETECHIE|Reading is not a rank.]]
+1. **A system can do things none of its parts do, good and bad.** That's why the discipline exists. → [[systems-engineering/01-what-systems-engineering-is|01]]
+2. **About 80% of a project's lifetime cost is locked in before 15% is spent.** The early decisions matter most. → [[systems-engineering/01-what-systems-engineering-is|01]]
+3. **If you can't write the test, the requirement isn't finished.** → [[systems-engineering/02-requirements|02]]
+4. **The connection between two parts belongs to neither team,** and it's harder to change than either part. → [[systems-engineering/04-architecture-and-interfaces|04]]
+5. **Agree how much each factor matters before scoring the options.** Whoever sets the weights has already made the decision. → [[systems-engineering/05-trade-studies|05]]
+6. **The people who built it share the blind spots that would cause it to fail.** That's why independent testing matters. → [[systems-engineering/06-verification-and-validation|06]]
+7. **A backup only helps if it can't fail for the same reason as the main part.** → [[systems-engineering/08-risk-and-failure-analysis|08]]
+8. **Getting away with a known problem isn't proof it's safe.** → [[systems-engineering/08-risk-and-failure-analysis|08]]
 
 ## Related
-- [[software-engineering/index|software engineering]] — the sibling discipline
-- [[architecture/index|architecture]] — this, for software
-- [[control-theory/index|control theory]] · [[continuum-mechanics/index|continuum mechanics]] — the physical domains this coordinates
-- [[BUILD-PLAN|Build Plan]]
+
+- [[architecture/index|Architecture]]: the same thinking for large software systems.
+- [[software-engineering/index|Introduction to Software Engineering]]: the lifecycle from the software side.
+- [[devops/12-sre-and-platform-engineering/index|SRE]]: reliability work that rediscovered many of these ideas.
+- [[concepts/01-best-practices/06-coupling-and-cohesion/index|Coupling and Cohesion]]: how tightly parts depend on each other, in code.
+
+---
+
+## About this course
+
+- **Size:** 8 notes, about 8,200 words, written in August 2026. The vault is written by a systems engineering student and had nothing on the subject until then.
+- **Why it matters for software:** much of the vault's software material (interfaces, requirements for speed and uptime, limiting how far a failure spreads, reviewing incidents afterwards) is systems engineering under other names. Tools like requirement tracing and failure-mode tables are underused in software.

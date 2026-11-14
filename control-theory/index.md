@@ -1,85 +1,81 @@
 # Control Theory
 
-Making a system behave the way you want despite an imperfect model, unpredictable disturbances, and components that drift. The mathematics behind every thermostat, motor drive, autopilot, robot joint, and — if you look at it right — every autoscaler and congestion-control algorithm.
+## What control theory is
 
-**~21,000 words across 13 notes.** Built August 2026. `[reference]` — see [[control-theory/index|the domain note]] on what that means here.
+**Control theory is the maths of making a system do what you want, automatically, by constantly measuring it and correcting it.**
 
-> **The one idea:** measure the output, compare it to what you wanted, and act on the difference. That single loop buys you disturbance rejection, insensitivity to model error, and the ability to stabilise systems that fall over on their own. It also buys you the possibility of instability, amplified noise, and a hard trade between speed and robustness — which is why control is a design discipline and not a recipe.
+Think of a room thermostat. It measures the temperature, compares it with what you set, and switches the heating on or off to close the gap. That's a **feedback loop**: measure, compare, correct, over and over. The same idea keeps a car's cruise control at a steady speed, a drone level in the wind, a robot arm on its path, and a rocket upright.
 
-## Reading order
+The surprise is how easily it goes wrong. Correct too hard and the system overshoots and swings back and forth; correct too slowly and it never quite gets there; and delays in measuring can make a well-meant loop shake itself apart. Control theory gives you the tools to predict that and design loops that are both fast and steady.
 
-**Notes 02–07 are classical control** and build strictly in order. **08–11 are state space**, and need linear algebra. **12–13 are implementation and what lies beyond.**
+Software engineers meet it more than they realise: how the internet slows senders down when it's busy, how cloud services add servers under load (autoscaling), and how rate limiting works are all feedback loops with the same problems.
 
-**Orientation**
+## What you'll be able to do
 
-1. [[control-theory/01-what-control-theory-is|What Control Theory Is]] — **[Beginner → Intermediate]** — open vs closed loop, the $r/y/e/u/d$ vocabulary, what feedback buys and what it costs, and why the field looks like two subjects
+By the end you will be able to:
+- describe a system with equations, and predict how it will respond;
+- tune a PID controller, the most common controller in the world, and implement it so it works on real hardware;
+- tell whether a feedback loop will be steady or start swinging, and how much safety margin it has;
+- describe systems with several inputs and outputs using matrices;
+- estimate things you can't measure directly, by combining a model with noisy sensors (the Kalman filter);
+- design controllers by choosing what to optimise;
+- turn a design into code that runs on a microcontroller.
 
-**Classical control**
+## Where to start
 
-2. [[control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]] — **[Intermediate]** — physics to ODE to $G(s)$, why Laplace is worth it, what poles and zeros mean, and **why right-half-plane zeros cap your bandwidth permanently**
-3. [[control-theory/03-time-response|Time Response]] — **[Intermediate]** — $\zeta$ and $\omega_n$, the step-response specifications, dominant poles, system type and steady-state error, and why delay wrecks everything
-4. [[control-theory/04-pid-control|PID Control]] — **[Intermediate]** — **the note that matters most.** What each term does, tuning methods that work, and the four implementation details that separate working code from a controller that fights you
-5. [[control-theory/05-stability-and-root-locus|Stability and Root Locus]] — **[Intermediate]** — Routh–Hurwitz without factoring polynomials, where the closed-loop poles go as gain rises, lead/lag compensation, and **why cancelling an unstable pole is the most dangerous move in classical design**
-6. [[control-theory/06-frequency-response|Frequency Response]] — **[Intermediate]** — Bode plots, loop shaping, what bandwidth costs, and the hard limits on how fast you're allowed to be
-7. [[control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — **[Advanced]** — the criterion that handles unstable and delayed plants, **why gain and phase margins can both look fine on a fragile design**, and the waterbed effect made precise
+**Before you start:** [[mathematics/06-calculus/02-calculus-1/01-preview/01-preview|calculus]], including derivatives. Notes 08–11 also need [[mathematics/04-linear-algebra/index|linear algebra]].
 
-**State space**
+Read in order. Notes 02–07 are the classical methods and build on each other; 08–11 use matrices; 12–13 are about real implementation and more advanced methods.
 
-8. [[control-theory/08-state-space|State Space]] — **[Advanced]** — $\dot{\mathbf{x}} = A\mathbf{x} + B\mathbf{u}$, what "state" means, eigenvalues *are* the poles, and why MIMO stops being painful
-9. [[control-theory/09-controllability-observability-and-pole-placement|Controllability, Observability and Pole Placement]] — **[Advanced]** — can you steer it, can you see it, and the result that if both, you can put the poles anywhere
-10. [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — **[Advanced]** — estimating the state you can't measure, the separation principle, sensor fusion, and tuning $Q$ and $R$ honestly
-11. [[control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — **[Advanced]** — designing by minimising a cost instead of guessing pole locations, LQR's guaranteed margins, **why LQG loses them**, and MPC
+### Getting oriented
 
-**Implementation and beyond**
+1. [[control-theory/01-what-control-theory-is|What Control Theory Is]]: acting without measuring versus feedback, the standard names for each part of a loop, and what feedback gives you and costs you.
 
-12. [[control-theory/12-digital-control|Digital Control]] — **[Intermediate → Advanced]** — sampling, the $z$-transform, discretising properly, fixed-point implementation, and **the failure modes that only appear on hardware**
-13. [[control-theory/13-nonlinear-and-modern-control|Nonlinear and Modern Control]] — **[Advanced]** — Lyapunov, limit cycles, gain scheduling, sliding mode, and an honest read on where RL fits
+### Classical control
 
-## The things worth carrying
+2. [[control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]]: turning physics into equations, and a shorthand (the transfer function) that makes them easy to work with.
+3. [[control-theory/03-time-response|Time Response]]: how a system responds to a sudden change: how fast, how much it overshoots, and whether it settles at the right value.
+4. [[control-theory/04-pid-control|PID Control]]: the note that matters most. What each part of a PID controller does, how to tune it, and four details that make it work on real hardware.
+5. [[control-theory/05-stability-and-root-locus|Stability and Root Locus]]: telling whether a loop will settle or blow up, and how that changes as you turn up the gain.
+6. [[control-theory/06-frequency-response|Frequency Response]]: studying a system by how it responds to slow and fast wiggles, and the limits on how fast a loop can be.
+7. [[control-theory/07-nyquist-and-robustness|Nyquist and Robustness]]: checking how much a loop can tolerate before it fails, and why the usual safety numbers can look fine on a fragile design.
 
-If the algebra fades, these keep paying:
+### Using matrices (state space)
 
-1. **Stable means every closed-loop pole is in the left half plane.** Everything else in classical control is machinery for arranging that with margin → [[control-theory/05-stability-and-root-locus|05]]
-2. **Each integrator kills the steady-state error to one higher order of input.** That's the whole reason the I term exists → [[control-theory/03-time-response|03]]
-3. **Every real PID needs anti-windup, a filtered derivative, and derivative-on-measurement.** A textbook PID misbehaves the first time it saturates, and it will saturate → [[control-theory/04-pid-control|04]]
-4. **$\zeta \approx PM°/100$.** The bridge between frequency-domain design and time-domain specifications → [[control-theory/06-frequency-response|06]]
-5. **Good margins don't guarantee robustness; $M_s < 2$ does.** GM and PM measure two directions, and uncertainty comes from all of them → [[control-theory/07-nyquist-and-robustness|07]]
-6. **RHP zeros and delays cap your bandwidth. Unstable poles set a floor.** If those constraints collide, no controller exists — change the plant → [[control-theory/07-nyquist-and-robustness|07]]
-7. **Cancelling an unstable pole makes it unobservable, not gone.** The output looks perfect while the state diverges → [[control-theory/09-controllability-observability-and-pole-placement|09]]
-8. **A zero-order hold costs you $T/2$ of delay.** The commonest reason a controller that simulated beautifully oscillates on hardware → [[control-theory/12-digital-control|12]]
-9. **Jitter is worse than latency.** Constant delay you design around; varying delay changes your effective gains every sample → [[control-theory/12-digital-control|12]]
-10. **A good model beats a clever controller.** Most control failures are modelling failures → [[control-theory/13-nonlinear-and-modern-control|13]]
+8. [[control-theory/08-state-space|State Space]]: describing a system by a list of numbers that capture its current condition, which handles many inputs and outputs at once.
+9. [[control-theory/09-controllability-observability-and-pole-placement|Controllability, Observability and Pole Placement]]: can you steer every part of the system, can you see every part, and if so, how to give it any behaviour you want.
+10. [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]]: estimating what you can't measure by combining a model with noisy sensors.
+11. [[control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]]: designing a controller by stating what "good" means and letting the maths find the best one.
 
-## Where this connects
+### Real implementation and beyond
 
-**Software people meet control theory more often than they realise.** Three real instances, all with the classical pathologies:
+12. [[control-theory/12-digital-control|Digital Control]]: running a controller as code on a microcontroller, and the problems that only show up on real hardware.
+13. [[control-theory/13-nonlinear-and-modern-control|Nonlinear and Modern Control]]: systems the simple methods don't cover, and where machine learning fits in.
 
-- **TCP congestion control** — a distributed feedback loop where the plant is the network → [[networking/08-congestion-control|Congestion Control]]
-- **Autoscaling** — sensor delay (metrics lag), actuator delay (instances take minutes to boot), and a noisy plant. It oscillates for exactly the reasons note 03 explains
-- **Rate limiting and backpressure** — a controller with a saturating actuator, and it needs anti-windup for the same reason a PID does
+## Practice
 
-**Within engineering:**
+- [[control-theory/projects|Projects]]: hands-on tasks with a clear "done when".
+- **The best first experiment:** a motor that follows a knob. Close the loop yourself, turn up the gain, and watch it start to swing. Note 04 becomes concrete in an afternoon.
 
-- [[robotics/index|Robotics]] — cascaded position/velocity/current loops, Kalman-based localisation, and where most of notes 08–11 get used
-- [[continuum-mechanics/index|Continuum Mechanics]] — the plants you're controlling, and where structural resonances come from
-- [[hardware/index|Hardware & Embedded]] — op-amps as the cleanest example of feedback buying accuracy the components don't have, and where note 12 gets implemented
+## Key ideas to remember
 
-## Prerequisites and gaps
-
-**You need** complex numbers, differential equations, Laplace transforms (introduced in note 02), and linear algebra — eigenvalues and eigenvectors especially — for the state-space half. [[ai-ml/00-foundations/03-mathematics/index|The vault's maths notes]] cover the linear algebra; the differential equations and transform theory are a genuine gap.
-
-**Within the track:** no worked design examples end to end, no Bode/root-locus plots beyond ASCII sketches, no MIMO worked example, nothing on system identification in depth, and no treatment of $\mathcal{H}_\infty$ synthesis beyond naming it.
-
-## The honest note
-
-**This is a map, not a lab.** Control theory is learned by tuning a real loop and watching it oscillate — the intuition for "that's too much integral" comes from having done it, not from reading the table.
-
-The cheapest way to close that gap: **simulate one.** A hundred lines of Python — a second-order plant, a discrete PID, a step input, a plot — and every claim in notes 03 and 04 becomes something you can check. Add saturation and watch windup happen. Add noise and watch the derivative term ruin everything. It takes an afternoon and it's worth more than the rest of the track.
-
-**A physical build is better still**: a motor, an encoder, and a microcontroller. Everything in note 12 stops being abstract the moment you sample too slowly and the thing screams. → [[build-your-own-shit/index|build-your-own-shit]]
+1. **Feedback is measure, compare, correct.** It handles disturbances and imperfect models, and it can also cause swinging. → [[control-theory/01-what-control-theory-is|01]]
+2. **Every real PID needs three fixes:** stop the I term building up while the output is maxed out, smooth the D term, and take D from the measurement, not the error. → [[control-theory/04-pid-control|04]]
+3. **Delay is the enemy.** Even a short delay limits how fast a loop can safely react. → [[control-theory/03-time-response|03]]
+4. **Cancelling an unstable part of a system hides it rather than fixing it.** The output looks perfect while the inside runs away. → [[control-theory/09-controllability-observability-and-pole-placement|09]]
+5. **Uneven timing is worse than slow timing.** A steady delay you can design around; one that varies changes your loop every step. → [[control-theory/12-digital-control|12]]
+6. **A good model beats a clever controller.** Most control failures are really modelling failures. → [[control-theory/13-nonlinear-and-modern-control|13]]
 
 ## Related
-- [[continuum-mechanics/index|Continuum Mechanics]] — the other half of the old engineering umbrella
-- [[continuum-mechanics/index|Continuum Mechanics]] — the other engineering track
-- [[robotics/index|Robotics]] — where this gets applied
-- [[hardware/index|Hardware & Embedded]] — where this gets implemented
+
+- [[robotics/index|Robotics]]: the biggest user of this course.
+- [[hardware/index|Hardware & Embedded]]: where controllers run.
+- [[networking/08-congestion-control|Congestion Control]]: a feedback loop running across the internet.
+- [[digital-signal-processing/index|Digital Signal Processing]]: the closely related maths of signals and filters.
+
+---
+
+## About this course
+
+- **Size:** 13 notes, about 21,000 words, written in August 2026.
+- **Where it came from:** reference sources, not from tuning real systems. The hardware-specific warnings come from other people's experience.

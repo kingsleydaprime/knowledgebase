@@ -1,74 +1,62 @@
 # Programming Language Theory
 
-Studying languages as mathematical objects — what a program *means*, and what you can prove about it. **The research pipeline that produced every feature in the languages you use.**
+## What this course is about
 
-**~11,500 words across 9 notes** (including practice + solutions). Built August 2026. `[reference]`.
+**Programming language theory studies programming languages with mathematics: what a program means exactly, and what you can prove about it before it ever runs.**
 
-> **The one idea:** **[[compilers/index|Compilers]] asks how to *implement* a language. PL theory asks what a program *means* and what can be proved about it.** Both are needed, and the second is where generics, type inference, garbage collection, pattern matching, `Option`, async/await and the borrow checker all came from — usually decades before they shipped.
+A [[compilers/index|compiler]] is about *how* to make a language work. This subject asks *what* a program means, precisely enough to prove things like "this program can never crash with a type error" or "this loop always finishes". It sounds abstract, and it is the most abstract course in the vault. But most features you use came out of it, often decades before they appeared in everyday languages: generics, automatic type inference, garbage collection, pattern matching, `Option` and `Result`, `async`/`await`, and Rust's borrow checker.
 
-## Reading order
+You can be an excellent engineer without this. What it gives you is the ability to understand *why* languages are designed the way they are, and some of the most useful habits in programming, like making invalid data impossible to represent.
 
-**02–03 are the foundations. 04–06 are types, and 06 is the payoff. 07 is where the field is going.**
+## What you'll be able to do
 
-1. [[programming-language-theory/01-what-pl-theory-is|What PL Theory Is]] — **[Intermediate]** — why formalise, inference-rule notation, the five results worth knowing, and **parametricity: theorems for free**
-2. [[programming-language-theory/02-lambda-calculus|Lambda Calculus]] — **[Intermediate → Advanced]** — three constructs that compute everything, Church encodings, the Y combinator, evaluation strategies, and **why adding types removed Turing completeness**
-3. [[programming-language-theory/03-semantics|Semantics]] — **[Advanced]** — operational, denotational and axiomatic. **Loop invariants as Hoare logic**, separation logic, and why UB is a widening of the equivalence relation
-4. [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — **[Advanced]** — progress and preservation, **why Java's covariant arrays are knowingly unsound**, variance and PECS
-5. [[programming-language-theory/05-type-inference|Type Inference]] — **[Advanced]** — Hindley–Milner, unification, the value restriction, and **why Java's `var` is far weaker than OCaml's `let`**
-6. [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard and Proofs]] — **[Advanced]** — **propositions are types, proofs are programs.** Constructive logic, dependent types, proof assistants, and what actually transfers to daily work
-7. [[programming-language-theory/07-effects-and-substructural-types|Effects and Substructural Types]] — **[Advanced]** — algebraic effects, **Rust's borrow checker as affine types**, session types, and where languages are heading
+By the end you will be able to:
+- read the notation researchers use to describe languages;
+- explain lambda calculus, a tiny language of just three parts that can compute anything;
+- explain what it means for a type system to be "safe", and why some languages knowingly aren't;
+- explain how a language works out types you didn't write;
+- explain the surprising link between types and logical proofs;
+- explain where Rust's borrow checker and `async` come from, and where languages are heading.
 
-## The things worth carrying
+## Where to start
 
-1. **A sound decidable type checker *must* reject some correct programs.** Rice's theorem. It's not a design failing → [[programming-language-theory/04-type-systems-formally|04]]
-2. **Soundness = progress + preservation.** "Doesn't get stuck" plus "the type stays true" → [[programming-language-theory/04-type-systems-formally|04]]
-3. **The simply typed lambda calculus always terminates — and is no longer Turing-complete.** Types traded power for a guarantee → [[programming-language-theory/02-lambda-calculus|02]]
-4. **PECS: producer extends, consumer super.** Mutable *and* covariant is unsound, which is exactly Java's array bug → [[programming-language-theory/04-type-systems-formally|04]]
-5. **Full inference for rank-N polymorphism is undecidable**, which is why Java makes you write type parameters and ML doesn't → [[programming-language-theory/05-type-inference|05]]
-6. **Propositions are types; proofs are programs.** `fst`, `const` and `curry` are proofs of tautologies → [[programming-language-theory/06-curry-howard-and-proofs|06]]
-7. **A constructive proof carries an algorithm.** Which is why classical proof by contradiction is useless for programming → [[programming-language-theory/06-curry-howard-and-proofs|06]]
-8. **Make illegal states unrepresentable.** The most transferable idea in the whole track → [[programming-language-theory/06-curry-howard-and-proofs|06]]
-9. **Rust's ownership is affine types plus regions** — 1990s research, shipped 2015 → [[programming-language-theory/07-effects-and-substructural-types|07]]
-10. **Function colouring is an effect system with poor polymorphism.** Algebraic effects are the fix → [[programming-language-theory/07-effects-and-substructural-types|07]]
-11. **HM's worst practical flaw is error messages** — unification reports where the contradiction was *detected*, not where the mistake was → [[programming-language-theory/05-type-inference|05]]
-12. **The bottleneck between theory and practice is ergonomics, not expressiveness.** GC took 30 years, generics 30, affine types 25 → [[programming-language-theory/07-effects-and-substructural-types|07]]
+**Before you start:** [[mathematics/02-discrete-math/02-logic|Logic]] and [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] from discrete maths, and confidence in at least one programming language. [[theory-of-computation/index|Theory of Computation]] helps.
 
-## Where this connects
+Read in order. Notes 02–03 are the foundations; 04–06 are about types, with 06 as the payoff; 07 is where the field is going.
 
-| | |
-|---|---|
-| [[compilers/index\|compilers]] | **The implementation counterpart.** Theory here, machinery there |
-| [[mathematics/02-discrete-math/02-logic\|logic]] · [[mathematics/02-discrete-math/03-proof-techniques\|proof]] | **The prerequisite**, and half of Curry–Howard |
-| [[theory-of-computation/06-decidability\|decidability]] | Why type checkers must be conservative |
-| [[languages/03-rust/03-ownership\|Rust]] | Where this theory most visibly shipped |
-| [[languages/05-cpp/index\|C++]] · [[languages/01-java/index\|Java]] | Variance, erasure, move semantics — the design decisions explained |
-
-## The honest note
-
-**`[reference]`, and this is the most abstract domain in the vault** — the one where the gap between reading and doing is widest, and where the practical payoff is most indirect.
-
-**Being straight about that:** you can be an excellent engineer without any of this. **The claim isn't necessity — it's that certain design questions are opaque without it**, and that the languages you'll use in ten years are being designed with it now.
-
-**What would close the gap, and the first item is the one that matters:**
-
-1. **Write a type checker.** [[build-your-own-shit/04-your-own-language|Your own language]] with a type checker instead of a bare interpreter — **implement the inference rules from note 04 and watch them work.** A few hundred lines, and it makes the notation concrete permanently
-2. **Implement Hindley–Milner.** Unification plus generalisation is ~200 lines and genuinely satisfying when it infers a type you didn't expect
-3. **[*Software Foundations*](https://softwarefoundations.cis.upenn.edu)** — free, interactive, in Coq. **Proves the theorems in note 04 by making *you* prove them.** The best entry point into the subject by a distance
-4. **Lean's [Natural Number Game](https://adam.math.hhu.de)** — a browser game that teaches proof, and it will not let you skip a step
-5. **Write something in a dependently-typed language** — Idris, Agda, Lean. **Encode a length-indexed vector and feel `head` refuse to compile on an empty one**
-6. **The books:** ***Types and Programming Languages*** (Pierce) — **the standard, and genuinely readable; if you read one, read TAPL**; *Practical Foundations for Programming Languages* (Harper) for depth; *Programming Language Foundations in Agda* (Wadler) — free, executable
-
-**What's missing:** ~~exercises~~ — **closed by notes 8–9 (Aug 2026)**; module systems and ML functors, object calculi formally, abstract interpretation, program synthesis, macro systems as a theory, concurrency calculi beyond a mention, and gradual typing's performance problem in depth.
-
-→ [[PRIMETECHIE|Reading is not a rank.]]
+1. [[programming-language-theory/01-what-pl-theory-is|What PL Theory Is]]: why describe languages mathematically, how to read the notation, and how a function's type alone can tell you what it does.
+2. [[programming-language-theory/02-lambda-calculus|Lambda Calculus]]: a tiny language made only of functions that can still compute anything, and how adding types made it always finish but less powerful.
+3. [[programming-language-theory/03-semantics|Semantics]]: three ways to define exactly what a program means, and how loop invariants become a method of proof.
+4. [[programming-language-theory/04-type-systems-formally|Type Systems Formally]]: what makes a type system safe, and why Java's arrays knowingly break the rules.
+5. [[programming-language-theory/05-type-inference|Type Inference]]: how languages like OCaml and Haskell work out every type without you writing any, and why Java's `var` can do far less.
+6. [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard and Proofs]]: the discovery that types are statements and programs are proofs of them, and the proof assistants built on it.
+7. [[programming-language-theory/07-effects-and-substructural-types|Effects and Substructural Types]]: tracking what code does (like input/output) in its type, the theory behind Rust's borrow checker, and where languages are going.
 
 ## Practice
 
-- [[programming-language-theory/08-practice-exercises|Practice Exercises]] — twelve exercises, mostly implementations — capture-avoiding substitution, Algorithm W, progress/preservation, and linearity as Rust's borrow checker
-- [[programming-language-theory/09-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
+- [[programming-language-theory/08-practice-exercises|Practice Exercises]]: twelve exercises, mostly building things, including a type inference algorithm.
+- [[programming-language-theory/09-practice-exercises-solutions|Solutions]]: worked answers. Try first.
+- **The single most useful exercise:** add a type checker to [[build-your-own-shit/04-your-own-language|your own language]]. A few hundred lines, and the notation stops being abstract.
+- **Free and interactive:** [Software Foundations](https://softwarefoundations.cis.upenn.edu) makes you prove note 04's theorems yourself, and Lean's [Natural Number Game](https://adam.math.hhu.de) teaches proof as a browser game.
+
+## Key ideas to remember
+
+1. **Make illegal states impossible to represent.** Design your types so invalid data can't be built. The most useful idea in this course for everyday code. → [[programming-language-theory/06-curry-howard-and-proofs|06]]
+2. **A type checker that's both safe and always finishes must reject some correct programs.** That's a proven limit, not a design flaw. → [[programming-language-theory/04-type-systems-formally|04]]
+3. **A safe type system means two things:** a well-typed program never gets stuck, and its types stay true as it runs. → [[programming-language-theory/04-type-systems-formally|04]]
+4. **Rust's ownership rules come from 1990s research,** finally made easy enough to use in 2015. → [[programming-language-theory/07-effects-and-substructural-types|07]]
+5. **Ideas take decades to go from research to everyday languages,** held back by how easy they are to use, not by what they can do. → [[programming-language-theory/07-effects-and-substructural-types|07]]
 
 ## Related
-- [[compilers/index|Compilers]] — the implementation side
-- [[theory-of-computation/index|Theory of Computation]] — the sibling theory domain
-- [[mathematics/02-discrete-math/index|Discrete Mathematics]] — the prerequisite
-- [[BUILD-PLAN|Build Plan]]
+
+- [[compilers/index|Compilers]]: building languages; this course is the theory behind them.
+- [[theory-of-computation/index|Theory of Computation]]: what computers can and can't do.
+- [[languages/03-rust/03-ownership|Rust: Ownership]]: where this theory most visibly reached everyday code.
+
+---
+
+## About this course
+
+- **Size:** 9 notes, about 11,500 words, including practice and solutions. Written in August 2026.
+- **Further reading:** Pierce, *Types and Programming Languages* (the standard text, and readable: if you read one, read this); Harper, *Practical Foundations for Programming Languages*; Wadler, *Programming Language Foundations in Agda* (free).
+- **Not covered yet:** module systems, formal models of objects, analysing programs automatically, generating programs, macros, models of concurrency, and mixing typed and untyped code.

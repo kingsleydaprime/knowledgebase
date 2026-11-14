@@ -1,109 +1,92 @@
 # Robotics
 
-Machines that sense, decide, and move. Distinct from [[hardware/index|hardware/]], which is the electronics and embedded layer this sits on top of: hardware is "the board works," robotics is "the thing moves where I meant it to."
+## What robotics is
 
-**~22,000 words across 14 notes.** Built August 2026 against the 9-note curriculum this README originally proposed, with the kinematics half expanded — transforms, forward, inverse, Jacobians and dynamics each earned their own note. `[reference]` throughout, and **the honest note at the bottom is the important part of this page.**
+**Robotics is building machines that sense the world, decide what to do, and move to do it, on their own.**
 
-> **The one idea:** every robot is running **sense → plan → act**, forever, fast. That's not a teaching device — it's how the software is actually structured, and it's why ROS is a message-passing architecture with perception, planning and control nodes.
+A robot vacuum feels for walls, works out where it hasn't cleaned yet, and drives there. A factory arm sees a part on a belt, works out how to bend its joints to reach it, and picks it up. Every robot runs the same loop, many times a second: **sense** (read its sensors), **plan** (decide what to do), **act** (drive its motors).
 
-## Reading order
+It's harder than ordinary software because the real world is messy. Sensors give slightly wrong readings, motors don't move exactly as told, wheels slip, and an error that would be a bug report in software can be a broken robot or an injury. Much of robotics is maths for describing position and movement, plus methods for coping with uncertainty.
 
-**01–03 — the ground floor.** What robots are, what they sense, what they move with. Little maths.
+## What you'll be able to do
 
-1. [[robotics/01-what-robotics-actually-is|What Robotics Actually Is]] — **[Beginner]** — the sense/plan/act loop, the three layers by timescale, degrees of freedom, and **why this is genuinely harder than software**
-2. [[robotics/02-sensors-and-perception|Sensors and Perception]] — **[Beginner]** — encoders, IMUs, lidar, cameras, force. **Proprioceptive sensors are precise but drift; exteroceptive ones are noisy but absolute** — the whole reason fusion works
-3. [[robotics/03-actuators-and-motion|Actuators and Motion]] — **[Beginner]** — DC/BLDC/stepper/servo, gearing and backlash, drivers, and the stall current that browns out your logic supply
+By the end you will be able to:
+- explain the sense-plan-act loop and the parts of a robot;
+- choose sensors and motors, and avoid common wiring mistakes;
+- describe where things are and how they're turned, in 3D, without mixing up coordinate frames;
+- work out where a robot arm's hand is from its joint angles, and the reverse: which joint angles reach a given point;
+- control motors smoothly and plan paths around obstacles;
+- combine sensor readings to estimate where a robot is, and build a map while exploring;
+- use ROS, the standard robot software framework, and design for safety.
 
-**04–08 — kinematics and dynamics.** The part that's genuinely a subject. Builds strictly in order.
+## Where to start
 
-4. [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — **[Intermediate]** — rotations, quaternions, homogeneous transforms, frame trees. **Get the conventions right once and the rest follows**
-5. [[robotics/05-forward-kinematics-and-dh-parameters|Forward Kinematics and DH Parameters]] — **[Intermediate]** — the easy direction, the notation the field standardised on, and why URDF replaced it in practice
-6. [[robotics/06-inverse-kinematics|Inverse Kinematics]] — **[Intermediate → Advanced]** — the hard direction. No solution, one, eight, or infinitely many — and **choosing between them is half the problem**
-7. [[robotics/07-jacobians-and-singularities|Jacobians and Singularities]] — **[Advanced]** — velocities, the $\boldsymbol\tau = J^T\mathbf{F}$ duality, and the configurations where your commands stop meaning what you think
-8. [[robotics/08-dynamics|Dynamics]] — **[Advanced]** — forces not just geometry. Gravity compensation, computed torque, impedance control, and identifying the model
+**Before you start:** programming, and some [[mathematics/04-linear-algebra/index|linear algebra]] (vectors and matrices) and trigonometry. [[control-theory/index|Control Theory]] covers the theory behind making things move smoothly; this course points to it where needed.
 
-**09–10 — making it move.**
+Read in order. Notes 01–03 need little maths. Notes 04–08 are the mathematical core and build strictly on each other.
 
-9. [[robotics/09-robot-control|Robot Control]] — **[Intermediate → Advanced]** — cascaded position/velocity/current loops, trajectory generation, compliance, and what actually goes wrong on hardware
-10. [[robotics/10-motion-planning|Motion Planning]] — **[Advanced]** — configuration space, RRT and friends, nonholonomic constraints, and turning a path into a trajectory
+### The basics
 
-**11–12 — knowing where you are.**
+1. [[robotics/01-what-robotics-actually-is|What Robotics Actually Is]]: the sense-plan-act loop, how many ways a robot can move, and why this is harder than software.
+2. [[robotics/02-sensors-and-perception|Sensors and Perception]]: wheel counters, motion sensors, laser scanners, cameras and force sensors, and why combining sensors works better than trusting one.
+3. [[robotics/03-actuators-and-motion|Actuators and Motion]]: the main kinds of motor, gears, motor drivers, and the power surge that can reset your electronics.
 
-11. [[robotics/11-state-estimation-and-filtering|State Estimation and Filtering]] — **[Advanced]** — **why odometry drifts without bound**, what robots actually fuse, estimating bias as a state, and the delayed-measurement problem
-12. [[robotics/12-localisation-and-slam|Localisation and SLAM]] — **[Advanced]** — particle filters, graph-based SLAM, and **why loop closure is the single most important operation**
+### Position and movement (the mathematical core)
 
-**13–14 — the engineering around it.**
+4. [[robotics/04-rigid-body-transforms|Rigid Body Transforms]]: describing where something is and which way it faces in 3D, and keeping track of many coordinate frames. Get this right and the rest follows.
+5. [[robotics/05-forward-kinematics-and-dh-parameters|Forward Kinematics]]: working out where an arm's hand is from its joint angles, the easy direction.
+6. [[robotics/06-inverse-kinematics|Inverse Kinematics]]: the hard direction: which joint angles put the hand at a given point. There may be no answer, one, or many.
+7. [[robotics/07-jacobians-and-singularities|Jacobians and Singularities]]: linking joint speeds to hand speed, and the positions where an arm loses the ability to move in some direction.
+8. [[robotics/08-dynamics|Dynamics]]: the forces involved, not just the shapes: holding an arm up against gravity, and moving it accurately.
 
-13. [[robotics/13-ros-and-robot-software|ROS and Robot Software]] — **[Intermediate]** — nodes, topics, actions, `tf2`, ROS 2 QoS, and what not to write yourself
-14. [[robotics/14-safety-and-real-time|Safety and Real-Time]] — **[Advanced]** — deadlines as correctness constraints, failing to a *defined* state, and why an E-stop is never a software feature
+### Making it move
 
-## The things worth carrying
+9. [[robotics/09-robot-control|Robot Control]]: controlling motors in layers, planning smooth movements, and what goes wrong on real hardware.
+10. [[robotics/10-motion-planning|Motion Planning]]: finding a path around obstacles, and turning it into a movement the robot can actually follow.
 
-1. **Odometry is a relative measurement used as an absolute one.** It drifts without bound and no encoder resolution fixes it — **1° of heading error is 17 cm after 10 m** → [[robotics/11-state-estimation-and-filtering|11]]
-2. **Never trust one sensor.** Every one lies in its own particular way, and a lying sensor keeps reporting → [[robotics/02-sensors-and-perception|02]]
-3. **Coordinate frames cause more bugs than any algorithm.** Write the sub/superscripts; adjacent indices must match → [[robotics/04-rigid-body-transforms|04]]
-4. **Inverse kinematics is a search with choices, not an inverse function.** Solve for a *trajectory* with continuity, not for independent points → [[robotics/06-inverse-kinematics|06]]
-5. **A singularity isn't where you crash — it's where your commands stop meaning what you think.** Damped least squares, always → [[robotics/07-jacobians-and-singularities|07]]
-6. **Gravity compensation is the cheapest big win in manipulator control** → [[robotics/08-dynamics|08]]
-7. **Real-time means predictable, not fast.** Jitter is worse than latency → [[robotics/14-safety-and-real-time|14]]
-8. **"Remove power" is not automatically safe.** A powered-off arm holding a load collapses; fail to a *defined* state → [[robotics/14-safety-and-real-time|14]]
-9. **Angle error must wrap.** 179° to −179° is 2°, not 358° — and the unwrapped version is dramatic → [[robotics/04-rigid-body-transforms|04]]
-10. **Most robotics work is calibration, wiring and frames.** The algorithm is usually the part that works → [[robotics/01-what-robotics-actually-is|01]]
+### Knowing where you are
 
-## Where it connects
+11. [[robotics/11-state-estimation-and-filtering|State Estimation and Filtering]]: combining sensor readings to estimate position, and why counting wheel turns alone always drifts.
+12. [[robotics/12-localisation-and-slam|Localisation and SLAM]]: working out where you are on a map, and building the map at the same time.
 
-Robotics is unusual in this vault because it's genuinely a **join** of domains that already exist here rather than a new silo:
+### Building it properly
 
-| Draws on | For |
-|---|---|
-| [[control-theory/index\|control theory]] | **The whole theory half** — PID, cascade loops, observers/Kalman, LQR, digital implementation |
-| [[continuum-mechanics/index\|continuum mechanics]] | Structural compliance, resonances, soft robotics |
-| [[hardware/index\|hardware/]] | Microcontrollers, motor drivers, power, I2C/SPI to sensors |
-| [[ai-ml/02-ml-engineer/08-other-architectures/03-reinforcement-learning\|reinforcement learning]] | Learned control policies |
-| [[ai-ml/02-ml-engineer/06-computer-vision/index\|computer vision]] | Perception from cameras |
-| [[os/index\|operating systems]] | Real-time scheduling, RTOS, priority inversion |
-| [[architecture/04-distributed-systems/03-time-and-ordering\|time & ordering]] | Multi-node robots are distributed systems with a physical body |
-| [[networking/index\|networking]] | Robot ↔ base station links, and their latency budgets |
+13. [[robotics/13-ros-and-robot-software|ROS and Robot Software]]: ROS, the standard framework that connects a robot's programs, and what not to write yourself.
+14. [[robotics/14-safety-and-real-time|Safety and Real-Time]]: meeting deadlines every time, stopping safely when something fails, and why an emergency stop must never depend on software.
 
-**That's the argument for the domain existing:** most of the prerequisites were already written, and this track mostly connects them to physical hardware.
+## Practice
 
-## Deliberate divisions of labour
+These notes should only be trusted once something has actually been made to move. The cheapest ways to start, roughly from easiest:
 
-Two things live elsewhere on purpose, so you don't go looking:
+1. **A servo motor and a knob:** make the motor follow the knob, then turn up the gain and watch it wobble.
+2. **A two-wheeled balancing robot:** it falls over without good feedback, so it forces you to get sensing and control right.
+3. **A small arm from hobby servos:** work out positions both ways, and check them with a tape measure.
+4. **A wheeled robot in ROS 2** that maps a room. You'll watch the wheel-counting drift happen.
+5. **Simulate first** in MuJoCo, PyBullet or Gazebo. It's free and catches mistakes before they break hardware.
 
-**Control theory** — [[control-theory/index|engineering/02-control-theory/]]. This README originally planned it as note 4 here. It became its own 13-note track instead, because it's a real subject that applies far beyond robots (a TCP congestion controller and an autoscaler are feedback loops with the same pathologies). **Note 09 here is the robotics-specific part** — cascaded joint loops, trajectory following, compliance — and points there for the theory.
+- [[robotics/projects|Projects]]: hands-on tasks with a clear "done when".
 
-**Kalman filtering** — the algorithm is in [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]]. **Note 11 here is the application** — what robots fuse, why odometry drifts, delayed measurements.
+## Key ideas to remember
 
-## The honest note
-
-**None of this is knowledge yet.** It's `[reference]` — assembled from the standard sources, not from a robot that moved.
-
-**And this domain punishes that gap harder than most.** A PID loop that looks fine on paper oscillates on hardware for reasons the paper didn't mention: the encoder quantises, the gearbox has backlash, the loop jitters, the sensor is 80 ms late. **Every note here has a "what actually goes wrong" section, and those are the parts written from other people's experience rather than mine.** Read them as a list of things to watch for, not as things I've watched for.
-
-The original rule on this page still stands, and it's the right one:
-
-> **These notes should only be trusted after something has actually been made to move.**
-
-The vault's own principle: [[PRIMETECHIE|reading is not a rank]].
-
-**The cheapest way to close the gap**, roughly in order of effort:
-
-1. **A servo and a potentiometer.** Close a position loop by hand. Watch it oscillate when you raise the gain. Everything in [[control-theory/04-pid-control|PID]] becomes concrete in an afternoon
-2. **A two-wheeled balancing robot.** MPU-6050, two motors, an MCU. It's an unstable plant, so it *cannot* work without feedback — you'll implement a complementary filter and a real cascade, and it'll fall over until both are right
-3. **A 3-DOF arm** from hobby servos. Forward kinematics, then inverse. **A tape measure will settle more arguments than any simulation**
-4. **A differential-drive robot in ROS 2**, with `slam_toolbox` and Nav2. Odometry drift stops being a paragraph and becomes a thing you watch happen
-5. **Simulate first, always.** MuJoCo, PyBullet, or Gazebo. Free, and it catches the errors that damage hardware
-
-**Nothing in [[project-ideas|project-ideas]] is a robotics build yet.** That's the real gap on this page — the first one belongs there before these notes deserve much trust.
-
-## Known gaps
-
-Within the track: no worked examples end to end, no code beyond pseudocode, nothing on grasping and manipulation planning specifically, nothing on legged locomotion (a subject in itself), nothing on multi-robot coordination, and only a mention of learned control. Aerial and underwater vehicles get passing references rather than treatment.
+1. **Counting wheel turns to track position always drifts.** A 1° error in heading puts you 17 cm off after 10 metres. → [[robotics/11-state-estimation-and-filtering|11]]
+2. **Never trust one sensor.** Each is wrong in its own way, and a faulty one keeps reporting confidently. → [[robotics/02-sensors-and-perception|02]]
+3. **Mixed-up coordinate frames cause more bugs than any algorithm.** → [[robotics/04-rigid-body-transforms|04]]
+4. **Angles wrap around.** From 179° to −179° is 2°, not 358°. → [[robotics/04-rigid-body-transforms|04]]
+5. **In robot software, predictable timing matters more than speed.** → [[robotics/14-safety-and-real-time|14]]
+6. **Switching the power off isn't automatically safe.** An arm holding something drops it. Design what "safe" means. → [[robotics/14-safety-and-real-time|14]]
+7. **Most robotics work is calibration, wiring and coordinate frames.** The algorithm is usually the part that works. → [[robotics/01-what-robotics-actually-is|01]]
 
 ## Related
-- [[robotics/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
-- [[control-theory/index|Control Theory]] — the theory half, deliberately housed elsewhere
-- [[hardware/index|Hardware & Embedded]] — the layer below, and the one that's actually built
-- [[PRIMETECHIE|The Primetechie Path]] — where this direction sits
-- [[project-ideas|Project Ideas]] — no robotics builds listed yet; the first one belongs there
+
+- [[control-theory/index|Control Theory]]: the theory of feedback loops; the [[control-theory/10-observers-and-kalman|Kalman filter]] used in note 11 is taught there.
+- [[hardware/index|Hardware & Embedded]]: microcontrollers, motor drivers, power and sensors.
+- [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision]]: making sense of camera images.
+- [[ai-ml/02-ml-engineer/08-other-architectures/03-reinforcement-learning|Reinforcement Learning]]: robots that learn by trial and error.
+
+---
+
+## About this course
+
+- **Size:** 14 notes, about 22,000 words, written in August 2026.
+- **Where it came from:** standard reference sources, not from building a robot. Every note has a "what actually goes wrong" section, but those come from other people's experience. Read them as things to watch for.
+- **Not covered yet:** full worked examples with code, grasping objects, walking robots, many robots working together, and flying or underwater robots.

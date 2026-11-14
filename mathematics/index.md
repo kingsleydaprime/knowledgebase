@@ -1,159 +1,129 @@
 # Mathematics
 
-**The language the rest of this vault is written in.** Not a subject to admire — a toolkit, built in the order the tools become necessary.
+## What this course is about
 
-> **The one idea:** every extension of mathematics exists because the previous version **could not answer a question**. Naturals cannot express debt, so integers appear. Integers cannot divide evenly, so rationals appear. Rationals leave gaps on the number line, so reals appear. **Nothing here was invented for its own sake**, and knowing which question each idea answers is the difference between understanding it and memorising it.
+**Mathematics is the language the rest of computing is written in: counting, measuring, reasoning about change and chance, and proving that something is always true.**
 
-## Status — read this first
+You use it more than you might think. Binary and hexadecimal are how computers store numbers. Logarithms are why a search through a million items takes only about 20 steps. Logic and proof are how you know a program is correct. Matrices move and rotate every shape in a game. Probability is how spam filters and medical tests make decisions. Calculus is how machine learning models learn.
 
-This course is **partly written**, and the table below is honest about which parts.
+Every part of mathematics was invented to answer a question the earlier parts couldn't. Whole numbers can't show debt, so negative numbers were invented. Whole numbers can't always be divided evenly, so fractions were invented. Knowing which question each idea answers is the difference between understanding it and memorising it.
 
-| Section | State |
-| :--- | :--- |
-| **Foundations** (numbers → scientific notation) | ✅ **written**, with problems and worked answers |
-| **Number bases** (binary, decimal, hex) | ✅ **written**, with a runnable lab |
-| **Discrete mathematics** | ✅ **written** — logic, proof, sets, induction, combinatorics, graphs, number theory |
-| **Geometry and trigonometry** | ✅ **written** — 16 lessons, deductive geometry through to quadric surfaces |
-| **Linear algebra** | ✅ **written** — 6 lessons, matrices through to eigenvalues and PageRank |
-| **Numerical methods** | ✅ **written** — 13 notes, floating point through to numerical optimisation |
-| **Probability and statistics** | ✅ **written** — 6 lessons, descriptive stats through to Markov chains and queues |
-| **Calculus** | ✅ **written** — limits, continuity, derivatives, integration, multivariable |
+This course follows two curricula at once: the Nigerian secondary school syllabus (SS1–SS3) and a university mathematics degree. Each subject collects both levels in one place, school level first.
 
-**Every lesson linked below is written**, with prerequisites, worked examples, problems and hidden answers. The gaps that remain are *topics not yet started* — listed at the bottom — rather than empty files.
+## What you'll be able to do
 
-## Structure
+Depending on how far you go, you'll be able to:
+- work with numbers in any base, with powers and logarithms, and with algebra;
+- reason logically, write proofs, count possibilities, and work with graphs (networks of connected points);
+- solve geometry and trigonometry problems, from triangles to distances on the globe;
+- use matrices and vectors, the maths behind graphics and machine learning;
+- describe data with statistics, and reason about chance with probability;
+- use calculus to work with rates of change and areas, including gradients for machine learning;
+- solve problems numerically on a computer when no exact answer exists.
 
-This course **merges the two curricula** rather than keeping them apart. Each numbered folder is an **umbrella for one subject**, and it collects that subject's topics from *both* the [[ss1-ss3-course-outline|SS1–SS3 NERDC outline]] and the [[uni-math-course-outline|university track]] — secondary treatment first, university treatment after. Calculus at SS3 and Calculus I–III at university are the same subject, so they live in one place: `06-calculus`.
+## Where to start
 
-The order is dependency order. Calculus is **last** because it needs the algebra, the trigonometry, and the limit-of-a-sequence ideas that come before it.
+The order matters more here than anywhere else in the vault: each subject depends on the ones before. **Do the problems** at the end of every lesson; reading maths gives the feeling of understanding without the substance.
 
-```
-mathematics/
-|- 01-core/                       numbers and algebra - bases through to groups and rings
-|- 02-discrete-math/              logic, proof, counting, graphs                    [written]
-|- 03-geometry-trigonometry/      deductive -> circle -> trig -> mensuration     [written]
-|- 04-linear-algebra/             matrices -> systems -> spaces -> eigenvalues     [written]
-|- 05-probability-statistics/     descriptive stats through to queues   [written]
-|- 06-calculus/                   intro -> Calculus 1-3 -> ODE/PDE -> analysis      [1-3 written]
-|- 07-applied-and-computational/  numerical methods [written], optimisation
-\- 08-exam-practice/              WAEC/NECO and JAMB/UTME revision
-```
+### 1. Foundations (start here)
 
-**Empty folders are reserved slots.** They exist so the shape of the whole curriculum stays visible, and so nothing from either outline is homeless. The full mapping is at the bottom.
+1. [[mathematics/01-core/00-foundations/01-number-systems|Number Systems]]: whole numbers, negatives, fractions and decimals, and the question each one answers.
+2. [[mathematics/01-core/00-foundations/02-variables|Variables]]: using letters for unknown numbers, and why `=` means something different in code.
+3. [[mathematics/01-core/00-foundations/03-algebraic-manipulation|Algebraic Manipulation]]: expanding and factorising expressions.
+4. [[mathematics/01-core/00-foundations/04-approximation-and-standard-form|Approximation and Standard Form]]: rounding, significant figures, and writing very large and small numbers.
 
-## 01-core — Foundations
+### 2. Numbers and algebra
 
-What the curriculum assumes. Read first if any of it is shaky.
+- [[mathematics/01-core/01-numbers/01-number-bases/01-introduction|Number Bases]]: counting in bases other than ten, with a hands-on lab. Then [[mathematics/01-core/01-numbers/01-number-bases/02-binary|Binary]], [[mathematics/01-core/01-numbers/01-number-bases/03-decimal|Decimal]] and [[mathematics/01-core/01-numbers/01-number-bases/04-hexadecimal|Hexadecimal]].
+- [[mathematics/01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|Indices and Logarithms]]: powers and their opposite, worked out rather than memorised.
+- [[mathematics/01-core/01-numbers/04-sets/01-sets|Sets]]: groups of things, and Venn diagrams.
+- [[mathematics/01-core/02-algebra/02-linear-equations/01-linear-equations|Linear Equations]]: solving equations, including two at once.
 
-1. [[01-core/00-foundations/01-number-systems|Number Systems]] - **[Beginner]** - naturals to integers to rationals to reals, and the question each one answers
-2. [[01-core/00-foundations/02-variables|Variables]] - **[Beginner]** - naming the unknown, and why `=` means something different in code
-3. [[01-core/00-foundations/03-algebraic-manipulation|Algebraic Manipulation]] - **[Beginner]** - expanding, factorising, and why an identical expression can compute better
-4. [[01-core/00-foundations/04-approximation-and-standard-form|Approximation and Standard Form]] - **[Beginner]** - scientific notation, significant figures, order-of-magnitude estimation
+### 3. Discrete mathematics
 
-## 01-core — Numbers *(SS1 Term 1)*
+The part computing uses most.
 
-- [[01-core/01-numbers/01-number-bases/01-introduction|Number Bases]] - **[Beginner]** - place value in any base, conversion both ways, arithmetic, **with a runnable lab**
-  - [[01-core/01-numbers/01-number-bases/02-binary|Binary]] - bits, bytes, powers of two, and the kilobyte problem
-  - [[01-core/01-numbers/01-number-bases/03-decimal|Decimal]] - why ten, which fractions terminate, and why $0.999\ldots = 1$
-  - [[01-core/01-numbers/01-number-bases/04-hexadecimal|Hexadecimal]] - why $16 = 2^4$ is the entire reason it exists
-- **Modular arithmetic** *(SS1 T1)* - reserved here; the university treatment is already written in [[02-discrete-math/08-number-theory-and-modular-arithmetic|02-discrete-math]]
-- [[01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|Indices and Logarithms]] - **[Beginner]** - the laws *derived* rather than memorised, and why complexity analysis omits the base
-- [[01-core/01-numbers/04-sets/01-sets|Sets]] - **[Beginner]** - notation, operations, Venn diagrams, inclusion-exclusion
+- [[mathematics/02-discrete-math/index|Discrete Mathematics]]: logic and truth tables, proofs, sets and relations, induction, counting, graphs, and number theory (the maths behind encryption).
 
-## 01-core — Algebra *(SS1 Term 2 onward)*
+### 4. Geometry and trigonometry
 
-- **Logical reasoning** *(SS1 T2)* - not reserved, **relocated**: it is the same subject as university logic, so it lives written-in-full in [[02-discrete-math/02-logic|02-discrete-math/logic]]
-- [[01-core/02-algebra/02-linear-equations/01-linear-equations|Linear Equations]] - **[Beginner]** - solving, simultaneous equations, changing the subject
-- **Variations, quadratics, simultaneous linear-and-quadratic, inequalities, algebraic fractions, sequences and series, binomial theorem, polynomials, abstract algebra** - reserved; see the topic map below for exactly what each folder is to hold
+- [[mathematics/03-geometry-trigonometry/index|Geometry and Trigonometry]]: 16 lessons on shapes and measurement, from angles and circles to trigonometry, areas and volumes, latitude and longitude, and shapes in 3D.
 
-## 02-discrete-math
+### 5. Linear algebra
 
-**The most complete part of this course**, and the one computing draws on most.
+- [[mathematics/04-linear-algebra/index|Linear Algebra]]: 6 lessons on matrices and vectors. A matrix is a function that moves and stretches space, and that idea runs through graphics, machine learning and Google's original search ranking.
 
-→ [[02-discrete-math/index|discrete-math/]] — logic and truth tables, proof techniques, sets and relations, induction and recursion, combinatorics, graph theory, number theory and modular arithmetic, plus exercises and solutions.
+### 6. Probability and statistics
 
-## 03-geometry-trigonometry
+- [[mathematics/05-probability-statistics/index|Probability and Statistics]]: 6 lessons, from averages and charts to probability, distributions, estimating from samples, and processes that change randomly over time.
 
-**Written in full — 16 lessons.** Shape and measurement, from angle chasing to three-dimensional surfaces, merging the SS1–SS3 geometry and trigonometry strands with the university vectors-and-analytic-geometry course.
+### 7. Calculus
 
-→ [[03-geometry-trigonometry/index|geometry-trigonometry/]] — deductive geometry and constructions, circle theorems and tangents, coordinate geometry, trigonometry from ratios through bearings to hyperbolic functions, mensuration, latitude and longitude, and lines, planes and quadric surfaces in space.
+Read in order; each lesson names what it needs.
 
-Highlights worth knowing are there: **SSA producing two different triangles** from identical data, **Archimedes bracketing $\pi$** with polygons, **Cavalieri's derivation of the sphere**, why a **polar route beats flying due east**, and a curved surface — the cooling tower — **built entirely from straight lines**.
+**Calculus 1: limits and derivatives**
 
-## 04-linear-algebra
+1. [[mathematics/06-calculus/02-calculus-1/01-preview/01-preview|Preview]]: the two problems calculus exists to solve, and the one idea behind both.
+2. [[mathematics/06-calculus/02-calculus-1/02-limit-of-function/01-definition|The Limit of a Function]]: what a function approaches near a point, even if it's undefined there.
+3. [[mathematics/06-calculus/02-calculus-1/03-limit-laws/01-laws|Limit Laws]]: the rules for working limits out.
+4. [[mathematics/06-calculus/02-calculus-1/04-continuity/01-definition|Continuity]]: functions with no jumps or gaps, and a theorem that `git bisect` relies on.
+5. [[mathematics/06-calculus/02-calculus-1/05-precise-definition/01-epsilon-delta|The Precise Definition]]: the exact, formal meaning of a limit. Harder; optional on a first pass.
+6. [[mathematics/06-calculus/02-calculus-1/06-defining-derivative/01-definition|Defining the Derivative]]: the rate of change at an instant.
+7. [[mathematics/06-calculus/02-calculus-1/07-derivative-rules/01-rules|Derivative Rules]]: the shortcuts, including the chain rule that machine learning is built on.
+8. [[mathematics/06-calculus/02-calculus-1/08-applications/01-related-rates|Applications]]: linked rates of change, and finding the biggest or smallest value.
 
-**Written in full — 6 lessons.** Matrices, vectors, elimination, vector spaces, transformations and eigenvalues, merging the SS3 matrices-and-vectors strand with the university Year 1–2 course.
+**Calculus 2: integration**
 
-→ [[04-linear-algebra/index|linear-algebra/]] — the running theme is that **a matrix is a function**: the multiplication rule is function composition, the determinant is an area factor, and eigenvectors are the directions the function does not turn.
+9. [[mathematics/06-calculus/03-calculus-2/01-integration-by-parts|Integration and Integration by Parts]]: adding up infinitely many tiny pieces, and how it reverses differentiation.
+10. [[mathematics/06-calculus/03-calculus-2/02-partial-fractions|Partial Fractions]]: breaking fractions apart so they can be integrated.
+11. [[mathematics/06-calculus/03-calculus-2/03-applications|Applications of Integration]]: volumes, lengths of curves, averages and probability.
 
-## 05-probability-statistics
+**Calculus 3: several variables**
 
-**Written in full — 6 lessons.** Descriptive statistics, dispersion, probability, distributions, inference and stochastic processes, merging the SS1–SS3 statistics strand with the university probability course.
+12. [[mathematics/06-calculus/04-calculus-3/01-partial-derivatives|Partial Derivatives]]: rates of change when there are several inputs, and why gradient descent works.
+13. [[mathematics/06-calculus/04-calculus-3/02-multiple-integrals|Multiple Integrals]]: adding up over an area or volume.
+14. [[mathematics/06-calculus/04-calculus-3/03-optimization|Multivariable Optimisation]]: finding the best value when there are several inputs.
 
-→ [[05-probability-statistics/index|probability-statistics/]] — the running theme is that **every summary discards something**, and each lesson names what: Anscombe's quartet for summary statistics, the $n-1$ bias for variance, the base rate for diagnostic tests, and coverage measurement for confidence intervals.
+### 8. Numerical methods
 
-## 06-calculus
+- [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical Methods]]: 13 notes on getting answers with a computer when no exact formula exists: rounding errors, finding roots, solving systems, and approximating areas and change. Needs linear algebra and calculus.
 
-Calculus 1–3 are written in full; the SS3 introduction, ODEs, PDEs and the analysis strand are reserved. Read in order; each lesson names its prerequisites.
+## Where this maths is used
 
-**Calculus 1 — limits and derivatives**
-
-1. [[06-calculus/02-calculus-1/01-preview/01-preview|Preview]] — the two problems calculus exists to solve, and the one idea underneath both
-2. [[06-calculus/02-calculus-1/02-limit-of-function/01-definition|The Limit of a Function]] — why the value *at* a point is irrelevant to the limit *near* it
-3. [[06-calculus/02-calculus-1/03-limit-laws/01-laws|Limit Laws]] — the rules, the indeterminate forms, and the Squeeze Theorem
-4. [[06-calculus/02-calculus-1/04-continuity/01-definition|Continuity]] — what makes substitution legal, and the theorem behind `git bisect`
-5. [[06-calculus/02-calculus-1/05-precise-definition/01-epsilon-delta|The Precise Definition]] — **[Advanced]** — $\varepsilon$–$\delta$, and why rigour arrived 150 years late
-6. [[06-calculus/02-calculus-1/06-defining-derivative/01-definition|Defining the Derivative]] — one limit, from which all of differential calculus follows
-7. [[06-calculus/02-calculus-1/07-derivative-rules/01-rules|Derivative Rules]] — each derived, and the chain rule that backpropagation is built on
-8. [[06-calculus/02-calculus-1/08-applications/01-related-rates|Applications]] — related rates and optimisation
-
-**Calculus 2 — integration**
-
-9. [[06-calculus/03-calculus-2/01-integration-by-parts|Integration and Integration by Parts]] — antidifferentiation, the Fundamental Theorem, and why integration is harder
-10. [[06-calculus/03-calculus-2/02-partial-fractions|Partial Fractions]] — algebra in service of calculus
-11. [[06-calculus/03-calculus-2/03-applications|Applications of Integration]] — volumes, arc length, averages, probability
-
-**Calculus 3 — multivariable**
-
-12. [[06-calculus/04-calculus-3/01-partial-derivatives|Partial Derivatives]] — the gradient, and why gradient descent works
-13. [[06-calculus/04-calculus-3/02-multiple-integrals|Multiple Integrals]] — accumulation over a region, and the Jacobian factor
-14. [[06-calculus/04-calculus-3/03-optimization|Multivariable Optimisation]] — saddle points, and why they dominate in high dimensions
-
-## 07-applied-and-computational
-
-**Partly written.** Numerical methods is complete and moved here from the vault root, where it sat awkwardly beside the software domains — it is mathematics, and everything in it depends on [[04-linear-algebra/index|linear algebra]] and calculus.
-
-→ [[07-applied-and-computational/01-numerical-methods/index|numerical-methods/]] — **[Intermediate → Advanced]** · 13 notes — why exact answers are often unavailable → floating point and error → root finding → linear systems → eigenvalues → interpolation → quadrature → ODEs → PDEs → optimisation, with exercises and solutions.
-
-## The two curricula this follows
-
-- [[ss1-ss3-course-outline|Senior Secondary (SS1–SS3)]] — the Nigerian NERDC curriculum. The foundations sequence and number bases cover its early terms.
-- [[uni-math-course-outline|University Mathematics & Engineering Mathematics]] — a combined pure and applied degree track. Almost entirely unwritten; discrete mathematics is the exception.
-
-**These outlines are the plan, not the progress.** Read them for where this is going.
-
-## Where this is used
-
-| This course | Feeds |
+| Maths | Used in |
 | :--- | :--- |
 | Number bases | [[how-computers-work/index\|How Computers Work]], [[computer-architecture/02-data-representation\|data representation]] |
-| Exponents, logarithms | [[01-growth-and-asymptotic-notation\|complexity analysis]] — every $\log n$ |
-| Sets, logic, proof | [[mathematics/02-discrete-math/index\|discrete-math]], [[theory-of-computation/index\|theory of computation]] |
-| Combinatorics | [[dsa/index\|DSA]] — counting arrangements in backtracking and DP |
-| Graph theory | [[dsa/02-data-structures/09-graphs/index\|graphs]], [[networking/index\|networking]] |
-| Modular arithmetic | [[cybersecurity/05-cryptography/index\|cryptography]], hashing |
-| Calculus | [[ai-ml/index\|ai-ml]] — gradients and backpropagation |
+| Logarithms | [[dsa/03-algorithms/01-complexity-analysis/01-growth-and-asymptotic-notation\|Big-O]], wherever you see $\log n$ |
+| Logic and proof | [[theory-of-computation/index\|Theory of Computation]] |
+| Counting | [[dsa/index\|DSA]]: backtracking and dynamic programming |
+| Graphs | [[dsa/02-data-structures/09-graphs/index\|graphs]], [[networking/index\|networking]] |
+| Modular arithmetic | [[cybersecurity/05-cryptography/index\|cryptography]] and hashing |
+| Calculus | [[ai-ml/index\|AI & ML]]: gradients and how models learn |
 
-## How to study this
+## How to study it
 
-1. **Do the problems.** Reading mathematics produces the feeling of understanding without the substance. Every lesson here ends with problems whose answers are hidden for that reason.
-2. **Derive rather than memorise.** [[01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|Indices and Logarithms]] shows the pattern: $a^0 = 1$ is not a convention to remember, it is forced by requiring the division law to keep working. Anything you can derive, you cannot forget.
-3. **Follow the "why does this exist" thread.** Each topic answers a question the previous one could not.
-4. **Go in order.** Unlike most of this vault, the dependencies here are strict — you cannot manipulate equations before you can substitute into expressions.
+1. **Do the problems.** Every lesson ends with problems whose answers are hidden, so you attempt them first.
+2. **Work things out rather than memorising them.** For example, $a^0 = 1$ isn't a rule to remember; it's forced by the rule for dividing powers. Anything you can work out, you can't forget.
+3. **Ask what question each idea answers.**
+4. **Go in order.** The dependencies here are strict.
 
-## The complete topic map
+## Related
 
-Every topic in both outlines, and the folder it belongs to. ✅ = written, everything else is a reserved slot.
+- [[how-computers-work/index|How Computers Work]]: the course this one feeds most directly.
+- [[operations-research/index|Operations Research]], [[control-theory/index|Control Theory]] and [[continuum-mechanics/index|Continuum Mechanics]]: engineering subjects built on this maths, kept as their own courses.
+- [[COURSE-STANDARD|Course standard]]: the lesson shape these lessons follow.
+
+---
+
+## About this course
+
+- **What's written:** foundations, number bases, discrete maths, geometry and trigonometry, linear algebra, probability and statistics, Calculus 1–3 and numerical methods are written in full, with worked examples and problems.
+- **Not written yet:** most of school algebra (variation, quadratics, inequalities, sequences, the binomial theorem), modular arithmetic at school level (the university version is in discrete maths), surds, complex numbers, abstract algebra, the SS3 calculus introduction, differential equations, vector calculus, real and complex analysis, Fourier series and transforms, and the WAEC/NECO and JAMB practice papers. The empty folders are kept so the full shape stays visible.
+- **The two curricula:** [[mathematics/ss1-ss3-course-outline|Senior Secondary (SS1–SS3)]], the Nigerian NERDC syllabus, and [[mathematics/uni-math-course-outline|University Mathematics]], a combined pure and applied degree.
+
+## The full topic map
+
+Every topic in both curricula, and the folder it belongs to. ✅ means written; everything else is a reserved slot.
 
 ### `01-core` — numbers and algebra
 
@@ -252,10 +222,3 @@ Every topic in both outlines, and the folder it belongs to. ✅ = written, every
 | :--- | :--- | :--- |
 | `01-waec-neco/` | structural essays and multiple choice from past papers | SS3 T2-T3 |
 | `02-jamb-utme/` | timed testing across SS1-SS3 | SS3 T2-T3 |
-
-## Related
-
-- [[mathematics/02-discrete-math/index|discrete-math/]] — the written continuation
-- [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical-methods/]] — what happens when exact answers are unavailable
-- [[how-computers-work/index|How Computers Work]] — the course this one feeds most directly
-- [[COURSE-STANDARD|Course standard]] — the teaching shape these lessons follow

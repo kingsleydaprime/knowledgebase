@@ -1,125 +1,74 @@
-# Build Your Own Shit
+# Build Your Own
 
-Language-agnostic build guides. Each file is *"here is everything you'll meet building this, and the order to build it in"* — not a tutorial in one language.
+## What this section is
 
-**This folder is where the rest of the vault stops being reading.** Every other domain here is `[reference]` — written from sources, not from having built the thing. These guides exist to convert some of it into the other kind. [[PRIMETECHIE|Reading is not a rank.]]
+**Step-by-step guides for building your own simple version of tools you use every day, such as a web server, Git, a database, a shell or even a CPU, so they stop being mysterious.**
 
-## The shape every guide follows
+Reading about how a database works is useful. Building a small one and watching it survive being killed halfway through a save is when it really sinks in. That's what these guides are for: everywhere else in the vault is reading, and this is where reading turns into building.
 
-1. **What you're building** — and what you're deliberately not
-2. **What you need first** — with links into the vault, and honest notes on what's missing
-3. **The build order** — numbered milestones, each independently testable, **each producing something that runs**
-4. **Per-language toolkit** — what the stdlib gives you and what a library would, across C/C++/Rust/Go/Python/JS
-5. **The parts that will bite you** — stated in advance, so they cost you an hour rather than an evening
-6. **How to know it works** — test strategy, and a reference implementation to compare against
-7. **Where to stop** — the line between a learning artefact and a real one
+Each guide works in any programming language, and follows the same plan:
+1. **What you're building,** and what you're deliberately leaving out.
+2. **What you need to know first,** with links to the lessons.
+3. **The build order:** small steps, each of which runs and can be tested. You always have something working.
+4. **Tools in each language:** what C, C++, Rust, Go, Python and JavaScript give you.
+5. **What will trip you up,** said in advance so it costs you an hour, not an evening.
+6. **How to know it works,** usually by checking against the real tool.
+7. **Where to stop,** before a learning project turns into a never-ending one.
 
-The milestone ordering is the load-bearing part. **You should always have something working**, so each guide is sequenced to keep a runnable artefact at every step rather than a half-built system that only works at the end.
+## Where to start
 
-## The guides
-
-**Built:**
-
-1. [[build-your-own-shit/01-http-server|HTTP Server]] — **[Intermediate]** — accept loop → request-line parser → headers → responses → routing → static files → keep-alive → concurrency → chunked encoding. **The best first project**: a weekend, immediate visual feedback, and a real browser as the test
-2. [[build-your-own-shit/02-your-own-git|Your Own Git]] — **[Intermediate]** — content-addressable store → blobs → trees → commits → refs → log → index → branches → diff → merge. **Real Git can read your repository**
-3. [[build-your-own-shit/03-your-own-redis|Your Own Redis]] — **[Intermediate]** — RESP parser → store → expiry → event loop → data types → RDB/AOF persistence → replication. **The real `redis-cli` connects to it**
-4. [[build-your-own-shit/04-your-own-language|Your Own Language]] — **[Intermediate → Advanced]** — lexer → parser → tree-walking interpreter → closures → then a bytecode VM, a type checker, or GC. **The deepest single lesson here**
-5. [[build-your-own-shit/05-your-own-os|Your Own OS]] — **[Advanced]** — bootloader → descriptor tables → interrupts → physical memory → paging → user mode → syscalls → processes → filesystem. **Weeks, not a weekend** — and it boots from a USB stick on real hardware
-6. [[build-your-own-shit/06-your-own-database|Your Own Database]] — **[Advanced]** — pager → row format → B-tree → SQL parser → execution → **transactions and a WAL**. `kill -9` mid-write and the data survives
-7. [[build-your-own-shit/07-your-own-shell|Your Own Shell]] — **[Intermediate]** — read-eval loop → tokenise → `fork`/`exec` → exit status → redirection → builtins → pipelines → jobs. **The best small one**: a few hundred lines, and you can use it
-8. [[build-your-own-shit/08-your-own-container|Your Own Container]] — **[Intermediate]** — namespaces → pivot_root → cgroups → user namespaces → overlayfs. **The best effort-to-insight ratio here**: ~200 lines, one evening
-9. [[build-your-own-shit/09-your-own-regex-engine|Your Own Regex Engine]] — **[Intermediate]** — parse → Thompson's construction → NFA simulation → subset construction → captures. **One evening, and yours beats Python's `re` by minutes on adversarial input**
-
-10. [[build-your-own-shit/10-your-own-neural-network|Your Own Neural Network]] — **[Intermediate]** — forward pass → loss → backprop by hand → gradient checking → mini-batches → Adam → a tiny autodiff engine. **`loss.backward()` stops being magic**, and it's the guide [[ai-ml/index|ai-ml's]] 98 notes never had
-11. [[build-your-own-shit/11-your-own-memory-allocator|Your Own Memory Allocator]] — **[Intermediate]** — `sbrk` → bump allocator → headers → free list → splitting → **coalescing** → alignment → `LD_PRELOAD`. **A weekend, and `ls` runs on your `malloc`**
-12. [[build-your-own-shit/12-your-own-physics-engine|Your Own Physics Engine]] — **[Intermediate → Advanced]** — fixed timestep → **semi-implicit Euler** → collision → impulses → rotation → friction → iterative solver → broad phase. **The one where the bug reports itself visually**
-
-13. [[build-your-own-shit/13-your-own-react|Your Own React]] — **[Intermediate]** — `createElement` → render → a work loop → **fibers** → render/commit split → reconciliation and keys → function components → **`useState` via an array and a cursor**. ~500 lines, and **the hook rules stop being rules and become consequences**
-
-14. [[build-your-own-shit/14-your-own-blockchain|Your Own Blockchain]] — **[Intermediate]** — blocks → proof-of-work → an HTTP API → wallets → UTXO → mempool → **P2P gossip** → **fork choice** → difficulty adjustment. **Two nodes disagree and then converge without coordinating** — that moment is the guide
-15. [[build-your-own-shit/15-your-own-smart-contract-vm|Your Own Smart Contract VM]] — **[Intermediate → Advanced]** — stack machine → 256-bit words → **gas metering** → jumps → memory → storage → deployment → `CALL` → revert/snapshot → **`DELEGATECALL`, and a working proxy upgrade in 15 lines**
-16. [[build-your-own-shit/16-your-own-token-and-wallet|Your Own Token and Wallet]] — **[Intermediate]** — an ERC-20 from scratch → `approve`/`transferFrom` → **deployed to a testnet and visible in MetaMask** → an HD wallet whose addresses **match MetaMask's for the same seed** → a hand-signed transaction → an on-chain SVG NFT
-
-17. [[build-your-own-shit/17-your-own-cpu/index|Your Own CPU — PRIME-1]] — **[Advanced]** — design a 16-bit ISA → build the processor **four ways** (logic simulator, Verilog, Python emulator, breadboard) → assembler → compiler. **The only guide here that starts below software** — every other one builds *on top of* a computer; this one builds the computer. Capstone of [[how-computers-work/index|How Computers Work]]
-
-18. [[build-your-own-shit/18-your-own-compiler|Your Own Compiler]] — **[Advanced]** — AST → **IR** → constant folding and DCE → **liveness and register allocation** → real x86-64 that runs on your machine. The sequel to guide 04, which stops before code generation, and to [[how-computers-work/08-capstone/06-build-the-language|Pebble]], which skips the middle. **The middle is where the interesting problems live**
-
-19. [[build-your-own-shit/19-your-own-tcp-ip-stack|Your Own TCP/IP Stack]] — **[Advanced]** — TUN/TAP → Ethernet → ARP → IPv4 → ICMP → UDP → the TCP state machine → retransmission → congestion control. **`ping` answers, and then guide 01's HTTP server runs on top of your own TCP** — the first guide here that plugs into another one
-20. [[build-your-own-shit/20-your-own-raft-kv-store|Your Own Raft Key-Value Store]] — **[Advanced]** — RPC → leader election → log replication → the commit rule → persistence → exactly-once clients → snapshots → **deliberate partitions**. **Kill the leader mid-write and no committed data is lost**
-21. [[build-your-own-shit/21-your-own-compressor|Your Own Compressor]] — **[Intermediate]** — measure the entropy floor first → Huffman → canonical codes → LZ77 → DEFLATE → a real gzip container. **A weekend, and `gunzip` decompresses your output**
-22. [[build-your-own-shit/22-your-own-ray-tracer|Your Own Ray Tracer]] — **[Intermediate]** — spheres → antialiasing → diffuse bounces → metal and glass → a camera → meshes → a BVH. **Soft shadows and colour bleeding appear without you implementing either**
-23. [[build-your-own-shit/23-your-own-debugger|Your Own Debugger]] — **[Advanced]** — `ptrace` → `0xCC` breakpoints → registers → ELF symbols → DWARF line tables → source stepping → backtraces → locals by name. **`gdb` is installed already, so you have an oracle at every step**
-24. [[build-your-own-shit/24-your-own-llm|Your Own LLM]] — **[Advanced]** — tokenisers and why they explain the failures → a bigram baseline → attention in four stages → blocks and residuals → training → temperature and top-p → a KV cache. **The sequel to guide 10**
-
-**All twenty-four are written.**
-
-**Three added Aug 2026**, chosen against this folder's own criterion — build a toy version of something you rely on, and the real thing stops being opaque:
-
-- **Neural network** — the largest domain in the vault (`ai-ml/`, ~98 notes) had no build guide at all. The most conspicuous gap
-- **Memory allocator** — best effort-to-insight ratio after the container guide, and it makes [[os/05-memory-allocation|OS memory]] and [[languages/04-c/index|C]] concrete
-- **Physics engine** — completes the [[game-development/index|game development track]], and it's the rare project where a wrong integrator is *visible*
-- **React** *(added later)* — the frontend equivalent of the language guide, and it explains the hook rules by making you implement the array they depend on
-
-**Three more added Aug 2026** alongside the [[web3/index|web3 track]], which had no build guides at all:
-
-- **Blockchain** — the consensus lesson is the one that doesn't come from reading. Watching two of your own nodes fork and reconverge is worth more than any explanation of Nakamoto consensus
-- **Smart contract VM** — **the deepest of the three.** Gas, reverts and `DELEGATECALL` stop being rules and become mechanisms, which makes [[web3/03-smart-contracts-with-solidity/index|Solidity]] stop feeling arbitrary
-- **Token and wallet** — **the best first one.** An evening each, and it ends with a token on a public chain and an HD wallet whose addresses match MetaMask's
-
-**Six added Sep 2026**, chosen by asking two questions at once — *which domains in this vault never turn into a build?* and *what does [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) have that this folder does not?* Eleven domains had no link into this folder at all; these six close the most valuable of them:
-
-- **TCP/IP stack** — **the only one that closes a hole *inside* this folder rather than at its edge.** Guide 01 begins at `accept()`, so everything below the socket was still reading. `networking/` had 16 notes and no build
-- **Raft key-value store** — [[project-ideas|project-ideas.md]] has called this *"the best distributed-systems project there is"* since it was written, and `architecture/` had no guide at all. **The one project where your intuition is actively wrong** and only the code corrects it
-- **Compressor** — the strongest ending-to-effort ratio here. A weekend, and a tool that predates you reads your output byte for byte. `information-theory/` had nine notes and nowhere to put them
-- **Ray tracer** — the shortest distance in the folder to a result you want to look at, and `computer-graphics/` was eleven notes of theory
-- **Debugger** — **sits on top of more of the vault than any other guide**: processes and signals, ELF, assembly, and process memory all at once. It is also the only project where `gdb` gives you a reference implementation to check against, instruction by instruction
-- **LLM** — guide 10 stopped at a multilayer perceptron, which left the largest domain in the vault with a build guide that ends two decades before the interesting part
-
-**Considered and not written:** a text editor (overlaps the shell guide's terminal handling), a BitTorrent client (more protocol plumbing than insight per hour), and a browser engine (too large to finish, which breaks rule 7). **Also declined from build-your-own-x:** bots, augmented reality, voxel engines, template engines and command-line tools — all "follow a tutorial for a thing" rather than *build a toy version of something you rely on*, which is this folder's whole criterion. A CHIP-8 emulator is declined for a different reason: guide 17's Python emulator already covers it.
-
-## Which to start with
+**Start with the shell or the web server.** Both take a weekend, both give you something you can show people, and both make several courses click at once. After that, pick by what you're curious about:
 
 | If you want | Build |
 |---|---|
-| The fastest satisfying result | **HTTP server** |
-| An image you want to look at | **ray tracer** |
-| A tool that predates you to read your output | **compressor** (`gunzip` is the test) |
-| To stop the socket being the bottom of the world | **TCP/IP stack** |
-| To find out your intuition is wrong | **Raft** |
-| To open up `-g` | **debugger** |
-| To stop attention being a diagram | **your own LLM** |
-| Something to show someone tonight | **token and wallet** |
-| To stop `DELEGATECALL` being frightening | **smart contract VM** |
-| To watch distributed consensus actually happen | **blockchain** |
-| To stop autodiff being magic | **neural network** |
-| The best weekend systems project | **memory allocator** |
-| Something where bugs are *visible* | **physics engine** |
-| To stop `useState` being magic | **your own React** |
-| To understand a tool you use daily | **git** |
-| The smallest project that teaches the most | **shell** |
-| Theory to become concrete fastest | **regex engine** |
-| To stop finding Docker magical | **container** (~200 lines, once you've read os/11) |
-| The deepest single lesson | **language** |
-| To never fear a database again | **database** |
+| The quickest satisfying result | the web server (01) |
+| The smallest project that teaches the most | the shell (07) |
+| Something to show someone tonight | the token and wallet (16) |
+| A picture you'll want to look at | the ray tracer (22) |
+| To stop Docker feeling magical | the container (08): about 200 lines |
+| To understand a tool you use daily | Git (02) |
+| To stop AI models feeling like magic | the neural network (10), then the LLM (24) |
+| To never fear databases again | the database (06) |
+| The deepest single lesson | the language (04) |
+| To build the computer itself | the CPU (17) |
 
-**Start with the shell or the HTTP server.** Both are a weekend, both produce something you can show, and both make several vault domains concrete at once.
+## The guides
 
-## The advice that applies to all of them
-
-**Compare against the real thing at every milestone.** `git cat-file -p` on objects you created, `curl -v` against your server, `bash` against your shell. A tight feedback loop against a reference implementation is worth more than any amount of planning.
-
-**Write the test before the next milestone.** Each milestone in these guides has a concrete "you'll know it works when" — use it.
-
-**Pick a language that doesn't hide the lesson.** Go's `os/exec` and Rust's `Command` both wrap `fork`/`exec`/`dup2` behind a builder — you'll finish faster and learn less. Where the syscall *is* the lesson, use C, or Python's raw `os.*` calls.
-
-**Stop where the guide says.** The gap between a learning artefact and production software is decades of edge cases, and crossing it teaches you much less per hour than starting the next project.
-
-**Then write down what surprised you.** The point of these is the gap between having read [[git/01-how-git-works|How Git Actually Works]] and having implemented it — and that gap is only visible right after you close it.
+1. [[build-your-own-shit/01-http-server|Web Server]]: a server that answers real browsers: reading requests, sending pages, handling many visitors. The best first project.
+2. [[build-your-own-shit/02-your-own-git|Git]]: your own version control. Real Git can read the repository you create.
+3. [[build-your-own-shit/03-your-own-redis|Redis]]: an in-memory database server. The real `redis-cli` can connect to it.
+4. [[build-your-own-shit/04-your-own-language|Programming Language]]: read code, build its tree, run it, then add functions that remember their surroundings, a virtual machine or a type checker.
+5. [[build-your-own-shit/05-your-own-os|Operating System]]: from switching the computer on to running programs and reading files. Weeks, not a weekend, and it boots on real hardware from a USB stick.
+6. [[build-your-own-shit/06-your-own-database|Database]]: store rows on disk, find them quickly, understand basic SQL, and survive being killed mid-save.
+7. [[build-your-own-shit/07-your-own-shell|Shell]]: the program that runs your terminal commands, with pipes and redirection. A few hundred lines, and you can actually use it.
+8. [[build-your-own-shit/08-your-own-container|Container]]: your own mini-Docker, in about 200 lines and one evening.
+9. [[build-your-own-shit/09-your-own-regex-engine|Regex Engine]]: your own regular expressions, which can beat Python's on inputs designed to slow it down.
+10. [[build-your-own-shit/10-your-own-neural-network|Neural Network]]: a network that learns, built by hand, including the maths of learning from mistakes (backpropagation).
+11. [[build-your-own-shit/11-your-own-memory-allocator|Memory Allocator]]: your own `malloc`. A weekend, and ordinary programs like `ls` can run on it.
+12. [[build-your-own-shit/12-your-own-physics-engine|Physics Engine]]: moving, colliding and stacking objects. Bugs are easy to spot, because you can see them.
+13. [[build-your-own-shit/13-your-own-react|React]]: your own React in about 500 lines, after which the rules of hooks make sense.
+14. [[build-your-own-shit/14-your-own-blockchain|Blockchain]]: blocks, mining, wallets and a network of nodes. Watch two of your nodes disagree, then agree on their own.
+15. [[build-your-own-shit/15-your-own-smart-contract-vm|Smart Contract VM]]: a machine that runs smart contracts and charges for each step, like Ethereum's.
+16. [[build-your-own-shit/16-your-own-token-and-wallet|Token and Wallet]]: a cryptocurrency token on a real test network, and a wallet whose addresses match MetaMask's.
+17. [[build-your-own-shit/17-your-own-cpu/index|CPU (PRIME-1)]]: design a simple processor and build it four ways: in a logic simulator, in Verilog, in Python, and on a breadboard. The final project of [[how-computers-work/index|How Computers Work]].
+18. [[build-your-own-shit/18-your-own-compiler|Compiler]]: the sequel to guide 4: turn your language into real machine code that runs on your computer.
+19. [[build-your-own-shit/19-your-own-tcp-ip-stack|TCP/IP Stack]]: your own internet networking, from raw packets up. `ping` answers, and guide 1's web server runs on top of it.
+20. [[build-your-own-shit/20-your-own-raft-kv-store|Raft Key-Value Store]]: a database spread across several machines that keeps every saved value even when the leader machine dies.
+21. [[build-your-own-shit/21-your-own-compressor|Compressor]]: your own zip-style compressor. A weekend, and the standard `gunzip` tool can unpack your files.
+22. [[build-your-own-shit/22-your-own-ray-tracer|Ray Tracer]]: a program that draws realistic 3D pictures by following rays of light.
+23. [[build-your-own-shit/23-your-own-debugger|Debugger]]: pause a running program, step through its code and read its variables. `gdb` is there to check against at every step.
+24. [[build-your-own-shit/24-your-own-llm|LLM]]: a small language model, from splitting text into tokens to generating text. The sequel to guide 10.
 
 ## Related
-- [[BUILD-PLAN|Build Plan]] — the queue these come from
-- [[project-ideas|Project Ideas]] — the wider tiered build list
-- [[PRIMETECHIE|The Primetechie Path]] — where these sit as rank gates
-- [[os/index|Operating Systems]] · [[compilers/index|Compilers]] — the two prerequisites written specifically to unblock this folder
-- [[web3/index|Web3 & Blockchain]] — the domain guides 14-16 make concrete
-- [[networking/index|Networking]] · [[architecture/04-distributed-systems/index|Distributed Systems]] · [[information-theory/index|Information Theory]] · [[computer-graphics/index|Computer Graphics]] — the four domains guides 19-22 gave a build to for the first time
+
+- [[project-ideas|Project ideas]]: more things to build.
+- [[PRIMETECHIE|The Primetechie Path]]: where these builds fit in the wider path.
+- [[HOME|The home page]]: every course these guides make concrete.
+
+---
+
+## About this section
+
+- **The rule for what gets a guide:** build a small version of something you rely on, so the real thing stops being opaque. All 24 guides are written.
+- **How it grew:** the first guides came with the original courses. In August 2026 came the neural network, memory allocator, physics engine and React guides, plus three for the web3 course. In September 2026 six more (TCP/IP, Raft, compressor, ray tracer, debugger and LLM) gave courses that had no build guide one.
+- **Considered and not written:** a text editor (overlaps the shell), a BitTorrent client (more plumbing than insight), a web browser (too big to finish), and projects that are really just following a tutorial. A CHIP-8 emulator is left out because guide 17's Python emulator already covers it.

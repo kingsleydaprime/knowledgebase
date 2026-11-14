@@ -1,84 +1,62 @@
 # GPU and Parallel Computing
 
-What a GPU actually is, why "thousands of cores" is misleading, and how to make code fast on one. **The hardware layer under 98 notes of machine learning.**
+## What this course is about
 
-**~12,100 words across 9 notes** (including practice + solutions). Built August 2026. `[reference]`.
+**A GPU (graphics processing unit) is a processor built to do thousands of simple calculations at the same time. Parallel computing is splitting work so many processors can do it at once.**
 
-> **The one idea:** a CPU hides memory latency with caches and speculation. **A GPU hides it by having so many threads that when one stalls, another is ready.** Everything else — warps, coalescing, occupancy, the roofline — follows from that single architectural choice.
+A normal processor (CPU) has a few very clever cores, each good at working through one task quickly. A GPU has thousands of much simpler ones. It was invented to draw graphics, where millions of pixels each need the same small calculation. It turned out that training AI models is the same kind of work, huge amounts of identical arithmetic, which is why GPUs now power almost all of AI.
 
-## Why this exists
+Getting speed from a GPU isn't automatic. Most of the time the bottleneck isn't the calculating at all but moving data to and from memory. This course explains how GPUs work, how to write code for them, and how to find out what's actually slowing your code down.
 
-**`computer-architecture/index` flagged it directly:** *"GPU architecture — a genuine gap given the ML material in this vault."*
+## What you'll be able to do
 
-**`ai-ml/` is 98 notes and the largest domain here, and nothing explained the hardware underneath it** — what a tensor core is, why BF16 beat FP16, why batch size affects throughput so much, or why `.item()` in a training loop stalls the pipeline.
+By the end you will be able to:
+- explain why processors stopped getting faster and started getting more cores instead;
+- explain how a GPU is organised, and when a GPU is the wrong tool;
+- write simple GPU programs (kernels) and organise thousands of threads;
+- use the standard parallel building blocks: applying, combining, and running totals;
+- arrange data so the GPU can read it quickly;
+- work out whether your code is limited by calculation or by memory;
+- explain how AI models are trained across many GPUs at once.
 
-## Reading order
+## Where to start
 
-**01–02 are the concepts. 03–05 are how to write and tune code. 06 is the diagnostic framework. 07 is scaling out.**
+**Before you start:** solid programming, and [[computer-architecture/index|Computer Architecture]], especially [[computer-architecture/08-the-memory-hierarchy|the memory hierarchy]]. **No GPU?** Google Colab and Kaggle give free ones, and most of the exercises run fine on them.
 
-1. [[gpu-and-parallel-computing/01-why-parallelism|Why Parallelism]] — **[Intermediate]** — the end of frequency scaling, **Amdahl vs Gustafson**, Flynn's taxonomy, and which hardware suits which problem
-2. [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — **[Intermediate → Advanced]** — SMs, **the warp and divergence**, occupancy, the memory hierarchy, tensor cores, and when a GPU is the wrong answer
-3. [[gpu-and-parallel-computing/03-the-programming-model|The Programming Model]] — **[Intermediate → Advanced]** — kernels, grids and blocks, **why there's no global barrier**, streams, and the framework stack
-4. [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — **[Advanced]** — map, reduce, **scan** (the surprising one), stencil, histogram, tiled matmul, and kernel fusion
-5. [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — **[Advanced]** — **coalescing**, shared memory, bank conflicts, and the PCIe transfer that ruins most first ports
-6. [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — **[Intermediate → Advanced]** — arithmetic intensity, the roofline diagram, honest benchmarking, and the ML-specific bottlenecks
-7. [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]] — **[Advanced]** — data/tensor/pipeline parallelism, ZeRO and FSDP, ring all-reduce, and inference at scale
+Read in order. Notes 01–02 are the ideas; 03–05 are writing and tuning code; 06 is how to diagnose speed; 07 is using many GPUs.
 
-## The things worth carrying
-
-1. **A GPU hides latency with parallelism, not caches.** That's the entire design → [[gpu-and-parallel-computing/02-gpu-architecture|02]]
-2. **"16,384 CUDA cores" means ALU lanes.** A better model is ~132 SMs with very wide SIMD → [[gpu-and-parallel-computing/02-gpu-architecture|02]]
-3. **A warp is 32 threads in lockstep.** Divergence *within* a warp serialises; divergence *between* warps is free → [[gpu-and-parallel-computing/02-gpu-architecture|02]]
-4. **There is no global barrier inside a kernel.** Kernel boundaries are the sync points, and that shapes every GPU algorithm → [[gpu-and-parallel-computing/03-the-programming-model|03]]
-5. **Coalescing is the single biggest memory lever** — up to 32× traffic for the same data. Map thread index to the fastest-varying dimension → [[gpu-and-parallel-computing/05-memory-and-data-movement|05]]
-6. **PCIe is ~100× slower than local GPU memory.** Keep data resident; a fused pipeline beats faster individual kernels → [[gpu-and-parallel-computing/05-memory-and-data-movement|05]]
-7. **Arithmetic intensity tells you which bound you're against.** Element-wise ops are always bandwidth-bound; matmul's intensity grows with size, which is why GPUs suit deep learning → [[gpu-and-parallel-computing/06-performance-and-the-roofline|06]]
-8. **`nvidia-smi` "utilisation" means "a kernel was running", not "the hardware was used well."** 100% is compatible with 3% of peak FLOPS → [[gpu-and-parallel-computing/06-performance-and-the-roofline|06]]
-9. **Mixed precision is about tensor cores, not just memory** — roughly 15× the FLOPS on an H100 → [[gpu-and-parallel-computing/02-gpu-architecture|02]]
-10. **Scan parallelises in $O(\log n)$** despite looking sequential, and it's what makes stream compaction and radix sort work → [[gpu-and-parallel-computing/04-parallel-patterns|04]]
-11. **Higher occupancy is not the goal.** It's a means of hiding latency → [[gpu-and-parallel-computing/02-gpu-architecture|02]]
-12. **NVLink is ~20× PCIe**, which is why tensor parallelism stays inside a node → [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|07]]
-
-## Where this connects
-
-| | |
-|---|---|
-| [[ai-ml/02-ml-engineer/05-deep-learning/index\|deep learning]] | **The reason this exists.** Mixed precision, batch size, throughput |
-| [[computer-architecture/index\|computer architecture]] | The CPU this is contrasted against |
-| [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems\|numerical methods]] | The linear algebra that actually runs here |
-| [[computer-architecture/11-multicore-and-memory-models\|memory models]] | CPU-side parallel correctness |
-| [[architecture/04-distributed-systems/index\|distributed systems]] | Large training runs are distributed systems |
-| [[computer-graphics/index\|computer graphics]] | What GPUs were originally built for |
-
-## The honest note
-
-**`[reference]`, and this one has a specific asymmetry: the concepts are cheap to verify, the tuning is not.**
-
-**You can confirm coalescing, divergence and the roofline on any consumer GPU in an afternoon.** What you can't get from reading is the judgement of when a kernel is *done* — when the remaining 20% isn't worth the complexity.
-
-**What would close the gap:**
-
-1. **Write vector add, then time it.** Compute its arithmetic intensity by hand, predict the runtime from bandwidth alone, and check. **When the prediction is right, the roofline stops being abstract**
-2. **Deliberately break coalescing.** Transpose the index calculation and measure. **Watching a 10–30× slowdown from one swapped index is the fastest way to internalise note 05**
-3. **Write a reduction three ways** — naive atomics, shared memory tree, warp shuffle. Measure each
-4. **Implement tiled matmul**, compare against cuBLAS, and see how far short you fall. **Then read CUTLASS to find out why**
-5. **Profile a real training loop** with the PyTorch profiler. **Find the data-loading gaps** — they're almost always there
-6. **Try `torch.compile`** on a model and measure. The speedup is mostly fusion, which is note 04
-7. **The resources:** the CUDA C++ Programming Guide (dense, authoritative); *Programming Massively Parallel Processors* (Kirk & Hwu) — the standard textbook; **the Triton tutorials**, which are the best modern on-ramp; and the FlashAttention paper, which is a masterclass in memory-aware kernel design
-
-**No GPU?** Colab and Kaggle give free ones, and **most of these experiments run fine on a T4.**
-
-**What's missing:** ~~exercises~~ — **closed by notes 8–9 (Aug 2026)**; ray tracing hardware, graphics pipeline specifics (that's [[computer-graphics/index|computer graphics]]), FPGA and ASIC design, sparse and irregular workloads in depth, and power/thermal management.
-
-→ [[PRIMETECHIE|Reading is not a rank.]]
+1. [[gpu-and-parallel-computing/01-why-parallelism|Why Parallelism]]: why processors stopped getting faster, how much splitting work can really speed it up, and which hardware suits which problem.
+2. [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]]: how a GPU is built, why threads run in groups of 32 that must do the same thing, the special units for AI maths, and when a GPU is the wrong answer.
+3. [[gpu-and-parallel-computing/03-the-programming-model|The Programming Model]]: writing GPU functions (kernels), organising threads into grids and blocks, and why threads can't all wait for each other mid-task.
+4. [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]]: the standard building blocks, including running totals done in parallel (which looks impossible), and fast matrix multiplication.
+5. [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]]: reading memory in the order the GPU likes, its small fast shared memory, and the slow copy between computer and GPU that ruins most first attempts.
+6. [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]]: a simple chart that shows whether your code is limited by calculation or by memory, honest timing, and the usual bottlenecks in AI training.
+7. [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]]: the ways of splitting a model's training across many GPUs, and serving models at scale.
 
 ## Practice
 
-- [[gpu-and-parallel-computing/08-practice-exercises|Practice Exercises]] — twelve exercises, with an **honest no-GPU path** — Amdahl, coalescing, the transfer tax, the roofline
-- [[gpu-and-parallel-computing/09-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
+- [[gpu-and-parallel-computing/08-practice-exercises|Practice Exercises]]: hands-on experiments on a real GPU.
+- [[gpu-and-parallel-computing/09-practice-exercises-solutions|Solutions]]: worked answers. Try first.
+- **Quick experiments:** add two lists on the GPU and predict its speed from memory bandwidth alone, then check; swap one index to read memory in the wrong order and watch it get 10–30 times slower; profile a real training loop and look for gaps where the GPU sits waiting for data.
+
+## Key ideas to remember
+
+1. **A GPU hides slow memory by having so many threads that another is always ready to work** while one waits. Everything else follows from that design. → [[gpu-and-parallel-computing/02-gpu-architecture|02]]
+2. **Threads run in groups of 32 that do the same instruction.** If threads in a group take different branches, they take turns. → [[gpu-and-parallel-computing/02-gpu-architecture|02]]
+3. **Reading memory in the right order is the biggest speed lever,** up to 32 times. → [[gpu-and-parallel-computing/05-memory-and-data-movement|05]]
+4. **Copying between the computer and the GPU is about 100 times slower than the GPU's own memory.** Keep data on the GPU. → [[gpu-and-parallel-computing/05-memory-and-data-movement|05]]
+5. **"GPU at 100%" only means something was running,** not that it was running well. It can be 100% busy at 3% of its real speed. → [[gpu-and-parallel-computing/06-performance-and-the-roofline|06]]
 
 ## Related
-- [[ai-ml/index|AI & ML]] — the domain this sits under
-- [[computer-architecture/index|Computer Architecture]] — the CPU side
-- [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical Methods]] — what runs on this hardware
-- [[BUILD-PLAN|Build Plan]]
+
+- [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]]: the main reason this course exists.
+- [[computer-architecture/index|Computer Architecture]]: the CPU that GPUs are compared against.
+- [[computer-graphics/index|Computer Graphics]]: what GPUs were first built for.
+- [[architecture/04-distributed-systems/index|Distributed Systems]]: large training runs are distributed systems.
+
+---
+
+## About this course
+
+- **Size:** 9 notes, about 12,100 words, including practice and solutions. Written in August 2026, because the vault's large AI section had nothing on the hardware underneath it.
+- **Further reading:** *Programming Massively Parallel Processors* (Kirk and Hwu), the standard textbook; NVIDIA's CUDA C++ Programming Guide; the Triton tutorials, the best modern starting point; and the FlashAttention paper, a masterclass in designing around memory.

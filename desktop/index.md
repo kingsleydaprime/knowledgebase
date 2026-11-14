@@ -1,64 +1,53 @@
 # Desktop
 
-Applications that install on a machine — and the constraints the web removed and desktop kept.
+## What desktop development is
 
-**~2,750 words: 1 note + a frameworks index + 5 scaffolds.** Built August 2026. `[reference]`.
+**Desktop development is building apps you install on a computer, like VS Code, Spotify, WhatsApp Desktop or Photoshop, rather than apps that run in a web browser.**
 
-> **The one idea:** you're not shipping to a server you control — **you're shipping to machines you don't**, that run versions you didn't choose, and that you cannot update on demand. Distribution, not UI, is the discipline's real problem.
+A desktop app is mostly the same two halves as a web app: a [[frontend/index|frontend]] (what you see) and a [[backend/index|backend]] (the logic), except both run on the user's own computer. What's genuinely different is getting it there and keeping it up to date. You're sending your app to thousands of machines you don't control, running Windows, macOS or Linux in versions you didn't choose, and you can't update them all at once like a website. You also need to sign your app so the operating system trusts it, build installers for each platform, and follow each platform's look and feel.
 
-## Why this exists, and why it's small
+There are three main ways to build one: put a web page inside an app window (Electron, Tauri), use each operating system's own buttons and menus, or draw everything yourself (Qt and others).
 
-Requested directly: *"same way there's backend then frameworks for different languages, we can have desktop/frameworks/..."* — and the shape was right, so it copies [[backend/frameworks/index|backend/frameworks/]] exactly.
+## What you'll be able to do
 
-**It's deliberately thin, because a desktop app is mostly a [[frontend/index|frontend]] and a [[backend/index|backend]] living in one process.** The genuinely new material is distribution, platform integration and the UI/logic process split. Everything else is already in this vault.
+By the end you will be able to:
+- explain how desktop apps differ from websites, and what's harder;
+- choose between the main ways of building one, including the honest case for and against Electron;
+- explain how a desktop app splits into a display part and a logic part, and why that split is a security boundary;
+- explain what it takes to ship: signing, installers, stores and automatic updates.
 
-## Contents
+## Where to start
 
-1. [[desktop/01-what-desktop-development-is|What Desktop Development Is]] — **[Beginner]** — what differs from the web, the three approaches, **the Electron memory argument fairly**, and choosing
-2. [[desktop/frameworks/index|frameworks/]] — the map, and the one axis they differ on
+**Before you start:** some [[frontend/index|frontend]] and [[backend/index|backend]] experience, since a desktop app is both in one.
 
-**The frameworks, all `scaffold`:** [[desktop/frameworks/tauri|Tauri]] · [[desktop/frameworks/electron|Electron]] · [[desktop/frameworks/qt|Qt]] · [[desktop/frameworks/dotnet|.NET]] · [[desktop/frameworks/native|Native]]
+1. [[desktop/01-what-desktop-development-is|What Desktop Development Is]]: how it differs from the web, the three ways to build, the fair version of the Electron memory argument, and how to choose.
+2. [[desktop/frameworks/index|Frameworks]]: the options, and the one question they differ on: who draws the screen.
 
-## The things worth carrying
+**The frameworks** (outlines for now): [[desktop/frameworks/tauri|Tauri]], [[desktop/frameworks/electron|Electron]], [[desktop/frameworks/qt|Qt]], [[desktop/frameworks/dotnet|.NET]] and [[desktop/frameworks/native|each platform's own tools]].
 
-1. **You cannot update everyone.** Auto-update is a feature, not an afterthought → [[desktop/01-what-desktop-development-is|01]]
-2. **Distribution is often more work than the feature** — signing, notarisation, installers, stores → [[desktop/01-what-desktop-development-is|01]]
-3. **Platform conventions are why cross-platform apps feel cheap**, and users can't tell you why → [[desktop/01-what-desktop-development-is|01]]
-4. **The market chose web-in-a-shell** because developer supply decided it, not because it's technically best → [[desktop/01-what-desktop-development-is|01]]
-5. **The one axis is where the UI renders**: web engine, native widgets, or custom-drawn — and custom-drawn means accessibility is your problem → [[desktop/frameworks/index|frameworks/]]
-6. **UI process + logic process over IPC** is the shared architecture, and it's a security boundary → [[desktop/frameworks/index|frameworks/]]
-7. **Electron security is opt-in.** `contextIsolation: true`, always → [[desktop/frameworks/electron|Electron]]
-8. **Tauri trades one bundled browser for three OS webviews to test** → [[desktop/frameworks/tauri|Tauri]]
-9. **Check Qt's licence before you build a product on it** → [[desktop/frameworks/qt|Qt]]
+## Practice
 
-## Where this connects
+**Ship one tiny Tauri app to Windows, macOS and Linux.** Not for the app, but for the pipeline: build it, sign it, and install it on a computer that isn't yours. Then release version 2 and make the automatic update work from version 1. That teaches most of this section.
 
-| | |
-|---|---|
-| [[frontend/index\|frontend]] | The UI half — most of a desktop app |
-| [[backend/index\|backend]] | The logic half, in the same process |
-| [[databases/index\|databases]] | SQLite is the usual local store |
-| [[devops/05-ci-cd/index\|CI/CD]] | Building, signing and releasing for three platforms |
-| [[languages/03-rust/index\|Rust]] · [[languages/06-python/index\|Python]] · [[languages/05-cpp/index\|C++]] | Tauri · PySide · Qt |
-| [[software-engineering/04-the-kinds-of-software-engineering\|kinds of software engineering]] | Where desktop sits in the tree |
+## Key ideas to remember
 
-## The honest note
-
-**`[reference]`, and the thinnest domain in this vault** — I have not shipped a desktop application, signed a binary, been through App Store review, or maintained an auto-updater. **The distribution material is exactly the part I'd trust least**, because it's the part that's learned by being burned.
-
-**What would close the gap:**
-
-1. **Ship one tiny Tauri app to all three platforms.** Not the app — **the pipeline.** Build, sign, install it on a machine that isn't yours. That single exercise teaches most of note 01
-2. **Then break it deliberately:** ship v2 and make auto-update work from v1
-3. **Read the notarisation docs once**, and note how much of the work is neither frontend nor backend
-
-**What's missing:** the framework pages are scaffolds by design; also absent are packaging in practice, code signing and notarisation step by step, auto-update architectures, app-store requirements, native menus/tray/shortcuts, offline sync and conflict resolution, and accessibility.
-
-**Note on roadmap.sh:** there is **no desktop roadmap** — the site covers web, mobile, data and infrastructure roles. Nothing to cross-reference against, which is itself a signal about where the industry's attention is.
-
-→ [[PRIMETECHIE|Reading is not a rank.]]
+1. **You can't update everyone at once.** Build automatic updates in from the start. → [[desktop/01-what-desktop-development-is|01]]
+2. **Getting the app onto people's machines is often more work than the features.** → [[desktop/01-what-desktop-development-is|01]]
+3. **Apps that ignore a platform's conventions feel cheap,** even when users can't say why. → [[desktop/01-what-desktop-development-is|01]]
+4. **In Electron, security settings are off unless you turn them on.** → [[desktop/frameworks/electron|Electron]]
+5. **Check Qt's licence before building a product on it.** → [[desktop/frameworks/qt|Qt]]
 
 ## Related
-- [[desktop/frameworks/index|frameworks/]]
-- [[backend/frameworks/index|backend/frameworks/]] — the convention this copies
-- [[BUILD-PLAN|Build Plan]]
+
+- [[frontend/index|Frontend]] and [[backend/index|Backend]]: the two halves of a desktop app.
+- [[mobile/index|Mobile]]: the same "one app or several?" question, for phones.
+- [[devops/05-ci-cd/index|CI/CD]]: building, signing and releasing automatically for three platforms.
+- [[databases/index|Databases]]: SQLite is the usual local store.
+
+---
+
+## About this section
+
+- **Size:** 1 note, a frameworks overview and 5 framework outlines, about 2,750 words, written in August 2026. It's deliberately small, because most of a desktop app is covered by the frontend and backend courses.
+- **Where it came from:** reference sources. The author hasn't shipped a desktop app, so the material on signing, installers and updates is the part to trust least.
+- **Not covered yet:** step-by-step packaging, signing and notarisation, update systems, app store rules, menus, tray icons and shortcuts, syncing offline data, and accessibility.
