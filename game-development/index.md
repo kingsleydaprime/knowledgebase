@@ -1,104 +1,80 @@
 # Game Development
 
-Software engineering under a hard real-time constraint, in service of a subjective goal.
+## What game development is
 
-**~12,550 words: 8 course notes + 4 engine pages + an interview bank + 2 index pages.** Built August 2026. `[reference]`. Cross-referenced against the [roadmap.sh game-developer roadmap](https://roadmap.sh/game-developer).
+**Game development is making video games: designing how they play, then writing the software that draws the world, moves things, runs the characters and responds to the player, dozens of times every second.**
 
-> **The one idea:** you have **16 milliseconds**, every frame, forever. Every technical decision in this folder — data-oriented design, fixed timesteps, culling, approximate physics, prediction, baked lighting — is that constraint showing through. Games are not "software with graphics"; they are software where **the worst case is the experience**.
+What makes games special as software is the clock. To look smooth, a game must draw a new picture about 60 times a second, which gives it roughly **16 milliseconds** per frame to read the controls, move everything, work out collisions, decide what the enemies do and draw the scene. Every frame, without exception. One slow frame is a visible stutter, so in games the *worst* case is what the player feels. Most of game programming is techniques for fitting a world into that budget: faking things that look right instead of calculating them exactly, skipping anything off screen, and laying out data so the computer can process it fast.
 
-## Why this exists, and why it's thin
+Games pull together almost every other subject in this vault, from graphics and physics to AI, networking and maths. That's also why the skills carry over into simulation, robotics and film.
 
-Games were one of the three reasons you came into tech. That's reason enough to have the map.
+## What you'll be able to do
 
-**But the folder is deliberately small, because most of the game-developer roadmap is already in this vault** — written for graphics, robotics, DSA, numerical methods and ML. Restating it here would be duplication, and the far more useful thing is to *point at it*:
+By the end you will be able to:
+- explain what a game engine does, and choose between Unity, Unreal and Godot;
+- write a game loop that runs the same on fast and slow computers;
+- find out what's slowing a game down, and fix it;
+- add physics and collisions that stay stable;
+- write enemy behaviour that feels smart and fun;
+- explain how online multiplayer hides the delay between players;
+- plan a game you can actually finish.
 
-| Roadmap area | Already written, elsewhere |
-|---|---|
-| Vectors, matrices, transforms, **quaternions** | [[computer-graphics/09-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
-| Rendering, rasterisation, PBR, shading, ray tracing | [[computer-graphics/index\|computer graphics]] — 9 notes |
-| Shaders, GPU parallelism | [[gpu-and-parallel-computing/index\|GPU & parallel computing]] |
-| Integration, stability, ODEs | [[mathematics/07-applied-and-computational/01-numerical-methods/index\|numerical methods]] |
-| BVH, trees, A\*, graphs | [[dsa/index\|DSA]] · [[mathematics/02-discrete-math/07-graph-theory\|graph theory]] |
-| Neural nets, decision trees, RL | [[ai-ml/index\|AI & ML]] |
-| Caches, data-oriented design | [[computer-architecture/index\|computer architecture]] |
-| UDP, latency, distributed state | [[networking/index\|networking]] |
+## Where to start
 
-**Game development is largely an integration discipline** — which is also why the skills transfer outward into simulation, visualisation, robotics and film.
+**Before you start:** basic programming ([[programming-fundamentals/index|Programming Fundamentals]]) and some [[mathematics/04-linear-algebra/index|vectors]].
 
-## Reading order
+Read 01 and 02 first. **New to making games?** Read 08 (Getting Started) straight after 01; it's the practical path from your first tiny game upward. Notes 03–06 are the technical areas and can be read in any order. Note 07 is about how games actually get made.
 
-**01–02 first. 03–06 are the technical pillars and can be read in any order. 07–08 are how it actually gets done.**
-
-1. [[game-development/01-what-game-development-actually-is|What Game Development Actually Is]] — **[Beginner]** — the 16 ms budget, the disciplines, the maths you actually need, **and the industry honestly**
-2. [[game-development/02-engines-and-the-game-loop|Engines and the Game Loop]] — **[Beginner → Intermediate]** — the loop, **the fixed-timestep problem**, ECS and data-oriented design, choosing between Unity/Unreal/Godot
-3. [[game-development/03-graphics-for-games|Graphics for Games]] — **[Intermediate]** — the frame budget, CPU vs GPU bound, culling and LOD, **and the catalogue of lies**
-4. [[game-development/04-game-physics|Game Physics]] — **[Intermediate]** — broad/narrow phase, GJK and SAT, **why semi-implicit Euler and not Euler**, tunnelling, and when not to use a physics engine
-5. [[game-development/05-game-ai|Game AI]] — **[Intermediate]** — state machines, behaviour trees, utility AI, A\* and navmeshes, **and why a perfect opponent isn't fun**
-6. [[game-development/06-multiplayer-and-networking|Multiplayer and Networking]] — **[Advanced]** — prediction, reconciliation, interpolation, lag compensation, lockstep, **and why UDP**
-7. [[game-development/07-tools-and-production|Tools and Production]] — **[Intermediate]** — the content pipeline, **iteration time as the metric**, why games broke git, scope
-8. [[game-development/08-getting-started|Getting Started]] — **[Beginner]** — **the ladder from Pong upward**, game jams, and what to skip
-
-## The things worth carrying
-
-1. **The worst case is the experience.** A 99th-percentile frame is one visible stutter every 1.6 seconds → [[game-development/01-what-game-development-actually-is|01]]
-2. **Plausible at speed beats correct.** Game physics isn't simulating Newton → [[game-development/01-what-game-development-actually-is|01]] · [[game-development/04-game-physics|04]]
-3. **Building an engine while believing you're building a game** is the commonest way an ambitious first project dies → [[game-development/01-what-game-development-actually-is|01]]
-4. **Fixed timestep for simulation, interpolate for rendering** — and cap the inner loop or you get the spiral of death → [[game-development/02-engines-and-the-game-loop|02]]
-5. **ECS won on cache locality, not elegance.** Contiguous arrays beat pointer-chasing by ~10× → [[game-development/02-engines-and-the-game-loop|02]]
-6. **First establish whether you're CPU- or GPU-bound.** Guessing wrong wastes days → [[game-development/03-graphics-for-games|03]]
-7. **The cheapest work is work not done** — cull, LOD, batch → [[game-development/03-graphics-for-games|03]]
-8. **Semi-implicit Euler: update velocity first.** One line's difference between stable and exploding → [[game-development/04-game-physics|04]]
-9. **Solvers are allowed not to converge** — which is exactly why stacks jitter and joints go rubbery → [[game-development/04-game-physics|04]]
-10. **Don't use physics for the player character.** Feel beats realism, and feel is authored → [[game-development/04-game-physics|04]]
-11. **AI that isn't legible reads as broken.** Perceived intelligence is the product → [[game-development/05-game-ai|05]]
-12. **A\*'s optimal path looks robotic.** Smooth it → [[game-development/05-game-ai|05]]
-13. **Never trust the client.** The server simulates; the client predicts → [[game-development/06-multiplayer-and-networking|06]]
-14. **You are in the present, everyone else is in the past** — and that's why you die behind cover → [[game-development/06-multiplayer-and-networking|06]]
-15. **Iteration time is the most important number on the project** → [[game-development/07-tools-and-production|07]]
-16. **Estimate, then cut to a third.** Scope kills more projects than skill → [[game-development/07-tools-and-production|07]] · [[game-development/08-getting-started|08]]
-17. **A finished Pong on the internet beats an unfinished RPG on your disk** → [[game-development/08-getting-started|08]]
+1. [[game-development/01-what-game-development-actually-is|What Game Development Actually Is]]: the 16 ms budget, the different jobs in game making, the maths you actually need, and an honest picture of the industry.
+2. [[game-development/02-engines-and-the-game-loop|Engines and the Game Loop]]: the loop every game runs, keeping the game the same speed on every computer, organising game objects for speed, and choosing an engine.
+3. [[game-development/03-graphics-for-games|Graphics for Games]]: fitting drawing into the frame budget, skipping what can't be seen, and the many tricks that look real but aren't.
+4. [[game-development/04-game-physics|Game Physics]]: detecting collisions, moving things so they stay stable, fast objects passing through walls, and when not to use a physics engine.
+5. [[game-development/05-game-ai|Game AI]]: ways to program enemy behaviour, finding paths around a level, and why a perfect opponent isn't fun.
+6. [[game-development/06-multiplayer-and-networking|Multiplayer and Networking]]: hiding the delay between players by predicting, smoothing and correcting, and why games use UDP.
+7. [[game-development/07-tools-and-production|Tools and Production]]: getting art and levels into the game, why fast iteration matters most, and keeping the scope small.
+8. [[game-development/08-getting-started|Getting Started]]: the ladder from Pong upward, game jams, and what to skip.
 
 ## Engines
 
-**Same convention as [[backend/frameworks/index|backend/frameworks/]]** — the course teaches the concepts; these are how each engine names and does them.
+The course teaches the ideas; these pages show how each engine names and does them. Start with the [[game-development/engines/index|engines overview]].
 
-[[game-development/engines/index|engines/]] — the map and the concept-translation table
+- [[game-development/engines/godot|Godot]]: free and open source, small enough to understand. The recommendation for learning.
+- [[game-development/engines/unity|Unity]]: uses C#, and has the most job openings.
+- [[game-development/engines/unreal|Unreal]]: uses C++ and visual scripting, with top-quality graphics included.
+- [[game-development/engines/from-scratch|From scratch]]: building your own engine, layer by layer, and an honest look at whether that's really what you want to do.
 
-- [[game-development/engines/godot|Godot]] — **[Beginner → Intermediate]** — MIT, small enough to read, GDScript. **The recommendation for learning**
-- [[game-development/engines/unity|Unity]] — **[Intermediate]** — C#, the deepest job market, and **the fragmentation you should know about before committing**
-- [[game-development/engines/unreal|Unreal]] — **[Advanced]** — C++ and Blueprints, AAA rendering free, strong opinions
-- [[game-development/engines/from-scratch|From scratch]] — **[Advanced]** — the layers in build order, and **an honest account of which project you're doing**
+## Practice
 
-## Practice and interviews
+- **Do a game jam:** make one finished game in 48 hours. It tests keeping things small, finishing, and whether you enjoy it, all for the price of a weekend.
+- [[game-development/projects|Projects]]: graded tasks, from Pong upward.
+- [[game-development/interview/index|Game development interview prep]].
 
-- [[project-ideas|project ideas → Game Development]] — tiered reps. **If you do one: a game jam**
-- [[game-development/interview/index|interview/]] — the round: vectors, fixed timestep, diagnosing 30 fps, pooling, collision phases, lag compensation, ECS, and the portfolio conversation
+## Key ideas to remember
 
-## The honest note
-
-**`[reference]`, and more so than most of this vault** — I have not shipped a game, not used Unity, Unreal or Godot in anger, and never had a frame budget. **Everything here is assembled from primary sources and from the parts of this vault that genuinely do apply.** Take the industry section in note 01 as reported rather than lived.
-
-**What would close the gap:**
-
-1. **Do a game jam.** 48 hours, one finished thing. **Nothing else in this list is close** — it tests scope discipline, finishing, and whether you actually enjoy it, all at once, for the price of a weekend
-2. **Ship Pong.** Then Breakout. On itch.io, publicly. Two weekends
-3. **Write a shader that colours a surface by its normal**, then by a light direction. Ten lines, and the graphics course stops being abstract
-4. **Deliberately implement Euler integration and watch a pendulum gain energy**, then change two lines to semi-implicit and watch it stop. Note 04's central claim, verified in ten minutes
-5. **Profile a frame with RenderDoc.** Seeing where 16 ms goes is worth more than this whole folder
-
-**What's missing:** audio programming and middleware (FMOD/Wwise) entirely, animation systems at depth (blend trees, IK, motion matching), procedural generation, VR/AR, shader authoring in practice, console development, monetisation and live ops, and the entire design discipline — level design, systems design, narrative — which is a different field that happens to share a building.
-
-→ [[PRIMETECHIE|Reading is not a rank.]]
-
-## A note on priority
-
-**This is now a full track** — course, engines, projects and an interview bank — rather than the map it started as. That doesn't change [[learning/04-one-active-course|the one-active-course rule]]: your own [[learning/catalogue|catalogue]] runs SWE 101 for a job search, and this is parked in the parking lot with a date on it.
-
-**A track being complete is not a reason to start it.** It's here so that when games come round — and they will — nothing is missing.
+1. **The slowest frame is what players feel.** → [[game-development/01-what-game-development-actually-is|01]]
+2. **Believable at full speed beats correct.** Game physics fakes reality rather than simulating it. → [[game-development/04-game-physics|04]]
+3. **Building an engine while believing you're building a game** is the most common way an ambitious first project dies. → [[game-development/01-what-game-development-actually-is|01]]
+4. **Run the game's logic in fixed time steps,** separately from drawing, so it behaves the same on every computer. → [[game-development/02-engines-and-the-game-loop|02]]
+5. **Find out whether the processor or the graphics card is the bottleneck before optimising.** Guessing wrong wastes days. → [[game-development/03-graphics-for-games|03]]
+6. **Don't use realistic physics for the player character.** Good controls are designed, not simulated. → [[game-development/04-game-physics|04]]
+7. **Never trust the player's computer in multiplayer.** The server decides; each player's game predicts. → [[game-development/06-multiplayer-and-networking|06]]
+8. **Estimate your game, then cut it to a third.** A finished Pong online beats an unfinished RPG on your laptop. → [[game-development/08-getting-started|08]]
 
 ## Related
-- [[game-development/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
-- [[computer-graphics/index|computer graphics]] — the rendering half
-- [[robotics/index|robotics]] — the other reason you came into tech, same maths
-- [[gpu-and-parallel-computing/index|GPU & parallel computing]]
-- [[project-ideas|project ideas]] · [[BUILD-PLAN|Build Plan]]
+
+These courses go deeper into what games use:
+
+- [[computer-graphics/index|Computer Graphics]]: drawing 3D worlds, including [[computer-graphics/09-the-transform-pipeline|transforms]].
+- [[gpu-and-parallel-computing/index|GPU and Parallel Computing]]: shaders and graphics cards.
+- [[computer-architecture/index|Computer Architecture]]: why data layout makes games fast.
+- [[networking/index|Networking]]: the internet underneath multiplayer.
+- [[dsa/index|Data Structures and Algorithms]]: pathfinding and the trees used to find collisions quickly.
+- [[robotics/04-rigid-body-transforms|Rigid Body Transforms]]: rotations in 3D.
+
+---
+
+## About this course
+
+- **Size:** 8 notes, 4 engine pages and interview prep, about 12,550 words. Written in August 2026, checked against the [roadmap.sh game developer roadmap](https://roadmap.sh/game-developer).
+- **Why it's short:** most of what game developers need is already taught in other courses here, so this course points to them rather than repeating them.
+- **Where it came from:** reference sources. The author hasn't shipped a game or used these engines for real, so treat the industry section in note 01 as reported, not lived.

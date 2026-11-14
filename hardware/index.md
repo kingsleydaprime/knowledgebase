@@ -1,54 +1,70 @@
 # Hardware & Embedded
 
-The layer below all the software. Electricity → signals → microcontrollers → radio → boards that exist physically and can be wrong in ways no compiler catches.
+## What hardware and embedded systems are
 
-**~31,000 words across notes and one real project.** This domain was filed as "unordered reference material" until August 2026, which badly understated it — it's a course plus a finished build. Split from a single 8,656-word `fundamentals.md` into the numbered notes below in the same pass, so sections are linkable individually.
+**Embedded systems are small computers built into everyday things, such as a microwave, a smartwatch, a car's brakes or a smart meter, running one program that controls that device.**
 
-> **Golden rule of hardware design:** Before wiring any component, read its datasheet and find the manufacturer's own reference design or application note. The datasheet has absolute limits you must not exceed. The application note tells you how to wire it correctly. The reference schematic shows you what that looks like in practice. Every major manufacturer (ST, Espressif, Semtech, WIZnet, TI) publishes all three — use them.
+The computer inside them is usually a **microcontroller**: a tiny, cheap chip that holds a processor, a little memory and pins that connect to the outside world. Through those pins it reads **sensors** (temperature, light, buttons) and controls **actuators** (lights, motors, relays). Many also talk wirelessly, over Wi-Fi, Bluetooth or long-range radio, which is what "Internet of Things" (IoT) devices are.
 
-That rule is the closest thing this domain has to a first principle. Software lets you try things and read the error; hardware lets you release the smoke.
+This course covers the physical layer under all software: electricity, signals, microcontrollers, how chips talk to each other, radio, and designing your own circuit board. It's different from software in one important way: mistakes are physical. Wire something wrongly and a component can burn out. You debug with a multimeter rather than an error message.
 
-## Reading order
+## What you'll be able to do
 
-The notes build on each other — don't skip, they stack.
+By the end you will be able to:
+- work out voltages, currents and power in a simple circuit, and keep components within safe limits;
+- explain how a microcontroller reads the real world and controls things;
+- choose a microcontroller (Arduino, ESP32, STM32 and others) and load code onto it;
+- connect chips together using the standard ways they talk (UART, I2C, SPI and more);
+- choose a wireless technology for a device, and estimate how far it will reach;
+- design an IoT system, including making a battery last;
+- design a simple printed circuit board in KiCad.
 
-1. [[hardware/01-electricity|Electricity]] — **[Beginner]** — voltage/current/resistance, Ohm's law, power, AC vs DC, regulators, power OR'ing, ground, transistors, capacitors, and why decoupling caps are the ones that matter
-2. [[hardware/02-digital-and-analog|Digital vs Analog]] — **[Beginner]** — ADC, DAC and PWM: the bridges between a continuous world and a CPU that only has numbers
-3. [[hardware/03-embedded-systems|Embedded Systems]] — **[Beginner → Intermediate]** — what "embedded" means, bare metal vs RTOS, memory when you have kilobytes, the firmware loop, GPIO
-4. [[hardware/04-microcontrollers|Microcontrollers]] — **[Beginner → Intermediate]** — AVR/Arduino, ESP32, STM32, RP2040, nRF52840; how code gets onto them; clocks and timing
-5. [[hardware/05-communication-protocols|Communication Protocols]] — **[Intermediate]** — UART, I2C, SPI, I2S, CAN, 1-Wire, and how to choose
-6. [[hardware/06-radio-frequency|Radio Frequency (RF)]] — **[Intermediate → Advanced]** — spectrum, modulation, link budget, antennas, and the radio protocols you'll actually meet (WiFi, BLE, Zigbee, Thread, LoRa, NB-IoT, NFC, RFID). The longest note, and the one with the least free intuition
-7. [[hardware/07-connectivity|Connectivity]] — **[Intermediate]** — Ethernet vs WiFi vs cellular, and Power over Ethernet
-8. [[hardware/08-iot-architecture|IoT Architecture]] — **[Intermediate]** — the three layers, MQTT, edge computing, and designing to a power budget
-9. [[hardware/09-putting-it-all-together|Putting It All Together]] — **[Intermediate]** — the whole stack in one picture, and concrete next steps
-10. [[hardware/10-kicad-basics|KiCad Basics]] — **[Intermediate]** — turning a design into a manufacturable board: schematic vs layout, symbols vs footprints, PCB layers, decoupling, crystals, powering from USB
+## Where to start
 
-**Also here:** [[hardware/hardware-reference|hardware-reference]] — units, prefixes and key formulas, for lookup rather than reading. And [[hardware/interview/index|interview/]] — 25 questions across electronics/embedded and RF/IoT.
+**The golden rule:** before wiring any component, read its **datasheet** (its limits, which you must never exceed) and find the maker's **reference design** (an example circuit showing how to wire it correctly). Every major maker publishes both.
 
-## Practice, not just notes
+Read in order; each note builds on the one before.
 
-Unusually for this vault, **the reps already exist here** — [[projects/iot-bridge-pcb/task|the IoT Bridge PCB]] is a real internship project (~19,600 words of working notes): component selection with the reasoning, schematic notes, a KiCad walkthrough, and documentation. It's the largest single applied artefact in the vault.
+1. [[hardware/01-electricity|Electricity]]: voltage, current and resistance, Ohm's law, power, the difference between mains and battery power, and the small capacitors that keep chips stable.
+2. [[hardware/02-digital-and-analog|Digital vs Analog]]: how a chip that only knows numbers measures a smooth real-world signal, and produces one.
+3. [[hardware/03-embedded-systems|Embedded Systems]]: what "embedded" means, running with or without a small operating system, working with very little memory, and controlling pins.
+4. [[hardware/04-microcontrollers|Microcontrollers]]: the popular families (Arduino, ESP32, STM32, Raspberry Pi Pico, nRF52840), how code gets onto them, and timing.
+5. [[hardware/05-communication-protocols|Communication Protocols]]: the standard ways chips talk to each other, and how to choose between them.
+6. [[hardware/06-radio-frequency|Radio Frequency]]: how wireless works, how far a signal reaches, antennas, and the wireless technologies you'll meet (Wi-Fi, Bluetooth, Zigbee, LoRa, mobile networks, NFC). The longest and hardest note.
+7. [[hardware/07-connectivity|Connectivity]]: choosing between Ethernet, Wi-Fi and mobile networks, and powering a device through its network cable.
+8. [[hardware/08-iot-architecture|IoT Architecture]]: how connected devices are organised, the messaging system most of them use (MQTT), and designing a device to last on a battery.
+9. [[hardware/09-putting-it-all-together|Putting It All Together]]: the whole picture in one place, and what to build next.
+10. [[hardware/10-kicad-basics|KiCad Basics]]: turning a circuit into a board you can have manufactured, using the free KiCad software.
 
-Read the notes for the concepts, then read the project to see the same concepts argued about under real constraints — cost, availability, board area, and someone else's requirements.
+## For quick lookup
 
-More builds in [[project-ideas|Project Ideas]]'s hardware tier, including **rev 2 of the IoT Bridge**, which is the [[PRIMETECHIE|Rank V hardware gate]].
+- [[hardware/hardware-reference|Hardware reference]]: units, prefixes and key formulas.
 
-## Why this sits under the whole stack
+## Practice
 
-Everything else in this vault assumes a working machine. This domain is where "working machine" comes from — and it's the one place where the failure modes are physical: a floating pin, insufficient decoupling, a ground loop, a trace too thin for the current. Debugging here means a multimeter and an oscilloscope rather than a stack trace, which is a genuinely different skill and one reason [[PRIMETECHIE|the path]] treats hardware as its own column rather than a hobby.
+- [[projects/iot-bridge-pcb/task|The IoT Bridge board]]: a real internship project with about 19,600 words of working notes: choosing components and why, the circuit, a KiCad walkthrough and documentation. Read the course for the ideas, then this to see them argued over under real limits of cost, size and someone else's requirements.
+- [[hardware/projects|Projects]]: hands-on tasks, from easy (🟢) to hard (🔴), each with a clear "done when".
+- [[hardware/interview/index|Hardware interview prep]]: 25 questions on electronics, embedded systems, radio and IoT.
 
-## Known gaps
+## Key ideas to remember
 
-Honest, in the vault's usual style:
-
-- **Nothing on test and bring-up** — how you actually power a new board for the first time without releasing the smoke. There's a project for it in [[project-ideas|project-ideas]] and a debugging walkthrough in [[hardware/interview/01-electronics-and-embedded|the interview bank]]; the note should follow the build, not precede it.
-- **No robotics *build*** — motion, control and autonomy now have notes ([[robotics/index|robotics/]], 14 of them), but they're `[reference]`: nothing there has been run on hardware, and that folder says so plainly. The *control theory* half is its own track: [[control-theory/index|engineering/02-control-theory/]], including the digital-implementation note that covers sampling, discretisation, and fixed-point on a microcontroller.
+1. **Read the datasheet and the reference design before wiring anything.** → [[hardware/01-electricity|Electricity]]
+2. **Put a small capacitor next to every chip's power pin.** Missing ones cause strange, intermittent faults. → [[hardware/01-electricity|Electricity]]
+3. **A pin connected to nothing reads random values.** Always pull it to a known level. → [[hardware/03-embedded-systems|Embedded Systems]]
+4. **Battery life is decided by how long the device sleeps,** not how fast it runs. → [[hardware/08-iot-architecture|IoT Architecture]]
 
 ## Related
-- [[hardware/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
-- [[robotics/index|Robotics]] — the layer above: actuation, control, autonomy. Written, not built
-- [[control-theory/index|Control Theory]] — why an op-amp's feedback loop and a motor's servo loop are the same subject, and [[control-theory/12-digital-control|how to implement one on an MCU]]
-- [[computer-architecture/index|Computer Architecture]] — the layer directly above the gates: how you get from digital logic to something that runs a program
-- [[os/index|Operating Systems]] — what runs once the hardware works
-- [[networking/index|Networking]] — the protocol stack above the physical layer this domain builds
-- [[PRIMETECHIE|The Primetechie Path]] — where the hardware gates sit in the progression
+
+- [[how-computers-work/index|How Computers Work]]: from electricity to a working processor, in theory.
+- [[computer-architecture/index|Computer Architecture]]: how processors are organised.
+- [[robotics/index|Robotics]]: adding motion, control and autonomy.
+- [[control-theory/index|Control Theory]]: feedback loops, including [[control-theory/12-digital-control|running one on a microcontroller]].
+- [[networking/index|Networking]]: the protocols above the physical connection.
+
+---
+
+## About this course
+
+- **Size:** about 31,000 words across the notes and the IoT Bridge project. Until August 2026 this was one long file; it was split into the numbered notes so each section can be linked.
+- **Where it came from:** written from real use, including a finished circuit board project.
+- **Not covered yet:** powering up and testing a brand-new board for the first time (the note should come after a real build), and building a robot; the [[robotics/index|Robotics]] notes are theory, not yet tested on hardware.
