@@ -1,79 +1,72 @@
 # Computer Architecture
 
-How you get from logic gates to something that runs a program, and why that machine has the performance characteristics it does. **The layer between [[os/index|operating systems]] and [[hardware/02-digital-and-analog|digital logic]]** — and the source of every constant the rest of this vault quotes.
+## What computer architecture is
 
-**~18,900 words across 14 notes** (including practice + solutions). Built August 2026 to close a gap found by auditing a standard CS syllabus against this vault. `[reference]`.
+**Computer architecture is how a processor is designed: how it reads and runs your program's instructions, and how it gets data from memory fast enough to keep busy.**
 
-> **The practical pitch:** Big-O tells you how an algorithm scales. **This domain tells you why one $O(n)$ loop is thirty times slower than another** — and that ratio decides more real performance outcomes than complexity class does.
+Your code is translated into very simple instructions, such as "add these two numbers" or "copy this value from memory". The processor (CPU) runs billions of them a second. To manage that, it uses tricks: it works on several instructions at once, guesses which way your `if` statements will go before it knows, and keeps recently used data in small, very fast memories called **caches**.
 
-## Reading order
+Those tricks are why two pieces of code that look equally fast can differ by ten or thirty times. Big-O tells you how code slows down as the input grows; this course explains why one loop is so much faster than another loop of the same Big-O. Mostly, the answer is memory.
 
-**02–05 are the foundation. 06–07 and 10 are the performance machinery. 08–09 are memory** — the most practically important part. **11–12 are multicore and method.**
+## What you'll be able to do
 
-1. [[computer-architecture/01-what-architecture-is|What Computer Architecture Is]] — **[Beginner → Intermediate]** — the ISA as a contract, RISC vs CISC honestly, and **the latency numbers scaled so you can feel them**
-2. [[computer-architecture/02-data-representation|Data Representation]] — **[Beginner → Intermediate]** — two's complement, IEEE 754, endianness, alignment. **Why $0.1+0.2\neq0.3$ and why struct field order matters**
-3. [[computer-architecture/03-instruction-sets|Instruction Sets]] — **[Intermediate]** — registers, addressing modes, calling conventions, SIMD, and **why variable-length decode is x86's permanent handicap**
-4. [[computer-architecture/04-assembly|Assembly]] — **[Intermediate]** — reading it, which is the skill that matters. The stack, calls, and **what bounds checking actually costs**
-5. [[computer-architecture/05-the-datapath|The Datapath]] — **[Intermediate]** — fetch/decode/execute/memory/writeback, control signals, and **why microcode saved the industry in 2018**
-6. [[computer-architecture/06-pipelining|Pipelining]] — **[Intermediate]** — overlapping instructions, the three hazards, and **why sorting an array makes the same loop several times faster**
-7. [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction and Speculation]] — **[Intermediate → Advanced]** — TAGE predictors, and **Spectre: how discarded work leaks data**
-8. [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — **[Intermediate]** — **the most important note here.** Cache lines, locality, AoS vs SoA, and why linked lists lose to arrays
-9. [[computer-architecture/09-caches-in-depth|Caches in Depth]] — **[Advanced]** — associativity, coherence, **false sharing**, NUMA, and the power-of-two stride trap
-10. [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order and Superscalar]] — **[Advanced]** — register renaming, the reorder buffer, and **breaking dependency chains with multiple accumulators**
-11. [[computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — **[Advanced]** — acquire/release, and **why your lock-free code works on x86 and breaks on ARM**
-12. [[computer-architecture/12-performance|Performance]] — **[Intermediate → Advanced]** — the method: measure, understand, algorithm, layout, micro-optimise, measure again
+By the end you will be able to:
+- explain how numbers, decimals and text are stored as bits, and why `0.1 + 0.2` isn't exactly `0.3`;
+- read simple assembly code, the processor's own instructions;
+- explain how a processor works on several instructions at once, and what slows it down;
+- explain why memory is usually the bottleneck, and lay out data so it's fast to read;
+- avoid the hidden slowdowns when several processor cores share data;
+- measure your program's speed and find where the time actually goes.
 
-## The things worth carrying
+## Where to start
 
-1. **DRAM is ~50–75× slower than L1.** Most programs are memory-bound, not compute-bound → [[computer-architecture/08-the-memory-hierarchy|08]]
-2. **Count cache lines touched, not operations.** That's the number that predicts runtime → [[computer-architecture/08-the-memory-hierarchy|08]]
-3. **A linked list and an array have the same $O(n)$ traversal and a 10× difference**, because pointer chasing serialises the loads → [[computer-architecture/08-the-memory-hierarchy|08]]
-4. **False sharing can make a parallel program slower than the serial one** — independent variables, one cache line. `perf c2c` finds it → [[computer-architecture/09-caches-in-depth|09]]
-5. **Predictable branches are nearly free; unpredictable ones cost ~20 cycles.** Sorting the data can beat rewriting the loop → [[computer-architecture/06-pipelining|06]]
-6. **Serial dependency chains waste a wide machine.** Multiple accumulators is the highest-value micro-optimisation → [[computer-architecture/10-out-of-order-and-superscalar|10]]
-7. **x86 is strongly ordered and hides concurrency bugs that ARM exposes.** Test on ARM → [[computer-architecture/11-multicore-and-memory-models|11]]
-8. **`volatile` is not for threading** in C/C++ — no ordering, no atomicity → [[computer-architecture/11-multicore-and-memory-models|11]]
-9. **Never use floats for money or equality**, and float addition isn't associative — so the compiler can't reorder it and parallel reductions aren't reproducible → [[computer-architecture/02-data-representation|02]]
-10. **Amdahl: optimising 10% of runtime caps your gain at 11%.** Profile first, always → [[computer-architecture/12-performance|12]]
-11. **Microarchitectural state is a covert channel.** Spectre broke the assumption that the ISA is a sufficient security abstraction → [[computer-architecture/07-branch-prediction-and-speculation|07]]
+**Before you start:** basic programming, and [[dsa/03-algorithms/01-complexity-analysis/01-growth-and-asymptotic-notation|Big-O notation]]. Reading [[how-computers-work/index|How Computers Work]] first helps a lot but isn't required.
 
-## Where this connects
+Read in order. Notes 02–05 are the foundations; 06, 07 and 10 are how a processor goes fast; 08 and 09 are memory, the most useful part in practice; 11 and 12 are multiple cores and measuring speed.
 
-| | |
-|---|---|
-| [[os/index\|operating systems]] | Sits directly on this — virtual memory, scheduling, syscalls |
-| [[hardware/02-digital-and-analog\|hardware/]] | The gates and signals below |
-| [[compilers/08-code-generation\|compilers]] | Codegen, register allocation and scheduling target this machine |
-| [[languages/04-c/index\|C]] · [[languages/05-cpp/index\|C++]] · [[languages/03-rust/index\|Rust]] | Where you can actually control layout and see the effects |
-| [[01-growth-and-asymptotic-notation\|algorithms]] | Big-O's constants live here |
-| [[cybersecurity/05-cryptography/index\|cryptography]] | Constant-time code, and why timing is a leak |
-
-## The honest note
-
-**`[reference]`, and this domain is unusually easy to close the gap on** — everything here is measurable on the machine you're reading this on, in minutes, for free.
-
-**That makes the gap less excusable than in [[continuum-mechanics/index|continuum-mechanics/]] or [[robotics/index|robotics/]].** No hardware to buy, no lab. Just `perf` and an afternoon.
-
-**What would actually close it:**
-
-1. **Run `perf stat` on something you wrote.** Look at the IPC. **Then find out why it's what it is.** Twenty minutes, and it makes the whole track concrete
-2. **Reproduce the sorted-array branch experiment.** Same code, sorted and unsorted input, several-fold difference. **Seeing it yourself is different from reading it**
-3. **Write the matrix multiply three ways** — naive, loop-interchanged, blocked. Measure. **The 10× from reordering identical arithmetic is the lesson of note 08 in one experiment**
-4. **Demonstrate false sharing.** Two threads incrementing adjacent array elements, then padded to 64 bytes. **Watch it get faster by adding memory**
-5. **Read some assembly on Godbolt.** Change optimisation levels and watch code disappear
-6. **The books:** Patterson & Hennessy (*Computer Organization and Design*) for the fundamentals; Hennessy & Patterson (*Computer Architecture: A Quantitative Approach*) for depth; **Drepper's *What Every Programmer Should Know About Memory*** — free, and still the best thing written on note 08's material; Agner Fog's optimisation manuals for the microarchitectural detail
-
-**What's missing here:** ~~exercises~~ — **closed by notes 13–14 (Aug 2026)**; ~~GPU architecture~~ (**now covered** — [[gpu-and-parallel-computing/index|foundations/gpu-and-parallel-computing/]]), I/O and DMA, power and thermal design in depth, chip layout, formal verification of hardware, and anything on FPGAs or accelerator design beyond a mention.
-
-→ [[PRIMETECHIE|Reading is not a rank.]]
+1. [[computer-architecture/01-what-architecture-is|What Computer Architecture Is]]: the agreement between software and processor, the two main families of processor design, and how long different operations take, scaled to human time so you can feel the difference.
+2. [[computer-architecture/02-data-representation|Data Representation]]: how negative numbers, decimals and text are stored as bits, and why the order of fields in your data can matter.
+3. [[computer-architecture/03-instruction-sets|Instruction Sets]]: the instructions a processor understands, how functions pass values to each other, and doing one operation on many values at once.
+4. [[computer-architecture/04-assembly|Assembly]]: reading the processor's instructions, which is the skill that matters, rather than writing them.
+5. [[computer-architecture/05-the-datapath|The Datapath]]: the five steps a processor takes to run each instruction.
+6. [[computer-architecture/06-pipelining|Pipelining]]: working on several instructions at once, like an assembly line, and why sorting an array can make the same loop several times faster.
+7. [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction and Speculation]]: how the processor guesses which way an `if` will go, and how those guesses led to the Spectre security flaw.
+8. [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]]: the most important note here. Caches, why reading memory in order is fast, and why arrays beat linked lists in practice.
+9. [[computer-architecture/09-caches-in-depth|Caches in Depth]]: how caches are organised, how cores keep their caches in agreement, and how two threads can slow each other down without sharing any data.
+10. [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order and Superscalar]]: how the processor runs instructions out of order when it's safe, and how to write loops that let it.
+11. [[computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]]: what happens when several cores read and write the same memory, and why some threading code works on one kind of processor and breaks on another.
+12. [[computer-architecture/12-performance|Performance]]: a method for making code faster: measure, understand, fix the biggest thing, measure again.
 
 ## Practice
 
-- [[computer-architecture/13-practice-exercises|Practice Exercises]] — twelve experiments on your own machine — cache sizes measured from timing alone, and **two classic results that fail to reproduce at `-O2`**
-- [[computer-architecture/14-practice-exercises-solutions|Solutions]] — worked answers, **after you've tried**
+Everything in this course can be measured on the computer you're reading it on, for free.
+
+- [[computer-architecture/13-practice-exercises|Practice Exercises]]: twelve experiments on your own machine, such as working out your cache sizes from timing alone.
+- [[computer-architecture/14-practice-exercises-solutions|Solutions]]: worked answers. Try first.
+- **Quick experiments:** time the same loop on sorted and unsorted data; multiply two matrices with the loops in different orders; look at the assembly your compiler produces on [Godbolt](https://godbolt.org) at different optimisation levels.
+
+## Key ideas to remember
+
+1. **Main memory is around 50–75 times slower than the processor's fastest cache.** Most programs wait on memory, not on calculation. → [[computer-architecture/08-the-memory-hierarchy|08]]
+2. **To predict speed, count how much memory you touch, not how many operations you do.** → [[computer-architecture/08-the-memory-hierarchy|08]]
+3. **An array and a linked list are both O(n) to walk through, yet the array can be ten times faster,** because its items sit next to each other in memory. → [[computer-architecture/08-the-memory-hierarchy|08]]
+4. **Two threads updating different variables can still slow each other down** if those variables sit next to each other in memory. → [[computer-architecture/09-caches-in-depth|09]]
+5. **An `if` that's easy to predict costs almost nothing; one that's random is expensive.** → [[computer-architecture/06-pipelining|06]]
+6. **Never use decimal numbers for money, or compare them with `==`.** → [[computer-architecture/02-data-representation|02]]
+7. **Speeding up a part that takes 10% of the time can save at most 10%.** Measure before optimising. → [[computer-architecture/12-performance|12]]
 
 ## Related
-- [[os/index|Operating Systems]] — the layer above
-- [[hardware/index|Hardware & Embedded]] — the layer below
-- [[theory-of-computation/05-turing-machines|Turing Machines]] — the universal machine this implements
-- [[BUILD-PLAN|Build Plan]]
+
+- [[how-computers-work/index|How Computers Work]]: the layer below, from electricity up to the processor.
+- [[os/index|Operating Systems]]: the layer above.
+- [[gpu-and-parallel-computing/index|GPU and Parallel Computing]]: processors built for thousands of tasks at once.
+- [[compilers/index|Compilers]]: how your code becomes these instructions.
+- [[languages/04-c/index|C]], [[languages/05-cpp/index|C++]] and [[languages/03-rust/index|Rust]]: languages where you control memory layout and can see these effects.
+
+---
+
+## About this course
+
+- **Size:** 14 notes, about 18,900 words, including practice and solutions. Written in August 2026 after comparing the vault against a standard computer science syllabus.
+- **Further reading:** Patterson and Hennessy, *Computer Organization and Design* (the basics); Hennessy and Patterson, *Computer Architecture: A Quantitative Approach* (depth); Drepper, *What Every Programmer Should Know About Memory* (free, and the best thing written on note 08's topic); Agner Fog's optimisation manuals.
+- **Not covered yet:** input/output and DMA (devices writing to memory directly), power and heat, chip layout, verifying hardware designs, and FPGAs.

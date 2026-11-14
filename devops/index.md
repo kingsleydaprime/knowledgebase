@@ -1,37 +1,83 @@
 # DevOps
 
-A map of this folder, in reading order. **00 is the physical layer underneath everything else** (added Aug 2026). The next four sections are the original foundation — a working Linux baseline, containers, cloud, and deploying to a real server. Sections **05–11 are the DevOps-discipline pillars**, added by cross-referencing this domain against the [roadmap.sh DevOps roadmap](https://roadmap.sh/devops): orchestration, CI/CD, infrastructure as code, networking, secrets, observability, and delivery. **12 is the disciplines themselves** — SRE, platform engineering and DevSecOps (added Aug 2026).
+## What DevOps is
 
-## Where the content comes from
+**DevOps is everything involved in getting code off a developer's laptop and running reliably on servers for real users, and keeping it running.**
 
-- **`00-the-physical-layer/` and `12-sre-and-platform-engineering/` are `[reference]`**, added August 2026 from an IT-fundamentals course: the machine/building/wiring under the cloud, and the delivery disciplines the tool sections assumed but never named.
-- The foundation (`01-linux` … `04-vps`) is grounded in real work — Linux/RHCSA study, actual Docker usage, and VPS deploys.
-- Sections **05–11 are mostly `[reference]`** and marked as such: Kubernetes, Terraform, Ansible, Prometheus, service meshes, etc. are covered from roadmap.sh and primary docs, not from having run them in anger yet. Where a real grounded hook exists it's used — e.g. CI/CD is anchored to this vault's own GitHub Actions deploy workflow. DevOps is intensely hands-on, so the honest next step for these pillars is to *do* them (a real pipeline, a `terraform apply`, a k8s cluster), not just read them.
-- Two roadmap.sh DevOps topics live elsewhere in the vault and are cross-linked rather than duplicated: **version control** → the top-level [[git/index|git/]] domain, and **a programming language for automation** → [[languages/index|languages/]].
+Writing an app is only half the job. Someone has to put it on a computer that's always on and connected to the internet (a **server**), make sure it starts up again if it crashes, release new versions without breaking anything, and notice when something goes wrong before users complain. In the past, "developers" wrote code and a separate "operations" team ran it. DevOps joins the two: the people who build the software also care about shipping and running it, and they automate as much of that work as possible.
 
-## Reading order
+The tools you'll meet include **Linux** (the operating system most servers run), **Docker** (packaging an app with everything it needs), **cloud providers** like AWS (renting servers instead of buying them), and **CI/CD** (automatically testing and releasing every change).
 
-0. [[devops/00-the-physical-layer/index|00-the-physical-layer/]] — **[Beginner]** — the layer under Linux: servers, virtualisation and hypervisors, data centres, and the leaf-spine network. **Why an availability zone is a physical fact**
-1. [[devops/01-linux/index|01-linux/]] — **[Beginner → Advanced]** — Linux fundamentals (filesystem, users, processes, services, networking, SSH) through to the RHCSA cert track
-2. [[devops/02-docker/index|02-docker/]] — **[Intermediate]** — containers: the big picture, networking, volumes, multi-stage builds
-3. [[devops/03-cloud/index|03-cloud/]] — **[Intermediate]** — cloud provider fundamentals: the AWS/Azure/GCP landscape, core service categories, serverless, and cloud design patterns
-4. [[devops/04-vps/vps-setup|04-vps/]] — **[Intermediate]** — deploying to a real Linux VPS, the practical capstone of the first three
-5. [[devops/05-orchestration/index|05-orchestration/]] — **[Advanced]** — Kubernetes and the container-orchestration landscape (Swarm, managed k8s, OpenShift)
-6. [[devops/06-ci-cd/index|06-ci-cd/]] — **[Intermediate → Advanced]** — continuous integration/delivery: the concepts, then GitHub Actions in depth across 10 notes (triggers, runners, secrets, caching, reusable workflows, CI and CD pipelines, security, troubleshooting), plus the Jenkins / GitLab CI landscape
-7. [[devops/07-infrastructure-as-code/index|07-infrastructure-as-code/]] — **[Advanced]** — provisioning (Terraform, Pulumi, CloudFormation) and configuration management (Ansible, Chef, Puppet)
-8. [[devops/08-networking-and-web/index|08-networking-and-web/]] — **[Intermediate]** — networking & protocols (OSI, DNS, HTTP/S, TLS, SSH) and web servers/proxies (Nginx, load balancers, caching)
-9. [[devops/09-secret-management/index|09-secret-management/]] — **[Advanced]** — secrets out of git: Vault, SOPS, Sealed Secrets, cloud KMS
-10. [[devops/10-observability/index|10-observability/]] — **[Advanced]** — the three pillars (metrics, logs, traces), SLIs/SLOs, and the stack (Prometheus, Grafana, ELK, OpenTelemetry)
-11. [[devops/11-delivery-and-advanced/index|11-delivery-and-advanced/]] — **[Advanced]** — GitOps (ArgoCD/FluxCD), artifact management, service mesh, cloud design patterns
-12. [[devops/12-sre-and-platform-engineering/index|12-sre-and-platform-engineering/]] — **[Intermediate → Advanced]** — the disciplines rather than the tools: how delivery practice evolved (waterfall → agile → DevOps → SRE → platform → DevSecOps), **toil and on-call design**, Internal Developer Platforms and golden paths, and security as a pipeline stage
+## What you'll be able to do
 
-## Also in this folder (not part of the numbered sequence)
+By the end you will be able to:
+- use Linux confidently from the command line;
+- package an app in a container so it runs the same everywhere;
+- put an app on a real server with its own domain name and HTTPS;
+- set up automatic testing and releasing for every change;
+- keep passwords and keys out of your code;
+- monitor a live app and get alerted when it breaks;
+- describe servers and their setup in code, so they can be rebuilt automatically;
+- run many containers across many machines with Kubernetes.
 
-- [[devops-reference|devops-reference]] — a full concept-first reference across the whole devops landscape, meant for lookup
-- [[minio-guide|minio-guide]] — a specific self-hosted object storage guide
+## Where to start
+
+**Before you start:** basic programming ([[programming-fundamentals/index|Programming Fundamentals]]) and [[git/index|Git]]. Knowing [[networking/index|how networks work]] and [[os/index|what an operating system does]] makes everything here easier.
+
+Read in the order below. **It differs from the section numbers in two places:** networking and web servers (section 08) come early, because you need them to put a site on a server; and Kubernetes (section 05) comes late, because it builds on everything else.
+
+### The basics
+
+1. [[devops/00-the-physical-layer/index|The Physical Layer]]: the real machines, buildings and cables under "the cloud", and how one physical computer is split into many virtual ones.
+2. [[devops/01-linux/index|Linux]]: the command line, files, users, running programs and services, and remote login with SSH, up to the RHCSA certification if you want it.
+3. [[devops/08-networking-and-web/index|Networking and Web Servers]]: domain names, HTTPS, and Nginx, the program that sits in front of your app and passes requests to it.
+4. [[devops/02-docker/index|Docker]]: packaging an app with everything it needs into a container.
+5. [[devops/04-vps/vps-setup|Deploying to a Server]]: putting a real app on a rented Linux server (a VPS), using everything above.
+
+### Shipping changes safely
+
+6. [[devops/06-ci-cd/index|CI/CD]]: automatically testing every change and releasing it, mostly with GitHub Actions.
+7. [[devops/09-secret-management/index|Secret Management]]: keeping passwords and keys out of your code and out of Git.
+8. [[devops/10-observability/index|Observability]]: seeing what a live app is doing through metrics, logs and traces, and deciding when to alert someone.
+
+### Working at larger scale
+
+9. [[devops/03-cloud/index|Cloud]]: what AWS, Azure and Google Cloud offer, and how to choose between their services.
+10. [[devops/07-infrastructure-as-code/index|Infrastructure as Code]]: describing servers and their setup in files, so they can be created and changed automatically.
+11. [[devops/05-orchestration/index|Orchestration and Kubernetes]]: running many containers across many machines, and restarting or moving them automatically.
+12. [[devops/11-delivery-and-advanced/index|Delivery and Advanced Topics]]: releasing by updating a Git repository (GitOps), storing build outputs, and service meshes.
+13. [[devops/12-sre-and-platform-engineering/index|SRE and Platform Engineering]]: the ways of working, not the tools: how teams share on-call duty, cut repetitive work, and build internal platforms for other developers.
+
+## For quick lookup
+
+- [[devops/devops-reference|DevOps reference]]: the whole DevOps landscape in one long reference, for looking things up.
+- [[devops/minio-guide|MinIO guide]]: setting up your own file storage server.
+
+## Practice
+
+- [[devops/projects|Projects]]: hands-on tasks, from easy (🟢) to hard (🔴), each with a clear "done when".
+- [[devops/interview/index|DevOps interview prep]].
+- DevOps is learned by doing more than reading. The best practice is to deploy something real: a small app on a server, with a pipeline that releases it when you push.
+
+## Key ideas to remember
+
+1. **Automate anything you'd otherwise do by hand twice.** Manual steps get forgotten or done differently each time.
+2. **A container runs the same on your laptop and on the server,** which ends "it works on my machine". → [[devops/02-docker/index|Docker]]
+3. **Passwords and keys never go in Git,** even in a private repository. → [[devops/09-secret-management/index|Secret Management]]
+4. **If you can't see it, you can't fix it.** Set up logs and alerts before you need them. → [[devops/10-observability/index|Observability]]
+5. **"The cloud" is still physical machines in physical buildings.** That's why spreading across several data centres protects you. → [[devops/00-the-physical-layer/index|The Physical Layer]]
 
 ## Related
-- [[devops/projects|Projects]] — **the reps for this domain**, graded 🟢🟡🔴 with a *done when* for each
-- [[git/index|git/]] — version control, the roadmap's VCS pillar
-- [[languages/index|languages/]] — a programming language for automation/tooling
-- [[dsa/index|DSA fundamentals]]
+
+- [[git/index|Git]]: where every change starts.
+- [[os/index|Operating Systems]]: what's happening underneath Linux commands.
+- [[networking/index|Networking]]: the theory behind section 08.
+- [[backend/index|Backend]]: the apps you'll be deploying.
+- [[cybersecurity/index|Cybersecurity]]: protecting everything you run.
+
+---
+
+## About this course
+
+- **Where it came from:** Linux, Docker and the server deploy come from real use (Linux certification study and real deployments). The physical layer and SRE sections were added in August 2026 from an IT fundamentals course. Kubernetes, Terraform, Ansible, Prometheus and the other advanced tools were written from the [roadmap.sh DevOps roadmap](https://roadmap.sh/devops) and official documentation, not from running them in production. The CI/CD section uses this vault's own deploy workflow as its example.
+- **Section numbers:** the folders are numbered in the order they were added, which is why the reading order above differs in places.

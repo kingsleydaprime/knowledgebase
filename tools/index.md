@@ -1,28 +1,29 @@
 # Tools
 
-Notes on the software used to do the work, rather than on the work itself. A tool earns a note here once it's been configured deliberately enough that the reasoning is worth keeping — not for every binary that gets installed.
+## What this section is
 
-The test: if the config file has opinions in it, the opinions belong here.
+**Notes on the programs used to do the work, such as the editor, the package manager and the site generator, and how they're set up.**
+
+Most tools are easy to install. Setting them up well is where the decisions are: which settings to change, why, and what breaks if you get it wrong. A tool gets a note here once its setup involved real decisions worth remembering, not just for being installed.
+
+This isn't a course to read in order. Each set of notes stands alone; open the one for the tool you're using.
 
 ## What's here
 
-- [[tools/quartz/index|quartz/]] — **6 notes** — the static site generator publishing this vault. Build pipeline, configuration, theming, layout, the graph view, and the deploy setup. Fully grounded in this site's actual config
-- [[tools/agent-skills/index|agent-skills/]] — **1 note** — the `SKILL.md` format, its YAML frontmatter contract, and why a skill silently fails to load
-- [[tools/npm/index|npm/]] — **2 notes** — not how to use npm, but the configuration layer under it: registries, `.npmrc` precedence and the local-prefix rule, scoped registries, and the authentication that works locally and fails in CI
-- [[tools/neovim/neovim-setup|neovim-setup]] — editor configuration
-- [[tools/openclaw-study-partner/index|openclaw-study-partner/]] — a local AI study partner: a read-only OpenClaw agent on `qwen3.5:4b` through Ollama, sized for this laptop, with a sparring-partner persona
+- [[tools/quartz/index|Quartz]]: the program that turns this vault's notes into a website. 6 notes on how it works, configuring it, styling, layout, the graph view, and publishing. Based on this site's actual setup.
+- [[tools/npm/index|npm]]: not how to use npm (JavaScript's package manager), but the settings underneath it: where packages are downloaded from, the `.npmrc` settings file, and logging in to private package sources, which often works on your laptop and fails in automated builds. 2 notes.
+- [[tools/agent-skills/index|Agent skills]]: the `SKILL.md` file format that teaches AI coding assistants a task, and why a skill can silently fail to load. 1 note.
+- [[tools/openclaw-study-partner/index|OpenClaw study partner]]: setting up a local AI study partner that runs on this laptop without the internet, can read the vault but not change it, and quizzes you instead of giving answers.
+- [[tools/neovim/neovim-setup|Neovim setup]]: configuring the Neovim text editor.
 
-## Known gaps
+## Related
 
-Things used daily with no notes yet:
-
-- **The shell itself** — zsh config, prompt, history behaviour. Adjacent to [[devops/01-linux/12-bash-scripting|Bash Scripting]], but the interactive-shell half is uncovered
-- **tmux** — if it's in the workflow
-- **Docker as a local dev tool**, as distinct from [[devops/02-docker/index|Docker as deployment infrastructure]]
+- [[git/index|Git]]: the most-used tool of all, with its own full course.
+- [[devops/01-linux/index|Linux]]: the system these tools run on.
+- [[HOME|The home page]]: the map of every subject.
 
 ---
 
-## Related
-- [[devops/01-linux/index|Linux]] — the environment these tools run in
-- [[git/index|Git]] — the tool with the deepest coverage, promoted out of here into its own course
-- [[HOME|Vault README]]
+## About this section
+
+- **Not covered yet:** the shell itself (zsh settings, prompt and history; scripting is in [[devops/01-linux/12-bash-scripting|Bash Scripting]]), tmux, and Docker as a tool for local development rather than for deploying.
