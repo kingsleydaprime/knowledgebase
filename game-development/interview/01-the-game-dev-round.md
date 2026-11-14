@@ -14,7 +14,7 @@ From the [[game-development/index|game development course]].
 - **Is the enemy in front of me?** `dot(forward, toTarget) > 0`
 - **Field-of-view check** — `dot(forward, normalize(toTarget)) > cos(fovRadians/2)`. **Cheaper and more robust than computing the angle**, because no `acos`
 - **Backface culling** — `dot(normal, viewDir) < 0`
-- **Diffuse lighting** — `max(0, dot(normal, lightDir))` → [[computer-graphics/04-shading-and-lighting|shading]]
+- **Diffuse lighting** — `max(0, dot(normal, lightDir))` → [[computer-graphics/11-shading-and-lighting|shading]]
 - **Projection** of one vector onto another
 
 **The cross product**, for contrast: gives a perpendicular; used for surface normals, "is the target to my left or right" (sign of the y component in 2D), and torque.
@@ -140,7 +140,7 @@ In an OO hierarchy, objects are scattered on the heap; iterating them chases poi
 
 ## Related
 - [[game-development/index|the course]] · [[game-development/engines/index|engines]]
-- [[computer-graphics/10-practice-exercises|graphics exercises]] — the reps behind Q1 and Q3
+- [[computer-graphics/17-practice-exercises|graphics exercises]] — the reps behind Q1 and Q3
 - [[project-ideas|project ideas]] — the game-development tier
 - [[INTERVIEW|Interview Prep Index]]
 

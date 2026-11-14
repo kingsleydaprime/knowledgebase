@@ -20,9 +20,9 @@
 
 **Programmable stages you write; fixed-function stages you configure.**
 
-**Vertex shader** — runs once per vertex. **Transform to clip space**, pass through attributes. → [[computer-graphics/02-the-transform-pipeline|Transforms]]
+**Vertex shader** — runs once per vertex. **Transform to clip space**, pass through attributes. → [[computer-graphics/09-the-transform-pipeline|Transforms]]
 
-**Fragment (pixel) shader** — runs once per covered fragment. **Compute colour.** This is where shading and texturing happen, and **it's usually where the time goes.** → [[computer-graphics/04-shading-and-lighting|Shading]]
+**Fragment (pixel) shader** — runs once per covered fragment. **Compute colour.** This is where shading and texturing happen, and **it's usually where the time goes.** → [[computer-graphics/11-shading-and-lighting|Shading]]
 
 **Geometry shader** — can emit new primitives. **Flexible and slow on most hardware** — it serialises output ordering. **Compute shaders are almost always the better answer**, and GS is essentially deprecated in practice.
 
@@ -86,7 +86,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 
 **Watch register pressure.** Complex shaders reduce occupancy.
 
-**Avoid `discard`** — it disables early-Z. → [[computer-graphics/03-rasterisation|Early-Z]]
+**Avoid `discard`** — it disables early-Z. → [[computer-graphics/10-rasterisation|Early-Z]]
 
 **Prefer built-ins** (`dot`, `mix`, `clamp`, `fma`) — they map to single instructions.
 
@@ -172,6 +172,6 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 
 ## Related
 - [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware underneath
-- [[computer-graphics/03-rasterisation|Rasterisation]] — the fixed-function stage
+- [[computer-graphics/10-rasterisation|Rasterisation]] — the fixed-function stage
 - [[gpu-and-parallel-computing/03-the-programming-model|The Compute Programming Model]] — the sibling model
 - [[computer-graphics/index|Computer graphics map]]

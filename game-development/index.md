@@ -14,7 +14,7 @@ Games were one of the three reasons you came into tech. That's reason enough to 
 
 | Roadmap area | Already written, elsewhere |
 |---|---|
-| Vectors, matrices, transforms, **quaternions** | [[computer-graphics/02-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
+| Vectors, matrices, transforms, **quaternions** | [[computer-graphics/09-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
 | Rendering, rasterisation, PBR, shading, ray tracing | [[computer-graphics/index\|computer graphics]] — 9 notes |
 | Shaders, GPU parallelism | [[gpu-and-parallel-computing/index\|GPU & parallel computing]] |
 | Integration, stability, ODEs | [[mathematics/07-applied-and-computational/01-numerical-methods/index\|numerical methods]] |

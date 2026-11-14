@@ -27,7 +27,7 @@ for each triangle:
 
 **The killer property: it's embarrassingly parallel over triangles and pixels, and it never needs the whole scene at once** — stream triangles through, and each is independent.
 
-**Which is why it's what GPUs were built for.** The entire fixed-function graphics pipeline is a rasteriser in silicon. → [[computer-graphics/03-rasterisation|Rasterisation]]
+**Which is why it's what GPUs were built for.** The entire fixed-function graphics pipeline is a rasteriser in silicon. → [[computer-graphics/10-rasterisation|Rasterisation]]
 
 **What it's bad at:** anything requiring a triangle to know about *other* triangles. **Shadows, reflections, refraction and indirect light are all global effects, and rasterisation is fundamentally local.** Every real-time technique for those is an approximation bolted on — shadow maps, environment maps, screen-space reflections.
 
@@ -44,7 +44,7 @@ for each pixel:
 
 **The killer property: global effects are natural.** A reflection is just another ray. A shadow is a ray toward the light. Refraction, depth of field and motion blur all fall out of casting the right rays.
 
-**What it's bad at:** you need the whole scene queryable at once, and naive intersection is $O(\text{triangles})$ per ray. **Acceleration structures (BVH) fix the complexity; the memory requirement is inherent.** → [[computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing]]
+**What it's bad at:** you need the whole scene queryable at once, and naive intersection is $O(\text{triangles})$ per ray. **Acceleration structures (BVH) fix the complexity; the memory requirement is inherent.** → [[computer-graphics/14-ray-tracing-and-path-tracing|Ray Tracing]]
 
 > **The honest summary:** rasterisation is fast and local; ray tracing is slow and global. **Real-time rendering spent thirty years finding clever approximations of global effects within a local framework** — and hardware ray tracing (2018 onwards) is the beginning of that pressure easing.
 >
@@ -62,7 +62,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 |---|---|
 | $L_o$ | outgoing radiance — **what you want** |
 | $L_e$ | emitted (only for light sources) |
-| $f_r$ | **BRDF** — how the material reflects → [[computer-graphics/04-shading-and-lighting\|Shading]] |
+| $f_r$ | **BRDF** — how the material reflects → [[computer-graphics/11-shading-and-lighting\|Shading]] |
 | $L_i$ | incoming radiance **from everywhere** |
 | $(\omega_i\cdot\mathbf{n})$ | Lambert's cosine — glancing light contributes less |
 
@@ -87,7 +87,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
   framebuffer
 ```
 
-**Covered in detail across notes 02–06.** The structure to notice: **it's a stream, with each stage massively parallel and no stage needing global scene information.**
+**Covered in detail across notes 09–13.** The structure to notice: **it's a stream, with each stage massively parallel and no stage needing global scene information.**
 
 ## Rendering as sampling
 
@@ -99,7 +99,7 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 
 **Rendering is estimating that integral by sampling.** And sampling theory then explains most visual artefacts:
 
-**Aliasing** — sampling below the Nyquist rate. **Jagged edges, shimmering textures, moiré patterns.** Fixed by supersampling (more samples), mipmapping (pre-filtering), or reconstruction filters. → [[computer-graphics/05-textures-and-sampling|Textures and Sampling]]
+**Aliasing** — sampling below the Nyquist rate. **Jagged edges, shimmering textures, moiré patterns.** Fixed by supersampling (more samples), mipmapping (pre-filtering), or reconstruction filters. → [[computer-graphics/12-textures-and-sampling|Textures and Sampling]]
 
 **Noise** — too few Monte Carlo samples. **Path tracing's grainy look**, and it decreases as $O(1/\sqrt{N})$, which is why film renders take hours.
 
@@ -125,20 +125,20 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 
 ## Reading order
 
-**02–06 are the rasterisation pipeline** and build in order — transforms, rasterising, shading, texturing, then how the GPU runs it.
+This note opens Part 2. It assumes Part 1 (notes 01–07): how a screen shows pixels, drawing lines and shapes, and moving shapes with matrices. If those are new, start at [[computer-graphics/01-graphics-systems-and-display-hardware|note 01]].
 
-**07 is ray tracing** and can be read independently.
+**09–13 are the steps a graphics card goes through** and build in order: placing objects, filling in triangles, lighting, textures, then how the card is programmed.
 
-**08–09 are geometry and animation.**
+**14 is ray tracing** and can be read on its own.
 
-**12–18 are Part 1, classical raster graphics** — display hardware, line and circle drawing, filling, clipping, 2D/3D transforms by hand, Bézier and B-spline curves, and visible-surface methods. **They are the university-course foundations (SSG 511), and the place to start if pixels, Bresenham and homogeneous matrices are new** → [[computer-graphics/12-graphics-systems-and-display-hardware|note 12]].
+**15–16 are shapes and movement.**
 
-**Prerequisites:** [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 02 already** if you've read it.
+**Prerequisites:** [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 09 already** if you've read it.
 
 ---
 
 ## Related
-- [[computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — getting from 3D to 2D
-- [[computer-graphics/07-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — the other paradigm
+- [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]] — getting from 3D to 2D
+- [[computer-graphics/14-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — the other paradigm
 - [[gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove
 - [[computer-graphics/index|Computer graphics map]]

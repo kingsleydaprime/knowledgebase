@@ -2,7 +2,7 @@
 
 **[Intermediate]** — Translation, scaling, rotation, shear and reflection as homogeneous matrices; reading a matrix by its pattern; composing transforms (and why order matters); row- versus column-vector conventions; and the "move this object so its features end up there" method for 3D questions.
 
-> Part 1 of the course. [[computer-graphics/02-the-transform-pipeline|Note 02]] uses these matrices in the camera pipeline; [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] goes deeper on rotations. **This note is the by-hand, exam version.**
+> Part 1 of the course. [[computer-graphics/09-the-transform-pipeline|Note 09]] uses these matrices in the camera pipeline; [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] goes deeper on rotations. **This note is the by-hand, exam version.**
 
 ## Before you start
 
@@ -144,7 +144,7 @@ $$\begin{pmatrix} a_{11} & a_{12} & a_{13} & b_1 \\ a_{21} & a_{22} & a_{23} & b
 | Bottom row | $c_1$ … $c_3$ | **Perspective (projection)** |
 | Bottom-right | $d$ | **Overall uniform scaling** via $W$; 1 for an ordinary matrix |
 
-**A projection shows up as a bottom row that is not $(0, 0, 0, 1)$** — exactly the $-1$ in [[computer-graphics/02-the-transform-pipeline|note 02]]'s perspective matrix.
+**A projection shows up as a bottom row that is not $(0, 0, 0, 1)$** — exactly the $-1$ in [[computer-graphics/09-the-transform-pipeline|note 09]]'s perspective matrix.
 
 ### Worked — rotation about an arbitrary axis
 
@@ -206,10 +206,10 @@ From SSG 511 (see the [[computer-graphics/19-ssg-511-question-bank|question bank
 
 ## Before moving on
 
-**Next:** [[computer-graphics/17-curves-bezier-and-b-splines|Curves: Bézier and B-splines]].
+**Next:** [[computer-graphics/06-curves-bezier-and-b-splines|Curves: Bézier and B-splines]].
 
 ## Related
-- [[computer-graphics/02-the-transform-pipeline|The Transform Pipeline]] — model/view/projection, the normal matrix
+- [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]] — model/view/projection, the normal matrix
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — rotations and quaternions in depth
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
 - [[computer-graphics/index|Computer graphics map]]

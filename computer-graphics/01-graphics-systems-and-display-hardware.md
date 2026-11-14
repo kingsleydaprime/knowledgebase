@@ -2,7 +2,7 @@
 
 **[Beginner → Intermediate]** — What computer graphics is for, why it is *interactive*, and the hardware the picture ends up on: the CRT, raster and random scan, the frame buffer, refresh rate, and bitmap versus vector images.
 
-> **Part 1 of this course — classical raster graphics.** Notes 12–21 are the foundations a university course such as SSG 511 examines: the algorithms that turn lines, circles and polygons into pixels, by hand. Part 2 (notes 01–09) is the modern GPU view. **If you are starting from zero, read 12–18 first, then 01.** Source: SSG 511 lecture and study notes, cross-checked against standard textbook treatments.
+> **The first note of the course.** Part 1 (notes 01–07) teaches how a computer draws lines, circles and shapes out of pixels, by hand, the way a university course such as SSG 511 teaches it. Part 2 (notes 08–16) is how modern 3D pictures are made. **If you're new to this, you're in the right place: read 01 to 07 in order, then Part 2.** Source: SSG 511 lecture and study notes, cross-checked against standard textbook treatments.
 
 ## Before you start
 
@@ -128,7 +128,7 @@ The primary output device of a graphics system is the **video monitor**, and the
 | Weak at | Jagged diagonal lines (the staircase effect) | Filled areas; many lines slow the cycle and it flickers |
 | Today | Almost every screen | Old vector and CAD displays |
 
-> **The raster weakness is the reason half of Part 1 exists.** A diagonal line on a grid of dots has to be approximated by pixels — which is exactly why DDA and Bresenham exist ([[computer-graphics/13-line-drawing-and-antialiasing|note 13]]), and why antialiasing exists.
+> **The raster weakness is the reason half of Part 1 exists.** A diagonal line on a grid of dots has to be approximated by pixels — which is exactly why DDA and Bresenham exist ([[computer-graphics/02-line-drawing-and-antialiasing|note 02]]), and why antialiasing exists.
 
 ### Raster basics
 
@@ -169,7 +169,7 @@ $$\text{size} = W \times H \times \text{bpp}$$
 
 ### Double buffering and tearing
 
-If the program writes into the frame buffer *while* the display is reading it, the screen can show the top of the old picture and the bottom of the new one — **tearing**. **The fix is double buffering:** draw the next frame into a hidden **back buffer**, then swap it with the **front buffer** (the one on screen), ideally during vertical retrace — **V-sync**. OpenGL programs commonly use double buffering. → [[computer-graphics/06-the-gpu-graphics-pipeline|The GPU pipeline]] for the modern swap chain.
+If the program writes into the frame buffer *while* the display is reading it, the screen can show the top of the old picture and the bottom of the new one — **tearing**. **The fix is double buffering:** draw the next frame into a hidden **back buffer**, then swap it with the **front buffer** (the one on screen), ideally during vertical retrace — **V-sync**. OpenGL programs commonly use double buffering. → [[computer-graphics/13-the-gpu-graphics-pipeline|The GPU pipeline]] for the modern swap chain.
 
 > **Back to interactive computing.** The delay between your action and the picture changing (latency) depends partly on refresh rate: at most one new picture every 16.7 ms at 60 Hz, every 6.9 ms at 144 Hz. **A low refresh rate makes dragging and drawing feel laggy, which breaks the feedback loop.**
 
@@ -224,9 +224,9 @@ Write `framebuffer_size(w, h, bpp)` and `pixel_rate(w, h, hz)` in Python. **Done
 
 ## Before moving on
 
-You can explain visual problem solving, raster versus random scan, and why refresh exists. **Next:** [[computer-graphics/13-line-drawing-and-antialiasing|Line Drawing and Antialiasing]] — the first scan-conversion algorithm, and the raster weakness it fights.
+You can explain visual problem solving, raster versus random scan, and why refresh exists. **Next:** [[computer-graphics/02-line-drawing-and-antialiasing|Line Drawing and Antialiasing]] — the first scan-conversion algorithm, and the raster weakness it fights.
 
 ## Related
-- [[computer-graphics/01-how-rendering-works|How Rendering Works]] — the modern view of the same pipeline
-- [[computer-graphics/06-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — swap chains and presentation today
+- [[computer-graphics/08-how-rendering-works|How Rendering Works]] — the modern view of the same pipeline
+- [[computer-graphics/13-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — swap chains and presentation today
 - [[computer-graphics/index|Computer graphics map]]

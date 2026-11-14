@@ -17,7 +17,7 @@
 
 **The subtlety: a vertex is a bundle of attributes, not just a position.** A cube corner has three different normals (one per face) and usually different UVs, **so it must be duplicated** — you can't share it. **This is why a "8-vertex cube" is actually 24 vertices in a renderer**, and it surprises people.
 
-**Winding order** determines facing. Counter-clockwise is front-facing by convention in OpenGL. **A mirrored transform flips winding**, which is why negatively-scaled objects render inside-out. → [[computer-graphics/02-the-transform-pipeline|Coordinate systems]]
+**Winding order** determines facing. Counter-clockwise is front-facing by convention in OpenGL. **A mirrored transform flips winding**, which is why negatively-scaled objects render inside-out. → [[computer-graphics/09-the-transform-pipeline|Coordinate systems]]
 
 ### Connectivity structures
 
@@ -45,7 +45,7 @@ $$\mathbf{B}(t) = \sum_{i=0}^{n}\binom{n}{i}(1-t)^{n-i}t^i\,\mathbf{P}_i$$
 
 **De Casteljau's algorithm** evaluates them by repeated linear interpolation. **Numerically stable, geometrically obvious, and it splits the curve for free** — which is how curves get subdivided for rendering.
 
-**Worked by hand** — control points from velocities, de Casteljau tables, splitting, the derivative, flattening to a tolerance, and Chaikin corner cutting — in [[computer-graphics/17-curves-bezier-and-b-splines|note 17]].
+**Worked by hand** — control points from velocities, de Casteljau tables, splitting, the derivative, flattening to a tolerance, and Chaikin corner cutting — in [[computer-graphics/06-curves-bezier-and-b-splines|note 06]].
 
 **B-splines** — local control. **Moving one control point affects only a local region**, unlike a Bézier where every point influences the whole curve. Essential for editing complex shapes.
 
@@ -127,7 +127,7 @@ repeat:
 
 **Smoothing** — Laplacian smoothing moves each vertex toward its neighbours' centroid. **Simple, and it shrinks the mesh**; Taubin smoothing alternates positive and negative steps to preserve volume.
 
-**Parameterisation (UV unwrapping)** — minimise distortion, cut into charts, pack. **Genuinely hard**, and Gauss's *Theorema Egregium* says perfect flattening is impossible for curved surfaces. → [[computer-graphics/05-textures-and-sampling|UV mapping]]
+**Parameterisation (UV unwrapping)** — minimise distortion, cut into charts, pack. **Genuinely hard**, and Gauss's *Theorema Egregium* says perfect flattening is impossible for curved surfaces. → [[computer-graphics/12-textures-and-sampling|UV mapping]]
 
 **Remeshing** — improve triangle quality. **Sliver triangles cause numerical problems** in both rendering and simulation. → [[continuum-mechanics/13-computational-methods-and-fem|FEM mesh quality]]
 
@@ -147,13 +147,13 @@ repeat:
 
 **Use a library.** `meshoptimizer` (optimisation and simplification), CGAL (robust computational geometry), libigl (research-friendly), Open3D (point clouds), Assimp (loading).
 
-**Watch triangle count *and* draw calls.** A million triangles in one draw is usually fine; a thousand draws of a thousand triangles usually isn't. → [[computer-graphics/06-the-gpu-graphics-pipeline|Batching]]
+**Watch triangle count *and* draw calls.** A million triangles in one draw is usually fine; a thousand draws of a thousand triangles usually isn't. → [[computer-graphics/13-the-gpu-graphics-pipeline|Batching]]
 
 ---
 
 ## Related
-- [[computer-graphics/17-curves-bezier-and-b-splines|Curves: Bézier and B-splines]] — the hand calculations, and the Cox–de Boor recursion
+- [[computer-graphics/06-curves-bezier-and-b-splines|Curves: Bézier and B-splines]] — the hand calculations, and the Cox–de Boor recursion
 - [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation]] — the spline mathematics
-- [[computer-graphics/09-animation-and-simulation|Animation and Simulation]] — deforming these
+- [[computer-graphics/16-animation-and-simulation|Animation and Simulation]] — deforming these
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — meshes for simulation rather than rendering
 - [[computer-graphics/index|Computer graphics map]]
