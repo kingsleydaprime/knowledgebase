@@ -1,83 +1,84 @@
 # Operating Systems
 
-The layer directly beneath [[networking/index|networking]], [[languages/01-java/02-jvm-and-concurrency/index|the JVM]], [[devops/01-linux/index|Linux]], and every container you'll ever run. Processes, memory, scheduling, and I/O — the machinery your runtime is standing on.
+## What an operating system is
 
-**~17,000 words across 12 notes**, built August 2026 against the curriculum this README used to propose. `[reference]`.
+**An operating system is the main program that runs a computer and shares it out between all the other programs.**
 
-> **The honest caveat, unchanged:** the best way to learn this is not to read it. *Operating Systems: Three Easy Pieces* (free online) plus writing a toy shell, a toy allocator and a toy scheduler will teach more than any set of notes — including these. They exist so the vocabulary is in place and the cross-domain links work. [[PRIMETECHIE|Reading is not a rank.]]
+Windows, macOS, Linux, Android and iOS are operating systems. When you open several apps at once, something has to decide which one gets the processor right now, give each one its own memory so they can't read or wreck each other's, and let them all use the same disk, screen and network without clashing. That's the operating system's job. Apps never touch the hardware directly: they ask the operating system, and it does the work for them.
 
-## Reading order
+The core part of the operating system, the part in charge of all this, is called the **kernel**.
 
-**Foundations**
+## What you'll be able to do
 
-1. [[os/01-what-an-os-is|What an OS Is]] — **[Beginner → Intermediate]** — the kernel/user split enforced by hardware, monolithic vs microkernel, and the abstractions the kernel exposes
-2. [[os/02-processes-and-threads|Processes and Threads]] — **[Beginner → Intermediate]** — what a process consists of, why `fork`/`exec` is split, copy-on-write, zombies, and what a thread shares
-3. [[os/03-scheduling|Scheduling]] — **[Intermediate]** — CFS and EEVDF, context-switch cost, NUMA, and **cgroup CPU throttling** — the reason services are mysteriously slow in Kubernetes
+By the end you will be able to:
+- explain what happens when you start a program, and the difference between a process and a thread;
+- explain how the computer runs many programs "at once" on a few processor cores;
+- explain how each program gets its own private memory, and what happens when memory runs out;
+- understand why saved data isn't truly safe until the operating system says so;
+- explain how a program waits for many network connections at the same time;
+- explain what a container (like Docker) really is underneath.
 
-**Memory**
+## Where to start
 
-4. [[os/04-virtual-memory|Virtual Memory]] — **[Intermediate → Advanced]** — page tables, the TLB, page faults, overcommit, the OOM killer, and why `free` showing no free memory is correct
-5. [[os/05-memory-allocation|Memory Allocation]] — **[Intermediate → Advanced]** — what `malloc` really does, why freed memory doesn't return to the OS, and how fragmentation looks like a leak
+**New to this?** Start with [[os/fundamentals|OS Fundamentals]], a shorter overview that covers the whole subject gently. Then read the numbered notes in order.
 
-**Concurrency**
+### How the operating system is organised
 
-6. [[os/06-concurrency-primitives|Concurrency Primitives]] — **[Advanced]** — atomics, memory barriers, and **futexes** — why an uncontended lock costs 20ns and a contended one costs 100× that
+1. [[os/01-what-an-os-is|What an OS Is]]: the kernel, why apps aren't allowed to touch the hardware directly, and how the hardware enforces that.
+2. [[os/02-processes-and-threads|Processes and Threads]]: what a running program is made of, how a new one is started, and how threads let one program do several things at once.
+3. [[os/03-scheduling|Scheduling]]: how the operating system decides which program runs next, and why apps can run mysteriously slowly in cloud setups that limit CPU time.
 
-**Storage and I/O**
+### Memory
 
-7. [[os/07-filesystems-and-storage|Filesystems and Storage]] — **[Intermediate → Advanced]** — inodes, the page cache, journaling, and **`fsync`** — the boundary where "written" starts to mean something
-8. [[os/08-io-models|I/O Models]] — **[Intermediate → Advanced]** — blocking → `epoll` → `io_uring`, and where every runtime you use actually sits
+4. [[os/04-virtual-memory|Virtual Memory]]: how every program gets its own private memory, what happens when memory runs out, and why "no free memory" is usually fine.
+5. [[os/05-memory-allocation|Memory Allocation]]: how a program asks for memory and gives it back, and why memory use can keep growing even without a bug.
 
-**The boundary**
+### Doing several things at once
 
-9. [[os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — **[Advanced]** — one trap mechanism for four things, what Meltdown did to syscall cost, the vDSO, and eBPF
-10. [[os/10-signals-and-ipc|Signals and IPC]] — **[Intermediate → Advanced]** — signal-handler constraints, `signalfd`, pipes, Unix sockets and fd passing, shared memory
+6. [[os/06-concurrency-primitives|Concurrency Primitives]]: locks and the other tools that stop threads from corrupting shared data, and what they cost.
 
-**Putting it together**
+### Files and input/output
 
-11. [[os/11-isolation-and-containers|Isolation and Containers]] — **[Intermediate → Advanced]** — **there is no such thing as a container.** Namespaces, cgroups, capabilities, seccomp, overlayfs
-12. [[os/12-boot-and-init|Boot and Init]] — **[Intermediate]** — firmware to login prompt, initramfs, and what PID 1 owes you
+7. [[os/07-filesystems-and-storage|Filesystems and Storage]]: how files are stored, and the exact moment saved data is truly safe on disk.
+8. [[os/08-io-models|I/O Models]]: the different ways a program waits for data from disks and networks, and how servers handle thousands of connections.
 
-**Also here:**
-- [[os/fundamentals|OS Fundamentals]] — the original overview note. Shorter, and still the gentlest entry point
-- [[os/interview/index|interview/]] — processes vs threads, page faults, syscall cost, the page cache, scheduling, deadlock, blocking vs async I/O, `LD_PRELOAD`, "everything is a file"
+### Where programs meet the operating system
 
-## The five things worth carrying
+9. [[os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]]: how a program asks the kernel to do something, and how hardware gets the kernel's attention.
+10. [[os/10-signals-and-ipc|Signals and IPC]]: how the operating system interrupts a program (for example on Ctrl+C), and how programs send data to each other.
 
-If the rest fades, these keep paying:
+### Putting it together
 
-1. **An uncontended mutex is ~20ns; a contended one is ~1–10µs.** A futex only enters the kernel on contention. Shorten critical sections, don't avoid locks → [[os/06-concurrency-primitives|06]]
-2. **cgroup CPU quota is a cliff, not a slope.** Exhaust it early in a period and every thread freezes until the next one. Check `nr_throttled` → [[os/03-scheduling|03]]
-3. **`write` returns before anything is durable.** `fsync` is the boundary, it costs milliseconds, and its errors are not retryable → [[os/07-filesystems-and-storage|07]]
-4. **A container is namespaces + cgroups + a pivot_root.** Not a kernel object → [[os/11-isolation-and-containers|11]]
-5. **Read `available`, not `free`.** The page cache using all your RAM is correct → [[os/04-virtual-memory|04]]
+11. [[os/11-isolation-and-containers|Isolation and Containers]]: what a container really is. There's no single "container" thing in the kernel, just several features combined.
+12. [[os/12-boot-and-init|Boot and Init]]: everything that happens from pressing the power button to the login screen.
 
-## Where this connects
+## Practice
 
-OS knowledge is load-bearing across the vault, and these notes are deliberately the *deep* version of things covered practically elsewhere:
+Notes alone won't make this stick. The best way to learn operating systems is to build small versions of their parts:
+- **Read** [*Operating Systems: Three Easy Pieces*](https://pages.cs.wisc.edu/~remzi/OSTEP/), free online and very readable.
+- **Build** a tiny shell (the program that runs your terminal commands), a tiny memory allocator and a tiny scheduler. See [[build-your-own-shit/index|Build Your Own]].
+- **Prepare for interviews** with [[os/interview/index|OS interview prep]]: processes versus threads, memory, scheduling, files and more.
 
-| Topic | Also covered in |
-|---|---|
-| **File descriptors, `epoll`, C10K** | [[networking/09-sockets-and-the-network-api\|networking/09-sockets]] |
-| **Namespaces, cgroups from above** | [[devops/02-docker/index\|Docker]] · [[devops/05-orchestration/index\|Orchestration]] |
-| **Processes, systemd, signals from the shell** | [[devops/01-linux/06-process-management\|linux/06]] · [[devops/01-linux/07-systemd-and-services\|linux/07]] |
-| **The memory model, GC, false sharing** | [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals\|jvm-internals]] |
-| **Green threads over OS threads** | [[languages/02-go/06-goroutines-and-channels\|goroutines]] · [[languages/01-java/02-jvm-and-concurrency/03-virtual-threads\|virtual threads]] · [[languages/03-rust/14-async-and-tokio\|tokio]] |
-| **Writing an event loop** | [[backend/frameworks/c/01-the-accept-loop-and-event-loops\|C: The Accept Loop]] |
-| **Storage, boot, SELinux operationally** | [[devops/01-linux/15-rhcsa/index\|the RHCSA track]] |
+## Key ideas to remember
 
-## Known gaps
-
-- **No project.** The [[BUILD-PLAN|build-your-own-shit]] shell and OS guides are where this becomes knowledge
-- **Device drivers** — the kernel's largest and buggiest surface, entirely uncovered
-- **Kernel modules** — writing, loading, and why the internal ABI is deliberately unstable
-- **Real-time Linux** — PREEMPT_RT, latency guarantees. Relevant to [[robotics/index|robotics]]
-- **Kernel networking internals** — the path from NIC to socket, beyond what [[networking/index|networking]] covers
-- **Windows and macOS** — this is Linux-shaped throughout
+1. **Saving a file doesn't make it safe straight away.** The data sits in memory until the operating system writes it to disk. Programs that must not lose data ask for that explicitly (`fsync`). → [[os/07-filesystems-and-storage|07]]
+2. **"No free memory" on Linux is usually healthy.** Spare memory is used to speed up the disk, and it's handed back the moment a program needs it. Look at "available", not "free". → [[os/04-virtual-memory|04]]
+3. **A lock costs almost nothing when nobody else wants it,** and a lot when threads fight over it. Hold locks briefly rather than avoiding them. → [[os/06-concurrency-primitives|06]]
+4. **A cloud CPU limit is a hard stop, not a slowdown.** Use up your share early and every thread freezes until the next time slot. → [[os/03-scheduling|03]]
+5. **A container is just a normal program with limits around what it can see and use.** → [[os/11-isolation-and-containers|11]]
 
 ## Related
-- [[networking/index|Networking]] — the layer above, built on sockets and file descriptors
-- [[devops/01-linux/index|Linux]] — the same machine from the command line
-- [[computer-architecture/index|Computer Architecture]] — the layer directly below: the TLB behind virtual memory, cache coherence behind concurrency primitives, and memory models behind atomics
-- [[languages/04-c/index|C]] — the language all of this is written in
-- [[PRIMETECHIE|The Primetechie Path]] — Rank II–III depth material
+
+- [[devops/01-linux/index|Linux]]: the same machine, from the command line.
+- [[networking/index|Networking]]: built on top of the operating system's connections.
+- [[computer-architecture/index|Computer Architecture]]: the hardware underneath.
+- [[languages/04-c/index|C]]: the language operating systems are written in.
+- [[devops/02-docker/index|Docker]]: containers from the user's side.
+
+---
+
+## About this course
+
+- **Size:** 12 notes, about 17,000 words, plus an overview note and interview prep. Written in August 2026.
+- **Linux throughout:** the details are Linux's. Windows and macOS work on the same ideas but differ in detail.
+- **Not covered yet:** device drivers, kernel modules, real-time Linux, and how network data travels from the network card to a program inside the kernel.
