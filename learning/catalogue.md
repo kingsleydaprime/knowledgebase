@@ -44,6 +44,7 @@
 | 2026-08-23 | **Desktop applications** — "how do I make mine" | Mild. [[desktop/index\|Map written]]; a Tauri app is a weekend if it ever matters |
 | 2026-08-23 | **Finance, tax, entrepreneurship** — "to become a better person" | **Yes, and genuinely important** — but explicitly deferred by you in the same breath. Not a tech course; needs its own shape |
 | 2026-08-23 | **Manufacturing business** — "can I start one" | Unknown, and **under-specified**. This is a business question, not a learning one. Would need a real problem and a real market before it's a course |
+| 2026-11-12 | **The knowledgebase as an interactive learning platform**: change it from static notes into something you learn *with*. An AI tutor teaches from the notes, asks and answers questions, quizzes, critiques explanations and sets build tasks, while I write the code myself. The vault stays the source of truth. | Yes. **Try it by hand first**: one topic, the vault notes as the source, a chat in [[learning/06-ai-as-sparring-partner\|sparring mode]]. Build a platform only once the by-hand version has worked for a few weeks |
 
 ---
 
