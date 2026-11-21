@@ -284,6 +284,7 @@
   "RAM": "random-access memory",
   "RAND": "the RAND Corporation, a US research institute (from 'research and development')",
   "RC4": "Rivest Cipher 4 (a broken stream cipher)",
+  "RBAC": "role-based access control: deciding what someone may do by their role",
   "RE2": "Google's regular-expression library and design, which matches in time proportional to the input and has no lookarounds",
   "README": "a project's front-page document",
   "RED": "rate, errors, duration, the request-centric monitoring signals",
