@@ -4,6 +4,8 @@ id: 8bcb6a26-0dff-4f70-b6c2-61a9fb4c63cd
 
 # Caching, Artifacts and Matrix Builds
 
+Caching is saving work from one pipeline run, such as downloaded packages, so the next run can reuse it instead of starting over. Artifacts are files one job produces and passes to another, and a matrix runs the same job on many versions at once. Together they make pipelines faster and check more cases.
+
 ## Caching
 <!-- bite: dc5d6cf3-d8a6-4b04-88d9-54035ee92956 -->
 

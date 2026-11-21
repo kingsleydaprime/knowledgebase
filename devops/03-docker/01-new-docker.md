@@ -12,7 +12,7 @@ Before commands, you need to understand what Docker actually is and why it exist
 ### The problem it solves
 
 You've definitely experienced this:
-```
+```text
 "It works on my machine"
 ```
 
@@ -50,12 +50,12 @@ A VM virtualizes hardware. A container virtualizes the OS — it shares your ker
 | **Network** | How containers communicate |
 
 The relationship:
-```
+```text
 Dockerfile → build → Image → run → Container
 ```
 
 Like programming:
-```
+```text
 Class → instantiate → Object
 Image → run        → Container
 ```
@@ -189,7 +189,7 @@ We'll still cover everything from the ground up for your notes, but we'll move f
 
 ### The core workflow
 
-```
+```text
 Write Dockerfile → Build Image → Run Container → Push to Registry
 ```
 
@@ -280,7 +280,7 @@ Also what is the difference between images and containers?
 
 Same relationship as what we covered with classes and objects — or executables and processes.
 
-```
+```text
 Image     = the blueprint. Static. Read-only. Lives on disk.
 Container = a running instance of that image. Live. Has its own writable layer.
 ```
@@ -312,7 +312,7 @@ Exactly. That's the whole point of containers.
 
 Inside the container you probably saw something like:
 
-```
+```text
 PID   COMMAND
 1     bash
 10    ps aux
@@ -387,7 +387,7 @@ docker rm myubuntu
 
 Every image is built in layers. Each instruction in a Dockerfile creates a new layer.
 
-```
+```text
 Layer 4: COPY app files        ← your code
 Layer 3: RUN npm install       ← dependencies  
 Layer 2: RUN apt update        ← system packages
@@ -453,7 +453,7 @@ IMAGE          CREATED       CREATED BY                                      SIZ
 
 13 layers. Let's read it bottom to top — that's the actual build order:
 
-```
+```text
 ADD alpine-minirootfs...     8.45MB   ← base Alpine Linux
 CMD ["/bin/sh"]              0B       ← default shell
 addgroup/adduser             3.05kB   ← create redis user

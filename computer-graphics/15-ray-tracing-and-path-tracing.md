@@ -4,6 +4,8 @@ id: 334cfbf8-259d-4263-aa4a-2536fd72d847
 
 # Ray Tracing and Path Tracing
 
+Ray tracing is making a picture by following lines of light, called rays, from the camera out into the scene to see what each one hits. Path tracing follows those rays as they bounce around, which gives the very realistic lighting you see in animated films and in newer games.
+
 ## Casting a ray
 <!-- bite: 43135eb1-62e1-4cf1-b0c6-72c616f2dd27 -->
 
@@ -39,7 +41,7 @@ $$\text{cost} = \frac{A_L}{A}n_L + \frac{A_R}{A}n_R$$
 
 **The 1980 original — recursive, and deterministic.**
 
-```
+```text
 trace(ray):
     hit = nearest_intersection(ray)
     colour  = direct_lighting(hit)              # shadow ray per light
@@ -57,7 +59,7 @@ trace(ray):
 
 **The correct approach: Monte Carlo estimation of the rendering equation.**
 
-```
+```text
 trace(ray, depth):
     if depth > max: return 0
     hit = nearest_intersection(ray)

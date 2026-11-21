@@ -4,6 +4,8 @@ id: 5aa8a260-20da-41cc-9a41-2e59dbce1979
 
 # Module: Paths, Cycles and Connectivity
 
+A path is a route from one vertex in a graph to another along its edges, a cycle is a route that comes back to where it started, and connectivity is about which vertices can reach which. These are the words for asking "can I get there from here?". It is the same question Google Maps answers when it finds a route between two places.
+
 ## Before you start
 <!-- bite: c7251a90-599a-4599-b2dd-f88deeeb07f3 -->
 

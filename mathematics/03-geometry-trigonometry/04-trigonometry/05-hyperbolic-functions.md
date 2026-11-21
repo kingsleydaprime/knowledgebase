@@ -4,6 +4,8 @@ id: 912e085e-5061-4e16-8f6c-c98d9a51222c
 
 # Hyperbolic Functions
 
+Hyperbolic functions are a family of functions, called cosh, sinh and tanh, built from the number e in a way that mirrors sine and cosine. The curve of a cable or chain hanging between two poles is a cosh curve.
+
 ## Before you start
 <!-- bite: 619c1b8e-88f2-4afa-b428-ef0a049a0018 -->
 
@@ -286,7 +288,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the definitions match the library, and cosh + sinh = e^x
   cosh and sinh are the even and odd parts of e^x, for every x tried
   cosh(0) = 1.000000 (the minimum), sinh(0) = 0.000000

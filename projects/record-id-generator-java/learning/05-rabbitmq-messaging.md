@@ -12,7 +12,7 @@ buffering, and JVM keepalive during drain mode. See also `06-concurrency-and-thr
 
 RabbitMQ is a **message broker**. It decouples producers (who create messages) from consumers (who process them).
 
-```
+```text
 [File] → [Producer] → [RabbitMQ Queue] → [Consumer] → [MySQL]
 ```
 
@@ -69,7 +69,7 @@ A Dead Letter Queue is a second queue where messages are sent automatically when
 - They expired (message TTL reached)
 - The queue reached max length
 
-```
+```text
 Main Queue ──→ Consumer (fails) ──nack──→ Dead Letter Exchange ──→ DLQ
 ```
 
@@ -148,7 +148,7 @@ The fixed code will parse them correctly this time. Any that still fail go back 
 
 ### The Full Failure Cycle
 
-```
+```text
 CSV row with comma in field
     ↓
 parseLine() → NumberFormatException → caught by callback catch block
@@ -395,7 +395,7 @@ The distinction matters because `requeue=true` on a permanently broken message c
 
 ### What the Warning Means
 
-```
+```text
 [warning] Available file handles: 1024. Please consider increasing system limits
 ```
 
@@ -440,7 +440,7 @@ docker exec $(docker compose -f docker-compose.dev.yml ps -q rabbitmq) \
 
 If RabbitMQ is installed directly on Ubuntu, set the limit in `/etc/security/limits.conf`:
 
-```
+```text
 rabbitmq soft nofile 65536
 rabbitmq hard nofile 65536
 ```
@@ -475,7 +475,7 @@ RabbitMQ's own documentation recommends at least 65536 for any deployment. The L
 
 The queue is a waiting room. Right now one consumer empties it. Put four consumers in the room and they empty it four times faster. RabbitMQ handles the distribution automatically — no coordination required between consumers.
 
-```
+```text
                     ┌─ consumer-1 → batch 50k → MySQL
 Producer → Queue ───┼─ consumer-2 → batch 50k → MySQL
                     ├─ consumer-3 → batch 50k → MySQL
@@ -538,7 +538,7 @@ The rule: queue declaration is the producer's job (or the app's one-time setup j
 
 If one machine isn't enough, run consumer instances on N machines all pointing at the same RabbitMQ and MySQL:
 
-```
+```text
 Machine 1: producer + 4 consumers ──┐
 Machine 2: 4 consumers ─────────────┼──→ RabbitMQ ──→ MySQL
 Machine 3: 4 consumers ─────────────┘
@@ -670,7 +670,7 @@ All 6 (later 10) consumers called `createChannel()` and got channels on the same
 
 A RabbitMQ `Connection` has one **reader thread** — a single thread that reads all AMQP frames off the TCP socket and routes them to the correct channel. With 6 consumers sharing one connection:
 
-```
+```text
 RabbitMQ server
      │
      TCP socket (one reader thread)
@@ -706,7 +706,7 @@ public class RabbitMQConfig {
 
 Now each consumer gets its own TCP connection when it calls `createChannel()`. Each connection has its own reader thread:
 
-```
+```text
 RabbitMQ server
      │
      ├─ TCP connection-1 (reader thread 1) → consumer-1
@@ -731,7 +731,7 @@ Message delivery to all 6 consumers now happens in parallel. No single reader th
 
 Each consumer only flushes when its batch reaches `BATCH_SIZE` (10,000 rows). With 140,000 messages remaining in the queue across 10 consumers:
 
-```
+```text
 140,000 / 10 = 14,000 messages per consumer
 14,000 / 10,000 = 1 full flush + 4,000 leftover
 ```
@@ -841,7 +841,7 @@ Both the batch-full path and the timed flush path call `submitFlush`. The `flush
 
 With `basicQos(BATCH_SIZE)` (prefetch = 10,000) and a MySQL insert that takes 25 seconds, here is what a consumer's timeline looks like:
 
-```
+```text
 t=0s:   RabbitMQ delivers 10,000 messages (prefetch quota filled)
 t=0s:   Batch fills up → flush submitted to flushExecutor
 t=0s:   Consumer is now idle — all 10,000 messages are "unacked", prefetch quota full
@@ -865,7 +865,7 @@ channel.basicQos(BATCH_SIZE * 2);  // was: BATCH_SIZE
 
 The timeline becomes:
 
-```
+```text
 t=0s:   RabbitMQ delivers 20,000 messages (new prefetch quota)
 t=0s:   First 10,000 fill the batch → flush submitted → MySQL insert begins
 t=0s:   Consumer continues receiving messages 10,001–20,000 into the NEXT batch
@@ -881,7 +881,7 @@ The consumer now has the **next batch ready** as soon as the current insert fini
 
 `flushExecutor` is a single-threaded executor. When the second batch fills while the first flush is still running, the second flush task is **queued** in the executor. The moment the first flush completes, the executor immediately picks up the second task. No waiting.
 
-```
+```text
 flushExecutor queue:
   [flush batch 1] → running (MySQL insert, 25 seconds)
   [flush batch 2] → waiting  ← filled during batch 1's insert

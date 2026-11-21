@@ -4,6 +4,8 @@ id: 374097fc-c08b-4fbc-bacd-d8985eaedf27
 
 # Networking & Protocols
 
+Networking is how computers send data to each other, and a protocol is an agreed set of rules for doing it. Every time your phone loads a web page, it uses several protocols together, such as DNS to find the server and HTTP to ask for the page. This lesson covers the ones you need when something on a server stops responding.
+
 ## The OSI model — a debugging map
 <!-- bite: 50282535-68cb-4bc5-9c4b-a0ae3e98fd3d -->
 

@@ -4,6 +4,8 @@ id: 9f4827cf-51a1-42a5-aa6d-e5286a781b79
 
 # NumPy
 
+NumPy is a Python library for storing long lists and grids of numbers and doing maths on all of them at once. It is much faster than looping over the numbers one by one. A photo on your phone is a grid of numbers like this, and almost every data and AI tool in Python uses NumPy underneath.
+
 ## The ndarray
 <!-- bite: fab0572f-77fe-4d7b-afde-336adc3904f6 -->
 

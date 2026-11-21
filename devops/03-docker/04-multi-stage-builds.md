@@ -163,7 +163,7 @@ WARNING: This output is designed for human readability. For machine-readable out
 
 Good — multi-stage build worked. You can see both stages in the output:
 
-```
+```text
 [builder 1/5] ... 
 [runner 4/5] ...
 ```
@@ -193,7 +193,7 @@ One important thing to add to every Dockerfile — `.dockerignore`. Same concept
 nano .dockerignore
 ```
 
-```
+```text
 node_modules
 .env
 *.log

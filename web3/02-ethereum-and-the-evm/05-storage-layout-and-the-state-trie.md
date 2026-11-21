@@ -4,6 +4,8 @@ id: 73b1dfd1-c1d0-4bfa-89b0-f89361b2b36d
 
 # Storage Layout and the State Trie
 
+Contract storage is the place where an Ethereum program keeps its data, set out as a huge row of numbered boxes. The compiler decides which box each piece of data goes in by counting them in the order you wrote them. So moving one line of code around can make a live program read the wrong data, and this lesson shows how to avoid that.
+
 ## The kid version first
 <!-- bite: 77d63fa8-586c-4f72-8f8e-4a468dd2a026 -->
 
@@ -36,7 +38,7 @@ Two caveats worth knowing: packing costs a little extra gas to *read* (a mask an
 
 Dynamic structures can't be laid out sequentially, so their locations are **derived by hashing**:
 
-```
+```text
 mapping at slot p, key k        →  keccak256(abi.encode(k, p))
 dynamic array at slot p         →  length lives at p
                                    element i lives at keccak256(p) + i
@@ -54,7 +56,7 @@ Consequences that matter:
 
 A [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|proxy]] uses `DELEGATECALL`: the proxy holds the storage, the implementation supplies the code. **The implementation's variable declarations decide which slots it reads — but it reads the proxy's storage.**
 
-```
+```text
 V1:  address owner;   // slot 0
      uint256 total;   // slot 1
 
@@ -75,7 +77,7 @@ The rules that follow, and they are hard rules:
 
 Ethereum's global state is a **Merkle Patricia Trie**: a radix trie whose nodes are addressed by hash. Each account's storage is its own trie, whose root sits in the account, which sits in the global trie, whose root sits in the block header.
 
-```
+```text
 block header
    └─ stateRoot
         └─ account (keyed by keccak(address))

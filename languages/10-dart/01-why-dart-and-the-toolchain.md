@@ -4,6 +4,8 @@ id: dd501ffe-7a35-4083-9457-7e4124a7579f
 
 # Why Dart, and the Toolchain
 
+Dart is the programming language used to build apps with Flutter, Google's toolkit for making one app that runs on Android, iOS, the web and desktop. Many apps on your phone are built this way. This lesson covers what Dart is, why it suits Flutter and the tools you need to start.
+
 ## What Dart is
 <!-- bite: e3129d7d-c4e4-4b22-ab89-d534445118a6 -->
 

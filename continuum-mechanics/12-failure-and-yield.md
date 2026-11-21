@@ -4,6 +4,8 @@ id: 282d695c-d7ae-4005-85ad-71a0ff0cf539
 
 # Failure and Yield
 
+Failure is when a material breaks, and yield is when it bends for good and does not spring back. This lesson shows how engineers turn the many numbers describing stress inside a part into one number they can compare with a simple pulling test, to decide if the part is safe.
+
 ## The problem
 <!-- bite: a5d36560-7c09-4e7f-86ae-e7d6db359ed3 -->
 

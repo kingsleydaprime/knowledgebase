@@ -4,6 +4,8 @@ id: 1a468ea4-9343-4012-b991-5e1dee4b6711
 
 # SVM, KNN & Naive Bayes
 
+SVM, KNN and Naive Bayes are three classic ways of teaching a computer to sort things into groups, such as spam or not spam. Each one works differently: SVM draws the widest possible gap between groups, KNN looks at the most similar past examples, and Naive Bayes uses probabilities. They are simple, quick and still useful as a first try.
+
 ## Support Vector Machines (SVM)
 <!-- bite: e11fd089-9e1c-4b08-b5d4-9ca67fc59021 -->
 

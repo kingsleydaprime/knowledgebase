@@ -4,6 +4,8 @@ id: 1d62459a-a2e2-4961-b474-fcdfd8659424
 
 # Lines and Planes in Space
 
+This lesson describes straight lines and flat surfaces, called planes, in three dimensions using arrows with a size and a direction, called vectors. 3D games and design software rely on this maths to work out where things are and where they meet.
+
 ## Before you start
 <!-- bite: 23ec14a5-b522-40cb-a5ba-e6ea4b6d4924 -->
 
@@ -302,7 +304,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the two products are complementary
         a            b        a.b    |axb|   angle   check
      (1, 0, 0)    (0, 1, 0)    0.0   1.0000   90.00   1.000000 = 1.000000

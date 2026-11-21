@@ -79,7 +79,7 @@ This design is a feature exploration prototype. It is not intended for immediate
 
 ### 2.1 Block Diagram
 
-```
+```text
                     ┌──────────────────────────────────────────────────┐
                     │          ESP32-C6-WROOM-1 (Main MCU)             │
                     │                                                  │

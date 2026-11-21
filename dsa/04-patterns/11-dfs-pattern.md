@@ -4,6 +4,8 @@ id: 7e9c10aa-339b-45be-8012-a721555bb7bb
 
 # Pattern: DFS as a Problem-Solving Pattern
 
+DFS (depth-first search) as a pattern is solving problems by following one path as far as it goes, then backing up to try the next. Many problems about graphs, grids and choices are really this one idea. It is how you would find your way out of a maze by trying one corridor all the way before turning back.
+
 ## Before you start
 <!-- bite: ec7d0aa8-a10c-4cbd-a65c-7f08238557ab -->
 

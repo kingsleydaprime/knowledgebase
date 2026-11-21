@@ -9,7 +9,7 @@ The derivative of a function at a point tells you the slope there — if you nud
 ## The idea
 <!-- bite: 4d929ccb-83b2-40ee-a14b-654619151239 -->
 
-```
+```text
 f(x) = x²
 f'(x) = 2x        <- the derivative (slope) at any point x
 
@@ -18,7 +18,7 @@ at x=1: f'(1) = 2  -> increasing x here increases f(x) more gently
 at x=0: f'(0) = 0  -> flat — this is the minimum of f(x) = x²
 ```
 
-```
+```text
 f(x)
  |    \                    /
  |     \                  /

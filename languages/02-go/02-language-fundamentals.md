@@ -4,6 +4,8 @@ id: 91ff0b33-ccfc-42f9-9ff3-3f207df0f021
 
 # Language Fundamentals
 
+Language fundamentals are the basic pieces every Go program is built from: variables, types, functions, loops and pointers. Every Go program you read or write uses them, from a small command-line tool to the backend of a big app. Go keeps these pieces few and strict, so learning them well pays off fast.
+
 ## Variables
 <!-- bite: dadbf147-4f9f-4113-b477-800ca002b9e6 -->
 

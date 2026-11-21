@@ -80,7 +80,7 @@ FIN, ACK, FIN, ACK, and the `TIME_WAIT` state that keeps the connection tuple re
 **10. Retransmission — where TCP earns its reputation.**
 Keep unacknowledged segments in a queue with a timer. When the timer fires, resend. Estimate the timeout from measured round-trip times rather than fixing it:
 
-```
+```text
 SRTT   = (1 - 1/8) * SRTT   + (1/8) * measured_rtt
 RTTVAR = (1 - 1/4) * RTTVAR + (1/4) * |SRTT - measured_rtt|
 RTO    = SRTT + 4 * RTTVAR        (and never below 1 second)

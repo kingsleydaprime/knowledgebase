@@ -4,6 +4,8 @@ id: bcfde595-6223-46ab-996d-b61a5b71cc35
 
 # What Data Analysis Is
 
+Data analysis is the work of answering questions with data so that someone can make a better decision. When a shop owner checks which items sold best last month before ordering new stock, that is data analysis. Every company with an app, from a bank to a food delivery service, has people doing this job.
+
 ## The kid version first
 <!-- bite: 4e731dd5-a726-454c-b631-a4c1b5b7e322 -->
 
@@ -33,7 +35,7 @@ This is the most common confusion, so it's worth being precise. The three data d
 
 Analysis comes in four levels of ambition, and knowing which one a question needs keeps you from over- or under-engineering the answer:
 
-```
+```text
    DESCRIPTIVE   "what happened?"           ← reports, dashboards. Most analysis
        ↓
    DIAGNOSTIC    "why did it happen?"        ← drill-down, root-cause. The hard, valuable part
@@ -50,7 +52,7 @@ Analysis comes in four levels of ambition, and knowing which one a question need
 
 Every good analysis follows the same arc, and the beginner mistake is starting in the middle (at the data) instead of the start (the question):
 
-```
+```text
 1. QUESTION    what decision does this inform? Be specific
 2. DATA        find it, get it, understand it, TRUST it
 3. ANALYSE     explore, slice, compute, test

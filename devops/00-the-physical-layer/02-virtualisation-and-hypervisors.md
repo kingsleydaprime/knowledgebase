@@ -13,7 +13,7 @@ A **hypervisor** (also: virtual machine monitor) sits between the hardware and t
 
 The guest OS is not modified and is not told. It boots, probes for hardware, finds a plausible machine, and installs itself. **The deception is the product.** That's why you can run Windows and three Linuxes on one box: each believes it has the whole thing.
 
-```
+```text
 ┌─────────┬─────────┬─────────┐
 │  VM 1   │  VM 2   │  VM 3   │  ← guest OS in each, complete and independent
 │ Linux   │ Windows │ Linux   │

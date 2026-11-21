@@ -179,7 +179,7 @@ This is the most algorithmically complex feature. It chains five AI and API call
 
 ### The Full Pipeline
 
-```
+```text
 User sends: { appDescription: "SocioBoom schedules social posts", platforms: ["reddit", "twitter"] }
 
 Step 1: AI extracts search keywords

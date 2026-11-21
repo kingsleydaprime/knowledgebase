@@ -372,7 +372,7 @@ The README badges are just `<img>` tags (in Markdown image syntax) pointing at a
    This doesn't delete or unpublish anything (`npm unpublish` is a much more restricted, mostly-discouraged operation) — it just attaches a warning message that shows up in `npm view`, and in the install-time output for anyone who runs `npm install json-healer` going forward.
 
 **A genuinely alarming-looking error that turned out to be good news:**
-```
+```bash
 npm error 403 Forbidden - PUT https://registry.npmjs.org/@spectroniqltd%2fjson-healer
 npm error 403 You cannot publish over the previously published versions: 0.1.0.
 ```

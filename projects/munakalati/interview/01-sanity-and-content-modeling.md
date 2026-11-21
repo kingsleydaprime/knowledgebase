@@ -107,7 +107,7 @@ Four arguments against an HTML blob, in order of weight:
 
 **This is a "can you argue a trade-off" question.** Don't just defend it.
 
-```
+```text
 headlineStart      "Stories that"
 headlineHighlight  "shape"           ← rendered in the brand colour
 headlineEnd        "Africa's future"

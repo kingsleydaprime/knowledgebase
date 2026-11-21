@@ -4,6 +4,8 @@ id: 60f79965-261b-4a9b-821c-92b10a179f17
 
 # Module: Bellman–Ford (Shortest Paths When Weights Can Be Negative)
 
+Bellman–Ford is a method for finding the shortest routes from one starting point to every other point in a graph, even when some links have negative costs. A negative cost is like a road that pays you to use it, such as a cashback offer on one leg of a trip. It is slower than Dijkstra's method, but it gives the right answer where Dijkstra's can go wrong, and it can spot when a loop of negative costs makes the question meaningless.
+
 ## Before you start
 <!-- bite: acad4233-1566-4bb1-8a4f-d3de6ec1dfce -->
 

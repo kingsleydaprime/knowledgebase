@@ -21,7 +21,7 @@ np.dot(a, b)   # 1*4 + 2*5 + 3*6 = 32
 
 A large positive dot product means the two [[01-vectors|vectors]] are strongly aligned (pointing in similar directions); near zero means they're roughly unrelated (perpendicular, in the geometric sense); negative means they point in opposing directions. This is why "similarity" between two embeddings — two pieces of text, two images, a search query and a document — is usually computed as a dot product (or its length-normalized cousin, **cosine similarity**, which divides out each vector's magnitude so only the angle between them matters, not their raw scale).
 
-```
+```text
 similar meaning        -> embeddings point similar directions -> large dot product
 unrelated meaning       -> embeddings roughly perpendicular    -> dot product near zero
 opposite meaning/intent -> embeddings point opposite directions -> negative dot product

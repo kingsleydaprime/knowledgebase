@@ -100,7 +100,7 @@ wc -l *.prisma | sort -n
 `wc -l` counts lines; `sort -n` sorts numerically (not lexically — without `-n`, "100" sorts
 before "20"). Run over a schema directory it immediately shows where the complexity lives:
 
-```
+```text
    21 withdrawals.prisma
    79 billing.prisma
   136 tickets.prisma
@@ -147,7 +147,7 @@ any process you launch can read them. Prefer letting the tool load `.env` itself
 
 Running `npx prisma validate` printed this:
 
-```
+```text
 DEBUG: DATABASE_URL = postgres://avnadmin:AVNS_KfQ...@pg-....aivencloud.com:18220/defaultdb
 ```
 
@@ -622,7 +622,7 @@ the constants and behaviour the types don't capture.
 
 ### `pnpm approve-builds`
 
-```
+```text
 [ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: @firebase/util, protobufjs
 ```
 
@@ -836,7 +836,7 @@ LSP is wrong. Never start "fixing" imports on the editor's word alone.
 
 `tsc` reported exactly one error, in a *different* file:
 
-```
+```text
 attendee-postcard-creator.tsx(32,10): error TS1005: ',' expected.
 ```
 

@@ -93,7 +93,7 @@ dependencies {
 
 ## 4. Java Project Structure
 
-```
+```text
 record-id-generator/
 ├── app/src/main/java/com/itc/
 │   ├── Main.java               # Entry point
@@ -117,7 +117,7 @@ This structure works fine for a small project. It groups files by **technical ro
 
 As a codebase grows, grouping by technical role breaks down. You end up with 30 files in `model/`, 30 in `repository/`, and no way to tell which ones belong to the same feature. The scalable approach is to group by **business domain** first, then by technical role inside that.
 
-```
+```text
 com.itc/
 ├── domain/                     # Pure business logic — zero framework imports
 │   ├── model/                  #   Transaction, Log, and other core types
@@ -164,7 +164,7 @@ This pattern is called **Hexagonal Architecture** (also known as Ports and Adapt
 
 ## 16. The Full Architecture
 
-```
+```text
 ┌─────────────────────────────────────────────────────┐
 │                   Java Application                   │
 │                                                      │

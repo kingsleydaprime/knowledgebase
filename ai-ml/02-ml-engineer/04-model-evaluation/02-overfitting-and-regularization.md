@@ -11,7 +11,7 @@ Overfitting is when a model learns the training data's specific quirks and noise
 
 The textbook signature: training loss keeps dropping while validation loss flattens out or starts rising.
 
-```
+```text
 loss
  |  \                              training loss keeps falling
  |   \___________________________

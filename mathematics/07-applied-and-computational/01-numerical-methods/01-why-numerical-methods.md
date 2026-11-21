@@ -68,7 +68,7 @@ $$\frac{f(x+h)-f(x)}{h} = f'(x) + \frac{h}{2}f''(\xi)$$
 
 ### The two fight
 
-```
+```text
  error
    │╲                              ╱
    │ ╲  rounding                ╱  truncation

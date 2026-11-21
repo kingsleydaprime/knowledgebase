@@ -4,12 +4,14 @@ id: 9645c3e6-9cd0-4e4e-a723-8d8a667b8662
 
 # The Datapath
 
+The datapath is the route an instruction takes through the processor, and the parts it passes through to get done. Each instruction is fetched, worked out, carried out and its result saved. This happens billions of times a second inside your phone.
+
 ## The five stages
 <!-- bite: 2627dd5e-b654-4c42-9a07-a32b7d021c83 -->
 
 **The classic RISC pipeline**, and it's the mental model everything else builds on:
 
-```
+```text
  ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐
  │  IF  │→│  ID  │→│  EX  │→│  MEM │→│  WB  │
  └──────┘ └──────┘ └──────┘ └──────┘ └──────┘
@@ -43,7 +45,7 @@ id: 9645c3e6-9cd0-4e4e-a723-8d8a667b8662
 
 **Muxes everywhere** — selecting between the register value and an immediate, between the ALU result and a loaded value, between PC+4 and a branch target.
 
-```
+```text
         ┌────────────┐
   PC ──→│  I-CACHE   │──→ instruction
    ▲    └────────────┘         │

@@ -83,7 +83,7 @@ The ESP32-C6-WROOM-1 is a **module** (not a bare chip), so it only exposes **one
 | 3V3 (pin 2) | `+3V3` | 10µF cap + 100nF cap, both between 3V3 and GND |
 | GND (pin 1) | `GND` | Nothing extra needed |
 
-```
+```text
 +3V3 ──┬── 3V3 pin (pin 2)
        │
       10µF ── GND     ← bulk capacitor
@@ -109,7 +109,7 @@ These two pins control how the ESP32-C6 starts up.
 - Connect a **100nF cap** between EN and GND (filters noise to prevent false resets)
 - Optionally: connect a **reset button** between EN and GND (pressing it resets the chip)
 
-```
+```text
 +3V3
   │
  10kΩ
@@ -430,7 +430,7 @@ Press `A`, search `Crystal_GND24` — place between XI/CLKIN and XO, connect the
 
 The W5500 does not connect directly to the RJ45 — it goes through a magnetic transformer (built into most magjack connectors):
 
-```
+```text
 W5500 TPOUT+ / TPOUT-  →  Magnetics TX pair  →  RJ45 TX+/TX-
 W5500 TPIN+  / TPIN-   →  Magnetics RX pair  →  RJ45 RX+/RX-
 ```
@@ -528,7 +528,7 @@ Add **10kΩ pull-up resistors** from `+3V3` to each of the four active signal li
 
 Press `A`, search `SW_Push` — place a tactile button symbol.
 
-```
+```text
 +3V3
   │
  10kΩ
@@ -548,7 +548,7 @@ Also add a **100nF cap** from BTN to GND — this filters mechanical bounce from
 
 Press `A`, search `LED` — place an LED symbol.
 
-```
+```text
 net label LED (GPIO0) → [330Ω resistor] → [LED anode]
                                               [LED cathode] → GND
 ```
@@ -592,7 +592,7 @@ Run when ALL sections are drawn:
 
 ## The Mental Model for This Schematic
 
-```
+```text
          [ESP32-C6]  ← start here, everything connects to this
               │
     ┌─────────┼─────────┬──────────┬──────────┐
@@ -666,7 +666,7 @@ If you don't include an SWD header and your USB bootloader breaks or your firmwa
 
 In the KiCad LED symbol:
 
-```
+```text
 Anode (+) ──▶|── Cathode (−)
 ```
 
@@ -678,7 +678,7 @@ On a real physical LED:
 - Cathode → **shorter leg** (also has a flat edge on the plastic lens)
 
 In your schematic:
-```
+```text
 LED net (GPIO0) → 330Ω resistor → Anode → LED → Cathode → GND
 ```
 

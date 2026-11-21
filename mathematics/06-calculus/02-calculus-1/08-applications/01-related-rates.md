@@ -4,6 +4,8 @@ id: 735d7c0b-0203-4328-a60e-937be5f70dfd
 
 # Applications of the Derivative
 
+This lesson puts derivatives to work on real questions: how fast one thing changes when it is tied to another, and where a quantity is at its biggest or smallest. For example, how fast the water level rises as you fill a tank, or what shape of box holds the most for the least cardboard.
+
 ## Before you start
 <!-- bite: fe7b5289-a768-4266-a90e-624288ff5aa6 -->
 

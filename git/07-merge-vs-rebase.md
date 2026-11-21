@@ -100,7 +100,7 @@ git rebase --continue
 ## The Practical Team Rules
 <!-- bite: f65ca41c-1960-4ac1-ae68-42a4ecbf886e -->
 
-```
+```text
 Rule 1: Main and develop are immutable — never rebase them.
 
 Rule 2: Feature branches are yours until you open a PR.
@@ -120,7 +120,7 @@ Rule 5: When in doubt, merge. It's always recoverable.
 ## The Decision Flowchart
 <!-- bite: efcdff9a-bb80-4fe1-bfc4-df24df29ecb1 -->
 
-```
+```text
 Are you updating your local feature branch with latest from main?
   └─ Yes → rebase (git rebase main)
 

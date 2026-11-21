@@ -4,6 +4,8 @@ id: a2205077-5e88-49b9-bb92-94c894b0c394
 
 # Operator Overloading
 
+Operator overloading is giving symbols like `+`, `==` or `<<` a meaning for your own types. It is why you can add two strings with `+` in C++, or print a value with `<<`. Used with care, it makes code read naturally, and this lesson shows how to do it well.
+
 ## Why it exists
 <!-- bite: 247e754e-2fbe-409d-bee9-6e9be0da3f90 -->
 
@@ -198,7 +200,7 @@ The `explicit operator bool` idiom is how `std::optional`, `std::unique_ptr` and
 ## What you can't overload
 <!-- bite: a3f83ae7-ef08-4ed3-93d7-dca7ed7826e2 -->
 
-```
+```text
 .        ::        ?:        sizeof        typeid        .*
 ```
 

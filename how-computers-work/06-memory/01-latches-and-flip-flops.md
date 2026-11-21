@@ -4,6 +4,8 @@ id: ace89474-0ac0-4349-ba52-d89d446f8d6c
 
 # Module 24: Latches and Flip-Flops (Feedback Becomes Memory)
 
+A latch or flip-flop is a small circuit that remembers one bit, a single 0 or 1, by feeding its own output back into itself. Every circuit before this one forgot everything as soon as its inputs changed. This is the first step towards the memory that keeps your open apps and unsent message alive.
+
 ## Before you start
 <!-- bite: 5a6de638-eb97-470e-8696-1e34763011e3 -->
 
@@ -64,7 +66,7 @@ The answer is one wire, connected in a way that has been quietly forbidden until
 
 Take two NOR gates. **Connect each one's output to the other's input.**
 
-```
+```text
         S ─────┐
                │  ┌──────┐
                └──┤ NOR  ├──┬──── Q_bar
@@ -132,7 +134,7 @@ From $(0,0)$, dropping both inputs to 0 leaves both gates seeing the same inputs
 
 Feed a single input $D$ to $S$, and $\overline{D}$ to $R$, gated by an **enable**:
 
-```
+```text
         D ──┬──[AND]──── S
             │     ▲
             │   enable
@@ -156,7 +158,7 @@ Now $S$ and $R$ can never both be 1 — they are complements. **The forbidden st
 
 The standard construction is **master–slave**: two latches in series, driven by *opposite* clock phases.
 
-```
+```text
           ┌─────────┐        ┌─────────┐
    D ────►│ MASTER  │───────►│  SLAVE  │────► Q
           │ latch   │        │ latch   │
@@ -196,7 +198,7 @@ Here is where module 5's forbidden zone returns to collect.
 
 A flip-flop needs D **stable for a window around the clock edge**:
 
-```
+```text
                      clock edge
                           │
         ──────────────────┼──────────────────
@@ -413,7 +415,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 SR LATCH -- watch the feedback settle
   Q = NOR(R, Q_bar),  Q_bar = NOR(S, Q)
 

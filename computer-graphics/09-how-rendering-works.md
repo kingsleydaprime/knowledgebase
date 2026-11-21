@@ -20,7 +20,7 @@ id: 4a997da2-54e7-4640-bac4-e68b7fe66773
 ## Rasterisation — loop over geometry
 <!-- bite: 5dbac92a-a26c-4872-b73f-59bb623dd4d3 -->
 
-```
+```text
 for each triangle:
     project to screen space
     for each pixel it covers:
@@ -38,7 +38,7 @@ for each triangle:
 ## Ray tracing — loop over pixels
 <!-- bite: b34416e5-8364-406b-ab77-87a902a95fda -->
 
-```
+```text
 for each pixel:
     cast a ray from the camera
     find the nearest intersection
@@ -83,7 +83,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 
 **What happens for each frame at 60 Hz:**
 
-```
+```text
  scene data
      │
      ▼  VERTEX PROCESSING   transform to clip space

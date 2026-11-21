@@ -1,3 +1,7 @@
+---
+subject: false
+---
+
 # React
 
 **~1,200 words across 2 notes**, plus the depth in [[projects/index|projects/]]. `[reference]`.

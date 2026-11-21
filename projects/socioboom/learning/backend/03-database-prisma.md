@@ -192,7 +192,7 @@ Situation: schema changed, but no Postgres was running and Docker's daemon was d
 1. **`prisma generate` needs no database** — it only reads `schema.prisma`. Types compile immediately.
 2. **Migration files are just SQL in a timestamped folder.** You can write one by hand and Prisma treats it like its own:
 
-```
+```text
 prisma/migrations/20260714084700_post_variants_subreddit_analytics_external_id/migration.sql
 ```
 ```sql

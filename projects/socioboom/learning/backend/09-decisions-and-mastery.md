@@ -242,7 +242,7 @@ When you call `postQueue.add('schedulePost', data, { delay: 5000 })`, BullMQ:
 
 The worker process polls this sorted set every 1 second (configurable) using:
 
-```
+```text
 ZRANGEBYSCORE bull:postQueue:delayed 0 <currentTimestamp> LIMIT 0 1
 ```
 

@@ -4,6 +4,8 @@ id: 970da88d-f596-4975-8f79-26df74dde236
 
 # Module 13: CMOS (Why Your Laptop Doesn't Melt)
 
+CMOS is a way of building circuits from two kinds of transistor that work in opposite ways, so that almost no current is wasted while a circuit sits still. It is the reason your laptop does not melt and your phone battery lasts a day. Nearly every chip made today uses it.
+
 ## Before you start
 <!-- bite: 960499ac-a8cd-4daa-8ea6-e71a9c614396 -->
 
@@ -59,7 +61,7 @@ Early logic families tried to work around this. **NMOS logic** used a resistor a
 
 The simplest CMOS gate is one PMOS above one NMOS, gates tied together as the input, drains tied together as the output.
 
-```
+```text
                     V_DD
                      │
                  ┌───┴───┐
@@ -295,7 +297,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 V_DD = 1.0 V, V_th = 0.4 V, PMOS is 2.8x weaker per unit width
 
 inverter transfer characteristic (W/L: NMOS 1.0, PMOS 2.8):

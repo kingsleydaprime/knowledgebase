@@ -56,12 +56,12 @@ while (attempts < 3) {
 
 With 12 random decimal digits (k = 10^12 possible values) and n records, the expected number of collisions across the whole dataset is:
 
-```
+```text
 Expected collisions ≈ n² / (2k)
 ```
 
 For 5.75M rows:
-```
+```text
 (5,750,000)² / (2 × 1,000,000,000,000) ≈ 16 collisions
 ```
 
@@ -148,7 +148,7 @@ The current implementation is *safe*. The question is whether you can do *better
 Your instinct is right — mixing time with randomness is a well-established pattern. The key is which part of the timestamp you use.
 
 **Bad**: last 5 digits of Unix milliseconds
-```
+```text
 Unix ms ≈ 1748000000000
 Last 5 digits: 00000–99999
 Cycles every: 100,000 ms = 100 seconds
@@ -209,7 +209,7 @@ No built-in Java support yet — use a library like `uuid-creator`.
 #### 3. Snowflake ID (Twitter's Approach)
 
 A 64-bit integer composed of:
-```
+```text
 [ 41 bits: ms timestamp ] [ 10 bits: machine/worker ID ] [ 12 bits: sequence ]
 ```
 
@@ -222,7 +222,7 @@ Used by Twitter, Discord, Instagram (their variant). The right choice for distri
 
 #### 4. ULID — Universally Unique Lexicographically Sortable Identifier
 
-```
+```text
 01ARZ3NDEKTSV4RRFFQ69G5FAV
 ├── 48-bit timestamp ──┤├── 80-bit random ──┤
 ```

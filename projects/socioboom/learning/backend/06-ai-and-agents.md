@@ -118,7 +118,7 @@ Switching providers requires only changing `.env`. Zero code changes.
 
 The original Pain-Point Discovery was a **pipeline**: three fixed steps, each a single LLM call.
 
-```
+```text
 extractKeywords(description)      → 1 LLM call, returns phrases
 webSearch(phrases) per platform   → fixed queries, snippets only
 generateText(filter prompt)       → 1 LLM call over 5,000 chars of snippets
@@ -132,7 +132,7 @@ It worked, but every weakness traced back to the same root cause: **the pipeline
 
 The rewrite replaced the pipeline with an **agent**: one model in a loop with tools, deciding for itself what to do next.
 
-```
+```text
 loop (max N steps):
   model looks at everything so far
   → calls search_web / search_reddit / fetch_page / save_pain_point

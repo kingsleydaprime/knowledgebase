@@ -4,6 +4,8 @@ id: d6c87cdf-af9d-4d21-8b19-739106e9b996
 
 # Pattern: BFS as a Problem-Solving Pattern
 
+BFS (breadth-first search) as a pattern is solving problems by exploring everything one step away first, then everything two steps away, and so on. That makes it the natural way to find the shortest number of steps between two points. "People you may know" on social apps, which starts with friends of your friends, works like this.
+
 ## Before you start
 <!-- bite: 5f01b464-797f-43b6-8a6b-0f4202009302 -->
 

@@ -4,6 +4,8 @@ id: 4ab84d28-4274-429d-bca6-8e45e7a10991
 
 # JSON and Serialisation
 
+Serialisation is turning the data inside your program into a format like JSON that can be sent to an app or saved, and turning it back again. Almost every app you use sends and receives JSON. Other languages do this in one line, but C++ cannot look inside its own data types, so this lesson covers the workarounds.
+
 ## Why this is a whole note
 <!-- bite: 4a92e4dc-8050-4ee9-a137-e28b36dba718 -->
 

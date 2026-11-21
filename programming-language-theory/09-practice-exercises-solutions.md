@@ -66,7 +66,7 @@ The first two are **congruence** rules (evaluate inside), the third is the **com
 
 ### 6. Evaluation order
 
-```
+```text
 let f = λx. 42 in f (print "hi")
 ```
 
@@ -115,7 +115,7 @@ Assign $f:\alpha$, $x:\beta$. From `f x`: $\alpha \sim \beta \to \gamma$. From `
 
 **Let-polymorphism:**
 
-```
+```text
 let id = λx.x in (id 1, id true)      -- ✓  id : ∀α. α → α
 (λid. (id 1, id true)) (λx.x)         -- ✗  ill-typed
 ```

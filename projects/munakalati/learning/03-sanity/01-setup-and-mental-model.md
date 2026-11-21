@@ -116,7 +116,7 @@ Worth being honest about rather than pretending it's wired up: it's a leftover, 
 
 ## The file layout this project settled on
 
-```
+```text
 sanity.config.ts              # Studio config — schema, plugins, basePath. Root, 'use client'
 sanity.cli.ts                 # so the `sanity` CLI knows the project/dataset
 src/sanity/

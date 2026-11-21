@@ -27,7 +27,7 @@ journalctl -r                     # reverse order, newest first
 ```bash
 journalctl -u sshd                 # only this systemd unit's logs
 ```
-```
+```text
 Jul 30 08:14:02 host sshd[1842]: Server listening on 0.0.0.0 port 22.
 Jul 30 08:41:17 host sshd[2093]: Accepted publickey for kingsley from 10.0.0.5 port 51422 ssh2
 Jul 30 09:02:44 host sshd[2211]: Failed password for invalid user admin from 203.0.113.9 port 39102 ssh2
@@ -110,7 +110,7 @@ Still installed alongside journald on RHEL and responsible for the traditional `
 ```
 
 Rules follow a `facility.priority   destination` format:
-```
+```text
 mail.*                          /var/log/maillog
 *.info;mail.none;cron.none      /var/log/messages
 authpriv.*                      /var/log/secure
@@ -144,7 +144,7 @@ Runs daily via a systemd timer (`logrotate.timer`), rotating/compressing/deletin
 ```
 
 Example drop-in:
-```
+```text
 /var/log/myapp/*.log {
     weekly
     rotate 4

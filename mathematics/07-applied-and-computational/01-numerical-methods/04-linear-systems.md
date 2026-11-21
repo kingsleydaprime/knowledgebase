@@ -4,6 +4,8 @@ id: 96b5802d-aa25-40f5-985a-718d308e715c
 
 # Linear Systems
 
+A linear system is a set of equations that must all be true at once, and this lesson is about how computers solve very large ones quickly and accurately. Weather forecasts, engineering software and many other programs spend most of their time solving systems like these.
+
 ## Why this note matters most
 <!-- bite: 8cdeb630-183d-4c80-9f01-1acee05d43a2 -->
 
@@ -49,7 +51,7 @@ with $L$ unit lower triangular, $U$ upper triangular, $P$ a permutation.
 
 **Then solving is two cheap triangular solves:**
 
-```
+```text
 Ly = Pb     forward substitution   O(n²)
 Ux = y      back substitution      O(n²)
 ```
@@ -168,7 +170,7 @@ $$\left(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1}\right)^k$$
 ## Choosing
 <!-- bite: 0166ca7a-eb9d-4353-9387-1875aeb9c27d -->
 
-```
+```text
 Is A small (n < ~1000) and dense?
 ├── symmetric positive definite? → CHOLESKY
 ├── general?                     → LU with partial pivoting

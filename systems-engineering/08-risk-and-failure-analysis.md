@@ -11,7 +11,7 @@ Verification proves the system meets its requirements. **This is the separate ac
 
 **Risk = likelihood × consequence.** Both estimated, usually on 1–5 scales, and plotted on a matrix:
 
-```
+```text
          │ Catastrophic  Major  Moderate  Minor
 ─────────┼──────────────────────────────────────
 Frequent │   ███████     █████    ███       ░
@@ -55,7 +55,7 @@ The four responses: **avoid** (change the design so it can't happen), **mitigate
 
 FMEA starts at components. **FTA starts at the disaster and works backwards.**
 
-```
+```text
               [ Total power loss ]
                        │
                     ── AND ──

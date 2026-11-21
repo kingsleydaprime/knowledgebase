@@ -188,7 +188,7 @@ mkdir -p projects/munakalati/learning/{03-sanity,04-frontend,05-migration} \
 
 Every file in these notes was written with a heredoc:
 
-```
+```bash
 cat > 01-git.md << 'XEOF'
 # Git — Munakalati
 ...content with `backticks`, $variables and ! marks, all literal...
@@ -208,7 +208,7 @@ Two lessons, both cheap:
 
 ### Python heredocs for edits with logic
 
-```
+```text
 python3 - << 'PY'
 import pathlib
 p = pathlib.Path("02-data-fetching-and-caching.md")

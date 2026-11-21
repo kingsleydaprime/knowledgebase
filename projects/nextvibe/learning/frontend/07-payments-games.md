@@ -30,7 +30,7 @@ The original implementation used Juicyway's inline widget (a JS popup). Ercaspay
 
 ### The complete flow
 
-```
+```text
 1. User clicks "Pay & Publish"
 
 2. POST /v1/organizer-payments/plan/initiate
@@ -207,7 +207,7 @@ The PDF described five things:
 
 Go through each requirement and find the corresponding code:
 
-```
+```text
 Requirement 1 — API shape
   → Search for where game data is consumed
   → Found: buildGridFromQuestions() in page.tsx and event-game-tab.tsx
@@ -774,7 +774,7 @@ export function useAnonMerge() {
 
 Both the Google login button (`google-login-button.tsx`) and the email login form call `handlePostAuth` as the last step before `router.replace(destination)`. The call order is:
 
-```
+```text
 login succeeds → dispatch(setUser) → dispatch(setIsAuthenticated(true)) →
 await handlePostAuth(() => router.replace(destination))
 ```
@@ -892,7 +892,7 @@ Both use the same pattern. The `myEntry?.score` is only available on the public 
 
 After Ercaspay redirects the user back from checkout, call:
 
-```
+```text
 GET /v1/payments/purchases/:purchaseId/summary
 Auth: none required — public endpoint
 ```

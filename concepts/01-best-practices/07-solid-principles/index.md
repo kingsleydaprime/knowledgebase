@@ -4,6 +4,8 @@ id: 71c1c846-75fd-48e4-99bd-ed8412cf2406
 
 # SOLID Principles
 
+SOLID is a set of five guidelines for arranging code so that adding a new feature doesn't mean breaking or rewriting old code. Picture adding a new payment method to a shop app by adding one new piece, without touching the ones that already work. This lesson explains each of the five with small code examples.
+
 ## Before you start
 <!-- bite: 71744774-99d3-4f17-81df-9e5888aad9a4 -->
 
@@ -249,7 +251,7 @@ test("LSP: Square breaks a caller written for Rectangle", () => {
 
 **Run it.** Put the three files in an empty folder and, from that folder, run `node --test`. Expected (checked with Node 26):
 
-```
+```text
 ℹ tests 5
 ℹ pass 5
 ℹ fail 0

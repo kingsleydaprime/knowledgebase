@@ -4,6 +4,8 @@ id: 69cd32ad-86f4-46d0-9eaa-f0af0d8fff96
 
 # The Relational Model
 
+The relational model is the idea that a database should store data as tables of rows and columns, and that you should ask for what you want without saying how to find it. It came from Edgar Codd in 1970 and almost every database you use today is built on it. Your bank, your school's records and most apps on your phone keep their data in tables like this.
+
 ## Codd's insight
 <!-- bite: ee3dd9d6-f6be-4e50-85ce-f982b4ac178a -->
 

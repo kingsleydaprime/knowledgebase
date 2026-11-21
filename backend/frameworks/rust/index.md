@@ -1,4 +1,8 @@
-# Rust Backends
+# Axum (Rust Backends)
+
+## What Axum is
+
+**Axum is a framework for building web servers in Rust.** It is very fast, and it catches many mistakes before the code ever runs.
 
 **Concurrency model: async/await on a runtime (usually tokio)** — green threads with explicit colouring. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]]
 

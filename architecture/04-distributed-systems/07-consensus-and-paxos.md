@@ -4,6 +4,8 @@ id: 4f210d3d-1881-4fea-9e2f-7f7c59b1c75d
 
 # Consensus & Paxos
 
+Consensus is how a group of computers agrees on one value, even when some of them crash or their messages get lost. It is like a group of friends picking one restaurant by majority vote over text. Paxos is a well-known method for doing this safely, and this lesson explains how it works.
+
 ## The kid version first
 <!-- bite: 195421f0-7851-4162-bd9a-dd9e343893de -->
 

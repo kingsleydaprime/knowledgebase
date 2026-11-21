@@ -41,7 +41,7 @@ ECC achieves equivalent security to RSA with much shorter keys (a 256-bit ECC ke
 
 Diffie-Hellman (DH, or its elliptic-curve variant ECDH) lets two parties independently compute the *same* shared secret over a public channel, without ever transmitting that secret directly — each side combines their own private value with the other's public value, and the underlying math guarantees both sides land on the same result, while an eavesdropper who only sees the public values can't feasibly compute it.
 
-```
+```text
 Alice: private a, public A = g^a mod p  ----->  sends A to Bob
 Bob:   private b, public B = g^b mod p  ----->  sends B to Alice
 
@@ -57,7 +57,7 @@ This is exactly the mechanism underneath the key-exchange step of a [[03-https-a
 
 Asymmetric encryption is orders of magnitude slower than symmetric encryption for bulk data. Real protocols use asymmetric methods only to solve the key-establishment problem, then switch to fast symmetric encryption (see [[02-symmetric-encryption|symmetric-encryption]]) for the actual data:
 
-```
+```text
 1. Use asymmetric crypto (RSA or, more commonly today, ECDH) to establish a shared secret
 2. Derive a symmetric (AES) key from that shared secret
 3. Encrypt all the actual bulk data with the fast symmetric cipher

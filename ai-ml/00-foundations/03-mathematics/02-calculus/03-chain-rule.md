@@ -9,7 +9,7 @@ A neural network is a chain of functions — layer 1's output feeds layer 2, whi
 ## The rule itself
 <!-- bite: 43295460-1767-4d38-ae4d-046ac8030877 -->
 
-```
+```text
 if y = f(g(x)), then dy/dx = f'(g(x)) * g'(x)
 ```
 
@@ -20,7 +20,7 @@ In words: the rate of change of the whole chain is the product of the rates of c
 
 Training needs the [[02-gradients|gradient]] of the loss with respect to *every* parameter in the network — including parameters buried in the very first layer, far from where the loss is actually computed at the output. Backpropagation is nothing more than the chain rule applied repeatedly, working backward from the loss at the output toward each parameter:
 
-```
+```text
 loss depends on layer3 depends on layer2 depends on layer1 depends on parameter W
 
 d(loss)/dW = d(loss)/d(layer3) * d(layer3)/d(layer2) * d(layer2)/d(layer1) * d(layer1)/dW

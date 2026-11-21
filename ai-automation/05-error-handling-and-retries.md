@@ -28,7 +28,7 @@ Retrying the wrong class of error wastes quota and hides bugs:
 
 **Exponential backoff with jitter**, a maximum attempt count, and a cap:
 
-```
+```text
 attempt 1:  wait 1s  ± random
 attempt 2:  wait 2s  ± random
 attempt 3:  wait 4s  ± random

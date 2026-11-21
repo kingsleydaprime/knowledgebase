@@ -103,7 +103,7 @@ if (healthPort) {
 
 The cause was a three-way port disagreement:
 
-```
+```text
 main.ts:      app.listen(process.env.PORT || 5000)   ← code default
 Dockerfile:   EXPOSE 3001                             ← what Railway detected as target
 Railway env:  (no PORT variable set)                  ← so the app bound 5000

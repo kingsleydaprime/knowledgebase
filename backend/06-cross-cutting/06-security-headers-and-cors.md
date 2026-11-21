@@ -4,6 +4,8 @@ id: c36b2a35-a341-4ed8-94c5-45cdc78e96d1
 
 # Security Headers and CORS
 
+Security headers are short extra lines a backend adds to its answers that tell the browser to block common attacks. CORS is the browser rule that decides which other websites are allowed to call your backend. Most of these take one line to switch on and protect every user of your site.
+
 ## The headers
 <!-- bite: 9753105e-97cd-48f6-85d1-8862592beac8 -->
 
@@ -26,7 +28,7 @@ id: c36b2a35-a341-4ed8-94c5-45cdc78e96d1
 
 **Content-Security-Policy is the difference between an XSS bug and an XSS incident.** Even with a bug, a strict CSP can prevent the injected script from executing.
 
-```
+```text
 Content-Security-Policy:
   default-src 'self';
   script-src 'self' 'nonce-{random}';
@@ -58,7 +60,7 @@ The **same-origin policy** stops JavaScript on `evil.com` from reading responses
 
 **The preflight.** For anything beyond a simple request (custom headers, `PUT`/`DELETE`, JSON content-type), the browser sends an `OPTIONS` request first and only proceeds if the response permits it. **This is why "it works in Postman but not the browser"** — Postman doesn't preflight.
 
-```
+```text
 Access-Control-Allow-Origin: https://app.example.com     ← echo a specific origin
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Methods: GET, POST, PUT, DELETE

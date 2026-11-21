@@ -243,7 +243,7 @@ test("context: </script> inside JSON ends the script block unless < is escaped",
 
 **Run it.** From the lab folder, `node --test` (Node 22.5 or later; checked with Node 26). Expected:
 
-```
+```text
 ℹ tests 7
 ℹ pass 7
 ℹ fail 0

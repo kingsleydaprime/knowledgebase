@@ -182,7 +182,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 CONTROL ROM -- generated from the same table tracks 1 and 2 use
 
     op mnem   control word    lo      hi   asserted signals

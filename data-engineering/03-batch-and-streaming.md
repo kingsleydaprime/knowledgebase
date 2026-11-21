@@ -4,6 +4,8 @@ id: 4c892b72-322d-4130-8571-cb85d37addd8
 
 # Batch and Streaming
 
+Batch and streaming are the two ways of processing data. Batch collects data into a pile and works through it all at once on a schedule, like a bank sending your statement at the end of the month. Streaming handles each piece the moment it arrives, like the alert that pops up on your phone right after you pay for something.
+
 ## The kid version first
 <!-- bite: 987dca30-614e-40d3-9e1d-5ce70672b59a -->
 

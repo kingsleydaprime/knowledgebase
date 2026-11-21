@@ -4,12 +4,14 @@ id: b948c46c-a9e9-405e-a505-a0d9f8ccab76
 
 # Robot Control
 
+Robot control is the part of the software that keeps checking where each joint is and adjusts the motors so the robot follows the path it was given. It happens many times a second, in loops inside loops. This lesson covers how those loops are arranged and the problems that come up with robot arms.
+
 ## The cascade
 <!-- bite: 56d9c720-7445-49f4-808a-2e379a3bffd0 -->
 
 Essentially every robot joint is driven by three nested loops:
 
-```
+```text
  trajectory
      │
      ▼
@@ -67,7 +69,7 @@ A setpoint step is not a trajectory. **Commanding a joint to jump from 0° to 90
 
 **Trapezoidal velocity profile** — accelerate at a limit, cruise, decelerate. The standard, and it respects velocity and acceleration limits by construction.
 
-```
+```text
  v │    ┌────────┐
    │   ╱          ╲
    │  ╱            ╲

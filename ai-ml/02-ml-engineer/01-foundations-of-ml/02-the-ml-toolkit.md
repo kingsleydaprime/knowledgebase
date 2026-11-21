@@ -4,6 +4,8 @@ id: 6d77e3c4-ad04-4fb5-918d-b783a6fd81b9
 
 # The ML Toolkit
 
+The ML toolkit is the set of software tools machine learning engineers use every day: Python, a few core libraries such as NumPy, pandas, scikit-learn and PyTorch, and a tidy working setup. You do not need to know them all deeply at the start. Knowing what each one is for saves a lot of confusion later.
+
 ## Why Python
 <!-- bite: 3c55e906-2ee3-464b-98c2-fff1f832e349 -->
 

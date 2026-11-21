@@ -4,6 +4,8 @@ id: 077ceead-3852-409d-8429-318188e73279
 
 # Async Pitfalls
 
+Async code is code that can pause while it waits, for a database or the network, and let other work run in the meantime. In Rust a few easy mistakes can make an async backend slower than a simple one. This lesson covers those mistakes and the confusing compiler errors that come with them.
+
 ## Blocking the runtime
 <!-- bite: 92664130-09d9-4715-95d0-bd947370a28c -->
 
@@ -127,7 +129,7 @@ Documentation for tokio types states cancel safety explicitly. `recv()` is safe;
 ## `Send` bounds and their error messages
 <!-- bite: fa440fd0-6563-47e3-8341-5521d185d7f2 -->
 
-```
+```text
 error: future cannot be sent between threads safely
 note: future is not `Send` as this value is used across an await
       `std::rc::Rc<T>` which is not `Send`

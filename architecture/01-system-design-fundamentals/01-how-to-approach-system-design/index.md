@@ -4,6 +4,8 @@ id: ba371252-0536-41d0-9678-71bb091ffc96
 
 # How to Approach System Design
 
+System design is planning how the parts of a large app fit together, such as the servers, the databases and the connections between them, before anyone builds it. Apps like WhatsApp or a bank app have to keep working for millions of people at once, and that takes a plan. This lesson gives you a simple step-by-step method for working out that plan, the same one used in job interviews.
+
 ## Before you start
 <!-- bite: 8c1e2289-72a2-45ca-a189-0fcbde08a0f1 -->
 
@@ -112,7 +114,7 @@ So we're optimising for **fast rank lookups, durable scores and ranks that are f
 
 In words first: writes a second are players × games each ÷ seconds in a day, and the peak is that times how much busier evenings are. Then the numbers:
 
-```
+```text
 writes:  10,000,000 players × 5 games  ÷ 86,400 s ≈   579 a second, × 3 at peak ≈ 1,736
 reads:   10,000,000 players × 10 views ÷ 86,400 s ≈ 1,157 a second, × 3 at peak ≈ 3,472
 ratio:   2 reads per write
@@ -131,7 +133,7 @@ None of them on its own. A few thousand simple reads a second, 1,736 writes a se
 
 ### Step 3: High-level design
 
-```
+```text
                                                    ┌──────────────────────────────┐
 player ──► load balancer ──► API servers ─────────►│ scores database              │  durable: every score,
                              (stateless,           │ scores, best_scores          │  and each player's best

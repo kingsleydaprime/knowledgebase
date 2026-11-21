@@ -207,7 +207,7 @@ test("burn rate, and paging only on a fast burn that is still happening", () => 
 
 **Run it.** From [`devops/07-observability/01-observability-fundamentals/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/devops/07-observability/01-observability-fundamentals/labs/javascript), run `node --test` (checked with Node 26). Expected:
 
-```
+```text
 ℹ tests 4
 ℹ pass 4
 ℹ fail 0

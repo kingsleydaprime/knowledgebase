@@ -4,6 +4,8 @@ id: 2f6e925f-ca3a-4bf6-ae8f-631fbce165b8
 
 # Module: Trees (Hierarchy, and the Shapes It Comes In)
 
+A tree is a way of storing data where each item sits under one parent and can have items of its own underneath, like branches. It is how you store anything with levels. The folders on your laptop, a family tree and a company's chart of who reports to whom are all trees.
+
 ## Before you start
 <!-- bite: 9ea484fc-0c4e-42a4-8538-6e580f862509 -->
 

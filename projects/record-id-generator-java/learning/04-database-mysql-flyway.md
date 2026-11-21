@@ -498,7 +498,7 @@ For development load-testing with known-clean CSVs, suspending it is the right c
 
 When a bulk INSERT fails with a primary key collision (MySQL error 1062), the previous fallback strategy was:
 
-```
+```text
 Batch of 10,000 fails → retry every row one by one (10,000 individual inserts)
 ```
 
@@ -508,7 +508,7 @@ One collision penalises 9,999 innocent rows with individual round-trips. That ba
 
 MySQL's 1062 error message always includes the duplicate key value:
 
-```
+```text
 Duplicate entry '047382910564' for key 'PRIMARY'
 ```
 

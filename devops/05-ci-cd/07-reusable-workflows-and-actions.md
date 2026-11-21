@@ -4,6 +4,8 @@ id: 86c9b58f-5989-4123-8469-1fccbdd8051f
 
 # Reusable Workflows and Composite Actions
 
+A reusable workflow is a GitHub Actions workflow written once and used by many repositories. Without it, teams copy the same steps into every project, and one change means editing twenty files. This lesson covers the two ways to share steps: called workflows and composite actions.
+
 ## Why Reusability Matters
 <!-- bite: 49440e28-dde3-490e-8f4f-f8a1ee566913 -->
 

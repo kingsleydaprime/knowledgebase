@@ -15,7 +15,7 @@ Memory holds no types. It holds bytes, and a byte is eight bits with no opinion 
 
 Take these 32 bits:
 
-```
+```text
 01000001 01000001 01000001 01000001
 ```
 

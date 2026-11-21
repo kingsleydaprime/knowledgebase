@@ -4,6 +4,8 @@ id: b974940e-8eec-45d5-a629-40b970781b5b
 
 # Module: Sorting and the $\Omega(n\log n)$ Lower Bound
 
+Sorting is putting items in order, such as numbers from smallest to largest or names from A to Z. The lower bound is a proof that any sorting method which works by comparing two items at a time needs at least a certain number of comparisons. Your phone sorting contacts by name or a shop app sorting by price is the everyday version.
+
 ## Before you start
 <!-- bite: 46be0e7e-5ea9-4062-8c8d-938e9e644aed -->
 

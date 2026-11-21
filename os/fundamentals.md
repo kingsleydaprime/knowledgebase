@@ -20,7 +20,7 @@ The kernel runs with full access to hardware. Everything else — your browser, 
 
 When your program needs hardware (read a file, open a socket, print something), it can't do it directly. It asks the kernel via a system call (syscall). The kernel does it, then returns the result.
 
-```
+```text
 Your Program (userspace)
        ↓  syscall
     Kernel
@@ -90,7 +90,7 @@ From here, systemd starts everything else — network, display, services, your l
 
 ---
 
-```
+```text
 Power → BIOS/UEFI → Bootloader (GRUB) → Kernel → PID 1 (systemd) → Everything else
 ```
 

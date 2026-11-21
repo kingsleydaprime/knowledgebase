@@ -4,6 +4,8 @@ id: 9f7663d7-7c54-4e82-871c-ea3b7c306851
 
 # Cross-Entropy and KL Divergence
 
+Cross-entropy measures how much extra it costs when you make predictions using a guess about how likely things are, instead of the true odds. KL divergence is just that extra cost on its own. Most AI models, including the ones behind chat apps, are trained by making their cross-entropy smaller.
+
 ## Cross-entropy
 <!-- bite: ae752885-b7bc-4082-9f60-e4f4ee990695 -->
 
@@ -54,7 +56,7 @@ The term $p(x)\log\frac{p(x)}{q(x)}$ blows up wherever $p$ is large and $q$ is n
 
 Now the expectation is over $q$. Wherever $q$ is near zero, that region contributes nothing regardless of $p$. **So $q$ can safely ignore parts of $p$** — it will lock onto one mode and stay there.
 
-```
+```text
  True p is bimodal:      ╱╲      ╱╲
                         ╱  ╲    ╱  ╲
 

@@ -4,6 +4,8 @@ id: 39e35a70-945c-4976-aa72-b2e6337875dd
 
 # Module 15: Gates from Transistors (Building the Logic Primitives)
 
+A logic gate is a small circuit that takes one or more 0s and 1s in and gives one 0 or 1 out by a fixed rule, such as AND, OR or NOT. Gates are built from a few transistors each. Every calculation your phone or laptop does is made of gates like these.
+
 ## Before you start
 <!-- bite: 25f8a0b0-68c0-48ba-b703-b3d1e7b2aeb5 -->
 
@@ -72,7 +74,7 @@ Two rules, and they are the whole method.
 - Where the PDN has **series**, the PUN has **parallel**.
 - Where the PDN has **parallel**, the PUN has **series**.
 
-```
+```text
    NAND: output is LOW only when BOTH inputs are HIGH
 
                        V_DD
@@ -96,7 +98,7 @@ Two rules, and they are the whole method.
 
 That is NAND, derived from the arrangement rather than looked up.
 
-```
+```text
    NOR: output is HIGH only when BOTH inputs are LOW
 
                        V_DD
@@ -311,7 +313,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 truth tables derived from the transistor networks:
   NOT   0->1  1->0
   NAND  00->1  01->1  10->1  11->0

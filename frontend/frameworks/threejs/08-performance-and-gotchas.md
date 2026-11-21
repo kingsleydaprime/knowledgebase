@@ -4,6 +4,8 @@ id: 48101d0b-5a5a-4459-8f40-92409afd8a65
 
 # Performance and Gotchas
 
+This lesson is about keeping three.js scenes running smoothly and avoiding the common mistakes that slow them down. Unlike the rest of a web page, 3D objects use memory on the graphics card that is not cleaned up for you. A 3D site that gets slower the longer you use it often has this problem.
+
 ## Manual memory management: `dispose()`
 <!-- bite: fcd43a2a-2f5a-4697-8fce-6c04aebd00dd -->
 

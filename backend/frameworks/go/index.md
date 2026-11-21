@@ -1,4 +1,8 @@
-# Go Backends
+# net/http (Go Backends)
+
+## What net/http is
+
+**net/http is the package built into Go for writing web servers, and in Go it is often all you need.** Go was made for exactly this, so a small amount of code goes a long way.
 
 **Concurrency model: goroutines** — green threads, since Go 1.0. You write blocking code; the runtime multiplexes onto OS threads. No `async`/`await`, so no "coloured function" split in the ecosystem. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]]
 

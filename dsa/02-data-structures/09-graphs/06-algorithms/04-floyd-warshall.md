@@ -4,6 +4,8 @@ id: 6036e266-bac3-4e0f-a429-34afd8bd84d8
 
 # Module: Floyd–Warshall (Every Shortest Path, in Three Lines)
 
+Floyd–Warshall is a method for finding the shortest route between every pair of points in a graph at once. It works by slowly allowing more points to be used as stops along the way. A table of travel times between every pair of cities, like the ones printed in old road atlases, is the kind of answer it produces.
+
 ## Before you start
 <!-- bite: 9b6b850c-ff61-48c1-afda-a8477d268d93 -->
 

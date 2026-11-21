@@ -44,7 +44,7 @@ Two things go wrong when the traffic is mostly lateral:
 
 The modern answer, and it's a two-layer **Clos** topology:
 
-```
+```text
         ┌────────┐  ┌────────┐  ┌────────┐   SPINE
         │ spine1 │  │ spine2 │  │ spine3 │
         └───┬────┘  └───┬────┘  └───┬────┘

@@ -4,6 +4,8 @@ id: 1bc19400-b9b5-4fe9-9049-75eb61def0bb
 
 # Configuration and Setup
 
+Configuration is telling Git who you are and how you like it to behave, such as your name, your email and your default editor. You set it once and Git uses it for every project. It is like setting up a new phone: a few minutes of settings at the start save you trouble later.
+
 ## Config Levels
 <!-- bite: f8b0c820-caf8-4f6d-ba5d-31f2c9ab2935 -->
 
@@ -149,7 +151,7 @@ git config --global core.editor
 git config --global core.excludesfile ~/.gitignore_global
 ```
 
-```
+```text
 # ~/.gitignore_global — ignored in all repos
 .DS_Store
 .DS_Store?

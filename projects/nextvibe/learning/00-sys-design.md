@@ -137,7 +137,7 @@ Database design is the most important thing you will do. A bad schema is nearly 
 Normalisation is the process of organising data to reduce redundancy. The goal: every piece of information should live in exactly one place.
 
 **Bad design (denormalised):**
-```
+```text
 tickets table:
 id | user_email | user_name | event_name | event_date | tier_name | tier_price
 ```
@@ -145,7 +145,7 @@ id | user_email | user_name | event_name | event_date | tier_name | tier_price
 If the user changes their email, you need to update every row in the tickets table. If the event name changes, same problem. Data is duplicated everywhere.
 
 **Good design (normalised):**
-```
+```text
 users table: id | email | name
 events table: id | name | date
 ticket_tiers table: id | event_id | name | price
@@ -170,7 +170,7 @@ Key design decisions:
 
 **`Follow`** — a join table for the social graph.
 
-```
+```text
 followerId → "User A" follows followingId → "User B"
 ```
 
@@ -391,7 +391,7 @@ If you see `Seq Scan` (sequential scan) in the output, PostgreSQL is scanning ev
 
 ### Why Split the Prisma Schema Across Files?
 
-```
+```text
 prisma/schema/
   user.prisma
   events.prisma

@@ -6,7 +6,7 @@ See also: [[05-mcp-server]] (the other client of the same repos) · [[08-data-mo
 
 ## Feature folders, thin routes
 
-```
+```text
 src/app/(app)/app/tasks/page.tsx        ← 5 lines: auth, then render the feature's screen
 src/features/tasks/ui/tasks-screen.tsx  ← the screen (a server component)
 src/features/tasks/overview.ts          ← pure logic (tested)

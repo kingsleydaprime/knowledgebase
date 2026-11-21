@@ -32,7 +32,7 @@ When any function is called, the machine has to remember where to come back to. 
 
 Call a function → a frame is **pushed**. It returns → the frame is **popped**. **Last in, first out**, always.
 
-```
+```text
 main()
   └─ processOrder()
        └─ calculateTax()      ← currently running, on top
@@ -45,7 +45,7 @@ This is not an abstraction invented for teaching — it's how the CPU actually w
 
 Now recursion is unmysterious. `countdown(3)` produces:
 
-```
+```text
 countdown(3)  → prints 3, calls
   countdown(2)  → prints 2, calls
     countdown(1)  → prints 1, calls
@@ -71,7 +71,7 @@ def factorial(n):
 
 `factorial(4)`:
 
-```
+```text
 factorial(4) → 4 * factorial(3)      ← waits
 factorial(3) → 3 * factorial(2)      ← waits
 factorial(2) → 2 * factorial(1)      ← waits

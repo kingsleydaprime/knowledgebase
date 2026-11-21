@@ -1,5 +1,9 @@
 # C++ Backends
 
+## What a C++ backend is
+
+**A C++ backend is a web server written in C++, usually with a framework like Drogon, for services that must be very fast.** Trading systems and game servers are typical examples.
+
 **Concurrency model: usually an async event loop, sometimes a thread pool.** C++ has no runtime, so the framework brings one — nearly always [asio](https://think-async.com/Asio/) underneath, which is the de facto standard async I/O library and the basis of the long-proposed `std::net`. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]]
 
 **~11,000 words across 5 notes.** `[reference]`. Assumes [[languages/05-cpp/index|the C++ course]].

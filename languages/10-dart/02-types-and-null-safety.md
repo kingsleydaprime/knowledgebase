@@ -4,6 +4,8 @@ id: 224f84b2-2843-4abb-82d9-f1aaee54ec96
 
 # Types and Null Safety
 
+Types tell Dart what kind of value each variable holds, and null safety is Dart's way of making you say whether a value is allowed to be missing. A user profile with no photo yet is a typical missing value. Dart checks these things before your app runs, which stops many crashes.
+
 ## Null safety
 <!-- bite: 9fa3dff9-a9c3-4897-9bc9-f4673b7182b1 -->
 

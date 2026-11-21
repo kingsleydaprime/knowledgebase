@@ -145,7 +145,7 @@ Both AI features follow the same architectural pattern. Understanding one means 
 
 The page is divided into three sequential steps, each gated on the previous:
 
-```
+```text
 Step 1: Fetch Reviews (always visible)
   ├── Search by business name (Google, Yelp, Twitter, Reddit buttons)
   └── Or paste manually
@@ -224,7 +224,7 @@ Buttons that trigger async operations follow a consistent pattern:
 
 The same progressive pattern, but simpler:
 
-```
+```text
 Describe your app (Textarea)
 Select platforms (Reddit / Twitter toggle buttons)
 Search button → calls /api/v1/discovery/search

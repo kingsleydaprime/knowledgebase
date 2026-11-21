@@ -4,6 +4,8 @@ id: 45382b24-086a-45bb-b102-0a9b9295d7b8
 
 # Build Tooling and Ecosystem
 
+Build tooling is the set of programs that turn a C++ project into a working program, and the ecosystem is the libraries and tools that surround the language. A real C++ project needs a way to build, fetch libraries, test and check code. This lesson covers CMake, package managers, testing and a CI setup worth copying.
+
 ## CMake
 <!-- bite: bed7eec2-2f5f-487e-838e-6e9d33b7edc6 -->
 
@@ -122,7 +124,7 @@ FetchContent_MakeAvailable(fmt)
 ## Libraries worth knowing
 <!-- bite: 126c3cf1-b525-4dc8-8ebf-51047b508633 -->
 
-```
+```text
 fmt          formatting (std::format's origin; use it pre-C++20)
 spdlog       logging, built on fmt
 Catch2       testing — header-only, expressive

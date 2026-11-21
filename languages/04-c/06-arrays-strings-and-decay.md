@@ -4,6 +4,8 @@ id: c7dd0ab3-1886-46c0-9497-dbeaeef5c2e1
 
 # Arrays, Strings and Decay
 
+An array is a row of values of the same type sitting next to each other in memory, and a string in C is just an array of characters with a zero at the end. Every name, message and file path a C program handles is stored this way. "Decay" is the rule that turns an array into a pointer in most places, and it explains much of how C arrays behave.
+
 ## Arrays
 <!-- bite: f4089a54-90cf-40c4-8f47-2d75e5201567 -->
 

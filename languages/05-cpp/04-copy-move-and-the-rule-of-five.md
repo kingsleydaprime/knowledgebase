@@ -4,6 +4,8 @@ id: aea69c1e-11d1-449c-b948-dc62700644d1
 
 # Copy, Move and the Rule of Five
 
+Copying an object makes a second, separate version of it, while moving an object hands its contents over to a new owner without making a copy. Think of photocopying a document compared with just passing the original to someone else. The rule of five tells you which special functions a class needs so that copies and moves behave correctly.
+
 ## The problem
 <!-- bite: c1bc68a8-593e-4a63-826e-75f9511849ed -->
 

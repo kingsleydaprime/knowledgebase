@@ -57,7 +57,7 @@ Three questions, all answerable with numbers:
 ## 2. Decision trees and rolling back
 <!-- bite: 3c2ffb43-08e7-466d-9e0d-bdf349183280 -->
 
-```
+```text
                          good (0.6)
                       ┌─────────────── +100
           launch   ○──┤
@@ -147,7 +147,7 @@ They disagree, which is the point: without probabilities, the decision depends o
 
 Now the uncertainty is an opponent. Two firms, Row and Column, each choose a strategy. The matrix gives Row's payoff; Column's is the negative.
 
-```
+```text
                  Column: C1   C2
    Row: R1             3    −1
         R2            −2     1
@@ -218,7 +218,7 @@ uv run --with scipy python game.py
 
 Expected output ($3/7 \approx 0.4286$, $2/7 \approx 0.2857$, $1/7 \approx 0.1429$):
 
-```
+```text
 row player mixes: [0.4286 0.5714]  value: 0.1429
 column player mixes (from the duals): [0.2857 0.7143]
 ```

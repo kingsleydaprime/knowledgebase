@@ -51,7 +51,7 @@ the document itself contains a line that is exactly `EOF` at column 0 — the
 example above. The shell saw it and closed the heredoc early, leaving the rest
 of the file as broken shell commands:
 
-```
+```text
 (eval):250: parse error
 ```
 
@@ -194,7 +194,7 @@ curl -sSI --max-time 20 "https://usghcc.org/wp-content/uploads/2024/09/image0005
 
 The response:
 
-```
+```text
 HTTP/2 202
 content-type: text/html
 sg-captcha: challenge

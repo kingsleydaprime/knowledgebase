@@ -11,7 +11,7 @@ id: 2e7ea40e-1bee-43d5-8607-58ca6301d364
 
 RabbitMQ is a **message broker** — it decouples producers from consumers so each can run at its own pace:
 
-```
+```text
 [File] → [Producer] → [Queue] → [Consumer] → [MySQL]
 ```
 

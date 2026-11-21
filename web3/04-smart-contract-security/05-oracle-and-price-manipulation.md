@@ -4,6 +4,8 @@ id: 71eb9002-b103-499d-9a46-e43f44b9c2a3
 
 # Oracles, Flash Loans and Price Manipulation
 
+Price manipulation is when an attacker pushes a price up or down for a moment to trick a smart contract that reads it. A contract can't check the internet, so it often asks a nearby exchange for the price, and an attacker with borrowed money can move that price within one transaction. This lesson shows how these attacks work and how to read prices safely.
+
 ## The kid version first
 <!-- bite: 143a4176-1f4d-4436-a64b-440b23e7402e -->
 
@@ -16,7 +18,7 @@ An attacker walks into that exchange, **buys enough to move the price**, asks yo
 
 A flash loan is an uncollateralised loan that must be repaid **within the same transaction**. If it isn't, the whole transaction reverts and it's as if it never happened — so the lender has zero risk and charges a tiny fee.
 
-```
+```text
 [ single transaction ]
    borrow 100,000,000 USDC   ← no collateral
    ...do anything...
@@ -43,7 +45,7 @@ function getPrice() public view returns (uint256) {
 
 An AMM's reserve ratio **is** its price, and it is *designed* to move when you trade against it. So:
 
-```
+```text
 1. Flash-loan a large amount of token A
 2. Swap it into the pool → the ratio moves violently → "price" of B looks 10× higher
 3. Call the victim protocol, which reads that price

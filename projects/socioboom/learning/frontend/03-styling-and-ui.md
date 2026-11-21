@@ -91,7 +91,7 @@ This is why changing `--primary` in CSS immediately updates every `bg-primary`, 
 ### Common Utility Patterns Used in SocioBoom
 
 **Layout:**
-```
+```text
 flex items-center justify-between  → horizontal centering with space-between
 grid grid-cols-1 md:grid-cols-3   → 1 column on mobile, 3 on medium screens
 gap-4                              → gap between grid/flex children
@@ -100,7 +100,7 @@ min-h-screen                      → at least full viewport height
 ```
 
 **Sizing:**
-```
+```text
 h-4 w-4    → 1rem × 1rem (16px)
 h-8 w-8    → 2rem × 2rem (32px)
 max-w-4xl  → max-width: 56rem
@@ -108,14 +108,14 @@ w-full     → width: 100%
 ```
 
 **Responsive prefixes:**
-```
+```text
 md:p-6     → applies p-6 on medium screens (≥768px) and up
 lg:col-span-2  → applies col-span-2 on large screens (≥1024px) and up
 hidden md:block  → hidden on mobile, block on md+
 ```
 
 **Semantic color utilities (from CSS variables):**
-```
+```text
 bg-background       → var(--background), changes with dark mode
 text-foreground     → var(--foreground)
 text-muted-foreground  → dimmed text

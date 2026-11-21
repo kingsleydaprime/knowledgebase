@@ -4,6 +4,8 @@ id: cd7dd148-4a43-431c-b4d0-74ea0cf5a28b
 
 # Identity Is the New Perimeter
 
+In the cloud, identity means who or what is asking to do something, and the permissions that decide whether they are allowed. There is no office wall around cloud systems, so checking identity on every request is what keeps attackers out. Giving an account more power than it needs is the most dangerous mistake here.
+
 ## The kid version first
 <!-- bite: 544ea628-5425-48f4-8115-91a6f3a229a4 -->
 
@@ -16,7 +18,7 @@ So identity — who can do what to which resource — *becomes* the perimeter. A
 
 **IAM (Identity and Access Management)** is the cloud's core access-control system: it decides, on every API call, whether a *principal* (a user, a service, a machine) may perform an *action* on a *resource*, subject to *conditions*.
 
-```
+```text
    principal  →  action  →  resource  →  allow / deny
    (this app)    (s3:GetObject)  (this bucket)   ← evaluated on EVERY request
 ```

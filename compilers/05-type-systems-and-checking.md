@@ -4,6 +4,8 @@ id: 17f6fc49-6ead-4afa-89fa-602221dd4735
 
 # Type Systems and Checking
 
+A type system is the set of rules a language uses to say what kind of value everything is and which operations are allowed on it. It is what stops you from adding a word to a number by mistake. This lesson covers how a compiler checks types and how it can work them out on its own.
+
 ## What a type system is
 <!-- bite: a97813f3-8d8a-4e49-97c5-bb5072d31244 -->
 
@@ -50,13 +52,13 @@ Go's interfaces are the interesting hybrid: **structural for interfaces, nominal
 
 The core is a **judgement**: in context Γ, expression `e` has type `T`.
 
-```
+```text
 Γ ⊢ e : T
 ```
 
 Rules compose:
 
-```
+```text
 Γ ⊢ e₁ : Int      Γ ⊢ e₂ : Int
 ──────────────────────────────
      Γ ⊢ e₁ + e₂ : Int
@@ -129,13 +131,13 @@ The algorithm has three parts:
 
 **1. Assign type variables** to everything unknown:
 
-```
+```text
 fn id(x) = x            →    x : α,  id : α → β
 ```
 
 **2. Generate constraints** by walking the code:
 
-```
+```text
 fn add(a, b) = a + b    →    α = Int,  β = Int,  return = Int
 ```
 

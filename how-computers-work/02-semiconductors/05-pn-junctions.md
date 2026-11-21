@@ -4,6 +4,8 @@ id: 2e2478d7-28fd-47bb-9f56-34494220730a
 
 # Module 10: PN Junctions and Diodes (The First Asymmetric Device)
 
+A PN junction is the place where two differently doped kinds of silicon meet, and it lets current flow one way but not the other. A diode is a part built from one. The tiny lights in your TV remote and phone screen, called LEDs, are diodes too.
+
 ## Before you start
 <!-- bite: 4d6feaaf-2f43-470a-9456-4ead1725f7ca -->
 
@@ -78,7 +80,7 @@ The carriers that left were balancing the charge of their ionised dopant atoms. 
 - On the **N side**: positive donor ions, no longer balanced by electrons.
 - On the **P side**: negative acceptor ions, no longer balanced by holes.
 
-```
+```text
         P-TYPE                depletion region              N-TYPE
    (holes, mobile)         (no mobile carriers)       (electrons, mobile)
 
@@ -174,7 +176,7 @@ with $n$ the ideality factor (1 for an ideal diode). Reading the two limits:
 
 **Between −5 V and −0.5 V the current is identical.** That is rectification: the device genuinely does not care how hard you push backwards.
 
-```
+```text
                      I ▲
                        │        ╱  ← exponential rise
                        │       ╱      (~0.7 V "turn-on")
@@ -325,7 +327,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 thermal voltage V_T = kT/q = 25.85 mV at 300 K
 
 built-in potential vs doping:

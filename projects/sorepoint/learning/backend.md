@@ -5,7 +5,7 @@ against Postgres, run outside Next.js. Teaching *why*, newest topics appended.
 
 Layout as of Stage 1:
 
-```
+```text
 src/lib/env.ts            # env loading + validation (lazy getters)
 src/lib/supabase-admin.ts # typed service-role client (bypasses RLS)
 src/lib/osm.ts            # OSM source: Nominatim geocode + Overpass query
@@ -91,7 +91,7 @@ free services:
 
 Overpass QL, generated per scan:
 
-```
+```text
 [out:json][timeout:25];
 (
   nwr["amenity"="dentist"](6.29,3.23,6.61,3.55);   // (south,west,north,east)

@@ -353,7 +353,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 ASSEMBLED the reference program:
    addr    word               binary
       0 0x09200 1001001000000000  
@@ -391,7 +391,7 @@ prime1: passed
 
 The execution trace is the most useful thing this track produces. Follow the loop:
 
-```
+```text
 0001001001010000  PC=0003  R1=   10  R2=   10   <- ADD R1,R1,R2  (sum += i)
 1001011000000001  PC=0004  R1=   10  R3=    1   <- LDI R3,1
 0010010010011000  PC=0005  R2=    9        C    <- SUB R2,R2,R3  (i -= 1)

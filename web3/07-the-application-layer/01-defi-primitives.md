@@ -4,6 +4,8 @@ id: 8c58a772-4417-42bf-a2f1-fb48d14c7b9c
 
 # DeFi Primitives
 
+DeFi, short for decentralised finance, is banking services like trading, lending and borrowing rebuilt as public programs that anyone can use without an account or approval. Each service is a building block, and the blocks can be stacked on top of each other. This lesson covers the main blocks and how they connect.
+
 ## The kid version first
 <!-- bite: 1d802733-10ac-45bf-8485-2a53a13d8244 -->
 
@@ -18,7 +20,7 @@ An order book needs constant quoting and cancelling, which is unaffordable on-ch
 
 **Constant product (Uniswap V2):**
 
-```
+```text
 x · y = k          x = reserve of token A, y = reserve of token B
 
 price of A in B = y / x
@@ -42,7 +44,7 @@ Aave and Compound: deposit into a pool and earn; borrow against collateral.
 
 **Everything is over-collateralised.** To borrow $100 you post $150. There is no credit assessment, because there is no identity and no recourse — **anonymous default is free, so only collateral can secure a loan.**
 
-```
+```text
 Health Factor = (collateral × liquidation threshold) / debt
 
 HF > 1  → safe
@@ -84,7 +86,7 @@ Two models: **order-book** (dYdX, Hyperliquid — often on an app-chain for the 
 ## Composability — the feature and the risk
 <!-- bite: 200556e1-c818-4284-b1c9-fc78efb59cd5 -->
 
-```
+```text
 deposit ETH → get stETH → use as collateral → borrow USDC
    → provide to a Curve pool → get LP token → stake for rewards
        → use the receipt as collateral elsewhere

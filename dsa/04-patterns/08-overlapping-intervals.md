@@ -4,6 +4,8 @@ id: 5cf87f33-119e-4bb8-811c-d1a97a62fd3f
 
 # Pattern: Overlapping Intervals
 
+Overlapping intervals is a pattern for problems about time ranges or number ranges that may overlap, like merging them or finding clashes. The usual trick is to sort the ranges by their start first. A calendar app spotting that two meetings clash, or a school timetable checking room bookings, is solving this.
+
 ## Before you start
 <!-- bite: 513dfb36-1a76-43a2-b206-a4da49e46a39 -->
 

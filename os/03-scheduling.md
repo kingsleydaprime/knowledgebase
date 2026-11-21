@@ -4,6 +4,8 @@ id: 349e4b8c-a82f-490b-808f-68acbabdcf16
 
 # Scheduling
 
+Scheduling is how the operating system decides which program gets to use the processor, for how long, and on which core. Your laptop has far more programs wanting to run than it has cores. The scheduler switches between them so quickly that they all seem to run at once.
+
 ## The problem
 <!-- bite: 5c51f9ce-4678-4890-be0b-3352a64858e6 -->
 
@@ -125,7 +127,7 @@ The most operationally important part of this note.
 
 **CPU quota is enforced by throttling, per period.** With `cpu.max = "200000 100000"`, your cgroup gets 200ms of CPU per 100ms wall-clock period (i.e. 2 cores). Use it up in 40ms and **every thread is frozen for the remaining 60ms.**
 
-```
+```text
 period:  |--------100ms--------|--------100ms--------|
 quota used:  ████████ (40ms across 8 threads = 200ms CPU)
                     ^^^^^^^^^^^ THROTTLED — nothing runs
@@ -144,10 +146,10 @@ The fixes, per runtime:
 ```go
 import _ "go.uber.org/automaxprocs"          // Go: read the cgroup quota
 ```
-```
+```bash
 java -XX:ActiveProcessorCount=2               # JVM (usually detects it, verify)
 ```
-```
+```text
 UV_THREADPOOL_SIZE=4                          # Node's libuv pool
 ```
 

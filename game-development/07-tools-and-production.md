@@ -11,7 +11,7 @@ id: 723976ef-8018-40bd-ab4a-29665512108d
 
 Between an artist's file and something a game can load at 60 fps:
 
-```
+```text
    .blend / .fbx / .psd          author formats
           ↓  import
    intermediate representation

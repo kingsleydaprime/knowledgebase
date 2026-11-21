@@ -4,6 +4,8 @@ id: 5312519b-08be-40e9-9834-f686de529234
 
 # Habits That Make Change Easier
 
+These are everyday coding habits that make code easier to understand, easier to change and harder to break. Past a point, getting better as a developer is less about learning another language and more about habits like these. This lesson is the practical, at-the-keyboard side of clean code and SOLID.
+
 ## The kid version first
 <!-- bite: cc907852-2609-4b74-bf5d-e5e8984dfdef -->
 
@@ -16,7 +18,7 @@ This is the practical, at-the-keyboard companion to [[concepts/01-best-practices
 
 Nesting conditions inside each other buries the actual work three levels deep. **Check the failure cases up front and return early**, so the main operation is visible:
 
-```
+```text
 BAD:  if user exists:
           if user is active:
               if user has permission:
@@ -43,7 +45,7 @@ Your app talks to things you don't control — payment providers, email services
 
 **Translate external data into your own model at the boundary**, once:
 
-```
+```text
 external response  →  [ boundary: map to OUR names/shapes ]  →  our clean model
    (their fields)          the ONE place their change costs us      (used everywhere)
 ```
@@ -57,7 +59,7 @@ A common trap: make almost everything optional/nullable, so every part of the co
 
 **Model the state so the invalid combinations can't be built.** If a "paid order" always has an order ID, a payment ID, and a paid status, define the type so those are *expected to exist* — then nothing downstream has to guess:
 
-```
+```text
 BAD:  Order { id?, paymentId?, status?, paidAt? }   → 16 combinations, most nonsense
 GOOD: PaidOrder { id, paymentId, paidAt }           → the type says "this is paid"
 ```
@@ -71,7 +73,7 @@ Mixing a business rule together with the database and email operations it trigge
 
 **Separate the decision from the side effects it controls:**
 
-```
+```text
 BAD:  function verify(user):
           if user.age >= 18 and user.verified:
               db.grantAccess(user); email.send(...)     ← rule tangled with I/O
@@ -86,7 +88,7 @@ Now you can test eligibility without touching the database or sending an email. 
 
 `"Something went wrong"` gives a developer — or a calling system — almost nothing. **Text is for humans; codes are for systems.** Provide a predictable error code alongside the human message, so callers can handle failures consistently:
 
-```
+```text
 BAD:  throw Error("Something went wrong")
 GOOD: throw Error(code: "PAYMENT_DECLINED", message: "Your card was declined")
 ```

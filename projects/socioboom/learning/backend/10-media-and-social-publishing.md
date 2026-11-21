@@ -25,7 +25,7 @@ either one turned a cosmetic gap into a hard blocker.
 provider *requires* rather than what it *does*. The new requirement is where the real work
 hides. Here the ordering was forced:
 
-```
+```text
 file storage → media column on Post → Instagram/TikTok publishers
 ```
 
@@ -52,7 +52,7 @@ The fix is a **presigned URL**: your server signs a short-lived permission slip 
 "whoever holds this may PUT one object with this exact key, content-type, and length,
 within the next 5 minutes." The browser then uploads *directly* to storage.
 
-```
+```text
 1. POST /media/presign   → server returns { uploadUrl, key, publicUrl }
 2. PUT  <uploadUrl>      → browser → R2 directly.  Server not involved.
 3. POST /media/confirm   → server HEADs the object to verify it landed
@@ -124,7 +124,7 @@ against a real account; it just hadn't been tested with one.
 
 This is the part worth internalizing, because it's four different kinds of token:
 
-```
+```text
 authorization code           (seconds,  single use)
   → short-lived user token   (~1 hour)
     → long-lived user token  (~60 days)   ← fb_exchange_token
@@ -151,7 +151,7 @@ The schema field is reused for a different concept, which is worth a comment in 
 
 ### Scopes
 
-```
+```text
 pages_show_list         ← without this /me/accounts returns nothing
 pages_manage_posts      ← publish
 pages_read_engagement   ← read metrics back
@@ -178,7 +178,7 @@ exactly the class of fact you cannot answer from memory — it changes on a sche
 
 Instagram rides on the same Meta app. Publishing is two calls:
 
-```
+```text
 POST /{ig-user-id}/media          → { image_url | video_url, caption, media_type } → container ID
 POST /{ig-user-id}/media_publish  → { creation_id: <container ID> }                → live
 ```

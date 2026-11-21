@@ -4,6 +4,8 @@ id: 85d212b1-d570-4959-9e4f-1e0ea502657f
 
 # Load Balancing & Proxies
 
+A load balancer is a piece of software that shares incoming requests across several servers, so no single server gets overloaded. When millions of people open the same app, their requests don't all go to one machine. This lesson shows how load balancers and proxies sit in front of servers and decide where each request goes.
+
 ## Before you start
 <!-- bite: 38e6b873-66dc-4234-9c95-e013fddd93be -->
 
@@ -98,7 +100,7 @@ The choice matters when requests vary. Picture four servers, each working throug
 
 It waits up to 200 ms behind the search, although three other servers may be idle. Round-robin keeps sending server 1 its turn because it never looks at the queues. The lab simulates 100,000 requests through four servers at 80% busy:
 
-```
+```text
 algorithm            mean    p50     p99    (ms)
 round-robin           214    138   1,158
 random                255    159   1,588
@@ -200,7 +202,7 @@ The caching lesson's problems apply in full: a CDN copy can be stale for its TTL
 
 Smooth weighted round-robin is how Nginx spreads weighted turns. With weights a = 5, b = 1 and c = 1, a naive version sends a five requests in a row, then b, then c. The smooth version adds each server's weight to its running score, picks the highest, and takes the total weight (7) off the winner. Trace it:
 
-```
+```text
 pick   scores after adding weights   chosen   scores after paying 7
 1        5   1   1                    a        -2   1   1
 2        3   2   2                    a        -4   2   2

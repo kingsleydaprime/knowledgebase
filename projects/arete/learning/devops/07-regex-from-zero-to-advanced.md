@@ -9,7 +9,7 @@ Split out from the original single-file `devops-learning.md`. See also `05-grep-
 
 ### First: globs are NOT regex
 
-```
+```text
 glob  (shell, find -name):   *.ts        → * = anything, ? = one char
 regex (grep, sed):           .*\.ts$     → . = any ONE char, * = repeat previous, \. = literal dot
 ```
@@ -18,7 +18,7 @@ The shell expands unquoted globs **before** the command runs — that's why it's
 
 ### The regex building blocks
 
-```
+```text
 LITERALS & ESCAPES
   cat        matches "cat" anywhere in the line
   \.  \$ \*  literal . $ *  (backslash disarms special meaning)
@@ -89,7 +89,7 @@ When I printed your `.env`, the DB password had to be hidden:
 sed 's/:[^:@\/]*@/:***@/' .env
 ```
 
-```
+```text
 s/PATTERN/REPLACEMENT/      sed's substitute command
 :                           match a literal colon        postgresql://arete : PASSWORD @ localhost
 [^:@\/]*                    then any run of characters that are NOT : @ or /

@@ -312,7 +312,7 @@ vvp prime1_sim
 
 **Expected output:**
 
-```
+```text
 halted after 43 cycles
 R1 = 55  (expected 55)
 PASS

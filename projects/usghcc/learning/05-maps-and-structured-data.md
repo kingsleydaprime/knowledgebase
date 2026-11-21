@@ -52,7 +52,7 @@ Every slippy map — Google, OSM, Mapbox, all of them — is the same structure:
 Each tile has a URL of the form `/{z}/{x}/{y}.png`, where `x` counts east from
 the left edge and `y` counts **south** from the top:
 
-```
+```text
 https://tile.openstreetmap.org/17/38169/49644.png
 ```
 

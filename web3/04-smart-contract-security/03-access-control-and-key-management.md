@@ -4,6 +4,8 @@ id: eb2ab663-afa9-4fcd-85ef-fa2e58e5afdd
 
 # Access Control and Key Management
 
+Access control is deciding who is allowed to run each part of a smart contract, and key management is keeping the secret keys of those people safe. More money has been lost through stolen admin keys and unguarded functions than through clever hacks. This lesson covers the common mistakes and how to guard against them.
+
 ## The uncomfortable headline
 <!-- bite: 610f79d2-43ab-4106-be06-369b79701cae -->
 
@@ -21,7 +23,7 @@ require(tx.origin == owner);     // EXPLOITABLE — the EOA that started the cha
 
 `tx.origin` is the account that signed the transaction, no matter how many contracts deep you are. So if the owner is ever tricked into calling **any** malicious contract, that contract can call yours and the check passes:
 
-```
+```text
 owner ──► Malicious.claimAirdrop() ──► YourContract.withdrawAll()
                                         tx.origin == owner  ✓  passes
                                         msg.sender == Malicious  ✗ would have failed

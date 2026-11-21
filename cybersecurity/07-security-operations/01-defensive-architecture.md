@@ -4,12 +4,14 @@ id: 4fe354f5-5f28-4f60-9f73-174d5c1d0ee7
 
 # Defensive Architecture
 
+Defensive architecture is designing a system so that it is hard to break into from the start, with several layers of protection instead of one. Think of a bank branch: a security guard at the door, cameras inside, and a vault at the back. If one layer fails, the next one still stands.
+
 ## Defense in depth
 <!-- bite: 115a1e6d-d825-4578-90d4-d41c6763bc16 -->
 
 The foundational principle: **no single control is trusted to stop everything, so you layer them.** A firewall *and* segmentation *and* endpoint protection *and* MFA *and* logging *and* least privilege — so a failure or bypass of one layer is caught by the next. An attacker must defeat every layer; a defender only needs one to catch them.
 
-```
+```text
 perimeter (firewall) → network (segmentation) → host (hardening/EDR)
    → application (secure coding) → data (encryption) → identity (MFA, least privilege)
         ...with monitoring across all layers

@@ -4,6 +4,8 @@ id: b4dab19f-e8f1-4817-bdc2-f9b988a15ac1
 
 # Linking and Loading
 
+Linking is joining the separate compiled pieces of a program, and the libraries it uses, into one file you can run, and loading is the operating system putting that file into memory and starting it. Every time you open an app, a loader does this for you. This lesson shows how the pieces find each other.
+
 ## Before you start
 <!-- bite: dc55cd03-9982-462e-ba78-ed7872c9aee4 -->
 
@@ -25,7 +27,7 @@ id: b4dab19f-e8f1-4817-bdc2-f9b988a15ac1
 
 [[08-code-generation|Code generation]] ends with assembly, and the assembler turns that into machine code. **But that machine code is not a program yet.**
 
-```
+```text
    hello.c  --compile-->  hello.s  --assemble-->  hello.o  --link-->  hello
                                                       ^                  ^
                                               not runnable          runnable
@@ -51,7 +53,7 @@ id: b4dab19f-e8f1-4817-bdc2-f9b988a15ac1
 
 **A symbol is a name with a kind.** Running `nm` on an object file shows them:
 
-```
+```text
    main.o:
      U  add              UNDEFINED  - promised, not provided
      T  main             TEXT       - a function, defined here
@@ -101,7 +103,7 @@ An object file is not a flat blob. It is divided by what the contents *are*:
 
 When the compiler emits a call to a function it cannot locate, it writes a placeholder and records a **relocation entry**:
 
-```
+```text
    R_X86_64_PLT32   patch a reference to 'add'
    R_X86_64_PC32    patch a reference to 'shared_counter'
 ```
@@ -155,7 +157,7 @@ That is why Go defaults to static binaries, why Docker images exist largely to p
 
 A dynamically linked executable contains this:
 
-```
+```text
    [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
 ```
 
@@ -322,7 +324,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 TWO SOURCE FILES. main.c USES add() and shared_counter;
 lib.c DEFINES them. Neither knows where the other will land.
 

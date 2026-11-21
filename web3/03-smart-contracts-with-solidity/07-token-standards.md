@@ -4,6 +4,8 @@ id: 7914f9f3-ff9d-41f8-8710-586a2b17d1c2
 
 # Token Standards
 
+A token standard is an agreed list of functions and messages a token contract must have, so wallets and exchanges can work with it without special code. It is why a new token can show up in your crypto wallet the day it is made. Nothing forces a contract to follow the standard exactly, and this lesson shows where the near misses cause bugs.
+
 ## What a "standard" is here
 <!-- bite: 1f0d0e7b-c4f0-4f42-84be-4e76e33bbc6e -->
 

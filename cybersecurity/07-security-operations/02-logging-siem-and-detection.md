@@ -4,6 +4,8 @@ id: 4b7175f2-2642-470d-8ed6-266dd3aa16c4
 
 # Logging, SIEM & Detection
 
+Logging is keeping a written record of what happens on computers and apps: who logged in, what was changed, what was sent. Your bank app's "new login from another device" alert comes from exactly this kind of record. A SIEM is a tool that gathers all these records in one place so a security team can spot an attack in them.
+
 ## Logs — the raw material
 <!-- bite: b2853250-895c-4f15-a5f7-c886ef341599 -->
 
@@ -53,7 +55,7 @@ Everything above is vocabulary until you write one. Take the most common detecti
 
 The raw material, from a Linux auth log ([[devops/01-linux/17-logs-and-journald|logs & journald]] — `/var/log/auth.log` on Debian/Ubuntu, `/var/log/secure` on RHEL):
 
-```
+```text
 Failed password for invalid user admin from 203.0.113.9 port 54122 ssh2
 Failed password for invalid user root from 203.0.113.9 port 54124 ssh2
 Accepted password for deploy from 203.0.113.9 port 54180 ssh2
@@ -74,7 +76,7 @@ That last line — count failures per source IP, descending — is the single mo
 
 **In Splunk (SPL):**
 
-```
+```text
 index=linux sourcetype=secure "Failed password"
 | stats count AS failures, dc(user) AS users_tried BY src_ip
 | where failures > 20 AND users_tried > 5

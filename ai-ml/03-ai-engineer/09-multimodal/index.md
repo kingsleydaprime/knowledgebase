@@ -4,6 +4,8 @@ id: 7f490df2-4488-46fd-918f-c567d6cd4b84
 
 # Multimodal
 
+Multimodal means an AI model that can take in more than text, such as photos, screenshots, PDFs or audio. It lets an app do things like read a receipt from a photo or describe a picture. Sending a picture to a chatbot and asking what is in it is the everyday version.
+
 ## Before you start
 <!-- bite: 07c62e71-f4f1-41aa-a72d-6b65d7c6d4c6 -->
 

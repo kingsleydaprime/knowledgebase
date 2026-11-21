@@ -4,6 +4,8 @@ id: 22b1fe1f-b5ac-4103-9d69-461a05f99f3d
 
 # Language Fundamentals
 
+Language fundamentals are the basic pieces every Rust program is built from: variables, types, functions, loops and text. Every Rust program uses them, from a tiny tool to a web server. Some of them, like how Rust handles text, work differently from other languages, so they are worth learning carefully.
+
 ## Bindings
 <!-- bite: f09f066f-c40a-480b-9601-5316cb536997 -->
 

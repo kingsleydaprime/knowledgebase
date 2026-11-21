@@ -4,6 +4,8 @@ id: d1a106e3-bae4-4621-97e3-afced7f06f9e
 
 # CRDTs & Conflict Resolution
 
+Conflict resolution is deciding what to do when two people change the same data at the same time on different copies. You see this in Google Docs, where two people type in the same document and both edits survive. A CRDT is a kind of data that can always merge such edits without losing anyone's work, and this lesson shows how.
+
 ## The kid version first
 <!-- bite: faa641f0-fbd6-490c-baed-35b12b8a7666 -->
 

@@ -4,6 +4,8 @@ id: 0dde5f17-8179-41dd-90e5-42267ac00450
 
 # Data and Offline-First
 
+Offline-first is a way of building an app so it reads and saves data on the phone first, and syncs with the server in the background. Think of WhatsApp letting you type and queue a message with no signal, then sending it when you are back online. This lesson shows how to build apps that keep working without a network.
+
 ## The kid version first
 <!-- bite: 3e65fc54-4fed-4484-a7eb-006e6babd99f -->
 
@@ -18,7 +20,7 @@ id: 0dde5f17-8179-41dd-90e5-42267ac00450
 
 > **The local database is the source of truth. The UI never reads from the network.**
 
-```
+```text
 UI ──observes──► Local DB ──────────────► always instant, always available
                     ▲
                     │ writes
@@ -48,7 +50,7 @@ The UI subscribes to a query. Sync updates the database. **The UI updates automa
 
 The user taps "like". Do **not** wait for the server.
 
-```
+```text
 1. Write to the local DB immediately, marked pending
 2. UI updates instantly — it's observing the DB
 3. Queue the mutation
@@ -97,7 +99,7 @@ Two devices edit the same thing offline. Both come back. Now what?
 ## Caching and freshness
 <!-- bite: 95452840-61ff-471d-9993-928c7d34511e -->
 
-```
+```text
 Cache-first        show local, no fetch          static reference data
 Stale-while-revalidate  show local, fetch, update  ← THE DEFAULT
 Network-first      fetch, fall back to cache      prices, balances

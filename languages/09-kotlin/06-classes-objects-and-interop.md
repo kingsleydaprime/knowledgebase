@@ -4,6 +4,8 @@ id: d67a466d-8d5f-4969-b300-7102ae8603f3
 
 # Classes, Objects and Java Interop
 
+Classes and objects are how Kotlin lets you define your own types, and interop is how Kotlin code works side by side with Java code. Most Android projects mix the two languages. This lesson covers Kotlin's class features and what to watch for when calling Java.
+
 ## Classes
 <!-- bite: b1f89b6c-75d4-4d5a-bd6b-badceaf7fb9e -->
 

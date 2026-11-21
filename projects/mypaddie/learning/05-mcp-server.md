@@ -13,7 +13,7 @@ Next.js route, `/api/mcp`, speaking MCP over HTTP. Every tool the AI can call is
 registered there. The AI never touches the database. It asks, our code runs, and
 the result goes back as JSON.
 
-```
+```text
 Claude  ──HTTP + Bearer token──▶  /api/mcp  ──▶  tool callback  ──▶  feature repo  ──▶  Postgres (RLS)
                                     │                                  │
                                  auth, rate limit,                  same functions the

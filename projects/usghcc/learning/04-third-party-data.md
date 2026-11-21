@@ -154,14 +154,14 @@ build time. A secret with that prefix is a published secret.
 
 `.gitignore` contained:
 
-```
+```text
 .env*
 ```
 
 which matches `.env.example` as well. The only record of *which* variables the
 app needs would never have reached the repo. Fix:
 
-```
+```text
 .env*
 !.env.example
 ```

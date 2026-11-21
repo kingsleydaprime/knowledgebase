@@ -4,10 +4,12 @@ id: 48d51794-ad68-45a6-b80e-483c713577ac
 
 # The GPU Graphics Pipeline
 
+The GPU graphics pipeline is the series of stages a graphics card runs to turn 3D shapes into a finished picture, some fixed and some that programmers write themselves. Every game on a phone, console or PC goes through this pipeline for every frame it shows.
+
 ## The stages
 <!-- bite: 338491f5-8387-468a-a890-1aeac19d8053 -->
 
-```
+```text
  vertex buffer
       │
       ▼  VERTEX SHADER      ← programmable: transform each vertex
@@ -111,7 +113,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 
 **Descriptor sets / bind groups** — group resources by update frequency. **The standard organisation:**
 
-```
+```text
  set 0:  per-frame     (camera, time, lights)
  set 1:  per-material  (textures, parameters)
  set 2:  per-object    (model matrix)

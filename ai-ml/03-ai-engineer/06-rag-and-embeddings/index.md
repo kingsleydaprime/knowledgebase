@@ -4,6 +4,8 @@ id: 50418732-8497-41cd-bbc1-d0ae612f980f
 
 # RAG and embeddings
 
+RAG (retrieval-augmented generation) means finding the right documents first and handing them to the AI model along with the question, so it answers from real sources instead of guessing. Embeddings are lists of numbers that let the computer find text with a similar meaning, even when the words are different. A help chatbot that answers from a company's own guides works this way.
+
 ## Before you start
 <!-- bite: 7445ca47-faf6-4346-a71a-55c51449c0db -->
 

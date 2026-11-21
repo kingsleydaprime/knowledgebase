@@ -16,7 +16,7 @@ The expected value of a random process is its average outcome, weighted by proba
 
 Variance measures how far outcomes typically fall from the mean. Low variance means outcomes cluster tightly around the average; high variance means they're scattered widely, including possibly far from it.
 
-```
+```text
 low variance:   outcomes near mean: 48, 51, 49, 50, 52
 high variance:  outcomes near mean: 10, 90, 45, 5, 95     (same mean, wildly different spread)
 ```

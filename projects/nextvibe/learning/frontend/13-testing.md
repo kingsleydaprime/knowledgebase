@@ -12,7 +12,7 @@ NextVibe's frontend is built with **Next.js 16 (App Router)**, **React 19**, **R
 
 Testing this architecture requires three complementary tiers:
 
-```
+```text
         / \
        /   \        E2E Tests (Playwright)
       / E2E \       Full user journeys in a real browser: auth, RSVP, payment flows

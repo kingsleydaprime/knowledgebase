@@ -259,7 +259,7 @@ node coupling.mjs sample/src
 
 Expected:
 
-```
+```text
 module          Ca  Ce  instability
 orders           1   3  0.75
 payments         1   2  0.67

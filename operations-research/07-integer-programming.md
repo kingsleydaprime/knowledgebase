@@ -69,7 +69,7 @@ Rounding down lost 1 out of 20, and the true optimum, $(4, 0)$, isn't next to th
 
 **The integer points form a scatter inside the LP region, and the best one can be anywhere.**
 
-```
+```text
  y        ● feasible integer point    ○ (3, 2) breaks 6x + 4y ≤ 24
  3 ┤ ●
  2 ┤ ●   ●   ●   ○
@@ -130,7 +130,7 @@ The standard algorithm, and the core of every MILP solver. It's a search tree th
 
 Maximise $5x + 4y$ s.t. $6x + 4y \le 24$, $x + 2y \le 6$, integers.
 
-```
+```text
                     Node 0: LP (3, 1.5)  z = 21
                    /                          \
              y ≤ 1                             y ≥ 2
@@ -171,7 +171,7 @@ In the example, every integer solution satisfies $x + y \le 4$: check $(4, 0)$, 
 
 **Modern solvers combine everything: branch-and-cut.** Presolve shrinks the model, cuts tighten the relaxation at the root and in the tree, heuristics find incumbents, branch and bound closes the gap. A typical progress log:
 
-```
+```text
   Nodes      Incumbent     Best bound     Gap
       0             —          21.00        —
      12         19.00          20.67     8.1%
@@ -235,7 +235,7 @@ uv run --with scipy python branch_and_bound.py
 
 Expected output:
 
-```
+```text
 LP relaxation: [3.  1.5] value 21.0
 integer optimum: [4. 0.] value 20.0
 rounded-down LP: [3. 1.] value 19.0
@@ -275,7 +275,7 @@ rounded-down LP: [3. 1.] value 19.0
 
 **A small facility-location model.** Three possible depots with fixed opening costs ₦100k, ₦80k and ₦120k, each with capacity 50 units. Four customers each need 20 units. Delivery cost per unit (₦k) from depot $i$ to customer $j$:
 
-```
+```text
           C1   C2   C3   C4
    D1      2    4    5    3
    D2      3    1    3    4

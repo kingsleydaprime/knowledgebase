@@ -172,7 +172,7 @@ During a healthy load: **To client** should be KB/s or MB/s per consumer connect
 
 **What specific states mean:**
 
-```
+```text
 Ready=98337, Unacked=0, Consumers=0
 → No consumers connected. App is not running or failed before basicConsume.
 
@@ -220,12 +220,12 @@ Understanding what the logs are telling you is as important as writing the code.
 
 ### Startup Phase
 
-```
+```text
 09:58:20.557 [main] DEBUG FlywayExecutor -- Memory usage: 19 of 252M
 ```
 Flyway is scanning for migration files. `main` thread = the app hasn't started its producer/consumer threads yet.
 
-```
+```text
 09:58:20.914 [main] DEBUG DbMigrate -- Successfully completed migration of schema `records_db` to version "1 - create tables"
 09:58:21.627 [main] DEBUG DbMigrate -- Successfully completed migration of schema `records_db` to version "2 - add source hash"
 09:58:21.761 [main] INFO  DbMigrate -- Successfully applied 2 migrations to schema `records_db` (execution time 00:01.516s)
@@ -234,26 +234,26 @@ Both SQL migration files ran. Tables exist. App is ready to start.
 
 ### Producer and Consumer Threads Starting
 
-```
+```text
 09:58:21.782 [Thread-1] INFO  FileProducer -- Producer started for file: .../transactions.csv
 ```
 Producer thread (`Thread-1`) started. It is now reading the CSV line by line and publishing to RabbitMQ.
 
-```
+```text
 09:58:21.826 [Thread-0] DEBUG ConsumerWorkService -- Creating executor service with 4 thread(s) for consumer work service
 ```
 Consumer thread (`Thread-0`) registered its callback with RabbitMQ. RabbitMQ's internal thread pool (4 threads) will call the `DeliverCallback` as messages arrive. The consumer itself is now idle — waiting for messages.
 
 ### HikariCP Pool Initializing
 
-```
+```text
 09:58:27.628 [pool-1-thread-3] DEBUG HikariConfig -- jdbcUrl: jdbc:mysql://localhost:3306/records_db?rewriteBatchedStatements=true
 09:58:27.719 [pool-1-thread-3] INFO  HikariDataSource -- HikariPool-1 - Starting...
 09:58:27.847 [pool-1-thread-3] INFO  HikariPool -- HikariPool-1 - Added connection ...
 ```
 HikariCP doesn't connect to MySQL at startup — it waits until the first query is needed (lazy initialization). This triggered 6 seconds after start, which means the first batch of 50,000 messages had accumulated in memory and was ready to flush. Watch the pool log sequence:
 
-```
+```text
 total=1, active=1   → first connection added and immediately used (batch insert starting)
 total=2, active=1   → pool growing to minimum size (10)
 total=3, active=1
@@ -263,7 +263,7 @@ total=10, active=1  → pool full, one connection still active (insert in progre
 
 ### The Failure
 
-```
+```text
 09:58:48.168 [pool-1-thread-3] WARN  FileConsumer -- Batch insert failed, falling back to individual saves.
              Cause: Duplicate entry '0a77cf837768060d...' for key 'transactions.ux_source_hash'
 ```
@@ -277,12 +277,12 @@ Timestamp: 26 seconds after start. That means it took 26 seconds to accumulate 5
 
 ### The Fallback Running
 
-```
+```text
 09:58:57.986 [HikariPool-1 housekeeper] DEBUG -- Pool stats (total=10, active=0, idle=10, waiting=0)
 ```
 `active=0` — all connections are idle. The individual fallback for all 50,000 rows **completed** in about 9 seconds (09:58:48 to 09:58:57). That's ~5,500 rows/sec on individual inserts — not terrible, but far slower than a proper batch.
 
-```
+```text
 09:59:57.987 [HikariPool-1 housekeeper] -- Pool stats (total=10, active=1, idle=9, waiting=0)
 ```
 One minute later, `active=1` again — the second batch of 50,000 is being inserted. If this stays `active=1` for many minutes without a `logStats` line appearing, the second batch is also failing and doing the individual fallback.
@@ -291,7 +291,7 @@ One minute later, `active=1` again — the second batch of 50,000 is being inser
 
 The housekeeper logs pool stats every 30 seconds:
 
-```
+```text
 Pool stats (total=10, active=1, idle=9, waiting=0)
 ```
 
@@ -310,7 +310,7 @@ Pool stats (total=10, active=1, idle=9, waiting=0)
 
 ### The Producer Count Bug
 
-```
+```text
 INFO  FileProducer -- Producer finished. Total records published: 0
 ```
 
@@ -331,7 +331,7 @@ The consumer receiving messages proves the producer worked. The log was just wro
 
 ### The "All Skipped" Pattern
 
-```
+```text
 Batch 50000: inserted=0 skipped=50000 in 29417ms | total=0 rate=0/sec dupes=50000 errors=0
 Batch 50000: inserted=0 skipped=50000 in 42155ms | total=0 rate=0/sec dupes=100000 errors=0
 ```
@@ -346,7 +346,7 @@ Batch 50000: inserted=0 skipped=50000 in 42155ms | total=0 rate=0/sec dupes=1000
 
 ### Re-run vs Fresh Load — Why Performance Is So Different
 
-```
+```text
 Batch 50000: inserted=0 skipped=50000 in 104839ms   ← re-run: 100+ seconds
 Batch 50000: inserted=50000 skipped=0 in 1200ms     ← fresh load: 1-2 seconds
 ```
@@ -372,7 +372,7 @@ This is not a code bug — it is the fundamental cost of checking uniqueness aga
 
 After the `INSERT IGNORE` fix, every batch should produce one stats line and no WARN:
 
-```
+```text
 INFO  FileProducer -- Producer started for file: .../transactions.csv
 INFO  HikariDataSource -- HikariPool-1 - Start completed.
 INFO  FileConsumer -- Batch 50000: inserted=50000 skipped=0 in 340ms | total=50000 rate=8333/sec dupes=0 errors=0

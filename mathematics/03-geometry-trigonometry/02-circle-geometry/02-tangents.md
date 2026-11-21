@@ -4,6 +4,8 @@ id: 7347eb38-4026-4966-a310-d40675b54814
 
 # Tangents to a Circle
 
+A tangent is a straight line that just touches a circle at one point without cutting into it, like a ruler resting against a coin. This lesson covers the rules tangents follow and how they connect to the lines that do cut through a circle.
+
 ## Before you start
 <!-- bite: 8eb3146e-78cf-42e3-bffc-98e55e99be3f -->
 
@@ -85,7 +87,7 @@ Two consequences worth stating separately:
 
 **Claim:** the angle between a tangent and a chord equals the angle subtended by that chord in the **alternate segment**.
 
-```
+```text
                     B
                    / \
                   /   \
@@ -279,7 +281,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 3.1 and the construction: tangent is perpendicular to the radius
   contact points: (1.923077, -4.615385) and (1.923077, 4.615385)
   angle OT1P = 90.000000   angle OT2P = 90.000000

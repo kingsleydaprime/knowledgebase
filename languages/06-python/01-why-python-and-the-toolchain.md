@@ -93,7 +93,7 @@ dev = ["pytest", "ruff", "mypy"]
 
 Python's interactive prompt is a genuine part of the workflow, not a toy:
 
-```
+```text
 >>> import pathlib
 >>> pathlib.Path(".").glob("*.md")
 <generator object ...>          # ← tells you it's lazy, before you're confused later

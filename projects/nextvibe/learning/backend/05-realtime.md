@@ -187,7 +187,7 @@ Every request you've made so far in this codebase uses HTTP. HTTP is a **request
 
 **WebSocket** is a different protocol entirely. It starts as HTTP (a special "upgrade" request), then both sides agree to switch protocols, and from that point the TCP connection stays open. Either side can send a message at any time without waiting for the other to ask. One persistent connection instead of hundreds of short ones.
 
-```
+```text
 HTTP:
   Client → Server: GET /messages        (request)
   Server → Client: [messages]           (response, connection closes)
@@ -242,7 +242,7 @@ This means Socket.io CORS applies to step 1 (polling HTTP request), NOT to the W
 
 The browser console showed:
 
-```
+```text
 [chat] socket status → disconnected   ← initial state
 [chat] join effect: socket not available yet   ← component fired before socket ready
 [chat] socket status → disconnected
@@ -258,7 +258,7 @@ Connecting to a Socket.io namespace just means you have a pipe to the server. Yo
 
 In this codebase, the DM flow requires:
 
-```
+```text
 1. User A connects to /messaging namespace   ← has a pipe
 2. User A emits 'join:dm' { conversationId }  ← enters the room
    Server: client.join('dm:{conversationId}')
@@ -598,7 +598,7 @@ reach a phone that's locked, backgrounded, or has the app killed.
 This is the mental model to hold, because both designs below are the same
 picture with a different entry point:
 
-```
+```text
 your server → [FCM (Android) / APNs (iOS)] → the device
 ```
 
@@ -606,7 +606,7 @@ You never talk to a phone directly. You hand a message to Google's or Apple's
 service, which owns the persistent connection to the device. The only question
 is whether you talk to those two yourself, or let a broker do it:
 
-```
+```text
 direct:  server → firebase-admin → FCM ─┐
                                         ├→ device
          server → APNs (key, .p8, JWT) ─┘

@@ -24,7 +24,7 @@ Prisma calls it `_prisma_migrations`, Rails `schema_migrations`, Flyway
 does not inspect your schema to decide what to do. It compares the file list to
 the ledger and runs the difference. So there are three things that can disagree:
 
-```
+```text
    migration files   ←→   the ledger   ←→   the actual schema
 ```
 

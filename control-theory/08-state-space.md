@@ -4,6 +4,8 @@ id: 2e4bc6b0-6c02-48a3-b93e-2a498a56a7dd
 
 # State Space
 
+State space is a way of describing a system by a short list of numbers, its state, that tells you everything about it right now, plus rules for how that list changes. For a moving car, the state could be its position and speed. Written with matrices, this form handles systems with many inputs and outputs much better than transfer functions.
+
 ## The representation
 <!-- bite: 1179eeed-7506-4d49-8428-76f99b970cab -->
 

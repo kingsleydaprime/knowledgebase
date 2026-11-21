@@ -136,7 +136,7 @@ This says: an object whose keys are strings and whose values are strings.
 
 React is a library for building user interfaces. The core idea is simple: **your UI is a function of your state**.
 
-```
+```text
 UI = f(state)
 ```
 
@@ -337,7 +337,7 @@ Next.js builds on React and adds routing, server-side rendering, API routes, and
 
 Every file named `page.tsx` inside `src/app/` becomes a route. The folder structure defines the URL:
 
-```
+```text
 src/app/
   (app)/
     dashboard/
@@ -362,7 +362,7 @@ The folders in parentheses — `(app)`, `(auth)`, `(marketing)` — are **Route 
 
 A `layout.tsx` file wraps all routes in its folder and sub-folders. Layouts are **persistent** — they do not unmount when you navigate between routes in the same group. This is why the sidebar never flashes or re-renders when you click between pages.
 
-```
+```text
 src/app/
   layout.tsx           ← Root layout: wraps everything (html, body, fonts)
   (app)/
@@ -473,7 +473,7 @@ In SocioBoom, `Suspense` is required wherever `useSearchParams()` is called. Thi
 
 If you forget the Suspense boundary, Next.js will throw this error at build time:
 
-```
+```text
 Error: useSearchParams() should be wrapped in a suspense boundary
 ```
 
@@ -497,7 +497,7 @@ export default function Page() {
 
 The `[platform]` folder creates a dynamic segment:
 
-```
+```text
 src/app/(app)/platform/[platform]/page.tsx → /platform/instagram, /platform/twitter, etc.
 ```
 
@@ -636,7 +636,7 @@ This is why changing `--primary` in CSS immediately updates every `bg-primary`, 
 ### Common Utility Patterns Used in SocioBoom
 
 **Layout:**
-```
+```text
 flex items-center justify-between  → horizontal centering with space-between
 grid grid-cols-1 md:grid-cols-3   → 1 column on mobile, 3 on medium screens
 gap-4                              → gap between grid/flex children
@@ -645,7 +645,7 @@ min-h-screen                      → at least full viewport height
 ```
 
 **Sizing:**
-```
+```text
 h-4 w-4    → 1rem × 1rem (16px)
 h-8 w-8    → 2rem × 2rem (32px)
 max-w-4xl  → max-width: 56rem
@@ -653,14 +653,14 @@ w-full     → width: 100%
 ```
 
 **Responsive prefixes:**
-```
+```text
 md:p-6     → applies p-6 on medium screens (≥768px) and up
 lg:col-span-2  → applies col-span-2 on large screens (≥1024px) and up
 hidden md:block  → hidden on mobile, block on md+
 ```
 
 **Semantic color utilities (from CSS variables):**
-```
+```text
 bg-background       → var(--background), changes with dark mode
 text-foreground     → var(--foreground)
 text-muted-foreground  → dimmed text
@@ -938,7 +938,7 @@ The short form `@/components/ui/...` is preferred for conciseness. The explicit 
 
 ### The Resolution Logic
 
-```
+```text
 @/components/ui/button
   → try src/shared/components/ui/button  ✓ FOUND → use this
   (never checks src/components/ui/button)
@@ -977,7 +977,7 @@ For a CRUD application like SocioBoom, the performance cost of client-side rende
 
 ### Route Groups as Architectural Boundaries
 
-```
+```text
 (app)/    ← authenticated product
 (auth)/   ← authentication flows  
 (marketing)/  ← public marketing
@@ -1137,7 +1137,7 @@ The sidebar is one of the most complex components in the app. Understanding it t
 
 ### Component Tree
 
-```
+```text
 (app)/layout.tsx
   └── MainLayout (client component, src/shared/components/layout/MainLayout.tsx)
         └── SidebarProvider (from shadcn/ui sidebar primitive)
@@ -1452,7 +1452,7 @@ Both AI features follow the same architectural pattern. Understanding one means 
 
 The page is divided into three sequential steps, each gated on the previous:
 
-```
+```text
 Step 1: Fetch Reviews (always visible)
   ├── Search by business name (Google, Yelp, Twitter, Reddit buttons)
   └── Or paste manually
@@ -1531,7 +1531,7 @@ Buttons that trigger async operations follow a consistent pattern:
 
 The same progressive pattern, but simpler:
 
-```
+```text
 Describe your app (Textarea)
 Select platforms (Reddit / Twitter toggle buttons)
 Search button → calls /api/v1/discovery/search

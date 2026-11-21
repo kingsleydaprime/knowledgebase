@@ -107,7 +107,7 @@ Python-like, deliberately restricted (no inheritance, no modifiers, no inline as
 
 ## A workable setup
 
-```
+```bash
 forge init                          Foundry as the base
 forge install OpenZeppelin/openzeppelin-contracts
 slither in CI                       static analysis on every PR

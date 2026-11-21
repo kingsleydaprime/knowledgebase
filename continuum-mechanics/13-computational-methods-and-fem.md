@@ -4,6 +4,8 @@ id: 7696431b-61fa-4057-af83-7f3efd8a7251
 
 # Computational Methods and FEM
 
+The finite element method, or FEM, is a way of solving hard engineering equations on a computer by splitting an object into many small simple pieces and solving for each piece. Engineers use it to check car crashes, bridges and phone cases before anything is built, and this lesson also shows how its results can look right and still be wrong.
+
 ## Why numerical methods
 <!-- bite: 526eb15e-f3da-42bd-943d-b9bc6fb47300 -->
 
@@ -87,7 +89,7 @@ The distinction that matters, and the one most often skipped.
 
 ### The mesh convergence pattern
 
-```
+```text
 displacement
     │            ╭──────────  ← converged
     │        ╭───╯

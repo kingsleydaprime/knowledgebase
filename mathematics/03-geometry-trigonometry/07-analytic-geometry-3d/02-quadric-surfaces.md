@@ -4,6 +4,8 @@ id: b106054d-3f3c-469f-85a8-2078e042b02b
 
 # Quadric Surfaces
 
+A quadric surface is a curved surface in 3D described by an equation with squared terms, like a sphere, a bowl or a saddle shape. Some cooling towers at power stations are one of these shapes, and they can be built entirely from straight beams.
+
 ## Before you start
 <!-- bite: 196f84fd-0920-45f1-a020-c64e71d3809a -->
 
@@ -268,7 +270,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - identifying surfaces by their traces
   x^2 + y^2 + z^2 = 1   (ellipsoid)
       z=0: circle              z=1: single point        z=2: empty               

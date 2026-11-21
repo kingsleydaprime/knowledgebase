@@ -21,7 +21,7 @@ Next.js builds on React and adds routing, server-side rendering, API routes, and
 
 Every file named `page.tsx` inside `src/app/` becomes a route. The folder structure defines the URL:
 
-```
+```text
 src/app/
   (app)/
     dashboard/
@@ -46,7 +46,7 @@ The folders in parentheses — `(app)`, `(auth)`, `(marketing)` — are **Route 
 
 A `layout.tsx` file wraps all routes in its folder and sub-folders. Layouts are **persistent** — they do not unmount when you navigate between routes in the same group. This is why the sidebar never flashes or re-renders when you click between pages.
 
-```
+```text
 src/app/
   layout.tsx           ← Root layout: wraps everything (html, body, fonts)
   (app)/
@@ -157,7 +157,7 @@ In SocioBoom, `Suspense` is required wherever `useSearchParams()` is called. Thi
 
 If you forget the Suspense boundary, Next.js will throw this error at build time:
 
-```
+```text
 Error: useSearchParams() should be wrapped in a suspense boundary
 ```
 
@@ -181,7 +181,7 @@ export default function Page() {
 
 The `[platform]` folder creates a dynamic segment:
 
-```
+```text
 src/app/(app)/platform/[platform]/page.tsx → /platform/instagram, /platform/twitter, etc.
 ```
 
@@ -291,7 +291,7 @@ The short form `@/components/ui/...` is preferred for conciseness. The explicit 
 
 ### The Resolution Logic
 
-```
+```text
 @/components/ui/button
   → try src/shared/components/ui/button  ✓ FOUND → use this
   (never checks src/components/ui/button)

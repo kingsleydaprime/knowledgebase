@@ -42,7 +42,7 @@ Modern RHEL installs on UEFI hardware default to **GPT**. Know both because the 
 ```bash
 sudo parted /dev/sdb print          # show the current partition table without changing anything
 ```
-```
+```text
 Model: QEMU QEMU HARDDISK (scsi)
 Disk /dev/sdb: 5369MB
 Partition Table: gpt
@@ -58,7 +58,7 @@ Then create the partition. Interactively:
 ```bash
 sudo parted /dev/sdb
 ```
-```
+```text
 (parted) mkpart
 Partition name? []? userdata
 File system type? [ext2]? xfs
@@ -82,7 +82,7 @@ sudo udevadm settle                                     # wait for the kernel to
 sudo fdisk /dev/sdb
 ```
 Inside the interactive prompt:
-```
+```text
 Command (m for help): n        # new partition
 Partition type: p              # primary
 Partition number: 1
@@ -147,7 +147,7 @@ sudo blkid /dev/sdb1
 
 ### /etc/fstab — mounting automatically at boot
 
-```
+```text
 # device                                mountpoint   type   options   dump  pass
 UUID=a1b2c3d4-...                       /mnt/data    xfs    defaults  0     2
 ```
@@ -190,7 +190,7 @@ sudo swapoff /dev/sdb2         # deactivate
 ```
 
 fstab entry to make it persistent:
-```
+```text
 UUID=...    none    swap    swap    0   0
 ```
 Note the mountpoint field is literally `none` — swap doesn't attach anywhere in the directory tree.

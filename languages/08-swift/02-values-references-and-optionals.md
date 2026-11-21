@@ -4,6 +4,8 @@ id: 93a54ebd-8dcf-4026-8607-23483817d97a
 
 # Values, References and Optionals
 
+A value type is copied when you pass it around, a reference type is shared, and an optional is Swift's way of saying a value might be missing. A contact in your phone might have no email, and Swift makes your code admit that. These ideas shape almost every line of Swift you will write.
+
 ## Value types vs reference types
 <!-- bite: 4bcaa5d8-7339-408e-834b-4dc71af98cf0 -->
 

@@ -4,6 +4,8 @@ id: 9320f58f-0968-488b-9b10-a17385d4db22
 
 # Inheritance and Virtual Dispatch
 
+Inheritance is building a new class on top of an existing one, and virtual dispatch is how C++ picks the right version of a function at run time. In a game, a dog and a cat might both be animals, and calling "make sound" on any animal should give the right noise. This lesson shows how that works and the mistakes to avoid.
+
 ## Inheritance
 <!-- bite: ea2637ee-0d9b-4826-98c8-45641d8645a9 -->
 
@@ -46,7 +48,7 @@ a->speak();          // calls Dog::speak — resolved at RUNTIME
 
 How: each polymorphic class gets a **vtable** — a static array of function pointers — and each object gets a hidden **vptr** pointing at its class's vtable.
 
-```
+```text
 Dog object            Dog vtable
 ┌──────────────┐     ┌──────────────────────┐
 │ vptr    ─────┼────→│ ~Dog                 │

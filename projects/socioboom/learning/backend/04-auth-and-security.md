@@ -138,7 +138,7 @@ Reddit requires OAuth even for public read-only data. SocioBoom uses the "app-on
 
 ### The Flow
 
-```
+```text
 SocioBoom server
   → POST https://www.reddit.com/api/v1/access_token
       Authorization: Basic base64(clientId:clientSecret)

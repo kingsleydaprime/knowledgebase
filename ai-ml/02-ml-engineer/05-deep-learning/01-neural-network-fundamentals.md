@@ -4,12 +4,14 @@ id: d5e0f6c0-ce55-478d-b4ce-9e1ca2c82d4c
 
 # Neural Network Fundamentals
 
+A neural network is a model made of many small units, called neurons, connected in layers, where each unit does a simple sum and passes the result on. Stacked together, these simple steps can learn very complex patterns. Neural networks are behind voice assistants, photo filters on your phone and chat apps like ChatGPT.
+
 ## The perceptron — one neuron
 <!-- bite: 8d119349-dc14-4686-86cb-8448ed0c41d5 -->
 
 The building block: a neuron takes inputs, multiplies each by a weight, sums them, adds a bias, and passes the result through an **activation function**:
 
-```
+```text
 output = activation( w₁x₁ + w₂x₂ + … + b )
 ```
 
@@ -49,7 +51,7 @@ ReLU's dominance in hidden layers is a big part of why deep networks became trai
 
 The core algorithm of deep learning. After the forward pass computes the loss, **backpropagation** works _backward_ through the network computing the gradient of the loss with respect to every weight — how much each weight contributed to the error — by applying the [[ai-ml/00-foundations/03-mathematics/02-calculus/03-chain-rule|chain rule]] of calculus layer by layer. Then an **optimizer** (gradient descent and its variants — [[ai-ml/00-foundations/03-mathematics/04-optimization|optimization]]) nudges each weight in the direction that reduces the loss.
 
-```
+```text
 forward pass → compute loss → backpropagate (chain rule → gradients) → optimizer updates weights → repeat
 ```
 

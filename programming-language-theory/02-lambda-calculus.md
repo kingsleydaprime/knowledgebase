@@ -4,6 +4,8 @@ id: 280aff6b-ef2d-43df-b10e-b7e6258a6523
 
 # Lambda Calculus
 
+Lambda calculus is a tiny language made of only three things: names, functions and calling a function. It has no numbers, no if-statements and no loops, yet it can describe any computation a computer can do. It is the base that much of programming language theory, and languages like Haskell, builds on.
+
 ## The whole language
 <!-- bite: f1ad4fa1-bd25-49ff-8fa3-733affe9f18c -->
 

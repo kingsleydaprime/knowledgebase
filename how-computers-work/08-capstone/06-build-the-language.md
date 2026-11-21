@@ -4,6 +4,8 @@ id: fb648ecb-2573-4745-9349-e90907ea1ef7
 
 # Module 33: Build the Language (The Two Directions Meet)
 
+A compiler is a program that turns code written in a programming language into instructions a CPU can run. In this lesson you will build a compiler for a small language of your own design, producing instructions for the PRIME-1 CPU you also designed. This is where the hardware you built from below meets the software you build from above.
+
 ## Before you start
 <!-- bite: 22ee8b55-3739-41b0-926c-c5aa62749fab -->
 
@@ -40,7 +42,7 @@ id: fb648ecb-2573-4745-9349-e90907ea1ef7
 
 Deliberately tiny — one page of grammar, enough to write real programs:
 
-```
+```text
 let sum = 0;
 let i = 10;
 while (i) {
@@ -56,7 +58,7 @@ print(sum);
 
 **The grammar, lowest precedence first:**
 
-```
+```text
 program    := statement*
 statement  := 'let' ID '=' expr ';'
             | ID '=' expr ';'
@@ -89,7 +91,7 @@ term       := NUMBER | ID | '(' expr ')'
 
 Recursive descent: one function per grammar rule, calling each other as the grammar nests.
 
-```
+```text
     while (i) { sum = sum + i; }
 
     ("while", ("var", "i"),
@@ -114,7 +116,7 @@ Walk the tree, emitting instructions. **Two conventions carry the whole design:*
 
 ### Expressions
 
-```
+```text
     sum + i
         ->  LD R1, R0, 0        ; sum, into R1
             LD R2, R0, 1        ; i, into R2
@@ -125,7 +127,7 @@ Walk the tree, emitting instructions. **Two conventions carry the whole design:*
 
 The obvious translation of `while (cond) body` is:
 
-```
+```text
     top:  <eval cond>
           BEZ R1, end        ; if false, exit
           <body>
@@ -137,7 +139,7 @@ The obvious translation of `while (cond) body` is:
 
 **The fix is to branch over an unconditional jump:**
 
-```
+```text
     top:   <eval cond>
            BNZ R1, body      ; offset +1, ALWAYS in range
            JMP end           ; 12-bit absolute address, no range limit
@@ -166,7 +168,7 @@ Address 31 is used because `ST` takes a 6-bit signed displacement, so 31 is the 
 ## 5. The complete pipeline
 <!-- bite: 170e93d4-28fb-4413-b42c-cb76dbbdf12d -->
 
-```
+```text
    Pebble source
         ↓  lexer
    tokens
@@ -525,7 +527,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 SOURCE (Pebble):
     let sum = 0;
     let i = 10;

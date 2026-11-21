@@ -4,6 +4,8 @@ id: 599b14c1-fca7-4ebd-9047-900ca1bb9036
 
 # Vectors
 
+A vector is a quantity with both a size and a direction, like a wind blowing 20 km/h towards the east, written as a list of numbers. The same rules work in two dimensions, three, or hundreds, which is why vectors are used for everything from game physics to music recommendations.
+
 ## Before you start
 <!-- bite: f27822a4-c826-4657-9b94-1d6079b88f3c -->
 
@@ -301,7 +303,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the same formulas in 2, 3 and 10 dimensions
   dim  2: norm =  5.000000,  unit norm = 1.000000000
   dim  3: norm =  3.000000,  unit norm = 1.000000000

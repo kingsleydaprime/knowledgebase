@@ -4,6 +4,8 @@ id: 847e83fc-e827-4245-88ee-cdf7fec4ef75
 
 # Module 17: Karnaugh Maps (Seeing the Simplification)
 
+A Karnaugh map is a grid you draw to simplify a logic circuit by spotting patterns, instead of pushing symbols around. It also tells you clearly when you are done. Real chip design tools use the same idea, done by a computer.
+
 ## Before you start
 <!-- bite: b65e0b02-aad1-43a8-8132-462bd22909a0 -->
 
@@ -57,7 +59,7 @@ Module 16's simplification worked, but look at what it required: noticing that y
 
 Everything about the K-map follows from one decision: **label the rows and columns in Gray code, not binary counting order.**
 
-```
+```text
    Binary order:  00, 01, 10, 11
                         ↑    ↑
                    these differ in TWO bits
@@ -90,7 +92,7 @@ Gray-code ordering guarantees that **physically adjacent cells differ in exactly
 
 For the function $F(A,B,C,D) = \sum m(0,1,2,5,6,7,8,9,10,14)$:
 
-```
+```text
           CD=00   01   11   10
     AB=00    1    1    0    1
     AB=01    0    1    1    1
@@ -320,7 +322,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Gray code is what makes adjacency meaningful:
   2-bit Gray order: ['00', '01', '11', '10']
   consecutive entries differ in exactly ONE bit, so adjacent

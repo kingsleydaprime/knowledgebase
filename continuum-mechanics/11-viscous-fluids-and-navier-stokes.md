@@ -4,6 +4,8 @@ id: 822d7d11-373c-4d9f-ba30-e26f7d6a18da
 
 # Viscous Fluids and Navier–Stokes
 
+A viscous fluid is a liquid or gas that resists flowing, like honey resists more than water, and the Navier–Stokes equations describe how such fluids move. They are used to design aeroplanes and forecast the weather, yet nobody has yet proved some basic facts about them.
+
 ## Newtonian fluids
 <!-- bite: 18ee4ff1-03ba-44d6-920e-b861fe1c2236 -->
 
@@ -96,7 +98,7 @@ Prandtl's 1904 insight, which created modern aerodynamics.
 
 At high $Re$, viscosity is negligible almost everywhere — **except in a thin layer near a wall**, where no-slip forces the velocity from zero to the free-stream value.
 
-```
+```text
 free stream  →→→→→→→→→→→→→→→→
                     ↑ δ (boundary layer thickness)
              →→→→→→

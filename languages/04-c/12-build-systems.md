@@ -4,6 +4,8 @@ id: ee956c58-4470-4c35-a686-91137f739e17
 
 # Build Systems
 
+A build system is a tool that turns all the files of a C project into a working program, rebuilding only the parts that changed. Once a project has more than a few files, typing the compiler commands by hand gets slow and error-prone. This lesson covers `make`, CMake and how C projects handle libraries.
+
 ## Why a build system
 <!-- bite: defac02a-471c-4820-a4de-0bb76a727275 -->
 

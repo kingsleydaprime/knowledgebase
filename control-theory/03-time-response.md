@@ -4,6 +4,8 @@ id: 035220ab-a0f6-4302-8971-6c5be78e4a38
 
 # Time Response
 
+Time response is how a system's output changes over time after you change its input. When you set an air conditioner to a new temperature, how fast the room gets there, and whether it overshoots, is its time response. This lesson shows how to read it and the numbers engineers design against.
+
 ## First-order systems
 <!-- bite: fec105cf-33dd-44de-9157-6477742377c9 -->
 
@@ -13,7 +15,7 @@ Step response:
 
 $$y(t) = K\left(1 - e^{-t/\tau}\right)$$
 
-```
+```text
 y
 K ┤        ╭────────────────────
   │      ╭─╯
@@ -50,7 +52,7 @@ $$s = -\zeta\omega_n \pm j\omega_n\sqrt{1-\zeta^2}$$
 | $1$ | repeated real | **critically damped** — fastest with no overshoot |
 | $> 1$ | two distinct real | **overdamped** — slow, no overshoot |
 
-```
+```text
 y
   │      ╭╮      ζ = 0.2  (oscillatory)
   │     ╱  ╲╭─╮
@@ -65,7 +67,7 @@ y
 
 **The geometric reading of pole location** is worth internalising, because it's what makes [[control-theory/05-stability-and-root-locus|root locus]] design intuitive:
 
-```
+```text
             Im
              │    ×
              │   ╱│
@@ -121,7 +123,7 @@ Real systems are higher than second order. **The approximation that makes classi
 
 Rule of thumb: if other poles are **5× further left**, treat the system as second-order using the dominant pair.
 
-```
+```text
      Im
       │  ×  ← dominant pair
   ×   │            (these determine the response)
@@ -188,7 +190,7 @@ Note the numerator — that's a **right-half-plane zero**. Delay behaves like a 
 
 The practical skill — extracting a model from data:
 
-```
+```text
 y │        ╭─╮___________
   │      ╭─╯ ╰
   │     ╱

@@ -92,7 +92,7 @@ npx supabase init --yes
 
 Creates:
 
-```
+```bash
 supabase/config.toml    # local stack config (ports, versions, feature toggles)
 supabase/.gitignore     # ignores local-only artifacts (e.g. .branches, .temp)
 ```
@@ -124,7 +124,7 @@ desired-state file and let the CLI diff it into a migration.)
 The first `supabase start` failed. The **log told us exactly what** (read errors
 fully before reacting):
 
-```
+```text
 pgsodium_getkey.sh: /etc/postgresql-custom/pgsodium_root.key: Read-only file system
 FATAL:  invalid secret key
 ... supabase_db_sorepoint: container is not ready
@@ -180,7 +180,7 @@ mechanism — not from trying random flags.
 
 On success it prints the local stack's URLs and keys:
 
-```
+```text
 API_URL     http://127.0.0.1:54321   # PostgREST + Auth + Storage gateway
 DB_URL      postgresql://postgres:postgres@127.0.0.1:54322/postgres
 STUDIO_URL  http://127.0.0.1:54323   # the dashboard UI
@@ -240,7 +240,7 @@ into the browser build).
 
 The worker's first DB write failed with:
 
-```
+```text
 42501  permission denied for table scans
 hint: GRANT SELECT ON public.scans TO service_role;
 ```

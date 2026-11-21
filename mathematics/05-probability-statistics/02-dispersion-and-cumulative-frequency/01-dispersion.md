@@ -4,6 +4,8 @@ id: b1aeb353-051d-4e63-a492-19fcb24640d6
 
 # Dispersion and Cumulative Frequency
 
+Dispersion is how spread out a set of data is, and cumulative frequency is a running total that shows how many values fall below each point. Two classes can have the same average score, but in one everybody scored close to it and in the other the scores were all over the place.
+
 ## Before you start
 <!-- bite: ac4c5b64-89d5-4651-baae-e8edc6f69818 -->
 
@@ -255,7 +257,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - two servers with the same mean
   steady: mean  100.00  median  100.0  sd     2.67  IQR    4.0  range      9
   spiky : mean  100.00  median   21.5  sd   229.84  IQR    3.0  range    733

@@ -4,6 +4,8 @@ id: b6404e4c-2da0-4459-8e8b-78ce49fd06b6
 
 # Decorators and Context Managers
 
+A decorator is a function that wraps another function to add extra behaviour, like timing it or checking a login, and a context manager is something that sets up a resource and cleans it up for you in a `with` block. You have used one if you have opened a file with `with open(...)`. Both remove repeated setup and cleanup code from your programs.
+
 ## Decorators
 <!-- bite: c4df1d14-8b27-4ec4-b256-17fa42dff9b7 -->
 

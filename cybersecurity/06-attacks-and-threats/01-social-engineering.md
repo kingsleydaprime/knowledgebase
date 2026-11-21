@@ -4,6 +4,8 @@ id: da9e2c7c-b046-45f2-bf63-adad1e82d3f5
 
 # Social Engineering
 
+Social engineering is tricking a person into giving away access, instead of breaking the technology. The fake "your account is locked, click here" text message and the caller pretending to be from your bank are both social engineering. Most real break-ins start this way, with one person fooled.
+
 ## Why it's the #1 vector
 <!-- bite: 94268a2f-687d-4c0a-aa6c-97e2356d7f66 -->
 

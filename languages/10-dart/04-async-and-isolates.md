@@ -4,12 +4,14 @@ id: 9f4368c9-65e9-4edd-ae43-2823c5368367
 
 # Async and Isolates
 
+Async code is code that waits for slow things, like a network reply, without freezing the app, and an isolate is Dart's way of running work truly in parallel. An app that keeps scrolling smoothly while it loads pictures is using async. Isolates are for heavy work that would otherwise make the screen stutter.
+
 ## The model
 <!-- bite: 5dfad07d-8e60-438e-9f6b-fea9cba2855f -->
 
 **Dart is single-threaded per isolate.** One thread, one event loop, no shared-memory concurrency, and therefore **no locks, no data races, no `synchronized`.**
 
-```
+```text
     ┌──────────────────────────┐
     │      microtask queue     │  ← Futures. Drained FIRST, completely
     ├──────────────────────────┤

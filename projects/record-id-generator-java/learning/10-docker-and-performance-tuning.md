@@ -133,7 +133,7 @@ For a file with 500,000 rows, that's **500,000 individual SQL inserts**. Each on
 
 A single INSERT takes ~1–5ms. 500,000 × 2ms = **~17 minutes**. This is the actual bottleneck.
 
-```
+```text
 Current flow (slow):
 Message 1 → INSERT → ack
 Message 2 → INSERT → ack
@@ -362,7 +362,7 @@ The current `BATCH_SIZE = 1000` in `FileConsumer` is already a good setting. To 
 
 With all optimisations in place:
 
-```
+```text
 1. FileProducer
    └─ BufferedReader streams 1 line at a time (flat memory usage)
    └─ basicPublish → record.queue
@@ -469,7 +469,7 @@ The web UI will be at `http://localhost:15672` (guest / guest). No further confi
 When a batch of 50,000 rows hits a single duplicate `source_hash`, the whole `executeBatch()` throws `SQLIntegrityConstraintViolationException`. The transaction rolls back. All 50,000 rows are discarded. The code falls back to 50,000 individual saves — one DB round-trip per row. That single duplicate just turned a fast batch into a slow loop.
 
 This is what happened in the logs:
-```
+```text
 WARN  FileConsumer -- Batch insert failed, falling back to individual saves.
       Cause: Duplicate entry '0a77cf83...' for key 'transactions.ux_source_hash'
 ```
@@ -527,7 +527,7 @@ int skipped = transactions.size() - inserted;
 With MySQL Connector/J 8.x and `rewriteBatchedStatements=true`, MySQL returns 0 for ignored rows and 1 for inserted rows — so the count is accurate. If you ever see `SUCCESS_NO_INFO` (-2) values, it means the driver couldn't get per-row counts; the `skipped` count would then be overstated (showing the whole batch as skipped). This is a conservative failure mode — you'll see an inflated duplicate count in logs but nothing will be lost.
 
 The stats log now shows both:
-```
+```text
 INFO  FileConsumer -- Batch 50000: inserted=49997 skipped=3 in 340ms | total=149991 rate=8333/sec dupes=3 errors=0
 ```
 
@@ -581,7 +581,7 @@ You might expect that skipping a row is instant — after all, nothing is being 
 Step 2 requires reading index pages from disk or the buffer pool. For a table with millions of rows, the index can be hundreds of megabytes. When the buffer pool is cold (process just started, Docker container restarted), those pages are not in memory — each lookup may require a disk read.
 
 This is what the logs showed:
-```
+```text
 Batch 50000: inserted=0 skipped=50000 in 29417ms | total=0 rate=0/sec dupes=50000
 Batch 50000: inserted=0 skipped=50000 in 42155ms | total=0 rate=0/sec dupes=100000
 ```
@@ -629,7 +629,7 @@ Always use `TRUNCATE` for a full table wipe.
 
 ### Why the Rate Drops With Each Batch
 
-```
+```text
 Batch 1: 50,000 rows in 16s  → 2,221/sec
 Batch 2: 50,000 rows in 21s  → 2,062/sec
 Batch 3: 50,000 rows in 31s  → 1,772/sec
@@ -654,7 +654,7 @@ At 990 rows/sec with 5.45M rows remaining: **~1.5 hours**. Not minutes.
 
 Instead of maintaining the unique index row by row during inserts, drop it before loading and rebuild it after. MySQL rebuilds an index from scratch by **sorting all the keys and building the B-tree bottom-up** — a completely different algorithm that is 10-50x faster than inserting one key at a time into a live tree.
 
-```
+```text
 Per-row index maintenance (current):   each insert = B-tree traversal + possible page split
 Bulk index build (rebuild after load):  sort all keys → build tree in one pass, no splits
 ```
@@ -746,7 +746,7 @@ If either side is missing, MySQL throws: `Loading local data is disabled; this m
 
 **The three-step flow (implemented in `BulkLoader.java`):**
 
-```
+```text
 Step 1 — Pre-process (~44s for 5.75M rows):
   Stream CSV line by line
   For each row: generate ID, check HashSet<Long>, regenerate if collision
@@ -814,7 +814,7 @@ Every write in MySQL goes through the **redo log** (also called the write-ahead 
 
 The redo log is a **circular buffer** on disk. Its size is fixed at startup. As writes come in, the log fills up. A background process called the **checkpoint thread** continuously flushes dirty pages from the buffer pool to the actual data files and recycles the used log space.
 
-```
+```text
 Your INSERT → redo log (fast sequential write) → checkpoint → data files (random writes)
              ↑                                                          ↓
              └─────────────── log space recycled ──────────────────────┘
@@ -822,7 +822,7 @@ Your INSERT → redo log (fast sequential write) → checkpoint → data files (
 
 ### What Happens When It Fills Up
 
-```
+```text
 [Warning] [MY-014089] [InnoDB] Redo log writer is waiting for a new redo log file.
 Consider increasing innodb_redo_log_capacity.
 The current log capacity is 104857600 bytes.
@@ -878,7 +878,7 @@ Increasing from 64M to 256M means each batch of 50,000 rows accumulates in memor
 
 When you call `executeBatch()` and then `commit()`, here is what MySQL actually does:
 
-```
+```text
 1. executeBatch()
    ├─ Parse the 20MB INSERT IGNORE statement
    ├─ For each row: check unique index in buffer pool (or disk if cold)

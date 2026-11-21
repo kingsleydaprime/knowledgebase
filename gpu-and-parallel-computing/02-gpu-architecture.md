@@ -4,12 +4,14 @@ id: 3857c9cf-7382-4ee8-bcb7-b2c3d64d3d52
 
 # GPU Architecture
 
+GPU architecture is how a graphics card's chip is built on the inside. A CPU has a few powerful cores that finish one job quickly, while a GPU has thousands of simpler cores that work on many small jobs at the same time. That is why GPUs run video games smoothly and why they are used to train AI models.
+
 ## The design trade
 <!-- bite: 28ba3469-e2ea-40af-b69a-3bc7ce737068 -->
 
 **A CPU core is optimised for latency. A GPU is optimised for throughput.** Everything follows from that.
 
-```
+```text
  CPU core                          GPU SM
  ┌──────────────────────┐          ┌──────────────────────┐
  │ ┌──┐ huge control    │          │ ┌┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┐    │

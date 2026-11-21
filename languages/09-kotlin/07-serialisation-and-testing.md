@@ -4,6 +4,8 @@ id: 8517d03b-d45a-4ef4-a94d-7f9fffccb7bf
 
 # Serialisation and Testing
 
+Serialisation is turning your data into a format like JSON so it can be saved or sent to a server, and testing is checking that your code works. Nearly every app that loads data from the internet does the first. This lesson covers kotlinx.serialization and the usual Kotlin testing stack.
+
 ## kotlinx.serialization
 <!-- bite: d24cf90f-e30b-4c8a-b62e-9b3bcb5a412a -->
 

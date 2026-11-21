@@ -4,6 +4,8 @@ id: 10e9be47-2260-410f-af8e-aa257cb33a30
 
 # TCP Connection Lifecycle
 
+TCP is the set of rules most apps use to send data reliably, and its connection lifecycle is how a connection is opened, used and closed. There is no real wire between your phone and the server, only messages that might get lost. TCP builds a dependable conversation out of them, and it is behind most web pages you load.
+
 ## The kid version first
 <!-- bite: 76efb923-1013-4535-8ae8-7982a4a507b0 -->
 
@@ -18,7 +20,7 @@ A "connection" is now just: **both machines have written down the same numbers i
 ## The three-way handshake
 <!-- bite: 4952e18c-5a25-4648-80d5-ee75c122d228 -->
 
-```
+```text
 Client                                     Server
   │                                          │  (LISTEN)
   │──── SYN,  seq=x ────────────────────────►│
@@ -59,7 +61,7 @@ If your application is slow to `accept()`, the accept queue overflows and the ke
 
 Closing is *four* messages, because each direction closes independently — TCP allows a **half-close**, where one side is done sending but still receiving (this is what `shutdown(SHUT_WR)` does, and how the old `HTTP/1.0` "connection close signals end of body" worked).
 
-```
+```text
   │──── FIN ────────────►│   (I'm done sending)
   │◄─── ACK ─────────────│
   │◄─── FIN ─────────────│   (so am I)

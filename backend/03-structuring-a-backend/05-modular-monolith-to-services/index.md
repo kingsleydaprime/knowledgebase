@@ -4,6 +4,8 @@ id: 3ccc37cd-2a98-4b01-ac2c-10371b182524
 
 # Modular Monolith → Services
 
+A modular monolith is one backend program split neatly into parts inside, and services are separate programs that each do one part of the job. Deciding between the two, and when to move from one to the other, is a choice that is easy to get wrong. Mistakes here usually take a year to show and cost a lot to fix.
+
 ## Before you start
 <!-- bite: 778f38c9-cdf2-44b5-868b-46c084c0543b -->
 
@@ -82,7 +84,7 @@ So: **discover the boundaries where getting them wrong is cheap, then extract.**
 
 One deployable, one codebase, one database — with **enforced internal boundaries**:
 
-```
+```text
 src/
 ├── orders/
 │   ├── api/           ← the ONLY thing other modules may import
@@ -149,7 +151,7 @@ The things people forget, and then rediscover in an incident:
 
 Two modules in one process. `payments` publishes `PaymentSucceeded`; `orders` subscribes and tracks how much each order has been paid. **`orders` never imports `payments`** — they share only the event's shape, in `shared/`.
 
-```
+```text
 mono/
 ├── mono.test.ts
 └── src/
@@ -259,7 +261,7 @@ test("at-least-once delivery + an idempotent consumer = correct", async () => {
 
 **Run it.** From `mono/`: `node --test` (Node 23.6 or later; checked with Node 26). Expected:
 
-```
+```text
 ℹ tests 3
 ℹ pass 3
 ℹ fail 0

@@ -21,7 +21,7 @@ bug where a free event's session could be created without payment being properly
 
 OpenRouter is a routing layer that sits in front of dozens of AI model providers (OpenAI, Anthropic, Google, Mistral, Perplexity, Meta, etc.) and exposes them all through a single, unified API. Instead of managing separate API keys and SDKs for each provider, you have one key and one endpoint.
 
-```
+```text
 Your app
     │
     ▼
@@ -85,7 +85,7 @@ For game generation, web search means:
 **Perplexity Sonar** is the primary web-search AI provider. Their models always search the web — it's not optional. `perplexity/sonar-pro` is their most capable search-augmented model.
 
 **The `:online` suffix** — on OpenRouter, any model can have web search added by appending `:online`:
-```
+```text
 google/gemini-2.5-flash          ← no web search
 google/gemini-2.5-flash:online   ← web search enabled
 openai/gpt-4o:online             ← GPT-4o with web search
@@ -113,7 +113,7 @@ response_format: {
 
 ### The Model ID Format on OpenRouter
 
-```
+```text
 {provider}/{model-name}:{variant}
 
 anthropic/claude-3.5-sonnet
@@ -177,7 +177,7 @@ Response: { merged: number }
 
 Anonymous game data lives in Redis, not PostgreSQL. The Redis key format:
 
-```
+```text
 anon:game:<anonymousId>
 ```
 
@@ -390,7 +390,7 @@ When there is only a single event, the dialog is skipped and merge happens silen
 
 ### Data lifecycle summary
 
-```
+```text
 1. User clicks share link                    → no localStorage data
 2. Anonymous join                            → anonymousId stored in localStorage + Redis
 3. Play rounds                               → Redis updated per round
@@ -543,7 +543,7 @@ if (plan) {
 
 Then if the organizer tried to activate the session (`updateStatus` to `ACTIVE`), the service threw:
 
-```
+```text
 400 Bad Request: No active event plan found for this event
 ```
 
@@ -706,7 +706,7 @@ That turns "it doesn't work" into an answerable question. A read-only script
 joining `GameEntry` to its round printed, per submission, the stored hidden
 words next to the submitted answers:
 
-```
+```text
 hiddenWords[] : ["CONNECTION","DIGITAL","INNOVATION","NIGERIA","FINTECH",...]
 answers[]     : ["","DIGITAL","","NIGERIA","FINTECH","",""]     score=60  ✅
 answers[]     : ["","","","","","",""]                          score=0   ❌

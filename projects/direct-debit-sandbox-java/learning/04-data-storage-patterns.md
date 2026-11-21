@@ -91,7 +91,7 @@ public ProvisionRecord getProvision(String merchantId, String productId) {
 
 If you add methods to the interface but forget to add them to the implementing class, **the compiler will refuse to build**. You'll see:
 
-```
+```text
 InMemoryStore is not abstract and does not override abstract method saveProvision(...)
 ```
 
@@ -209,14 +209,14 @@ Normalization is usually described in levels called **normal forms**. Each one b
 Every field must hold a single, indivisible value. No field should contain a list or a comma-separated bundle of things.
 
 **Violation:**
-```
+```text
 | subscriptionId | debitAccounts              |
 |----------------|----------------------------|
 | SUB001         | 0241234567, 0209876543     |  ← two values in one field
 ```
 
 **1NF:**
-```
+```text
 | subscriptionId | debitAccount  |
 |----------------|---------------|
 | SUB001         | 0241234567    |
@@ -234,7 +234,7 @@ Every non-key field must depend on the **entire** primary key, not just part of 
 This only matters when your primary key is a composite key (two or more fields together). If your key is just one field, you are automatically 2NF once you are 1NF.
 
 **Example violation** (hypothetical — imagine a transaction table keyed by `subscriptionId + date`):
-```
+```text
 | subscriptionId | date       | debitAmount | merchantName  |
 |----------------|------------|-------------|---------------|
 | SUB001         | 2026-05-01 | 50.00       | Acme Corp     |
@@ -251,7 +251,7 @@ This only matters when your primary key is a composite key (two or more fields t
 Every non-key field must depend **directly** on the primary key, not on another non-key field.
 
 **Example violation:**
-```
+```text
 | subscriptionId | merchantId | callbackUrl              |
 |----------------|------------|--------------------------|
 | SUB001         | MERCH_123  | https://acme.com/webhook |
@@ -261,7 +261,7 @@ Every non-key field must depend **directly** on the primary key, not on another 
 
 Here `callbackUrl` depends on `merchantId`, not on `subscriptionId`. The dependency chain is:
 
-```
+```text
 subscriptionId → merchantId → callbackUrl
 ```
 

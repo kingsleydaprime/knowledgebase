@@ -4,6 +4,8 @@ id: cf13f1f6-6cf0-4a85-8008-d831f56d1ec9
 
 # Light and Instruments
 
+Light is almost the only thing that reaches us from space, and visible light is just a small part of a much wider range that also includes radio waves, infrared and X-rays. Telescopes are the tools that collect that light, and each kind of light needs its own kind of telescope. The radio in your car and the X-ray at a hospital use other parts of the same range.
+
 ## The spectrum
 <!-- bite: 4e076301-8ab6-466a-9e5e-cf84da36121f -->
 

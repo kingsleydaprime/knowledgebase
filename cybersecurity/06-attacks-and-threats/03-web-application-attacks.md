@@ -4,6 +4,8 @@ id: f48e81bd-3fff-454a-862b-ea30ad84dff1
 
 # Web Application Attacks
 
+A web application attack is an attack on a website or web app itself, such as typing something into a form that makes the site do what the attacker wants. Every app you log into on the web, from a school portal to an online shop, has to defend against these. This lesson walks through the common ones, using the OWASP Top 10 list as the checklist.
+
 ## The OWASP Top 10 (the mental checklist)
 <!-- bite: 903512c0-e7f6-4c19-846d-6c13f35690b9 -->
 

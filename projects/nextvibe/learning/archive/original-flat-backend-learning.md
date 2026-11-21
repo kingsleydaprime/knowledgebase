@@ -15,7 +15,7 @@ When you open a new codebase, do not start reading files randomly. Always go top
 **Step 1: Understand the shape of the project.**
 
 Look at the folder structure first. In this project:
-```
+```text
 src/
   modules/         ← Feature domains (auth, events, payments, etc.)
   shared/          ← Infrastructure used by everything (prisma, redis)
@@ -206,7 +206,7 @@ Database design is the most important thing you will do. A bad schema is nearly 
 Normalisation is the process of organising data to reduce redundancy. The goal: every piece of information should live in exactly one place.
 
 **Bad design (denormalised):**
-```
+```text
 tickets table:
 id | user_email | user_name | event_name | event_date | tier_name | tier_price
 ```
@@ -214,7 +214,7 @@ id | user_email | user_name | event_name | event_date | tier_name | tier_price
 If the user changes their email, you need to update every row in the tickets table. If the event name changes, same problem. Data is duplicated everywhere.
 
 **Good design (normalised):**
-```
+```text
 users table: id | email | name
 events table: id | name | date
 ticket_tiers table: id | event_id | name | price
@@ -239,7 +239,7 @@ Key design decisions:
 
 **`Follow`** — a join table for the social graph.
 
-```
+```text
 followerId → "User A" follows followingId → "User B"
 ```
 
@@ -613,7 +613,7 @@ The JWT payload (what's inside the token):
 This is the complete lifecycle, from first login to a request made three weeks later.
 
 **Step 1: Login**
-```
+```text
 Frontend → POST /auth/login { email, password }
 Backend  → returns { accessToken, refreshToken }
 Frontend → stores accessToken in memory, refreshToken in secure storage
@@ -621,7 +621,7 @@ Frontend → stores accessToken in memory, refreshToken in secure storage
 ```
 
 **Step 2: Every API request**
-```
+```text
 Frontend → GET /events
            Headers: { Authorization: "Bearer <accessToken>" }
 Backend  → JwtAuthGuard intercepts the request
@@ -637,7 +637,7 @@ The access token is verified **without any database query**. This is the whole p
 
 The access token expires (15 minutes after login). The next API call returns `401 Unauthorized`. The frontend catches this and does not show the user a login screen. Instead:
 
-```
+```text
 Frontend → POST /auth/refresh
            Body: { refreshToken: "<stored refresh token>" }
 Backend  → verifies the refresh token signature with JWT_REFRESH_SECRET
@@ -654,7 +654,7 @@ Frontend → updates stored tokens
 This happens silently. The user never sees a login prompt unless their refresh token has also expired or been revoked.
 
 **Step 4: Logout**
-```
+```text
 Frontend → POST /auth/logout { refreshToken }
 Backend  → deletes "refresh:userId:refreshToken" from Redis
            → access token is still technically valid until it expires
@@ -715,7 +715,7 @@ Events are the core domain. Let's trace the full lifecycle.
 
 ### Event Lifecycle
 
-```
+```text
 DRAFT → PUBLISHED → ENDED / CANCELLED
 ```
 
@@ -762,7 +762,7 @@ When an organizer creates a game session:
 
 The status lifecycle enforces the payment gate:
 
-```
+```text
 PENDING → UNLOCKED (payment completed) → ACTIVE (organizer activates) → ENDED
 ```
 
@@ -1080,7 +1080,7 @@ interface Notification {
 
 The socket delivers notifications in real time, but it is not the source of truth. On app load, the client fetches history and the unread count via REST:
 
-```
+```text
 GET  /v1/notifications?page=1&limit=50   — paginated list; response includes meta.unreadCount
 POST /v1/notifications/:id/read          — mark one notification as read
 POST /v1/notifications/read-all          — mark all unread as read → { updatedCount: number }
@@ -1096,7 +1096,7 @@ The correct integration pattern: on app open, call `GET /v1/notifications` to in
 
 A social graph is the network of relationships between users. "A follows B" is an edge in that graph. This project stores it in the `Follow` table:
 
-```
+```text
 follows: id | followerId | followingId | createdAt
 ```
 
@@ -1176,7 +1176,7 @@ After following, a notification fires to the person being followed (wired up in 
 
 Instead of `EventLike`, `PostcardLike`, `EventComment`, `PostcardComment` tables (four tables), the design uses:
 
-```
+```text
 likes: id | userId | targetType | targetId
 comments: id | userId | targetType | targetId | body
 ```
@@ -1285,7 +1285,7 @@ DMs involve a REST call to create the conversation, then socket events for all s
 
 **Step 1 — Create the conversation via REST (once per pair of users):**
 
-```
+```text
 POST /v1/conversations
 Body: { "userId": "<target-user-uuid>" }
 ```
@@ -1345,7 +1345,7 @@ The server sends the `typing:dm` event only to the other participant — using `
 
 ### Direct Message REST Endpoints
 
-```
+```text
 GET /v1/conversations                                     — inbox list
 GET /v1/conversations/:id/messages?page=1&limit=50        — paginated history
 ```
@@ -1406,7 +1406,7 @@ socket.on('new:event-chat', (message) => {
 
 Event chat history is loaded via REST:
 
-```
+```text
 GET /v1/events/:eventId/chat/:section?page=1&limit=50
 ```
 
@@ -1662,7 +1662,7 @@ The `notifications` table (which will be queried on every page load for unread c
 
 ### Why Split the Prisma Schema Across Files?
 
-```
+```text
 prisma/schema/
   user.prisma
   events.prisma
@@ -1838,7 +1838,7 @@ Neither of these installs pnpm — they're just documentation constraints. pnpm 
 
 Even if the install succeeded, the build would then fail with:
 
-```
+```bash
 sh: 1: nest: not found
 ```
 
@@ -1861,7 +1861,7 @@ This is a genuine tension in Node.js tooling. There are two ways to resolve it:
 
 **Option A: Add `--prod=false` to the install command (used here)**
 
-```
+```bash
 pnpm install --frozen-lockfile --prod=false
 ```
 
@@ -1873,7 +1873,7 @@ Some teams move `@nestjs/cli` and `typescript` to regular `dependencies`. This w
 
 Option A is cleaner. The full Render build command for this project:
 
-```
+```bash
 pnpm install --frozen-lockfile --prod=false; pnpm run db:deploy; pnpm dlx prisma generate; pnpm run build
 ```
 
@@ -1883,22 +1883,22 @@ pnpm install --frozen-lockfile --prod=false; pnpm run db:deploy; pnpm dlx prisma
 
 Let's break down each step:
 
-```
+```bash
 pnpm install --frozen-lockfile --prod=false
 ```
 Install all dependencies (including dev). Fail if lockfile is out of sync.
 
-```
+```bash
 pnpm run db:deploy
 ```
 Runs `prisma migrate deploy` — applies any pending database migrations. The `db:deploy` script in this project first uses `prisma migrate resolve --applied` to mark some historical migrations as already-applied (because they were manually applied and Prisma's migration history doesn't know about them), then runs `deploy` to apply anything new. This ensures the database schema matches the code before the code starts.
 
-```
+```bash
 pnpm dlx prisma generate
 ```
 Generates the Prisma Client TypeScript types from the schema. The generated client lives in `src/generated/prisma`. Without this step, `@prisma/client` has no types and the app can't compile. Note: `pnpm dlx` runs a command from a remote package without installing it globally — it's like `npx` for pnpm.
 
-```
+```bash
 pnpm run build
 ```
 Runs `nest build`, which uses the NestJS CLI to invoke the TypeScript compiler (tsc) and output JavaScript to `dist/`. This is the compiled server that will actually run.
@@ -1971,7 +1971,7 @@ These are errors that happen on your local machine during development, not in pr
 
 **The full error:**
 
-```
+```text
 Error: ENOSPC: System limit for number of file watchers reached,
 watch '/home/.../src/generated/prisma/wasm-edge-light-loader.mjs'
     at FSWatcher.<computed> (node:internal/fs/watchers:247:19)
@@ -2295,7 +2295,7 @@ For complex WebSocket APIs, consider a separate docs page (a `WEBSOCKET.md` file
 
 ### The Symptom
 
-```
+```text
 PATCH /v1/notifications/28ea18b6-2552-4566-862a-43886333eaa9/read  404  2.866 ms
 ```
 
@@ -2320,7 +2320,7 @@ PATCH /v1/notifications/:id/read   ← wrong method → 404
 
 Look at the startup logs. NestJS prints every registered route:
 
-```
+```text
 [RouterExplorer] Mapped {/v1/notifications/:id/read, POST} route
 ```
 
@@ -2359,7 +2359,7 @@ When a route you know exists returns 404:
 
 Every time NestJS starts, `RouterExplorer` prints every registered route:
 
-```
+```text
 [RouterExplorer] Mapped {/v1/admin/coupons, POST} route
 [RouterExplorer] Mapped {/v1/admin/coupons, POST} route   ← same route twice
 ```
@@ -2368,7 +2368,7 @@ Two lines for the same route is a red flag. It means two controllers are registe
 
 ### Subtle Path Param Naming Differences
 
-```
+```text
 [RouterExplorer] Mapped {/v1/events/:id/rsvp, POST} route
 [RouterExplorer] Mapped {/v1/events/:eventId/rsvp, POST} route
 ```
@@ -2400,7 +2400,7 @@ If the app hangs between `InstanceLoader` and `RoutesResolver`, a provider const
 
 Production logs tell a story. One example from this codebase:
 
-```
+```text
 09:26:01  POST /v1/users/A/follow      201   ← user 1 follows user A
 09:26:31  POST /v1/users/B/follow      201   ← user 1 follows user B
 09:43:50  POST /v1/auth/oauth/google   200   ← user 2 logs in
@@ -2421,7 +2421,7 @@ This skill — reading log timelines to understand what a user was doing — is 
 
 The original event creation flow used `FileFieldsInterceptor` — the client sent a `multipart/form-data` request with the binary file embedded in the HTTP body:
 
-```
+```text
 POST /v1/events
 Content-Type: multipart/form-data
 
@@ -2438,7 +2438,7 @@ NestJS receives the request, buffers the entire file into memory, then uploads i
 
 Instead of routing the binary through NestJS, you generate a **presigned URL** — a time-limited, signed URL that authorises the client to upload directly to MinIO/S3 without going through your server:
 
-```
+```text
 1. Client → NestJS:  POST /v1/storage/presigned-url   { filename, contentType }
 2. NestJS → Client:  { uploadUrl, fileUrl }
 3. Client → MinIO:   PUT uploadUrl   (binary file, direct — NestJS not involved)
@@ -2813,7 +2813,7 @@ Priority: `MINIO_EXTERNAL_URL` → `CDN_BASE_URL` → constructed from `MINIO_EN
 
 ### The Classic Bug This Produces
 
-```
+```text
 // .env (production — wrong)
 MINIO_ENDPOINT=minio-production-5cff.up.railway.app   ✅ correct
 CDN_BASE_URL=http://localhost:9000/nextvibe            ❌ dev leftover
@@ -2832,7 +2832,7 @@ The `uploadUrl` is generated by the MinIO client (which uses `MINIO_ENDPOINT` �
 
 ### Fix
 
-```
+```text
 CDN_BASE_URL=https://minio-production-5cff.up.railway.app/nextvibe
 ```
 
@@ -2888,7 +2888,7 @@ A presigned URL is a regular HTTPS URL with an authentication signature embedded
 
 An example presigned PUT URL:
 
-```
+```text
 https://minio-production-5cff.up.railway.app/nextvibe/events/file.jpg
   ?X-Amz-Algorithm=AWS4-HMAC-SHA256
   &X-Amz-Credential=minioadmin%2F20260522%2Fus-east-1%2Fs3%2Faws4_request
@@ -2946,7 +2946,7 @@ When a browser sends a `PUT` request to a different domain (like uploading to Mi
 
 MinIO must respond to that `OPTIONS` with the right CORS headers:
 
-```
+```text
 Access-Control-Allow-Origin: https://app.mynextvibe.com
 Access-Control-Allow-Methods: PUT
 Access-Control-Allow-Headers: Content-Type
@@ -3180,7 +3180,7 @@ Every request you've made so far in this codebase uses HTTP. HTTP is a **request
 
 **WebSocket** is a different protocol entirely. It starts as HTTP (a special "upgrade" request), then both sides agree to switch protocols, and from that point the TCP connection stays open. Either side can send a message at any time without waiting for the other to ask. One persistent connection instead of hundreds of short ones.
 
-```
+```text
 HTTP:
   Client → Server: GET /messages        (request)
   Server → Client: [messages]           (response, connection closes)
@@ -3235,7 +3235,7 @@ This means Socket.io CORS applies to step 1 (polling HTTP request), NOT to the W
 
 The browser console showed:
 
-```
+```text
 [chat] socket status → disconnected   ← initial state
 [chat] join effect: socket not available yet   ← component fired before socket ready
 [chat] socket status → disconnected
@@ -3251,7 +3251,7 @@ Connecting to a Socket.io namespace just means you have a pipe to the server. Yo
 
 In this codebase, the DM flow requires:
 
-```
+```text
 1. User A connects to /messaging namespace   ← has a pipe
 2. User A emits 'join:dm' { conversationId }  ← enters the room
    Server: client.join('dm:{conversationId}')
@@ -3504,7 +3504,7 @@ The response time tells you which branch was hit:
 - **Slow 401 (~100–200ms)** — wrong password. Argon2 verification ran (intentionally slow to resist brute force), found mismatch.
 
 Looking at the actual logs:
-```
+```text
 POST /v1/auth/login  401  161ms   ← argon2 ran → user found, wrong password
 POST /v1/auth/login  401   68ms   ← argon2 didn't run → user not found or no passwordHash
 ```
@@ -3725,7 +3725,7 @@ NestJS providers can hook into the application lifecycle by implementing specifi
 
 ### The Four Lifecycle Moments
 
-```
+```text
 bootstrap() called
     │
     ▼
@@ -3936,7 +3936,7 @@ This is why `@CurrentUser()` on a `@Public()` route returns `undefined` when not
 
 ### The Error
 
-```
+```text
 error TS2353: Object literal may only specify known properties,
 and 'tier' does not exist in type '... EventUncheckedCreateInput ...'
 ```
@@ -3953,7 +3953,7 @@ The same error appeared for `vibetagsEnabled` on `GameSession` — used in `orga
 
 The correct order when adding a new field:
 
-```
+```text
 1. Add the field to the .prisma schema file
    tier  EventTier @default(MICRO)    ← events.prisma
 
@@ -3983,7 +3983,7 @@ In local development you almost always want `prisma migrate dev` — it does eve
 
 OpenRouter is a routing layer that sits in front of dozens of AI model providers (OpenAI, Anthropic, Google, Mistral, Perplexity, Meta, etc.) and exposes them all through a single, unified API. Instead of managing separate API keys and SDKs for each provider, you have one key and one endpoint.
 
-```
+```text
 Your app
     │
     ▼
@@ -4047,7 +4047,7 @@ For game generation, web search means:
 **Perplexity Sonar** is the primary web-search AI provider. Their models always search the web — it's not optional. `perplexity/sonar-pro` is their most capable search-augmented model.
 
 **The `:online` suffix** — on OpenRouter, any model can have web search added by appending `:online`:
-```
+```text
 google/gemini-2.5-flash          ← no web search
 google/gemini-2.5-flash:online   ← web search enabled
 openai/gpt-4o:online             ← GPT-4o with web search
@@ -4075,7 +4075,7 @@ response_format: {
 
 ### The Model ID Format on OpenRouter
 
-```
+```text
 {provider}/{model-name}:{variant}
 
 anthropic/claude-3.5-sonnet
@@ -4137,7 +4137,7 @@ Response: { merged: number }
 
 Anonymous game data lives in Redis, not PostgreSQL. The Redis key format:
 
-```
+```text
 anon:game:<anonymousId>
 ```
 
@@ -4346,7 +4346,7 @@ When there is only a single event, the dialog is skipped and merge happens silen
 
 ### Data lifecycle summary
 
-```
+```text
 1. User clicks share link                    → no localStorage data
 2. Anonymous join                            → anonymousId stored in localStorage + Redis
 3. Play rounds                               → Redis updated per round
@@ -4437,7 +4437,7 @@ The service stores `userId: null` for guests and stores the email from the DTO f
 
 ### The three endpoints
 
-```
+```text
 POST /v1/pledges/initiate        — @Public()
   Body: { tierId, quantity?, email?, name? }
   Returns: { pledgeId, checkoutUrl, totalNgn, totalUsd, expiresAt }
@@ -4468,7 +4468,7 @@ The bug that appeared: the ticket purchase email had `totalAmount / 100` carried
 
 The single Ercaspay webhook endpoint routes a `payment_reference` to different processors in order. Each processor returns `null` if the reference doesn't belong to its domain:
 
-```
+```text
 Webhook arrives with payment_reference
       │
       ▼
@@ -4713,7 +4713,7 @@ if (plan) {
 
 Then if the organizer tried to activate the session (`updateStatus` to `ACTIVE`), the service threw:
 
-```
+```text
 400 Bad Request: No active event plan found for this event
 ```
 
@@ -4765,7 +4765,7 @@ Memory impact at 4,000 tokens: approximately 16MB per request. At 8,000 tokens: 
 
 Add `--max-old-space-size=400` to the Node.js start command on Render:
 
-```
+```bash
 node --max-old-space-size=400 dist/main.js
 ```
 

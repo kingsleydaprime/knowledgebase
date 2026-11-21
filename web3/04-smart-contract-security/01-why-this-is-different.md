@@ -4,6 +4,8 @@ id: fb8e08b2-31ed-4609-a415-899139d33b70
 
 # Why Security Is Different Here
 
+Smart contract security is the work of keeping programs on a blockchain safe from people trying to steal the money they hold. It is different from keeping a normal website safe, because the code can't be patched, anyone can call it, and the reward for finding a bug is the money itself. This lesson sets out the five main differences.
+
 ## The five differences
 <!-- bite: 599f4539-2b68-4479-a28e-4ef6baf2a219 -->
 

@@ -4,6 +4,8 @@ id: 63d7bccd-a058-4d1f-8d1b-3ef830e737ae
 
 # Rigid Body Transforms
 
+A rigid body transform is the maths for describing where something is and which way it is facing, compared with something else. A robot has many points of view at once: the room, its own base, its camera and its hand. Transforms are how it turns a position seen by the camera into a position the hand can reach.
+
 ## Why this comes first
 <!-- bite: 6f7c8383-a099-4c67-9883-4f7d8bb35652 -->
 
@@ -127,7 +129,7 @@ $$T^{-1} = \begin{bmatrix} R^T & -R^T\mathbf{t} \\ \mathbf{0}^T & 1\end{bmatrix}
 
 A real robot has many frames, and they form a tree:
 
-```
+```text
         world
           │
          map

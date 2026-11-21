@@ -65,7 +65,7 @@ Skip the page when you already knew it. Skipping is a legitimate outcome of the 
 
 One per pattern, and this is the part that becomes the interview prep:
 
-```
+```text
 PATTERN: sliding window
 THE TELL: contiguous subarray/substring + "longest/shortest/max/min"
 THE TEMPLATE: [from memory, not copied]

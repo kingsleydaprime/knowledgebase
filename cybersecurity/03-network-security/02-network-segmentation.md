@@ -11,7 +11,7 @@ A flat network — every device able to reach every other device directly — me
 
 A VLAN (Virtual LAN) logically separates devices on the same physical network infrastructure into distinct broadcast domains, as if they were on separate physical networks, without needing separate physical switches for each segment. Traffic between VLANs has to pass through a router or firewall (see [[01-firewalls|firewalls]]), which is exactly where segmentation's actual security value comes from — that's the choke point where rules can be enforced.
 
-```
+```text
 # illustrative switch config shape (Cisco-style), not exhaustive:
 vlan 10
  name Corporate
@@ -30,7 +30,7 @@ interface GigabitEthernet0/1
 - **IoT/device isolation** — smart home and IoT devices (often poorly secured, rarely patched) go on their own segment, so a compromised smart bulb or camera can't be used as a stepping stone to reach a laptop or NAS holding real data.
 - **DMZ (Demilitarized Zone)** — a segment for systems that must be reachable from the internet (a public web server, a mail server), isolated from the internal network so that if one of those internet-facing systems is compromised, the attacker still doesn't have direct access to internal systems — they've only reached the DMZ, one more segmentation boundary away from anything sensitive.
 
-```
+```text
 Internet <-> [Firewall] <-> DMZ (web server, mail server)
                   |
               [Firewall]

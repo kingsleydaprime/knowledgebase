@@ -82,7 +82,7 @@ The consequences that matter in practice:
 ## Tuning flags worth recognizing
 <!-- bite: 60c50858-b8fa-4171-a74d-bbb6324ca3aa -->
 
-```
+```text
 -Xms4g -Xmx4g            # initial and max heap — set equal in production to avoid resize pauses
 -XX:+UseZGC              # pick the low-pause collector
 -XX:MaxGCPauseMillis=50   # G1 pause target

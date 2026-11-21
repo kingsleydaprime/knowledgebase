@@ -4,6 +4,8 @@ id: 2758d4f4-9c70-41d7-be93-224f3e61d63f
 
 # Clustering & PCA
 
+Clustering is grouping similar items together when nobody has told the computer what the groups should be. PCA is a way of shrinking data with many columns down to a few that still keep most of the information. A shop that sorts its customers into types based on what they buy, without any labels, is using clustering.
+
 ## Clustering — grouping without labels
 <!-- bite: 1ce24f15-c9d4-4ee9-86d3-1d4a1b92632a -->
 

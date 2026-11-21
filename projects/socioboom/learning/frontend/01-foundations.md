@@ -118,7 +118,7 @@ This says: an object whose keys are strings and whose values are strings.
 
 React is a library for building user interfaces. The core idea is simple: **your UI is a function of your state**.
 
-```
+```text
 UI = f(state)
 ```
 

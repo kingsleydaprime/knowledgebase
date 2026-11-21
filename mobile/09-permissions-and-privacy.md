@@ -4,6 +4,8 @@ id: 2ad9c282-bf4a-4890-b347-8e91fbd905a7
 
 # Permissions and Privacy
 
+Permissions are the user's approval that an app needs before it can use things like the camera, contacts or location. You have seen the pop-up that asks "Allow this app to use your location?". The user can say no, so this lesson shows how to ask well and how to keep the app working when they refuse.
+
 ## The kid version first
 <!-- bite: c505716a-9d5d-45e6-be9a-22db14d88781 -->
 
@@ -16,7 +18,7 @@ Your app cannot read contacts, use the camera, or know where the user is **unles
 
 **The single most effective technique: explain *before* you trigger the dialog.**
 
-```
+```text
 BAD:   app launches → 4 permission dialogs → user denies all → app is useless
 
 GOOD:  user taps "Find nearby"

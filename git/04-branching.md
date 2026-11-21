@@ -4,6 +4,8 @@ id: 97a54d0f-e435-467d-bdf0-ed674a82217c
 
 # Branching
 
+A branch in Git is a separate line of work inside the same project, so you can try a change without touching the main version. When the change is ready, you bring it back in. It is like writing a draft essay on a copy of your notes, so the clean copy stays safe until you are happy with the draft.
+
 ## Branch Commands
 <!-- bite: e8597352-2978-4bc9-a01c-830ddd3da1c5 -->
 

@@ -91,7 +91,7 @@ $$0 \leq H(X) \leq \log_2 n \quad\text{for } n \text{ outcomes}$$
 
 $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 
-```
+```text
  H(p)
   1 ┤        ╭───╮
     │      ╱       ╲

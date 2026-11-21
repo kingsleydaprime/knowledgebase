@@ -4,6 +4,8 @@ id: d77e4426-89c0-4c23-af07-7e68f9e17959
 
 # Module: Depth-First Traversals (Pre-order, In-order, Post-order)
 
+A depth-first traversal is a way of visiting every item in a tree by going as far down one branch as you can before coming back up to try the next. There are three common orders, called pre-order, in-order and post-order, depending on when you handle each item. It is like exploring every room down one corridor of a building before moving to the next corridor.
+
 ## Before you start
 <!-- bite: 5f1722bb-a086-412e-a350-1886745cc411 -->
 

@@ -4,6 +4,8 @@ id: 646342fd-fe6e-4db4-8570-f3e594580c12
 
 # Multivariable Optimisation
 
+Multivariable optimisation is finding the highest or lowest point of something that depends on more than one input, like a hilly landscape. It covers peaks, valleys and saddle points, and how to find the best point when you also have a limit to stay within, like a fixed budget.
+
 ## Before you start
 <!-- bite: 614e4c8c-4e0a-41d2-8a57-9121b5cc779c -->
 
@@ -41,7 +43,7 @@ $$f(x,y) = x^2 - y^2$$
 
 At the origin both partials vanish. But along the $x$-axis the surface curves **up**, and along the $y$-axis it curves **down**.
 
-```
+```text
    a saddle: minimum in one direction,
              maximum in another
 

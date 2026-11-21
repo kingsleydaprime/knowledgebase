@@ -4,6 +4,8 @@ id: 5f48e725-0fc4-4d84-9759-bbb194634681
 
 # Integration and Integration by Parts
 
+Integration is the other half of calculus: it adds up lots of tiny pieces to get a total, like adding up your speed over a journey to get the distance travelled. It also undoes differentiation, and this lesson shows why those two views are the same, plus a method for integrating two functions multiplied together.
+
 ## Before you start
 <!-- bite: e90036bd-bd4c-4c29-8326-6fd7d1c0d486 -->
 

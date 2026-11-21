@@ -4,6 +4,8 @@ id: 2398a968-48d1-42eb-89ab-0bceec43eab7
 
 # Textures and Sampling
 
+A texture is an image wrapped onto the surface of a 3D object, like a label stuck onto a tin, and sampling is reading colours from that image at the right spots. It is how a game makes a plain box look like a wooden crate or a brick wall, without drawing every plank or brick.
+
 ## Texture mapping
 <!-- bite: 28db6938-b739-4be8-8ee4-f46a4148b99d -->
 
@@ -45,7 +47,7 @@ id: 2398a968-48d1-42eb-89ab-0bceec43eab7
 
 **Precompute a pyramid of downsampled versions** — each level half the resolution.
 
-```
+```text
  level 0:  512×512
  level 1:  256×256
  level 2:  128×128     ... down to 1×1

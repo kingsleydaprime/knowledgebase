@@ -4,6 +4,8 @@ id: 28f1282d-3bc8-4e58-931d-55631e911bb5
 
 # The Preprocessor
 
+The preprocessor is a tool that edits your C code before the compiler sees it, by copying in files, swapping words for other text and dropping parts of the code. Every `#include` line at the top of a C file is an order to the preprocessor. It is powerful, but it has traps, and this lesson covers the common ones.
+
 ## What it is
 <!-- bite: 0dcf45de-23cd-4b98-abd5-7b0cdc91eafb -->
 

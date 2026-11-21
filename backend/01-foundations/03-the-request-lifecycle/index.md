@@ -4,6 +4,8 @@ id: 01ea2f2c-e07a-4118-9f9a-03451ca2cce9
 
 # The Request Lifecycle
 
+The request lifecycle is the list of steps a backend goes through from the moment a request arrives to the moment it sends an answer back. Every time you tap "send" in WhatsApp or log in to an app, a request goes through these steps. Every backend framework follows the same steps, only with different names.
+
 ## Before you start
 <!-- bite: 4de11397-ca10-4b54-97c1-57172b5e6aa4 -->
 
@@ -55,7 +57,7 @@ The shop's API works in every test the team runs with `curl`. Then four things h
 ## 2. The nine stages
 <!-- bite: 6178a46a-ab8d-4110-b47d-c5773fba9333 -->
 
-```
+```text
 request
    │
    ├─ 1. accept + parse        server: TCP → HTTP message; header and body size limits
@@ -227,7 +229,7 @@ The last row is the important one. Anything unexpected is a bug, and its detail 
 
 The lab's `startApp` takes the middleware order as a parameter, so the tests can run the same app in the wrong order and watch what breaks. The right order:
 
-```
+```text
 requestId → metrics → errors → cors → rateLimit → authenticate → router (validation, handler, serialisation)
 ```
 

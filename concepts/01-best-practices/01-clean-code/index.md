@@ -4,6 +4,8 @@ id: f0754c19-2c4c-4b45-bfe4-0a4fec31b504
 
 # Clean Code
 
+Clean code is code that another person, or you a few months later, can read, understand and change without fear of breaking it. Most of a developer's time goes on reading and changing code that already exists. This lesson shows the habits that make code easy to read, like clear names and small functions.
+
 ## Before you start
 <!-- bite: 735c7c3f-08cc-40dd-832b-fb3440aeb3dd -->
 
@@ -250,7 +252,7 @@ node --test
 
 Expected output ends with:
 
-```
+```text
 ℹ tests 6
 ℹ pass 6
 ℹ fail 0

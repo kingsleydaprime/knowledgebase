@@ -4,6 +4,8 @@ id: 4d933963-5364-47df-8a76-b5fc92026d2d
 
 # Background Work and Push
 
+Background work is anything an app does while it is not on screen, and a push notification is a message a server sends to wake the phone and show an alert. The phone limits background work heavily to save battery. This lesson shows how apps still sync data and send alerts, like a bank app telling you money just came in.
+
 ## The kid version first
 <!-- bite: f7003dd0-488e-4643-b5bd-18b42eba50f9 -->
 
@@ -64,7 +66,7 @@ This is the one that costs real days. **Manufacturer battery managers kill backg
 
 **The reliable way to have something happen while your app is closed** — because it originates from your server.
 
-```
+```text
 your server → FCM (Android) / APNs (iOS) → device → your app
 ```
 

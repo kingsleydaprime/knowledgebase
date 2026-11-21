@@ -4,6 +4,8 @@ id: 11fb2aa1-4323-45f3-af1d-b5b45d4df798
 
 # Self-Hosting n8n
 
+Self-hosting n8n means running the n8n automation tool on your own server instead of using the paid cloud version. The main reason is to keep your data, such as emails and passwords for other services, on a machine you control. This lesson covers how to set it up and when hosting it yourself is the wrong choice.
+
 ## Why self-host
 <!-- bite: dab082a0-4b55-4fb7-a2b5-35018afd6bbd -->
 

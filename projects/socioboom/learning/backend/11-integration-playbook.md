@@ -99,7 +99,7 @@ and https-only redirect are both one optional field on the config object, not sc
 itself twice. It asks the platform directly, using the token already stored, and reports a
 **verdict per feature**:
 
-```
+```text
 ✗ Facebook Page publishing — missing: pages_manage_posts
 ✓ Instagram publishing
 ```

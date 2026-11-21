@@ -4,6 +4,8 @@ id: f3d58767-0e2e-4ca5-a8ab-7934e5d6e087
 
 # Risk & Frameworks
 
+Risk is how likely something bad is to happen, combined with how much damage it would do. No company has the time or money to protect everything equally, so security is about fixing the biggest risks first. Frameworks are ready-made checklists that help organisations do this in an organised way.
+
 ## Security is risk management
 <!-- bite: 74cb21fc-b0fa-42e5-9bc0-2c541f489836 -->
 

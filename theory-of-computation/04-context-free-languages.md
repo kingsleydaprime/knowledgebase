@@ -4,6 +4,8 @@ id: 2eae5744-1298-468e-9885-252ae2c6a042
 
 # Context-Free Languages
 
+A context-free language is a set of strings that can be described by a grammar, a list of rules for building valid strings, and recognised by a machine that has a stack for memory. That stack lets it handle nesting, like matching brackets, which is why programming languages are described this way.
+
 ## Context-free grammars
 <!-- bite: a0257469-35c5-463e-a870-2bdef61a0fd1 -->
 
@@ -30,7 +32,7 @@ $$E \to E + T \mid T \qquad T \to T \times F \mid F \qquad F \to (E) \mid \text{
 
 A **derivation** applies rules from $S$ until only terminals remain. **The parse tree** records the structure, and the tree is what you actually want — it *is* the meaning.
 
-```
+```text
       E                 for  2 + 3 × 4
      /|\
     E + T

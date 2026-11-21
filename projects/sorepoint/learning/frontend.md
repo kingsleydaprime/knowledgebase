@@ -57,7 +57,7 @@ warning:
 That folder really exists and is the **version-exact** documentation for the
 Next.js actually installed:
 
-```
+```text
 node_modules/next/dist/docs/
   01-app/   02-pages/   03-architecture/   04-community/   index.md
 ```

@@ -4,6 +4,8 @@ id: d932ad25-0753-48e3-9733-a5df05bab8dc
 
 # Riemann Sums — Turning an Integral into a Sum
 
+A Riemann sum is a way of finding the area under a curve by cutting it into thin strips, finding the area of each strip and adding them up. Computers cannot do the exact maths of an integral directly, so they add up strips like these instead.
+
 ## Before you start
 <!-- bite: ed1596e3-d2bf-4737-b9b9-8fb418c241d5 -->
 
@@ -281,7 +283,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the worked example, with a step width of exactly 1
   integral of x from 1 to 10, exact answer 49.5
     left       with 9 strips:  45.0000   error  -4.5000

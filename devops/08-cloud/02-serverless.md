@@ -4,6 +4,8 @@ id: 56409702-5165-4d25-bc84-aad4fbdc2f4a
 
 # Serverless
 
+Serverless is a way of running code where the cloud company looks after the servers for you. You give it a function or a container, and it runs it only when it is needed, scales it up when busy and charges you per use. There are still servers; you just never manage them.
+
 ## What serverless means
 <!-- bite: 2873240c-ab2a-464d-93b6-5f28fca8ca59 -->
 
@@ -19,7 +21,7 @@ The two main flavors:
 
 A function is bound to an **event trigger** and runs only when the event fires:
 
-```
+```text
 HTTP request  ─┐
 S3 upload      ├─►  your function runs  ─►  scales automatically with event rate  ─►  bills per ms
 queue message  ┘

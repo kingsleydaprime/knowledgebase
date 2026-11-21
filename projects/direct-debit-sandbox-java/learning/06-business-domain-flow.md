@@ -42,7 +42,7 @@ The `RestTemplate` bean is created once in [AppConfig.java](src/main/java/com/it
 
 Here is the full journey of `POST /subscription/subscribe`:
 
-```
+```text
 1. HTTP POST arrives at port 8080
          ↓
 2. Spring routes it to SubscriptionController.subscribe()
@@ -140,7 +140,7 @@ In the original design, every subscribe request had to include a `callbackUrl` f
 
 The **provision pattern** solves this: the merchant calls `POST /provision` once to register their callback URL for a given `merchantId + productId` combination. Every callback fired for that merchant+product automatically goes to the registered URL, forever, without the subscriber needing to send it again.
 
-```
+```text
 First (once):   POST /provision  → stores callbackUrl for MERCH_123 + PROD_001
 Later (many):   POST /subscription/subscribe → no callbackUrl needed in body
                 Callback fires → resolveCallbackUrl looks up MERCH_123 + PROD_001 → gets the URL
@@ -254,7 +254,7 @@ Because each mandate debit is independent, the caller supplies the specific debi
 
 The body difference makes this concrete:
 
-```
+```text
 Subscription trigger:   { "referenceId": "REF_001", "productId": "..." }
 Mandate trigger:        { "mandateId": "...", "productId": "...", "debitAmount": "...",
                           "narration": "...", "referenceNo": "...", "debitAccount": "...",
@@ -285,14 +285,14 @@ A preauth has five operations and they use three different IDs. Understanding wh
 
 The sandbox stores `PreAuthRecord` under `preApprovalId` as the primary key, then maintains two secondary indexes so all three lookup paths resolve in O(1):
 
-```
+```text
 preAuthReferenceIndex:  referenceNo  → preApprovalId
 preAuthMandateIndex:    mandateId    → preApprovalId
 ```
 
 **The lifecycle:**
 
-```
+```text
 createPreAuth()
   ↓ (stores record, fires preapproval callback after 2s)
   ↓ callback contains: preApprovalId, mandateId

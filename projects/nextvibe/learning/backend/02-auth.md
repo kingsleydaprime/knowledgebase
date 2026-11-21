@@ -81,7 +81,7 @@ The JWT payload (what's inside the token):
 This is the complete lifecycle, from first login to a request made three weeks later.
 
 **Step 1: Login**
-```
+```text
 Frontend → POST /auth/login { email, password }
 Backend  → returns { accessToken, refreshToken }
 Frontend → stores accessToken in memory, refreshToken in secure storage
@@ -89,7 +89,7 @@ Frontend → stores accessToken in memory, refreshToken in secure storage
 ```
 
 **Step 2: Every API request**
-```
+```text
 Frontend → GET /events
            Headers: { Authorization: "Bearer <accessToken>" }
 Backend  → JwtAuthGuard intercepts the request
@@ -105,7 +105,7 @@ The access token is verified **without any database query**. This is the whole p
 
 The access token expires (15 minutes after login). The next API call returns `401 Unauthorized`. The frontend catches this and does not show the user a login screen. Instead:
 
-```
+```text
 Frontend → POST /auth/refresh
            Body: { refreshToken: "<stored refresh token>" }
 Backend  → verifies the refresh token signature with JWT_REFRESH_SECRET
@@ -122,7 +122,7 @@ Frontend → updates stored tokens
 This happens silently. The user never sees a login prompt unless their refresh token has also expired or been revoked.
 
 **Step 4: Logout**
-```
+```text
 Frontend → POST /auth/logout { refreshToken }
 Backend  → deletes "refresh:userId:refreshToken" from Redis
            → access token is still technically valid until it expires
@@ -240,7 +240,7 @@ The response time tells you which branch was hit:
 - **Slow 401 (~100–200ms)** — wrong password. Argon2 verification ran (intentionally slow to resist brute force), found mismatch.
 
 Looking at the actual logs:
-```
+```text
 POST /v1/auth/login  401  161ms   ← argon2 ran → user found, wrong password
 POST /v1/auth/login  401   68ms   ← argon2 didn't run → user not found or no passwordHash
 ```
@@ -440,7 +440,7 @@ easy to miss.
 token** to `POST /v1/auth/oauth/google`. There is no mobile-specific route, and
 no OAuth redirect/callback to implement.
 
-```
+```text
 web:     browser  → Google Identity Services (@react-oauth/google)
                   → credentialResponse.credential   ← an ID token
                   → POST /v1/auth/oauth/google { idToken }
@@ -584,7 +584,7 @@ and server differently.
 
 ### The two shapes, side by side
 
-```
+```text
 ID-token flow  (POST /auth/oauth/google)
   app ──► Google SDK ──► signed ID token ──► your API ──► verify signature ──► JWTs
           └─ the app needs: client ID per platform, SHA-1, .plist, the SDK
@@ -687,7 +687,7 @@ Without the check, an attacker names their own host and your callback hands them
 a valid login code. And the check is `includes`, not `startsWith`, deliberately —
 prefix matching is the classic allowlist bypass:
 
-```
+```text
 allowlist entry:  https://nextvibe.app
 startsWith admits: https://nextvibe.app.evil.example   ← different site entirely
 ```

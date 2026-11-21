@@ -4,6 +4,8 @@ id: d88b2d3d-ae24-4d5a-bc83-e38f6570bdd7
 
 # Modulation and Software-Defined Radio
 
+Modulation is changing a radio wave in step with your data, its height, speed or timing, so the wave carries your voice, music or messages. Software-defined radio means doing that work in software on an ordinary computer, instead of with special circuits. FM radio, Wi-Fi and the signal your phone uses for calls all depend on modulation.
+
 ## The kid version first
 <!-- bite: bdc8b179-21bb-499e-bf76-92bdbd2da6fc -->
 
@@ -54,7 +56,7 @@ Modern radio represents a signal as two components: **In-phase (I)** and **Quadr
 
 **Traditionally, radio was fixed-function circuits** — a specific chip for FM, another for your car key, another for Wi-Fi, each mixing and filtering in hardware. **SDR replaces the circuits with an ADC/DAC and a computer:** the antenna front-end digitises a chunk of spectrum into I/Q samples, and *all* the demodulation happens in software.
 
-```
+```text
    antenna ──► [ RF front-end + ADC ] ──► I/Q samples ──► [ SOFTWARE: any radio ]
                 digitise a band              (numbers)      FM, ADS-B, GPS, Wi-Fi, ...
 ```

@@ -50,7 +50,7 @@ The backend is a REST API. A "REST API" is a server that listens for HTTP reques
 
 Here is the full request lifecycle for scheduling a post:
 
-```
+```text
 Frontend
   → POST /api/v1/posts/schedule  (HTTP request with JSON body)
      → Express receives it
@@ -253,7 +253,7 @@ Every feature in SocioBoom is a module. A module lives in `src/api/v1/modules/<n
 
 This is called a layered architecture. Each layer only knows about the layer directly below it:
 
-```
+```text
 routes → controller → service → model → Prisma → PostgreSQL
 ```
 
@@ -515,7 +515,7 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 2. Call `next()` to pass control to the next middleware
 3. Send a response and stop the chain
 
-```
+```text
 Request → helmet() → cors() → json() → passport() → globalLimiter → [route handler] → Response
 ```
 
@@ -836,7 +836,7 @@ This has fatal problems:
 
 A job queue is a separate data store (Redis, in this case) that holds jobs persistently. Your server is the **producer** — it adds jobs to the queue. A separate **worker process** is the **consumer** — it pulls jobs off the queue and executes them.
 
-```
+```text
 Producer (main server)          Queue (Redis)           Consumer (worker process)
   postQueue.add(job, {delay})  →  [job stored]  →  worker processes job at right time
 ```
@@ -1352,7 +1352,7 @@ This is the most algorithmically complex feature. It chains five AI and API call
 
 ### The Full Pipeline
 
-```
+```text
 User sends: { appDescription: "SocioBoom schedules social posts", platforms: ["reddit", "twitter"] }
 
 Step 1: AI extracts search keywords
@@ -1606,7 +1606,7 @@ Reddit requires OAuth even for public read-only data. SocioBoom uses the "app-on
 
 ### The Flow
 
-```
+```text
 SocioBoom server
   → POST https://www.reddit.com/api/v1/access_token
       Authorization: Basic base64(clientId:clientSecret)
@@ -2013,7 +2013,7 @@ When you call `postQueue.add('schedulePost', data, { delay: 5000 })`, BullMQ:
 
 The worker process polls this sorted set every 1 second (configurable) using:
 
-```
+```text
 ZRANGEBYSCORE bull:postQueue:delayed 0 <currentTimestamp> LIMIT 0 1
 ```
 
@@ -2134,7 +2134,7 @@ WHERE t.owner_id = $1
 
 The original Pain-Point Discovery was a **pipeline**: three fixed steps, each a single LLM call.
 
-```
+```text
 extractKeywords(description)      → 1 LLM call, returns phrases
 webSearch(phrases) per platform   → fixed queries, snippets only
 generateText(filter prompt)       → 1 LLM call over 5,000 chars of snippets
@@ -2148,7 +2148,7 @@ It worked, but every weakness traced back to the same root cause: **the pipeline
 
 The rewrite replaced the pipeline with an **agent**: one model in a loop with tools, deciding for itself what to do next.
 
-```
+```text
 loop (max N steps):
   model looks at everything so far
   → calls search_web / search_reddit / fetch_page / save_pain_point
@@ -2258,7 +2258,7 @@ An agent run takes 1–3 minutes. Three things break if you run it inside an HTT
 
 The pattern that fixes all three, using infrastructure the project already had (BullMQ + Redis):
 
-```
+```text
 POST /discovery/search
   → BillingService.checkAndConsume(userId)     // charge at kickoff, once
   → create session row  { status: 'running' }
@@ -2451,7 +2451,7 @@ Situation: schema changed, but no Postgres was running and Docker's daemon was d
 1. **`prisma generate` needs no database** — it only reads `schema.prisma`. Types compile immediately.
 2. **Migration files are just SQL in a timestamped folder.** You can write one by hand and Prisma treats it like its own:
 
-```
+```text
 prisma/migrations/20260714084700_post_variants_subreddit_analytics_external_id/migration.sql
 ```
 ```sql
@@ -2519,7 +2519,7 @@ if (healthPort) {
 
 The cause was a three-way port disagreement:
 
-```
+```text
 main.ts:      app.listen(process.env.PORT || 5000)   ← code default
 Dockerfile:   EXPOSE 3001                             ← what Railway detected as target
 Railway env:  (no PORT variable set)                  ← so the app bound 5000

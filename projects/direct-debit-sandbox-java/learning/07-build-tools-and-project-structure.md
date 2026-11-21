@@ -12,18 +12,18 @@ starter. See also `02-spring-boot-basics.md`.
 The [requests.http](requests.http) file is an **HTTP client script** supported natively by IntelliJ IDEA and by the REST Client extension in VS Code.
 
 **Variables** are declared at the top:
-```
+```text
 @baseUrl = http://localhost:8080
 @merchantId = MERCH_12345
 ```
 
 And used anywhere with `{{variableName}}`:
-```
+```text
 POST {{baseUrl}}/subscription/subscribe
 ```
 
 **A single request** looks like this:
-```
+```text
 POST {{baseUrl}}/provision
 Content-Type: application/json
 x-transflowId: {{transflowId}}
@@ -38,7 +38,7 @@ The blank line between headers and body is **required** — it tells the parser 
 
 **Requests are separated** by `###`. Everything between two `###` lines is one request.
 
-```
+```text
 ### First request
 GET {{baseUrl}}/health
 
@@ -105,7 +105,7 @@ Gradle's three core advantages over Maven:
 
 When you run `./gradlew build`, you are not running Gradle directly — you are running the **Gradle wrapper**. The wrapper is three files committed to the repository:
 
-```
+```text
 gradlew                          ← shell script (Unix)
 gradlew.bat                      ← batch script (Windows)
 gradle/wrapper/gradle-wrapper.jar        ← small bootstrap JAR
@@ -139,7 +139,7 @@ When you open this project, the folders can look overwhelming. Here is what each
 
 ### The standard Maven/Gradle Java layout
 
-```
+```text
 project-root/
 ├── build.gradle.kts         ← Gradle build config (dependencies, plugins, Java version)
 ├── settings.gradle.kts      ← Gradle project name
@@ -161,7 +161,7 @@ This layout is a **convention**. Maven and Gradle both expect `src/main/java` fo
 
 The package path (`com.itc.direct_debit_sandbox`) mirrors the directory path. Inside that root, the code is split by **feature**:
 
-```
+```text
 direct_debit_sandbox/
 ├── callbacks/           ← CallbackService: fires HTTP callbacks to merchant webhooks
 ├── config/              ← App-wide config: thread pool, RestTemplate, SandboxConfig
@@ -174,7 +174,7 @@ direct_debit_sandbox/
 
 This is called **feature-based packaging** (also called "package by feature"). The alternative is **layer-based packaging**:
 
-```
+```text
 controllers/   ← all controllers in one folder
 services/      ← all services in one folder
 repositories/  ← all repositories in one folder

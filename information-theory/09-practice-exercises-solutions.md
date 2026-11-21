@@ -10,7 +10,7 @@
 
 Measured on a 31,128-byte markdown file:
 
-```
+```text
 order-0 entropy   4.801 bits/byte  →  predicted floor 18,682 bytes
 gzip -9                                              10,871 bytes
 xz                                                   10,272 bytes

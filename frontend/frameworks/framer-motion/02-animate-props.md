@@ -4,6 +4,8 @@ id: be34c06b-7c41-4335-a8de-1b7892e515fc
 
 # Animate Props: initial, animate, exit, transition
 
+In Framer Motion, animate props are the settings you put on a component to say how it should look when it appears, while it is on screen and when it leaves. With them, a menu can slide in or a message can fade out with just a few lines of code. This lesson covers initial, animate, exit and transition.
+
 ## `initial` and `animate`
 <!-- bite: 65383647-efa2-4bbd-80bc-35ed3a248871 -->
 

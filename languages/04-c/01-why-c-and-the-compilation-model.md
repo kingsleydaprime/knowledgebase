@@ -40,7 +40,7 @@ The correct attitude: **learn C to understand the machine and read the world's i
 
 C compilation is four distinct stages. Knowing them is what makes linker errors readable instead of terrifying.
 
-```
+```text
 hello.c
    │
    │  1. PREPROCESS   cpp        — text substitution: #include, #define, #if
@@ -82,7 +82,7 @@ Separate compilation is why:
 - The compiler can't check calls across files (it hasn't seen the other file) — **headers exist to fix this**
 - Linker errors are a different species from compiler errors
 
-```
+```text
 undefined reference to `foo'          ← LINKER: nobody defined foo. Missing .c file or -l flag
 multiple definition of `foo'          ← LINKER: two translation units both defined it
 implicit declaration of function      ← COMPILER: you called foo without declaring it. Missing #include

@@ -13,7 +13,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. This is where "reset a los
 ## The boot sequence
 <!-- bite: 427c056a-c4ef-42bc-8166-88ba35a48a62 -->
 
-```
+```text
 Firmware (BIOS/UEFI)  →  Bootloader (GRUB2)  →  Kernel + initramfs  →  systemd (PID 1)  →  target
 ```
 
@@ -85,7 +85,7 @@ Both are ways in when something's broken enough that a normal boot won't get you
 | Use case | Fix something that needs other services running (e.g. fix a package) | Root filesystem itself is too broken to trust write access to yet |
 
 Reach either from the GRUB menu by appending to the kernel line (press `e`, edit, Ctrl+X):
-```
+```text
 systemd.unit=rescue.target
 systemd.unit=emergency.target
 ```
@@ -96,7 +96,7 @@ systemd.unit=emergency.target
 <!-- bite: 5498fa77-9015-4c1f-b126-2425e2532d0a -->
 
 A bad `/etc/fstab` entry (wrong UUID, nonexistent mount point, a filesystem that's actually corrupted) fails during boot in one of two ways: a **nonexistent device or bad UUID** makes systemd time out waiting for it and eventually drop to an emergency shell; **actual filesystem corruption** makes systemd first attempt an automatic repair (usually just replaying the journal, on XFS/ext4 — fast), and only fall through to the emergency shell if that automatic attempt fails. Either way, the boot output looks roughly like this before it drops you to a shell:
-```
+```text
 [ TIME ] Timed out waiting for device /dev/sda2.
 [DEPEND] Dependency failed for /mnt/mountfolder
 [DEPEND] Dependency failed for Local File Systems.

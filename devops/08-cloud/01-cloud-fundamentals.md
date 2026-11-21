@@ -4,6 +4,8 @@ id: fe91a0eb-cee4-4eeb-8281-8a6be5ece40a
 
 # Cloud Fundamentals
 
+The cloud is computers in someone else's data centre that you rent by the hour and control over the internet. Instead of buying servers, a company pays only for what it uses. Most apps on your phone, from banking to music streaming, run on cloud computers from companies like AWS, Azure or Google.
+
 ## What "the cloud" actually is
 <!-- bite: aee49e04-0c83-4bca-a21c-1885614bbc2e -->
 

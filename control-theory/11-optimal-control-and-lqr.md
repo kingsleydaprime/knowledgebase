@@ -4,6 +4,8 @@ id: f3f94552-542c-463c-9980-d19d2809a34d
 
 # Optimal Control and LQR
 
+Optimal control is designing a controller by saying what you care about and what you are willing to pay for it, then letting maths find the best balance. For a drone, that could be staying on course against using too much battery. LQR is the standard method for doing this.
+
 ## The shift in thinking
 <!-- bite: 2c590a14-b012-4626-ba2f-a57392e90cd4 -->
 

@@ -4,6 +4,8 @@ id: ca0571e0-380d-4303-b302-ba28ba12b181
 
 # Mensuration: Solids
 
+This lesson measures solid shapes, like boxes, tins, cones and balls, by their surface area and their volume. Surface area is how much material covers the outside, and volume is how much it can hold, like the amount of water in a tank.
+
 ## Before you start
 <!-- bite: 761cdb89-a8d3-4beb-a562-a220596eb8cc -->
 
@@ -258,7 +260,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - Cavalieri: hemisphere vs (cylinder minus cone), slice by slice
       y    hemisphere   cyl - cone    difference
    0.00    28.274334    28.274334  0.0e+00

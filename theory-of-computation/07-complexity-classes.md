@@ -4,6 +4,8 @@ id: 96369484-89f5-4c37-b2b1-c0e0db8b962f
 
 # Complexity Classes
 
+A complexity class is a group of problems that need about the same amount of time or memory to solve as the input grows. This lesson covers P, the problems computers can solve quickly, and NP, the problems whose answers are quick to check, and the famous open question of whether those two are the same.
+
 ## From possible to feasible
 <!-- bite: 099b9f29-8933-47be-917e-5b46451207a3 -->
 
@@ -77,7 +79,7 @@ $$\text{One NP-complete problem in P} \implies \text{P} = \text{NP}$$
 ## P vs NP
 <!-- bite: de2ac8df-d6a5-487f-a8b9-f478c3db6cf9 -->
 
-```
+```text
    If P ≠ NP (believed)        If P = NP
    ┌─────────────────┐         ┌─────────────┐
    │       NP        │         │             │

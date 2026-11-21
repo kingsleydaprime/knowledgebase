@@ -4,6 +4,8 @@ id: 81e6cd62-0475-49dc-bf10-b686dde31194
 
 # Ownership
 
+Ownership is Rust's rule that every value has exactly one owner, and the value is cleaned up when that owner is done with it. Think of a library book: only one person holds it at a time, and when they are finished it goes back on the shelf. This rule is how Rust frees memory safely without a garbage collector.
+
 ## The three rules
 <!-- bite: a63599ed-40ba-4c5d-8c25-c9874a27be6e -->
 
@@ -37,7 +39,7 @@ A `String` is three words on the stack: **pointer, length, capacity**, pointing 
 
 Rust's options were: copy the heap data (expensive, silent), reference-count it (a runtime cost you didn't ask for), or invalidate the source. It invalidates the source. The move is free; the old binding is statically unusable.
 
-```
+```text
  s1 (moved-out, unusable)        s2
 ┌──────────────┐               ┌──────────────┐
 │ ptr    ─────╳│               │ ptr     ─────┼──→ heap: "hello"

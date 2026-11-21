@@ -4,6 +4,8 @@ id: 09a5057c-7bef-48e5-9074-643ee78d93af
 
 # Graph Theory
 
+A graph, in maths, is a set of points joined by lines, where the points are things and the lines are connections between them. Your friends on social media, the roads on a map app and the links between web pages are all graphs.
+
 ## Definitions
 <!-- bite: d16869c8-7446-4a8d-bf1c-e21e7f0935cd -->
 

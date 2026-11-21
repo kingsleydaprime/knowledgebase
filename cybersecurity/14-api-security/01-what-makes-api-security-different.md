@@ -4,6 +4,8 @@ id: 9f14fd0a-7b0e-4a16-9ba0-1105949ad0f6
 
 # What Makes API Security Different
 
+An API is a way for one program to ask another program for data or actions, such as a phone app asking its server for your messages. API security is protecting that conversation. It differs from website security because the caller is a program, not a person in a browser, so many of the browser's built-in protections are missing.
+
 ## The kid version first
 <!-- bite: 288666f6-c764-4a7a-8497-76b8db6bbd23 -->
 

@@ -4,6 +4,8 @@ id: 9f429d32-abbd-4352-a7f6-1e03a03ed235
 
 # HTTP and Its Evolution
 
+HTTP is the set of rules a browser or app uses to ask a server for a web page or data and get an answer back. Almost everything you do online, from loading a news site to refreshing your bank app, uses it. This lesson follows how HTTP has changed over thirty years to make pages load faster.
+
 ## Before you start
 <!-- bite: 3f63cdf9-4fb5-40cc-b54d-f47d50cfaf2a -->
 
@@ -89,7 +91,7 @@ If you're doing performance work on an existing codebase, checking whether these
 
 **Content-Length or chunked encoding.** The receiver needs to know where a response ends. Either the sender declares the length up front, or it uses `Transfer-Encoding: chunked` and sends length-prefixed chunks ending with a zero-length one, which is necessary for generated or streamed content. On the wire, in the lab:
 
-```
+```text
 HTTP/1.1 200 OK
 Transfer-Encoding: chunked
 

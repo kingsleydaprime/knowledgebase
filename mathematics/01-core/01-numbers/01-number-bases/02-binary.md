@@ -4,6 +4,8 @@ id: 90ef5d3f-befc-44cf-9709-d2fcb38dfd60
 
 # Binary (Base 2)
 
+Binary is the counting system that uses only two digits, 0 and 1. Every photo, message and song on your phone is stored as long rows of these two digits, and the sizes you see, like 64 GB, are built on powers of two.
+
 ## Before you start
 <!-- bite: 2b1300a5-b541-4b46-a56f-29f78e0ac9f1 -->
 
@@ -24,7 +26,7 @@ id: 90ef5d3f-befc-44cf-9709-d2fcb38dfd60
 
 Binary uses only `0` and `1`. Every place is worth twice the one to its right:
 
-```
+```text
    place:   128  64  32  16   8   4   2   1
    power:   2^7 2^6 2^5 2^4 2^3 2^2 2^1 2^0
 

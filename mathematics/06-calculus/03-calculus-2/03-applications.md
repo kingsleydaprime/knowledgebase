@@ -4,6 +4,8 @@ id: 7778f8f8-297a-4052-8189-a416f1bc157d
 
 # Applications of Integration
 
+This lesson uses integration to work out real quantities: the area between two curves, the volume of a solid shape, the length of a curve and the average of a changing value. It is how you could work out how much water a curved bowl holds.
+
 ## Before you start
 <!-- bite: 6ba5d975-2b63-4dfe-867d-7ff9f21a221f -->
 

@@ -4,12 +4,14 @@ id: 791052ed-dba0-4434-ad4b-bec9c45dd2c9
 
 # The Lifecycle and the V-Model
 
+The lifecycle is the stages a big engineering project goes through from first idea to finished product, and the V-model is a diagram that shows those stages as a V. Down one side you break the system into smaller parts, and up the other you put it back together and test each level. Projects like building a car, a plane or a hospital system follow this shape.
+
 ## The V
 <!-- bite: 44a7b16f-da4c-45ae-9fdd-9decc4ad1508 -->
 
 The field's most recognisable diagram. Decomposition down the left, integration up the right, and **each level of specification paired with the verification that proves it**:
 
-```
+```text
  Stakeholder needs ──────────────────────────► Operation & validation
    ↓                                                        ↑
    System requirements ──────────────────► System verification

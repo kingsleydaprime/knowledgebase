@@ -43,7 +43,7 @@ Both would have compiled as plausible-looking wrong code and failed at runtime.
 
 The fix is that the package **ships its own docs**, version-matched:
 
-```
+```text
 node_modules/ai/docs/03-ai-sdk-core/10-generating-structured-data.mdx
 node_modules/@ai-sdk/anthropic/docs/05-anthropic.mdx
 ```

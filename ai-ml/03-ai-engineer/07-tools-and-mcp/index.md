@@ -4,6 +4,8 @@ id: 9aa5ddcd-bcd3-44b0-afc2-83767ee0759e
 
 # Tools and MCP
 
+A tool is a function in your own code that an AI model can ask your app to run, such as "look up this order" or "check the weather". The model only asks. Your code decides whether to run it and sends the result back. MCP is a shared standard for offering tools like these, so one tool can work with many AI apps.
+
 ## Before you start
 <!-- bite: 28a38162-bb86-4a71-835f-1c9daa143943 -->
 
@@ -57,20 +59,20 @@ You describe the tools in the request; the model replies with text, or with call
 
 **Step 1: the request.** Your code sends the conversation, and the three tools' specs: name, description and input schema. It doesn't send the functions; they stay in your process.
 
-```
+```text
 messages: [user: "Where is my refund for order A123?"]
 tools:    get_order(order_id), get_refund(order_id), issue_refund(order_id, amount)
 ```
 
 **Step 2: the model asks for two lookups.** Its reply has no text, and two tool calls, each with an ID and arguments as a JSON string:
 
-```
+```text
 assistant: toolCalls: [c1 get_order {"order_id":"A123"}, c2 get_refund {"order_id":"A123"}]
 ```
 
 **Step 3: your code runs them** and appends one result per call, matched by ID, in the same order. Nothing was decided by the model here: your code found the tool, parsed and checked the arguments, and ran it.
 
-```
+```text
 tool c1: {"status":"delivered","total":49.99}
 tool c2: {"status":"processing","amount":49.99,"requested":"2026-09-28"}
 ```

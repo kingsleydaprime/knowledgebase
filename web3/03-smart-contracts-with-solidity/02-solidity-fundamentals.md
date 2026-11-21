@@ -110,7 +110,7 @@ assert(invariant);                    // "this must never happen". Consumes ALL 
 ## Function modifiers, and the two that matter most
 <!-- bite: 7c64b625-ff9c-4c74-821e-d48da25cc280 -->
 
-```
+```text
 external  // callable from outside only — cheapest for large params
 public    // callable from anywhere
 internal  // this contract and children

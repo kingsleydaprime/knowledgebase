@@ -11,7 +11,7 @@ id: df7203d9-228e-4dd4-94af-eeb99c9e63ef
 
 Requirements flow down, each level traceable to the one above:
 
-```
+```text
 Stakeholder needs        "I want to arrive on time"
         ↓
 System requirements      "The vehicle shall reach 100 km/h in ≤ 8.0 s"

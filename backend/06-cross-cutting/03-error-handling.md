@@ -4,6 +4,8 @@ id: 383fe95e-d1b7-424e-b8ac-ced991608209
 
 # Error Handling
 
+Error handling is how a backend deals with things going wrong and what it tells the app when they do. When an app shows "Something went wrong, try again" instead of crashing, that is error handling at work. Done well, every error leaves through one place and looks the same.
+
 ## The shape
 <!-- bite: d8fb5a0c-6b61-4c50-b6fe-67526c201c1c -->
 
@@ -11,7 +13,7 @@ id: 383fe95e-d1b7-424e-b8ac-ced991608209
 
 **The alternative is try/catch in every handler**, which guarantees inconsistency: twenty endpoints, twenty error shapes, and one of them leaks a stack trace.
 
-```
+```text
 handler throws  →  central handler  →  map to status + body  →  log with context
 ```
 
@@ -59,7 +61,7 @@ handler throws  →  central handler  →  map to status + body  →  log with c
 
 **The most important rule in this note:**
 
-```
+```text
 Client:  a stable error code, a safe message, a trace ID
 Logs:    the exception, the stack trace, the inputs, the user, the trace ID
 ```

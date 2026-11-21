@@ -88,7 +88,7 @@ System.out.println("hello");   // Java
 
 **Read–Eval–Print Loop.** A prompt where you type one expression and immediately see its result:
 
-```
+```text
 >>> 2 + 3
 5
 >>> name = "Kingsley"

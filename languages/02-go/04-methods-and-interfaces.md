@@ -4,6 +4,8 @@ id: 1eceb947-4635-458e-b870-1bfd9d0d6c99
 
 # Methods and Interfaces
 
+A method is a function that belongs to a type, and an interface is a list of methods that any type can satisfy. Think of a phone charger port: any charger that fits the port works, whatever company made it. Interfaces let Go code work with any type that "fits", without caring what the type really is.
+
 ## Methods
 <!-- bite: 83497b4b-6783-40ef-9155-3aa205bf00be -->
 

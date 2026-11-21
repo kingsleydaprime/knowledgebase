@@ -4,6 +4,8 @@ id: 0898f6fd-0363-46bc-a2b6-0098570e7d43
 
 # NLP & Embeddings
 
+Natural language processing (NLP) is teaching computers to work with human language, such as reading, sorting and writing text. Computers only do maths on numbers, so an embedding is a list of numbers that stands for a word or sentence and captures its meaning. Search boxes, autocorrect and chatbots all depend on this.
+
 ## The core problem: text isn't numbers
 <!-- bite: 0e744de0-e73f-4261-93a2-e586e24b91af -->
 

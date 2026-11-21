@@ -4,6 +4,8 @@ id: 89abf20e-3168-41ca-8163-a34f7b00c5c8
 
 # Extractors and Responses
 
+An extractor is a piece of code in the Axum framework that pulls one thing out of a web request, like the user ID or the JSON body, before your own code runs. A response is what your code sends back. In Axum both are written as Rust types, so many mistakes are caught before the program even runs.
+
 ## Extractors
 <!-- bite: f5023435-9688-43fd-8b31-240fc5490fb9 -->
 

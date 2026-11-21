@@ -4,6 +4,8 @@ id: a19d2728-147d-473b-9e0d-21cefaf2a061
 
 # Regular Languages
 
+A regular language is any set of strings that a finite automaton, a machine with no memory beyond its current state, can recognise. They are exactly the patterns you can write as regular expressions, like the check a sign-up form uses to see if an email address looks valid, and this lesson also shows how to prove a pattern is beyond them.
+
 ## Three equivalent definitions
 <!-- bite: 4c23b9b4-b4d1-4d6b-9b25-d6b63b6c8cae -->
 

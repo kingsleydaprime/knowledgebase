@@ -12,7 +12,7 @@
 
 ## How to read a week
 
-```
+```text
 ## Week N — Title
 Read:      the chapters, in order
 Topics:    N.1, N.2 …  → one notebook page each (or fewer — see the method)

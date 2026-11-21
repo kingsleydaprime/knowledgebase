@@ -4,6 +4,8 @@ id: af5910af-9626-450f-a22a-a29fcb1becca
 
 # Time Series Analysis
 
+A time series is a set of measurements taken over time, like daily sales or the hourly temperature, and time series analysis is the study of the patterns in it. Your phone's weekly screen-time chart is a simple time series. Analysts use these patterns to understand the past and forecast what comes next.
+
 ## The kid version first
 <!-- bite: b1f66094-b4d3-4ca1-b8ac-80792e7743ea -->
 
@@ -25,7 +27,7 @@ Ordinary statistics assumes observations are **independent** — one data point 
 
 **Any time series can be broken into components, and understanding them is 80% of the value:**
 
-```
+```text
    observed  =  trend  +  seasonality  +  noise
                   │           │            │
             long-term    repeating     random,

@@ -4,6 +4,8 @@ id: 4b687d8e-d892-4ef1-95e7-8b2a1d74bb41
 
 # Traits
 
+A trait is a set of abilities that a type promises to have, such as "can be printed" or "can be compared". It is like a job description: anyone who can do the listed tasks can take the job. Traits let Rust code work with many different types that share the same abilities.
+
 ## Defining and implementing
 <!-- bite: 4474acf7-2db8-451b-9316-dfd425bf057a -->
 

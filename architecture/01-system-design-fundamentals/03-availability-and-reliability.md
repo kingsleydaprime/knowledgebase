@@ -4,6 +4,8 @@ id: c3b7e75b-381b-4867-ae92-b9f9a75153de
 
 # Availability & Reliability
 
+Availability is how much of the time a system is up and answering, and reliability is whether it gives the right answers without losing data. A bank app that opens but shows the wrong balance is available but not reliable. This lesson shows how both are measured and how systems are built to keep them high.
+
 ## Availability, reliability, and the distinction
 <!-- bite: 4bb57295-0be9-4e28-b89e-863650a85d2f -->
 

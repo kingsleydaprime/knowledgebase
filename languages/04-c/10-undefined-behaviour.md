@@ -4,6 +4,8 @@ id: d5344742-6fb7-458b-b3f1-8c12c142ed66
 
 # Undefined Behaviour
 
+Undefined behaviour is what happens when a C program does something the language rules do not allow, such as reading past the end of an array. The C standard makes no promise about what happens next: the program might work, crash or do something strange. Many famous security bugs started this way, so this lesson shows the common cases and how to find them.
+
 ## The three kinds
 <!-- bite: 2cddd1c1-6594-4401-8fb3-2deb2a3dcb88 -->
 
@@ -169,7 +171,7 @@ gcc -fsanitize=address,undefined -g prog.c
 valgrind --leak-check=full --track-origins=yes ./prog
 ```
 
-```
+```text
 prog.c:7:12: runtime error: signed integer overflow: 2147483647 + 1 cannot be
              represented in type 'int'
 ```

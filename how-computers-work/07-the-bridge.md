@@ -4,6 +4,8 @@ id: 224b8cf5-08e4-401b-8780-aa5afe4d6cc5
 
 # Module 27: The Bridge (Parts VIII to XVIII)
 
+This lesson is a map that joins the hardware you have built so far to the rest of the computer, up to the operating system and the programs you use every day. Other courses in the vault already teach those upper layers. Here you see which earlier lesson each of them depends on, so you know why you can now read them.
+
 ## Before you start
 <!-- bite: 59d7c0f4-9dd8-4713-beff-c47519c3eab6 -->
 
@@ -41,7 +43,7 @@ So each section below gives you:
 ## 2. Where you are
 <!-- bite: c85dfbf6-38c0-46a2-aa4e-8541ce3d6037 -->
 
-```
+```text
    ✅ PART II    electricity, signals, the digital abstraction
    ✅ PART III   atoms, silicon, bands, doping, PN junctions
    ✅ PART IV    transistors, MOSFET physics, CMOS, fabrication

@@ -4,10 +4,12 @@ id: e5ed515b-2caf-4c2d-b82f-8c2080cffe36
 
 # The Browser and the DOM
 
+The DOM is the browser's own model of a web page, a tree of every heading, button and image on it that code can read and change. The browser builds it from the page's HTML, then turns it into the picture on your screen. Knowing those steps explains most advice about making websites fast.
+
 ## From URL to pixels
 <!-- bite: eb1f7203-777c-427b-858c-d7b4c9d48c2c -->
 
-```
+```text
 DNS → TCP → TLS → HTTP request → HTML arrives
    → parse HTML → DOM tree
    → parse CSS  → CSSOM

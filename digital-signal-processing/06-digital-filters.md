@@ -4,6 +4,8 @@ id: 7393d50c-1e00-471d-bd9d-48317b0db733
 
 # Digital Filters
 
+A digital filter is a calculation on a signal's numbers that lets some frequencies through and blocks others. It is how a computer removes hum, cuts noise or boosts bass. The bass boost on a speaker and the background-noise removal on a video call are digital filters.
+
 ## The kid version first
 <!-- bite: b6d80128-55d8-4618-9ce0-1a8c1048d186 -->
 
@@ -16,7 +18,7 @@ The weights *are* the filter. Choosing them so the filter passes what you want a
 
 By type of what it passes:
 
-```
+```text
    low-pass    ▔▔▔╲___     keep low frequencies, cut high   (smoothing, anti-alias)
    high-pass   ___╱▔▔▔     keep high, cut low               (remove drift/DC)
    band-pass   __╱▔╲__     keep a band                      (isolate a channel)
@@ -30,7 +32,7 @@ The **cutoff frequency** is where it transitions; the **transition band** is how
 
 The output is a weighted sum of *input* samples only:
 
-```
+```text
 y[n] = b₀·x[n] + b₁·x[n−1] + ... + bₘ·x[n−M]
 ```
 
@@ -48,7 +50,7 @@ The impulse response is finite (`M+1` taps, then it stops) — it's literally th
 
 The output feeds back on itself — it depends on past *outputs* as well as inputs:
 
-```
+```text
 y[n] = b₀·x[n] + ... − a₁·y[n−1] − a₂·y[n−2] − ...
                         ↑ feedback: past OUTPUTS
 ```

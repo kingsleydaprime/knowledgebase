@@ -4,6 +4,8 @@ id: 7b8a895d-bd69-47ff-9da5-7647829e10a8
 
 # Causal Inference & Econometrics
 
+Causal inference is working out whether one thing actually causes another, not just whether the two tend to happen together. It matters when you want to change something and know what will happen as a result. For example, people who carry umbrellas get wet more often, but the umbrella is not the cause. Rain causes both.
+
 ## Prediction vs causation — a fundamental split
 <!-- bite: 44eaad75-049b-44ac-a0ae-e752fef947f5 -->
 

@@ -4,6 +4,8 @@ id: 59ddea14-fc7a-45e7-98a6-ec5926cd6757
 
 # The FFT
 
+The FFT (Fast Fourier Transform) is a quick method for working out which frequencies are inside a signal. It gives exactly the same answer as the slow, direct way, just far faster. It runs inside phones, music apps, Wi-Fi and medical scanners every second of the day.
+
 ## The kid version first
 <!-- bite: 64e6d4db-6f31-4ab9-9898-a6e178b4b22b -->
 
@@ -16,7 +18,7 @@ It's not an approximation and it's not a different transform — **it's the exac
 
 The DFT computes `N` frequency bins from `N` samples. Done directly, each bin is a sum over all `N` samples, so it's **N × N = O(N²)** operations:
 
-```
+```text
    N = 1,000      → ~1,000,000 operations        (fine)
    N = 1,000,000  → ~1,000,000,000,000 ops       (a trillion — hopeless in real time)
 ```
@@ -28,14 +30,14 @@ The DFT computes `N` frequency bins from `N` samples. Done directly, each bin is
 
 The FFT computes the same DFT in **O(N log N)**:
 
-```
+```text
    N = 1,000,000  →  ~20,000,000 operations   (vs a trillion)
                      roughly a 50,000× speed-up
 ```
 
 **The core trick (Cooley–Tukey, 1965) is divide-and-conquer:** a DFT of size `N` can be built from two DFTs of size `N/2` — split the samples into even-indexed and odd-indexed halves, transform each half, then combine. Recurse, and the work collapses from N² to N·log N.
 
-```
+```text
    DFT(N)  =  combine( DFT(N/2 of evens),  DFT(N/2 of odds) )
                           ↓ recurse                ↓ recurse
 ```

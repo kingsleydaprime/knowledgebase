@@ -4,6 +4,8 @@ id: 4fa50063-85c8-423c-9e92-70ce31f6d804
 
 # Microservices Patterns
 
+Microservices patterns are common solutions to the problems that come from splitting one app into many small services. Those services have to find each other, share common jobs like logging in users, and keep working when one fails. This lesson covers the usual ways of handling each of these.
+
 ## The problem: coordination at a distance
 <!-- bite: aa7628a4-a4bc-4984-a405-ca6118762c29 -->
 

@@ -4,6 +4,8 @@ id: a0d25ad6-4394-49e3-8b6f-4cd10059624e
 
 # The Link Layer — Getting to the Next Machine
 
+The link layer is the part of networking that moves data from one machine to the very next machine it is directly connected to, over a cable or Wi-Fi. When your phone sends something to your home router, this is the layer doing it. It knows nothing about the wider internet, only the next hop.
+
 ## The kid version first
 <!-- bite: a983b03a-9eb0-4523-a87c-013df0103761 -->
 
@@ -43,7 +45,7 @@ A **MAC address** is 48 bits, burned into the network interface at manufacture (
 
 Your host has an IP packet for `192.168.1.1` and needs the MAC to put in the frame. It doesn't know it. So it **shouts**:
 
-```
+```text
 ARP request  (broadcast to ff:ff:ff:ff:ff:ff): "Who has 192.168.1.1? Tell 192.168.1.42"
 ARP reply    (unicast back):                   "192.168.1.1 is at a4:83:e7:2b:11:9f"
 ```

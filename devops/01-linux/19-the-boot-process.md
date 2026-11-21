@@ -4,12 +4,14 @@ id: b80b2c36-a880-4074-9c23-bfa4ebc1ca94
 
 # The Boot Process
 
+The boot process is everything a computer does between you pressing the power button and seeing a login screen. It happens in stages, and each stage only knows how to find and start the next one. Knowing those stages is how you fix a machine that will not start.
+
 ## The kid version first
 <!-- bite: 01760d37-3c05-4c45-b09d-af69cb878af4 -->
 
 Booting is a relay race where each runner is bigger than the last and knows only how to find the next one.
 
-```
+```text
 firmware (UEFI/BIOS)   finds a bootloader on disk
    └── GRUB            finds and loads a kernel + initramfs
         └── kernel     mounts the real root filesystem

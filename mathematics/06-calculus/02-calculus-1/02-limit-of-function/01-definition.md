@@ -4,6 +4,8 @@ id: 4cc6e07c-9c78-4b7a-9626-1ae5a91aca41
 
 # The Limit of a Function
 
+A limit is the value a function gets closer and closer to as its input gets closer to some number. What matters is what happens near the number, not at it, and this one idea is what the rest of calculus is built on.
+
 ## Before you start
 <!-- bite: a3893703-98e4-4fcc-a705-68985066d138 -->
 

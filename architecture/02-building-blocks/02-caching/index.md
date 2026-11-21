@@ -4,6 +4,8 @@ id: f98e18ce-bced-4309-b9e9-ba3cce5cc2ee
 
 # Caching
 
+Caching is keeping a copy of data somewhere faster, so the system doesn't have to fetch or work it out again every time. Your phone already does this when an app shows yesterday's feed straight away while the new posts load. This lesson shows where caches go in a system and the problems they cause when the copy goes out of date.
+
 ## Before you start
 <!-- bite: b9f9d08d-e9c9-46be-96e5-bfc5d39e91e6 -->
 
@@ -79,7 +81,7 @@ $$\text{database reads a second} = R(1 - h) \qquad \text{average read} = t_c + (
 
 For the shop, with 5,000 reads a second, a 1 ms cache and a 20 ms database:
 
-```
+```text
 hit ratio            0       0.8      0.9      0.99
 database reads/s  5,000    1,000      500        50
 average read      21 ms     5 ms   3.0 ms    1.2 ms
@@ -94,7 +96,7 @@ If every product were equally popular, a cache holding 20% of the catalogue woul
 
 The lab sends 200,000 Zipf-distributed reads over 50,000 products through LRU caches of different sizes:
 
-```
+```text
 cache size (share of catalogue)    500 (1%)   2,500 (5%)   5,000 (10%)   10,000 (20%)
 hit ratio                           0.48        0.65         0.72          0.80
 ```

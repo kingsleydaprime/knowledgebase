@@ -123,7 +123,7 @@ sudo nvim /etc/ssh/sshd_config
 
 Make the following changes:
 
-```
+```text
 PasswordAuthentication no       # Disable password login — key-based only
 PermitRootLogin no              # Disable direct root login over SSH
 UsePAM no                       # Disable PAM (safe for key-only setups)
@@ -230,7 +230,7 @@ Traefik handles routing and auto-provisions SSL certificates via Let's Encrypt.
 
 ### 5.1 Directory Structure
 
-```
+```text
 ~/traefik/
 ├── compose.yml
 ├── traefik.yml
@@ -457,7 +457,7 @@ docker plugin ls
 
 ### 7.2 Directory Structure
 
-```
+```text
 ~/monitoring/
 ├── compose.yml
 ├── prometheus.yml
@@ -660,7 +660,7 @@ The ELK stack is a more powerful alternative to the Loki approach, best suited f
 
 ### 8.1 Directory Structure
 
-```
+```text
 ~/elk/
 ├── compose.yml
 ├── logstash/
@@ -736,7 +736,7 @@ networks:
 
 ### 8.3 `logstash/pipeline/logstash.conf`
 
-```
+```text
 # Logstash pipeline: data flows through input → filter → output
 
 input {
@@ -920,7 +920,7 @@ crontab -e
 
 Add:
 
-```
+```text
 # Run Docker cleanup every Sunday at 2AM — log output for debugging
 0 2 * * 0 docker system prune -f >> /var/log/docker-cleanup.log 2>&1
 ```
@@ -1251,7 +1251,7 @@ ls -la
 
 Output like `-rw-r--r--` breaks down as:
 
-```
+```text
 - rw- r-- r--
 │  │   │   └── others: read only
 │  │   └────── group: read only
@@ -1998,7 +1998,7 @@ When managing multiple VPS instances, a bastion server acts as the single entry 
 
 ### 23.1 The Pattern
 
-```
+```text
 Your machine → Bastion (public IP, port 22) → Internal Server A (private IP only)
                                               → Internal Server B (private IP only)
                                               → Internal Server C (private IP only)
@@ -2019,7 +2019,7 @@ ssh -J user@bastion-ip user@internal-server-ip
 
 Add to `~/.ssh/config` on your local machine:
 
-```
+```text
 # The bastion — your one public-facing entry point
 Host bastion
   HostName <bastion-public-ip>
@@ -2424,7 +2424,7 @@ Outside of this pattern, avoid anonymous volumes. You can't name them, reference
 
 ### The Decision Tree
 
-```
+```text
 Does this data need to persist across container restarts?
 ├── No  → Don't use a volume at all
 └── Yes → Do you need to read or edit this from the host in real time?
@@ -2715,7 +2715,7 @@ USER appuser
 
 The `.dockerignore` file works exactly like `.gitignore` but for the Docker build context. Without it, `COPY . .` sends your entire project directory — including `node_modules`, `.git`, logs, and secrets — to the Docker daemon. This slows builds and risks leaking sensitive files into images.
 
-```
+```text
 # .dockerignore
 node_modules
 .git
@@ -2885,7 +2885,7 @@ docker image prune -a --filter "until=24h" -f
 
 ### 30.6 Rollback Decision Tree
 
-```
+```text
 New deployment is broken
 ├── Is Traefik still routing to the old container? (zero-downtime deploy)
 │   └── Yes → Scale old container back up; scale new one down (Section 22)
@@ -2996,7 +2996,7 @@ sudo crontab -e     # Edit root's cron jobs
 
 **Cron syntax:**
 
-```
+```text
 # ┌─── minute (0–59)
 # │ ┌─── hour (0–23)
 # │ │ ┌─── day of month (1–31)
@@ -3242,7 +3242,7 @@ A linear list of every step, in order, for deploying a production application fr
 
 ### 28.1 Stack
 
-```
+```text
 API:        NestJS (TypeScript)
 Database:   PostgreSQL
 Cache:      Redis (queues + caching + pub/sub)
@@ -3267,7 +3267,7 @@ BullMQ runs on Redis. Jobs stored in Redis, workers read from Redis, retries aut
 Separate email from notification queue — failures shouldn't block each other. Different retry policies, throttle limits, and costs.
 
 **Job flow:**
-```
+```text
 1. API validates, creates DB record, returns response immediately
 2. queue.add('job', payload) — stored in Redis instantly
 3. Worker (separate process) picks up job
@@ -3294,7 +3294,7 @@ await redis.del(`user:${userId}`);
 
 ### 28.4 CDN + MinIO
 
-```
+```text
 Upload to MinIO at:   minio.yourdomain.com/bucket/key
 Cloudflare proxies:   cdn.yourdomain.com/key → never hits MinIO directly
 Cached at edge:       photos, videos, backdrops, avatars
@@ -3304,7 +3304,7 @@ DDoS protection:      free on all Cloudflare plans
 
 ### 28.5 Socket.IO Scaling with Redis Adapter
 
-```
+```text
 MVP (single server): direct delivery, no adapter needed.
 
 Multiple servers:
@@ -3321,7 +3321,7 @@ Events: `dm:{conversationId}`, `chat:{eventId}:{section}`, `leaderboard:{gameId}
 
 ### 28.6 Scaling Path
 
-```
+```text
 MVP:    Railway/Render — managed Postgres + Redis, auto-deploy from GitHub
 Medium: AWS — ECS, RDS with replicas, ElastiCache, S3, CloudFront
 Large:  Kubernetes multi-region, auto-scaling per service

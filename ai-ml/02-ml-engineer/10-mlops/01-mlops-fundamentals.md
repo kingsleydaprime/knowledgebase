@@ -4,6 +4,8 @@ id: d5d13d48-d48b-491f-a3c7-f74edc03f3b2
 
 # MLOps Fundamentals
 
+MLOps is the practice of getting machine learning models into real use and keeping them working well over time. It borrows most of its tools from DevOps, the practice of shipping and running ordinary software. Training a model once is the easy part. Keeping the fraud check in a bank app accurate month after month is what MLOps is for.
+
 ## What MLOps is
 <!-- bite: b8bb1bab-c9a2-4e64-b984-d31c1b02da0c -->
 
@@ -14,7 +16,7 @@ MLOps is the discipline of reliably building, deploying, and maintaining ML mode
 
 Traditional software has one thing that changes: **code**. ML systems have **three** things that change and interact — and that's the entire source of MLOps's extra complexity:
 
-```
+```text
 Traditional:   code → build → test → deploy → monitor
 ML:            code + DATA + MODEL → ... → deploy → monitor for DRIFT → retrain
 ```
@@ -29,7 +31,7 @@ ML:            code + DATA + MODEL → ... → deploy → monitor for DRIFT → 
 
 MLOps automates and monitors this loop, rather than treating training as a one-time event:
 
-```
+```text
 data collection → data validation → feature engineering → training
    → evaluation → model validation → deployment → monitoring
    → (drift detected) → retrain → redeploy ...

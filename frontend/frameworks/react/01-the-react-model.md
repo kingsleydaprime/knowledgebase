@@ -4,6 +4,8 @@ id: 1ce6e364-70d6-44d8-8af9-d6fdb670f0c5
 
 # The React Model
 
+React is a JavaScript library for building user interfaces, and its main idea is that what you see on screen is worked out from the app's current data. When the data changes, React redraws the parts that need it. Facebook, Instagram and WhatsApp Web are built this way.
+
 ## The one idea
 <!-- bite: 8310b12c-2188-45f8-82e9-1e54c69a0f9f -->
 
@@ -20,7 +22,7 @@ $$\text{UI} = f(\text{state})$$
 
 **The distinction that clears up most React performance confusion.**
 
-```
+```text
 state changes
   → React calls your component function again      ← "render"
   → produces a new element tree

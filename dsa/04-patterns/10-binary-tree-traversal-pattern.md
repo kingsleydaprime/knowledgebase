@@ -4,6 +4,8 @@ id: 0b0cf7d0-254a-43c1-8c7c-f1c1c0c89d57
 
 # Pattern: Binary Tree Traversal
 
+The binary tree traversal pattern is solving tree problems by visiting every item in a fixed order and doing a small job at each one. Most tree questions, like finding the height or adding up the values, become easy once you pick the right order. It is the same skill as the traversals lesson, used to solve problems.
+
 ## Before you start
 <!-- bite: 887d5ab9-b375-41b9-8245-db683c458ba3 -->
 

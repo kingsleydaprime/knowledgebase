@@ -4,6 +4,8 @@ id: b5434062-be3a-4423-9bd8-ee8ea835b937
 
 # State and Shared Data
 
+Shared state is the data that every request in a backend needs to use, like the database connection or the app's settings. Rust is strict about which part of a program owns each piece of data, so sharing it across many requests at once needs care. This lesson shows the usual answer and the locking choices that decide whether your service scales.
+
 ## Ownership meets a web server
 <!-- bite: 7e72e491-d629-479b-a9e0-7c0711a6dc6b -->
 

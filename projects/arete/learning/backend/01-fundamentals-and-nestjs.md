@@ -25,7 +25,7 @@ The mobile app is a face. The backend is the brain and the vault:
 
 ### HTTP in five lines
 
-```
+```text
 GET    /quests/today          → read (no side effects, safe to repeat)
 POST   /quests/optional/start → create
 PATCH  /quests/:id/complete   → partial update

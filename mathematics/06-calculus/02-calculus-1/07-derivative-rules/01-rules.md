@@ -4,6 +4,8 @@ id: 05ee776f-5326-44f9-93d8-942bd84bff02
 
 # Derivative Rules
 
+The derivative rules are shortcuts for finding derivatives quickly, without going back to the limit definition every time. This lesson works out where each rule comes from, and the chain rule, for one function inside another, is the one to know best.
+
 ## Before you start
 <!-- bite: 042c7dbd-2f51-4476-9efb-4b1f8afa79be -->
 
@@ -54,7 +56,7 @@ $$= \lim_{h\to0}(3x^2 + 3xh + h^2) = 3x^2$$
 
 **Why it is not $f'g'$:** consider area. If a rectangle has width $f$ and height $g$, growing both slightly increases the area by *two strips* — one from the width change, one from the height — plus a tiny corner.
 
-```
+```text
         g'  ┌───┬─┐   <- corner: f' x g', negligible
             │   │ │
          g  │ fg│ │   <- strip: f x g'

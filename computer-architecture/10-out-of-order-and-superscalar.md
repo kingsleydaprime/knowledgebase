@@ -4,6 +4,8 @@ id: 50edad9b-0b82-48de-a68f-3734324b6452
 
 # Out-of-Order and Superscalar Execution
 
+Superscalar means a processor can start more than one instruction at the same time, and out-of-order means it can run instructions in a different order from the one written, as soon as each is ready. The results still come out as if everything ran in order. Every modern phone and laptop processor does both to go faster.
+
 ## Two separate ideas
 <!-- bite: e28b1972-4ec0-4089-a89f-e5b07d8940dc -->
 
@@ -15,7 +17,7 @@ id: 50edad9b-0b82-48de-a68f-3734324b6452
 
 **The goal is instruction-level parallelism (ILP)** — finding independent work to fill slots that would otherwise stall.
 
-```
+```text
  In-order, 1-wide:
    ldr x1,[x2]   ─────wait 200 cycles for DRAM─────  add x3,x1,x4   add x5,x6,x7
                                                      (x5 waits pointlessly)
@@ -42,7 +44,7 @@ add x1, x5, x6     ; writes x1    — WAW: a NAME conflict only
 
 **Renaming maps architectural registers onto a much larger physical register file:**
 
-```
+```text
  architectural  →  physical
  add x1,...     →  add p37,...
  str x1         →  str p37
@@ -58,7 +60,7 @@ add x1, x5, x6     ; writes x1    — WAW: a NAME conflict only
 ## The pipeline
 <!-- bite: ff5572bf-e59c-490b-900e-19fcb8fbcb59 -->
 
-```
+```text
  ┌────────┐  ┌────────┐  ┌────────┐  ┌──────────┐  ┌────────┐  ┌────────┐
  │ FETCH  │→ │ DECODE │→ │ RENAME │→ │ SCHEDULE │→ │EXECUTE │→ │ RETIRE │
  └────────┘  └────────┘  └────────┘  └──────────┘  └────────┘  └────────┘
@@ -175,7 +177,7 @@ sum = s0 + s1 + s2 + s3;
 
 **Measure IPC:**
 
-```
+```text
 perf stat ./program     # look at insn per cycle
 ```
 

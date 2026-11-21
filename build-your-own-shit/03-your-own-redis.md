@@ -28,7 +28,7 @@ A server speaking the Redis protocol, holding data in memory, supporting the cor
 
 Redis's wire format, and it's refreshingly simple. Five types, each prefixed by one byte:
 
-```
+```text
 +OK\r\n                          simple string
 -ERR unknown command\r\n         error
 :1000\r\n                        integer
@@ -39,7 +39,7 @@ $-1\r\n                          null bulk string
 
 **Commands always arrive as an array of bulk strings.** `GET key` on the wire is:
 
-```
+```text
 *2\r\n$3\r\nGET\r\n$3\r\nkey\r\n
 ```
 
@@ -72,7 +72,7 @@ PONG
 
 A hash map from string to string.
 
-```
+```text
 SET key value    → +OK
 GET key          → $5\r\nvalue\r\n   (or $-1 for missing)
 DEL key          → :1
@@ -85,7 +85,7 @@ EXISTS key       → :1 / :0
 
 ### 4. Expiry
 
-```
+```text
 SET key value EX 60     set with a TTL
 EXPIRE key 60
 TTL key                 → seconds remaining, -1 no expiry, -2 doesn't exist
@@ -119,7 +119,7 @@ Now serve many clients. Options:
 
 Where it stops being a toy hash map:
 
-```
+```text
 LPUSH/RPUSH/LRANGE/LPOP     lists       — a deque
 SADD/SMEMBERS/SISMEMBER     sets        — a hash set
 HSET/HGET/HGETALL           hashes      — a nested map
@@ -144,7 +144,7 @@ Real Redis `fork()`s and lets the child write the snapshot while the parent keep
 
 **AOF — append-only log.** Append every write command to a file; replay it on startup.
 
-```
+```text
 *3\r\n$3\r\nSET\r\n$3\r\nfoo\r\n$3\r\nbar\r\n
 ```
 
@@ -154,7 +154,7 @@ The log is just RESP commands, so **replay is your existing command loop reading
 
 **Watch for — this is the durability milestone:**
 
-```
+```text
 appendfsync always     fsync every write    — slowest, safest
 appendfsync everysec   fsync once a second  — the default; up to 1s of loss
 appendfsync no         let the OS decide    — fastest, unbounded loss
@@ -166,7 +166,7 @@ AOF grows forever, so real Redis **rewrites** it periodically — dumps current 
 
 ### 8. Replication (optional)
 
-```
+```text
 REPLICAOF host port
 ```
 

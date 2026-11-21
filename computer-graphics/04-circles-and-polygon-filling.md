@@ -4,6 +4,8 @@ id: b638438e-35cc-4fa8-b880-be87378ae2df
 
 # Circles and Polygon Filling
 
+This lesson covers two jobs: drawing a circle on the pixel grid using only whole numbers, and filling the inside of a shape with colour. Every round button in an app and every coloured shape in a drawing program needs both.
+
 ## Before you start
 <!-- bite: 40f55116-6732-497e-ade9-a693e2726f24 -->
 
@@ -52,7 +54,7 @@ Drawing $x^2 + y^2 = r^2$ directly has problems:
 
 **Compute one octant — from $(0, r)$ at the top to the 45° point where $x = y$ — and each computed point gives eight.** For centre $(x_c, y_c)$:
 
-```
+```text
 (xc + x, yc + y)   (xc - x, yc + y)   (xc + x, yc - y)   (xc - x, yc - y)
 (xc + y, yc + x)   (xc - y, yc + x)   (xc + y, yc - x)   (xc - y, yc - x)
 ```
@@ -191,7 +193,7 @@ For each scan line $y$ from the polygon's lowest to highest point:
 
 **Replace every connected pixel of the old (interior) colour with the new colour, starting from a seed.** It stops wherever the colour is not the old colour. **Use it when the region has no single-colour boundary** — recolouring an area of an image.
 
-```
+```text
 flood_fill(x, y, old, new):      # needs old != new, or it never ends
     if getpixel(x, y) != old: return
     setpixel(x, y, new)
@@ -205,7 +207,7 @@ flood_fill(x, y, old, new):      # needs old != new, or it never ends
 
 **Start from a seed inside and fill until you reach the boundary colour.** The boundary must be a single colour.
 
-```
+```text
 boundary_fill(x, y, fill, boundary):
     c = getpixel(x, y)
     if c != boundary and c != fill:
@@ -228,7 +230,7 @@ boundary_fill(x, y, fill, boundary):
 
 **The key difference is leaking.** A boundary drawn as a diagonal line has pixels that touch only at corners:
 
-```
+```text
  . . . # .        A 4-connected fill cannot step diagonally,
  . . # . .        so it stays on its side of this line.
  . # . . .        An 8-connected fill steps through the

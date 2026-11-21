@@ -238,7 +238,7 @@ test("FIX 2: AsyncLocalStorage gives each request its own context", async () => 
 
 **Run it.** Both files in one folder; `node --test` from it (Node 23.6 or later; checked with Node 26). Expected:
 
-```
+```text
 ℹ tests 3
 ℹ pass 3
 ℹ fail 0

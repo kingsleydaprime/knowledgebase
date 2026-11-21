@@ -290,7 +290,7 @@ With that caveat, it's worth running before a deploy. It does three things
   the browser,
 - prints the route table, which tells you the rendering strategy per page:
 
-```
+```text
 Route (app)                    Size     First Load JS
 ┌ ○ /                          175 B            94 kB
 ├ ○ /about                     137 B          87.2 kB
@@ -501,13 +501,13 @@ className="mix-blend-screen"
 That is the whole fix. To see why it is exact rather than approximate, look at the
 formula. **Screen** is:
 
-```
+```text
 result = 1 - (1 - source) x (1 - backdrop)
 ```
 
 Substitute a black source (`0`):
 
-```
+```text
 result = 1 - (1 - 0) x (1 - backdrop) = 1 - (1 - backdrop) = backdrop
 ```
 

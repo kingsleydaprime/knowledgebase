@@ -24,7 +24,7 @@ if (!picked.some((t) => t.difficulty >= 2)) {                    // quality floo
 
 ### The streak state machine (streak-evaluator, 23:59 daily)
 
-```
+```text
 yesterday all complete?  ── yes → 'continue' event (unless live update already logged it)
         │ no
 some complete?           ── yes → nothing (partial days neither extend nor break)

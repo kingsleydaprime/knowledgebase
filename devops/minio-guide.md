@@ -380,7 +380,7 @@ This is where most people get it wrong. There are three approaches, and the righ
 
 ### Approach 1: Server Proxies the Upload (Avoid at Scale)
 
-```
+```text
 Client → POST /upload → Your Server → MinIO
 ```
 
@@ -401,7 +401,7 @@ Your server receives the entire file, holds it in memory or on disk, then forwar
 
 ### Approach 2: Presigned URL (Recommended for Most Apps)
 
-```
+```text
 Client → POST /upload/init → Your Server → (generates URL) → returns URL to Client
 Client → PUT file directly → MinIO
 Client → POST /upload/complete → Your Server → save object key to DB
@@ -418,7 +418,7 @@ Your server never touches the file bytes. MinIO receives the upload directly fro
 **Step-by-step flow:**
 
 1. Client requests an upload URL:
-   ```
+   ```text
    POST /upload/init
    Body: { filename: "photo.jpg", contentType: "image/jpeg", size: 204800 }
    ```
@@ -452,7 +452,7 @@ Your server never touches the file bytes. MinIO receives the upload directly fro
    ```
 
 5. Client notifies server the upload is complete:
-   ```
+   ```text
    POST /upload/complete
    Body: { objectKey: "uploads/1234567890-photo.jpg" }
    ```
@@ -481,7 +481,7 @@ Examples of async post-processing:
 
 **Flow with a queue:**
 
-```
+```text
 Upload completes
     → Client calls POST /upload/complete
     → Server saves objectKey to DB (status: "processing")
@@ -556,12 +556,12 @@ Bad: saving the original filename as-is
 
 Good pattern:
 
-```
+```text
 {scope}/{userId}/{timestamp}-{uuid}.{ext}
 ```
 
 Examples:
-```
+```text
 avatars/user_abc123/1716038400-f47ac10b.jpg
 documents/user_abc123/1716038400-3e4d5f6a.pdf
 posts/post_xyz/cover-1716038400.webp

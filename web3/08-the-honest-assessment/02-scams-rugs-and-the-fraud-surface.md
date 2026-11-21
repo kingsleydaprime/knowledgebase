@@ -4,6 +4,8 @@ id: 9c5fd734-c7e3-4bc2-960f-4ea741b493e5
 
 # Scams, Rugs and the Fraud Surface
 
+This lesson covers the scams that take most of the money lost in crypto, such as fake projects, phishing links and founders who run off with investors' funds. These are not clever code attacks; they trick people. Payments on a blockchain can't be reversed, so there is no bank to call when it happens.
+
 ## Why this note is in a technical folder
 <!-- bite: 32609f6c-95f7-4268-9902-e104d5272cbe -->
 

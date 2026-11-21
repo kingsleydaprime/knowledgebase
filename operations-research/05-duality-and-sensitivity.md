@@ -181,7 +181,7 @@ uv run --with scipy python duality.py
 
 Expected output:
 
-```
+```text
 primal plan [30. 40.] profit 410.0
 dual prices [1.5 0.5] rent 410.0
 carpentry 241: profit 411.50

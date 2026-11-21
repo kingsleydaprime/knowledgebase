@@ -11,7 +11,7 @@ routing and zustand state management. See also `01-react-native-fundamentals.md`
 
 In Arete, **the folder structure IS the navigation**:
 
-```
+```text
 mobile/app/
   index.tsx              → the "/" route (entry redirect)
   _layout.tsx            → root layout (providers, auth gate)

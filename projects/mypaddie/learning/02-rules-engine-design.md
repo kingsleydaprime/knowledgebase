@@ -64,7 +64,7 @@ that if the engine tells it *why* it chose strict. Facts in, tone out.
 First version: after the audit, compare needs vs income over **the last 30 days**.
 A test failed on day 31 — income showed as 0. Why?
 
-```
+```text
 day 1:  monthly salary lands
 day 31: "last 30 days" = days 2–31 → the salary just slid out → DEFICIT
 day 32: still deficit... until next payday slides in → SURPLUS
@@ -109,7 +109,7 @@ less safe than the rule alone.
 
 ## Day 2: rules stay pure, the repo does the I/O
 
-```
+```text
 features/tasks/
   recurrence.ts      pure: which days need a row        (tested with fixed dates)
   tasks.repo.ts      I/O: load rows → call pure fn → save result
@@ -160,7 +160,7 @@ both win.
 
 ## Day 3: how a push notification actually reaches a phone
 
-```
+```text
 pg_cron (every 10 min) ─► private.send_nudges()
    1. spawn today's habit rows
    2. collect_nudges(now): what's due? record it so it never repeats

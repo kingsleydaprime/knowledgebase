@@ -4,6 +4,8 @@ id: 4817264c-4da8-438e-adef-435022e42c29
 
 # Smart Pointers and Ownership
 
+A smart pointer is an object that holds a pointer and frees the memory for you when it is no longer needed. Ownership is the question of which part of the program is responsible for freeing a piece of memory. Smart pointers make that answer clear in the code, which removes a whole family of memory bugs.
+
 ## Why
 <!-- bite: d3e9ccab-1b74-4c7b-8a55-52a07f11b9e3 -->
 

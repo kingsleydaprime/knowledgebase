@@ -4,6 +4,8 @@ id: 350327ef-e32d-4446-9980-820c4207b70f
 
 # Investigating History
 
+Investigating history is using Git's saved record to find out what changed, when, who changed it and why. Git can show you the full list of commits, the exact lines each one changed, and even help you find which commit brought in a bug. It is like checking your bank statement line by line to see where the money went.
+
 ## git log
 <!-- bite: 44bcd223-4403-4d93-bcc1-ea43797c280d -->
 
@@ -33,7 +35,7 @@ git log --merges               # Show only merge commits
 
 **Custom format specifiers:**
 
-```
+```text
 %H  — commit hash (full)
 %h  — commit hash (abbreviated)
 %an — author name

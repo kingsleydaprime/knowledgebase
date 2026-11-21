@@ -4,6 +4,8 @@ id: c26f9673-6047-48fb-a668-9b99ea5ad8ee
 
 # IP Addressing & Subnetting
 
+An IP address is the number that tells the internet where a device is, a bit like a postal address for your phone or laptop. Subnetting is splitting a range of those addresses into smaller groups. It is how your home Wi-Fi, a school or a company keeps its own devices together.
+
 ## The kid version first
 <!-- bite: 41f1fe16-a143-45bc-a702-d25accd79f80 -->
 
@@ -18,7 +20,7 @@ That's the whole trick. Hierarchy means a router can hold a rule for *millions o
 
 32 bits, written as four bytes: `192.168.1.42`. Every address is split into two parts:
 
-```
+```text
 192.168.1.42 / 24
 └──────┬───┘ └┬┘
    network    host      /24 = "the first 24 bits are the network"
@@ -75,7 +77,7 @@ Worked example — split `10.0.0.0/22` into `/24`s: `/22` is 4× `/24`, so you g
 
 There are 4.3 billion IPv4 addresses and far more devices. **NAT** (Network Address Translation) is why that hasn't ended the world: your router rewrites the source address of outgoing packets to its own single public IP, records the mapping in a table, and reverses it on the way back.
 
-```
+```text
 laptop  192.168.1.42:51000  ──►  router rewrites to  203.0.113.7:62000  ──►  server
                             ◄──  reverses using its table              ◄──
 ```

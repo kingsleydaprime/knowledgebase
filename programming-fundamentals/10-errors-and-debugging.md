@@ -15,7 +15,7 @@ Separating these is the first real diagnostic step, because each is found a diff
 
 You broke the grammar. A missing bracket, a misspelled keyword, bad indentation.
 
-```
+```text
 SyntaxError: expected ':' (app.py, line 12)
 ```
 
@@ -25,7 +25,7 @@ SyntaxError: expected ':' (app.py, line 12)
 
 The code is valid, but something at execution time is impossible: dividing by zero, indexing past the end of a list, opening a file that isn't there, calling a method on `null`.
 
-```
+```text
 IndexError: list index out of range
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 ```

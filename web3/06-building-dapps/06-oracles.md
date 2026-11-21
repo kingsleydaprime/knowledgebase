@@ -4,6 +4,8 @@ id: 3f163d49-0327-4972-af55-a1cdce92dc38
 
 # Oracles
 
+An oracle is a service that brings facts from the outside world, like prices or match results, onto a blockchain. A blockchain can't check the internet on its own. Whatever brings the data in has to be trusted, and this lesson looks at how oracles try to keep that trust small.
+
 ## The oracle problem
 <!-- bite: cb9fd1c5-2756-425b-b051-eadfa5264d77 -->
 
@@ -20,7 +22,7 @@ But almost every useful application needs outside facts: a price, a match result
 
 Every oracle has the same shape:
 
-```
+```text
 off-chain data source(s)
         │
    oracle node(s) fetch and aggregate

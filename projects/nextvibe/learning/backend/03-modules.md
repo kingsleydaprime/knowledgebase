@@ -21,7 +21,7 @@ Events are the core domain. Let's trace the full lifecycle.
 
 ### Event Lifecycle
 
-```
+```text
 DRAFT → PUBLISHED → ENDED / CANCELLED
 ```
 
@@ -68,7 +68,7 @@ When an organizer creates a game session:
 
 The status lifecycle enforces the payment gate:
 
-```
+```text
 PENDING → UNLOCKED (payment completed) → ACTIVE (organizer activates) → ENDED
 ```
 
@@ -394,7 +394,7 @@ interface Notification {
 
 The socket delivers notifications in real time, but it is not the source of truth. On app load, the client fetches history and the unread count via REST:
 
-```
+```text
 GET  /v1/notifications?page=1&limit=50   — paginated list; response includes meta.unreadCount
 POST /v1/notifications/:id/read          — mark one notification as read
 POST /v1/notifications/read-all          — mark all unread as read → { updatedCount: number }
@@ -412,7 +412,7 @@ The correct integration pattern: on app open, call `GET /v1/notifications` to in
 
 A social graph is the network of relationships between users. "A follows B" is an edge in that graph. This project stores it in the `Follow` table:
 
-```
+```text
 follows: id | followerId | followingId | createdAt
 ```
 
@@ -492,7 +492,7 @@ After following, a notification fires to the person being followed (wired up in 
 
 Instead of `EventLike`, `PostcardLike`, `EventComment`, `PostcardComment` tables (four tables), the design uses:
 
-```
+```text
 likes: id | userId | targetType | targetId
 comments: id | userId | targetType | targetId | body
 ```
@@ -601,7 +601,7 @@ DMs involve a REST call to create the conversation, then socket events for all s
 
 **Step 1 — Create the conversation via REST (once per pair of users):**
 
-```
+```text
 POST /v1/conversations
 Body: { "userId": "<target-user-uuid>" }
 ```
@@ -661,7 +661,7 @@ The server sends the `typing:dm` event only to the other participant — using `
 
 ### Direct Message REST Endpoints
 
-```
+```text
 GET /v1/conversations                                     — inbox list
 GET /v1/conversations/:id/messages?page=1&limit=50        — paginated history
 ```
@@ -722,7 +722,7 @@ socket.on('new:event-chat', (message) => {
 
 Event chat history is loaded via REST:
 
-```
+```text
 GET /v1/events/:eventId/chat/:section?page=1&limit=50
 ```
 
@@ -871,7 +871,7 @@ The service stores `userId: null` for guests and stores the email from the DTO f
 
 ### The three endpoints
 
-```
+```text
 POST /v1/pledges/initiate        — @Public()
   Body: { tierId, quantity?, email?, name? }
   Returns: { pledgeId, checkoutUrl, totalNgn, totalUsd, expiresAt }
@@ -904,7 +904,7 @@ The bug that appeared: the ticket purchase email had `totalAmount / 100` carried
 
 The single Ercaspay webhook endpoint routes a `payment_reference` to different processors in order. Each processor returns `null` if the reference doesn't belong to its domain:
 
-```
+```text
 Webhook arrives with payment_reference
       │
       ▼

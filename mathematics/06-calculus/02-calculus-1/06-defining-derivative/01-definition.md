@@ -4,6 +4,8 @@ id: c35caa96-1fd7-4060-9db4-476f6b5c1362
 
 # Defining the Derivative
 
+A derivative is the rate at which something is changing at one exact moment, like your speed at the instant you look at the speedometer. It is defined using a limit, and everything else in differential calculus grows from that one definition.
+
 ## Before you start
 <!-- bite: 814935f4-1f1a-42ac-9eed-32aa3d3e9bf8 -->
 
@@ -32,7 +34,7 @@ That is the average rate of change over an interval of width $h$ — a perfectly
 
 **Then shrink $h$ towards zero.**
 
-```
+```text
    f(x+h) |          ,-'|
           |        ,'   |
           |      ,'     | rise = f(x+h) - f(x)

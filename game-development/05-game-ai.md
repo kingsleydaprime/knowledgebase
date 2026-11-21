@@ -15,7 +15,7 @@ id: 650cf51d-e573-456c-b50f-887c327161fc
 
 The starting point, and still correct for a great deal:
 
-```
+```text
         ┌────────┐  sees player   ┌────────┐
         │ PATROL │───────────────►│ CHASE  │
         └────────┘                └────────┘
@@ -38,7 +38,7 @@ States, transitions, conditions. Easy to write, easy to debug, easy for a design
 
 **The industry standard for complex agents**, and the fix for the transition explosion: instead of states pointing at each other, a tree is re-evaluated each tick.
 
-```
+```text
 Selector (first child that succeeds)
 ├── Sequence: Flee
 │   ├── Condition: health < 25%
@@ -62,7 +62,7 @@ Node types: **Selector** (try children until one succeeds — an OR), **Sequence
 
 Instead of rules, **score every possible action each tick and take the best**:
 
-```
+```text
 score(attack)  = f(health) × f(ammo) × f(distance) × f(threat)
 score(heal)    = f(1 - health) × f(has_medkit) × f(safety)
 score(flee)    = f(1 - health) × f(enemy_count)
@@ -83,7 +83,7 @@ The most-used algorithm in games, and one this vault already covers → [[02-dij
 
 **A\*** is Dijkstra plus a heuristic — an estimate of remaining distance that steers the search toward the goal:
 
-```
+```text
 f(n) = g(n) + h(n)
        ↑      ↑
     cost so far    estimated cost to goal

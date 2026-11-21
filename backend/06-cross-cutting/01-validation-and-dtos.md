@@ -11,7 +11,7 @@ id: e1794138-e55b-4c6e-893e-ff664e0b1906
 
 **The distinction that makes everything else follow:**
 
-```
+```text
 validate:  is this data ok?   → returns bool, data stays untyped
 parse:     turn this into a trusted type, or fail  → returns Order | Error
 ```
@@ -33,7 +33,7 @@ create(parsed.data);                              // typed from here on
 
 **Do it once, at the edge, and never again.** Every layer that re-checks is a layer that can disagree with the others.
 
-```
+```text
 HTTP request → [PARSE HERE] → typed command → service → repository → DB
 ```
 

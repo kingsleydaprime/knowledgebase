@@ -183,7 +183,7 @@ Every RTK Query API in this project uses a shared `baseQueryWithReauth` instead 
 2. **Token refresh** — on a 401, automatically calls `/v1/auth/refresh`, stores the new token, and retries the original request
 3. **Queue pattern** — if multiple requests 401 at the same time, only one refresh happens; the rest wait
 
-```
+```text
 Request → prepareHeaders (attach token) → API → 401?
                                                   ↓
                                          isRefreshing?

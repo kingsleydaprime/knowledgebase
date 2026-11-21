@@ -4,6 +4,8 @@ id: db99c068-7be0-46b7-82ab-253d025ce912
 
 # Sampling and Aliasing
 
+Sampling is measuring a real-world signal again and again at regular moments, so the computer can store it as a list of numbers. Aliasing is what goes wrong when you measure too slowly: you get a false signal that looks real. It is why car wheels in a video can look like they are spinning backwards.
+
 ## The kid version first
 <!-- bite: ac9d3e20-c7d6-4778-872f-5a81064b6a06 -->
 
@@ -21,7 +23,7 @@ An **analog-to-digital converter (ADC)** measures the continuous signal `x(t)` a
 
 A **digital-to-analog converter (DAC)** does the reverse: turns the number sequence back into a continuous signal for a speaker or antenna.
 
-```
+```text
    x(t)  ──►  [ ADC ]  ──►  x[n]  ──►  [ DSP ]  ──►  y[n]  ──►  [ DAC ]  ──►  y(t)
   analog      sample        digital    process       digital    reconstruct   analog
 ```
@@ -46,7 +48,7 @@ The value `f_max` (half the sampling rate, `fs/2`) is the **Nyquist frequency** 
 
 If a signal contains frequencies above `fs/2`, sampling doesn't just miss them — **it folds them back down and disguises them as lower frequencies that were never there.**
 
-```
+```text
    true signal: 900 Hz, sampled at 1000 Hz (Nyquist = 500 Hz)
    → appears as a 100 Hz signal.  A frequency you cannot distinguish
      from a real 100 Hz tone. The information is not lost — it's CORRUPTED.
@@ -61,7 +63,7 @@ If a signal contains frequencies above `fs/2`, sampling doesn't just miss them �
 
 Since aliasing is irreversible, **you must remove frequencies above `fs/2` *before* sampling**, with an analog **anti-aliasing filter** — a low-pass filter in front of the ADC:
 
-```
+```text
    x(t) ──► [ analog low-pass, cutoff < fs/2 ] ──► [ ADC ] ──► x[n]
               removes what would alias, while it still can
 ```

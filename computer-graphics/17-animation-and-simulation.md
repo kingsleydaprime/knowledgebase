@@ -4,6 +4,8 @@ id: ee555b02-8c1c-45e7-91b9-9ec49c5b36c2
 
 # Animation and Simulation
 
+Animation is making things move over time, and simulation is using the rules of physics to work out how they should move. A game character walking, a car crashing or cloth flapping in the wind all come from these methods.
+
 ## Keyframe animation
 <!-- bite: 675129fb-7994-4273-a921-2450f7e3345d -->
 

@@ -25,7 +25,7 @@ Why the database and not a Vercel cron or a worker?
 
 ## The pipeline
 
-```
+```text
 pg_cron (every minute)
   └─ private.send_nudges()
        ├─ prune_dead_subscriptions()        devices that stopped accepting pushes

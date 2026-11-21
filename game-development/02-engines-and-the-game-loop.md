@@ -4,12 +4,14 @@ id: eb5c15ca-84be-4bdb-8de3-27085459657d
 
 # Engines and the Game Loop
 
+A game engine is ready-made software, such as Unity or Godot, that handles the hard common parts of a game like drawing, sound and physics, so you can focus on the game itself. The game loop is the cycle every game repeats many times a second: read the player's input, update the world, draw the picture. Every game on your phone, from a puzzle game to FIFA, runs this loop.
+
 ## The loop
 <!-- bite: 47561010-7e71-45af-8a2d-01a4c1f419d9 -->
 
 Every game is this, forever:
 
-```
+```text
 while running:
     process_input()
     update(dt)        # advance the simulation
@@ -36,7 +38,7 @@ Naively, `dt` is the time the last frame took. This breaks immediately.
 
 **The standard solution — accumulate:**
 
-```
+```text
 accumulator += frame_time
 while accumulator >= FIXED_DT:
     update(FIXED_DT)          # may run 0, 1, or several times
@@ -67,7 +69,7 @@ The dominant architecture for games, and it exists because inheritance fails her
 - **Component** — plain data, no logic. `Position`, `Velocity`, `Health`, `Sprite`
 - **System** — logic that runs over every entity having a given set of components
 
-```
+```text
 Player = Entity + Position + Velocity + Sprite + Health + PlayerInput
 Rock   = Entity + Position + Sprite
 Turret = Entity + Position + Sprite + Health + AI

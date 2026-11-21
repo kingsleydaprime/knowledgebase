@@ -4,6 +4,8 @@ id: 10b8e179-8380-4c9e-a3fd-f4df9a0c689c
 
 # MEV, Front-Running and Transaction Ordering
 
+Front-running is when someone sees your transaction waiting to run and pushes their own transaction in ahead of it to profit from yours. On a blockchain, your trade sits in public view for a few seconds before it runs. You still get your trade, just at a worse price, and this lesson explains how that happens and how to protect yourself.
+
 ## The kid version first
 <!-- bite: b9429578-316b-4be6-bebd-21d4ab9a7d24 -->
 
@@ -29,7 +31,7 @@ It exists because **someone must choose an order**, that choice is worth money, 
 
 **Sandwiching** — the harmful one, and it targets ordinary users:
 
-```
+```text
 mempool:    victim swaps 100 ETH → USDC, max slippage 2%
 
 attacker's block ordering:
@@ -47,7 +49,7 @@ the victim's transaction succeeded. They simply got less, silently.
 
 Post-Merge, block building is separated from proposing:
 
-```
+```text
 searchers    find opportunities, submit ordered BUNDLES with a bid
     ↓
 builders     assemble the most profitable full block from bundles + mempool

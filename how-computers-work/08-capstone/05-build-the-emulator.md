@@ -4,6 +4,8 @@ id: 44057a03-be54-44cf-99ff-d92594020d4c
 
 # Module 32: Build the Emulator (Your Oracle)
 
+An emulator is a program that pretends to be a piece of hardware, so you can run that hardware's programs on your own computer. In this lesson you will build a software version of PRIME-1. It becomes the trusted answer that every other version of your CPU is checked against.
+
 ## Before you start
 <!-- bite: 78ca4d79-19b7-48e4-a2e4-fce6d4f6c665 -->
 
@@ -58,7 +60,7 @@ Without a reference, you stare at a schematic and guess. With one, you run the s
 
 **Watches** — report when a chosen register changes:
 
-```
+```text
   0002  1250  ADD R1, R1, R2           R1: 0 -> 10
   0004  2498  SUB R2, R2, R3           R2: 10 -> 9
   0005  d0bc  BNZ R2, 2
@@ -75,7 +77,7 @@ Without a reference, you stare at a schematic and guess. With one, you run the s
 
 Hand-written tests check the cases you thought of. **Differential testing checks cases you did not.**
 
-```
+```text
    random program ──┬──► emulator  ──► final register state ─┐
                     │                                        ├──► compare
                     └──► datapath  ──► final register state ─┘
@@ -292,7 +294,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 THE DEBUGGER -- stepping the reference program
   ran until breakpoint at 'loop' (address 2)
     addr  word  disassembly              watched changes

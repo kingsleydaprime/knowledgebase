@@ -4,6 +4,8 @@ id: 85fd2af5-7000-42ca-96ef-22abf5dc7078
 
 # Local & Open Models
 
+A local model is an AI model you download and run on your own computer or server, instead of sending requests to a company over the internet. Open models are the ones whose files are free to download. Running one keeps your data on your machine and costs no fees per message, but it needs enough memory and usually gives weaker answers than the big hosted models.
+
 ## Before you start
 <!-- bite: f2f0aea0-c6b2-460c-97e4-5e7a4e98458e -->
 
@@ -107,7 +109,7 @@ A model that "fits" only by pushing other apps into swap will run, slowly, with 
 
 `ollama run <model> --verbose` prints timing after each answer. From the laptop, CPU only, thinking off:
 
-```
+```text
 load duration:        23.0s      ← first message only: loading 3.4 GB from disk into RAM
 prompt eval rate:     36.6 tokens/s   ← reading the prompt: many tokens at once
 eval count:           83 token(s)
@@ -125,7 +127,7 @@ Heat can also slow a laptop under sustained load (thermal throttling) — here t
 
 The fixes become a **Modelfile**: a named variant with the settings built in, used by `ollama run` and by anything calling Ollama's API:
 
-```
+```text
 FROM qwen3.5:4b
 PARAMETER num_gpu 0          # CPU only
 PARAMETER num_ctx 32768      # context window (Ollama's default is 4,096)

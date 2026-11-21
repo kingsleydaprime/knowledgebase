@@ -4,6 +4,8 @@ id: c88db868-0547-4adb-9460-2373252641e6
 
 # 2D and 3D Transformations
 
+A transformation is a way of moving, resizing, turning, slanting or flipping a shape, and in graphics each one is written as a matrix, a small table of numbers. Every time you pinch to zoom a photo or a game character turns around, the computer is applying transformations.
+
 ## Before you start
 <!-- bite: 6f698ca3-b8d0-498c-8417-faa14923f3a3 -->
 

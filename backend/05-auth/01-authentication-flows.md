@@ -11,7 +11,7 @@ This note is about the *architectural shapes* authentication takes in a backend 
 
 On login, the server creates a session record (server-side state) and gives the client an opaque session ID via a cookie. Every subsequent request includes that cookie; the server looks up the session ID against its own store to identify the user.
 
-```
+```text
 Login -> server creates session {id: "abc123", userId: 42} in a store (Redis, DB)
        -> server sets cookie: session=abc123
 
@@ -25,7 +25,7 @@ Simple to reason about and easy to invalidate (delete the session record, and it
 
 On login, the server issues a signed token (see [[05-digital-signatures-and-pki|digital-signatures-and-pki]] for the signing mechanism) containing the user's identity directly in its payload. The server verifies the signature on each request but doesn't need to look anything up in a session store — the token itself carries everything needed.
 
-```
+```text
 Login -> server signs a token: { userId: 42, exp: <timestamp> }, signed with server's secret/private key
        -> client stores token (commonly in memory or a cookie), sends it with every request
 
@@ -40,7 +40,7 @@ Stateless — any server instance can verify a token without needing shared stat
 OAuth solves a different problem than "who is this user": it lets a user grant a third-party application limited access to their data on another service, without ever sharing their actual password with that third party. "Login with Google" is OAuth used specifically for identity (technically layered with OpenID Connect on top of OAuth for that identity piece).
 
 **Authorization Code flow** (the standard for a server-side web app):
-```
+```text
 1. User clicks "Login with Google" -> redirected to Google's login/consent screen
 2. User approves -> Google redirects back to your app with a temporary authorization code
 3. Your server exchanges that code (server-to-server, using a client secret) for an access token

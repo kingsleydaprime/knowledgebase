@@ -4,6 +4,8 @@ id: 21efb445-ce52-4705-b21c-84b065762857
 
 # Python for Data
 
+Python for data is the way people use the Python programming language to load, clean, study and chart data. Python itself is not fast, but the tools built on it hand the heavy work to faster code underneath. Most data and AI work you hear about, from sales reports to the models behind chat apps, starts with a Python script like the ones in this lesson.
+
 ## Why Python for data at all
 <!-- bite: a138a61f-c060-4b7e-a323-8e070a790945 -->
 

@@ -11,7 +11,7 @@ id: ff26e7f4-10dc-4327-ad2f-f548b81578cb
 
 The server sends a nearly empty HTML shell plus a JavaScript bundle; the browser downloads and runs that JavaScript, which then builds the actual page content and fetches any data it needs.
 
-```
+```text
 Server sends: <div id="root"></div> + app.js
 Browser: downloads app.js, executes it, JS builds the DOM, fetches data via API calls
 ```
@@ -23,7 +23,7 @@ Fast subsequent navigation (once the JS bundle is loaded, moving between pages d
 
 The server runs the same rendering logic that would otherwise run in the browser, produces fully-formed HTML for the *specific request*, and sends that — the user sees real content immediately, before any JavaScript has even loaded.
 
-```
+```text
 Request comes in -> server renders the React/Vue component tree to an HTML string, per-request
                   -> sends fully-formed HTML -> browser displays it immediately
                   -> JavaScript loads afterward and "hydrates" it (see below)
@@ -36,7 +36,7 @@ Solves CSR's blank-page problem and is much friendlier to search engine crawlers
 
 The HTML for every page is generated once, **at build time**, not per-request — the result is a folder of plain HTML files that can be served directly from a CDN with no server-side rendering work happening live at all.
 
-```
+```text
 Build time: generate index.html, about.html, blog/post-1.html, ... (once, ahead of time)
 Request time: CDN just serves the pre-built file — no rendering work happens live
 ```
@@ -48,7 +48,7 @@ Extremely fast (serving a static file from a CDN edge is about as fast as this g
 
 A middle ground (popularized by Next.js): pages are statically generated like SSG, but can be **regenerated in the background** after a specified time interval, without needing a full site rebuild for every single content change.
 
-```
+```text
 First request after the revalidation window -> serve the (possibly slightly stale) cached static page immediately
                                              -> trigger a regeneration in the background
 Next request -> gets the freshly regenerated version
@@ -61,7 +61,7 @@ Combines SSG's speed with a practical answer to "what if content changes after b
 
 After the server sends pre-rendered HTML (SSR or SSG), the client-side JavaScript still needs to "wake up" — attaching event listeners, restoring component state, taking over from the static markup so the page becomes interactive rather than just a static picture of the app. This process is **hydration**, and it's the reason a server-rendered page can show content instantly but still feel briefly unresponsive to clicks until hydration finishes — the visible content and the page's actual interactivity are, for a brief window, out of sync.
 
-```
+```text
 1. Server sends fully-rendered HTML -> user sees content immediately
 2. JavaScript bundle downloads and executes
 3. Hydration: JS "attaches" to the existing DOM, making it interactive

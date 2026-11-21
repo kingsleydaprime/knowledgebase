@@ -4,6 +4,8 @@ id: 54f522df-c72a-45d1-b4fd-86ebced23d52
 
 # Logic
 
+Logic is the study of statements that are either true or false, and of how to combine them with words like and, or, not and if-then. Every if statement in a program and every search filter in an app is logic at work.
+
 ## Propositional logic
 <!-- bite: 1e897122-2716-40bc-b693-71ff877d10b0 -->
 
@@ -41,7 +43,7 @@ $p \to q$ — "if $p$ then $q$" — is where everyone stumbles, and it's worth s
 
 **It's less strange in code than it looks.** Consider:
 
-```
+```text
 for (x in emptyList) { assert(f(x)) }
 ```
 
@@ -83,7 +85,7 @@ $$\neg(p \vee q) \equiv \neg p \wedge \neg q$$
 
 **Negating an AND gives an OR, and vice versa.** This is why
 
-```
+```text
 if (!(a && b))     is      if (!a || !b)
 ```
 

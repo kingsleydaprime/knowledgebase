@@ -77,7 +77,7 @@ Swagger UI is a **single-page web application** bundled inside the `springdoc-op
 
 The flow when you open `http://localhost:8080/docs`:
 
-```
+```text
 Browser loads Swagger UI HTML/JS
        ↓
 Swagger UI fetches GET /v3/api-docs
@@ -100,7 +100,7 @@ This is why the same Swagger UI can document any API regardless of the backend l
 
 When you click "Try it out" in Swagger UI, fill in the body, and click "Execute", the browser sends a real HTTP request directly from your browser to your server.
 
-```
+```text
 Browser (running Swagger UI JavaScript)
        ↓  (real HTTP POST to http://localhost:8080/subscription/subscribe)
 Spring Boot on localhost:8080

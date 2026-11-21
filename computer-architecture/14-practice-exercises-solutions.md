@@ -81,7 +81,7 @@ Blocking adds little over `ikj` here because `-O2` already vectorises the inner 
 
 **This is the important one.** Same source, same data, two optimisation levels:
 
-```
+```text
 -O0:   unsorted 0.418 s    sorted 0.105 s     ← 4.0× — the classic result
 -O2:   unsorted 0.024 s    sorted 0.022 s     ← ~none
 ```

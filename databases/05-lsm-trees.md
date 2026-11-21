@@ -4,6 +4,8 @@ id: b45188af-4f1f-4b8a-9785-b2cc804658de
 
 # LSM Trees
 
+An LSM tree is a way of storing data that is built for writing a lot of data very fast. New writes are collected in memory and saved to disk in sorted batches, instead of changing the file in place each time. Systems that take in huge numbers of writes, like message logs and chat apps, often use it.
+
 ## The problem with B-trees on writes
 <!-- bite: 4182f5eb-9a69-453b-a87d-c37d89d6ce03 -->
 
@@ -24,7 +26,7 @@ id: b45188af-4f1f-4b8a-9785-b2cc804658de
 
 > **Never update in place. Only ever append, and sort later.**
 
-```
+```text
        WRITES
          │
          ▼

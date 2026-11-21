@@ -4,6 +4,8 @@ id: bc30105a-0457-42e2-86d9-cb9006913a8e
 
 # Performance and the Runtime
 
+The runtime is the part of Go that runs alongside your program, deciding which goroutine runs when and cleaning up memory you no longer use. When a Go service feels slow or uses too much memory, the answer is usually found here. This lesson shows how the runtime works and how to measure where your program spends its time.
+
 ## The scheduler (G-M-P)
 <!-- bite: 1f53f63b-c27d-4276-97dd-d60638c5c946 -->
 
@@ -39,7 +41,7 @@ go build -gcflags="-m" ./...       # what escapes, and why
 go build -gcflags="-m -m" ./...    # more detail
 ```
 
-```
+```text
 ./main.go:12:6: can inline process
 ./main.go:15:2: moved to heap: buf
 ./main.go:20:9: &User{...} escapes to heap
@@ -104,7 +106,7 @@ go tool pprof http://localhost:6060/debug/pprof/block                # blocking 
 
 Inside the tool:
 
-```
+```text
 (pprof) top10          # hottest functions by self time
 (pprof) top -cum       # by cumulative time — usually more useful
 (pprof) list funcName  # line-by-line cost within a function

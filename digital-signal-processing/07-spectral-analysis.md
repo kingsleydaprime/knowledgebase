@@ -4,6 +4,8 @@ id: 4cda8f0e-811d-438b-830a-cf4451d8bf4e
 
 # Spectral Analysis
 
+Spectral analysis is the careful work of finding out which frequencies are in a real signal, when you only have a short piece of it to look at. A short piece can blur or hide frequencies, so this lesson covers the fixes. Apps that name a song from a few seconds of audio, like Shazam, rely on this kind of analysis.
+
 ## The kid version first
 <!-- bite: b695356d-d013-495f-8da3-0c770a9b74d9 -->
 
@@ -16,7 +18,7 @@ Spectral analysis is the craft of getting a trustworthy picture of a real signal
 
 The FFT assumes your `N` samples are exactly one period of a signal that repeats forever. **They almost never are** — you grabbed an arbitrary window, so its start and end don't line up. That discontinuity, when the FFT imagines the chunk repeating, injects fake frequencies:
 
-```
+```text
    a clean tone, windowed at a non-integer number of cycles:
    the ends don't match → the FFT sees a "jump" → energy SMEARS
    across neighbouring bins instead of one clean spike
@@ -29,7 +31,7 @@ The FFT assumes your `N` samples are exactly one period of a signal that repeats
 
 **A window function tapers the chunk smoothly to zero at both ends** before the FFT, so there's no discontinuity when it "repeats." Multiply your samples by a window, then transform:
 
-```
+```text
    samples × window  →  FFT
    (rectangular = no window = worst leakage)
 ```
@@ -48,7 +50,7 @@ The FFT assumes your `N` samples are exactly one period of a signal that repeats
 
 Frequency resolution is `fs / N`: to distinguish two close frequencies you need a large `N`, which means a *long* time window. But a long window blurs *when* things happened. **You cannot have fine frequency resolution and fine time resolution at once.**
 
-```
+```text
    long window   → sharp frequencies, but "somewhere in this long span"
    short window  → precise timing, but blurry frequencies
 ```
@@ -60,7 +62,7 @@ Frequency resolution is `fs / N`: to distinguish two close frequencies you need 
 
 A single FFT gives *one* spectrum for the whole chunk — useless for a signal whose content changes (speech, music, a bird call). The **Short-Time Fourier Transform (STFT)** fixes this: slide a window along the signal, FFT each position, and stack the results into a **spectrogram** — time on one axis, frequency on the other, colour for magnitude:
 
-```
+```text
    freq ▲  ████░░  ← a rising tone sweeps up over time
         │  ░░████
         └──────────► time

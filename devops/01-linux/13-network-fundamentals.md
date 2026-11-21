@@ -28,7 +28,7 @@ Your machine right now:
 An IP address gets you to a machine. A port gets you to a specific service on that machine.
 
 Think of it like:
-```
+```text
 IP address = building address
 Port       = apartment number
 ```
@@ -54,7 +54,7 @@ Common ports worth memorizing:
 
 Domain Name System — translates human names to IP addresses.
 
-```
+```text
 google.com → 142.250.185.46
 ```
 
@@ -198,7 +198,7 @@ search .
 Notice `nameserver 127.0.0.53` — that's not an external DNS server. That's **systemd-resolved** running locally on your machine as a DNS stub resolver.
 
 So your DNS flow is:
-```
+```text
 Your app → 127.0.0.53 (systemd-resolved) → actual DNS server upstream
 ```
 
@@ -271,7 +271,7 @@ This is gold. You can see your entire network path to Google.
 
 **traceroute told you the full journey:**
 
-```
+```text
 Your machine
   → 192.168.2.1          (your WiFi router)
   → 172.20.40.1          (itconsortiumgh.com — IT Consortium's network)
@@ -313,7 +313,7 @@ Good observation but not exactly.
 `172.x.x.x` doesn't automatically mean internal. It depends on the range:
 
 **Private ranges** (internal networks only):
-```
+```text
 10.0.0.0    – 10.255.255.255
 172.16.0.0  – 172.31.255.255      ← only this specific range
 192.168.0.0 – 192.168.255.255
@@ -327,7 +327,7 @@ In your traceroute:
 - `172.253.x.x` — public (Google's backbone)
 
 The pattern to memorize:
-```
+```text
 10.x.x.x        → always private
 172.16-31.x.x   → private
 192.168.x.x     → always private

@@ -4,6 +4,8 @@ id: 862c7b7c-f646-4941-ad9d-55a2c829016b
 
 # Storage, Memory and Calldata
 
+Storage, memory and calldata are the three places a value can live while a Solidity program runs. Calldata is like a letter someone posted you, which you read but can't change. Memory is like your desk, wiped when you leave, and storage is like a filing cabinet that keeps things forever but costs a lot to use.
+
 ## The kid version first
 <!-- bite: 6c5a9cfd-7cf4-4646-b8a5-f2c475fe82fc -->
 
@@ -89,7 +91,7 @@ On a 100-item loop this is a five-figure gas saving, and the transformation is m
 
 Memory is cheap **but its cost is quadratic** past 724 bytes:
 
-```
+```text
 cost ≈ 3 × words + words² / 512
 ```
 

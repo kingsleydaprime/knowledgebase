@@ -4,6 +4,8 @@ id: 7a1ad5b0-3603-467a-92af-87e3d27720e2
 
 # TLS & Transport Security
 
+TLS is the protection that keeps data private and untampered while it travels between your device and a website. The padlock in your browser's address bar means TLS is on. It lets two machines that have never met talk safely across a network run by strangers.
+
 ## Before you start
 <!-- bite: 75a41c39-5c2f-4469-984e-d550d045f6c2 -->
 
@@ -82,7 +84,7 @@ That gives **forward secrecy**: stealing the server's private key tomorrow revea
 
 A certificate binds a **name** to a **public key**, signed by a **certificate authority**. Checking it walks a chain:
 
-```
+```text
 shop.example's cert  ──signed by──►  intermediate CA  ──signed by──►  root CA
                                                                         │
                                               already in your OS or browser's trust store
@@ -113,7 +115,7 @@ Each fails, and each with its own error: `ERR_TLS_CERT_ALTNAME_INVALID` for the 
 
 **TLS 1.2 took two round trips before application data. TLS 1.3 takes one.** The client guesses which key-exchange group the server will pick and sends its key share in the *first* message, so the server can reply with everything needed:
 
-```
+```text
 TLS 1.2:  ClientHello → ServerHello, Certificate → KeyExchange → Finished → DATA      (2 round trips)
 TLS 1.3:  ClientHello + KeyShare → ServerHello + Certificate + CertificateVerify + Finished → DATA   (1 round trip)
 ```

@@ -4,6 +4,8 @@ id: 871c975e-a607-4a80-a7f1-b841ee274525
 
 # Distributed Processing — Spark and Beyond
 
+Distributed processing is splitting a job that is too big for one computer across many computers, running the same work on each piece at the same time, then joining the results. Spark is the best-known tool for it, and this lesson also asks honestly whether you need it at all.
+
 ## The kid version first
 <!-- bite: 800e3fbb-0158-4fa9-a451-c09b1f4720e8 -->
 
@@ -16,7 +18,7 @@ The catch is that coordinating a hundred machines — moving data between them, 
 
 The idea that started modern big data (Google, 2004). Two steps:
 
-```
+```text
 MAP    — each machine processes its chunk, emitting (key, value) pairs
 SHUFFLE — pairs with the same key are moved to the same machine  ← the expensive part
 REDUCE — each machine aggregates the values for its keys

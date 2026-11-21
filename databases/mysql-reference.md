@@ -252,7 +252,7 @@ mysql -u root -p --disable-reconnect database_name
 
 ### 3.3 Useful CLI Shortcuts
 
-```
+```text
 \G   — display results vertically (SELECT * FROM users\G)
 \c   — cancel current input
 \q   — quit
@@ -1349,7 +1349,7 @@ EXPLAIN ANALYZE SELECT * FROM orders WHERE user_id = 42;
 
 ### 15.2 Reading EXPLAIN Output
 
-```
+```bash
 id | select_type | table  | type | possible_keys | key          | rows | Extra
 1  | SIMPLE      | orders | ref  | idx_user_id   | idx_user_id  | 15   | Using where
 ```
@@ -1651,7 +1651,7 @@ mysqlbinlog mysql-bin.000001 \
 
 MySQL replication copies changes from a **primary** (master) server to one or more **replica** (slave) servers. The primary writes changes to the binary log. Each replica reads the binary log and replays the events.
 
-```
+```text
 Primary (writes all changes to binlog)
     ↓
 Binary Log

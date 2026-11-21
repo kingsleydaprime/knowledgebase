@@ -4,6 +4,8 @@ id: f98b2184-bcd1-42c2-a711-0ff7f85eb04d
 
 # Pattern: Linked List In-place Reversal
 
+Linked list reversal is flipping the order of a linked list by turning each link around, without making a new list. A linked list is a chain of items where each item points to the next. It is like a queue of people where each person turns to face the person who was behind them.
+
 ## Before you start
 <!-- bite: 51a5fdbc-4d0d-4ac2-9852-5adfcbddb0bd -->
 

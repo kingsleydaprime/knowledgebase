@@ -4,6 +4,8 @@ id: 4f492773-0039-4aa4-8ce5-dca276360fe8
 
 # Tokens, Coins and NFTs
 
+A coin is the money built into a blockchain itself, a token is a balance list kept inside one program on that blockchain, and an NFT is the same kind of list where each entry is one unique numbered item. You may have heard of Bitcoin, USDT or NFT art pictures. This lesson shows what each one really is underneath.
+
 ## The kid version first
 <!-- bite: c07741d0-cc9a-4d87-8379-8fb5ed09f100 -->
 
@@ -58,7 +60,7 @@ mapping(address => mapping(address => uint256)) private _allowances;
 
 There are no fractions on-chain — all arithmetic is integer. A token declares `decimals` purely as **display metadata**, and every contract stores raw integers:
 
-```
+```text
 1.5 USDC   (6 decimals)  → stored as 1_500_000
 1.5 ETH   (18 decimals)  → stored as 1_500_000_000_000_000_000
 ```

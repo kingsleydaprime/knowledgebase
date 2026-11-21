@@ -4,6 +4,8 @@ id: eadf490f-f184-4df2-bf55-ee7db14e8346
 
 # The App Lifecycle
 
+The app lifecycle is the set of states an app moves through: on screen, in the background, and closed. You see it when you switch from WhatsApp to your camera and back, or when an app you left open starts again from the beginning. The phone moves your app between these states without asking, and this lesson shows how to make sure nothing is lost when it does.
+
 ## The kid version first
 <!-- bite: 6e9e5d14-31d0-4588-8348-e3aab38b41af -->
 
@@ -16,7 +18,7 @@ When the user comes back, they tap your icon and expect to be **exactly where th
 ## The states
 <!-- bite: 6fb7d972-9902-440c-b4d9-d40e7daddb24 -->
 
-```
+```text
    NOT RUNNING
         │ user taps icon
         ▼
@@ -64,7 +66,7 @@ Getting this taxonomy right is most of the work:
 **This is the single most important testing habit in mobile**, and most developers never do it. Pressing "back" or swiping the app away is **not** the same as the OS killing you — those are user-initiated and behave differently.
 
 **Android:**
-```
+```text
 Developer options → "Don't keep activities"   ← leave this ON during development
 # or, with the app backgrounded:
 adb shell am kill <package>
@@ -79,7 +81,7 @@ adb shell am kill <package>
 
 A user taps a link, a notification, or a widget. **Your app may not be running.** So every entry point must work from a cold start:
 
-```
+```text
 notification tap → app not running → launch → restore auth →
     resolve the deep link → navigate to the right screen → THEN render
 ```

@@ -104,7 +104,7 @@ rm src/app.controller.spec.ts
 
 ### 4. Set up folder structure
 
-```
+```text
 src/
   modules/       # feature modules (auth, users, events...)
   shared/        # injectable infrastructure (prisma, redis, storage)
@@ -239,7 +239,7 @@ export class PrismaModule {}
 
 ### 6. Add to .gitignore
 
-```
+```text
 src/generated/   # regenerated with: npx prisma generate
 .env
 ```
@@ -277,7 +277,7 @@ npx prisma db seed                       # run your seed file to populate defaul
 
 ### Inside each feature module
 
-```
+```text
 events/
   events.module.ts      ← wires everything together
   events.controller.ts  ← HTTP layer only, calls service
@@ -1050,7 +1050,7 @@ gameType: dto.gameType as $Enums.GameType
 
 ### When VS Code shows stale errors
 
-```
+```text
 Ctrl + Shift + P → TypeScript: Restart TS Server
 # or
 Ctrl + Shift + P → Developer: Reload Window
@@ -1502,7 +1502,7 @@ model Game {
 
 ### UnknownDependenciesException
 
-```
+```text
 Error: Nest can't resolve dependencies of AuthService (?, JwtService)
 ```
 
@@ -1529,7 +1529,7 @@ constructor(
 
 ### Prisma: id is undefined in where clause
 
-```
+```text
 Error: Argument where needs at least one argument. id: undefined
 ```
 
@@ -1607,7 +1607,7 @@ nest generate library shared     # adds a shared library
 
 Structure becomes:
 
-```
+```text
 apps/
   nextvibe-api/    ← your main API
   worker-app/      ← BullMQ workers as a separate app
@@ -1767,7 +1767,7 @@ const prisma = new PrismaClient().$extends(
 
 ### Horizontal scaling — what breaks and how to fix it
 
-```
+```text
 Client → Load Balancer → [API instance 1]
                        → [API instance 2]
                        → [API instance 3]
@@ -1784,7 +1784,7 @@ Client → Load Balancer → [API instance 1]
 
 ### Database sharding
 
-```
+```text
 # Vertical partitioning — different tables on different DBs
 DB1: users, follows, user_preferences   (identity data)
 DB2: events, rsvps, check_ins           (event data)
@@ -1803,7 +1803,7 @@ DB3: events where organizer_id starts with 8-f
 
 ### Message queues at scale
 
-```
+```text
 MVP:    BullMQ + Redis       — fine up to ~10k jobs/day
 Growth: RabbitMQ             — proper message broker, acks, dead letters
 Scale:  Kafka                — distributed log, millions of events/second

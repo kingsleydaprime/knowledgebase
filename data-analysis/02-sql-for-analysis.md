@@ -4,6 +4,8 @@ id: 7e401d3b-ff6a-4e4e-9cc8-9ab98a199b2c
 
 # SQL for Analysis
 
+SQL is the language people use to ask questions of the data stored in a database. When a bank app shows your spending for the month, some SQL query added up your transactions behind the scenes. For a data analyst, SQL is the main everyday tool.
+
 ## The kid version first
 <!-- bite: 445c4d97-76d1-4ea2-a6af-5ad78c0db56d -->
 

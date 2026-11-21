@@ -4,10 +4,12 @@ id: c1972a4a-ecfd-4bf2-aae2-9b3d9016e0b0
 
 # The Programming Model
 
+The GPU programming model is the basic shape of a program that runs on a graphics card. You copy the data onto the card, run one small function on thousands of pieces of the data at once, then copy the results back. It is like a teacher handing the same worksheet to a whole hall of students instead of marking every question alone.
+
 ## The shape of a GPU program
 <!-- bite: d665fd7e-1531-4c8f-9484-473418174eb1 -->
 
-```
+```text
 1. Allocate device memory
 2. Copy input   host → device
 3. Launch kernel  (thousands of threads)
@@ -42,7 +44,7 @@ add<<<(n + 255) / 256, 256>>>(a, b, c, n);
 
 **The hierarchy:**
 
-```
+```text
  GRID
  ├── BLOCK (0,0)  ├── BLOCK (1,0)  ├── BLOCK (2,0)
  │   ├── warp 0   │                │
@@ -97,7 +99,7 @@ float left = shared_data[threadIdx.x - 1];
 
 **Streams** are independent queues. Work in different streams can overlap:
 
-```
+```text
  Stream 1:  [copy H→D]  [kernel]  [copy D→H]
  Stream 2:              [copy H→D]  [kernel]  [copy D→H]
  Stream 3:                          [copy H→D]  [kernel]

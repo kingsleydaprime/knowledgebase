@@ -4,6 +4,8 @@ id: 95c42c75-5bd0-4eff-be94-40a8d2d9f03d
 
 # Network Performance
 
+Network performance is how quickly data gets from one place to another, and it depends on two different things: how much data can flow at once, and how long each trip takes. A faster internet plan does not always make an app feel faster. This lesson shows which of the two really matters for what you build.
+
 ## The kid version first
 <!-- bite: 344a37d8-db25-4a84-9a23-bd88bce6593e -->
 
@@ -41,7 +43,7 @@ The point of the right-hand column: a network round trip isn't "a bit slower" th
 ## Bandwidth-delay product — the pipe you must keep full
 <!-- bite: 9573f284-c731-4c4e-9ee2-76ad3c1258e9 -->
 
-```
+```text
 BDP = bandwidth × RTT
 ```
 
@@ -56,7 +58,7 @@ This is the "**long fat network**" problem, and it's the reason bulk transfers b
 
 Count the round trips before the first byte of HTML:
 
-```
+```text
 DNS lookup                     1 RTT   (or more, if uncached up the chain)
 TCP handshake                  1 RTT
 TLS 1.3 handshake              1 RTT
@@ -86,7 +88,7 @@ Note the ranking: **not making the request at all > making it closer > making it
 
 The **Mathis equation** approximates loss-based TCP throughput:
 
-```
+```text
 throughput ≈ MSS / (RTT × √p)        p = packet loss probability
 ```
 

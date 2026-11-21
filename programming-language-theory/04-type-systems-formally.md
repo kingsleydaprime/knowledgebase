@@ -4,6 +4,8 @@ id: bd08e87b-6864-4b50-9a1b-c6c4b2e16b1b
 
 # Type Systems Formally
 
+A type system is the set of rules a language uses to check, before a program runs, that values are used in sensible ways, such as not adding a number to a list. You meet it every time TypeScript underlines your code in red. This lesson looks at those rules exactly, as written by the people who design languages.
+
 ## What a type system is
 <!-- bite: cb5ab589-00cd-4ec5-946f-a3284ceb365d -->
 

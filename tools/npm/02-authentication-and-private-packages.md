@@ -27,7 +27,7 @@ Private packages, GitHub Packages, publishing, and the CI authentication that wo
 
 The failure is always the same shape. Locally, `npm install` works. In CI, the same commit produces:
 
-```
+```bash
 npm error code E401
 npm error Unable to authenticate, your authentication token seems to be invalid.
 ```

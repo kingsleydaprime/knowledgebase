@@ -4,6 +4,8 @@ id: bcc225fa-5fd4-4cbd-90b9-7b6ea474bc4f
 
 # Creational Patterns
 
+Creational patterns are common, tested ways of creating objects in code, so the rest of the program doesn't need to know exactly how each one is made. A design pattern is a known answer to a problem that keeps coming up. This lesson covers four of them: factory, builder, singleton and prototype.
+
 ## Before you start
 <!-- bite: 509f9f14-9faf-43d4-b6f5-e33793b9b932 -->
 
@@ -247,7 +249,7 @@ test("builder: build() rejects an incomplete or contradictory email", () => {
 
 **Run it.** Put the three files in one folder and run `node --test` from it (Node 23.6 or later; checked with Node 26). Expected:
 
-```
+```text
 ℹ tests 5
 ℹ pass 5
 ℹ fail 0

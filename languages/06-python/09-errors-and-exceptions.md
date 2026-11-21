@@ -34,7 +34,7 @@ except FileNotFoundError:
 ## The hierarchy
 <!-- bite: 728b19f0-4136-47ce-ba18-5d153cf74b7c -->
 
-```
+```text
 BaseException
  ├── SystemExit, KeyboardInterrupt, GeneratorExit   ← NOT subclasses of Exception
  └── Exception
@@ -119,7 +119,7 @@ Carry structured data as attributes (`self.field`), not just a formatted string 
 ## Reading a traceback
 <!-- bite: a8466d1d-75fe-4a69-98e6-24d21cf93405 -->
 
-```
+```text
 Traceback (most recent call last):
   File "app.py", line 42, in main
     process(data)

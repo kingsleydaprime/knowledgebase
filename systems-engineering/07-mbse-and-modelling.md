@@ -4,6 +4,8 @@ id: d15fa865-9b5f-4498-8cfb-c2d8b3942f6c
 
 # MBSE and Modelling
 
+MBSE, short for model-based systems engineering, means keeping a project's design in one shared computer model instead of in hundreds of separate documents. When documents are kept apart, they slowly stop matching each other. A single model means a change made in one place shows up everywhere.
+
 ## The problem with documents
 <!-- bite: 5cfd2cd3-8c5f-4997-b459-bbf7b162f707 -->
 

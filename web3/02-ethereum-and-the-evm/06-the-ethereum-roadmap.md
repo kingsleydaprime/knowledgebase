@@ -4,6 +4,8 @@ id: 57476fbd-f7cb-4ea9-a5dc-bbb86dbd70f4
 
 # The Ethereum Roadmap
 
+The Ethereum roadmap is the list of upgrades to Ethereum that have already shipped, are planned, or are only ideas so far. Much of what you read online either talks about unfinished features as if they exist or is years out of date. This lesson sorts the upgrades into done, planned and hoped-for.
+
 ## Why this note exists
 <!-- bite: 97f504fa-233a-4d9f-ba45-90a4c9b4c896 -->
 

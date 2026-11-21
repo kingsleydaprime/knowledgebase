@@ -15,7 +15,7 @@ Microcontrollers need to talk to sensors, displays, other MCUs, and the cloud. T
 - "Asynchronous" — no shared clock signal, timing is inferred from start/stop bits framing each byte.
 - Used for: debug output (Serial Monitor in Arduino), GPS modules, Bluetooth serial modules (HC-05), GSM modems.
 
-```
+```text
 Device A TX ──────────────► Device B RX
 Device A RX ◄────────────── Device B TX
 GND ─────────────────────── GND

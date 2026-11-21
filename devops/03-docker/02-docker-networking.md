@@ -69,7 +69,7 @@ docker network disconnect mynetwork container # remove from network
 
 ### Port mapping
 
-```
+```text
 -p host_port:container_port
 ```
 

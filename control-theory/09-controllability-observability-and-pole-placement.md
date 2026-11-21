@@ -4,6 +4,8 @@ id: f99e4727-dcd0-4766-8429-72e431bba1c3
 
 # Controllability, Observability and Pole Placement
 
+Controllability asks whether your inputs can steer a system to any state you want. Observability asks whether your measurements are enough to work out what state it is in. If both are true, pole placement lets you choose how fast and how smoothly the system responds.
+
 ## Controllability
 <!-- bite: e800a7e9-6efe-4190-a1d6-df0e110b04d7 -->
 
@@ -69,7 +71,7 @@ A state-space model is **minimal** iff it's both controllable and observable.
 
 **Non-minimal means the model has states the transfer function can't see** — states that are unreachable from the input, unobservable at the output, or both. Convert to a transfer function and they vanish silently.
 
-```
+```text
                   observable    unobservable
  controllable   │  ← this is    │ can drive it,
                 │    the TF     │ can't see it

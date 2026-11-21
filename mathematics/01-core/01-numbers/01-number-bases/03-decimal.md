@@ -4,6 +4,8 @@ id: 92aa3b07-fb49-46df-858c-7d52be2fab04
 
 # Decimal (Base 10)
 
+Decimal is the base-ten counting system you have used since primary school, with the digits 0 to 9. It feels natural only because we have ten fingers, and this lesson looks at it closely to show what is special about it and what is not.
+
 ## Before you start
 <!-- bite: da59f8ff-918c-4409-af83-25fa183ed079 -->
 

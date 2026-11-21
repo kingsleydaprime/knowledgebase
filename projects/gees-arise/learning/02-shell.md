@@ -120,7 +120,7 @@ psql -c "select 1;"
 
 **Mistake 2 (not really a mistake, just Postgres/networking reality) — Supabase's direct DB connection is IPv6-only.**
 
-```
+```bash
 psql: error: connection to server at "db.<ref>.supabase.co" (2a05:...) port 5432 failed: Network is unreachable
 ```
 Even with the connection string fixed, this failed because `db.<project-ref>.supabase.co` resolves to an IPv6 address, and this machine has no IPv6 route out. This is a known, common Supabase gotcha, not a bug in anything we did: **direct** Postgres connections are IPv6 by default (Supabase added an IPv4 add-on you can pay for, but it's not automatic). The IPv4-friendly path is Supabase's **connection pooler** (Supavisor) instead — a different hostname, region-specific (e.g. `aws-0-<region>.pooler.supabase.com`), shown in the dashboard's "Connect" button alongside the direct connection string.

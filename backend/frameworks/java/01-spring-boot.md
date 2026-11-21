@@ -46,7 +46,7 @@ Spring sees the Lombok-generated constructor and calls it with the beans it mana
 ## The layered architecture
 <!-- bite: ae70f54c-7589-4c6d-9bd7-3af3f8621d5f -->
 
-```
+```text
 HTTP request → Controller (headers/body in, calls the service)
              → Service (business logic: validate, decide, orchestrate)
              → Store/Repository (persistence)

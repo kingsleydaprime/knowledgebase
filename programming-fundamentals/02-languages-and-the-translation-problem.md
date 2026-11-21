@@ -54,7 +54,7 @@ The other axis you'll hit immediately.
 
 **Dynamically typed** — types are attached to values at runtime. Anything can hold anything; mismatches surface when the operation happens. *Python, JavaScript, Ruby.*
 
-```
+```text
 # dynamic — perfectly legal, and a bug waiting for the right input
 x = 5
 x = "hello"

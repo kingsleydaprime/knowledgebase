@@ -4,6 +4,8 @@ id: e19fd243-6757-4eb5-934f-a332bcfecc25
 
 # Error Handling in Practice
 
+Error handling in practice is how real Rust projects create, pass along and report their errors. When an app shows "could not load your account, please try again", that message came from an error that travelled up through the code. This lesson covers the common tools Rust projects use to do this neatly.
+
 ## The `Error` trait
 <!-- bite: bce248d7-94c0-47d0-8ef6-f15a955a22f5 -->
 
@@ -99,7 +101,7 @@ fn run() -> Result<()> {                      // Result<(), anyhow::Error>
 
 `.context()` is the important part — it's `%w` wrapping from [[languages/02-go/05-errors|Go]], with the chain printed for you:
 
-```
+```text
 Error: loading configuration
 
 Caused by:

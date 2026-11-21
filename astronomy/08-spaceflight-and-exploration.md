@@ -4,6 +4,8 @@ id: d9f8ddfd-9008-4bbf-bfaa-3123195169dc
 
 # Spaceflight and Exploration
 
+Spaceflight is getting machines and people into space and keeping them there. Space is only about 100 km up, but staying there means moving sideways very fast, so you keep falling round the Earth instead of back down. The satellites that carry your TV signal and phone GPS stay up this way.
+
 ## Orbit is not altitude
 <!-- bite: e77c9d5b-4a01-41e0-aa67-0270d8909f53 -->
 

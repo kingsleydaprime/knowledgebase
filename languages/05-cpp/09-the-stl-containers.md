@@ -4,6 +4,8 @@ id: ae5adfa2-ebb6-4c5b-8d88-50d5d8b52702
 
 # The STL Containers
 
+The STL containers are the ready-made types C++ gives you for holding groups of values, like lists, dictionaries and queues. Almost every C++ program uses at least one, most often `std::vector`. Picking the right container, and knowing how each behaves, makes your code faster and safer.
+
 ## `std::vector` — the default
 <!-- bite: b9fabd89-b3ca-4f2f-99ce-fec4e2194cb8 -->
 

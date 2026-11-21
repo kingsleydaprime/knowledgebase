@@ -4,6 +4,8 @@ id: ff471003-3250-45cb-b1c3-3eb0e947d2bd
 
 # Module 29: The PRIME-1 ISA (The Contract)
 
+An ISA, short for instruction set architecture, is the exact list of instructions a CPU understands and the pattern of 0s and 1s used to write each one. It is the agreement that the hardware and every program must both stick to. In this lesson you will write that agreement for PRIME-1.
+
 ## Before you start
 <!-- bite: e1a2f8c4-83e5-4c3c-aac0-d5fd4f7a262c -->
 
@@ -57,7 +59,7 @@ This module writes the contract down, and then **proves it is unambiguous** rath
 
 Every PRIME-1 instruction is exactly **16 bits**, in one of three shapes:
 
-```
+```text
    R-type   [op:4][rd:3][ra:3][rb:3][fn:3]     register-register
    I-type   [op:4][rd:3][ra:3][   imm:6   ]     immediate and memory
    J-type   [op:4][        addr:12        ]     jumps
@@ -175,7 +177,7 @@ The lab runs this over **6,267 encodings** — every register combination for ev
 
 **The right fix, from module 28's section 7:** use the R-type `fn` field. Make one opcode a system group where `fn` selects the operation:
 
-```
+```text
    fn = 000  ->  JR ra      (PC = ra)
    fn = 001  ->  HLT
    fn = 010  ->  reserved
@@ -346,7 +348,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 INSTRUCTION FORMATS -- every instruction is exactly 16 bits
   R-type  [op:4] [rd:3] [ra:3] [rb:3] [fn:3]           = 16 bits
   I-type  [op:4] [rd:3] [ra:3] [imm:6]                 = 16 bits

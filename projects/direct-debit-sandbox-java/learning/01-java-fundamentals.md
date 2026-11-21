@@ -18,7 +18,7 @@ Boot, written against this codebase). See also `02-spring-boot-basics.md`,
 
 Java is a **statically typed** language. That means you must tell it the type of every variable before you use it. You cannot just write:
 
-```
+```text
 name = "Kingsley"   // This is Python/JavaScript. Java will refuse.
 ```
 

@@ -23,7 +23,7 @@ validation.
 
 The original event creation sent files through the NestJS server as `multipart/form-data`:
 
-```
+```text
 Browser ──── POST (FormData, 200MB video) ──→ NestJS ──→ MinIO
 ```
 
@@ -36,7 +36,7 @@ Every byte of the file occupied NestJS process memory. A 350MB video would:
 
 The backend generates a short-lived signed URL that authorises the browser to write directly to MinIO:
 
-```
+```text
 Browser ─── POST /upload-intent ──→ NestJS (tiny JSON, fast)
 Browser ←── { uploadUrl, fileUrl } ── NestJS
 Browser ─────── PUT (binary) ──────→ MinIO  (NestJS never sees the file)
@@ -567,7 +567,7 @@ export async function POST(req: NextRequest) {
 ### Log format
 
 Each entry is newline-delimited JSON (NDJSON):
-```
+```text
 {"ts":"2026-05-22T10:23:01.123Z","message":"You are not authenticated.","context":{"name":"Error","stack":"Error: ..."}}
 {"ts":"2026-05-22T10:24:15.456Z","message":"Request timed out. Please try again."}
 ```
@@ -623,7 +623,7 @@ const IDLE: UploadState = { status: "idle", progress: 0, url: null };
 ```
 
 State transitions:
-```
+```text
 idle ──(file selected)──→ uploading ──(XHR done)──→ done
                                     ──(XHR error)──→ error ──(retry)──→ uploading
 idle ←──────────────────────────────────────(remove)──────────────────────────

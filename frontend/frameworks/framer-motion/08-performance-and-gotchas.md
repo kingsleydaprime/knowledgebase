@@ -4,6 +4,8 @@ id: b76cb2ad-3fe9-42a5-9301-f68bded0a073
 
 # Performance and Gotchas
 
+This lesson is about keeping Framer Motion animations smooth and avoiding the common mistakes that make them stutter. Animating some properties, like position and size through x, y and scale, is cheap for the browser, while others are slow. A jerky animation on a phone is usually one of these mistakes.
+
 ## Animate transforms and opacity, same rule as everywhere else
 <!-- bite: 88974245-811f-472d-8af7-6f78532d51d5 -->
 

@@ -13,7 +13,7 @@ id: ae44abe3-6934-4de7-8366-b66d8d9b23ca
 ## What you're building
 <!-- bite: 87a53c00-1593-422c-9043-efa24c1ecdb0 -->
 
-```
+```text
 ┌─────────────────────────────────────────┐
 │         Host-only virtual network          │  ← isolated, no route to your real LAN
 │                                              │
@@ -118,7 +118,7 @@ Set DVWA's security level to **Low** for your first pass through any given vulne
 
 Before running a single exercise:
 
-```
+```text
 VirtualBox → select each VM → Machine → Take Snapshot → "clean-install"
 ```
 

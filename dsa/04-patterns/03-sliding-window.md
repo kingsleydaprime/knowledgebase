@@ -4,6 +4,8 @@ id: 2b1d6684-a301-434a-8190-f41fb401fb79
 
 # Pattern: Sliding Window
 
+A sliding window is a technique where you look at a run of items next to each other in a list, and slide that run along one step at a time instead of starting again each time. It is useful for questions like "what is the best total over any 7 days?". A fitness app showing your step count for the last 7 days, updated each day, works this way.
+
 ## Before you start
 <!-- bite: 267fc1cb-0f4a-46cd-a7c3-4f7a5add016d -->
 

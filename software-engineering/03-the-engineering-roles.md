@@ -4,6 +4,8 @@ id: 6f0c73ac-5953-47fa-b9fd-61505153ddcd
 
 # The Engineering Roles
 
+The engineering roles are the different jobs on a software team, such as frontend, backend, security and the people who keep the servers running. Everyone works on the same product, but each role worries about a different thing going wrong, the same way a chef and a waiter in one restaurant do.
+
 ## Before you start
 <!-- bite: ef5f51b4-4366-41f9-bf56-9a6cd28ba108 -->
 

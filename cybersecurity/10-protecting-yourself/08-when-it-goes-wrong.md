@@ -4,6 +4,8 @@ id: f85a70ab-a499-407b-a01d-8742c10eeacd
 
 # When It Goes Wrong
 
+This lesson is a checklist for when something has already gone wrong: an account taken over, money sent to a scammer, or a device lost. The steps are in order, because the order matters when time is short. Read it now, before you need it.
+
 ## Read this before you need it
 <!-- bite: fe52f48a-7da9-4406-b1b0-2e74578ceac6 -->
 

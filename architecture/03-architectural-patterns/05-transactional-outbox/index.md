@@ -4,6 +4,8 @@ id: 475d7d74-dc61-4bd4-a459-6db006ec1d15
 
 # Transactional Outbox
 
+The transactional outbox is a way of saving a change to the database and the message announcing that change together, so you never get one without the other. Think of a shop app that saves your order but fails to send the "order placed" message to the warehouse. This lesson shows how the outbox stops that from happening.
+
 ## Before you start
 <!-- bite: 1da294af-1365-4acc-9cdf-990af132ae65 -->
 
@@ -54,7 +56,7 @@ This is the **dual write** problem: two separate systems, and no transaction tha
 
 There are only two orders to do the writes in, and each has its own failure.
 
-```
+```text
 Save, then publish                    Publish, then save
 ──────────────────                    ──────────────────
 INSERT order   ✓ committed            publish OrderPlaced  ✓ sent
@@ -72,7 +74,7 @@ Wrapping both in a database transaction doesn't help. The broker isn't in the tr
 
 Make it **one write to one system**. Insert the order and an `outbox` row describing the event **in the same database transaction**. Either both are committed or neither is, so there is no moment where one exists without the other.
 
-```
+```text
 BEGIN
   INSERT INTO orders  (...)                                  ┐ one transaction:
   INSERT INTO outbox  (event_id, type, payload, published_at=NULL) ┘ both or neither
@@ -244,7 +246,7 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 
 **Run it.** From [`architecture/03-architectural-patterns/05-transactional-outbox/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/03-architectural-patterns/05-transactional-outbox/labs/javascript), run `node --test`. It needs Node 22.5 or later for `node:sqlite`; checked with Node 26, which prints no experimental warning. Expected:
 
-```
+```text
 ℹ tests 5
 ℹ pass 5
 ℹ fail 0

@@ -4,6 +4,8 @@ id: 9f83f074-bfcb-4bed-920b-79aee0f2b4d6
 
 # Cost, caching and latency
 
+Cost and latency are how much each AI call charges you and how long it makes the user wait. Caching means reusing work that was already done so you pay less and get answers faster. Every reply from an AI service is billed by the amount of text sent and received, so a busy chat feature can get expensive quickly.
+
 ## Before you start
 <!-- bite: 443fb55c-687e-4a9a-ad2e-5278943df027 -->
 
@@ -100,7 +102,7 @@ For Sonnet's 5-minute cache that is *n* > 1.28, so **from the second call**. Wit
 
 **A cache reuses only the identical start of a prompt.** Change one token, and everything after it is processed and paid for again, even if the rest is the same. So order the prompt from what never changes to what changes on every request:
 
-```
+```text
 ┌─ never changes ──────────────────────────────┬─ changes every request ─────────┐
 │ tool definitions · system prompt · examples   │ history · retrieved text · question │
 └───────────────────────────────────────────────┴─────────────────────────────────┘

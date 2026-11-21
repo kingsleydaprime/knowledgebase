@@ -53,7 +53,7 @@ Go code is organised by **package**, one per folder, and a package exports only 
 
 ### By layer — fighting the language
 
-```
+```text
 shop/
 ├── cmd/server/main.go
 ├── handlers/      orders.go  users.go      package handlers
@@ -65,7 +65,7 @@ Every handler has to call into `services`, so every service method must be expor
 
 ### By feature — the Go way, with `internal/` (verified, Go 1.26)
 
-```
+```text
 shop/
 ├── go.mod                          module shop
 ├── cmd/server/
@@ -214,7 +214,7 @@ Java's unit of organisation is the **package**, and it has a visibility level th
 
 ### By layer — everything must be public
 
-```
+```text
 src/main/java/com/shop/
 ├── controller/   OrdersController.java  UsersController.java
 ├── service/      OrdersService.java     UsersService.java
@@ -226,7 +226,7 @@ src/main/java/com/shop/
 
 ### By feature — package-private does the work (verified with plain `javac`, Java 21)
 
-```
+```text
 src/shop/
 ├── App.java                     composition root
 ├── users/UsersService.java      public: the users API
@@ -340,7 +340,7 @@ echo "ok: the compiler refused the cross-feature access"
 
 Spring's component scanning finds `@Service` and `@Repository` classes whether they're public or not, so **the same layout works**: one package per feature directly under the application's package, controllers, services and repositories inside it, and only the API marked `public`.
 
-```
+```text
 src/main/java/com/shop/
 ├── ShopApplication.java        @SpringBootApplication — scans everything below
 ├── orders/
@@ -370,7 +370,7 @@ Rust's modules are **private by default**: an item is visible to its own module 
 
 ### By layer
 
-```
+```text
 src/
 ├── main.rs
 ├── handlers/      mod.rs  orders.rs  users.rs
@@ -382,7 +382,7 @@ src/
 
 ### By feature (verified, Rust 1.96, edition 2024)
 
-```
+```text
 src/
 ├── lib.rs                 pub mod orders; pub mod users;
 ├── main.rs                composition root
@@ -534,7 +534,7 @@ For a hard boundary between teams, make each feature its own **crate** in a Carg
 
 C has no modules and no packages. Its tools are older and blunter, and they're enough: **a header per feature as its public API, `static` for file-private functions, and opaque structs**. Large C codebases have always been organised by feature — the Linux kernel is `net/`, `fs/`, `mm/`, `drivers/`, not `functions/` and `structs/`.
 
-```
+```text
 src/
 ├── main.c               composition root
 ├── users/   users.h  users.c
@@ -668,7 +668,7 @@ Note how `orders` gets "does this user exist?" as a **function pointer** from `m
 
 C++ has `namespace`s, which organise names but enforce nothing, and anonymous namespaces, which work like C's `static`. **The real boundary is in the build**: with CMake, each feature is a library target, and a target's include directories are either `PUBLIC` — given to whoever links it — or `PRIVATE` — kept to itself.
 
-```
+```text
 CMakeLists.txt
 app/main.cpp                          composition root
 users/include/users/users.hpp         public header
@@ -805,7 +805,7 @@ C#'s `internal` keyword means **visible inside this assembly** — the `.dll` on
 
 ### By layer — the template default
 
-```
+```text
 Shop.Api/
 ├── Controllers/   OrdersController.cs  UsersController.cs
 ├── Services/      OrdersService.cs     UsersService.cs
@@ -817,7 +817,7 @@ All in one project, so all in one assembly: `internal` is the same as `public` b
 
 ### By feature — one project per feature (verified, .NET 10)
 
-```
+```text
 src/
 ├── Shop.App/       Program.cs — composition root; references the features
 ├── Shop.Users/     UsersService.cs (public)

@@ -4,6 +4,8 @@ id: 8ac17891-c338-4849-965a-5f8f46094ca3
 
 # Bytecode and Virtual Machines
 
+Bytecode is a simple, compact set of instructions made for a program to read instead of a real CPU, and a virtual machine is the program that reads and runs those instructions. Java, Python and many game scripting languages work this way. This lesson shows how bytecode is designed and how a virtual machine runs it.
+
 ## Why bytecode
 <!-- bite: f398913c-6351-47d0-929e-01f479273f99 -->
 
@@ -24,7 +26,7 @@ The first design decision.
 
 **Stack machine** — operands are implicit, on a stack:
 
-```
+```text
 // a + b * c
 GET_LOCAL 0      // push a
 GET_LOCAL 1      // push b
@@ -35,7 +37,7 @@ ADD              // pop 2, push 1
 
 **Register machine** — operands are explicit indices into a frame:
 
-```
+```text
 MUL  r3, r1, r2      // r3 = b * c
 ADD  r4, r0, r3      // r4 = a + r3
 ```
@@ -199,7 +201,7 @@ enum Value { Nil, Bool(bool), Number(f64), Obj(*mut Obj) }
 
 **NaN boxing** — the trick real VMs use. IEEE 754 doubles have ~2^51 unused NaN bit patterns, so you store *everything* in 8 bytes:
 
-```
+```text
 double:     any bit pattern that isn't a quiet NaN
 nil/true/false: specific NaN patterns
 pointer:    a NaN pattern with the 48-bit address in the mantissa

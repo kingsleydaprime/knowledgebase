@@ -104,7 +104,7 @@ await this.questQueue.upsertJobScheduler(
 ```
 
 Arete's schedule (all UTC — Lagos is UTC+1):
-```
+```text
 0 0 * * *    daily-quest-generator   midnight: create everyone's quests
 59 23 * * *  streak-evaluator        23:59: judge yesterday — continue/grace/shield/reset
 0 6 * * *    quest-reminder          7 AM WAT: "3 quests today. Start with X"

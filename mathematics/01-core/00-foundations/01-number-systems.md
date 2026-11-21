@@ -4,6 +4,8 @@ id: 723aae64-f5be-4335-9475-9df952b7be2d
 
 # 1. NUMBER SYSTEMS
 
+A number system is a family of numbers that follow the same rules, like the counting numbers, the whole numbers with negatives, the fractions, and the decimals that never end. Each family was added to fix a problem the one before it could not handle, such as owing money or sharing one cake between three people.
+
 ## Before you start
 <!-- bite: b6ba3bfc-676a-4112-b7be-700a13b09633 -->
 

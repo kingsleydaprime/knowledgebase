@@ -20,7 +20,7 @@ Track 3's emulator tells you what PRIME-1 *does*. It tells you nothing about wha
 
 ## What you're building
 
-```
+```text
                    ┌─────────────────────────────────────────┐
                    │                                         │
               ┌────▼────┐    ┌──────────┐                    │
@@ -70,7 +70,7 @@ Everything above except the control unit is a component you already understand f
 
 Here is the complete table. **Type this into a ROM component and your CPU knows how to be a CPU:**
 
-```
+```text
     op name RegW RegB ALUS ALUO MemR MemW MemT Bran Bran Jump Link
   ----------------------------------------------------------------
   0000  NOP    0    0    0    0    0    0    0    0    0    0    0
@@ -374,7 +374,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 THE CONTROL UNIT -- opcode in, control signals out.
 This table IS the circuit you wire. Nothing else decides anything.
 

@@ -4,12 +4,14 @@ id: 3ac56f69-3947-4168-8544-ec62cc238f4f
 
 # The Transform Pipeline
 
+The transform pipeline is the chain of steps every point of a 3D object goes through to end up at the right spot on a flat screen. It takes the object from its own space, to its place in the scene, to what the camera sees, to the screen, which is what happens to every character and building in a 3D game.
+
 ## The chain
 <!-- bite: d9124fd6-167c-4036-ad5a-8eb4f4120426 -->
 
 $$\mathbf{v}_{\text{clip}} = P \cdot V \cdot M \cdot \mathbf{v}_{\text{model}}$$
 
-```
+```text
  MODEL space    ──M──►  WORLD space  ──V──►  VIEW space  ──P──►  CLIP space
  (object's own)         (scene)              (camera at origin)   │
                                                                    ▼ divide by w

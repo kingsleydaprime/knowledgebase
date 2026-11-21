@@ -4,6 +4,8 @@ id: a3e376e0-ebfd-4411-b5a5-7497c28fda73
 
 # Consistency Models
 
+A consistency model is a rule about what you are allowed to see when you read data that is copied across many computers. Sometimes you post a comment and it doesn't show up on your other device for a moment. This lesson walks through the different rules, from strict to relaxed, and what each one costs.
+
 ## The kid version first
 <!-- bite: bbb4a49f-a96e-4929-899b-856b223b7fb8 -->
 

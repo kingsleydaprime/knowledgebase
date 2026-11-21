@@ -1,3 +1,7 @@
+---
+subject: false
+---
+
 # Next.js
 
 **Scaffold + a routed index.** `[reference]`.
@@ -8,7 +12,7 @@ The React framework: routing, rendering strategies, server components, and the b
 
 **App Router** (the current model) over the older Pages Router:
 
-```
+```text
 app/
 ├── layout.tsx           # shared shell, persists across navigation
 ├── page.tsx             # the route

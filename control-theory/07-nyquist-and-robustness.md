@@ -4,6 +4,8 @@ id: a3945129-5c7d-4bd6-98b9-9b6325f9a6bf
 
 # Nyquist and Robustness
 
+The Nyquist method is a way of checking whether a feedback system will be stable, which still works in hard cases where the simpler checks give the wrong answer. Robustness is how much a system can be off from its model and still behave well. Real parts are never exactly like their equations, so both matter in practice.
+
 ## Why Nyquist
 <!-- bite: 871935b4-6701-4aa5-a721-e69beca638c2 -->
 
@@ -38,7 +40,7 @@ Because closed-loop poles are the roots of $1 + L(s) = 0$, i.e. $L(s) = -1$. The
 
 ### Reading the plot
 
-```
+```text
               Im
                │
        ────────┼────────  Re
@@ -63,7 +65,7 @@ A design can have GM = 10 dB and PM = 60° — textbook-good numbers — **and s
 
 The failure case: the Nyquist plot loops in *close* to $-1$ without crossing either the unit circle or the negative real axis near it. Both classical margins measure along their own axis and miss the approach entirely.
 
-```
+```text
               Im
                │
       ─────────┼──────  Re
@@ -118,7 +120,7 @@ $$\int_0^\infty \ln|S(j\omega)|\,d\omega = 0$$
 
 **The area under the log-sensitivity curve is conserved.** Push sensitivity down (better disturbance rejection) at one frequency and it *must* rise above 1 somewhere else.
 
-```
+```text
  ln|S|
     │        ╱╲  ← amplified here (necessarily)
    0┼───────╯──╲────────

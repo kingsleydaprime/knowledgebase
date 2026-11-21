@@ -4,6 +4,8 @@ id: 15822f34-b707-4c62-b2e0-80f5093ddc56
 
 # What Data Engineering Is
 
+Data engineering is the work of moving a company's data from the places it is created into one place where it can be studied, and tidying it on the way. A business has data spread across its app, its payments and its spreadsheets, and someone has to bring it together before anybody can ask "how much did we sell last month?"
+
 ## The kid version first
 <!-- bite: fa5f2bb7-63ee-404c-b1d6-01fa0ef66e2d -->
 
@@ -34,7 +36,7 @@ Everything in this domain rests on splitting two workloads that a single databas
 
 Almost every data system, however grand its tooling, is this:
 
-```
+```text
    SOURCES              INGEST          STORE            TRANSFORM        SERVE
    app databases        ──extract──►   warehouse /      ──clean, join,  ──►  dashboards
    event streams                       lake             aggregate,           ML features
@@ -65,7 +67,7 @@ Almost every data system, however grand its tooling, is this:
 ## Where it sits between databases and ML
 <!-- bite: 360b9e34-59bf-4996-86f3-63ccfa4eeed2 -->
 
-```
+```text
    databases/          →   DATA ENGINEERING   →   ai-ml/
    (one system,            (many systems,          (models over
     row-oriented,           moved and reshaped      the reshaped

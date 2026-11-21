@@ -4,6 +4,8 @@ id: 82b1420c-4aec-4ae2-8426-308a61da0a3a
 
 # Rate Limiting and Abuse
 
+Rate limiting is putting a cap on how many requests a caller can make in a given time. A person taps an app a few times a minute, but a script can call its API thousands of times a second. Without limits, that script can guess passwords, copy all your data or run up your bills.
+
 ## The kid version first
 <!-- bite: 3b3b0a4f-4ec9-4fda-8c3e-d473e1215dec -->
 

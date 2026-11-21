@@ -103,7 +103,7 @@ On `aab`: `XaYb`... second pass marks the remaining `a`, finds no unmarked `b`, 
 
 Assume a total decider $H(M, x)$ returning *halts* / *loops*. Build:
 
-```
+```text
 D(M):  if H(M, M) says "halts":  loop forever
        else:                     halt
 ```

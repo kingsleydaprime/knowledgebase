@@ -4,6 +4,8 @@ id: 40de7dab-20fa-4aa1-81cd-94d6211856d2
 
 # Pattern: Dynamic Programming
 
+Dynamic programming is solving a big problem by breaking it into smaller problems, solving each small one once and saving the answer to reuse. It turns slow solutions that repeat the same work into fast ones. Working out the cheapest way to make change with coins, or the fewest edits to turn one word into another as autocorrect does, are classic examples.
+
 ## Before you start
 <!-- bite: 876a605e-69ed-40df-81e9-f037c36eac48 -->
 

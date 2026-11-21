@@ -14,7 +14,7 @@ A commit is a saved checkpoint of your project you can always come back to. The 
 
 ## The basic loop you'll be repeating
 
-```
+```bash
 git status          # what changed since the last commit?
 git diff             # show me the actual line-by-line changes
 git add <file>        # stage a specific file (prefer this over `git add .`)
@@ -35,7 +35,7 @@ Convention worth adopting early: a short summary line (under ~70 chars) describi
 
 Adopted 2026-07-27 for this project. The shape:
 
-```
+```text
 <type>(<optional scope>): <description>
 ```
 
@@ -52,7 +52,7 @@ Adopted 2026-07-27 for this project. The shape:
 **Why this format specifically, beyond just being tidy:** the `type` prefix is machine-readable — tools like `semantic-release` or changelog generators parse it to auto-figure-out version bumps (a `fix` is a patch release, a `feat` is a minor release, anything with a `BREAKING CHANGE:` footer is a major release) and to group commits into changelog sections automatically. Not wired up for this project yet, but writing commits in this shape from the start means adopting that tooling later is free — the history is already structured for it.
 
 **Examples from this project's actual history** (retroactively described in this format — commits were already made before this convention was adopted, so their real messages may differ):
-```
+```text
 feat(auth): add email/password auth flow with route protection
 feat(circle-engine): add circle creation and joining via invite code
 feat(tasks): add task creation modal and task list on dashboard
@@ -64,7 +64,7 @@ fix(proof-upload): bypass Vercel's serverless body-size limit by uploading direc
 
 Adopted 2026-07-27: work happens on a branch, not directly on `main`. The habit:
 
-```
+```bash
 git checkout -b feat/proof-upload   # branch off main before starting new work
 # ...make the change, commit as usual on this branch...
 git checkout main
@@ -84,7 +84,7 @@ git merge feat/proof-upload         # bring the finished feature back into main
 ```bash
 git remote -v
 ```
-```
+```text
 origin     git@github.com:spectroniqltd/gees-arise.git (fetch/push)
 secondary  git@github.com:spectroniqlimited/gees-arise.git (fetch/push)
 ```
@@ -116,7 +116,7 @@ Added 2026-07-27: `npm run typecheck` (a new script — just `tsc --noEmit` unde
 npx husky init          # created .husky/ + added the "prepare" script
 ```
 Then `.husky/pre-commit` was written to run:
-```
+```bash
 npx lint-staged
 npm run typecheck
 ```

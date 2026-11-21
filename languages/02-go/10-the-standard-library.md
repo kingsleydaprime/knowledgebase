@@ -4,6 +4,8 @@ id: f2db631e-c302-49fb-98bf-e7f19d8c973a
 
 # The Standard Library
 
+The standard library is the set of ready-made packages that comes with Go itself, with nothing extra to install. It already includes a real web server, JSON handling, time and dates, and file tools. Go programmers lean on it far more than people do in most other languages, so knowing it well saves a lot of work.
+
 ## Why it matters more here
 <!-- bite: 5ef654ac-62ba-4bf1-826a-bb25d72fe6ca -->
 

@@ -6,7 +6,7 @@ The architectural ideas in this project that generalise beyond it.
 
 ## Separate the pipeline into stages with different costs
 
-```
+```text
 discover  →  prefilter  →  score   →  tailor  →  route
 (network)    (free)        (cheap    (expensive  (free)
                             LLM)      LLM)
@@ -69,7 +69,7 @@ export function jobKey(job) {
 
 And when two sources collide, the higher-ranked one wins:
 
-```
+```text
 ATS (3) > HackerNews (2) > aggregators (1) > LinkedIn (0)
 ```
 

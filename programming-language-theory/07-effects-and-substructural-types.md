@@ -4,6 +4,8 @@ id: 4963b8dc-adcf-4d68-8a01-72bbf37d603e
 
 # Effects and Substructural Types
 
+Effects are the things a function does besides returning a value, such as reading a file or throwing an error, and substructural types are types that limit how many times a value can be used. A normal type says what a function returns but not what it does along the way. Rust's rules about who owns a value come from this second idea.
+
 ## The problem with types
 <!-- bite: 290263ee-5b12-4399-8cd4-fb104bdd64ef -->
 
@@ -39,7 +41,7 @@ $$e : \tau\ !\ \{\text{IO}, \text{Exn}, \text{State}\}$$
 
 **Separate *declaring* an effect from *handling* it** — like exceptions, but resumable:
 
-```
+```text
 effect Read : () -> String
 effect Log  : String -> ()
 
@@ -51,7 +53,7 @@ program () =
 
 **The handler decides what the effects mean:**
 
-```
+```text
 with handler
   | Read () k  -> continue k "test input"    -- resume with a value
   | Log s   k  -> print s; continue k ()
@@ -130,7 +132,7 @@ println!("{}", s);      // compile error
 
 **Types for *protocols*.**
 
-```
+```text
 Client = !Request . ?Response . end
 Server = ?Request . !Response . end      -- the dual
 ```

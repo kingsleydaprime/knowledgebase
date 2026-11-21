@@ -18,7 +18,7 @@ WPA2-Personal (the common home Wi-Fi security standard) authenticates devices vi
 2. **Capture the handshake** — listen for a device's 4-way handshake with the target router (`airodump-ng`). If nothing is joining naturally, a **deauthentication frame** can be sent to a connected device, forcing it to disconnect and automatically reconnect, producing a fresh handshake to capture (`aireplay-ng --deauth`).
 3. **Crack it offline** — run a dictionary or mask (pattern-based) attack against the captured handshake, using **aircrack-ng** or, far faster on a GPU, **hashcat** (mode 22000 for the current handshake format).
 
-```
+```text
 # illustrative shape of the workflow, not a copy-paste attack script:
 airmon-ng start wlan0
 airodump-ng wlan0mon

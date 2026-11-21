@@ -4,6 +4,8 @@ id: 7db5be35-19a5-4eeb-aa9d-78395c830a82
 
 # Experimentation & A/B Testing
 
+An A/B test is an experiment where you randomly show some users one version of something (A) and other users another version (B), then compare what they do. Because the groups are chosen at random, you can tell whether the change itself caused the difference. Apps you use, like shopping and social media apps, run tests like this on button colours, prices and layouts all the time.
+
 ## Why experiments beat observation
 <!-- bite: 0c30a4d3-b798-4953-a653-b4c53bfd48e4 -->
 

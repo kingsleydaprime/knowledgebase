@@ -32,7 +32,7 @@ Each milestone runs and is testable on its own. **Do not skip ahead** — the or
 
 Ignore the request entirely. Accept, write a fixed response, close.
 
-```
+```text
 socket() → bind() → listen() → accept() → write() → close()
 ```
 
@@ -52,7 +52,7 @@ Hello, world!
 
 **Build the parser before the router.** Everything downstream depends on knowing what was actually requested.
 
-```
+```http
 GET /path?query=1 HTTP/1.1
 ```
 
@@ -64,7 +64,7 @@ Split into method, target, version. Reject anything malformed with `400`.
 
 ### 3. Parse headers
 
-```
+```text
 Host: localhost:8080
 User-Agent: curl/8.0
 Content-Length: 42
@@ -80,7 +80,7 @@ Content-Length: 42
 
 A response builder: status line, headers, blank line, body — with `Content-Length` computed automatically.
 
-```
+```text
 HTTP/1.1 404 Not Found
 Content-Type: text/plain
 Content-Length: 9
@@ -97,7 +97,7 @@ Not Found
 
 Map (method, path) to a handler. Start with exact matches, then add parameters (`/users/{id}`).
 
-```
+```text
 GET  /           → index
 GET  /users/{id} → get_user
 POST /users      → create_user
@@ -116,7 +116,7 @@ Map a URL path to a file under a document root. Guess `Content-Type` from the ex
 
 **Watch for — this is the security milestone:**
 
-```
+```text
 GET /../../etc/passwd
 GET /..%2f..%2fetc%2fpasswd        ← URL-encoded
 GET /..%252f                        ← double-encoded
@@ -153,7 +153,7 @@ If you choose the event loop, you'll need a **per-connection state machine** —
 
 For responses whose length isn't known upfront.
 
-```
+```text
 HTTP/1.1 200 OK
 Transfer-Encoding: chunked
 

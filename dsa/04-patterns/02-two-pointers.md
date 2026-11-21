@@ -4,6 +4,8 @@ id: 799a1dac-c75c-4a83-8b4c-e1b73918862d
 
 # Pattern: Two Pointers
 
+Two pointers is a technique where you keep two positions in a list and move them towards each other, or in the same direction, to solve a problem in one pass. It often replaces a slow check of every pair. It is like two people searching a row of shelves from both ends and meeting in the middle.
+
 ## Before you start
 <!-- bite: 374f1843-1572-4f29-8142-4f99c1d0efcf -->
 

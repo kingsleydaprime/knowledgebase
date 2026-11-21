@@ -60,7 +60,7 @@ The case for a platform appears at a specific threshold, and it's worth naming p
 
 **The rough positioning:**
 
-```
+```text
    script  →  automation platform  →  durable workflow engine
    (n8n, Zapier, Make)                (Temporal, Step Functions)
 

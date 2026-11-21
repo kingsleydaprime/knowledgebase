@@ -4,6 +4,8 @@ id: 2c774f65-cbc6-4d93-8f8d-87324b5f33df
 
 # Distributed Transactions
 
+A distributed transaction is a change that has to happen on several computers together, where either every part happens or none of it does. Moving money from your account in one bank to an account in another bank is a good example. This lesson covers the two main ways of doing this and where each one can go wrong.
+
 ## The kid version first
 <!-- bite: c328c13b-e35d-4fe5-b5c2-47d34b39ae4e -->
 

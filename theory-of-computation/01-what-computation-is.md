@@ -43,7 +43,7 @@ The formal setup. It looks like bureaucracy and it buys you precision.
 
 **Four classes of language, four classes of machine, nested strictly.**
 
-```
+```text
 ┌───────────────────────────────────────────────────┐
 │  Recursively enumerable  —  Turing machine        │
 │  ┌─────────────────────────────────────────────┐  │

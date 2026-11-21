@@ -126,7 +126,7 @@ stops refreshing.
 
 In this codebase that would have been five broken refreshes:
 
-```
+```text
 createGame            → invalidates "Event", "PublishPreview"
 updateGameSession     → invalidates "Event", "Event:game-status-<id>"
 getActiveGameStatus   → provides   "Event"
@@ -305,7 +305,7 @@ ever said `providesTags: ["Events"]`, there is nothing labelled to bin.
 
 That was a live bug here:
 
-```
+```text
 getEvents           providesTags:    ["Events"]      ✓
 createEvent         invalidatesTags: ["Events"]      ✓
 getMyCreatedEvents  (no tags)                        ✗
@@ -339,7 +339,7 @@ that would have made the bug unfixable rather than a one-liner.
 
 `useGetVibeTagsQuery` existed twice:
 
-```
+```text
 discoverApi.getVibeTags  → /v1/discover/tags        platform interest tags
 eventApi.getVibeTags     → /v1/vibe-tags?eventId=   one event's tags
 ```
@@ -370,7 +370,7 @@ both names sound equally right for what you want.
 A related thing worth knowing about this codebase: dead endpoints are
 identifiable by a **missing `/v1` prefix**.
 
-```
+```text
 /games                     ← legacy, no consumers
 /events/explore/upcoming   ← legacy, no consumers
 /v1/events/me/created      ← live

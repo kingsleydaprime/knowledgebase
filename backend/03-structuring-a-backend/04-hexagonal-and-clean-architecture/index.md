@@ -4,6 +4,8 @@ id: f9c4e752-2ee1-47ad-8f7d-4badbb1bbee3
 
 # Hexagonal & Clean Architecture
 
+Hexagonal and clean architecture are ways of arranging a backend so the core business rules do not depend on the database, the web framework or any other outside tool. You may hear them called ports and adapters or onion architecture too; it is mostly the same idea. The benefit is that you can swap out an outside tool without rewriting the rules of your app.
+
 ## Before you start
 <!-- bite: 611cbac2-6c27-4371-87df-638a35740a49 -->
 
@@ -39,7 +41,7 @@ Hexagonal architecture asks: what if the arrow pointed the other way?
 
 Your domain declares *"I need something that can save an order"* — a **port**, an interface it owns. Postgres, Mongo, or an in-memory map each provide an **adapter** that fits. The domain doesn't know which is plugged in and can't find out.
 
-```
+```text
         HTTP  CLI  Queue                    ← driving adapters (they call you)
            ↓    ↓    ↓
         ┌──────────────────┐
@@ -105,7 +107,7 @@ The detail that makes it work: **the interface lives in the domain folder, not t
 
 **Before reading, predict:** in the folder tree below, which files may import from `adapters/`?
 
-```
+```text
 hex/
 ├── place-order.test.ts
 └── src/
@@ -209,7 +211,7 @@ test("the domain rejects a fractional total before any payment is attempted", as
 
 **Run it.** From the `hex/` folder: `node --test`. Node 23.6 or later runs these `.ts` files directly; checked with Node 26. Expected:
 
-```
+```text
 ℹ tests 3
 ℹ pass 3
 ℹ fail 0

@@ -4,6 +4,8 @@ id: 4f73b918-f04c-4f53-afc5-00294a94a7ce
 
 # Types and Integers
 
+A type tells C what kind of value a variable holds and how much memory it takes, and integers are the types for whole numbers. Counting items in a cart or storing someone's age both use integers. C's integer rules have surprises, like numbers that wrap around when they get too big, so they are worth learning carefully.
+
 ## The basic types
 <!-- bite: cc4b6c5c-086f-4b9a-b51a-8ac89ada42fe -->
 

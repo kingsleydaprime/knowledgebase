@@ -4,6 +4,8 @@ id: 745d2709-10d6-4a8b-8e73-69a0fe457d94
 
 # Hexadecimal (Base 16)
 
+Hexadecimal is the counting system with sixteen digits: 0 to 9, then the letters A to F. You have seen it in colour codes like #FF5733 on websites and in design apps, because one hex digit stands neatly for four binary digits.
+
 ## Before you start
 <!-- bite: 4afef54a-18c0-4021-94ff-f4f4ba8ae1d9 -->
 
@@ -39,7 +41,7 @@ $$16 = 2^4$$
 
 **So one hex digit is exactly four binary digits — always, with no remainder and no carrying between them.**
 
-```
+```text
    1010 0101         binary
    ^^^^ ^^^^
      A    5          hex
@@ -83,7 +85,7 @@ That correspondence is why hex is everywhere bytes are:
 ## 4. Reading hex in the wild
 <!-- bite: 3dfbeb65-04ff-49dd-accc-c8d9aae28d75 -->
 
-```
+```text
    #FF8800     colour: full red, two-thirds green, no blue -> orange
    0x0F        the low four bits set
    0xFF00      the high byte of a 16-bit value

@@ -4,6 +4,8 @@ id: 8a4d65d6-c6b3-4285-9768-c2aeff7724cf
 
 # Network Attacks
 
+A network attack is any attack on the connections between computers: listening in on traffic, redirecting it, or flooding it so nobody can get through. The public Wi-Fi at a hotel or airport is a common place for this to happen. This lesson goes through the main ones and how each is stopped.
+
 ## Man-in-the-Middle (MITM)
 <!-- bite: 533905ea-3114-454a-9312-907475d2e56a -->
 

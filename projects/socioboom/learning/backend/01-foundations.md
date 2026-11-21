@@ -25,7 +25,7 @@ The backend is a REST API. A "REST API" is a server that listens for HTTP reques
 
 Here is the full request lifecycle for scheduling a post:
 
-```
+```text
 Frontend
   → POST /api/v1/posts/schedule  (HTTP request with JSON body)
      → Express receives it

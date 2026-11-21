@@ -4,6 +4,8 @@ id: ebe57544-b3fa-4e0a-ac50-56c72e4a1cf5
 
 # Metrics and KPIs
 
+A metric is a number you track to see how something is doing, and a KPI (key performance indicator) is one of the few metrics a team cares about most. Your step count on a fitness app is a metric, and "10,000 steps a day" makes it a goal. Choosing the right numbers to watch matters, because people end up working towards whatever gets measured.
+
 ## The kid version first
 <!-- bite: 73ee9e6b-c500-44e6-90d4-62c63d723458 -->
 
@@ -52,7 +54,7 @@ Two kinds of metric, and you need both:
 
 Metrics aren't a flat list; they form a hierarchy that decomposes a top-level goal into the levers that move it:
 
-```
+```text
    Revenue
      = Users × Conversion × Avg Order Value
               │             │            │

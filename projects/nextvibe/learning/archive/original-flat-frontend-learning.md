@@ -86,7 +86,7 @@ Next.js has two routing systems. This project uses the **App Router** (introduce
 
 The App Router is built around React Server Components. Every file in `src/app/` is a **Server Component by default** — meaning it renders on the server, sends HTML to the browser, and ships zero JavaScript unless you explicitly opt into the client.
 
-```
+```text
 src/app/
 ├── layout.tsx        ← Root layout (always rendered)
 ├── page.tsx          ← Home page "/"
@@ -115,7 +115,7 @@ The key files Next.js recognises inside a route folder:
 
 You don't configure routes anywhere. The folder structure **is** the route.
 
-```
+```text
 src/app/dashboard/events/[id]/page.tsx
                               ↑
                This renders at /dashboard/events/abc123
@@ -148,7 +148,7 @@ export default function EventPage({ searchParams }: { searchParams: { tab?: stri
 
 Folders wrapped in `(parentheses)` are **route groups**. They let you organise files and share layouts **without affecting the URL**.
 
-```
+```text
 src/app/
 ├── (auth)/            ← "(auth)" is invisible in the URL
 │   ├── layout.tsx     ← Auth-specific layout (centered card, no navbar)
@@ -178,7 +178,7 @@ In this project there are three route groups:
 
 Square brackets create segments that match any value.
 
-```
+```text
 [id]          → matches /events/abc, /events/123, /events/anything
 [...slug]     → catches all remaining segments: /docs/a/b/c → slug = ["a","b","c"]
 [[...slug]]   → optional catch-all: matches / as well
@@ -226,7 +226,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 Layouts nest automatically:
 
-```
+```text
 RootLayout                ← src/app/layout.tsx
 └── DashboardLayout       ← src/app/dashboard/(dashboard-route)/layout.tsx
     └── EventsPage        ← src/app/dashboard/(dashboard-route)/events/page.tsx
@@ -278,7 +278,7 @@ export function Counter() {
 
 Once you add `"use client"` to a component, **all its imports become client-side too**. The boundary propagates downward, not upward.
 
-```
+```text
 ServerComponent            ← Server
 └── ClientComponent        ← "use client" — everything below is client
     ├── AnotherClient      ← Client (inherited)
@@ -311,7 +311,7 @@ Almost every component under `src/app/dashboard/` is `"use client"` because they
 
 Files named `route.ts` inside `src/app/` are server-side HTTP handlers, not pages.
 
-```
+```text
 src/app/api/auth/store-token/route.ts  →  POST /api/auth/store-token
 src/app/api/auth/get-token/route.ts    →  GET /api/auth/get-token
 src/app/api/media-proxy/route.ts       →  GET /api/media-proxy
@@ -525,7 +525,7 @@ Every RTK Query API in this project uses a shared `baseQueryWithReauth` instead 
 2. **Token refresh** — on a 401, automatically calls `/v1/auth/refresh`, stores the new token, and retries the original request
 3. **Queue pattern** — if multiple requests 401 at the same time, only one refresh happens; the rest wait
 
-```
+```text
 Request → prepareHeaders (attach token) → API → 401?
                                                   ↓
                                          isRefreshing?
@@ -553,7 +553,7 @@ Tokens live in browser cookies managed by `js-cookie`. There are two tokens:
 
 ### Login flow
 
-```
+```text
 User submits email + password
     ↓
 POST /v1/auth/login
@@ -575,7 +575,7 @@ Why go through the Next.js API route instead of using `Cookies.set()` directly? 
 
 When an access token expires, the server returns 401. The `baseQueryWithReauth` intercepts this:
 
-```
+```text
 Request A → 401
 Request B → 401 (arrives 5ms later, refresh hasn't started yet)
 Request C → 401 (arrives 10ms later)
@@ -796,7 +796,7 @@ The original implementation used Juicyway's inline widget (a JS popup). Ercaspay
 
 ### The complete flow
 
-```
+```text
 1. User clicks "Pay & Publish"
 
 2. POST /v1/organizer-payments/plan/initiate
@@ -1110,7 +1110,7 @@ Instead of `../../../components/ui/button`, you write `@/components/ui/button`. 
 
 ### Project structure
 
-```
+```text
 src/
 ├── app/                    ← All routes live here (App Router)
 │   ├── (admin)/            ← Admin panel routes
@@ -1352,7 +1352,7 @@ async function EventPage({ params }: { params: { id: string } }) {
 
 Display multiple pages simultaneously in the same layout (e.g. a dashboard with a main panel and a side panel, both independently navigable).
 
-```
+```text
 app/dashboard/
 ├── @main/
 │   └── page.tsx
@@ -1570,7 +1570,7 @@ const refreshToken = Cookies.get("refreshToken");
 
 The original event creation sent files through the NestJS server as `multipart/form-data`:
 
-```
+```text
 Browser ──── POST (FormData, 200MB video) ──→ NestJS ──→ MinIO
 ```
 
@@ -1583,7 +1583,7 @@ Every byte of the file occupied NestJS process memory. A 350MB video would:
 
 The backend generates a short-lived signed URL that authorises the browser to write directly to MinIO:
 
-```
+```text
 Browser ─── POST /upload-intent ──→ NestJS (tiny JSON, fast)
 Browser ←── { uploadUrl, fileUrl } ── NestJS
 Browser ─────── PUT (binary) ──────→ MinIO  (NestJS never sees the file)
@@ -1949,7 +1949,7 @@ If only middleware is fixed, the page renders but every API call 401s. If only `
 
 ### The build error
 
-```
+```text
 useSearchParams() should be wrapped in a suspense boundary at page "/organizer/payment/verify"
 ```
 
@@ -2598,7 +2598,7 @@ export async function POST(req: NextRequest) {
 ### Log format
 
 Each entry is newline-delimited JSON (NDJSON):
-```
+```text
 {"ts":"2026-05-22T10:23:01.123Z","message":"You are not authenticated.","context":{"name":"Error","stack":"Error: ..."}}
 {"ts":"2026-05-22T10:24:15.456Z","message":"Request timed out. Please try again."}
 ```
@@ -2654,7 +2654,7 @@ const IDLE: UploadState = { status: "idle", progress: 0, url: null };
 ```
 
 State transitions:
-```
+```text
 idle ──(file selected)──→ uploading ──(XHR done)──→ done
                                     ──(XHR error)──→ error ──(retry)──→ uploading
 idle ←──────────────────────────────────────(remove)──────────────────────────
@@ -2949,7 +2949,7 @@ Why `useEffect` instead of reading directly?
 
 ### The full redirect lifecycle
 
-```
+```text
 1. User visits /dashboard without being logged in
 2. Middleware redirects: /auth/login?from=%2Fdashboard
 3. User logs in
@@ -3014,7 +3014,7 @@ Next.js uses folder and file names as a routing DSL. Here is every piece of synt
 
 Matches any single path segment. The matched value is available as a prop.
 
-```
+```text
 src/app/dashboard/[eventId]/page.tsx  →  /dashboard/abc123
 src/app/users/[id]/page.tsx           →  /users/42
 ```
@@ -3036,7 +3036,7 @@ const { eventId } = useParams();
 
 Matches **one or more** path segments. The value is an array.
 
-```
+```text
 src/app/docs/[...slug]/page.tsx  →  /docs/a
                                  →  /docs/a/b
                                  →  /docs/a/b/c
@@ -3056,7 +3056,7 @@ export default function Page({ params }: { params: { slug: string[] } }) {
 
 Same as `[...slug]` but also matches the parent path (zero segments).
 
-```
+```text
 src/app/shop/[[...filters]]/page.tsx  →  /shop           (filters = undefined)
                                       →  /shop/shoes      (filters = ["shoes"])
                                       →  /shop/shoes/red  (filters = ["shoes", "red"])
@@ -3086,7 +3086,7 @@ Used for pages like filter UIs, documentation trees, or any route where the numb
 
 Parentheses create a folder that is **invisible in the URL**. Used purely for organisation and shared layouts.
 
-```
+```text
 src/app/(auth)/auth/login/page.tsx   →  /auth/login   ← "(auth)" not in URL
 src/app/(admin)/admin/page.tsx       →  /admin
 src/app/dashboard/(dashboard-route)/events/page.tsx  →  /dashboard/events
@@ -3105,7 +3105,7 @@ Each route group can have its own `layout.tsx` that only applies to routes insid
 
 Prefixing a folder with `_` opts it out of routing entirely. Useful for co-locating utilities and components with a route without accidentally exposing them.
 
-```
+```text
 src/app/dashboard/_components/event-card.tsx  →  not a route, just a component
 src/app/dashboard/_utils/format-date.ts       →  not a route, just a utility
 src/app/dashboard/_hooks/use-event.ts         →  not a route, just a hook
@@ -3117,7 +3117,7 @@ Without `_`, a folder named `components` inside `app/` would technically be part
 
 Render multiple independent pages in the same layout simultaneously. Each `@slot` folder becomes a prop on the parent `layout.tsx`.
 
-```
+```text
 src/app/dashboard/
 ├── @feed/page.tsx      → rendered as "feed" prop
 ├── @sidebar/page.tsx   → rendered as "sidebar" prop
@@ -3146,7 +3146,7 @@ This is exactly what you described. The URL changes in the browser, but instead 
 
 The way Next.js implements it: you create two `page.tsx` files for the same route. One is the real full page. The other, inside a `(.)` folder, is the modal version shown during client navigation.
 
-```
+```text
 src/app/
 ├── photos/
 │   ├── page.tsx              ← /photos — the grid
@@ -3348,7 +3348,7 @@ Without nested boundaries, the slowest component blocks all three from showing.
 
 In the App Router, `loading.tsx` is a file-based `<Suspense>` wrapper for the whole route. `error.tsx` is a file-based `<ErrorBoundary>`.
 
-```
+```text
 src/app/dashboard/events/
 ├── page.tsx        ← the page
 ├── loading.tsx     ← shown while page.tsx is streaming (Suspense)
@@ -3447,7 +3447,7 @@ On paper, this looks fine: `isConnected` is `false` on mount (socket is still co
 
 The problem is that this re-run goes through **React's rendering pipeline**:
 
-```
+```text
 Socket connects (socket.io event loop)
   ↓
 setStatus("connected") called inside useSocket
@@ -3931,7 +3931,7 @@ Returning the **same Set reference** when nothing changed prevents React from re
 
 ### Notification badge — full pattern
 
-```
+```text
 New notification arrives via socket
   ↓
 Add id to pendingIds → badge shows +1 immediately
@@ -3957,14 +3957,14 @@ If you have never touched real-time communication before, start here. This expla
 
 Every HTTP request follows this pattern:
 
-```
+```text
 Browser:  "Hey server, give me the events list"
 Server:   "Here you go" → closes connection
 ```
 
 The server can only talk to the browser when the browser asks first. If something changes on the server (new message, new notification), the server has no way to tell the browser. The browser has to keep asking ("polling"):
 
-```
+```text
 Browser → "any new messages?" → Server: "no"
 Browser → "any new messages?" → Server: "no"
 Browser → "any new messages?" → Server: "yes, here's one"
@@ -3976,7 +3976,7 @@ Polling every second is wasteful — 999 out of 1000 requests get "no". Polling 
 
 WebSocket is a different protocol that creates a **persistent two-way connection**:
 
-```
+```text
 Browser → Server: "I want to upgrade this HTTP connection to WebSocket"
 Server:           "Agreed"
 ─────────────── connection stays open ───────────────
@@ -4049,7 +4049,7 @@ ws.onmessage = (e) => {
 
 ### The connection lifecycle
 
-```
+```text
 1. io() called
    ↓ Socket.IO tries WebSocket first (wss://)
    ↓ If blocked, falls back to HTTP long-polling
@@ -4098,7 +4098,7 @@ const socket = io(`${SOCKET_BASE}/${namespace}`, {
 
 When a user visits a protected route without being logged in:
 
-```
+```text
 1. User visits /messages
 2. Middleware redirects: /auth/login?from=%2Fmessages
    (the path is encoded with encodeURIComponent so "/" becomes "%2F")
@@ -4148,7 +4148,7 @@ The `try/catch` around `decodeURIComponent` is important: if someone manually cr
 
 Without this guard:
 
-```
+```text
 1. User is on /auth/login
 2. Middleware (confusingly) redirects to /auth/login?from=%2Fauth%2Flogin
 3. User logs in
@@ -4731,7 +4731,7 @@ The PDF described five things:
 
 Go through each requirement and find the corresponding code:
 
-```
+```text
 Requirement 1 — API shape
   → Search for where game data is consumed
   → Found: buildGridFromQuestions() in page.tsx and event-game-tab.tsx
@@ -5294,7 +5294,7 @@ export function useAnonMerge() {
 
 Both the Google login button (`google-login-button.tsx`) and the email login form call `handlePostAuth` as the last step before `router.replace(destination)`. The call order is:
 
-```
+```text
 login succeeds → dispatch(setUser) → dispatch(setIsAuthenticated(true)) →
 await handlePostAuth(() => router.replace(destination))
 ```
@@ -5412,7 +5412,7 @@ Both use the same pattern. The `myEntry?.score` is only available on the public 
 
 After Ercaspay redirects the user back from checkout, call:
 
-```
+```text
 GET /v1/payments/purchases/:purchaseId/summary
 Auth: none required — public endpoint
 ```

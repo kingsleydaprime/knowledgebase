@@ -86,13 +86,13 @@ The recurring judgement call: **how much design belongs in the content layer?**
 
 Two real examples from a live model:
 
-```
+```text
 headlineStart      "Stories that"
 headlineHighlight  "shape"           ← rendered in the brand colour
 headlineEnd        "Africa's future"
 ```
 
-```
+```text
 bgColor      "#FDF4EE"     free-text hex
 accentColor  "#E8500A"
 ```
@@ -124,7 +124,7 @@ The specific trap: interfaces describe *documents*, but queries return *projecti
 
 Common enough to name. Sites are usually designed and built *before* the CMS exists — you can't model content that doesn't exist yet, and stakeholders approve a page, not a schema. So each section keeps its original hardcoded content and uses it when the CMS returns nothing:
 
-```
+```text
 data = cmsResult.length > 0 ? adapt(cmsResult) : FALLBACK
 ```
 

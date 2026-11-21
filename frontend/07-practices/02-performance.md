@@ -4,6 +4,8 @@ id: f37d5428-53e8-4277-86f6-1715d8f59905
 
 # Performance
 
+Frontend performance is how fast a web page loads and how quickly it responds when you tap or scroll. People leave a slow site, especially on a cheap phone with weak data. This lesson covers how to measure it on real users' devices and the fixes that actually help.
+
 ## Measure first, and measure the right thing
 <!-- bite: bc896cc6-5046-4d58-93b1-0388a28ce4f5 -->
 
@@ -72,7 +74,7 @@ id: f37d5428-53e8-4277-86f6-1715d8f59905
 
 **Set numbers, enforce them in CI:**
 
-```
+```text
 JS  ≤ 170 KB compressed on the critical path
 LCP ≤ 2.5s on a mid-tier Android over 4G
 INP ≤ 200ms

@@ -130,7 +130,7 @@ drifts from the backend's.
 
 Instead the backend exposes its own validation rules:
 
-```
+```text
 GET /v1/payout-accounts/supported
 ```
 
@@ -303,7 +303,7 @@ Delete them for real once the backend's `withdrawals` table is confirmed empty a
 resolve CSS imports, run the bundler, or prerender pages. Running the real build caught
 something typecheck never would:
 
-```
+```text
 Module not found: Can't resolve 'react-day-picker/style.css'
 ```
 
@@ -312,7 +312,7 @@ added the dependency without the install being committed/synced. `npm install` f
 
 The confirmation that the new routes actually work is in the build output:
 
-```
+```text
 ├ ○ /admin/payouts
 ├ ○ /dashboard/earnings
 ```

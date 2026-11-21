@@ -4,6 +4,8 @@ id: dbfbb8af-dd1a-45b8-b0cd-acb106c165fd
 
 # Pattern: Fast & Slow Pointers
 
+Fast and slow pointers is a technique where two markers move through a list at different speeds, one step and two steps at a time. If the list loops back on itself, the fast one will catch up with the slow one. It is like two runners on a track: if the track is a circle, the faster runner eventually laps the slower one.
+
 ## Before you start
 <!-- bite: a388a38b-79a8-4066-9f77-fb54ffb9915b -->
 

@@ -11,7 +11,7 @@ A probability distribution assigns a likelihood to every possible outcome of som
 
 The one that shows up constantly in ML — the familiar bell curve, where outcomes cluster around a mean and become rarer the further out you go.
 
-```
+```text
        ___
       /   \
      /     \

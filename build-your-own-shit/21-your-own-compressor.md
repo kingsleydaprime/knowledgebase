@@ -59,7 +59,7 @@ DEFLATE has three block types: **stored** (raw, for incompressible data), **fixe
 **8. Wrap it in the gzip container.**
 Ten bytes of header, the deflate stream, then eight bytes of trailer:
 
-```
+```text
 1f 8b        magic
 08           compression method: deflate
 00           flags

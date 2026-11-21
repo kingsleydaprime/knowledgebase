@@ -34,7 +34,7 @@ The single most important physical arrangement, and once you see it you can't un
 
 Every server pulls cool air in the **front** and exhausts hot air out the **back**. So racks are arranged so that fronts face fronts and backs face backs:
 
-```
+```text
    COLD AISLE          HOT AISLE           COLD AISLE
       ↓ ↓ ↓                ↑ ↑ ↑              ↓ ↓ ↓
   ┌────────┐┌────────┐  ┌────────┐┌────────┐

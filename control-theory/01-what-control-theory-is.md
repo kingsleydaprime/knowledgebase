@@ -25,7 +25,7 @@ You can't just command it, because:
 
 **Open loop** — decide the input from a model, apply it, hope.
 
-```
+```text
    reference  →  [ CONTROLLER ]  →  [ PLANT ]  →  output
 ```
 
@@ -35,7 +35,7 @@ Cheap, simple, and it **cannot correct anything it doesn't measure**. If the bre
 
 **Closed loop (feedback)** — measure the output, compare to what you wanted, act on the difference.
 
-```
+```text
                    ┌──────────────── disturbance
                    ▼
  r →(+)→ e → [ CONTROLLER ] → u → [ PLANT ] → y →┬→
@@ -94,7 +94,7 @@ Often forgotten, and often the better half of a solution.
 
 **Feedforward** acts on a *measured disturbance or a known reference* before the error appears:
 
-```
+```text
         ┌──→ [ FEEDFORWARD ] ──┐
         │                      ▼
  r ─────┴─(+)→[ FEEDBACK ]→(+)→ [ PLANT ] → y

@@ -4,6 +4,8 @@ id: 45e37ddc-2f17-49d9-8269-70dda1538e88
 
 # Partial Fractions
 
+Partial fractions is a way of splitting one complicated fraction made of algebra into a sum of simpler fractions. It is mostly used so that you can integrate the pieces, because each simple piece is one you already know how to handle.
+
 ## Before you start
 <!-- bite: cb3a4e8a-a47e-4352-9380-a8c7b71b8501 -->
 

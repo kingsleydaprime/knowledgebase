@@ -4,6 +4,8 @@ id: 10c6617a-0084-4bb9-9427-7fb14263cb33
 
 # Number Bases
 
+A number base is the number of different digits a counting system uses before it moves to the next place. We count in base ten because we have ten fingers, but computers count in base two, and the colour codes you see in apps and websites are written in base sixteen.
+
 ## Before you start
 <!-- bite: 2c14fb01-c108-40c9-8dd2-8a37f23e43f9 -->
 
@@ -66,7 +68,7 @@ $$3 \times 8^3 + 4 \times 8^2 + 0 \times 8^1 + 7 \times 8^0 = 1536 + 256 + 0 + 7
 
 Read the digits left to right, and at each step **multiply the running total by the base and add the new digit**:
 
-```
+```text
    1011 in base 2:
      start          0
      digit 1   0*2 + 1 =  1
@@ -82,7 +84,7 @@ This is **Horner's method**, and it is better than computing each power separate
 
 **Divide repeatedly by the base. The remainders are the digits, produced in reverse.**
 
-```
+```text
    156 into base 2:
      156 / 2 =  78  remainder 0
       78 / 2 =  39  remainder 0
@@ -105,7 +107,7 @@ This is **Horner's method**, and it is better than computing each power separate
 
 **The column-addition algorithm you learned at school was never about ten.** It is: add a column, keep the part below the base, carry the rest.
 
-```
+```text
      1011           carry:  1 1 1
    + 0110
    ------
@@ -134,7 +136,7 @@ Binary is correct and unreadable. `11010110101100` is a number you cannot check 
 
 **Hexadecimal is base 16, and $16 = 2^4$ — so one hex digit is exactly four binary digits.** That correspondence is not approximate; it is exact, and it means you can convert digit by digit with no arithmetic at all:
 
-```
+```text
    A5  ->  1010 0101
    ^^      ^^^^ ^^^^
    A = 1010,  5 = 0101
@@ -280,7 +282,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 POSITIONAL NOTATION -- what a numeral actually means
     3407 in base 10 = 3x10^3 + 4x10^2 + 0x10^1 + 7x10^0 = 3407
     1011 in base  2 = 1x2^3 + 0x2^2 + 1x2^1 + 1x2^0    = 11

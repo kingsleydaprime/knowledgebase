@@ -4,6 +4,8 @@ id: 6d5edf8b-35bc-4f70-904f-c22a6b401187
 
 # Where Information Theory Shows Up
 
+This lesson takes the ideas from the course and shows where they turn up in practice. Password strength, compression, AI training and other areas all come back to the same measure of information. It is the payoff for the earlier lessons.
+
 ## Cryptography — entropy as security
 <!-- bite: 853622d4-779e-46d9-9769-9b77426f26ed -->
 

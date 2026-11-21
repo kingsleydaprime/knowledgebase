@@ -92,7 +92,7 @@ silently produces `"2" - 1`.
 
 A real compile error from this session:
 
-```
+```text
 postcards.service.ts(38,5): error TS2322:
   Type 'string' is not assignable to type 'GameActivityTiming | undefined'.
 ```
@@ -167,7 +167,7 @@ The API had grown three different readers for one resource — a paginated feed,
 stub that took no filters, and a third that returned pre-bucketed groups. The
 instinct when this happens is to name methods after their filter combination:
 
-```
+```text
 getAllPostcards
 getAllEventPostcards
 getAllUserPostcardsForSpecificEvent
@@ -183,7 +183,7 @@ that dissolves it:
 they read naturally and can carry their own auth rules. "Which phase", "which
 page" are filters — they belong in the query string, where they compose.
 
-```
+```text
 GET /postcards?timing=&page=                      the global feed
 GET /events/:eventId/postcards?timing=            one event's gallery
 GET /events/:eventId/postcards?userId=            one author, in that event

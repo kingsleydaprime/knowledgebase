@@ -27,7 +27,7 @@ Most real deployments combine both — signatures for known threats (cheap, reli
 
 Snort is a widely used, signature-based network IDS/IPS. A rule looks like this:
 
-```
+```text
 alert tcp any any -> $HOME_NET 22 (msg:"Possible SSH brute force"; \
   flow:to_server; threshold: type threshold, track by_src, count 5, seconds 60; \
   sid:1000001; rev:1;)

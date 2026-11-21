@@ -32,7 +32,7 @@ From the [[game-development/index|game development course]].
 **Strong answer covers:** rendering runs as fast as it can; **physics must run at a fixed rate or it isn't deterministic.** With a variable timestep, the same inputs produce different results on different machines, and large frame gaps cause **tunnelling** — an object moves further in one step than the wall is thick, so no intersection is ever tested.
 
 **The standard structure:**
-```
+```text
 accumulator += frameTime
 while accumulator >= FIXED_DT:
     physicsStep(FIXED_DT)

@@ -4,6 +4,8 @@ id: 5196b9bd-4677-46cc-92ef-b6c1ae0cf208
 
 # Messaging & Async
 
+Messaging is when one part of a system leaves a message in a queue for another part to handle later, instead of waiting for it to finish. When you place an order online, you get a confirmation straight away while the email and the delivery booking happen a bit later. This lesson shows how queues work and how to stop messages getting lost or handled twice.
+
 ## Before you start
 <!-- bite: 5a1f1b03-ac54-4943-8f39-b4065bdfc14d -->
 

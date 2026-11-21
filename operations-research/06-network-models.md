@@ -77,7 +77,7 @@ The practical consequence: **when costs can be negative** (a route that earns mo
 
 **The network.** Source $s$, sink $t$, two junctions $a$ and $b$. Capacities in units per hour:
 
-```
+```text
             10            4
       s ─────────▶ a ─────────▶ t
       │            │            ▲
@@ -117,7 +117,7 @@ Take the cut with $\{s, a, b\}$ on one side and $\{t\}$ on the other. The arcs c
 
 Three workers, three jobs, and the hours each worker would take:
 
-```
+```text
           J1   J2   J3
      A     9    2    7
      B     6    4    3
@@ -130,7 +130,7 @@ Assign each worker one job to minimise total hours. There are $3! = 6$ ways. Wit
 
 1. **Subtract each row's minimum** (2, 3 and 1):
 
-```
+```text
           J1   J2   J3
      A     7    0    5
      B     3    1    0
@@ -139,7 +139,7 @@ Assign each worker one job to minimise total hours. There are $3! = 6$ ways. Wit
 
 2. **Subtract each column's minimum** (3, 0 and 0):
 
-```
+```text
           J1   J2   J3
      A     4    0    5
      B     0    1    0
@@ -216,7 +216,7 @@ uv run --with scipy python networks.py
 
 Expected output (the flow matrix shows positive flow on each arc used, and its negative in the reverse position):
 
-```
+```text
 worker A -> job J2 (cost 2)
 worker B -> job J1 (cost 6)
 worker C -> job J3 (cost 1)

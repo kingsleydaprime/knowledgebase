@@ -4,6 +4,8 @@ id: 57203af6-3e80-4b2b-952d-e230a05bce11
 
 # The Type System
 
+A type system is the set of rules a language uses to say what kind of value each variable holds and what you can do with it. In C# this decides things like whether a value can be empty (null) and whether passing it around makes a copy. Knowing these rules helps you avoid some of the most common C# bugs.
+
 ## Value types and reference types
 <!-- bite: 77701b1f-f74f-4d3a-b468-31566e740c27 -->
 

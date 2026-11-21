@@ -42,18 +42,18 @@ t.setAmount(new BigDecimal(fields[16]));
 
 The approach above has a silent failure mode. Consider a CSV row where one field contains a comma inside quotes:
 
-```
+```text
 "MOMO","MTN","TXN001","2024-01-01 00:00:00","ACC","SRC","MOB","TERM","MERCH","PROD","SUB","REF","Smith, John","0244000000","Payment","GHS",50.00,2.50,2024,"MTN","Ghana","TRANSFER","JAN"
 ```
 
 After `line.replace("\"", "")`, the quotes are gone:
-```
+```text
 MOMO,MTN,TXN001,2024-01-01 00:00:00,ACC,SRC,MOB,TERM,MERCH,PROD,SUB,REF,Smith, John,0244000000,Payment,GHS,50.00,...
 ```
 
 Now `split(",")` sees the comma inside `Smith, John` as a field separator. Every field from index 13 onwards shifts by one. What was `fields[16]` (amount = `50.00`) is now `fields[17]` (currency = `GHS`). When the code calls `new BigDecimal("GHS")`, Java throws:
 
-```
+```text
 Character G is neither a decimal digit number, decimal point, nor "e" notation exponential mark.
 ```
 

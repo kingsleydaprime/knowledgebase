@@ -4,6 +4,8 @@ id: d127257c-40ec-4e69-ab86-467e4e0cd47f
 
 # Testing and Benchmarking
 
+Testing is writing small pieces of code that check your real code does what it should, and benchmarking is measuring how fast it runs. Before a bank app goes live, someone has to be sure that sending 5,000 naira takes exactly 5,000 naira from your account. Go has testing and benchmarking built in, with no extra framework needed.
+
 ## The built-in testing package
 <!-- bite: 51a2a13e-dc56-4ca6-b4eb-c4b2c80b3779 -->
 
@@ -169,7 +171,7 @@ go test -bench=. -benchmem ./...
 go test -bench=Concat -benchtime=10s -count=5 ./...
 ```
 
-```
+```text
 BenchmarkConcat-8    12345    97234 ns/op    54321 B/op    99 allocs/op
 ```
 

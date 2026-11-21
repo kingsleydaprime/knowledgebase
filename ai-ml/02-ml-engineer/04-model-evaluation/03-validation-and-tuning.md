@@ -4,6 +4,8 @@ id: 7632d626-7ddf-4321-8bda-2f655f8709ff
 
 # Validation & Tuning
 
+Validation is checking how well a model will do on new data it has never seen, and tuning is trying different settings to find the ones that work best. A single test can be lucky or unlucky, so this lesson shows how to test more fairly. It is like judging a student on several past papers instead of just one.
+
 ## The problem with a single train/test split
 <!-- bite: 521c4fcd-82f0-4099-b9ff-ed9a3c5b8389 -->
 

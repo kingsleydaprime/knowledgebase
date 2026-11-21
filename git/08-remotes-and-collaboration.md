@@ -4,6 +4,8 @@ id: 8cb6c959-1721-410f-b903-fab71084a958
 
 # Remotes and Collaboration
 
+A remote is a copy of your Git project kept somewhere else, usually on a site like GitHub, so other people can share it. You push your work up to it and pull other people's work down from it. It works a bit like a shared Google Drive folder, except every change is tracked and nothing is overwritten by accident.
+
 ## Fetching and Pulling
 <!-- bite: cd446072-c148-439d-bea2-20516119bafa -->
 

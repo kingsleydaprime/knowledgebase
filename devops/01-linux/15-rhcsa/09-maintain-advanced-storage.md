@@ -15,7 +15,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Builds directly on [[08-ma
 
 Plain partitions are fixed the moment you create them — growing `/var` when it fills up means backup, repartition, restore. **LVM (Logical Volume Manager)** adds a layer of abstraction between physical disks and the filesystems on top of them, so volumes can be resized, moved, and combined across physical disks *without* touching the filesystem layout underneath, mostly live.
 
-```
+```text
 Physical Volume (PV)  →  Volume Group (VG)  →  Logical Volume (LV)
    raw disk/partition       pool of storage        the thing you
    initialized for LVM      combining 1+ PVs        actually format
@@ -105,7 +105,7 @@ Growing (above) is the common case; the other direction — a PV needs to come *
 ```bash
 pvmove -A y /dev/sdb1        # move all data OFF this PV onto other PVs with free space in the same VG
 ```
-```
+```text
 /dev/sdb1: Moved: 2.74%
 ...
 /dev/sdb1: Moved: 100.00%

@@ -26,7 +26,7 @@ guest carts, anonymous drafts, trial workspaces.
 
 ## Two-sided anonymous identity
 
-```
+```text
 Browser                              Server
 ───────                              ──────
 localStorage "nv_anon_game"          Redis "anon:game:<id>"

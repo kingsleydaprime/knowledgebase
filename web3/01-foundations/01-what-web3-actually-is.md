@@ -4,6 +4,8 @@ id: 7d7c99e6-14a3-4632-a823-32eaaa748e16
 
 # What Web3 Actually Is
 
+Web3 is the idea of building apps on a shared list of records that thousands of computers keep together, with no single company in charge of it. Today, when you have money in your bank app or a username on Instagram, one company keeps the list that says it is yours. Web3 asks what changes when nobody holds that list alone.
+
 ## The kid version first
 <!-- bite: 4c59189b-0375-4dc1-8b66-5ca7ceaa85d0 -->
 
@@ -71,7 +73,7 @@ This folder is about **public chains**, because that's where the interesting eng
 ## The layers, so you know where you are
 <!-- bite: bdbea89e-358b-4ee6-acaf-7c368f237e2b -->
 
-```
+```text
    Application    DeFi protocols, NFT markets, DAOs, games
                   ─────────────────────────────────────────
    Contract       Smart contracts (Solidity, Rust, Move)

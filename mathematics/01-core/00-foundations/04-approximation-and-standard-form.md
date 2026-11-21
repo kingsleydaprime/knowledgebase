@@ -4,6 +4,8 @@ id: 116a68e8-3d41-46f2-b2e9-90048ac18b77
 
 # 7. SCIENTIFIC NOTATION
 
+Scientific notation is a short way of writing very big or very small numbers as a number between 1 and 10 times a power of ten, like 5 × 10^10 instead of 50,000,000,000. Engineers and scientists use it all the time, because counting zeros by hand is slow and easy to get wrong.
+
 ## Before you start
 <!-- bite: f471da88-e4f2-40b1-b2a3-61c26b875588 -->
 

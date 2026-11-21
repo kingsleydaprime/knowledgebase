@@ -4,6 +4,8 @@ id: b4a314d6-1480-48eb-b472-32cd3082852b
 
 # Why Kotlin, and the Toolchain
 
+Kotlin is a programming language that runs wherever Java runs and is now Google's preferred language for building Android apps. Many of the Android apps on your phone are written in it. This lesson covers what Kotlin is, what it keeps from Java, and the tools you need to start.
+
 ## What Kotlin is
 <!-- bite: fa1284b7-9814-4977-8cda-e0a5419aa261 -->
 

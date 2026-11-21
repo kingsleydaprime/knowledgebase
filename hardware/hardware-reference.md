@@ -15,7 +15,7 @@
 
 ## Key Formulas
 
-```
+```text
 Ohm's Law:      V = I × R
 Power:          P = V × I
 Frequency:      f = 1 / T          (T = period in seconds)

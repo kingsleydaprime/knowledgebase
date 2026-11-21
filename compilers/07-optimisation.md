@@ -4,6 +4,8 @@ id: aeefa2f6-d050-4680-9af1-e564c18e3787
 
 # Optimisation
 
+Optimisation is the compiler changing your program so it runs faster or uses less memory, without changing what it does. It is why the same code can run much faster when you build it in release mode. This lesson covers the classic tricks compilers use and what stops them working.
+
 ## The contract
 <!-- bite: 2f438799-33f3-4a5a-8316-db0bd2e51602 -->
 
@@ -141,7 +143,7 @@ The profile tells the optimiser which branches are taken, which calls are hot, a
 
 Passes enable each other, and the ordering is a genuinely hard problem:
 
-```
+```text
 inline → constant propagation → dead code elimination → simplify CFG
        → loop analysis → LICM → vectorise → ...
 ```

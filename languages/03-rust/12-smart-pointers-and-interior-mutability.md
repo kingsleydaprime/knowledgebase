@@ -4,6 +4,8 @@ id: adcc8966-d18e-4328-ad0d-2c0ef0fcdfda
 
 # Smart Pointers and Interior Mutability
 
+A smart pointer is a value that points to data somewhere else in memory and also manages that data for you, and interior mutability is a way of changing data even through a shared handle. They are the tools you reach for when Rust's simple one-owner rule is not enough, such as when several parts of a program need the same data. This lesson shows the main ones and when each fits.
+
 ## `Box<T>` — heap allocation
 <!-- bite: f1f70af5-2d8f-45ac-8704-3c3e813536c1 -->
 

@@ -4,6 +4,8 @@ id: c490cd6d-d712-421a-840e-47c5e69a7cb8
 
 # Line Drawing and Antialiasing
 
+Line drawing is the job of choosing which pixels on the screen's grid to light up so that together they look like a straight line. Antialiasing is softening the jagged, staircase edges that this leaves, which is why lines and text on your phone look smooth instead of blocky.
+
 ## Before you start
 <!-- bite: bbde384e-3893-4547-9e76-0988ecb49731 -->
 
@@ -52,7 +54,7 @@ Every picture on a raster screen is built from lines and curves, and the screen 
 
 $$y = mx + b,\qquad m = \frac{y_1 - y_0}{x_1 - x_0},\qquad b = y_0 - m x_0 \;\;\Rightarrow\;\; y = m(x - x_0) + y_0$$
 
-```
+```text
 m = (y1 - y0) / (x1 - x0)
 for (x = x0; x <= x1; ++x) {
   y = m * (x - x0) + y0
@@ -146,7 +148,7 @@ print(dda(x0, y0, x1, y1))
 
 Let $dx = x_1 - x_0$, $dy = y_1 - y_0$, with $0 < dy < dx$. Suppose pixel $(x_k, y_k)$ has just been plotted. **At column $x_k + 1$ the true line has height $y = m(x_k + 1) + b$**, and the two candidates are the lower pixel $(x_k + 1, y_k)$ and the upper pixel $(x_k + 1, y_k + 1)$.
 
-```
+```text
  y_k+1  ┤ ·········□ upper        d_upper = (y_k + 1) − y
         │        ╱  ↕ d_upper
    y    ┤······●     ← true line at x_k+1
@@ -185,7 +187,7 @@ $$p_0 = 2dy - dx$$
 
 **Swap the roles of $x$ and $y$.** Now $dy > dx$. Step $y$ by 1 each time, and decide whether $x$ stays or increases by 1. Having plotted $(x_k, y_k)$, **at row $y_k + 1$ the true line is at $x = (y_k + 1 - b)/m$**. The candidates are the left pixel $(x_k, y_k + 1)$ and the right pixel $(x_k + 1, y_k + 1)$.
 
-```
+```text
  row y_k+1:   □ left ←d_left→ ● ←d_right→ □ right
               x_k             x           x_k+1
  row y_k:     ■ (just plotted)

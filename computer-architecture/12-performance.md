@@ -4,12 +4,14 @@ id: 4951bf27-9979-4e72-948a-9068f5efaf7e
 
 # Performance
 
+Performance is how fast a program runs, and this lesson turns the whole course into a step-by-step method for making code faster. The order of the steps matters more than any single trick. You will learn to measure first, then fix what the measurements point to.
+
 ## The method
 <!-- bite: 6cb5418b-6f36-4769-8638-d4c57e7c629d -->
 
 **In order, and the order matters more than any individual technique:**
 
-```
+```text
 1. MEASURE      profile — find where the time goes
 2. UNDERSTAND   why is it slow? which resource is saturated?
 3. ALGORITHM    better complexity beats every micro-optimisation
@@ -47,7 +49,7 @@ $$S = \frac{1}{(1-p) + p/s}$$
 
 **Which resource is saturated?** The answer determines everything you do next.
 
-```
+```text
 perf stat ./program
 ```
 
@@ -62,7 +64,7 @@ perf stat ./program
 
 **Then the specific counters:**
 
-```
+```text
 perf stat -e cycles,instructions,\
              cache-misses,LLC-load-misses,\
              branch-misses,dTLB-load-misses ./program
@@ -78,7 +80,7 @@ perf stat -e cycles,instructions,\
 
 **Then locate it:**
 
-```
+```text
 perf record -g ./program && perf report
 perf annotate            # per-instruction, with sample counts
 ```
@@ -186,7 +188,7 @@ for (i = 0; i < N; i++) expensive_function(x);   // result unused → removed en
 
 **A realistic sequence, to show the method:**
 
-```
+```text
 Starting point:                          10.0 s
 1. perf → 80% in one function
 2. That function is O(n²) → O(n log n):   2.0 s   (5×)

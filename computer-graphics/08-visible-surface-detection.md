@@ -4,6 +4,8 @@ id: 703bb147-2c89-40b0-861b-9225c41838c5
 
 # Visible Surface Detection
 
+Visible surface detection is working out which surfaces in a 3D scene the viewer can actually see, and which are hidden behind something else. In a game, the wall in front of you has to cover the room behind it, and this lesson shows the methods that make that happen.
+
 ## Before you start
 <!-- bite: becefebf-75dd-48fd-b7c4-9421e88fc3e7 -->
 
@@ -46,7 +48,7 @@ Hold up a book in front of a poster. You can't see the part of the poster behind
 - The **depth buffer** stores a depth for each $(x, y)$ as surfaces are processed.
 - The **frame buffer** stores the colour for each pixel ([[computer-graphics/02-graphics-systems-and-display-hardware|note 02]]).
 
-```
+```text
 for every pixel (x, y):
     depthBuffer(x, y) = farthest value     # 0 in the "larger z = nearer" convention
     frameBuffer(x, y) = background colour

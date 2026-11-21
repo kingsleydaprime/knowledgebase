@@ -4,6 +4,8 @@ id: d7de7b65-6799-4b1b-840f-44d1774dacf1
 
 # Layer 2s and Rollups
 
+A rollup is a separate fast system that does the work for many transactions and then posts its results and its records back to the main blockchain. Instead of every computer redoing your maths, one computer does it and everyone else just checks. This is how many crypto apps today offer cheap fees while still leaning on Ethereum for safety.
+
 ## The kid version first
 <!-- bite: fb04e3df-20fd-4ad9-9f55-ce0c90e8712d -->
 
@@ -28,7 +30,7 @@ Marketing calls both "L2." **They are not the same risk**, and it's the first th
 
 **Assume every batch is valid. Let anyone challenge.**
 
-```
+```text
 sequencer posts a state root + transaction data to L1
         │
    7-day challenge window
@@ -51,7 +53,7 @@ sequencer posts a state root + transaction data to L1
 
 **Prove every batch is valid. No challenge needed.**
 
-```
+```text
 sequencer executes, generates a VALIDITY PROOF (a SNARK/STARK)
         │
 L1 verifies the proof — cheap and constant-cost

@@ -4,12 +4,14 @@ id: db728c1f-21ef-4d34-942b-12b335ee0bc2
 
 # Trees & Ensembles
 
+A decision tree is a model that makes a prediction by asking a chain of yes or no questions, like "is the age under 30?" and then "is the income under 40k?". An ensemble is many such trees working together and combining their answers. Banks use models like these to decide on loans, and they win a lot of competitions on spreadsheet-style data.
+
 ## Decision trees
 <!-- bite: a12f15e3-e5ad-4b36-92b3-61262ccc00d4 -->
 
 A decision tree learns a sequence of yes/no questions on the features, splitting the data at each node to separate the classes (or reduce variance, for regression):
 
-```
+```text
               age < 30?
              /         \
           yes           no

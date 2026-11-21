@@ -535,7 +535,7 @@ be sold by the same company.
 
 In this codebase, `ercaspay.service.ts` calls exactly three endpoints:
 
-```
+```text
 POST /payment/initiate                       → money IN
 GET  /payment/transaction/verify/{ref}       → money IN
      transaction details                     → money IN
@@ -545,7 +545,7 @@ All inbound. `PayoutsService` injects no HTTP client and imports no `HttpModule`
 writes ledger entries and updates rows. Money physically leaves via a human using a bank portal
 or Wise, and `markPaid` records the reference afterwards.
 
-```
+```text
 Attendee → Ercaspay → platform account       (collection — automated)
 platform account → bank/Wise → organizer     (payout — manual, any country)
                     ↑ recorded via externalReference
@@ -585,7 +585,7 @@ dashboard or a human before designing around it.
 
 Writing a standalone script against this project's Prisma setup fails immediately:
 
-```
+```text
 PrismaClientInitializationError: `PrismaClient` needs to be constructed with a
 non-empty, valid `PrismaClientOptions`
 ```
@@ -673,7 +673,7 @@ safe, you can point at the control flow instead of arguing about it.
 
 Running the backfill a second time with `--commit`:
 
-```
+```text
 Found 5 completed purchase(s).
 Wrote 0 entries, skipped 5.
 ```
@@ -686,7 +686,7 @@ in production.
 
 ### The dry run / commit figures must match
 
-```
+```text
 DRY RUN:  Would write 5 entries, skipped 0.   NGN 30300.00
 COMMIT:   Wrote 5 entries, skipped 0.         NGN 30300.00
 ```

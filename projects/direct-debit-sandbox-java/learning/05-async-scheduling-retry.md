@@ -136,7 +136,7 @@ See [RetryScheduler.java](src/main/java/com/itc/direct_debit_sandbox/subscriptio
 
 **`fixedDelay`** — wait N milliseconds *after* the previous execution finishes, then run again.
 
-```
+```text
 Task starts → runs for 10s → finishes → wait 30s → starts again → ...
 ```
 
@@ -144,7 +144,7 @@ If a single run takes longer than expected (e.g., the database is slow), the nex
 
 **`fixedRate`** — start a new execution every N milliseconds, regardless of when the previous one finished.
 
-```
+```text
 t=0s: task starts → runs for 10s
 t=30s: task starts → runs for 10s
 t=60s: task starts → ...

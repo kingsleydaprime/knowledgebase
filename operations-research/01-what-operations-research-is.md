@@ -86,7 +86,7 @@ This workshop is the running example for notes 02–05. The answer — 30 tables
 
 Textbooks spend 90% of their pages on solving. Practitioners spend most of their time elsewhere. The classic operations research process has six steps:
 
-```
+```text
  1. Define the problem      ← most failures start here
         ↓
  2. Gather data             ← usually the longest step

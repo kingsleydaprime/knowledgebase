@@ -4,6 +4,8 @@ id: 5e502e90-8d2b-4e08-b579-38fe9e45d1d3
 
 # Sets, Relations and Functions
 
+A set is a collection of different things, a relation is a way of pairing things from sets, and a function is a relation that gives exactly one output for each input. A table in a database, like a list of students and their courses, is a relation, and this is where that word comes from.
+
 ## Sets
 <!-- bite: 675ef70e-71a7-4712-a956-d525e501c51b -->
 

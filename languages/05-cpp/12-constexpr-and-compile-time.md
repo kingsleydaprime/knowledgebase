@@ -4,6 +4,8 @@ id: 94c12076-9806-428d-b94b-d4ca6af80ae3
 
 # `constexpr` and Compile-Time Computation
 
+Compile-time computation is getting the compiler to work out a value while it builds your program, instead of the program working it out every time it runs. `constexpr` is the C++ keyword that marks code as allowed to run this way. It can make programs faster and catch mistakes before the program ever runs.
+
 ## The accident
 <!-- bite: ea50e4ab-4240-4923-83a4-859b912f790e -->
 

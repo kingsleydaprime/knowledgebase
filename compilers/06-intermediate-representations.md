@@ -4,6 +4,8 @@ id: 9df15e6f-66ba-4549-bbf2-47d781e83452
 
 # Intermediate Representations
 
+An intermediate representation is a simpler, in-between form of a program that a compiler turns your code into before making machine code. It is a bit like making a rough outline of an essay before writing the final draft. Most of a compiler's real work, such as optimisation, happens on this form.
+
 ## Why lower the AST at all
 <!-- bite: 603a0fc8-23a4-4bf1-9c4c-7dbc0b4fefa2 -->
 
@@ -15,7 +17,7 @@ The AST mirrors the source, which is exactly wrong for analysis:
 
 So compilers **lower** the AST into something simpler, more explicit, and closer to a machine — usually through several IRs at decreasing levels of abstraction.
 
-```
+```text
 AST  →  HIR  →  MIR  →  LLVM IR  →  machine code
         │       │        │
    desugared,  CFG,   optimised,
@@ -29,7 +31,7 @@ That's roughly rustc's pipeline. Each level throws away structure the next doesn
 
 The classic linear IR: at most one operation per instruction, with explicit temporaries.
 
-```
+```text
 // source
 x = a + b * c - d;
 
@@ -47,12 +49,12 @@ Every instruction is `result = op arg1 arg2`. Expression nesting is gone, evalua
 
 Straight-line code is grouped into **basic blocks** — sequences with one entry and one exit, no branches in or out of the middle. Blocks are nodes; branches are edges.
 
-```
+```text
 if (x > 0) { y = 1; } else { y = 2; }
 print(y);
 ```
 
-```
+```text
     ┌─────────────┐
     │ B0:         │
     │ t0 = x > 0  │
@@ -82,7 +84,7 @@ The CFG is what dataflow analysis runs on, and it's why several semantic checks 
 
 **Static Single Assignment**: every variable is assigned **exactly once**.
 
-```
+```text
 // not SSA
 x = 1
 x = x + 1
@@ -102,7 +104,7 @@ That makes constant propagation, dead code elimination, and common subexpression
 
 The obvious problem: what about a variable assigned differently on two branches?
 
-```
+```text
       ┌──────────┐
       │ br cond  │
       └─┬──────┬─┘
@@ -214,7 +216,7 @@ By the time you reach the low-level IR, the language's surface features are gone
 
 The framework nearly every optimisation is expressed in: propagate facts around the CFG until they stop changing.
 
-```
+```text
 Liveness (backwards):
   live_out[B] = ∪ live_in[S] for each successor S
   live_in[B]  = use[B] ∪ (live_out[B] − def[B])

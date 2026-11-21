@@ -4,6 +4,8 @@ id: 7fbbab0c-98ce-4099-a013-bb3adc4b4d3b
 
 # Durability and Recovery
 
+Durability is a database's promise that once it says your change is saved, the change will survive even if the power goes off a second later. Recovery is how the database gets back to a correct state after such a crash. The main trick is to write each change to a log first, before updating the tables.
+
 ## The problem
 <!-- bite: 9cde982d-27c1-4df1-b905-757e13635fc8 -->
 
@@ -22,7 +24,7 @@ id: 7fbbab0c-98ce-4099-a013-bb3adc4b4d3b
 
 **A commit becomes one sequential append plus one fsync.** The actual pages are written lazily, later, in the background.
 
-```
+```text
  TRANSACTION
      │
      ├─► modify page in buffer pool (in memory, marked dirty)
@@ -80,7 +82,7 @@ id: 7fbbab0c-98ce-4099-a013-bb3adc4b4d3b
 
 **`fsync()` is the system call that makes durability real** — and there are more layers of caching between your write and the platter than people expect.
 
-```
+```text
  application write()
       ↓
  OS page cache        ← lost on power failure

@@ -4,6 +4,8 @@ id: 8c086d62-dcd9-482f-9495-a323bc1b7d7f
 
 # Module: Subgraphs, Trees and Forests
 
+A subgraph is a piece of a larger graph, made from some of its vertices and edges. A tree is a connected graph with no cycles, and a forest is a group of separate trees. This lesson shows where the trees you met earlier come from, using examples like a family tree or a set of roads with no loops.
+
 ## Before you start
 <!-- bite: ce7ef0ac-93ee-419b-956b-51f5d547d152 -->
 

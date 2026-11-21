@@ -4,6 +4,8 @@ id: fbd9f9c9-0081-4cb1-a946-27aa889ebe85
 
 # Cloud-Native Defence
 
+Cloud-native defence is keeping a large cloud setup safe by using automation, because there are too many moving parts to check by hand. It means catching mistakes in the code before it goes live, scanning what is running all the time, and watching for attacks that still get through. The earlier lessons in this section were the problems; this one is the plan.
+
 ## The kid version first
 <!-- bite: 8232ebad-4bc2-494a-9967-e451bc797eba -->
 
@@ -57,7 +59,7 @@ Cloud IR has its own shape, worth knowing → [[cybersecurity/07-security-operat
 
 Cloud defence is a loop, not a checklist:
 
-```
+```text
    shift left      → catch misconfig in the PR (policy-as-code, IaC + secret scanning)
    scan continuously → CSPM/CIEM/CNAPP catch drift in production, in minutes
    detect & respond  → CloudTrail → SIEM → threat detection catch what got through

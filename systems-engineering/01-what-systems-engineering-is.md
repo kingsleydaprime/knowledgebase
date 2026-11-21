@@ -49,7 +49,7 @@ Software people meet this constantly without the vocabulary: a distributed syste
 
 The single most-cited chart in the field, and it is the economic argument for everything else:
 
-```
+```text
      ┌──────────────────────────────────────────────┐
 100% │  ███ committed cost                          │
      │  ███                                         │

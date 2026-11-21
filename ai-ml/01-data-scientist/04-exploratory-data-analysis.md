@@ -4,6 +4,8 @@ id: 552141b9-0e0c-4ebc-8e2a-27369020e094
 
 # Exploratory Data Analysis
 
+Exploratory data analysis (EDA) is looking through a new dataset carefully, before any modelling, to understand what is in it and spot problems. You check for missing values, odd numbers and patterns. It is like reading through a class register before you work out averages, so you notice the student whose age was typed as 150.
+
 ## What EDA is and why it's non-negotiable
 <!-- bite: 6fa22de7-0202-4691-b5f7-1168898931bc -->
 

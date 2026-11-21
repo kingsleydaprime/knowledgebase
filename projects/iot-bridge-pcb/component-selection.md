@@ -223,7 +223,7 @@ TPS2375 (8-pin, 802.3af only, ~15.4W) + separate DC-DC is simpler but has less p
 
 **How the power tree works:**
 
-```
+```text
 PoE Input (48V, from RJ45)
     │
     ▼
@@ -310,7 +310,7 @@ Standard **push-push MicroSD slot** (e.g., Molex 1040310811 or Amphenol 101-0066
 
 ## 10. Block Diagram
 
-```
+```text
                         ┌───────────────────────────────────────────────────┐
                         │                  ESP32-C6-1U-N8                   │
                         │                                                   │
@@ -448,7 +448,7 @@ The RYLR998 is a ready-made LoRa module made by REYAX Technology. The important 
 - Full control, smaller footprint, lower cost at volume
 
 #### Common AT Commands on the RYLR998
-```
+```text
 AT               → ping the module (responds OK)
 AT+BAND=868000000 → set frequency to 868 MHz
 AT+ADDRESS=1     → set device address

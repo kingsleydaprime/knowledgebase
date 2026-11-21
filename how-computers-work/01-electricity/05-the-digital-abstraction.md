@@ -4,6 +4,8 @@ id: 294e5a30-b6c7-4275-a37f-4a480e77e755
 
 # Module 5: The Digital Abstraction (Buying the Right to Stop Thinking About Voltage)
 
+The digital abstraction is the decision to treat every voltage as just one of two values, 0 or 1, and stop worrying about the exact number. Every photo, message and song on your phone is stored as 0s and 1s because of this choice. This lesson explains why it is safe to ignore the physics underneath.
+
 ## Before you start
 <!-- bite: 228bb510-91a3-49e9-8ce6-55579939b436 -->
 
@@ -64,7 +66,7 @@ The digital abstraction begins with a decision that looks wasteful.
 
 **Instead of using the whole voltage range to carry a value, use only two widely separated bands, and declare everything between them meaningless.**
 
-```
+```text
    5V ┌─────────────────────────┐
       │                         │  ← LOGIC 1
       │      valid HIGH         │    (any voltage in this band means "1")
@@ -91,7 +93,7 @@ Throwing away the middle is necessary but not sufficient. The real machinery is 
 
 **A gate is more careful about its outputs than it demands of its inputs.**
 
-```
+```text
    VDD ─┬──────────────────────────────────────────────┬─
         │                                              │
         │   ▲ V_OH = 2.4 V   (output at least this)    │
@@ -129,7 +131,7 @@ The noise margin explains why *one* hop survives corruption. It does not yet exp
 
 **No — and this is the crucial point.** Noise does not accumulate across digital stages, because **every gate produces a fully clean output regardless of how dirty its input was.**
 
-```
+```text
    Analogue chain — errors add up:
 
    1.00 V ──[+noise]──> 1.03 ──[+noise]──> 0.99 ──[+noise]──> 1.06 ──> drift
@@ -151,7 +153,7 @@ This is **signal regeneration**, and it is the property that makes arbitrarily d
 
 Regeneration is not automatic. It requires the gate's **voltage transfer characteristic** — output plotted against input — to have a steep transition region.
 
-```
+```text
    V_out
     3.3 ┤━━━━━━━━━╲
         │          ╲          slope here must be
@@ -302,7 +304,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 LVTTL noise margins: NM_H = 0.4 V, NM_L = 0.4 V
 system margin = 0.4 V
 

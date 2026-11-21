@@ -4,6 +4,8 @@ id: bf6d4ab1-4ced-41e7-aff5-765239f8094b
 
 # Matrices and Determinants
 
+A matrix is a rectangular table of numbers, arranged in rows and columns, that can act on other numbers, for example to stretch or turn a picture. A determinant is a single number worked out from a square matrix that tells you whether that action can be undone. Photo editing apps and 3D games use matrices all the time.
+
 ## Before you start
 <!-- bite: 7a33a8e1-51fc-484d-a918-d2d8e70ddc3c -->
 
@@ -329,7 +331,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - multiplication is row-times-column, and order matters
   A =
       [      2        3]

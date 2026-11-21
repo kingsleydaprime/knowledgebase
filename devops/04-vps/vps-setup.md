@@ -33,7 +33,7 @@ usermod -aG sudo username
 
 
 Allow the user to be able to login with the same ssh key as root.
-```
+```bash
 mkdir /home/username/.ssh
 cp ~/.ssh/authorized_keys /home/username/.ssh/
 chown -R username:username /home/username/.ssh
@@ -41,7 +41,7 @@ chmod 700 /home/username/.ssh
 chmod 600 /home/username/.ssh/authorized_keys
 ```
 OR on your local machine
-```
+```bash
 ssh-copy-id username@ip-address
 ```
 
@@ -84,11 +84,11 @@ sudo nvim /etc/ssh/sshd_config
 uncomment it and change the yes to no
 ```
 4. Change 
-```
+```text
 PermitRootLogin yes to no
 ```
 5. Change 
-```
+```text
 UsePAM yes to no
 ```
 

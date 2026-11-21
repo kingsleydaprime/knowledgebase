@@ -4,6 +4,8 @@ id: 4128cd30-012e-49c0-8aee-675273170112
 
 # Tooling and Code Generation
 
+Tooling is the set of programs that help you write and check Dart code, and code generation is having a tool write repetitive code for you. Real Flutter projects lean on it heavily, for example to turn JSON into Dart classes. This lesson covers the main generators, lints and packages you will meet.
+
 ## Why code generation is unavoidable
 <!-- bite: f82c4a7c-cbfd-4fde-a382-7304525b8335 -->
 

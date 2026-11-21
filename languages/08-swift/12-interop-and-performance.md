@@ -4,6 +4,8 @@ id: 91f2327a-3bc8-446d-a159-18e01138e567
 
 # Interop and Performance
 
+Interop is Swift's ability to work with code written in other languages, mainly Objective-C and C, and performance is how fast that code runs. Many Apple apps still mix Swift with older Objective-C code. This lesson shows how the languages connect and where Swift's speed actually goes.
+
 ## Objective-C interop
 <!-- bite: 9b3a387b-3edd-48ff-be70-b8264526952a -->
 
@@ -77,7 +79,7 @@ let items: [Circle] = [...]        // contiguous, no indirection
 ## Optimisation and build settings
 <!-- bite: c009de2d-bfc0-4141-a349-7794448f57e6 -->
 
-```
+```text
 -Onone          debug — no optimisation, fast builds
 -O              release
 -O -whole-module-optimization    cross-file inlining. Default for release

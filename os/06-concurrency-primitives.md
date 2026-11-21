@@ -4,6 +4,8 @@ id: 53992400-1b82-4ac0-977d-7a02ffb76e14
 
 # Concurrency Primitives
 
+Concurrency primitives are the basic tools that stop two threads from changing the same data at the same time and messing it up. Picture two people updating the same bank balance at the same moment, where one update gets lost. The locks in every programming language are built from a few small tools the processor and operating system provide, and this lesson shows them.
+
 ## The layer under everything
 <!-- bite: 32f44834-b9ae-4bef-99f1-2dbdb861f3e5 -->
 
@@ -16,7 +18,7 @@ Understanding this layer explains why uncontended locks are nearly free, why con
 
 The hardware guarantee: an operation that cannot be interrupted halfway.
 
-```
+```text
 lock cmpxchg    compare-and-swap (CAS)  — the universal primitive
 lock xadd       fetch-and-add
 lock xchg       atomic exchange

@@ -4,6 +4,8 @@ id: 11a25a9a-0888-465d-8ccc-78008e91eec0
 
 # Module 30: Build the Hardware (Deriving the Control Unit)
 
+The control unit is the part of a CPU that reads each instruction and switches on the right parts of the circuit to carry it out. In this lesson you will work out PRIME-1's control unit step by step from its instruction set. Then you will pick one of four build tracks for building the hardware itself.
+
 ## Before you start
 <!-- bite: d2af84ba-6628-4055-b10a-4337d02a84f1 -->
 
@@ -53,7 +55,7 @@ It has a reputation for being the hard part, and it is not. **It is a lookup tab
 ## 3. The datapath, and what needs steering
 <!-- bite: 5aa6c03a-9310-4ed1-baa3-0443e47b7b55 -->
 
-```
+```text
               ┌─────────┐    ┌──────────┐
         ┌────►│   PC    ├───►│  I-MEM   ├──── instruction
         │     └─────────┘    └──────────┘         │
@@ -299,7 +301,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 DERIVING the control unit from the ISA semantics
 
      op  name |  dest   src  operand    mem               flow

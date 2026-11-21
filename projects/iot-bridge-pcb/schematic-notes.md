@@ -244,7 +244,7 @@ SPI (Serial Peripheral Interface) is how the ESP32 talks to the W5500, SX1262, a
 
 **CS (Chip Select)** — each slave chip has its own CS wire. A chip only responds when its CS is pulled LOW. HIGH = ignore everything. This is how three chips share the same MOSI/MISO/SCK wires without interfering with each other:
 
-```
+```text
 Pull CS_LORA LOW  → SX1262 listens, W5500 and SD card ignore
 Pull CS_ETH LOW   → W5500 listens, SX1262 and SD card ignore
 Pull CS_SD LOW    → MicroSD listens, SX1262 and W5500 ignore
@@ -341,7 +341,7 @@ The SX1262 processes commands internally and takes time to do things (change fre
 The **DIO1 pin** is an interrupt output. You configure it to trigger when certain events happen (transmission complete, packet received, timeout). Instead of your firmware constantly asking "are you done yet?", the SX1262 taps you on the shoulder via DIO1 when it's finished. This frees up the CPU to do other things while the radio is working.
 
 **Pattern in the firmware:**
-```
+```text
 1. Check BUSY = LOW
 2. Send command to SX1262 over SPI
 3. Wait for DIO1 interrupt (radio signals it's done)
@@ -380,7 +380,7 @@ Two variants you'll encounter:
 
 Use `Crystal_GND24` for RF designs. The case pins go to GND.
 
-```
+```text
 XTA ──┬── [Crystal] ──┬── XTB
       │   (case→GND)  │
     10pF            10pF
@@ -469,7 +469,7 @@ A **ferrite bead** is a passive component that acts like a frequency-selective r
 
 For the VDDA (analog supply) pin on a microcontroller:
 
-```
+```text
 +3V3 digital rail ──[ferrite bead]──► VDDA ──[100nF cap]──► GND
 ```
 
@@ -563,7 +563,7 @@ GPIO9 is the BOOT pin on the ESP32-C6. When the chip powers on or resets, it rea
 
 The 10kΩ resistor keeps GPIO9 LOW by default so the chip always boots your program. It's a resistor (not a wire directly to GND) so a button can still pull it HIGH when you need to flash new firmware:
 
-```
+```text
 +3V3
   │
 [Button]  ← hold during power-on to enter flash mode
@@ -584,7 +584,7 @@ The EN pin uses the same idea but opposite: a 10kΩ pull-UP to +3V3 keeps EN HIG
 The load capacitors on each side of a crystal "tune" the crystal to its exact target frequency. Each crystal has a specified **load capacitance (CL)** in its datasheet — this is the total capacitance the crystal "sees" across both pins.
 
 Since the two caps are in series from the crystal's perspective:
-```
+```text
 CL = (C1 × C2) / (C1 + C2)    (if C1 = C2, this simplifies to C/2)
 ```
 

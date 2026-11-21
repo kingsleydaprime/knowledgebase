@@ -4,6 +4,8 @@ id: 0962e8de-43c6-4f93-ab35-3f58b16555f8
 
 # Choosing a Tool
 
+Choosing a tool means picking the right kind of AI product for the job you have, such as a chatbot, a research tool, an image maker or a coding helper. Many of them run on the same model underneath but are built for different jobs. Specific products and prices change often, so this lesson teaches the kinds of tool.
+
 ## The kid version first
 <!-- bite: 34047b57-b2f4-48c7-bcdc-426828463d2c -->
 

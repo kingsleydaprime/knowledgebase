@@ -4,6 +4,8 @@ id: fed2a43a-10e2-4b26-ad52-ba487ee0ca87
 
 # Pattern: Matrix Traversal
 
+Matrix traversal is moving through a grid of cells, row by row or from one cell to its neighbours, to solve a problem. Many puzzles are grids underneath. Counting islands on a map, filling an area with colour in a paint app and moving pieces in a board game are all matrix traversal.
+
 ## Before you start
 <!-- bite: 6fecbe87-b97a-4097-8a28-fdab4c7659c5 -->
 

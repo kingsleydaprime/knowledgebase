@@ -4,6 +4,8 @@ id: 15bc84ea-7733-4ac9-b14f-fcdca5fb6163
 
 # Structs, Enums and Pattern Matching
 
+A struct is a type that groups several named values together, an enum is a type that can be one of a few fixed choices, and pattern matching is how you check which choice you have and act on it. A bank transfer is a good example: it holds an amount and a receiver, and it is either pending, successful or failed. Rust uses these three tools together to describe data like this clearly.
+
 ## Structs
 <!-- bite: b0a9d95a-023b-427f-bb61-8e6751a147ad -->
 

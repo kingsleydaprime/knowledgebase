@@ -39,7 +39,7 @@
 
 **Pattern → syntax tree.** The grammar, in precedence order (lowest first):
 
-```
+```text
 alternation := concat ('|' concat)*
 concat      := repeat*
 repeat      := atom ('*' | '+' | '?')?
@@ -59,7 +59,7 @@ class       := '[' '^'? (CHAR | CHAR '-' CHAR)* ']'
 
 Each node type builds a fragment with one start state and one dangling out-arrow:
 
-```
+```text
  literal 'a':     ──a──►○
 
  concat  ab:      ──a──►──b──►○
@@ -84,7 +84,7 @@ Each node type builds a fragment with one start state and one dangling out-arrow
 
 **The milestone that gives you the linear-time guarantee.**
 
-```
+```text
 current = ε-closure({start})
 for each char c in input:
     next = ∅

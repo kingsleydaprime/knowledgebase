@@ -75,7 +75,7 @@ def whoami():
 
 **So it's a global that isn't shared**, which is elegant and is also why you get:
 
-```
+```text
 RuntimeError: Working outside of request context
 ```
 

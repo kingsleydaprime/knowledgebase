@@ -4,6 +4,8 @@ id: f208c0d8-f752-478c-af4c-2c004c483447
 
 # Networking on Mobile
 
+Networking on mobile is how a phone app talks to servers over the internet. On a phone the connection is slow, drops in lifts and tunnels, may cost the user data, and uses battery every time it wakes up. This lesson shows how to make network calls that cope with all of that.
+
 ## The kid version first
 <!-- bite: a689c4ab-6422-4889-9d2a-6b20b5b6b261 -->
 

@@ -4,6 +4,8 @@ id: deb0fb82-7880-45d3-83d6-e61796249e29
 
 # Pointers
 
+A pointer is a variable that holds the memory address of another value, rather than the value itself. It is like writing down a house address instead of carrying the whole house around. Pointers are at the heart of C, and most of C's power and most of its bugs come from them.
+
 ## The basics
 <!-- bite: a904bf8d-e2c7-4636-8047-ddbf0a0744cb -->
 

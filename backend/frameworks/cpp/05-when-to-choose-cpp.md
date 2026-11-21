@@ -4,6 +4,8 @@ id: f52bc22c-a134-4387-bd63-cb19ee8c5942
 
 # When to Choose C++
 
+This lesson is about deciding when C++ is a good language for a backend service. C++ is much safer than C for this work, but it still does not stop every memory mistake. The lesson weighs it honestly against Rust and Go and names the cases where it really is the right choice.
+
 ## The position, up front
 <!-- bite: 6ff18cb1-1064-4a92-8e85-7bea05af5ce4 -->
 

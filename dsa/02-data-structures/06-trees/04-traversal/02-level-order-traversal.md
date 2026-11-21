@@ -4,6 +4,8 @@ id: 8226c5db-bc7b-4a1d-9cfa-c5aa7c4df9c1
 
 # Module: Level-Order Traversal (Breadth-First)
 
+Level-order traversal is visiting the items of a tree one level at a time: the top first, then everything one step down, then the next level, and so on. It is also called breadth-first traversal. Think of a school assembly where the head teacher greets the front row first, then the second row, then the third.
+
 ## Before you start
 <!-- bite: f901e47c-a2bd-4c4c-aeb3-2675e46dc94d -->
 

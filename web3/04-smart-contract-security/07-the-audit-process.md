@@ -4,6 +4,8 @@ id: 33b98bb1-0064-4f66-956b-0c683895aab3
 
 # The Audit Process
 
+An audit is a review of a smart contract's code by security specialists, who look for bugs and write a report before the contract goes live. Many crypto projects say "audited" on their website as a sign of trust. This lesson explains what an audit does and does not promise, and how to prepare for one.
+
 ## What an audit is
 <!-- bite: cb71e223-1b33-45f9-8ad3-b5b9585ff73b -->
 
@@ -37,7 +39,7 @@ Auditors bill by the week. Every hour spent understanding your intent is an hour
 ## Severity, and how it's judged
 <!-- bite: 1f3a133d-04cf-478b-a416-ac9871915733 -->
 
-```
+```text
               IMPACT
               High        Medium      Low
    High   │  Critical  │  High     │  Medium

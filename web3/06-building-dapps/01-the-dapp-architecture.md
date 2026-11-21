@@ -4,6 +4,8 @@ id: 09745d3a-1010-4a4d-a6f1-aa5ae66f2f18
 
 # The Dapp Architecture
 
+A dapp, short for decentralised app, is a normal web app where one part saves data to a public blockchain through the user's wallet instead of to the app's own database. The website, images and search are built the same way as any other web app. This lesson shows how the pieces fit together and how small the blockchain part usually is.
+
 ## The kid version first
 <!-- bite: f8b6809f-0c66-498e-9871-ae993caeb198 -->
 
@@ -14,7 +16,7 @@ Everything else — the React app, the API, the images, the search — is ordina
 ## The honest diagram
 <!-- bite: 17ceb678-59b7-498d-8415-0b1d91f562d5 -->
 
-```
+```text
 ┌─ Browser ─────────────────────────────────────────────────┐
 │  React/Next frontend                                      │
 │      │                          │                         │

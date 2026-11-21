@@ -4,6 +4,8 @@ id: 77e4a41c-26ec-4923-9f24-7e20594ea09e
 
 # Multicore and Memory Models
 
+A multicore processor is one chip with several processors inside, called cores, all sharing the same memory. A memory model is the set of rules for what each core sees when another core changes that memory. Your phone has several cores, and these rules explain why some code works on one kind of chip and breaks on another.
+
 ## The problem
 <!-- bite: 1aa7a0ee-5a04-454f-8a51-b3fad32a67ac -->
 

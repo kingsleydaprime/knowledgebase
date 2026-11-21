@@ -4,6 +4,8 @@ id: 220a0707-fac4-42dc-b90a-b0d1b79c0dae
 
 # Threat Intelligence & Hunting
 
+Threat intelligence is knowledge about attackers: who they are, what they go after and how they usually work. Threat hunting is using that knowledge to go looking for an attacker who may already be inside, instead of waiting for an alarm. It is the difference between waiting for a thief to trip the alarm and checking the house for signs one is already in.
+
 ## Threat intelligence
 <!-- bite: 18e3d7d8-a9de-4ca6-8f1e-d6b7b38d5fad -->
 

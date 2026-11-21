@@ -4,6 +4,8 @@ id: 153001ba-a568-43a9-949e-2f01572042f6
 
 # Joint, Conditional and Mutual Information
 
+This lesson extends entropy, the measure of how uncertain something is, from one thing to two. It asks how uncertain two things are together, how uncertain one is once you know the other, and how much knowing one tells you about the other. Knowing today's weather tells you something about tomorrow's, and mutual information puts a number on how much.
+
 ## Joint entropy
 <!-- bite: 9b7b3e09-451a-4ee5-a472-73b2840d235c -->
 
@@ -57,7 +59,7 @@ $$I(X;Y) = H(X) + H(Y) - H(X,Y) = \sum_{x,y}p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)}$
 
 **The Venn diagram, which is genuinely worth memorising:**
 
-```
+```text
    ┌───────────────────────────┐
    │        H(X,Y)             │
    │  ┌──────────┬──────────┐  │

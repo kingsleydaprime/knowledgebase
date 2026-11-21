@@ -9,7 +9,7 @@ Every backend framework — Express, NestJS, Django, Spring — is ultimately do
 ## The request lifecycle
 <!-- bite: 51595418-6740-43f8-a372-f623a2cd56dc -->
 
-```
+```text
 1. TCP connection accepted
 2. Raw bytes parsed into an HTTP request (method, path, headers, body)
 3. Routing: match the path + method to a registered handler

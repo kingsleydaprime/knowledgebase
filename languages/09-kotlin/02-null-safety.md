@@ -4,6 +4,8 @@ id: 53de66b4-99f3-4449-a492-7ad7c17f0a18
 
 # Null Safety
 
+Null safety is Kotlin's way of making you say, in the code itself, whether a value is allowed to be missing. An app crashing because it tried to use a value that was not there is one of the most common bugs in Java. Kotlin catches most of these before the app ever runs.
+
 ## Nullability is in the type system
 <!-- bite: f6d34366-d077-4e50-9bfe-c7d4e52fea84 -->
 

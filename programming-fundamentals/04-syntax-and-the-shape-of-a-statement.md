@@ -68,13 +68,13 @@ In brace languages, indentation is *convention* — the compiler ignores it, hum
 Once you've seen these, an unfamiliar language stops looking foreign.
 
 **Assignment** — put a value in a name.
-```
+```text
 name = "Kingsley"
 ```
 Note `=` means *assign*, not *equals*. Comparison is `==`, and confusing them is one of the two most common beginner errors → [[programming-fundamentals/06-control-flow|note 06]].
 
 **Function call** — a name, then parentheses containing arguments.
-```
+```text
 print("hello")
 max(3, 7)
 save()                # parentheses stay, even when empty
@@ -82,14 +82,14 @@ save()                # parentheses stay, even when empty
 **The parentheses are what makes it a call.** Writing `max` without them refers to the function itself rather than running it — a distinction that becomes important later and confusing early.
 
 **Member access** — a dot. *The thing on the left, the part of it named on the right.*
-```
+```text
 name.length
 user.email
 list.append(4)
 ```
 
 **Indexing** — square brackets, to get one item out of a collection.
-```
+```text
 items[0]
 scores["maths"]
 ```
@@ -115,7 +115,7 @@ scores["maths"]
 
 Beginners skim errors and start changing things. **The message usually tells you exactly what's wrong**, and reading it properly is the highest-return habit in this note.
 
-```
+```text
   File "app.py", line 12
     if score > 10
                  ^

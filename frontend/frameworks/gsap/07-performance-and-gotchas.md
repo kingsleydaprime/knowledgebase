@@ -4,6 +4,8 @@ id: 1e38c2f7-7a74-42e2-b2c3-b606b0fa1d57
 
 # Performance and Gotchas
 
+This lesson is about keeping GSAP animations smooth and avoiding the common mistakes that make them stutter. The most important rule here applies to any web animation, not just GSAP: some properties are cheap for the browser to animate and some are slow. A choppy scroll effect on a website is usually breaking that rule.
+
 ## Animate transforms and opacity, not layout properties
 <!-- bite: ac6dae3d-8184-4646-9330-46e40b392328 -->
 

@@ -4,6 +4,8 @@ id: b9fcc944-8131-4c8f-bc17-cd111ed88ceb
 
 # Testing and Tooling
 
+Testing and tooling here means the programs developers use to check a smart contract works before it goes live. A normal app can be fixed with an update, but a smart contract can't be patched and often holds real money. That is why testing here is much stricter, and this lesson walks through the main tools.
+
 ## Why testing is different here
 <!-- bite: e4cbba37-8b6b-4f60-997e-8f72418807b3 -->
 
@@ -145,7 +147,7 @@ aderyn                       # Rust-based, newer, good output
 ## A workflow that works
 <!-- bite: 7f6de14a-01e4-4d89-9cbc-2d19a8c65fbd -->
 
-```
+```text
 1. forge init, write the contract
 2. Write unit tests for the happy path
 3. Convert them to fuzz tests — nearly free

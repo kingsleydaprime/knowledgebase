@@ -19,7 +19,7 @@ $$\rho(\mathbf{x}) = \lim_{\Delta V \to V^*} \frac{\Delta m}{\Delta V}$$
 
 Shrink $\Delta V$ and you see three regimes:
 
-```
+```text
 density
   │        ╱╲                              ← too small: individual atoms,
   │       ╱  ╲                                wild fluctuations
@@ -74,7 +74,7 @@ Every problem in this field is assembled from three parts, and knowing which one
 
 **3. Constitutive models** — how this material relates stress to deformation. Material-specific, and **empirical**. → [[continuum-mechanics/07-constitutive-models|07]]
 
-```
+```text
 kinematics  +  balance laws  +  constitutive model  =  a solvable problem
  (geometry)      (physics)        (the material)
 ```

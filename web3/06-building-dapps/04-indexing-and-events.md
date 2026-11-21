@@ -4,6 +4,8 @@ id: e841c674-6c7e-410f-88a0-aac33d5467d7
 
 # Indexing and Events
 
+Indexing is copying data out of a blockchain into a normal database, so an app can search and sort it quickly. A blockchain can't answer questions like "show me all my past trades", even though your wallet shows you that list. This lesson shows how apps build that searchable copy from the messages contracts announce.
+
 ## The problem, stated once
 <!-- bite: 19cce8c8-a9a8-44d6-a270-780b46c9b39c -->
 
@@ -33,7 +35,7 @@ Fine for "the last 100 transfers." Hopeless for anything a real product needs.
 
 Every indexer is the same pipeline:
 
-```
+```text
    chain
      │ replay historical logs from block N, then follow the head
      ▼
@@ -77,7 +79,7 @@ ponder.on('ERC20:Transfer', async ({ event, context }) => {
 
 **A block you indexed can be un-happened.** The chain reorganises; your database now contains events that never occurred.
 
-```
+```text
 index block 100 → credit a user 500 tokens
 block 100 is reorged out
 your database says they have 500 tokens. The chain says they never did.
@@ -107,7 +109,7 @@ The strategies:
 
 Not everything. Index what your UI queries:
 
-```
+```text
 entities:  User, Position, Trade, DailyStats
 ```
 

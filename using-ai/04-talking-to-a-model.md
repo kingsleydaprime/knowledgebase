@@ -4,6 +4,8 @@ id: 285e41b8-61a5-4f38-976b-62723f33a5fd
 
 # Talking to a Model
 
+Talking to a model means writing the message you type into an AI chat so it understands what you actually want. It is a bit like briefing someone new who cannot see your screen or ask you questions. The better your message, the better the answer you get back.
+
 ## The kid version first
 <!-- bite: 15072a0b-2819-4f1d-a79a-00fc5e37992f -->
 

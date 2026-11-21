@@ -4,6 +4,8 @@ id: 46bef119-5e94-4b20-8216-5657394cc0ed
 
 # Data Fetching and Server State
 
+Data fetching is how a web app gets information from a server, and server state is that information once it is on your screen. Your bank balance or your list of chats really lives on the server, and the app only holds a copy. This lesson is about treating that copy like a copy that can go out of date.
+
 ## The distinction that reorganises everything
 <!-- bite: c32dbdbc-79f5-45ac-91ef-c35d2f20bf6e -->
 
@@ -74,7 +76,7 @@ useEffect(() => {
 ## Waterfalls
 <!-- bite: 48ed26c0-e0f3-4704-8e93-0c12b730edf8 -->
 
-```
+```text
 Page loads → fetch user → then fetch user's org → then fetch org's projects
 ```
 

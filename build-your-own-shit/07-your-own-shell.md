@@ -29,7 +29,7 @@ You **don't** need: parsing theory beyond splitting on whitespace, networking, o
 
 Print a prompt, read a line, echo it back, loop. Exit on EOF (Ctrl-D).
 
-```
+```text
 $ hello
 you typed: hello
 $ ^D
@@ -113,7 +113,7 @@ execvp(...);
 
 Some commands **cannot** be external programs:
 
-```
+```text
 cd      — must change THIS process's directory; a child's chdir dies with it
 exit    — must exit this process
 export  — must modify this process's environment

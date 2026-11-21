@@ -4,6 +4,8 @@ id: eb807345-f26f-478b-9545-ed43010c3ac8
 
 # Your Actual Threat Model
 
+Your threat model is a short, honest answer to three questions: what do you have worth taking, who would really try to take it, and what would it cost you. Most people are not being watched by anyone special. They get caught by scams sent to everybody, and knowing that cuts the long list of security advice down to a few things worth doing.
+
 ## The kid version first
 <!-- bite: f6c6738a-9dac-428b-828a-7345fdeb492c -->
 

@@ -55,7 +55,7 @@ Writing $-7$ and $-5$ is a convention: in this form, **a negative number in the 
 
 The starting tableau puts the slacks in the basis. That's corner A: make nothing, every hour idle.
 
-```
+```text
  basis │  x1    x2    s1    s2  │  RHS
  ──────┼────────────────────────┼──────
   s1   │   4     3     1     0  │  240    carpentry
@@ -88,7 +88,7 @@ The smallest is 50, so **$s_2$ leaves**. Finishing is the constraint we hit firs
 2. Carpentry row minus 4 × new $x_1$ row: `0  1  1  -2 | 40`.
 3. Objective row plus 7 × new $x_1$ row: `0  -1.5  0  3.5 | 350`.
 
-```
+```text
  basis │  x1    x2    s1    s2  │  RHS
  ──────┼────────────────────────┼──────
   s1   │   0     1     1    -2  │   40
@@ -118,7 +118,7 @@ Smallest is 40, so **$s_1$ leaves** — carpentry becomes binding.
 2. $x_1$ row minus 0.5 × $x_2$ row: `1  0  -0.5  1.5 | 30`.
 3. Objective row plus 1.5 × $x_2$ row: `0  0  1.5  0.5 | 410`.
 
-```
+```text
  basis │  x1    x2    s1    s2  │  RHS
  ──────┼────────────────────────┼──────
   x2   │   0     1     1    -2  │   40
@@ -226,7 +226,7 @@ python3 simplex.py
 
 Expected output — note the pivots match the hand trace (column 0 is $x_1$; variables 2 and 3 are $s_1$ and $s_2$):
 
-```
+```text
 pivot 1: column 0 enters, row 1 (basic var 3) leaves
 pivot 2: column 1 enters, row 0 (basic var 2) leaves
 x = [30.0, 40.0] z = 410.0 shadow prices = [1.5, 0.5]

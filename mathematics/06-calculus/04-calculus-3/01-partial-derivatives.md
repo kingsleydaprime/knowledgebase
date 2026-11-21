@@ -4,6 +4,8 @@ id: 472b88d1-b418-49b8-8ce4-a0a9fb745fb6
 
 # Partial Derivatives
 
+A partial derivative is the rate of change of a function that has several inputs, when you change just one input and hold the others still. Think of a hill: how steep it is depends on which direction you walk. The same idea is used when machine learning models learn.
+
 ## Before you start
 <!-- bite: 9c53de3d-b519-4804-af17-3b5f9753165b -->
 
@@ -47,7 +49,7 @@ In the first, $3xy$ differentiates to $3y$ because $y$ is a constant multiplier,
 
 **The symbol $\partial$ ("del") rather than $d$ signals that other variables exist and are being held still.**
 
-```
+```text
    the surface z = f(x,y)
 
    ∂f/∂x  = the slope of the slice taken parallel to the x-axis

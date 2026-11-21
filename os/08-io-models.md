@@ -4,6 +4,8 @@ id: 230aab27-6ae0-4934-a809-58924c6db53f
 
 # I/O Models
 
+I/O, short for input and output, is a program reading or writing data outside itself, such as from the network or a disk, and an I/O model is the way it waits for that data. A chat server may have thousands of connections open, each waiting for messages. This lesson compares the different ways of waiting and why some handle many connections far better than others.
+
 ## The five models
 <!-- bite: 99593380-9403-4f44-a867-0afa6c00ad60 -->
 
@@ -109,7 +111,7 @@ The genuinely new thing (Linux 5.1, 2019), and the first Linux interface that's 
 
 **Two shared ring buffers, mapped between kernel and user space:**
 
-```
+```text
 SUBMISSION QUEUE   →  you write operation descriptions here
 COMPLETION QUEUE   ←  the kernel writes results here
 ```

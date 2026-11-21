@@ -4,12 +4,14 @@ id: eb931c49-4085-4439-94c2-4a8254536189
 
 # The Memory Hierarchy
 
+The memory hierarchy is the set of storage layers in a computer, from tiny and very fast to huge and slow. Processors became much faster than main memory over the years, so they spend a lot of time waiting for data. This is a big reason an app can feel slow even on a powerful phone.
+
 ## The wall
 <!-- bite: a004dfca-3c03-407a-badc-5fd77c19d5af -->
 
 **CPUs got much faster than memory, for decades.**
 
-```
+```text
  relative
  speed
     │      CPU  ╱‾‾‾‾‾‾‾‾
@@ -163,7 +165,7 @@ for (ii = 0; ii < N; ii += B)
 
 **Don't guess. `perf` tells you directly:**
 
-```
+```text
 perf stat -e cache-references,cache-misses,\
              L1-dcache-load-misses,LLC-load-misses,\
              dTLB-load-misses,cycles,instructions ./program

@@ -4,6 +4,8 @@ id: 1291ce41-a7bc-4a4b-bbb8-5631985413c5
 
 # Web Servers & Proxies
 
+A web server is a program that receives requests from browsers and apps and sends back pages or data. A proxy is a program that sits in the middle and passes requests along on someone's behalf. In most real setups, a web server like Nginx sits in front of the app and handles security, traffic and caching for it.
+
 ## What a web server does
 <!-- bite: 32e10085-05cb-49d4-ac30-ffee00de9afb -->
 
@@ -17,7 +19,7 @@ The distinction trips people up; it's about *which side* the proxy represents:
 - **Forward proxy** — sits in front of *clients*, making requests on their behalf (corporate egress proxy, a VPN-ish gateway). The server doesn't know the real client.
 - **Reverse proxy** — sits in front of *servers*, receiving client requests and forwarding them to backends. The client doesn't know which backend served it. **This is the DevOps workhorse** — Nginx in front of your app is a reverse proxy.
 
-```
+```text
 Client ──► [ reverse proxy: Nginx ] ──► app instance 1
                      │               ──► app instance 2   (load balancing)
                      └─ terminates TLS, caches, routes by path/host

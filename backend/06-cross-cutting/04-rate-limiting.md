@@ -49,7 +49,7 @@ id: 0ae3c207-cdf7-42a3-ac19-7b31d664b8c5
 
 **The mistake that looks fine in staging.** An in-memory limiter is per-instance:
 
-```
+```text
 limit 100/min, 4 instances behind a load balancer
 → the actual limit is 400/min
 → and it changes when you autoscale
@@ -59,7 +59,7 @@ limit 100/min, 4 instances behind a load balancer
 
 **The fix is shared state — Redis, normally.** An atomic increment-and-expire, or a Lua script for token bucket:
 
-```
+```text
 INCR key
 EXPIRE key 60 NX        -- only set TTL on first increment
 ```

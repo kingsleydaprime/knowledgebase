@@ -29,7 +29,7 @@ at -c 5                # show the exact commands/environment stored in job numbe
 atrm 5                 # cancel job number 5
 ```
 
-```
+```text
 $ atq
 28   Mon May 19 05:13:00 2025 a student
 ```
@@ -51,7 +51,7 @@ systemctl status logrotate.timer          # when it last fired, when it fires ne
 systemctl enable --now logrotate.timer    # enable at boot AND start now, same two-step pattern as any other unit
 ```
 
-```
+```text
 $ systemctl status logrotate.timer
 ● logrotate.timer - Daily rotation of log files
      Active: active (waiting) since Wed ...
@@ -100,7 +100,7 @@ systemd-tmpfiles --create /etc/tmpfiles.d/myapp.conf   # create what a config fi
 
 Config file syntax (`man tmpfiles.d`): `Type Path Mode UID GID Age Argument`
 
-```
+```text
 d /run/myapp     0755 root root -     # create the dir if missing; never auto-purged (no age given)
 D /home/student  0700 student student 1d   # create if missing; purge ALL contents older than 1 day
 q /tmp           1777 root root 5d    # like 'd', but specifically for the shared /tmp convention

@@ -4,6 +4,8 @@ id: 929dc59e-6d1a-4159-b981-6db2231ac4e4
 
 # Getting Started
 
+Getting started in game development means picking a tiny first game, using an existing engine and actually finishing it. Most beginners fail by building their own engine or by planning a game that is far too big. This lesson gives you a ladder of small projects to climb, plus where to learn and practise next.
+
 ## The three failure modes
 <!-- bite: 9ab59a11-9bb4-44ed-bbb8-4e41d3f6298a -->
 

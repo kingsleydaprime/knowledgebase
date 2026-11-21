@@ -4,6 +4,8 @@ id: d2f130a4-93cf-4da2-879a-5997b6be1f77
 
 # Cloud Design Patterns
 
+Cloud design patterns are tried and tested ways of building systems that keep working when parts of them fail. In the cloud, machines and networks do fail, so you plan for it from the start. Retrying a failed request after a short wait, the way an app tries again when your network drops, is one of these patterns.
+
 ## The premise: the cloud fails, by design
 <!-- bite: 6dd00a81-5c46-4142-9d62-e2d74dac2ef2 -->
 

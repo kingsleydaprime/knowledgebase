@@ -4,6 +4,8 @@ id: a42ea750-dbd8-45a8-b44c-d87ba1814ddc
 
 # Concurrency and the GIL
 
+Concurrency is a program doing several things at once, and the GIL (global interpreter lock) is a lock inside standard Python that lets only one thread run Python code at a time. A script that downloads many web pages, or crunches a big dataset, is where this starts to matter. This lesson shows Python's three ways of doing several things at once and how to choose between them.
+
 ## The GIL
 <!-- bite: 5108e56d-65f6-4f72-bcd3-134a502ccaba -->
 

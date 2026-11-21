@@ -4,6 +4,8 @@ id: 0b7bf6d2-fa86-41c3-ab5c-034cc57f42d9
 
 # Pattern: Monotonic Stack
 
+A monotonic stack is a stack that is kept in order, always rising or always falling, by removing items that break the order before adding a new one. It quickly answers questions like "what is the next bigger number to the right of each one?". A weather app working out how many days until a warmer day is a classic example.
+
 ## Before you start
 <!-- bite: 6721dac7-7037-4c32-8d30-92c4438f2b5a -->
 

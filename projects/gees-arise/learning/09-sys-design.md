@@ -36,7 +36,7 @@ The `INTERVAL` case is the trickiest one, worth slowing down on. We store, on th
 
 To find which window "right now" belongs to:
 
-```
+```text
 window_index = floor((now - window_anchor_at) / window_days)
 ```
 
@@ -48,7 +48,7 @@ Day 0–13 after the anchor → window `0`. Day 14–27 → window `1`. And so o
 
 The product idea ("mark done immediately, get audited later") is a UX pattern with a real backing state machine on `task_completions.status`:
 
-```
+```text
 DONE_PENDING_AUDIT → VERIFIED   (happy path: time runs out, nobody objected)
 DONE_PENDING_AUDIT → REJECTED   (>= 2 distinct people flagged it in time)
 ```

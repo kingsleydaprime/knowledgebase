@@ -4,6 +4,8 @@ id: f48977ef-85d6-43c8-85b1-d492adaadd0e
 
 # GitOps
 
+GitOps is a way of deploying where the description of what should be running lives in a git repository, and a tool keeps the live system matching it. To change the live system, you change the repository. To undo a bad change, you undo the commit.
+
 ## The idea
 <!-- bite: 363790ea-4faa-49b7-b3e3-9879c65b7c57 -->
 
@@ -24,7 +26,7 @@ This is the key distinction from traditional [[devops/05-ci-cd/index|CI/CD]]:
 - **Push (traditional CD)** — the CI pipeline has cluster credentials and *pushes* changes in (`kubectl apply` from the pipeline). The pipeline needs powerful production access, and there's no continuous drift correction.
 - **Pull (GitOps)** — an agent *inside* the cluster watches git and pulls changes in. The cluster's credentials never leave the cluster (better security posture), and drift is continuously reconciled, not just applied once.
 
-```
+```text
 Push CD:   pipeline ──(has prod creds)──► kubectl apply ──► cluster
 GitOps:    git repo ◄──(watches/pulls)──── agent in cluster ──► reconciles cluster
 ```

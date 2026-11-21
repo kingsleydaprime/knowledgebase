@@ -4,6 +4,8 @@ id: 5baf4234-3a5a-47eb-bcdb-ab8d5287ce8d
 
 # The C Frameworks
 
+A C web framework is a library that handles the work of running a web server so you can write your backend in the C language. This lesson compares the main ones: libmicrohttpd, Kore, Ulfius and civetweb. It also asks honestly when any of them is the right choice.
+
 ## The options
 <!-- bite: faab7037-6361-4891-acc2-97ddb870f430 -->
 
@@ -84,7 +86,7 @@ int page(struct http_request *req) {
 }
 ```
 
-```
+```text
 # conf/app.conf
 server tls { bind 0.0.0.0 8888 }
 domain * {

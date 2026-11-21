@@ -50,7 +50,7 @@ Break the problem into pieces small enough to hold in your head, then check the 
 
 **Pseudocode is your solution written in structured English**, ignoring syntax entirely. No semicolons, no exact function names, nothing that runs.
 
-```
+```text
 FUNCTION calculate_grade(marks):
     IF the list is empty:
         RETURN "No marks"
@@ -84,7 +84,7 @@ FUNCTION calculate_grade(marks):
 
 For anything with branching that's hard to follow in prose, a diagram is better than words:
 
-```
+```text
       ┌──────────┐
       │  start   │
       └────┬─────┘

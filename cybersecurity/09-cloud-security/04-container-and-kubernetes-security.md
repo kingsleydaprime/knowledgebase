@@ -4,6 +4,8 @@ id: 12d85ec9-2364-44ea-bca5-915fd6bab676
 
 # Container and Kubernetes Security
 
+A container is a package that holds an app together with everything it needs to run, and Kubernetes is a tool that runs many containers across many machines. Lots of the apps you use every day run this way. Both come with unsafe default settings, so this lesson goes through what to lock down at each layer.
+
 ## The kid version first
 <!-- bite: 245094cc-4fc7-4b87-97d4-1de464a88c6e -->
 
@@ -14,7 +16,7 @@ Containers package an app with its dependencies so it runs anywhere; Kubernetes 
 
 Container security stacks, and a weakness at any layer undermines the ones above → [[devops/03-docker/index|Docker]], [[devops/10-orchestration/index|Kubernetes]]:
 
-```
+```text
    CLUSTER      Kubernetes RBAC, secrets, network policies, the API server
    RUNTIME      how the container actually runs — user, capabilities, isolation
    IMAGE        what's inside — dependencies, base image, baked-in secrets

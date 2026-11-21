@@ -1,5 +1,9 @@
 # GSAP
 
+## What GSAP is
+
+**GSAP is a JavaScript library for animating anything on a web page, with exact control over timing.** Many award-winning websites use it for their scroll effects and animated sequences.
+
 **[Beginner → Advanced]** — a JavaScript animation engine for tweening any numeric property with real timeline control (sequencing, scroll-linking, drag physics) beyond what CSS transitions can do alone. Part of the [[frontend/index|frontend]] course.
 
 ## Structure

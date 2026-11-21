@@ -4,6 +4,8 @@ id: dab803b2-ccf1-4d49-bd5d-fa4f328bec60
 
 # Testing and Error Handling
 
+Testing is writing small pieces of code that check your real code works, and error handling is how your program deals with things going wrong. A Flutter app has to cope with no internet, bad data and failed logins. This lesson covers Dart's exceptions and how to test Dart and Flutter code.
+
 ## Exceptions — the loose part
 <!-- bite: 1828d67f-b5a4-444c-acba-19942c7e2b7f -->
 

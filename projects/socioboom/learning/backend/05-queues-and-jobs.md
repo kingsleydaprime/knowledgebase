@@ -35,7 +35,7 @@ This has fatal problems:
 
 A job queue is a separate data store (Redis, in this case) that holds jobs persistently. Your server is the **producer** — it adds jobs to the queue. A separate **worker process** is the **consumer** — it pulls jobs off the queue and executes them.
 
-```
+```text
 Producer (main server)          Queue (Redis)           Consumer (worker process)
   postQueue.add(job, {delay})  →  [job stored]  →  worker processes job at right time
 ```
@@ -181,7 +181,7 @@ An agent run takes 1–3 minutes. Three things break if you run it inside an HTT
 
 The pattern that fixes all three, using infrastructure the project already had (BullMQ + Redis):
 
-```
+```text
 POST /discovery/search
   → BillingService.checkAndConsume(userId)     // charge at kickoff, once
   → create session row  { status: 'running' }

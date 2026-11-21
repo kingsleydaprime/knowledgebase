@@ -4,6 +4,8 @@ id: 051a799b-c304-4c88-a1de-7cafee7df6e7
 
 # The Frequency Domain
 
+The frequency domain is a way of describing a signal by which pure tones, at which strengths, add up to make it, instead of by how it moves over time. Your ear already does this when it hears three separate notes in one chord. The bass and treble bars on a music player's equaliser are a picture of the frequency domain.
+
 ## The kid version first
 <!-- bite: 981c0446-b701-4c80-a31e-33d21e642394 -->
 
@@ -18,7 +20,7 @@ A musical chord looks like a single messy wiggle on an oscilloscope. But your ea
 
 This is **Fourier's theorem**, and it's one of the most consequential ideas in all of applied mathematics. A square wave, a spoken word, an image, a stock chart — each is a combination of pure sine waves, and Fourier analysis finds the recipe.
 
-```
+```text
    TIME DOMAIN                    FREQUENCY DOMAIN
    "how the signal            "which frequencies it
     changes over time"         is made of, and how much"

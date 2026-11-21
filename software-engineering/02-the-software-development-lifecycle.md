@@ -4,6 +4,8 @@ id: 57be8664-3656-48dd-bb1a-fdd81bd1a251
 
 # The Software Development Lifecycle
 
+The software development lifecycle is the set of stages a piece of software goes through, from someone asking for a feature to people using it and the team keeping it running. This lesson names six stages, what each one is for, and what goes wrong when a team skips one.
+
 ## Before you start
 <!-- bite: 06a2ea72-edd9-4078-8a2b-ac8ad9e6f411 -->
 
@@ -87,7 +89,7 @@ Bugs, dependency updates, changing requirements, scaling. **This is where most o
 
 **Agile** runs the same six phases in small batches, repeatedly — a slice of requirements through to deployment in a week or two, then again. Nothing was removed. **The phases didn't change; the batch size did.** Feedback arrives while it's still cheap to act on.
 
-```
+```text
 Waterfall (one large batch):
   [ Req ][ Design ][   Implementation   ][ Test ][ Deploy ] ......... first feedback
 

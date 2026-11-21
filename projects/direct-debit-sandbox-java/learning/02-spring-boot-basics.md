@@ -85,7 +85,7 @@ The `private final` is important: `final` means the field cannot be reassigned a
 
 This project follows a standard layered architecture:
 
-```
+```text
 HTTP Request
      ↓
 Controller   (receives the request, reads headers/body, calls the service)

@@ -4,6 +4,8 @@ id: e9c00e96-ebdb-4bfc-b3c4-b25ac2203213
 
 # What a Network Actually Is
 
+A network is a set of computers joined together so they can send messages to each other. Every WhatsApp message, video call and web page you open travels across one, usually the internet. This first lesson introduces the two ideas the whole course is built on.
+
 ## The kid version first
 <!-- bite: e265ab4e-065b-4e23-93bf-6503dd72e6c4 -->
 
@@ -46,7 +48,7 @@ The contract between layers is deliberately narrow: **the layer below promises t
 
 Each layer wraps the layer above in its own header, like nesting envelopes:
 
-```
+```text
 [ Ethernet header | IP header | TCP header | HTTP request | Ethernet trailer ]
  \_______________/ \_________/ \__________/ \____________/
    next hop MAC     dest IP     dest port     the actual thing you wanted

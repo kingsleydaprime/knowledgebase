@@ -4,6 +4,8 @@ id: 607d3672-fb3d-46d5-99c0-0ec324088822
 
 # Beyond P vs NP
 
+This lesson looks at kinds of computing beyond the ordinary P and NP picture: programs that flip coins, quantum computers, proofs that work as a conversation, and limits on memory instead of time. Some of these already show up in practice, for example in how computers test whether a huge number is prime.
+
 ## Randomised computation
 <!-- bite: 1398b894-11ce-4d24-89e5-4a560e00f9a0 -->
 

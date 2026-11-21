@@ -9,7 +9,7 @@ Next.js **16.2.4**, React **19.2.4**, App Router, Tailwind **4**.
 
 ## The tree
 
-```
+```text
 src/app/
 ├── layout.tsx                    # root: <html>, fonts, metadata
 ├── not-found.tsx                 # 404 — renders its own Navbar/Footer, see below
@@ -77,7 +77,7 @@ Every public page gets the navbar and footer; **`/studio` doesn't**, because it 
 
 Commit `42f3e19` cut the Resources section from the MVP:
 
-```
+```text
 src/app/(site)/{resources => _resources}/media-library/page.tsx | 0
 src/app/(site)/{resources => _resources}/page.tsx               | 0
 src/app/(site)/{resources => _resources}/publications/page.tsx  | 0
@@ -130,7 +130,7 @@ It renders `Navbar` and `Footer` **itself**, duplicating `(site)/layout.tsx`. Th
 
 **Everything is a Server Component unless it says otherwise.** Exactly five files in `src/` carry `"use client"`:
 
-```
+```text
 src/components/home/cms/HeroCarousel.tsx
 src/components/home/Hero.tsx
 src/components/home/Partners.tsx

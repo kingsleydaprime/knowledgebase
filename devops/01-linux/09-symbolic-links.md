@@ -27,7 +27,7 @@ ls -la /usr/bin/python3     # check if python3 is a symlink
 ```
 
 The `->` arrow shows what it points to:
-```
+```text
 lrwxrwxrwx  python3 -> python3.12
 ```
 
@@ -118,7 +118,7 @@ lrwxrwxrwx   1 kijuchihe kijuchihe        26 May 12 09:56 sysinfo-link.sh -> /ho
 Working perfectly.
 
 Notice in the `ls -la` output:
-```
+```text
 lrwxrwxrwx  sysinfo-link.sh -> /home/kijuchihe/sysinfo.sh
 ```
 - `l` at the start = symlink
@@ -157,7 +157,7 @@ Ready for Docker?
 
 `ln -s` refuses to run if the link name already exists:
 
-```
+```bash
 ln: failed to create symbolic link 'mylink': File exists
 ```
 

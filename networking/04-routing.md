@@ -4,6 +4,8 @@ id: b3530cdd-df33-4654-b98d-f2ab0b68673e
 
 # Routing — Finding a Path Nobody Knows
 
+Routing is how a message finds its way across the internet from your device to a server far away, one step at a time. No single machine knows the whole path. Each router along the way only knows which direction to send the message next, like signposts on a road.
+
 ## The kid version first
 <!-- bite: 8406412b-62c8-4558-9997-4240aa089c1a -->
 
@@ -24,7 +26,7 @@ This split is why a router can forward at line rate while running complex protoc
 ## Reading a routing table
 <!-- bite: dbcb2768-8bc4-4439-ab6c-a1be466097e2 -->
 
-```
+```text
 $ ip route
 default via 192.168.1.1 dev wlan0            # 0.0.0.0/0 — everything else
 192.168.1.0/24 dev wlan0 proto kernel scope link src 192.168.1.42

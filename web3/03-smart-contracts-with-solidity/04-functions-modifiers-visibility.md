@@ -4,12 +4,14 @@ id: b8242d1d-e84d-4907-8cce-99eebf0bc024
 
 # Functions, Modifiers and Visibility
 
+Functions are the actions a smart contract offers, modifiers are checks that run before a function, and visibility says who is allowed to call each function. It works like the buttons in a banking app, where some are open to everyone and some only work for the account owner. This lesson shows how a call finds the right function and how to lock down the ones that matter.
+
 ## Dispatch: the function selector
 <!-- bite: de9d050f-e6ad-4761-b557-adf09d4a8d76 -->
 
 There is no method table. A call is **four bytes plus arguments**:
 
-```
+```text
 selector = first 4 bytes of keccak256("transfer(address,uint256)")
          = 0xa9059cbb
 
@@ -78,7 +80,7 @@ fallback() external payable { }            // unmatched selector, or ETH with no
 
 Dispatch logic:
 
-```
+```text
 calldata empty?
    ├─ yes → receive() if it exists, else fallback() if payable, else REVERT
    └─ no  → matching selector? → that function

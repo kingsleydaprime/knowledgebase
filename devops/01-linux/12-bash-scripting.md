@@ -435,7 +435,7 @@ NC='\033[0m'
 These are **ANSI escape codes** — special character sequences that terminals interpret as color/formatting instructions rather than printing them literally.
 
 The format is:
-```
+```text
 \033[  style ; color  m
 ```
 

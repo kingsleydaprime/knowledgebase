@@ -4,6 +4,8 @@ id: 76f9a944-abc0-4c53-beb5-aed3125ffb7d
 
 # Secret Management
 
+A secret is any password, key or token an app needs to work, such as the password to its database. Secret management is keeping those secrets safe: out of the code, out of chat messages, and in one locked place the app can read from. A password pushed to a code repository once stays in its history forever, even after you delete it.
+
 ## The problem
 <!-- bite: 4457fc59-a85e-4c6b-8521-81351659111d -->
 
@@ -28,7 +30,7 @@ The [[languages/01-java/03-tooling/01-build-tools|Java build-tools note]] alread
 
 The reference secret manager. Apps authenticate to Vault (via a k8s service account, a cloud IAM role, a token) and request secrets at runtime rather than holding them:
 
-```
+```text
 app  ──authenticate──►  Vault  ──►  returns a short-lived DB credential
                           │          (generated on the fly, auto-revoked after TTL)
                           └─ encrypted storage, per-path policies, full audit log

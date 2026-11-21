@@ -4,12 +4,14 @@ id: 86d20fee-2e4b-49fe-bb5f-8d35f5475be6
 
 # Idempotency and Retries
 
+Idempotency means that doing the same request twice has the same effect as doing it once. If your bank app times out while you send money and you tap "send" again, idempotency is what stops you being charged twice. A retry is simply trying a failed request again.
+
 ## The problem
 <!-- bite: 98bab5f7-1c0d-4389-8f79-09a23e042d61 -->
 
 **A timeout does not tell you whether the operation happened.**
 
-```
+```text
 client → POST /payments → server: charges the card
 client ← ✗ timeout ←──────────────  response lost in transit
 ```
@@ -78,7 +80,7 @@ Idempotency-Key: 8f14e45f-ea6a-4d1f-9f2a-9b1c3d4e5f60
 
 **Exponential backoff with jitter**, a maximum attempt count, and a cap:
 
-```
+```text
 attempt 1 → wait ~1s
 attempt 2 → wait ~2s
 attempt 3 → wait ~4s
@@ -94,7 +96,7 @@ give up
 
 **The failure mode that catches teams with retries at every layer:**
 
-```
+```text
 gateway retries 3× → service A retries 3× → service B retries 3×
                    = 27 requests to the database
 ```
@@ -108,7 +110,7 @@ gateway retries 3× → service A retries 3× → service B retries 3×
 
 **When a dependency is failing, stop calling it.**
 
-```
+```text
 CLOSED  → failures exceed threshold → OPEN
 OPEN    → all calls fail immediately, no network attempt
         → after a cooldown → HALF-OPEN

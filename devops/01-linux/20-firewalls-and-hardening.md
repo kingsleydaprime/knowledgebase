@@ -4,6 +4,8 @@ id: a7415473-a231-4173-b162-b6be7d3c942d
 
 # Firewalls and Hardening
 
+A firewall is a set of rules that decides which network connections can reach a computer. Hardening is the wider job of closing anything on a server that does not need to be open. A new cloud server often has no firewall at all, and automated scanners on the internet find it within minutes.
+
 ## The kid version first
 <!-- bite: 1092fa14-3aaf-4712-826e-13116c7c26b4 -->
 
@@ -69,7 +71,7 @@ Underneath both tools is **nftables** (which replaced iptables). You rarely touc
 
 The one service that's almost always exposed, and therefore the one worth spending effort on. In `/etc/ssh/sshd_config`:
 
-```
+```text
 PermitRootLogin no
 PasswordAuthentication no        # keys only — the big one
 ```

@@ -4,6 +4,8 @@ id: b1928688-b079-4934-81e1-f407bc0cf0a1
 
 # Cosmology
 
+Cosmology is the study of the universe as a whole: how it started, how it has changed and where it is going. We know that space itself is stretching, carrying distant galaxies away from us. This lesson separates what is well established from what is still unknown.
+
 ## The expanding universe
 <!-- bite: b4000b04-ec4c-4738-9d11-34949c0e8f94 -->
 

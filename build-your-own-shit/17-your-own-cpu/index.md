@@ -63,7 +63,7 @@ Then build the circuit to see it, then Verilog to describe it properly, then bre
 
 ### Machine state
 
-```
+```text
    8 registers, 16 bits each:  R0 R1 R2 R3 R4 R5 R6 R7
                                ^^
                                R0 is HARDWIRED TO ZERO -- writes are discarded
@@ -79,7 +79,7 @@ Then build the circuit to see it, then Verilog to describe it properly, then bre
 
 Every instruction is exactly **16 bits**. Three formats:
 
-```
+```text
    R-type   [ op:4 ][ rd:3 ][ ra:3 ][ rb:3 ][ fn:3 ]     register-register
    I-type   [ op:4 ][ rd:3 ][ ra:3 ][   imm:6      ]     immediate / memory
    J-type   [ op:4 ][          addr:12             ]     jumps
@@ -119,7 +119,7 @@ Fixed width means **the decoder is trivial and the PC always advances by 1.** Va
 
 ### Execution cycle
 
-```
+```text
    FETCH     IR = mem[PC];  PC = PC + 1
       ↓
    DECODE    split IR into op / rd / ra / rb / imm

@@ -83,13 +83,13 @@ drwxr-xr-x   3 root                 root                    4096 Jan 29 14:59 av
 Perfect. Let's decode that first column.
 
 Take this line:
-```
+```text
 drwxr-xr-x   3 root root   4096 Sep 11  2024 alsa
 ```
 
 That `drwxr-xr-x` — break it into parts:
 
-```
+```text
 d  rwx  r-x  r-x
 │   │    │    │
 │   │    │    └── others (everyone else) can: read, no write, execute
@@ -129,7 +129,7 @@ So `drwxr-xr-x` means:
 ---
 
 Now look at this line from your output:
-```
+```text
 -rw-r--r--  1 root root  3444 Jul 5 2023 adduser.conf
 ```
 
@@ -172,7 +172,7 @@ chmod +x  file.sh      # This is the same as chmod a+x file.sh
 ### Numeric (octal) — you'll see this everywhere
 
 Each permission has a value:
-```
+```text
 r = 4
 w = 2
 x = 1
@@ -180,7 +180,7 @@ x = 1
 
 You add them up for each group:
 
-```
+```text
 rwx = 4+2+1 = 7
 rw- = 4+2+0 = 6
 r-- = 4+0+0 = 4
@@ -188,7 +188,7 @@ r-x = 4+0+1 = 5
 ```
 
 So `chmod 755 file.sh` means:
-```
+```text
 7 = rwx  (owner)
 5 = r-x  (group)
 5 = r-x  (others)

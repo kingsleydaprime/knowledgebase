@@ -4,6 +4,8 @@ id: 2a2305f3-dfa7-4de5-b252-0276956aca7a
 
 # Context and Long Chats
 
+Context is everything an AI model can see while it answers you: your messages, its replies and any files you attached. It has a limit, and a new chat starts with a blank page. This lesson covers the habits that follow, like when to use attachments or memory and when to start a fresh chat.
+
 ## The kid version first
 <!-- bite: 4dd6adbd-f3c0-488b-b0d8-f130b5312a64 -->
 

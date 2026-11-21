@@ -51,7 +51,7 @@ visitor. That is the whole point: move the failure from production to CI.
 
 ### Error messages are part of the design
 
-```
+```text
 Invalid content in about.json:
   whoWeAre.body — Required
 ```

@@ -29,7 +29,7 @@ When you open a new codebase, do not start reading files randomly. Always go top
 **Step 1: Understand the shape of the project.**
 
 Look at the folder structure first. In this project:
-```
+```text
 src/
   modules/         ← Feature domains (auth, events, payments, etc.)
   shared/          ← Infrastructure used by everything (prisma, redis)
@@ -465,7 +465,7 @@ Applying this consistently across notification types:
 
 ### The Symptom
 
-```
+```text
 PATCH /v1/notifications/28ea18b6-2552-4566-862a-43886333eaa9/read  404  2.866 ms
 ```
 
@@ -490,7 +490,7 @@ PATCH /v1/notifications/:id/read   ← wrong method → 404
 
 Look at the startup logs. NestJS prints every registered route:
 
-```
+```text
 [RouterExplorer] Mapped {/v1/notifications/:id/read, POST} route
 ```
 
@@ -529,7 +529,7 @@ When a route you know exists returns 404:
 
 The original event creation flow used `FileFieldsInterceptor` — the client sent a `multipart/form-data` request with the binary file embedded in the HTTP body:
 
-```
+```text
 POST /v1/events
 Content-Type: multipart/form-data
 
@@ -546,7 +546,7 @@ NestJS receives the request, buffers the entire file into memory, then uploads i
 
 Instead of routing the binary through NestJS, you generate a **presigned URL** — a time-limited, signed URL that authorises the client to upload directly to MinIO/S3 without going through your server:
 
-```
+```text
 1. Client → NestJS:  POST /v1/storage/presigned-url   { filename, contentType }
 2. NestJS → Client:  { uploadUrl, fileUrl }
 3. Client → MinIO:   PUT uploadUrl   (binary file, direct — NestJS not involved)
@@ -925,7 +925,7 @@ If two controllers have routes that could match the same URL (e.g., `BillingCont
 
 `src/modules/events/events.controller.ts` declares the greedy route *first*:
 
-```
+```text
  85:  @Get(':id')                        ← greedy, declared early
 ...
 278:  @Post('checkin')
@@ -1036,7 +1036,7 @@ NestJS providers can hook into the application lifecycle by implementing specifi
 
 ### The Four Lifecycle Moments
 
-```
+```text
 bootstrap() called
     │
     ▼
@@ -1118,7 +1118,7 @@ Without it, `app.close()` you call manually will still trigger the hooks, but OS
 
 ### The Error
 
-```
+```text
 error TS2353: Object literal may only specify known properties,
 and 'tier' does not exist in type '... EventUncheckedCreateInput ...'
 ```
@@ -1135,7 +1135,7 @@ The same error appeared for `vibetagsEnabled` on `GameSession` — used in `orga
 
 The correct order when adding a new field:
 
-```
+```text
 1. Add the field to the .prisma schema file
    tier  EventTier @default(MICRO)    ← events.prisma
 

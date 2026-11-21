@@ -42,7 +42,7 @@ boundary exists there. This detail is what made the later rename safe.
 
 Then the classic three-stage count:
 
-```
+```bash
 sort          # group identical lines together (uniq only collapses ADJACENT duplicates)
 uniq -c       # collapse runs of identical lines, prefixing each with its count
 sort -rn      # sort numerically (-n), reversed (-r) → most frequent first
@@ -50,7 +50,7 @@ sort -rn      # sort numerically (-n), reversed (-r) → most frequent first
 
 Output was:
 
-```
+```text
      32 stone
      21 brassLight
      19 ink
@@ -81,7 +81,7 @@ enough to rename tokens by hand-checked `sed` rather than needing anything cleve
 `sed` reads text line by line and applies editing commands. The one command you'll use
 99% of the time is **substitute**:
 
-```
+```text
 s/pattern/replacement/flags
 ```
 
@@ -239,7 +239,7 @@ outer heredoc was also delimited by `PY`. The shell doesn't know one is "inside"
 code fence — it is scanning line by line for its terminator. It found the inner one,
 ended the heredoc early, and tried to execute the remaining prose as commands:
 
-```
+```text
 (eval):19: unmatched `
 ```
 

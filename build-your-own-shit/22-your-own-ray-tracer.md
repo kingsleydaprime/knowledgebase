@@ -27,7 +27,7 @@
 
 **1. Write an image file.**
 PPM is a three-line ASCII header followed by RGB triples, so you need no library at all:
-```
+```text
 P3
 400 225
 255

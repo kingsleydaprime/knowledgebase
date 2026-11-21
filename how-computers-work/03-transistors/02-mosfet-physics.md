@@ -4,6 +4,8 @@ id: 702a4c14-2e82-4c98-99df-eb47ace27bfe
 
 # Module 12: MOSFET Physics (How Voltage Becomes a Channel)
 
+A MOSFET is the kind of transistor used in almost every modern chip, and it turns on when a voltage pulls a thin path for current into existence inside the silicon. This lesson opens one up to show how that path appears and disappears. It is happening billions of times a second inside your phone.
+
 ## Before you start
 <!-- bite: 01cc0e4a-cb43-4949-89a7-6970980c5a38 -->
 
@@ -65,7 +67,7 @@ Consider just the gate, the oxide and the P-type body. Ignore source and drain f
 
 A negative gate attracts positive charges. The body's majority carriers are holes, so **holes pile up at the surface.**
 
-```
+```text
    GATE  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓  (negative)
    OXIDE ░░░░░░░░░░░░░░
    BODY  ○ ○ ○ ○ ○ ○ ○ ○  ← holes accumulate at the surface
@@ -78,7 +80,7 @@ The surface is more strongly P-type than the bulk. No use for conduction between
 
 A positive gate **repels** holes, driving them down into the bulk. What is left behind is the fixed negative acceptor ions — immobile, exactly as in [[how-computers-work/02-semiconductors/05-pn-junctions|module 10]].
 
-```
+```text
    GATE  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓  (slightly positive)
    OXIDE ░░░░░░░░░░░░░░
    BODY  ⊖ ⊖ ⊖ ⊖ ⊖ ⊖ ⊖ ⊖  ← holes pushed away, fixed ions exposed
@@ -93,7 +95,7 @@ Push the gate more positive and the field grows strong enough to attract **elect
 
 Where do they come from? Two sources: thermal generation in the depletion region, and — far more importantly in a real MOSFET — **the N-type source and drain, which are packed with them.**
 
-```
+```text
    GATE  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓  (strongly positive)
    OXIDE ░░░░░░░░░░░░░░
    BODY  ● ● ● ● ● ● ● ●  ← ELECTRONS at the surface: an N-type layer
@@ -157,7 +159,7 @@ The channel's local strength at any point depends on the gate voltage *relative 
 
 **Raise $V_{ds}$ until $V_{gs} - V_{ds} = V_{th}$ and the channel at the drain end is exactly at threshold. Beyond that it vanishes locally — the channel pinches off.**
 
-```
+```text
    Triode: channel full length          Saturation: pinched off at drain
 
    S ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ D              S ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓╲___ D
@@ -330,7 +332,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 process: k' = 200 uA/V^2, V_th = 0.4 V, V_DD = 1.0 V
 
 operating region as a function of the two applied voltages:

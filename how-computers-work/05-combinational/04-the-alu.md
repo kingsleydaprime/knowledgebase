@@ -4,6 +4,8 @@ id: 6979d55f-be7c-4b84-8454-92588a5ae64b
 
 # Module 23: The ALU (One Circuit, Many Operations)
 
+The ALU, short for arithmetic logic unit, is the part of a processor that does the actual sums and comparisons. It is one circuit that can add, subtract, compare and more, and a control number picks which job it does each time. Every app on your phone ends up as a long list of jobs for an ALU.
+
 ## Before you start
 <!-- bite: d77e0be0-9822-4cab-8146-549b7e272a93 -->
 
@@ -59,7 +61,7 @@ The intuitive design would be a circuit that *reconfigures* itself — rewiring 
 
 **Real ALUs do the opposite, and it looks wasteful until you count the cost.**
 
-```
+```text
               A ──┬──────┬──────┬──────┬─────┐
                   │      │      │      │     │
               B ──┼──┬───┼──┬───┼──┬───┼──┬──┤
@@ -95,7 +97,7 @@ Shifting looks like it should be a loop: shift by one, repeat $n$ times. **That 
 
 **A barrel shifter does any shift in $\log_2 n$ stages.** Decompose the shift amount in binary: stage $k$ either shifts by $2^k$ or passes through, selected by bit $k$ of the amount.
 
-```
+```text
    shift by 5 = binary 101
 
    stage 0 (shift 1?)  bit0 = 1  ->  shift by 1
@@ -154,7 +156,7 @@ The ALU's opcode is three bits that select the operation. Those bits have to com
 
 **From the instruction itself.** A machine instruction is a binary word, and some of its bits are the **opcode field**. Those bits are routed — sometimes almost directly — to the ALU's function-select input.
 
-```
+```text
    instruction:  [ opcode ][ reg A ][ reg B ][ dest ]
                      │
                      └──────────────► ALU function select
@@ -301,7 +303,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 8-bit ALU, 8 operations selected by a 3-bit opcode
 
    opcode   op   A     B     ->  result        flags

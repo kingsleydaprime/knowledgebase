@@ -4,6 +4,8 @@ id: beea9564-6f81-43a4-8c03-fbaa17d47668
 
 # Structs, Classes and Initialisation
 
+Structs and classes are the two main ways to define your own types in Swift, and initialisation is the step that gives a new value all its starting data. Every screen, model and setting in an iOS app is built from them. Swift has strict rules about initialisation, and this lesson walks through them.
+
 ## Initialisers
 <!-- bite: 3cbdbf2d-5f04-4704-8f8e-fff18b169cfc -->
 

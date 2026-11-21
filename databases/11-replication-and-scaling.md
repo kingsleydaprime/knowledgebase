@@ -4,6 +4,8 @@ id: 30e0dd6c-8488-46be-a26c-3b41b703e599
 
 # Replication and Scaling
 
+Replication is keeping copies of a database on more than one machine, and scaling is growing a database to handle more users and more data. The lesson's advice is to make one machine bigger first and only spread out when you must. Big apps keep copies so that if one server fails, another can take over.
+
 ## Scale up first
 <!-- bite: 54e4bb7d-fc92-4f41-b744-b3fa48bd554b -->
 
@@ -58,7 +60,7 @@ id: 30e0dd6c-8488-46be-a26c-3b41b703e599
 
 **Routing reads to replicas scales reads.** It also introduces a real bug class:
 
-```
+```text
 POST /orders    → writes to primary
 GET  /orders    → reads from replica → order isn't there yet
 ```
@@ -178,7 +180,7 @@ GET  /orders    → reads from replica → order isn't there yet
 
 **A rough escalation ladder**, and most systems never leave the first three rungs:
 
-```
+```text
 1. Indexes and query fixes         ← most problems die here
 2. Connection pooling
 3. Caching

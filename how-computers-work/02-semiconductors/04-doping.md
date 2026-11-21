@@ -4,6 +4,8 @@ id: ced10488-fd39-44d0-9e90-feaaae24464f
 
 # Module 9: Doping (Engineering a Semiconductor)
 
+Doping is adding a tiny amount of another kind of atom to pure silicon on purpose, to change how well it conducts. Even one extra atom in millions makes a huge difference. Every chip in your phone or laptop is made of silicon that has been doped this way.
+
 ## Before you start
 <!-- bite: a037048a-4806-4aca-a4bf-ac3cefd64d6a -->
 
@@ -61,7 +63,7 @@ The answer was predicted in module 6 by valence counting alone: substitute in at
 
 Substitute a **phosphorus** atom (5 valence electrons) into a silicon lattice site. The site demands four bonds. Phosphorus supplies four — **and has one left over.**
 
-```
+```text
         Si        Si        Si
          │         │         │
    Si ── Si ────── P ────── Si ── Si
@@ -80,7 +82,7 @@ Silicon doped with donors is **N-type** (negative majority carriers).
 
 Substitute a **boron** atom (3 valence electrons). The site demands four bonds and boron can only supply three. **One bond position is left vacant.**
 
-```
+```text
         Si        Si        Si
          │         │         │
    Si ── Si ────── B ────── Si ── Si
@@ -106,7 +108,7 @@ Here is the mechanism that makes doping effective, and it is a matter of one num
 
 **A donor's spare electron does not sit in the valence band.** It occupies a new allowed state *inside the band gap*, just below the conduction band edge. For phosphorus in silicon that state sits about **45 meV** below the edge.
 
-```
+```text
     ─────────────────────────  conduction band edge
       ● ● ● ● ●  ← donor level, only 45 meV below         E_g = 1120 meV
                                                           kT  =  25.9 meV
@@ -295,7 +297,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 intrinsic silicon:  n = 1.0e+10, p = 1.0e+10 /cm^3
   resistivity = 3.41e+05 ohm.cm
 

@@ -72,7 +72,7 @@ Found while writing these notes. The README's own setup instructions can't be fo
 > Copy `.env.local.example` to `.env.local` and fill in the project ID it gives you
 
 **The `.gitignore`:**
-```
+```text
 # env files (can opt-in for committing if needed)
 .env*
 !.env.example

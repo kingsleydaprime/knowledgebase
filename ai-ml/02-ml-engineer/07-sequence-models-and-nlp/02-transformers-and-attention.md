@@ -4,6 +4,8 @@ id: 08b1c504-8983-4b26-ab48-b2960723afa1
 
 # Transformers & Attention
 
+A transformer is a kind of neural network that looks at a whole sentence at once and, for each word, works out which other words matter most to it. That step is called attention. Transformers are the design behind ChatGPT, Google Translate and most of the AI tools people use today.
+
 ## The core idea: attention
 <!-- bite: d7c31ee8-7b9f-4c9b-8739-98caf5bb6e7e -->
 
@@ -11,7 +13,7 @@ The 2017 paper "Attention Is All You Need" replaced recurrence entirely with **s
 
 Mechanically, each token is projected into three vectors — a **query**, a **key**, and a **value**. Attention scores how well a token's query matches every other token's key (via [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|dot products]]), normalizes those scores into weights (softmax), and produces a weighted blend of the values:
 
-```
+```text
 attention(Q, K, V) = softmax( Q·Kᵀ / √d ) · V
 ```
 

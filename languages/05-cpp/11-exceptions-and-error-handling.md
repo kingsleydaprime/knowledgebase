@@ -4,6 +4,8 @@ id: 748ec7c0-7f96-47d9-a641-6cb58681099c
 
 # Exceptions and Error Handling
 
+An exception is a way of signalling that something went wrong by jumping out of the normal flow of the code until some part of the program catches it. When a file cannot be opened or a network call fails, the program has to deal with it somehow. This lesson covers exceptions, why some teams avoid them, and the alternatives.
+
 ## Exceptions
 <!-- bite: 8efe0581-8f8c-4024-a46e-6470141ff530 -->
 
@@ -32,7 +34,7 @@ Order matters: catch handlers are tried **top to bottom, first match wins**, so 
 
 The standard hierarchy:
 
-```
+```text
 std::exception
 ├── std::logic_error         — a bug: preconditions violated
 │   ├── invalid_argument

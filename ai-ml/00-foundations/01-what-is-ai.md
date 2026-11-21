@@ -9,7 +9,7 @@ id: 187436d2-61b1-449f-a8c2-581915509757
 ## The nesting
 <!-- bite: 07b8f085-f632-4018-8569-6f623f42b15d -->
 
-```
+```text
 Artificial Intelligence  (the broad goal: machines doing tasks that seem to need intelligence)
   └── Machine Learning     (a way to get there: learn patterns from data instead of hand-coded rules)
         └── Deep Learning    (a way to do ML: learn patterns using layered neural networks)

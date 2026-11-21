@@ -4,6 +4,8 @@ id: ba795cf9-2877-4c57-aaac-30db9b6436a9
 
 # Agents
 
+An agent is an AI setup where the model decides its own next steps, calling tools again and again until a task is done, instead of following a fixed list of steps written by a programmer. That freedom makes it flexible, but also harder to predict and more expensive. Coding assistants that read files, run commands and fix their own mistakes are agents.
+
 ## Before you start
 <!-- bite: d46ffc8e-4b3c-4e0d-962e-fffcf2416c79 -->
 

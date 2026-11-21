@@ -4,6 +4,8 @@ id: e1d23679-332a-47d8-a781-0c4ea2ef213c
 
 # QUIC & Modern Transport
 
+QUIC is a newer way of sending data across the internet, built to fix problems with TCP that could not be fixed inside TCP itself. YouTube, Google and many other big sites already use it. It brings together lessons from the earlier parts of this course.
+
 ## The kid version first
 <!-- bite: 5e97e914-5765-4b27-aa16-28be45d9b0cb -->
 

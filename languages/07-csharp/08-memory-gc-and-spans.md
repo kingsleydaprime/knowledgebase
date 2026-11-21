@@ -4,6 +4,8 @@ id: c2a48922-8b68-41f4-aa54-c9c05a330d69
 
 # Memory, GC and Spans
 
+Memory management in C# is mostly done by the garbage collector (GC), a part of .NET that finds memory your program no longer uses and frees it. Most of the time you never think about it. But in a game or a busy server, the pauses it causes can matter, and this lesson shows how to make less garbage, including with `Span<T>`.
+
 ## The GC
 <!-- bite: 9ed2947c-4f62-43ef-8a97-19336aabdadd -->
 

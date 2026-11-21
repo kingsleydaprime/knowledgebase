@@ -16,7 +16,7 @@ and enters bank details. Guests send money **straight to that account** and then
 ₦X" with their name, an optional email, an optional message, and an "anonymous" checkbox. The
 organizer confirms or rejects each report. Only confirmed money counts.
 
-```
+```text
 Wishlist (1 per event)       ─ isEnabled, bankName, accountNumber, accountName, currency
   └─ WishlistItem (many)     ─ name, price? (null = "just give"), sortOrder, fulfilledAt?, deletedAt?
        └─ WishlistContribution ─ userId?, name, email?, message?, isAnonymous, amount,
@@ -109,7 +109,7 @@ string. The frontend's rule is to format money and never calculate with it.
 - **Claiming:** wins are ordinary `Reward`s with a `claimCode`.
 
 ### The data model
-```
+```text
 GameRound (gameType = SPIN_WHEEL)
   ├─ GameRewardTier  = a slice: rank (position), title, rarity, isRetry, quantity? (null = unlimited)
   └─ WheelSpin       = one spin: userId, rewardTierId (landed), rewardId? (null if retry)

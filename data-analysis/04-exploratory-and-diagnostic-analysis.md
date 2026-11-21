@@ -4,6 +4,8 @@ id: b65d3ca4-1bdc-4393-b62d-2b492420ed01
 
 # Exploratory and Diagnostic Analysis
 
+Exploratory analysis is looking through data to understand it before you trust it, and diagnostic analysis is digging into the data to find out why something changed. If an app's sign-ups suddenly drop on Tuesday, diagnostic analysis is how you find the cause. These are the skills analysts use most to get to a correct answer.
+
 ## The kid version first
 <!-- bite: 737cf492-a4b7-499a-b6de-620c3e2dd788 -->
 
@@ -32,7 +34,7 @@ Before any analysis, you explore the data to understand its shape and catch the 
 
 **Almost every real insight comes from breaking an aggregate apart.** The overall number hides the story; the segments reveal it:
 
-```
+```text
    "Conversion is 3%"                    ← useless aggregate
         │ segment by device
    Desktop: 5%   Mobile: 1%              ← now there's a story
@@ -50,7 +52,7 @@ The high-value task, and it has a method rather than being pure intuition:
 **1. Confirm the change is real.** Is the drop outside normal variation, or just noise? Check against the metric's usual week-to-week wobble before investigating → [[data-analysis/06-time-series-analysis|is it just seasonality?]]. Many "changes" are noise, and chasing noise wastes days.
 
 **2. Walk the metric tree.** Decompose the metric into its factors and find *which one* moved → [[data-analysis/03-metrics-and-kpis|the metric tree]]:
-```
+```text
    Revenue = Users × Conversion × Order Value
    → Users flat, Order Value flat, Conversion DOWN → the problem is conversion
 ```

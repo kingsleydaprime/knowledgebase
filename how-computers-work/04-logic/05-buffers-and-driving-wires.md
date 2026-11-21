@@ -4,6 +4,8 @@ id: 703e780a-cc31-4cca-9215-89906819abb4
 
 # Module 19: Buffers, Fan-out and Driving Real Wires
 
+A buffer is a circuit that takes a signal and passes it on with more strength, so it can reach many other parts. Fan-out is how many inputs one gate's output has to feed. A gate can only push so hard, the same way one phone charger can only charge so many devices at once.
+
 ## Before you start
 <!-- bite: 5789284d-a96b-4786-a937-dcbc3851234d -->
 
@@ -104,7 +106,7 @@ In CMOS a buffer is **two inverters in series** — the cheapest way to get non-
 
 For large fan-outs, chain them:
 
-```
+```text
                     ┌─[BUF]─► 4 loads
                     │
    source ─[BUF]────┼─[BUF]─► 4 loads
@@ -132,7 +134,7 @@ For large fan-outs, chain them:
 
 So far outputs have been 0 or 1. **A tri-state buffer adds a third: disconnected.**
 
-```
+```text
               enable
                 │
    in ──────[▷]─┴──── out
@@ -147,7 +149,7 @@ So far outputs have been 0 or 1. **A tri-state buffer adds a third: disconnected
 
 Many devices need to put data on **one** shared wire — a memory bus, a register file's read port, a backplane.
 
-```
+```text
    ┌────────┐   ┌────────┐   ┌────────┐
    │ device │   │ device │   │ device │
    │   A    │   │   B    │   │   C    │
@@ -370,7 +372,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 FAN-OUT -- every input you drive is capacitance you must charge
    fan-out   load (fF)   delay (ps)
          1         2.0          5.6

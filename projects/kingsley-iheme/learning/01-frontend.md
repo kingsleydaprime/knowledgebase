@@ -30,7 +30,7 @@ Related habit in [[projects/gees-arise/learning/09-sys-design|gees-arise]]: this
 
 ## 1. Route groups: folders that shape the layout tree without touching the URL
 
-```
+```text
 src/app/
 ├── layout.tsx              ← root layout: <html>, <body>, fonts, global metadata
 ├── (site)/

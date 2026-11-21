@@ -4,6 +4,8 @@ id: df761295-f45c-44c2-82e8-11de12ccd681
 
 # ASTs and Semantic Analysis
 
+An AST (abstract syntax tree) is a tree that shows the structure of a program, and semantic analysis is the step that checks the program actually makes sense, such as every name being defined before use. When your editor underlines a variable you never declared, it has done this check. This lesson shows how the tree is built and walked.
+
 ## Designing the AST
 <!-- bite: c97bde50-2a0d-4ff1-92e4-3ea7ccb5504b -->
 
@@ -106,7 +108,7 @@ Verbose, and it recovers the "add a case, get an error everywhere" property via 
 
 Semantic analysis is usually several traversals, each doing one thing:
 
-```
+```text
 parse → AST
   ↓
 resolve names       every identifier → its declaration

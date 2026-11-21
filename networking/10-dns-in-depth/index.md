@@ -4,6 +4,8 @@ id: 7e34fa52-e542-4878-940c-c7c4e1ebef84
 
 # DNS in Depth
 
+DNS is the internet's phone book: it turns a name like google.com into the IP address a computer needs to reach it. Every time you open a website or an app connects to its server, a DNS lookup happens first. When DNS goes wrong, it often looks like the whole site is down.
+
 ## Before you start
 <!-- bite: f76fd71f-ede6-49ca-8f77-17226b42549f -->
 
@@ -60,7 +62,7 @@ The shop is moving its servers to a new provider on Saturday. The plan: start th
 ## 2. The resolution walk
 <!-- bite: 618d9b48-69ef-477b-b428-37485a7889d2 -->
 
-```
+```text
 browser → stub resolver (OS) → recursive resolver (ISP / 8.8.8.8 / 1.1.1.1)
                                     │
                                     ├─► root server (.)          "ask the .com servers"
@@ -102,7 +104,7 @@ Every DNS message, question or answer, has the same shape:
 
 A name isn't sent as text with dots. It's a list of **labels**, each preceded by its length, ending with a zero byte. `www.example.com` is:
 
-```
+```text
 03 77 77 77 07 65 78 61 6d 70 6c 65 03 63 6f 6d 00
  3  w  w  w  7  e  x  a  m  p  l  e  3  c  o  m  0
 ```

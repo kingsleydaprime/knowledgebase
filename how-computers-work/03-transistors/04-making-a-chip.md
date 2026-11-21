@@ -4,6 +4,8 @@ id: 88027caa-3cae-4092-adde-d4853d9858b6
 
 # Module 14: Making a Chip (How Transistors Are Actually Built)
 
+Making a chip means building billions of tiny transistors onto a silicon wafer at once, layer by layer, using light to print the patterns. Nobody touches any single transistor. This is how the processor in your phone was made.
+
 ## Before you start
 <!-- bite: 7b5caa81-6a94-4e70-aa6b-1487b141727d -->
 
@@ -67,7 +69,7 @@ That single economic fact — patterning is parallel and its cost is independent
 
 Everything in chip fabrication is one cycle, repeated. **Learn the cycle and you have learned the process** — a modern chip is this loop run 60 to 75 times.
 
-```
+```text
    1. DEPOSIT       lay down a thin film across the whole wafer
         ↓             (oxide, polysilicon, metal, nitride...)
    2. COAT          spin on liquid photoresist, bake it
@@ -98,7 +100,7 @@ Second, **the mask is not the same size as the chip.** It carries the pattern at
 
 Here is a simplified but honest sequence for a single NMOS transistor. Each numbered step is one pass around the loop above.
 
-```
+```text
   START: p-type silicon wafer (module 7)
 
   ┌─────────────────────────────────┐
@@ -165,7 +167,7 @@ This answers a question the course has quietly dodged: schematics show gates con
 
 Transistors occupy only the bottom surface of the die. **Everything above them is wiring** — 10 to 15 stacked layers of metal, separated by insulator, connected vertically by **vias**.
 
-```
+```text
         ┌──────────────────────────────────────┐
         │  M10-M15  thick, wide: POWER + CLOCK │  global
         ├──────────────────────────────────────┤
@@ -196,7 +198,7 @@ Transistors occupy only the bottom surface of the die. **Everything above them i
 
 Designers do not draw individual transistors. They use a **standard cell library**: pre-designed, pre-verified layouts for NAND, NOR, inverters, flip-flops, all built to a **fixed height** so they tile into rows like text on a page.
 
-```
+```text
    ┌────────────────────────────────────────┐
    │ VDD rail ══════════════════════════════│
    │  ┌──────┐ ┌────┐ ┌────────┐ ┌──────┐   │  row of cells,
@@ -401,7 +403,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 PHOTOLITHOGRAPHY -- printing features smaller than the light used
   light source                   lambda     NA   half-pitch
   i-line mercury lamp           365.0nm   0.60      182.5 nm

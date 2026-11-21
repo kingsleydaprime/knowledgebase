@@ -4,6 +4,8 @@ id: dd6635a8-221d-49a4-a92e-ced2a6b74cf6
 
 # Module: Graph Representations
 
+A graph representation is the way a graph is actually stored in a computer's memory, such as a list of each vertex's neighbours or a grid of yes and no values. Different ways make different jobs fast or slow. Picking one is like choosing between a contact list and a big table of who knows whom.
+
 ## Before you start
 <!-- bite: 1021c1bb-53d2-4da1-90ea-967dad9d22fa -->
 

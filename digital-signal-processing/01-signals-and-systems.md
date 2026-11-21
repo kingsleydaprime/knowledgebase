@@ -4,6 +4,8 @@ id: be36b7cd-264e-4266-8df4-7bbae6be0986
 
 # Signals and Systems
 
+A signal is a measurement that changes over time, like the sound reaching a microphone or your heart rate, and a system is anything that takes a signal in and gives a changed signal out. Digital signal processing is doing that changing with numbers on a computer. The noise cancelling in your earphones and the voice clean-up on a WhatsApp call are both systems working on signals.
+
 ## The kid version first
 <!-- bite: 7131e580-e6e9-456c-b601-7442ff8d379b -->
 

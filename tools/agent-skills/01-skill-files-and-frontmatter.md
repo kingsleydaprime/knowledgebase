@@ -5,7 +5,7 @@ YAML frontmatter block on top and instructions below it. The agent reads the
 frontmatter of every installed skill up front, and loads a skill's *body* only
 when its description looks relevant to what you're doing.
 
-```
+```text
 ~/.agents/skills/<skill-name>/SKILL.md      # canonical copy
 ~/.claude/skills/<skill-name> -> ../../.agents/skills/<skill-name>
 ```
@@ -47,7 +47,7 @@ description: Standing preferences for coding sessions. Triggers: new projects, c
 a nested mapping.** The parser reads `Triggers:` as a key, finds it somewhere a
 key cannot legally appear, and reports:
 
-```
+```text
 mapping values are not allowed here
 ```
 

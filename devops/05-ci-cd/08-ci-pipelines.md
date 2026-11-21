@@ -4,6 +4,8 @@ id: 4b2e4fa4-ce05-4829-b88b-22a2da15e649
 
 # CI Pipelines — The Complete Build
 
+A CI pipeline is the chain of automatic checks that runs on every change before it is merged: checking code style, running the tests, building the app and scanning for security problems. This lesson builds a complete one from start to finish. It does it twice, once for a Node app and once for a Java app.
+
 ## What a Good CI Pipeline Does
 <!-- bite: bf7084c4-8f7d-45d0-8edc-3724860e8717 -->
 

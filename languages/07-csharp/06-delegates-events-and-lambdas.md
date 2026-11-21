@@ -4,6 +4,8 @@ id: b72f3e66-1b2e-4f9c-9518-0363bd6c31cd
 
 # Delegates, Events and Lambdas
 
+A delegate is a variable that holds a function, a lambda is a short way of writing a function on the spot, and an event is a way for one object to tell others that something happened. Clicking a button in an app and having some code respond is the everyday example. These three tools are how C# code reacts to things.
+
 ## Delegates
 <!-- bite: 4348f1a8-140c-4cbf-92ab-040fda11c944 -->
 

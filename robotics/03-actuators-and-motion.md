@@ -4,6 +4,8 @@ id: 3f108076-00e2-4283-a1c9-1e5d5e1e1322
 
 # Actuators and Motion
 
+An actuator is the part of a robot that makes it move, usually an electric motor. The vibration motor in your phone and the motor in a ceiling fan are simple examples. Choosing the right motor decides what a robot can do more than any code, because no software can fix a motor that is too weak.
+
 ## The choice
 <!-- bite: 596ea36a-e8bb-4831-82f9-655ce8e8ded0 -->
 
@@ -146,7 +148,7 @@ Budget for **stall**, not for nominal. Six joints stalling simultaneously is a r
 
 Tying it together — the chain from "move there" to actual movement:
 
-```
+```text
  trajectory → joint setpoints → [POSITION LOOP] → velocity cmd
                                        ↓
                               [VELOCITY LOOP] → current cmd

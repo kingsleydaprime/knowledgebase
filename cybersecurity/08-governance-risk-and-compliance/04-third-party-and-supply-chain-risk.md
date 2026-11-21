@@ -4,6 +4,8 @@ id: 96456c60-32cd-4c1b-930a-dac0700d02ca
 
 # Third-Party and Supply-Chain Risk
 
+Third-party risk is the danger that comes from the companies and software you depend on, not from your own systems. Your app might use a payment company, a cloud provider and hundreds of free code libraries written by other people. If any of them is weak, an attacker can reach you through them.
+
 ## The kid version first
 <!-- bite: 81933120-8d01-4e41-bf9c-1759b30a5b02 -->
 

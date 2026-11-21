@@ -39,7 +39,7 @@ For a CRUD application like SocioBoom, the performance cost of client-side rende
 
 ### Route Groups as Architectural Boundaries
 
-```
+```text
 (app)/    ← authenticated product
 (auth)/   ← authentication flows  
 (marketing)/  ← public marketing
@@ -63,7 +63,7 @@ The sidebar is one of the most complex components in the app. Understanding it t
 
 ### Component Tree
 
-```
+```text
 (app)/layout.tsx
   └── MainLayout (client component, src/shared/components/layout/MainLayout.tsx)
         └── SidebarProvider (from shadcn/ui sidebar primitive)

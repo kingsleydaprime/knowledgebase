@@ -642,7 +642,7 @@ FETCH NEXT 10 ROWS ONLY;
 
 **Why OFFSET pagination is bad at scale:**
 
-```
+```text
 At OFFSET 10000, the DB must read 10010 rows, discard 10000, return 10.
 The further into the dataset, the slower the query.
 
@@ -824,7 +824,7 @@ JOIN price_tiers pt ON o.total BETWEEN pt.min_amount AND pt.max_amount
 
 ### 8.9 Join Performance Intuition
 
-```
+```text
 - Index the foreign key columns (ON clause columns)
 - Filter rows BEFORE joining when possible (WHERE before JOIN reduces join size)
 - INNER JOINs are generally faster than OUTER JOINs
@@ -1979,7 +1979,7 @@ BEGIN ISOLATION LEVEL SERIALIZABLE;
 | REPEATABLE READ | Protected | Protected | Possible |
 | SERIALIZABLE | Protected | Protected | Protected |
 
-```
+```text
 PostgreSQL default: READ COMMITTED
 - Reads committed data at the time of each statement
 - The same query run twice in a transaction may return different data
@@ -2542,7 +2542,7 @@ EXPLAIN (ANALYZE, FORMAT JSON) SELECT ...;
 
 ### 26.2 Reading the Query Plan
 
-```
+```text
 -- Example output:
 Seq Scan on users  (cost=0.00..458.00 rows=1 width=120) (actual time=0.043..4.302 rows=1 loops=1)
   Filter: (email = 'k@example.com'::text)
@@ -2561,7 +2561,7 @@ Seq Scan on users  (cost=0.00..458.00 rows=1 width=120) (actual time=0.043..4.30
 
 ### 26.3 Common Plan Nodes
 
-```
+```text
 Seq Scan       — full table scan (bad for large tables with selective conditions)
 Index Scan     — uses index, fetches rows directly (good)
 Index Only Scan — all data from index, no heap fetch (best)
@@ -3507,7 +3507,7 @@ Expected result: Kwame (225.50) and Kofi (123.00). Ama (89.99) is excluded becau
 
 ### 29.7 Schema Diagram
 
-```
+```text
 categories          products
 ──────────          ────────────────────
 id (PK)    ←──┐    id (PK)
@@ -4094,7 +4094,7 @@ Locks prevent concurrent transactions from interfering with each other. The trad
 
 **Row locks** — Lock individual rows. Multiple transactions can work on different rows of the same table simultaneously. Higher memory overhead, much better concurrency. Used by InnoDB.
 
-```
+```text
 Coarser locks ←————————————————→ Finer locks
 Table locks        Page locks        Row locks
 Low overhead       Middle            High overhead
@@ -4126,7 +4126,7 @@ COMMIT;
 
 A deadlock occurs when two transactions each hold a lock the other needs — they wait for each other indefinitely. The database detects this and kills one transaction (the "deadlock victim"), which is rolled back. The other transaction proceeds.
 
-```
+```text
 Transaction A                    Transaction B
 LOCK row 1                       LOCK row 2
 Wait for row 2...     ←→        Wait for row 1...

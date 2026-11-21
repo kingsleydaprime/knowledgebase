@@ -15,7 +15,7 @@ The obvious design — client uploads to your server, your server writes to stor
 
 **Use a presigned URL instead:**
 
-```
+```text
 1. client → your API: "I want to upload profile.jpg, 2 MB, image/jpeg"
 2. your API: authorise, validate the claim, generate a presigned PUT URL (5 min expiry)
 3. client → object storage directly: PUT the bytes
@@ -49,7 +49,7 @@ The obvious design — client uploads to your server, your server writes to stor
 
 **Generate your own key:**
 
-```
+```text
 uploads/{tenant}/{uuid}.{validated-extension}
 ```
 

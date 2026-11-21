@@ -32,7 +32,7 @@ Tokens live in browser cookies managed by `js-cookie`. There are two tokens:
 
 ### Login flow
 
-```
+```text
 User submits email + password
     ↓
 POST /v1/auth/login
@@ -54,7 +54,7 @@ Why go through the Next.js API route instead of using `Cookies.set()` directly? 
 
 When an access token expires, the server returns 401. The `baseQueryWithReauth` intercepts this:
 
-```
+```text
 Request A → 401
 Request B → 401 (arrives 5ms later, refresh hasn't started yet)
 Request C → 401 (arrives 10ms later)
@@ -276,7 +276,7 @@ Why `useEffect` instead of reading directly?
 
 ### The full redirect lifecycle
 
-```
+```text
 1. User visits /dashboard without being logged in
 2. Middleware redirects: /auth/login?from=%2Fdashboard
 3. User logs in
@@ -416,7 +416,7 @@ const token = Cookies.get("accessToken") ?? Cookies.get("admin_accessToken");
 
 When a user visits a protected route without being logged in:
 
-```
+```text
 1. User visits /messages
 2. Middleware redirects: /auth/login?from=%2Fmessages
    (the path is encoded with encodeURIComponent so "/" becomes "%2F")
@@ -466,7 +466,7 @@ The `try/catch` around `decodeURIComponent` is important: if someone manually cr
 
 Without this guard:
 
-```
+```text
 1. User is on /auth/login
 2. Middleware (confusingly) redirects to /auth/login?from=%2Fauth%2Flogin
 3. User logs in
@@ -553,7 +553,7 @@ const refreshToken = Cookies.get("refreshToken");
 
 The console showed the same three lines over and over:
 
-```
+```text
 GET  /v1/users/me       401
 POST /api/auth/refresh  401
 GET  /v1/conversations  401

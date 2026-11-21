@@ -4,6 +4,8 @@ id: 096849b1-11c7-497d-8ac7-7cf1ce8f77f1
 
 # Module 34: Final Integration (Source Code to Electrons)
 
+Final integration is putting every part you have built together and following one line of your own language all the way down to transistors switching on and off. In this last lesson you will trace that whole path yourself. Nothing on the way is taken on trust.
+
 ## Before you start
 <!-- bite: aea8ea33-2c7b-40cb-b618-f4a2fa05f8a3 -->
 
@@ -58,7 +60,7 @@ Running `let x = 5; let y = 3; let z = x + y; print(z);`:
 
 **The ADD instruction** encodes as `0x1650`, or `0001011001010000`:
 
-```
+```text
    0001 011 001 010 000
    ^^^^                  opcode = ADD
         ^^^              rd = R3
@@ -70,7 +72,7 @@ Running `let x = 5; let y = 3; let z = x + y; print(z);`:
 
 **The ALU** receives 5 and 3 and produces 8. And at the gate level:
 
-```
+```text
    bit  A  B |  A^B  A&B  Cin&(A^B) |  sum  carry
      0  1  1 |    0    1          0 |    0      1
      1  0  1 |    1    0          1 |    0      1
@@ -259,7 +261,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 
 ========================================================================
   LAYER 1 -- SOURCE CODE (a human idea, written down)

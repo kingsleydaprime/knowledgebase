@@ -4,6 +4,8 @@ id: a2cc4147-ba95-45e9-affe-ea6183e4b4eb
 
 # Structured Output
 
+Structured output is getting an AI model to reply in a fixed format that code can read, such as JSON with named fields, instead of free text. Your app can then store the answer or act on it without guessing. Pulling the amount, date and shop name out of a receipt into a form is a typical use.
+
 ## Before you start
 <!-- bite: 06b3ba25-3000-4ca1-b0db-0807fed89a50 -->
 
@@ -399,7 +401,7 @@ for (const [label, schema] of [["prompt only", undefined], ["schema-constrained"
 
 What it printed on the 16 GB laptop with `qwen3.5:4b`:
 
-```
+```text
 $ node live.ts
 prompt only:
   run 1: wrong shape: "vendor" must be a string

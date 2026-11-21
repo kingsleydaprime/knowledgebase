@@ -12,7 +12,7 @@ Written 2026-08-12, after the media pipeline and the Instagram/TikTok integratio
 
 Five processes, three of which you run locally:
 
-```
+```text
 ┌─────────────┐     ┌─────────────┐     ┌──────────────┐
 │  Next.js    │────▶│  Express    │────▶│  PostgreSQL  │
 │  :3000      │     │  API :5000  │     │  :5432       │
@@ -67,7 +67,7 @@ anything — the job is in Redis, not in memory.
 
 **① Upload — the file never touches the API**
 
-```
+```text
 Browser                    API                    R2
   │─── POST /media/presign ─▶│
   │◀── { uploadUrl, key } ───│   (signed, 5 min, content-type + length pinned)
@@ -98,7 +98,7 @@ path, not a special case.
 
 **④ Worker publishes** — `worker.ts`
 
-```
+```text
 re-read post from DB          ← honours edits made after queueing
 for each platform:
   load account → ensureFreshToken() → publish → store externalId
@@ -113,7 +113,7 @@ Two details that matter:
 
 **⑤ Instagram specifically** — `instagram.ts`
 
-```
+```text
 POST /{ig-user}/media          → container id     (video_url + caption)
 GET  /{container}?status_code  → poll until FINISHED   ← video only
 POST /{ig-user}/media_publish  → live

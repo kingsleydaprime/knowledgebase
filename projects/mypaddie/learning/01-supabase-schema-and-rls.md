@@ -79,7 +79,7 @@ only sees one row. It needs a trigger that sums all the task's rows.
 
 But if it ran after *every* insert, you could never build up a split:
 
-```
+```text
 insert physical 50  → sum is 50  → ✗ rejected
 ```
 
@@ -92,7 +92,7 @@ create constraint trigger task_pillars_sum_to_100
   for each row execute function private.check_task_weights();
 ```
 
-```
+```text
 begin;
 insert physical 50;   -- no check yet
 insert mental 30;     -- no check yet
@@ -163,7 +163,7 @@ leak and everything is readable.
 
 Instead, Supabase Auth acts as an **OAuth 2.1 server**:
 
-```
+```text
 Claude ──► /api/mcp            401 + "metadata is at /.well-known/…"
 Claude ──► /.well-known/…      "tokens come from https://<ref>.supabase.co/auth/v1"
 Claude ──► Supabase Auth       → redirects you to /oauth/consent

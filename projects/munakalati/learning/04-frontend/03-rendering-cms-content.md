@@ -117,7 +117,7 @@ And structurally: **move the `FALLBACK` constants into a separate `fallbacks/` m
 
 ## The `cms/` directory, and the duplication it left
 
-```
+```text
 src/components/home/
 ├── Hero.tsx              ← original, hardcoded, "use client"
 ├── Testimonials.tsx      ← original, hardcoded

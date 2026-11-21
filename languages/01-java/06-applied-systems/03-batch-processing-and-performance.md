@@ -26,7 +26,7 @@ while ((line = reader.readLine()) != null) {
 
 Naive CSV parsing (`line.replace("\"", "").split(",")`) silently breaks the moment any field legitimately contains a comma (a name like `"Smith, John"`, an address, a narration):
 
-```
+```text
 "Smith, John"  →  after replace("\"","")  →  Smith, John  →  split(",") sees TWO fields, not one
 ```
 

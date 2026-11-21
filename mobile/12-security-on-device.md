@@ -4,6 +4,8 @@ id: 5bf60d3c-f34c-4b3f-b362-845443b99cce
 
 # Security on Device
 
+Security on device is protecting the app and its data when the phone itself is in the hands of someone who may want to break in. Anyone can take an app apart, read its files and watch its network traffic. This lesson shows what an app can and can't keep secret, and where things like passwords and tokens should be stored.
+
 ## The kid version first
 <!-- bite: e9346bfc-8ff8-4253-bd4b-22ea47a57b5e -->
 

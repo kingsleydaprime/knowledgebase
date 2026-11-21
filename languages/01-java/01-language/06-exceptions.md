@@ -11,7 +11,7 @@ id: c597b1e3-e884-4ae5-846b-9d3a19d0739b
 
 Everything throwable descends from `Throwable`, which splits into two branches:
 
-```
+```text
 Throwable
 ├── Error                      — JVM-level, unrecoverable (OutOfMemoryError, StackOverflowError). Don't catch.
 └── Exception

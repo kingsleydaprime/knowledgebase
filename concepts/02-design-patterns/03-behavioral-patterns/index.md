@@ -4,6 +4,8 @@ id: 8b464306-7b5e-4eee-ab83-30bb60b280b0
 
 # Behavioral Patterns
 
+Behavioural patterns are common, tested ways of organising how objects talk to each other and share work. When a delivery app tells you each time your order moves to a new stage, patterns like these are behind it. This lesson covers observer, strategy, command, state and iterator.
+
 ## Before you start
 <!-- bite: e6f0915e-7066-4519-9caf-f65f5dbc6e66 -->
 
@@ -244,7 +246,7 @@ test("the UI can ask which buttons to show", () => {
 
 **Run it.** Both files in one folder; `node --test` from it (Node 23.6 or later; checked with Node 26). Expected:
 
-```
+```text
 ℹ tests 3
 ℹ pass 3
 ℹ fail 0

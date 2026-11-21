@@ -4,6 +4,8 @@ id: ceb04074-8374-4b94-a4ec-7743fb8782c9
 
 # Trigonometric Graphs and Identities
 
+This lesson takes sine, cosine and tangent beyond the angles of a right triangle to every angle, using a circle, and draws them as waves. It also covers identities, which are equations that stay true for every angle, the same way the wave of a sound or a swing keeps repeating.
+
 ## Before you start
 <!-- bite: d06e2eb7-8362-49f8-9707-5525b2363bfd -->
 
@@ -39,7 +41,7 @@ $$
 \cos\theta = x\text{-coordinate of } P, \qquad \sin\theta = y\text{-coordinate of } P, \qquad \tan\theta = \frac{\sin\theta}{\cos\theta}
 $$
 
-```
+```text
                    y
                    |
              P=(cos θ, sin θ)
@@ -332,7 +334,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the unit circle agrees with the right-triangle ratios
   for every acute angle tried, cos = x, sin = y, and x^2 + y^2 = 1
 

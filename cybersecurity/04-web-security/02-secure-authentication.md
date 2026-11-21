@@ -33,7 +33,7 @@ A **salt** is random data mixed into the password before hashing, unique per use
 
 Authentication based on a password alone relies entirely on "something you know" — MFA adds a second, independent factor: "something you have" (a phone generating a time-based code, a hardware key) or "something you are" (biometrics). The security value comes specifically from independence — a leaked/guessed password alone is no longer sufficient, since the attacker also needs the second factor, which typically requires a completely different compromise (physical device access, for instance).
 
-```
+```text
 TOTP (Time-based One-Time Password) — the standard behind most "authenticator app" codes:
 shared_secret + current_time_window -> a 6-digit code, regenerated every 30 seconds,
 independently computable by both the server and the user's authenticator app without any network round-trip.

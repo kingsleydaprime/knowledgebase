@@ -4,6 +4,8 @@ id: 27db874b-8a0b-4d28-9b3f-7b2a6c162fb7
 
 # Geometry and Meshes
 
+A mesh is a 3D shape made of many small flat pieces, usually triangles, joined along their edges, like a football stitched from panels. Almost every 3D object in games and films is stored as a mesh, and this lesson also looks at other ways of describing shape.
+
 ## Meshes
 <!-- bite: dc32b244-fe8b-4e64-bdc7-8f5edd452f3a -->
 
@@ -11,7 +13,7 @@ id: 27db874b-8a0b-4d28-9b3f-7b2a6c162fb7
 
 **Storage — indexed triangles, essentially always:**
 
-```
+```text
  vertices: [v0, v1, v2, v3, ...]           position, normal, UV, tangent
  indices:  [0,1,2,  0,2,3,  ...]           three per triangle
 ```
@@ -70,7 +72,7 @@ $$\mathbf{B}(t) = \sum_{i=0}^{n}\binom{n}{i}(1-t)^{n-i}t^i\,\mathbf{P}_i$$
 
 **Signed distance fields** are the useful case — $f$ returns the distance to the surface, negative inside.
 
-```
+```text
 sphere(p, r)  = length(p) - r
 box(p, b)     = length(max(abs(p) - b, 0))
 union(a, b)   = min(a, b)
@@ -82,7 +84,7 @@ subtract(a,b) = max(a, -b)
 
 **Rendered by sphere tracing** — step along the ray by the distance value, which is guaranteed safe:
 
-```
+```text
 t = 0
 repeat:
     d = sdf(origin + t*dir)

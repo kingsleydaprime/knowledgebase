@@ -4,6 +4,8 @@ id: 96cfa2bd-23ce-41ce-b0a2-79f6d29cdd93
 
 # Authentication and Kerberos
 
+Kerberos is the way a Windows company network checks who you are, using tickets instead of sending your password everywhere. When you log in, a central server gives you a ticket, like a stamped pass, which you show to other servers. Almost every attack on Active Directory is a trick played on this ticket system.
+
 ## The kid version first
 <!-- bite: eeb5bed7-a9aa-40aa-86bd-28bbe2c62d30 -->
 
@@ -27,7 +29,7 @@ AD supports both, and the difference matters:
 
 Three parties: the **client**, the service it wants, and the **KDC** (Key Distribution Center) — which runs on the Domain Controller. The flow:
 
-```
+```text
 1. AS-REQ / AS-REP   client → KDC: "I'm Alice, prove it"
                      KDC returns a TGT (Ticket-Granting Ticket),
                      encrypted with the KRBTGT account's secret
@@ -65,7 +67,7 @@ Three parties: the **client**, the service it wants, and the **KDC** (Key Distri
 
 A **Service Principal Name** links a service (like `MSSQLSvc/db.corp.local`) to the account that runs it. To request a ticket for a service, you ask for it *by SPN*. So:
 
-```
+```text
 "give me every account that has an SPN"   ← these are the service accounts
    → request a Kerberos ticket for each
       → each ticket is encrypted with that account's password hash

@@ -4,6 +4,8 @@ id: 27146914-a35b-4e6e-b445-7ae2efd0344d
 
 # Systems of Linear Equations
 
+A system of linear equations is a set of equations that must all be true at the same time, and Gaussian elimination is a step-by-step method for solving it. It is the method computers actually use, and this lesson also shows the small change that stops it from giving wrong answers.
+
 ## Before you start
 <!-- bite: 5e1df7bb-1752-4910-9b5c-3cfa965f805b -->
 
@@ -295,7 +297,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the worked example from section 3
   solution: x = [2.0, 3.0, -1.0]   (expected [2, 3, -1])
   largest residual |Ax - b| = 8.88e-16

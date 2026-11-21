@@ -27,7 +27,7 @@ Every feature in SocioBoom is a module. A module lives in `src/api/v1/modules/<n
 
 This is called a layered architecture. Each layer only knows about the layer directly below it:
 
-```
+```text
 routes → controller → service → model → Prisma → PostgreSQL
 ```
 
@@ -289,7 +289,7 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 2. Call `next()` to pass control to the next middleware
 3. Send a response and stop the chain
 
-```
+```text
 Request → helmet() → cors() → json() → passport() → globalLimiter → [route handler] → Response
 ```
 

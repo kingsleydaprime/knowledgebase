@@ -200,7 +200,7 @@ On paper, this looks fine: `isConnected` is `false` on mount (socket is still co
 
 The problem is that this re-run goes through **React's rendering pipeline**:
 
-```
+```text
 Socket connects (socket.io event loop)
   ↓
 setStatus("connected") called inside useSocket
@@ -613,7 +613,7 @@ Returning the **same Set reference** when nothing changed prevents React from re
 
 ### Notification badge — full pattern
 
-```
+```text
 New notification arrives via socket
   ↓
 Add id to pendingIds → badge shows +1 immediately
@@ -639,14 +639,14 @@ If you have never touched real-time communication before, start here. This expla
 
 Every HTTP request follows this pattern:
 
-```
+```text
 Browser:  "Hey server, give me the events list"
 Server:   "Here you go" → closes connection
 ```
 
 The server can only talk to the browser when the browser asks first. If something changes on the server (new message, new notification), the server has no way to tell the browser. The browser has to keep asking ("polling"):
 
-```
+```text
 Browser → "any new messages?" → Server: "no"
 Browser → "any new messages?" → Server: "no"
 Browser → "any new messages?" → Server: "yes, here's one"
@@ -658,7 +658,7 @@ Polling every second is wasteful — 999 out of 1000 requests get "no". Polling 
 
 WebSocket is a different protocol that creates a **persistent two-way connection**:
 
-```
+```text
 Browser → Server: "I want to upgrade this HTTP connection to WebSocket"
 Server:           "Agreed"
 ─────────────── connection stays open ───────────────
@@ -731,7 +731,7 @@ ws.onmessage = (e) => {
 
 ### The connection lifecycle
 
-```
+```text
 1. io() called
    ↓ Socket.IO tries WebSocket first (wss://)
    ↓ If blocked, falls back to HTTP long-polling

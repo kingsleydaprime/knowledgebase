@@ -61,7 +61,7 @@ to a personal profile timeline.** Meta removed that capability. Every post must 
 the code wasn't broken by a change; it had simply never been tested against a real account.
 
 **The token chain — this is the part to internalise, and it's four different kinds of token:**
-```
+```text
 authorization code          (seconds, single use)
   → short-lived user token  (~1 hour)
     → long-lived user token (~60 days)     ← fb_exchange_token
@@ -82,7 +82,7 @@ possible.
 ### Q5. [Advanced] 🔥🔥 Explain Instagram's container model and the async trap.
 
 **Strong answer covers the two-call flow:**
-```
+```text
 POST /{ig-user-id}/media          → { image_url | video_url, caption, media_type } → container id
 POST /{ig-user-id}/media_publish  → { creation_id: <container id> }                → live
 ```

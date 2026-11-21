@@ -4,6 +4,8 @@ id: 563e3b78-3677-43a4-ba23-d4c9c3215f7e
 
 # Ordinary Differential Equations
 
+An ordinary differential equation describes how something changes over time based on where it is now, like how a ball falls or how a population grows. Computers solve them by taking many small steps forward in time, which is how games and simulations move objects realistically.
+
 ## The problem
 <!-- bite: e0dfca8a-f428-4cbc-98b6-ab853327df5d -->
 
@@ -99,7 +101,7 @@ $$\text{err} = |y_{n+1}^{(p)} - y_{n+1}^{(p+1)}| \quad\Longrightarrow\quad h_{ne
 
 **Explicit methods have a bounded stability region.** For Euler on $\dot y = \lambda y$, stability requires $|1 + h\lambda| < 1$ — so **$h < 2/|\lambda|$**, set by the *fastest* mode regardless of whether it's still active.
 
-```
+```text
  explicit: h limited by the FASTEST timescale
            → millions of steps for a slow simulation
 
@@ -132,7 +134,7 @@ $$\text{err} = |y_{n+1}^{(p)} - y_{n+1}^{(p+1)}| \quad\Longrightarrow\quad h_{ne
 
 **Velocity Verlet** is the standard, and it's remarkably simple:
 
-```
+```text
 v(t + h/2) = v(t) + (h/2)·a(t)
 x(t + h)   = x(t) + h·v(t + h/2)
 a(t + h)   = f(x(t + h))

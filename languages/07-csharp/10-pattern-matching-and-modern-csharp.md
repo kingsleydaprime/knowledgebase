@@ -4,6 +4,8 @@ id: c928d509-720a-4305-a6aa-72b007bfbc4d
 
 # Pattern Matching and Modern C#
 
+Pattern matching is a way of checking the shape or value of some data and acting on it in one short expression. Deciding a delivery fee by checking whether an order is local, express or international is a typical use. Modern C# has added many features like this that make everyday code shorter and clearer.
+
 ## Pattern matching
 <!-- bite: 48f2303c-ffc6-4526-be0d-760b42d5af43 -->
 

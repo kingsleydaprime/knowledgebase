@@ -4,6 +4,8 @@ id: 6ee0c3bf-810d-465e-996e-9e221b1f9fd4
 
 # Reentrancy
 
+Reentrancy is a bug where a contract sends money before updating its records, so the receiver can call back in and take the money again. Picture a bank teller who hands you cash first and only writes down your new balance afterwards. This lesson shows how that happens in code and the simple ordering rule that stops it.
+
 ## The kid version first
 <!-- bite: b3700317-f476-47b9-a243-275145c0b6ee -->
 

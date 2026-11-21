@@ -73,7 +73,7 @@ The general merge-vs-rebase argument is in [[git/07-merge-vs-rebase|the course]]
 
 28 of 45 commits follow Conventional Commits; 17 don't. The recent end of the log is the non-conforming end:
 
-```
+```text
 3442c85 Fix redirect errors from home page.
 ec37af7 Create not-found.tsx.
 42f3e19 Remove Resources section from MVP — hide pages and nav links
@@ -83,7 +83,7 @@ bcd087b Feat: Add date formatting for better text display        ← capital F, 
 
 Against the earlier, consistent stretch:
 
-```
+```text
 4745727 feat: implement About Us page with team member profiles and CMS integration
 e2394f4 feat: add Wix blog migration script and implement pagination for blog posts
 81515a2 feat: add hero content schema and queries, update Hero component…
@@ -162,7 +162,7 @@ git commit -m "fix(repo): commit migration scripts excluded by unanchored gitign
 
 **`42f3e19` is a well-formed commit.** A pure `git mv` rename (five files, `0` insertions, `0` deletions on four of them — git detected the rename rather than recording delete+add), plus the two-line nav change that made it coherent, plus a body explaining the reversal:
 
-```
+```text
 Remove Resources section from MVP — hide pages and nav links
 
 The resources folder is renamed to _resources (excluded from routing)

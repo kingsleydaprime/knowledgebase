@@ -33,7 +33,7 @@ Consequences that have actually come up:
 
 ## 2. Conventional Commits
 
-```
+```text
 type(scope): description
 ```
 
@@ -44,7 +44,7 @@ change doesn't belong to one area.
 
 The description says **why**, not what. The diff already shows what changed:
 
-```
+```text
 ✅ fix(facebook): publish to Pages instead of personal profile
 ❌ fix(facebook): change endpoint URL and add listPages function
 ```
@@ -166,7 +166,7 @@ debug `console.log`, the commented-out block, the file staged by accident.
 
 `--short` output, worth reading at a glance:
 
-```
+```text
  M .env.example        modified, not staged
 M  src/worker.ts       modified, staged
 MM src/app/main.ts     staged changes AND further unstaged changes

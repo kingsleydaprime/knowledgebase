@@ -4,6 +4,8 @@ id: c7c3b2d3-fce5-4f0f-a0dd-ad87e6b2efbb
 
 # Index Notation and Tensors
 
+Index notation is a short way of writing equations that involve many numbers at once, using small letters under the symbols to say which numbers go together. A tensor is a quantity that needs a whole table of numbers to describe it, like the push and pull inside a loaded bridge, and almost every equation in this course is written this way.
+
 ## Why index notation
 <!-- bite: 73821156-68de-4510-ba75-a4ad0349e7ff -->
 
@@ -187,7 +189,7 @@ $$\epsilon_{ijk} = \begin{cases} +1 & (i,j,k) \text{ is a cyclic arrangement of 
 
 Write 1, 2, 3 around a circle, clockwise.
 
-```
+```text
         1
       ↗   ↘
      3  ←  2
@@ -383,7 +385,7 @@ This is also the deep reason [[ai-ml/00-foundations/03-mathematics/01-linear-alg
 ## Operations
 <!-- bite: 0018715b-1789-44ef-a316-e88931f27c4f -->
 
-```
+```text
 aᵢbᵢ                    inner product          → scalar
 aᵢbⱼ                    outer product          → order 2
 σᵢⱼnⱼ                   contraction            → vector
