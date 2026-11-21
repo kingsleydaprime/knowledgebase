@@ -1,5 +1,9 @@
 # C#
 
+## What C# is
+
+**C# is Microsoft's programming language, used for business apps, websites and Unity games.** It runs on .NET, which works on Windows, Mac and Linux.
+
 The language, and the .NET platform around it. **Not the frameworks** — ASP.NET Core belongs in [[backend/frameworks/index|backend/frameworks/]] and Unity in [[game-development/engines/unity|game-development/engines/]], per [[languages/index|the rule]].
 
 **~9,600 words across 13 notes.** Built August 2026. `[reference]`.

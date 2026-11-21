@@ -1,5 +1,9 @@
 # Rust
 
+## What Rust is
+
+**Rust is a programming language for fast programs that don't crash from memory mistakes.** It checks your code very strictly before it runs, so many bugs never reach your users.
+
 A language built on a single bet: that "manual memory management *or* a garbage collector" was a false choice. Rust gets memory safety at compile time, with no GC and no runtime cost, by making ownership part of the type system.
 
 **~22,000 words across 18 notes.** Built August 2026, cross-referenced against [roadmap.sh Rust](https://roadmap.sh/rust).

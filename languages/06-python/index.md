@@ -1,5 +1,9 @@
 # Python
 
+## What Python is
+
+**Python is a programming language that reads almost like English, which makes it one of the easiest to start with.** People use it for scripts, websites, data and AI.
+
 The language and its core ecosystem. **Not the data stack** — that lives in [[ai-ml/00-foundations/04-python-and-data-tools/index|ai-ml/00-foundations]] — and **not the web frameworks**, which live in [[backend/frameworks/python/index|backend/frameworks/python/]] per [[languages/index|the rule]].
 
 **~18,800 words across 19 notes.** Built August 2026, extended the same week after a [roadmap.sh](https://roadmap.sh/python) audit. `[reference]`.

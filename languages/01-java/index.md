@@ -1,5 +1,9 @@
 # Java
 
+## What Java is
+
+**Java is a programming language for building large programs that run on almost any computer, from bank servers to Android phones.** You write the code once, and a program called the JVM runs it anywhere.
+
 **[Beginner → Advanced]** — the language, the JVM, and the backend ecosystem built on top of it. Part of the [[languages/index|languages]] course.
 
 The reading order runs top to bottom through six themed sections: the **language** itself → how it **runs** (JVM + concurrency) → the **tooling** around it → **persistence** → **web/API** → **applied systems** built from real projects.

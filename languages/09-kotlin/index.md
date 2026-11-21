@@ -1,5 +1,9 @@
 # Kotlin
 
+## What Kotlin is
+
+**Kotlin is a programming language for Android apps, and the one Google recommends.** It runs everywhere Java runs, with shorter and safer code.
+
 **Java's ecosystem with twenty years of language-design hindsight applied to the syntax.** Android's official language since 2017, Kotlin-first since 2019.
 
 **8 notes, built Aug 2026** alongside [[mobile/index|the mobile track]]. `[reference]`.
