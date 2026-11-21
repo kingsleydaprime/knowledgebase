@@ -6,7 +6,7 @@
 
 Each element of `height` is a vertical line. Pick two lines that, with the x-axis, hold the **most water**. Area = width × the **shorter** of the two heights.
 
-```
+```text
 height = [1, 8, 6, 2, 5, 4, 8, 3, 7]  ->  49   (lines at index 1 and 8: min(8,7) × 7)
 ```
 

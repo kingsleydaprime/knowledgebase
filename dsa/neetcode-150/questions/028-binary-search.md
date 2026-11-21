@@ -6,7 +6,7 @@
 
 Given a **sorted** array and a `target`, return its index, or −1 if absent. O(log n) required.
 
-```
+```text
 nums = [-1,0,3,5,9,12], target = 9  ->  4
 ```
 

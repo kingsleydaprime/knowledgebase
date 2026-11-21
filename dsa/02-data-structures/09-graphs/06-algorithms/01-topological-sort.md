@@ -33,7 +33,7 @@ It answers the universal question: *"Given a collection of tasks with prerequisi
 
 Imagine **Getting Dressed in the Morning**:
 
-```
+```text
  [ Underwear ] ---> [ Pants ] ---> [ Shoes ]
                        ^
                        |
@@ -289,7 +289,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - both algorithms produce a valid order
   Kahn:  ['intro', 'data-structures', 'discrete-math', 'algorithms', 'compilers']
   DFS:   ['intro', 'discrete-math', 'data-structures', 'algorithms', 'compilers']

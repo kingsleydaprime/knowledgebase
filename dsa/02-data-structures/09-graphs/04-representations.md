@@ -35,7 +35,7 @@ There is no universally best choice. There is a right one per problem.
 
 Take this graph throughout:
 
-```
+```text
     A --- B
     |   / |
     | /   |
@@ -78,7 +78,7 @@ Space still $O(V+E)$, with a larger constant. The gain: edge lookup and edge del
 
 A $V \times V$ grid, $M[i][j] = 1$ when the edge exists.
 
-```
+```text
       A  B  C  D
    A  0  1  1  0
    B  1  0  1  1
@@ -94,7 +94,7 @@ For an undirected graph the matrix is **symmetric**, and the diagonal is non-zer
 
 A $V \times E$ grid: rows are vertices, columns are edges, and an entry marks that the vertex is an endpoint of that edge.
 
-```
+```text
         AB AC BC BD CD
     A    1  1  0  0  0
     B    1  0  1  1  0
@@ -343,7 +343,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the same graph, five ways
   edge list        [('A', 'B'), ('A', 'C'), ('B', 'C'), ('B', 'D'), ('C', 'D')]
   adjacency list   {'A': ['B', 'C'], 'B': ['A', 'C', 'D'], 'C': ['A', 'B', 'D'], 'D': ['B', 'C']}

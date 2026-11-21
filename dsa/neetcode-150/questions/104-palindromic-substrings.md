@@ -6,7 +6,7 @@
 
 Count how many substrings are palindromes (different positions count separately).
 
-```
+```text
 "aaa"  ->  6   ("a"×3, "aa"×2, "aaa"×1)
 ```
 

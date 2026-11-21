@@ -73,7 +73,7 @@ def rotate_matrix(matrix: list) -> None:
 ```
 
 **Visualization**:
-```
+```text
 Original:              After Transpose:       After Row Reversal (= 90° CW):
 1  2  3                1  4  7               7  4  1
 4  5  6    ─────►      2  5  8    ─────►     8  5  2
@@ -406,7 +406,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - rotate a matrix in place
   before          after
     [1, 2, 3]      [7, 4, 1]

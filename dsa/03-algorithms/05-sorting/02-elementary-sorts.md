@@ -269,7 +269,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - all three are correct, and their invariants hold throughout
   bubble     correct on 200 random arrays, invariant asserted every pass
   selection  correct on 200 random arrays, invariant asserted every pass

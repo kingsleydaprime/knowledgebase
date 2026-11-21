@@ -6,7 +6,7 @@
 
 Given bar `heights` of width 1, find the area of the largest rectangle that fits under the histogram.
 
-```
+```text
 [2,1,5,6,2,3]  ->  10   (bars of height 5 and 6, width 2)
 ```
 

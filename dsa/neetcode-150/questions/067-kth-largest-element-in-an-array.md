@@ -6,7 +6,7 @@
 
 Return the k-th largest element in an unsorted array (the k-th in sorted-descending order, not the k-th distinct).
 
-```
+```text
 [3,2,1,5,6,4], k=2  ->  5
 ```
 

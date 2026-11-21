@@ -162,7 +162,7 @@ Yes, both. Perfect is the strictest shape — no gaps anywhere and every interna
 
 <details><summary>Answer</summary>
 
-```
+```text
      1
     / \
    2   3
@@ -177,7 +177,7 @@ Node 2 has exactly one child, so it is not full; the last level fills from the l
 
 <details><summary>Answer</summary>
 
-```
+```text
      1
     / \
    2   3

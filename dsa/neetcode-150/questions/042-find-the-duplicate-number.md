@@ -6,7 +6,7 @@
 
 An array of `n + 1` integers, each in `[1, n]`. Exactly one value repeats (possibly many times). Find it **without modifying the array** and in **O(1) space**.
 
-```
+```text
 [1,3,4,2,2]  -> 2
 [3,1,3,4,2]  -> 3
 ```

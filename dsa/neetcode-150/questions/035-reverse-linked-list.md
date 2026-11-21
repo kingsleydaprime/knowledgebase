@@ -6,7 +6,7 @@
 
 Reverse a singly linked list; return the new head.
 
-```
+```text
 1 -> 2 -> 3 -> 4 -> 5   becomes   5 -> 4 -> 3 -> 2 -> 1
 ```
 

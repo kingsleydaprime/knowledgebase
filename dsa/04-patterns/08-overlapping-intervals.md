@@ -68,7 +68,7 @@ def merge_intervals(intervals):
 
 **Concrete example:**
 
-```
+```text
 intervals = [[1,3], [2,6], [8,10], [15,18]]
 sorted (already is)
 
@@ -181,7 +181,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - merge intervals:
 intervals=[[1, 3], [2, 6], [8, 10], [15, 18]] -> [[1, 6], [8, 10], [15, 18]]
 

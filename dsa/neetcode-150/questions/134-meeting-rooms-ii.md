@@ -6,7 +6,7 @@
 
 Return the **minimum number of rooms** needed so no two meetings share a room — i.e. the maximum number of meetings overlapping at any instant.
 
-```
+```text
 [[0,30],[5,10],[15,20]]  ->  2
 ```
 

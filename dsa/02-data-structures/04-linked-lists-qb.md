@@ -34,7 +34,7 @@ A treasure hunt. Each clue card holds a message and tells you where the next car
 
 <details><summary>Answer</summary>
 
-```
+```text
 Head -> [ Value | Next ] -> [ Value | Next ] -> None
 ```
 

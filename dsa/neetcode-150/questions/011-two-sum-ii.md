@@ -6,7 +6,7 @@
 
 Given a **sorted** (ascending) array and a `target`, return the 1-indexed positions of the two numbers that sum to `target`. Exactly one solution; **O(1) extra space** required.
 
-```
+```text
 numbers = [2, 7, 11, 15], target = 9  -> [1, 2]
 ```
 

@@ -40,7 +40,7 @@ Each scenario visits the exact same people, but the **order of visitation** is t
 
 Throughout this module, we will trace the traversal orders using this binary tree:
 
-```
+```text
         (1)            <-- Root
        /   \
      (2)   (3)         <-- Level 1
@@ -506,7 +506,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 ONE TREE, FOUR ORDERS
         1
       /   \

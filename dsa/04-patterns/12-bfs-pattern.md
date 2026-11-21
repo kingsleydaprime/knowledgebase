@@ -201,7 +201,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - level-order traversal:
 tree -> [[3], [9, 20], [15, 7]]
 

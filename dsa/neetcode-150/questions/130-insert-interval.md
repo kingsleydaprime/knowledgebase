@@ -6,7 +6,7 @@
 
 Given a list of **non-overlapping, sorted** intervals and a `newInterval`, insert it and merge any overlaps.
 
-```
+```text
 [[1,3],[6,9]], newInterval=[2,5]  ->  [[1,5],[6,9]]
 ```
 

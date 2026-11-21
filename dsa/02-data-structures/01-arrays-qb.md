@@ -40,7 +40,7 @@ It solves *"I have many items and I want to reach any one of them instantly."* B
 
 <details><summary>Answer</summary>
 
-```
+```text
 Index:       0       1       2       3       4
            +-------+-------+-------+-------+-------+
 Value:     |  10   |  22   |   7   |  41   |   3   |

@@ -32,7 +32,7 @@ This problem is a masterclass in progressive algorithmic thinking. We'll walk th
 
 Imagine a **National Election with Proportional Voting**:
 
-```
+```text
 Votes Cast:  [ A, B, A, A, C, A, B, A, A ]
                                          ↑
                           A appears 6 out of 9 times (> 50%!)
@@ -133,7 +133,7 @@ def leader_boyer_moore(A: list) -> int:
 ```
 
 **Step-by-step visualization** on `[A, B, A, A, C, A, B, A, A]`:
-```
+```text
 Value:     A   B   A   A   C   A   B   A   A
 Count:     1   0   1   2   1   2   1   2   3
 Candidate: A   _   A   A   A   A   A   A   A
@@ -304,7 +304,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the cancellation, step by step
   input [2, 2, 1, 1, 1, 2, 2]  (2 appears 4 times of 7, so it IS the majority)
      saw   candidate   count   reason

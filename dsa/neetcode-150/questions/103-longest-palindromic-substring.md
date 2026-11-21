@@ -6,7 +6,7 @@
 
 Return the longest contiguous substring that is a palindrome.
 
-```
+```text
 "babad"  ->  "bab" (or "aba")
 "cbbd"   ->  "bb"
 ```

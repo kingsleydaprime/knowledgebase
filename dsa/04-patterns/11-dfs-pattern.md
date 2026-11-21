@@ -166,7 +166,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - valid ordering:
 num_courses=4, prerequisites=[[1, 0], [2, 0], [3, 1], [3, 2]] -> order [0, 2, 1, 3]
 

@@ -306,7 +306,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - both schemes are correct
   lomuto   correct on 300 random arrays
   hoare    correct on 300 random arrays

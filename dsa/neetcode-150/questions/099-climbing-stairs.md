@@ -6,7 +6,7 @@
 
 You climb `n` stairs, 1 or 2 steps at a time. How many distinct ways to reach the top?
 
-```
+```text
 n = 3  ->  3   (1+1+1, 1+2, 2+1)
 ```
 

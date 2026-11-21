@@ -6,7 +6,7 @@
 
 Given distinct `candidates` and a `target`, return all unique combinations summing to `target`. Each candidate may be reused **unlimited** times.
 
-```
+```text
 candidates = [2,3,6,7], target = 7  ->  [[2,2,3], [7]]
 ```
 

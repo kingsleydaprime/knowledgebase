@@ -6,7 +6,7 @@
 
 Given an elevation map `height`, compute how much rainwater is trapped between the bars.
 
-```
+```text
 height = [0,1,0,2,1,0,1,3,2,1,2,1]  ->  6
 ```
 
@@ -14,7 +14,7 @@ height = [0,1,0,2,1,0,1,3,2,1,2,1]  ->  6
 
 Water sitting on top of bar `i` is bounded by the **tallest wall to its left** and the **tallest wall to its right**; it fills to the lower of those two, minus the bar's own height:
 
-```
+```text
 water[i] = max(0, min(maxLeft[i], maxRight[i]) - height[i])
 ```
 

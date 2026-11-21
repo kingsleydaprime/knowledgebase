@@ -6,7 +6,7 @@
 
 Multiply two non-negative integers given as **strings**, without converting them to native integers (they may be huge).
 
-```
+```text
 "123" * "456"  ->  "56088"
 ```
 

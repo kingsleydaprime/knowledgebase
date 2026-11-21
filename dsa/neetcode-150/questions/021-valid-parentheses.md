@@ -6,7 +6,7 @@
 
 Given a string of `()[]{}`, return `true` if every bracket is closed by the correct type, in the correct order.
 
-```
+```text
 "()[]{}"  -> true
 "(]"      -> false
 "([)]"    -> false   (interleaved, not nested)

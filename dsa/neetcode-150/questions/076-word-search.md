@@ -6,7 +6,7 @@
 
 Given a character `board` and a `word`, return `true` if the word can be formed along a path of **adjacent** cells, each cell used at most once.
 
-```
+```text
 board = [["A","B","C","E"],
          ["S","F","C","S"],
          ["A","D","E","E"]], word = "ABCCED"  ->  true

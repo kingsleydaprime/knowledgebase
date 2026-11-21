@@ -32,7 +32,7 @@ It answers two fundamental operations in near-constant time:
 
 Imagine a **Social Network Friend Tracker**:
 
-```
+```text
 Initial State (4 Separate People):
   (Alice)    (Bob)    (Charlie)    (David)
 
@@ -152,7 +152,7 @@ class UnionFind:
 
 Without optimizations, Union-Find trees can degenerate into linear $O(n)$ linked lists.
 
-```
+```text
 UNOPTIMIZED (Degenerates to O(n)):         OPTIMIZED (Path Compression & Rank -> O(1)):
       (0)                                              (0)
        |                                             / / \ \
@@ -322,7 +322,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 CONNECTIVITY -- 'are these two in the same group?'
   unions: 0-1, 1-2, 3-4, 5-6, 6-7, 7-8
   groups: [[0, 1, 2], [3, 4], [5, 6, 7, 8], [9]]

@@ -6,7 +6,7 @@
 
 Rob houses along a street for maximum money, but you **can't rob two adjacent houses**.
 
-```
+```text
 [2,7,9,3,1]  ->  12   (rob houses 0, 2, 4: 2+9+1)
 ```
 

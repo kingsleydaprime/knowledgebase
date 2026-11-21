@@ -6,7 +6,7 @@
 
 Support `addWord(word)` and `search(word)`, where `search` may contain `.` as a **wildcard** matching any single character.
 
-```
+```text
 addWord("bad"); addWord("dad")
 search("pad") -> false ; search(".ad") -> true ; search("b..") -> true
 ```

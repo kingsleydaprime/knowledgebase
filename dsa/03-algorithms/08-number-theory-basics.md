@@ -34,7 +34,7 @@ Imagine two **Alarm Clocks**:
 - Alarm A rings every **12 minutes**.
 - Alarm B rings every **18 minutes**.
 
-```
+```text
 Alarm A (12m):  0 ---- 12 ---- 24 ---- [ 36 ] ---- 48 ---- 60
 Alarm B (18m):  0 --------- 18 -------- [ 36 ] --------- 54
 ```
@@ -338,7 +338,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - primality by trial division, and why sqrt(n) suffices
        97: prime=True   divisions tried    4  sqrt(n)=9
       561: prime=False  divisions tried    1  sqrt(n)=23

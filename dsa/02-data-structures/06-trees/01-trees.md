@@ -58,7 +58,7 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
 
 ### Visualizing a Tree
 
-```
+```text
                    [ Root ]
                       (A)
                      /   \
@@ -102,7 +102,7 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
 
 Two measurements describe the position of nodes inside a tree: **Depth** and **Height**. Computer science students often confuse them:
 
-```
+```text
 Level 0 (Root) --------> (A)            Height of Tree = 2
                         /   \
 Level 1 -------------> (B)   (C)        Depth of B = 1

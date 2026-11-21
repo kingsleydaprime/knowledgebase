@@ -55,7 +55,7 @@ Counting sort is useless for large key ranges. Radix sort fixes that by sorting 
 
 **Least significant digit first (LSD):**
 
-```
+```text
 input:   170 045 075 090 802 024 002 066
 by 1s:   170 090 802 002 024 045 075 066
 by 10s:  802 002 024 045 066 170 075 090   <- wait, look at 075 and 090
@@ -227,7 +227,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - counting sort, and the condition on k
   ages: [112, 15, 32, 9, 20, 112, 86, 46, 91, 44, 72, 32, 105, 1, 11, 22, 23, 91, 16, 50]
   sorted: [1, 9, 11, 15, 16, 20, 22, 23, 32, 32, 44, 46, 50, 72, 86, 91, 91, 105, 112, 112]

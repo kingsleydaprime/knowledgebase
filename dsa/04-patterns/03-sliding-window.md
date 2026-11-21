@@ -74,7 +74,7 @@ def max_subarray_sum(nums, k):
 
 **Concrete example:** `nums = [2, 1, 5, 1, 3, 2], k = 3`
 
-```
+```text
 window [2,1,5] sum=8
         ^    ^    ^
 slide:  [1,5,1] sum=8-2+1=7
@@ -164,7 +164,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 nums=[2, 1, 5, 1, 3, 2], k=3 -> max sum 9
 nums=[1, 2, 3, 1, 2, 3, 1] -> longest unique substring length 3
 nums=[1, 2, 3, 4, 5] -> longest unique substring length 5

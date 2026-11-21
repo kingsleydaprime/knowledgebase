@@ -33,7 +33,7 @@ The choice of search algorithm depends entirely on one fundamental question: **I
 
 Imagine looking up a word in a **printed physical dictionary**:
 
-```
+```text
 Search space: 1,000 pages
 
 Step 1: Open dictionary directly to the middle (Page 500).
@@ -368,7 +368,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - linear vs binary, counted
         n   linear worst   binary worst   log2(n)
        10             10              3       3.3

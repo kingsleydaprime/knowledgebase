@@ -6,7 +6,7 @@
 
 Partition a string into as **many** parts as possible so that each letter appears in **at most one** part. Return the part sizes.
 
-```
+```text
 "ababcbacadefegdehijhklij"  ->  [9, 7, 8]
 ```
 

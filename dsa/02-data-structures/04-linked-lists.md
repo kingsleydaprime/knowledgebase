@@ -28,7 +28,7 @@ Welcome to the **Linked Lists** module. Unlike [[01-arrays|Arrays]], where eleme
 
 Imagine a physical **Scavenger Hunt / Treasure Hunt**:
 
-```
+```text
 Clue 1 (Base Camp)   --->  Clue 2 (Under Oak Tree)  --->  Clue 3 (Inside Cave)
 [ Location: Cave ]         [ Location: Lake ]             [ Treasure! ]
 ```
@@ -66,7 +66,7 @@ In computer science, this is a **Linked List**. Because nodes are connected pure
 ## 3. The 4 Main Variations of Linked Lists
 <!-- bite: 28010003-f357-45b5-a50a-6f2dda605e35 -->
 
-```
+```text
 1. Singly Linked List:
    Head -> [ Value | Next ] -> [ Value | Next ] -> None
 
@@ -132,7 +132,7 @@ Notice how `remove_element` handles deleting the head node effortlessly without 
 
 On paper, linked lists seem superior for insertions ($O(1)$ vs $O(n)$). However, in modern computer hardware, **Dynamic Arrays usually outperform Linked Lists**:
 
-```
+```text
 Array (Contiguous in RAM):
 [ Node 0 ][ Node 1 ][ Node 2 ][ Node 3 ]  <-- Loaded into CPU L1 Cache in 1 step!
 
@@ -320,7 +320,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 INDEXING -- the cost arrays do not pay
     index   pointer hops   array cost
         0              0 1 (address calc)

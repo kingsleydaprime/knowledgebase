@@ -6,7 +6,7 @@
 
 Return the maximum depth (number of nodes on the longest root-to-leaf path).
 
-```
+```text
     3
   9   20        -> 3
      15  7

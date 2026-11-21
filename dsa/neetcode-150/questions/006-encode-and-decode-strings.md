@@ -6,7 +6,7 @@
 
 Design `encode(list[str]) -> str` and `decode(str) -> list[str]` so that a list of strings survives a round trip through a single string. The strings can contain **any** characters — including whatever delimiter you might be tempted to use.
 
-```
+```text
 ["neet","code","love","you"]  --encode-->  some string  --decode-->  ["neet","code","love","you"]
 ```
 
@@ -35,7 +35,7 @@ def decode(s):
     return res
 ```
 
-```
+```text
 ["a#b", "c"]  -> encode -> "3#a#bc"... wait: "3#a#b" + "1#c" = "3#a#b1#c"
 decode: read "3" -> take 3 chars "a#b"; read "1" -> take 1 char "c"  ✓
 ```

@@ -33,7 +33,7 @@ A **Priority Queue** is an abstract data type where elements have priorities. A 
 
 Imagine an **Hospital Emergency Room Triage Desk**:
 
-```
+```text
                        [ ER Triage Desk ]
                                 |
           +---------------------+---------------------+
@@ -80,7 +80,7 @@ Imagine an **Hospital Emergency Room Triage Desk**:
 
 Because a Heap is guaranteed to be a **Complete Binary Tree**, it can be stored inside a standard **1D Array** without allocating Node objects or memory pointers!
 
-```
+```text
 Tree Representation:                  Array Representation:
         ( 1 )                         Index:   0   1   2   3   4   5
        /     \                        Value: [ 1 | 3 | 5 | 8 | 9 | 7 ]
@@ -348,7 +348,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 THE ARRAY IS THE TREE -- no pointers anywhere
   pushed 5 3 8 1 9 2
   array: [1, 3, 2, 5, 9, 8]

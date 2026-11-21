@@ -4,7 +4,7 @@ Micro-questions over [[01-depth-first-traversals|the depth-first traversals modu
 
 The reference tree throughout:
 
-```
+```text
         1
       /   \
      2     3

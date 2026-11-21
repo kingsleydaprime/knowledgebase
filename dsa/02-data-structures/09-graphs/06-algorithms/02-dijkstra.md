@@ -33,7 +33,7 @@ While [[02-breadth-first-search|BFS]] finds shortest paths in terms of **number 
 
 Imagine planning a **GPS Driving Route**:
 
-```
+```text
                        [ Highway: 100 miles, 65 mph (Cost: 90 mins) ]
   ( City A ) ---------------------------------------------------------> ( City B )
       |                                                                     ^
@@ -292,7 +292,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - shortest distances and the paths themselves
     A -> A: distance  0   path ['A']
     A -> B: distance  3   path ['A', 'C', 'B']

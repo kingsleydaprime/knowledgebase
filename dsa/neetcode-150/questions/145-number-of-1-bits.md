@@ -6,7 +6,7 @@
 
 Count the set bits (1s) in the binary representation of an integer (the "Hamming weight").
 
-```
+```text
 11  (1011)  ->  3
 128 (10000000)  ->  1
 ```

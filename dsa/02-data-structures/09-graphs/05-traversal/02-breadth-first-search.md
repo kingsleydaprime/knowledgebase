@@ -33,7 +33,7 @@ Where [[01-depth-first-search|DFS]] dives deep down one branch before backtracki
 
 Imagine dropping a **pebble into a calm pond**:
 
-```
+```text
  Level 0:              ( Start )
                           |
  Level 1:         ( Node A )  ( Node B )
@@ -307,7 +307,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - BFS explores by level
     level 0: ['A']
     level 1: ['B', 'C']

@@ -49,13 +49,13 @@ This is the two-pointer pattern: walk two positions through a sorted structure a
 
 Given a sorted array `nums` and a target sum `target`:
 
-```
+```text
 nums = [1, 2, 3, 4, 6], target = 6
 ```
 
 Start one pointer at the beginning (`left = 0`) and one at the end (`right = len(nums) - 1`):
 
-```
+```text
 left=0 right=4  1+6=7 > 6  -> right--
 left=0 right=3  1+4=5 < 6  -> left++
 left=1 right=3  2+4=6 == 6 -> found [1, 3]
@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 nums=[1, 2, 3, 4, 6], target=6 -> indices [1, 3]
 nums=[1, 3, 5, 7], target=11 -> indices [-1, -1]
 nums=[2, 2, 3, 4], target=4 -> indices [0, 1]

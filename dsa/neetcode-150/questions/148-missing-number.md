@@ -6,7 +6,7 @@
 
 An array holds `n` distinct numbers from the range `[0, n]`. Find the one missing.
 
-```
+```text
 [3,0,1]  ->  2
 [0,1]    ->  2
 ```

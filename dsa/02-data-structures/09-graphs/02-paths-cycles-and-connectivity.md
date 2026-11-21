@@ -319,7 +319,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - four words that are not synonyms
   A-B-C                  -> path (simple path)
   A-B-C-A                -> cycle (simple cycle)

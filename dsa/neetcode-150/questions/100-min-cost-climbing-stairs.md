@@ -6,7 +6,7 @@
 
 Each stair `i` has a `cost[i]` paid to step off it. You may start at index 0 or 1 and climb 1 or 2 steps. Return the minimum cost to reach the top (past the last stair).
 
-```
+```text
 cost = [10,15,20]  ->  15   (start at 15, step 2 to the top)
 ```
 

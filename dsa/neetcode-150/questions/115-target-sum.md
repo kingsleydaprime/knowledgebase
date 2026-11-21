@@ -6,7 +6,7 @@
 
 Assign `+` or `−` to each number so the expression equals `target`. Count the ways.
 
-```
+```text
 nums = [1,1,1,1,1], target = 3  ->  5
 ```
 

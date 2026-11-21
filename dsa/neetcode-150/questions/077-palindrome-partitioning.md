@@ -6,7 +6,7 @@
 
 Partition a string so **every** substring is a palindrome; return all such partitionings.
 
-```
+```text
 "aab"  ->  [["a","a","b"], ["aa","b"]]
 ```
 

@@ -6,7 +6,7 @@
 
 Return the node values level by level, top to bottom, as a list of lists.
 
-```
+```text
     3
   9   20        ->  [[3], [9, 20], [15, 7]]
      15  7

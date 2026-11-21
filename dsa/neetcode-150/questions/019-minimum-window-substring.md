@@ -6,7 +6,7 @@
 
 Given strings `s` and `t`, return the **shortest** substring of `s` containing every character of `t` (with multiplicity). Empty string if none exists.
 
-```
+```text
 s = "ADOBECODEBANC", t = "ABC"  ->  "BANC"
 ```
 

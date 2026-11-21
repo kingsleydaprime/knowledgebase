@@ -6,7 +6,7 @@
 
 Return `true` if a string is a palindrome, considering **only alphanumeric characters** and ignoring case.
 
-```
+```text
 "A man, a plan, a canal: Panama"  -> true   (reads "amanaplanacanalpanama")
 "race a car"                      -> false
 ```

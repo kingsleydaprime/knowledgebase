@@ -33,7 +33,7 @@ A **Minimum Spanning Tree (MST)** is the spanning tree that achieves the **minim
 
 Imagine laying **Fiber-Optic Internet Cables** between 5 regional cities:
 
-```
+```text
                   [ City B ]
                  /    |    \
      $10M       /     |     \  $15M
@@ -328,7 +328,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - both algorithms, same total weight
   Kruskal chose 6 edges, total weight 34
       D-E (2)

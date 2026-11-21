@@ -49,7 +49,7 @@ Understanding these shapes is critical because a tree's shape directly dictates 
 
 #### 1. Full (Proper) Binary Tree
 Every node has **either 0 or 2 children**. No node has only 1 child.
-```
+```text
        1
       / \
      2   3
@@ -60,7 +60,7 @@ Every node has **either 0 or 2 children**. No node has only 1 child.
 
 #### 2. Complete Binary Tree
 Every level is completely filled, except possibly the last level, which is filled **strictly from left to right**.
-```
+```text
        1
       / \
      2   3
@@ -71,7 +71,7 @@ Every level is completely filled, except possibly the last level, which is fille
 
 #### 3. Perfect Binary Tree
 All internal nodes have 2 children, and **all leaves are at the exact same depth**.
-```
+```text
        1
       / \
      2   3
@@ -82,7 +82,7 @@ All internal nodes have 2 children, and **all leaves are at the exact same depth
 
 #### 4. Balanced Binary Tree
 A tree where the height of the left and right subtrees of *every node* differs by at most 1.
-```
+```text
        1
       / \
      2   3
@@ -93,7 +93,7 @@ A tree where the height of the left and right subtrees of *every node* differs b
 
 #### 5. Degenerate (Pathological) Binary Tree
 Every node has only 1 child. The tree degrades into a single straight line.
-```
+```text
    1
     \
      2
@@ -229,7 +229,7 @@ Because a complete tree has no gaps except at the end, you can number the nodes 
 2. The **right child** is at index $2i + 2$.
 3. The **parent** is at index $\lfloor (i-1)/2 \rfloor$.
 
-```
+```text
         A(0)                array:  [A, B, C, D, E, F]
        /    \               index:   0  1  2  3  4  5
     B(1)    C(2)

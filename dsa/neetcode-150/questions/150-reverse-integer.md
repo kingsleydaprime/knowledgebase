@@ -6,7 +6,7 @@
 
 Reverse the digits of a signed 32-bit integer. If reversing **overflows** the 32-bit range `[−2³¹, 2³¹−1]`, return 0.
 
-```
+```text
 123   ->  321
 -123  ->  -321
 120   ->  21

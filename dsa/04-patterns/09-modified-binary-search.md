@@ -75,7 +75,7 @@ def search_rotated(nums, target):
 
 **Concrete example:** `nums = [4, 5, 6, 7, 0, 1, 2], target = 0`
 
-```
+```text
 left=0 right=6 mid=3  nums[3]=7
   nums[0]=4 <= 7 -> left half [4,5,6,7] is sorted
   is 0 in [4, 7)? no -> search right half: left=4
@@ -225,7 +225,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - search in rotated sorted array:
 nums=[4, 5, 6, 7, 0, 1, 2], target=0 -> index 4
 

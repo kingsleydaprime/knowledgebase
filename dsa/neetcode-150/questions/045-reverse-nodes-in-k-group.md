@@ -6,7 +6,7 @@
 
 Reverse the list in groups of `k`. A trailing group of fewer than `k` nodes is left as-is.
 
-```
+```text
 1->2->3->4->5, k=2  ->  2->1->4->3->5
 1->2->3->4->5, k=3  ->  3->2->1->4->5
 ```

@@ -6,7 +6,7 @@
 
 `A`–`Z` map to `1`–`26`. Count how many ways a digit string can be decoded.
 
-```
+```text
 "12"   ->  2   ("AB" = 1,2  or  "L" = 12)
 "226"  ->  3   (2 2 6, 22 6, 2 26)
 ```

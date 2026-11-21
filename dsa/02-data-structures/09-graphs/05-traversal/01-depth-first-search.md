@@ -33,7 +33,7 @@ Where [[02-breadth-first-search|BFS]] spreads out evenly level-by-level like a p
 
 Imagine a **Maze Explorer in a Dark Cave**:
 
-```
+```text
 [ Entrance A ] ---> [ Tunnel B ] ---> [ Dead End D ]
        |                  |
        |                  +---------> [ Exit E ]
@@ -304,7 +304,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - recursive and iterative DFS give the same order
   recursive: ['A', 'B', 'D', 'C', 'E']
   iterative: ['A', 'B', 'D', 'C', 'E']

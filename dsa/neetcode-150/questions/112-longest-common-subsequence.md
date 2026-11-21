@@ -6,7 +6,7 @@
 
 Return the length of the longest subsequence common to two strings (characters in order, not necessarily contiguous).
 
-```
+```text
 "abcde", "ace"  ->  3   ("ace")
 ```
 

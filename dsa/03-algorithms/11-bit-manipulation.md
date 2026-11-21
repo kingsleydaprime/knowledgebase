@@ -32,7 +32,7 @@ Mastering bit manipulation lets you solve problems with **$O(1)$ space** that wo
 
 Think of an 8-bit integer as a **row of 8 light switches**:
 
-```
+```text
 Decimal 53:  Binary = 0 0 1 1 0 1 0 1
                       ↑             ↑
                    Bit 7         Bit 0
@@ -71,7 +71,7 @@ Decimal 53:  Binary = 0 0 1 1 0 1 0 1
 
 XOR has three properties that drive most interview bit tricks:
 
-```
+```text
 x ^ 0 = x          (XOR with 0 is identity — no change)
 x ^ x = 0          (XOR with self cancels to 0)
 XOR is commutative & associative  (order doesn't matter)
@@ -322,7 +322,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the four single-bit idioms
   x        = 01010010  (82)
     bit 1: test=1  set=01010010  clear=01010000  toggle=01010000

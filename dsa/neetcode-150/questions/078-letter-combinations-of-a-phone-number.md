@@ -6,7 +6,7 @@
 
 Given digits `2`–`9`, return all letter combinations they could spell (old phone keypad mapping).
 
-```
+```text
 "23"  ->  ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 ```
 

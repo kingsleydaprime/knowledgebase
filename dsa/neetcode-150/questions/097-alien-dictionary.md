@@ -6,7 +6,7 @@
 
 Given words sorted by an unknown alphabet's rules, derive a possible ordering of the letters. Return `""` if the ordering is invalid.
 
-```
+```text
 ["wrt","wrf","er","ett","rftt"]  ->  "wertf"
 ```
 

@@ -6,7 +6,7 @@
 
 Remove the n-th node **from the end** and return the head, in one pass.
 
-```
+```text
 1->2->3->4->5, n=2   ->   1->2->3->5
 ```
 

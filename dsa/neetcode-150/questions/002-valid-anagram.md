@@ -6,7 +6,7 @@
 
 Given two strings `s` and `t`, return `true` if `t` is an anagram of `s` — same characters, same counts, any order.
 
-```
+```text
 s = "anagram", t = "nagaram"  -> true
 s = "rat",     t = "car"      -> false
 ```

@@ -4,7 +4,7 @@ Micro-questions over [[02-level-order-traversal|the level-order traversal module
 
 Reference tree:
 
-```
+```text
         1
       /   \
      2     3

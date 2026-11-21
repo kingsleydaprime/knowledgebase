@@ -6,7 +6,7 @@
 
 Evaluate an arithmetic expression in **Reverse Polish (postfix)** notation, where each operator follows its operands.
 
-```
+```text
 ["2", "1", "+", "3", "*"]  ->  9    ( (2+1) * 3 )
 ["4", "13", "5", "/", "+"] ->  6    ( 4 + (13/5) )
 ```

@@ -33,7 +33,7 @@ The appeal is speed: greedy solutions are often dramatically faster than dynamic
 
 Imagine navigating a **mountain hiking trail** to maximize altitude gain:
 
-```
+```text
 Branch at Junction:
            [+150m]
          /
@@ -333,7 +333,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - activity selection: greedy by EARLIEST FINISH is optimal
   9 activities
     greedy (earliest finish): [(1, 4), (5, 7), (8, 11)]  -> 3 chosen

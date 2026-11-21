@@ -61,7 +61,7 @@ def kth_largest(nums, k):
 
 **Concrete example:** `nums = [3, 2, 1, 5, 6, 4], k = 2`
 
-```
+```text
 push 3 -> heap=[3]
 push 2 -> heap=[2,3]
 push 1 -> heap=[1,2,3] -> size>2, pop smallest(1) -> heap=[2,3]
@@ -192,7 +192,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - kth largest:
 nums=[3, 2, 1, 5, 6, 4], k=2 -> 5
 

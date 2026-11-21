@@ -65,7 +65,7 @@ You chose all three of those. **The algorithm design question is not "should I u
 
 The lab prints this table, and it is the lesson in one screen:
 
-```
+```text
    algorithm          | recurrence              | result      | combine
    binary search      | T(n) = 1T(n/2) + O(1)   | O(log n)    | combine: nothing
    tree traversal     | T(n) = 2T(n/2) + O(1)   | O(n)        | combine: one add
@@ -101,7 +101,7 @@ else:
 
 The lab verifies it against brute force and times both:
 
-```
+```text
         n | brute force |  divide & conquer | agree | brute time | D&C time
       200 |      10,325 |            10,325 |  True |     0.0042 |   0.0014
      1600 |     636,673 |           636,673 |  True |     0.1166 |   0.0048
@@ -122,7 +122,7 @@ The lab verifies it against brute force and times both:
 
 [[10-max-slice-algorithms|Kadane's algorithm]] makes one pass, keeping the best subarray ending at the current position. The lab runs both:
 
-```
+```text
         n | D&C O(n log n) | Kadane O(n) | agree | D&C time | Kadane time
      1000 |          1,653 |       1,653 |  True |   0.0024 |      0.0002
     64000 |          9,715 |       9,715 |  True |   0.2074 |      0.0106
@@ -168,7 +168,7 @@ $$T(n) = 3T(n/2) + O(n) \implies \Theta\!\left(n^{\log_2 3}\right) = \Theta(n^{1
 
 The lab counts base multiplications:
 
-```
+```text
      digits | naive digit-muls | karatsuba base-muls | ratio | correct
           8 |               64 |                  41 |  0.64 | True
          64 |            4,096 |               1,103 |  0.27 | True
@@ -396,7 +396,7 @@ if __name__ == "__main__":
 
 From one run on the author's machine. The count columns reproduce exactly; the seconds will not:
 
-```
+```text
 === 1. The shape: split, solve, combine ===
    Every algorithm here has the same three steps. What differs is
    only how much work the COMBINE step does -- and that alone decides

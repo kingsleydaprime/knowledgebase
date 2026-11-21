@@ -6,7 +6,7 @@
 
 A path is any sequence of connected nodes (need not pass through the root). Return the maximum sum of node values along any path.
 
-```
+```text
    -10
    9  20        ->  42   (15 -> 20 -> 7)
      15  7

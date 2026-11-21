@@ -64,7 +64,7 @@ def has_cycle(head):
 
 **Concrete example:**
 
-```
+```text
 1 -> 3 -> 5 -> 7 -> 9
           ^_________|          (9 points back to 5 — a cycle)
 
@@ -157,7 +157,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - cycle exists: True
 Test 2 - no cycle: False
 Test 3 - cycle start: 1

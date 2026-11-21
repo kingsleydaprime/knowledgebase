@@ -43,7 +43,7 @@ Measuring runtime in seconds is unreliable because it depends on hardware speed,
 ### Measuring Growth Rate instead of Time
 Instead of measuring seconds, computer science measures **how the workload grows as input size ($n$) scales to infinity**:
 
-```
+```text
 Input Size (n)   | O(1) Constant | O(n) Linear | O(n log n)    | O(n²) Quadratic
 ---------------------------------------------------------------------------------
 n = 10           | < 1 µs        | < 1 µs      | < 1 µs        | < 1 µs
@@ -61,7 +61,7 @@ n = 1,000,000    | < 1 µs        | 10 ms       | 0.2 seconds   | 11 DAYS!
 
 In computer science, we use three mathematical notations to bound an algorithm's growth function $T(n)$:
 
-```
+```text
            Upper Bound: O(f(n))  --->  Work is at most f(n)
 T(n) ====> Tight Bound: Θ(f(n))  --->  Work is PRECISELY f(n)
            Lower Bound: Ω(f(n))  --->  Work is at least f(n)
@@ -340,7 +340,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - growth rates, measured by doubling n
    complexity          100       200       400       800     ratio per doubling
    O(1)                  1         1         1         1       1.00x

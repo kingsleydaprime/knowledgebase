@@ -30,7 +30,7 @@ Tries trade extra memory to grant a superpower that [[03-hash-maps|Hash Maps]] c
 
 Imagine using the **Search Bar Autocomplete** on your phone:
 
-```
+```text
 User types "app"  --->  Trie follows path: 'a' -> 'p' -> 'p'
                              |
          +-------------------+-------------------+
@@ -68,7 +68,7 @@ User types "app"  --->  Trie follows path: 'a' -> 'p' -> 'p'
 
 Below is a Trie containing the words **`"app"`, `"apple"`, `"apt"`, and `"cat"`**:
 
-```
+```text
                   ( Root )
                  /        \
                'a'        'c'
@@ -330,7 +330,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 THE KEY IS THE PATH
   inserted: ['car', 'card', 'care', 'careful', 'cat', 'dog', 'do']
 

@@ -6,7 +6,7 @@
 
 Reorder `L0→L1→…→Ln` in place to `L0→Ln→L1→Ln-1→L2→…` — no value changes, just pointer surgery.
 
-```
+```text
 1->2->3->4     ->   1->4->2->3
 1->2->3->4->5  ->   1->5->2->4->3
 ```

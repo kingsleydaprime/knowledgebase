@@ -79,7 +79,7 @@ def permute(nums):
     return result
 ```
 
-```
+```text
 nums = [1, 2, 3]
 
 choose 1 -> path=[1]
@@ -193,7 +193,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - permutations:
 nums=[1, 2, 3] -> [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
 

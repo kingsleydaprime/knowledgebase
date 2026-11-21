@@ -50,7 +50,7 @@ A link from one node to the next, labelled with a single character. Walking `a` 
 
 <details><summary>Answer</summary>
 
-```
+```text
         ( Root )
        /        \
      'a'        'c'

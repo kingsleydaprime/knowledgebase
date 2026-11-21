@@ -165,7 +165,7 @@ The corner block is included in **both** the "above" and "left" totals, so it is
 
 <details><summary>Answer</summary>
 
-```
+```text
 sum = S[r2][c2] - S[r1-1][c2] - S[r2][c1-1] + S[r1-1][c1-1]
 ```
 

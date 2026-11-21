@@ -6,7 +6,7 @@
 
 Return whether `s3` is formed by **interleaving** `s1` and `s2` (both used entirely, relative order preserved).
 
-```
+```text
 s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"  ->  true
 ```
 

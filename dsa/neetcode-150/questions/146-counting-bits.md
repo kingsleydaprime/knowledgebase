@@ -6,7 +6,7 @@
 
 For every integer `0 … n`, return the number of set bits. Aim for O(n) total.
 
-```
+```text
 n = 5  ->  [0,1,1,2,1,2]
 ```
 
