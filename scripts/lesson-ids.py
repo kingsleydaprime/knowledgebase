@@ -33,7 +33,9 @@ id that disappeared. A lesson id that disappears is a problem (a lesson was dele
 or its frontmatter was overwritten); one the platform should stop showing on purpose
 goes under "retired" instead of being deleted. A bite id that disappears is only a
 warning, because deleting or merging sections is normal editing; --assign drops it
-from the registry.
+from the registry. A lesson whose file still exists but no longer counts as a lesson
+(the rule changed, or it got `lesson: false`) is a warning too, and --assign moves
+it to "retired" along with dropping its bites, so the registry always equals --list.
 
 Run from the vault root."""
 import json, pathlib, re, sys, uuid
@@ -215,6 +217,20 @@ def main() -> int:
             warnings.append(f"bite id disappeared: {bite_id} (was {registry['bites'][bite_id]})")
             if assign:
                 del registry["bites"][bite_id]
+
+    # A registered lesson whose file still exists but no longer counts as a lesson
+    # (the rule changed, or it got `lesson: false`) is retired: hidden, history kept.
+    for lesson_id, path in list(registry["lessons"].items()):
+        if lesson_id in owners and path not in lessons_seen and lesson_id not in registry["retired"]:
+            if assign:
+                registry["retired"][lesson_id] = f"{path} (no longer a lesson)"
+                del registry["lessons"][lesson_id]
+            else:
+                warnings.append(f"no longer a lesson: {path} (--assign retires it)")
+    current = {p for p in registry["lessons"].values()}
+    for bite_id, place in list(registry["bites"].items()):
+        if place.split("#", 1)[0] not in current and assign:
+            del registry["bites"][bite_id]  # bites only count inside current lessons
 
     registry["lessons"] = dict(sorted(registry["lessons"].items(), key=lambda kv: kv[1]))
     registry["bites"] = dict(sorted(registry["bites"].items(), key=lambda kv: kv[1]))
