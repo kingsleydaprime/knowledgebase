@@ -89,17 +89,17 @@ The techniques that make real-time rendering possible, each an approximation:
 
 **Deferred rendering** — render surface properties to a G-buffer, then light in screen space. Decouples lighting cost from geometry, so hundreds of lights become affordable. Costs you cheap transparency and MSAA.
 
-**Ray tracing** is now viable for parts of a frame on recent hardware (RTX, DXR) — typically hybrid: rasterise, then ray-trace reflections or shadows, then heavily denoise → [[computer-graphics/14-ray-tracing-and-path-tracing|ray tracing]].
+**Ray tracing** is now viable for parts of a frame on recent hardware (RTX, DXR) — typically hybrid: rasterise, then ray-trace reflections or shadows, then heavily denoise → [[computer-graphics/15-ray-tracing-and-path-tracing|ray tracing]].
 
 ## What to actually learn
 <!-- bite: f4b74230-82fe-403a-8905-d20e9fdf2e6a -->
 
 **In order, and the first three cover most games:**
 
-1. **The transform pipeline** — model → world → view → clip → screen. Understand it once and the rest follows → [[computer-graphics/09-the-transform-pipeline|transforms]]
+1. **The transform pipeline** — model → world → view → clip → screen. Understand it once and the rest follows → [[computer-graphics/10-the-transform-pipeline|transforms]]
 2. **Write a simple shader.** Colour a surface by its normal. Then by a light direction. **Ten lines, and it demystifies the whole subject**
 3. **Textures and UVs** — how images map onto geometry
-4. **Basic lighting** — diffuse, specular, then PBR → [[computer-graphics/11-shading-and-lighting|shading]]
+4. **Basic lighting** — diffuse, specular, then PBR → [[computer-graphics/12-shading-and-lighting|shading]]
 5. **Profile a frame.** RenderDoc, or your engine's profiler. **Seeing where 16 ms actually goes is worth more than any amount of reading**
 
 **For 2D games you need almost none of this.** Sprites, transforms and a camera. Don't let the 3D pipeline put you off starting.

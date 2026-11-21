@@ -87,8 +87,8 @@ Add the **Electric Currents** interface (AC/DC module) on a **snapshot** of the 
 ## Related
 <!-- bite: 094748b3-f4d2-45a4-801d-991c4b42863d -->
 - [[continuum-mechanics/13-computational-methods-and-fem|Computational methods and FEM]] — what COMSOL is solving underneath
-- [[computer-graphics/16-animation-and-simulation|Animation and Simulation]] — fluids in graphics, where visual plausibility replaces accuracy
-- [[computer-graphics/19-ssg-511-question-bank|Question bank]]
+- [[computer-graphics/17-animation-and-simulation|Animation and Simulation]] — fluids in graphics, where visual plausibility replaces accuracy
+- [[computer-graphics/20-ssg-511-question-bank|Question bank]]
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson
@@ -96,4 +96,4 @@ Add the **Electric Currents** interface (AC/DC module) on a **snapshot** of the 
 
 **Level:** Advanced. **Covers:** How to model continuous-inkjet droplet breakup in COMSOL Multiphysics: the physics (Rayleigh–Plateau instability), the step-by-step model build (two-phase laminar flow with a level set), calibration, post-processing, and the droplet-charging extension. Written as the model answer to SSG 511 exam Q3.
 
-**Why this is in a graphics course.** It isn't really graphics — it is computational fluid dynamics, and the exam took it from a published COMSOL paper rather than the lecture notes. It is here because it is on the paper. **If you are short of time, skip Q3:** the exam asks for Q1 and any three others, and the rest are covered by notes 02–06. The physics underneath is in [[continuum-mechanics/13-computational-methods-and-fem|continuum mechanics: computational methods and FEM]].
+**Why this is in a graphics course.** It isn't really graphics — it is computational fluid dynamics, and the exam took it from a published COMSOL paper rather than the lecture notes. It is here because it is on the paper. **If you are short of time, skip Q3:** the exam asks for Q1 and any three others, and the rest are covered by notes 03–07. The physics underneath is in [[continuum-mechanics/13-computational-methods-and-fem|continuum mechanics: computational methods and FEM]].

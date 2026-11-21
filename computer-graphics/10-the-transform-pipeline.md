@@ -56,7 +56,7 @@ with field of view $f$, aspect ratio $a$, near plane $n$, far plane $f$.
 
 $$-w \leq x,y,z \leq w$$
 
-**Clipping happens here**, before the divide (the algorithms — Cohen–Sutherland extended to six planes, Cyrus–Beck — are in [[computer-graphics/04-clipping|note 04]]), because the divide breaks for $w \leq 0$ — points behind the camera. **A triangle straddling the near plane must be clipped or the maths produces garbage.**
+**Clipping happens here**, before the divide (the algorithms — Cohen–Sutherland extended to six planes, Cyrus–Beck — are in [[computer-graphics/05-clipping|note 05]]), because the divide breaks for $w \leq 0$ — points behind the camera. **A triangle straddling the near plane must be clipped or the maths produces garbage.**
 
 **After dividing by $w$ you're in normalised device coordinates**, and then a viewport transform maps to pixels.
 
@@ -168,9 +168,9 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 ## Related
 <!-- bite: 44849c26-bcfb-4f44-9833-342d747b462c -->
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — the same maths, more depth on rotations
-- [[computer-graphics/10-rasterisation|Rasterisation]] — what happens after this
-- [[computer-graphics/05-2d-and-3d-transformations|2D and 3D Transformations]] — the basic matrices, by hand
-- [[computer-graphics/04-clipping|Clipping]] — the clipping algorithms
+- [[computer-graphics/11-rasterisation|Rasterisation]] — what happens after this
+- [[computer-graphics/06-2d-and-3d-transformations|2D and 3D Transformations]] — the basic matrices, by hand
+- [[computer-graphics/05-clipping|Clipping]] — the clipping algorithms
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the prerequisite
 - [[computer-graphics/index|Computer graphics map]]
 
@@ -179,4 +179,4 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 
 **Level:** Intermediate. **Covers:** Model to world to camera to screen. The matrix chain every vertex goes through.
 
-**[[robotics/04-rigid-body-transforms|Rigid Body Transforms]] covers rotations, quaternions and homogeneous matrices** — the same mathematics, in a different field's vocabulary. **This note is the graphics-specific part**: the projection matrices and the clip-space conventions. **For the basic 2D and 3D matrices worked by hand** — shear, reflection, recognising a matrix by its pattern, rotating about a pivot, row- versus column-vector conventions — see [[computer-graphics/05-2d-and-3d-transformations|note 05]].
+**[[robotics/04-rigid-body-transforms|Rigid Body Transforms]] covers rotations, quaternions and homogeneous matrices** — the same mathematics, in a different field's vocabulary. **This note is the graphics-specific part**: the projection matrices and the clip-space conventions. **For the basic 2D and 3D matrices worked by hand** — shear, reflection, recognising a matrix by its pattern, rotating about a pivot, row- versus column-vector conventions — see [[computer-graphics/06-2d-and-3d-transformations|note 06]].

@@ -64,7 +64,7 @@ The weights $(1 - t)$ and $t$ sum to 1. **A sum $\alpha_1P_1 + \alpha_2P_2 + \do
 
 $$P = P_1 + \alpha_2(P_2 - P_1) + \alpha_3(P_3 - P_1) = (1 - \alpha_2 - \alpha_3)P_1 + \alpha_2P_2 + \alpha_3P_3$$
 
-Call $P_1$'s weight $\alpha_1 = 1 - \alpha_2 - \alpha_3$. Then $\alpha_1 + \alpha_2 + \alpha_3 = 1$ always. **This is a barycentric combination** — the same coordinates the rasteriser interpolates with in [[computer-graphics/10-rasterisation|note 10]].
+Call $P_1$'s weight $\alpha_1 = 1 - \alpha_2 - \alpha_3$. Then $\alpha_1 + \alpha_2 + \alpha_3 = 1$ always. **This is a barycentric combination** — the same coordinates the rasteriser interpolates with in [[computer-graphics/11-rasterisation|note 11]].
 
 ## 3. Where the Bézier weights come from
 <!-- bite: 6f57fe3a-3bda-44f7-9901-78380fcbe91b -->
@@ -154,7 +154,7 @@ and the second half has control points $Q_3$, $\frac{P_1 + 2P_2 + P_3}{4}$, $\fr
 ### Properties
 
 1. **Convexity of the basis:** the weights are never negative and sum to 1.
-2. **Convex-hull property:** the curve lies inside the convex hull of its control points. (This is what makes cheap curve clipping possible → [[computer-graphics/04-clipping|note 04]].)
+2. **Convex-hull property:** the curve lies inside the convex hull of its control points. (This is what makes cheap curve clipping possible → [[computer-graphics/05-clipping|note 05]].)
 3. **Affine invariance:** transforming the curve equals transforming its control points and redrawing — **which is why you move a Bézier curve by moving four points.**
 4. **Linear precision:** control points on a line give that line.
 5. **Variation diminishing:** no straight line crosses the curve more often than it crosses the control polygon.
@@ -332,7 +332,7 @@ and **each split in half divides it by 4**, so the recursion always stops. (Equi
 ## Practice — independent tasks
 <!-- bite: 208958e3-ec15-47ee-a2e3-6169d88ea0d2 -->
 
-From SSG 511 — full wording in the [[computer-graphics/19-ssg-511-question-bank|question bank]]:
+From SSG 511 — full wording in the [[computer-graphics/20-ssg-511-question-bank|question bank]]:
 
 1. **Exam Q1(c)** — particle from $(0,0,0)$ to $(4,0,2)$, velocities $(6,0,0)$ and $(0,0,3)$: equations, $P_1$, $P_2$, $B(\tfrac12)$, and the first half's control points.
 2. **B-9** — $P_0(0,0)$, $P_1(2,0)$, $P_2(0,2)$, $P_3(4,4)$: sketch, de Casteljau $B(\tfrac12)$, sketch the curve with end slopes.
@@ -344,12 +344,12 @@ From SSG 511 — full wording in the [[computer-graphics/19-ssg-511-question-ban
 ## Before moving on
 <!-- bite: 870db173-9d38-44cb-95a9-53fecaf028cd -->
 
-**Next:** [[computer-graphics/07-visible-surface-detection|Visible Surface Detection]].
+**Next:** [[computer-graphics/08-visible-surface-detection|Visible Surface Detection]].
 
 ## Related
 <!-- bite: 3fb80f5f-bf51-4233-9def-28e2d9e1f10f -->
-- [[computer-graphics/15-geometry-and-meshes|Geometry and Meshes]] — NURBS, subdivision surfaces, the CAD divide
-- [[computer-graphics/16-animation-and-simulation|Animation]] — curves as motion paths
+- [[computer-graphics/16-geometry-and-meshes|Geometry and Meshes]] — NURBS, subdivision surfaces, the CAD divide
+- [[computer-graphics/17-animation-and-simulation|Animation]] — curves as motion paths
 - [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation and splines]]
 - [[computer-graphics/index|Computer graphics map]]
 
@@ -358,4 +358,4 @@ From SSG 511 — full wording in the [[computer-graphics/19-ssg-511-question-ban
 
 **Level:** Intermediate → Advanced. **Covers:** Implicit, explicit and parametric curves; affine and barycentric combinations; where the Bézier weights come from; position, velocity, de Casteljau and splitting; B-splines and the Cox–de Boor recursion; Chaikin corner cutting; and drawing a curve with straight lines to a tolerance.
 
-Part 1 of the course. [[computer-graphics/15-geometry-and-meshes|Note 15]] gives the big picture (NURBS, subdivision surfaces, CAD versus real-time). **This note is the hand-calculation version that SSG 511 Q1(c) is worth 15 marks on.**
+Part 1 of the course. [[computer-graphics/16-geometry-and-meshes|Note 16]] gives the big picture (NURBS, subdivision surfaces, CAD versus real-time). **This note is the hand-calculation version that SSG 511 Q1(c) is worth 15 marks on.**

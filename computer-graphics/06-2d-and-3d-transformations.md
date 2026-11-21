@@ -152,7 +152,7 @@ $$\begin{pmatrix} a_{11} & a_{12} & a_{13} & b_1 \\ a_{21} & a_{22} & a_{23} & b
 | Bottom row | $c_1$ … $c_3$ | **Perspective (projection)** |
 | Bottom-right | $d$ | **Overall uniform scaling** via $W$; 1 for an ordinary matrix |
 
-**A projection shows up as a bottom row that is not $(0, 0, 0, 1)$** — exactly the $-1$ in [[computer-graphics/09-the-transform-pipeline|note 09]]'s perspective matrix.
+**A projection shows up as a bottom row that is not $(0, 0, 0, 1)$** — exactly the $-1$ in [[computer-graphics/10-the-transform-pipeline|note 10]]'s perspective matrix.
 
 ### Worked — rotation about an arbitrary axis
 
@@ -207,7 +207,7 @@ For questions like the cone in SSG 511 Q4:
 ## Practice — independent tasks
 <!-- bite: 13d731c6-802d-4c94-8efa-087d4137fc11 -->
 
-From SSG 511 (see the [[computer-graphics/19-ssg-511-question-bank|question bank]] for the full wording):
+From SSG 511 (see the [[computer-graphics/20-ssg-511-question-bank|question bank]] for the full wording):
 
 1. **Exam Q2** — draw the subdivided square's image under the 60° rotation, the matrix $\begin{pmatrix}1&0&0\\1&3&0\\0&0&1\end{pmatrix}$, and $\begin{pmatrix}1&0&0.5\\0&1&0\\0&0&1\end{pmatrix}$. Transform the midpoints too.
 2. **Exam Q4** — the cone: apex $(0,1,0)$, base of diameter 1 centred at the origin, to apex $(-1,2,-3)$, base centred at $(1,4,-3)$, diameter 2. Name the transforms, their order, and the product.
@@ -219,11 +219,11 @@ From SSG 511 (see the [[computer-graphics/19-ssg-511-question-bank|question bank
 ## Before moving on
 <!-- bite: f178c63e-97f4-4b36-857e-4504fb83721a -->
 
-**Next:** [[computer-graphics/06-curves-bezier-and-b-splines|Curves: Bézier and B-splines]].
+**Next:** [[computer-graphics/07-curves-bezier-and-b-splines|Curves: Bézier and B-splines]].
 
 ## Related
 <!-- bite: 8ba7aa39-7696-4ef6-959e-c7b74efd4959 -->
-- [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]] — model/view/projection, the normal matrix
+- [[computer-graphics/10-the-transform-pipeline|The Transform Pipeline]] — model/view/projection, the normal matrix
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — rotations and quaternions in depth
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
 - [[computer-graphics/index|Computer graphics map]]
@@ -233,4 +233,4 @@ From SSG 511 (see the [[computer-graphics/19-ssg-511-question-bank|question bank
 
 **Level:** Intermediate. **Covers:** Translation, scaling, rotation, shear and reflection as homogeneous matrices; reading a matrix by its pattern; composing transforms (and why order matters); row- versus column-vector conventions; and the "move this object so its features end up there" method for 3D questions.
 
-Part 1 of the course. [[computer-graphics/09-the-transform-pipeline|Note 09]] uses these matrices in the camera pipeline; [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] goes deeper on rotations. **This note is the by-hand, exam version.**
+Part 1 of the course. [[computer-graphics/10-the-transform-pipeline|Note 10]] uses these matrices in the camera pipeline; [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] goes deeper on rotations. **This note is the by-hand, exam version.**

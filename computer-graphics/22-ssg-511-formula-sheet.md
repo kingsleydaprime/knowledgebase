@@ -1,14 +1,14 @@
 # SSG 511 Formula Sheet
 
-> **Lookup reference** for Part 1 (notes 01–07). Every key formula on one page, for revision and for checking hand work. **Matrices use column vectors** ($p' = Mp$); for row vectors ($P' = PT$, as in the SSG 511 assignment) transpose each one. The explanation of each formula lives in the linked note — this page is for after you have understood it.
+> **Lookup reference** for Part 1 (notes 01–08). Every key formula on one page, for revision and for checking hand work. **Matrices use column vectors** ($p' = Mp$); for row vectors ($P' = PT$, as in the SSG 511 assignment) transpose each one. The explanation of each formula lives in the linked note — this page is for after you have understood it.
 
-## Display → [[computer-graphics/01-graphics-systems-and-display-hardware|note 01]]
+## Display → [[computer-graphics/02-graphics-systems-and-display-hardware|note 02]]
 
 $$\text{frame buffer bytes} = \frac{W \times H \times \text{bpp}}{8},\qquad \text{pixel rate} = W \times H \times \text{refresh rate},\qquad \text{ms per refresh} = \frac{1000}{\text{Hz}}$$
 
 $N$ bits per pixel → $2^N$ colours.
 
-## Lines → [[computer-graphics/02-line-drawing-and-antialiasing|note 02]]
+## Lines → [[computer-graphics/03-line-drawing-and-antialiasing|note 03]]
 
 **Slope and DDA**
 
@@ -26,7 +26,7 @@ $$p_0 = 2dx - dy,\qquad p_{k+1} = \begin{cases} p_k + 2dx & p_k < 0\;\;(x \text{
 
 **Midpoint line:** $d_0 = 2dy - dx$; $d \mathrel{+}= 2dy$ (lower) or $2(dy - dx)$ (upper).
 
-## Circles → [[computer-graphics/03-circles-and-polygon-filling|note 03]]
+## Circles → [[computer-graphics/04-circles-and-polygon-filling|note 04]]
 
 $$x^2 + y^2 = r^2,\qquad f(x, y) = x^2 + y^2 - r^2$$
 
@@ -42,7 +42,7 @@ $$d_0 = 3 - 2r,\qquad d_{k+1} = \begin{cases} d_k + 4x_k + 6 & d_k < 0\\ d_k + 4
 
 **Scan-line fill:** next crossing $x_{k+1} = x_k + \dfrac{dx}{dy}$ (the edge's inverse slope).
 
-## Clipping → [[computer-graphics/04-clipping|note 04]]
+## Clipping → [[computer-graphics/05-clipping|note 05]]
 
 **Region code (TBRL):** T if $y > y_{max}$, B if $y < y_{min}$, R if $x > x_{max}$, L if $x < x_{min}$. OR = 0000 → accept; AND ≠ 0000 → reject.
 
@@ -70,7 +70,7 @@ $N_i\cdot D < 0$ entering (keep the largest as $t_E$); $N_i \cdot D > 0$ leaving
 
 **3D:** 6-bit codes; in clip space, inside means $-w \le x, y, z \le w$.
 
-## 2D transformations → [[computer-graphics/05-2d-and-3d-transformations|note 05]]
+## 2D transformations → [[computer-graphics/06-2d-and-3d-transformations|note 06]]
 
 $$T(t_x, t_y) = \begin{pmatrix} 1 & 0 & t_x \\ 0 & 1 & t_y \\ 0 & 0 & 1\end{pmatrix},\qquad S(s_x, s_y) = \begin{pmatrix} s_x & 0 & 0 \\ 0 & s_y & 0 \\ 0 & 0 & 1\end{pmatrix},\qquad R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1\end{pmatrix}$$
 
@@ -84,7 +84,7 @@ $$R(\theta)^T = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \co
 
 $\cos 30° = 0.866$, $\sin 30° = 0.5$, $\cos 60° = 0.5$, $\sin 60° = 0.866$.
 
-## 3D transformations → note 05
+## 3D transformations → note 06
 
 $$T = \begin{pmatrix} 1&0&0&t_x \\ 0&1&0&t_y \\ 0&0&1&t_z \\ 0&0&0&1\end{pmatrix},\qquad S = \begin{pmatrix} s_x&0&0&0 \\ 0&s_y&0&0 \\ 0&0&s_z&0 \\ 0&0&0&1\end{pmatrix}$$
 
@@ -96,7 +96,7 @@ with $c = \cos\theta$, $s = \sin\theta$.
 
 **Blocks:** top-left 3 × 3 linear; right column translation; bottom row perspective; corner $d$ uniform scale.
 
-## Vectors and Bézier curves → [[computer-graphics/06-curves-bezier-and-b-splines|note 06]]
+## Vectors and Bézier curves → [[computer-graphics/07-curves-bezier-and-b-splines|note 07]]
 
 **Affine and barycentric combinations**
 
@@ -138,7 +138,7 @@ $$Q_0 = P_0,\quad Q_1 = \frac{P_0 + P_1}{2},\quad Q_2 = \frac{P_0 + 2P_1 + P_2}{
 
 $$Q_i = \tfrac34P_i + \tfrac14P_{i+1},\qquad R_i = \tfrac14P_i + \tfrac34P_{i+1}$$
 
-## B-splines (Cox–de Boor) → note 06
+## B-splines (Cox–de Boor) → note 07
 
 $$N_{i,1}(t) = \begin{cases} 1 & t_i \le t < t_{i+1}\\ 0 & \text{otherwise}\end{cases}$$
 
@@ -148,7 +148,7 @@ $$C(t) = \sum_{i=0}^n P_i\,N_{i,k}(t),\qquad t_{k-1} \le t \le t_{n+1},\qquad t_
 
 Order $k$, degree $k - 1$, continuity $C^{k-2}$ with distinct knots.
 
-## Geometry helpers → note 06
+## Geometry helpers → note 07
 
 **Point to segment $AB$**
 
@@ -162,7 +162,7 @@ $$\delta = \frac{|P_1 - 2P_2 + P_3|}{4}$$
 
 $$(x_k, y_k) = \left(x_c + r\cos\frac{360°\,k}{n},\; y_c + r\sin\frac{360°\,k}{n}\right),\qquad k = 0, \dots, n-1$$
 
-## Visible surfaces → [[computer-graphics/07-visible-surface-detection|note 07]]
+## Visible surfaces → [[computer-graphics/08-visible-surface-detection|note 08]]
 
 $$z = \frac{-Ax - By - D}{C},\qquad z(x+1, y) = z - \frac AC,\qquad z(x, y-1) = z + \frac BC$$
 
@@ -171,5 +171,5 @@ $$z = \frac{-Ax - By - D}{C},\qquad z(x+1, y) = z - \frac AC,\qquad z(x, y-1) = 
 **Depth-buffer memory:** $W \times H \times$ bytes per depth (1080p at 4 bytes ≈ 8.3 MB).
 
 ## Related
-- [[computer-graphics/19-ssg-511-question-bank|Question bank]]
+- [[computer-graphics/20-ssg-511-question-bank|Question bank]]
 - [[computer-graphics/index|Computer graphics map]]
