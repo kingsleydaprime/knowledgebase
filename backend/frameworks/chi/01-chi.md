@@ -71,11 +71,11 @@ func getUser(w http.ResponseWriter, r *http.Request) {    // a plain http.Handle
 }
 ```
 
-Handlers are `http.HandlerFunc`. Middleware is `func(http.Handler) http.Handler` — the exact signature from [[backend/frameworks/net-http/02-middleware-as-composition|Middleware as Composition]]. A `chi.Router` *is* an `http.Handler`.
+Handlers are `http.HandlerFunc`. Middleware is `func(http.Handler) http.Handler` — the exact signature from [[backend/frameworks/net-http/03-middleware|Middleware as Composition]]. A `chi.Router` *is* an `http.Handler`.
 
 So there's no lock-in: you can mount a Chi router inside a stdlib mux, use stdlib middleware in Chi, and swap Chi out later without touching handler code. It's a thin layer that adds grouping and stops.
 
-Chi's `middleware` package is worth knowing even if you don't use the router — `middleware.WrapResponseWriter` solves the `Flusher`/`Hijacker` problem from [[backend/frameworks/net-http/02-middleware-as-composition|Middleware as Composition]] properly.
+Chi's `middleware` package is worth knowing even if you don't use the router — `middleware.WrapResponseWriter` solves the `Flusher`/`Hijacker` problem from [[backend/frameworks/net-http/03-middleware|Middleware as Composition]] properly.
 
 ## Chi next to the stdlib and Gin
 <!-- bite: 0888c30b-e474-4a3e-b9c6-116f442bce6d -->
@@ -114,9 +114,9 @@ Fiber deserves a warning: fasthttp is faster in benchmarks and incompatible with
 ## Related
 <!-- bite: a5173377-e9db-438f-bfd6-a0e578c6d553 -->
 - [[backend/frameworks/gin/01-gin|Gin]] — the batteries-included alternative
-- [[backend/frameworks/net-http/01-net-http-in-depth|net/http in Depth]] — what Chi wraps
-- [[backend/frameworks/net-http/02-middleware-as-composition|Middleware as Composition]] — the interface Chi preserves
-- [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go Service]] — where routes get wired
+- [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|net/http in Depth]] — what Chi wraps
+- [[backend/frameworks/net-http/03-middleware|Middleware as Composition]] — the interface Chi preserves
+- [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go Service]] — where routes get wired
 - [[backend/frameworks/index|frameworks/]] — the cross-stack translation table
 - [[backend/frameworks/chi/index|Chi]]
 

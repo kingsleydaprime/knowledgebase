@@ -121,12 +121,12 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | other | [[backend/frameworks/aspnet-core/02-minimal-apis-and-mvc\|backend/frameworks/aspnet-core/02-minimal-apis-and-mvc]] | C# | — |
 | other | [[backend/frameworks/aspnet-core/03-data-access\|backend/frameworks/aspnet-core/03-data-access]] | C# | — |
 | other | [[backend/frameworks/aspnet-core/04-testing-and-production\|backend/frameworks/aspnet-core/04-testing-and-production]] | C# | — |
-| other | [[backend/frameworks/net-http/01-net-http-in-depth\|backend/frameworks/net-http/01-net-http-in-depth]] | Go | — |
-| other | [[backend/frameworks/net-http/02-middleware-as-composition\|backend/frameworks/net-http/02-middleware-as-composition]] | Go | — |
+| other | [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server\|backend/frameworks/net-http/01-what-net-http-is-and-a-first-server]] | Go | — |
+| other | [[backend/frameworks/net-http/03-middleware\|backend/frameworks/net-http/03-middleware]] | Go | — |
 | other | [[backend/frameworks/chi/01-chi\|backend/frameworks/chi/01-chi]] | Go | — |
-| other | [[backend/frameworks/net-http/03-structuring-a-go-service\|backend/frameworks/net-http/03-structuring-a-go-service]] | Go | — |
-| other | [[backend/frameworks/net-http/04-database-access\|backend/frameworks/net-http/04-database-access]] | Go | — |
-| other | [[backend/frameworks/net-http/05-testing-and-production\|backend/frameworks/net-http/05-testing-and-production]] | Go | — |
+| other | [[backend/frameworks/net-http/04-structuring-a-go-service\|backend/frameworks/net-http/04-structuring-a-go-service]] | Go | — |
+| other | [[backend/frameworks/net-http/08-data-with-postgres\|backend/frameworks/net-http/08-data-with-postgres]] | Go | — |
+| other | [[backend/frameworks/net-http/16-testing\|backend/frameworks/net-http/16-testing]] | Go | — |
 | other | [[backend/frameworks/spring-boot/01-spring-boot\|backend/frameworks/spring-boot/01-spring-boot]] | Java | — |
 | other | [[backend/frameworks/node/01-env-validation\|backend/frameworks/node/01-env-validation]] | TS/JS | — |
 | other | [[backend/frameworks/node/02-error-handling\|backend/frameworks/node/02-error-handling]] | TS/JS | — |

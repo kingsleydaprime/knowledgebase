@@ -181,7 +181,7 @@ What each language gives you per milestone, and what a library would add.
 
 **Language-specific advice:**
 
-**Go** — the standard library already contains a complete server, so **use only `net.Listen` and do the rest yourself**, or you're not building anything. Goroutines make milestone 8 nearly free, which is the point of the language. → [[backend/frameworks/net-http/01-net-http-in-depth|net/http in Depth]]
+**Go** — the standard library already contains a complete server, so **use only `net.Listen` and do the rest yourself**, or you're not building anything. Goroutines make milestone 8 nearly free, which is the point of the language. → [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|net/http in Depth]]
 
 **Rust** — `std::net` for a blocking version first; tokio for the async one. The borrow checker will push you toward the right buffer ownership, which is genuinely instructive. → [[languages/03-rust/index|Rust]]
 

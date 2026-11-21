@@ -68,8 +68,8 @@ Gin does provide `gin.WrapH(h http.Handler)` and `gin.WrapF` to mount stdlib han
 ## Related
 <!-- bite: 25fbcc6c-e1bc-424d-ab56-fec921d96636 -->
 - [[backend/frameworks/chi/01-chi|Chi]] — the other router, and the full stdlib / Chi / Gin comparison
-- [[backend/frameworks/net-http/01-net-http-in-depth|net/http in Depth]] — what Gin sits on
-- [[backend/frameworks/net-http/02-middleware-as-composition|Middleware as Composition]] — the portable middleware Gin gives up
+- [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|net/http in Depth]] — what Gin sits on
+- [[backend/frameworks/net-http/03-middleware|Middleware as Composition]] — the portable middleware Gin gives up
 - [[backend/frameworks/gin/index|Gin]]
 
 ## About this lesson

@@ -598,4 +598,4 @@ You know your language's testing tools and can write the main lesson's tests idi
 ## Related
 - [[concepts/01-best-practices/03-testing-fundamentals/index|Testing fundamentals]] — the main lesson
 - [[backend/07-practices/02-testing-a-backend|Testing a backend]] — Testcontainers, test data, time
-- [[backend/frameworks/net-http/05-testing-and-production|Go: testing and production]] · [[backend/frameworks/aspnet-core/04-testing-and-production|C#: testing and production]]
+- [[backend/frameworks/net-http/16-testing|Go: testing and production]] · [[backend/frameworks/aspnet-core/04-testing-and-production|C#: testing and production]]

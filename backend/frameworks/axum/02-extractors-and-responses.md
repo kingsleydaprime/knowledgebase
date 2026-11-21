@@ -27,7 +27,7 @@ By the time the first line of your function runs, the path segment is a `u64`, t
 
 This is ["parse, don't validate"](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) enforced by the compiler: illegal states are unrepresentable in the handler body because the extractor couldn't produce them.
 
-Compare with [[backend/frameworks/net-http/01-net-http-in-depth|Go]], where a handler starts with `r.PathValue("id")` returning a string you then parse, check, and error on by hand — three or four lines per parameter, repeated in every handler, each one a place to forget the check.
+Compare with [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|Go]], where a handler starts with `r.PathValue("id")` returning a string you then parse, check, and error on by hand — three or four lines per parameter, repeated in every handler, each one a place to forget the check.
 
 ### The order rule
 

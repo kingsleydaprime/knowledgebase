@@ -42,7 +42,7 @@ The second is simpler; the first lets handlers extract just what they need via `
 ## Dependency injection, or the absence of it
 <!-- bite: cd54c344-87ef-4cdc-9989-bcee856ffe3a -->
 
-Rust has no DI container. Like [[backend/frameworks/net-http/03-structuring-a-go-service|Go]], dependencies are struct fields assembled in `main`:
+Rust has no DI container. Like [[backend/frameworks/net-http/04-structuring-a-go-service|Go]], dependencies are struct fields assembled in `main`:
 
 ```rust
 #[tokio::main]
@@ -199,7 +199,7 @@ let db = PgPoolOptions::new()
     .connect(&url).await?;
 ```
 
-Same reasoning as [[backend/frameworks/net-http/04-database-access|Go's pool settings]]: `max_connections × replicas` must stay under the database's limit, and `acquire_timeout` is what stops a request queueing forever when the pool is exhausted.
+Same reasoning as [[backend/frameworks/net-http/08-data-with-postgres|Go's pool settings]]: `max_connections × replicas` must stay under the database's limit, and `acquire_timeout` is what stops a request queueing forever when the pool is exhausted.
 
 The async-specific hazard: **tasks are cheap, so it's easy to spawn ten thousand and exhaust the pool instantly.** Bound concurrency at the source — `buffer_unordered(n)` on a stream, or a `Semaphore`:
 

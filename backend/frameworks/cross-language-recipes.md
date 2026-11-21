@@ -51,7 +51,7 @@ app.Use(async (ctx, next) => { var sw = Stopwatch.StartNew(); await next(ctx); l
 // Java / Spring — OncePerRequestFilter, or an interceptor
 ```
 
-**Go's version is worth staring at.** `func(http.Handler) http.Handler` is the entire middleware concept with no framework, no registration and no magic — and it's why Go backends need so little framework → [[backend/frameworks/net-http/02-middleware-as-composition|Go middleware]].
+**Go's version is worth staring at.** `func(http.Handler) http.Handler` is the entire middleware concept with no framework, no registration and no magic — and it's why Go backends need so little framework → [[backend/frameworks/net-http/03-middleware|Go middleware]].
 
 **Order is behaviour in all six.** Auth before authorization, error handling outermost.
 

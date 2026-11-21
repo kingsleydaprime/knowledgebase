@@ -54,7 +54,7 @@ trait Layer<S> {
 }
 ```
 
-Same shape as Go's `func(Handler) Handler` from [[backend/frameworks/net-http/02-middleware-as-composition|middleware as composition]], with types attached.
+Same shape as Go's `func(Handler) Handler` from [[backend/frameworks/net-http/03-middleware|middleware as composition]], with types attached.
 
 ## A minimal server
 <!-- bite: 0cbebb84-e489-4ed1-8636-646d216ab86f -->
@@ -209,7 +209,7 @@ async fn shutdown_signal() {
 }
 ```
 
-Graceful shutdown drains in-flight requests before exiting — the same requirement as [[backend/frameworks/net-http/01-net-http-in-depth|Go]], and equally necessary under [[devops/10-orchestration/index|Kubernetes]].
+Graceful shutdown drains in-flight requests before exiting — the same requirement as [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|Go]], and equally necessary under [[devops/10-orchestration/index|Kubernetes]].
 
 Timeouts come from `tower` rather than the server:
 
@@ -227,7 +227,7 @@ For lower-level control (HTTP/2 settings, header read timeouts) you drop to `hyp
 - [[backend/frameworks/axum/02-extractors-and-responses|Extractors and Responses]] — the type-driven request handling
 - [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] — what goes wrong at runtime
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the runtime underneath
-- [[backend/frameworks/net-http/02-middleware-as-composition|Go: Middleware]] — the same idea, untyped
+- [[backend/frameworks/net-http/03-middleware|Go: Middleware]] — the same idea, untyped
 - [[backend/frameworks/actix-web/01-actix-web|Actix Web]] — the main alternative, compared side by side
 - [[backend/frameworks/axum/index|Axum]]
 

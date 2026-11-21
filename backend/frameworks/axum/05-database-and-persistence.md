@@ -27,7 +27,7 @@ The `!` macro **connects to your development database at compile time**, asks Po
 - the parameter types match what you passed
 - the returned columns map onto `User`'s fields, including nullability
 
-A typo'd column name is a **compile error**. A column that's `NULL`-able mapped to a non-`Option` field is a compile error. Nobody else does this — [[backend/frameworks/net-http/04-database-access|Go's sqlc]] achieves it by codegen, and most ORMs don't achieve it at all.
+A typo'd column name is a **compile error**. A column that's `NULL`-able mapped to a non-`Option` field is a compile error. Nobody else does this — [[backend/frameworks/net-http/08-data-with-postgres|Go's sqlc]] achieves it by codegen, and most ORMs don't achieve it at all.
 
 ```bash
 export DATABASE_URL=postgres://localhost/myapp_dev
@@ -101,7 +101,7 @@ let pool = PgPoolOptions::new()
     .await?;
 ```
 
-Same sizing logic as [[backend/frameworks/net-http/04-database-access|Go]]: `max_connections × replicas` under the database's limit, with headroom.
+Same sizing logic as [[backend/frameworks/net-http/08-data-with-postgres|Go]]: `max_connections × replicas` under the database's limit, with headroom.
 
 The async-specific hazard is worth repeating from [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] — **tasks are cheap enough to spawn ten thousand instantly**, and they'll all queue on `acquire()`. `acquire_timeout` turns that from an unbounded hang into a fast error, which is what you want: a request that fails in 3 seconds is better than one that hangs for 300.
 

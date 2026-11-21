@@ -635,5 +635,5 @@ You can build the wrapper stack idiomatically in your language and say which str
 
 ## Related
 - [[concepts/02-design-patterns/02-structural-patterns/index|Structural patterns]] — the main lesson
-- [[backend/frameworks/net-http/02-middleware-as-composition|Go middleware as composition]]
+- [[backend/frameworks/net-http/03-middleware|Go middleware as composition]]
 - [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum and the Tower stack]]

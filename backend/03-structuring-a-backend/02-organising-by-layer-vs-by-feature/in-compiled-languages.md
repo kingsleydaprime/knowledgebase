@@ -203,7 +203,7 @@ grep -q "use of internal package shop/internal/orders/internal/store not allowed
 echo "ok: the compiler refused the cross-feature import"
 ```
 
-It does, with `use of internal package shop/internal/orders/internal/store not allowed`. No lint rule, no configuration — the boundary is part of the language. More on wiring Go services: [[backend/frameworks/net-http/03-structuring-a-go-service|structuring a Go service]].
+It does, with `use of internal package shop/internal/orders/internal/store not allowed`. No lint rule, no configuration — the boundary is part of the language. More on wiring Go services: [[backend/frameworks/net-http/04-structuring-a-go-service|structuring a Go service]].
 
 ---
 
@@ -965,4 +965,4 @@ You can name each language's hiding mechanism, explain why by-layer switches it 
 ## Related
 <!-- bite: bd9b40e3-8113-4cd9-ad04-635ef412e6f7 -->
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by layer vs by feature]] — the main lesson
-- [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]] · [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum]] · [[backend/frameworks/c-sockets/index|C]] · [[backend/frameworks/drogon/index|C++]] · [[backend/frameworks/aspnet-core/index|C#]]
+- [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]] · [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum]] · [[backend/frameworks/c-sockets/index|C]] · [[backend/frameworks/drogon/index|C++]] · [[backend/frameworks/aspnet-core/index|C#]]

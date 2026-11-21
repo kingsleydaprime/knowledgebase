@@ -168,7 +168,7 @@ if __name__ == "__main__":
 ## 3. Go
 <!-- bite: 8e607568-a96b-4b1a-935a-809758e1149d -->
 
-Go has no container, by design and by culture. **Dependencies are struct fields, set in `main`** — see [[backend/frameworks/net-http/03-structuring-a-go-service|structuring a Go service]]. Interfaces are declared by the package that *uses* them, and any type with the right methods satisfies them without saying so.
+Go has no container, by design and by culture. **Dependencies are struct fields, set in `main`** — see [[backend/frameworks/net-http/04-structuring-a-go-service|structuring a Go service]]. Interfaces are declared by the package that *uses* them, and any type with the right methods satisfies them without saying so.
 
 Per-request data travels in a **`context.Context`**, passed as the first argument of every call in the request path. That makes request scope explicit in every signature — verbose, and the reason Go code rarely has this bug.
 
@@ -805,4 +805,4 @@ You can wire dependencies idiomatically in your language and say what it does ab
 <!-- bite: c2a88842-42cc-4b6c-bb0c-f1dbc08f23e4 -->
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection and wiring]] — the main lesson
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency injection in Java]] — Spring's implementation in depth
-- [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/axum/03-state-and-shared-data|Rust: state and shared data]] · [[backend/frameworks/aspnet-core/index|C#]]
+- [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/axum/03-state-and-shared-data|Rust: state and shared data]] · [[backend/frameworks/aspnet-core/index|C#]]
