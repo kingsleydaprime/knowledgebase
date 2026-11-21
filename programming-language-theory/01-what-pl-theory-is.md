@@ -4,8 +4,6 @@ id: 62592f27-f623-4bb0-a86b-e0627cc7c005
 
 # What PL Theory Is
 
-**[Intermediate]** — Studying languages as mathematical objects, and why it produced things you use daily.
-
 **Source:** `[reference]` — see [[programming-language-theory/index|the domain note]].
 
 ## The question
@@ -133,3 +131,8 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 - [[compilers/index|Compilers]] — the implementation counterpart
 - [[theory-of-computation/index|Theory of Computation]] — the sibling theory domain
 - [[programming-language-theory/index|PL theory map]]
+
+## About this lesson
+<!-- bite: 6f8061c4-1d0b-4a67-96af-45c7568d7f55 -->
+
+**Level:** Intermediate. **Covers:** Studying languages as mathematical objects, and why it produced things you use daily.

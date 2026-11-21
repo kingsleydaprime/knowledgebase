@@ -4,8 +4,6 @@ id: 97c24680-2a20-4004-ab61-65d42957606a
 
 # Resilience patterns
 
-> **[Intermediate]** · Covers the patterns that keep one failing dependency from taking a whole service down: timeouts, retries, circuit breakers, bulkheads, load shedding, back-pressure and graceful degradation, and the arithmetic that says when you need them. The worked example simulates a service with two endpoints and one slow dependency, minute by minute, and shows a cascade happen, a timeout fail to stop it, and bulkheads contain it, with the same numbers on every run. It also contains a real concurrency bug from writing the bulkhead, and the test that caught it.
-
 ## Before you start
 <!-- bite: 79a05d15-6455-4311-b144-3482b383bda2 -->
 
@@ -379,5 +377,10 @@ You can explain how a slow dependency cascades, predict it with Little's law, ch
 - [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices patterns]] — where they're needed most
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability and reliability]] — what these patterns protect
 - [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging and async]] — queues and back-pressure
+
+## About this lesson
+<!-- bite: 40b7cdb6-ee47-499b-9b06-1eed2c508b37 -->
+
+**Level:** Intermediate. **Covers:** Covers the patterns that keep one failing dependency from taking a whole service down: timeouts, retries, circuit breakers, bulkheads, load shedding, back-pressure and graceful degradation, and the arithmetic that says when you need them. The worked example simulates a service with two endpoints and one slow dependency, minute by minute, and shows a cascade happen, a timeout fail to stop it, and bulkheads contain it, with the same numbers on every run. It also contains a real concurrency bug from writing the bulkhead, and the test that caught it.
 
 *Source: the roadmap.sh system-design roadmap.*

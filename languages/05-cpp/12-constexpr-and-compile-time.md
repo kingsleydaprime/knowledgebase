@@ -4,8 +4,6 @@ id: 94c12076-9806-428d-b94b-d4ca6af80ae3
 
 # `constexpr` and Compile-Time Computation
 
-**[Advanced]** — Running your code during compilation. The feature that turned C++'s accidental compile-time language into a deliberate one.
-
 ## The accident
 <!-- bite: ea50e4ab-4240-4923-83a4-859b912f790e -->
 
@@ -240,3 +238,8 @@ C++'s version is the most capable in mainstream use, and it got there by acciden
 - [[languages/05-cpp/14-modern-cpp-and-modules|Modern C++ and Modules]] — where `constexpr` fits in the timeline
 - [[languages/04-c/03-the-preprocessor|C: The Preprocessor]] — what this replaces
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 8df913ed-6c65-42d1-a403-caa263d034d9 -->
+
+**Level:** Advanced. **Covers:** Running your code during compilation. The feature that turned C++'s accidental compile-time language into a deliberate one.

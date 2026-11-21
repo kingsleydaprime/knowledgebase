@@ -4,8 +4,6 @@ id: 758dc736-b7b9-4278-b152-be8d8adef4e4
 
 # Experiment Tracking & Pipelines
 
-**[reference]** — from the roadmap.sh `mlops` roadmap. The ML-specific tooling for reproducibility: tracking what you tried, versioning data and models, and automating the data → training flow.
-
 ## Experiment tracking — because ML is empirical
 <!-- bite: 99e8f607-9b26-48dd-9672-be39c764d335 -->
 
@@ -58,3 +56,8 @@ These are the same data-engineering concerns as any pipeline — the [[languages
 - [[ai-ml/02-ml-engineer/10-mlops/01-mlops-fundamentals|MLOps Fundamentals]] — why data/models need versioning
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|Serving & Operations]] — where training-serving skew bites
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Data Pipelines (Java)]] — the same data-engineering concerns
+
+## About this lesson
+<!-- bite: 1dc0d62e-9fb4-4539-b4c8-13d78bd46843 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `mlops` roadmap. The ML-specific tooling for reproducibility: tracking what you tried, versioning data and models, and automating the data → training flow.

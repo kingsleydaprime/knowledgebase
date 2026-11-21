@@ -4,8 +4,6 @@ id: 8c086d62-dcd9-482f-9495-a323bc1b7d7f
 
 # Module: Subgraphs, Trees and Forests
 
-**[Intermediate]** — the pieces of a graph, and the exact point at which a graph becomes a tree.
-
 ## Before you start
 <!-- bite: ce7ef0ac-93ee-419b-956b-51f5d547d152 -->
 
@@ -396,3 +394,8 @@ You can distinguish the three subgraph kinds, state and use the tree characteris
 - [[06-minimum-spanning-tree|Minimum Spanning Tree]] — choosing the cheapest spanning tree
 - [[10-union-find|Union-Find]] — the structure Kruskal's algorithm needs
 - [[02-discrete-math/07-graph-theory|Discrete maths: graph theory]] — proofs of the characterisations
+
+## About this lesson
+<!-- bite: b9818d42-6b06-46bb-9499-f8b3ea367b10 -->
+
+**Level:** Intermediate. **Covers:** the pieces of a graph, and the exact point at which a graph becomes a tree.

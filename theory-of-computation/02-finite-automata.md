@@ -4,8 +4,6 @@ id: 4a77cbbd-07a6-4f02-a66b-292748d03928
 
 # Finite Automata
 
-**[Intermediate]** — Machines with no memory beyond their current state, and why that's enough for lexers, protocols and UI logic.
-
 ## The machine
 <!-- bite: 2afe5b14-c6ff-4cc4-8919-bfc391d42332 -->
 
@@ -168,3 +166,8 @@ A backtracking engine matching `(a+)+b` against `aaaaaaaaaaaaaaaaaaaaaaaaX` trie
 - [[compilers/02-lexical-analysis|Lexical Analysis]] — the industrial application
 - [[theory-of-computation/04-context-free-languages|Context-Free Languages]] — the next level up
 - [[theory-of-computation/index|Theory of computation map]]
+
+## About this lesson
+<!-- bite: 470f9b8e-9358-4281-a53d-2006aa920fa0 -->
+
+**Level:** Intermediate. **Covers:** Machines with no memory beyond their current state, and why that's enough for lexers, protocols and UI logic.

@@ -4,8 +4,6 @@ id: 5d251b53-9cb4-46a2-a211-f324a50c344c
 
 # Functions and Idioms
 
-**[Intermediate]** — extension functions, scope functions, and the shortcuts that define idiomatic Kotlin.
-
 ## Functions
 <!-- bite: c97427a8-e7a5-4d1a-8f87-fad684b02103 -->
 
@@ -151,3 +149,8 @@ repeat(3) { retry() }
 - [[languages/09-kotlin/03-types-and-data-classes|types and data classes]]
 - [[languages/09-kotlin/05-coroutines-and-flow|coroutines]] — built on `inline` and suspending lambdas
 - [[languages/01-java/index|Java]] — what these idioms replace
+
+## About this lesson
+<!-- bite: c8f0893a-6758-4ec2-ab1a-734835b7d9e2 -->
+
+**Level:** Intermediate. **Covers:** extension functions, scope functions, and the shortcuts that define idiomatic Kotlin.

@@ -4,7 +4,7 @@ id: ee53633f-6e52-47e2-b8ea-b74a5db828b9
 
 # Dependency Injection & Wiring
 
-**[Intermediate]** — how the layers actually get connected, and why the answer isn't "just import it."
+**Dependency injection means a piece of code is handed the things it needs, such as a database or an email sender, instead of creating them itself.** A chef who is handed an oven at the start of a shift can work in any kitchen, and in a test you can hand them a pretend one. Wiring is the one place in the app where all the real pieces are created and handed out.
 
 ## Before you start
 <!-- bite: bae18ea2-27bc-4f7d-8743-7a56d6d88e35 -->
@@ -302,3 +302,8 @@ DI is not a framework, a container, or an annotation — it's the single rule th
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal & Clean Architecture]] — where interfaces genuinely earn their place
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency Injection (Java)]] — Spring's implementation
 - [[backend/frameworks/javascript/03-nest/index|NestJS]] — a decorator-based container in practice
+
+## About this lesson
+<!-- bite: 1eadd21b-104c-49b3-a8d2-e8995ff8bbe0 -->
+
+**Level:** Intermediate. **Covers:** how the layers actually get connected, and why the answer isn't "just import it."

@@ -4,8 +4,6 @@ id: 935b63f6-e6d0-45ec-a27a-8d85e3dd740e
 
 # Servers, and What Actually Makes Them Servers
 
-> **[Beginner]** · The machine under the abstraction. Same five components as your laptop — different economics, and that difference explains everything above it.
-
 Every layer in this vault eventually runs on a physical box in a building. [[devops/08-cloud/01-cloud-fundamentals|Cloud fundamentals]] opens with "the cloud is someone else's computers" and then, reasonably, never mentions the computers again. This note is the computers.
 
 ## A server is not a different kind of machine
@@ -102,5 +100,10 @@ Pick any cloud instance type and you're choosing these same five numbers, plus a
 - [[computer-architecture/index|computer architecture]] — what's happening inside the CPU
 - [[os/01-what-an-os-is|what an OS is]] — the software that makes the hardware usable
 - [[devops/08-cloud/01-cloud-fundamentals|cloud fundamentals]] — renting all of the above
+
+## About this lesson
+<!-- bite: c6060bd5-903a-4a07-83bb-436d119c8418 -->
+
+**Level:** Beginner. **Covers:** The machine under the abstraction. Same five components as your laptop — different economics, and that difference explains everything above it.
 
 *Source: [reference] — distilled from the freeCodeCamp IT Fundamentals course (modules 1–2), cross-checked against vendor documentation.*

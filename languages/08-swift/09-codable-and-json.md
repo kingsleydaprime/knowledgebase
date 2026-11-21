@@ -4,8 +4,6 @@ id: 4475e416-82f2-4083-ba24-73be2c809121
 
 # Codable and JSON
 
-**[Intermediate]** — compiler-generated serialisation, and the customisations you'll actually need.
-
 ## The free case
 <!-- bite: fd23fcdc-a78a-4e88-939d-f77f7a4b080f -->
 
@@ -155,3 +153,8 @@ catch let DecodingError.keyNotFound(key, context) {
 - [[languages/08-swift/05-enums-and-pattern-matching|enums]] — the unknown-case pattern
 - [[mobile/08-networking-on-mobile|networking]] — why old clients matter
 - [[languages/08-swift/06-error-handling|error handling]]
+
+## About this lesson
+<!-- bite: eaf7cc9e-f3e3-4118-8d25-50ae0f592ee6 -->
+
+**Level:** Intermediate. **Covers:** compiler-generated serialisation, and the customisations you'll actually need.

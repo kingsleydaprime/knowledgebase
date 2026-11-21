@@ -4,8 +4,6 @@ id: 08afbaa9-89d6-47e9-8a4f-1844807fdf3f
 
 # Operating a Database
 
-**[Intermediate → Advanced]** — Migrations that don't cause outages, ORMs and N+1, what to monitor, and how to choose.
-
 ## Migrations
 <!-- bite: b87b431a-d589-4796-8b20-007bf9777310 -->
 
@@ -199,3 +197,8 @@ for order in Order.objects.all():        # 1 query
 - [[databases/interview/01-sql-modelling-and-internals|Databases interview]] — what gets asked about all this
 - [[devops/07-observability/index|Observability]] — the monitoring layer
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: 736d116b-b290-4aa3-8806-846d70d497a8 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Migrations that don't cause outages, ORMs and N+1, what to monitor, and how to choose.

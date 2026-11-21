@@ -4,8 +4,6 @@ id: 216fedb6-9503-4ff8-b5c3-f186240de0f9
 
 # Classes, Records and Structs
 
-> **[Beginner → Intermediate]** · Three ways to define a type, and the modern C# defaults that changed which one you should reach for.
-
 ## Classes
 <!-- bite: 9254ab88-acc6-42e3-8bda-a6879039336a -->
 
@@ -141,5 +139,10 @@ C# has single inheritance, `virtual`/`override`, and `sealed`.
 - [[languages/07-csharp/02-the-type-system|the type system]] — value vs reference
 - [[languages/07-csharp/10-pattern-matching-and-modern-csharp|pattern matching]] — records exist partly to be matched on
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]]
+
+## About this lesson
+<!-- bite: 3d836f0e-e4fc-4f85-aa4d-f134e59e6008 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Three ways to define a type, and the modern C# defaults that changed which one you should reach for.
 
 *Source: [reference] — from the C# language reference, Aug 2026.*

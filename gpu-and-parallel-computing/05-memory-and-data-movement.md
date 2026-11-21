@@ -4,8 +4,6 @@ id: 78b3e74a-6ec3-4196-ad5c-b6d292e55580
 
 # Memory and Data Movement
 
-**[Advanced]** — Coalescing, shared memory, bank conflicts, and the PCIe transfer that ruins most first GPU ports.
-
 ## The central fact
 <!-- bite: 80a52263-e855-46da-b0a8-f5f08b47560f -->
 
@@ -214,3 +212,8 @@ Compute-bound near peak FLOPS           → you're done
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the CPU analogue
 - [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — tiling and fusion
 - [[gpu-and-parallel-computing/index|GPU and parallel map]]
+
+## About this lesson
+<!-- bite: a81051ae-daea-4d25-9cc9-da4f43afc6ca -->
+
+**Level:** Advanced. **Covers:** Coalescing, shared memory, bank conflicts, and the PCIe transfer that ruins most first GPU ports.

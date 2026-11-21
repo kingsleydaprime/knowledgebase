@@ -4,8 +4,6 @@ id: 10c6617a-0084-4bb9-9427-7fb14263cb33
 
 # Number Bases
 
-**[Beginner]** — What a numeral actually means, how to convert between any two bases, and why computing uses base 2 and base 16 rather than the base you grew up with.
-
 ## Before you start
 <!-- bite: 2c14fb01-c108-40c9-8dd2-8a37f23e43f9 -->
 
@@ -392,3 +390,8 @@ You are done with this lesson when you can, closed-book:
 - [[mathematics/01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|exponents]] — the powers this lesson depends on
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|How Computers Work — the digital abstraction]] — why two states, physically
 - [[computer-architecture/02-data-representation|computer-architecture/data representation]] — signed numbers and floating point, built on this
+
+## About this lesson
+<!-- bite: fb56e281-c056-4cb7-aaa6-c88414c3a063 -->
+
+**Level:** Beginner. **Covers:** What a numeral actually means, how to convert between any two bases, and why computing uses base 2 and base 16 rather than the base you grew up with.

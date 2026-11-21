@@ -4,8 +4,6 @@ id: da152ad4-237a-402b-885e-b1ceb8a7ba15
 
 # Built-in Types and Collections
 
-> **[Beginner]** · `str`, `list`, `dict`, `set`, `tuple` — their costs, their idioms, and the `collections` types that are usually the better answer.
-
 Python's built-in collections are unusually good, which is why idiomatic Python reaches for a plain `dict` where other languages would define a class. Knowing their costs is most of writing fast Python.
 
 ## Strings
@@ -169,5 +167,10 @@ Also worth knowing: `heapq` (priority queue on a plain list), `bisect` (binary s
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — when a dict should have been a type
 - [[dsa/index|DSA]] — why these costs are what they are
 - [[programming-fundamentals/07-collections|collections]] — the language-agnostic version
+
+## About this lesson
+<!-- bite: 4993a7a6-04be-4eff-b781-a32f928cdb87 -->
+
+**Level:** Beginner. **Covers:** `str`, `list`, `dict`, `set`, `tuple` — their costs, their idioms, and the `collections` types that are usually the better answer.
 
 *Source: [reference] — from the Python standard library documentation.*

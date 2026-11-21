@@ -4,8 +4,6 @@ id: 607d3672-fb3d-46d5-99c0-0ec324088822
 
 # Beyond P vs NP
 
-**[Advanced]** — Randomness, quantum computing, interactive proofs, and where the theory actually touches your work.
-
 ## Randomised computation
 <!-- bite: 1398b894-11ce-4d24-89e5-4a560e00f9a0 -->
 
@@ -139,3 +137,8 @@ id: 607d3672-fb3d-46d5-99c0-0ec324088822
 - [[theory-of-computation/07-complexity-classes|Complexity Classes]] — P, NP and the reductions
 - [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|Cryptographic Best Practices]] — where post-quantum lands
 - [[theory-of-computation/index|Theory of computation map]]
+
+## About this lesson
+<!-- bite: ed1acb54-0677-46a7-92c6-e5542d544fca -->
+
+**Level:** Advanced. **Covers:** Randomness, quantum computing, interactive proofs, and where the theory actually touches your work.

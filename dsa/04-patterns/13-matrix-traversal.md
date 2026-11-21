@@ -4,8 +4,6 @@ id: fed2a43a-10e2-4b26-ad52-ba487ee0ca87
 
 # Pattern: Matrix Traversal
 
-**[Intermediate]** — A university-level introduction to the matrix traversal pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 6fecbe87-b97a-4097-8a28-fdab4c7659c5 -->
 
@@ -350,3 +348,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Network analysis:** Finding connected components in network topologies
 
 The core idea — treating a 2D grid as an implicit graph and using DFS/BFS to explore connected regions — is a fundamental algorithmic technique that appears whenever you need to find connected components or spread across a grid.
+
+## About this lesson
+<!-- bite: 5713cb21-25fd-4637-b577-e76b69610cc2 -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the matrix traversal pattern: what it is, why it exists, how it works, and how to implement it independently.

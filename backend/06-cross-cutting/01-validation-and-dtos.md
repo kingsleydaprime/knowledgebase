@@ -4,8 +4,6 @@ id: e1794138-e55b-4c6e-893e-ff664e0b1906
 
 # Validation and DTOs
 
-> **[Intermediate]** · Parse, don't validate — and why the boundary is the only place this can be done.
-
 **Every byte entering your process from outside is untrusted and untyped.** A JSON body, a query string, a header, a file, a message from a queue. Your type system believes whatever you tell it about that data, and it is wrong until something checks.
 
 ## Parse, don't validate
@@ -96,5 +94,10 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 - [[backend/02-api-design/index|API design]] — contracts
 - [[backend/frameworks/cross-language-recipes|cross-language recipes]] — this in six stacks
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]] — the security view
+
+## About this lesson
+<!-- bite: 0bbf9973-2c24-4f65-994e-e9c2d818a07d -->
+
+**Level:** Intermediate. **Covers:** Parse, don't validate — and why the boundary is the only place this can be done.
 
 *Source: [reference] — written Aug 2026.*

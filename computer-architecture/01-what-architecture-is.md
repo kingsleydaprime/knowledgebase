@@ -4,8 +4,6 @@ id: 6ad52a71-8d08-4ca7-b7bb-ff4994a01b69
 
 # What Computer Architecture Is
 
-**[Beginner → Intermediate]** — The ISA as a contract, the layers between your code and the electrons, and why the constants matter.
-
 **Source:** `[reference]` — see [[computer-architecture/index|the domain note]].
 
 ## The gap this fills
@@ -165,3 +163,8 @@ id: 6ad52a71-8d08-4ca7-b7bb-ff4994a01b69
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the most practically important part
 - [[hardware/index|Hardware & Embedded]] — the layer below
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: 9df34dc3-bd3f-4a96-ab22-6943c5ab8b54 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The ISA as a contract, the layers between your code and the electrons, and why the constants matter.

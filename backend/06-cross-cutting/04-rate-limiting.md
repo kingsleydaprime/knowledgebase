@@ -4,8 +4,6 @@ id: 0ae3c207-cdf7-42a3-ac19-7b31d664b8c5
 
 # Rate Limiting
 
-> **[Intermediate]** · The four algorithms, what to key on, and why doing it in-process silently doesn't work.
-
 **Rate limiting protects a shared resource from any single consumer** — deliberate abuse, an accidental infinite loop in someone's client, or a retry storm you caused yourself.
 
 ## The four algorithms
@@ -124,5 +122,10 @@ Retry-After: 42
 - [[backend/frameworks/cross-language-recipes|cross-language recipes]] — implementations
 - [[architecture/interview/01-system-design-round|system design]] — the distributed problem
 - [[architecture/02-building-blocks/index|building blocks]]
+
+## About this lesson
+<!-- bite: 789c1149-c90f-42e0-847c-6440b22d9520 -->
+
+**Level:** Intermediate. **Covers:** The four algorithms, what to key on, and why doing it in-process silently doesn't work.
 
 *Source: [reference] — written Aug 2026.*

@@ -4,8 +4,6 @@ id: fcd1c284-7a66-407c-a957-6adaec039ac0
 
 # Partitioning
 
-**[reference]** — from the canon (DDIA ch. 6). How data is **split across many nodes** so you can store more and serve more than one machine can hold — and how to split it *well*, so load stays even and queries stay cheap. (Knowing *who's alive* to route around failures is the sibling topic: [[architecture/04-distributed-systems/14-failure-detection-and-membership|failure detection & membership]].)
-
 ## The kid version first
 <!-- bite: 15524cd0-cdc3-4f71-a370-0243717f9bbc -->
 
@@ -71,3 +69,8 @@ Real systems do **both**: **partition for scale, replicate each partition for fa
 - [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection & Membership]] — knowing which nodes are alive to route/rebalance
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — per-shard agreement
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — sharding from the system-design view
+
+## About this lesson
+<!-- bite: 81a1fba4-1638-4a82-8906-03324bf3b7b5 -->
+
+**Level:** reference. **Covers:** from the canon (DDIA ch. 6). How data is **split across many nodes** so you can store more and serve more than one machine can hold — and how to split it *well*, so load stays even and queries stay cheap. (Knowing *who's alive* to route around failures is the sibling topic: [[architecture/04-distributed-systems/14-failure-detection-and-membership|failure detection & membership]].)

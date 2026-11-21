@@ -4,8 +4,6 @@ id: 4128cd30-012e-49c0-8aee-675273170112
 
 # Tooling and Code Generation
 
-**[Intermediate]** — `build_runner`, the packages everyone uses, and Dart's most-felt weakness.
-
 ## Why code generation is unavoidable
 <!-- bite: f82c4a7c-cbfd-4fde-a382-7304525b8335 -->
 
@@ -155,3 +153,8 @@ dart pub upgrade --major-versions
 - [[languages/10-dart/03-classes-and-collections|classes]] — what `freezed` generates
 - [[languages/10-dart/05-testing-and-errors|testing]] — mocktail vs mockito
 - [[mobile/frameworks/flutter/index|Flutter]] — where all of this is used
+
+## About this lesson
+<!-- bite: a3f7ffd5-a65e-4260-87ce-09cd20b8ee4f -->
+
+**Level:** Intermediate. **Covers:** `build_runner`, the packages everyone uses, and Dart's most-felt weakness.

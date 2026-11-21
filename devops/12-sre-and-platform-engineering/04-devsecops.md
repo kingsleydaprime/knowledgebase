@@ -4,8 +4,6 @@ id: b2687fd3-d3a8-4ff8-8711-074e029c69e0
 
 # DevSecOps
 
-> **[Intermediate]** · Security as a pipeline stage instead of a gate at the end. What runs where, what each class of tool actually catches, and the failure mode that kills most rollouts.
-
 Security's traditional shape was a **gate**: build for months, hand the finished thing to a security team, wait for a review, fix what comes back. That works at one release a quarter. It does not survive forty deploys a day — the gate is either bypassed or it becomes the [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved|bottleneck]], and in practice it becomes both.
 
 **DevSecOps is the same move DevOps made, applied to security: stop treating it as a phase owned by another team, distribute it across the pipeline, and automate the parts a machine can do.**
@@ -110,5 +108,10 @@ Which is the same structural move as [[devops/12-sre-and-platform-engineering/03
 - [[devops/06-secret-management/index|secret management]] — the tooling for the secrets section
 - [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|cloud security]] — posture and misconfiguration
 - [[cybersecurity/07-security-operations/04-incident-response|incident response]] — what happens when it gets through anyway
+
+## About this lesson
+<!-- bite: b6411c7d-a275-4a64-bb3a-68c8a2c09585 -->
+
+**Level:** Intermediate. **Covers:** Security as a pipeline stage instead of a gate at the end. What runs where, what each class of tool actually catches, and the failure mode that kills most rollouts.
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (final module), extended with OWASP, SLSA and CNCF supply-chain security material.*

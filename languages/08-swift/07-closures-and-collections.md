@@ -4,8 +4,6 @@ id: 873b7be8-07be-4c4b-b1ea-acb3fb5bddb7
 
 # Closures and Collections
 
-**[Intermediate]** — the functional layer, and the syntax shortcuts that make Swift look cryptic until they don't.
-
 ## Closure syntax, from verbose to idiomatic
 <!-- bite: 0864a1a3-44ee-4261-9d17-86f69223ca89 -->
 
@@ -118,3 +116,8 @@ For heavy text processing, work with `s.utf8` or index-based traversal rather th
 - [[languages/08-swift/04-protocols-and-generics|protocols]] — where these methods come from
 - [[languages/08-swift/03-memory-and-arc|ARC]] — closures and retain cycles
 - [[dsa/index|DSA]] — the complexity behind the collections
+
+## About this lesson
+<!-- bite: 3c6da169-f6dc-4114-8638-0e6a988f3ac6 -->
+
+**Level:** Intermediate. **Covers:** the functional layer, and the syntax shortcuts that make Swift look cryptic until they don't.

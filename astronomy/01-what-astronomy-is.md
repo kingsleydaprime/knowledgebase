@@ -4,8 +4,6 @@ id: 7b917207-77ea-4a55-b536-5cdb0b9f989a
 
 # What Astronomy Is
 
-> **[Beginner]** · The observational science of everything beyond Earth — and how it differs from the fields it gets confused with.
-
 Astronomy is unusual among sciences in one structural way: **you cannot experiment on your subject.** You cannot heat a star, collide two galaxies, or rerun the Big Bang. **Everything is inference from light that has already arrived.**
 
 That single constraint shapes the whole discipline — its instruments, its statistics, and its characteristic humility about error bars.
@@ -105,5 +103,10 @@ Astronomy's numbers defeat intuition, so it uses its own units:
 - [[astronomy/03-light-and-instruments|light and instruments]] — how everything is measured
 - [[astronomy/09-astrology-honestly|astrology, honestly]] — the distinction, properly
 - [[astronomy/index|the domain index]]
+
+## About this lesson
+<!-- bite: 50556a15-b253-499a-8653-04cd5cc52f46 -->
+
+**Level:** Beginner. **Covers:** The observational science of everything beyond Earth — and how it differs from the fields it gets confused with.
 
 *Source: [reference] — written Aug 2026 from standard texts and current mission documentation.*

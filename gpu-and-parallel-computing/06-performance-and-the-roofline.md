@@ -4,8 +4,6 @@ id: 1a3ad619-874b-466a-9cbe-237d9481a14c
 
 # Performance and the Roofline
 
-**[Intermediate → Advanced]** — Arithmetic intensity, the one diagram that tells you what to optimise, and how to benchmark a GPU honestly.
-
 ## Arithmetic intensity
 <!-- bite: 45abedac-93f9-4287-9c62-186c96e70c90 -->
 
@@ -170,3 +168,8 @@ cudaDeviceSynchronize();  end = now();     // ✓
 - [[computer-architecture/12-performance|Performance]] — the CPU-side methodology
 - [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]] — when one GPU isn't enough
 - [[gpu-and-parallel-computing/index|GPU and parallel map]]
+
+## About this lesson
+<!-- bite: 49712ae8-d75b-40a9-a098-9f72d37eb7e8 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Arithmetic intensity, the one diagram that tells you what to optimise, and how to benchmark a GPU honestly.

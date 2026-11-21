@@ -4,8 +4,6 @@ id: fe91a0eb-cee4-4eeb-8281-8a6be5ece40a
 
 # Cloud Fundamentals
 
-**[reference]** — provider-agnostic grounding for the section, from roadmap.sh and vendor docs. The AWS-specific hands-on lives in [[devops/08-cloud/aws-cloud-reference|the AWS reference]].
-
 ## What "the cloud" actually is
 <!-- bite: aee49e04-0c83-4bca-a21c-1885614bbc2e -->
 
@@ -79,3 +77,8 @@ Providers split the world into **regions** (geographic areas) each containing mu
 - [[devops/08-cloud/aws-cloud-reference|AWS Reference]] — these categories, as concrete AWS services
 - [[devops/10-orchestration/index|Orchestration]] — managed Kubernetes on these providers
 - [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud Design Patterns]] — architecting for the resilience these primitives enable
+
+## About this lesson
+<!-- bite: 1ff7d8ca-41a0-4895-b12e-c5cd67500703 -->
+
+**Level:** reference. **Covers:** provider-agnostic grounding for the section, from roadmap.sh and vendor docs. The AWS-specific hands-on lives in [[devops/08-cloud/aws-cloud-reference|the AWS reference]].

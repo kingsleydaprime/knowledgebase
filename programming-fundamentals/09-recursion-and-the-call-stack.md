@@ -4,8 +4,6 @@ id: fa752414-87d2-456a-8577-33e87e1d72b7
 
 # Recursion and the Call Stack
 
-> **[Beginner → Intermediate]** · A function that calls itself, why it doesn't run forever, and the piece of machinery that makes it work — which also explains a lot of error messages.
-
 **Recursion is a function calling itself.** It sounds circular and useless. It's one of the most powerful ideas in programming, and it's the natural way to handle anything with a nested or self-similar shape.
 
 ```python
@@ -150,3 +148,8 @@ Understanding the stack pays off well beyond recursion:
 - [[mathematics/02-discrete-math/05-induction-and-recursion|induction and recursion]] — the maths of why base cases work
 
 _Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the frame-level model, tail calls and the memoisation case._
+
+## About this lesson
+<!-- bite: 42447240-b946-4749-b1c7-1c397aa04bf5 -->
+
+**Level:** Beginner → Intermediate. **Covers:** A function that calls itself, why it doesn't run forever, and the piece of machinery that makes it work — which also explains a lot of error messages.

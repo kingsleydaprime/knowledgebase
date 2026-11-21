@@ -4,8 +4,6 @@ id: 89abf20e-3168-41ca-8163-a34f7b00c5c8
 
 # Extractors and Responses
 
-**[Intermediate]** — Request parsing expressed entirely in the type system. This is what Rust web frameworks do that others structurally can't.
-
 ## Extractors
 <!-- bite: f5023435-9688-43fd-8b31-240fc5490fb9 -->
 
@@ -251,3 +249,8 @@ async fn create(ValidatedJson(payload): ValidatedJson<CreateUser>) -> ... { }
 - [[languages/03-rust/08-error-handling-in-practice|Rust: Error Handling]] — `thiserror` and `anyhow`
 - [[backend/05-auth/02-authorization|Authorization]] — what the type system is enforcing here
 - [[backend/frameworks/rust/index|Rust backends]]
+
+## About this lesson
+<!-- bite: 10899b75-a8d3-40fd-a319-da70f9605193 -->
+
+**Level:** Intermediate. **Covers:** Request parsing expressed entirely in the type system. This is what Rust web frameworks do that others structurally can't.

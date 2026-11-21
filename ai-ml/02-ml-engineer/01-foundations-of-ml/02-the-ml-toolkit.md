@@ -4,8 +4,6 @@ id: 6d77e3c4-ad04-4fb5-918d-b783a6fd81b9
 
 # The ML Toolkit
 
-**[reference]** — the Python stack every ML engineer works in. roadmap.sh lists these across both the `machine-learning` and `mlops` roadmaps; they're also the shared foundation the [[ai-ml/01-data-scientist/index|Data Scientist]] path needs (noted as a gap in [[ai-ml/00-foundations/index|00-foundations]]).
-
 ## Why Python
 <!-- bite: 3c55e906-2ee3-464b-98c2-fff1f832e349 -->
 
@@ -54,3 +52,8 @@ Real ML work lives in **Jupyter notebooks** for exploration (interactive, inline
 - [[ai-ml/02-ml-engineer/01-foundations-of-ml/01-what-is-ml-and-types|What ML Is]] — what these tools are for
 - [[ai-ml/02-ml-engineer/02-working-with-data/index|Working with Data]] — pandas/NumPy in anger
 - [[ai-ml/00-foundations/03-mathematics/index|Mathematics]] — what NumPy computes
+
+## About this lesson
+<!-- bite: 7bb9845f-2877-4b8a-bebe-cc398a061ec7 -->
+
+**Level:** reference. **Covers:** the Python stack every ML engineer works in. roadmap.sh lists these across both the `machine-learning` and `mlops` roadmaps; they're also the shared foundation the [[ai-ml/01-data-scientist/index|Data Scientist]] path needs (noted as a gap in [[ai-ml/00-foundations/index|00-foundations]]).

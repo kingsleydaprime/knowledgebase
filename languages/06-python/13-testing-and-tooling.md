@@ -4,8 +4,6 @@ id: 522c5f19-9273-4d40-8aa7-8a6216ec9ff6
 
 # Testing and Tooling
 
-> **[Intermediate]** · pytest, and the four-tool setup that makes a dynamic language safe to change.
-
 Python gives you very little for free at compile time. **The tooling is what replaces it**, and a codebase without it is genuinely harder to change than an equivalent one in a compiled language.
 
 ## pytest
@@ -182,5 +180,10 @@ Low value: getters, framework behaviour, and anything whose test is a restatemen
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — the concepts
 - [[devops/05-ci-cd/index|CI/CD]] — where this runs automatically
 - [[languages/06-python/01-why-python-and-the-toolchain|the toolchain]] — venvs and pyproject.toml
+
+## About this lesson
+<!-- bite: f5967004-250e-425f-a532-06bf25926829 -->
+
+**Level:** Intermediate. **Covers:** pytest, and the four-tool setup that makes a dynamic language safe to change.
 
 *Source: [reference] — from the pytest and ruff documentation.*

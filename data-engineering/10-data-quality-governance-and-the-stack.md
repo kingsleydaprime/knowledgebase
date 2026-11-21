@@ -4,8 +4,6 @@ id: 32e3b229-f479-4cc9-9afd-4e308e501261
 
 # Data Quality, Governance, and the Stack
 
-**[Intermediate]** — keeping data trustworthy, and an honest look at the "modern data stack."
-
 ## The kid version first
 <!-- bite: d2f8ef87-a259-46ba-9422-afacac61a2fb -->
 
@@ -89,5 +87,10 @@ Around 2020 a standard architecture crystallised: **Fivetran (ingest) → Snowfl
 - [[data-engineering/08-orchestration|orchestration]] — where quality alerts fire
 - [[devops/07-observability/index|observability]] — the application-monitoring analogue
 - [[data-engineering/01-what-data-engineering-is|what data engineering is]] — the whole picture
+
+## About this lesson
+<!-- bite: 496e6951-0281-4ad2-b66c-3bc44d79130d -->
+
+**Level:** Intermediate. **Covers:** keeping data trustworthy, and an honest look at the "modern data stack."
 
 *Source: [reference] — Aug 2026. The stack landscape moves fast; treat specific tools as of-the-moment.*

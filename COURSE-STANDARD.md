@@ -111,7 +111,49 @@ Point to the next lesson and explain the dependency. Keep a short recap suitable
 These are not stylistic preferences; each one exists because its absence made a
 lesson harder to read.
 
+### Write it the way the author writes
+
+This one comes first because it matters most. The model is the author's own
+university notes, [[computer-graphics/01-graphics-systems-and-display-hardware|Graphics Systems and Display Hardware]],
+which he wrote himself. Lessons written by AI have been too technical and too
+disconnected; his are easy to read because of how one idea leads to the next.
+Read that lesson before writing or rewriting any other.
+
+1. **Say what it is, straight away.** The first line after the title is a plain
+   definition: "Computer graphics is the field of making a computer create, store,
+   change and display pictures on a screen, using programming." Level, contents and
+   course position go at the end, in "About this lesson".
+2. **Each idea hands off to the next.** End a part by saying why the next part is
+   needed: "And this is why graphics cares so much about speed. If the picture cannot
+   be redrawn fast enough, the loop breaks… That is what leads us into display
+   hardware and refresh rate." Open the next part by recalling the earlier one:
+   "Remember the feedback loop from lesson 1? The screen is the computer's half of it."
+   A reader should never wonder why a section is there.
+3. **Carry one example all the way through.** The architect appears for visual
+   problem solving (comprehend, conceive, communicate) and comes back for command-based
+   versus interactive computing ("move wall 2 meters left"). One example the reader
+   already knows beats three new ones.
+4. **Describe the idea first, then give its name.** "The computer does not just carry
+   out your orders. It extends what you can do… Augmentation is the name for what
+   interactive computing does."
+5. **Talk to the reader.** Short sentences, everyday examples (dragging a window,
+   typing a command in a terminal) before any hardware or maths, and the author's
+   Nigerian English warmth where it fits: "it can make you go like ehn? But it's not
+   that deep sha…", "Okay!!!!!", "Remember this one:".
+6. **Keep the exam line separate.** When a formal definition matters for an exam,
+   give it as its own line, after the plain explanation: "A one-sentence version for
+   an exam: …"
+7. **Aim lower than feels natural.** If a sentence needs a term the reader hasn't met,
+   the sentence is too early. Lists and comparison tables are for things to memorise,
+   after the idea is understood.
+8. **When the author gives his own text, use his exact words.** Only add `##`
+   headings (taken from his own phrases, so the platform can cut bites) and fix
+   clear typos.
+
 ### The kid version comes first
+
+*Optional when the lesson already opens the way the rule above describes: a lesson
+written like Graphics Systems and Display Hardware doesn't need one.*
 
 Before the terms, before the mechanism, explain the whole idea as if to a
 twelve-year-old: three to six sentences, one everyday picture, no jargon. It gives
@@ -226,7 +268,9 @@ Use meaningful topic-specific headings and drop sections that a given topic genu
 ```markdown
 # Module N: Topic (the one-phrase hook)
 
-**[Level]** — one sentence on what this teaches and why it is here.
+**One plain sentence saying what the thing is.** Then one or two everyday sentences on
+where the reader has already met it. No level tag, contents summary, course position
+or source up here: a reader opening the lesson wants to know what it is first.
 
 ## Before you start
 
@@ -293,6 +337,11 @@ Demonstrable completion criteria, a short recap for later lookup, and the
 next lesson with the dependency named.
 
 ## Related
+
+## About this lesson
+
+**Level**, what the lesson covers, where it sits in the course and what to read in
+which order, and its sources. Bookkeeping goes last, as in a subject index.
 ```
 
 For a mathematics lesson, substitute a worked derivation and an independent proof or problem for the runnable code. For hardware and physics, substitute a safe bounded setup, a diagram, a predicted measurement with its uncertainty, and what a disagreeing result would mean. The learning sequence stays the same; Python is not a universal requirement.
@@ -312,7 +361,7 @@ A lesson teaches in **one** language — TypeScript for software-engineering top
 The vault and the EruditeMe platform use these five words, and each one means one thing.
 
 1. **Subject**: A subject is a top-level folder such as `backend/` or `computer-graphics/`. It holds everything about one field, deep and complete, in reading order. It is never on a clock.
-2. **Lesson**: A lesson is one file or folder inside a subject, such as `computer-graphics/02-line-drawing-and-antialiasing.md`. It takes 10–15 minutes and follows the lesson shape above. Lessons are only ever edited in the vault. A file counts as a lesson when its name (or, for a folder lesson, its folder's name) starts with a two-digit number and it holds no numbered files of its own. Section indexes, companions, labs, question banks and solutions don't count, and `lesson: false` in the frontmatter leaves out anything else. `scripts/lesson-ids.py` applies this rule and gives every lesson an `id`.
+2. **Lesson**: A lesson is one file or folder inside a subject, such as `computer-graphics/02-line-drawing-and-antialiasing.md`. It takes 10–15 minutes and follows the lesson shape above. Lessons are only ever edited in the vault. A file counts as a lesson when its name (or, for a folder lesson, its folder's name) starts with a two-digit number and it holds no numbered files of its own. Section indexes, companions, labs, interview banks, question banks and solutions don't count, and `lesson: false` in the frontmatter leaves out anything else. `scripts/lesson-ids.py` applies this rule and gives every lesson an `id`.
 3. **Bite**: A bite is a 3–4 minute piece of a lesson, usually one `##` section with its quiz questions. The platform cuts lessons into bites when it builds, so bites exist only on the platform. A finished bite is what counts towards a streak.
 4. **Course**: A course is a short, ordered list of lessons picked from any subjects, with one promise: "after this, you can do X". It holds no lessons of its own, only links to them, so one lesson can sit in many courses. For example, "Structure a Backend Properly" links six lessons from `backend/` and `concepts/`. A course has no dates and no owner.
 5. **Study plan**: A study plan is one person putting one or more courses on their own calendar, with a pace, start date and reason. For example, "4 bites a day, weekdays, from Monday, to explain backend structure in interviews". Study plans are personal: in the vault they live in `learning/`, and on the platform they are a per-user setting.
@@ -343,6 +392,8 @@ Revision should preserve useful existing detail, links, and file locations. Fix 
 
 - [ ] The prerequisites and outcomes are explicit and realistic.
 - [ ] A course index opens with a plain sentence saying what the subject is, and keeps word counts and build history at the end.
+- [ ] The lesson reads like the author's own notes ("Write it the way the author writes"): each part ends by leading into the next, one example runs through, ideas come before their names.
+- [ ] A lesson opens with a plain sentence saying what the thing is. Its level, contents summary, course position and sources are in "About this lesson" at the end.
 - [ ] A kid version opens the lesson, and says where its analogy stops working.
 - [ ] Definitions are a numbered list in plain full sentences, not a table.
 - [ ] Every result is stated in words before its formula appears.

@@ -4,8 +4,6 @@ id: e45052f9-a5b5-4ce8-86ba-d55e1377eead
 
 # Sine and Cosine Rules
 
-**[Intermediate]** — solving triangles that have no right angle, and the one case where the data does not determine the answer.
-
 ## Before you start
 <!-- bite: ada713d2-bcec-4639-a918-3d631fd6defb -->
 
@@ -406,3 +404,8 @@ You are done with this lesson when you can:
 - [[02-graphs-and-identities|Graphs and Identities]] — the supplement identity that causes the ambiguity
 - [[01-circle-theorems|Circle Theorems]] — the circumcircle the common ratio measures
 - [[01-latitude-and-longitude|Latitude and Longitude]] — the spherical versions of both rules
+
+## About this lesson
+<!-- bite: c47a2328-8792-45e3-933f-5a63461af9dd -->
+
+**Level:** Intermediate. **Covers:** solving triangles that have no right angle, and the one case where the data does not determine the answer.

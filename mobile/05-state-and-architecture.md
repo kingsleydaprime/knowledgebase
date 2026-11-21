@@ -4,8 +4,6 @@ id: c6927b60-f291-41ff-89ea-403630f604a2
 
 # State and Architecture
 
-**[Intermediate]** — the layered shape both platforms converged on, and the rule that makes it work.
-
 ## The kid version first
 <!-- bite: 96590b09-bd3c-4895-bdb1-4638f62058c4 -->
 
@@ -143,5 +141,10 @@ Mobile testing has an awkward cost curve — UI tests are slow and flaky. So:
 - [[mobile/07-data-and-offline-first|offline-first]] — the repository pattern in full
 - [[frontend/02-structuring-a-frontend/index|structuring a frontend]] — the same layering
 - [[backend/03-structuring-a-backend/index|structuring a backend]] — and again
+
+## About this lesson
+<!-- bite: b361b08d-a250-4d07-ae9b-323ea987879d -->
+
+**Level:** Intermediate. **Covers:** the layered shape both platforms converged on, and the rule that makes it work.
 
 *Source: [reference] — Aug 2026.*

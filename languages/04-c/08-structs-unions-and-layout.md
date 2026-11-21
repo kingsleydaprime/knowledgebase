@@ -4,8 +4,6 @@ id: d8636e46-7566-494f-b8d2-6d0c1a7bdd6e
 
 # Structs, Unions and Layout
 
-**[Intermediate]** — Aggregating data, and the padding rules that decide how much memory it actually takes.
-
 ## Structs
 <!-- bite: 08adab8c-4de6-4d17-afd5-64ea33260b43 -->
 
@@ -251,3 +249,8 @@ Their genuine advantage over `#define` is that the debugger knows the names and 
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Rust: Enums]] — tagged unions with the checking built in
 - [[hardware/03-embedded-systems|Embedded Systems]] — where layout control genuinely matters
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: 9c3530f9-74ff-49d0-8dcb-34b605f6fecc -->
+
+**Level:** Intermediate. **Covers:** Aggregating data, and the padding rules that decide how much memory it actually takes.

@@ -4,8 +4,6 @@ id: bbc34816-ce4b-454f-b7bd-1c9439bee68c
 
 # The Standard Library
 
-> **[Intermediate]** · "Batteries included" — the modules worth knowing by name, and the ones that have been superseded.
-
 Python ships a large standard library, and a real part of writing good Python is **knowing what's already there.** The failure mode isn't ignorance of syntax, it's hand-rolling something the stdlib does correctly.
 
 ## `pathlib` — always, over `os.path`
@@ -166,5 +164,10 @@ Notably: HTTP clients (`urllib` exists and is unpleasant — use `requests` or `
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — the third-party layer
 - [[devops/01-linux/12-bash-scripting|bash scripting]] — when a shell script should have been Python
 - [[ai-ml/00-foundations/04-python-and-data-tools/index|Python for data]] — the numeric stack
+
+## About this lesson
+<!-- bite: 9664a42e-0e3e-41bd-9ee3-a64997ffb50c -->
+
+**Level:** Intermediate. **Covers:** "Batteries included" — the modules worth knowing by name, and the ones that have been superseded.
 
 *Source: [reference] — from the Python standard library documentation.*

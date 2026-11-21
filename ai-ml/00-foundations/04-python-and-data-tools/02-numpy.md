@@ -4,8 +4,6 @@ id: 9f4827cf-51a1-42a5-aa6d-e5286a781b79
 
 # NumPy
 
-**[reference / practice]** — the foundation of the entire Python numeric stack (pandas, scikit-learn, PyTorch all build on it). The core skill is a **mental shift: stop writing loops, start operating on whole arrays**. Type these out and run them.
-
 ## The ndarray
 <!-- bite: fab0572f-77fe-4d7b-afde-336adc3904f6 -->
 
@@ -115,3 +113,8 @@ Knowing view-vs-copy avoids a whole class of "why did my data change" bugs.
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — what arrays represent
 - [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]] — labeled tables built on ndarrays
 - [[ai-ml/02-ml-engineer/05-deep-learning/01-neural-network-fundamentals|Neural Network Fundamentals]] — broadcasting is how layers process batches
+
+## About this lesson
+<!-- bite: bd06ac79-e308-4ac6-9d99-cd50f6e0a097 -->
+
+**Level:** reference / practice. **Covers:** the foundation of the entire Python numeric stack (pandas, scikit-learn, PyTorch all build on it). The core skill is a **mental shift: stop writing loops, start operating on whole arrays**. Type these out and run them.

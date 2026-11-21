@@ -4,8 +4,6 @@ id: 7d7c99e6-14a3-4632-a823-32eaaa748e16
 
 # What Web3 Actually Is
 
-**[Beginner]** — the vocabulary, the one technical claim underneath all of it, and how to tell the engineering from the marketing. Assumes nothing.
-
 ## The kid version first
 <!-- bite: 4c59189b-0375-4dc1-8b66-5ca7ceaa85d0 -->
 
@@ -100,5 +98,10 @@ The rest of this course walks up that stack: [[web3/01-foundations/index|01-foun
 - [[web3/08-the-honest-assessment/index|the honest assessment]] — read this early, not last
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|what makes distributed systems hard]] — the field this is a subfield of
 - [[cybersecurity/05-cryptography/index|cryptography]] — the primitives this is assembled from
+
+## About this lesson
+<!-- bite: 83601e92-0d32-42a4-8ed4-b39199cfbff1 -->
+
+**Level:** Beginner. **Covers:** the vocabulary, the one technical claim underneath all of it, and how to tell the engineering from the marketing. Assumes nothing.
 
 *Source: [reference] — Aug 2026.*

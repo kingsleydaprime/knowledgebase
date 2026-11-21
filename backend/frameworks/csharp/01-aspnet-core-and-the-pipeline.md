@@ -4,8 +4,6 @@ id: fdf347d1-ccc2-41a4-a496-c28bbc759870
 
 # ASP.NET Core and the Pipeline
 
-> **[Intermediate]** · The hosting model, the middleware pipeline, and the DI container that everything plugs into.
-
 **ASP.NET Core is not a package you install — it's in the SDK.** `dotnet new webapi` gives you a working server with routing, DI, configuration, logging and health checks already wired.
 
 ## The whole program
@@ -114,5 +112,10 @@ builder.Services.Configure<StripeOptions>(builder.Configuration.GetSection("Stri
 - [[backend/frameworks/csharp/02-minimal-apis-and-mvc|minimal APIs and MVC]] — the two endpoint styles
 - [[languages/07-csharp/index|the C# course]] — the language
 - [[backend/03-structuring-a-backend/index|structuring a backend]] — the layering this doesn't give you
+
+## About this lesson
+<!-- bite: 4950435f-d4da-437a-af59-c6804ace41c2 -->
+
+**Level:** Intermediate. **Covers:** The hosting model, the middleware pipeline, and the DI container that everything plugs into.
 
 *Source: [reference] — from the ASP.NET Core documentation, Aug 2026.*

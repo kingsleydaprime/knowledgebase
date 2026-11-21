@@ -4,8 +4,6 @@ id: 5345ba83-cce7-482a-acf3-53d1bf629972
 
 # Concurrency and Actors
 
-**[Advanced]** — structured concurrency, and Swift 6's data-race safety.
-
 ## async/await
 <!-- bite: 85be550d-a37f-455f-b9af-511f93414c44 -->
 
@@ -133,3 +131,8 @@ final class FeedViewModel: ObservableObject {
 - [[languages/09-kotlin/index|Kotlin coroutines]] — the same problem, similar shape
 - [[os/06-concurrency-primitives|concurrency primitives]] — what's underneath
 - [[languages/03-rust/13-concurrency|Rust's Send/Sync]] — the direct analogue of `Sendable`
+
+## About this lesson
+<!-- bite: a713cd4b-33f6-4ff6-b772-8df10d45688b -->
+
+**Level:** Advanced. **Covers:** structured concurrency, and Swift 6's data-race safety.

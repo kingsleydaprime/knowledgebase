@@ -4,8 +4,6 @@ id: f98e18ce-bced-4309-b9e9-ba3cce5cc2ee
 
 # Caching
 
-> **[Intermediate]** · From the roadmap.sh system-design roadmap. Caching is the highest-leverage performance tool in system design, and the home of one of the two famously hard problems in computer science: invalidation. This lesson covers where caches live, the arithmetic that says how much load a cache takes off a database, why a small cache answers most reads, how cache and database are kept in step, and the two failures caching adds: stale data and the stampede. The worked example carries on with week 1's shop, now putting a cache in front of its product catalogue. The lab checks every number.
-
 ## Before you start
 <!-- bite: b9f9d08d-e9c9-46be-96e5-bfc5d39e91e6 -->
 
@@ -552,3 +550,8 @@ You can work out the hit ratio a system needs from its read rate and its databas
 - [[devops/02-networking-and-web/02-web-servers-and-proxies|Web servers and proxies (DevOps)]]: proxy and CDN caching in practice
 - [[build-your-own-shit/03-your-own-redis|Build your own Redis]]: the shared cache from the inside
 - [[projects/munakalati/learning/04-frontend/02-data-fetching-and-caching|Data fetching and caching]]: the same ideas on the client
+
+## About this lesson
+<!-- bite: e10ae489-f10c-4969-8167-37b91e4469c3 -->
+
+**Level:** Intermediate. **Covers:** From the roadmap.sh system-design roadmap. Caching is the highest-leverage performance tool in system design, and the home of one of the two famously hard problems in computer science: invalidation. This lesson covers where caches live, the arithmetic that says how much load a cache takes off a database, why a small cache answers most reads, how cache and database are kept in step, and the two failures caching adds: stale data and the stampede. The worked example carries on with week 1's shop, now putting a cache in front of its product catalogue. The lab checks every number.

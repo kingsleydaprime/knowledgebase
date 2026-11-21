@@ -4,8 +4,6 @@ id: e378b886-5050-407a-81d6-ccba76ffbbd1
 
 # Processes and Threads
 
-**[Beginner → Intermediate]** — What a process actually consists of, why `fork()` is a strange and brilliant API, and what a thread shares that a process doesn't.
-
 ## A process is four things
 <!-- bite: 5fffe3ab-3fa4-49a5-8349-353bf5eb6ef6 -->
 
@@ -230,3 +228,8 @@ The catch is the same in all of them: **a green thread that blocks in a syscall 
 - [[os/10-signals-and-ipc|Signals and IPC]] — how processes talk
 - [[devops/01-linux/06-process-management|Linux: Process Management]] — the same thing from the shell
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: bbb66301-8666-47f7-97f4-cc00a7efdc60 -->
+
+**Level:** Beginner → Intermediate. **Covers:** What a process actually consists of, why `fork()` is a strange and brilliant API, and what a thread shares that a process doesn't.

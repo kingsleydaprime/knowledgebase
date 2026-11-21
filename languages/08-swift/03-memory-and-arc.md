@@ -4,8 +4,6 @@ id: dbdd715f-a539-4998-9c64-ca69483d9a87
 
 # Memory and ARC
 
-**[Intermediate]** — deterministic memory management without a garbage collector, and the one bug it doesn't prevent.
-
 ## What ARC is
 <!-- bite: 328a61a5-fc5b-45a5-8a8e-72d9236936fa -->
 
@@ -124,3 +122,8 @@ service.onComplete = { [weak self] in
 - [[compilers/11-garbage-collection|garbage collection]] — the alternative approach
 - [[languages/07-csharp/08-memory-gc-and-spans|C# memory]] — a GC'd comparison
 - [[mobile/11-performance-and-battery|performance]] — leaks as a mobile problem
+
+## About this lesson
+<!-- bite: 11e7199c-dc6c-441b-b530-bfa25de4d2f0 -->
+
+**Level:** Intermediate. **Covers:** deterministic memory management without a garbage collector, and the one bug it doesn't prevent.

@@ -4,8 +4,6 @@ id: a2205077-5e88-49b9-bb92-94c894b0c394
 
 # Operator Overloading
 
-**[Intermediate]** — Making your types behave like built-in ones, which is the feature C++ was arguably built around — and the one most easily abused.
-
 ## Why it exists
 <!-- bite: 247e754e-2fbe-409d-bee9-6e9be0da3f90 -->
 
@@ -252,3 +250,8 @@ Go's omission is a considered position: operator overloading makes code shorter 
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — `operator=`
 - [[languages/03-rust/09-traits|Rust: Traits]] — operators as named traits
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 92efebad-b53f-4977-b1be-b6bb9c2bccfc -->
+
+**Level:** Intermediate. **Covers:** Making your types behave like built-in ones, which is the feature C++ was arguably built around — and the one most easily abused.

@@ -4,8 +4,6 @@ id: d15d4d2d-862c-4044-bc0f-1af5799ccf7c
 
 # Why Rust, and the Toolchain
 
-**[Beginner]** — The problem Rust solves that no mainstream language had solved, what it costs you, and the tooling that comes in the box.
-
 **Source:** `[reference]` — cross-referenced against [roadmap.sh Rust](https://roadmap.sh/rust). No Rust project in this vault yet; see [[project-ideas|Project Ideas]].
 
 ## The actual problem
@@ -146,3 +144,8 @@ It names the rule, points at all three relevant lines, and often suggests the fi
 - [[languages/02-go/01-why-go-and-the-toolchain|Go: Why Go]] — the other answer to the same problems
 - [[backend/frameworks/rust/index|Rust Backends]] — Axum and Actix
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 4c3b0839-b0f2-4171-9529-91477ea8f176 -->
+
+**Level:** Beginner. **Covers:** The problem Rust solves that no mainstream language had solved, what it costs you, and the tooling that comes in the box.

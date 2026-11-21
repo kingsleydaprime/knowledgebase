@@ -4,8 +4,6 @@ id: 8590a402-0e39-429f-a2c1-d9d0a256cbb3
 
 # Database Access
 
-**[Intermediate]** — `database/sql`, why Go's ORM story is deliberately weak, and the connection-pool settings that decide whether your service survives load.
-
 ## `database/sql`
 <!-- bite: 11ebbb54-1995-4a1f-b70d-d352e91e7465 -->
 
@@ -224,3 +222,8 @@ func (s *Server) handleReady(w http.ResponseWriter, r *http.Request) {
 - [[databases/sql-reference|SQL Reference]] · [[databases/database-design-reference|Database Design]]
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — pooling and connection limits
 - [[backend/frameworks/go/index|Go backends]]
+
+## About this lesson
+<!-- bite: 056c8254-fdd7-434e-8021-c73243f37413 -->
+
+**Level:** Intermediate. **Covers:** `database/sql`, why Go's ORM story is deliberately weak, and the connection-pool settings that decide whether your service survives load.

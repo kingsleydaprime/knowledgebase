@@ -4,8 +4,6 @@ id: 12c3f2fe-5d18-42fb-b191-e408bebaacbf
 
 # References and `const`
 
-**[Beginner]** — References are the first thing C++ added that changes how you write every function signature. `const` is the first thing that changes how you think about them.
-
 ## References
 <!-- bite: 781cacff-88f0-44cc-9c4f-62e839bf808e -->
 
@@ -220,3 +218,8 @@ f(nullptr);     // unambiguous — nullptr has type std::nullptr_t
 - [[languages/04-c/05-pointers|C: Pointers]] — what references replace
 - [[languages/03-rust/04-borrowing-and-references|Rust: Borrowing]] — references with lifetimes attached
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 6cdcd437-07b0-406c-818d-3566beb532ef -->
+
+**Level:** Beginner. **Covers:** References are the first thing C++ added that changes how you write every function signature. `const` is the first thing that changes how you think about them.

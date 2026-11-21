@@ -4,8 +4,6 @@ id: 76f9a944-abc0-4c53-beb5-aed3125ffb7d
 
 # Secret Management
 
-**[reference]** — from roadmap.sh and the Vault docs.
-
 ## The problem
 <!-- bite: 4457fc59-a85e-4c6b-8521-81351659111d -->
 
@@ -74,3 +72,8 @@ This is the same least-privilege, secure-by-default mindset as the cloud [[devop
 - [[devops/10-orchestration/01-kubernetes|Kubernetes]] — why native k8s Secrets need help
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the "secrets in git" problem these tools solve
 - [[cybersecurity/05-cryptography/index|Cryptography]] — the encryption underneath
+
+## About this lesson
+<!-- bite: 0d375fb3-3dea-4c79-bfd4-182cd6207405 -->
+
+**Level:** reference. **Covers:** from roadmap.sh and the Vault docs.

@@ -4,8 +4,6 @@ id: dfe59854-4dfd-43ec-a2de-beeed1978784
 
 # Nonlinear and Modern Control
 
-**[Advanced]** — What happens when linearisation isn't enough, the tools for handling it, and where the field is going.
-
 ## Why linear methods fail
 <!-- bite: b8974bce-52f1-4fa1-8f56-400b9763dc70 -->
 
@@ -149,3 +147,8 @@ Honest orientation on the modern landscape.
 - [[control-theory/02-modelling-and-transfer-functions|Modelling]] — linearisation and its limits
 - [[robotics/index|Robotics]] — where most of this gets applied
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: daab857a-eb87-47e0-956a-639e7dd09e61 -->
+
+**Level:** Advanced. **Covers:** What happens when linearisation isn't enough, the tools for handling it, and where the field is going.

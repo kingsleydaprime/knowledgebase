@@ -4,10 +4,6 @@ id: 60f79965-261b-4a9b-821c-92b10a179f17
 
 # Module: Bellman–Ford (Shortest Paths When Weights Can Be Negative)
 
-**[Advanced]** — [[02-dijkstra|Dijkstra]] is faster and it is the one everybody names. It is also **wrong** on any graph with a negative edge, and it does not tell you — it returns a plausible number. Bellman–Ford is the algorithm that trades a factor of $V$ for correctness on any weights at all, and it is the only one here that can tell you when "shortest path" has no answer.
-
----
-
 ## Before you start
 <!-- bite: acad4233-1566-4bb1-8a4f-d3de6ec1dfce -->
 
@@ -515,3 +511,8 @@ You can explain Dijkstra's failure in terms of finalisation, derive the $V-1$ bo
 - [[02-paths-cycles-and-connectivity|Paths, Cycles and Connectivity]] — where directed cycle and DAG are defined
 - [[04-representations|Representations]] — why this algorithm wants an edge list
 - [[06-algorithms/index|the graph algorithms index]]
+
+## About this lesson
+<!-- bite: 6b41b5a4-4339-4132-ac6c-dffb43904a4f -->
+
+**Level:** Advanced. **Covers:** [[02-dijkstra|Dijkstra]] is faster and it is the one everybody names. It is also **wrong** on any graph with a negative edge, and it does not tell you — it returns a plausible number. Bellman–Ford is the algorithm that trades a factor of $V$ for correctness on any weights at all, and it is the only one here that can tell you when "shortest path" has no answer.

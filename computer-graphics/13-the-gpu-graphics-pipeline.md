@@ -4,10 +4,6 @@ id: 48d51794-ad68-45a6-b80e-483c713577ac
 
 # The GPU Graphics Pipeline
 
-**[Intermediate → Advanced]** — Shader stages, the modern APIs, and how the graphics pipeline relates to the compute model.
-
-> **[[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] covers the hardware** — SMs, warps, memory. **This note is the graphics-specific programming model built on it.**
-
 ## The stages
 <!-- bite: 338491f5-8387-468a-a890-1aeac19d8053 -->
 
@@ -188,3 +184,10 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 - [[computer-graphics/10-rasterisation|Rasterisation]] — the fixed-function stage
 - [[gpu-and-parallel-computing/03-the-programming-model|The Compute Programming Model]] — the sibling model
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: e64ed263-fad7-4807-9832-729accb33302 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Shader stages, the modern APIs, and how the graphics pipeline relates to the compute model.
+
+**[[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] covers the hardware** — SMs, warps, memory. **This note is the graphics-specific programming model built on it.**

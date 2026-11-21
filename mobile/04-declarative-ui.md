@@ -4,8 +4,6 @@ id: 564897b5-c7ec-414d-ab72-c1861edb0eb9
 
 # Declarative UI
 
-**[Intermediate]** — SwiftUI and Compose are the same idea, and it's the idea React had.
-
 ## The kid version first
 <!-- bite: 7fb93fc1-4224-4935-90d0-49563aecfe76 -->
 
@@ -115,5 +113,10 @@ Both platforms ship strong accessibility support and both stores care:
 - [[frontend/frameworks/react/index|React]] — the same model, and where it came from
 - [[frontend/06-rendering/index|rendering]] — the general theory
 - [[mobile/11-performance-and-battery|performance]]
+
+## About this lesson
+<!-- bite: d28a1fd0-74a0-47f5-970c-4c74abfa5a3c -->
+
+**Level:** Intermediate. **Covers:** SwiftUI and Compose are the same idea, and it's the idea React had.
 
 *Source: [reference] — Aug 2026.*

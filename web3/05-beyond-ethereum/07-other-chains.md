@@ -4,8 +4,6 @@ id: d5f00f81-30b4-453a-9e7f-97dfdda669f2
 
 # The Rest of the Landscape
 
-**[Intermediate]** — the other design families worth knowing, in one note, and how to evaluate a chain you've never heard of.
-
 ## Why one note
 <!-- bite: 20f38c49-7283-407f-b8e4-b6eaa168faa8 -->
 
@@ -77,5 +75,10 @@ Across all the variety, the field is settling on a few things:
 - [[web3/05-beyond-ethereum/04-solana-and-the-alternative-model|Solana]] · [[web3/05-beyond-ethereum/05-bitcoin-and-utxo|Bitcoin]]
 - [[web3/frameworks/rust/index|Rust for web3]] — Solana, CosmWasm, ink!
 - [[programming-language-theory/07-effects-and-substructural-types|substructural types]] — the theory behind Move
+
+## About this lesson
+<!-- bite: 11cf34a0-a86a-401b-9816-7252a8747798 -->
+
+**Level:** Intermediate. **Covers:** the other design families worth knowing, in one note, and how to evaluate a chain you've never heard of.
 
 *Source: [reference] — Aug 2026.*

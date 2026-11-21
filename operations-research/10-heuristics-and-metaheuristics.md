@@ -4,8 +4,6 @@ id: 536f3769-94e9-4dad-beb1-bcda98d90c92
 
 # Heuristics and Metaheuristics
 
-**[Intermediate]** — When exact methods would take too long, you settle for good answers found fast. This note covers building a solution (constructive heuristics), improving it (local search), escaping local optima (simulated annealing, tabu search, genetic algorithms), and — the part most people skip — measuring how good "good" is.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
@@ -255,3 +253,8 @@ You're ready when you can build a nearest-neighbour tour and improve it with 2-o
 - [[dsa/03-algorithms/06-greedy-algorithms/index|DSA: greedy algorithms]] — constructive heuristics are greedy algorithms without the proof
 - [[dsa/04-patterns/14-backtracking|DSA: backtracking]] — exhaustive search, the thing heuristics avoid
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: daafa4b1-125b-4175-8ed6-542759e2d634 -->
+
+**Level:** Intermediate. **Covers:** When exact methods would take too long, you settle for good answers found fast. This note covers building a solution (constructive heuristics), improving it (local search), escaping local optima (simulated annealing, tabu search, genetic algorithms), and — the part most people skip — measuring how good "good" is.

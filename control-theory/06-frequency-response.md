@@ -4,8 +4,6 @@ id: 4bd534f7-7c37-454e-81be-528e4769ee25
 
 # Frequency Response
 
-**[Intermediate]** — Bode plots, what "bandwidth" actually means, and why frequency-domain thinking is how working engineers reason about loops.
-
 ## The idea
 <!-- bite: ab0e9861-75bd-4228-a216-d31d50afd3d7 -->
 
@@ -229,3 +227,8 @@ Given root locus exists, the case for the frequency domain:
 - [[control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — margins done properly
 - [[control-theory/04-pid-control|PID Control]] — what P, I and D do to these plots
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: 5d9813bd-b7cb-44e9-8698-4d36fade9d18 -->
+
+**Level:** Intermediate. **Covers:** Bode plots, what "bandwidth" actually means, and why frequency-domain thinking is how working engineers reason about loops.

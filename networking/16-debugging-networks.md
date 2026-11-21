@@ -4,8 +4,6 @@ id: 1f8c3d4c-2e12-4758-a560-66482e29f295
 
 # Debugging Networks
 
-**[Intermediate]** — the practical payoff. Everything above becomes useful when something is broken at 2am and you need to find out *where*. This note is a method plus a toolkit, in the order you should actually use them.
-
 ## The method: bisect the layers
 <!-- bite: 5f6c27c4-2e9c-4177-8d08-d1ca84871855 -->
 
@@ -171,3 +169,8 @@ Network debugging is **binary search over the stack**, and the reason it feels h
 - [[networking/15-network-performance|Network Performance]] — interpreting the timings
 - [[devops/07-observability/index|Observability]] — turning this into monitoring rather than firefighting
 - [[devops/01-linux/index|Linux]] — the shell fluency this assumes
+
+## About this lesson
+<!-- bite: 11377d70-bed4-4734-a7ad-00470830784c -->
+
+**Level:** Intermediate. **Covers:** the practical payoff. Everything above becomes useful when something is broken at 2am and you need to find out *where*. This note is a method plus a toolkit, in the order you should actually use them.

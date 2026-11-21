@@ -4,8 +4,6 @@ id: a42ea750-dbd8-45a8-b44c-d87ba1814ddc
 
 # Concurrency and the GIL
 
-> **[Advanced]** · Why threads don't speed up computation, when they still help enormously, and how to choose between threading, asyncio and multiprocessing.
-
 ## The GIL
 <!-- bite: 5108e56d-65f6-4f72-bcd3-134a502ccaba -->
 
@@ -123,5 +121,10 @@ For now: assume the GIL, treat free-threading as something to track rather than 
 - [[os/06-concurrency-primitives|concurrency primitives]] — locks, and why they're hard
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime and concurrency models]] — the cross-language comparison
 - [[languages/02-go/06-goroutines-and-channels|goroutines]] — the model Python doesn't have
+
+## About this lesson
+<!-- bite: 070af8df-cde7-4423-a37a-921bdf55e9a8 -->
+
+**Level:** Advanced. **Covers:** Why threads don't speed up computation, when they still help enormously, and how to choose between threading, asyncio and multiprocessing.
 
 *Source: [reference] — from CPython documentation, PEP 703, and the `asyncio`/`multiprocessing` docs.*

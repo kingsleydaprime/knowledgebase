@@ -4,8 +4,6 @@ id: 8c58a772-4417-42bf-a2f1-fb48d14c7b9c
 
 # DeFi Primitives
 
-**[Advanced]** — AMMs, lending, stablecoins and derivatives: the four building blocks nearly all of DeFi is assembled from.
-
 ## The kid version first
 <!-- bite: 1d802733-10ac-45bf-8485-2a53a13d8244 -->
 
@@ -109,3 +107,8 @@ It is also **leverage stacked on unaudited assumptions**. Every layer inherits e
 - [[web3/03-smart-contracts-with-solidity/07-token-standards|token standards]] — ERC-4626 vaults
 - [[web3/08-the-honest-assessment/01-what-blockchains-are-actually-good-for|what blockchains are good for]]
 - [[web3/04-smart-contract-security/06-mev-front-running-and-ordering|MEV]] — liquidations and sandwiching
+
+## About this lesson
+<!-- bite: fd9d117f-3948-445f-8cf4-209a2cf6ed4b -->
+
+**Level:** Advanced. **Covers:** AMMs, lending, stablecoins and derivatives: the four building blocks nearly all of DeFi is assembled from.

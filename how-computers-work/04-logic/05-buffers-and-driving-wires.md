@@ -4,8 +4,6 @@ id: 703e780a-cc31-4cca-9215-89906819abb4
 
 # Module 19: Buffers, Fan-out and Driving Real Wires
 
-**[Intermediate]** — Part V ends with the layer between logic and physics. A gate's output is not an idea — it is a transistor that must physically charge every wire and input it connects to, and there is a limit.
-
 ## Before you start
 <!-- bite: 5789284d-a96b-4786-a937-dcbc3851234d -->
 
@@ -516,3 +514,8 @@ The optimum balances the two, and lands near a branching factor of <strong>3 to 
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — decoders as contention-proof enables
 - [[build-your-own-shit/17-your-own-cpu/04-breadboard|PRIME-1 breadboard track]] — where these three faults actually bite
 - [[hardware/index|hardware/]] — practical electronics and components
+
+## About this lesson
+<!-- bite: c0dec2a7-cdb7-4d01-8951-897feffd4666 -->
+
+**Level:** Intermediate. **Covers:** Part V ends with the layer between logic and physics. A gate's output is not an idea — it is a transistor that must physically charge every wire and input it connects to, and there is a limit.

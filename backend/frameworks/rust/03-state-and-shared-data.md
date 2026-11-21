@@ -4,8 +4,6 @@ id: b5434062-be3a-4423-9bd8-ee8ea835b937
 
 # State and Shared Data
 
-**[Intermediate → Advanced]** — `Arc<AppState>`, why there's no DI container, and the locking decisions that decide whether your async service scales.
-
 ## Ownership meets a web server
 <!-- bite: 7e72e491-d629-479b-a9e0-7c0711a6dc6b -->
 
@@ -247,3 +245,8 @@ async fn creates_user(pool: PgPool) {
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — `Arc<Mutex<T>>` and `Send`/`Sync`
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|DI and Wiring]] — the concept
 - [[backend/frameworks/rust/index|Rust backends]]
+
+## About this lesson
+<!-- bite: ff319f9b-8024-4dd4-92ac-1a968cb6ad1c -->
+
+**Level:** Intermediate → Advanced. **Covers:** `Arc<AppState>`, why there's no DI container, and the locking decisions that decide whether your async service scales.

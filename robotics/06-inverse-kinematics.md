@@ -4,8 +4,6 @@ id: 40d570ae-ef87-4065-ac79-8cbcc2caa525
 
 # Inverse Kinematics
 
-**[Intermediate → Advanced]** — Given where you want the hand, what joint angles get it there? The hard direction, and the one that actually matters.
-
 ## Why it's hard
 <!-- bite: dd50cdbb-e300-4ab9-9073-4235bd231158 -->
 
@@ -159,3 +157,8 @@ The first term achieves the task. **The second does whatever you like, projected
 - [[robotics/07-jacobians-and-singularities|Jacobians and Singularities]] — the maths this depends on
 - [[robotics/10-motion-planning|Motion Planning]] — where IK gets called in a loop
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: d7319b77-2bdf-4969-bc0a-d816ff216935 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Given where you want the hand, what joint angles get it there? The hard direction, and the one that actually matters.

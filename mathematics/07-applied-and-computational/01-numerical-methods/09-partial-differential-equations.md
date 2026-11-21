@@ -4,8 +4,6 @@ id: 2544a86d-4d2e-4d44-afad-53de2348cf97
 
 # Partial Differential Equations
 
-**[Advanced]** — Discretising space as well as time. The CFL condition, and the three method families.
-
 ## Classification decides everything
 <!-- bite: 6d050e43-99b9-40a5-9289-d054e16b0283 -->
 
@@ -173,3 +171,8 @@ $$\frac{d}{dt}\int_{V}u\,dV + \oint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — time stepping, which PDEs reuse
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — the huge sparse solves these produce
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: 9f8f5f09-7aef-4763-95f2-7b99e0ed5858 -->
+
+**Level:** Advanced. **Covers:** Discretising space as well as time. The CFL condition, and the three method families.

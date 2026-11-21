@@ -4,8 +4,6 @@ id: 85fd2af5-7000-42ca-96ef-22abf5dc7078
 
 # Local & Open Models
 
-> **[Intermediate]** · Running a model on your own machine: when it's worth it, which runtime to use, whether a model will fit, what decides its speed, and how much context an agent framework eats before you type. The worked example is real — a study partner set up on a 16 GB laptop on 2026-10-02, with every number measured.
-
 ## Before you start
 <!-- bite: f2f0aea0-c6b2-460c-97e4-5e7a4e98458e -->
 
@@ -336,5 +334,10 @@ You can choose a local model that fits a machine, explain its speed from Ollama'
 - [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-tuning (applied)]] — running your own LoRA on open weights
 - [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — gateways make hosted ↔ local a config change
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — when owning the hardware wins on cost
+
+## About this lesson
+<!-- bite: 6330de0d-9104-4572-9f4b-c59a1758a58c -->
+
+**Level:** Intermediate. **Covers:** Running a model on your own machine: when it's worth it, which runtime to use, whether a model will fit, what decides its speed, and how much context an agent framework eats before you type. The worked example is real — a study partner set up on a 16 GB laptop on 2026-10-02, with every number measured.
 
 *Source: §4–6 and the worked example are grounded — measured on the author's own laptop on 2026-10-02, with the study partner in [[tools/openclaw-study-partner/index|tools/openclaw-study-partner]]. §2–3 are [reference].*

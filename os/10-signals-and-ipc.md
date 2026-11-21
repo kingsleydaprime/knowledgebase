@@ -4,8 +4,6 @@ id: 83ed8d67-c421-4e09-a6a7-91d4d0933bc6
 
 # Signals and IPC
 
-**[Intermediate → Advanced]** — How processes are interrupted and how they talk. Signals are the oldest and most awkward part of Unix; the IPC mechanisms are where shell pipelines and containers get built.
-
 ## Signals
 <!-- bite: 224c1908-8400-47a0-9c20-3cda981255b3 -->
 
@@ -206,3 +204,8 @@ Use it for large data at high frequency — databases (Postgres's shared buffers
 - [[os/06-concurrency-primitives|Concurrency Primitives]] — synchronising shared memory
 - [[devops/01-linux/06-process-management|Linux: Process Management]] — signals from the shell
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: c4219525-734f-4b69-9423-cc3de6cb1cae -->
+
+**Level:** Intermediate → Advanced. **Covers:** How processes are interrupted and how they talk. Signals are the oldest and most awkward part of Unix; the IPC mechanisms are where shell pipelines and containers get built.

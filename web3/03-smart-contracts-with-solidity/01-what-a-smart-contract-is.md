@@ -4,8 +4,6 @@ id: 612060d5-b9f7-4590-bf4b-75025c9109c5
 
 # What a Smart Contract Is
 
-**[Beginner]** — the definition, the four properties that make writing one unlike any other programming, and why the name is misleading.
-
 ## The kid version first
 <!-- bite: 05e69c3b-1c36-493e-8b69-f95b8f9abdda -->
 
@@ -90,5 +88,10 @@ The practices that are *nice to have* elsewhere are **mandatory here**:
 - [[web3/04-smart-contract-security/01-why-this-is-different|why security is different here]] — the fuller argument
 - [[web3/02-ethereum-and-the-evm/01-the-world-computer|the world computer]] — the machine underneath
 - [[concepts/01-best-practices/index|best practices]] — the general versions of these habits
+
+## About this lesson
+<!-- bite: 17380f0d-5ed4-4d11-8e5c-2c65b978246e -->
+
+**Level:** Beginner. **Covers:** the definition, the four properties that make writing one unlike any other programming, and why the name is misleading.
 
 *Source: [reference] — Aug 2026.*

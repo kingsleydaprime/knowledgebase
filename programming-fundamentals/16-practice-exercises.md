@@ -4,8 +4,6 @@ id: 21438855-aa4e-49a9-807f-12afe4f96da4
 
 # Practice Exercises
 
-> **[Beginner]** · Sixteen exercises over the whole course. **This is the note that turns the previous fourteen into a skill.**
-
 The course's own honest note says it plainly: *"this is a reading course with no problems in it, which is exactly the criticism note 12 makes of reading courses."* This is that fixed.
 
 **Use any language.** Examples are in Python because it has the least syntax between you and the idea, but every exercise works in JavaScript, Java, Go or C — and doing a few in a second language is itself exercise 2.
@@ -107,5 +105,10 @@ Then: [[dsa/index|DSA]] for efficiency, or [[languages/06-python/index|Python]] 
 - [[programming-fundamentals/17-practice-exercises-solutions|Solutions]] — after you've tried
 - [[programming-fundamentals/index|the course]]
 - [[learning/06-ai-as-sparring-partner|AI as sparring partner]] — **how to use an LLM on these without wasting them**
+
+## About this lesson
+<!-- bite: 77b61e9b-73b6-41e6-971b-462035424517 -->
+
+**Level:** Beginner. **Covers:** Sixteen exercises over the whole course. **This is the note that turns the previous fourteen into a skill.**
 
 *Source: [reference] — written Aug 2026 to close the gap this course's own README named.*

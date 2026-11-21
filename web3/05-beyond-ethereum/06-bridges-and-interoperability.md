@@ -4,8 +4,6 @@ id: 7cc4c095-e6e9-403b-b645-70c9c36519d6
 
 # Bridges and Interoperability
 
-**[Advanced]** — how assets move between chains, why bridges hold the worst security record in the field, and how to evaluate one.
-
 ## The kid version first
 <!-- bite: 4f695132-317d-4cfc-b540-affe9d2340f7 -->
 
@@ -100,5 +98,10 @@ The generalisation: pass **arbitrary messages**, not just assets — so a contra
 - [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zero-knowledge proofs]] — the endgame for verification
 - [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|rollups]] — native bridges
 - [[web3/04-smart-contract-security/03-access-control-and-key-management|key management]]
+
+## About this lesson
+<!-- bite: 942b2740-ee46-4ff8-8fcb-23d610f24aac -->
+
+**Level:** Advanced. **Covers:** how assets move between chains, why bridges hold the worst security record in the field, and how to evaluate one.
 
 *Source: [reference] — Aug 2026.*

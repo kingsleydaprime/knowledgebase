@@ -4,8 +4,6 @@ id: 610c9bd1-c5d6-4fb6-9359-5a2af81eac08
 
 # Coroutines and Flow
 
-**[Advanced]** — Kotlin's concurrency model, and the single most important thing to learn in the language.
-
 ## The idea
 <!-- bite: 5415b643-5eab-4713-a85a-8f7c4b7adebb -->
 
@@ -165,3 +163,8 @@ supervisorScope {
 - [[languages/08-swift/10-concurrency-and-actors|Swift concurrency]] — the same problem, similar shape
 - [[mobile/frameworks/android/index|Android]] — where this is used daily
 - [[languages/01-java/index|Java concurrency]] — what this replaces
+
+## About this lesson
+<!-- bite: c0b53b8a-bbd9-4cbc-98d0-a0c155ddb644 -->
+
+**Level:** Advanced. **Covers:** Kotlin's concurrency model, and the single most important thing to learn in the language.

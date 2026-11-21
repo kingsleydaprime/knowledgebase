@@ -4,8 +4,6 @@ id: b1aeb353-051d-4e63-a492-19fcb24640d6
 
 # Dispersion and Cumulative Frequency
 
-**[Beginner]** — how spread out the data is, and why the variance formula divides by $n-1$ rather than $n$.
-
 ## Before you start
 <!-- bite: ac4c5b64-89d5-4651-baae-e8edc6f69818 -->
 
@@ -378,3 +376,8 @@ You are done with this lesson when you can:
 - [[01-descriptive-statistics/01-descriptive-statistics|Descriptive Statistics]] — centre, of which this is the other half
 - [[04-random-variables-and-distributions/01-distributions|Distributions]] — where mean and variance become parameters
 - [[05-inference-and-estimation/01-inference|Inference and Estimation]] — where $\sigma/\sqrt{n}$ comes from
+
+## About this lesson
+<!-- bite: 0f7002de-cb11-417d-84e8-c61406529bd2 -->
+
+**Level:** Beginner. **Covers:** how spread out the data is, and why the variance formula divides by $n-1$ rather than $n$.

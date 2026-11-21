@@ -4,8 +4,6 @@ id: 96cfa2bd-23ce-41ce-b0a2-79f6d29cdd93
 
 # Authentication and Kerberos
 
-**[Advanced]** — how AD proves who you are, because nearly every named AD attack is an abuse of this one protocol.
-
 ## The kid version first
 <!-- bite: eeb5bed7-a9aa-40aa-86bd-28bbe2c62d30 -->
 
@@ -99,5 +97,10 @@ The recurring phrase in AD attacks is *"as any authenticated domain user."* Once
 - [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|lateral movement]] — Golden/Silver tickets, DCSync
 - [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures and PKI]] — the crypto Kerberos relies on
 - [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]] — the general principles
+
+## About this lesson
+<!-- bite: d99d1db5-4a5c-4c8a-b32c-6d97a5541c63 -->
+
+**Level:** Advanced. **Covers:** how AD proves who you are, because nearly every named AD attack is an abuse of this one protocol.
 
 *Source: [reference] — Aug 2026.*

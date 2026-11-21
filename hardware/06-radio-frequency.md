@@ -4,8 +4,6 @@ id: 6d3ebdf3-cec8-4f4c-a9f1-9b1f0e451810
 
 # Radio Frequency (RF)
 
-**[Intermediate → Advanced]** — The longest note here, and the one with the least intuition available for free: spectrum, modulation, link budgets, antennas, and the IoT radio protocols you'll actually meet.
-
 This is where embedded systems get wild. RF is how your devices talk wirelessly — and understanding it separates people who copy-paste WiFi examples from people who can actually design reliable wireless systems.
 
 ## The Electromagnetic Spectrum
@@ -219,3 +217,8 @@ Sub-1GHz (433MHz, 868MHz, 915MHz) is much less congested — fewer devices opera
 - [[hardware/05-communication-protocols|Communication Protocols]] — the wired equivalents
 - [[hardware/07-connectivity|Connectivity]] — choosing between radio and a cable
 - [[hardware/08-iot-architecture|IoT Architecture]] — what these radios carry
+
+## About this lesson
+<!-- bite: 10df695c-56c4-447a-8d4a-e1b8bf5cf631 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The longest note here, and the one with the least intuition available for free: spectrum, modulation, link budgets, antennas, and the IoT radio protocols you'll actually meet.

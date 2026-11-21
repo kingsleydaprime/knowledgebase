@@ -4,8 +4,6 @@ id: b8db9ba2-9797-403c-b7e2-88d8622b1da4
 
 # Why Swift, and the Toolchain
 
-**[Beginner]** — what Swift is for, and the tooling reality.
-
 ## What Swift is
 <!-- bite: f9ddb716-8b36-4d80-afac-b87606c4db0e -->
 
@@ -73,3 +71,8 @@ Swift moves fast. **Swift 6 (2024) introduced strict concurrency checking** — 
 - [[languages/08-swift/index|the Swift course]]
 - [[mobile/frameworks/ios/index|iOS]] — the platform
 - [[languages/index|languages]] — the rule about what lives here
+
+## About this lesson
+<!-- bite: aa4a8434-9533-4f4f-a247-2b5c4d685d73 -->
+
+**Level:** Beginner. **Covers:** what Swift is for, and the tooling reality.

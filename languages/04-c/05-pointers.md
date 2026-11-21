@@ -4,8 +4,6 @@ id: deb0fb82-7880-45d3-83d6-e61796249e29
 
 # Pointers
 
-**[Beginner → Intermediate]** — A variable holding an address. Simple to state, and the thing everything else in C is built from.
-
 ## The basics
 <!-- bite: a904bf8d-e2c7-4636-8047-ddbf0a0744cb -->
 
@@ -263,3 +261,8 @@ The tools that catch these in C — ASan, Valgrind — are runtime and only find
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — the consequences
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — the systematic fix
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: c28a81e1-ce7d-4670-857b-c68dbdd5752f -->
+
+**Level:** Beginner → Intermediate. **Covers:** A variable holding an address. Simple to state, and the thing everything else in C is built from.

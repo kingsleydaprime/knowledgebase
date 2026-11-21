@@ -4,8 +4,6 @@ id: 09576e26-78b2-466a-a884-7d0482669284
 
 # Recommendation Systems
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. One of the highest-business-value ML applications — the engine behind "recommended for you," feeds, and product suggestions.
-
 ## The problem
 <!-- bite: f5283a55-3935-4bdd-951d-11689a3b7602 -->
 
@@ -46,3 +44,8 @@ A subtle, important issue: recommenders **shape the behavior they then learn fro
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/03-nlp-and-embeddings|NLP & Embeddings]] — the embedding idea recommenders rely on
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — the same similarity-search machinery, applied
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|Serving & Operations]] — A/B testing and feedback loops
+
+## About this lesson
+<!-- bite: 469b37ef-c617-452e-8b8f-aa89c92fe2f5 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. One of the highest-business-value ML applications — the engine behind "recommended for you," feeds, and product suggestions.

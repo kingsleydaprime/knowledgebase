@@ -4,8 +4,6 @@ id: 5baf4234-3a5a-47eb-bcdb-ab8d5287ce8d
 
 # The C Frameworks
 
-**[Intermediate]** — libmicrohttpd, Kore, Ulfius, civetweb: what each is for, and the honest question of when any of them is the right answer.
-
 ## The options
 <!-- bite: faab7037-6361-4891-acc2-97ddb870f430 -->
 
@@ -198,3 +196,8 @@ That last one is worth emphasising: **a hardened reverse proxy in front of your 
 - [[backend/frameworks/c/04-when-not-to-use-c|When Not to Use C]] — the decision, in full
 - [[backend/frameworks/cpp/index|C++ backends]] — usually the better answer for an existing native codebase
 - [[backend/frameworks/c/index|C backends]]
+
+## About this lesson
+<!-- bite: 6d47149a-d69e-436c-ac4d-10e25b49652b -->
+
+**Level:** Intermediate. **Covers:** libmicrohttpd, Kore, Ulfius, civetweb: what each is for, and the honest question of when any of them is the right answer.

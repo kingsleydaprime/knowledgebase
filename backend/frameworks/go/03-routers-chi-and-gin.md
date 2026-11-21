@@ -4,8 +4,6 @@ id: 15ea85bb-ff10-495e-8354-e99e47a254fa
 
 # Routers: Chi and Gin
 
-**[Intermediate]** — What a router actually adds now that the stdlib has method matching, and the philosophical split between the two main options.
-
 ## What changed in Go 1.22
 <!-- bite: f3d4d1db-a11b-4073-867e-1dfba9d9696c -->
 
@@ -175,3 +173,8 @@ Fiber deserves a warning: fasthttp is faster in benchmarks and incompatible with
 - [[backend/frameworks/go/04-structuring-a-go-service|Structuring a Go Service]] — where routes get wired
 - [[backend/frameworks/index|frameworks/]] — the cross-stack translation table
 - [[backend/frameworks/go/index|Go backends]]
+
+## About this lesson
+<!-- bite: 3b907a96-4c2e-46c6-b945-589c0b5822bd -->
+
+**Level:** Intermediate. **Covers:** What a router actually adds now that the stdlib has method matching, and the philosophical split between the two main options.

@@ -4,8 +4,6 @@ id: b226890c-5d71-4f48-80ae-bb8a3959a939
 
 # RNNs, LSTMs & GRUs
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. The pre-transformer approach to sequences — still worth understanding, both historically and because the problems they solved explain *why* [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|transformers]] look the way they do.
-
 ## Why sequences need special architectures
 <!-- bite: 65da6871-16b2-4f87-bb2a-ae2683450321 -->
 
@@ -56,3 +54,8 @@ RNNs/LSTMs have two structural limits transformers fixed:
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers & Attention]] — what replaced these and why
 - [[ai-ml/02-ml-engineer/05-deep-learning/01-neural-network-fundamentals|Neural Network Fundamentals]] — vanishing gradients, the core problem here
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/03-nlp-and-embeddings|NLP & Embeddings]] — how text becomes model input
+
+## About this lesson
+<!-- bite: 7dade1fa-b8b3-47b9-9fd5-e591acbe718e -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. The pre-transformer approach to sequences — still worth understanding, both historically and because the problems they solved explain *why* [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|transformers]] look the way they do.

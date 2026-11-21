@@ -4,8 +4,6 @@ id: 1a964a6c-9604-490e-9899-098d5980eac8
 
 # Errors and Exceptions
 
-> **[Intermediate]** · EAFP, the exception hierarchy, and why `except Exception: pass` is the worst line you can write.
-
 Python uses exceptions for control flow far more readily than most languages, and this is a deliberate cultural difference rather than an accident.
 
 ## LBYL and EAFP
@@ -153,5 +151,10 @@ except* ValueError as eg: ...
 - [[programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the language-agnostic version
 - [[languages/02-go/05-errors|errors in Go]] — the errors-as-values contrast
 - [[backend/06-cross-cutting/index|cross-cutting concerns]] — error handling at an API boundary
+
+## About this lesson
+<!-- bite: c0cc0f6c-60d3-40aa-ab1a-394cc0f6cf83 -->
+
+**Level:** Intermediate. **Covers:** EAFP, the exception hierarchy, and why `except Exception: pass` is the worst line you can write.
 
 *Source: [reference] — from the Python tutorial and language reference.*

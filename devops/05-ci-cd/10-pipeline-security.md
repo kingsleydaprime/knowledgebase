@@ -4,8 +4,6 @@ id: a606c35b-9b15-4b85-9d8c-8d62deb3980c
 
 # Securing the Pipeline
 
-**[Intermediate → Advanced]** — Your CI system holds production credentials and runs arbitrary third-party code. Secret handling, least privilege, dependency scanning, OIDC instead of long-lived keys, and supply-chain hardening.
-
 ## Secret Management Best Practices
 <!-- bite: 11e95843-705f-4cee-aa71-bffa778dfa18 -->
 
@@ -146,3 +144,8 @@ permissions:
 - [[cybersecurity/index|Cybersecurity]] — supply-chain attacks in their wider context
 - [[devops/05-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — the mechanics being hardened here
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: 07480c5b-2472-4a36-82e3-f2a1aaa86a8e -->
+
+**Level:** Intermediate → Advanced. **Covers:** Your CI system holds production credentials and runs arbitrary third-party code. Secret handling, least privilege, dependency scanning, OIDC instead of long-lived keys, and supply-chain hardening.

@@ -4,8 +4,6 @@ id: 35791ee4-0897-4ea8-bbb0-08951890c011
 
 # Testing and Production
 
-> **[Intermediate]** · `WebApplicationFactory`, Testcontainers, and getting an ASP.NET Core service into production sensibly.
-
 ## Integration testing is unusually good here
 <!-- bite: aa939c9c-3857-453d-b31a-66bc4e7c5a2c -->
 
@@ -136,5 +134,10 @@ ConnectionStrings__Db=Host=...;Password=...
 - [[backend/frameworks/csharp/03-data-access|data access]]
 - [[languages/07-csharp/12-testing-and-tooling|C#: testing and tooling]] — the unit-test layer
 - [[devops/07-observability/index|observability]] · [[devops/05-ci-cd/index|CI/CD]]
+
+## About this lesson
+<!-- bite: 5638f8fd-3c10-4eb0-9493-8397e57dad57 -->
+
+**Level:** Intermediate. **Covers:** `WebApplicationFactory`, Testcontainers, and getting an ASP.NET Core service into production sensibly.
 
 *Source: [reference] — from the ASP.NET Core documentation, Aug 2026.*

@@ -4,8 +4,6 @@ id: fb4a14f2-e228-42c7-a647-ccabee1c283a
 
 # Module: Connected Components (How Many Separate Groups Are There?)
 
-**[Intermediate]** — The simplest question you can ask about a graph, and the one asked most often in practice: **given these things and the connections between them, how many separate clusters are there, and who is in each?**
-
 Teams and the meetings between them. Users and their friendships. Servers and their network links. Pixels and their neighbours. It is the same question every time, it has three standard answers, and **choosing between them is decided by one thing: whether the edges are all known up front.**
 
 ---
@@ -646,3 +644,8 @@ You can count components and list their members three ways, use the counting ide
 - [[02-amortized-analysis|Amortised Analysis]] — why union-find is $O(\alpha(V))$ and why only a potential argument proves it
 - [[03-traversal-trees-and-edge-classification|Traversal Trees and Edge Classification]] — the finish times SCCs are built on
 - [[06-algorithms/index|the graph algorithms index]]
+
+## About this lesson
+<!-- bite: 9805bac1-2893-4bd3-9674-6476c254d312 -->
+
+**Level:** Intermediate. **Covers:** The simplest question you can ask about a graph, and the one asked most often in practice: **given these things and the connections between them, how many separate clusters are there, and who is in each?**

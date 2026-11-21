@@ -4,10 +4,6 @@ id: 62ebe148-6be8-4375-9f61-1e176de250b7
 
 # Floating Point and Error
 
-**[Intermediate]** — Machine epsilon, cancellation, and how to analyse the error in a computation rather than hoping.
-
-> **The format itself is in [[computer-architecture/02-data-representation|Data Representation]]** — sign/exponent/mantissa, NaN, denormals. **This note is what it means for numerical work**: how error propagates, and how to write algorithms that don't amplify it.
-
 ## Machine epsilon
 <!-- bite: 36bc7109-f836-42dc-80fd-04c2618eb1a1 -->
 
@@ -200,3 +196,10 @@ if x != x:  # x is NaN
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — where conditioning bites hardest
 - [[mathematics/07-applied-and-computational/01-numerical-methods/01-why-numerical-methods|Why Numerical Methods]] — conditioning vs stability
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: d49829da-a696-4639-83c1-447a8675220f -->
+
+**Level:** Intermediate. **Covers:** Machine epsilon, cancellation, and how to analyse the error in a computation rather than hoping.
+
+**The format itself is in [[computer-architecture/02-data-representation|Data Representation]]** — sign/exponent/mantissa, NaN, denormals. **This note is what it means for numerical work**: how error propagates, and how to write algorithms that don't amplify it.

@@ -4,7 +4,7 @@ id: ff543b63-afd9-40b6-813f-fd90b33468f0
 
 # Layers — Controllers, Services, Repositories
 
-**[Beginner→Intermediate]** — the structure almost every backend converges on, in every language. Spring calls them `@RestController`/`@Service`/`@Repository`; NestJS calls them controller/service/repository; Django calls them views/services/managers; Rails calls them controllers/services/models. **Same three jobs, different vocabulary** — which is exactly why this note lives in the course and not in a framework folder.
+**Layering a backend means splitting its code into three jobs: controllers that talk to the outside world, services that hold the business rules, and repositories that store and fetch the data.** It works like a restaurant: the waiter takes the order, the chef decides what to cook, and the pantry keeps the ingredients. Each layer only talks to the one next to it, so you can change one without breaking the others.
 
 ## Before you start
 <!-- bite: 784de189-6a4d-4c1c-ab59-51007af083b3 -->
@@ -320,3 +320,8 @@ Layering isn't about having three folders — it's about **which direction knowl
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency Injection]] — how the layers get connected
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal & Clean Architecture]] — layering with the dependency rule enforced
 - [[concepts/02-design-patterns/index|Design Patterns]] — repository, adapter, and friends
+
+## About this lesson
+<!-- bite: 77867bc6-55cf-4f6b-b348-40c27e65b4b7 -->
+
+**Level:** Beginner→Intermediate. **Covers:** the structure almost every backend converges on, in every language. Spring calls them `@RestController`/`@Service`/`@Repository`; NestJS calls them controller/service/repository; Django calls them views/services/managers; Rails calls them controllers/services/models. **Same three jobs, different vocabulary** — which is exactly why this note lives in the course and not in a framework folder.

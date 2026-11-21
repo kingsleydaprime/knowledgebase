@@ -4,8 +4,6 @@ id: 32ec3be0-58f4-4bb9-90c0-de1fe68c9caf
 
 # Code Generation
 
-**[Advanced]** — IR to machine code: picking instructions, allocating registers, and obeying the calling convention.
-
 ## The three problems
 <!-- bite: bca734af-08f1-44dd-a74a-537d8ef5eba6 -->
 
@@ -200,3 +198,8 @@ For a JIT specifically, Cranelift or a hand-rolled assembler over a small instru
 - [[os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]] — the calling convention as a contract
 - [[languages/04-c/12-build-systems|C: Build Systems]] — assembling and linking, practically
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: 587b0473-6afa-4bc8-860b-f9ef4eb27b03 -->
+
+**Level:** Advanced. **Covers:** IR to machine code: picking instructions, allocating registers, and obeying the calling convention.

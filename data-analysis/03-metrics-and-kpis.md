@@ -4,8 +4,6 @@ id: ebe57544-b3fa-4e0a-ac50-56c72e4a1cf5
 
 # Metrics and KPIs
 
-**[Intermediate]** — how to define what's worth measuring, why most metrics mislead, and the laws that govern what happens once you start optimising one.
-
 ## The kid version first
 <!-- bite: 73ee9e6b-c500-44e6-90d4-62c63d723458 -->
 
@@ -112,5 +110,10 @@ The unglamorous but critical part: **an ambiguous metric definition means every 
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — the specific product metrics
 - [[data-analysis/07-dashboards-and-bi|dashboards and BI]] — where metrics get surfaced (and their definitions live)
 - [[systems-engineering/05-trade-studies|trade studies]] — weighting criteria, the same "what do we optimise" problem
+
+## About this lesson
+<!-- bite: fe252f14-def9-4bf2-a4ec-7cdaf8b56afb -->
+
+**Level:** Intermediate. **Covers:** how to define what's worth measuring, why most metrics mislead, and the laws that govern what happens once you start optimising one.
 
 *Source: [reference] — Goodhart's Law, and modern analytics practice. Sep 2026.*

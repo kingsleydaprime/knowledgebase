@@ -4,10 +4,6 @@ id: 6036e266-bac3-4e0f-a429-34afd8bd84d8
 
 # Module: Floyd–Warshall (Every Shortest Path, in Three Lines)
 
-**[Advanced]** — [[02-dijkstra|Dijkstra]] and [[03-bellman-ford|Bellman–Ford]] answer "shortest path **from this source**". Floyd–Warshall answers "shortest path **between every pair**", in $O(V^3)$, with a triple loop short enough to write from memory. It is also the cleanest dynamic program in this course — the state, the transition and the base case are all visible in five lines — which makes it worth studying even when you would not deploy it.
-
----
-
 ## Before you start
 <!-- bite: 9b6b850c-ff61-48c1-afda-a8477d268d93 -->
 
@@ -640,3 +636,8 @@ You can state the subproblem Floyd–Warshall solves, explain why $k$ must be th
 - [[15-dynamic-programming|Dynamic Programming]] — the technique this is an instance of
 - [[02-paths-cycles-and-connectivity|Paths, Cycles and Connectivity]] — reachability and the transitive closure
 - [[06-algorithms/index|the graph algorithms index]]
+
+## About this lesson
+<!-- bite: 8f05184f-7c75-43cd-87eb-e278ad7c97fc -->
+
+**Level:** Advanced. **Covers:** [[02-dijkstra|Dijkstra]] and [[03-bellman-ford|Bellman–Ford]] answer "shortest path **from this source**". Floyd–Warshall answers "shortest path **between every pair**", in $O(V^3)$, with a triple loop short enough to write from memory. It is also the cleanest dynamic program in this course — the state, the transition and the base case are all visible in five lines — which makes it worth studying even when you would not deploy it.

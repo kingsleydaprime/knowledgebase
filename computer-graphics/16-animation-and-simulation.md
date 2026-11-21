@@ -4,8 +4,6 @@ id: ee555b02-8c1c-45e7-91b9-9ec49c5b36c2
 
 # Animation and Simulation
 
-**[Intermediate → Advanced]** — Making things move. Skinning, physics engines, and why game physics and robotics simulation are the same subject.
-
 ## Keyframe animation
 <!-- bite: 675129fb-7994-4273-a921-2450f7e3345d -->
 
@@ -159,3 +157,8 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators and why symplectic matters
 - [[computer-graphics/15-geometry-and-meshes|Geometry and Meshes]] — what gets deformed
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: 0f29dd82-a1ca-401d-8bda-05e243b4f223 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Making things move. Skinning, physics engines, and why game physics and robotics simulation are the same subject.

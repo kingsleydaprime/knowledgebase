@@ -4,8 +4,6 @@ id: 2d30340a-f84d-4f71-9cad-aa333fb3ba15
 
 # Variables and Types
 
-> **[Beginner]** · Named storage, the types that go in it, and the reference-vs-value distinction that causes more confusion than anything else in this course.
-
 A **variable** is a name for a piece of storage holding a value you can look at and change.
 
 The usual metaphor is a labelled box: write a label, put something in, look inside later, swap the contents. It's a good starting model and it breaks in one specific way that matters — covered below.
@@ -155,5 +153,10 @@ What actually matters:
 - [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]] — why `0.1 + 0.2` isn't `0.3`
 - [[computer-architecture/02-data-representation|data representation]] — how these are actually stored
 - [[concepts/01-best-practices/01-clean-code/index|clean code]] — naming, at length
+
+## About this lesson
+<!-- bite: ec3f943c-4443-484e-9914-3a5a3ff5a9ef -->
+
+**Level:** Beginner. **Covers:** Named storage, the types that go in it, and the reference-vs-value distinction that causes more confusion than anything else in this course.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the reference-vs-value and float-precision material it left out.*

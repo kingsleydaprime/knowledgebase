@@ -4,8 +4,6 @@ id: 1a2f2695-b4c8-4564-9f6b-81ebd5af6e39
 
 # Input Validation and Injection
 
-**[Intermediate → Advanced]** — the injection classes as they hit APIs, and SSRF — the API-era vulnerability that turns your server into the attacker's proxy.
-
 ## The kid version first
 <!-- bite: 600df6e3-c702-49e0-919b-3342c33ae64e -->
 
@@ -81,5 +79,10 @@ Injection is injection: **untrusted input is treated as code/commands instead of
 - [[cybersecurity/09-cloud-security/index|cloud security]] — the SSRF-to-metadata attack path
 - [[cybersecurity/14-api-security/03-authorization-and-bola|authorization]] — the other "trust the input" family
 - [[backend/02-api-design/index|API design]] — schema validation while building
+
+## About this lesson
+<!-- bite: 00b3902d-afcf-4fa1-8786-69316e76e905 -->
+
+**Level:** Intermediate → Advanced. **Covers:** the injection classes as they hit APIs, and SSRF — the API-era vulnerability that turns your server into the attacker's proxy.
 
 *Source: [reference] — OWASP API7 (SSRF). Aug 2026.*

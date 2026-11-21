@@ -4,8 +4,6 @@ id: b3530cdd-df33-4654-b98d-f2ab0b68673e
 
 # Routing — Finding a Path Nobody Knows
 
-**[Intermediate]** — how a packet crosses a dozen networks owned by companies that have no contract with each other, when **no single machine anywhere knows the whole path**.
-
 ## The kid version first
 <!-- bite: 8406412b-62c8-4558-9997-4240aa089c1a -->
 
@@ -87,3 +85,8 @@ No entity on the internet knows the route your packet takes. Routing is an **eme
 - [[networking/16-debugging-networks|Debugging Networks]] — traceroute/mtr in practice
 - [[networking/15-network-performance|Network Performance]] — why path length is a latency floor
 - [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection & Membership]] — gossip, the same convergence problem one layer up
+
+## About this lesson
+<!-- bite: c64e5f68-358d-4a9b-b007-b98d6b65b945 -->
+
+**Level:** Intermediate. **Covers:** how a packet crosses a dozen networks owned by companies that have no contract with each other, when **no single machine anywhere knows the whole path**.

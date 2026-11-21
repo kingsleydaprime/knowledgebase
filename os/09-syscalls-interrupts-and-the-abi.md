@@ -4,8 +4,6 @@ id: 508dc2fc-9c77-4490-80dc-6c63d07f9fd8
 
 # Syscalls, Interrupts and the ABI
 
-**[Advanced]** — Crossing the privilege boundary, what it costs, and the one mechanism that handles system calls, hardware interrupts, page faults and division by zero.
-
 ## One mechanism, four names
 <!-- bite: adff4951-c078-4ff1-b2d6-610abe1377dc -->
 
@@ -200,3 +198,8 @@ This is what `bcc`, `bpftrace`, Cilium, Falco and most modern observability tool
 - [[os/10-signals-and-ipc|Signals and IPC]] — the kernel interrupting *you*
 - [[languages/03-rust/15-unsafe-and-ffi|Rust: FFI]] — the ABI in use
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: 5460b776-3892-4a0e-a4d6-11361adba6e1 -->
+
+**Level:** Advanced. **Covers:** Crossing the privilege boundary, what it costs, and the one mechanism that handles system calls, hardware interrupts, page faults and division by zero.

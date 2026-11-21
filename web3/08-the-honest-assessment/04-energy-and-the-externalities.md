@@ -4,8 +4,6 @@ id: 9d8cee68-2ec1-48e2-b818-3d60ead8f14c
 
 # Energy and the Externalities
 
-**[Intermediate]** — the numbers, what the Merge actually changed, and the criticisms that survive it.
-
 ## The proof-of-work numbers
 <!-- bite: 1ecaf729-60e7-46f1-81b9-ff506f332a86 -->
 
@@ -72,5 +70,10 @@ Ethereum's move to proof-of-stake in September 2022 cut its energy use by **roug
 - [[web3/02-ethereum-and-the-evm/06-the-ethereum-roadmap|the Ethereum roadmap]] — the Merge
 - [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|the fraud surface]]
 - [[web3/08-the-honest-assessment/01-what-blockchains-are-actually-good-for|what blockchains are actually good for]]
+
+## About this lesson
+<!-- bite: e52340ca-fee1-4b21-be72-77994e88ab6d -->
+
+**Level:** Intermediate. **Covers:** the numbers, what the Merge actually changed, and the criticisms that survive it.
 
 *Source: [reference] — figures approximate, Aug 2026. Cambridge CBECI is the standard reference for Bitcoin consumption.*

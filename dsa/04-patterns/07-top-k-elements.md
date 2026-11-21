@@ -4,8 +4,6 @@ id: 66c55c60-b4f9-419f-aff9-eca9c8ba0fef
 
 # Pattern: Top 'K' Elements
 
-**[Intermediate]** — A university-level introduction to the top-k elements pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 36d6bf9c-d0b3-4862-9a25-d34653c53791 -->
 
@@ -371,3 +369,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Database systems:** Finding top k query results
 
 The core idea — maintaining a collection of the k best elements seen so far — is a fundamental algorithmic technique that appears whenever you need to find the top k elements without sorting the entire collection.
+
+## About this lesson
+<!-- bite: 2490e3a8-7347-4570-8230-60b2574d233d -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the top-k elements pattern: what it is, why it exists, how it works, and how to implement it independently.

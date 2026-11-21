@@ -4,8 +4,6 @@ id: 10c51920-f88c-4b09-b906-43ab2d5ccee5
 
 # The Accept Loop and Event Loops
 
-**[Advanced]** — Building the thing every other framework in this vault is built on. This is where Node's event loop, Go's netpoller and tokio's reactor actually live.
-
 **Source:** `[reference]`. Assumes [[languages/04-c/index|the C course]] and [[networking/09-sockets-and-the-network-api|sockets]].
 
 ## The blocking server
@@ -234,3 +232,8 @@ Also: idle timeouts (walk connections by `last_active`, or use a `timerfd`), fil
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — where this sits
 - [[languages/03-rust/14-async-and-tokio|Rust: Async]] — the state machine, generated
 - [[backend/frameworks/c/index|C backends]]
+
+## About this lesson
+<!-- bite: b05a913f-b9c4-4ee5-aeb3-3cd636027b9d -->
+
+**Level:** Advanced. **Covers:** Building the thing every other framework in this vault is built on. This is where Node's event loop, Go's netpoller and tokio's reactor actually live.

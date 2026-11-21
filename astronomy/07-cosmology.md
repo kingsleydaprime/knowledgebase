@@ -4,8 +4,6 @@ id: b1928688-b079-4934-81e1-f407bc0cf0a1
 
 # Cosmology
 
-> **[Intermediate → Advanced]** · The universe as one object — what's established, what's inferred, and what nobody knows.
-
 ## The expanding universe
 <!-- bite: b4000b04-ec4c-4738-9d11-34949c0e8f94 -->
 
@@ -94,5 +92,10 @@ Determined by dark energy's behaviour, which is not well constrained:
 - [[astronomy/04-stars|stars]] — where the elements came from
 - [[information-theory/index|information theory]] — entropy and heat death
 - [[research/index|research]] — how claims like these get tested
+
+## About this lesson
+<!-- bite: e356eb95-3aeb-4fb8-8a55-e98eeffd0766 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The universe as one object — what's established, what's inferred, and what nobody knows.
 
 *Source: [reference] — written Aug 2026 from standard cosmology texts and current survey results.*

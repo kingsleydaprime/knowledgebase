@@ -4,8 +4,6 @@ id: 41ad3c5b-90cd-4ac8-a956-26ad0e052451
 
 # IoT Architecture
 
-**[Intermediate]** — The three layers of an IoT system, MQTT, edge computing, and designing for a power budget rather than a CPU budget.
-
 An IoT system isn't just a sensor — it's the full chain from physical measurement to cloud storage to user interface.
 
 ## The Three Layers
@@ -92,3 +90,8 @@ The entire active window should be under 2 seconds. Every millisecond of WiFi ac
 - [[hardware/09-putting-it-all-together|Putting It All Together]] — the whole picture
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — a device fleet is a distributed system with a physical body
 - [[robotics/index|Robotics]] — the direction this leads if the devices move
+
+## About this lesson
+<!-- bite: aa219bed-9c48-475c-b8b9-c7158f6df898 -->
+
+**Level:** Intermediate. **Covers:** The three layers of an IoT system, MQTT, edge computing, and designing for a power budget rather than a CPU budget.

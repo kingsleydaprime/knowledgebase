@@ -4,8 +4,6 @@ id: 39b50011-85ee-4238-a628-566f3e19f6a1
 
 # Nonlinear Optimisation
 
-**[Intermediate → Advanced]** — When the objective or constraints curve: diminishing returns, risk, physics. Corners stop being special, convexity becomes the thing that matters, and Lagrange multipliers and the KKT conditions take over from shadow prices and the simplex method.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The numbers in the worked example were checked by hand; the SciPy script itself has not been run yet — see "Still to run" in [[operations-research/index|the index]].
 
 ## Before you start
@@ -244,3 +242,8 @@ You're ready when you can say whether a problem is convex and why it matters, so
 - [[control-theory/11-optimal-control-and-lqr|Optimal control and LQR]] — quadratic optimisation over time
 - [[ai-ml/index|AI and machine learning]] — training a model is (usually non-convex) nonlinear optimisation
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: e44ce28a-e3d3-4e5f-9e19-97c6adf309ff -->
+
+**Level:** Intermediate → Advanced. **Covers:** When the objective or constraints curve: diminishing returns, risk, physics. Corners stop being special, convexity becomes the thing that matters, and Lagrange multipliers and the KKT conditions take over from shadow prices and the simplex method.

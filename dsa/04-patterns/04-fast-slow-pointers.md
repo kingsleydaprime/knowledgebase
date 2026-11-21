@@ -4,8 +4,6 @@ id: dbfbb8af-dd1a-45b8-b0cd-acb106c165fd
 
 # Pattern: Fast & Slow Pointers
 
-**[Intermediate]** — A university-level introduction to the fast & slow pointers pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: a388a38b-79a8-4066-9f77-fb54ffb9915b -->
 
@@ -321,3 +319,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Database systems:** Finding cycles in dependency graphs
 
 The core idea — using two pointers at different speeds to detect cycles efficiently — is a fundamental algorithmic technique that appears whenever you need to detect repetition in a sequence.
+
+## About this lesson
+<!-- bite: b6e4f09b-aa99-405b-8d6c-fbec188c3ab0 -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the fast & slow pointers pattern: what it is, why it exists, how it works, and how to implement it independently.

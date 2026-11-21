@@ -4,8 +4,6 @@ id: 6e2e538d-3376-4e36-8968-94c9faf47e10
 
 # Governance and the Human Layer
 
-**[Intermediate]** — the "G" in GRC: how an organisation actually *runs* security as a program, and why the biggest vulnerability isn't a system but a person.
-
 ## The kid version first
 <!-- bite: d362225c-6432-448f-a703-656da6eb9a5b -->
 
@@ -94,5 +92,10 @@ Governance closes the loop by *checking* — you can't manage what you don't mea
 - [[cybersecurity/08-governance-risk-and-compliance/04-third-party-and-supply-chain-risk|third-party and supply-chain risk]] — governing risk you don't directly control
 - [[cybersecurity/06-attacks-and-threats/01-social-engineering|social engineering]] — the attacks the human layer faces
 - [[cybersecurity/10-protecting-yourself/index|protecting yourself]] — the personal version of security awareness
+
+## About this lesson
+<!-- bite: 6d344cb9-24ff-4116-97e9-19ff1698393e -->
+
+**Level:** Intermediate. **Covers:** the "G" in GRC: how an organisation actually *runs* security as a program, and why the biggest vulnerability isn't a system but a person.
 
 *Source: [reference] — Aug 2026.*

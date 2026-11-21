@@ -4,8 +4,6 @@ id: f35b65b0-9e2e-4b73-a023-30b9b9503e83
 
 # What This Thing Actually Is
 
-**[Beginner]** — the vocabulary note. Assumes nothing. Read it once so the rest of this course has words to use.
-
 ## The kid version first
 <!-- bite: 1ef13051-fd8e-445d-80e0-d64282d982c7 -->
 
@@ -84,3 +82,8 @@ An LLM is not a system that knows things and reports them. It is a system that p
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — what to do about confident wrongness
 - [[ai-ml/00-foundations/01-what-is-ai|What is AI, actually]] — the same map, written for someone who'll build with it
 - [[ai-ml/00-foundations/02-what-is-a-model|What is a Model]] — parameters, training, generalization, in more depth
+
+## About this lesson
+<!-- bite: 7a73e7db-d0d6-428b-9d77-344a449e5326 -->
+
+**Level:** Beginner. **Covers:** the vocabulary note. Assumes nothing. Read it once so the rest of this course has words to use.

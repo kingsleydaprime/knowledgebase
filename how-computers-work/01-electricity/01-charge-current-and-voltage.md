@@ -4,8 +4,6 @@ id: fcabcc6f-cce0-41a1-86fb-ce937ebf2ce4
 
 # Module 1: Charge, Current and Voltage (What Is Actually Moving)
 
-**[Beginner]** — The three quantities every other electrical idea is built from. By the end you should be able to say precisely what a wire carries, how fast it moves, and what a battery actually does to it.
-
 ## Before you start
 <!-- bite: 3cf4400f-2f70-4093-acc5-bf6527332dee -->
 
@@ -358,3 +356,8 @@ You are ready for module 2 when you can, closed-book:
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[hardware/01-electricity|hardware/electricity]] — the practical counterpart: picking resistors, driving LEDs, working with real components
 - [[how-computers-work/02-semiconductors/01-atoms-and-electrons|Module 6 — Atoms and Electrons]] — why some materials have free electrons at all
+
+## About this lesson
+<!-- bite: d8791f38-72f9-4345-9057-ea07aff1146d -->
+
+**Level:** Beginner. **Covers:** The three quantities every other electrical idea is built from. By the end you should be able to say precisely what a wire carries, how fast it moves, and what a battery actually does to it.

@@ -4,8 +4,6 @@ id: eadf490f-f184-4df2-bf55-ee7db14e8346
 
 # The App Lifecycle
 
-**[Intermediate]** — the constraint that shapes more mobile code than anything else: **your process is not yours.**
-
 ## The kid version first
 <!-- bite: 6e9e5d14-31d0-4588-8348-e3aab38b41af -->
 
@@ -109,5 +107,10 @@ notification tap → app not running → launch → restore auth →
 - [[mobile/07-data-and-offline-first|offline-first]] — where persisted state lives
 - [[mobile/10-background-work-and-push|background work]] — what you can do while not on screen
 - [[os/02-processes-and-threads|processes]] — what "the OS kills your process" means underneath
+
+## About this lesson
+<!-- bite: 6a761b5b-5ccb-402d-b1df-70495e68f513 -->
+
+**Level:** Intermediate. **Covers:** the constraint that shapes more mobile code than anything else: **your process is not yours.**
 
 *Source: [reference] — Aug 2026.*

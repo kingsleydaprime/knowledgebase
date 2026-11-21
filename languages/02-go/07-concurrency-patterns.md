@@ -4,8 +4,6 @@ id: 920b8ab0-d6cb-49dd-b3cb-320f5f58c135
 
 # Concurrency Patterns
 
-**[Intermediate → Advanced]** — The `sync` package, the four patterns that cover most real concurrent code, and the race detector you should be running already.
-
 ## `sync`
 <!-- bite: 9210296d-8f5f-49ef-8961-27e8f04d7451 -->
 
@@ -201,3 +199,8 @@ The failure mode to avoid is reaching for channels because they're the interesti
 - [[languages/02-go/11-testing-and-benchmarking|Testing]] — where `-race` lives
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Java: Concurrency]] — executors and the same patterns with threads
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: c47d2964-d2fe-42ec-9ea0-4c17de4b3ff4 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The `sync` package, the four patterns that cover most real concurrent code, and the race detector you should be running already.

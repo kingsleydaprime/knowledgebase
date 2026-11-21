@@ -4,8 +4,6 @@ id: 7e34fa52-e542-4878-940c-c7c4e1ebef84
 
 # DNS in Depth
 
-**[Intermediate]** — The internet's naming system, and the single most common root cause of "the site is down". It's worth real study for one reason: **DNS is a globally distributed, eventually consistent, aggressively cached database that everything depends on and almost nobody monitors.** This lesson builds a DNS query byte by byte, runs a tiny DNS server that Node's own resolver queries, walks the resolution chain from the root, and puts numbers on caching: a migration done in the wrong order, a name that stays missing after you create it, and the four queries a Kubernetes pod sends for one lookup. The lab runs entirely on your machine.
-
 ## Before you start
 <!-- bite: f76fd71f-ede6-49ca-8f77-17226b42549f -->
 
@@ -613,3 +611,8 @@ You can trace a lookup and say which steps the cache skips, read a DNS message, 
 - [[networking/15-network-performance|Network performance]]: DNS as the first round trip
 - [[cybersecurity/03-network-security/index|Network security]]: poisoning, DNSSEC, exfiltration over DNS
 - [[devops/02-networking-and-web/01-networking-and-protocols|Networking and protocols (DevOps)]]: the operator's DNS record cheat sheet
+
+## About this lesson
+<!-- bite: 9b58deff-2b57-42be-ba8d-cc7e3c68d3ef -->
+
+**Level:** Intermediate. **Covers:** The internet's naming system, and the single most common root cause of "the site is down". It's worth real study for one reason: **DNS is a globally distributed, eventually consistent, aggressively cached database that everything depends on and almost nobody monitors.** This lesson builds a DNS query byte by byte, runs a tiny DNS server that Node's own resolver queries, walks the resolution chain from the root, and puts numbers on caching: a migration done in the wrong order, a name that stays missing after you create it, and the four queries a Kubernetes pod sends for one lookup. The lab runs entirely on your machine.

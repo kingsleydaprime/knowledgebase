@@ -4,8 +4,6 @@ id: d5344742-6fb7-458b-b3f1-8c12c142ed66
 
 # Undefined Behaviour
 
-**[Intermediate → Advanced]** — The most misunderstood thing about C. Not "unpredictable output" — a licence for the compiler to assume your code cannot do what it does.
-
 ## The three kinds
 <!-- bite: 2cddd1c1-6594-4401-8fb3-2deb2a3dcb88 -->
 
@@ -209,3 +207,8 @@ scan-build make
 - [[languages/04-c/07-memory-management|Memory Management]] — the memory-related half
 - [[languages/03-rust/15-unsafe-and-ffi|Rust: Unsafe]] — the same UB, confined to blocks you opt into
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: 4b90112e-bb60-4165-9da2-9d62ad73e20c -->
+
+**Level:** Intermediate → Advanced. **Covers:** The most misunderstood thing about C. Not "unpredictable output" — a licence for the compiler to assume your code cannot do what it does.

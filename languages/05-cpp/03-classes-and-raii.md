@@ -4,8 +4,6 @@ id: f7788065-a33f-4bf0-8eea-a246c99465bc
 
 # Classes and RAII
 
-**[Beginner → Intermediate]** — The single most important idea in C++, and the one worth stealing into every other language you write.
-
 ## Classes
 <!-- bite: 849a69a2-9e7c-449c-a8fc-69a78c3adb2c -->
 
@@ -252,3 +250,8 @@ Which ones it generates, and when writing one suppresses another, is the **rule 
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — RAII promoted from convention to rule
 - [[languages/04-c/07-memory-management|C: Memory Management]] — what you'd write without it
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 8a6ac577-da3c-4fdf-90f7-3f6f627e6415 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The single most important idea in C++, and the one worth stealing into every other language you write.

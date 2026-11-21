@@ -4,8 +4,6 @@ id: 9f14fd0a-7b0e-4a16-9ba0-1105949ad0f6
 
 # What Makes API Security Different
 
-**[Intermediate]** — why APIs need their own security discipline, the protections they *lose* compared to web apps, and the map (the OWASP API Security Top 10).
-
 ## The kid version first
 <!-- bite: 288666f6-c764-4a7a-8497-76b8db6bbd23 -->
 
@@ -81,5 +79,10 @@ This folder doesn't re-teach injection or OAuth from scratch — it covers **wha
 - [[cybersecurity/14-api-security/03-authorization-and-bola|authorization and BOLA]] — the #1 problem
 - [[cybersecurity/04-web-security/index|web security]] — the parent discipline
 - [[backend/02-api-design/index|API design]] — the building side
+
+## About this lesson
+<!-- bite: 44260870-d190-4da3-a3f9-59f505ea4aa2 -->
+
+**Level:** Intermediate. **Covers:** why APIs need their own security discipline, the protections they *lose* compared to web apps, and the map (the OWASP API Security Top 10).
 
 *Source: [reference] — OWASP API Security Top 10 (2023). Aug 2026.*

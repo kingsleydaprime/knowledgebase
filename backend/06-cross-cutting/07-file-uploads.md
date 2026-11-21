@@ -4,8 +4,6 @@ id: c0a58349-1eee-4284-9b14-da27927c3416
 
 # File Uploads
 
-> **[Intermediate]** · The gap the old README named — and the one feature where nearly every naive implementation is a vulnerability.
-
 **File upload is where untrusted input meets your filesystem, your storage bill, and your image library's parser.** It deserves its own note because the naive version is wrong in about six independent ways.
 
 ## Don't proxy the bytes through your API
@@ -101,5 +99,10 @@ Store the original filename as **metadata**, and escape it when displaying it.
 - [[devops/08-cloud/03-object-storage-and-direct-uploads|object storage and direct uploads]]
 - [[backend/06-cross-cutting/06-security-headers-and-cors|security headers]]
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]]
+
+## About this lesson
+<!-- bite: 3169f940-89d5-4174-9972-d88b3a74cd85 -->
+
+**Level:** Intermediate. **Covers:** The gap the old README named — and the one feature where nearly every naive implementation is a vulnerability.
 
 *Source: [reference] — written Aug 2026, closing the gap the previous README named as "not covered anywhere yet".*

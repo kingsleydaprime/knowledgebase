@@ -4,8 +4,6 @@ id: 4ab84d28-4274-429d-bca6-8e45e7a10991
 
 # JSON and Serialisation
 
-**[Intermediate]** — The gap C++ feels most acutely on the web, and the workarounds that exist because the language has no reflection.
-
 ## Why this is a whole note
 <!-- bite: 4a92e4dc-8050-4ee9-a137-e28b36dba718 -->
 
@@ -207,3 +205,8 @@ This is the concrete reason a CRUD-shaped service is more work in C++ than in Go
 - [[languages/05-cpp/11-exceptions-and-error-handling|C++: Exceptions]] — `std::expected`
 - [[backend/02-api-design/01-apis-and-rest|APIs and REST]] — what you're serialising
 - [[backend/frameworks/cpp/index|C++ backends]]
+
+## About this lesson
+<!-- bite: e1df11af-3830-43d4-8fa2-27901def9a72 -->
+
+**Level:** Intermediate. **Covers:** The gap C++ feels most acutely on the web, and the workarounds that exist because the language has no reflection.

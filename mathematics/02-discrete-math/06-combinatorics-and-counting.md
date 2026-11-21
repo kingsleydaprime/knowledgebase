@@ -4,8 +4,6 @@ id: 833e97dc-c2f8-41aa-805f-a4963d706302
 
 # Combinatorics and Counting
 
-**[Intermediate]** — Counting without enumerating, and the principle that proves compression limits and hash collisions in one line.
-
 ## Why counting is a subject
 <!-- bite: 565bb509-c45b-427e-8105-651d32d9a865 -->
 
@@ -175,3 +173,8 @@ Multiply then divide, in that order — the intermediate is always an integer.
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — where counting becomes probability
 - [[cybersecurity/05-cryptography/03-hashing-and-integrity|Hashing and Integrity]] — the birthday bound applied
 - [[mathematics/02-discrete-math/index|Discrete maths map]]
+
+## About this lesson
+<!-- bite: da8533d8-2a23-48b7-9170-c79b17a5b8fe -->
+
+**Level:** Intermediate. **Covers:** Counting without enumerating, and the principle that proves compression limits and hash collisions in one line.

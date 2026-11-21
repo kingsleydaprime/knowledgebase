@@ -4,8 +4,6 @@ id: 3f108076-00e2-4283-a1c9-1e5d5e1e1322
 
 # Actuators and Motion
 
-**[Beginner]** — Motors, drivers, gearing, and the current draw that makes power design suddenly matter.
-
 ## The choice
 <!-- bite: 596ea36a-e8bb-4831-82f9-655ce8e8ded0 -->
 
@@ -175,3 +173,8 @@ Tying it together — the chain from "move there" to actual movement:
 - [[hardware/01-electricity|Electricity]] — power, current, and why motors are noisy
 - [[hardware/04-microcontrollers|Microcontrollers]] — PWM, timers, and what generates these signals
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: 8de00923-1a8f-4f95-b5c8-53a13b402c3d -->
+
+**Level:** Beginner. **Covers:** Motors, drivers, gearing, and the current draw that makes power design suddenly matter.

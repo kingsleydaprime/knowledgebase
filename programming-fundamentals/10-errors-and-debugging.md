@@ -4,8 +4,6 @@ id: 10954b51-c7c4-413f-824b-2c43729b3bb2
 
 # Errors and Debugging
 
-> **[Beginner]** · The three kinds of thing that go wrong, and a method for finding them that beats changing lines until it works.
-
 Code not working is the normal state of code. **Debugging is not a sign you're bad at this; it's most of the job**, and it's a skill with actual technique rather than a talent you have or don't.
 
 ## The three kinds of error
@@ -146,5 +144,10 @@ Explain the code, line by line, out loud, to something that isn't listening. **T
 - [[git/09-investigating-history|investigating history]] — `git bisect` and `git blame`
 - [[backend/interview/01-production-debugging|production debugging]] — the same skill, higher stakes
 - [[using-ai/06-verifying-what-it-tells-you|verifying AI output]]
+
+## About this lesson
+<!-- bite: 6ac4cf8f-0e76-4bcb-93bc-3c6471353496 -->
+
+**Level:** Beginner. **Covers:** The three kinds of thing that go wrong, and a method for finding them that beats changing lines until it works.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the hypothesis/bisection method and stack-trace reading.*

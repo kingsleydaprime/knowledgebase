@@ -4,8 +4,6 @@ id: 11a25a9a-0888-465d-8ccc-78008e91eec0
 
 # Module 30: Build the Hardware (Deriving the Control Unit)
 
-**[Advanced]** — You have an ISA. This module shows that the control unit — the block everyone finds mysterious — is a **mechanical consequence** of that ISA, then hands you to the four build tracks.
-
 ## Before you start
 <!-- bite: d2af84ba-6628-4055-b10a-4337d02a84f1 -->
 
@@ -483,3 +481,8 @@ On a physical build you also want it to <strong>stop the clock</strong> or light
 - [[how-computers-work/08-capstone/02-the-isa|Module 29]] — the ISA this control unit derives from
 - [[computer-architecture/05-the-datapath|computer-architecture/the datapath]]
 - [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — the answer to single-cycle inefficiency
+
+## About this lesson
+<!-- bite: 340f620f-e54b-492b-9a47-81e04a786b1e -->
+
+**Level:** Advanced. **Covers:** You have an ISA. This module shows that the control unit — the block everyone finds mysterious — is a **mechanical consequence** of that ISA, then hands you to the four build tracks.

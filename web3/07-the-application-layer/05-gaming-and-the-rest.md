@@ -4,8 +4,6 @@ id: b15fdae1-fa6d-43f8-b40b-ba687273941a
 
 # Gaming, Social and the Rest
 
-**[Intermediate]** — the non-financial applications, what's genuinely working, and a method for judging the next proposal.
-
 ## Gaming
 <!-- bite: 477cb07c-82c0-418a-9ba6-d0879efbdada -->
 
@@ -78,3 +76,8 @@ When someone proposes a blockchain application, four questions resolve it:
 - [[web3/06-building-dapps/06-oracles|oracles]] — why supply chain doesn't work
 - [[game-development/index|game development]] — how games are actually built
 - [[web3/07-the-application-layer/04-identity-and-naming|identity and naming]]
+
+## About this lesson
+<!-- bite: bbecf8f3-5cc0-45f3-811c-b15dea5a3997 -->
+
+**Level:** Intermediate. **Covers:** the non-financial applications, what's genuinely working, and a method for judging the next proposal.

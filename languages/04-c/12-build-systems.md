@@ -4,8 +4,6 @@ id: ee956c58-4470-4c35-a686-91137f739e17
 
 # Build Systems
 
-**[Intermediate]** — `make` from first principles, then CMake, then the honest state of C dependency management.
-
 ## Why a build system
 <!-- bite: defac02a-471c-4820-a4de-0bb76a727275 -->
 
@@ -247,3 +245,8 @@ Build and test under sanitizers as a separate target, since they're too slow for
 - [[languages/04-c/13-debugging-and-tooling|Debugging and Tooling]] — the sanitizer flags
 - [[languages/03-rust/16-modules-cargo-and-testing|Rust: Cargo]] — what a solved dependency story looks like
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: 7912654e-4188-4f33-ab1a-8ff47af85822 -->
+
+**Level:** Intermediate. **Covers:** `make` from first principles, then CMake, then the honest state of C dependency management.

@@ -4,8 +4,6 @@ id: 0288fc02-c972-4d6f-8d49-153cceb373d7
 
 # pandas
 
-**[reference / practice]** — the library you'll spend the most *time* in. pandas is spreadsheets-as-code: labeled, mixed-type tables with powerful selection, grouping, and joining. Built on [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]], so vectorization and boolean masking carry over. Type these out against a real CSV.
-
 ## Series and DataFrame
 <!-- bite: 5c482fe0-e385-407e-b19b-c3e93840aad3 -->
 
@@ -121,3 +119,8 @@ pandas is fast when you use vectorized/`groupby`/`merge` operations and slow whe
 - [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — the array engine underneath
 - [[ai-ml/02-ml-engineer/02-working-with-data/index|Working with Data]] — cleaning/feature-engineering with these tools
 - [[ai-ml/01-data-scientist/04-exploratory-data-analysis|Exploratory Data Analysis]] — pandas as an exploration tool
+
+## About this lesson
+<!-- bite: 0a733c40-2c2e-40b8-a4db-a322b9dfc228 -->
+
+**Level:** reference / practice. **Covers:** the library you'll spend the most *time* in. pandas is spreadsheets-as-code: labeled, mixed-type tables with powerful selection, grouping, and joining. Built on [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]], so vectorization and boolean masking carry over. Type these out against a real CSV.

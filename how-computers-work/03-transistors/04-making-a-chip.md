@@ -4,8 +4,6 @@ id: 88027caa-3cae-4092-adde-d4853d9858b6
 
 # Module 14: Making a Chip (How Transistors Are Actually Built)
 
-**[Intermediate]** — Part IV ends with the question the previous three modules kept deferring: a MOSFET is a beautiful idea, but **how do you physically build a billion of them, each a few atoms across, without touching any of them individually?**
-
 ## Before you start
 <!-- bite: 7b5caa81-6a94-4e70-aa6b-1487b141727d -->
 
@@ -545,3 +543,8 @@ As $D$ grows, the exponential punishes large dies far harder. Sweep $D$ from 0.0
 - [[how-computers-work/03-transistors/03-cmos|Module 13]] — the device being built here
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — FPGAs, and why mask cost makes them worth it
 - [[computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] — partly a response to wire delay
+
+## About this lesson
+<!-- bite: e7348bf5-ed40-4296-9bf6-76d8f11ae875 -->
+
+**Level:** Intermediate. **Covers:** Part IV ends with the question the previous three modules kept deferring: a MOSFET is a beautiful idea, but **how do you physically build a billion of them, each a few atoms across, without touching any of them individually?**

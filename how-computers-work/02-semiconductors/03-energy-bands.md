@@ -4,8 +4,6 @@ id: ededf567-7dc8-4de4-97d0-4adef36f5f71
 
 # Module 8: Energy Bands and Conduction (One Number Sorts All Matter)
 
-**[Intermediate]** — The shell model of module 6 got the trend right and the boundaries wrong. This module replaces it with the model that actually works, and produces the single number that correctly classifies every material: the band gap.
-
 ## Before you start
 <!-- bite: a8914fbb-05ab-4344-8bc4-be31841f146f -->
 
@@ -477,3 +475,8 @@ Pass <code>band_gap_ev</code> through to <code>intrinsic_carriers()</code> — i
 - [[how-computers-work/03-transistors/02-mosfet-physics|Module 12 — MOSFET Physics]] — where SiO₂'s 9 eV gap becomes the gate insulator
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — where the mobility asymmetry sets transistor sizing
 - [[information-theory/index|information-theory/]] — $kT$ reappears there as the thermodynamic cost of erasing a bit
+
+## About this lesson
+<!-- bite: 41a28993-b112-478a-9d46-37da7205c88c -->
+
+**Level:** Intermediate. **Covers:** The shell model of module 6 got the trend right and the boundaries wrong. This module replaces it with the model that actually works, and produces the single number that correctly classifies every material: the band gap.

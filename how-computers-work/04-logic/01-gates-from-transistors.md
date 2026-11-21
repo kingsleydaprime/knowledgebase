@@ -4,8 +4,6 @@ id: 39e35a70-945c-4976-aa72-b2e6337875dd
 
 # Module 15: Gates from Transistors (Building the Logic Primitives)
 
-**[Intermediate]** — Part V begins. You have a working CMOS inverter; now build every other gate from the same two-network recipe — and find out why real chips are made overwhelmingly of NAND.
-
 ## Before you start
 <!-- bite: 25f8a0b0-68c0-48ba-b703-b3d1e7b2aeb5 -->
 
@@ -447,3 +445,8 @@ Option 2: <strong>absorb the inversion into the next stage.</strong> If whatever
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — the inverter this generalises
 - [[how-computers-work/02-semiconductors/03-energy-bands|Module 8]] — where the 2.8× originates
 - [[how-computers-work/05-combinational/02-adders|Module 21 — Adders]] — where XOR's cost starts to matter
+
+## About this lesson
+<!-- bite: a62c6a76-9bae-4c2a-9c34-97739e4f95f2 -->
+
+**Level:** Intermediate. **Covers:** Part V begins. You have a working CMOS inverter; now build every other gate from the same two-network recipe — and find out why real chips are made overwhelmingly of NAND.

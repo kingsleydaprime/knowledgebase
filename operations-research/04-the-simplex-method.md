@@ -4,8 +4,6 @@ id: 92a6e212-e6c1-4d84-b40d-c8a93ef96c27
 
 # The Simplex Method
 
-**[Intermediate]** — The algorithm that made linear programming practical: walk from corner to neighbouring corner, always uphill, and stop when no neighbour is better. Traced by hand on the workshop, then implemented in sixty lines of Python.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
@@ -294,3 +292,8 @@ You're ready when you can run two simplex iterations on paper with the note clos
 - [[operations-research/05-duality-and-sensitivity|Duality and Sensitivity]] — the next note
 - [[theory-of-computation/07-complexity-classes|Complexity classes]] — where "polynomial in the worst case" is made precise
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: e69b1d26-c5db-49fc-82f8-0440e2c5777c -->
+
+**Level:** Intermediate. **Covers:** The algorithm that made linear programming practical: walk from corner to neighbouring corner, always uphill, and stop when no neighbour is better. Traced by hand on the workshop, then implemented in sixty lines of Python.

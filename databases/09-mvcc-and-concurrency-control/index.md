@@ -4,8 +4,6 @@ id: 86a01ae5-0e15-4957-ae6e-14fe7235350c
 
 # MVCC and Concurrency Control
 
-**[Advanced]** — How isolation is actually implemented: row versions instead of read locks, why PostgreSQL needs `VACUUM` and what stops it, why every PostgreSQL update can touch every index, where deadlocks come from, and the migration lock that takes production down. Every PostgreSQL behaviour here is checked by the lab, which looks directly at the row versions on a page.
-
 ## Before you start
 <!-- bite: da26d241-e75b-4651-b081-948bf5033d11 -->
 
@@ -482,3 +480,8 @@ You can explain how versions and snapshots let readers and writers work without 
 - [[databases/12-operating-a-database|Operating a database]]: vacuum, bloat and monitoring in production
 - [[os/06-concurrency-primitives|Concurrency primitives]]: locks one layer down
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: bca32ece-ede7-433d-8755-a186d1848679 -->
+
+**Level:** Advanced. **Covers:** How isolation is actually implemented: row versions instead of read locks, why PostgreSQL needs `VACUUM` and what stops it, why every PostgreSQL update can touch every index, where deadlocks come from, and the migration lock that takes production down. Every PostgreSQL behaviour here is checked by the lab, which looks directly at the row versions on a page.

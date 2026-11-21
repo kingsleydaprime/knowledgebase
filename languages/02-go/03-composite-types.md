@@ -4,8 +4,6 @@ id: bfdce585-79c5-4dd5-a4f4-e9eb2922b17b
 
 # Composite Types
 
-**[Beginner → Intermediate]** — Arrays, slices, maps and structs. Slices are the one that causes real bugs, so most of this note is about them.
-
 ## Arrays are not what you use
 <!-- bite: bf474375-4f60-4494-bcad-a25e32810166 -->
 
@@ -201,3 +199,8 @@ _, exists := set["a"]
 - [[languages/02-go/13-performance-and-runtime|Performance and the Runtime]] — why preallocating matters
 - [[dsa/02-data-structures/02-dynamic-arrays|Dynamic Arrays]] and [[dsa/02-data-structures/03-hash-maps|Hash Maps]] — what a slice and a map are underneath
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: ebd84912-f757-437c-b86b-55ac0c70bdf4 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Arrays, slices, maps and structs. Slices are the one that causes real bugs, so most of this note is about them.

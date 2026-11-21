@@ -4,8 +4,6 @@ id: 10b8e179-8380-4c9e-a3fd-f4df9a0c689c
 
 # MEV, Front-Running and Transaction Ordering
 
-**[Advanced]** — the value extractable purely by choosing what order transactions execute in, why it can't be eliminated, and what protects users in practice.
-
 ## The kid version first
 <!-- bite: b9429578-316b-4be6-bebd-21d4ab9a7d24 -->
 
@@ -116,5 +114,10 @@ function swap(uint256 amountIn, uint256 minAmountOut, uint256 deadline) external
 - [[web3/04-smart-contract-security/05-oracle-and-price-manipulation|price manipulation]] — the adjacent class
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — AMMs, where sandwiching lives
 - [[web3/01-foundations/05-consensus|consensus]] — why time-bandit attacks matter
+
+## About this lesson
+<!-- bite: 066ad1fd-4270-4317-9f3f-fd6c848811c2 -->
+
+**Level:** Advanced. **Covers:** the value extractable purely by choosing what order transactions execute in, why it can't be eliminated, and what protects users in practice.
 
 *Source: [reference] — Aug 2026.*

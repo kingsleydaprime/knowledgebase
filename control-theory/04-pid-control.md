@@ -4,8 +4,6 @@ id: c9e40556-b632-49c4-81f0-398ef1cc7cf3
 
 # PID Control
 
-**[Intermediate]** — The controller you will actually implement. What each term does, how to tune one, and the four implementation details that separate working code from a controller that fights you.
-
 **The most practically important note in this track.** Something like 95% of industrial control loops are PID, and most of them are badly tuned.
 
 ## The controller
@@ -291,3 +289,8 @@ But start with PID. **The commonest failure mode in practice isn't that PID was 
 - [[control-theory/06-frequency-response|Frequency Response]] — what the D term does to phase
 - [[control-theory/12-digital-control|Digital Control]] — implementing this on a microcontroller
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: ba84af2b-62ff-46e5-a1db-87fb0fda235e -->
+
+**Level:** Intermediate. **Covers:** The controller you will actually implement. What each term does, how to tune one, and the four implementation details that separate working code from a controller that fights you.

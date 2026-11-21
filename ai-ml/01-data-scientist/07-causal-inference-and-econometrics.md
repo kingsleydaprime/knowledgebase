@@ -4,8 +4,6 @@ id: 7b8a895d-bd69-47ff-9da5-7647829e10a8
 
 # Causal Inference & Econometrics
 
-**[reference]** — from the roadmap.sh `ai-data-scientist` roadmap. The most intellectually demanding part of the path: establishing **cause and effect** from data, especially when you *can't* run a clean [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|experiment]]. This is what separates "we found a correlation" from "we know what will happen if we act."
-
 ## Prediction vs causation — a fundamental split
 <!-- bite: 44eaad75-049b-44ac-a0ae-e752fef947f5 -->
 
@@ -63,3 +61,8 @@ Causal claims from observational data are *always* weaker than from a randomized
 - [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — the gold standard these methods approximate
 - [[ai-ml/01-data-scientist/02-descriptive-statistics|Descriptive Statistics]] — correlation vs causation, introduced
 - [[ai-ml/02-ml-engineer/03-classical-ml/01-regression|Regression (ML-engineer)]] — the same tool, used for prediction there vs inference here
+
+## About this lesson
+<!-- bite: 05a05701-f259-467a-ac0b-752c52d637e2 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `ai-data-scientist` roadmap. The most intellectually demanding part of the path: establishing **cause and effect** from data, especially when you *can't* run a clean [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|experiment]]. This is what separates "we found a correlation" from "we know what will happen if we act."

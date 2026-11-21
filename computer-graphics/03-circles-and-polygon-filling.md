@@ -4,10 +4,6 @@ id: b638438e-35cc-4fa8-b880-be87378ae2df
 
 # Circles and Polygon Filling
 
-**[Intermediate]** — Drawing circles with integers only (eight-way symmetry, the midpoint and Bresenham circle algorithms, ellipses), then colouring the inside of shapes: scan-line fill with edge tables, flood fill, boundary fill, and 4- versus 8-connectivity.
-
-> Part 1 of the course. Builds on the midpoint idea from [[computer-graphics/02-line-drawing-and-antialiasing|note 02]].
-
 ## Before you start
 <!-- bite: 40f55116-6732-497e-ade9-a693e2726f24 -->
 
@@ -283,3 +279,10 @@ Write `scanline_fill(vertices)` returning the set of filled pixels, using an edg
 - [[computer-graphics/02-line-drawing-and-antialiasing|Line Drawing]]
 - [[computer-graphics/10-rasterisation|Rasterisation]] — the modern triangle-coverage approach (edge functions) that replaced scan-line fill in hardware
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: 8d913885-f60c-4db7-a21c-ba9f06c0f775 -->
+
+**Level:** Intermediate. **Covers:** Drawing circles with integers only (eight-way symmetry, the midpoint and Bresenham circle algorithms, ellipses), then colouring the inside of shapes: scan-line fill with edge tables, flood fill, boundary fill, and 4- versus 8-connectivity.
+
+Part 1 of the course. Builds on the midpoint idea from [[computer-graphics/02-line-drawing-and-antialiasing|note 02]].

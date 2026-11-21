@@ -4,8 +4,6 @@ id: 4d933963-5364-47df-8a76-b5fc92026d2d
 
 # Background Work and Push
 
-**[Advanced]** — what you can do when you're not on screen, which is much less than you think.
-
 ## The kid version first
 <!-- bite: f7003dd0-488e-4643-b5bd-18b42eba50f9 -->
 
@@ -116,5 +114,10 @@ Say this out loud when someone asks:
 - [[mobile/11-performance-and-battery|performance and battery]] — why the OS is like this
 - [[mobile/06-navigation|navigation]] — handling a notification tap from cold
 - [[os/03-scheduling|scheduling]] — the OS side
+
+## About this lesson
+<!-- bite: 975a46c0-985d-4006-8fbe-779192a31426 -->
+
+**Level:** Advanced. **Covers:** what you can do when you're not on screen, which is much less than you think.
 
 *Source: [reference] — Aug 2026.*

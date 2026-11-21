@@ -4,8 +4,6 @@ id: 1291ce41-a7bc-4a4b-bbb8-5631985413c5
 
 # Web Servers & Proxies
 
-**[reference]**, with grounding in the [[devops/04-vps/vps-setup|VPS setup]] where a web server fronts a deployed app.
-
 ## What a web server does
 <!-- bite: 32e10085-05cb-49d4-ac30-ffee00de9afb -->
 
@@ -99,3 +97,8 @@ Caching is one of the highest-leverage performance tools and one of the hardest 
 - [[devops/02-networking-and-web/01-networking-and-protocols|Networking & Protocols]] — the HTTP/TLS these servers speak
 - [[devops/04-vps/vps-setup|VPS Setup]] — a web server fronting a real deploy
 - [[devops/10-orchestration/01-kubernetes|Kubernetes]] — Services/Ingress play the LB/proxy role in a cluster
+
+## About this lesson
+<!-- bite: d3ef7047-e2d1-41de-b830-339f091bb015 -->
+
+**[reference]**, with grounding in the [[devops/04-vps/vps-setup|VPS setup]] where a web server fronts a deployed app.

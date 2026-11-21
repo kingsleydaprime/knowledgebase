@@ -4,8 +4,6 @@ id: 2f6e925f-ca3a-4bf6-ae8f-631fbce165b8
 
 # Module: Trees (Hierarchy, and the Shapes It Comes In)
 
-**[Intermediate]** — what a tree is, the many kinds there are, and why this course concentrates on one of them.
-
 ## Before you start
 <!-- bite: 9ea484fc-0c4e-42a4-8538-6e580f862509 -->
 
@@ -200,3 +198,8 @@ You can define a tree, use the vocabulary without hesitating, tell height from d
 - [[02-binary-trees|Binary Trees]] — the next lesson, and where this course goes
 - [[09-graphs/03-subgraphs-trees-and-forests|Graphs: trees and forests]] — the same object, defined without a root
 - [[04-linked-lists|Linked Lists]] — what a tree degenerates into when it loses its balance
+
+## About this lesson
+<!-- bite: 399d885e-1d80-48be-af95-7a8f5504128a -->
+
+**Level:** Intermediate. **Covers:** what a tree is, the many kinds there are, and why this course concentrates on one of them.

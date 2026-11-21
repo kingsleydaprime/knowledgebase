@@ -4,8 +4,6 @@ id: 4e167524-a045-4be2-aca6-dea3c503aca3
 
 # CI/CD Concepts
 
-**[reference]** — the concepts; the [[devops/05-ci-cd/02-ci-cd-tools|tools note]] grounds them in this vault's real GitHub Actions pipeline.
-
 ## The three terms, precisely
 <!-- bite: 62dd4eec-021d-43cb-849f-06b29a4e5c38 -->
 
@@ -69,3 +67,8 @@ All three (plus *recreate*, the crude one) are covered properly — with the tra
 - [[languages/01-java/03-tooling/04-testing|Testing (Java)]] — the gate at the center of CI
 - [[devops/09-infrastructure-as-code/index|Infrastructure as Code]] — what the deploy stage often invokes
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — a git-driven model for the CD half
+
+## About this lesson
+<!-- bite: 5647ae1a-699d-4c9b-9d5d-36cc6e8e1bda -->
+
+**Level:** reference. **Covers:** the concepts; the [[devops/05-ci-cd/02-ci-cd-tools|tools note]] grounds them in this vault's real GitHub Actions pipeline.

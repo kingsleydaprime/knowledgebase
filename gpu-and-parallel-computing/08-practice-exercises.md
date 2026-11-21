@@ -4,8 +4,6 @@ id: 993aea7d-0c75-43c7-b81c-577d345733b3
 
 # Practice Exercises
 
-> **[Advanced]** · Twelve exercises. **Most need a GPU — and there's an honest path for you if you don't have one.**
-
 **The hardware problem, stated plainly:** this is the one domain in the vault where the exercises genuinely need hardware you may not own. Three routes:
 
 | Route | Cost | Good for |
@@ -92,5 +90,10 @@ Run Nsight Compute (or `nvprof`) on your tiled matmul. Find achieved occupancy, 
 - [[gpu-and-parallel-computing/09-practice-exercises-solutions|Solutions]]
 - [[gpu-and-parallel-computing/index|the course]]
 - [[computer-architecture/13-practice-exercises|architecture exercises]] — the same method on the CPU
+
+## About this lesson
+<!-- bite: fb6119c6-4093-4e87-be44-3d8289c30826 -->
+
+**Level:** Advanced. **Covers:** Twelve exercises. **Most need a GPU — and there's an honest path for you if you don't have one.**
 
 *Source: [reference] — built from this course's own gap-closing list.*

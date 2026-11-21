@@ -4,8 +4,6 @@ id: 56cd3181-fd4e-46df-9322-ebf5c923d77a
 
 # Control Flow
 
-> **[Beginner]** · Conditionals and loops — the two mechanisms that turn a list of steps into something that can respond and repeat.
-
 Without control flow, a program runs top to bottom, once, doing the same thing regardless of input. Useless for almost everything. **Control flow is how a program branches on what's true and repeats without you writing the steps out.**
 
 Two ideas. That's the whole chapter, and between them they cover everything.
@@ -193,5 +191,10 @@ This is where [[dsa/index|DSA]] starts: not as an interview ritual, but as the a
 - [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — the other way to repeat
 - [[dsa/index|DSA]] — when "how many times does this run?" starts to matter
 - [[computer-architecture/07-branch-prediction-and-speculation|branch prediction]] — what an `if` costs the hardware
+
+## About this lesson
+<!-- bite: 47501b7b-c23c-4b2d-b26c-ead1f341521a -->
+
+**Level:** Beginner. **Covers:** Conditionals and loops — the two mechanisms that turn a list of steps into something that can respond and repeat.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course.*

@@ -4,8 +4,6 @@ id: 90b03296-3219-4ce8-9de1-e47c91f372de
 
 # Warehouses, Lakes and Lakehouses
 
-**[Intermediate]** — where analytical data lives, why columnar storage changes everything, and the architecture that won.
-
 ## The kid version first
 <!-- bite: 7cd9af6b-f0f0-41cf-bbdb-c428e563d49a -->
 
@@ -109,5 +107,10 @@ Worth knowing, because it pushes against the "everything must be distributed" as
 - [[data-engineering/09-data-modelling-for-analytics|dimensional modelling]] — how to structure what's in the warehouse
 - [[databases/03-storage-and-page-layout|storage and page layout]] — row vs columnar at the engine level
 - [[databases/05-lsm-trees|LSM-trees]] — the write-optimised cousin
+
+## About this lesson
+<!-- bite: 9203dcc6-b1c6-422f-8ca2-34487e1d164b -->
+
+**Level:** Intermediate. **Covers:** where analytical data lives, why columnar storage changes everything, and the architecture that won.
 
 *Source: [reference] — Aug 2026. Table-format landscape moves fast; verify Iceberg adoption before betting on it.*

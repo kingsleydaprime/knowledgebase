@@ -4,8 +4,6 @@ id: d2f130a4-93cf-4da2-879a-5997b6be1f77
 
 # Cloud Design Patterns
 
-**[reference]** — from roadmap.sh's cloud-design-patterns branch and the standard patterns literature (Azure's catalog is a good canonical reference). These are architectural patterns for building systems that stay up, scale, and recover on inherently unreliable cloud infrastructure.
-
 ## The premise: the cloud fails, by design
 <!-- bite: 6dd00a81-5c46-4142-9d62-e2d74dac2ef2 -->
 
@@ -48,3 +46,8 @@ Almost every pattern here is a specific answer to one principle: **assume failur
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation & Idempotency]] — the idempotency pattern implemented
 - [[devops/11-delivery-and-advanced/03-service-mesh|Service Mesh]] — infrastructure that implements retry/circuit-breaking for you
 - [[devops/08-cloud/01-cloud-fundamentals|Cloud Fundamentals]] — regions/AZs, the substrate for availability
+
+## About this lesson
+<!-- bite: 07e9ae01-eb3a-4a3c-947c-5400f76d0c2f -->
+
+**Level:** reference. **Covers:** from roadmap.sh's cloud-design-patterns branch and the standard patterns literature (Azure's catalog is a good canonical reference). These are architectural patterns for building systems that stay up, scale, and recover on inherently unreliable cloud infrastructure.

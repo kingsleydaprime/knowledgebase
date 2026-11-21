@@ -4,8 +4,6 @@ id: 8021335e-58cb-4e50-9fab-d09818ee6608
 
 # Context
 
-**[Intermediate]** — The type threaded through every function in real Go code, why it exists, and the rules that stop it becoming a junk drawer.
-
 ## The problem it solves
 <!-- bite: b2e1bdd9-912a-4c74-a824-abb5e561009c -->
 
@@ -157,3 +155,8 @@ Go's context is unusually good at this compared to most ecosystems, where cancel
 - [[backend/frameworks/go/index|Go Backends]] — context through a real HTTP stack
 - [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience Patterns]] — timeouts and deadlines as a design concern
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: fb258c95-5e3f-43e0-9139-8c19ba6f4c44 -->
+
+**Level:** Intermediate. **Covers:** The type threaded through every function in real Go code, why it exists, and the rules that stop it becoming a junk drawer.

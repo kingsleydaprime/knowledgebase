@@ -4,8 +4,6 @@ id: 90ef5d3f-befc-44cf-9709-d2fcb38dfd60
 
 # Binary (Base 2)
 
-**[Beginner]** — Base 2 on its own terms: the vocabulary built on it, the powers worth memorising, and why "kilobyte" has two different meanings.
-
 ## Before you start
 <!-- bite: 2b1300a5-b541-4b46-a56f-29f78e0ac9f1 -->
 
@@ -105,3 +103,8 @@ IPv4's $2^{32} \approx 4.3$ billion looked limitless in 1981 and ran out because
 
 - [[01-introduction|Number bases]] · [[04-hexadecimal|Hexadecimal]]
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|How Computers Work — the digital abstraction]]
+
+## About this lesson
+<!-- bite: ad8ecee3-476c-4b52-b138-a0d19418deb7 -->
+
+**Level:** Beginner. **Covers:** Base 2 on its own terms: the vocabulary built on it, the powers worth memorising, and why "kilobyte" has two different meanings.

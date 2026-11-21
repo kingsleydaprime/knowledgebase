@@ -4,8 +4,6 @@ id: 3eee042c-b8f4-44f6-9a66-c597b9155b2b
 
 # Sensors and Perception
 
-**[Beginner]** — What a robot can actually measure, why every sensor lies in its own particular way, and why one sensor is never trusted alone.
-
 ## The two questions
 <!-- bite: efcabc1d-91fc-4f1d-bb87-aad280c3d842 -->
 
@@ -163,3 +161,8 @@ What experience teaches, compressed:
 - [[robotics/03-actuators-and-motion|Actuators and Motion]] — the other half of the hardware
 - [[hardware/05-communication-protocols|Communication Protocols]] — I2C/SPI/UART, how sensors physically talk
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: ddedc1a5-b6af-426b-aa24-3c93b96753a5 -->
+
+**Level:** Beginner. **Covers:** What a robot can actually measure, why every sensor lies in its own particular way, and why one sensor is never trusted alone.

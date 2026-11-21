@@ -4,8 +4,6 @@ id: aeefa2f6-d050-4680-9af1-e564c18e3787
 
 # Optimisation
 
-**[Advanced]** — The passes, why inlining is the one that matters most, and the honest limits of what a compiler can do for you.
-
 ## The contract
 <!-- bite: 2f438799-33f3-4a5a-8316-db0bd2e51602 -->
 
@@ -201,3 +199,8 @@ cargo asm my_crate::my_function          # cargo-show-asm
 - [[languages/03-rust/18-performance-and-zero-cost|Rust: Performance]] — inlining as the basis of zero-cost abstraction
 - [[01-growth-and-asymptotic-notation|Algorithms]] — the thing the compiler cannot fix
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: 6a82eb99-a892-4ad0-966c-6c968f78ac65 -->
+
+**Level:** Advanced. **Covers:** The passes, why inlining is the one that matters most, and the honest limits of what a compiler can do for you.

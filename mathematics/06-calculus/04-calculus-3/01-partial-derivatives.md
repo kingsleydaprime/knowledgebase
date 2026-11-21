@@ -4,8 +4,6 @@ id: 472b88d1-b418-49b8-8ce4-a0a9fb745fb6
 
 # Partial Derivatives
 
-**[Intermediate → Advanced]** — Differentiation when a function has several inputs. The idea behind every gradient in machine learning.
-
 ## Before you start
 <!-- bite: 9c53de3d-b519-4804-af17-3b5f9753165b -->
 
@@ -162,3 +160,8 @@ $$\frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}
 
 - [[01-rules|Derivative rules]] · [[01-related-rates|Applications of the derivative]]
 - [[ai-ml/index|ai-ml]] · [[build-your-own-shit/10-your-own-neural-network|Build your own neural network]]
+
+## About this lesson
+<!-- bite: 12274c67-68d6-4cd0-85bf-3aa23c6ad829 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Differentiation when a function has several inputs. The idea behind every gradient in machine learning.

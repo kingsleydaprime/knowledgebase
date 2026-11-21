@@ -4,8 +4,6 @@ id: e4c37a1b-9732-450f-af6f-1b9fd4eab157
 
 # Power Tools
 
-**[Advanced]** — Submodules, worktrees, patch files and cherry-pick: the tools you reach for occasionally and want documented when you do.
-
 ## What Submodules Are
 <!-- bite: 5346b5f8-b6e4-40e2-8390-0d16919a652c -->
 
@@ -167,3 +165,8 @@ git cherry-pick --continue                    # Continue after resolving conflic
 - [[git/09-investigating-history|Investigating History]] — the diff options here extend `git diff`
 - [[git/02-configuration-and-setup|Configuration and Setup]] — `clone --recurse-submodules`
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: f11f5f5b-6f73-4ebc-b532-3c50c8d926d9 -->
+
+**Level:** Advanced. **Covers:** Submodules, worktrees, patch files and cherry-pick: the tools you reach for occasionally and want documented when you do.

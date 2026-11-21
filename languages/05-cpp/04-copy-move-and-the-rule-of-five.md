@@ -4,8 +4,6 @@ id: aea69c1e-11d1-449c-b948-dc62700644d1
 
 # Copy, Move and the Rule of Five
 
-**[Intermediate]** — What happens when your class owns a resource, why C++11's move semantics were the biggest change in the language's history, and the rule that keeps you out of trouble.
-
 ## The problem
 <!-- bite: c1bc68a8-593e-4a63-826e-75f9511849ed -->
 
@@ -239,3 +237,8 @@ In [[languages/03-rust/03-ownership|Rust]] moves are the **default and destructi
 - [[languages/05-cpp/11-exceptions-and-error-handling|Exceptions]] — why copy assignment allocates first
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — moves by default
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 0bfc88e6-33da-4810-953d-f0cf5edb5cdc -->
+
+**Level:** Intermediate. **Covers:** What happens when your class owns a resource, why C++11's move semantics were the biggest change in the language's history, and the rule that keeps you out of trouble.

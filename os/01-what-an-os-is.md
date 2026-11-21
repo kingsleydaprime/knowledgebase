@@ -4,8 +4,6 @@ id: 2cc9eab4-3987-4e68-8877-d91eba66efc2
 
 # What an OS Is
 
-**[Beginner → Intermediate]** — The kernel/user split, why hardware enforces it, and the three jobs an operating system actually does.
-
 **Source:** `[reference]` — built out August 2026 from the plan in [[os/index|the OS README]]. The overview note [[os/fundamentals|fundamentals]] covers the same ground more briefly.
 
 ## The three jobs
@@ -168,3 +166,8 @@ These notes exist so the vocabulary is in place and the cross-domain links work.
 - [[os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — crossing the boundary
 - [[devops/01-linux/index|Linux]] — the same machine from the command line
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: 91f5b07b-8dc6-4d8d-8f7b-148b00e880cf -->
+
+**Level:** Beginner → Intermediate. **Covers:** The kernel/user split, why hardware enforces it, and the three jobs an operating system actually does.

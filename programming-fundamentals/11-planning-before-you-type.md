@@ -4,8 +4,6 @@ id: 7bec727b-3332-4211-b395-f82007b5e31f
 
 # Planning Before You Type
 
-> **[Beginner]** · Pseudocode, flowcharts, decomposition — the part that feels like not-programming and is where most of the quality comes from.
-
 The instinct when given a problem is to open an editor and start typing. For anything past twenty lines, this reliably produces code you rewrite three times, discover a missing case halfway through, and then bolt something on at the end.
 
 **Most professional programming time goes to thinking, reading and deciding rather than typing** — see [[software-engineering/01-what-software-engineering-is|what software engineering is]]. This note is the beginner-scale version of that.
@@ -167,5 +165,10 @@ At professional scale this becomes an architecture decision record → [[concept
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — this, at professional scale
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach system design]] — this, at system scale
 - [[learning/index|how I learn]] — the board-and-notebook version of the same instinct
+
+## About this lesson
+<!-- bite: 6b1906a4-ebcb-4a31-bdac-51af70611194 -->
+
+**Level:** Beginner. **Covers:** Pseudocode, flowcharts, decomposition — the part that feels like not-programming and is where most of the quality comes from.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course.*

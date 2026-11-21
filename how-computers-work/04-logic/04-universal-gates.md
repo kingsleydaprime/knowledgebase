@@ -4,8 +4,6 @@ id: 6cb37997-74df-41e8-80f7-71789bf9c77e
 
 # Module 18: Universal Gates (One Gate Is Enough)
 
-**[Intermediate]** — Part V ends with a result that sounds too strong to be true: **every logic function that exists can be built from NAND gates alone.** Not most. Every one.
-
 ## Before you start
 <!-- bite: 0ac360b2-c44b-4746-b963-f70263c1a46e -->
 
@@ -450,3 +448,8 @@ This gap — mechanical correctness versus structural insight — is exactly the
 - [[how-computers-work/04-logic/02-boolean-algebra|Module 16]] — De Morgan, the tool behind the constructions
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the previous abstraction boundary
 - [[theory-of-computation/index|theory-of-computation/]] — circuit complexity, where depth and size are studied formally
+
+## About this lesson
+<!-- bite: 628bf656-c78d-4d96-82dc-81e0159bc23e -->
+
+**Level:** Intermediate. **Covers:** Part V ends with a result that sounds too strong to be true: **every logic function that exists can be built from NAND gates alone.** Not most. Every one.

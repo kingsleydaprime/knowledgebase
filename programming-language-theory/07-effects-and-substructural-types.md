@@ -4,8 +4,6 @@ id: 4963b8dc-adcf-4d68-8a01-72bbf37d603e
 
 # Effects and Substructural Types
 
-**[Advanced]** — Tracking what a program *does*, not just what it returns. Where Rust's borrow checker comes from, and where languages are going.
-
 ## The problem with types
 <!-- bite: 290263ee-5b12-4399-8cd4-fb104bdd64ef -->
 
@@ -195,3 +193,8 @@ Server = ?Request . !Response . end      -- the dual
 - [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — the foundations
 - [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — types as specifications
 - [[programming-language-theory/index|PL theory map]]
+
+## About this lesson
+<!-- bite: 35dd287c-a182-4ef7-94e7-89f98302e675 -->
+
+**Level:** Advanced. **Covers:** Tracking what a program *does*, not just what it returns. Where Rust's borrow checker comes from, and where languages are going.

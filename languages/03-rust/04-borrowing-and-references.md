@@ -4,8 +4,6 @@ id: a34c1861-49e3-4d35-bcfb-421542432768
 
 # Borrowing and References
 
-**[Beginner → Intermediate]** — Using a value without taking it, the one rule that governs everything, and how to actually get past the borrow checker.
-
 ## References
 <!-- bite: abe85b62-938f-4fa7-b662-fd32c530bfc4 -->
 
@@ -176,3 +174,8 @@ let (a, b) = s.split_at_mut(i);   // slices provide explicit splitting methods
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]] — escape hatches, used deliberately
 - [[languages/03-rust/13-concurrency|Concurrency]] — the same rule preventing data races
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 124e729d-4eac-4bf6-9aab-8f2fc563aa5a -->
+
+**Level:** Beginner → Intermediate. **Covers:** Using a value without taking it, the one rule that governs everything, and how to actually get past the borrow checker.

@@ -4,8 +4,6 @@ id: 784faf07-eef7-4eaa-b5f5-615ebf4c6ea4
 
 # Why Python, and the Toolchain
 
-> **[Beginner]** · What Python is for, what it's bad at, and the environment/packaging story that causes more pain than the language does.
-
 Python's pitch is **programmer time over machine time**. It is one of the slowest mainstream languages at raw execution and one of the fastest to write, read and change. Every design decision follows from that trade, and so does every complaint about it.
 
 **Where it wins:** data and ML (an ecosystem nothing else comes close to), scripting and automation, glue between systems, backends where I/O dominates, scientific computing, anything where the bottleneck is understanding the problem rather than executing the solution.
@@ -122,5 +120,10 @@ The word for code that follows the community's grain is **Pythonic**, and it's a
 - [[languages/06-python/14-performance-and-the-runtime|performance]] — what CPython is actually doing
 - [[programming-fundamentals/index|programming fundamentals]] — if this is your first language
 - [[ai-ml/00-foundations/04-python-and-data-tools/index|Python for data]] — the numeric stack, elsewhere in this vault
+
+## About this lesson
+<!-- bite: 68ad8f7a-3bc1-4d8d-b5f6-2fa6d62b4e2a -->
+
+**Level:** Beginner. **Covers:** What Python is for, what it's bad at, and the environment/packaging story that causes more pain than the language does.
 
 *Source: [reference] — from the official docs, PEPs, and the packaging ecosystem's own guidance.*

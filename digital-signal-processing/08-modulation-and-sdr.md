@@ -4,8 +4,6 @@ id: d88b2d3d-ae24-4d5a-bc83-e38f6570bdd7
 
 # Modulation and Software-Defined Radio
 
-**[Advanced]** — how information rides on radio waves, and the shift that turned radio from circuits into code. The bridge from DSP to [[hardware/06-radio-frequency|RF]].
-
 ## The kid version first
 <!-- bite: bdc8b179-21bb-499e-bf76-92bdbd2da6fc -->
 
@@ -81,5 +79,10 @@ Modern radio represents a signal as two components: **In-phase (I)** and **Quadr
 - [[information-theory/05-channel-capacity-and-noise|channel capacity]] — the limit on how many bits a channel carries
 - [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] — I/Q as complex signals
 - [[digital-signal-processing/09-dsp-in-practice|DSP in practice]] — RTL-SDR, GNU Radio
+
+## About this lesson
+<!-- bite: a95bd0a8-0ac6-4d98-a760-864576a9ba99 -->
+
+**Level:** Advanced. **Covers:** how information rides on radio waves, and the shift that turned radio from circuits into code. The bridge from DSP to [[hardware/06-radio-frequency|RF]].
 
 *Source: [reference] — Aug 2026. Transmitting is licence-restricted; receiving on an RTL-SDR is the legal playground.*

@@ -4,8 +4,6 @@ id: 552141b9-0e0c-4ebc-8e2a-27369020e094
 
 # Exploratory Data Analysis
 
-**[reference]** — from the roadmap.sh `ai-data-scientist`/`data-analyst` roadmaps. The systematic "understand the data before you model or conclude" process — where a data scientist actually spends much of their time, and where the real insights usually come from.
-
 ## What EDA is and why it's non-negotiable
 <!-- bite: 6fa22de7-0202-4691-b5f7-1168898931bc -->
 
@@ -70,3 +68,8 @@ pandas for the manipulation, [[ai-ml/01-data-scientist/05-data-visualization|mat
 - [[ai-ml/01-data-scientist/02-descriptive-statistics|Descriptive Statistics]] — the summaries EDA computes
 - [[ai-ml/01-data-scientist/05-data-visualization|Data Visualization]] — EDA's other half
 - [[ai-ml/02-ml-engineer/02-working-with-data/index|Working with Data]] — the cleaning EDA reveals the need for
+
+## About this lesson
+<!-- bite: fbdb0604-daed-4e76-9b02-4630e6bf5f11 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `ai-data-scientist`/`data-analyst` roadmaps. The systematic "understand the data before you model or conclude" process — where a data scientist actually spends much of their time, and where the real insights usually come from.

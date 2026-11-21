@@ -4,8 +4,6 @@ id: b974940e-8eec-45d5-a629-40b970781b5b
 
 # Module: Sorting and the $\Omega(n\log n)$ Lower Bound
 
-**[Intermediate]** — why no comparison sort can ever beat $n\log n$, and the vocabulary the rest of the folder uses.
-
 ## Before you start
 <!-- bite: 46be0e7e-5ea9-4062-8c8d-938e9e644aed -->
 
@@ -323,3 +321,8 @@ You can define stability, in-place and adaptive; prove the lower bound; and say 
 - [[01-growth-and-asymptotic-notation|Complexity Analysis]] — the notation used throughout
 - [[01-linear-and-binary-search|Searching]] — what sorting enables
 - [[07-heaps|Heaps]] — the structure heapsort is built on
+
+## About this lesson
+<!-- bite: 5eda05b2-1e4b-4ace-8d67-3a666ad79011 -->
+
+**Level:** Intermediate. **Covers:** why no comparison sort can ever beat $n\log n$, and the vocabulary the rest of the folder uses.

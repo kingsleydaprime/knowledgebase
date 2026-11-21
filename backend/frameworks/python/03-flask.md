@@ -4,8 +4,6 @@ id: 84ffd977-f147-41db-8f66-2f8063efa7e5
 
 # Flask
 
-> **[Intermediate]** · The microframework — routing and templating, and everything else is your decision. Plus the context locals that make it feel like magic until they don't.
-
 Flask is the **minimalist** end. It gives you routing, request/response objects, templating (Jinja2) and a development server. **No ORM, no validation, no auth, no admin, no project structure.**
 
 ```python
@@ -134,5 +132,10 @@ Its reputation has suffered as FastAPI took the API use case, but there are case
 - [[backend/frameworks/python/02-django|Django]] — when you want the batteries
 - [[backend/frameworks/javascript/02-express/index|Express]] — **the closest analogue in another language**
 - [[backend/frameworks/python/index|Python backends]] — the comparison
+
+## About this lesson
+<!-- bite: 7aa89ff1-4ead-4829-aa4e-1faf2260755b -->
+
+**Level:** Intermediate. **Covers:** The microframework — routing and templating, and everything else is your decision. Plus the context locals that make it feel like magic until they don't.
 
 *Source: [reference] — from the Flask documentation.*

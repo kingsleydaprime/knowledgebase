@@ -4,8 +4,6 @@ id: 383fe95e-d1b7-424e-b8ac-ced991608209
 
 # Error Handling
 
-> **[Intermediate]** · One handler at the edge, one response shape, and the line between what the client sees and what you log.
-
 ## The shape
 <!-- bite: d8fb5a0c-6b61-4c50-b6fe-67526c201c1c -->
 
@@ -115,5 +113,10 @@ Clients branch on `code`. **`detail` is for humans and may be reworded or locali
 - [[backend/06-cross-cutting/01-validation-and-dtos|validation]] — where 400s come from
 - [[backend/06-cross-cutting/04-rate-limiting|rate limiting]] — where 429s come from
 - [[backend/02-api-design/index|API design]] · [[devops/07-observability/index|observability]]
+
+## About this lesson
+<!-- bite: 9af2983b-6e05-4dec-a0cd-cf11c3a3a141 -->
+
+**Level:** Intermediate. **Covers:** One handler at the edge, one response shape, and the line between what the client sees and what you log.
 
 *Source: [reference] — written Aug 2026.*

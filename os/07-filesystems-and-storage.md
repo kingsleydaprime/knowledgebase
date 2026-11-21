@@ -4,8 +4,6 @@ id: 1f20cf67-d824-4f6a-9fb9-29f5a85d0c92
 
 # Filesystems and Storage
 
-**[Intermediate → Advanced]** — Inodes, the page cache, and `fsync` — the boundary where "written" starts to mean something.
-
 ## The layers
 <!-- bite: be010987-4d22-477f-898d-3f98c9afb222 -->
 
@@ -224,3 +222,8 @@ splice(fd_in, NULL, fd_out, NULL, len, 0);         // via a pipe, more general
 - [[devops/01-linux/18-disks-and-filesystems|Linux: Disks and Filesystems]] — the operational view
 - [[databases/database-design-reference|Database Design]] — why durability costs what it does
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: cdde80ac-ccda-4d85-b6a9-a77a79a86791 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Inodes, the page cache, and `fsync` — the boundary where "written" starts to mean something.

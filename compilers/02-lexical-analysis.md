@@ -4,8 +4,6 @@ id: 9684b567-5aff-4421-802e-a5d4f2460cac
 
 # Lexical Analysis
 
-**[Beginner → Intermediate]** — Characters to tokens. The simplest phase, and the one where you decide how good your error messages can ever be.
-
 ## The job
 <!-- bite: f6faf3c6-9e6c-455a-8627-0de69c9055ec -->
 
@@ -216,3 +214,8 @@ fn unterminated_string_reports_at_open_quote() {
 - [[compilers/01-what-a-compiler-is|What a Compiler Is]] — where this sits
 - [[languages/04-c/03-the-preprocessor|C: The Preprocessor]] — a separate token-level pass before the real lexer
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: a0a0cd34-4c24-4bd9-b01f-ab5486b19b83 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Characters to tokens. The simplest phase, and the one where you decide how good your error messages can ever be.

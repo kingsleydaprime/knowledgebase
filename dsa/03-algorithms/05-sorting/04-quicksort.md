@@ -4,8 +4,6 @@ id: d55c0f4c-2cfb-4005-93b9-4bcddb284cd8
 
 # Module: Quicksort
 
-**[Advanced]** — usually the fastest comparison sort, in-place, and carrying an $O(n^2)$ worst case you must actively prevent.
-
 ## Before you start
 <!-- bite: 27c8504a-df9e-4336-9c53-ca03a5a27295 -->
 
@@ -414,3 +412,8 @@ You can implement both partition schemes, trigger and prevent the worst case, an
 - [[03-merge-sort|Merge Sort]] — the guaranteed alternative
 - [[07-heaps|Heaps]] — heapsort, introsort's fallback
 - [[01-the-lower-bound|The Lower Bound]] — what quicksort's average case meets
+
+## About this lesson
+<!-- bite: 4ab58266-db4f-42c3-84e8-54988ef74bb0 -->
+
+**Level:** Advanced. **Covers:** usually the fastest comparison sort, in-place, and carrying an $O(n^2)$ worst case you must actively prevent.

@@ -4,8 +4,6 @@ id: fdabb3e5-7036-46b7-b807-43e915975248
 
 # Your Devices and Networks
 
-**[Beginner]** — the settings that matter, and an honest answer about VPNs.
-
 ## The kid version first
 <!-- bite: 8a407380-328e-4963-a935-1da65b3e931f -->
 
@@ -120,3 +118,8 @@ VPNs are the most oversold product in consumer security. **YouTube sponsorships 
 - [[cybersecurity/10-protecting-yourself/04-phishing-and-scams|phishing]] — how malware usually arrives
 - [[cybersecurity/03-network-security/index|network security]] — the professional treatment
 - [[devops/01-linux/index|Linux]] — if you want the technical version of hardening
+
+## About this lesson
+<!-- bite: 66f8bfc5-3815-4733-a5f1-5bd7d0a17e74 -->
+
+**Level:** Beginner. **Covers:** the settings that matter, and an honest answer about VPNs.

@@ -4,8 +4,6 @@ id: 40de7dab-20fa-4aa1-81cd-94d6211856d2
 
 # Pattern: Dynamic Programming
 
-**[Advanced]** — A university-level introduction to the dynamic programming pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 876a605e-69ed-40df-81e9-f037c36eac48 -->
 
@@ -399,3 +397,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Computer vision:** Image segmentation and object recognition
 
 The core idea — break a problem into overlapping subproblems, solve each subproblem exactly once, and reuse those answers — is a fundamental algorithmic technique that appears whenever you need to optimize a recursive solution by caching repeated work.
+
+## About this lesson
+<!-- bite: 9108d622-cc83-4e28-b828-1118b2eb7f4f -->
+
+**Level:** Advanced. **Covers:** A university-level introduction to the dynamic programming pattern: what it is, why it exists, how it works, and how to implement it independently.

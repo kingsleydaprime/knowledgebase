@@ -4,8 +4,6 @@ id: ced10488-fd39-44d0-9e90-feaaae24464f
 
 # Module 9: Doping (Engineering a Semiconductor)
 
-**[Intermediate]** — You predicted this back in module 6. Adding one atom in five million changes silicon's resistivity by a factor of 700,000 — and, less obviously, suppresses the carriers you don't want just as hard as it multiplies the ones you do.
-
 ## Before you start
 <!-- bite: a037048a-4806-4aca-a4bf-ac3cefd64d6a -->
 
@@ -416,3 +414,8 @@ Compensation subtracts. To reach a <em>net</em> donor concentration of $N_{net}$
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/02-semiconductors/01-atoms-and-electrons|Module 6]] — where groups III and V were predicted from valence counting
 - [[how-computers-work/03-transistors/02-mosfet-physics|Module 12 — MOSFET Physics]] — where doped regions become source and drain
+
+## About this lesson
+<!-- bite: 3ed7c119-1db2-472f-abf6-d1fe90348d85 -->
+
+**Level:** Intermediate. **Covers:** You predicted this back in module 6. Adding one atom in five million changes silicon's resistivity by a factor of 700,000 — and, less obviously, suppresses the carriers you don't want just as hard as it multiplies the ones you do.

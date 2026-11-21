@@ -4,8 +4,6 @@ id: e88e8228-7d5e-46d0-9d48-aafb2f99dd3c
 
 # Connectivity
 
-**[Intermediate]** — Getting a device onto a network for real: Ethernet vs WiFi vs cellular, and Power over Ethernet.
-
 ## Three Ways to Get a Device Online
 <!-- bite: cf58f503-3d0a-4504-a5cd-ad58b6a60649 -->
 
@@ -74,3 +72,8 @@ Ethernet cable (same RJ45 plug, same cable):
 - [[hardware/08-iot-architecture|IoT Architecture]] — the system these devices join
 - [[networking/index|Networking]] — everything above the physical layer
 - [[devops/02-networking-and-web/index|DevOps networking]] — the server side of the same link
+
+## About this lesson
+<!-- bite: 9f5f590d-3954-48e1-98f1-1e3c1293ebd8 -->
+
+**Level:** Intermediate. **Covers:** Getting a device onto a network for real: Ethernet vs WiFi vs cellular, and Power over Ethernet.

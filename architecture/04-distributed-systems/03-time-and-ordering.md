@@ -4,8 +4,6 @@ id: aec0a7d4-ec78-4d54-b380-1a9ed980fdff
 
 # Time & Ordering
 
-**[reference]** — from the canon (Lamport's "Time, Clocks, and the Ordering of Events in a Distributed System," 1978 — one of the most cited papers in CS; DDIA ch. 8–9). How to reason about "what happened before what" when there's [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|no global clock]]. This is the conceptual bedrock under [[architecture/04-distributed-systems/04-consistency-models|consistency models]], [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]], and [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]].
-
 ## The kid version first
 <!-- bite: bea296a8-d653-4e94-927f-f5ed7a87597e -->
 
@@ -117,3 +115,8 @@ Google's Spanner takes the opposite bet: instead of avoiding physical clocks, **
 - [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs & Conflict Resolution]] — version vectors deciding what conflicts
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] — imposing a single total order (the replicated log)
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency (Java)]] — happens-before on a single machine (the JVM memory model)
+
+## About this lesson
+<!-- bite: 7c24342e-4219-4d9e-a357-01f70c00aa03 -->
+
+**Level:** reference. **Covers:** from the canon (Lamport's "Time, Clocks, and the Ordering of Events in a Distributed System," 1978 — one of the most cited papers in CS; DDIA ch. 8–9). How to reason about "what happened before what" when there's [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|no global clock]]. This is the conceptual bedrock under [[architecture/04-distributed-systems/04-consistency-models|consistency models]], [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]], and [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]].

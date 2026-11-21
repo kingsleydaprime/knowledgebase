@@ -4,8 +4,6 @@ id: 475d7d74-dc61-4bd4-a459-6db006ec1d15
 
 # Transactional Outbox
 
-> **[Intermediate→Advanced]** · How to save something to your database **and** tell other systems about it, without ever doing one and not the other. The fix for the "dual write" problem, with a lab that crashes at the worst moment on purpose.
-
 ## Before you start
 <!-- bite: 1da294af-1365-4acc-9cdf-990af132ae65 -->
 
@@ -332,5 +330,10 @@ You can name both dual-write failures, implement an outbox and relay, and explai
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular monolith to services]] — at-least-once delivery and idempotent consumers
 - [[concepts/02-design-patterns/03-behavioral-patterns/index|Behavioural patterns]] — the observer pattern this replaces at system scale
 - [[databases/08-transactions-and-acid/index|Transactions and ACID]] — the guarantee the pattern is built on
+
+## About this lesson
+<!-- bite: 9fa4f595-5caf-400d-8bcf-60287a6df1bb -->
+
+**Level:** Intermediate→Advanced. **Covers:** How to save something to your database **and** tell other systems about it, without ever doing one and not the other. The fix for the "dual write" problem, with a lab that crashes at the worst moment on purpose.
 
 *Source: [reference] — the lab's behaviour was executed; production details (CDC tooling, relay locking) are from documentation, not from operating one.*

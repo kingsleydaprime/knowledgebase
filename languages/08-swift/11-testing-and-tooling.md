@@ -4,8 +4,6 @@ id: 943d3d83-71b6-4b44-a3fe-71c44ebc2e01
 
 # Testing and Tooling
 
-**[Intermediate]** — Swift Testing, XCTest, and the tools worth configuring once.
-
 ## Swift Testing — the new framework
 <!-- bite: 5971d44e-3a91-4150-a94a-ae6e3c65c75f -->
 
@@ -124,3 +122,8 @@ Worth knowing the rituals, because you'll need them:
 - [[mobile/05-state-and-architecture|architecture]] — what makes code testable
 - [[languages/08-swift/10-concurrency-and-actors|concurrency]] — Thread Sanitizer's target
 - [[mobile/13-release-and-distribution|release]] — CI and fastlane
+
+## About this lesson
+<!-- bite: 60e5d3f0-5a93-4a78-8322-8056f8ad5d50 -->
+
+**Level:** Intermediate. **Covers:** Swift Testing, XCTest, and the tools worth configuring once.

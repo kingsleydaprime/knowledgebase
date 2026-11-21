@@ -4,8 +4,6 @@ id: 71c1c846-75fd-48e4-99bd-ed8412cf2406
 
 # SOLID Principles
 
-> **[Beginner→Intermediate]** · Five principles that answer one question — *when requirements change, how much of your code has to change with them?* — and the warning that comes with them.
-
 ## Before you start
 <!-- bite: 71744774-99d3-4f17-81df-9e5888aad9a4 -->
 
@@ -317,3 +315,8 @@ You can state each principle in plain words, show its smell in code, and argue w
 - [[concepts/02-design-patterns/index|design patterns]] — several of these principles *are* patterns
 - [[backend/03-structuring-a-backend/index|structuring a backend]] — where DIP and SRP show up architecturally
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — most SOLID violations are discovered as "this is hard to test"
+
+## About this lesson
+<!-- bite: 0ca13227-4971-4ce2-a207-2fe16541bc6b -->
+
+**Level:** Beginner→Intermediate. **Covers:** Five principles that answer one question — *when requirements change, how much of your code has to change with them?* — and the warning that comes with them.

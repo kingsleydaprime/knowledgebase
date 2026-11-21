@@ -4,8 +4,6 @@ id: a19d2728-147d-473b-9e0d-21cefaf2a061
 
 # Regular Languages
 
-**[Intermediate]** — What finite memory can and cannot recognise, and how to prove a language is out of reach.
-
 ## Three equivalent definitions
 <!-- bite: 4c23b9b4-b4d1-4d6b-9b25-d6b63b6c8cae -->
 
@@ -158,3 +156,8 @@ Define $x \equiv_L y$ if **no suffix distinguishes them**: for every $z$, $xz\in
 - [[theory-of-computation/04-context-free-languages|Context-Free Languages]] — what you need when this isn't enough
 - [[compilers/02-lexical-analysis|Lexical Analysis]] — regular languages, industrially
 - [[theory-of-computation/index|Theory of computation map]]
+
+## About this lesson
+<!-- bite: bb891dad-558e-47e5-8103-3de014db4138 -->
+
+**Level:** Intermediate. **Covers:** What finite memory can and cannot recognise, and how to prove a language is out of reach.

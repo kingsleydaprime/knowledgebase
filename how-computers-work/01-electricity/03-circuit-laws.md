@@ -4,8 +4,6 @@ id: 554140b1-6de5-4a5e-8b85-81f7a5c221a4
 
 # Module 3: Circuit Laws (Kirchhoff, Series, Parallel and the Divider)
 
-**[Beginner]** — How to analyse a network rather than a single component. The voltage divider you build here is the literal mechanism behind every logic gate in this course.
-
 ## Before you start
 <!-- bite: 557147c8-541c-420b-8f0c-cbd4c82493ee -->
 
@@ -402,3 +400,8 @@ The load sits between the tap and ground, which is exactly where $R_2$ is — so
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — where the divider table becomes a real circuit
 - [[how-computers-work/04-logic/01-gates-from-transistors|Module 15 — Gates from Transistors]]
+
+## About this lesson
+<!-- bite: fabf17b6-b43c-46dd-be28-08a5b5cf97b0 -->
+
+**Level:** Beginner. **Covers:** How to analyse a network rather than a single component. The voltage divider you build here is the literal mechanism behind every logic gate in this course.

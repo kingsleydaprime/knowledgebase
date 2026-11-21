@@ -4,8 +4,6 @@ id: a815f537-2237-4cab-984b-d0c7ad7b4537
 
 # Probability
 
-**[Beginner → Intermediate]** — reasoning about what has not happened yet, and the conditional rule that almost everyone gets backwards.
-
 ## Before you start
 <!-- bite: 3fd06f70-0f5c-4b54-9557-bc906e1f79d2 -->
 
@@ -428,3 +426,8 @@ You are done with this lesson when you can:
 - [[04-sets/01-sets|Sets]] — where inclusion–exclusion comes from
 - [[06-stochastic-processes/01-markov-chains|Stochastic Processes]] — probability that evolves over time
 - [[05-inference-and-estimation/01-inference|Inference]] — using probability to reason back from data
+
+## About this lesson
+<!-- bite: 84084c51-876d-49de-a2fc-67902e13a8fb -->
+
+**Level:** Beginner → Intermediate. **Covers:** reasoning about what has not happened yet, and the conditional rule that almost everyone gets backwards.

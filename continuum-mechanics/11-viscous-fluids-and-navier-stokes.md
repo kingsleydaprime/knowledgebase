@@ -4,8 +4,6 @@ id: 822d7d11-373c-4d9f-ba30-e26f7d6a18da
 
 # Viscous Fluids and Navier–Stokes
 
-**[Advanced]** — The same balance laws with a rate-dependent constitutive model, one nonlinear term, and a Millennium Prize problem.
-
 ## Newtonian fluids
 <!-- bite: 18ee4ff1-03ba-44d6-920e-b861fe1c2236 -->
 
@@ -193,3 +191,8 @@ The algorithms that resolve this — **SIMPLE**, PISO, projection methods — ar
 - [[continuum-mechanics/07-constitutive-models|Constitutive Models]] — non-Newtonian fluids
 - [[continuum-mechanics/03-kinematics-of-deformation|Kinematics]] — the rate of deformation tensor
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: 2e3ea9f5-2867-47af-a4a1-80a0790362f1 -->
+
+**Level:** Advanced. **Covers:** The same balance laws with a rate-dependent constitutive model, one nonlinear term, and a Millennium Prize problem.

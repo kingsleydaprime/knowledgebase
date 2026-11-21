@@ -4,8 +4,6 @@ id: be8c7a77-ae77-4ce8-a2c9-643e3021b6fe
 
 # Module 16: Boolean Algebra (Circuit Optimisation as Algebra)
 
-**[Beginner → Intermediate]** — You can build any gate. Now the question is which gates to build. Boolean algebra is how you find a cheaper expression for the same function — and it routinely saves more than transistor sizing ever will.
-
 ## Before you start
 <!-- bite: 4daf5499-89ca-491a-95e7-b1beee674872 -->
 
@@ -433,3 +431,8 @@ That is three literals plus one OR — a dramatic reduction from the canonical f
 - [[how-computers-work/04-logic/04-universal-gates|Module 18]] — where De Morgan leads: NAND alone suffices
 - [[mathematics/02-discrete-math/02-logic|discrete-math/logic]] — the same algebra as propositional logic
 - [[theory-of-computation/index|theory-of-computation/]] — Boolean circuits as a model of computation
+
+## About this lesson
+<!-- bite: 2bd096fc-b718-446b-81bc-e380641d5e5f -->
+
+**Level:** Beginner → Intermediate. **Covers:** You can build any gate. Now the question is which gates to build. Boolean algebra is how you find a cheaper expression for the same function — and it routinely saves more than transistor sizing ever will.

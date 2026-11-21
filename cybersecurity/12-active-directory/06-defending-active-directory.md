@@ -4,8 +4,6 @@ id: 076ecf42-f404-46f7-89e0-d06686e3734c
 
 # Defending Active Directory
 
-**[Advanced]** — the blue-team half, and why understanding the attacks is what makes the defence make sense.
-
 ## The kid version first
 <!-- bite: e096e83d-06fe-4293-849f-004367f17d94 -->
 
@@ -87,5 +85,10 @@ Enumeration and lateral movement use legitimate protocols ([[cybersecurity/12-ac
 - [[cybersecurity/07-security-operations/index|security operations]] — SIEM, detection, incident response
 - [[cybersecurity/09-cloud-security/index|cloud security]] — Entra ID and hybrid
 - [[cybersecurity/08-governance-risk-and-compliance/index|governance and compliance]] — tiering as policy
+
+## About this lesson
+<!-- bite: e774944d-789d-4484-85ea-555ba0ad791a -->
+
+**Level:** Advanced. **Covers:** the blue-team half, and why understanding the attacks is what makes the defence make sense.
 
 *Source: [reference] — Aug 2026.*

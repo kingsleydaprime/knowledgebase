@@ -4,8 +4,6 @@ id: 200def15-a8af-4940-b78c-ac5b2b924b58
 
 # Solana and the Alternative Model
 
-**[Advanced]** — the strongest monolithic counter-argument to Ethereum's rollup strategy, and what it trades away.
-
 ## The bet
 <!-- bite: 86b8fee6-a0cb-4e26-833b-cc3c6f89a4c3 -->
 
@@ -99,5 +97,10 @@ The genuine trade: Ethereum optimises for *anyone can verify, forever*, and acce
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the trilemma]] — the trade being made
 - [[web3/01-foundations/04-blocks-chains-and-state|state models]] — declared access sets
 - [[languages/03-rust/index|Rust]] — the language
+
+## About this lesson
+<!-- bite: 75431cd8-9779-4410-bfa4-2c7c297b10bf -->
+
+**Level:** Advanced. **Covers:** the strongest monolithic counter-argument to Ethereum's rollup strategy, and what it trades away.
 
 *Source: [reference] — Aug 2026.*

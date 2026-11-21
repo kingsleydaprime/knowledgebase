@@ -4,8 +4,6 @@ id: af5910af-9626-450f-a22a-a29fcb1becca
 
 # Time Series Analysis
 
-**[Intermediate → Advanced]** — data that arrives in time order, why it breaks ordinary statistics, and how to separate a real trend from noise and seasonality.
-
 ## The kid version first
 <!-- bite: b1f66094-b4d3-4ca1-b8ac-80792e7743ea -->
 
@@ -93,5 +91,10 @@ Time series has specific, common footguns:
 - [[data-analysis/02-sql-for-analysis|SQL for analysis]] — moving averages and period-over-period in SQL
 - [[digital-signal-processing/index|DSP]] — the signal-processing side of time (Fourier, filters)
 - [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|econometrics]] — time series for causal inference
+
+## About this lesson
+<!-- bite: 32d77564-9c3b-44fa-b60a-613570bec2d0 -->
+
+**Level:** Intermediate → Advanced. **Covers:** data that arrives in time order, why it breaks ordinary statistics, and how to separate a real trend from noise and seasonality.
 
 *Source: [reference] — Sep 2026.*

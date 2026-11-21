@@ -4,8 +4,6 @@ id: 1a38f540-418b-4d7e-8847-3366388c5e90
 
 # What Continuum Mechanics Is
 
-**[Intermediate]** — The one modelling assumption the whole field rests on, when it holds, and why solids and fluids turn out to be the same theory with different closures.
-
 **Source:** `[reference]` — see [[continuum-mechanics/index|the domain note]] on what that means here.
 
 ## The continuum hypothesis
@@ -155,3 +153,8 @@ The order is deliberate: **kinematics before stress before balance laws before c
 - [[continuum-mechanics/07-constitutive-models|Constitutive Models]] — where the modelling error lives
 - [[hardware/01-electricity|Hardware: Electricity]] — the other physical domain here
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: edc668ec-4217-4a45-8d78-c968b0520a6e -->
+
+**Level:** Intermediate. **Covers:** The one modelling assumption the whole field rests on, when it holds, and why solids and fluids turn out to be the same theory with different closures.

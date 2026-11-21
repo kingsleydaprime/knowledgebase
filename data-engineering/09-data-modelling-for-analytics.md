@@ -4,8 +4,6 @@ id: e7ed0d8b-6075-4c5e-9f08-6354c28598dc
 
 # Data Modelling for Analytics
 
-**[Intermediate]** — how to structure warehouse tables so analysts can answer questions, and why it's the opposite of database normalisation.
-
 ## The kid version first
 <!-- bite: 8e30dbb8-7e3b-4661-ad69-d299e26ec9a0 -->
 
@@ -93,5 +91,10 @@ Kimball's dimensional modelling is from the 1990s, and two things have shifted i
 - [[data-engineering/07-transformation-and-dbt|transformation and dbt]] — where models get built
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses]] — where they live, and why columnar makes wide tables cheap
 - [[databases/database-design-reference|database design reference]]
+
+## About this lesson
+<!-- bite: 28edc1eb-7bb7-4f8d-8b57-aadd85b156db -->
+
+**Level:** Intermediate. **Covers:** how to structure warehouse tables so analysts can answer questions, and why it's the opposite of database normalisation.
 
 *Source: [reference] — Aug 2026.*

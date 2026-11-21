@@ -4,8 +4,6 @@ id: 46bef119-5e94-4b20-8216-5657394cc0ed
 
 # Data Fetching and Server State
 
-> **[Intermediate]** · Server state is a cache, not state — and treating it as state is the most expensive mistake in frontend architecture.
-
 ## The distinction that reorganises everything
 <!-- bite: c32dbdbc-79f5-45ac-91ef-c35d2f20bf6e -->
 
@@ -194,5 +192,10 @@ Seen in the wild: `createEvent` invalidated `"Events"`, the main list provided `
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] — the other end of the same problem
 - [[frontend/interview/03-state-data-and-architecture|the interview round]]
 - [[projects/nextvibe/learning/frontend/12-rtk-query-and-api-slices|nextvibe — RTK Query & API slices]] — all of the above hit in one codebase
+
+## About this lesson
+<!-- bite: b7efdbaf-9479-41be-828a-a6e5f34499dc -->
+
+**Level:** Intermediate. **Covers:** Server state is a cache, not state — and treating it as state is the most expensive mistake in frontend architecture.
 
 *Source: [reference] — written Aug 2026.*

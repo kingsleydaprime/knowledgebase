@@ -4,8 +4,6 @@ id: 53de66b4-99f3-4449-a492-7ad7c17f0a18
 
 # Null Safety
 
-**[Beginner → Intermediate]** — the feature Kotlin is best known for, and the hole in it.
-
 ## Nullability is in the type system
 <!-- bite: f6d34366-d077-4e50-9bfe-c7d4e52fea84 -->
 
@@ -130,3 +128,8 @@ val clean: List<String> = maybeNulls.filterNotNull()
 - [[languages/09-kotlin/03-types-and-data-classes|types and data classes]]
 - [[languages/08-swift/02-values-references-and-optionals|Swift's optionals]] — the same idea
 - [[languages/01-java/index|Java]] — where the platform types come from
+
+## About this lesson
+<!-- bite: ed21b48f-9479-44dd-a7b1-56dae12ef9c3 -->
+
+**Level:** Beginner → Intermediate. **Covers:** the feature Kotlin is best known for, and the hole in it.

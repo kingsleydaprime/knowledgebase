@@ -4,8 +4,6 @@ id: 4c892b72-322d-4130-8571-cb85d37addd8
 
 # Batch and Streaming
 
-**[Intermediate]** — the two ways data moves, the real trade-off between them, and why the industry stopped maintaining both.
-
 ## The kid version first
 <!-- bite: 987dca30-614e-40d3-9e1d-5ce70672b59a -->
 
@@ -86,5 +84,10 @@ These are what make streaming a specialty:
 - [[data-engineering/06-distributed-processing|distributed processing]] — Spark for both
 - [[architecture/04-distributed-systems/12-the-log-and-state-machines|the log and state machines]] — the theory under replay
 - [[data-engineering/04-ingestion-and-change-data-capture|ingestion]] — where streams come from
+
+## About this lesson
+<!-- bite: 01015aa2-2270-4de8-8cba-10980981cd91 -->
+
+**Level:** Intermediate. **Covers:** the two ways data moves, the real trade-off between them, and why the industry stopped maintaining both.
 
 *Source: [reference] — Aug 2026.*

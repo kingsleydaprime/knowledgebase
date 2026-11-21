@@ -4,8 +4,6 @@ id: 15822f34-b707-4c62-b2e0-80f5093ddc56
 
 # What Data Engineering Is
 
-**[Beginner]** — the discipline, why it exists as a role, and the one distinction everything else rests on.
-
 ## The kid version first
 <!-- bite: fa5f2bb7-63ee-404c-b1d6-01fa0ef66e2d -->
 
@@ -99,5 +97,10 @@ It emerged because building reliable data pipelines is neither database administ
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — the two ways it moves
 - [[databases/index|databases]] — the operational side
 - [[ai-ml/index|ai-ml]] — the main consumer
+
+## About this lesson
+<!-- bite: 7d401f89-c6d9-4e56-b43f-e6b2c44bf068 -->
+
+**Level:** Beginner. **Covers:** the discipline, why it exists as a role, and the one distinction everything else rests on.
 
 *Source: [reference] — Aug 2026.*

@@ -4,8 +4,6 @@ id: adcc8966-d18e-4328-ad0d-2c0ef0fcdfda
 
 # Smart Pointers and Interior Mutability
 
-**[Intermediate → Advanced]** — The escape hatches for when one owner isn't enough, and the runtime checks you pay for when the compiler can't do it statically.
-
 ## `Box<T>` — heap allocation
 <!-- bite: f1f70af5-2d8f-45ac-8704-3c3e813536c1 -->
 
@@ -176,3 +174,8 @@ The single-threaded and multi-threaded columns are exact mirrors, which makes th
 - [[languages/03-rust/04-borrowing-and-references|Borrowing and References]] — the rule being moved to runtime
 - [[languages/03-rust/15-unsafe-and-ffi|Unsafe and FFI]] — what these are built on
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 320b26d6-ff6d-4657-910b-6fa92e0afa31 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The escape hatches for when one owner isn't enough, and the runtime checks you pay for when the compiler can't do it statically.

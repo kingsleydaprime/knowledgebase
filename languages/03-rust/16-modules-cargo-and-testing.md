@@ -4,8 +4,6 @@ id: 8cf946e8-7601-406c-bef0-2f07fecfc539
 
 # Modules, Cargo and Testing
 
-**[Intermediate]** — Code organisation, the package manager, and a testing story that's mostly built in.
-
 ## Modules
 <!-- bite: 5e1791de-dfe3-44aa-aba6-56df969d3b92 -->
 
@@ -252,3 +250,8 @@ cargo test --doc        # run the examples
 - [[languages/02-go/12-modules-and-project-layout|Go: Modules and Layout]] — a different packaging model
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — wiring `cargo test`, `clippy` and `fmt` into gates
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: a4aff26e-ff20-426d-b5fc-54585297dbf9 -->
+
+**Level:** Intermediate. **Covers:** Code organisation, the package manager, and a testing story that's mostly built in.

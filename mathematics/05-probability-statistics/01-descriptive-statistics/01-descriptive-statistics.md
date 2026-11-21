@@ -4,8 +4,6 @@ id: 30182ac6-3f14-41e4-8e90-bc0df65c9307
 
 # Descriptive Statistics
 
-**[Beginner]** — summarising a dataset in a few numbers, and the datasets that prove why you must also look at it.
-
 ## Before you start
 <!-- bite: b198e411-c8d0-4fd5-8081-39cb9c9c74f3 -->
 
@@ -398,3 +396,8 @@ You are done with this lesson when you can:
 - [[02-dispersion-and-cumulative-frequency/01-dispersion|Dispersion]] — the other half of a summary
 - [[03-probability/01-probability|Probability]] — from describing data to reasoning about chance
 - [[01-plane-shapes|Plane Shapes]] — the area reasoning a histogram depends on
+
+## About this lesson
+<!-- bite: cdd8dc25-00ef-41c0-9465-8f004c7d39b2 -->
+
+**Level:** Beginner. **Covers:** summarising a dataset in a few numbers, and the datasets that prove why you must also look at it.

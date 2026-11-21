@@ -4,8 +4,6 @@ id: 7696431b-61fa-4057-af83-7f3efd8a7251
 
 # Computational Methods and FEM
 
-**[Advanced]** — How the PDEs actually get solved, and the failure modes that make a plausible-looking result wrong.
-
 ## Why numerical methods
 <!-- bite: 526eb15e-f3da-42bd-943d-b9bc6fb47300 -->
 
@@ -180,3 +178,8 @@ Modern FE software will produce a smooth, colourful, professional-looking result
 - [[continuum-mechanics/09-beams-and-structures|Beams and Structures]] — the hand calculations that check FE
 - [[01-growth-and-asymptotic-notation|Algorithms]] — the linear solvers underneath
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: 6443ced2-e7c0-4c8a-8bef-f5a63eb0710c -->
+
+**Level:** Advanced. **Covers:** How the PDEs actually get solved, and the failure modes that make a plausible-looking result wrong.

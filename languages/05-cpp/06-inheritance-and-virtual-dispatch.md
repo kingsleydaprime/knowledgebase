@@ -4,8 +4,6 @@ id: 9320f58f-0968-488b-9b10-a17385d4db22
 
 # Inheritance and Virtual Dispatch
 
-**[Intermediate]** — How polymorphism actually works, what a vtable costs, and why modern C++ uses far less inheritance than 1990s C++ did.
-
 ## Inheritance
 <!-- bite: ea2637ee-0d9b-4826-98c8-45641d8645a9 -->
 
@@ -252,3 +250,8 @@ Many projects (games, embedded) compile with `-fno-rtti` to save binary size, wh
 - [[languages/04-c/05-pointers|C: Function Pointers]] — the vtable, by hand
 - [[concepts/02-design-patterns/index|Design Patterns]] — most of which are about avoiding this
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 5817c3e3-083c-470f-9226-61a6c6a9cd4d -->
+
+**Level:** Intermediate. **Covers:** How polymorphism actually works, what a vtable costs, and why modern C++ uses far less inheritance than 1990s C++ did.

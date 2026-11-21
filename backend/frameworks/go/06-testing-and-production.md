@@ -4,8 +4,6 @@ id: 9fe8536c-8183-43af-af21-92bc5e1725d5
 
 # Testing and Production
 
-**[Intermediate]** — `httptest`, testing without a mocking framework, and what a Go service needs before it faces real traffic.
-
 ## `httptest`
 <!-- bite: de504cb4-ee72-4788-8d5c-749e3f677772 -->
 
@@ -283,3 +281,8 @@ go test -race -cover ./...
 - [[devops/07-observability/index|Observability]] · [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]]
 - [[backend/07-practices/02-testing-a-backend|Testing a Backend]] — the strategy behind this
 - [[backend/frameworks/go/index|Go backends]]
+
+## About this lesson
+<!-- bite: 9932fb38-9255-4872-80f1-9ba06274aff9 -->
+
+**Level:** Intermediate. **Covers:** `httptest`, testing without a mocking framework, and what a Go service needs before it faces real traffic.

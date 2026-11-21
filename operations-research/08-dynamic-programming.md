@@ -4,8 +4,6 @@ id: d6814aa7-4603-4254-bf14-ff5489a7c120
 
 # Dynamic Programming
 
-**[Intermediate]** — Decisions made in stages, where each choice changes what's possible next. Bellman's principle turns an explosion of combinations into a chain of small tables. This is the operations research origin of the DSA pattern, with the stages, states and uncertainty made explicit.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
@@ -277,3 +275,8 @@ You're ready when you can name the stages, state, decision and transition for a 
 - [[operations-research/06-network-models|Network Models]] — shortest path is a dynamic program
 - [[control-theory/11-optimal-control-and-lqr|Optimal control and LQR]] — dynamic programming in continuous state
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: e2ea9bbe-0e21-44c6-bd14-e79098483838 -->
+
+**Level:** Intermediate. **Covers:** Decisions made in stages, where each choice changes what's possible next. Bellman's principle turns an explosion of combinations into a chain of small tables. This is the operations research origin of the DSA pattern, with the stages, states and uncertainty made explicit.

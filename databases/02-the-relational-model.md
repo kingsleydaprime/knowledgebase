@@ -4,8 +4,6 @@ id: 69cd32ad-86f4-46d0-9eaa-f0af0d8fff96
 
 # The Relational Model
 
-**[Intermediate]** — Codd's idea, why SQL is declarative, and the algebra the optimiser actually manipulates.
-
 ## Codd's insight
 <!-- bite: ee3dd9d6-f6be-4e50-85ce-f982b4ac178a -->
 
@@ -180,3 +178,8 @@ GROUP BY c.name;
 - [[databases/database-design-reference|Database Design Reference]] — modelling, normalisation, keys in depth
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the maths
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: 6a9b6d88-6488-4ffa-a628-d4e10cbed14d -->
+
+**Level:** Intermediate. **Covers:** Codd's idea, why SQL is declarative, and the algebra the optimiser actually manipulates.

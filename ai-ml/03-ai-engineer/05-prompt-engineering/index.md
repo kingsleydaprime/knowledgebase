@@ -4,8 +4,6 @@ id: 92ba88db-d632-4600-a184-c042eb60bf54
 
 # Prompt Engineering
 
-> **[Beginner]** · Covers shaping what a model sees so its predictions land where you want: specific instructions, examples, delimited user input, reasoning, and composing several prompts. Also covers treating prompts as code: versioned files, measured against a labelled set. The worked example compares zero-shot and few-shot prompts on twelve labelled reviews with a local model. The numbers were measured on 2026-10-02.
-
 ## Before you start
 <!-- bite: 8cd96258-70a1-4165-9908-2d7875eb07fa -->
 
@@ -387,5 +385,10 @@ You can turn a vague prompt into a specific one, explain the two few-shot rules,
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — grounding, the fix for hallucination
 - [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — the agent loop is a prompting pattern that runs itself
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — prompt injection in depth
+
+## About this lesson
+<!-- bite: f5b318bc-50cd-4bbc-b995-0c6484d9bd04 -->
+
+**Level:** Beginner. **Covers:** Covers shaping what a model sees so its predictions land where you want: specific instructions, examples, delimited user input, reasoning, and composing several prompts. Also covers treating prompts as code: versioned files, measured against a labelled set. The worked example compares zero-shot and few-shot prompts on twelve labelled reviews with a local model. The numbers were measured on 2026-10-02.
 
 *Source: re-homed from the old `01-fundamentals/07-prompting.md`, deepened with techniques from [roadmap.sh prompt-engineering](https://roadmap.sh/prompt-engineering).*

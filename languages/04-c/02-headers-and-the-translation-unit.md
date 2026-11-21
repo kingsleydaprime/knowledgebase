@@ -4,8 +4,6 @@ id: b6917cf4-a805-4a03-a4fb-63883da33f79
 
 # Headers and the Translation Unit
 
-**[Beginner → Intermediate]** — The thing nobody explains properly. Why `.h`/`.c` exists at all, what a header is *for*, and the rules that make multi-file C work.
-
 ## The translation unit
 <!-- bite: 87b70ed4-4bcc-4c63-b6cf-f6d28933cee1 -->
 
@@ -266,3 +264,8 @@ Understanding headers isn't legacy trivia — it's what makes C, C++, and every 
 - [[languages/04-c/11-modular-c-and-project-structure|Modular C]] — using these tools to structure a real project
 - [[languages/03-rust/16-modules-cargo-and-testing|Rust: Modules]] — what replaced headers
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: b6af97a2-a1a6-4e1d-a5fd-b0ae34ba94c5 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The thing nobody explains properly. Why `.h`/`.c` exists at all, what a header is *for*, and the rules that make multi-file C work.

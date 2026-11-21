@@ -4,8 +4,6 @@ id: ace89474-0ac0-4349-ba52-d89d446f8d6c
 
 # Module 24: Latches and Flip-Flops (Feedback Becomes Memory)
 
-**[Intermediate → Advanced]** — Part VII begins with the conceptual leap of the whole course. **Every circuit built so far forgets everything the instant its inputs change.** One wire changes that.
-
 ## Before you start
 <!-- bite: 5a6de638-eb97-470e-8696-1e34763011e3 -->
 
@@ -570,3 +568,8 @@ Feeding a raw asynchronous signal into the debouncer means <em>each</em> of its 
 - [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] — propagation delay and the clock period
 - [[how-computers-work/06-memory/03-memory-technology|Module 26]] — why this feedback pair makes SRAM volatile
 - [[computer-architecture/05-the-datapath|computer-architecture/the datapath]] — flip-flops as pipeline registers
+
+## About this lesson
+<!-- bite: cd7c5f8d-29b3-4e15-a437-af4306a53626 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Part VII begins with the conceptual leap of the whole course. **Every circuit built so far forgets everything the instant its inputs change.** One wire changes that.

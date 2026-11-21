@@ -4,8 +4,6 @@ id: 82b1420c-4aec-4ae2-8426-308a61da0a3a
 
 # Rate Limiting and Abuse
 
-**[Intermediate]** — defending against machine clients that hit you thousands of times a second, and abuse that uses your API exactly as designed.
-
 ## The kid version first
 <!-- bite: 3b3b0a4f-4ec9-4fda-8c3e-d473e1215dec -->
 
@@ -87,5 +85,10 @@ The highest-value target for automated abuse, deserving special treatment:
 - [[cybersecurity/14-api-security/06-the-api-security-lifecycle|the API security lifecycle]] — gateways and WAFs
 - [[backend/06-cross-cutting/index|cross-cutting concerns]] — rate limiting while building
 - [[cybersecurity/07-security-operations/index|security operations]] — anomaly detection
+
+## About this lesson
+<!-- bite: fb61228c-8ed2-4fff-a71d-094b84de1402 -->
+
+**Level:** Intermediate. **Covers:** defending against machine clients that hit you thousands of times a second, and abuse that uses your API exactly as designed.
 
 *Source: [reference] — OWASP API4/API6. Aug 2026.*

@@ -4,8 +4,6 @@ id: 6979d55f-be7c-4b84-8454-92588a5ae64b
 
 # Module 23: The ALU (One Circuit, Many Operations)
 
-**[Intermediate → Advanced]** — Part VI ends by wrapping the adder, the logic gates and a shifter behind a multiplexer. The result is the computational core of every processor — and the first circuit whose behaviour is chosen by *data*.
-
 ## Before you start
 <!-- bite: d77e0be0-9822-4cab-8146-549b7e272a93 -->
 
@@ -456,3 +454,8 @@ SLTU is decided by the carry flag (borrow), SLT by $N \oplus V$. This is precise
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the MUX that selects the operation
 - [[computer-architecture/05-the-datapath|computer-architecture/the datapath]] — where the ALU sits in a processor
 - [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — the answer to a slow ALU
+
+## About this lesson
+<!-- bite: a3bd94a3-eb0c-4dac-a946-0c80b8b3e5b9 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Part VI ends by wrapping the adder, the logic gates and a shifter behind a multiplexer. The result is the computational core of every processor — and the first circuit whose behaviour is chosen by *data*.

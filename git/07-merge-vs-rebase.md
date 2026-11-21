@@ -4,8 +4,6 @@ id: 7e86d051-fe91-4547-aa1f-aafe434a0f86
 
 # Merge vs Rebase — When to Use Which
 
-**[Intermediate]** — The honest answer to the most-argued question in Git: the tradeoff, the cases for each, the rules a team can actually hold to, and a decision flowchart.
-
 This is one of the most debated topics in Git. Here's the complete, honest answer.
 
 ## The Core Tradeoff
@@ -151,3 +149,8 @@ Are you working alone on a branch no one else touches?
 - [[git/06-rebasing|Rebasing]] — the mechanics of the other
 - [[git/13-branching-strategies|Branching Strategies]] — the team context that settles most of these calls
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 0f4f2ab2-b407-45e1-85f2-9ad18ea00b29 -->
+
+**Level:** Intermediate. **Covers:** The honest answer to the most-argued question in Git: the tradeoff, the cases for each, the rules a team can actually hold to, and a decision flowchart.

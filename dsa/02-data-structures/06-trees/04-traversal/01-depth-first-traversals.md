@@ -4,8 +4,6 @@ id: d77e4426-89c0-4c23-af07-7e68f9e17959
 
 # Module: Depth-First Traversals (Pre-order, In-order, Post-order)
 
-**[Intermediate]** — three orders that differ by one line, and the different jobs each one is right for.
-
 ## Before you start
 <!-- bite: 5f1722bb-a086-412e-a350-1886745cc411 -->
 
@@ -626,3 +624,8 @@ You can perform all three orders by hand, write each recursively and iteratively
 - [[../03-binary-search-trees|Binary Search Trees]] — where in-order matters most
 - [[../../05-stacks-and-queues|Stacks and Queues]] — the structure the iterative versions are built on
 - [[01-depth-first-search|Depth-First Search]] — the same idea on a general graph, where you also need a visited set
+
+## About this lesson
+<!-- bite: 42063d01-7171-48a4-8985-bf4a745bd078 -->
+
+**Level:** Intermediate. **Covers:** three orders that differ by one line, and the different jobs each one is right for.

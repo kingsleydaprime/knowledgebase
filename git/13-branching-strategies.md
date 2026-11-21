@@ -4,8 +4,6 @@ id: 18eef2a6-632f-4267-87c2-a647b46ea57c
 
 # Branching Strategies
 
-**[Intermediate]** — GitHub Flow, GitFlow, trunk-based development and the forking workflow: what each optimises for, when it fits, and the branch naming convention that goes with them.
-
 ## Why Strategy Matters
 <!-- bite: bd77a61b-e930-4a6b-97bf-cff6d06bee62 -->
 
@@ -324,3 +322,8 @@ spike/postgres-migration
 - [[git/14-github-and-ci|GitHub as a Platform]] — branch protection is how a strategy gets enforced
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — trunk-based development assumes a fast, trustworthy pipeline
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 4d889b7f-2cac-4e18-a2e0-7f7536403fc8 -->
+
+**Level:** Intermediate. **Covers:** GitHub Flow, GitFlow, trunk-based development and the forking workflow: what each optimises for, when it fits, and the branch naming convention that goes with them.

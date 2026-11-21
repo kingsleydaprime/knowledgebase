@@ -4,8 +4,6 @@ id: 702a4c14-2e82-4c98-99df-eb47ace27bfe
 
 # Module 12: MOSFET Physics (How Voltage Becomes a Channel)
 
-**[Intermediate]** — The device opened up. How a gate voltage conjures a conducting layer out of silicon that was doped the wrong way, what threshold voltage means, and the three regions that define every use of a transistor.
-
 ## Before you start
 <!-- bite: 01cc0e4a-cb43-4949-89a7-6970980c5a38 -->
 
@@ -479,3 +477,8 @@ This is why "make everything minimum size" is often correct in dense logic and b
 - [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] — the switchable resistance, now delivered
 - [[how-computers-work/02-semiconductors/03-energy-bands|Module 8]] — the mobility asymmetry behind PMOS sizing
 - [[how-computers-work/02-semiconductors/05-pn-junctions|Module 10]] — where 60 mV/decade first appeared
+
+## About this lesson
+<!-- bite: 70dfdf60-607e-47b4-8205-e681500881fa -->
+
+**Level:** Intermediate. **Covers:** The device opened up. How a gate voltage conjures a conducting layer out of silicon that was doped the wrong way, what threshold voltage means, and the three regions that define every use of a transistor.

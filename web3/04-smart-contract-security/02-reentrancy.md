@@ -4,8 +4,6 @@ id: 6ee0c3bf-810d-465e-996e-9e221b1f9fd4
 
 # Reentrancy
 
-**[Intermediate]** — the canonical smart contract vulnerability, the three variants people miss, and the two defences that work.
-
 ## The kid version first
 <!-- bite: b3700317-f476-47b9-a243-275145c0b6ee -->
 
@@ -140,5 +138,10 @@ The transient-storage version costs ~200 gas instead of ~20,000 → [[web3/03-sm
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — The DAO, Curve
 - [[web3/03-smart-contracts-with-solidity/07-token-standards|token standards]] — the callback hooks
 - [[os/03-scheduling|concurrency and interleaving]] — the same shape of bug, different substrate
+
+## About this lesson
+<!-- bite: ef209d45-6e41-47c4-b612-f401c1b0d23d -->
+
+**Level:** Intermediate. **Covers:** the canonical smart contract vulnerability, the three variants people miss, and the two defences that work.
 
 *Source: [reference] — Aug 2026.*

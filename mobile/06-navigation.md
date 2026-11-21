@@ -4,8 +4,6 @@ id: 1cc0a3ea-5ae1-4e5e-9c48-267133824903
 
 # Navigation
 
-**[Intermediate]** — the back stack, deep links, and why navigation is harder on mobile than on the web.
-
 ## The kid version first
 <!-- bite: 47ba44a6-89e2-40a9-9255-720e5c133005 -->
 
@@ -104,5 +102,10 @@ For results flowing *back* (a picker returning a selection), use the platform's 
 - [[mobile/10-background-work-and-push|push notifications]] — the other cold-start entry point
 - [[mobile/12-security-on-device|security]] — deep link hijacking
 - [[frontend/02-structuring-a-frontend/index|frontend routing]] — the comparison
+
+## About this lesson
+<!-- bite: 01e73435-6fa6-4ef8-90f1-2771ec077f1c -->
+
+**Level:** Intermediate. **Covers:** the back stack, deep links, and why navigation is harder on mobile than on the web.
 
 *Source: [reference] — Aug 2026.*

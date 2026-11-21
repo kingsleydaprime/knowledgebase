@@ -4,8 +4,6 @@ id: cc923922-2bc4-4eb5-9f60-b0df6114f5fc
 
 # Async Models and asio
 
-**[Advanced]** — The library underneath every C++ network framework, its three programming models, and the executor question that has kept `std::net` out of the standard for a decade.
-
 ## asio is the substrate
 <!-- bite: 3126a492-a4a7-4ae8-aab5-2cde09bc2ceb -->
 
@@ -216,3 +214,8 @@ Or `asio::post` to a separate pool with a completion handler. The rule from [[ba
 - [[languages/05-cpp/13-concurrency|C++: Concurrency]] — coroutines, threads, the memory model
 - [[backend/frameworks/rust/04-async-pitfalls|Rust: Async Pitfalls]] — the same failure modes
 - [[backend/frameworks/cpp/index|C++ backends]]
+
+## About this lesson
+<!-- bite: b43b1752-cb65-4c67-869f-98ad58820c3b -->
+
+**Level:** Advanced. **Covers:** The library underneath every C++ network framework, its three programming models, and the executor question that has kept `std::net` out of the standard for a decade.

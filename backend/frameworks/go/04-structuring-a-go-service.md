@@ -4,8 +4,6 @@ id: 71ec1ca8-f44a-4ca6-84e1-3ce49c4e192c
 
 # Structuring a Go Service
 
-**[Intermediate]** — Dependency injection without a container, the handler-as-method pattern, and why Go services have no `@Autowired`.
-
 ## No DI container, and why
 <!-- bite: ed9d2537-ed16-4261-8780-7822415ed331 -->
 
@@ -250,3 +248,8 @@ For most services, hand-written wiring in `run()` is clearer and shorter than th
 - [[languages/02-go/04-methods-and-interfaces|Go: Methods and Interfaces]] — consumer-declared interfaces
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|DI and Wiring]] — the concept, framework-agnostic
 - [[backend/frameworks/go/index|Go backends]]
+
+## About this lesson
+<!-- bite: 14fd2405-3c8d-4e00-bff1-0086c2166885 -->
+
+**Level:** Intermediate. **Covers:** Dependency injection without a container, the handler-as-method pattern, and why Go services have no `@Autowired`.

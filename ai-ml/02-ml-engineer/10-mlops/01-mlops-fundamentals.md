@@ -4,8 +4,6 @@ id: d5d13d48-d48b-491f-a3c7-f74edc03f3b2
 
 # MLOps Fundamentals
 
-**[reference]** — from the roadmap.sh `mlops` roadmap. What MLOps is, and — the key framing — what it adds *beyond* the [[devops/index|DevOps]] you already know.
-
 ## What MLOps is
 <!-- bite: b8bb1bab-c9a2-4e64-b984-d31c1b02da0c -->
 
@@ -61,3 +59,8 @@ MLOps = these + data/model versioning + experiment tracking + drift monitoring +
 - [[ai-ml/02-ml-engineer/10-mlops/02-experiment-tracking-and-pipelines|Experiment Tracking & Pipelines]] — versioning data/models/experiments
 - [[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge|Monitoring & Edge]] — drift and edge deployment
 - [[devops/index|DevOps]] — the shared foundation MLOps extends
+
+## About this lesson
+<!-- bite: 47732379-b0db-4804-b7a8-0770c9112a1f -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `mlops` roadmap. What MLOps is, and — the key framing — what it adds *beyond* the [[devops/index|DevOps]] you already know.

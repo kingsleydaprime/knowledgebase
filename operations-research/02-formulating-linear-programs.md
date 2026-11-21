@@ -4,8 +4,6 @@ id: b3a493dd-4e8b-4e6a-b915-c8b9d833451c
 
 # Formulating Linear Programs
 
-**[Beginner → Intermediate]** — How to turn a messy description into a linear program a solver can use, the four assumptions that make it "linear", and the standard patterns most real models are built from.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]].
 
 ## Before you start
@@ -260,3 +258,8 @@ You're ready for note 03 when you can write a blending or transportation model f
 - [[operations-research/03-the-geometry-of-linear-programs|The Geometry of Linear Programs]] — the next note
 - [[operations-research/07-integer-programming|Integer Programming]] — when divisibility breaks
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: 8067b456-5d1c-4ae9-8497-077a6dd58052 -->
+
+**Level:** Beginner → Intermediate. **Covers:** How to turn a messy description into a linear program a solver can use, the four assumptions that make it "linear", and the standard patterns most real models are built from.

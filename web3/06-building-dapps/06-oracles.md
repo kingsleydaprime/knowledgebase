@@ -4,8 +4,6 @@ id: 3f163d49-0327-4972-af55-a1cdce92dc38
 
 # Oracles
 
-**[Intermediate]** — how external facts get on-chain, the trust you can't avoid, and randomness.
-
 ## The oracle problem
 <!-- bite: cb9fd1c5-2756-425b-b051-eadfa5264d77 -->
 
@@ -127,3 +125,8 @@ uint256 alsoBad = uint256(blockhash(block.number - 1));
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — the main consumer
 - [[web3/03-smart-contracts-with-solidity/01-what-a-smart-contract-is|what contracts can't do]]
 - [[web3/06-building-dapps/01-the-dapp-architecture|the dapp architecture]]
+
+## About this lesson
+<!-- bite: 1bd5b80e-2aa1-48a8-832c-642426a0d290 -->
+
+**Level:** Intermediate. **Covers:** how external facts get on-chain, the trust you can't avoid, and randomness.

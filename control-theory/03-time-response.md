@@ -4,8 +4,6 @@ id: 035220ab-a0f6-4302-8971-6c5be78e4a38
 
 # Time Response
 
-**[Intermediate]** — Reading a step response, the two numbers that determine everything, and the specifications you design against.
-
 ## First-order systems
 <!-- bite: fec105cf-33dd-44de-9157-6477742377c9 -->
 
@@ -219,3 +217,8 @@ That gives you $G(s) = Ke^{-\theta s}/(\tau s + 1)$ or a second-order fit — en
 - [[control-theory/04-pid-control|PID Control]] — using this to tune
 - [[control-theory/05-stability-and-root-locus|Stability and Root Locus]] — moving poles deliberately
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: cb768dda-af6e-4bf3-a1b8-35eda31d73ae -->
+
+**Level:** Intermediate. **Covers:** Reading a step response, the two numbers that determine everything, and the specifications you design against.

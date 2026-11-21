@@ -4,8 +4,6 @@ id: fbfe3efa-87a3-4008-96f0-27e3f9452224
 
 # Parsing HTTP Safely
 
-**[Advanced]** — Every byte of an HTTP request is attacker-controlled, and C gives you no bounds checking. This is where the CVEs come from.
-
 ## The threat model
 <!-- bite: 5ab92abe-f60e-4b3a-9873-83151f990433 -->
 
@@ -225,3 +223,8 @@ That list is the price of writing HTTP in C, and it's the reason the [[backend/f
 - [[languages/04-c/06-arrays-strings-and-decay|C: Arrays, Strings and Decay]] · [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]]
 - [[cybersecurity/04-web-security/index|Web Security]] · [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Exploits]]
 - [[backend/frameworks/c/index|C backends]]
+
+## About this lesson
+<!-- bite: 0caea2ea-c04f-4c61-a4d8-c8aaf9e9557f -->
+
+**Level:** Advanced. **Covers:** Every byte of an HTTP request is attacker-controlled, and C gives you no bounds checking. This is where the CVEs come from.

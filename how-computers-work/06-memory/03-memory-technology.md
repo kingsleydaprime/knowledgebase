@@ -4,8 +4,6 @@ id: 69ad978f-7726-4a65-8fd7-a1187a45c319
 
 # Module 26: Memory Technology (Six Transistors Versus One Capacitor)
 
-**[Intermediate]** — Part VII ends by asking why we don't build all memory the way module 25 built registers. The answer is cost per bit — and that single number generates the entire memory hierarchy.
-
 ## Before you start
 <!-- bite: 55f90853-046b-4b4b-a8a7-000707e2df20 -->
 
@@ -550,3 +548,8 @@ The reason: at high hit rates the average is dominated by the <em>miss</em> term
 - [[computer-architecture/08-the-memory-hierarchy|computer-architecture/memory hierarchy]] — where this hierarchy is exploited
 - [[computer-architecture/09-caches-in-depth|computer-architecture/caches in depth]] — the machinery built on top of these tradeoffs
 - [[dsa/02-data-structures/01-arrays|dsa/arrays]] — why locality beats complexity analysis
+
+## About this lesson
+<!-- bite: 477e8d2f-41f5-4143-8906-312aaa4e0164 -->
+
+**Level:** Intermediate. **Covers:** Part VII ends by asking why we don't build all memory the way module 25 built registers. The answer is cost per bit — and that single number generates the entire memory hierarchy.

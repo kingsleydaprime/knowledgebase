@@ -4,8 +4,6 @@ id: fb009f3c-bcb1-45c0-b768-9f3654b962b8
 
 # Root Finding
 
-**[Intermediate]** — Solving $f(x)=0$ when there's no formula, and why Newton's method is everywhere despite being unreliable.
-
 ## The problem
 <!-- bite: f05f317c-bb78-4d8f-95fd-b50372d92692 -->
 
@@ -165,3 +163,8 @@ $$J(\mathbf{x}_n)\,\Delta\mathbf{x} = -\mathbf{F}(\mathbf{x}_n), \qquad \mathbf{
 - [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|Numerical Optimisation]] — minimisation is root-finding on the gradient
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — this, applied
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: 9c1e9df6-2f16-43a2-a934-28e294644502 -->
+
+**Level:** Intermediate. **Covers:** Solving $f(x)=0$ when there's no formula, and why Newton's method is everywhere despite being unreliable.

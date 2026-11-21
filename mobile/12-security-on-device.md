@@ -4,8 +4,6 @@ id: 5bf60d3c-f34c-4b3f-b362-845443b99cce
 
 # Security on Device
 
-**[Advanced]** — the app is on hardware the attacker owns, and that changes what "secure" means.
-
 ## The kid version first
 <!-- bite: e9346bfc-8ff8-4253-bd4b-22ea47a57b5e -->
 
@@ -100,5 +98,10 @@ Every one of these is bypassable in minutes by someone with a modified app:
 - [[backend/05-auth/index|auth]] — the server side of this
 - [[cybersecurity/04-web-security/index|web security]] — much of it applies
 - [[cybersecurity/05-cryptography/index|cryptography]] — what the Keystore is doing
+
+## About this lesson
+<!-- bite: a6b014ae-8af1-4f5c-a2a1-f0e30b1c1689 -->
+
+**Level:** Advanced. **Covers:** the app is on hardware the attacker owns, and that changes what "secure" means.
 
 *Source: [reference] — Aug 2026.*

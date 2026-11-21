@@ -4,8 +4,6 @@ id: 748fdc11-9137-4803-bf27-ce52294e981b
 
 # Two-Factor and Passkeys
 
-**[Beginner]** — the layer that survives a stolen password, why the common kind is the weakest, and the backup step everyone skips.
-
 ## The kid version first
 <!-- bite: b786e614-9304-42b4-a2e4-8d5304631605 -->
 
@@ -117,3 +115,8 @@ Same for the notification that just appeared saying *"Approve sign-in?"* when yo
 - [[cybersecurity/10-protecting-yourself/04-phishing-and-scams|phishing and scams]] — what passkeys defeat
 - [[cybersecurity/10-protecting-yourself/08-when-it-goes-wrong|when it goes wrong]]
 - [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|digital signatures]] — the cryptography a passkey uses
+
+## About this lesson
+<!-- bite: 0d2849f6-05a1-4559-8d4f-cf1fb66c281a -->
+
+**Level:** Beginner. **Covers:** the layer that survives a stolen password, why the common kind is the weakest, and the backup step everyone skips.

@@ -4,8 +4,6 @@ id: eb2ab663-afa9-4fcd-85ef-fa2e58e5afdd
 
 # Access Control and Key Management
 
-**[Intermediate]** — the largest category of losses in the field, and the least technically interesting.
-
 ## The uncomfortable headline
 <!-- bite: 610f79d2-43ab-4106-be06-369b79701cae -->
 
@@ -117,5 +115,10 @@ Off-chain signatures (EIP-712 permits, meta-transactions, allowlists) need all f
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — Ronin, Parity
 - [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures]]
 - [[cybersecurity/04-web-security/02-secure-authentication|authentication]] — the ordinary version
+
+## About this lesson
+<!-- bite: 1a9113ac-747f-4171-b2e7-8efa4a900659 -->
+
+**Level:** Intermediate. **Covers:** the largest category of losses in the field, and the least technically interesting.
 
 *Source: [reference] — Aug 2026.*

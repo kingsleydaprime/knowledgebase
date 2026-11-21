@@ -4,8 +4,6 @@ id: f0754c19-2c4c-4b45-bfe4-0a4fec31b504
 
 # Clean Code
 
-> **[Beginner]** Â· Code is read far more often than it's written, usually by someone with less context than you had. Every practice here serves that one reader.
-
 ## Before you start
 <!-- bite: 735c7c3f-08cc-40dd-832b-fb3440aeb3dd -->
 
@@ -317,3 +315,8 @@ You can take messy code, pin it with tests, and refactor it into named pieces â€
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]
 - [[concepts/01-best-practices/05-documentation-practices|documentation practices]]
 - [[concepts/01-best-practices/04-pr-structure|PR structure]]
+
+## About this lesson
+<!-- bite: 3ff25fec-4855-456e-9f3f-b76bc4fa8168 -->
+
+**Level:** Beginner. **Covers:** Code is read far more often than it's written, usually by someone with less context than you had. Every practice here serves that one reader.

@@ -4,8 +4,6 @@ id: 92d64d45-0b17-454e-a1b2-b150b22d9c16
 
 # Consensus — Who Gets to Write
 
-**[Advanced]** — proof-of-work, proof-of-stake, BFT, and the honest version of what "finality" and "51% attack" mean.
-
 ## The kid version first
 <!-- bite: 01903cb9-1b42-4492-825e-4d3792649621 -->
 
@@ -101,5 +99,10 @@ That's the entire threat, and it's enough — it has repeatedly destroyed smalle
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|classical consensus]] — Paxos/Raft, with known membership
 - [[architecture/04-distributed-systems/02-theoretical-limits|theoretical limits]] — FLP and CAP, properly
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the scalability trilemma]]
+
+## About this lesson
+<!-- bite: cd39b3b8-f805-4586-b7f2-68e76e5b154a -->
+
+**Level:** Advanced. **Covers:** proof-of-work, proof-of-stake, BFT, and the honest version of what "finality" and "51% attack" mean.
 
 *Source: [reference] — Aug 2026.*

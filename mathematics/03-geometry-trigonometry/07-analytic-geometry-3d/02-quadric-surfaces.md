@@ -4,8 +4,6 @@ id: b106054d-3f3c-469f-85a8-2078e042b02b
 
 # Quadric Surfaces
 
-**[Advanced]** — what second-degree equations describe in space, and the curved surface you can build entirely from straight beams.
-
 ## Before you start
 <!-- bite: 196f84fd-0920-45f1-a020-c64e71d3809a -->
 
@@ -408,3 +406,8 @@ You are done with this lesson when you can:
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the conic sections these surfaces generalise
 - [[02-solids|Solids]] — the slicing idea the method of traces borrows
 - [[04-linear-algebra/06-eigenvalues/01-eigenvalues-and-eigenvectors|Eigenvalues]] — where the classification is properly explained
+
+## About this lesson
+<!-- bite: 759e2099-2b06-482f-acd0-745846d3c35b -->
+
+**Level:** Advanced. **Covers:** what second-degree equations describe in space, and the curved surface you can build entirely from straight beams.

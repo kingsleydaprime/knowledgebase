@@ -4,8 +4,6 @@ id: d0547435-6665-41a5-9e28-fe25709706ea
 
 # Drogon and the Landscape
 
-**[Intermediate → Advanced]** — The C++ web framework options, and what a modern one actually looks like now that coroutines exist.
-
 **Source:** `[reference]`. Assumes [[languages/05-cpp/index|the C++ course]].
 
 ## The landscape
@@ -249,3 +247,8 @@ And the framing worth keeping from [[backend/frameworks/c/04-when-not-to-use-c|t
 - [[backend/frameworks/cpp/03-json-and-serialisation|JSON and Serialisation]] — the gap C++ feels most
 - [[languages/05-cpp/13-concurrency|C++: Concurrency]] — coroutines in context
 - [[backend/frameworks/cpp/index|C++ backends]]
+
+## About this lesson
+<!-- bite: 298beeb2-534f-4c57-a0ea-f2f0e592a2c1 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The C++ web framework options, and what a modern one actually looks like now that coroutines exist.

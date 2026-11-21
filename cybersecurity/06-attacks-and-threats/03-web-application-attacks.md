@@ -4,8 +4,6 @@ id: f48e81bd-3fff-454a-862b-ea30ad84dff1
 
 # Web Application Attacks
 
-**[reference]** — from the roadmap.sh cyber-security roadmap (OWASP branch). Educational/defensive: how the common web attacks work. The *defenses* are in [[cybersecurity/04-web-security/index|web security]]; this is the attacker's-eye catalog, organized around the **OWASP Top 10** — the industry-standard list of the most critical web-app risks.
-
 ## The OWASP Top 10 (the mental checklist)
 <!-- bite: 903512c0-e7f6-4c19-846d-6c13f35690b9 -->
 
@@ -41,3 +39,8 @@ Nearly every web attack reduces to one root cause: **untrusted input treated as 
 - [[cybersecurity/04-web-security/index|Web Security]] — the defenses for every attack here
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|Input Validation & Output Encoding]] — the fix for injection/XSS
 - [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|Exploitation Concepts]] — the vulnerability-class framing
+
+## About this lesson
+<!-- bite: cb57a74b-5045-4e34-8bd8-3ef8653abf49 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh cyber-security roadmap (OWASP branch). Educational/defensive: how the common web attacks work. The *defenses* are in [[cybersecurity/04-web-security/index|web security]]; this is the attacker's-eye catalog, organized around the **OWASP Top 10** — the industry-standard list of the most critical web-app risks.

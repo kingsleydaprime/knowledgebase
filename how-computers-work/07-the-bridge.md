@@ -4,8 +4,6 @@ id: 224b8cf5-08e4-401b-8780-aa5afe4d6cc5
 
 # Module 27: The Bridge (Parts VIII to XVIII)
 
-**[Intermediate → Advanced]** — You have built every physical component of a computer. This module is the route through the parts of the stack this vault already teaches well — with the dependency from Parts II–VII named at each step, so you know *why* you can now read them.
-
 ## Before you start
 <!-- bite: 59d7c0f4-9dd8-4713-beff-c47519c3eab6 -->
 
@@ -253,3 +251,8 @@ That is four notes. **Everything else can follow while you build**, and building
 - [[compilers/index|compilers/]]
 - [[programming-language-theory/index|programming-language-theory/]]
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU — the four build tracks]]
+
+## About this lesson
+<!-- bite: d9107d2d-74d3-410b-8027-12c79f502a80 -->
+
+**Level:** Intermediate → Advanced. **Covers:** You have built every physical component of a computer. This module is the route through the parts of the stack this vault already teaches well — with the dependency from Parts II–VII named at each step, so you know *why* you can now read them.

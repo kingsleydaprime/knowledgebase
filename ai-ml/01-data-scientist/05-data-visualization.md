@@ -4,8 +4,6 @@ id: 5c922cc9-5642-4166-ab17-a26c0e137c60
 
 # Data Visualization
 
-**[reference]** — from the roadmap.sh `data-analyst`/`ai-data-scientist` roadmaps. Two jobs: **exploring** data (charts for yourself, during [[ai-ml/01-data-scientist/04-exploratory-data-analysis|EDA]]) and **communicating** findings (charts for others, the [[ai-ml/01-data-scientist/01-the-data-scientist-role|deliverable]]). Getting these right is a large part of a data scientist's actual impact.
-
 ## Choosing the right chart
 <!-- bite: 2944a89e-f648-4467-bd08-262eca318652 -->
 
@@ -62,3 +60,8 @@ The goal is the same as the whole role: help someone reach a *correct* conclusio
 - [[ai-ml/01-data-scientist/04-exploratory-data-analysis|Exploratory Data Analysis]] — visualization as an exploration tool
 - [[ai-ml/01-data-scientist/01-the-data-scientist-role|The Data Scientist Role]] — communication as half the job
 - [[ai-ml/01-data-scientist/02-descriptive-statistics|Descriptive Statistics]] — Anscombe's quartet, why you must plot, not just summarize
+
+## About this lesson
+<!-- bite: 25a878af-aa85-46eb-85f6-5a48159c8d3e -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `data-analyst`/`ai-data-scientist` roadmaps. Two jobs: **exploring** data (charts for yourself, during [[ai-ml/01-data-scientist/04-exploratory-data-analysis|EDA]]) and **communicating** findings (charts for others, the [[ai-ml/01-data-scientist/01-the-data-scientist-role|deliverable]]). Getting these right is a large part of a data scientist's actual impact.

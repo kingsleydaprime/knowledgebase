@@ -4,7 +4,7 @@ id: bc728575-0cc9-4ccf-947f-eabb9a039f4a
 
 # Testing a Backend
 
-**[Intermediate]** — assumes [[concepts/01-best-practices/03-testing-fundamentals/index|Testing Fundamentals]] for the pyramid and TDD. This note is only the part that's *specific to a backend*: the database, the I/O boundaries, test data, and why backend suites go flaky.
+**Testing a backend means checking code that talks to other things: a database, a clock, a payment provider, other services.** Those conversations are where the bugs you actually ship live. So the main decision is, for each thing your code talks to, whether a test uses the real one, a fake one, or nothing at all.
 
 ## The kid version first
 <!-- bite: 5f62e570-ba11-444f-ab93-9fad569591d3 -->
@@ -156,3 +156,8 @@ Backend testing comes down to one decision repeated: real, faked, or ignored. Us
 <!-- bite: 6e21b52e-d354-4d7c-9d97-f37497ce19a7 -->
 - [[projects/gees-arise/learning/07-testing|Gees Arise — Playwright]] — a real E2E suite driving a sign-up flow in a browser, walked through line by line
 - [[projects/strictenv/interview/03-testing-packaging-and-story|strictenv]] — testing and packaging a library, where the public surface *is* the contract
+
+## About this lesson
+<!-- bite: 71b294d2-b155-4b5f-b084-f720d17f9bd5 -->
+
+**Level:** Intermediate. **Covers:** assumes [[concepts/01-best-practices/03-testing-fundamentals/index|Testing Fundamentals]] for the pyramid and TDD. This note is only the part that's *specific to a backend*: the database, the I/O boundaries, test data, and why backend suites go flaky.

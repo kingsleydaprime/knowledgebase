@@ -4,8 +4,6 @@ id: dec9bd9d-4e5a-4b4e-bad9-2ff1160e2134
 
 # Gravity and Relativity
 
-> **[Intermediate → Advanced]** · Newton, Einstein, and the objects where the difference stops being academic.
-
 ## Newton, and where he still works
 <!-- bite: 03088d1d-080b-4098-bed2-5b05e51f17e6 -->
 
@@ -80,5 +78,10 @@ Wheeler's summary is the one to keep: *spacetime tells matter how to move; matte
 - [[astronomy/04-stars|stars]] — what collapses
 - [[astronomy/07-cosmology|cosmology]] — GR applied to everything
 - [[control-theory/index|control theory]] · [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical methods]] — the maths underneath
+
+## About this lesson
+<!-- bite: 6ed798b7-053e-44a9-ae08-589e161c693b -->
+
+**Level:** Intermediate → Advanced. **Covers:** Newton, Einstein, and the objects where the difference stops being academic.
 
 *Source: [reference] — written Aug 2026.*

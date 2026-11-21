@@ -4,8 +4,6 @@ id: 4cc52cff-f841-46df-ba78-40935cb50e52
 
 # Platform Engineering
 
-> **[Intermediate]** · The Internal Developer Platform, golden paths, and treating your own infrastructure team's output as a product with users.
-
 The discipline exists because of a specific, well-documented failure: **DevOps succeeded, and then stopped scaling.**
 
 ## The two ways a successful DevOps team breaks
@@ -125,5 +123,10 @@ No — and the confusion is worth clearing up because it's common in job ads.
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the deploy mechanism most IDPs are built on
 - [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]] — what gets encoded into the platform
 - [[software-engineering/01-what-software-engineering-is|what software engineering is]] — abstraction, and how a bad one costs you twice
+
+## About this lesson
+<!-- bite: b233e701-59b1-4dfa-b13c-31294d61a6ba -->
+
+**Level:** Intermediate. **Covers:** The Internal Developer Platform, golden paths, and treating your own infrastructure team's output as a product with users.
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (final module), extended with Team Topologies, the CNCF platforms white paper, and Backstage/Humanitec documentation.*

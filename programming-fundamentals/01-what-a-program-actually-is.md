@@ -4,8 +4,6 @@ id: ab7fc360-4318-4e6c-a51e-447943178c82
 
 # What a Program Actually Is
 
-> **[Beginner]** · Instructions for something with no judgement — and why that single fact explains most of what's strange about programming.
-
 A program is **a sequence of instructions precise enough that a machine with no understanding can follow it and produce a useful result.**
 
 Every word there is load-bearing, but one especially: **no understanding.** The computer is not interpreting your intent, inferring what you meant, or noticing that something looks wrong. It executes what you wrote.
@@ -84,5 +82,10 @@ That last one is the big one, and it's the same move as the language itself: **m
 - [[compilers/index|compilers]] — the translation step, at depth, much later
 - [[computer-architecture/01-what-architecture-is|computer architecture]] — what's underneath the instructions
 - [[using-ai/index|using AI]] — the parallel on-ramp, for the other tool you'll be leaning on
+
+## About this lesson
+<!-- bite: afab83ca-45e9-44c1-bef4-58d6bf4a7c3e -->
+
+**Level:** Beginner. **Covers:** Instructions for something with no judgement — and why that single fact explains most of what's strange about programming.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, written as the on-ramp this vault assumed and never wrote.*

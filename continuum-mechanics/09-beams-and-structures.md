@@ -4,8 +4,6 @@ id: 4a88702d-9e74-47eb-b98c-1dca4dc4cbfc
 
 # Beams and Structures
 
-**[Intermediate]** — Reducing 3D elasticity to 1D and 2D by exploiting geometry. Where continuum mechanics becomes the engineering you'd actually do.
-
 ## The idea
 <!-- bite: a4641409-0354-4828-aade-e51ad703ccbd -->
 
@@ -172,3 +170,8 @@ Worth knowing the boundaries, because the formulas will happily give you a numbe
 - [[continuum-mechanics/12-failure-and-yield|Failure and Yield]] — whether the stress is acceptable
 - [[hardware/index|Hardware & Embedded]] — where these get built
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: ac645210-230c-41a6-a84d-02efb71f1ea1 -->
+
+**Level:** Intermediate. **Covers:** Reducing 3D elasticity to 1D and 2D by exploiting geometry. Where continuum mechanics becomes the engineering you'd actually do.

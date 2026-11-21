@@ -4,8 +4,6 @@ id: 4b4d92aa-21e2-4ba4-85a9-1326a3cce932
 
 # Module: Classic One-Dimensional DP (The State Is a Single Index)
 
-**[Intermediate]** — Three problems that between them cover most of what one-dimensional dynamic programming does: **house robber**, **coin change** and **longest increasing subsequence**. Each is worked with its state named as a sentence, its table traced cell by cell, and its answer checked against brute force on hundreds of random inputs.
-
 The third one is the important one. Its obvious state definition does not work, and understanding *why* is worth more than the other two combined.
 
 ---
@@ -588,3 +586,8 @@ You can derive a state by asking what decision happens at index $i$; explain why
 - [[10-max-slice-algorithms|Max Slice / Kadane's]] — a 1-D scan that is DP in disguise
 - [[15-dynamic-programming|The DP pattern note]] — the recognition layer above this folder
 - [[07-dynamic-programming/index|the dynamic programming folder]]
+
+## About this lesson
+<!-- bite: 74688ce5-401d-4110-9099-c467b42e85d9 -->
+
+**Level:** Intermediate. **Covers:** Three problems that between them cover most of what one-dimensional dynamic programming does: **house robber**, **coin change** and **longest increasing subsequence**. Each is worked with its state named as a sentence, its table traced cell by cell, and its answer checked against brute force on hundreds of random inputs.

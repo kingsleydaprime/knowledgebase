@@ -4,8 +4,6 @@ id: 11fb2aa1-4323-45f3-af1d-b5b45d4df798
 
 # Self-Hosting n8n
 
-> **[Intermediate]** · Docker, the database, the encryption key — and an honest account of when hosting it yourself is the wrong call.
-
 ## Why self-host
 <!-- bite: dab082a0-4b55-4fb7-a2b5-35018afd6bbd -->
 
@@ -110,5 +108,10 @@ The default is one process doing everything. Past a few hundred executions an ho
 - [[devops/03-docker/index|Docker]] · [[devops/04-vps/vps-setup|VPS setup]]
 - [[devops/06-secret-management/index|secret management]] — the encryption-key argument
 - [[databases/12-operating-a-database|operating a database]]
+
+## About this lesson
+<!-- bite: f18ac7da-97e8-45d3-8cc1-ecc138e2466c -->
+
+**Level:** Intermediate. **Covers:** Docker, the database, the encryption key — and an honest account of when hosting it yourself is the wrong call.
 
 *Source: [reference] — from the n8n self-hosting documentation, Aug 2026.*

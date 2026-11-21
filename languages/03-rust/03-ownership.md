@@ -4,8 +4,6 @@ id: 81e6cd62-0475-49dc-bf10-b686dde31194
 
 # Ownership
 
-**[Beginner → Intermediate]** — The idea the entire language is built on. Read this one slowly; everything after it assumes you have it.
-
 ## The three rules
 <!-- bite: a63599ed-40ba-4c5d-8c25-c9874a27be6e -->
 
@@ -187,3 +185,8 @@ The cost is that you now think about ownership explicitly. In exchange, you thin
 - [[languages/03-rust/13-concurrency|Concurrency]] — where ownership pays off unexpectedly
 - [[languages/02-go/13-performance-and-runtime|Go: the GC]] — the alternative deal
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 59fcd672-b04c-4c65-9850-8a0dee8e394a -->
+
+**Level:** Beginner → Intermediate. **Covers:** The idea the entire language is built on. Read this one slowly; everything after it assumes you have it.

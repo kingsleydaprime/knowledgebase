@@ -4,8 +4,6 @@ id: a28b0f82-532f-419b-a12b-f6859e1c3af5
 
 # The Log & State Machines
 
-**[reference]** — from the canon (Jay Kreps' *The Log*, the Raft/VR papers, DDIA ch. 3 & 11). One idea quietly unifies half of distributed systems: the **append-only, totally-ordered log.** Replication, consensus, streaming, databases, and event-driven architecture turn out to be the *same trick* in different costumes — agree on an ordered sequence of events, and anything that replays it deterministically ends up in the same state.
-
 ## The kid version first
 <!-- bite: fbc818c0-4fbb-4799-9906-1736d5e2d7a8 -->
 
@@ -59,3 +57,8 @@ Kafka's "exactly-once semantics" is this pattern, not magic — the same [[archi
 - [[architecture/04-distributed-systems/03-time-and-ordering|Time & Ordering]] — the log *is* a total order of operations
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — event sourcing, CQRS, streaming
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — LSM storage engines
+
+## About this lesson
+<!-- bite: 1f73ec7c-7f4c-4753-ad88-fa6ffc22e276 -->
+
+**Level:** reference. **Covers:** from the canon (Jay Kreps' *The Log*, the Raft/VR papers, DDIA ch. 3 & 11). One idea quietly unifies half of distributed systems: the **append-only, totally-ordered log.** Replication, consensus, streaming, databases, and event-driven architecture turn out to be the *same trick* in different costumes — agree on an ordered sequence of events, and anything that replays it deterministically ends up in the same state.

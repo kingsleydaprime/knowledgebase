@@ -4,8 +4,6 @@ id: 43565e00-6b41-40a6-8606-514381f181a0
 
 # What Information Is
 
-**[Intermediate]** — Shannon's definition, why surprise is the right measure, and where the bit comes from.
-
 **Source:** `[reference]` — see [[information-theory/index|the domain note]].
 
 ## The question
@@ -158,3 +156,8 @@ $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 - [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the note the ML material needs
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — the prerequisite
 - [[information-theory/index|Information theory map]]
+
+## About this lesson
+<!-- bite: 766ac5fc-f83f-4948-a275-e6284d026188 -->
+
+**Level:** Intermediate. **Covers:** Shannon's definition, why surprise is the right measure, and where the bit comes from.

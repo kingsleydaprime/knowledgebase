@@ -4,8 +4,6 @@ id: d990f73f-ffdf-4124-8010-5fdfad90ff06
 
 # Putting It All Together
 
-**[Intermediate]** — the whole stack in one worked picture, and what to do next.
-
 Here's how all of this connects in a real system. A soil moisture monitoring system for a farm:
 
 **Edge:**
@@ -46,3 +44,8 @@ Every expert in this space started by wiring up a blinking LED and wondering why
 - [[hardware/hardware-reference|Hardware Reference]] — units, prefixes and the formulas, for lookup
 - [[projects/iot-bridge-pcb/task|IoT Bridge PCB]] — all of this, done for real
 - [[project-ideas|Project Ideas]] — the hardware build tier
+
+## About this lesson
+<!-- bite: 99406f4b-f41f-487b-97cf-68aaedd2f57a -->
+
+**Level:** Intermediate. **Covers:** the whole stack in one worked picture, and what to do next.

@@ -4,8 +4,6 @@ id: b9011353-d8c4-496c-9eee-d0e2b074dcf1
 
 # Practice Exercises
 
-> **[Advanced]** · Twelve exercises. **PL theory is the one domain here where the exercises are mostly *implementations* — because an interpreter you wrote cannot lie to you about the semantics.**
-
 **Paper for Part A. A language with algebraic data types for B–D** — Haskell, OCaml, Rust or Scala are natural; Python works with more typing.
 
 Solutions in [[programming-language-theory/09-practice-exercises-solutions|note 09]].
@@ -82,5 +80,10 @@ Write typing rules for a linear lambda calculus where every variable is used **e
 - [[programming-language-theory/09-practice-exercises-solutions|Solutions]]
 - [[programming-language-theory/index|the course]]
 - [[compilers/index|compilers]] · [[build-your-own-shit/04-your-own-language|build your own language]]
+
+## About this lesson
+<!-- bite: b50a7db6-95b7-4bf0-a2de-03cb9ae32a5e -->
+
+**Level:** Advanced. **Covers:** Twelve exercises. **PL theory is the one domain here where the exercises are mostly *implementations* — because an interpreter you wrote cannot lie to you about the semantics.**
 
 *Source: [reference] — built from this course's own gap-closing list.*

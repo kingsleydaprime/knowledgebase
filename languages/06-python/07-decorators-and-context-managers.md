@@ -4,8 +4,6 @@ id: b6404e4c-2da0-4459-8e8b-78ce49fd06b6
 
 # Decorators and Context Managers
 
-> **[Intermediate]** · The two idioms that appear in every real Python codebase, and both are simpler than their reputation.
-
 ## Decorators
 <!-- bite: c4df1d14-8b27-4ec4-b256-17fa42dff9b7 -->
 
@@ -157,5 +155,10 @@ Beyond files: `threading.Lock`, database transactions and sessions, `tempfile.Te
 - [[languages/06-python/09-errors-and-exceptions|errors and exceptions]] — what `__exit__` receives
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — `@property` and the dunder protocols
 - [[languages/05-cpp/03-classes-and-raii|RAII in C++]] — the same problem, solved by scope
+
+## About this lesson
+<!-- bite: e855878e-7cad-493e-9a90-332086a8b7ba -->
+
+**Level:** Intermediate. **Covers:** The two idioms that appear in every real Python codebase, and both are simpler than their reputation.
 
 *Source: [reference] — from `functools`, `contextlib` and the language reference.*

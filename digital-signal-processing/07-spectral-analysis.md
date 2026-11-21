@@ -4,8 +4,6 @@ id: 4cda8f0e-811d-438b-830a-cf4451d8bf4e
 
 # Spectral Analysis
 
-**[Advanced]** — using the FFT on real, finite, noisy data, and the two problems that separate a clean spectrum from a misleading one.
-
 ## The kid version first
 <!-- bite: b695356d-d013-495f-8da3-0c770a9b74d9 -->
 
@@ -100,5 +98,10 @@ f, t, Sxx = signal.spectrogram(x, fs, window='hann', nperseg=1024)
 - [[digital-signal-processing/02-sampling-and-aliasing|sampling]] — the other way a spectrum can mislead
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/index|sequence models]] — spectrograms as ML input
 - [[information-theory/index|information theory]] — the uncertainty/entropy connections
+
+## About this lesson
+<!-- bite: 358cfd96-f7f5-4bf5-8d49-0429c67701e4 -->
+
+**Level:** Advanced. **Covers:** using the FFT on real, finite, noisy data, and the two problems that separate a clean spectrum from a misleading one.
 
 *Source: [reference] — Aug 2026.*

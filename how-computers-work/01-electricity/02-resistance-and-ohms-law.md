@@ -4,8 +4,6 @@ id: 46cbcbc6-e4c7-4e5f-868e-4b6a92cf83e5
 
 # Module 2: Resistance and Ohm's Law (The Cost of Moving Charge)
 
-**[Beginner]** — The third quantity, the one equation that links all three, and the power relationship that has dictated the shape of every processor built since 2005.
-
 ## Before you start
 <!-- bite: ff98584b-2c65-4252-9de0-5babad5dfd5f -->
 
@@ -336,3 +334,8 @@ Exact value is $(3.3 - 2.1)/0.015$. Round <em>up</em> to the next standard value
 - [[how-computers-work/01-electricity/01-charge-current-and-voltage|Module 1 — Charge, Current and Voltage]]
 - [[computer-architecture/12-performance|computer-architecture/performance]] — where the power wall's architectural consequences are worked out
 - [[hardware/01-electricity|hardware/electricity]] — practical component selection
+
+## About this lesson
+<!-- bite: 9def371b-f978-47c4-8061-aebdee594767 -->
+
+**Level:** Beginner. **Covers:** The third quantity, the one equation that links all three, and the power relationship that has dictated the shape of every processor built since 2005.

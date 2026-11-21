@@ -4,8 +4,6 @@ id: aad7aa93-b0fb-42c7-9489-6299d7996719
 
 # Why C#, and the Toolchain
 
-> **[Beginner]** · What C# is for, the .NET naming mess untangled, and the one version footnote that matters if you're here for Unity.
-
 C# is a **statically typed, garbage-collected, multi-paradigm language** that began as Microsoft's answer to Java and has since overtaken it on language design while trailing it on ecosystem breadth.
 
 **Where it wins:** enterprise backends, Windows desktop, **Unity game development**, and increasingly cross-platform services. It has the best async story of any mainstream language — `async`/`await` originated here in 2012 and was copied by JavaScript, Python, Rust and Swift → [[languages/07-csharp/07-async-await-and-tasks|note 07]].
@@ -111,5 +109,10 @@ record User(string Name, int Age);
 - [[languages/07-csharp/index|the course]]
 - [[languages/01-java/index|Java]] — the closest neighbour
 - [[game-development/engines/unity|Unity]] — the reason many people arrive here
+
+## About this lesson
+<!-- bite: 81598bd2-23b5-4173-af09-f8050cb94488 -->
+
+**Level:** Beginner. **Covers:** What C# is for, the .NET naming mess untangled, and the one version footnote that matters if you're here for Unity.
 
 *Source: [reference] — from the .NET and C# language documentation, Aug 2026.*

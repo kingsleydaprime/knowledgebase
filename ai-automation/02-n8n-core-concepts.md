@@ -4,8 +4,6 @@ id: 529bef65-bdc7-4b0d-8b42-3199c950a35b
 
 # n8n Core Concepts
 
-> **[Beginner]** · Nodes, connections, executions, credentials — and the data model that causes most beginner confusion.
-
 ## The pieces
 <!-- bite: 125ef169-620c-4f50-a6ae-0c3157713ecc -->
 
@@ -114,5 +112,10 @@ Every run is recorded: input and output **at every node**, timing, and status.
 - [[ai-automation/03-connecting-apis-and-webhooks|connecting APIs and webhooks]]
 - [[ai-automation/01-what-workflow-automation-is|what workflow automation is]]
 - [[devops/06-secret-management/index|secret management]] — the credential-store argument
+
+## About this lesson
+<!-- bite: 5cb00952-3dbf-4dc6-925b-bdd4df855571 -->
+
+**Level:** Beginner. **Covers:** Nodes, connections, executions, credentials — and the data model that causes most beginner confusion.
 
 *Source: [reference] — from the n8n documentation, Aug 2026.*

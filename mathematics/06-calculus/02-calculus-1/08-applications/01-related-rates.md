@@ -4,8 +4,6 @@ id: 735d7c0b-0203-4328-a60e-937be5f70dfd
 
 # Applications of the Derivative
 
-**[Intermediate]** — Using derivatives to answer questions: how fast is *this* changing given *that*, and where is a quantity largest.
-
 ## Before you start
 <!-- bite: fe7b5289-a768-4266-a90e-624288ff5aa6 -->
 
@@ -156,3 +154,8 @@ Let $x$ be the two perpendicular sides and $y$ the side parallel to the river.
 
 - [[01-rules|Derivative rules]] · [[01-definition|Continuity]]
 - [[ai-ml/index|ai-ml]] — optimisation is what training a model *is*
+
+## About this lesson
+<!-- bite: af909c51-fe76-4e26-a470-35b8af46ae36 -->
+
+**Level:** Intermediate. **Covers:** Using derivatives to answer questions: how fast is *this* changing given *that*, and where is a quantity largest.

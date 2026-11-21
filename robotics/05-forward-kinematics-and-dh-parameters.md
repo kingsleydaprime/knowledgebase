@@ -4,8 +4,6 @@ id: e33c8710-ad8d-4c37-8b28-e04aebd0fd3c
 
 # Forward Kinematics and DH Parameters
 
-**[Intermediate]** — Given the joint angles, where is the hand? The easy direction, and the notation the field standardised on.
-
 ## The problem
 <!-- bite: c1b152cf-b790-4699-be1e-2d3a22c14d51 -->
 
@@ -160,3 +158,8 @@ More places than "where's the hand":
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — the hard direction
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — differentiating this
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: e6ccb601-c1dd-49be-b130-43439dcd7a5e -->
+
+**Level:** Intermediate. **Covers:** Given the joint angles, where is the hand? The easy direction, and the notation the field standardised on.

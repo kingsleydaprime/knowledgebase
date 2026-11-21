@@ -4,8 +4,6 @@ id: 8319f0be-2752-4d28-90a1-58959ba63a0d
 
 # Your Privacy Footprint
 
-**[Beginner]** — what's already public about you, why it's a security problem rather than just a privacy one, and what's worth doing.
-
 ## The kid version first
 <!-- bite: ead63431-112e-4c19-a27c-09d2df61ac8b -->
 
@@ -101,3 +99,8 @@ Not paranoia — these specific things get used:
 - [[cybersecurity/10-protecting-yourself/02-passwords-and-the-manager|passwords]] — the security-question fix
 - [[using-ai/07-privacy-and-what-not-to-share|privacy and AI]] — the same discipline, for chatbots
 - [[cybersecurity/02-ethical-hacking/03-reconnaissance|reconnaissance]] — the professional side: how this is gathered deliberately
+
+## About this lesson
+<!-- bite: 99056cad-6517-4a8e-b0b9-49cb7ce52377 -->
+
+**Level:** Beginner. **Covers:** what's already public about you, why it's a security problem rather than just a privacy one, and what's worth doing.

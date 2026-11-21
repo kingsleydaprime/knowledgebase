@@ -4,8 +4,6 @@ id: 113ac0f5-ac06-4949-84ef-28726c3c5d22
 
 # Minimal APIs and MVC
 
-> **[Intermediate]** · Two endpoint styles in one framework — what differs, what doesn't, and which to pick.
-
 **Both are ASP.NET Core.** Same pipeline, same DI, same routing engine. They differ in _how you declare an endpoint_, not in what happens underneath.
 
 ## Minimal APIs
@@ -133,3 +131,8 @@ app.UseExceptionHandler();
 - [[backend/02-api-design/index|API design]] — what you're building
 
 _Source: [reference] — from the ASP.NET Core documentation, Aug 2026._
+
+## About this lesson
+<!-- bite: dfed625a-6899-48c5-835e-0063108ca2dc -->
+
+**Level:** Intermediate. **Covers:** Two endpoint styles in one framework — what differs, what doesn't, and which to pick.

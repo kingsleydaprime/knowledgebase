@@ -4,8 +4,6 @@ id: 53992400-1b82-4ac0-977d-7a02ffb76e14
 
 # Concurrency Primitives
 
-**[Advanced]** — What a mutex actually is, why an uncontended lock costs nothing, and the memory barriers underneath every concurrency abstraction you use.
-
 ## The layer under everything
 <!-- bite: 32f44834-b9ae-4bef-99f1-2dbdb861f3e5 -->
 
@@ -223,3 +221,8 @@ Sharding is the underrated middle step: replacing one lock with 64 locks keyed b
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — these primitives with the races made impossible
 - [[architecture/04-distributed-systems/03-time-and-ordering|Time and Ordering]] — the same problems, without shared memory
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: b1e897c6-3e6f-429c-80bc-f3467871092d -->
+
+**Level:** Advanced. **Covers:** What a mutex actually is, why an uncontended lock costs nothing, and the memory barriers underneath every concurrency abstraction you use.

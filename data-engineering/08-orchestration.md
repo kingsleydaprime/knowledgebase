@@ -4,8 +4,6 @@ id: 1803e1f1-6902-40cf-8863-57530324dde9
 
 # Orchestration
 
-**[Intermediate]** — the conductor that runs all the pieces in order, on schedule, and correctly when things fail.
-
 ## The kid version first
 <!-- bite: 50552e5a-1d1a-4632-86f3-5ebec67198e2 -->
 
@@ -86,5 +84,10 @@ Idempotent:       DELETE yesterday's partition, then INSERT   ← re-run → sam
 - [[data-engineering/07-transformation-and-dbt|transformation and dbt]] — a major thing orchestrators run
 - [[data-engineering/10-data-quality-governance-and-the-stack|data quality]] — where alerts go
 - [[devops/05-ci-cd/index|CI/CD]] · [[architecture/03-architectural-patterns/index|architectural patterns]] — pipelines-as-code
+
+## About this lesson
+<!-- bite: 6bf50ae0-2fde-4718-be40-6f7aef997ae2 -->
+
+**Level:** Intermediate. **Covers:** the conductor that runs all the pieces in order, on schedule, and correctly when things fail.
 
 *Source: [reference] — Aug 2026.*

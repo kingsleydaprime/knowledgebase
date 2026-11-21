@@ -4,8 +4,6 @@ id: f39f98f7-3c53-4776-82ea-816a32c0c8d0
 
 # Configuration Management
 
-**[reference]** — from roadmap.sh and the Ansible docs.
-
 ## Provisioning vs configuration, again
 <!-- bite: 9d220b03-5d75-4b53-8ee8-44f69b092fe1 -->
 
@@ -70,3 +68,8 @@ So the honest framing: config management is essential for mutable-server worlds 
 - [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|Provisioning & Terraform]] — creates the machines this configures
 - [[devops/01-linux/14-basic-ssh-config|SSH Config]] — Ansible's transport
 - [[devops/03-docker/index|Docker]] — the immutable-image alternative
+
+## About this lesson
+<!-- bite: e8fa3109-ce5a-4d36-a051-5afde58962fb -->
+
+**Level:** reference. **Covers:** from roadmap.sh and the Ansible docs.

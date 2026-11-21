@@ -4,8 +4,6 @@ id: b4c65275-de5a-4651-81dc-aefb1c110177
 
 # Testing and Tooling
 
-> **[Intermediate]** · xUnit, the analyzer story, and the tooling that comes free with the SDK.
-
 ## xUnit
 <!-- bite: 8b79448c-8cd5-4c44-9a05-0a44f8834108 -->
 
@@ -119,5 +117,10 @@ Add `dotnet format --verify-no-changes` to fail on unformatted code, and **`dotn
 - [[languages/07-csharp/11-the-standard-library-and-ecosystem|the ecosystem]]
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]
 - [[languages/07-csharp/13-performance-and-the-runtime|performance]] — BenchmarkDotNet in anger
+
+## About this lesson
+<!-- bite: dba2c9b3-9d6b-4637-8aea-60fa8118f4fa -->
+
+**Level:** Intermediate. **Covers:** xUnit, the analyzer story, and the tooling that comes free with the SDK.
 
 *Source: [reference] — from the .NET testing documentation, Aug 2026.*

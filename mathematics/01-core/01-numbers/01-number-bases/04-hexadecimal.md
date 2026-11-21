@@ -4,8 +4,6 @@ id: 745d2709-10d6-4a8b-8e73-69a0fe457d94
 
 # Hexadecimal (Base 16)
 
-**[Beginner]** — The base nobody counts in and everybody reads. Chosen for one mathematical reason, and used everywhere that reason applies.
-
 ## Before you start
 <!-- bite: 4afef54a-18c0-4021-94ff-f4f4ba8ae1d9 -->
 
@@ -131,3 +129,8 @@ The mask for the low $n$ bits is $2^n - 1$, which in hex is a run of <code>F</co
 - [[01-introduction|Number bases]] · [[02-binary|Binary]] · [[03-decimal|Decimal]]
 - [[computer-architecture/02-data-representation|computer-architecture/data representation]] — where these bytes get meaning
 - [[how-computers-work/index|How Computers Work]] — the course this unblocks
+
+## About this lesson
+<!-- bite: fdf2675e-23f7-4ad4-b3ca-93baa7a2dbc7 -->
+
+**Level:** Beginner. **Covers:** The base nobody counts in and everybody reads. Chosen for one mathematical reason, and used everywhere that reason applies.

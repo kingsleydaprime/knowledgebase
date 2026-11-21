@@ -4,8 +4,6 @@ id: 51142678-9287-4890-9321-8767b851977b
 
 # Data Centres
 
-> **[Beginner]** · The building. Power, heat, redundancy tiers, and why "availability zone" is a physical fact rather than a marketing word.
-
 A server has to live somewhere. Under a desk works until it doesn't — until the cleaner unplugs it, the room hits 40°C in August, or the building loses power for six hours. **A data centre is a building whose entire purpose is to remove those failure modes**, and it is more interesting than it sounds, because its constraints leak upward into things you'll actually configure.
 
 ## What the building is actually for
@@ -113,5 +111,10 @@ The corollary is worth stating plainly: **three instances in one AZ are not a re
 - [[devops/08-cloud/01-cloud-fundamentals|cloud fundamentals]] — regions and AZs as an API
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] — turning these numbers into design
 - [[networking/08-congestion-control|congestion control]] — why DC networks behave unlike the internet
+
+## About this lesson
+<!-- bite: 629be8f3-3f14-41c2-8222-b5d767773da3 -->
+
+**Level:** Beginner. **Covers:** The building. Power, heat, redundancy tiers, and why "availability zone" is a physical fact rather than a marketing word.
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (module 3), extended with Uptime Institute tier definitions and cloud-provider AZ documentation.*

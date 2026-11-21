@@ -4,8 +4,6 @@ id: 2b1d6684-a301-434a-8190-f41fb401fb79
 
 # Pattern: Sliding Window
 
-**[Intermediate]** — A university-level introduction to the sliding-window pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 267fc1cb-0f4a-46cd-a7c3-4f7a5add016d -->
 
@@ -337,3 +335,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Financial engineering:** risk calculations over rolling periods
 
 The core idea — maintain a summary of the current window and update it incrementally — is a fundamental algorithmic technique that appears whenever you need to process data in chunks that slide across a larger dataset.
+
+## About this lesson
+<!-- bite: 6f9dc048-a7ba-4966-aa2a-83e9c62dea88 -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the sliding-window pattern: what it is, why it exists, how it works, and how to implement it independently.

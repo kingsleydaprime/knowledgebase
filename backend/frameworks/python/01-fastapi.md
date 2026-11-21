@@ -4,8 +4,6 @@ id: fe8da32d-85ad-4885-b1a1-583ba1ba1552
 
 # FastAPI
 
-> **[Intermediate]** · ASGI, type hints as the schema, `Depends()` as the DI container — and the one performance bug everybody ships.
-
 **The modern default for a new Python API**, and its central idea is unusual: **your type hints are the runtime contract.** Annotations aren't documentation here — they drive parsing, validation, serialisation and the OpenAPI schema.
 
 ```python
@@ -147,5 +145,10 @@ gunicorn app.main:app -k uvicorn.workers.UvicornWorker -w 4   # prod
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — why the blocking rule exists
 - [[backend/02-api-design/01-apis-and-rest|APIs and REST]] — what you're building
 - [[backend/03-structuring-a-backend/index|structuring a backend]] — the layering FastAPI won't give you
+
+## About this lesson
+<!-- bite: 6d86b809-1b6d-40ca-bd75-b8d2912b0980 -->
+
+**Level:** Intermediate. **Covers:** ASGI, type hints as the schema, `Depends()` as the DI container — and the one performance bug everybody ships.
 
 *Source: [reference] — from the FastAPI, Pydantic and Starlette documentation.*

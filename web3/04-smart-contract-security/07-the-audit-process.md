@@ -4,8 +4,6 @@ id: 33b98bb1-0064-4f66-956b-0c683895aab3
 
 # The Audit Process
 
-**[Intermediate]** — what an audit is and isn't, how to prepare for one, how to read a report, and what an audit badge actually tells you.
-
 ## What an audit is
 <!-- bite: cb71e223-1b33-45f9-8ad3-b5b9585ff73b -->
 
@@ -114,5 +112,10 @@ In rough order of frequency:
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — audited protocols that were exploited anyway
 - [[cybersecurity/08-governance-risk-and-compliance/index|governance, risk and compliance]] — the general discipline
 - [[web3/04-smart-contract-security/01-why-this-is-different|why security is different here]]
+
+## About this lesson
+<!-- bite: 5e5a1855-c941-45ae-bdc8-1b34de345d63 -->
+
+**Level:** Intermediate. **Covers:** what an audit is and isn't, how to prepare for one, how to read a report, and what an audit badge actually tells you.
 
 *Source: [reference] — Aug 2026.*

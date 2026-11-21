@@ -4,8 +4,6 @@ id: 81d20a5c-ee3e-4d62-90dc-59f64add8267
 
 # Iterators and Algorithms
 
-**[Intermediate]** — The design that made the STL famous: containers and algorithms that know nothing about each other, connected by iterators.
-
 ## The idea
 <!-- bite: 04d739ad-1b57-4ba1-9ddd-802cc77b5c1d -->
 
@@ -254,3 +252,8 @@ One argument, and it's parallel — though `libstdc++` needs Intel TBB linked fo
 - [[01-growth-and-asymptotic-notation|Algorithms]] — what these implement
 - [[languages/03-rust/11-collections-and-iterators|Rust: Iterators]] — the same design, memory-safe
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: e3fae442-8a80-4ed0-b9a3-0961850be8bf -->
+
+**Level:** Intermediate. **Covers:** The design that made the STL famous: containers and algorithms that know nothing about each other, connected by iterators.

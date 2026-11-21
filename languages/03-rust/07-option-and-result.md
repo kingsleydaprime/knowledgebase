@@ -4,8 +4,6 @@ id: dc137e42-9983-4957-aed3-3ba80a5e33e0
 
 # Option and Result
 
-**[Beginner → Intermediate]** — No null, no exceptions. Two enums and one operator that replace both.
-
 ## `Option<T>` — absence in the type system
 <!-- bite: a1916458-9a8d-4187-b351-8c8988288bf0 -->
 
@@ -196,3 +194,8 @@ The cost is that error types have to be composed by hand, which is what the next
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Structs, Enums and Pattern Matching]] — the enums these are built from
 - [[languages/02-go/05-errors|Go: Errors]] — the same philosophy without `?`
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 4dff5f60-3fed-4609-97e3-3a948e84742e -->
+
+**Level:** Beginner → Intermediate. **Covers:** No null, no exceptions. Two enums and one operator that replace both.

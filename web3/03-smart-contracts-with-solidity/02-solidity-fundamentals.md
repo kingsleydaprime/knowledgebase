@@ -4,8 +4,6 @@ id: 9ce18f86-3679-4c3b-b90b-0d5dc4e418e6
 
 # Solidity Fundamentals
 
-**[Intermediate]** — the language, assuming you can already program. Focused on what's *different*, not on syntax you can guess.
-
 **If you know any C-family language, most of Solidity's syntax is free.** This note covers the parts that aren't.
 
 ## A whole contract, annotated
@@ -162,5 +160,10 @@ No garbage collection (nothing is freed), no threads, no exceptions to catch —
 - [[web3/04-smart-contract-security/index|smart contract security]] — read alongside, not after
 - [[web3/frameworks/solidity/index|the Solidity toolchain]] — Foundry, Hardhat
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]]
+
+## About this lesson
+<!-- bite: 1cb123c8-a7f6-4a0d-bd35-15029e83fa65 -->
+
+**Level:** Intermediate. **Covers:** the language, assuming you can already program. Focused on what's *different*, not on syntax you can guess.
 
 *Source: [reference] — Solidity 0.8.24+. Aug 2026.*

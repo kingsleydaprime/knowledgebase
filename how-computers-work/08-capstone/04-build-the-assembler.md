@@ -4,8 +4,6 @@ id: b2addb9a-d9fe-417f-980d-e5a60538d9c4
 
 # Module 31: Build the Assembler (Text Becomes Machine Code)
 
-**[Intermediate → Advanced]** — The first piece of software in the capstone, and the one that makes everything after it bearable. Nobody hand-encodes instructions twice.
-
 ## Before you start
 <!-- bite: af9ca041-329d-4f1e-9675-66addb8ed377 -->
 
@@ -429,3 +427,8 @@ Real assemblers distinguish <strong>local labels</strong> (often written <code>1
 - [[build-your-own-shit/17-your-own-cpu/03-python-emulator|Track 3]] — the full assembler implementation
 - [[how-computers-work/08-capstone/02-the-isa|Module 29]] — the encoding being generated
 - [[compilers/08-code-generation|compilers/code generation]] — where assembly output and object files are covered
+
+## About this lesson
+<!-- bite: da00c1f1-ceac-451d-b079-129e3de65aa1 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The first piece of software in the capstone, and the one that makes everything after it bearable. Nobody hand-encodes instructions twice.

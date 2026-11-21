@@ -4,8 +4,6 @@ id: a3945129-5c7d-4bd6-98b9-9b6325f9a6bf
 
 # Nyquist and Robustness
 
-**[Advanced]** — The stability criterion that handles unstable and delayed plants, why margins can lie, and the fundamental limits nobody can design around.
-
 ## Why Nyquist
 <!-- bite: 871935b4-6701-4aa5-a721-e69beca638c2 -->
 
@@ -186,3 +184,8 @@ What to actually check, in order:
 - [[control-theory/05-stability-and-root-locus|Stability and Root Locus]] — the time-domain view
 - [[control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — optimality vs robustness
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: 1b45117e-3bee-4632-a075-c8d2ca8473ea -->
+
+**Level:** Advanced. **Covers:** The stability criterion that handles unstable and delayed plants, why margins can lie, and the fundamental limits nobody can design around.

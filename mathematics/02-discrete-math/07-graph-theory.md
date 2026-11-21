@@ -4,8 +4,6 @@ id: 09a5057c-7bef-48e5-9074-643ee78d93af
 
 # Graph Theory
 
-**[Intermediate]** — The single most reusable modelling tool in the subject, and the vocabulary behind half the algorithms you already use.
-
 ## Definitions
 <!-- bite: d16869c8-7446-4a8d-bf1c-e21e7f0935cd -->
 
@@ -151,3 +149,8 @@ Recognising these tells you which algorithms apply:
 - [[02-dijkstra|Dijkstra]] · [[01-topological-sort|Topological Sort]] — the algorithms
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — a graph is a relation
 - [[mathematics/02-discrete-math/index|Discrete maths map]]
+
+## About this lesson
+<!-- bite: 1cfe7f2f-d800-4733-8b2a-6a9f3cafa72c -->
+
+**Level:** Intermediate. **Covers:** The single most reusable modelling tool in the subject, and the vocabulary behind half the algorithms you already use.

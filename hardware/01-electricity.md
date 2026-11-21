@@ -4,8 +4,6 @@ id: bd8c09dd-62fd-4800-8ea1-e516cd17d8cd
 
 # Electricity
 
-**[Beginner]** — The foundation everything else stands on: voltage, current, resistance, and the components that shape them. If Ohm's law isn't reflexive yet, this is the note to read twice.
-
 Before you touch a microcontroller or antenna, you need to internalize three things: **voltage**, **current**, and **resistance**. Everything else is built on top of these.
 
 ## The Water Analogy (and Why It's Actually Useful)
@@ -230,3 +228,8 @@ When a tutorial places capacitors directly on an STM32's VDD or VDDA pins — on
 - [[hardware/03-embedded-systems|Embedded Systems]] — what runs on the power you've just designed
 - [[hardware/10-kicad-basics|KiCad Basics]] — decoupling and power rails as drawn on a real board
 - [[projects/iot-bridge-pcb/component-selection|IoT Bridge — component selection]] — these tradeoffs argued under real constraints
+
+## About this lesson
+<!-- bite: a1915e2b-f984-4b86-a91b-8d4ea4e4a432 -->
+
+**Level:** Beginner. **Covers:** The foundation everything else stands on: voltage, current, resistance, and the components that shape them. If Ohm's law isn't reflexive yet, this is the note to read twice.

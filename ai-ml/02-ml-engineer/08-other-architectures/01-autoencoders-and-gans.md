@@ -4,8 +4,6 @@ id: 0e9f66cc-3aa4-4bb3-a07e-6e69a9d82164
 
 # Autoencoders & GANs
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. Two generative/representation architectures worth recognizing.
-
 ## Autoencoders — learning compressed representations
 <!-- bite: 26c0f949-3936-403b-b358-06671ce7ffd8 -->
 
@@ -54,3 +52,8 @@ Both matter to recognize, but the generative frontier has largely moved to **dif
 - [[ai-ml/02-ml-engineer/03-classical-ml/04-unsupervised-clustering-and-pca|Clustering & PCA]] — the linear version of dimensionality reduction
 - [[ai-ml/03-ai-engineer/09-multimodal/index|Multimodal AI]] — diffusion models, the current generative frontier
 - [[ai-ml/02-ml-engineer/05-deep-learning/01-neural-network-fundamentals|Neural Network Fundamentals]] — the building blocks
+
+## About this lesson
+<!-- bite: 3ff20df3-aadf-4d10-b9d2-54daf3d2a3fb -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. Two generative/representation architectures worth recognizing.

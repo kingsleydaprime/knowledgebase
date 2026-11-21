@@ -4,8 +4,6 @@ id: 00ba724f-71cf-4dd8-b9b1-414206052934
 
 # Unsafe and FFI
 
-**[Advanced]** — What `unsafe` actually permits, why it isn't a way out of the borrow checker, and calling C from Rust.
-
 ## What `unsafe` means
 <!-- bite: d5632c58-38a5-452b-aeb9-994ac1c028a8 -->
 
@@ -194,3 +192,8 @@ cargo geiger                    # count unsafe in your dependency tree
 - [[languages/03-rust/13-concurrency|Concurrency]] — `Send`/`Sync` as unsafe traits
 - [[languages/03-rust/18-performance-and-zero-cost|Performance]] — measure before reaching for `unsafe`
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: bfb07f74-ef33-4343-968a-c6b115e9c688 -->
+
+**Level:** Advanced. **Covers:** What `unsafe` actually permits, why it isn't a way out of the borrow checker, and calling C from Rust.

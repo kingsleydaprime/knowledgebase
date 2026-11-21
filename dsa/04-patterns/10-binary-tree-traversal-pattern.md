@@ -4,8 +4,6 @@ id: 0b0cf7d0-254a-43c1-8c7c-f1c1c0c89d57
 
 # Pattern: Binary Tree Traversal
 
-**[Intermediate]** — A university-level introduction to the binary tree traversal pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 887d5ab9-b375-41b9-8245-db683c458ba3 -->
 
@@ -312,3 +310,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Game trees:** Minimax algorithm for game playing
 
 The core idea — choosing the right traversal order based on when you need to process each node — is a fundamental algorithmic technique that appears whenever you need to visit all nodes in a tree.
+
+## About this lesson
+<!-- bite: 2816b421-ba43-49e1-909e-84fe7e398c43 -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the binary tree traversal pattern: what it is, why it exists, how it works, and how to implement it independently.

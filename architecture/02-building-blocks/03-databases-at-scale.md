@@ -4,8 +4,6 @@ id: 5482315c-f930-47ac-900a-3be8d053e8e4
 
 # Databases at Scale
 
-**[reference]** — from the roadmap.sh system-design roadmap. The database is almost always the first thing to buckle under load, so scaling it is central to system design. This is the *scaling* view; the [[databases/database-design-reference|databases reference]] covers the fundamentals.
-
 ## SQL vs NoSQL — the first choice
 <!-- bite: 27411729-daf3-4347-8cc4-8134cacdc720 -->
 
@@ -54,3 +52,8 @@ When the database is the bottleneck, escalate in roughly this order (cheap/simpl
 - [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — how replication actually works
 - [[architecture/02-building-blocks/02-caching/index|Caching]] — the layer that protects the database
 - [[databases/database-design-reference|Databases reference]] — SQL/schema/indexing fundamentals
+
+## About this lesson
+<!-- bite: b2353fc4-c1cc-4144-a720-317a0822de0c -->
+
+**Level:** reference. **Covers:** from the roadmap.sh system-design roadmap. The database is almost always the first thing to buckle under load, so scaling it is central to system design. This is the *scaling* view; the [[databases/database-design-reference|databases reference]] covers the fundamentals.

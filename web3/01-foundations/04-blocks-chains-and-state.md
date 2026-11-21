@@ -4,8 +4,6 @@ id: b7be113e-881a-461f-b81f-198fae64adcc
 
 # Blocks, Chains and State
 
-**[Intermediate]** — what is actually stored, the two rival models for representing ownership, and why "the blockchain stores your balance" is wrong in one of them.
-
 ## The kid version first
 <!-- bite: 3226e1cb-0ace-48f4-8c61-985bf3c0f250 -->
 
@@ -105,5 +103,10 @@ Solana uses an account model with **declared read/write sets**, which restores p
 - [[web3/05-beyond-ethereum/05-bitcoin-and-utxo|Bitcoin and UTXO]] — the other model, in depth
 - [[databases/index|databases]] — WAL and MVCC are the same log-and-view shape
 - [[build-your-own-shit/14-your-own-blockchain|build your own blockchain]]
+
+## About this lesson
+<!-- bite: 95501f5d-e339-4c66-b0e4-0ecceb453e34 -->
+
+**Level:** Intermediate. **Covers:** what is actually stored, the two rival models for representing ownership, and why "the blockchain stores your balance" is wrong in one of them.
 
 *Source: [reference] — Aug 2026.*

@@ -4,8 +4,6 @@ id: 866285d5-a5bf-46dd-a31d-4e04941d595c
 
 # Module 11: What a Transistor Is (The Third Terminal)
 
-**[Intermediate]** — Part IV begins. Module 10 ended with a device that rectifies but cannot compute, because two terminals give no way for one signal to control another. This module adds the third terminal.
-
 ## Before you start
 <!-- bite: 66a3df3b-10f9-412a-87d5-dda3c8c0f99a -->
 
@@ -437,3 +435,8 @@ Transitions per second = (gate count) × (activity factor) × (clock frequency).
 - [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] — the switchable-resistance requirement
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — where two complementary MOSFETs become a gate
 - [[hardware/03-embedded-systems|hardware/embedded systems]] — transistors as practical components
+
+## About this lesson
+<!-- bite: 00e86076-9c28-4f8a-8eae-fea821df6f28 -->
+
+**Level:** Intermediate. **Covers:** Part IV begins. Module 10 ended with a device that rectifies but cannot compute, because two terminals give no way for one signal to control another. This module adds the third terminal.

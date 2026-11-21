@@ -4,8 +4,6 @@ id: 9f429d32-abbd-4352-a7f6-1e03a03ed235
 
 # HTTP and Its Evolution
 
-**[Intermediate]** — The application protocol that ate the internet. The interesting story isn't the syntax, which you already know. It's that **three decades of HTTP versions are all fighting the same enemy: round trips, and one slow thing blocking everything behind it.** Understand that, and every version's design choices are obvious. The lab makes each one visible on your own machine: connections saved by keep-alive, a fast reply stuck behind a slow one on HTTP/1.1 and overtaking it on HTTP/2, a `304 Not Modified`, and chunked encoding as raw bytes.
-
 ## Before you start
 <!-- bite: 3f63cdf9-4fb5-40cc-b54d-f47d50cfaf2a -->
 
@@ -386,3 +384,8 @@ You can explain what each HTTP version changed in terms of round trips and block
 - [[networking/15-network-performance|Network performance]]: measuring which of these actually matters
 - [[backend/02-api-design/01-apis-and-rest|APIs]]: HTTP semantics as an API design surface
 - [[cybersecurity/04-web-security/index|Web security]]: smuggling, caching attacks, header handling
+
+## About this lesson
+<!-- bite: a1ce9a39-1b18-4248-87f2-0e8c33f95798 -->
+
+**Level:** Intermediate. **Covers:** The application protocol that ate the internet. The interesting story isn't the syntax, which you already know. It's that **three decades of HTTP versions are all fighting the same enemy: round trips, and one slow thing blocking everything behind it.** Understand that, and every version's design choices are obvious. The lab makes each one visible on your own machine: connections saved by keep-alive, a fast reply stuck behind a slow one on HTTP/1.1 and overtaking it on HTTP/2, a `304 Not Modified`, and chunked encoding as raw bytes.

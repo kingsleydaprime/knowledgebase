@@ -4,8 +4,6 @@ id: 3ccc37cd-2a98-4b01-ac2c-10371b182524
 
 # Modular Monolith → Services
 
-**[Intermediate→Advanced]** — the structural decision people get wrong most expensively, because both failure modes take a year to become obvious.
-
 ## Before you start
 <!-- bite: 778f38c9-cdf2-44b5-868b-46c084c0543b -->
 
@@ -324,3 +322,8 @@ The choice isn't monolith vs microservices — it's **where your boundaries are 
 - [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|Monolith / Microservices / Serverless]] — the system-design framing
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — saga, event sourcing, strangler fig
 - [[architecture/interview/01-system-design-round|System design interview]] — "when would you *not* use microservices?"
+
+## About this lesson
+<!-- bite: 87fbf224-6b24-4ef6-8f9c-4e47d69e92ad -->
+
+**Level:** Intermediate→Advanced. **Covers:** the structural decision people get wrong most expensively, because both failure modes take a year to become obvious.

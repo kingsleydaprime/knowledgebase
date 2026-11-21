@@ -4,8 +4,6 @@ id: b16d5945-1769-445d-8b91-a84272027e3e
 
 # The Shared Responsibility Model
 
-**[Intermediate]** — the one concept cloud security is built on, why misconfiguration (not exotic exploits) causes most cloud breaches, and where the line actually sits. Overlaps the [[devops/index|DevOps domain]] — this is the *security* lens.
-
 ## The kid version first
 <!-- bite: 526b5a71-9c4c-46e0-96f1-00faa698950a -->
 
@@ -83,5 +81,10 @@ Each is [[cybersecurity/07-security-operations/01-defensive-architecture|defence
 - [[devops/08-cloud/01-cloud-fundamentals|cloud fundamentals (DevOps)]] — the model from the ops side
 - [[cybersecurity/07-security-operations/01-defensive-architecture|defensive architecture]] — zero trust, which this embodies
 - [[cybersecurity/09-cloud-security/03-the-cloud-attack-surface|the cloud attack surface]]
+
+## About this lesson
+<!-- bite: 584999c4-9ece-49fb-978c-2d717ccd4a08 -->
+
+**Level:** Intermediate. **Covers:** the one concept cloud security is built on, why misconfiguration (not exotic exploits) causes most cloud breaches, and where the line actually sits. Overlaps the [[devops/index|DevOps domain]] — this is the *security* lens.
 
 *Source: [reference] — Aug 2026.*

@@ -4,8 +4,6 @@ id: 13f9295d-8eda-4371-a60a-980ecb6324e3
 
 # Distributed and Multi-GPU
 
-**[Advanced]** — Scaling past one device. The parallelism strategies, collective operations, and why interconnect topology decides your architecture.
-
 ## Why one GPU isn't enough
 <!-- bite: bfe72106-d2a1-4250-bba7-3e597283bfee -->
 
@@ -200,3 +198,8 @@ id: 13f9295d-8eda-4371-a60a-980ecb6324e3
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — the general theory
 - [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] — running training at scale
 - [[gpu-and-parallel-computing/index|GPU and parallel map]]
+
+## About this lesson
+<!-- bite: 074f9550-a1e0-4cf7-81d2-251757dea9ef -->
+
+**Level:** Advanced. **Covers:** Scaling past one device. The parallelism strategies, collective operations, and why interconnect topology decides your architecture.

@@ -4,8 +4,6 @@ id: 7d90765f-3cea-4825-875f-c751a10130b9
 
 # Security Design Principles
 
-**[Beginner → Intermediate]** — the handful of timeless principles every security decision comes back to, so you're reasoning from ideas rather than memorising a checklist.
-
 ## The kid version first
 <!-- bite: 1e83578c-8334-4593-a18d-a20dcce91b0f -->
 
@@ -106,5 +104,10 @@ These aren't trivia — they're a **reasoning tool**. Faced with any security de
 - [[cybersecurity/07-security-operations/01-defensive-architecture|defensive architecture]] — these principles in operational practice
 - [[cybersecurity/01-fundamentals/02-cia-triad|the CIA triad]] — what the principles ultimately protect
 - [[cybersecurity/05-cryptography/01-what-is-cryptography|Kerckhoffs's principle]] — no security through obscurity, in crypto
+
+## About this lesson
+<!-- bite: ff74cf7d-886a-4136-9381-ad48aac880b8 -->
+
+**Level:** Beginner → Intermediate. **Covers:** the handful of timeless principles every security decision comes back to, so you're reasoning from ideas rather than memorising a checklist.
 
 *Source: [reference] — Saltzer & Schroeder (1975) and modern practice. Aug 2026.*

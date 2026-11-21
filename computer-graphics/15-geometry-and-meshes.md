@@ -4,8 +4,6 @@ id: 27db874b-8a0b-4d28-9b3f-7b2a6c162fb7
 
 # Geometry and Meshes
 
-**[Intermediate → Advanced]** — Representing shape. Meshes, curves, implicit surfaces, and the trade-offs between them.
-
 ## Meshes
 <!-- bite: dc32b244-fe8b-4e64-bdc7-8f5edd452f3a -->
 
@@ -169,3 +167,8 @@ repeat:
 - [[computer-graphics/16-animation-and-simulation|Animation and Simulation]] — deforming these
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — meshes for simulation rather than rendering
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: d8255a5b-df8f-42cb-9649-99680d3376a2 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Representing shape. Meshes, curves, implicit surfaces, and the trade-offs between them.

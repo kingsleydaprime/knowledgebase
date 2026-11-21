@@ -4,8 +4,6 @@ id: 7cb3c6d7-52f5-4a08-a3a5-afd89a32b2fa
 
 # Data Access
 
-> **[Intermediate]** · EF Core, Dapper, and the three mistakes that account for most slow .NET endpoints.
-
 ## EF Core
 <!-- bite: f060ddc0-f7da-4252-b989-66b5dea83b0b -->
 
@@ -124,5 +122,10 @@ await tx.CommitAsync(ct);
 - [[backend/frameworks/csharp/04-testing-and-production|testing and production]]
 - [[databases/index|the databases course]] — what EF generates, and why it matters
 - [[backend/04-data-and-persistence/index|data and persistence]] — ORMs in general
+
+## About this lesson
+<!-- bite: 347c987f-7af4-4c7c-b577-c5111ff7d026 -->
+
+**Level:** Intermediate. **Covers:** EF Core, Dapper, and the three mistakes that account for most slow .NET endpoints.
 
 *Source: [reference] — from the EF Core and Dapper documentation, Aug 2026.*

@@ -4,8 +4,6 @@ id: ccda0a7d-d37b-4cca-8302-8b642b333694
 
 # TCP Reliability & Flow Control
 
-**[Intermediate→Advanced]** — how a protocol builds a perfectly ordered, lossless byte stream on top of a medium that loses, duplicates, and reorders. Two separate problems live here, and keeping them apart is most of the battle:
-
 - **Flow control** — don't overwhelm the **receiver**. Solved by the receive window.
 - **Congestion control** — don't overwhelm the **network**. Solved by the congestion window. → [[networking/08-congestion-control|next note]]
 
@@ -93,3 +91,8 @@ TCP's reliability is built from exactly two primitives — **number everything, 
 - [[networking/13-quic-and-modern-transport|QUIC]] — what you get when you drop the single-stream abstraction
 - [[networking/15-network-performance|Network Performance]] — bandwidth-delay product, why windows govern throughput
 - [[networking/16-debugging-networks|Debugging Networks]] — spotting retransmissions and zero windows in `ss -i` / tcpdump
+
+## About this lesson
+<!-- bite: 84b2a3dc-1a92-4401-865c-13817512fdee -->
+
+**Level:** Intermediate→Advanced. **Covers:** how a protocol builds a perfectly ordered, lossless byte stream on top of a medium that loses, duplicates, and reorders. Two separate problems live here, and keeping them apart is most of the battle:

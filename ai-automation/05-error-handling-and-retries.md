@@ -4,8 +4,6 @@ id: 983ae99a-61c9-472a-bf7e-60dd8a2dd6ff
 
 # Error Handling and Retries
 
-> **[Intermediate]** · The difference between an automation and a production automation — and the failure mode that matters most is the silent one.
-
 **A workflow that works is a demo. A workflow that fails correctly is a system.**
 
 And the failure that costs most is not the loud one. It's the workflow that **stopped running three weeks ago** and nobody noticed, because nothing was expected to arrive.
@@ -110,5 +108,10 @@ Workflow-level timeouts matter too — a run that legitimately takes 10 minutes 
 - [[ai-automation/06-self-hosting-n8n|self-hosting]] — where the alerting runs
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — alerting philosophy
 - [[devops/07-observability/index|observability]]
+
+## About this lesson
+<!-- bite: 98f2a138-32f8-40a3-a27e-e53171534f3a -->
+
+**Level:** Intermediate. **Covers:** The difference between an automation and a production automation — and the failure mode that matters most is the silent one.
 
 *Source: [reference] — written Aug 2026.*

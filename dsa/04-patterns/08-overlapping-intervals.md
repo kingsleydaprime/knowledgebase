@@ -4,8 +4,6 @@ id: 5cf87f33-119e-4bb8-811c-d1a97a62fd3f
 
 # Pattern: Overlapping Intervals
 
-**[Intermediate]** — A university-level introduction to the overlapping intervals pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 513dfb36-1a76-43a2-b206-a4da49e46a39 -->
 
@@ -358,3 +356,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Project management:** Identifying overlapping project phases
 
 The core idea — sorting by start time and merging as you go — is a fundamental algorithmic technique that appears whenever you need to combine overlapping ranges into continuous blocks.
+
+## About this lesson
+<!-- bite: ebff718d-d650-45f9-9c21-233dfe7bb26b -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the overlapping intervals pattern: what it is, why it exists, how it works, and how to implement it independently.

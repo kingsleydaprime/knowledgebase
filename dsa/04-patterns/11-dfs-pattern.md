@@ -4,8 +4,6 @@ id: 7e9c10aa-339b-45be-8012-a721555bb7bb
 
 # Pattern: DFS as a Problem-Solving Pattern
 
-**[Intermediate]** — A university-level introduction to the DFS pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: ec7d0aa8-a10c-4cbd-a65c-7f08238557ab -->
 
@@ -286,3 +284,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Game AI:** Exploring game trees
 
 The core idea — exploring as far as possible along each branch before backtracking — is a fundamental algorithmic technique that appears whenever you need to explore all paths or branches of a structure.
+
+## About this lesson
+<!-- bite: 62a9f420-5208-41c1-8d77-470f49cd4519 -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the DFS pattern: what it is, why it exists, how it works, and how to implement it independently.

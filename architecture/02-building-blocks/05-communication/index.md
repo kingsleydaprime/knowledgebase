@@ -4,8 +4,6 @@ id: 78dd10e2-e97d-4fc4-b85f-07c2170e981b
 
 # Communication
 
-> **[Intermediate]** · From the roadmap.sh system-design roadmap. How the pieces of a system talk to each other and to their clients, and what each style costs. This lesson counts those costs for one screen: requests, round trips and bytes with REST and with GraphQL; the N+1 queries a naive GraphQL server makes and the batching that fixes them; how gRPC's Protocol Buffers fit a message in a third of JSON's bytes; what calling services in a chain does to availability and latency; and the options for pushing updates in real time. The worked example chooses a style for each of the shop's connections. The first lab checks every number; the second runs a real gRPC server and client, built from a `.proto` schema.
-
 ## Before you start
 <!-- bite: 0cfcab47-bbb7-4e67-9bdf-c8e81471b132 -->
 
@@ -757,3 +755,8 @@ You can count a screen's requests, round trips and bytes, explain and fix the N+
 - [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging and async]]: the asynchronous alternative to request and response
 - [[devops/02-networking-and-web/01-networking-and-protocols|Networking and protocols (DevOps)]]: the transport layer
 - [[networking/11-http-evolution/index|HTTP and its evolution]]: HTTP/1.1, 2 and 3 in depth
+
+## About this lesson
+<!-- bite: c43a5710-606a-4611-a5b4-8903e776a886 -->
+
+**Level:** Intermediate. **Covers:** From the roadmap.sh system-design roadmap. How the pieces of a system talk to each other and to their clients, and what each style costs. This lesson counts those costs for one screen: requests, round trips and bytes with REST and with GraphQL; the N+1 queries a naive GraphQL server makes and the batching that fixes them; how gRPC's Protocol Buffers fit a message in a third of JSON's bytes; what calling services in a chain does to availability and latency; and the options for pushing updates in real time. The worked example chooses a style for each of the shop's connections. The first lab checks every number; the second runs a real gRPC server and client, built from a `.proto` schema.

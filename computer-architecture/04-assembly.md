@@ -4,8 +4,6 @@ id: 2e01abba-7b42-49cf-9f27-d960484154e5
 
 # Assembly
 
-**[Intermediate]** — Reading it, which is the skill that matters. The stack, function calls, and what your code actually compiles to.
-
 ## Why read assembly
 <!-- bite: d70e2dfd-adae-47cd-b753-43d1763852d3 -->
 
@@ -235,3 +233,8 @@ uint64_t rdtsc(void) {
 - [[compilers/08-code-generation|Code Generation]] — what produces this
 - [[computer-architecture/12-performance|Performance]] — using it to make things fast
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: 42f096ff-1135-49b1-b3b6-a45c7a1624e8 -->
+
+**Level:** Intermediate. **Covers:** Reading it, which is the skill that matters. The stack, function calls, and what your code actually compiles to.

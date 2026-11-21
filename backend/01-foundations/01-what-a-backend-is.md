@@ -4,8 +4,6 @@ id: e965caed-7370-490a-bd40-5bef10ba71a9
 
 # What a Backend Actually Is
 
-**[Beginner]** — the orientation note. Short, but it sets up the vocabulary the rest of the course uses.
-
 ## The kid version first
 <!-- bite: 146ec660-d3a0-4eb8-be46-bcd639f8c7bf -->
 
@@ -77,3 +75,8 @@ The backend is **the boundary where claims become facts.** The client can reques
 - [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]] — what happens to one
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — how many happen at once
 - [[networking/index|Networking]] — the layer underneath all of it
+
+## About this lesson
+<!-- bite: bcbf7e76-9362-4037-8138-9b7c9961814e -->
+
+**Level:** Beginner. **Covers:** the orientation note. Short, but it sets up the vocabulary the rest of the course uses.

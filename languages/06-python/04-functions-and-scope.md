@@ -4,8 +4,6 @@ id: 6549f7fe-73ec-4340-926a-3b15b6026b67
 
 # Functions and Scope
 
-> **[Beginner → Intermediate]** · Argument passing, `*args`/`**kwargs`, closures, and the LEGB rule that explains every `UnboundLocalError` you'll meet.
-
 Functions in Python are objects → [[languages/06-python/02-the-data-model|note 02]]. Everything below follows from that.
 
 ## Arguments
@@ -163,5 +161,10 @@ Annotations are **not enforced at runtime** — Python ignores them. They exist 
 - [[languages/06-python/08-typing-and-type-hints|typing]] — making the annotations mean something
 - [[languages/06-python/02-the-data-model|the data model]] — why passing behaves as it does
 - [[programming-fundamentals/08-functions|functions]] — the language-agnostic version
+
+## About this lesson
+<!-- bite: b9099805-cd0b-4758-b946-45d8cac5a5e9 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Argument passing, `*args`/`**kwargs`, closures, and the LEGB rule that explains every `UnboundLocalError` you'll meet.
 
 *Source: [reference] — from the Python language reference.*

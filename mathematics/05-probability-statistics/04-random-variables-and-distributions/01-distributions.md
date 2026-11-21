@@ -4,8 +4,6 @@ id: df07b638-2f89-4485-ae75-390c106719c0
 
 # Random Variables and Distributions
 
-**[Intermediate]** — attaching numbers to outcomes, and the handful of distributions that describe most of what you will meet.
-
 ## Before you start
 <!-- bite: 66d544d7-a36c-49b5-8efb-dab21895f599 -->
 
@@ -399,3 +397,8 @@ You are done with this lesson when you can:
 - [[02-dispersion-and-cumulative-frequency/01-dispersion|Dispersion]] — where mean and variance came from
 - [[06-error-correcting-codes|Error-Correcting Codes]] — binomial reasoning about bit errors
 - [[05-inference-and-estimation/01-inference|Inference]] — the Central Limit Theorem in full
+
+## About this lesson
+<!-- bite: e48fb7cf-3988-4cbe-b79f-0f7652204301 -->
+
+**Level:** Intermediate. **Covers:** attaching numbers to outcomes, and the handful of distributions that describe most of what you will meet.

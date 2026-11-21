@@ -4,8 +4,6 @@ id: a941daa8-887e-48ff-80d7-a86870acbab9
 
 # DAOs and Governance
 
-**[Intermediate]** — how on-chain governance works, why token voting keeps producing plutocracy, and what a DAO actually is legally.
-
 ## The kid version first
 <!-- bite: 68d027d2-1bda-4783-af46-83be71aa1797 -->
 
@@ -89,3 +87,8 @@ Governance token  (ERC20Votes — balances are checkpointed per block)
 - [[web3/07-the-application-layer/04-identity-and-naming|identity]] — the Sybil problem underneath all of it
 - [[web3/08-the-honest-assessment/03-regulation-and-the-legal-layer|regulation]]
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — Beanstalk
+
+## About this lesson
+<!-- bite: 69a4ee81-39ac-43b4-ba63-5fe43cd3ad28 -->
+
+**Level:** Intermediate. **Covers:** how on-chain governance works, why token voting keeps producing plutocracy, and what a DAO actually is legally.

@@ -4,8 +4,6 @@ id: 73b1dfd1-c1d0-4bfa-89b0-f89361b2b36d
 
 # Storage Layout and the State Trie
 
-**[Advanced]** — where a contract's variables physically live, and why that determines both your gas bill and whether an upgrade destroys your data.
-
 ## The kid version first
 <!-- bite: 77d63fa8-586c-4f72-8f8e-4a468dd2a026 -->
 
@@ -111,5 +109,10 @@ Reading the layout of a contract you wrote is a five-minute exercise that makes 
 - [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|upgradeability and proxies]] — where this becomes dangerous
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]]
 - [[dsa/02-data-structures/06-trees/01-trees|trees and tries]]
+
+## About this lesson
+<!-- bite: aa3a7ffe-fa48-434d-964d-f970cfd2751e -->
+
+**Level:** Advanced. **Covers:** where a contract's variables physically live, and why that determines both your gas bill and whether an upgrade destroys your data.
 
 *Source: [reference] — Aug 2026.*

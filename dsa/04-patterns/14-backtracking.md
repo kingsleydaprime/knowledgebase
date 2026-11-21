@@ -4,8 +4,6 @@ id: 7c08c550-6fca-4f0c-a064-2c8c416af9f7
 
 # Pattern: Backtracking
 
-**[Advanced]** — A university-level introduction to the backtracking pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: b3231de8-fb76-4123-9aef-bb65a95fdd48 -->
 
@@ -316,3 +314,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Cryptography:** Breaking codes by trying all possible keys
 
 The core idea — explore every possible choice, undo invalid choices, try the next option — is a fundamental algorithmic technique that appears whenever you need to find all valid arrangements that satisfy some constraint.
+
+## About this lesson
+<!-- bite: f515790c-70bc-440d-ab8b-e003ecefe15f -->
+
+**Level:** Advanced. **Covers:** A university-level introduction to the backtracking pattern: what it is, why it exists, how it works, and how to implement it independently.

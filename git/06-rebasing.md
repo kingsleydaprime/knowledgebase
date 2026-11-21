@@ -4,8 +4,6 @@ id: 90538810-ed41-4dd2-b3d5-549c6f4a9a66
 
 # Rebasing
 
-**[Intermediate → Advanced]** — What replaying commits actually does to their SHAs, interactive rebase as a history-editing tool, `fixup!` commits, and `--onto`.
-
 ## What Rebase Does
 <!-- bite: 9bddd1a0-96d4-4510-b4c9-5bc295e5164b -->
 
@@ -151,3 +149,8 @@ git rebase --abort
 - [[git/01-how-git-works|How Git Actually Works]] — why rewriting produces new SHAs
 - [[git/10-undoing-things|Undoing Things]] — the reflog is how you survive a bad rebase
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: ceec7cf2-9e2c-4323-97fa-e8df571d2da2 -->
+
+**Level:** Intermediate → Advanced. **Covers:** What replaying commits actually does to their SHAs, interactive rebase as a history-editing tool, `fixup!` commits, and `--onto`.

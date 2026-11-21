@@ -4,8 +4,6 @@ id: 57476fbd-f7cb-4ea9-a5dc-bbb86dbd70f4
 
 # The Ethereum Roadmap
 
-**[Intermediate]** — what has actually shipped, what is genuinely coming, and how to read roadmap claims sceptically. Written Aug 2026; **this is the note most likely to age.**
-
 ## Why this note exists
 <!-- bite: 97f504fa-233a-4d9f-ba45-90a4c9b4c896 -->
 
@@ -69,5 +67,10 @@ Four habits that will keep you accurate:
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the scalability trilemma]] — the constraint being navigated
 - [[web3/01-foundations/05-consensus|consensus]] — what the Merge changed
 - [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|the state trie]] — what the Verge replaces
+
+## About this lesson
+<!-- bite: b06ce6f3-66ef-4e7d-b1b6-424a8ae3e99b -->
+
+**Level:** Intermediate. **Covers:** what has actually shipped, what is genuinely coming, and how to read roadmap claims sceptically. Written Aug 2026; **this is the note most likely to age.**
 
 *Source: [reference] — accurate as of Aug 2026, and deliberately dated. Verify against ethereum.org/roadmap before relying on the "not shipped" claims.*

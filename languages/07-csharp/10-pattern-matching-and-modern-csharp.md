@@ -4,8 +4,6 @@ id: c928d509-720a-4305-a6aa-72b007bfbc4d
 
 # Pattern Matching and Modern C#
 
-> **[Intermediate]** · The features that make current C# feel like a different language from the one people remember.
-
 ## Pattern matching
 <!-- bite: 48f2303c-ffc6-4526-be0d-760b42d5af43 -->
 
@@ -128,5 +126,10 @@ var (lo, hi) = MinMax(numbers);
 - [[languages/07-csharp/03-classes-records-and-structs|records]] — what you match on
 - [[languages/03-rust/index|Rust]] — where the pattern matching came from
 - [[programming-language-theory/04-type-systems-formally|type systems]] — exhaustiveness
+
+## About this lesson
+<!-- bite: e3bbc234-b923-4d6a-979a-2ba108811031 -->
+
+**Level:** Intermediate. **Covers:** The features that make current C# feel like a different language from the one people remember.
 
 *Source: [reference] — from the C# language reference, Aug 2026.*

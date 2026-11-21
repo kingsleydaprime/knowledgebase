@@ -4,8 +4,6 @@ id: f98b2184-bcd1-42c2-a711-0ff7f85eb04d
 
 # Pattern: Linked List In-place Reversal
 
-**[Intermediate]** — A university-level introduction to the linked list reversal pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 51a5fdbc-4d0d-4ac2-9852-5adfcbddb0bd -->
 
@@ -319,3 +317,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Data structure transformations:** Converting between different list representations
 
 The core idea — rewiring pointers to reverse order without allocating new storage — is a fundamental algorithmic technique that appears whenever you need to reverse a sequence in place.
+
+## About this lesson
+<!-- bite: 1475dc0c-9608-41a9-a580-1112184c364c -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the linked list reversal pattern: what it is, why it exists, how it works, and how to implement it independently.

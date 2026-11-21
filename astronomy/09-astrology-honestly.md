@@ -4,8 +4,6 @@ id: 8448ddc3-2627-4c92-a401-8d32e741a4be
 
 # Astrology, Honestly
 
-> **[Beginner]** · What astrology is, why it shares a root with astronomy, what the evidence says, and why it feels accurate anyway.
-
 **This note exists because astronomy and astrology get named in the same breath, and the relationship between them is genuinely interesting.** It is written to be accurate rather than either dismissive or credulous — and it is placed in an astronomy folder, so it should be clear from the start where it lands: **astrology has been tested as a predictive system, repeatedly, and does not work.**
 
 **That is a claim about predictive validity, not about the people who find meaning in it** — and the second half of this note is about why something that fails testing can still feel so precise, which is a real and well-studied psychological question.
@@ -97,5 +95,10 @@ It provides **a vocabulary for talking about personality and relationships** —
 - [[astronomy/01-what-astronomy-is|what astronomy is]] — the vocabulary, separated
 - [[research/index|research]] — how a claim like this gets tested
 - [[using-ai/06-verifying-what-it-tells-you|verifying what it tells you]] — the same biases, elsewhere
+
+## About this lesson
+<!-- bite: 91f492e4-176a-4bc9-8473-ee787b0a9de1 -->
+
+**Level:** Beginner. **Covers:** What astrology is, why it shares a root with astronomy, what the evidence says, and why it feels accurate anyway.
 
 *Source: [reference] — written Aug 2026. Studies cited: Carlson (Nature, 1985); Dean & Kelly (2003); Forer (1949).*

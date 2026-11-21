@@ -4,8 +4,6 @@ id: 9e819432-f9e3-4a80-897c-196889474d09
 
 # Module: Recursion Fundamentals (Solving a Problem With a Smaller Copy of Itself)
 
-**[Beginner → Intermediate]** — A recursive function calls itself. That is the mechanical description and it is nearly useless as an explanation, because it tells you what recursion *looks like* rather than what it *is for*. This lesson is about the thing it is for: **turning a problem you cannot solve into a smaller instance of the same problem, plus a small amount of work.**
-
 Everything downstream depends on this — [[02-recursion-trees-and-recurrences|recursion trees]], [[03-the-master-theorem|the Master Theorem]], [[04-divide-and-conquer|divide and conquer]], [[01-depth-first-search|DFS]], [[05-sorting/03-merge-sort|merge sort]], [[14-backtracking|backtracking]], and all of dynamic programming.
 
 ---
@@ -608,3 +606,8 @@ You can write a recursive function by answering the three questions; trace windi
 - [[14-backtracking|Backtracking]] — recursion that undoes its choices
 - [[01-depth-first-search|Depth-First Search]] — recursion over a graph, and why it ships in two forms
 - [[02-recursion/index|the recursion folder]]
+
+## About this lesson
+<!-- bite: abd54a4d-d7b3-4397-ac2a-38ddcbce1a4e -->
+
+**Level:** Beginner → Intermediate. **Covers:** A recursive function calls itself. That is the mechanical description and it is nearly useless as an explanation, because it tells you what recursion *looks like* rather than what it *is for*. This lesson is about the thing it is for: **turning a problem you cannot solve into a smaller instance of the same problem, plus a small amount of work.**

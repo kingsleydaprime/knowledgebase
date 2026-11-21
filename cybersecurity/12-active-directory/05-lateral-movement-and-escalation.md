@@ -4,8 +4,6 @@ id: 33ea81d3-0ca0-4a91-9172-31dc9bee1844
 
 # Lateral Movement and Escalation
 
-**[Advanced]** — moving from one machine to the next, and from a foothold to owning the domain.
-
 ## The kid version first
 <!-- bite: b37e1113-1d00-4ebe-9232-6b8782543f89 -->
 
@@ -106,5 +104,10 @@ Once you own the domain, staying in:
 - [[cybersecurity/12-active-directory/03-enumeration|enumeration]] — BloodHound draws these paths
 - [[cybersecurity/12-active-directory/06-defending-active-directory|defending AD]] — how each is detected and prevented
 - [[cybersecurity/02-ethical-hacking/09-post-exploitation-and-reporting|post-exploitation and reporting]]
+
+## About this lesson
+<!-- bite: bc47eca1-b3bf-4625-832b-bfd839877502 -->
+
+**Level:** Advanced. **Covers:** moving from one machine to the next, and from a foothold to owning the domain.
 
 *Source: [reference] — Aug 2026. Authorised-testing / lab material.*

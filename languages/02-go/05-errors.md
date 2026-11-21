@@ -4,8 +4,6 @@ id: 602cb2f3-233c-49bb-842d-0f2fdae4411c
 
 # Errors
 
-**[Intermediate]** — Errors as ordinary values, wrapping and unwrapping, when to use sentinel vs typed errors, and the narrow legitimate use of `panic`.
-
 ## `error` is just an interface
 <!-- bite: 0657829e-06aa-47f9-8da5-a51b501e839e -->
 
@@ -185,3 +183,8 @@ var tmpl = template.Must(template.ParseFiles("index.html"))
 - [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]] — where error→status mapping belongs
 - [[languages/01-java/01-language/06-exceptions|Java: Exceptions]] — checked exceptions, the road not taken
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: 182d95cf-7863-40dc-a430-8f28c5e03f22 -->
+
+**Level:** Intermediate. **Covers:** Errors as ordinary values, wrapping and unwrapping, when to use sentinel vs typed errors, and the narrow legitimate use of `panic`.

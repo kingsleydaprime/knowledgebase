@@ -4,8 +4,6 @@ id: 59d64b38-338f-4668-8eb0-29d3424102f8
 
 # Integer Programming
 
-**[Intermediate → Advanced]** — Models where some decisions must be whole numbers or yes/no. They let you express fixed costs, logic and choices that LPs can't — at the price of being, in general, very hard to solve. This note covers modelling with binary variables, branch and bound, and why a good formulation matters more than a fast computer.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The numbers in the worked example were checked by hand; the SciPy script itself has not been run yet — see "Still to run" in [[operations-research/index|the index]].
 
 ## Before you start
@@ -313,3 +311,8 @@ You're ready when you can model a fixed charge and an either-or rule from words,
 - [[operations-research/10-heuristics-and-metaheuristics|Heuristics and Metaheuristics]] — when proving optimality is out of reach
 - [[theory-of-computation/07-complexity-classes|Complexity classes]] — why it's NP-hard
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: c800ca28-1ac7-4147-8e1b-cbbe69ebfa67 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Models where some decisions must be whole numbers or yes/no. They let you express fixed costs, logic and choices that LPs can't — at the price of being, in general, very hard to solve. This note covers modelling with binary variables, branch and bound, and why a good formulation matters more than a fast computer.

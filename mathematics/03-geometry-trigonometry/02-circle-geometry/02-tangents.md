@@ -4,8 +4,6 @@ id: 7347eb38-4026-4966-a310-d40675b54814
 
 # Tangents to a Circle
 
-**[Intermediate]** — what happens when a chord's two ends slide together until the line only touches, and the three theorems that follow.
-
 ## Before you start
 <!-- bite: 8eb3146e-78cf-42e3-bffc-98e55e99be3f -->
 
@@ -383,3 +381,8 @@ You are done with this lesson when you can:
 - [[01-circle-theorems|Circle Theorems]] — the angle in a semicircle, used twice here
 - [[03-constructions|Constructions]] — the perpendicular bisector the tangent construction needs
 - [[01-ratios-and-right-triangles|Trigonometric Ratios]] — the wrap angles in the practice task
+
+## About this lesson
+<!-- bite: fc216ee1-6305-439d-9a6b-fe02376a4c62 -->
+
+**Level:** Intermediate. **Covers:** what happens when a chord's two ends slide together until the line only touches, and the three theorems that follow.

@@ -4,8 +4,6 @@ id: 9a1d7f6e-9bf9-4ade-9131-5abeda990ada
 
 # Congestion Control
 
-**[Advanced]** — the most intellectually interesting thing in networking, and the least understood. It's a **distributed resource-allocation algorithm with no coordinator**: millions of independent senders, no communication between them, no central authority, sharing a resource none of them can measure — and it works well enough that the internet has not collapsed since 1986.
-
 ## The kid version first
 <!-- bite: 927bbf74-c822-46ac-9052-9b2ff5bd700d -->
 
@@ -101,3 +99,8 @@ Congestion control is a **distributed algorithm running on machines that never c
 - [[networking/13-quic-and-modern-transport|QUIC]] — congestion control moved to userspace, where it can be iterated on
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — incast, tail latency, and scatter-gather
 - [[control-theory/index|Control Theory]] — AIMD is a feedback controller with a delayed, noisy plant. The maths that explains why it oscillates, and why the delay is the hard part
+
+## About this lesson
+<!-- bite: c4abf926-42f3-43f6-a531-cb813a5dfaf6 -->
+
+**Level:** Advanced. **Covers:** the most intellectually interesting thing in networking, and the least understood. It's a **distributed resource-allocation algorithm with no coordinator**: millions of independent senders, no communication between them, no central authority, sharing a resource none of them can measure — and it works well enough that the internet has not collapsed since 1986.

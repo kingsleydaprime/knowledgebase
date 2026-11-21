@@ -4,8 +4,6 @@ id: c35caa96-1fd7-4060-9db4-476f6b5c1362
 
 # Defining the Derivative
 
-**[Intermediate]** — The tangent problem, solved. One limit, and everything in differential calculus follows from it.
-
 ## Before you start
 <!-- bite: 814935f4-1f1a-42ac-9eed-32aa3d3e9bf8 -->
 
@@ -147,3 +145,8 @@ $$f(x) \approx f(a) + f'(a)(x-a)$$
 
 - [[01-preview|Calculus preview]] · [[01-definition|Continuity]]
 - [[ai-ml/index|ai-ml]] — where the linear-approximation reading does the work
+
+## About this lesson
+<!-- bite: cccdd868-da86-42df-99d1-1ee8f997f564 -->
+
+**Level:** Intermediate. **Covers:** The tangent problem, solved. One limit, and everything in differential calculus follows from it.

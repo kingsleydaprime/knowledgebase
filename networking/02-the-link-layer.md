@@ -4,8 +4,6 @@ id: a0d25ad6-4394-49e3-8b6f-4cd10059624e
 
 # The Link Layer — Getting to the Next Machine
 
-**[Beginner]** — the layer under IP. Its entire job: move a frame **one hop**, across one physical medium, to a directly-attached neighbour. It has no concept of "the internet."
-
 ## The kid version first
 <!-- bite: a983b03a-9eb0-4523-a87c-013df0103761 -->
 
@@ -89,3 +87,8 @@ The link layer is where the **abstraction is deliberately broken and re-made at 
 - [[networking/04-routing|Routing]] — how the next hop is chosen
 - [[networking/16-debugging-networks|Debugging Networks]] — `ip neigh`, `arping`, and diagnosing MTU black holes
 - [[cybersecurity/03-network-security/02-network-segmentation|Network Segmentation]] — VLANs and broadcast domains as a security boundary
+
+## About this lesson
+<!-- bite: 4740dcdd-b70f-4dd9-a054-9c4fa115e3d9 -->
+
+**Level:** Beginner. **Covers:** the layer under IP. Its entire job: move a frame **one hop**, across one physical medium, to a directly-attached neighbour. It has no concept of "the internet."

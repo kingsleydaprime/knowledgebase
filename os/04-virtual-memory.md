@@ -4,8 +4,6 @@ id: 3ef52396-f189-44cd-bbe7-bd99825e507e
 
 # Virtual Memory
 
-**[Intermediate → Advanced]** — The abstraction that makes isolation possible, why `free` shows almost no free memory, and what the OOM killer is actually deciding.
-
 ## The lie every process is told
 <!-- bite: 402da76e-5ddf-49ae-85d9-8ae0c3c384a9 -->
 
@@ -236,3 +234,8 @@ Summing RSS across processes vastly overstates memory use, because every process
 - [[os/11-isolation-and-containers|Isolation and Containers]] — cgroup memory limits
 - [[languages/04-c/07-memory-management|C: Memory Management]] — the same picture from user space
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: 8268c078-d53b-4c9b-abbc-ef6cfc191bd5 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The abstraction that makes isolation possible, why `free` shows almost no free memory, and what the OOM killer is actually deciding.

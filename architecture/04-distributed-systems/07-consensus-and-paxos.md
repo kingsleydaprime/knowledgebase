@@ -4,8 +4,6 @@ id: 4f210d3d-1881-4fea-9e2f-7f7c59b1c75d
 
 # Consensus & Paxos
 
-**[reference]** — from the canon (Lamport's *Paxos Made Simple*, DDIA ch. 9, MIT 6.824). The **crown jewel** of distributed systems: getting a group of unreliable machines to *agree* on one thing, despite crashes and a lying network. This note is the *problem*, why it's everywhere, the **quorum** idea that makes it possible, and **Paxos** (the original solution). **Raft** — the modern, understandable version — gets its own implementation-depth note ([[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]]).
-
 ## The kid version first
 <!-- bite: 195421f0-7851-4162-bd9a-dd9e343893de -->
 
@@ -79,3 +77,8 @@ This is why **etcd** and **ZooKeeper** ([[architecture/04-distributed-systems/09
 - [[architecture/04-distributed-systems/05-replication|Replication]] — what strong consistency and safe failover require
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — atomic commit is a consensus problem
 - [[architecture/05-case-studies/index|Case Studies]] — the build-your-own Raft KV-store
+
+## About this lesson
+<!-- bite: 9c8d0a9f-9531-4c1a-b251-827e694e1384 -->
+
+**Level:** reference. **Covers:** from the canon (Lamport's *Paxos Made Simple*, DDIA ch. 9, MIT 6.824). The **crown jewel** of distributed systems: getting a group of unreliable machines to *agree* on one thing, despite crashes and a lying network. This note is the *problem*, why it's everywhere, the **quorum** idea that makes it possible, and **Paxos** (the original solution). **Raft** — the modern, understandable version — gets its own implementation-depth note ([[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]]).

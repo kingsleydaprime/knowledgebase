@@ -4,8 +4,6 @@ id: a6c85929-128a-48ae-be4f-62de6404a892
 
 # Merging
 
-**[Intermediate]** — Fast-forward vs three-way merges, reading and resolving conflict markers, and the merge strategies beyond the default.
-
 ## What Merge Does
 <!-- bite: f45c4e7c-3a1a-4475-a784-97189654154e -->
 
@@ -121,3 +119,8 @@ git commit -m "feat: implement feature X"
 - [[git/07-merge-vs-rebase|Merge vs Rebase]] — choosing between them
 - [[git/04-branching|Branching]] — what you are merging
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 3ee9792d-77fc-46e3-8b0b-9e83927d9340 -->
+
+**Level:** Intermediate. **Covers:** Fast-forward vs three-way merges, reading and resolving conflict markers, and the merge strategies beyond the default.

@@ -4,8 +4,6 @@ id: 628739f1-4871-4a6c-8a44-5ffba2884529
 
 # Module 21: Adders (Arithmetic from Pure Logic)
 
-**[Intermediate]** — Numbers have never appeared in this course. Only voltages, then bits, then Boolean functions. This module makes a circuit that *adds* — and the carry chain it produces turns out to be what limits a processor's clock speed.
-
 ## Before you start
 <!-- bite: e9b6e76b-e1bb-4677-8b69-f8874fa5217e -->
 
@@ -606,3 +604,8 @@ The two flags genuinely answer different questions, which is why hardware provid
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the MUX that selects the ALU's operation
 - [[computer-architecture/02-data-representation|computer-architecture/data representation]] — two's complement and real overflow bugs
 - [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — the other answer to a long critical path
+
+## About this lesson
+<!-- bite: e7acc2fe-2163-4b87-852c-d623216b8048 -->
+
+**Level:** Intermediate. **Covers:** Numbers have never appeared in this course. Only voltages, then bits, then Boolean functions. This module makes a circuit that *adds* — and the carry chain it produces turns out to be what limits a processor's clock speed.

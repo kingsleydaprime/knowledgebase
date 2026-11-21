@@ -4,8 +4,6 @@ id: 59f89766-66ec-4325-8446-16a497904ceb
 
 # Classes and the Object Model
 
-> **[Intermediate]** · Dunder methods, properties, dataclasses, and why Python's OOP is a set of *protocols* rather than a set of *declarations*.
-
 Python has classes, inheritance and polymorphism → [[programming-fundamentals/13-objects-and-classes|objects and classes]]. What makes it different from Java or C# is that **behaviour is opted into by implementing methods with specific names, not by declaring that you implement an interface.**
 
 ## The basics
@@ -166,5 +164,10 @@ Or, better for duck-typed code, a **`Protocol`** — structural typing, no inher
 - [[languages/06-python/07-decorators-and-context-managers|decorators]] — `@property` is one
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]] — the concepts, language-agnostic
 - [[concepts/02-design-patterns/index|design patterns]] — many of which Python makes trivial or unnecessary
+
+## About this lesson
+<!-- bite: 44399b23-d6bf-4824-82ee-ee8475b16db9 -->
+
+**Level:** Intermediate. **Covers:** Dunder methods, properties, dataclasses, and why Python's OOP is a set of *protocols* rather than a set of *declarations*.
 
 *Source: [reference] — from the Python data model documentation.*

@@ -4,8 +4,6 @@ id: 4817264c-4da8-438e-adef-435022e42c29
 
 # Smart Pointers and Ownership
 
-**[Intermediate]** — RAII for memory, off the shelf. The reason modern C++ contains almost no `new` and no `delete` at all.
-
 ## Why
 <!-- bite: d3e9ccab-1b74-4c7b-8a55-52a07f11b9e3 -->
 
@@ -227,3 +225,8 @@ std::string_view sv = std::string("temp");   // DANGLING immediately
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Rust: Smart Pointers]] — `Box`/`Rc`/`Weak`, the same set
 - [[languages/04-c/07-memory-management|C: Memory Management]] — what this replaces
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 3fa3df73-b424-41d4-87ff-74b8d10ca35d -->
+
+**Level:** Intermediate. **Covers:** RAII for memory, off the shelf. The reason modern C++ contains almost no `new` and no `delete` at all.

@@ -4,8 +4,6 @@ id: 9df15e6f-66ba-4549-bbf2-47d781e83452
 
 # Intermediate Representations
 
-**[Advanced]** — Why the tree isn't good enough for optimisation, and why SSA became the universal answer.
-
 ## Why lower the AST at all
 <!-- bite: 603a0fc8-23a4-4bf1-9c4c-7dbc0b4fefa2 -->
 
@@ -241,3 +239,8 @@ The theory is **lattices and monotone functions**, which guarantees the iteratio
 - [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — what gets lowered
 - [[dsa/02-data-structures/09-graphs/index|Graphs]] — the CFG is one, and dominance is a graph property
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: 31658455-e5bc-4edb-8c30-9bb5c5ddad2d -->
+
+**Level:** Advanced. **Covers:** Why the tree isn't good enough for optimisation, and why SSA became the universal answer.

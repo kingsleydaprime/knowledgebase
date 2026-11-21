@@ -4,8 +4,6 @@ id: 282d695c-d7ae-4005-85ad-71a0ff0cf539
 
 # Failure and Yield
 
-**[Intermediate → Advanced]** — Turning a six-component stress tensor into one number and a verdict. The criteria, what each assumes, and why most real failures are fatigue.
-
 ## The problem
 <!-- bite: a5d36560-7c09-4e7f-86ae-e7d6db359ed3 -->
 
@@ -187,3 +185,8 @@ That last one is the most commonly ignored, and the most consequential.
 - [[continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — stress concentration and the crack-tip singularity
 - [[continuum-mechanics/09-beams-and-structures|Beams and Structures]] — buckling
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: ab83d595-b076-4f32-8e1a-961de9ae58bf -->
+
+**Level:** Intermediate → Advanced. **Covers:** Turning a six-component stress tensor into one number and a verdict. The criteria, what each assumes, and why most real failures are fatigue.

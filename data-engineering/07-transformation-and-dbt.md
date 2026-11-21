@@ -4,8 +4,6 @@ id: 6ad187f8-40f5-4790-b6b7-9f0a6686d7dd
 
 # Transformation and dbt
 
-**[Intermediate]** — turning raw loaded data into trustworthy tables, and the tool that made it look like software engineering.
-
 ## The kid version first
 <!-- bite: f73ad092-c75f-43a1-b53f-eb38f2d28122 -->
 
@@ -103,5 +101,10 @@ Each model can be built as:
 - [[data-engineering/10-data-quality-governance-and-the-stack|data quality]] — dbt tests as the first line
 - [[data-engineering/08-orchestration|orchestration]] — what schedules dbt runs
 - [[databases/sql-reference|SQL reference]] — the language it's all written in
+
+## About this lesson
+<!-- bite: 57ee72f1-22ad-4d27-8158-04d0e796eb7b -->
+
+**Level:** Intermediate. **Covers:** turning raw loaded data into trustworthy tables, and the tool that made it look like software engineering.
 
 *Source: [reference] — Aug 2026.*

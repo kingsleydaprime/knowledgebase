@@ -4,7 +4,7 @@ id: 38cfe629-669f-4d83-b209-db43bb0107eb
 
 # Organising by Layer vs by Feature
 
-**[Beginner→Intermediate]** — the folder-structure argument every team has, usually badly. It looks like bikeshedding and isn't: it determines how far you have to scroll to make one change, and how easy it is to delete something. This lesson shows both layouts, **with the wiring, in Express, NestJS, React, Django and Flask** — and a companion lesson does the same for Go, Java, Rust, C, C++ and C#.
+**This is the choice of how to arrange a backend's folders: by layer, with all the controllers together and all the services together, or by feature, with everything for orders together and everything for users together.** It's like sorting a toolbox by type of tool or by job. Both work, but you usually change one feature at a time, so the choice decides how many folders you open for every change.
 
 ## Before you start
 <!-- bite: 69f44c3e-a14f-4c04-8e05-cafe2d49b5b6 -->
@@ -1103,3 +1103,8 @@ You're done when you can lay out the shop app both ways in your main framework f
 - [[frontend/02-structuring-a-frontend/01-components-and-composition|Components and composition]] — the React side of the slot pattern
 - [[backend/frameworks/javascript/02-express/index|Express]] · [[backend/frameworks/javascript/03-nest/index|NestJS]] · [[backend/frameworks/python/02-django|Django]] · [[backend/frameworks/python/03-flask|Flask]] · [[backend/frameworks/go/index|Go]] · [[backend/frameworks/java/index|Java]] · [[backend/frameworks/rust/index|Rust]] · [[backend/frameworks/c/index|C]] · [[backend/frameworks/cpp/index|C++]]
 - [[concepts/01-best-practices/01-clean-code/index|Clean Code]] — the duplication-vs-abstraction argument
+
+## About this lesson
+<!-- bite: 79a769cd-2c40-4049-9562-c044026d52f2 -->
+
+**Level:** Beginner→Intermediate. **Covers:** the folder-structure argument every team has, usually badly. It looks like bikeshedding and isn't: it determines how far you have to scroll to make one change, and how easy it is to delete something. This lesson shows both layouts, **with the wiring, in Express, NestJS, React, Django and Flask** — and a companion lesson does the same for Go, Java, Rust, C, C++ and C#.

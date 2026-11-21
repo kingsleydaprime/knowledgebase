@@ -4,8 +4,6 @@ id: 661ee8ba-932a-4aae-9c42-9702f242c674
 
 # Account Abstraction
 
-**[Advanced]** — the attempt to fix wallet UX without giving up self-custody, and where it actually stands.
-
 ## The problem it solves
 <!-- bite: f4908699-df9a-4548-a041-3f9b8b753897 -->
 
@@ -114,3 +112,8 @@ That last part is why it matters: ERC-4337 required moving to a *new* smart-acco
 - [[web3/02-ethereum-and-the-evm/04-transactions-and-the-mempool|transaction types]] — where 7702 fits
 - [[web3/04-smart-contract-security/03-access-control-and-key-management|key management]]
 - [[web3/01-foundations/03-cryptographic-primitives|key derivation]] — what a seed phrase is
+
+## About this lesson
+<!-- bite: 00e6517d-9c5b-4c75-817b-b729e7dfae82 -->
+
+**Level:** Advanced. **Covers:** the attempt to fix wallet UX without giving up self-custody, and where it actually stands.

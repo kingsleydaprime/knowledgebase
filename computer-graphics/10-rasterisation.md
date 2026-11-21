@@ -4,8 +4,6 @@ id: 3303b4e3-a51c-4382-b559-1cc94fc3d3c6
 
 # Rasterisation
 
-**[Intermediate → Advanced]** — Turning triangles into pixels. Edge functions, the z-buffer, and why interpolation needs a perspective correction.
-
 ## Why triangles
 <!-- bite: cd5da7cd-2ccd-4e68-b2c3-6a7fe3857b2c -->
 
@@ -176,3 +174,8 @@ The classical, per-line methods — area sampling (Wu's lines), supersampling an
 - [[computer-graphics/07-visible-surface-detection|Visible Surface Detection]] — the classical visibility methods
 - [[computer-graphics/02-line-drawing-and-antialiasing|Line Drawing]] — DDA and Bresenham
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: 92422afb-8efb-4d6a-8e7d-fd92dfe64e79 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Turning triangles into pixels. Edge functions, the z-buffer, and why interpolation needs a perspective correction.

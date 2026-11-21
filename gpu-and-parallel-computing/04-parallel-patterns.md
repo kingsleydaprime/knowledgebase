@@ -4,8 +4,6 @@ id: cc34a509-b70c-40ae-9d93-7ee0a4380796
 
 # Parallel Patterns
 
-**[Advanced]** — The handful of primitives every parallel algorithm is built from, and why scan is the surprising one.
-
 ## Map
 <!-- bite: 3936c9d8-4b07-4f24-84b1-6799c927da50 -->
 
@@ -217,3 +215,8 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 - [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — knowing which bound you're against
 - [[01-growth-and-asymptotic-notation|Algorithms]] — the sequential versions
 - [[gpu-and-parallel-computing/index|GPU and parallel map]]
+
+## About this lesson
+<!-- bite: 3d040bdd-bb2e-45e7-9f42-e019c6d30268 -->
+
+**Level:** Advanced. **Covers:** The handful of primitives every parallel algorithm is built from, and why scan is the surprising one.

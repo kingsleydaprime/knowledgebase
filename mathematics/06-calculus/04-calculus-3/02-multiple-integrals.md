@@ -4,8 +4,6 @@ id: 45fe0cab-bf61-4167-aaa5-2c5625d76674
 
 # Multiple Integrals
 
-**[Intermediate → Advanced]** — Accumulating over a region rather than an interval, and why changing the order of integration is sometimes the whole solution.
-
 ## Before you start
 <!-- bite: fca3f8b5-b833-4093-8149-dd9d80fa0894 -->
 
@@ -157,3 +155,8 @@ so the original integral is $\sqrt\pi$. **The $r$ from the Jacobian is precisely
 <!-- bite: 6d0a1649-b2a4-451b-a89a-d0d79f355bca -->
 
 - [[01-partial-derivatives|Partial derivatives]] · [[01-integration-by-parts|Integration]]
+
+## About this lesson
+<!-- bite: a2d606ce-2394-48e0-a8c9-b82c0a6e7732 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Accumulating over a region rather than an interval, and why changing the order of integration is sometimes the whole solution.

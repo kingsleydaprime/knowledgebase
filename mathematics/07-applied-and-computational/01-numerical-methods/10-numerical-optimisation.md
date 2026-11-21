@@ -4,8 +4,6 @@ id: c5e8f92e-3b18-4934-ba98-d49da8183f9f
 
 # Numerical Optimisation
 
-**[Intermediate → Advanced]** — Finding a minimum. Where numerical methods and machine learning meet, and why conditioning explains most training pathologies.
-
 ## The problem
 <!-- bite: e6b7ec4a-2a9b-480d-ad94-8d757c9e505b -->
 
@@ -180,3 +178,8 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 - [[mathematics/07-applied-and-computational/01-numerical-methods/03-root-finding|Root Finding]] — minimisation is root-finding on the gradient
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — solved inside every Newton step
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: 4a5733e8-a380-4bb3-b835-6ed5f8fd20be -->
+
+**Level:** Intermediate → Advanced. **Covers:** Finding a minimum. Where numerical methods and machine learning meet, and why conditioning explains most training pathologies.

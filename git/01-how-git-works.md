@@ -4,8 +4,6 @@ id: de75a8c6-3d63-41e7-8a95-97497bcc3e5f
 
 # How Git Actually Works
 
-**[Beginner → Intermediate]** — The object model underneath every command: blobs, trees, commits and tags, the refs that name them, and what is actually inside `.git/`. Every later note is easier once this one lands.
-
 ## Git is a Content-Addressable Filesystem
 <!-- bite: 3f52c9c8-a308-46f7-ade8-b4658d3017c8 -->
 
@@ -133,3 +131,8 @@ cat .git/refs/heads/feature   # a1b2c3d4... (same SHA, new ref)
 - [[git/06-rebasing|Rebasing]] — why replayed commits get new SHAs makes sense only from here
 - [[git/10-undoing-things|Undoing Things]] — the reflog is just a log of ref movements
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 92dfd1dc-3f98-48f3-9a21-b72fdbe2f887 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The object model underneath every command: blobs, trees, commits and tags, the refs that name them, and what is actually inside `.git/`. Every later note is easier once this one lands.

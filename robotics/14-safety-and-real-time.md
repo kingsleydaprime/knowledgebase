@@ -4,8 +4,6 @@ id: d0a65b78-d79e-4cdc-8927-b20470ebfae2
 
 # Safety and Real-Time
 
-**[Advanced]** — Deadlines that are correctness constraints rather than performance goals, and failing safe when a moving machine can hurt someone.
-
 ## Real-time means deadlines, not speed
 <!-- bite: 1d2c3035-8a47-4f0b-be88-110ced291c38 -->
 
@@ -184,3 +182,8 @@ Dual encoders that disagree indicate a fault. **Comparison is itself a detection
 - [[os/03-scheduling|Scheduling]] — how an OS meets or misses them
 - [[robotics/13-ros-and-robot-software|ROS and Robot Software]] — and where it isn't appropriate
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: 0dcdc753-6229-45f4-88be-f16c04e74f73 -->
+
+**Level:** Advanced. **Covers:** Deadlines that are correctness constraints rather than performance goals, and failing safe when a moving machine can hurt someone.

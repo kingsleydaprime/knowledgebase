@@ -4,8 +4,6 @@ id: 5d8c4a5f-e008-45c4-9c54-909c0c9a6169
 
 # Classes and Collections
 
-**[Intermediate]** — the object model, and the collection idioms Flutter code is built from.
-
 ## Classes
 <!-- bite: ea24dd8e-1162-46e8-8b4f-c07dfc09a11e -->
 
@@ -150,3 +148,8 @@ final byCity = groupBy(users, (User u) => u.city);
 - [[languages/10-dart/02-types-and-null-safety|types and null safety]]
 - [[languages/10-dart/06-tooling-and-codegen|codegen]] — `freezed`, and why you need it
 - [[mobile/frameworks/flutter/index|Flutter]] — where the collection syntax pays off
+
+## About this lesson
+<!-- bite: 79e63167-989b-481f-907d-22177ad9162c -->
+
+**Level:** Intermediate. **Covers:** the object model, and the collection idioms Flutter code is built from.

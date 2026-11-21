@@ -4,8 +4,6 @@ id: f7520388-7efc-4f66-b9a6-d13fbafc2f6f
 
 # Circle Theorems
 
-**[Beginner]** — one theorem about the centre, and the four results that fall out of it for free.
-
 ## Before you start
 <!-- bite: 4879aca6-0683-49db-b20f-3dbd6505eed2 -->
 
@@ -355,3 +353,8 @@ You are done with this lesson when you can:
 - [[02-triangles-and-polygons|Triangles and Polygons]] — the isosceles and exterior-angle results every proof here uses
 - [[03-constructions|Constructions]] — the perpendicular bisector needed for the practice task
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the same circle handled by equation instead of theorem
+
+## About this lesson
+<!-- bite: fbe745b5-854c-44d3-8b22-672ab9a1e20e -->
+
+**Level:** Beginner. **Covers:** one theorem about the centre, and the four results that fall out of it for free.

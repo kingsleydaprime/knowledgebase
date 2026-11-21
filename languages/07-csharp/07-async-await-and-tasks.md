@@ -4,8 +4,6 @@ id: a112cb8a-1e6c-4407-8aa8-c2450ddef3cf
 
 # Async, Await and Tasks
 
-> **[Intermediate → Advanced]** · C# invented the model everyone copied. Here's what it actually does, and the four ways to deadlock with it.
-
 `async`/`await` shipped in C# 5 (2012) and was subsequently adopted by JavaScript, Python, Rust, Swift and Kotlin → [[languages/06-python/17-asyncio-in-depth|Python's version]].
 
 ## What it actually does
@@ -122,5 +120,10 @@ await LoadAsync(cts.Token);        // a timeout, expressed as cancellation
 - [[languages/07-csharp/06-delegates-events-and-lambdas|delegates]] — `IAsyncEnumerable`
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime and concurrency models]]
 - [[languages/06-python/17-asyncio-in-depth|asyncio]] · [[languages/01-java/index|Java's virtual threads]]
+
+## About this lesson
+<!-- bite: 308c6624-53fd-4484-bdda-8bbe6cf2469e -->
+
+**Level:** Intermediate → Advanced. **Covers:** C# invented the model everyone copied. Here's what it actually does, and the four ways to deadlock with it.
 
 *Source: [reference] — from the .NET async documentation, Aug 2026.*

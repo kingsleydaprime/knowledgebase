@@ -4,8 +4,6 @@ id: b9fcc944-8131-4c8f-bc17-cd111ed88ceb
 
 # Testing and Tooling
 
-**[Intermediate]** — Foundry, the testing techniques that are mandatory rather than advanced, and a workable local workflow.
-
 ## Why testing is different here
 <!-- bite: e4cbba37-8b6b-4f60-997e-8f72418807b3 -->
 
@@ -171,5 +169,10 @@ aderyn                       # Rust-based, newer, good output
 - [[web3/04-smart-contract-security/07-the-audit-process|the audit process]] — what comes after
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]] — measuring
 - [[concepts/01-best-practices/index|best practices]] — testing generally
+
+## About this lesson
+<!-- bite: 66a6d6aa-7454-4d1a-9d18-f408a81490eb -->
+
+**Level:** Intermediate. **Covers:** Foundry, the testing techniques that are mandatory rather than advanced, and a workable local workflow.
 
 *Source: [reference] — Foundry, Aug 2026.*

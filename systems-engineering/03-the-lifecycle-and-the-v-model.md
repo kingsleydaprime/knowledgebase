@@ -4,8 +4,6 @@ id: 791052ed-dba0-4434-ad4b-bec9c45dd2c9
 
 # The Lifecycle and the V-Model
 
-> **[Beginner → Intermediate]** · The shape of a systems project, why the V is a V, and how it relates to agile without either being wrong.
-
 ## The V
 <!-- bite: 44a7b16f-da4c-45ae-9fdd-9decc4ad1508 -->
 
@@ -115,5 +113,10 @@ NASA's 1–9 scale for how proven a technology is:
 - [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — what gates are looking for
 - [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved|how delivery practice evolved]] — the same batch-size argument in software
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
+
+## About this lesson
+<!-- bite: ee108d0a-a4ca-4b1c-882b-5a6ef60f6606 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The shape of a systems project, why the V is a V, and how it relates to agile without either being wrong.
 
 *Source: [reference] — from ISO/IEC/IEEE 15288, the NASA SE Handbook, and INCOSE.*

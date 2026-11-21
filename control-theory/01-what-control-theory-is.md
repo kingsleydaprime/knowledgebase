@@ -4,8 +4,6 @@ id: 99b31524-be89-4cfa-be92-04c78db7f2be
 
 # What Control Theory Is
 
-**[Beginner → Intermediate]** — Why feedback is the single most important idea in engineering, what it costs, and the vocabulary the rest of the track uses.
-
 **Source:** `[reference]` — see [[control-theory/index|the domain note]].
 
 ## The problem
@@ -180,3 +178,8 @@ That last comparison is worth taking seriously. Autoscaling on CPU usage has all
 - [[continuum-mechanics/index|Continuum Mechanics]] — the other engineering track
 - [[robotics/index|Robotics]] — where this gets applied
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: 00a85632-7f42-4547-9505-16a29a6d4164 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Why feedback is the single most important idea in engineering, what it costs, and the vocabulary the rest of the track uses.

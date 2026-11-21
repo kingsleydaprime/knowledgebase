@@ -4,8 +4,6 @@ id: 28f1282d-3bc8-4e58-931d-55631e911bb5
 
 # The Preprocessor
 
-**[Beginner → Intermediate]** — A text substitution engine that runs before the compiler, knows nothing about C, and will happily generate nonsense.
-
 ## What it is
 <!-- bite: 0dcf45de-23cd-4b98-abd5-7b0cdc91eafb -->
 
@@ -249,3 +247,8 @@ Knowing the preprocessor is still necessary, because you'll read a lot of code t
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — what a careless macro can produce
 - [[languages/03-rust/17-macros|Rust: Macros]] — hygienic, AST-based, type-checked
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: 58bfd7f9-b8e3-43e8-86d3-ee60bea58d10 -->
+
+**Level:** Beginner → Intermediate. **Covers:** A text substitution engine that runs before the compiler, knows nothing about C, and will happily generate nonsense.

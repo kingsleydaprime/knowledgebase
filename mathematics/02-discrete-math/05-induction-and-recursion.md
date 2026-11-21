@@ -4,8 +4,6 @@ id: a7fe2a17-4518-422d-b813-5e4c936beebe
 
 # Induction and Recursion
 
-**[Intermediate]** — Two faces of one idea, and the single most important technique in this track for a programmer.
-
 ## The idea
 <!-- bite: 3ddb0f44-5715-4326-a995-71687d714433 -->
 
@@ -160,3 +158,8 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 - [[dsa/04-patterns/15-dynamic-programming|Dynamic Programming]] — recursion plus memoisation
 - [[01-growth-and-asymptotic-notation|Algorithms]] — where these complexities land
 - [[mathematics/02-discrete-math/index|Discrete maths map]]
+
+## About this lesson
+<!-- bite: 9c24a947-db94-4e89-a0f9-2553800bf4f4 -->
+
+**Level:** Intermediate. **Covers:** Two faces of one idea, and the single most important technique in this track for a programmer.

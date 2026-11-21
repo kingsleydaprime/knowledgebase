@@ -4,8 +4,6 @@ id: 8196a30d-b104-428c-bdd2-27ff8e44e324
 
 # Lifetimes
 
-**[Intermediate]** — The scariest-looking syntax in Rust, which turns out to be describing something you already understand.
-
 ## What they actually are
 <!-- bite: 68c62797-8d54-4dfa-bd5e-a9bf69fb51c6 -->
 
@@ -155,3 +153,8 @@ Lifetimes are the last big concept and they're less used day to day than ownersh
 - [[languages/03-rust/10-generics-and-trait-bounds|Generics and Trait Bounds]] — lifetimes are a kind of generic parameter
 - [[languages/03-rust/14-async-and-tokio|Async and Tokio]] — where `'static` bounds bite hardest
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 8b7a0043-7c29-45a8-8cfc-9b918c57f394 -->
+
+**Level:** Intermediate. **Covers:** The scariest-looking syntax in Rust, which turns out to be describing something you already understand.

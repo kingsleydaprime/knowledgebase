@@ -4,8 +4,6 @@ id: 4761e608-6ee5-40b1-b5cd-c88350658aaa
 
 # Kinematics of Deformation
 
-**[Intermediate → Advanced]** — Describing motion without any physics. Pure geometry, and the source of most of the field's notational baggage.
-
 ## The two configurations
 <!-- bite: 76b96e39-ee83-4698-a533-c4bce2357971 -->
 
@@ -193,3 +191,8 @@ Almost everything above collapses when displacement gradients are small ($|\nabl
 - [[continuum-mechanics/06-conservation-laws|Conservation Laws]] — where the material derivative earns its keep
 - [[continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]] — $\mathbf{D}$ in action
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: f5abf060-2417-427d-ac81-0d498e5fb24d -->
+
+**Level:** Intermediate → Advanced. **Covers:** Describing motion without any physics. Pure geometry, and the source of most of the field's notational baggage.

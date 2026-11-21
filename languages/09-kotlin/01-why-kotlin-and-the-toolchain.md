@@ -4,8 +4,6 @@ id: b4a314d6-1480-48eb-b472-32cd3082852b
 
 # Why Kotlin, and the Toolchain
 
-**[Beginner]** — what Kotlin is for, and what transfers from Java.
-
 ## What Kotlin is
 <!-- bite: fa1284b7-9814-4977-8cda-e0a5419aa261 -->
 
@@ -101,3 +99,8 @@ Being honest:
 - [[languages/09-kotlin/index|the Kotlin course]]
 - [[languages/01-java/index|Java]] — the platform underneath, and it still applies
 - [[mobile/frameworks/android/index|Android]] — the main destination
+
+## About this lesson
+<!-- bite: fcfc9dff-e3aa-41fe-98f3-f687055500c7 -->
+
+**Level:** Beginner. **Covers:** what Kotlin is for, and what transfers from Java.

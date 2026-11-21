@@ -4,8 +4,6 @@ id: 1d62459a-a2e2-4961-b474-fcdfd8659424
 
 # Lines and Planes in Space
 
-**[Advanced]** — three-dimensional coordinate geometry, where gradient stops working and vectors take over.
-
 ## Before you start
 <!-- bite: 23ec14a5-b522-40cb-a5ba-e6ea4b6d4924 -->
 
@@ -419,3 +417,8 @@ You are done with this lesson when you can:
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the two-dimensional version, and where the dot product first appeared
 - [[04-linear-algebra/02-vectors/01-vectors|Vectors]] — the same objects, developed as algebra
 - [[04-linear-algebra/03-systems-of-linear-equations/01-gaussian-elimination|Systems of Linear Equations]] — intersecting several planes at once
+
+## About this lesson
+<!-- bite: b205ee41-d927-4ccc-8fe2-e10786a2c783 -->
+
+**Level:** Advanced. **Covers:** three-dimensional coordinate geometry, where gradient stops working and vectors take over.

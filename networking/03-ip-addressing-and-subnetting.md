@@ -4,8 +4,6 @@ id: c26f9673-6047-48fb-a668-9b99ea5ad8ee
 
 # IP Addressing & Subnetting
 
-**[Beginner→Intermediate]** — how a machine anywhere on Earth gets a name a router can act on. Subnetting is the one piece of arithmetic in this course you should be able to do on a whiteboard cold, because it comes up in every cloud VPC design and every firewall rule you will ever write.
-
 ## The kid version first
 <!-- bite: 41f1fe16-a143-45bc-a702-d25accd79f80 -->
 
@@ -115,3 +113,8 @@ An IP address is not a name for a *machine* — it's a name for a **location in 
 - [[networking/14-nat-firewalls-and-middleboxes|NAT, Firewalls & Middleboxes]] — NAT traversal in full
 - [[devops/08-cloud/index|Cloud]] — VPC/subnet design is this arithmetic applied
 - [[networking/16-debugging-networks|Debugging Networks]] — `ip addr`, `ip route`, reading a routing table
+
+## About this lesson
+<!-- bite: d489bcce-a728-4a10-afd9-a94aae2fd1d6 -->
+
+**Level:** Beginner→Intermediate. **Covers:** how a machine anywhere on Earth gets a name a router can act on. Subnetting is the one piece of arithmetic in this course you should be able to do on a whiteboard cold, because it comes up in every cloud VPC design and every firewall rule you will ever write.

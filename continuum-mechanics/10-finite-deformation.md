@@ -4,8 +4,6 @@ id: e3248860-64c9-4cb4-8b24-5446ddbff90c
 
 # Finite Deformation
 
-**[Advanced]** — What happens when small strain fails, why the failure is usually about rotation rather than strain, and how rubber is modelled.
-
 ## When you need it
 <!-- bite: bd33e34e-046a-4dfe-a87f-5b394127a41a -->
 
@@ -193,3 +191,8 @@ Finite deformation is where the clean structure of linear elasticity — superpo
 - [[continuum-mechanics/07-constitutive-models|Constitutive Models]] — hyperelasticity in context
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — solving these
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: 9517f716-5a6c-4cb6-b53f-9e00d5b5395c -->
+
+**Level:** Advanced. **Covers:** What happens when small strain fails, why the failure is usually about rotation rather than strain, and how rubber is modelled.

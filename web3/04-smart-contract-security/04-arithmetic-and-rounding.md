@@ -4,8 +4,6 @@ id: ad5b1e71-f46d-4769-a7e0-32541b2a2e6b
 
 # Arithmetic, Precision and Rounding
 
-**[Intermediate]** — no floats, integer division truncates, and rounding in the user's favour is how protocols bleed to death.
-
 ## What changed in 0.8, and what didn't
 <!-- bite: 1a2d25e8-d87c-4553-b9ec-1b297feb1040 -->
 
@@ -140,5 +138,10 @@ Fuzz tests catch most of these almost for free, because the fuzzer will try zero
 - [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point and error]] — the same problems, different representation
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — where this maths lives
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|fuzz testing]]
+
+## About this lesson
+<!-- bite: 1a43f23c-2fe6-4a7c-9253-62266bb55644 -->
+
+**Level:** Intermediate. **Covers:** no floats, integer division truncates, and rounding in the user's favour is how protocols bleed to death.
 
 *Source: [reference] — Aug 2026.*

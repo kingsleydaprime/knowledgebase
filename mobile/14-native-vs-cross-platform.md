@@ -4,8 +4,6 @@ id: 3f6688b8-ceb5-444c-b4d0-634e467052a1
 
 # Native vs Cross-Platform
 
-**[Intermediate]** — the first real decision, made honestly rather than tribally.
-
 ## The kid version first
 <!-- bite: 4ed8ce41-9b03-4c48-b090-1995c5c156b6 -->
 
@@ -110,5 +108,10 @@ Four questions, in order:
 - [[mobile/02-the-two-platforms|the two platforms]]
 - [[languages/10-dart/index|Dart]] · [[languages/09-kotlin/index|Kotlin]] · [[languages/08-swift/index|Swift]]
 - [[desktop/frameworks/index|desktop frameworks]] — the same argument, one layer over
+
+## About this lesson
+<!-- bite: 648ac37a-fdd9-4273-8b5c-66f4487f6110 -->
+
+**Level:** Intermediate. **Covers:** the first real decision, made honestly rather than tribally.
 
 *Source: [reference] — Aug 2026.*

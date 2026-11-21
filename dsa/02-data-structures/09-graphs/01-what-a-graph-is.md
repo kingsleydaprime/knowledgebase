@@ -4,8 +4,6 @@ id: 3918047a-c73c-4c4d-aa92-db467026c0c3
 
 # Module: What a Graph Is
 
-**[Beginner]** — vertices, edges, and the vocabulary that every later graph result is stated in.
-
 ## Before you start
 <!-- bite: 513fc576-cb6a-4250-ac09-bf0abdd0e03d -->
 
@@ -422,3 +420,8 @@ You can define every term in the terms list without hesitating, state the handsh
 - [[02-discrete-math/07-graph-theory|Discrete maths: graph theory]] — the proofs behind these facts
 - [[04-representations|Representations]] — how to store all of this
 - [[06-trees/01-trees|Trees]] — the special case with no cycles
+
+## About this lesson
+<!-- bite: c9b100c1-23ac-4b48-bbe3-1e4bbc330f2b -->
+
+**Level:** Beginner. **Covers:** vertices, edges, and the vocabulary that every later graph result is stated in.

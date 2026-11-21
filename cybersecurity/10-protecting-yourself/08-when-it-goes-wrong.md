@@ -4,8 +4,6 @@ id: f85a70ab-a499-407b-a01d-8742c10eeacd
 
 # When It Goes Wrong
 
-**[Beginner]** — the checklist, in order, for the moment it's already happened.
-
 ## Read this before you need it
 <!-- bite: fe52f48a-7da9-4406-b1b0-2e74578ceac6 -->
 
@@ -118,3 +116,8 @@ Write down what happened and how they got in. **That's a personal postmortem**, 
 - [[cybersecurity/10-protecting-yourself/index|the track]]
 - [[cybersecurity/10-protecting-yourself/06-backups-and-your-data|backups]] — what makes recovery possible
 - [[cybersecurity/07-security-operations/04-incident-response|incident response]] — the organisational version
+
+## About this lesson
+<!-- bite: 1aafeac7-3673-4be3-9e0f-244d5e941284 -->
+
+**Level:** Beginner. **Covers:** the checklist, in order, for the moment it's already happened.

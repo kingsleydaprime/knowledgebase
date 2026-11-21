@@ -4,8 +4,6 @@ id: cf2ae200-cb71-4bc2-8053-c3bdc890fbef
 
 # Bearings
 
-**[Intermediate]** — navigation angles, why they run clockwise from north, and how to turn a journey into a triangle.
-
 ## Before you start
 <!-- bite: a1ddad5c-73bc-486a-9c42-6bfad15a9e9b -->
 
@@ -368,3 +366,8 @@ You are done with this lesson when you can:
 - [[01-angles-and-parallel-lines|Angles and Parallel Lines]] — the co-interior angle at the turning point
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the line intersection the practice task needs
 - [[01-latitude-and-longitude|Latitude and Longitude]] — what to do when the Earth's curvature matters
+
+## About this lesson
+<!-- bite: 311e82f2-03fc-4656-90f8-431c0615282b -->
+
+**Level:** Intermediate. **Covers:** navigation angles, why they run clockwise from north, and how to turn a journey into a triangle.

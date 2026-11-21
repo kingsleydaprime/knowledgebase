@@ -4,8 +4,6 @@ id: 7af62a70-8bb5-41f2-9185-cb647f650a4c
 
 # Why Go, and the Toolchain
 
-**[Beginner]** — What Go was designed to fix, the deliberate omissions that follow from that, and the single built-in tool that replaces the pile you're used to.
-
 **Source:** `[reference]` — cross-referenced against [roadmap.sh Go](https://roadmap.sh/golang). No Go project in this vault yet; the first one belongs in [[project-ideas|Project Ideas]] before these notes claim to be knowledge.
 
 ## The problem Go was built for
@@ -137,3 +135,8 @@ Being honest about it, since a language note that only lists strengths is useles
 - [[backend/frameworks/go/index|Go Backends]] — the frameworks built on this
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — where goroutines sit among the alternatives
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: 472708da-e46b-4e2a-bfe8-e973e17e05fc -->
+
+**Level:** Beginner. **Covers:** What Go was designed to fix, the deliberate omissions that follow from that, and the single built-in tool that replaces the pile you're used to.

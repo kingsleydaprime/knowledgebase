@@ -4,8 +4,6 @@ id: f82ba550-ddf7-49f7-9f2e-94333e899107
 
 # Module: Classic Two-Dimensional DP (The State Is a Pair of Indices)
 
-**[Intermediate → Advanced]** — Three problems that between them are most of what two-dimensional dynamic programming does: **longest common subsequence**, **0/1 knapsack**, and **edit distance**. They look unrelated — comparing strings, packing a bag, spell-checking — and they fill the same grid with the same read pattern.
-
 Once you see that, you have a template rather than three memorised solutions. And the knapsack lesson contains the single most-failed detail in all of DP: the direction of the inner loop.
 
 ---
@@ -686,3 +684,8 @@ You can set up a 2-D table with correct base rows, reconstruct the solution by w
 - [[04-floyd-warshall|Floyd–Warshall]] — a 2-D DP over a graph, filled in a third dimension
 - [[15-dynamic-programming|The DP pattern note]] — the recognition layer
 - [[07-dynamic-programming/index|the dynamic programming folder]]
+
+## About this lesson
+<!-- bite: 40e925c2-36a8-4bc6-9ae7-67f67e2d8946 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Three problems that between them are most of what two-dimensional dynamic programming does: **longest common subsequence**, **0/1 knapsack**, and **edit distance**. They look unrelated — comparing strings, packing a bag, spell-checking — and they fill the same grid with the same read pattern.

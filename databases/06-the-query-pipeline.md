@@ -4,8 +4,6 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 
 # The Query Pipeline
 
-**[Intermediate → Advanced]** — What happens between typing a query and getting rows back.
-
 ## The stages
 <!-- bite: 10f753d2-2619-4ce0-a1ce-fd0a513b854f -->
 
@@ -158,3 +156,8 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
 - [[compilers/index|Compilers]] — the same pipeline, for languages
 - [[databases/sql-reference|SQL Reference]] — §26, query optimisation from the query-writing side
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: eeb7b33b-2835-44a8-84fa-5309c1639faf -->
+
+**Level:** Intermediate → Advanced. **Covers:** What happens between typing a query and getting rows back.

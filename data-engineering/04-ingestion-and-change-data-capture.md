@@ -4,8 +4,6 @@ id: c330b5aa-0be6-4a8e-acbe-c60d3517c717
 
 # Ingestion and Change Data Capture
 
-**[Intermediate]** — getting data *in*, and the technique that solved the hardest part of it.
-
 ## The kid version first
 <!-- bite: 73202986-401b-4479-82ba-33c53a64ce5f -->
 
@@ -96,5 +94,10 @@ Ingestion inherits the distributed-systems delivery problem:
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses and lakes]] — the destination, and why upserts matter
 - [[databases/10-durability-and-recovery|durability and recovery]] — the WAL that CDC reads
 - [[data-engineering/08-orchestration|orchestration]] — idempotency and retries
+
+## About this lesson
+<!-- bite: 599dd7c4-cec6-41d6-a847-650b86f8eced -->
+
+**Level:** Intermediate. **Covers:** getting data *in*, and the technique that solved the hardest part of it.
 
 *Source: [reference] — Aug 2026.*

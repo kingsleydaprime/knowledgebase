@@ -4,8 +4,6 @@ id: c1f62702-ae8b-468c-a5e6-996d83b2280c
 
 # Calling Models
 
-> **[Beginner]** · Covers what a model call actually sends and receives: the messages format, streaming, finish reasons, errors, and why your app should talk to a model through a port rather than through one provider's SDK. The worked example builds a small provider-neutral client and runs it against a local model. The numbers were measured on 2026-10-02.
-
 ## Before you start
 <!-- bite: bd9984c3-d9ba-4561-b2a0-88791c2a2d42 -->
 
@@ -558,5 +556,10 @@ You can write a chat request and read its response without looking anything up, 
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] — tool calling in depth
 - [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — retries, backoff and fallbacks
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal and clean architecture]] — ports and adapters in general
+
+## About this lesson
+<!-- bite: 3ff2e328-d765-4ff4-8638-d7618d2ecd13 -->
+
+**Level:** Beginner. **Covers:** Covers what a model call actually sends and receives: the messages format, streaming, finish reasons, errors, and why your app should talk to a model through a port rather than through one provider's SDK. The worked example builds a small provider-neutral client and runs it against a local model. The numbers were measured on 2026-10-02.
 
 *Source: new for the AI-engineer track, grounded in the AI-feature work in these projects. SDK shapes change fast; check them against current docs.*

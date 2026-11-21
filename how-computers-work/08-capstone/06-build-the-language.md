@@ -4,8 +4,6 @@ id: fb648ecb-2573-4745-9349-e90907ea1ef7
 
 # Module 33: Build the Language (The Two Directions Meet)
 
-**[Advanced]** — A compiler for a language you designed, emitting instructions for a CPU you designed. **This is the module the whole course exists for.**
-
 ## Before you start
 <!-- bite: 22ee8b55-3739-41b0-926c-c5aa62749fab -->
 
@@ -683,3 +681,8 @@ In Pebble's code generator, emit a small loop rather than trying to unroll it �
 - [[build-your-own-shit/04-your-own-language|Your Own Language]] — the fuller treatment, with a bytecode VM and closures
 - [[compilers/index|compilers/]] — lexing through code generation, properly
 - [[how-computers-work/08-capstone/01-design-the-cpu|Module 28]] — the ISA decisions this compiler works around
+
+## About this lesson
+<!-- bite: cd3698f3-4a71-44d1-ad5f-3d8d573f5cc2 -->
+
+**Level:** Advanced. **Covers:** A compiler for a language you designed, emitting instructions for a CPU you designed. **This is the module the whole course exists for.**

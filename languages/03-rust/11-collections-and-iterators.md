@@ -4,8 +4,6 @@ id: d6086189-4f5b-46d8-80c3-4eb65b80b7bd
 
 # Collections and Iterators
 
-**[Intermediate]** — The standard collections, and the `Iterator` trait — the best-designed thing in the standard library and the reason Rust reads like a high-level language.
-
 ## The collections
 <!-- bite: 4f4b8420-1022-421b-93dc-8fd16ce45aa9 -->
 
@@ -213,3 +211,8 @@ fn process(items: impl IntoIterator<Item = String>) { }
 - [[languages/03-rust/03-ownership|Ownership]] — `iter` vs `into_iter`
 - [[dsa/02-data-structures/03-hash-maps|Hash Maps]] and [[dsa/02-data-structures/07-heaps|Heaps]] — what is underneath these
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 20f63fc5-cbf9-4f46-bad8-33a6d02c9e09 -->
+
+**Level:** Intermediate. **Covers:** The standard collections, and the `Iterator` trait — the best-designed thing in the standard library and the reason Rust reads like a high-level language.

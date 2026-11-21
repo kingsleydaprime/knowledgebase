@@ -4,8 +4,6 @@ id: a4bc4d4a-85b5-4a79-befd-3bdc039d4a32
 
 # Decentralised Storage
 
-**[Intermediate]** — where the files go, why "on IPFS" doesn't mean "stored forever", and what NFT metadata actually points at.
-
 ## The problem
 <!-- bite: db756869-d666-4454-b136-607a5f5ead25 -->
 
@@ -115,3 +113,8 @@ function tokenURI(uint256 id) public view returns (string memory) {
 - [[web3/07-the-application-layer/02-nfts-in-practice|NFTs in practice]]
 - [[git/01-how-git-works|how Git works]] — the same content-addressing idea
 - [[web3/06-building-dapps/01-the-dapp-architecture|the dapp architecture]]
+
+## About this lesson
+<!-- bite: 333e1a16-16ec-4451-90ab-1b45416ff856 -->
+
+**Level:** Intermediate. **Covers:** where the files go, why "on IPFS" doesn't mean "stored forever", and what NFT metadata actually points at.

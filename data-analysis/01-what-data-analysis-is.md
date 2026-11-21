@@ -4,8 +4,6 @@ id: bcfde595-6223-46ab-996d-b61a5b71cc35
 
 # What Data Analysis Is
 
-**[Beginner]** — the analyst discipline, how it differs from data science and data engineering, and the one thing that defines the job.
-
 ## The kid version first
 <!-- bite: 4e731dd5-a726-454c-b631-a4c1b5b7e322 -->
 
@@ -102,5 +100,10 @@ It **borrows** the statistical rigour (hypothesis testing, A/B tests, causal inf
 - [[data-engineering/index|data engineering]] — the layer that feeds this · [[ai-ml/01-data-scientist/index|data science]] — the rigorous end
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — defining what to measure
 - [[ai-ml/01-data-scientist/01-the-data-scientist-role|the data scientist role]] — the neighbouring discipline
+
+## About this lesson
+<!-- bite: 4c0b7377-6e09-44f4-8c11-cc350fbf4bc5 -->
+
+**Level:** Beginner. **Covers:** the analyst discipline, how it differs from data science and data engineering, and the one thing that defines the job.
 
 *Source: [reference] — Sep 2026.*

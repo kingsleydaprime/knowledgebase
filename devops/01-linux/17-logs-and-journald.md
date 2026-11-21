@@ -4,8 +4,6 @@ id: 684d5040-c7b6-41de-9afa-e5c79acc31e8
 
 # Logs and journald
 
-**[Intermediate]** — reading the machine's own account of what happened. The first thing you do when something breaks, and the thing nobody teaches you.
-
 ## The kid version first
 <!-- bite: dd338a29-379a-4bfc-8acc-2215f4e96d1c -->
 
@@ -96,3 +94,8 @@ The machine already told you what went wrong. `journalctl -u <service> -n 50` be
 - [[devops/01-linux/15-rhcsa/05-analyze-and-store-logs|RHCSA: Analyze & Store Logs]] — the deep version: field filtering, rsyslog rules, logrotate config, journal storage
 - [[devops/07-observability/index|Observability]] — what happens when one machine's logs become a hundred machines' logs
 - [[devops/01-linux/16-sed-and-awk|sed & awk]] — for the plain-text half
+
+## About this lesson
+<!-- bite: b4551c09-0cce-46f6-b271-17eeabb2761a -->
+
+**Level:** Intermediate. **Covers:** reading the machine's own account of what happened. The first thing you do when something breaks, and the thing nobody teaches you.

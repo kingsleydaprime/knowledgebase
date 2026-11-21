@@ -4,8 +4,6 @@ id: 1a468ea4-9343-4012-b991-5e1dee4b6711
 
 # SVM, KNN & Naive Bayes
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. Three more classic supervised algorithms, each with a distinct idea worth knowing and a niche where it shines.
-
 ## Support Vector Machines (SVM)
 <!-- bite: e11fd089-9e1c-4b08-b5d4-9ca67fc59021 -->
 
@@ -64,3 +62,8 @@ All three are worth recognizing, but for most tabular problems [[ai-ml/02-ml-eng
 - [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|Trees & Ensembles]] — the usual stronger default
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/03-bayes-theorem|Bayes' Theorem]] — the basis for Naive Bayes
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — KNN's idea applied at scale
+
+## About this lesson
+<!-- bite: cb3ef233-3897-47d7-99e9-b5be6c2d0edf -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. Three more classic supervised algorithms, each with a distinct idea worth knowing and a niche where it shines.

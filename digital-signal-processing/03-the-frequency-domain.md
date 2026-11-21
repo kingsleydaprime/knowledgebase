@@ -4,8 +4,6 @@ id: 051a799b-c304-4c88-a1de-7cafee7df6e7
 
 # The Frequency Domain
 
-**[Intermediate]** — the central idea of DSP: any signal is a sum of sinusoids, and switching to that view makes hard problems easy.
-
 ## The kid version first
 <!-- bite: 981c0446-b701-4c80-a31e-33d21e642394 -->
 
@@ -86,5 +84,10 @@ Practically, the two numbers per frequency (real/imaginary, or magnitude/phase) 
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] — why "convolution in time = multiplication in frequency"
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — the DFT applied to real, noisy, finite data
 - [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|approximation]] — Fourier as a basis expansion
+
+## About this lesson
+<!-- bite: 003461b7-fd11-460b-a370-92cd2efe018d -->
+
+**Level:** Intermediate. **Covers:** the central idea of DSP: any signal is a sum of sinusoids, and switching to that view makes hard problems easy.
 
 *Source: [reference] — Aug 2026.*

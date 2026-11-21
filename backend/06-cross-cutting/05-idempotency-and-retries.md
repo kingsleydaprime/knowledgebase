@@ -4,8 +4,6 @@ id: 86d20fee-2e4b-49fe-bb5f-8d35f5475be6
 
 # Idempotency and Retries
 
-> **[Intermediate]** · Networks lose responses, not just requests — and everything here follows from that one fact.
-
 ## The problem
 <!-- bite: 98bab5f7-1c0d-4389-8f79-09a23e042d61 -->
 
@@ -138,5 +136,10 @@ Message delivery gives you **at-most-once** or **at-least-once**. Not both. "Exa
 - [[backend/06-cross-cutting/03-error-handling|error handling]] — which failures are retryable
 - [[architecture/04-distributed-systems/index|distributed systems]]
 - [[ai-automation/05-error-handling-and-retries|the same problem in workflow automation]]
+
+## About this lesson
+<!-- bite: bfc5d0c3-d0e6-44bc-b247-daa26c667642 -->
+
+**Level:** Intermediate. **Covers:** Networks lose responses, not just requests — and everything here follows from that one fact.
 
 *Source: [reference] — written Aug 2026.*

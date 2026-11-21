@@ -4,8 +4,6 @@ id: 97360439-cdbf-448e-879a-d49528273812
 
 # End-to-End with Playwright
 
-> **[Intermediate]** · A real browser, real navigation, real network. **Written to explain why the tests are shaped the way they are**, because the structure is the part that makes them stable.
-
 **E2E tests are the top of the pyramid** → [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]: slowest, most expensive, and the only ones that prove the whole thing works together.
 
 **Have few of them, and make those few reliable.** A flaky E2E suite is worse than none, because people start re-running until green — and then it catches nothing.
@@ -157,5 +155,10 @@ npx playwright show-trace trace.zip
 - [[backend/07-practices/02-testing-a-backend|testing a backend]] — the shared-database problem
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — the pyramid
 - [[devops/05-ci-cd/index|CI/CD]] — where these run
+
+## About this lesson
+<!-- bite: 7c60117b-0114-49f6-9e04-db9feffa7b55 -->
+
+**Level:** Intermediate. **Covers:** A real browser, real navigation, real network. **Written to explain why the tests are shaped the way they are**, because the structure is the part that makes them stable.
 
 *Source: [reference] — from the Playwright documentation, Aug 2026.*

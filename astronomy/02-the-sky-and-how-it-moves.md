@@ -4,8 +4,6 @@ id: b842c735-7bbe-43ba-b498-504e28bf9a11
 
 # The Sky and How It Moves
 
-> **[Beginner]** · Coordinates, the motions that produce day, year and seasons, and enough to actually find things.
-
 ## The celestial sphere
 <!-- bite: 675cc93b-b377-406d-b93e-e001496647f3 -->
 
@@ -83,5 +81,10 @@ Earth's axis wobbles like a spinning top, tracing a circle over **~25,800 years*
 - [[astronomy/03-light-and-instruments|light and instruments]] — what to look through
 - [[astronomy/10-getting-started|getting started]] — actually doing this
 - [[astronomy/09-astrology-honestly|astrology, honestly]] — precession and the zodiac
+
+## About this lesson
+<!-- bite: 5d6e1c24-167e-4764-82b7-bf1d9369578c -->
+
+**Level:** Beginner. **Covers:** Coordinates, the motions that produce day, year and seasons, and enough to actually find things.
 
 *Source: [reference] — written Aug 2026.*

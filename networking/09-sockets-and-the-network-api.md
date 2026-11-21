@@ -4,8 +4,6 @@ id: 02f5f7ab-b539-4a39-9275-447cda8b45d3
 
 # Sockets & the Network API
 
-**[Intermediate]** — where all the theory becomes code you actually write. The socket API is from 1983 (BSD 4.2) and has barely changed, which means it's the single most portable interface in computing — and also that it carries forty years of assumptions that no longer hold.
-
 ## The kid version first
 <!-- bite: 86a643af-1c0c-4d93-b0c0-48694fd2d0fb -->
 
@@ -94,3 +92,8 @@ The socket API models the network as **a file you can read and write**, and that
 - [[os/fundamentals|OS Fundamentals]] — file descriptors, threads, context switching
 - [[languages/01-java/02-jvm-and-concurrency/index|JVM & Concurrency]] — NIO, Netty, and virtual threads
 - [[networking/16-debugging-networks|Debugging Networks]] — `lsof`, `ss`, and finding fd leaks
+
+## About this lesson
+<!-- bite: ef12c801-d34e-4d36-a9b0-88770910f33d -->
+
+**Level:** Intermediate. **Covers:** where all the theory becomes code you actually write. The socket API is from 1983 (BSD 4.2) and has barely changed, which means it's the single most portable interface in computing — and also that it carries forty years of assumptions that no longer hold.

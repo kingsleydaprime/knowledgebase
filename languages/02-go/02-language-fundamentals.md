@@ -4,8 +4,6 @@ id: 91ff0b33-ccfc-42f9-9ff3-3f207df0f021
 
 # Language Fundamentals
 
-**[Beginner]** — Declarations, the type system's strictness, functions with multiple returns, and the three control structures Go bothered to keep.
-
 ## Variables
 <!-- bite: dadbf147-4f9f-4113-b477-800ca002b9e6 -->
 
@@ -246,3 +244,8 @@ Whether the value lives on the stack or the heap is decided by **escape analysis
 - [[languages/02-go/05-errors|Errors]] — what that second return value is for
 - [[languages/01-java/01-language/index|Java: the language]] — the same ground, in a language that made opposite choices
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: c2f4ca82-0bcc-463e-955e-4d694b9b9a11 -->
+
+**Level:** Beginner. **Covers:** Declarations, the type system's strictness, functions with multiple returns, and the three control structures Go bothered to keep.

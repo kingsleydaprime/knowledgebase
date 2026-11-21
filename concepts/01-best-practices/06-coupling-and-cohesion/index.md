@@ -4,7 +4,7 @@ id: cf357f6b-4c5b-443a-9afd-bdd62e011e0a
 
 # Coupling and Cohesion
 
-> **[Beginner→Intermediate]** · The two measures under nearly every design principle: how much one module depends on another's insides, and how well the insides of one module belong together. With a tool that measures the first on your own code.
+**Coupling is how much one part of your code depends on the insides of another. Cohesion is how well the things inside one part belong together.** Good code has low coupling and high cohesion: each part has one clear job and only needs the others at a few agreed points, like a school group project where everyone can get on without interrupting each other.
 
 ## Before you start
 <!-- bite: 0c3e38b4-f02b-4845-9191-2c6c2a250a18 -->
@@ -355,5 +355,10 @@ You can name the kinds of coupling and cohesion in real code, compute fan-in, fa
 - [[concepts/01-best-practices/01-clean-code/index|Clean code]] — modules, and the one-sentence test
 - [[concepts/01-best-practices/07-solid-principles/index|SOLID]] — the same ideas as five principles
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Layer vs feature]] — enforcing which imports are allowed
+
+## About this lesson
+<!-- bite: 23b0749a-f777-444f-8d6d-1464764fcf1e -->
+
+**Level:** Beginner→Intermediate. **Covers:** The two measures under nearly every design principle: how much one module depends on another's insides, and how well the insides of one module belong together. With a tool that measures the first on your own code.
 
 *Source: [reference] — the coupling and cohesion kinds are from Yourdon and Constantine's structured design; instability and the stable dependencies principle are Robert C. Martin's.*

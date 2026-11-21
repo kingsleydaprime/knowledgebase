@@ -4,8 +4,6 @@ id: b562d79c-8b96-4a69-a9d9-cb7968a80455
 
 # Certifications & Career
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. The credential landscape and how the security career paths map to this course. Certs matter more in security than most of tech — many roles (especially government/defense) *require* them, and they're a common hiring filter.
-
 ## The career paths
 <!-- bite: 49ff0e4f-9eb5-43e1-876f-d23813fd01f5 -->
 
@@ -55,3 +53,8 @@ Grouped by level and focus:
 - [[cybersecurity/02-ethical-hacking/14-career-path-and-best-practices|Career Path & Best Practices (ethical hacking)]] — the offensive-career deep dive
 - [[cybersecurity/index|Cybersecurity course map]] — the sections each path maps to
 - [[project-ideas|Project Ideas]] — building real skill alongside any cert
+
+## About this lesson
+<!-- bite: 2d6060ad-1c4f-4822-a231-aefcf03d0dad -->
+
+**Level:** reference. **Covers:** from the roadmap.sh cyber-security roadmap. The credential landscape and how the security career paths map to this course. Certs matter more in security than most of tech — many roles (especially government/defense) *require* them, and they're a common hiring filter.

@@ -4,8 +4,6 @@ id: 8cb6c959-1721-410f-b903-fab71084a958
 
 # Remotes and Collaboration
 
-**[Beginner → Intermediate]** — `fetch` vs `pull`, pushing safely (including why `--force-with-lease` exists), and the fork + upstream workflow.
-
 ## Fetching and Pulling
 <!-- bite: cd446072-c148-439d-bea2-20516119bafa -->
 
@@ -78,3 +76,8 @@ git push -u origin feature/my-feature
 - [[git/14-github-and-ci|GitHub as a Platform]] — the rules a remote enforces on push
 - [[git/04-branching|Branching]] — tracking branches
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: f88a41b8-be5d-4cc1-9462-1b97b98efead -->
+
+**Level:** Beginner → Intermediate. **Covers:** `fetch` vs `pull`, pushing safely (including why `--force-with-lease` exists), and the fork + upstream workflow.

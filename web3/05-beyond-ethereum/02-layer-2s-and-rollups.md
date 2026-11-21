@@ -4,8 +4,6 @@ id: d7de7b65-6799-4b1b-840f-44d1774dacf1
 
 # Layer 2s and Rollups
 
-**[Advanced]** — how rollups actually work, optimistic vs zk, and the centralisation everyone glosses over.
-
 ## The kid version first
 <!-- bite: fb04e3df-20fd-4ad9-9f55-ce0c90e8712d -->
 
@@ -124,5 +122,10 @@ This is the modular-DA question: Celestia, EigenDA and Avail sell data availabil
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the trilemma]]
 - [[web3/02-ethereum-and-the-evm/06-the-ethereum-roadmap|the Ethereum roadmap]] — why this is the strategy
 - [[web3/05-beyond-ethereum/06-bridges-and-interoperability|bridges]]
+
+## About this lesson
+<!-- bite: b732456d-0e8e-4e04-a53d-115eda431946 -->
+
+**Level:** Advanced. **Covers:** how rollups actually work, optimistic vs zk, and the centralisation everyone glosses over.
 
 *Source: [reference] — Aug 2026. Check L2Beat for current per-chain status; this area moves fast.*

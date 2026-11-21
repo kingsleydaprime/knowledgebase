@@ -4,8 +4,6 @@ id: 10e9be47-2260-410f-af8e-aa257cb33a30
 
 # TCP Connection Lifecycle
 
-**[Intermediate]** — how a "connection" gets created and destroyed when there is no such physical thing. This note is the one that pays off most often in production debugging: `TIME_WAIT` exhaustion, SYN backlog drops, half-open connections, and "why is my connection pool broken" all live here.
-
 ## The kid version first
 <!-- bite: 76efb923-1013-4535-8ae8-7982a4a507b0 -->
 
@@ -124,3 +122,8 @@ A TCP connection is **soft state held only at the two endpoints** — the networ
 - [[networking/16-debugging-networks|Debugging Networks]] — `ss`, `netstat`, and reading state tables
 - [[cybersecurity/06-attacks-and-threats/index|Attacks & Threats]] — SYN floods and connection-exhaustion DoS
 - [[build-your-own-shit/19-your-own-tcp-ip-stack|Your Own TCP/IP Stack]] — **implement this state machine**, and `TIME_WAIT` stops being trivia
+
+## About this lesson
+<!-- bite: 532b7e6d-6743-4cea-8c38-0eae8ba1b06e -->
+
+**Level:** Intermediate. **Covers:** how a "connection" gets created and destroyed when there is no such physical thing. This note is the one that pays off most often in production debugging: `TIME_WAIT` exhaustion, SYN backlog drops, half-open connections, and "why is my connection pool broken" all live here.

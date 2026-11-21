@@ -4,8 +4,6 @@ id: 0d5ff656-23cd-4c5d-a25b-7a317abc6dc7
 
 # The model landscape
 
-> **[Beginner]** · A map of the models an AI engineer chooses between: the kinds of model, the companies that sell language models through APIs, gateways that put many of them behind one key, open-weight models you run yourself, and the tradeoff between hosted and self-run. The worked example decides where the ticket classifier should run, using real prices and a speed measured on a 16 GB laptop. The point is to choose well, so it teaches the questions that outlast any list of model names.
-
 ## Before you start
 <!-- bite: 72968d3c-308e-4e32-ae44-f28b00bbf7ea -->
 
@@ -160,5 +158,10 @@ You can name the kinds of model, explain closed and open-weight models, gateways
 - [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local and open models]] — running one, measured on the laptop
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — prices and how to cut them
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — where embedding models earn their place
+
+## About this lesson
+<!-- bite: ad6ea043-0fa6-4503-80f7-49797dd5ce6b -->
+
+**Level:** Beginner. **Covers:** A map of the models an AI engineer chooses between: the kinds of model, the companies that sell language models through APIs, gateways that put many of them behind one key, open-weight models you run yourself, and the tradeoff between hosted and self-run. The worked example decides where the ticket classifier should run, using real prices and a speed measured on a 16 GB laptop. The point is to choose well, so it teaches the questions that outlast any list of model names.
 
 *Source: folds three old notes (other model types, open-source models, the AI-tools landscape) and the roadmap.sh AI-engineer provider map; prices from Anthropic's list on 2026-10-02.*

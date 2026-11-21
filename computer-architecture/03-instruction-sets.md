@@ -4,8 +4,6 @@ id: 5401c351-e4bd-4c05-a125-9600e0f831dd
 
 # Instruction Sets
 
-**[Intermediate]** — What a CPU can be asked to do, how instructions are encoded, and the design choices that separate x86 from ARM.
-
 ## What an instruction does
 <!-- bite: 77014509-7aba-4789-aaa1-40f3ffb4022a -->
 
@@ -186,3 +184,8 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 - [[computer-architecture/05-the-datapath|The Datapath]] — how instructions execute
 - [[compilers/08-code-generation|Code Generation]] — what emits these
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: 706e374b-1504-47cf-b34b-fe379a8aab56 -->
+
+**Level:** Intermediate. **Covers:** What a CPU can be asked to do, how instructions are encoded, and the design choices that separate x86 from ARM.

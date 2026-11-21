@@ -4,8 +4,6 @@ id: d127257c-40ec-4e69-ab86-467e4e0cd47f
 
 # Testing and Benchmarking
 
-**[Intermediate]** — Table-driven tests, benchmarks that don't lie, fuzzing, and the assertion-library argument.
-
 ## The built-in testing package
 <!-- bite: 51a2a13e-dc56-4ca6-b4eb-c4b2c80b3779 -->
 
@@ -250,3 +248,8 @@ Compiled, run as a test *and* rendered in the generated docs. Documentation that
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — wiring `go test -race ./...` into a gate
 - [[languages/01-java/03-tooling/04-testing|Java: Testing]] — JUnit and Mockito, the framework-heavy alternative
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: 4f39005b-ea45-4b02-908f-147515adfc85 -->
+
+**Level:** Intermediate. **Covers:** Table-driven tests, benchmarks that don't lie, fuzzing, and the assertion-library argument.

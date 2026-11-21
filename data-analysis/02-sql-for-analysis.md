@@ -4,8 +4,6 @@ id: 7e401d3b-ff6a-4e4e-9cc8-9ab98a199b2c
 
 # SQL for Analysis
 
-**[Intermediate]** — the analyst's primary tool, and the handful of patterns that separate analytical SQL from the transactional SQL of [[databases/index|the databases course]].
-
 ## The kid version first
 <!-- bite: 445c4d97-76d1-4ea2-a6af-5ad78c0db56d -->
 
@@ -153,5 +151,10 @@ Reach for **Python/pandas** when SQL gets awkward: statistical tests, complex re
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — where these patterns get applied
 - [[data-engineering/07-transformation-and-dbt|dbt]] — CTEs as the transformation layer
 - [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]] — the second tool
+
+## About this lesson
+<!-- bite: e96f3c71-5aae-49c2-a7de-c79126e1f46e -->
+
+**Level:** Intermediate. **Covers:** the analyst's primary tool, and the handful of patterns that separate analytical SQL from the transactional SQL of [[databases/index|the databases course]].
 
 *Source: [reference] — Sep 2026.*

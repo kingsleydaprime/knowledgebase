@@ -4,8 +4,6 @@ id: 5d49de27-0983-4b2e-8003-0c916314ffa1
 
 # AI and Agent Workflows
 
-> **[Intermediate → Advanced]** · An LLM as a node — what it makes newly possible, and the boundary where a workflow should stop.
-
 The change that made this domain interesting: **a model is just another node.** Free text, a PDF or an email can now enter a workflow and come out as something the graph can branch on.
 
 ## The four uses, in order of how safe they are
@@ -106,5 +104,10 @@ Both change the shape of the workflow, and both surprise people:
 - [[ai-automation/05-error-handling-and-retries|error handling]] — models fail differently
 - [[using-ai/06-verifying-what-it-tells-you|verifying what it tells you]]
 - [[cybersecurity/06-attacks-and-threats/index|attacks and threats]]
+
+## About this lesson
+<!-- bite: 93d6ca78-542b-4574-a31c-bb883627e1af -->
+
+**Level:** Intermediate → Advanced. **Covers:** An LLM as a node — what it makes newly possible, and the boundary where a workflow should stop.
 
 *Source: [reference] — written Aug 2026.*

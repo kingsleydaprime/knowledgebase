@@ -4,8 +4,6 @@ id: 5dfbad0b-d68e-4c19-bd0e-9bf6f763a683
 
 # Templates and Concepts
 
-**[Intermediate → Advanced]** — Generic code with zero runtime cost, the error messages that made C++ notorious, and the C++20 feature that finally fixed them.
-
 ## Function templates
 <!-- bite: a8b65d5c-bd9e-4d31-9f09-4ad206f69352 -->
 
@@ -260,3 +258,8 @@ The two polymorphisms, and the real trade:
 - [[languages/05-cpp/12-constexpr-and-compile-time|constexpr]] — computation at compile time
 - [[languages/03-rust/10-generics-and-trait-bounds|Rust: Generics]] — bounds checked at definition, from the start
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 7a640202-f9bb-4dcd-9b25-7e95d80e76c1 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Generic code with zero runtime cost, the error messages that made C++ notorious, and the C++20 feature that finally fixed them.

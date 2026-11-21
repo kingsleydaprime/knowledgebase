@@ -4,8 +4,6 @@ id: eb931c49-4085-4439-94c2-4a8254536189
 
 # The Memory Hierarchy
 
-**[Intermediate]** — Why memory is the bottleneck, and the single most important thing to understand about performance.
-
 ## The wall
 <!-- bite: a004dfca-3c03-407a-badc-5fd77c19d5af -->
 
@@ -213,3 +211,8 @@ perf stat -e cache-references,cache-misses,\
 - [[os/04-virtual-memory|Virtual Memory]] — the TLB and page tables
 - [[computer-architecture/12-performance|Performance]] — the full methodology
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: b005d5e3-953b-4004-8666-090a2d603e87 -->
+
+**Level:** Intermediate. **Covers:** Why memory is the bottleneck, and the single most important thing to understand about performance.

@@ -4,8 +4,6 @@ id: 597e4b56-b27a-455c-b02b-024fdef3c682
 
 # Languages and the Translation Problem
 
-> **[Beginner]** · High level vs low level, compiled vs interpreted, and how to choose a first language without spending three weeks on the decision.
-
 Every language sits between two extremes: the machine code the processor runs, and plain English, which no machine can execute. **"Level" is just where on that line a language sits.**
 
 ## Low level and high level
@@ -109,5 +107,10 @@ Pick by what you want to build:
 - [[compilers/index|compilers]] — how translation actually works
 - [[programming-language-theory/index|PL theory]] — why languages differ, much later
 - [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — where to take this
+
+## About this lesson
+<!-- bite: 11e1481b-06ee-41cd-88e0-90c2c610c426 -->
+
+**Level:** Beginner. **Covers:** High level vs low level, compiled vs interpreted, and how to choose a first language without spending three weeks on the decision.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the static/dynamic and compilation-model distinctions it left implicit.*

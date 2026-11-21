@@ -4,8 +4,6 @@ id: 55b94692-9c61-4329-a1b1-1c58b247a854
 
 # Failure Detection & Membership
 
-**[reference]** — from the canon (the phi-accrual paper, the SWIM paper, DDIA ch. 8, the Dynamo paper). [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] established the uncomfortable truth: **failure is a decision, not an observation** — you can't perfectly tell a dead node from a slow one. This note is how real systems make that decision *well*, and how a cluster keeps an agreed, current view of **who is alive** (membership).
-
 ## The kid version first
 <!-- bite: 6a25962f-e53f-4dc3-bd58-ba5a5d4f66f5 -->
 
@@ -77,3 +75,8 @@ So the two views coexist by design: **gossip for fast, approximate awareness; co
 - [[architecture/04-distributed-systems/05-replication|Replication]] — read-repair + anti-entropy keep replicas honest
 - [[architecture/04-distributed-systems/09-coordination-services|Coordination Services]] — ephemeral nodes as a liveness signal; authoritative membership
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — quorums as the split-brain guardrail
+
+## About this lesson
+<!-- bite: eabe23b4-cc52-4930-add4-33ebc51b426d -->
+
+**Level:** reference. **Covers:** from the canon (the phi-accrual paper, the SWIM paper, DDIA ch. 8, the Dynamo paper). [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] established the uncomfortable truth: **failure is a decision, not an observation** — you can't perfectly tell a dead node from a slow one. This note is how real systems make that decision *well*, and how a cluster keeps an agreed, current view of **who is alive** (membership).

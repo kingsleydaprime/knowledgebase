@@ -4,8 +4,6 @@ id: 96456c60-32cd-4c1b-930a-dac0700d02ca
 
 # Third-Party and Supply-Chain Risk
 
-**[Intermediate → Advanced]** — the risk you inherit from everyone you depend on, why it's become the dominant breach vector, and why it's a governance problem more than a technical one.
-
 ## The kid version first
 <!-- bite: 81933120-8d01-4e41-bf9c-1759b30a5b02 -->
 
@@ -74,5 +72,10 @@ You can't *technically* secure code and systems you don't control — so third-p
 - [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|risk and frameworks]] — SOC 2 and vendor assessment
 - [[cybersecurity/09-cloud-security/04-container-and-kubernetes-security|container supply chain]] — image scanning and provenance
 - [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|vulnerable components]] — the technical view
+
+## About this lesson
+<!-- bite: 58cf196d-44dd-436d-a4e5-5e1909da4b82 -->
+
+**Level:** Intermediate → Advanced. **Covers:** the risk you inherit from everyone you depend on, why it's become the dominant breach vector, and why it's a governance problem more than a technical one.
 
 *Source: [reference] — Aug 2026.*

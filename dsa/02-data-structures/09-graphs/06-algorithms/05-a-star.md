@@ -4,8 +4,6 @@ id: 1b90a5e2-a255-4511-930e-f6604c0a47ec
 
 # Module: A\* Search (Dijkstra That Knows Where It Is Going)
 
-**[Advanced]** — [[02-dijkstra|Dijkstra]] finds the shortest path to *every* vertex, which is wasteful when you only want one. **A\* adds a single piece of information — an estimate of the distance remaining — and uses it to aim the search at the goal.** Done correctly it expands dramatically fewer vertices and still returns the optimal path. Done carelessly it returns a path that is merely quite good, and does not tell you.
-
 This lesson is also where **tie-breaking** stops being a footnote: on the lab's map, changing nothing but the tie-break rule takes the search from 233 expanded cells to 38.
 
 ---
@@ -718,3 +716,8 @@ You can define $g$, $h$ and $f$ and say which the queue is keyed on; state and c
 - [[07-heaps|Heaps]] — the priority queue, and why the tuple key matters
 - [[13-matrix-traversal|Matrix traversal pattern]] — grid problems at the pattern layer
 - [[06-algorithms/index|the graph algorithms index]]
+
+## About this lesson
+<!-- bite: 1fdf6b49-0c65-4abe-a641-17842971fa3d -->
+
+**Level:** Advanced. **Covers:** [[02-dijkstra|Dijkstra]] finds the shortest path to *every* vertex, which is wasteful when you only want one. **A\* adds a single piece of information — an estimate of the distance remaining — and uses it to aim the search at the goal.** Done correctly it expands dramatically fewer vertices and still returns the optimal path. Done carelessly it returns a path that is merely quite good, and does not tell you.

@@ -4,8 +4,6 @@ id: 799a1dac-c75c-4a83-8b4c-e1b73918862d
 
 # Pattern: Two Pointers
 
-**[Beginner]** — A university-level introduction to the two-pointer pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 374f1843-1572-4f29-8142-4f99c1d0efcf -->
 
@@ -261,3 +259,8 @@ You are done with this pattern when you can, closed-book:
 - [[04-fast-slow-pointers|fast-slow-pointers]] — another pointer pattern for cycle detection
 - [[03-hash-maps|hash maps]] — alternative for unsorted input (O(n) time, O(n) space)
 - [[01-growth-and-asymptotic-notation|algorithms]] — where the O(n²) vs O(n) complexity framing comes from
+
+## About this lesson
+<!-- bite: 41102d7a-7298-495d-b82c-5220a9cf198f -->
+
+**Level:** Beginner. **Covers:** A university-level introduction to the two-pointer pattern: what it is, why it exists, how it works, and how to implement it independently.

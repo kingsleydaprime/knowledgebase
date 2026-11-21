@@ -4,8 +4,6 @@ id: fb4c77dc-9537-40fe-9d90-60cfc60cffc0
 
 # Pattern: Modified Binary Search
 
-**[Advanced]** — A university-level introduction to the modified binary search pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: d011f6d4-0657-4557-a6ab-32b2ab64cc1e -->
 
@@ -420,3 +418,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Network routing:** Finding optimal path costs
 
 The core idea — using binary search over a space of possible answers when you have a monotonic predicate — is a fundamental algorithmic technique that appears whenever you need to find an optimal value efficiently.
+
+## About this lesson
+<!-- bite: d3203cba-181a-47e0-956b-0d47de02bc1c -->
+
+**Level:** Advanced. **Covers:** A university-level introduction to the modified binary search pattern: what it is, why it exists, how it works, and how to implement it independently.

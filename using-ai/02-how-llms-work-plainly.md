@@ -4,8 +4,6 @@ id: 1e32ac98-499e-48ea-8e6a-cf3cf75d66f0
 
 # How LLMs Work, Plainly
 
-**[Beginner]** — assumes [[using-ai/01-what-this-thing-is|note 01]]. No maths. The goal is that the model's behaviour stops feeling random and starts feeling *predictable* — because once you can predict it, you can work with it.
-
 ## The kid version first
 <!-- bite: b5f9fb14-38cc-4e4d-9448-b90d58ff263f -->
 
@@ -70,3 +68,8 @@ It is a next-word guesser with a fixed-size window and no self-knowledge. Every 
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — living inside the window
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — the discipline this note argues for
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — the same mechanism with the maths and the API controls, for builders
+
+## About this lesson
+<!-- bite: 43b1cfc7-ce2a-451f-b177-aab673211cf7 -->
+
+**Level:** Beginner. **Covers:** assumes [[using-ai/01-what-this-thing-is|note 01]]. No maths. The goal is that the model's behaviour stops feeling random and starts feeling *predictable* — because once you can predict it, you can work with it.

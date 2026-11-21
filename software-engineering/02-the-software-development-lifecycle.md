@@ -4,8 +4,6 @@ id: 57be8664-3656-48dd-bb1a-fdd81bd1a251
 
 # The Software Development Lifecycle
 
-> **[Beginner]** · Six phases, what each is for, and what breaks when you skip it.
-
 ## Before you start
 <!-- bite: 06a2ea72-edd9-4078-8a2b-ac8ad9e6f411 -->
 
@@ -202,5 +200,10 @@ You can name the six phases from memory and classify a failure you haven't seen 
 - [[software-engineering/01-what-software-engineering-is|what software engineering is]]
 - [[architecture/01-system-design-fundamentals/index|system design fundamentals]] — the design phase, in depth
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — how modern delivery compresses phases 4–6
+
+## About this lesson
+<!-- bite: eec24d9d-43ef-4281-bc86-da32c863867d -->
+
+**Level:** Beginner. **Covers:** Six phases, what each is for, and what breaks when you skip it.
 
 *Source: [reference]*

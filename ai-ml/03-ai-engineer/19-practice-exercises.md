@@ -4,8 +4,6 @@ id: aa4fd667-3cef-4ab7-af22-95b042756ddc
 
 # Practice Exercises
 
-**[Beginner → Advanced]** — fourteen exercises over the whole track. Assumes [[ai-ml/03-ai-engineer/18-lab-setup|the lab]] runs. Solutions in [[ai-ml/03-ai-engineer/20-practice-exercises-solutions|note 20]] — genuinely try each one before opening it.
-
 The track's own README says the reps here are *building*: a RAG system over your own docs, a small MCP server, an agent with real tools, an eval set. This is that list, made concrete. Each exercise names the note it exercises and what "done" looks like.
 
 Work in order — several build on earlier output. Budget roughly $2 total on small hosted models, or nothing at all on local models through Ollama → [[ai-ml/03-ai-engineer/16-local-and-open-models/index|local and open models]]. `qwen3.5:4b` covers the chat exercises, slowly; 7–9 also need an embedding model, such as `nomic-embed-text`; and 4 and 14 compare against a larger model, which a 16 GB laptop can't run quickly — use a hosted one there, or skip the comparison. The track's lessons already include working TypeScript code for several exercises: 3 and 6 build on the [[ai-ml/03-ai-engineer/12-evals/index|evals]] and [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]] labs, and 2 on [[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]].
@@ -100,3 +98,8 @@ When you finish one, write down what surprised you. That note is worth more than
 - [[ai-ml/03-ai-engineer/20-practice-exercises-solutions|Solutions]] — after you've tried
 - [[ai-ml/03-ai-engineer/index|The track]] — the notes each exercise draws on
 - [[project-ideas|Project Ideas]] — bigger builds once these are comfortable
+
+## About this lesson
+<!-- bite: c7bb1286-3477-44b5-8503-bc3612d02f53 -->
+
+**Level:** Beginner → Advanced. **Covers:** fourteen exercises over the whole track. Assumes [[ai-ml/03-ai-engineer/18-lab-setup|the lab]] runs. Solutions in [[ai-ml/03-ai-engineer/20-practice-exercises-solutions|note 20]] — genuinely try each one before opening it.

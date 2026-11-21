@@ -4,8 +4,6 @@ id: a124bfde-85e2-4b30-bdce-99b0e85028f5
 
 # The Double-Spend Problem
 
-**[Beginner]** — the specific problem blockchains were invented to solve, why it's hard, and why every prior attempt failed. Assumes [[01-what-web3-actually-is|note 01]].
-
 ## The kid version first
 <!-- bite: cfa27641-3856-4bca-850a-be336afd022a -->
 
@@ -82,5 +80,10 @@ The solution is real, and it is not free:
 - [[web3/01-foundations/03-cryptographic-primitives|cryptographic primitives]] — the parts that already existed
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus and Paxos]] — the classical version, with known membership
 - [[cybersecurity/05-cryptography/01-what-is-cryptography|what is cryptography]]
+
+## About this lesson
+<!-- bite: fc878fc2-5083-4b37-b0d3-c54f08bd5c30 -->
+
+**Level:** Beginner. **Covers:** the specific problem blockchains were invented to solve, why it's hard, and why every prior attempt failed. Assumes [[01-what-web3-actually-is|note 01]].
 
 *Source: [reference] — from Nakamoto (2008) and the pre-history. Aug 2026.*

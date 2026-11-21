@@ -4,8 +4,6 @@ id: 923ad015-a7a4-4c49-9fe1-e55a09578b82
 
 # Provisioning & Terraform
 
-**[reference]** — from roadmap.sh and the Terraform docs. Not yet run against a real cloud account; the honest next step is a `terraform apply` on a throwaway account.
-
 ## Infrastructure as Code — the idea
 <!-- bite: 9d5dd541-fa94-471f-afc5-affec7cdae47 -->
 
@@ -90,3 +88,8 @@ IaC belongs in a [[devops/05-ci-cd/index|CI/CD pipeline]], not on someone's lapt
 - [[devops/08-cloud/index|Cloud]] — what provisioning tools create
 - [[devops/05-ci-cd/index|CI/CD]] — where `terraform apply` actually runs
 - [[devops/06-secret-management/index|Secret Management]] — keeping credentials out of IaC
+
+## About this lesson
+<!-- bite: 17f4c277-8e59-4631-a893-fe55c4aed2bf -->
+
+**Level:** reference. **Covers:** from roadmap.sh and the Terraform docs. Not yet run against a real cloud account; the honest next step is a `terraform apply` on a throwaway account.

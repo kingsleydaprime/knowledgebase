@@ -4,8 +4,6 @@ id: 3874a8ea-7482-453d-8cdf-d6e0a4cf5908
 
 # Localisation and SLAM
 
-**[Advanced]** — Knowing where you are in a map, and building the map while you do.
-
 ## Three related problems
 <!-- bite: 842a7c3f-48e6-4489-8d15-a340e25cd571 -->
 
@@ -185,3 +183,8 @@ Worth recognising by name:
 - [[robotics/10-motion-planning|Motion Planning]] — what consumes the map
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — lidar, cameras, and their failure modes
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: ba5f37d3-74bb-4cef-852e-79e157ea4d03 -->
+
+**Level:** Advanced. **Covers:** Knowing where you are in a map, and building the map while you do.

@@ -4,8 +4,6 @@ id: facc2278-28ea-43ed-9d49-af3dc8b85608
 
 # Typing and Type Hints
 
-> **[Intermediate]** · Gradual typing — optional, unenforced at runtime, and the single biggest quality change available to a Python codebase over about a thousand lines.
-
 Python is dynamically typed, and past a certain size that stops being purely a benefit. Type hints (PEP 484, Python 3.5+) let you annotate without giving up the dynamism.
 
 ```python
@@ -143,5 +141,10 @@ def process(value: str | None) -> str:
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — mypy in CI
 - [[programming-language-theory/04-type-systems-formally|type systems]] — the theory
 - [[languages/03-rust/index|Rust]] — the other end of the spectrum
+
+## About this lesson
+<!-- bite: f54c8c5f-4712-49f3-8f7c-9abc7802861c -->
+
+**Level:** Intermediate. **Covers:** Gradual typing — optional, unenforced at runtime, and the single biggest quality change available to a Python codebase over about a thousand lines.
 
 *Source: [reference] — from PEP 484 and successors, and the mypy documentation.*

@@ -4,8 +4,6 @@ id: c4ad4b3e-08c0-40cb-af42-f4a0be182155
 
 # Queueing Theory
 
-**[Intermediate]** — Why waiting lines behave as they do: Little's law, the M/M/1 and M/M/c queues, why waiting explodes as utilisation approaches 100%, and why one shared queue beats several separate ones. The note that explains your server's latency graph.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
@@ -278,3 +276,8 @@ You're ready when you can apply Little's law in your head, compute M/M/1 waits, 
 - [[backend/index|Backend]] — thread pools, connection pools and queues in practice
 - [[devops/index|DevOps]] — autoscaling targets and capacity planning
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: ca6dc0ac-6632-4e46-85ae-6443495c1324 -->
+
+**Level:** Intermediate. **Covers:** Why waiting lines behave as they do: Little's law, the M/M/1 and M/M/c queues, why waiting explodes as utilisation approaches 100%, and why one shared queue beats several separate ones. The note that explains your server's latency graph.

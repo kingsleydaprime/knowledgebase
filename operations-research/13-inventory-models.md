@@ -4,8 +4,6 @@ id: c0cad2a8-0f7b-4a8d-b46d-be9cf98261ac
 
 # Inventory Models
 
-**[Intermediate]** — How much stock to order and when: the economic order quantity and why it's so forgiving, reorder points and safety stock when demand is random, and the newsvendor model for things that can't be sold later. Small formulas with a lot of business behind them.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
@@ -257,3 +255,8 @@ You're ready when you can derive EOQ, explain its flatness, compute a reorder po
 - [[operations-research/12-queueing-theory|Queueing Theory]] — the other classic stochastic model
 - [[mathematics/05-probability-statistics/04-random-variables-and-distributions|Distributions]] — the normal and uniform used here
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: 98fbe8b6-3bbb-42ca-9f94-86007d282b7f -->
+
+**Level:** Intermediate. **Covers:** How much stock to order and when: the economic order quantity and why it's so forgiving, reorder points and safety stock when demand is random, and the newsvendor model for things that can't be sold later. Small formulas with a lot of business behind them.

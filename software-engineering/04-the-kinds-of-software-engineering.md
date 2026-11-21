@@ -4,8 +4,6 @@ id: 635e16b3-a543-4b5d-af6a-f8cfaf41d71d
 
 # The Kinds of Software Engineering
 
-> **[Beginner]** · Web is one branch of a much larger tree. What each specialisation actually does, what constraint defines it, and which are hard to switch into later.
-
 [[software-engineering/03-the-engineering-roles|The roles note]] listed eleven roles from a **product** perspective — frontend, backend, data, ML. This note cuts the field a different way: **by the constraint the software runs under**, which is what actually makes the disciplines different.
 
 **Most people meet only web and mobile**, because that's where the volume of jobs is. It's a small part of the software that exists.
@@ -112,5 +110,10 @@ Frequently confused with embedded; **not the same thing.**
 - [[game-development/index|game development]] · [[desktop/index|desktop]]
 - [[systems-engineering/index|systems engineering]] — the discipline that coordinates several of these at once
 - [[PRIMETECHIE|the Primetechie path]] — an order to explore in
+
+## About this lesson
+<!-- bite: 170ef867-831b-4307-be8b-19d2f80c3b00 -->
+
+**Level:** Beginner. **Covers:** Web is one branch of a much larger tree. What each specialisation actually does, what constraint defines it, and which are hard to switch into later.
 
 *Source: [reference] — written Aug 2026 to answer "what other kinds of software engineering are there?", which the roles note didn't cover.*

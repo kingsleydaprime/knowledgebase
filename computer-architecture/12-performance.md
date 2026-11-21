@@ -4,8 +4,6 @@ id: 4951bf27-9979-4e72-948a-9068f5efaf7e
 
 # Performance
 
-**[Intermediate → Advanced]** — Turning everything in this track into a method for actually making code faster.
-
 ## The method
 <!-- bite: 6cb5418b-6f36-4769-8638-d4c57e7c629d -->
 
@@ -212,3 +210,8 @@ Starting point:                          10.0 s
 - [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — reading IPC
 - [[01-growth-and-asymptotic-notation|Algorithms]] — the step that beats everything else
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: fafaa0cb-4d33-425d-bbfe-82b4fb380c15 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Turning everything in this track into a method for actually making code faster.

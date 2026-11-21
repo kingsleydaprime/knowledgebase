@@ -4,8 +4,6 @@ id: 723976ef-8018-40bd-ab4a-29665512108d
 
 # Tools and Production
 
-> **[Intermediate]** · The content pipeline, why tools programmers matter most, and how games actually ship.
-
 **Most of a game is not code**, and most engineering effort on a mature project goes into making *other people* productive. This is the least-discussed and most-underestimated part of the field.
 
 ## The content pipeline
@@ -100,5 +98,10 @@ Tools: engine profilers, RenderDoc (frame capture), platform vendor tools (PIX, 
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the same productivity argument
 - [[git/index|git]] — and where it doesn't fit
 - [[systems-engineering/06-verification-and-validation|V&V]] — playtesting as validation
+
+## About this lesson
+<!-- bite: e71b48ba-ff02-48e1-b79d-ff2a2f582bc3 -->
+
+**Level:** Intermediate. **Covers:** The content pipeline, why tools programmers matter most, and how games actually ship.
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

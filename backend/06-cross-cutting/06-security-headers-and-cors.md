@@ -4,8 +4,6 @@ id: c36b2a35-a341-4ed8-94c5-45cdc78e96d1
 
 # Security Headers and CORS
 
-> **[Intermediate]** · The headers that are nearly free, and the one browser mechanism everybody misunderstands.
-
 ## The headers
 <!-- bite: 9753105e-97cd-48f6-85d1-8862592beac8 -->
 
@@ -94,5 +92,10 @@ Access-Control-Max-Age: 86400                             ← cache the prefligh
 - [[backend/06-cross-cutting/03-error-handling|error handling]] — don't leak internals in errors either
 - [[cybersecurity/04-web-security/index|web security]] — the depth behind all of this
 - [[backend/05-auth/index|auth]] · [[backend/frameworks/cross-language-recipes|cross-language recipes]]
+
+## About this lesson
+<!-- bite: ab3bea01-70ea-4b10-a107-904f482667a5 -->
+
+**Level:** Intermediate. **Covers:** The headers that are nearly free, and the one browser mechanism everybody misunderstands.
 
 *Source: [reference] — written Aug 2026.*

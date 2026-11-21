@@ -4,8 +4,6 @@ id: 7393d50c-1e00-471d-bd9d-48317b0db733
 
 # Digital Filters
 
-**[Advanced]** — the most common thing DSP is *used* for: reshaping a signal's frequency content, and the two families that do it.
-
 ## The kid version first
 <!-- bite: b6d80128-55d8-4618-9ce0-1a8c1048d186 -->
 
@@ -130,5 +128,10 @@ into the analog transfer function. This is **the trapezoidal rule applied to a s
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — windows, used in FIR design
 - [[control-theory/05-stability-and-root-locus|control theory: stability]] — the same pole analysis in `s`
 - [[digital-signal-processing/09-dsp-in-practice|DSP in practice]] — fixed-point pitfalls
+
+## About this lesson
+<!-- bite: ed107caa-b347-484f-a96f-278dbf8d9b71 -->
+
+**Level:** Advanced. **Covers:** the most common thing DSP is *used* for: reshaping a signal's frequency content, and the two families that do it.
 
 *Source: [reference] — Aug 2026.*

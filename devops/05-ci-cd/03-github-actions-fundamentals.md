@@ -4,8 +4,6 @@ id: 8b38f769-b3a7-4413-9a69-57f08dd80b3c
 
 # GitHub Actions — Fundamentals
 
-**[Intermediate]** — The object model (workflow → job → step → action), where the files live, how a run actually executes, and the complete top-level YAML syntax including concurrency and permissions.
-
 ## GitHub Actions — How It Works
 <!-- bite: 877fe6f0-1a05-4f90-8720-8f657569a8f5 -->
 
@@ -133,3 +131,8 @@ permissions:
 - [[devops/05-ci-cd/04-triggers-jobs-and-runners|Triggers, Jobs and Runners]] — the `on:` and `jobs:` keys in full
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — the vendor-neutral model underneath
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: c4bf1357-759d-41a0-b9c6-69e69a0b32f6 -->
+
+**Level:** Intermediate. **Covers:** The object model (workflow → job → step → action), where the files live, how a run actually executes, and the complete top-level YAML syntax including concurrency and permissions.

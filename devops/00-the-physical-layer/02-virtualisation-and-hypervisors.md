@@ -4,8 +4,6 @@ id: 3af4e58f-0695-4300-8aa8-adc1213c64cc
 
 # Virtualisation and Hypervisors
 
-> **[Beginner → Intermediate]** · The layer that turned one machine into many, why containers are not a smaller version of it, and the trade you're making either way.
-
 The previous note ended on four problems with one-app-per-server: underutilisation, slow scaling, duplicated environments, hardware-shaped backups. **All four are solved by changing what you hand out.** Stop allocating physical machines. Allocate slices of one.
 
 ## The idea
@@ -127,5 +125,10 @@ Virtualisation is not free, and the bill has three lines:
 - [[os/11-isolation-and-containers|namespaces and cgroups]] — the kernel primitives containers are built from
 - [[build-your-own-shit/08-your-own-container|build your own container]] — where this stops being reading
 - [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|cloud security]] — multi-tenancy as a threat model
+
+## About this lesson
+<!-- bite: c5bfcc1d-6e0d-45ed-88fc-38e0f59f6049 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The layer that turned one machine into many, why containers are not a smaller version of it, and the trade you're making either way.
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (module 2), extended with hardware-assist and container-boundary detail from vendor documentation.*

@@ -4,8 +4,6 @@ id: 45e37ddc-2f17-49d9-8269-70dda1538e88
 
 # Partial Fractions
 
-**[Intermediate]** — Splitting a rational function into pieces you already know how to integrate. Algebra in service of calculus.
-
 ## Before you start
 <!-- bite: cb3a4e8a-a47e-4352-9380-a8c7b71b8501 -->
 
@@ -136,3 +134,8 @@ $$\int\frac{x^2}{x-1}dx = \frac{x^2}{2} + x + \ln|x-1| + C$$
 
 - [[01-integration-by-parts|Integration and integration by parts]]
 - [[03-algebraic-manipulation|Algebraic manipulation]] — the factorisation this depends on
+
+## About this lesson
+<!-- bite: 5420ef91-7e57-44cc-9ba4-de7a7adb0e4a -->
+
+**Level:** Intermediate. **Covers:** Splitting a rational function into pieces you already know how to integrate. Algebra in service of calculus.

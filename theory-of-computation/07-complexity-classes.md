@@ -4,8 +4,6 @@ id: 96369484-89f5-4c37-b2b1-c0e0db8b962f
 
 # Complexity Classes
 
-**[Advanced]** — P, NP, and the most consequential open question in computer science. Also the most practically useful thing in this track.
-
 ## From possible to feasible
 <!-- bite: 099b9f29-8933-47be-917e-5b46451207a3 -->
 
@@ -167,3 +165,8 @@ $$\text{L} \subseteq \text{NL} \subseteq \text{P} \subseteq \text{NP} \subseteq 
 - [[theory-of-computation/06-decidability|Decidability]] — impossible rather than slow
 - [[01-growth-and-asymptotic-notation|Algorithms]] — where complexity is applied
 - [[theory-of-computation/index|Theory of computation map]]
+
+## About this lesson
+<!-- bite: 6a099a7b-da6a-454d-ae04-393a9d76eeb3 -->
+
+**Level:** Advanced. **Covers:** P, NP, and the most consequential open question in computer science. Also the most practically useful thing in this track.

@@ -4,8 +4,6 @@ id: 6dce78e0-190e-429f-b903-f3141950005d
 
 # The AI engineer role
 
-> **[Beginner]** · What an AI engineer does, how it differs from an ML engineer, and the decision every AI feature starts with: whether to use a model at all, and if so which kind. The worked example runs four features from this course through the decision, step by step. It's the frame for the rest of SWE 102, so it's short, and its practice task is about your own flagship.
-
 ## Before you start
 <!-- bite: a454e178-acb1-42e5-a454-aefda47ff39c -->
 
@@ -153,5 +151,10 @@ You can say what an AI engineer does, take a feature through the four-step decis
 - [[ai-ml/02-ml-engineer/index|ML engineer path]] — the "train the model" sibling
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The model landscape]] — the options step 2 and step 4 choose between
 - [[ai-ml/03-ai-engineer/index|AI engineer track map]]
+
+## About this lesson
+<!-- bite: 5cf44c98-4d47-48b9-9508-7948001f8237 -->
+
+**Level:** Beginner. **Covers:** What an AI engineer does, how it differs from an ML engineer, and the decision every AI feature starts with: whether to use a model at all, and if so which kind. The worked example runs four features from this course through the decision, step by step. It's the frame for the rest of SWE 102, so it's short, and its practice task is about your own flagship.
 
 *Source: folds in the old "choosing the right AI tool" note; the AI-versus-ML distinction follows the roadmap.sh AI-engineer roadmap.*

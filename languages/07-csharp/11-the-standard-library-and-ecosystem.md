@@ -4,8 +4,6 @@ id: 25b2602c-bba3-4d73-a7a3-a3a40e234944
 
 # The Standard Library and Ecosystem
 
-> **[Intermediate]** · What .NET ships with, the packages everyone uses, and dependency injection as a first-class citizen.
-
 ## The BCL
 <!-- bite: 3e5acc7c-8cba-4a10-b777-c62e59327943 -->
 
@@ -114,5 +112,10 @@ foreach (var o in db.Orders.ToList())     // 1 query
 - [[languages/07-csharp/12-testing-and-tooling|testing and tooling]]
 - [[backend/index|the backend course]] — the concepts ASP.NET Core implements
 - [[databases/index|databases]] — what EF generates
+
+## About this lesson
+<!-- bite: e3663066-7072-4b20-ab80-d4df89fadd9f -->
+
+**Level:** Intermediate. **Covers:** What .NET ships with, the packages everyone uses, and dependency injection as a first-class citizen.
 
 *Source: [reference] — from the .NET documentation, Aug 2026.*

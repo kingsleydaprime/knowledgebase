@@ -4,8 +4,6 @@ id: f208c0d8-f752-478c-af4c-2c004c483447
 
 # Networking on Mobile
 
-**[Intermediate]** — designing for a network that is slow, expensive, metered and frequently absent.
-
 ## The kid version first
 <!-- bite: a689c4ab-6422-4889-9d2a-6b20b5b6b261 -->
 
@@ -92,5 +90,10 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 - [[mobile/11-performance-and-battery|performance and battery]] — the radio tail
 - [[networking/index|networking]] — TCP, TLS and HTTP properly
 - [[backend/02-api-design/index|API design]] — the other side of this contract
+
+## About this lesson
+<!-- bite: 4cd1f8a2-ae26-4abf-ae4d-66234890cadc -->
+
+**Level:** Intermediate. **Covers:** designing for a network that is slow, expensive, metered and frequently absent.
 
 *Source: [reference] — Aug 2026.*

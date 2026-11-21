@@ -4,8 +4,6 @@ id: ef8c0b27-ae0d-4ab1-a891-05087a7313a7
 
 # Constructions
 
-**[Beginner]** — building exact figures with two tools that cannot measure anything, and proving that what you built is what you claimed.
-
 ## Before you start
 <!-- bite: b277aacf-9833-4771-a653-27628abdd97f -->
 
@@ -398,3 +396,8 @@ You are done with this lesson when you can:
 - [[01-angles-and-parallel-lines|Angles and Parallel Lines]] — where the deductive method started
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the same figures handled by algebra instead of arcs
 - **Abstract Algebra** *(reserved)* — where the impossibility proofs actually live
+
+## About this lesson
+<!-- bite: 0b09916a-987c-434d-a290-33ceb08590d6 -->
+
+**Level:** Beginner. **Covers:** building exact figures with two tools that cannot measure anything, and proving that what you built is what you claimed.

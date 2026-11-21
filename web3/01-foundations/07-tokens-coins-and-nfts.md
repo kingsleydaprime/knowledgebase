@@ -4,8 +4,6 @@ id: 4f492773-0039-4aa4-8ce5-dca276360fe8
 
 # Tokens, Coins and NFTs
 
-**[Beginner → Intermediate]** — what a token *is* at the data level, the difference between a coin and a token, and the sentence about NFTs that most explanations refuse to say.
-
 ## The kid version first
 <!-- bite: c07741d0-cc9a-4d87-8379-8fb5ed09f100 -->
 
@@ -105,5 +103,10 @@ If the URL is plain HTTPS, the project's host going down or its domain lapsing m
 - [[web3/07-the-application-layer/02-nfts-in-practice|NFTs in practice]]
 - [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|scams and rugs]]
 - [[build-your-own-shit/16-your-own-token-and-wallet|build your own token and wallet]]
+
+## About this lesson
+<!-- bite: 60888167-4087-486a-ac3b-2635e7038111 -->
+
+**Level:** Beginner → Intermediate. **Covers:** what a token *is* at the data level, the difference between a coin and a token, and the sentence about NFTs that most explanations refuse to say.
 
 *Source: [reference] — Aug 2026.*

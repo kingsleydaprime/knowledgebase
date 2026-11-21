@@ -4,8 +4,6 @@ id: 224f84b2-2843-4abb-82d9-f1aaee54ec96
 
 # Types and Null Safety
 
-**[Beginner → Intermediate]** — sound null safety, and what "sound" actually buys you.
-
 ## Null safety
 <!-- bite: 9fa3dff9-a9c3-4897-9bc9-f4673b7182b1 -->
 
@@ -147,3 +145,8 @@ final text = switch (state) {           // EXHAUSTIVE — no default needed
 - [[languages/10-dart/03-classes-and-collections|classes and collections]]
 - [[languages/09-kotlin/02-null-safety|Kotlin's null safety]] — the comparison, including the hole Dart doesn't have
 - [[mobile/frameworks/flutter/index|Flutter]]
+
+## About this lesson
+<!-- bite: cae3d487-57f6-4b95-9e1f-100533d0be02 -->
+
+**Level:** Beginner → Intermediate. **Covers:** sound null safety, and what "sound" actually buys you.

@@ -4,8 +4,6 @@ id: 334cfbf8-259d-4263-aa4a-2536fd72d847
 
 # Ray Tracing and Path Tracing
 
-**[Advanced]** — Solving light transport properly. BVHs, Monte Carlo, and why the image is noisy.
-
 ## Casting a ray
 <!-- bite: 43135eb1-62e1-4cf1-b0c6-72c616f2dd27 -->
 
@@ -188,3 +186,8 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 - [[computer-graphics/11-shading-and-lighting|Shading and Lighting]] — the BRDFs being sampled
 - [[computer-graphics/index|Computer graphics map]]
 - [[build-your-own-shit/22-your-own-ray-tracer|Your Own Ray Tracer]] — **this note as running code**, in a weekend, ending with a BVH and the furnace test
+
+## About this lesson
+<!-- bite: de9de8ee-fa49-4299-9c98-8d4708a2e810 -->
+
+**Level:** Advanced. **Covers:** Solving light transport properly. BVHs, Monte Carlo, and why the image is noisy.

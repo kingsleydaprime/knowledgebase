@@ -4,8 +4,6 @@ id: 2c203e4f-8051-4a70-9e5f-3367b3252822
 
 # Module: The Master Theorem (The Shortcut, and Exactly When It Fails)
 
-**[Intermediate → Advanced]** — [[02-recursion-trees-and-recurrences|The previous lesson]] showed that a divide-and-conquer recurrence has only three possible outcomes: the leaves dominate, the levels are equal, or the root dominates. **The Master Theorem is those three outcomes written as a theorem, with the conditions made precise so you can apply it without drawing anything.**
-
 It is genuinely a shortcut — thirty seconds instead of five minutes. It is also the topic most likely to be misapplied, because two of its most famous-looking targets fall outside it. Knowing when it *does not* apply is the harder and more valuable half.
 
 ---
@@ -557,3 +555,8 @@ You can apply the decision procedure to an unfamiliar recurrence, say what "poly
 - [[01-growth-and-asymptotic-notation|Growth and Asymptotic Notation]] — what $\Theta$ is claiming
 - [[05-induction-and-recursion|Discrete maths: induction and recursion]] — the proof of the theorem itself
 - [[02-recursion/index|the recursion folder]]
+
+## About this lesson
+<!-- bite: 07328f53-1441-4966-bb7d-6415749d2acf -->
+
+**Level:** Intermediate → Advanced. **Covers:** [[02-recursion-trees-and-recurrences|The previous lesson]] showed that a divide-and-conquer recurrence has only three possible outcomes: the leaves dominate, the levels are equal, or the root dominates. **The Master Theorem is those three outcomes written as a theorem, with the conditions made precise so you can apply it without drawing anything.**

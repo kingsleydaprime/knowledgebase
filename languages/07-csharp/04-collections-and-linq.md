@@ -4,8 +4,6 @@ id: 3909f061-380d-4a23-8e23-507ba0276682
 
 # Collections and LINQ
 
-> **[Beginner → Intermediate]** · The standard collections, and LINQ — the feature that most distinguishes C# from its neighbours.
-
 ## The collections
 <!-- bite: 51e8b64b-63fb-4c71-894f-a6e27a5e772b -->
 
@@ -99,5 +97,10 @@ db.Orders.ToList().Where(o => o.Total > 100);        // ✗ loads EVERY order, f
 - [[languages/07-csharp/06-delegates-events-and-lambdas|delegates and lambdas]] — what LINQ is built on
 - [[languages/07-csharp/08-memory-gc-and-spans|memory and GC]] — LINQ's cost
 - [[programming-fundamentals/07-collections|collections]] · [[databases/index|databases]]
+
+## About this lesson
+<!-- bite: ea92a736-ccd3-4aa8-8318-dfec59886b97 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The standard collections, and LINQ — the feature that most distinguishes C# from its neighbours.
 
 *Source: [reference] — from the .NET documentation, Aug 2026.*

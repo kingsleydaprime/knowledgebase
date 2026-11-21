@@ -4,8 +4,6 @@ id: e99893db-d1b1-49bc-9100-07ca02685f39
 
 # Getting Into Infrastructure
 
-> **[Beginner]** · The roles that own the physical and platform layers, what each actually requires, and the realistic routes in — including from where you already are.
-
 The previous four notes describe the machine, the building and the wiring. **This one is about working on them**, because "data centre" covers several genuinely different jobs.
 
 ## The roles, and what separates them
@@ -99,5 +97,10 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 - [[devops/12-sre-and-platform-engineering/index|SRE and platform engineering]] — where the ceiling is
 - [[networking/index|networking]] — the most-skipped prerequisite
 - [[PRIMETECHIE|the Primetechie path]] — the gated progression
+
+## About this lesson
+<!-- bite: 95a68005-e38b-43c5-a276-3bf93e91a28d -->
+
+**Level:** Beginner. **Covers:** The roles that own the physical and platform layers, what each actually requires, and the realistic routes in — including from where you already are.
 
 *Source: [reference] — written Aug 2026; cross-referenced against the [roadmap.sh devops](https://roadmap.sh/devops) and [network-engineer](https://roadmap.sh/network-engineer) roadmaps.*

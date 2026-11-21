@@ -4,8 +4,6 @@ id: b80b2c36-a880-4074-9c23-bfa4ebc1ca94
 
 # The Boot Process
 
-**[Intermediate]** — what happens between power-on and a login prompt, and how to get in when that sequence breaks. The note you want *before* you need it.
-
 ## The kid version first
 <!-- bite: 01760d37-3c05-4c45-b09d-af69cb878af4 -->
 
@@ -115,3 +113,8 @@ Firmware → GRUB → kernel → systemd, each finding the next. Identify which 
 - [[devops/01-linux/18-disks-and-filesystems|Disks and Filesystems]] — the fstab entries that cause most boot failures
 - [[devops/01-linux/07-systemd-and-services|systemd & services]] — what PID 1 does after the boot completes
 - [[devops/01-linux/17-logs-and-journald|Logs and journald]] — `journalctl -b -1` to read the boot that failed
+
+## About this lesson
+<!-- bite: 3dcaedbe-9fca-460f-b80e-32b010cf7325 -->
+
+**Level:** Intermediate. **Covers:** what happens between power-on and a login prompt, and how to get in when that sequence breaks. The note you want *before* you need it.

@@ -4,8 +4,6 @@ id: 72976ee2-9c20-4824-ade1-14f038cfc40e
 
 # Module 4: Signals and Time (Why Nothing Happens Instantly)
 
-**[Beginner → Intermediate]** — Everything so far assumed voltages had already settled. They haven't. This module adds time, and time is what sets your processor's clock speed.
-
 ## Before you start
 <!-- bite: 6cef9a03-cf0f-4c86-9384-1bdc1fca1418 -->
 
@@ -376,3 +374,8 @@ Every stage shares one clock, so the clock period must accommodate the <em>slowe
 - [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — where critical-path shortening becomes an architecture
 - [[computer-architecture/12-performance|computer-architecture/performance]] — clock frequency in context
 - [[digital-signal-processing/index|digital-signal-processing/]] — the mathematical treatment of signals
+
+## About this lesson
+<!-- bite: b15183c8-8a02-457e-8a80-6ebd286997e4 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Everything so far assumed voltages had already settled. They haven't. This module adds time, and time is what sets your processor's clock speed.

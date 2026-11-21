@@ -4,8 +4,6 @@ id: dd5166cd-e07b-4a35-84f2-3495069f2e00
 
 # B-Trees and Indexes
 
-**[Intermediate → Advanced]** — Why databases use B+ trees and not binary trees, how an index is actually used, what a composite index can and can't serve, and when adding one makes things worse. Every claim about PostgreSQL in this lesson is checked by the lab on a real PostgreSQL 18 database with a million rows.
-
 ## Before you start
 <!-- bite: d1ca5dc4-a5a3-429e-95f8-86a1de0c6091 -->
 
@@ -649,3 +647,8 @@ You can work out a B+ tree's height and a lookup's page reads, design a composit
 - [[databases/07-join-algorithms-and-the-optimiser/index|Join algorithms and the optimiser]]: how the planner decides to use these
 - [[databases/database-design-reference|Database design reference]]: §11, index design strategy
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: eda5e79e-e01a-49b6-9db4-25752ead7754 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Why databases use B+ trees and not binary trees, how an index is actually used, what a composite index can and can't serve, and when adding one makes things worse. Every claim about PostgreSQL in this lesson is checked by the lab on a real PostgreSQL 18 database with a million rows.

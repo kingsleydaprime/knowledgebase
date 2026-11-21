@@ -4,8 +4,6 @@ id: 50edad9b-0b82-48de-a68f-3734324b6452
 
 # Out-of-Order and Superscalar Execution
 
-**[Advanced]** — Executing several instructions per cycle, in the wrong order, while pretending you didn't.
-
 ## Two separate ideas
 <!-- bite: e28b1972-4ec0-4089-a89f-e5b07d8940dc -->
 
@@ -198,3 +196,8 @@ perf stat ./program     # look at insn per cycle
 - [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]] — what feeds the front end
 - [[computer-architecture/12-performance|Performance]] — the methodology
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: ffa7d14c-93d0-4f4d-8a31-dc0c9c24cce9 -->
+
+**Level:** Advanced. **Covers:** Executing several instructions per cycle, in the wrong order, while pretending you didn't.

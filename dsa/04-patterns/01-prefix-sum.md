@@ -6,8 +6,6 @@ id: 22229f96-98de-46a9-b7ff-95ff315dfe04
 
 Preprocess an [[01-arrays|array]] once so that any range-sum query afterward is O(1) instead of O(n). The trade is a single O(n) pass and O(n) extra space up front, paid once, to make every query after that nearly free.
 
-**[Beginner]** — A university-level introduction to the prefix-sum pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: ed4bd44c-0aed-4fd8-9652-24f2269d3499 -->
 
@@ -366,3 +364,8 @@ You are done with this pattern when you can, closed-book:
 - [[10-max-slice-algorithms|max-slice algorithms]] — Kadane and friends, where the running-prefix idea gets its own family
 - [[gpu-and-parallel-computing/04-parallel-patterns|parallel patterns]] — prefix sum as *scan*, and why it parallelises despite looking sequential
 - [[01-growth-and-asymptotic-notation|algorithms]]
+
+## About this lesson
+<!-- bite: 49626bdf-5050-478c-a847-1971ddd238a0 -->
+
+**Level:** Beginner. **Covers:** A university-level introduction to the prefix-sum pattern: what it is, why it exists, how it works, and how to implement it independently.

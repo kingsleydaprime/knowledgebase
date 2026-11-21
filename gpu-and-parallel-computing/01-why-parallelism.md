@@ -4,8 +4,6 @@ id: 0d1187aa-7a7f-48bd-af2b-29f1dea087b7
 
 # Why Parallelism
 
-**[Intermediate]** — The free lunch ended, what Amdahl actually limits, and the taxonomy that tells you which kind of parallel you need.
-
 **Source:** `[reference]` — see [[gpu-and-parallel-computing/index|the domain note]].
 
 ## The end of free performance
@@ -164,3 +162,8 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 - [[computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — the correctness side
 - [[computer-architecture/12-performance|Performance]] — profile before parallelising
 - [[gpu-and-parallel-computing/index|GPU and parallel map]]
+
+## About this lesson
+<!-- bite: 2993f9e3-689e-4fd8-9f92-dbd3b75adfe0 -->
+
+**Level:** Intermediate. **Covers:** The free lunch ended, what Amdahl actually limits, and the taxonomy that tells you which kind of parallel you need.

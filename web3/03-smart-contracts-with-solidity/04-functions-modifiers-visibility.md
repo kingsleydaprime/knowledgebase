@@ -4,8 +4,6 @@ id: b8242d1d-e84d-4907-8cce-99eebf0bc024
 
 # Functions, Modifiers and Visibility
 
-**[Intermediate]** — the dispatch mechanism, what modifiers really compile to, and the fallback functions that catch what you didn't expect.
-
 ## Dispatch: the function selector
 <!-- bite: de9d050f-e6ad-4761-b557-adf09d4a8d76 -->
 
@@ -123,5 +121,10 @@ Solidity has function pointers (`function(uint) external returns (bool)`), rarel
 - [[web3/04-smart-contract-security/03-access-control-and-key-management|access control]]
 - [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|proxies]] — built entirely on `fallback` + `DELEGATECALL`
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]]
+
+## About this lesson
+<!-- bite: 8fb459ca-3be7-4e6e-bc9e-2a944066dfff -->
+
+**Level:** Intermediate. **Covers:** the dispatch mechanism, what modifiers really compile to, and the fallback functions that catch what you didn't expect.
 
 *Source: [reference] — Aug 2026.*

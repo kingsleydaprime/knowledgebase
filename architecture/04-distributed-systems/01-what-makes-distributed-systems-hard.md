@@ -4,8 +4,6 @@ id: 24d39fd4-ec52-4594-a629-e38d8a0fad17
 
 # What Makes Distributed Systems Hard
 
-**[reference]** — from the canon (Kleppmann's *Designing Data-Intensive Applications* ch. 8, MIT 6.824, Lamport). Why a system spread across machines is *categorically* harder than one machine — the foundation for everything else in this course. You feel this fully only when you build one (a [[architecture/05-case-studies/index|Raft KV store]]). This note establishes the **models** (failure, timing, clocks) that every later algorithm is defined against; the **impossibility results** those models produce (FLP, CAP) get their own treatment in [[architecture/04-distributed-systems/02-theoretical-limits|theoretical limits]].
-
 ## The kid version first
 <!-- bite: ac620cc6-7207-48da-aea1-216a2c15b9b5 -->
 
@@ -115,3 +113,8 @@ Every technique in this course — [[architecture/04-distributed-systems/03-time
 - [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection]] — turning the timeout tradeoff into phi-accrual suspicion
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the fundamentals-level view
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency (Java)]] — the single-machine (easier) version of coordination
+
+## About this lesson
+<!-- bite: 3bbb69de-cc77-4f47-bcbb-22bcfd33446c -->
+
+**Level:** reference. **Covers:** from the canon (Kleppmann's *Designing Data-Intensive Applications* ch. 8, MIT 6.824, Lamport). Why a system spread across machines is *categorically* harder than one machine — the foundation for everything else in this course. You feel this fully only when you build one (a [[architecture/05-case-studies/index|Raft KV store]]). This note establishes the **models** (failure, timing, clocks) that every later algorithm is defined against; the **impossibility results** those models produce (FLP, CAP) get their own treatment in [[architecture/04-distributed-systems/02-theoretical-limits|theoretical limits]].

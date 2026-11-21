@@ -4,8 +4,6 @@ id: 8ac17891-c338-4849-965a-5f8f46094ca3
 
 # Bytecode and Virtual Machines
 
-**[Intermediate → Advanced]** — The realistic target for a language you build yourself: 10× faster than a tree-walker, a fraction of the work of native code generation.
-
 ## Why bytecode
 <!-- bite: f398913c-6351-47d0-929e-01f479273f99 -->
 
@@ -290,3 +288,8 @@ For [[BUILD-PLAN|build-your-own-language]]:
 - [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — slot resolution and upvalues
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — a production example
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: 237abf2a-34af-4472-a7e1-82b95b4e9933 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The realistic target for a language you build yourself: 10× faster than a tree-walker, a fraction of the work of native code generation.

@@ -4,8 +4,6 @@ id: 4b687d8e-d892-4ef1-95e7-8b2a1d74bb41
 
 # Traits
 
-**[Intermediate]** — Shared behaviour without inheritance. Rust's answer to interfaces, and it does more than they do.
-
 ## Defining and implementing
 <!-- bite: 4474acf7-2db8-451b-9316-dfd425bf057a -->
 
@@ -196,3 +194,8 @@ This means no fragile base class problem, no diamond problem, and no "where is t
 - [[languages/02-go/04-methods-and-interfaces|Go: Interfaces]] — implicit satisfaction, for contrast
 - [[languages/01-java/01-language/02-oop|Java: OOP]] — the inheritance model Rust rejected
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 12bb1f9b-c75d-4913-92f6-f00974015efc -->
+
+**Level:** Intermediate. **Covers:** Shared behaviour without inheritance. Rust's answer to interfaces, and it does more than they do.

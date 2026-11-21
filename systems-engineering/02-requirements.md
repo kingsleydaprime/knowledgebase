@@ -4,8 +4,6 @@ id: df7203d9-228e-4dd4-94af-eeb99c9e63ef
 
 # Requirements
 
-> **[Beginner → Intermediate]** · Turning "we want it safer" into something buildable and testable — and why this is where most projects are actually lost.
-
 **Requirements defects are the most expensive class of defect there is**, because everything downstream is competent work aimed at the wrong target. Every survey of failed projects puts requirements at or near the top of the causes.
 
 ## The hierarchy
@@ -126,5 +124,10 @@ Bureaucratic-looking, and it answers three questions nothing else can:
 - [[systems-engineering/05-trade-studies|trade studies]] — choosing between solutions
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach system design]] — the software version
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]]
+
+## About this lesson
+<!-- bite: 7ebead56-9313-41e6-b5a0-35252b55fa63 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Turning "we want it safer" into something buildable and testable — and why this is where most projects are actually lost.
 
 *Source: [reference] — from the INCOSE Guide to Writing Requirements and the NASA SE Handbook.*

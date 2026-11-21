@@ -4,8 +4,6 @@ id: d932ad25-0753-48e3-9733-a5df05bab8dc
 
 # Riemann Sums — Turning an Integral into a Sum
 
-**[Beginner]** — how a continuous integral becomes something a computer can actually add up.
-
 ## Before you start
 <!-- bite: ed1596e3-d2bf-4737-b9b9-8fb418c241d5 -->
 
@@ -399,3 +397,8 @@ You are done with this lesson when you can take any definite integral, write dow
 - [[02-quadrature-rules|Quadrature Rules]] — the better rules built on this idea
 - [[01-why-numerical-methods|Why Numerical Methods]] — the general case of "computers cannot do infinity"
 - [[digital-signal-processing/02-sampling-and-aliasing|Sampling and Aliasing]] — the same trade-off for signals, where sampling too slowly does not merely lose detail but invents a wrong answer
+
+## About this lesson
+<!-- bite: 4ed25f62-7d03-40cb-82ba-1a90b7eab6bc -->
+
+**Level:** Beginner. **Covers:** how a continuous integral becomes something a computer can actually add up.

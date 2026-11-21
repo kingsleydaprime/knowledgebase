@@ -4,8 +4,6 @@ id: 553ce055-2052-4dc5-b76f-bdda175b554a
 
 # Zero-Knowledge Proofs
 
-**[Advanced]** — proving you know something without revealing it, why the *succinctness* matters more than the zero-knowledge part, and what's actually deployed.
-
 ## The kid version first
 <!-- bite: 1f34938e-92f6-4def-8ef9-68d655a5d56b -->
 
@@ -97,5 +95,10 @@ You don't implement the cryptography; you write **circuits**:
 - [[cybersecurity/05-cryptography/index|cryptography]] — the foundations
 - [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|number theory]] — the maths underneath
 - [[theory-of-computation/08-beyond-p-vs-np|beyond P vs NP]] — the complexity-theory framing of "verifying is easier than solving"
+
+## About this lesson
+<!-- bite: 66c9d992-7903-4b59-8fae-15f772baa72a -->
+
+**Level:** Advanced. **Covers:** proving you know something without revealing it, why the *succinctness* matters more than the zero-knowledge part, and what's actually deployed.
 
 *Source: [reference] — Aug 2026.*

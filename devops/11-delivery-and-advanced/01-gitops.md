@@ -4,8 +4,6 @@ id: f48977ef-85d6-43c8-85b1-d492adaadd0e
 
 # GitOps
 
-**[reference]** — from roadmap.sh and the Argo/Flux docs.
-
 ## The idea
 <!-- bite: 363790ea-4faa-49b7-b3e3-9879c65b7c57 -->
 
@@ -58,3 +56,8 @@ The catch it forces you to solve: **secrets can't sit in plaintext in the git re
 - [[devops/05-ci-cd/index|CI/CD]] — GitOps is the delivery half; CI builds the artifact
 - [[devops/10-orchestration/01-kubernetes|Kubernetes]] — what GitOps agents reconcile
 - [[devops/06-secret-management/01-secret-management|Secret Management]] — solving "secrets in git"
+
+## About this lesson
+<!-- bite: 3ad98545-708c-4ac1-b365-9c36a3669746 -->
+
+**Level:** reference. **Covers:** from roadmap.sh and the Argo/Flux docs.

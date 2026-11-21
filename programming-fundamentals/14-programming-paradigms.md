@@ -4,8 +4,6 @@ id: 1cf27b1c-faee-4bc1-8894-a95b9611263a
 
 # Programming Paradigms
 
-> **[Beginner → Intermediate]** · Imperative, declarative, procedural, object-oriented, functional — what the words mean, and why almost every language you'll use is several of them at once.
-
 A **paradigm** is a style of organising a program — a set of ideas about what the building blocks are and how they fit together. The words get used loosely and territorially. They're less mystical than they sound, and there are really only two roots.
 
 ## The root distinction: how vs what
@@ -115,5 +113,10 @@ The tribal era is over. Python has classes, first-class functions, comprehension
 - [[programming-language-theory/index|PL theory]] — the formal treatment, much later
 - [[languages/03-rust/index|Rust]] · [[languages/02-go/index|Go]] — two modern languages that deliberately dropped inheritance
 - [[concepts/01-best-practices/index|best practices]] — the habits these produce
+
+## About this lesson
+<!-- bite: 1b3f71ab-3637-4757-82b8-339b37eb6e54 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Imperative, declarative, procedural, object-oriented, functional — what the words mean, and why almost every language you'll use is several of them at once.
 
 *Source: [reference] — written Aug 2026 alongside note 13, prompted by `sources/100 CS concepts explained.md`.*

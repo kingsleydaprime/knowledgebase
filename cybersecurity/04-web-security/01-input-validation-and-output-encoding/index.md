@@ -4,8 +4,6 @@ id: ba7b49d5-fb8e-4cef-953e-f2466e9dd1b5
 
 # Input Validation & Output Encoding
 
-> **[Beginner→Intermediate]** · The defensive half of injection and XSS. Both happen when untrusted input is treated as code — by a database, a shell, or a browser. The fix is two separate disciplines that are easy to confuse: **check what comes in, and encode what goes out for the place it's going.**
-
 The attacker's view of the same bugs is in [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|exploitation concepts]].
 
 ## Before you start
@@ -324,3 +322,8 @@ You can show injection and XSS working, fix them structurally, encode for the ri
 - [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|Security headers and same-origin policy]]
 - [[cybersecurity/04-web-security/02-secure-authentication|Secure authentication]]
 - [[backend/07-practices/01-backend-best-practices/index|Backend best practices]] — validation at the boundary
+
+## About this lesson
+<!-- bite: 2f62e2ef-f1f8-46cf-aff9-d70f297edeea -->
+
+**Level:** Beginner→Intermediate. **Covers:** The defensive half of injection and XSS. Both happen when untrusted input is treated as code — by a database, a shell, or a browser. The fix is two separate disciplines that are easy to confuse: **check what comes in, and encode what goes out for the place it's going.**

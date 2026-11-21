@@ -4,8 +4,6 @@ id: 6e1403ed-971f-4021-ac65-88908442d935
 
 # Number Theory and Modular Arithmetic
 
-**[Intermediate]** — Divisibility, primes and clock arithmetic. Pure mathematics until 1977, then the basis of every secure connection you make.
-
 ## Divisibility and GCD
 <!-- bite: fece9aa1-c103-4760-b491-fc547e6450dc -->
 
@@ -166,3 +164,8 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 - [[mathematics/02-discrete-math/06-combinatorics-and-counting|Combinatorics]] — the birthday bound on key sizes
 - [[theory-of-computation/07-complexity-classes|Complexity Classes]] — why factoring's hardness is only conjectured
 - [[mathematics/02-discrete-math/index|Discrete maths map]]
+
+## About this lesson
+<!-- bite: 791c1e6b-1c6f-44bb-a082-79bff559375f -->
+
+**Level:** Intermediate. **Covers:** Divisibility, primes and clock arithmetic. Pure mathematics until 1977, then the basis of every secure connection you make.

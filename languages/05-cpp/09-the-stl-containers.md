@@ -4,8 +4,6 @@ id: ae5adfa2-ebb6-4c5b-8d88-50d5d8b52702
 
 # The STL Containers
 
-**[Intermediate]** — What to reach for, what each costs, and the invalidation rules that turn a container into a dangling pointer.
-
 ## `std::vector` — the default
 <!-- bite: b9fabd89-b3ca-4f2f-99ce-fec4e2194cb8 -->
 
@@ -239,3 +237,8 @@ Also: a `string_view` is not guaranteed NUL-terminated, so you can't pass `.data
 - [[dsa/02-data-structures/03-hash-maps|Hash Maps]] and [[dsa/02-data-structures/07-heaps|Heaps]] — what these are underneath
 - [[languages/03-rust/11-collections-and-iterators|Rust: Collections]] — the same set, with invalidation made impossible
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: e0c6a2ad-238a-4641-95a0-b600662844c1 -->
+
+**Level:** Intermediate. **Covers:** What to reach for, what each costs, and the invalidation rules that turn a container into a dangling pointer.

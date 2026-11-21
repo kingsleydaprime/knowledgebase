@@ -4,8 +4,6 @@ id: 954eabc5-7659-457e-a30b-eb657892c92a
 
 # Goroutines and Channels
 
-**[Intermediate]** — The feature Go is actually famous for: concurrency as a language primitive rather than a library, and the ways it goes wrong.
-
 ## Goroutines
 <!-- bite: 4cbfd361-1dfc-4f4b-a225-6a23b8ed3a88 -->
 
@@ -176,3 +174,8 @@ The Go team's own guidance: **use channels for passing ownership of data and for
 - [[languages/01-java/02-jvm-and-concurrency/index|Java: JVM & Concurrency]] — threads, and virtual threads arriving at the same place
 - [[os/index|Operating Systems]] — what the runtime is scheduling onto
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: 177de922-114d-4f7d-b922-6f43fed0e354 -->
+
+**Level:** Intermediate. **Covers:** The feature Go is actually famous for: concurrency as a language primitive rather than a library, and the ways it goes wrong.

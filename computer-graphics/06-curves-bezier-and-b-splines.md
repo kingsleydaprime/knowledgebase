@@ -4,10 +4,6 @@ id: fde8507f-8697-4903-9b04-85923d54a9a9
 
 # Curves: Bézier and B-splines
 
-**[Intermediate → Advanced]** — Implicit, explicit and parametric curves; affine and barycentric combinations; where the Bézier weights come from; position, velocity, de Casteljau and splitting; B-splines and the Cox–de Boor recursion; Chaikin corner cutting; and drawing a curve with straight lines to a tolerance.
-
-> Part 1 of the course. [[computer-graphics/15-geometry-and-meshes|Note 15]] gives the big picture (NURBS, subdivision surfaces, CAD versus real-time). **This note is the hand-calculation version that SSG 511 Q1(c) is worth 15 marks on.**
-
 ## Before you start
 <!-- bite: 5e87a314-f986-4d38-9d66-0904a266c15e -->
 
@@ -356,3 +352,10 @@ From SSG 511 — full wording in the [[computer-graphics/19-ssg-511-question-ban
 - [[computer-graphics/16-animation-and-simulation|Animation]] — curves as motion paths
 - [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation and splines]]
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: 83ba19b6-0a4c-48c7-96d1-bcc957466766 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Implicit, explicit and parametric curves; affine and barycentric combinations; where the Bézier weights come from; position, velocity, de Casteljau and splitting; B-splines and the Cox–de Boor recursion; Chaikin corner cutting; and drawing a curve with straight lines to a tolerance.
+
+Part 1 of the course. [[computer-graphics/15-geometry-and-meshes|Note 15]] gives the big picture (NURBS, subdivision surfaces, CAD versus real-time). **This note is the hand-calculation version that SSG 511 Q1(c) is worth 15 marks on.**

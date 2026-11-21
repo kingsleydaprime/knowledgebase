@@ -4,8 +4,6 @@ id: 748ec7c0-7f96-47d9-a641-6cb58681099c
 
 # Exceptions and Error Handling
 
-**[Intermediate → Advanced]** — Exceptions, the safety guarantees that make them workable, and why a large slice of the C++ industry disables them entirely.
-
 ## Exceptions
 <!-- bite: 8efe0581-8f8c-4024-a46e-6470141ff530 -->
 
@@ -223,3 +221,8 @@ If you're on `-fno-exceptions`, know what you lose: `new` becomes a null return 
 - [[languages/03-rust/07-option-and-result|Rust: Result]] — the model `std::expected` adopts
 - [[languages/04-c/09-the-standard-library|C: errno]] — the alternative C++ inherited
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 2e5494de-271d-4259-b039-c1cbc4228e36 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Exceptions, the safety guarantees that make them workable, and why a large slice of the C++ industry disables them entirely.

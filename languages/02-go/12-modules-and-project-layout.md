@@ -4,8 +4,6 @@ id: 5e68d73c-806f-42e5-b3b2-48bd87280ab5
 
 # Modules and Project Layout
 
-**[Intermediate]** — `go.mod`, the versioning rules that are stricter than npm's, and the layout argument you should know before someone tells you to use `pkg/`.
-
 ## Modules
 <!-- bite: bd0fb1d2-caeb-4bd1-bc56-ab906728238a -->
 
@@ -156,3 +154,8 @@ That's the whole distribution model: a git tag. See [[git/11-tags-and-versioning
 - [[devops/05-ci-cd/10-pipeline-security|Securing the Pipeline]] — the checksum database in context
 - [[languages/01-java/03-tooling/01-build-tools|Java: Build Tools]] — Maven/Gradle, for contrast
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: 7bede6e4-0e6b-4a7a-bde3-5adc90c33adb -->
+
+**Level:** Intermediate. **Covers:** `go.mod`, the versioning rules that are stricter than npm's, and the layout argument you should know before someone tells you to use `pkg/`.

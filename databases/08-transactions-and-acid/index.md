@@ -4,8 +4,6 @@ id: dfd05b9f-299a-461f-8aa2-e5b573736893
 
 # Transactions and ACID
 
-**[Intermediate → Advanced]** — What a transaction guarantees, the anomalies that happen when transactions run at the same time, what each isolation level actually prevents, and why your default is weaker than you think. Every anomaly in this lesson is made to happen in the lab, on a real PostgreSQL 18, with two connections stepped one statement at a time.
-
 ## Before you start
 <!-- bite: 6f482701-ee1b-43f7-9260-4653b6c3bb85 -->
 
@@ -487,3 +485,8 @@ You can say what each part of ACID guards against, name the five anomalies from 
 - [[databases/10-durability-and-recovery|Durability and recovery]]: the A and D of ACID
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency models]]: the same problem across machines
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: cc9faef8-c82a-4773-9b31-cd2f395f8461 -->
+
+**Level:** Intermediate → Advanced. **Covers:** What a transaction guarantees, the anomalies that happen when transactions run at the same time, what each isolation level actually prevents, and why your default is weaker than you think. Every anomaly in this lesson is made to happen in the lab, on a real PostgreSQL 18, with two connections stepped one statement at a time.

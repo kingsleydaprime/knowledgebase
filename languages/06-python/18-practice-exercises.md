@@ -4,8 +4,6 @@ id: 74624d8d-189c-4cc0-8155-620483713fb2
 
 # Practice Exercises
 
-> **[Beginner → Advanced]** · Eighteen exercises over the whole course. **Every one reproduces a real Python behaviour rather than describing it.**
-
 The course's honest note named exercises as the remaining hole. This is it.
 
 **Almost all of these are provable in a REPL or a ten-line script** — the point is to *see* the behaviour, because a gotcha you've reproduced is one you'll recognise at 2 a.m. and a gotcha you've read about is one you'll ship.
@@ -113,5 +111,10 @@ With `httpx.AsyncClient`, fetch 10 URLs with sequential `await`s and time it. Sw
 - [[languages/06-python/19-practice-exercises-solutions|Solutions]] — after you've tried
 - [[languages/06-python/index|the course]]
 - [[learning/06-ai-as-sparring-partner|AI as sparring partner]]
+
+## About this lesson
+<!-- bite: 0eac1fd9-aa3d-43cd-9349-035f135b0cd2 -->
+
+**Level:** Beginner → Advanced. **Covers:** Eighteen exercises over the whole course. **Every one reproduces a real Python behaviour rather than describing it.**
 
 *Source: [reference] — written Aug 2026 to close the gap this course's README named.*

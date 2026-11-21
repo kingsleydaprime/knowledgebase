@@ -4,10 +4,6 @@ id: 6d5edf8b-35bc-4f70-904f-c22a6b401187
 
 # Where Information Theory Shows Up
 
-**[Intermediate]** — The payoff note. One measure, applied across nine domains already in this vault.
-
-> **The argument for this track being connective tissue rather than a new silo:** almost everything below is already written elsewhere in the vault. **This note is the thread running through it.**
-
 ## Cryptography — entropy as security
 <!-- bite: 853622d4-779e-46d9-9769-9b77426f26ed -->
 
@@ -161,3 +157,10 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 - [[information-theory/05-channel-capacity-and-noise|Channel Capacity]] — the communications half
 - [[cybersecurity/05-cryptography/index|Cryptography]] — entropy as security
 - [[information-theory/index|Information theory map]]
+
+## About this lesson
+<!-- bite: 47119b08-c58a-49a3-bc48-ee441e1d2c92 -->
+
+**Level:** Intermediate. **Covers:** The payoff note. One measure, applied across nine domains already in this vault.
+
+**The argument for this track being connective tissue rather than a new silo:** almost everything below is already written elsewhere in the vault. **This note is the thread running through it.**

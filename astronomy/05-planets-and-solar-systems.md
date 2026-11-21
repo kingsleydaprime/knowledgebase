@@ -4,8 +4,6 @@ id: 5df3c46e-bfb8-4820-a380-6d2be3961bad
 
 # Planets and Solar Systems
 
-> **[Intermediate]** · How planetary systems form, our own, and the five thousand others we've found since 1995.
-
 ## Formation
 <!-- bite: 7c1e1736-47cb-486f-8a07-28251ac77842 -->
 
@@ -74,5 +72,10 @@ Then: **dust grains collide and stick → pebbles → planetesimals (km-scale) �
 - [[astronomy/04-stars|stars]] — what planets form around
 - [[astronomy/08-spaceflight-and-exploration|spaceflight]] — how we visit the local ones
 - [[astronomy/10-getting-started|getting started]] — you can help find exoplanets
+
+## About this lesson
+<!-- bite: 82462e62-9620-4987-b580-7a93bf722bef -->
+
+**Level:** Intermediate. **Covers:** How planetary systems form, our own, and the five thousand others we've found since 1995.
 
 *Source: [reference] — written Aug 2026; exoplanet counts as of that date.*

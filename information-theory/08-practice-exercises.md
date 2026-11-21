@@ -4,8 +4,6 @@ id: 259256b1-2b3b-47ad-9ef3-0b8284160502
 
 # Practice Exercises
 
-> **[Intermediate]** · Twelve exercises. **Every idea in this course is a short script over real data.**
-
 This course's own note says it's *"unusually cheap to make concrete"* — and it is. Pure Python; no libraries needed except where marked.
 
 Solutions with measured results in [[information-theory/09-practice-exercises-solutions|note 09]].
@@ -77,5 +75,10 @@ Implement Hamming(7,4). Encode a nibble, flip one bit, and correct it. Then flip
 <!-- bite: a7249c04-f837-4832-b067-e7a839714abb -->
 - [[information-theory/09-practice-exercises-solutions|Solutions]]
 - [[information-theory/index|the course]]
+
+## About this lesson
+<!-- bite: 1c5447e4-de13-44c1-b4cb-dffda4f89213 -->
+
+**Level:** Intermediate. **Covers:** Twelve exercises. **Every idea in this course is a short script over real data.**
 
 *Source: [reference] — built from this course's own gap-closing list. Results measured Aug 2026.*

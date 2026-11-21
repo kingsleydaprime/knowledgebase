@@ -4,8 +4,6 @@ id: 96b5802d-aa25-40f5-985a-718d308e715c
 
 # Linear Systems
 
-**[Intermediate → Advanced]** — Solving $Ax = b$. The most-used algorithm in scientific computing, and the one where conditioning bites hardest.
-
 ## Why this note matters most
 <!-- bite: 8cdeb630-183d-4c80-9f01-1acee05d43a2 -->
 
@@ -207,3 +205,8 @@ Is A large and sparse?
 - [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations|PDEs]] — where the huge sparse systems come from
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: f854e51d-35ba-4686-8414-afc00847457f -->
+
+**Level:** Intermediate → Advanced. **Covers:** Solving $Ax = b$. The most-used algorithm in scientific computing, and the one where conditioning bites hardest.

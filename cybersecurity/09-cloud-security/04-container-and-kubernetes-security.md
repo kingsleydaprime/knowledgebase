@@ -4,8 +4,6 @@ id: 12d85ec9-2364-44ea-bca5-915fd6bab676
 
 # Container and Kubernetes Security
 
-**[Advanced]** — the extra attack surface that containers and orchestration add, layer by layer, and why the defaults are not safe.
-
 ## The kid version first
 <!-- bite: 245094cc-4fc7-4b87-97d4-1de464a88c6e -->
 
@@ -76,5 +74,10 @@ Every item is the same instinct — **minimise privilege and blast radius at eac
 - [[os/11-isolation-and-containers|isolation and containers]] — namespaces, cgroups, the kernel boundary
 - [[cybersecurity/09-cloud-security/05-cloud-native-defence|cloud-native defence]] — scanning and policy-as-code
 - [[cybersecurity/03-network-security/02-network-segmentation|network segmentation]] — the network-policy principle
+
+## About this lesson
+<!-- bite: 82932fed-3d5f-4aa2-9f68-c84c21c3f6ab -->
+
+**Level:** Advanced. **Covers:** the extra attack surface that containers and orchestration add, layer by layer, and why the defaults are not safe.
 
 *Source: [reference] — Aug 2026.*

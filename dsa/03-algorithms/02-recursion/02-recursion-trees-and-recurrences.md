@@ -4,8 +4,6 @@ id: fa2dce3b-4d5d-4e28-a898-62f5bda02744
 
 # Module: Recursion Trees and Recurrences (Getting a Complexity Out of Recursive Code)
 
-**[Intermediate]** — You can read a loop and count its iterations. You cannot do that with a recursive function, because its cost is defined in terms of itself. This lesson gives you the two tools that break that circularity: **writing the cost as a recurrence relation**, and **drawing the recursion tree to solve it.**
-
 The payoff is that "what is the complexity of merge sort?" stops being something you remember and becomes something you can derive in thirty seconds on a whiteboard — including for an algorithm you have never seen.
 
 ---
@@ -531,3 +529,8 @@ You can turn recursive code into a recurrence, draw its tree, compute the work a
 - [[05-sorting/03-merge-sort|Merge Sort]] · [[05-sorting/04-quicksort|Quicksort]] — the worked cases
 - [[05-induction-and-recursion|Discrete maths: induction and recursion]] — the substitution method's proof machinery
 - [[02-recursion/index|the recursion folder]]
+
+## About this lesson
+<!-- bite: d21914c0-b661-46a5-8144-7a505e405613 -->
+
+**Level:** Intermediate. **Covers:** You can read a loop and count its iterations. You cannot do that with a recursive function, because its cost is defined in terms of itself. This lesson gives you the two tools that break that circularity: **writing the cost as a recurrence relation**, and **drawing the recursion tree to solve it.**

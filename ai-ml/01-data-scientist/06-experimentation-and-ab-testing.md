@@ -4,8 +4,6 @@ id: 7db5be35-19a5-4eeb-aa9d-78395c830a82
 
 # Experimentation & A/B Testing
 
-**[reference]** — from the roadmap.sh `ai-data-scientist` roadmap. The gold standard for answering "does X actually *cause* a better outcome?" — and one of the highest-impact things a data scientist does, since it directly drives product and business decisions.
-
 ## Why experiments beat observation
 <!-- bite: 0c30a4d3-b798-4953-a653-b4c53bfd48e4 -->
 
@@ -47,3 +45,8 @@ These are exactly the mistakes a rigorous data scientist prevents:
 - [[ai-ml/01-data-scientist/03-inferential-statistics|Inferential Statistics]] — the hypothesis testing and power analysis behind every experiment
 - [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|Causal Inference & Econometrics]] — establishing causation when you can't randomize
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|Serving & Operations (ML-engineer)]] — A/B testing models on live traffic
+
+## About this lesson
+<!-- bite: 49af3b4a-ee4b-472d-80dd-521e3232c8b0 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `ai-data-scientist` roadmap. The gold standard for answering "does X actually *cause* a better outcome?" — and one of the highest-impact things a data scientist does, since it directly drives product and business decisions.

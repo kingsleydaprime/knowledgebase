@@ -4,8 +4,6 @@ id: 2858c003-3244-426e-9212-77e19768f3ba
 
 # The Cryptographic Primitives
 
-**[Intermediate]** — the four pieces every chain is assembled from, and specifically what blockchains do with them that [[cybersecurity/05-cryptography/index|the cryptography course]] doesn't cover.
-
 **This note deliberately does not re-teach cryptography.** Hash functions, asymmetric keys and signatures are covered properly in [[cybersecurity/05-cryptography/index|cybersecurity/05]]. Read that first if any of it is unfamiliar. What's here is **the blockchain-specific usage** — which is narrower and stranger than general crypto use.
 
 ## 1. Hash functions — used as identity, not as integrity
@@ -94,5 +92,10 @@ Worth naming, because the absence is informative:
 - [[web3/01-foundations/04-blocks-chains-and-state|blocks, chains and state]] — these primitives assembled
 - [[git/01-how-git-works|how Git works]] — the same content-addressed hash-chain idea, without consensus
 - [[build-your-own-shit/14-your-own-blockchain|build your own blockchain]] — implement all four
+
+## About this lesson
+<!-- bite: c86d089a-8235-4a58-bf5c-a02c17e1bff5 -->
+
+**Level:** Intermediate. **Covers:** the four pieces every chain is assembled from, and specifically what blockchains do with them that [[cybersecurity/05-cryptography/index|the cryptography course]] doesn't cover.
 
 *Source: [reference] — Aug 2026.*

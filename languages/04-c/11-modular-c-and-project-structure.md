@@ -4,8 +4,6 @@ id: 91ab761e-9929-49f7-85f6-fb46ac2359cc
 
 # Modular C and Project Structure
 
-**[Intermediate]** — C gives you almost no structuring tools, so the structure is convention. Here's the convention that works.
-
 ## What you get, and what you don't
 <!-- bite: 5b5b1729-f1a3-4a7a-875e-351d0d4ec656 -->
 
@@ -261,3 +259,8 @@ test: $(TESTS)
 - [[languages/04-c/07-memory-management|Memory Management]] — ownership discipline
 - [[backend/03-structuring-a-backend/index|Structuring a Backend]] — the same ideas, with language support
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: 74079812-13e9-478a-900e-6eb732f46bc4 -->
+
+**Level:** Intermediate. **Covers:** C gives you almost no structuring tools, so the structure is convention. Here's the convention that works.

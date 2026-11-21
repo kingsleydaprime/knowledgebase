@@ -4,8 +4,6 @@ id: 1bb3d9c7-bfec-4779-a4f7-fa5be2efd183
 
 # Caches in Depth
 
-**[Advanced]** — Associativity, replacement, write policies, and the pathological cases that make a working program mysteriously slow.
-
 ## Anatomy
 <!-- bite: 139493a3-a406-4c1c-906d-8a587fae9b82 -->
 
@@ -238,3 +236,8 @@ Or in C++: `alignas(std::hardware_destructive_interference_size)`.
 - [[computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — ordering on top of coherence
 - [[os/06-concurrency-primitives|Concurrency Primitives]] — what runs on this
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: 332d7049-3e32-49e0-87b6-eeaecd16a44d -->
+
+**Level:** Advanced. **Covers:** Associativity, replacement, write policies, and the pathological cases that make a working program mysteriously slow.

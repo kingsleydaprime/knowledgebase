@@ -4,8 +4,6 @@ id: 47ca552e-9092-4e7d-bfde-c3e09635c637
 
 # How LLMs Work
 
-> **[Beginner]** · Covers what a large language model actually does: tokens, the context window, attention, generating one token at a time, and the decoding settings you choose in every call. The worked example builds the decoding step yourself and then asks a real local model for its probabilities. The numbers in it were measured on 2026-10-02.
-
 ## Before you start
 <!-- bite: f4982c7b-24e1-41bf-bf5e-4fb7f95eb63c -->
 
@@ -417,5 +415,10 @@ You can explain, without notes, how a model goes from a prompt to one next token
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — where you set these settings in practice
 - [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local and open models]] — the laptop this lab ran on
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers and attention]] — the network inside, in depth
+
+## About this lesson
+<!-- bite: 78c9161a-aa4c-40d5-8e78-1c3a3e626633 -->
+
+**Level:** Beginner. **Covers:** Covers what a large language model actually does: tokens, the context window, attention, generating one token at a time, and the decoding settings you choose in every call. The worked example builds the decoding step yourself and then asks a real local model for its probabilities. The numbers in it were measured on 2026-10-02.
 
 *Source: re-homed from the old `01-fundamentals/03-llms.md`, deepened with the decoding settings from [roadmap.sh ai-engineer](https://roadmap.sh/ai-engineer).*

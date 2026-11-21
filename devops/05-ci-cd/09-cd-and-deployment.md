@@ -4,8 +4,6 @@ id: f1311fa3-df8a-42c1-9a5f-1482307e0672
 
 # CD, Deployment Strategies and Releases
 
-**[Intermediate → Advanced]** — The deploy half: pipeline structure and rollback, the four rollout strategies in depth (recreate, rolling, blue-green, canary) with the tradeoffs that pick between them, and cutting releases automatically from CI.
-
 ## CD Pipeline — Deployment
 <!-- bite: 833d0941-8bfe-42d8-a06a-161d5cd521d6 -->
 
@@ -470,3 +468,8 @@ jobs:
 - [[git/11-tags-and-versioning|Tags and Versioning]] — the SemVer contract these releases follow
 - [[devops/07-observability/index|Observability]] — what tells you a canary is failing
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: 008279d8-7eaa-4c7f-bc1a-b1a4fbbae701 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The deploy half: pipeline structure and rollback, the four rollout strategies in depth (recreate, rolling, blue-green, canary) with the tradeoffs that pick between them, and cutting releases automatically from CI.

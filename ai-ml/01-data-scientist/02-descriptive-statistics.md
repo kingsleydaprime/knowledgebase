@@ -4,8 +4,6 @@ id: 2cf61aa0-49a6-4066-8d6e-17c06e93c794
 
 # Descriptive Statistics
 
-**[reference]** — from the roadmap.sh `data-analyst`/`ai-data-scientist` roadmaps. Summarizing a dataset honestly — the first thing you do with any data, and the foundation [[ai-ml/01-data-scientist/03-inferential-statistics|inference]] builds on. Complements the probability basis in [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|foundations]].
-
 Descriptive statistics *describe the data you have* (no claims beyond it); [[ai-ml/01-data-scientist/03-inferential-statistics|inferential]] statistics generalize from a sample to a population. This note is the first.
 
 ## Central tendency — the "typical" value
@@ -71,3 +69,8 @@ Compute the summary numbers *and* plot the data. **Anscombe's quartet** — four
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/02-expectation-and-variance|Expectation & Variance]] — the probability basis of variance
 - [[ai-ml/01-data-scientist/03-inferential-statistics|Inferential Statistics]] — generalizing beyond the sample
 - [[ai-ml/01-data-scientist/04-exploratory-data-analysis|Exploratory Data Analysis]] — descriptive stats as a process
+
+## About this lesson
+<!-- bite: 8bf7d202-b2de-4079-8502-002462aba107 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `data-analyst`/`ai-data-scientist` roadmaps. Summarizing a dataset honestly — the first thing you do with any data, and the foundation [[ai-ml/01-data-scientist/03-inferential-statistics|inference]] builds on. Complements the probability basis in [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|foundations]].
