@@ -20,7 +20,8 @@ Scientific notation is a short way of writing very big or very small numbers as 
 
 **Study route:** read the lesson, then attempt every problem before opening the answers.
 
----
+## Scientific notation
+<!-- bite: 66829698-42d4-4b66-9a91-3b8397d575b5 -->
 
 Engineering deals with ridiculously large and ridiculously small numbers.
 
