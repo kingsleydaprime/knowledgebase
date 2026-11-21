@@ -27,9 +27,9 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 3. [[backend/frameworks/express/03-middleware|Middleware]]: the chain, `next()`, why order is behaviour, and the 404 and error handlers.
 4. [[backend/frameworks/express/04-structuring-an-express-app|Structuring an Express App]]: feature folders, routes, services and repositories, and `app.ts` versus `server.ts`.
 5. [[backend/frameworks/express/05-wiring-dependencies|Wiring Dependencies]]: factory functions, a composition root, and a first test with a fake.
-6. **Input Validation**: checking body, path parameters and query parameters with zod at the door. *(to write)*
-7. **Errors and Structured Responses**: one response shape for success and failure, problem details for errors, and one central error handler. *(to write)*
-8. **Data with PostgreSQL**: `pg`, a connection pool, migrations, and a transaction for placing an order. *(to write)*
+6. [[backend/frameworks/express/06-validation|Input Validation]]: checking body, path parameters and query parameters with zod at the door, and the line between validation and business rules.
+7. [[backend/frameworks/express/07-errors|Errors and Structured Responses]]: the `{ data, meta }` envelope, problem details for errors, request IDs, and one central error handler.
+8. [[backend/frameworks/express/08-data-with-postgres|Data with PostgreSQL]]: `pg`, a connection pool, migrations, SQL injection, and a transaction so the last plate goes to one customer.
 
 **Part 2: designing the API properly**
 
@@ -85,4 +85,4 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 ## About this subject
 
-Written for Express 5 and Node.js 23.6 or later, which runs TypeScript directly with no build step. Lessons 1–5 were written in November 2026; the rest follow in order. Until November 2026 Express shared a subject with Node.js and NestJS, and it had only one note.
+Written for Express 5 and Node.js 23.6 or later, which runs TypeScript directly with no build step. Lessons 1–8 were written in November 2026; the rest follow in order. Until November 2026 Express shared a subject with Node.js and NestJS, and it had only one note.
