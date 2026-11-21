@@ -2,105 +2,91 @@
 
 ## What net/http is
 
-**net/http is the package built into Go for writing web servers, and in Go it is often all you need.** Go was made for exactly this, so a small amount of code goes a long way.
+**`net/http` is the package that comes with Go for writing web servers, and in Go it is often all you need.** Go was made for network servers, so its standard library has a production-grade HTTP server and router built in. This subject builds a full production backend on it, and adds only small, focused packages where the standard library really has nothing (a Postgres driver, JWTs, Redis).
 
-**Concurrency model: goroutines** — green threads, since Go 1.0. You write blocking code; the runtime multiplexes onto OS threads. No `async`/`await`, so no "coloured function" split in the ecosystem. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]]
+## What you'll build
 
-**~11,000 words across 6 notes.** `[reference]` — no Go service in this vault yet. Assumes [[languages/02-go/index|the Go course]] and the [[backend/index|backend course]]; these notes cover only what those don't.
+The whole subject builds **one** app, a step at a time: **Mama Put API**, the backend for a roadside food seller whose customers now order on their phones. It's the same app the [[backend/frameworks/express/index|Express]] subject builds, written the Go way.
 
-> **The thing that makes Go's HTTP ecosystem different:** everything is `http.Handler`, one interface with one method. A Chi router, a Gin engine, your own function, and every middleware in the ecosystem all satisfy it — so they interoperate without adapters. Most ecosystems have framework-specific middleware that can't be reused; Go got composability by agreeing on the narrowest possible interface early.
+It starts in lesson 1 as a server that answers "Mama Put is open!". By lesson 29 it's a production system:
 
-## Lessons so far
+1. A main API with a menu, orders, customer accounts and kitchen-staff roles, stored in PostgreSQL.
+2. A well-designed API: one response shape everywhere, pagination, filtering, searching, sorting and field selection, two versions running side by side, and OpenAPI docs.
+3. Payments through Paystack, webhooks in and out, idempotency so nothing happens twice, background jobs, Redis caching, and a kitchen screen that shows new orders live.
+4. The same data offered over **GraphQL**, and as an **MCP server** so AI assistants can browse the menu and order for a customer, and a **second service** for notifications that the main API talks to over events and **gRPC**.
+5. Tests at every level, logs, metrics and tracing across both services, Docker for the whole system, and automatic deployment when you push.
 
-1. [[backend/frameworks/net-http/01-net-http-in-depth|`net/http` in Depth]] — **[Intermediate]** — the `Handler` interface, Go 1.22 routing, and the server configuration that separates a toy from production. **`http.ListenAndServe` has no timeouts**
-2. [[backend/frameworks/net-http/02-middleware-as-composition|Middleware as Composition]] — **[Intermediate]** — `func(Handler) Handler`, the essential middleware, and why wrapping `ResponseWriter` breaks `Flusher` and `Hijacker`
-3. [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go Service]] — **[Intermediate]** — DI without a container, handlers as methods, and error→status mapping in one place
-4. [[backend/frameworks/net-http/04-database-access|Database Access]] — **[Intermediate]** — `database/sql`, the pool settings that decide whether you survive load, and why Go is sceptical of ORMs
-5. [[backend/frameworks/net-http/05-testing-and-production|Testing and Production]] — **[Intermediate]** — `httptest`, fakes without a mocking framework, observability, and the container gotchas
+Every lesson ends with **your project so far** (the folder tree and what each file holds) and explains **the Go it used**, so you don't need to know the language well before you start.
 
-## The stdlib-is-enough argument, honestly
-
-Go 1.22 gave `http.ServeMux` method matching and path wildcards, which removed most of the reason to take a router dependency. `net/http` is a production HTTP server — not a toy you replace.
-
-What the stdlib still doesn't give you: route groups with shared middleware, a chaining helper, correct `ResponseWriter` wrapping, and request validation. Each is 10–50 lines you write once.
-
-**So: start with the stdlib, add [[backend/frameworks/chi/index|Chi]] when route grouping starts hurting.** The migration is mechanical because Chi uses the identical types. That deferrable framework decision is unusual — in most ecosystems it's load-bearing and early.
-
-## The framework table
-
-| | stdlib | [[backend/frameworks/chi/index\|Chi]] | [[backend/frameworks/gin/index\|Gin]] | Echo | Fiber |
-|---|---|---|---|---|---|
-| `net/http` compatible | ✅ | ✅ | partial | partial | ❌ |
-| Route groups | ❌ | ✅ | ✅ | ✅ | ✅ |
-| Binding + validation | ❌ | ❌ | ✅ | ✅ | ✅ |
-| Lock-in | none | none | real | real | **total** |
-
-Fiber is built on fasthttp and is **not** `net/http` compatible — you lose the entire middleware, tracing and metrics ecosystem for throughput you almost certainly don't need.
-
-## What Go does badly here
-
-- **No request validation in the stdlib.** You write it, or take `go-playground/validator`, or use Gin's binding
-- **No dependency injection.** Deliberate, and it means wiring is explicit and verbose
-- **`ResponseWriter` has no status getter** — a genuine design wart, and the reason every logging middleware wraps it
-- **ORMs are weak by comparison.** `sqlc` is the good answer; GORM works and generates SQL you didn't write
-- **Error handling is manual.** No `@ControllerAdvice`; you write the error→status switch. More code, and no framework knowledge needed to read it
-
-## Lesson plan
-
-This subject builds **one production backend** from the first lesson to the last, the net/http way: a food-ordering API with a well-designed REST interface, GraphQL, an MCP server for AI assistants, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson. A link means a lesson already covers it, at least in part; the rest are still to write.
+## Lessons
 
 **Part 1: the core backend**
 
-1. **What net/http is and a first server**: `http.Handler`, and why `ListenAndServe` has no timeouts — written in part: [[backend/frameworks/net-http/01-net-http-in-depth|`net/http` in Depth]]
-2. **Routing**: Go 1.22 `ServeMux` patterns: methods and path wildcards — written in part: [[backend/frameworks/net-http/01-net-http-in-depth|`net/http` in Depth]]
-3. **Middleware**: `func(Handler) Handler`, and wrapping `ResponseWriter` correctly — written in part: [[backend/frameworks/net-http/02-middleware-as-composition|Middleware as Composition]]
-4. **Structure**: package layout, handlers as methods — written in part: [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go Service]]
-5. **Wiring**: DI in `main`, interfaces declared by the consumer — written in part: [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go Service]]
-6. **Input validation**: strict JSON decoding, `go-playground/validator`
-7. **Errors and structured responses**: mapping errors to status codes in one place, and one response shape for success and failure — written in part: [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go Service]]
-8. **Data**: `database/sql`, pool settings, sqlc, migrations — written in part: [[backend/frameworks/net-http/04-database-access|Database Access]]
+1. [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|What net/http Is, and Your First Server]]: a Go module, the `Handler` interface, writing status, headers and body in order, and why `ListenAndServe` has no timeouts.
+2. [[backend/frameworks/net-http/02-routing|Routing]]: Go 1.22 patterns, path values, query values, bodies, status codes, which pattern wins, and a mutex proved with the race detector.
+3. [[backend/frameworks/net-http/03-middleware|Middleware]]: `func(Handler) Handler`, logging with a status recorder, catching panics, a staff key, and why order is behaviour.
+4. [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go Service]]: `cmd/` and `internal/`, feature packages, handlers as methods, sentinel errors, and the one-way import rule.
+5. [[backend/frameworks/net-http/05-wiring-dependencies|Wiring Dependencies]]: interfaces declared by the user, a clock as a dependency, `run` as the composition root, and the first table-driven tests.
+6. [[backend/frameworks/net-http/06-validation|Input Validation]]: strict JSON decoding, `MaxBytesReader`, `go-playground/validator`, a generic `Decode[T]`, and validation versus business rules.
+7. [[backend/frameworks/net-http/07-errors|Errors and Structured Responses]]: wrapping, one `apperr` type, handlers that return errors, problem details, request IDs in the context, and the `{ data }` envelope.
+8. [[backend/frameworks/net-http/08-data-with-postgres|Data with PostgreSQL]]: pgx and a connection pool, migrations, SQL injection, and a transaction so the last plate goes to one customer. *(an older reference note, being rewritten)*
 
 **Part 2: designing the API properly**
 
-9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with parsing `r.URL.Query()` into a filter struct, keyset pagination in SQL
-10. **Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with a mux per version, or header-based routing
-11. **API docs**: generating OpenAPI docs with an OpenAPI spec with oapi-codegen
+9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination, allow-lists, and turning query values into safe SQL. *(to write)*
+10. **Versioning**: breaking changes, the path, header, media-type and query styles, v1 and v2 side by side, and deprecating a version. *(to write)*
+11. **API docs with OpenAPI**: a spec, generated docs for both versions, and keeping it honest. *(to write)*
 
 **Part 3: who can do what**
 
-12. **Authentication**: JWT and session middleware, the user in `context`
-13. **Authorization**: roles and owning your own orders, with middleware and service checks for roles and ownership
-14. **Security**: CORS, rate limiting with `x/time/rate`, `MaxBytesReader` for uploads, idempotency
-15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
-16. **Testing**: `httptest`, fakes, table-driven tests — written in part: [[backend/frameworks/net-http/05-testing-and-production|Testing and Production]]
+12. **Authentication**: argon2id password hashing, sessions versus JWTs, rotating refresh tokens, and the user in the context. *(to write)*
+13. **Authorization**: a policy written once, role and ownership checks, and 401 versus 403 versus 404. *(to write)*
+14. **Security**: security headers, CORS, rate limiting with `x/time/rate`, trusting proxies, size limits and timeouts, and safe photo uploads. *(to write)*
+15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice. *(to write)*
+16. [[backend/frameworks/net-http/16-testing|Testing]]: `httptest`, fakes, table-driven tests, integration tests against a real database, and the race detector. *(an older reference note, being rewritten)*
 
 **Part 4: what real products need**
 
-17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
-18. **Background jobs and queues**: work the customer shouldn't wait for, with a worker pool, or asynq on Redis
-19. **Caching**: caching hot reads with go-redis, and keeping the cache honest
-20. **Real-time updates**: a live kitchen screen with server-sent events and WebSockets
+17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks to a delivery partner. *(to write)*
+18. **Background jobs and queues**: work the customer shouldn't wait for, on Redis. *(to write)*
+19. **Caching with Redis**: caching the menu with go-redis, and keeping the cache honest. *(to write)*
+20. **Real-time updates**: a live kitchen screen with server-sent events. *(to write)*
 
 **Part 5: other ways to talk**
 
-21. **GraphQL**: the same data as a GraphQL API with gqlgen, and when it beats REST
-22. **gRPC**: Protocol Buffers and a gRPC service with grpc-go
-23. **Building an MCP server**: the menu and orders as tools and resources an AI assistant can use, with the official Go SDK on `net/http`
-24. **MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits
+21. **GraphQL**: the same data as a GraphQL API with gqlgen, and when it beats REST. *(to write)*
+22. **gRPC**: Protocol Buffers and a gRPC service with grpc-go. *(to write)*
+23. **Building an MCP server**: the menu and orders as tools and resources an AI assistant can use, with the official Go SDK. *(to write)*
+24. **MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits. *(to write)*
 
 **Part 6: more than one service**
 
-25. **Splitting out a microservice**: a separate notifications service, events over NATS, the outbox pattern
-26. **Calling other services safely**: `http.Client` with timeouts and context, circuit breakers, service-to-service auth
+25. **Splitting out a microservice**: a separate notifications service, events, and the outbox pattern. *(to write)*
+26. **Calling other services safely**: timeouts and context, retries, circuit breakers, and service-to-service auth. *(to write)*
 
 **Part 7: production**
 
-27. **Observability**: logs, request IDs across services, metrics and tracing with slog, Prometheus and OpenTelemetry
-28. **Production config and Docker**: graceful shutdown, observability, containers; a scratch Docker image, Docker Compose for the whole system — written in part: [[backend/frameworks/net-http/05-testing-and-production|Testing and Production]]
-29. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
+27. **Observability**: `slog`, request IDs across services, Prometheus metrics and OpenTelemetry tracing. *(to write)*
+28. **Production config and Docker**: validated config, health checks, graceful shutdown, a tiny Docker image, and Docker Compose for the whole system. *(to write)*
+29. **CI and deployment**: GitHub Actions running the tests, migrations on deploy, deploying to a real server, and rolling back. *(to write)*
+
+## What to know
+
+- **Everything is `http.Handler`.** One interface with one method. A Chi router, your own function and every middleware in the ecosystem all satisfy it, so they fit together with no adapters.
+- **Never ship `http.ListenAndServe`.** It has no timeouts. Build an `http.Server` with them.
+- **Every request has its own goroutine.** Shared data needs a lock, or a database. Run with `-race` while you develop.
+- **Start with the standard library, add [[backend/frameworks/chi/index|Chi]] when route groups start hurting.** Chi uses the same types, so the move is mechanical.
+- **What Go makes you write yourself:** validation (or take `go-playground/validator`), the error-to-status mapping, and a `ResponseWriter` wrapper to see the status. Each is written once, in lessons 3, 6 and 7.
 
 ## Related
-- [[backend/frameworks/index|frameworks/]] — the same concepts across every stack
+
+- [[backend/frameworks/index|All frameworks]]
 - [[languages/02-go/index|The Go course]] — the language
-- [[backend/frameworks/axum/index|Axum]] — the other no-runtime option
-- [[networking/09-sockets-and-the-network-api|Sockets]] — what `net/http` sits on
+- [[backend/frameworks/chi/index|Chi]] — the same app with a router on top
+- [[backend/frameworks/gin/index|Gin]] — the same app with a full framework
+- [[backend/frameworks/express/index|Express]] — the same app in TypeScript
+- [[backend/index|The backend course]] — the ideas these lessons put into practice
+
+## About this subject
+
+Written for Go 1.24 or later. Lessons 1–7 were written in November 2026; the rest are being written in order. Until then, lessons 8 and 16 are older reference notes that cover the same ground more briefly.

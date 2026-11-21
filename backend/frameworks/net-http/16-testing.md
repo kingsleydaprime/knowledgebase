@@ -254,9 +254,9 @@ These two lines fix the most common Go-on-Kubernetes performance complaints, and
 ## The production checklist
 <!-- bite: 38879e3a-d498-4ebc-b988-1e154cf27fd9 -->
 
-1. **Server timeouts set** — `ReadHeaderTimeout` especially → [[backend/frameworks/net-http/01-net-http-in-depth|net/http]]
+1. **Server timeouts set** — `ReadHeaderTimeout` especially → [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|net/http]]
 2. **Graceful shutdown** on `SIGTERM`
-3. **`SetMaxOpenConns`** on the database pool → [[backend/frameworks/net-http/04-database-access|Database Access]]
+3. **`SetMaxOpenConns`** on the database pool → [[backend/frameworks/net-http/08-data-with-postgres|Database Access]]
 4. **Request body size capped** with `MaxBytesReader`
 5. **Panic recovery middleware** with stack logging
 6. **Structured logs with a request ID**
@@ -278,7 +278,7 @@ go test -race -cover ./...
 
 ## Related
 <!-- bite: e09e5250-1b0a-4dc5-b412-79d86c136a52 -->
-- [[backend/frameworks/net-http/01-net-http-in-depth|net/http in Depth]] — timeouts and shutdown
+- [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|net/http in Depth]] — timeouts and shutdown
 - [[languages/02-go/11-testing-and-benchmarking|Go: Testing and Benchmarking]] — the testing idioms
 - [[devops/07-observability/index|Observability]] · [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]]
 - [[backend/07-practices/02-testing-a-backend|Testing a Backend]] — the strategy behind this

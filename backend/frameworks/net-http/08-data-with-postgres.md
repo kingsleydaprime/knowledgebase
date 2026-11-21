@@ -219,7 +219,7 @@ func (s *Server) handleReady(w http.ResponseWriter, r *http.Request) {
 
 ## Related
 <!-- bite: 8084ecfd-bc4e-4c87-9db1-128f616c44ad -->
-- [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go Service]] — where the store fits
+- [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go Service]] — where the store fits
 - [[backend/04-data-and-persistence/index|Data and Persistence]] — the concepts
 - [[databases/sql-reference|SQL Reference]] · [[databases/database-design-reference|Database Design]]
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — pooling and connection limits
