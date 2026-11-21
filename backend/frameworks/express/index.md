@@ -47,7 +47,7 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 **Part 4: what real products need**
 
-17. **Payments and Webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks to a delivery partner. *(to write)*
+17. [[backend/frameworks/express/17-payments-and-webhooks|Payments and Webhooks]]: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks to a delivery partner.
 18. **Background Jobs and Queues**: BullMQ on Redis for work that shouldn't make the customer wait. *(to write)*
 19. **Caching with Redis**: caching the menu, and keeping the cache honest when it changes. *(to write)*
 20. **Real-time Updates**: a live kitchen screen with server-sent events. *(to write)*
