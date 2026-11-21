@@ -13,9 +13,15 @@ not just the first — its full meaning.
 
 Expanded: ordinary prose, list items, table cells.
 
-Left alone: `code`, `pre`, `a`, existing `abbr`, `script`, `style`, and every
-heading. That matters — a variable named `dfs` or a file called `API.md` must
-never be rewritten.
+Left alone: `code`, `pre`, `a`, existing `abbr`, `script`, `style`, every
+heading, and KaTeX output (`.katex`, `.katex-display`), **at any depth**. The
+plugin stops walking down as soon as it reaches one of these, so `[the **API**
+docs](…)` and `## Why *TLS* matters` stay untouched too. That matters — a
+variable named `dfs` or a file called `API.md` must never be rewritten, and a
+tooltip inside a heading breaks the table of contents.
+
+EruditeMe reads `glossary.json` straight from this folder, so keep its path and
+its flat `{ "TERM": "meaning" }` shape stable.
 
 ## Editing the list
 

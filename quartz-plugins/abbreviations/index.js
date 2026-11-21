@@ -5,19 +5,30 @@
  * wrapped in <abbr title="...">, so the full meaning appears on hover without
  * putting 167 KB of markup into the notes.
  *
- * Skips anything inside code, pre, a, abbr and headings, so identifiers such as
- * a variable called `dfs` or a filename are never touched.
+ * Skips anything inside code, pre, a, abbr, headings and KaTeX output, at any depth
+ * (so `[the **API** docs](...)` and `## Why *TLS* matters` stay untouched), and
+ * identifiers such as a variable called `dfs` or a filename are never touched.
  */
 import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { visit } from "unist-util-visit";
+import { visit, SKIP } from "unist-util-visit";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const GLOSSARY = JSON.parse(readFileSync(join(here, "glossary.json"), "utf8"));
 
-const SKIP = new Set(["code", "pre", "abbr", "a", "script", "style",
-                      "h1", "h2", "h3", "h4", "h5", "h6"]);
+const SKIP_TAGS = new Set(["code", "pre", "abbr", "a", "script", "style",
+                           "h1", "h2", "h3", "h4", "h5", "h6"]);
+const SKIP_CLASSES = ["katex", "katex-display"];
+
+// An element whose whole subtree is left alone. Checking here, while walking down,
+// covers every depth: a term inside <a><strong>…</strong></a> is never reached.
+function isSkipped(node) {
+  if (SKIP_TAGS.has(node.tagName)) return true;
+  const cls = node.properties?.className;
+  const classes = Array.isArray(cls) ? cls : typeof cls === "string" ? cls.split(/\s+/) : [];
+  return classes.some((c) => SKIP_CLASSES.includes(c));
+}
 
 // longest first, so "SCCs" is matched before "SCC"
 const TERMS = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
@@ -39,8 +50,9 @@ export const Abbreviations = (opts = {}) => {
     htmlPlugins() {
       return [
         () => (tree) => {
-          visit(tree, "text", (node, index, parent) => {
-            if (!parent || SKIP.has(parent.tagName)) return;
+          visit(tree, (node, index, parent) => {
+            if (node.type === "element" && isSkipped(node)) return SKIP;
+            if (node.type !== "text" || !parent) return;
             const value = node.value;
             if (!PATTERN.test(value)) return;
             PATTERN.lastIndex = 0;
