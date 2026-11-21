@@ -11,7 +11,17 @@ id: 2a1098f6-28b1-4d8e-a462-485573deebc3
 
 You should have the REST and GraphQL APIs from [[backend/frameworks/express/21-graphql|lesson 21]], both built on the same services.
 
-**What to install.**
+After this lesson you will be able to:
+
+1. Explain what gRPC gives services that JSON over HTTP doesn't, and why browsers rarely use it.
+2. Write a `.proto` file: a package, a service, messages, field numbers.
+3. Serve it from Node with `@grpc/grpc-js`, next to Express, using the same services.
+4. Turn our `AppError`s into gRPC status codes, and use deadlines.
+5. Call it from a Node client and from `grpcurl`, and stream messages from server to client.
+6. Change a `.proto` file safely, using the same rules as lesson 10.
+
+## What to install
+<!-- bite: aaddbd07-e420-4dfe-8d96-3ae9f5232b2a -->
 
 1. **Two npm packages**, in the `api` folder:
 
@@ -26,15 +36,6 @@ You should have the REST and GraphQL APIs from [[backend/frameworks/express/21-g
 3. **Not needed: `protoc`**, the Protocol Buffers compiler. Many gRPC tutorials start by installing it to generate code from `.proto` files. We don't generate code: `proto-loader` reads the `.proto` file at start-up instead (step 7 explains the trade-off). The `.proto` file in step 2 is just a text file you create, `proto/mamaput/menu/v1/menu.proto`.
 
 For syntax colours, install a Protocol Buffers extension in your editor (in VS Code, "vscode-proto3" or Buf's extension).
-
-After this lesson you will be able to:
-
-1. Explain what gRPC gives services that JSON over HTTP doesn't, and why browsers rarely use it.
-2. Write a `.proto` file: a package, a service, messages, field numbers.
-3. Serve it from Node with `@grpc/grpc-js`, next to Express, using the same services.
-4. Turn our `AppError`s into gRPC status codes, and use deadlines.
-5. Call it from a Node client and from `grpcurl`, and stream messages from server to client.
-6. Change a `.proto` file safely, using the same rules as lesson 10.
 
 ## Where we stopped
 <!-- bite: 265a2250-699d-49de-b896-23dcc943f0d2 -->
@@ -157,7 +158,7 @@ Where does the file live? In this repository for now, in its own `proto/` folder
 ## Step 3: the server
 <!-- bite: 46cec7cd-056d-4e76-aa30-92c2bb6aca77 -->
 
-You installed `@grpc/grpc-js` and `@grpc/proto-loader` in "Before you start". First, a file that loads the `.proto`.
+You installed `@grpc/grpc-js` and `@grpc/proto-loader` in "What to install". First, a file that loads the `.proto`.
 
 `src/grpc/load.ts`:
 

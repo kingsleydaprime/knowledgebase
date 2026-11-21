@@ -11,7 +11,18 @@ id: baf58e28-bf2d-4ee3-8bc7-9ce889173504
 
 You should have the whole of Parts 1 to 4, up to [[backend/frameworks/express/20-real-time|lesson 20]]. GraphQL here sits *beside* REST, on top of the same services, so everything you built is reused.
 
-**What to install.** Nothing outside npm. GraphQL is a language and a set of libraries; there's no separate server program or compiler to set up. In the `api` folder:
+After this lesson you will be able to:
+
+1. Read and write a GraphQL schema: types, queries, mutations, inputs, enums, nullability.
+2. Serve it from Express with GraphQL Yoga, using the same services, rules and permissions as REST.
+3. Fix the N+1 problem with DataLoader.
+4. Paginate with connections, turn `AppError`s into GraphQL errors, and handle field-level permissions.
+5. Protect a GraphQL API from expensive queries, and say when GraphQL beats REST and when it doesn't.
+
+## What to install
+<!-- bite: c9ea857c-cd00-4a53-a9f5-9250564b846e -->
+
+Nothing outside npm. GraphQL is a language and a set of libraries; there's no separate server program or compiler to set up. In the `api` folder:
 
 ```bash
 npm install graphql graphql-yoga dataloader
@@ -22,14 +33,6 @@ npm install graphql graphql-yoga dataloader
 3. **`dataloader`** batches database lookups (step 4).
 
 Step 6 adds one more, `@escape.tech/graphql-armor`, for query limits. The schema in step 1 is just a text file you create, `src/graphql/schema.graphql`; Yoga reads it when the app starts. For syntax colours in your editor, install a GraphQL extension (VS Code has an official one, "GraphQL: Language Feature Support").
-
-After this lesson you will be able to:
-
-1. Read and write a GraphQL schema: types, queries, mutations, inputs, enums, nullability.
-2. Serve it from Express with GraphQL Yoga, using the same services, rules and permissions as REST.
-3. Fix the N+1 problem with DataLoader.
-4. Paginate with connections, turn `AppError`s into GraphQL errors, and handle field-level permissions.
-5. Protect a GraphQL API from expensive queries, and say when GraphQL beats REST and when it doesn't.
 
 ## Where we stopped
 <!-- bite: 72db6839-0753-41c3-9eec-167164bea0cb -->
@@ -170,7 +173,7 @@ And the answer has exactly that shape. Nothing more.
 ## Step 2: GraphQL Yoga in Express
 <!-- bite: 272311b6-4f96-4407-9dc1-c10231653a91 -->
 
-You installed `graphql`, `graphql-yoga` and `dataloader` in "Before you start". Now `src/graphql/yoga.ts`:
+You installed `graphql`, `graphql-yoga` and `dataloader` in "What to install". Now `src/graphql/yoga.ts`:
 
 ```ts
 import { readFileSync } from "node:fs";
