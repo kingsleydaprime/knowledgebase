@@ -91,7 +91,7 @@ public class CreateOrderValidator : AbstractValidator<CreateOrder>
 }
 ```
 
-**Validate at the boundary** — the same argument as Pydantic in [[backend/frameworks/python/01-fastapi/index|FastAPI]] and zod in TypeScript. **Type annotations describe intent; only a validator enforces it at runtime** → [[languages/07-csharp/02-the-type-system|note 02]].
+**Validate at the boundary** — the same argument as Pydantic in [[backend/frameworks/python/01-fastapi|FastAPI]] and zod in TypeScript. **Type annotations describe intent; only a validator enforces it at runtime** → [[languages/07-csharp/02-the-type-system|note 02]].
 
 ## Errors → status codes
 <!-- bite: 3fc7f0ea-a141-4663-8bc2-8054ceda614f -->

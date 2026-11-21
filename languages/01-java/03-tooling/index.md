@@ -9,5 +9,5 @@ Everything around the code: building it, wiring it together, testing it, and see
 5. [[languages/01-java/03-tooling/05-logging-and-observability|Logging & Observability]] — SLF4J as the facade, Logback / Log4j2 / tinylog as implementations, the log-table pattern, throughput/latency metrics
 
 ## Related
-- [[languages/01-java/05-web-and-api/index|Web & API]] — where DI and these tools get applied
+- [[languages/01-java/05-web-and-api|Web & API]] — where DI and these tools get applied
 - [[languages/01-java/index|Java course index]]

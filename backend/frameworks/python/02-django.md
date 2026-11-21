@@ -134,7 +134,7 @@ Django added ASGI support (3.0+) and async views (3.1+), and it's genuinely part
 
 **Calling the sync ORM from an async view raises `SynchronousOnlyOperation`** unless wrapped in `sync_to_async`. Mixing the two is where the sharp edges are.
 
-**Practically: run Django sync unless you have a specific reason.** Its threaded, process-per-worker model is well understood and fine for most loads. If you need heavy async I/O, that's a point for [[backend/frameworks/python/01-fastapi/index|FastAPI]].
+**Practically: run Django sync unless you have a specific reason.** Its threaded, process-per-worker model is well understood and fine for most loads. If you need heavy async I/O, that's a point for [[backend/frameworks/python/01-fastapi|FastAPI]].
 
 ## What it does badly, honestly
 <!-- bite: 9387a215-a7be-44de-9949-1cdc10ceb51d -->
@@ -149,7 +149,7 @@ Django added ASGI support (3.0+) and async views (3.1+), and it's genuinely part
 
 ## Related
 <!-- bite: a19261d9-6896-4a55-9fe0-7ecf4ec32ba4 -->
-- [[backend/frameworks/python/01-fastapi/index|FastAPI]] — the opposite trade
+- [[backend/frameworks/python/01-fastapi|FastAPI]] — the opposite trade
 - [[backend/frameworks/python/index|Python backends]] — how to choose
 - [[databases/index|databases]] — what the ORM is generating
 - [[backend/04-data-and-persistence/index|data and persistence]] — ORMs in general

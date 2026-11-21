@@ -130,7 +130,7 @@ def process(value: str | None) -> str:
 ## The honest limits
 <!-- bite: 4d074922-1ab6-4e9b-bef1-1b0f4ba6eb6c -->
 
-- **No runtime enforcement.** Data from an API, a file or a form is unchecked, whatever you annotated. Validate at the boundary — `pydantic` does this, and it's why FastAPI is built on it → [[backend/frameworks/python/01-fastapi/index|FastAPI]]
+- **No runtime enforcement.** Data from an API, a file or a form is unchecked, whatever you annotated. Validate at the boundary — `pydantic` does this, and it's why FastAPI is built on it → [[backend/frameworks/python/01-fastapi|FastAPI]]
 - **Dynamic idioms resist typing.** Heavy `getattr`, monkey-patching and metaclasses fight the checker
 - **Third-party stubs vary.** Some libraries ship types; others need `types-requests`-style stub packages; some have nothing
 - **Annotations can be wrong.** They're checked against each other, not against reality

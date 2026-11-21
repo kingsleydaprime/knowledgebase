@@ -8,7 +8,7 @@ Three genuinely co-equal frameworks, which is why this takes the **folder shape*
 
 ## The three
 
-| | [[backend/frameworks/python/01-fastapi/index\|FastAPI]] | [[backend/frameworks/python/02-django/index\|Django]] | [[backend/frameworks/python/03-flask/index\|Flask]] |
+| | [[backend/frameworks/python/01-fastapi\|FastAPI]] | [[backend/frameworks/python/02-django\|Django]] | [[backend/frameworks/python/03-flask\|Flask]] |
 |---|---|---|---|
 | **Model** | ASGI, **async** | WSGI (ASGI partial) | WSGI, **sync** |
 | **Batteries** | validation + DI + docs | **everything** | routing only |
@@ -32,19 +32,19 @@ Three genuinely co-equal frameworks, which is why this takes the **folder shape*
 
 ## Reading order
 
-1. [[backend/frameworks/python/01-fastapi/index|FastAPI]] — **[Intermediate]** — type hints as the runtime contract, `Depends()`, Pydantic, **and the blocking-call bug everybody ships**
-2. [[backend/frameworks/python/02-django/index|Django]] — **[Intermediate]** — apps, the ORM and migrations, the admin, DRF, **and the N+1 problem**
-3. [[backend/frameworks/python/03-flask/index|Flask]] — **[Intermediate]** — blueprints, the application factory, **and the context locals that explain "working outside of request context"**
+1. [[backend/frameworks/python/01-fastapi|FastAPI]] — **[Intermediate]** — type hints as the runtime contract, `Depends()`, Pydantic, **and the blocking-call bug everybody ships**
+2. [[backend/frameworks/python/02-django|Django]] — **[Intermediate]** — apps, the ORM and migrations, the admin, DRF, **and the N+1 problem**
+3. [[backend/frameworks/python/03-flask|Flask]] — **[Intermediate]** — blueprints, the application factory, **and the context locals that explain "working outside of request context"**
 
 ## The things worth carrying
 
-1. **In FastAPI, `async def` with a blocking call inside freezes every concurrent request.** Use plain `def` and let the threadpool handle it → [[backend/frameworks/python/01-fastapi/index|FastAPI]]
-2. **Pydantic parses rather than validates** — it's where type hints stop being advisory and become enforcement → [[backend/frameworks/python/01-fastapi/index|FastAPI]]
-3. **`select_related` / `prefetch_related`, or you have an N+1.** Watch the query count on every page you build → [[backend/frameworks/python/02-django/index|Django]]
-4. **Read generated migrations before applying** — a rename detected as drop-and-create is data loss → [[backend/frameworks/python/02-django/index|Django]]
-5. **Django's fat-model convention couples domain logic to persistence.** Productive small, painful large → [[backend/frameworks/python/02-django/index|Django]]
-6. **Use Flask's application factory from the start**, or your tests can't configure the app → [[backend/frameworks/python/03-flask/index|Flask]]
-7. **`request` in Flask is a context-local proxy, not a global** — which is why background threads raise → [[backend/frameworks/python/03-flask/index|Flask]]
+1. **In FastAPI, `async def` with a blocking call inside freezes every concurrent request.** Use plain `def` and let the threadpool handle it → [[backend/frameworks/python/01-fastapi|FastAPI]]
+2. **Pydantic parses rather than validates** — it's where type hints stop being advisory and become enforcement → [[backend/frameworks/python/01-fastapi|FastAPI]]
+3. **`select_related` / `prefetch_related`, or you have an N+1.** Watch the query count on every page you build → [[backend/frameworks/python/02-django|Django]]
+4. **Read generated migrations before applying** — a rename detected as drop-and-create is data loss → [[backend/frameworks/python/02-django|Django]]
+5. **Django's fat-model convention couples domain logic to persistence.** Productive small, painful large → [[backend/frameworks/python/02-django|Django]]
+6. **Use Flask's application factory from the start**, or your tests can't configure the app → [[backend/frameworks/python/03-flask|Flask]]
+7. **`request` in Flask is a context-local proxy, not a global** — which is why background threads raise → [[backend/frameworks/python/03-flask|Flask]]
 8. **None of the three gives you a service layer.** Layering is yours in all cases → [[backend/03-structuring-a-backend/index|structuring a backend]]
 
 ## Read this first

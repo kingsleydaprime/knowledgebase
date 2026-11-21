@@ -142,7 +142,7 @@ gunicorn app.main:app -k uvicorn.workers.UvicornWorker -w 4   # prod
 
 ## Related
 <!-- bite: 772e2cf4-e72e-43b2-88d2-e98c3b68a360 -->
-- [[backend/frameworks/python/02-django/index|Django]] — the opposite trade
+- [[backend/frameworks/python/02-django|Django]] — the opposite trade
 - [[backend/frameworks/python/index|Python backends]] — the comparison
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — why the blocking rule exists
 - [[backend/02-api-design/01-apis-and-rest|APIs and REST]] — what you're building
