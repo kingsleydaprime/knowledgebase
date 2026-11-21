@@ -368,7 +368,7 @@ console.log("wrote openapi/v1.json and openapi/v2.json");
 "openapi": "node src/docs/write.ts"
 ```
 
-Now every change to the API shows up as a change to `openapi/v2.json` in your git diff. A reviewer can see "this pull request removes `portionsLeft` from v2", which is a breaking change, before it ships. In [[backend/frameworks/express/27-ci-and-deployment|lesson 27]], CI fails if the committed file doesn't match the code.
+Now every change to the API shows up as a change to `openapi/v2.json` in your git diff. A reviewer can see "this pull request removes `portionsLeft` from v2", which is a breaking change, before it ships. In [[backend/frameworks/express/29-ci-and-deployment|lesson 29]], CI fails if the committed file doesn't match the code.
 
 **2. Lint it.** A linter checks the document follows the OpenAPI rules and common good practice:
 

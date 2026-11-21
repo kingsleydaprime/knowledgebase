@@ -121,7 +121,7 @@ app.use(
 3. **`exposedHeaders`**: by default, browser code can only read a few response headers. We let the dashboard read the request ID and the deprecation headers.
 4. **`maxAge: 600`**: before a "non-simple" request (one with `Authorization`, say), the browser sends an `OPTIONS` **preflight** asking "may I?". `maxAge` lets it remember the answer for 10 minutes instead of asking every time.
 
-Never write `origin: "*"` together with credentials. And move the origin list to config in [[backend/frameworks/express/26-production-config-and-docker|lesson 26]], since staging and production have different websites.
+Never write `origin: "*"` together with credentials. And move the origin list to config in [[backend/frameworks/express/28-production-config-and-docker|lesson 28]], since staging and production have different websites.
 
 ## Step 3: rate limiting
 <!-- bite: a59e0729-ef59-4167-8578-8a7676d8ae4a -->
@@ -285,16 +285,16 @@ if (err instanceof multer.MulterError) {
 
 Serve the photos as plain files from their own folder: `app.use("/photos", express.static("uploads/photos"))`. Because of `nosniff`, a browser treats each one as exactly the image type the server says.
 
-Two steps further, for later. Real systems **re-encode** every uploaded image (with a library like `sharp`), which throws away anything hidden inside it and strips the location data phones put in photos. And they store files in **object storage** (Amazon S3, Cloudflare R2, Google Cloud Storage), not on the server's own disk, so every copy of the app sees every photo. When we put the app in containers in [[backend/frameworks/express/26-production-config-and-docker|lesson 26]], the local disk stops being a safe place for anything that must last.
+Two steps further, for later. Real systems **re-encode** every uploaded image (with a library like `sharp`), which throws away anything hidden inside it and strips the location data phones put in photos. And they store files in **object storage** (Amazon S3, Cloudflare R2, Google Cloud Storage), not on the server's own disk, so every copy of the app sees every photo. When we put the app in containers in [[backend/frameworks/express/28-production-config-and-docker|lesson 28]], the local disk stops being a safe place for anything that must last.
 
 ## Step 6: the boring things that matter
 <!-- bite: b55e579e-9313-44a2-ba6f-c487820b9c9a -->
 
 1. **HTTPS everywhere.** Tokens and passwords travel in every request. In production, the proxy handles HTTPS, and HSTS (from helmet) keeps browsers on it.
-2. **Never log secrets.** No `Authorization` headers, no passwords, no refresh tokens in logs. When we add a real logger in lesson 25, we'll tell it to hide those fields.
-3. **Keep dependencies patched.** `npm audit` lists packages with known holes. Most attacks on small companies use bugs that already have fixes. In lesson 27, a bot opens a pull request when an update is available.
+2. **Never log secrets.** No `Authorization` headers, no passwords, no refresh tokens in logs. When we add a real logger in lesson 27, we'll tell it to hide those fields.
+3. **Keep dependencies patched.** `npm audit` lists packages with known holes. Most attacks on small companies use bugs that already have fixes. In lesson 29, a bot opens a pull request when an update is available.
 4. **Commit the lockfile.** `package-lock.json` makes sure production installs exactly what you tested, not "whatever's newest today".
-5. **Give each part the least power it needs.** The app's database user should not be allowed to drop tables. (Lesson 26 does this with a separate migration user.)
+5. **Give each part the least power it needs.** The app's database user should not be allowed to drop tables. (Lesson 28 does this with a separate migration user.)
 
 ## The TypeScript in this lesson
 <!-- bite: aeba8bcf-54e9-4b12-a233-d73d1aa19b77 -->

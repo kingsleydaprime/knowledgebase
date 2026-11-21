@@ -238,7 +238,7 @@ export function requestId(req: Request, res: Response, next: NextFunction) {
 }
 ```
 
-Every response now carries an `X-Request-Id` header. Put it first in `createApp`, before the logger, and make the logger print it too. [[backend/frameworks/express/25-observability|Lesson 25]] takes this further, passing the same ID from service to service.
+Every response now carries an `X-Request-Id` header. Put it first in `createApp`, before the logger, and make the logger print it too. [[backend/frameworks/express/27-observability|Lesson 27]] takes this further, passing the same ID from service to service.
 
 ## Step 5: one error handler for everything
 <!-- bite: ecbad8b6-0eec-4b2a-8038-fc0bd587bff8 -->

@@ -258,7 +258,7 @@ Three details that matter:
 
 1. **The role is inside the access token**, from lesson 12. So after Mama demotes a cook, his *current* token still says `staff` for up to 15 minutes. Revoking his refresh tokens means that when it expires, he can't get a new one with the old role; he has to log in again and gets a token with his new role. If even 15 minutes is too long for your business, check the role from the database on dangerous actions. Short tokens are a trade between speed and how quickly changes take effect.
 2. **An admin can't demote themselves**, so Mama Put can never end up with zero admins by accident.
-3. **Role changes are logged**, with who did it. Who changed permissions, and when, is exactly what you need to know after something goes wrong. In [[backend/frameworks/express/25-observability|lesson 25]] it becomes a proper audit log.
+3. **Role changes are logged**, with who did it. Who changed permissions, and when, is exactly what you need to know after something goes wrong. In [[backend/frameworks/express/27-observability|lesson 27]] it becomes a proper audit log.
 
 How does the first admin get made? Once, by hand: `UPDATE users SET role = 'admin' WHERE email = 'mama@example.com'`, or a one-off script. Never a route that anyone can call "if there are no admins yet". That route will be found.
 

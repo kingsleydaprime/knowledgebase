@@ -343,7 +343,7 @@ curl -si http://localhost:3000/v1/menu/1 | head -8
 # Link: <https://mamaput.example/docs/moving-to-v2>; rel="deprecation"
 ```
 
-**2. Measure who's still on it.** That `console.info` line is a log event for every v1 request, with the client's user agent. In [[backend/frameworks/express/25-observability|lesson 25]] it becomes a proper metric: "v1 requests per day". You switch v1 off when that number is near zero, not when the calendar says so.
+**2. Measure who's still on it.** That `console.info` line is a log event for every v1 request, with the client's user agent. In [[backend/frameworks/express/27-observability|lesson 27]] it becomes a proper metric: "v1 requests per day". You switch v1 off when that number is near zero, not when the calendar says so.
 
 **3. Tell people directly.** Headers are for programs. Humans need an email, a changelog entry, a note in the docs. If the phone app is yours, ship an update that moves to v2 *before* the sunset, and maybe a "please update" screen when v1 calls start returning deprecation headers.
 
@@ -355,7 +355,7 @@ curl -si http://localhost:3000/v1/menu/1 | head -8
 Versioning isn't only for REST routes. Anything other programs depend on has a shape, and shapes need versions:
 
 1. **Webhooks you send** (lesson 17): partners' code reads your payloads, so version them too.
-2. **Events between services** (lesson 23): the notifications service reads `order.placed`. Change its shape, and you break it. Events carry a version number.
+2. **Events between services** (lesson 25): the notifications service reads `order.placed`. Change its shape, and you break it. Events carry a version number.
 3. **gRPC** (lesson 22): Protocol Buffers have their own rules for safe changes, and you'll see they're the same rules as Step 1.
 
 ## The TypeScript in this lesson

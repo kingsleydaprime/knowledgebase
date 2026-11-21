@@ -60,7 +60,7 @@ docker run --name mama-put-db -d \
   -p 5432:5432 postgres:17
 ```
 
-(With Podman, write `podman` instead of `docker`; everything else is the same.) That starts Postgres in the background, with a database called `mama_put`, listening on port 5432. In [[backend/frameworks/express/26-production-config-and-docker|lesson 26]] the whole system starts with one Docker Compose command. For now, one container is enough.
+(With Podman, write `podman` instead of `docker`; everything else is the same.) That starts Postgres in the background, with a database called `mama_put`, listening on port 5432. In [[backend/frameworks/express/28-production-config-and-docker|lesson 28]] the whole system starts with one Docker Compose command. For now, one container is enough.
 
 Install the Postgres client library for Node, and its types:
 
@@ -99,7 +99,7 @@ Node can read `.env` files itself. Update the scripts in `package.json`:
 }
 ```
 
-`--env-file=.env` loads the file into `process.env` before your code runs, so `process.env.DATABASE_URL` holds the string. In [[backend/frameworks/express/26-production-config-and-docker|lesson 26]] we check every setting properly when the app starts.
+`--env-file=.env` loads the file into `process.env` before your code runs, so `process.env.DATABASE_URL` holds the string. In [[backend/frameworks/express/28-production-config-and-docker|lesson 28]] we check every setting properly when the app starts.
 
 ## Step 3: the tables, as migrations
 <!-- bite: 0d3cd574-d14f-462f-ba4a-afbade31bfca -->
@@ -605,7 +605,7 @@ Then stop the app, start it again, and `curl http://localhost:3000/orders/1`. Th
 11. **`async function inTransaction<T>(..., work: (tx: pg.PoolClient) => Promise<T>): Promise<T>`**: Generic again. `T` is whatever your `work` returns. Pass work that returns an `Order | null`, and `inTransaction` returns `Promise<Order | null>`. One helper, any result type.
 12. **`try { } catch { } finally { }`**: `try` runs the code; `catch` runs only if something threw; `finally` runs **no matter what**, success or failure. That's why `client.release()` lives in `finally`.
 13. **`Order["status"]`**: The type of the `status` field of `Order`, so the row type reuses `"pending" | "ready" | "collected"` instead of repeating it.
-14. **`process.env.STAFF_KEY ?? ""`**: Use the setting, or an empty text if it's missing. (An empty key means nobody gets in, which is the safe direction. Lesson 26 refuses to start without it.)
+14. **`process.env.STAFF_KEY ?? ""`**: Use the setting, or an empty text if it's missing. (An empty key means nobody gets in, which is the safe direction. Lesson 28 refuses to start without it.)
 
 ## Your project so far
 <!-- bite: 999bf21d-21fc-48a9-a3f4-3cba4600f878 -->

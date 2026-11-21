@@ -339,7 +339,7 @@ Idempotency is a promise between both sides. The phone app's half:
 
 1. **Make a new key when the customer acts**, not per request. One tap of "Place order" is one key.
 2. **Reuse that key on every retry** of that action, even after an app restart if it can (save it with the unsent order).
-3. **Retry with growing gaps**: wait 1 second, then 2, then 4, with a little randomness, so a struggling server isn't hammered by every phone at once. [[backend/frameworks/express/24-calling-services-safely|Lesson 24]] builds exactly this for our own services.
+3. **Retry with growing gaps**: wait 1 second, then 2, then 4, with a little randomness, so a struggling server isn't hammered by every phone at once. [[backend/frameworks/express/26-calling-services-safely|Lesson 26]] builds exactly this for our own services.
 4. **On 409 `request-in-progress`**, wait `Retry-After` seconds and try again.
 
 ## The TypeScript in this lesson

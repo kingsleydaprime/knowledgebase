@@ -20,7 +20,7 @@
 
 ## Lesson plan
 
-This subject builds **one production backend** from the first lesson to the last, the Django way: a food-ordering API with a well-designed REST interface, GraphQL, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson. A link means a lesson already covers it, at least in part; the rest are still to write.
+This subject builds **one production backend** from the first lesson to the last, the Django way: a food-ordering API with a well-designed REST interface, GraphQL, an MCP server for AI assistants, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson. A link means a lesson already covers it, at least in part; the rest are still to write.
 
 **Part 1: the core backend**
 
@@ -58,17 +58,19 @@ This subject builds **one production backend** from the first lesson to the last
 
 21. **GraphQL**: the same data as a GraphQL API with Strawberry Django, and when it beats REST
 22. **gRPC**: Protocol Buffers and a gRPC service with grpcio with Django models
+23. **Building an MCP server**: the menu and orders as tools and resources an AI assistant can use, with the official Python SDK's ASGI app, mounted beside Django
+24. **MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits
 
 **Part 6: more than one service**
 
-23. **Splitting out a microservice**: a separate notifications service, events over Celery events or RabbitMQ, the outbox pattern
-24. **Calling other services safely**: httpx with timeouts and retries, circuit breakers, service-to-service auth
+25. **Splitting out a microservice**: a separate notifications service, events over Celery events or RabbitMQ, the outbox pattern
+26. **Calling other services safely**: httpx with timeouts and retries, circuit breakers, service-to-service auth
 
 **Part 7: production**
 
-25. **Observability**: logs, request IDs across services, metrics and tracing with django-prometheus and OpenTelemetry
-26. **Production config and Docker**: the admin, the `DEBUG=False` checklist, static files, gunicorn or ASGI, Celery for background jobs; Docker with gunicorn, `collectstatic` and migrations, Docker Compose for the whole system — written in part: [[backend/frameworks/django/01-django|Django]]
-27. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
+27. **Observability**: logs, request IDs across services, metrics and tracing with django-prometheus and OpenTelemetry
+28. **Production config and Docker**: the admin, the `DEBUG=False` checklist, static files, gunicorn or ASGI, Celery for background jobs; Docker with gunicorn, `collectstatic` and migrations, Docker Compose for the whole system — written in part: [[backend/frameworks/django/01-django|Django]]
+29. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|All frameworks]]

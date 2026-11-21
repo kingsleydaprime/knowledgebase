@@ -8,12 +8,12 @@
 
 The whole subject builds **one** app, a step at a time: **Mama Put API**, the backend for a roadside food seller whose customers now order on their phones.
 
-It starts in lesson 1 as a server that answers "Mama Put is open!". By lesson 27 it's a production system:
+It starts in lesson 1 as a server that answers "Mama Put is open!". By lesson 29 it's a production system:
 
 1. A main API with a menu, orders, customer accounts and kitchen-staff roles, stored in PostgreSQL.
 2. A well-designed API: one response shape everywhere, pagination, filtering, searching, sorting and field selection, two versions running side by side, and OpenAPI docs.
 3. Payments through Paystack, webhooks in and out, idempotency so nothing happens twice, background jobs, Redis caching, and a kitchen screen that shows new orders live.
-4. The same data offered over **GraphQL**, and a **second service** for notifications that the main API talks to over events and **gRPC**, so you learn how microservices talk and how they fail.
+4. The same data offered over **GraphQL**, and as an **MCP server** so AI assistants can browse the menu and place orders for a customer, and a **second service** for notifications that the main API talks to over events and **gRPC**, so you learn how microservices talk and how they fail.
 5. Tests at every level, logs, metrics and tracing across both services, Docker for the whole system, and automatic deployment when you push.
 
 Every lesson ends with **your project so far** (the folder tree and what each file holds) and explains **the TypeScript it used**, so you don't need to know the language well before you start.
@@ -56,17 +56,19 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 21. **GraphQL**: the same menu and orders as a GraphQL API, and when it beats REST. *(to write)*
 22. **gRPC**: Protocol Buffers, a gRPC service in Node, and why services use it to talk to each other. *(to write)*
+23. **Building an MCP Server**: the menu and orders as tools and resources an AI assistant can use, mounted in the same Express app over Streamable HTTP. *(to write)*
+24. **MCP in Production**: logging in as the customer (OAuth for MCP), the same permissions as every other route, prompt injection, confirming before an AI spends money, and rate limits. *(to write)*
 
 **Part 6: more than one service**
 
-23. **Splitting Out a Microservice**: a separate notifications service, events like `order.placed`, and the outbox pattern. *(to write)*
-24. **Calling Other Services Safely**: gRPC calls with timeouts, retries, circuit breakers, and service-to-service auth. *(to write)*
+25. **Splitting Out a Microservice**: a separate notifications service, events like `order.placed`, and the outbox pattern. *(to write)*
+26. **Calling Other Services Safely**: gRPC calls with timeouts, retries, circuit breakers, and service-to-service auth. *(to write)*
 
 **Part 7: production**
 
-25. **Observability**: structured logs with pino, request IDs across services, metrics and tracing. *(to write)*
-26. **Production Config and Docker**: validated config, health checks, graceful shutdown, a Dockerfile, and Docker Compose for the whole system. *(to write)*
-27. **CI and Deployment**: GitHub Actions running the tests, migrations on deploy, deploying to a real server, and rolling back. *(to write)*
+27. **Observability**: structured logs with pino, request IDs across services, metrics and tracing. *(to write)*
+28. **Production Config and Docker**: validated config, health checks, graceful shutdown, a Dockerfile, and Docker Compose for the whole system. *(to write)*
+29. **CI and Deployment**: GitHub Actions running the tests, migrations on deploy, deploying to a real server, and rolling back. *(to write)*
 
 ## What to know
 

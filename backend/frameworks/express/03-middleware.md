@@ -192,7 +192,7 @@ Most real apps use a few middleware written by other people. You've met the buil
 2. `express.urlencoded()` reads HTML form bodies.
 3. `express.static("public")` serves files, like images, from a folder.
 
-And you'll add some from npm later: `helmet` for security headers and `cors` for browser access ([[backend/frameworks/express/14-security|lesson 14]]), and `pino-http` for proper logs ([[backend/frameworks/express/25-observability|lesson 25]]). They're all the same shape, `(req, res, next)`, which is why they plug straight in with `app.use`.
+And you'll add some from npm later: `helmet` for security headers and `cors` for browser access ([[backend/frameworks/express/14-security|lesson 14]]), and `pino-http` for proper logs ([[backend/frameworks/express/27-observability|lesson 27]]). They're all the same shape, `(req, res, next)`, which is why they plug straight in with `app.use`.
 
 ## The two special ones at the end
 <!-- bite: 3f2f2e72-1cf0-4874-8ae6-c0a95a449e59 -->

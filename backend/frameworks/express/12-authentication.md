@@ -110,7 +110,7 @@ Once Ada has logged in, how does the next request prove it's her? Two main ways:
 
 **Tokens (JWTs).** The server signs a small message ("user 42, customer, expires 15:00") and gives it to the client. Every request sends it in a header. The server checks the signature, with no lookup.
 
-1. No lookup per request, and any service with the key can check it, which matters when we add a second service in lesson 23.
+1. No lookup per request, and any service with the key can check it, which matters when we add a second service in lesson 25.
 2. Fits phone apps and other programs best.
 3. Hard to end early: a signed token stays valid until it expires, even if you change your mind.
 
