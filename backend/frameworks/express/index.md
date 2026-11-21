@@ -33,9 +33,9 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 **Part 2: designing the API properly**
 
-9. **Pagination, Filtering, Searching, Sorting and Field Selection**: offset and cursor pagination, and turning query parameters into safe SQL. *(to write)*
-10. **Versioning**: in the path, in a header, by media type and by query parameter; running v1 and v2 side by side; deprecating a version. *(to write)*
-11. **API Docs with OpenAPI**: generating the spec from the zod schemas, and serving interactive docs. *(to write)*
+9. [[backend/frameworks/express/09-listing|Pagination, Filtering, Searching, Sorting and Field Selection]]: offset and cursor pagination, allow-lists, and turning query parameters into safe SQL.
+10. [[backend/frameworks/express/10-versioning|Versioning]]: breaking changes, the path, header, media-type and query styles, v1 and v2 side by side, and deprecating a version.
+11. [[backend/frameworks/express/11-api-docs|API Docs with OpenAPI]]: generating the spec from the zod schemas, interactive docs for both versions, and keeping it honest.
 
 **Part 3: who can do what**
 
@@ -85,4 +85,4 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 ## About this subject
 
-Written for Express 5 and Node.js 23.6 or later, which runs TypeScript directly with no build step. Lessons 1–8 were written in November 2026; the rest follow in order. Until November 2026 Express shared a subject with Node.js and NestJS, and it had only one note.
+Written for Express 5 and Node.js 23.6 or later, which runs TypeScript directly with no build step. Lessons 1–11 were written in November 2026; the rest follow in order. Until November 2026 Express shared a subject with Node.js and NestJS, and it had only one note.
