@@ -1,3 +1,7 @@
+---
+id: 8d263aec-67a7-4c78-8e8b-c6e94917be18
+---
+
 # sed and awk
 
 The two stream processors. `grep` finds lines; `sed` and `awk` *transform* them.
@@ -12,6 +16,7 @@ Assumes [[devops/01-linux/15-rhcsa/14-text-processing-and-searching|text process
 ---
 
 ## Which tool for which job
+<!-- bite: 3db492ca-df88-42e5-8e7e-ee987f14e5da -->
 
 | Need | Tool |
 |---|---|
@@ -26,6 +31,7 @@ you find yourself writing an `awk` program longer than a few lines, switch to Py
 ---
 
 ## sed — the stream editor
+<!-- bite: 92805029-cb2b-43dd-a087-92367de4cf76 -->
 
 `sed` reads input line by line, applies commands, and prints the result. It does **not**
 modify files unless you tell it to.
@@ -147,6 +153,7 @@ echo "hello" | sed 's/.*/[&]/'    # → [hello]
 ---
 
 ## awk — the column processor
+<!-- bite: 42775dea-3fb7-4d2c-83cf-2ec3c13f012d -->
 
 `awk` splits each line into fields and runs a program against them. Where `sed` thinks in
 lines, `awk` thinks in **records and fields**.
@@ -246,6 +253,7 @@ The fix is to anchor `START` (`^`) to the one line you mean. The same applies to
 `diff <(old) <(new)` is what exposed it.
 
 ## Combining them
+<!-- bite: 7112a5b4-cfaf-4c20-86c2-28405c6127a0 -->
 
 The pipeline idiom: `grep` narrows, `sed` reshapes, `awk` computes.
 
@@ -264,11 +272,13 @@ the signal to stop and write a script instead.
 ---
 
 ## Related
+<!-- bite: 31a65615-fb84-405f-9bc6-df362553e1f3 -->
 - [[devops/01-linux/15-rhcsa/14-text-processing-and-searching|text processing]] — grep, find, sort, uniq, cut
 - [[devops/01-linux/12-bash-scripting|bash scripting]] — heredocs, `set -euo pipefail`, functions
 - [[devops/01-linux/linux-reference|linux-reference]] — lookup reference
 
 ## Seen in the wild
+<!-- bite: 964205db-6101-4931-9ee6-b6aee52b0e98 -->
 - [[projects/mypaddie/learning/04-shell|mypaddie: shell]] — `awk` range + `sed` + `diff <(…) <(…)` to re-create a SQL function from its latest migration, and the re-opening range gotcha above
 - [[projects/arete/learning/devops/08-sed-and-awk|arete: sed & awk]] — a deeper treatment written against real files
 - [[projects/arete/learning/devops/07-regex-from-zero-to-advanced|arete: regex from zero to advanced]] — the regex layer underneath

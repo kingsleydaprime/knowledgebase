@@ -1,8 +1,13 @@
+---
+id: 1e44d1db-1f1e-45b3-b22b-d76c895016d5
+---
+
 # Turing Machines
 
 **[Intermediate → Advanced]** — Unbounded memory, and therefore everything computable. The model that defines the word.
 
 ## The machine
+<!-- bite: 5ded258e-f477-470f-89e8-eb7b0bf37dfe -->
 
 **A finite control plus an infinite tape.** The head reads a symbol, writes a symbol, and moves one cell left or right.
 
@@ -27,6 +32,7 @@ $$\delta: Q\times\Gamma \to Q\times\Gamma\times\{L,R\}$$
 **A stack forces you to destroy data to reach what's underneath. A tape lets you revisit.** That's what unlocks everything else.
 
 ## Why it's the right model
+<!-- bite: 2b55449b-9251-4e39-be07-4a4c7830ae81 -->
 
 **Turing's argument was about people.** In 1936 a "computer" was a person doing arithmetic with pencil and paper. Turing asked what such a person actually does:
 
@@ -39,6 +45,7 @@ $$\delta: Q\times\Gamma \to Q\times\Gamma\times\{L,R\}$$
 **The machine is a formalisation of a human clerk**, argued from first principles about what mechanical procedure *means*. That's why the Church–Turing thesis is persuasive rather than arbitrary — it wasn't reverse-engineered from hardware, and hardware later matched it. → [[theory-of-computation/01-what-computation-is|Church–Turing thesis]]
 
 ## Robustness
+<!-- bite: 409a3b55-d3d7-4ae2-92c5-bad5eff504e1 -->
 
 **The remarkable fact: nothing you add makes it more powerful.**
 
@@ -60,6 +67,7 @@ $$\delta: Q\times\Gamma \to Q\times\Gamma\times\{L,R\}$$
 **Turing-complete systems** are everything that can simulate this: every general-purpose language, λ-calculus, cellular automata, and a long list of accidental cases. → [[theory-of-computation/01-what-computation-is|Turing completeness in the wild]]
 
 ## The Universal Turing Machine
+<!-- bite: 3cbaaa8d-2dfb-457e-833b-23f9e37e6f80 -->
 
 **Turing's other great idea, and arguably the more consequential one.**
 
@@ -74,6 +82,7 @@ $$\delta: Q\times\Gamma \to Q\times\Gamma\times\{L,R\}$$
 **And it's the source of the impossibility results.** Because machines can be encoded as strings and fed to other machines, you can ask "what does this machine do on itself?" — and that self-reference is what produces the halting problem. → [[theory-of-computation/06-decidability|Decidability]]
 
 ## Decidable vs recognisable
+<!-- bite: 5c5007c8-c1f3-4cac-906d-82891f5a92a6 -->
 
 **The distinction the whole subject turns on**, and it's the one thing to take from this note.
 
@@ -101,6 +110,7 @@ $$L \text{ decidable} \iff L \text{ and } \bar{L} \text{ are both recognisable}$
 - **A model checker** decides for finite state and only recognises for infinite
 
 ## Simulating a real computer
+<!-- bite: e4e15bbd-e1f0-4469-9139-c3645737b34c -->
 
 **Bridging the gap between the model and the machine on your desk:**
 
@@ -111,6 +121,7 @@ $$L \text{ decidable} \iff L \text{ and } \bar{L} \text{ are both recognisable}$
 **The cost of the model:** a TM scanning to a memory location takes $O(n)$ where a real machine takes $O(1)$. **This is why the RAM model is used for algorithm analysis** and the TM for computability. Both are "correct"; they answer different questions.
 
 ## What Turing machines can't do
+<!-- bite: cfca2da9-0bb6-46fd-adfd-2df9cb5de158 -->
 
 **Two separate limits, and conflating them is a common error:**
 
@@ -121,6 +132,7 @@ $$L \text{ decidable} \iff L \text{ and } \bar{L} \text{ are both recognisable}$
 > **"Impossible" and "too slow" are different failures and call for different responses.** Undecidable means change the problem. Intractable means approximate, restrict the input, or accept exponential time on small instances.
 
 ## The Busy Beaver
+<!-- bite: 55f6c200-4b51-441a-9865-3cd58882db69 -->
 
 A concrete demonstration of how bad undecidability gets.
 
@@ -139,6 +151,7 @@ $$BB(1)=1 \quad BB(2)=6 \quad BB(3)=21 \quad BB(4)=107 \quad BB(5)=47{,}176{,}87
 ---
 
 ## Related
+<!-- bite: 7626592e-26a1-4f4e-b8ea-c1ea7a4f50c6 -->
 - [[theory-of-computation/06-decidability|Decidability]] — what these machines cannot decide
 - [[theory-of-computation/01-what-computation-is|What Computation Is]] — the Church–Turing thesis
 - [[computer-architecture/01-what-architecture-is|Computer Architecture]] — the UTM, built

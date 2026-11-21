@@ -1,8 +1,13 @@
+---
+id: 92aa3b07-fb49-46df-858c-7d52be2fab04
+---
+
 # Decimal (Base 10)
 
 **[Beginner]** — The base you already use, examined properly: why ten, why it is not mathematically special, and which fractions it can and cannot write down.
 
 ## Before you start
+<!-- bite: da59f8ff-918c-4409-af83-25fa183ed079 -->
 
 - You can convert between bases — [[01-introduction|number bases]].
 
@@ -15,6 +20,7 @@
 ---
 
 ## 1. Why ten
+<!-- bite: 5b5d9183-e057-459a-8a68-08673bdc7425 -->
 
 **Because we have ten fingers.** That is the whole reason, and it is worth saying plainly, because it makes the arbitrariness obvious.
 
@@ -27,6 +33,7 @@ Other bases have been used for exactly the same kind of reason:
 **Base ten is not better. It is habitual.** Twelve would arguably be more useful for hand arithmetic, since it divides evenly by 3 and 4.
 
 ## 2. Which fractions terminate
+<!-- bite: 3560c3df-4570-42b7-92e0-b7efd73fe56a -->
 
 This is the useful mathematical content of the lesson.
 
@@ -48,6 +55,7 @@ Base ten factors as $2 \times 5$, so:
 **That is not imprecision.** Binary floating point is exact; 0.1 simply is not a binary-representable number, in the same way $\frac{1}{3}$ is not a finite decimal.
 
 ## 3. Why 0.999… = 1
+<!-- bite: 1b904ca6-a208-4d43-9f10-c8ceb24ea467 -->
 
 Not "nearly 1". **Exactly 1.** Three arguments, and the third is the real one:
 
@@ -60,6 +68,7 @@ $$x = 0.999\ldots,\quad 10x = 9.999\ldots,\quad 10x - x = 9,\quad x = 1$$
 **This is a fact about notation, not about numbers.** Decimal expansion is not a unique naming scheme — some numbers have two names. Nothing is wrong.
 
 ## 4. Practice — independent task
+<!-- bite: 4c465ea0-e94b-4ab6-9715-18f11024bcae -->
 
 - **(a)** Without dividing, predict which of $\frac{1}{6}$, $\frac{3}{16}$, $\frac{7}{20}$, $\frac{5}{12}$ terminate in decimal. Then check.
 - **(b)** Which of them terminate in **binary**? State the rule you used.
@@ -75,6 +84,7 @@ You do not need to factorise the base properly — dividing out each of its prim
 </details>
 
 ## Before moving on
+<!-- bite: 054680be-76ed-4cbd-894c-7e0597f289a6 -->
 
 - [ ] Explain why base ten was chosen, and why that is not a mathematical reason.
 - [ ] State the terminating-fraction rule and apply it in bases 2, 10 and 12.
@@ -86,6 +96,7 @@ You do not need to factorise the base properly — dividing out each of its prim
 **Next:** [[04-hexadecimal|Hexadecimal]] — the base chosen deliberately, for a reason that is entirely mathematical.
 
 ## Related
+<!-- bite: cfdb3182-4ed8-41c9-ae63-b9278e453a3d -->
 
 - [[01-introduction|Number bases]] · [[02-binary|Binary]]
 - [[computer-architecture/02-data-representation|computer-architecture/data representation]] — floating point in detail

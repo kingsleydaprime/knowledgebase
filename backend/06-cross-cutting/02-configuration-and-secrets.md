@@ -1,8 +1,13 @@
+---
+id: 178cea85-9ab0-4df4-8e0f-f6fcef8fbe64
+---
+
 # Configuration and Secrets
 
 > **[Intermediate]** · Config as an input, not a constant — and the rule that keeps credentials out of your repository.
 
 ## The twelve-factor rule, and why it holds
+<!-- bite: ccaa1718-b2a1-4547-9d3d-9062dec57383 -->
 
 **Config is everything that differs between environments.** Database URLs, API keys, feature flags, log levels, timeouts.
 
@@ -11,6 +16,7 @@
 **The test: could you open-source this repository right now without leaking anything?** If not, config and secrets are entangled with code.
 
 ## Layering
+<!-- bite: 331c32b7-b523-4f09-9b3b-e2b11a3c7015 -->
 
 Nearly every ecosystem converges on the same precedence, later overriding earlier:
 
@@ -37,6 +43,7 @@ export const env = Env.parse(process.env);      // throws at boot, not at 3am
 **Fail loudly at startup. A service running with half its config is worse than one that didn't start.**
 
 ## Secrets are different from config
+<!-- bite: c3fb08f6-3362-43e4-8d19-baba47c1a32f -->
 
 **Config can be logged. Secrets cannot.**
 
@@ -60,6 +67,7 @@ export const env = Env.parse(process.env);      // throws at boot, not at 3am
 **Rotation must be possible without a redeploy.** If rotating a key requires rebuilding an image, it won't happen at the frequency it should.
 
 ## Feature flags
+<!-- bite: dcf02370-f15e-4100-9478-0661e39db374 -->
 
 **A flag is config with a shorter lifetime**, and it's what lets you deploy without releasing:
 
@@ -71,6 +79,7 @@ export const env = Env.parse(process.env);      // throws at boot, not at 3am
 **The failure mode is flags that never die.** Each one doubles the number of code paths, and ten flags is 1,024 possible configurations — of which you test maybe three. **Put an expiry date on release flags and enforce it**, or the codebase becomes untestable.
 
 ## What to avoid
+<!-- bite: 6cadd73a-250d-4d4b-aa49-e0c9ced81733 -->
 
 **Config in a database your app needs config to reach.** A bootstrap cycle.
 
@@ -81,6 +90,7 @@ export const env = Env.parse(process.env);      // throws at boot, not at 3am
 **Secrets passed as command-line arguments** — they're visible in `ps` to every user on the host.
 
 ## Related
+<!-- bite: 9cae96b4-a0ed-425a-ab0e-9daaaf297637 -->
 - [[backend/06-cross-cutting/01-validation-and-dtos|validation]] — the same technique, applied to config
 - [[devops/06-secret-management/index|secret management]] — the tooling
 - [[backend/frameworks/cross-language-recipes|cross-language recipes]] — env validation in six stacks

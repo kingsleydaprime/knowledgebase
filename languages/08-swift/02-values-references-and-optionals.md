@@ -1,8 +1,13 @@
+---
+id: 93a54ebd-8dcf-4026-8607-23483817d97a
+---
+
 # Values, References and Optionals
 
 **[Beginner → Intermediate]** — the two ideas that define Swift, and the source of most of its behaviour.
 
 ## Value types vs reference types
+<!-- bite: 4bcaa5d8-7339-408e-834b-4dc71af98cf0 -->
 
 ```swift
 struct Point { var x: Int }          // VALUE type — copied
@@ -37,6 +42,7 @@ print(list1)          // [1, 2, 3]  ← unchanged. Surprises Java and Python dev
 **When to use a class:** you need identity (this *specific* object), you need inheritance, you're interoperating with Objective-C, or the thing genuinely is shared mutable state (a view model, a cache). **Otherwise use a struct.**
 
 ## `let` and `var`, and the mutation rule
+<!-- bite: befe695a-ef1c-4eb4-93bb-d206acc0214e -->
 
 ```swift
 let x = 5           // constant
@@ -54,6 +60,7 @@ n.x = 2             // ✅ fine — the reference is constant, the object isn't
 **Prefer `let`.** The compiler warns when a `var` is never mutated, and the ecosystem treats mutability as something to justify.
 
 ## Optionals — the other defining idea
+<!-- bite: cbbc3aba-c892-4d9e-a8c5-718463a8eee9 -->
 
 **There is no `null`.** A value that might be absent has a *different type*:
 
@@ -86,6 +93,7 @@ let n2 = name!                                 // ← justify every use
 **`guard let` is the idiomatic Swift shape.** It handles the failure case first and leaves the happy path unindented, which is why Swift code has notably less nesting than equivalent code elsewhere.
 
 ## Force unwrapping
+<!-- bite: ca9fa7d9-2941-4045-836f-c2f07f4e8ee9 -->
 
 `!` says "I guarantee this isn't nil." **If you're wrong, the app crashes.**
 
@@ -94,10 +102,12 @@ let n2 = name!                                 // ← justify every use
 **The worst offender is `try!` and implicitly unwrapped optionals (`String!`)** — they push the failure further from its cause. **A crash on force-unwrap is genuinely better than a silent wrong value**, which is the design intent — but a `guard` with a real error path is better than both.
 
 ## Key insight
+<!-- bite: 5568a43b-db59-4073-aa43-cad75e047fba -->
 
 **Value semantics and optionals are the same idea applied twice: make the dangerous thing impossible to do accidentally.** Structs remove aliasing bugs by copying; optionals remove null-pointer bugs by making absence a type. In both cases the escape hatch exists (`class`, `!`) and is deliberately noisy — **you can do the unsafe thing, but never by accident.**
 
 ## Related
+<!-- bite: 90587617-00f3-4773-9a79-2b235dc186c3 -->
 - [[languages/08-swift/03-memory-and-arc|memory and ARC]] — what reference types cost
 - [[languages/08-swift/06-error-handling|error handling]] — the other absence-shaped problem
 - [[languages/03-rust/03-ownership|Rust's ownership]] — a stricter answer to the same question

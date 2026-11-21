@@ -1,8 +1,13 @@
+---
+id: 2e2478d7-28fd-47bb-9f56-34494220730a
+---
+
 # Module 10: PN Junctions and Diodes (The First Asymmetric Device)
 
 **[Intermediate]** — Put N-type against P-type and something new appears: a device that conducts one way and blocks the other. Part III ends here, one step short of a transistor.
 
 ## Before you start
+<!-- bite: 4d6feaaf-2f43-470a-9456-4ead1725f7ca -->
 
 - You can explain N-type and P-type silicon, majority and minority carriers, and why ionised dopants are immobile — [[how-computers-work/02-semiconductors/04-doping|module 9]].
 - You know $np = n_i^2$ and that doping suppresses minority carriers — module 9.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 08510587-34bf-4c07-8669-55d074d03c87 -->
 
 Every component so far has been **symmetric**. A resistor does not care which way current flows. Doped silicon conducts equally in both directions. You can reverse the leads on anything in Part II and nothing changes.
 
@@ -30,6 +36,7 @@ The PN junction is the first asymmetric device, and it emerges from doing nothin
 ---
 
 ## 2. Terminology
+<!-- bite: 766c1261-04e3-4a3e-89f4-7a460ed01d94 -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -48,6 +55,7 @@ The PN junction is the first asymmetric device, and it emerges from doing nothin
 ---
 
 ## 3. How the junction forms
+<!-- bite: 31f57d50-6507-4ccb-9fbc-f69a4df38182 -->
 
 Imagine joining a P-type block to an N-type block. (In reality they are one crystal with different doping, but the reasoning is identical.)
 
@@ -127,6 +135,7 @@ $$V_{bi} = 0.02585 \times \ln\!\left(\frac{10^{16} \times 10^{16}}{(10^{10})^2}\
 ---
 
 ## 4. Bias — the barrier is adjustable
+<!-- bite: 169c5627-1793-4009-b0a2-f34e394046f7 -->
 
 ### Forward bias — P positive
 
@@ -199,6 +208,7 @@ This is why a diode appears to have a fixed "0.7 V drop". The current changes by
 ---
 
 ## 5. Predict before reading on
+<!-- bite: 4c75f926-28a2-41d5-b504-37edafa11bca -->
 
 A silicon diode carries 1 mA at 0.65 V.
 
@@ -216,6 +226,7 @@ This is why diode circuits are designed with a **series resistor to set the curr
 ---
 
 ## 6. Breakdown and the useful variants
+<!-- bite: bf437977-ebc4-4208-90f3-2ab2a81e338e -->
 
 Push the reverse voltage high enough and current suddenly flows regardless.
 
@@ -238,6 +249,7 @@ Four devices, all one junction:
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: 4aa9692a-423a-4cc5-855f-c071614565f1 -->
 
 Save as `junction_lab.py` and run `python3 junction_lab.py`.
 
@@ -349,6 +361,7 @@ junction_lab: passed
 ---
 
 ## 8. What a junction still cannot do
+<!-- bite: 8376c934-05ee-4adc-993f-a11de3235eab -->
 
 The junction is a genuine achievement. It rectifies, it emits light, it detects light, it regulates voltage. It is the foundation of power supplies and of every solar panel.
 
@@ -367,6 +380,7 @@ So Part III ends one step short — with the barrier being the key realisation. 
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 14d603b4-666f-4ba2-8b1e-b3bcc4d8c4b4 -->
 
 1. **Thinking the depletion region is a physical gap.** The crystal is continuous and unbroken. Only *mobile carriers* are absent; atoms and ionised dopants are all still there.
 2. **Believing a diode has a fixed 0.7 V drop.** It is a logarithmic function of current. 0.7 V is shorthand for the range you usually operate in.
@@ -379,6 +393,7 @@ So Part III ends one step short — with the barrier being the key realisation. 
 ---
 
 ## 10. Check your understanding
+<!-- bite: f8d49772-c351-44e9-bb6f-fbd29d760177 -->
 
 1. **Why does the depletion region widen under reverse bias and narrow under forward bias?**
    <details><summary>Answer</summary>
@@ -407,6 +422,7 @@ So Part III ends one step short — with the barrier being the key realisation. 
 ---
 
 ## 11. Practice — independent task
+<!-- bite: 97e8b34d-b50c-4a6e-bcca-bc1572abcf4d -->
 
 **Task:** You are characterising a junction with $N_a = 10^{17}$/cm³ and $N_d = 10^{15}$/cm³ — an asymmetric, "one-sided" junction.
 
@@ -426,6 +442,7 @@ The total exposed positive charge must equal the total exposed negative charge �
 ---
 
 ## 12. Tradeoffs and limits of this model
+<!-- bite: aa756bd4-9dae-4f9b-805c-03038b00793c -->
 
 - **The abrupt junction is an idealisation.** Real doping profiles grade smoothly, especially with diffusion. The formulas here are the standard first approximation.
 - **The ideal diode equation omits real effects.** Recombination inside the depletion region raises the ideality factor $n$ towards 2 at low current; series resistance flattens the curve at high current; high-level injection changes the physics again. Real diodes have $n$ between 1 and 2.
@@ -435,6 +452,7 @@ The total exposed positive charge must equal the total exposed negative charge �
 ---
 
 ## Before moving on
+<!-- bite: 985f68e8-87dc-492f-b2a0-b7b2c55d58d0 -->
 
 **This is the end of Part III.** You are ready for Part IV when you can, closed-book:
 
@@ -452,6 +470,7 @@ The total exposed positive charge must equal the total exposed negative charge �
 ---
 
 ## Related
+<!-- bite: ee04bfdf-70be-4b35-9008-7cdc5ca647f9 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/02-semiconductors/04-doping|Module 9 — Doping]] — the two materials joined here

@@ -1,3 +1,7 @@
+---
+id: a450966f-9256-45f8-94e3-09658295e93c
+---
+
 # What a Compiler Is
 
 **[Beginner → Intermediate]** — The phases, and the spectrum from interpreter to JIT that most real languages sit somewhere on.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — built August 2026 to unblock [[BUILD-PLAN|build-your-own-language]]. No compiler project in this vault yet.
 
 ## The pipeline
+<!-- bite: 0e687672-5d42-4cbc-9d74-2767f0cd040a -->
 
 ```
 source text
@@ -32,6 +37,7 @@ The first three are the **front end** (language-specific), the last two the **ba
 **Rust, Swift, Julia, Clang and Zig all share LLVM's back end.** That's the whole payoff of having an IR.
 
 ## Front end vs back end
+<!-- bite: 58de92b8-59a3-474c-aa58-90d0dfff477d -->
 
 ```
   C ─┐                              ┌─→ x86-64
@@ -46,6 +52,7 @@ Without the IR: 5 languages × 5 targets = 25 code generators. With it: 5 + 5 = 
 This is just the adapter pattern applied at enormous scale, and it's the single most consequential architectural decision in compiler construction.
 
 ## Compiler, interpreter, JIT
+<!-- bite: 9c4e1729-610a-405d-bae0-fbf824c05c22 -->
 
 The distinction is less binary than it's usually taught.
 
@@ -84,6 +91,7 @@ The distinction is less binary than it's usually taught.
 **Nearly every "interpreted" language compiles.** Python compiles to bytecode — that's what `.pyc` files are. The distinction that survives is *when* compilation happens and *what it targets*, not whether it occurs.
 
 ## Why the phases exist
+<!-- bite: 363902c7-b0b0-4e20-a371-d9b9a92e18cf -->
 
 You could write a one-pass compiler that emits code while parsing — early Pascal and C compilers did, because memory was scarce. Turbo Pascal was famously fast for exactly this reason.
 
@@ -100,6 +108,7 @@ The phases exist because separating them buys:
 The cost is memory and multiple passes — irrelevant now, decisive in 1975.
 
 ## Errors are the product
+<!-- bite: 270e0196-f038-4e57-9efc-cd4e2d1e0654 -->
 
 An underrated point: **a compiler's error messages are most of its user interface.** You interact with them far more than with successfully compiled output.
 
@@ -122,6 +131,7 @@ That requires **every token and AST node to carry its source location** — a sp
 Also: **recover from errors and keep going.** Reporting one error per compile is a miserable experience. → [[compilers/03-parsing|Parsing]]
 
 ## Static and dynamic
+<!-- bite: 1b80e91f-94c0-4750-90ec-55bc62b94c7e -->
 
 **Static** = known at compile time. **Dynamic** = known only at runtime.
 
@@ -130,6 +140,7 @@ The whole discipline is about moving work from dynamic to static: type checking,
 That's the same argument [[languages/03-rust/index|Rust]] makes about ownership, and it's why [[languages/05-cpp/12-constexpr-and-compile-time|`constexpr`]] exists.
 
 ## What you'll actually build
+<!-- bite: 25917921-a0c0-4a58-8707-52a4b8168405 -->
 
 For [[BUILD-PLAN|build-your-own-language]], the realistic path:
 
@@ -142,6 +153,7 @@ For [[BUILD-PLAN|build-your-own-language]], the realistic path:
 Step 3 is the milestone. A tree-walking interpreter for a small language is a weekend, and everything afterwards is optimisation or rigour.
 
 ## The canonical references
+<!-- bite: cef93936-4b58-4b87-a89b-f862688be781 -->
 
 - **Crafting Interpreters** (Nystrom, free online) — build two complete implementations, a tree-walker and a bytecode VM. **The best starting point by a wide margin**
 - **The Dragon Book** — the classic. Thorough, theory-heavy, dated on back ends
@@ -151,6 +163,7 @@ Step 3 is the milestone. A tree-walking interpreter for a small language is a we
 ---
 
 ## Related
+<!-- bite: 964cc771-aefe-4223-8946-93ff766842f6 -->
 - [[compilers/02-lexical-analysis|Lexical Analysis]] — the first phase
 - [[compilers/06-intermediate-representations|Intermediate Representations]] — the front/back-end boundary
 - [[languages/04-c/01-why-c-and-the-compilation-model|C: The Compilation Model]] — preprocess/compile/assemble/link, concretely

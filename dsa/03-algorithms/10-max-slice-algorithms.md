@@ -1,3 +1,7 @@
+---
+id: 4d201ac2-53f1-4ba3-a52f-f5a86d4d01c6
+---
+
 # Module: Maximum Slice Problem — Kadane's Algorithm
 
 Welcome to the **Maximum Slice** module. The problem: given a sequence of integers (which may include negative numbers), find the **contiguous subarray (slice)** with the largest possible sum.
@@ -7,6 +11,7 @@ This is one of the most elegant problems in computer science, illustrating how a
 ---
 
 ## Before you start
+<!-- bite: 2a1ff399-9444-4267-affc-19f82c6685a6 -->
 
 - You can reason about prefix sums — [[04-patterns/01-prefix-sum|prefix sum]].
 - You know what $O(n^2)$ and $O(n)$ mean in practice — [[01-growth-and-asymptotic-notation|complexity analysis]].
@@ -23,6 +28,7 @@ This is one of the most elegant problems in computer science, illustrating how a
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 9ab5e843-c5d3-46de-9306-3e6ce8878e90 -->
 
 Imagine you're a **Stock Day Trader** analyzing daily profit/loss figures:
 
@@ -44,6 +50,7 @@ You want to find the contiguous window of days that maximizes your cumulative pr
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: 70035779-f406-4386-8f1c-d4576e916ab1 -->
 
 | Term | Plain-English Definition | Analogy |
 | :--- | :--- | :--- |
@@ -55,6 +62,7 @@ You want to find the contiguous window of days that maximizes your cumulative pr
 ---
 
 ## 3. Three Solutions: Naïve → Optimal
+<!-- bite: d8a8c70e-efdf-47cb-9e3b-aafce54e961c -->
 
 ### Approach 1: Brute Force ($O(n^3)$)
 
@@ -131,6 +139,7 @@ The `max(0, ...)` is the key: by resetting to 0, we allow starting a completely 
 ---
 
 ## 4. Why Kadane's is Dynamic Programming
+<!-- bite: 7907555e-98df-4fcd-b913-a2b712815f28 -->
 
 Kadane's algorithm is a minimal, single-variable form of **Dynamic Programming**:
 
@@ -144,6 +153,7 @@ Kadane's algorithm is a minimal, single-variable form of **Dynamic Programming**
 ---
 
 ## 5. Complexity Summary
+<!-- bite: 5905bb4e-8bac-4537-a379-3d3992cef465 -->
 
 | Approach | Time | Space | Key Idea |
 | :--- | :--- | :--- | :--- |
@@ -154,6 +164,7 @@ Kadane's algorithm is a minimal, single-variable form of **Dynamic Programming**
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: 631b70f1-ab07-4e1c-a5d0-93e2e832e139 -->
 
 **Runnable example:** save as `max_slice.py` in any empty directory and run `python3 max_slice.py`. Standard library only; writes no files.
 
@@ -355,6 +366,7 @@ max_slice: passed
 Block 3 is the one that matters. `max(0, ...)` silently answers a *different question* — "the best slice, or the empty one" — and whether that is correct depends entirely on the problem statement.
 
 ## 6. Check Your Understanding (University Self-Assessment)
+<!-- bite: e5453507-2d3a-4deb-946d-2c8c17f80a22 -->
 
 1. **Question**: Why does Kadane's algorithm reset `max_ending_here` to 0 (not to `A[i]`) when the running sum goes negative?
    - <details><summary>Click for Answer</summary><b>Answer:</b> The problem allows the empty slice (sum = 0) as a valid baseline answer. Resetting to 0 is equivalent to saying "start a fresh subarray from the next element." Resetting to <code>A[i]</code> would force us to include at least one element, changing the problem definition.</details>
@@ -368,6 +380,7 @@ Block 3 is the one that matters. `max(0, ...)` silently answers a *different que
 ---
 
 ## Practice — independent task
+<!-- bite: 6e832884-b05b-4021-a737-9d8ed51a8308 -->
 
 Extend Kadane's to the **maximum sum rectangle** in a 2-D grid.
 
@@ -382,6 +395,7 @@ Extend Kadane's to the **maximum sum rectangle** in a 2-D grid.
 **Done when:** your coordinates reproduce the reported sum, brute force agrees on every small grid, and your step-5 optimisation shows the speed-up you predicted.
 
 ## Before moving on
+<!-- bite: 4b4b03c2-0d4a-476b-bea7-3159dd477679 -->
 
 You can implement Kadane's, return indices, handle all-negative input, and explain the DP/greedy duality.
 
@@ -390,5 +404,6 @@ You can implement Kadane's, return indices, handle all-negative input, and expla
 **Next:** [[11-bit-manipulation|Bit Manipulation]], or back to [[index|the algorithms index]].
 
 ## Related Modules
+<!-- bite: 5794a926-af4e-4a4a-8d63-027cf488aa8f -->
 - [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Recurrence derivation and notation
 - [[05-sorting/index|Sorting Algorithms]] — $O(n \log n)$ sort-first approaches

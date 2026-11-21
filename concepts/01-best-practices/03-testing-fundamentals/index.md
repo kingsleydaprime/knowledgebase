@@ -7,6 +7,7 @@ id: c859286b-0e35-4b52-bd25-91e49d330855
 > **[Beginner→Intermediate]** · Tests answer one question quickly, without a human re-checking by hand: *does this still work?* This lesson covers the kinds of test, the stand-ins you use in them, the tests that fail for no reason, and getting all of it running on every push.
 
 ## Before you start
+<!-- bite: be49c804-2472-4942-a821-3c65df693fb9 -->
 
 You can already:
 
@@ -23,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** The kid version and §1–5 are the ideas; §6 is the one that bites in production. Run the worked example, making the prediction first. The practice task is this week's flagship milestone.
 
 ## The kid version
+<!-- bite: 927b1044-284c-4b83-b105-a0af1b5ef560 -->
 
 You've built a bike. You can check it three ways. **On the workbench**, one part at a time: does the wheel spin, does the brake lever move? Quick, and if something's wrong you know exactly which part. **Parts together**: when you pull the lever, does the brake actually grip the wheel? Every part can be fine on its own and still not work together. **Ride it round the block**: the real thing, the way a person uses it — the surest check, but slow, and if it fails you don't know why.
 
@@ -31,10 +33,12 @@ Good testing uses all three: lots of workbench checks, some parts-together check
 **Where the analogy stops working.** You check a bike once and ride it for years. Code changes every day, so the checks have to run again after **every** change — automatically, because nobody re-checks a hundred things by hand each time.
 
 ## 1. Why this exists
+<!-- bite: 902c3226-d657-4ba7-a14b-50b262c8ad43 -->
 
 A SaaS app emails users the day before their free trial ends. It worked through October. On the 31st, nobody got an email. The code built "tomorrow" by adding 1 to the day of the month, and on the 31st that produced the 32nd — a date no user's trial ends on. There *were* tests, and they passed, because they ran on whatever day the developer happened to run them. **A test that only passes on most days is worse than useless: it says "fine" and is wrong.** The worked example reproduces this bug exactly, then removes the cause.
 
 ## Terms used in this lesson
+<!-- bite: 566fe336-c3f5-49bf-a2c5-3412b4158b73 -->
 
 1. **Test**: This is code that runs some of your code with known inputs and checks the result automatically.
 2. **Assertion**: This is the check inside a test — "this should equal that". A test with no assertion checks nothing, even if it runs lines of code.
@@ -49,6 +53,7 @@ A SaaS app emails users the day before their free trial ends. It worked through 
 11. **CI (continuous integration)**: The letters stand for those two words. It means automatically building and testing the code on every push, on a server, before anything is merged.
 
 ## 2. The shape of a test
+<!-- bite: d4e4080c-6cb9-4d4e-8af0-02b714773ee0 -->
 
 ```javascript
 test("dayAfter rolls over the end of the month", () => {
@@ -61,6 +66,7 @@ test("dayAfter rolls over the end of the month", () => {
 **One behaviour per test, named as a sentence.** When it fails, the name alone should tell you what broke. "dayAfter rolls over the end of the month" does; "test 3" doesn't.
 
 ## 3. Unit, integration, end-to-end — and the pyramid
+<!-- bite: 18b7e7dc-b3f7-4cd0-910b-c6a2f3aa1133 -->
 
 ```
         /\
@@ -79,6 +85,7 @@ test("dayAfter rolls over the end of the month", () => {
 **The pyramid is a cost trade-off, not a law.** Many cheap tests for logic, fewer expensive ones for the joins between pieces. Inverting it — mostly E2E — gives a slow, flaky suite that's bad at saying *what* broke. Some teams, especially on the frontend, prefer a **"testing trophy"** with integration tests as the largest layer, because in UI code the bugs live mostly in how pieces connect. Both agree on the principle: **put each check at the cheapest level that can actually catch the bug.**
 
 ## 4. Test doubles — stub, fake, spy, mock
+<!-- bite: 2393adcf-42d5-419f-8e5a-76ca70c3e371 -->
 
 A unit test replaces collaborators so it tests one thing, fast, without a network. The four kinds of stand-in do different jobs:
 
@@ -90,6 +97,7 @@ A unit test replaces collaborators so it tests one thing, fast, without a networ
 **The default rule: stub or fake the things your code asks for, and spy on the things your code tells.** Reading users is a question — stub it, and check the *result*. Sending an email is a command with no useful return value — the only way to know it happened is to spy on it. Don't assert on calls to things that only answer questions; that's testing *how* the code works instead of *what* it does.
 
 ## 5. What makes a test worth having
+<!-- bite: acc0c1a1-6978-4c42-a67f-bd711a54a650 -->
 
 - **It tests behaviour, not implementation.** A test that breaks when you rename a private helper — without any visible behaviour changing — is testing the wrong thing, and it punishes exactly the refactoring tests are supposed to make safe.
 - **It's deterministic.** §6.
@@ -99,6 +107,7 @@ A unit test replaces collaborators so it tests one thing, fast, without a networ
 **What not to test:** the framework itself (Express routes requests, you don't need to prove it); third-party libraries; trivial code with no logic, like a getter; private functions directly — test them through the public function that uses them.
 
 ## 6. Flaky tests, and the two commonest causes
+<!-- bite: ece4fad3-0275-443f-a0ea-72ec8c0f164a -->
 
 A flaky test is worse than no test: the team learns to re-run red builds until they're green, and one day a real failure gets re-run too.
 
@@ -109,6 +118,7 @@ A flaky test is worse than no test: the team learns to re-run red builds until t
 Others to know: real network calls (replace with a stub or fake), random values (pass in the random source or seed it), and shared ports (listen on port 0, so the operating system picks a free one).
 
 ## 7. TDD — test-driven development
+<!-- bite: 0dbef502-8f2e-4f0a-bb1a-3ffca285968b -->
 
 Write a failing test *first*, for behaviour that doesn't exist yet. Write the minimum code to make it pass. Then refactor with the test as a safety net: **red, green, refactor.**
 
@@ -127,6 +137,7 @@ const formatKobo = (kobo) => `₦${(kobo / 100).toFixed(2)}`;
 The benefit isn't the tests — you'd write those anyway. It's that writing the test first forces you to decide the interface and the expected behaviour **before** writing code, and it's the natural way to fix a bug: first a test that reproduces it, then the fix.
 
 ## 8. Running tests on every push
+<!-- bite: 276002d1-5f74-482b-ac3c-b304c8bef9d9 -->
 
 Tests nobody runs catch nothing. Make them run automatically:
 
@@ -152,6 +163,7 @@ jobs:
 3. In the repository settings, make the check **required** before merging, so a red build can't be merged.
 
 ## Worked example — the month-end bug, and a real database
+<!-- bite: cba4a2e4-29c8-4789-976b-106ef02097af -->
 
 Two files of code and two of tests, all built into Node: `node:test`, `node:http` and `node:sqlite`, so there's nothing to install.
 
@@ -337,6 +349,7 @@ Then run `node --test --test-randomize` a few times. It still passes every time,
 **Notice in part 1:** the stub, the spy and the fake clock each do one job, and `sendTrialReminders` needed no changes to be tested, because everything it touches is passed in. That's what the dependency-injection lesson buys you. **Notice in part 2:** the first test checks the **database**, not only the response. An endpoint can return `201` and store the wrong thing. And the duplicate-email test only proves the case-insensitive rule because it runs against real SQLite. A stubbed repository would have passed whatever the database does.
 
 ## Common pitfalls
+<!-- bite: a53fca64-a05d-4a51-bb2d-c752e1bb99ab -->
 
 1. **Treating coverage as quality.** 100% coverage means every line *ran*, not that anything was checked. A test with no meaningful assertion adds coverage and no confidence.
 2. **Mocking everything.** If every collaborator is a double, the test proves the code calls doubles correctly — the real interactions are untested. That's what integration tests are for.
@@ -346,6 +359,7 @@ Then run `node --test --test-randomize` a few times. It still passes every time,
 6. **Fixing a bug without a test first.** Write the test that reproduces it, watch it fail, then fix. Otherwise the bug can come back unnoticed.
 
 ## Check your understanding
+<!-- bite: 9da7693c-8262-4f01-852e-c3ee4d2ecde0 -->
 
 1. Give a bug a unit test can't catch but an integration test can.
 2. Name the four kinds of test double and what each is for. Which do you use to check that an email was sent, and why?
@@ -365,6 +379,7 @@ Then run `node --test --test-randomize` a few times. It still passes every time,
 </details>
 
 ## Practice — independent task
+<!-- bite: 1dc9098d-9f4c-4f6f-a646-b58f5ee57f0a -->
 
 **This is SWE 101's week 2 milestone: real tests in CI on the flagship.**
 
@@ -378,6 +393,7 @@ Then run `node --test --test-randomize` a few times. It still passes every time,
 For backend-specific depth — real databases in disposable containers, test data, auth and time — read [[backend/07-practices/02-testing-a-backend|testing a backend]], this week's optional lesson.
 
 ## Before moving on
+<!-- bite: 05794665-ce4f-4172-b73b-120a74b79877 -->
 
 You can pick the right level for a test, use each kind of test double for its job, remove flakiness caused by time and order, and you have tests running in CI.
 
@@ -386,6 +402,7 @@ You can pick the right level for a test, use each kind of test double for its jo
 **Next.** Week 3: [[concepts/01-best-practices/06-coupling-and-cohesion/index|coupling and cohesion]] — and a tool that measures the flagship's.
 
 ## Related
+<!-- bite: 4171e13d-051c-4516-90f1-d83fa0baaffb -->
 - [[concepts/01-best-practices/03-testing-fundamentals/in-other-languages|Testing Fundamentals in Other Languages]] — runners, doubles, clocks and integration tools in seven languages
 - [[backend/07-practices/02-testing-a-backend|Testing a backend]] — Testcontainers, test data, time, auth
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection]] — what makes code testable with doubles

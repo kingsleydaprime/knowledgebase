@@ -1,8 +1,13 @@
+---
+id: 6979d55f-be7c-4b84-8454-92588a5ae64b
+---
+
 # Module 23: The ALU (One Circuit, Many Operations)
 
 **[Intermediate → Advanced]** — Part VI ends by wrapping the adder, the logic gates and a shifter behind a multiplexer. The result is the computational core of every processor — and the first circuit whose behaviour is chosen by *data*.
 
 ## Before you start
+<!-- bite: d77e0be0-9822-4cab-8146-549b7e272a93 -->
 
 - You can build an adder/subtractor and compute the four flags — [[how-computers-work/05-combinational/02-adders|module 21]].
 - You can build a multiplexer and know it costs $width$ copies to go word-wide — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 69c3a9b4-3883-4400-8e16-4d7160304b96 -->
 
 You can add, subtract, AND, OR, XOR and shift. Each is a separate circuit.
 
@@ -32,6 +38,7 @@ That block is the **Arithmetic Logic Unit**, and it is where a processor actuall
 ---
 
 ## 2. Terminology
+<!-- bite: 0c8171f3-3705-4b27-8950-765cc7c3dfe8 -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -48,6 +55,7 @@ That block is the **Arithmetic Logic Unit**, and it is where a processor actuall
 ---
 
 ## 3. The design principle: compute everything, then select
+<!-- bite: 54cc7386-f1cd-45ad-b8d4-fcb2faa7f82e -->
 
 The intuitive design would be a circuit that *reconfigures* itself — rewiring into an adder when told to add, into an AND array when told to AND.
 
@@ -83,6 +91,7 @@ Why this wins:
 ---
 
 ## 4. The barrel shifter
+<!-- bite: 85a0fcda-2e28-4311-b429-b0f66dae1212 -->
 
 Shifting looks like it should be a loop: shift by one, repeat $n$ times. **That would take $n$ stages of delay** and make shift-by-7 seven times slower than shift-by-1 — unacceptable when every instruction must fit one clock period.
 
@@ -104,6 +113,7 @@ Shift amount has no effect on delay: shifting by 7 costs exactly what shifting b
 ---
 
 ## 5. Putting it together
+<!-- bite: 88af2155-2fb8-4a22-b3e7-cfd36939ee3a -->
 
 An 8-bit ALU with a 3-bit opcode gives eight operations:
 
@@ -136,6 +146,7 @@ The same result bits mean different things under different interpretations:
 ---
 
 ## 6. Predict before reading on
+<!-- bite: 0e4520c1-ccea-4bbb-88b1-2a374981be04 -->
 
 The ALU's opcode is three bits that select the operation. Those bits have to come from somewhere.
 
@@ -161,6 +172,7 @@ Instruction encoding is Part IX ([[how-computers-work/07-the-bridge|the bridge]]
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: 59414c4b-63dc-407c-bb89-c4bd8ba46f52 -->
 
 Save as `alu_lab.py` and run `python3 alu_lab.py`.
 
@@ -326,6 +338,7 @@ The `results` dictionary is the point: **every entry is computed before the sele
 ---
 
 ## 8. The ALU on the critical path
+<!-- bite: 0b9f33f7-60f4-4126-b9c0-f0e437b8c33f -->
 
 The ALU is almost always the slowest block in a simple processor, because the adder's carry chain runs through it ([[how-computers-work/05-combinational/02-adders|module 21]]).
 
@@ -344,6 +357,7 @@ With a 64-bit carry-lookahead adder at 280 ps and a MUX at ~40 ps, that is aroun
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 5fb2888d-3474-495a-bebf-64b74f8f8443 -->
 
 1. **Thinking the ALU reconfigures.** It computes everything and discards most of it. Wires do not move.
 2. **Assuming unused units cost nothing.** They cost dynamic power on every cycle, which is why operand isolation exists.
@@ -355,6 +369,7 @@ With a 64-bit carry-lookahead adder at 280 ps and a MUX at ~40 ps, that is aroun
 ---
 
 ## 10. Check your understanding
+<!-- bite: 259e3a69-2aab-4d0d-854b-cd14ddc1e254 -->
 
 1. **Why is SLT implemented as a subtraction rather than a dedicated comparator?**
    <details><summary>Answer</summary>
@@ -385,6 +400,7 @@ With a 64-bit carry-lookahead adder at 280 ps and a MUX at ~40 ps, that is aroun
 ---
 
 ## 11. Practice — independent task
+<!-- bite: b613edd1-5c78-4c5c-8cab-3837fa6429ab -->
 
 **Task:** Extend the ALU to 16 bits and add three operations.
 
@@ -406,6 +422,7 @@ SLTU is decided by the carry flag (borrow), SLT by $N \oplus V$. This is precise
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: 7c514584-fe89-49a5-868c-ce4ead2008e3 -->
 
 - **Multiply and divide are not here.** Multiplication is shift-and-add with partial-product trees; division is iterative. Both are far slower than add and are usually separate units.
 - **Floating point is a different unit entirely.** An FPU has its own adder, multiplier, normaliser and rounding logic, and its own exception flags.
@@ -415,6 +432,7 @@ SLTU is decided by the carry flag (borrow), SLT by $N \oplus V$. This is precise
 ---
 
 ## Before moving on
+<!-- bite: 86bae609-7425-425a-b485-6ebfd4bc4cf2 -->
 
 **This is the end of Part VI.** You are ready for Part VII when you can, closed-book:
 
@@ -431,6 +449,7 @@ SLTU is decided by the carry flag (borrow), SLT by $N \oplus V$. This is precise
 ---
 
 ## Related
+<!-- bite: 0dd81b13-908f-49c1-b8b7-e7c74844a052 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/05-combinational/02-adders|Module 21 — Adders]] — the carry chain inside this block

@@ -1,3 +1,7 @@
+---
+id: c88db868-0547-4adb-9460-2373252641e6
+---
+
 # 2D and 3D Transformations
 
 **[Intermediate]** — Translation, scaling, rotation, shear and reflection as homogeneous matrices; reading a matrix by its pattern; composing transforms (and why order matters); row- versus column-vector conventions; and the "move this object so its features end up there" method for 3D questions.
@@ -5,6 +9,7 @@
 > Part 1 of the course. [[computer-graphics/09-the-transform-pipeline|Note 09]] uses these matrices in the camera pipeline; [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] goes deeper on rotations. **This note is the by-hand, exam version.**
 
 ## Before you start
+<!-- bite: 6f698ca3-b8d0-498c-8417-faa14923f3a3 -->
 
 You can multiply a matrix by a vector and two matrices together, and you know $\cos 60° = 0.5$, $\sin 60° = \sqrt3/2 \approx 0.866$.
 
@@ -15,12 +20,14 @@ You can multiply a matrix by a vector and two matrices together, and you know $\
 4. Plan a 3D transform from features (apex, base centre, size) and write it as a product.
 
 ## The kid version
+<!-- bite: 2437ad4f-2163-4100-a4ad-e6fb542c3f24 -->
 
 Picture a shape cut out of paper on a table. You can slide it (translate), stretch it (scale), spin it (rotate), or push its top sideways like a deck of cards (shear). Each move can be written as a little grid of numbers, and doing two moves one after another is the same as multiplying their grids. **The order matters**: spin-then-slide puts the shape somewhere different from slide-then-spin.
 
 **Where the analogy stops working.** Sliding cannot be done by multiplying the ordinary 2-number position by a 2 × 2 grid at all. That is the whole reason for the extra "1" coordinate below — it is a trick, not something the paper "has".
 
 ## Terms used in transformations
+<!-- bite: a1d5227d-154d-494d-b40b-14b843e71058 -->
 
 1. **Affine transformation**: This is a transformation that keeps straight lines straight and parallel lines parallel. Translation, rotation, scaling, shear and reflection are all affine.
 2. **Homogeneous coordinates**: This is writing a 2D point $(x, y)$ as $(x, y, 1)$, or a 3D point as $(x, y, z, 1)$, so that translation becomes a matrix multiplication too.
@@ -31,6 +38,7 @@ Picture a shape cut out of paper on a table. You can slide it (translate), stret
 7. **Shear**: This is a transform that slides each point parallel to an axis by an amount proportional to its other coordinate, turning a square into a parallelogram.
 
 ## 1. Why homogeneous coordinates
+<!-- bite: b9f1568b-9eeb-49ea-adeb-81347718e0b0 -->
 
 **Rotation and scaling are matrix multiplications in ordinary 2D coordinates, but translation (adding a shift) is not** — no 2 × 2 matrix adds a constant. **Adding a third coordinate makes every transformation a multiplication**, so a whole chain combines into one matrix by multiplying.
 
@@ -41,6 +49,7 @@ A homogeneous 2D point is $(x_h, y_h, h)$ with $x = x_h/h$ and $y = y_h/h$; usua
 > **Convention warning.** With **column vectors**, $p' = Mp$ and $M_3M_2M_1$ applies $M_1$ first. With **row vectors**, $p' = pM$, every matrix is transposed, and the chain reads left to right. **Always check which convention the question uses** — SSG 511's assignment uses row vectors.
 
 ## 2. The 2D matrices (column-vector convention)
+<!-- bite: cf0c8600-f80f-45aa-81ce-9e1a0acb88c0 -->
 
 **Translation by $(t_x, t_y)$** — the shift sits in the right-hand column:
 
@@ -65,6 +74,7 @@ $$\begin{pmatrix} 1 & k & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\qquad \begin
 $$R(\theta)^{T} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
 
 ## 3. Recognising a matrix by its pattern
+<!-- bite: 0fcd670c-2785-4cb8-9615-c641f62d6d4b -->
 
 | What you see | What it is |
 |---|---|
@@ -77,6 +87,7 @@ $$R(\theta)^{T} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \
 **How to draw the image of a shape:** transform each corner by multiplying its homogeneous coordinates by the matrix, then join the new corners in the same order. **This works because affine transforms keep straight lines straight.** For a square divided into four smaller squares, also transform the edge midpoints and the centre, so the inner lines can be drawn.
 
 ## 4. Composing transformations
+<!-- bite: f9009bc5-120d-4a0d-b585-a9f5ea545f35 -->
 
 **Matrix multiplication is not commutative, so order matters.**
 
@@ -122,6 +133,7 @@ With row vectors this is **a 30° anticlockwise rotation about the origin**: $x'
 **Part (ii) of the same question**, $T = \begin{pmatrix}1&0&0\\1&2&0\\0&0&1\end{pmatrix}$: the rule is $x' = x + y$, $y' = 2y$ — a shear combined with a scaling in $y$. Do the four points the same way, then draw.
 
 ## 5. 3D transformations (4 × 4)
+<!-- bite: 2a05423a-0636-44d0-8582-785cd6a084b2 -->
 
 **Translation** has $t_x, t_y, t_z$ in the right-hand column. **Scaling** has the diagonal $(s_x, s_y, s_z, 1)$. **Rotations** about the axes (right-handed, anticlockwise looking toward the origin), with $c = \cos\theta$, $s = \sin\theta$:
 
@@ -158,6 +170,7 @@ Rotate $(3,1,2)$ by 90° anticlockwise about **the line through $(2,1,0)$ parall
 As a product with row vectors: $T(-2,-1,0)\,R_z(90°)\,T(2,1,0)\,S(2,2,2)$. **The pattern — move the axis to the origin, rotate, move back — works for any axis.** For an axis not parallel to a coordinate axis, first rotate the axis onto a coordinate axis, rotate about it, then undo that alignment.
 
 ## 6. The "make these features end up there" method
+<!-- bite: fe7e113e-ab73-4946-9375-61108de85e77 -->
 
 For questions like the cone in SSG 511 Q4:
 
@@ -172,6 +185,7 @@ For questions like the cone in SSG 511 Q4:
 > **Sanity-check the plan on the features before writing any matrix.** Apply your sequence to the apex and the base centre in your head — both must land on their targets, and the distance between them must be the new height.
 
 ## Common pitfalls
+<!-- bite: 1c132d6e-1153-4e5b-ae2b-6d15a8348184 -->
 
 1. **Mixing conventions** — a row-vector question answered with column-vector matrices gives the transpose, which for rotation means the wrong direction.
 2. **Rotating about the origin when the question says about a point.** Translate–rotate–translate back.
@@ -180,6 +194,7 @@ For questions like the cone in SSG 511 Q4:
 5. **Forgetting that $R_y$'s sine signs are swapped.**
 
 ## Check your understanding
+<!-- bite: 21aa6e1a-cad4-44b3-a700-bd659a02196d -->
 
 1. What does $\begin{pmatrix}1&0&0.5\\0&1&0\\0&0&1\end{pmatrix}$ do to a point, in the column-vector convention? And in the row-vector convention?
 2. Why must the translation come last in "scale, rotate, then place"?
@@ -194,6 +209,7 @@ For questions like the cone in SSG 511 Q4:
 </details>
 
 ## Practice — independent tasks
+<!-- bite: 13d731c6-802d-4c94-8efa-087d4137fc11 -->
 
 From SSG 511 (see the [[computer-graphics/19-ssg-511-question-bank|question bank]] for the full wording):
 
@@ -205,10 +221,12 @@ From SSG 511 (see the [[computer-graphics/19-ssg-511-question-bank|question bank
 **Done when** each answer passes the pivot check (or the feature check for Q4).
 
 ## Before moving on
+<!-- bite: f178c63e-97f4-4b36-857e-4504fb83721a -->
 
 **Next:** [[computer-graphics/06-curves-bezier-and-b-splines|Curves: Bézier and B-splines]].
 
 ## Related
+<!-- bite: 8ba7aa39-7696-4ef6-959e-c7b74efd4959 -->
 - [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]] — model/view/projection, the normal matrix
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — rotations and quaternions in depth
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]

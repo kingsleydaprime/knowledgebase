@@ -1,3 +1,7 @@
+---
+id: 83ff40cc-3a25-46bd-b66b-914767d16f1c
+---
+
 # What Robotics Actually Is
 
 **[Beginner]** — The sense → plan → act loop, why every robotics problem decomposes into those three, and what makes this genuinely harder than software.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[robotics/index|the domain note]], which is blunt about what that means here.
 
 ## The loop
+<!-- bite: d49258b7-0853-4382-a018-778b379f539e -->
 
 Every robot, from a Roomba to a surgical arm to a Mars rover, is running the same loop:
 
@@ -29,6 +34,7 @@ That's it. **The decomposition is not a teaching device — it's how robot softw
 **And then repeat, fast.** The loop runs continuously because the world moves, the model is wrong, and the last action didn't do exactly what you asked.
 
 ## Why this is harder than software
+<!-- bite: 30845835-d12c-4177-825d-2e41fb4aec32 -->
 
 The honest framing, and it's worth internalising before anything else.
 
@@ -54,6 +60,7 @@ The honest framing, and it's worth internalising before anything else.
 **4. Failure is expensive.** A crashed process restarts. A robot arm that swings through a hard stop bends. One that swings through a person injures them. This is the reason robotics culture is conservative in ways software culture isn't.
 
 ## The three layers
+<!-- bite: 1826eaec-9b94-4680-9a41-aee9be826b54 -->
 
 Real robot software is layered by **timescale**, and the layers have genuinely different characters:
 
@@ -77,6 +84,7 @@ Real robot software is layered by **timescale**, and the layers have genuinely d
 This layering is also why [[architecture/04-distributed-systems/index|distributed-systems]] thinking shows up: a real robot is several computers (an MCU per joint, an onboard SBC, sometimes an offboard machine) exchanging messages with latency, partial failure, and no shared clock.
 
 ## The three questions
+<!-- bite: 0aeefc7c-5ac4-43dd-920f-d49a3f3ba4e7 -->
 
 Almost every robotics problem is one of these, and naming which one you're on is most of getting unstuck:
 
@@ -87,6 +95,7 @@ Almost every robotics problem is one of these, and naming which one you're on is
 **"How do I make the hardware do it?"** — [[robotics/09-robot-control|control]], [[robotics/08-dynamics|dynamics]], and the [[control-theory/index|control theory]] underneath.
 
 ## Kinds of robot
+<!-- bite: a3f6ea18-241b-46d3-ba3d-9cb858bfd46f -->
 
 The vocabulary differs by type, and the maths splits along the same line:
 
@@ -103,6 +112,7 @@ The vocabulary differs by type, and the maths splits along the same line:
 **Drones and legged robots** — the additional problem is that **they're unstable open-loop**. A quadcopter with the controller off falls out of the sky; a bipedal robot falls over. Control isn't improving performance, it's the only thing keeping the machine intact — which is the case [[control-theory/01-what-control-theory-is|control theory]] exists for.
 
 ## Degrees of freedom
+<!-- bite: 78573090-ce9e-4387-9bc3-31ddff1505ea -->
 
 The counting argument that underlies most of the kinematics notes.
 
@@ -117,6 +127,7 @@ The counting argument that underlies most of the kinematics notes.
 **Mobile robots are often *underactuated*:** a car has 3 DOF in the plane ($x, y, \theta$) but only 2 controls (drive and steer). You cannot move sideways. **That's why parallel parking takes a manoeuvre** rather than a translation, and it's a genuine mathematical constraint called nonholonomy, not a limitation of the car. → [[robotics/10-motion-planning|Motion Planning]]
 
 ## What you actually build
+<!-- bite: a7deb6d6-d546-4494-825e-c4ef3da2a0ec -->
 
 The gap between the subject and the practice.
 
@@ -127,6 +138,7 @@ The gap between the subject and the practice.
 **Coordinate frames cause more bugs than anything else.** World, base, joint, tool, camera, map, odom — every one is a frame, and getting the transform between two of them backwards produces a robot that confidently moves in exactly the wrong direction. ROS has a whole subsystem (`tf2`) for nothing but bookkeeping frames, which tells you how common the problem is. → [[robotics/04-rigid-body-transforms|Rigid Body Transforms]]
 
 ## Reading this track
+<!-- bite: 44487133-8da2-4be8-a29a-2187614e8a6b -->
 
 **01–03 are the ground floor** — what robots are, what they sense, what they move with. Little maths.
 
@@ -143,6 +155,7 @@ The gap between the subject and the practice.
 ---
 
 ## Related
+<!-- bite: 5a1036e0-1425-47c8-932c-18096386acec -->
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — the sense half
 - [[robotics/09-robot-control|Robot Control]] — the act half
 - [[control-theory/index|Control Theory]] — the theory underneath all of it

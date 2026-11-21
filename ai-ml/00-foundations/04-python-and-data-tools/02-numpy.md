@@ -1,8 +1,13 @@
+---
+id: 9f4827cf-51a1-42a5-aa6d-e5286a781b79
+---
+
 # NumPy
 
 **[reference / practice]** — the foundation of the entire Python numeric stack (pandas, scikit-learn, PyTorch all build on it). The core skill is a **mental shift: stop writing loops, start operating on whole arrays**. Type these out and run them.
 
 ## The ndarray
+<!-- bite: fab0572f-77fe-4d7b-afde-336adc3904f6 -->
 
 NumPy's one data structure is the **ndarray** — an n-dimensional grid of a *single* dtype, stored in a contiguous block of memory (which is why it's fast — the [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|vectors and matrices]] of linear algebra, in code):
 
@@ -20,6 +25,7 @@ np.random.rand(3, 3)                  # random, for quick experiments
 Unlike a Python list, an ndarray is fixed-dtype and fixed-size, stored raw — that's the tradeoff that buys speed.
 
 ## Vectorization — the whole point
+<!-- bite: d0b54d8b-655f-4fc7-b3a0-4cf12c410495 -->
 
 The mental shift: operations apply to the **entire array at once**, element-wise, in compiled C — no Python loop. Compare:
 
@@ -36,6 +42,7 @@ result = data * 2 + 1
 Everything vectorizes: arithmetic (`a + b`, `a * b`), comparisons (`a > 5`), math functions (`np.sqrt(a)`, `np.exp(a)`, `np.log(a)`). A rule to live by: **if you're writing a `for` loop over a NumPy array, you're probably doing it wrong** — there's almost always a vectorized form that's shorter *and* 10–100× faster. This is the same "push work into the library" principle from [[ai-ml/00-foundations/04-python-and-data-tools/01-python-for-data|Python for data]].
 
 ## Indexing, slicing, and boolean masks
+<!-- bite: 749fc66e-05d7-4653-91a9-c54fe8341455 -->
 
 Slicing extends Python's, per dimension:
 
@@ -58,6 +65,7 @@ mask = (a > 0) & (a < 4)   # combine conditions with & | ~ (not and/or)
 This "filter and transform by condition" pattern is everywhere in data cleaning ([[ai-ml/02-ml-engineer/02-working-with-data/index|working with data]]) and carries directly into [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]].
 
 ## Broadcasting — operating on mismatched shapes
+<!-- bite: e776aaa6-64a3-4993-8dce-dd8afc3bc9e9 -->
 
 The concept people find magic at first: NumPy automatically "stretches" smaller arrays to match bigger ones in element-wise ops, *without copying*, when shapes are compatible:
 
@@ -72,6 +80,7 @@ matrix - matrix.mean(axis=0)   # center each column: (n,m) - (m,) broadcasts
 The rule: dimensions are compatible when they're equal or one of them is 1. Broadcasting is *why* you rarely need loops — normalizing data (`(x - mean) / std`), applying weights, batch operations all rely on it. It's also exactly how neural-network layers apply the same operation across a batch ([[ai-ml/02-ml-engineer/05-deep-learning/01-neural-network-fundamentals|deep learning]]).
 
 ## Axis operations
+<!-- bite: 8ca6c699-2b5e-48c9-a5d7-d364472c4a15 -->
 
 Aggregations take an `axis` — the dimension to collapse *along*. This trips everyone up, so anchor it: `axis=0` collapses rows → per-**column** result; `axis=1` collapses columns → per-**row** result:
 
@@ -84,6 +93,7 @@ m.mean(axis=0); m.max(axis=1); m.std()
 ```
 
 ## Why it's fast (and the one gotcha)
+<!-- bite: 73b11b9c-33f4-4e4f-8511-8d2821878db5 -->
 
 Speed comes from contiguous typed memory + vectorized C loops + SIMD, plus **views**: slicing returns a *view* into the same memory, not a copy — efficient, but it means **modifying a slice modifies the original**:
 
@@ -95,11 +105,13 @@ sub[0] = 999      # also changes a[1]!  use a[1:3].copy() if you need independen
 Knowing view-vs-copy avoids a whole class of "why did my data change" bugs.
 
 ## Practice
+<!-- bite: 84c1d70c-6606-4927-8481-7bfaf4bd413c -->
 
 - Reimplement a small numeric loop you'd write in Java (e.g. normalize a list, compute a moving average) as one vectorized expression.
 - Implement `k-means` or `linear regression` using *only* NumPy (no scikit-learn) — the fastest way to make [[ai-ml/00-foundations/03-mathematics/index|the math]] and vectorization click. (These are in [[project-ideas|PROJECTS]].)
 
 ## Related
+<!-- bite: ae558ba4-724f-45eb-b885-6ff0875e0aca -->
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — what arrays represent
 - [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]] — labeled tables built on ndarrays
 - [[ai-ml/02-ml-engineer/05-deep-learning/01-neural-network-fundamentals|Neural Network Fundamentals]] — broadcasting is how layers process batches

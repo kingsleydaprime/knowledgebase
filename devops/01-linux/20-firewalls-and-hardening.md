@@ -1,14 +1,20 @@
+---
+id: a7415473-a231-4173-b162-b6be7d3c942d
+---
+
 # Firewalls and Hardening
 
 **[Intermediate]** — closing a server's front door. The minimum you owe any machine with a public IP.
 
 ## The kid version first
+<!-- bite: 1092fa14-3aaf-4712-826e-13116c7c26b4 -->
 
 Every listening service is a door. A firewall decides which doors face the street.
 
 The default on a fresh cloud VM is usually **no firewall at all** — everything a service binds to `0.0.0.0` is reachable from the entire internet, and automated scanners find a new public IP within minutes, not days. Not hypothetically: put an unfirewalled box online and watch `/var/log/auth.log` fill with SSH attempts from a dozen countries by the next morning.
 
 ## First, know what's actually exposed
+<!-- bite: a678fd07-56fd-4e77-bb6b-d5cc249cc6eb -->
 
 Before adding rules, find out what's listening:
 
@@ -24,6 +30,7 @@ Read the address column carefully — it's the whole point:
 **Binding a service to localhost is a stronger control than any firewall rule**, because it can't be undone by a mistyped rule later. If Postgres only ever serves an app on the same box, bind it to `127.0.0.1` and the firewall becomes a second line of defence rather than the only one. This is the single highest-value hardening step on this page.
 
 ## ufw — the Ubuntu/Debian path
+<!-- bite: c713b6b1-f7ef-442d-9b26-637998404c12 -->
 
 ```bash
 sudo ufw default deny incoming
@@ -43,6 +50,7 @@ sudo ufw allow from 203.0.113.7 to any port 22 proto tcp
 ```
 
 ## firewalld — the RHEL/Fedora path
+<!-- bite: 6e1a0794-6507-4425-b359-800aeb81a983 -->
 
 Same job, different model: hosts are grouped into **zones**, and interfaces are assigned to a zone.
 
@@ -59,6 +67,7 @@ The safe habit is to add it both ways — once live to test, once permanent to p
 Underneath both tools is **nftables** (which replaced iptables). You rarely touch it directly, but that's what `nft list ruleset` shows you when a rule isn't behaving as the front-end suggests.
 
 ## SSH hardening
+<!-- bite: ec1f9cdb-69f6-46fb-8a62-f474b96bcd82 -->
 
 The one service that's almost always exposed, and therefore the one worth spending effort on. In `/etc/ssh/sshd_config`:
 
@@ -77,6 +86,7 @@ Keep your current session open and open a *second* one to test before closing th
 Disabling password authentication ends credential-stuffing against your box outright — it's worth more than any rate-limiting or port-moving. Moving SSH to a non-standard port reduces log noise but is not security; scanners check all ports. **fail2ban** is a reasonable addition for noise reduction, unnecessary once passwords are off. See [[devops/01-linux/14-basic-ssh-config|basic ssh config]].
 
 ## SELinux and AppArmor
+<!-- bite: afa628e1-8db0-47d7-80c7-3400d599ba78 -->
 
 A firewall controls *who can reach a process*. These control *what a process can do once running* — so a compromised web server can't read `/etc/shadow` even as root.
 
@@ -89,6 +99,7 @@ A firewall controls *who can reach a process*. These control *what a process can
 When a service mysteriously can't read a file it clearly has Unix permissions for, this is usually why — and the standard advice on the internet is "disable SELinux," which trades a solved problem for an unsolved one. Read the denial (`ausearch -m avc`) and fix the label instead; the denial message usually names the exact fix.
 
 ## The baseline
+<!-- bite: b6361dde-b098-4254-8d1f-4af0a514c861 -->
 
 For any internet-facing machine:
 
@@ -102,10 +113,12 @@ For any internet-facing machine:
 That takes ten minutes and removes essentially all opportunistic attacks. Everything beyond it is diminishing returns until you have something genuinely worth targeting.
 
 ## Key insight
+<!-- bite: c934a368-abbf-4416-bef3-5d293d0c8b41 -->
 
 Check `ss -tulpn` before you write a single rule — most exposure is a service bound to `0.0.0.0` that had no business being there, and binding it to localhost fixes the problem more durably than any firewall rule. Then: allow SSH *before* enabling default-deny.
 
 ## Related
+<!-- bite: 77dd4a5e-4e12-4759-9fca-03115eaf4a51 -->
 - [[devops/01-linux/14-basic-ssh-config|Basic SSH Config]] — keys, config files, the session you shouldn't close
 - [[devops/01-linux/15-rhcsa/12-manage-network-security|RHCSA: Manage Network Security]] — firewalld zones and rich rules in depth
 - [[devops/01-linux/15-rhcsa/07-manage-selinux-security|RHCSA: SELinux]] — contexts, booleans, and diagnosing denials properly

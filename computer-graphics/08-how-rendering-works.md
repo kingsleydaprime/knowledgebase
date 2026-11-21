@@ -1,3 +1,7 @@
+---
+id: 4a997da2-54e7-4640-bac4-e68b7fe66773
+---
+
 # How Rendering Works
 
 **[Intermediate]** — The two paradigms, why one won for real-time and the other for film, and what they're both approximating.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[computer-graphics/index|the domain note]].
 
 ## The problem
+<!-- bite: ea3023a6-63f4-4915-8bfa-aa978f8e81fd -->
 
 **Given a description of a 3D scene, produce a 2D image.**
 
@@ -15,6 +20,7 @@
 **Two fundamentally different ways to bridge that gap**, and the difference is which direction you iterate.
 
 ## Rasterisation — loop over geometry
+<!-- bite: 5dbac92a-a26c-4872-b73f-59bb623dd4d3 -->
 
 ```
 for each triangle:
@@ -32,6 +38,7 @@ for each triangle:
 **What it's bad at:** anything requiring a triangle to know about *other* triangles. **Shadows, reflections, refraction and indirect light are all global effects, and rasterisation is fundamentally local.** Every real-time technique for those is an approximation bolted on — shadow maps, environment maps, screen-space reflections.
 
 ## Ray tracing — loop over pixels
+<!-- bite: b34416e5-8364-406b-ab77-87a902a95fda -->
 
 ```
 for each pixel:
@@ -51,6 +58,7 @@ for each pixel:
 > **Modern engines are hybrid:** rasterise primary visibility (fast, and every pixel needs it), ray-trace the effects that need global information.
 
 ## The rendering equation
+<!-- bite: 8c9bd3f2-fad0-425e-9ff7-e9b5580a4700 -->
 
 **What both approaches are approximating.** Kajiya, 1986:
 
@@ -73,6 +81,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 **And note the integral is high-dimensional**, which is why Monte Carlo is the method of choice — quadrature dies above ~4 dimensions and Monte Carlo's error is dimension-independent. → [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Monte Carlo]]
 
 ## The real-time pipeline
+<!-- bite: 830ecbaa-9da9-4f32-a94e-7b16543b3a16 -->
 
 **What happens for each frame at 60 Hz:**
 
@@ -90,6 +99,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 **Covered in detail across notes 09–13.** The structure to notice: **it's a stream, with each stage massively parallel and no stage needing global scene information.**
 
 ## Rendering as sampling
+<!-- bite: a0ad3c98-8d95-4fb0-8c74-b76beadc7a14 -->
 
 **A framing that unifies a surprising amount, and connects to [[information-theory/index|information theory]].**
 
@@ -108,6 +118,7 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 > **Noise and aliasing are the same problem sampled differently.** Regular sampling produces structured error (aliasing — visually objectionable because the eye finds patterns). Random sampling produces unstructured error (noise — less objectionable). **Stratified and blue-noise sampling deliberately sit between them**, which is why blue-noise dithering looks so much better than white noise at the same error level.
 
 ## Where graphics connects
+<!-- bite: 4d2d0f7c-1359-49b8-b730-ab9310d6f9cd -->
 
 **The reason this domain earns its place here, given it's the furthest from what you build:**
 
@@ -124,6 +135,7 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 **Machine learning.** Differentiable rendering, NeRFs and Gaussian splatting are graphics and ML fused, and the rendering equation is what they're learning to invert.
 
 ## Reading order
+<!-- bite: 6b07eca1-e822-4753-b861-5007f7d1ce91 -->
 
 This note opens Part 2. It assumes Part 1 (notes 01–07): how a screen shows pixels, drawing lines and shapes, and moving shapes with matrices. If those are new, start at [[computer-graphics/01-graphics-systems-and-display-hardware|note 01]].
 
@@ -138,6 +150,7 @@ This note opens Part 2. It assumes Part 1 (notes 01–07): how a screen shows pi
 ---
 
 ## Related
+<!-- bite: 78ae90c2-e9ab-4340-ae5d-793b53580272 -->
 - [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]] — getting from 3D to 2D
 - [[computer-graphics/14-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — the other paradigm
 - [[gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove

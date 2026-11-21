@@ -1,8 +1,13 @@
+---
+id: 1563dbd1-9b8f-4937-a95e-202eb1b267e6
+---
+
 # Latitude and Longitude
 
 **[Intermediate]** — measuring distance *on* a sphere, where parallel lines do not exist and the shortest route is not the obvious one.
 
 ## Before you start
+<!-- bite: 583b51a2-4e06-435d-b440-b06508ac3dac -->
 
 - You can use bearings and resolve a journey — [[04-bearings|bearings]].
 - You know the sine and cosine rules for plane triangles — [[03-sine-and-cosine-rules|sine and cosine rules]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: b555e493-5a08-4714-b5b2-8791be60e783 -->
 
 Everything in this folder so far has assumed a flat plane. The Earth is not one, and over long distances the difference is not a rounding error — it changes which route is shortest.
 
@@ -28,6 +34,7 @@ The most striking consequence: two cities at the **same latitude** are not most 
 So the plane geometry has to be rebuilt. There are no parallel lines on a sphere, triangle angles sum to more than $180°$, and "straight line" has to be redefined before anything else can be said.
 
 ## 2. Terminology
+<!-- bite: bb948e75-5237-4faf-9b2f-bf28efe09ab3 -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -42,6 +49,7 @@ So the plane geometry has to be rebuilt. There are no parallel lines on a sphere
 The distinction that carries the lesson: **meridians are great circles, parallels are not.** Travelling due north follows a shortest path; travelling due east generally does not.
 
 ## 3. The radius of a parallel
+<!-- bite: 60daaf54-893a-4165-aad6-6b1cde27b2fd -->
 
 A parallel at latitude $\phi$ is a circle, but not one centred on the Earth's centre. Slicing the sphere at that latitude gives a circle of radius:
 
@@ -80,6 +88,7 @@ The $\cos\phi$ factor is why longitude lines crowd together towards the poles, a
 **Nautical miles.** One minute of arc along a great circle is one nautical mile. That is why the unit exists: a degree of latitude is $60$ nautical miles anywhere on Earth, so latitude differences can be read directly off a chart as distances. Longitude differences cannot, because of the $\cos\phi$.
 
 ## 4. Great-circle distance
+<!-- bite: 57535893-847a-4380-850a-5a7e6e81003c -->
 
 For two points $(\phi_1, \lambda_1)$ and $(\phi_2, \lambda_2)$, the **spherical cosine rule** gives the angle $c$ subtended at the Earth's centre:
 
@@ -108,6 +117,7 @@ Mathematically identical, numerically far better for short distances. Block 4 of
 > **Predict before running the lab.** Two points both lie at $60°$N, one at $0°$ longitude and one at $180°$. Travelling along the parallel means going halfway round a circle of radius $R\cos 60° = R/2$. What is the alternative, and roughly how much shorter is it? Estimate before opening the answers.
 
 ## 5. Why the parallel is not the shortest route
+<!-- bite: 8795ba93-6bde-4323-a971-70add951d1de -->
 
 Take the two points from the prediction: $(60°\text{N}, 0°)$ and $(60°\text{N}, 180°)$.
 
@@ -128,6 +138,7 @@ The polar route is about **one third shorter**. With $R = 6371$ km that is rough
 The general principle: a great circle is the intersection of the sphere with a plane through the **centre**. Any other circle has a smaller radius, so covering the same angular span takes more distance.
 
 ## Worked example — runnable
+<!-- bite: 2a423db9-fa6f-45a2-9945-e3ec472b94a1 -->
 
 **Runnable example:** save as `lat_long.py` in any empty directory and run `python3 lat_long.py`. Standard library only; writes no files.
 
@@ -280,6 +291,7 @@ lat_long: passed
 Block 4 is the practical lesson. Both formulas are correct mathematics. Only one of them survives contact with floating point at short range, and that is why every mapping library ships haversine rather than the cosine rule.
 
 ## Common pitfalls and traps
+<!-- bite: b9e3ab0b-9095-49e0-bceb-dab2e3b50c4f -->
 
 - **Forgetting the $\cos\phi$ on longitude.** A degree of latitude is the same everywhere; a degree of longitude is not. This is the single most common error in position calculations.
 - **Assuming due east is the shortest way east.** It is not, except along the equator. Block 3 quantifies the difference.
@@ -289,6 +301,7 @@ Block 4 is the practical lesson. Both formulas are correct mathematics. Only one
 - **Treating the Earth as a sphere when precision matters.** It is an oblate spheroid, flattened by about $0.3\%$. Every result here carries that error — see the limits section.
 
 ## Check your understanding
+<!-- bite: 57ce1d1f-97a1-4b95-96ca-144d5dbb053b -->
 
 1. Find the radius of the parallel at latitude $45°$N, taking $R = 6371$ km.
 2. How far apart are two points on the same meridian at $20°$N and $50°$N?
@@ -308,6 +321,7 @@ Block 4 is the practical lesson. Both formulas are correct mathematics. Only one
 </details>
 
 ## Practice — independent task
+<!-- bite: 22eb8000-d4a0-40c4-90c3-aa2e2f25b07d -->
 
 Implement `initial_bearing(lat1, lon1, lat2, lon2)` and `destination(lat, lon, bearing, distance)`.
 
@@ -324,6 +338,7 @@ Implement `initial_bearing(lat1, lon1, lat2, lon2)` and `destination(lat, lon, b
 **Done when:** your round-trip test passes for at least ten random pairs, your step-4 output shows the bearing genuinely changing, and you can state the rhumb-line penalty for London–Tokyo with a number you computed.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: b424ab04-4402-4a20-9603-26dba46f6c3b -->
 
 **The Earth is not a sphere.** It is an oblate spheroid, with an equatorial radius about $21$ km larger than the polar one — a flattening of roughly $1/298$. Spherical formulas therefore carry errors up to about $0.5\%$, which is metres over a kilometre and tens of kilometres over an intercontinental route. Where that matters, **Vincenty's formulae** or Karney's improved algorithm solve the problem on an ellipsoid, at considerably greater cost and complexity. The choice is a genuine engineering trade: haversine is a dozen lines and good to half a percent; Vincenty is iterative, occasionally fails to converge for near-antipodal points, and is good to millimetres.
 
@@ -332,6 +347,7 @@ Implement `initial_bearing(lat1, lon1, lat2, lon2)` and `destination(lat, lon, b
 **Map projections must distort.** A sphere is not developable, as noted in [[02-solids|solids]], so no flat map can preserve area, angle and distance together. Mercator preserves angles — which makes a constant compass bearing a straight line, invaluable for navigation — at the cost of wildly exaggerating polar areas. That trade-off is a theorem, not a design flaw.
 
 ## Before moving on
+<!-- bite: 511e65ff-6227-43f4-9970-7d62e86db414 -->
 
 You are done with this lesson when you can:
 
@@ -345,6 +361,7 @@ You are done with this lesson when you can:
 **Next:** [[01-lines-and-planes|Lines and Planes in Space]] — leaving the surface entirely for full three-dimensional coordinate geometry.
 
 ## Related
+<!-- bite: daae1b43-50c7-4506-817c-307671d99cb3 -->
 
 - [[04-bearings|Bearings]] — the flat-Earth version, and its limits
 - [[03-sine-and-cosine-rules|Sine and Cosine Rules]] — the plane originals of the spherical formulas

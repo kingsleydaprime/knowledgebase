@@ -1,3 +1,7 @@
+---
+id: d8d82e00-d0b9-4352-a4a3-d0a50078c1aa
+---
+
 # Java Interview — Language & Collections
 
 From [[languages/01-java/01-language/index|01-language/]]. The screening round — get these fast and clean so the conversation can move to the interesting parts.

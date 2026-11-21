@@ -1,8 +1,13 @@
+---
+id: 9320f58f-0968-488b-9b10-a17385d4db22
+---
+
 # Inheritance and Virtual Dispatch
 
 **[Intermediate]** — How polymorphism actually works, what a vtable costs, and why modern C++ uses far less inheritance than 1990s C++ did.
 
 ## Inheritance
+<!-- bite: ea2637ee-0d9b-4826-98c8-45641d8645a9 -->
 
 ```cpp
 class Animal {
@@ -34,6 +39,7 @@ public:
 - **`public` inheritance** means "is-a". `private` inheritance means "implemented-in-terms-of" and is rare — prefer composition
 
 ## Virtual dispatch and the vtable
+<!-- bite: 5f25ddd7-1ceb-4942-ad77-c76d8a2aaaeb -->
 
 ```cpp
 std::unique_ptr<Animal> a = std::make_unique<Dog>("Rex");
@@ -68,6 +74,7 @@ void speak() const final;                    // nobody can override this
 ```
 
 ## The virtual destructor rule
+<!-- bite: d36254cf-a1e8-4fd2-8954-1ecbc53569e6 -->
 
 ```cpp
 class Base { public: ~Base() {} };           // NOT virtual
@@ -86,6 +93,7 @@ virtual ~Base() = default;
 The alternative, for a base class not meant to be deleted polymorphically, is a `protected` non-virtual destructor — which makes `delete p` through a `Base*` a compile error instead of UB.
 
 ## `override` and `final`
+<!-- bite: 487ba2ee-fe05-4d7a-b5d9-b7b18019326b -->
 
 ```cpp
 class Dog : public Animal {
@@ -106,6 +114,7 @@ class Dog : public Animal {
 That bug is silent, common, and produces "my override isn't being called". **Always write `override`.** Turn on `-Wsuggest-override`.
 
 ## Object slicing
+<!-- bite: ad3ad6b5-a6b9-4969-9666-c47a6c8cf931 -->
 
 The trap that has no equivalent in reference-based languages:
 
@@ -123,6 +132,7 @@ Copying a `Dog` into an `Animal`-sized slot literally discards everything the de
 Making the base class abstract (any pure virtual) prevents slicing, because you then can't have an `Animal` by value at all. That's a good reason to have at least one pure virtual in an interface.
 
 ## Multiple inheritance and the diamond
+<!-- bite: f395c8a9-f10e-4a41-8817-250403b64783 -->
 
 C++ allows multiple inheritance, which produces the diamond problem:
 
@@ -155,6 +165,7 @@ class Widget : public Drawable, public Serialisable { };    // fine — no data,
 ```
 
 ## Why modern C++ uses less inheritance
+<!-- bite: e5fce2c7-7993-43bd-834e-53fa9ad589b1 -->
 
 1990s C++ taught deep hierarchies. Current practice doesn't, for reasons that hold across languages:
 
@@ -206,6 +217,7 @@ This is the [[languages/03-rust/06-structs-enums-and-pattern-matching|sum type]]
 > **The rule of thumb: use inheritance for open sets of types that share behaviour and need runtime dispatch. Use `variant` for closed sets. Use templates when the type is known at compile time. Use composition for everything else.**
 
 ## RTTI
+<!-- bite: 08a71515-af65-45fc-9b57-aa5eb4d2daa0 -->
 
 ```cpp
 Animal *a = get_animal();
@@ -220,6 +232,7 @@ std::cout << typeid(*a).name();                  // implementation-defined strin
 Many projects (games, embedded) compile with `-fno-rtti` to save binary size, which disables `dynamic_cast` and `typeid` entirely.
 
 ## Practical rules
+<!-- bite: 7e22ef95-5d61-4537-b9a0-b964a7a0e95e -->
 
 1. **`virtual ~Base() = default`** on any polymorphic base.
 2. **`override` on every override.** `final` where it helps.
@@ -232,6 +245,7 @@ Many projects (games, embedded) compile with `-fno-rtti` to save binary size, wh
 ---
 
 ## Related
+<!-- bite: 13f661f5-f4ca-4aea-96ce-0fd97cd5b72c -->
 - [[languages/05-cpp/08-templates-and-concepts|Templates and Concepts]] — static polymorphism
 - [[languages/05-cpp/09-the-stl-containers|The STL Containers]] — `std::variant` and friends
 - [[languages/03-rust/09-traits|Rust: Traits]] — no inheritance at all

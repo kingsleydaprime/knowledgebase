@@ -7,12 +7,14 @@ id: bc728575-0cc9-4ccf-947f-eabb9a039f4a
 **[Intermediate]** — assumes [[concepts/01-best-practices/03-testing-fundamentals/index|Testing Fundamentals]] for the pyramid and TDD. This note is only the part that's *specific to a backend*: the database, the I/O boundaries, test data, and why backend suites go flaky.
 
 ## The kid version first
+<!-- bite: 5f62e570-ba11-444f-ab93-9fad569591d3 -->
 
 A pure function is easy to test: give it 2, expect 4. A backend is not a pure function. It talks to a database, a clock, a payment provider, a queue, and three other services — and **the bugs you actually ship live in exactly those conversations**, not in the arithmetic between them.
 
 So backend testing is mostly one question: *for each thing my code talks to, do I use the real one, a fake one, or nothing at all?* Get that decision right and the suite is fast and trustworthy. Get it wrong and you either test nothing real or you build something so slow nobody runs it.
 
 ## What to use the real thing for
+<!-- bite: 5553ba3d-65a7-4c70-96eb-8324a870b9a6 -->
 
 The single highest-value rule in backend testing:
 
@@ -31,6 +33,7 @@ The single highest-value rule in backend testing:
 The in-memory-database shortcut (H2 standing in for Postgres, SQLite standing in for MySQL) is the classic false economy. It's fast and it's green, and it cannot catch a `ON CONFLICT` clause that Postgres accepts and H2 doesn't, a case-sensitivity difference, a JSONB query, a partial index, or any isolation-level behaviour. You get a suite that passes while production breaks — the worst possible outcome, because it's actively misleading.
 
 ## Testcontainers — the real database, disposably
+<!-- bite: 13aa1f1c-7f0f-44f4-8147-58ad7c1b6d2f -->
 
 This is the tool that makes "use a real database" practical, and it's the one the vault has been recommending without showing. It starts a throwaway container for the test run and gives you its connection URL.
 
@@ -69,6 +72,7 @@ Two details that matter more than they look:
 - **Start the container once per suite, not per test.** Per-test containers turn a 20-second suite into a 10-minute one, and a suite nobody runs has no value.
 
 ## Test data — isolation without a fresh database
+<!-- bite: a0b5e2e5-e6f7-4e82-802b-43cfe173351f -->
 
 If tests share a database (they should, for speed), each one must not see another's rows. Three strategies:
 
@@ -88,6 +92,7 @@ const order = await makeOrder({ userId: user.id, total: 0 });   // the case unde
 A shared `fixtures.sql` starts out convenient and becomes a file nobody dares change, because forty tests depend on user #3 having exactly two orders. The factory version keeps each test's intent visible in the test.
 
 ## Time, and the tests that fail at midnight
+<!-- bite: a4553f82-e580-4e24-9818-b22be58a1343 -->
 
 Anything reading the clock directly is a latent flake. `expiresAt: new Date(Date.now() + 3600_000)` passes all day and fails in the CI run that straddles a DST boundary, and a test asserting "created today" fails for whoever runs it at 23:59.
 
@@ -96,6 +101,7 @@ Inject a clock, or use your framework's fake timers. Then you can also *test* th
 The same applies to anything that generates ordering: `ORDER BY created_at` with rows created in the same millisecond returns an arbitrary order, which passes locally and fails on faster CI hardware. Order by something total.
 
 ## What to test at each layer
+<!-- bite: a2d30c8b-2870-4cb4-b7d7-e6921042a315 -->
 
 - **Unit** — pure domain logic: pricing rules, state machines, validation, permission checks. Fast, no I/O. This is where [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal architecture]] pays off — the more logic sits behind ports, the more of it is unit-testable.
 - **Integration** — a repository against the real database, a service against real collaborators. The layer that catches the most real bugs per unit of effort in a typical backend.
@@ -105,6 +111,7 @@ The same applies to anything that generates ordering: `ORDER BY created_at` with
 **Test through the public entry point wherever you can.** A test that calls the HTTP route survives a refactor that reshuffles your service layer; a test that pokes at a private method breaks the moment you rename something, which trains people to delete tests during refactors.
 
 ## Auth is the thing people skip
+<!-- bite: 95184c48-4dcf-47b0-ada5-a45500c96ded -->
 
 Every endpoint has at least three cases, and most suites only test the first:
 
@@ -115,6 +122,7 @@ Every endpoint has at least three cases, and most suites only test the first:
 Case 3 is where [[backend/05-auth/index|broken object-level authorization]] lives — the most common serious API vulnerability there is, and it's trivially testable: create two users, have one request the other's resource, assert it fails. If you write one new kind of test after this note, write that one.
 
 ## Why backend suites go flaky
+<!-- bite: df7443f3-79f3-432a-a6d1-c2d2ea1796fa -->
 
 In rough order of frequency:
 
@@ -127,14 +135,17 @@ In rough order of frequency:
 A flaky test is worse than no test, because it teaches the team to re-run CI without reading the failure. Fix it or delete it — quarantining it "for now" means forever.
 
 ## What not to test
+<!-- bite: 34f4476b-2d7e-4285-8904-6d1b49f18718 -->
 
 Framework behaviour (your ORM can save a row), getters and setters, third-party libraries, and generated code. Coverage percentage is a diagnostic, not a target — the moment it becomes a target, people write tests that execute lines without asserting anything, and the number goes up while the safety net goes down.
 
 ## Key insight
+<!-- bite: fe6e263a-4ba5-4082-be37-4e7007f166ee -->
 
 Backend testing comes down to one decision repeated: real, faked, or ignored. Use a real database in a container against your real migrations, fake everything you don't own, inject the clock, and make every test build its own data. Almost every slow, flaky, or falsely-green backend suite is one of those four choices made wrong.
 
 ## Related
+<!-- bite: bed6cba8-e100-422c-b215-e0eff4cf3503 -->
 - [[concepts/01-best-practices/03-testing-fundamentals/index|Testing Fundamentals]] — the pyramid, TDD, and what makes any test valuable
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal & Clean Architecture]] — why ports and adapters make more of your code unit-testable
 - [[backend/05-auth/index|Auth]] — the 401/403 cases above
@@ -142,5 +153,6 @@ Backend testing comes down to one decision repeated: real, faked, or ignored. Us
 - [[backend/frameworks/javascript/03-nest/01-nestjs-reference|NestJS reference]] — the three testing levels in that stack
 
 ## Seen in the wild
+<!-- bite: 6e21b52e-d354-4d7c-9d97-f37497ce19a7 -->
 - [[projects/gees-arise/learning/07-testing|Gees Arise — Playwright]] — a real E2E suite driving a sign-up flow in a browser, walked through line by line
 - [[projects/strictenv/interview/03-testing-packaging-and-story|strictenv]] — testing and packaging a library, where the public surface *is* the contract

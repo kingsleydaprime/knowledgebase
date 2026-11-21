@@ -1,3 +1,7 @@
+---
+id: 3bf76b52-5160-4f60-85ed-dd6343ff5dc1
+---
+
 # Maintain Basic Storage
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Pairs with [[09-maintain-a
 ---
 
 ## Partition tables: MBR vs. GPT
+<!-- bite: 6076221c-b80b-42e1-acde-168be5e11e9d -->
 
 A partition table is the map at the start of a disk that says where each partition begins and ends — **MBR (Master Boot Record)** is the original, decades-old format; **GPT (GUID Partition Table)** is its modern replacement, built to remove MBR's size and partition-count ceilings.
 
@@ -22,6 +27,7 @@ Modern RHEL installs on UEFI hardware default to **GPT**. Know both because the 
 ---
 
 ## Tools: parted, fdisk, gdisk
+<!-- bite: 3f64e677-12df-4a11-a70d-111620a902b7 -->
 
 **`parted` is RHEL's standard, official partition editor** — it handles both MBR and GPT, works interactively or as one-liners for scripting, and is the tool Red Hat's own course material builds around. `fdisk`/`gdisk` (below) are worth recognizing since they're common elsewhere and still ship on RHEL, but default to `parted` unless something specifically calls for the others.
 
@@ -104,6 +110,7 @@ sudo lsblk                     # confirm the new partition shows up
 ---
 
 ## Creating a filesystem
+<!-- bite: f84bc3ae-e7ec-4b0e-9f29-52cb127bc3b1 -->
 
 ```bash
 sudo mkfs.xfs /dev/sdb1        # XFS — the RHEL default since RHEL 7/8
@@ -122,6 +129,7 @@ That "XFS can never shrink" line is worth remembering outright — it's the sing
 ---
 
 ## Mounting
+<!-- bite: 1918730a-b3d8-41c3-b09f-b9f50a3e5468 -->
 
 ```bash
 sudo mount -t xfs /dev/sdb1 /mnt/data      # explicit filesystem type
@@ -161,6 +169,7 @@ sudo mount -a          # mount everything in fstab that isn't already mounted �
 ---
 
 ## Swap
+<!-- bite: e54e542e-58bc-4fed-b2f2-668c8f1d143a -->
 
 Swap is disk space the kernel uses to hold memory pages that don't fit in RAM right now — slower than RAM by a lot, so it's a pressure release valve, not a substitute for having enough physical memory for your actual workload. Red Hat's own sizing guidance, worth knowing rather than guessing at:
 

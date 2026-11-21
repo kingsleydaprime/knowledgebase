@@ -1,8 +1,13 @@
+---
+id: 596f3b69-4967-4cfb-b574-efbe3dc1be08
+---
+
 # Module: Merge Sort
 
 **[Intermediate]** — divide and conquer, guaranteed $O(n\log n)$, stable, and the only one here that works when the data does not fit in memory.
 
 ## Before you start
+<!-- bite: 337f0fc3-fdbf-4fc1-aa39-1be57cf66b21 -->
 
 - You know the lower bound and what stable means — [[01-the-lower-bound|the lower bound]].
 - You can trace a recursive call — [[09-recursion-and-the-call-stack|recursion and the call stack]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 6f1dafa1-0eab-43ce-aef9-70d2b63de498 -->
 
 The elementary sorts are quadratic because each element is compared against many others. Merge sort attacks that by splitting: sort two halves independently, then combine them.
 
@@ -27,6 +33,7 @@ The combine step is the insight. **Merging two already-sorted lists is linear** 
 That gives the guarantee no other common sort provides: $O(n\log n)$ in the **worst** case, not just on average. Quicksort is usually faster in practice and can degrade to $O(n^2)$; merge sort cannot.
 
 ## 2. The mechanism
+<!-- bite: e5cb27b4-8d4b-4e08-935c-f2ce053e7546 -->
 
 ```
         [38, 27, 43, 3, 9, 82, 10]
@@ -62,6 +69,7 @@ The left half came first in the original array, so preferring it preserves the o
 > **Predict before section 3.** Merge sort needs a temporary array. If you allocate a fresh one inside every recursive call rather than reusing a single buffer, does the asymptotic complexity change? What about the actual running time? Decide before opening the answers.
 
 ## 3. External merge sort
+<!-- bite: d8c10399-5266-48d8-a970-c1672fd35a07 -->
 
 You have 100 GB to sort and 8 GB of RAM. No in-memory algorithm applies.
 
@@ -75,6 +83,7 @@ Every access is sequential, which matters enormously on disk — sequential read
 This is what a database does for a large `ORDER BY` that cannot use an index, and what `sort(1)` does on a large file.
 
 ## 4. Worked example — runnable
+<!-- bite: b7299472-167b-421d-b59b-a0de16269d1a -->
 
 **Runnable example:** save as `merge_sort.py` in any empty directory and run `python3 merge_sort.py`. Standard library only; writes no files.
 
@@ -256,6 +265,7 @@ merge_sort: passed
 Block 2 is the guarantee, visible: the write count is **identical** for sorted, reversed, random and all-equal input. Nothing about the data can make merge sort slow, because the split never looks at the values.
 
 ## Common pitfalls and traps
+<!-- bite: 3cda6aa8-3812-4c1b-91e9-203881078927 -->
 
 - **Using `<` instead of `<=` in the merge.** Silently destroys stability. Block 3 shows both.
 - **Allocating a new temporary on every merge.** Correct but wasteful: it makes the constant much worse and stresses the allocator. Real implementations allocate one buffer of size $n$ up front.
@@ -265,6 +275,7 @@ Block 2 is the guarantee, visible: the write count is **identical** for sorted, 
 - **Assuming linked lists behave the same.** Merge sort on a linked list *is* effectively in-place — you relink nodes instead of copying — which makes it the standard choice there.
 
 ## Check your understanding
+<!-- bite: efeed9fd-5ac3-4345-ad06-b1e4efbcb679 -->
 
 1. Why is merge sort $O(n\log n)$ in the worst case and not just on average?
 2. What is the space complexity, and why?
@@ -284,6 +295,7 @@ Block 2 is the guarantee, visible: the write count is **identical** for sorted, 
 </details>
 
 ## Practice — independent task
+<!-- bite: a76282be-e192-4ee5-b8a9-b073d9830b4b -->
 
 Implement **Timsort's core idea**: exploit runs that are already sorted.
 
@@ -298,6 +310,7 @@ Implement **Timsort's core idea**: exploit runs that are already sorted.
 **Done when:** your run-aware sort is correct and stable on every test, the concatenated-runs case shows a large comparison reduction, and you can explain the strictly-descending subtlety in step 5's edge case.
 
 ## Before moving on
+<!-- bite: 4608adf6-8ced-48d4-9873-836db5c6dca7 -->
 
 You can implement merge sort, derive its cost from the recursion tree, explain its stability, and describe external sorting.
 
@@ -306,6 +319,7 @@ You can implement merge sort, derive its cost from the recursion tree, explain i
 **Next:** [[04-quicksort|Quicksort]] — usually faster, in-place, and with a worst case you must actively prevent.
 
 ## Related
+<!-- bite: 470fd604-c86f-451a-b7f5-c968efa65cf3 -->
 
 - [[01-the-lower-bound|The Lower Bound]] — merge sort essentially meets it
 - [[07-heaps|Heaps]] — the $k$-way merge's engine

@@ -1,8 +1,13 @@
+---
+id: f48e81bd-3fff-454a-862b-ea30ad84dff1
+---
+
 # Web Application Attacks
 
 **[reference]** — from the roadmap.sh cyber-security roadmap (OWASP branch). Educational/defensive: how the common web attacks work. The *defenses* are in [[cybersecurity/04-web-security/index|web security]]; this is the attacker's-eye catalog, organized around the **OWASP Top 10** — the industry-standard list of the most critical web-app risks.
 
 ## The OWASP Top 10 (the mental checklist)
+<!-- bite: 903512c0-e7f6-4c19-846d-6c13f35690b9 -->
 
 Roughly, in current form:
 
@@ -18,6 +23,7 @@ Roughly, in current form:
 10. **Server-Side Request Forgery (SSRF)** — tricking the server into making requests to internal/unintended systems (fetching a URL the attacker controls, reaching cloud metadata endpoints). Fix: allowlist outbound destinations, block internal ranges.
 
 ## The injection attacks in more detail
+<!-- bite: 441e30ba-f281-465d-b63f-3352d0bebdaa -->
 
 - **SQL Injection (SQLi)** — inject SQL through an input to read/modify/destroy the database, or bypass auth. Still devastating and common. The one true fix is **parameterized queries** (the database treats input as data, never code) — input filtering alone is insufficient.
 - **Cross-Site Scripting (XSS)** — inject JavaScript that runs in *other users'* browsers (stored XSS in a saved comment, reflected XSS in a URL, DOM-based in client code). Used to steal sessions, keylog, deface. Fix: **output encoding** (escape data for its context) + a strong Content-Security-Policy.
@@ -26,10 +32,12 @@ Roughly, in current form:
 - **XXE, insecure deserialization, command injection** — related "untrusted input becomes execution" classes.
 
 ## The unifying lesson
+<!-- bite: 51242d84-f1d4-453b-86c5-97816f380c09 -->
 
 Nearly every web attack reduces to one root cause: **untrusted input treated as trusted** — as code (injection/XSS), as authorization (broken access control), or as a destination (SSRF). The unifying defenses: **never trust client input**, enforce **authorization server-side on every request**, use **parameterized/encoded** boundaries so data can't become code, and assume you'll be breached so you [[cybersecurity/07-security-operations/index|log and monitor]]. Practicing these safely is what platforms like [[cybersecurity/02-ethical-hacking/12-practice-exercises|deliberately-vulnerable labs]] (DVWA, PortSwigger Academy, OWASP Juice Shop) are for.
 
 ## Related
+<!-- bite: 4be9a920-42bc-4755-ad6b-b7fcc225742b -->
 - [[cybersecurity/04-web-security/index|Web Security]] — the defenses for every attack here
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|Input Validation & Output Encoding]] — the fix for injection/XSS
 - [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|Exploitation Concepts]] — the vulnerability-class framing

@@ -1,8 +1,13 @@
+---
+id: 4951bf27-9979-4e72-948a-9068f5efaf7e
+---
+
 # Performance
 
 **[Intermediate → Advanced]** — Turning everything in this track into a method for actually making code faster.
 
 ## The method
+<!-- bite: 6cb5418b-6f36-4769-8638-d4c57e7c629d -->
 
 **In order, and the order matters more than any individual technique:**
 
@@ -20,6 +25,7 @@
 > **Programmer intuition about performance is unreliable**, including experienced programmers, including yours. The profiler is not optional.
 
 ## Amdahl's law
+<!-- bite: 8054ea79-a33b-4bae-9a5e-fce299effecc -->
 
 $$S = \frac{1}{(1-p) + p/s}$$
 
@@ -39,6 +45,7 @@ $$S = \frac{1}{(1-p) + p/s}$$
 **Gustafson's counter-argument** is worth knowing: in practice you often scale the *problem* to the machine rather than fixing problem size. **More cores let you solve bigger problems in the same time**, even if they don't solve the same problem faster.
 
 ## Finding the bottleneck
+<!-- bite: 8124d409-d4d9-48d2-bfc2-f38eb1e36948 -->
 
 **Which resource is saturated?** The answer determines everything you do next.
 
@@ -81,6 +88,7 @@ perf annotate            # per-instruction, with sample counts
 > **`perf annotate` frequently surprises.** The hot instruction is often a load you never thought about, not the arithmetic you assumed. **Attribution can skew by a few instructions** due to sampling — look at the surrounding block, not one line.
 
 ## The tools
+<!-- bite: 8ade0a5d-890f-4855-879f-e9b8329faed4 -->
 
 | Tool | For |
 |---|---|
@@ -102,6 +110,7 @@ perf annotate            # per-instruction, with sample counts
 **Use sampling by default.**
 
 ## Benchmarking honestly
+<!-- bite: 051a2020-3b2a-4386-b40b-d8cf8de5c402 -->
 
 **The part that's easy to get wrong**, and a wrong benchmark is worse than none.
 
@@ -124,6 +133,7 @@ for (i = 0; i < N; i++) expensive_function(x);   // result unused → removed en
 **Use a framework:** Google Benchmark (C++), Criterion (Rust), JMH (Java). **They handle warmup, statistics, and optimiser defeat properly** — all things that are easy to get subtly wrong by hand.
 
 ## The techniques, ordered by payoff
+<!-- bite: cf60fe8e-2081-4593-9dea-0a370b953fe5 -->
 
 **1. Better algorithm.** $O(n^2) \to O(n\log n)$ beats every micro-optimisation, and no amount of cache tuning saves a quadratic algorithm at scale. → [[01-growth-and-asymptotic-notation|Algorithms]]
 
@@ -142,6 +152,7 @@ for (i = 0; i < N; i++) expensive_function(x);   // result unused → removed en
 **8. Micro-optimisation** — branchless code, multiple accumulators, unrolling. **Last, and only where the profiler points.**
 
 ## Latency vs throughput
+<!-- bite: f0e64e2d-bd04-4df1-8f10-8d460dbf453c -->
 
 **Different goals, different techniques**, and conflating them causes bad decisions.
 
@@ -156,6 +167,7 @@ for (i = 0; i < N; i++) expensive_function(x);   // result unused → removed en
 > **Sources of tail latency:** GC pauses, cache misses on cold data, lock contention, page faults, network retransmits, and background work like compaction. **Techniques:** hedged requests, tail-tolerant design, and reducing variance rather than the mean.
 
 ## When to stop
+<!-- bite: cfaaf8e2-f912-467d-a652-232d6d4717c6 -->
 
 **The honest part.**
 
@@ -172,6 +184,7 @@ for (i = 0; i < N; i++) expensive_function(x);   // result unused → removed en
 > **The point isn't "don't optimise" — it's "find the 3% first."** That's what profiling is for.
 
 ## A worked example
+<!-- bite: b5748e9b-063a-4253-abce-e703640f5abe -->
 
 **A realistic sequence, to show the method:**
 
@@ -194,6 +207,7 @@ Starting point:                          10.0 s
 ---
 
 ## Related
+<!-- bite: 5b4502ad-e230-467e-a93a-3d2e8871fee3 -->
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — where most of the wins are
 - [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — reading IPC
 - [[01-growth-and-asymptotic-notation|Algorithms]] — the step that beats everything else

@@ -1,8 +1,13 @@
+---
+id: 00ba724f-71cf-4dd8-b9b1-414206052934
+---
+
 # Unsafe and FFI
 
 **[Advanced]** — What `unsafe` actually permits, why it isn't a way out of the borrow checker, and calling C from Rust.
 
 ## What `unsafe` means
+<!-- bite: d5632c58-38a5-452b-aeb9-994ac1c028a8 -->
 
 The most common misconception: `unsafe` does **not** turn off the borrow checker, disable ownership, or make Rust into C. Ownership, borrowing, lifetimes and type checking all still apply.
 
@@ -32,6 +37,7 @@ unsafe {
 Creating a raw pointer is safe. Only *dereferencing* one requires `unsafe`, because that's where it can go wrong.
 
 ## Undefined behaviour
+<!-- bite: 49a36d44-013d-43cf-ad04-ae6b08ada81b -->
 
 Breaking the promise gives you **undefined behaviour** — and Rust's UB is as unforgiving as C's. Not "a crash", but "the optimiser assumed this couldn't happen and generated code accordingly."
 
@@ -46,6 +52,7 @@ The rules you must uphold in `unsafe`:
 The aliasing rule is the one that catches experienced C programmers. Rust's optimiser relies on `&mut T` being genuinely unique far more aggressively than a C compiler relies on `restrict`.
 
 ## The safe-abstraction pattern
+<!-- bite: aeae399b-b8f9-45fc-b414-63163e45a12a -->
 
 Idiomatic Rust doesn't spread `unsafe` around. It confines it inside a small, audited module and exposes a **safe API** whose invariants are checked at the boundary:
 
@@ -76,6 +83,7 @@ unsafe { ... }
 ```
 
 ## `unsafe fn`
+<!-- bite: ffdb297f-dbbf-4aa7-82ea-c3f94cf41827 -->
 
 ```rust
 /// # Safety
@@ -86,6 +94,7 @@ pub unsafe fn from_parts(ptr: *const u8, len: usize) -> &'static [u8] { }
 Marking a function `unsafe` means **the caller** must uphold preconditions the function can't check. Document them under a `# Safety` heading — that's the universal convention and rustdoc renders it.
 
 ## FFI — calling C
+<!-- bite: d3929913-4afb-428a-94e4-e28957651d2d -->
 
 ```rust
 #[link(name = "m")]
@@ -150,6 +159,7 @@ let boxed = unsafe { Box::from_raw(ptr) };   // Rust owns it again; drops normal
 ```
 
 ## When `unsafe` is justified
+<!-- bite: 4edccb78-3db8-494a-ba1d-a2efe6feedbb -->
 
 - **FFI** — unavoidable
 - **Building a data structure the borrow checker can't express** — intrusive lists, arenas, lock-free structures
@@ -158,12 +168,14 @@ let boxed = unsafe { Box::from_raw(ptr) };   // Rust owns it again; drops normal
 - **Implementing `Send`/`Sync`** for a type whose safety you're guaranteeing manually
 
 ## When it isn't
+<!-- bite: 86122957-3b74-4842-b5f3-809bd86ea751 -->
 
 - **Getting past the borrow checker.** If you're using `unsafe` because the compiler said no, you almost certainly have the bug it was describing.
 - **Assumed performance.** Bounds checks are usually elided by the optimiser already. Measure first — the win is often zero.
 - **Convenience.** `Rc<RefCell<T>>`, an arena, or a redesign is nearly always the better answer.
 
 ## Tools
+<!-- bite: 69b2b49d-e508-40da-8f0d-61e2b32bcf38 -->
 
 ```bash
 cargo +nightly miri test        # interpreter that DETECTS undefined behaviour
@@ -177,6 +189,7 @@ cargo geiger                    # count unsafe in your dependency tree
 ---
 
 ## Related
+<!-- bite: da76fbec-d077-4e71-94c0-20deb634a641 -->
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]] — safe abstractions built on this
 - [[languages/03-rust/13-concurrency|Concurrency]] — `Send`/`Sync` as unsafe traits
 - [[languages/03-rust/18-performance-and-zero-cost|Performance]] — measure before reaching for `unsafe`

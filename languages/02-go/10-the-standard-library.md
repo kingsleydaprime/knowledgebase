@@ -1,8 +1,13 @@
+---
+id: f2db631e-c302-49fb-98bf-e7f19d8c973a
+---
+
 # The Standard Library
 
 **[Intermediate]** — The packages you'll actually use, and why Go's stdlib being genuinely sufficient is a cultural fact, not just a technical one.
 
 ## Why it matters more here
+<!-- bite: 5ef654ac-62ba-4bf1-826a-bb25d72fe6ca -->
 
 In Node you reach for a package. In Go you reach for the standard library first, and usually stop there. `net/http` is a production-grade HTTP server — not a toy you replace with Express. `encoding/json` is the JSON library. `database/sql` is the database layer.
 
@@ -11,6 +16,7 @@ The consequence is a dependency graph you can read. A typical Go service has ten
 The trade is that the stdlib is *deliberately* minimal, so some things you'd expect are missing and you write them yourself.
 
 ## `io` — the composition layer
+<!-- bite: 8d1694ed-6a4c-4e3a-96fb-837b5206aaf0 -->
 
 ```go
 type Reader interface{ Read(p []byte) (n int, err error) }
@@ -30,6 +36,7 @@ io.MultiWriter(w1, w2)             // write to both
 `io.Copy` streaming a 4GB file in constant memory, versus `io.ReadAll` loading it all — that's the difference between a service that works and one that OOMs. Reach for `Copy` by default.
 
 ## `net/http`
+<!-- bite: 9072e9de-f921-4c09-bc77-02df9d892ef2 -->
 
 ```go
 mux := http.NewServeMux()
@@ -91,6 +98,7 @@ defer resp.Body.Close()      // MANDATORY — otherwise you leak the connection
 Both comments are load-bearing. `http.DefaultClient` waits forever, and a body you don't close is a connection that never returns to the pool.
 
 ## `encoding/json`
+<!-- bite: bf4b3750-6088-49c1-9cf2-6a213972419f -->
 
 ```go
 type User struct {
@@ -117,6 +125,7 @@ dec.DisallowUnknownFields()
 ```
 
 ## `time`
+<!-- bite: fbf1891b-0177-4f1a-81b5-93c4ba3a00aa -->
 
 ```go
 time.Now()
@@ -138,6 +147,7 @@ t.Format(time.RFC3339)               // use the constants
 For anything measuring elapsed time, prefer `time.Since` — it uses the monotonic clock and isn't affected by NTP adjustments.
 
 ## `os` and `flag`
+<!-- bite: 95fde9fd-b3d8-4e25-b437-34211987b7fb -->
 
 ```go
 os.Getenv("PORT")
@@ -160,6 +170,7 @@ func main() {
 ```
 
 ## `strings`, `strconv`, `bytes`
+<!-- bite: 66a54128-a012-48db-8b05-81689651aa36 -->
 
 ```go
 strings.Split / Join / Contains / HasPrefix / TrimSpace / ReplaceAll / Fields
@@ -178,6 +189,7 @@ Building strings with `+=` in a loop is O(n²) because strings are immutable —
 `bytes` mirrors `strings` for `[]byte`. Working in bytes avoids conversions in hot paths.
 
 ## `log/slog` — structured logging
+<!-- bite: 497ac14b-6a19-4c84-a3de-7ab7130a3726 -->
 
 Since Go 1.21, structured logging is standard:
 
@@ -192,6 +204,7 @@ logger.With("request_id", id).Info("processing")
 Use it over `log` for anything that ships. JSON output is what makes logs queryable in [[devops/07-observability/index|an observability stack]] — the difference between grep and a real query.
 
 ## The rest, briefly
+<!-- bite: 6c212b4a-8f98-4022-893c-cdb985092bfa -->
 
 | Package | For |
 |---|---|
@@ -210,6 +223,7 @@ Use it over `log` for anything that ships. JSON output is what makes logs querya
 ---
 
 ## Related
+<!-- bite: 359766eb-2e4b-4387-bc25-fd9ccd4d3e9d -->
 - [[languages/02-go/04-methods-and-interfaces|Methods and Interfaces]] — why `io.Reader` composes
 - [[backend/frameworks/go/index|Go Backends]] — `net/http` in anger
 - [[languages/02-go/12-modules-and-project-layout|Modules and Project Layout]] — adding the few dependencies you need

@@ -1,8 +1,13 @@
+---
+id: dece722a-7a03-4582-b2f0-c44c5e76386f
+---
+
 # Theoretical Limits
 
 **[reference]** — from the canon (FLP 1985, Brewer's CAP + Gilbert & Lynch's proof, Abadi's PACELC, the CALM theorem). The [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|models]] in the previous note produce hard *impossibility results* — things no algorithm can do, no matter how clever. Knowing these stops you chasing the impossible and tells you exactly which tradeoff you're forced to make. This is the theory that makes the rest of the course make sense.
 
 ## The kid version first
+<!-- bite: 1f066b17-8a0c-4941-8f99-6147c7d1c5f3 -->
 
 Some things aren't just *hard* — they're **impossible**, and no amount of cleverness fixes them. Knowing which is which saves you from trying forever. Three examples you'll meet below:
 - **You and a friend want to jump in the pool at the *exact* same second, but you can only plan by passing notes** that might get lost. Can you *guarantee* you both jump together? No — the last note sent is never confirmed, so someone is always unsure. (That's "Two Generals.")
@@ -12,12 +17,14 @@ Some things aren't just *hard* — they're **impossible**, and no amount of clev
 This note is the short list of walls the universe puts up. Every real design is a choice about *which wall you'll lean against.*
 
 ## Two Generals — agreement over a lossy channel is impossible
+<!-- bite: c4d56d8f-e728-4738-8665-8fe67dea288d -->
 
 The oldest result, and the cleanest intuition. Two generals must attack at the same time to win; they can only communicate by messengers who might be captured. General A sends "attack at dawn." Did it arrive? A needs an ack. B sends the ack — did *that* arrive? B now needs an ack of the ack. **No finite exchange of messages ever lets both sides be *certain* the other will attack** — every message needs confirmation, and the last message sent is always unconfirmed. 
 
 The consequence you live with daily: **there is no such thing as guaranteed exactly-once delivery over an unreliable network.** TCP doesn't solve this — it gives you *reliable-ish* delivery with retries, but the fundamental uncertainty (did my last packet land?) remains. This is why distributed systems lean on **idempotency** ([[architecture/04-distributed-systems/10-distributed-transactions|transactions]]) instead: you can't guarantee a message arrives *exactly* once, so you make it *safe* to arrive more than once.
 
 ## FLP — consensus can't be guaranteed to terminate
+<!-- bite: 1a45ee59-ed70-4706-96ca-d3ccea366342 -->
 
 **The result (Fischer, Lynch, Paterson, 1985):** in a fully **asynchronous** system where **even one node may crash**, there is *no* deterministic algorithm that guarantees [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] always **terminates**. Not "it's hard" — it's provably impossible to guarantee.
 
@@ -30,6 +37,7 @@ The consequence you live with daily: **there is no such thing as guaranteed exac
 So FLP's practical lesson isn't "consensus is impossible" — it's "**consensus can stall during a bad network, and that's not a bug, it's a theorem.**" A cluster that stops accepting writes during a partition is FLP made visible.
 
 ## CAP — during a partition, pick C or A
+<!-- bite: 6e0ac0b1-1409-4547-b536-3fe69302440d -->
 
 **The result:** when a **network partition** (P) splits your nodes so they can't all communicate, you must choose between:
 - **Consistency (C)** — every read sees the latest write (linearizable). To guarantee this during a partition, the minority side must **refuse** requests (it can't be sure it has the latest data) → you lose availability.
@@ -43,6 +51,7 @@ You cannot have both *during a partition* — a direct consequence of unreliable
 CAP is also **not** a whole-system label — it's per-operation. One database can offer linearizable reads for some data and eventual for other data. See the fundamentals treatment in [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]].
 
 ## PACELC — the tradeoff that never sleeps
+<!-- bite: 1bfc810a-fd43-4c2d-8e2e-cc5dd989e09b -->
 
 CAP only describes the *partition* case, which is rare. **PACELC** (Abadi) completes it: **if Partition, choose Availability or Consistency; Else (normal operation), choose Latency or Consistency.**
 
@@ -53,10 +62,12 @@ The "else" clause is the one that bites every day: even with a perfectly healthy
 PACELC is the more useful framework in practice, because you spend ~99.9% of your time in the **E** (no-partition) case, and that's where the consistency-vs-latency dial actually lives. "Strong consistency isn't free even when nothing is broken" is the whole point.
 
 ## The consistency/latency tradeoff is fundamental, not a limitation to engineer away
+<!-- bite: 343908c1-2fd0-4f88-81be-96f353239b33 -->
 
 A recurring beginner instinct is "surely with a fast enough network we get strong consistency *and* low latency." No: the two are in fundamental tension because **strong consistency requires coordination** (agreeing on an order), and coordination requires communication, and communication takes time and can be interrupted. The stronger the [[architecture/04-distributed-systems/04-consistency-models|consistency model]] you promise readers, the more coordination you must do, the more latency you pay, and the less available you are under partition. Weaker models (causal, eventual) need less coordination → faster, more available, but readers see anomalies. **Choosing a consistency model is choosing a point on this curve — there is no free corner.**
 
 ## CALM — when you can drop coordination entirely
+<!-- bite: c537c7cf-4695-4279-aa84-c87ca3828753 -->
 
 The optimistic counterweight (Hellerstein & Alvaro). **CALM: Consistency As Logical Monotonicity.** A computation can be made **consistent *without any coordination*** if and only if it is **monotonic** — roughly, once a fact becomes true it stays true, and adding more inputs only ever *adds* to the output, never retracts.
 
@@ -66,6 +77,7 @@ The optimistic counterweight (Hellerstein & Alvaro). **CALM: Consistency As Logi
 CALM reframes the design question from "how do I coordinate?" to "**can I model this so it doesn't need coordination at all?**" The cheapest consensus is the one you proved you didn't need.
 
 ## How the limits map to the rest of the course
+<!-- bite: 675217e6-7a1a-424a-8bdd-89ec0ab40969 -->
 
 | Limit | Says you can't… | So the course does… |
 |---|---|---|
@@ -76,10 +88,12 @@ CALM reframes the design question from "how do I coordinate?" to "**can I model 
 | CALM | drop coordination for non-monotonic logic | model as monotonic → [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution\|CRDTs]] where possible |
 
 ## Key insight
+<!-- bite: b17f812b-efbc-4765-b9f6-3e67d6c986cd -->
 
 **These aren't engineering limitations to optimize away — they're proofs of what's impossible, and every real design is a chosen point inside them.** You can't get exactly-once delivery (so you make things idempotent), you can't guarantee consensus terminates under asynchrony (so you assume eventual synchrony and accept stalls), and you can't have strong consistency without paying latency and sacrificing availability under partition (PACELC) — *unless* your logic is monotonic, in which case CALM lets you skip coordination entirely. Knowing the wall is there is what stops you running into it.
 
 ## Related
+<!-- bite: ef1aaf0c-3c42-4c5d-bd30-c0cd0af60f2f -->
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — the models these results are proved against
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — the spectrum PACELC makes you choose from
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] — what FLP bounds and timeouts rescue

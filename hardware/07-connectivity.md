@@ -1,8 +1,13 @@
+---
+id: e88e8228-7d5e-46d0-9d48-aafb2f99dd3c
+---
+
 # Connectivity
 
 **[Intermediate]** — Getting a device onto a network for real: Ethernet vs WiFi vs cellular, and Power over Ethernet.
 
 ## Three Ways to Get a Device Online
+<!-- bite: cf58f503-3d0a-4504-a5cd-ad58b6a60649 -->
 
 **Ethernet**
 A physical RJ45 cable plugs directly into the device. Data travels as electrical signals over copper wire — 8 wires inside arranged in 4 twisted pairs. Most reliable, fastest, lowest latency, zero interference. The device can't move (tethered by the cable) but the connection is rock solid. Used everywhere that reliability matters: servers, network switches, desktop PCs, industrial equipment.
@@ -25,6 +30,7 @@ Uses the mobile phone tower network (2G/3G/4G LTE/5G). Needs a SIM card and a mo
 | Best for | Fixed, reliability-critical | Convenience, indoor | Remote, mobile, failover |
 
 ## PoE — Power over Ethernet
+<!-- bite: 86a1f20c-7fee-41c4-b982-74d1c4b20eb2 -->
 
 PoE is not a separate connectivity type — it's an extension of regular Ethernet. The idea: send both **data AND electrical power** through the single Ethernet cable that's already there. One cable does two jobs.
 
@@ -63,6 +69,7 @@ Ethernet cable (same RJ45 plug, same cable):
 ---
 
 ## Related
+<!-- bite: 3e22f5ff-7abb-4a18-81d2-1a44ba823772 -->
 - [[hardware/06-radio-frequency|Radio Frequency]] — the wireless options in depth
 - [[hardware/08-iot-architecture|IoT Architecture]] — the system these devices join
 - [[networking/index|Networking]] — everything above the physical layer

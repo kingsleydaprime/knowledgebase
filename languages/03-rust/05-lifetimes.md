@@ -1,8 +1,13 @@
+---
+id: 8196a30d-b104-428c-bdd2-27ff8e44e324
+---
+
 # Lifetimes
 
 **[Intermediate]** — The scariest-looking syntax in Rust, which turns out to be describing something you already understand.
 
 ## What they actually are
+<!-- bite: 68c62797-8d54-4dfa-bd5e-a9bf69fb51c6 -->
 
 A lifetime is **the scope for which a reference is valid**. Every reference has one; the compiler infers it almost always. Annotations appear only when it can't.
 
@@ -13,6 +18,7 @@ The crucial thing to get straight, because it's the usual misconception:
 You're not allocating or extending anything. You're telling the compiler "the reference coming out is valid as long as the one going in", and it verifies you.
 
 ## Why they're needed
+<!-- bite: 3ff7d04c-1fb2-466b-8d96-412fc064b469 -->
 
 ```rust
 fn longest(x: &str, y: &str) -> &str {      // ERROR: missing lifetime specifier
@@ -49,6 +55,7 @@ fn first<'a>(x: &'a str, _y: &str) -> &'a str { x }   // _y is unrelated; give i
 ```
 
 ## Elision — why you rarely write them
+<!-- bite: 59b80112-8077-4349-91a0-de057de39002 -->
 
 Three rules let the compiler infer lifetimes in the common cases. If they fully determine the answer, you write nothing:
 
@@ -67,6 +74,7 @@ impl Parser {
 Rule 3 is why methods almost never need annotations, and it's why `longest` above *does* — two inputs, no `self`, so rules 1 and 2 leave the output ambiguous.
 
 ## Lifetimes in structs
+<!-- bite: d3eb4351-1736-4ce9-b6f1-21a25c13bdc9 -->
 
 A struct holding a reference must declare that it can't outlive what it borrows:
 
@@ -88,6 +96,7 @@ impl<'a> Parser<'a> {
 **When a struct starts collecting lifetime parameters, consider owning the data instead.** `String` rather than `&'a str` costs an allocation and removes the constraint. Fighting three lifetime parameters to avoid one `clone()` in a config struct is a bad trade — measure before assuming it matters.
 
 ## `'static`
+<!-- bite: 57afb1ec-c528-4e21-9d3a-129d091552ce -->
 
 ```rust
 let s: &'static str = "I live for the whole program";
@@ -105,6 +114,7 @@ The second is what you see in thread-spawn and async bounds — `thread::spawn` 
 When the compiler suggests adding a `'static` bound, that's usually the wrong fix. It's telling you something borrowed is escaping a scope, and the right answer is normally to own it — `to_owned()`, `Arc`, or restructuring — not to promise it lives forever.
 
 ## Bounds and subtyping
+<!-- bite: 8486d15c-5580-4ed2-8183-4106ce437b67 -->
 
 ```rust
 struct Wrapper<'a, 'b: 'a> {    // 'b outlives 'a
@@ -118,6 +128,7 @@ struct Wrapper<'a, 'b: 'a> {    // 'b outlives 'a
 Lifetimes are **covariant** in most positions, meaning a longer lifetime can be used where a shorter one is expected — which is why passing a `'static` reference to a function wanting `&'a str` just works.
 
 ## Higher-ranked bounds
+<!-- bite: 3c2952c7-72bd-439d-9cb8-4d4408e1ccb4 -->
 
 ```rust
 fn apply<F>(f: F) where F: for<'a> Fn(&'a str) -> &'a str { }
@@ -126,6 +137,7 @@ fn apply<F>(f: F) where F: for<'a> Fn(&'a str) -> &'a str { }
 `for<'a>` means "for *any* lifetime `'a`", not one specific one — the function must work for all of them. It's usually inferred; you'll only write it explicitly for closures stored in structs. Filed here so it isn't alarming when you see it.
 
 ## Practical advice
+<!-- bite: 157b8c0d-2892-4d0b-9a8c-ea2984300f34 -->
 
 1. **Don't add lifetimes until the compiler asks.** Elision covers most code.
 2. **When you're stuck, try owning the data.** `String` over `&'a str`, `Vec<T>` over `&'a [T]`. Correct first, optimise later.
@@ -138,6 +150,7 @@ Lifetimes are the last big concept and they're less used day to day than ownersh
 ---
 
 ## Related
+<!-- bite: 10525222-e170-4794-b443-7f06a43668ae -->
 - [[languages/03-rust/04-borrowing-and-references|Borrowing and References]] — what lifetimes describe
 - [[languages/03-rust/10-generics-and-trait-bounds|Generics and Trait Bounds]] — lifetimes are a kind of generic parameter
 - [[languages/03-rust/14-async-and-tokio|Async and Tokio]] — where `'static` bounds bite hardest

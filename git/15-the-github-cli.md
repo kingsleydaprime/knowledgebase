@@ -1,8 +1,13 @@
+---
+id: 51646469-0421-4d48-82c1-7be015f5ef66
+---
+
 # The GitHub CLI (`gh`)
 
 **[Intermediate]** — `git` talks to a repository; `gh` talks to GitHub. Pull requests, issues, releases, CI runs and the raw API, from the terminal — without the browser round-trip that breaks your flow.
 
 ## Why it exists
+<!-- bite: 5421942a-90e1-4dc4-8315-2013bd6ce52f -->
 
 `git` predates GitHub and knows nothing about it. Pull requests, issues, reviews, Actions runs, releases — none of those are Git concepts. They're GitHub's, and until `gh` the only way to touch them was the web UI.
 
@@ -11,6 +16,7 @@ That matters more than convenience. The browser round-trip — alt-tab, find the
 The other half is scripting. `gh` is an authenticated GitHub API client that already knows who you are and which repo you're in, so `gh api` turns any GitHub data into something you can pipe into `jq`.
 
 ## Setup
+<!-- bite: a1cc6b83-8f88-44dc-b79b-300f3f052a87 -->
 
 ```bash
 # Fedora / RHEL
@@ -34,6 +40,7 @@ gh auth setup-git      # make gh git's credential helper
 That's what stops HTTPS pushes asking for a password. `gh` holds the token and hands it to `git` on demand — no personal access token pasted into a config file where it can leak. See [[git/02-configuration-and-setup|Configuration and Setup]] for the `credential.helper` setting this replaces.
 
 ## Repositories
+<!-- bite: dfe78149-17d1-4ac0-93f7-f7c807c6a896 -->
 
 ```bash
 gh repo create my-project --public --source=. --push   # create FROM an existing local repo
@@ -48,6 +55,7 @@ gh repo list <user> --limit 100                        # someone's repos
 `gh repo fork --clone` is the one that saves real work: it forks, clones your fork, and adds the original as `upstream` — the three-step setup from [[git/08-remotes-and-collaboration|Remotes and Collaboration]] done correctly by default.
 
 ## Pull requests — the main event
+<!-- bite: 168a1db3-f8ca-4b30-b7bf-a5331779d322 -->
 
 ```bash
 gh pr create                          # interactive: title, body, base branch
@@ -90,6 +98,7 @@ gh pr close 42
 `--auto` is worth knowing: it queues the merge behind the required status checks from [[git/14-github-and-ci|branch protection]], so you don't sit watching CI.
 
 ## Issues
+<!-- bite: de5cda44-4f01-4e8d-8e0e-43e5b4bb3b81 -->
 
 ```bash
 gh issue create --title "Bug: login fails on Safari" --body "..." --label bug
@@ -103,6 +112,7 @@ gh issue develop 17 --checkout      # create a branch for this issue and switch 
 `gh issue develop` links the branch to the issue on GitHub, so the issue page shows the work in progress — a small thing that removes a whole class of "which branch was that?" questions.
 
 ## CI runs
+<!-- bite: 04281584-fcd3-431d-90b0-ab226293c16c -->
 
 Directly useful here: this vault publishes through a GitHub Actions workflow, so after every push there's a run to watch.
 
@@ -120,6 +130,7 @@ gh run cancel <run-id>
 `gh run view --log-failed` beats the web UI decisively. A failed run in the browser means expanding jobs and scrolling collapsed step output; this prints just the part that broke. See [[devops/05-ci-cd/12-troubleshooting-workflows|Troubleshooting Workflows]] for what to do with the output.
 
 ## Releases
+<!-- bite: 58958e80-c976-46ca-acf2-7e9be9c94d2a -->
 
 ```bash
 gh release create v1.2.3 --generate-notes          # notes auto-built from merged PRs
@@ -133,6 +144,7 @@ gh release download v1.2.3
 `--generate-notes` is the payoff for the commit discipline in [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — GitHub writes the changelog from your PR titles, so conventional commits turn directly into release notes. More on the versioning side in [[git/11-tags-and-versioning|Tags and Versioning]].
 
 ## `gh api` — the escape hatch
+<!-- bite: 7cb62e4e-3728-4a8c-bb01-9584b681e8a9 -->
 
 Everything above is a convenience wrapper. When there's no wrapper for what you need, `gh api` gives you the whole REST and GraphQL API, already authenticated:
 
@@ -167,6 +179,7 @@ gh run list --json conclusion,name --jq '.[] | select(.conclusion=="failure") | 
 ```
 
 ## Odds and ends
+<!-- bite: fe0f98eb-eab2-4806-ad3a-b482023b88a1 -->
 
 ```bash
 gh browse                    # open the current repo in a browser
@@ -194,6 +207,7 @@ gh config list
 ```
 
 ## Where `gh` stops and `git` starts
+<!-- bite: afb6903e-5581-496f-abf3-87f2279ce277 -->
 
 Worth keeping straight, because it's the thing that confuses people:
 
@@ -211,6 +225,7 @@ If a command changes commits, it's `git`. If it changes something you'd otherwis
 ---
 
 ## Related
+<!-- bite: e41b0d4d-c8f0-4fcb-b8fd-08ce28098b89 -->
 - [[git/14-github-and-ci|GitHub as a Platform, and Git in CI]] — the rules `gh pr merge` has to satisfy
 - [[git/08-remotes-and-collaboration|Remotes and Collaboration]] — the manual fork workflow `gh repo fork` automates
 - [[git/11-tags-and-versioning|Tags and Versioning]] — what `gh release create` is publishing

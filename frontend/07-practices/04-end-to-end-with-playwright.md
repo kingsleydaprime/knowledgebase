@@ -1,3 +1,7 @@
+---
+id: 97360439-cdbf-448e-879a-d49528273812
+---
+
 # End-to-End with Playwright
 
 > **[Intermediate]** · A real browser, real navigation, real network. **Written to explain why the tests are shaped the way they are**, because the structure is the part that makes them stable.
@@ -7,6 +11,7 @@
 **Have few of them, and make those few reliable.** A flaky E2E suite is worse than none, because people start re-running until green — and then it catches nothing.
 
 ## Why auto-waiting is the whole design
+<!-- bite: c44d8ae3-487d-45c8-8f11-2e104c3766ea -->
 
 **The historical problem with E2E testing was timing.** Selenium-era tests were full of sleeps, because the test could act before the page was ready.
 
@@ -27,6 +32,7 @@ await page.waitForTimeout(2000);        // ✗ the thing auto-waiting exists to 
 **A fixed sleep is simultaneously too short on a slow CI runner and too long everywhere else.** If you find yourself reaching for one, the real problem is usually that you're asserting on the wrong thing.
 
 ## Locators are lazy, and that's the point
+<!-- bite: ee680f89-671c-4d9a-b8f1-33b8ff98887b -->
 
 ```js
 const saveButton = page.getByRole("button", { name: "Save" });   // resolves NOTHING yet
@@ -45,6 +51,7 @@ page.locator(".btn-primary-2 > span")          // ✗ breaks on any markup chang
 ```
 
 ## Web-first assertions retry; plain ones don't
+<!-- bite: bf6e05d2-8c14-4ffa-9d62-ab9161b806ad -->
 
 **This distinction causes more flakiness than anything else, and it's easy to miss:**
 
@@ -58,6 +65,7 @@ expect(await page.getByText("Saved").isVisible()).toBe(true);   // ✗ checks ON
 **The rule: `await expect(locator)…`, not `expect(await …)`.** The position of the `await` is the whole difference, and it's the single most useful thing to internalise about this tool.
 
 ## Structure: fixtures over `beforeEach`
+<!-- bite: 8dc69851-afca-4a93-9330-b4bf9eb42a2e -->
 
 **Playwright's fixture system is its best feature and the least used by beginners.**
 
@@ -93,6 +101,7 @@ await page.context().storageState({ path: "auth.json" });
 **Logging in through the form in every test adds seconds per test and tests the login flow hundreds of times.** Test login *once*, properly; reuse the session everywhere else.
 
 ## Isolation is what keeps it non-flaky
+<!-- bite: 4ce818c8-56d1-4d4e-bf6e-4744e5d062f0 -->
 
 **Every test gets a fresh browser context** — new cookies, new storage, new session. That's why Playwright tests can run in parallel by default.
 
@@ -106,6 +115,7 @@ await page.context().storageState({ path: "auth.json" });
 **The shared-backend problem is the same one as [[backend/07-practices/02-testing-a-backend|backend testing]]**, and it's the reason "it passes alone but fails in the suite" happens.
 
 ## Debugging — the tools that make this bearable
+<!-- bite: 09726b28-dac9-4444-916b-af8921110bba -->
 
 ```bash
 npx playwright test --ui          # ← the UI mode. Start here. Time-travel through the run
@@ -119,6 +129,7 @@ npx playwright show-trace trace.zip
 **`codegen` is a genuinely good way to learn the API** — click through a flow and read the locators it produces. Then rewrite them, because generated locators are often more brittle than what you'd choose.
 
 ## What to E2E, and what not to
+<!-- bite: c2fe9281-0979-4eab-834b-88c9ee14c8a2 -->
 
 **A handful of critical journeys**, not coverage:
 
@@ -132,6 +143,7 @@ npx playwright show-trace trace.zip
 **The economics: an E2E test costs seconds and can fail for reasons unrelated to your change** — a slow CI runner, a flaky dependency, a network hiccup. **A component test costs milliseconds and fails only when behaviour broke.** Push everything down the pyramid that will go.
 
 ## The extras worth knowing
+<!-- bite: 3f8b04d5-d37f-45c2-80d1-c480fc8c39f8 -->
 
 - **Cross-browser** — Chromium, Firefox and WebKit from one config. **WebKit is how you catch Safari bugs without owning a Mac**
 - **`--project=mobile-chrome`** — real device emulation, viewport and touch
@@ -140,6 +152,7 @@ npx playwright show-trace trace.zip
 - **Network interception** — `page.route()` to stub or fail a specific request, which is how you test error states deterministically
 
 ## Related
+<!-- bite: fcd62816-e4a8-44e9-9f0c-6286d374a004 -->
 - [[frontend/07-practices/03-testing-a-frontend|testing a frontend]] — the component layer
 - [[backend/07-practices/02-testing-a-backend|testing a backend]] — the shared-database problem
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — the pyramid

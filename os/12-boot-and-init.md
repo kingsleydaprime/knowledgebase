@@ -1,8 +1,13 @@
+---
+id: cc6483cb-8828-443a-9051-ac17127536ec
+---
+
 # Boot and Init
 
 **[Intermediate]** — Power button to login prompt, and what PID 1 is actually responsible for.
 
 ## The chain
+<!-- bite: ee20d6bb-b3e5-4ded-b08d-452d90b5cda3 -->
 
 ```
 Power → firmware (UEFI/BIOS) → bootloader (GRUB) → kernel → initramfs → PID 1 (systemd) → services
@@ -11,6 +16,7 @@ Power → firmware (UEFI/BIOS) → bootloader (GRUB) → kernel → initramfs �
 [[os/fundamentals|The fundamentals note]] covers this at a high level; this one goes into what each stage actually does and where it goes wrong.
 
 ## 1. Firmware
+<!-- bite: 20aa8ca8-d7ad-44de-8269-d2380655480c -->
 
 The CPU starts executing at a fixed address (`0xFFFFFFF0` on x86) pointing at firmware ROM.
 
@@ -34,6 +40,7 @@ mokutil --sb-state     # Secure Boot status
 ```
 
 ## 2. Bootloader
+<!-- bite: 74cf4e3e-700a-4052-8e7b-824f369ca405 -->
 
 GRUB's job: find the kernel, load it into memory, pass parameters, jump to it.
 
@@ -57,6 +64,7 @@ mitigations=off            disable Spectre/Meltdown mitigations (faster, insecur
 **`init=/bin/bash` is the recovery tool worth remembering** — it skips systemd entirely and drops you at a root shell with the root filesystem mounted. It's how you fix a broken `/etc/fstab` or a forgotten root password, and it's also why physical access means root access without disk encryption.
 
 ## 3. The kernel
+<!-- bite: 38ea70bc-0b67-4190-a870-632719d41624 -->
 
 Decompresses itself, then:
 
@@ -71,6 +79,7 @@ dmesg | head -50         # the kernel's own log of all this
 ```
 
 ## 4. initramfs
+<!-- bite: 1e4200b1-77cc-4b77-80c9-9d66accbb54d -->
 
 A **compressed cpio archive containing a minimal userspace**, unpacked into a tmpfs and used as a temporary root.
 
@@ -86,6 +95,7 @@ Then `pivot_root` (the same call [[os/11-isolation-and-containers|containers]] u
 **This is a common failure point.** A kernel update that regenerates the initramfs without the right storage driver produces a boot that hangs at "waiting for root device" — the kernel is fine, it just can't see the disk.
 
 ## 5. PID 1
+<!-- bite: 7b0a83f1-662f-4d45-a054-51a9aeee54ad -->
 
 The kernel starts exactly one process. Everything else descends from it.
 
@@ -155,6 +165,7 @@ The objections were scope creep (systemd absorbed logging, DNS, NTP, network con
 It won because the technical arguments about cgroup supervision and socket activation were correct. Alternatives — OpenRC, runit, s6 — remain in Alpine, Void, and Gentoo.
 
 ## Container init
+<!-- bite: 167be06b-ad88-451b-85c7-f1fd9cc52a1d -->
 
 The same problem, smaller:
 
@@ -171,6 +182,7 @@ docker run --init ...                # inserts tini as PID 1
 **If your container's process spawns subprocesses, or ignores `SIGTERM`, use `--init`.** Otherwise you get zombie accumulation and 10-second waits on every `docker stop`.
 
 ## Diagnosing a broken boot
+<!-- bite: f1afebc1-3763-4f0e-bfd3-094703b0e91a -->
 
 ```bash
 dmesg                              # kernel log
@@ -193,6 +205,7 @@ The usual failures:
 **`journalctl -b -1`** is the one people forget — the log from the boot *before* the crash is where the cause usually is.
 
 ## The whole picture
+<!-- bite: 16335e7e-8314-45ee-a6e5-2fc80783a38f -->
 
 ```
 firmware ──→ bootloader ──→ kernel ──→ initramfs ──→ pivot_root ──→ systemd ──→ services
@@ -207,6 +220,7 @@ Every stage hands control to the next and disappears. By the time you have a log
 ---
 
 ## Related
+<!-- bite: 79433f23-3b91-46b5-8811-abea5dc43281 -->
 - [[os/fundamentals|OS Fundamentals]] — the shorter version of this chain
 - [[os/02-processes-and-threads|Processes and Threads]] — PID 1's duties
 - [[os/11-isolation-and-containers|Isolation and Containers]] — the primitives systemd uses for hardening

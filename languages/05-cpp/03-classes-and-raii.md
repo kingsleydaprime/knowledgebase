@@ -1,8 +1,13 @@
+---
+id: f7788065-a33f-4bf0-8eea-a246c99465bc
+---
+
 # Classes and RAII
 
 **[Beginner → Intermediate]** — The single most important idea in C++, and the one worth stealing into every other language you write.
 
 ## Classes
+<!-- bite: 849a69a2-9e7c-449c-a8fc-69a78c3adb2c -->
 
 ```cpp
 class Rectangle {
@@ -45,6 +50,7 @@ public:
 ```
 
 ## RAII
+<!-- bite: 5b1b501b-9d0b-4c78-8e77-6708475bffda -->
 
 **Resource Acquisition Is Initialisation.** The name is bad and the idea is the best one in the language:
 
@@ -110,6 +116,7 @@ std::fstream file("x.txt");              // closes
 Locks are the strongest case. A `mutex.lock()` / `mutex.unlock()` pair with an exception or an early return between them is a deadlock; `lock_guard` makes that unrepresentable.
 
 ## Destructors
+<!-- bite: d5cf0efe-1d60-4b23-b693-26fe6d418b9a -->
 
 ```cpp
 ~Rectangle() { }                    // called automatically at end of scope
@@ -136,6 +143,7 @@ delete p;                            // only calls ~Base() unless it's virtual �
 → [[languages/05-cpp/06-inheritance-and-virtual-dispatch|Inheritance and Virtual Dispatch]]
 
 ## Constructors in detail
+<!-- bite: 3dfa556f-a71c-42ee-8145-566d0e6001db -->
 
 ```cpp
 class Widget {
@@ -192,6 +200,7 @@ Widget w{};        // also what you meant, unambiguously
 ```
 
 ## Static members
+<!-- bite: e8f171e3-c767-4b41-b06f-ab339ac16d4b -->
 
 ```cpp
 class Counter {
@@ -207,6 +216,7 @@ Counter::count();
 Before C++17, a static data member needed a separate definition in exactly one `.cpp` — a classic source of linker errors. `static inline` fixes that.
 
 ## Special member functions
+<!-- bite: 1b205d59-e836-4c54-be01-03b8316b1257 -->
 
 The compiler will generate six functions if you don't:
 
@@ -222,6 +232,7 @@ Widget& operator=(Widget&&);         // move assignment
 Which ones it generates, and when writing one suppresses another, is the **rule of zero/three/five** — the next note, and the thing that most often silently breaks a class that manages a resource.
 
 ## Practical rules
+<!-- bite: 420d6747-98f5-44f8-8448-59800c82fb12 -->
 
 1. **RAII for every resource.** Memory, files, locks, sockets, connections.
 2. **Member initialiser lists**, in declaration order.
@@ -234,6 +245,7 @@ Which ones it generates, and when writing one suppresses another, is the **rule 
 ---
 
 ## Related
+<!-- bite: 03e0a0e5-748a-4567-80e8-ee510d6d1a77 -->
 
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — what happens when your class owns something
 - [[languages/05-cpp/05-smart-pointers-and-ownership|Smart Pointers and Ownership]] — RAII for memory, off the shelf

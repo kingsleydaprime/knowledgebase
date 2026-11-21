@@ -1,8 +1,13 @@
+---
+id: e33c8710-ad8d-4c37-8b28-e04aebd0fd3c
+---
+
 # Forward Kinematics and DH Parameters
 
 **[Intermediate]** — Given the joint angles, where is the hand? The easy direction, and the notation the field standardised on.
 
 ## The problem
+<!-- bite: c1b152cf-b790-4699-be1e-2d3a22c14d51 -->
 
 $$\text{joint angles } \boldsymbol{\theta} = [\theta_1, \theta_2, \ldots, \theta_n] \quad\longrightarrow\quad \text{tool pose } ^{0}_{n}T$$
 
@@ -15,6 +20,7 @@ $$^{0}_{n}T(\boldsymbol\theta) = {^{0}_{1}T(\theta_1)}\ {^{1}_{2}T(\theta_2)}\cd
 Contrast with [[robotics/06-inverse-kinematics|inverse kinematics]], which may have no solution, one, several, or infinitely many. **Forward is easy; inverse is the subject.**
 
 ## A worked two-link arm
+<!-- bite: 391e6d96-42ee-441e-ad02-5e95160908ba -->
 
 Before the general machinery, do it by hand — planar, two revolute joints, link lengths $l_1, l_2$:
 
@@ -35,6 +41,7 @@ $$y = l_1\sin\theta_1 + l_2\sin(\theta_1 + \theta_2)$$
 **Do this one on paper.** The general method is this, formalised — and the formalism is much easier to trust once you've seen the concrete version.
 
 ## Denavit–Hartenberg parameters
+<!-- bite: 355801a8-cacd-495d-98d1-333598cd36d0 -->
 
 The standard way to describe a serial chain. **Four numbers per joint instead of a general six-DOF transform**, achieved by constraining how you're allowed to place the frames.
 
@@ -74,6 +81,7 @@ $$^{i-1}_{i}T = \begin{bmatrix}
 > **Learn DH to read the literature. Use URDF to build the robot.**
 
 ## Common arm geometries
+<!-- bite: 63c8c75b-ba65-4134-8e60-732f2ab3c639 -->
 
 Recognising these tells you a lot before you compute anything:
 
@@ -88,6 +96,7 @@ Recognising these tells you a lot before you compute anything:
 **Parallel arms invert the difficulty.** For a delta or a Stewart platform, **inverse kinematics is easy and forward kinematics is hard** — the opposite of a serial arm, and worth knowing so it doesn't surprise you.
 
 ## The spherical wrist
+<!-- bite: a5ad35dd-ec1e-4568-938f-8e06fa2c553e -->
 
 The design decision that makes 6-DOF arms tractable.
 
@@ -103,6 +112,7 @@ $$\mathbf{p}_{wrist} = \mathbf{p}_{tool} - d_6\,R\,\hat{z}$$
 **It's a mechanical design choice made specifically to make the maths solvable**, which is a nice example of hardware and software being co-designed. Some modern arms (notably some collaborative designs) give it up for other benefits, and pay in IK complexity.
 
 ## The tool frame
+<!-- bite: 604a1376-eb52-41d3-802b-0b5b04ba2073 -->
 
 Forward kinematics gives you the **flange** — the mounting face at the end of the last link. **That's not what you care about.** You care about the gripper tip, the welding point, the camera.
 
@@ -115,6 +125,7 @@ The **tool centre point (TCP)** offset is a fixed transform you supply.
 **Calibrate the TCP** rather than measuring it from CAD — the standard method is touching a single fixed point from four different orientations and solving for the offset that makes them agree.
 
 ## Where forward kinematics is used
+<!-- bite: fb076a40-6114-4a7b-8ca6-a4d08a715423 -->
 
 More places than "where's the hand":
 
@@ -129,6 +140,7 @@ More places than "where's the hand":
 **Calibration** — comparing measured tool poses against FK-predicted ones is how you identify the true link lengths and joint offsets.
 
 ## Practical notes
+<!-- bite: 0d606d26-cf7d-49ad-b1db-58c6458f9c17 -->
 
 **Get link lengths from CAD, then verify physically.** Manufacturing tolerance and assembly are real. **A 1 mm link error and a 0.1° joint offset both matter** at the end of a metre-long arm.
 
@@ -143,6 +155,7 @@ More places than "where's the hand":
 ---
 
 ## Related
+<!-- bite: 25cf17b9-5432-4f41-be72-c31f6028f158 -->
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — the transforms being chained
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — the hard direction
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — differentiating this

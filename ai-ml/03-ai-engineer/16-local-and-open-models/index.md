@@ -7,6 +7,7 @@ id: 85fd2af5-7000-42ca-96ef-22abf5dc7078
 > **[Intermediate]** · Running a model on your own machine: when it's worth it, which runtime to use, whether a model will fit, what decides its speed, and how much context an agent framework eats before you type. The worked example is real — a study partner set up on a 16 GB laptop on 2026-10-02, with every number measured.
 
 ## Before you start
+<!-- bite: f2f0aea0-c6b2-460c-97e4-5e7a4e98458e -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route.** The kid version and §1–3 are the background. §4–6 are the hands-on part, built on measurements. Run the worked example; the practice task is measuring your own machine.
 
 ## The kid version
+<!-- bite: 566fd786-c286-4ccb-99a3-4fbca48361d8 -->
 
 A hosted model is like ordering food: someone else's kitchen, fast, and you pay per plate. A local model is cooking at home: free per meal, and private — but your kitchen is small. A big recipe won't fit on your counter, and a slow oven makes everything take longer. Running a model locally is mostly about **choosing a recipe your kitchen can actually handle**.
 
 **Where the analogy stops working.** A kitchen that's too small just refuses the recipe. A computer that's too small doesn't refuse — it starts using the hard disk as overflow memory and becomes dramatically slower, with no error message. You have to do the arithmetic yourself, before you start.
 
 ## 1. Why this exists
+<!-- bite: a049b8b4-c0bb-4b2d-8a91-21cd69193f63 -->
 
 Kingsley wanted an AI study partner that reads his knowledgebase, runs on his laptop, and costs nothing per question. The laptop already had two models pulled: `gemma4` (9.6 GB) and `qwen3.5` (6.6 GB). Neither was usable — with about 7 GB of RAM free, one didn't fit and the other left no room for anything else. The 4-billion-parameter model that did fit then took **four minutes** to answer "explain a token bucket in two sentences", and the agent built on it failed on the message "hi". Each problem had a measurable cause and a one-line fix. This lesson is those causes.
 
 ## Terms used in this lesson
+<!-- bite: eeb0a0da-271b-4578-a1fd-c4e5051a6ce0 -->
 
 1. **Open-weight model**: This is a model whose trained parameters you can download and run yourself. "Open weights" is not the same as open source, and not automatically free for commercial use.
 2. **Parameter**: This is one learned number inside the model. Models are sized in billions — a "4B" model has about 4 billion.
@@ -49,6 +53,7 @@ Kingsley wanted an AI study partner that reads his knowledgebase, runs on his la
 12. **Modelfile**: In Ollama, this is a short file that builds a named variant of a model with settings built in.
 
 ## 2. Why run a model yourself at all
+<!-- bite: 85b8c5e9-5a40-420b-b36f-98b7f088fb94 -->
 
 The default for building is a hosted API — someone else runs the GPUs, you send tokens. Self-hosting an open-weight model ([[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]]) is worth the extra effort when one of these dominates:
 
@@ -61,6 +66,7 @@ The default for building is a hosted API — someone else runs the GPUs, you sen
 Against all that: you own the operations, and the best open models still trail the frontier closed models on the hardest tasks. **Prototype on an API; self-host when a concrete reason above forces it.**
 
 ## 3. Runtimes and quantisation
+<!-- bite: 431b6c4c-cf3a-424f-b100-2239ee0f0126 -->
 
 ### On your own machine — Ollama, LM Studio, llama.cpp
 
@@ -77,6 +83,7 @@ Serving many users needs an **inference server**. **vLLM** manages the KV cache 
 Full precision stores each parameter in 16 bits, so a 70B model needs about 140 GB. Quantising to 4 bits shrinks that about fourfold, with a small quality cost. **4-bit (`Q4_K_M`) is the usual sweet spot**; below 4 bits, quality drops in task-dependent ways. A well-quantised larger model usually beats a smaller full-precision one at the same memory. GGUF is the format for Ollama and llama.cpp; AWQ and GPTQ are common with vLLM.
 
 ## 4. Will it fit? Sizing a model to your machine
+<!-- bite: fa44e43f-c87f-420f-9ffd-4310adbbf4e5 -->
 
 The memory for the weights is close to:
 
@@ -98,6 +105,7 @@ And compare with **free** RAM, not total. On the 16 GB laptop, about 7 GB was fr
 A model that "fits" only by pushing other apps into swap will run, slowly, with no error. Check `free -h`: if the **Swap used** column grows while the model runs, it doesn't really fit.
 
 ## 5. What decides the speed
+<!-- bite: cc6fbeab-899a-4a12-a45b-1f54615189a0 -->
 
 `ollama run <model> --verbose` prints timing after each answer. From the laptop, CPU only, thinking off:
 
@@ -126,6 +134,7 @@ PARAMETER num_ctx 32768      # context window (Ollama's default is 4,096)
 ```
 
 ## 6. Context windows, agents, and permissions
+<!-- bite: e3f10b00-54fc-4757-9b95-d5f1dc89705e -->
 
 **The context window must hold everything at once:** the system prompt, the tool descriptions, any file the model reads, the conversation, and space for the reply. Agent frameworks add a large fixed overhead before you type anything.
 
@@ -138,12 +147,14 @@ Measured from OpenClaw's own log: its prompt was **8,786 tokens with no messages
 **Giving a local model tools is giving it your permissions.** An agent that can read files can read *every* file your account can, unless it's restricted. The study partner's agent therefore gets **only** the `read` tool — no shell, no web, no writing — and isn't connected to any chat app, because anyone who could message it could ask it to read `~/.ssh`. Small models are also easier to mislead with instructions hidden in content they read (prompt injection), which is why OpenClaw's own guidance for small local models is its most restrictive tool profile. The full setup: [[tools/openclaw-study-partner/index|OpenClaw study partner]].
 
 ## 7. Where to get models, and how this plugs into the track
+<!-- bite: 31cbe114-72b9-4363-b350-163f3069bd21 -->
 
 **Hugging Face** is the hub: each open model in several formats and quantisations, with licences that vary and matter — "open weights" is not automatically "free for commercial use". Ollama's library re-packages popular models as ready-to-run tags such as `qwen3.5:4b`.
 
 An OpenAI-compatible local endpoint means **almost nothing else changes**: [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]], [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]], [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tool calling]], [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|retrieval]] and [[ai-ml/03-ai-engineer/12-evals/index|evals]] all work the same way, pointed at your own server. An [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|AI gateway]] then makes hosted ↔ local a configuration change, including falling back between them.
 
 ## Worked example — sizing and measuring
+<!-- bite: bcd0c091-0f32-483a-9f8b-40d2a33d9878 -->
 
 Two pieces: arithmetic you can do before downloading anything, and a script that measures a real model through Ollama's HTTP API.
 
@@ -266,6 +277,7 @@ if __name__ == "__main__":
 **The answers.** No — 6.6 + 1.5 = 8.1 GB, over the 7 GB free. 236.8 seconds — the measured 3 minutes 56.9 seconds. No — the budget is 8,000 tokens, under the 8,786 overhead; that's the "hi" that failed.
 
 ## Common pitfalls
+<!-- bite: b6236208-f7fc-4bea-96f6-ba9d28d474c7 -->
 
 1. **Comparing a model's size with total RAM** instead of free RAM. The swap column is the honest test.
 2. **Leaving thinking on for simple questions.** It multiplies answer time; the visible answer doesn't get noticeably better for easy ones.
@@ -277,6 +289,7 @@ if __name__ == "__main__":
 8. **Licences bite at ship time.** Check commercial-use terms before building on a model.
 
 ## Check your understanding
+<!-- bite: 30e38dc9-44ce-4376-9ab5-961801fe2d03 -->
 
 1. Estimate the weight memory of a 7B model at `Q4_K_M`, and at `Q8_0`.
 2. Your laptop has 16 GB RAM and 6 GB free. Which is the better first choice: a 9B model at 4 bits, or a 4B model at 4 bits? Why?
@@ -296,6 +309,7 @@ if __name__ == "__main__":
 </details>
 
 ## Practice — independent task
+<!-- bite: 77d7998f-76ed-4b83-a092-7c9e2a45c130 -->
 
 **Measure your own machine and choose a model for it.**
 
@@ -307,6 +321,7 @@ if __name__ == "__main__":
 **Done when:** you have the three measurements in a table, a Modelfile you can justify line by line, and swap that stays flat while it runs.
 
 ## Before moving on
+<!-- bite: 16c4b763-bd0e-4600-bead-462880aef6cb -->
 
 You can choose a local model that fits a machine, explain its speed from Ollama's numbers, and budget the context and permissions for an agent built on it.
 
@@ -315,6 +330,7 @@ You can choose a local model that fits a machine, explain its speed from Ollama'
 **Next.** [[ai-ml/03-ai-engineer/17-voice-and-realtime|Voice and realtime]] in the track; for SWE 102, back to the week you're on.
 
 ## Related
+<!-- bite: dd3da402-705d-4901-84bb-1e2095b81498 -->
 - [[tools/openclaw-study-partner/index|OpenClaw study partner]] — the setup this lesson measured
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The model landscape]] — open vs. closed, self-hosted vs. API
 - [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-tuning (applied)]] — running your own LoRA on open weights

@@ -1,8 +1,13 @@
+---
+id: 374097fc-c08b-4fbc-bacd-d8985eaedf27
+---
+
 # Networking & Protocols
 
 **[reference]**, with grounding in the Linux networking already covered ([[devops/01-linux/13-network-fundamentals|network fundamentals]], [[devops/01-linux/14-basic-ssh-config|SSH]]). This is the operational protocol knowledge a DevOps engineer debugs with, not a CS networking course.
 
 ## The OSI model — a debugging map
+<!-- bite: 50282535-68cb-4bc5-9c4b-a0ae3e98fd3d -->
 
 The OSI model layers networking so you can reason about *where* a problem is. You rarely need all seven, but the mental model of "which layer is broken?" is the point:
 
@@ -18,6 +23,7 @@ The practical takeaway: when something's broken, isolate the layer. "Can I resol
 **TCP vs UDP** (L4): TCP is connection-oriented and reliable (handshake, ordering, retransmission) — HTTP, SSH, databases. UDP is fire-and-forget, no guarantees but low overhead — DNS queries, video, metrics. **Ports** identify a service on a host (80 HTTP, 443 HTTPS, 22 SSH, 53 DNS).
 
 ## DNS — the internet's phone book
+<!-- bite: 3e48eea9-fd67-4030-bf34-5789b37e541d -->
 
 DNS resolves names (`example.com`) to IPs. It's the source of a huge share of "it's down" incidents, so the record types matter:
 
@@ -32,6 +38,7 @@ DNS resolves names (`example.com`) to IPs. It's the source of a huge share of "i
 Two operational realities: **TTL** (time-to-live) controls how long a record is cached, so DNS changes aren't instant — lower the TTL *before* a planned change. And DNS propagation delays are why a fresh deploy or cert sometimes "isn't live yet."
 
 ## HTTP / HTTPS
+<!-- bite: 06418cd9-bb7f-49cb-9acf-d69e2cb6220c -->
 
 **HTTP** is the request/response protocol of the web: a method (`GET`/`POST`/…), a path, headers, and a body; the response carries a **status code** (2xx success, 3xx redirect, 4xx client error, 5xx server error) — reading status codes is first-line debugging. HTTP/2 and HTTP/3 add multiplexing and (in HTTP/3) run over UDP for lower latency, but the semantics are the same.
 
@@ -42,10 +49,12 @@ Two operational realities: **TTL** (time-to-live) controls how long a record is 
 - **Certificates** expire — an expired cert is a classic, embarrassing outage. **Let's Encrypt** + automated renewal (certbot, or a reverse proxy like Caddy that does it automatically) is the standard fix. Certs and their private keys are [[devops/06-secret-management/index|secrets]].
 
 ## SSH
+<!-- bite: e84f913e-da52-4dbe-869b-618523b84c13 -->
 
 Secure Shell — encrypted remote access and the transport for tools like [[devops/09-infrastructure-as-code/02-configuration-management|Ansible]]. Operationally: prefer **key-based auth** over passwords (a keypair; the public key goes in the server's `authorized_keys`), disable root/password login, and use the SSH `config` and agent for convenience — the hands-on details are in [[devops/01-linux/14-basic-ssh-config|Basic SSH Config]].
 
 ## Email protocols (the roadmap's mail branch)
+<!-- bite: 217a70c7-c912-4fa2-bd3e-ade339e89222 -->
 
 Rarely built from scratch, but worth recognizing: **SMTP** sends mail; **IMAP/POP3** retrieve it. The deliverability trio lives in DNS **TXT** records and exists to stop spoofing:
 
@@ -56,6 +65,7 @@ Rarely built from scratch, but worth recognizing: **SMTP** sends mail; **IMAP/PO
 If you ever send transactional email from an app and it lands in spam, misconfigured SPF/DKIM/DMARC is almost always why.
 
 ## Related
+<!-- bite: 29bcde3c-a568-482b-a9bf-0479c06034e2 -->
 - [[devops/01-linux/13-network-fundamentals|Linux Network Fundamentals]] — the host-level, hands-on view
 - [[devops/02-networking-and-web/02-web-servers-and-proxies|Web Servers & Proxies]] — what terminates TLS and routes HTTP
 - [[cybersecurity/05-cryptography/index|Cryptography]] — the crypto under TLS

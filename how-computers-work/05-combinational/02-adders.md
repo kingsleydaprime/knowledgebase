@@ -1,8 +1,13 @@
+---
+id: 628739f1-4871-4a6c-8a44-5ffba2884529
+---
+
 # Module 21: Adders (Arithmetic from Pure Logic)
 
 **[Intermediate]** — Numbers have never appeared in this course. Only voltages, then bits, then Boolean functions. This module makes a circuit that *adds* — and the carry chain it produces turns out to be what limits a processor's clock speed.
 
 ## Before you start
+<!-- bite: e9b6e76b-e1bb-4677-8b69-f8874fa5217e -->
 
 - You can build any function from gates, and know XOR is the expensive one — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]], [[how-computers-work/04-logic/04-universal-gates|module 18]].
 - You know that gate delays accumulate along a path and the critical path sets $f_{max}$ — [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 0c70e405-cab9-47c5-9045-15d3cb356343 -->
 
 Everything so far has been Boolean: true and false, on and off. **Nothing has been a number.**
 
@@ -32,6 +38,7 @@ Yet a processor's headline job is arithmetic. So a bridge is needed — a circui
 ---
 
 ## 2. Terminology
+<!-- bite: 55e6d226-17b7-414e-92f8-f21d87be1fe4 -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -49,6 +56,7 @@ Yet a processor's headline job is arithmetic. So a bridge is needed — a circui
 ---
 
 ## 3. The half adder
+<!-- bite: 0dd3801e-2731-405d-be91-29603202a5b4 -->
 
 Add two single bits. There are four cases, and the answer needs two output bits:
 
@@ -71,6 +79,7 @@ $$\text{Sum} = A \oplus B \qquad\qquad \text{Carry} = A \cdot B$$
 ---
 
 ## 4. The full adder
+<!-- bite: ca5a467b-878c-4c77-a7bf-b6917763ba8e -->
 
 A half adder cannot be chained, because it has nowhere to accept a carry *in*. Adding multi-bit numbers requires three inputs per position.
 
@@ -151,6 +160,7 @@ Each full adder is the same six-gate circuit. There is no new idea at 32 bits, n
 
 
 ## 5. The carry chain — the real subject of this module
+<!-- bite: 61b5660a-f9b2-4f0b-8d03-b00976594770 -->
 
 Here is the problem, and it is the reason this module matters beyond arithmetic.
 
@@ -187,6 +197,7 @@ That is a devastating number. Recall [[how-computers-work/01-electricity/04-sign
 ---
 
 ## 6. Carry-lookahead — computing carries in parallel
+<!-- bite: 7506e0f6-3220-4738-8efc-0b2ae746fe75 -->
 
 The fix comes from asking a sharper question: *must* a carry ripple, or can it be predicted?
 
@@ -225,6 +236,7 @@ $$C_3 = G_2 + P_2 G_1 + P_2 P_1 G_0 + P_2 P_1 P_0 C_0$$
 ---
 
 ## 7. Subtraction is free
+<!-- bite: c42cc6b0-ebf4-4464-833c-a5b92dbb9d62 -->
 
 **You do not need a subtractor.** In two's complement, $-B = \overline{B} + 1$, so:
 
@@ -257,6 +269,7 @@ The lab shows `200 - 100 = 100` with `C=1, V=1`: correct as unsigned arithmetic,
 ---
 
 ## 8. Predict before reading on
+<!-- bite: b6ebdaf1-82e1-4608-8d89-205f06690713 -->
 
 Adding two 8-bit signed numbers: $100 + 28$.
 
@@ -276,6 +289,7 @@ So the machine computes $100 + 28 = -128$. Flags: **V = 1** (signed overflow —
 ---
 
 ## 9. Worked example — runnable
+<!-- bite: 7c6a0463-b083-4ac4-ae4f-7cd44e32fbf0 -->
 
 Save as `adder_lab.py` and run `python3 adder_lab.py`.
 
@@ -494,6 +508,7 @@ Note `full_adder` calls `half_adder` twice — the hierarchy is real, not decora
 ---
 
 ## 10. Common pitfalls and traps
+<!-- bite: fa769579-fcb6-4f2b-a587-368dff29f3c7 -->
 
 1. **Confusing carry with overflow.** C is unsigned overflow, V is signed. They are computed differently and frequently disagree.
 2. **Thinking the adder knows about signs.** It does not. The identical circuit and identical bits serve both interpretations; only the flags differ.
@@ -505,6 +520,7 @@ Note `full_adder` calls `half_adder` twice — the hierarchy is real, not decora
 ---
 
 ## 11. Check your understanding
+<!-- bite: c23c0c24-39c7-425d-9bfc-527bb6a21978 -->
 
 1. **Why can all the sum bits be computed in parallel, while the carries cannot?**
    <details><summary>Answer</summary>
@@ -535,6 +551,7 @@ Note `full_adder` calls `half_adder` twice — the hierarchy is real, not decora
 ---
 
 ## 12. Practice — independent task
+<!-- bite: 24498dc1-4ea2-4d8b-8ab9-0126658356ab -->
 
 **Task:** Extend the lab into a 16-bit adder and analyse its timing.
 
@@ -556,6 +573,7 @@ The two flags genuinely answer different questions, which is why hardware provid
 ---
 
 ## 13. Tradeoffs and limits
+<!-- bite: 855b9427-6713-4423-85d9-79dad853af0e -->
 
 - **Delay models here are first-order.** Real gate delay depends on fan-out, wire load and input slew. SPICE or static timing analysis gives real numbers; this model gets the scaling right.
 - **Lookahead area grows quickly.** Full lookahead across 64 bits is impractical; hierarchical schemes trade a little depth for far less area.
@@ -565,6 +583,7 @@ The two flags genuinely answer different questions, which is why hardware provid
 ---
 
 ## Before moving on
+<!-- bite: 6ea7ed5d-8f20-4b8c-bfa3-b3b0fc573fe7 -->
 
 - [ ] Derive the half adder from its truth table and identify XOR and AND.
 - [ ] Build a full adder from two half adders and explain why chaining needs a carry-in.
@@ -580,6 +599,7 @@ The two flags genuinely answer different questions, which is why hardware provid
 ---
 
 ## Related
+<!-- bite: c6012065-920b-425b-adb3-be61bd0ff4ec -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] — critical path and clock frequency

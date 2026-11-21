@@ -1,8 +1,13 @@
+---
+id: 76008ca2-21fb-4e9c-b8a0-759da54b003f
+---
+
 # Linear Transformations
 
 **[Advanced]** — a matrix is a function, its columns are where the basis vectors land, and that single fact makes the multiplication rule inevitable.
 
 ## Before you start
+<!-- bite: 83777a24-1d42-4eb0-bba0-065297b6ae22 -->
 
 - You can multiply matrices and compute determinants — [[01-matrices-and-determinants|matrices and determinants]].
 - You know bases, column space and null space — [[04-vector-spaces/01-vector-spaces|vector spaces]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 5df5c481-9d2d-407c-93fa-3d87bf358c42 -->
 
 [[01-matrices-and-determinants|Lesson 1]] asserted that matrix multiplication is defined the way it is because it represents composing functions, and postponed the argument. This is the argument.
 
@@ -39,6 +45,7 @@ as "a grid of coefficients times a column of unknowns" and start reading it as "
 None of these are new facts. They are the same facts, in the language that explains them.
 
 ## 2. The definition
+<!-- bite: 9dc7204f-2405-4154-9990-8146b2244837 -->
 
 A map $T$ is **linear** when it respects the two vector-space operations:
 
@@ -65,6 +72,7 @@ Setting $k = 0$ gives $T(\mathbf{0}) = \mathbf{0}$ — a linear map always fixes
 - $T(x) = x + 1$, despite being called a "linear function" in school. Its graph is a straight line; it is not a linear *map*. The two uses of the word are genuinely different, and this one is affine.
 
 ## 3. The columns are the images of the basis vectors
+<!-- bite: 6d281d80-e0ab-4797-9b50-8dd9e40707e7 -->
 
 This is the theorem that makes everything computable.
 
@@ -101,6 +109,7 @@ To find the matrix of any transformation, ask only: *where does $(1,0)$ go, and 
 | Project onto the $x$-axis | $(1, 0)$ | $(0, 0)$ | $\begin{pmatrix}1&0\\0&0\end{pmatrix}$ |
 
 ## 4. Composition is multiplication
+<!-- bite: e9f00da6-3c1a-45ef-9dfb-fe688e77c5a1 -->
 
 Apply $B$, then $A$. What single matrix does that?
 
@@ -123,6 +132,7 @@ $$
 > **Predict before section 5.** The matrix for rotating by $\theta$ is in the table above. Multiply the matrix for rotating by $\alpha$ by the matrix for rotating by $\beta$. Geometrically the result must be rotation by $\alpha + \beta$. What identity does that force on the entries — and where have you seen it before? Decide before opening the answers.
 
 ## 5. Kernel, image, and the determinant
+<!-- bite: 760db24f-bc00-4cc2-ad4d-e1e27d25e18d -->
 
 For the map with matrix $A$:
 
@@ -135,6 +145,7 @@ And $\det A$ is the area (or volume) scale factor, from [[01-matrices-and-determ
 A projection makes all of this visible at once: projecting the plane onto the $x$-axis has kernel the $y$-axis (1-dimensional), image the $x$-axis (1-dimensional), $1 + 1 = 2$, and determinant $0$ because all area is destroyed.
 
 ## Worked example — runnable
+<!-- bite: a08cf686-2a1c-4b7f-a9f6-5c40ff30d36a -->
 
 **Runnable example:** save as `transformations.py` in any empty directory and run `python3 transformations.py`. Standard library only; writes no files.
 
@@ -329,6 +340,7 @@ transformations: passed
 Block 4 is the lesson's best moment. The trigonometric addition formulas — derived in [[02-graphs-and-identities|graphs and identities]] by computing one distance two ways — reappear as nothing more than the statement that rotating by $\alpha$ and then by $\beta$ is rotating by $\alpha+\beta$. Two independent derivations, one identity.
 
 ## Common pitfalls and traps
+<!-- bite: c31cdc95-b437-4736-8b0e-2d8af10e0696 -->
 
 - **Calling $y = mx + c$ a linear map.** With $c \neq 0$ it is affine: it moves the origin. School usage and linear-algebra usage genuinely differ here.
 - **Forgetting that composition applies right to left.** $AB$ means "do $B$ first". Reversed, you get a different transformation.
@@ -338,6 +350,7 @@ Block 4 is the lesson's best moment. The trigonometric addition formulas — der
 - **Testing linearity on too few probes.** The map $T(x,y) = (x, 0)$ and the map $T(x,y) = (x, y - y)$ agree everywhere, but a map like $T(x,y)=(x,\,y\cdot\lfloor y\rfloor)$ passes at integer probes and fails elsewhere. Probes give evidence, not proof.
 
 ## Check your understanding
+<!-- bite: a2b8a447-96a8-4a2e-aad9-10f4e98023ce -->
 
 1. Is $T(x, y) = (2x - y,\; x + 3y)$ linear? Give its matrix.
 2. Is $T(x, y) = (x + 1,\; y)$ linear? Why?
@@ -357,6 +370,7 @@ Block 4 is the lesson's best moment. The trigonometric addition formulas — der
 </details>
 
 ## Practice — independent task
+<!-- bite: ea6ad7f8-6bb5-4b63-ae06-fb8028b0bc8e -->
 
 Implement a small 2-D graphics pipeline using **homogeneous coordinates**, so that translation becomes a matrix.
 
@@ -371,6 +385,7 @@ Implement a small 2-D graphics pipeline using **homogeneous coordinates**, so th
 **Done when:** step 3's fixed point holds to `1e-9` for at least five centres, step 5's predicted and measured areas agree, and you can explain why graphics hardware uses $4\times4$ matrices for 3-D rather than $3\times3$.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 437082cd-4196-489d-a60d-74a9cddd60ee -->
 
 **Changing basis changes the matrix, not the map.** If $P$ has a new basis as its columns, the same transformation is $P^{-1}AP$ in the new coordinates. Choosing a basis in which the matrix is as simple as possible — ideally diagonal — is exactly what [[06-eigenvalues/01-eigenvalues-and-eigenvectors|eigenvalues]] is for, and it is why eigenvectors matter: they are the directions in which the map is just a stretch.
 
@@ -379,6 +394,7 @@ Implement a small 2-D graphics pipeline using **homogeneous coordinates**, so th
 **Probing is not proving.** The lab's `is_linear` checks a finite set of vectors and scalars. That is strong evidence and not a proof; a map could agree on every probe and differ elsewhere. To prove linearity you argue algebraically, as section 3 does.
 
 ## Before moving on
+<!-- bite: 3bd1d055-1df5-4978-b35a-0d5218f04743 -->
 
 You are done with this lesson when you can:
 
@@ -392,6 +408,7 @@ You are done with this lesson when you can:
 **Next:** [[06-eigenvalues/01-eigenvalues-and-eigenvectors|Eigenvalues and Eigenvectors]] — the directions a transformation does not turn, and the basis that makes a matrix diagonal.
 
 ## Related
+<!-- bite: 9f36d616-86ff-4c39-9de8-90c257df2eb5 -->
 
 - [[01-matrices-and-determinants|Matrices and Determinants]] — the multiplication rule this lesson explains
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — kernel and image under their other names

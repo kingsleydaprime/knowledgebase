@@ -1,3 +1,7 @@
+---
+id: dd421dd7-b165-4a6c-9d0a-94cd1e05fd9a
+---
+
 # Hydration and the Server Boundary
 
 > **[Intermediate → Advanced]** · Why SSR pages look ready before they work, and what RSC actually changes.
@@ -5,6 +9,7 @@
 [[frontend/06-rendering/01-rendering-strategies|Note 01]] covers CSR, SSR, SSG and ISR — *where* HTML is produced. **This is what happens next**, and it's where the real complexity lives.
 
 ## The hydration problem
+<!-- bite: c1685e0e-f284-4cb7-b8a3-0b8e5ef9829c -->
 
 **Server-rendered HTML is inert.** It looks like the page; nothing is wired up. Buttons don't respond, state doesn't exist.
 
@@ -24,6 +29,7 @@
 **You pay for the content twice:** once as HTML, once as the JS and serialised state needed to reproduce it.
 
 ## Hydration mismatches
+<!-- bite: 8bd472f8-c555-4e0a-8dd0-dc14fe4b57ca -->
 
 **The server rendered one thing; the client rendered another.** The framework notices and complains — or worse, silently patches over it.
 
@@ -46,6 +52,7 @@ The fixes:
 **The dark-mode flash is this bug in its most visible form.** The theme is in `localStorage`, the server can't read it, so the page renders light and snaps to dark after hydration. The standard fix is a tiny **blocking** inline script in `<head>` that sets a class before first paint — deliberately blocking, because correctness beats the few milliseconds here.
 
 ## The strategies for closing the gap
+<!-- bite: 126312b7-98ad-445e-a033-1178b0846c64 -->
 
 **Streaming SSR** — send the HTML shell immediately, stream slower regions as they resolve. A slow database query no longer blocks first paint.
 
@@ -62,6 +69,7 @@ The fixes:
 **Resumability** — Qwik's approach: serialise enough state into the HTML that the client can *resume* without re-executing component code at all. **The most radical answer**, and the least mainstream.
 
 ## React Server Components
+<!-- bite: 1f7baeca-6bca-4d01-8713-9be09b63fe69 -->
 
 **The current mainstream answer, and it's a different idea from SSR** — which is the thing most people get wrong.
 
@@ -95,6 +103,7 @@ function AddToCart({ id }) { const [n, setN] = useState(1); /* … */ }
 **The honest assessment:** RSC is a genuine reduction in shipped JavaScript and a real increase in mental overhead. **The benefit scales with how content-heavy the app is.** A dashboard that's interactive throughout gains little; a commerce or content site gains a lot → [[frontend/frameworks/next/index|Next.js]].
 
 ## Choosing
+<!-- bite: 19f9835e-b612-4e2d-b60f-9956aa51c0dc -->
 
 **Per route, not per app** — and that's the framing that scores in an interview and works in practice:
 
@@ -109,6 +118,7 @@ function AddToCart({ id }) { const [n, setN] = useState(1); /* … */ }
 **And be honest about whether you need SSR at all.** If the app is behind a login, SEO is irrelevant, and a CSR app with a good loading state is simpler, cheaper and often faster to interactive.
 
 ## Related
+<!-- bite: f565f8bd-608e-4d8f-b4f1-fc8d596a29e1 -->
 - [[frontend/06-rendering/01-rendering-strategies|rendering strategies]] — CSR/SSR/SSG/ISR
 - [[frontend/frameworks/next/index|Next.js]] — where most of this is implemented
 - [[frontend/07-practices/index|practices]] — measuring the result

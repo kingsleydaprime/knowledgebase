@@ -1,8 +1,13 @@
+---
+id: 373d594f-f1b0-4929-b1ab-da4370ca4d15
+---
+
 # Regulation and the Legal Layer
 
 **[Intermediate]** — the constraint that has shaped the field more than any technical limit. **Written Aug 2026; this note dates fastest of any in the folder, and it is not legal advice.**
 
 ## The premise that failed
+<!-- bite: 4804013b-1921-4c2b-bd1d-f64683410b3d -->
 
 The founding assumption was that sufficiently decentralised systems sit outside jurisdiction. **That has not held.**
 
@@ -15,6 +20,7 @@ Three cases established this clearly:
 - **bZx DAO (2023)** — a US court allowed a claim treating a DAO as a **general partnership**, potentially making token-holding participants personally liable → [[web3/07-the-application-layer/03-daos-and-governance|DAOs]]
 
 ## The questions regulators are actually asking
+<!-- bite: 21f291d5-6229-407b-b049-6f2502e63d73 -->
 
 **1. Is this a security?** The dominant question in the US. The **Howey** test asks whether there's an investment of money in a common enterprise with an expectation of profit from the efforts of others.
 
@@ -27,6 +33,7 @@ The SEC's position for years was that most tokens are securities, pursued throug
 **4. How is it taxed?** In most jurisdictions **every disposal is a taxable event** — including token-to-token swaps, which surprises people badly. DeFi creates enormous numbers of them.
 
 ## The regimes, briefly
+<!-- bite: 0812bb91-c231-4bb5-bd20-5b58ba61b5a0 -->
 
 **EU — MiCA.** The first comprehensive framework, fully applicable since December 2024. Licensing for service providers, strict stablecoin rules (reserve and redemption requirements), and market-abuse provisions. **Its significance is that it exists**: predictable rules, even strict ones, are what businesses need, and MiCA has drawn activity to the EU on that basis alone.
 
@@ -35,6 +42,7 @@ The SEC's position for years was that most tokens are securities, pursued throug
 **Elsewhere.** Singapore, UAE, Switzerland and Hong Kong offer clearer, generally accommodating regimes. **China bans trading and mining while pursuing its CBDC.** India taxes heavily. Nigeria, Turkey and Argentina show high grassroots adoption with unsettled and shifting official positions.
 
 ## What this means for building
+<!-- bite: 8c7fb210-e72b-4e15-aa17-f335620a7733 -->
 
 **Take these seriously regardless of your views on them:**
 
@@ -46,6 +54,7 @@ The SEC's position for years was that most tokens are securities, pursued throug
 - **Keep records.** Tax authorities increasingly receive exchange data directly, and the OECD's CARF extends reporting internationally
 
 ## The honest tension
+<!-- bite: 899d58d5-7802-4a4d-adf1-35fc998467ae -->
 
 **Two things are true at once, and most commentary picks one:**
 
@@ -56,10 +65,12 @@ The SEC's position for years was that most tokens are securities, pursued throug
 **Both are true.** The field's tendency to treat all regulation as persecution, and the regulatory tendency to treat the whole field as fraud, are each half-right and both unhelpful.
 
 ## Key insight
+<!-- bite: 5243b68c-4e60-45a3-8008-a6d95ab4a43e -->
 
 **Decentralisation is a property of a protocol, not a shield for the people around it** — and every enforcement action has landed on people: developers, founders, front-end operators, participants. The technical question "can this be stopped?" and the legal question "will someone be prosecuted?" have completely different answers, and conflating them has been the field's most expensive category of mistake.
 
 ## Related
+<!-- bite: a118c744-724e-4420-b141-f72a7946594b -->
 - [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|the fraud surface]] — what regulation responds to
 - [[web3/07-the-application-layer/03-daos-and-governance|DAOs]] — legal status
 - [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zk proofs]] — Tornado Cash and privacy tooling

@@ -1,3 +1,7 @@
+---
+id: 3cc17631-efda-4b7e-9668-eb851ce9cb6d
+---
+
 # Module: Bit Manipulation (Binary Operations & Space Optimization)
 
 Welcome to the **Bit Manipulation** module. Every integer in a computer is stored as a sequence of binary digits (bits)—zeros and ones. Bit manipulation operates *directly* on those binary digits using special bitwise operators, bypassing the usual arithmetic layer entirely.
@@ -7,6 +11,7 @@ Mastering bit manipulation lets you solve problems with **$O(1)$ space** that wo
 ---
 
 ## Before you start
+<!-- bite: dafbb222-41c7-4fc8-908d-e6a95b72e183 -->
 
 - You know binary and hexadecimal — [[01-core/01-numbers/01-number-bases/02-binary|binary]], [[01-core/01-numbers/01-number-bases/04-hexadecimal|hexadecimal]].
 - You know how integers are represented, including two's complement — [[computer-architecture/02-data-representation|data representation]].
@@ -23,6 +28,7 @@ Mastering bit manipulation lets you solve problems with **$O(1)$ space** that wo
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 6cfd38a6-8d99-4bc1-96d0-79ccf3df7105 -->
 
 Think of an 8-bit integer as a **row of 8 light switches**:
 
@@ -47,6 +53,7 @@ Decimal 53:  Binary = 0 0 1 1 0 1 0 1
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: b9089f3b-8098-4431-8fd4-7529f552d812 -->
 
 | Operator | Symbol | Behavior | Example (4-bit) |
 | :--- | :--- | :--- | :--- |
@@ -60,6 +67,7 @@ Decimal 53:  Binary = 0 0 1 1 0 1 0 1
 ---
 
 ## 3. XOR — The Core Workhorse
+<!-- bite: 86deeda1-51be-4a80-a18d-c0f35520f71d -->
 
 XOR has three properties that drive most interview bit tricks:
 
@@ -86,6 +94,7 @@ def single_number(nums: list) -> int:
 ---
 
 ## 4. The Essential Bit Manipulation Idioms
+<!-- bite: 6a42c053-a0a6-418a-a677-98202894cff8 -->
 
 ```python
 # 1. Check if bit i is set (nonzero = True)
@@ -116,6 +125,7 @@ x & (-x)           # All other bits zeroed out
 ---
 
 ## 5. Deep Dive: Brian Kernighan's Bit Count
+<!-- bite: 7e93112c-8807-4cfb-9c49-181acf45ff6b -->
 
 > [!KEY-INSIGHT]
 > **`x & (x - 1)` always clears exactly the lowest set bit**.
@@ -140,6 +150,7 @@ def count_set_bits(x: int) -> int:
 ---
 
 ## 6. Time & Space Complexity
+<!-- bite: e3793c27-faf5-4c1e-a911-54b64a070d68 -->
 
 | Technique | Time | Space | Benefit |
 | :--- | :--- | :--- | :--- |
@@ -151,6 +162,7 @@ def count_set_bits(x: int) -> int:
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: e6b694b0-d81d-436a-b7b9-4b7d259f34b9 -->
 
 **Runnable example:** save as `bits.py` in any empty directory and run `python3 bits.py`. Standard library only; writes no files.
 
@@ -370,6 +382,7 @@ bits: passed
 Block 4 is the one with real reach: XOR's self-inverse property turns "find the unpaired element" into a single pass with two variables.
 
 ## 7. Common Pitfalls & Traps
+<!-- bite: 16e9527e-fd9c-40de-8b1c-a8c7bcfe97de -->
 
 1. **Operator Precedence Trap**: Bitwise operators bind **looser** than `==` and `+`. Always parenthesize:
    - **Wrong**: `x & 1 == 0` (evaluates as `x & (1 == 0)` = `x & False` = 0)
@@ -381,6 +394,7 @@ Block 4 is the one with real reach: XOR's self-inverse property turns "find the 
 ---
 
 ## 8. Check Your Understanding (University Self-Assessment)
+<!-- bite: 761d526f-4a26-46ab-a7a3-14a86c1cc19f -->
 
 1. **Question**: Using only XOR (`^`), how would you swap two integer variables `a` and `b` without using a temporary variable?
    - <details><summary>Click for Answer</summary><b>Answer:</b><br><code>a = a ^ b</code><br><code>b = a ^ b</code>  (now b = original a)<br><code>a = a ^ b</code>  (now a = original b)</details>
@@ -394,6 +408,7 @@ Block 4 is the one with real reach: XOR's self-inverse property turns "find the 
 ---
 
 ## Practice — independent task
+<!-- bite: fba3724c-fed9-4cff-be49-411467510ac3 -->
 
 Implement `subset_sum_bitmask(nums, target)` and then improve it with **meet in the middle**.
 
@@ -408,6 +423,7 @@ Implement `subset_sum_bitmask(nums, target)` and then improve it with **meet in 
 **Done when:** both subset-sum versions agree up to $n = 20$, meet-in-the-middle runs at $n = 40$, and you can state the TSP state count for $n = 15$ and $n = 20$.
 
 ## Before moving on
+<!-- bite: 845b089f-9e39-425f-93ec-454d2794c498 -->
 
 You can use all the single-bit idioms, explain `x & -x`, apply XOR cancellation, and enumerate subsets with masks.
 
@@ -416,5 +432,6 @@ You can use all the single-bit idioms, explain `x & -x`, apply XOR cancellation,
 **Next:** [[12-math-and-geometry|Math and Geometry]], or back to [[index|the algorithms index]].
 
 ## Related Modules
+<!-- bite: d39993b4-f7de-43b6-ad1c-5c7f91d376f3 -->
 - [[08-number-theory-basics|Number Theory Basics]] — Arithmetic cousin (GCD, primality, modular arithmetic)
 - [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Space vs. time tradeoffs

@@ -1,8 +1,13 @@
+---
+id: fed2a43a-10e2-4b26-ad52-ba487ee0ca87
+---
+
 # Pattern: Matrix Traversal
 
 **[Intermediate]** — A university-level introduction to the matrix traversal pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 6fecbe87-b97a-4097-8a28-fdab4c7659c5 -->
 
 - You should understand DFS and BFS. See [[01-depth-first-search|dfs]] and [[02-breadth-first-search|bfs]] if needed.
 - You should understand 2D arrays. See [[01-arrays|arrays]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: 791275eb-4ab0-47ab-98ba-f02efce512eb -->
 
 Imagine you're building a game like Minesweeper or Go. The game board is a 2D grid, and you need to find connected regions of cells (e.g., all empty cells connected to a clicked cell, or all stones of the same color). The grid is a graph where each cell is a node, and each cell is connected to its neighbors (usually 4, sometimes 8).
 
@@ -27,6 +33,7 @@ Once you see it that way, DFS and BFS apply directly; there's no new algorithm h
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: 9b1a2a10-cc45-4435-84ea-b6383f845253 -->
 
 | Term                 | Plain-English definition                                                              | Example / analogy                                      |
 | -------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------ |
@@ -39,6 +46,7 @@ Once you see it that way, DFS and BFS apply directly; there's no new algorithm h
 ---
 
 ## 3. How it works — step by step
+<!-- bite: 454818b5-3c79-4822-b365-77886520d369 -->
 
 Instead of an adjacency list, neighbors are computed from `(row, col)` using direction offsets:
 
@@ -100,6 +108,7 @@ This "loop over every node, start a fresh traversal from any unvisited one" stru
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: aa77d1dc-917a-4d21-a70b-e6567ea4950e -->
 
 **Runnable example:** save as `matrix_traversal_lab.py` and run `python3 matrix_traversal_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -237,12 +246,14 @@ matrix_traversal_lab: passed
 ---
 
 ## 5. Complexity
+<!-- bite: 70e42f49-8dba-4bda-ba05-9102dc8fae4f -->
 
 O(rows × cols) — each cell is visited a constant number of times regardless of grid shape.
 
 ---
 
 ## 6. Tradeoffs and limitations
+<!-- bite: 245987af-e41c-470e-a8fa-3ac071a05ac3 -->
 
 - **Grid size matters.** For very large grids, recursion depth may be an issue. Use an iterative BFS/DFS with an explicit stack/queue instead.
 - **8-directional neighbors.** Some problems use 8 neighbors (including diagonals). Adjust the `directions` list accordingly.
@@ -251,6 +262,7 @@ O(rows × cols) — each cell is visited a constant number of times regardless o
 ---
 
 ## 7. Check your understanding (self-assessment)
+<!-- bite: dd2f88f4-8369-4b62-b6f7-38008a75fc9c -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -267,6 +279,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 8. Practice — independent task
+<!-- bite: a6e1e058-cede-44d2-9172-9f0958ee773c -->
 
 **Task:** Implement a function `count_islands(grid)` that returns the number of islands in a grid. Use the matrix traversal pattern. Test it with the following cases:
 
@@ -278,6 +291,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 79f20b19-71aa-42ec-9cdb-6fccaaadc29c -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -301,6 +315,7 @@ Attempt these without the note, then compare your reasoning below.
 15. Maximal Square (#221) — where matrix traversal meets DP.
 
 ## Before moving on
+<!-- bite: 6212521c-68ca-434f-9fc7-de98aa598deb -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -314,6 +329,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[14-backtracking|backtracking]] — DFS that *undoes* its choices on the way back out, which is what you need when exploring arrangements rather than a fixed structure.
 
 ## 9. Related
+<!-- bite: 6b74aeb0-2f81-478d-8ca2-52b13c43db24 -->
 
 - [[01-depth-first-search|dfs]] — the underlying traversal algorithm
 - [[12-bfs-pattern|bfs-pattern]] — BFS variant for matrix traversal
@@ -324,6 +340,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 10. Further reading
+<!-- bite: 95db0ac0-19ba-4269-b8f0-08f3e0ff34c8 -->
 
 The pattern appears in many contexts beyond LeetCode:
 

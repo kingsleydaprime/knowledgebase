@@ -7,6 +7,7 @@ id: bc3029dd-8a48-49b1-b5b2-c18f30b00411
 > **[Intermediate]** · Covers what keeps an AI feature working when the model doesn't: sorting failures into "retry" and "don't", backoff with jitter, timeouts and deadlines, a circuit breaker, fallbacks that degrade instead of failing, pacing under a rate limit, and running the evals gate in CI. The worked example wraps the support-ticket classifier from [[ai-ml/03-ai-engineer/12-evals/index|evals]] in every layer, falls back to its keyword rules, and gates it in CI with recorded replies. None of it is glamorous, and all of it is the difference between a demo and a service.
 
 ## Before you start
+<!-- bite: 2cf60d7f-e640-4279-9e33-5bd8605a7104 -->
 
 You can already:
 
@@ -24,18 +25,21 @@ After this lesson you will be able to:
 **Study route.** Read §1–6, then do the prediction in §7 before reading on. Run the lab, then do this week's Build (the practice task).
 
 ## The kid version
+<!-- bite: aef6fd48-4144-46c9-b2d0-f253ea250ab6 -->
 
 You phone a pizza shop and the line is busy. You don't redial every second; you wait a little, then a bit longer, then longer still. If everyone in town waited exactly ten seconds, they'd all ring at the same moment again, so each person waits a slightly random time. If the shop says "we don't deliver to your street", you stop calling, because calling again won't change the answer. If nobody has answered all evening, you stop trying for a while and make a sandwich instead. And you don't wait on hold forever: after a few minutes you hang up.
 
 **Where the analogy stops working.** A phone call that fails costs nothing, but a model call can cost money even when you give up on it, because the provider may keep generating after you hang up. And redialling a pizza shop never orders two pizzas, but retrying an action that has side effects, like sending an email, can do it twice.
 
 ## 1. Why this exists
+<!-- bite: bbc3de5b-5c01-4b7a-a66c-0fbb8969a246 -->
 
 Your ticket classifier is live. On Tuesday the provider is overloaded for four minutes, and every call returns 503. With no retries, every ticket in those four minutes goes unrouted. With the obvious fix — "on error, try again" in a tight loop — each of your servers fires dozens of requests a second at a provider that is already struggling, hits the rate limit, and keeps failing after the provider has recovered. **A model call is a slow network call to someone else's busy servers.** It will time out, be rate-limited and fail for reasons you don't control, so the code around it has to decide, for each failure, whether to wait and try again, try something else, or give up.
 
 The same week's other job is making the evals gate run on its own. A gate you have to remember to run is a gate that stops being run.
 
 ## Terms used in this lesson
+<!-- bite: e96e96ee-34c0-4e5b-ad9c-92c613bf9e0c -->
 
 1. **Transient failure**: This is a failure that may not happen if you send the same request again: a 429 (rate limited), a 5xx (server error), a timeout, or a dropped connection.
 2. **Permanent failure**: This is a failure that will happen again, every time, for the same request: a 400 (bad request), 401 (bad key), 403 (not allowed) or 404 (no such model). Only changing the request fixes it.
@@ -55,6 +59,7 @@ The same week's other job is making the evals gate run on its own. A gate you ha
 16. **Exit code**: This is the number a program returns when it ends. 0 means success, and anything else means failure. CI fails a step whose command exits with a non-zero code.
 
 ## 2. Sort the failure before you react to it
+<!-- bite: 61b3cb71-6729-43b6-949a-cc1931e214ca -->
 
 The first question about any failed call is not "how many times should I retry?" but **"could the same request succeed if I sent it again?"**
 
@@ -72,6 +77,7 @@ The first question about any failed call is not "how many times should I retry?"
 Retrying a permanent failure doesn't just waste time. It multiplies your traffic by the number of attempts, hides the real error behind a slower one, and, against a paid API, can cost money for every failed try. The lab's `isRetryable` encodes the table, and its test checks every row.
 
 ## 3. Retry with backoff and jitter
+<!-- bite: 7274857a-fc95-461f-a107-95edd9605a37 -->
 
 When a failure is transient, wait and then try again, waiting longer each time. **With full jitter, the wait before retry *n* is a random time between zero and a ceiling, and the ceiling doubles with each attempt until it reaches a cap.** With base wait *b*, cap *c* and a random number *r* between 0 and 1:
 
@@ -88,6 +94,7 @@ With *b* = 500 ms and *c* = 10 s, the ceilings for attempts 1 to 6 are 500, 1000
 - **Know what your SDK already does.** The official Anthropic and OpenAI SDKs both retry connection errors, 408, 409, 429 and 5xx twice by default, with backoff, and time out after 10 minutes. Wrap an SDK in your own three-attempt loop and each of your attempts makes three SDK attempts: nine calls, not three. Either set the SDK's `maxRetries` to 0 and own the loop, or tune the SDK's setting and write no loop at all.
 
 ## 4. Timeouts and deadlines
+<!-- bite: 1d1ca07f-1675-4312-b425-8547254c0174 -->
 
 A hung connection is worse than a fast failure: it holds a server slot, the user stares at a spinner, and nothing gets logged until it finally dies.
 
@@ -99,6 +106,7 @@ A hung connection is worse than a fast failure: it holds a server slot, the user
 The lab's `withTimeout` gives the call an abort signal and also races it against a timer, so even a call that ignores the signal releases the caller on time. The request itself may run on unseen in the background, which is why passing the signal through matters.
 
 ## 5. The circuit breaker
+<!-- bite: 18aeb94e-819a-4222-a409-7962734e08c7 -->
 
 Retries handle a blip. During a real outage, they make things worse: every request still waits through every attempt before failing, and your retries add load to a provider that is trying to recover. A circuit breaker notices the pattern and stops calling.
 
@@ -119,6 +127,7 @@ Trace it with the test's numbers. At t = 0 the breaker is closed. Three calls fa
 Two details carry the design. **Only transient failures count**: a 400 is your bug, and tripping the breaker on it would cut off a healthy provider. **Half-open lets one trial through, not all of them**: if a hundred waiting requests rushed through at once, a provider that had only just recovered could be knocked over again.
 
 ## 6. Fallbacks, graceful degradation and idempotency
+<!-- bite: 2a6d61c8-8a04-42c6-b654-6d093f7f69be -->
 
 When the primary fails for good, try something else rather than returning an error:
 
@@ -130,6 +139,7 @@ When the primary fails for good, try something else rather than returning an err
 **Idempotency.** Retrying the model call itself is safe: the worst case is paying twice. Retrying the *whole operation* is not, if it has side effects. If "classify the ticket, then email the customer" fails after the email was sent, retrying it sends the email twice. Give each side effect an idempotency key derived from the work — the ticket ID and the step name, say — and have the receiver ignore a key it has already seen. Payment and email APIs accept these keys for exactly this reason.
 
 ## 7. Pace under rate limits
+<!-- bite: ec86ed13-9c85-4930-9e8c-dbf09978710b -->
 
 Retrying a 429 handles a blip. **Seeing 429s all the time means you're sending more than your quota allows**, and retrying just turns each rejected request into several. Shape the traffic instead:
 
@@ -140,6 +150,7 @@ Retrying a 429 handles a blip. **Seeing 429s all the time means you're sending m
 **Predict before reading on.** In the lab's "all the layers together" test, the model fails every call with 503. Retries allow 3 attempts and the breaker opens after 4 failures. How many times is the model called for the first ticket, and how many for the second? What does each ticket get back?
 
 ## 8. Putting the layers together
+<!-- bite: 37262ca5-2890-4a3e-9b90-c7363894636b -->
 
 The order matters, because each layer has to see the right thing:
 
@@ -159,6 +170,7 @@ The answer to the prediction: the first ticket makes 3 calls (all fail), then fa
 An **AI gateway** — LiteLLM, Portkey, Cloudflare AI Gateway or a provider's own — does these layers in one shared service: one API for many providers, retries, fallback routing, rate-limit handling, caching ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost, caching and latency]]) and a log of every call's tokens, cost and latency. Your application code stays about the feature. For one service and one provider, the hundred lines in this lab are enough; for several services or providers, a gateway saves writing them several times. Either way you need to know what the layers do, to configure them and to read their logs.
 
 ## 9. The evals gate in CI
+<!-- bite: 4a647adf-b87a-4a8c-b152-93f536aae075 -->
 
 Last week's gate was a function. This week it becomes a command that CI runs on every pull request: exit code 0 lets the change merge, anything else blocks it. The awkward part is the model. A CI runner on GitHub can't reach the Ollama on your laptop, and putting a paid API key into CI means paying for, and waiting for, a full eval on every push.
 
@@ -171,6 +183,7 @@ There are three ways to do it:
 The lab uses the first. **What it doesn't catch:** a provider changing the model behind the same name, since the replies never change. Re-record on a schedule — weekly, say — so that kind of drift shows up as a diff.
 
 ## Worked example — the classifier, made reliable
+<!-- bite: 64a50111-e4b1-472e-bf53-a4588fbe1529 -->
 
 The retry building blocks: classifying errors, parsing `Retry-After`, backoff, the retry loop and the per-attempt timeout.
 
@@ -880,6 +893,7 @@ await attempt("unknown model", resilient("no-such-model", ollama("no-such-model:
 **Lab:** the code is in [`ai-ml/03-ai-engineer/13-reliability-and-plumbing/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/13-reliability-and-plumbing/labs/typescript). From the vault root, `python3 labs/run.py reliability-and-plumbing/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama, so run it yourself from the lab folder with `node live.ts`.
 
 ## Common pitfalls
+<!-- bite: 9eb0dcde-8eb5-4539-a723-e5c55687a95d -->
 
 1. **Retrying everything.** A retried 400 fails the same way, three times as slowly. Sort the failure first.
 2. **Backoff without jitter.** Every client retries at the same instant and the outage gets a second spike.
@@ -891,6 +905,7 @@ await attempt("unknown model", resilient("no-such-model", ollama("no-such-model:
 8. **A CI eval that needs your laptop.** If the gate only runs when you remember to run it, it doesn't run. Record and replay, or call a hosted model from CI.
 
 ## Check your understanding
+<!-- bite: c3db6e0d-2b8c-4278-b313-3e7411410437 -->
 
 1. Why is a 429 retryable but a 401 not, when both mean "the server refused"?
 2. A thousand clients fail at the same moment. What does jitter change about what the provider sees next, and why does it matter?
@@ -914,6 +929,7 @@ await attempt("unknown model", resilient("no-such-model", ollama("no-such-model:
 </details>
 
 ## Practice — independent task
+<!-- bite: fa6cdade-46cd-4ca0-8b94-09d3e92f57c0 -->
 
 **Week 4's Build: make the flagship's model call dependable, and its evals automatic.**
 
@@ -928,6 +944,7 @@ Practice exercise 13 in [[ai-ml/03-ai-engineer/19-practice-exercises|practice ex
 **Done when:** a pull request in your flagship's repository has run the gate in CI, you have seen it fail once on purpose, and a forced failure in your model call (a wrong model name, or a timeout of 1 ms) produces the fallback answer and a log line instead of an error.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 1f98b180-72c0-4411-9d34-28279c97e085 -->
 
 - **Retry budgets.** Instead of a fixed number of attempts per request, allow retries to be at most, say, 10% of all traffic. During a big outage this stops retries from multiplying the load.
 - **Hedged requests.** For latency-critical calls, send a second request if the first hasn't answered within your p95 latency, and use whichever answers first. It cuts tail latency, and costs the duplicate calls.
@@ -937,6 +954,7 @@ Practice exercise 13 in [[ai-ml/03-ai-engineer/19-practice-exercises|practice ex
 The general versions of these patterns, for any dependency, are in [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]] (this week's optional reading).
 
 ## Before moving on
+<!-- bite: 984bfc39-312d-42be-a3f7-3c0c880d8aaa -->
 
 You can sort a failure into retryable or not, write a retry loop with jitter and a deadline, assemble timeout, breaker, retry and fallback in the right order and trace an outage through them, and run the evals gate in CI.
 
@@ -945,6 +963,7 @@ You can sort a failure into retryable or not, write a retry loop with jitter and
 **Next.** [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — the rest of week 4. It adds tokens and cost to the log line you just wrote, and makes the call cheaper and faster.
 
 ## Related
+<!-- bite: f4cae81b-9b41-4caa-b56b-51a6e72935a7 -->
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — the call this lesson hardens
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — the gate that now runs in CI, and the baseline used as the fallback
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — the same gateway layer, aimed at spend and speed

@@ -1,14 +1,20 @@
+---
+id: d7de7b65-6799-4b1b-840f-44d1774dacf1
+---
+
 # Layer 2s and Rollups
 
 **[Advanced]** — how rollups actually work, optimistic vs zk, and the centralisation everyone glosses over.
 
 ## The kid version first
+<!-- bite: fb04e3df-20fd-4ad9-9f55-ce0c90e8712d -->
 
 Instead of every computer in the world doing your maths, **one fast computer does it and then proves it did it right.** Everyone else checks the proof, which is much cheaper than redoing the work.
 
 The catch is that the fast computer must also **publish everything it did**, so that if it lies, anyone can prove it lied — and so that if it disappears, everyone can rebuild the state without it.
 
 ## What makes something a rollup
+<!-- bite: 63699cb6-dfe3-4487-9f03-715fa75d5815 -->
 
 Two properties, and both are required:
 
@@ -20,6 +26,7 @@ Two properties, and both are required:
 Marketing calls both "L2." **They are not the same risk**, and it's the first thing to check about any chain claiming L2 status.
 
 ## Optimistic rollups
+<!-- bite: 24d6406b-f9cd-41a1-8c2d-19e621186834 -->
 
 **Assume every batch is valid. Let anyone challenge.**
 
@@ -42,6 +49,7 @@ sequencer posts a state root + transaction data to L1
 **The honest caveat:** fraud proofs were **permissioned or incomplete on major optimistic rollups for years after launch**, which meant the security model was "trust the operator" while marketed as trustless. This has improved substantially (Arbitrum's BoLD, OP's fault proofs) but check the current state per chain rather than assuming — L2Beat tracks it honestly and is the right reference.
 
 ## ZK rollups
+<!-- bite: 59267f93-c74e-405b-9bc2-a96e724ec03f -->
 
 **Prove every batch is valid. No challenge needed.**
 
@@ -60,6 +68,7 @@ The cost is proving: generating a proof of general EVM execution is computationa
 **"zkEVM" comes in degrees** — from bytecode-identical with Ethereum (hardest to prove, perfect compatibility) to a different VM with a Solidity compiler (fastest to prove, subtle incompatibilities). Starknet uses its own VM and language (Cairo), which is why it's fast and why porting to it is real work.
 
 ## The comparison
+<!-- bite: 13209318-aff9-4fa8-8ffd-173cc3129d7e -->
 
 | | Optimistic | ZK |
 |---|---|---|
@@ -73,6 +82,7 @@ The cost is proving: generating a proof of general EVM execution is computationa
 **The consensus view is that zk wins long-term** — no challenge window, no liveness assumption about challengers, and proving costs keep falling. Optimistic rollups had a multi-year head start and the ecosystem lock-in that comes with it.
 
 ## The centralisation nobody advertises
+<!-- bite: 333e0a18-d706-4be0-89b5-960d512d5711 -->
 
 **Almost every rollup runs a single sequencer, operated by the company that built it.**
 
@@ -88,12 +98,14 @@ What it **cannot** do: steal your funds or forge invalid state. The proof or cha
 **And the upgrade keys.** Most rollups' L1 contracts are upgradeable by a multisig, which can, in principle, replace the bridge with one that drains it. **L2Beat's "Stage 0/1/2" classification tracks exactly this**, and it is the single most useful resource for reading past L2 marketing.
 
 ## Validiums, and where the data goes
+<!-- bite: b8a7d486-7a99-4181-bb26-5aab2bc2790d -->
 
 A **validium** uses validity proofs but posts data **off-chain**. Much cheaper, and a different security model: if the data-availability committee withholds data, **you cannot prove your own balance and cannot withdraw.** Funds aren't stealable but can be frozen.
 
 This is the modular-DA question: Celestia, EigenDA and Avail sell data availability as a service, cheaper than Ethereum blobs with weaker guarantees. **"L2" now spans a wide risk range, and the data-availability choice is the main axis** → [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the trilemma]].
 
 ## Practically, for building
+<!-- bite: c772d99e-7718-4eb6-9175-0ce68f187685 -->
 
 - **Build on an L2.** Fees are cents; on L1 they're dollars. For anything with real transaction volume this isn't close
 - **The EVM is the same.** Solidity, Foundry and OpenZeppelin work unchanged on EVM-equivalent L2s
@@ -102,10 +114,12 @@ This is the modular-DA question: Celestia, EigenDA and Avail sell data availabil
 - **Bridging is where users lose money** → [[web3/05-beyond-ethereum/06-bridges-and-interoperability|bridges]]
 
 ## Key insight
+<!-- bite: d28128ca-aa75-4e69-893f-617b615d1f0f -->
 
 **A rollup buys throughput by replacing "everyone re-executes" with "everyone verifies a proof", and pays for it with a centralised sequencer plus an upgrade multisig.** The state-correctness guarantee is real and mathematical; the censorship and liveness guarantees are social and improving. Read any L2 by asking three questions: **can the sequencer be bypassed, who holds the upgrade keys, and where is the data published?**
 
 ## Related
+<!-- bite: 95930875-395e-4512-95c2-c1d12295f3b3 -->
 - [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zero-knowledge proofs]] — the machinery under zk rollups
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the trilemma]]
 - [[web3/02-ethereum-and-the-evm/06-the-ethereum-roadmap|the Ethereum roadmap]] — why this is the strategy

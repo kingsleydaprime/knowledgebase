@@ -1,8 +1,13 @@
+---
+id: e4c37a1b-9732-450f-af6f-1b9fd4eab157
+---
+
 # Power Tools
 
 **[Advanced]** — Submodules, worktrees, patch files and cherry-pick: the tools you reach for occasionally and want documented when you do.
 
 ## What Submodules Are
+<!-- bite: 5346b5f8-b6e4-40e2-8390-0d16919a652c -->
 
 A submodule is a Git repository embedded inside another Git repository. The parent repo stores a reference to a specific commit in the submodule — not the submodule's files directly. Useful for including shared libraries, common components, or external dependencies you want to pin to a specific version.
 
@@ -28,6 +33,7 @@ git submodule update --init --recursive
 ```
 
 ## Working with Submodules
+<!-- bite: c9d60547-5fc4-4391-a287-2569b71969f2 -->
 
 ```bash
 # Update all submodules to their recorded commits
@@ -55,6 +61,7 @@ rm -rf .git/modules/path/to/sub     # Remove submodule's git data
 ---
 
 ## Git Worktrees
+<!-- bite: 3498d30d-b996-427c-b1cb-f32ff75aae96 -->
 
 ### What Worktrees Are
 
@@ -94,6 +101,7 @@ git worktree prune                     # Clean up stale worktree info
 ---
 
 ## Advanced Diff and Patch
+<!-- bite: 95e18ad3-1982-48d6-bf79-f553c6022b5c -->
 
 ### Advanced Diff Options
 
@@ -154,6 +162,7 @@ git cherry-pick --continue                    # Continue after resolving conflic
 ---
 
 ## Related
+<!-- bite: 98143d97-dec3-473a-b61a-2218b333d0db -->
 - [[git/06-rebasing|Rebasing]] — cherry-pick is the same replay machinery, one commit at a time
 - [[git/09-investigating-history|Investigating History]] — the diff options here extend `git diff`
 - [[git/02-configuration-and-setup|Configuration and Setup]] — `clone --recurse-submodules`

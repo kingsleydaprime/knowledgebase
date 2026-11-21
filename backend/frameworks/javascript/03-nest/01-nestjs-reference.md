@@ -1,3 +1,7 @@
+---
+id: 053a1cf6-21dc-41aa-8928-1ec541469ed1
+---
+
 # NestJS Personal Reference
 
 > Written from experience building Nextvibe. Start here on every new project.
@@ -5,6 +9,7 @@
 ---
 
 ## Table of Contents
+<!-- bite: a5f31a03-cf1b-4dce-92f5-897d46c34f7c -->
 
 ### Foundation
 - [01 — Project Setup](#01--project-setup)
@@ -48,6 +53,7 @@
 ---
 
 ## 01 — Project Setup
+<!-- bite: fe7f0d84-b4a7-450d-b78d-0e5f5366486a -->
 
 Every new NestJS project follows this exact sequence. Don't skip steps.
 
@@ -151,6 +157,7 @@ async function bootstrap() {
 ---
 
 ## 02 — Prisma Setup (v7+)
+<!-- bite: 1c60d9fc-9320-42fa-ae9a-40c0d4380c25 -->
 
 Prisma 7 changed how configuration works. The connection URL no longer goes in schema files.
 
@@ -257,6 +264,7 @@ npx prisma db seed                       # run your seed file to populate defaul
 ---
 
 ## 03 — Folder Structure
+<!-- bite: 09f2d1fd-62b2-418d-9f2c-af142afe17f6 -->
 
 | Folder | What goes here | Rule |
 |--------|---------------|------|
@@ -283,6 +291,7 @@ events/
 ---
 
 ## 04 — Modules
+<!-- bite: 29d4ca6e-7ef4-48ca-bfdf-933ab5cdcb03 -->
 
 A module is a self-contained unit of your application. Every feature lives in a module. NestJS uses modules to manage dependency injection.
 
@@ -326,6 +335,7 @@ Use `@Global()` for infrastructure that every module needs — database, Redis, 
 ---
 
 ## 05 — Controllers
+<!-- bite: aca0a6d9-a72b-48e5-bdaa-9e16f55849a1 -->
 
 Controllers handle HTTP requests. They call services and return data. Zero business logic — no database calls, no calculations.
 
@@ -411,6 +421,7 @@ discoverEvents(
 ---
 
 ## 06 — Services
+<!-- bite: 6cdebca5-6efb-421e-ba56-e191ea04ccf2 -->
 
 Services contain all business logic. They talk to the database, call other services, throw exceptions, and return data.
 
@@ -454,6 +465,7 @@ export class EventsService {
 ---
 
 ## 07 — DTOs
+<!-- bite: 42acff30-4586-40c6-8e4a-9db7bd4cfc7b -->
 
 DTOs define the shape of request bodies and validate them automatically using `class-validator` decorators. They are TypeScript **classes**, not interfaces — because decorators only work on classes.
 
@@ -508,6 +520,7 @@ export class CreateEventDto {
 ---
 
 ## 08 — Pipes
+<!-- bite: c7e63e42-f959-4974-b979-7d63ba40cd63 -->
 
 Pipes run after guards. They validate and transform incoming data before it hits your controller. Set globally in `main.ts`.
 
@@ -535,6 +548,7 @@ findAll(@Query('page', ParseIntPipe) page: number) {}
 ---
 
 ## 09 — Guards
+<!-- bite: a677898a-7d8c-4707-bbf5-acf186eeea01 -->
 
 Guards run first in the request pipeline. They decide whether to allow the request through. Return `true` = proceed, `false` = block with 403.
 
@@ -602,6 +616,7 @@ export class JwtGuard extends AuthGuard('jwt') {
 ---
 
 ## 10 — Interceptors
+<!-- bite: 4696f4b7-375b-4f65-a8c0-0ad1061282d4 -->
 
 Interceptors wrap around the request/response cycle. They run before and after the controller. Almost always global.
 
@@ -634,6 +649,7 @@ app.useGlobalInterceptors(new ResponseInterceptor());
 ---
 
 ## 11 — Exception Filters
+<!-- bite: e73ab366-ec92-42f8-b9cf-36f8318dede4 -->
 
 Filters catch errors thrown anywhere in your app and format them into a consistent error response.
 
@@ -702,6 +718,7 @@ app.useGlobalFilters(new HttpExceptionFilter());
 ---
 
 ## 12 — Decorators
+<!-- bite: 4cb1ad0b-da17-488e-8a23-de654040d961 -->
 
 ### Custom parameter decorator
 
@@ -743,6 +760,7 @@ export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);
 ---
 
 ## 13 — Security & CORS
+<!-- bite: 3b5afa63-8d06-484e-bb5d-7c443f255f61 -->
 
 ### CORS
 
@@ -803,6 +821,7 @@ app.setGlobalPrefix('v1');
 ---
 
 ## 14 — API Versioning
+<!-- bite: fe2e5794-a00f-414b-bfa1-8f1bdd524111 -->
 
 ### URI versioning — running v1 and v2 side by side
 
@@ -830,6 +849,7 @@ export class EventsControllerV2 {}
 ---
 
 ## 15 — Error Handling
+<!-- bite: fbf31a68-10b7-4d1e-a8b8-cfd8f60222f6 -->
 
 ### Handling Prisma errors in the filter
 
@@ -862,6 +882,7 @@ if (exception instanceof Prisma.PrismaClientKnownRequestError) {
 ---
 
 ## 16 — Performance
+<!-- bite: 609a2c7a-3449-4615-98da-c74803c48ff3 -->
 
 ### Caching with Redis
 
@@ -912,6 +933,7 @@ export class MediaWorker {
 ---
 
 ## 17 — Swagger Docs
+<!-- bite: 61cc9a69-2df4-4d02-99d9-1a64f48fc1a5 -->
 
 ```bash
 npm install @nestjs/swagger swagger-ui-express
@@ -990,6 +1012,7 @@ export class CreateEventDto {
 ---
 
 ## 18 — TypeScript Tips
+<!-- bite: 9b9c05a4-c0e7-4d70-8dc9-735a2d8bcd35 -->
 
 ### The types you'll see constantly
 
@@ -1036,6 +1059,7 @@ Ctrl + Shift + P → Developer: Reload Window
 ---
 
 ## 19 — Testing Overview
+<!-- bite: ae9ed1ec-a8c4-485c-8f0c-7ab419bbc094 -->
 
 NestJS comes with Jest pre-configured. Three levels of testing — you need all three.
 
@@ -1074,6 +1098,7 @@ npm run test -- --testNamePattern="should register"
 ---
 
 ## 20 — Unit Tests
+<!-- bite: e17fe064-5a11-4f64-84ac-63eaeeeee81f -->
 
 A unit test tests one class in complete isolation. Every dependency is replaced with a mock.
 
@@ -1243,6 +1268,7 @@ expect(spy).toHaveBeenCalledWith({ sub: 'uuid' });
 ---
 
 ## 21 — Integration Tests
+<!-- bite: 6f832768-9b80-4552-8045-e9f311720bad -->
 
 Integration tests use a real database. They verify your code actually works with real Postgres.
 
@@ -1304,6 +1330,7 @@ describe('UsersService (integration)', () => {
 ---
 
 ## 22 — End-to-End Tests
+<!-- bite: 8989a017-7ab8-45da-9c6b-fdac7e2e357f -->
 
 E2E tests boot the entire NestJS application and send real HTTP requests — exactly like your frontend would.
 
@@ -1375,6 +1402,7 @@ describe('Auth (e2e)', () => {
 ---
 
 ## 23 — DB Design Patterns
+<!-- bite: ee6e7aed-4300-428e-a710-003649a837a5 -->
 
 ### Never store arrays as columns
 
@@ -1470,6 +1498,7 @@ model Game {
 ---
 
 ## 24 — Common Issues
+<!-- bite: 37c6c9c4-a574-4d24-ae5f-941168185cea -->
 
 ### UnknownDependenciesException
 
@@ -1558,6 +1587,7 @@ super({ adapter });
 ---
 
 ## 25 — Monorepos
+<!-- bite: 13a50b0d-ea6d-4391-a11b-7085699e6fb2 -->
 
 ### When to use a monorepo
 
@@ -1609,6 +1639,7 @@ import { JwtPayload } from '@app/shared/types/jwt-payload.type';
 ---
 
 ## 26 — Advanced Patterns
+<!-- bite: 76ab02df-9868-48b3-9b78-721b3cd13b29 -->
 
 ### Event-driven architecture with NestJS EventEmitter
 
@@ -1708,6 +1739,7 @@ await prisma.follow.upsert({
 ---
 
 ## 27 — Scaling & Sharding
+<!-- bite: a348c79d-cbde-4746-bd3f-9b6fff5464b4 -->
 
 ### The scaling journey
 

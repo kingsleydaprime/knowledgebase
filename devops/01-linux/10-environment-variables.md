@@ -1,4 +1,9 @@
+---
+id: 7428a4f9-f8de-4abd-864f-aacf9788a36d
+---
+
 ## Environment Variables
+<!-- bite: d2b2aac7-1f80-4a19-84f1-fbbaf1b3cc22 -->
 
 Variables that are available system-wide to any process, not just your current shell session.
 

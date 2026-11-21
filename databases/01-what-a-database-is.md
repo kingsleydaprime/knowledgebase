@@ -9,6 +9,7 @@ id: 9750bed2-c86f-4e68-af45-77410ab78dfc
 **Source:** `[reference]` — see [[databases/index|the domain note]].
 
 ## Why not just files
+<!-- bite: 2ae6c3c1-6a43-4115-b8e7-1847f034eba7 -->
 
 **Every database exists because somebody tried files first.**
 
@@ -31,6 +32,7 @@ Store your records as JSON on disk. Then:
 > **Which is the argument against writing your own.** Not that it's hard to start; it's that you will re-derive all six, badly, over years. → [[build-your-own-shit/06-your-own-database|build-your-own-database]] exists to make that concrete, and its own "where to stop" section is the honest version of this argument.
 
 ## ACID
+<!-- bite: c2807437-e92c-4554-b68b-5ae4687176e5 -->
 
 **The transactional guarantees**, and they're more slippery than the acronym suggests.
 
@@ -53,6 +55,7 @@ Store your records as JSON on disk. Then:
 **ACID is per-node.** Across machines it becomes a much harder problem. → [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]]
 
 ## OLTP vs OLAP
+<!-- bite: f62f939d-a9c5-48eb-abcc-95cbab0fbbe0 -->
 
 **The split that explains most of the database landscape**, and getting it wrong is the commonest architectural mistake in this area.
 
@@ -73,6 +76,7 @@ Store your records as JSON on disk. Then:
 **The standard answer:** a read replica for reporting, or an ETL/CDC pipeline into a warehouse. **HTAP** systems claim to do both; treat the claim sceptically.
 
 ## The landscape
+<!-- bite: 17dda77f-d9f1-4d89-8abe-5220a790c675 -->
 
 | Family | Model | Good at | Weak at |
 |---|---|---|---|
@@ -101,6 +105,7 @@ Store your records as JSON on disk. Then:
 **Polyglot persistence** — using several — is legitimate and it costs you: more operational surface, more failure modes, and **consistency between stores becomes your problem.** → [[architecture/04-distributed-systems/index|Distributed Systems]]
 
 ## The NoSQL story
+<!-- bite: 3be4363b-17a2-4205-8c62-8e505f2aec4b -->
 
 Worth knowing because the vocabulary is still around.
 
@@ -119,6 +124,7 @@ Worth knowing because the vocabulary is still around.
 **The systems converged.** MongoDB added transactions and joins. Cassandra added SQL-ish CQL. Relational databases added JSON columns and horizontal scaling. **"NewSQL" (CockroachDB, Spanner, TiDB, Vitess) is explicitly relational-with-horizontal-scale**, which is where the argument landed.
 
 ## Reading this track
+<!-- bite: a7591daa-27bf-446e-afc9-30f6d196d203 -->
 
 **These 12 notes are the *internals* layer — how a database works underneath.** The vault's four reference files cover the surface in depth and are not repeated here:
 
@@ -139,6 +145,7 @@ Worth knowing because the vocabulary is still around.
 ---
 
 ## Related
+<!-- bite: b86e7100-59b9-4756-ad2a-0fe7f42f5a90 -->
 - [[databases/02-the-relational-model|The Relational Model]] — the theory under SQL
 - [[databases/03-storage-and-page-layout|Storage and Page Layout]] — where the bytes go
 - [[databases/sql-reference|SQL Reference]] — the syntax layer

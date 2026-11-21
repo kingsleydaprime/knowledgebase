@@ -1,3 +1,7 @@
+---
+id: 983ae99a-61c9-472a-bf7e-60dd8a2dd6ff
+---
+
 # Error Handling and Retries
 
 > **[Intermediate]** · The difference between an automation and a production automation — and the failure mode that matters most is the silent one.
@@ -7,6 +11,7 @@
 And the failure that costs most is not the loud one. It's the workflow that **stopped running three weeks ago** and nobody noticed, because nothing was expected to arrive.
 
 ## Classify the failure before you retry
+<!-- bite: 5d4d1059-a5a2-4a30-85ea-db9b20e914c6 -->
 
 Retrying the wrong class of error wastes quota and hides bugs:
 
@@ -21,6 +26,7 @@ Retrying the wrong class of error wastes quota and hides bugs:
 **That last row is the dangerous one.** A timeout doesn't tell you whether the operation happened. Retrying a non-idempotent action after a timeout is how a customer gets charged twice → [[ai-automation/03-connecting-apis-and-webhooks|note 03]].
 
 ## Retries done properly
+<!-- bite: 7aa99397-3775-4f0f-b92c-3ebb822783fc -->
 
 **Exponential backoff with jitter**, a maximum attempt count, and a cap:
 
@@ -36,6 +42,7 @@ give up  →  error branch
 **Cap total attempts.** Infinite retries against a permanently broken endpoint is a slow-motion denial of service against yourself, with a bill attached.
 
 ## The error branch
+<!-- bite: 6cec1600-152a-4295-a2b8-8436874a7ac7 -->
 
 n8n gives every node an **error output** and workflows an **error workflow** — a separate workflow that runs when this one fails.
 
@@ -51,6 +58,7 @@ n8n gives every node an **error output** and workflows an **error workflow** —
 **A dead-letter table is the standard pattern** — the same idea as a message queue's DLQ, and worth having even at small scale.
 
 ## Alert on absence, not just presence
+<!-- bite: 15fff955-feb5-4793-a120-c9b16ac0b34a -->
 
 **The most valuable alert in this domain is the one for a workflow that didn't run.**
 
@@ -64,6 +72,7 @@ A failing workflow is loud. A workflow whose trigger quietly stopped — an expi
 **This is the same argument as symptom-based alerting in [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]]** — page on the user-visible outcome, not on internal causes. And it's the same instinct as **converting silent failure into loud failure** in [[systems-engineering/08-risk-and-failure-analysis|FMEA]]: the detection column, not the severity column, is usually what you can cheaply improve.
 
 ## Partial failure
+<!-- bite: 034f71b0-3f74-43b8-ab93-466be3cd4bfc -->
 
 **Item 47 of 100 fails. What should happen?**
 
@@ -76,12 +85,14 @@ There is no default answer — you must choose, and n8n makes you choose per nod
 **The question that decides it: is this batch a transaction, or 100 independent jobs?** Sending 100 unrelated emails is the latter. Writing 100 rows that must be consistent is the former, and that probably wants a real database transaction rather than a workflow → [[databases/08-transactions-and-acid/index|transactions]].
 
 ## Timeouts
+<!-- bite: f59a4680-09b4-49b3-a116-31c8e0b17152 -->
 
 **Set one everywhere.** A node with no timeout can hang for the platform's maximum, holding a worker slot and blocking the queue.
 
 Workflow-level timeouts matter too — a run that legitimately takes 10 minutes and one that's stuck look identical without one.
 
 ## Testing failure deliberately
+<!-- bite: df9b01ae-f627-4214-8daa-97fabedc3954 -->
 
 **You cannot claim a workflow handles errors if you've never seen it fail.** Cheap ways to check:
 
@@ -94,6 +105,7 @@ Workflow-level timeouts matter too — a run that legitimately takes 10 minutes 
 **This is chaos engineering at the smallest possible scale**, and it takes twenty minutes → [[architecture/04-distributed-systems/15-testing-distributed-systems|testing distributed systems]] · [[systems-engineering/06-verification-and-validation|V&V]].
 
 ## Related
+<!-- bite: cc3591e2-d738-4625-be9c-7c87c0f41fdf -->
 - [[ai-automation/03-connecting-apis-and-webhooks|connecting APIs and webhooks]] — idempotency
 - [[ai-automation/06-self-hosting-n8n|self-hosting]] — where the alerting runs
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — alerting philosophy

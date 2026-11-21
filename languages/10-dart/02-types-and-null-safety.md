@@ -1,8 +1,13 @@
+---
+id: 224f84b2-2843-4abb-82d9-f1aaee54ec96
+---
+
 # Types and Null Safety
 
 **[Beginner → Intermediate]** — sound null safety, and what "sound" actually buys you.
 
 ## Null safety
+<!-- bite: 9fa3dff9-a9c3-4897-9bc9-f4673b7182b1 -->
 
 ```dart
 String name = 'Ada';        // can never be null
@@ -22,6 +27,7 @@ Same shape as [[languages/09-kotlin/02-null-safety|Kotlin]] and [[languages/08-s
 **Contrast with Kotlin**, where platform types from Java can still be null despite the declared type. **Dart has no such hole** — because there's no Java to interoperate with. That's a real advantage of a smaller ecosystem.
 
 ## Flow analysis
+<!-- bite: b8f75d2a-27e7-4ee6-9f7f-2a0c34b4ee15 -->
 
 ```dart
 void greet(String? name) {
@@ -52,6 +58,7 @@ void show(User u) {
 **Fields aren't promoted because another reference could mutate them between the check and the use.** Copy to a local `final` — the same workaround as Kotlin, for the same reason.
 
 ## `late`
+<!-- bite: 7770afb4-8d7b-49a6-a3f1-7e5188343f01 -->
 
 ```dart
 late final Database db;      // initialised later, but definitely before use
@@ -68,6 +75,7 @@ class Widget {
 **Don't reach for `late` to silence the compiler.** It's for genuine "definitely assigned before use" cases (dependency injection, `initState`), not for avoiding a nullable type.
 
 ## The type system
+<!-- bite: 009fe2cf-26db-4a97-acbb-166a356128c9 -->
 
 ```dart
 dynamic x = 'anything';      // ALL type checking disabled. Avoid
@@ -82,6 +90,7 @@ var z = 'inferred';          // String, inferred
 **Note `int` and `double` are distinct** and `num` is their supertype — unlike JavaScript, division always produces a `double`, and `~/` is integer division.
 
 ## Records and patterns (Dart 3)
+<!-- bite: 4387de5b-3dbd-44dd-aa47-85c098f06f01 -->
 
 ```dart
 (String, int) pair = ('Ada', 36);
@@ -109,6 +118,7 @@ final result = switch (response) {
 **`switch` as an expression, with destructuring** — and with sealed classes, it's exhaustive.
 
 ## Sealed classes
+<!-- bite: b99948b0-30b4-475a-b24d-32b6631c4057 -->
 
 ```dart
 sealed class UiState {}
@@ -128,10 +138,12 @@ final text = switch (state) {           // EXHAUSTIVE — no default needed
 **`freezed`** is the package that generates this plus `copyWith`, `==` and `hashCode` — **near-universal in real Flutter codebases**, because writing it by hand is tedious.
 
 ## Key insight
+<!-- bite: 4e03d816-b4f2-4a2c-9b66-8a7b0a5bdc10 -->
 
 **Dart's null safety is sound, with no escape hatch equivalent to Kotlin's platform types** — so the guarantee actually holds end to end, and the compiler can optimise on it. **Dart 3's records, patterns and sealed classes closed the gap** with Kotlin and Swift on data modelling; the remaining weakness is that you need `freezed` and a build step to get what those languages generate at compile time.
 
 ## Related
+<!-- bite: 2d162995-0fbf-4f07-82aa-08f70df9e053 -->
 - [[languages/10-dart/03-classes-and-collections|classes and collections]]
 - [[languages/09-kotlin/02-null-safety|Kotlin's null safety]] — the comparison, including the hole Dart doesn't have
 - [[mobile/frameworks/flutter/index|Flutter]]

@@ -1,3 +1,7 @@
+---
+id: d990f73f-ffdf-4124-8010-5fdfad90ff06
+---
+
 # Putting It All Together
 
 **[Intermediate]** — the whole stack in one worked picture, and what to do next.
@@ -26,6 +30,7 @@ The RF link (LoRa) enables the sensor to be kilometers from the gateway with no 
 ---
 
 ## Where to Go From Here
+<!-- bite: 3c136647-9659-4d2e-b452-ba65bb8485c6 -->
 
 - **Electronics:** Get a breadboard, an ESP32 dev board, some LEDs, resistors, and sensors. Read the datasheet of one sensor end to end.
 - **Embedded:** Build something in C with the ESP-IDF (not just Arduino). Deal with FreeRTOS tasks.
@@ -36,6 +41,7 @@ The RF link (LoRa) enables the sensor to be kilometers from the gateway with no 
 Every expert in this space started by wiring up a blinking LED and wondering why it was brighter than expected. The fundamentals here are the map — the territory is soldering iron burns and `Serial.println()` debugging at 2am.
 
 ## Related
+<!-- bite: 59c9906d-c99f-4ea6-9d4c-bf21043fd995 -->
 - [[hardware/index|Hardware course index]]
 - [[hardware/hardware-reference|Hardware Reference]] — units, prefixes and the formulas, for lookup
 - [[projects/iot-bridge-pcb/task|IoT Bridge PCB]] — all of this, done for real

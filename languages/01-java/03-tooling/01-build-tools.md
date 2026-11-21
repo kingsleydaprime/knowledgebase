@@ -1,8 +1,13 @@
+---
+id: e2d052bf-0448-4f82-8d4a-e154c11166ef
+---
+
 # Build Tools & Project Structure
 
 **Source:** merged from `record-id-generator-java/learning/02-build-tools-and-architecture.md` and `direct-debit-sandbox-java/learning/07-build-tools-and-project-structure.md`.
 
 ## Setting up the JDK
+<!-- bite: bfbead70-5a1d-4b67-a8af-631593600d2f -->
 
 ```bash
 java -version
@@ -17,6 +22,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 ```
 
 ## Maven vs Gradle
+<!-- bite: ba10b98c-03d2-4965-90fa-fbee7ada52f9 -->
 
 Both automate dependency resolution, compilation, testing, and packaging into a runnable `.jar`. They differ in philosophy:
 
@@ -64,11 +70,13 @@ Beyond Maven and Gradle, **Bazel** (Google's open-sourced build tool, a roadmap.
 | Learning curve | low | medium | high |
 
 ## What to commit, what to ignore
+<!-- bite: aa145531-f03a-4763-bc72-289030cf9b9a -->
 
 Commit: `build.gradle.kts`, `settings.gradle.kts`, `gradlew`/`gradlew.bat`, `gradle/wrapper/*`, `src/`.
 Ignore: `.gradle/` (cache — machine-specific and huge), `build/` (compiled output — Git is for source, not artifacts), any leftover `.mvn/`/`target/` from a prior Maven setup.
 
 ## Project structure — three approaches
+<!-- bite: 5a7358fc-b07d-49e8-90cd-81638d2dc556 -->
 
 ### Package by technical role (simplest, breaks down at scale)
 
@@ -114,6 +122,7 @@ The rule: **domain never imports infrastructure.** `IdGeneratorService` has no i
 | Can test business logic without a DB | Hard to mock | Depends | Yes — domain has zero DB dependency |
 
 ## Config files and secrets
+<!-- bite: 9e4cd811-c24d-4cd7-9aec-c9ec7e5a9e7e -->
 
 ```properties
 # application.properties — safe to commit
@@ -128,6 +137,7 @@ db.password=itc
 Never hardcode delays, URLs, or secrets in Java source — put them in properties files so they change without a recompile. Spring loads environment-specific overrides (`application-dev.properties`, etc.) based on `spring.profiles.active`.
 
 ## The `.http` request file format
+<!-- bite: a3ab3594-5b18-43fa-9677-56b5ea646fd9 -->
 
 IntelliJ and VS Code's REST Client extension both support `.http` files natively — versioned test requests that live in the repo instead of a separate Postman export:
 
@@ -144,10 +154,12 @@ Content-Type: application/json
 `###` separates requests; the blank line between headers and body is required.
 
 ## Gotcha — the Spring Security starter locks everything down
+<!-- bite: 47897fab-7c0a-4980-bb8c-ac8c0640bc01 -->
 
 Spring Boot configures itself based on what's on the classpath. Adding `spring-boot-starter-security` with zero extra code instantly puts HTTP Basic Auth on **every endpoint** and prints a random generated password to the console at startup. If the app has its own custom header-based auth, this dependency is not needed — remove it rather than fight it.
 
 ## Related
+<!-- bite: e880fa3d-ffd1-4814-b78b-dbedc2522f49 -->
 - [[languages/01-java/01-language/01-fundamentals|Fundamentals]]
 - [[backend/frameworks/java/01-spring-boot|Spring Boot & Scheduling]]
 - [[languages/01-java/06-applied-systems/04-docker-for-java-apps|Docker for Java Apps]]

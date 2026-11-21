@@ -1,3 +1,7 @@
+---
+id: a42d0d3e-b2af-40dd-b641-5a48f0c54bef
+---
+
 # Module: Number Theory Basics (Primes, Sieves & GCD)
 
 Welcome to the **Number Theory Basics** module. Number theory is the branch of mathematics and computer science that deals with the properties of integers.
@@ -7,6 +11,7 @@ Understanding prime numbers, factorization, and greatest common divisors is esse
 ---
 
 ## Before you start
+<!-- bite: 224feda9-9a56-4ef0-837d-a75cfcb9ddd6 -->
 
 - You know modular arithmetic informally — [[02-discrete-math/08-number-theory-and-modular-arithmetic|discrete maths: number theory]] proves what this note uses.
 - You can reason about $O(\sqrt{n})$ versus $O(n)$ — [[01-growth-and-asymptotic-notation|complexity analysis]].
@@ -23,6 +28,7 @@ Understanding prime numbers, factorization, and greatest common divisors is esse
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: cb63ae5c-b42f-439b-a166-0b1b3f784aa1 -->
 
 Imagine two **Alarm Clocks**:
 - Alarm A rings every **12 minutes**.
@@ -42,6 +48,7 @@ Modern internet security relies on the fact that multiplying two 500-digit prime
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: 8800f631-3d7a-424a-b0d1-2f4c926cf50c -->
 
 | Term | Plain-English Definition | Real-World Example |
 | :--- | :--- | :--- |
@@ -54,6 +61,7 @@ Modern internet security relies on the fact that multiplying two 500-digit prime
 ---
 
 ## 3. Technical Deep Dive: The Core Number Theory Algorithms
+<!-- bite: a26d4507-e167-48cd-94a8-9b66a3546a99 -->
 
 ### 1. Primality Testing ($O(\sqrt{N})$ Optimization)
 
@@ -127,6 +135,7 @@ def lcm(a: int, b: int) -> int:
 ---
 
 ## 4. Time & Space Complexity Summary
+<!-- bite: 71c7e366-5f0b-40c3-9dbc-53b8766a1008 -->
 
 | Algorithm | Time Complexity | Auxiliary Space | Key Advantage |
 | :--- | :--- | :--- | :--- |
@@ -138,6 +147,7 @@ def lcm(a: int, b: int) -> int:
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: e8cf4d6c-743c-468f-bead-80493d572bfd -->
 
 **Runnable example:** save as `number_theory.py` in any empty directory and run `python3 number_theory.py`. Standard library only; writes no files.
 
@@ -390,6 +400,7 @@ number_theory: passed
 Block 4 is the practical point: modular exponentiation by squaring turns an impossible computation into $O(\log e)$ multiplications, which is why public-key cryptography exists.
 
 ## 5. Common Pitfalls & Traps
+<!-- bite: 5efa8c60-82a4-45b3-8dd0-3c1a9fea96ef -->
 
 1. **0 and 1 are NOT Prime**: The numbers 0 and 1 are neither prime nor composite. Always handle $N \le 1$ explicitly as `False`.
 2. **Integer Overflow in LCM**: In languages like C++ or Java, computing `(a * b) / gcd(a, b)` can overflow 32-bit integers if $a \times b$ is large.
@@ -399,6 +410,7 @@ Block 4 is the practical point: modular exponentiation by squaring turns an impo
 ---
 
 ## 6. Check Your Understanding (University Self-Assessment)
+<!-- bite: 498580bb-234a-408d-92f3-e30f21fa4c31 -->
 
 1. **Question**: Why does checking primality only require testing potential factors up to $\sqrt{N}$ instead of $N - 1$?
    - <details><summary>Click for Answer</summary><b>Answer:</b> Factors occur in pairs $(a, b)$ such that $a \times b = N$. If both factors were strictly greater than $\sqrt{N}$, their product would exceed $N$. Therefore, at least one factor in every pair must be $\le \sqrt{N}$.</details>
@@ -412,6 +424,7 @@ Block 4 is the practical point: modular exponentiation by squaring turns an impo
 ---
 
 ## Practice — independent task
+<!-- bite: 0180d86f-5348-49c8-83de-168717f4595c -->
 
 Implement `miller_rabin(n, k)` — a probabilistic primality test that works on numbers trial division cannot touch.
 
@@ -426,6 +439,7 @@ Implement `miller_rabin(n, k)` — a probabilistic primality test that works on 
 **Done when:** the two tests agree below $100{,}000$, your Carmichael demonstration works, and your extrapolation is honest about its assumptions.
 
 ## Before moving on
+<!-- bite: 0bfaaec7-ac64-469a-bd54-05ca79029fe6 -->
 
 You can test primality, sieve, compute GCDs, and do modular exponentiation efficiently.
 
@@ -434,5 +448,6 @@ You can test primality, sieve, compute GCDs, and do modular exponentiation effic
 **Next:** [[09-leader-algorithm|Leader Algorithm]] — finding the value that appears in more than half of an array, in one pass and almost no memory.
 
 ## Related Modules
+<!-- bite: f61843cd-99b8-485a-85bd-229a751a997b -->
 - [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Asymptotic growth bounds
 - [[01-linear-and-binary-search|Searching Algorithms]] — Binary Search applications

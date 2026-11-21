@@ -1,3 +1,7 @@
+---
+id: a35d9866-466c-4236-ae76-15a2cd3896c3
+---
+
 # Lab Setup
 
 **[Beginner]** — the environment the exercises in [[ai-ml/03-ai-engineer/19-practice-exercises|note 19]] assume. Thirty minutes, one API key, about $2 of spend for the whole exercise set.
@@ -5,6 +9,7 @@
 Notes 1–17 are the map. This is where the reps start. The same pattern as [[cybersecurity/02-ethical-hacking/05-home-lab-setup|the ethical-hacking home lab]] and the [[devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA practice set]]: stand the lab up once, then work through the exercises against it.
 
 ## What you need
+<!-- bite: 5bd2263a-5d1b-4a60-bb57-c30885ed8110 -->
 
 | | |
 |---|---|
@@ -16,6 +21,7 @@ Notes 1–17 are the map. This is where the reps start. The same pattern as [[cy
 Python works equally well for all of this (`openai`, `anthropic`, or `litellm`); the solutions are TypeScript because that's what [[ai-ml/03-ai-engineer/04-calling-models/index|04-calling-models]] uses. Translate freely — the exercises are about the concepts, not the SDK.
 
 ## Setup
+<!-- bite: c8609ce2-03e0-4c61-8e8a-fb1467190888 -->
 
 ```bash
 mkdir ai-lab && cd ai-lab
@@ -35,6 +41,7 @@ echo "AI_GATEWAY_API_KEY=your_key_here" >> .env      # or OPENAI_API_KEY / ANTHR
 Run files with `node --env-file=.env $(npm root)/.bin/tsx script.ts`, or add a script to `package.json`. A leaked key in a public repo gets found by scrapers in minutes and spent — this is the single most common beginner incident in applied AI, and it is entirely preventable at this step.
 
 ## The first call
+<!-- bite: 78b8a5ed-8ca6-420d-a0d4-98b163c1a09f -->
 
 ```ts
 // hello.ts
@@ -54,6 +61,7 @@ If that prints, the lab works.
 **Print `usage` on every call while you're learning.** Input tokens, output tokens, and therefore cost. Developing the reflex of seeing the token count next to the output is what makes [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost & latency]] concrete rather than theoretical.
 
 ## Picking a model
+<!-- bite: c33eb09b-6e57-4aeb-af62-711668fbb692 -->
 
 Don't take model IDs from a note — including this one. They're released and retired constantly, and a stale ID is a confusing 404. Get the current list:
 
@@ -64,6 +72,7 @@ curl -s https://ai-gateway.vercel.sh/v1/models | jq -r '.data[].id'
 For the exercises: use a **small, cheap model** (a Haiku/mini/Flash tier) by default, and switch to a frontier model only where an exercise says the small one should fail. Watching a task fail on a small model and succeed on a large one is worth more than reading about capability tiers.
 
 ## Verify the API before you write against it
+<!-- bite: 39206fb9-d14c-4ef2-894f-90bf57b7d44d -->
 
 The AI SDK changes across versions — parameters get renamed, functions get superseded. Anything you remember, or read in a note written months ago, may be wrong.
 
@@ -79,6 +88,7 @@ npm view ai version                # compare against latest
 This is a habit, not a one-off. The notes in this track deliberately mark SDK code as *illustrative* for exactly this reason — the concepts are stable, the function signatures are not.
 
 ## Guardrails before you start
+<!-- bite: 07cb2148-46a8-4d73-8ed6-981008bcd01a -->
 
 Three things that turn a cheap lab into an expensive one:
 
@@ -89,10 +99,12 @@ Three things that turn a cheap lab into an expensive one:
 Add a `data/` folder for exercise inputs and a `results/` folder for eval output. Commit the lab — you'll want to diff prompt changes against eval scores later, and that only works if the prompts are in version control.
 
 ## Key insight
+<!-- bite: 0584e2f4-3208-4562-907e-cb2efd391782 -->
 
 An applied-AI lab is three things: a key with a cap on it, a small model you're not afraid to waste, and the token count printed next to every output. Everything else in the exercises builds on that.
 
 ## Related
+<!-- bite: 7b28e01c-f912-46b6-bc29-a526bbaee1a4 -->
 - [[ai-ml/03-ai-engineer/19-practice-exercises|Practice Exercises]] — start here once this runs
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — what you just did, in depth
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, Caching & Latency]] — why `usage` is printed on every call above

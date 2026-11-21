@@ -7,6 +7,7 @@ id: 9f83f074-bfcb-4bed-920b-79aee0f2b4d6
 > **[Intermediate]** · Covers how to make an AI feature cheap and fast enough to ship: how the bill is worked out from tokens, prompt caching and the prefix rule that governs it, choosing and cascading models, latency as users feel it (time to first token and p95), cutting what you send, and logging cost and latency on every call. The worked example prices the ticket classifier with real list prices, finds a cache-breaking timestamp, and cascades from keyword rules to a model. A demo that costs $2 a query or takes 15 seconds stays a demo.
 
 ## Before you start
+<!-- bite: 443fb55c-687e-4a9a-ad2e-5278943df027 -->
 
 You can already:
 
@@ -25,16 +26,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–4, and stop at the prediction in §3 before reading on. Then §5–7, the lab, and this week's Build.
 
 ## The kid version
+<!-- bite: a38dc7e5-e032-4f6a-9603-9ddee6a03ca1 -->
 
 A copy shop charges you by the page: a little for every page you hand in, and five times as much for every page it writes for you. Lots of your friends hand in the same first fifty pages, so the shop keeps those already copied and charges almost nothing to reuse them, but only if those fifty pages are exactly the same each time. If you write today's date on page one, nothing after it can be reused. For easy jobs, you ask the cheap assistant first, and only go to the expensive expert when the assistant isn't sure. And the shop hands you each page as it comes out of the machine, so you can start reading straight away instead of waiting for the whole stack.
 
 **Where the analogy stops working.** The shop only keeps the copied pages for a few minutes, so reuse has to happen soon. And an assistant who is sure but wrong never sends you to the expert: the cascade is only as good as its way of telling "sure" from "right".
 
 ## 1. Why this exists
+<!-- bite: 12f9ac84-7241-417c-b7ae-823e725e2452 -->
 
 The ticket classifier works, and the team keeps improving its prompt: a page of labelling policy, then twenty worked examples. The prompt is now 6,000 tokens, and every ticket resends all of it. At 1,000 tickets an hour on a mid-priced model, that is about **$13 an hour**, nearly all of it spent re-reading the same instructions. It's also slow: before writing its one-word answer, the model processes 6,000 tokens. **The capability is the same as the demo's; what changed is that it now runs a thousand times an hour.** The same feature, with the prompt laid out for caching, costs about $2.50 an hour and answers sooner. This lesson is the set of levers that get you from one to the other, and the measurements that tell you which lever to pull.
 
 ## Terms used in this lesson
+<!-- bite: 3a4ec330-de23-4866-a987-25335100dbd7 -->
 
 1. **Input tokens**: These are the tokens you send: the system prompt, examples, history, retrieved documents and the question. **Output tokens** are the tokens the model writes back.
 2. **Price per million tokens**: This is how providers quote prices, with separate prices for input and output tokens.
@@ -50,6 +54,7 @@ The ticket classifier works, and the team keeps improving its prompt: a page of 
 12. **Batch API**: This is a way to send many requests to be processed within hours instead of seconds, at about half the price.
 
 ## 2. How the bill is worked out
+<!-- bite: 82126bec-f677-4dff-b310-348cfc8db685 -->
 
 **The cost of one call is the number of tokens of each kind multiplied by that kind's price, added up.** The prices are per million tokens, so divide by a million:
 
@@ -72,6 +77,7 @@ Two things follow from this, and they drive everything else in the lesson.
 Model choice multiplies all of it: on the table, the largest model costs four times the smallest per token, and some providers' frontier models cost ten or more times their small ones. A local model costs nothing per call, but it's slower on a laptop, and hosting one for real traffic is not free.
 
 ## 3. Prompt caching
+<!-- bite: 04d0b5a4-b207-4a43-a5fd-0b6e58089408 -->
 
 Before writing its first token, a model runs the whole prompt through its network once, working out for every token the values that attention needs (the [[ai-ml/03-ai-engineer/02-how-llms-work/index|attention]] step from how LLMs work). Those stored values are called the **key-value cache**, and building them is most of the wait before the first token. When thousands of requests start with the same 6,000 tokens, the provider can keep that state and reuse it. **You pay a little extra the first time, and about a tenth of the input price for every reuse within the TTL.** On Anthropic's models a 5-minute cache write costs 1.25× the input price and a read 0.1× (0.05× on Opus 5.5). A 1-hour TTL is available at 2× for the write. The minimum prefix that can be cached is between 512 and 4,096 tokens depending on the model; shorter prompts silently aren't cached.
 
@@ -122,6 +128,7 @@ The lab's answer: **27** characters, `Today is 2026-10-02T09:00:0`, and then the
 Prompt caching makes the model's work cheaper. **Semantic caching** skips the model: it embeds each question, and if a past question was close enough in meaning, it returns that question's stored answer. It suits FAQ-like traffic where many people ask the same thing. It is risky where the right answer changes over time ("what's my balance?") or depends on who is asking, and a threshold that's too loose returns an answer to a different question. Scope it to stable questions, and expire entries.
 
 ## 4. Choose the model, then cascade
+<!-- bite: a8b14223-aee4-4a06-9481-8d42133fe74c -->
 
 The biggest cost decision is which model answers. Short classification, extraction and routing usually work well on a small model. Long reasoning, hard generation and multi-step agent work may need a large one. Your evals decide, not the model's reputation: run the golden set on both, and pick the cheapest one that passes the gate.
 
@@ -138,6 +145,7 @@ The lab cascades from the keyword rules (free) to a pretend big model that is al
 Two cautions. A cheaper single option sometimes beats a cascade: the large model with less reasoning effort, or the small model with better examples, may cost less than you think and is simpler to run. And judge cost per *finished task*, not per call: a cheap answer that needs a retry or a human fix isn't cheap.
 
 ## 5. Latency: real and perceived
+<!-- bite: e0ffba08-fdf1-4260-a058-59407f873c8b -->
 
 Users feel two different waits:
 
@@ -156,6 +164,7 @@ To make it actually faster:
 **Measure percentiles, not averages.** Ten calls take 900 to 1,200 ms, except one that takes 9,000. The mean is 1,819 ms, which describes no real call. The p50 is 1,000 ms: what a typical user sees. The p95 is 9,000 ms: what your unluckiest users see, and the number to watch. Set targets as "p95 under 3 seconds", not "average under 2".
 
 ## 6. Send less
+<!-- bite: 89ddbfc9-e699-4def-bee4-0fa697ede075 -->
 
 Every token you send is paid for on every call, so the cheapest token is the one you don't send:
 
@@ -164,6 +173,7 @@ Every token you send is paid for on every call, so the cheapest token is the one
 - **Batch what can wait** at half price, as in [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]] §7: re-running a large eval, nightly enrichment, relabelling.
 
 ## 7. Make it visible
+<!-- bite: e1c30acd-d7e4-4876-aae3-f694a1464fc0 -->
 
 You can't cut a cost you can't see. Extend last lesson's log line so every call records the feature, the model, the token counts (input, output, cache writes and reads), the cost, the total time and, for streams, the time to first token. From those records, a dashboard needs only a few numbers per feature and model:
 
@@ -175,6 +185,7 @@ You can't cut a cost you can't see. Extend last lesson's log line so every call 
 Most "why is this so expensive?" questions are answered by one of three things: a cache that stopped hitting, a model bigger than the task needs, or context that grows without limit. You only find out which by measuring.
 
 ## Worked example — pricing and tuning the classifier
+<!-- bite: fda760e7-9633-40ab-ac43-338e91977d22 -->
 
 The prices and the cost formula:
 
@@ -481,6 +492,7 @@ console.log(`4. streamed, same prefix: first token after ${(ttftMs / 1000).toFix
 **Lab:** the code is in [`ai-ml/03-ai-engineer/14-cost-caching-and-latency/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/14-cost-caching-and-latency/labs/typescript). From the vault root, `python3 labs/run.py cost-caching-and-latency/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama, so run it yourself from the lab folder with `node live.ts`.
 
 ## Common pitfalls
+<!-- bite: 04b6c8f4-18ef-4427-b074-895f7537a93f -->
 
 1. **A cache that never hits.** A timestamp, ID or unsorted JSON near the front. Check the cache-read count; if it's zero, compare two prompts and find where they diverge.
 2. **A prefix below the minimum.** Under 512 to 4,096 tokens, depending on the model, nothing is cached and nothing says so.
@@ -492,6 +504,7 @@ console.log(`4. streamed, same prefix: first token after ${(ttftMs / 1000).toFix
 8. **Optimising without measuring.** Log tokens, cost and latency per call before deciding which lever to pull.
 
 ## Check your understanding
+<!-- bite: f2daf522-c586-49cc-a9de-25cfe4ecfdaf -->
 
 1. A call sends 3,000 tokens and receives 600 on Sonnet 5.5. What does it cost, and which part is bigger?
 2. Why does putting the current time at the start of a system prompt make caching useless, and where should it go instead?
@@ -515,6 +528,7 @@ console.log(`4. streamed, same prefix: first token after ${(ttftMs / 1000).toFix
 </details>
 
 ## Practice — independent task
+<!-- bite: f68ede6f-c095-404a-a806-cf0d795e2e3e -->
 
 **Week 4's Build, second half: per-request cost and latency logging in your flagship.**
 
@@ -528,6 +542,7 @@ Then try exercise 14 in [[ai-ml/03-ai-engineer/19-practice-exercises|practice ex
 **Done when:** you can quote your feature's cost per 1,000 requests and its p95 latency from your own logs, and you've found and removed one thing that changes before the cache point (or shown there isn't one).
 
 ## Tradeoffs, limits and extensions
+<!-- bite: e5e2b1fc-ff12-480d-893b-3b37a4316c3f -->
 
 - **Effort and reasoning settings.** Many models let you set how much they reason before answering. Lower effort on a strong model can be cheaper than a cascade and simpler to run; measure both on the golden set.
 - **Fine-tuning a small model** for a narrow task can replace a long prompt of examples, cutting cost and latency per call, at the price of a training pipeline → [[ai-ml/03-ai-engineer/15-fine-tuning-applied|fine-tuning applied]].
@@ -535,6 +550,7 @@ Then try exercise 14 in [[ai-ml/03-ai-engineer/19-practice-exercises|practice ex
 - **Prices change.** Keep prices in one place in your code, with the date you copied them, and recheck them when a provider releases new models.
 
 ## Before moving on
+<!-- bite: 3b59cd67-c9d1-459f-8af8-d66cfe0cda94 -->
 
 You can price a call from its usage, lay out a prompt so it caches and find what breaks the cache, reason about when caching and cascades pay, and measure latency with time to first token and percentiles.
 
@@ -543,6 +559,7 @@ You can price a call from its usage, lay out a prompt so it caches and find what
 **Next.** Week 5: [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools and MCP]] and [[ai-ml/03-ai-engineer/08-agents/index|agents]]. Agents make many calls per task, so everything in this lesson, especially history length and caching, matters more there.
 
 ## Related
+<!-- bite: 741144cc-ace3-4d19-b45e-7564752f81ec -->
 - [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — the log line extended here, and the gateway that can do caching and cost tracking
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — usage, streaming and `max_tokens`
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — tokens, attention, and generating one token at a time

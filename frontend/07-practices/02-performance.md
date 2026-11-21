@@ -1,8 +1,13 @@
+---
+id: f37d5428-53e8-4277-86f6-1715d8f59905
+---
+
 # Performance
 
 > **[Intermediate]** · Core Web Vitals, the method, and the fixes that actually move the numbers.
 
 ## Measure first, and measure the right thing
+<!-- bite: bc896cc6-5046-4d58-93b1-0388a28ce4f5 -->
 
 **Lab data** (Lighthouse, on your machine) is reproducible and unrepresentative. **Field data** (real users, real devices) is noisy and true.
 
@@ -25,6 +30,7 @@
 **Guessing is the expensive path** — the same method as [[computer-architecture/12-performance|performance method]] several layers down.
 
 ## Network
+<!-- bite: 0382ed47-1088-40c5-b517-6449dc426236 -->
 
 **JavaScript is the most expensive byte you ship**, because it must be downloaded, parsed, compiled *and* executed — unlike an image, which is only decoded.
 
@@ -39,6 +45,7 @@
 **The single biggest win in many real apps is third-party scripts.** Analytics, chat widgets, tag managers, A/B tools. **Audit them, defer them, and delete the ones nobody can name an owner for** — it's the least technical and most effective performance work available.
 
 ## CPU
+<!-- bite: 7d730a2e-a21e-455c-9355-da6a1b93be2b -->
 
 **Long tasks are what INP measures**, and the main thread does layout, paint and input alongside your JavaScript → [[frontend/01-foundations/02-the-browser-and-the-dom|the browser]].
 
@@ -51,6 +58,7 @@
 **Animate `transform` and `opacity` only** — those run on the compositor. Anything else forces layout or paint per frame → [[frontend/01-foundations/02-the-browser-and-the-dom|reflow and repaint]].
 
 ## The React-specific ones
+<!-- bite: 8fbe985f-9be0-46bd-99a8-d174e3912cec -->
 
 **Most "React is slow" is one of four things:**
 
@@ -62,6 +70,7 @@
 **Profile with React DevTools before memoising anything.** `useMemo` and `useCallback` are not free — they cost memory and comparison, and applied blindly they make things slower while looking like optimisation. **React Compiler (19+) automates much of this**, which is a good reason not to hand-optimise pre-emptively.
 
 ## A budget beats a vibe
+<!-- bite: c8f299ed-717e-4dfc-8469-c440ba14d918 -->
 
 **Set numbers, enforce them in CI:**
 
@@ -77,6 +86,7 @@ CLS ≤ 0.1
 **Test on a real mid-range Android**, or at minimum throttle to 4× CPU slowdown. **Your laptop is the least representative device you own** — and this is the single most common reason a "fast" site is slow for actual users.
 
 ## What not to bother with
+<!-- bite: 67535f88-2f44-4bb5-9b0c-ece2918848d5 -->
 
 **Micro-optimising JavaScript.** `for` vs `forEach` is irrelevant next to a 300 KB bundle.
 
@@ -85,6 +95,7 @@ CLS ≤ 0.1
 **Chasing a Lighthouse 100.** It's a lab proxy. **Field data is the thing users experience**, and a perfect lab score with bad field INP is common.
 
 ## Related
+<!-- bite: 8ffcc715-4763-4618-a68e-ab0e03348670 -->
 - [[frontend/07-practices/01-frontend-best-practices|frontend best practices]]
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser and the DOM]]
 - [[frontend/06-rendering/index|rendering]] — strategy affects LCP directly

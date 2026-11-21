@@ -1,14 +1,20 @@
+---
+id: 96369484-89f5-4c37-b2b1-c0e0db8b962f
+---
+
 # Complexity Classes
 
 **[Advanced]** — P, NP, and the most consequential open question in computer science. Also the most practically useful thing in this track.
 
 ## From possible to feasible
+<!-- bite: 099b9f29-8933-47be-917e-5b46451207a3 -->
 
 [[theory-of-computation/06-decidability|Decidability]] asks *can it be done at all*. **Complexity asks whether it can be done before the sun burns out.**
 
 **A decidable problem taking $2^n$ steps is decidable and useless.** At $n=100$, $2^{100}$ operations exceeds the number of atomic events in the universe's history.
 
 ## P
+<!-- bite: 9cb4a26c-aa4a-4be3-9151-2ae8f155f063 -->
 
 > **P** — decidable by a deterministic Turing machine in **polynomial time**, $O(n^k)$ for some constant $k$.
 
@@ -25,6 +31,7 @@
 **The honest caveat:** P is a theoretical convenience, not a practical guarantee. $n^3$ on $n=10^6$ is already infeasible, and an $O(n\log n)$ algorithm with a huge constant may lose to $O(n^2)$. **P vs NP is about asymptotic structure, not about whether your code is fast.** → [[01-growth-and-asymptotic-notation|Algorithms]]
 
 ## NP
+<!-- bite: b79e642c-ad1a-4464-9b9c-5295bf177872 -->
 
 > **NP** — decidable by a **nondeterministic** TM in polynomial time.
 >
@@ -45,6 +52,7 @@
 **The asymmetry to notice:** NP is about *yes* instances. A certificate proves a formula *is* satisfiable. **Proving it isn't** requires ruling out all $2^n$ assignments — that's **co-NP**, and whether NP = co-NP is also open.
 
 ## NP-complete
+<!-- bite: 003ade74-f5bb-432c-ab78-8f78aa4821e3 -->
 
 > **$B$ is NP-complete if $B \in$ NP and every problem in NP reduces to $B$ in polynomial time.**
 
@@ -69,6 +77,7 @@ $$\text{One NP-complete problem in P} \implies \text{P} = \text{NP}$$
 **NP-hard** — at least as hard as everything in NP, **not necessarily in NP itself.** The optimisation version of TSP ("find the shortest tour") is NP-hard but not in NP, because you can't verify optimality in polynomial time. **The halting problem is NP-hard too**, and undecidable.
 
 ## P vs NP
+<!-- bite: de2ac8df-d6a5-487f-a8b9-f478c3db6cf9 -->
 
 ```
    If P ≠ NP (believed)        If P = NP
@@ -102,6 +111,7 @@ $$\text{One NP-complete problem in P} \implies \text{P} = \text{NP}$$
 **NP-intermediate:** if P ≠ NP, **Ladner's theorem** says problems exist that are in NP, not in P, and not NP-complete. **Factoring and graph isomorphism are the candidates** — no polynomial algorithm known, no NP-completeness proof either. (Graph isomorphism got a quasi-polynomial algorithm from Babai in 2015, strong evidence it's not NP-complete.)
 
 ## What to do with an NP-complete problem
+<!-- bite: f3a5d733-5b40-496f-9099-b1cea1dcbd50 -->
 
 **The practical payoff, and the reason this note is the most useful in the track.**
 
@@ -130,6 +140,7 @@ Branch and bound, ILP solvers (Gurobi, CPLEX), dynamic programming over subsets 
 **Or change the problem.** The most valuable move and the most overlooked: **often the NP-hard formulation isn't what the business needs.** "Optimal delivery route" becomes "a good route in under a second" — and that's tractable. **Recognising that the hard constraint is negotiable is worth more than any algorithm.**
 
 ## Other classes
+<!-- bite: 7afd3194-e936-4672-a951-989fb8b5d832 -->
 
 | Class | Meaning |
 |---|---|
@@ -151,6 +162,7 @@ $$\text{L} \subseteq \text{NL} \subseteq \text{P} \subseteq \text{NP} \subseteq 
 ---
 
 ## Related
+<!-- bite: 7523e951-647d-463f-9cc2-933ea9b2235a -->
 - [[theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]] — randomness, quantum, approximation
 - [[theory-of-computation/06-decidability|Decidability]] — impossible rather than slow
 - [[01-growth-and-asymptotic-notation|Algorithms]] — where complexity is applied

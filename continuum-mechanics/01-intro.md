@@ -1,3 +1,7 @@
+---
+id: 4dbaa873-f0ca-4a7d-b929-b21889a95351
+---
+
 # Module 01: Fundamentals of Continuum Mechanics
 
 Welcome to the **Continuum Mechanics** module. In physics and engineering, matter is composed of discrete atoms separated by empty space. In this course, we establish the fundamental continuum hypothesis—the mathematical framing that allows us to treat discrete physical matter as a continuous medium using the power of calculus.
@@ -5,6 +9,7 @@ Welcome to the **Continuum Mechanics** module. In physics and engineering, matte
 ---
 
 ## 1. Why Do We Need Continuum Mechanics? (Real-World Motivation)
+<!-- bite: 29786612-5126-47ce-86c6-0f1815ff6d37 -->
 
 Before diving into formal equations, let's understand why we cannot simply model every atom individually.
 
@@ -37,6 +42,7 @@ Continuum mechanics is the underlying physical theory behind:
 ---
 
 ## 2. The Continuum Hypothesis & Representative Elementary Volume (REV)
+<!-- bite: a8e7347c-60ad-4dad-b182-6e3d28922b36 -->
 
 The **Continuum Hypothesis** assumes that matter is continuously distributed throughout space. We ignore atomic gaps and assume every single point in space has defined field properties such as density ($\rho$), velocity ($\mathbf{v}$), and stress ($\boldsymbol{\sigma}$).
 
@@ -73,6 +79,7 @@ The theory fails when an REV cannot be established[cite: 3]:
 ---
 
 ## 3. Solids vs. Fluids: A Unified Framework
+<!-- bite: 7298f9d2-42b9-4a94-b29a-f48f1727113b -->
 
 A central insight of continuum mechanics is that **solids and fluids obey the exact same physical balance laws**[cite: 3].
 
@@ -101,6 +108,7 @@ The essential distinction between a solid and a fluid lies entirely in how the m
 ---
 
 ## 4. The Three Core Ingredients of Any Problem
+<!-- bite: e5ecadc9-1403-46e6-8973-455ad66df53b -->
 
 Every solvable continuum mechanics problem is assembled from three distinct modules[cite: 3]:
 
@@ -129,6 +137,7 @@ Every solvable continuum mechanics problem is assembled from three distinct modu
 ---
 
 ## 5. Mathematical Representations: Tensors & Viewpoints
+<!-- bite: eece98b0-41ed-4aa8-9aa3-a457327ba9ed -->
 
 ### Why We Use Tensors for Stress
 Force is a vector, but **stress is a second-order tensor**[cite: 3]. If you cut an imaginary plane inside a loaded object, the internal force (traction vector $\mathbf{t}$) depends on the orientation unit vector ($\mathbf{n}$) of that cut plane[cite: 3]:
@@ -162,6 +171,7 @@ Lagrangian (Material Framework)          Eulerian (Spatial Framework)
 ---
 
 ## 6. Common Engineering Assumptions
+<!-- bite: 23e0e7a5-1723-400c-af9d-7fe8e182ddec -->
 
 To make continuum partial differential equations analytically tractable, engineers apply specific simplifying assumptions:
 
@@ -184,6 +194,7 @@ To make continuum partial differential equations analytically tractable, enginee
 ---
 
 ## 7. Summary of Framework Concepts
+<!-- bite: e45f97bd-f1d7-4de2-8597-1ba8966061c4 -->
 
 | Concept | Primary Definition | Key Equation / Criterion |
 | --- | --- | --- |
@@ -203,6 +214,7 @@ To make continuum partial differential equations analytically tractable, enginee
 ---
 
 ## 8. Check Your Understanding (Self-Assessment)
+<!-- bite: 07e07397-30c5-4cc9-9d73-1cfdd7b4a662 -->
 
 1. **Question**: Why does the calculated density fluctuate wildly when the sampling volume $\Delta V$ is smaller than the Representative Elementary Volume (REV)?
 
@@ -214,6 +226,7 @@ To make continuum partial differential equations analytically tractable, enginee
 ---
 
 ## Related Modules
+<!-- bite: 7d5eb0bc-a3e2-4d0e-870a-559fd97a8426 -->
 
 * [[continuum-mechanics/02-index-notation-and-tensors|Index Notation & Tensor Calculus]] — Mathematical prerequisites
 

@@ -1,3 +1,7 @@
+---
+id: 2cc9eab4-3987-4e68-8877-d91eba66efc2
+---
+
 # What an OS Is
 
 **[Beginner → Intermediate]** — The kernel/user split, why hardware enforces it, and the three jobs an operating system actually does.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — built out August 2026 from the plan in [[os/index|the OS README]]. The overview note [[os/fundamentals|fundamentals]] covers the same ground more briefly.
 
 ## The three jobs
+<!-- bite: 4081167b-8a5d-4a51-89af-5fe0570a266a -->
 
 Strip away everything else and an OS does three things:
 
@@ -17,6 +22,7 @@ Strip away everything else and an OS does three things:
 Everything else — filesystems, scheduling, virtual memory, networking — is an implementation of one of those three.
 
 ## The kernel/user split
+<!-- bite: d950b12b-5d84-41d3-a660-9885d2d5b1ff -->
 
 The central structural fact:
 
@@ -45,6 +51,7 @@ That hardware enforcement is what makes isolation real rather than a convention.
 The consequence you feel daily: **anything interesting requires asking the kernel**, and asking costs a privilege transition. → [[os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]]
 
 ## Why a bug in the kernel is different
+<!-- bite: f9e3a0f9-af83-4485-bbfe-b56cdb8782e4 -->
 
 A segfault in your program kills your program. A null dereference in a kernel driver panics the machine, because there's nothing above it to catch the fault.
 
@@ -55,6 +62,7 @@ This asymmetry drives a lot of design:
 - **Microkernels** move drivers into user space so a driver crash is recoverable
 
 ## Monolithic vs microkernel
+<!-- bite: 4f38944b-c5c7-4940-9926-999a08b2f044 -->
 
 The oldest architectural argument in the field.
 
@@ -82,6 +90,7 @@ Meanwhile microkernels won where correctness is non-negotiable: seL4 is formally
 **Where this matters to you:** it explains why a Linux driver bug is a kernel panic, why FUSE filesystems are slower, and why "just do it in user space" is a real performance strategy for I/O. → [[os/08-io-models|I/O Models]]
 
 ## The abstractions the kernel exposes
+<!-- bite: 1f7bc116-0c84-4375-9bc0-e72055f3fe6b -->
 
 Almost everything a program does resolves to one of these:
 
@@ -109,6 +118,7 @@ The payoff isn't philosophical — it's that **one set of tools works on everyth
 The limits are real too: `ioctl()` exists precisely because some devices need operations that don't fit read/write, and it's the ugly escape hatch the abstraction leaks through.
 
 ## `/proc` and `/sys`
+<!-- bite: cc92792c-8e5f-4171-840d-8b7ed73c59b6 -->
 
 Two pseudo-filesystems that are the practical interface to kernel state:
 
@@ -127,6 +137,7 @@ Two pseudo-filesystems that are the practical interface to kernel state:
 **These are your primary debugging tools for anything OS-shaped.** Most of what `top`, `ps`, and `free` report comes from `/proc`.
 
 ## Where the boundary actually is
+<!-- bite: 94d5ae0e-9a7d-444e-ada1-ef043d5383c6 -->
 
 Worth being precise, because it's commonly misunderstood:
 
@@ -142,6 +153,7 @@ ltrace ./myprogram           # library calls instead
 ```
 
 ## The honest advice
+<!-- bite: e49a078c-e626-4b1a-83a7-f5a9ce44357e -->
 
 > **The best way to learn this is not to read about it.** *Operating Systems: Three Easy Pieces* (free online) plus writing a toy shell, a toy allocator, and a toy scheduler teaches more than any set of notes — including these.
 
@@ -150,6 +162,7 @@ These notes exist so the vocabulary is in place and the cross-domain links work.
 ---
 
 ## Related
+<!-- bite: 59048d1f-6ae5-48a2-aabe-c862d3c8e3b6 -->
 - [[os/fundamentals|OS Fundamentals]] — the original overview note
 - [[os/02-processes-and-threads|Processes and Threads]] — the first real abstraction
 - [[os/09-syscalls-interrupts-and-the-abi|Syscalls, Interrupts and the ABI]] — crossing the boundary

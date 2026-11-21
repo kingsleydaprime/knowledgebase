@@ -1,8 +1,13 @@
+---
+id: 7cc4c095-e6e9-403b-b645-70c9c36519d6
+---
+
 # Bridges and Interoperability
 
 **[Advanced]** — how assets move between chains, why bridges hold the worst security record in the field, and how to evaluate one.
 
 ## The kid version first
+<!-- bite: 4f695132-317d-4cfc-b540-affe9d2340f7 -->
 
 Your ETH exists on Ethereum. **It cannot leave.** There is no mechanism by which an Ethereum coin appears on another chain — the chains don't know each other exists.
 
@@ -11,6 +16,7 @@ So bridges fake it: **lock your ETH on Ethereum, and mint an IOU on the other ch
 **That "someone" is the bridge, and it is holding everyone's money in one place.**
 
 ## The mechanisms
+<!-- bite: b318c727-66de-4063-8942-01caf2199a85 -->
 
 **Lock-and-mint.** Deposit on chain A into a bridge contract; a wrapped token is minted on chain B. Burn the wrapper to unlock the original. **The bridge contract accumulates every asset ever bridged** — one contract, enormous value, permanent target.
 
@@ -21,6 +27,7 @@ So bridges fake it: **lock your ETH on Ethereum, and mint an IOU on the other ch
 **Native / canonical bridges.** Rollups have one built in, secured by the L1 itself. **Slower (a 7-day window for optimistic rollups) and strictly the most secure option** → [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|rollups]].
 
 ## The hard problem
+<!-- bite: 04955385-b1f6-4429-b1d5-35ea09ff9a7a -->
 
 **A blockchain cannot observe another blockchain.** It has no network access and no way to verify a foreign chain's state. So every bridge needs someone to tell chain B what happened on chain A — **and the security of the bridge is exactly the security of that messenger.**
 
@@ -36,6 +43,7 @@ The options, in descending order of trust required:
 **The overwhelming majority of deployed bridges are externally verified**, because it's the only one that was easy to build. That is the whole story of the losses below.
 
 ## The losses
+<!-- bite: 39958993-23cf-4447-b3d8-3dfb51834614 -->
 
 Bridges hold the worst record in the field, and it isn't close:
 
@@ -56,12 +64,14 @@ Three reasons this is structural rather than bad luck:
 3. **Weak verification.** A small multisig protecting hundreds of millions is an economically irrational amount of value behind a handful of keys → [[web3/04-smart-contract-security/03-access-control-and-key-management|key management]]
 
 ## Messaging protocols
+<!-- bite: 9425f063-a10e-46a0-bb21-c682248b81bb -->
 
 The generalisation: pass **arbitrary messages**, not just assets — so a contract on one chain can call one on another. LayerZero, Wormhole, Axelar, Chainlink CCIP, Hyperlane.
 
 **Same trust question, harder to see.** "Configurable security" and "decentralised verifier network" typically mean *a set of nodes attesting*, which is the externally-verified model with better branding. **Find out who signs and how many are needed** — that's the security model, regardless of what the documentation calls it.
 
 ## Evaluating a bridge
+<!-- bite: e87c4bb5-717a-4761-a323-089dd9034ce1 -->
 
 1. **Who verifies messages?** If the answer is a multisig or committee, that's your trust assumption. **Everything else is secondary**
 2. **How many signers, held by how many *independent* parties?** Ronin was 5-of-9 on paper and effectively 1-of-1
@@ -71,6 +81,7 @@ The generalisation: pass **arbitrary messages**, not just assets — so a contra
 6. **Is the wrapped asset the canonical one?** Multiple incompatible wrapped versions of the same token on one chain is common, and holding the wrong one means holding an illiquid IOU
 
 ## Practical advice
+<!-- bite: 142344be-e003-451e-ae08-50a52161ea44 -->
 
 - **Use canonical/native bridges** where they exist. Slower and much safer
 - **Don't leave assets bridged** longer than you need. Every day is exposure
@@ -79,10 +90,12 @@ The generalisation: pass **arbitrary messages**, not just assets — so a contra
 - **Treat any wrapped asset as a claim on a bridge**, not as the underlying asset. If the bridge dies, the wrapper goes to zero **while the original is still locked and unreachable**
 
 ## Key insight
+<!-- bite: 57bc99cd-3d22-4339-9e92-1b663fa225b3 -->
 
 **A bridge is a claim that something happened on a chain you cannot see, and the security of every bridged asset is the security of whoever makes that claim.** Most bridges answer this with a multisig, which is why they have lost more money than every other category combined. The real fix — light clients verifying consensus directly, made affordable by zk proofs — is finally being built, roughly a decade after the problem appeared.
 
 ## Related
+<!-- bite: 65150d9d-82e8-498e-9a8f-a3b75dc07fe1 -->
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — Ronin, Wormhole, Nomad in full
 - [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zero-knowledge proofs]] — the endgame for verification
 - [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|rollups]] — native bridges

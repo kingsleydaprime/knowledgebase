@@ -1,8 +1,13 @@
+---
+id: 13f9295d-8eda-4371-a60a-980ecb6324e3
+---
+
 # Distributed and Multi-GPU
 
 **[Advanced]** — Scaling past one device. The parallelism strategies, collective operations, and why interconnect topology decides your architecture.
 
 ## Why one GPU isn't enough
+<!-- bite: bfe72106-d2a1-4250-bba7-3e597283bfee -->
 
 **Two separate reasons, and they call for different strategies:**
 
@@ -13,6 +18,7 @@
 > **These have different answers.** *Doesn't fit* → **model/tensor/pipeline parallelism.** *Too slow* → **data parallelism.** **Large training runs use several at once**, and the combination is called 3D parallelism.
 
 ## Data parallelism
+<!-- bite: 0b11de4f-ef5d-4c68-afaf-544d7082b32d -->
 
 **Replicate the model on every device; split the batch.**
 
@@ -56,6 +62,7 @@
 > **FSDP (PyTorch) and DeepSpeed ZeRO are the standard tools for training models that don't fit.** **ZeRO-3 makes data parallelism work for arbitrarily large models**, at the price of more collective traffic per step. It's the default starting point now, ahead of manual model parallelism.
 
 ## Model and tensor parallelism
+<!-- bite: 5af40e23-c09c-4e2d-a0ef-6d3820af573e -->
 
 **Split the model itself across devices.**
 
@@ -92,6 +99,7 @@
 > **The mapping to hardware is the design.** Tensor parallelism demands the fastest link, so it goes inside a node. Pipeline parallelism sends less data, so it tolerates slower interconnect. **Getting this wrong — tensor parallelism across an Ethernet boundary — can cost you most of your throughput.**
 
 ## Collective operations
+<!-- bite: b003a4cc-754c-4865-bb4b-f1985adbb83f -->
 
 **The primitives, and they're the same set MPI standardised decades ago.**
 
@@ -115,6 +123,7 @@
 **NCCL** is NVIDIA's implementation, topology-aware, using NVLink where available and InfiniBand between nodes. **RCCL is the AMD equivalent; MPI the HPC standard.**
 
 ## Interconnect
+<!-- bite: f12483ba-63f0-4de9-bef4-ab481587e2e8 -->
 
 **The hardware that determines what's feasible.**
 
@@ -133,6 +142,7 @@
 **Topology matters.** Check `nvidia-smi topo -m` — it shows which GPU pairs share NVLink versus routing through PCIe or across sockets. **Placing communicating ranks on poorly-connected pairs is a real and easily-avoided loss.**
 
 ## Inference at scale
+<!-- bite: e927f20a-ab9b-421c-b055-7a701c210b0c -->
 
 **Different constraints from training** — latency matters, batches are dynamic, and the model is fixed.
 
@@ -149,6 +159,7 @@
 → [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local and Open Models]]
 
 ## Failure and scale
+<!-- bite: 8033a06e-4e04-449e-8521-6d7e7319e47b -->
 
 **At hundreds of GPUs for weeks, hardware failure is a certainty, not a risk.**
 
@@ -163,6 +174,7 @@
 > **Large training runs are distributed systems**, with all that implies: partial failure, stragglers, coordination overhead, and the need for observability. → [[architecture/04-distributed-systems/index|Distributed Systems]]
 
 ## Practical notes
+<!-- bite: 203bee45-efcc-4566-8ac8-d22f06d76cb2 -->
 
 **Scale up before scaling out.** One 8-GPU NVLink node beats eight single-GPU nodes for almost anything, because the interconnect is 20× better.
 
@@ -183,6 +195,7 @@
 ---
 
 ## Related
+<!-- bite: c278ca01-8b6e-43d1-8572-b967c2173c59 -->
 - [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — single-device optimisation first
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — the general theory
 - [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] — running training at scale

@@ -1,3 +1,7 @@
+---
+id: 1cf27b1c-faee-4bc1-8894-a95b9611263a
+---
+
 # Programming Paradigms
 
 > **[Beginner → Intermediate]** · Imperative, declarative, procedural, object-oriented, functional — what the words mean, and why almost every language you'll use is several of them at once.
@@ -5,6 +9,7 @@
 A **paradigm** is a style of organising a program — a set of ideas about what the building blocks are and how they fit together. The words get used loosely and territorially. They're less mystical than they sound, and there are really only two roots.
 
 ## The root distinction: how vs what
+<!-- bite: 7a3238e8-cab5-457b-8f31-0efa913bdb7a -->
 
 **Imperative** — you write *how*. Explicit steps, in order, changing state as they go.
 
@@ -32,6 +37,7 @@ Same result. The first specifies the loop, the counter and the mutation. The sec
 You already write declarative code constantly. HTML, CSS, SQL, [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|Terraform]], and every CI YAML file are declarative. So is React's render model.
 
 ## Expressions and statements
+<!-- bite: a26fa584-32d6-493e-856c-ec723222789a -->
 
 Worth naming here because it's the mechanical version of the same split, and it explains a lot of syntax you'll otherwise find arbitrary.
 
@@ -49,6 +55,7 @@ and why Python needs a separate conditional-expression form (`"A" if score >= 90
 **"Everything is an expression" is a design goal**, not a quirk: expressions compose, statements don't. You can nest an expression inside another anywhere; a statement has to go on its own line and communicate by side effect. → [[compilers/03-parsing|parsing]].
 
 ## The four styles you'll actually meet
+<!-- bite: 388dfe20-bbcf-4ba2-a80f-44f2e4156b59 -->
 
 ### Procedural
 Imperative code organised into procedures (functions) that operate on data passed to them. Data and behaviour are **separate**. C is the canonical example, and most scripts you write are this whether or not you call it that.
@@ -88,6 +95,7 @@ Not usually listed beside the others, and you'll spend more time in it than in m
 The inversion is the point — **you don't call the framework, it calls you** — and it's why callback-heavy code is hard to follow: control flow lives in a dispatcher you didn't write. → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime and concurrency models]].
 
 ## Almost everything is multi-paradigm now
+<!-- bite: 8b68b4c9-9e4f-4e95-b918-1b70847a8d68 -->
 
 The tribal era is over. Python has classes, first-class functions, comprehensions and decorators. JavaScript is all four at once. Java added lambdas and records; C# added pattern matching and immutability; Rust has traits, closures, iterators and no inheritance at all.
 
@@ -101,6 +109,7 @@ The tribal era is over. Python has classes, first-class functions, comprehension
 **And one heuristic that's worth more than the taxonomy:** *push the pure logic apart from the effects.* Keep the calculating, deciding and transforming in pure functions, and confine the mutation, I/O and state changes to a thin shell around them. The pure part is testable, movable and reusable; the shell is small enough to reason about. Every paradigm above agrees with this, which is a decent sign it's the real lesson.
 
 ## Related
+<!-- bite: cf686d47-771e-4d78-a8d4-5a6bd6ccdb69 -->
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]] — the OO paradigm in depth
 - [[programming-fundamentals/08-functions|functions]] — purity, introduced
 - [[programming-language-theory/index|PL theory]] — the formal treatment, much later

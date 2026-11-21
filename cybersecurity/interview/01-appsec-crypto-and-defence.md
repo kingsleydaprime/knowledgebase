@@ -1,3 +1,7 @@
+---
+id: 8d096f0b-b69c-4114-a1bd-31f82e71ff1b
+---
+
 # Security Interview — AppSec, Crypto & Defence
 
 From [[cybersecurity/04-web-security/index|04-web-security]], [[cybersecurity/05-cryptography/index|05-cryptography]], [[cybersecurity/06-attacks-and-threats/index|06-attacks-and-threats]], [[cybersecurity/07-security-operations/index|07-security-operations]].

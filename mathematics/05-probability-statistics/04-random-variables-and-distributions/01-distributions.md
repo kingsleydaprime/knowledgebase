@@ -1,8 +1,13 @@
+---
+id: df07b638-2f89-4485-ae75-390c106719c0
+---
+
 # Random Variables and Distributions
 
 **[Intermediate]** — attaching numbers to outcomes, and the handful of distributions that describe most of what you will meet.
 
 ## Before you start
+<!-- bite: 66d544d7-a36c-49b5-8efb-dab21895f599 -->
 
 - You know the probability rules and conditional probability — [[03-probability/01-probability|probability]].
 - You can compute a mean and a variance — [[02-dispersion-and-cumulative-frequency/01-dispersion|dispersion]].
@@ -20,12 +25,14 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: e3a598b1-3536-4eb1-8b8e-d9cc44843545 -->
 
 Probability so far has been about events — "it rained", "the test was positive". Most questions are about **quantities**: how many defects, how long until failure, how much traffic.
 
 A **random variable** attaches a number to each outcome, which lets you do arithmetic: add them, average them, ask what happens in the long run. And once you have numbers, a small number of shapes turn out to describe an enormous amount of reality — not by coincidence, but because each shape follows from a specific mechanism. Knowing the mechanism tells you which distribution applies, and, more importantly, when none of them does.
 
 ## 2. Terminology
+<!-- bite: c6808d97-2eb6-4377-8c25-df7d38dd1878 -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -42,6 +49,7 @@ A **random variable** attaches a number to each outcome, which lets you do arith
 **Density is not probability.** For a continuous variable, $P(X = 3.7)$ is exactly $0$ — there are infinitely many values and no single one carries positive mass. Only *intervals* have probability, given by the area under the curve. A density can exceed $1$; a probability cannot.
 
 ## 3. Expectation and variance
+<!-- bite: b64ef79b-fa07-4886-890b-4a4f032fecab -->
 
 $$
 E[X] = \sum_x x\,P(X=x) \qquad\text{or}\qquad \int x f(x)\,dx
@@ -70,6 +78,7 @@ $$
 That single condition is what makes the $\sqrt{n}$ appear everywhere in statistics.
 
 ## 4. The distributions worth knowing
+<!-- bite: 7c80f703-558d-4233-b922-bb8337f26ff2 -->
 
 | Distribution | The mechanism | $E[X]$ | $\operatorname{Var}(X)$ |
 | :--- | :--- | :--- | :--- |
@@ -97,6 +106,7 @@ converts any normal to the standard one, which is why a single table ever suffic
 > **Predict before running the lab.** A binomial with $n = 1000$ trials and $p = 0.003$ has mean $np = 3$. A Poisson with $\lambda = 3$ has the same mean. How close are the two distributions — same to one decimal place, two, three? And what is it about $n$ and $p$ that makes them close? Decide before opening the answers.
 
 ## 5. Poisson as a limit of binomial
+<!-- bite: 4e5a642a-1ef4-4763-920d-732117313ae5 -->
 
 Poisson is what binomial becomes when trials are many and success is rare, with $np$ held fixed at $\lambda$.
 
@@ -107,6 +117,7 @@ This is why Poisson describes arrivals: requests hitting a server, calls reachin
 The variance check comes along too: $\operatorname{Var} = np(1-p) \to np = \lambda$ as $p \to 0$, which is exactly the Poisson property that mean equals variance.
 
 ## Worked example — runnable
+<!-- bite: 79fe1be8-42e2-41dc-9819-07a94e48078e -->
 
 **Runnable example:** save as `distributions.py` in any empty directory and run `python3 distributions.py`. Standard library only; writes no files.
 
@@ -314,6 +325,7 @@ distributions: passed
 Block 4 is the one to study. As $n$ grows with $np$ held at $3$, the binomial converges on the Poisson, and the largest gap falls by a factor of ten for every tenfold increase in $n$ — reaching $3.4\times10^{-4}$ at $n=1000$ and $3.4\times10^{-6}$ at $n=100{,}000$. The Poisson is not a separate invention; it is what binomial *becomes*.
 
 ## Common pitfalls and traps
+<!-- bite: deea33e2-2823-4f86-bc61-32417a3b88c4 -->
 
 - **Treating a density as a probability.** $f(x)$ can exceed $1$. Only areas are probabilities, and $P(X = c) = 0$ for any single $c$.
 - **Using binomial when trials are not independent.** Sampling without replacement from a small population is hypergeometric. Independence is an assumption to check, not a formality.
@@ -323,6 +335,7 @@ Block 4 is the one to study. As $n$ grows with $np$ held at $3$, the binomial co
 - **Forgetting $E[X]$ can be impossible.** The mean roll of a die is $3.5$. An expectation is a long-run average, not a prediction of any single outcome.
 
 ## Check your understanding
+<!-- bite: 132453e9-51d2-4070-bb05-ee8ef307f8e6 -->
 
 1. A fair coin is flipped $10$ times. Find $E[\text{heads}]$ and $\operatorname{Var}(\text{heads})$.
 2. Why is $P(X = 5)$ zero for a continuous random variable?
@@ -342,6 +355,7 @@ Block 4 is the one to study. As $n$ grows with $np$ held at $3$, the binomial co
 </details>
 
 ## Practice — independent task
+<!-- bite: 57d98620-6d62-4fa7-838a-efbfa2d15a0b -->
 
 Implement `fit_and_check(counts)`: given observed count data, fit both a Poisson and a binomial, and decide which — if either — is defensible.
 
@@ -356,6 +370,7 @@ Implement `fit_and_check(counts)`: given observed count data, fit both a Poisson
 **Done when:** your index of dispersion cleanly separates the two generated datasets, your chi-square pooling rule is implemented and explained, and you can say what "the model fits" does and does not establish.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: ad80e1e6-ca68-482a-abd1-e8fc80609f92 -->
 
 **These five are a starting kit, not a complete set.** Real data is frequently heavy-tailed — file sizes, incomes, city sizes and network degrees follow power laws, where the variance may be infinite and the sample mean does not converge usefully. Applying normal reasoning there is not slightly wrong, it is meaningless.
 
@@ -364,6 +379,7 @@ Implement `fit_and_check(counts)`: given observed count data, fit both a Poisson
 **The normal's dominance is a theorem, not an aesthetic.** The Central Limit Theorem explains why sums and averages tend to normality regardless of the underlying shape, which is why it governs measurement error and sample means. It says nothing about individual raw measurements, which is where it is most often misapplied — the subject of [[05-inference-and-estimation/01-inference|inference]].
 
 ## Before moving on
+<!-- bite: 4f7665ca-e214-4aa3-b67f-f4c2126053b9 -->
 
 You are done with this lesson when you can:
 
@@ -377,6 +393,7 @@ You are done with this lesson when you can:
 **Next:** [[05-inference-and-estimation/01-inference|Inference and Estimation]] — going from a sample back to the population, and what a confidence interval actually promises.
 
 ## Related
+<!-- bite: 84dc7964-fd6d-4a73-96cc-d9781444ba10 -->
 
 - [[03-probability/01-probability|Probability]] — the rules these are built on
 - [[02-dispersion-and-cumulative-frequency/01-dispersion|Dispersion]] — where mean and variance came from

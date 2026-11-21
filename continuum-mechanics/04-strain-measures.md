@@ -1,8 +1,13 @@
+---
+id: 713c1f40-a8ef-489c-b2b6-93acf5485d19
+---
+
 # Strain Measures
 
 **[Intermediate → Advanced]** — Why there are several definitions of "how much has this deformed", which to use when, and the one that quietly breaks under rotation.
 
 ## The requirement
+<!-- bite: cb821e46-669d-4cf3-956b-ed3ea5e465b6 -->
 
 Strain must measure **deformation only**. Translate a body across the room and rotate it — nothing has deformed, and every strain measure must return zero.
 
@@ -15,6 +20,7 @@ $$|d\mathbf{x}|^2 = d\mathbf{X}^T\mathbf{F}^T\mathbf{F}\,d\mathbf{X}$$
 **Squared lengths, because that avoids a square root and keeps everything polynomial in $\mathbf{F}$.**
 
 ## The Cauchy–Green tensors
+<!-- bite: f127d2e7-4484-4a54-ab98-6ae50a2f6e32 -->
 
 $$\mathbf{C} = \mathbf{F}^T\mathbf{F} \qquad \text{right Cauchy–Green (material)}$$
 $$\mathbf{b} = \mathbf{F}\mathbf{F}^T \qquad \text{left Cauchy–Green (spatial)}$$
@@ -28,6 +34,7 @@ $$\mathbf{C} = \mathbf{U}^T\mathbf{R}^T\mathbf{R}\mathbf{U} = \mathbf{U}^2$$
 $\mathbf{C} = \mathbf{I}$ exactly when there is no deformation.
 
 ## Green–Lagrange strain
+<!-- bite: 0e3a0f97-5051-46e7-80ae-1e7691382529 -->
 
 The standard finite-strain measure in solid mechanics:
 
@@ -46,6 +53,7 @@ $$E_{IJ} = \tfrac{1}{2}\left(\frac{\partial u_I}{\partial X_J} + \frac{\partial 
 The spatial counterpart is the **Almansi–Euler strain** $\mathbf{e} = \tfrac{1}{2}(\mathbf{I} - \mathbf{b}^{-1})$, used when working in the current configuration.
 
 ## Infinitesimal strain
+<!-- bite: 4b3bf253-c8cf-4b48-be3e-5c371f52bf47 -->
 
 Drop the quadratic term:
 
@@ -85,6 +93,7 @@ Infinitesimal strain gives $\varepsilon_{11} = \cos\theta - 1 \approx -\theta^2/
 **So the criterion is small *rotations*, not just small strains.** A cantilever beam whose tip deflects 20% of its length has strains under 1% and rotations of ~0.2 rad — small strain gets it visibly wrong. That's a common and genuinely surprising failure, and it's why FE codes have a "large displacement / nonlinear geometry" switch that you should turn on more often than you might think.
 
 ## The other measures
+<!-- bite: e855437c-e8cf-4afd-98c6-da64013d3bcb -->
 
 Several exist because different problems make different ones natural:
 
@@ -110,6 +119,7 @@ All agree to first order for small strain. They diverge fast:
 It's also why a **true stress–true strain** curve keeps rising past the ultimate tensile strength while the engineering curve turns over: the engineering curve divides by the original area while the specimen is necking down.
 
 ## Reading a strain state
+<!-- bite: 4b2d4a06-0dad-4647-8da2-52c53990bba9 -->
 
 The same tools as any symmetric tensor. → [[continuum-mechanics/02-index-notation-and-tensors|note 02]]
 
@@ -128,6 +138,7 @@ $$\varepsilon_{ij} = \tfrac{1}{3}\varepsilon_{kk}\delta_{ij} + e_{ij}$$
 Volume change plus shape change. **Metals yield on $e_{ij}$ alone** — hydrostatic compression doesn't cause plastic flow, which is why a solid steel ball is unharmed at the bottom of the ocean while a hollow one implodes. → [[continuum-mechanics/12-failure-and-yield|Failure and Yield]]
 
 ## Measuring it
+<!-- bite: 714bce0d-5451-443c-b6a3-e362708f1c5a -->
 
 Strain is one of the few quantities here you measure directly.
 
@@ -142,6 +153,7 @@ Strain is one of the few quantities here you measure directly.
 ---
 
 ## Related
+<!-- bite: 10b34a9d-aae4-456a-955f-babc212a2dc8 -->
 - [[continuum-mechanics/03-kinematics-of-deformation|Kinematics of Deformation]] — where $\mathbf{F}$ comes from
 - [[continuum-mechanics/05-stress|Stress]] — the conjugate quantity
 - [[continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — strain's first real use

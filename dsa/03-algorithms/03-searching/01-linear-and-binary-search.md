@@ -1,3 +1,7 @@
+---
+id: cb9553b1-652d-40a8-b2f9-cc5532a98f1d
+---
+
 # Module: Searching Algorithms (Linear & Binary Search)
 
 Welcome to the **Searching Algorithms** module. Searching is the process of locating a specific target value within a data structure.
@@ -7,6 +11,7 @@ The choice of search algorithm depends entirely on one fundamental question: **I
 ---
 
 ## Before you start
+<!-- bite: 6bd4bc74-37de-4877-b73e-2623de929946 -->
 
 - You know what sorted order buys you — [[05-sorting/index|sorting]].
 - You can reason about a loop invariant — [[05-sorting/02-elementary-sorts|elementary sorts]].
@@ -24,6 +29,7 @@ The choice of search algorithm depends entirely on one fundamental question: **I
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 90a63025-9579-42bd-a151-98234ff578d0 -->
 
 Imagine looking up a word in a **printed physical dictionary**:
 
@@ -50,6 +56,7 @@ Step 2: Open middle of remaining pages 501-1000 (Page 750).
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: fc952e23-9051-4251-aa68-8fce2f484f99 -->
 
 | Term | Plain-English Definition | Example / Analogy |
 | :--- | :--- | :--- |
@@ -61,6 +68,7 @@ Step 2: Open middle of remaining pages 501-1000 (Page 750).
 ---
 
 ## 3. Technical Deep Dive: Linear vs. Binary Search
+<!-- bite: d78d0c90-71e7-442f-bf08-67e7edc64987 -->
 
 ### 1. Linear Search ($O(n)$ Unsorted Fallback)
 ```python
@@ -99,6 +107,7 @@ def binary_search(arr: list, target: int) -> int:
 ---
 
 ## 4. The Python `bisect` Built-in Module
+<!-- bite: e6702278-84b9-4efb-9b16-25920158ed8f -->
 
 Python includes a high-performance C-implemented binary search module called `bisect`:
 
@@ -120,6 +129,7 @@ bisect.insort(arr, 5)  # Resulting arr: [1, 3, 4, 4, 5, 6, 8]
 ---
 
 ## 5. Advanced Pattern: Search in Rotated Sorted Array
+<!-- bite: 92229eb0-1fa9-4300-96c8-b8eea281df6a -->
 
 What if a sorted array was rotated at a pivot point (e.g. `[4, 5, 6, 7, 0, 1, 2]`)?
 
@@ -153,6 +163,7 @@ def search_rotated(nums: list, target: int) -> int:
 ---
 
 ## 6. Time & Space Complexity Summary
+<!-- bite: 9c004efe-ae3b-4dbf-829c-e61d53990053 -->
 
 | Algorithm | Precondition | Time Complexity | Auxiliary Space |
 | :--- | :--- | :--- | :--- |
@@ -163,6 +174,7 @@ def search_rotated(nums: list, target: int) -> int:
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: 6245ef69-4195-4b33-a10a-a29254024544 -->
 
 **Runnable example:** save as `searching.py` in any empty directory and run `python3 searching.py`. Standard library only; writes no files.
 
@@ -403,6 +415,7 @@ searching: passed
 Block 4 runs each classic bug and shows it failing — an infinite loop, a missed single element, and the overflow that sat in the JDK's binary search for nine years.
 
 ## 7. Common Pitfalls & Traps
+<!-- bite: 2f31401a-2ade-49c5-a064-5c3cae56d756 -->
 
 1. **Unsorted Array Failure**: Running Binary Search on an unsorted array does NOT raise an exception—it silently returns incorrect/inconsistent answers!
 2. **Integer Overflow in Midpoint**: Writing `mid = (low + high) // 2` can overflow maximum 32-bit integer limits in C/Java/C++ if `low + high > 2,147,483,647`. Always write `mid = low + (high - low) // 2`.
@@ -411,6 +424,7 @@ Block 4 runs each classic bug and shows it failing — an infinite loop, a misse
 ---
 
 ## 8. Check Your Understanding (University Self-Assessment)
+<!-- bite: 16013cbb-b808-4aaf-a3b0-a1502d7cdc85 -->
 
 1. **Question**: How many comparisons will Binary Search make to find a target in a sorted array of 1,000,000 elements?
    - <details><summary>Click for Answer</summary><b>Answer:</b> At most <b>20 comparisons</b> ($O(\log_2 1,000,000) \approx 19.93$).</details>
@@ -424,6 +438,7 @@ Block 4 runs each classic bug and shows it failing — an infinite loop, a misse
 ---
 
 ## Practice — independent task
+<!-- bite: 34380c7e-fa9b-4906-bab5-02ba07f890c3 -->
 
 Implement `search_rotated(nums, target)` — binary search on a sorted array that has been rotated at an unknown pivot.
 
@@ -438,6 +453,7 @@ Implement `search_rotated(nums, target)` — binary search on a sorted array tha
 **Done when:** your exhaustive test passes for every length up to 12, your duplicate-handling version is correct, and you can explain with a specific input why duplicates force $O(n)$.
 
 ## Before moving on
+<!-- bite: 3603153d-7244-420d-b52e-0cda67e5d027 -->
 
 You can write binary search correctly, find first and last occurrences, and recognise search-on-the-answer.
 
@@ -446,6 +462,7 @@ You can write binary search correctly, find first and last occurrences, and reco
 **Next:** [[02-dijkstra|Dijkstra's Algorithm]] — BFS plus a priority queue, for when edges have weights.
 
 ## Related Modules
+<!-- bite: faf452d9-8167-4c69-8c4b-fc5e37c0bfe2 -->
 - [[05-sorting/index|Sorting Algorithms]] — Precondition for binary search
 - [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Logarithmic bounds derivation
 - [[01-trees|Trees]] — Binary Search Trees (pointer-based binary search)

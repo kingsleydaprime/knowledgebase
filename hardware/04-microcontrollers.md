@@ -1,3 +1,7 @@
+---
+id: 62c89bae-a35a-4310-b6d0-67afcc0c1fdb
+---
+
 # Microcontrollers
 
 **[Beginner → Intermediate]** — The chips themselves — AVR, ESP32, STM32, RP2040, nRF52840 — how you get code onto them, and why clocks matter more than beginners expect.
@@ -5,6 +9,7 @@
 A microcontroller (MCU) is a complete computer on a single chip — CPU, memory (Flash + SRAM), and peripherals (GPIO, ADC, UART, SPI, I2C, timers) all in one package. Compare this to a microprocessor (like the Intel chip in your laptop) which is just the CPU — it needs external RAM, storage, and peripherals.
 
 ## The Big Players
+<!-- bite: d0232a7d-96f8-4c71-bd76-6f59cc22b554 -->
 
 ### AVR / Arduino (ATmega328P)
 The classic entry point. The Arduino Uno's ATmega328P runs at 16 MHz, has 32KB flash, 2KB SRAM. Painfully limited by modern standards but: the ecosystem is enormous, the learning curve is gentle, and the simplicity forces you to understand what's actually happening.
@@ -30,6 +35,7 @@ Raspberry Pi's own silicon. Dual-core ARM Cortex-M0+, 264KB SRAM, 2MB flash, run
 The gold standard for Bluetooth Low Energy (BLE) and Thread/Zigbee applications. ARM Cortex-M4 with FPU, 1MB flash, 256KB SRAM, and an ultra-low-power radio. If you're building a wearable, a BLE sensor, or a mesh network node, this chip shows up constantly.
 
 ## How You Program a Microcontroller
+<!-- bite: fbfc354e-a369-48ed-93e7-e9d004c8415c -->
 
 Your code is compiled on your computer into machine code (a `.bin` or `.hex` file), then flashed to the MCU's Flash memory over a programming interface:
 
@@ -38,6 +44,7 @@ Your code is compiled on your computer into machine code (a `.bin` or `.hex` fil
 - **JTAG** — older, more pins (4-5), full debug capability. Still common on older chips.
 
 ## Clocks and Timing
+<!-- bite: afd1d0bc-769e-455f-8367-7cc8e82d03e9 -->
 
 Every MCU has a clock — a crystal or internal oscillator that pulses at a fixed frequency. Every instruction takes a certain number of clock cycles to execute. At 16 MHz, you get 16 million cycles per second. At 240 MHz (ESP32), 240 million.
 
@@ -46,6 +53,7 @@ Every MCU has a clock — a crystal or internal oscillator that pulses at a fixe
 ---
 
 ## Related
+<!-- bite: f652591a-1f4a-428a-a171-5071d6dbb885 -->
 - [[hardware/03-embedded-systems|Embedded Systems]] — what you're programming them to do
 - [[hardware/05-communication-protocols|Communication Protocols]] — how they talk to everything else
 - [[hardware/10-kicad-basics|KiCad Basics]] — power pins, crystals, and wiring one onto a board

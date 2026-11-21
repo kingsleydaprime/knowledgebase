@@ -1,12 +1,18 @@
+---
+id: 0cb2b969-b1d9-40de-bce7-db6b8f0c302d
+---
+
 # The API Security Lifecycle
 
 **[Intermediate]** — the operational half: knowing what APIs you have, configuring them safely, consuming others' APIs carefully, and testing the lot.
 
 ## The kid version first
+<!-- bite: 183d9861-db6c-4188-a077-6f66270c81a5 -->
 
 The previous notes were about *individual* vulnerabilities. This one is about the *program* around them: **you can't secure APIs you don't know exist, defaults are usually insecure, the third-party APIs you call can hurt you too, and none of it stays fixed without testing.** These are the remaining OWASP API risks (API8, API9, API10) plus the tooling that ties everything together.
 
 ## API9: Improper Inventory Management — the shadow API problem
+<!-- bite: a3cf3e2f-1444-4f75-a5f2-351489a88c40 -->
 
 **You cannot secure what you don't know exists**, and organisations accumulate forgotten APIs constantly:
 
@@ -23,6 +29,7 @@ The previous notes were about *individual* vulnerabilities. This one is about th
 - **Scan your own external surface** — find what's actually reachable, which is usually more than you think
 
 ## API8: Security Misconfiguration
+<!-- bite: e702d84b-486c-4082-8435-0c88fc350a8d -->
 
 The catch-all for insecure defaults and sloppy setup — and it's common because secure-by-default is still rare:
 
@@ -37,6 +44,7 @@ The catch-all for insecure defaults and sloppy setup — and it's common because
 **The defence is discipline, not cleverness:** harden defaults, minimise the surface, automate configuration (so prod matches a reviewed baseline), and scan for drift → [[devops/09-infrastructure-as-code/index|infrastructure as code]].
 
 ## API10: Unsafe Consumption of APIs
+<!-- bite: 20158274-ccf5-40f1-8789-166990170e83 -->
 
 The inversion: **you're not just an API *provider*, you're a *consumer* — and the third-party APIs you call are an attack surface too.** Developers trust external APIs far more than user input, and that trust is exploitable:
 
@@ -48,6 +56,7 @@ The inversion: **you're not just an API *provider*, you're a *consumer* — and 
 **Validate data from other APIs as carefully as data from users, use timeouts and circuit breakers, and pin/verify who you're talking to** (TLS, and ideally certificate/host validation).
 
 ## The tooling and controls
+<!-- bite: 568c593c-6e2e-4bbd-bc7a-f8a5de49b42b -->
 
 The infrastructure that enforces the previous notes:
 
@@ -58,6 +67,7 @@ The infrastructure that enforces the previous notes:
 - **mTLS between internal services** — don't trust the network perimeter alone → [[cybersecurity/03-network-security/index|zero trust]]
 
 ## Testing APIs — because none of this stays fixed
+<!-- bite: ecd0a93a-4bbb-4446-bfc2-63c2a2cfc09a -->
 
 Security is a state you fall out of. Build testing in:
 
@@ -69,10 +79,12 @@ Security is a state you fall out of. Build testing in:
 **Authorization bugs (BOLA/BFLA) are the ones automated scanners are worst at**, because they require understanding *who should access what* — which is exactly why they're the #1 API vulnerability and why manual testing with multiple accounts is essential.
 
 ## Key insight
+<!-- bite: 23cfb016-5609-4141-85f6-564499de2e39 -->
 
 **The operational half of API security is the unglamorous part that determines whether the rest holds: you can't secure APIs you've forgotten (shadow/zombie endpoints are the ones nobody patches), defaults are insecure until hardened, the third-party APIs you *call* are an attack surface too, and none of it survives without testing built into CI.** A gateway is the best place to enforce cross-cutting controls consistently, an accurate OpenAPI spec doubles as a security artefact, and the authorization bugs that dominate the API Top 10 are precisely the ones scanners miss — so manual testing with two accounts stays essential.
 
 ## Related
+<!-- bite: 3b8a45b4-4f74-440d-af6e-c95d4a8e89fc -->
 - [[cybersecurity/14-api-security/index|the API security course]]
 - [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|rate limiting]] — enforced at the gateway
 - [[cybersecurity/07-security-operations/index|security operations]] — logging and detection

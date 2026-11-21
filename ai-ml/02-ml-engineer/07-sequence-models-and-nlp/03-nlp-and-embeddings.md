@@ -1,12 +1,18 @@
+---
+id: 0898f6fd-0363-46bc-a2b6-0098570e7d43
+---
+
 # NLP & Embeddings
 
 **[reference]** — from the roadmap.sh `machine-learning` roadmap. How text becomes something a model can process, and how models represent meaning.
 
 ## The core problem: text isn't numbers
+<!-- bite: 0e744de0-e73f-4261-93a2-e586e24b91af -->
 
 Models do math on numbers ([[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|vectors]]); language is symbols. NLP is largely the pipeline that bridges that gap: turn raw text into numeric input, and turn model output back into text.
 
 ## Text preprocessing
+<!-- bite: d8a5af43-01aa-4d7b-a7a8-5c8b447889ee -->
 
 The classic steps that prepare text (still relevant, though modern LLMs subsume some):
 
@@ -19,6 +25,7 @@ The classic steps that prepare text (still relevant, though modern LLMs subsume 
 For classical NLP (e.g. [[ai-ml/02-ml-engineer/03-classical-ml/03-svm-knn-naive-bayes|Naive Bayes]] spam filtering), text was then turned into **bag-of-words** or **TF-IDF** vectors — counts weighted by how distinctive a word is. These ignore word order and meaning, which embeddings fixed.
 
 ## Embeddings — representing meaning
+<!-- bite: 6ceb18ee-f474-405f-8dc1-5deabbc25f63 -->
 
 An **embedding** maps a token (or sentence, or document) to a dense [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/01-vectors|vector]] such that **similar meanings land near each other** in the vector space. Unlike bag-of-words, embeddings capture semantics: "king" and "queen" are close; the famous `king − man + woman ≈ queen` vector arithmetic showed these spaces encode real relationships.
 
@@ -28,14 +35,17 @@ An **embedding** maps a token (or sentence, or document) to a dense [[ai-ml/00-f
 Embeddings are learned as a byproduct of training (the input layer of any language model is an embedding table) or from dedicated embedding models.
 
 ## Why embeddings matter downstream
+<!-- bite: 7c10702c-2b9e-4ebd-9b7b-892e1347ab1f -->
 
 Embeddings are the bridge from the modeling side to the applied side: they power **semantic search**, **clustering**, **classification**, and **recommendation** ([[ai-ml/02-ml-engineer/08-other-architectures/02-recommendation-systems|recsys]]) by turning "is this similar in meaning?" into "are these vectors close?" ([[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|cosine similarity]]). This is exactly the foundation the AI-engineer [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]] system is built on — same embeddings, put to work retrieving relevant context for an LLM.
 
 ## Modern NLP
+<!-- bite: 71021d35-b704-4085-ac57-9503d3d94c42 -->
 
 The field has largely collapsed into "use a pretrained [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|transformer]]": fine-tune BERT-family models for classification/NER, or prompt an LLM for generation. The classical preprocessing above still matters for lightweight/classical pipelines, for understanding tokenization costs, and for the intuition of *why* embeddings work — but you rarely hand-build a TF-IDF pipeline anymore when a pretrained model is a few lines away.
 
 ## Related
+<!-- bite: ccccdd6a-6aae-49b7-b367-34a457fb39e2 -->
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers & Attention]] — what produces contextual embeddings
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — embeddings applied in production
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — tokens in the applied view

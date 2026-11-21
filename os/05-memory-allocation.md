@@ -1,8 +1,13 @@
+---
+id: 76343f08-8636-4391-bb6b-9941e90fb15b
+---
+
 # Memory Allocation
 
 **[Intermediate → Advanced]** — What `malloc` actually does, why freed memory doesn't return to the OS, and how fragmentation looks like a leak.
 
 ## Two layers
+<!-- bite: 6743778f-b328-4b21-9049-79171250b3d0 -->
 
 ```
 your code:   malloc(64)
@@ -22,6 +27,7 @@ your code:   malloc(64)
 The kernel deals only in **pages** (4KB). The allocator's job is turning that into arbitrary-sized blocks with acceptable speed and waste.
 
 ## Getting memory from the kernel
+<!-- bite: 52bf9f6e-5643-441f-b06b-b6e3aa604e62 -->
 
 ```c
 void *brk(void *addr);          // move the heap boundary — the old way
@@ -46,6 +52,7 @@ free(q);                         // stays in the allocator's free list — NOT r
 This is correct behaviour — asking the kernel for memory is expensive, so keeping a pool is the point — and it's the source of endless "my program has a leak" confusion. `malloc_trim(0)` forces a return where the layout permits it.
 
 ## How an allocator works
+<!-- bite: 6da82bb8-256f-4a09-802b-39f83bbe94ae -->
 
 The core problem: satisfy variable-sized requests from a pool, quickly, without wasting too much.
 
@@ -63,6 +70,7 @@ The trade is memory for speed. Per-thread caches mean the same total allocation 
 **A glibc detail worth knowing:** the number of arenas defaults to 8× the core count. On a 64-core machine that's 512 arenas, each potentially holding a 64MB heap — which is why a threaded C program can show surprising RSS. `MALLOC_ARENA_MAX=2` caps it, and is a standard container tuning.
 
 ## Fragmentation
+<!-- bite: 550a04a9-f854-40e2-a92f-28c47f8c0025 -->
 
 **External** — enough total free memory, no single block big enough:
 
@@ -85,6 +93,7 @@ LD_PRELOAD=/usr/lib/libjemalloc.so ./prog     # swap allocator without recompili
 That `LD_PRELOAD` swap is worth knowing — it's a one-line experiment that sometimes cuts RSS substantially, and it works because `malloc` is a dynamically-linked symbol. → [[os/12-boot-and-init|dynamic linking]]
 
 ## Which allocator
+<!-- bite: dcf8964d-e2d8-48ff-b67d-f22c96380a62 -->
 
 | | Character |
 |---|---|
@@ -97,6 +106,7 @@ That `LD_PRELOAD` swap is worth knowing — it's a one-line experiment that some
 That last one matters in practice: **Alpine-based containers use musl**, and a threaded, allocation-heavy service can be measurably slower there than on glibc. It's a real and frequently-missed cause of "the same binary is slower in this image".
 
 ## Allocation strategies that avoid the problem
+<!-- bite: 724c61ed-9a26-4bab-879a-0da1cb76a80d -->
 
 The fastest allocation is the one you don't make.
 
@@ -123,6 +133,7 @@ Allocation is a pointer bump. There's no individual `free`, so **no fragmentatio
 **Stack allocation** — free, automatic, and bounded. Prefer it when the size is known and modest. → [[languages/04-c/07-memory-management|C: Memory Management]]
 
 ## Managed runtimes
+<!-- bite: aa708452-3a42-4764-b570-dbbebcf59438 -->
 
 A garbage collector changes the allocation profile entirely:
 
@@ -143,6 +154,7 @@ So the trade isn't "GC is slower" — it's:
 → [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM internals]] · [[languages/02-go/13-performance-and-runtime|Go's GC]]
 
 ## Huge pages for allocation
+<!-- bite: 8bdef302-07fd-43f0-892a-c5cacaf06eb9 -->
 
 ```c
 madvise(addr, len, MADV_HUGEPAGE);
@@ -152,6 +164,7 @@ mmap(..., MAP_HUGETLB, ...);          // explicit, from a preallocated pool
 2MB pages reduce TLB pressure for large working sets — worth real percentages for databases and JVMs with big heaps. Explicit hugepages (`vm.nr_hugepages`) are predictable; transparent hugepages can stall you at allocation time while `khugepaged` compacts. → [[os/04-virtual-memory|Virtual Memory]]
 
 ## Debugging
+<!-- bite: 932d9c05-0131-4fc2-9166-6178daae580c -->
 
 ```bash
 valgrind --leak-check=full --show-leak-kinds=all ./prog
@@ -168,6 +181,7 @@ For "is this a leak or fragmentation?": a leak grows without bound and the alloc
 ---
 
 ## Related
+<!-- bite: 34ba49b3-8e24-42d9-a3dc-1dd69ed9942c -->
 - [[os/04-virtual-memory|Virtual Memory]] — where the pages come from
 - [[languages/04-c/07-memory-management|C: Memory Management]] — the user-space view, and arenas
 - [[languages/02-go/13-performance-and-runtime|Go: Performance]] — escape analysis and the GC

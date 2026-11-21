@@ -1,8 +1,13 @@
+---
+id: 20d3afaf-1772-439c-9d48-c2c88ef320c8
+---
+
 # Conventions and Hygiene
 
 **[Beginner → Intermediate]** — Conventional Commits, what makes a commit message worth reading, and the commit/branch/repo hygiene that keeps a history usable a year later.
 
 ## The Conventional Commits Standard
+<!-- bite: 1ba3e167-e11a-42ee-9ae4-0b73f20ca4ca -->
 
 Conventional Commits is a specification for commit messages that makes them machine-readable (for changelog generation, semantic versioning, CI triggers) and human-readable.
 
@@ -55,6 +60,7 @@ BREAKING CHANGE: Users endpoint now returns { data: [...] } instead of [...]
 ```
 
 ## The Seven Rules of a Great Commit Message
+<!-- bite: 600bb35b-7905-4d0c-ae69-eccd933e7d9d -->
 
 1. **Separate subject from body with a blank line**
 2. **Limit the subject line to 72 characters**
@@ -65,6 +71,7 @@ BREAKING CHANGE: Users endpoint now returns { data: [...] } instead of [...]
 7. **Reference issues and PRs in the footer**
 
 ## Examples — Good vs Bad
+<!-- bite: f17958e6-f729-4077-a9f9-f5ffb7e9da17 -->
 
 ```bash
 # BAD
@@ -89,6 +96,7 @@ git commit -m "test(auth): add integration tests for token refresh flow"
 ---
 
 ## Commit Hygiene
+<!-- bite: b8bff462-e602-409a-8d8f-b6cfeb6c1409 -->
 
 **Commit early, commit often** — during development. Then clean up with interactive rebase before sharing. Small commits are easier to review, easier to bisect, and easier to revert.
 
@@ -101,6 +109,7 @@ git commit -m "test(auth): add integration tests for token refresh flow"
 **Never commit secrets** — not even temporarily. If you do, the secret is compromised regardless of whether you delete it later. Rotate the secret immediately, then use `git filter-branch` or BFG Repo Cleaner to scrub the history.
 
 ## Branch Hygiene
+<!-- bite: 64d1877c-90bc-4707-975d-e780a1d2b16d -->
 
 ```bash
 # Delete branches after merging
@@ -116,6 +125,7 @@ git remote prune origin
 ```
 
 ## The .gitignore You Always Need
+<!-- bite: a9e38641-9391-4f61-9140-7f6d9b30c4e3 -->
 
 ```bash
 # Node.js
@@ -152,6 +162,7 @@ Thumbs.db
 ```
 
 ## Force Push Safety
+<!-- bite: 0f8ccfa7-cb16-4b50-bd47-d041a723fe84 -->
 
 ```bash
 # NEVER:
@@ -168,6 +179,7 @@ git push --force-with-lease --force-if-includes  # Even safer (git 2.30+)
 ```
 
 ## Repository Health
+<!-- bite: df1f683d-bc1d-4d82-8526-4f14881c88bf -->
 
 ```bash
 # Verify repo integrity
@@ -187,6 +199,7 @@ du -sh .git
 ```
 
 ## Security Practices
+<!-- bite: 18b937a9-80cf-4181-9727-74a7eae3a42b -->
 
 ```bash
 # Remove accidentally committed secrets
@@ -213,6 +226,7 @@ git push origin --force --tags
 ```
 
 ## The git config Settings That Actually Matter
+<!-- bite: d110f5e3-55b6-442f-bf4c-e7e5ca0898d1 -->
 
 ```bash
 # Safer defaults
@@ -232,6 +246,7 @@ git config --global core.excludesfile ~/.gitignore_global
 ---
 
 ## Related
+<!-- bite: d49720dc-4ced-4091-a376-7de309993881 -->
 - [[git/11-tags-and-versioning|Tags and Versioning]] — what conventional commits let you automate
 - [[git/17-hooks-and-signing|Hooks and Signing]] — enforcing these conventions mechanically
 - [[git/09-investigating-history|Investigating History]] — the payoff for hygiene, a year later

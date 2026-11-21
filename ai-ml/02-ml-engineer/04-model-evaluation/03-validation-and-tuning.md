@@ -1,12 +1,18 @@
+---
+id: 7632d626-7ddf-4321-8bda-2f655f8709ff
+---
+
 # Validation & Tuning
 
 **[reference]** — from the roadmap.sh `machine-learning` roadmap. How to estimate real-world performance reliably and pick the best model/settings without fooling yourself.
 
 ## The problem with a single train/test split
+<!-- bite: 521c4fcd-82f0-4099-b9ff-ed9a3c5b8389 -->
 
 A single [[ai-ml/02-ml-engineer/02-working-with-data/03-train-val-test-splits|train/test split]] gives one estimate of performance — and that estimate is noisy. You might have gotten a lucky (or unlucky) test set. Worse, if you tune your model against the test set repeatedly, you start *overfitting to the test set itself*, and your reported number stops meaning anything.
 
 ## Cross-validation
+<!-- bite: d761afb8-0af6-48af-96ce-eade68f3a1fa -->
 
 **K-fold cross-validation** solves the noise problem: split the data into `k` folds, train on `k-1` and validate on the held-out one, rotate through all `k`, and average. Every point is used for both training and validation (in different rounds), giving a more robust estimate and a sense of its variance:
 
@@ -23,6 +29,7 @@ scores.mean(), scores.std()                    # estimate AND its stability
 The discipline that ties it together: keep a **final test set** completely untouched until the very end. Tune with cross-validation on the training data; touch the test set once, to report the number you'll actually trust.
 
 ## More classification metrics: ROC-AUC and log-loss
+<!-- bite: bd65ef23-5831-4fd0-8e09-1d86649e508e -->
 
 Beyond the accuracy/precision/recall/F1 in [[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|evaluation metrics]], two threshold-independent measures:
 
@@ -30,6 +37,7 @@ Beyond the accuracy/precision/recall/F1 in [[ai-ml/02-ml-engineer/04-model-evalu
 - **Log-loss** — penalizes *confident wrong* predictions heavily, rewarding well-**calibrated** probabilities (a model that says "90%" should be right ~90% of the time). The metric to watch when you care about the probability, not just the label. It's also what [[ai-ml/02-ml-engineer/03-classical-ml/01-regression|logistic regression]] optimizes.
 
 ## Hyperparameter tuning
+<!-- bite: c5fc996c-9784-4a52-a7cb-d0ae307e24e1 -->
 
 **Parameters** are learned during training (the weights); **hyperparameters** are set *before* training and control the learning (a tree's `max_depth`, regularization `alpha`, a boosting `learning_rate`, `k` in KNN). Finding good ones is a search, evaluated by cross-validation:
 
@@ -47,10 +55,12 @@ grid.best_params_
 **The cardinal rule: tune using cross-validation on the training data, never on the test set.** The moment you pick hyperparameters by test-set performance, the test set is contaminated and your final number is optimistic. Nesting (an inner CV loop for tuning, an outer for evaluation) makes this rigorous.
 
 ## Model selection
+<!-- bite: 6bcdd09e-b2ca-4a22-ab66-51914ffaac77 -->
 
 Choosing *which* model, not just its settings, follows the same logic: compare candidates by cross-validated performance on the training data, then confirm the winner once on the held-out test set. Don't forget the non-accuracy axes — training/inference cost, interpretability ([[ai-ml/02-ml-engineer/09-building-and-fine-tuning/04-explainable-ai|explainability]]), and maintenance — a slightly-less-accurate model that's interpretable and cheap often wins in production.
 
 ## Related
+<!-- bite: 71661771-2ac7-4e56-a09b-5b3460aad805 -->
 - [[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|Evaluation Metrics]] — the metrics being cross-validated
 - [[ai-ml/02-ml-engineer/04-model-evaluation/02-overfitting-and-regularization|Overfitting & Regularization]] — what honest validation detects
 - [[ai-ml/02-ml-engineer/02-working-with-data/03-train-val-test-splits|Train/Val/Test Splits]] — the untouched-test-set discipline

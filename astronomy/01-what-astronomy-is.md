@@ -1,3 +1,7 @@
+---
+id: 7b917207-77ea-4a55-b536-5cdb0b9f989a
+---
+
 # What Astronomy Is
 
 > **[Beginner]** · The observational science of everything beyond Earth — and how it differs from the fields it gets confused with.
@@ -7,6 +11,7 @@ Astronomy is unusual among sciences in one structural way: **you cannot experime
 That single constraint shapes the whole discipline — its instruments, its statistics, and its characteristic humility about error bars.
 
 ## The neighbouring words
+<!-- bite: d0845078-4465-42c2-bc3a-69f286b67401 -->
 
 Confused constantly, and worth separating precisely:
 
@@ -25,6 +30,7 @@ Confused constantly, and worth separating precisely:
 **Astrology is a separate matter entirely**, and this folder handles it as history and psychology rather than as a working system. [[astronomy/09-astrology-honestly|Note 09]] explains what it is, why it and astronomy share a root, and what the evidence actually says.
 
 ## Everything comes from light
+<!-- bite: 2436417b-9176-4f50-93d9-7686d7879f2e -->
 
 Almost all astronomical knowledge arrives as **electromagnetic radiation**. From that alone you can extract a remarkable amount:
 
@@ -46,6 +52,7 @@ Almost all astronomical knowledge arrives as **electromagnetic radiation**. From
 **"Multi-messenger astronomy"** is observing one event across several of these. In 2017 a neutron-star merger was seen in gravitational waves *and* across the electromagnetic spectrum — which confirmed that such mergers produce heavy elements like gold, and did it in a single night.
 
 ## The scales
+<!-- bite: 8cb905b5-dcee-4759-947c-505aec3da16a -->
 
 Astronomy's numbers defeat intuition, so it uses its own units:
 
@@ -68,6 +75,7 @@ Astronomy's numbers defeat intuition, so it uses its own units:
 **That last number looks wrong and isn't.** The universe is 13.8 billion years old, so how is anything 46 billion light-years away? **Because space itself expanded while the light was in transit** → [[astronomy/07-cosmology|note 07]].
 
 ## Looking out is looking back
+<!-- bite: a53094c3-1041-4a3d-8ecc-a6c54599a37b -->
 
 **A light-year is a distance, but it's also a delay.** Everything you see is in the past:
 
@@ -79,6 +87,7 @@ Astronomy's numbers defeat intuition, so it uses its own units:
 **This is astronomy's greatest methodological advantage.** You cannot rerun the universe — but you can *look further away* to see it younger. **Distance is a time machine**, and it's how the history of galaxy formation is studied at all.
 
 ## What astronomers actually do
+<!-- bite: 34a75f11-ae2a-45e2-95be-fb456da72758 -->
 
 **Very little of it is looking through eyepieces.**
 
@@ -91,6 +100,7 @@ Astronomy's numbers defeat intuition, so it uses its own units:
 **The field is unusually open.** Most large surveys become public, papers go to **arXiv** before journals, and the core software stack (Astropy, NumPy) is open source. **An amateur with a laptop can do real work on real data**, which is not true of most sciences → [[astronomy/10-getting-started|note 10]].
 
 ## Related
+<!-- bite: 616f8f74-7e87-4b00-a3b9-655aae588d96 -->
 - [[astronomy/02-the-sky-and-how-it-moves|the sky and how it moves]] — start here for observing
 - [[astronomy/03-light-and-instruments|light and instruments]] — how everything is measured
 - [[astronomy/09-astrology-honestly|astrology, honestly]] — the distinction, properly

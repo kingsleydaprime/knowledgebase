@@ -1,3 +1,7 @@
+---
+id: 6ad52a71-8d08-4ca7-b7bb-ff4994a01b69
+---
+
 # What Computer Architecture Is
 
 **[Beginner → Intermediate]** — The ISA as a contract, the layers between your code and the electrons, and why the constants matter.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[computer-architecture/index|the domain note]].
 
 ## The gap this fills
+<!-- bite: 0ba4d7dd-dd88-4224-bcbf-3038bd9b41fe -->
 
 **Above:** [[os/index|operating systems]] assume a CPU that executes instructions and a memory that stores things.
 
@@ -15,6 +20,7 @@
 > **The practical reason to care:** every performance note in this vault quotes constants — "cache miss", "branch misprediction", "false sharing", "memory barrier". **This domain is where those constants come from.** Big-O tells you how an algorithm scales; architecture tells you why one $O(n)$ loop is thirty times slower than another. → [[01-growth-and-asymptotic-notation|Algorithms]]
 
 ## The layers
+<!-- bite: d7528d70-6bf6-4b3b-a7f3-9ca937596c37 -->
 
 ```
     application            what you write
@@ -35,6 +41,7 @@
 **Each layer is an abstraction over the one below, and the two marked layers are what this domain is about.**
 
 ## The ISA is a contract
+<!-- bite: fedfaf5e-d9a1-42df-b133-e14970a56833 -->
 
 > **The Instruction Set Architecture is everything software is allowed to depend on: instructions, registers, addressing modes, the memory model, and how exceptions behave.**
 >
@@ -53,6 +60,7 @@
 **Memory ordering.** What other cores observe depends on the model, and it differs sharply between x86 and ARM. **This is a real portability trap.** → [[computer-architecture/11-multicore-and-memory-models|Memory Models]]
 
 ## The major ISAs
+<!-- bite: 427302e2-d75a-4718-872b-210ace55bd05 -->
 
 | ISA | Style | Where |
 |---|---|---|
@@ -74,6 +82,7 @@
 **RISC-V matters because it's free.** No licence, no royalties, extensible. Already dominant in academic work and moving into embedded and accelerators.
 
 ## Where performance comes from
+<!-- bite: 50cec5db-4487-4ace-b529-e7c1294c9817 -->
 
 **The historical shift that shapes everything below:**
 
@@ -100,6 +109,7 @@
 - **Specialisation** — GPUs, TPUs, video encoders, crypto units. **When general-purpose scaling stops, build specific hardware**
 
 ## The numbers that matter
+<!-- bite: 297573b8-5b78-4293-8404-ed30d5cc1f03 -->
 
 **Latency, in units you can feel.** Scale a cycle to one second:
 
@@ -118,6 +128,7 @@
 **Throughput vs latency** is the other distinction. A modern core issues 4–6 instructions per cycle **if they're independent.** A dependency chain runs at the latency of each step. **Same instruction count, several times the runtime** — which is why loop unrolling and instruction-level parallelism matter. → [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]]
 
 ## The abstractions that leak
+<!-- bite: bd2d9168-807d-4569-ae48-ffa52634fbf3 -->
 
 **A preview of the rest of the track**, because each of these is a place where "the CPU executes my instructions in order" stops being true:
 
@@ -134,6 +145,7 @@
 > **Every one of these leaks is a performance or correctness surprise waiting**, and the reason to learn architecture is to recognise them when the profiler says something absurd.
 
 ## Reading this track
+<!-- bite: 0db2ecd8-3cf8-419f-ae22-87ab96820e95 -->
 
 **02–05 are the foundation** — data representation, instruction sets, assembly, and how a CPU actually executes one instruction.
 
@@ -148,6 +160,7 @@
 ---
 
 ## Related
+<!-- bite: 9f11aa8d-bb57-4350-902d-e699defcea83 -->
 - [[computer-architecture/02-data-representation|Data Representation]] — how numbers are actually stored
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the most practically important part
 - [[hardware/index|Hardware & Embedded]] — the layer below

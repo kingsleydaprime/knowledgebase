@@ -1,3 +1,7 @@
+---
+id: 9c86173a-596a-4bbc-a9a2-8dd5a8d1c36a
+---
+
 # DevOps Interview — Linux, Containers & Operations
 
 From [[devops/01-linux/index|01-linux]], [[devops/03-docker/index|03-docker]], [[devops/05-ci-cd/index|05-ci-cd]], [[devops/07-observability/index|07-observability]].

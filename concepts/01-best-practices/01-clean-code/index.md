@@ -7,6 +7,7 @@ id: f0754c19-2c4c-4b45-bfe4-0a4fec31b504
 > **[Beginner]** · Code is read far more often than it's written, usually by someone with less context than you had. Every practice here serves that one reader.
 
 ## Before you start
+<!-- bite: 735c7c3f-08cc-40dd-832b-fb3440aeb3dd -->
 
 You can already:
 
@@ -23,12 +24,14 @@ After this lesson you will be able to:
 **Study route.** §1–6 are the ideas. Then attempt the worked example's refactor *yourself* before reading the solution. The practice task links to the interview bank.
 
 ## The kid version
+<!-- bite: a49d22b4-73d3-4738-bd91-e61d3eb421c6 -->
 
 Imagine your school bag after a month of never tidying it. Everything you need is in there somewhere, but finding your maths homework means pulling out everything else first. A tidy bag has a pocket for each thing, and each pocket is labelled. **Clean code is a tidy bag for the next person who opens it** — and that person is usually you, three months later, having forgotten everything.
 
 **Where the analogy stops working.** A bag only gets messy if you're careless. Code gets messy even when everyone is careful, because the requirements keep changing under it. Tidying isn't a one-off chore; it's part of every change.
 
 ## 1. Why this exists
+<!-- bite: c6ae5634-f824-4515-b4e4-388ccf3b842e -->
 
 This function works and has shipped:
 
@@ -56,6 +59,7 @@ export function process(o, db, mail) {
 Now the ticket: *"Loyal customers should need 5 orders, not 10."* Find the rule. Is it `orders > 10` or the `0.1`? What are `p` and `q`? Can you test the loyalty rule without a database and a mailer? **Every question you just had to answer is a cost the next reader pays, every time.** That cost is what this lesson removes.
 
 ## Terms used in this lesson
+<!-- bite: 2a62708c-efb4-426e-b3be-b6fb4f54d968 -->
 
 1. **Module**: This is any unit of code with a name and a boundary — a function, a class, a file, a package. It has an inside (how it works) and an outside (how you use it).
 2. **Cohesion**: This is how strongly the things inside one module belong together. High cohesion means everything in it serves one purpose.
@@ -68,6 +72,7 @@ Now the ticket: *"Loyal customers should need 5 orders, not 10."* Find the rule.
 9. **YAGNI (you aren't gonna need it)**: The letters stand for that phrase. It means not building for a future requirement until it actually arrives.
 
 ## 2. Modules — what makes a good one
+<!-- bite: c7276914-11eb-4cb0-a765-87c0f1e8c321 -->
 
 Every practice below is about modules, at different sizes. A good module has **high cohesion** — everything inside serves one purpose — and **low coupling** — callers use it through a small outside without knowing its inside.
 
@@ -76,6 +81,7 @@ The test that works at every size: **can you describe what it does in one senten
 A bad module is either a **junk drawer** (low cohesion: `utils.js` with date formatting, retry logic and a currency table) or a **leaky box** (high coupling: callers must know its internals, such as which field it mutates or what order to call things in).
 
 ## 3. Naming — the cheapest, highest-leverage improvement available
+<!-- bite: 5006d8ca-bcff-4800-a941-acc968534ba2 -->
 
 A well-named variable/function/class explains itself; a poorly-named one requires the reader to hold extra context in their head or go dig through its implementation just to understand a single call site.
 
@@ -90,6 +96,7 @@ function calculateOvertimePay(hoursWorked) { return hoursWorked * 1.5; }
 Good names remove the need for a comment explaining what a variable holds — if you find yourself writing `// number of days` next to a variable called `d`, renaming `d` to `days` is strictly better than keeping both. The same goes for magic numbers: `LOYAL_CUSTOMER_MIN_ORDERS = 10` turns a guess into a fact.
 
 ## 4. Functions should do one thing
+<!-- bite: 8d14448e-7426-4e66-b67a-36b773cc94a9 -->
 
 A function that does one clearly-named thing is easy to test, easy to reuse, and easy to reason about in isolation. A function that validates input, fetches data, transforms it, and sends an email all in one body is hard to test partially, hard to reuse any single piece of, and hard to change without risking the other unrelated pieces inside it.
 
@@ -118,6 +125,7 @@ function getDiscount(user) {
 ```
 
 ## 5. DRY, KISS, YAGNI — and where each one is wrong
+<!-- bite: 0a320510-5cf3-4eea-89d3-9babb659a59f -->
 
 **DRY.** Duplicated logic means a bug fix has to be found and applied in every copy, and it's easy to miss one. **Where it's wrong:** DRY is about duplicated *knowledge*, not duplicated-looking *code*. Shipping fees and tax both being `amount * rate` today doesn't make them the same rule; merge them and the first time tax changes, shipping breaks. **Wait for the third occurrence**, and ask "would these change for the same reason?"
 
@@ -128,6 +136,7 @@ function getDiscount(user) {
 Notice the three pull against each other: DRY pushes you to abstract, YAGNI and KISS push you not to. **The judgement is the skill; the acronyms only name the forces.**
 
 ## 6. Comments — explain *why*, not *what*
+<!-- bite: 73514bb9-3530-488d-8f1e-d24c1c349d3f -->
 
 Well-named code already explains *what* it does; a comment repeating that adds noise without adding information. A comment earns its place when it explains something the code itself can't — a non-obvious constraint, a workaround for a specific bug, a reason a seemingly-worse approach was deliberately chosen.
 
@@ -142,6 +151,7 @@ const amountInCents = amount * 100;
 ```
 
 ## Worked example — refactor `process` without changing what it does
+<!-- bite: db2849f6-119e-4ed9-90e5-f690d6319b98 -->
 
 **Attempt it first.** Take the function from §1 and rewrite it so the loyalty rule can be tested on its own. Don't change behaviour. Then compare with the version below.
 
@@ -251,6 +261,7 @@ Expected output ends with:
 **What changed, and what didn't.** The behaviour is identical — the loyal two-mugs order is 1800p before and after. The field names changed (`p` → `price`, `c` → `customer`), which **is** a change to the function's outside; in a real codebase you'd update the callers in the same commit, or keep the old names at the boundary. That's the honest limit of "refactoring": renaming a public field is a breaking change, even when it's an improvement.
 
 ## Common pitfalls
+<!-- bite: 69f06144-8aab-4ace-a885-88a878c1e8c3 -->
 
 1. **Premature abstraction** — building a generic, configurable solution for a problem that's only shown up once. Three identical lines that are unlikely to diverge are often better than a shared abstraction that has to be understood, and later unwound.
 2. **Stale comments.** A comment that no longer matches the code beside it actively misleads. Explaining *what* is the kind that goes stale fastest.
@@ -259,6 +270,7 @@ Expected output ends with:
 5. **Splitting too finely.** Ten three-line functions that are each called once, in order, can be harder to follow than one clear twenty-line function. Split where a piece has its own name and its own reason to change.
 
 ## Check your understanding
+<!-- bite: b2367957-3361-4610-a65d-0e4d31c7e26c -->
 
 1. What's the difference between cohesion and coupling? Give an example of a module with low cohesion.
 2. Two functions both compute `amount * 0.075`. One is VAT on digital goods, the other is a card processing fee. Should DRY merge them? Why?
@@ -278,6 +290,7 @@ Expected output ends with:
 </details>
 
 ## Practice — independent task
+<!-- bite: bb2463e9-0897-4b73-a6ad-65b392864704 -->
 
 **Refactor one real function from your own projects.** Pick a function over 30 lines that you'd be nervous to change.
 
@@ -290,6 +303,7 @@ Expected output ends with:
 For interview-style questions on this material, see [[concepts/interview/02-patterns-code-quality-and-review|patterns, code quality and review]].
 
 ## Before moving on
+<!-- bite: c553ac58-8c74-4193-8afe-2f18e6b48a49 -->
 
 You can take messy code, pin it with tests, and refactor it into named pieces — and you can argue both sides of DRY, KISS and YAGNI.
 
@@ -298,6 +312,7 @@ You can take messy code, pin it with tests, and refactor it into named pieces �
 **Next.** [[concepts/01-best-practices/06-coupling-and-cohesion/index|Coupling and cohesion]] — the two properties §2 introduced, in depth, with a tool that measures them on your own code.
 
 ## Related
+<!-- bite: c308c729-a181-4157-9bd0-a8016a4109a2 -->
 - [[concepts/01-best-practices/07-solid-principles/index|SOLID principles]] — the same ideas, formalised
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]
 - [[concepts/01-best-practices/05-documentation-practices|documentation practices]]

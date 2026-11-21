@@ -1,8 +1,13 @@
+---
+id: 3a9c6d41-efb4-4bfa-81fe-7b95421f41ad
+---
+
 # Shading and Lighting
 
 **[Intermediate → Advanced]** — What colour is this pixel? BRDFs, physically based rendering, and why everything got more consistent after 2012.
 
 ## The question
+<!-- bite: e8bd660b-b8af-4430-bab4-622341828736 -->
 
 **Given a surface point, its normal, the light, and the viewer — what colour?**
 
@@ -13,6 +18,7 @@ $$L_o = \sum_{\text{lights}} f_r(\omega_i, \omega_o)\, L_i\,(\omega_i\cdot\mathb
 **Everything below is a choice of $f_r$** — the BRDF. → [[computer-graphics/08-how-rendering-works|The Rendering Equation]]
 
 ## The classical models
+<!-- bite: cffeacd0-e0a7-4de0-8eed-fabe19b3e74a -->
 
 **Lambertian (diffuse)** — light scatters equally in all directions:
 
@@ -37,6 +43,7 @@ $$L_{\text{spec}} = k_s\,(\mathbf{r}\cdot\mathbf{v})^{\alpha}$$
 **Gouraud's failure is visible:** a specular highlight falling in the middle of a large triangle disappears entirely, because it was never sampled at a vertex. **Per-fragment shading is standard now precisely because of this.**
 
 ## Physically based rendering
+<!-- bite: 4fb52ffb-7ae1-49ae-934c-49ff3b9b68e7 -->
 
 **The shift, roughly 2012 onwards, that made materials look consistent.**
 
@@ -57,6 +64,7 @@ $$L_{\text{spec}} = k_s\,(\mathbf{r}\cdot\mathbf{v})^{\alpha}$$
 **Metals and dielectrics differ physically:** metals have no diffuse component (light is absorbed or reflected at the surface) and **tint their specular reflection**; dielectrics have white specular and coloured diffuse. **That's why metallic is nearly binary** — intermediate values are physically meaningless and used only for blending at material boundaries.
 
 ## The Cook–Torrance BRDF
+<!-- bite: 570204b0-40f2-407c-a870-4fd6af3cc581 -->
 
 **The microfacet model behind essentially every modern renderer.**
 
@@ -73,6 +81,7 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 **$G$ — geometry/shadowing.** Microfacets occluding each other at grazing angles. Smith's formulation is standard.
 
 ## Image-based lighting
+<!-- bite: 41db191c-a211-4a01-b00a-3b147466f90e -->
 
 **Real environments don't have three point lights.**
 
@@ -89,6 +98,7 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 **HDR is essential here.** A light source is thousands of times brighter than a wall; **8-bit textures cannot represent that**, and clamping destroys the highlights that make reflections read as reflections.
 
 ## Shadows
+<!-- bite: 2eddc275-54ee-4e40-b40b-818a75fe0eff -->
 
 **Rasterisation's fundamental weakness** — a fragment can't see other geometry. → [[computer-graphics/08-how-rendering-works|How Rendering Works]]
 
@@ -111,6 +121,7 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 **Ray-traced shadows** solve all of this correctly and cost a ray per light per pixel — **the first thing hardware ray tracing was used for**, because shadows are where rasterisation's approximations are most visible.
 
 ## Tone mapping and colour
+<!-- bite: 5a54859a-5c15-4aee-8963-a027361260f9 -->
 
 **The step people skip, and it's why renders look flat.**
 
@@ -127,6 +138,7 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 **Also: alpha and normal maps must NOT be sRGB-decoded.** They're data, not colour. **Tagging a normal map as sRGB is a subtle bug that produces slightly wrong lighting everywhere.**
 
 ## Normal and other maps
+<!-- bite: adbc7c5a-8d83-4a9d-b598-c98613c375ba -->
 
 **Normal mapping** — perturb the shading normal per-pixel from a texture. **Detail without geometry**, and it's the highest-value texture after albedo.
 
@@ -137,6 +149,7 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 **Ambient occlusion** — baked local shadowing, or computed in screen space (SSAO). **Cheap approximation of contact shadows**, and it does a lot of visual work for the cost.
 
 ## Practical notes
+<!-- bite: 260ef79d-30b4-448f-90cf-309a72397c83 -->
 
 **Work in linear space. Verify it.** Render a mid-grey and check the output value.
 
@@ -155,6 +168,7 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 ---
 
 ## Related
+<!-- bite: e16cd4d4-1255-443a-8017-cb13213373ae -->
 - [[computer-graphics/12-textures-and-sampling|Textures and Sampling]] — where the material parameters come from
 - [[computer-graphics/14-ray-tracing-and-path-tracing|Ray Tracing]] — solving the light transport properly
 - [[computer-graphics/08-how-rendering-works|How Rendering Works]] — the rendering equation

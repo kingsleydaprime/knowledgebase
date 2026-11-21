@@ -1,8 +1,13 @@
+---
+id: 10c6617a-0084-4bb9-9427-7fb14263cb33
+---
+
 # Number Bases
 
 **[Beginner]** — What a numeral actually means, how to convert between any two bases, and why computing uses base 2 and base 16 rather than the base you grew up with.
 
 ## Before you start
+<!-- bite: 2c14fb01-c108-40c9-8dd2-8a37f23e43f9 -->
 
 - You can multiply and divide whole numbers.
 - You know what a remainder is.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. A number is not a numeral
+<!-- bite: 13554788-1c9e-42f2-bb7c-68742c39025b -->
 
 Start with a distinction that sounds pedantic and is the whole lesson.
 
@@ -34,6 +40,7 @@ This matters because it is the single most common confusion in the topic. "Conve
 ---
 
 ## 2. What the digits mean
+<!-- bite: 36f6698a-2b14-4d1c-b095-d414a4d01cf8 -->
 
 The numeral `3407` in base ten means:
 
@@ -57,6 +64,7 @@ $$3 \times 8^3 + 4 \times 8^2 + 0 \times 8^1 + 7 \times 8^0 = 1536 + 256 + 0 + 7
 ---
 
 ## 3. Converting to decimal
+<!-- bite: 45e3fdfb-e245-425f-bf05-bece0dc6a7b5 -->
 
 Read the digits left to right, and at each step **multiply the running total by the base and add the new digit**:
 
@@ -72,6 +80,7 @@ Read the digits left to right, and at each step **multiply the running total by 
 This is **Horner's method**, and it is better than computing each power separately: no exponentiation, one multiply and one add per digit.
 
 ## 4. Converting from decimal
+<!-- bite: 45893eff-4c58-4596-a9a0-8d3794356c0d -->
 
 **Divide repeatedly by the base. The remainders are the digits, produced in reverse.**
 
@@ -94,6 +103,7 @@ This is **Horner's method**, and it is better than computing each power separate
 ---
 
 ## 5. Arithmetic in any base
+<!-- bite: dd691b3b-0ed1-4766-8982-a98c0478b0f7 -->
 
 **The column-addition algorithm you learned at school was never about ten.** It is: add a column, keep the part below the base, carry the rest.
 
@@ -111,6 +121,7 @@ Check it: $1011_2 = 11$ and $0110_2 = 6$, and $10001_2 = 17$. ✓
 ---
 
 ## 6. Why computing uses base 2
+<!-- bite: f3eff40f-83fa-410f-95ae-2b86ea1878df -->
 
 Not because binary is mathematically special. **Because a physical switch has two reliable states.**
 
@@ -119,6 +130,7 @@ A transistor is either conducting or not; a voltage is either above a threshold 
 **So the base is chosen by the hardware, not the mathematics.** Ternary computers have been built — the Soviet Setun in 1958 — and lost to binary because two states are so much easier to keep reliable.
 
 ## 7. Why hexadecimal exists
+<!-- bite: 7bec0d62-26a7-4aca-8af4-2a635d8bb9f3 -->
 
 Binary is correct and unreadable. `11010110101100` is a number you cannot check by eye.
 
@@ -137,6 +149,7 @@ Binary is correct and unreadable. `11010110101100` is a number you cannot check 
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 74a4c0da-351c-4695-b2aa-001b2b5544a5 -->
 
 **Runnable example:** save as `bases_lab.py` and run `python3 bases_lab.py`. Standard library only. It deliberately avoids Python's `bin()`, `hex()` and `int(x, base)` — the point is to build the conversion, not to call it.
 
@@ -329,6 +342,7 @@ bases_lab: passed
 ---
 
 ## 9. Common mistakes
+<!-- bite: 49b773a7-4687-4005-8cf1-7816401b5c2c -->
 
 1. **Reading a numeral without knowing its base.** `101` is 5 in binary, 65 in octal, 101 in decimal and 257 in hex. Always state the base when it is not obvious.
 2. **Using a digit equal to or larger than the base.** There is no `2` in binary and no `8` in octal. If you have written one, you have made an arithmetic slip.
@@ -337,6 +351,7 @@ bases_lab: passed
 5. **Converting hex to binary via decimal.** Unnecessary — go digit by digit, four bits each. Going through decimal is slower and invites arithmetic errors.
 
 ## 10. Practice — independent task
+<!-- bite: 876b844e-6386-4756-a665-3e4eb1d126d2 -->
 
 **Task:** Extend the lab to handle **fractional** numbers.
 
@@ -356,6 +371,7 @@ This is the same reason $\frac{1}{3}$ never terminates in decimal. <strong>Float
 </details>
 
 ## Before moving on
+<!-- bite: cec3c304-8f66-496a-914d-07d86346fb42 -->
 
 You are done with this lesson when you can, closed-book:
 
@@ -370,6 +386,7 @@ You are done with this lesson when you can, closed-book:
 **Next:** [[02-binary|Binary]] — base 2 on its own terms, and the vocabulary of bits and bytes built on it.
 
 ## Related
+<!-- bite: 1d6aaf1d-540c-4380-9d38-b09ff2630f26 -->
 
 - [[03-decimal|Decimal]] · [[04-hexadecimal|Hexadecimal]]
 - [[mathematics/01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|exponents]] — the powers this lesson depends on

@@ -1,8 +1,13 @@
+---
+id: 1f20cf67-d824-4f6a-9fb9-29f5a85d0c92
+---
+
 # Filesystems and Storage
 
 **[Intermediate → Advanced]** — Inodes, the page cache, and `fsync` — the boundary where "written" starts to mean something.
 
 ## The layers
+<!-- bite: be010987-4d22-477f-898d-3f98c9afb222 -->
 
 ```
 your code:  write(fd, buf, n)
@@ -25,12 +30,14 @@ your code:  write(fd, buf, n)
 **Every layer buffers.** That's what makes I/O fast and what makes durability subtle.
 
 ## The VFS
+<!-- bite: 669574a9-9a4c-42bb-b74d-adbd9e505324 -->
 
 The Virtual File System is the abstraction that makes `read`/`write` work identically on ext4, NFS, a tmpfs, a USB stick, and `/proc`. Each filesystem implements a set of operations; the VFS dispatches to them.
 
 It's the same design as [[languages/02-go/04-methods-and-interfaces|an interface]] — one small contract, many implementations — and it's why `cat` doesn't need to know what it's reading from.
 
 ## Inodes
+<!-- bite: ead24b3c-14dd-410c-a8b9-71f6142a61e0 -->
 
 A file's metadata lives in an **inode**, and the filename does not:
 
@@ -77,6 +84,7 @@ df -i        # inode usage — check this when df says there's space but writes 
 ```
 
 ## The page cache, and why `write` is a lie
+<!-- bite: ab0d94d0-181b-41a7-a748-1271f08e6098 -->
 
 ```c
 write(fd, buf, n);        // returns almost immediately — data is in the PAGE CACHE
@@ -99,6 +107,7 @@ Hitting `dirty_ratio` makes every writer block until flushing catches up — a c
 Reads use the same cache: a second read of the same file is a memory copy. → [[os/04-virtual-memory|Virtual Memory]]
 
 ## `fsync` and the durability boundary
+<!-- bite: 9cdcce87-5c2a-42df-929d-a12c0d0a0368 -->
 
 ```c
 fsync(fd);         // flush this file's data AND metadata; returns when the device says done
@@ -125,6 +134,7 @@ hdparm -W /dev/sda            # is the write cache on?
 → [[architecture/04-distributed-systems/index|Distributed systems]] durability arguments all bottom out here.
 
 ## Journaling
+<!-- bite: d0406e28-c1e1-4783-b4d3-360476297507 -->
 
 A crash mid-write can leave the filesystem inconsistent — an inode marked allocated with no directory entry, or a directory entry pointing at a freed inode.
 
@@ -141,6 +151,7 @@ mount -o data=writeback # metadata only, no ordering — fastest, can expose sta
 Copy-on-write filesystems (btrfs, ZFS) take a different route — never overwrite in place, so the old version is intact until the new one is complete. That gives atomic snapshots and checksums for free, at the cost of fragmentation and higher write amplification.
 
 ## The filesystems
+<!-- bite: 37f3c937-6ab6-438c-af9a-b177a56927e2 -->
 
 | | Character |
 |---|---|
@@ -155,6 +166,7 @@ Copy-on-write filesystems (btrfs, ZFS) take a different route — never overwrit
 **overlayfs is worth understanding** if you use containers. A container's filesystem is read-only image layers plus a writable upper layer; writing to a file in a lower layer **copies the whole file up first** (copy-up). That's why writing to a large file inside a container can be surprisingly slow the first time, and why write-heavy workloads should use a volume rather than the container filesystem.
 
 ## The block layer
+<!-- bite: 5fca5bbb-f406-4a41-ae81-66628359a2c6 -->
 
 ```bash
 cat /sys/block/nvme0n1/queue/scheduler      # [none] mq-deadline kyber bfq
@@ -172,6 +184,7 @@ cat /proc/pressure/io      # PSI — how much time is LOST waiting on I/O
 `await` (average request latency) and PSI are the two numbers that tell you whether storage is your problem. `%util` is misleading on NVMe — a device can be 100% "utilised" with plenty of headroom, because it services many requests concurrently.
 
 ## Direct I/O
+<!-- bite: 2c95d416-04bc-4ec3-8239-f3b001618bc0 -->
 
 ```c
 int fd = open(path, O_DIRECT | O_RDWR);    // bypass the page cache entirely
@@ -191,6 +204,7 @@ posix_fadvise(fd, 0, 0, POSIX_FADV_DONTNEED);     // drop these pages from the c
 `FADV_DONTNEED` after streaming a huge file is polite — it stops a one-off backup from evicting everyone else's hot cache.
 
 ## Zero-copy
+<!-- bite: ad63dcb0-b5fe-469f-9373-cb15061ef2d5 -->
 
 The normal path for serving a file copies it twice: disk → page cache → user buffer → socket buffer.
 
@@ -204,6 +218,7 @@ splice(fd_in, NULL, fd_out, NULL, len, 0);         // via a pipe, more general
 ---
 
 ## Related
+<!-- bite: 214a613a-8c31-49b8-8ee7-4655922bf9f1 -->
 - [[os/08-io-models|I/O Models]] — blocking, epoll, io_uring
 - [[os/04-virtual-memory|Virtual Memory]] — the page cache from the memory side
 - [[devops/01-linux/18-disks-and-filesystems|Linux: Disks and Filesystems]] — the operational view

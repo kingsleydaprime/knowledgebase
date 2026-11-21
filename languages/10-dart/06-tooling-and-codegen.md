@@ -1,8 +1,13 @@
+---
+id: 4128cd30-012e-49c0-8aee-675273170112
+---
+
 # Tooling and Code Generation
 
 **[Intermediate]** — `build_runner`, the packages everyone uses, and Dart's most-felt weakness.
 
 ## Why code generation is unavoidable
+<!-- bite: f82c4a7c-cbfd-4fde-a382-7304525b8335 -->
 
 **Dart has no macros and no compile-time metaprogramming.** So the things Kotlin and Swift generate for free — `==`, `hashCode`, `copyWith`, JSON serialisation — require **a separate build step.**
 
@@ -14,6 +19,7 @@ dart run build_runner watch                          # regenerate on save
 **This is Dart's most-felt weakness day to day:** it's slow on a large project, the generated `.g.dart` and `.freezed.dart` files clutter the tree, and forgetting to re-run it produces confusing errors. **Macros were long promised and the effort was shelved**, so this is the status quo.
 
 ## `freezed` — near-universal in real Flutter code
+<!-- bite: 66156d1b-df40-4b8b-8762-8ae6479c8670 -->
 
 ```dart
 @freezed
@@ -50,6 +56,7 @@ final text = switch (state) {
 **Exhaustive, with `copyWith`, in a few lines.** This is why nearly every serious Flutter codebase uses it.
 
 ## `json_serializable`
+<!-- bite: 44c98bf2-41ca-4175-a059-c1dd22f3e06e -->
 
 ```dart
 @JsonSerializable(fieldRename: FieldRename.snake)
@@ -78,6 +85,7 @@ enum Status {
 **Do this for every server-controlled enum** — otherwise a new server value fails the whole parse.
 
 ## Lints
+<!-- bite: 8fa2f106-d918-4886-919f-c920130e3eaa -->
 
 `analysis_options.yaml`:
 
@@ -104,6 +112,7 @@ analyzer:
 **`very_good_analysis`** is a stricter ruleset worth considering. **Excluding generated files is essential** or you'll drown in warnings you can't fix.
 
 ## The packages you'll actually use
+<!-- bite: f1a243c9-ef93-41f6-9870-95e7a8fb0618 -->
 
 | | |
 |---|---|
@@ -120,6 +129,7 @@ analyzer:
 **Check pub.dev scores and last-updated before depending on anything.** The ecosystem is smaller than JS or the JVM, and **abandoned packages are a genuine risk** — a dead plugin blocking a Flutter upgrade is a real situation teams end up in.
 
 ## Versioning and upgrades
+<!-- bite: 2ab52b68-76d6-4504-9a63-f6213be73d42 -->
 
 ```yaml
 environment:
@@ -136,10 +146,12 @@ dart pub upgrade --major-versions
 **Commit `pubspec.lock` for applications; don't for libraries.** Same rule as most ecosystems.
 
 ## Key insight
+<!-- bite: c6159c62-8f58-4d6c-96e4-eaf62f821d20 -->
 
 **Code generation is the tax Dart pays for having no macros**, and it's the thing that most makes the language feel less polished than Kotlin or Swift. **The correct response is to accept it and set it up properly** — `freezed`, `json_serializable`, `build_runner watch`, and generated files excluded from analysis. Fighting it by hand-writing `==` and `copyWith` is worse.
 
 ## Related
+<!-- bite: e2687782-50cb-4fcb-a1f6-511eeff9a9ca -->
 - [[languages/10-dart/03-classes-and-collections|classes]] — what `freezed` generates
 - [[languages/10-dart/05-testing-and-errors|testing]] — mocktail vs mockito
 - [[mobile/frameworks/flutter/index|Flutter]] — where all of this is used

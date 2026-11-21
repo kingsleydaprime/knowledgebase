@@ -1,8 +1,13 @@
+---
+id: 94c12076-9806-428d-b94b-d4ca6af80ae3
+---
+
 # `constexpr` and Compile-Time Computation
 
 **[Advanced]** — Running your code during compilation. The feature that turned C++'s accidental compile-time language into a deliberate one.
 
 ## The accident
+<!-- bite: ea50e4ab-4240-4923-83a4-859b912f790e -->
 
 C++ templates turned out to be Turing-complete — discovered, not designed, in 1994. That gave rise to **template metaprogramming**: computation expressed as recursive template instantiation.
 
@@ -19,6 +24,7 @@ int x = Factorial<5>::value;      // 120, computed by the COMPILER
 It works, and it's a functional language with terrible syntax, no debugger, and error messages measured in screenfuls. For twenty years this was the only way to compute at compile time.
 
 ## `constexpr`
+<!-- bite: 14d22b8a-c725-48b1-9afc-d6f86787ac8c -->
 
 C++11 introduced a far better answer: **write ordinary functions and mark them `constexpr`.**
 
@@ -46,6 +52,7 @@ constexpr int factorial(int n) {
 Compare that with the template version. Same computation, readable, debuggable, and it works at runtime too.
 
 ## Forcing compile-time evaluation
+<!-- bite: e28981fe-344b-4e15-9590-8441534636e8 -->
 
 ```cpp
 constexpr int a = factorial(5);        // ERROR if it can't be done at compile time
@@ -71,6 +78,7 @@ constexpr int f(int n) {
 ```
 
 ## What's allowed
+<!-- bite: af2f431f-5dbb-4697-8845-fd3685dd36c5 -->
 
 The restrictions have shrunk dramatically:
 
@@ -87,6 +95,7 @@ Still not allowed: I/O, `reinterpret_cast`, `goto`, uninitialised variables, and
 That C++20 allocation rule is the subtle one — you *can* use a `std::vector` inside a `constexpr` function, but it must be destroyed before the evaluation ends. You can compute with it; you can't return one as a compile-time constant.
 
 ## `if constexpr`
+<!-- bite: 27015c2c-66be-4b91-8133-98a3c8864469 -->
 
 ```cpp
 template <typename T>
@@ -104,6 +113,7 @@ The discarded branch isn't compiled, so it can contain code that would be invali
 Not to be confused with a plain runtime `if` on a `constexpr` condition, which compiles both branches.
 
 ## `static_assert`
+<!-- bite: 73c1bf07-896b-4576-b17f-e6037be30b25 -->
 
 ```cpp
 static_assert(sizeof(void *) == 8, "64-bit only");
@@ -115,6 +125,7 @@ static_assert(std::is_trivially_copyable_v<Widget>,
 Compile-time assertions, with your message in the error. Excellent for enforcing invariants a comment would otherwise carry — struct sizes for a wire format, type properties an algorithm depends on.
 
 ## Type traits
+<!-- bite: f6ae279e-2fb0-424f-981d-95b3405e1112 -->
 
 The compile-time reflection library:
 
@@ -142,6 +153,7 @@ That `static_assert` turns a silent, catastrophic bug — `memcpy`ing a type wit
 Since C++20, [[languages/05-cpp/08-templates-and-concepts|concepts]] are the better interface for constraining templates, but traits remain the underlying vocabulary.
 
 ## `constexpr` containers and `std::array`
+<!-- bite: 6e117b32-07d0-4a78-ac7f-13f0dae6c3a9 -->
 
 ```cpp
 constexpr std::array<int, 5> squares = [] {
@@ -169,6 +181,7 @@ constexpr auto crc_table = build_crc_table();     // zero runtime cost
 A CRC table computed by the compiler, from readable code. That's what this feature is for.
 
 ## What it's actually good for
+<!-- bite: 0bc35758-84ca-400f-a968-2226ea9be04d -->
 
 **Lookup tables** — computed at build time instead of shipped as a literal or built at startup.
 
@@ -197,6 +210,7 @@ switch (hash(input)) {                    // switch on strings, via compile-time
 **Units and dimensional analysis** — encoding physical units in types so a compile error catches adding metres to seconds. (`std::chrono` is the standard library's own example: adding a `seconds` to a `milliseconds` converts correctly, and adding a `seconds` to an `int` doesn't compile.)
 
 ## Costs
+<!-- bite: 798701e6-0d2e-4cb2-9f6a-6e481432c80d -->
 
 **Compile time.** You've moved work from run time to build time, and build time is a cost you pay on every build. Heavy `constexpr` computation makes builds slow.
 
@@ -207,6 +221,7 @@ switch (hash(input)) {                    // switch on strings, via compile-time
 **Don't `constexpr` everything.** It's for values genuinely needed at compile time or that measurably help startup. Marking every small function `constexpr` inflates build times for nothing.
 
 ## The comparison
+<!-- bite: 54b31848-c261-4e00-aa5d-464d41873434 -->
 
 | | |
 |---|---|
@@ -220,6 +235,7 @@ C++'s version is the most capable in mainstream use, and it got there by acciden
 ---
 
 ## Related
+<!-- bite: e3a5b744-bcc5-4c4d-89a5-fc968c645de4 -->
 - [[languages/05-cpp/08-templates-and-concepts|Templates and Concepts]] — the older compile-time mechanism
 - [[languages/05-cpp/14-modern-cpp-and-modules|Modern C++ and Modules]] — where `constexpr` fits in the timeline
 - [[languages/04-c/03-the-preprocessor|C: The Preprocessor]] — what this replaces

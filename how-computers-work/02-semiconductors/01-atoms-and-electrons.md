@@ -1,8 +1,13 @@
+---
+id: dbd0cb79-3ea4-4eda-a681-e5aa7713bb48
+---
+
 # Module 6: Atoms and Electrons (Why Some Matter Conducts)
 
 **[Beginner]** — Part III begins. Module 2 said copper's resistivity is $10^{-8}$ Ω·m and glass's is $10^{12}$ — twenty orders of magnitude apart. This module explains where that gap comes from, and why silicon sits in the middle.
 
 ## Before you start
+<!-- bite: 514c1460-8fba-43d4-8f9e-4d99ff54915f -->
 
 - You know that current is charge in motion and that resistance is carriers scattering — [[how-computers-work/01-electricity/02-resistance-and-ohms-law|module 2]].
 - You know what the digital abstraction needs from a switch: pull hard to the rails, switch sharply, leak little — [[how-computers-work/01-electricity/05-the-digital-abstraction|module 5]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: bbeb521a-798d-4fac-8605-ad28025f6d74 -->
 
 You need a switch. [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] showed that if you had a component whose resistance could be flipped between roughly zero and roughly infinite by a third terminal, you could build a logic gate out of it and the rest of computing follows.
 
@@ -36,6 +42,7 @@ Everything about whether a material conducts comes down to one question: **are t
 ---
 
 ## 2. Terminology
+<!-- bite: 9513a91f-caa7-4ced-abd5-68dbd2127ad5 -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -52,6 +59,7 @@ Everything about whether a material conducts comes down to one question: **are t
 ---
 
 ## 3. The atom, and which part matters
+<!-- bite: 9264f412-8fe1-4e2f-a68c-b791719f9b32 -->
 
 An atom is a nucleus of **protons** (positive) and **neutrons** (neutral), surrounded by **electrons** (negative). A neutral atom has equal numbers of protons and electrons.
 
@@ -67,6 +75,7 @@ The nucleus is roughly 100,000 times smaller than the atom and enormously heavy 
 ---
 
 ## 4. Shells, and why they fill in that order
+<!-- bite: 1456e919-8066-4271-be3f-f8b1c0c34737 -->
 
 Electrons occupy discrete energy levels. **They cannot sit between levels** — this quantisation is the single most important fact in the whole of Part III, and it is what ultimately produces the band gap in module 8.
 
@@ -107,6 +116,7 @@ Count the electrons in the outermost shell that has any ($n = 3$): 3s² gives 2,
 ---
 
 ## 5. The three cases
+<!-- bite: 9b21583f-471c-4339-ad2a-b5e53e24b635 -->
 
 **Atoms are most stable with a full outer shell** — eight valence electrons for the elements that concern us (the octet rule). Every element's behaviour is a strategy for reaching that state, and the strategy determines whether it conducts.
 
@@ -170,6 +180,7 @@ They have no cheap strategy. Giving away four electrons costs too much; grabbing
 ---
 
 ## 6. Predict before reading on
+<!-- bite: 0e79e201-12c0-4f88-96bd-f3c95fb055bb -->
 
 You will shortly want to add impurities to silicon to control its conductivity — either to add a spare electron, or to create a missing one.
 
@@ -189,6 +200,7 @@ You have just derived the basis of doping from valence counting alone. [[how-com
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: b89619bc-ce43-4b6b-9df4-07e825093687 -->
 
 This computes electron configurations from atomic number and classifies elements by valence count.
 
@@ -290,6 +302,7 @@ Look at the last two output lines and at boron's classification. **The model is 
 ---
 
 ## 8. Common pitfalls and traps
+<!-- bite: 7e0897a9-9d38-46c1-a7fe-02ddb6be4fa0 -->
 
 1. **Thinking electrons orbit like planets.** They occupy probability clouds with no trajectory. The shell picture is a bookkeeping device, and it will be replaced in module 8.
 2. **Counting all electrons instead of valence electrons.** Silicon has 14 electrons and 4 valence electrons. Only the 4 ever matter.
@@ -300,6 +313,7 @@ Look at the last two output lines and at boron's classification. **The model is 
 ---
 
 ## 9. Check your understanding
+<!-- bite: a10b2de1-9050-4062-9bb1-f82f6e742143 -->
 
 1. **Germanium ($Z = 32$) was used for the first transistors before silicon took over. From its position in the periodic table, why would it work at all?**
    <details><summary>Answer</summary>
@@ -328,6 +342,7 @@ Look at the last two output lines and at boron's classification. **The model is 
 ---
 
 ## 10. Practice — independent task
+<!-- bite: 96644bd9-0f4d-4dd1-8819-447b204189af -->
 
 **Task, part 1 — fix the classifier.** As shown above, `classify()` calls boron a metal and arsenic an insulator. Both are misleading in the context that matters here.
 
@@ -355,6 +370,7 @@ This is why copper has <em>one</em> valence electron, which is exactly what make
 ---
 
 ## 11. Tradeoffs and limits of this model
+<!-- bite: ba5437eb-04b3-460c-919c-5ec83ccfd78e -->
 
 - **Shell counting is a bookkeeping model, not physics.** It predicts valence correctly for main-group elements and fails for transition metals, where partly filled d subshells make the picture ambiguous. Copper is the classic case: naive filling predicts 2 valence electrons, but the real configuration is 3d¹⁰4s¹, giving 1.
 - **The octet rule has plenty of exceptions.** Hydrogen and helium want 2, not 8; boron is stable with 6; phosphorus and sulfur can exceed 8. It is a useful heuristic for group IV, which is all we need.
@@ -364,6 +380,7 @@ This is why copper has <em>one</em> valence electron, which is exactly what make
 ---
 
 ## Before moving on
+<!-- bite: 01597fa3-e7f0-4ef0-b38f-5cb9808f4d8e -->
 
 - [ ] Say which part of an atom participates in conduction and which never does.
 - [ ] Compute valence electrons for any main-group element from its atomic number.
@@ -378,6 +395,7 @@ This is why copper has <em>one</em> valence electron, which is exactly what make
 ---
 
 ## Related
+<!-- bite: 32bc1d66-b7ea-43f5-8895-d76e05a4a9e0 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/02-semiconductors/03-energy-bands|Module 8 — Energy Bands]] — replaces valence counting with a number that classifies correctly

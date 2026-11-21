@@ -1,12 +1,18 @@
+---
+id: fbd9f9c9-0081-4cb1-a946-27aa889ebe85
+---
+
 # Cloud-Native Defence
 
 **[Advanced]** — how you actually defend a cloud environment at scale: shifting security left into code, scanning continuously, and detecting what still gets through.
 
 ## The kid version first
+<!-- bite: 8232ebad-4bc2-494a-9967-e451bc797eba -->
 
 The previous notes were the *problems*. This one is the *program*: how you keep a cloud environment secure when it has thousands of resources, changes every day, and a single mistake is instantly internet-reachable. The answer is automation on three fronts — **catch misconfigurations in the code before they deploy** (shift left), **scan the running environment continuously** for drift, and **detect and respond** to what still gets through. You cannot do cloud security by hand at cloud scale.
 
 ## Shift left: security as code
+<!-- bite: a2a3e43f-f851-4d73-a745-709e7a4d041d -->
 
 Since infrastructure is now [[devops/09-infrastructure-as-code/index|code]] (Terraform, CloudFormation, Pulumi), security moves *into the code and the pipeline* — catching problems before they exist in production:
 
@@ -18,6 +24,7 @@ Since infrastructure is now [[devops/09-infrastructure-as-code/index|code]] (Ter
 **This is the heart of DevSecOps** — security integrated into the pipeline rather than bolted on after, and a natural specialty for someone with both dev and ops skills → [[devops/12-sre-and-platform-engineering/index|platform engineering]]. The economic argument is blunt: **a misconfiguration caught in a PR costs minutes; the same one caught in a breach costs the company.**
 
 ## Scan continuously: posture management
+<!-- bite: 53c5b5dd-8ef7-49b7-871f-2b3853a22e27 -->
 
 Code review isn't enough, because production drifts — someone clicks something in the console, a resource is created outside IaC, a policy is loosened "temporarily." So you scan the *live* environment continuously:
 
@@ -28,6 +35,7 @@ Code review isn't enough, because production drifts — someone clicks something
 **The point of continuous scanning: a single misconfiguration is instantly internet-reachable, so the window between "someone made a mistake" and "an attacker found it" is short — you need to find it in minutes, automatically, not in the next quarterly audit.**
 
 ## Detect and respond: when something gets through
+<!-- bite: 29c832a7-456b-4aff-88c2-26659d36b388 -->
 
 Prevention is never complete, so you need eyes on what's actually happening → [[cybersecurity/07-security-operations/index|security operations]]:
 
@@ -37,6 +45,7 @@ Prevention is never complete, so you need eyes on what's actually happening → 
 - **Runtime workload protection** — Falco and CNAPP agents watch containers and VMs for anomalous behaviour → [[cybersecurity/09-cloud-security/04-container-and-kubernetes-security|runtime detection]]
 
 ## Incident response is different in the cloud
+<!-- bite: 462014da-6926-42c0-8100-44f39320c899 -->
 
 Cloud IR has its own shape, worth knowing → [[cybersecurity/07-security-operations/04-incident-response|incident response]]:
 
@@ -46,6 +55,7 @@ Cloud IR has its own shape, worth knowing → [[cybersecurity/07-security-operat
 - **Ephemerality cuts both ways** — a compromised container may already be gone (good for containment, hard for forensics — capture memory and logs fast)
 
 ## The whole picture
+<!-- bite: 431e455d-4078-4e18-94e3-cc1f5232d507 -->
 
 Cloud defence is a loop, not a checklist:
 
@@ -59,10 +69,12 @@ Cloud defence is a loop, not a checklist:
 Each layer catches what the previous missed, and the whole thing is **automated because cloud scale and cloud speed make manual security impossible**.
 
 ## Key insight
+<!-- bite: 02b29e8e-844a-49cd-ade2-dc0a0481b405 -->
 
 **Cloud defence is automation on three fronts — shift-left (catch misconfigurations in the pull request via IaC scanning and policy-as-code), continuous posture scanning (CSPM/CIEM/CNAPP catch drift in production within minutes), and detection-and-response (CloudTrail → SIEM catch what got through) — because a single misconfiguration is instantly internet-reachable and cloud scale makes manual security impossible.** DevSecOps is the discipline of pushing security earliest, where a mistake costs minutes instead of a breach; and cloud incident response, powered by complete API audit logs and programmatic containment, is genuinely faster than its on-prem equivalent — provided you turned the logging on before you needed it.
 
 ## Related
+<!-- bite: b366147b-3bee-4050-b029-56713e56e00d -->
 - [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|the shared responsibility model]] — where this all started
 - [[devops/09-infrastructure-as-code/index|infrastructure as code]] — what shift-left scans
 - [[cybersecurity/07-security-operations/index|security operations]] — SIEM, detection, IR

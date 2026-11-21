@@ -1,8 +1,13 @@
+---
+id: 8c086d62-dcd9-482f-9495-a323bc1b7d7f
+---
+
 # Module: Subgraphs, Trees and Forests
 
 **[Intermediate]** — the pieces of a graph, and the exact point at which a graph becomes a tree.
 
 ## Before you start
+<!-- bite: ce7ef0ac-93ee-419b-956b-51f5d547d152 -->
 
 - You know paths, cycles and connectivity — [[02-paths-cycles-and-connectivity|paths, cycles and connectivity]].
 - You have met trees as a data structure — [[06-trees/01-trees|trees]]. This lesson explains where they come from.
@@ -19,12 +24,14 @@
 ---
 
 ## Why this exists
+<!-- bite: 64e03060-b14f-4e37-9db2-9885527245f9 -->
 
 You have a big graph and want a piece of it: the servers in one datacentre, the roads inside a city, the part of a dependency graph one package touches. That is a **subgraph** — and there are three different notions, which get confused.
 
 Then there is the other direction. A **tree** appeared in this course as a data structure with a root, parents and children. In graph theory a tree is something much barer: a connected graph with no cycles. No root, no ordering, no children. The two are related, and knowing exactly how is the point of the last section — it explains why a tree has $n-1$ edges, why there is exactly one path between any two nodes, and why adding a single edge anywhere creates exactly one cycle.
 
 ## Terms used for pieces of a graph
+<!-- bite: b66821c4-8cfa-41f9-a504-02da85a1755e -->
 
 $H$ is a **subgraph** of $G$ when its vertices all come from $G$, its edges all come from $G$, and every edge it keeps still has both of its endpoints present. That last condition is the one people forget: you cannot keep an edge whose endpoint you threw away, because an edge with only one end is not a thing.
 
@@ -39,6 +46,7 @@ There are four worth naming. The two special ones — induced and spanning — v
 4. **Clique**: This is an induced subgraph in which every pair of vertices is joined by an edge — a group where everyone is connected to everyone. Finding the largest clique in a graph is NP-hard, which is worth knowing before you try.
 
 ## Trees and forests, as graphs
+<!-- bite: 03418f55-436e-4a6e-8d00-d514932abc26 -->
 
 A **forest** is a graph with no cycles. A **tree** is a **connected** forest. So a forest is a disjoint union of trees, one per connected component.
 
@@ -73,6 +81,7 @@ Every connected graph has at least one — run BFS or DFS from any vertex and ke
 Most connected graphs have many. Cayley's formula says the complete graph $K_n$ has $n^{n-2}$ of them — $K_4$ has $16$, $K_5$ has $125$. Choosing the cheapest is the [[06-minimum-spanning-tree|minimum spanning tree]] problem.
 
 ## How this relates to the trees folder
+<!-- bite: 7ebd3a8c-07eb-4dc4-bc5c-feef391729a2 -->
 
 The [[06-trees/01-trees|trees data structure]] adds three things to the graph-theory tree:
 
@@ -94,6 +103,7 @@ The [[06-trees/01-trees|trees data structure]] adds three things to the graph-th
 | — | Root, parent, child, sibling, subtree, level, height — all need the rooting |
 
 ## Worked example — runnable
+<!-- bite: 49292a41-4c97-4da1-aa23-622eca695a91 -->
 
 **Runnable example:** save as `trees_and_forests.py` in any empty directory and run `python3 trees_and_forests.py`. Standard library only; writes no files.
 
@@ -326,6 +336,7 @@ trees_and_forests: passed
 Block 2 is the theorem made concrete: four of the six definitions computed independently on six different graphs, and they agree every time. Block 5 confirms Cayley's formula up to $K_5$ by exhaustive search.
 
 ## Common pitfalls and traps
+<!-- bite: a0b9f95a-becd-4899-818e-f11b5dcb98c3 -->
 
 - **Confusing induced with spanning.** Induced keeps all edges among the chosen vertices; spanning keeps all vertices and drops edges. They vary opposite things.
 - **Assuming a tree needs a root.** In graph theory it does not. Rooting is an extra choice, and any vertex will do.
@@ -335,6 +346,7 @@ Block 2 is the theorem made concrete: four of the six definitions computed indep
 - **Using Cayley's formula on non-complete graphs.** $n^{n-2}$ counts spanning trees of $K_n$ only. For a general graph use Kirchhoff's matrix-tree theorem.
 
 ## Check your understanding
+<!-- bite: 149da78d-cc47-4e67-8dfb-9f9dd8a9a873 -->
 
 1. A tree has 12 vertices. How many edges?
 2. A forest has 15 vertices and 3 components. How many edges?
@@ -354,6 +366,7 @@ Block 2 is the theorem made concrete: four of the six definitions computed indep
 </details>
 
 ## Practice — independent task
+<!-- bite: c1f669cc-2253-4bd4-9508-6efacf9375b8 -->
 
 Implement `count_spanning_trees(graph)` two ways and check them against each other.
 
@@ -368,6 +381,7 @@ Implement `count_spanning_trees(graph)` two ways and check them against each oth
 **Done when:** both methods agree everywhere brute force is feasible, Cayley's formula checks out to $n=8$, and you can state what the disconnected case gives and why.
 
 ## Before moving on
+<!-- bite: 5e966a48-68a0-4c49-99d9-b9ff20141ef1 -->
 
 You can distinguish the three subgraph kinds, state and use the tree characterisations, build a spanning tree, and explain how the graph tree relates to the rooted one.
 
@@ -376,6 +390,7 @@ You can distinguish the three subgraph kinds, state and use the tree characteris
 **Next:** [[04-representations|Representations]] — the five ways to store all of this, and how to choose.
 
 ## Related
+<!-- bite: 6843e37a-d0cf-4e34-8406-4bacc5eaa031 -->
 
 - [[06-trees/01-trees|Trees (data structure)]] — what rooting adds
 - [[06-minimum-spanning-tree|Minimum Spanning Tree]] — choosing the cheapest spanning tree

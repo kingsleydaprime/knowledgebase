@@ -1,3 +1,7 @@
+---
+id: f650811c-c0e4-4f53-9e64-fa81a7f3dedb
+---
+
 # Three.js: Intro
 
 Three.js is a JavaScript 3D graphics library that wraps **WebGL** — the browser's low-level, GPU-accelerated 3D rendering API — in a much friendlier object-oriented API. Raw WebGL requires writing shader programs (GLSL) and manually managing buffers just to draw a single triangle; three.js gives you `Mesh`, `Camera`, `Light` objects and handles the WebGL calls underneath.
@@ -5,6 +9,7 @@ Three.js is a JavaScript 3D graphics library that wraps **WebGL** — the browse
 This is a genuinely different domain from [[frontend/frameworks/gsap/index|GSAP]] and [[frontend/frameworks/framer-motion/index|Framer Motion]] — those animate 2D DOM/SVG properties; three.js renders an actual 3D scene onto a `<canvas>` element, with its own coordinate system, cameras, and lighting model borrowed from real-world graphics/physics concepts.
 
 ## Installing
+<!-- bite: 01b3e37d-703f-4fc8-bf24-93e3c08a1cd9 -->
 
 ```bash
 npm install three
@@ -15,6 +20,7 @@ import * as THREE from "three";
 ```
 
 ## The three required pieces
+<!-- bite: 892f2773-87dd-4283-9c89-2e1c3fa70883 -->
 
 Every three.js app needs exactly these three things before anything appears on screen:
 
@@ -40,6 +46,7 @@ document.body.appendChild(renderer.domElement);
 **Why near/far clipping planes exist**: WebGL uses a depth buffer with finite precision to figure out what's in front of what — without bounds, that precision would have to cover from 0 to infinity, which isn't numerically practical. Anything closer than `near` or farther than `far` simply isn't rendered. Setting these too far apart (e.g. `0.0001` to `1000000`) causes **z-fighting** — flickering artifacts where the renderer can't reliably tell which of two close surfaces is in front, because the available depth precision is spread across too large a range.
 
 ## A minimal complete scene
+<!-- bite: 10939738-e578-4859-8198-49ae5a64b863 -->
 
 ```js
 const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -63,10 +70,12 @@ animate();
 Note the `MeshStandardMaterial` here requires a light to be visible at all — most materials are lit (they simulate how light interacts with a surface), which is why [[03-lighting-and-shadows|lighting]] is not optional the way it effectively is in 2D animation. A scene with geometry and no light will render as solid black.
 
 ## The coordinate system
+<!-- bite: 6eae0925-1944-49b5-9f64-f7048ccda1e7 -->
 
 Three.js uses a **right-handed** coordinate system: +X right, +Y up, +Z *toward the camera* (out of the screen). This trips people coming from 2D web/CSS work, where +Y conventionally points *down*. "Moving something back" in a 3D scene means decreasing Z, not increasing it.
 
 ## Related
+<!-- bite: f98955a0-b0b2-4952-8989-c316c9a1120d -->
 - [[02-geometries-materials-meshes|geometries, materials, and meshes]] — what a `Mesh` actually is
 - [[04-transformations-and-animation-loop|transformations and the animation loop]] — `requestAnimationFrame` in depth
 - [[07-react-three-fiber|React Three Fiber]] — the declarative React wrapper, if working inside this frontend/React track

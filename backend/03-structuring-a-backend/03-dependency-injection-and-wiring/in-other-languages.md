@@ -7,6 +7,7 @@ id: b6230c24-9a02-40cd-8907-7eb3a9ad3b2c
 > **[Intermediate]** · A companion to [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection and wiring]], which teaches the idea in TypeScript. Here: the same rule — *be handed your dependencies, don't make them* — in Python, Go, Java, Rust, C, C++ and C#, and what each language does with the main lesson's scope bug.
 
 ## Before you start
+<!-- bite: 7fd2753c-1dbd-45e7-a418-063efd87b5d7 -->
 
 You can already:
 
@@ -20,12 +21,14 @@ After this lesson you will be able to:
 3. Say what each language does about the scope bug — nothing, a runtime detector, a startup check, or a compile error.
 
 ## The kid version
+<!-- bite: 1c6dd590-9793-45c1-8fbd-1e19e5eef8ea -->
 
 Every kitchen hands the chef an oven instead of making them build one. But kitchens differ. In some, a manager hands out all the equipment at the start of the shift (a **DI container**). In others, the head chef sets every station up by hand (a **composition root in `main`**). And some kitchens have a rule written on the wall that stops two cooks grabbing the same pan at once (a **compiler that refuses unsafe sharing**).
 
 **Where the analogy stops working.** The rule on the wall stops two cooks *grabbing* the pan together — it doesn't stop one cook putting down the wrong order on it. Rust's compiler is like that: it prevents two threads writing at once, but not a correct, well-locked program that still records the wrong user. §5 shows exactly this.
 
 ## 1. What changes between languages
+<!-- bite: db3520f5-ce4c-4a67-8b2f-90d1a78123a4 -->
 
 The rule doesn't change. Three things do:
 
@@ -42,6 +45,7 @@ The rule doesn't change. Three things do:
 | Rust | **The compiler** refuses unsynchronised sharing — but a correctly locked version can still record the wrong user |
 
 ## Terms used in this lesson
+<!-- bite: f3900947-ce08-4333-8bfd-83648c79fa00 -->
 
 1. **DI container**: This is also known as an **IoC container** or **service provider**. It is a library that builds objects and their dependencies for you from registrations.
 2. **Lifetime**: This is also known as **scope**. It is how long a container keeps one instance: **singleton** (one for the app), **scoped** (one per request), or **transient** (new every time).
@@ -51,6 +55,7 @@ The rule doesn't change. Three things do:
 6. **Context variable**: This is a value attached to the current task or request rather than to an object — `ContextVar` in Python, `context.Context` in Go, `ThreadLocal` in Java, `AsyncLocal` in C#.
 
 ## 2. Python
+<!-- bite: e3ba76ad-a273-4c86-b051-9b1d61949188 -->
 
 Python has no standard container; **wire by hand in a composition-root function**, and pass dependencies to `__init__`. Frameworks have their own mechanism — FastAPI's `Depends` builds a dependency per request, which suits request-scoped things like a database session:
 
@@ -161,6 +166,7 @@ if __name__ == "__main__":
 **Lab:** [`backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/python/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/python) — run `python3 labs/run.py dependency-injection-and-wiring/python` from the vault root. Checked with Python 3.14; all three tests pass, the first by asserting the wrong result.
 
 ## 3. Go
+<!-- bite: 8e607568-a96b-4b1a-935a-809758e1149d -->
 
 Go has no container, by design and by culture. **Dependencies are struct fields, set in `main`** — see [[backend/frameworks/go/04-structuring-a-go-service|structuring a Go service]]. Interfaces are declared by the package that *uses* them, and any type with the right methods satisfies them without saying so.
 
@@ -283,6 +289,7 @@ echo "ok: the race detector caught the per-request field on a shared service"
 **Lab:** [`backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/go/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/go) — the check prints `ok: the race detector caught the per-request field on a shared service`. Checked with Go 1.26. **Run `go test -race ./...` in CI** for any Go service; it catches this whole class of bug for the cost of slower tests.
 
 ## 4. Java (and Spring)
+<!-- bite: 5a234ddf-ee7a-4d79-a50b-baf86d88ad7a -->
 
 Plain Java wires by hand, like the lab below. Almost every real project uses **Spring**, where you declare components and the container builds them — with **constructor injection**, which needs no annotation when a class has one constructor:
 
@@ -404,6 +411,7 @@ public final class Check {
 **Lab:** [`backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/java/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/java) — prints `bug reproduced: [bayo: viewed invoice, bayo: viewed invoice]`, then `both fixes record the right users`. Checked with Java 21. Note the `finally` that clears the `ThreadLocal`: servers reuse threads, so a value left behind leaks into the next request. Java 25's `ScopedValue` removes that risk by design.
 
 ## 5. Rust
+<!-- bite: a0b8b7aa-d84e-4a46-b308-6479b37e7b27 -->
 
 Rust wires by hand. Dependencies are fields; an interface is a **trait**, used either as `&dyn Trait` (one compiled function, chosen at runtime) or as a generic `T: Trait` (a copy compiled per type, no runtime cost). Shared, app-wide dependencies are usually an `Arc<…>` in the web framework's state → [[backend/frameworks/rust/03-state-and-shared-data|state and shared data]].
 
@@ -542,6 +550,7 @@ The first test passes by asserting **`bayo` twice**. The `Mutex` makes every acc
 **Lab:** [`backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/rust/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/rust) — checked with Rust 1.96.
 
 ## 6. C
+<!-- bite: 89fac3ac-b5e5-40f9-a219-4b610698dec4 -->
 
 C has no classes and no containers. An interface is a **struct of function pointers** plus a pointer to the implementation's own state — the same idea C++ compiles virtual functions into. Injection is passing that struct in.
 
@@ -600,6 +609,7 @@ int main(void) {
 **Lab:** [`backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/c/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/c) — checked with GCC 16. The scope bug in C is a global or `static` variable holding "the current user"; with threads, writing it unsynchronised is a data race and undefined behaviour. The fix is the argument; a `_Thread_local` variable is the C equivalent of a context variable.
 
 ## 7. C++
+<!-- bite: 0820ad47-fec3-465c-868b-f5e1e6be39ce -->
 
 C++ wires by hand. The interface is an **abstract class** with virtual functions, and the service holds a reference (or `std::shared_ptr`) to whatever implementation it was given. For zero runtime cost, use a template parameter instead — the C++ version of Rust's generics.
 
@@ -673,6 +683,7 @@ int main() {
 **Lab:** [`backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/cpp/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/cpp) — checked with GCC 16. A per-request field on a shared service is a data race, which is undefined behaviour; **ThreadSanitizer** (`-fsanitize=thread`) catches it at runtime, like Go's race detector. It isn't used in the lab because its runtime library isn't installed on the machine this was checked on — install `libtsan` and add the flag.
 
 ## 8. C#
+<!-- bite: 850a7d3f-2c62-457b-8f76-cb3296b8069f -->
 
 .NET has a **built-in container** (`Microsoft.Extensions.DependencyInjection`), used by every ASP.NET Core app. You register each service with a lifetime — `AddSingleton`, `AddScoped` (one per HTTP request), `AddTransient` — and constructors receive what they declare.
 
@@ -750,6 +761,7 @@ scoped: ada: viewed invoice, bayo: viewed invoice
 The context-variable equivalent is `AsyncLocal<T>`; ASP.NET Core's `IHttpContextAccessor` is built on it. C# itself: [[backend/frameworks/csharp/index|C#]].
 
 ## Check your understanding
+<!-- bite: 7c6aa0a4-9daf-4678-8ad1-89505ef066ce -->
 
 1. Which of these languages have a standard DI container, and which wire by hand in `main`?
 2. What does Go's race detector catch, and when — at compile time or while tests run?
@@ -769,6 +781,7 @@ The context-variable equivalent is `AsyncLocal<T>`; ASP.NET Core's `IHttpContext
 </details>
 
 ## Practice — independent task
+<!-- bite: d31f7f6a-a249-48e4-9945-c78df2fa7d43 -->
 
 **In the language you'd most like to use professionally after TypeScript:**
 
@@ -780,6 +793,7 @@ The context-variable equivalent is `AsyncLocal<T>`; ASP.NET Core's `IHttpContext
 **Done when:** the bug reproduces every run, both fixes pass, and you can explain without notes what your language does and doesn't protect you from.
 
 ## Before moving on
+<!-- bite: d23f26a0-90a3-4c60-bdbb-b2dc8e160924 -->
 
 You can wire dependencies idiomatically in your language and say what it does about the scope bug.
 
@@ -788,6 +802,7 @@ You can wire dependencies idiomatically in your language and say what it does ab
 **Next.** Back to the course: [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal architecture]].
 
 ## Related
+<!-- bite: c2a88842-42cc-4b6c-bb0c-f1dbc08f23e4 -->
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection and wiring]] — the main lesson
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency injection in Java]] — Spring's implementation in depth
 - [[backend/frameworks/go/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/rust/03-state-and-shared-data|Rust: state and shared data]] · [[backend/frameworks/csharp/index|C#]]

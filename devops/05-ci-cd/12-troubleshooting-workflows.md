@@ -1,8 +1,13 @@
+---
+id: 21a1b389-f859-44b8-844c-6ce70f8b8fbe
+---
+
 # Troubleshooting Workflows
 
 **[Reference]** — Debug logging, interactive SSH into a runner with tmate, the errors you will actually hit and their fixes, and how to skip CI deliberately.
 
 ## Enable Debug Logging
+<!-- bite: 383372be-4e6a-405c-a8ac-499579327fbf -->
 
 ```yaml
 # Add these secrets to enable verbose logging:
@@ -27,6 +32,7 @@
 ```
 
 ## tmate — Interactive SSH Debugging
+<!-- bite: f2cd5309-5b55-4fa0-8f4f-2983d6f5dfcb -->
 
 ```yaml
 # Drop into an interactive shell on the runner for debugging
@@ -37,6 +43,7 @@
 ```
 
 ## Common Errors and Fixes
+<!-- bite: 9ea7a18e-f03b-4f79-9db3-eade8c08157e -->
 
 **"Resource not accessible by integration"**
 ```yaml
@@ -96,6 +103,7 @@ needs: [job-a]
 ```
 
 ## Workflow Monitoring
+<!-- bite: 0ca4d1f6-51d0-4b5a-b33d-06a96179a9d2 -->
 
 ```bash
 # GitHub CLI — view workflow runs
@@ -117,6 +125,7 @@ gh run cancel 12345
 ```
 
 ## Skipping CI
+<!-- bite: 975bd978-ac57-49bf-a6e2-43ebbf77c58c -->
 
 ```bash
 # Add to commit message to skip CI (useful for docs/config changes)
@@ -128,6 +137,7 @@ git commit -m "docs: update readme [ci skip]"
 ---
 
 ## Related
+<!-- bite: b5ef23a1-65b8-4c00-a374-810e7967d747 -->
 - [[devops/05-ci-cd/03-github-actions-fundamentals|Fundamentals]] — knowing the execution model is half of debugging it
 - [[devops/05-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — the source of most "why is this empty" bugs
 - [[devops/05-ci-cd/index|CI/CD module map]]

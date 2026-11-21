@@ -1,8 +1,13 @@
+---
+id: d6086189-4f5b-46d8-80c3-4eb65b80b7bd
+---
+
 # Collections and Iterators
 
 **[Intermediate]** — The standard collections, and the `Iterator` trait — the best-designed thing in the standard library and the reason Rust reads like a high-level language.
 
 ## The collections
+<!-- bite: 4f4b8420-1022-421b-93dc-8fd16ce45aa9 -->
 
 ```rust
 Vec<T>            // growable array — your default
@@ -51,6 +56,7 @@ The **entry API** is how you do get-or-insert with a single lookup. The naive ve
 `HashMap` uses SipHash by default, which is DoS-resistant but not the fastest. For internal maps with trusted keys, `rustc-hash`'s `FxHashMap` is a meaningful speedup.
 
 ## The `Iterator` trait
+<!-- bite: 96e134ad-be8d-489d-bfe7-614a25560214 -->
 
 ```rust
 trait Iterator {
@@ -89,6 +95,7 @@ for x in v       // v.into_iter()  → Item = T           (MOVES v)
 This distinction is [[languages/03-rust/03-ownership|ownership]] showing up in a loop, and it's the thing to be deliberate about. `into_iter()` is what you want when you're transforming a collection you no longer need — it avoids cloning every element.
 
 ## Adapters and consumers
+<!-- bite: fae2f4df-9f5b-45cb-9b08-2e21e1b1bc2d -->
 
 **Adapters** are lazy and return another iterator. **Consumers** actually run it.
 
@@ -140,6 +147,7 @@ That last line collects `Iterator<Item = Result<T, E>>` into `Result<Vec<T>, E>`
 `collect()` needs a target type, hence the turbofish (`collect::<Vec<_>>()`) or an annotation.
 
 ## Why chains are as fast as loops
+<!-- bite: f348b3b0-9abe-4976-ab2b-ebdef42a374c -->
 
 Iterator chains compile to the same machine code as a hand-written loop. Genuinely — this is the flagship example of a **zero-cost abstraction**.
 
@@ -150,6 +158,7 @@ So there's no readability-vs-performance trade here. Write the chain.
 The exception is `collect()` into a new collection, which allocates. If you're chaining several `collect()`s, you're allocating several times — keep it lazy until the end.
 
 ## Common patterns
+<!-- bite: 0ad42859-0205-469f-b92c-54a25bcb7637 -->
 
 ```rust
 // index with the value
@@ -181,6 +190,7 @@ for pair in v.windows(2) { println!("{} {}", pair[0], pair[1]); }
 `itertools` is the near-standard crate that fills the gaps — `group_by`, `sorted`, `unique`, `chunks`, `cartesian_product`, `join`.
 
 ## `Iterator` vs `IntoIterator`
+<!-- bite: f6a5897a-ebdd-4cda-884b-61a6bc44503b -->
 
 ```rust
 trait IntoIterator { type Item; type IntoIter: Iterator; fn into_iter(self) -> Self::IntoIter; }
@@ -197,6 +207,7 @@ fn process(items: impl IntoIterator<Item = String>) { }
 ---
 
 ## Related
+<!-- bite: b6e3e2b2-1c6b-44f9-8994-733bc4217514 -->
 - [[languages/03-rust/09-traits|Traits]] — default methods, which `Iterator` exploits fully
 - [[languages/03-rust/18-performance-and-zero-cost|Performance and Zero-Cost Abstractions]] — why the chains are free
 - [[languages/03-rust/03-ownership|Ownership]] — `iter` vs `into_iter`

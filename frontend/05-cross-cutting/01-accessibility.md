@@ -1,3 +1,7 @@
+---
+id: 4900fc63-4d7c-4e91-949a-1459035b2029
+---
+
 # Accessibility
 
 > **[Intermediate]** · A correctness requirement, frequently a legal one — and the area where most candidates are weakest, which makes it cheap to be good at.
@@ -7,6 +11,7 @@
 **And it is increasingly law** — the European Accessibility Act, the ADA in the US, and equivalents elsewhere. WCAG 2.2 AA is the usual conformance target.
 
 ## Semantic HTML does most of the work
+<!-- bite: b64e49a6-b649-443f-a079-d8010567dd3c -->
 
 **The single highest-leverage rule: use the right element.**
 
@@ -24,6 +29,7 @@ The elements that carry meaning: `<button>`, `<a href>` (**navigates** — if it
 **Headings are a navigation structure, not font sizes.** Screen-reader users jump between them, so skipping from `<h1>` to `<h4>` because it looked right breaks the outline. **Style with CSS, structure with the tag.**
 
 ## Keyboard
+<!-- bite: e3f93455-09b3-4ce7-bbc4-4d1aa5b2a3cc -->
 
 **Everything operable by mouse must be operable by keyboard.** Test by unplugging the mouse and using the site.
 
@@ -35,6 +41,7 @@ The elements that carry meaning: `<button>`, `<a href>` (**navigates** — if it
 **Modals are where this is usually broken.** A correct dialog: moves focus in on open, **traps focus inside**, closes on Escape, and **returns focus to the trigger** on close. **`<dialog>` does all of it natively**, and headless libraries (Radix, React Aria) do it correctly too — which is a strong argument for using one rather than building your own → [[frontend/02-structuring-a-frontend/01-components-and-composition|headless components]].
 
 ## ARIA — the rules
+<!-- bite: bc7ef341-08d3-470b-b006-a8e5339a5137 -->
 
 **"No ARIA is better than bad ARIA"**, and this is the official position, not a slogan. Wrong ARIA *overrides* correct native semantics, so it actively makes things worse.
 
@@ -53,6 +60,7 @@ The elements that carry meaning: `<button>`, `<a href>` (**navigates** — if it
 **Alt text describes the information, not the picture.** For a chart, that's the trend. For a decorative image, `alt=""` — an omitted `alt` makes screen readers read the filename.
 
 ## Forms
+<!-- bite: dcb0aeda-888a-4d18-9373-c49d58b42ca9 -->
 
 **Where accessibility failures cost real money**, because a failed form is an abandoned transaction.
 
@@ -63,6 +71,7 @@ The elements that carry meaning: `<button>`, `<a href>` (**navigates** — if it
 - **Correct `autocomplete` and `inputmode`** — a numeric keypad for a phone number is an accessibility feature
 
 ## Visual
+<!-- bite: d12f7465-9ec5-42d7-92bc-4e7c408b6c32 -->
 
 - **Contrast** — 4.5:1 for body text, 3:1 for large text and UI components. Check it; don't eyeball it
 - **Don't disable zoom.** `user-scalable=no` blocks a fundamental accommodation
@@ -78,6 +87,7 @@ The elements that carry meaning: `<button>`, `<a href>` (**navigates** — if it
 **Animation libraries need this explicitly** → [[frontend/frameworks/framer-motion/index|Framer Motion]] · [[frontend/frameworks/gsap/index|GSAP]].
 
 ## Testing it
+<!-- bite: d6c2103c-db8c-488e-aa9e-2d0218cc7f78 -->
 
 **Automated tooling catches perhaps 30–40%.** It's necessary and nowhere near sufficient.
 
@@ -88,6 +98,7 @@ The elements that carry meaning: `<button>`, `<a href>` (**navigates** — if it
 5. **Real users**, if you can
 
 ## Related
+<!-- bite: 11feb22f-4547-46cd-898d-9b7407338b1b -->
 - [[frontend/02-structuring-a-frontend/01-components-and-composition|components]] — headless libraries get this right
 - [[frontend/04-styling/01-css-architecture|CSS architecture]] — contrast, zoom, motion
 - [[frontend/interview/03-state-data-and-architecture|the interview round]] — where this is a differentiator

@@ -1,3 +1,7 @@
+---
+id: 756bf300-f343-4823-b3d5-a0d1f3da04b1
+---
+
 # Concepts Interview — APIs, Auth & Practices
 
 From [[backend/index|01-backend]], [[concepts/02-design-patterns/index|02-design-patterns]], [[concepts/01-best-practices/index|01-best-practices]].

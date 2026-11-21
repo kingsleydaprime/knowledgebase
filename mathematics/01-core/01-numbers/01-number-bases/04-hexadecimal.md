@@ -1,8 +1,13 @@
+---
+id: 745d2709-10d6-4a8b-8e73-69a0fe457d94
+---
+
 # Hexadecimal (Base 16)
 
 **[Beginner]** — The base nobody counts in and everybody reads. Chosen for one mathematical reason, and used everywhere that reason applies.
 
 ## Before you start
+<!-- bite: 4afef54a-18c0-4021-94ff-f4f4ba8ae1d9 -->
 
 - You can convert between bases — [[01-introduction|number bases]].
 - You know what a bit and a byte are — [[02-binary|binary]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. Sixteen digits
+<!-- bite: 93d7513c-c3b8-4060-930e-5716877c50a0 -->
 
 Base 16 needs sixteen symbols. The first ten are the familiar digits; the rest borrow letters:
 
@@ -29,6 +35,7 @@ Base 16 needs sixteen symbols. The first ten are the familiar digits; the rest b
 Hex is usually written with a marker so it is not mistaken for decimal: `0xFF`, `#FF`, `$FF` or `FFh` depending on the convention.
 
 ## 2. The one reason hex exists
+<!-- bite: 113d2e9e-5263-4352-8806-075df3500b81 -->
 
 $$16 = 2^4$$
 
@@ -61,6 +68,7 @@ You convert **digit by digit**, in either direction, with no arithmetic:
 > In hex, changing one bit changes **exactly one hex digit**. That locality is why memory dumps, colour codes and bit masks are all written in hex — you can see which bits moved.
 
 ## 3. A byte is two hex digits
+<!-- bite: e763182b-ddb4-471d-ab71-9da4ce2eda06 -->
 
 A byte is 8 bits, and $8 = 2 \times 4$, so **every byte is exactly two hex digits** — from `00` to `FF`, covering all 256 values.
 
@@ -75,6 +83,7 @@ That correspondence is why hex is everywhere bytes are:
 - **Hashes** — a SHA-256 digest is 64 hex characters, that is 32 bytes
 
 ## 4. Reading hex in the wild
+<!-- bite: 3dfbeb65-04ff-49dd-accc-c8d9aae28d75 -->
 
 ```
    #FF8800     colour: full red, two-thirds green, no blue -> orange
@@ -87,6 +96,7 @@ That correspondence is why hex is everywhere bytes are:
 **That last one is a real convention.** Programmers fill unused memory with distinctive hex patterns — `0xDEADBEEF`, `0xCAFEBABE`, `0xBAADF00D` — because spotting one in a debugger immediately tells you that you are reading uninitialised or freed memory rather than real data.
 
 ## 5. Practice — independent task
+<!-- bite: 9d33b242-d782-4a5d-86b6-84b998ee5a71 -->
 
 - **(a)** Convert by sight, no arithmetic: `0x3F`, `0xC0`, `0xA7`, `0xFFFF` to binary.
 - **(b)** Convert to hex by sight: `1101 0110`, `0000 1111`, `1111 0000 1010 0101`.
@@ -103,6 +113,7 @@ The mask for the low $n$ bits is $2^n - 1$, which in hex is a run of <code>F</co
 </details>
 
 ## Before moving on
+<!-- bite: cde6be8e-a580-4b23-86c2-00923c3c8a62 -->
 
 - [ ] Recite the sixteen hex digits and their values.
 - [ ] Convert hex to binary and back by sight.
@@ -115,6 +126,7 @@ The mask for the low $n$ bits is $2^n - 1$, which in hex is a run of <code>F</co
 **Next:** [[mathematics/01-core/00-foundations/01-number-systems|Number systems]] — from *how* numbers are written to *what kinds* of number exist.
 
 ## Related
+<!-- bite: 74bf3d9d-c81c-40d6-aab6-b94cd1e0890b -->
 
 - [[01-introduction|Number bases]] · [[02-binary|Binary]] · [[03-decimal|Decimal]]
 - [[computer-architecture/02-data-representation|computer-architecture/data representation]] — where these bytes get meaning

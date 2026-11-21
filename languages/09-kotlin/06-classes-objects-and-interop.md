@@ -1,8 +1,13 @@
+---
+id: d67a466d-8d5f-4969-b300-7102ae8603f3
+---
+
 # Classes, Objects and Java Interop
 
 **[Intermediate]** — the object model, and living alongside Java.
 
 ## Classes
+<!-- bite: b1f89b6c-75d4-4d5a-bd6b-badceaf7fb9e -->
 
 ```kotlin
 class User(
@@ -31,6 +36,7 @@ class Child : Base() { override fun render() {} }
 **`override` is mandatory**, so you can't accidentally shadow or accidentally fail to override.
 
 ## Visibility
+<!-- bite: b5a99ccd-d6ba-4db1-a69f-0f3759511da5 -->
 
 |             |                                                                                                 |
 | ----------- | ----------------------------------------------------------------------------------------------- |
@@ -42,6 +48,7 @@ class Child : Base() { override fun render() {} }
 **`internal` is the one Java lacks.** It lets a library have implementation classes that are visible across its own source set but not to consumers.
 
 ## Interfaces
+<!-- bite: e85b2cd3-995b-4ccd-acb1-ec9847a1bb6f -->
 
 ```kotlin
 interface Repository {
@@ -54,6 +61,7 @@ interface Repository {
 **Interfaces can declare properties and provide default implementations**, but hold no state.
 
 ## Delegation with `by`
+<!-- bite: b1650a2e-ce01-4dc7-a591-9ddddd89143e -->
 
 ```kotlin
 class LoggingRepo(private val inner: Repository) : Repository by inner {
@@ -67,6 +75,7 @@ class LoggingRepo(private val inner: Repository) : Repository by inner {
 **Implement an interface by forwarding to another object**, overriding only what you want to change. **This is composition without writing forwarding methods**, and it's a genuine answer to "prefer composition over inheritance" that most languages don't provide.
 
 ## Java interop — what to know
+<!-- bite: f18f470a-473f-4f5e-9510-38c82f16c2f8 -->
 
 **Calling Java from Kotlin** mostly just works, with two frictions:
 
@@ -93,6 +102,7 @@ button.setOnClickListener { doThing() }
 **Kotlin has no checked exceptions**, so a Kotlin function that throws `IOException` looks safe to Java. `@Throws` fixes the signature.
 
 ## Things that don't map
+<!-- bite: 2e522134-3086-4b56-bdc2-5e35fbf6294a -->
 
 - **Kotlin's `Nothing`** — the type of an expression that never returns. `TODO()` returns it, which is why `val x: String = TODO()` compiles
 - **`Unit`** vs Java's `void` — `Unit` is a real singleton type, so it can be a generic parameter
@@ -100,10 +110,12 @@ button.setOnClickListener { doThing() }
 - **Coroutines** — a `suspend` function seen from Java takes an extra `Continuation` parameter and is unpleasant to call. **Provide a callback or `CompletableFuture` wrapper** at the boundary
 
 ## Key insight
+<!-- bite: 926900e2-4a49-4eb3-a448-b13b1aadbb3a -->
 
 **Kotlin's object model is Java's with the defaults inverted** — final instead of open, non-null instead of nullable, properties instead of fields, composition (`by`) made as cheap as inheritance. Every one of those inversions is a lesson learned from twenty years of Java, and the interop annotations exist because the two must still coexist in the same codebase.
 
 ## Related
+<!-- bite: 78511de1-b2eb-4058-82d6-db2d211fd183 -->
 
 - [[languages/09-kotlin/02-null-safety|null safety]] — platform types
 - [[languages/01-java/index|Java]] — the platform and the contrast

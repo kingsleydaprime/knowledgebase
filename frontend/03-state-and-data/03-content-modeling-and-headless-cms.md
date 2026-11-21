@@ -1,3 +1,7 @@
+---
+id: e0abd09b-f48a-4189-bce8-8e04392c9ac7
+---
+
 # Content Modelling and the Headless CMS
 
 **[[frontend/03-state-and-data/index|03 — State and Data]], note 3.** **[Intermediate]** `[reference]`
@@ -9,6 +13,7 @@
 ---
 
 ## Coupled vs. headless
+<!-- bite: 65edfb76-5910-4c41-b7fe-e8df7c256b95 -->
 
 A traditional CMS (WordPress, Wix, Drupal) owns the content **and** the templates **and** the hosting. A **headless** CMS owns only the content and exposes it over an API; presentation is entirely yours.
 
@@ -25,6 +30,7 @@ A traditional CMS (WordPress, Wix, Drupal) owns the content **and** the template
 The real cost of headless is not technical. It's that **you now own the editor's experience**, and nobody assigns story points to it.
 
 ## What kind of thing is each document type?
+<!-- bite: b4f51e70-8346-49e6-8ea2-61fe5323497c -->
 
 Most content models are three shapes, and naming the shape tells you which problems you'll have:
 
@@ -37,6 +43,7 @@ Most content models are three shapes, and naming the shape tells you which probl
 In practice a marketing site is overwhelmingly shape 2. **When most of your types are "an editable page section", the interesting questions are ordering, singletons and presentation coupling — not normalisation.** That realisation saves a lot of time spent designing relations nobody needs.
 
 ## Ordering
+<!-- bite: 1f7081ef-f373-4fb5-bbb4-d54cf2bb0b33 -->
 
 The naive approach — an integer `order` field — needs three cooperating pieces, and people usually ship two:
 
@@ -49,6 +56,7 @@ Miss the third and you get the classic report: *"I reordered it in the CMS and n
 **Its real weakness is ergonomic:** every item defaults to `0`, so an editor's first experience is a list with no order, and reordering means retyping numbers across several documents. The alternatives are **an array of references on a parent document** (drag-to-reorder, order is the array index) or a fractional-index / orderable-list plugin. **Integer `order` is fine for a dozen items and painful at a hundred** — pick knowing which you have.
 
 ## Singletons
+<!-- bite: bfad4881-2158-450b-afe5-1b56553ddbf9 -->
 
 There is usually no built-in "exactly one". A singleton is **a document with a well-known ID that every reader agrees to use**, and making it stick takes three things:
 
@@ -59,6 +67,7 @@ There is usually no built-in "exactly one". A singleton is **a document with a w
 **The pinned ID in the query is the load-bearing part.** Take `[0]` of all documents of the type and a stray second one can silently start winning, with no error anywhere. Pin it and a duplicate is inert.
 
 ## Validation is a form check, not a constraint
+<!-- bite: da1c5f63-0c91-4cc8-831d-4ca7b2f869f2 -->
 
 > **In almost every headless CMS, "required" is enforced by the editing UI, not the API.**
 
@@ -71,6 +80,7 @@ Three consequences:
 - **If you need a real guarantee, script it** over the dataset and re-run it.
 
 ## The presentation-coupling question
+<!-- bite: dcfb4f28-4a06-4e14-abe9-800b7d6c3736 -->
 
 The recurring judgement call: **how much design belongs in the content layer?**
 
@@ -94,12 +104,14 @@ accentColor  "#E8500A"
 **The rule that resolves it:** **constrain the choice, don't remove it.** The three-field headline is a fair trade. A free-text colour is not — the same control as a named list ("Sunrise", "Deep") keeps editors inside the design system while still giving them the decision. **Where presentation must live in the CMS, it should be an enumeration, not a string.**
 
 ## The schema is documentation
+<!-- bite: d1b78fb4-45f2-48ca-a366-fe984670b337 -->
 
 The field labels and descriptions are the only instructions most editors will ever read, delivered at the moment they're needed. `description: 'Small label above the headline, e.g. "Africa's Children's Media Ecosystem"'` is worth more than a wiki page nobody opens.
 
 The same goes for **list previews**. Four hundred documents with no thumbnail and no subtitle is an unusable CMS. And give the subtitle an explicit fallback — *"No author"* rather than a blank — so broken data is visible at a glance instead of invisible.
 
 ## Generate your types
+<!-- bite: 9354ae6c-f6c1-415e-83c1-3989f31dab6b -->
 
 Hand-maintaining TypeScript interfaces against a CMS schema **guarantees drift**, and the drift is always in the dangerous direction: the types declare more than the data has.
 
@@ -108,6 +120,7 @@ The specific trap: interfaces describe *documents*, but queries return *projecti
 **Most headless CMSs now ship a type generator that reads the schema and the queries.** Use it. **Hand-written types against an external system aren't types, they're hopeful comments.**
 
 ## The fallback pattern
+<!-- bite: eb2f4f27-c7de-406c-969d-11309a84baa4 -->
 
 Common enough to name. Sites are usually designed and built *before* the CMS exists — you can't model content that doesn't exist yet, and stakeholders approve a page, not a schema. So each section keeps its original hardcoded content and uses it when the CMS returns nothing:
 
@@ -124,6 +137,7 @@ The piece that makes it clean is a **view model** — a shape that is neither th
 **Two cheap mitigations:** log server-side whenever a fallback fires, so it reaches your platform logs; and a strict mode in production that throws instead of falling back. And treat the fallbacks as scaffolding with a demolition date — once a section's content is genuinely in the CMS, the hardcoded copy is dead weight pretending to be a safety net.
 
 ## Related
+<!-- bite: 46978ce5-6dee-433c-a2a6-801ab5fe2e28 -->
 - [[frontend/frameworks/sanity/index|frameworks/sanity]] — one implementation, in depth
 - [[projects/munakalati/learning/03-sanity/02-schema-design|munakalati — a real 16-type model]]
 - [[concepts/01-best-practices/08-data-migrations|data migrations]] — getting content *into* the model

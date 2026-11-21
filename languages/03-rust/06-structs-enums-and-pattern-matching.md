@@ -1,8 +1,13 @@
+---
+id: 15bc84ea-7733-4ac9-b14f-fcdca5fb6163
+---
+
 # Structs, Enums and Pattern Matching
 
 **[Beginner → Intermediate]** — Rust's enums are not the enums you know, and `match` is why they're the best feature in the language.
 
 ## Structs
+<!-- bite: b0a9d95a-023b-427f-bb61-8e6751a147ad -->
 
 ```rust
 struct User { name: String, email: String, active: bool }
@@ -46,6 +51,7 @@ impl User {
 The four receiver forms are `self`, `&self`, `&mut self`, and none. Choosing between them *is* API design in Rust — `consume(self)` is the builder-pattern receiver, `&self` is the default.
 
 ## Enums are sum types
+<!-- bite: 2b63c495-74ac-4979-a6a2-270da255aea3 -->
 
 This is the part that's genuinely different. A Rust enum isn't a named integer — **each variant can carry different data**:
 
@@ -70,6 +76,7 @@ enum Result<T, E> { Ok(T), Err(E) }
 **There is no `null` in Rust.** Absence is `Option<T>`, and it's a *different type* from `T` — so you cannot forget to check it. That single decision removes Tony Hoare's "billion-dollar mistake" from the language. → [[languages/03-rust/07-option-and-result|Option and Result]]
 
 ## `match`
+<!-- bite: 4cc0f87e-38c0-4a66-8a8a-f77a050571f2 -->
 
 ```rust
 match msg {
@@ -127,6 +134,7 @@ match opt {
 Patterns nest arbitrarily, and destructuring works in `let`, function parameters, and `for` too — not just `match`.
 
 ## `if let`, `let else`, `while let`
+<!-- bite: 9dc85e23-71b5-49d2-a772-467b43d8f0af -->
 
 `match` with one interesting arm is noisy, so there are shorthands:
 
@@ -151,6 +159,7 @@ while let Some(top) = stack.pop() {
 `let else` deserves attention: it removes the rightward drift that `if let` chains cause. The `else` block must diverge — `return`, `break`, `continue`, or `panic!`.
 
 ## Modelling with enums — the actual payoff
+<!-- bite: 533e1ac2-0059-4bbc-946f-c0eff769486d -->
 
 The idiom to internalise is **make invalid states unrepresentable**:
 
@@ -179,6 +188,7 @@ This is the state-machine pattern from [[backend/frameworks/java/01-spring-boot|
 ---
 
 ## Related
+<!-- bite: f4a72422-c06c-4c8d-bdf6-9cad4e82bb29 -->
 - [[languages/03-rust/07-option-and-result|Option and Result]] — the two enums you'll use hourly
 - [[languages/03-rust/09-traits|Traits]] — behaviour on these types
 - [[languages/03-rust/10-generics-and-trait-bounds|Generics]] — `Option<T>` is generic

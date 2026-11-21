@@ -1,14 +1,20 @@
+---
+id: 051a799b-c304-4c88-a1de-7cafee7df6e7
+---
+
 # The Frequency Domain
 
 **[Intermediate]** — the central idea of DSP: any signal is a sum of sinusoids, and switching to that view makes hard problems easy.
 
 ## The kid version first
+<!-- bite: 981c0446-b701-4c80-a31e-33d21e642394 -->
 
 A musical chord looks like a single messy wiggle on an oscilloscope. But your ear hears **three distinct notes** — it takes that one wiggle apart into its constituent pure tones.
 
 **The frequency domain is doing exactly that, mathematically:** taking any signal and finding *which pure sinusoids, at which strengths, add up to make it.* The wiggle over time (the **time domain**) and the list of frequencies it contains (the **frequency domain**) are two views of the *same* signal — and some problems are trivial in one view and impossible in the other.
 
 ## The big idea
+<!-- bite: b8fe59b4-2652-478b-8c31-ef433cfcbbd6 -->
 
 > **Any signal can be written as a sum of sinusoids of different frequencies, amplitudes and phases.**
 
@@ -26,6 +32,7 @@ This is **Fourier's theorem**, and it's one of the most consequential ideas in a
 **Neither view is more "real."** They contain identical information — the transform is reversible, losing nothing. You switch to whichever makes your problem easier, which is the whole trick.
 
 ## Why the frequency view is so powerful
+<!-- bite: 0187700c-2952-40ad-9697-13587710aa9f -->
 
 Three things become obvious in the frequency domain that are hard in the time domain:
 
@@ -36,6 +43,7 @@ Three things become obvious in the frequency domain that are hard in the time do
 **3. Structure appears.** A heartbeat's rhythm, a rotating machine's vibration signature, the pitch of a voice — periodic structure that's buried in the time wiggle shows up as clear peaks in the spectrum.
 
 ## The Fourier family
+<!-- bite: 1d8446ea-a7cb-4aa0-82b7-3934b335ea70 -->
 
 There are four Fourier transforms, and the differences are just "is the signal periodic/aperiodic, continuous/discrete." You mostly use the last one, but the family clarifies which is which:
 
@@ -49,6 +57,7 @@ There are four Fourier transforms, and the differences are just "is the signal p
 **The DFT is the practical one** — it takes `N` samples in and gives `N` frequency values out, all discrete and finite, so a computer can actually compute it. Everything a program does is a DFT (usually via its fast algorithm, the [[digital-signal-processing/04-the-fft|FFT]]).
 
 ## Reading a DFT output
+<!-- bite: 4d0a331d-77ed-42f0-853a-b116b4675d2a -->
 
 The DFT of `N` samples gives `N` complex numbers, one per **frequency bin**. Each complex number encodes two things:
 
@@ -60,16 +69,19 @@ The bins span from 0 (DC, the average) up to the [[digital-signal-processing/02-
 **Frequency resolution** = `fs / N`: more samples → finer bins → you can distinguish closer frequencies. This is a fundamental trade — capturing more time gives better frequency resolution, which is the seed of the [[digital-signal-processing/07-spectral-analysis|time-frequency uncertainty]].
 
 ## Why complex numbers?
+<!-- bite: 7c5580c0-491d-4489-a0bb-2595f9c993ed -->
 
 DSP is full of `e^{jω}` and complex spectra, which can feel like unnecessary abstraction. The reason is clean: **a complex exponential `e^{jωt}` is a rotating point** — it encodes both a cosine (real part) and a sine (imaginary part) at once, and rotation is the natural language of oscillation → [[mathematics/02-discrete-math/index|the maths]].
 
 Practically, the two numbers per frequency (real/imaginary, or magnitude/phase) *are* amplitude-and-timing. Complex numbers aren't a complication bolted on; they're the compact, correct way to carry "how much *and* when" for each frequency. Euler's formula `e^{jθ} = cos θ + j·sin θ` is the bridge.
 
 ## Key insight
+<!-- bite: c9c792e3-484a-4228-8275-800107ac790f -->
 
 **The frequency domain is the same signal seen as "which sinusoids it's made of," and switching to that view is powerful because filtering becomes selection and LTI processing becomes multiplication.** Fourier's theorem — any signal is a sum of sinusoids — is what lets you move between the two views losslessly, and the DFT is the finite, discrete version a computer can actually run. Once you're comfortable that a signal *is* its spectrum, half of DSP becomes "do the easy thing in whichever domain it's easy in."
 
 ## Related
+<!-- bite: d6079a16-bee9-4b80-b8bd-c3a0aa5e0986 -->
 - [[digital-signal-processing/04-the-fft|the FFT]] — the algorithm that computes the DFT fast enough to matter
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] — why "convolution in time = multiplication in frequency"
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — the DFT applied to real, noisy, finite data

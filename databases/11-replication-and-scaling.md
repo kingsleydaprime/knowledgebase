@@ -9,6 +9,7 @@ id: 30e0dd6c-8488-46be-a26c-3b41b703e599
 > **The distributed-systems theory is in [[architecture/04-distributed-systems/index|architecture/04-distributed-systems]]** — consensus, consistency models, CAP, partitioning strategies. **This note is the database-operator's view**: what the knobs do and what breaks.
 
 ## Scale up first
+<!-- bite: 54e4bb7d-fc92-4f41-b744-b3fa48bd554b -->
 
 **The advice that saves the most time**, and it's unfashionable.
 
@@ -26,6 +27,7 @@ id: 30e0dd6c-8488-46be-a26c-3b41b703e599
 > **Distribution multiplies your failure modes.** Every sharded system has partial failures, cross-shard queries, rebalancing, and distributed transactions. **Exhaust vertical scaling first**, and when you do distribute, know exactly which limit forced it.
 
 ## Replication
+<!-- bite: 47a4332b-b3ed-475f-ad46-0834df789c93 -->
 
 **Copy the data to other machines.** The primary reason is **availability**; read scaling is a useful side effect.
 
@@ -80,6 +82,7 @@ GET  /orders    → reads from replica → order isn't there yet
 → [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]]
 
 ## Failover
+<!-- bite: 38241fcc-2897-4977-a83a-b94f30c332bb -->
 
 **What happens when the primary dies**, and it's harder than it looks.
 
@@ -96,6 +99,7 @@ GET  /orders    → reads from replica → order isn't there yet
 **Test it.** **A failover system never exercised does not work.** Schedule failovers deliberately.
 
 ## Partitioning and sharding
+<!-- bite: 74bedb53-f6f3-4be1-9ae7-4a34a30d866f -->
 
 **Split the data across storage.** Two distinct things with confusingly similar names:
 
@@ -128,6 +132,7 @@ GET  /orders    → reads from replica → order isn't there yet
 **Alternatives worth considering first:** Citus (Postgres extension that shards for you), Vitess (MySQL), or a NewSQL database (CockroachDB, TiDB, Spanner) that handles distribution natively — **giving you distributed SQL with transactions, at the cost of higher latency per operation.**
 
 ## Connection pooling
+<!-- bite: 35558835-3200-40d2-8bc3-a37d0475bee1 -->
 
 **Underrated, and often the highest-leverage single change.**
 
@@ -150,6 +155,7 @@ GET  /orders    → reads from replica → order isn't there yet
 **Rule of thumb:** `max_connections` around `2–4 × cores`, with a pooler in front. **More connections than that reduces throughput** — they contend rather than parallelise.
 
 ## Caching
+<!-- bite: cd82bb67-06a9-4504-88ef-005fa719fc13 -->
 
 **The other read-scaling lever.**
 
@@ -172,6 +178,7 @@ GET  /orders    → reads from replica → order isn't there yet
 **Cache penetration** — repeated requests for keys that don't exist bypass the cache entirely. **Cache the negative result.**
 
 ## The order to try things
+<!-- bite: 911f6392-8cd6-4130-ba5d-2344afad8a6a -->
 
 **A rough escalation ladder**, and most systems never leave the first three rungs:
 
@@ -190,6 +197,7 @@ GET  /orders    → reads from replica → order isn't there yet
 ---
 
 ## Related
+<!-- bite: 755d74a0-85d7-4bb8-ac3c-4385f5561664 -->
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — the theory: consensus, CAP, consistency
 - [[databases/10-durability-and-recovery|Durability and Recovery]] — the WAL that replication ships
 - [[databases/mysql-reference|MySQL Reference]] — §18, replication setup concretely

@@ -1,3 +1,7 @@
+---
+id: 18648c62-7dc9-4f6b-a750-30d4fb109cbc
+---
+
 # Trade Studies
 
 > **[Intermediate]** · Choosing between options defensibly — and the ways a weighted-scoring matrix lies to you.
@@ -5,6 +9,7 @@
 A **trade study** (trade-off analysis) is the formal method for choosing between design alternatives. It's what turns "we went with Kubernetes" into a decision with a recorded reason.
 
 ## The method
+<!-- bite: 99010b09-07de-4f73-b6a7-e0c368544b21 -->
 
 1. **State the decision and the constraints** — what's being chosen, and what's non-negotiable
 2. **Generate alternatives** — including "do nothing" and at least one you don't like
@@ -17,6 +22,7 @@ A **trade study** (trade-off analysis) is the formal method for choosing between
 **Steps 4 and 7 are where the value is.** Weighting before scoring stops you reverse-engineering weights to justify the answer you wanted. Recording the reasoning means that in two years, when circumstances change, you can tell whether the decision is still valid — instead of re-litigating from scratch.
 
 ## The matrix
+<!-- bite: 7e25c345-029f-4d0b-9c3d-fcd9dda0a843 -->
 
 | Criterion | Weight | Battery A | Battery B | Battery C |
 |---|---|---|---|---|
@@ -30,6 +36,7 @@ A **trade study** (trade-off analysis) is the formal method for choosing between
 B wins. **Now be suspicious of it**, because this table has four well-known ways of being wrong.
 
 ## How the matrix lies
+<!-- bite: ad8ade37-84fd-4d8a-a83c-4386fd513b5d -->
 
 **1. The weights carry the answer.** Nudge cost from 0.25 to 0.30 and take it from energy density, and A wins. Whoever sets the weights has effectively made the decision, and weights are usually chosen with far less rigour than scores.
 
@@ -48,6 +55,7 @@ B wins. **Now be suspicious of it**, because this table has four well-known ways
 *Defence:* generate alternatives before criteria, and include one a *critic* would propose.
 
 ## Sensitivity analysis, concretely
+<!-- bite: 1a96374e-838e-46d8-a293-b417f4f8cfec -->
 
 The thing that separates a real trade study from a decorated opinion:
 
@@ -58,6 +66,7 @@ The thing that separates a real trade study from a decorated opinion:
 **Report the break-even, not just the winner.** It converts an engineering result into a decision someone can own.
 
 ## Where costs actually live
+<!-- bite: 5e3006e3-5cb7-4762-8ceb-96e96f8972c4 -->
 
 **Purchase price is rarely the number that matters.** Total cost of ownership:
 
@@ -71,6 +80,7 @@ A cheaper component with a shorter service life and a harder replacement procedu
 **In software this is the entire "build vs buy" argument, and it's usually done badly.** The managed service costs $2,000/month and self-hosting is "free" — except the engineer-days to build it, the on-call burden, the upgrade work, the security patching, and the fact that the person who built it will leave. **Engineer time is the dominant term and the one most often excluded.**
 
 ## Recording it
+<!-- bite: d11b7463-01ce-4fd9-94c6-50131f91addc -->
 
 **A trade study nobody can find is a trade study that gets redone.** The software-native form is an **Architecture Decision Record** — one short file per nontrivial decision:
 
@@ -106,12 +116,14 @@ PostgreSQL, managed (RDS).
 This is exactly the `DECISIONS.md` habit in [[software-engineering/01-what-software-engineering-is|the engineering habits]], and it's the same instinct as [[concepts/01-best-practices/05-documentation-practices|documentation practices]].
 
 ## When not to run one
+<!-- bite: aa349f14-341c-41e6-8b4b-1f66fb8af1eb -->
 
 **The method costs more than the decision is worth, most of the time.** Reserve it for decisions that are expensive to reverse, and use judgement for the rest.
 
 The useful test is **reversibility**: a decision you can undo in an afternoon should be made in an afternoon. A decision that commits a supplier, a schema, a public API or a factory tool deserves the full method. Amazon's *one-way vs two-way doors* is the same idea, and the common failure is treating two-way doors as one-way — deliberating for a fortnight over something you could have tried.
 
 ## Related
+<!-- bite: 26c8a858-06c9-43f7-8dd6-6ff16f7acf37 -->
 - [[systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what you're choosing between
 - [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — quantifying the downside
 - [[concepts/01-best-practices/05-documentation-practices|documentation practices]] — ADRs

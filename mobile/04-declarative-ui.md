@@ -1,8 +1,13 @@
+---
+id: 564897b5-c7ec-414d-ab72-c1861edb0eb9
+---
+
 # Declarative UI
 
 **[Intermediate]** — SwiftUI and Compose are the same idea, and it's the idea React had.
 
 ## The kid version first
+<!-- bite: 7fb93fc1-4224-4935-90d0-49563aecfe76 -->
 
 **Old way (imperative):** you build the screen, keep a reference to every label and button, and when data changes you find each one and update it by hand. Miss one and the screen lies.
 
@@ -11,6 +16,7 @@
 **You describe the destination; the framework finds the route.**
 
 ## The shape, on both platforms
+<!-- bite: b8fd0442-134d-4a11-a284-f86bbfc2a020 -->
 
 ```swift
 // SwiftUI
@@ -42,6 +48,7 @@ fun CounterView() {
 **This convergence is the single most useful fact in mobile right now:** learn the model once and it transfers across SwiftUI, Compose, React Native and Flutter.
 
 ## The core rules
+<!-- bite: aba34bfe-15a9-4936-ab91-232145107a66 -->
 
 **1. UI is a function of state.** The same state always produces the same UI. **No hidden mutation** — if the screen shows something not derivable from your state, you have a bug waiting.
 
@@ -54,6 +61,7 @@ fun CounterView() {
 **4. Identity matters in lists.** Both frameworks need stable keys (`id:` in SwiftUI's `ForEach`, `key =` in Compose's `items`) to tell "this item moved" from "this item was replaced". **Without them, lists lose scroll position, animations jump, and state attaches to the wrong row** — the same bug as React's key warning.
 
 ## State hoisting — the pattern to learn
+<!-- bite: 6070685a-4275-4d6b-993b-1aebbbcc60ef -->
 
 **Push state up; pass data down; pass events up.** A component that owns its own state can't be controlled, tested or reused.
 
@@ -68,6 +76,7 @@ fun CounterView() {
 **Make components stateless by default**, and let state live in a view model → [[mobile/05-state-and-architecture|state and architecture]]. This is the same "lifting state up" advice as React, and it's just as load-bearing.
 
 ## Performance
+<!-- bite: 96a281ca-b03e-4fd2-9bc8-9df2f550fdee -->
 
 The framework re-runs your code a lot, so:
 
@@ -78,12 +87,14 @@ The framework re-runs your code a lot, so:
 - **Never allocate in the body.** Creating a formatter or a list inside a composable creates it on every recomposition
 
 ## The legacy systems are not gone
+<!-- bite: 6cf8ea4b-f949-4c41-bf2e-18da506c5e51 -->
 
 **UIKit** (iOS) and **the View system** (Android) are imperative, mature, and still enormous in real codebases. Both platforms provide interop (`UIViewRepresentable`, `AndroidView`), and **most real apps are mixed**.
 
 **Learn the declarative one first** — it's where new code goes — but expect to read the old one, and expect to drop into it for things the new frameworks still don't do well.
 
 ## Accessibility, which is not optional
+<!-- bite: ed1abdcb-9d28-4122-b523-07f9ab5c0623 -->
 
 Both platforms ship strong accessibility support and both stores care:
 
@@ -94,10 +105,12 @@ Both platforms ship strong accessibility support and both stores care:
 - **Test with VoiceOver and TalkBack.** Ten minutes, and it finds things nothing else does → [[frontend/05-cross-cutting/index|accessibility]]
 
 ## Key insight
+<!-- bite: b08fbd8c-0f47-458c-9d7a-04b108fd9919 -->
 
 **SwiftUI, Compose, React Native and Flutter have converged on one model — UI as a pure function of state, with the framework diffing the result.** So the transferable skill isn't a framework; it's the discipline the model demands: narrow state, stateless components, stable keys, and no side effects in the render path.
 
 ## Related
+<!-- bite: 32bca7de-8327-438b-b686-14f8a0fc8802 -->
 - [[mobile/05-state-and-architecture|state and architecture]] — where the state actually lives
 - [[frontend/frameworks/react/index|React]] — the same model, and where it came from
 - [[frontend/06-rendering/index|rendering]] — the general theory

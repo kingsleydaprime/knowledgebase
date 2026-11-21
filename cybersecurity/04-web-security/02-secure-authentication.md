@@ -1,8 +1,13 @@
+---
+id: cf472dee-209a-484a-bdc2-637f5b69159b
+---
+
 # Secure Authentication
 
 Authentication is verifying that someone is who they claim to be — almost always the first thing an attacker targets, since bypassing it skips the need for almost any other vulnerability entirely (see the broken-authentication category in [[07-exploitation-concepts|exploitation-concepts]]). This note is the defensive counterpart: how to actually implement it well.
 
 ## Never store passwords in plaintext, and never use a plain fast hash either
+<!-- bite: 10cde924-384c-4e43-9f8e-f4d3d6dda11f -->
 
 Storing a password directly means a single database breach exposes every user's real password. Storing a plain, fast hash (MD5, SHA-256 alone) is barely better — these algorithms are *designed* to be fast, which means an attacker with the hash database can try billions of guesses per second (see [[08-common-tools|hashcat/John the Ripper]] for exactly this kind of cracking in action).
 
@@ -19,10 +24,12 @@ bcrypt.checkpw(password, hashed)   # True if it matches, without ever needing to
 ```
 
 ## Salting — why two identical passwords shouldn't produce identical hashes
+<!-- bite: 73d5dd93-845f-490a-b277-89065b176d44 -->
 
 A **salt** is random data mixed into the password before hashing, unique per user, stored alongside the hash. Without it, two users with the same password get the exact same hash — visible to anyone with database access — and precomputed "rainbow table" lookups become effective against the whole database at once. With per-user salting, each password has to be attacked individually, even if two users happen to share a password. Modern libraries like bcrypt handle salting automatically, which is part of why using an established library instead of hand-rolling hashing matters.
 
 ## Multi-Factor Authentication (MFA)
+<!-- bite: f052bd22-5c5b-4d9e-8e54-05ea45330eb2 -->
 
 Authentication based on a password alone relies entirely on "something you know" — MFA adds a second, independent factor: "something you have" (a phone generating a time-based code, a hardware key) or "something you are" (biometrics). The security value comes specifically from independence — a leaked/guessed password alone is no longer sufficient, since the attacker also needs the second factor, which typically requires a completely different compromise (physical device access, for instance).
 
@@ -33,6 +40,7 @@ independently computable by both the server and the user's authenticator app wit
 ```
 
 ## Session management — staying authenticated after login
+<!-- bite: b8d66935-a8cb-4c1b-a3b7-b3947c9f5ca7 -->
 
 Once authenticated, a **session token** (commonly stored in a cookie) represents "this request comes from an already-authenticated user," so the user doesn't have to re-authenticate on every single request. Getting this right matters as much as the login step itself:
 
@@ -41,16 +49,19 @@ Once authenticated, a **session token** (commonly stored in a cookie) represents
 - Sessions should expire, and critically, should be invalidated server-side on logout — a session token that still works after "logout" because only the client-side cookie was cleared is a common, subtle bug.
 
 ## JWTs — a common but frequently misused alternative
+<!-- bite: 8ad9c4cb-852f-4a94-ae33-bc7ded68bc19 -->
 
 JSON Web Tokens are a popular way to represent authentication state without server-side session storage — the token itself carries the claims (user ID, roles), cryptographically signed so tampering is detectable. Common pitfalls: accepting a token with `"alg": "none"` (some libraries historically trusted this, allowing an attacker to submit an unsigned, self-asserted token), and simply not validating the signature at all on the server side before trusting the token's contents. A JWT's claims should never be trusted unless the signature has been verified against the expected algorithm and key.
 
 ## Gotchas
+<!-- bite: 28d5cc89-5229-4ae3-867f-9fe847b07185 -->
 
 - Rolling your own authentication/hashing scheme instead of using a well-vetted library or identity provider is one of the most common sources of serious vulnerabilities in this area — this is a place where "don't reinvent it yourself" is genuinely the professional default, not laziness.
 - Password complexity *requirements* (forcing special characters, frequent forced rotation) are increasingly considered less effective than simply requiring length and checking against known-breached password lists — current guidance (NIST) has moved away from the older complexity-rule-heavy approach.
 - Rate limiting login attempts is what actually stops online brute-force guessing (as opposed to the offline cracking covered in [[08-common-tools|common-tools]]) — an authentication endpoint with no attempt limiting is directly exploitable regardless of how strong the hashing is.
 
 ## Related
+<!-- bite: 71c2be61-66b5-412b-8b16-be7086477c74 -->
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input-validation-and-output-encoding]]
 - [[03-https-and-tls|https-and-tls]]
 - [[07-exploitation-concepts|exploitation-concepts]]

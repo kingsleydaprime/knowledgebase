@@ -1,3 +1,7 @@
+---
+id: 4b27d3f4-feda-44c5-870a-f6d564bc62fd
+---
+
 # Module: Greedy Algorithms (Locally Optimal, Globally Correct)
 
 Welcome to the **Greedy Algorithms** module. A greedy algorithm builds a solution step-by-step by always making the **locally best choice** at each step—with no backtracking and no reconsidering past decisions.
@@ -7,6 +11,7 @@ The appeal is speed: greedy solutions are often dramatically faster than dynamic
 ---
 
 ## Before you start
+<!-- bite: 5694ba97-690d-44a6-8d81-e47280de7f01 -->
 
 - You can reason about complexity — [[01-growth-and-asymptotic-notation|complexity analysis]].
 - You have seen sorting used as a preprocessing step — [[05-sorting/index|sorting]].
@@ -24,6 +29,7 @@ The appeal is speed: greedy solutions are often dramatically faster than dynamic
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 5477bf46-bedf-45df-b4a6-e2a366f57956 -->
 
 Imagine navigating a **mountain hiking trail** to maximize altitude gain:
 
@@ -51,6 +57,7 @@ The greedy algorithm fails here because a locally attractive choice locks out a 
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: d652a642-be35-49de-88cc-03b9d0b74687 -->
 
 | Term | Plain-English Definition | Analogy |
 | :--- | :--- | :--- |
@@ -62,6 +69,7 @@ The greedy algorithm fails here because a locally attractive choice locks out a 
 ---
 
 ## 3. The Classic Trap: Coin Changing
+<!-- bite: 0eca016c-a002-4f2e-87e5-043060993750 -->
 
 **Problem**: Given coin denominations, make a target amount using the fewest coins.
 
@@ -87,6 +95,7 @@ def greedy_coin_change(denominations: list, amount: int) -> list:
 ---
 
 ## 4. A Provably Correct Greedy: Canoe Pairing
+<!-- bite: 2e43934d-8750-41f8-9f3b-0d0f60dd5e6d -->
 
 **Problem**: Pair $N$ people (with known weights) into canoes of maximum capacity $k$. Minimize the number of canoes.
 
@@ -119,6 +128,7 @@ We can safely commit to this greedy choice and reduce the problem to the remaini
 ---
 
 ## 5. Greedy vs. Dynamic Programming Decision Guide
+<!-- bite: b278abf3-6fc4-428d-ae3d-6af845b25009 -->
 
 | Signal | Use |
 | :--- | :--- |
@@ -132,6 +142,7 @@ We can safely commit to this greedy choice and reduce the problem to the remaini
 ---
 
 ## 6. Time & Space Complexity
+<!-- bite: 80dbc5b3-8ac5-4cc7-9d76-fef7acc95217 -->
 
 Greedy algorithms typically achieve:
 - **Time**: $O(n \log n)$ (dominated by sorting to find the locally optimal choice).
@@ -142,6 +153,7 @@ The canoe pairing example is characteristic: sort once in $O(n \log n)$, then a 
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: 892152bb-3e8c-45d6-ad45-54a8ea2b7e2e -->
 
 **Runnable example:** save as `greedy.py` in any empty directory and run `python3 greedy.py`. Standard library only; writes no files.
 
@@ -382,6 +394,7 @@ greedy: passed
 Block 4 is worth sitting with: greedy coin change is correct for British and US coins and **wrong** for $\{1,3,4\}$. The algorithm did not change — the input did.
 
 ## 7. Common Pitfalls & Traps
+<!-- bite: aee42f7e-20fb-4030-9866-4d053a001689 -->
 
 1. **Applying Greedy Without Proof**: The largest-first coin change *feels* obviously correct but fails on certain denomination sets. Always verify with the exchange argument or a counterexample.
 2. **Confusing Greedy with Heuristics**: A greedy algorithm is an exact algorithm that produces the globally optimal answer when applicable. It is **not** a heuristic approximation.
@@ -390,6 +403,7 @@ Block 4 is worth sitting with: greedy coin change is correct for British and US 
 ---
 
 ## 8. Check Your Understanding (University Self-Assessment)
+<!-- bite: 20f7256d-3217-4ab6-b1db-f506541f1c45 -->
 
 1. **Question**: Why does the greedy largest-denomination-first coin change algorithm fail for denominations `{1, 3, 4}` when making change for 6?
    - <details><summary>Click for Answer</summary><b>Answer:</b> The greedy picks 4 first (locally largest ≤ 6), leaving 2, which requires two 1-coins → 3 total coins. But choosing 3+3 uses only 2 coins. Taking 4 greedily closes off the 3+3 path.</details>
@@ -403,6 +417,7 @@ Block 4 is worth sitting with: greedy coin change is correct for British and US 
 ---
 
 ## Practice — independent task
+<!-- bite: f8311809-9012-4512-8b25-7f48f5e651f5 -->
 
 Write `is_canonical(coins, limit)` — decide whether greedy coin change is optimal for a given coin system.
 
@@ -417,6 +432,7 @@ Write `is_canonical(coins, limit)` — decide whether greedy coin change is opti
 **Done when:** your classifier gets all four known systems right, your random-system fraction is backed by a number you measured, and your designed set genuinely beats the US average.
 
 ## Before moving on
+<!-- bite: 03e9c3d4-59f5-4d69-afb6-9a61a2b0bbcb -->
 
 You can state both properties, prove a greedy choice with an exchange argument, and produce a failing case on demand.
 
@@ -425,5 +441,6 @@ You can state both properties, prove a greedy choice with an exchange argument, 
 **Next:** [[10-max-slice-algorithms|Max Slice]] — Kadane's algorithm, which is greedy and DP at the same time.
 
 ## Related Modules
+<!-- bite: cb994672-62c2-458d-9424-b4d39b9ef302 -->
 - [[05-sorting/index|Sorting Algorithms]] — Most greedy algorithms begin with a sort
 - [[02-two-pointers|Two Pointers Pattern]] — Structural shape of the canoe pairing solution

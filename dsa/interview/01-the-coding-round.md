@@ -1,3 +1,7 @@
+---
+id: f3538426-e31d-4c84-8a96-6ffa49dbb66f
+---
+
 # DSA Interview — The Coding Round
 
 From [[dsa/index|the DSA course]]. **This note is about method, not problems.** The problems are in [[dsa/neetcode-150/interview-playbook|the NeetCode playbook]]; what most people are actually missing is the process around them.
@@ -5,6 +9,7 @@ From [[dsa/index|the DSA course]]. **This note is about method, not problems.** 
 ---
 
 ## The method (use it on every problem, including easy ones)
+<!-- bite: 2fd7ee88-ec30-46c9-937f-668b1b9aa8a4 -->
 
 **1. Restate and clarify — 2 minutes, always.**
 Say the problem back in your own words. Then ask about the things that change the answer:
@@ -36,6 +41,7 @@ Say the problem back in your own words. Then ask about the things that change th
 ---
 
 ## What actually gets people rejected
+<!-- bite: 92aee3fe-f470-4090-a867-2e7909ff6694 -->
 
 Ranked by how often it happens, not by severity:
 
@@ -49,6 +55,7 @@ Ranked by how often it happens, not by severity:
 ---
 
 ## Complexity talk that sounds senior
+<!-- bite: 3b6960e3-bf01-457f-b9d8-a59a76a50da1 -->
 
 - **Amortised vs worst case.** `ArrayList.add` is amortised O(1) — most appends are O(1), a resize is O(n), averaged over n appends it's constant. Say "amortised" and mean it.
 - **Space includes the call stack.** A recursive solution on a skewed tree is O(n) space, not O(1). This gets missed constantly.
@@ -58,6 +65,7 @@ Ranked by how often it happens, not by severity:
 ---
 
 ## Things worth knowing cold
+<!-- bite: d2004bd1-1970-4a79-9944-637d04c38af3 -->
 
 Not to recite — to *use* without slowing down:
 
@@ -71,12 +79,14 @@ Not to recite — to *use* without slowing down:
 ---
 
 ## The pattern lookup
+<!-- bite: d98641de-51e6-43f2-b6bc-044a6f33a6c0 -->
 
 Kept in [[dsa/interview/index|the folder README]] — the table mapping "what the problem says" to "what to reach for." If you internalise one thing from this folder, make it that table plus **binary search on the answer**.
 
 ---
 
 ## Practice that actually works
+<!-- bite: 698b42a5-9233-4ee7-a8fc-8371f4693982 -->
 
 - **Solve, then re-solve from scratch three days later.** Recognition is not recall. If you can't reproduce it cold, you didn't learn it.
 - **Do them out loud, standing up, on a timer.** Interviews are a performance under time pressure; practising silently at your own pace trains the wrong skill.

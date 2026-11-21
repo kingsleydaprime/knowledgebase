@@ -1,3 +1,7 @@
+---
+id: 92a6e212-e6c1-4d84-b40d-c8a93ef96c27
+---
+
 # The Simplex Method
 
 **[Intermediate]** — The algorithm that made linear programming practical: walk from corner to neighbouring corner, always uphill, and stop when no neighbour is better. Traced by hand on the workshop, then implemented in sixty lines of Python.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
+<!-- bite: 9eb51a81-16db-409e-9d19-6e7fa181351e -->
 
 You need the algebra of corners: standard form, slack variables, and what a basic solution is → [[operations-research/03-the-geometry-of-linear-programs|note 03]]. You need to be able to do row operations on a set of equations (divide a row by a number, subtract a multiple of one row from another) → [[mathematics/04-linear-algebra/index|linear algebra]].
 
@@ -18,16 +23,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–3, then **close the note** and redo the workshop tableau on paper. Then sections 4–6 and the code.
 
 ## The kid version
+<!-- bite: f32bab18-ab2a-438a-8f7f-daa0d77f457e -->
 
 You're on a big crystal, standing on one of its corners, and you want to reach the highest corner. You can't see the whole crystal — only the edges leaving the corner you're on. So you look at each edge, pick one that goes uphill, and walk along it to the next corner. Repeat. When every edge from where you stand goes downhill, you're at the top. **The simplex method is that walk, done with arithmetic instead of eyes.**
 
 **Where the analogy stops working.** On a real bumpy rock, "no uphill edge" might just be a small peak. On an LP's region it's guaranteed to be the true top, because the region is convex and the objective is flat — there are no small peaks. That guarantee is why the simplex method can stop with certainty.
 
 ## 1. Why this exists
+<!-- bite: 69b9e700-a615-4982-8a59-c9ccd5705a30 -->
 
 Note 03 showed that the optimum is at a corner, and that there can be $10^{40}$ corners. George Dantzig's insight in 1947 was that you don't need to look at them all: **start at any corner, move to a better neighbour, repeat.** In practice the method visits a small multiple of the number of constraints — for a model with 1,000 constraints, typically a few thousand pivots, not $10^{40}$.
 
 ## Terms used in the simplex method
+<!-- bite: fa00672d-ad8f-415e-b4a6-8fee94783eae -->
 
 1. **Tableau**: This is a table holding the coefficients of the standard-form equations, plus a row for the objective. It's the simplex method's working surface.
 2. **Basis**: This is the set of basic variables at the current corner — one per constraint. Changing the basis by one variable moves you to a neighbouring corner.
@@ -39,6 +47,7 @@ Note 03 showed that the optimum is at a corner, and that there can be $10^{40}$ 
 8. **Degenerate**: A corner is degenerate when a basic variable equals zero. A pivot from it can leave you at the same point, which is how the method can stall.
 
 ## 2. The tableau
+<!-- bite: 6ac185c5-aa5d-40fa-95c1-77153069e9f4 -->
 
 Start from the workshop in standard form (from note 03), and write the objective as an equation too:
 
@@ -60,6 +69,7 @@ The starting tableau puts the slacks in the basis. That's corner A: make nothing
 Read it as: $s_1 = 240$, $s_2 = 100$, $x_1 = x_2 = 0$, profit 0.
 
 ## 3. The method, step by step
+<!-- bite: e0a2be11-ad31-4fc1-8bd4-bba3ed840a50 -->
 
 Each iteration has three steps: **choose who enters, choose who leaves, pivot.**
 
@@ -138,6 +148,7 @@ Three things fall out of the final tableau for free:
 3. **The shadow prices** are the objective-row entries under the slack columns: 1.5 for carpentry, 0.5 for finishing. That equation $z = 410 - 1.5s_1 - 0.5s_2$ says forcing one carpentry hour to stay idle costs ₦1,500. Equivalently, one *extra* carpentry hour would earn ₦1,500. These match the solver in note 02, and they're the subject of [[operations-research/05-duality-and-sensitivity|note 05]].
 
 ## 4. When things go differently
+<!-- bite: c4103dfd-f3f8-4cfd-9382-ca446c5dcc46 -->
 
 ### Unbounded
 
@@ -157,6 +168,7 @@ The tableau starts easily when every constraint is $\le$ with a non-negative rig
 2. **Big-M method.** Put the artificials into the real objective with a huge penalty $M$, so the method drives them out on its own. Simpler to explain but numerically fragile, because $M$ has to be "big enough" and big numbers lose precision.
 
 ## 5. How fast is it?
+<!-- bite: b03d0973-b211-4b2a-8be0-46c4d1b03b9a -->
 
 **In practice, very fast.** The number of pivots is typically between $m$ and $3m$ for $m$ constraints, and modern solvers handle LPs with millions of variables.
 
@@ -167,6 +179,7 @@ The tableau starts easily when every constraint is $\le$ with a non-negative rig
 Real solvers also don't store the full tableau. The **revised simplex method** keeps only the basis matrix in factored form, which is far faster and more stable on large sparse models.
 
 ## Worked example — a tableau simplex in Python
+<!-- bite: b2503019-487c-4572-b354-1211fb839834 -->
 
 **Runnable**, standard library only, Python 3.10+. It solves $\max\; c \cdot x$ subject to $Ax \le b$, $x \ge 0$, with $b \ge 0$ (so the slacks give a starting corner). It deliberately omits phase one, Bland's rule and numerical safeguards.
 
@@ -224,6 +237,7 @@ x = [30.0, 40.0] z = 410.0 shadow prices = [1.5, 0.5]
 **What the code is doing:** `col` is the entering choice, `ratios` is the ratio test, and the two list comprehensions after it are the pivot. The `1e-9` tolerances exist because floating-point arithmetic doesn't give exact zeros; a real solver manages these tolerances far more carefully.
 
 ## Common pitfalls and traps
+<!-- bite: c717b9fa-d4b6-40de-ba10-26a885df4180 -->
 
 1. **Ratio test on non-positive entries.** Only rows with a *positive* entry in the entering column take part. A zero or negative entry means that basic variable doesn't fall as the entering one rises.
 2. **Sign convention confusion.** This note writes the objective row as $z - c^\top x = 0$, so "negative means improve". Some textbooks use the opposite. Pick one and say which.
@@ -231,6 +245,7 @@ x = [30.0, 40.0] z = 410.0 shadow prices = [1.5, 0.5]
 4. **Assuming "most negative" is best.** Dantzig's rule picks the best rate *per unit*, not the biggest gain. Other rules (steepest edge) often need fewer pivots, and that's what real solvers use.
 
 ## Check your understanding
+<!-- bite: 357a8eea-0618-4532-b502-682a549667fb -->
 
 1. In iteration 1, what would the tableau represent if you had (wrongly) chosen $s_1$ to leave?
 2. Why does a column with no positive entries mean unbounded, not infeasible?
@@ -248,6 +263,7 @@ x = [30.0, 40.0] z = 410.0 shadow prices = [1.5, 0.5]
 </details>
 
 ## Practice — independent task
+<!-- bite: 08e257d0-51fe-4589-ae24-7e82f02984a6 -->
 
 1. **Predict, then run.** Use `simplex` on the paint problem from [[operations-research/02-formulating-linear-programs|note 02]]: `simplex([5, 4], [[6, 4], [1, 2], [-1, 1], [0, 1]], [24, 6, 1, 2])`. Before running, predict how many pivots it takes. Confirm the answer is $(3, 1.5)$ with profit 21.
 2. **Modify.** Add a check: if `step` exceeds 1,000, raise `RuntimeError("possible cycling")`.
@@ -257,6 +273,7 @@ x = [30.0, 40.0] z = 410.0 shadow prices = [1.5, 0.5]
 **Done when:** all three tests pass under both rules, and you can explain why the degenerate test's ratio test ties.
 
 ## Before moving on
+<!-- bite: 2ced867f-7956-4845-a9dc-15e501844aee -->
 
 You're ready when you can run two simplex iterations on paper with the note closed, explaining "who enters, who leaves, and why" at each one, and read the shadow prices off the final tableau.
 
@@ -271,6 +288,7 @@ You're ready when you can run two simplex iterations on paper with the note clos
 **Next:** [[operations-research/05-duality-and-sensitivity|Duality and Sensitivity]] — those shadow prices, what they really mean, and how far you can trust them.
 
 ## Related
+<!-- bite: 9d9cace6-adf4-4353-8b91-d1c4a6ca18fe -->
 
 - [[operations-research/03-the-geometry-of-linear-programs|The Geometry of Linear Programs]] — the corners being walked
 - [[operations-research/05-duality-and-sensitivity|Duality and Sensitivity]] — the next note

@@ -1,8 +1,13 @@
+---
+id: 1a468ea4-9343-4012-b991-5e1dee4b6711
+---
+
 # SVM, KNN & Naive Bayes
 
 **[reference]** — from the roadmap.sh `machine-learning` roadmap. Three more classic supervised algorithms, each with a distinct idea worth knowing and a niche where it shines.
 
 ## Support Vector Machines (SVM)
+<!-- bite: e11fd089-9e1c-4b08-b5d4-9ca67fc59021 -->
 
 An SVM finds the decision boundary that **maximizes the margin** — the widest possible gap between the two classes. The points sitting on the edge of that gap (the "support vectors") are the only ones that matter; the rest don't affect the boundary.
 
@@ -16,6 +21,7 @@ SVC(kernel="rbf", C=1.0).fit(X_train, y_train)   # rbf = the common non-linear k
 Strong on **small-to-medium datasets with clear margins** and high-dimensional data (text classification historically). The catch: **doesn't scale** to very large datasets (training is roughly quadratic), needs feature scaling, and the kernel/`C`/`gamma` choices need tuning. Largely superseded by gradient boosting for tabular and by deep learning for text/images, but conceptually important and still useful on the right small problem.
 
 ## K-Nearest Neighbors (KNN)
+<!-- bite: 42ba8cfb-2b50-424b-8750-60088c72e759 -->
 
 The laziest algorithm, and the most intuitive: to classify a new point, find its `k` nearest points in the training data and take the majority vote (or average, for regression). There's **no training** — it just stores the data and does all the work at prediction time.
 
@@ -31,6 +37,7 @@ KNeighborsClassifier(n_neighbors=5).fit(X_train, y_train)
 The *idea* — "similar inputs have similar outputs, measured by distance" — is exactly the intuition behind [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|semantic search over embeddings]], which is essentially KNN in a learned vector space.
 
 ## Naive Bayes
+<!-- bite: 33fab239-45f7-436a-84e7-8e7eda1e4676 -->
 
 Applies [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/03-bayes-theorem|Bayes' theorem]] with a "naive" assumption: that all features are independent given the class. That assumption is almost always false, yet the model works surprisingly well anyway — especially for **text classification** (spam filtering, sentiment):
 
@@ -42,6 +49,7 @@ MultinomialNB().fit(X_train, y_train)   # great for word-count / TF-IDF text fea
 Extremely fast to train and predict, works with little data, and a strong baseline for text. Its probability estimates are poorly calibrated (the independence assumption), so trust the *ranking* more than the exact probabilities.
 
 ## Choosing among them
+<!-- bite: beb3e8cf-9414-4b9b-bd30-42f274a7a78b -->
 
 | Algorithm | Shines when | Avoid when |
 |---|---|---|
@@ -52,6 +60,7 @@ Extremely fast to train and predict, works with little data, and a strong baseli
 All three are worth recognizing, but for most tabular problems [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|gradient boosting]] will beat them — these earn their place on specific data shapes (SVM on clean small margins, Naive Bayes on text, KNN as a dead-simple baseline).
 
 ## Related
+<!-- bite: f8d0ed49-d653-43a5-b7b9-0e413d6ee7e7 -->
 - [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|Trees & Ensembles]] — the usual stronger default
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/03-bayes-theorem|Bayes' Theorem]] — the basis for Naive Bayes
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — KNN's idea applied at scale

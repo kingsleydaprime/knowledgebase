@@ -1,8 +1,13 @@
+---
+id: 182bac82-4bd3-4c3e-b2ac-773822661071
+---
+
 # Vectors
 
 A vector is an ordered list of numbers: `[0.2, -1.4, 3.0]`. That's the entire mechanical definition — what makes vectors matter for ML is what they're used to *represent*.
 
 ## What a vector represents in ML
+<!-- bite: 50551e3f-7dd0-44da-9edb-7a28a471bc0d -->
 
 Almost everything a model touches gets turned into a vector first:
 
@@ -17,14 +22,17 @@ house = np.array([1800, 15, 2])   # [sqft, age_years, distance_to_city_km]
 ```
 
 ## Geometric intuition — a vector is a point, and a direction
+<!-- bite: 32bcb658-16b2-4f90-991b-6726d413ff66 -->
 
 A vector can be read two ways, both useful: as a **point** in space (this specific house sits at this coordinate in feature-space), or as an **arrow** from the origin to that point (a direction and a magnitude). The second reading is what makes "vectors that point in similar directions represent similar things" a meaningful statement rather than just a numerical coincidence — see [[03-dot-product|dot-product]] for how that similarity is actually computed.
 
 ## Dimensionality
+<!-- bite: e9fb8022-2334-4b6a-8b10-4c20aeb5e444 -->
 
 The number of entries in a vector is its dimensionality. A house-price vector might have 3-10 dimensions (a handful of features); a modern LLM's embedding vectors commonly have hundreds to low thousands of dimensions — far too many to visualize directly, but the same arithmetic (addition, scaling, dot products) applies regardless of how many dimensions there are.
 
 ## Basic operations
+<!-- bite: f6337c6f-dd5f-4eeb-be53-5f1621c8f1c3 -->
 
 ```python
 a = np.array([1, 2, 3])
@@ -38,11 +46,13 @@ np.linalg.norm(a)   # 3.74 — magnitude/length of the vector
 Vector addition and scaling are what make "move the parameters a little in this direction" (training) and "combine two embeddings" (some retrieval/averaging techniques) well-defined operations rather than hand-wavy ideas.
 
 ## Gotchas
+<!-- bite: d8f81e70-ddb5-4716-8761-3b2ba417a214 -->
 
 - Two vectors need to be the **same dimensionality** to be added, subtracted, or dot-producted — a common source of shape-mismatch errors when working with real ML code, since it's easy to lose track of a vector's exact size several transformations later.
 - A vector's raw magnitude can be misleading on its own — two embeddings can point in very similar directions (semantically similar) while having different lengths, which is exactly why similarity is usually measured via the *angle* between vectors (cosine similarity, built on the dot product) rather than raw distance.
 
 ## Related
+<!-- bite: 62dbafa4-c999-4032-b382-9a573bf47eed -->
 - [[03-dot-product|dot-product]]
 - [[02-matrices|matrices]]
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|llms]] — embeddings are vectors

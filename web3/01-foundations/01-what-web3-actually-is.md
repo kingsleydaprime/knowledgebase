@@ -1,8 +1,13 @@
+---
+id: 7d7c99e6-14a3-4632-a823-32eaaa748e16
+---
+
 # What Web3 Actually Is
 
 **[Beginner]** — the vocabulary, the one technical claim underneath all of it, and how to tell the engineering from the marketing. Assumes nothing.
 
 ## The kid version first
+<!-- bite: 4c59189b-0375-4dc1-8b66-5ca7ceaa85d0 -->
 
 Normally, when you own something digital — money in a bank, a username, an item in a game — **one company keeps the list that says you own it.** They can edit that list. You trust them not to.
 
@@ -11,6 +16,7 @@ A blockchain is a way for **thousands of strangers to each keep a copy of the sa
 Everything else — coins, NFTs, DeFi, DAOs — is an application built on "we can all agree on a list without a boss."
 
 ## The terms, disentangled
+<!-- bite: 3c9955d4-1920-43a2-a4e4-6190296a6c9a -->
 
 The words get used interchangeably by people selling things. They are not the same:
 
@@ -28,6 +34,7 @@ The words get used interchangeably by people selling things. They are not the sa
 **"Web3" is the weakest of these terms** — it describes a vibe and an investment thesis more than a technology. The engineering underneath is real; the term is not load-bearing. This folder uses it because that's what the field is called, not because it's a good name.
 
 ## The one technical claim
+<!-- bite: 0729e058-8032-4147-84cc-fb57b570af03 -->
 
 Strip away everything else and a blockchain makes exactly one novel offer:
 
@@ -42,6 +49,7 @@ Three parts, all necessary:
 **Remove the third and you don't need a blockchain.** A Postgres database with an audit log and signed writes gives you (1) and (2) at a millionth of the cost. This is the single most useful test to apply to any blockchain proposal, and it kills most of them → [[web3/08-the-honest-assessment/01-what-blockchains-are-actually-good-for|what blockchains are actually good for]].
 
 ## What you give up to get it
+<!-- bite: 3ae4effb-f1dc-4123-8894-1ea53222d855 -->
 
 The trade is real and steep:
 
@@ -54,6 +62,7 @@ The trade is real and steep:
 A blockchain is **a very slow, very expensive, very public computer that nobody owns.** You pay all of that for the "nobody owns" part. When that property is worth it, nothing else does the job. When it isn't, you have built a bad database.
 
 ## Public, private, permissioned
+<!-- bite: 03abbebc-295e-4488-844e-e70f3e9a5fdc -->
 
 - **Public / permissionless** (Bitcoin, Ethereum) — anyone can read, write, and run a node. The decentralisation claim is meaningful
 - **Permissioned / consortium** (Hyperledger Fabric, R3 Corda) — a known set of organisations run the nodes. Useful in narrow inter-company settlement cases; **mostly a replicated database with extra steps**, and the enterprise-blockchain wave of 2016–2020 largely ended in that realisation
@@ -62,6 +71,7 @@ A blockchain is **a very slow, very expensive, very public computer that nobody 
 This folder is about **public chains**, because that's where the interesting engineering and the actual use cases are.
 
 ## The layers, so you know where you are
+<!-- bite: bdbea89e-358b-4ee6-acaf-7c368f237e2b -->
 
 ```
    Application    DeFi protocols, NFT markets, DAOs, games
@@ -80,10 +90,12 @@ This folder is about **public chains**, because that's where the interesting eng
 The rest of this course walks up that stack: [[web3/01-foundations/index|01-foundations]] covers data through consensus, [[web3/02-ethereum-and-the-evm/index|02]] covers execution, [[web3/03-smart-contracts-with-solidity/index|03]] the contract layer, [[web3/07-the-application-layer/index|07]] the top.
 
 ## Key insight
+<!-- bite: 0f6f9e61-9c65-405f-bcca-222ee05b26ab -->
 
 **The blockchain is not a better database. It's a worse database with one property no database has** — that it keeps working when the parties running it actively want to cheat each other. Every design decision in this folder, and every cost, follows from buying that one property.
 
 ## Related
+<!-- bite: 70f21b62-f421-41d5-a080-64d3879e8c07 -->
 - [[web3/01-foundations/02-the-double-spend-problem|the double-spend problem]] — why this needed inventing at all
 - [[web3/08-the-honest-assessment/index|the honest assessment]] — read this early, not last
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|what makes distributed systems hard]] — the field this is a subfield of

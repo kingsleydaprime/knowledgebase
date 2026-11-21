@@ -1,3 +1,7 @@
+---
+id: cfe840da-c3ca-4c72-9200-46d67217f1ee
+---
+
 # Archiving and Transferring Files
 
 > RHCSA V10 — added after reviewing the official RH134 course book (Red Hat System Administration II, RHEL 10.0), which gives this its own two chapters not previously covered in this folder in any depth (the RHCSA README only pointed to a brief `tar`/`scp` mention in [[devops/01-linux/linux-reference|Linux Reference]]).
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Two related but distinct p
 ---
 
 ## tar — bundling files into one archive
+<!-- bite: 56ea69c0-e05e-4305-870e-74dfbf89f940 -->
 
 An archive is one file that contains many — the same idea as a `.zip`, but the Linux-native tool is `tar` ("tape archive," from its original purpose). `tar` needs exactly one **action** flag plus almost always `-f` to name the archive file:
 
@@ -46,6 +51,7 @@ A permissions gotcha worth knowing: extracting as a regular user makes *you* the
 ---
 
 ## Transferring files over SSH
+<!-- bite: 54200ce2-40f1-4d59-9985-be82bf268eb9 -->
 
 Three tools, same underlying secure channel (SSH), different shape:
 
@@ -104,6 +110,7 @@ A source directory *with* a trailing slash means "the contents of this directory
 ---
 
 ## Which tool for which job
+<!-- bite: 2e43224c-8256-4ae3-bdcf-18c9965a6bfb -->
 
 | Need | Tool |
 |---|---|

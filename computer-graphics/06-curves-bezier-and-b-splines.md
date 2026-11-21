@@ -1,3 +1,7 @@
+---
+id: fde8507f-8697-4903-9b04-85923d54a9a9
+---
+
 # Curves: Bézier and B-splines
 
 **[Intermediate → Advanced]** — Implicit, explicit and parametric curves; affine and barycentric combinations; where the Bézier weights come from; position, velocity, de Casteljau and splitting; B-splines and the Cox–de Boor recursion; Chaikin corner cutting; and drawing a curve with straight lines to a tolerance.
@@ -5,6 +9,7 @@
 > Part 1 of the course. [[computer-graphics/15-geometry-and-meshes|Note 15]] gives the big picture (NURBS, subdivision surfaces, CAD versus real-time). **This note is the hand-calculation version that SSG 511 Q1(c) is worth 15 marks on.**
 
 ## Before you start
+<!-- bite: 5e87a314-f986-4d38-9d66-0904a266c15e -->
 
 You can add vectors and multiply them by numbers, expand $(a + b)^2$ and $(a + b)^3$, and differentiate a polynomial.
 
@@ -15,6 +20,7 @@ You can add vectors and multiply them by numbers, expand $(a + b)^2$ and $(a + b
 4. Explain local versus global control, and what the B-spline knot vector does.
 
 ## The kid version
+<!-- bite: 64ad974d-4030-4efe-bfd9-38ba6f2d6e65 -->
 
 Stick a pin in a board at the start and another at the end, and add a couple of "magnet" pins in between. A bendy wire runs from the first pin to the last and is pulled towards the magnets without usually touching them. Move a magnet and the wire bends. **That wire is a Bézier curve, and the pins are its control points.**
 
@@ -23,6 +29,7 @@ There's a neat way to find any point on it: join the pins with straight lines, m
 **Where the analogy stops working.** With a Bézier curve, moving *any* magnet nudges the whole wire, even far away. B-splines fix that: each control point only influences a nearby stretch.
 
 ## Terms used in curves
+<!-- bite: 8f4e1361-be36-4c57-b555-b7c5a125348a -->
 
 1. **Control point**: This is one of the points $P_0, \dots, P_n$ that shape the curve.
 2. **Control polygon**: This is the polyline joining the control points in order.
@@ -36,6 +43,7 @@ There's a neat way to find any point on it: join the pins with straight lines, m
 10. **Local control**: This is the property that moving one control point only changes the nearby part of the curve.
 
 ## 1. Three ways to represent a curve
+<!-- bite: 8499589a-b975-4ac2-b65d-4331780840e8 -->
 
 | Type | Form | Circle of radius $r$ | Strength | Weakness |
 |---|---|---|---|---|
@@ -46,6 +54,7 @@ There's a neat way to find any point on it: join the pins with straight lines, m
 In a parametric curve, $x(t)$ and $y(t)$ give the coordinates while $t$ varies over an interval, usually $[0, 1]$. **Adding $z(t)$ gives a 3D curve.** Bézier curves and B-splines are parametric.
 
 ## 2. Vectors and affine combinations
+<!-- bite: d34df689-e280-4dce-915d-8a6a01ab1d81 -->
 
 A **vector** has magnitude and direction. It can stand for a direction (a velocity) or a point in space; in 2D it has $x$, $y$ components, in 3D $x$, $y$, $z$. It can be scaled and added to or subtracted from another.
 
@@ -62,6 +71,7 @@ $$P = P_1 + \alpha_2(P_2 - P_1) + \alpha_3(P_3 - P_1) = (1 - \alpha_2 - \alpha_3
 Call $P_1$'s weight $\alpha_1 = 1 - \alpha_2 - \alpha_3$. Then $\alpha_1 + \alpha_2 + \alpha_3 = 1$ always. **This is a barycentric combination** — the same coordinates the rasteriser interpolates with in [[computer-graphics/10-rasterisation|note 10]].
 
 ## 3. Where the Bézier weights come from
+<!-- bite: 6f57fe3a-3bda-44f7-9901-78380fcbe91b -->
 
 **For any $t$, $(1 - t) + t = 1$.** Square both sides and expand:
 
@@ -80,6 +90,7 @@ $$P(t) = (1-t)^2P_0 + 2t(1-t)P_1 + t^2P_2$$
 | 3 | 1, 3, 3, 1 | $(1-t)^3P_0 + 3t(1-t)^2P_1 + 3t^2(1-t)P_2 + t^3P_3$ |
 
 ## 4. Bézier curves
+<!-- bite: c6627559-2894-4510-bf9c-d23c997aa475 -->
 
 **A Bézier curve is the Bernstein-weighted sum of its control points:**
 
@@ -154,6 +165,7 @@ and the second half has control points $Q_3$, $\frac{P_1 + 2P_2 + P_3}{4}$, $\fr
 6. **End tangents:** the curve leaves $P_0$ towards $P_1$ and arrives at $P_3$ from $P_2$.
 
 ## 5. Worked examples
+<!-- bite: 5d798327-192a-45cd-8237-5cca60f14158 -->
 
 ### (a) Control points from end conditions
 
@@ -205,6 +217,7 @@ print("second half:", second_half)
 **Expected:** the four levels in the table above, then `first half: [(1, 2), (2.0, 5.0), (3.75, 6.75), (5.125, 7.0)]` and `second half: [(5.125, 7.0), (6.5, 7.25), (7.5, 6.0), (7, 3)]`.
 
 ## 6. B-spline curves
+<!-- bite: 70b66c7c-1eca-4bd4-957d-0b4e1261bc7c -->
 
 **A B-spline is built from several polynomial pieces joined smoothly.** It is more flexible than a Bézier curve because **the degree does not have to grow with the number of control points.** It is a weighted sum of the control points with B-spline basis functions $N_{i,k}(t)$:
 
@@ -233,6 +246,7 @@ $$N_{i,k}(t) = \frac{t - t_i}{t_{i+k-1} - t_i}\,N_{i,k-1}(t) + \frac{t_{i+k} - t
 | Relationship | | A Bézier is a B-spline with order = number of control points |
 
 ## 7. Chaikin's corner-cutting algorithm
+<!-- bite: 604e6453-ce43-41b4-a133-6f92a0da6233 -->
 
 > Class notes only have the heading "curve drawing algorithm: George Chaikin's algorithm"; this is the standard method — **check it against the lecturer's version.**
 
@@ -245,6 +259,7 @@ Replace the polygon with $Q_0, R_0, Q_1, R_1, \dots$ and repeat. **Each round cu
 **Worked — the closed square $(0,0), (4,0), (4,4), (0,4)$:** after one round the 4 points become 8: $(1,0), (3,0), (4,1), (4,3), (3,4), (1,4), (0,3), (0,1)$. After the next round there are 16.
 
 ## 8. Drawing a curve with straight lines
+<!-- bite: 7e20f6fc-4e7e-4193-ae80-dbb3274fcf8a -->
 
 ### Distance from a point to a segment
 
@@ -294,6 +309,7 @@ and **each split in half divides it by 4**, so the recursion always stops. (Equi
 **Worked:** $P_1(0,0)$, $P_2(4,8)$, $P_3(8,0)$. $P_1 - 2P_2 + P_3 = (0,-16)$, so $\delta = 16/4 = 4$ (indeed $P(\tfrac12) = (4,4)$ and the chord midpoint is $(4,0)$). For $\sigma = 0.25$: $4 \to 1 \to 0.25$, **two levels of splitting, giving 4 straight segments.**
 
 ## Common pitfalls
+<!-- bite: 8d166a19-8813-443e-b093-5ae50f55d150 -->
 
 1. **Mixing $P_0$–$P_3$ with $P_1$–$P_4$ labels** mid-question. Pick one.
 2. **Forgetting the factor 3** in $B'(0) = 3(P_1 - P_0)$, so $P_1 = P_0 + v_0$ instead of $P_0 + v_0/3$.
@@ -303,6 +319,7 @@ and **each split in half divides it by 4**, so the recursion always stops. (Equi
 6. **Reversed binomial index** — the standard form is $\binom{n}{r}(1-t)^{n-r}t^r$ so the highest power of $(1 - t)$ sits on the first point.
 
 ## Check your understanding
+<!-- bite: 424e062a-4fa2-45ab-ac0d-54c63dc0fbfd -->
 
 1. A cubic Bézier has $P_0 = P_1$. What is $B'(0)$, and what does that mean physically?
 2. Why does moving one control point of a cubic B-spline with many points leave most of the curve unchanged?
@@ -317,6 +334,7 @@ and **each split in half divides it by 4**, so the recursion always stops. (Equi
 </details>
 
 ## Practice — independent tasks
+<!-- bite: 208958e3-ec15-47ee-a2e3-6169d88ea0d2 -->
 
 From SSG 511 — full wording in the [[computer-graphics/19-ssg-511-question-bank|question bank]]:
 
@@ -328,10 +346,12 @@ From SSG 511 — full wording in the [[computer-graphics/19-ssg-511-question-ban
 **Done when** each $B(\tfrac12)$ agrees between the formula and de Casteljau, and the `bezier.py` script reproduces your halves.
 
 ## Before moving on
+<!-- bite: 870db173-9d38-44cb-95a9-53fecaf028cd -->
 
 **Next:** [[computer-graphics/07-visible-surface-detection|Visible Surface Detection]].
 
 ## Related
+<!-- bite: 3fb80f5f-bf51-4233-9def-28e2d9e1f10f -->
 - [[computer-graphics/15-geometry-and-meshes|Geometry and Meshes]] — NURBS, subdivision surfaces, the CAD divide
 - [[computer-graphics/16-animation-and-simulation|Animation]] — curves as motion paths
 - [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation and splines]]

@@ -1,8 +1,13 @@
+---
+id: c5e8f92e-3b18-4934-ba98-d49da8183f9f
+---
+
 # Numerical Optimisation
 
 **[Intermediate → Advanced]** — Finding a minimum. Where numerical methods and machine learning meet, and why conditioning explains most training pathologies.
 
 ## The problem
+<!-- bite: e6b7ec4a-2a9b-480d-ad94-8d757c9e505b -->
 
 $$\min_{\mathbf{x}} f(\mathbf{x}) \qquad\text{possibly subject to } g(\mathbf{x}) \leq 0,\ h(\mathbf{x}) = 0$$
 
@@ -11,6 +16,7 @@ $$\min_{\mathbf{x}} f(\mathbf{x}) \qquad\text{possibly subject to } g(\mathbf{x}
 **The second-order condition distinguishes them:** the Hessian $H = \nabla^2 f$ is positive definite at a minimum, negative definite at a maximum, indefinite at a **saddle point.**
 
 ## Gradient descent
+<!-- bite: 24f357e4-eafe-463b-8397-7244d3173d9d -->
 
 $$\mathbf{x}_{k+1} = \mathbf{x}_k - \alpha\nabla f(\mathbf{x}_k)$$
 
@@ -44,6 +50,7 @@ $$\mathbf{v}_{k+1} = \beta\mathbf{v}_k - \alpha\nabla f, \qquad \mathbf{x}_{k+1}
 **Nesterov's accelerated gradient** improves the rate from $O(1/k)$ to $O(1/k^2)$ for convex problems — **provably optimal** for first-order methods.
 
 ## Line search and trust regions
+<!-- bite: 962fcba5-a807-477d-885e-835ba8cec484 -->
 
 **Choosing $\alpha$ is the practical difficulty.** Too large diverges; too small crawls.
 
@@ -56,6 +63,7 @@ $$\mathbf{v}_{k+1} = \beta\mathbf{v}_k - \alpha\nabla f, \qquad \mathbf{x}_{k+1}
 > **Trust regions handle non-convexity and negative curvature more gracefully than line search**, because they never take an unboundedly large step toward a saddle. **Levenberg–Marquardt is a trust-region method**, and it's the same damping as [[robotics/07-jacobians-and-singularities|damped least squares]] — three fields, one idea.
 
 ## Newton and quasi-Newton
+<!-- bite: 26539062-d442-48d0-9c35-a44241a85f2e -->
 
 **Newton's method** uses curvature:
 
@@ -76,6 +84,7 @@ $$H\Delta\mathbf{x} = -\nabla f, \qquad \mathbf{x}_{k+1} = \mathbf{x}_k + \Delta
 > **L-BFGS is the default for medium-scale smooth optimisation** and it's what `scipy.optimize.minimize` uses when you don't specify. **It's also why it's *not* used for deep learning** — it needs accurate gradients, and stochastic minibatch gradients are too noisy for the curvature estimate to be meaningful.
 
 ## Stochastic methods
+<!-- bite: 18afc2c4-ab20-4edc-b9ef-8ee9ea6b9d88 -->
 
 **When $f$ is a sum over millions of data points**, computing the full gradient per step is wasteful.
 
@@ -98,6 +107,7 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 **Learning rate schedules** — warmup, cosine decay, step decay. **Often worth more than the choice of optimiser**, and consistently underrated.
 
 ## Constrained optimisation
+<!-- bite: 8a29ec4b-1ce4-44ea-b9de-ac9175eb7bf2 -->
 
 **KKT conditions** generalise "gradient is zero" to constrained problems — the gradient of the objective must be a combination of the constraint gradients, with sign conditions on the multipliers.
 
@@ -114,6 +124,7 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 **Projection** — for simple constraints (bounds, a ball, a simplex), just project back after each step. **Cheap and effective when the projection is easy.**
 
 ## Convexity
+<!-- bite: daab9b55-9a68-4bf8-bbee-0a15161c1283 -->
 
 **The dividing line between "solved" and "hard".**
 
@@ -128,6 +139,7 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 **The empirical result that made deep learning work:** in very high dimensions, **most critical points are saddle points, not bad local minima**, and the local minima that exist tend to have similar loss. **So "stuck in a local minimum" is largely the wrong mental model for neural network training** — the difficulty is saddle points and ill-conditioning, which is why momentum and adaptive methods help.
 
 ## Global optimisation
+<!-- bite: d1cbeadd-2665-4a4d-9263-7da82194e89b -->
 
 **When you need the global optimum of a non-convex function**, and there's no free lunch here.
 
@@ -144,6 +156,7 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 > **Be sceptical of metaheuristics.** The literature is full of nature-inspired variants with weak baselines. **Compare against multi-start L-BFGS before believing a new algorithm is better** — it very often isn't.
 
 ## Practical notes
+<!-- bite: c72e02f0-1ca9-4ad9-95b9-29c74fae7c02 -->
 
 **Scale your variables.** The highest-value single action, and it's the conditioning fix. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Scaling]]
 
@@ -162,6 +175,7 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 ---
 
 ## Related
+<!-- bite: b8fcddb0-9206-4de3-b507-9f2d2e4dd998 -->
 - [[ai-ml/00-foundations/03-mathematics/04-optimization|ML Optimisation]] — the same subject from the ML side
 - [[mathematics/07-applied-and-computational/01-numerical-methods/03-root-finding|Root Finding]] — minimisation is root-finding on the gradient
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — solved inside every Newton step

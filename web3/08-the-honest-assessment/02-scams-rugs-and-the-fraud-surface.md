@@ -1,14 +1,20 @@
+---
+id: 9c5fd734-c7e3-4bc2-960f-4ea741b493e5
+---
+
 # Scams, Rugs and the Fraud Surface
 
 **[Beginner]** — how people actually lose money, which is mostly not smart contract exploits.
 
 ## Why this note is in a technical folder
+<!-- bite: 32609f6c-95f7-4268-9902-e104d5272cbe -->
 
 **Because the losses are overwhelmingly not technical.** Reading about reentrancy while getting phished is the field's characteristic failure, and the properties that make blockchains useful — irreversibility, pseudonymity, permissionless deployment, no recourse — are **exactly** the properties that make fraud efficient.
 
 **This is not a bug in crypto culture. It's a structural consequence of the design**, and it should be taught as part of the design.
 
 ## Why fraud works so well here
+<!-- bite: d6782f2f-7c9a-4980-99cd-6bba575d75bd -->
 
 | Property | Why it's good | Why fraud loves it |
 |---|---|---|
@@ -20,6 +26,7 @@
 | Global | Anyone can participate | **Jurisdictional arbitrage** |
 
 ## The catalogue
+<!-- bite: 4e7e00f7-12f3-47b4-b0b7-58d68c56fc93 -->
 
 **Phishing — the largest single cause of individual loss.**
 
@@ -46,6 +53,7 @@ Defences: **never sign anything you can't read** → [[web3/06-building-dapps/02
 **Exchange failure.** **FTX (Nov 2022) was not a crypto failure — it was customer funds being taken and used**, which is old-fashioned fraud that happened to involve crypto. Mt. Gox, Celsius and QuadrigaCX are variations. **"Not your keys, not your coins" is the accumulated lesson**, weighed against the fact that self-custody has its own irreversible failure modes.
 
 ## Reading a token before touching it
+<!-- bite: 281a88ae-6abe-4180-9809-06a9b8a655c9 -->
 
 Mechanical checks, most of which take a minute:
 
@@ -60,6 +68,7 @@ Mechanical checks, most of which take a minute:
 Token sniffers (Token Sniffer, GoPlus) automate much of this. **They catch known patterns and miss novel ones** — useful as a filter, not as approval.
 
 ## The base rates
+<!-- bite: 97217f0b-beaa-47d7-b857-e53dd503f710 -->
 
 Worth internalising, because they're the actual expected value:
 
@@ -69,6 +78,7 @@ Worth internalising, because they're the actual expected value:
 - **Guaranteed yield is a marketing claim, not a financial instrument**
 
 ## For builders
+<!-- bite: de795420-f0b5-4ebf-ae18-5654ae5e675f -->
 
 You inherit a duty here, and most projects discharge it badly:
 
@@ -80,10 +90,12 @@ You inherit a duty here, and most projects discharge it badly:
 - **Don't promise yields you can't source.** If you can't explain where the return comes from, you're running a Ponzi whether you meant to or not
 
 ## Key insight
+<!-- bite: 40c2c6aa-e7d7-4033-8225-d185016f71ad -->
 
 **The properties that make blockchains valuable are the same properties that make fraud efficient, and you cannot keep one without the other.** Irreversibility is why settlement is final and why theft is permanent. Permissionlessness is why anyone can build and why anyone can scam. **Security here is mostly operational discipline — what you sign, what you approve, where your keys live — not knowledge of vulnerability classes.**
 
 ## Related
+<!-- bite: 489e9b29-348e-41af-929a-1489a39d515b -->
 - [[web3/06-building-dapps/02-wallets-and-connection|wallets]] — signature phishing
 - [[web3/01-foundations/07-tokens-coins-and-nfts|tokens]] — why a token means nothing by itself
 - [[web3/08-the-honest-assessment/03-regulation-and-the-legal-layer|regulation]] — the response

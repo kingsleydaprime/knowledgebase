@@ -1,14 +1,20 @@
+---
+id: b3530cdd-df33-4654-b98d-f2ab0b68673e
+---
+
 # Routing — Finding a Path Nobody Knows
 
 **[Intermediate]** — how a packet crosses a dozen networks owned by companies that have no contract with each other, when **no single machine anywhere knows the whole path**.
 
 ## The kid version first
+<!-- bite: 8406412b-62c8-4558-9997-4240aa089c1a -->
 
 You're in a strange city trying to reach the airport, and there are no maps. But at every junction there's a signpost saying only: **"Airport → turn left."** Not how far, not the route after that. Just the next turn.
 
 Follow enough signposts and you get there. No signpost knows the whole way; each only knows *the next step for each possible destination*. That's routing. The signposts are routing tables, and the interesting question isn't how a packet is forwarded — it's **who writes the signposts, and how they agree.**
 
 ## Forwarding vs routing — the distinction everything hinges on
+<!-- bite: b983e57d-e716-4fe1-a580-e96ed5948382 -->
 
 Two different jobs, often confused, running at completely different speeds:
 
@@ -18,6 +24,7 @@ Two different jobs, often confused, running at completely different speeds:
 This split is why a router can forward at line rate while running complex protocols, and it's the same architectural split you'll recognise in [[devops/10-orchestration/index|Kubernetes]] (controllers reconcile; kube-proxy forwards) and in [[architecture/03-architectural-patterns/04-microservices-patterns|service mesh]] design.
 
 ## Reading a routing table
+<!-- bite: dbcb2768-8bc4-4439-ab6c-a1be466097e2 -->
 
 ```
 $ ip route
@@ -33,6 +40,7 @@ Each line is *destination prefix → how to reach it*. `default` is `0.0.0.0/0` 
 It's also the mechanism behind a lot of practical work: a VPN "split tunnel" is just more-specific routes pointing at the tunnel interface; the reason a Docker container can't reach your `10.x` corporate network is often a `172.17.0.0/16` route shadowing something.
 
 ## Interior routing — inside one organisation
+<!-- bite: b190d524-a781-405b-ba2f-e6987197180b -->
 
 Within a single administrative domain (an **AS**, Autonomous System), routers cooperate fully and optimise for shortest path. Two families:
 
@@ -42,6 +50,7 @@ Within a single administrative domain (an **AS**, Autonomous System), routers co
 That's a genuinely useful trade to have internalised: **distance-vector = local knowledge, slow convergence; link-state = global knowledge, doesn't scale.** It's the same tension as gossip vs. consensus in [[architecture/04-distributed-systems/14-failure-detection-and-membership|failure detection]].
 
 ## BGP — how the internet actually holds together
+<!-- bite: 746023e3-6e61-4972-b490-58bbca01ebbd -->
 
 Between organisations, shortest path is the wrong goal. Cost, contracts, and politics dominate: a route through your paid transit provider costs money; a route through a settlement-free peer is free. **BGP** (Border Gateway Protocol) is therefore a **path-vector** protocol built around *policy*, not distance.
 
@@ -54,6 +63,7 @@ The takeaway for an engineer who isn't a network operator: **the internet's core
 **Anycast** is the useful trick built on BGP: announce the *same* prefix from many locations, and each client's traffic naturally lands on the topologically nearest one. This is how [[networking/10-dns-in-depth/index|DNS root servers]] and CDN edges work — one IP address, hundreds of physical sites.
 
 ## TTL, ICMP, and how traceroute works
+<!-- bite: b6ff1a61-08cc-4190-bb8f-8a53b045ac33 -->
 
 Every IP packet carries a **TTL** (hop limit), decremented by each router. At zero the packet is discarded and the router sends back an ICMP **Time Exceeded**. This exists to stop packets circulating forever during a routing loop.
 
@@ -67,10 +77,12 @@ Reading traceroute output correctly requires knowing its limits, which is where 
 - Use **`mtr`** instead where you can: it runs continuously and shows loss *per hop over time*, which distinguishes a genuinely lossy link from ICMP rate-limiting.
 
 ## Key insight
+<!-- bite: 031f9c28-f8e6-4197-9624-cbcdb671e730 -->
 
 No entity on the internet knows the route your packet takes. Routing is an **emergent, continuously renegotiated agreement** between independent parties with conflicting incentives — which is why the path is asymmetric, changes without notice, is optimised for money rather than speed, and is not authenticated. Design as if the network between two points is an untrusted stranger who reroutes you at will, because it is.
 
 ## Related
+<!-- bite: 30fb21c4-1de0-4127-bde8-81326615d843 -->
 - [[networking/03-ip-addressing-and-subnetting|IP Addressing & Subnetting]] — the prefixes routers match on
 - [[networking/16-debugging-networks|Debugging Networks]] — traceroute/mtr in practice
 - [[networking/15-network-performance|Network Performance]] — why path length is a latency floor

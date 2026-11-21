@@ -1,3 +1,7 @@
+---
+id: 527dbcb8-aa1d-4804-9f9b-2f7811018eaa
+---
+
 # Portable Text and Images
 
 **Part of [[frontend/frameworks/sanity/index|frameworks/sanity]].** `[reference]`
@@ -6,6 +10,7 @@
 ---
 
 ## Part 1 — Portable Text
+<!-- bite: 0fcef8d6-cf8f-446b-9ef0-5c3ab71fde3e -->
 
 ### Why rich text isn't stored as HTML
 
@@ -70,6 +75,7 @@ const components = {
 **`rel="noopener noreferrer"` on external links isn't boilerplate:** `noopener` stops the opened page reaching back through `window.opener` to navigate your tab somewhere hostile. Browsers imply it for `target="_blank"` now; writing it is still correct.
 
 ## Part 2 — Images
+<!-- bite: e9a9876e-1350-4b27-b3eb-d4656c4b550e -->
 
 ### An image field stores a pointer
 
@@ -133,5 +139,6 @@ images: { remotePatterns: [{ hostname: 'cdn.sanity.io' }] }
 `fill` absolutely positions the image to fill its nearest positioned ancestor — **so the wrapper needs `relative` and its own height** (here from `aspect-video`). That's what reserves layout space before load and prevents cumulative layout shift. `priority` for the LCP element only; never below the fold.
 
 ## Related
+<!-- bite: 7130c069-ffa8-4422-ac5c-c6fd1c601e41 -->
 - [[frontend/frameworks/sanity/01-the-sanity-model|01 — the Sanity model]] · [[frontend/frameworks/sanity/02-groq|02 — GROQ]]
 - [[frontend/05-cross-cutting/01-accessibility|accessibility]] · [[frontend/07-practices/02-performance|performance]]

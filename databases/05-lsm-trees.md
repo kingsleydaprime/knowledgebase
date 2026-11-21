@@ -1,8 +1,13 @@
+---
+id: b45188af-4f1f-4b8a-9785-b2cc804658de
+---
+
 # LSM Trees
 
 **[Advanced]** — The write-optimised alternative to B-trees, and the amplification trade that decides between them.
 
 ## The problem with B-trees on writes
+<!-- bite: 4182f5eb-9a69-453b-a87d-c37d89d6ce03 -->
 
 **A B-tree update is a random write.** Find the leaf, modify it in place, mark the page dirty, eventually write 8 KB back to disk.
 
@@ -17,6 +22,7 @@
 **On SSDs there's a further layer:** flash can't overwrite in place, so the FTL does its own garbage collection. **Database write amplification multiplies with device write amplification**, and it wears the drive.
 
 ## The LSM idea
+<!-- bite: dd076a2f-09b9-49b0-906c-ad3b482d0291 -->
 
 > **Never update in place. Only ever append, and sort later.**
 
@@ -49,6 +55,7 @@
 **Deletes write a tombstone** — a marker saying "this key is gone" — because you can't modify an immutable file. **The tombstone must survive until every older copy of the key has been compacted away**, which is why deletes in an LSM don't free space immediately, and why a delete-heavy workload can grow.
 
 ## Reads are the price
+<!-- bite: aa2eab9f-8b90-445c-914a-da86f5c0a7c7 -->
 
 **A read must check the memtable, then potentially every SSTable, newest first.**
 
@@ -63,6 +70,7 @@
 **Range scans remain harder than in a B-tree** — you must merge iterators across every level, so it's a $k$-way merge rather than a leaf-chain walk.
 
 ## The RUM conjecture
+<!-- bite: 6f8aa2ce-cdf6-4fa4-b244-01955788b9be -->
 
 **The framing that explains the whole trade:**
 
@@ -88,6 +96,7 @@
 **Which is why Cassandra recommends keeping disks half empty**, a detail that surprises operators.
 
 ## Where each is used
+<!-- bite: 2587322b-5999-4e30-9ea4-61907394ab18 -->
 
 **B-tree:** Postgres, MySQL/InnoDB, SQLite, SQL Server, Oracle. **Every traditional relational database.**
 
@@ -98,6 +107,7 @@
 > **The pattern: LSM dominates where writes are heavy and the workload is known** — time series, event logs, metrics, message queues, and the storage layer of distributed databases. **B-trees dominate where reads are varied, latency must be predictable, and range scans matter.**
 
 ## The operational reality
+<!-- bite: dbcc7bf8-fc14-43bc-8504-d905e9495023 -->
 
 **LSM's genuine downside is that compaction is a background job competing with your foreground traffic.**
 
@@ -110,6 +120,7 @@
 **Space can spike** during major compactions.
 
 ## Which to choose
+<!-- bite: 14fdd729-0c01-4aa6-8d23-432c6b391c78 -->
 
 **Use a B-tree (i.e. a normal relational database) unless you have a specific reason not to.** Predictable latency, mature tooling, and read flexibility are worth a lot.
 
@@ -127,6 +138,7 @@
 ---
 
 ## Related
+<!-- bite: f5d90fff-fb8e-4e58-a0be-87e250c7f777 -->
 - [[databases/04-b-trees-and-indexes/index|B-Trees and Indexes]] — the read-optimised alternative
 - [[databases/03-storage-and-page-layout|Storage and Page Layout]] — pages and the buffer pool
 - [[build-your-own-shit/06-your-own-database|build-your-own-database]] — which offers LSM as the easier storage engine to build

@@ -1,8 +1,13 @@
+---
+id: 11b79531-74ec-4930-aba2-544bb3a0b6e0
+---
+
 # Module: Elementary Sorts
 
 **[Beginner]** — bubble, selection and insertion, and why one of the three is inside every production sorting library.
 
 ## Before you start
+<!-- bite: 434d27df-a416-424a-8e17-4f94283556f2 -->
 
 - You know stable, in-place and adaptive — [[01-the-lower-bound|the lower bound]].
 - You can trace a nested loop and count its iterations — [[01-loops-and-what-they-cost|loops and what they cost]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: ddf3dc74-f8bd-4cc9-a471-cd2e8e2541e3 -->
 
 Three quadratic algorithms is two too many, if speed on large inputs were the only criterion. It is not.
 
@@ -27,6 +33,7 @@ These are worth knowing for three reasons. They are the sorts you can **prove co
 Asymptotic notation deliberately discards constants. On small inputs the constants are the whole story.
 
 ## 2. The three, with their invariants
+<!-- bite: dbe24bf1-debb-4c47-b000-3dbd193ef3e4 -->
 
 An **invariant** is a statement true before and after every iteration. It is what makes a loop provably correct rather than plausibly correct.
 
@@ -64,6 +71,7 @@ Take the next element, shift larger elements right, drop it into the gap. Exactl
 > **Predict before running the lab.** On an array of 1,000 elements that is already sorted, roughly how many comparisons will each of the three do? And on the same array reversed? Decide all six numbers, at least to an order of magnitude, before opening the answers.
 
 ## 3. Why insertion sort wins for small $n$
+<!-- bite: 1afeaf03-9b1c-4025-b6d4-50715f596d14 -->
 
 Merge sort at $n = 10$ does about $10\log_2 10 \approx 33$ comparisons, plus allocation, plus recursive call overhead, plus copying into and out of temporary arrays.
 
@@ -72,6 +80,7 @@ Insertion sort at $n = 10$ does at most $45$ comparisons, with no allocation, no
 That crossover — usually somewhere between 10 and 32 elements — is why every serious library is a hybrid. Timsort sorts short runs with **binary** insertion sort, then merges them. Introsort quicksorts until the partitions are small, then finishes the whole array with one insertion-sort pass.
 
 ## Worked example — runnable
+<!-- bite: b665424a-3243-4688-871e-633fcddbb2a8 -->
 
 **Runnable example:** save as `elementary.py` in any empty directory and run `python3 elementary.py`. Standard library only; writes no files.
 
@@ -319,6 +328,7 @@ elementary: passed
 ```
 
 ## Common pitfalls and traps
+<!-- bite: 2b0705a9-e9df-4de3-b18c-d79c39bb0985 -->
 
 - **Bubble sort without the early exit.** Without the `swapped` flag it is $O(n^2)$ even on sorted input, losing the one property that makes it tolerable.
 - **Assuming $O(n^2)$ means "never use it".** For $n < 32$ these beat everything, which is why they are in the libraries.
@@ -327,6 +337,7 @@ elementary: passed
 - **Confusing swaps with writes.** One swap is two writes. Selection sort's $n-1$ swaps are $2(n-1)$ writes.
 
 ## Check your understanding
+<!-- bite: 83a1c868-0e5b-4055-9819-d5d6ff76a6b6 -->
 
 1. State the invariant of insertion sort.
 2. How many comparisons does selection sort do on already-sorted input of size 100?
@@ -346,6 +357,7 @@ elementary: passed
 </details>
 
 ## Practice — independent task
+<!-- bite: 47c7fc95-9e30-4c77-95a2-2784ec56e36a -->
 
 Implement **binary insertion sort** and measure what it does and does not improve.
 
@@ -360,6 +372,7 @@ Implement **binary insertion sort** and measure what it does and does not improv
 **Done when:** your comparison count is $O(n\log n)$ while writes stay $O(n^2)$, stability holds with duplicates, and you can explain the sorted-input regression in step 5's edge case.
 
 ## Before moving on
+<!-- bite: 051f7c08-ee98-498d-85f7-56f42a983609 -->
 
 You can implement all three from their invariants, state which is stable and which adapts, and explain why insertion sort is in production libraries.
 
@@ -368,6 +381,7 @@ You can implement all three from their invariants, state which is stable and whi
 **Next:** [[03-merge-sort|Merge Sort]] — the first algorithm here to actually reach $O(n\log n)$, and the one that works when the data does not fit in memory.
 
 ## Related
+<!-- bite: 07c0c5f7-57b8-45af-b580-5075b0c8af1d -->
 
 - [[01-the-lower-bound|The Lower Bound]] — the properties compared here
 - [[03-merge-sort|Merge Sort]] · [[04-quicksort|Quicksort]] — the $O(n\log n)$ pair

@@ -1,8 +1,13 @@
+---
+id: 335aa464-9c41-4ec1-8613-6cf43e381363
+---
+
 # Garbage Collection
 
 **[Advanced]** — Automatic memory management: the algorithms, why generational collection works, and the tradeoff every collector is navigating.
 
 ## The problem
+<!-- bite: 6d617721-2c9c-4782-a9b6-69134291bda2 -->
 
 A language with closures, objects, or dynamic data structures has values whose lifetime isn't lexically obvious:
 
@@ -18,6 +23,7 @@ Someone must decide when that's freeable. Options: the programmer ([[languages/0
 **"Garbage" means unreachable**, not unused. A collector can't know you'll never look at something again; it can only prove nothing points at it.
 
 ## Reachability
+<!-- bite: 0a95a3ec-a78f-4e54-9e04-50130d126b89 -->
 
 Start from the **roots** — globals, the stack, registers, and in a VM the value stack and call frames. Anything reachable by following pointers is live; everything else is garbage.
 
@@ -31,6 +37,7 @@ ROOTS ──→ A ──→ B ──→ C
 **This is why reference counting can't collect cycles** — E and F might point at each other with nonzero counts and still be unreachable.
 
 ## Reference counting
+<!-- bite: b66e91d0-e104-42da-a6aa-7aa73603bffb -->
 
 ```rust
 struct Object { refcount: usize, data: ... }
@@ -55,6 +62,7 @@ Used by: CPython (plus a cycle collector), Swift (ARC, with `weak`/`unowned` for
 **Swift's ARC is compiler-inserted reference counting**, not a GC — the compiler emits retain/release calls and elides what it can prove is redundant. Deterministic, and it's why iOS apps have no GC pauses and why retain cycles are a real bug class you handle manually.
 
 ## Mark and sweep
+<!-- bite: a9abe518-334e-4136-bff9-403533aa9337 -->
 
 The basic tracing collector:
 
@@ -92,6 +100,7 @@ Process greys until none remain; whites are garbage.
 **Against:** stop-the-world pauses proportional to heap size, and it **fragments** — free space is scattered.
 
 ## Copying and compaction
+<!-- bite: e1bfe07e-846c-47a6-b54e-63085dc368c4 -->
 
 **Semi-space copying:** the heap is two halves. Allocate in one; on collection, copy live objects to the other and swap.
 
@@ -105,6 +114,7 @@ Process greys until none remain; whites are garbage.
 Compaction requires **moving objects**, which requires knowing every pointer precisely — so it needs a **precise** GC. C++ and C can't have one, because a `void*` cast makes the pointer set unknowable. That's the fundamental reason `malloc` can't defragment and a JVM can. → [[os/05-memory-allocation|Memory Allocation]]
 
 ## Generational collection
+<!-- bite: dbbc4593-b826-4b57-be42-d43e684b37e1 -->
 
 **The generational hypothesis: most objects die young.** Empirically, 80–98% of allocations become garbage almost immediately.
 
@@ -125,6 +135,7 @@ Collect the nursery frequently: it's small, mostly garbage, and copying costs on
 That write barrier is a real, permanent cost on every reference store in a generational runtime. It's the price of the hypothesis paying off, and it does pay off — generational collection is the single most effective GC idea and essentially universal.
 
 ## Concurrent and incremental
+<!-- bite: cc339461-13f2-4da6-95c2-76c1c2363d92 -->
 
 **Incremental** — interleave small marking steps with the program. Bounded pauses, longer total time.
 
@@ -147,6 +158,7 @@ Modern collectors combine all three:
 **ZGC's coloured pointers** are worth knowing: metadata is stored in unused pointer bits, and a **load barrier** fixes up references lazily when read. That's what makes concurrent *compaction* possible — you can move an object while the program runs, because any thread reading a stale pointer is corrected on the spot.
 
 ## The tradeoff space
+<!-- bite: 1c5b6ee5-b0a2-4a02-940a-2f5fedc677ce -->
 
 Every collector navigates three axes and can optimise at most two:
 
@@ -174,6 +186,7 @@ GOMEMLIMIT=4GiB              # soft limit — the GC works harder as you approac
 `GOMEMLIMIT` and container limits interact directly with [[os/04-virtual-memory|the OOM killer]] — a runtime that doesn't know its cgroup limit gets killed before its GC feels pressure.
 
 ## Precise vs conservative
+<!-- bite: c3605bce-b8fa-41c5-8ea0-96bf5af30e5a -->
 
 **Precise** — the runtime knows exactly which words are pointers, via stack maps the compiler emits. Required for moving collection.
 
@@ -182,6 +195,7 @@ GOMEMLIMIT=4GiB              # soft limit — the GC works harder as you approac
 Conservative collection can't move objects (a false positive would be corrupted) and retains occasional garbage (an integer that happens to look like an address). It's a pragmatic hack, and precise is strictly better where you control the compiler.
 
 ## Writing one
+<!-- bite: d28254a7-dbd6-4343-b199-6c763abe1f92 -->
 
 For a VM you're building, a **mark-and-sweep collector is a few hundred lines** and entirely tractable:
 
@@ -198,6 +212,7 @@ The standard defence: **a stress mode that collects on every allocation**, run a
 ---
 
 ## Related
+<!-- bite: adf4ce5d-8cd3-4b08-abe6-85f5c38e0364 -->
 - [[compilers/10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — the runtime this serves
 - [[os/05-memory-allocation|Memory Allocation]] — the manual alternative, and why `malloc` can't compact
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — the type-system alternative

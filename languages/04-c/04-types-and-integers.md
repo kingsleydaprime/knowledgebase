@@ -1,8 +1,13 @@
+---
+id: 4f73b918-f04c-4f53-afc5-00294a94a7ce
+---
+
 # Types and Integers
 
 **[Beginner → Intermediate]** — Types whose sizes aren't fixed, promotion rules that fire silently, and the signed/unsigned comparison that has caused real CVEs.
 
 ## The basic types
+<!-- bite: cc4b6c5c-086f-4b9a-b51a-8ac89ada42fe -->
 
 ```c
 char        // 1 byte. SIGNEDNESS IS IMPLEMENTATION-DEFINED
@@ -41,6 +46,7 @@ printf("%" PRId64 "\n", value);           // the portable way to print an int64_
 **Use `stdint.h` types whenever the width matters** — file formats, network protocols, hardware registers, anything crossing an ABI. Use plain `int` for loop counters and small local arithmetic where it genuinely doesn't.
 
 ## `size_t`
+<!-- bite: 9289ae68-d914-4bd1-9229-b9eea6e9d0ac -->
 
 ```c
 size_t len = strlen(s);
@@ -62,6 +68,7 @@ for (size_t i = n; i-- > 0; ) { }          // the correct idiom
 ```
 
 ## Integer promotion
+<!-- bite: 8daaedbf-2f60-4165-808f-17e8a51d10b3 -->
 
 Any type smaller than `int` is **promoted to `int`** before arithmetic. This is automatic, invisible, and surprises people constantly.
 
@@ -79,6 +86,7 @@ if (x + y > 255) { }         // TRUE — promoted to int, so 300 > 255. No wrapa
 The second one catches people who expect 8-bit wraparound. It doesn't happen in the expression; it happens on assignment back to `uint8_t`.
 
 ## The usual arithmetic conversions
+<!-- bite: 5296ff40-7304-4d44-a6fe-f7b882c0cac7 -->
 
 When operands differ, the compiler converts them to a common type. The rule that bites:
 
@@ -105,6 +113,7 @@ if (len < sizeof(buffer)) {          // sizeof is size_t — UNSIGNED
 **This exact shape has produced real CVEs.** The defence: compile with `-Wsign-compare` (included in `-Wextra`), keep sizes in `size_t` throughout, and check `< 0` *before* comparing against anything unsigned.
 
 ## Overflow
+<!-- bite: fb537b35-118d-499f-a174-bb0fbdfb8db4 -->
 
 **Signed overflow is undefined behaviour.** Unsigned overflow wraps, and is well-defined.
 
@@ -136,6 +145,7 @@ if (__builtin_add_overflow(a, b, &result)) { /* overflowed */ }
 Compare with [[languages/03-rust/02-language-fundamentals|Rust]], which panics on overflow in debug builds and wraps in release, and gives you `checked_add`/`saturating_add`/`wrapping_add` to say what you meant. C makes you write the check yourself and punishes you with UB if you get it wrong.
 
 ## `char` signedness
+<!-- bite: 55c4f583-7e92-4a63-b96f-fe458d64b3b8 -->
 
 ```c
 char c = 200;             // implementation-defined: -56 on x86, 200 on ARM
@@ -155,6 +165,7 @@ if (isalpha((unsigned char)c)) { }   // correct
 **Use `unsigned char` for raw bytes**, `char` only for text, and cast when passing to `<ctype.h>`.
 
 ## Casts and conversions
+<!-- bite: 52937e17-376c-4984-a7e7-110becd0b199 -->
 
 ```c
 int i = (int)3.99;             // 3 — truncation TOWARD ZERO, not rounding
@@ -178,6 +189,7 @@ m[0] = 'X';                    // UB — string literals are usually read-only. 
 Casting is telling the compiler you know better. It's right sometimes, and it silences the diagnostic either way.
 
 ## Floating point
+<!-- bite: c7094a20-24db-407f-8da8-900a7a4094a5 -->
 
 ```c
 0.1 + 0.2 == 0.3          // FALSE — binary floating point can't represent 0.1 exactly
@@ -195,6 +207,7 @@ Special values: `INFINITY`, `NAN`, and `-0.0`. **`NAN != NAN` is true**, which i
 **Never use floating point for money.** Use integer cents, or a decimal library.
 
 ## `const`, `volatile`, `restrict`
+<!-- bite: 9adb3aa9-c529-4bd7-a207-e147b73b98d3 -->
 
 ```c
 const int x = 5;                  // x can't be modified
@@ -226,6 +239,7 @@ void copy(int *restrict dst, const int *restrict src, size_t n);
 ---
 
 ## Related
+<!-- bite: 62c630f1-4622-4a59-9d6c-3e4555fd167d -->
 - [[languages/04-c/05-pointers|Pointers]] — where these types get interesting
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — signed overflow and friends, in full
 - [[languages/03-rust/02-language-fundamentals|Rust: Fundamentals]] — fixed-width types and explicit overflow handling

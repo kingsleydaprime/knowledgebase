@@ -1,3 +1,7 @@
+---
+id: 5d1de9b2-b042-4c52-b4bf-12587733eee8
+---
+
 # Graphics for Games
 
 > **[Intermediate]** · What real-time rendering adds to the graphics you already have — the frame budget, culling, batching, and why games cheat everywhere.
@@ -7,6 +11,7 @@
 **This note is only what changes when you have 16 milliseconds.**
 
 ## Offline versus real-time
+<!-- bite: 3d8a50f3-8cd6-4fdc-bf17-d9208e935c9a -->
 
 | | Film rendering | Game rendering |
 |---|---|---|
@@ -18,6 +23,7 @@
 **Every technique below is a lie chosen because it's cheap and looks right.** That's the discipline: not accuracy, but *perceptual sufficiency per microsecond*.
 
 ## The frame budget
+<!-- bite: 65062e19-321b-4535-821f-911e2fdfee15 -->
 
 At 60 fps you have 16.67 ms for everything, and rendering gets maybe 10–12 of it:
 
@@ -39,6 +45,7 @@ At 60 fps you have 16.67 ms for everything, and rendering gets maybe 10–12 of 
 **Draw calls are the classic CPU cost.** Each one is driver and API overhead. A thousand objects submitted individually can cost more in overhead than in drawing. The answers: **batching** (merge into one call), **instancing** (one call, many transforms), and modern APIs (Vulkan, DX12, Metal) that reduce per-call cost by design.
 
 ## Culling — the cheapest work is work not done
+<!-- bite: 5a4221fe-0ecc-45b1-a44d-e3f7ad9ec25a -->
 
 Everything here is about **not drawing things**:
 
@@ -53,6 +60,7 @@ Everything here is about **not drawing things**:
 **Spatial partitioning** makes culling fast: quadtrees (2D), octrees, BVH, spatial hashes. **These are the [[dsa/index|tree structures]] you already know**, applied to space — the question "what is near this point" is the same as "what is in this subtree".
 
 ## Shaders
+<!-- bite: 62cf1a5f-db1b-4842-8293-fad6b0443af0 -->
 
 Programs that run on the GPU, massively in parallel → [[gpu-and-parallel-computing/index|GPU and parallel computing]].
 
@@ -65,6 +73,7 @@ Languages: **HLSL** (DirectX), **GLSL** (OpenGL/Vulkan), **MSL** (Metal), and en
 **The mental shift is the same one as NumPy vectorisation** → [[languages/06-python/14-performance-and-the-runtime|performance]]: you write the code for *one* element and it runs on millions, so branches are expensive (divergent threads in a warp serialise) and memory access patterns dominate.
 
 ## The lies, catalogued
+<!-- bite: 4ead4692-fa2c-4494-9687-1cbdf16be78a -->
 
 The techniques that make real-time rendering possible, each an approximation:
 
@@ -85,6 +94,7 @@ The techniques that make real-time rendering possible, each an approximation:
 **Ray tracing** is now viable for parts of a frame on recent hardware (RTX, DXR) — typically hybrid: rasterise, then ray-trace reflections or shadows, then heavily denoise → [[computer-graphics/14-ray-tracing-and-path-tracing|ray tracing]].
 
 ## What to actually learn
+<!-- bite: f4b74230-82fe-403a-8905-d20e9fdf2e6a -->
 
 **In order, and the first three cover most games:**
 
@@ -97,6 +107,7 @@ The techniques that make real-time rendering possible, each an approximation:
 **For 2D games you need almost none of this.** Sprites, transforms and a camera. Don't let the 3D pipeline put you off starting.
 
 ## Related
+<!-- bite: 72b9bf28-e54b-473d-a6d5-7f0dbf47d457 -->
 - [[computer-graphics/index|computer graphics]] — **the theory, already written**
 - [[gpu-and-parallel-computing/index|GPU and parallel computing]] — the hardware
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — where rendering sits

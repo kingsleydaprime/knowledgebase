@@ -1,4 +1,9 @@
+---
+id: 6e6c9d04-cac6-4b44-898f-5ab7274aa987
+---
+
 ## SSH — Secure Shell
+<!-- bite: d1a4acc4-a559-4ac7-829f-30acbf16d47a -->
 
 SSH lets you remotely control another Linux machine through an encrypted terminal session. Every server you deploy to, every cloud instance you spin up — you access via SSH.
 

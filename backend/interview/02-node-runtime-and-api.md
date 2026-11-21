@@ -1,3 +1,7 @@
+---
+id: 146f3754-fe3d-4366-8ce0-b2560a212aa5
+---
+
 # Node Interview — Runtime & API
 
 The language half of the same August 2026 interview. Where [[backend/interview/01-production-debugging|file 01]] tests diagnosis, this tests whether you understand what the runtime is doing underneath your `await`.
@@ -121,6 +125,7 @@ await pipeline(readable, transform, writable);
 → [[backend/frameworks/javascript/01-node-runtime/02-error-handling|the error handler note]]
 
 ## Related
+<!-- bite: 765afabd-1b5e-4146-8a2e-ef62b0ef6e03 -->
 - [[backend/interview/01-production-debugging|Production Debugging]] — the other half of this interview
 - [[networking/09-sockets-and-the-network-api|Sockets & the Network API]] — the event loop from the OS side: `epoll`, C10K, why blocking costs what it costs
 - [[os/interview/01-processes-memory-and-io|OS: blocking vs non-blocking vs async I/O]]

@@ -7,6 +7,7 @@ id: c8ef07aa-6cac-4988-8cde-6699cbc709d1
 > **[Intermediate]** · A companion to [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|organising by layer vs by feature]]. In JavaScript and Python, feature boundaries need a lint rule. **In these six languages the compiler or the build system enforces them** — as long as you pick the layout that lets it.
 
 ## Before you start
+<!-- bite: 8e590d36-69b0-4436-8e52-f93613768cf4 -->
 
 You can already:
 
@@ -22,18 +23,21 @@ After this lesson you will be able to:
 **Study route.** §1 for everyone, then only your languages. The worked examples are the labs; run one, and make its prediction first.
 
 ## The kid version
+<!-- bite: a721067a-f0ee-4e01-bce6-ffd170555884 -->
 
 In the main lesson, the "keep out of other features' boxes" rule was a sign on the box — a lint rule that complains if you reach in. In these languages, the box has a **lock built into it**. Put a feature's private parts inside, and the compiler simply can't open it from outside.
 
 **Where the analogy stops working.** The lock only works if things are *inside the same box*. Organise by layer and a feature's parts end up in different boxes — so to let them reach each other, you have to leave every box unlocked. That's §1.
 
 ## 1. Why the language changes the argument
+<!-- bite: be3c0492-a5a3-4c58-9fa1-357c2e0edf29 -->
 
 Every language here hides things at the level of a **package, module, file, target or assembly**. In the by-feature layout, a feature's controller, service and repository live in the same one of those, so the repository can stay hidden while the service is public.
 
 In the by-layer layout, the service lives in `services/` and the repository in `repositories/` — different packages. For the service to reach the repository, the repository must be public. **And public means public to every feature.** So by-layer doesn't just make files harder to find in these languages; it removes a check the compiler would otherwise do for free.
 
 ## Terms used in this lesson
+<!-- bite: 78a3d5d4-40a5-42fb-bbed-ce10716f7dcc -->
 
 1. **Package**: In Go and Java, this is a named group of source files compiled together — in Go one folder, in Java one namespace like `shop.orders`.
 2. **Module**: In Rust, this is a named scope of items (`mod orders`), private to its parent unless marked `pub`.
@@ -43,6 +47,7 @@ In the by-layer layout, the service lives in `services/` and the repository in `
 6. **Opaque type**: This is a type declared in a header but defined only in one source file, so other code can hold a pointer to it but not see inside.
 
 ## 2. Go
+<!-- bite: 1f877732-6a0e-4a7c-9f63-db1bfc58fbb6 -->
 
 Go code is organised by **package**, one per folder, and a package exports only names that start with a capital letter. Two consequences decide the layout question.
 
@@ -203,6 +208,7 @@ It does, with `use of internal package shop/internal/orders/internal/store not a
 ---
 
 ## 3. Java (and Spring Boot)
+<!-- bite: 2e72408a-2efd-4983-86d0-fbee9e0ac5ff -->
 
 Java's unit of organisation is the **package**, and it has a visibility level that most Java developers forget exists: **package-private** — no modifier at all — meaning visible only inside the same package.
 
@@ -358,6 +364,7 @@ Java's module system (`module-info.java`, with `exports` listing the packages ot
 ---
 
 ## 4. Rust
+<!-- bite: ef429bd8-29b3-4635-9775-e3d3f163168f -->
 
 Rust's modules are **private by default**: an item is visible to its own module and its children, and nothing else, unless marked `pub`. So the by-feature boundary costs nothing — it's what happens if you don't type `pub`.
 
@@ -523,6 +530,7 @@ For a hard boundary between teams, make each feature its own **crate** in a Carg
 ---
 
 ## 5. C
+<!-- bite: ee077107-45f7-465d-a3a1-55e4eb424852 -->
 
 C has no modules and no packages. Its tools are older and blunter, and they're enough: **a header per feature as its public API, `static` for file-private functions, and opaque structs**. Large C codebases have always been organised by feature — the Linux kernel is `net/`, `fs/`, `mm/`, `drivers/`, not `functions/` and `structs/`.
 
@@ -656,6 +664,7 @@ Note how `orders` gets "does this user exist?" as a **function pointer** from `m
 ---
 
 ## 6. C++
+<!-- bite: e8a1a484-d7f7-4471-8320-9ae8b2d92f57 -->
 
 C++ has `namespace`s, which organise names but enforce nothing, and anonymous namespaces, which work like C's `static`. **The real boundary is in the build**: with CMake, each feature is a library target, and a target's include directories are either `PUBLIC` — given to whoever links it — or `PRIVATE` — kept to itself.
 
@@ -790,6 +799,7 @@ The `sneak` target links `orders` but only receives its `PUBLIC` include directo
 ---
 
 ## 7. C# (and ASP.NET Core)
+<!-- bite: 89bb6219-de51-46fb-a82a-a5525386f466 -->
 
 C#'s `internal` keyword means **visible inside this assembly** — the `.dll` one project compiles to. That makes the boundary a project-level decision.
 
@@ -911,6 +921,7 @@ The compiler refuses: `error CS0122: 'OrdersRepository' is inaccessible due to i
 
 
 ## Check your understanding
+<!-- bite: 7cf8105c-2983-4551-ada8-3ddd861e1197 -->
 
 1. In Go, which packages may import `shop/internal/orders/internal/store`?
 2. A Spring developer says "package-private doesn't work with Spring". Is that right?
@@ -932,6 +943,7 @@ The compiler refuses: `error CS0122: 'OrdersRepository' is inaccessible due to i
 </details>
 
 ## Practice — independent task
+<!-- bite: a90704d5-b9fc-40b9-8d57-144efaab974c -->
 
 **Prove a boundary in your own language.** Pick the language you'd most like to use professionally after TypeScript.
 
@@ -942,6 +954,7 @@ The compiler refuses: `error CS0122: 'OrdersRepository' is inaccessible due to i
 **Done when:** the app runs, the check script passes, and you can explain — without notes — which language mechanism enforces the boundary and why a by-layer layout would have disabled it.
 
 ## Before moving on
+<!-- bite: d770b173-cdc2-4eed-99c2-83764bf3e6f1 -->
 
 You can name each language's hiding mechanism, explain why by-layer switches it off, and prove a boundary by making a forbidden access fail to build.
 
@@ -950,5 +963,6 @@ You can name each language's hiding mechanism, explain why by-layer switches it 
 **Next.** Back to the course: [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection and wiring]].
 
 ## Related
+<!-- bite: bd9b40e3-8113-4cd9-ad04-635ef412e6f7 -->
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by layer vs by feature]] — the main lesson
 - [[backend/frameworks/go/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/java/01-spring-boot|Spring Boot]] · [[backend/frameworks/rust/01-axum-and-the-tower-stack|Axum]] · [[backend/frameworks/c/index|C]] · [[backend/frameworks/cpp/index|C++]] · [[backend/frameworks/csharp/index|C#]]

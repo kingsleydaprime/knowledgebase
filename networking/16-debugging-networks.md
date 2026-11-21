@@ -7,6 +7,7 @@ id: 1f8c3d4c-2e12-4758-a560-66482e29f295
 **[Intermediate]** — the practical payoff. Everything above becomes useful when something is broken at 2am and you need to find out *where*. This note is a method plus a toolkit, in the order you should actually use them.
 
 ## The method: bisect the layers
+<!-- bite: 5f6c27c4-2e9c-4177-8d08-d1ca84871855 -->
 
 The single most valuable habit is **not guessing**. Work up the stack, and at each step ask a question with a binary answer. Each answer eliminates half the remaining possibilities.
 
@@ -22,6 +23,7 @@ The single most valuable habit is **not guessing**. Work up the stack, and at ea
 Do not skip to step 6. Most incidents resolve at step 1 or 3, and a packet capture without a hypothesis is a waste of an hour.
 
 ## Step 1 — name resolution
+<!-- bite: 2989cfad-9153-4ed0-a836-5a60d1749975 -->
 
 ```sh
 dig example.com                    # the full answer, with TTL
@@ -38,6 +40,7 @@ Read the **TTL** in the answer: a TTL counting down tells you it's a cached answ
 `getent hosts example.com` is worth knowing too — it uses the OS resolver path (`/etc/hosts`, nsswitch, resolver config) which `dig` **bypasses**. If `dig` works and your app doesn't, the difference is here.
 
 ## Step 2 — reachability and path
+<!-- bite: d203a000-e081-4a19-b27c-cb35a58870c4 -->
 
 ```sh
 ping -c 5 example.com              # up? and what's the RTT/loss?
@@ -55,6 +58,7 @@ mtr example.com                    # traceroute + ping, continuous — use this 
 `mtr` is strictly better than `traceroute` for real diagnosis: it runs continuously, so you see **loss percentage per hop over time**, which separates a genuinely lossy link (loss persists at all subsequent hops) from ICMP rate-limiting (loss at one hop only, later hops clean). → [[networking/04-routing|routing]]
 
 ## Step 3 — is the port actually open?
+<!-- bite: ac400f06-457c-4fc3-8e70-2e07bbc5596e -->
 
 ```sh
 nc -vz example.com 443             # simplest port check
@@ -75,6 +79,7 @@ That split immediately tells you whether to look at the application or at the ne
 The "bound to localhost" case is worth calling out — it's the most common self-inflicted version, and `ss -lntp` shows it instantly: `127.0.0.1:8080` will never accept remote connections, `0.0.0.0:8080` will.
 
 ## Step 4 — local socket state
+<!-- bite: 147571a5-393c-4124-90b1-cdfe254ed0f5 -->
 
 ```sh
 ss -lntp                           # what's listening, and which process
@@ -94,6 +99,7 @@ lsof -p PID | wc -l                # fd count — for leak hunting
 - **`ss -tin`** shows `rtt`, `cwnd`, and `retrans` per connection — the fastest way to confirm "the network is lossy" versus "the server is slow." Rising `retrans` is direct evidence of loss. → [[networking/08-congestion-control|congestion control]]
 
 ## Step 5 — TLS and the application
+<!-- bite: d04c2de2-53fa-484f-b919-28a05630e90c -->
 
 ```sh
 openssl s_client -connect example.com:443 -servername example.com   # full handshake
@@ -118,6 +124,7 @@ total:    %{time_total}s
 Read the *deltas*: big `dns` → resolver problem. Big `tcp - dns` → network distance or SYN retries. Big `tls - tcp` → handshake/cert-chain cost. Big `ttfb - tls` → **the server is slow, not the network.** That last one ends a lot of pointless network investigations.
 
 ## Step 6 — the wire
+<!-- bite: 478f5583-f87d-48ab-9279-8aca1278258a -->
 
 ```sh
 sudo tcpdump -i any -n host 10.0.0.5 and port 443       # filter tightly, always
@@ -137,6 +144,7 @@ Signatures worth recognising:
 For [[networking/13-quic-and-modern-transport|QUIC/HTTP3]], packet capture shows you almost nothing — it's encrypted by design. Use **qlog** or `SSLKEYLOGFILE` with Wireshark instead.
 
 ## Common failure signatures, indexed by symptom
+<!-- bite: c85c6f77-9862-4b2c-ad42-df0d19f0eea2 -->
 
 | Symptom | Likely cause | First check |
 |---|---|---|
@@ -153,10 +161,12 @@ For [[networking/13-quic-and-modern-transport|QUIC/HTTP3]], packet capture shows
 | Fast, then slow after a big upload starts | **bufferbloat** | `mtr` during the transfer |
 
 ## Key insight
+<!-- bite: 4b98596a-5618-46e0-9e63-275608d8446e -->
 
 Network debugging is **binary search over the stack**, and the reason it feels hard is that people start at the layer they're most comfortable with rather than the layer that's cheapest to eliminate. Every tool here answers one narrow question; the skill is choosing the question whose answer removes the most possibilities. And the most valuable single distinction in the whole practice costs you three seconds: **refused (fast) means you got there and were told no; hung (slow) means something in between never told you anything.**
 
 ## Related
+<!-- bite: 761053a4-c990-45b6-8b2a-fa86261cfb65 -->
 - [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states `ss` reports
 - [[networking/15-network-performance|Network Performance]] — interpreting the timings
 - [[devops/07-observability/index|Observability]] — turning this into monitoring rather than firefighting

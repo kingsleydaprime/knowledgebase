@@ -1,6 +1,11 @@
+---
+id: 0ba15974-3813-428e-b82a-2881b82f5a94
+---
+
 # Transformations and the Animation Loop
 
 ## The three transform properties
+<!-- bite: fb9bee35-0a56-47df-a089-325f46d353ee -->
 
 Every `Object3D` (meshes, lights, cameras, groups — everything placed in a scene) has the same three transform properties, each a `Vector3`:
 
@@ -16,6 +21,7 @@ cube.rotation.y = Math.PI / 2; // 90 degrees, expressed in radians
 **Why radians, not degrees**: this matches the underlying math (WebGL/trigonometric functions all operate in radians) and avoids a conversion step on every rotation calculation. `THREE.MathUtils.degToRad(90)` exists as a helper when it's more natural to think in degrees during development.
 
 ## Groups: transforming multiple objects together
+<!-- bite: 0f082580-c3d7-44d1-9dc9-29c388b825b8 -->
 
 `THREE.Group` has the same position/rotation/scale properties, and applies its transform to everything nested inside it — the standard way to move/rotate a compound object (e.g. a car body + four wheels) as one unit while still being able to animate the wheels independently within that group:
 
@@ -29,6 +35,7 @@ wheelFL.rotation.x += 0.1; // spins just this wheel, relative to the group's tra
 ```
 
 ## The animation loop: `requestAnimationFrame`
+<!-- bite: 0b317586-718f-4983-ba4b-2ad8ec69ff66 -->
 
 Unlike [[frontend/frameworks/gsap/index|GSAP]] or [[frontend/frameworks/framer-motion/index|Framer Motion]], three.js has no built-in tweening — you drive change yourself, every frame, inside a render loop:
 
@@ -44,6 +51,7 @@ animate();
 `requestAnimationFrame` asks the browser to call the given function right before the next repaint — typically 60 times per second, matching the display's refresh rate, and importantly it **pauses automatically when the tab isn't visible**, unlike `setInterval`, which keeps firing (and wasting battery/CPU) in a background tab.
 
 ## Frame-rate independence with `Clock`
+<!-- bite: 8b1c4f40-3374-4695-a6f4-86fcc9eec5be -->
 
 `cube.rotation.y += 0.01` ties the animation's speed to the frame rate — on a 30fps device it'll rotate at half the speed of a 60fps device. `THREE.Clock` gives you the actual elapsed time between frames (`delta`), so motion can be expressed as "units per second" instead of "units per frame":
 
@@ -62,6 +70,7 @@ animate();
 This is the same underlying reason [[frontend/frameworks/gsap/02-tweens-and-easing|GSAP]] and [[frontend/frameworks/framer-motion/02-animate-props|Framer Motion]] both express animation in terms of `duration` (seconds) rather than per-frame increments — three.js just doesn't hide this from you the way those higher-level libraries do, since it's a lower-level rendering library, not an animation library.
 
 ## Cleanup on unmount (React/SPA context)
+<!-- bite: 8035d594-75a1-4f98-959d-2b98052dd61b -->
 
 `requestAnimationFrame` keeps calling itself forever unless explicitly stopped — in a component-based app, failing to cancel the loop on unmount leaves it running against a canvas/scene that no longer exists:
 
@@ -80,6 +89,7 @@ cancelAnimationFrame(frameId);
 [[07-react-three-fiber|React Three Fiber]] handles this automatically, which is one of its main practical advantages over wiring vanilla three.js into a React component by hand.
 
 ## Related
+<!-- bite: 69449095-28f5-45e6-8287-498dfd25553e -->
 
 - [[01-intro|intro]] — the scene/camera/renderer setup this loop renders every frame
 - [[06-camera-controls-and-raycasting|camera controls and raycasting]] — user-driven changes to the scene each frame

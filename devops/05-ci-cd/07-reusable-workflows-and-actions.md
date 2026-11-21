@@ -1,12 +1,18 @@
+---
+id: 86c9b58f-5989-4123-8469-1fccbdd8051f
+---
+
 # Reusable Workflows and Composite Actions
 
 **[Intermediate → Advanced]** — Two ways to stop copy-pasting YAML across repos: called workflows (a whole job, invoked with inputs and secrets) and composite actions (a bundle of steps).
 
 ## Why Reusability Matters
+<!-- bite: 49440e28-dde3-490e-8f4f-f8a1ee566913 -->
 
 Without reusable workflows, teams copy-paste the same CI logic across dozens of repositories. A change to the linting step means updating 20 files. Reusable workflows solve this — define once, call everywhere.
 
 ## Reusable Workflows — Called Workflows
+<!-- bite: ff94f76d-3963-4ae7-90c3-ce9430449ebd -->
 
 **Define the reusable workflow** (`.github/workflows/reusable-deploy.yml`):
 
@@ -93,6 +99,7 @@ jobs:
 ```
 
 ## Composite Actions
+<!-- bite: f58121a5-447b-4d54-af73-8328068044eb -->
 
 A composite action bundles multiple steps into a reusable action — lighter than a reusable workflow.
 
@@ -150,6 +157,7 @@ steps:
 ---
 
 ## Related
+<!-- bite: bcf03393-a04d-43fd-a3e9-86b4e99578d0 -->
 - [[devops/05-ci-cd/04-triggers-jobs-and-runners|Triggers, Jobs and Runners]] — `uses:` at step level vs job level
 - [[devops/05-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — passing secrets across the boundary
 - [[devops/05-ci-cd/index|CI/CD module map]]

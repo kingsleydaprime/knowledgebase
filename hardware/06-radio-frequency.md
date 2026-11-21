@@ -1,3 +1,7 @@
+---
+id: 6d3ebdf3-cec8-4f4c-a9f1-9b1f0e451810
+---
+
 # Radio Frequency (RF)
 
 **[Intermediate → Advanced]** — The longest note here, and the one with the least intuition available for free: spectrum, modulation, link budgets, antennas, and the IoT radio protocols you'll actually meet.
@@ -5,6 +9,7 @@
 This is where embedded systems get wild. RF is how your devices talk wirelessly — and understanding it separates people who copy-paste WiFi examples from people who can actually design reliable wireless systems.
 
 ## The Electromagnetic Spectrum
+<!-- bite: 99166a9e-297d-4926-bec4-72362cf0101b -->
 
 Radio waves are electromagnetic radiation, just like visible light — but at much lower frequencies and therefore much longer wavelengths. The relationship:
 
@@ -28,6 +33,7 @@ Why does wavelength matter? It determines antenna size, penetration through wall
 | SHF | 3–30GHz | 1–10cm | 5G, radar, satellite |
 
 ## Modulation — How Data Gets onto a Radio Wave
+<!-- bite: af9229d4-5966-4aec-97d4-2cac0c6f5d96 -->
 
 A raw carrier wave carries no information — it's just a sine wave at a fixed frequency. Modulation is the process of changing some property of the carrier wave to encode data.
 
@@ -43,6 +49,7 @@ A raw carrier wave carries no information — it's just a sine wave at a fixed f
 - **LoRa (Chirp Spread Spectrum)** — not traditional modulation. Uses *chirps* — signals that sweep across a bandwidth. Wildly interference-resistant. The reason LoRa achieves 15km range at milliwatt power levels.
 
 ## RF Power and Link Budget
+<!-- bite: e7731aa1-a89f-45dd-9bbe-17f0c4d1258f -->
 
 Everything in RF is measured in **dBm** (decibels relative to 1 milliwatt):
 - 0 dBm = 1 mW
@@ -64,6 +71,7 @@ If received power > receiver sensitivity, your link works. Add a margin (fade ma
 **Path loss** — radio waves spread out (inverse square law: power drops with distance squared) and get absorbed by objects. 2.4GHz signals are heavily absorbed by water... and the human body is mostly water. This is why your WiFi drops when you stand between the router and the device.
 
 ## Antennas
+<!-- bite: b5ef34d9-0ff6-436a-96f5-24b87c81902f -->
 
 An antenna converts electrical energy into electromagnetic waves (transmitting) and vice versa (receiving). Key specs:
 
@@ -78,6 +86,7 @@ An antenna converts electrical energy into electromagnetic waves (transmitting) 
 **Chip antenna:** Tiny ceramic component, mounted on the PCB. Even more compact, slightly less efficient.
 
 ## The IoT Radio Protocols You'll Actually Use
+<!-- bite: c39af02d-1fc6-4cd1-b315-e2c4f7f10eab -->
 
 ### WiFi (802.11)
 2.4GHz and 5GHz bands. Up to hundreds of Mbps throughput. The infrastructure is already everywhere. Drawbacks: power-hungry (ESP32 WiFi active ~80mA vs deep sleep ~10µA), requires an access point.
@@ -196,6 +205,7 @@ Operates at 13.56MHz, range: a few centimeters maximum. Standardized protocol st
 The cheapest RF modules on the market. OOK modulation, no addressing, no error correction. A transmitter blasts a signal, every receiver in range picks it up. Used for: garage door openers, remote controls, cheap sensor packages. Fine for simple command-and-control but don't expect reliability — they're brutal to anything that needs guaranteed delivery.
 
 ## Interference and Coexistence
+<!-- bite: 0171bff6-7d42-48da-b8da-0c07399eaabc -->
 
 The 2.4GHz band is chaos. WiFi (11 channels), Bluetooth (frequency-hops across 79 channels), Zigbee, microwave ovens — all sharing the same spectrum. Bluetooth handles this with adaptive frequency hopping. WiFi uses CSMA/CA (listen before transmitting). But in dense environments, all of these degrade.
 
@@ -204,6 +214,7 @@ Sub-1GHz (433MHz, 868MHz, 915MHz) is much less congested — fewer devices opera
 ---
 
 ## Related
+<!-- bite: c05889ac-4ab7-46da-9b8d-6cb7d70f7831 -->
 - [[digital-signal-processing/08-modulation-and-sdr|modulation and SDR]] — the DSP side of RF: I/Q, digital modulation, and software-defined radio
 - [[hardware/05-communication-protocols|Communication Protocols]] — the wired equivalents
 - [[hardware/07-connectivity|Connectivity]] — choosing between radio and a cable

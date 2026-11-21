@@ -1,3 +1,7 @@
+---
+id: 341c25f8-d2ba-4852-ae38-7afa9e032052
+---
+
 # Practice Exercises
 
 > **[Intermediate]** · Twelve short scripts. **This domain's failure mode is producing a plausible number that is wrong — and reading about that doesn't build the instinct.**
@@ -9,6 +13,7 @@ Solutions with measured results in [[mathematics/07-applied-and-computational/01
 ---
 
 ## Part A — Error and conditioning (notes 01–02)
+<!-- bite: 939e0b7f-3701-4775-93bb-bf11b39ff4e6 -->
 
 **1. Plot the U-curve.**
 Approximate $f'(1)$ for $f(x)=\sin x$ with the forward difference $(f(x+h)-f(x))/h$, for $h = 10^{-1}$ down to $10^{-16}$. Plot absolute error against $h$ on log axes.
@@ -29,6 +34,7 @@ Sum $10^7$ copies of `0.1` left-to-right, then in reverse, then sorted ascending
 ---
 
 ## Part B — Solving things (notes 03–05)
+<!-- bite: 5cb243a9-c325-47d2-b4b0-cb9ef4d42070 -->
 
 **5. Race the root-finders.**
 Find a root of $x^3 - 2x - 5$ with bisection, Newton, and secant from the same bracket. Count iterations to $10^{-12}$.
@@ -45,6 +51,7 @@ Implement Gaussian elimination **without** pivoting. Solve a system whose first 
 ---
 
 ## Part C — Approximation and integration (notes 06–07)
+<!-- bite: c94e7b28-96a9-446d-ba41-5438b74803c4 -->
 
 **8. Reproduce Runge's phenomenon.**
 Interpolate $f(x) = 1/(1+25x^2)$ on $[-1,1]$ with polynomials through 5, 10, and 20 **equally spaced** points. Plot. Then repeat at **Chebyshev** nodes.
@@ -61,6 +68,7 @@ Integrate something with a singularity ($1/\sqrt{x}$ on $[0,1]$) and something o
 ---
 
 ## Part D — Dynamics and optimisation (notes 08–10)
+<!-- bite: 05ea5c7b-1d50-40e8-b7f2-23fad91dbae1 -->
 
 **11. Hit the stiffness wall.**
 Integrate $y' = -1000(y - \cos t) - \sin t$ with explicit RK4 at fixed steps, and with an implicit/adaptive stiff solver. Count steps and compare stability.
@@ -73,12 +81,14 @@ Minimise the Rosenbrock function from $(-1.2, 1)$ with plain gradient descent an
 ---
 
 ## The habit worth keeping
+<!-- bite: 2a01e99b-8a8a-4edb-b1d7-44d7d94c0d4a -->
 
 **Every result in this domain deserves the question: how would I know if this were wrong?**
 
 The three cheap answers, and you should reach for one of them by reflex: **a convergence study** (does the error fall at the promised rate?), **a known case** (does it get the analytic answer right?), and **a residual check** (does $\|Ax - b\|$ actually shrink?).
 
 ## Related
+<!-- bite: 160fd441-3b03-4f0f-974f-e2a0f3e00a1d -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/12-practice-exercises-solutions|Solutions]] — with measured results
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|the course]]
 - [[computer-architecture/13-practice-exercises|architecture exercises]] — where the floating point lives

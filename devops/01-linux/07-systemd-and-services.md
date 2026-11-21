@@ -1,3 +1,7 @@
+---
+id: 32ce6f66-bf94-40f4-a542-54851d3eac75
+---
+
 # systemd & Services
 
 Every background program running on your system — nginx, postgres, redis, ssh — is managed by **systemd** as a **service**.

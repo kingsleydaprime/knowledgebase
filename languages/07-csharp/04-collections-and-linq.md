@@ -1,8 +1,13 @@
+---
+id: 3909f061-380d-4a23-8e23-507ba0276682
+---
+
 # Collections and LINQ
 
 > **[Beginner → Intermediate]** · The standard collections, and LINQ — the feature that most distinguishes C# from its neighbours.
 
 ## The collections
+<!-- bite: 51e8b64b-63fb-4c71-894f-a6e27a5e772b -->
 
 | Type | Is | Cost |
 |---|---|---|
@@ -21,6 +26,7 @@
 **Interfaces matter here.** Accept the least specific thing that works — `IEnumerable<T>` for "I'll iterate it once", `IReadOnlyList<T>` for "I need indexing", `ICollection<T>` if you must add. **Returning `IEnumerable<T>` from a method that does I/O is how you accidentally re-query.**
 
 ## LINQ
+<!-- bite: 4f3f6e31-f4e1-4728-82d0-680120dc6b22 -->
 
 **Language-Integrated Query** — a uniform query syntax over anything enumerable.
 
@@ -41,6 +47,7 @@ var topSpenders = orders
 **`First` vs `Single`** is a real distinction: `First` takes the first match; **`Single` throws if there isn't exactly one.** Using `Single` where you mean `First` turns a data anomaly into an exception — which is sometimes exactly what you want, and should be deliberate.
 
 ## Deferred execution — the part that bites
+<!-- bite: deecf3e3-8f43-409f-bf01-f98a95533ae1 -->
 
 **LINQ queries are lazy.** Building one executes nothing; enumerating it does.
 
@@ -61,6 +68,7 @@ foreach (var x in query) { }                  // runs AGAIN — the whole thing
 **The rule: return `IEnumerable<T>` for composability, but materialise at the boundary where the work should actually happen.**
 
 ## LINQ to Objects vs IQueryable
+<!-- bite: 0f3c77be-f80e-4d0a-a1ad-f6cfe30223eb -->
 
 **This distinction is the source of most LINQ performance disasters.**
 
@@ -78,6 +86,7 @@ db.Orders.ToList().Where(o => o.Total > 100);        // ✗ loads EVERY order, f
 **And not everything translates.** A C# method inside a `Where` on an `IQueryable` either throws or — in older EF versions — silently fell back to client-side evaluation. **Know which of the two you're holding.**
 
 ## Performance, honestly
+<!-- bite: 56e9cc01-e2dc-4d8b-8f85-e980c1fa8120 -->
 
 **LINQ allocates.** Each operator creates an iterator object, and lambdas capturing variables create closure objects. In ordinary application code this is irrelevant. **In a per-frame game loop or a hot server path it is not** → [[languages/07-csharp/08-memory-gc-and-spans|note 08]].
 
@@ -86,6 +95,7 @@ db.Orders.ToList().Where(o => o.Total > 100);        // ✗ loads EVERY order, f
 **The judgement:** write LINQ by default because it's clearer; replace it with a loop where a profiler says it matters. **Not before** → [[computer-architecture/12-performance|performance method]].
 
 ## Related
+<!-- bite: 7c8d224a-7735-46ce-a55d-5c3cef81925b -->
 - [[languages/07-csharp/06-delegates-events-and-lambdas|delegates and lambdas]] — what LINQ is built on
 - [[languages/07-csharp/08-memory-gc-and-spans|memory and GC]] — LINQ's cost
 - [[programming-fundamentals/07-collections|collections]] · [[databases/index|databases]]

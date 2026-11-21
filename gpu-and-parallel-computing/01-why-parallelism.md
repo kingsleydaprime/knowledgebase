@@ -1,3 +1,7 @@
+---
+id: 0d1187aa-7a7f-48bd-af2b-29f1dea087b7
+---
+
 # Why Parallelism
 
 **[Intermediate]** — The free lunch ended, what Amdahl actually limits, and the taxonomy that tells you which kind of parallel you need.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[gpu-and-parallel-computing/index|the domain note]].
 
 ## The end of free performance
+<!-- bite: 34b019a8-9ae0-48ce-8c0d-7ec9052bb1da -->
 
 **Until ~2005, single-thread performance doubled every couple of years.** Dennard scaling meant smaller transistors switched faster at the same power density, so clocks rose and your code got faster while you slept.
 
@@ -19,6 +24,7 @@ $$P \approx CV^2f + \text{leakage}$$
 > **So performance is now something you have to *ask for*.** A single-threaded program on a 64-core machine uses 1.5% of it. **Parallelism stopped being an optimisation and became the only remaining source of speedup.**
 
 ## Amdahl's law
+<!-- bite: d827e862-07cd-498d-bc5f-55b75706e2eb -->
 
 $$S = \frac{1}{(1-p) + p/N}$$
 
@@ -43,6 +49,7 @@ $$S = \frac{1}{(1-p) + p/N}$$
 **The practical reading:** strong scaling (fixed problem, more cores) hits Amdahl's wall. **Weak scaling (problem grows with cores) is what large systems are actually designed for**, and it's why "does it scale?" needs the question clarified before it can be answered.
 
 ## Flynn's taxonomy
+<!-- bite: 10b0f714-18d0-420c-a377-4e7fd79e36bc -->
 
 **Four categories, and knowing which you're in tells you which tool applies.**
 
@@ -58,6 +65,7 @@ $$S = \frac{1}{(1-p) + p/N}$$
 **SIMT** — "single instruction, multiple threads" — is NVIDIA's term for the GPU model, and it sits between the two: **it looks like MIMD to the programmer and executes like SIMD in hardware.** That gap is where most GPU performance surprises come from. → [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]]
 
 ## Kinds of parallelism
+<!-- bite: e8f599ad-6c58-4446-b6a3-172e9cb4d496 -->
 
 **Data parallelism** — the same operation on many elements.
 
@@ -74,6 +82,7 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 **Embarrassingly parallel** — no communication between workers at all. Monte Carlo runs, hyperparameter sweeps, batch image processing, rendering separate frames. **If your problem is this, stop reading and just run it $N$ times.**
 
 ## The costs
+<!-- bite: 42f1a3f0-93d4-49ba-b416-5ee9c2e99ac6 -->
 
 **Parallelism is never free**, and the overheads are where the promised speedup disappears.
 
@@ -99,6 +108,7 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 **Correctness.** Race conditions, deadlocks, and memory-ordering bugs that appear once in $10^9$ runs on one architecture. → [[computer-architecture/11-multicore-and-memory-models|Memory Models]]
 
 ## Which hardware
+<!-- bite: d6dbf34d-f15a-40c0-b968-393d09a14fe0 -->
 
 **The decision that matters before any code is written.**
 
@@ -115,6 +125,7 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 > **A CPU with good SIMD and multithreading is often within 2–5× of a GPU** on realistic workloads, and it's far easier to program. **Measure before porting.**
 
 ## Scaling in practice
+<!-- bite: 696f6f4e-5647-43d7-892c-909d67c60832 -->
 
 **Strong scaling** — fixed problem, more workers. **Measure with speedup: $T_1/T_N$.** Efficiency is $S/N$, and it decays as communication grows relative to work.
 
@@ -131,6 +142,7 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 5. **When it flattens, find out why** — contention, bandwidth, imbalance, or the serial fraction
 
 ## Practical notes
+<!-- bite: 115453cf-1500-4237-850c-0f2b6bd67cb5 -->
 
 **Try the easy things first.** A better algorithm, better data layout, or SIMD often beats parallelising. **$O(n^2) \to O(n\log n)$ beats 64 cores.**
 
@@ -147,6 +159,7 @@ for i in range(N):   y[i] = f(x[i])      # every i independent
 ---
 
 ## Related
+<!-- bite: 4cd59341-3203-44fb-a285-534b7c365156 -->
 - [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — what a GPU actually is
 - [[computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — the correctness side
 - [[computer-architecture/12-performance|Performance]] — profile before parallelising

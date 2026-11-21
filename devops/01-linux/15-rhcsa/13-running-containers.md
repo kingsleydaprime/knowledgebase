@@ -1,3 +1,7 @@
+---
+id: 5167eccc-cfed-45b5-88b2-223266355596
+---
+
 # Running Containers
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. RHEL's container tooling i
 ---
 
 ## Podman vs. Docker
+<!-- bite: 728401ef-b0fc-461d-bbb1-26aebc22b53f -->
 
 | | Docker | Podman |
 |---|---|---|
@@ -24,6 +29,7 @@ sudo dnf install podman
 ---
 
 ## Basic commands
+<!-- bite: 2decc932-26cd-4630-88a6-51b55588a025 -->
 
 ```bash
 podman search nginx                     # search configured registries
@@ -43,6 +49,7 @@ podman inspect web                      # full JSON detail — networking, mount
 ---
 
 ## Registries
+<!-- bite: ab36f387-f05a-47dc-8ecc-10e81a8cb820 -->
 
 ```bash
 /etc/containers/registries.conf         # configured registries, search order
@@ -63,6 +70,7 @@ podman login registry.redhat.io
 ---
 
 ## Rootless containers — how the UID mapping works
+<!-- bite: be31243f-1d50-4ab2-982e-5b09ec19252f -->
 
 A rootless container's process shows up as `root` *inside* the container but maps to your unprivileged UID *outside* it, via a range of extra UIDs reserved for that user:
 
@@ -77,6 +85,7 @@ The practical consequence: **rootless containers can't bind ports below 1024** (
 ---
 
 ## Building your own images
+<!-- bite: e7dcb3f9-6c32-498e-96b2-1d4c3cc8b2a4 -->
 
 Everything above assumes pulling an image someone else already built. Building your own starts with a **Containerfile** (Podman's name for what Docker calls a Dockerfile — same idea, same syntax, different filename convention) and Red Hat's **Universal Base Images (UBI)** as the foundation to build on top of:
 
@@ -112,6 +121,7 @@ podman image prune --all                      # also remove any image not curren
 ---
 
 ## Persisting containers across reboots — systemd integration
+<!-- bite: 98e7a6ac-79ae-4335-b022-d5a5199da905 -->
 
 A `podman run` container doesn't survive a reboot on its own — you need it managed by systemd, same as any other service in [[devops/01-linux/07-systemd-and-services|systemd & Services]].
 

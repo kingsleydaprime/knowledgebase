@@ -1,8 +1,13 @@
+---
+id: 2e4bc6b0-6c02-48a3-b93e-2a498a56a7dd
+---
+
 # State Space
 
 **[Advanced]** — The modern representation. Why matrices instead of transfer functions, what "state" really means, and how the two views connect.
 
 ## The representation
+<!-- bite: 1179eeed-7506-4d49-8428-76f99b970cab -->
 
 Instead of one $n$th-order differential equation, write $n$ first-order ones and stack them:
 
@@ -22,6 +27,7 @@ $$\mathbf{y} = C\mathbf{x} + D\mathbf{u}$$
 $D = 0$ for almost every physical system, because a real plant can't respond instantaneously.
 
 ## What "state" means
+<!-- bite: 7457d720-bf82-43b6-abba-34266e9945e5 -->
 
 The definition worth internalising:
 
@@ -57,6 +63,7 @@ $$\bar{A} = TAT^{-1}, \quad \bar{B} = TB, \quad \bar{C} = CT^{-1}$$
 Different coordinates, same system. **Eigenvalues are invariant under this transformation** — which is why they, and not the matrix entries, are the physically meaningful thing.
 
 ## Why bother
+<!-- bite: 9bd60953-9255-4697-aeb9-fc344914f1a1 -->
 
 Transfer functions work fine for SISO systems. The case for state space:
 
@@ -73,6 +80,7 @@ Transfer functions work fine for SISO systems. The case for state space:
 **It's what the algorithms want.** LQR, Kalman filtering, MPC, and every modern synthesis method are stated in state space.
 
 ## The solution
+<!-- bite: 98bcdf5e-0931-45d7-8e07-3a1f267c79e2 -->
 
 $$\mathbf{x}(t) = \underbrace{e^{At}\mathbf{x}(0)}_{\text{natural response}} + \underbrace{\int_0^t e^{A(t-\tau)}B\mathbf{u}(\tau)\,d\tau}_{\text{forced response}}$$
 
@@ -83,6 +91,7 @@ $$e^{At} = I + At + \frac{A^2t^2}{2!} + \cdots$$
 **Don't compute it that way.** The series converges slowly and badly for stiff systems. Use the eigendecomposition when $A$ is diagonalisable, or a scaling-and-squaring Padé method (what `expm` does) otherwise. It's a genuinely delicate numerical problem — the classic paper on it is titled *"Nineteen Dubious Ways to Compute the Exponential of a Matrix"*.
 
 ## Eigenvalues are the poles
+<!-- bite: 78a8f812-0326-480c-ac8c-9620bb98033d -->
 
 **The connection to everything in notes 02–07:**
 
@@ -101,6 +110,7 @@ Everything from the classical notes transfers directly. Complex eigenvalue pairs
 **Modal form:** transform to $\bar{A} = \Lambda$ (diagonal, eigenvalues on the diagonal) and the modes fully decouple — $n$ independent first-order systems. That's the cleanest way to see what a system is doing.
 
 ## Converting between representations
+<!-- bite: 8a76f5f5-2d6e-442d-a531-0a1125bfb53a -->
 
 **State space → transfer function:**
 
@@ -119,6 +129,7 @@ Unique, and always exists.
 > **The conversion can lose information.** If the transfer function has a pole–zero cancellation, the minimal realisation has fewer states than the original system — and the cancelled mode still exists in the real hardware. **The transfer function genuinely cannot see it**, which is the sharpest argument for state space: the hidden mode is a real thing that can grow without bound while the output looks perfect. → [[control-theory/09-controllability-observability-and-pole-placement|Controllability and Observability]]
 
 ## MIMO
+<!-- bite: 22b11dd6-f64a-4fc9-ba2b-133b3200a2f5 -->
 
 Where state space pays for itself.
 
@@ -131,6 +142,7 @@ $$\dot{\mathbf{x}} = A\mathbf{x} + B\mathbf{u}, \qquad \mathbf{y} = C\mathbf{x}$
 A quadcopter is the standard example: 12 states, 4 inputs, and the couplings (roll affects lateral position, thrust affects everything) are the entire difficulty. Cascaded PID does work in practice, but the design is much cleaner in state space.
 
 ## Discrete time
+<!-- bite: 1371ecbf-a7b0-4aa8-a9a8-d114fbdb63fb -->
 
 For implementation, the same structure with a difference equation:
 
@@ -143,6 +155,7 @@ $$A_d = e^{AT}, \qquad B_d = \left(\int_0^T e^{A\tau}d\tau\right)B = A^{-1}(A_d 
 **Stability moves from the left half plane to the unit disc:** $|\lambda_i| < 1$. The mapping is $z = e^{sT}$, which sends the imaginary axis to the unit circle. → [[control-theory/12-digital-control|Digital Control]]
 
 ## Practical notes
+<!-- bite: 54445f06-999c-4e05-9f54-ee723177c0bd -->
 
 **Scale your states.** A model mixing metres and microradians has a badly conditioned $A$, and every subsequent computation suffers. Non-dimensionalise or scale to comparable magnitudes.
 
@@ -157,6 +170,7 @@ $$A_d = e^{AT}, \qquad B_d = \left(\int_0^T e^{A\tau}d\tau\right)B = A^{-1}(A_d 
 ---
 
 ## Related
+<!-- bite: 6856d7f1-e67a-4912-803a-d58b53bbbfa5 -->
 - [[control-theory/09-controllability-observability-and-pole-placement|Controllability, Observability, Pole Placement]] — what you can do with this
 - [[control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]] — the classical representation
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvalues and eigenvectors

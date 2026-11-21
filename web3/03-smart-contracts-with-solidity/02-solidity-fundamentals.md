@@ -1,3 +1,7 @@
+---
+id: 9ce18f86-3679-4c3b-b90b-0d5dc4e418e6
+---
+
 # Solidity Fundamentals
 
 **[Intermediate]** — the language, assuming you can already program. Focused on what's *different*, not on syntax you can guess.
@@ -5,6 +9,7 @@
 **If you know any C-family language, most of Solidity's syntax is free.** This note covers the parts that aren't.
 
 ## A whole contract, annotated
+<!-- bite: 187bfad1-cdad-4f53-81c9-7f1e41c1af05 -->
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -49,6 +54,7 @@ contract Vault {
 ```
 
 ## Types — what's different
+<!-- bite: 3ea58f6b-5efa-4737-98d2-7b9f863860cb -->
 
 - **No floats.** `uint256` is the workhorse; fixed-point is done by hand → [[web3/04-smart-contract-security/04-arithmetic-and-rounding|arithmetic]]
 - **`uint256` is the *cheapest* integer** despite being the largest, because the EVM word is 256 bits. Smaller types cost extra gas to mask — **except** when several pack into one storage slot, where they save far more → [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|packing]]
@@ -58,6 +64,7 @@ contract Vault {
 - **Structs and enums** work as expected; enums are `uint8` underneath
 
 ## The three data locations, in the language
+<!-- bite: a1225834-057f-423f-a06f-590319732b48 -->
 
 Every reference type must declare where it lives, and getting this wrong is a real bug class:
 
@@ -75,6 +82,7 @@ function f(uint256[] calldata input) external {   // calldata: read-only, cheape
 **Use `calldata` for external function array/string parameters.** It's free to read and skips the copy. This is the easiest gas win in the language.
 
 ## The globals
+<!-- bite: c0c80065-4d9f-410c-96b2-5acaa2e5d978 -->
 
 ```solidity
 msg.sender     // the IMMEDIATE caller — a contract if called by a contract
@@ -89,6 +97,7 @@ gasleft()
 **`tx.origin` for authorisation is a classic exploitable bug.** If your contract checks `tx.origin == owner`, then any contract the owner is tricked into calling can call yours and pass the check. **Use `msg.sender`, always** → [[web3/04-smart-contract-security/03-access-control-and-key-management|access control]].
 
 ## Errors: `require`, `revert`, `assert`
+<!-- bite: 7eadfc5e-7983-482c-a7d2-d5ced6b08650 -->
 
 ```solidity
 require(cond, "message");             // input validation. Refunds remaining gas
@@ -101,6 +110,7 @@ assert(invariant);                    // "this must never happen". Consumes ALL 
 **Every revert rolls back all state changes in the entire transaction**, including those made by callers. Reverting is the safe default, and "fail loudly" is the correct instinct here in a way it isn't in a web service.
 
 ## Function modifiers, and the two that matter most
+<!-- bite: 7c64b625-ff9c-4c74-821e-d48da25cc280 -->
 
 ```
 external  // callable from outside only — cheapest for large params
@@ -116,6 +126,7 @@ payable   // may receive ETH. Without it, sending ETH reverts
 **`view` and `pure` are enforced by the EVM** (they compile to `STATICCALL`), so they're a real guarantee rather than documentation. **`private` is not a security boundary** and never was.
 
 ## The `0.8` arithmetic change
+<!-- bite: 8681e483-eac6-4069-8791-85218f9be109 -->
 
 Before Solidity 0.8, integer overflow wrapped silently, and SafeMath was mandatory boilerplate. **Since 0.8, all arithmetic is checked and reverts on overflow.** Two things follow:
 
@@ -123,6 +134,7 @@ Before Solidity 0.8, integer overflow wrapped silently, and SafeMath was mandato
 - **`unchecked { }` opts out** for a small gas saving, and is legitimate where overflow is provably impossible — canonically a `for` loop counter. Use it deliberately and rarely
 
 ## Interfaces and calling other contracts
+<!-- bite: a74a3faa-a0d9-4dcc-926b-129b5a4f8357 -->
 
 ```solidity
 interface IERC20 {
@@ -135,14 +147,17 @@ IERC20(tokenAddress).transfer(recipient, amount);
 This compiles to an ABI-encoded `CALL`. **Nothing verifies that the address actually holds a contract with that function.** Calling a non-existent address succeeds silently with empty returndata — which is why `SafeERC20` exists, and why "the call didn't revert" is not the same as "it worked" → [[web3/03-smart-contracts-with-solidity/07-token-standards|token standards]].
 
 ## What Solidity doesn't have
+<!-- bite: bbb13e4f-8df1-4496-ad7b-c0ef79524620 -->
 
 No garbage collection (nothing is freed), no threads, no exceptions to catch — `try/catch` exists but only around *external calls* — no `null` (uninitialised is zero), no generics, no floats, and no standard library worth the name. **OpenZeppelin is the de facto stdlib**, and using it rather than reimplementing is the correct default.
 
 ## Key insight
+<!-- bite: f294eb89-add1-4ef9-9330-1781c06feb91 -->
 
 **Solidity is a small, ordinary language pointed at an extremely unusual machine.** Almost every surprising rule — storage vs memory semantics, why `uint256` is cheapest, why `private` isn't private, why mappings can't be iterated — is the EVM showing through. Learn [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] and Solidity stops being arbitrary.
 
 ## Related
+<!-- bite: fc98ebb2-1e0d-49a7-b0be-8c7a29236885 -->
 - [[web3/03-smart-contracts-with-solidity/03-storage-memory-calldata|storage, memory, calldata]] — this, in depth
 - [[web3/04-smart-contract-security/index|smart contract security]] — read alongside, not after
 - [[web3/frameworks/solidity/index|the Solidity toolchain]] — Foundry, Hardhat

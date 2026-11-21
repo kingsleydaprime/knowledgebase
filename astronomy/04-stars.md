@@ -1,3 +1,7 @@
+---
+id: 6f323b7b-62e9-4311-b8c7-da756a5eef3b
+---
+
 # Stars
 
 > **[Intermediate]** · What a star is, why mass decides everything, and how they end.
@@ -7,6 +11,7 @@
 **The equilibrium is the whole story.** Gravity pulls inward; radiation and gas pressure from fusion push outward. **A star is a controlled explosion balanced against its own collapse for billions of years** — and every stage of stellar evolution is that balance being renegotiated as fuel runs out.
 
 ## Mass decides everything
+<!-- bite: ca957d55-9c0b-4668-9b0c-5a49cbaee4b6 -->
 
 **Given a star's mass and composition, essentially everything else follows** — its luminosity, temperature, colour, lifetime and death. That's an unusually strong statement for astrophysics, and it's why the field organises around mass.
 
@@ -22,6 +27,7 @@ The counterintuitive part: **more massive stars live far shorter lives.** A star
 **The universe is 13.8 billion years old, so every red dwarf ever formed still exists.** They're also the most common star by far — roughly three-quarters of all stars — which matters for where to look for planets.
 
 ## The Hertzsprung–Russell diagram
+<!-- bite: 67b10b68-af31-4086-8e2f-825d0c1f4e9a -->
 
 **The single most important diagram in astronomy.** Plot luminosity against temperature and stars fall into distinct regions rather than scattering:
 
@@ -50,6 +56,7 @@ The counterintuitive part: **more massive stars live far shorter lives.** A star
 **Why the diagram is powerful: it's an evolutionary map.** A cluster's stars all formed together, so plotting them shows where the massive ones have already left the main sequence — and **the turn-off point dates the cluster.** That's how globular clusters were shown to be ~12–13 billion years old, which put a hard floor under the age of the universe.
 
 ## The life of a star
+<!-- bite: 87f01519-b8ce-4a6a-990e-2ba4f8312059 -->
 
 **Formation** — a cold molecular cloud fragments and collapses under gravity. Contraction heats the core; at **~10 million K** hydrogen fusion ignites and the collapse halts. The star joins the main sequence.
 
@@ -66,6 +73,7 @@ The counterintuitive part: **more massive stars live far shorter lives.** A star
 **It stops at iron**, and this is the pivotal fact in stellar physics: **fusing iron consumes energy rather than releasing it.** The core's support vanishes, it collapses in under a second, and the infalling envelope rebounds in a **core-collapse supernova**.
 
 ## Why you are made of stars
+<!-- bite: ab2a19a8-9182-46d5-9184-28acbe58d135 -->
 
 **The Big Bang produced hydrogen, helium and a trace of lithium. Nothing else.**
 
@@ -77,6 +85,7 @@ Everything heavier was made in stars:
 **The calcium in your bones and the iron in your blood were made inside a star that exploded before the Sun formed.** That statement is literal, quantitative and checkable — the isotope ratios in meteorites record it.
 
 ## What we can measure, and how
+<!-- bite: 10190bd1-c3ed-4bd1-b762-78a04feda5e2 -->
 
 **Distance** — parallax for nearby stars (Gaia measured ~2 billion); **standard candles** further out → [[astronomy/07-cosmology|note 07]].
 
@@ -89,6 +98,7 @@ Everything heavier was made in stars:
 **Interior structure** — **asteroseismology**, reading the star's pulsation modes like seismic waves. Genuinely remarkable: you can infer the internal structure of a distant star from tiny brightness oscillations.
 
 ## Related
+<!-- bite: 34b7236a-094d-49ef-b2c1-7df8638a79ef -->
 - [[astronomy/05-planets-and-solar-systems|planets and solar systems]] — what forms alongside
 - [[astronomy/06-gravity-and-relativity|gravity and relativity]] — what happens after collapse
 - [[astronomy/07-cosmology|cosmology]] — where the hydrogen came from

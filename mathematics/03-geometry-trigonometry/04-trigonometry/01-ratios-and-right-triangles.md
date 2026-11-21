@@ -1,8 +1,13 @@
+---
+id: 345ec940-66ab-4941-bacc-6575b99724eb
+---
+
 # Trigonometric Ratios and Right Triangles
 
 **[Beginner]** — why a ratio of two sides depends only on an angle, and how that one fact lets you measure things you cannot reach.
 
 ## Before you start
+<!-- bite: ffe5b157-0d02-4cc8-bdca-7ede2a7b1842 -->
 
 - You know similar triangles and the AA criterion — [[02-triangles-and-polygons|triangles and polygons]].
 - You know Pythagoras' theorem.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: accd8ea6-e10d-4664-bded-b949f7fbbc5d -->
 
 You need the height of a tree. You cannot climb it and you cannot lay a tape up it. You *can* stand somewhere, measure your distance from the base, and measure the angle from horizontal up to the top.
 
@@ -32,6 +38,7 @@ The whole subject rests on one observation, which is worth stating before any no
 That is the AA similarity criterion, applied to right triangles. Everything below is bookkeeping on top of it.
 
 ## 2. Terminology
+<!-- bite: 929e6a84-46cd-4974-9ac0-0cb5264f411b -->
 
 Fix one non-right angle $\theta$. The three sides then get names **relative to that angle**:
 
@@ -62,6 +69,7 @@ The mnemonic **SOH-CAH-TOA** encodes the three definitions. It is a memory aid, 
 > "Opposite" and "adjacent" are defined **with respect to the angle you chose**. Switch to the other non-right angle and they exchange. This is the single most common source of wrong answers: $\sin$ of one angle equals $\cos$ of the other, and using the wrong one silently gives a plausible number.
 
 ## 3. The ratios are functions of the angle
+<!-- bite: b948bd73-9547-4992-9974-bfcc17ab3191 -->
 
 Take a right triangle with $\theta = 30°$ and legs of some size. Double every side. Triple them. The angles are unchanged — scaling preserves angle — so all these triangles are similar, and corresponding side ratios are equal:
 
@@ -72,6 +80,7 @@ $$
 So $\sin 30°$ is a **number**, not a property of a particular triangle. That is what licenses writing $\sin$ as a function. Block 1 of the lab checks this over several scale factors.
 
 ## 4. Exact values, derived not memorised
+<!-- bite: 1d0a4acd-860a-4182-ba76-0f373c61c942 -->
 
 Two triangles are constructible with compass and straightedge, and between them they give every "nice" angle.
 
@@ -121,6 +130,7 @@ $$
 Both are Pythagoras and division, nothing more. $\sin^2\theta$ means $(\sin\theta)^2$, a notation that exists only to avoid writing brackets everywhere.
 
 ## 5. Elevation, depression, and the unknown-distance case
+<!-- bite: d3acace4-a084-4cee-b6a0-d4a99a0a6f17 -->
 
 **One observation.** Standing $d$ from the base, measuring elevation $\theta$ to the top, with eye height $e$:
 
@@ -148,6 +158,7 @@ This is the workhorse of practical surveying, and it needs no access to the base
 > **Predict before running the lab.** In that last formula, what happens as $\alpha$ and $\beta$ get closer together? What does that mean physically — and what does it tell you about how far apart your two observation points should be? Decide before opening the answers.
 
 ## Worked example — runnable
+<!-- bite: 5c8a0e8c-d194-4405-b308-2378eb769b39 -->
 
 **Runnable example:** save as `trig_ratios.py` in any empty directory and run `python3 trig_ratios.py`. Standard library only; writes no files.
 
@@ -292,6 +303,7 @@ trig_ratios: passed
 The last three lines are worth more than the rest. A tenth of a degree — finer than most hand-held instruments resolve — shifts the answer by about $0.22$ m on an $18$ m tree, roughly $1.2\%$. The formula is exact; the measurement is not, and the arithmetic **amplifies** the error. Move the two observation points closer together and this gets rapidly worse, which is what the prediction in section 5 was about.
 
 ## Common pitfalls and traps
+<!-- bite: 21aefd3d-322f-495a-863d-d1af8093ea19 -->
 
 - **Swapping opposite and adjacent.** They are named relative to the chosen angle. Redraw and relabel for the angle you are actually using, every time.
 - **Degrees versus radians.** Python's `math.sin` takes **radians**. `math.sin(30)` is the sine of $30$ radians, which is $-0.988$ — a perfectly plausible-looking wrong number. Every angle in the lab passes through `math.radians` first.
@@ -301,6 +313,7 @@ The last three lines are worth more than the rest. A tenth of a degree — finer
 - **Treating an exact formula as an exact answer.** Block 5's sensitivity check is the honest part of the lesson. The mathematics carries no error; the protractor does.
 
 ## Check your understanding
+<!-- bite: 2b4a1073-ccab-4c1f-9508-0237e7362043 -->
 
 1. In a right triangle, the side opposite $\theta$ is $7$ and the hypotenuse is $25$. Find $\sin\theta$, $\cos\theta$ and $\tan\theta$ exactly.
 2. Without a calculator, find $\tan 60° \times \tan 30°$. Explain the result.
@@ -320,6 +333,7 @@ The last three lines are worth more than the rest. A tenth of a degree — finer
 </details>
 
 ## Practice — independent task
+<!-- bite: b5a8b987-d452-4e22-a5cb-9020305b94c9 -->
 
 Implement `tower_height(observations, eye_height)` where `observations` is a list of `(distance_walked, elevation_degrees)` pairs taken by walking directly away from an object in a straight line, with the first entry at distance $0$.
 
@@ -334,6 +348,7 @@ Implement `tower_height(observations, eye_height)` where `observations` is a lis
 **Done when:** the noise-free assertions pass, your noisy experiment is reproducible from its seed, and your answer to step 5 is based on numbers you produced rather than on what you expected.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: eb333418-a3b9-41ec-aa18-cdabf615dde8 -->
 
 **These definitions only cover $0° < \theta < 90°$.** A right triangle cannot contain an obtuse angle, so nothing above says what $\sin 120°$ means. Extending the definitions to every angle — including negative and reflex — requires the **unit circle**, which is the first section of [[02-graphs-and-identities|graphs and identities]]. The extension is designed so that all the identities here survive unchanged.
 
@@ -342,6 +357,7 @@ Implement `tower_height(observations, eye_height)` where `observations` is a lis
 **Accuracy in practice.** Surveying instruments quote angular accuracy in *seconds* of arc for this reason. The trigonometry is exact; the answer is only as good as the angle, and as block 5 shows, the amplification factor depends on the geometry you chose.
 
 ## Before moving on
+<!-- bite: a8a3c32a-0200-44ff-834a-3eaba61b783f -->
 
 You are done with this lesson when you can:
 
@@ -355,6 +371,7 @@ You are done with this lesson when you can:
 **Next:** [[02-graphs-and-identities|Graphs and Identities]] — extending these three ratios from acute angles to every angle, using the unit circle.
 
 ## Related
+<!-- bite: a6903437-8433-4cc2-9055-2b992b90790f -->
 
 - [[02-triangles-and-polygons|Triangles and Polygons]] — the similarity result the whole subject rests on
 - [[03-constructions|Constructions]] — where the two exact-value triangles come from

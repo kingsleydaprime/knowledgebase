@@ -1,8 +1,13 @@
+---
+id: 9645c3e6-9cd0-4e4e-a723-8d8a667b8662
+---
+
 # The Datapath
 
 **[Intermediate]** — How a CPU actually executes one instruction, from fetch to writeback.
 
 ## The five stages
+<!-- bite: 2627dd5e-b654-4c42-9a07-a32b7d021c83 -->
 
 **The classic RISC pipeline**, and it's the mental model everything else builds on:
 
@@ -24,6 +29,7 @@
 **WB — Writeback.** Write the result into the destination register.
 
 ## The components
+<!-- bite: b099edcb-2d9a-4221-a249-61d7b9ce3813 -->
 
 **Program counter** — the address of the next instruction.
 
@@ -63,6 +69,7 @@
 ```
 
 ## Single-cycle vs multi-cycle
+<!-- bite: 05fdf372-5ce9-4fa4-ad71-59a544e30401 -->
 
 **Single-cycle** — every instruction completes in one clock.
 
@@ -75,6 +82,7 @@
 **Pipelining** is the fix: keep every stage busy with a *different* instruction. That's the next note, and it's where real performance comes from. → [[computer-architecture/06-pipelining|Pipelining]]
 
 ## Instruction execution, traced
+<!-- bite: 98b4638a-17be-4f1e-9079-7a564bc4b4bb -->
 
 **`add x1, x2, x3`** (AArch64, `x1 = x2 + x3`):
 
@@ -111,6 +119,7 @@
 > **The branch problem is visible right here.** The outcome isn't known until EX, but the *next* instruction had to be fetched in the meantime. **Something must be fetched, and it might be wrong.** That's what branch prediction exists to solve. → [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]]
 
 ## Control signals
+<!-- bite: a7cdf9ab-cb6e-49fe-ae78-8677acf08339 -->
 
 **The control unit turns an opcode into a set of switches.** For a simplified RISC:
 
@@ -132,6 +141,7 @@
 > **Microcode is why x86 survives.** Complex instructions are implemented as micro-op sequences rather than dedicated hardware, and **microcode is updatable** — which is how Spectre and Meltdown mitigations were shipped to existing CPUs as firmware updates rather than requiring new silicon. **A design decision from the 1960s that saved the industry in 2018.**
 
 ## Clocking
+<!-- bite: 0d11cb70-55ec-4805-9b6c-5630547e4e1b -->
 
 **A clock signal synchronises everything.** State elements (registers, latches) update on the clock edge; combinational logic settles in between.
 
@@ -152,6 +162,7 @@ $$P \approx C V^2 f + \text{leakage}$$
 **Power scales with frequency and with the *square* of voltage.** Higher clocks need higher voltage to switch reliably, so **power grows super-linearly.** Around 2005 that hit the limit of what a chip could dissipate — the end of frequency scaling and the start of multicore. → [[computer-architecture/01-what-architecture-is|Where performance comes from]]
 
 ## What real CPUs do instead
+<!-- bite: ff2ff0b6-bc66-4410-bf92-5c62f3dd2ce2 -->
 
 **The five-stage pipeline is a teaching model.** A modern high-performance core:
 
@@ -170,6 +181,7 @@ $$P \approx C V^2 f + \text{leakage}$$
 ---
 
 ## Related
+<!-- bite: f1025643-592d-456c-ae86-3212d34cfa91 -->
 - [[computer-architecture/06-pipelining|Pipelining]] — overlapping these stages
 - [[hardware/02-digital-and-analog|Digital and Analog]] — the gates underneath
 - [[computer-architecture/03-instruction-sets|Instruction Sets]] — what's being executed

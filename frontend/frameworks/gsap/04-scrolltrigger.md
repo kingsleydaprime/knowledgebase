@@ -1,3 +1,7 @@
+---
+id: aadd9b68-84af-4bfb-b769-8b3096371f77
+---
+
 # ScrollTrigger
 
 ScrollTrigger links any tween or timeline to scroll position — the animation plays, reverses, pins, or scrubs based on where the user has scrolled to, instead of running once on page load. It's the plugin behind almost every "animate in as you scroll" and "pin this section while content scrolls past it" effect on modern marketing sites.
@@ -5,6 +9,7 @@ ScrollTrigger links any tween or timeline to scroll position — the animation p
 Free since GSAP 3.13 (previously Club GreenSock-only) — see [[01-intro|intro]].
 
 ## Installing / registering
+<!-- bite: 335d20e0-f189-4e5f-bcb7-d235bb9dcc8c -->
 
 Plugins must be explicitly registered before use — GSAP doesn't auto-include them, to keep the core bundle small:
 
@@ -16,6 +21,7 @@ gsap.registerPlugin(ScrollTrigger);
 ```
 
 ## Basic trigger
+<!-- bite: c67ae2f0-70bb-4167-8529-e167c21f8d89 -->
 
 ```js
 gsap.to(".box", {
@@ -33,6 +39,7 @@ gsap.to(".box", {
 `start`/`end` strings follow `"<trigger-position> <viewport-position>"`. `"top 80%"` reads as: "when the trigger element's **top** edge reaches **80% down** the viewport."
 
 ## `scrub` vs. a one-shot animation
+<!-- bite: 158d97cd-646b-4c31-90e1-4c0b0104a14a -->
 
 This is the key conceptual fork in ScrollTrigger:
 
@@ -40,6 +47,7 @@ This is the key conceptual fork in ScrollTrigger:
 - **`scrub: true`**: the animation's progress is *directly bound* to scroll position between `start` and `end` — scroll down, it advances; scroll up, it reverses; stop scrolling, it stops exactly there. `scrub: 0.5` adds a 0.5s smoothing lag instead of an instant 1:1 link. Good for "this element should visibly track my scroll," like a horizontal gallery or a parallax layer.
 
 ## Pinning
+<!-- bite: 19a9e60d-d67b-45fc-9768-834008a68bbd -->
 
 `pin: true` fixes the trigger element in place (like `position: fixed`) for the duration of the scroll range, letting content animate "on top of" a section that isn't scrolling away yet — the classic scrollytelling effect:
 
@@ -60,6 +68,7 @@ gsap.timeline({
 **Why pinning needs `end: "+=1000"` rather than a viewport-relative string**: pinning holds the element fixed while the *page* keeps scrolling underneath it — so the end condition is naturally expressed as "how much scroll distance should this pin last," not "what viewport position."
 
 ## `toggleActions`
+<!-- bite: 7b17e2c8-8d94-4fea-80a5-d2fb0036d042 -->
 
 Controls what happens at each of the four transitions (enter / leave / enter back / leave back) for non-scrubbed animations:
 
@@ -74,10 +83,12 @@ scrollTrigger: {
 Common values per slot: `play`, `pause`, `resume`, `reverse`, `restart`, `none`. `"play none none reverse"` (play once going down, only reverse when scrolling back past the start) is a very common default for entrance animations.
 
 ## Cleanup matters
+<!-- bite: 4bdb4306-fcdd-46a6-abcc-711720e0251f -->
 
 Every `ScrollTrigger` instance attaches scroll/resize listeners. In a single-page app where components mount/unmount (React, Next.js), failing to kill triggers on unmount leaves listeners firing against elements that no longer exist — see [[06-react-integration|react integration]] for the cleanup pattern (`useGSAP`'s automatic `revert()`, or manually calling `ScrollTrigger.getAll().forEach(t => t.kill())`).
 
 ## Related
+<!-- bite: a923a7ab-ce59-4705-b668-384bc06bd07b -->
 - [[03-timelines|timelines]] — `scrollTrigger` can be attached to a whole timeline, not just one tween
 - [[06-react-integration|react integration]] — registration and cleanup inside components
 - [[07-performance-and-gotchas|performance and gotchas]] — scrub animations and layout thrash

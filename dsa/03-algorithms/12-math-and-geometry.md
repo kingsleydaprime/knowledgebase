@@ -1,3 +1,7 @@
+---
+id: bf14d9c1-885c-4e2d-a1bf-79d23c90faa7
+---
+
 # Module: Math & Geometry (In-Place Grids & Number Tricks)
 
 Welcome to the **Math & Geometry** module. This module covers problems where the solution hinges on **direct number manipulation or precise grid coordinate reasoning**, often in-place and with arithmetic tricks that eliminate the need for extra memory.
@@ -7,6 +11,7 @@ These problems test whether you understand *how computation works*, not just whi
 ---
 
 ## Before you start
+<!-- bite: 3849aa9d-735d-40fb-b0a9-47cf8ecd44ff -->
 
 - You can index a 2-D array and reason about rows and columns — [[01-arrays|arrays]].
 - Helpful: [[03-geometry-trigonometry/03-coordinate-geometry/01-coordinate-geometry|coordinate geometry]] for the geometric parts.
@@ -23,6 +28,7 @@ These problems test whether you understand *how computation works*, not just whi
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: c7d535c6-990d-4337-b59c-de8f66d7415b -->
 
 These techniques power real production systems:
 
@@ -33,6 +39,7 @@ These techniques power real production systems:
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: 2a7168cb-fa63-49ea-8434-1aea42746404 -->
 
 | Term | Plain-English Definition | Analogy |
 | :--- | :--- | :--- |
@@ -44,6 +51,7 @@ These techniques power real production systems:
 ---
 
 ## 3. In-Place Matrix Manipulation
+<!-- bite: e5bb6a4d-9245-4f9a-8ccb-75ccee8d981a -->
 
 ### 3.1 Rotate Image (90° Clockwise, In-Place)
 
@@ -153,6 +161,7 @@ def spiral_order(matrix: list) -> list:
 ---
 
 ## 4. Number Tricks
+<!-- bite: a3bedfb9-bea4-4bda-8829-0b0cb1841a02 -->
 
 ### 4.1 Fast Power (`Pow(x, n)`) — Binary Exponentiation
 
@@ -202,6 +211,7 @@ This treats the sequence of digit-square-sums as a **linked list**. Floyd's cycl
 ---
 
 ## 5. Complexity Summary
+<!-- bite: 0b10abaa-06b2-4392-9460-9df8d9423df8 -->
 
 | Problem | Naïve Approach | Optimized Trick | Optimized Complexity |
 | :--- | :--- | :--- | :--- |
@@ -213,6 +223,7 @@ This treats the sequence of digit-square-sums as a **linked list**. Floyd's cycl
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: 122bb04f-c5df-4ca8-8887-826afd479366 -->
 
 **Runnable example:** save as `math_geometry.py` in any empty directory and run `python3 math_geometry.py`. Standard library only; writes no files.
 
@@ -447,6 +458,7 @@ math_geometry: passed
 Block 4 is worth the whole lesson. Three points with large integer coordinates are **not** collinear, and comparing their slopes as floats says they are. Cross products of integers are exact; division is not.
 
 ## 6. Common Pitfalls & Traps
+<!-- bite: 2c8f8e6d-3fe7-48eb-80d5-a2c22af0da7a -->
 
 1. **Transpose Before Reverse (not after)**: For 90° CW rotation—transpose first, then reverse rows. Doing it in the wrong order gives a 90° CCW rotation.
 2. **Spiral Off-By-One**: When only a single row or column remains, the left/right bottom/top boundary checks prevent double-visiting that row/column.
@@ -456,6 +468,7 @@ Block 4 is worth the whole lesson. Three points with large integer coordinates a
 ---
 
 ## 7. Check Your Understanding (University Self-Assessment)
+<!-- bite: 5aa98111-96bd-424b-ab38-3ecdaac779d6 -->
 
 1. **Question**: What two-step in-place process achieves a 90° clockwise rotation of an $n \times n$ matrix?
    - <details><summary>Click for Answer</summary><b>Answer:</b> (1) <b>Transpose</b>: swap <code>matrix[i][j]</code> with <code>matrix[j][i]</code> for all <code>i < j</code>. (2) <b>Reverse each row</b>. These two in-place operations together are equivalent to a 90° clockwise rotation.</details>
@@ -469,6 +482,7 @@ Block 4 is worth the whole lesson. Three points with large integer coordinates a
 ---
 
 ## Practice — independent task
+<!-- bite: eb4815c6-9dd2-49ce-8fa1-9dab24fa55f3 -->
 
 Implement `closest_pair(points)` — the two closest points, in $O(n\log n)$ by divide and conquer.
 
@@ -483,6 +497,7 @@ Implement `closest_pair(points)` — the two closest points, in $O(n\log n)$ by 
 **Done when:** your result matches brute force on every test, your $O(n\log n)$ version beats brute force measurably at $n = 10^4$, and your step-3 explanation is in your own words.
 
 ## Before moving on
+<!-- bite: 22ac01d9-0841-4e3b-97a4-701aa4cfa276 -->
 
 You can rotate and traverse matrices, use the cross product for orientation, and keep geometry exact.
 
@@ -491,5 +506,6 @@ You can rotate and traverse matrices, use the cross product for orientation, and
 **Where next:** back to [[index|the algorithms index]] — this is the last note in the folder.
 
 ## Related Modules
+<!-- bite: 365c293c-85cb-4f8b-8584-10b2bdb1971e -->
 - [[11-bit-manipulation|Bit Manipulation]] — Binary exponentiation uses bit-shift operators
 - [[08-number-theory-basics|Number Theory Basics]] — Integer arithmetic techniques

@@ -1,14 +1,20 @@
+---
+id: cd7dd148-4a43-431c-b4d0-74ea0cf5a28b
+---
+
 # Identity Is the New Perimeter
 
 **[Advanced]** — why IAM is the primary control in the cloud, and the privilege-escalation paths that make over-permissioning the most dangerous misconfiguration there is.
 
 ## The kid version first
+<!-- bite: 544ea628-5425-48f4-8115-91a6f3a229a4 -->
 
 On-premises, security was a wall around the building — inside was trusted, outside wasn't. **The cloud has no wall.** Every resource has an internet-reachable API, so "are you inside the network?" is meaningless. The only question left is: **for this specific action on this specific resource, is this identity allowed?**
 
 So identity — who can do what to which resource — *becomes* the perimeter. And the most dangerous mistake is giving an identity more power than it needs, because a single compromised credential then inherits all of it.
 
 ## What replaced the firewall
+<!-- bite: 60987a98-da11-4141-ad18-662cc022af03 -->
 
 **IAM (Identity and Access Management)** is the cloud's core access-control system: it decides, on every API call, whether a *principal* (a user, a service, a machine) may perform an *action* on a *resource*, subject to *conditions*.
 
@@ -20,6 +26,7 @@ So identity — who can do what to which resource — *becomes* the perimeter. A
 Because everything in the cloud is an API call, **IAM is evaluated on literally every operation** — reading a file, starting a VM, decrypting a secret. That makes it the single highest-leverage control: get IAM right and most attacks stall; get it wrong and everything else is decoration → [[cybersecurity/09-cloud-security/01-the-shared-responsibility-model|the perimeter dissolved]].
 
 ## Least privilege — the discipline
+<!-- bite: 28bbb1a7-775c-4b27-9295-c0e5d65bafd1 -->
 
 **Grant the minimum permissions needed to do the job, and nothing more.** It's the cloud embodiment of [[cybersecurity/07-security-operations/01-defensive-architecture|zero trust]], and it's the single most important cloud-security practice.
 
@@ -34,6 +41,7 @@ Why it matters so much: **a compromised identity can do exactly what it's permit
 - **Review and prune** — permissions granted for a one-off migration linger for years
 
 ## Machine identity beats human credentials
+<!-- bite: f5ce902c-e031-4570-8a09-54550e93901b -->
 
 The second discipline: **prefer temporary, role-based credentials over long-lived static keys.**
 
@@ -45,6 +53,7 @@ The second discipline: **prefer temporary, role-based credentials over long-live
 **And MFA everywhere**, especially on privileged and root accounts. The root account should be locked away, MFA-protected, and never used for daily work.
 
 ## IAM privilege escalation — the attack the misconfig enables
+<!-- bite: 682739bc-3d73-454c-9be3-866e5ee2f72d -->
 
 Here's why over-permissioning is so dangerous, concretely. **IAM itself has permissions, and some of them let an identity grant itself more power.** An attacker who compromises a *low*-privilege identity looks for a path to *high* privilege — and IAM misconfigurations provide dozens:
 
@@ -57,6 +66,7 @@ Here's why over-permissioning is so dangerous, concretely. **IAM itself has perm
 **These are all *authorization* logic, not exploits** — the same lesson as [[cybersecurity/14-api-security/03-authorization-and-bola|BOLA in APIs]]: the danger is permissions that let you *reach* more permissions. Tools like **PMapper** and **Cloudsplaining** map these escalation paths in an account automatically — run them defensively, before an attacker does. The single best defence is the boring one: **least privilege, so there's no path to escalate along.**
 
 ## The providers, briefly
+<!-- bite: f01a75e1-6fc8-4cad-beec-48fe7db9b62c -->
 
 The model is the same; the vocabulary differs → [[devops/08-cloud/index|cloud]]:
 
@@ -67,10 +77,12 @@ The model is the same; the vocabulary differs → [[devops/08-cloud/index|cloud]
 **Hybrid and multi-cloud add trust relationships between all of these**, and each seam is an attack path — an on-prem AD synced to Entra ID, or a role that a partner account can assume → [[cybersecurity/12-active-directory/06-defending-active-directory|hybrid identity]].
 
 ## Key insight
+<!-- bite: fd05ed30-c389-4757-8648-d1803cea087e -->
 
 **In the cloud, identity replaces the firewall as the perimeter, so IAM is evaluated on every single API call and least privilege becomes the highest-leverage control there is** — because a compromised identity can do exactly what it's permitted, and over-permissioning silently converts a small breach into a total one. The specific danger is IAM privilege escalation: permissions that let an identity reach *more* permissions, which is authorization logic (like API BOLA), not exploitation. Grant from zero, prefer short-lived role credentials over leakable static keys, and map your own escalation paths before an attacker maps them for you.
 
 ## Related
+<!-- bite: b9d2d495-1f13-4806-a318-d91e2229e689 -->
 - [[cybersecurity/09-cloud-security/03-the-cloud-attack-surface|the cloud attack surface]] — where compromised identities come from
 - [[cybersecurity/07-security-operations/01-defensive-architecture|defensive architecture]] — zero trust
 - [[cybersecurity/14-api-security/03-authorization-and-bola|API authorization]] — the same "permissions that reach permissions" problem

@@ -1,8 +1,13 @@
+---
+id: ace89474-0ac0-4349-ba52-d89d446f8d6c
+---
+
 # Module 24: Latches and Flip-Flops (Feedback Becomes Memory)
 
 **[Intermediate → Advanced]** — Part VII begins with the conceptual leap of the whole course. **Every circuit built so far forgets everything the instant its inputs change.** One wire changes that.
 
 ## Before you start
+<!-- bite: 5a6de638-eb97-470e-8696-1e34763011e3 -->
 
 - You can build gates from CMOS networks — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
 - You know gates have propagation delay and signals take time to settle — [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 6d39b82f-6f36-415a-9c4b-e126c11c4d6f -->
 
 Stop and notice something about everything built in Parts V and VI.
 
@@ -36,6 +42,7 @@ The answer is one wire, connected in a way that has been quietly forbidden until
 ---
 
 ## 2. Terminology
+<!-- bite: f12c9ad6-383f-4bf5-aab1-f9442ed2fbcc -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -55,6 +62,7 @@ The answer is one wire, connected in a way that has been quietly forbidden until
 ---
 
 ## 3. The leap: cross-coupled gates
+<!-- bite: 0a9a2e69-807a-433d-9bd9-fe87a5fd9397 -->
 
 Take two NOR gates. **Connect each one's output to the other's input.**
 
@@ -107,6 +115,7 @@ The settling traces in the lab are worth reading: the circuit visibly passes thr
 ---
 
 ## 4. The forbidden state
+<!-- bite: 9c56f69b-df8d-4e86-82b5-334cf3644a16 -->
 
 **$S = 1, R = 1$ breaks it.** Both gates are forced low, so $Q = 0$ *and* $\overline{Q} = 0$ — which contradicts the whole point of naming the second output "Q-bar".
 
@@ -121,6 +130,7 @@ From $(0,0)$, dropping both inputs to 0 leaves both gates seeing the same inputs
 ---
 
 ## 5. The D latch — one input, no forbidden state
+<!-- bite: a64c6df4-e835-487b-9280-994360b92de5 -->
 
 Feed a single input $D$ to $S$, and $\overline{D}$ to $R$, gated by an **enable**:
 
@@ -142,6 +152,7 @@ Now $S$ and $R$ can never both be 1 — they are complements. **The forbidden st
 ---
 
 ## 6. The flip-flop — sampling an instant
+<!-- bite: 02e424cf-6fd0-437e-aff4-2e930694eecd -->
 
 **What you want is storage that captures its input at a single moment**, not over an interval.
 
@@ -181,6 +192,7 @@ The lab's trace makes the difference visible:
 ---
 
 ## 7. Setup, hold, and metastability
+<!-- bite: 14ceb0ce-45d0-48b9-b8b0-b4dd2f43488a -->
 
 Here is where module 5's forbidden zone returns to collect.
 
@@ -235,6 +247,7 @@ But look at the trend: **every extra 20 ps multiplies MTBF by $e$.** Going from 
 ---
 
 ## 8. Predict before reading on
+<!-- bite: b00aac25-7430-43e5-a765-74f9a8a3ea35 -->
 
 A synchroniser uses two flip-flops in series. Someone proposes three, "to be safer".
 
@@ -254,6 +267,7 @@ A synchroniser uses two flip-flops in series. Someone proposes three, "to be saf
 ---
 
 ## 9. Worked example — runnable
+<!-- bite: 8c3e6133-eec3-4428-8963-cbd64f452b6d -->
 
 The SR latch here is simulated by **iterating the feedback until it stops changing** — which is exactly what the physical gates do, at the speed of their propagation delay.
 
@@ -461,6 +475,7 @@ Note that `sr_latch_settle` contains **no stored variable representing the bit**
 ---
 
 ## 10. Common pitfalls and traps
+<!-- bite: 5df16f33-fc92-4b82-b82d-d8856bb2d1da -->
 
 1. **Thinking a latch "contains" a bit.** The bit is the equilibrium of a feedback loop. Cut the loop and it does not leak out — it ceases to exist.
 2. **Confusing latches with flip-flops.** A latch is transparent while enabled; a flip-flop samples at an edge. Using a latch where a flip-flop belongs produces races that simulate fine and fail in silicon.
@@ -472,6 +487,7 @@ Note that `sr_latch_settle` contains **no stored variable representing the bit**
 ---
 
 ## 11. Check your understanding
+<!-- bite: 710b122a-e92b-4e76-b0a0-750a7c019349 -->
 
 1. **Why does the SR latch take two gate delays to change state, but zero to hold?**
    <details><summary>Answer</summary>
@@ -500,6 +516,7 @@ Note that `sr_latch_settle` contains **no stored variable representing the bit**
 ---
 
 ## 12. Practice — independent task
+<!-- bite: 6ed851a8-6e82-4910-8df0-1cf5a7d0ace0 -->
 
 **Task:** Design and analyse a synchroniser for a button input on a 50 MHz system.
 
@@ -521,6 +538,7 @@ Feeding a raw asynchronous signal into the debouncer means <em>each</em> of its 
 ---
 
 ## 13. Tradeoffs and limits
+<!-- bite: 4060ab0f-d89a-4981-ac4f-30a6b83eb0a7 -->
 
 - **Real latches are not two NOR gates.** A CMOS D latch is usually transmission gates plus inverters — fewer transistors and faster. The bistable-feedback principle is identical.
 - **Flip-flops are expensive.** A master–slave D flip-flop is roughly 20–24 transistors versus a NAND's 4. This is why designs minimise state, and why register files are a significant fraction of a core's area.
@@ -530,6 +548,7 @@ Feeding a raw asynchronous signal into the debouncer means <em>each</em> of its 
 ---
 
 ## Before moving on
+<!-- bite: 3fc112fe-18c5-4426-a420-763d4fafccc0 -->
 
 - [ ] Explain how cross-coupled gates produce two stable states, and why that is memory.
 - [ ] Trace an SR latch settling, and explain the forbidden state and its release race.
@@ -544,6 +563,7 @@ Feeding a raw asynchronous signal into the debouncer means <em>each</em> of its 
 ---
 
 ## Related
+<!-- bite: 43b5e131-1d53-48b3-9040-6f524f90207a -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the forbidden zone metastability lives in

@@ -1,8 +1,13 @@
+---
+id: cf13f1f6-6cf0-4a85-8008-d831f56d1ec9
+---
+
 # Light and Instruments
 
 > **[Beginner → Intermediate]** · The electromagnetic spectrum, what telescopes actually do, and why spectroscopy is the most important technique in the field.
 
 ## The spectrum
+<!-- bite: 4e076301-8ab6-466a-9e5e-cf84da36121f -->
 
 Visible light is a sliver. **Each band shows you different physics, and each needed its own instrument to open:**
 
@@ -21,6 +26,7 @@ Visible light is a sliver. **Each band shows you different physics, and each nee
 **Why JWST is infrared and Hubble mostly isn't:** the most distant galaxies are **redshifted** so far that their ultraviolet and visible light has stretched into the infrared. To see the early universe you must look in the infrared — and to do that you must be cold, which is why JWST sits at L2 behind a tennis-court-sized sunshield at ~40 K.
 
 ## What a telescope actually does
+<!-- bite: 3fc2a27a-b0ca-4651-ae87-dfcfe83f4d0a -->
 
 **Two jobs, and the first is the important one:**
 
@@ -36,12 +42,14 @@ Visible light is a sliver. **Each band shows you different physics, and each nee
 **Interferometry** — combine several telescopes so resolution depends on their *separation* rather than their size. The **Event Horizon Telescope** did this across the whole Earth to image a black hole's shadow. Standard in radio; increasingly used in the optical.
 
 ## Detectors
+<!-- bite: 66a8e7de-63ec-4c7a-836b-1b2a4320fc90 -->
 
 **Photographic plates → CCDs** was the field's quiet revolution. A photographic emulsion captures ~2% of incoming photons; a CCD captures **>90%**. **Overnight, every telescope became roughly 40× more powerful**, and photometry became precise rather than approximate.
 
 **CMOS sensors** — the technology in your phone — now compete with and often beat CCDs, and they made serious amateur astrophotography affordable.
 
 ## Spectroscopy — the technique that matters most
+<!-- bite: 154db20f-2927-402e-8948-c24e9ec62d43 -->
 
 **Split light into its spectrum and a point of light becomes a physics experiment.**
 
@@ -61,6 +69,7 @@ Visible light is a sliver. **Each band shows you different physics, and each nee
 **Helium was discovered in the Sun's spectrum in 1868, 27 years before it was found on Earth.** That single fact is the best argument for spectroscopy's power: an element identified in an object nobody could ever visit.
 
 ## Redshift
+<!-- bite: 4b0d08c4-4bd3-4388-97af-a7d86c54668c -->
 
 **A Doppler shift of the whole spectrum toward longer wavelengths.** Because the line *pattern* is known, you can measure the shift precisely even for objects too faint to see detail in.
 
@@ -72,6 +81,7 @@ Visible light is a sliver. **Each band shows you different physics, and each nee
 **Cosmological redshift, denoted $z$, is astronomy's clock.** It's how "distance" and "lookback time" are actually quoted for anything far away.
 
 ## The modern reality: surveys and pipelines
+<!-- bite: 7959651c-8e12-4c46-adee-81bde56d0490 -->
 
 **Astronomy is now a data science.** The **Vera Rubin Observatory** will image the entire southern sky every few nights, producing ~20 TB nightly and millions of alerts — transients, variables, moving objects.
 
@@ -80,6 +90,7 @@ Visible light is a sliver. **Each band shows you different physics, and each nee
 **And the data is largely public**, usually after a short proprietary period. **Anyone can download and analyse it** → [[astronomy/10-getting-started|note 10]].
 
 ## Related
+<!-- bite: 736d2728-6544-4563-ae02-93147e459be0 -->
 - [[astronomy/04-stars|stars]] — what the spectra are telling you about
 - [[astronomy/07-cosmology|cosmology]] — redshift as a distance measure
 - [[information-theory/index|information theory]] — extracting signal from noise

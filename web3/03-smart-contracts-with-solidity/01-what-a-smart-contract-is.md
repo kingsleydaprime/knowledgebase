@@ -1,14 +1,20 @@
+---
+id: 612060d5-b9f7-4590-bf4b-75025c9109c5
+---
+
 # What a Smart Contract Is
 
 **[Beginner]** — the definition, the four properties that make writing one unlike any other programming, and why the name is misleading.
 
 ## The kid version first
+<!-- bite: 05e69c3b-1c36-493e-8b69-f95b8f9abdda -->
 
 A smart contract is a program you **upload to the chain**, where it sits at an address. Anyone can call it. Every node runs it and they all agree on what happened.
 
 The difference from normal code isn't the language. It's that **you can't fix it, you can't hide it, anyone can call any part of it, and it's holding money.** Those four things together change what "writing software" means.
 
 ## The name is wrong, and that matters
+<!-- bite: d7a2e6a5-7070-40d8-9514-0d847a5687c1 -->
 
 Szabo's 1994 term is unhelpful twice over:
 
@@ -20,6 +26,7 @@ Szabo's 1994 term is unhelpful twice over:
 A better name is **"an autonomous agent with a bank account"**, or simply: a public API with money in it.
 
 ## The four properties that change everything
+<!-- bite: 2f7f01d6-7794-4e89-807e-76a325a53354 -->
 
 **1. Immutable.** Deployed code cannot be changed. No patch, no rollback, no hotfix. If it ships with a bug, the bug is permanent and public. Upgrade patterns exist, but they add a *different* trust assumption — someone can change the code — and that's a trade, not a solution → [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|proxies]].
 
@@ -30,6 +37,7 @@ A better name is **"an autonomous agent with a bank account"**, or simply: a pub
 **4. Financially incentivised.** The value held is the bug bounty for finding your mistake. Ordinary bugs cost embarrassment; these cost the entire balance, irreversibly, to an anonymous party. **This is the property that makes smart contract engineering a distinct discipline** rather than just "programming with extra steps."
 
 ## What contracts genuinely can't do
+<!-- bite: 1af4a875-7aef-49cc-8edc-c749f441ea81 -->
 
 Worth learning early, because a great deal of wasted effort comes from assuming otherwise:
 
@@ -46,6 +54,7 @@ Worth learning early, because a great deal of wasted effort comes from assuming 
 **`block.timestamp` deserves a specific warning.** It is set by the block proposer, who has meaningful latitude. Using it as a randomness source is a known-exploitable pattern; using it for coarse deadlines ("after next Tuesday") is fine.
 
 ## The lifecycle
+<!-- bite: 5d0a87d5-c6ac-4762-80d7-67075668508c -->
 
 ```
 write  →  compile to EVM bytecode  →  deploy (a tx with no `to`)
@@ -60,6 +69,7 @@ write  →  compile to EVM bytecode  →  deploy (a tx with no `to`)
 Deployment is one-way. The address is derived from your account and nonce, so it's predictable — or, with `CREATE2`, chosen via a salt.
 
 ## How this changes how you write code
+<!-- bite: a60fc5e7-fe1f-4a4f-8599-9e594473fccf -->
 
 The practices that are *nice to have* elsewhere are **mandatory here**:
 
@@ -70,10 +80,12 @@ The practices that are *nice to have* elsewhere are **mandatory here**:
 - **Get it audited before it holds real value**, and understand that an audit reduces risk rather than eliminating it → [[web3/04-smart-contract-security/07-the-audit-process|audits]]
 
 ## Key insight
+<!-- bite: 746b7529-6f8a-44e7-bd61-573b3ec31fae -->
 
 **A smart contract is a public API, with no auth by default, that cannot be patched, holds money, and is called by adversaries who profit from your mistakes.** Every unusual practice in this folder is a response to that sentence. If you internalise nothing else, internalise that the environment — not the language — is what makes this hard.
 
 ## Related
+<!-- bite: da150cf2-6d53-4711-acf6-1e051ad21851 -->
 - [[web3/03-smart-contracts-with-solidity/02-solidity-fundamentals|Solidity fundamentals]] — the language
 - [[web3/04-smart-contract-security/01-why-this-is-different|why security is different here]] — the fuller argument
 - [[web3/02-ethereum-and-the-evm/01-the-world-computer|the world computer]] — the machine underneath

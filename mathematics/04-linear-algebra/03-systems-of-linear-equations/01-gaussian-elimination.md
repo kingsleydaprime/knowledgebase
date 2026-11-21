@@ -1,8 +1,13 @@
+---
+id: 27146914-a35b-4e6e-b445-7ae2efd0344d
+---
+
 # Systems of Linear Equations
 
 **[Intermediate]** — how software actually solves $A\mathbf{x} = \mathbf{b}$, and the one-line change that stops it from being catastrophically wrong.
 
 ## Before you start
+<!-- bite: 5e1df7bb-1752-4910-9b5c-3cfa965f805b -->
 
 - You can multiply matrices and compute a determinant — [[01-matrices-and-determinants|matrices and determinants]].
 - You can solve two simultaneous equations by elimination — [[01-linear-equations|linear equations]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 5bd52459-eff7-422d-be34-99a073d8aad1 -->
 
 [[01-matrices-and-determinants|The previous lesson]] ended by saying that $\mathbf{x} = A^{-1}\mathbf{b}$ and Cramer's rule are both the wrong way to solve a system. This lesson is the right way.
 
@@ -28,6 +34,7 @@ The reason matters. Computing an inverse is *more* work than solving the system,
 Gaussian elimination is what everything actually uses — MATLAB's backslash, NumPy's `solve`, LAPACK, every circuit simulator and structural analysis package. It is the same elimination taught for two equations in two unknowns, made systematic. And it comes with a trap that only shows up in floating point, which is the real subject of section 4.
 
 ## 2. Terminology
+<!-- bite: f5fc478a-5e4a-40b9-bbb4-e679c562eee6 -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -42,6 +49,7 @@ Gaussian elimination is what everything actually uses — MATLAB's backslash, Nu
 | **Free variable** | A column with no pivot | Each one gives a dimension of solutions |
 
 ## 3. The algorithm
+<!-- bite: f6afd362-2485-46b6-bc42-f057f3345b24 -->
 
 **Forward elimination.** For each column in turn, use the pivot row to make every entry below the pivot zero:
 
@@ -92,6 +100,7 @@ $$
 Back substitute: $-z = 1$ so $z = -1$; then $0.5y + 0.5(-1) = 1$ so $y = 3$; then $2x + 3 + 1 = 8$ so $x = 2$.
 
 ## 4. The three outcomes
+<!-- bite: 0a1633ce-f02e-4037-8d04-504e27557959 -->
 
 Each equation in three unknowns is a **plane**. Solving the system means finding where the planes meet — and there are exactly three possibilities:
 
@@ -109,6 +118,7 @@ When the ranks agree but fall short of $n$, the missing pivots are **free variab
 > **Predict before section 5.** The system $\;10^{-18}x + y = 1,\; x + y = 2\;$ has the obvious solution $x \approx 1$, $y \approx 1$. Run elimination in your head using the first row as the pivot row: the multiplier is $10^{18}$. What happens to the entry $1 - 10^{18}$ in double precision, and what answer will you get for $x$? Decide before opening the answers.
 
 ## 5. Partial pivoting
+<!-- bite: c5e82c84-5adf-4c00-a0f5-80defd355156 -->
 
 The algorithm as stated divides by $a_{kk}$. Two things go wrong:
 
@@ -131,6 +141,7 @@ This is one line of code, and it is the difference between a textbook algorithm 
 At $n = 20$ the ratio is about $5\times10^{14}$. This is why one of them is a teaching device and the other is in every numerical library.
 
 ## Worked example — runnable
+<!-- bite: 11d78040-e448-4009-8d56-a90f740f51ae -->
 
 **Runnable example:** save as `gaussian.py` in any empty directory and run `python3 gaussian.py`. Standard library only; writes no files.
 
@@ -336,6 +347,7 @@ gaussian: passed
 Block 4 is the one to sit with. The algorithm is correct, the code has no bug, no exception is raised — and the answer is wrong by 100%. The only difference is which row was chosen as the pivot.
 
 ## Common pitfalls and traps
+<!-- bite: 83e2b76c-65da-4469-b16b-bd3e89430adb -->
 
 - **Omitting pivoting.** The lab is the argument. A textbook implementation without it is not a slightly worse implementation; it is one that silently returns wrong answers on ordinary inputs.
 - **Testing a pivot for exact zero.** `if pivot == 0` is not enough — a pivot of $10^{-18}$ passes that test and destroys the answer. Pivot on the largest magnitude, always.
@@ -345,6 +357,7 @@ Block 4 is the one to sit with. The algorithm is correct, the code has no bug, n
 - **Using floating point to classify.** Deciding "is this pivot zero?" is undecidable in floating point. The lab's `classify` uses `Fraction` for exactly this reason, and gets exact ranks; the numerical solver uses floats and a tolerance.
 
 ## Check your understanding
+<!-- bite: 7af6afb3-6701-4b4c-bf8d-19c67a62706c -->
 
 1. Solve by elimination: $x + 2y = 7$, $3x - y = 7$.
 2. What does a row $[\,0\ 0\ 0 \mid 5\,]$ in an echelon form tell you?
@@ -364,6 +377,7 @@ Block 4 is the one to sit with. The algorithm is correct, the code has no bug, n
 </details>
 
 ## Practice — independent task
+<!-- bite: b55c124c-852a-4ab8-8736-4adcf02c8e27 -->
 
 Implement `solve_general(A, b)` handling **any** system, not just square ones with unique solutions.
 
@@ -378,6 +392,7 @@ Implement `solve_general(A, b)` handling **any** system, not just square ones wi
 **Done when:** step 3's verification passes for at least five under-determined systems, your rank relation holds in every case, and you can say why $A\mathbf{x} = \mathbf{0}$ is never inconsistent.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: a7c2cfb4-1442-4649-bcc9-d5906aebdeff -->
 
 **LU decomposition is elimination, saved.** The row operations of forward elimination can be recorded as a lower-triangular matrix $L$, giving $A = LU$. Then solving $A\mathbf{x} = \mathbf{b}$ for a *new* $\mathbf{b}$ costs only $O(n^2)$ instead of $O(n^3)$ — the expensive part is done once. Any application solving repeatedly with the same matrix (a circuit at many time steps, a structure under many loads) uses this.
 
@@ -386,6 +401,7 @@ Implement `solve_general(A, b)` handling **any** system, not just square ones wi
 **Large sparse systems need different methods.** A finite-element mesh may have millions of unknowns, but each equation touches only a handful. Elimination fills in the zeros and exhausts memory. Iterative methods — conjugate gradient, GMRES — never form the matrix explicitly and are what large-scale simulation actually uses.
 
 ## Before moving on
+<!-- bite: c23844d4-5d7e-47f5-a0f5-d90db654a34c -->
 
 You are done with this lesson when you can:
 
@@ -399,6 +415,7 @@ You are done with this lesson when you can:
 **Next:** [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — what "rank", "free variable" and "independent" actually mean.
 
 ## Related
+<!-- bite: 82ad96ba-4c6b-4830-a144-a417dd6d173f -->
 
 - [[01-matrices-and-determinants|Matrices and Determinants]] — where $A\mathbf{x} = \mathbf{b}$ came from
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — rank, null space, and the rank–nullity theorem

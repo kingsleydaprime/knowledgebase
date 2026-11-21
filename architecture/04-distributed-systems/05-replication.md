@@ -7,6 +7,7 @@ id: db92936f-e3b4-4282-9e67-f1f3c09794c9
 **[reference]** — from the canon (DDIA ch. 5, the Dynamo paper). Keeping multiple copies of the same data on multiple machines — the *mechanism* underneath availability, read-scaling, and the [[architecture/04-distributed-systems/04-consistency-models|consistency]] promises. This note is *how you keep copies*; [[architecture/04-distributed-systems/04-consistency-models|consistency models]] is *what you promise readers*, and [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]] is *what to do when copies disagree*.
 
 ## The kid version first
+<!-- bite: 3c5f2592-6558-46cd-a253-d5d77a5260d5 -->
 
 You have a favorite notebook. You make **three copies** and keep them in three different rooms. Why bother?
 - **If one is lost** (juice spilled on it), you still have the others → **survives failure**.
@@ -16,6 +17,7 @@ You have a favorite notebook. You make **three copies** and keep them in three d
 The catch — and it's the *entire* difficulty of the topic: **when you change one copy, how do the other copies find out, and what happens if a room is locked (a machine or the network is down) right when you try to update it?** Everything below is a different answer to that one question.
 
 ## Architecture 1 — Single-leader (one boss notebook)
+<!-- bite: 8e363bd7-32a0-4986-9ac2-76bea5a039eb -->
 
 **Kid version:** one notebook is the **boss**. Anyone who wants to *change* something tells the boss; the boss writes it and then tells the copies "update to match." Anyone who just wants to *read* can look at any copy.
 
@@ -35,12 +37,14 @@ The interesting decisions:
   - With **async** replication, the old leader may have had writes the new leader never received → those writes are **lost** on failover.
 
 ## Architecture 2 — Multi-leader (several bosses)
+<!-- bite: be726e88-bfae-45ea-bb3e-9cfa637d1c4b -->
 
 **Kid version:** each *region* (say, one classroom per city) has its own boss notebook, so kids write to their *nearby* boss instead of a far-away one. The bosses then tell each other what changed.
 
 **Precise:** multiple leaders each accept writes and replicate to one another. Great for **write latency** (write locally) and **write availability** (a region keeps working even if cut off from the others) — common for multi-datacenter and offline-capable apps. The price: **the same data can be changed in two places at once**, so you get **write conflicts** (two cities edit the same profile field differently). Now you *must* resolve conflicts — see [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]].
 
 ## Architecture 3 — Leaderless (no boss — ask the crowd)
+<!-- bite: 2c25f472-261f-4441-b2b6-c175718e960d -->
 
 **Kid version:** there's *no* boss. To **change** something, you tell **several** friends directly. To **read** something, you *ask several friends* and take the most recent answer. As long as the group you tell and the group you ask **overlap**, at least one friend you ask will know the latest.
 
@@ -60,6 +64,7 @@ Tuning W and R slides you along the tradeoff: `W=N, R=1` → fast reads, slow/fr
 > **Quorums are weaker than they look.** `W+R>N` guarantees *overlap*, not linearizability — with concurrent writes, sloppy quorums, or a failed write that partially applied, you can still read stale or conflicting values. Leaderless ≠ strong consistency; it's *tunable, mostly-fresh* consistency.
 
 ## Choosing an architecture
+<!-- bite: 3f1223a3-4a5e-4380-9c0c-0d92b46eecbf -->
 
 | | Writes | Best for | Conflict risk |
 |---|---|---|---|
@@ -70,10 +75,12 @@ Tuning W and R slides you along the tradeoff: `W=N, R=1` → fast reads, slow/fr
 The instinct: **single-leader for the data that must be correct** (money, accounts); **leaderless/eventual for the data that must be available** (feeds, carts, telemetry). And it pairs with [[architecture/04-distributed-systems/13-partitioning|partitioning]] — real systems *shard* data across many groups and *replicate* each shard, so the two techniques combine (each shard is a little single-leader or leaderless cluster).
 
 ## Key insight
+<!-- bite: 77948a2e-0886-4134-976c-d32637cb4a77 -->
 
 **Replication is "keep copies so you survive failure and serve readers nearby," and the whole art is how copies learn about changes when machines and networks fail.** One boss (single-leader) avoids conflicts but needs careful failover to dodge split-brain; many bosses (multi-leader) and no boss (leaderless) buy availability and low write-latency but *create* conflicts you must resolve. Leaderless leans on **quorums** (`W+R>N` guarantees the reader touches a copy that saw the latest write) for tunable, mostly-fresh consistency. What readers are actually *promised* is the [[architecture/04-distributed-systems/04-consistency-models|consistency model]]; what you do when copies clash is [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]].
 
 ## Related
+<!-- bite: 31693ea1-64a5-4f65-96d0-4d4ccb6ceb35 -->
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — what these architectures promise readers
 - [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs & Conflict Resolution]] — resolving multi-leader / leaderless conflicts
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — what safe failover and strong consistency require

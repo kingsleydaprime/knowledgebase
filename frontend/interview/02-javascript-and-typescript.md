@@ -1,3 +1,7 @@
+---
+id: 84f1bcd5-e401-4c20-9d91-60940b47da2e
+---
+
 # Frontend Interview — JavaScript & TypeScript
 
 The language round. **Every frontend and full-stack interview has one**, and it's the round most candidates under-prepare because they've been writing framework code rather than language code.
@@ -139,6 +143,7 @@ const a = await fetchA(); const b = await fetchB();       // sequential — 2x s
 ---
 
 ## Related
+<!-- bite: fab30933-bea5-4e60-8925-b9137c337b26 -->
 - [[frontend/interview/01-react-rendering-and-performance|React, rendering & performance]]
 - [[frontend/interview/03-state-data-and-architecture|State, data & architecture]]
 - [[backend/frameworks/javascript/01-node-runtime/index|the Node runtime]] — the event loop, server-side

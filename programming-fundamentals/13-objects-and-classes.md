@@ -1,3 +1,7 @@
+---
+id: a46e630b-300f-41d8-9b15-9ee81d16b85e
+---
+
 # Objects and Classes
 
 > **[Beginner → Intermediate]** · Bundling data with the code that operates on it — the idea most languages are organised around, and the one this course deliberately left until last.
@@ -27,6 +31,7 @@ Three problems, and they get worse with every account you add:
 3. **The connection is by convention only.** Nothing says `deposit` belongs to accounts
 
 ## The idea
+<!-- bite: 5aa9f698-ded2-482a-a2a1-b03de2032543 -->
 
 **An object bundles data with the functions that operate on it.**
 
@@ -67,6 +72,7 @@ The vocabulary, which is consistent across languages even when the syntax isn't:
 **A class is a blueprint; an object is a building.** One class, many objects, each with its own data.
 
 ## Encapsulation
+<!-- bite: e6ba42d6-e52c-44b2-91a0-5aeb3fbf73b9 -->
 
 The first of the ideas that gives this its value: **hide the internals, expose a deliberate interface.**
 
@@ -88,6 +94,7 @@ Python signals it by convention (`_balance` means "internal, don't touch") rathe
 **This is the same abstraction move as [[programming-fundamentals/08-functions|note 08]]**, applied to state as well as steps: a boundary, a promise about what's on the other side, and freedom to change what's behind it.
 
 ## Inheritance
+<!-- bite: 95e301f0-4ccd-4cec-974d-abbf2b3bb6d1 -->
 
 A class can be defined as a **specialisation of another**:
 
@@ -118,6 +125,7 @@ class Car:
 Composition is more flexible, changeable at runtime, and doesn't couple you to someone else's hierarchy. → [[concepts/02-design-patterns/index|design patterns]] is largely a catalogue of composition techniques.
 
 ## Polymorphism
+<!-- bite: f4c74091-b6eb-4cea-887c-e417c09626a3 -->
 
 **Different objects responding to the same message in their own way.**
 
@@ -133,6 +141,7 @@ The calling code doesn't know or care which kind it has. Add a fourth account ty
 Some languages get this from inheritance, some from **interfaces** (a contract of methods with no implementation), and dynamic languages from **duck typing** — if it has the method, it works, regardless of its class. *"If it walks like a duck…"*
 
 ## Where it stops being the answer
+<!-- bite: 9cd2491a-ccf6-464e-83b2-c3d0d41c8b13 -->
 
 OOP is not the only way to organise code and is not always the best one. The honest criticisms:
 
@@ -145,6 +154,7 @@ OOP is not the only way to organise code and is not always the best one. The hon
 **The pendulum has swung.** Go has no inheritance. Rust has traits, not classes. Modern Java and C# lean hard on immutability and records. The useful position: **encapsulation and polymorphism have aged extremely well; deep inheritance has not.**
 
 ## What to actually take from this
+<!-- bite: a87ab07c-46f4-4123-bcb6-6db97d787366 -->
 
 - **Bundle data with the behaviour that maintains it.** Anything with invariants wants to be an object
 - **Encapsulate** so the inside can change
@@ -153,6 +163,7 @@ OOP is not the only way to organise code and is not always the best one. The hon
 - **Don't force it.** A function that transforms input to output should stay a function
 
 ## Related
+<!-- bite: 6a415e21-ed91-4b44-ab8d-73da51bd62f7 -->
 - [[programming-fundamentals/14-programming-paradigms|programming paradigms]] — where OOP fits among the alternatives
 - [[languages/01-java/01-language/02-oop|OOP in Java]] — the same ideas with enforcement and full syntax
 - [[languages/05-cpp/03-classes-and-raii|classes and RAII in C++]] — objects tied to resource lifetime

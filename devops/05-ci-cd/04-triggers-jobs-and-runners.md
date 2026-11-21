@@ -1,8 +1,13 @@
+---
+id: f2bdbb83-968a-4b9d-b7aa-11f6be783ba5
+---
+
 # Triggers, Jobs and Runners
 
 **[Intermediate]** — What starts a workflow (`on:` in full), how jobs and steps are structured, `run` vs `uses`, step outputs, job dependencies and fan-out/fan-in — and the machines all of it executes on.
 
 ## Triggers — on:
+<!-- bite: 7167edc7-04cf-46a6-af39-84ceb27c6910 -->
 
 ### Push and Pull Request
 
@@ -147,6 +152,7 @@ on:
 ---
 
 ## Jobs and Steps
+<!-- bite: fc6cade1-f1f6-4aa8-962d-866793ec1d77 -->
 
 ### Job Structure
 
@@ -353,6 +359,7 @@ if: steps.build.outcome == 'failure'
 ---
 
 ## Runners
+<!-- bite: 732c8951-2b06-495b-88f5-e02cea212b32 -->
 
 ### GitHub-Hosted Runners
 
@@ -474,6 +481,7 @@ jobs:
 ---
 
 ## Related
+<!-- bite: b5134d41-4da5-4738-9622-d5bd97e437cf -->
 - [[devops/05-ci-cd/03-github-actions-fundamentals|Fundamentals]] — the YAML skeleton these keys sit in
 - [[devops/05-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — the expressions used in `if:` conditions here
 - [[devops/03-docker/index|Docker]] — container jobs and service containers run on the same primitives

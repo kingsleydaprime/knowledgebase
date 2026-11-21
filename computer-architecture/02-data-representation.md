@@ -1,8 +1,13 @@
+---
+id: 18cdeb97-cb93-48ea-b536-70d3a84ae13d
+---
+
 # Data Representation
 
 **[Beginner → Intermediate]** — Two's complement, floating point, endianness, and alignment. What your data actually looks like in memory.
 
 ## Integers
+<!-- bite: 06a1553b-0f7d-4e25-97b2-fe78012527d7 -->
 
 **Unsigned** is plain binary: $n$ bits hold $0$ to $2^n - 1$.
 
@@ -47,6 +52,7 @@ if (x + 1 < x)   // optimised to `false` — signed overflow can't happen
 - **2038** — 32-bit `time_t` overflows on 19 January 2038
 
 ## Floating point
+<!-- bite: d2f23a7f-1659-4f46-8a60-d3bff3037829 -->
 
 **IEEE 754**, and the format is worth being able to picture:
 
@@ -97,6 +103,7 @@ $$(10^{20} + 1) - 10^{20} = 0 \qquad 10^{20} + (1 - 10^{20}) = 1$$
 **Catastrophic cancellation** — subtracting nearly-equal numbers destroys precision. The classic fix is rewriting the quadratic formula to avoid it, and the general lesson is that **the algebra you learned isn't numerically equivalent in floating point.**
 
 ## Text
+<!-- bite: b17c92b6-08a7-4da4-ad2b-c60435e30a43 -->
 
 **ASCII** — 7 bits, 128 characters. English only.
 
@@ -117,6 +124,7 @@ $$(10^{20} + 1) - 10^{20} = 0 \qquad 10^{20} + (1 - 10^{20}) = 1$$
 **Normalisation** matters for comparison: `é` can be one code point or `e` + combining accent. **Two strings that look identical can differ byte-for-byte.** Normalise (NFC) before comparing or hashing — this is a real security issue in username handling.
 
 ## Endianness
+<!-- bite: 420c7150-58b2-4d2a-ac66-f21e67c783ef -->
 
 **The byte order of a multi-byte value.**
 
@@ -146,6 +154,7 @@ bool little_endian = *(char*)&x == 1;
 ```
 
 ## Alignment and layout
+<!-- bite: 491cbaa4-5c9b-4d5e-8a5c-d5ed6447cc91 -->
 
 **A type of size $n$ typically must sit at an address divisible by $n$.**
 
@@ -168,6 +177,7 @@ struct Good { int b; char a; char c; };  // 8 bytes
 **Cache line alignment** is the other side: two variables written by different cores should be on **different** 64-byte lines, or you get false sharing. → [[computer-architecture/11-multicore-and-memory-models|False Sharing]]
 
 ## Practical notes
+<!-- bite: 18dea07f-d2b2-47a2-9bab-5e08f8361af9 -->
 
 **Use fixed-width types** in anything that crosses a boundary: `uint32_t`, not `int`. **`int` is 32 bits on most platforms and `long` is 32 on Windows and 64 on Linux** — a genuine portability trap.
 
@@ -186,6 +196,7 @@ struct Good { int b; char a; char c; };  // 8 bytes
 ---
 
 ## Related
+<!-- bite: fbb97785-f6f2-4946-a13b-ecbe39d69d88 -->
 - [[languages/04-c/04-types-and-integers|C: Types and Integers]] — the language-level view
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — why layout matters so much
 - [[computer-architecture/03-instruction-sets|Instruction Sets]] — what operates on this data

@@ -1,8 +1,13 @@
+---
+id: e378b886-5050-407a-81d6-ccba76ffbbd1
+---
+
 # Processes and Threads
 
 **[Beginner → Intermediate]** — What a process actually consists of, why `fork()` is a strange and brilliant API, and what a thread shares that a process doesn't.
 
 ## A process is four things
+<!-- bite: 5fffe3ab-3fa4-49a5-8349-353bf5eb6ef6 -->
 
 ```
 ┌──────────────────────────────────────┐
@@ -49,6 +54,7 @@ low   └─────────────────┘
 Same picture as [[languages/04-c/07-memory-management|C's memory model]], seen from the kernel's side. `cat /proc/<pid>/maps` shows the real thing for any running process.
 
 ## `fork()`
+<!-- bite: 252688a4-07fa-4332-9ee4-6d6387d0c56f -->
 
 The Unix process-creation API, and it's genuinely odd:
 
@@ -122,6 +128,7 @@ That's how shell redirection and pipes are implemented, and it's a genuinely ele
 The cost: `fork` in a multithreaded process is treacherous. Only the calling thread exists in the child, so a mutex held by another thread stays locked forever — and `malloc` uses a mutex. The child may deadlock in `printf`. **After `fork` in a threaded program, call only async-signal-safe functions until `exec`.** `posix_spawn` exists to do the whole thing safely.
 
 ## Process lifecycle and zombies
+<!-- bite: dff18836-1010-4969-bc2c-98e73d536333 -->
 
 ```
         fork()
@@ -157,6 +164,7 @@ ps aux | awk '$8 ~ /^Z/'     # find zombies (state Z, "defunct")
 ```
 
 ## Threads
+<!-- bite: 11fea936-f893-4f45-9300-11d8f73d24b9 -->
 
 A thread is a schedulable execution context. Threads in one process share almost everything:
 
@@ -198,6 +206,7 @@ pthread_attr_setstacksize(&attr, 512 * 1024);    // if you really need many thre
 ```
 
 ## Green threads
+<!-- bite: 65111dbc-690c-49ea-8e57-1a971d7b1f3e -->
 
 Runtimes that multiplex many logical threads onto few OS threads:
 
@@ -215,6 +224,7 @@ The catch is the same in all of them: **a green thread that blocks in a syscall 
 ---
 
 ## Related
+<!-- bite: ac2878f4-1b9c-4634-b26d-307349ed8618 -->
 - [[os/03-scheduling|Scheduling]] — how the kernel picks what runs
 - [[os/04-virtual-memory|Virtual Memory]] — copy-on-write, in full
 - [[os/10-signals-and-ipc|Signals and IPC]] — how processes talk

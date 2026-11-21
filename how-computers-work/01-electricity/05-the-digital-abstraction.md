@@ -1,8 +1,13 @@
+---
+id: 294e5a30-b6c7-4275-a37f-4a480e77e755
+---
+
 # Module 5: The Digital Abstraction (Buying the Right to Stop Thinking About Voltage)
 
 **[Intermediate]** — The most important lesson in Part II. Everything before this was physics; this is the moment physics is deliberately thrown away, and the explanation of why that is safe.
 
 ## Before you start
+<!-- bite: 228bb510-91a3-49e9-8ce6-55579939b436 -->
 
 - You can compute a voltage divider output — [[how-computers-work/01-electricity/03-circuit-laws|module 3]].
 - You understand that edges take time and signals are never truly square — [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: d288d236-1cd5-4dd0-b647-99ab7099deb6 -->
 
 Here is a problem that nearly killed electronic computing.
 
@@ -36,6 +42,7 @@ This is not hypothetical. It is why a VHS tape copied from a copy from a copy be
 ---
 
 ## 2. Terminology
+<!-- bite: cb9885e0-13e7-4465-9896-bd4761d76426 -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -53,6 +60,7 @@ This is not hypothetical. It is why a VHS tape copied from a copy from a copy be
 ---
 
 ## 3. The idea: throw away most of the information
+<!-- bite: 2144a78c-c071-469f-bdd6-f69ea1751b39 -->
 
 The digital abstraction begins with a decision that looks wasteful.
 
@@ -79,6 +87,7 @@ Analogue keeps all the resolution and loses the signal. Digital throws away the 
 ---
 
 ## 4. The asymmetry that makes it work
+<!-- bite: 92aab23f-9bf8-411a-ab3f-6c44765428c5 -->
 
 Throwing away the middle is necessary but not sufficient. The real machinery is a deliberate asymmetry between what a gate **promises to produce** and what it **promises to accept**.
 
@@ -116,6 +125,7 @@ $$NM_H = 2.4 - 2.0 = 0.4\text{ V} \qquad\qquad NM_L = 0.8 - 0.4 = 0.4\text{ V}$$
 ---
 
 ## 5. Regeneration — why errors don't accumulate
+<!-- bite: cb96d28d-6043-4eb6-aa16-46539edf96ba -->
 
 The noise margin explains why *one* hop survives corruption. It does not yet explain why a *million* hops do. If each stage added 300 mV of noise, wouldn't three stages exceed a 400 mV margin?
 
@@ -166,6 +176,7 @@ $V_{IL}$ and $V_{IH}$ are formally *defined* as the two points where the VTC's s
 ---
 
 ## 6. Predict before reading on
+<!-- bite: d8bdecb8-3b25-4f9c-9481-2f1e22a78884 -->
 
 A 3.3 V system uses gates with $V_{OH} = 3.0$ V, $V_{IH} = 2.0$ V, $V_{OL} = 0.3$ V, $V_{IL} = 1.0$ V.
 
@@ -183,6 +194,7 @@ The high side survives (800 mV < 1.0 V margin). **The system fails on the low si
 ---
 
 ## 7. What you just bought
+<!-- bite: 942013e7-4078-45a6-ac21-546fd4e03dd4 -->
 
 Step back, because this is the point of the whole module.
 
@@ -214,6 +226,7 @@ Every one of these is a case of the lower layer failing to keep its promise. The
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 408df069-aef0-40ba-b9c9-aac8ae40c5c9 -->
 
 This one demonstrates the central claim directly: noise accumulates in an analogue chain and does not in a digital one.
 
@@ -307,6 +320,7 @@ abstraction_lab: passed
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 0a44ce22-3e8f-4cb0-a5f1-c7f0a036fcf6 -->
 
 1. **Thinking 0 and 1 are actual voltages.** They are *bands*. A gate outputting a 1 might give 3.29 V or 2.41 V; both are correct.
 2. **Averaging the two noise margins.** A design must survive the worse case, so the system margin is the *minimum* of the two, never the mean.
@@ -317,6 +331,7 @@ abstraction_lab: passed
 ---
 
 ## 10. Check your understanding
+<!-- bite: 61198f51-2672-4614-b79c-31fb7f5b630d -->
 
 1. **A 5 V TTL part has $V_{OH} = 2.7$ V. A 3.3 V CMOS part it drives has an absolute maximum input of 3.6 V and $V_{IH} = 2.0$ V. Can they be connected directly?**
    <details><summary>Answer</summary>
@@ -343,6 +358,7 @@ abstraction_lab: passed
 ---
 
 ## 11. Practice — independent task
+<!-- bite: ef89c58e-ebe1-4766-93c5-0e27a86d7591 -->
 
 **Task:** You are integrating three parts on one board and must verify every interface.
 
@@ -367,6 +383,7 @@ Direction matters — the driver's output specs meet the receiver's input specs.
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: 4591f406-adea-4357-8034-9d8caa9f94a2 -->
 
 - **Digital is not always better.** Sensors, radio front-ends and audio all start and end analogue. Digital is the right choice for *computation and storage*, where exactness after many operations is what you need.
 - **Noise margins shrink as supply voltages fall.** A 1.0 V system has far less absolute margin than a 5 V one, which is one reason modern low-voltage designs are harder and rely more on careful power distribution.
@@ -376,6 +393,7 @@ Direction matters — the driver's output specs meet the receiver's input specs.
 ---
 
 ## Before moving on
+<!-- bite: d7e1f474-cc5d-4755-91b8-f6a881d0785f -->
 
 This is the end of Part II. You are ready for Part III when you can, closed-book:
 
@@ -392,6 +410,7 @@ This is the end of Part II. You are ready for Part III when you can, closed-book
 ---
 
 ## Related
+<!-- bite: 2369944e-2e8c-45b0-83f1-9f1c55290abe -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — the circuit that delivers rail-to-rail outputs and sharp transitions

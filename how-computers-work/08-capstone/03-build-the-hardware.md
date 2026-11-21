@@ -1,8 +1,13 @@
+---
+id: 11a25a9a-0888-465d-8ccc-78008e91eec0
+---
+
 # Module 30: Build the Hardware (Deriving the Control Unit)
 
 **[Advanced]** — You have an ISA. This module shows that the control unit — the block everyone finds mysterious — is a **mechanical consequence** of that ISA, then hands you to the four build tracks.
 
 ## Before you start
+<!-- bite: d2af84ba-6628-4055-b10a-4337d02a84f1 -->
 
 - You have an exact instruction encoding — [[how-computers-work/08-capstone/02-the-isa|module 29]].
 - You can build every datapath component: ALU ([[how-computers-work/05-combinational/04-the-alu|module 23]]), register file and PC ([[how-computers-work/06-memory/02-registers-and-counters|module 25]]), memory ([[how-computers-work/06-memory/03-memory-technology|module 26]]).
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 54185e0a-3b3d-425d-9476-26f63a763414 -->
 
 Every component of a CPU has now been built. Lay them on a table: an ALU, a register file, a program counter, memory, some multiplexers.
 
@@ -32,6 +38,7 @@ It has a reputation for being the hard part, and it is not. **It is a lookup tab
 ---
 
 ## 2. Terminology
+<!-- bite: 6c9cd36b-b72c-4e89-9445-5938fe553cd7 -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -46,6 +53,7 @@ It has a reputation for being the hard part, and it is not. **It is a lookup tab
 ---
 
 ## 3. The datapath, and what needs steering
+<!-- bite: 5aa6c03a-9310-4ed1-baa3-0443e47b7b55 -->
 
 ```
               ┌─────────┐    ┌──────────┐
@@ -77,6 +85,7 @@ It has a reputation for being the hard part, and it is not. **It is a lookup tab
 ---
 
 ## 4. Deriving the control signals
+<!-- bite: 1a410123-1c06-48ef-b339-0a49e45f7b59 -->
 
 Here is the part worth understanding properly.
 
@@ -125,6 +134,7 @@ The lab implements exactly this and then **checks the derived table against the 
 ---
 
 ## 5. Hardwired versus microprogrammed
+<!-- bite: bf25ddbe-8013-4f52-98d2-fc29e0c9d083 -->
 
 Two ways to implement the table:
 
@@ -146,6 +156,7 @@ Two ways to implement the table:
 ---
 
 ## 6. Predict before reading on
+<!-- bite: d4009772-31e7-44da-b6ea-ce3ba7f64e09 -->
 
 PRIME-1 is **single-cycle**: every instruction completes in one clock, so the clock period must accommodate the slowest one.
 
@@ -168,6 +179,7 @@ PRIME-1 is **single-cycle**: every instruction completes in one clock, so the cl
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: cd6e97c7-6961-41df-b191-7b9899f5ee59 -->
 
 Save as `control_derive.py` next to `datapath.py`, and run `python3 control_derive.py`.
 
@@ -345,6 +357,7 @@ control_derive: passed
 ---
 
 ## 8. Now build it — choose a track
+<!-- bite: 9bd86a84-4d25-44bd-b33d-187ab4397f6a -->
 
 The design is complete. **The four build tracks live in [[build-your-own-shit/17-your-own-cpu/index|build-your-own-shit/17-your-own-cpu]]**, because they are builds rather than lessons — and because you will keep them open beside a simulator rather than reading them straight through.
 
@@ -373,6 +386,7 @@ The design is complete. **The four build tracks live in [[build-your-own-shit/17
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: e057fe4e-a4a6-4a89-9741-b55b7b02a5c7 -->
 
 1. **Inventing the control table by hand.** Derive it from semantics; hand-written tables have exactly the kind of single-bit error that produces baffling behaviour.
 2. **Forgetting `RegBSrc`.** Stores read a different register field than everything else. Nobody predicts this one.
@@ -384,6 +398,7 @@ The design is complete. **The four build tracks live in [[build-your-own-shit/17
 ---
 
 ## 10. Check your understanding
+<!-- bite: 36980016-160a-4c24-980b-b540d2682a00 -->
 
 1. **Why is the control unit a lookup table rather than logic that "figures out" what to do?**
    <details><summary>Answer</summary>
@@ -414,6 +429,7 @@ The design is complete. **The four build tracks live in [[build-your-own-shit/17
 ---
 
 ## 11. Practice — independent task
+<!-- bite: 273640d8-ffd6-4cef-95cc-3de21ed207a8 -->
 
 **Task:** Extend the control unit for the instructions you added in module 29.
 
@@ -435,6 +451,7 @@ On a physical build you also want it to <strong>stop the clock</strong> or light
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: a3800b6d-f26c-417a-a01b-183e3df0129e -->
 
 - **Single-cycle is the simplest correct design and the slowest.** Every instruction pays the cost of the slowest one. Multi-cycle and pipelined designs fix this at the cost of a control state machine.
 - **No hazard handling.** With one instruction in flight there are no hazards. Pipelining introduces them all at once — see [[computer-architecture/06-pipelining|computer-architecture/pipelining]].
@@ -444,6 +461,7 @@ On a physical build you also want it to <strong>stop the clock</strong> or light
 ---
 
 ## Before moving on
+<!-- bite: 6cf931b6-ca4a-44fb-b9bb-188e4e021c91 -->
 
 - [ ] Explain what a control unit is and why a lookup table is the right implementation.
 - [ ] Derive control signals from an instruction's semantics using the eleven rules.
@@ -458,6 +476,7 @@ On a physical build you also want it to <strong>stop the clock</strong> or light
 ---
 
 ## Related
+<!-- bite: 283071aa-150b-487f-9a1b-57582133b42a -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU]] — the four build tracks

@@ -1,20 +1,27 @@
+---
+id: 10b8e179-8380-4c9e-a3fd-f4df9a0c689c
+---
+
 # MEV, Front-Running and Transaction Ordering
 
 **[Advanced]** — the value extractable purely by choosing what order transactions execute in, why it can't be eliminated, and what protects users in practice.
 
 ## The kid version first
+<!-- bite: b9429578-316b-4be6-bebd-21d4ab9a7d24 -->
 
 Your transaction sits in public view for a few seconds before it runs. In that window, **anyone can read exactly what you're about to do and put their own transaction in front of it.**
 
 If you're about to buy something and push its price up, they buy first and sell it to you higher. You still get your trade — just at a worse price. **You will never see it happen, and it is entirely legal.**
 
 ## What MEV is
+<!-- bite: 8dd15dc3-5499-4935-9dbd-e76a249b44ae -->
 
 **Maximal Extractable Value**: profit obtainable by including, excluding, or reordering transactions within a block, beyond the ordinary block reward and fees.
 
 It exists because **someone must choose an order**, that choice is worth money, and there is no neutral way to make it. It is not a bug in Ethereum; it's a consequence of having a public mempool and a discretionary block producer. **Every chain with those two properties has MEV**, including ones that claim otherwise.
 
 ## The forms
+<!-- bite: 72356768-431e-4bab-9368-b47216c5bcb9 -->
 
 **Arbitrage** — the same asset priced differently across two venues; a bot equalises them. **This is benign and useful**: it's what keeps on-chain prices honest, and it would be done by someone regardless.
 
@@ -38,6 +45,7 @@ the victim's transaction succeeded. They simply got less, silently.
 **Time-bandit attacks** — reorganising *past* blocks to capture MEV in them. Rare, and the reason MEV is considered a consensus-stability risk rather than only an application-layer nuisance: if the MEV in block *N* exceeds the reward for building block *N+1*, re-mining becomes rational.
 
 ## PBS — how the market is organised now
+<!-- bite: c91b07d3-1cfb-406b-90a0-0b2b4ee288c4 -->
 
 Post-Merge, block building is separated from proposing:
 
@@ -56,6 +64,7 @@ The design intent was democratising: without it, only sophisticated validators c
 **What it actually produced:** MEV revenue is shared more broadly, and **block building concentrated into a handful of specialised builders.** Trading one centralisation for another is an honest description. Enshrined PBS and inclusion lists are the proposed next step → [[web3/02-ethereum-and-the-evm/06-the-ethereum-roadmap|the roadmap]].
 
 ## Protecting users
+<!-- bite: 2e5b7176-635b-4c2a-8055-3ad041910c56 -->
 
 **1. Private transaction relays.** Flashbots Protect, MEV Blocker and similar submit straight to builders, **skipping the public mempool**. Nothing to front-run because nobody sees it pending. **This is the single most effective user-level protection**, it's free, and it's a one-line RPC change — most wallets now default to something like it.
 
@@ -78,6 +87,7 @@ function swap(uint256 amountIn, uint256 minAmountOut, uint256 deadline) external
 **4. Batch auctions.** CoW Swap and similar settle many orders at one uniform clearing price per batch, so there is no intra-batch ordering to exploit. **This removes sandwiching structurally**, rather than mitigating it — the strongest available answer for swaps.
 
 ## Protecting protocols
+<!-- bite: 545afe45-1fd6-43c9-b21a-3dd7a7ad9790 -->
 
 - **Don't leak intent.** Any function where knowing the parameters in advance is profitable needs commit-reveal
 - **Auctions must not be "highest bid at deadline"** — that's trivially sniped. Use a batch, a Dutch auction, or a randomised close
@@ -85,6 +95,7 @@ function swap(uint256 amountIn, uint256 minAmountOut, uint256 deadline) external
 - **Assume the ordering is adversarial.** Any invariant that holds "as long as these two transactions land in this order" does not hold
 
 ## Can it be eliminated?
+<!-- bite: 66720df7-352a-4044-9a86-6b5171903930 -->
 
 **No, and claims otherwise deserve scepticism.**
 
@@ -95,10 +106,12 @@ function swap(uint256 amountIn, uint256 minAmountOut, uint256 deadline) external
 **"Our chain has no MEV" almost always means "our chain has a centralised sequencer, so the sequencer takes it all."** That's not the absence of MEV; it's MEV with one beneficiary → [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|rollups]].
 
 ## Key insight
+<!-- bite: 7f96c0a2-0d2c-43f5-b7d0-c39c30b05422 -->
 
 **MEV is the price of having a public mempool and a discretionary block producer — remove either and you remove MEV along with the property you wanted.** Some of it (arbitrage, liquidations) is load-bearing infrastructure the system needs. Some of it (sandwiching) is a pure transfer from ordinary users to bots. The engineering question is never "how do we eliminate MEV" but **"which forms do we want, and who captures them."**
 
 ## Related
+<!-- bite: 077c804b-5d21-4657-bf1e-498b832f3ed0 -->
 - [[web3/02-ethereum-and-the-evm/04-transactions-and-the-mempool|the mempool]] — where the window exists
 - [[web3/04-smart-contract-security/05-oracle-and-price-manipulation|price manipulation]] — the adjacent class
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — AMMs, where sandwiching lives

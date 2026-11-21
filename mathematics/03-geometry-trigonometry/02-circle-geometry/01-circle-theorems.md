@@ -1,8 +1,13 @@
+---
+id: f7520388-7efc-4f66-b9a6-d13fbafc2f6f
+---
+
 # Circle Theorems
 
 **[Beginner]** — one theorem about the centre, and the four results that fall out of it for free.
 
 ## Before you start
+<!-- bite: 4879aca6-0683-49db-b20f-3dbd6505eed2 -->
 
 - You can use the isosceles triangle result and the exterior angle theorem — [[02-triangles-and-polygons|triangles and polygons]].
 - You can chase angles and name the rule at each step — [[01-angles-and-parallel-lines|angles and parallel lines]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 4b7bceeb-044f-43b3-9edd-36e00043b2d9 -->
 
 A circular window is being fitted into a stone arch. The mason knows two points where the glass meets the frame, and needs the angle the glass makes when viewed from a third point on the rim — but the centre of the circle is behind the stonework and cannot be reached.
 
@@ -27,6 +33,7 @@ Circle theorems answer exactly this class of question: they relate angles at the
 There is a second reason these are worth learning properly. Almost every one of them is a consequence of a **single** theorem. Learning five separate facts is a memory problem; learning one fact and four short derivations is not.
 
 ## 2. Terminology
+<!-- bite: e2995589-8f83-44fa-aed3-1e9b52aed14f -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -44,6 +51,7 @@ There is a second reason these are worth learning properly. Almost every one of 
 **Subtend** deserves care. When a theorem says "the angle subtended by arc $AB$ at $P$", it means the angle $\angle APB$ — the angle you would see if you stood at $P$ and looked at the two ends of the chord. Which *arc* is named matters: the same chord subtends one angle from the major arc and a different one from the minor arc, and mixing them up is the most common error in this topic.
 
 ## 3. The one theorem
+<!-- bite: 5c0af2c1-ff86-4cde-83b5-6a6c594c1099 -->
 
 **Central angle theorem:** the angle a chord subtends at the centre is **twice** the angle it subtends at any point on the major arc.
 
@@ -127,6 +135,7 @@ $$
 Opposite angles of a cyclic quadrilateral are **supplementary**. The converse also holds and is often the more useful direction: if a quadrilateral's opposite angles sum to $180°$, its four vertices lie on a circle.
 
 ## 4. Chords and the centre
+<!-- bite: 8d87b8c9-be43-4b4c-bdab-1da2e0d967b2 -->
 
 **Theorem:** the perpendicular from the centre to a chord **bisects** the chord.
 
@@ -149,6 +158,7 @@ Two consequences follow immediately:
 > **Predict before running the lab.** A chord of length $6$ sits in a circle of radius $5$. Another chord of the same circle is $8$ long. Which is closer to the centre, and by how much? Work it out before opening the answers.
 
 ## Worked example — runnable
+<!-- bite: 328da75b-775b-4066-8edd-4a59130573f3 -->
 
 **Runnable example:** save as `circle_theorems.py` in any empty directory and run `python3 circle_theorems.py`. Standard library only; writes no files.
 
@@ -273,6 +283,7 @@ circle_theorems: passed
 The second block is the corollary made visible: four different positions on the arc, one identical angle, to the last decimal place available.
 
 ## Common pitfalls and traps
+<!-- bite: f0da04b4-0d60-45ef-a93b-069a9c90fb05 -->
 
 - **Using the wrong arc.** "Angle at the circumference" means from the **major** arc when the central angle is the minor one. Stand on the minor arc instead and you get $180°$ minus the expected answer. If a diagram gives an angle that seems to be the supplement of the one you want, this is why.
 - **Forgetting that all four vertices must be on the circle.** A quadrilateral with three vertices on a circle is not cyclic and its opposite angles need not sum to anything in particular.
@@ -282,6 +293,7 @@ The second block is the corollary made visible: four different positions on the 
 - **Reading the lab as proof.** It confirms the theorems hold for the configurations tested, at floating-point precision. Section 3 is where the certainty comes from.
 
 ## Check your understanding
+<!-- bite: ecfbdbbb-d837-4316-92f2-97edce7348c2 -->
 
 1. A chord subtends $70°$ at the circumference. What does it subtend at the centre?
 2. In a cyclic quadrilateral $ABCD$, $\angle A = 105°$. Find $\angle C$. Can you find $\angle B$?
@@ -301,6 +313,7 @@ The second block is the corollary made visible: four different positions on the 
 </details>
 
 ## Practice — independent task
+<!-- bite: 94b44359-a25f-4a9d-b1f0-ab17a233eb39 -->
 
 Implement `circumcircle(a, b, c)`: given three points, return the centre and radius of the unique circle through all three — or `None` if they are collinear.
 
@@ -315,6 +328,7 @@ Implement `circumcircle(a, b, c)`: given three points, return the centre and rad
 **Done when:** your cyclic test and the opposite-angle test agree on every quadrilateral you try, and you can explain why they must agree — that is, why the converse of Corollary 3 is what licenses using either one.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 656d0072-fee3-4419-a932-5e93acd457e0 -->
 
 **These are theorems about a plane.** On a sphere the "circle" through three points and the angle relations both change, and none of the results above survive unmodified.
 
@@ -323,6 +337,7 @@ Implement `circumcircle(a, b, c)`: given three points, return the centre and rad
 **Where this reappears.** The inscribed angle theorem is the geometric core of the [[03-coordinate-geometry/01-coordinate-geometry|circle equation]], and the circumcircle of the practice task is the basis of Delaunay triangulation — the standard way to turn scattered points into a mesh in graphics and terrain modelling.
 
 ## Before moving on
+<!-- bite: bceca99a-424e-47f3-a8d6-8bfe4c5582cd -->
 
 You are done with this lesson when you can:
 
@@ -335,6 +350,7 @@ You are done with this lesson when you can:
 **Next:** [[02-tangents|Tangents to a Circle]] — what happens when a chord's two ends slide together until the line touches at a single point.
 
 ## Related
+<!-- bite: 5f7dde52-c01f-4539-9805-1444feb2ce49 -->
 
 - [[02-triangles-and-polygons|Triangles and Polygons]] — the isosceles and exterior-angle results every proof here uses
 - [[03-constructions|Constructions]] — the perpendicular bisector needed for the practice task

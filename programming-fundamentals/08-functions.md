@@ -1,3 +1,7 @@
+---
+id: f88e67e9-2f3c-4cd3-9a64-7e731263472d
+---
+
 # Functions
 
 > **[Beginner]** · Naming a sequence of steps — the single most important idea in this course, and the one everything above it is built from.
@@ -18,6 +22,7 @@ You've already been using them. `print()` is a function. So is `len()`, `max()`,
 **That's the entire idea: wrap up a piece of work, give it a name, and from then on think about the name instead of the work.**
 
 ## Why they matter more than they look
+<!-- bite: b0609df4-92f4-47e2-bde0-5fa8973290ef -->
 
 **Removing repetition.** If the same six lines appear in four places and the logic changes, you must find and fix four copies — and you will miss one. As a function, you change it once. This is **DRY** (Don't Repeat Yourself), and it's about *maintenance*, not typing.
 
@@ -28,6 +33,7 @@ You've already been using them. `print()` is a function. So is `len()`, `max()`,
 **Shrinking what you hold in your head.** This is the real one. Once `calculateTax` is written and works, you stop thinking about tax calculation and think about `calculateTax`. **The point of a function is to let you forget its contents** — and that forgetting is what allows a program larger than the few dozen lines a person can hold at once.
 
 ## Parameters and arguments
+<!-- bite: 9b409fed-0d64-4640-94ac-8a745c4c3b6f -->
 
 A function that always does exactly one thing is limited. **Parameters** let you pass data in:
 
@@ -64,6 +70,7 @@ greet("Ada", "Good morning")    # Good morning, Ada
 ```
 
 ## Return values
+<!-- bite: 0644b397-397d-49cf-a524-0ec1c1ae14a3 -->
 
 A function can hand a value back:
 
@@ -93,6 +100,7 @@ This bites especially with strings and other immutable values: `text.upper()` **
 **Every path must return.** If a function is declared to return a value, an `if` with no `else` can fall off the end and return nothing — which becomes a `null` somewhere else entirely, far from the cause. Most compilers and editors will warn you; take the warning seriously.
 
 ## What makes a good function
+<!-- bite: e616d965-c7bc-46c4-8c1e-347ecf37cae5 -->
 
 **Do one thing.** If you need "and" to describe it — *"it validates the input and saves it and sends an email"* — that's three functions. The test isn't line count; it's whether the name honestly covers everything inside.
 
@@ -107,6 +115,7 @@ That last property has a name — a **pure** function: same inputs, same output,
 **Watch the sharing trap.** Passing a list or object into a function passes a *reference* → [[programming-fundamentals/05-variables-and-types|note 05]]. Modifying it inside changes the caller's copy. Sometimes intended; frequently a surprise.
 
 ## Using other people's functions
+<!-- bite: 0f97c88d-652a-42c1-b721-832bdcd1acc2 -->
 
 You will write a small fraction of the code you use. The rest comes from **libraries** — collections of functions someone else wrote, tested, and maintains.
 
@@ -127,12 +136,14 @@ Beyond the standard library, a **package manager** fetches third-party code — 
 **Adding a dependency is a decision, not a free action.** You inherit its bugs, its security vulnerabilities, its maintenance status and its own dependencies. A three-line utility is not worth a package; an HTTP client absolutely is. This is what [[devops/12-sre-and-platform-engineering/04-devsecops|dependency scanning]] exists for, and why "most of your code is code you didn't write" is a security statement.
 
 ## Scope, and closures in one paragraph
+<!-- bite: 6fe8080a-cbb7-4412-80eb-ac8810d6252b -->
 
 Variables created inside a function are **local** — they exist while it runs and vanish after. That isolation is most of why functions are safe to reason about: a local can't be changed by anything outside → [[programming-fundamentals/05-variables-and-types|note 05]].
 
 A function *can* usually see variables from the scope enclosing it, and in many languages it can **capture** them and keep them alive after that scope has ended. That's a **closure** — a function bundled with the environment it was created in. You don't need it yet; you'll meet it the first time a callback behaves strangely, and it'll make sense then.
 
 ## Related
+<!-- bite: c87d3b61-71c9-41cf-917c-4259494cda68 -->
 - [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — functions calling themselves, and how calls actually work
 - [[programming-fundamentals/11-planning-before-you-type|planning]] — deciding what your functions should be
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing]] — what functions make possible

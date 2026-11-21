@@ -1,8 +1,13 @@
+---
+id: 1eceb947-4635-458e-b870-1bfd9d0d6c99
+---
+
 # Methods and Interfaces
 
 **[Intermediate]** — Receivers and the pointer/value decision, implicit interface satisfaction, and why Go interfaces are declared by the consumer rather than the producer.
 
 ## Methods
+<!-- bite: 83497b4b-6783-40ef-9155-3aa205bf00be -->
 
 ```go
 type Rectangle struct{ Width, Height float64 }
@@ -27,6 +32,7 @@ func (c Celsius) Fahrenheit() Celsius { return c*9/5 + 32 }
 You cannot add methods to types from other packages. To extend `time.Time`, define `type MyTime time.Time` or embed it.
 
 ## Value vs pointer receivers
+<!-- bite: af81f319-ff1e-4268-8d81-349fc9921764 -->
 
 The rule that actually matters:
 
@@ -64,6 +70,7 @@ var s Shape = &Rectangle{}   // fine
 The auto-dereference works on a concrete variable because the compiler knows it's addressable. An interface value isn't addressable, so the rule applies strictly. When "my type doesn't implement the interface" makes no sense to you, this is nearly always why — you passed a value where a pointer was needed.
 
 ## Interfaces
+<!-- bite: e4afc9ca-2e80-4bb8-814e-9eff23b58c4c -->
 
 ```go
 type Writer interface {
@@ -129,6 +136,7 @@ default:     fmt.Println("other")
 Since generics landed, most former uses of `any` should be type parameters. → [[languages/02-go/09-generics|Generics]]
 
 ## The nil interface trap
+<!-- bite: 29571690-5324-4e1a-ae4a-3583982f25c9 -->
 
 The sharpest edge in the language:
 
@@ -162,6 +170,7 @@ Every Go programmer meets this once. It's the reason `if err != nil` can be true
 ---
 
 ## Related
+<!-- bite: 1d7aafe4-1f22-48e1-a2ae-2e53874f9484 -->
 - [[languages/02-go/05-errors|Errors]] — `error` is just an interface
 - [[languages/02-go/10-the-standard-library|The Standard Library]] — `io.Reader`/`io.Writer` in practice
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal Architecture]] — what consumer-side interfaces give you for free

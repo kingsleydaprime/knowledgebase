@@ -1,8 +1,13 @@
+---
+id: 63817849-bc7c-4693-ab92-2de9931e95bc
+---
+
 # Concurrency
 
 **[Intermediate → Advanced]** — "Fearless concurrency" is a marketing phrase for a real result: the ownership rules you already learned eliminate data races at compile time.
 
 ## The claim
+<!-- bite: b9cdd5b8-8af2-406d-8e86-ce338dea9398 -->
 
 A **data race** requires three things: two or more threads accessing the same memory, at least one writing, with no synchronisation.
 
@@ -15,6 +20,7 @@ This wasn't the goal. Ownership was designed for memory management and turned ou
 Contrast: [[languages/01-java/02-jvm-and-concurrency/index|Java]] and [[languages/02-go/07-concurrency-patterns|Go]] are memory-safe but will happily let two threads write one field. Go ships a *dynamic* race detector precisely because it can't check statically.
 
 ## Threads
+<!-- bite: c0d9951d-45a4-4ce8-a1d9-607062dc1446 -->
 
 ```rust
 use std::thread;
@@ -46,6 +52,7 @@ data.push(4);
 ```
 
 ## `Send` and `Sync`
+<!-- bite: 59b09d6a-9b74-4d95-b14f-dad3c9907a8b -->
 
 Two marker traits that encode thread safety in the type system:
 
@@ -65,6 +72,7 @@ Both are auto-derived: a type is `Send`/`Sync` if all its fields are. Almost eve
 This is why `thread::spawn` requires `F: Send + 'static` — and why passing an `Rc` to a thread produces a compile error rather than a heisenbug. The check is entirely static and costs nothing at runtime.
 
 ## `Arc<Mutex<T>>`
+<!-- bite: f904de4f-0c55-43f5-971d-d0f816f09248 -->
 
 The threaded mirror of `Rc<RefCell<T>>`:
 
@@ -98,6 +106,7 @@ Three things Rust gets right here that most languages don't:
 **Deadlock is still entirely possible.** Rust does not solve lock ordering. Take locks in a consistent order; don't hold one across an `.await`.
 
 ## Channels
+<!-- bite: 965125b7-010c-4f24-b26f-5c36438cc8f6 -->
 
 ```rust
 use std::sync::mpsc;
@@ -118,6 +127,7 @@ The standard channel is **mpsc** — many senders, one receiver. The `crossbeam-
 Ownership makes channels safer than elsewhere: sending **moves** the value, so the sender provably cannot touch it afterwards. Go's channels pass the value but nothing stops you keeping a pointer to it.
 
 ## Atomics
+<!-- bite: bbe3db28-318a-44dd-834d-5f00a4039758 -->
 
 ```rust
 use std::sync::atomic::{AtomicUsize, Ordering};
@@ -132,6 +142,7 @@ Rust exposes the full C++11 memory model — `Relaxed`, `Acquire`, `Release`, `A
 **Use `SeqCst` unless you can prove you need weaker.** The orderings are genuinely hard, the performance difference is usually irrelevant, and getting them wrong produces bugs that appear only on ARM under load. `Relaxed` is safe for a statistics counter nobody synchronises on.
 
 ## `rayon` — parallelism for free
+<!-- bite: 6e851b21-96c9-4890-9b50-6cffdb45b7e3 -->
 
 The crate to reach for when the problem is data-parallel:
 
@@ -147,6 +158,7 @@ Change `iter()` to `par_iter()` and it runs across a work-stealing thread pool. 
 Use it for CPU-bound work over collections. It does nothing useful for I/O-bound work; that's async.
 
 ## Choosing a model
+<!-- bite: d8247076-da32-4de2-aba2-59eea94ffb83 -->
 
 | Workload | Use |
 |---|---|
@@ -163,6 +175,7 @@ The rule of thumb that survives: **threads for CPU, async for I/O.** Mixing them
 ---
 
 ## Related
+<!-- bite: f2180bf7-3a3c-4b69-987a-3f5dbb8d93c6 -->
 - [[languages/03-rust/14-async-and-tokio|Async and Tokio]] — the other concurrency model
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]] — `Rc<RefCell<T>>`, the single-threaded mirror
 - [[languages/02-go/07-concurrency-patterns|Go: Concurrency Patterns]] — the same problems, checked dynamically

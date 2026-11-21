@@ -1,8 +1,13 @@
+---
+id: e0a1781d-691e-4cdb-8c13-381f9d745c47
+---
+
 # Error-Correcting Codes
 
 **[Advanced]** — Adding structured redundancy so errors can be detected and fixed. The fifty-year gap between Shannon's promise and codes that delivered.
 
 ## Detection vs correction
+<!-- bite: 8b3b27de-376f-470d-b30b-2f78fbb206a9 -->
 
 **Detection** — know that something is wrong. Cheap. **Ask for a retransmission** (ARQ).
 
@@ -11,6 +16,7 @@
 **Hybrid ARQ** combines them — correct what you can, request retransmission otherwise. **What LTE and 5G actually do.**
 
 ## Hamming distance
+<!-- bite: bc3d3d1f-4f53-4027-86bf-835c93e90215 -->
 
 **The number of positions in which two codewords differ.**
 
@@ -25,6 +31,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 **Notation:** an $(n,k,d)$ code has $n$-bit codewords carrying $k$ data bits with minimum distance $d$. **Rate $R = k/n$**, and the whole game is pushing $R$ toward capacity while keeping $d$ useful.
 
 ## Hamming codes
+<!-- bite: 1fa8859b-0451-4eba-8ad2-e8bf45a2e445 -->
 
 **The first error-correcting code (1950), and still the clearest.**
 
@@ -39,6 +46,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 **Extended Hamming (SECDED)** adds an overall parity bit, giving $d = 4$: **single error correction, double error detection.** This is what ECC memory uses — and it's why servers with ECC RAM survive the cosmic-ray bit flips that silently corrupt data on consumer machines. → [[computer-architecture/index|Computer Architecture]]
 
 ## Reed–Solomon
+<!-- bite: 5787cd63-ec54-40de-9eb4-cd887209fefb -->
 
 **The workhorse of the pre-2000s, and still everywhere.**
 
@@ -55,6 +63,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 **Interleaving** is the companion trick: **scramble symbol order before transmission** so a burst in the channel becomes scattered single errors across many codewords. **Cheap, and it multiplies burst tolerance** — CDs use cross-interleaved RS (CIRC) for exactly this.
 
 ## Convolutional codes and Viterbi
+<!-- bite: e3e7d6d4-d32a-42b1-bcee-459902480c32 -->
 
 **Instead of blocks, a sliding window: output bits depend on the current input and the last $K-1$ inputs.**
 
@@ -65,6 +74,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 **Viterbi appears far beyond coding** — it's the standard decoder for hidden Markov models, used in speech recognition, part-of-speech tagging and gene finding. **Same algorithm, different trellis.**
 
 ## Turbo and LDPC — reaching capacity
+<!-- bite: a40d6a98-e0b3-43ad-8db6-ab3eacfc3124 -->
 
 **The 1990s breakthrough that closed Shannon's fifty-year gap.**
 
@@ -85,6 +95,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 > **The common thread in all three: soft-decision iterative decoding.** Instead of deciding each bit is 0 or 1 and then correcting, **keep the probability** ("this bit is 70% likely to be 1") and let the decoder refine it. **Soft decisions are worth about 2 dB over hard decisions** — a large fraction of the gap to capacity, from throwing away less information at the demodulator.
 
 ## Erasure codes
+<!-- bite: 4f7f36b4-ba8d-4366-befb-9eec070abae3 -->
 
 **When you know *which* pieces are missing** — a dropped packet, a failed disk — the problem is much easier.
 
@@ -105,6 +116,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 **Fountain codes (LT, Raptor)** are rateless — generate **unlimited** encoded symbols, and the receiver reconstructs once it has slightly more than $k$ of *any* of them. **Ideal for broadcast to receivers with different loss rates**, since nobody needs to tell the sender what they missed.
 
 ## Checksums and hashes — a distinction
+<!-- bite: 4e79115d-baee-4296-bf00-212b00795e1a -->
 
 **Not error-correcting codes, and used for different threats.**
 
@@ -115,6 +127,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 > **Using CRC where you need a MAC is a real vulnerability**, and it's how WEP was broken. **CRC for accidents, HMAC for adversaries.** → [[cybersecurity/05-cryptography/03-hashing-and-integrity|Hashing and Integrity]]
 
 ## Practical notes
+<!-- bite: e534d9a0-537a-4e7d-9bef-6a79a668f32b -->
 
 **Use a library.** Finite-field arithmetic and belief propagation are easy to get subtly wrong. `zfec`, `liberasurecode`, `reedsolo`; hardware LDPC in modern radios.
 
@@ -133,6 +146,7 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 ---
 
 ## Related
+<!-- bite: bc235c28-7886-4680-a86c-f989a22c66e1 -->
 - [[information-theory/05-channel-capacity-and-noise|Channel Capacity]] — the limit these approach
 - [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Number Theory]] — the finite fields Reed–Solomon needs
 - [[architecture/04-distributed-systems/05-replication|Replication]] — erasure coding in storage

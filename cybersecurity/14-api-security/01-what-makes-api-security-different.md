@@ -1,14 +1,20 @@
+---
+id: 9f14fd0a-7b0e-4a16-9ba0-1105949ad0f6
+---
+
 # What Makes API Security Different
 
 **[Intermediate]** — why APIs need their own security discipline, the protections they *lose* compared to web apps, and the map (the OWASP API Security Top 10).
 
 ## The kid version first
+<!-- bite: 288666f6-c764-4a7a-8497-76b8db6bbd23 -->
 
 A traditional web app renders pages for a *human* using a *browser*. An API serves raw data to *other programs* — phone apps, single-page frontends, other companies' backends, scripts. **The client is a machine, not a person, and it isn't a browser** — so all the security machinery the browser quietly provided is simply gone, and the whole attack surface is exposed directly.
 
 API security is web security with the browser's safety net removed and the data served up raw.
 
 ## Why APIs are a distinct problem
+<!-- bite: 66daffd0-853a-48bf-b670-4d61fc4402a1 -->
 
 OWASP maintains a **separate API Security Top 10** from its famous web Top 10 — that split is itself the signal that this is its own discipline. The reasons:
 
@@ -23,6 +29,7 @@ OWASP maintains a **separate API Security Top 10** from its famous web Top 10 �
 **The surface is larger and less visible.** A web app has pages you can see; an API has dozens or hundreds of endpoints, versions, and undocumented routes. **You can't secure what you don't know exists** → [[cybersecurity/14-api-security/06-the-api-security-lifecycle|shadow APIs]].
 
 ## The one that dominates: authorization
+<!-- bite: 9c154dea-9d64-4756-bd9c-86118060ad4b -->
 
 Here's the defining fact of API security, and it's worth stating up front:
 
@@ -33,6 +40,7 @@ Classic web security's headline threats are injection and XSS. **API security's 
 **Why:** injection is now well-defended by frameworks and ORMs, but authorization is *per-object, per-endpoint application logic* that no framework can write for you. It's the thing developers forget, on every new endpoint, forever.
 
 ## The OWASP API Security Top 10 — the map
+<!-- bite: 3a97a2ec-7b42-4326-817a-6c006f15252e -->
 
 The field's standard reference (2023 edition), and the backbone of this folder:
 
@@ -52,6 +60,7 @@ The field's standard reference (2023 edition), and the backbone of this folder:
 **Notice API1, API3 and API5 are all authorization.** That's the whole story in one observation.
 
 ## Where this sits in the vault
+<!-- bite: fd5daf58-2072-4a57-b89d-fe4a68c8b085 -->
 
 API security stitches together three areas you've already met:
 
@@ -62,10 +71,12 @@ API security stitches together three areas you've already met:
 This folder doesn't re-teach injection or OAuth from scratch — it covers **what's specific to APIs**, and links to the general treatment for the rest.
 
 ## Key insight
+<!-- bite: c66a4c40-82a7-4428-a450-dfe75eb77964 -->
 
 **An API is a web application with the browser's entire safety net removed and the data served raw to untrusted machine clients — so it must enforce, on every single request, everything a browser used to enforce for free.** And its defining weakness isn't injection but *authorization*: the API knows who you are and forgets to check whether you're allowed to touch this particular object. Three of OWASP's top five API risks are that one failure, because it's per-object application logic no framework writes for you.
 
 ## Related
+<!-- bite: 1ceb35fb-c1cb-4a15-82e2-31ae9b7011f3 -->
 - [[cybersecurity/14-api-security/02-authentication-for-apis|authentication for APIs]] — proving identity without a browser
 - [[cybersecurity/14-api-security/03-authorization-and-bola|authorization and BOLA]] — the #1 problem
 - [[cybersecurity/04-web-security/index|web security]] — the parent discipline

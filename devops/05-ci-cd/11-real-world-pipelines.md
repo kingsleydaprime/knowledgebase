@@ -1,8 +1,13 @@
+---
+id: 9f670f0e-aa83-460e-8006-5b6949aad346
+---
+
 # Real-World Pipelines, End to End
 
 **[Advanced]** — Two complete production pipelines read top to bottom: NestJS + Docker + VPS, and Java/Spring Boot + MySQL + VPS. Every concept from the earlier notes, assembled.
 
 ## Full NestJS + Docker + VPS Pipeline
+<!-- bite: 4a6cda88-e36e-48f6-88d5-eeb084e91ac5 -->
 
 ```yaml
 # .github/workflows/main.yml
@@ -166,6 +171,7 @@ jobs:
 ```
 
 ## Full Java / Spring Boot + MySQL + VPS Pipeline
+<!-- bite: 6c0d4a7f-ed3b-41f9-888d-b8137ad4fc74 -->
 
 ```yaml
 name: Java CI/CD
@@ -269,6 +275,7 @@ jobs:
 ---
 
 ## Related
+<!-- bite: 56a5e3e1-2f8e-4681-abc3-e6cdab93b476 -->
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — the build halves of these, explained stage by stage
 - [[devops/05-ci-cd/09-cd-and-deployment|CD and Deployment]] — the deploy halves
 - [[devops/04-vps/vps-deployment-reference|VPS Deployment]] — the servers these pipelines ship to

@@ -7,6 +7,7 @@ id: 10e9be47-2260-410f-af8e-aa257cb33a30
 **[Intermediate]** — how a "connection" gets created and destroyed when there is no such physical thing. This note is the one that pays off most often in production debugging: `TIME_WAIT` exhaustion, SYN backlog drops, half-open connections, and "why is my connection pool broken" all live here.
 
 ## The kid version first
+<!-- bite: 76efb923-1013-4535-8ae8-7982a4a507b0 -->
 
 Two people want to have a phone conversation, but there are no phones — only postcards that may get lost.
 
@@ -17,6 +18,7 @@ Three postcards. That's the three-way handshake, and it's the minimum — with t
 A "connection" is now just: **both machines have written down the same numbers in their own memory.** Nothing exists in the network. If both sides forget, the connection is gone; if one forgets and the other doesn't, you get a **half-open connection**, which is the source of an entire genre of bug.
 
 ## The three-way handshake
+<!-- bite: 4952e18c-5a25-4648-80d5-ee75c122d228 -->
 
 ```
 Client                                     Server
@@ -40,6 +42,7 @@ Two things are being agreed, and it's worth separating them:
 **Cost:** one full round trip (RTT) before any data moves. On a 100ms path that's 100ms of nothing, and then [[networking/12-tls-and-transport-security/index|TLS]] wants 1–2 more. This accumulated handshake tax is the single strongest motivation for [[networking/13-quic-and-modern-transport|QUIC]] and for connection reuse everywhere.
 
 ## The SYN backlog and SYN floods
+<!-- bite: 32895c46-1bd6-496f-a915-cfea862a9892 -->
 
 The server allocates state at step 2, when it has only heard *one* packet from an unverified address. That asymmetry is exploitable.
 
@@ -54,6 +57,7 @@ Two queues matter operationally, and conflating them causes confusion:
 If your application is slow to `accept()`, the accept queue overflows and the kernel **silently drops** established connections. The symptom is clients seeing hangs or resets under load with no error in your app logs. Check it with `ss -lnt` — the `Recv-Q`/`Send-Q` columns on a listening socket are current and max accept-queue depth. → [[networking/16-debugging-networks|debugging]]
 
 ## Teardown, and the TIME_WAIT question
+<!-- bite: 5b66681b-01d0-47a1-828c-d7856c4becc3 -->
 
 Closing is *four* messages, because each direction closes independently — TCP allows a **half-close**, where one side is done sending but still receiving (this is what `shutdown(SHUT_WR)` does, and how the old `HTTP/1.0` "connection close signals end of body" worked).
 
@@ -78,6 +82,7 @@ The side that closes first enters **`TIME_WAIT`** for 2× the maximum segment li
 - **`tcp_tw_recycle`** — **do not.** It was removed in Linux 4.12 because it broke horribly behind NAT (it assumed per-host timestamp monotonicity, which many clients behind one NAT violate). If you find this in an old blog post or a legacy sysctl file, delete it.
 
 ## The state machine, and the states you'll actually see
+<!-- bite: e00108fb-58c3-4094-8f33-4d1a873c96fb -->
 
 `ss -tan` output states, and what each means when you see it pile up:
 
@@ -94,22 +99,26 @@ The side that closes first enters **`TIME_WAIT`** for 2× the maximum segment li
 `CLOSE_WAIT` accumulating is the highest-signal one on that list: it is almost always *your* code failing to call `close()` on a socket after the peer hung up, usually because an error path skips the cleanup. It ends in "too many open files."
 
 ## RST — the other way connections end
+<!-- bite: 52fd3c09-7849-4945-98ee-b789a2293f02 -->
 
 A **RST** is an abrupt abort, not a graceful close. You get one when connecting to a port nobody is listening on (that's how "connection refused" happens — instantly, versus a *timeout* when a firewall silently drops instead of rejecting), when sending to a socket that's already closed, or when a middlebox decides to kill your connection.
 
 That distinction is diagnostically valuable: **"connection refused" means you reached the host and nothing was listening. A hang/timeout means something is dropping silently** — a firewall, a security group, a wrong route, or a black-holed [[networking/02-the-link-layer|MTU]].
 
 ## Keepalives and the idle-connection problem
+<!-- bite: 6c1c9bc5-08f0-41a4-adc0-0d6d8228daff -->
 
 TCP will happily sit idle forever — it sends nothing, so it never learns the peer died or that a [[networking/03-ip-addressing-and-subnetting|NAT]] dropped the mapping. Both sides think they're connected; the next write fails, minutes later.
 
 TCP keepalive exists but defaults to **2 hours** of idle before the first probe, which is useless for anything real. Most systems set application-level pings (WebSocket ping frames, database pool validation queries) at 30–60 seconds instead — comfortably under typical NAT and load-balancer idle timeouts. That's the actual reason your ORM's connection pool has a "test on borrow" or "max idle time" setting, and why getting it wrong produces the maddening "first request after a quiet period always fails" bug.
 
 ## Key insight
+<!-- bite: a56e4bc7-a5d2-4c15-91db-e7a2eac61d14 -->
 
 A TCP connection is **soft state held only at the two endpoints** — the network holds nothing and knows nothing. Every awkward part of TCP's lifecycle (`TIME_WAIT`, half-open connections, SYN backlogs, keepalives) is the cost of maintaining a shared illusion across an unreliable medium where either party can vanish without notice and the other can't tell the difference between "dead" and "slow." That last impossibility is the same one at the heart of [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|distributed systems]].
 
 ## Related
+<!-- bite: f94d1d90-a511-495e-9535-2323685a7d6d -->
 - [[networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — what happens between handshake and teardown
 - [[networking/09-sockets-and-the-network-api|Sockets & the Network API]] — these states from the code side
 - [[networking/16-debugging-networks|Debugging Networks]] — `ss`, `netstat`, and reading state tables

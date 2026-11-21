@@ -1,3 +1,7 @@
+---
+id: c422dff5-f708-43f3-8472-797216f6cc76
+---
+
 # Error Handler in react
 
 ```ts

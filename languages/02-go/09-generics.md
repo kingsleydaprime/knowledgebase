@@ -1,14 +1,20 @@
+---
+id: 37eb6c77-8894-4186-98b8-075e5b8cbfff
+---
+
 # Generics
 
 **[Intermediate]** — Type parameters, constraints, and the honest answer to when you should actually use them.
 
 ## Why they arrived late
+<!-- bite: 60da3b6b-6bc8-4642-9a52-c186432e72fe -->
 
 Go shipped without generics in 2009 and got them in **1.18 (March 2022)** — thirteen years of the single most-requested feature being refused. The team's position was that they hadn't found a design worth the complexity cost, and they'd rather have no generics than bad ones.
 
 The result of that wait is visible in the design: type parameters are deliberately less powerful than Java's or Rust's. No variance, no specialisation, no higher-kinded types, no operator constraints beyond a fixed set.
 
 ## Syntax
+<!-- bite: 781589b6-b1a2-41d1-b14b-37e5b39c1632 -->
 
 ```go
 func Map[T, U any](in []T, f func(T) U) []U {
@@ -24,6 +30,7 @@ lengths := Map[string, int](names, func(s string) int { ... })  // explicit
 Type parameters go in square brackets before the value parameters. Inference usually works from the arguments; you only annotate when it can't.
 
 ## Constraints
+<!-- bite: f795630e-7d20-46f9-8903-97de0452ec7d -->
 
 A constraint is an interface used as a type bound:
 
@@ -67,6 +74,7 @@ type Stringish interface {
 ```
 
 ## Generic types
+<!-- bite: d93d1f83-4a74-4a52-9435-16a0f3215169 -->
 
 ```go
 type Stack[T any] struct{ items []T }
@@ -89,6 +97,7 @@ s := &Stack[int]{}
 **Methods cannot introduce new type parameters.** `func (s *Stack[T]) MapTo[U any](...)` doesn't compile. This is the limitation you'll hit first, and the workaround is a package-level function taking the receiver as an argument. It's why `Map` above is a function rather than a method — and why Go has no fluent `.map().filter().reduce()` chain.
 
 ## What the standard library got
+<!-- bite: 72701e01-16eb-4cc2-bde4-d88158378f60 -->
 
 Generics made these possible, and they're the main day-to-day benefit:
 
@@ -115,6 +124,7 @@ cmp.Or(a, b, c)                         // first non-zero value
 `slices.SortFunc` returning an `int` comparator (negative/zero/positive) rather than a `bool` less-function is a small but real improvement over `sort.Slice`, and it's the one to reach for now.
 
 ## When to actually use them
+<!-- bite: f7642da5-6fa0-48f4-82aa-06f08f5e1512 -->
 
 The community norm, which is stricter than in most languages:
 
@@ -131,6 +141,7 @@ The community norm, which is stricter than in most languages:
 > The Go proverb still applies: *"A little copying is better than a little dependency."* Duplication is cheaper here than in most languages, and generics don't change that.
 
 ## The performance note
+<!-- bite: 8da51247-91da-4e62-aa75-523ffaea6792 -->
 
 Go implements generics with **GC shape stinting** — a hybrid of monomorphisation and boxing. Types sharing a memory layout (all pointer types, say) share one generated function, with type info passed in a hidden dictionary.
 
@@ -139,6 +150,7 @@ The practical consequence: generic code is usually **not faster** than the `inte
 ---
 
 ## Related
+<!-- bite: db31040a-7606-45f3-85b9-97e6ff50b91c -->
 - [[languages/02-go/04-methods-and-interfaces|Methods and Interfaces]] — usually the better tool
 - [[languages/02-go/03-composite-types|Composite Types]] — what `slices` and `maps` operate on
 - [[languages/01-java/01-language/03-generics|Java: Generics]] — erasure, wildcards, and variance, for contrast

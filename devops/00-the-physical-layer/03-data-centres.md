@@ -1,3 +1,7 @@
+---
+id: 51142678-9287-4890-9321-8767b851977b
+---
+
 # Data Centres
 
 > **[Beginner]** · The building. Power, heat, redundancy tiers, and why "availability zone" is a physical fact rather than a marketing word.
@@ -5,6 +9,7 @@
 A server has to live somewhere. Under a desk works until it doesn't — until the cleaner unplugs it, the room hits 40°C in August, or the building loses power for six hours. **A data centre is a building whose entire purpose is to remove those failure modes**, and it is more interesting than it sounds, because its constraints leak upward into things you'll actually configure.
 
 ## What the building is actually for
+<!-- bite: 4e899d37-9f37-473a-833f-45542230b1d5 -->
 
 Four things, in rough order of how much they cost:
 
@@ -16,6 +21,7 @@ Four things, in rough order of how much they cost:
 **Compute is the cheap part.** The building, the power contract and the cooling dominate the cost, which is exactly why the cloud's economics work: those costs amortise brutally well across scale.
 
 ## Racks and the unit that everything is measured in
+<!-- bite: 78fa8834-21f6-4def-89d9-7c4816a59b6a -->
 
 The **19-inch rack** is the organising standard, and it is remarkably old — it descends from railway signalling equipment. Vertical space is measured in **U** (1U = 44.45 mm). A full rack is 42U.
 
@@ -24,6 +30,7 @@ A rack contains servers, a **top-of-rack switch** (see [[devops/00-the-physical-
 **Power density is the real limit, not space.** A rack might have room for 42 1U servers but only enough power and cooling budget for 20. Empty U in a modern hall usually means the power circuit is full, not that nobody wants the space.
 
 ## Hot aisle / cold aisle
+<!-- bite: b91a19fa-c517-429d-ae77-53a799ddab2f -->
 
 The single most important physical arrangement, and once you see it you can't unsee it.
 
@@ -45,6 +52,7 @@ Cool air is delivered to the cold aisles (often through a raised floor with perf
 The efficiency metric is **PUE** (Power Usage Effectiveness) — total facility power ÷ IT equipment power. PUE 2.0 means you burn a watt on cooling and overhead for every watt of compute. A good modern facility is 1.1–1.2. Hyperscalers report figures near 1.1, which is a large part of why renting is cheaper than a server room in your office, where a PUE of 2 would be optimistic.
 
 ## Redundancy, and the N+1 notation
+<!-- bite: df60718e-f6fd-46e5-8558-42f3638c6b71 -->
 
 Redundancy is described by how many spare units you have relative to what you need:
 
@@ -67,6 +75,7 @@ The **Uptime Institute tier ratings** package this into four levels:
 **Read those availability figures carefully.** Tier IV's 99.995% is the *facility*. Your application's availability is that number multiplied by everything else in the chain — your code, your database, your deploy process. **The building is rarely your weakest link, which is the useful thing to know.** See [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] for how these numbers compose.
 
 ## Where your servers actually sit
+<!-- bite: 9bd916df-120f-4c0e-a43d-a2fe3e03e86b -->
 
 Four models, and the difference is who owns which layer:
 
@@ -80,6 +89,7 @@ Four models, and the difference is who owns which layer:
 **Colocation is the one people forget exists**, and it's still the right answer for predictable, steady, high-volume workloads where cloud pricing stops being a bargain. The cloud's advantage is elasticity and speed, not unit cost — several well-known companies have repatriated steady workloads and saved substantially. The trade is that you get your lead times and your capacity planning back.
 
 ## Regions, availability zones, and what the words mean physically
+<!-- bite: 6aa87dc9-f8fd-48da-bbea-06f9cd23d9fa -->
 
 This is the payoff, and it's why the building is worth a note.
 
@@ -97,6 +107,7 @@ So the standard advice — *spread across at least two AZs* — is not a cloud-v
 The corollary is worth stating plainly: **three instances in one AZ are not a redundant system.** They share a roof, a power feed, and a cooling plant. Multi-AZ protects against the building. Multi-region protects against the region — at the cost of latency and, usually, of strong consistency. See [[architecture/04-distributed-systems/index|distributed systems]] for what that trade costs.
 
 ## Related
+<!-- bite: c5b12eac-389f-49bd-a933-19c4dfc0c3e1 -->
 - [[devops/00-the-physical-layer/04-the-data-centre-network|the data centre network]] — how the racks are wired together
 - [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] — what fills the racks
 - [[devops/08-cloud/01-cloud-fundamentals|cloud fundamentals]] — regions and AZs as an API

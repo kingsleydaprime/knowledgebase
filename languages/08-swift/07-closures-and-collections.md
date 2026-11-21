@@ -1,8 +1,13 @@
+---
+id: 873b7be8-07be-4c4b-b1ea-acb3fb5bddb7
+---
+
 # Closures and Collections
 
 **[Intermediate]** — the functional layer, and the syntax shortcuts that make Swift look cryptic until they don't.
 
 ## Closure syntax, from verbose to idiomatic
+<!-- bite: 0864a1a3-44ee-4261-9d17-86f69223ca89 -->
 
 ```swift
 items.sorted(by: { (a: Item, b: Item) -> Bool in return a.price < b.price })
@@ -16,6 +21,7 @@ items.sorted { $0.price < $1.price }                  // shorthand arguments
 **Trailing closure syntax** is why SwiftUI reads the way it does: when the last parameter is a closure, it moves outside the parentheses.
 
 ## The collection operations
+<!-- bite: 06b49e1e-f33c-4409-9ce9-964f2d9e3877 -->
 
 ```swift
 let names   = users.map(\.name)                        // key-path shorthand
@@ -35,6 +41,7 @@ let valid   = strings.compactMap(Int.init)             // map + drop nils
 **Key paths (`\.name`)** work anywhere a closure taking one argument and reading a property would.
 
 ## Laziness
+<!-- bite: 7b39f15a-2cc5-4899-9ff6-0cc310c3c48c -->
 
 ```swift
 let result = hugeArray.map(expensive).filter(test).first
@@ -47,6 +54,7 @@ let result = hugeArray.lazy.map(expensive).filter(test).first
 **Swift's collection operations are eager by default.** `.lazy` makes the chain pull-based. **Worth reaching for on large collections with expensive transforms**, and unnecessary otherwise — laziness has its own overhead.
 
 ## Escaping closures
+<!-- bite: e48fc17f-9c4b-43ed-b2f5-bde4099f86da -->
 
 ```swift
 func run(_ work: () -> Void) { work() }                 // non-escaping (default)
@@ -58,6 +66,7 @@ func store(_ work: @escaping () -> Void) { saved = work }  // outlives the call
 **Non-escaping is the default and it's faster** — the compiler can stack-allocate it.
 
 ## Capture semantics
+<!-- bite: 1f37088b-b3ad-455a-bef7-4851a7b4a320 -->
 
 ```swift
 var count = 0
@@ -74,6 +83,7 @@ printX()                            // 0
 **Closures capture variables, not values, unless you use a capture list.** The `[x]` form snapshots.
 
 ## The important protocols
+<!-- bite: 4774c332-d16a-42e7-b60b-4b3ea7fe6aeb -->
 
 ```swift
 Sequence        // can be iterated once
@@ -85,6 +95,7 @@ Conform to `Sequence` and you get `map`, `filter`, `reduce`, `first(where:)` and
 **Complexity is worth knowing:** `Array` index access is O(1) but `insert(at: 0)` is O(n). `Set` and `Dictionary` are O(1) average. **`Array.contains` is O(n)** — if you're calling it in a loop, you want a `Set` → [[dsa/index|DSA]].
 
 ## Strings are not arrays
+<!-- bite: 2ac93815-68f0-499e-a1e4-6739743e6dab -->
 
 ```swift
 let s = "héllo"
@@ -98,10 +109,12 @@ s[s.startIndex]    // ✅
 For heavy text processing, work with `s.utf8` or index-based traversal rather than repeatedly converting.
 
 ## Key insight
+<!-- bite: 983cd539-fb66-42bf-85ab-325667409a65 -->
 
 **Swift's functional operations come free from protocol extensions on `Sequence`**, which is protocol-oriented design paying off visibly. The syntax compresses aggressively — `$0`, trailing closures, key paths — and that compression is what makes SwiftUI readable, so learning to read it is worth the early discomfort.
 
 ## Related
+<!-- bite: 5b939614-9154-4920-89ec-2f38ec05aa3a -->
 - [[languages/08-swift/04-protocols-and-generics|protocols]] — where these methods come from
 - [[languages/08-swift/03-memory-and-arc|ARC]] — closures and retain cycles
 - [[dsa/index|DSA]] — the complexity behind the collections

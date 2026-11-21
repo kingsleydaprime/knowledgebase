@@ -1,8 +1,13 @@
+---
+id: a63da666-544f-49ab-8144-97e361a4bcfb
+---
+
 # Documentation Practices
 
 Documentation exists to transfer context from someone who has it (right now, while building something) to someone who doesn't (later — a teammate, a future contributor, or future-you after enough time has passed to forget the details). Writing it well is mostly about being honest with yourself about what that future reader will actually need and won't already know.
 
 ## The layers of documentation, and what each is actually for
+<!-- bite: 7e1c5658-ef35-4b71-a1a9-2bec359b052b -->
 
 - **README** — the entry point: what this project/module is, how to get it running, where to look next. Should answer "what is this and how do I start" in under a minute of reading, not require reading the entire codebase first.
 - **Inline code comments** — for the *why*, not the *what* (see [[concepts/01-best-practices/01-clean-code/index|clean-code]]) — a non-obvious constraint, a workaround, a reason behind a surprising decision at that specific spot in the code.
@@ -28,10 +33,12 @@ Requires a formal migration process for schema changes (see concepts/backend/dat
 ```
 
 ## Writing for the reader who has less context than you do right now
+<!-- bite: 5dcd5d2c-4e46-4660-9f2c-49ceaef60e26 -->
 
 The person writing documentation always has more context than the reader will — this is the central, easy-to-forget trap. Explicitly naming assumptions ("this assumes you've already run the setup script in the main README") and avoiding unexplained internal jargon/abbreviations is what actually closes that gap, rather than assuming shared context that only exists in the writer's head at the moment of writing.
 
 ## Keeping documentation from rotting
+<!-- bite: bb0c22ad-0e41-45f1-822a-a2f89c84b853 -->
 
 Documentation that describes outdated behavior is often worse than no documentation at all — it actively misleads a reader who trusts it. Practices that help:
 - Keep documentation as close as possible to the code it describes (in the same repository, ideally the same file/folder) so it's more likely to be updated alongside a code change rather than forgotten in a separate system.
@@ -39,12 +46,14 @@ Documentation that describes outdated behavior is often worse than no documentat
 - Periodically audit and prune documentation for things that no longer reflect current behavior — stale docs accumulate silently unless someone deliberately checks.
 
 ## Gotchas
+<!-- bite: 8029fc0c-d4d2-445d-80d0-3276a7169430 -->
 
 - Documenting *what* code does at a level a reader could get just as easily from reading well-named code itself is low-value effort — spend that effort on the *why* instead (see [[concepts/01-best-practices/01-clean-code/index|clean-code]]'s comments section for the same principle applied to inline comments specifically).
 - Comprehensive documentation written once and never revisited tends to decay into actively misleading territory faster than teams expect — a living document that's checked periodically beats an exhaustive one written once and abandoned.
 - Over-documenting a rapidly-changing, early-stage part of a system can create more maintenance burden (keeping docs in sync) than value delivered — matching documentation depth to how stable a given piece of the system actually is is a reasonable, deliberate tradeoff, not a nice-to-have.
 
 ## Related
+<!-- bite: b88466be-2c36-4c11-93a8-55b31de732d2 -->
 - [[concepts/01-best-practices/01-clean-code/index|clean-code]]
 - [[04-pr-structure|pr-structure]]
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing-fundamentals]]

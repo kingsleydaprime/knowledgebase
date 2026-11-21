@@ -1,8 +1,13 @@
+---
+id: f5969b3a-1620-444d-b9f8-228f9e1f111a
+---
+
 # Modules, Packages and Imports
 
 > **[Intermediate]** · How `import` actually resolves, why circular imports happen, and the project layout that avoids most import pain.
 
 ## The vocabulary
+<!-- bite: 915c27ee-31f2-4ae0-a5ed-c788de9719aa -->
 
 - **Module** — one `.py` file
 - **Package** — a directory of modules (with `__init__.py`, conventionally)
@@ -18,6 +23,7 @@ from mypackage.utils import helper   # from a package
 **Avoid `from module import *`.** It dumps unknown names into your namespace, shadows things silently, and makes it impossible to tell where a name came from. Linters flag it.
 
 ## How resolution works
+<!-- bite: 80c002ba-12d7-4204-bd45-a6c7abe5fd38 -->
 
 `import foo` searches `sys.path` **in order**:
 
@@ -35,6 +41,7 @@ from mypackage.utils import helper   # from a package
 - Expensive work at module level slows every import of it, everywhere
 
 ## `if __name__ == "__main__":`
+<!-- bite: d6d62e82-7f40-4160-b06a-48aa24a6b22c -->
 
 ```python
 def main(): ...
@@ -48,6 +55,7 @@ if __name__ == "__main__":
 **Without it, importing your script executes it** — which is exactly what happens when a test file imports the module under test and suddenly your CLI runs. It also matters for `multiprocessing` on Windows and macOS, where child processes re-import the main module and will otherwise fork infinitely.
 
 ## Absolute and relative imports
+<!-- bite: b404d2bc-3813-4870-8933-b0fbffa12f1d -->
 
 ```python
 from mypackage.utils import helper       # absolute — preferred
@@ -60,6 +68,7 @@ from ..core import thing                 # relative: parent package
 **The fix for that error is almost always `python -m package.module` rather than `python package/module.py`.** `-m` runs it with the package context set up.
 
 ## Circular imports
+<!-- bite: c364e984-f51f-432d-be11-7f830364d334 -->
 
 Two modules importing each other:
 
@@ -101,6 +110,7 @@ def f(x: "ThingB") -> None: ...
 ```
 
 ## Project layout
+<!-- bite: 99b23f0c-a21c-41cb-91a3-19f8ef8b41ea -->
 
 The `src/` layout, which is the current recommendation:
 
@@ -131,6 +141,7 @@ Now `from mypackage import Engine` works regardless of where `Engine` actually l
 **Keep `__init__.py` cheap.** Heavy imports there are paid by everyone who touches any part of the package — a common cause of slow CLI startup.
 
 ## Related
+<!-- bite: a7a9a325-f071-44b7-823c-fae64a6bd416 -->
 - [[languages/06-python/01-why-python-and-the-toolchain|the toolchain]] — venvs and `pyproject.toml`
 - [[languages/06-python/13-testing-and-tooling|testing]] — why layout and test imports interact
 - [[languages/06-python/08-typing-and-type-hints|typing]] — `TYPE_CHECKING`

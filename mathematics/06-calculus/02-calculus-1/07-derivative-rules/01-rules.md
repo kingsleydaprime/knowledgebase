@@ -1,8 +1,13 @@
+---
+id: 05ee776f-5326-44f9-93d8-942bd84bff02
+---
+
 # Derivative Rules
 
 **[Intermediate]** — The shortcuts, each derived rather than asserted — and the chain rule, which is the one that actually matters.
 
 ## Before you start
+<!-- bite: 042c7dbd-2f51-4476-9efb-4b1f8afa79be -->
 
 - You can differentiate from first principles — [[01-definition|defining the derivative]].
 - You know the index laws — [[01-indices-and-logarithms|indices and logarithms]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. The rules
+<!-- bite: 03d83960-023d-48de-9329-290c2c23b10e -->
 
 | Rule | Statement |
 | :--- | :--- |
@@ -35,6 +41,7 @@ $$\frac{d}{dx}\sin x = \cos x \qquad \frac{d}{dx}\cos x = -\sin x \qquad \frac{d
 **$e^x$ is its own derivative**, and that is the *definition* of $e$ — the unique base whose exponential grows at exactly its own value. It is why $e$ appears everywhere growth is proportional to size.
 
 ## 2. Two derivations
+<!-- bite: e98c5b17-c8cf-42e7-99b1-b682b0ae81aa -->
 
 **The rules are not arbitrary.** Deriving two of them shows where they come from and makes the rest believable.
 
@@ -63,6 +70,7 @@ $$\Delta(fg) \approx f'g\,\Delta x + fg'\,\Delta x + \underbrace{f'g'(\Delta x)^
 Divide by $\Delta x$ and take the limit: the corner term still has a $\Delta x$ in it and disappears, leaving $f'g + fg'$. **The two strips are the two terms.**
 
 ## 3. The chain rule — the important one
+<!-- bite: e5951876-d5ea-4c20-8c3f-6fedefceb1ef -->
 
 $$\frac{d}{dx}f(g(x)) = f'(g(x))\cdot g'(x)$$
 
@@ -88,6 +96,7 @@ $$\frac{d}{dx}(3x^2+1)^5 = 5(3x^2+1)^4 \cdot 6x = 30x(3x^2+1)^4$$
 > **Backpropagation is the chain rule applied systematically**, computing those products from the output backwards and reusing shared sub-products. It is not a separate algorithm — it is bookkeeping over this one rule. See [[ai-ml/index|ai-ml]] and [[build-your-own-shit/10-your-own-neural-network|build your own neural network]].
 
 ## 4. Choosing the rule
+<!-- bite: f4522565-a3cd-4905-a697-8f2ddc053d86 -->
 
 **Work from the outside in.** Ask what operation is applied *last*:
 
@@ -102,6 +111,7 @@ $$\frac{d}{dx}(3x^2+1)^5 = 5(3x^2+1)^4 \cdot 6x = 30x(3x^2+1)^4$$
 **$\sin(x^3)$ and $\sin^3 x$ are different functions** and need the chain rule applied in opposite orders. Confusing them is one of the most common errors in the topic.
 
 ## 5. Practice — problems
+<!-- bite: c98c9f31-b76b-48bd-a21c-365df6a1ab41 -->
 
 1. Differentiate: (a) $5x^4 - 3x^2 + 7$  (b) $\sqrt{x}$  (c) $\dfrac{1}{x^3}$. *(Write (b) and (c) as powers first.)*
 2. Product rule: (a) $x^2\sin x$  (b) $xe^x$.
@@ -122,6 +132,7 @@ $\sqrt{\sin x} = (\sin x)^{1/2}$: chain rule → $\frac{1}{2}(\sin x)^{-1/2}\cos
 </details>
 
 ## Before moving on
+<!-- bite: 54fe9b1b-1e2a-4306-977c-51569f9ada47 -->
 
 - [ ] State all seven rules from memory.
 - [ ] Derive the power rule for a specific $n$ and explain the product rule geometrically.
@@ -133,6 +144,7 @@ $\sqrt{\sin x} = (\sin x)^{1/2}$: chain rule → $\frac{1}{2}(\sin x)^{-1/2}\cos
 **Next:** [[01-related-rates|Applications]] — using derivatives to solve problems rather than to differentiate expressions.
 
 ## Related
+<!-- bite: 5ab59c6e-cfa6-4b10-964e-93a945da9a9f -->
 
 - [[01-definition|Defining the derivative]]
 - [[build-your-own-shit/10-your-own-neural-network|Build your own neural network]] — the chain rule, applied

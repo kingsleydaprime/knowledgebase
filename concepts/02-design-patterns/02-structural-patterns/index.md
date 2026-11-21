@@ -7,6 +7,7 @@ id: 944d2e93-e77f-4c0e-adf8-eb53eac4c76c
 > **[Intermediate]** · How objects are **composed** into larger structures — adapting an interface you don't control, adding behaviour without editing a class, controlling access, and hiding a complicated subsystem. Plus the principle underneath all four: **composition over inheritance**.
 
 ## Before you start
+<!-- bite: e4ff802e-9df8-46eb-876c-8d9c5726aa27 -->
 
 You can already:
 
@@ -22,16 +23,19 @@ After this lesson you will be able to:
 **Study route.** §1–2 are the core idea; §3–6 are the four patterns. Run the worked example, and make the prediction before you run it.
 
 ## The kid version
+<!-- bite: 8c7b976c-5862-4cfc-93ea-facf0e2a7086 -->
 
 Lego beats a toy that's moulded in one piece. With a moulded fire engine, if you want one with a longer ladder you need a whole new toy. With Lego, you take the fire engine and **clip on** a longer ladder, then clip on a siren. **Building by clipping pieces together is composition; making a new moulded toy for every variation is inheritance.** The four patterns in this lesson are four ways of clipping things together.
 
 **Where the analogy stops working.** Lego pieces don't care what order you clip them in. Software wrappers do — a cache outside a retry behaves differently from a retry outside a cache, and the worked example shows exactly how.
 
 ## 1. Why this exists
+<!-- bite: 6d26308d-9b74-46e4-9942-329652f62ef2 -->
 
 Your app fetches exchange rates from an HTTP API. You need retries because the API is flaky, caching because it's rate-limited, and logging for debugging. With inheritance you write `RetryingRates extends Rates`, then `CachingRetryingRates extends RetryingRates`, then `LoggingCachingRetryingRates`... and a test that wants caching *without* retries needs another subclass. **Three features, up to seven subclasses, and the order is fixed at compile time.** Composition gives you three small wrappers you can combine any way you like at runtime.
 
 ## Terms used in this lesson
+<!-- bite: cbfaf749-7d53-4ac1-810c-98b79b9f20bd -->
 
 1. **Inheritance**: This is when a class gets behaviour by extending another class (`class B extends A`). The relationship is fixed when the code is written.
 2. **Composition**: This is when an object gets behaviour by *holding* other objects and calling them. The relationship is decided when the objects are created, so it can vary.
@@ -42,6 +46,7 @@ Your app fetches exchange rates from an HTTP API. You need retries because the A
 7. **Facade**: This is a new, simple interface over several collaborating parts, so callers make one call instead of coordinating many.
 
 ## 2. Composition over inheritance
+<!-- bite: 2433441b-905d-4cf4-ba6f-e0b16b4f9a1d -->
 
 **Prefer giving an object behaviour by holding collaborators, not by extending a parent class.** Inheritance isn't banned — it's the right tool for a genuine "is-a" with a stable contract, such as a custom `Error` subclass. But it has three costs composition avoids:
 
@@ -52,6 +57,7 @@ Your app fetches exchange rates from an HTTP API. You need retries because the A
 The rest of this lesson is four named shapes of composition.
 
 ## 3. Adapter — making an incompatible interface fit
+<!-- bite: 7e5f32c2-868b-48b7-be9c-54c3061a7cb8 -->
 
 Wraps an object with an interface your code doesn't expect, exposing the interface your code *does* expect, translating calls between the two underneath. The classic use case: integrating a third-party library or legacy code whose interface doesn't match what the rest of your codebase expects, without modifying that third-party code at all.
 
@@ -75,6 +81,7 @@ logger.info("app started");   // rest of the app only ever sees the clean `Logge
 ```
 
 ## 4. Decorator — adding behavior without modifying the original class
+<!-- bite: 4e486d1b-0068-49be-ab89-759c6e3af6ba -->
 
 Wraps an object to add new behavior, transparently, without changing the original class's code — and multiple decorators can be stacked, each adding its own layer.
 
@@ -98,6 +105,7 @@ console.log(order.description(), order.cost());   // "Coffee + Milk" 2.5
 This is the same underlying idea as Python's `@decorator` syntax or a middleware chain (see [[backend/01-foundations/02-http-servers|HTTP servers]]) — wrapping a thing with additional behavior, transparently, without the wrapped thing needing to know it's been wrapped.
 
 ## 5. Proxy — controlling access to an object
+<!-- bite: e1a0f323-352c-461d-a564-3ecc7706e9a5 -->
 
 Provides a stand-in for another object, controlling access to it — adding lazy loading (don't create the expensive real object until it's actually needed), access control, caching, or logging, transparently, from the caller's perspective.
 
@@ -121,6 +129,7 @@ class LazyImageProxy implements Image {
 JavaScript's built-in `Proxy` object is a direct, language-level implementation of this exact pattern — intercepting property access/assignment on an object transparently.
 
 ## 6. Facade — a simple interface over a complex subsystem
+<!-- bite: 6b65fc26-da09-4d6c-9240-bae8151afd37 -->
 
 Provides one simple, unified interface hiding a more complex set of underlying classes/subsystems working together — the caller interacts with one simple method instead of coordinating several underlying components' interactions itself.
 
@@ -141,6 +150,7 @@ new VideoConverterFacade().convert("video.mp4", "avi");
 The distinction from Adapter: an Adapter makes an *existing* interface compatible with what you need; a Facade creates a *new*, simpler interface over a genuinely complex set of subsystems, purely for ease of use.
 
 ## 7. Worked example — retries, caching and logging as wrappers
+<!-- bite: 8a1194a5-ca9c-4106-acc7-7bde3d93b9fe -->
 
 One interface, `RateSource`, and five classes that all implement it: a flaky API, three wrappers, and an adapter for a third-party client with the wrong shape.
 
@@ -279,12 +289,14 @@ test("adapter: a client with the wrong shape plugs into the same stack", async (
 **The cost to name.** Five classes where one could have done it all. That's worth it here because each wrapper is reused and tested alone, and the combination changes per environment — no retries in tests, say. For a one-off script, a single function with a `try` and a `Map` is clearer.
 
 ## Common pitfalls
+<!-- bite: 172e3cad-7c54-4b7d-9a70-81aad4c05e7f -->
 
 - Adapter and Facade solve genuinely different problems despite feeling similar — Adapter is about compatibility with an interface you don't control; Facade is about simplifying a complex interface you do control (or that's simply made up of many pieces).
 - Overusing Decorator by stacking many layers can make it hard to reason about the final combined behavior/cost at a glance — readable up to a point, then a source of confusion past it; worth naming/documenting common decorator combinations if a codebase leans on this pattern heavily.
 - Proxy's transparency is the whole point — a proxy that doesn't genuinely implement the same interface as the real object it stands in for defeats the pattern's purpose, since callers should be able to use either interchangeably without caring which they have.
 
 ## Check your understanding
+<!-- bite: 86b08713-009f-4fce-b71e-c8107cd02b82 -->
 
 1. Give two costs of inheritance that composition avoids.
 2. You need to use a payments SDK whose method is `makePayment({ kobo, email })`, but your code calls `charge(customerId, amount)`. Which pattern? Decorator or adapter?
@@ -304,6 +316,7 @@ test("adapter: a client with the wrong shape plugs into the same stack", async (
 </details>
 
 ## Practice — independent task
+<!-- bite: fd6a2849-8c35-4c54-bec7-5c7bd58411d5 -->
 
 **Add a timeout wrapper and a facade.**
 
@@ -316,6 +329,7 @@ test("adapter: a client with the wrong shape plugs into the same stack", async (
 For interview-style questions, see [[concepts/interview/02-patterns-code-quality-and-review|patterns, code quality and review]].
 
 ## Before moving on
+<!-- bite: 0fc05a17-a175-4dff-aed7-68d51be1604b -->
 
 You can explain composition over inheritance, identify the four structural patterns in real code, and predict how wrapper order changes behaviour.
 
@@ -324,6 +338,7 @@ You can explain composition over inheritance, identify the four structural patte
 **Next.** [[concepts/02-design-patterns/01-creational-patterns/index|Creational patterns]] — how the objects you're composing get built (week 3).
 
 ## Related
+<!-- bite: 739d8b93-1e1f-4885-84ba-756a6006c8c5 -->
 - [[concepts/02-design-patterns/02-structural-patterns/in-other-languages|Structural Patterns in Other Languages]] — decorators, proxies and adapters as each language does them
 - [[concepts/02-design-patterns/01-creational-patterns/index|creational patterns]]
 - [[concepts/02-design-patterns/03-behavioral-patterns/index|behavioural patterns]]

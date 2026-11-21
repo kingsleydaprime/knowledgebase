@@ -1,6 +1,11 @@
+---
+id: df64759f-4c88-4a25-86ad-c998b2c51d26
+---
+
 # 3. VARIABLES
 
 ## Before you start
+<!-- bite: 3726ffc7-5b1a-41f2-9e6b-1bba8d155d6b -->
 
 - You are comfortable with arithmetic and sets — [[01-sets|sets]].
 
@@ -70,6 +75,7 @@ The variable is therefore a **symbol representing a value**.
 ---
 
 ## Practice — problems
+<!-- bite: 066f9374-62f4-4ce7-8231-6a811c1bf0e5 -->
 
 Attempt all of these before opening the answers.
 
@@ -89,6 +95,7 @@ Attempt all of these before opening the answers.
 </details>
 
 ## Before moving on
+<!-- bite: 123454a6-1800-4a3d-85b8-bc709ec0cad4 -->
 
 You are done with this lesson when you can, closed-book:
 

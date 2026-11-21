@@ -1,8 +1,13 @@
+---
+id: b4c65275-de5a-4651-81dc-aefb1c110177
+---
+
 # Testing and Tooling
 
 > **[Intermediate]** · xUnit, the analyzer story, and the tooling that comes free with the SDK.
 
 ## xUnit
+<!-- bite: 8b79448c-8cd5-4c44-9a05-0a44f8834108 -->
 
 The de-facto standard for new projects.
 
@@ -33,6 +38,7 @@ public class DiscountCalculatorTests
 **NUnit** and **MSTest** are the alternatives; NUnit has richer assertions, MSTest is Microsoft's. **All three are fine** — xUnit is the default for new work.
 
 ## The rest of the kit
+<!-- bite: cd2fc2ab-ce4a-4a00-9dcd-28c9d74b4140 -->
 
 **FluentAssertions** — readable assertions and much better failure messages:
 ```csharp
@@ -55,6 +61,7 @@ repo.GetAsync(1).Returns(new Order { Total = 100m });
 **Verify** — snapshot testing, for output too tedious to assert field by field.
 
 ## The analyzer story
+<!-- bite: 2ae53969-f5da-454b-ad28-05923d112458 -->
 
 **This is where C# tooling is strongest, and it's mostly free.**
 
@@ -75,6 +82,7 @@ repo.GetAsync(1).Returns(new Order { Total = 100m });
 **The nullable analyzer is the highest-value one you already have** — turn it on and treat its warnings as errors → [[languages/07-csharp/02-the-type-system|note 02]].
 
 ## Coverage and benchmarks
+<!-- bite: e757dfda-93a9-4e82-8305-69619ab22ff7 -->
 
 ```bash
 dotnet test --collect:"XPlat Code Coverage"    # coverlet, then ReportGenerator
@@ -96,6 +104,7 @@ public class Benchmarks
 **It handles warmup, JIT tiering, statistical significance and outlier detection for you** — all the things that make hand-rolled `Stopwatch` benchmarks wrong. **`[MemoryDiagnoser]` reports allocations per operation**, which is often the number you actually care about → [[languages/07-csharp/08-memory-gc-and-spans|note 08]].
 
 ## CI
+<!-- bite: 3c35056b-4fa0-4f22-9ef6-eccd7e58b1a7 -->
 
 ```yaml
 - run: dotnet restore
@@ -106,6 +115,7 @@ public class Benchmarks
 Add `dotnet format --verify-no-changes` to fail on unformatted code, and **`dotnet list package --vulnerable`** to catch known CVEs in dependencies → [[devops/05-ci-cd/index|CI/CD]].
 
 ## Related
+<!-- bite: 32054678-f0bd-4302-bc12-df6ab4597232 -->
 - [[languages/07-csharp/11-the-standard-library-and-ecosystem|the ecosystem]]
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]
 - [[languages/07-csharp/13-performance-and-the-runtime|performance]] — BenchmarkDotNet in anger

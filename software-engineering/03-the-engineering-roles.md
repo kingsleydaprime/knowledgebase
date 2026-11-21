@@ -1,8 +1,13 @@
+---
+id: 6f0c73ac-5953-47fa-b9fd-61505153ddcd
+---
+
 # The Engineering Roles
 
 > **[Beginner]** · What each role actually does day to day, and what genuinely differs between them.
 
 ## Before you start
+<!-- bite: ef5f51b4-4366-41f9-bf56-9a6cd28ba108 -->
 
 You can already:
 
@@ -18,16 +23,19 @@ After this lesson you will be able to:
 **Study route.** Read straight through. Stop at *Check your understanding*; the practice task uses real job ads, so have two or three open when you get there.
 
 ## The kid version
+<!-- bite: 7ba3ed3c-f5d9-4ec4-8f42-093672accbf1 -->
 
 A restaurant has a chef, a waiter, a dishwasher, a manager and someone who checks the fridges are cold enough. They all serve the same meal. What makes them different isn't the food — **it's what each one is scared of.** The waiter fears a customer waiting too long. The chef fears a dish coming out wrong. The fridge checker fears food poisoning that nobody notices until next week. Software teams are the same: everyone ships the same product, and you tell the jobs apart by what keeps each person up at night.
 
 **Where the analogy stops working.** In a restaurant one person rarely does two jobs. In software, especially at startups, one person often owns several rows of the table below at once — that's what "full-stack" means.
 
 ## 1. Why this exists
+<!-- bite: 48216fb1-6bc4-4ed5-99ee-ecca1ebb624b -->
 
 Two job ads, both titled "Software Engineer." One wants you to build React screens and care about how fast a page loads on a cheap Android phone. The other wants you to run Kubernetes clusters and be on call at night. **Same title, almost nothing in common.** Titles are inconsistent across companies, so you need a better way to read what a role actually is — for job hunting, and for knowing who to ask when something breaks.
 
 ## Terms used in this lesson
+<!-- bite: 1bf91e7e-4759-444c-85cf-4e3dab8b8206 -->
 
 1. **Role**: This is the area of the system a person is responsible for, regardless of their job title.
 2. **The stack**: This is the set of layers a product is built from, from the user's screen down through the API, the database, the operating system and the hardware.
@@ -37,6 +45,7 @@ Two job ads, both titled "Software Engineer." One wants you to build React scree
 6. **Leaky abstraction**: This is an abstraction that stops hiding its details in some situation, forcing you to understand the layer underneath.
 
 ## 2. The roles
+<!-- bite: d021152e-3d27-493d-927c-4b70e42ae198 -->
 
 Titles are inconsistent across companies — the same work is "backend engineer" at one and "platform engineer" at another. What's stable is **the layer of the stack you're responsible for, and what you get paged about.**
 
@@ -55,6 +64,7 @@ Titles are inconsistent across companies — the same work is "backend engineer"
 | **AI engineer** | Products built on models | RAG, agents, prompts, **evals**, cost and latency. Mostly application engineering | [[ai-ml/03-ai-engineer/index\|AI engineer]] |
 
 ## 3. What actually differs
+<!-- bite: bc3b176b-33d2-463b-9080-7992a4ed1c80 -->
 
 Less than the table suggests. Every role above runs the same six [[software-engineering/02-the-software-development-lifecycle|SDLC]] phases and uses the same three habits. What changes:
 
@@ -65,6 +75,7 @@ Less than the table suggests. Every role above runs the same six [[software-engi
 **How much of the stack you're allowed to ignore.** Nobody holds all of it. The difference is *which* abstractions you may treat as solid — and every role eventually meets the day theirs leaks, which is when the layer underneath stops being optional.
 
 ## 4. Seniority, which matters more than specialism
+<!-- bite: 086846ff-baf4-4f15-963f-6251fd75b81e -->
 
 Roughly, and independent of which row you're in:
 
@@ -76,6 +87,7 @@ Roughly, and independent of which row you're in:
 **The jump from junior to mid is mostly about tolerance for ambiguity, not volume of knowledge.** Worth knowing when reading job ads: "3 years experience" is usually a proxy for "has been on the hook for something in production."
 
 ## 5. Worked example — reading a job ad by what it owns
+<!-- bite: 7733830c-c050-4835-9eff-4cc95dadc8da -->
 
 > *"Software Engineer II. You'll own our checkout service end to end: the API, its Postgres schema, and the deploy pipeline. You'll join the on-call rotation. Experience with TypeScript and queues preferred. You'll work with product to scope new payment methods."*
 
@@ -90,12 +102,14 @@ And the seniority signal: *"work with product to scope new payment methods"* mea
 **Conclusion:** a backend role with operational ownership, at mid level. Your preparation is data modelling, idempotency, queues and incident handling — not React, despite "Software Engineer" in the title.
 
 ## Common pitfalls
+<!-- bite: 659a832a-69da-4199-a054-5bc35c64de76 -->
 
 1. **Reading the title instead of the responsibilities.** "Platform engineer", "backend engineer" and "SRE" can describe the same job at three companies.
 2. **Treating seniority as years.** It's the size and ambiguity of the problem you can be trusted with.
 3. **Assuming the layers below you are solid forever.** Every role eventually meets a leaky abstraction; the frontend engineer debugging a CORS error is doing a little networking.
 
 ## Check your understanding
+<!-- bite: d5f42ec9-fd89-46dd-9426-387e2d470526 -->
 
 1. What is the most honest way to tell two roles apart, and why does it work better than the title?
 2. Why do embedded and ML cultures tend to be more careful up front than web cultures?
@@ -113,6 +127,7 @@ And the seniority signal: *"work with product to scope new payment methods"* mea
 </details>
 
 ## Practice — independent task
+<!-- bite: 5dd00209-6ad9-4fc2-a25e-9440cdd73b1d -->
 
 **Read three real job ads by ownership.** Find three current ads you would plausibly apply to.
 
@@ -125,6 +140,7 @@ For each, write four lines:
 **Done when:** each line cites words from the ad rather than the title, and you can say which of the three is the closest fit for what you've actually built — and which row you'd need to study to close the gap.
 
 ## Before moving on
+<!-- bite: f83e4234-39cb-4928-be91-a6f96ba11d87 -->
 
 You can look at any software job and say what it owns, what it fears, and what level it's pitched at.
 
@@ -133,6 +149,7 @@ You can look at any software job and say what it owns, what it fears, and what l
 **Next.** [[software-engineering/04-the-kinds-of-software-engineering|The kinds of software engineering]] cuts the same field by constraint rather than by product — optional for SWE 101, but useful if you're weighing embedded or systems work. Then week 2 starts design principles with [[concepts/01-best-practices/01-clean-code/index|clean code]].
 
 ## Related
+<!-- bite: a2961b8c-4547-4c3c-bf08-148461f955f6 -->
 - [[software-engineering/01-what-software-engineering-is|what software engineering is]]
 - [[PRIMETECHIE|the Primetechie path]] — how these layers connect rather than sitting in silos
 - [[INTERVIEW|the interview banks]] — organised by these same domains

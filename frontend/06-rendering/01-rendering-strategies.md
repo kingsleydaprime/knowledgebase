@@ -1,8 +1,13 @@
+---
+id: ff26e7f4-10dc-4327-ad2f-f548b81578cb
+---
+
 # Rendering — CSR, SSR, SSG, ISR, Hydration
 
 "Rendering" just means turning application code + data into the actual HTML a browser displays — the real architectural question is **where and when** that happens, and the four common answers below trade off differently on speed, SEO, and server cost.
 
 ## CSR — Client-Side Rendering
+<!-- bite: 94193d78-1bf0-4936-8bd0-67f2689c130f -->
 
 The server sends a nearly empty HTML shell plus a JavaScript bundle; the browser downloads and runs that JavaScript, which then builds the actual page content and fetches any data it needs.
 
@@ -14,6 +19,7 @@ Browser: downloads app.js, executes it, JS builds the DOM, fetches data via API 
 Fast subsequent navigation (once the JS bundle is loaded, moving between pages doesn't need a full server round-trip) and clean separation between frontend and backend (the backend is "just an API"). The cost: the user sees a blank page until the JavaScript downloads, parses, and executes — and search engine crawlers historically struggled with content that only exists after JavaScript runs, though modern crawlers have improved here.
 
 ## SSR — Server-Side Rendering
+<!-- bite: 2e91ce50-4f58-4ecd-bbac-9e6665a508b6 -->
 
 The server runs the same rendering logic that would otherwise run in the browser, produces fully-formed HTML for the *specific request*, and sends that — the user sees real content immediately, before any JavaScript has even loaded.
 
@@ -26,6 +32,7 @@ Request comes in -> server renders the React/Vue component tree to an HTML strin
 Solves CSR's blank-page problem and is much friendlier to search engine crawlers and social media link previews (they see real content immediately, no JavaScript execution required). The cost: every request requires actual server-side rendering work, so server load scales directly with traffic in a way a purely static approach doesn't.
 
 ## SSG — Static Site Generation
+<!-- bite: 6fd4c3e2-3da0-4e31-a9ca-e20439318626 -->
 
 The HTML for every page is generated once, **at build time**, not per-request — the result is a folder of plain HTML files that can be served directly from a CDN with no server-side rendering work happening live at all.
 
@@ -37,6 +44,7 @@ Request time: CDN just serves the pre-built file — no rendering work happens l
 Extremely fast (serving a static file from a CDN edge is about as fast as this gets) and cheap to scale (no per-request compute). The limitation: content is only as fresh as the last build — genuinely dynamic, frequently-changing, or per-user content doesn't fit this model without a rebuild.
 
 ## ISR — Incremental Static Regeneration
+<!-- bite: 4441ba18-8439-4db9-b4ea-be20baa56a85 -->
 
 A middle ground (popularized by Next.js): pages are statically generated like SSG, but can be **regenerated in the background** after a specified time interval, without needing a full site rebuild for every single content change.
 
@@ -49,6 +57,7 @@ Next request -> gets the freshly regenerated version
 Combines SSG's speed with a practical answer to "what if content changes after build time" — a reasonable default for content that changes occasionally (a blog, a product catalog) but doesn't need to be live-fresh on every single request the way genuinely real-time data does.
 
 ## Hydration — where SSR/SSG and CSR meet
+<!-- bite: 0cbb7ee5-259f-4df5-ada3-f4235cc29231 -->
 
 After the server sends pre-rendered HTML (SSR or SSG), the client-side JavaScript still needs to "wake up" — attaching event listeners, restoring component state, taking over from the static markup so the page becomes interactive rather than just a static picture of the app. This process is **hydration**, and it's the reason a server-rendered page can show content instantly but still feel briefly unresponsive to clicks until hydration finishes — the visible content and the page's actual interactivity are, for a brief window, out of sync.
 
@@ -60,6 +69,7 @@ After the server sends pre-rendered HTML (SSR or SSG), the client-side JavaScrip
 ```
 
 ## Choosing between them
+<!-- bite: 7aa0de2f-19bd-4c26-bee3-9227e2e3cf63 -->
 
 | | Best fit |
 |---|---|
@@ -71,11 +81,13 @@ After the server sends pre-rendered HTML (SSR or SSG), the client-side JavaScrip
 Modern meta-frameworks (Next.js, Nuxt) let different pages within the *same* application use different strategies — a marketing homepage as SSG, a user dashboard as CSR, a blog as ISR — rather than forcing one strategy across an entire app.
 
 ## Gotchas
+<!-- bite: c524484f-2997-4215-afe2-76673494ef4c -->
 
 - SSR moves rendering cost onto the server per-request — a slow SSR render becomes a slow response for the user, whereas the equivalent CSR cost is spread onto each individual client's own device instead.
 - Hydration mismatches (where the server-rendered HTML doesn't exactly match what the client would render) produce confusing console warnings/errors and, in some frameworks, visibly broken UI — a common bug specifically when rendering logic depends on something only available client-side (like `window` or the current date/time) without accounting for the server not having access to it.
 - SEO concerns are frequently overstated for CSR in casual conversation — modern search engines execute JavaScript to a meaningful degree — but for content where being crawled reliably and quickly genuinely matters, SSR/SSG remain the safer, more predictable choice.
 
 ## Related
+<!-- bite: 380b365d-d423-4067-af45-7e73f4eb101c -->
 - [[frontend/03-state-and-data/01-state-management|state-management]]
 - [[frontend/07-practices/01-frontend-best-practices|frontend-best-practices]]

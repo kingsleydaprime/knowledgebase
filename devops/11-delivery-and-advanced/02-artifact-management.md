@@ -1,12 +1,18 @@
+---
+id: b19cdb23-4296-45c2-b47a-2383a5f73e96
+---
+
 # Artifact Management
 
 **[reference]** — from roadmap.sh and vendor docs.
 
 ## What an artifact is
+<!-- bite: 46b112ef-219f-4069-9fd9-b7049fbdc2f8 -->
 
 An **artifact** is a build output — the packaged, deployable result of your CI pipeline: a container image, a `.jar`/`.war`, an npm/PyPI package, a compiled binary, a Helm chart. The [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD principle "build once, promote the artifact"]] only works if there's somewhere to *store* that one build and pull it into each environment — that somewhere is an artifact repository.
 
 ## Why a dedicated repository
+<!-- bite: f67dcbbe-bea3-4332-97fe-081445f2e9a3 -->
 
 - **Single source of built software** — the exact, immutable artifact that passed tests is what deploys to staging and prod; you never rebuild per environment.
 - **Versioning & immutability** — artifacts are versioned and (ideally) immutable, so `myapp:1.4.0` always means the same bytes. Overwriting a published version is how "works in staging, breaks in prod" mysteries happen.
@@ -14,6 +20,7 @@ An **artifact** is a build output — the packaged, deployable result of your CI
 - **Access control & scanning** — private artifacts stay private, and the repo can scan for known vulnerabilities and enforce license/policy gates before an artifact is allowed to ship (supply-chain security).
 
 ## Container registries
+<!-- bite: 4dec1a87-8c89-44f9-b91a-303ad9920a77 -->
 
 The most common artifact today is the container image, stored in a **registry**:
 
@@ -24,6 +31,7 @@ The most common artifact today is the container image, stored in a **registry**:
 `docker push`/`pull` (or the [[devops/10-orchestration/01-kubernetes|Kubernetes]] node pulling an image) talks to a registry; tags (`:1.4.0`, `:latest`) name versions. Immutable, digest-pinned tags (`@sha256:...`) are the safe way to reference exactly one image in production.
 
 ## Repository managers (multi-format)
+<!-- bite: 436c4fdf-02da-4131-ab2f-7eedd8a381f0 -->
 
 | Tool | Note |
 |---|---|
@@ -34,10 +42,12 @@ The most common artifact today is the container image, stored in a **registry**:
 These sit between your builds and both public registries and your deploys: your CI publishes built artifacts here and pulls dependencies through here, giving you one governed, cached, access-controlled software supply line.
 
 ## The supply-chain angle
+<!-- bite: 9996647c-a013-428d-868f-77de044e8746 -->
 
 Artifact management is increasingly a **security** topic, not just storage. Knowing exactly what's in a build (an SBOM — software bill of materials), scanning artifacts for vulnerabilities, and signing them (Sigstore/cosign) so you can verify an image wasn't tampered with are now standard concerns — a reaction to supply-chain attacks where compromised dependencies or images poison everyone downstream (the same class of risk as the Log4Shell incident noted in [[languages/01-java/03-tooling/05-logging-and-observability|logging]]).
 
 ## Related
+<!-- bite: f66f57bb-ad6c-4d4d-8d7f-21b9f22e8850 -->
 - [[devops/05-ci-cd/index|CI/CD]] — produces the artifacts stored here
 - [[devops/10-orchestration/01-kubernetes|Kubernetes]] — pulls images from a registry
 - [[languages/01-java/03-tooling/01-build-tools|Build Tools]] — (in the Java domain) publishing built jars

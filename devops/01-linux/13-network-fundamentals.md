@@ -1,4 +1,9 @@
+---
+id: e03347d9-1cc6-4033-b1fc-835e55b54262
+---
+
 ## Networking Fundamentals
+<!-- bite: fcc467fe-bfcb-406f-b1dc-6483a83796cb -->
 
 Before commands, you need to understand the concepts.
 
@@ -400,6 +405,7 @@ If nothing shows up — your service isn't running. If it shows `127.0.0.1` inst
 ---
 
 ## Firewalls - ufw
+<!-- bite: 367a68ab-dec6-4166-97f8-2eaa9a853256 -->
 
 A firewall controls what network traffic is allowed in and out of your machine. On Ubuntu the tool is **ufw** (Uncomplicated Firewall) — a frontend for the more complex `iptables` underneath.
 
@@ -518,6 +524,7 @@ Ready to move into **systemd and services** — how Linux manages background ser
 ---
 
 ## RHEL addendum: NetworkManager & nmcli
+<!-- bite: b0368a25-ba04-417a-9a46-113e3e25693c -->
 
 Everything above (`ip addr`, `ip route`, `ss`, subnets, CIDR) is distro-agnostic and carries over unchanged. The one thing that doesn't: **Ubuntu here uses `ufw`, RHEL uses `firewalld`** (full depth in [[devops/01-linux/15-rhcsa/12-manage-network-security|Manage Network Security]]) — and RHEL manages interfaces through **NetworkManager** rather than the more manual approaches other distros sometimes use.
 

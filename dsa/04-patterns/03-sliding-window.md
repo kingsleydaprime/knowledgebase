@@ -1,8 +1,13 @@
+---
+id: 2b1d6684-a301-434a-8190-f41fb401fb79
+---
+
 # Pattern: Sliding Window
 
 **[Intermediate]** — A university-level introduction to the sliding-window pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 267fc1cb-0f4a-46cd-a7c3-4f7a5add016d -->
 
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
 - You should know what a hash map is. See [[03-hash-maps|hash maps]] for the variant below.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: dea1e89e-8fbf-4744-9ee8-e00be0370564 -->
 
 Imagine you're building a real-time analytics dashboard that needs to track the maximum sum of any 3-day window in a time series of stock prices. You could check every possible 3-day window:
 
@@ -40,6 +46,7 @@ Codility's course material calls this the **"caterpillar method"** — same tech
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: b6327999-2582-4152-a813-49775abe1dcf -->
 
 | Term                     | Plain-English definition                                                                                                                        | Example / analogy                                                                      |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
@@ -51,6 +58,7 @@ Codility's course material calls this the **"caterpillar method"** — same tech
 ---
 
 ## 3. How it works — step by step
+<!-- bite: b77c7343-c405-40f1-90cb-2325b0e93157 -->
 
 ### Fixed-size window
 
@@ -102,6 +110,7 @@ Each character is added to `seen` at most once and removed at most once across t
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: 5f99d786-2ea0-420e-8fcf-2191d533e9c1 -->
 
 **Runnable example:** save as `sliding_window_lab.py` and run `python3 sliding_window_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -167,6 +176,7 @@ sliding_window_lab: passed
 ---
 
 ## 5. Why it's O(n) despite nested-looking loops
+<!-- bite: a52afc34-a63d-440b-b281-fb4a9c6b2463 -->
 
 The key insight: **each element enters and leaves the window at most once across the entire run.**
 
@@ -178,6 +188,7 @@ This means the total number of operations is bounded by `2n`, not `n²`. The sam
 ---
 
 ## 6. Related patterns and extensions
+<!-- bite: 521aedf6-ea0d-4a74-af43-c3ae46a3365e -->
 
 ### Sliding window maximum (harder variant)
 
@@ -232,6 +243,7 @@ def min_window_substring(s, t):
 ---
 
 ## 7. Tradeoffs and limitations
+<!-- bite: 09b641f0-afd1-46ca-b4b4-2b4f0d4c0746 -->
 
 - **Fixed-size windows only work for invertible operations.** The add-one-drop-one update assumes you can compute the new sum from the old sum, the new element, and the element that fell out. For non-invertible aggregates (max, min, median), you need a different data structure (deque, heap, etc.).
 - **Variable-size windows need careful condition handling.** The `while` loop inside the `for` can be confusing; understanding why it's still O(n) is key.
@@ -240,6 +252,7 @@ def min_window_substring(s, t):
 ---
 
 ## 8. Check your understanding (self-assessment)
+<!-- bite: a9456f03-38bc-4b69-b915-b22ee240162b -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -256,6 +269,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 9. Practice — independent task
+<!-- bite: 50341160-e010-4533-82a6-735e5f6ab90a -->
 
 **Task:** Implement a function `longest_substring_without_repeating(s)` that returns the length of the longest substring without repeating characters. Use the variable-size sliding window pattern. Test it with the following cases:
 
@@ -268,6 +282,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 3e56e5cc-cd30-4dd5-ab15-19561793fe70 -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -287,6 +302,7 @@ Attempt these without the note, then compare your reasoning below.
 11. Maximum Number of Vowels in a Substring of Given Length (#1456) — fixed window, minimal distraction.
 
 ## Before moving on
+<!-- bite: bf68ca85-460f-4101-aebf-4b640fcd8a91 -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -300,6 +316,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[04-fast-slow-pointers|fast-slow-pointers]] — two pointers moving at *different speeds* over the same structure — the third way to arrange the same two-index idea.
 
 ## 10. Related
+<!-- bite: 1608f8cd-f724-4e25-a26c-a7e69e539c9a -->
 
 - [[02-two-pointers|two-pointers]] — sliding window is a specialization where both pointers move in the same direction
 - [[03-hash-maps|hash maps]] — used in variable-size windows for fast membership testing
@@ -310,6 +327,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 11. Further reading
+<!-- bite: 7764e625-3074-4b58-93b3-9e2338cb9dbb -->
 
 The pattern appears in many contexts beyond LeetCode:
 

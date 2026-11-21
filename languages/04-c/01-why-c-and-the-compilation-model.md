@@ -1,3 +1,7 @@
+---
+id: 5740ec99-06fc-4e62-9703-b22937875458
+---
+
 # Why C, and the Compilation Model
 
 **[Beginner]** — Why a language from 1972 is still under everything, and the four-stage pipeline that turns your text into a binary.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — no C project in this vault yet. See [[project-ideas|Project Ideas]].
 
 ## Why C still matters
+<!-- bite: ba6eb7fe-4fb1-4b0e-8d12-187e1a67c635 -->
 
 C is small — the entire language fits in a short book — and it maps almost directly onto how a machine works. That combination made it the substrate everything else got built on.
 
@@ -20,6 +25,7 @@ Concretely, C is still what you're standing on:
 So even if you never ship C, you read it: to understand a kernel bug, to debug a library, to know what your runtime is doing.
 
 ## What you're signing up for
+<!-- bite: 37e61b4b-51ea-4d9a-ade3-e30004e49626 -->
 
 The honest framing, especially having just done [[languages/03-rust/index|Rust]]:
 
@@ -32,6 +38,7 @@ That's why **~70% of serious security vulnerabilities in large C/C++ codebases a
 The correct attitude: **learn C to understand the machine and read the world's infrastructure. Reach for it for new projects only when you genuinely need it** — embedded targets with no Rust toolchain, existing C codebases, or a stable ABI boundary.
 
 ## The compilation pipeline
+<!-- bite: 8ae5ac72-eeae-4766-8996-b995af2bda24 -->
 
 C compilation is four distinct stages. Knowing them is what makes linker errors readable instead of terrifying.
 
@@ -86,6 +93,7 @@ implicit declaration of function      ← COMPILER: you called foo without decla
 Reading which stage failed tells you where to look. A compiler error is in your code; a linker error is in your build.
 
 ## Compiling properly
+<!-- bite: c2d8ee82-0c64-4228-8e2a-d6a24a66b09b -->
 
 ```bash
 gcc -std=c17 -Wall -Wextra -Wpedantic -g -O2 main.c -o main
@@ -106,6 +114,7 @@ gcc -std=c17 -Wall -Wextra -Wpedantic -g -O2 main.c -o main
 > **`-Wall -Wextra` is not optional.** C compiles a shocking amount of broken code silently by default. Most of the classic beginner disasters produce a warning that nobody enabled.
 
 ## Hello, world
+<!-- bite: dbe35972-c4dd-45c0-9e6f-7db536937ac2 -->
 
 ```c
 #include <stdio.h>
@@ -122,6 +131,7 @@ int main(void) {
 - **`\n` matters.** `stdout` is line-buffered to a terminal; without a newline your output may not appear when you expect.
 
 ## Static vs dynamic linking
+<!-- bite: 3e85ee15-1e12-4d2f-ab66-9337a5084c02 -->
 
 ```bash
 gcc main.c -o main                    # dynamic by default — links libc at RUN time
@@ -132,6 +142,7 @@ ldd main                              # what shared libraries does this need?
 Dynamic linking means the binary depends on `libc.so` existing on the target machine, at a compatible version. That's the "works on my machine, glibc version mismatch in the container" problem, and it's the reason [[languages/02-go/01-why-go-and-the-toolchain|Go's static binaries]] are considered such a deployment advantage.
 
 ## The standards
+<!-- bite: 593b4dd8-5065-4a24-86c5-5ea8c1f3c5d8 -->
 
 | Standard | Notable |
 |---|---|
@@ -146,6 +157,7 @@ Dynamic linking means the binary depends on `libc.so` existing on the target mac
 ---
 
 ## Related
+<!-- bite: d6bb90c5-778b-4715-879f-149469fbc06e -->
 - [[languages/04-c/02-headers-and-the-translation-unit|Headers and the Translation Unit]] — the model this pipeline implies
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — the price of no safety net
 - [[languages/03-rust/01-why-rust-and-the-toolchain|Rust: Why Rust]] — the language built to replace this one

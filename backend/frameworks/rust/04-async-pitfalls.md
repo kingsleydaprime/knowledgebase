@@ -1,8 +1,13 @@
+---
+id: 077ceead-3852-409d-8429-318188e73279
+---
+
 # Async Pitfalls
 
 **[Advanced]** — The failures that make an async Rust service slower than a blocking one, and the compiler errors that mean something other than what they say.
 
 ## Blocking the runtime
+<!-- bite: 92664130-09d9-4715-95d0-bd947370a28c -->
 
 The most damaging mistake, and the easiest to make:
 
@@ -44,6 +49,7 @@ console_subscriber::init();
 `tokio-console` shows per-task poll times. A task with a long poll duration is blocking.
 
 ## Holding a lock across `.await`
+<!-- bite: ce147735-7a8c-447a-9bb9-3846ef1b0ad3 -->
 
 ```rust
 let mut cache = state.cache.lock().await;
@@ -61,6 +67,7 @@ state.cache.lock().await.insert(key, data); // lock held for microseconds
 With `std::sync::Mutex` you usually get a compile error instead — the guard isn't `Send`, and the future must be. That error is the compiler catching a performance bug, which is a good reason to prefer `std::sync::Mutex` where you can. → [[backend/frameworks/rust/03-state-and-shared-data|State and Shared Data]]
 
 ## Sequential awaits that should be concurrent
+<!-- bite: 7f986d9d-70c7-46a8-aa9d-d7fc37ef0d9e -->
 
 ```rust
 let user = fetch_user(id).await?;           // 50ms
@@ -90,6 +97,7 @@ let results: Vec<_> = futures::stream::iter(ids)
 **`buffer_unordered(n)` is the async worker pool.** Unbounded concurrency will exhaust your connection pool, your file descriptors, or the downstream service.
 
 ## Cancellation safety
+<!-- bite: 8f633538-5dc4-4789-acb2-190c24784ee2 -->
 
 The subtle one. When a client disconnects, Axum drops the handler's future — **at whatever `.await` point it was suspended on**. Anything after that point never runs.
 
@@ -119,6 +127,7 @@ tokio::select! {
 Documentation for tokio types states cancel safety explicitly. `recv()` is safe; `read_exact()` is not (it may have consumed half a message). When you need a non-cancel-safe operation in `select!`, move it into a `tokio::spawn` and select on the `JoinHandle` — a spawned task isn't cancelled when the parent future drops.
 
 ## `Send` bounds and their error messages
+<!-- bite: fa440fd0-6563-47e3-8341-5521d185d7f2 -->
 
 ```
 error: future cannot be sent between threads safely
@@ -141,6 +150,7 @@ do_async_thing(value).await;
 That block-scoped-guard pattern is worth learning as a reflex — it's the answer most of the time.
 
 ## Async traits
+<!-- bite: 6d58959b-1225-495b-b1e6-8f166c50801d -->
 
 ```rust
 trait Store {
@@ -160,6 +170,7 @@ trait Store {
 Use native for inherent impls and generic code; `#[async_trait]` when you need `Arc<dyn Store + Send + Sync>`, which in a web service you usually do.
 
 ## Spawned tasks and panics
+<!-- bite: a4b49de3-f223-4e5d-b18f-efe75fb7f0e5 -->
 
 ```rust
 tokio::spawn(async move {
@@ -181,6 +192,7 @@ tokio::spawn(async move {
 Or set a panic hook, or use `TaskTracker` to supervise. **A silently dead background task is one of the more painful production surprises in async Rust.**
 
 ## Compile times
+<!-- bite: d852e0ba-cb2f-4726-9122-02c608f8d047 -->
 
 The honest operational cost. An Axum service with `sqlx`, `serde`, `tower-http` and `tracing` takes minutes to build clean, and a full rebuild after touching a core type is slow enough to break flow.
 
@@ -206,6 +218,7 @@ cargo install cargo-nextest  # faster test runner
 - **`sccache`** for shared caching
 
 ## Streaming and SSE
+<!-- bite: 57442c16-8971-411b-9a75-fb529e5351c7 -->
 
 ```rust
 async fn download(State(s): State<AppState>) -> impl IntoResponse {
@@ -225,6 +238,7 @@ async fn events() -> Sse<impl Stream<Item = Result<Event, Infallible>>> {
 `keep_alive` on SSE matters — proxies close idle connections, and without periodic comments your event stream dies after 60 seconds for reasons that look like a bug in your code.
 
 ## When async is the wrong choice
+<!-- bite: 2676705c-dd8f-468a-a267-93d4856ba9e5 -->
 
 Worth stating: **async has a real complexity cost**, and it buys you concurrency for **I/O-bound** work.
 
@@ -235,6 +249,7 @@ Function colouring is the ongoing tax: `async fn` can only be awaited from async
 ---
 
 ## Related
+<!-- bite: 04f3091f-a5e2-4a39-9b39-02ba4e37b29b -->
 - [[backend/frameworks/rust/03-state-and-shared-data|State and Shared Data]] — locking decisions
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the model underneath
 - [[backend/frameworks/rust/05-database-and-persistence|Database and Persistence]] — where most awaits go

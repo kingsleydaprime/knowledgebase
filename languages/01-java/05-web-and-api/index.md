@@ -1,3 +1,7 @@
+---
+id: 3495907b-5d29-46cc-b2e5-e71bbe130598
+---
+
 # 05 — Web & API → moved to `backend/frameworks/java/`
 
 **This section's notes were moved, not duplicated.** Spring Boot, the Java web-framework landscape, and API design/documentation now live at:
@@ -11,6 +15,7 @@
 There is **one copy** of that material and it's the one linked above. Nothing was left behind here and nothing was cloned — this page is a signpost, not a stub.
 
 ## Why it moved
+<!-- bite: 4f175355-7a55-45f4-a01c-c8fb9effab81 -->
 
 A rule that now holds across the vault:
 
@@ -21,6 +26,7 @@ Java the language — the JVM, concurrency, generics, collections, tooling, pers
 The same rule puts Go's Gin and Rust's Axum in `backend/frameworks/` rather than in their language courses.
 
 ## If you're here for Java
+<!-- bite: d0dfedb4-a17d-4a70-8f95-c1192b7a9cf9 -->
 
 You probably want one of these instead:
 
@@ -33,6 +39,7 @@ You probably want one of these instead:
 | The rest of the Java course | [[languages/01-java/index\|Java course index]] |
 
 ## Related
+<!-- bite: e4f72f30-def6-45ba-98ad-ddef64ba7cb3 -->
 - [[backend/frameworks/java/index|backend/frameworks/java/]] — where this went
 - [[backend/frameworks/index|frameworks/]] — every stack, compared
 - [[languages/01-java/index|Java course index]]

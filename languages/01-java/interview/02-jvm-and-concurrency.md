@@ -1,3 +1,7 @@
+---
+id: 652b547d-d36c-4808-b380-65d637aa978e
+---
+
 # Java Interview — JVM & Concurrency
 
 From [[languages/01-java/02-jvm-and-concurrency/index|02-jvm-and-concurrency/]]. **This is the round that matters most for a low-latency or systems role** — the questions where they find out whether you've operated a JVM or only written Java on one.

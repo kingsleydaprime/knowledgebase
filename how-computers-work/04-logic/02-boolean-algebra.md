@@ -1,8 +1,13 @@
+---
+id: be8c7a77-ae77-4ce8-a2c9-643e3021b6fe
+---
+
 # Module 16: Boolean Algebra (Circuit Optimisation as Algebra)
 
 **[Beginner → Intermediate]** — You can build any gate. Now the question is which gates to build. Boolean algebra is how you find a cheaper expression for the same function — and it routinely saves more than transistor sizing ever will.
 
 ## Before you start
+<!-- bite: 4daf5499-89ca-491a-95e7-b1beee674872 -->
 
 - You can build a CMOS gate from PDN and PUN networks and know their transistor costs — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
 - You know NAND is cheaper than NOR, and AND costs more than NAND — module 15.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: a6c2a202-23ff-4cbd-9628-b365a8fca7aa -->
 
 Module 15 gave you a cost model: NAND2 is 4 transistors, AND2 is 6, XOR2 is 12. You can now price any circuit.
 
@@ -36,6 +42,7 @@ That is what Boolean algebra buys. It is not abstract mathematics that happens t
 ---
 
 ## 2. Terminology
+<!-- bite: adf92a60-6742-4517-a0cf-f0a0cc0865aa -->
 
 | Term | Plain-English definition | Example |
 | :--- | :--- | :--- |
@@ -59,6 +66,7 @@ That is what Boolean algebra buys. It is not abstract mathematics that happens t
 ---
 
 ## 3. The laws
+<!-- bite: a4ac0929-9633-48a0-9a07-6982fb75feb7 -->
 
 Each is stated with the intuition that makes it obvious, not just the symbols. All of them are proved exhaustively in the lab.
 
@@ -91,6 +99,7 @@ This is not a coincidence. It reflects the symmetry between the two stable state
 ---
 
 ## 4. De Morgan's laws — the practical tool
+<!-- bite: f95ad827-f023-42ec-97cf-479914b0d4c8 -->
 
 $$\overline{A \cdot B} = \overline{A} + \overline{B} \qquad\qquad \overline{A + B} = \overline{A} \cdot \overline{B}$$
 
@@ -110,6 +119,7 @@ This is exactly what synthesis tools do at scale — pushing inversions through 
 ---
 
 ## 5. From truth table to expression
+<!-- bite: 78b27ec7-7bc5-44f6-b3c2-ac5cf4154e42 -->
 
 Any function can be written down mechanically from its truth table.
 
@@ -152,6 +162,7 @@ $$F = B \cdot 1 + A \cdot 1 = A + B$$
 ---
 
 ## 6. Predict before reading on
+<!-- bite: ffd29f25-929c-4734-864c-49f78b4db81b -->
 
 Module 15 worked hard to save 38% by choosing NAND over NOR. This module's example saved 82% by algebra.
 
@@ -171,6 +182,7 @@ It is the same principle as in software: choose a better algorithm before micro-
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: fde68787-0265-4a05-a510-79b7954dfaf6 -->
 
 Every law below is **proved by exhaustive truth-table comparison**, not asserted. The lab then simplifies a real expression, proves the two forms equivalent, and prices both using module 15's transistor costs.
 
@@ -321,6 +333,7 @@ Note the **consensus theorem** in the output: $AB + \overline{A}C + BC = AB + \o
 ---
 
 ## 8. Common pitfalls and traps
+<!-- bite: 2be12e84-45a2-45e4-ba66-3941cb8108f2 -->
 
 1. **Reading $+$ as arithmetic addition.** $1 + 1 = 1$ here. Every Boolean expression is about truth, not quantity.
 2. **Misapplying De Morgan by only swapping the operator.** You must complement **each term** *and* swap the operator. $\overline{A + B}$ is $\overline{A}\cdot\overline{B}$, not $\overline{A} + \overline{B}$ and not $\overline{A \cdot B}$.
@@ -332,6 +345,7 @@ Note the **consensus theorem** in the output: $AB + \overline{A}C + BC = AB + \o
 ---
 
 ## 9. Check your understanding
+<!-- bite: 61378155-0590-4866-ab23-963711c06139 -->
 
 1. **Simplify $\overline{(\overline{A} + B)} + A\overline{B}$.**
    <details><summary>Answer</summary>
@@ -363,6 +377,7 @@ Note the **consensus theorem** in the output: $AB + \overline{A}C + BC = AB + \o
 ---
 
 ## 10. Practice — independent task
+<!-- bite: fe78bfc6-4f37-4ca7-a147-757653dd682b -->
 
 **Task:** A safety interlock outputs 1 when a machine may run. Inputs: $G$ (guard closed), $P$ (power OK), $E$ (emergency stop pressed), $M$ (maintenance mode).
 
@@ -386,6 +401,7 @@ That is three literals plus one OR — a dramatic reduction from the canonical f
 ---
 
 ## 11. Tradeoffs and limits
+<!-- bite: f50742a2-76f6-454c-9258-a1e3ddde88c9 -->
 
 - **Hand simplification does not scale and has no stopping rule.** Beyond three or four variables you cannot be confident you have found the minimum. [[how-computers-work/04-logic/03-karnaugh-maps|Module 17]] gives a visual method with a clear termination condition; beyond six variables, algorithmic methods like Quine–McCluskey and Espresso take over.
 - **Minimal literal count is not always minimal cost.** The real objective is area, delay and power in a specific cell library — which is why synthesis tools optimise against a technology library rather than against literal count.
@@ -395,6 +411,7 @@ That is three literals plus one OR — a dramatic reduction from the canonical f
 ---
 
 ## Before moving on
+<!-- bite: f29bf811-7b1f-4596-baf2-e75427bcaf85 -->
 
 - [ ] State the ten laws and prove any of them by truth table.
 - [ ] Apply De Morgan correctly, complementing terms *and* swapping the operator.
@@ -409,6 +426,7 @@ That is three literals plus one OR — a dramatic reduction from the canonical f
 ---
 
 ## Related
+<!-- bite: f4c62481-3845-4177-b37e-053e09c42edf -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/04-logic/01-gates-from-transistors|Module 15]] — the transistor costs used for pricing

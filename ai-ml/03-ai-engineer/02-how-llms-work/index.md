@@ -7,6 +7,7 @@ id: 47ca552e-9092-4e7d-bfde-c3e09635c637
 > **[Beginner]** · Covers what a large language model actually does: tokens, the context window, attention, generating one token at a time, and the decoding settings you choose in every call. The worked example builds the decoding step yourself and then asks a real local model for its probabilities. The numbers in it were measured on 2026-10-02.
 
 ## Before you start
+<!-- bite: f4982c7b-24e1-41bf-bf5e-4fb7f95eb63c -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–6. Run the lab, then predict what `live.ts` will print for your own prompt before you run it. The pitfalls and checks come last.
 
 ## The kid version
+<!-- bite: 1ccc31bd-bf1c-4d26-b810-071103050b01 -->
 
 Imagine a game where you finish other people's sentences. Someone says "The capital of France is…" and you say "Paris", because you've heard that a thousand times. Someone says "My favourite colour is…" and you have to guess, so you might say blue, or red. Then you add your word to the sentence and finish the *new* sentence, one word at a time, until you decide to stop. An LLM plays exactly this game. It has read so much that its guesses are very good. **But it's still guessing what sounds right, not checking what's true.** If you ask it about something it never heard, it doesn't say "I don't know". It says whatever sounds most like an answer.
 
 **Where the analogy stops working.** You guess with words; a model guesses with tokens, which are often pieces of words. And a model doesn't pick one guess. It gives a score to every one of about 100,000 tokens at once, and a separate rule, which you control, decides which one gets used.
 
 ## 1. Why this exists
+<!-- bite: 1f4f4b5f-6170-4d42-8320-c75fc1cf5a49 -->
 
 You build a feature that sorts support tickets into categories. It works in testing. In production, the same ticket gets "billing" on Monday and "account" on Tuesday, and someone files a bug saying "the AI is broken". Nothing is broken. The model gave "billing" 55% and "account" 40%, and the default temperature told it to *sample*, so it sometimes picked the second one. **If you don't know that the output is a draw from a probability distribution, you'll debug the wrong thing.** The same mechanism explains why the model invents a confident citation, why a long chat "forgets" its start, and why output streams in word by word.
 
 ## Terms used in this lesson
+<!-- bite: f6e22ecb-b75d-498b-9ae7-63e1a1fb3c2e -->
 
 1. **LLM (large language model)**: The letters stand for those three words. It is a model trained on a huge amount of text to predict the next token, given the tokens so far.
 2. **Token**: This is the unit a model reads and writes. It is a chunk of text, often part of a word, that has a number in the model's fixed vocabulary.
@@ -52,6 +56,7 @@ You build a feature that sorts support tickets into categories. It works in test
 15. **RLHF (reinforcement learning from human feedback)**: The letters stand for those words. It is a training step where people rate the model's answers and the model is adjusted toward the answers people preferred.
 
 ## 2. Tokens — the unit of everything
+<!-- bite: be88dbf7-169c-4e8d-a496-59c25bae39c2 -->
 
 LLMs don't see characters or words; they see **tokens**. A common word is one token. A rare word splits into several (`under` + `stand` + `ing`).
 
@@ -64,18 +69,21 @@ Notice the spaces: `" love"` with its leading space is a different token from `"
 This is not trivia. **Tokens are the unit of pricing and of context limits.** For English, 1 token is about 4 characters, or about three-quarters of a word. Code, other languages and unusual words use more tokens per character. Every cost estimate and context-budget decision you make is in tokens.
 
 ## 3. The context window — the working memory
+<!-- bite: dba27620-5f5f-406b-8595-98b5a7cc4890 -->
 
 The **context window** is the most tokens, input and output combined, that the model can take into account at once. Anything outside it doesn't exist for that request. It hasn't been forgotten; it was never in view. That's why long conversations need summarising or trimming. It's also why [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]] exists: it feeds the model only the relevant slice of a large set of documents instead of needing an infinite window.
 
 Modern windows are large, often hundreds of thousands of tokens, but they aren't free. More context costs more and is slower. Past a point, the model also pays less attention to any single detail; facts in the middle of a long input get used less than facts at the start or end ("lost in the middle"). On a laptop the limit is memory: the window you set (`num_ctx` in Ollama) has to fit in RAM alongside the model → [[ai-ml/03-ai-engineer/16-local-and-open-models/index|local and open models]].
 
 ## 4. Transformers and attention
+<!-- bite: 53eef7f9-8d44-49f1-afca-b2f3ee4609f8 -->
 
 Almost every modern LLM is a **transformer** (2017, "Attention Is All You Need"). Its key step is **self-attention**: for each token, the model computes how much every *other* token should influence it, then blends their information in those proportions. That is how "it" in "the trophy didn't fit in the suitcase because it was too big" ends up linked to "trophy". Mechanically, each token is a vector; the model takes [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|dot products]] between them and runs the results through softmax to get the attention weights.
 
 The output of all those layers, for the last position, is one score per token in the vocabulary. **That list of scores is the only thing the network produces.** Everything after it is decoding, which is the part you control.
 
 ## 5. Autoregressive generation
+<!-- bite: c2830824-43a8-4e1f-b804-4c710c8e8892 -->
 
 An LLM generates **one token at a time**:
 
@@ -88,6 +96,7 @@ An LLM generates **one token at a time**:
 This explains three things you'll see every day. Output streams in token by token. Generation time grows with output length, because every token is a full pass through the network. And an early wrong token can't be taken back; the model carries on from it.
 
 ## 6. The decoding settings you actually control
+<!-- bite: 3720725d-43fd-4e12-9346-15b3a1ab9932 -->
 
 | Setting | What it does to the probabilities |
 |---|---|
@@ -104,18 +113,21 @@ The most useful instinct: **use low temperature for anything with one right answ
 Temperature 0 isn't a guarantee of identical output across runs on a hosted API, though. Servers batch requests together and floating-point arithmetic can differ slightly, so a near-tie can flip. Treat it as "nearly deterministic" and test for what matters.
 
 ## 7. Pretraining, fine-tuning and instruction-tuning
+<!-- bite: da56b2d9-8529-473a-8d9f-a98338b835e6 -->
 
 - **Pretraining** is training on a vast amount of general text so the model learns language broadly. This is the expensive, foundational phase, and it produces a model that *continues* text rather than answering it.
 - **Fine-tuning** is further training on a smaller, specific dataset to specialise the model → [[ai-ml/03-ai-engineer/15-fine-tuning-applied|fine-tuning, applied]].
 - **Instruction-tuning and RLHF** are additional training so the model follows instructions and prefers helpful, safe answers over merely likely ones. This is why a chat model behaves so differently from a raw pretrained one.
 
 ## 8. Why LLMs confidently state wrong things
+<!-- bite: 2a55f147-cb87-495d-a193-d92bb946f398 -->
 
 Put §4–6 together. The network outputs scores for "what token is likely here". Training rewarded producing text that looks like its training data. **Nothing in that loop checks the text against the world.** When the training data clearly covers a fact, the likely continuation is also the true one, and you see 98.6% on "Paris". When it doesn't — an obscure person, a paper that doesn't exist, last week's news — the model still produces the most *answer-shaped* continuation. A citation format with plausible authors is very likely text, even when no such paper exists.
 
 So hallucination is structural; it isn't a bug waiting for a patch. The fixes all add a check from outside the model: put the facts in the context ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]]), let it call a tool such as search ([[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools]]), validate its output ([[ai-ml/03-ai-engineer/11-structured-output/index|structured output]]), and measure how often it's wrong ([[ai-ml/03-ai-engineer/12-evals/index|evals]]).
 
 ## Worked example — decoding by hand, then a real model
+<!-- bite: 7b628803-d06f-4e93-9d30-bf841f2541e6 -->
 
 Part 1 builds the decoding step from §5–6 and a toy model, so you can see each setting change the numbers. Part 2 asks a real model for its top five tokens.
 
@@ -346,6 +358,7 @@ The first prompt has one answer, and the model is nearly certain. The second has
 **Lab:** these files are in [`ai-ml/03-ai-engineer/02-how-llms-work/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/02-how-llms-work/labs/typescript). From the vault root, `python3 labs/run.py how-llms-work/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama running, so the runner doesn't call it; run it yourself from the lab folder with `node live.ts`.
 
 ## Common pitfalls
+<!-- bite: 4550baa8-b012-4993-86e9-9f0d42b90c02 -->
 
 1. **Calling sampling variation a bug.** If the same input gives different answers, check the temperature before the prompt.
 2. **Expecting temperature 0 to be perfectly repeatable on a hosted API.** It's close, not guaranteed. Tests should check properties of the output, not exact strings.
@@ -355,6 +368,7 @@ The first prompt has one answer, and the model is nearly certain. The second has
 6. **Treating confidence as correctness.** Fluent, specific, confident text is exactly what a hallucination looks like.
 
 ## Check your understanding
+<!-- bite: 08732e41-ec77-4e48-a138-697525bc077a -->
 
 1. In one sentence, what does an LLM's network actually output for each step?
 2. About how many tokens is a 2,000-character English paragraph? Why might a 2,000-character JSON blob be more?
@@ -376,6 +390,7 @@ The first prompt has one answer, and the model is nearly certain. The second has
 </details>
 
 ## Practice — independent task
+<!-- bite: 9c4fc0c6-50b5-408d-88fa-0d6134a788d6 -->
 
 **Map the model's uncertainty.** Use `live.ts` with five prompts of your own: two with one clear answer, two open-ended, and one about something obscure (a small local business, a minor historical figure, a made-up product name).
 
@@ -386,6 +401,7 @@ The first prompt has one answer, and the model is nearly certain. The second has
 **Done when:** you have a table of five prompts with predicted and actual top probabilities, and you can explain in two sentences why a high top probability on the obscure prompt would *not* mean the answer is correct.
 
 ## Before moving on
+<!-- bite: 1ea1263b-7a79-48db-8fbb-d639a2fbfcee -->
 
 You can explain, without notes, how a model goes from a prompt to one next token, which settings change that step, and why it produces false statements confidently.
 
@@ -394,6 +410,7 @@ You can explain, without notes, how a model goes from a prompt to one next token
 **Next.** [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — where you set these values in a real request.
 
 ## Related
+<!-- bite: 46115388-5ff1-4724-880d-0a312b5ff84b -->
 - [[ai-ml/03-ai-engineer/02-how-llms-work/in-other-languages|How LLMs work in other languages]] — the same decoder in Python, Go, Java, Rust, C, C++ and C#
 - [[ai-ml/00-foundations/02-what-is-a-model|What is a model]] — the general "adjustable function" this specialises
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — shaping the input to this mechanism

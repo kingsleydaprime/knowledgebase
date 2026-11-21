@@ -1,8 +1,13 @@
+---
+id: b974940e-8eec-45d5-a629-40b970781b5b
+---
+
 # Module: Sorting and the $\Omega(n\log n)$ Lower Bound
 
 **[Intermediate]** — why no comparison sort can ever beat $n\log n$, and the vocabulary the rest of the folder uses.
 
 ## Before you start
+<!-- bite: 46be0e7e-5ea9-4062-8c8d-938e9e644aed -->
 
 - You can read a complexity bound — [[01-growth-and-asymptotic-notation|algorithms and complexity]].
 - You know what an array costs to index and to shift — [[01-arrays|arrays]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: c692a128-30fc-4bae-b2dd-0c8bb09ccf29 -->
 
 Sorting is the most-studied problem in computing, and it is worth asking why a solved problem needs six algorithms.
 
@@ -27,6 +33,7 @@ Because "sorted" is not the only requirement. You may need the order of equal el
 There is also a result here that is rare and worth having: a **proof about every possible algorithm**, not just the ones we have thought of. Comparison sorting cannot be done faster than $n\log n$, and no cleverness will change that.
 
 ## 2. Terminology
+<!-- bite: 4b9ec2da-5e87-49f1-bcb0-9e50c621b507 -->
 
 | Term | Plain-English definition | Why it matters |
 | :--- | :--- | :--- |
@@ -39,6 +46,7 @@ There is also a result here that is rare and worth having: a **proof about every
 **Stability, concretely.** Sort employees by name, then by department. If the second sort is stable, people stay alphabetical within each department. If it is not, the first sort was wasted. This is why `sorted()` in Python and `Arrays.sort` for objects in Java are stable, and it is the single most-overlooked property.
 
 ## 3. The lower bound
+<!-- bite: 767b7d21-68c7-45be-9d85-17638fd60a22 -->
 
 **Claim:** any comparison-based sorting algorithm needs $\Omega(n\log n)$ comparisons in the worst case.
 
@@ -60,6 +68,7 @@ The lab computes $\log_2(n!)$ against the comparisons that merge sort actually p
 > **Predict before section 4.** Counting sort runs in $O(n + k)$ for integers in the range $0..k$ — which for small $k$ is linear, beating $n\log n$. Does that disprove the theorem? Decide before opening the answers.
 
 ## 4. The map
+<!-- bite: aea3351d-6433-46c8-badb-b81b0caf3e47 -->
 
 | Algorithm | Best | Average | Worst | Space | Stable | Adaptive |
 | :--- | :--- | :--- | :--- | :--- | :---: | :---: |
@@ -77,6 +86,7 @@ The lab computes $\log_2(n!)$ against the comparisons that merge sort actually p
 Both hybrids exist for the same reason: insertion sort has the smallest constant on tiny inputs, and quicksort's worst case must be prevented rather than hoped against.
 
 ## Worked example — runnable
+<!-- bite: dcce27ae-aa9a-4145-9286-1d97d230bc71 -->
 
 **Runnable example:** save as `lower_bound.py` in any empty directory and run `python3 lower_bound.py`. Standard library only; writes no files.
 
@@ -255,6 +265,7 @@ lower_bound: passed
 ```
 
 ## Common pitfalls and traps
+<!-- bite: e527f90d-68d8-49f3-abe6-074866a10c96 -->
 
 - **Thinking the bound applies to all sorting.** It applies to **comparison** sorts. Counting and radix sort read the keys themselves and are not bound by it.
 - **Assuming quicksort is always fastest.** It has the best constants in practice and an $O(n^2)$ worst case. Library implementations guard against it.
@@ -263,6 +274,7 @@ lower_bound: passed
 - **Sorting to find one element.** Finding the maximum is $O(n)$; the $k$th largest is $O(n)$ by quickselect or $O(n\log k)$ by heap. Sorting first is $O(n\log n)$ and wasteful.
 
 ## Check your understanding
+<!-- bite: 1407cd66-d7db-4691-99e4-0f5cc999ab68 -->
 
 1. Why does the decision tree need at least $n!$ leaves?
 2. Give a case where an $O(n^2)$ sort beats an $O(n\log n)$ one.
@@ -282,6 +294,7 @@ lower_bound: passed
 </details>
 
 ## Practice — independent task
+<!-- bite: b193e956-5290-4ee7-bdfd-340821e4eda5 -->
 
 Build a **sorting test harness** that verifies any sort against the properties in section 2.
 
@@ -296,6 +309,7 @@ Build a **sorting test harness** that verifies any sort against the properties i
 **Done when:** your generated table matches section 4 for every algorithm, your comparison counts identify which sorts are adaptive without looking at the code, and you can explain any disagreement.
 
 ## Before moving on
+<!-- bite: e9a0ca70-9f09-4d22-9991-220a2c395825 -->
 
 You can define stability, in-place and adaptive; prove the lower bound; and say why counting sort escapes it.
 
@@ -304,6 +318,7 @@ You can define stability, in-place and adaptive; prove the lower bound; and say 
 **Next:** [[02-elementary-sorts|Elementary Sorts]] — bubble, selection and insertion, and why one of them is still in every production library.
 
 ## Related
+<!-- bite: d000df51-00fb-4aaf-a247-06f6189177f5 -->
 
 - [[01-growth-and-asymptotic-notation|Complexity Analysis]] — the notation used throughout
 - [[01-linear-and-binary-search|Searching]] — what sorting enables

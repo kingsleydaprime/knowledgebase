@@ -1,8 +1,13 @@
+---
+id: 3918047a-c73c-4c4d-aa92-db467026c0c3
+---
+
 # Module: What a Graph Is
 
 **[Beginner]** — vertices, edges, and the vocabulary that every later graph result is stated in.
 
 ## Before you start
+<!-- bite: 513fc576-cb6a-4250-ac09-bf0abdd0e03d -->
 
 - You know what an array and a hash map are — [[01-arrays|arrays]], [[03-hash-maps|hash-maps]].
 - Helpful: [[02-discrete-math/07-graph-theory|discrete maths: graph theory]], which proves what this course uses.
@@ -19,6 +24,7 @@
 ---
 
 ## Why this exists
+<!-- bite: f9a60d11-bfd6-439a-a81a-8eb4c32ce4af -->
 
 A graph is the structure you reach for when **the relationships matter as much as the things**. Cities and roads. Users and follows. Tasks and dependencies. Web pages and links.
 
@@ -27,6 +33,7 @@ Arrays and trees both impose a shape: an array is a line, a tree is a hierarchy 
 This lesson is almost entirely definitions. That is deliberate. Nearly every confusion later in this folder traces back to a term used loosely here.
 
 ## Terms used in graphs
+<!-- bite: 5a95f3e1-fde8-40e6-920f-ab236314e526 -->
 
 These are all the words the rest of this folder is written in. None of them are hard, but they are used precisely, so it is worth reading them once slowly.
 
@@ -61,6 +68,7 @@ These are all the words the rest of this folder is written in. None of them are 
 **Incident and adjacent are not interchangeable.** *Incident* relates an edge to a vertex. *Adjacent* relates two vertices to each other. Textbooks are strict about this and so are exam questions.
 
 ## The four dimensions of a graph
+<!-- bite: e2bfb1ad-4e20-467c-8548-39cb6238cb67 -->
 
 Every graph question starts by fixing these four. Get one wrong and the algorithm you choose is wrong.
 
@@ -121,6 +129,7 @@ An immediate consequence: **the number of odd-degree vertices is always even.** 
 > **Predict before running the lab.** A simple undirected graph has $6$ vertices. What is the largest possible number of edges? And could such a graph have exactly three vertices of odd degree? Decide before opening the answers.
 
 ## The graph ADT
+<!-- bite: b7a93132-d42f-4937-ab5e-1283b80e0633 -->
 
 An **ADT** is a description of *what* a structure does, written down before you decide *how* to build it. It lists the operations you can perform, says what each one means, and says nothing at all about arrays, lists or hash maps. That separation is the point: the same ADT can be built several different ways, and [[04-representations|lesson 4]] shows five of them, each making different operations cheap.
 
@@ -163,6 +172,7 @@ A graph supports these operations.
 The costs of each operation under each representation are tabulated in [[04-representations|lesson 4]], once the representations themselves have been introduced.
 
 ## Worked example — runnable
+<!-- bite: 005f5ae2-084e-4a50-b98f-91b58e34affb -->
 
 **Runnable example:** save as `graph_basics.py` in any empty directory and run `python3 graph_basics.py`. Standard library only; writes no files.
 
@@ -354,6 +364,7 @@ graph_basics: passed
 ```
 
 ## Common pitfalls and traps
+<!-- bite: 60ea4ad2-c6b3-44b8-96c0-e207333c5dff -->
 
 - **Counting a self-loop once.** It contributes **two** to the degree, and the handshake lemma fails if you count it once.
 - **Using "adjacent" for an edge and a vertex.** Vertices are adjacent to vertices; edges are _incident_ to vertices.
@@ -362,6 +373,7 @@ graph_basics: passed
 - **Confusing $\lvert E\rvert$ with the adjacency list's total length.** For an undirected simple graph the list holds $2\lvert E\rvert$ entries.
 
 ## Check your understanding
+<!-- bite: 4d4bb49d-e757-4bef-bd1a-ef8419a7c5b8 -->
 
 1. A graph has degrees $3, 3, 2, 2, 2$. How many edges?
 2. Can a simple graph have degrees $4, 3, 3, 2, 2$? Why?
@@ -381,6 +393,7 @@ graph_basics: passed
 </details>
 
 ## Practice — independent task
+<!-- bite: de8d04b7-4e9c-46cf-9d30-9382c3f30be6 -->
 
 Implement `degree_sequence(graph)` and `is_graphical(sequence)`.
 
@@ -395,6 +408,7 @@ Implement `degree_sequence(graph)` and `is_graphical(sequence)`.
 **Done when:** every graphical sequence is realised by a graph you built, every non-graphical one is rejected with the reason, and you can give a sequence that satisfies both necessary conditions yet is not graphical.
 
 ## Before moving on
+<!-- bite: 50c1b145-e469-460b-9779-ebadcfc65ada -->
 
 You can define every term in the terms list without hesitating, state the handshake lemma and why odd-degree vertices come in pairs, and classify a graph along all four dimensions.
 
@@ -403,6 +417,7 @@ You can define every term in the terms list without hesitating, state the handsh
 **Next:** [[02-paths-cycles-and-connectivity|Paths, Cycles and Connectivity]] — what it means to get from one vertex to another, and the four different things "connected" can mean.
 
 ## Related
+<!-- bite: f15e4ad2-f1e9-459d-af43-726082036de7 -->
 
 - [[02-discrete-math/07-graph-theory|Discrete maths: graph theory]] — the proofs behind these facts
 - [[04-representations|Representations]] — how to store all of this

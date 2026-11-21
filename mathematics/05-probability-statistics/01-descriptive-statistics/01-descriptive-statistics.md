@@ -1,8 +1,13 @@
+---
+id: 30182ac6-3f14-41e4-8e90-bc0df65c9307
+---
+
 # Descriptive Statistics
 
 **[Beginner]** — summarising a dataset in a few numbers, and the datasets that prove why you must also look at it.
 
 ## Before you start
+<!-- bite: b198e411-c8d0-4fd5-8081-39cb9c9c74f3 -->
 
 - You can compute a mean and read a table — [[01-number-systems|number systems]].
 - You can plot points on axes — [[03-coordinate-geometry/01-coordinate-geometry|coordinate geometry]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: ea3af8fc-c687-47ee-b82f-618d34abc8d3 -->
 
 A dataset of ten thousand salaries is unreadable. You need a handful of numbers that stand in for it — a *centre*, a *spread*, a *shape*.
 
@@ -27,6 +33,7 @@ That compression is useful and it is lossy, and the whole discipline lives in th
 So this lesson does two things: it gives you the summaries, and it shows you exactly how much they can hide. Section 5's lab is the demonstration, and it is worth more than the formulas.
 
 ## 2. Terminology
+<!-- bite: 06098275-3dc8-45a7-b538-d54bc4ca85dc -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -42,6 +49,7 @@ So this lesson does two things: it gives you the summaries, and it shows you exa
 | **Outlier** | A value far from the rest | May be an error, or the most important point |
 
 ## 3. The three averages
+<!-- bite: 96ec2d37-1100-4d21-be19-6fb951798ae8 -->
 
 **Mean** — add and divide:
 
@@ -69,6 +77,7 @@ That last row matters more than it looks. The mean is what variance, the normal 
 **On skew:** for a right-skewed distribution (a long tail of large values, like incomes) the mean sits **above** the median. That relationship is a quick diagnostic — if a report gives you both and they differ a lot, the data is skewed and the mean alone will mislead.
 
 ## 4. Grouped data
+<!-- bite: af34e3dc-6c89-4f7a-b345-31ea0f2b5814 -->
 
 Once data is grouped into class intervals, the individual values are gone. To estimate the mean, assume every value in a class sits at the **midpoint**:
 
@@ -100,6 +109,7 @@ Otherwise a wide class looks far more common than it is, purely because it is wi
 > **Predict before running the lab.** Four datasets each have eleven $(x, y)$ points. All four agree on mean $x$, mean $y$, both variances, the correlation and the best-fit line, every one of them to within $0.006$. How different can the four actually be? Commit to an answer before opening the answers.
 
 ## 5. What summaries hide
+<!-- bite: 0dfd2b5a-ae93-42b1-b8c8-32a2967552b7 -->
 
 In 1973 the statistician Frank Anscombe constructed four datasets with essentially identical summary statistics and utterly different shapes. One is a clean linear relationship; one is a perfect curve; one is a straight line with a single outlier; one is a vertical stack with a single point far to the right that drags the whole regression line.
 
@@ -108,6 +118,7 @@ Every number you would normally report is the same. The only thing that separate
 The lab reproduces Anscombe's quartet, prints the statistics, and draws all four as text plots.
 
 ## Worked example — runnable
+<!-- bite: 170f44c8-33f2-4adb-879c-120fb21ebd2e -->
 
 **Runnable example:** save as `descriptive.py` in any empty directory and run `python3 descriptive.py`. Standard library only; writes no files.
 
@@ -314,6 +325,7 @@ descriptive: passed
 Block 4 is the lesson. Seven statistics, four datasets — and every statistic agrees across all four to within $0.006$. Six of the seven are identical to two decimal places; the variance of $y$ is the exception only because it straddles a rounding boundary at $4.1226$–$4.1276$. Yet one dataset is a line, one is a curve, one is a line with an outlier, and one is a vertical stack. **Summaries are a starting point, not a conclusion.**
 
 ## Common pitfalls and traps
+<!-- bite: 1931e21f-1f81-4440-8a40-09d40af55e62 -->
 
 - **Reporting a mean for skewed data.** Incomes, house prices, response times and wait times are all right-skewed. The mean of a latency distribution is routinely a value that almost no request experienced.
 - **Plotting unequal-width histogram classes by frequency.** Use frequency density, or the widest class will always look the most common.
@@ -323,6 +335,7 @@ Block 4 is the lesson. Seven statistics, four datasets — and every statistic a
 - **Concluding from statistics alone.** Anscombe's quartet is the counterexample to that entire habit.
 
 ## Check your understanding
+<!-- bite: 785be1c7-2890-4df1-88ca-0815c1c92d2c -->
 
 1. Find the mean, median and mode of $3, 7, 7, 8, 9, 12, 40$.
 2. Which average would you report for house prices in a city, and why?
@@ -342,6 +355,7 @@ Block 4 is the lesson. Seven statistics, four datasets — and every statistic a
 </details>
 
 ## Practice — independent task
+<!-- bite: 1a3c0b90-7e2e-4aca-a230-0b63a3d08bbd -->
 
 Implement `summarise(data)` returning a full descriptive summary, then use it to detect what a mean alone would hide.
 
@@ -356,6 +370,7 @@ Implement `summarise(data)` returning a full descriptive summary, then use it to
 **Done when:** your bimodal example produces a mean that no data point is near, your histogram makes the two clusters obvious, and you can state in one sentence why reporting only the mean there would be actively misleading.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 59bd1dbb-d0a1-4946-bb63-9b385ef26925 -->
 
 **Resistance versus efficiency.** The median resists outliers; the mean uses all the data. When the data really is symmetric and clean, the mean is a *more efficient* estimator — it extracts more information from the same sample. The choice is a trade, not a ranking, and it depends on what you believe about the data's shape.
 
@@ -364,6 +379,7 @@ Implement `summarise(data)` returning a full descriptive summary, then use it to
 **Where this goes next.** Centre is half the story; [[02-dispersion-and-cumulative-frequency/01-dispersion|dispersion]] is the other half, and the two together are what [[04-random-variables-and-distributions/01-distributions|distributions]] are parametrised by. Correlation and the regression line appear here as summary numbers; what they mean, and when they are safe to trust, is [[05-inference-and-estimation/01-inference|inference]].
 
 ## Before moving on
+<!-- bite: 872d2acd-a4e4-472a-a702-abc238c83da8 -->
 
 You are done with this lesson when you can:
 
@@ -377,6 +393,7 @@ You are done with this lesson when you can:
 **Next:** [[02-dispersion-and-cumulative-frequency/01-dispersion|Dispersion and Cumulative Frequency]] — how spread out the data is, and why the variance formula divides by $n-1$.
 
 ## Related
+<!-- bite: 641b762c-cd2d-4f02-b79b-3dcdbce4ed9a -->
 
 - [[02-dispersion-and-cumulative-frequency/01-dispersion|Dispersion]] — the other half of a summary
 - [[03-probability/01-probability|Probability]] — from describing data to reasoning about chance

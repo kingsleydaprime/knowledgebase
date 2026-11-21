@@ -1,8 +1,13 @@
+---
+id: ff471003-3250-45cb-b1c3-3eb0e947d2bd
+---
+
 # Module 29: The PRIME-1 ISA (The Contract)
 
 **[Advanced]** — Module 28 made the design decisions. This module turns them into an exact binary encoding — the contract that every piece of hardware and every program must agree on.
 
 ## Before you start
+<!-- bite: e1a2f8c4-83e5-4c3c-aac0-d5fd4f7a262c -->
 
 - You have made the design decisions and can justify them — [[how-computers-work/08-capstone/01-design-the-cpu|module 28]].
 - You can read a bit field and understand sign extension — [[how-computers-work/05-combinational/02-adders|module 21]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 89ff20d6-2a62-443b-8524-bbcac94681b8 -->
 
 **An ISA is a contract, and it is the only one in the whole system that both sides must honour exactly.**
 
@@ -32,6 +38,7 @@ This module writes the contract down, and then **proves it is unambiguous** rath
 ---
 
 ## 2. Terminology
+<!-- bite: 70ef3c18-bc9e-4c52-b07a-30f3f9c19973 -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -48,6 +55,7 @@ This module writes the contract down, and then **proves it is unambiguous** rath
 ---
 
 ## 3. The three formats
+<!-- bite: ff7cf631-d805-483e-b268-af0d26a873ad -->
 
 Every PRIME-1 instruction is exactly **16 bits**, in one of three shapes:
 
@@ -64,6 +72,7 @@ Every PRIME-1 instruction is exactly **16 bits**, in one of three shapes:
 ---
 
 ## 4. The instruction set
+<!-- bite: 9085dcf5-7ef9-4977-aa1e-741ecd449d0d -->
 
 | Opcode | Mnemonic | Format | Operation |
 | :--- | :--- | :--- | :--- |
@@ -100,6 +109,7 @@ Every PRIME-1 instruction is exactly **16 bits**, in one of three shapes:
 ---
 
 ## 5. Addressing modes
+<!-- bite: 2833094b-2882-4d48-bad2-7dc5b04de2c6 -->
 
 PRIME-1 supports four, and the omissions matter as much as the inclusions:
 
@@ -124,6 +134,7 @@ PRIME-1 supports four, and the omissions matter as much as the inclusions:
 ---
 
 ## 6. Proving the contract is unambiguous
+<!-- bite: 096cac2d-f63d-46aa-8aa9-5b54e459a533 -->
 
 Here is the technique, and it is the reason this module has a lab.
 
@@ -152,6 +163,7 @@ The lab runs this over **6,267 encodings** — every register combination for ev
 ---
 
 ## 7. Predict before reading on
+<!-- bite: d15a8d83-9143-4171-9703-653daa2f4a3b -->
 
 `JAL` writes the return address to R7 and jumps. To return, you need to jump to *the address in a register* — and PRIME-1 has no such instruction.
 
@@ -179,6 +191,7 @@ The lab runs this over **6,267 encodings** — every register combination for ev
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 62f563ec-0614-416b-a70c-5de890c2c12f -->
 
 The disassembler is the highest-value tool you will write for this project: it lets you read memory dumps as instructions and check what your assembler actually produced.
 
@@ -381,6 +394,7 @@ isa_lab: passed
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 803e938f-30db-45e0-813f-aa5700f78c45 -->
 
 1. **Leaving the immediate's signedness unstated.** Signed or unsigned changes the meaning of half the encodings.
 2. **Not fixing the branch reference point.** Before or after the PC increment? Pick one, write it down, make the emulator authoritative.
@@ -392,6 +406,7 @@ isa_lab: passed
 ---
 
 ## 10. Check your understanding
+<!-- bite: 92245d10-5581-4cf4-a06c-d786c6f452f1 -->
 
 1. **Why does a disassembler need to know an instruction's address, when an assembler apparently does not?**
    <details><summary>Answer</summary>
@@ -422,6 +437,7 @@ isa_lab: passed
 ---
 
 ## 11. Practice — independent task
+<!-- bite: a5af6399-4be6-4e56-8292-68b3203c182c -->
 
 **Task:** Extend the PRIME-1 ISA and prove your extension is sound.
 
@@ -443,6 +459,7 @@ The fix: at the top of any function that calls another, <strong>push R7 onto a s
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: 6c26f69e-1a74-4136-9368-1fcdab7cb1e8 -->
 
 - **No interrupt support.** A real ISA needs a way to save the PC and flags on an external event, a vector table, and a return-from-interrupt instruction. That is a substantial extension and the reason [[os/index|os/]] is its own course.
 - **No privilege levels.** Every instruction is available to every program, so there is no kernel/user split and no memory protection.
@@ -452,6 +469,7 @@ The fix: at the top of any function that calls another, <strong>push R7 onto a s
 ---
 
 ## Before moving on
+<!-- bite: dfcef16b-a884-461d-ad96-3a7d4eae7b24 -->
 
 - [ ] State the three instruction formats and show all three total 16 bits.
 - [ ] List the six details that must be nailed down, and why each is a bug if left vague.
@@ -466,6 +484,7 @@ The fix: at the top of any function that calls another, <strong>push R7 onto a s
 ---
 
 ## Related
+<!-- bite: c470bdba-5624-40b2-9363-f59a0f1a83a2 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/08-capstone/01-design-the-cpu|Module 28]] — the decisions this encodes

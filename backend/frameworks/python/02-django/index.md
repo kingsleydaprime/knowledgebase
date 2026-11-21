@@ -1,3 +1,7 @@
+---
+id: e3a90030-311a-45a8-9885-e05ee7cd25d2
+---
+
 # Django
 
 > **[Intermediate]** · Batteries included — the ORM, migrations, the admin, and the "fat model" structure that fights every layering convention in this vault.
@@ -7,6 +11,7 @@ Django is the **maximalist** end of the trade. It ships an ORM, migrations, an a
 **Its bet:** most web applications need the same things, so provide them, opinionated and integrated. When the bet pays off, a working authenticated CRUD application with a database and an admin UI is an afternoon. When it doesn't, you're fighting a framework that has already decided.
 
 ## The structure
+<!-- bite: f198d21b-7ef6-4d2b-92ac-3dcbbef20b32 -->
 
 Django splits a project into **apps** — self-contained feature modules:
 
@@ -36,6 +41,7 @@ myproject/
 | **Router** | `urls.py`, `path()` |
 
 ## The ORM
+<!-- bite: c140659c-f351-4249-b3b0-fe18c6a47fd4 -->
 
 Django's ORM is **Active Record**: the model class is the schema, the query interface and the domain object at once.
 
@@ -84,6 +90,7 @@ Order.objects.prefetch_related("items")           # 2nd query + join in Python �
 **Install `django-debug-toolbar` and look at the query count on every page you build.** It's the cheapest defence there is → [[databases/07-join-algorithms-and-the-optimiser/index|joins]].
 
 ## The admin
+<!-- bite: c6922f6b-c87c-4e82-8bc4-51f429e82959 -->
 
 ```python
 @admin.register(Order)
@@ -98,6 +105,7 @@ A production-usable CRUD interface with search, filtering, permissions and audit
 **Its limit:** it's for *staff*, modelled on your database tables. Bending it into a customer-facing product surface is a well-worn path to regret.
 
 ## Django REST Framework
+<!-- bite: c7f5b4fe-8d93-4ae3-91b4-4967618ade1c -->
 
 Django's own JSON support is minimal; **DRF** is the de-facto standard for APIs:
 
@@ -116,6 +124,7 @@ class OrderViewSet(viewsets.ModelViewSet):
 That's full CRUD with pagination, filtering, auth and a browsable API. Mature, powerful, and heavy — the class hierarchy takes real time to learn, and "which method do I override" is a recurring question. `django-ninja` is the lighter alternative, borrowing FastAPI's Pydantic approach.
 
 ## Async
+<!-- bite: 291fc4c8-5e2f-4cb7-89e6-4f204329fcf3 -->
 
 Django added ASGI support (3.0+) and async views (3.1+), and it's genuinely partial:
 
@@ -128,6 +137,7 @@ Django added ASGI support (3.0+) and async views (3.1+), and it's genuinely part
 **Practically: run Django sync unless you have a specific reason.** Its threaded, process-per-worker model is well understood and fine for most loads. If you need heavy async I/O, that's a point for [[backend/frameworks/python/01-fastapi/index|FastAPI]].
 
 ## What it does badly, honestly
+<!-- bite: 9387a215-a7be-44de-9949-1cdc10ceb51d -->
 
 **Fat models.** The convention puts business logic on the model class, which is also the persistence layer. It's productive at small scale and becomes a 2,000-line `models.py` coupling domain rules to the database. The remedy — a service layer — is fighting the grain, and Django won't help you → [[backend/03-structuring-a-backend/index|layering]].
 
@@ -138,6 +148,7 @@ Django added ASGI support (3.0+) and async views (3.1+), and it's genuinely part
 **It's large.** If you need a JSON API and nothing else, most of Django is weight you carry and configure.
 
 ## Related
+<!-- bite: a19261d9-6896-4a55-9fe0-7ecf4ec32ba4 -->
 - [[backend/frameworks/python/01-fastapi/index|FastAPI]] — the opposite trade
 - [[backend/frameworks/python/index|Python backends]] — how to choose
 - [[databases/index|databases]] — what the ORM is generating

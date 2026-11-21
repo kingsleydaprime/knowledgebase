@@ -1,14 +1,20 @@
+---
+id: aff30812-3cf7-41d5-bab0-73039122ef81
+---
+
 # Components and Composition
 
 > **[Intermediate]** · Where to put the boundary, and the prop-drilling trap that sends people to a global store too early.
 
 ## What a component is for
+<!-- bite: 61b81424-4c98-4a26-aa90-4a7e450e2f15 -->
 
 **A component is a boundary**: a name, a contract (props), and something you can reason about without reading its insides. **Same move as a function** → [[programming-fundamentals/08-functions|functions]].
 
 **The test for a good one, borrowed from the same place: can you describe it without using "and"?** A `UserCard` that also fetches the user, tracks analytics and manages a modal is three components.
 
 ## Presentational and container
+<!-- bite: a3fcb77d-0fec-4548-a6c0-365d99b31574 -->
 
 **The most useful split, whatever you call it:**
 
@@ -20,6 +26,7 @@
 **This is the same layering argument as [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|controllers, services, repositories]]** — separate the thing that *decides* from the thing that *displays*.
 
 ## Prop drilling, and the wrong reflex
+<!-- bite: 9125d50b-2cb3-4952-b8bf-4a28fbfcc6ed -->
 
 ```jsx
 <Page user={user}>
@@ -47,6 +54,7 @@
 **Only reach for 4 when 1–3 genuinely don't fit.** Reaching for it first is how a to-do app acquires a global store.
 
 ## Organise by feature
+<!-- bite: 5968e94a-09cd-41e6-965c-d9a4a2519786 -->
 
 ```
 src/
@@ -66,6 +74,7 @@ src/
 **Enforce the boundaries.** Features shouldn't import each other's internals — ESLint rules (`no-restricted-imports`) make that mechanical rather than a code-review argument → [[systems-engineering/04-architecture-and-interfaces|interfaces]].
 
 ## The patterns worth knowing
+<!-- bite: 028e97a7-c3fe-4888-bf52-7513cb4e4c7c -->
 
 **Custom hooks** — the primary reuse mechanism in React. Extract *stateful logic*, not markup.
 ```jsx
@@ -83,6 +92,7 @@ Flexible layout, no prop explosion.
 **Headless components** — behaviour and accessibility with **no styling** (Radix, Headless UI, TanStack Table). **The best of these are also the best accessibility you'll get for free** — focus traps, ARIA, keyboard handling done properly by people who specialise in it → [[frontend/05-cross-cutting/index|accessibility]].
 
 ## When to extract
+<!-- bite: 9ef1d55c-d3fa-4ae6-9e96-95c51f309f76 -->
 
 **Not on line count.** Extract when:
 
@@ -94,6 +104,7 @@ Flexible layout, no prop explosion.
 **Premature extraction produces components with nine props and a boolean that switches behaviour** — which is worse than the duplication it replaced. **Duplication is cheaper than the wrong abstraction.**
 
 ## Related
+<!-- bite: 3d9ecfe1-971c-424d-83d0-1bcc9f0404af -->
 - [[frontend/03-state-and-data/index|state and data]] — where state lives
 - [[backend/03-structuring-a-backend/index|structuring a backend]] — the same arguments, other end
 - [[frontend/frameworks/react/index|React]] — the specifics

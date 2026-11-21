@@ -1,8 +1,13 @@
+---
+id: a42ea750-dbd8-45a8-b44c-d87ba1814ddc
+---
+
 # Concurrency and the GIL
 
 > **[Advanced]** · Why threads don't speed up computation, when they still help enormously, and how to choose between threading, asyncio and multiprocessing.
 
 ## The GIL
+<!-- bite: 5108e56d-65f6-4f72-bcd3-134a502ccaba -->
 
 CPython has a **Global Interpreter Lock**: a single mutex that must be held to execute Python bytecode. **Only one thread runs Python code at a time, per process**, no matter how many cores you have.
 
@@ -18,6 +23,7 @@ So the shape is: threads are useless for computation and excellent for waiting.
 **It's also released by well-behaved C extensions.** NumPy releases the GIL around its heavy array operations, which is why NumPy-based code *does* scale across threads. "Python can't do parallel computation" is false; "*pure* Python can't" is true.
 
 ## The three models
+<!-- bite: 1e264cb4-a179-446e-b1fa-9d89a54c17e1 -->
 
 | | **`threading`** | **`asyncio`** | **`multiprocessing`** |
 |---|---|---|---|
@@ -89,6 +95,7 @@ The costs are real: arguments and results are **pickled** across the boundary (s
 **The rule: the work per task must dwarf the serialisation cost.** Parallelising something cheap across processes is reliably slower than doing it in one.
 
 ## Choosing
+<!-- bite: dacc2bc9-5231-4219-9cc1-f9633de69dc4 -->
 
 **Is the work CPU-bound?**
 → Yes: `multiprocessing`. Or NumPy/Polars, which release the GIL. Or push the hot part into C/Rust → [[languages/06-python/14-performance-and-the-runtime|note 14]]
@@ -100,6 +107,7 @@ The costs are real: arguments and results are **pickled** across the boundary (s
 **And check first that you need concurrency at all.** A great deal of "we need async" is a database query missing an index.
 
 ## The GIL is going away
+<!-- bite: a1b0b60f-264f-4b34-8a05-4a0c7f650a59 -->
 
 **PEP 703** was accepted, and Python 3.13 ships an **experimental free-threaded build** with no GIL. Python 3.14 continues that work toward it being officially supported, with the two builds coexisting for years.
 
@@ -110,6 +118,7 @@ The trade is honest: removing the GIL costs single-threaded performance (finer-g
 For now: assume the GIL, treat free-threading as something to track rather than deploy.
 
 ## Related
+<!-- bite: ca47b401-eab1-4d60-9937-a3654193d109 -->
 - [[os/02-processes-and-threads|processes and threads]] — what's underneath
 - [[os/06-concurrency-primitives|concurrency primitives]] — locks, and why they're hard
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime and concurrency models]] — the cross-language comparison

@@ -1,8 +1,13 @@
+---
+id: dbdd715f-a539-4998-9c64-ca69483d9a87
+---
+
 # Memory and ARC
 
 **[Intermediate]** — deterministic memory management without a garbage collector, and the one bug it doesn't prevent.
 
 ## What ARC is
+<!-- bite: 328a61a5-fc5b-45a5-8a8e-72d9236936fa -->
 
 **Automatic Reference Counting.** Every class instance has a count of strong references to it. When the count hits zero, it's deallocated **immediately**.
 
@@ -27,6 +32,7 @@ b = nil             // count 0 → deinit runs RIGHT HERE
 **Note that structs aren't reference counted at all** — they're copied, and their memory is stack-allocated or inline. **Which is another argument for preferring structs** → [[languages/08-swift/02-values-references-and-optionals|value types]].
 
 ## Reference cycles — the one real hazard
+<!-- bite: afd363ca-b3b4-4643-ac1c-c578d67c8859 -->
 
 Two objects holding strong references to each other never reach zero:
 
@@ -43,6 +49,7 @@ a.tenant = p          // ← cycle. Neither is EVER deallocated
 **Nothing crashes. Nothing warns you. Memory just grows.** This is the bug ARC doesn't solve, and it's why iOS apps leak.
 
 ## `weak` and `unowned`
+<!-- bite: 92c8909e-34ae-4418-8c2b-872bb448d747 -->
 
 ```swift
 class Apartment {
@@ -63,6 +70,7 @@ class Apartment {
 **Delegates are almost always `weak`** — this is the single most common place cycles appear in UIKit code.
 
 ## Closures capture strongly — the commonest leak in Swift
+<!-- bite: 29c19c5f-3518-4a3c-847f-dda8ea4d8f10 -->
 
 ```swift
 class ViewController {
@@ -90,6 +98,7 @@ service.onComplete = { [weak self] in
 **When you don't need it:** a closure that isn't stored — `DispatchQueue.main.async { }`, or a `map`/`filter` body — runs and is discarded, so there's no cycle. **Adding `[weak self]` everywhere is noise**; add it where the closure is *retained* by something you own.
 
 ## Finding leaks
+<!-- bite: 5c8778f8-d2c9-41b4-a3e7-0a3282a2cad9 -->
 
 - **Xcode's Memory Graph Debugger** — pause, click the graph icon, and it **shows cycles visually with the retain chain.** This is the tool; learn it
 - **Instruments → Leaks and Allocations**
@@ -98,16 +107,19 @@ service.onComplete = { [weak self] in
 **The habit worth building:** navigate to a screen and back several times, then check the Memory Graph for multiple instances of that view controller or view model. **Repeated instances of a screen you closed is the signature of a leak.**
 
 ## Beyond cycles
+<!-- bite: efda2ba9-eefd-4760-b71d-b286e2d60d78 -->
 
 - **Retaining large data** — an image cache with no eviction is not a "leak" but will get you killed by the OS → [[mobile/11-performance-and-battery|memory]]
 - **Timers and observers.** A repeating `Timer` retains its target; **you must invalidate it.** Same for notification observers in older code
 - **`autoreleasepool`** for tight loops creating many temporary objects — rarely needed, occasionally essential
 
 ## Key insight
+<!-- bite: ec7689cf-c81d-45a8-8933-73c428a93332 -->
 
 **ARC trades GC pauses for one bug you have to think about.** Deterministic deallocation is genuinely valuable — `deinit` fires when you expect — and the cost is that cycles are invisible and permanent. **In practice this reduces to one habit: `[weak self]` in closures you store, and `weak` on delegates and back-references.** Get those two right and Swift memory management mostly disappears.
 
 ## Related
+<!-- bite: 8d3939d0-283c-4dc8-9ea2-2ffd78e56ac8 -->
 - [[languages/08-swift/02-values-references-and-optionals|value types]] — structs avoid this entirely
 - [[compilers/11-garbage-collection|garbage collection]] — the alternative approach
 - [[languages/07-csharp/08-memory-gc-and-spans|C# memory]] — a GC'd comparison

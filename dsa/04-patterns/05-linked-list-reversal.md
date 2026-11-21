@@ -1,8 +1,13 @@
+---
+id: f98b2184-bcd1-42c2-a711-0ff7f85eb04d
+---
+
 # Pattern: Linked List In-place Reversal
 
 **[Intermediate]** — A university-level introduction to the linked list reversal pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 51a5fdbc-4d0d-4ac2-9852-5adfcbddb0bd -->
 
 - You should understand linked lists. See [[04-linked-lists|linked lists]] if needed.
 - You should know what recursion is. See [[languages/06-python/04-functions-and-scope|Python functions and scope]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: 50f9eb12-d1bc-4c73-876f-33b9e454ca08 -->
 
 Imagine you have a physical stack of papers and you want to reverse their order. You could create a new stack by taking papers one by one from the top of the original stack and placing them on the new stack. That's O(n) time and O(n) space.
 
@@ -29,6 +35,7 @@ This is the linked list reversal pattern: reverse a linked list (or a section of
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: ebfa99fd-62a1-4ec0-a7cc-d869a519e0e4 -->
 
 | Term                  | Plain-English definition                                                                 | Example / analogy                                                        |
 | --------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
@@ -40,6 +47,7 @@ This is the linked list reversal pattern: reverse a linked list (or a section of
 ---
 
 ## 3. How it works — step by step
+<!-- bite: 2f793bf9-0fb2-4c11-af2f-9bb301553748 -->
 
 ### Reversing a whole linked list
 
@@ -75,6 +83,7 @@ Same mechanism, but you first walk to the start of the range, keep a reference t
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: 209c050a-de8b-42ac-86db-b4660c53b9cd -->
 
 **Runnable example:** save as `linked_list_reversal_lab.py` and run `python3 linked_list_reversal_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -180,6 +189,7 @@ linked_list_reversal_lab: passed
 ---
 
 ## 5. Recursive vs. Iterative
+<!-- bite: 2a9f1bf3-a062-44dc-86cf-24dacb76cbf6 -->
 
 ### Iterative (shown above)
 
@@ -205,12 +215,14 @@ def reverse_list_recursive(head):
 ---
 
 ## 6. Complexity
+<!-- bite: b183fae6-cfb1-47c0-b6e6-277004a2c427 -->
 
 O(n) time, O(1) space — the entire value of doing it in place rather than building a new list (which would still be O(n) time but O(n) extra space).
 
 ---
 
 ## 7. Tradeoffs and limitations
+<!-- bite: 97a1fa50-c7ff-43d9-a42e-9bd1c9a6bc8b -->
 
 - **Saving `curr.next` before overwriting is crucial.** Skipping it disconnects the rest of the list before you've walked into it.
 - **Off-by-one on where the sublist reversal starts/ends is the most common bug.** Draw the before/after picture first, same advice as in [[04-linked-lists|linked-lists]].
@@ -219,6 +231,7 @@ O(n) time, O(1) space — the entire value of doing it in place rather than buil
 ---
 
 ## 8. Check your understanding (self-assessment)
+<!-- bite: a0caa5b7-7b0b-429b-b17d-706bc1a4566f -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -241,6 +254,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 9. Practice — independent task
+<!-- bite: 077765e1-ea9b-4a59-bed5-0f5f66412932 -->
 
 **Task:** Implement a function `reverse_k_nodes(head, k)` that reverses the first `k` nodes of a linked list, leaving the rest unchanged. Use the linked list reversal pattern. Test it with the following cases:
 
@@ -252,6 +266,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 335949f3-334f-45d4-9723-954209aa1b51 -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -270,6 +285,7 @@ Attempt these without the note, then compare your reasoning below.
 10. Odd Even Linked List (#328) — splice into two lists, then rejoin.
 
 ## Before moving on
+<!-- bite: 37032d9a-f12d-48d7-944e-84f300039eca -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -283,6 +299,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[06-monotonic-stack|monotonic-stack]] — a different way of remembering what you have already seen — a stack that discards elements it can prove will never be the answer.
 
 ## 10. Related
+<!-- bite: 16c3cca1-ed26-4424-86ad-357203bbefa9 -->
 
 - [[04-linked-lists|linked-lists]] — the underlying data structure
 - [[04-fast-slow-pointers|fast-slow-pointers]] — used in some reversal algorithms
@@ -292,6 +309,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 11. Further reading
+<!-- bite: a858cfa5-fcc1-4cd1-b942-cfd374b20f2a -->
 
 The pattern appears in many contexts beyond LeetCode:
 

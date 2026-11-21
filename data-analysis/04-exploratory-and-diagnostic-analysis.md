@@ -1,12 +1,18 @@
+---
+id: b65d3ca4-1bdc-4393-b62d-2b492420ed01
+---
+
 # Exploratory and Diagnostic Analysis
 
 **[Intermediate]** — understanding a dataset before you trust it, and answering the question that pays the analyst's salary: *"why did this number change?"*
 
 ## The kid version first
+<!-- bite: 737cf492-a4b7-499a-b6de-620c3e2dd788 -->
 
 Two of the most common analyst tasks: first, **getting to know a new dataset** — what's in it, what's weird, what you can trust (exploratory). Second — and this is the valuable one — **explaining a change**: sales dropped, signups spiked, a metric moved, and someone needs to know *why* (diagnostic). "Revenue fell 12%" is a fact anyone can pull; "revenue fell 12% *because* mobile checkout broke in Germany after Tuesday's release" is the insight that leads to a fix.
 
 ## Exploratory data analysis — understand before you trust
+<!-- bite: 4ec83fb5-4a15-4814-a79a-351e603738f8 -->
 
 Before any analysis, you explore the data to understand its shape and catch the problems that would otherwise silently corrupt your answer. This is [[ai-ml/01-data-scientist/04-exploratory-data-analysis|the data-scientist's EDA]] pointed at business questions rather than modelling:
 
@@ -24,6 +30,7 @@ Before any analysis, you explore the data to understand its shape and catch the 
 **The discipline: distrust the data until it earns your trust.** The most expensive analytical mistakes are confident conclusions from data that was quietly wrong → [[data-engineering/10-data-quality-governance-and-the-stack|data quality]].
 
 ## Segmentation — the analyst's superpower
+<!-- bite: 0814235a-adb0-48b0-b7b9-e1e3e2bd598f -->
 
 **Almost every real insight comes from breaking an aggregate apart.** The overall number hides the story; the segments reveal it:
 
@@ -38,6 +45,7 @@ Before any analysis, you explore the data to understand its shape and catch the 
 **Slicing by dimension — device, geography, channel, cohort, plan, time — is how you turn "something changed" into "*this specific thing* changed."** The skill is knowing which dimensions to slice by (the ones tied to plausible causes) and recognising when a segment is different enough to matter → [[data-analysis/05-product-and-business-analytics|segmentation in product analytics]].
 
 ## Diagnostic analysis — "why did it change?"
+<!-- bite: 9c7f3ebe-ef69-44c3-bd11-1815c1092ebc -->
 
 The high-value task, and it has a method rather than being pure intuition:
 
@@ -58,6 +66,7 @@ The high-value task, and it has a method rather than being pure intuition:
 **The structure is: confirm real → decompose → segment → correlate with events → verify.** It turns a vague "why did it drop?" from guesswork into a search.
 
 ## The traps that produce wrong conclusions
+<!-- bite: f273b01e-3f97-49f9-8289-3662010aa2f5 -->
 
 Diagnostic analysis is where analysts most often mislead themselves and others:
 
@@ -70,10 +79,12 @@ Diagnostic analysis is where analysts most often mislead themselves and others:
 **Survivorship and selection bias** — analysing only the data that's present (the customers who stayed, the sessions that completed) and forgetting the ones that dropped out, which is often where the answer is.
 
 ## Key insight
+<!-- bite: 6267a827-870d-4a11-be5c-3223890ea36a -->
 
 **Exploratory analysis is distrusting data until it earns your trust (profile, sanity-check totals, look at raw rows), and diagnostic analysis is the high-value skill of explaining a change with a method rather than a guess: confirm the change is real, decompose the metric to find which factor moved, segment that factor to localise where, correlate with events to find when-and-therefore-what, and verify.** Segmentation is the superpower — almost every real insight comes from breaking an aggregate apart, and the aggregate itself can lie (Simpson's paradox). Throughout, the discipline is intellectual honesty: say "associated with" until you've earned "caused by," and hunt for the segment that breaks your hypothesis rather than the one that confirms it.
 
 ## Related
+<!-- bite: 1ee3e962-2986-4169-af23-774496b27355 -->
 - [[data-analysis/03-metrics-and-kpis|the metric tree]] — the decomposition diagnostic analysis walks
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — the specific analyses
 - [[ai-ml/01-data-scientist/04-exploratory-data-analysis|EDA (data science)]] — the modelling-focused version

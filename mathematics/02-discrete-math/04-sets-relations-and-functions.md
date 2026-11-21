@@ -1,8 +1,13 @@
+---
+id: 5e502e90-8d2b-4e08-b579-38fe9e45d1d3
+---
+
 # Sets, Relations and Functions
 
 **[Beginner → Intermediate]** — The vocabulary for describing structure, and the mathematical object a relational database is named after.
 
 ## Sets
+<!-- bite: 675ef70e-71a7-4712-a956-d525e501c51b -->
 
 **An unordered collection of distinct elements.** No duplicates, no order.
 
@@ -66,6 +71,7 @@ A genuinely surprising corner, and it matters for [[theory-of-computation/06-dec
 > **So there are strictly more problems than programs.** Most functions are not computable, and not because we haven't found the algorithm — no algorithm exists. **That's a counting argument, and it's the cleanest way to see why undecidability isn't surprising.**
 
 ## Relations
+<!-- bite: fac218f3-2600-4a26-8dd2-e3d8670a2cb6 -->
 
 **A relation between $A$ and $B$ is a subset of $A \times B$** — a set of ordered pairs.
 
@@ -116,6 +122,7 @@ The **transitive closure** of $R$ adds every pair reachable by a chain. Given "d
 **Computed by Floyd–Warshall or repeated traversal**, and it's what you want for full dependency resolution or reachability. → [[dsa/02-data-structures/09-graphs/index|Graphs]]
 
 ## Functions
+<!-- bite: e2fe931e-d0c5-4fba-a360-432defa2311f -->
 
 **A function $f: A \to B$ is a relation where every element of $A$ maps to exactly one element of $B$.**
 
@@ -140,6 +147,7 @@ The **transitive closure** of $R$ adds every pair reachable by a chain. Given "d
 **Composition** $(g \circ f)(x) = g(f(x))$ is associative — which is why function pipelines compose freely, and the observation that a monoid of endofunctions underlies a lot of functional programming.
 
 ## Where this pays off
+<!-- bite: fb5cd84f-fe91-4370-a930-2b1ef6b0ac12 -->
 
 **Databases** — the relational model, normalisation (functional dependencies are literally functions between attribute sets), and set operations as query operators.
 
@@ -154,6 +162,7 @@ The **transitive closure** of $R$ adds every pair reachable by a chain. Given "d
 ---
 
 ## Related
+<!-- bite: 07fd7f5b-59f7-44f9-9dfc-a2df32833875 -->
 - [[mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — proving things about these structures
 - [[mathematics/02-discrete-math/07-graph-theory|Graph Theory]] — relations, drawn
 - [[theory-of-computation/06-decidability|Decidability]] — where countability does real work

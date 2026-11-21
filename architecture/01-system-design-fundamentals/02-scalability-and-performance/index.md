@@ -7,6 +7,7 @@ id: 88a1fa75-0006-4a9b-881f-7dc53af0f4e5
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. The vocabulary that's constantly confused, made precise: performance and scalability, latency and throughput, averages and percentiles, scaling up and scaling out. It also covers the arithmetic underneath: why a server's response time explodes as it nears full, why a system is only as fast as its slowest stage, and why adding machines eventually stops helping. The worked example follows a checkout service through a sale, from "it's slow" to a diagnosis and a fix. The lab checks every number.
 
 ## Before you start
+<!-- bite: 35ca26a5-6bef-48c0-9de1-73f975e2e808 -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–4 build the ideas. Stop at the predictions in section 5 and try them before reading on. Section 6 is the lab.
 
 ## The kid version
+<!-- bite: d17cd6eb-ed86-4929-a934-6e6e34f3f393 -->
 
 A school canteen has one dinner lady. With five children in the queue, everyone is served in a minute; with fifty, the last child waits twenty. Her serving speed didn't change, but the queue did. If she's slow even with no queue, she needs a faster method, which is a **performance** problem. If she's quick alone but swamped at lunchtime, she needs help, which is a **scalability** problem. Adding a second server helps, until both are waiting on the one person who refills the trays. Then the trays are the bottleneck.
 
 **Where the analogy stops working.** In a canteen you can see the queue. In a system it's hidden inside servers, connection pools and databases, so you only see it in the measurements, as the slow tail of response times. That's why this lesson leans on percentiles.
 
 ## 1. Why this exists
+<!-- bite: 56c7a010-1814-4eae-a6b8-fd62408e3dd0 -->
 
 An online shop runs a sale. Before it starts, checkout answers in about 45 milliseconds. An hour in, customers complain it takes seconds, and some give up. Someone says "the code is slow, let's optimise it", and someone else says "add more servers". They can't both be right, and each fix costs days. The first question decides which: **is checkout slow when it's quiet, or only when it's busy?** This lesson gives you the words and numbers to answer it, and to predict the next limit before the next sale finds it.
 
 ## Terms used in scalability and performance
+<!-- bite: 82d3c3eb-56c3-4e65-9283-5999a58c24ef -->
 
 1. **Performance**: This is how fast the system is for one request, when nothing else is competing for it.
 2. **Scalability**: This is how well the system keeps its performance as load grows: more users, requests or data.
@@ -50,6 +54,7 @@ An online shop runs a sale. Before it starts, checkout answers in about 45 milli
 13. **Coherence cost**: This is the work machines do to keep each other up to date, such as copying changes to each other. It grows with every pair of machines, not just with each machine.
 
 ## 2. Performance versus scalability
+<!-- bite: b9882c97-2bba-41f8-9bf4-7a168652ece7 -->
 
 A system can be fast for one user and collapse at 10,000, which is fast but doesn't scale. Or it can handle millions while each request is sluggish, which scales but performs badly. The diagnostic: **if latency grows as load rises, you have a scalability problem; if it's slow even under light load, you have a performance problem.** They need different fixes, so say which one you have.
 
@@ -57,6 +62,7 @@ A system can be fast for one user and collapse at 10,000, which is fast but does
 - A **scalability** problem is fixed by adding capacity or removing the thing everyone waits for: more servers, splitting the load, removing a lock. Faster code helps only as much as it shortens the queue.
 
 ## 3. Latency, throughput, and why the average lies
+<!-- bite: 2e2fd312-d01f-4a98-946e-841710e713d4 -->
 
 **Latency** is the time for one request; **throughput** is how many complete a second. They interact. Batching raises throughput but adds latency, because the first item in a batch waits for the last. A queue smooths throughput at the cost of latency. Aim for the most throughput at an *acceptable* latency, not for either one alone.
 
@@ -74,6 +80,7 @@ The average is nearly double the typical request, yet far below what the unlucky
 To work out a percentile by the **nearest-rank method**: sort the measurements, and take the one at position ⌈p/100 × n⌉. For p99 of 1,000 measurements, that's the 990th smallest.
 
 ## 4. Why waiting explodes as a server fills up
+<!-- bite: 8e48bbe3-8630-4256-acf3-71346f898560 -->
 
 In words: a request's time in a server is its work plus its wait in the queue, and the wait grows faster and faster as the server gets busier. When requests arrive at random, as real traffic does, the classic model (called M/M/1) gives the average time in the server as the work time divided by the share of time the server is idle.
 
@@ -93,6 +100,7 @@ Going from 50% to 80% busy adds 30 ms; going from 90% to 99% adds 900 ms. The ta
 The model assumes one server, random arrivals and random work times. A real server has several workers, so its curve stays flatter for longer and then rises more steeply near full. The shape, slow and then sudden, holds either way.
 
 ## 5. Worked example: checkout during a sale
+<!-- bite: 588de541-dece-4461-a7ba-e47e3d192793 -->
 
 **The measurements.** Before the sale, checkout's p50 is 45 ms. During it, p99 is around 2 seconds.
 
@@ -122,6 +130,7 @@ database writes     2,000 a second   ← the bottleneck
 Every checkout writes to the database, so the system handles 2,000 a second, however many app servers there are. Doubling them to eight changes nothing. The next sale's fix is in the database: batching writes, moving slow work to a queue, or splitting the data. Scaling is a sequence of finding the current bottleneck and relieving it, and each fix moves the bottleneck somewhere else.
 
 ## 6. Vertical versus horizontal scaling
+<!-- bite: 8e82da63-5a20-472e-bf24-32da7f4daaec -->
 
 There are two ways to handle more load:
 
@@ -160,6 +169,7 @@ When one server isn't enough, these are the standard moves, each with its own le
 5. **Use a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|CDN]]** to serve static content from near users.
 
 ## 7. Runnable example: the numbers behind this lesson
+<!-- bite: e370e5ce-9cfa-4a4b-89ab-6f190da695d5 -->
 
 `scaling.ts` has percentiles, the queueing formula, a request-by-request server simulation with a seeded random generator (so every run sees the same traffic), the bottleneck rule, and both scaling laws. `scaling.test.ts` checks every number used above.
 
@@ -324,6 +334,7 @@ test("why adding machines stops helping, and can make things worse", () => {
 **Lab:** the code is in [`architecture/01-system-design-fundamentals/02-scalability-and-performance/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/01-system-design-fundamentals/02-scalability-and-performance/labs/typescript). From the vault root, `python3 labs/run.py scalability-and-performance/typescript` runs the tests and checks this page still shows the same code. Inside the folder, `node --test` runs the tests alone. Expect seven passing tests; the simulation takes under a second.
 
 ## Common pitfalls
+<!-- bite: c3067dca-6c59-46af-96ea-a4925fae8143 -->
 
 1. **Using the average.** It hides the tail. Report p50, p95 and p99.
 2. **Adding servers to a performance problem.** If it's slow when idle, more servers won't help.
@@ -334,6 +345,7 @@ test("why adding machines stops helping, and can make things worse", () => {
 7. **Guessing the bottleneck.** You scale what the [[devops/07-observability/index|measurements]] say is the constraint, not what you assume. In the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|record-generator pipeline]], the bottleneck was the database write path, not the file reading. You have to measure to know.
 
 ## Check your understanding
+<!-- bite: 0e8c7fed-693c-49de-aa75-d17d6506b183 -->
 
 1. An endpoint takes 800 ms with one user and 850 ms with a thousand. Performance or scalability problem? What would you try first?
 2. Why is the average a poor summary of latency? Give an example where it misleads.
@@ -355,6 +367,7 @@ test("why adding machines stops helping, and can make things worse", () => {
 </details>
 
 ## Practice — independent task
+<!-- bite: bd76ab3c-c18a-4b60-9495-857d22a71ec8 -->
 
 **Measure your own service under load, and name its problem.**
 
@@ -368,6 +381,7 @@ test("why adding machines stops helping, and can make things worse", () => {
 **Done when:** you have a table of p50, p95 and p99 at three loads with the environment written down, a diagnosis that cites the light-load number, the bottleneck named with your evidence, and one sentence on how far the formula's prediction was from your measurement and why.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 81899a0a-d241-4c70-8cce-f2a5530210a2 -->
 
 - **The queueing formula is a model.** It assumes one server and random arrivals and work times. Real servers have several workers, connection pools and garbage-collection pauses. Use it to predict the shape and to sanity-check measurements, not as a capacity plan.
 - **Percentiles don't average.** The p99 of two servers isn't the average of their p99s. Combine the raw measurements, or histograms, and compute the percentile from those.
@@ -375,6 +389,7 @@ test("why adding machines stops helping, and can make things worse", () => {
 - **The scaling laws need measurements.** Fit $\alpha$ and $\beta$ from load tests at several machine counts before believing a predicted peak.
 
 ## Before moving on
+<!-- bite: cf57f5f3-5d0e-4975-a3aa-c577d59945d3 -->
 
 You can tell a performance problem from a scalability problem, read a latency distribution by its percentiles, predict how utilisation drives waiting, find the bottleneck, and explain why scaling out has a ceiling.
 
@@ -383,6 +398,7 @@ You can tell a performance problem from a scalability problem, read a latency di
 **Next.** [[architecture/02-building-blocks/02-caching/index|Caching]] and [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancing]] in week 2: the first two moves in the scaling toolkit, and where they put new bottlenecks.
 
 ## Related
+<!-- bite: a0da63d4-fc9e-4c2b-abb8-4ec7a563279d -->
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|How to approach system design]] — where finding bottlenecks fits in a design
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability & Reliability]] — horizontal scaling also buys fault tolerance
 - [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience patterns]] — Little's law, and what to do when a dependency is the bottleneck

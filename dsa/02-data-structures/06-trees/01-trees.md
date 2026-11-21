@@ -1,8 +1,13 @@
+---
+id: 2f6e925f-ca3a-4bf6-ae8f-631fbce165b8
+---
+
 # Module: Trees (Hierarchy, and the Shapes It Comes In)
 
 **[Intermediate]** — what a tree is, the many kinds there are, and why this course concentrates on one of them.
 
 ## Before you start
+<!-- bite: 9ea484fc-0c4e-42a4-8538-6e580f862509 -->
 
 - You know what a [[04-linked-lists|linked list]] is, and that following a pointer is how you move between nodes.
 - You know what [[09-graphs/index|a graph]] is, or you can read this first and meet graphs later — a tree is a special kind of graph, and [[09-graphs/03-subgraphs-trees-and-forests|the graphs folder]] proves the connection.
@@ -19,6 +24,7 @@
 ---
 
 ## Why do we need trees?
+<!-- bite: dc9704d8-6e5c-4ae5-8e83-244611e9c57d -->
 
 Before diving into formal computer science definitions, let's understand why linear data structures (Arrays and Linked Lists) are not always enough.
 
@@ -46,6 +52,7 @@ You interact with trees every single day when using software:
 ---
 
 ## What is a tree?
+<!-- bite: f67de38a-3610-4328-84b7-8757e3d1cb21 -->
 
 In computer science, a **Tree** is a collection of nodes connected by edges, organized in a parent-child hierarchy with **no loops or cycles**.
 
@@ -93,6 +100,7 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
 13. **Level**: This is how far down a node sits. The root is at level 0, its children at level 1, and so on.
 
 ## Height versus depth — the classic off-by-one trap
+<!-- bite: e29ed4fe-e272-4468-9df9-a636b7306bd1 -->
 
 Two measurements describe the position of nodes inside a tree: **Depth** and **Height**. Computer science students often confuse them:
 
@@ -118,6 +126,7 @@ Level 2 ------------> (D) (E)  (F)      Depth of D = 2, Height of D = 0
 ---
 
 ## The formal definition, and why trees are recursive
+<!-- bite: 20792571-5387-4248-a9f0-5876ddd60f03 -->
 
 Formally, a tree with $n$ nodes is a connected, acyclic graph with exactly **$n - 1$ edges**.
 
@@ -131,6 +140,7 @@ This is why almost every tree algorithm (traversals, searches, insertions) is wr
 ---
 
 ## The kinds of tree
+<!-- bite: 5c3e27b4-8fde-40b7-b184-12a070bd0246 -->
 
 "Tree" is a shape, not a single structure. Many different things are trees, built for very different jobs. Here are the ones worth knowing by name.
 
@@ -175,6 +185,7 @@ This is why almost every tree algorithm (traversals, searches, insertions) is wr
 Heaps and tries have their own lessons here because they are used constantly in practice. B-trees and B+ trees appear in [[databases/index|databases]], where the reason for their shape — minimising disk reads — actually makes sense. Segment trees, Fenwick trees, suffix trees and k-d trees are specialist tools, worth knowing exist so that you recognise the problem shape when you meet it.
 
 ## Before moving on
+<!-- bite: 6515b723-c56b-4bfc-97a6-0c08aeff9b08 -->
 
 You can define a tree, use the vocabulary without hesitating, tell height from depth, and name the main kinds of tree and what each is for.
 
@@ -183,6 +194,7 @@ You can define a tree, use the vocabulary without hesitating, tell height from d
 **Next:** [[02-binary-trees|Binary Trees]] — at most two children, and the five shapes worth naming.
 
 ## Related
+<!-- bite: 221edda2-d6bb-4e5d-8690-b119a55a9dd4 -->
 
 - [[index|the trees folder]] — the rest of this course
 - [[02-binary-trees|Binary Trees]] — the next lesson, and where this course goes

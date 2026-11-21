@@ -1,8 +1,13 @@
+---
+id: 8ac17891-c338-4849-965a-5f8f46094ca3
+---
+
 # Bytecode and Virtual Machines
 
 **[Intermediate → Advanced]** — The realistic target for a language you build yourself: 10× faster than a tree-walker, a fraction of the work of native code generation.
 
 ## Why bytecode
+<!-- bite: f398913c-6351-47d0-929e-01f479273f99 -->
 
 A tree-walking interpreter is **10–100× slower than native**, and the reasons are structural:
 
@@ -15,6 +20,7 @@ Bytecode fixes all three: a **flat array of instructions** (cache-friendly, sequ
 Typical result: **3–10× slower than native** instead of 10–100×. That's the difference between "a toy" and "usable".
 
 ## Stack vs register
+<!-- bite: 6222610a-9f4f-4b74-b293-a79764924284 -->
 
 The first design decision.
 
@@ -67,6 +73,7 @@ fn compile_expr(&mut self, e: &Expr) {
 That's the whole compiler for expressions. **Start with a stack machine.**
 
 ## The instruction set
+<!-- bite: fca7f9ad-9f4e-4fc8-9957-4bd9d7e538f7 -->
 
 ```rust
 enum OpCode {
@@ -100,6 +107,7 @@ enum OpCode {
 Real designs to look at: **JVM** (~200 opcodes, typed — `iadd`, `fadd`, `aload`), **CPython** (~120, and it changes every version), **WebAssembly** (stack-based, statically validated, structured control flow — no arbitrary jumps).
 
 ## Patching jumps
+<!-- bite: 017f47e9-c400-4776-9ab2-9cd23446cebf -->
 
 You emit a jump before knowing its target. The standard fix:
 
@@ -129,6 +137,7 @@ self.patch_jump(else_jump);
 Backpatching is the same technique assemblers use for forward references.
 
 ## The interpreter loop
+<!-- bite: 7cc0ab9a-1615-4d1e-b0e9-4e01ed8cff1b -->
 
 ```rust
 fn run(&mut self) -> Result<Value, RuntimeError> {
@@ -178,6 +187,7 @@ Because each opcode ends with a distinct branch site, the CPU can learn the comm
 Beyond that: **direct threading** (store label addresses instead of opcodes, skipping the table lookup) and **superinstructions** (fuse common pairs — `GET_LOCAL`+`GET_LOCAL`+`ADD` becomes one opcode), which cut dispatch count directly.
 
 ## Value representation
+<!-- bite: 5a975e9f-f5ef-4ee9-852b-8b95306ffcbb -->
 
 How do you store an integer, a float, a string and an object in one slot?
 
@@ -202,6 +212,7 @@ Halves memory use and doubles cache density. Used by LuaJIT, JavaScriptCore, Spi
 **Pointer tagging** — use the low bits of an aligned pointer (always zero) as a tag. V8 uses this for small integers ("Smis"), which is why integer arithmetic in JavaScript is fast despite the language having only doubles.
 
 ## Call frames
+<!-- bite: 99dc7fa5-d689-4ec2-89d4-b18860f3ad92 -->
 
 ```rust
 struct CallFrame {
@@ -225,6 +236,7 @@ if self.frames.len() >= MAX_FRAMES { return Err(RuntimeError::StackOverflow); }
 ```
 
 ## Closures
+<!-- bite: 3ad5f86e-46c3-465a-8bd5-9166c45873a3 -->
 
 The interesting case, and where a naive design breaks:
 
@@ -242,6 +254,7 @@ While the enclosing function is alive, an upvalue **points at the stack slot**, 
 That two-state design is Lua's, and it's why the common case (an uncaptured local) stays a plain stack slot with no indirection. → [[compilers/04-asts-and-semantic-analysis|closures and upvalues]]
 
 ## Making it faster
+<!-- bite: a07f65be-7614-48f7-b9a0-b042f3682ff0 -->
 
 In rough order of payoff:
 
@@ -256,6 +269,7 @@ In rough order of payoff:
 **Inline caching deserves emphasis.** In a dynamic language `obj.field` requires a hash lookup every time. Caching "last time at this site, the object had shape X and the field was at offset 3" turns it into a shape check plus an indexed load. V8's hidden classes are exactly this.
 
 ## What to build
+<!-- bite: cf836cf8-a5c6-409a-b086-68e25333dec6 -->
 
 For [[BUILD-PLAN|build-your-own-language]]:
 
@@ -270,6 +284,7 @@ For [[BUILD-PLAN|build-your-own-language]]:
 ---
 
 ## Related
+<!-- bite: 72989a42-dec2-43cd-a187-94bd52d13a6b -->
 - [[compilers/11-garbage-collection|Garbage Collection]] — what a VM with objects needs next
 - [[compilers/12-jit-compilation|JIT Compilation]] — where VMs go for speed
 - [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — slot resolution and upvalues

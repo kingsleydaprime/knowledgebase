@@ -1,8 +1,13 @@
+---
+id: 5b5c03e1-98ca-4e78-9148-242cfee7158e
+---
+
 # Source Coding and Compression
 
 **[Intermediate]** — Entropy as a hard floor, why Huffman isn't optimal, and how modern compressors actually work.
 
 ## Shannon's source coding theorem
+<!-- bite: 4ca3aefb-d437-47de-af52-b3c176a6ebbe -->
 
 > **The average code length of any uniquely decodable code satisfies**
 > $$L \geq H(X)$$
@@ -19,6 +24,7 @@
 **Compression is prediction.** To achieve entropy you need the true distribution. **A better model of the source gives better compression** — and this equivalence turns out to run very deep. → [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy]]
 
 ## Prefix codes
+<!-- bite: e509e67b-df3b-4190-b948-67f813e99685 -->
 
 **A code where no codeword is a prefix of another.** Then a stream decodes unambiguously without delimiters.
 
@@ -42,6 +48,7 @@ $$\ell_i = -\log_2 p_i$$
 > **The optimal codeword length for a symbol is its self-information.** That's not a coincidence — **it's why entropy is the answer.** A symbol occurring 1 time in 8 deserves 3 bits.
 
 ## Huffman coding
+<!-- bite: c5789df1-e35a-435c-8780-2a05e66b3d9f -->
 
 **Optimal among codes that assign whole numbers of bits per symbol.**
 
@@ -62,6 +69,7 @@ The tree gives the codes.
 **Blocking symbols together helps** (encode pairs or triples) but the alphabet grows exponentially.
 
 ## Arithmetic and range coding
+<!-- bite: d044c992-42a2-47b1-b19c-b22d4295868d -->
 
 **The fix: don't assign codewords to symbols. Encode the whole message as a single number.**
 
@@ -85,6 +93,7 @@ The tree gives the codes.
 **ANS (asymmetric numeral systems)** — Jarosław Duda, 2009 — **achieves arithmetic-coding compression at Huffman-like speed.** It's the reason modern compressors got both better *and* faster: **Zstandard, LZFSE, and JPEG XL all use it.** A genuinely significant recent development in a field that had been stable for decades.
 
 ## Modelling beats coding
+<!-- bite: 04d48518-b149-42b0-be8c-e06a8bd81a3b -->
 
 **The entropy coder is the easy part.** The compression ratio is set by the *model*.
 
@@ -111,6 +120,7 @@ The tree gives the codes.
 **The Burrows–Wheeler transform** deserves a mention: it reversibly permutes the input so that similar contexts cluster, making the result far more compressible. **Reversible without storing the permutation**, which is the clever part, and it's the basis of bzip2 and of the FM-index used in genomics.
 
 ## Lossy compression
+<!-- bite: 8ad228dd-bb29-4673-9ea0-f2dd1d8a04fa -->
 
 **Discard information deliberately. A completely different game** — entropy no longer bounds you, because you're not reproducing the input.
 
@@ -135,6 +145,7 @@ The tree gives the codes.
 **Neural compression** is the active frontier — learned transforms and entropy models beating hand-designed codecs on rate–distortion, at much higher computational cost.
 
 ## Kolmogorov complexity
+<!-- bite: 9171fbf6-2bc5-47fc-a4ce-a2ed55f69a69 -->
 
 **The theoretical limit for a single object**, and worth knowing because it clarifies what entropy is not.
 
@@ -151,6 +162,7 @@ $$K(x) = \text{length of the shortest program that outputs } x$$
 **Normalised compression distance** turns this into a usable similarity metric: $\text{NCD}(x,y)$ based on how much better $xy$ compresses than $x$ and $y$ separately. **Used for plagiarism detection, malware clustering, and phylogenetics** — a genuinely surprising application of `gzip`.
 
 ## Practical notes
+<!-- bite: f5c3ef43-7402-4501-8d33-d708299a0374 -->
 
 **Don't compress what's already compressed.** Wasted CPU, and it can grow the file.
 
@@ -169,6 +181,7 @@ $$K(x) = \text{length of the shortest program that outputs } x$$
 ---
 
 ## Related
+<!-- bite: 5f610bde-562b-44ee-a877-2f8c4b3e06cb -->
 - [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — compression as prediction, made precise
 - [[information-theory/01-what-information-is|What Information Is]] — where the entropy floor comes from
 - [[theory-of-computation/06-decidability|Decidability]] — why $K$ is uncomputable

@@ -1,14 +1,20 @@
+---
+id: 8319f0be-2752-4d28-90a1-58959ba63a0d
+---
+
 # Your Privacy Footprint
 
 **[Beginner]** — what's already public about you, why it's a security problem rather than just a privacy one, and what's worth doing.
 
 ## The kid version first
+<!-- bite: ead63431-112e-4c19-a27c-09d2df61ac8b -->
 
 Privacy and security sound like different topics. They're connected by one mechanism: **the things people know about you are the raw material for convincing you they're legitimate.**
 
 Your birthday, your first school, your mother's maiden name, your pet, your employer, your street — those aren't just personal details. **They're the answers to security questions, and the ingredients of a phone call that sounds like it's really from your bank.**
 
 ## Where your data already is
+<!-- bite: b3fc12fc-41e9-42ab-acc6-be8be10a27f2 -->
 
 Be realistic — some of it is out and won't come back:
 
@@ -19,6 +25,7 @@ Be realistic — some of it is out and won't come back:
 - **Your phone's apps.** Location and usage data sold onward through advertising networks
 
 ## The security consequence
+<!-- bite: 3e7bd242-7d88-43d1-8d57-2799a7f54c9c -->
 
 ```
 attacker reads your Facebook
@@ -32,6 +39,7 @@ Or the softer version: a call that opens with your full name, address and last f
 **So the practical fix isn't hiding your life. It's severing the link between public facts and account access.**
 
 ## The highest-value habits
+<!-- bite: bf214207-c34e-4127-a167-886efbcde84c -->
 
 **1. Lie on security questions.**
 Random strings, stored in your password manager. Your mother's maiden name is discoverable; `vault-orbit-clement-99` is not. **Five minutes per account, and it removes an entire attack path** → [[cybersecurity/10-protecting-yourself/02-passwords-and-the-manager|passwords]].
@@ -52,6 +60,7 @@ The forum from 2011 has your details and no security team. **Delete accounts you
 Both phone platforms show which apps have location, contacts, microphone and camera. **Revoke generously** — you can always re-grant.
 
 ## What's worth it, and what isn't
+<!-- bite: c760693b-02fa-4db4-8bea-249806d7a5a4 -->
 
 **Worth doing:**
 - **A privacy-respecting browser setup.** Firefox or Safari, plus **uBlock Origin**. Ad networks are a genuine malware vector ("malvertising"), so **this is a security measure, not just a privacy one**
@@ -67,6 +76,7 @@ Both phone platforms show which apps have location, contacts, microphone and cam
 - **A VPN for privacy from advertisers.** Tracking is by cookies and fingerprinting, not IP → [[cybersecurity/10-protecting-yourself/05-your-devices-and-networks|VPNs, honestly]]
 
 ## What not to post
+<!-- bite: 1fcbbafc-3ad4-43f5-b3e6-1ea74e637e9a -->
 
 Not paranoia — these specific things get used:
 
@@ -81,10 +91,12 @@ Not paranoia — these specific things get used:
 **And an easy one people miss:** those social quizzes — *"your stripper name is your first pet and the street you grew up on"* — are collecting security-question answers, whether by design or by accident.
 
 ## Key insight
+<!-- bite: 41c8e9cd-2821-4d06-9ff9-375e9e4baf94 -->
 
 **Your privacy footprint is your attacker's research budget.** Every public fact makes the next phone call more convincing and the next security question easier to answer. You can't retract what's already out — but you can make it *useless* by ensuring no account access depends on facts a stranger could look up.
 
 ## Related
+<!-- bite: 8cd3a624-6981-4661-9625-8c5448265c83 -->
 - [[cybersecurity/10-protecting-yourself/04-phishing-and-scams|phishing and scams]] — where this data gets used
 - [[cybersecurity/10-protecting-yourself/02-passwords-and-the-manager|passwords]] — the security-question fix
 - [[using-ai/07-privacy-and-what-not-to-share|privacy and AI]] — the same discipline, for chatbots

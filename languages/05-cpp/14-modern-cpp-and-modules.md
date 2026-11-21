@@ -1,8 +1,13 @@
+---
+id: bf49a605-6213-4988-927f-963ebbeac949
+---
+
 # Modern C++ and Modules
 
 **[Intermediate]** — What actually changed between 1998 and 2023, which subset to write, and why headers are still everywhere despite modules existing since 2020.
 
 ## The dividing line
+<!-- bite: 9ae2e083-596e-45d7-a8cd-2687ec42d3ed -->
 
 **C++11 is where the language changed.** Code before and after it look different enough to be separate languages, and "modern C++" means C++11 or later.
 
@@ -27,6 +32,7 @@ for (const auto &w : widgets) { w->process(); }
 Shorter, and it's also exception-safe, leak-free, and const-correct — which the first version isn't.
 
 ## What each standard added
+<!-- bite: 74f63446-ef96-473e-aba5-aa49311d49c4 -->
 
 ### C++11 — the big one
 
@@ -97,6 +103,7 @@ constinit int x = f();                              // guaranteed compile-time i
 `std::expected<T, E>` ([[languages/05-cpp/11-exceptions-and-error-handling|Result-style errors]]), `std::print` (finally, no `<<`), `std::generator`, deducing `this`, `std::mdspan`, ranges `to<>`.
 
 ## The subset to write
+<!-- bite: c5004cd3-3472-422f-af72-a5eb1022b831 -->
 
 Given a language this large, the useful question isn't "what exists" but "what should I write". The consensus:
 
@@ -124,6 +131,7 @@ Given a language this large, the useful question isn't "what exists" but "what s
 That list is essentially what the [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/) say, and `clang-tidy`'s `cppcoreguidelines-*` and `modernize-*` checks enforce a good chunk of it automatically. → [[languages/05-cpp/15-build-tooling-and-ecosystem|Build Tooling]]
 
 ## Modules
+<!-- bite: 1de33859-85c9-41b6-ad99-b7e6785a1e16 -->
 
 Standardised in C++20, and the intended replacement for [[languages/04-c/02-headers-and-the-translation-unit|headers]].
 
@@ -159,6 +167,7 @@ import std;                     // C++23 — the whole standard library, one imp
 ```
 
 ## So why is everyone still using headers?
+<!-- bite: e61cf7ed-890b-48c5-8464-b4c918b48a8f -->
 
 Honestly:
 
@@ -179,6 +188,7 @@ import <vector>;             // a header unit — compiled once, still a header 
 ```
 
 ## Deprecated and removed
+<!-- bite: 476f81f5-f401-47d7-b8b4-535e61a972ee -->
 
 Worth knowing when reading old code:
 
@@ -189,6 +199,7 @@ Worth knowing when reading old code:
 - **`std::rand`** — still there; use `<random>` for anything real, and a CSPRNG for anything security-relevant
 
 ## Practical rules
+<!-- bite: 68ddb8bb-ade3-4fc8-8249-9effc7f99012 -->
 
 1. **Target C++17 as a floor**, C++20 where the toolchain allows.
 2. **Write the modern subset.** The language won't stop you writing 1998 C++.
@@ -199,6 +210,7 @@ Worth knowing when reading old code:
 ---
 
 ## Related
+<!-- bite: 882f72ff-92c7-442c-8322-401c27a624b6 -->
 - [[languages/05-cpp/01-why-cpp-and-what-it-added|Why C++]] — the "several languages in one" problem
 - [[languages/05-cpp/15-build-tooling-and-ecosystem|Build Tooling and Ecosystem]] — enforcing the subset
 - [[languages/04-c/02-headers-and-the-translation-unit|C: Headers]] — what modules replace

@@ -1,8 +1,13 @@
+---
+id: 2398a968-48d1-42eb-89ab-0bceec43eab7
+---
+
 # Textures and Sampling
 
 **[Intermediate]** — UV mapping, filtering, mipmaps, and why aliasing is a signal-processing problem rather than a graphics one.
 
 ## Texture mapping
+<!-- bite: 28db6938-b739-4be8-8ee4-f46a4148b99d -->
 
 **A texture is an image sampled across a surface**, indexed by **UV coordinates** stored per vertex and interpolated across the triangle.
 
@@ -13,6 +18,7 @@
 **Textures carry far more than colour now:** albedo, normal, roughness, metallic, ambient occlusion, height, emissive. **A "texture" is any per-surface data lookup.**
 
 ## Sampling and aliasing
+<!-- bite: 964dfdce-e5b2-49a3-83bb-589c94eccbad -->
 
 > **The central problem: a pixel covers an *area* of texture, not a point.** Sampling one texel per pixel is point-sampling a continuous signal, and that aliases.
 
@@ -35,6 +41,7 @@
 **Anisotropic** — multiple samples along the direction of compression.
 
 ## Mipmaps
+<!-- bite: 72e7fcee-864e-456f-9ab2-9543ae21a38f -->
 
 **The solution to minification, and one of the most effective ideas in graphics.**
 
@@ -65,6 +72,7 @@
 > **This is why "16× anisotropic filtering" makes ground textures look dramatically better in games**, at very little cost on modern hardware. **It's usually the highest quality-per-performance setting available**, and it should essentially always be on.
 
 ## Compression
+<!-- bite: 4949c87e-bc6a-4d0f-b221-35eb7afdd28b -->
 
 **Textures dominate memory in real applications.**
 
@@ -86,6 +94,7 @@
 **Supercompression** (Basis Universal, KTX2) compresses further for *transmission*, then transcodes to the target's native block format at load. **Standard for the web and cross-platform assets.**
 
 ## Texture memory and streaming
+<!-- bite: cf231890-e179-4111-b8f4-68c178b446a9 -->
 
 **A modern game has far more texture data than VRAM.**
 
@@ -98,6 +107,7 @@
 **Bindless textures** — index into a large table rather than binding slots. **Removes a major source of draw-call overhead**, and it's how modern GPU-driven renderers work.
 
 ## Procedural texturing
+<!-- bite: 5dd19d63-af60-453f-a3d9-6b47c08a68aa -->
 
 **Generate rather than store.**
 
@@ -116,6 +126,7 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 **Signed distance fields** deserve a mention: store distance-to-surface instead of coverage. **Scales to any size with sharp edges** — which is why they're the standard for text rendering in games (Valve's 2007 paper), and they enable cheap outlines and glows.
 
 ## Sampling beyond textures
+<!-- bite: 22cfb5ef-20b1-4302-ba5e-90de254c2cdb -->
 
 **The same theory applies throughout rendering**, which is the reason this note connects outward:
 
@@ -132,6 +143,7 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 > **Substituting blue noise for white noise in a dither pattern or a sampling sequence is often a free quality improvement** — the same total error, distributed where it's less visible.
 
 ## Practical notes
+<!-- bite: 93c7b1b5-cbaa-4d3e-a81c-72dceeeb0c18 -->
 
 **Always generate mipmaps** unless the texture is a data lookup or UI element.
 
@@ -150,6 +162,7 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 ---
 
 ## Related
+<!-- bite: 2d9ae25f-0428-4b86-bf12-30bc1ad7ba10 -->
 - [[computer-graphics/11-shading-and-lighting|Shading and Lighting]] — what the textures feed
 - [[computer-graphics/10-rasterisation|Rasterisation]] — antialiasing, the same sampling problem
 - [[information-theory/01-what-information-is|Information Theory]] — sampling and band-limiting

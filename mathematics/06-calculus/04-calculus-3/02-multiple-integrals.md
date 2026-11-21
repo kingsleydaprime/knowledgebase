@@ -1,8 +1,13 @@
+---
+id: 45fe0cab-bf61-4167-aaa5-2c5625d76674
+---
+
 # Multiple Integrals
 
 **[Intermediate → Advanced]** — Accumulating over a region rather than an interval, and why changing the order of integration is sometimes the whole solution.
 
 ## Before you start
+<!-- bite: fca3f8b5-b833-4093-8149-dd9d80fa0894 -->
 
 - You can evaluate definite integrals — [[01-integration-by-parts|integration]].
 - You understand partial derivatives — [[01-partial-derivatives|partial derivatives]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. From intervals to regions
+<!-- bite: e350b554-0e07-4ebd-b063-2a62e5fea213 -->
 
 **A single integral accumulates along a line:** $\int_a^b f(x)\,dx$ adds up strips of width $dx$.
 
@@ -27,6 +33,7 @@ $$\iint_R f(x,y)\,dA$$
 **One slice is now a tiny rectangle** of area $dA = dx\,dy$, and $f(x,y)$ is its height — so the whole thing is a volume under a surface, just as the single integral was an area under a curve.
 
 ## 2. Iterated integration
+<!-- bite: e0cef87d-33f5-4975-86d4-7b55d911a510 -->
 
 **You never evaluate a double integral directly. You do two ordinary integrals, one inside the other.**
 
@@ -41,6 +48,7 @@ $$\int_0^3\int_0^2 xy\,dx\,dy = \int_0^3\left[\frac{x^2y}{2}\right]_0^2 dy = \in
 **Over a rectangle with fixed limits, the order does not matter** — Fubini's theorem. Over anything else, it can matter a great deal.
 
 ## 3. Non-rectangular regions
+<!-- bite: fcc29a9e-74be-4644-9bfa-9a08cebf0f7b -->
 
 **When the region is bounded by curves, the inner limits become functions.**
 
@@ -58,6 +66,7 @@ $$\int_0^2\int_0^{x^2} f(x,y)\,dy\,dx$$
 > Sketch it, decide whether to slice vertically or horizontally, and read the limits off the picture.
 
 ## 4. Changing the order
+<!-- bite: 21a46067-807e-4f1c-ae53-9c1d20e5a6d0 -->
 
 **Sometimes reversing the order turns an impossible integral into an easy one.**
 
@@ -78,6 +87,7 @@ $$= \frac12\left[e^{y^2}\right]_0^1 = \frac{e-1}{2}$$
 **The integral was always solvable — the first ordering just hid it.** That extra factor of $y$, which appeared from integrating $dx$ over $[0,y]$, is exactly what the substitution needed.
 
 ## 5. Polar coordinates
+<!-- bite: 2ef1e51c-6d7d-4f8d-89f8-ebd23b77d7bb -->
 
 **Circular regions are painful in $x$ and $y$** — the limits involve $\sqrt{1-x^2}$ and similar.
 
@@ -112,6 +122,7 @@ $$\left(\int_{-\infty}^{\infty}e^{-x^2}dx\right)^2 = \iint e^{-(x^2+y^2)}dA = \i
 so the original integral is $\sqrt\pi$. **The $r$ from the Jacobian is precisely what makes the substitution work** — this is the classic demonstration that the factor is real.
 
 ## 6. Practice — problems
+<!-- bite: 0c725ad0-9fa2-4470-b8af-c350f3ee8973 -->
 
 1. Evaluate $\int_0^2\int_0^1 (x+y)\,dy\,dx$.
 2. Evaluate $\int_0^1\int_0^{x} xy\,dy\,dx$. Sketch the region first.
@@ -131,6 +142,7 @@ so the original integral is $\sqrt\pi$. **The $r$ from the Jacobian is precisely
 </details>
 
 ## Before moving on
+<!-- bite: a8462b73-53bb-43a4-944b-37ccadb9a4f5 -->
 
 - [ ] Evaluate a double integral as two nested ordinary integrals.
 - [ ] Set up limits for a non-rectangular region, keeping the outer limits constant.
@@ -142,5 +154,6 @@ so the original integral is $\sqrt\pi$. **The $r$ from the Jacobian is precisely
 **Next:** [[03-optimization|Optimisation]] — finding extrema of a function of several variables, with and without constraints.
 
 ## Related
+<!-- bite: 6d0a1649-b2a4-451b-a89a-d0d79f355bca -->
 
 - [[01-partial-derivatives|Partial derivatives]] · [[01-integration-by-parts|Integration]]

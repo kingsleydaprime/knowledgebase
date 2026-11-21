@@ -1,8 +1,13 @@
+---
+id: fdabb3e5-7036-46b7-b807-43e915975248
+---
+
 # Your Devices and Networks
 
 **[Beginner]** — the settings that matter, and an honest answer about VPNs.
 
 ## The kid version first
+<!-- bite: 8a407380-328e-4963-a935-1da65b3e931f -->
 
 Two questions cover almost everything:
 
@@ -12,6 +17,7 @@ Two questions cover almost everything:
 Encryption answers the first. Updates answer the second. **Together they're most of device security**, and both are one-time settings.
 
 ## Updates — the highest-value click in this folder
+<!-- bite: a539f015-dc1e-4c24-a4ca-3f1e21b31fc0 -->
 
 **Turn on automatic updates for your operating system, browser and phone. Today.**
 
@@ -23,6 +29,7 @@ Almost all malware that reaches ordinary people exploits a hole that was **patch
 - **Anything old and unsupported** — a phone past its update window, Windows past end-of-life — is permanently vulnerable. **That's an upgrade decision, not a settings one**
 
 ## Encryption — so theft is only a hardware loss
+<!-- bite: 834bc598-eb86-4494-8807-eeea61143af6 -->
 
 **Full-disk encryption means a stolen device is a lost object, not a data breach.**
 
@@ -37,6 +44,7 @@ Almost all malware that reaches ordinary people exploits a hole that was **patch
 **Save the recovery key somewhere that isn't the encrypted device.** Password manager, or printed with your documents.
 
 ## Locking
+<!-- bite: 9705ea0e-a321-49c4-84c2-64306e7cf6f6 -->
 
 - **A PIN of 6+ digits**, not 4. Biometrics for convenience, but the PIN is the real secret
 - **Short auto-lock** — a minute or two
@@ -46,6 +54,7 @@ Almost all malware that reaches ordinary people exploits a hole that was **patch
 **One legal note worth knowing:** in several jurisdictions, courts have treated compelling a fingerprint differently from compelling a passcode. **If that matters to you, know that your phone's power-button-hold or restart forces passcode-only mode.**
 
 ## Software you install
+<!-- bite: 04064ec8-e2b2-4fa4-ba8b-1b8c53c8a80a -->
 
 **Most compromise arrives as something the user installed.**
 
@@ -60,6 +69,7 @@ Almost all malware that reaches ordinary people exploits a hole that was **patch
 **Phone apps:** stick to the official stores. **Review permissions** — a torch app wanting contacts and location is telling you what it's for. Both platforms let you grant location "only while using".
 
 ## Wi-Fi, and what's actually risky
+<!-- bite: ef01960b-ad79-4cff-af26-c0bdf2f76a36 -->
 
 **Your home network:**
 - **Change the router's admin password.** The default is printed in the manual and on the internet
@@ -76,6 +86,7 @@ Almost all malware that reaches ordinary people exploits a hole that was **patch
 **Your phone's hotspot is better than public Wi-Fi**, and simpler than any of the above.
 
 ## VPNs — an honest answer
+<!-- bite: 976a6a4f-d7cc-4e93-9053-d74de263a6a3 -->
 
 VPNs are the most oversold product in consumer security. **YouTube sponsorships have convinced people they're a general safety tool. They aren't.**
 
@@ -99,10 +110,12 @@ VPNs are the most oversold product in consumer security. **YouTube sponsorships 
 **For most people, most of the time: a VPN is not one of the six things** → [[cybersecurity/10-protecting-yourself/01-your-actual-threat-model|threat model]].
 
 ## Key insight
+<!-- bite: 98bddfc8-5010-489e-a1c7-bbb0ae1824bc -->
 
 **Two settings — automatic updates and full-disk encryption — do more for your device security than every product you could buy.** Both are free, both are one-time, and both are already built into what you own. Almost everything sold as "security software" is competing for attention with steps that outperform it.
 
 ## Related
+<!-- bite: b2a58b70-542a-46d4-beab-6e44737b836d -->
 - [[cybersecurity/10-protecting-yourself/06-backups-and-your-data|backups]] — what saves you when a device is lost or ransomed
 - [[cybersecurity/10-protecting-yourself/04-phishing-and-scams|phishing]] — how malware usually arrives
 - [[cybersecurity/03-network-security/index|network security]] — the professional treatment

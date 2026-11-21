@@ -1,8 +1,13 @@
+---
+id: 1344b2b0-1aaa-4798-9b39-11301699403c
+---
+
 # Generics
 
 **Source:** **[reference — barely exercised]** — the projects used generic *collections* (`List<Transaction>`, `Map<String, SubscriptionRecord>`, `ConcurrentHashMap.newKeySet()`) constantly but never *authored* a generic type or method. This file covers the topic properly because it's fundamental and interview-critical; the collection usages are real, the authored-generics examples are illustrative.
 
 ## The problem generics solve
+<!-- bite: bd915c26-0e9e-49d9-b740-6d857f2402a7 -->
 
 Before generics (Java 5), collections held `Object`, so everything came out untyped and needed casting — and a wrong cast blew up at runtime, not compile time:
 
@@ -21,6 +26,7 @@ String s = list.get(0);                   // no cast; list.add(42) won't compile
 ```
 
 ## Generic classes and methods
+<!-- bite: da9c1432-9d0c-4e28-a2ef-153596333780 -->
 
 A **type parameter** (`<T>`) lets a class or method work over any type while staying type-safe. This is the whole reason one `ArrayList` implementation serves every element type:
 
@@ -58,6 +64,7 @@ Pair<String, Double> product = new Pair<>("Apple", 0.50);   // T=String, U=Doubl
 Convention: `T` (type), `E` (element), `K`/`V` (key/value), `R` (result), and `U`/`S` for a second/third type after `T`.
 
 ## Bounded type parameters
+<!-- bite: 26b41be9-4d5d-43c2-9bcd-f65e73b5e583 -->
 
 `<T extends SomeType>` constrains `T` to a subtype, which unlocks that type's methods inside the generic code. `extends` here means "is a subtype of," and works for both classes and interfaces:
 
@@ -72,6 +79,7 @@ public static <T extends Comparable<T>> T max(List<T> items) {
 Without the bound, `T` is effectively `Object` and you couldn't call `compareTo`.
 
 ## Wildcards — `? extends` vs `? super`
+<!-- bite: 5e0e82b2-9dbd-4467-852e-b24ebc12edff -->
 
 Wildcards appear in method *parameters* to accept a family of parameterizations. The guiding rule is **PECS — Producer `extends`, Consumer `super`**:
 
@@ -94,6 +102,7 @@ void addInts(List<? super Integer> sink) {          // accepts List<Integer>, Li
 Why the asymmetry: with `? extends Number` you know every element *is at least* a `Number` (safe to read as `Number`) but not the exact subtype (unsafe to add). With `? super Integer` you know the list *accepts at least* `Integer` (safe to add) but reading yields only `Object`. An **unbounded** `<?>` means "some unknown type" — read-only as `Object`, useful when the type genuinely doesn't matter (`List<?> anything`).
 
 ## Type erasure — what generics are *not*
+<!-- bite: 416876f6-5b3f-4733-9e1d-e957caa3d285 -->
 
 Generics are a **compile-time** feature. The compiler checks types, then **erases** them — at runtime `List<String>` and `List<Integer>` are both just `List`. This has hard consequences worth knowing:
 
@@ -111,10 +120,12 @@ T[] array = new T[10];                   // can't create a generic array
 Erasure is why generics add zero runtime cost (no specialized classes per type, unlike C++ templates) — but also why reflection can't recover the element type of a `List`, and why you occasionally pass a `Class<T>` token when a method genuinely needs the runtime type. It's the single most common "gotcha" source in Java generics, and a frequent interview question.
 
 ## Where this shows up in real code
+<!-- bite: 19f436a1-828a-470c-beed-4ff86dee64a8 -->
 
 Every collection is generic (`Map<String, SubscriptionRecord>`), every stream carries a type (`Stream<Transaction>`), and `Optional<T>`, `CompletableFuture<T>`, and `Comparable<T>` are all generic. You'll *read* generic signatures far more than you write them — the payoff of this file is being able to read `Map<String, ? extends List<Transaction>>` without flinching, and knowing why `list.add(x)` sometimes won't compile against a wildcard.
 
 ## Related
+<!-- bite: 98b1010d-9d77-473b-805e-eae35516bd30 -->
 - [[languages/01-java/01-language/04-collections|Collections]] — the generics you use constantly
 - [[languages/01-java/01-language/05-functional-programming|Functional Programming]] — `Function<T,R>`, `Predicate<T>`, and other generic functional interfaces
 - [[languages/01-java/01-language/02-oop|OOP]] — `Comparable<T>` and the type bounds it enables

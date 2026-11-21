@@ -1,8 +1,13 @@
+---
+id: 0b7bf6d2-fa86-41c3-ab5c-034cc57f42d9
+---
+
 # Pattern: Monotonic Stack
 
 **[Intermediate]** — A university-level introduction to the monotonic stack pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 6721dac7-7037-4c32-8d30-92c4438f2b5a -->
 
 - You should understand stacks. See [[05-stacks-and-queues|stacks and queues]] if needed.
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: a10cb267-49ea-40db-b733-a9e19afba5cd -->
 
 Imagine you're building a stock trading application and you need to know, for each stock price in a timeline, when the next higher price will occur. The naive approach is to check every future price for each current price: for each element, scan forward to find the first element that's larger. That's O(n²) — for 1,000 prices, that's 500,000 comparisons.
 
@@ -29,6 +35,7 @@ Codility's course material calls this the **"caterpillar method"** — same tech
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: 2c8fabb6-e0b7-4467-93de-2837d99ae28f -->
 
 | Term                     | Plain-English definition                                                                                             | Example / analogy                                                                     |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -40,6 +47,7 @@ Codility's course material calls this the **"caterpillar method"** — same tech
 ---
 
 ## 3. How it works — step by step
+<!-- bite: 83562773-6d5b-4481-b2e2-89372e4bb9ee -->
 
 Walk the array once. For each new element, pop everything off the stack that's smaller than it (those elements just found their "next greater element" — the current one) — then push the current element.
 
@@ -76,12 +84,14 @@ result = [4, 2, 4, -1, -1]
 ---
 
 ## 4. Why it's O(n) despite the nested while loop
+<!-- bite: bf4ef7d7-8626-4558-b3b4-28bedb4c8dc2 -->
 
 Every index gets pushed onto the stack exactly once and popped at most once across the _entire_ run — so the total number of push/pop operations is bounded by 2n, not n². Same amortized argument as [[02-dynamic-arrays|dynamic array resizing]]: the loop looks nested, but the total work across the whole run is linear.
 
 ---
 
 ## 5. Implementation — complete runnable example
+<!-- bite: b08fdd24-4a36-4b6d-8e82-0e5be72098e6 -->
 
 **Runnable example:** save as `monotonic_stack_lab.py` and run `python3 monotonic_stack_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -182,6 +192,7 @@ monotonic_stack_lab: passed
 ---
 
 ## 6. Related patterns and extensions
+<!-- bite: 15cff87e-5f89-4838-a0dc-fa9e69d79fd1 -->
 
 ### Monotonic queue (for sliding window maximum)
 
@@ -224,6 +235,7 @@ def previous_smaller_elements(nums):
 ---
 
 ## 7. Tradeoffs and limitations
+<!-- bite: 34760047-f7df-40b7-9bc7-4422642eaec3 -->
 
 - **Only works for "next greater/smaller" problems.** The pattern is specifically designed for finding the next element that satisfies a monotonic condition.
 - **Stack can grow large.** In the worst case (strictly increasing array), the stack contains all indices, using O(n) space.
@@ -232,6 +244,7 @@ def previous_smaller_elements(nums):
 ---
 
 ## 8. Check your understanding (self-assessment)
+<!-- bite: 33ff95e2-16d6-4a64-8908-3e0e5a26e31a -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -253,6 +266,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 9. Practice — independent task
+<!-- bite: 79e520b5-29f0-461d-9fa1-55624077e009 -->
 
 **Task:** Implement a function `daily_temperatures(temperatures)` that returns an array where each element is the number of days until a warmer temperature. Use the monotonic stack pattern. Test it with the following cases:
 
@@ -264,6 +278,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 064c7b15-55f2-419b-96a7-d76ba2426cd5 -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -282,6 +297,7 @@ Attempt these without the note, then compare your reasoning below.
 10. Next Greater Node In Linked List (#1019) — the same pattern with no random access.
 
 ## Before moving on
+<!-- bite: 6a4a439f-b16e-45c8-899e-96c6e89642f1 -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -295,6 +311,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[07-top-k-elements|top-k-elements]] — another structure that deliberately discards what cannot matter, this time a heap keeping only the k best.
 
 ## 10. Related
+<!-- bite: 80dc2559-8bfd-403e-ae00-6899c4aaa486 -->
 
 - [[01-growth-and-asymptotic-notation|algorithms]] — where the amortized analysis comes from
 - [[01-arrays|arrays]] — the underlying data structure
@@ -304,6 +321,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 11. Further reading
+<!-- bite: 965d7a24-9ae5-4c27-b3da-ac0cb6b0492c -->
 
 The pattern appears in many contexts beyond LeetCode:
 

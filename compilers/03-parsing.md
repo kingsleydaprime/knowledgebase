@@ -1,8 +1,13 @@
+---
+id: 64eefe0a-afbc-44c7-8df0-7f0f076dd3b0
+---
+
 # Parsing
 
 **[Intermediate]** — Tokens to a tree. Recursive descent for statements, Pratt for expressions, and why nobody uses parser generators any more.
 
 ## Grammars
+<!-- bite: b2e0e602-3119-4f4a-b438-584c415702fc -->
 
 A **context-free grammar** describes legal arrangements of tokens:
 
@@ -25,6 +30,7 @@ expr → expr "+" expr | NUMBER
 **Ambiguous** — `1 + 2 + 3` has two parse trees. And **left-recursive**: `expr` starts by calling `expr`, which infinitely recurses in a top-down parser. The layered form above fixes both.
 
 ## Recursive descent
+<!-- bite: fa630ba6-be00-49b1-9db7-1a3053479df1 -->
 
 One function per grammar rule. That's it.
 
@@ -74,6 +80,7 @@ fn parse_assign(&mut self) -> Expr {
 The limitation: **the grammar must not be left-recursive**, and one function per precedence level gets tedious when you have fifteen of them. Which is what Pratt parsing fixes.
 
 ## Pratt parsing
+<!-- bite: c88c7435-bbc0-4961-9220-ec05788ce515 -->
 
 For expressions, a precedence table beats a stack of nearly-identical functions.
 
@@ -121,6 +128,7 @@ fn infix_binding_power(op: TokenKind) -> (u8, u8) {
 Adding an operator is one table entry rather than a new function and a rewiring of two others. **Use recursive descent for statements and declarations, Pratt for expressions** — that combination is what most modern hand-written parsers do.
 
 ## LL, LR, and the generator era
+<!-- bite: ab66661f-29c6-41e3-b3bd-dce7f51247d7 -->
 
 The theory, which you should recognise without necessarily using:
 
@@ -152,6 +160,7 @@ Generators dominated for decades and lost. The reasons are worth knowing because
 **Use a generator when** the grammar is large, stable, and you don't own it — parsing SQL, or an existing language's syntax for tooling. `tree-sitter` in particular is excellent for editor integration because it's incremental and error-tolerant by design.
 
 ## Error recovery
+<!-- bite: e89105a9-5cd8-4e31-8c7f-f1af665ad92a -->
 
 Reporting one error per compile is a bad experience. Two techniques:
 
@@ -186,6 +195,7 @@ That's how the best error messages happen — someone anticipated the mistake.
 **Produce a partial AST with error nodes** rather than bailing out. Later phases can then run and report _their_ errors too, and it's essential for IDE features, where the code is almost always incomplete mid-keystroke.
 
 ## Ambiguity
+<!-- bite: d3d167e5-57c0-46d2-b570-944a67ef6645 -->
 
 **The dangling else:**
 
@@ -208,6 +218,7 @@ C++ resolves ambiguity toward declarations. → [[languages/05-cpp/03-classes-an
 The lesson for a language designer: **ambiguity you resolve by rule is ambiguity your users will get wrong.** Prefer a syntax where it can't arise.
 
 ## Practical advice
+<!-- bite: a2847598-d74d-434c-a0dd-4a0cf52790ef -->
 
 1. **Hand-written recursive descent + Pratt for expressions.** This is the answer for a new language
 2. **Spans on every node**, propagated from tokens
@@ -220,6 +231,7 @@ The lesson for a language designer: **ambiguity you resolve by rule is ambiguity
 ---
 
 ## Related
+<!-- bite: 9b49c998-843d-4fb2-a427-f343dac0af33 -->
 
 - [[compilers/02-lexical-analysis|Lexical Analysis]] — where the tokens come from
 - [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — the tree being built

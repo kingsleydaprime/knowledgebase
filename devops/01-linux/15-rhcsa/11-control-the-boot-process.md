@@ -1,3 +1,7 @@
+---
+id: 63666ae7-7eed-4c85-a8ab-8165b7368926
+---
+
 # Control the Boot Process
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. This is where "reset a los
 ---
 
 ## The boot sequence
+<!-- bite: 427c056a-c4ef-42bc-8166-88ba35a48a62 -->
 
 ```
 Firmware (BIOS/UEFI)  →  Bootloader (GRUB2)  →  Kernel + initramfs  →  systemd (PID 1)  →  target
@@ -22,6 +27,7 @@ Firmware (BIOS/UEFI)  →  Bootloader (GRUB2)  →  Kernel + initramfs  →  sys
 ---
 
 ## GRUB2
+<!-- bite: e6b1c52a-3c0e-42b6-8947-24755b78a7c4 -->
 
 ```bash
 /etc/default/grub              # human-edited settings — kernel command line defaults, timeout, etc.
@@ -44,6 +50,7 @@ At the GRUB menu (hold a key during boot, or it shows automatically if `GRUB_TIM
 ---
 
 ## systemd targets — the modern replacement for runlevels
+<!-- bite: c8aceadf-935e-4189-9de8-4ae430a94875 -->
 
 Old SysV init used numbered **runlevels**; systemd uses named **targets** that map onto them for compatibility:
 
@@ -66,6 +73,7 @@ systemctl isolate rescue.target        # switch to a DIFFERENT target RIGHT NOW,
 ---
 
 ## Rescue mode vs. emergency mode
+<!-- bite: 813a1497-6f03-4bb1-a2f0-5db7cccb02c8 -->
 
 Both are ways in when something's broken enough that a normal boot won't get you a working shell.
 
@@ -85,6 +93,7 @@ systemd.unit=emergency.target
 ---
 
 ## Repairing a broken fstab entry or a corrupted filesystem at boot
+<!-- bite: 5498fa77-9015-4c1f-b126-2425e2532d0a -->
 
 A bad `/etc/fstab` entry (wrong UUID, nonexistent mount point, a filesystem that's actually corrupted) fails during boot in one of two ways: a **nonexistent device or bad UUID** makes systemd time out waiting for it and eventually drop to an emergency shell; **actual filesystem corruption** makes systemd first attempt an automatic repair (usually just replaying the journal, on XFS/ext4 — fast), and only fall through to the emergency shell if that automatic attempt fails. Either way, the boot output looks roughly like this before it drops you to a shell:
 ```
@@ -119,6 +128,7 @@ fsck.ext4 -p /dev/sdb1        # ext4 (a hardlink to e2fsck) — -p auto-repairs 
 ---
 
 ## Resetting a lost root password — the full walkthrough
+<!-- bite: 25f0d3eb-ebe1-4057-86a9-7b7cc986487f -->
 
 If you don't even have the root password to *get into* rescue/emergency mode, you need to intercept boot **before** systemd asks for any password at all — using `rd.break`, which drops you into the initramfs shell, before the real root filesystem is even mounted read-write.
 

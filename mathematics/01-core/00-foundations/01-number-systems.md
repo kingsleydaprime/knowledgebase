@@ -1,6 +1,11 @@
+---
+id: 723aae64-f5be-4335-9475-9df952b7be2d
+---
+
 # 1. NUMBER SYSTEMS
 
 ## Before you start
+<!-- bite: b6ba3bfc-676a-4112-b7be-700a13b09633 -->
 
 - You can do arithmetic with whole numbers and fractions.
 - You have met [[core/01-numbers/01-number-bases/01-introduction|number bases]], though it is not required.
@@ -27,6 +32,7 @@ We have different number systems.
 ---
 
 ## 1.1 Natural Numbers
+<!-- bite: 487666a4-f90f-4d0c-ab64-3dec90594743 -->
 
 These are the numbers we use for **counting**.
 
@@ -182,6 +188,7 @@ Read that as:
 ---
 
 ## Something interesting happens with decimals
+<!-- bite: 92749476-ad36-4b23-9725-94f2d284dfd0 -->
 
 Consider:
 
@@ -333,6 +340,7 @@ And that is going to become one of the biggest ideas in our entire course.
 ---
 
 ## Practice — problems
+<!-- bite: 047e2726-b116-4d74-a1b6-8a170f56365f -->
 
 Attempt all of these before opening the answers.
 
@@ -350,6 +358,7 @@ Attempt all of these before opening the answers.
 </details>
 
 ## Before moving on
+<!-- bite: 9b30c32c-7c0e-49f3-8343-ba188e3803fa -->
 
 You are done with this lesson when you can, closed-book:
 

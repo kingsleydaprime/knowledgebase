@@ -1,8 +1,13 @@
+---
+id: ef98f801-f33c-4f68-a49c-77d0c9864cb8
+---
+
 # Continuity
 
 **[Intermediate]** — The property that makes substitution legal, stated precisely — and the theorems it unlocks, one of which you already use to debug code.
 
 ## Before you start
+<!-- bite: cbca5b38-afb0-4b91-bf49-9bb47ed6f715 -->
 
 - You can evaluate limits and know when they fail — [[01-definition|the limit of a function]], [[01-laws|limit laws]].
 
@@ -16,6 +21,7 @@
 ---
 
 ## 1. The definition
+<!-- bite: 700e7e42-3519-4813-9375-e399d4a60977 -->
 
 **$f$ is continuous at $a$ when three things all hold:**
 
@@ -33,6 +39,7 @@
 > Polynomials are continuous everywhere, which is why substitution never fails for them. The moment a function is not continuous at the point, substitution is not a valid method and you need the techniques from the previous lessons.
 
 ## 2. Three ways to be discontinuous
+<!-- bite: 84f0e2ee-7d08-499f-8133-7753bef1ef41 -->
 
 **Removable** — the limit exists but disagrees with the value (or the value is missing). A single point is wrong; redefining it fixes everything.
 
@@ -58,6 +65,7 @@ $$f(x) = \frac{1}{x} \quad\text{at } x=0$$
 ```
 
 ## 3. Which functions are continuous
+<!-- bite: de3fc11e-524e-4f76-b570-042204816b2e -->
 
 **Continuous everywhere they are defined:**
 
@@ -71,6 +79,7 @@ $$f(x) = \frac{1}{x} \quad\text{at } x=0$$
 **Practical consequence:** almost every function you write down is continuous almost everywhere, and the exceptions are exactly where you divided by something that can be zero, or took a root or log of something that can be non-positive. **Those are also the places your code throws exceptions**, which is not a coincidence.
 
 ## 4. The Intermediate Value Theorem
+<!-- bite: f131bd67-ce44-4d8c-aa74-5855034abba4 -->
 
 **If $f$ is continuous on $[a,b]$, then it takes every value between $f(a)$ and $f(b)$ somewhere in that interval.**
 
@@ -92,6 +101,7 @@ $f$ is a polynomial, so continuous. It goes from $-1$ to $5$, so it must pass th
 > It is also `git bisect`: the "function" is *does the build pass*, the interval is your commit history, and you are finding where it changed sign.
 
 ## 5. The Extreme Value Theorem
+<!-- bite: 10630690-76a3-4f18-bacc-fcacf777418f -->
 
 **A continuous function on a closed interval $[a,b]$ attains a maximum and a minimum on it.**
 
@@ -100,6 +110,7 @@ $f$ is a polynomial, so continuous. It goes from $-1$ to $5$, so it must pass th
 **This is what guarantees optimisation problems have answers**, and it is why [[01-related-rates|the applications lesson]] can talk about finding a maximum at all.
 
 ## 6. Practice — problems
+<!-- bite: 2658979b-2005-4092-945b-0ed08b397612 -->
 
 1. For $f(x) = \begin{cases}x^2 & x<1\\ 3 & x=1\\ 2x & x>1\end{cases}$, check all three conditions at $x=1$. Is it continuous? What kind of discontinuity, and can it be removed?
 2. Where is $f(x) = \frac{x+1}{x^2-4}$ discontinuous? Classify each.
@@ -119,6 +130,7 @@ $f$ is a polynomial, so continuous. It goes from $-1$ to $5$, so it must pass th
 </details>
 
 ## Before moving on
+<!-- bite: 4ae89ad6-86c8-4828-b25a-81ca75f1bac0 -->
 
 - [ ] State the three conditions for continuity and give a function failing each.
 - [ ] Classify removable, jump and infinite discontinuities.
@@ -130,5 +142,6 @@ $f$ is a polynomial, so continuous. It goes from $-1$ to $5$, so it must pass th
 **Next:** [[01-epsilon-delta|The Precise Definition of a Limit]] — making "arbitrarily close" mean something exact.
 
 ## Related
+<!-- bite: 8300b879-6117-4fec-9134-cfb17e541645 -->
 
 - [[01-laws|Limit laws]] · [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical methods]]

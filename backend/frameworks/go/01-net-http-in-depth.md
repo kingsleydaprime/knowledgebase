@@ -1,3 +1,7 @@
+---
+id: ad8352f8-41e8-4c57-ba33-72df1d4d30fc
+---
+
 # `net/http` in Depth
 
 **[Intermediate]** — The standard library as a production HTTP server, and the configuration that separates a toy from something you'd put on the internet.
@@ -5,6 +9,7 @@
 **Source:** `[reference]`. Assumes [[languages/02-go/index|the Go course]] and [[backend/01-foundations/index|backend foundations]].
 
 ## The two interfaces
+<!-- bite: 6785496f-2c53-42ba-8b28-cc07c51c9807 -->
 
 The entire server API is two types:
 
@@ -21,6 +26,7 @@ That's it. Every router, every middleware, every framework in Go is built on `Ha
 This is unusual. Express middleware doesn't work in Nest, and a Spring filter isn't a servlet you can hand elsewhere. Go's single small interface is the reason its HTTP ecosystem composes.
 
 ## Routing (Go 1.22+)
+<!-- bite: f7ea7585-f49a-4ec7-8456-ae5968551a5f -->
 
 ```go
 mux := http.NewServeMux()
@@ -45,6 +51,7 @@ mux.Handle("/api/", http.StripPrefix("/api", apiMux))   // sub-router by composi
 ```
 
 ## The server, configured properly
+<!-- bite: 37f806a0-f36d-4e5a-bde7-ab99f1346b21 -->
 
 ```go
 srv := &http.Server{
@@ -74,6 +81,7 @@ What each timeout covers:
 `WriteTimeout` is a wall-clock deadline covering the whole response, so it must exceed your slowest legitimate handler. For streaming or long-poll endpoints, set it to 0 and enforce per-request deadlines with `context` instead. → [[languages/02-go/08-context|Context]]
 
 ## The response writer
+<!-- bite: f7739752-19c7-4727-9cf5-e54bbff0e9cb -->
 
 ```go
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -94,6 +102,7 @@ http.NotFound(w, r)
 ```
 
 ## Reading a request
+<!-- bite: 058a6d9f-53c5-4fd2-b512-efa1646bfb15 -->
 
 ```go
 func createUser(w http.ResponseWriter, r *http.Request) {
@@ -124,6 +133,7 @@ Three things worth making habits:
 `r.Body` is closed by the server; you don't need to. But if you *don't* read it to completion, the connection can't be reused for keep-alive.
 
 ## Graceful shutdown
+<!-- bite: 1cec8682-6319-4c45-acc2-0c6fa9983741 -->
 
 ```go
 func main() {
@@ -154,6 +164,7 @@ This matters more than it sounds under [[devops/10-orchestration/index|Kubernete
 `ErrServerClosed` is the expected return from `ListenAndServe` after `Shutdown` — treating it as an error is a common noisy-log bug.
 
 ## As a client
+<!-- bite: 2ad095e9-6b4b-429c-83a4-cf4d30871e94 -->
 
 ```go
 client := &http.Client{
@@ -184,6 +195,7 @@ Three real bugs live here:
 **Reuse one `http.Client`.** Creating one per request defeats connection pooling entirely.
 
 ## TLS
+<!-- bite: f44ff1d4-72af-4d5b-a23e-5c813d21fa3a -->
 
 ```go
 srv.ListenAndServeTLS("cert.pem", "key.pem")
@@ -192,6 +204,7 @@ srv.ListenAndServeTLS("cert.pem", "key.pem")
 In practice you usually terminate TLS at a reverse proxy or load balancer and run plain HTTP behind it. If you do terminate in Go, `autocert` handles Let's Encrypt. → [[networking/12-tls-and-transport-security/index|TLS]]
 
 ## What the stdlib doesn't give you
+<!-- bite: f5aff946-0a8d-418b-8384-8c8fbfc94744 -->
 
 Being honest about the gaps, because "the stdlib is enough" is true but not unconditionally:
 
@@ -207,6 +220,7 @@ None of these are hard. They're each 10–50 lines you write once. The question 
 ---
 
 ## Related
+<!-- bite: e6d320e9-6877-4f7c-9d11-1fdbae83b21a -->
 - [[backend/frameworks/go/02-middleware-as-composition|Middleware as Composition]] — the next layer up
 - [[backend/frameworks/go/06-testing-and-production|Testing and Production]] — `httptest` and observability
 - [[languages/02-go/10-the-standard-library|Go: The Standard Library]] — the `io` interfaces underneath

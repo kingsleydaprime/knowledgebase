@@ -1,8 +1,13 @@
+---
+id: 847e83fc-e827-4245-88ee-cdf7fec4ef75
+---
+
 # Module 17: Karnaugh Maps (Seeing the Simplification)
 
 **[Intermediate]** — Algebra in module 16 worked but gave no way to know when you had finished. A Karnaugh map turns simplification into a visual pattern-matching task with a clear stopping rule — and generalises into the algorithm real tools use.
 
 ## Before you start
+<!-- bite: b65e0b02-aad1-43a8-8132-462bd22909a0 -->
 
 - You can apply the Boolean laws, especially complement ($A + \overline{A} = 1$) and absorption — [[how-computers-work/04-logic/02-boolean-algebra|module 16]].
 - You can write canonical SOP from a truth table — module 16.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 91ee890e-c3c9-4a32-8bdc-ae306e0197be -->
 
 Module 16's simplification worked, but look at what it required: noticing that you could *duplicate* a term to enable two different factorisations. That is a genuine insight, not a procedure — and it raises two problems that get worse with every added variable.
 
@@ -32,6 +38,7 @@ Module 16's simplification worked, but look at what it required: noticing that y
 ---
 
 ## 2. Terminology
+<!-- bite: 3b65e97e-ebbe-4bf5-8d8b-051479653e1f -->
 
 | Term | Plain-English definition | Example |
 | :--- | :--- | :--- |
@@ -48,6 +55,7 @@ Module 16's simplification worked, but look at what it required: noticing that y
 ---
 
 ## 3. Why Gray code is the whole trick
+<!-- bite: d764de9a-8917-402d-8650-c15641a575f5 -->
 
 Everything about the K-map follows from one decision: **label the rows and columns in Gray code, not binary counting order.**
 
@@ -80,6 +88,7 @@ Gray-code ordering guarantees that **physically adjacent cells differ in exactly
 ---
 
 ## 4. Reading a map
+<!-- bite: c5e635fc-129d-48e2-ac92-da9cec19e86c -->
 
 For the function $F(A,B,C,D) = \sum m(0,1,2,5,6,7,8,9,10,14)$:
 
@@ -118,6 +127,7 @@ $$F = CD' + B'C' + A'BD$$
 ---
 
 ## 5. Don't cares — free simplification
+<!-- bite: d9ad24d9-570d-4124-9ed8-9e7aeb903d24 -->
 
 Sometimes an input combination **cannot occur**, or its output genuinely does not matter. A BCD digit uses only 0–9, so inputs 1010–1111 never arise.
 
@@ -132,6 +142,7 @@ In the lab, `minimise()` includes don't-cares when *forming* prime implicants bu
 ---
 
 ## 6. Predict before reading on
+<!-- bite: cedd10b1-c952-4dba-8dc4-ddf44dac60a1 -->
 
 A group of 2 cells eliminates 1 variable. A group of 4 eliminates 2. A group of 8 eliminates 3.
 
@@ -151,6 +162,7 @@ The same reasoning applies to a group of 8 in a 4-variable map: three variables 
 ---
 
 ## 7. Hazards — where the ideal model leaks
+<!-- bite: c553232a-31be-443b-a9f8-f820c22b7692 -->
 
 Boolean algebra assumes gates are instantaneous. They are not ([[how-computers-work/01-electricity/04-signals-and-time|module 4]]), and that has a consequence K-maps can help with.
 
@@ -170,6 +182,7 @@ That is a **static hazard** — a glitch. It is a real pulse on a real wire, and
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 60748efe-c4c0-444b-b9fc-4559e860cefc -->
 
 K-maps are a visual method for humans and do not scale past about six variables. The underlying algorithm — **Quine–McCluskey** — does, and is what real tools use. This lab implements it: it finds every prime implicant by repeated merging, selects a cover, and then **verifies the result against the original specification**.
 
@@ -343,6 +356,7 @@ kmap_lab: passed
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 5470ad78-7433-4857-a7fa-ee5331cbc070 -->
 
 1. **Labelling the map in binary order.** Then adjacent cells differ in two variables and cannot combine. The whole method collapses.
 2. **Forgetting wrap-around.** Left/right and top/bottom edges are adjacent. The four-corner group is the classic miss.
@@ -355,6 +369,7 @@ kmap_lab: passed
 ---
 
 ## 10. Check your understanding
+<!-- bite: f4bb98b1-0125-463e-8a0b-3affd55f3918 -->
 
 1. **Why must groups be powers of two?**
    <details><summary>Answer</summary>
@@ -384,6 +399,7 @@ kmap_lab: passed
 ---
 
 ## 11. Practice — independent task
+<!-- bite: 68b142af-a2c9-4261-bbee-de70f75a3767 -->
 
 **Task:** Design a **BCD-to-seven-segment decoder** for segment `a` (the top bar), lit for digits 0, 2, 3, 5, 6, 7, 8, 9.
 
@@ -405,6 +421,7 @@ If your hand answer has more terms than the tool's, you probably missed a wrap-a
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: f97c5fc4-ca96-4393-857c-07515e3dee66 -->
 
 - **K-maps stop working past about six variables.** Beyond four they are hard to draw and harder to read. Quine–McCluskey handles more but its runtime grows exponentially; real tools use **Espresso**, a heuristic minimiser that gives near-minimal results quickly.
 - **The lab's cover selection is greedy after essentials.** That is optimal for most functions but not guaranteed minimal in general — an exact solution needs **Petrick's method** or an integer-programming formulation. The lab's verification proves the result is *correct*, not that it is *minimal*.
@@ -414,6 +431,7 @@ If your hand answer has more terms than the tool's, you probably missed a wrap-a
 ---
 
 ## Before moving on
+<!-- bite: e855bce1-5838-4d4e-a5a0-dcf013c2b10e -->
 
 - [ ] Explain why Gray code makes adjacency equal combinability.
 - [ ] Group correctly, including wrap-around, and read off terms.
@@ -428,6 +446,7 @@ If your hand answer has more terms than the tool's, you probably missed a wrap-a
 ---
 
 ## Related
+<!-- bite: 2a6531b8-5b5a-481d-9afb-56848ba2be3f -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/04-logic/02-boolean-algebra|Module 16]] — the laws this method applies visually

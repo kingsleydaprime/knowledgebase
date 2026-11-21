@@ -1,8 +1,13 @@
+---
+id: c26f9673-6047-48fb-a668-9b99ea5ad8ee
+---
+
 # IP Addressing & Subnetting
 
 **[Beginner→Intermediate]** — how a machine anywhere on Earth gets a name a router can act on. Subnetting is the one piece of arithmetic in this course you should be able to do on a whiteboard cold, because it comes up in every cloud VPC design and every firewall rule you will ever write.
 
 ## The kid version first
+<!-- bite: 41f1fe16-a143-45bc-a702-d25accd79f80 -->
 
 MAC addresses are like **fingerprints** — unique, but useless for finding someone. If I hand you a fingerprint and say "deliver this letter," you'd have to check every person on Earth.
 
@@ -11,6 +16,7 @@ IP addresses are like **postal addresses** — deliberately hierarchical. `Niger
 That's the whole trick. Hierarchy means a router can hold a rule for *millions of addresses in one line*. Without it, the internet's routing tables would need billions of entries instead of ~1 million, and the internet would not exist.
 
 ## The anatomy of an IPv4 address
+<!-- bite: 58dda6d4-c4a2-448b-9d53-52d736cfb618 -->
 
 32 bits, written as four bytes: `192.168.1.42`. Every address is split into two parts:
 
@@ -31,6 +37,7 @@ The `/24` is the **prefix length** (CIDR notation), equivalent to the **subnet m
 The host ANDs its own address with the mask, ANDs the destination with the mask, and compares. Same → put it on the wire directly (ARP for it). Different → send it to the **default gateway** and let a router deal with it.
 
 ## Subnetting arithmetic you should know cold
+<!-- bite: b3722c73-cb80-4816-8758-8310b99be300 -->
 
 The prefix length determines size. Two facts generate everything:
 
@@ -55,6 +62,7 @@ Worked example — split `10.0.0.0/22` into `/24`s: `/22` is 4× `/24`, so you g
 **CIDR replaced "classes."** You'll still see Class A/B/C in older material — a rigid scheme where the first bits fixed the split at /8, /16, or /24. It wasted enormous space (an organisation needing 300 addresses had to take a /16 of 65k). CIDR (1993) made the boundary arbitrary and bought IPv4 an extra two decades. Classes are dead; the vocabulary lingers.
 
 ## Special ranges worth memorising
+<!-- bite: 2e95895b-7f2f-4b64-8652-2e76d365f49c -->
 
 | Range | Meaning |
 |---|---|
@@ -65,6 +73,7 @@ Worked example — split `10.0.0.0/22` into `/24`s: `/22` is 4× `/24`, so you g
 | `224.0.0.0/4` | **Multicast** — one-to-many |
 
 ## NAT — the reason IPv4 survived
+<!-- bite: 72498742-8557-4fbd-a970-bd7ff4a538e4 -->
 
 There are 4.3 billion IPv4 addresses and far more devices. **NAT** (Network Address Translation) is why that hasn't ended the world: your router rewrites the source address of outgoing packets to its own single public IP, records the mapping in a table, and reverses it on the way back.
 
@@ -83,6 +92,7 @@ The consequences are enormous and mostly bad:
 - **Connections die silently** when the NAT table entry times out (often 5 minutes of idle for TCP). This is the actual cause of "my long-lived WebSocket / database connection drops after a few minutes idle" — and why TCP keepalives and application-level pings exist.
 
 ## IPv6, in the space it deserves
+<!-- bite: 7fa0f59e-70e4-4fb2-adb4-7fc5a7c20336 -->
 
 128 bits — `2001:0db8:85a3::8a2e:0370:7334`. That's 3.4×10³⁸ addresses, enough to never think about scarcity again. Rules for reading them: leading zeros in a group may be dropped, and **one** run of all-zero groups collapses to `::`.
 
@@ -95,10 +105,12 @@ What actually changes in practice:
 - **Dual-stack and Happy Eyeballs** — hosts usually run both, and try IPv6 and IPv4 connections in parallel, taking whichever answers first, so a broken IPv6 path doesn't hang the user.
 
 ## Key insight
+<!-- bite: 8bfb8201-fdfa-48cc-b3f9-d035b3ba7e35 -->
 
 An IP address is not a name for a *machine* — it's a name for a **location in the routing hierarchy**, which is why it changes when the machine moves and why a laptop has a different address on Wi-Fi than on Ethernet. Identity (who you are) and location (where you are) are conflated in IP, and almost every hard problem in mobility, multi-homing, and NAT traversal traces back to that one conflation.
 
 ## Related
+<!-- bite: c832536b-3c34-4110-bf6b-c1070dbce406 -->
 - [[networking/04-routing|Routing]] — what routers do with these prefixes
 - [[networking/14-nat-firewalls-and-middleboxes|NAT, Firewalls & Middleboxes]] — NAT traversal in full
 - [[devops/08-cloud/index|Cloud]] — VPC/subnet design is this arithmetic applied

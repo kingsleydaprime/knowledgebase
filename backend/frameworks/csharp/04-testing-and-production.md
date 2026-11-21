@@ -1,8 +1,13 @@
+---
+id: 35791ee4-0897-4ea8-bbb0-08951890c011
+---
+
 # Testing and Production
 
 > **[Intermediate]** · `WebApplicationFactory`, Testcontainers, and getting an ASP.NET Core service into production sensibly.
 
 ## Integration testing is unusually good here
+<!-- bite: aa939c9c-3857-453d-b31a-66bc4e7c5a2c -->
 
 **`WebApplicationFactory<T>` spins up your entire application in-process** — real pipeline, real DI, real routing — and gives you an `HttpClient` that talks to it without a network.
 
@@ -33,6 +38,7 @@ factory.WithWebHostBuilder(b => b.ConfigureServices(services =>
 ```
 
 ## Test against a real database
+<!-- bite: 92aa158b-6d57-408b-998d-8d091bebf0fa -->
 
 **Testcontainers** starts a real Postgres in Docker for the test run:
 
@@ -47,6 +53,7 @@ await db.StartAsync();
 **The general rule from [[systems-engineering/06-verification-and-validation|V&V]]: test in an environment that resembles the one that matters.** A fake database is a different environment.
 
 ## Observability
+<!-- bite: c2ececd3-fef5-4631-be1d-fb8a65e964e2 -->
 
 ```csharp
 builder.Services.AddOpenTelemetry()
@@ -76,6 +83,7 @@ app.MapHealthChecks("/health/live", new() { Predicate = _ => false });
 **Liveness and readiness are different questions.** Liveness: *is the process alive?* — restart if not. Readiness: *can it serve traffic?* — remove from the load balancer if not. **Wiring a database check into liveness means a brief database blip restarts every pod**, which turns a small problem into an outage → [[devops/10-orchestration/index|orchestration]].
 
 ## Deployment
+<!-- bite: e22aea91-529a-4d46-aad0-4f1e30460426 -->
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
@@ -99,6 +107,7 @@ ENTRYPOINT ["dotnet", "MyApi.dll"]
 **Native AOT** is worth considering for serverless and short-lived workloads — millisecond startup, small footprint — at the cost of reflection-based libraries → [[languages/07-csharp/13-performance-and-the-runtime|note 13]]. **For a long-running API, stay with JIT**; the startup cost amortises to nothing and you keep the runtime optimisations.
 
 ## Configuration and secrets in production
+<!-- bite: 15f4f229-4c85-4cd7-8d6c-7753a681a3e8 -->
 
 **Environment variables override `appsettings.json`**, and the double-underscore convention maps to nesting:
 
@@ -111,6 +120,7 @@ ConnectionStrings__Db=Host=...;Password=...
 **`ASPNETCORE_ENVIRONMENT`** drives which `appsettings.{env}.json` loads and whether the developer exception page is on. **Getting this wrong in production leaks stack traces to users.**
 
 ## The production checklist
+<!-- bite: 5e6e6fd6-0e28-4899-9a76-cbed5b2ab282 -->
 
 - **HTTPS** and HSTS
 - **`ForwardedHeaders`** if behind a proxy, or every client IP is the proxy's
@@ -122,6 +132,7 @@ ConnectionStrings__Db=Host=...;Password=...
 - **`dotnet list package --vulnerable`** in CI → [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]]
 
 ## Related
+<!-- bite: 4b19f8f4-57fa-4b35-b2cb-7475b585645e -->
 - [[backend/frameworks/csharp/03-data-access|data access]]
 - [[languages/07-csharp/12-testing-and-tooling|C#: testing and tooling]] — the unit-test layer
 - [[devops/07-observability/index|observability]] · [[devops/05-ci-cd/index|CI/CD]]

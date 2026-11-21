@@ -1,8 +1,13 @@
+---
+id: 673b7a26-e345-4ae6-a38d-b43b670d9fdb
+---
+
 # Your First SQL Queries
 
 **[Beginner]** · How to put information into a database and ask it questions, using SQL. This comes before the rest of the course: the later notes explain how a database works inside, and this one teaches you to use one.
 
 ## Before you start
+<!-- bite: 7938da36-8a38-4d3d-a150-022f13fa965a -->
 
 You need:
 - to be able to open a terminal and run a command;
@@ -20,6 +25,7 @@ You don't need to know any programming.
 **How to study it:** type every query yourself rather than copying and pasting. Before each result, guess what it will show, then check.
 
 ## The kid version
+<!-- bite: 6e7bc0ec-6799-4b8e-be9e-03962422424a -->
 
 Imagine a shop owner who keeps two exercise books. One lists every customer: their name and city. The other lists every sale: who bought what, how much it cost and when. Each book is a **table**: every line is one customer or one sale, and every column is one piece of information about it.
 
@@ -28,12 +34,14 @@ Now imagine a very fast assistant who has read both books. You ask questions lik
 **Where the picture stops working:** a real assistant would understand a sloppy question. A database won't. SQL has strict grammar, and a question that's even slightly wrong either fails with an error or, worse, quietly answers a different question from the one you meant.
 
 ## 1. Why this exists
+<!-- bite: 4ae8e355-c108-4f4f-9456-bcd1a472be00 -->
 
 A shop owner with a spreadsheet can scroll to find a customer. With 200,000 sales that stops working. "How much did customers in Lagos spend last month?" means filtering, matching each sale to its customer, and adding up, all by hand. Worse, the spreadsheet can't stop two staff from saving over each other's changes.
 
 A database stores the same information safely, and SQL lets you ask that whole question in one sentence. The same SQL works, with small differences, in SQLite, PostgreSQL, MySQL and most other databases. Learn it once and you can use it almost everywhere.
 
 ## Terms used in this lesson
+<!-- bite: 73c1d648-a110-4564-93f3-a2c6fded54b9 -->
 
 1. **Database**: This is a program that stores information and lets you add, find, change and delete it safely. In this lesson the whole database is one file, `shop.db`.
 2. **Table**: This is a set of information about one kind of thing, laid out in rows and columns like a spreadsheet. Our database has two tables: `customers` and `orders`.
@@ -47,6 +55,7 @@ A database stores the same information safely, and SQL lets you ask that whole q
 10. **Result**: This is the table of rows a query gives back. It isn't stored anywhere; it's just the answer.
 
 ## 2. Getting set up
+<!-- bite: 4e9ee58e-05a3-48d9-acc1-c11069c3b196 -->
 
 **Install `sqlite3`.** SQLite is a small database that keeps everything in one file and needs no server.
 
@@ -109,6 +118,7 @@ Inside `sqlite3`, run these two lines once so results print as neat tables with 
 Type `.quit` to leave. If you ever make a mess, delete `shop.db` and run the first command again to start fresh.
 
 ## 3. Making a table and filling it
+<!-- bite: dfd1c0c3-3e3e-4697-8af4-3d8269f07115 -->
 
 Look back at `shop.sql`. It uses two kinds of statement.
 
@@ -138,6 +148,7 @@ Notice two choices in the `orders` table:
 - **`customer_id REFERENCES customers(id)`** makes `customer_id` a foreign key. Each order stores *which* customer placed it, instead of copying their name and city into every order. If Ada moves, you change her city in one place.
 
 ## 4. Asking questions: `SELECT`
+<!-- bite: 40719f92-7a92-46ad-a77e-d6cd63106d04 -->
 
 Every question starts with `SELECT` (which columns you want) and `FROM` (which table).
 
@@ -227,6 +238,7 @@ SELECT item, ordered_on FROM orders ORDER BY ordered_on DESC LIMIT 3;
 ```
 
 ## 5. Counting and adding up
+<!-- bite: 3a289f13-90db-414f-8514-61639967b0ec -->
 
 Some questions want one number rather than a list of rows. These are **aggregate functions**: they squash many rows into one value.
 
@@ -272,6 +284,7 @@ HAVING SUM(amount) > 50000;
 That returns customers 1, 2 and 3.
 
 ## 6. Combining two tables: `JOIN`
+<!-- bite: 87da2036-d0d8-43f5-8625-aab2597b7402 -->
 
 The result above says "customer 1", but you want names, and names live in the other table. **A `JOIN` lines up rows from two tables that belong together.** You say how they match with `ON`:
 
@@ -301,6 +314,7 @@ Read it as: "for every order, find the customer whose `id` equals the order's `c
 **Look for who's missing.** Ngozi Obi is a customer, but she isn't in the result. A plain `JOIN` only keeps rows that found a match, and she has no orders. Section 8 shows how to keep her.
 
 ## 7. Changing and deleting rows
+<!-- bite: 7ab1402b-4c8b-4dc0-a309-9f19e6c6753c -->
 
 **`UPDATE` changes rows that already exist.** Tunde moves to Abuja:
 
@@ -317,6 +331,7 @@ DELETE FROM orders WHERE id = 8;
 **The `WHERE` is doing all the safety work here.** Without it, `UPDATE customers SET city = 'Abuja';` moves *every* customer to Abuja, and `DELETE FROM orders;` deletes every order. The database won't ask "are you sure?". Before any `UPDATE` or `DELETE`, run a `SELECT` with the same `WHERE` and check it picks exactly the rows you mean.
 
 ## Worked example: who is the best customer?
+<!-- bite: 2b2ad5af-a958-4d95-9c6d-b9ae3c06b149 -->
 
 Build the query one step at a time, running it after each step.
 
@@ -370,6 +385,7 @@ SELECT … FROM … JOIN … ON … WHERE … GROUP BY … HAVING … ORDER BY �
 ```
 
 ## Common pitfalls
+<!-- bite: 5ff0a313-9588-4363-8096-cdd5d8328b51 -->
 
 1. **`UPDATE` or `DELETE` without `WHERE`.** It changes every row. Always `SELECT` with the same `WHERE` first.
 2. **Double quotes around text.** Write `'Lagos'`, not `"Lagos"`. In standard SQL, double quotes mean a column name, so `WHERE city = "Lagos"` can fail or quietly compare against a column instead.
@@ -380,6 +396,7 @@ SELECT … FROM … JOIN … ON … WHERE … GROUP BY … HAVING … ORDER BY �
 7. **Expecting a plain `JOIN` to keep unmatched rows.** It drops them, as Ngozi showed.
 
 ## Check your understanding
+<!-- bite: 17ca259a-69b0-446d-9176-6e8d6235e207 -->
 
 Try each one in `sqlite3` before opening the answer. If you've run section 7, delete `shop.db` and rebuild it first, so your numbers match.
 
@@ -432,6 +449,7 @@ So each fact is stored once. If Ada moves, you update one row in `customers`, an
 </details>
 
 ## Practice: answer the shop owner's questions
+<!-- bite: 50a9a593-6a6e-4320-ba2b-e8b2e2b90689 -->
 
 Rebuild a fresh `shop.db`, then write one query for each question.
 
@@ -454,6 +472,7 @@ Rebuild a fresh `shop.db`, then write one query for each question.
 </details>
 
 ## 8. Going further
+<!-- bite: ae5a7982-6556-439c-829f-d76948e283dd -->
 
 - **Keeping unmatched rows: `LEFT JOIN`.** It keeps every row from the first table, filling the missing side with empty values. Counting orders per customer, Ngozi included:
 
@@ -469,6 +488,7 @@ Rebuild a fresh `shop.db`, then write one query for each question.
 - **More SQL:** subqueries, window functions and the rest are in the [[databases/sql-reference|SQL reference]].
 
 ## Before moving on
+<!-- bite: 37f6f22a-a640-46d8-9934-93949d0503a9 -->
 
 You're ready for the next note when you can, without looking:
 - create a table and insert rows into it;
@@ -480,6 +500,7 @@ You're ready for the next note when you can, without looking:
 **Next:** [[databases/01-what-a-database-is|What a Database Is]]. Now that you've used a database, it explains what the database is doing for you behind each of these queries, and why you couldn't get the same from plain files.
 
 ## Related
+<!-- bite: 3a9d3317-d7b7-4860-82ef-f07760198eaa -->
 
 - [[databases/sql-reference|SQL reference]]: every part of SQL, for looking things up.
 - [[databases/database-design-reference|Database design reference]]: deciding what tables and columns to make.

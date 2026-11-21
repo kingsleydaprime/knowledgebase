@@ -1,14 +1,20 @@
+---
+id: f39f98f7-3c53-4776-82ea-816a32c0c8d0
+---
+
 # Configuration Management
 
 **[reference]** — from roadmap.sh and the Ansible docs.
 
 ## Provisioning vs configuration, again
+<!-- bite: 9d220b03-5d75-4b53-8ee8-44f69b092fe1 -->
 
 [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|Provisioning]] creates the machine. **Configuration management** decides what's *on* it: packages installed, config files written, services running, users created — bringing an existing server to a desired software state and keeping it there.
 
 The defining requirement is **idempotency**: running the config repeatedly must converge to the same state without repeating side effects. "Ensure nginx is installed and running" should install it the first time and do nothing the next — never "install nginx" (which errors or duplicates on the second run). Config-management tools are built around describing desired *state*, not *steps*.
 
 ## Ansible
+<!-- bite: 36b60801-f4c3-4a35-87c7-dfc6a74174ab -->
 
 The most popular config-management tool, and the easiest to start with because it's **agentless** — it connects over plain SSH ([[devops/01-linux/14-basic-ssh-config|SSH config]]) and needs nothing installed on the targets but Python. You describe desired state in YAML **playbooks**:
 
@@ -41,6 +47,7 @@ The most popular config-management tool, and the easiest to start with because i
 Because it's push-based over SSH with no agents, Ansible is trivial to adopt on existing servers — its main win over the alternatives.
 
 ## The landscape
+<!-- bite: 909e30f8-ee41-41f1-b5ec-d90a3e1bd821 -->
 
 | Tool | Model | Language | Notes |
 |---|---|---|---|
@@ -52,12 +59,14 @@ Because it's push-based over SSH with no agents, Ansible is trivial to adopt on 
 The two axes: **push (Ansible/Salt) vs pull (Puppet/Chef agents polling a server)** — push is simpler to start, pull scales and self-heals drift continuously; and **agentless (Ansible) vs agent-based** — agentless is easier to adopt, agents give continuous enforcement. Ansible's agentless-push model is why it's usually the on-ramp.
 
 ## Where it fits — and the immutable-infrastructure alternative
+<!-- bite: 4f250440-f385-46d9-a77e-2e347384c0db -->
 
 Config management shines for **long-lived, mutable servers** you patch and evolve in place (a fleet of VMs, on-prem hardware). But the modern container/cloud pattern often sidesteps it entirely with **immutable infrastructure**: instead of mutating a running server, you bake a fresh machine image or container image (with [[devops/03-docker/index|Docker]], or Packer for VM images), and *replace* the old instance rather than reconfiguring it. No drift, because nothing is ever changed in place — you redeploy.
 
 So the honest framing: config management is essential for mutable-server worlds and still ubiquitous, but for containerized/cloud-native stacks the [[devops/03-docker/index|container image]] + [[devops/10-orchestration/01-kubernetes|orchestrator]] often *is* the configuration mechanism, and Ansible/Puppet recede to provisioning the cluster hosts themselves.
 
 ## Related
+<!-- bite: 9d1f2e79-e85e-4192-8fbf-4a58bd05a121 -->
 - [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|Provisioning & Terraform]] — creates the machines this configures
 - [[devops/01-linux/14-basic-ssh-config|SSH Config]] — Ansible's transport
 - [[devops/03-docker/index|Docker]] — the immutable-image alternative

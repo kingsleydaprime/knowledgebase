@@ -1,8 +1,13 @@
+---
+id: c35caa96-1fd7-4060-9db4-476f6b5c1362
+---
+
 # Defining the Derivative
 
 **[Intermediate]** — The tangent problem, solved. One limit, and everything in differential calculus follows from it.
 
 ## Before you start
+<!-- bite: 814935f4-1f1a-42ac-9eed-32aa3d3e9bf8 -->
 
 - You can evaluate limits, especially $\frac{0}{0}$ forms — [[01-definition|the limit of a function]], [[01-laws|limit laws]].
 - You know what a gradient is for a straight line.
@@ -17,6 +22,7 @@
 ---
 
 ## 1. The problem, restated
+<!-- bite: 8da23a8e-50b9-426b-bf58-6702be5cf660 -->
 
 From [[01-preview|the preview]]: the gradient at a single point is $\frac{0}{0}$, because steepness needs two points and you have one.
 
@@ -41,6 +47,7 @@ That is the average rate of change over an interval of width $h$ — a perfectly
 ```
 
 ## 2. The definition
+<!-- bite: 64e67db3-1e73-4629-b595-9d2b43977f78 -->
 
 $$f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h}$$
 
@@ -56,6 +63,7 @@ $$f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h}$$
 **Note that $h$ never equals zero.** The expression is undefined at $h = 0$, and the limit does not evaluate there — which is exactly the exclusion built into the definition of a limit. **That exclusion is what makes the derivative possible**, and it is why [[01-definition|limits]] had to come first.
 
 ## 3. From first principles
+<!-- bite: 3525ef7f-a238-4a82-bd46-e9352b61aeb1 -->
 
 **Compute $f'(x)$ for $f(x) = x^2$.**
 
@@ -72,6 +80,7 @@ $$= \lim_{h\to 0}\frac{h(2x + h)}{h} = \lim_{h\to 0}(2x+h) = 2x$$
 **The pattern is always the same:** expand, find the common factor of $h$, cancel it, then substitute $h = 0$ into what remains. **If the $h$ does not cancel, the function is not differentiable there.**
 
 ## 4. Three readings of the same number
+<!-- bite: ec24e5ec-1f4c-49e5-867c-a8b819d558e1 -->
 
 $f'(a)$ means three things at once, and the useful skill is switching between them.
 
@@ -86,6 +95,7 @@ $$f(x) \approx f(a) + f'(a)(x-a)$$
 **This third reading is the one that matters computationally.** It says the derivative tells you how the output responds to a small nudge in the input — which is exactly what gradient descent uses to decide which way to step, and why backpropagation is the chain rule ([[ai-ml/index|ai-ml]]).
 
 ## 5. When the derivative does not exist
+<!-- bite: 57ce0d8e-a76e-4f3c-88fb-7aad85120648 -->
 
 **Differentiability is stronger than continuity.** A differentiable function is automatically continuous; the converse fails.
 
@@ -101,6 +111,7 @@ $$f(x) \approx f(a) + f'(a)(x-a)$$
 > These functions are not curiosities: **Brownian motion and fractal coastlines behave this way**, continuous but so jagged that no zoom level reveals a straight line. It is why "smooth" is an assumption to state rather than expect.
 
 ## 6. Practice — problems
+<!-- bite: e9c04450-8c05-4963-b707-1e0970d9d21c -->
 
 1. From first principles, find $f'(x)$ for: (a) $f(x) = 3x + 2$  (b) $f(x) = x^2 - 4x$  (c) $f(x) = \frac{1}{x}$.
 2. Use the definition to find $f'(2)$ for $f(x) = x^3$. Then guess the general rule for $x^n$ and check it against your answer for $x^2$.
@@ -120,6 +131,7 @@ $$f(x) \approx f(a) + f'(a)(x-a)$$
 </details>
 
 ## Before moving on
+<!-- bite: 4e9865e1-7286-4819-9596-451d762d998c -->
 
 - [ ] State the derivative as a limit and explain why $h$ is never zero.
 - [ ] Differentiate from first principles, cancelling the $h$.
@@ -131,6 +143,7 @@ $$f(x) \approx f(a) + f'(a)(x-a)$$
 **Next:** [[01-rules|Derivative Rules]] — the shortcuts, each proved from this definition.
 
 ## Related
+<!-- bite: b7043219-c07d-4081-b8a4-43511cb932ee -->
 
 - [[01-preview|Calculus preview]] · [[01-definition|Continuity]]
 - [[ai-ml/index|ai-ml]] — where the linear-approximation reading does the work

@@ -7,6 +7,7 @@ id: dd5166cd-e07b-4a35-84f2-3495069f2e00
 **[Intermediate → Advanced]** — Why databases use B+ trees and not binary trees, how an index is actually used, what a composite index can and can't serve, and when adding one makes things worse. Every claim about PostgreSQL in this lesson is checked by the lab on a real PostgreSQL 18 database with a million rows.
 
 ## Before you start
+<!-- bite: d1ca5dc4-a5a3-429e-95f8-86a1de0c6091 -->
 
 You can already:
 
@@ -25,16 +26,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–4 build the structure. Stop at the predictions in sections 3, 6 and 8 and try them before reading on. Section 10 is the lab. Next week's lesson builds on the plans you learn to read here.
 
 ## The kid version
+<!-- bite: cf3263c7-e5fd-4a5f-a7ec-0d71bfbb3612 -->
 
 A school's lost-property office has thousands of items in boxes. To find one, you'd have to open every box. So the office keeps a ring binder at the front: the first page says "A–F: shelf 1, G–M: shelf 2…", each shelf has its own card saying which box holds which names, and each box is sorted. You turn one page, read one card, open one box. Because each page of the binder points to hundreds of places, three steps are enough for a huge office.
 
 **Where the analogy stops working.** The binder never changes in the analogy. A database index has to be updated every time anything is added, changed or removed, and each update costs work and disk writes. An office with ten binders, sorted ten different ways, spends its whole day updating binders. That cost is the second half of this lesson.
 
 ## 1. Why this exists
+<!-- bite: 706600d4-ce2b-4470-9e8c-2ce5b41ca975 -->
 
 The shop has a million orders. "Show order 424242" without an index means reading the whole table, all 10,310 pages, to find one row. With an index, PostgreSQL reads four pages. "Show customer 42's orders since June" can be answered with a handful of pages or with all ten thousand, depending on which index exists and in what column order. And every index added to make reads fast makes every insert, update and delete slower. Indexes are the biggest performance lever in a database, and the easiest to pull the wrong way.
 
 ## Terms used in this lesson
+<!-- bite: ccd95dd0-416c-410e-bddc-f41f8d9f6c1c -->
 
 1. **Index**: This is a separate data structure that keeps some of a table's columns in sorted order, with a pointer to each row, so rows can be found without reading the whole table.
 2. **Page**: This is the fixed-size block, 8 KB in PostgreSQL, in which a database stores and reads data. A page read is the unit of cost.
@@ -52,6 +56,7 @@ The shop has a million orders. "Show order 424242" without an index means readin
 14. **WAL (write-ahead log)**: The letters stand for those words. It's the log every change is written to before the data pages, so changes survive a crash. More indexes means more of it per write.
 
 ## 2. Why not a binary tree
+<!-- bite: d17a5e5e-c948-4824-996c-88393a711a6d -->
 
 **A balanced binary search tree has $O(\log_2 n)$ lookup, which is optimal in comparisons.** It's also the wrong structure for disk.
 
@@ -68,6 +73,7 @@ so a 100-million-row index needs **four levels**, and a million-row index **thre
 > **This is the same argument as [[computer-architecture/08-the-memory-hierarchy|cache lines]]:** you pay per *block fetched*, not per comparison, so make each block do as much work as possible. **A binary tree does one comparison per fetch; a B+ tree does hundreds.**
 
 ## 3. The structure, and how it grows
+<!-- bite: 5a73fb28-3258-47f7-9e46-4ecdf76e7f97 -->
 
 ```
                   ┌───────────────────┐
@@ -100,6 +106,7 @@ Height **3**: leaves `[1 2] [3 4] [5 6] [7 8] [9 10]`, two internal nodes above 
 **Concurrency** uses **latch crabbing**: hold a latch on the child, and release the parent once you know no split will propagate up. Modern engines use B-link trees, which add a right-sibling pointer so readers never block on a concurrent split.
 
 ## 4. Clustered and secondary indexes
+<!-- bite: c0bd1391-15fe-468c-bd73-f354c70d6482 -->
 
 **Covered in [[databases/03-storage-and-page-layout|note 03]], and it's the difference that decides an index's cost.**
 
@@ -116,6 +123,7 @@ Height **3**: leaves `[1 2] [3 4] [5 6] [7 8] [9 10]`, two internal nodes above 
 > **So in InnoDB every secondary index lookup is two B-tree traversals**, and **a wide primary key inflates every secondary index**, because the primary key is copied into each one. **A 40-byte natural primary key across six secondary indexes wastes a great deal of space and reading.** That's another argument for narrow surrogate keys.
 
 ## 5. Index-only scans
+<!-- bite: c55fa354-b0cc-4c02-ae9e-012ef8b61c4f -->
 
 **The optimisation worth designing for.** If **every column the query needs is in the index**, the database never touches the table:
 
@@ -131,6 +139,7 @@ SELECT total FROM orders WHERE customer_id = 42;
 **`INCLUDE` columns** (PostgreSQL 11+, SQL Server) store extra columns in the leaves **without** making them part of the key, so they don't affect ordering or uniqueness, and don't bloat the internal nodes.
 
 ## 6. Composite indexes and the leftmost rule
+<!-- bite: 80c8de67-913a-4093-8594-9c8ced885943 -->
 
 **An index on `(a, b, c)` is sorted by `a`, then by `b` within each `a`, then by `c`.** In words: the index can only narrow a search using its columns from the left, each tested for equality, and then at most one range. A column after a gap, or after a range, can only filter rows the index has already found.
 
@@ -163,6 +172,7 @@ The third is new in **PostgreSQL 18: skip scan**. With `(status, created_at)`, t
 </details>
 
 ## 7. Index types beyond B-tree
+<!-- bite: d8f23aba-00f8-4e94-ba47-ed71908c3bb4 -->
 
 | Type | Good for | Cannot do |
 |---|---|---|
@@ -186,6 +196,7 @@ CREATE INDEX orders_pending ON orders (created_at) WHERE status = 'pending';
 **Expression indexes** index a computed value, `lower(email)`, which is required for an index to serve `WHERE lower(email) = …` (section 8).
 
 ## 8. When indexes make things worse
+<!-- bite: 7619b2a6-ecb4-4628-9789-f5386f279abc -->
 
 **Every index is a cost**, and this is the half people skip:
 
@@ -221,6 +232,7 @@ FROM pg_stat_user_indexes WHERE idx_scan = 0;
 **Drop them.** An index with zero scans is pure write cost → [[databases/12-operating-a-database|operating a database]].
 
 ## 9. Practical notes
+<!-- bite: c0135df9-5636-45eb-bde8-372ef83cf981 -->
 
 - **Index your foreign keys.** Most databases don't do it automatically, and **an unindexed foreign key makes deletes on the parent table scan the child**, a common cause of mysterious lock contention.
 - **Index what you filter, join and sort on**, in that order of priority.
@@ -230,6 +242,7 @@ FROM pg_stat_user_indexes WHERE idx_scan = 0;
 - **Check it's used.** `EXPLAIN (ANALYZE, BUFFERS)`. **Creating an index and not verifying it's used is the most common wasted effort in database tuning** → [[databases/07-join-algorithms-and-the-optimiser/index|reading EXPLAIN]].
 
 ## 10. The lab: a model tree, and a real database
+<!-- bite: 5da3b1e0-d452-4518-8d5b-ec37ca7959e7 -->
 
 `btree.py` is a B+ tree you can watch: inserts with splits, lookups and range scans that count page reads, the `levels` arithmetic, and the leftmost-prefix rule. `test_btree.py` checks the model. `test_postgres.py` loads a million orders into a real PostgreSQL database and checks every PostgreSQL claim in this lesson by reading `EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON)`: the index depth with `pageinspect`, the four pages per lookup, the composite and skip-scan plans, index-only scans before and after an update, the selectivity and expression-index cases, the partial index's size, and the write cost in WAL bytes.
 
@@ -565,6 +578,7 @@ if __name__ == "__main__":
 **Lab:** the code is in [`databases/04-b-trees-and-indexes/labs/python/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/databases/04-b-trees-and-indexes/labs/python). From the vault root, `python3 labs/run.py b-trees-and-indexes/python` runs everything and checks this page still shows the same code. It needs PostgreSQL 16 or later installed (`initdb` and `pg_ctl`); `uv` fetches the psycopg driver on the first run. Expect 13 passing tests in about 25 seconds, most of it loading the million rows and the model's million inserts.
 
 ## Common pitfalls
+<!-- bite: aa2f4fcc-895e-4228-b3dd-d3c5cf4098f2 -->
 
 1. **Indexing a column, then filtering on a function of it.** `lower(email)`, `date(created_at)`: index the expression instead.
 2. **Composite indexes in the wrong order.** Equality columns first, then the range column.
@@ -575,6 +589,7 @@ if __name__ == "__main__":
 7. **Not checking the plan.** An index that isn't in `EXPLAIN` output isn't helping.
 
 ## Check your understanding
+<!-- bite: 40ea5ab1-b6db-491d-8114-cb0b3122d618 -->
 
 1. Why does a B+ tree over 100 million rows need about four levels, where a balanced binary tree needs 27?
 2. A lookup in PostgreSQL reads four pages. Where does each one come from?
@@ -596,6 +611,7 @@ if __name__ == "__main__":
 </details>
 
 ## Practice — independent task
+<!-- bite: f96ed742-7241-424b-a42a-935c69eef795 -->
 
 **Design indexes for three queries, predict, then verify.**
 
@@ -618,6 +634,7 @@ if __name__ == "__main__":
 </details>
 
 ## Before moving on
+<!-- bite: 2069e4d8-97ea-4943-b935-fd0f3be988d0 -->
 
 You can work out a B+ tree's height and a lookup's page reads, design a composite index with equality before range, read an index scan, index-only scan, bitmap scan and sequential scan in `EXPLAIN`, and explain when an index won't be used and what each one costs.
 
@@ -626,6 +643,7 @@ You can work out a B+ tree's height and a lookup's page reads, design a composit
 **Next.** [[databases/07-join-algorithms-and-the-optimiser/index|Join algorithms and the optimiser]]: how the planner chooses between these access paths and joins, and why it sometimes chooses badly.
 
 ## Related
+<!-- bite: dd397554-aa78-4636-8012-2958b9f3d2be -->
 
 - [[databases/05-lsm-trees|LSM trees]]: the write-optimised alternative
 - [[databases/07-join-algorithms-and-the-optimiser/index|Join algorithms and the optimiser]]: how the planner decides to use these

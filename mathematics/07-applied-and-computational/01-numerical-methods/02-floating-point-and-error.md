@@ -1,3 +1,7 @@
+---
+id: 62ebe148-6be8-4375-9f61-1e176de250b7
+---
+
 # Floating Point and Error
 
 **[Intermediate]** — Machine epsilon, cancellation, and how to analyse the error in a computation rather than hoping.
@@ -5,6 +9,7 @@
 > **The format itself is in [[computer-architecture/02-data-representation|Data Representation]]** — sign/exponent/mantissa, NaN, denormals. **This note is what it means for numerical work**: how error propagates, and how to write algorithms that don't amplify it.
 
 ## Machine epsilon
+<!-- bite: 36bc7109-f836-42dc-80fd-04c2618eb1a1 -->
 
 **The gap between 1.0 and the next representable number.**
 
@@ -33,6 +38,7 @@ def close(a, b, rtol=1e-9, atol=1e-12):
 **Relative for normal magnitudes, absolute as a floor near zero** — because relative comparison is meaningless when the true answer is 0.
 
 ## Catastrophic cancellation
+<!-- bite: dfed9b34-b38e-4ad9-8975-69f384d601dd -->
 
 **The single biggest source of accuracy loss**, and it's worth being able to spot on sight.
 
@@ -78,6 +84,7 @@ x2 = c / q          # from x1·x2 = c/a — no subtraction
 **The variance one is worth naming** because it's so common: the textbook formula $\frac{1}{n}\sum x_i^2 - \bar{x}^2$ subtracts two large nearly-equal numbers and **can return a negative variance.** Welford's algorithm updates incrementally and is stable. → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/02-expectation-and-variance|Expectation and Variance]]
 
 ## Summation
+<!-- bite: 41df1fe4-5493-4ea5-83fd-d824d690b747 -->
 
 **Adding many numbers loses accuracy**, because each addition rounds and the errors accumulate.
 
@@ -108,6 +115,7 @@ for x in values:
 > **A practical consequence for ML:** parallel reductions sum in a non-deterministic order, so **the same training run gives slightly different results.** That's not a bug and it can't be fixed without giving up the parallelism — it's why bit-exact reproducibility across GPU counts is generally not offered. → [[gpu-and-parallel-computing/index|GPU and Parallel Computing]]
 
 ## Error propagation
+<!-- bite: 683a60d0-cd24-4f82-83ba-5ae048f9a70d -->
 
 **How error travels through a computation.**
 
@@ -131,6 +139,7 @@ $$\delta y \approx f'(x)\,\delta x \qquad\Longrightarrow\qquad \frac{\delta y}{y
 > **Multiplication and division never lose relative precision. Subtraction can lose all of it.** That single asymmetry explains most of the reformulations in this note — **the goal is almost always to rewrite a subtraction away.**
 
 ## Forward and backward error
+<!-- bite: f459e1a6-887d-424b-b972-a9553bbe1989 -->
 
 **The framing that makes numerical analysis tractable.**
 
@@ -147,6 +156,7 @@ $$\text{forward error} \lesssim \text{condition number} \times \text{backward er
 **Gaussian elimination with partial pivoting is backward stable in practice**; without pivoting it isn't. **That's the entire justification for pivoting.** → [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]]
 
 ## Special values in practice
+<!-- bite: d08d78f0-a47e-4c84-8674-20cd10d3306c -->
 
 **NaN propagates**, which is a feature: one NaN anywhere poisons everything downstream, so you find out.
 
@@ -165,6 +175,7 @@ if x != x:  # x is NaN
 **Denormals** near zero can be **10–100× slower** on some hardware. Audio and signal-processing code flushes them to zero for this reason.
 
 ## Practical notes
+<!-- bite: 0f4957e4-90ea-4693-b59b-9b305f66be7f -->
 
 **Use `double` by default.** `float` has ~7 digits, which sounds fine and isn't once errors accumulate. **Use `float` deliberately** — for memory bandwidth, or for ML where the noise floor is high anyway.
 
@@ -183,6 +194,7 @@ if x != x:  # x is NaN
 ---
 
 ## Related
+<!-- bite: 4f9f1a6e-a968-426b-b8f5-a146d26a5a2e -->
 
 - [[computer-architecture/02-data-representation|Data Representation]] — the IEEE 754 format itself
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — where conditioning bites hardest

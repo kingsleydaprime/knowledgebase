@@ -7,10 +7,12 @@ id: 4fa50063-85c8-423c-9e92-70ce31f6d804
 **[reference]** — from the roadmap.sh system-design roadmap. The infrastructure patterns that make a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]] architecture actually workable — the machinery you inherit the moment you split a system across the network.
 
 ## The problem: coordination at a distance
+<!-- bite: aa7628a4-a4bc-4984-a405-ca6118762c29 -->
 
 Split one app into dozens of services and you create new problems the monolith never had: *how do services find each other? how do clients avoid knowing the internal topology? how do cross-cutting concerns get handled without duplicating them in every service?* These patterns answer those.
 
 ## Service Discovery
+<!-- bite: d67a3417-5402-4ba7-8e6b-c96d89ece5a1 -->
 
 Services scale up/down and move (new instances, failures, [[devops/10-orchestration/01-kubernetes|k8s]] reschedules), so their addresses aren't fixed. **Service discovery** lets a service find the current healthy instances of another by *name* rather than a hardcoded IP:
 
@@ -20,6 +22,7 @@ Services scale up/down and move (new instances, failures, [[devops/10-orchestrat
 The registry is kept current by health checks. This is what makes "call the payment service" resolve to a live instance despite constant churn — and it relies on [[architecture/04-distributed-systems/index|distributed-systems]] machinery underneath.
 
 ## API Gateway
+<!-- bite: 2ef51a53-51ba-41b0-876f-0042d431baa1 -->
 
 The single entry point for external clients (from [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancing]]): it routes to the right service and centralizes cross-cutting concerns — authentication, rate limiting, TLS, logging — so each service doesn't reimplement them. Two related patterns:
 
@@ -29,10 +32,12 @@ The single entry point for external clients (from [[architecture/02-building-blo
 Keep the gateway *thin* (routing + cross-cutting only) — business logic in the gateway recreates a monolith and a bottleneck.
 
 ## Backends for Frontends (BFF)
+<!-- bite: 6ae7b245-710a-4f6a-b4a6-2fb082b5eddd -->
 
 Instead of one API serving all clients, give each client type (web, mobile, third-party) its *own* gateway/backend tailored to its needs — the mobile BFF returns lean payloads, the web BFF returns richer ones. Avoids the compromise of a one-size-fits-all API (the over/under-fetching problem [[architecture/02-building-blocks/05-communication/index|GraphQL]] also addresses). Relevant to your [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|full-stack]] work where one product has web + mobile clients (Arete).
 
 ## Sidecar & Ambassador
+<!-- bite: 63b96dec-6c99-4485-ac92-2cd2b23bdbfd -->
 
 Deploy a helper *alongside* each service (in the same [[devops/10-orchestration/01-kubernetes|pod]]) to handle infrastructure concerns, so the service code stays focused on business logic:
 
@@ -40,18 +45,22 @@ Deploy a helper *alongside* each service (in the same [[devops/10-orchestration/
 - **Ambassador** — a sidecar specifically for *outbound* calls (proxying/managing connections to external services).
 
 ## Leader Election
+<!-- bite: fd6471fb-b194-431a-b2c4-cab9366a88d1 -->
 
 When multiple instances of a service run for availability but only *one* should perform a task at a time (a scheduled job, a coordinator), they must agree on a **leader** — and re-elect if it dies. This is a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] problem, and you almost never implement it by hand: you lean on a coordination service (etcd, ZooKeeper, or the platform) that provides it. It's the bridge where microservices patterns meet distributed-systems theory.
 
 ## Cross-cutting: observability
+<!-- bite: 4cc6dc30-7845-4057-ae7f-b3f11e39dfa3 -->
 
 The pattern that makes microservices *operable*: because a request now spans many services, you *need* distributed [[devops/07-observability/index|tracing]] (a request/trace ID threaded through every hop), centralized logging, and per-service health endpoints — or debugging becomes impossible. This isn't optional the way it is in a monolith; it's the price of admission.
 
 ## The honest summary
+<!-- bite: 5e17aa7a-486d-4a3a-99ff-e9b02a9642ce -->
 
 These patterns are powerful, but note what they represent: **a whole platform of complexity that a monolith gets for free** (in-process calls need no discovery, one process needs no gateway, one app needs no distributed tracing). That's the real cost of microservices ([[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|when to adopt them]]) — you're signing up to build and run all of this. Managed platforms ([[devops/10-orchestration/index|Kubernetes]], [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]]) provide much of it, which is exactly why they exist.
 
 ## Related
+<!-- bite: efade41d-9004-4462-9edc-103cd978497e -->
 - [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|Monolith / Microservices / Serverless]] — whether to take this on at all
 - [[devops/10-orchestration/index|Orchestration (devops)]] — the platform that provides these
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — the theory under service discovery & leader election

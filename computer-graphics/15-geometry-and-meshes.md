@@ -1,8 +1,13 @@
+---
+id: 27db874b-8a0b-4d28-9b3f-7b2a6c162fb7
+---
+
 # Geometry and Meshes
 
 **[Intermediate → Advanced]** — Representing shape. Meshes, curves, implicit surfaces, and the trade-offs between them.
 
 ## Meshes
+<!-- bite: dc32b244-fe8b-4e64-bdc7-8f5edd452f3a -->
 
 **The dominant representation: vertices, edges, faces.**
 
@@ -32,6 +37,7 @@
 **Winged-edge** is the older equivalent; **simplicial complexes** and sparse matrices for more general cases.
 
 ## Curves and surfaces
+<!-- bite: 78482f24-8b65-4de2-9323-7452b5c3341e -->
 
 **Smooth shapes, defined by control points.**
 
@@ -60,6 +66,7 @@ $$\mathbf{B}(t) = \sum_{i=0}^{n}\binom{n}{i}(1-t)^{n-i}t^i\,\mathbf{P}_i$$
 **Catmull–Clark** is the standard (and Ed Catmull went on to found Pixar). **Converges to a smooth limit surface, handles arbitrary topology**, and gives artists a low-poly cage to manipulate. **The film industry's standard representation.**
 
 ## Implicit surfaces
+<!-- bite: 4f671faa-49e1-452d-bc31-cc8a0830b9b1 -->
 
 **Define the surface as a level set: $f(\mathbf{x}) = 0$.**
 
@@ -94,6 +101,7 @@ repeat:
 **Marching cubes** converts an implicit surface to a mesh by classifying each grid cell against the isosurface. **The standard for medical imaging (CT/MRI to a surface), terrain from voxels, and metaballs.** Dual contouring handles sharp features better.
 
 ## Point clouds and volumes
+<!-- bite: c31b0f83-9400-4ed8-ab8d-90203b5eaa4d -->
 
 **Point clouds** — just positions, from lidar or photogrammetry. **No connectivity**, so rendering means splatting or surface reconstruction (Poisson, ball-pivoting).
 
@@ -106,6 +114,7 @@ repeat:
 **NeRF** — a neural network mapping position and view direction to colour and density, rendered by volumetric ray marching. **Impressive quality, slow to train and render**, and largely superseded by Gaussian splatting for practical use.
 
 ## Level of detail and simplification
+<!-- bite: fc4c0579-00d1-49c7-ac05-d85e8250c483 -->
 
 **Fewer triangles when it doesn't matter.**
 
@@ -120,6 +129,7 @@ repeat:
 **Impostors and billboards** — replace distant geometry with a textured quad. **Still the right answer for forests and crowds.**
 
 ## Mesh processing
+<!-- bite: f1c413e7-ce0d-44b0-9a56-3394e3ef5389 -->
 
 **The operations you'll meet:**
 
@@ -136,6 +146,7 @@ repeat:
 **Boolean operations** — union, intersection, difference on meshes. **Notoriously fragile** because of floating-point issues at coincident faces. **Exact predicates or SDF conversion are the robust approaches.**
 
 ## Practical notes
+<!-- bite: 294fe33f-a94c-4de5-82b7-acea99dd9806 -->
 
 **Use indexed triangles**, and optimise the index order for the vertex cache (Forsyth's algorithm, or `meshoptimizer`). **A cache-optimised index buffer is a free 10–20%** on vertex-bound scenes.
 
@@ -152,6 +163,7 @@ repeat:
 ---
 
 ## Related
+<!-- bite: 20a44886-99c2-463d-9ad5-48d011ed4eee -->
 - [[computer-graphics/06-curves-bezier-and-b-splines|Curves: Bézier and B-splines]] — the hand calculations, and the Cox–de Boor recursion
 - [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation]] — the spline mathematics
 - [[computer-graphics/16-animation-and-simulation|Animation and Simulation]] — deforming these

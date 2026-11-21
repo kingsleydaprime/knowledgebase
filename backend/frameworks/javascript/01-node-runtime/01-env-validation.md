@@ -1,6 +1,11 @@
+---
+id: efb6589f-21d7-4aea-bf45-432044fdbdfb
+---
+
 # Validating .env in nodejs
 
 ## Using zod
+<!-- bite: 155cc793-19c6-4f04-913c-f62abd81e0c1 -->
 ```ts
 import 'dotenv/config';
 import dotenv from 'dotenv';
@@ -56,6 +61,7 @@ export const env = parsedEnv.data;
 ```
 
 ## Extending using types in nodejs
+<!-- bite: ee21ebf7-278e-4403-9dfd-6ff23d010853 -->
 
 `node.d.ts`
 ```ts

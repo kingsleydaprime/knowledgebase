@@ -1,14 +1,20 @@
+---
+id: 4fac4f06-abef-48ae-acb2-d87d825db47a
+---
+
 # Authentication for APIs
 
 **[Intermediate → Advanced]** — proving *who's calling* when there's no browser and no session cookie, and the token pitfalls that keep appearing.
 
 ## The kid version first
+<!-- bite: 32a9b65c-e444-47c1-b8c0-ba89fe35e4fb -->
 
 A website remembers you with a cookie the browser sends automatically. An API has no browser, so the caller must **attach proof of identity to every single request** — an API key, or a token — because each request stands alone. Getting that proof right (issuing it, validating it, expiring it, revoking it) is API authentication, and the most common mistakes are in the *validation*.
 
 **Authentication (authN) is "who are you"; authorization (authZ) is "what may you do."** This note is authN; [[cybersecurity/14-api-security/03-authorization-and-bola|the next]] is authZ — and authZ is where the bigger bugs live.
 
 ## The mechanisms, and when each fits
+<!-- bite: 869c574b-482d-43a5-bb86-84e3d952b950 -->
 
 **API keys** — a long random string identifying the *application* (not a user):
 ```
@@ -30,6 +36,7 @@ The appeal is **stateless auth** — the server trusts the signature and reads t
 **Sessions** — a server-side session with a cookie still works for a same-site SPA, and is often *simpler and safer* than JWT for that case → [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]]. **Don't reach for JWT reflexively; a session cookie is the right default for a web frontend.**
 
 ## The JWT pitfalls — a checklist, because they recur endlessly
+<!-- bite: a6808beb-9c3b-4ecc-89b9-8555dc96d26f -->
 
 JWT is powerful and *dangerous* — its failures are famous because everyone reimplements validation and gets it wrong. The recurring ones:
 
@@ -44,6 +51,7 @@ JWT is powerful and *dangerous* — its failures are famous because everyone rei
 **Use a vetted library, pin the algorithm, verify the signature, check expiry.** That sentence prevents most JWT disasters → [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures]].
 
 ## Where the token lives — the storage problem
+<!-- bite: fd0fddde-f674-428c-bbbe-e585e0881035 -->
 
 A stolen token *is* the user, so how the client stores it matters:
 
@@ -52,6 +60,7 @@ A stolen token *is* the user, so how the client stores it matters:
 - **Server-to-server** — a secret manager, never in code or committed config → [[devops/06-secret-management/index|secret management]]
 
 ## Common authentication failures (OWASP API2)
+<!-- bite: 4cfe7cc2-5c71-4938-af90-666343a0f386 -->
 
 Beyond the JWT list, the API-authN failures that get systems breached:
 
@@ -61,10 +70,12 @@ Beyond the JWT list, the API-authN failures that get systems breached:
 - **No account lockout / weak password reset** — the reset flow is often the weakest auth path
 
 ## Key insight
+<!-- bite: fb4882b6-6d00-4d04-8023-0bc4ec757ea9 -->
 
 **API authentication is proving identity on every stateless request without a browser to help — and the failures cluster in two places: token *validation* (especially JWT, where "verify the signature and pin the algorithm" prevents most disasters) and *storage* (a stolen bearer token is the user).** Don't reach for JWT by reflex; a session cookie is often the safer default for a web frontend, and OAuth/OIDC is the standard for user-facing APIs. Authentication only proves *who* — the harder, more-breached problem is *what they're allowed to do*, which is next.
 
 ## Related
+<!-- bite: 70656025-8021-417e-8acb-843e34502e91 -->
 - [[cybersecurity/14-api-security/03-authorization-and-bola|authorization and BOLA]] — the harder half
 - [[backend/05-auth/index|backend/auth]] — building these flows
 - [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures and PKI]] — what makes a JWT trustworthy

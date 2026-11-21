@@ -1,3 +1,7 @@
+---
+id: 228ea4c4-5a73-4a67-8143-80148969a5c5
+---
+
 # Why Numerical Methods
 
 **[Intermediate]** — Computing answers to problems that have no closed form, and the two things that separate a working algorithm from one that returns confident nonsense.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[mathematics/07-applied-and-computational/01-numerical-methods/index|the domain note]].
 
 ## The premise
+<!-- bite: aca4782d-999e-4e68-9829-d95070455360 -->
 
 **Most equations that describe the world cannot be solved exactly.**
 
@@ -23,6 +28,7 @@ It gets worse quickly:
 > **That last clause is the whole subject.** Anyone can produce a number. The work is knowing how wrong it is.
 
 ## Where this already matters to you
+<!-- bite: 1f7de6d2-4a0c-4be2-adbd-83b5eb041f1d -->
 
 **The vault has been leaning on this domain without having it:**
 
@@ -38,6 +44,7 @@ It gets worse quickly:
 **`engineering/index` names it outright: *"not yet written; FEM and CFD both need it."*** This track is that.
 
 ## The two failure modes
+<!-- bite: ad43ab7a-e2a9-46cb-9202-fd7a20531c7b -->
 
 **Every numerical result carries error from two distinct sources, and confusing them is the most common conceptual mistake.**
 
@@ -79,6 +86,7 @@ $$\frac{f(x+h)-f(x)}{h} = f'(x) + \frac{h}{2}f''(\xi)$$
 > **This is the first genuinely surprising result in the subject**, and it's a five-minute experiment: compute a numerical derivative at $h = 10^{-1}, 10^{-2}, \ldots, 10^{-16}$ and plot the error. **The U-shape is real and you should see it yourself once.**
 
 ## Conditioning and stability
+<!-- bite: 159db064-059e-4894-a7d5-1ca47e8ebe2d -->
 
 **The two words that matter most**, and they describe different things.
 
@@ -110,6 +118,7 @@ $$p(x) = (x-1)(x-2)\cdots(x-20)$$
 - **Subtraction:** ill-conditioned when the operands are nearly equal — cancellation again
 
 ## Orders of convergence
+<!-- bite: 29a40794-c383-429e-bc30-716797ea5252 -->
 
 **How fast does the error shrink as you do more work?**
 
@@ -132,6 +141,7 @@ $$\text{error} = O(h^p)$$
 **$p$ is the order of accuracy.** Halving $h$ reduces error by $2^p$ — so a fourth-order method gains 16× from a step-size halving that costs 2× the work. **This is why high-order methods win**, up to the point where rounding takes over.
 
 ## The practical mindset
+<!-- bite: 4a09f3fb-a59b-47f1-80a1-de0d608e62ba -->
 
 **Six habits that separate people who trust numerical output from people who should:**
 
@@ -148,6 +158,7 @@ $$\text{error} = O(h^p)$$
 **6. Understand the method you're calling.** Not to reimplement it — to know its failure modes, its cost, and what its parameters mean. **That's what this track is for.**
 
 ## Reading this track
+<!-- bite: e15896b1-dbc1-4959-93d1-81a0bd76f719 -->
 
 **02 is the foundation** — floating point and error analysis. Everything else assumes it.
 
@@ -164,6 +175,7 @@ $$\text{error} = O(h^p)$$
 ---
 
 ## Related
+<!-- bite: 6ceb0987-b005-4a67-ae8d-3f4733497512 -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Floating Point and Error]] — the foundation
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — the most-used note here
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — the domain that asked for this

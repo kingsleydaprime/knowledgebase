@@ -1,8 +1,13 @@
+---
+id: 703e780a-cc31-4cca-9215-89906819abb4
+---
+
 # Module 19: Buffers, Fan-out and Driving Real Wires
 
 **[Intermediate]** — Part V ends with the layer between logic and physics. A gate's output is not an idea — it is a transistor that must physically charge every wire and input it connects to, and there is a limit.
 
 ## Before you start
+<!-- bite: 5789284d-a96b-4786-a937-dcbc3851234d -->
 
 - You can build gates from CMOS networks — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
 - You know $\tau = RC$ and that edges take time — [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
@@ -21,6 +26,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 7040de33-704c-4e72-b301-c0140df36e4b -->
 
 Every diagram so far has drawn a gate's output as a line going wherever it is needed. **Lines are free in diagrams. They are not free in silicon or on a breadboard.**
 
@@ -35,6 +41,7 @@ The answer is "as many as you like, but it gets slower with every one" — and p
 ---
 
 ## 2. Terminology
+<!-- bite: 4e0387f1-48d5-4b8f-9081-b42c7469237a -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -55,6 +62,7 @@ The answer is "as many as you like, but it gets slower with every one" — and p
 ---
 
 ## 3. Fan-out — the cost of every connection
+<!-- bite: 5e763d21-8bf9-43e1-9d2f-5def990d03de -->
 
 Each gate input presents a small capacitance (its gate oxide, from [[how-computers-work/03-transistors/02-mosfet-physics|module 12]] — a MOSFET gate is literally a capacitor plate). Drive $n$ inputs and you must charge $n$ times that.
 
@@ -79,6 +87,7 @@ Each gate input presents a small capacitance (its gate oxide, from [[how-compute
 ---
 
 ## 4. The buffer — a gate that does nothing, usefully
+<!-- bite: 6144a72e-0174-435f-a2ed-0e478b6f45e7 -->
 
 **A buffer's output equals its input.** Logically it is the identity function: pointless.
 
@@ -121,6 +130,7 @@ For large fan-outs, chain them:
 ---
 
 ## 5. Tri-state — the third output state
+<!-- bite: 202eb6e9-9a16-4907-a7a0-e900933c068f -->
 
 So far outputs have been 0 or 1. **A tri-state buffer adds a third: disconnected.**
 
@@ -182,6 +192,7 @@ Both let many sources feed one destination, and they trade off cleanly:
 ---
 
 ## 6. The three faults that kill real hardware
+<!-- bite: a46541f8-25b1-4aad-9013-58f5c0f51621 -->
 
 Everything above is on-chip theory. **These three are why breadboards fail**, and they are the practical electrical layer the build tracks assumed.
 
@@ -225,6 +236,7 @@ $$V = L\frac{di}{dt}$$
 ---
 
 ## 7. Predict before reading on
+<!-- bite: 9aa0b0f9-61b2-49a6-87a7-809189ff6c71 -->
 
 A signal must reach 256 gate inputs. A colleague suggests using one very large transistor — 256× the normal width — instead of a buffer tree.
 
@@ -246,6 +258,7 @@ This is the classic **logical effort** result in VLSI design, and it is the reas
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: f9112136-fc5c-4076-91d0-69baf95fba42 -->
 
 Save as `buffer_lab.py` and run `python3 buffer_lab.py`.
 
@@ -405,6 +418,7 @@ buffer_lab: passed
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 94c228cb-f045-46f2-8726-75e3e2bed892 -->
 
 1. **Thinking a buffer is useless because it computes the identity.** Its job is electrical, not logical: it re-drives the signal from the supply.
 2. **Leaving inputs floating.** Not 0, not 1 — undefined, noisy, and it burns power continuously.
@@ -417,6 +431,7 @@ buffer_lab: passed
 ---
 
 ## 10. Check your understanding
+<!-- bite: 827b8ca8-0730-48a1-8a1c-ab070791ae28 -->
 
 1. **Why does exceeding fan-out cause harder bugs than a logic error?**
    <details><summary>Answer</summary>
@@ -445,6 +460,7 @@ buffer_lab: passed
 ---
 
 ## 11. Practice — independent task
+<!-- bite: 05801fe8-c9af-469a-87e5-58925eaf48c7 -->
 
 **Task:** You are designing the clock distribution and a shared bus for a small board.
 
@@ -466,6 +482,7 @@ The optimum balances the two, and lands near a branching factor of <strong>3 to 
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: dcc06ead-6489-4cd2-9dc5-8f4ab2082ba1 -->
 
 - **The delay model is first-order.** Real timing depends on input slew, wire RC and the specific cell library. The scaling is right; the absolute picoseconds are not.
 - **Logical effort is the proper theory.** This module's rule of thumb ("branch by ~4") comes from Sutherland and Sproull's logical-effort method, which gives the optimal sizing analytically.
@@ -475,6 +492,7 @@ The optimum balances the two, and lands near a branching factor of <strong>3 to 
 ---
 
 ## Before moving on
+<!-- bite: d24f47bb-122e-4fea-93b5-47b9355b19a2 -->
 
 **This is the end of Part V.** You are ready for Part VI when you can, closed-book:
 
@@ -491,6 +509,7 @@ The optimum balances the two, and lands near a branching factor of <strong>3 to 
 ---
 
 ## Related
+<!-- bite: 6e9f1b53-986c-4648-aa82-91e167054f2a -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the noise margin droop threatens

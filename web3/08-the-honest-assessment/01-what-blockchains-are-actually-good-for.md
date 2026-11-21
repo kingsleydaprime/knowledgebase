@@ -1,8 +1,13 @@
+---
+id: c6892a97-8817-4408-bf6b-f70907a5e473
+---
+
 # What Blockchains Are Actually Good For
 
 **[Intermediate]** — the test that kills most proposals, the cases that survive it, and why that's still worth learning.
 
 ## The test
+<!-- bite: 4224a7fb-0aed-499c-9bae-d014cee2cea2 -->
 
 **A blockchain is a slow, expensive, public database with no administrator.** You accept all of the first three to get the fourth. So:
 
@@ -18,6 +23,7 @@ That's the whole test, and it eliminates the large majority of blockchain propos
 4. **Does anything break if a company shuts down?** If not, you didn't need censorship resistance
 
 ## What survives — and it's a real list
+<!-- bite: 0e92eb38-3bf0-486c-8dbe-f8a09c56da1c -->
 
 **1. Censorship-resistant value transfer.** Sending money that no intermediary can block. This is the original use case and it remains the strongest.
 
@@ -36,6 +42,7 @@ That's the whole test, and it eliminates the large majority of blockchain propos
 **6. Public, permanent registries where the entry *is* the asset.** ENS names, on-chain art, DAO membership. Not pointers to things elsewhere — the record itself → [[web3/07-the-application-layer/04-identity-and-naming|ENS]].
 
 ## What doesn't survive, and why
+<!-- bite: 63b441e7-f522-4063-83d6-b7e3d702100b -->
 
 **Supply chain provenance.** The chain preserves what was written, not whether it was true. Someone scans a QR onto a pallet, and a lie is now permanent and tamper-proof. **Garbage in, immutable garbage out** → [[web3/06-building-dapps/06-oracles|the oracle problem]].
 
@@ -50,6 +57,7 @@ That's the whole test, and it eliminates the large majority of blockchain propos
 **Anything needing speed, privacy, or the ability to fix a mistake.**
 
 ## The honest summary
+<!-- bite: 44836929-fb71-4256-9d6f-dfdff923defd -->
 
 **Blockchains are a narrow, expensive tool that does one thing nothing else does: maintain agreed state among parties who don't trust each other, without an administrator.**
 
@@ -58,6 +66,7 @@ That is genuinely valuable in a small number of situations, and **the field has 
 **A blockchain in an application where a database would do isn't neutral — it's strictly worse**: slower, costlier, publicly leaking your data, and unfixable when wrong.
 
 ## Why learn it anyway
+<!-- bite: 56338680-bff2-4376-a7a6-77bd3f6be353 -->
 
 **Because it's a genuinely interesting piece of distributed systems engineering**, and because the surviving use cases are real. Also:
 
@@ -69,10 +78,12 @@ That is genuinely valuable in a small number of situations, and **the field has 
 **Learn it as a distributed systems specialisation with a strong adversarial security component.** That framing is accurate, it survives market cycles, and it's what the good engineers in the field actually do.
 
 ## Key insight
+<!-- bite: 01ab6494-5d92-4d02-beb4-feaca8228ddc -->
 
 **Ask "who would I have to trust, and can I?" — if there's an acceptable answer, you don't need a blockchain.** That question resolves nearly every proposal in seconds, and being the person in the room who asks it is more valuable than being the person who can write Solidity.
 
 ## Related
+<!-- bite: cf710ed0-eab4-4f5c-b9c3-6fb08b79fb95 -->
 - [[web3/01-foundations/01-what-web3-actually-is|what web3 actually is]] — the same argument, at the start
 - [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|the fraud surface]]
 - [[web3/07-the-application-layer/05-gaming-and-the-rest|gaming and the rest]] — the four-question test applied

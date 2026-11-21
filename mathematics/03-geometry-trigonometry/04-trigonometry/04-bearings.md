@@ -1,8 +1,13 @@
+---
+id: cf2ae200-cb71-4bc2-8053-c3bdc890fbef
+---
+
 # Bearings
 
 **[Intermediate]** — navigation angles, why they run clockwise from north, and how to turn a journey into a triangle.
 
 ## Before you start
+<!-- bite: a1ddad5c-73bc-486a-9c42-6bfad15a9e9b -->
 
 - You can use the sine and cosine rules — [[03-sine-and-cosine-rules|sine and cosine rules]].
 - You know the ratios and can resolve a length into components — [[01-ratios-and-right-triangles|trigonometric ratios]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 99036bf3-ca2d-4a6d-a311-94e2c7c0818b -->
 
 Mathematics measures angles anticlockwise from the positive $x$-axis. Navigation measures them **clockwise from north**. These are different conventions, and mixing them is the most reliable way to sail into a rock.
 
@@ -27,6 +33,7 @@ The navigational convention is not perverse. A compass points north, so north is
 So this lesson is partly trigonometry and partly **translation**: getting a bearing into a form the sine and cosine rules can consume, and getting the answer back out as a bearing.
 
 ## 2. Terminology
+<!-- bite: 6a52afe4-eb73-434b-8f28-62570f84521d -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -52,6 +59,7 @@ So this lesson is partly trigonometry and partly **translation**: getting a bear
 ```
 
 ## 3. Converting to and from mathematical angles
+<!-- bite: b0c40ae3-78fa-4718-80f8-9f60b2b06298 -->
 
 Let $\beta$ be a bearing and $\theta$ the standard mathematical angle (anticlockwise from east). The two conventions differ in **where zero is** and in **which way is positive**, so the conversion flips and shifts:
 
@@ -86,6 +94,7 @@ $$
 The reduction matters. The back bearing of $250°$ is $070°$, not $430°$.
 
 ## 4. Multi-leg journeys
+<!-- bite: db31fdbb-9826-4ff0-867d-a402ee698311 -->
 
 A journey of several legs is handled by resolving each into components, adding, and converting back:
 
@@ -108,6 +117,7 @@ when that difference is under $180°$. This is where errors creep in: the angle 
 > **Predict before running the lab.** A ship sails $8$ km on bearing $060°$, then $5$ km on bearing $150°$. Before computing: is the turn to the right or the left, and is the angle between the two legs acute, right, or obtuse? Decide, then check against the lab's block 3.
 
 ## 5. Bearings and the triangle rules
+<!-- bite: 48009ade-aa21-49de-a2a4-43be7b0f52e6 -->
 
 Once the interior angle is known, a two-leg problem is an ordinary SAS triangle:
 
@@ -117,6 +127,7 @@ Once the interior angle is known, a two-leg problem is an ordinary SAS triangle:
 The component method and the triangle method must agree. Block 4 of the lab checks exactly that, and disagreement between them is a far better bug detector than re-reading your own arithmetic.
 
 ## Worked example — runnable
+<!-- bite: ca95d95e-bbdf-49e0-a783-f7f3ce19afc9 -->
 
 **Runnable example:** save as `bearings.py` in any empty directory and run `python3 bearings.py`. Standard library only; writes no files.
 
@@ -276,6 +287,7 @@ bearings: passed
 Block 4 is the habit worth keeping: two independent methods, one answer. If they disagree, one of them is wrong and you find out immediately rather than at sea.
 
 ## Common pitfalls and traps
+<!-- bite: 48a488a7-8160-480c-9adc-b405bacdc91e -->
 
 - **Swapping sine and cosine.** Bearings measure from **north**, so northing uses $\cos$ and easting uses $\sin$. Every other trigonometry lesson trains the opposite habit. Check against a compass point — bearing $090°$ must give zero northing.
 - **Argument order in `atan2`.** It is `atan2(easting, northing)`, not the usual `atan2(y, x)` with $y$ vertical. Getting this wrong reflects the bearing about $045°$, which looks plausible.
@@ -285,6 +297,7 @@ Block 4 is the habit worth keeping: two independent methods, one answer. If they
 - **Treating the Earth as flat.** Everything here assumes a plane. Over tens of kilometres that is fine; over hundreds it is not, and the bearing of a long great-circle route **changes continuously along the path**. See the limits section.
 
 ## Check your understanding
+<!-- bite: 01af1332-6872-48a8-a0a5-9f9c8c831502 -->
 
 1. Convert bearings $000°$, $135°$, $270°$ to standard mathematical angles.
 2. A walks from $P$ to $Q$ on bearing $115°$. What bearing does the return journey take?
@@ -304,6 +317,7 @@ Block 4 is the habit worth keeping: two independent methods, one answer. If they
 </details>
 
 ## Practice — independent task
+<!-- bite: c6eacaae-c13c-409d-94be-f5cb81635fd1 -->
 
 Implement `navigate(legs)` and a companion `intercept(start_a, bearing_a, start_b, bearing_b)`.
 
@@ -325,6 +339,7 @@ Implement `navigate(legs)` and a companion `intercept(start_a, bearing_a, start_
 **Done when:** Part A's closed-journey check passes for at least five random journeys, Part B correctly rejects a crossing that lies behind either vessel, and you can state what your intersection test does when the two tracks are the same line.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 5afc64e7-cfa8-422f-8efd-1af9c3379f22 -->
 
 **The flat-Earth assumption.** Every formula here treats the surface as a plane. Over short distances the error is negligible; over long ones it is not. Worse, on a sphere the shortest path — the great circle — does **not** keep a constant bearing. A route flown on a fixed bearing is a *rhumb line*, which spirals towards the pole and is measurably longer. This is why long-haul flight paths look curved on a flat map, and it is handled in [[01-latitude-and-longitude|latitude and longitude]].
 
@@ -333,6 +348,7 @@ Implement `navigate(legs)` and a companion `intercept(start_a, bearing_a, start_
 **Components scale, triangles do not.** For two legs the cosine rule is quicker by hand. For ten legs, components win outright, and they extend to three dimensions without modification. Prefer components in code; keep the triangle method for checking.
 
 ## Before moving on
+<!-- bite: 047ddba4-b99b-497f-9e59-b71c4d47ed47 -->
 
 You are done with this lesson when you can:
 
@@ -346,6 +362,7 @@ You are done with this lesson when you can:
 **Next:** [[05-hyperbolic-functions|Hyperbolic Functions]] — a second family of functions built from the same algebra, describing the hanging cable rather than the rotating wheel.
 
 ## Related
+<!-- bite: 9a125c90-fab5-47a8-a480-0012aac0a18e -->
 
 - [[03-sine-and-cosine-rules|Sine and Cosine Rules]] — the triangle method used as a cross-check
 - [[01-angles-and-parallel-lines|Angles and Parallel Lines]] — the co-interior angle at the turning point

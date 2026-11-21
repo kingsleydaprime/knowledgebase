@@ -1,8 +1,13 @@
+---
+id: 0b67d22f-2106-4b75-892f-08f93f1586c0
+---
+
 # Identity and Naming
 
 **[Intermediate]** — ENS, the Sybil problem, and why decentralised identity is the field's most important unsolved problem.
 
 ## Why this matters more than it looks
+<!-- bite: 53a56ce0-11ab-4d86-b80b-7e9e562261f7 -->
 
 **Almost every hard problem in this folder reduces to not being able to tell people apart:**
 
@@ -14,6 +19,7 @@
 **Blockchains deliberately made identity free and unlimited — that's what "permissionless" means — and then inherited every problem that follows.** Solving it without reintroducing a central authority is genuinely hard, and it's the field's most consequential open problem.
 
 ## ENS — the clear success
+<!-- bite: 400fc473-f305-4a62-b7dc-30a980ddb148 -->
 
 The Ethereum Name Service maps human-readable names to addresses and much else:
 
@@ -35,6 +41,7 @@ vitalik.eth  →  0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 Others exist (Unstoppable Domains, Solana's SNS, Farcaster names). ENS is the one with real integration.
 
 ## The Sybil problem
+<!-- bite: d8206515-cabc-49e4-a47a-59c779a30645 -->
 
 **Creating an address is free and unlimited**, so any system distributing anything per-address is farmed:
 
@@ -45,6 +52,7 @@ Others exist (Unstoppable Domains, Solana's SNS, Farcaster names). ENS is the on
 **You cannot solve this with cleverness on-chain.** Something outside the chain must attest that an identity is distinct — and that something is a trusted party, which is the thing being avoided.
 
 ## The approaches, and their honest status
+<!-- bite: b490e018-1d07-4983-b35c-4d3542e76bda -->
 
 **Proof of personhood.**
 
@@ -61,6 +69,7 @@ Others exist (Unstoppable Domains, Solana's SNS, Farcaster names). ENS is the on
 **On-chain reputation.** Score an address by its history — transactions, repayments, longevity. Cannot distinguish "one honest person" from "one of a farmer's thousand wallets," but it does raise the cost of farming, and it's the basis of the tentative work on under-collateralised lending.
 
 ## The unavoidable tension
+<!-- bite: 76f8bee5-6e46-4629-ae3c-2600f4c9f506 -->
 
 **Every approach that actually works reintroduces a trusted party or collects personal data.** That's not a failure of imagination — it's structural:
 
@@ -69,6 +78,7 @@ Others exist (Unstoppable Domains, Solana's SNS, Farcaster names). ENS is the on
 The genuine progress is in **selective disclosure**: zero-knowledge proofs let you prove a credential's *implication* without revealing the credential — "I hold a passport from an EU country" without which country, which passport, or which person → [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zk proofs]]. **That's real, and it narrows the trade rather than eliminating it:** you still trust the issuer, but you no longer expose the data to every verifier.
 
 ## What's usable today
+<!-- bite: b747ed77-4e94-4b92-886f-7d0e32220f3c -->
 
 - **ENS** for naming. Mature, use it
 - **Sign-In With Ethereum (EIP-4361)** for authentication. Standardised and simple → [[web3/06-building-dapps/02-wallets-and-connection|wallets]]
@@ -77,10 +87,12 @@ The genuine progress is in **selective disclosure**: zero-knowledge proofs let y
 - **Nothing** for general-purpose Sybil resistance. If your design needs it, **design around it instead** — cap per-address impact, use time-weighting, or accept a trusted issuer explicitly
 
 ## Key insight
+<!-- bite: 9fc9a12f-7436-4f82-ae31-c3fcae91ab97 -->
 
 **Permissionless means identities are free, and free identities break every one-per-person mechanism.** This is a design consequence, not an oversight — and it's why governance is plutocratic, lending is over-collateralised and airdrops are farmed. The field's most valuable open problem is proving uniqueness without a central authority, and every partial answer so far trades away either privacy or decentralisation.
 
 ## Related
+<!-- bite: 63272a72-0080-4c6b-b353-d30ad9f9e43f -->
 - [[web3/07-the-application-layer/03-daos-and-governance|DAOs and governance]] — where this bites hardest
 - [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zero-knowledge proofs]] — selective disclosure
 - [[web3/06-building-dapps/02-wallets-and-connection|wallets and connection]] — SIWE

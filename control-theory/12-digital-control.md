@@ -1,8 +1,13 @@
+---
+id: 42538166-f9ab-4340-abeb-3cd45b49ceac
+---
+
 # Digital Control
 
 **[Intermediate → Advanced]** — Everything above assumed continuous time. Your controller runs on a microcontroller at a fixed rate, and that changes things.
 
 ## What sampling does
+<!-- bite: afb2ce44-1f30-41ed-8aee-29ed5face1cb -->
 
 A digital controller doesn't see a signal — it sees samples, and it holds its output constant between them.
 
@@ -26,6 +31,7 @@ $$\text{effective delay} \approx T/2 \quad\Longrightarrow\quad \text{phase lag} 
 **3. Quantisation.** Finite ADC resolution puts a floor on your measurement precision, and finite DAC resolution puts a floor on your actuation. A 10-bit ADC over a 10 V range resolves ~10 mV, and **the derivative term amplifies that quantisation noise directly** — a big reason D behaves worse on hardware than in simulation.
 
 ## Choosing the sample rate
+<!-- bite: c481fb65-91c0-44b6-bbef-46607f7eb082 -->
 
 The engineering decision that matters most.
 
@@ -52,6 +58,7 @@ or equivalently **10–20 samples per rise time**.
 > **Jitter is worse than latency.** A consistent 2 ms delay you can design around. A delay varying between 1 and 3 ms you cannot, because your effective gains change sample to sample. **Use a timer interrupt, not a `sleep()` in a loop.** This matters more than the exact rate you choose.
 
 ## The z-transform
+<!-- bite: 95682fdc-c9b1-4899-94a1-8ab19dffc882 -->
 
 The discrete counterpart of Laplace, with the same purpose: turn difference equations into algebra.
 
@@ -84,6 +91,7 @@ $$\boxed{\text{Discrete stability} \iff |z_i| < 1 \text{ for all poles}}$$
 $$|z| = e^{-\zeta\omega_n T}, \qquad \angle z = \omega_d T$$
 
 ## Discretising a controller
+<!-- bite: 4ad2c75a-53ac-4000-8472-c7009ceb7d83 -->
 
 You designed $C(s)$. You need $C(z)$. Four methods, and the choice matters.
 
@@ -110,6 +118,7 @@ Prewarp at the crossover frequency, or at a notch you need placed exactly.
 > **The general advice: discretise the plant with ZOH, then design directly in discrete time.** Designing in continuous time and discretising the controller works when $f_s$ is 30×+ the bandwidth. When sampling is slow relative to the dynamics, direct discrete design is the only thing that delivers the response you specified.
 
 ## Implementation
+<!-- bite: 8a828e99-6346-446e-8ff5-1ee39f09b45e -->
 
 ### Difference equations
 
@@ -152,6 +161,7 @@ timer interrupt at fixed rate:
 **Minimise the sensor-to-actuator delay.** If the computation is long, the classic trick is to split it: compute the part that depends on the new measurement first, output it immediately, then do the rest of the update. Saves nearly a full sample of delay.
 
 ## What actually goes wrong
+<!-- bite: 9bcf06c2-aea2-4ced-9fd4-72e2bf110b0d -->
 
 The failure modes, in roughly the order you'll meet them:
 
@@ -170,6 +180,7 @@ The failure modes, in roughly the order you'll meet them:
 **Numerical drift** in a long-running integrator. Single precision loses resolution once the accumulator is large. Use a wider accumulator or periodic reconditioning.
 
 ## Networked and distributed control
+<!-- bite: 3a774661-e579-4502-a879-2121c45aa7f2 -->
 
 Increasingly common, and it breaks assumptions worth naming: variable delay, dropped packets, no shared clock.
 
@@ -186,6 +197,7 @@ The parallels with distributed systems are real, and worth taking seriously — 
 ---
 
 ## Related
+<!-- bite: f484542c-289d-48e5-a2e9-f15b1f07a226 -->
 - [[control-theory/04-pid-control|PID Control]] — the controller you're discretising
 - [[control-theory/08-state-space|State Space]] — the discrete state-space form
 - [[control-theory/06-frequency-response|Frequency Response]] — where the hold delay costs you

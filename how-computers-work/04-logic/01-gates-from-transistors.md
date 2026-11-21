@@ -1,8 +1,13 @@
+---
+id: 39e35a70-945c-4976-aa72-b2e6337875dd
+---
+
 # Module 15: Gates from Transistors (Building the Logic Primitives)
 
 **[Intermediate]** — Part V begins. You have a working CMOS inverter; now build every other gate from the same two-network recipe — and find out why real chips are made overwhelmingly of NAND.
 
 ## Before you start
+<!-- bite: 25f8a0b0-68c0-48ba-b703-b3d1e7b2aeb5 -->
 
 - You can draw a CMOS inverter and explain its pull-up / pull-down structure — [[how-computers-work/03-transistors/03-cmos|module 13]].
 - You know PMOS devices are ~2.8× weaker per unit width — [[how-computers-work/02-semiconductors/03-energy-bands|module 8]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 33d82fe4-b814-420b-8883-a934af538058 -->
 
 Module 13 gave you one gate: the inverter. It is a genuine logic gate — NOT is a real operation — but you cannot build a computer from inverters alone. An inverter has one input, and every interesting operation combines *several* things.
 
@@ -32,6 +38,7 @@ Addition needs to know whether two bits are both 1. A memory needs to know wheth
 ---
 
 ## 2. Terminology
+<!-- bite: 21423d06-15f9-4c36-ba10-8f9cb238dda6 -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -49,6 +56,7 @@ Addition needs to know whether two bits are both 1. A memory needs to know wheth
 ---
 
 ## 3. The construction recipe
+<!-- bite: 55f01789-f74e-4756-982b-b13c1ac2d757 -->
 
 Two rules, and they are the whole method.
 
@@ -117,6 +125,7 @@ That is NAND, derived from the arrangement rather than looked up.
 ---
 
 ## 4. Why CMOS is naturally inverting
+<!-- bite: bdbf9217-5f51-4797-8719-ae53f5fc9843 -->
 
 Notice something about both gates above: **they invert.** Series NMOS gives AND, but the output goes *low* when the AND condition is met — so the gate computes NAND, not AND.
 
@@ -140,6 +149,7 @@ This is unavoidable. The PDN pulls the output **down** when its condition is sat
 ---
 
 ## 5. Predict before reading on
+<!-- bite: 3c0695ed-10df-4dc2-a433-eb6f9fc7659d -->
 
 Module 13 ended with a claim: NAND is cheaper and faster than NOR, because PMOS transistors are the weak ones and you want fewer of them in series.
 
@@ -164,6 +174,7 @@ Transistors in **parallel** need no widening at all — the worst case is a sing
 ---
 
 ## 6. The numbers — why chips are made of NAND
+<!-- bite: fa3577d0-fdba-4641-87f0-cc9d23aa0f6d -->
 
 Sizing both gates so they drive as hard as a reference inverter:
 
@@ -202,6 +213,7 @@ That second column is the one that hurts. Larger input capacitance means the *pr
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: fdac38a1-5e87-48df-9a16-1300c4a3b1db -->
 
 This derives each gate's truth table *from its transistor networks* — checking for shorts and floating outputs — then computes the sizing comparison.
 
@@ -340,6 +352,7 @@ The `evaluate()` function is worth dwelling on: it does not contain a truth tabl
 ---
 
 ## 8. Common pitfalls and traps
+<!-- bite: 39f8c825-18ce-4b95-8ad2-b75d3dec6c8c -->
 
 1. **Building the PUN as a copy of the PDN.** It must be the **dual** — series becomes parallel. Copying it gives you a short circuit on some inputs.
 2. **Expecting AND to be cheaper than NAND.** In CMOS, AND *is* NAND plus an inverter. Boolean-algebra intuition inverts the real cost.
@@ -351,6 +364,7 @@ The `evaluate()` function is worth dwelling on: it does not contain a truth tabl
 ---
 
 ## 9. Check your understanding
+<!-- bite: 16c223ea-d32b-426f-b2b3-d042bcd97db2 -->
 
 1. **Build the PDN and PUN for $\overline{A \cdot (B + C)}$. How many transistors, and what is the maximum stack height?**
    <details><summary>Answer</summary>
@@ -381,6 +395,7 @@ The `evaluate()` function is worth dwelling on: it does not contain a truth tabl
 ---
 
 ## 10. Practice — independent task
+<!-- bite: 003635c4-7376-411b-b665-a9e448c4a8cb -->
 
 **Task:** Design and cost a 2-to-1 multiplexer: $\text{OUT} = (S \cdot B) + (\overline{S} \cdot A)$.
 
@@ -401,6 +416,7 @@ Option 2: <strong>absorb the inversion into the next stage.</strong> If whatever
 ---
 
 ## 11. Tradeoffs and limits
+<!-- bite: 89322fb4-c5d0-4485-9ecd-868dcf78c6b9 -->
 
 - **Static CMOS is not the only style.** Pass-transistor and transmission-gate logic can build XOR and multiplexers far more cheaply — a transmission-gate MUX needs about 6 transistors rather than 12. The cost is degraded output levels and no signal regeneration, so such gates cannot be cascaded freely.
 - **The sizing model here is first-order.** It ignores the body effect (which raises $V_{th}$ for transistors higher in a stack, making them weaker still — so real series stacks are *worse* than this model says), internal node capacitances, and velocity saturation.
@@ -410,6 +426,7 @@ Option 2: <strong>absorb the inversion into the next stage.</strong> If whatever
 ---
 
 ## Before moving on
+<!-- bite: 424bb860-3450-4331-aa81-f4f9a088a143 -->
 
 - [ ] State the two construction rules and explain why the PUN must be the PDN's dual.
 - [ ] Derive NAND and NOR truth tables from their transistor arrangements.
@@ -424,6 +441,7 @@ Option 2: <strong>absorb the inversion into the next stage.</strong> If whatever
 ---
 
 ## Related
+<!-- bite: ad5c09de-7103-4671-ac75-64895687d82c -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — the inverter this generalises

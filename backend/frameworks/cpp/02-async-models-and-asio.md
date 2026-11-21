@@ -1,8 +1,13 @@
+---
+id: cc923922-2bc4-4eb5-9f60-b0df6114f5fc
+---
+
 # Async Models and asio
 
 **[Advanced]** — The library underneath every C++ network framework, its three programming models, and the executor question that has kept `std::net` out of the standard for a decade.
 
 ## asio is the substrate
+<!-- bite: 3126a492-a4a7-4ae8-aab5-2cde09bc2ceb -->
 
 Boost.Asio (and its identical standalone version) is the de facto standard C++ networking library. Drogon, Beast, and most serious C++ network code sit on it — the same position [[backend/frameworks/rust/01-axum-and-the-tower-stack|tokio]] holds in Rust.
 
@@ -43,6 +48,7 @@ asio::post(strand, [] { /* runs serialised with other work on this strand */ });
 Strands are asio's answer to data races: rather than locking, you guarantee that related handlers never run concurrently. It's the actor model, and it's usually better than a mutex here because it composes with the async operations.
 
 ## The three models
+<!-- bite: 1b5ea0cf-1274-4303-be9e-8b037a7ba4ca -->
 
 asio supports three ways to express the same operation, which is a real source of confusion when reading examples.
 
@@ -83,6 +89,7 @@ Linear code, one `try/catch`, no nesting. `asio::use_awaitable` is the **complet
 **3. Stackful coroutines** — `asio::spawn` with Boost.Coroutine. Predates C++20, still in older codebases, largely superseded.
 
 ## Completion tokens
+<!-- bite: cab3afd1-932c-434e-b066-5429fa075f27 -->
 
 The design that makes asio unusual: **the last argument decides what the operation returns.**
 
@@ -98,6 +105,7 @@ One API, four calling conventions. It's elegant and it's why asio's function sig
 `asio::redirect_error(asio::use_awaitable, ec)` gets you a coroutine that reports errors via an error code rather than an exception, which matters when you can't afford exceptions.
 
 ## Timeouts
+<!-- bite: 61a21762-a694-4746-be8c-35d50d51b110 -->
 
 There's no timeout parameter. You race a timer against the operation:
 
@@ -117,6 +125,7 @@ if (order[0] == 0) { /* the timer won — timed out */ }
 Older code uses `cancel()` on the socket when the timer fires. Either way, **timeouts are something you build**, and forgetting them is how a C++ server accumulates stuck connections. Compare with Go's `http.Server` fields or tokio's `timeout()` — both give you one line.
 
 ## Buffers and lifetime
+<!-- bite: 7aabf6d9-4084-4b36-97db-ccbbb34d7e34 -->
 
 The most dangerous part.
 
@@ -164,6 +173,7 @@ asio::awaitable<void> session(asio::ip::tcp::socket socket) {
 That's the single strongest practical argument for coroutines over callbacks here: an entire bug class disappears.
 
 ## Executors, and why `std::net` isn't standard
+<!-- bite: bc68fc0d-aca4-46b2-b870-ce90d8b5c86e -->
 
 asio has been the basis of a proposed standard networking library since roughly 2014. It hasn't shipped, and the reason is **executors** — the abstraction for "where does this work run".
 
@@ -174,6 +184,7 @@ Practically: **there is no standard C++ networking, and won't be before C++29.**
 This is the same "no runtime in the standard library" position as [[languages/03-rust/14-async-and-tokio|Rust's async]], with an important difference — Rust standardised the `Future` trait, so different runtimes share a vocabulary. C++ standardised the coroutine *mechanism* with no common awaitable type, so `drogon::Task`, `asio::awaitable`, and `cppcoro::task` don't interoperate.
 
 ## Blocking the loop
+<!-- bite: af20a15f-32fd-410b-bee1-8b46c0504767 -->
 
 Same rule as every event-loop system, and worth restating because it's the most common performance bug:
 
@@ -199,6 +210,7 @@ Or `asio::post` to a separate pool with a completion handler. The rule from [[ba
 ---
 
 ## Related
+<!-- bite: 92351488-d127-4f85-82ea-a6626230b6f7 -->
 - [[backend/frameworks/cpp/01-drogon-and-the-landscape|Drogon and the Landscape]] — what's built on this
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|C: The Accept Loop]] — the same loop, unwrapped
 - [[languages/05-cpp/13-concurrency|C++: Concurrency]] — coroutines, threads, the memory model

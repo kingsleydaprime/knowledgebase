@@ -1,3 +1,7 @@
+---
+id: b766693d-6fa9-4acc-93cc-81289603a304
+---
+
 # Module: Traversal Trees and Edge Classification (What the Search Leaves Behind)
 
 **[Intermediate]** — A traversal does not only *visit* vertices. It **builds a tree** out of the edges it used, and sorts every other edge into one of three kinds. Almost every "clever" graph algorithm you will meet — cycle detection, topological sort, strongly connected components, bipartite checking, bridges and articulation points — is a rule about that classification rather than a new search.
@@ -7,6 +11,7 @@ This is the lesson that turns [[01-depth-first-search|DFS]] and [[02-breadth-fir
 ---
 
 ## Before you start
+<!-- bite: 020a84f1-d0ef-486a-9026-2becc971261e -->
 
 - You can implement DFS recursively and iteratively, and say what the explicit stack replaces — [[01-depth-first-search|depth-first search]].
 - You can implement BFS with a queue and reconstruct a path from a parent map — [[02-breadth-first-search|breadth-first search]].
@@ -25,6 +30,7 @@ This is the lesson that turns [[01-depth-first-search|DFS]] and [[02-breadth-fir
 ---
 
 ## 1. Why this exists: the search knows more than it tells you
+<!-- bite: 0d911734-87f6-4895-becb-d7ee8be44ff8 -->
 
 Here is a question a dependency resolver has to answer, and it sounds like it needs a new algorithm:
 
@@ -49,6 +55,7 @@ Everything in this lesson comes from that one observation: **record not just whe
 ---
 
 ## Terms used in traversal trees
+<!-- bite: 956ef15c-e7c2-499e-bc6e-190023a30a92 -->
 
 1. **Traversal tree**: This is the subgraph made up of exactly the edges the traversal used to reach a vertex for the first time. Every vertex except the starting one is reached by exactly one such edge, so these edges form a tree. In the graph above, `A→B`, `B→D` and `A→C` are the traversal tree; `C→D` is not in it, because `D` had already been reached.
 2. **Traversal forest**: This is what you get when one traversal is not enough to reach everything. If some vertices are still unvisited after the search from the first source finishes, you start a fresh search from one of them, which grows a second tree. The collection of those trees is a forest.
@@ -67,6 +74,7 @@ Everything in this lesson comes from that one observation: **record not just whe
 ---
 
 ## 2. The clock, and what a timestamp pair means
+<!-- bite: 2d71dd5d-f7f7-4247-b355-92f4a0bd8d2d -->
 
 Give the search a counter that starts at zero and ticks by one on two occasions: **entering** a vertex, and **leaving** it. Record the value both times.
 
@@ -120,6 +128,7 @@ $$\text{$u$ is an ancestor of $x$} \iff d[u] < d[x] < f[x] < f[u]$$
 ---
 
 ## 3. Classifying an edge from the timestamps alone
+<!-- bite: 0c5bfc17-366a-4436-9f8b-92a8e082a8e2 -->
 
 Now take any edge $u \to v$ and ask what kind it is. The colour of `v` at the moment DFS examines the edge answers it, and the rule is only three lines:
 
@@ -145,6 +154,7 @@ Four tree edges, two back, one forward, one cross — eight edges, every one acc
 ---
 
 ## 4. Why a back edge *is* a cycle
+<!-- bite: d41e39fd-f26d-4384-9cc0-0f50e543e848 -->
 
 This is the whole point, so it is worth stating both directions carefully.
 
@@ -159,6 +169,7 @@ Together: **a directed graph is a DAG if and only if a DFS over it produces no b
 ---
 
 ## 5. Undirected graphs: two of the four kinds vanish
+<!-- bite: df192b0c-9459-42ae-9171-1c3213baa020 -->
 
 **An undirected DFS produces only tree edges and back edges. Forward and cross edges cannot occur.**
 
@@ -174,6 +185,7 @@ There is no third option, so no forward and no cross edges. **A forward edge wou
 ---
 
 ## 6. What BFS leaves behind instead
+<!-- bite: 495e5619-58b8-4385-9296-60788a2d70d4 -->
 
 BFS builds a tree too, and it has a property DFS's tree does not.
 
@@ -189,6 +201,7 @@ DFS has no such bound. A DFS tree on a path graph of 5,000 vertices is 5,000 lev
 ---
 
 ## 7. Worked example — complete runnable lab
+<!-- bite: 53e9728f-091d-4442-a939-af3c479fce9d -->
 
 Save as `edge_classification.py` in any empty directory. No dependencies beyond the standard library; nothing is written to disk.
 
@@ -420,6 +433,7 @@ This is the output of an actual run, not a reconstruction:
 ---
 
 ## 8. Which parts are facts about the graph, and which are accidents
+<!-- bite: da728495-c411-4df9-8778-a4ca8892ad97 -->
 
 Block 7 is the one to take seriously, because it separates two things students routinely conflate.
 
@@ -443,6 +457,7 @@ Notice the pattern: **discovery time, finish time, and back edges.** Learn those
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 3f4412ea-1b3f-480c-a2ac-45e386bf60e1 -->
 
 1. **Using a visited set where you need three colours.** A visited set cannot distinguish "on the current path" from "finished and left". On a directed graph this makes cycle detection report cycles that do not exist, exactly as in section 1. The symptom is a dependency resolver that rejects a perfectly valid build.
 2. **Forgetting that the undirected parent edge looks like a back edge.** Every child sees its parent as grey. Skip the edge you arrived on — and skip it by edge identity, not by vertex, or you will also skip a genuine parallel edge, which really is a two-edge cycle.
@@ -454,6 +469,7 @@ Notice the pattern: **discovery time, finish time, and back edges.** Learn those
 ---
 
 ## 10. Check your understanding
+<!-- bite: 505517b5-0207-411c-8b56-1f3aa5162fb8 -->
 
 Answer before opening each one.
 
@@ -475,6 +491,7 @@ Answer before opening each one.
 ---
 
 ## 11. Practice — independent task
+<!-- bite: 2a5f8500-23f3-4bd0-8f49-f52c613eb383 -->
 
 Implement `analyse(graph, directed=True)` that returns a report about a graph using only one DFS pass.
 
@@ -505,6 +522,7 @@ Then take it to a real problem: [[087-course-schedule|Course Schedule]] and [[08
 ---
 
 ## Before moving on
+<!-- bite: cb950a10-5a83-4bfd-931c-8169fea7273d -->
 
 You can compute discovery and finish times by hand, classify any edge from them, prove in both directions that back edges and directed cycles are the same thing, and say which parts of the classification are properties of the graph rather than of your traversal.
 
@@ -515,6 +533,7 @@ You can compute discovery and finish times by hand, classify any edge from them,
 ---
 
 ## Related
+<!-- bite: 50ec92c6-8a68-4134-a56e-ed6a635e3bac -->
 
 - [[01-depth-first-search|Depth-First Search]] — the traversal whose tree this lesson dissects
 - [[02-breadth-first-search|Breadth-First Search]] — the other tree, and the level property

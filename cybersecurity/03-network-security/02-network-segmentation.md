@@ -1,8 +1,13 @@
+---
+id: ce2264e1-ea6f-4e96-938d-ec840304b823
+---
+
 # Network Segmentation
 
 A flat network — every device able to reach every other device directly — means a single compromised machine can potentially reach anything else on that network. Segmentation splits a network into smaller, isolated zones with controlled traffic between them, so a breach in one zone doesn't automatically become a breach of everything.
 
 ## VLANs — the basic building block
+<!-- bite: bcefaed4-8a50-44e3-9b80-d68ea48b911f -->
 
 A VLAN (Virtual LAN) logically separates devices on the same physical network infrastructure into distinct broadcast domains, as if they were on separate physical networks, without needing separate physical switches for each segment. Traffic between VLANs has to pass through a router or firewall (see [[01-firewalls|firewalls]]), which is exactly where segmentation's actual security value comes from — that's the choke point where rules can be enforced.
 
@@ -19,6 +24,7 @@ interface GigabitEthernet0/1
 ```
 
 ## Common segmentation patterns
+<!-- bite: 288a439f-6916-4d63-ba80-ffb6f4e1dcee -->
 
 - **Guest network isolation** — guest Wi-Fi traffic is placed on its own VLAN with no route to internal/corporate systems, so a compromised or malicious guest device can't reach anything sensitive.
 - **IoT/device isolation** — smart home and IoT devices (often poorly secured, rarely patched) go on their own segment, so a compromised smart bulb or camera can't be used as a stepping stone to reach a laptop or NAS holding real data.
@@ -33,20 +39,24 @@ Internet <-> [Firewall] <-> DMZ (web server, mail server)
 ```
 
 ## Zero Trust — segmentation taken to its logical extreme
+<!-- bite: 0faf42c0-1f5b-41a4-9c81-64d3350f7e86 -->
 
 Traditional network security often assumes "inside the network perimeter = trusted." **Zero Trust** rejects that assumption entirely: no device or user is trusted by default based on network location alone; every request is authenticated and authorized individually, regardless of whether it originates "inside" or "outside" the traditional perimeter. This is a response to a real failure mode of perimeter-only security — once an attacker gets past the perimeter (via phishing, a single compromised credential), a purely perimeter-based model offers little further resistance; Zero Trust assumes breach is possible anywhere and verifies continuously rather than once at the boundary.
 
 ## Why segmentation directly limits the damage of a compromise
+<!-- bite: 54b3c4e9-4e36-4b1f-82ed-4ebd2b8373a4 -->
 
 This is the practical payoff tying back to [[09-post-exploitation-and-reporting|post-exploitation]]'s concept of lateral movement: a well-segmented network turns "one compromised device" into a contained incident, while a flat network turns the same single compromise into potential access to everything. Segmentation doesn't prevent the initial compromise — it limits what that compromise can reach afterward, which is exactly the kind of control that shows up as the difference between a minor incident and a full breach in a post-incident report.
 
 ## Gotchas
+<!-- bite: 922d6428-cc34-4273-80ce-263304c944a5 -->
 
 - Segmentation only helps if the boundaries between segments are actually enforced (firewall rules between VLANs) — a VLAN with an overly permissive "allow all" rule to every other VLAN provides the isolation label without the actual security benefit.
 - Segmentation adds real operational complexity (more rules to maintain, more places a legitimate service can be accidentally blocked) — it's a genuine tradeoff against simplicity, not a free win, which is part of why smaller/less mature organizations sometimes skip it despite the security benefit.
 - IoT devices are a commonly underestimated segmentation priority — they're frequently the least secure devices on a home or small-office network and the easiest entry point, precisely why isolating them specifically is called out above.
 
 ## Related
+<!-- bite: ee9c87b2-d87c-405b-9197-9535dbbda8ad -->
 - [[01-firewalls|firewalls]]
 - [[03-vpns-and-encryption-in-transit|vpns-and-encryption-in-transit]]
 - [[04-intrusion-detection-and-prevention|intrusion-detection-and-prevention]]

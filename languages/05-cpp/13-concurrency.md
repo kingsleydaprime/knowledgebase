@@ -1,14 +1,20 @@
+---
+id: c82ea893-8108-4b1c-84a2-1565681a0880
+---
+
 # Concurrency
 
 **[Advanced]** — Threads, the memory model that made them well-defined, and the fact that nothing here is checked.
 
 ## Before C++11 there was nothing
+<!-- bite: f6ed9ad1-bbc6-455a-9fc5-c582c3591478 -->
 
 Until 2011 the C++ standard had **no concept of a thread**. Multithreaded C++ was pthreads or Win32 plus a set of assumptions about what the compiler wouldn't reorder — assumptions with no basis in the standard.
 
 C++11 added threads, mutexes, atomics, and — most importantly — a **memory model** that defines what concurrent execution actually means. That model was then adopted almost verbatim by C11, Rust and others, so it's the shared vocabulary now.
 
 ## Threads
+<!-- bite: c16e3050-5fd4-4055-a77a-2342b7eedfc7 -->
 
 ```cpp
 #include <thread>
@@ -45,6 +51,7 @@ unsigned n = std::thread::hardware_concurrency();   // a HINT; may return 0
 These are **OS threads**, 1:1 — roughly 8MB of virtual stack each. Fine for tens, wrong for tens of thousands. C++ has no green threads; coroutines (C++20) are the async story and are still low-level.
 
 ## Mutexes
+<!-- bite: 2378af33-f54a-4ea8-8b2a-c95a00870110 -->
 
 ```cpp
 #include <mutex>
@@ -78,6 +85,7 @@ std::shared_mutex mu;                            // C++17 readers-writer lock
 Worth it only when reads genuinely dominate — it's slower than a plain mutex under contention.
 
 ## The critical difference from Rust
+<!-- bite: fcf59532-55a4-4369-a3f0-7f4bbe9168b6 -->
 
 ```cpp
 std::mutex mu;
@@ -107,6 +115,7 @@ v.with([](auto &vec) { vec.push_back(1); });
 Not enforced — you can still leak a reference out of the lambda — but it makes the correct thing the easy thing.
 
 ## Condition variables
+<!-- bite: 44cde762-b493-4ac6-8541-3435b1556363 -->
 
 ```cpp
 #include <condition_variable>
@@ -133,6 +142,7 @@ void consumer() {
 `unique_lock` rather than `lock_guard`, because `wait` needs to unlock and relock.
 
 ## Atomics
+<!-- bite: c5817be4-8d33-43ed-baf9-8ada2987285c -->
 
 ```cpp
 #include <atomic>
@@ -151,6 +161,7 @@ std::atomic<Node *> head{nullptr};
 Atomics avoid a mutex for single values. `std::atomic<T>::is_lock_free()` tells you whether it's a real instruction or a hidden lock — types larger than a machine word usually aren't.
 
 ## The memory model
+<!-- bite: bdf2124c-8409-4517-98cc-861d357e00ba -->
 
 The hard part. Modern CPUs and compilers **reorder** memory operations for performance, so without synchronisation, thread B may observe thread A's writes in a different order than they were written.
 
@@ -181,6 +192,7 @@ assert(data == 42);                                  // guaranteed
 **A data race is undefined behaviour**, not "a stale read". Two unsynchronised accesses with one write, and the standard says your entire program is meaningless — the compiler may have optimised on the assumption it couldn't happen.
 
 ## `std::async` and futures
+<!-- bite: 253d6f0d-3f1a-4841-bf42-1bb5aca39186 -->
 
 ```cpp
 #include <future>
@@ -209,6 +221,7 @@ std::sort(std::execution::par, v.begin(), v.end());
 ```
 
 ## Coroutines (C++20)
+<!-- bite: fd6b5534-ffdc-4c72-a879-d9b688fed1a1 -->
 
 ```cpp
 Task<int> fetch() {
@@ -224,6 +237,7 @@ So using them means adopting a library (cppcoro, libunifex, asio, folly) or writ
 Powerful and genuinely not beginner material.
 
 ## Finding the bugs
+<!-- bite: 7471a476-6924-4aab-b685-5d6075fef96a -->
 
 ```bash
 g++ -fsanitize=thread -g prog.cpp        # ThreadSanitizer — data race detection
@@ -235,6 +249,7 @@ valgrind --tool=helgrind ./prog
 Note that this is *dynamic* detection — the same position [[languages/02-go/07-concurrency-patterns|Go]] is in. Rust's is static and total.
 
 ## Practical rules
+<!-- bite: e9e2dfa8-c82e-4b1e-a6b7-c300f665edbe -->
 
 1. **`std::jthread` over `std::thread`.**
 2. **`lock_guard`/`scoped_lock` — never manual lock/unlock.**
@@ -249,6 +264,7 @@ Note that this is *dynamic* detection — the same position [[languages/02-go/07
 ---
 
 ## Related
+<!-- bite: 33278389-cfcf-415f-afba-c7e432c9121a -->
 - [[languages/05-cpp/03-classes-and-raii|Classes and RAII]] — what makes `lock_guard` work
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — the same primitives, statically checked
 - [[languages/02-go/07-concurrency-patterns|Go: Concurrency Patterns]] — the dynamic-checking alternative

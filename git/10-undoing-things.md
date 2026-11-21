@@ -1,3 +1,7 @@
+---
+id: c0ced81a-24af-418b-afc6-913900de0832
+---
+
 # Undoing Things
 
 **[Intermediate]** — Where most Git confusion lives. A decision tree first, then `reset` vs `revert` vs `restore`, the reflog as a safety net, and stashing.
@@ -5,6 +9,7 @@
 This is where most confusion happens. There are multiple ways to undo in Git, and choosing the wrong one can make things worse.
 
 ## The Undo Decision Tree
+<!-- bite: 0fb459e0-5d78-477e-adf3-a6d06143b5c4 -->
 
 ```
 What do you want to undo?
@@ -35,6 +40,7 @@ What do you want to undo?
 ```
 
 ## git reset — The Three Modes
+<!-- bite: 73841b44-a954-4962-ac66-01a08e48db61 -->
 
 ```bash
 # git reset moves HEAD (and the branch) to a different commit
@@ -65,6 +71,7 @@ git reset a1b2c3d file.txt    # Reset file in index to a specific commit
 ```
 
 ## git revert — Safe Undo for Shared History
+<!-- bite: fff6ad80-4249-48be-a59d-5d834fed79db -->
 
 `git revert` creates a new commit that undoes the changes of a previous commit. The old commit remains in history — nothing is rewritten. This is the **only safe way to undo commits that have been pushed to a shared branch**.
 
@@ -78,6 +85,7 @@ git revert -m 1 merge-commit   # Revert a merge commit (1 = keep first parent's 
 ```
 
 ## Restoring Files
+<!-- bite: ffd72d6b-0891-4c25-b3cd-c5d402f256d8 -->
 
 ```bash
 # Restore file to state at HEAD
@@ -97,6 +105,7 @@ git restore --staged deleted-file.txt       # If deletion is staged
 ```
 
 ## Recovering Lost Commits
+<!-- bite: 3a61359e-dc9b-4682-9b01-3601fca14cf7 -->
 
 If you did `git reset --hard` and lost commits, or if you deleted a branch — the commits aren't gone immediately. Git keeps them in the reflog for 30 days (90 days for unreachable commits with `gc.reflogExpireUnreachable`).
 
@@ -105,6 +114,7 @@ See **The Reflog — Your Safety Net** below.
 ---
 
 ## The Reflog — Your Safety Net
+<!-- bite: 7dd4ebcc-4cdc-48e8-8026-fb868c271f5e -->
 
 ### What the Reflog Is
 
@@ -157,6 +167,7 @@ git cat-file -p sha            # See commit details
 ---
 
 ## Stashing
+<!-- bite: c1454cef-3db8-4949-8939-ef95ba9b7b92 -->
 
 ### Basic Stashing
 
@@ -210,6 +221,7 @@ git add -A && git commit -m "WIP: [description]"
 ---
 
 ## Related
+<!-- bite: 310dff3d-de2c-47d5-ba99-bc5b575fb2c2 -->
 - [[git/git-troubleshooting|Troubleshooting]] — the symptom-first version of this note
 - [[git/03-the-three-trees|The Three Trees]] — `reset --soft/--mixed/--hard` maps exactly onto them
 - [[git/01-how-git-works|How Git Actually Works]] — why nothing is really gone until `gc` runs

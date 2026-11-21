@@ -1,3 +1,7 @@
+---
+id: 0ae3c207-cdf7-42a3-ac19-7b31d664b8c5
+---
+
 # Rate Limiting
 
 > **[Intermediate]** · The four algorithms, what to key on, and why doing it in-process silently doesn't work.
@@ -5,6 +9,7 @@
 **Rate limiting protects a shared resource from any single consumer** — deliberate abuse, an accidental infinite loop in someone's client, or a retry storm you caused yourself.
 
 ## The four algorithms
+<!-- bite: e389ce21-e952-4719-ac9c-f80000e85f11 -->
 
 **Fixed window** — count requests per calendar minute; reset at the boundary.
 ✓ Trivial, one counter.
@@ -26,6 +31,7 @@
 **The default recommendation: token bucket**, because real clients are bursty and punishing that is user-hostile.
 
 ## What to key on
+<!-- bite: 291ea3dc-87ef-4fdc-a0d7-ffb057f4854e -->
 
 **Getting this wrong makes the limiter either useless or an outage:**
 
@@ -41,6 +47,7 @@
 **Behind a proxy, the client IP is the proxy's** unless you configure forwarded headers — so you rate-limit your own load balancer and either block everyone or nobody. **And `X-Forwarded-For` is client-controlled**: trust it only from proxies you control, and take the right entry in the chain → [[devops/02-networking-and-web/index|networking and web]].
 
 ## In-process doesn't work
+<!-- bite: 6bdcf50d-37cb-4fd3-a9ca-eda209d14747 -->
 
 **The mistake that looks fine in staging.** An in-memory limiter is per-instance:
 
@@ -64,6 +71,7 @@ EXPIRE key 60 NX        -- only set TTL on first increment
 **In-process is legitimate in exactly two cases:** a single-instance service, or a *second* layer protecting one instance from local overload beneath a distributed limiter.
 
 ## The response
+<!-- bite: 3e8907e8-a88a-4799-9eee-91490dd0d8b6 -->
 
 ```http
 HTTP/1.1 429 Too Many Requests
@@ -78,6 +86,7 @@ Retry-After: 42
 **Return the headers on successful responses too**, so a well-behaved client can slow down *before* being blocked rather than discovering the wall.
 
 ## Where it goes
+<!-- bite: b208e7ac-10bc-413b-88ca-c005b37a8b0a -->
 
 **Layered, because each layer catches what the one below can't:**
 
@@ -89,6 +98,7 @@ Retry-After: 42
 **Put crude limits as far out as possible.** Rate limiting in your application still costs you a request, a thread and a Redis round trip — so it cannot protect you from a genuine flood.
 
 ## Adjacent, and often confused
+<!-- bite: 57e794e9-4cf4-4b50-a280-dfffddd8fb5b -->
 
 **Throttling** — slowing rather than rejecting.
 **Quotas** — a longer-window budget (per day/month), usually billing-related.
@@ -98,6 +108,7 @@ Retry-After: 42
 **Backpressure** is the general form: signal upstream to slow down rather than accepting work you can't do.
 
 ## Getting it wrong
+<!-- bite: db52ca4f-fc8a-4e7f-a63a-0b73defe359c -->
 
 **Limits set by guessing.** Measure normal usage first; set the limit above the 99th percentile of legitimate traffic.
 
@@ -108,6 +119,7 @@ Retry-After: 42
 **Retries without jitter**, which turns a limit into a synchronised stampede → [[backend/06-cross-cutting/05-idempotency-and-retries|note 05]].
 
 ## Related
+<!-- bite: 7a6f9d99-8222-4d38-85f0-0034a54fa983 -->
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] — the client side
 - [[backend/frameworks/cross-language-recipes|cross-language recipes]] — implementations
 - [[architecture/interview/01-system-design-round|system design]] — the distributed problem

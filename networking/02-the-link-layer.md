@@ -1,8 +1,13 @@
+---
+id: a0d25ad6-4394-49e3-8b6f-4cd10059624e
+---
+
 # The Link Layer — Getting to the Next Machine
 
 **[Beginner]** — the layer under IP. Its entire job: move a frame **one hop**, across one physical medium, to a directly-attached neighbour. It has no concept of "the internet."
 
 ## The kid version first
+<!-- bite: a983b03a-9eb0-4523-a87c-013df0103761 -->
 
 Imagine a big office building. To send a memo to someone in another building, you write their full postal address on it — but you don't carry it there yourself. You hand it to the mailroom **on your floor**. The mailroom only knows about desks on this floor and the loading dock downstairs.
 
@@ -12,6 +17,7 @@ Imagine a big office building. To send a memo to someone in another building, yo
 So a packet has **two destination addresses at once**, and this trips up nearly everyone learning networking: the IP address of where it's ultimately going (constant end-to-end) and the MAC address of the next machine on this wire (rewritten at every hop).
 
 ## Frames, and why MTU matters
+<!-- bite: 6d385be1-f7e6-4a75-9829-ab101354dc7d -->
 
 The link layer's unit is a **frame**: a header, a payload (which is the entire IP packet), and a trailer holding a checksum. An Ethernet frame carries at most **1500 bytes** of payload by default — that limit is the **MTU** (Maximum Transmission Unit).
 
@@ -26,6 +32,7 @@ Tunnels (VPN, VXLAN, [[devops/10-orchestration/index|Kubernetes overlay networks
 **Jumbo frames** (MTU ~9000) exist in data centres to cut per-packet overhead, but only work if *every* device on the path agrees.
 
 ## MAC addresses
+<!-- bite: 3d0ef9e3-b55f-4aeb-8b55-36a2cddf6897 -->
 
 A **MAC address** is 48 bits, burned into the network interface at manufacture (`a4:83:e7:2b:11:9f`). The first half identifies the vendor. Properties worth internalising:
 
@@ -34,6 +41,7 @@ A **MAC address** is 48 bits, burned into the network interface at manufacture (
 - **Randomised now, for privacy.** Modern phones/laptops rotate their Wi-Fi MAC per network, because a stable MAC is a perfect tracking identifier for anyone listening.
 
 ## ARP — the join between layers 3 and 2
+<!-- bite: e7eadc7b-1651-44d0-8312-104529c5c2d3 -->
 
 Your host has an IP packet for `192.168.1.1` and needs the MAC to put in the frame. It doesn't know it. So it **shouts**:
 
@@ -49,6 +57,7 @@ ARP has no authentication whatsoever. Anyone on the segment can answer *any* req
 IPv6 replaces ARP with **NDP** (Neighbor Discovery), which uses multicast rather than broadcast and can be secured — though usually isn't.
 
 ## Hubs, switches, and broadcast domains
+<!-- bite: 0a8265a0-e834-4384-a05f-24fc943a70c7 -->
 
 Three generations of "the box in the middle," and the difference explains most LAN behaviour:
 
@@ -61,6 +70,7 @@ Three generations of "the box in the middle," and the difference explains most L
 **VLANs** let one physical switch host several logical broadcast domains by tagging frames with a VLAN ID (802.1Q). This is how a single switch serves separate "production" and "guest" networks, and it's the physical mechanism behind a lot of [[cybersecurity/03-network-security/02-network-segmentation|segmentation]] policy.
 
 ## Wi-Fi, briefly, because it breaks assumptions
+<!-- bite: 908cdfdd-01e8-49ee-a657-c880f197e57c -->
 
 Wired Ethernet is nearly lossless — a dropped packet almost always means congestion. Wi-Fi is not:
 
@@ -69,10 +79,12 @@ Wired Ethernet is nearly lossless — a dropped packet almost always means conge
 - It retransmits at layer 2, which turns loss into **latency variance** (jitter) instead of loss. Good for TCP throughput, bad for real-time audio.
 
 ## Key insight
+<!-- bite: 87e65994-b4da-4df6-85fb-9f7fafb43e9c -->
 
 The link layer is where the **abstraction is deliberately broken and re-made at every hop**. The IP header stays intact end-to-end; the Ethernet frame around it is destroyed and rebuilt by every router on the path. Understanding that a packet has a permanent final address *and* a temporary next-hop address is the single mental shift that makes routing, ARP, NAT, and traceroute all make sense at once.
 
 ## Related
+<!-- bite: 634ee10d-dd64-4362-852d-b1298097150e -->
 - [[networking/03-ip-addressing-and-subnetting|IP Addressing & Subnetting]] — the hierarchical addressing MAC can't do
 - [[networking/04-routing|Routing]] — how the next hop is chosen
 - [[networking/16-debugging-networks|Debugging Networks]] — `ip neigh`, `arping`, and diagnosing MTU black holes

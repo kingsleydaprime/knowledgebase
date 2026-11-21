@@ -7,6 +7,7 @@ id: 67aeb836-f730-4ade-8ede-e10394de3f86
 **[reference]** — from the roadmap.sh system-design roadmap. The theorem every system-design discussion invokes (often wrongly), and the consistency spectrum underneath it. The bridge from system-design fundamentals into [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## The CAP theorem
+<!-- bite: f6551323-82c9-450e-9452-9959a38f9913 -->
 
 For any distributed data store, when a **network partition** happens (nodes can't talk to each other — which *will* happen), you can guarantee at most **two** of:
 
@@ -15,6 +16,7 @@ For any distributed data store, when a **network partition** happens (nodes can'
 - **Partition tolerance (P)** — the system keeps working despite dropped/delayed messages between nodes.
 
 ## Reading CAP correctly (most people get this wrong)
+<!-- bite: fefd8bda-4cc3-4a1f-b871-5cbc26dcb235 -->
 
 The popular "pick 2 of 3" framing is misleading. In a real distributed system, **partitions are not optional** — networks fail, so you *must* tolerate P. That means the real choice, **during a partition**, is between **C and A**:
 
@@ -24,6 +26,7 @@ The popular "pick 2 of 3" framing is misleading. In a real distributed system, *
 **When there's *no* partition, you get both C and A** — CAP only forces the choice during the failure. So the honest statement is: "*during a network partition*, do you sacrifice consistency or availability?"
 
 ## The consistency spectrum
+<!-- bite: 0bae3859-cb06-4264-81f5-dd530cba8683 -->
 
 "Consistency" isn't binary — it's a spectrum of guarantees, from strongest (and most expensive) to weakest (and most available). This is the more useful lens than CAP:
 
@@ -32,6 +35,7 @@ The popular "pick 2 of 3" framing is misleading. In a real distributed system, *
 - **Eventual consistency** — if writes stop, all replicas *eventually* converge; in the meantime, reads may be stale. Cheap, highly available, low latency — the default for AP systems. The cost: your application must tolerate (and sometimes resolve) stale/conflicting reads.
 
 ## Choosing, in practice
+<!-- bite: b7ec50c8-a91e-43a7-9e1e-5689181a5bd0 -->
 
 The design question is always "**how consistent does *this data* need to be?**" — and the answer differs *per feature within one system*:
 
@@ -41,6 +45,7 @@ The design question is always "**how consistent does *this data* need to be?**" 
 Mature systems mix models: strong consistency for the money, eventual for the feed. The instinct to build — *from the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|requirements]], decide the weakest consistency each piece of data can tolerate, because weaker is cheaper and more available* — is exactly the senior judgment CAP is really about. The mechanisms that implement these guarantees (quorums, replication, consensus, conflict resolution/CRDTs) are the subject of [[architecture/04-distributed-systems/05-replication|distributed systems]].
 
 ## Related
+<!-- bite: 10c31b06-46bb-43c0-bc4b-41396d3d6db2 -->
 - [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — how these guarantees are actually implemented
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability & Reliability]] — the A in CAP
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — where you pick a database's consistency model

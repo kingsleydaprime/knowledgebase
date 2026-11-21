@@ -1,3 +1,7 @@
+---
+id: 053abe04-7b6e-430c-8e0e-e79578ed9de5
+---
+
 # Why C++, and What It Added
 
 **[Beginner → Intermediate]** — C++ only makes sense as a reaction to C. What it added, the principle it never compromised, and the reason it's the hardest mainstream language to learn.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — cross-referenced against [roadmap.sh C++](https://roadmap.sh/cpp). No C++ project in this vault. See [[project-ideas|Project Ideas]].
 
 ## The premise
+<!-- bite: e67d6170-1fd9-4cc2-bea9-403f0e5a2887 -->
 
 Bjarne Stroustrup started with "C with Classes" in 1979. The goal was **abstraction without giving up control** — you should be able to build a `string`, a `vector`, a `Matrix` that behave like built-in types, and pay nothing for the ones you don't use.
 
@@ -17,6 +22,7 @@ So: no garbage collector, no runtime, no mandatory bounds checks, no reflection,
 The result is a language that is genuinely faster to *write* than C and just as fast to *run* — while being enormously harder to learn than either.
 
 ## What it added to C
+<!-- bite: eb12dc76-3dfc-451b-8d73-1af56d8c3cf9 -->
 
 | Addition | Fixes what in C |
 |---|---|
@@ -33,6 +39,7 @@ The result is a language that is genuinely faster to *write* than C and just as 
 **RAII is the big one**, and if you take one idea from C++ into other languages, take that one. Everything else is convenience; RAII is a genuinely different way to manage resources. → [[languages/05-cpp/03-classes-and-raii|Classes and RAII]]
 
 ## What it kept — including the bad parts
+<!-- bite: 059373cf-5c9b-46ed-b180-84dcc8b39921 -->
 
 C++ is **almost** a superset of C, and that compatibility is both its distribution strategy and its greatest weakness:
 
@@ -44,6 +51,7 @@ C++ is **almost** a superset of C, and that compatibility is both its distributi
 That last point matters, because the industry conversation is about it. Microsoft's and Google's ~70% memory-safety-bug figures cover C **and** C++. Modern C++ with smart pointers and containers eliminates most of the easy mistakes; it does not eliminate the category, because nothing checks you.
 
 ## The real problem: it's several languages
+<!-- bite: 01b6d26b-b7e9-4b57-8274-31c89966aa15 -->
 
 C++ has accumulated 45 years of features without removing any. You can write:
 
@@ -69,6 +77,7 @@ All three compile. All three are "C++". A codebase usually contains all three, w
 > **The subset to write:** RAII everywhere, `std::unique_ptr` for owning pointers, containers instead of raw arrays, algorithms instead of hand-written loops, `const` and references by default, and `new`/`delete` essentially never. That's "modern C++", and it's what these notes teach.
 
 ## Compilation — same model as C
+<!-- bite: bfaeac6e-a75a-4b1b-aebc-60d3686d72b3 -->
 
 Preprocess → compile → assemble → link, one [[languages/04-c/02-headers-and-the-translation-unit|translation unit]] at a time. Everything in the C note applies.
 
@@ -115,6 +124,7 @@ clang++ -std=c++23 ...
 Use `g++`/`clang++`, not `gcc`, or you won't link the C++ standard library.
 
 ## Hello, world
+<!-- bite: 6ea715f4-ec1a-437f-b6c8-4a25166f5144 -->
 
 ```cpp
 #include <iostream>
@@ -135,6 +145,7 @@ int main() {
 **Never write `using namespace std;`** at file scope in a header, and preferably not at all. It pulls ~2,000 names into your scope and produces baffling ambiguity errors (`std::count` vs your `count`).
 
 ## Where C++ fits
+<!-- bite: 1a927f1e-7b27-438b-8b20-6b5a3da6d74a -->
 
 **Good at:** game engines, trading systems, browsers, databases, CAD, embedded with a real toolchain, scientific computing, and any large existing C++ codebase. It's the default where you need C-level performance *and* substantial abstraction.
 
@@ -154,6 +165,7 @@ The comparison that matters now that all four are here:
 C++ and Rust occupy nearly the same performance niche. The difference is that C++ gives you RAII and asks you to be careful, while Rust gives you RAII and checks.
 
 ## The standards
+<!-- bite: c7eb2807-fd43-443a-a474-447270d0857a -->
 
 | | Notable |
 |---|---|
@@ -169,6 +181,7 @@ C++ and Rust occupy nearly the same performance niche. The difference is that C+
 ---
 
 ## Related
+<!-- bite: 2fc34804-3e34-457d-affa-4db3d1f99c23 -->
 - [[languages/05-cpp/03-classes-and-raii|Classes and RAII]] — the central idea
 - [[languages/04-c/01-why-c-and-the-compilation-model|C: The Compilation Model]] — the model C++ inherited
 - [[languages/05-cpp/14-modern-cpp-and-modules|Modern C++ and Modules]] — what changed and what to write

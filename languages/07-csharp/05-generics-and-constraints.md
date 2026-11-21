@@ -1,3 +1,7 @@
+---
+id: d00cb885-3518-4999-965c-8a86c541e0cd
+---
+
 # Generics and Constraints
 
 > **[Intermediate]** · Reified generics, constraints, and variance — the parts that make C#'s version genuinely better than Java's.
@@ -12,6 +16,7 @@ public class Repository<T> where T : class, IEntity, new()
 ```
 
 ## Reified — the difference that matters
+<!-- bite: ac389242-42b7-4f94-b380-e7fad63e5f26 -->
 
 **C# generics survive to runtime.** Java erases them → [[languages/01-java/index|Java]].
 
@@ -30,6 +35,7 @@ var x = new T();                               // works, given new()
 **You can overload on generic arity** — `Foo<T>` and `Foo<T,U>` coexist.
 
 ## Constraints
+<!-- bite: 66c3196b-f1e2-4d1f-9030-36ba03ea5376 -->
 
 Without constraints, `T` is only `object` — you can barely do anything with it.
 
@@ -65,6 +71,7 @@ public static T Sum<T>(IEnumerable<T> values) where T : INumber<T>
 **This closed a twenty-year gap.** Before `INumber<T>`, writing one `Sum` that worked for `int`, `double` and `decimal` was impossible without duplication or boxing — the interfaces now expose **static abstract members**, which is what makes `T.Zero` legal.
 
 ## Variance
+<!-- bite: 1abb30ca-bac2-47eb-883d-8894ed85ebc5 -->
 
 **Where generic types can substitute for each other**, and the source of "cannot convert `List<Dog>` to `List<Animal>`".
 
@@ -84,6 +91,7 @@ animals.Add(new Cat());                   // would corrupt the List<Dog>
 **The mnemonic: `out` for producers, `in` for consumers.**
 
 ## Generic methods and inference
+<!-- bite: 36528bc0-45de-4f5d-8e71-eb6e452630d3 -->
 
 ```csharp
 public static void Swap<T>(ref T a, ref T b) { (a, b) = (b, a); }
@@ -95,12 +103,14 @@ Swap(ref x, ref y);           // T inferred as int — no <int> needed
 **Inference works from arguments, not from the return type.** `var x = Parse<int>("42")` needs the explicit argument because there's nothing to infer from.
 
 ## Where generics stop
+<!-- bite: 7b2c0770-e52e-443d-9b6e-c0235b8e97cf -->
 
 - **You cannot constrain to "has operator +"** — that's what `INumber<T>` fixed
 - **You cannot inherit from a type parameter**
 - **Static members are per-constructed-type**: `Cache<int>.Items` and `Cache<string>.Items` are different fields. Occasionally useful, frequently surprising
 
 ## Related
+<!-- bite: ec978f7d-3eb9-4a07-ae37-318dde9b8a41 -->
 - [[languages/07-csharp/02-the-type-system|the type system]]
 - [[languages/07-csharp/04-collections-and-linq|collections and LINQ]] — generics' biggest consumer
 - [[programming-language-theory/04-type-systems-formally|type systems]] — variance, formally

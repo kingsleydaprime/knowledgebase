@@ -1,14 +1,20 @@
+---
+id: b934d25a-1190-427b-b2de-6a08ea279b05
+---
+
 # Ethereum as a State Machine
 
 **[Intermediate]** — the account model in full, what a transaction actually contains, and the mental model that makes everything else in this folder obvious.
 
 ## The kid version first
+<!-- bite: ca18f8ef-0cd0-4aaf-a04c-e3a7ce089e3c -->
 
 Bitcoin is a ledger: it tracks who has what. **Ethereum is a computer**: it tracks who has what *and* what programs are stored, and it runs those programs when you poke them.
 
 Every node runs the same programs on the same inputs and gets the same answer. That's why they agree. It's a computer with **thousands of copies, one shared memory, and a bill for every instruction.**
 
 ## The formal model, which is worth stating once
+<!-- bite: d2c55a2c-1f89-4c9e-a467-646a83ae3b91 -->
 
 Ethereum is a **transaction-based state machine**:
 
@@ -21,6 +27,7 @@ State σ, apply transaction T, get a new state. A block is a batch of these appl
 The consequence to internalise: **there is nothing outside σ.** No filesystem, no clock you can trust, no network calls, no ambient randomness. A contract can only see what's in the state and what the transaction handed it. This single constraint explains [[web3/06-building-dapps/06-oracles|oracles]], explains why on-chain randomness is hard, and explains why nothing is asynchronous.
 
 ## The world state
+<!-- bite: d7449c3d-87bf-4fbc-a52c-a3bb2fa5f2fc -->
 
 A map from 20-byte addresses to accounts. Two account types, one namespace:
 
@@ -40,6 +47,7 @@ EOA (externally owned)              Contract account
 **The nonce does double duty.** On an EOA it's a strictly incrementing transaction counter that prevents replay and forces ordering. On a contract it counts contracts created — because `CREATE` derives the new address from `keccak(sender, nonce)`, which is what makes contract addresses predictable before deployment.
 
 ## A transaction, field by field
+<!-- bite: 324906fe-00c3-48ab-9135-d1d37fd75f35 -->
 
 ```
 nonce                 sender's next expected number — enforces ordering, blocks replay
@@ -60,6 +68,7 @@ Two fields deserve attention:
 **`chainId` (EIP-155) is why the same transaction can't be replayed on a forked chain.** Before it existed, a transaction on Ethereum was valid verbatim on Ethereum Classic. People lost money to exactly that.
 
 ## What actually happens when a transaction executes
+<!-- bite: 55973859-eabc-41c4-b327-404e63270728 -->
 
 ```
 1. Validate      signature, nonce matches, balance ≥ gasLimit × maxFee + value
@@ -74,12 +83,14 @@ Two fields deserve attention:
 **Step 5b is the one to remember: a revert undoes state but not payment.** A failed transaction is atomic with respect to state and non-atomic with respect to cost. That asymmetry funds the network's spam resistance — you cannot make nodes do work for free by deliberately failing.
 
 ## Internal transactions aren't transactions
+<!-- bite: c784a070-b5b8-47db-9793-1697f57dd2b0 -->
 
 When contract A calls contract B, that's a **message call** — it appears in no transaction list, has no hash of its own, and is only visible by tracing execution. Block explorers show them as "internal transactions," which is a helpful lie.
 
 **This matters practically:** an application that detects incoming ETH by scanning transaction lists will miss every transfer that came from a contract. The reliable approaches are event logs or tracing → [[web3/06-building-dapps/04-indexing-and-events|indexing]].
 
 ## Denominations
+<!-- bite: b95bd2c5-fc5e-40be-88f6-9ad2e4a2a2cd -->
 
 ```
 1 ether = 10^18 wei
@@ -89,10 +100,12 @@ When contract A calls contract B, that's a **message call** — it appears in no
 **All on-chain arithmetic is in wei, as integers.** Every float you see is a UI decision. Converting at the wrong layer, or converting twice, is a classic and expensive bug.
 
 ## Key insight
+<!-- bite: 8fe16c11-e03b-4cab-a1f6-186e37f6d91e -->
 
 **Ethereum is a single-threaded, deterministic, metered computer with one global memory and no I/O.** Nearly everything that feels arbitrary — why contracts can't act on their own, why randomness needs an oracle, why gas exists, why calls are synchronous — is a direct consequence of "every node must compute the identical result, and must be able to stop a program that never halts."
 
 ## Related
+<!-- bite: 9731dad3-a3ab-406e-9a47-fc31507f2f6b -->
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — what step 3 runs on
 - [[web3/02-ethereum-and-the-evm/03-gas-and-fees|gas and fees]] — the metering
 - [[web3/01-foundations/04-blocks-chains-and-state|blocks, chains and state]] — the account model vs UTXO

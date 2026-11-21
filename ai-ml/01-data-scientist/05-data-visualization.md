@@ -1,8 +1,13 @@
+---
+id: 5c922cc9-5642-4166-ab17-a26c0e137c60
+---
+
 # Data Visualization
 
 **[reference]** — from the roadmap.sh `data-analyst`/`ai-data-scientist` roadmaps. Two jobs: **exploring** data (charts for yourself, during [[ai-ml/01-data-scientist/04-exploratory-data-analysis|EDA]]) and **communicating** findings (charts for others, the [[ai-ml/01-data-scientist/01-the-data-scientist-role|deliverable]]). Getting these right is a large part of a data scientist's actual impact.
 
 ## Choosing the right chart
+<!-- bite: 2944a89e-f648-4467-bd08-262eca318652 -->
 
 The most common mistake is picking a chart type by habit rather than by what you're trying to show. Match the chart to the **question**:
 
@@ -19,6 +24,7 @@ The most common mistake is picking a chart type by habit rather than by what you
 Some hard-won specifics: **pie charts are usually a bad choice** (humans compare angles poorly — a bar chart almost always reads better); **dual y-axes mislead** (they let you imply a relationship by arbitrary scaling); and for distributions, a **box or violin plot** shows spread and outliers a bar-of-averages hides.
 
 ## The libraries and tools
+<!-- bite: 3f69cfc4-7908-4622-98cb-2dbf6bc754f8 -->
 
 - **Matplotlib** — the Python foundation; total control, verbose. Everything else sits on it.
 - **Seaborn** — statistical plotting on top of Matplotlib; beautiful defaults, one-liners for common EDA charts. The everyday EDA tool.
@@ -34,10 +40,12 @@ sns.heatmap(df.corr(), annot=True)           # correlation matrix
 ```
 
 ## The grammar of graphics
+<!-- bite: b4cb61ea-a7b4-4da8-85c0-ba9618617de8 -->
 
 The idea (from Leland Wilkinson, realized in ggplot2 and Altair) that any chart decomposes into layers: **data** → **mappings** of variables to visual channels (x, y, color, size, shape) → **geometry** (points, bars, lines) → scales and facets. Thinking this way — "which variable maps to which channel?" — is more powerful than memorizing chart types, and it's why faceting (small multiples: the same chart repeated per subgroup) is often clearer than cramming everything into one busy plot.
 
 ## Communicating honestly
+<!-- bite: 07383a15-1b47-40b1-adf5-99fc0ca29af9 -->
 
 Visualization is uniquely easy to mislead with — sometimes accidentally, sometimes not. The integrity rules:
 
@@ -50,6 +58,7 @@ Visualization is uniquely easy to mislead with — sometimes accidentally, somet
 The goal is the same as the whole role: help someone reach a *correct* conclusion quickly. A chart that's pretty but misleading is worse than no chart.
 
 ## Related
+<!-- bite: 74455df5-3b1d-4c7d-a546-5754eb211ee7 -->
 - [[ai-ml/01-data-scientist/04-exploratory-data-analysis|Exploratory Data Analysis]] — visualization as an exploration tool
 - [[ai-ml/01-data-scientist/01-the-data-scientist-role|The Data Scientist Role]] — communication as half the job
 - [[ai-ml/01-data-scientist/02-descriptive-statistics|Descriptive Statistics]] — Anscombe's quartet, why you must plot, not just summarize

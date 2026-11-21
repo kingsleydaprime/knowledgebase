@@ -7,6 +7,7 @@ id: 2c774f65-cbc6-4d93-8f8d-87324b5f33df
 **[reference]** — from the canon (DDIA ch. 7 & 9). How to make an **all-or-nothing** operation span multiple nodes or services — the *atomicity* problem — and the **isolation** problem (how concurrent transactions interfere). This is the transaction cousin of [[architecture/04-distributed-systems/04-consistency-models|consistency models]]: consistency is about single-object recency; isolation is about multi-object interleaving.
 
 ## The kid version first
+<!-- bite: c328c13b-e35d-4fe5-b5c2-47d34b39ae4e -->
 
 You want to move **$50 from your piggy bank to your sister's piggy bank** — but the two banks are in **different rooms**. The rule you need is **"both change, or neither does"**: it must never happen that $50 leaves yours and *doesn't* arrive in hers (money vanished) or arrives *without* leaving yours (money duplicated). Easy when both banks are on your desk. Hard when a room can get **locked** (a machine or network fails) *right in the middle*. Two ways people handle it:
 1. **A referee counts everyone in.** *"Everyone ready to do their part? … Yes? … Okay — GO!"* If anyone says "not ready," nobody goes. (That's **Two-Phase Commit**.) The danger: if the **referee faints** right after "ready?" but before "GO!", everyone's frozen holding their breath. 
@@ -15,6 +16,7 @@ You want to move **$50 from your piggy bank to your sister's piggy bank** — bu
 Everything below is those two ideas, made precise — plus the *other* transaction question: when **lots of kids** read and write the shared banks at once, what confusing things are they allowed to see? (That's **isolation**.)
 
 ## Atomicity across nodes — Two-Phase Commit (2PC)
+<!-- bite: 5c5670f4-c1b3-477f-af06-7330cfa5194a -->
 
 A single-database ACID transaction gives atomicity for free. Spread the data across nodes ([[architecture/04-distributed-systems/13-partitioning|sharding]], or [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]] each with their own DB) and "debit A on node 1, credit B on node 2, atomically" gets hard — either node can fail mid-way. **2PC** is the classic protocol, run by a **coordinator**:
 
@@ -29,6 +31,7 @@ Atomicity — at a steep price:
 **Making 2PC less fragile:** the blocking flaw is the coordinator being a single point of failure — so production systems make the **coordinator itself a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] group** (its decision log replicated via Raft/Paxos), so a coordinator crash doesn't freeze everyone. In fact **atomic commit is itself a consensus problem** — "get all participants to agree commit-or-abort." 2PC is used *within* databases and via XA transaction managers, but across microservices it's usually avoided.
 
 ## Isolation — what concurrent transactions may see
+<!-- bite: 2c6eb80c-33e9-48ff-aba8-8caab96576ff -->
 
 Atomicity is "all-or-nothing per transaction." **Isolation** is the *other* half: when many transactions run at once, which interleavings are allowed? Weaker isolation = faster + more concurrency, but more anomalies. The ladder (weak → strong), each level *forbidding* one more anomaly:
 
@@ -44,24 +47,29 @@ Atomicity is "all-or-nothing per transaction." **Isolation** is the *other* half
 **MVCC (Multi-Version Concurrency Control)** is how modern databases give strong isolation without everyone blocking on locks: keep **multiple versions** of each row, and give each transaction a consistent **snapshot** (as of its start). Readers never block writers and vice-versa — they just read the version their snapshot points to. MVCC powers snapshot isolation and serializable-snapshot isolation in Postgres, Oracle, and the [[architecture/04-distributed-systems/11-modern-distributed-transactions|distributed databases]] in the next note. **Serializability** (isolation's strongest) and **linearizability** ([[architecture/04-distributed-systems/04-consistency-models|consistency's strongest]]) together are **strict serializability** — what Spanner offers.
 
 ## Sagas — the pragmatic alternative
+<!-- bite: c5de4cdc-1066-46c5-9932-77f1521c6e34 -->
 
 Because 2PC is so costly, most cross-service systems use the **saga** pattern ([[architecture/03-architectural-patterns/03-data-and-integration-patterns|data & integration patterns]]): a sequence of *local* transactions, each committing independently, with **compensating transactions** to undo earlier steps if a later one fails (refund, cancel, release).
 
 The key difference: a saga gives **eventual consistency, not atomic isolation.** Nothing is globally locked; each step commits and is *immediately visible*, and failure triggers *semantic* rollbacks. So an observer *can* briefly see intermediate state (money debited, not yet credited) — the app must tolerate that. In exchange: no blocking, no distributed locks, independent service availability. For most business workflows, that trade is right. Sagas come in two shapes — **orchestration** (a central coordinator drives the steps) and **choreography** (services react to each other's events).
 
 ## Idempotency — the load-bearing requirement
+<!-- bite: 184589f3-28aa-46f9-8011-7bbd5d2b1f51 -->
 
 Because messages get [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|lost, duplicated, and retried]], **every step** (saga *or* 2PC) must be **idempotent** — safe to apply more than once with the same effect. "Debit $50" applied twice on a retry is a bug; "apply debit with idempotency-key K, skip if K already seen" is safe. This is the [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|idempotency-key pattern]] from the real pipeline — **mandatory, not optional.**
 
 ## Exactly-once — the honest truth
+<!-- bite: 5687bf5b-87d8-4258-9530-88a43203d8b3 -->
 
 Everyone wants "exactly-once" processing; at the messaging layer it's [[architecture/04-distributed-systems/02-theoretical-limits|impossible to guarantee]] (you can't tell a lost message from a lost ack — Two Generals). What you actually build is **at-least-once delivery + idempotent processing = effectively-once *outcome*.** "Exactly-once is idempotency, not magic" is a mark of real understanding.
 
 ## Key insight
+<!-- bite: 3abcd0ef-6607-4601-9584-159b704d3c1f -->
 
 **Distributed transactions are two problems: atomicity ("both piggy banks change or neither") and isolation ("what can concurrent transactions see").** For atomicity, **2PC** gives all-or-nothing but *blocks* if the coordinator dies (fix: make the coordinator a consensus group — atomic commit *is* consensus); **sagas** trade atomic isolation for availability via local commits + compensations. For isolation, weaker levels allow more anomalies (dirty/non-repeatable reads, write skew); **MVCC** delivers strong isolation without lock contention via snapshots; serializable + linearizable = strict serializability. And underneath it all, everything must be **idempotent**, because "exactly-once" is just at-least-once + idempotency.
 
 ## Related
+<!-- bite: 30abd29d-bdf1-4310-bcb4-eedd6c8bf55d -->
 - [[architecture/04-distributed-systems/11-modern-distributed-transactions|Modern Distributed Transactions]] — Spanner/Calvin: serializable, cross-shard, at scale
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — isolation's single-object cousin; strict serializability
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — atomic commit as a consensus problem

@@ -1,3 +1,7 @@
+---
+id: 7af62a70-8bb5-41f2-9185-cb647f650a4c
+---
+
 # Why Go, and the Toolchain
 
 **[Beginner]** — What Go was designed to fix, the deliberate omissions that follow from that, and the single built-in tool that replaces the pile you're used to.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — cross-referenced against [roadmap.sh Go](https://roadmap.sh/golang). No Go project in this vault yet; the first one belongs in [[project-ideas|Project Ideas]] before these notes claim to be knowledge.
 
 ## The problem Go was built for
+<!-- bite: e4c8f3ad-4060-4fbb-8c0a-dfd95324ae7c -->
 
 Go came out of Google in 2009, and its design goals are unusually legible: large codebases, many engineers, slow builds, and servers that need to handle a lot of concurrent connections.
 
@@ -20,6 +25,7 @@ Everything distinctive about the language falls out of those four:
 The last one is the controversial one. Go is *deliberately* less expressive than Java or Rust. The bet is that a language you can hold entirely in your head produces code that a stranger can read at 3am during an incident — and that this matters more than elegance. Whether you agree depends on whether you've been the stranger.
 
 ## The deliberate omissions
+<!-- bite: 0d3660bf-fb7b-46db-8f9c-72dcc13df1e9 -->
 
 Things Go does not have, on purpose:
 
@@ -31,6 +37,7 @@ Things Go does not have, on purpose:
 Coming from Java this feels like a language with things missing. That's the correct reading — the question is whether you miss them in practice, and for network services the honest answer is mostly no.
 
 ## Install and the toolchain
+<!-- bite: ee21689a-1417-46cc-a90d-95b41de04b6b -->
 
 ```bash
 # Fedora
@@ -72,6 +79,7 @@ No toolchain to install, no container needed. This is why Go dominates CLI tooli
 That last point is worth sitting with: a Go binary has no JVM to install and no `node_modules`. It's a single file you can `scp` to a server. Compare the Dockerfile you'd write for [[backend/frameworks/java/index|a Spring Boot service]] against `FROM scratch` + one binary.
 
 ## A first program
+<!-- bite: 5094432d-e20b-41fc-be3a-d9ad36aec2a6 -->
 
 ```go
 package main
@@ -98,6 +106,7 @@ import "os"  // "os" imported and not used  → build fails
 The intent is that dependency lists never rot. You will still find it irritating for about a week.
 
 ## `gofmt` is not negotiable
+<!-- bite: cb491728-ffbe-4aee-ad5f-f65195ad6b20 -->
 
 ```bash
 gofmt -l .        # list files that aren't formatted
@@ -109,6 +118,7 @@ Go uses tabs, brace placement is fixed, and there is no config file. Every Go co
 Wire it into a pre-commit hook the same way as any other check → [[git/17-hooks-and-signing|Hooks and Signing]].
 
 ## Where Go actually fits
+<!-- bite: 203df51c-bcb3-4f2c-a540-fbf3315459db -->
 
 Being honest about it, since a language note that only lists strengths is useless:
 
@@ -121,6 +131,7 @@ Being honest about it, since a language note that only lists strengths is useles
 ---
 
 ## Related
+<!-- bite: 2ee51cce-50be-4b72-b0db-7671fbb74022 -->
 - [[languages/02-go/02-language-fundamentals|Language Fundamentals]] — the syntax
 - [[languages/02-go/12-modules-and-project-layout|Modules and Project Layout]] — `go.mod` in depth
 - [[backend/frameworks/go/index|Go Backends]] — the frameworks built on this

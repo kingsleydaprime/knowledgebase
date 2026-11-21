@@ -1,6 +1,11 @@
+---
+id: b93f2dff-1e09-4b58-b06c-cc0a9ddb627e
+---
+
 # Ways to handle errors in Node.js
 
 ## Process-level error events
+<!-- bite: 40b37d98-b0fb-4709-a085-207ab06876f1 -->
 
 Every Node.js process emits these events. Always handle them — unhandled, they crash the process with no useful log or, worse, silently swallow errors.
 
@@ -17,6 +22,7 @@ Every Node.js process emits these events. Always handle them — unhandled, they
 ---
 
 ## Plain Node.js (no framework)
+<!-- bite: 7327babb-cc14-47ec-8964-d972625eafd6 -->
 
 ```js
 // error-handler.js
@@ -86,6 +92,7 @@ server.listen(3000);
 ---
 
 ## Express.js
+<!-- bite: b0ddbc4e-633b-43bd-9ed6-5c66f38e743f -->
 
 Express has its own error middleware convention on top of the process handlers above.
 
@@ -164,6 +171,7 @@ app.get('/users/:id', async (req, res, next) => {
 ---
 
 ## NestJS
+<!-- bite: 5d45c850-8a24-40ab-974e-1c17f6048c77 -->
 
 NestJS wraps this in its own lifecycle, but the same process events apply.
 
@@ -234,6 +242,7 @@ bootstrap();
 ---
 
 ## Key rules across all frameworks
+<!-- bite: 2d553e77-6b53-4580-97d4-d228b288a85b -->
 
 1. **Always exit after `uncaughtException`** — the process state is undefined after an uncaught throw. Trying to continue is dangerous.
 2. **Always exit after `unhandledRejection`** — Node.js will do it for you in future versions anyway (it's already a warning by default).

@@ -1,8 +1,13 @@
+---
+id: 8021335e-58cb-4e50-9fab-d09818ee6608
+---
+
 # Context
 
 **[Intermediate]** — The type threaded through every function in real Go code, why it exists, and the rules that stop it becoming a junk drawer.
 
 ## The problem it solves
+<!-- bite: b2e1bdd9-912a-4c74-a824-abb5e561009c -->
 
 A request arrives. Your handler calls a service, which calls a database and two HTTP APIs, each on its own goroutine. The client disconnects after 200ms.
 
@@ -22,6 +27,7 @@ type Context interface {
 The whole design rests on `Done()` being a channel you can `select` on — which is why it composes with everything in [[languages/02-go/06-goroutines-and-channels|goroutines and channels]].
 
 ## Creating contexts
+<!-- bite: de4c14ac-6ff3-432b-993c-7763bd8fda54 -->
 
 ```go
 ctx := context.Background()   // the root; use in main, init, tests
@@ -38,6 +44,7 @@ defer cancel()                // ALWAYS — even on the success path
 Contexts form a **tree**. Cancelling a parent cancels every descendant, which is exactly the propagation you want: the request context is cancelled, and every database call and outbound request beneath it stops.
 
 ## Consuming a context
+<!-- bite: ada76570-1d03-4725-86fb-9f4a7e6d2e17 -->
 
 ```go
 func work(ctx context.Context) error {
@@ -66,6 +73,7 @@ for i, item := range items {
 `ctx.Err()` returns `nil` while live, then `context.Canceled` or `context.DeadlineExceeded`. Both are sentinels — check with `errors.Is`, since callers will have wrapped them. → [[languages/02-go/05-errors|Errors]]
 
 ## The rules
+<!-- bite: b96434a6-c0a9-4094-8e2c-ddcddd38631c -->
 
 **1. `ctx` is the first parameter, always named `ctx`.**
 
@@ -84,6 +92,7 @@ Not the second, not in an options struct. This is enforced by convention so stro
 **5. Contexts are immutable.** `WithValue`/`WithTimeout` return *new* contexts; the parent is unchanged.
 
 ## `context.Value` — the part to be careful with
+<!-- bite: 90bf3e0b-ac12-45a6-a44b-889562622f98 -->
 
 ```go
 type ctxKey struct{}                            // unexported type — collision-proof
@@ -103,6 +112,7 @@ Legitimate: trace/correlation IDs, authenticated user identity, request-scoped l
 The smell to watch for is a handler pulling five values out of the context and a `nil` panic when one is missing. Values are untyped and unchecked; every one you add is a runtime failure you moved out of the compiler's reach.
 
 ## In the standard library
+<!-- bite: e9932e1c-10c0-4e68-b509-fa86ea9f3253 -->
 
 Context is wired through everything that does I/O:
 
@@ -127,6 +137,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 **Pass that context all the way down.** A `db.Query` without the request context is a query that keeps running after the client has gone — the exact failure this whole mechanism exists to prevent. Any `QueryContext`-shaped function called with `context.Background()` deep in a request path is a bug.
 
 ## Timeouts stack
+<!-- bite: 50a05a1b-150c-46a0-abaa-28986f88360e -->
 
 ```go
 ctx, cancel := context.WithTimeout(r.Context(), 3*time.Second)
@@ -140,6 +151,7 @@ Go's context is unusually good at this compared to most ecosystems, where cancel
 ---
 
 ## Related
+<!-- bite: 89f4bfb2-bf2a-42da-87e6-bbf4925ca811 -->
 - [[languages/02-go/07-concurrency-patterns|Concurrency Patterns]] — `errgroup.WithContext`
 - [[languages/02-go/06-goroutines-and-channels|Goroutines and Channels]] — the `Done()` channel
 - [[backend/frameworks/go/index|Go Backends]] — context through a real HTTP stack

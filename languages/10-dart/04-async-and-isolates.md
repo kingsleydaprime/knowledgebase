@@ -1,8 +1,13 @@
+---
+id: 9f4368c9-65e9-4edd-ae43-2823c5368367
+---
+
 # Async and Isolates
 
 **[Intermediate → Advanced]** — a single-threaded event loop, and the escape hatch when that isn't enough.
 
 ## The model
+<!-- bite: 5dfad07d-8e60-438e-9f6b-fea9cba2855f -->
 
 **Dart is single-threaded per isolate.** One thread, one event loop, no shared-memory concurrency, and therefore **no locks, no data races, no `synchronized`.**
 
@@ -20,6 +25,7 @@
 **And the important consequence for Flutter: a long synchronous computation blocks the UI**, because rendering happens on the same loop. Dropped frames come from exactly this → [[languages/10-dart/index|isolates, below]].
 
 ## Futures and async/await
+<!-- bite: 90a4d5af-20eb-4854-9e11-bedcac6c9f40 -->
 
 ```dart
 Future<User> fetchUser(String id) async {
@@ -40,6 +46,7 @@ try {
 **`on` catches a specific type; `catch` catches everything.** `catch (e, stackTrace)` gives you both.
 
 ## Parallel awaits
+<!-- bite: fa2946a5-e617-40ff-a2fc-28e8828c0b98 -->
 
 ```dart
 // Sequential — 2 round trips in series
@@ -53,6 +60,7 @@ final results = await Future.wait([fetchUser(id), fetchPosts(id)]);
 **`Future.wait` fails fast** — if one throws, it throws, and the others keep running unobserved. Pass `eagerError: false` or handle each individually if that matters.
 
 ## Streams
+<!-- bite: 2cbb5bd9-2e83-4f4c-b946-0522e8e8fc78 -->
 
 ```dart
 Stream<int> countTo(int n) async* {       // async* = a generator
@@ -80,6 +88,7 @@ StreamSubscription? _sub;
 **`StreamController`** when you need to push events manually. `rxdart` adds operators (`debounce`, `combineLatest`) if you want them.
 
 ## Isolates — the real parallelism
+<!-- bite: b9bd0152-a7d8-464f-b308-9e23ee06f295 -->
 
 **An isolate has its own memory and its own event loop.** Nothing is shared; they communicate by **passing messages**, which are copied.
 
@@ -102,6 +111,7 @@ final result = await Isolate.run(() => expensiveComputation(data));   // Dart 2.
 **And note there's no shared mutable state at all**, which eliminates data races by construction — the same choice Erlang made, and it's why Dart has no concurrency primitives to learn.
 
 ## Common mistakes
+<!-- bite: 6a10ba85-19f9-4719-a6bf-92e49f71f1ea -->
 
 ```dart
 // ❌ Not awaited — errors vanish, ordering is undefined
@@ -126,10 +136,12 @@ await Isolate.run(() => heavyLoop());
 **And `await` inside a loop is sequential** — use `Future.wait` over a mapped list when the iterations are independent.
 
 ## Key insight
+<!-- bite: d590101d-7ed0-4258-8e0f-98a38508d5b6 -->
 
 **Dart chose message passing over shared memory, so concurrency bugs mostly don't exist** — no locks, no races, nothing to synchronise. The price is that parallelism requires copying data between isolates, and **anything CPU-bound on the main isolate freezes your UI.** Knowing which of your work is I/O-bound (use `async`) and which is CPU-bound (use an isolate) is the whole skill.
 
 ## Related
+<!-- bite: a3ff8e1e-1b65-4b2c-8fd4-e6a324a7f673 -->
 - [[languages/10-dart/03-classes-and-collections|collections]] — `Iterable` laziness is a related idea
 - [[mobile/frameworks/flutter/index|Flutter]] — where blocking the loop is visible
 - [[languages/09-kotlin/05-coroutines-and-flow|Kotlin coroutines]] — the comparison

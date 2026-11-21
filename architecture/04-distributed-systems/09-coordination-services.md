@@ -1,8 +1,13 @@
+---
+id: 861c0293-2896-41c0-acb6-deb76dd86559
+---
+
 # Coordination Services
 
 **[reference]** — from the canon (the ZooKeeper and Chubby papers, DDIA ch. 8–9, the PBFT paper). Most applications should **not** implement [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] themselves — it's too easy to get wrong. Instead they lean on a **coordination service** that has consensus built in and exposes it as simple, reliable primitives: locks, leader election, configuration, membership. This note is those services, how to use them *safely* (fencing!), and the other consensus lineages beyond Raft.
 
 ## The kid version first
+<!-- bite: fc9346d9-695e-4c1f-8b0a-4019f523c8d6 -->
 
 Running a fair vote is hard to get right ([[architecture/04-distributed-systems/08-raft-in-depth|Raft]] proves it). So instead of *every* group of kids inventing their own voting rules, the school provides **one trusted hall monitor** who already knows how to run fair votes and remember decisions. Any group can just walk up and ask:
 - *"Who's our team captain?"* → the monitor runs the election and tells everyone the same answer.
@@ -12,6 +17,7 @@ Running a fair vote is hard to get right ([[architecture/04-distributed-systems/
 That hall monitor is **ZooKeeper** or **etcd**. The clever part is *how* it knows a kid left (so it can free their turn) and how it stops a **daydreaming kid who thinks they still have the ball** from messing things up (fencing). Both are below.
 
 ## ZooKeeper & etcd — the workhorses
+<!-- bite: dfff9178-620d-4a5a-b1af-3909c4cba21c -->
 
 Both are small, consensus-backed ([[architecture/04-distributed-systems/07-consensus-and-paxos|ZAB / Raft]]) key-value stores whose *whole job* is coordination, not bulk data. [[devops/10-orchestration/01-kubernetes|Kubernetes]] stores **all** its cluster state in etcd; Kafka, HBase, and many others use ZooKeeper. The primitives that make them useful:
 
@@ -24,6 +30,7 @@ Both are small, consensus-backed ([[architecture/04-distributed-systems/07-conse
 Every candidate creates an **ephemeral + sequential** node under `/election/`. The one with the **lowest sequence number is the leader.** Each other node **watches** the node just below it. If the leader's client dies, its ephemeral node vanishes → the next-lowest gets notified → it becomes leader. Automatic, fair, and self-healing — all from ephemeral + sequential + watches.
 
 ## Distributed locks — and why "get a lock" is not enough
+<!-- bite: 98ac2bb0-1c89-467b-9b78-f3ea34c94a47 -->
 
 The obvious use: *"only one worker should process this job."* Ask the service for a lock, do the work, release it. **But a naive lock is unsafe**, and this is one of the most important gotchas in the field:
 
@@ -42,6 +49,7 @@ The lock service did nothing wrong — [[architecture/04-distributed-systems/01-
 The deep lesson: **a lock alone can't provide mutual exclusion in an asynchronous system** — you need the *protected resource* to participate via fencing. Any "distributed lock" tutorial that omits fencing is teaching a data-corruption bug.
 
 ## The other consensus lineages (beyond Raft/Paxos)
+<!-- bite: 53a110f8-d264-4db6-8a40-06649b0a6dbf -->
 
 Raft and Multi-Paxos aren't the only crash-fault-tolerant consensus protocols — and they're more alike than different (all are *leader + replicated log + numbered view/term changes*):
 
@@ -51,6 +59,7 @@ Raft and Multi-Paxos aren't the only crash-fault-tolerant consensus protocols �
 If you understand Raft, you understand all three — they differ in details, not in essence.
 
 ## Byzantine fault tolerance — when nodes can *lie*
+<!-- bite: 2538859c-dd54-40aa-9641-8feb4e2b1685 -->
 
 Everything so far assumes **crash faults**: nodes fail by *stopping*, never by sending false or conflicting messages. **Byzantine Fault Tolerance (BFT)** handles nodes that are *malicious or arbitrarily broken* — sending different messages to different peers, forging data. It's fundamentally harder:
 - **You need `3f + 1` nodes to tolerate `f` liars** (vs `2f + 1` for crashes), because you must out-vote not just the silent but the actively-deceptive, and confirm a supermajority independently agrees.
@@ -58,14 +67,17 @@ Everything so far assumes **crash faults**: nodes fail by *stopping*, never by s
 - **When you need it:** trustless/adversarial settings (public blockchains, cross-organization systems). **When you don't:** normal internal infrastructure, where you control the machines and crash-fault-tolerant Raft/Paxos is the right, far cheaper choice.
 
 ## The rule of thumb: control plane, not data plane
+<!-- bite: d3c6f770-65a0-44be-983d-b650d7aff964 -->
 
 Every coordination primitive is a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] round-trip — correct but slow, and it doesn't scale writes. So use a coordination service for the **control plane** (who's the leader, what's the config, which nodes are members, hand out the lock) — small, infrequent, must-be-correct decisions — and **never** route your high-throughput **data plane** (every user request) through it. etcd holds "which pod is the leader," not "every row of user data."
 
 ## Key insight
+<!-- bite: 39b99509-c9bd-4778-a152-b110d6f8c436 -->
 
 **Don't build consensus — rent it.** A coordination service (ZooKeeper/etcd) is a small consensus-backed store that hands you locks, leader election, config, and membership, mostly powered by **ephemeral nodes** (auto-vanish when a client dies) + **watches**. But a "distributed lock" is *not enough on its own*: a [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|paused process]] can hold a lock it's lost, so the protected resource must enforce **fencing tokens** (reject any writer with a stale number). Raft/VR/ZAB are the same leader-log-view idea; **BFT** (`3f+1`) is the pricier version for when nodes might *lie*. And always: coordination is for the **control plane**, never the data plane.
 
 ## Related
+<!-- bite: 75ac0f13-f612-41c5-a67c-7fc435995d19 -->
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] — what these services run inside
 - [[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]] — the algorithm powering etcd/Consul
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — process pauses, the reason fencing exists

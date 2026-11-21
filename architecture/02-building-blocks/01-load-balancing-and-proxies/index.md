@@ -7,6 +7,7 @@ id: 85d212b1-d570-4959-9e4f-1e0ea502657f
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. The traffic-routing layer that makes [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|horizontal scaling]] possible: how a load balancer picks a server and why the choice matters most in the slow tail, how health checks take a broken server out and put it back, what layer 4 and layer 7 mean, and how consistent hashing spreads keys over cache nodes without moving most of them when one is added. Reverse proxies, API gateways and CDNs complete the picture. The worked example scales week 1's shop from one app server to four. Overlaps the operations view in [[devops/02-networking-and-web/02-web-servers-and-proxies|DevOps web servers and proxies]]; this is the system-design view.
 
 ## Before you start
+<!-- bite: 38e6b873-66dc-4234-9c95-e013fddd93be -->
 
 You can already:
 
@@ -25,16 +26,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–3 set up the picture. Stop at the predictions in sections 4, 6 and 7 and try them before reading on. Section 10 is the worked example and section 11 the lab. Sections 8 and 9, on proxies, gateways and CDNs, are shorter and can be read on their own.
 
 ## The kid version
+<!-- bite: 2274eac2-f9c9-4026-873b-a93fda62d689 -->
 
 A busy supermarket has eight tills and a person at the end of the aisles pointing each shopper to one. Pointing to each till in turn is fair, but if one shopper has a trolley piled high, everyone sent to that till after them waits. Pointing to the shortest queue works better. If a till breaks, the pointer stops sending people there, and starts again only once it's clearly fixed. And the pointer must never go on a break, because then no one gets to any till.
 
 **Where the analogy stops working.** The pointer can see every queue and every trolley. A load balancer usually can't see how long a request will take, only how many it has sent to each server that haven't finished yet, and a busy site has several balancers, each seeing only its own share. Also, shoppers don't care which till they use. Some requests do, because the data they need lives on one particular server, and section 7 is about sending them to the right one.
 
 ## 1. Why this exists
+<!-- bite: 9e75fe6e-53a7-4594-8784-be7006054520 -->
 
 In week 1, the shop's checkout needed a second server, and then four. Adding servers is easy. The hard part is that customers' browsers know one address. Something has to stand at that address, receive every request and hand each one to a server that's up and not overloaded. Without it, extra servers sit idle. And when one of the four servers crashes during a sale, a quarter of customers shouldn't see errors until someone wakes up and notices. That something is the load balancer.
 
 ## Terms used in load balancing
+<!-- bite: 2856ed44-150d-46ae-88c2-67e857990093 -->
 
 1. **Load balancer**: This is a component that receives requests at one address and passes each one to one of several servers, so that the servers share the work.
 2. **Backend**: This is also known as an **upstream** server. This is one of the servers the load balancer sends requests to. The group of them is the **pool**.
@@ -55,6 +59,7 @@ In week 1, the shop's checkout needed a second server, and then four. Adding ser
 17. **Origin**: This is your own server, the source a CDN or proxy fetches content from when it doesn't have a copy.
 
 ## 2. What a load balancer does
+<!-- bite: 30b3f38a-572b-48ef-83c1-ab399e1f7667 -->
 
 It has three jobs:
 
@@ -65,6 +70,7 @@ It has three jobs:
 The balancer is now in front of everything, so **it must not be a single point of failure itself**. The usual answers are a pair of balancers sharing one address that moves to the standby if the active one dies, several balancers behind DNS, or a cloud provider's managed balancer, which is redundant by design.
 
 ## 3. Layer 4 or layer 7
+<!-- bite: 1170bb76-a7fa-4bda-a752-b763c6673b0f -->
 
 The difference is how much of the request the balancer reads:
 
@@ -74,6 +80,7 @@ The difference is how much of the request the balancer reads:
 A common layout uses both: a layer 4 balancer spreads connections over several layer 7 balancers, which route the requests.
 
 ## 4. Choosing a server: the algorithms
+<!-- bite: ae71a83e-e341-47d5-adaa-48ed38781510 -->
 
 How the balancer picks a backend for each request:
 
@@ -106,12 +113,14 @@ Least-outstanding is best, with two choices close behind, and both beat round-ro
 </details>
 
 ## 5. Why two random choices are nearly as good as all of them
+<!-- bite: f69a627d-936f-4cf9-bd42-4c0b0200cbdb -->
 
 Least-outstanding needs an accurate, up-to-date count for every server. With one balancer that's easy. A busy site has several balancers, though, each seeing only its own requests. Worse, if they all see the same "least busy" server, they all send to it at the same moment and pile it up, which is called herding.
 
 Two choices sidesteps both. Each balancer looks at only two random servers, so different balancers usually pick different pairs and don't herd. And avoiding the worse of two random servers turns out to be most of the benefit: in the lab, two choices gets p99 to 495 ms against least-outstanding's 466, from round-robin's 1,158. That's why Envoy's least-request balancer compares two random servers by default instead of checking them all, and why many large systems balance the same way.
 
 ## 6. Health checks: taking a server out and putting it back
+<!-- bite: 32bb5405-540c-4918-b1e9-54d66d628fd9 -->
 
 The balancer checks each backend on a schedule, say every 2 seconds. Two thresholds decide when to act:
 
@@ -135,6 +144,7 @@ Two more rules complete it:
 2. **The health check must test what matters, but not too much.** A `/health` that returns 200 while the database connection is dead keeps a broken server in the pool. One that fails whenever the database is slow takes *every* server out at once, which turns a slow database into a total outage. Check the server's own ability to work, and handle a dependency's failure in the request path.
 
 ## 7. When the same key must reach the same server
+<!-- bite: be733282-73b9-4896-84f1-a06346c95240 -->
 
 Section 2 said servers should be stateless, and for app servers they should. Sticky sessions, which pin each user to one server, are a way to avoid moving session state out of server memory. But they spread load unevenly, and when that server dies its users lose their sessions. Prefer stateless servers with a shared session store.
 
@@ -156,12 +166,14 @@ One position per node leaves the arcs uneven: by chance one node might own a thi
 The same idea shows up whenever keys must be spread over machines that come and go: distributed caches, [[architecture/04-distributed-systems/13-partitioning|partitioned databases]] such as Cassandra and DynamoDB, and balancers that route each user to the server holding their warm cache.
 
 ## 8. Reverse proxies and API gateways
+<!-- bite: 9310cead-477e-4b0e-aa0c-e3d9c8f029cb -->
 
 A **reverse proxy** sits in front of servers, receives clients' requests and forwards them; the client never talks to the backends directly. A layer 7 load balancer is a reverse proxy, and the term also covers a single proxy fronting one app. It's where you put concerns that don't belong in application code: TLS termination, compression, caching responses, limiting request rates, and routing. A *forward* proxy is the reverse: it fronts clients, not servers (see [[devops/02-networking-and-web/02-web-servers-and-proxies|proxies]]).
 
 For [[architecture/03-architectural-patterns/04-microservices-patterns|microservices]], an **API gateway** is a reverse proxy that's the single entry point for all clients. It handles what every service would otherwise repeat: checking who the caller is, limiting request rates, routing to the right service, combining several service calls into one response, and translating between protocols. Clients then don't need to know how the services are laid out. The trap is putting business logic in the gateway. It then becomes a bottleneck that every team must change, a monolith in disguise, so keep it thin.
 
 ## 9. CDNs
+<!-- bite: 6f357de9-7b75-4efc-ae6b-4c29f1306732 -->
 
 A **CDN** is caching at the edge of the network for content that many users share: images, scripts, style sheets, video, and increasingly whole pages. Servers near the user hold copies, so a request from Lagos is answered in Lagos, not by your origin in Frankfurt. It cuts latency, because the content is physically closer, and takes enormous traffic off your servers. It's the first lever for any site that's read-heavy or has users far from its servers.
 
@@ -171,6 +183,7 @@ A **CDN** is caching at the edge of the network for content that many users shar
 The caching lesson's problems apply in full: a CDN copy can be stale for its TTL, and purging it across hundreds of edge servers takes time. That's why static files are usually given a version in their name (`app.3f9c2a.js`) and cached for a year: a new version is a new name, so nothing ever needs purging.
 
 ## 10. Worked example: the shop on four servers
+<!-- bite: 1a5fe28a-3bd8-455c-b2cd-5bf6fc7ce4a8 -->
 
 **Step 1: the front door.** A managed cloud layer 7 balancer, redundant by design, terminates TLS and forwards HTTP to four app servers. Before this works, the basket moves out of server memory into Redis (week 1, step 3), so any server can take any request.
 
@@ -183,6 +196,7 @@ The caching lesson's problems apply in full: a CDN copy can be stale for its TTL
 **Step 5: the edge.** Product images and the site's scripts go through a CDN with versioned file names. Most of the shop's bytes now never reach the balancer at all.
 
 ## 11. Runnable example: picking, checking, hashing
+<!-- bite: fc791a44-3449-4ca1-9b8d-284bb0e91a55 -->
 
 `balancer.ts` has the four picking algorithms, smooth weighted round-robin, the simulation behind section 4's table, the fall-and-rise health tracker, and a hash ring with virtual nodes, alongside the mod rule for comparison. `balancer.test.ts` checks every number in this lesson. The simulation reuses the seeded random number generator and percentile function from [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|week 1's lab]].
 
@@ -438,6 +452,7 @@ test("virtual nodes even out how many keys each server gets", () => {
 **Lab:** the code is in [`architecture/02-building-blocks/01-load-balancing-and-proxies/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/02-building-blocks/01-load-balancing-and-proxies/labs/typescript). From the vault root, `python3 labs/run.py load-balancing-and-proxies/typescript` runs the tests and checks this page still shows the same code. Inside the folder, `node --test` runs the tests alone. Expect seven passing tests in under a second.
 
 ## Common pitfalls
+<!-- bite: 89b7defd-1424-48d7-b93d-cb69e3287122 -->
 
 1. **A single load balancer.** It's now the single point of failure for everything behind it. Use a redundant pair or a managed balancer.
 2. **Round-robin for requests of very different lengths.** Fast requests queue behind slow ones. Use least-outstanding or two choices.
@@ -448,6 +463,7 @@ test("virtual nodes even out how many keys each server gets", () => {
 7. **Business logic in the API gateway.** It becomes a shared monolith that every team must change and every request waits on.
 
 ## Check your understanding
+<!-- bite: 99feac16-eeac-43a6-95b3-dd1d9a4578c6 -->
 
 1. When is round-robin a perfectly good choice?
 2. Why do two random choices get most of the benefit of checking every server, and why might they beat it with several balancers?
@@ -471,6 +487,7 @@ test("virtual nodes even out how many keys each server gets", () => {
 </details>
 
 ## Practice — independent task
+<!-- bite: d3728e2e-44d1-4bd5-82f6-c433e33a7bd1 -->
 
 **Build a small layer 7 load balancer and break it on purpose.**
 
@@ -493,6 +510,7 @@ test("virtual nodes even out how many keys each server gets", () => {
 </details>
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 5540c29f-9a07-4f24-ad0f-bd5d5428fa1d -->
 
 - **A balancer sees counts, not costs.** Least-outstanding treats a 10 ms and a 200 ms request alike. Balancers that track each server's recent latency, such as "peak EWMA" in some proxies, do better when servers slow down unevenly.
 - **Consistent hashing can still overload one node with one hot key.** All of that key's traffic goes to one node, however even the ring is. Hot keys need replicating to several nodes, or a small in-process cache in front.
@@ -500,6 +518,7 @@ test("virtual nodes even out how many keys each server gets", () => {
 - **Retries at the balancer** hide one failed backend, but multiply load when every backend is struggling. [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience patterns]] covers retry budgets.
 
 ## Before moving on
+<!-- bite: 5846ee37-ada8-4918-8e53-ebf6279af9f9 -->
 
 You can choose a balancing algorithm for a workload and explain the simulation behind the choice, trace health checks through a failure and recovery, tell layer 4 from layer 7 and a reverse proxy from a gateway and a CDN, and explain why consistent hashing moves a fifth of keys where mod N moves four-fifths.
 
@@ -508,6 +527,7 @@ You can choose a balancing algorithm for a workload and explain the simulation b
 **Next.** The week's optional lessons, [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability]] and [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP and consistency]], put numbers on what health checks and redundancy buy. Then week 3, [[architecture/02-building-blocks/04-messaging-and-async/index|messaging]], moves slow work off the request path altogether.
 
 ## Related
+<!-- bite: ec06e40b-ca5f-4a47-b7af-80f3b93da1cf -->
 
 - [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability and performance]]: why load balancing enables scale
 - [[architecture/02-building-blocks/02-caching/index|Caching]]: CDNs are caching at the edge, and the cache tier is what consistent hashing spreads

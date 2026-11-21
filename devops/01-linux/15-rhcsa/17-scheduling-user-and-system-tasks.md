@@ -1,3 +1,7 @@
+---
+id: 48fa8905-f817-4327-a552-39ce5a2f179e
+---
+
 # Scheduling User and System Tasks
 
 > RHCSA V10 — added after reviewing the official RH134 course book (Red Hat System Administration II, RHEL 10.0), which covers this as its own two-chapter topic not previously in this folder.
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Recurring jobs (`cron`) al
 ---
 
 ## `at` — run something once, in the future
+<!-- bite: c9eb6bc7-2968-4659-874a-6b4ed032cb65 -->
 
 Cron is for *recurring* jobs. For a job that should run exactly once — "reset this firewall change in 10 minutes if I don't cancel it," "run this backup at 2am tonight" — `at` is the right tool, and it's installed and enabled by default via the `atd` daemon.
 
@@ -33,6 +38,7 @@ Reading that line: `28` is the job number, then the scheduled date/time, then th
 ---
 
 ## systemd timers — replacing cron for system-level scheduling
+<!-- bite: aaf1e55d-709f-44c2-8f64-7dc0e7bac557 -->
 
 Starting with RHEL 10, `systemd` timer units are the RHEL-idiomatic way most **system** scheduled tasks are defined, rather than a system-wide crontab entry — `cron` still exists and still works (and is still the right tool for a personal recurring job, per [[devops/01-linux/11-cron-jobs|cron-jobs]]), but built-in RHEL scheduling (log rotation, temp-file cleanup, package cache refresh) now runs through timer units.
 
@@ -82,6 +88,7 @@ systemctl enable --now <name>.timer
 ---
 
 ## systemd-tmpfiles — keeping temporary files from accumulating forever
+<!-- bite: 1c9e70ac-23b3-4d07-b84e-66dd5af35972 -->
 
 Lots of services and scripts assume certain directories under `/tmp` or `/run` already exist, and without cleanup, `/tmp` fills up with stale data over a long-running system's lifetime. `systemd-tmpfiles` handles both problems — creating expected temp locations at boot, and periodically purging old files — driven by config files rather than ad-hoc cleanup scripts.
 
@@ -112,6 +119,7 @@ L /run/link      -    root root -     /etc/fstab   # create a symlink instead of
 ---
 
 ## Which tool for which job
+<!-- bite: 91a3a2e5-254d-4fa4-b9dc-e151306fe6b3 -->
 
 | Need | Tool |
 |---|---|

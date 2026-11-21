@@ -1,8 +1,13 @@
+---
+id: b842c735-7bbe-43ba-b498-504e28bf9a11
+---
+
 # The Sky and How It Moves
 
 > **[Beginner]** · Coordinates, the motions that produce day, year and seasons, and enough to actually find things.
 
 ## The celestial sphere
+<!-- bite: 675cc93b-b377-406d-b93e-e001496647f3 -->
 
 A useful fiction: pretend everything sits on a sphere around Earth. It's wrong about distance and **exactly right about direction**, which is all you need to point a telescope.
 
@@ -21,6 +26,7 @@ Betelgeuse is at RA 5h 55m, Dec +7° 24′ **for everyone, always** — modulo p
 **The projection is literal:** Earth's equator projected outward is the celestial equator; the poles project to the celestial poles. **Polaris sits within a degree of the north celestial pole**, which is why it barely moves and why your latitude equals Polaris's altitude.
 
 ## The motions, and what each produces
+<!-- bite: 7d03d1ac-1824-40a1-b35d-b7609d8ae090 -->
 
 | Motion | Period | Produces |
 |---|---|---|
@@ -35,6 +41,7 @@ Betelgeuse is at RA 5h 55m, Dec +7° 24′ **for everyone, always** — modulo p
 **Seasons are caused by axial tilt, not distance.** Earth is closest to the Sun in early January — northern winter. Tilt changes the *angle* sunlight strikes the ground and the *hours* of daylight, and both matter more than the ~3% distance variation. **This is the most commonly misheld fact in the subject.**
 
 ## The Moon
+<!-- bite: cc46adae-1182-403b-b398-54a9e5400024 -->
 
 **Phases are geometry, not shadow.** Half the Moon is always lit; you see a varying fraction of that lit half depending on the Sun–Earth–Moon angle. **Earth's shadow is not involved** — that's a lunar eclipse, which is a different and rarer thing.
 
@@ -45,6 +52,7 @@ Betelgeuse is at RA 5h 55m, Dec +7° 24′ **for everyone, always** — modulo p
 **A solar eclipse is an extraordinary coincidence:** the Sun is ~400× wider than the Moon and ~400× further away, so they appear the same size. **That coincidence is temporary** — in a few hundred million years the Moon will be too distant for totality.
 
 ## Precession, and what it does to the zodiac
+<!-- bite: f2e624d0-a632-4548-b3f7-672bfd2fb6ef -->
 
 Earth's axis wobbles like a spinning top, tracing a circle over **~25,800 years**.
 
@@ -58,6 +66,7 @@ Earth's axis wobbles like a spinning top, tracing a circle over **~25,800 years*
 **Also: there are 13 constellations on the ecliptic.** Ophiuchus is one, and was excluded when the twelve signs were fixed.
 
 ## Finding things
+<!-- bite: 9eed0284-95a3-4746-a4bb-32b4fa838198 -->
 
 **The magnitude scale is backwards, and logarithmic** — a legacy of Hipparchus:
 - **Lower = brighter.** Sirius −1.5; Vega 0; naked-eye limit ~6 in dark skies, ~3–4 in a city
@@ -70,6 +79,7 @@ Earth's axis wobbles like a spinning top, tracing a circle over **~25,800 years*
 **Star-hopping** — navigate from bright patterns to fainter targets. The Plough's pointers to Polaris; Orion's belt down to Sirius, up to Aldebaran. **This is the skill that makes a telescope usable**, and no amount of GoTo mounting replaces knowing where you are.
 
 ## Related
+<!-- bite: 800457b2-ab9e-467d-a7cd-711be496314c -->
 - [[astronomy/03-light-and-instruments|light and instruments]] — what to look through
 - [[astronomy/10-getting-started|getting started]] — actually doing this
 - [[astronomy/09-astrology-honestly|astrology, honestly]] — precession and the zodiac

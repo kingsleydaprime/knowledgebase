@@ -1,14 +1,20 @@
+---
+id: 973fd70c-d16d-498f-8b40-233e451279f5
+---
+
 # Kubernetes
 
 **[reference]** — from roadmap.sh and the Kubernetes docs. Not yet run against a real cluster; the honest next step is a local `kind`/`minikube`/`k3s` cluster to make this concrete.
 
 ## The problem it solves
+<!-- bite: e8b347b0-81fe-41e0-94e4-ca9ab3e661c9 -->
 
 One container on one host is easy (`docker run`). The moment you have many containers across many hosts, you inherit a pile of hard problems: which host does each container run on? What happens when a container crashes, or a host dies? How does traffic reach a container whose IP changes every restart? How do you roll out a new version without downtime, or roll back a bad one? How do you scale from 3 replicas to 30?
 
 **Kubernetes (k8s)** is the answer that won. It's a **declarative** container orchestrator: you describe the desired state ("I want 3 replicas of this image, reachable at this address"), and k8s continuously works to make reality match — rescheduling dead containers, replacing failed nodes, load-balancing traffic. You declare *what*; it figures out *how* and keeps it true.
 
 ## Architecture — control plane vs nodes
+<!-- bite: 40a93981-8b44-43df-b8ff-f7785b8de395 -->
 
 A cluster is a set of machines split into two roles:
 
@@ -26,6 +32,7 @@ A cluster is a set of machines split into two roles:
 The core mechanic is the **reconciliation loop**: controllers constantly compare desired state (in etcd) to observed state and act to close the gap. Self-healing, scaling, and rollouts are all the same loop applied to different objects.
 
 ## The core objects
+<!-- bite: e0422bbd-82fd-4e62-aff6-62ba80d047fc -->
 
 Everything in k8s is a declarative object, usually written as YAML and applied with `kubectl apply -f`.
 
@@ -71,6 +78,7 @@ spec:
 `kubectl apply -f web.yaml` and k8s makes it so — schedules 3 pods, restarts any that die, and load-balances the Service across them.
 
 ## The workload controllers
+<!-- bite: 0205aebf-318d-4332-b308-e55f5b5ea52b -->
 
 Beyond `Deployment` (stateless), the object you pick encodes the workload's nature:
 
@@ -82,6 +90,7 @@ Beyond `Deployment` (stateless), the object you pick encodes the workload's natu
 | **Job / CronJob** | run-to-completion tasks / scheduled tasks |
 
 ## Health checks and self-healing
+<!-- bite: 32106714-5ac3-46d1-af04-b08d9f3a7ef6 -->
 
 Three probes let k8s manage a pod's lifecycle correctly:
 
@@ -92,15 +101,18 @@ Three probes let k8s manage a pod's lifecycle correctly:
 Getting readiness right is what enables **zero-downtime rolling updates**: k8s brings up new-version pods, waits for their readiness probes, shifts traffic, then tears down old pods.
 
 ## Storage and networking, briefly
+<!-- bite: 8a9f9669-fe37-4ef4-9658-ecce2227bfef -->
 
 - **PersistentVolume (PV) / PersistentVolumeClaim (PVC)** — decouple storage from pods. A pod claims storage (PVC); k8s binds it to an actual volume (PV, often a cloud disk). Survives pod restarts.
 - **Networking model** — every pod gets its own cluster-wide-routable IP; pods reach each other directly (a CNI plugin — Calico, Cilium — implements this). Services provide the stable front; DNS resolves Service names.
 
 ## Why it's simultaneously essential and heavy
+<!-- bite: 8ae1bc07-3cbd-4d70-b1ba-e8dd3cf9603f -->
 
 Kubernetes is the industry standard for running containers at scale, and its declarative, self-healing model is genuinely powerful. It's also famously complex — a large API surface, a steep learning curve, and real operational burden. That complexity is exactly why **managed** k8s (GKE/EKS/AKS) and the alternatives exist — see [[devops/10-orchestration/02-orchestration-landscape|the landscape]] — and why [[devops/11-delivery-and-advanced/01-gitops|GitOps]] and [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]] grew up around it to manage that complexity declaratively.
 
 ## Related
+<!-- bite: ad00ff2f-bbc5-4e35-99a0-950b9eebd684 -->
 - [[devops/03-docker/index|Docker]] — the containers k8s schedules
 - [[devops/10-orchestration/02-orchestration-landscape|The Orchestration Landscape]] — Swarm, managed k8s, OpenShift, Nomad
 - [[devops/07-observability/index|Observability]] — Prometheus is the de-facto k8s monitoring stack

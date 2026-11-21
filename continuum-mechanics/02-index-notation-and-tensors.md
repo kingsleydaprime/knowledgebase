@@ -1,8 +1,13 @@
+---
+id: c7c3b2d3-fce5-4f0f-a0dd-ad87e6b2efbb
+---
+
 # Index Notation and Tensors
 
 **[Intermediate → Advanced]** — The language the whole field is written in. An afternoon spent here saves weeks of confusion later.
 
 ## Why index notation
+<!-- bite: 73821156-68de-4510-ba75-a4ad0349e7ff -->
 
 Vector notation runs out. You can write $\mathbf{a} \cdot \mathbf{b}$ and $\mathbf{a} \times \mathbf{b}$, but there's no clean symbol for the double contraction of a fourth-order stiffness tensor with a strain tensor.
 
@@ -15,6 +20,7 @@ The second one is the general form of Hooke's law. Vector notation can write it 
 > **Tensor algebra is the language of continuum mechanics.** Stress, strain, the deformation gradient, the stiffness of a material: all of them are tensors. This note builds that language from the bottom: vectors and bases first, then the shorthand, then the three ways to multiply vectors, then tensors.
 
 ## Vectors, bases and linear independence
+<!-- bite: b0e25094-03ab-4d30-a370-d59c1ea365d8 -->
 
 ### A vector is a sum of components
 
@@ -83,6 +89,7 @@ $$y_3 = a_{31}x_1 + a_{32}x_2 + a_{33}x_3$$
 Notice something about every one of these sums: **the index being summed always appears twice in the term**, and the other index appears once. Einstein noticed the same thing and dropped the $\sum$ sign.
 
 ## The summation convention
+<!-- bite: e2660bc7-1eaa-499e-bdad-7324b05424dc -->
 
 **A repeated index in a term is summed over.** Einstein's convention, and it removes an enormous amount of $\sum$ clutter. It is the standard notation for vectors and tensors, and every text in this field assumes it without saying so.
 
@@ -137,6 +144,7 @@ That's row 1 of $\mathbf{A}$ multiplied entry by entry with column 2 of $\mathbf
 The general pattern: **a repeated index on the inside** (the second index of the first factor and the first index of the second factor, like the $j$ in $a_{ij}a_{jk}$) is a matrix product. Move the repeated index and the meaning changes. $a_{ji}a_{jk}$ sums down column $i$ against column $k$, which is $\mathbf{A}^\mathsf{T}\mathbf{A}$.
 
 ## The Kronecker delta
+<!-- bite: a7599ad4-4d79-45b2-8caf-387249361390 -->
 
 ### Where it comes from
 
@@ -169,6 +177,7 @@ $$\delta_{ij}\,\delta_{jk} = \delta_{ik} \qquad\qquad \delta_{ii} = \delta_{11} 
 That last one is a common slip — it's summed, so it's 3 in three dimensions, not 1.
 
 ## The Levi-Civita (alternating) symbol
+<!-- bite: a226ab78-3a39-4c41-bea2-2e1bb5c51da8 -->
 
 ### What it is
 
@@ -225,6 +234,7 @@ A way to remember it: with the shared index first in both, pair "first with firs
 Memorise the first one — it's how you prove $\nabla \times (\nabla \times \mathbf{v}) = \nabla(\nabla\cdot\mathbf{v}) - \nabla^2\mathbf{v}$, which appears in both elasticity and fluid dynamics.
 
 ## Three ways to multiply two vectors
+<!-- bite: 2d111413-d805-4eec-bbae-705afd84bd77 -->
 
 These three get mixed up constantly, so here they are side by side. Each one is worked out by writing both vectors as sums of components and letting the basis vectors do the work.
 
@@ -288,6 +298,7 @@ It measures how much $\mathbf{c}$ lines up with $\mathbf{b}$ (a number), then re
 **Order matters.** $\mathbf{a}\otimes\mathbf{b} \neq \mathbf{b}\otimes\mathbf{a}$. Swapping them swaps the indices, $a_ib_j$ versus $b_ia_j$, which gives the transpose.
 
 ## Dyads and matrices
+<!-- bite: 37550888-1325-47e1-b04f-a06b6c84d348 -->
 
 Write the 9 components of $\mathbf{a}\otimes\mathbf{b}$ in a grid. Row $i$, column $j$ holds $a_ib_j$:
 
@@ -310,6 +321,7 @@ $$\operatorname{tr}(\mathbf{a}\otimes\mathbf{b}) = a_ib_i = \mathbf{a}\cdot\math
 **The trace of the outer product is the inner product.** That's the link between the two: setting the two free indices of $a_ib_j$ equal (a contraction) sums them away and leaves a scalar. The trace doesn't change when you rotate the axes, which is why the pressure, $p = -\tfrac{1}{3}\sigma_{kk}$, comes out the same in any coordinate system.
 
 ## Changing basis: coordinate transformations
+<!-- bite: b510d381-7978-4cb9-a308-66abb217355f -->
 
 Stay in Euclidean space (ordinary flat 3D) and use two orthonormal bases: the old one $\mathbf{e}_j$ and a rotated one $\mathbf{e}'_i$. One arrow $\mathbf{v}$ can be written in either:
 
@@ -334,6 +346,7 @@ $$a'_ib'_j = (Q_{ik}a_k)(Q_{jl}b_l) = Q_{ik}Q_{jl}\,(a_kb_l)$$
 Since every second-order tensor is a sum of dyads, every one transforms the same way: $T'_{ij} = Q_{ik}Q_{jl}T_{kl}$, or $[\mathbf{T}'] = [\mathbf{Q}][\mathbf{T}][\mathbf{Q}]^\mathsf{T}$. That's where the "one $Q$ per index" rule in the next section comes from.
 
 ## Vectors are not matrices
+<!-- bite: 07715ba4-bf55-4613-94b4-94ede1eacf11 -->
 
 **Matrices are algebraic constructs. Vectors and tensors are geometric constructs.** They are related, but they are not the same thing.
 
@@ -348,6 +361,7 @@ So when someone calls a matrix "a vector" or "a tensor", they are quietly assumi
 **The rule:** you may only add, multiply or compare component arrays when they are written in the **same** basis. Index notation makes this safe by keeping the basis implied and fixed throughout an equation.
 
 ## What a tensor actually is
+<!-- bite: 48d2a727-8bdc-48d5-87a9-efc2f5de85b6 -->
 
 Not "a multidimensional array". That's the *representation*, and confusing the two causes real trouble.
 
@@ -369,6 +383,7 @@ $$\text{order 4:} \quad C'_{ijkl} = Q_{im}Q_{jn}Q_{ko}Q_{lp}\,C_{mnop}$$
 This is also the deep reason [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/02-matrices|"tensor" in machine learning]] means something looser: a PyTorch tensor is an n-dimensional array with no transformation law attached. Same word, different concept, and it's worth keeping straight.
 
 ## Operations
+<!-- bite: 0018715b-1789-44ef-a316-e88931f27c4f -->
 
 ```
 aᵢbᵢ                    inner product          → scalar
@@ -395,6 +410,7 @@ $$\sigma_{ij} = \underbrace{\tfrac{1}{3}\sigma_{kk}\,\delta_{ij}}_{\text{hydrost
 Pressure changes volume; the deviator changes shape. **Metals yield on the deviatoric part alone** — hydrostatic pressure doesn't cause plastic flow, which is why deep-sea pressure crushes a hollow sphere but doesn't yield a solid one. → [[continuum-mechanics/12-failure-and-yield|Failure and Yield]]
 
 ## Eigenvalues, principal values, invariants
+<!-- bite: 332e96aa-5462-4df4-a3e7-f02fe8364de5 -->
 
 For a symmetric tensor, the eigenvalue problem
 
@@ -415,6 +431,7 @@ $$I_1 = \sigma_{kk} \qquad I_2 = \tfrac{1}{2}(\sigma_{ii}\sigma_{jj} - \sigma_{i
 The von Mises stress is built from the second deviatoric invariant, which is why it's a single number you can compare against a yield stress regardless of how the load is oriented.
 
 ## Tensor calculus
+<!-- bite: b14d7f57-505f-4dc4-b70e-cef2bc1a65c8 -->
 
 Derivatives in index notation. The comma convention is standard and worth adopting:
 
@@ -435,6 +452,7 @@ $$\int_S \sigma_{ij}n_j\,dS = \int_V \sigma_{ij,j}\,dV$$
 Every balance law in this field is derived by writing it as a surface plus volume integral, applying this, and arguing that since the volume is arbitrary the integrand must vanish. **That derivation pattern appears four times in note 06** — learn it once. → [[continuum-mechanics/06-conservation-laws|Conservation Laws]]
 
 ## Practical advice
+<!-- bite: 212c8e6f-0b94-4e07-b582-3695e8d28a62 -->
 
 1. **Check free indices on both sides.** It's free error detection
 2. **$\delta_{ii} = 3$, not 1**
@@ -445,6 +463,7 @@ Every balance law in this field is derived by writing it as a surface plus volum
 7. **Cartesian only, for now.** These notes assume rectangular coordinates, where covariant and contravariant components coincide and you can ignore the distinction. Curvilinear coordinates (cylindrical, spherical) reintroduce it along with Christoffel symbols — necessary for shells and for general relativity, and out of scope here
 
 ## Words used in this note
+<!-- bite: c6246248-6d2e-44df-ae45-f16773c75e24 -->
 
 1. A **vector** is a quantity with a length and a direction, like an arrow, which exists independently of any axes.
 2. A **component** is one of the numbers that says how far a vector goes along one basis direction.
@@ -466,6 +485,7 @@ Every balance law in this field is derived by writing it as a surface plus volum
 18. A **contraction** sets two indices equal and sums over them, which lowers the order of a tensor by two.
 
 ## Check yourself
+<!-- bite: 7785fef3-fde4-46e0-b98f-28d5f8157a22 -->
 
 Try these on paper before looking anything up.
 
@@ -480,6 +500,7 @@ Try these on paper before looking anything up.
 ---
 
 ## Related
+<!-- bite: 4bdff31d-dc0b-4dcd-b240-6b14d29a02ba -->
 - [[continuum-mechanics/03-kinematics-of-deformation|Kinematics of Deformation]] — the first real use
 - [[continuum-mechanics/05-stress|Stress]] — the tensor that motivates all of this
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvalues, at the level ML needs

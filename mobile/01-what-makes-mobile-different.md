@@ -1,14 +1,20 @@
+---
+id: 30f046db-6c33-4dba-86f1-2d2e3a20db67
+---
+
 # What Makes Mobile Different
 
 **[Beginner]** — the six constraints that make mobile a distinct discipline rather than "web development on a small screen".
 
 ## The kid version first
+<!-- bite: d4608292-442d-4e70-a889-2a4f064cda77 -->
 
 A web page runs on a machine that's plugged in, has a keyboard, and is on a network. **A mobile app runs on a battery, in someone's hand, on a network that keeps vanishing, and can be killed mid-sentence by the operating system without asking.**
 
 Every difference below comes from that.
 
 ## The six constraints
+<!-- bite: 0ad08fc6-888d-49a1-b65d-78e2fc43ba42 -->
 
 **1. The OS is in charge, not you.**
 
@@ -46,6 +52,7 @@ Screen sizes, aspect ratios, notches, OS versions, manufacturer skins, and — o
 Location, camera, contacts, notifications: the user is prompted and **can say no, or grant "only this once"**. Your app must work — degraded but functional — without each one → [[mobile/09-permissions-and-privacy|permissions]].
 
 ## What this changes about how you build
+<!-- bite: 45dbaded-75c4-420f-a2ba-c0bd66bd67cd -->
 
 | Web habit | Mobile reality |
 |---|---|
@@ -57,6 +64,7 @@ Location, camera, contacts, notifications: the user is prompted and **can say no
 | Log to the server | User is offline. **Buffer, then send** |
 
 ## The thing that surprises web developers most
+<!-- bite: d856a3b7-6f3d-4f21-a7d7-be15abadc65d -->
 
 **There's no reload button.**
 
@@ -65,6 +73,7 @@ A bad web deploy is fixed in five minutes. A bad mobile release is in the store 
 **Feature flags aren't optional on mobile.** They're how you turn off a broken feature without shipping a build.
 
 ## What's genuinely nicer than web
+<!-- bite: c1d552c5-6971-4b7e-80a5-569bbe8c49c2 -->
 
 Worth saying, because the list above is all constraints:
 
@@ -75,10 +84,12 @@ Worth saying, because the list above is all constraints:
 - **Performance is predictable.** You know the hardware range
 
 ## Key insight
+<!-- bite: d5863c8b-7ca7-412f-80ec-7a519a71e817 -->
 
 **Mobile development is programming for an environment that can pause you, kill you, deny you resources, and refuse to ship your code** — none of which the web or the server does. Every practice in this folder is a response to not being in control of your own process.
 
 ## Related
+<!-- bite: 944dcda4-0a5b-442a-a7d4-0b3ba32f57b7 -->
 - [[mobile/02-the-two-platforms|the two platforms]] — iOS and Android, compared honestly
 - [[mobile/03-the-app-lifecycle|the app lifecycle]] — the constraint that shapes the most code
 - [[mobile/14-native-vs-cross-platform|native vs cross-platform]] — the first real decision

@@ -1,8 +1,13 @@
+---
+id: b80b2c36-a880-4074-9c23-bfa4ebc1ca94
+---
+
 # The Boot Process
 
 **[Intermediate]** — what happens between power-on and a login prompt, and how to get in when that sequence breaks. The note you want *before* you need it.
 
 ## The kid version first
+<!-- bite: 01760d37-3c05-4c45-b09d-af69cb878af4 -->
 
 Booting is a relay race where each runner is bigger than the last and knows only how to find the next one.
 
@@ -26,6 +31,7 @@ Every boot failure is one runner failing to hand off. Knowing which handoff brok
 That last-but-one row is the one you'll actually hit. See [[devops/01-linux/18-disks-and-filesystems|disks & filesystems]] — a mistyped fstab line is the single most common self-inflicted boot failure.
 
 ## GRUB — the part you can edit at boot
+<!-- bite: 62c85528-1cac-478d-8267-56d9b3dda1ab -->
 
 Hold **Shift** (BIOS) or **Esc** (UEFI) during startup to get the menu. Press **`e`** on an entry to edit its boot parameters for this boot only — nothing is written to disk, so a reboot undoes any mistake.
 
@@ -52,6 +58,7 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg          # RHEL/Fedora
 ```
 
 ## Fixing a broken fstab from rescue mode
+<!-- bite: 9a27558e-8d50-44e6-a4a2-9b31dce7e0d9 -->
 
 The most common real repair:
 
@@ -65,6 +72,7 @@ reboot
 Adding `nofail` to non-essential mounts in fstab prevents this class of failure entirely — the boot continues instead of dropping to a shell when that device is missing. On a cloud VM with attached volumes, `nofail` is close to mandatory, because a volume that fails to attach otherwise takes the whole machine down.
 
 ## systemd targets — what "runlevel" became
+<!-- bite: b08244d5-5288-47bb-821b-6c95524221d6 -->
 
 A target is a named set of units to reach.
 
@@ -84,6 +92,7 @@ sudo systemctl isolate rescue.target           # switch now, without rebooting
 Setting a server to `multi-user.target` is free performance and a smaller attack surface if a GUI got installed by accident.
 
 ## Diagnosing a slow boot
+<!-- bite: 8d694128-a2ae-45cc-b749-e10c6a49c5a9 -->
 
 ```bash
 systemd-analyze                  # total time, split firmware/loader/kernel/userspace
@@ -96,10 +105,12 @@ systemd-analyze critical-chain   # the dependency path that actually gated the b
 The usual culprits are a network-wait unit hanging on an interface that will never come up, and a mount waiting on a device that isn't there — both are the same shape of problem, and `nofail` or disabling the wait fixes both.
 
 ## Key insight
+<!-- bite: 8687e234-f258-4865-bc49-7985618e17e2 -->
 
 Firmware → GRUB → kernel → systemd, each finding the next. Identify which handoff failed from the symptom and you know which tool to reach for. Learn to press `e` at the GRUB menu on a machine that *isn't* broken — it's a bad time to learn the keystroke when it is.
 
 ## Related
+<!-- bite: cf761487-17e0-438b-85d4-a987f434d935 -->
 - [[devops/01-linux/15-rhcsa/11-control-the-boot-process|RHCSA: Control the Boot Process]] — the deep version, including resetting a lost root password step by step
 - [[devops/01-linux/18-disks-and-filesystems|Disks and Filesystems]] — the fstab entries that cause most boot failures
 - [[devops/01-linux/07-systemd-and-services|systemd & services]] — what PID 1 does after the boot completes

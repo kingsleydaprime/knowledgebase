@@ -1,8 +1,13 @@
+---
+id: 224b8cf5-08e4-401b-8780-aa5afe4d6cc5
+---
+
 # Module 27: The Bridge (Parts VIII to XVIII)
 
 **[Intermediate → Advanced]** — You have built every physical component of a computer. This module is the route through the parts of the stack this vault already teaches well — with the dependency from Parts II–VII named at each step, so you know *why* you can now read them.
 
 ## Before you start
+<!-- bite: 59d7c0f4-9dd8-4713-beff-c47519c3eab6 -->
 
 You should have completed **modules 1–26**. Specifically, you should be able to:
 
@@ -17,6 +22,7 @@ You should have completed **modules 1–26**. Specifically, you should be able t
 ---
 
 ## 1. What this module is, and what it is not
+<!-- bite: 4125d3fa-6154-4580-a840-bf8fbef954bc -->
 
 **This is not a summary of Parts VIII–XVIII.** It is a *reading route*.
 
@@ -35,6 +41,7 @@ So each section below gives you:
 ---
 
 ## 2. Where you are
+<!-- bite: c85dfbf6-38c0-46a2-aa4e-8541ce3d6037 -->
 
 ```
    ✅ PART II    electricity, signals, the digital abstraction
@@ -62,6 +69,7 @@ So each section below gives you:
 ---
 
 ## 3. Part VIII — Building a computer
+<!-- bite: 5da1c63d-91c5-447f-a3a1-2463b312d735 -->
 
 **The dependency:** you have an ALU ([[how-computers-work/05-combinational/04-the-alu|module 23]]), a register file and a program counter ([[how-computers-work/06-memory/02-registers-and-counters|module 25]]), and memory ([[how-computers-work/06-memory/03-memory-technology|module 26]]). A CPU is those four blocks plus multiplexers deciding what connects to what, plus a control unit deciding the multiplexers.
 
@@ -77,6 +85,7 @@ You have already met it concretely: the control table in [[build-your-own-shit/1
 ---
 
 ## 4. Part IX — Instruction set architecture
+<!-- bite: 457dc045-2b0b-4b9d-885f-8adaebdb3b7b -->
 
 **The dependency:** [[how-computers-work/05-combinational/04-the-alu|Module 23]] ended by noting that the ALU's function-select bits come from the instruction. **The ISA is the specification of what those bits mean** — the contract between hardware and software.
 
@@ -92,6 +101,7 @@ You have already met it concretely: the control table in [[build-your-own-shit/1
 ---
 
 ## 5. Part X — Memory hierarchy
+<!-- bite: 2fa23b91-6ffb-4a5a-8ea2-c8a24c473fcf -->
 
 **The dependency:** [[how-computers-work/06-memory/03-memory-technology|Module 26]] derived the hierarchy from cell costs — SRAM is fast and 23× larger per bit than DRAM, so you get kilobytes of one and gigabytes of the other. **You already know why the hierarchy must exist.** These notes are about exploiting it.
 
@@ -108,6 +118,7 @@ Also connect it back: [[how-computers-work/06-memory/03-memory-technology|module
 ---
 
 ## 6. Part XI — Making the CPU fast
+<!-- bite: ecbad101-9431-413c-87a5-b8c53ddce04e -->
 
 **The dependency:** [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] showed the critical path sets $f_{max}$, and that halving it gives less than double the clock because register overheads do not shrink. [[how-computers-work/05-combinational/02-adders|Module 21]] showed the carry chain is usually that critical path.
 
@@ -127,6 +138,7 @@ And [[computer-architecture/12-performance|performance]] will discuss the power 
 ---
 
 ## 7. Part XII — The software-hardware interface
+<!-- bite: 451df93b-9d5b-4de7-848e-451692565b57 -->
 
 **The dependency:** you can read machine code as bit fields. This part is about how those bits get into a file and then into memory.
 
@@ -146,6 +158,7 @@ And [[computer-architecture/12-performance|performance]] will discuss the power 
 ---
 
 ## 8. Part XIII — Operating systems
+<!-- bite: ac7a9ab1-daea-40c5-ac45-d240d7c8c09e -->
 
 **The dependency:** [[how-computers-work/06-memory/03-memory-technology|Module 26]] gave you physical memory. An OS is what shares one machine between many programs that each think they own it.
 
@@ -164,6 +177,7 @@ And the interrupt controller deciding *which* device wins is a **priority encode
 ---
 
 ## 9. Parts XIV–XVII — Languages, compilers and runtimes
+<!-- bite: 977e711c-3dd1-4d20-84ad-43456a4d3037 -->
 
 **The dependency:** you can now read the machine code a compiler emits, and know what each instruction physically does. **This is the top-down half of the course**, descending to meet the bottom-up half at the ISA.
 
@@ -183,6 +197,7 @@ And the interrupt controller deciding *which* device wins is a **priority encode
 ---
 
 ## 10. Part XVIII — The complete trace
+<!-- bite: 2f17f18a-9a45-422e-8892-b99249e5bb1b -->
 
 The original curriculum's final exercise, and the point of everything:
 
@@ -197,6 +212,7 @@ The capstone builds the machine end of this. [[how-computers-work/08-capstone/07
 ---
 
 ## 11. Suggested route
+<!-- bite: f86ab94e-057a-4a16-a96b-fc14a54eae72 -->
 
 **If you want the shortest path to the capstone** (you can start building after this):
 
@@ -214,6 +230,7 @@ That is four notes. **Everything else can follow while you build**, and building
 ---
 
 ## Before moving on
+<!-- bite: 7cba2e3d-ac2e-4636-a374-60538ce0d6b1 -->
 
 - [ ] Name what each of Parts VIII–XVIII covers and which course teaches it.
 - [ ] Explain what a control unit does and why it is the new idea in Part VIII.
@@ -228,6 +245,7 @@ That is four notes. **Everything else can follow while you build**, and building
 ---
 
 ## Related
+<!-- bite: e1e05628-b5bf-4178-a782-d2089df27537 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[computer-architecture/index|computer-architecture/]]

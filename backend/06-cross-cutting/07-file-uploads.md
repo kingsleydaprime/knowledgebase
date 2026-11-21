@@ -1,3 +1,7 @@
+---
+id: c0a58349-1eee-4284-9b14-da27927c3416
+---
+
 # File Uploads
 
 > **[Intermediate]** · The gap the old README named — and the one feature where nearly every naive implementation is a vulnerability.
@@ -5,6 +9,7 @@
 **File upload is where untrusted input meets your filesystem, your storage bill, and your image library's parser.** It deserves its own note because the naive version is wrong in about six independent ways.
 
 ## Don't proxy the bytes through your API
+<!-- bite: ad72b2e9-4017-43d8-8aaa-e3a4fb401773 -->
 
 **The single most important architectural decision here.**
 
@@ -25,6 +30,7 @@ The obvious design — client uploads to your server, your server writes to stor
 **Step 5 is not optional.** Between steps 2 and 4 the client controls what was actually uploaded — so re-check size and content type from storage metadata, never from what the client told you.
 
 ## Validation, and why the obvious checks don't work
+<!-- bite: 6e6e0d09-1205-4bf3-9424-cb54b56f266b -->
 
 **The extension means nothing.** `evil.php.jpg`, `shell.jpg` containing PHP — the filename is client-supplied text.
 
@@ -39,6 +45,7 @@ The obvious design — client uploads to your server, your server writes to stor
 **Limit dimensions, not just bytes.** A **decompression bomb** — a 10 KB PNG that decodes to 50,000×50,000 pixels — exhausts memory when your image library opens it. Check declared dimensions *before* decoding.
 
 ## Storing them
+<!-- bite: d3a9c3b6-d6ac-4b39-818d-4377eeb1ebd6 -->
 
 **Never write to a path derived from the user's filename.** `../../etc/cron.d/x` is path traversal; a Windows reserved name like `CON` breaks differently.
 
@@ -57,6 +64,7 @@ Store the original filename as **metadata**, and escape it when displaying it.
 **Always set `Content-Type` explicitly on retrieval** and `X-Content-Type-Options: nosniff` → [[backend/06-cross-cutting/06-security-headers-and-cors|note 06]].
 
 ## Large files
+<!-- bite: 14934587-cff5-4eaa-8aa1-6a77bb2ac72d -->
 
 **Multipart / chunked upload** — split into parts, upload independently, storage reassembles. Gives you resumability, parallelism, and no single enormous request.
 
@@ -65,6 +73,7 @@ Store the original filename as **metadata**, and escape it when displaying it.
 **Track upload state** so a client can resume. And **expire abandoned uploads** — incomplete multipart uploads are billed and invisible in the bucket listing, which is a genuinely common surprise on a cloud bill.
 
 ## After the upload
+<!-- bite: 0fbc67b0-a356-4f39-b07e-4985737fdb18 -->
 
 **Process asynchronously.** Thumbnailing, transcoding and virus scanning belong in a background job, not the request → [[architecture/02-building-blocks/04-messaging-and-async/index|messaging and async]].
 
@@ -73,6 +82,7 @@ Store the original filename as **metadata**, and escape it when displaying it.
 **Decide the deletion story before you build.** Orphaned objects — the database row was rolled back but the object was written — accumulate forever. **Reconcile periodically**, and remember that "delete the user" now means deleting their objects too, which is a GDPR obligation as much as a tidiness one → [[cybersecurity/08-governance-risk-and-compliance/index|GRC]].
 
 ## The checklist
+<!-- bite: b15c88b7-47e7-4989-a64e-db38734a4e9f -->
 
 - [ ] Direct-to-storage with a presigned URL, not proxied
 - [ ] Authorise **before** issuing the URL; verify **after** the upload
@@ -87,6 +97,7 @@ Store the original filename as **metadata**, and escape it when displaying it.
 - [ ] A deletion and reconciliation story
 
 ## Related
+<!-- bite: a3f979ab-0ea4-4165-8145-841afb5020d3 -->
 - [[devops/08-cloud/03-object-storage-and-direct-uploads|object storage and direct uploads]]
 - [[backend/06-cross-cutting/06-security-headers-and-cors|security headers]]
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]]

@@ -1,14 +1,20 @@
+---
+id: eb807345-f26f-478b-9545-ed43010c3ac8
+---
+
 # Your Actual Threat Model
 
 **[Beginner]** — assumes nothing technical. Who is realistically after you, who isn't, and why that changes what's worth doing.
 
 ## The kid version first
+<!-- bite: f6c6738a-9dac-428b-828a-7345fdeb492c -->
 
 Security advice usually arrives as an enormous list, all of it urgent, none of it ranked. So people either do nothing, or exhaust themselves on the wrong things.
 
 **A threat model is just three questions:** *what do I have that's worth taking, who would plausibly take it, and what would it cost me?* Answer those and the enormous list shrinks to about six things.
 
 ## You are almost certainly not being targeted
+<!-- bite: 906a3d4f-8781-4daf-97f8-6372d3c8dbd6 -->
 
 This is the most freeing thing in this folder. **Nearly all harm that reaches ordinary people is opportunistic, not targeted.** Nobody chose you. A system chose everybody, and you were in the list.
 
@@ -23,6 +29,7 @@ This is the most freeing thing in this folder. **Nearly all harm that reaches or
 **Notice what's not on that list:** sophisticated hackers breaking your encryption, government surveillance of you personally, someone cracking a strong password. Those are the ones people worry about, and they're the least likely.
 
 ## But "not targeted" isn't universal
+<!-- bite: 0d00a1b3-9f3e-4d86-9796-3b923dea5670 -->
 
 Some people **are** targeted, and the advice changes. Be honest about whether you're one:
 
@@ -37,6 +44,7 @@ Some people **are** targeted, and the advice changes. Be honest about whether yo
 **That last row deserves saying plainly.** If someone who knows you intimately may have access to your accounts or devices, changing a password can alert them and escalate things. Domestic-violence support organisations have specialists for exactly this, and the right move is to talk to them **before** changing anything. Technical advice from a general guide is not adequate there.
 
 ## What's actually worth protecting
+<!-- bite: 1c2355ed-79e0-4542-af3c-1250e7a8a862 -->
 
 Rank yours. Most people's list looks like this:
 
@@ -50,6 +58,7 @@ Rank yours. Most people's list looks like this:
 **If you protect your email and your phone number well and do nothing else, you have done most of the available good.**
 
 ## The six things, ranked
+<!-- bite: f382b242-f884-4e0e-b9fa-018342fb7667 -->
 
 The whole folder in one list, in the order of how much harm they prevent per hour spent:
 
@@ -65,6 +74,7 @@ The whole folder in one list, in the order of how much harm they prevent per hou
 **That's a weekend, once, and then almost nothing ongoing.**
 
 ## What isn't worth your time
+<!-- bite: 03f73bd9-b56d-4f33-a0da-69007d5d5fc0 -->
 
 Being honest about this matters, because bad advice crowds out good:
 
@@ -75,10 +85,12 @@ Being honest about this matters, because bad advice crowds out good:
 - **Worrying about encryption being broken.** It won't be. **The attacker goes around it, through you** → [[cybersecurity/05-cryptography/index|cryptography]].
 
 ## Key insight
+<!-- bite: 33e4dd94-7ac3-4043-8305-9968a267f962 -->
 
 **Security is not a state you reach; it's a small number of habits that make you a worse target than the person next to you.** Almost all real-world harm is automated and opportunistic — so the goal isn't being unbreakable, it's being expensive enough that the automation moves on. Six things, one weekend, and you've done that.
 
 ## Related
+<!-- bite: a6e4cbe6-b8a2-4a2b-af72-8fc03f0d4151 -->
 - [[cybersecurity/10-protecting-yourself/index|the track]]
 - [[cybersecurity/06-attacks-and-threats/index|attacks and threats]] — the same material, for people defending organisations
 - [[cybersecurity/01-fundamentals/02-cia-triad|the CIA triad]] — the professional framing of "what's worth protecting"

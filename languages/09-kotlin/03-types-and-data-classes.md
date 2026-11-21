@@ -1,8 +1,13 @@
+---
+id: a264bbfb-f12f-4e76-8d51-913b6264fac2
+---
+
 # Types, Data Classes and Sealed Hierarchies
 
 **[Intermediate]** — modelling data, and the feature that makes exhaustive state handling possible.
 
 ## `data class`
+<!-- bite: 4f9b2ca2-4530-4d48-bb6d-950e23cb72d8 -->
 
 ```kotlin
 data class User(val id: String, val name: String, val age: Int)
@@ -18,6 +23,7 @@ val (id, name) = user                   // destructuring
 **`copy` with named arguments is the pattern for state updates**, and it's what makes immutable state ergonomic enough to actually use.
 
 ## `sealed` — the important one
+<!-- bite: 1ee17c45-6f81-40df-8f2b-613a5e736897 -->
 
 A sealed class or interface has a **known, closed set of subtypes**:
 
@@ -48,6 +54,7 @@ val text = when (state) {                    // no `else` needed
 **This is the single highest-value pattern in Kotlin application code** → [[mobile/05-state-and-architecture|state modelling]].
 
 ## `object` and companions
+<!-- bite: 37ff5d04-d3f0-480c-bfc5-57f04bafc4e1 -->
 
 ```kotlin
 object Config { val apiUrl = "..." }          // singleton, thread-safe, lazy
@@ -62,6 +69,7 @@ class User {
 **There's no `static`.** `companion object` is the replacement, and it's a real object — so it can implement interfaces, which `static` can't.
 
 ## `value class` — a wrapper with no cost
+<!-- bite: 44d98891-c00d-47ad-b861-547bcc3a159d -->
 
 ```kotlin
 @JvmInline
@@ -78,6 +86,7 @@ load(orderId)     // ❌ compile error, even though both wrap String
 **This is how you stop passing the wrong ID**, which is a real bug class in any codebase with several string identifiers. **Cheap to adopt, and it catches things.**
 
 ## Enums vs sealed
+<!-- bite: 3f8c5613-ec6d-42be-86f7-2dac04b2435a -->
 
 ```kotlin
 enum class Status { ACTIVE, SUSPENDED, CLOSED }        // fixed set, NO per-case data
@@ -88,6 +97,7 @@ enum class Status { ACTIVE, SUSPENDED, CLOSED }        // fixed set, NO per-case
 **The same mobile caution as Swift:** a strict enum deserialised from a server **breaks when the server adds a value**, and old app versions live for years. **Add an `UNKNOWN` case and map to it** → [[mobile/08-networking-on-mobile|API compatibility]].
 
 ## Generics and variance
+<!-- bite: e32aafd2-3a08-4cc0-9e8b-6a9fbe0e17ef -->
 
 ```kotlin
 class Box<T>(val item: T)
@@ -109,6 +119,7 @@ val user: User = gson.parse(text)      // the type is known at runtime
 **Only works on `inline` functions**, because the type is substituted at the call site.
 
 ## Delegation
+<!-- bite: c2b93b77-6965-4886-a3ce-5c379c65e117 -->
 
 ```kotlin
 class Repo(private val cache: Cache) : Cache by cache      // delegate the interface
@@ -120,10 +131,12 @@ val config: Config by lazy { load() }
 **`by` implements an interface by forwarding to another object** — composition without writing forwarding methods, which is a real answer to "prefer composition over inheritance."
 
 ## Key insight
+<!-- bite: 2418ee31-b633-4f16-952f-08cc435d0a58 -->
 
 **Sealed hierarchies plus exhaustive `when` are Kotlin's best feature for application code**, because they move "did I handle every case" from a code-review question to a compile error. Combined with `data class` immutability and `value class` type safety, you can encode most of your domain's rules in types the compiler checks.
 
 ## Related
+<!-- bite: eff7c08a-a53c-40de-b393-46582a3413e5 -->
 - [[languages/09-kotlin/02-null-safety|null safety]]
 - [[languages/08-swift/05-enums-and-pattern-matching|Swift's enums]] — the direct equivalent
 - [[mobile/05-state-and-architecture|state modelling]] — where sealed types pay off

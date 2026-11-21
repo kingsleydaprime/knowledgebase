@@ -1,3 +1,7 @@
+---
+id: cffe863c-0b52-4849-b4eb-fd3871d44259
+---
+
 # Get Help in Red Hat Enterprise Linux
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. This matters more than it 
 ---
 
 ## man — the primary reference
+<!-- bite: 16ac9a20-fb88-47b3-b7f9-50f39fa52d00 -->
 
 ```bash
 man ls              # manual page for the ls command
@@ -70,6 +75,7 @@ SEE ALSO      — related man pages
 ---
 
 ## --help — faster, shallower
+<!-- bite: 8dc1eb64-3bc0-41fa-b4df-1f91abe9e299 -->
 
 Almost every command supports `command --help` (or `-h`) for a quick flag summary printed straight to the terminal — no pager, no full explanation. Good for "what was that flag called again" when you already know the command.
 
@@ -81,6 +87,7 @@ systemctl --help
 ---
 
 ## info — GNU's deeper alternative
+<!-- bite: 9d7cfbdf-3e2b-4fc9-a04b-402ba8e2c622 -->
 
 Some GNU tools ship more detailed **Texinfo** documentation than their man page, browsable as a menu-driven hypertext document:
 
@@ -100,6 +107,7 @@ In practice `man` covers the vast majority of what you need day to day; `info` i
 ---
 
 ## Local package documentation
+<!-- bite: 06d6377a-4659-4531-8d68-e3d08337b85f -->
 
 ```bash
 ls /usr/share/doc/<package-name>/     # READMEs, changelogs, example configs shipped with a package
@@ -110,6 +118,7 @@ rpm -ql httpd                          # list ALL files owned by a package (not 
 ---
 
 ## RHEL Lightspeed — the AI-assisted command-line assistant (new in RHEL 10)
+<!-- bite: c08ca737-cc9b-4c1e-a093-0b9d03afad7a -->
 
 Not usable during the offline exam (it requires internet access and a registered subscription), but worth knowing about as the newest addition to RHEL's "getting help" toolkit, and genuinely useful on the job. **RHEL Lightspeed** is Red Hat's AI layer over RHEL — the piece relevant here is its **command-line assistant**, which lets you ask an English-language question straight from the terminal and get back an explanation, a suggested command, or help interpreting output you paste in. Under the hood it calls an externally-hosted LLM (IBM's watsonx/Granite), trained on Red Hat's own documentation and knowledgebase articles — it does **not** inspect your system directly; it only ever sees what you explicitly type or pipe to it.
 
@@ -132,6 +141,7 @@ Treat every answer the same way you'd treat an answer from a stranger on a forum
 ---
 
 ## Red Hat's own documentation (outside the exam)
+<!-- bite: b3844d6a-36a8-4df5-949b-b60f0160e130 -->
 
 Not usable *during* the offline exam, but the real-world answer once you're on the job:
 

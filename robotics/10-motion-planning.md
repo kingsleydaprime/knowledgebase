@@ -1,8 +1,13 @@
+---
+id: aaf8ba17-6bf6-4ecc-852f-5d088f74b493
+---
+
 # Motion Planning
 
 **[Advanced]** — Finding a path that reaches the goal without hitting anything, in a space with more dimensions than you can picture.
 
 ## Configuration space
+<!-- bite: 7a8bbd54-f9d3-4975-baf8-a61ee0f8ff22 -->
 
 **The idea that makes planning tractable**, and it's worth the effort to internalise.
 
@@ -29,6 +34,7 @@ So planning becomes: **find a curve from $q_{start}$ to $q_{goal}$ that stays in
 **And C-space has structure you must respect.** A revolute joint's space is a circle, not a line — 359° and 1° are adjacent. Ignore that and your planner refuses to see the short way round.
 
 ## Collision checking
+<!-- bite: eefdf773-7f50-4c6d-bb11-35d8a32c933f -->
 
 **Where the time goes.** A planner spends 80–90% of its runtime here, so it dominates everything.
 
@@ -44,6 +50,7 @@ So planning becomes: **find a curve from $q_{start}$ to $q_{goal}$ that stays in
 - **Discrete checking misses things.** Checking waypoints can step _through_ a thin obstacle between samples. Use continuous collision detection, or a step size smaller than the thinnest obstacle
 
 ## Grid and graph search
+<!-- bite: ca01b516-9eda-4a94-8bdd-ae0561f3fbed -->
 
 For low-dimensional problems (mobile robots in 2D/3D), discretise and search. → [[02-dijkstra|Dijkstra and graph search]]
 
@@ -58,6 +65,7 @@ For low-dimensional problems (mobile robots in 2D/3D), discretise and search. �
 **Grid search breaks down above ~3 dimensions.** Cells grow exponentially. Fine for a mobile robot's $(x,y,\theta)$; hopeless for a 7-DOF arm.
 
 ## Sampling-based planning
+<!-- bite: 2fbf55c4-c865-4296-bc95-0b12df96a39a -->
 
 **The answer for high-dimensional problems**, and the reason arm planning is practical at all.
 
@@ -110,6 +118,7 @@ until q_new is near q_goal
 **They're randomised**, so two runs give different paths. **Seed the RNG if you need reproducibility for debugging** — an intermittent planner failure is otherwise very hard to chase.
 
 ## Optimisation-based planning
+<!-- bite: 4a87c70d-22b4-4810-95e1-b141638b4aae -->
 
 Start with a (possibly bad) path and optimise it against a cost function.
 
@@ -120,6 +129,7 @@ Start with a (possibly bad) path and optimise it against a cost function.
 **A good combination in practice:** sampling planner for a feasible path, optimiser to smooth and improve it. Global search then local refinement.
 
 ## Nonholonomic constraints
+<!-- bite: 07c0bd14-d6cd-47aa-8706-f2e0f6c4f958 -->
 
 A car cannot move sideways, so **not every path in C-space is drivable**.
 
@@ -135,6 +145,7 @@ $$\dot{x}\sin\theta - \dot{y}\cos\theta = 0$$
 - **Hybrid A\*** and **kinodynamic RRT** are the usual global methods
 
 ## From path to trajectory
+<!-- bite: 331ee039-4323-4009-9b59-90c1d7605fe2 -->
 
 **A path is geometry. A trajectory is geometry plus time.** The planner gives you the first, and the robot needs the second.
 
@@ -145,6 +156,7 @@ $$\dot{x}\sin\theta - \dot{y}\cos\theta = 0$$
 **And check the result.** Time-parameterising can produce a trajectory that violates a limit you didn't include. Verify against every actual constraint before executing.
 
 ## Task and behaviour layers
+<!-- bite: c43eaab4-b71c-4d21-87e4-abe0cc41462b -->
 
 Above motion planning sits _what to do_.
 
@@ -155,6 +167,7 @@ Above motion planning sits _what to do_.
 **Finite state machines** are still fine for simple sequences and easier to reason about exhaustively. Use them when the behaviour genuinely is a handful of states.
 
 ## Practical notes
+<!-- bite: 7cb7446a-0c53-44bf-8833-1fbfd87a3029 -->
 
 **Plan in joint space for arms.** Cartesian paths can be unreachable, pass through singularities, or require a configuration flip mid-path. → [[robotics/07-jacobians-and-singularities|Singularities]]
 
@@ -171,6 +184,7 @@ Above motion planning sits _what to do_.
 ---
 
 ## Related
+<!-- bite: 42f25165-8860-488d-b3e8-da9c49cf8f4c -->
 
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — called constantly inside planning
 - [[robotics/09-robot-control|Robot Control]] — executing what this produces

@@ -1,8 +1,13 @@
+---
+id: b5434062-be3a-4423-9bd8-ee8ea835b937
+---
+
 # State and Shared Data
 
 **[Intermediate → Advanced]** — `Arc<AppState>`, why there's no DI container, and the locking decisions that decide whether your async service scales.
 
 ## Ownership meets a web server
+<!-- bite: 7e72e491-d629-479b-a9e0-7c0711a6dc6b -->
 
 A web server is the awkward case for [[languages/03-rust/03-ownership|ownership]]: many concurrent tasks, on many threads, all needing the same database pool and config. There is no single owner.
 
@@ -35,6 +40,7 @@ type AppState = Arc<Inner>;                              // one Arc around every
 The second is simpler; the first lets handlers extract just what they need via `FromRef`.
 
 ## Dependency injection, or the absence of it
+<!-- bite: cd54c344-87ef-4cdc-9989-bcee856ffe3a -->
 
 Rust has no DI container. Like [[backend/frameworks/go/04-structuring-a-go-service|Go]], dependencies are struct fields assembled in `main`:
 
@@ -76,6 +82,7 @@ struct AppState<S: UserStore> { store: S }
 Generics propagate through the router signature and get noisy, so `Arc<dyn UserStore>` is the common pragmatic alternative — one vtable indirection, far less type plumbing.
 
 ## Mutable shared state
+<!-- bite: 9edc53f7-3ab3-4c21-8ec3-07ed6b6551a1 -->
 
 Most state is immutable after startup, which needs no locking. When you do need mutation:
 
@@ -139,6 +146,7 @@ tokio::spawn(async move {
 That's ownership doing what it's good at — the data has one owner, and concurrency comes from message passing rather than shared access.
 
 ## Per-request data
+<!-- bite: ea48f4ab-57a4-4ad1-9046-0008d81b4db3 -->
 
 Application state is `State`; per-request data goes in extensions, inserted by middleware:
 
@@ -155,6 +163,7 @@ async fn handler(Extension(claims): Extension<Claims>) { }
 **`Extension` fails at runtime if the layer wasn't applied.** A custom extractor is strictly better where possible, because it can't be forgotten — see [[backend/frameworks/rust/02-extractors-and-responses|Extractors]].
 
 ## Background tasks
+<!-- bite: b7fd2391-3d77-4c3b-9cb8-a3ba78cc828e -->
 
 ```rust
 let state = state.clone();
@@ -178,6 +187,7 @@ Two things to get right:
 For graceful shutdown, `tokio_util::task::TaskTracker` plus a `CancellationToken` lets you wait for background work to finish rather than dropping it mid-flight.
 
 ## Connection pools
+<!-- bite: d4ca4567-bb5a-4d94-95e7-60e23700d579 -->
 
 ```rust
 let db = PgPoolOptions::new()
@@ -199,6 +209,7 @@ let _permit = permits.acquire().await?;      // held until it drops
 ```
 
 ## Testing
+<!-- bite: 5a0dc298-b380-4600-8383-27a93851f01c -->
 
 ```rust
 #[tokio::test]
@@ -230,6 +241,7 @@ async fn creates_user(pool: PgPool) {
 ---
 
 ## Related
+<!-- bite: 82d359e7-887d-43e4-8c61-92b5b579fecf -->
 - [[backend/frameworks/rust/02-extractors-and-responses|Extractors and Responses]] — how state reaches a handler
 - [[backend/frameworks/rust/04-async-pitfalls|Async Pitfalls]] — blocking, and what else stalls the runtime
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — `Arc<Mutex<T>>` and `Send`/`Sync`

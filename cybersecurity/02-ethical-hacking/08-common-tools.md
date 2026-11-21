@@ -1,8 +1,13 @@
+---
+id: d19dd4bc-1fea-4a0b-989f-0afc3bfb618a
+---
+
 # Common Tools of the Trade
 
 A map of the standard, industry-known tools used across the methodology in this folder — what each one is for, where it fits, and a concrete example of it in use. Knowing the landscape of tool names and purposes is what lets you follow a writeup, a report, or a conversation among practitioners; the examples below are illustrative starting points, not a complete reference for any of these tools.
 
 ## Reconnaissance
+<!-- bite: ae6dba10-26f8-4638-9dbc-aff71a21016b -->
 
 **theHarvester** — pulls emails, subdomains, and hostnames for a domain from public sources (search engines, certificate transparency logs) in one pass (see [[03-reconnaissance|reconnaissance]]).
 
@@ -19,6 +24,7 @@ shodan host 93.184.216.34          # look up everything Shodan knows about a spe
 ```
 
 ## Scanning & enumeration
+<!-- bite: d004b8ca-9908-4807-8f01-1145dd5c0825 -->
 
 **Nmap** — the default first tool for mapping what's reachable and what's running (see [[06-scanning-and-enumeration|scanning-and-enumeration]]).
 
@@ -36,6 +42,7 @@ nikto -h https://192.168.1.10
 **OpenVAS** — an automated vulnerability scanner comparing discovered services against known-CVE databases; typically driven through its web UI rather than a single CLI invocation, producing a ranked findings report once a scan against a defined target list completes.
 
 ## Web application testing
+<!-- bite: 463b3e4e-40b3-4d08-b938-9b4064d2da55 -->
 
 **Burp Suite** — an intercepting proxy: point your browser at Burp's local proxy (commonly `127.0.0.1:8080`), and every request/response passing through it can be viewed, paused, and edited before it reaches the server. A typical workflow: browse the target normally with the proxy intercepting, send an interesting request to **Repeater** to manually tweak and resend it (changing a parameter to test for injection or broken access control, per [[07-exploitation-concepts|exploitation-concepts]]), or send a whole flow to **Intruder** to automate trying many payloads against one parameter.
 
@@ -50,6 +57,7 @@ sqlmap -u "https://target.com/item?id=1" --cookie="session=abc123" --dbs   # aut
 ```
 
 ## Exploitation frameworks
+<!-- bite: a9c0b3bb-6bd1-4fa3-a364-c500432ce63a -->
 
 **Metasploit** — packaged, maintained exploit modules plus payload generation, so a known vulnerability's real impact can be demonstrated without writing exploit code from scratch.
 
@@ -64,6 +72,7 @@ run
 ```
 
 ## Network analysis
+<!-- bite: f3ef3a95-799b-46bd-86f2-8f9441d9847a -->
 
 **Wireshark** — captures and inspects raw traffic in detail, used both offensively (seeing what a target's own traffic reveals) and defensively (a core blue-team tool for incident investigation).
 
@@ -74,6 +83,7 @@ tcpdump -i eth0 port 443 -w capture.pcap     # capture, via the CLI companion to
 Inside Wireshark's own display-filter bar: `http.request` (show only HTTP requests), `ip.addr == 192.168.1.20` (show only traffic to/from one host), `tcp.flags.syn == 1 && tcp.flags.ack == 0` (show only TCP SYN packets — the start of new connections).
 
 ## Password/credential testing
+<!-- bite: 58e01293-15ed-4604-84b6-50de9b9726f7 -->
 
 **Hashcat** — GPU-accelerated password cracking against a captured hash (see [[02-cia-triad|cia-triad]] for why weak hashing makes this feasible at all, and [[10-pdf-and-document-security|pdf-and-document-security]] / [[11-wifi-security-testing|wifi-security-testing]] for two concrete applications of it).
 
@@ -91,26 +101,31 @@ john --show hash.txt                               # display any passwords alrea
 ```
 
 ## Operating systems built for this work
+<!-- bite: 1ba5e6c0-2347-4033-8a8f-01cc8d8ba414 -->
 
 **Kali Linux** and **Parrot OS** ship most of the above tools preinstalled and configured — covered in more depth, including the VM/hardware setup considerations, in [[04-lab-setup-and-os-choice|lab-setup-and-os-choice]].
 
 ## Why tool names matter less than the underlying concept
+<!-- bite: 8a29e06e-d1d7-4460-939f-37a58b789d4c -->
 
 Every tool listed here automates a task that maps directly onto a phase already covered in this folder — a scanner maps to [[06-scanning-and-enumeration|scanning-and-enumeration]], an exploitation framework maps to [[07-exploitation-concepts|exploitation-concepts]]. Tools change, get replaced, or get updated; understanding *what task a category of tool exists to do and why* (covered in the rest of this folder) transfers far better long-term than memorizing specific command flags for whatever's currently popular.
 
 ## Getting hands-on practice
+<!-- bite: a690a995-3b53-4469-a403-36700143188b -->
 
 **HackTheBox**, **TryHackMe**, and similar platforms provide legally sanctioned, intentionally vulnerable systems specifically for practicing these tools end to end (see the practicing-legally section in [[01-rules-of-engagement-and-legal|rules-of-engagement-and-legal]]). Certifications like **OSCP** (heavily hands-on, exam-based) and **CEH** (broader, more conceptual) are common formal ways to structure and validate this skill set — more on the full path in [[14-career-path-and-best-practices|career-path-and-best-practices]].
 
 Before either of those: [[05-home-lab-setup|home-lab-setup]] builds a local, disposable lab (Kali + Metasploitable2 + DVWA), and [[12-practice-exercises|practice-exercises]] gives goal-only tasks to run against it — the actual "use these tools for real" step, rather than reading about them.
 
 ## Gotchas
+<!-- bite: 0440fb4e-8244-4d7b-999b-23bc7f9b0ce8 -->
 
 - Every example above assumes a target you own or are explicitly authorized to test (your own lab VM, a HackTheBox machine, your own network) — running any of these against anything else is the exact same legal exposure as any other unauthorized access, regardless of how "just testing" or exploratory the intent feels. See [[01-rules-of-engagement-and-legal|rules-of-engagement-and-legal]].
 - Tool proficiency without methodology (see [[02-penetration-testing-methodology|penetration-testing-methodology]]) produces scattered, incomplete testing — the tools support the process, they aren't a substitute for following it.
 - Wordlists matter as much as the tool — `rockyou.txt` (a well-known leaked-password wordlist bundled with Kali) is a common default, but a mask attack or a target-specific custom wordlist often outperforms a generic one, as covered in [[10-pdf-and-document-security|pdf-and-document-security]].
 
 ## Related
+<!-- bite: fdd16db2-e3b8-4529-9f4d-d15a6009734f -->
 - [[06-scanning-and-enumeration|scanning-and-enumeration]]
 - [[07-exploitation-concepts|exploitation-concepts]]
 - [[04-lab-setup-and-os-choice|lab-setup-and-os-choice]]

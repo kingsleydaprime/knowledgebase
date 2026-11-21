@@ -1,3 +1,7 @@
+---
+id: 53316613-6156-44ad-8a66-dbd9b9162172
+---
+
 # Local HTTPS Tunnels
 
 Exposing a service running on `localhost` at a public HTTPS URL, so external systems can
@@ -8,6 +12,7 @@ Written 2026-08-12, prompted by TikTok's Login Kit refusing `http://localhost` r
 ---
 
 ## 1. Why You Need One
+<!-- bite: 222a564c-3426-422b-938e-fdbf779fa929 -->
 
 Some integrations cannot talk to `localhost`, because the other party is a server on the
 internet, not your browser:
@@ -32,6 +37,7 @@ Internet → relay (public https URL) → outbound tunnel ← cloudflared/ngrok 
 ---
 
 ## 2. cloudflared vs ngrok
+<!-- bite: 0abeb042-8964-4f63-8ec7-5e787b7ab363 -->
 
 Both do the same core job. The deciding factor is usually **URL stability**.
 
@@ -57,6 +63,7 @@ request without adding logging.
 ---
 
 ## 3. cloudflared — Install
+<!-- bite: 6c34993f-9bd7-4f9f-bd3e-952e21844105 -->
 
 **Not in Fedora's repos.** Cloudflare ships its own RPM. Their `pkg.cloudflare.com` repo
 targets RHEL `$releasever` values and won't resolve on Fedora.
@@ -83,6 +90,7 @@ curl -sL https://api.github.com/repos/cloudflare/cloudflared/releases/latest \
 ---
 
 ## 4. Quick Tunnel — Zero Setup, Rotating URL
+<!-- bite: 80ddb516-ab32-40f8-b9c5-88a684afbad6 -->
 
 ```bash
 cloudflared tunnel --url http://localhost:5000
@@ -96,6 +104,7 @@ wrong tool for anything you have to register somewhere.
 ---
 
 ## 5. Named Tunnel — Stable Subdomain
+<!-- bite: 11dbbc93-9b92-459a-8ce8-a5ac7fc92415 -->
 
 Requires a domain on Cloudflare.
 
@@ -144,6 +153,7 @@ See [[devops/01-linux/07-systemd-and-services|systemd and services]].
 ---
 
 ## 6. Gotchas
+<!-- bite: 02bb42b1-48ba-44ce-870c-82ba022a64a1 -->
 
 **The tunnel is a separate process from your app.** Restarting the app is fine; killing the
 tunnel makes the public URL 502. When an OAuth callback mysteriously fails, check the tunnel
@@ -176,6 +186,7 @@ tunnelled.
 ---
 
 ## Related
+<!-- bite: 24527b1c-4b40-491d-a62e-7129d3a30bad -->
 - [[devops/02-networking-and-web/01-networking-and-protocols|Networking & protocols]] — DNS, HTTPS, TLS
 - [[devops/02-networking-and-web/02-web-servers-and-proxies|Web servers & proxies]] — reverse proxying generally
 - [[backend/05-auth/03-oauth-provider-integrations|OAuth provider integrations]] — why https callbacks force this

@@ -1,4 +1,9 @@
+---
+id: b99fe858-3613-4d23-be45-5efb96a0ea8d
+---
+
 ## Symbolic Links
+<!-- bite: 52049dc2-f48a-43ea-b281-892313dcf663 -->
 
 A symlink is a pointer to another file or directory. Like a shortcut on Windows but more powerful — the OS treats it as if it were the actual file.
 
@@ -148,6 +153,7 @@ You've now completed everything for Week 1:
 
 Ready for Docker?
 ## Updating an existing link: `-f` and `-n`
+<!-- bite: 298c3d67-a517-44a3-8493-1da17cc783cf -->
 
 `ln -s` refuses to run if the link name already exists:
 

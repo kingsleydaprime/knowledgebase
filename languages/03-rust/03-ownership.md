@@ -1,8 +1,13 @@
+---
+id: 81e6cd62-0475-49dc-bf10-b686dde31194
+---
+
 # Ownership
 
 **[Beginner → Intermediate]** — The idea the entire language is built on. Read this one slowly; everything after it assumes you have it.
 
 ## The three rules
+<!-- bite: a63599ed-40ba-4c5d-8c25-c9874a27be6e -->
 
 > 1. Every value has exactly one **owner**.
 > 2. There can only be one owner at a time.
@@ -20,6 +25,7 @@ That's the whole memory-management strategy. No garbage collector, no `free()`, 
 This is C++'s RAII, promoted from a convention you follow to a rule the compiler enforces.
 
 ## Move semantics
+<!-- bite: 046fe377-0c68-4393-8f70-a0497c124860 -->
 
 ```rust
 let s1 = String::from("hello");
@@ -51,6 +57,7 @@ let s2 = s1.clone();     // deep copy; both valid, and the cost is VISIBLE
 `.clone()` being explicit is a design choice — expensive operations should be greppable.
 
 ## `Copy` types
+<!-- bite: 4f794fd6-02f1-4a4f-82ed-cebbda44a9f4 -->
 
 Some types don't move, they copy:
 
@@ -67,6 +74,7 @@ A type is `Copy` if it's entirely stack data with no heap allocation and no dest
 The mental shortcut: **if dropping it needs to do work, it moves. If it's just bytes, it copies.**
 
 ## Functions move too
+<!-- bite: 0c498faf-29a1-481b-b7dd-e895042be7b7 -->
 
 ```rust
 fn takes_ownership(s: String) { }       // s is dropped at the end of this fn
@@ -97,6 +105,7 @@ fn calculate_length(s: String) -> (String, usize) {
 → [[languages/03-rust/04-borrowing-and-references|Borrowing and References]] is the fix.
 
 ## Partial moves
+<!-- bite: 78087195-4cc8-4066-bc5c-3b3d5df4e83c -->
 
 Moving a field out of a struct moves *that field*, leaving the rest usable:
 
@@ -112,6 +121,7 @@ println!("{:?}", p);       // ERROR — p as a whole is partially moved
 Confusing the first time. The compiler tracks moves per-field, not per-variable.
 
 ## `Drop`
+<!-- bite: 2fd8ec29-97f0-407c-b73c-a71589a3a353 -->
 
 ```rust
 impl Drop for Connection {
@@ -128,6 +138,7 @@ That determinism is what makes RAII work for more than memory: file handles, soc
 You cannot call `.drop()` manually — use `std::mem::drop(value)`, which just takes ownership and lets it fall out of scope.
 
 ## Ownership and collections
+<!-- bite: f1e53299-ec48-4163-919d-5145284e1003 -->
 
 ```rust
 let v = vec![String::from("a"), String::from("b")];
@@ -154,6 +165,7 @@ let s = std::mem::take(&mut v[0]);   // swap in the default value
 ```
 
 ## Why this is worth the trouble
+<!-- bite: b4bbf671-d0d9-4bef-8ef9-978fe9928fa0 -->
 
 Ownership eliminates, **at compile time**:
 
@@ -169,6 +181,7 @@ The cost is that you now think about ownership explicitly. In exchange, you thin
 ---
 
 ## Related
+<!-- bite: 44083bbf-b59a-46e6-a1aa-cbc442df3406 -->
 - [[languages/03-rust/04-borrowing-and-references|Borrowing and References]] — using a value without taking it
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]] — for when one owner isn't enough
 - [[languages/03-rust/13-concurrency|Concurrency]] — where ownership pays off unexpectedly

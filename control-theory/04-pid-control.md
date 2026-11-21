@@ -1,3 +1,7 @@
+---
+id: c9e40556-b632-49c4-81f0-398ef1cc7cf3
+---
+
 # PID Control
 
 **[Intermediate]** — The controller you will actually implement. What each term does, how to tune one, and the four implementation details that separate working code from a controller that fights you.
@@ -5,6 +9,7 @@
 **The most practically important note in this track.** Something like 95% of industrial control loops are PID, and most of them are badly tuned.
 
 ## The controller
+<!-- bite: 4c9a58b5-1862-458a-a7ab-a405e1377892 -->
 
 $$u(t) = K_p e(t) + K_i \int_0^t e(\tau)\,d\tau + K_d \frac{de(t)}{dt}$$
 
@@ -23,6 +28,7 @@ Three terms, each responding to a different aspect of the error:
 > A useful framing: **P is the present, I is the past, D is the future.**
 
 ## Proportional
+<!-- bite: 1dff33e0-19ab-4819-aea6-56bc52d4f46f -->
 
 $$u = K_p e$$
 
@@ -43,6 +49,7 @@ Raising $K_p$ shrinks it but never removes it. → [[control-theory/03-time-resp
 **Proportional band** is the process-control way of expressing the same thing: $PB = 100/K_p$ percent — the error span over which the output moves through its full range. Same knob, inverted.
 
 ## Integral
+<!-- bite: 64e95800-e082-4d24-a458-3abed63b7f22 -->
 
 $$u = K_i \int e\,dt$$
 
@@ -93,6 +100,7 @@ integral += (error + (u_actual - u_commanded) / Kb) * dt
 > **Every real PID implementation needs anti-windup.** A textbook PID with no windup protection will misbehave the first time it hits a limit, and it will hit a limit.
 
 ## Derivative
+<!-- bite: b8c423c2-6f62-415d-a107-7bca0a0b50c0 -->
 
 $$u = K_d \frac{de}{dt}$$
 
@@ -121,6 +129,7 @@ Note the sign. **This is what you should write by default**; it behaves identica
 **It's not useful on a delay-dominated process.** If the process has significant dead time, the derivative is reacting to old information. Most process-control loops run PI for exactly this reason.
 
 ## Setpoint weighting
+<!-- bite: 1237d04b-046d-4596-b528-88bacb86c089 -->
 
 The generalisation of the two fixes above, and worth knowing because it decouples two requirements:
 
@@ -131,6 +140,7 @@ $\beta \in [0,1]$ weights the setpoint in the proportional term. $\beta = 1$ is 
 **Why it matters:** setpoint tracking and disturbance rejection have different optimal tunings. Setpoint weighting lets you tune for disturbance rejection (usually what matters) and then use $\beta$ to soften the setpoint response without retuning anything.
 
 ## Tuning
+<!-- bite: 31ac06a3-3195-4545-b6a6-e528def5d10a -->
 
 ### What each knob does
 
@@ -188,6 +198,7 @@ $$K_p = \frac{\tau}{K(\lambda + \theta)}, \qquad T_i = \tau$$
 **The appeal is that $\lambda$ is a physically meaningful knob** — "I want this loop to settle in 30 seconds" — instead of a dimensionless gain. Larger $\lambda$ is slower and more robust. It's far more predictable than Z-N and is the recommended default when you have a model.
 
 ## Implementation
+<!-- bite: 419176b0-550b-473c-8018-3805ca42bc1a -->
 
 A correct discrete PID, with every fix above applied:
 
@@ -237,6 +248,7 @@ $$\Delta u_k = K_p(e_k - e_{k-1}) + K_i e_k \Delta t + K_d(\ldots)$$
 You compute the *change* in output and accumulate it in the actuator. **Windup protection is inherent** (there's no explicit integral state to wind up) and bumpless transfer is automatic. Common in PLCs, and a good default when driving a valve or a stepper that holds its own position.
 
 ## Cascade control
+<!-- bite: d136de38-5fe9-45f2-beee-9501e1f87def -->
 
 When one loop isn't enough, and the most useful structure beyond plain PID.
 
@@ -258,6 +270,7 @@ The outer (primary) loop controls what you care about; its output is the **setpo
 - The payoff: **the inner loop absorbs disturbances before they reach the outer loop**, and it linearises the actuator as far as the outer loop is concerned
 
 ## When PID isn't enough
+<!-- bite: 0e47d336-ad35-47c4-8373-038f3d0293cd -->
 
 PID is remarkable value for three parameters, and it does have limits:
 
@@ -272,6 +285,7 @@ But start with PID. **The commonest failure mode in practice isn't that PID was 
 ---
 
 ## Related
+<!-- bite: df9931ca-7d33-45e4-b2c1-aa44ed60437a -->
 - [[control-theory/03-time-response|Time Response]] — the step test tuning depends on
 - [[control-theory/05-stability-and-root-locus|Stability and Root Locus]] — why high gain destabilises
 - [[control-theory/06-frequency-response|Frequency Response]] — what the D term does to phase

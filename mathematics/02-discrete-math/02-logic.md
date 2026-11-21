@@ -1,8 +1,13 @@
+---
+id: 54f522df-c72a-45d1-b4fd-86ebced23d52
+---
+
 # Logic
 
 **[Beginner]** — Propositions, predicates, quantifiers, and the difference between an argument that's valid and one that's merely persuasive.
 
 ## Propositional logic
+<!-- bite: 1e897122-2716-40bc-b693-71ff877d10b0 -->
 
 A **proposition** is a statement that is either true or false. "It is raining." "$x > 5$" is not a proposition until you know $x$.
 
@@ -19,6 +24,7 @@ A **proposition** is a statement that is either true or false. "It is raining." 
 **$\vee$ is inclusive or.** English "or" is often exclusive ("tea or coffee"); mathematical or is not. XOR is written $\oplus$.
 
 ## Implication is the strange one
+<!-- bite: f1f98152-808b-4432-90df-a0b07d991b07 -->
 
 $p \to q$ — "if $p$ then $q$" — is where everyone stumbles, and it's worth stopping on.
 
@@ -70,6 +76,7 @@ $$\boxed{p \to q \equiv \neg q \to \neg p}$$
 **The contrapositive is a proof technique.** If proving $p \to q$ directly is awkward, prove $\neg q \to \neg p$ instead — it's the same statement and is often much easier. → [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 ## Equivalences worth knowing
+<!-- bite: 865b74b2-79de-44f1-af7f-228c62416a69 -->
 
 **De Morgan's laws** — the ones you'll use constantly:
 
@@ -95,6 +102,7 @@ $$\text{Contradiction: } p \wedge \neg p \equiv \text{F} \qquad \text{Tautology:
 > **That last word is doing a lot of work in practice.** Determining whether a propositional formula is satisfiable is **SAT**, the original NP-complete problem — and modern SAT solvers, despite the worst case being exponential, routinely handle formulas with millions of variables. They're what verify hardware designs, solve package-dependency resolution, and drive symbolic execution engines. → [[theory-of-computation/07-complexity-classes|NP-completeness]]
 
 ## Predicate logic
+<!-- bite: 08281adb-857a-488d-8faf-bd3281218c30 -->
 
 Propositional logic can't express "every integer has a successor" — you'd need infinitely many propositions. **Predicate logic adds variables and quantifiers.**
 
@@ -135,6 +143,7 @@ $$\neg\exists x\, P(x) \equiv \forall x\, \neg P(x)$$
 $$\neg\left[\forall x\,\exists y\, (x < y)\right] \equiv \exists x\,\forall y\, (x \geq y)$$
 
 ## Arguments and validity
+<!-- bite: e235ff2a-6116-47ee-bbb1-106200ff0bd9 -->
 
 An **argument** is premises plus a conclusion. It's **valid** if the conclusion follows necessarily — whenever the premises are all true, the conclusion must be.
 
@@ -158,6 +167,7 @@ An **argument** is premises plus a conclusion. It's **valid** if the conclusion 
 **Both are the converse/inverse confusion from earlier, in argument form.** Recognising them is one of the more directly useful things in this note.
 
 ## Where logic shows up in computing
+<!-- bite: a6bc0cb4-eefa-4c20-8f16-1589b182fc6c -->
 
 **Boolean expressions** — directly, and De Morgan is how you simplify them.
 
@@ -174,6 +184,7 @@ An **argument** is premises plus a conclusion. It's **valid** if the conclusion 
 ---
 
 ## Related
+<!-- bite: 1a4eea06-da05-4cb2-97a7-168a7e062605 -->
 - [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — using this to establish things
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the objects logic talks about
 - [[theory-of-computation/07-complexity-classes|Complexity Classes]] — where SAT becomes central

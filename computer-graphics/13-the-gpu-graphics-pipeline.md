@@ -1,3 +1,7 @@
+---
+id: 48d51794-ad68-45a6-b80e-483c713577ac
+---
+
 # The GPU Graphics Pipeline
 
 **[Intermediate → Advanced]** — Shader stages, the modern APIs, and how the graphics pipeline relates to the compute model.
@@ -5,6 +9,7 @@
 > **[[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] covers the hardware** — SMs, warps, memory. **This note is the graphics-specific programming model built on it.**
 
 ## The stages
+<!-- bite: 338491f5-8387-468a-a890-1aeac19d8053 -->
 
 ```
  vertex buffer
@@ -29,6 +34,7 @@
 **Tessellation** — subdivide patches on-GPU. Useful for displacement and terrain; largely superseded by mesh shaders and by Nanite-style approaches.
 
 ## Compute shaders
+<!-- bite: f28768c8-6824-4087-a809-558e49da71dc -->
 
 **The stage that broke the pipeline open.**
 
@@ -48,6 +54,7 @@
 **Mesh shaders** (2018+) replace the vertex/geometry/tessellation front end with a compute-like model that emits small "meshlets" directly. **More flexible, better culling granularity**, and it's how Nanite works.
 
 ## The APIs
+<!-- bite: b4f8451b-559b-4981-9fb8-fa703d6b3e67 -->
 
 | API | Character |
 |---|---|
@@ -64,6 +71,7 @@
 **The practical recommendation: learn on WebGPU or OpenGL, not Vulkan.** WebGPU has the modern concepts (explicit pipelines, bind groups, command buffers) without the 1000-line triangle, and it runs in a browser. **You'll learn the ideas faster and can move to Vulkan later if you need to.**
 
 ## Shading languages
+<!-- bite: 32dd7c0a-5311-4079-a7ec-22bba1905cb0 -->
 
 **GLSL** (OpenGL/Vulkan), **HLSL** (D3D, and increasingly everywhere), **WGSL** (WebGPU), **MSL** (Metal). **All C-like, and mutually translatable** via SPIR-V and tools like SPIRV-Cross.
 
@@ -93,6 +101,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 **Do work at the coarsest useful stage.** Per-object uniform > per-vertex > per-fragment. **Moving a calculation from the fragment shader to the vertex shader can be a 100× reduction in how often it runs.**
 
 ## Resource binding
+<!-- bite: 3e86aa0a-a7a5-4591-86e1-fda7a1ac1198 -->
 
 **Getting data to shaders**, and it's where the APIs differ most.
 
@@ -117,6 +126,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 **Bindless** — put everything in one large array and index it. **Removes most binding overhead** and is required for GPU-driven rendering.
 
 ## Synchronisation
+<!-- bite: 5ebdbd35-e39b-41b4-8bf6-f342865103bc -->
 
 **The hardest part of the explicit APIs, and where the bugs are.**
 
@@ -135,6 +145,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 > **Vulkan's validation layers are essential, not optional.** They catch missing barriers, wrong layouts, incorrect usage flags and synchronisation hazards. **Develop with them on.** The equivalent in D3D12 is the debug layer.
 
 ## Debugging and profiling
+<!-- bite: 03622ddb-29eb-4a04-ad77-dfcc970515a0 -->
 
 **RenderDoc** — capture a frame, inspect **every draw call, every bound resource, every intermediate buffer, and step through shader execution.** Free, excellent, and the single most valuable graphics tool.
 
@@ -153,6 +164,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 **Pipeline stalls** from synchronisation — visible on a timeline as GPU gaps.
 
 ## Practical notes
+<!-- bite: e0d77281-fbc3-4619-bddd-9e2763a17615 -->
 
 **Start with WebGPU or OpenGL.** Vulkan's explicitness is a distraction while learning the concepts.
 
@@ -171,6 +183,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 ---
 
 ## Related
+<!-- bite: fc3a291f-0535-424b-9dd0-fc598bcc8717 -->
 - [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware underneath
 - [[computer-graphics/10-rasterisation|Rasterisation]] — the fixed-function stage
 - [[gpu-and-parallel-computing/03-the-programming-model|The Compute Programming Model]] — the sibling model

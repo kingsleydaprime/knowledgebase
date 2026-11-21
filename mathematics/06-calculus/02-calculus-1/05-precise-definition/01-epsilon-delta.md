@@ -1,8 +1,13 @@
+---
+id: cabfd8d7-2b90-45d9-9d21-8240d262b0d1
+---
+
 # The Precise Definition of a Limit
 
 **[Advanced]** — Making "arbitrarily close" mean something exact. The definition that turned calculus from a working technique into rigorous mathematics.
 
 ## Before you start
+<!-- bite: 1128179b-912c-4958-9d01-cba5275c0ce8 -->
 
 - You are comfortable with limits informally — [[01-definition|the limit of a function]], [[01-laws|limit laws]].
 - You can manipulate inequalities and absolute values.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why the informal definition is not enough
+<!-- bite: 26cfb64a-4e30-4b4a-ad4c-6c0a1fa97619 -->
 
 "$f(x)$ gets close to $L$ as $x$ gets close to $a$."
 
@@ -31,6 +37,7 @@ Calculus worked for 150 years on this vague footing — Newton and Leibniz both 
 **Cauchy and Weierstrass fixed it in the 1800s** by replacing "infinitely small" with a definition using only ordinary numbers and inequalities. That definition is below.
 
 ## 2. The definition
+<!-- bite: 17f1dca2-6812-4849-9d2e-439ff0c69ba8 -->
 
 $$\lim_{x\to a} f(x) = L$$
 
@@ -51,6 +58,7 @@ means:
 **And note $0 < |x-a|$** — the strict inequality excludes $x = a$ itself, which is the formal version of the exclusion from [[01-definition|the first limits lesson]].
 
 ## 3. What the symbols mean geometrically
+<!-- bite: 115b8739-a902-4f59-b511-bb879107cebf -->
 
 ```
    f(x)
@@ -72,6 +80,7 @@ means:
 **Narrower band → you generally need a narrower strip.** That dependence is the whole content.
 
 ## 4. A proof from the definition
+<!-- bite: 62d9fd96-eda4-4535-9a90-86a6d4e79729 -->
 
 **Claim:** $\lim_{x\to 3}(2x + 1) = 7$.
 
@@ -90,6 +99,7 @@ Since $\varepsilon$ was arbitrary, the limit is 7. ∎
 **Notice the shape:** the scratch work runs backwards from what you want; the written proof runs forwards from the choice of $\delta$. **Doing the algebra backwards and presenting it forwards is the standard technique**, and it is why these proofs look like they were pulled from nowhere.
 
 ## 5. Why anyone should care
+<!-- bite: 0cf6234c-d681-4520-aa86-060974db2f88 -->
 
 **Three reasons, and the third is the real one:**
 
@@ -103,6 +113,7 @@ Since $\varepsilon$ was arbitrary, the limit is 7. ∎
 > That ordering is normal in mathematics and worth knowing: **useful techniques usually precede their foundations**. The foundations matter because they tell you exactly when a technique is allowed to be trusted — which is precisely what nobody could say about infinitesimals.
 
 ## 6. Practice — problems
+<!-- bite: d3de0093-18c6-4edb-bbfe-f86155870467 -->
 
 1. Prove from the definition that $\lim_{x\to 2}(3x - 1) = 5$. Show the scratch work, then the forward proof.
 2. Prove that $\lim_{x\to 4} 7 = 7$ (a constant function). What is unusual about the $\delta$ you can choose?
@@ -122,6 +133,7 @@ Since $\varepsilon$ was arbitrary, the limit is 7. ∎
 </details>
 
 ## Before moving on
+<!-- bite: c5484775-3239-4d23-b000-eb37b2907d1e -->
 
 - [ ] State the definition with the quantifiers in the right order.
 - [ ] Explain the $\varepsilon$–$\delta$ challenge-and-response reading.
@@ -133,6 +145,7 @@ Since $\varepsilon$ was arbitrary, the limit is 7. ∎
 **Next:** [[01-definition|Defining the Derivative]] — the first thing this machinery was built to support.
 
 ## Related
+<!-- bite: 6e69ba53-b15b-49da-bd56-76d2ec5a6a60 -->
 
 - [[01-definition|The limit of a function]] · [[01-laws|Limit laws]]
 - [[mathematics/02-discrete-math/03-proof-techniques|discrete-math/proof techniques]] — the proof style used here

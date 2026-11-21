@@ -1,3 +1,7 @@
+---
+id: d6814aa7-4603-4254-bf14-ff5489a7c120
+---
+
 # Dynamic Programming
 
 **[Intermediate]** — Decisions made in stages, where each choice changes what's possible next. Bellman's principle turns an explosion of combinations into a chain of small tables. This is the operations research origin of the DSA pattern, with the stages, states and uncertainty made explicit.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
+<!-- bite: 36ab5dc0-4053-4cd4-bda8-caa63ceac0bd -->
 
 You should have met dynamic programming as a coding pattern — memoisation and tabulation → [[dsa/03-algorithms/07-dynamic-programming/index|DSA: dynamic programming]]. If you haven't, this note still works, but the DSA version gives you more reps. You should know what an expected value is → [[mathematics/05-probability-statistics/04-random-variables-and-distributions|random variables]].
 
@@ -18,12 +23,14 @@ After this lesson you will be able to:
 **Study route:** sections 1–3, then **close the note** and rebuild the allocation tables yourself. Then section 4 (uncertainty) and the code.
 
 ## The kid version
+<!-- bite: ede9d616-a838-4231-8c56-ff79c3193165 -->
 
 You're walking home through a town and want the shortest route. At every crossroads you have a choice. Here's the trick: whichever crossroads you're at, the best way home *from there* doesn't depend on how you got there. So work backwards: from the crossroads next to your house, the best way is obvious. From one further out, it's "the best first step, then whatever was best from where that lands you." **Dynamic programming is solving a big decision by working backwards one step at a time, remembering the best answer from each place.**
 
 **Where the analogy stops working.** A town has a few hundred crossroads. Many real problems have a "place" (the state) described by several numbers at once — stock of five products, cash, time — and the number of states multiplies until there are too many to remember. That's called the curse of dimensionality, and it's dynamic programming's real limit.
 
 ## 1. Why this exists
+<!-- bite: 05ad71ea-f49c-42eb-86a0-f7f2b3a58958 -->
 
 A firm has 3 units of budget to spread across three regions. Each region's return depends on how much it gets, and not linearly — the first unit helps most:
 
@@ -39,6 +46,7 @@ The returns aren't proportional, so this isn't an LP. You could list every split
 Richard Bellman developed the method at RAND in the early 1950s for multi-stage planning. He later said he chose the name "dynamic programming" partly because it sounded impressive and was hard to object to.
 
 ## Terms used in dynamic programming
+<!-- bite: a9694dbe-1d32-4258-9bfb-91637607b385 -->
 
 1. **Stage**: This is one step of the decision sequence — a region to fund, a month to plan, a city on a route. Stages are usually numbered in the order decisions are made.
 2. **State**: This is the information you need at a stage to make the rest of the decisions well. Here, it's "how much budget is left." A good state is the smallest summary of the past that the future depends on.
@@ -50,6 +58,7 @@ Richard Bellman developed the method at RAND in the early 1950s for multi-stage 
 8. **Policy**: This is a rule giving the best decision for every stage and state — not just a single plan, but what to do in any situation you might find yourself in.
 
 ## 2. The principle of optimality
+<!-- bite: 1398a3a0-1fc7-4b76-802f-a681cd45c189 -->
 
 **Bellman's principle of optimality states that, whatever the current state and however you got there, the remaining decisions of an optimal plan must themselves be optimal from that state.**
 
@@ -62,6 +71,7 @@ In words: **the best you can do from here is the best over all choices now of (w
 The principle fails if the future depends on the past in a way the state doesn't capture. If region R2's returns depended on how much R1 got, "budget left" wouldn't be a sufficient state. The fix is always to enlarge the state until the principle holds — which is where the cost comes from.
 
 ## 3. Backward recursion, step by step
+<!-- bite: 9ff37c80-7816-46ad-b5ca-33406b98bf34 -->
 
 Set up the allocation problem:
 
@@ -119,6 +129,7 @@ Notice R1 gets nothing even though its first unit is worth 4 — more than R2's 
 Each stage-2 cell considers at most 4 options, for 4 states: about 16 evaluations. Stage 1: 4. Brute force over all splits: 20 combinations. With $n$ regions and budget $B$, dynamic programming does about $n \times B^2$ work instead of the combinatorial number of splits. For 10 regions and 20 units: about 4,000 evaluations against about 10 million.
 
 ## 4. Decisions under uncertainty
+<!-- bite: d8a221cf-3df2-4cc7-b9ae-932566935dd7 -->
 
 The real power shows up when outcomes are random. Then the recursion takes an **expected value** over what might happen.
 
@@ -143,6 +154,7 @@ The real power shows up when outcomes are random. Then the recursion takes an **
 This structure — states, decisions, random transitions, expected values — is a **Markov decision process**, and it's the mathematical foundation of reinforcement learning → [[mathematics/05-probability-statistics/06-stochastic-processes/01-markov-chains|Markov chains]].
 
 ## 5. When to use it, and when not
+<!-- bite: 795a6667-a9e2-4036-a741-cb6e046d23e5 -->
 
 **Use dynamic programming when:**
 
@@ -160,6 +172,7 @@ This structure — states, decisions, random transitions, expected values — is
 3. LQR in control theory is dynamic programming with a quadratic cost, solved in closed form → [[control-theory/11-optimal-control-and-lqr|optimal control and LQR]].
 
 ## Worked example — the allocation recursion in Python
+<!-- bite: ec595b78-7960-440f-9668-67724294c034 -->
 
 **Runnable**, standard library only.
 
@@ -207,6 +220,7 @@ total return: 13
 The `R2` line matches the stage-2 table. The `R1` line fills in all four budgets, though only $s = 3$ is used — the code computes the whole policy, which is what you'd want if the budget might change.
 
 ## Common pitfalls and traps
+<!-- bite: a49717f1-1138-40dd-830d-404a0ea8f5a3 -->
 
 1. **A state that's too small.** If the future depends on something the state doesn't include, the recursion gives wrong answers without any error. Ask: "if two different histories arrive at the same state, should they make the same future decisions?"
 2. **Off-by-one in the transition.** Does stock carried over include this week's order? Write the timeline of a single stage out in words before writing the formula.
@@ -215,6 +229,7 @@ The `R2` line matches the stage-2 table. The `R1` line fills in all four budgets
 5. **Plan instead of policy.** Under uncertainty, reporting "order 2 then order 2" is wrong: the second order depends on what happened.
 
 ## Check your understanding
+<!-- bite: bcc0de69-ccbb-4b01-b1e3-20a9c3eb4cbd -->
 
 1. In the allocation problem, what would change if region R3 could only accept at most 1 unit?
 2. Why is "budget remaining" a sufficient state for allocation, but "week number" alone is not sufficient for the stocking problem?
@@ -232,6 +247,7 @@ The `R2` line matches the stage-2 table. The `R1` line fills in all four budgets
 </details>
 
 ## Practice — independent task
+<!-- bite: 1dd96333-6d07-440f-886e-0f0561eda64c -->
 
 1. **Reconstruct:** with the note closed, rebuild the stage-2 and stage-1 tables for the allocation problem with a budget of 4 units, using these returns for 4 units: R1 = 7, R2 = 9, R3 = 7 (no gain beyond 3). Predict whether R1 now gets anything.
 2. **Apply:** write `stock.py` to solve the two-week stocking problem by recursion, then extend it to 4 weeks and to demand of 0, 1 or 2 with probabilities 0.2, 0.5, 0.3. Print the policy as a table: for each week and starting stock, the best order.
@@ -240,6 +256,7 @@ The `R2` line matches the stage-2 table. The `R1` line fills in all four budgets
 **Done when:** your code reproduces the hand answers for 2 weeks, prints a full policy table for 4 weeks, and you can explain one row of it in words.
 
 ## Before moving on
+<!-- bite: bb437bb9-646d-47ff-9e29-3e26e2a1105f -->
 
 You're ready when you can name the stages, state, decision and transition for a new problem, write its Bellman equation in words, and fill in a small table backwards.
 
@@ -253,6 +270,7 @@ You're ready when you can name the stages, state, decision and transition for a 
 **Next:** [[operations-research/09-nonlinear-optimisation|Nonlinear Optimisation]] — when the objective curves, and what replaces corners and shadow prices.
 
 ## Related
+<!-- bite: 1a2333ce-34c6-4c47-83ec-c412401a4f81 -->
 
 - [[dsa/03-algorithms/07-dynamic-programming/index|DSA: dynamic programming]] — the coding pattern, with practice problems
 - [[dsa/04-patterns/15-dynamic-programming|DSA pattern: dynamic programming]] — the interview framing

@@ -1,14 +1,20 @@
+---
+id: 2ad9c282-bf4a-4890-b347-8e91fbd905a7
+---
+
 # Permissions and Privacy
 
 **[Intermediate]** — the user can say no, the stores enforce rules, and both have teeth.
 
 ## The kid version first
+<!-- bite: c505716a-9d5d-45e6-be9a-22db14d88781 -->
 
 Your app cannot read contacts, use the camera, or know where the user is **unless they agree**. They're asked, in a system dialog you don't control, and they can refuse — or grant it once, or grant a blurry version of it.
 
 **Every permission-dependent feature needs a working "they said no" path.** That's not defensive programming; it's the common case.
 
 ## How to ask
+<!-- bite: 5c6c80d0-6612-4228-8cdf-f4502c0da6d7 -->
 
 **The single most effective technique: explain *before* you trigger the dialog.**
 
@@ -31,6 +37,7 @@ GOOD:  user taps "Find nearby"
 - **If they've denied, deep-link to Settings** — and only when they ask for the feature again
 
 ## The permission tiers people miss
+<!-- bite: 187fe49d-168c-4f73-90d2-07270431f701 -->
 
 Both platforms have moved from yes/no to something more granular, and code written for the old model breaks:
 
@@ -41,6 +48,7 @@ Both platforms have moved from yes/no to something more granular, and code writt
 - **Notifications require permission on both platforms now** (Android 13+ joined iOS). **Don't ask on first launch** — ask when there's something worth being notified about
 
 ## Privacy labels and declarations
+<!-- bite: 81bc2fd9-c95b-42bb-bdac-7d50fc31e932 -->
 
 Both stores require you to declare what you collect, and **being wrong is a rejection or a removal.**
 
@@ -52,6 +60,7 @@ Both stores require you to declare what you collect, and **being wrong is a reje
 **Tracking:** Apple's **App Tracking Transparency** requires an explicit prompt before tracking across apps, and **the large majority of users decline.** Plan attribution around that rather than fighting it.
 
 ## Data minimisation
+<!-- bite: 904e3274-f454-4692-9601-9a253140221a -->
 
 The rule that solves most of this:
 
@@ -64,6 +73,7 @@ The rule that solves most of this:
 - **Support deletion.** Both stores now **require an in-app account-deletion route** if you support account creation. This is enforced
 
 ## The legal layer
+<!-- bite: 46e4e1ed-1713-407b-a69a-37589926cbe4 -->
 
 GDPR (EU/UK), CCPA (California), and a growing list elsewhere — including **Nigeria's NDPA** and similar regimes across Africa and Asia. The common obligations:
 
@@ -76,10 +86,12 @@ GDPR (EU/UK), CCPA (California), and a growing list elsewhere — including **Ni
 **Not legal advice** — but "we're a small app" is not a defence, and the store policies enforce much of this regardless of jurisdiction.
 
 ## Key insight
+<!-- bite: db901e8f-9998-4b3d-bb89-0bd73fef7535 -->
 
 **Permissions are a UX problem before they're a technical one.** The code is a few lines; whether users say yes depends entirely on whether you asked at a moment when the reason was obvious. And since a denial is close to permanent on iOS, **the priming screen you write before the system dialog is some of the highest-leverage UI in the app.**
 
 ## Related
+<!-- bite: cd8198da-c720-4681-b549-8c0539c370df -->
 - [[mobile/12-security-on-device|security on device]] — protecting what you did collect
 - [[mobile/13-release-and-distribution|release]] — where declarations get checked
 - [[cybersecurity/10-protecting-yourself/07-your-privacy-footprint|your privacy footprint]] — the user's side of this

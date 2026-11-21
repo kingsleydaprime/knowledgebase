@@ -1,3 +1,7 @@
+---
+id: 86c17f41-0a44-4cbb-bbba-981b8bb8669a
+---
+
 # Module: Linked Lists (Pointer-Based Nodes)
 
 Welcome to the **Linked Lists** module. Unlike [[01-arrays|Arrays]], where elements are stored side-by-side in contiguous memory, a **Linked List** stores data in scattered, independent memory blocks called **Nodes**. Each node holds a piece of data and a **Pointer** holding the memory address of the next node.
@@ -5,6 +9,7 @@ Welcome to the **Linked Lists** module. Unlike [[01-arrays|Arrays]], where eleme
 ---
 
 ## Before you start
+<!-- bite: 9afa2819-a704-40df-9a61-5b4c19332d00 -->
 
 - You understand contiguous memory and why array insertion shifts elements. See [[01-arrays|arrays]].
 - You are comfortable with references or pointers.
@@ -19,6 +24,7 @@ Welcome to the **Linked Lists** module. Unlike [[01-arrays|Arrays]], where eleme
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
 ## 1. Why Do Linked Lists Exist? (Real-World Motivation)
+<!-- bite: 5c03afe2-d75e-4f49-a5ff-0045bcde8921 -->
 
 Imagine a physical **Scavenger Hunt / Treasure Hunt**:
 
@@ -35,6 +41,7 @@ In computer science, this is a **Linked List**. Because nodes are connected pure
 ---
 
 ## Terms used with linked lists
+<!-- bite: e1fc25c8-7b78-4c2a-8abe-959b6c4b9eac -->
 
 1. **Node**: This is a small container holding two things: one data value, and a pointer to another node. A linked list is nothing more than a chain of these. Think of a treasure-hunt clue card holding a message and telling you where the next card is.
 
@@ -57,6 +64,7 @@ In computer science, this is a **Linked List**. Because nodes are connected pure
 10. **Cycle**: This is when some node's `next` points back to an earlier node, so the chain loops forever instead of ending. Detecting one is what [[04-patterns/04-fast-slow-pointers|fast and slow pointers]] are for.
 
 ## 3. The 4 Main Variations of Linked Lists
+<!-- bite: 28010003-f357-45b5-a50a-6f2dda605e35 -->
 
 ```
 1. Singly Linked List:
@@ -86,6 +94,7 @@ In computer science, this is a **Linked List**. Because nodes are connected pure
 ---
 
 ## 4. The Sentinel Node (Dummy Head) Trick
+<!-- bite: 567923ed-189a-4998-afa0-621266e96eab -->
 
 > [!TIP]
 > 90% of linked list bugs (and interview crashes) happen during special edge cases: inserting into an empty list, deleting the head, or deleting the last node.
@@ -119,6 +128,7 @@ Notice how `remove_element` handles deleting the head node effortlessly without 
 ---
 
 ## 5. Linked Lists vs. Arrays: The Hardware Reality Check
+<!-- bite: 0fcf3a1a-0f6f-45a8-b2f5-746a284da459 -->
 
 On paper, linked lists seem superior for insertions ($O(1)$ vs $O(n)$). However, in modern computer hardware, **Dynamic Arrays usually outperform Linked Lists**:
 
@@ -138,6 +148,7 @@ Address 100         Address 8500        Address 410
 ---
 
 ## 6. Time & Space Complexity Summary
+<!-- bite: cb6b8f6b-c658-4cfa-b059-c0965a3655fc -->
 
 | Operation | Singly Linked List | Doubly Linked List | Array / Dynamic Array |
 | :--- | :--- | :--- | :--- |
@@ -150,6 +161,7 @@ Address 100         Address 8500        Address 410
 ---
 
 ## 7. Common Pitfalls & Traps
+<!-- bite: 0cec5b7d-f6a5-4cf3-8067-2108da1c2b54 -->
 
 1. **Losing the Head Reference**: If you reassign `head = head.next` without saving a reference to the old head node, the previous node becomes unreachable and is garbage collected.
 2. **Order of Pointer Reassignment**: When inserting node $X$ between $A$ and $B$, you must assign `X.next = B` **before** assigning `A.next = X`. Doing it in reverse overwrites the link to $B$, losing the rest of the list!
@@ -158,6 +170,7 @@ Address 100         Address 8500        Address 410
 ---
 
 ## The linked list ADT
+<!-- bite: a046efe2-989b-4f0e-948d-11f5aaf8d88a -->
 
 A linked list holds items in order, like an array, but makes the **opposite trade**. Reading this beside [[01-arrays|the array ADT]] is the quickest way to see why both exist.
 
@@ -188,6 +201,7 @@ That proviso does a lot of work and is the most commonly missed point. "Deleting
 Array elements sit next to each other, so reading one pulls its neighbours into cache for free. Linked list nodes are allocated separately and may be anywhere in memory, so every `next` you follow can be a cache miss. **In practice this makes walking a linked list several times slower than scanning an array of the same length, even though both are $O(n)$.** That is much of why arrays are the default and linked lists are reached for only when their specific $O(1)$ splice genuinely matters.
 
 ## Implementation - complete runnable example
+<!-- bite: 336446f1-92bd-4328-aa56-8efe004c5a3c -->
 
 **Runnable example:** save as `linked_lists_lab.py` and run `python3 linked_lists_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -335,6 +349,7 @@ linked_lists_lab: passed
 ```
 
 ## 8. Check Your Understanding (University Self-Assessment)
+<!-- bite: e102c640-2ff1-4f95-99bb-62c68d23b5c3 -->
 
 1. **Question**: Why is deleting a node $X$ in a Singly Linked List an $O(n)$ operation if you are given a direct reference to node $X$?
    - <details><summary>Click for Answer</summary><b>Answer:</b> In a Singly Linked List, pointers only move forward. To delete node X, you must re-route its <b>predecessor's</b> pointer (<code>prev.next = X.next</code>). Finding node X's predecessor requires walking from the head node, taking O(n) time.</details>
@@ -348,6 +363,7 @@ linked_lists_lab: passed
 ---
 
 ## Practice - independent task
+<!-- bite: 70743164-a7df-4016-8728-726a6a3ec3fd -->
 
 Implement `remove_nth_from_end(head, n)` in **one pass**.
 
@@ -364,6 +380,7 @@ The head case is the awkward one: you need the node <em>before</em> the target, 
 </details>
 
 ## Before moving on
+<!-- bite: 9c3a3e4f-2016-4417-8bf4-42f9f883836e -->
 
 You are done with this module when you can, closed-book:
 
@@ -377,6 +394,7 @@ You are done with this module when you can, closed-book:
 **Next:** [[05-stacks-and-queues|Stacks and Queues]] - two structures defined by *where* you're allowed to add and remove, often built on the arrays and linked lists you now know.
 
 ## Related Modules
+<!-- bite: feb561e0-1365-4eef-a46c-0d1d06848527 -->
 - [[01-arrays|Arrays]] — Contiguous memory alternative
 - [[05-stacks-and-queues|Stacks & Queues]] — Structures commonly backed by linked lists
 - [[03-hash-maps|Hash Maps]] — Using chaining linked lists to handle collisions

@@ -1,3 +1,7 @@
+---
+id: b15a5174-b22e-490d-94a6-409fa1ff734d
+---
+
 # COMSOL: Modelling Ink Jet Breakup
 
 **[Advanced]** — How to model continuous-inkjet droplet breakup in COMSOL Multiphysics: the physics (Rayleigh–Plateau instability), the step-by-step model build (two-phase laminar flow with a level set), calibration, post-processing, and the droplet-charging extension. Written as the model answer to SSG 511 exam Q3.
@@ -7,12 +11,14 @@
 **Sources.** The exam's first sentence is the opening line of *Modelling of Ink Jet Breakup using COMSOL Multiphysics®* (Viry, Sturma, Namy and Barbet; Simtec and Markem-Imaje; COMSOL Conference 2024). This note follows that paper, the companion 2023 paper on droplet charging (Sturma et al.), and COMSOL's application-library models *Inkjet Nozzle: Level Set Method* and *Jet Instability: Level Set*. **Standard theory not taken from those sources is marked as such.** `[reference]`
 
 ## The kid version
+<!-- bite: 5882963c-ca3d-49d4-ada9-b4c0f24ac4f1 -->
 
 Turn a tap on gently and the thin stream of water breaks into drops a little way down. Surface tension — the "skin" on the water — prefers drops to a long cylinder, so any small wobble grows until the stream pinches off. An inkjet printer does this on purpose, very fast, and shakes the nozzle at a steady rhythm so every drop comes off the same size at the same place. **The computer model predicts where and how the stream breaks**, so engineers can design the nozzle without building dozens of them.
 
 **Where the analogy stops working.** A tap stream breaks at random spots. A printer's stream is *forced* at a fixed frequency, so its breakup is regular — and the model has to be calibrated against experiments, because the shaking membrane itself isn't simulated.
 
 ## Terms used in the model
+<!-- bite: e5e8f5c4-330d-4833-ab91-8dd8327351b8 -->
 
 1. **CIJ**: The letters stand for **continuous ink jet**. This is the printing technique where a stream of ink is broken into droplets continuously; chosen droplets are charged and deflected onto the print, and the rest go to a gutter.
 2. **Rayleigh–Plateau instability**: This is the tendency of a liquid cylinder, driven by surface tension, to break up when disturbed by wavelengths longer than its circumference.
@@ -23,6 +29,7 @@ Turn a tap on gently and the thin stream of water breaks into drops a little way
 7. **Navier-slip condition**: This is a wall boundary condition with no flow through the wall, but with the shear stress proportional to the fluid's velocity along the wall, through a slip coefficient. Zero is no-slip; infinity is full slip.
 
 ## 1. Background to state first
+<!-- bite: 44c078d7-ecb4-42c7-968a-90e9b7155b5d -->
 
 - **The process.** In CIJ, ink leaves a nozzle at about **20 m/s** and is broken into droplets at **of the order of 100 kHz**, typically about **100 µm** in diameter. Chosen droplets are charged (about **1 pC**), deflected by an electric field (about **1 kV/mm**) onto the medium; uncharged droplets go to a gutter.
 - **Why it breaks up: the Rayleigh–Plateau instability.** Surface tension makes a liquid cylinder unstable to disturbances longer than its circumference. **A periodic perturbation applied at the nozzle by a piezoelectric membrane is amplified along the jet until it pinches off at a regular spacing.**
@@ -30,6 +37,7 @@ Turn a tap on gently and the thin stream of water breaks into drops a little way
 - **What the model is for:** the breakup length, the jet shape at breakup, and whether satellites form. **These drive printhead size and print quality.**
 
 ## 2. The step-by-step model build (the answer to write)
+<!-- bite: f0c4954e-8acd-47f3-94ea-e25c638f5f87 -->
 
 1. **Component: 2D axisymmetric.** The nozzle and jet are bodies of revolution, so one half-plane suffices and the 3D cost is avoided.
 2. **Geometry.** Three connected parts: the **stimulation (droplet generator) chamber**, the **nozzle with its chamfer**, and a **long free-surface region downstream**, long enough to contain several formed droplets. The nozzle shape and operating point are the design variables.
@@ -56,14 +64,17 @@ Turn a tap on gently and the thin stream of water breaks into drops a little way
 12. **Validate and discuss.** The calibrated model matched breakup-length curves and jet-shape types for a low- and a high-viscosity ink; satellites were mostly predicted correctly, with some difference in their dynamics. **Limitations:** the piezo membrane is not modelled (so calibration is needed); rheology and roughness are lumped into the slip coefficient; and it is expensive — the 2023 model had about **620,000 degrees of freedom and took about 100 hours for 1 ms** of physical time.
 
 ## 3. Extension: charging the droplets
+<!-- bite: 741817f8-ad87-4963-aad3-8c879ae9d8a6 -->
 
 Add the **Electric Currents** interface (AC/DC module) on a **snapshot** of the breaking droplet from the flow run. Assign conductivity by phase — about **0.1 S/m in ink**, and a tiny non-zero **$10^{-15}$ S/m in air** so the stationary problem is well posed. Set the droplet at 0 V and the charge electrode at a fixed potential (**150 V** in the paper). Solve a stationary study. **The droplet's charge is the integral of the normal displacement field $\mathbf D = \varepsilon_0\varepsilon_r\mathbf E$ over its surface** (about **−1.25 pC** in the paper). The result depends on timing, so the time step must be small near pinch-off.
 
 ## 4. A short model answer for 10 marks
+<!-- bite: 58416ec0-6ae5-4028-b1f7-6834d0b03ee4 -->
 
 > Build a **2D axisymmetric** model of the nozzle and the ink–air region downstream. Couple **Laminar Flow with the Level Set method (Two-Phase Flow, Level Set)** to follow the interface ($\phi = 0.5$) through pinch-off. Drive the jet with a **periodic inlet pressure $P_0 + P_1\sin(\omega t)$**, with open fixed-pressure outer boundaries and Navier-slip (or no-slip) walls. **Mesh finely near the axis**, matching $\varepsilon_{ls}$ to the mesh and $\gamma$ to the jet velocity. Solve a **transient** study with a small fixed maximum time step for about 100 periods until the jet breaks up periodically. **Calibrate** $P_0$ and the slip coefficient to the measured flow and jet velocity, **sweep $P_1$**, and read off breakup length, jet shape and satellites to compare with experiment. Optionally couple an **Electric Currents** study to find each droplet's charge.
 
 ## Check your understanding
+<!-- bite: 458224cd-8a82-4a32-bd33-6a95eaa235f4 -->
 
 1. Why is a 2D axisymmetric model justified here, and when would it stop being valid?
 2. What two quantities are calibrated, and against which measurements?
@@ -78,6 +89,7 @@ Add the **Electric Currents** interface (AC/DC module) on a **snapshot** of the 
 </details>
 
 ## Related
+<!-- bite: 094748b3-f4d2-45a4-801d-991c4b42863d -->
 - [[continuum-mechanics/13-computational-methods-and-fem|Computational methods and FEM]] — what COMSOL is solving underneath
 - [[computer-graphics/16-animation-and-simulation|Animation and Simulation]] — fluids in graphics, where visual plausibility replaces accuracy
 - [[computer-graphics/19-ssg-511-question-bank|Question bank]]

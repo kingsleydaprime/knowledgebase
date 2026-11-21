@@ -1,3 +1,7 @@
+---
+id: da3eb4ad-00fa-497e-b948-a83c39919bbe
+---
+
 # Frontend Interview — React, Rendering & Performance
 
 From [[frontend/index|frontend]], [[frontend/frameworks/gsap/07-performance-and-gotchas|GSAP performance]], [[frontend/frameworks/threejs/08-performance-and-gotchas|Three.js performance]].

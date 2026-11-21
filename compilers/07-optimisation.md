@@ -1,14 +1,20 @@
+---
+id: aeefa2f6-d050-4680-9af1-e564c18e3787
+---
+
 # Optimisation
 
 **[Advanced]** — The passes, why inlining is the one that matters most, and the honest limits of what a compiler can do for you.
 
 ## The contract
+<!-- bite: 2f438799-33f3-4a5a-8316-db0bd2e51602 -->
 
 An optimisation must **preserve observable behaviour** while improving some metric — usually speed, sometimes size.
 
 "Observable" is doing a lot of work in that sentence. It's defined by the language standard, and it's exactly why [[languages/04-c/10-undefined-behaviour|undefined behaviour]] matters: UB isn't observable, so the compiler may assume it doesn't happen and optimise accordingly. That's how a null check gets deleted because you dereferenced the pointer two lines earlier.
 
 ## The classic passes
+<!-- bite: ea673947-31de-455f-9df0-1a9105c776ce -->
 
 **Constant folding** — evaluate at compile time:
 
@@ -60,6 +66,7 @@ for (i = 0; i < n; i++) { y = a * b; arr[i] = y + i; }
 **Vectorisation** — turn a scalar loop into SIMD instructions, processing 4/8/16 elements at once. Large wins when it fires, and it's fragile: pointer aliasing, unpredictable branches, or non-contiguous access all prevent it.
 
 ## Inlining is the one that matters
+<!-- bite: 2d267147-3ec1-4176-953d-f3b2eb4958dd -->
 
 Replace a call with the callee's body:
 
@@ -82,6 +89,7 @@ The cost is code size, which hurts instruction-cache locality. So it's a heurist
 **Cross-module inlining needs LTO** (link-time optimisation) or the body visible in a header. That's why templates live in headers, why Rust ships MIR in rlibs, and why `lto = "fat"` is worth 10–20% in a release build. → [[languages/03-rust/18-performance-and-zero-cost|Rust: Performance]]
 
 ## What blocks optimisation
+<!-- bite: 7562abd6-12b4-40fa-9604-103e73bee966 -->
 
 Knowing what *prevents* optimisation is more actionable than knowing the passes:
 
@@ -106,6 +114,7 @@ void f(int *a, int *b) {
 **Floating-point semantics.** `(a + b) + c ≠ a + (b + c)` in IEEE 754, so the compiler cannot reassociate without `-ffast-math` — which changes results and is genuinely dangerous in numerical code.
 
 ## Interprocedural and whole-program
+<!-- bite: 378579d9-584a-4d29-88ce-0ad8c72674a2 -->
 
 **IPO/LTO** — optimise across function and module boundaries. Enables cross-module inlining, better devirtualisation, and global dead-code elimination.
 
@@ -130,6 +139,7 @@ The profile tells the optimiser which branches are taken, which calls are hot, a
 **BOLT** does the same at link/post-link time by reordering the binary's layout for instruction-cache locality, and it's easier to adopt.
 
 ## Pass ordering
+<!-- bite: 81a2ad35-ef83-47f5-8ecc-4514d525aec3 -->
 
 Passes enable each other, and the ordering is a genuinely hard problem:
 
@@ -148,6 +158,7 @@ opt -O2 -print-after-all foo.ll           # IR after every pass — verbose and 
 ```
 
 ## The limits, honestly
+<!-- bite: 57ad8bfb-3f04-4215-9e91-3b1730fca13c -->
 
 **Compilers do not fix algorithms.** An O(n²) loop stays O(n²). No optimiser will replace bubble sort with quicksort, or add a cache, or change your data structure. **Algorithmic choice is yours** and it dominates everything here. → [[01-growth-and-asymptotic-notation|Algorithms]]
 
@@ -160,6 +171,7 @@ opt -O2 -print-after-all foo.ll           # IR after every pass — verbose and 
 > **The honest hierarchy:** algorithm → data structure and memory layout → allocation behaviour → compiler flags → micro-optimisation. Compiler optimisation is the fourth item, and people reach for it first.
 
 ## What this means for you
+<!-- bite: c7d15d8a-51ec-4c2f-933b-b2b0b3a6f39b -->
 
 **Write clear code.** The optimiser handles the mechanical transformations, and clever source-level tricks (manual loop unrolling, `x >> 3` instead of `x / 8`) usually make it *harder* to optimise by obscuring the pattern.
 
@@ -183,6 +195,7 @@ cargo asm my_crate::my_function          # cargo-show-asm
 ---
 
 ## Related
+<!-- bite: 92f60f75-55b5-4dbe-ab16-7c8c2a5ace8a -->
 - [[compilers/06-intermediate-representations|Intermediate Representations]] — what these passes operate on
 - [[compilers/08-code-generation|Code Generation]] — the passes after these
 - [[languages/03-rust/18-performance-and-zero-cost|Rust: Performance]] — inlining as the basis of zero-cost abstraction

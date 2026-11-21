@@ -1,3 +1,7 @@
+---
+id: 0aa8cd36-1459-4b70-a4b8-9e79a44a109f
+---
+
 # Module: Algorithms & Complexity Analysis (Big-O, Bounds & Space)
 
 Welcome to the **Algorithms & Complexity Analysis** module. An **Algorithm** is a finite, well-defined sequence of instructions designed to transform an input into a desired output.
@@ -7,6 +11,7 @@ This module introduces the mathematical vocabulary—**Big-O**, **Big-$\Omega$**
 ---
 
 ## Before you start
+<!-- bite: b6397289-751e-4296-be18-cb69c1e590f0 -->
 
 - You can read a `for` loop and count how many times it runs — [[01-loops-and-what-they-cost|loops and what they cost]].
 - You know what an array is and that indexing it is cheap — [[01-arrays|arrays]].
@@ -24,6 +29,7 @@ This module introduces the mathematical vocabulary—**Big-O**, **Big-$\Omega$**
 ---
 
 ## 1. Why Growth Rate Matters (Real-World Motivation)
+<!-- bite: 02c706df-4128-4213-a430-daec8b4f1dfb -->
 
 Suppose you need to compare two sorting programs:
 
@@ -51,6 +57,7 @@ n = 1,000,000    | < 1 µs        | 10 ms       | 0.2 seconds   | 11 DAYS!
 ---
 
 ## 2. The Three Asymptotics: $O$, $\Omega$, and $\Theta$
+<!-- bite: ef56dc2d-8df4-4398-9990-3525d4466277 -->
 
 In computer science, we use three mathematical notations to bound an algorithm's growth function $T(n)$:
 
@@ -72,6 +79,7 @@ T(n) ====> Tight Bound: Θ(f(n))  --->  Work is PRECISELY f(n)
 ---
 
 ## 3. Best, Average, and Worst-Case Scenarios
+<!-- bite: 11eb2c21-209a-4254-afc8-011a48554099 -->
 
 The mathematical bounds ($O, \Omega, \Theta$) are independent of the input scenarios (Best, Average, Worst):
 
@@ -87,6 +95,7 @@ Attackers can intentionally exploit this gap by sending malicious input data des
 ---
 
 ## 4. Derived Recursive Complexity (Recurrence Trees)
+<!-- bite: aff2e564-4f94-412d-aeae-6921def40d15 -->
 
 For recursive algorithms, complexity is derived by building a **Recurrence Tree**:
 
@@ -107,6 +116,7 @@ For recursive algorithms, complexity is derived by building a **Recurrence Tree*
 ---
 
 ## 5. Amortized Analysis vs. Average Case
+<!-- bite: 3d1f2e1b-bcb6-4af8-96b8-e5b85fc836d3 -->
 
 **Amortized Analysis** measures the average cost per operation across a **guaranteed sequence of operations**, where rare expensive steps are paid for by many cheap steps.
 
@@ -121,6 +131,7 @@ $$\text{Amortized Cost per Append} = \frac{\text{Total Work}}{\text{Total Append
 ---
 
 ## 6. Reading Constraints to Guess the Intended Big-O
+<!-- bite: c64eb672-0d9c-451e-8ca2-9e6468c4ef15 -->
 
 In competitive programming and technical interviews, the problem's **input size ($N$) constraint** directly tells you which Big-O complexity is expected:
 
@@ -136,6 +147,7 @@ In competitive programming and technical interviews, the problem's **input size 
 ---
 
 ## 7. Space Complexity: Auxiliary vs. Total
+<!-- bite: dbab4fee-de6f-4f4d-8df2-ec30a86b8f2c -->
 
 - **Total Space**: Total memory required, including input arrays.
 - **Auxiliary Space**: Extra temporary memory allocated by the algorithm *excluding* the input.
@@ -147,6 +159,7 @@ In competitive programming and technical interviews, the problem's **input size 
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: 99857968-3bde-49e6-b155-5e36faf08c3a -->
 
 **Runnable example:** save as `complexity.py` in any empty directory and run `python3 complexity.py`. Standard library only; writes no files.
 
@@ -380,6 +393,7 @@ complexity: passed
 Block 1 is the lesson in one table: the **ratio per doubling** *is* the complexity. Linear doubles, quadratic quadruples, logarithmic barely moves — measured, not recited.
 
 ## 8. Common Pitfalls & Traps
+<!-- bite: 8c6d2498-dd8f-464f-bab5-0c49f7e86f96 -->
 
 1. **Dropping Lower-Order Terms**: $O(n^2 + n)$ simplifies strictly to **$O(n^2)$**, as $n^2$ completely dominates $n$ for large inputs.
 2. **Confusing Variables**: If an algorithm processes an array of length $N$ and a string of length $M$, the complexity is **$O(N \cdot M)$**, NOT $O(N^2)$!
@@ -388,6 +402,7 @@ Block 1 is the lesson in one table: the **ratio per doubling** *is* the complexi
 ---
 
 ## 9. Check Your Understanding (University Self-Assessment)
+<!-- bite: 91ddc1aa-ba6f-49dd-b313-c0efde9c31b8 -->
 
 1. **Question**: What is the difference between Big-O ($O$), Big-Omega ($\Omega$), and Big-Theta ($\Theta$)?
    - <details><summary>Click for Answer</summary><b>Answer:</b> <b>Big-O</b> represents the mathematical upper bound (worst-case curve). <b>Big-Omega</b> represents the lower bound (at-least curve). <b>Big-Theta</b> represents a tight bound where an algorithm's growth is sandwiched precisely between upper and lower bounds.</details>
@@ -401,6 +416,7 @@ Block 1 is the lesson in one table: the **ratio per doubling** *is* the complexi
 ---
 
 ## Practice — independent task
+<!-- bite: 33554fa1-63ec-4c19-a750-ec0f748191c9 -->
 
 Implement `classify_growth(fn, sizes)` — infer an algorithm's complexity from measurements alone, without reading its source.
 
@@ -415,6 +431,7 @@ Implement `classify_growth(fn, sizes)` — infer an algorithm's complexity from 
 **Done when:** your classifier gets the known cases right, you can state the $n$ at which it separates $O(n)$ from $O(n\log n)$, and you can explain both failure modes from step 5 with numbers you produced.
 
 ## Before moving on
+<!-- bite: 56d17e0c-6300-476f-90d1-85b7e3de717a -->
 
 You are done with this lesson when you can:
 
@@ -428,6 +445,7 @@ You are done with this lesson when you can:
 **Next:** [[01-depth-first-search|Depth-First Search]] — the first algorithm whose cost you will analyse with this vocabulary.
 
 ## Related Modules
+<!-- bite: c36a37ab-833f-452b-bce3-049feb5d56ff -->
 - [[dsa/01-loops-and-what-they-cost|Loops and What They Cost]] — Practical loop counting rules
 - [[02-dynamic-arrays|Dynamic Arrays]] — Amortized analysis application
 - [[05-sorting/index|Sorting Algorithms]] — Comparison sort lower bounds ($O(n \log n)$)

@@ -1,8 +1,13 @@
+---
+id: 7347eb38-4026-4966-a310-d40675b54814
+---
+
 # Tangents to a Circle
 
 **[Intermediate]** — what happens when a chord's two ends slide together until the line only touches, and the three theorems that follow.
 
 ## Before you start
+<!-- bite: 8eb3146e-78cf-42e3-bffc-98e55e99be3f -->
 
 - You know the central angle theorem and its corollaries — [[01-circle-theorems|circle theorems]]. The alternate segment proof uses the angle in a semicircle.
 - You can use RHS congruence — [[02-triangles-and-polygons|triangles and polygons]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 81dbb6b6-8ca4-40e0-a437-66d3cfbeac94 -->
 
 A belt runs around two pulleys. To cut it to length you need the straight sections — and each straight section is a **tangent** to both wheels, touching each at exactly one point. There is no chord to work with and no obvious triangle, yet the length is completely determined by the two radii and the distance between the centres.
 
@@ -28,6 +34,7 @@ More generally, tangents are how a circle meets the world outside it: a wheel me
 Start from a chord. Slide its two endpoints towards each other along the circle. The chord shortens, and at the instant the two points coincide, the line touches at one point only. That limiting line is the tangent, and several chord theorems survive the limit in a modified form — which is a useful way to remember them.
 
 ## 2. Terminology
+<!-- bite: 8170d75b-8563-480d-bbd2-d5e80bcddb8e -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -40,6 +47,7 @@ Start from a chord. Slide its two endpoints towards each other along the circle.
 | **Power of a point** | For a point $P$ and circle of centre $O$, radius $r$: the quantity $OP^2 - r^2$ | Negative inside, zero on, positive outside |
 
 ## 3. The two basic theorems
+<!-- bite: 958c31aa-b739-4dd7-9a6f-2d525cc3e181 -->
 
 ### 3.1 A tangent is perpendicular to the radius at the point of contact
 
@@ -75,6 +83,7 @@ Two consequences worth stating separately:
 - **$OP$ bisects the angle between the tangents**, and also bisects $T_1T_2$ at right angles.
 
 ## 4. The alternate segment theorem
+<!-- bite: c98705a8-89b2-4235-9834-47962588beb8 -->
 
 **Claim:** the angle between a tangent and a chord equals the angle subtended by that chord in the **alternate segment**.
 
@@ -128,6 +137,7 @@ And $\angle ADB$ is the angle subtended by chord $AB$ at $D$, which lies in the 
 **Which segment is "alternate"?** The chord divides the circle into two segments. The tangent-chord angle you are measuring opens towards one of them; the alternate segment is the **other** one. If you find yourself getting the supplement of the expected answer, you have used the near segment instead of the far one.
 
 ## 5. Power of a point — one formula for three theorems
+<!-- bite: 956c28bf-6329-4ebd-a07c-c91443100ad6 -->
 
 Let $P$ be any point and let a line through $P$ cut the circle at $A$ and $B$. The product $PA \times PB$ turns out not to depend on which line you chose.
 
@@ -154,6 +164,7 @@ You cannot draw a tangent by sliding a ruler until it "looks right". The constru
 **Why it works.** $T_1$ lies on the circle with diameter $OP$, so by the angle in a semicircle, $\angle OT_1P = 90°$. So $PT_1$ is perpendicular to the radius $OT_1$ at a point on the circle — which by the converse of 3.1 makes it a tangent. $\blacksquare$
 
 ## Worked example — runnable
+<!-- bite: 6498239f-4b07-46d1-bdba-59a4e53dcee8 -->
 
 **Runnable example:** save as `tangents.py` in any empty directory and run `python3 tangents.py`. Standard library only; writes no files.
 
@@ -299,6 +310,7 @@ tangents: passed
 The last block is the point: four different lines through $P$, one identical product. Look at the second of them — it returns $PA = PB = 12$, because that direction *is* the tangent, and the two intersection points have merged. The tangent case is not a separate theorem; it is the same computation with a repeated root. That invariance is what "power of a point" names.
 
 ## Common pitfalls and traps
+<!-- bite: d232190c-2e0e-42b8-8b3a-b7121f5e878c -->
 
 - **Using the near segment instead of the alternate one.** The alternate segment is on the *far* side of the chord from the angle you are measuring. Using the near one gives the supplement — an answer that looks plausible and is wrong.
 - **Assuming a line that touches "at about one point" is a tangent.** Tangency is exact. In a diagram it must be stated or derivable, most often from a marked right angle at the radius.
@@ -308,6 +320,7 @@ The last block is the point: four different lines through $P$, one identical pro
 - **Reading the lab as proof.** It confirms the configurations tested. The proofs in sections 3 and 4 are what make the results general.
 
 ## Check your understanding
+<!-- bite: 6d7d2c3b-cd0f-4818-b68e-89a06f9401a5 -->
 
 1. A tangent from $P$ touches a circle of radius $7$, and $OP = 25$. Find the tangent length.
 2. Two tangents from $P$ meet the circle at $A$ and $B$, and $\angle APB = 48°$. Find $\angle AOB$.
@@ -327,6 +340,7 @@ The last block is the point: four different lines through $P$, one identical pro
 </details>
 
 ## Practice — independent task
+<!-- bite: 6ff4c415-5b55-44b8-bfbe-5864d8bc14d3 -->
 
 Implement `belt_length(c1, r1, c2, r2)` returning the total length of a belt wrapped around two pulleys — the problem from section 1.
 
@@ -341,6 +355,7 @@ For an **open** belt (both pulleys turning the same way), the belt consists of t
 **Done when:** your equal-radius case matches $2d + 2\pi r$ to within `1e-9`, your wrap angles sum to $2\pi$ across the two pulleys, and you can explain why they must.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 3937596d-96b5-41b6-bef4-b5afbafe0867 -->
 
 **Power of a point generalises further than shown.** It extends to the *radical axis* — the locus of points with equal power with respect to two circles — which is the basis for how circle-circle intersection is computed in practice, including in the lab's own `circle_circle` function.
 
@@ -349,6 +364,7 @@ For an **open** belt (both pulleys turning the same way), the belt consists of t
 **Numerical caution.** The lab's power-of-a-point assertion uses a looser tolerance (`1e-6`) than the rest. Solving the quadratic for line-circle intersection loses precision when the two roots are close — a near-tangential secant. This is catastrophic cancellation, and a production implementation would use the numerically stable quadratic formula instead.
 
 ## Before moving on
+<!-- bite: 9cfd0877-33a3-46ef-bc66-05cbf6795170 -->
 
 You are done with this lesson when you can:
 
@@ -362,6 +378,7 @@ You are done with this lesson when you can:
 **Next:** [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the same circles and lines, handled by algebra on coordinates rather than by theorem.
 
 ## Related
+<!-- bite: d1ed2d70-48f5-4cae-a272-7a664ab52c6e -->
 
 - [[01-circle-theorems|Circle Theorems]] — the angle in a semicircle, used twice here
 - [[03-constructions|Constructions]] — the perpendicular bisector the tangent construction needs

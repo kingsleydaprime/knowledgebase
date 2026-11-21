@@ -7,6 +7,7 @@ id: 8b464306-7b5e-4eee-ab83-30bb60b280b0
 > **[Intermediate]** · How objects **communicate and share responsibility** — reacting to changes, swapping algorithms, turning actions into objects, and changing behaviour as something moves through stages.
 
 ## Before you start
+<!-- bite: e6f0915e-7066-4519-9caf-f65f5dbc6e66 -->
 
 You can already:
 
@@ -22,16 +23,19 @@ After this lesson you will be able to:
 **Study route.** §1–6 are the patterns; §5 (State) and the worked example are the heaviest. Make the prediction before running the example.
 
 ## The kid version
+<!-- bite: aca5f294-1dfc-4fe3-9496-f57a08b06c9f -->
 
 At a football match, the referee blows the whistle, and everyone who cares reacts — players stop, the crowd cheers, the scoreboard updates. The referee doesn't tell each person what to do; **they just blow the whistle, and whoever is listening responds.** That's the observer pattern. And the game itself has stages — before kick-off, playing, half-time, finished — and what's allowed depends on the stage: you can't score at half-time. That's the state pattern.
 
 **Where the analogy stops working.** At a match you can see who's listening. In code, the listeners are registered in other files, so "what happens when this event fires?" can mean searching the whole codebase — the cost listed in the pitfalls below.
 
 ## 1. Why this exists
+<!-- bite: 69be762b-4dc5-4672-8c0f-902076be853d -->
 
 When an order ships, the business wants a customer email, an inventory update, an analytics event — and next month, a WhatsApp message. If `ship()` calls each of those directly, every new reaction is an edit to the shipping code. Meanwhile, `cancel()`, `refund()` and `ship()` each start with their own slightly different `if (status === ...)` checks, and support finds a shipped order that got cancelled. **One is a communication problem, the other a responsibility problem** — the two kinds this lesson's patterns solve.
 
 ## Terms used in this lesson
+<!-- bite: 7149ac56-fadf-43aa-aade-d00f28050650 -->
 
 1. **Subject**: This is also known as the **publisher** or **emitter**. It is the object that announces something happened.
 2. **Observer**: This is also known as a **listener**, **subscriber** or **handler**. It is a function or object that registered to be told when the subject announces something.
@@ -42,6 +46,7 @@ When an order ships, the business wants a customer email, an inventory update, a
 7. **Iterator**: This is an object that hands out a collection's items one at a time without revealing how the collection is stored.
 
 ## 2. Observer — reacting to another object's changes
+<!-- bite: 2ffaf604-1f61-47d2-a136-f9174d07b445 -->
 
 One object (the **subject**) maintains a list of dependents (**observers**) and notifies all of them automatically whenever its state changes, without needing to know anything specific about what each observer actually does in response.
 
@@ -65,6 +70,7 @@ emitter.emit("order.placed", { id: 42 });   // both listeners run, emitter doesn
 This is the exact mechanism underneath DOM event listeners, Node's `EventEmitter`, and pub/sub messaging systems generally — the subject is fully decoupled from its observers, which is the whole point: new behavior can be added (a new listener) without ever touching the code that emits the event.
 
 ## 3. Strategy — swapping an algorithm's implementation at runtime
+<!-- bite: 042efef9-be17-47de-b4ab-079c2f1f2954 -->
 
 Defines a family of interchangeable algorithms behind a common interface, letting the specific one used be selected at runtime rather than hardcoded — the calling code depends only on the shared interface, not on any specific algorithm's implementation.
 
@@ -84,6 +90,7 @@ const order = new Order(new ExpressShipping());   // swap this for StandardShipp
 This directly relates back to [[concepts/02-design-patterns/01-creational-patterns/index|Factory]] — a Factory is often exactly what decides *which* Strategy to instantiate based on runtime input, the two patterns frequently showing up together in the same piece of code.
 
 ## 4. Command — turning a request into an object
+<!-- bite: a4afbeb8-ea3e-4eda-95c3-29f5b2510e32 -->
 
 Encapsulates a request (an action plus its parameters) as an object, so it can be passed around, queued, logged, or undone, rather than being just a direct function call that happens and is immediately forgotten.
 
@@ -103,6 +110,7 @@ function undoLast() { history.pop()?.undo(); }
 This is exactly the pattern underneath undo/redo functionality, task queues, and any "record what happened so it can be replayed or reversed later" requirement — turning an action into a first-class object is what makes storing, queuing, and reversing it possible at all.
 
 ## 5. State — behaviour that depends on what stage something is in
+<!-- bite: 6e433129-164c-492f-9919-9b85eedab4c0 -->
 
 An object whose allowed actions depend on its current stage — an order that can be cancelled while pending or paid but not once shipped — is a **state machine**. Without the pattern, every method starts with a growing `if (status === ...)` chain, and the rules for one stage are scattered across every method.
 
@@ -121,6 +129,7 @@ class Pending implements OrderState {
 The payoff either way: **every legal move is written in one place**, so "can a shipped order be cancelled?" is answered by reading one line, and an illegal move is impossible rather than merely unhandled.
 
 ## 6. Iterator — traversing a collection without exposing its internals
+<!-- bite: 6488f782-bce5-48e0-beda-fa2d9f723d78 -->
 
 Provides a standard way to step through a collection's elements sequentially, without the calling code needing to know whether the underlying collection is an array, a linked list, or a tree.
 
@@ -142,6 +151,7 @@ for (const n of new Range(1, 5)) { console.log(n); }   // 1 2 3 4
 JavaScript's `for...of` loop and the iterator protocol above are a language-level implementation of exactly this pattern — see [[dsa/02-data-structures/06-trees/04-traversal/index|traversal]] in the DSA notes for the underlying structures (trees, graphs) this same idea generalizes to beyond simple linear collections.
 
 ## 7. Worked example — an order lifecycle with State and Observer
+<!-- bite: 48d00df3-6543-4c7e-abc4-17afa64dec5d -->
 
 **Predict before running.** A shipped order receives `cancel`. With the code below, what happens to its status, and do the listeners hear anything?
 
@@ -251,12 +261,14 @@ test("the UI can ask which buttons to show", () => {
 **The limits.** Listeners here run synchronously, in the same process, inside `apply`. If the email listener throws, `apply` throws *after* the status already changed. Production systems usually save the state change and an event record together, then deliver the event separately — the [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]] pattern.
 
 ## Common pitfalls
+<!-- bite: 3abff083-a6a0-4423-a196-08e62c4fa37b -->
 
 - Observer's decoupling is also a debugging cost — with many listeners subscribed to the same event across a large codebase, tracing "what actually happens when this event fires" can require hunting across many files, unlike a direct function call you can just follow.
 - Strategy and simple conditional logic (`if/else` picking behavior directly) solve the same problem at small scale — Strategy earns its complexity when there are genuinely many interchangeable algorithms, or when new ones need to be added without modifying existing code; for two or three cases that rarely change, a plain conditional can be perfectly reasonable and more direct.
 - Command's overhead (wrapping every action in an object) is only worth it when you actually need the deferred-execution, queuing, or undo capability it provides — using it for a simple, immediate, one-off action adds ceremony with no payoff.
 
 ## Check your understanding
+<!-- bite: f13d2dec-a73a-4e50-82c7-937f660dcd79 -->
 
 1. What does the observer pattern decouple, and what does that decoupling cost you?
 2. Strategy versus a plain `if/else` — when does strategy earn its extra structure?
@@ -276,6 +288,7 @@ test("the UI can ask which buttons to show", () => {
 </details>
 
 ## Practice — independent task
+<!-- bite: 26171bf9-095c-4901-ab60-5dbe4ada3cf2 -->
 
 **Extend the order state machine.**
 
@@ -288,6 +301,7 @@ test("the UI can ask which buttons to show", () => {
 For interview-style questions, see [[concepts/interview/02-patterns-code-quality-and-review|patterns, code quality and review]].
 
 ## Before moving on
+<!-- bite: 23d25abe-f802-4923-a7ae-d873dd8537a6 -->
 
 You can name the behavioural patterns in real code, model a lifecycle as a transition table, and add reactions without editing the emitter.
 
@@ -296,6 +310,7 @@ You can name the behavioural patterns in real code, model a lifecycle as a trans
 **Next.** [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection and wiring]] — where all these objects get created and connected.
 
 ## Related
+<!-- bite: 26402842-a5c4-43bf-92f4-6145a710653e -->
 - [[concepts/02-design-patterns/03-behavioral-patterns/in-other-languages|Behavioural Patterns in Other Languages]] — which patterns are built in, and Rust's typestate
 - [[concepts/02-design-patterns/01-creational-patterns/index|creational patterns]]
 - [[concepts/02-design-patterns/02-structural-patterns/index|structural patterns]]

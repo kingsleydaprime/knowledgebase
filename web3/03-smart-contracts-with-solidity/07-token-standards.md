@@ -1,14 +1,20 @@
+---
+id: 7914f9f3-ff9d-41f8-8710-586a2b17d1c2
+---
+
 # Token Standards
 
 **[Intermediate]** — ERC-20, 721, 1155 and 4626, the non-compliant tokens that break integrations, and why `SafeERC20` exists.
 
 ## What a "standard" is here
+<!-- bite: 1f0d0e7b-c4f0-4f42-84be-4e76e33bbc6e -->
 
 An ERC is **a function signature list plus expected events**. There is no registry, no certification, no enforcement — a contract "is" an ERC-20 because it exposes those functions and emits those events, and wallets and exchanges recognise it on that basis.
 
 **Which means a token can be almost-compliant, and almost is where the bugs live.**
 
 ## ERC-20 — and the four ways real tokens break it
+<!-- bite: cffeee02-f0b5-4789-a2a1-c6304ee73c5d -->
 
 The interface is in [[web3/01-foundations/07-tokens-coins-and-nfts|foundations/07]]. What matters here is that widely-used tokens violate it, and integrations that assume compliance lose money:
 
@@ -40,6 +46,7 @@ token.forceApprove(spender, amount);     // handles the USDT approve quirk
 **Use `SafeERC20` for every external token interaction, without exception.** It exists because of exactly the list above.
 
 ## ERC-721 — NFTs
+<!-- bite: 8bafe061-e081-446f-ae94-3f4f124c9d4b -->
 
 ```solidity
 function ownerOf(uint256 tokenId) external view returns (address);
@@ -54,6 +61,7 @@ function tokenURI(uint256 tokenId) external view returns (string memory);
 **`setApprovalForAll` grants control over your entire collection**, to one operator, indefinitely. Marketplace phishing overwhelmingly targets this signature rather than individual approvals, because one signature takes everything.
 
 ## ERC-1155 — multi-token
+<!-- bite: ae412cfb-31ec-4fb2-86a4-90f55229cdb9 -->
 
 One contract, many token IDs, each fungible or not. `balanceOf(account, id)`, plus batch operations:
 
@@ -67,6 +75,7 @@ function safeBatchTransferFrom(address from, address to,
 **Batching is the point** — transferring 50 game items costs far less than 50 ERC-721 transfers. Standard for games and editioned collectibles. Same `onERC1155Received` callback, same reentrancy consideration.
 
 ## ERC-4626 — tokenised vaults
+<!-- bite: 135cec13-dcad-4497-9e90-1d420ea98932 -->
 
 A standard interface for "deposit an asset, receive shares that accrue yield":
 
@@ -84,16 +93,19 @@ It exists because every yield protocol had reimplemented share accounting, and *
 **Rounding direction is normatively specified**: deposits round shares *down*, withdrawals round assets *down*. **Always round in the protocol's favour** — every "off by one wei" exploit is a rounding direction chosen in the user's favour, compounded a million times.
 
 ## Others worth knowing
+<!-- bite: 4402e8c1-7bc0-4ef3-98df-cb535241fbcc -->
 
 - **ERC-2612 `permit`** — approve by signature. Removes the separate approval transaction, and is why "one-click" swaps are possible. Note it uses [[web3/06-building-dapps/02-wallets-and-connection|EIP-712 typed signatures]]
 - **ERC-2981** — a royalty *info* interface. Advisory only; marketplaces choose whether to honour it, and most stopped
 - **ERC-165** — interface detection: `supportsInterface(bytes4)`. How a contract asks another what it implements
 
 ## Key insight
+<!-- bite: 8852bd30-39d8-485d-81aa-686133825c6d -->
 
 **"It implements ERC-20" is a claim about function signatures, not about behaviour.** Real tokens return nothing, take fees, rebase, freeze accounts and call you back mid-transfer. Every safe integration measures actual balance deltas, uses `SafeERC20`, and treats an incoming token contract as adversarial code — because roughly half the DeFi exploit surface is integrations that assumed otherwise.
 
 ## Related
+<!-- bite: 22472269-64ff-48b4-9a48-b71347f865c3 -->
 - [[web3/01-foundations/07-tokens-coins-and-nfts|tokens, coins and NFTs]] — what a token is
 - [[web3/04-smart-contract-security/02-reentrancy|reentrancy]] — the callbacks above
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — what gets built on these

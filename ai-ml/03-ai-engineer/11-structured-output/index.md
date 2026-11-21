@@ -7,6 +7,7 @@ id: a2cc4147-ba95-45e9-affe-ea6183e4b4eb
 > **[Intermediate]** · How to get typed, validated data back from a model instead of prose: the three ways to ask for JSON, why valid JSON can still be wrong, and the retry loop that makes a model usable as a function in your code. The worked example extracts an invoice with a local model, asking with a prompt only and then with a schema. The numbers were measured on 2026-10-02.
 
 ## Before you start
+<!-- bite: 06b3ba25-3000-4ca1-b0db-0807fed89a50 -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–6. Before running `live.ts`, predict which mode will produce more failures, and what kind.
 
 ## The kid version
+<!-- bite: 2912025d-e9fe-47b3-b363-6c7ceff0b9ba -->
 
 Imagine asking a friend to fill in a form for you, but instead of a form you just say "write down the name, the date and the total". They write a lovely paragraph. Now you have to hunt through it for the bits you need. So next time you give them a real form, with a box for each thing and "write the date like 2026-10-15" printed beside the box. Much easier. But even with a perfect form, they could still write the wrong total in the total box. So you add the numbers up yourself before you believe it.
 
 **Where the analogy stops working.** With the strongest method, the model can't write outside the boxes at all. The rule is applied while it's writing, one token at a time, so a wrongly shaped answer can't even be produced. A friend could always scribble in the margin.
 
 ## 1. Why this exists
+<!-- bite: 2b9207e8-d6fb-4a25-b10d-e026a45bb1e8 -->
 
 You ask a model to "return the invoice as JSON" and call `JSON.parse` on the reply. It works in every test. In production, one reply starts with "Sure! Here's the data:", another wraps the JSON in a Markdown fence, another writes the total as `"£655.50"` instead of a number, and one runs out of tokens halfway through. Each one throws, or worse, parses into something your code wasn't expecting. **A string is not an interface.** Structured output is what turns "a model" into a function you can call, like `extract(text) → Invoice` or `classify(ticket) → Priority`.
 
 ## Terms used in this lesson
+<!-- bite: c8558419-f3d6-4388-b613-ac139f2f5775 -->
 
 1. **JSON (JavaScript Object Notation)**: The letters stand for those words. It is the text format for objects, arrays, strings, numbers and booleans that almost every API uses.
 2. **Schema**: This is a description of the shape data must have: which fields, what types, which are required. **JSON Schema** is the standard format for writing one.
@@ -48,6 +52,7 @@ You ask a model to "return the invoice as JSON" and call `JSON.parse` on the rep
 11. **Zod and Pydantic**: These are libraries, for TypeScript and Python, that define a schema once and give you a validator, a type and a JSON Schema from it.
 
 ## 2. Three ways to ask, from weakest to strongest
+<!-- bite: 02650aee-1b18-414e-8dfc-5869db37db42 -->
 
 **1. Prompt-only.** Ask for JSON in the prompt and parse the reply yourself. The model can wrap it in a fence, add a preamble, leave a trailing comma or invent fields. Use this only when the provider offers nothing better, and always with the retry loop from §5.
 
@@ -75,12 +80,14 @@ const { output } = await generateText({ model, prompt: invoiceText, output: Outp
 One schema does three jobs here: it constrains the model, it documents the contract, and it gives you a runtime validator and a static type.
 
 ## 3. How constrained decoding works
+<!-- bite: 0af5f77e-deea-4832-bfac-99080af4e214 -->
 
 Recall from [[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]]: at every step, the model scores every token, and decoding picks one. Constrained decoding adds one more step before the pick: **any token that would break the schema has its probability set to zero**. After `{"currency": "` only tokens that can start `GBP`, `USD`, `EUR` or `NGN` remain. After `"total_cents": ` only digits remain. An invalid document can't be generated at all, because at every step the only tokens left are ones that keep it valid.
 
 That also shows the limit. The constraint controls **which** tokens are allowed, not **which allowed token is true**. If the model's best guess for the total is `65500`, that is a perfectly valid integer.
 
 ## 4. Valid JSON is not correct data
+<!-- bite: d5059569-5666-481e-b43e-2a863e91fc60 -->
 
 Three separate checks, in order:
 
@@ -91,6 +98,7 @@ Three separate checks, in order:
 Schema conformance is a guarantee about syntax, not about truth. A hallucinated vendor name is a perfectly valid string.
 
 ## 5. The retry loop
+<!-- bite: e00a2c51-541e-4b55-b583-67d0a6983da2 -->
 
 When a check fails, don't just call again with the same messages; you'll often get the same mistake. Add the bad reply and a message saying **exactly** what was wrong, and ask again:
 
@@ -103,6 +111,7 @@ Three cases need different handling:
 - **Cap the attempts.** Two or three. If a schema keeps failing, the schema is usually too complicated, or the model too small.
 
 ## 6. Schemas models fill in well
+<!-- bite: 95682324-cdb8-488d-962c-114aac88ad49 -->
 
 - **Keep them flat and small.** Deep nesting and many optional fields raise the error rate and the token cost. Ask only for the fields your code uses.
 - **Use enums for categories.** `"low" | "medium" | "high"` stops the "the model said `Medium` but my code checks `med`" bug.
@@ -115,6 +124,7 @@ Three cases need different handling:
 Tool calling ([[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools and MCP]]) is structured output aimed at a function's arguments instead of an answer. "Strict" tools use the same constrained decoding. If your stack only offers structured data through tools, define one tool whose parameters are your schema and force the model to call it.
 
 ## Worked example — extracting an invoice
+<!-- bite: 445ec0c9-117b-48e1-bef0-db1128974236 -->
 
 The contract: a JSON Schema to send, and a validator that checks the same things plus what the schema can't (the date format and the sum).
 
@@ -423,6 +433,7 @@ Three runs each is a small sample. It's enough to see the pattern on one documen
 **Lab:** these files are in [`ai-ml/03-ai-engineer/11-structured-output/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/11-structured-output/labs/typescript). From the vault root, `python3 labs/run.py structured-output/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama running and takes several minutes on a laptop, so run it yourself from the lab folder with `node live.ts`.
 
 ## Common pitfalls
+<!-- bite: c1cf7baa-df53-4a4d-b4c9-48b5df833960 -->
 
 1. **`JSON.parse` on the raw reply, with no `try`.** One preamble or fence and production throws.
 2. **Trusting schema-valid output.** The shape is guaranteed; the values aren't. Check the invariants.
@@ -433,6 +444,7 @@ Three runs each is a small sample. It's enough to see the pattern on one documen
 7. **A schema with everything in it.** Every extra field is another chance to be wrong. Ask for what the code uses.
 
 ## Check your understanding
+<!-- bite: 38d1bcc1-dbcf-47be-acb1-a58c09bafdea -->
 
 1. What does JSON mode guarantee that prompt-only doesn't? What does it still not guarantee?
 2. How can constrained decoding make an invalid document impossible to generate? Use the word "token".
@@ -454,6 +466,7 @@ Three runs each is a small sample. It's enough to see the pattern on one documen
 </details>
 
 ## Practice — independent task
+<!-- bite: a56a2bae-90c6-4d8d-bde6-c911ea589bc9 -->
 
 **Extract something from your flagship.** Pick one thing the flagship's AI feature should return as data, not prose.
 
@@ -465,6 +478,7 @@ Three runs each is a small sample. It's enough to see the pattern on one documen
 **Done when:** the tests pass without a model, you have a five-and-five table of real results, and you can say which failures the schema removed and which it couldn't.
 
 ## Before moving on
+<!-- bite: a23ed9a3-d27a-4f69-9505-b77b5aa377bf -->
 
 You can say what each of the three modes guarantees, name the three checks in order, and explain why a retry includes the error.
 
@@ -473,6 +487,7 @@ You can say what each of the three modes guarantees, name the three checks in or
 **Next.** [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — the rest of week 2.
 
 ## Related
+<!-- bite: edd04686-c893-4428-88e6-0d8f383e49ec -->
 - [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages|Structured output in other languages]] — Pydantic, Go struct tags, Jackson, serde and System.Text.Json
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — where the schema goes on the request
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] — the same schema machinery, aimed at function arguments

@@ -1,12 +1,18 @@
+---
+id: d22ae415-6042-4f0f-8d67-f77838f14082
+---
+
 # Dashboards and BI
 
 **[Intermediate]** — the tools that let a whole organisation see the data, the semantic layer that keeps everyone's numbers agreeing, and why most dashboards fail.
 
 ## The kid version first
+<!-- bite: e6573632-8a10-4e6b-8c78-0faeea62c522 -->
 
 An analyst can't personally answer every question for every person — so **business intelligence tools let people see the data themselves**, through dashboards and reports that update automatically. Done well, this frees the analyst from repetitive pulls and lets the business self-serve. Done badly — and it usually is — you get a graveyard of unused dashboards, and three teams reporting three different revenue numbers because everyone defined it differently.
 
 ## What BI tools do
+<!-- bite: 6d8f2ba5-290a-453a-a6ef-20fabbe1312d -->
 
 A **BI (business intelligence) tool** connects to the [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouse]], lets you build charts and dashboards over it, and lets non-technical people explore and filter without writing SQL:
 
@@ -22,6 +28,7 @@ A **BI (business intelligence) tool** connects to the [[data-engineering/02-ware
 **They all generate SQL underneath** and run it against the warehouse → [[data-analysis/02-sql-for-analysis|SQL]]. The differences are governance, cost, and how technical the builder needs to be. **The tool matters less than how you use it.**
 
 ## The semantic layer — the fix for "whose number is right?"
+<!-- bite: 19b14e9f-14e0-49f7-8f9e-cb88971eba25 -->
 
 **The most important BI concept, and the one that separates a trustworthy analytics setup from chaos.**
 
@@ -40,6 +47,7 @@ The problem: without a shared definition, marketing calculates "active users" on
 **This is where BI meets [[data-engineering/07-transformation-and-dbt|dbt]]** — the transformation layer and the semantic layer are how "one definition of every metric" actually gets enforced. LookML (Looker), dbt's semantic layer, Cube, and others implement it. **A metric defined in twelve dashboards is a metric defined twelve slightly-different ways; a metric defined in the semantic layer is defined once and trusted.** → [[data-analysis/03-metrics-and-kpis|defining a metric precisely]].
 
 ## Self-serve analytics — the goal and the trap
+<!-- bite: eca4f38c-4990-4deb-a70f-86c1b4500a15 -->
 
 **The dream: business users answer their own questions, and analysts do high-value work instead of pulling numbers.** Real, and worth pursuing — but it fails in predictable ways:
 
@@ -50,6 +58,7 @@ The problem: without a shared definition, marketing calculates "active users" on
 **Self-serve works when the metrics are governed (semantic layer), the common questions are anticipated, and users are taught enough to not mislead themselves.** It's a socio-technical problem, not just a tooling one.
 
 ## Dashboard design — most are bad
+<!-- bite: f5953c43-96ef-44c0-ba77-2bd11dff607a -->
 
 A dashboard is a *communication* artefact, and the [[ai-ml/01-data-scientist/05-data-visualization|data-visualization principles]] apply with force. The common failures and their fixes:
 
@@ -71,10 +80,12 @@ A dashboard is a *communication* artefact, and the [[ai-ml/01-data-scientist/05-
 **A dashboard is for *monitoring* known metrics; a report is for *answering* a question.** Building a dashboard to answer a one-time question (and a report for something checked daily) is a common mismatch that wastes effort and buries the insight.
 
 ## Key insight
+<!-- bite: cfdfe1e2-f083-4d91-aa97-7ec615f9cceb -->
 
 **BI tools let an organisation see its own data, but the tool matters far less than the semantic layer — the central, coded, single definition of every metric that stops three teams from reporting three different revenue numbers.** Self-serve analytics is a real goal that fails without that governance, plus anticipated questions and enough user education to prevent misinterpretation. And most dashboards fail as *communication*: too much, no context, no clear action, and built to answer one-time questions that a report should have answered. Design a dashboard for monitoring known metrics with reference points and a clear headline — and if nobody uses it, stop building it.
 
 ## Related
+<!-- bite: c73b46ca-118f-46f3-94da-75eba35e7587 -->
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — what the semantic layer defines
 - [[data-engineering/07-transformation-and-dbt|dbt]] — where the semantic layer lives
 - [[ai-ml/01-data-scientist/05-data-visualization|data visualization]] — choosing charts that don't mislead

@@ -1,8 +1,13 @@
+---
+id: aca7f83c-8f8e-4fd1-bde6-43185c246a8d
+---
+
 # Module: Non-Comparison Sorts
 
 **[Intermediate]** — counting, radix and bucket sort, and how they legitimately get under the $\Omega(n\log n)$ bound.
 
 ## Before you start
+<!-- bite: 76e1df6a-bf28-408c-a148-ed0448350534 -->
 
 - You know the comparison lower bound and why it applies — [[01-the-lower-bound|the lower bound]].
 - You know what stable means — same lesson.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 4da3afe2-87f6-46e4-aca7-19fae47bf7d6 -->
 
 The lower bound says $\Omega(n\log n)$ comparisons. These algorithms sort in $O(n)$, and there is no contradiction — **they never compare two elements**.
 
@@ -27,6 +33,7 @@ Instead they use the key itself as information: as an array index, or as a seque
 The cost is a loss of generality. A comparison sort works on anything with an ordering — strings, tuples, custom objects, user-supplied comparators. These need keys that are small non-negative integers, or that can be decomposed into digits.
 
 ## 2. Counting sort
+<!-- bite: 9ee43593-c8d8-43d2-b055-d024fae0bcf8 -->
 
 For keys in $0..k$:
 
@@ -44,6 +51,7 @@ Cost is $O(n + k)$ time and $O(n + k)$ space.
 > **Predict before section 3.** Radix sort processes digits one at a time. Would sorting by the **most** significant digit first work just as well as least-significant first? If not, what goes wrong? Decide before opening the answers.
 
 ## 3. Radix sort
+<!-- bite: bdabd656-ba37-4982-803d-49242927a72a -->
 
 Counting sort is useless for large key ranges. Radix sort fixes that by sorting on **one digit at a time**, using counting sort for each pass — so $k$ is only the digit base (10, or 256), never the full key range.
 
@@ -63,12 +71,14 @@ Cost is $O(d(n + b))$ for $d$ digits in base $b$ — linear in $n$ when $d$ is f
 **Why least-significant first?** Because it lets each pass build on the last. MSD-first splits into buckets by the top digit, and those buckets must then be sorted *independently and recursively* — which works, and is what you use for variable-length strings, but it is a different, more complex algorithm.
 
 ## 4. Bucket sort
+<!-- bite: 2f0acc2b-b04d-4495-9de3-5ce93a682c52 -->
 
 Distribute into buckets by value range, sort each bucket (usually with insertion sort), concatenate.
 
 Average $O(n)$ **when the input is uniformly distributed** over the range. That assumption is load-bearing: if everything lands in one bucket you have done a distribution pass and then an $O(n^2)$ insertion sort. Bucket sort is the least robust of the three and the one most dependent on knowing your data.
 
 ## Worked example — runnable
+<!-- bite: eb19caca-0fe1-49fc-a3fb-dafdf98a8fa0 -->
 
 **Runnable example:** save as `non_comparison.py` in any empty directory and run `python3 non_comparison.py`. Standard library only; writes no files.
 
@@ -264,6 +274,7 @@ non_comparison: passed
 Block 3 is the lesson: the same radix sort, with the only difference being whether its inner counting sort walks the input forwards or backwards, and one of them **does not produce a sorted array at all**.
 
 ## Common pitfalls and traps
+<!-- bite: 7e5fae70-0de8-4f68-a992-2a8c5027ba00 -->
 
 - **Using counting sort with a large key range.** $k = 2^{32}$ means a four-billion-element array. Check that $k$ is $O(n)$ first.
 - **An unstable inner sort in radix.** Silently produces wrong output, as block 3 shows. This is the single most important dependency in the algorithm.
@@ -273,6 +284,7 @@ Block 3 is the lesson: the same radix sort, with the only difference being wheth
 - **Applying these to arbitrary objects.** They need integer keys or digit decompositions. A custom comparator cannot be used.
 
 ## Check your understanding
+<!-- bite: 55cbc4a0-67c7-4fd5-9f1a-101af7f3a1b7 -->
 
 1. Why do these not contradict the $\Omega(n\log n)$ bound?
 2. When is counting sort a bad choice?
@@ -292,6 +304,7 @@ Block 3 is the lesson: the same radix sort, with the only difference being wheth
 </details>
 
 ## Practice — independent task
+<!-- bite: 7381d1de-53c0-430b-b2f9-fd31ce4ffd89 -->
 
 Implement `radix_sort_strings(words)` — MSD radix sort for variable-length strings.
 
@@ -306,6 +319,7 @@ Implement `radix_sort_strings(words)` — MSD radix sort for variable-length str
 **Done when:** your sort matches `sorted()` on every case, the short-string bucket orders correctly, and your step-5 measurement shows the advantage you predicted for shared prefixes.
 
 ## Before moving on
+<!-- bite: ed57991f-1c25-4087-8aec-19ccd95b0352 -->
 
 You can implement counting and radix sort, explain their relationship to the lower bound, and say what each requires of the keys.
 
@@ -314,6 +328,7 @@ You can implement counting and radix sort, explain their relationship to the low
 **Where next:** back to [[index|the sorting index]] for the comparison table, or on to [[06-greedy-algorithms/index|Greedy Algorithms]], which often starts by sorting.
 
 ## Related
+<!-- bite: bd4cae05-8dbf-4356-89bb-fadae221998a -->
 
 - [[01-the-lower-bound|The Lower Bound]] — the theorem these sidestep
 - [[03-merge-sort|Merge Sort]] — where stability is also load-bearing

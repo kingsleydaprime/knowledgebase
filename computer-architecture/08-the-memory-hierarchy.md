@@ -1,8 +1,13 @@
+---
+id: eb931c49-4085-4439-94c2-4a8254536189
+---
+
 # The Memory Hierarchy
 
 **[Intermediate]** — Why memory is the bottleneck, and the single most important thing to understand about performance.
 
 ## The wall
+<!-- bite: a004dfca-3c03-407a-badc-5fd77c19d5af -->
 
 **CPUs got much faster than memory, for decades.**
 
@@ -35,6 +40,7 @@
 > **Most programs are memory-bound, not compute-bound.** The CPU is waiting, not calculating — which is why "reduce instruction count" is usually the wrong optimisation and "improve locality" is usually the right one.
 
 ## Why a hierarchy works
+<!-- bite: f4959192-7d10-4902-89d2-ac4169ab753f -->
 
 **Locality**, and it's an empirical property of real programs rather than a law:
 
@@ -45,6 +51,7 @@
 **Caches exploit both.** Temporal via retention, spatial via **fetching a whole line**.
 
 ## Cache lines
+<!-- bite: 92ddf0b1-fe3f-400c-91dd-a2bdb6e13f0b -->
 
 > **Memory moves in fixed-size blocks — 64 bytes on essentially every modern CPU. This is the fundamental unit, and almost everything practical follows from it.**
 
@@ -71,6 +78,7 @@ for (i = 0; i < N; i += 16) sum += a[i];
 **The second does 1/16th the work and can be no faster**, because both touch the same number of cache lines.
 
 ## Data structure consequences
+<!-- bite: 2d3f25fc-99f1-4266-bd85-b3db67ab246b -->
 
 **This is where the note pays for itself.**
 
@@ -105,6 +113,7 @@ struct Particles { float x[N], y[N], z[N], vx[N], vy[N], vz[N]; };  // SoA
 **Trees** — B-trees beat binary trees on real hardware even in memory, because a node sized to a cache line does many comparisons per fetch. **A binary tree does one comparison per cache miss**; a B-tree with 16-way fanout does four levels' worth. This is why database indexes are B-trees and why `absl::btree_map` exists.
 
 ## Matrix multiply, the canonical example
+<!-- bite: 09bd259e-0c6d-4307-afa7-13e64a1edb84 -->
 
 ```c
 // Naive — B is accessed by column, striding through memory
@@ -128,6 +137,7 @@ for (ii = 0; ii < N; ii += B)
 **This is why tuned BLAS beats naive code by 10–50×** — not better asymptotics, just cache-aware ordering. → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication|Matrix Multiplication]]
 
 ## Prefetching
+<!-- bite: 5da63813-f35c-4229-91a0-b1b9704aeffa -->
 
 **Hardware prefetchers detect access patterns and fetch ahead.**
 
@@ -140,6 +150,7 @@ for (ii = 0; ii < N; ii += B)
 > **The reliable way to benefit from prefetching is to make your access pattern predictable**, not to insert hints. Sort your indices, flatten your structures, traverse in memory order.
 
 ## Virtual memory and the TLB
+<!-- bite: 42f5ac23-fa9a-4590-8272-9127fc49c97f -->
 
 **Every memory access requires translating a virtual address to a physical one**, via page tables. **A page walk is several memory accesses**, so it's cached in the **TLB**.
 
@@ -150,6 +161,7 @@ for (ii = 0; ii < N; ii += B)
 **Huge pages (2 MB / 1 GB)** multiply the reach by 512×. **Significant for databases, JVM heaps, and large in-memory workloads**, and often worth enabling explicitly. → [[os/04-virtual-memory|Virtual Memory]]
 
 ## Measuring
+<!-- bite: ee7ed74f-6f3a-484f-80ab-6f82e93155de -->
 
 **Don't guess. `perf` tells you directly:**
 
@@ -171,6 +183,7 @@ perf stat -e cache-references,cache-misses,\
 **`valgrind --tool=cachegrind`** simulates the hierarchy — slow, deterministic, and good for comparing two implementations without measurement noise.
 
 ## The rules
+<!-- bite: d23b0617-4605-4a49-9f7f-a4295a915b91 -->
 
 **In rough order of impact:**
 
@@ -195,6 +208,7 @@ perf stat -e cache-references,cache-misses,\
 ---
 
 ## Related
+<!-- bite: 6dfa528b-b556-447a-ba33-dd1d825bfe5f -->
 - [[computer-architecture/09-caches-in-depth|Caches in Depth]] — how they actually work
 - [[os/04-virtual-memory|Virtual Memory]] — the TLB and page tables
 - [[computer-architecture/12-performance|Performance]] — the full methodology

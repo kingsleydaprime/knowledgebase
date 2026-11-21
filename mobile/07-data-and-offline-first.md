@@ -1,8 +1,13 @@
+---
+id: 0dde5f17-8179-41dd-90e5-42267ac00450
+---
+
 # Data and Offline-First
 
 **[Advanced]** — the architecture that makes an app usable on a train, and the sync problems it creates.
 
 ## The kid version first
+<!-- bite: 3e65fc54-4fed-4484-a7eb-006e6babd99f -->
 
 **Online-first:** tap → spinner → wait for the server → show it. No network, no app.
 
@@ -11,6 +16,7 @@
 **The user never waits for the network to see something they already have.**
 
 ## The single most important decision
+<!-- bite: 04f4342d-46a6-4446-978f-c09d64f38a68 -->
 
 > **The local database is the source of truth. The UI never reads from the network.**
 
@@ -26,6 +32,7 @@ The UI subscribes to a query. Sync updates the database. **The UI updates automa
 **Make this decision on day one.** Retrofitting it means rewriting every screen, and that's the most common expensive rewrite in mobile.
 
 ## The tools
+<!-- bite: 6af82e77-3228-4c5a-a3f6-191513a975ec -->
 
 | Platform | Database | Key-value |
 |---|---|---|
@@ -39,6 +46,7 @@ The UI subscribes to a query. Sync updates the database. **The UI updates automa
 **A note on the sync services:** offline sync is genuinely hard, and using a service that solves it is a legitimate engineering decision rather than a shortcut. Weigh it against the lock-in.
 
 ## Optimistic updates
+<!-- bite: f0d1970f-d248-4e26-a240-147b06e57aee -->
 
 The user taps "like". Do **not** wait for the server.
 
@@ -53,6 +61,7 @@ The user taps "like". Do **not** wait for the server.
 **Step 5 is where apps are dishonest.** Silently reverting is confusing; silently keeping a failed change is a lie. **Show a clear, non-blocking indication that something didn't save**, with a retry.
 
 ## The outbox
+<!-- bite: 5109da64-6aeb-47d4-a384-2c005304ddfd -->
 
 Queue mutations in a table, not in memory — **memory doesn't survive process death**:
 
@@ -70,6 +79,7 @@ Then:
 - **Handle a dead item** — if a mutation can never succeed (deleted server-side), it must be removable
 
 ## Conflict resolution — the genuinely hard part
+<!-- bite: 84eaeac4-b6c3-4ee2-b653-34c7b33b8f8e -->
 
 Two devices edit the same thing offline. Both come back. Now what?
 
@@ -87,6 +97,7 @@ Two devices edit the same thing offline. Both come back. Now what?
 **Be honest about last-write-wins.** It's the default, it's usually fine, and **it silently destroys someone's work occasionally.** Choose it deliberately, and don't use it for anything a user spent effort on.
 
 ## Caching and freshness
+<!-- bite: 95452840-61ff-471d-9993-928c7d34511e -->
 
 ```
 Cache-first        show local, no fetch          static reference data
@@ -99,6 +110,7 @@ Network-first      fetch, fall back to cache      prices, balances
 **Tell the user what they're looking at.** A subtle "last updated 2 hours ago" or an offline indicator is the difference between trusted stale data and a confusing bug report.
 
 ## Sync mechanics
+<!-- bite: 109ba5a5-0a7b-413e-9451-395fb7c1cac1 -->
 
 - **Delta sync, not full sync.** Send `?since=<cursor>` and get changes. Full sync on every launch burns battery and data
 - **Server-driven cursors** beat client timestamps — **device clocks are wrong**, sometimes by hours
@@ -108,10 +120,12 @@ Network-first      fetch, fall back to cache      prices, balances
 - **Migrate schemas carefully.** Users skip versions; migrations must chain, and **a failed migration on launch is a crash loop that bricks the app** for that user
 
 ## Key insight
+<!-- bite: a1e60bcf-a94d-44ea-83f6-27ce83ce32fb -->
 
 **Offline-first isn't a feature you add for people with bad signal — it's an architecture that makes the app instant for everyone**, because reading from local disk always beats a network round trip. The cost is that you've built a distributed system with a replica in every user's pocket, and **conflict resolution is the bill for that.**
 
 ## Related
+<!-- bite: 7523c2f1-1bfb-4082-9219-65158d7b777a -->
 - [[mobile/05-state-and-architecture|state and architecture]] — the repository this sits under
 - [[mobile/08-networking-on-mobile|networking on mobile]]
 - [[databases/index|databases]] — SQLite is a real database, treat it as one

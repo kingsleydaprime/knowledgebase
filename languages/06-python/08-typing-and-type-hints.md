@@ -1,3 +1,7 @@
+---
+id: facc2278-28ea-43ed-9d49-af3dc8b85608
+---
+
 # Typing and Type Hints
 
 > **[Intermediate]** · Gradual typing — optional, unenforced at runtime, and the single biggest quality change available to a Python codebase over about a thousand lines.
@@ -14,6 +18,7 @@ def calculate_tax(amount: float, rate: float = 0.2) -> float:
 That's a genuine design choice rather than a half-measure: adoption is incremental, so you can annotate the parts that benefit and leave a script alone.
 
 ## The syntax
+<!-- bite: b68cb357-f723-4a23-bb73-c524d98d9be2 -->
 
 ```python
 from typing import Optional, Union, Any, Callable, TypeVar, Protocol
@@ -32,6 +37,7 @@ Older code uses `List[str]`, `Dict[str, int]`, `Optional[X]` and `Union[A, B]` f
 **`Optional[X]` means `X | None`, not "optional argument".** A parameter with a default is optional; one annotated `Optional` may be `None`. They're independent, and conflating them is the most common misreading of a signature.
 
 ## Why it pays
+<!-- bite: 700fe700-8136-4fdc-9c23-d7195cb56ce8 -->
 
 **It catches a real class of bug before running.** The most valuable is `None`:
 
@@ -51,6 +57,7 @@ That's the null-dereference bug, caught statically, in a dynamic language. In an
 **And they're how you read unfamiliar code fast.** A signature tells you what goes in and out without reading the body.
 
 ## The checkers
+<!-- bite: 5165794a-81b4-429e-9ba5-eab93d6a7b08 -->
 
 ```bash
 pip install mypy && mypy src/           # the reference implementation
@@ -68,6 +75,7 @@ pip install pyright                     # Microsoft's; powers VS Code's Pylance,
 **Do not turn on strict mode across a large untyped codebase.** You get thousands of errors, nobody triages them, and the tool gets removed — the same alert-fatigue failure as everywhere else → [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]].
 
 ## The features worth knowing
+<!-- bite: 5ee179e4-58fb-4333-b3c9-925408369ac2 -->
 
 **`TypeVar` and generics** — relate types to each other:
 
@@ -106,6 +114,7 @@ UserId = NewType("UserId", int)   # an int you can't accidentally pass a plain i
 **`Any` disables checking** for that value and spreads silently through your code. Use `object` when you mean "anything" and want to be forced to narrow it.
 
 ## Narrowing
+<!-- bite: 118a041d-cd24-4a10-8ee5-2556aa79ac48 -->
 
 Checkers follow control flow, which is what makes `| None` ergonomic rather than annoying:
 
@@ -119,6 +128,7 @@ def process(value: str | None) -> str:
 `isinstance()`, `is None`, truthiness checks and `assert` all narrow. **This is why `if x is None: return` early is better style than a big `else` block** — it narrows for the rest of the function.
 
 ## The honest limits
+<!-- bite: 4d074922-1ab6-4e9b-bef1-1b0f4ba6eb6c -->
 
 - **No runtime enforcement.** Data from an API, a file or a form is unchecked, whatever you annotated. Validate at the boundary — `pydantic` does this, and it's why FastAPI is built on it → [[backend/frameworks/python/01-fastapi/index|FastAPI]]
 - **Dynamic idioms resist typing.** Heavy `getattr`, monkey-patching and metaclasses fight the checker
@@ -128,6 +138,7 @@ def process(value: str | None) -> str:
 **Where the value is:** libraries, shared modules, anything a team touches, anything long-lived. **Where it isn't:** a 40-line script.
 
 ## Related
+<!-- bite: ebc51a16-e4e5-4268-8a01-7ccd8f5063ee -->
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — Protocol vs ABC
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — mypy in CI
 - [[programming-language-theory/04-type-systems-formally|type systems]] — the theory

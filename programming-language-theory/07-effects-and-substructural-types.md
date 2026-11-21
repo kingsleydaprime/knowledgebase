@@ -1,8 +1,13 @@
+---
+id: 4963b8dc-adcf-4d68-8a01-72bbf37d603e
+---
+
 # Effects and Substructural Types
 
 **[Advanced]** — Tracking what a program *does*, not just what it returns. Where Rust's borrow checker comes from, and where languages are going.
 
 ## The problem with types
+<!-- bite: 290263ee-5b12-4399-8cd4-fb104bdd64ef -->
 
 **A type says what a function returns. It usually says nothing about what it does on the way.**
 
@@ -13,6 +18,7 @@ int compute(int x)      // reads a file? writes a global? throws? blocks?
 **Effect systems make that visible in the type.**
 
 ## Effects
+<!-- bite: 0bc6c721-dbac-4385-925e-0ca72199171c -->
 
 $$e : \tau\ !\ \{\text{IO}, \text{Exn}, \text{State}\}$$
 
@@ -29,6 +35,7 @@ $$e : \tau\ !\ \{\text{IO}, \text{Exn}, \text{State}\}$$
 **`const` in C++, `pure` in D, Rust's `unsafe`** — all effect annotations.
 
 ## Algebraic effects
+<!-- bite: d50a7374-7972-41d6-a586-24c7fa773517 -->
 
 **The modern approach, and the one worth watching.**
 
@@ -68,6 +75,7 @@ run program
 > **The realistic prediction: algebraic effects are where async/await was in 2010** — well understood in research, appearing in one or two production languages, and likely mainstream within a decade.
 
 ## Substructural types
+<!-- bite: 46a70672-f9cd-4ba2-9c91-239079b3ae68 -->
 
 **The other half of this note, and the one that already shipped.**
 
@@ -89,6 +97,7 @@ run program
 | Ordered | exactly once, in order |
 
 ## Rust is affine types
+<!-- bite: 69cd419c-0d88-439e-abfd-e778f3339d89 -->
 
 **The mainstream success story of this whole domain.**
 
@@ -119,6 +128,7 @@ println!("{}", s);      // compile error
 **Elsewhere:** Haskell has `LinearTypes`; C++'s move semantics and `unique_ptr` are affine-ish **without compiler enforcement** — which is exactly why use-after-move is a real C++ bug and a compile error in Rust.
 
 ## Session types
+<!-- bite: 5e26f3ef-f41b-4c8c-beed-78d6f8130ccd -->
 
 **Types for *protocols*.**
 
@@ -138,6 +148,7 @@ Server = ?Request . !Response . end      -- the dual
 **Still mostly research**, and the ideas are seeping in — typestate patterns in Rust (encoding a state machine in the type so invalid transitions don't compile) are session types in a different dress.
 
 ## Ownership beyond Rust
+<!-- bite: fdae4675-fe64-49b6-a286-10b6f442294d -->
 
 **The problem is general, and other languages are attacking it:**
 
@@ -154,6 +165,7 @@ Server = ?Request . !Response . end      -- the dual
 > **The pattern across all of them: memory safety without garbage collection**, and every approach is some form of restricting aliasing. **The GC-vs-manual dichotomy that defined systems programming for decades is being dissolved by type systems**, which is the most consequential thing happening in language design right now.
 
 ## Where the field is going
+<!-- bite: a1bb0d69-610d-4926-b134-49ce1ce1cc8c -->
 
 **An honest forecast, since this is the last note:**
 
@@ -178,6 +190,7 @@ Server = ?Request . !Response . end      -- the dual
 ---
 
 ## Related
+<!-- bite: dbcb141c-13cd-42de-bda0-666f1986c321 -->
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — affine types in production
 - [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — the foundations
 - [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — types as specifications

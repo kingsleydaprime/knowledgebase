@@ -1,8 +1,13 @@
+---
+id: 82bca27d-f5e4-449b-8331-6c81ddf03b02
+---
+
 # Ethical Hacking — Practice Exercises
 
 > Goal-only tasks, no walkthroughs — same format as the [[devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA practice exercises]]. You're told the objective, not the commands; a real engagement doesn't hand you the payload either. Run every one of these against the lab built in [[05-home-lab-setup|home-lab-setup]] — **never against anything you don't own or don't have explicit written authorization to test**, per [[01-rules-of-engagement-and-legal|rules-of-engagement-and-legal]].
 
 ## How to use this
+<!-- bite: d7260f76-3447-4f59-a28a-c1574fe93a30 -->
 
 - Snapshot the relevant target VM before each exercise. Several of these are meant to leave the target in a broken/compromised state — that's the point, and you revert after, not before.
 - Try to complete each task using the concepts in [[07-exploitation-concepts|exploitation-concepts]] and the tools in [[08-common-tools|common-tools]] *before* looking up a specific walkthrough for that exact CVE — the goal is transferable skill, not memorizing one target's specific solution.
@@ -12,6 +17,7 @@
 ---
 
 ## Reconnaissance & Scanning
+<!-- bite: 69ca3bf7-75e7-4dec-8334-44383fb39190 -->
 
 1. Against Metasploitable2, determine every open TCP port and identify the service + version running on each, without yet trying to exploit anything.
    **Verify:** you have a written list of port → service → version for at least 10 open ports.
@@ -25,6 +31,7 @@
 ---
 
 ## Exploitation — Network Services
+<!-- bite: 14d92fd2-e7ef-4bf6-ab7a-807fa0e5068d -->
 
 4. Gain a remote shell on Metasploitable2 using one of the vulnerabilities identified in exercise 2, via a purpose-built exploitation framework rather than hand-writing an exploit.
    **Verify:** a working shell with `whoami` returning a result, and you can state which specific CVE/vulnerability you used.
@@ -38,6 +45,7 @@
 ---
 
 ## Password & Credential Testing
+<!-- bite: 22d5606c-29d6-4e12-8965-4d67d9a84054 -->
 
 7. Metasploitable2 has at least one service accepting weak/default credentials over the network directly (not a hash to crack — a live login attempt). Find it and demonstrate a successful login using a wordlist-based attack, not a guessed password.
    **Verify:** a successful authenticated session, plus the specific username/password pair the attack found.
@@ -48,6 +56,7 @@
 ---
 
 ## Web Application Testing (DVWA)
+<!-- bite: 35b8a83b-fd08-41fa-b4b8-5451b0a96b4b -->
 
 9. At DVWA's **Low** security setting, find and demonstrate a SQL injection that extracts data the application was never meant to return (e.g., every username and password hash in the database), first by hand in the browser/Burp before reaching for an automated tool.
    **Verify:** actual extracted data, plus the specific injected input that caused it.
@@ -67,6 +76,7 @@
 ---
 
 ## Wireless (requires the external adapter from [[04-lab-setup-and-os-choice|lab-setup-and-os-choice]])
+<!-- bite: 6086e344-a03c-4c7a-bf6c-36ed384282fb -->
 
 14. Against a WiFi network you own and control, capture a WPA2 4-way handshake and crack the pre-shared key offline using a wordlist you know contains it (i.e., prove the pipeline works before testing against an unknown/strong password).
     **Verify:** the recovered key matches the network's actual configured password.
@@ -77,6 +87,7 @@
 ---
 
 ## Reporting
+<!-- bite: 02015962-d854-45ba-b318-48416f18e1cb -->
 
 16. Take exercises 4–13 (whichever you completed) and write them up as a short-form finding report: what was found, how it was found, actual demonstrated impact, and a concrete remediation for each — structured the way [[09-post-exploitation-and-reporting|post-exploitation-and-reporting]] describes, not just a command transcript.
     **Verify:** someone who wasn't in the room could read the report and understand exactly what's broken and how to fix it, without needing you to explain it verbally.
@@ -84,5 +95,6 @@
 ---
 
 ## Hosted platforms — once the lab exercises feel routine
+<!-- bite: 4544858e-bd43-469c-a5ef-b8515fcc6817 -->
 
 [[08-common-tools|common-tools]] already points at **HackTheBox** and **TryHackMe** for legally-sanctioned targets beyond your own lab. The natural next step after this file: pick one beginner-track machine/room per category above (a "starting point" HTB box, a TryHackMe web-focused room) and repeat the same exercises against a target you didn't build yourself — that's the real test of whether the skill transferred or whether you'd just memorized Metasploitable2 and DVWA specifically.

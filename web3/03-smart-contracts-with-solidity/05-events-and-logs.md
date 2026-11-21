@@ -1,20 +1,27 @@
+---
+id: 6b77f169-478a-44a8-8c89-11d6e3fb63a0
+---
+
 # Events and Logs
 
 **[Intermediate]** — the write-only side channel that every frontend, indexer and block explorer depends on.
 
 ## The kid version first
+<!-- bite: 92e4c9a2-7dee-4be9-b9b5-030f52c888e7 -->
 
 Storage is the filing cabinet: expensive, and your contract can read it. **Events are shouting out the window**: cheap, permanently recorded, and **your contract can never hear its own shout.**
 
 Anything the outside world needs to know but your code never needs to re-read should be shouted, not filed.
 
 ## Why they exist
+<!-- bite: 1e057b61-679c-490c-a961-048bb37f2fc1 -->
 
 Storage costs 20,000 gas per slot and burdens every node forever. Logs cost ~375 gas plus 8 per byte, and — crucially — **are not part of the state trie.** They live in transaction receipts, committed by the receipts root in the block header.
 
 That's the trade: **~50× cheaper, at the cost of being unreadable from inside the EVM.** There is no `LOAD_LOG` opcode and there never will be, because logs aren't state.
 
 ## Syntax and the indexing rule
+<!-- bite: c9d097c3-7385-4757-86cc-723bda2a5375 -->
 
 ```solidity
 event Transfer(address indexed from, address indexed to, uint256 value);
@@ -42,6 +49,7 @@ data   = all non-indexed params, ABI-encoded together
 **Anonymous events** (`event X() anonymous`) drop topic0, freeing a fourth indexed slot and saving a little gas, at the cost of being unfilterable by name. Rare, and mostly seen in heavily gas-optimised code.
 
 ## What events are actually for
+<!-- bite: fffd357c-b22f-4b84-8497-a33dd95b2ff3 -->
 
 **1. Frontends.** You cannot subscribe to a storage variable. `eth_subscribe("logs", filter)` on events is how a UI learns something happened → [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading chain state]].
 
@@ -52,6 +60,7 @@ data   = all non-indexed params, ABI-encoded together
 **4. Debugging.** Emit around suspect logic; the receipt shows the trace. Foundry's `console.log` is nicer during development but doesn't exist on a live chain.
 
 ## The bloom filter, and why `eth_getLogs` is slow
+<!-- bite: f29d9805-ba57-449b-9618-3305e1f0538c -->
 
 Each block header holds a **2048-bit bloom filter** over its logs' addresses and topics. A node checks the bloom to skip blocks that definitely contain no match.
 
@@ -64,6 +73,7 @@ Blooms have **false positives, never false negatives** — so a hit means "maybe
 This is a genuine architectural constraint, and discovering it late is a common cause of rewrites → [[web3/06-building-dapps/04-indexing-and-events|indexing]].
 
 ## Reorg safety — the part that bites in production
+<!-- bite: 233566f1-2e96-4d8f-995f-ecbbab0fb5ea -->
 
 **Logs from a reorged-away block are gone**, and any consumer must handle it. `eth_getLogs` results carry a `removed: true` flag for exactly this, and most naive indexers ignore it.
 
@@ -75,6 +85,7 @@ block 100 reorged out → the log never happened → the credit is now fabricate
 The correct patterns are **wait for N confirmations before acting** (simple, adds latency) or **track block hashes and roll back on mismatch** (correct, more work). The `finalized` block tag from the consensus layer gives an authoritative answer at ~13 minutes on Ethereum.
 
 ## Conventions worth following
+<!-- bite: 43c1fa11-6f2d-440d-b5e2-0039f4199397 -->
 
 - **Emit on every state change.** Silent mutations are invisible to every off-chain consumer, and auditors flag them
 - **Emit *after* the effect**, at the end of the function, so a revert never leaves a misleading log — though since reverts discard logs entirely, this is about readability more than correctness
@@ -82,10 +93,12 @@ The correct patterns are **wait for N confirmations before acting** (simple, add
 - **Follow the standards exactly.** ERC-20's `Transfer` and `Approval` signatures are what every wallet and explorer watches for. A token that doesn't emit them is invisible to the ecosystem, even if it otherwise works
 
 ## Key insight
+<!-- bite: 0a90e592-fbe6-43b7-bda1-6162b0810b57 -->
 
 **Events are the chain's only push mechanism, and the only affordable way to record history.** Contracts write them and can never read them — which makes the indexed/non-indexed decision permanent and consequential, because it determines what questions anyone will ever be able to ask about your contract's past.
 
 ## Related
+<!-- bite: dce4dead-808c-4d22-b389-82dee6af3ff6 -->
 - [[web3/06-building-dapps/04-indexing-and-events|indexing and events]] — the consumer side
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]] — logs vs storage as a design tool
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — the LOG opcodes

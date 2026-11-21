@@ -1,3 +1,7 @@
+---
+id: 1f862f6f-2457-4435-85c3-f0ee5991d76b
+---
+
 # Module: Divide and Conquer (Split, Solve, Combine — and the Combine Is Everything)
 
 **[Intermediate]** — [[02-recursion-trees-and-recurrences|Recursion trees]] and [[03-the-master-theorem|the Master Theorem]] taught you to *analyse* a recurrence someone handed you. This lesson is the other direction: **choosing $a$, $b$ and $f(n)$ deliberately, because you are designing the algorithm.**
@@ -7,6 +11,7 @@ The headline: split the problem, solve the pieces recursively, combine the answe
 ---
 
 ## Before you start
+<!-- bite: f5b48e00-5223-4ab2-b3e6-53def5a0ef81 -->
 
 - You can write a recursive function and identify its base case — [[01-recursion-fundamentals|recursion fundamentals]].
 - You can turn code into $T(n) = a\,T(n/b) + f(n)$ and solve it — [[02-recursion-trees-and-recurrences|recursion trees]], [[03-the-master-theorem|the Master Theorem]].
@@ -24,6 +29,7 @@ The headline: split the problem, solve the pieces recursively, combine the answe
 ---
 
 ## 1. Why this exists: the combine step is the algorithm
+<!-- bite: e9c014b8-cff2-4ab3-9b21-a00a02a20142 -->
 
 Everyone can state the pattern: **divide** the problem into smaller instances, **conquer** them recursively, **combine** their answers. Stated that way it sounds like a slogan rather than a technique.
 
@@ -44,6 +50,7 @@ You chose all three of those. **The algorithm design question is not "should I u
 ---
 
 ## Terms used in divide and conquer
+<!-- bite: a6bbde73-e9d1-483c-9a02-f2df18a8176b -->
 
 1. **Divide and conquer**: This is a design technique in which a problem is split into **independent** subproblems of the same kind, solved recursively, and their results combined into an answer for the whole.
 2. **Divide step**: This is how the input is split. Usually trivial — halve an array, split a number's digits — and its cost is part of $f(n)$.
@@ -56,6 +63,7 @@ You chose all three of those. **The algorithm design question is not "should I u
 ---
 
 ## 2. The catalogue, organised by combine cost
+<!-- bite: dfbe5d0f-ef70-4d90-ad37-2c0817d7aa51 -->
 
 The lab prints this table, and it is the lesson in one screen:
 
@@ -77,6 +85,7 @@ The lab prints this table, and it is the lesson in one screen:
 ---
 
 ## 3. Counting inversions: getting the combine for free
+<!-- bite: 085f708e-eaa2-41ad-8e01-31be0c301d9d -->
 
 An **inversion** is a pair $(i, j)$ with $i < j$ and $a_i > a_j$ — a pair out of order. The count measures how unsorted a list is, and it is used in rank correlation statistics and in collaborative filtering.
 
@@ -107,6 +116,7 @@ The lab verifies it against brute force and times both:
 ---
 
 ## 4. When divide and conquer is the wrong tool
+<!-- bite: b3cc9cca-be60-41a4-9c89-d3a2d31e85f6 -->
 
 > **Predict before reading on.** Maximum subarray sum has a clean divide-and-conquer solution: the best subarray lies entirely in the left half, entirely in the right half, or crosses the middle — and the crossing case is two linear scans. That gives $T(n) = 2T(n/2) + O(n) = O(n\log n)$. **Is this a good algorithm for the problem?**
 
@@ -142,6 +152,7 @@ Do **not** reach for it when:
 ---
 
 ## 5. Reducing $a$: where the famous algorithms live
+<!-- bite: 7f4650ce-1e56-4aae-bc42-c25d3a94dcc9 -->
 
 Splitting an $n$-digit multiplication into halves gives four sub-products the obvious way:
 
@@ -174,6 +185,7 @@ The lab counts base multiplications:
 ---
 
 ## 6. Worked example — complete runnable lab
+<!-- bite: 8f5a9527-11b7-430e-9687-fed9cd9b5519 -->
 
 Save as `divide_conquer.py`. Standard library only. **The counts are exact and will reproduce; the timing columns are machine-dependent and yours will differ.**
 
@@ -456,6 +468,7 @@ From one run on the author's machine. The count columns reproduce exactly; the s
 ---
 
 ## 7. Common pitfalls and traps
+<!-- bite: 65ec2529-d636-4146-b799-e9fa7580c9fa -->
 
 1. **Using it when subproblems overlap.** If two branches solve the same instance, you are recomputing — memoise and you are in [[15-dynamic-programming|dynamic programming]]. Naive Fibonacci is $T(n) = T(n{-}1) + T(n{-}2)$ and is exponential for exactly this reason.
 2. **Forgetting the split cost.** `arr[:mid]` copies. A merge sort written with slices does $O(n)$ extra work *and* allocates $O(n\log n)$ total memory. Pass indices instead.
@@ -469,6 +482,7 @@ From one run on the author's machine. The count columns reproduce exactly; the s
 ---
 
 ## 8. Check your understanding
+<!-- bite: bcb90112-e5a8-4b95-892d-6f35075ed2ae -->
 
 1. **Merge sort and a binary-tree traversal both satisfy $a = 2$, $b = 2$. Why is one $O(n\log n)$ and the other $O(n)$?**
    <details><summary>Answer</summary>The combine step. Traversal combines with $O(1)$ work — usually one addition — giving $T(n) = 2T(n/2) + O(1)$, which is Master Theorem Case 1: leaves dominate, $\Theta(n)$. Merge sort's merge is $O(n)$, giving Case 2: every level does $\Theta(n)$ work across $\log n$ levels, $\Theta(n\log n)$. Same split, different combine, different answer.</details>
@@ -488,6 +502,7 @@ From one run on the author's machine. The count columns reproduce exactly; the s
 ---
 
 ## 9. Practice — independent task
+<!-- bite: 1e350489-395a-48d1-9312-84f08ad40e78 -->
 
 Design divide-and-conquer solutions to problems you have not been given the split for.
 
@@ -512,6 +527,7 @@ Design divide-and-conquer solutions to problems you have not been given the spli
 ---
 
 ## Before moving on
+<!-- bite: d5146b55-95a5-46ea-97a7-28bc029b6810 -->
 
 You can name the three steps and say which dominates; design a split and a combine and predict the complexity before writing code; explain why reducing $a$ beats reducing $f(n)$; and recognise when the technique is applicable but wrong.
 
@@ -522,6 +538,7 @@ You can name the three steps and say which dominates; design a split and a combi
 ---
 
 ## Related
+<!-- bite: 38757554-4ed3-4684-bcb1-09165638fa76 -->
 
 - [[02-recursion/index|Recursion]] — the folder this depends on: fundamentals, recursion trees, the Master Theorem
 - [[03-the-master-theorem|The Master Theorem]] — how to price a split and combine before writing it

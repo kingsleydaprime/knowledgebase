@@ -1,8 +1,13 @@
+---
+id: e45052f9-a5b5-4ce8-86ba-d55e1377eead
+---
+
 # Sine and Cosine Rules
 
 **[Intermediate]** — solving triangles that have no right angle, and the one case where the data does not determine the answer.
 
 ## Before you start
+<!-- bite: ada713d2-bcec-4639-a918-3d631fd6defb -->
 
 - You know the ratios and can drop a perpendicular to create right triangles — [[01-ratios-and-right-triangles|trigonometric ratios]].
 - You know that $\sin(180° - \theta) = \sin\theta$ — [[02-graphs-and-identities|graphs and identities]]. This identity is the entire source of the ambiguous case.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: d70c49bc-b9bb-41d8-b369-d8d84234b340 -->
 
 SOH-CAH-TOA requires a right angle. Most triangles do not have one.
 
@@ -28,6 +34,7 @@ A surveyor measuring across a river cannot choose the triangle's shape — the l
 The two rules below extend trigonometry to every triangle. Both are proved by the same trick: **drop a perpendicular to manufacture right triangles**, then eliminate it.
 
 ## 2. The sine rule
+<!-- bite: 7fde465e-581b-4b78-a91e-b47d30a1ef73 -->
 
 **Claim:**
 
@@ -69,6 +76,7 @@ This follows from the central angle theorem: the chord $a$ subtends angle $A$ at
 **Use it when you know:** two angles and any side (ASA, AAS), or two sides and a non-included angle (SSA — with care).
 
 ## 3. The cosine rule
+<!-- bite: 99680a3f-92de-42c3-8ba7-242430acc232 -->
 
 **Claim:**
 
@@ -119,6 +127,7 @@ $$
 The sign of the numerator alone classifies the angle — positive means acute, zero right, negative obtuse. That is the classification test from the [[02-triangles-and-polygons|triangles]] practice task, and it needs no inverse cosine at all.
 
 ## 4. Which rule, and area
+<!-- bite: 983eeac1-52cb-4dee-917d-3e3e31648a35 -->
 
 | You know | Use | Notes |
 | :--- | :--- | :--- |
@@ -145,6 +154,7 @@ Heron's formula follows from the previous one by substituting $\sin A = \sqrt{1 
 > **Predict before section 5.** You are given $A = 30°$, $a = 5$, $b = 8$. The sine rule gives $\sin B = \frac{b\sin A}{a} = 0.8$, so $B = 53.13°$. Is that the answer? What else satisfies $\sin B = 0.8$, and does it produce a valid triangle? Decide before opening the answers.
 
 ## 5. The ambiguous case, resolved
+<!-- bite: 8a9dd27e-afa7-43a8-a118-3cc7e1c0ae11 -->
 
 Given SSA — angle $A$, opposite side $a$, adjacent side $b$ — the sine rule gives:
 
@@ -166,6 +176,7 @@ The deciding comparison is $a$ against $b$: the side **opposite** the known angl
 This is not a defect of the sine rule. It is the data being genuinely insufficient, which is exactly why SSA is absent from the congruence criteria.
 
 ## Worked example — runnable
+<!-- bite: 0d341805-45f6-4af2-b95f-f46746677b8d -->
 
 **Runnable example:** save as `triangle_rules.py` in any empty directory and run `python3 triangle_rules.py`. Standard library only; writes no files.
 
@@ -319,6 +330,7 @@ triangle_rules: passed
 Block 4 walks the whole table in section 5. Note the third case returns an empty list rather than raising or returning a nonsense triangle — "no triangle exists" is a correct answer, and a solver that hides it is worse than one that says so.
 
 ## Common pitfalls and traps
+<!-- bite: 839a7d32-e01e-44a9-abf9-96e526d2930f -->
 
 - **Taking the calculator's $\sin^{-1}$ as the only answer.** This is the ambiguous case, and it is the single biggest source of lost marks in this topic. Always ask whether $180° - B$ also works.
 - **Using the sine rule when the cosine rule is needed.** With SAS, the sine rule has two unknowns in one equation and cannot start. Check what you know before choosing.
@@ -328,6 +340,7 @@ Block 4 walks the whole table in section 5. Note the third case returns an empty
 - **Forgetting to check $A + B < 180°$.** A candidate angle from the sine rule is only a triangle if a positive third angle remains.
 
 ## Check your understanding
+<!-- bite: 33306b14-285d-4947-865b-fb65c2bbe071 -->
 
 1. In triangle $ABC$, $A = 40°$, $B = 75°$ and $a = 12$. Find $b$.
 2. In triangle $PQR$, $p = 7$, $q = 9$ and $R = 52°$. Find $r$.
@@ -347,6 +360,7 @@ Block 4 walks the whole table in section 5. Note the third case returns an empty
 </details>
 
 ## Practice — independent task
+<!-- bite: a5b41a97-ceca-4d12-ac74-19752274711c -->
 
 Implement `solve_triangle(**known)` accepting any three of $a, b, c, A, B, C$ and returning **every** consistent triangle.
 
@@ -361,6 +375,7 @@ Implement `solve_triangle(**known)` accepting any three of $a, b, c, A, B, C$ an
 **Done when:** all five SSA rows from section 5's table return the predicted count, your coordinate cross-check passes for at least ten triangles, and you can state what your function does with AAA and why that is the right behaviour.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: eef4dca7-ac0f-4ca9-8c11-54c1522af1b2 -->
 
 **Numerical stability is a real concern here.** `acos` is ill-conditioned near $\pm 1$: its derivative is unbounded, so a tiny error in the cosine becomes a large error in the angle for angles near $0°$ or $180°$. For thin triangles, an implementation based on `atan2` is considerably more accurate. The lab clamps to $[-1, 1]$ before calling `acos`, which prevents a domain error from rounding, but clamping hides the underlying loss of precision rather than fixing it.
 
@@ -371,6 +386,7 @@ avoids the cancellation that the textbook form suffers on thin triangles. Kahan'
 **Beyond the plane.** On a sphere both rules have analogues — the spherical sine and cosine rules — with the sides measured as angles rather than lengths. The spherical cosine rule is what [[01-latitude-and-longitude|latitude and longitude]] uses to compute great-circle distances.
 
 ## Before moving on
+<!-- bite: 9ec71550-6d60-435b-9f6a-07d118ab5b06 -->
 
 You are done with this lesson when you can:
 
@@ -384,6 +400,7 @@ You are done with this lesson when you can:
 **Next:** [[04-bearings|Bearings]] — these rules applied to navigation, where the angles are measured from north and the triangles are journeys.
 
 ## Related
+<!-- bite: f2934dc8-e74e-4e9a-9626-2f38687c3cab -->
 
 - [[02-triangles-and-polygons|Triangles and Polygons]] — where SSA was first rejected as a congruence criterion
 - [[02-graphs-and-identities|Graphs and Identities]] — the supplement identity that causes the ambiguity

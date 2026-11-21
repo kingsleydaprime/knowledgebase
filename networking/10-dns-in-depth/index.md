@@ -7,6 +7,7 @@ id: 7e34fa52-e542-4878-940c-c7c4e1ebef84
 **[Intermediate]** — The internet's naming system, and the single most common root cause of "the site is down". It's worth real study for one reason: **DNS is a globally distributed, eventually consistent, aggressively cached database that everything depends on and almost nobody monitors.** This lesson builds a DNS query byte by byte, runs a tiny DNS server that Node's own resolver queries, walks the resolution chain from the root, and puts numbers on caching: a migration done in the wrong order, a name that stays missing after you create it, and the four queries a Kubernetes pod sends for one lookup. The lab runs entirely on your machine.
 
 ## Before you start
+<!-- bite: f76fd71f-ede6-49ca-8f77-17226b42549f -->
 
 You can already:
 
@@ -24,6 +25,7 @@ After this lesson you will be able to:
 **Study route:** sections 1–4 cover how a lookup works. Stop at the predictions in sections 3, 5 and 7 and try them before reading on. Section 9 is the lab. This week's "by Sunday" task, *what happens when I type google.com?*, starts here: write your answer before reading this lesson, and again after all three.
 
 ## The kid version first
+<!-- bite: d75ddad5-7f5a-49b7-9248-81c214588a09 -->
 
 You know your friend's *name* but not their *house number*, so you ask someone.
 
@@ -37,10 +39,12 @@ Each office only knows **who to ask next**, not the answer, exactly like [[netwo
 **Where the analogy stops working.** A shopkeeper would cross out an address they heard had changed. A DNS cache won't: it keeps serving what it wrote down until the time limit runs out, and nobody can tell it otherwise. That "writes it down for a while" is the source of nearly every DNS problem you'll ever have.
 
 ## 1. Why this exists
+<!-- bite: 336e66e8-7c24-422e-948a-4286273a1546 -->
 
 The shop is moving its servers to a new provider on Saturday. The plan: start the new servers, change the DNS record to point at them, switch off the old ones. On Saturday afternoon, half the customers still reach the old address, which is now switched off, and they will for up to a day. A colleague who checked the new subdomain on Friday, before it was created, still gets "no such site" on Monday. And the shop's own Kubernetes services make four DNS queries for every lookup of an external API. None of this is a bug in DNS; it's DNS doing exactly what it was designed to do. This lesson is about knowing what that is before Saturday.
 
 ## Terms used in this lesson
+<!-- bite: f7474428-b2c2-429c-9f08-6e667a074a6d -->
 
 1. **DNS (Domain Name System)**: The letters stand for those words. It's the distributed system that turns names like `example.com` into IP addresses and other data.
 2. **Record**: This is one piece of DNS data: a name, a type (such as `A` for an IPv4 address), a TTL, and a value.
@@ -56,6 +60,7 @@ The shop is moving its servers to a new provider on Saturday. The plan: start th
 12. **Anycast**: This is announcing the same IP address from many places, so each packet reaches the nearest one.
 
 ## 2. The resolution walk
+<!-- bite: 618d9b48-69ef-477b-b428-37485a7889d2 -->
 
 ```
 browser → stub resolver (OS) → recursive resolver (ISP / 8.8.8.8 / 1.1.1.1)
@@ -75,6 +80,7 @@ Two words to keep straight, because interviewers love this one:
 **Root servers** are the 13 *named* root servers, `a.root-servers.net` to `m.root-servers.net`, a limit set by what fitted in a 512-byte UDP packet, not by the number of machines. There are well over 1,000 physical instances, reachable because each name is announced by **[[networking/04-routing|anycast]]** from many locations. Your query goes to the nearest.
 
 ## 3. What the cache saves
+<!-- bite: 5ddbd6f4-cbbf-4a8d-a212-2de6cf9172c2 -->
 
 A resolver caches not only answers but delegations: "the `.com` servers are these", "`example.com`'s servers are those".
 
@@ -88,6 +94,7 @@ A resolver caches not only answers but delegations: "the `.com` servers are thes
 </details>
 
 ## 4. A DNS message, byte by byte
+<!-- bite: 94fed602-9142-474b-a3eb-143824e00031 -->
 
 Every DNS message, question or answer, has the same shape:
 
@@ -107,6 +114,7 @@ To save space, a name in a reply can be a **pointer**: two bytes starting with t
 The lab builds queries this way, sends them over UDP to its own tiny authoritative server, and parses the replies. Asking for `www.example.com` returns two answers: a `CNAME` to `example.com` with a TTL of 3,600, and `example.com`'s `A` record with a TTL of 300. Node's own resolver, pointed at the same server, gets the same answer.
 
 ## 5. Record types worth knowing
+<!-- bite: 7b50a47b-9a9c-4dce-998d-8dbdcb8f48f5 -->
 
 | Record | Maps | Notes |
 |---|---|---|
@@ -121,6 +129,7 @@ The lab builds queries this way, sends them over UDP to its own tiny authoritati
 | **SOA** | zone metadata | serial, refresh, and the **negative-caching TTL** |
 
 ## 6. TTL and caching: where the pain lives
+<!-- bite: 37198043-2fed-4655-aa5b-ab505df3dd64 -->
 
 Every record carries a **TTL**. Resolvers cache it for that long and won't ask again, whatever you do. **You can't revoke a DNS answer.** Once it's out, it's out until the TTL expires.
 
@@ -140,6 +149,7 @@ The operational discipline that follows:
 - **Nothing respects TTLs perfectly.** Browsers cache separately from the operating system, which caches separately from the resolver, and some resolvers clamp TTLs to their own minimums. Plan for "roughly", never "exactly".
 
 ## 7. Transport: UDP first
+<!-- bite: 9b870272-1c78-4c1d-8dce-15996932063c -->
 
 DNS uses **UDP port 53**, falling back to TCP when the response is too big: 512 bytes classically, or up to about 4,096 when both sides support **EDNS0**. A reply that didn't fit sets the `TC` bit, telling the client to ask again over TCP. In the lab, a name with 40 addresses (about 1 KB of answers) comes back with `TC` set and no answers.
 
@@ -155,6 +165,7 @@ Two consequences: **zone transfers** (`AXFR`) always use TCP, and firewalls that
 </details>
 
 ## 8. Security, and why DNS causes so many outages
+<!-- bite: 5762b160-f246-46e3-bbde-66fcca7ad781 -->
 
 DNS was designed in 1983 with **no authentication whatsoever**. A resolver believes whatever answer arrives with a matching query ID and port:
 
@@ -171,6 +182,7 @@ DNS causes outages because it's a dependency of *everything*, is cached invisibl
 - **It's a single point of failure you don't own.** The 2016 Dyn DDoS took down Twitter, GitHub, Netflix and Reddit at once, none of which was attacked itself. Use two DNS providers if uptime genuinely matters.
 
 ## 9. The lab: DNS on your own machine
+<!-- bite: 97a43d09-2d7d-4fd1-a804-ae7ae3e8050c -->
 
 `dns.ts` builds and parses DNS messages, runs a tiny authoritative server over UDP on 127.0.0.1, models the iterative walk with delegation caching, models a caching resolver with a clock, and lists search-list candidates. `dns.test.ts` checks every number in this lesson, including a lookup through Node's built-in resolver, pointed at the lab's server.
 
@@ -532,6 +544,7 @@ test("ndots:5 turns one lookup into four queries; a trailing dot makes it one", 
 **Lab:** the code is in [`networking/10-dns-in-depth/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/networking/10-dns-in-depth/labs/typescript). From the vault root, `python3 labs/run.py dns-in-depth/typescript` runs the tests and checks this page still shows the same code. Inside the folder, `node --test` runs them alone. Expect eight passing tests in well under a second. Nothing leaves your machine.
 
 ## Common pitfalls
+<!-- bite: 6d739ee7-8a55-469b-9eca-7b7735c483a3 -->
 
 1. **Changing a record without lowering its TTL first.** Clients keep the old answer for the old TTL.
 2. **Testing a new name before creating it.** You've cached its NXDOMAIN for the negative TTL.
@@ -542,6 +555,7 @@ test("ndots:5 turns one lookup into four queries; a trailing dot makes it one", 
 7. **One DNS provider for a service that must stay up.**
 
 ## Check your understanding
+<!-- bite: fe547a34-f951-4d2b-929a-03b07ba74e7d -->
 
 1. What's the difference between the recursive query your laptop sends and the iterative queries its resolver sends?
 2. A resolver has just looked up `www.example.com`. Which servers does it ask for `mail.example.com`, and why not the root?
@@ -563,6 +577,7 @@ test("ndots:5 turns one lookup into four queries; a trailing dot makes it one", 
 </details>
 
 ## Practice — independent task
+<!-- bite: 32e9e445-f8b0-40ea-bd61-c8283cee5c63 -->
 
 **Watch real DNS with `dig`.**
 
@@ -576,12 +591,14 @@ test("ndots:5 turns one lookup into four queries; a trailing dot makes it one", 
 **Done when:** you have the `+trace` output annotated with the three steps, the decreasing TTL explained in one sentence, a negative TTL found, and the purpose of every `TXT` and `CAA` record you found.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: bb69e1ff-9c88-4a54-b42e-73aff079e672 -->
 
 - **The lab's server is authoritative only.** It doesn't recurse, cache, or answer over TCP. Real resolvers (Unbound, BIND, CoreDNS) do all three.
 - **TTLs are a staleness bound, not a schedule.** Some resolvers and clients ignore or clamp them; measure with `dig` against several public resolvers after a change.
 - **DNS-based service discovery** (Consul, Kubernetes) uses short TTLs and its own resolvers, accepting more queries for faster change.
 
 ## Before moving on
+<!-- bite: 0c1de116-5b47-4f6b-a36e-7030be882e9a -->
 
 You can trace a lookup and say which steps the cache skips, read a DNS message, plan a change around TTLs and negative caching, and recognise the classic DNS failures.
 
@@ -590,6 +607,7 @@ You can trace a lookup and say which steps the cache skips, read a DNS message, 
 **Next.** [[networking/11-http-evolution/index|HTTP and its evolution]]: what travels over the connection once the name is resolved.
 
 ## Related
+<!-- bite: ae4f1084-4a1f-4a0d-b8bc-575f93bfb3b3 -->
 
 - [[networking/04-routing|Routing]]: anycast, which DNS depends on
 - [[networking/15-network-performance|Network performance]]: DNS as the first round trip

@@ -1,8 +1,13 @@
+---
+id: dec9bd9d-4e5a-4b4e-bad9-2ff1160e2134
+---
+
 # Gravity and Relativity
 
 > **[Intermediate → Advanced]** · Newton, Einstein, and the objects where the difference stops being academic.
 
 ## Newton, and where he still works
+<!-- bite: 03088d1d-080b-4098-bed2-5b05e51f17e6 -->
 
 $$F = G\frac{m_1 m_2}{r^2}$$
 
@@ -11,6 +16,7 @@ $$F = G\frac{m_1 m_2}{r^2}$$
 **It is also, strictly, wrong** — and the first place it visibly failed was Mercury.
 
 ## General relativity
+<!-- bite: 4b19da35-4927-49de-82c2-3d92ff47d82f -->
 
 Einstein's reframing: **gravity is not a force. Mass and energy curve spacetime, and objects follow the straightest available paths through that curved geometry.**
 
@@ -29,6 +35,7 @@ Wheeler's summary is the one to keep: *spacetime tells matter how to move; matte
 **Gravitational waves** — predicted 1916, **detected 2015** by LIGO from two merging black holes. The signal moved the detector mirrors by a fraction of a proton's width. It opened an entirely new observational channel.
 
 ## Black holes
+<!-- bite: 6037109b-2e74-432c-bb05-ed272b7f0746 -->
 
 **A region where escape velocity exceeds the speed of light.** Not a hole and not a vacuum cleaner — **a black hole with the Sun's mass would leave Earth's orbit unchanged.**
 
@@ -47,6 +54,7 @@ Wheeler's summary is the one to keep: *spacetime tells matter how to move; matte
 **Hawking radiation** — quantum effects near the horizon should make black holes evaporate, slowly. **A stellar-mass black hole would take ~10⁶⁷ years**, so it is entirely unobserved and remains theoretical. It also generates the **information paradox**, which is unresolved and is one of the sharpest known conflicts between GR and quantum mechanics.
 
 ## Neutron stars
+<!-- bite: ba6275ea-8c17-4830-8d23-4b51dc3b9680 -->
 
 **What's left when a core collapses but stops short of a black hole.** Roughly 1.4–2 M☉ compressed into ~20 km.
 
@@ -57,6 +65,7 @@ Wheeler's summary is the one to keep: *spacetime tells matter how to move; matte
 **They are also physics laboratories we cannot build.** Neutron-star matter is denser than an atomic nucleus, and its equation of state is genuinely unknown — constrained by measuring masses and radii, and now by gravitational waves from mergers.
 
 ## Where GR is still open
+<!-- bite: 0d601fde-841e-4a85-85d2-6ae017032d4c -->
 
 **Two genuinely unsolved problems**, and both are honest:
 
@@ -67,6 +76,7 @@ Wheeler's summary is the one to keep: *spacetime tells matter how to move; matte
 **Modified gravity (MOND and successors)** proposes changing the law instead of adding matter. It fits galaxy rotation curves remarkably well and **fails on galaxy clusters and the CMB**, which is why most of the field favours dark matter — while acknowledging that "most of the universe is something we've never detected" is not a comfortable position.
 
 ## Related
+<!-- bite: 31551e9c-0e68-4610-a115-ef9e8c19dc60 -->
 - [[astronomy/04-stars|stars]] — what collapses
 - [[astronomy/07-cosmology|cosmology]] — GR applied to everything
 - [[control-theory/index|control theory]] · [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical methods]] — the maths underneath

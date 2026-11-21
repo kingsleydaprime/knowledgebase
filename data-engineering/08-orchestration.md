@@ -1,14 +1,20 @@
+---
+id: 1803e1f1-6902-40cf-8863-57530324dde9
+---
+
 # Orchestration
 
 **[Intermediate]** — the conductor that runs all the pieces in order, on schedule, and correctly when things fail.
 
 ## The kid version first
+<!-- bite: 50552e5a-1d1a-4632-86f3-5ebec67198e2 -->
 
 A data platform has dozens of steps: extract from Stripe, load to the warehouse, run dbt transformations, refresh the ML features, send the report. Some steps depend on others — you can't transform data you haven't loaded. Some run hourly, some nightly. Some fail and need retrying. Some need to be re-run for last week because a bug corrupted the numbers.
 
 **Orchestration is the system that runs all of this in the right order, on the right schedule, retries what fails, and lets you re-run history when you need to.** It's the conductor; everything else is an instrument.
 
 ## The DAG
+<!-- bite: 70e74fca-842e-4402-b7c8-86e5e1bf827a -->
 
 The central abstraction is the **Directed Acyclic Graph** — tasks as nodes, dependencies as edges, no cycles:
 
@@ -23,6 +29,7 @@ extract_events ──┘                              └──► update_dashbo
 **"Pipelines as code"** — the DAG is defined in a programming language (usually Python), version-controlled and reviewed, not clicked together in a UI → [[git/index|git]].
 
 ## The three things an orchestrator must do
+<!-- bite: dfdb21f7-54b4-4ec8-a4bd-3c183349e797 -->
 
 **1. Schedule.** Run the DAG on a cadence (cron: "every hour", "daily at 2am") or trigger it on an event (a file arrived, an upstream finished). More sophisticated orchestrators are **data-aware** — run when the *data* a task depends on is fresh, not just when the clock says.
 
@@ -35,6 +42,7 @@ extract_events ──┘                              └──► update_dashbo
 **3. Backfill.** Re-run the pipeline for a past period — because you found a bug, added a column, or a source was late. **This is where idempotency becomes non-negotiable.**
 
 ## Idempotency — the load-bearing discipline
+<!-- bite: 6e1c51ba-405e-4c6f-845a-d878ff147362 -->
 
 **A task is idempotent if running it twice produces the same result as running it once.** In data engineering this isn't a nicety — it's the property that makes the whole system operable, because tasks *will* be retried and backfilled.
 
@@ -49,6 +57,7 @@ Idempotent:       DELETE yesterday's partition, then INSERT   ← re-run → sam
 **Non-idempotent pipelines are the source of the worst data-engineering incidents** — a retried job that double-counts revenue, a backfill that triples a month's numbers. Design every task so that re-running it is *always safe*. This is the single most important habit in the domain, and it connects directly to [[data-engineering/04-ingestion-and-change-data-capture|idempotent loads]] and [[data-engineering/05-kafka-and-event-streaming|at-least-once + idempotent]].
 
 ## The tools
+<!-- bite: b9919b4e-df92-46e3-9ab0-352dd49a69dc -->
 
 | | Note |
 |---|---|
@@ -62,14 +71,17 @@ Idempotent:       DELETE yesterday's partition, then INSERT   ← re-run → sam
 **Airflow vs Dagster is the live debate.** Airflow has the ecosystem and the jobs; Dagster has the better model (assets over tasks) and developer experience. **New projects increasingly pick Dagster**; existing infrastructure runs Airflow, and will for years.
 
 ## The anti-pattern this replaces
+<!-- bite: 28d300bf-f436-4c46-ae74-c0980ffcb11b -->
 
 **Cron plus scripts.** A crontab of shell scripts *is* an orchestrator — a terrible one. It has no dependency awareness (script B runs whether or not A succeeded), no retries, no visibility (did last night's run work? who knows), no backfill, and no alerting. **Every data team starts here and outgrows it painfully**, usually after a silent failure corrupts a week of reports. Reaching for a real orchestrator early is one of the higher-leverage decisions in the field.
 
 ## Key insight
+<!-- bite: 5637b4e3-081a-4bda-b54a-f13d5eba1278 -->
 
 **Orchestration is the conductor that turns a pile of scripts into a reliable system — scheduling, failure handling, and backfills — and idempotency is the discipline that makes all three safe.** The DAG expresses dependencies as code so the orchestrator can order, parallelise and recover; but none of that helps if re-running a task double-counts your data, which is why "every task must be safe to run twice" is the habit the whole domain rests on. The tooling is shifting from task-centric Airflow toward asset-centric Dagster, but the principles are stable.
 
 ## Related
+<!-- bite: 69a2478b-7ca0-45d1-81b6-16abca7504ed -->
 - [[data-engineering/04-ingestion-and-change-data-capture|ingestion]] — idempotent loads, the same idea at the source
 - [[data-engineering/07-transformation-and-dbt|transformation and dbt]] — a major thing orchestrators run
 - [[data-engineering/10-data-quality-governance-and-the-stack|data quality]] — where alerts go

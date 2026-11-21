@@ -1,3 +1,7 @@
+---
+id: d242cce7-2733-41fe-8fd6-4b15f8240b73
+---
+
 # Practice Exercises
 
 > **[Intermediate]** · Fourteen exercises against a real database. **The internals in this course are all observable from the outside — if you know what to ask.**
@@ -14,6 +18,7 @@ Solutions with measured results in [[databases/14-practice-exercises-solutions|n
 ---
 
 ## Part A — Storage and indexes (notes 03–05)
+<!-- bite: 5ed71d2e-c4dc-450f-9c62-665daf928296 -->
 
 **1. Earn the index.**
 Load 500k users with an `email` column. Time 200 lookups by email with no index. Add `CREATE INDEX`. Time the same 200.
@@ -38,6 +43,7 @@ Find a query where adding a column to the index removes a table lookup entirely.
 ---
 
 ## Part B — Queries and joins (notes 06–07)
+<!-- bite: eb7ade19-a4d6-4c63-aa03-2812d5f942b2 -->
 
 **6. Watch the optimiser change its mind.**
 Take a join between a large and a small table. Run `EXPLAIN`. Now `ANALYZE` (update statistics) and run it again. Then delete 90% of one table, re-analyze, and look again.
@@ -54,6 +60,7 @@ Construct a query where the estimated row count differs from actual by 100× or 
 ---
 
 ## Part C — Transactions and concurrency (notes 08–09)
+<!-- bite: 56514121-84a1-46d4-a16a-a046f200796a -->
 
 **9. Observe a dirty read — or fail to.**
 Two connections. Set isolation to `READ UNCOMMITTED` and try to see uncommitted data.
@@ -74,6 +81,7 @@ Update a row 10,000 times in a loop. Check table size before and after with `pg_
 ---
 
 ## Part D — Durability (note 10)
+<!-- bite: 31597975-98fa-4835-9428-b8feca465db6 -->
 
 **13. Prove the WAL is doing something.**
 Insert 10,000 rows: (a) one transaction per row, (b) all in one transaction, (c) with `synchronous_commit = off` (Postgres) or `PRAGMA synchronous = OFF` (SQLite).
@@ -84,6 +92,7 @@ Start a long transaction, then `kill -9` the database process. Restart it.
 **Done when:** the database recovers to a consistent state with your uncommitted work gone, and you have found the recovery message in the log. **This is ACID's D and A, demonstrated rather than believed.**
 
 ## Related
+<!-- bite: 4c81bd1a-52d6-43fa-a6b2-d9cd48976f83 -->
 - [[databases/14-practice-exercises-solutions|Solutions]] — with measured results
 - [[databases/index|the course]] · [[databases/sql-reference|SQL reference]]
 

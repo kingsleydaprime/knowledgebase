@@ -1,6 +1,11 @@
+---
+id: 116a68e8-3d41-46f2-b2e9-90048ac18b77
+---
+
 # 7. SCIENTIFIC NOTATION
 
 ## Before you start
+<!-- bite: f471da88-e4f2-40b1-b2a3-61c26b875588 -->
 
 - You know the laws of indices — [[01-indices-and-logarithms|exponents]].
 
@@ -94,6 +99,7 @@ Modern semiconductor manufacturing deals with dimensions at scales like these.
 ---
 
 ## Practice — problems
+<!-- bite: 8179ae88-c46b-4a7f-b47d-64b66fccd0f8 -->
 
 Attempt all of these before opening the answers.
 
@@ -113,6 +119,7 @@ Attempt all of these before opening the answers.
 </details>
 
 ## Before moving on
+<!-- bite: 58600bfd-a658-4293-a9a4-789e0bc15af2 -->
 
 You are done with this lesson when you can, closed-book:
 

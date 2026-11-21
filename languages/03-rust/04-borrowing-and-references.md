@@ -1,8 +1,13 @@
+---
+id: a34c1861-49e3-4d35-bcfb-421542432768
+---
+
 # Borrowing and References
 
 **[Beginner → Intermediate]** — Using a value without taking it, the one rule that governs everything, and how to actually get past the borrow checker.
 
 ## References
+<!-- bite: abe85b62-938f-4fa7-b662-fd32c530bfc4 -->
 
 ```rust
 fn calculate_length(s: &String) -> usize {
@@ -29,6 +34,7 @@ change(&mut s);
 Note `s` itself must be `mut` for you to take a `&mut` to it.
 
 ## The borrowing rule
+<!-- bite: 27fb05f2-659c-4ea6-8ff4-6dd30a578d91 -->
 
 > **At any given time you can have either one mutable reference, or any number of immutable references — never both.**
 
@@ -59,6 +65,7 @@ println!("{}", first);      // ← in C++ this is a dangling pointer, because pu
 ```
 
 ## Non-lexical lifetimes
+<!-- bite: e5448648-baf3-4ed2-b00f-47fd640b534f -->
 
 A borrow ends at its **last use**, not at the end of the block. This is what makes the rule liveable:
 
@@ -76,6 +83,7 @@ println!("{}", r3);
 If you read Rust material from before 2018 (pre-NLL), it will describe this as an error. It isn't any more.
 
 ## No dangling references
+<!-- bite: befc068d-2d34-4d2d-89d7-db2a7a0bc301 -->
 
 ```rust
 fn dangle() -> &String {
@@ -87,6 +95,7 @@ fn dangle() -> &String {
 The compiler refuses to return a reference to something that's about to be freed. In C this compiles and gives you a use-after-free. The fix is to return the owned value: `fn no_dangle() -> String { s }`.
 
 ## Slices
+<!-- bite: a880f1d0-5ffb-470c-b535-82c20d2b310a -->
 
 A slice is a borrowed view into a contiguous sequence — a pointer plus a length, owning nothing:
 
@@ -122,6 +131,7 @@ println!("{}", word);
 Which is precisely the bug this prevents — `word` would otherwise point into a cleared buffer.
 
 ## Fighting the borrow checker — the four patterns that unstick you
+<!-- bite: 0d2d3ee0-7367-48f4-b912-1a927eea128d -->
 
 Everyone gets stuck. Almost always it's one of these.
 
@@ -160,6 +170,7 @@ let (a, b) = s.split_at_mut(i);   // slices provide explicit splitting methods
 ---
 
 ## Related
+<!-- bite: c29978ab-150a-49dd-9325-f1c94222458e -->
 - [[languages/03-rust/05-lifetimes|Lifetimes]] — the annotations that appear when borrows cross function boundaries
 - [[languages/03-rust/03-ownership|Ownership]] — the rules being relaxed here
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]] — escape hatches, used deliberately

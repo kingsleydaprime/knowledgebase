@@ -1,12 +1,18 @@
+---
+id: 34a296b8-742b-4bb6-8e58-2c80d6438c27
+---
+
 # Rules of Engagement & Legal Considerations
 
 This is the note that actually separates "ethical hacking" from "a crime" — the exact same technical action (scanning a network, exploiting a vulnerability) is either a legitimate, valuable professional service or a serious offense, depending entirely on whether it was properly authorized beforehand. Every other note in this folder assumes this step already happened.
 
 ## Why authorization is the whole ballgame
+<!-- bite: e6d26b7f-ec3c-4097-9891-377cfb421ae7 -->
 
 Unauthorized access to a computer system is illegal in essentially every jurisdiction, regardless of intent — a security researcher who finds and "just checks" a vulnerability without permission, even with no malicious intent and even if they report it afterward, can still be committing a crime (this is exactly the [[03-attacker-and-hacker-types|grey-hat]] situation). Ethical hacking is defined by explicit, documented, informed authorization from someone with the legal authority to grant it — not by the tester's intentions alone.
 
 ## The Rules of Engagement (RoE) document
+<!-- bite: e103d489-7801-41a4-a1be-10ec281f4304 -->
 
 A formal, written agreement signed before any technical work begins, typically specifying:
 
@@ -18,6 +24,7 @@ A formal, written agreement signed before any technical work begins, typically s
 - **Authorization / "get out of jail" letter** — a signed statement from someone with legal authority over the target systems, explicitly authorizing the specific testing described, which the tester can produce if their activity is detected and questioned (by the target's own security team, or even law enforcement) during the engagement.
 
 ## Relevant legal frameworks (know these exist, not exhaustively)
+<!-- bite: c8bd01b1-d6ae-49f4-b6cb-b7ffc29323c8 -->
 
 - **Computer Fraud and Abuse Act (CFAA)** — the primary US federal law criminalizing unauthorized computer access; broadly written and has been applied in ways that make "clearly authorized, clearly scoped" work especially important as a defense.
 - **GDPR and similar data protection regulations** — relevant whenever testing might touch personal data, since handling (even briefly accessing) such data during a test can itself carry regulatory obligations.
@@ -26,19 +33,23 @@ A formal, written agreement signed before any technical work begins, typically s
 This is a map of what exists, not legal advice — a real engagement should involve an actual legal/contractual review appropriate to the jurisdictions involved, not just familiarity with these names.
 
 ## Scope creep — the practical daily risk
+<!-- bite: ec298f6e-d7c3-4f7d-b111-f0fe257806f2 -->
 
 The most common real-world way testers get into trouble isn't ignoring authorization outright — it's **scope creep**: following an interesting lead into a system, subdomain, or account that turns out to be outside the agreed scope, without realizing it in the moment. This is exactly why [[03-reconnaissance|reconnaissance]] results should be checked against scope continuously, not just once at the start, and why "we found something interesting outside scope" should be reported to the client for a scope amendment rather than pursued unilaterally.
 
 ## Practicing legally without a client engagement
+<!-- bite: 2f0130ee-d316-4774-90f3-21dfcb326900 -->
 
 Learning and practicing these skills doesn't require live targets — dedicated legal platforms exist specifically for this: **CTF (Capture The Flag) competitions**, and intentionally vulnerable practice platforms (HackTheBox, TryHackMe, and similar) that provide systems built specifically to be legally tested. This is the appropriate way to build and practice the skills covered in [[06-scanning-and-enumeration|scanning-and-enumeration]] and [[07-exploitation-concepts|exploitation-concepts]] without needing a client relationship or any authorization paperwork at all — authorization is built into using the platform.
 
 ## Gotchas
+<!-- bite: 2200d021-1270-444a-ad21-60c91e2b2225 -->
 
 - Verbal authorization ("yeah go ahead") is not a substitute for a signed, written RoE — if something goes wrong, a verbal agreement is far harder to rely on, for the tester and the organization both.
 - Authorization from the wrong person (a department head who doesn't actually have authority over the specific systems in scope) doesn't count as valid authorization — RoE should be signed by someone with genuine authority over the systems being tested.
 - Finding a critical vulnerability outside the agreed scope during an engagement is common — the correct response is documenting it and notifying the client to discuss a scope amendment, not testing further on the spot.
 
 ## Related
+<!-- bite: b5f22c06-7f9a-4ba2-a53c-9c24b8bebf40 -->
 - [[02-penetration-testing-methodology|penetration-testing-methodology]]
 - [[03-attacker-and-hacker-types|attacker-and-hacker-types]]

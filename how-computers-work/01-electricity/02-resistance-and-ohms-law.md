@@ -1,8 +1,13 @@
+---
+id: 46cbcbc6-e4c7-4e5f-868e-4b6a92cf83e5
+---
+
 # Module 2: Resistance and Ohm's Law (The Cost of Moving Charge)
 
 **[Beginner]** — The third quantity, the one equation that links all three, and the power relationship that has dictated the shape of every processor built since 2005.
 
 ## Before you start
+<!-- bite: ff98584b-2c65-4252-9de0-5babad5dfd5f -->
 
 - You can define charge, current and voltage — [[how-computers-work/01-electricity/01-charge-current-and-voltage|module 1]].
 - You can rearrange $V = I \times R$ into its other two forms.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: c77e75af-c3e3-407b-9c7f-b26c3a43b578 -->
 
 Module 1 gave you a push (voltage) and a flow (current). It did not say how much flow a given push produces. That depends entirely on what you are pushing through, and the answer matters enormously in practice.
 
@@ -30,6 +36,7 @@ Connect a 9 V battery across a copper wire and you get a short circuit — hundr
 ---
 
 ## 2. Terminology
+<!-- bite: 0df04aa3-ad1c-4e80-8d62-3f1f48fa2d87 -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -44,6 +51,7 @@ Connect a 9 V battery across a copper wire and you get a short circuit — hundr
 ---
 
 ## 3. Where resistance comes from
+<!-- bite: 711a9247-10b3-467f-a65e-c49d497a4e89 -->
 
 A conductor is a crystal lattice of atoms with electrons drifting between them. That lattice is not still — every atom vibrates about its position, more violently the hotter the material is.
 
@@ -77,6 +85,7 @@ where $\rho$ is the material's resistivity, $L$ its length and $A$ its cross-sec
 ---
 
 ## 4. Ohm's Law
+<!-- bite: b3aabc0c-367b-456c-b9ec-4f0154168855 -->
 
 $$V = I \times R$$
 
@@ -91,6 +100,7 @@ Keep the distinction sharp: Ohm's law is a tool for the ohmic parts of a circuit
 ---
 
 ## 5. Power — three forms of one equation
+<!-- bite: b2404b8e-8d61-463d-a5ce-58b25808007b -->
 
 From module 1 we derived $P = VI$ from definitions alone. Substituting Ohm's law gives two more forms:
 
@@ -129,6 +139,7 @@ A standard 1/4-watt (250 mW) resistor handles this with a wide margin. Had the a
 ---
 
 ## 6. Why this equation ended the megahertz race
+<!-- bite: 43e2d72f-ee6d-4bd7-b262-6931a0b35ce9 -->
 
 This section is the reason module 2 exists in a computing course.
 
@@ -162,6 +173,7 @@ You will meet the consequences again in [[how-computers-work/03-transistors/03-c
 ---
 
 ## 7. Predict before reading on
+<!-- bite: cb32da86-6810-4999-9925-4fff7261517f -->
 
 You have a 100 Ω resistor rated at 1/4 watt. You connect it across a 12 V supply.
 
@@ -179,6 +191,7 @@ The safe voltage for a 1/4 W, 100 Ω resistor is $V = \sqrt{PR} = \sqrt{0.25 \ti
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: ae0fd38f-2191-4a11-b39b-4587f8fe2e29 -->
 
 Save as `ohms_lab.py` and run `python3 ohms_lab.py`. Standard library only; writes no files.
 
@@ -232,6 +245,7 @@ ohms_lab: passed
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 1446a289-a3fa-4115-b828-a3345b91f875 -->
 
 1. **Applying Ohm's law to non-ohmic devices.** An LED does not have "a resistance" you can look up — its current rises exponentially with voltage past the forward drop. You calculate the *resistor*, never the LED.
 2. **Ignoring the power rating.** Resistance tells you the current; power tells you whether the part survives. Beginners size resistance correctly and let the component burn.
@@ -242,6 +256,7 @@ ohms_lab: passed
 ---
 
 ## 10. Check your understanding
+<!-- bite: 715b71b7-781c-484f-bc0a-c20ff4fb96e0 -->
 
 1. **A 3.3 V microcontroller pin sources 8 mA into a load. What is the load's effective resistance, and what power does it dissipate?**
    <details><summary>Answer</summary>
@@ -267,6 +282,7 @@ ohms_lab: passed
 ---
 
 ## 11. Practice — independent task
+<!-- bite: e16b2405-e00f-4fca-bc80-6d4a9446b7a9 -->
 
 **Task:** You are designing the power budget for a small board.
 
@@ -290,6 +306,7 @@ Exact value is $(3.3 - 2.1)/0.015$. Round <em>up</em> to the next standard value
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: 00f1c7f3-c674-4205-81f6-6cc26645d2cf -->
 
 - **Resistors waste energy by design.** They are the simplest way to limit current and the least efficient. Anything battery-powered uses switching regulators instead, which are far more efficient and far more complex.
 - **The dynamic power equation omits leakage.** Modern chips also burn **static power** — current leaking through transistors that are nominally off. Below about 65 nm this became a significant fraction of the total, and it is why chips power down whole regions rather than merely idling them. See [[how-computers-work/03-transistors/03-cmos|module 13]].
@@ -298,6 +315,7 @@ Exact value is $(3.3 - 2.1)/0.015$. Round <em>up</em> to the next standard value
 ---
 
 ## Before moving on
+<!-- bite: dc456955-9e65-4b83-a1bc-718d5e7b5ae0 -->
 
 - [ ] Explain physically what electrons collide with, and why that produces heat.
 - [ ] State all three power formulas and choose correctly between them.
@@ -312,6 +330,7 @@ Exact value is $(3.3 - 2.1)/0.015$. Round <em>up</em> to the next standard value
 ---
 
 ## Related
+<!-- bite: 0fc1f021-a7c8-4289-bcc0-b9b178700f93 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/01-charge-current-and-voltage|Module 1 — Charge, Current and Voltage]]

@@ -1,3 +1,7 @@
+---
+id: df7203d9-228e-4dd4-94af-eeb99c9e63ef
+---
+
 # Requirements
 
 > **[Beginner → Intermediate]** · Turning "we want it safer" into something buildable and testable — and why this is where most projects are actually lost.
@@ -5,6 +9,7 @@
 **Requirements defects are the most expensive class of defect there is**, because everything downstream is competent work aimed at the wrong target. Every survey of failed projects puts requirements at or near the top of the causes.
 
 ## The hierarchy
+<!-- bite: 9a822ccd-9749-4f3b-806e-b3bc4302f83f -->
 
 Requirements flow down, each level traceable to the one above:
 
@@ -21,6 +26,7 @@ Component requirements   "The controller shall switch at ≥ 20 kHz"
 **Every requirement must trace upward to a need.** One with no parent is somebody's preference that got written down, and it will cost real money to satisfy. Tracing down matters too: a need with no requirement beneath it is a need nobody is building.
 
 ## Functional and non-functional
+<!-- bite: 8edcb72f-dc12-4d66-a8f8-7c9ef69b3589 -->
 
 **Functional** — what it does. *"The system shall log every transaction."*
 
@@ -31,6 +37,7 @@ Component requirements   "The controller shall switch at ≥ 20 kHz"
 They are also the ones most often left vague, which is how you get an argument at acceptance about whether "fast" was met.
 
 ## What makes a requirement good
+<!-- bite: f3a93621-37bf-4ce0-84d4-340f870afa3e -->
 
 The INCOSE criteria, with the two that do the most work first:
 
@@ -56,6 +63,7 @@ Then: **necessary** (traces to a need), **singular** (one requirement per statem
 Mixing these in a contract is how you end up arguing about whether something was mandatory.
 
 ## Why they fail
+<!-- bite: 55c5f8a5-fd87-44e0-a532-619239ac3f23 -->
 
 **Stakeholders don't know what they want**, and cannot until they see something. This is genuinely true, not laziness — and it is the entire argument for prototypes, mockups and iteration, even in a heavyweight process.
 
@@ -68,6 +76,7 @@ Mixing these in a contract is how you end up arguing about whether something was
 **The unstated assumption.** Ariane 5 → [[systems-engineering/01-what-systems-engineering-is|note 01]]. The requirement was met; the assumption about the flight profile was never written down, so nobody rechecked it.
 
 ## Eliciting them
+<!-- bite: 349f7340-5d07-47b5-bd1b-12c2a82304ff -->
 
 Requirements are *elicited*, not collected — they mostly don't exist in usable form until you extract them:
 
@@ -81,6 +90,7 @@ Requirements are *elicited*, not collected — they mostly don't exist in usable
 **Include the abnormal cases.** Most requirements sets describe the happy path in detail and failure in a sentence. Then the system meets every requirement and is unusable when something breaks. Ask: what should happen when the input is malformed, the network is down, power is lost mid-operation, or the operator does the wrong thing?
 
 ## Traceability
+<!-- bite: d7f1f8d6-a460-46b3-a305-0d2aebf09342 -->
 
 A matrix linking need → requirement → design element → test:
 
@@ -97,6 +107,7 @@ Bureaucratic-looking, and it answers three questions nothing else can:
 **In software this is what a well-kept issue tracker linking ticket → commit → test approximates**, and it's why "which requirement does this PR satisfy" is a reasonable question rather than bureaucracy.
 
 ## The software translation
+<!-- bite: db02d535-e6d7-49ab-8d0b-21ed60a3539c -->
 
 | Systems engineering | Software |
 |---|---|
@@ -110,6 +121,7 @@ Bureaucratic-looking, and it answers three questions nothing else can:
 **The SLO row is the most useful correspondence in this note.** An SLO *is* a verifiable non-functional requirement with an agreed measurement and an agreed consequence for missing it — the same thing the discipline has always asked for, arrived at independently by [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]].
 
 ## Related
+<!-- bite: 26aa3e0b-6ffd-49a2-bb09-a3273197bcf0 -->
 - [[systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]] — requirements' matching verification
 - [[systems-engineering/05-trade-studies|trade studies]] — choosing between solutions
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach system design]] — the software version

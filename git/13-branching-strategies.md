@@ -1,12 +1,18 @@
+---
+id: 18eef2a6-632f-4267-87c2-a647b46ea57c
+---
+
 # Branching Strategies
 
 **[Intermediate]** — GitHub Flow, GitFlow, trunk-based development and the forking workflow: what each optimises for, when it fits, and the branch naming convention that goes with them.
 
 ## Why Strategy Matters
+<!-- bite: bd77a61b-e930-4a6b-97bf-cff6d06bee62 -->
 
 Without an agreed branching strategy, teams develop inconsistent habits: some people work directly on main, others create branches for every keystroke, PRs sit unreviewed for days, and no one is sure if main is deployable at any given moment. A branching strategy is a social contract — everyone on the team knows the rules without asking.
 
 ## GitHub Flow — Simple, Continuous Deployment
+<!-- bite: 1cceca71-ce06-4b2c-9eb9-121613273cbb -->
 
 The most practical strategy for most teams. One rule: `main` is always deployable.
 
@@ -59,6 +65,7 @@ git push origin --delete feature/user-auth
 ---
 
 ## GitFlow — Structured Release Management
+<!-- bite: 710cf6e0-b1ec-4cc6-850d-07b2a018a634 -->
 
 For products with scheduled release cycles — mobile apps, versioned APIs, enterprise software shipped to customers.
 
@@ -147,6 +154,7 @@ git flow hotfix finish 2.0.1
 ---
 
 ## Trunk-Based Development — Maximum Velocity
+<!-- bite: eee3b5fa-02e9-4743-b5f9-a25c2c7b9968 -->
 
 Developers commit directly to `main` or via branches that live less than one day. No long-running branches. Feature flags control what users see.
 
@@ -195,6 +203,7 @@ return legacyCheckout();
 ---
 
 ## Forking Workflow (Open Source)
+<!-- bite: db1f3ad4-2cb6-430f-9ce7-6060fe0cd801 -->
 
 Used when contributors don't have write access to the main repository.
 
@@ -238,6 +247,7 @@ git push -u origin feature/my-contribution
 ---
 
 ## Choosing a Strategy
+<!-- bite: faf3680b-bffe-40e8-b2a8-0257049c2ef9 -->
 
 ```
 Small team (1-5 people), continuous deployment?
@@ -261,6 +271,7 @@ The honest summary: GitHub Flow is the right default and the other three are ans
 ---
 
 ## Branch Naming — Complete Convention
+<!-- bite: eb3ee900-658b-426d-b305-5475e2910a75 -->
 
 ```
 # Format
@@ -308,6 +319,7 @@ spike/postgres-migration
 ---
 
 ## Related
+<!-- bite: c283da08-6a5d-46a7-9ca6-54a9777a4b23 -->
 - [[git/07-merge-vs-rebase|Merge vs Rebase]] — the per-commit decision inside each strategy
 - [[git/14-github-and-ci|GitHub as a Platform]] — branch protection is how a strategy gets enforced
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — trunk-based development assumes a fast, trustworthy pipeline

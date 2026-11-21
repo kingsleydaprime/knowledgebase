@@ -1,3 +1,7 @@
+---
+id: ac2d0a52-b8f6-4262-b919-f981e956f773
+---
+
 # Database Interview — SQL, Modelling & Internals
 
 From [[databases/sql-reference|sql-reference]], [[databases/database-design-reference|database-design-reference]], [[databases/nosql-reference|nosql-reference]].

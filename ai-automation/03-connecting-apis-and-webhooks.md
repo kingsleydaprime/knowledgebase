@@ -1,3 +1,7 @@
+---
+id: 4d466feb-88d3-439e-b4b6-31939052a210
+---
+
 # Connecting APIs and Webhooks
 
 > **[Intermediate]** · Auth, pagination, rate limits and idempotency — the four things that make an integration survive contact with production.
@@ -5,6 +9,7 @@
 Most of a workflow's real complexity is here. The trigger and the happy path take ten minutes; **these four take the rest**, and skipping them is why automations that "worked yesterday" stop.
 
 ## Webhooks as triggers
+<!-- bite: 08b31556-bae8-4b61-a1da-153453dfd7f3 -->
 
 A webhook node gives you a URL. The external service POSTs to it; your workflow runs.
 
@@ -21,6 +26,7 @@ A webhook node gives you a URL. The external service POSTs to it; your workflow 
 **4. Handle out-of-order delivery.** `updated` can arrive before `created`. If order matters, use the payload's own timestamp or version rather than arrival order → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Authentication, in rough order of how often you meet it
+<!-- bite: 6b109e64-18e0-4737-862b-7a3be399c7ad -->
 
 | | How | Watch for |
 |---|---|---|
@@ -33,6 +39,7 @@ A webhook node gives you a URL. The external service POSTs to it; your workflow 
 **The rule everywhere: the credential lives in the credential store, never in the node's parameters and never in a Code node.** → [[devops/06-secret-management/index|secret management]]
 
 ## Pagination
+<!-- bite: 17304922-58da-4f2e-b419-9e3517737579 -->
 
 **An API returning 100 results does not mean there are 100 results.** Three common shapes:
 
@@ -45,6 +52,7 @@ n8n's HTTP Request node has built-in pagination; the thing to get right is the *
 **And ask whether you should be paginating at all.** Pulling 40,000 records through a workflow every hour to find the three that changed is a design smell — use a webhook, or an incremental filter on `updated_since` → [[databases/index|databases]].
 
 ## Rate limits
+<!-- bite: 6ace5397-d993-4780-8a21-04c65cdad4e8 -->
 
 Every API has them, and they're the most common cause of an automation that works at 10 items and fails at 1,000.
 
@@ -58,6 +66,7 @@ Every API has them, and they're the most common cause of an automation that work
 **Jitter matters and gets skipped.** Without it, everything that failed together retries together, and you rebuild the exact spike that caused the limit → [[architecture/04-distributed-systems/index|retry storms]].
 
 ## Idempotency — the one that prevents real damage
+<!-- bite: a8ce63da-d7c0-4f17-b2e7-4aea1b12a3a9 -->
 
 **Because retries and duplicate webhooks are guaranteed, every action with a side effect must be safe to perform twice.**
 
@@ -72,6 +81,7 @@ Three approaches, best first:
 **The failure this prevents is not theoretical: a webhook retried three times sending three invoices, or charging a card twice, is the standard automation incident.**
 
 ## Errors that aren't errors
+<!-- bite: eb9d3816-35e1-4806-922a-fe93f5bbe0d2 -->
 
 **A 200 response does not mean it worked.** Plenty of APIs return `200 {"success": false, "error": "..."}`. If you only branch on the HTTP status, those pass straight through as successes and corrupt everything downstream.
 
@@ -83,6 +93,7 @@ The classes worth handling separately:
 - **Timeout** — **unknown.** The request may have succeeded. **This is exactly where idempotency saves you**
 
 ## Related
+<!-- bite: 4a76461a-812a-4293-aa64-76fb94402b4c -->
 - [[ai-automation/05-error-handling-and-retries|error handling and retries]] — the workflow-level machinery
 - [[ai-automation/02-n8n-core-concepts|n8n core concepts]]
 - [[backend/02-api-design/index|API design]] — the other side of every integration

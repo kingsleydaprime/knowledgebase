@@ -1,4 +1,9 @@
+---
+id: 1bd59569-ed01-4038-b2e9-17066617096a
+---
+
 ## Docker Volumes
+<!-- bite: 06b11dae-3c0d-43bb-b6c0-60c18ea89c09 -->
 
 Containers are ephemeral — when you delete a container, everything written inside it is gone. Volumes solve this by storing data outside the container lifecycle.
 

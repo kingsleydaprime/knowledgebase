@@ -1,8 +1,13 @@
+---
+id: fb009f3c-bcb1-45c0-b768-9f3654b962b8
+---
+
 # Root Finding
 
 **[Intermediate]** — Solving $f(x)=0$ when there's no formula, and why Newton's method is everywhere despite being unreliable.
 
 ## The problem
+<!-- bite: f05f317c-bb78-4d8f-95fd-b50372d92692 -->
 
 $$\text{Find } x \text{ such that } f(x) = 0$$
 
@@ -17,6 +22,7 @@ $$\text{Find } x \text{ such that } f(x) = 0$$
 - Internal rate of return, equilibrium points, break-even analysis
 
 ## Bisection
+<!-- bite: f707f78f-58bf-442a-b1d0-b4f9ef15f49b -->
 
 **The one that always works.**
 
@@ -41,6 +47,7 @@ while (b - a) > tol:
 > **Use `c = a + (b-a)/2`, not `(a+b)/2`.** The second can overflow for large values and is less accurate. **Same bug as [[computer-architecture/02-data-representation|binary search]]** — and it's the same fix.
 
 ## Newton's method
+<!-- bite: 8efd64fc-5f71-43ae-a263-6e14f439950f -->
 
 **The one everybody uses.**
 
@@ -80,6 +87,7 @@ $$|e_{n+1}| \approx \frac{|f''|}{2|f'|}|e_n|^2$$
 **Newton's fractal** is the vivid demonstration: colour each starting point in the complex plane by which root it converges to, and you get a fractal boundary. **Arbitrarily close starting points converge to different roots.** Sensitivity to the initial guess isn't a rough edge; it's structural.
 
 ## Secant method
+<!-- bite: a9343aee-c09a-462b-8a8d-f5ee727902a7 -->
 
 **Newton without the derivative** — approximate it from the last two points:
 
@@ -92,6 +100,7 @@ $$x_{n+1} = x_n - f(x_n)\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}$$
 **Watch for cancellation** in the denominator as the points converge — $f(x_n) - f(x_{n-1})$ is exactly the near-equal subtraction from [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|note 02]].
 
 ## Hybrid methods — what to actually use
+<!-- bite: efd918f3-3fad-4cb2-867a-4cc6f9ef79e0 -->
 
 > **Brent's method is the answer for one-dimensional root finding.** It maintains a bracket (so it **cannot diverge**), and uses inverse quadratic interpolation or the secant method when they're behaving, falling back to bisection when they aren't.
 >
@@ -102,6 +111,7 @@ $$x_{n+1} = x_n - f(x_n)\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}$$
 **The general principle worth carrying beyond this note:** a fast method that can fail, wrapped in a slow method that can't, gives you both. **The same pattern appears in [[control-theory/07-nyquist-and-robustness|robust control]] and in optimisation line searches.**
 
 ## Systems of equations
+<!-- bite: d83f072d-4391-4ea0-8046-c193aa1325e6 -->
 
 **In $n$ dimensions**, $\mathbf{F}(\mathbf{x}) = \mathbf{0}$, Newton becomes:
 
@@ -128,6 +138,7 @@ $$J(\mathbf{x}_n)\,\Delta\mathbf{x} = -\mathbf{F}(\mathbf{x}_n), \qquad \mathbf{
 **Continuation / homotopy** — solve an easy problem and deform it into the hard one, tracking the solution. **Genuinely useful when you have no good initial guess**, and it's how hard nonlinear systems in engineering get solved.
 
 ## Practical notes
+<!-- bite: ac8d82f8-9967-4f42-83a6-3ec77b4766f2 -->
 
 **Bracket if you possibly can.** A guaranteed method is worth a lot, and in 1-D you usually can — plot the function, or scan a grid for sign changes.
 
@@ -149,6 +160,7 @@ $$J(\mathbf{x}_n)\,\Delta\mathbf{x} = -\mathbf{F}(\mathbf{x}_n), \qquad \mathbf{
 ---
 
 ## Related
+<!-- bite: 2c51a2dd-62ae-492f-80a5-dfd3cf52610c -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — solved inside every Newton step
 - [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|Numerical Optimisation]] — minimisation is root-finding on the gradient
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — this, applied

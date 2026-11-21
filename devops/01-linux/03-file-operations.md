@@ -1,4 +1,9 @@
+---
+id: 86d0b3c0-0367-4561-bb00-85bb90b68373
+---
+
 ## File Operations & Text Manipulation
+<!-- bite: 488318fa-9ac1-4565-bb9c-a5ab594b126c -->
 
 This is where the terminal becomes genuinely powerful. On a server there's no GUI — everything is reading, searching, and editing files through the terminal.
 
@@ -51,6 +56,7 @@ cat test.txt                 # shows both lines
 Try that sequence and tell me what you see. Then we'll get into `grep`, `find`, and pipes which is where it gets really interesting.
 
 ## grep — searching inside files
+<!-- bite: b87ac882-aab0-4a91-8780-77a0c2ad0548 -->
 
 ```bash
 grep "word" file.txt              # search for word in file
@@ -75,6 +81,7 @@ grep -r "error" /var/log/syslog | head -20
 ---
 
 ## Pipes `|`
+<!-- bite: bf98193f-33ea-4f6c-b27c-679837df07dc -->
 
 You've already used pipes. The concept is simple:
 
@@ -94,6 +101,7 @@ cat /var/log/syslog | grep "error" | grep -v "apparmor" | head -20
 ---
 
 ## find — searching for files
+<!-- bite: 222594b4-c54b-4e85-a270-0f1855156af4 -->
 
 ```bash
 find /path -name "filename"           # find by name
@@ -118,6 +126,7 @@ find /var/log -size +1M
 The `2>/dev/null` on the second one suppresses permission error messages. Tell me what you get.
 
 ## Searching a codebase
+<!-- bite: f276e354-19f6-4818-a444-73e2166769b2 -->
 
 `grep -r` and `find` as shown above will work — and then drown you in `node_modules/`, `.git/`, and build output. Four flags turn them from "technically recursive" into something you'd actually use on a project:
 
@@ -172,6 +181,7 @@ grep -rn "pattern" . --include="*.md"  # correct — grep receives the glob itse
 Bash and zsh differ here — bash silently passes the unmatched pattern through, zsh errors out. Quoting works in both, so just always quote.
 
 ## Redirection
+<!-- bite: e4fe130e-6f73-427d-ba0e-58d34e6a8b87 -->
 
 You've seen `>` and `>>`. Let's formalize it.
 

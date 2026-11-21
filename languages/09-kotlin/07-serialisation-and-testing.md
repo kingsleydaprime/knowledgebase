@@ -1,8 +1,13 @@
+---
+id: 8517d03b-d45a-4ef4-a94d-7f9fffccb7bf
+---
+
 # Serialisation and Testing
 
 **[Intermediate]** — kotlinx.serialization, and the testing stack.
 
 ## kotlinx.serialization
+<!-- bite: d24cf90f-e30b-4c8a-b62e-9b3bcb5a412a -->
 
 Compile-time generated, no reflection:
 
@@ -43,6 +48,7 @@ sealed interface Event {
 **vs Gson and Moshi:** Gson uses reflection, doesn't respect Kotlin's null safety (**it will happily put `null` in a non-null property**, producing an NPE far from the cause), and doesn't understand default values. **Moshi with its Kotlin codegen is fine.** kotlinx.serialization is the Kotlin-native choice and the one to prefer for new code.
 
 ## Unknown enum values
+<!-- bite: 3f76bde9-2947-4c74-b315-2f45b116f79a -->
 
 Same trap as everywhere:
 
@@ -58,6 +64,7 @@ val json = Json { coerceInputValues = true }    // unknown → the default/UNKNO
 ```
 
 ## Testing
+<!-- bite: 40852fc3-1043-4190-bb24-56a37292a781 -->
 
 ```kotlin
 class UserRepositoryTest {
@@ -100,6 +107,7 @@ class UserRepositoryTest {
 **Turbine is the standard library for this** — collecting a `Flow` in a test without it is awkward and flaky.
 
 ## The stack
+<!-- bite: 105f1318-3c79-4ed0-9dbc-6f2dceb4dec8 -->
 
 | | |
 |---|---|
@@ -116,6 +124,7 @@ class UserRepositoryTest {
 **MockK over Mockito** in Kotlin — Kotlin classes are final by default, and MockK handles that plus `suspend` functions natively.
 
 ## What to actually test
+<!-- bite: 9930c164-5695-4a07-bd89-c3b21a4625ad -->
 
 Same as [[mobile/05-state-and-architecture|the architecture note]]:
 
@@ -125,10 +134,12 @@ Same as [[mobile/05-state-and-architecture|the architecture note]]:
 - **A few instrumented UI tests** for critical flows only
 
 ## Key insight
+<!-- bite: dd2d3e0a-36ff-4137-8e62-6ad1b093d6db -->
 
 **`runTest`'s virtual clock is what makes coroutine-heavy code genuinely testable** — retries, timeouts and polling become instant and deterministic rather than slow and flaky. Combined with fakes over mocks, the valuable tests (view-model logic) become cheap enough that you'll actually write them.
 
 ## Related
+<!-- bite: 462af280-2f76-47fc-a986-6473d6c720a1 -->
 - [[languages/09-kotlin/05-coroutines-and-flow|coroutines and Flow]]
 - [[mobile/frameworks/android/index|Android]] — Robolectric and instrumented tests
 - [[languages/09-kotlin/03-types-and-data-classes|sealed types]] — polymorphic serialisation

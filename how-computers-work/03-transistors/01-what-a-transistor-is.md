@@ -1,8 +1,13 @@
+---
+id: 866285d5-a5bf-46dd-a31d-4e04941d595c
+---
+
 # Module 11: What a Transistor Is (The Third Terminal)
 
 **[Intermediate]** — Part IV begins. Module 10 ended with a device that rectifies but cannot compute, because two terminals give no way for one signal to control another. This module adds the third terminal.
 
 ## Before you start
+<!-- bite: 66a3df3b-10f9-412a-87d5-dda3c8c0f99a -->
 
 - You can explain how a depletion region forms and why its width responds to applied voltage — [[how-computers-work/02-semiconductors/05-pn-junctions|module 10]].
 - You know N-type and P-type silicon and why ionised dopants are immobile — [[how-computers-work/02-semiconductors/04-doping|module 9]].
@@ -21,6 +26,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 77ef75d0-289c-4432-9ef9-2c71cf8d7ce6 -->
 
 You have accumulated a precise shopping list across three parts:
 
@@ -35,6 +41,7 @@ The transistor is that mechanism, and it is the most consequential invention of 
 ---
 
 ## 2. Terminology
+<!-- bite: e7f65dcf-ea8c-463a-89f8-df771af0fa9b -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -54,6 +61,7 @@ The transistor is that mechanism, and it is the most consequential invention of 
 ---
 
 ## 3. What a third terminal actually buys
+<!-- bite: 0dadc8c0-8890-4ef3-a635-e93d047f6b06 -->
 
 This is the conceptual heart of the module.
 
@@ -88,6 +96,7 @@ This is the conceptual heart of the module.
 ---
 
 ## 4. Amplifier or switch?
+<!-- bite: 370f72ab-f52b-461d-ace4-1d615b89b3ab -->
 
 A transistor's control terminal varies the current between the other two *continuously*. That gives two distinct ways to use it.
 
@@ -118,6 +127,7 @@ A transistor's control terminal varies the current between the other two *contin
 ---
 
 ## 5. The two families
+<!-- bite: c8f41999-2494-407c-929e-bfa1f678cdb2 -->
 
 ### BJT — current-controlled
 
@@ -181,6 +191,7 @@ This is why it is a *field-effect* transistor: the field does the work, not a cu
 ---
 
 ## 6. The calculation that decided the industry
+<!-- bite: 02cb9b06-f8cc-4bfc-817a-d8e5bfcdb93d -->
 
 BJTs came first, work well, and were used to build real computers. Why did essentially all digital logic move to MOSFETs?
 
@@ -210,6 +221,7 @@ MOSFETs decouple the two: **you pay for switching, not for holding.** That is wh
 ---
 
 ## 7. Predict before reading on
+<!-- bite: 141acbee-47c9-4387-9215-f117f9d1c3de -->
 
 A modern gate oxide is about 1.2 nm thick. One molecular layer of SiO₂ is about 0.357 nm.
 
@@ -231,6 +243,7 @@ You predicted a real historical inflection point from two numbers.
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 08d778a0-5bc7-473f-a837-c06b044ffedb -->
 
 Save as `transistor_lab.py` and run `python3 transistor_lab.py`.
 
@@ -329,6 +342,7 @@ transistor_lab: passed
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 6432373f-2245-4eae-aee0-0675bc7701cb -->
 
 1. **Thinking the MOSFET gate "injects" carriers into the channel.** It cannot — it is insulated. It creates a *field* that attracts carriers already present in the body.
 2. **Assuming BJTs are obsolete.** They dominate high-frequency analogue, precision amplifiers and power switching. They lost *digital logic*, not electronics.
@@ -340,6 +354,7 @@ transistor_lab: passed
 ---
 
 ## 10. Check your understanding
+<!-- bite: 7c3640dd-2c0f-4e16-94b4-27dea2e8a2fa -->
 
 1. **Why can a MOSFET gate be driven by an arbitrarily weak signal, while a BJT base cannot?**
    <details><summary>Answer</summary>
@@ -368,6 +383,7 @@ transistor_lab: passed
 ---
 
 ## 11. Practice — independent task
+<!-- bite: b0de18a7-6f66-4f96-9779-cb5e663e0408 -->
 
 **Task:** You are comparing two logic families for a design.
 
@@ -390,6 +406,7 @@ Transitions per second = (gate count) × (activity factor) × (clock frequency).
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: 7770129d-711f-45b0-be83-faf1103ca84a -->
 
 - **This module is qualitative about the MOSFET.** *How* the field forms a channel, what threshold voltage means, and how much current flows are all module 12.
 - **BJTs are not covered in depth.** Their internals are a course in themselves. What matters here is the contrast: current-controlled versus voltage-controlled, and its consequence for scaling.
@@ -399,6 +416,7 @@ Transitions per second = (gate count) × (activity factor) × (clock frequency).
 ---
 
 ## Before moving on
+<!-- bite: 2d151389-aea1-4a22-b3c7-2901a6f743e1 -->
 
 - [ ] State what a third terminal provides that two cannot, including why regeneration requires it.
 - [ ] Distinguish amplifier operation from switch operation, and say why digital treats the middle as a hazard.
@@ -413,6 +431,7 @@ Transitions per second = (gate count) × (activity factor) × (clock frequency).
 ---
 
 ## Related
+<!-- bite: 497feeea-2e9f-402f-82d8-56867adcbcd4 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] — the switchable-resistance requirement

@@ -1,3 +1,7 @@
+---
+id: 993aea7d-0c75-43c7-b81c-577d345733b3
+---
+
 # Practice Exercises
 
 > **[Advanced]** · Twelve exercises. **Most need a GPU — and there's an honest path for you if you don't have one.**
@@ -18,6 +22,7 @@ Solutions in [[gpu-and-parallel-computing/09-practice-exercises-solutions|note 0
 ---
 
 ## Part A — Parallelism, before any GPU (note 01)
+<!-- bite: 02861b89-8e32-4244-8357-4c283a889a73 -->
 
 **1. 🖥️ Measure Amdahl's law on your own code.**
 Take something with a genuinely serial section (reading a file, then processing it in parallel). Measure with 1, 2, 4, 8 threads or processes.
@@ -30,6 +35,7 @@ Parallelise a trivial operation (squaring a number) across a process pool, for a
 ---
 
 ## Part B — The programming model (notes 02–03)
+<!-- bite: 8ef0402d-5648-418e-85e5-5c0906baa338 -->
 
 **3. Write your first kernel.**
 Vector addition in CUDA (or Triton, or Numba `@cuda.jit`, or a compute shader). Verify against NumPy.
@@ -46,6 +52,7 @@ Launch more threads than array elements without a bounds check. Observe. Then ad
 ---
 
 ## Part C — Memory, the real subject (note 05)
+<!-- bite: 55523ec2-5307-4491-aa2a-6130cfd34cfb -->
 
 **6. Measure the transfer tax.**
 Time: host→device copy, kernel, device→host copy, separately, for a vector add on $10^8$ floats.
@@ -66,6 +73,7 @@ A kernel where threads branch on `threadIdx.x % 2` versus one branching on `thre
 ---
 
 ## Part D — Roofline and scale (notes 06–07)
+<!-- bite: 2f1294af-5ed5-4bc9-a85e-bf2189446f53 -->
 
 **10. 🖥️ Build a roofline for your hardware.**
 Look up (or measure) peak FLOP/s and peak memory bandwidth. Plot the roofline. Place vector-add, matrix-multiply and a reduction on it by computing their arithmetic intensity.
@@ -80,6 +88,7 @@ Run Nsight Compute (or `nvprof`) on your tiled matmul. Find achieved occupancy, 
 **Done when:** the profiler's verdict matches your roofline prediction — or you can explain the discrepancy.
 
 ## Related
+<!-- bite: 8cadeb2d-4695-4be5-ac35-569d61d1c237 -->
 - [[gpu-and-parallel-computing/09-practice-exercises-solutions|Solutions]]
 - [[gpu-and-parallel-computing/index|the course]]
 - [[computer-architecture/13-practice-exercises|architecture exercises]] — the same method on the CPU

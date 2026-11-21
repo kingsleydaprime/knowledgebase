@@ -1,8 +1,13 @@
+---
+id: 19cb9cd5-4d14-4686-acd6-491f175555de
+---
+
 # Stress
 
 **[Intermediate → Advanced]** — The quantity you cannot measure, why it needs nine components, and the three different stress tensors finite deformation forces on you.
 
 ## Traction
+<!-- bite: ff227fdf-65ae-4b34-b422-805ed993e899 -->
 
 Cut an imaginary plane through a loaded body. The material on one side pulls and pushes on the material on the other. The **traction** is that force per unit area:
 
@@ -13,6 +18,7 @@ A vector, in N/m² (pascals). It has a component normal to the plane (**normal s
 **The traction depends on the orientation of the cut.** Same point, different plane, different answer — a horizontal cut through a bent beam sees mostly shear; a vertical cut sees mostly normal stress. That dependence is the entire reason stress is a tensor.
 
 ## Cauchy's theorem
+<!-- bite: 897f0e8b-edde-4091-a676-34a7df111ac7 -->
 
 The result that makes the field possible:
 
@@ -23,6 +29,7 @@ $$\mathbf{t}(\mathbf{n}) = \boldsymbol{\sigma}\,\mathbf{n} \qquad\qquad t_i = \s
 The proof is the **Cauchy tetrahedron**: take a small tetrahedron with three faces on the coordinate planes and one arbitrary face with normal $\mathbf{n}$. Write force balance. Areas scale as $\ell^2$ and volume as $\ell^3$, so as $\ell \to 0$ the body-force and inertia terms vanish faster than the surface terms — leaving a purely geometric relation. That $\ell^2$ vs $\ell^3$ argument is worth remembering; it's used repeatedly.
 
 ## Reading the components
+<!-- bite: 326d27e2-fafc-4af8-8b65-ffd4f0552d9b -->
 
 $$\boldsymbol{\sigma} = \begin{bmatrix} \sigma_{11} & \sigma_{12} & \sigma_{13} \\ \sigma_{21} & \sigma_{22} & \sigma_{23} \\ \sigma_{31} & \sigma_{32} & \sigma_{33} \end{bmatrix}$$
 
@@ -34,6 +41,7 @@ $$\boldsymbol{\sigma} = \begin{bmatrix} \sigma_{11} & \sigma_{12} & \sigma_{13} 
 The sign convention matters and differs by field: **solid mechanics takes tension positive**; **geomechanics takes compression positive**, because soil is essentially always in compression and nobody wants to write minus signs all day. Check which convention a source uses.
 
 ## Symmetry
+<!-- bite: 3dda1404-d4ba-46bd-91aa-efdaab3d33e3 -->
 
 $$\sigma_{ij} = \sigma_{ji}$$
 
@@ -44,6 +52,7 @@ So symmetry is forced, and it reduces nine components to **six independent** one
 (The exception: **Cosserat / micropolar** continua, which carry couple stresses and have non-symmetric $\boldsymbol\sigma$. Relevant to granular media and materials with microstructure, and out of scope here.)
 
 ## Principal stresses
+<!-- bite: 7665d236-5486-4333-805c-5da42af8be27 -->
 
 Because $\boldsymbol\sigma$ is symmetric, it has three real eigenvalues and orthogonal eigenvectors. → [[continuum-mechanics/02-index-notation-and-tensors|note 02]]
 
@@ -60,6 +69,7 @@ Two facts fall out and drive most failure prediction:
 **Mohr's circle** is the graphical construction of this in 2D — a circle of centre $(\sigma_1+\sigma_2)/2$ and radius $\tau_{max}$, on which every plane's stress state is a point. It's how this was done before computers, it's still the fastest way to build intuition, and it's still on every exam.
 
 ## The volumetric/deviatoric split
+<!-- bite: 2c4e2a15-c483-40ac-be10-1131d1d01e11 -->
 
 $$\sigma_{ij} = \underbrace{-p\,\delta_{ij}}_{\text{hydrostatic}} + \underbrace{s_{ij}}_{\text{deviatoric}} \qquad p = -\tfrac{1}{3}\sigma_{kk}$$
 
@@ -72,6 +82,7 @@ This split does real work:
 - **Rubber is nearly incompressible**, so the hydrostatic part is essentially unconstrained by deformation and must be carried as a separate unknown — which is why hyperelastic FE formulations use mixed elements
 
 ## Three stress tensors
+<!-- bite: bd44dd4d-69f2-49e2-b964-0542befef563 -->
 
 Under finite deformation the question "force per unit area" becomes ambiguous: **which area — deformed or undeformed?** That question generates three tensors.
 
@@ -98,6 +109,7 @@ It has **no direct physical interpretation** — it's the force pulled back thro
 The engineering-vs-true stress distinction on a tensile curve is exactly $\mathbf{P}$ vs $\boldsymbol\sigma$: the engineering curve falls after the UTS because it keeps dividing by the original area while the specimen necks; the true curve keeps rising.
 
 ## You cannot measure stress
+<!-- bite: 8ef82187-f933-4858-95bb-e5c961954b74 -->
 
 Worth stating plainly, because it's easy to forget.
 
@@ -112,6 +124,7 @@ Photoelasticity and X-ray diffraction come closest to direct measurement, and bo
 **This is a good instance of the general point from [[continuum-mechanics/index|the domain note]]:** the balance laws are certain, the constitutive model is chosen, and that's where the error lives.
 
 ## Equilibrium
+<!-- bite: 9e72e230-ae90-4cb4-a6f2-6898efc4bf64 -->
 
 Static force balance, which is what most of solid mechanics solves:
 
@@ -124,6 +137,7 @@ With acceleration it's Cauchy's equation of motion, and it's the same equation t
 ---
 
 ## Related
+<!-- bite: 9d7f05bc-757d-4469-a5f6-525a25591a7c -->
 - [[continuum-mechanics/04-strain-measures|Strain Measures]] — the conjugate quantity
 - [[continuum-mechanics/06-conservation-laws|Conservation Laws]] — where equilibrium comes from
 - [[continuum-mechanics/12-failure-and-yield|Failure and Yield]] — what principal stresses predict

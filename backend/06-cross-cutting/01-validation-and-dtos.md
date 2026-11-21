@@ -1,3 +1,7 @@
+---
+id: e1794138-e55b-4c6e-893e-ff664e0b1906
+---
+
 # Validation and DTOs
 
 > **[Intermediate]** · Parse, don't validate — and why the boundary is the only place this can be done.
@@ -5,6 +9,7 @@
 **Every byte entering your process from outside is untrusted and untyped.** A JSON body, a query string, a header, a file, a message from a queue. Your type system believes whatever you tell it about that data, and it is wrong until something checks.
 
 ## Parse, don't validate
+<!-- bite: 2531facc-acf0-4f78-b923-379617942a64 -->
 
 **The distinction that makes everything else follow:**
 
@@ -26,6 +31,7 @@ create(parsed.data);                              // typed from here on
 **The practical test: after your check, can a downstream function still receive bad data?** If yes, you validated. If it's a type error to even try, you parsed.
 
 ## The boundary is the only place
+<!-- bite: ea8f97a0-db26-44ec-b059-46e4a1537f54 -->
 
 **Do it once, at the edge, and never again.** Every layer that re-checks is a layer that can disagree with the others.
 
@@ -43,6 +49,7 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 **The one framework where this is structural:** FastAPI, because the Pydantic model that validates *is* the model that generates the schema, so they cannot drift → [[backend/frameworks/python/01-fastapi/index|FastAPI]].
 
 ## What a DTO is for
+<!-- bite: 89fe1cae-accd-49f9-94c6-483881b59946 -->
 
 **A DTO is the shape of the wire, not the shape of your domain.** Keeping them separate buys you three things:
 
@@ -55,6 +62,7 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 **Mass assignment** is the attack this prevents: binding a request body straight onto an entity lets a caller set `role: "admin"` if you forgot to exclude it. **An explicit DTO makes the omission impossible rather than merely unlikely.**
 
 ## What to actually check
+<!-- bite: a00f0d46-a9dd-44f5-ab2d-2299ffc13224 -->
 
 **Structural** — required fields, types, shapes.
 **Range** — lengths, bounds, formats, enum membership.
@@ -65,6 +73,7 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 **And decide what "unknown field" means.** Silently ignoring extra fields is forgiving and hides client bugs; rejecting them is strict and breaks on additive changes. **Pick deliberately** — most public APIs ignore, most internal ones reject.
 
 ## Error responses
+<!-- bite: 92df31dc-9fe8-4e94-bf7f-b5fdd9951c16 -->
 
 **One shape, everywhere** — [[backend/06-cross-cutting/03-error-handling|note 03]] covers the mechanism. For validation specifically:
 
@@ -82,6 +91,7 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 **Never echo the input back in the error message** without encoding it. That's reflected XSS in an error handler, which is a real and frequently-missed vector.
 
 ## Related
+<!-- bite: 106415f4-80db-4269-80b8-2ffa21b7787c -->
 - [[backend/06-cross-cutting/03-error-handling|error handling]] — the response shape
 - [[backend/02-api-design/index|API design]] — contracts
 - [[backend/frameworks/cross-language-recipes|cross-language recipes]] — this in six stacks

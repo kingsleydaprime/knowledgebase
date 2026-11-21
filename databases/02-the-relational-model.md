@@ -7,6 +7,7 @@ id: 69cd32ad-86f4-46d0-9eaa-f0af0d8fff96
 **[Intermediate]** — Codd's idea, why SQL is declarative, and the algebra the optimiser actually manipulates.
 
 ## Codd's insight
+<!-- bite: ee3dd9d6-f6be-4e50-85ce-f982b4ac178a -->
 
 **1970.** Databases at the time were hierarchical or network models — records linked by explicit pointers, and **queries were written as navigation instructions**: follow this pointer, then that one.
 
@@ -19,6 +20,7 @@ id: 69cd32ad-86f4-46d0-9eaa-f0af0d8fff96
 **That separation is why databases can improve without your code changing.** Add an index, upgrade the optimiser, reorganise the storage — the query is unchanged, and it gets faster. **Every optimisation in notes 04–07 is only possible because the query didn't specify a plan.**
 
 ## A table is a relation
+<!-- bite: d2b406c1-9a00-41eb-969b-001af13b6023 -->
 
 **Literally**, in the sense from [[mathematics/02-discrete-math/04-sets-relations-and-functions|set theory]]:
 
@@ -40,6 +42,7 @@ id: 69cd32ad-86f4-46d0-9eaa-f0af0d8fff96
 **Attribute order shouldn't matter.** In SQL it does, for `SELECT *` and `INSERT` without a column list. **Which is the argument for never using either in application code.**
 
 ## Relational algebra
+<!-- bite: 13de300f-3b22-4d0c-aafa-a759a39005a1 -->
 
 **The operations the optimiser actually manipulates.** SQL is a surface syntax; the planner converts it into an algebraic tree and rewrites *that*. → [[databases/06-the-query-pipeline|The Query Pipeline]]
 
@@ -81,6 +84,7 @@ $$\pi_a(\sigma_c(R)) \equiv \sigma_c(\pi_a(R)) \quad\text{when } c \text{ only u
 **Projection pushdown** — drop columns early, so less data moves.
 
 ## Declarative, and what it costs
+<!-- bite: 4cf86af4-b453-437f-90a3-3b3ece2a7665 -->
 
 **You write:**
 
@@ -104,6 +108,7 @@ GROUP BY c.name;
 **You must read plans to debug.** `EXPLAIN` is not optional — it's the only window into what actually happened. → [[databases/07-join-algorithms-and-the-optimiser/index|Reading EXPLAIN]]
 
 ## NULL
+<!-- bite: 1899aef6-22e9-4780-b7a9-fb295661b48e -->
 
 **The relational model's most criticised addition**, and Codd himself argued about it for decades.
 
@@ -132,6 +137,7 @@ GROUP BY c.name;
 **Full treatment in [[databases/sql-reference|sql-reference]] §18.**
 
 ## Keys and integrity
+<!-- bite: 5c9d79b0-7559-425e-8c29-11f2e70fb079 -->
 
 **The constraints that make a relation more than a spreadsheet.**
 
@@ -152,6 +158,7 @@ GROUP BY c.name;
 **Normalisation** — the process of eliminating redundancy so that each fact is stored once. **Fully covered in [[databases/database-design-reference|database-design-reference]] §7–8**, including when to denormalise deliberately.
 
 ## What survived
+<!-- bite: 8c95edec-7eea-4c12-8940-4405bfae7881 -->
 
 **The relational model is 55 years old and still the default.** Worth asking why.
 
@@ -168,6 +175,7 @@ GROUP BY c.name;
 ---
 
 ## Related
+<!-- bite: 8d5fdc62-70be-4561-8ed3-82caa42ae4ef -->
 - [[databases/06-the-query-pipeline|The Query Pipeline]] — where this algebra gets used
 - [[databases/database-design-reference|Database Design Reference]] — modelling, normalisation, keys in depth
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the maths

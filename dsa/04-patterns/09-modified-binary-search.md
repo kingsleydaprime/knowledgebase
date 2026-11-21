@@ -1,8 +1,13 @@
+---
+id: fb4c77dc-9537-40fe-9d90-60cfc60cffc0
+---
+
 # Pattern: Modified Binary Search
 
 **[Advanced]** — A university-level introduction to the modified binary search pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: d011f6d4-0657-4557-a6ab-32b2ab64cc1e -->
 
 - You should understand binary search. See [[01-linear-and-binary-search|binary search]] if needed.
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: 947170a3-8d5d-44e2-b28c-bd14ca38de06 -->
 
 Imagine you're searching for a target value in a sorted array, but the array has been rotated at some unknown pivot point. The array `[4, 5, 6, 7, 0, 1, 2]` is sorted, but rotated at index 4. Standard binary search won't work because the array isn't fully sorted.
 
@@ -31,6 +37,7 @@ There's another variant worth knowing separately: **binary search on the answer*
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: 9a670bd1-c9b7-4d29-bfb9-58daadcb2e91 -->
 
 | Term                            | Plain-English definition                                                       | Example / analogy                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
@@ -42,6 +49,7 @@ There's another variant worth knowing separately: **binary search on the answer*
 ---
 
 ## 3. How it works — step by step
+<!-- bite: 8db84f54-1c37-4cb9-a98e-56a409acbb74 -->
 
 ### Binary search on rotated sorted array
 
@@ -115,6 +123,7 @@ The tell that a problem wants this pattern: it asks for a minimum/maximum value 
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: e4783995-6467-499b-95b6-74d056c67be0 -->
 
 **Runnable example:** save as `modified_binary_search_lab.py` and run `python3 modified_binary_search_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -234,6 +243,7 @@ modified_binary_search_lab: passed
 ---
 
 ## 5. Related patterns and extensions
+<!-- bite: 2ecff600-c787-4c42-a809-5dedce288c1c -->
 
 ### Search a 2D Matrix
 
@@ -299,6 +309,7 @@ def find_median_sorted_arrays(nums1, nums2):
 ---
 
 ## 6. Complexity
+<!-- bite: 0b3e4872-5b08-4901-9f44-435d7f2b6de2 -->
 
 - **Rotated array search:** O(log n) — same as standard binary search; the extra "which half is sorted" check is O(1) work added to each step.
 - **Binary search on the answer:** O(n log n) — an O(n) check repeated O(log n) times (where n is the size of the input to the check function).
@@ -306,6 +317,7 @@ def find_median_sorted_arrays(nums1, nums2):
 ---
 
 ## 7. Tradeoffs and limitations
+<!-- bite: 0ee4d1f2-6ab5-4ffe-a53b-aabc5341c58d -->
 
 - **Rotated array search:** Requires the array to be sorted and rotated (not arbitrary unsorted data). The algorithm assumes exactly one rotation point.
 - **Binary search on the answer:** Requires the predicate to be monotonic (once true, stays true for larger values). Not all optimization problems have this property.
@@ -314,6 +326,7 @@ def find_median_sorted_arrays(nums1, nums2):
 ---
 
 ## 8. Check your understanding (self-assessment)
+<!-- bite: 58a5315c-8c4f-4c7f-a405-21bba1fb96f7 -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -339,6 +352,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 9. Practice — independent task
+<!-- bite: c4ca1e20-7979-4d8a-8d4f-ef0dbe07f21a -->
 
 **Task:** Implement a function `min_eating_speed(piles, h)` that returns the minimum eating speed for Koko to finish all piles in h hours. Use the binary search on the answer pattern. Test it with the following cases:
 
@@ -350,6 +364,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: f5e1536f-2565-4484-b07d-a2c9ddc1db6b -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -371,6 +386,7 @@ Attempt these without the note, then compare your reasoning below.
 13. Split Array Largest Sum (#410) — search-on-the-answer again, with a harder predicate.
 
 ## Before moving on
+<!-- bite: dff7922a-e8d6-4051-b00c-c95276b9200e -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -384,6 +400,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[10-binary-tree-traversal-pattern|binary-tree-traversal-pattern]] — the same divide-and-conquer instinct applied to a branching structure instead of a linear one.
 
 ## 10. Related
+<!-- bite: 6ed6b596-2e7b-434b-9546-44df3123d09d -->
 
 - [[01-linear-and-binary-search|searching]] — the baseline binary search algorithm
 - [[05-sorting/index|sorting]] — prerequisite for rotated array search
@@ -393,6 +410,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 11. Further reading
+<!-- bite: aa333932-eac5-42e7-bc0a-c10786fc1150 -->
 
 The pattern appears in many contexts beyond LeetCode:
 

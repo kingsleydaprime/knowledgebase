@@ -1,8 +1,13 @@
+---
+id: 716edaa2-49bf-4fd8-87c5-5899358f1d90
+---
+
 # Limit Laws
 
 **[Intermediate]** — The rules that make limits computable, why each is believable, and the one case they all refuse to cover.
 
 ## Before you start
+<!-- bite: 89697565-aadf-405e-a255-e97fd0595f8d -->
 
 - You can evaluate simple limits by substitution and factoring — [[01-definition|the limit of a function]].
 
@@ -16,6 +21,7 @@
 ---
 
 ## 1. The laws
+<!-- bite: eda5b80f-c078-4706-bb40-e2e3dac0684e -->
 
 If $\lim_{x\to a} f(x) = L$ and $\lim_{x\to a} g(x) = M$ — **and both exist** — then:
 
@@ -34,6 +40,7 @@ If $\lim_{x\to a} f(x) = L$ and $\lim_{x\to a} g(x) = M$ — **and both exist** 
 **Why that is believable:** if $f(x)$ is settling towards $L$ and $g(x)$ towards $M$, then $f(x) + g(x)$ has nowhere to settle except $L + M$. The formal proof uses the $\varepsilon$–$\delta$ definition from [[01-epsilon-delta|the precise definition]]; the intuition is exactly this.
 
 ## 2. The condition that matters
+<!-- bite: 852c9c6c-6009-41e1-9f96-7ccf5909d4cd -->
 
 **Every law says "provided both limits exist".** That is not decoration.
 
@@ -44,6 +51,7 @@ The expression is identically $0$ for every $x \neq 0$, so the limit is $0$. But
 **When a law's precondition fails, the law says nothing** — not that the limit fails to exist, but that this particular tool cannot decide. You need a different approach.
 
 ## 3. Polynomials and rational functions
+<!-- bite: 63abeb10-6edc-4568-ae64-bd1caed30b62 -->
 
 The laws combine to give a very useful shortcut.
 
@@ -57,6 +65,7 @@ The laws combine to give a very useful shortcut.
 - and $P(a) = 0$ → **indeterminate $\frac{0}{0}$** → factor and cancel
 
 ## 4. The indeterminate forms
+<!-- bite: 6eebd562-2143-4a29-acc5-ff48bace4e1c -->
 
 $$\frac{0}{0} \qquad \frac{\infty}{\infty} \qquad 0 \cdot \infty \qquad \infty - \infty \qquad 1^\infty \qquad 0^0 \qquad \infty^0$$
 
@@ -71,6 +80,7 @@ $$\lim_{x\to 0}\frac{x}{x} = 1 \qquad \lim_{x\to 0}\frac{x^2}{x} = 0 \qquad \lim
 **Compare with $\frac{5}{0}$**, which is *not* indeterminate. It is definitely unbounded; there is nothing more to determine.
 
 ## 5. The Squeeze Theorem
+<!-- bite: 77044fa4-6c9f-4263-9c7a-dfa849cd9c02 -->
 
 Some limits resist every algebraic move. The classic:
 
@@ -89,6 +99,7 @@ Both outer functions go to 0, so the middle one is squeezed to **0**.
 **You never needed to understand the oscillation** — only to bound it. That is the technique: when a factor is uncontrollable but *bounded*, multiply it by something going to zero and the whole thing is forced to zero.
 
 ## 6. Practice — problems
+<!-- bite: 724587ff-ba74-4e46-9d6d-58c0445894bb -->
 
 1. Evaluate using the laws, naming which you use: $\lim_{x\to 2}\frac{x^3 - 2x}{x + 4}$.
 2. Evaluate: (a) $\lim_{x\to 1}\frac{x^2-1}{x^2-3x+2}$  (b) $\lim_{x\to 4}\frac{\sqrt{x}-2}{x-4}$.
@@ -108,6 +119,7 @@ Both outer functions go to 0, so the middle one is squeezed to **0**.
 </details>
 
 ## Before moving on
+<!-- bite: b792d8a5-20a5-4bcc-89cf-f425b9ccce37 -->
 
 - [ ] State the limit laws and the condition attached to every one of them.
 - [ ] Explain why an indeterminate form is a signal rather than an answer.
@@ -119,5 +131,6 @@ Both outer functions go to 0, so the middle one is squeezed to **0**.
 **Next:** [[01-definition|Continuity]] — the property that makes substitution work, stated precisely.
 
 ## Related
+<!-- bite: fb301da7-0d01-445e-ae23-82ff1fa912c0 -->
 
 - [[01-definition|The limit of a function]] · [[01-epsilon-delta|The precise definition]]

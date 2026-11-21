@@ -1,8 +1,13 @@
+---
+id: 702a4c14-2e82-4c98-99df-eb47ace27bfe
+---
+
 # Module 12: MOSFET Physics (How Voltage Becomes a Channel)
 
 **[Intermediate]** — The device opened up. How a gate voltage conjures a conducting layer out of silicon that was doped the wrong way, what threshold voltage means, and the three regions that define every use of a transistor.
 
 ## Before you start
+<!-- bite: 01cc0e4a-cb43-4949-89a7-6970980c5a38 -->
 
 - You know the MOSFET's structure — insulated gate over a channel between two doped regions — [[how-computers-work/03-transistors/01-what-a-transistor-is|module 11]].
 - You can explain depletion regions and how applied voltage changes their width — [[how-computers-work/02-semiconductors/05-pn-junctions|module 10]].
@@ -21,6 +26,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 44645a1b-7a8d-4ef2-8dcb-d177ee0c43cd -->
 
 Module 11 said the gate creates a field that "forms a channel". That sentence was doing a great deal of unexamined work.
 
@@ -33,6 +39,7 @@ That process is called **inversion**, and it is the mechanism at the centre of t
 ---
 
 ## 2. Terminology
+<!-- bite: f686ae7b-b13b-4827-b5d8-87e5577104b7 -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -52,6 +59,7 @@ That process is called **inversion**, and it is the mechanism at the centre of t
 ---
 
 ## 3. Inversion — the conceptual leap
+<!-- bite: a249ab1f-8fba-468a-8711-6732b6d31c90 -->
 
 Consider just the gate, the oxide and the P-type body. Ignore source and drain for a moment. This stack is a **MOS capacitor**, and its behaviour as gate voltage rises comes in three stages.
 
@@ -109,6 +117,7 @@ Where do they come from? Two sources: thermal generation in the depletion region
 ---
 
 ## 4. Predict before reading on
+<!-- bite: 57c453dc-f3d1-4890-b9c3-6092f93dde94 -->
 
 The channel is formed by electrons attracted from the source and drain into a P-type body.
 
@@ -126,6 +135,7 @@ That single fact is why CMOS needs *both* transistor types, and why NMOS-only lo
 ---
 
 ## 5. The three regions
+<!-- bite: c8fb6761-a07b-4e46-a8f6-9d4c50867f73 -->
 
 With a channel present, applying $V_{ds}$ drives current through it. How it behaves depends on how $V_{ds}$ compares with the overdrive $V_{ov} = V_{gs} - V_{th}$.
 
@@ -169,6 +179,7 @@ $$I_d = \frac{1}{2}k'\frac{W}{L}V_{ov}^2$$
 ---
 
 ## 6. $W/L$ — the designer's knob
+<!-- bite: 5226d41d-a9a1-473c-b830-e5ffce0038aa -->
 
 Both current equations contain $W/L$: channel width over channel length.
 
@@ -193,6 +204,7 @@ The cost is not free: a wider transistor presents proportionally more gate capac
 ---
 
 ## 7. Cutoff is not actually off
+<!-- bite: c5093b0b-b79b-4e12-907a-eae8dd3a6ce3 -->
 
 The square-law model says current is zero below threshold. **It is not**, and the discrepancy governs modern chip design.
 
@@ -227,6 +239,7 @@ And from [[how-computers-work/01-electricity/02-resistance-and-ohms-law|module 2
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: f07a4d21-84a0-431d-856e-4b5237c1b098 -->
 
 Save as `mosfet_lab.py` and run `python3 mosfet_lab.py`.
 
@@ -366,6 +379,7 @@ Note the on-resistance at full drive: **4167 Ω for a $W/L$ of 2**. That is the 
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: dba4d9f0-87ff-4a4e-8611-aef57a160b17 -->
 
 1. **Thinking the gate injects carriers.** It is insulated. It attracts carriers that come from the source and drain.
 2. **Believing inversion changes the doping.** Dopant ions never move. Only the mobile carrier population at the surface changes.
@@ -378,6 +392,7 @@ Note the on-resistance at full drive: **4167 Ω for a $W/L$ of 2**. That is the 
 ---
 
 ## 10. Check your understanding
+<!-- bite: 84199f15-fd5a-4944-866b-5c2de39c5b9a -->
 
 1. **Why can an NMOS transistor pull an output down to 0 V cleanly, but not up to $V_{DD}$?**
    <details><summary>Answer</summary>
@@ -408,6 +423,7 @@ Note the on-resistance at full drive: **4167 Ω for a $W/L$ of 2**. That is the 
 ---
 
 ## 11. Practice — independent task
+<!-- bite: c63cb3cf-27c5-4401-aca6-7acecdac69d7 -->
 
 **Task:** You are sizing transistors for a standard cell using the module's process ($k' = 200$ μA/V², $V_{th} = 0.4$ V, $V_{DD} = 1.0$ V, swing 70 mV/decade). PMOS $k'$ is 2.8× lower than NMOS.
 
@@ -431,6 +447,7 @@ This is why "make everything minimum size" is often correct in dense logic and b
 ---
 
 ## 12. Tradeoffs and limits of this model
+<!-- bite: 59b31c7e-ce4b-4530-b713-a1410c326be9 -->
 
 - **The square-law equations are long-channel approximations.** In modern short-channel devices, carriers reach **velocity saturation** and current becomes closer to linear in $V_{ov}$. The qualitative picture — three regions, threshold, pinch-off — survives; the exponents do not.
 - **Short-channel effects are omitted.** Drain-induced barrier lowering (DIBL) makes $V_{th}$ depend on $V_{ds}$; the gate loses electrostatic control as $L$ shrinks. Combating this drove the move to **FinFETs** and gate-all-around structures, which wrap the gate around the channel on several sides.
@@ -440,6 +457,7 @@ This is why "make everything minimum size" is often correct in dense logic and b
 ---
 
 ## Before moving on
+<!-- bite: 2dc46637-88f5-4f05-b361-60b5d4f506ff -->
 
 - [ ] Explain accumulation, depletion and inversion, and why inversion is surprising.
 - [ ] Explain what threshold voltage is and what physically happens at it.
@@ -455,6 +473,7 @@ This is why "make everything minimum size" is often correct in dense logic and b
 ---
 
 ## Related
+<!-- bite: e83afc10-f679-492c-b8e1-5b505c3cffc9 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] — the switchable resistance, now delivered

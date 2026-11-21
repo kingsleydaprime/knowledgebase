@@ -1,3 +1,7 @@
+---
+id: d60c36e7-0421-461a-b0bb-16aacc4a86e3
+---
+
 # How Types Actually Work
 
 > **[Beginner → Intermediate]** · What a type *is* underneath the bits, and the five independent questions hiding inside the phrase "data type". The note that explains **why** the rules in [[programming-fundamentals/05-variables-and-types|note 05]] are the way they are.
@@ -7,6 +11,7 @@
 This note is the layer under it, and it's here at the end deliberately — it makes far more sense once you've met [[programming-fundamentals/07-collections|collections]], [[programming-fundamentals/13-objects-and-classes|objects]] and [[programming-fundamentals/14-programming-paradigms|paradigms]], because the distinctions below are exactly what separate those ideas.
 
 ## The same bits mean different things
+<!-- bite: c23bbcf6-2f76-4ab4-a5d7-6aa3c1d04375 -->
 
 Memory holds no types. It holds bytes, and a byte is eight bits with no opinion about what it represents. **A type is the instruction for how to read them.**
 
@@ -38,6 +43,7 @@ Because an `int32` is *always* 4 bytes, a hundred of them in a row occupy a pred
 3. **Early mistakes** — adding a string to a number gets caught before it ships, in languages that check.
 
 ## "Data type" is five questions, not one
+<!-- bite: 0bc0793b-6dd3-422a-a6ba-a74f93d0a4aa -->
 
 Here's the thing that clears up most confusion: **"data type" isn't one axis.** It's five independent questions asked about a value at once, and two types can differ on one while being identical on another.
 
@@ -115,6 +121,7 @@ The combination that surprises people:
 "Dynamically typed" and "weakly typed" get used interchangeably in casual conversation and mean genuinely different things. Python is as dynamic as JavaScript and far stricter about coercion.
 
 ## Putting it together
+<!-- bite: 6696394e-21e4-4e60-96fa-ea10b5d0b5df -->
 
 | Type | Primitive/Composite | Value/Reference | Mutable/Immutable |
 |---|---|---|---|
@@ -128,6 +135,7 @@ The combination that surprises people:
 Reading across a row is how you predict a type's behaviour without memorising rules per language.
 
 ## Gotchas
+<!-- bite: a2803ee7-ccad-4a1d-9d76-88f5dd5574ca -->
 
 - **The mutable default argument trap.** In Python, `def f(items=[]):` creates that list **once**, at definition time, and shares it across every call that doesn't pass its own. The list accumulates across calls and it looks like the language is haunted. Default to `None` and build the object inside the function.
 - **"Is Python pass-by-reference or pass-by-value?"** Neither, cleanly — it's *pass by object reference*. The reference is passed by value, so **reassigning** a parameter inside a function doesn't affect the caller, but **mutating** the object it points to does. Both halves surprise people, in opposite directions.
@@ -136,6 +144,7 @@ Reading across a row is how you predict a type's behaviour without memorising ru
 - **Fixed-width types overflow and floats approximate** — both covered in [[programming-fundamentals/05-variables-and-types|note 05]], and both are direct consequences of the bit-level story above rather than separate curiosities.
 
 ## Related
+<!-- bite: 5b9e1516-9d2f-400d-992f-8396bb9df802 -->
 - [[programming-fundamentals/05-variables-and-types|variables and types]] — the working version of this; read that first
 - [[programming-fundamentals/07-collections|collections]] — where mutable vs immutable starts to bite daily
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]] — composite types you define yourself

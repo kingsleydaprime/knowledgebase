@@ -1,8 +1,13 @@
+---
+id: 23717f93-deaf-43d8-ac66-234761194ba7
+---
+
 # Wallets and Connection
 
 **[Intermediate]** — what a wallet actually is, the connection flow, EIP-712 signatures, and the UX problems that have no good answer yet.
 
 ## What a wallet is
+<!-- bite: 5598962f-d712-43c6-9fe8-2d3cc702622c -->
 
 **A key manager and a signer.** It holds private keys, derives addresses, and signs messages and transactions. **It does not hold your coins** — those are entries in chain state that reference your address.
 
@@ -18,6 +23,7 @@ Lose the seed phrase, lose everything, forever. **There is no recovery** because
 The categories: **browser extension** (MetaMask, Rabby), **mobile** (usually via WalletConnect), **hardware** (Ledger, Trezor — the key never leaves the device), **smart contract wallets** (Safe, and [[web3/06-building-dapps/07-account-abstraction|account abstraction]] wallets), and **embedded/social** (Privy, Dynamic — key shares split between provider and user, trading self-custody for onboarding).
 
 ## Connection, and what it actually grants
+<!-- bite: e78d915b-4211-4778-9d8f-bba3b5a40f0a -->
 
 ```
 1. User clicks "Connect"
@@ -41,6 +47,7 @@ const { connect, connectors } = useConnect()
 **EIP-6963** fixed a long-standing mess: multiple extensions used to fight over `window.ethereum`, so having two wallets installed broke connection. It's a discovery protocol, wagmi implements it, and you get correct multi-wallet behaviour for free.
 
 ## The three signature types
+<!-- bite: 02dc54e2-e0f3-44a8-b8f0-75e35f59f9d6 -->
 
 **1. `personal_sign`** — sign arbitrary text. The user sees the message.
 ```ts
@@ -65,6 +72,7 @@ await signTypedData({
 **The dangerous middle ground:** `personal_sign` over an opaque hash shows the user a meaningless hex string. **That's how signature phishing works** — the victim signs something they cannot read, which turns out to be an order transferring their NFTs. **Never ask users to sign opaque data**, and be suspicious of any site that does.
 
 ## Chains, and switching
+<!-- bite: 043b9865-bf3f-4d44-b65f-f8fd790d4df6 -->
 
 ```ts
 const { switchChain } = useSwitchChain()
@@ -74,6 +82,7 @@ await switchChain({ chainId: 8453 })     // prompts the user
 **Always check the connected chain before every write.** A user on Polygon calling your Ethereum contract gets a confusing failure or, worse, sends a transaction to an address that holds a *different* contract on that chain. Contracts deployed at the same address on different chains is common (CREATE2), and it makes this failure mode genuinely dangerous.
 
 ## The UX problems with no good answer
+<!-- bite: d691a287-7ba7-4bff-a99b-675e46fc8e54 -->
 
 Worth stating plainly, because the field routinely pretends these are solved:
 
@@ -88,6 +97,7 @@ Worth stating plainly, because the field routinely pretends these are solved:
 **5. Phishing.** A malicious signature request can drain a wallet in one click, and the request looks like every legitimate one. **This is the main way ordinary users actually lose money** — far more than smart contract exploits → [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|the fraud surface]].
 
 ## What good practice looks like
+<!-- bite: 54a002bd-1cfb-4823-8d89-0f951675384e -->
 
 - **Show the chain, and switch before writing** rather than failing after
 - **Use EIP-712 for anything structured.** Readable signature prompts are a security feature
@@ -99,10 +109,12 @@ Worth stating plainly, because the field routinely pretends these are solved:
 - **Don't gate the whole app behind connection.** Let people browse first
 
 ## Key insight
+<!-- bite: 8fb5f31c-e1b5-4af1-9ab6-df44b0f874e0 -->
 
 **A wallet connection grants read access and the right to ask for signatures — the user approves every single action, individually, forever.** That's the security model, and it's genuinely good. It's also the UX model, and it's genuinely painful, because it pushes every consequence onto a user who often can't read what they're approving. Most dapp UX work is closing that gap.
 
 ## Related
+<!-- bite: 9bca98ad-7751-4d8e-9f6f-754a091862d3 -->
 - [[web3/06-building-dapps/07-account-abstraction|account abstraction]] — the attempt to fix most of this
 - [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing chain state]]
 - [[web3/frameworks/javascript/index|JS/TS for web3]] — wagmi, viem, RainbowKit

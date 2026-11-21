@@ -1,3 +1,7 @@
+---
+id: b9011353-d8c4-496c-9eee-d0e2b074dcf1
+---
+
 # Practice Exercises
 
 > **[Advanced]** · Twelve exercises. **PL theory is the one domain here where the exercises are mostly *implementations* — because an interpreter you wrote cannot lie to you about the semantics.**
@@ -9,6 +13,7 @@ Solutions in [[programming-language-theory/09-practice-exercises-solutions|note 
 ---
 
 ## Part A — Lambda calculus (note 02)
+<!-- bite: 1500d1a8-1f65-4f71-9856-58946ff4e78a -->
 
 **1. Reduce by hand.**
 Beta-reduce to normal form: (a) $(\lambda x.\,x\,x)(\lambda y.\,y)$, (b) $(\lambda x.\lambda y.\,x)\,a\,b$, (c) $(\lambda x.\lambda y.\,x\,y)(\lambda z.\,z)\,w$.
@@ -28,6 +33,7 @@ Verify $Y\,g \to g\,(Y\,g)$ by reduction, where $Y = \lambda f.(\lambda x.f(x\,x
 ---
 
 ## Part B — Semantics (note 03)
+<!-- bite: 4d95c8fc-63bc-442c-8bcb-ab0acd8d43f8 -->
 
 **5. Write the rules, then the interpreter.**
 For a language of integers, booleans, `+`, `if`, and variables: write **small-step** operational semantics as inference rules, then implement an evaluator that follows them exactly.
@@ -40,6 +46,7 @@ Add a `print` side effect. Write a program whose output differs under call-by-va
 ---
 
 ## Part C — Types (notes 04–05)
+<!-- bite: e800aded-82d7-44da-8794-4e3f62787760 -->
 
 **7. Implement a type checker.**
 Simply-typed lambda calculus: a bidirectional checker with a context $\Gamma$. Reject $(\lambda x{:}\text{Int}.\,x)\,\text{true}$.
@@ -60,6 +67,7 @@ Write a term that needs the occurs check to reject ($\lambda x.\,x\,x$), and one
 ---
 
 ## Part D — Curry–Howard and effects (notes 06–07)
+<!-- bite: 3c221460-01c1-4eea-bb9e-bf93d0c21b53 -->
 
 **11. Programs as proofs.**
 Give the type corresponding to each and write an inhabiting term: $A \to (B \to A)$; $(A \to B) \to (B \to C) \to (A \to C)$; $A \land B \to A$. Then try $A \lor \lnot A$ and fail.
@@ -70,6 +78,7 @@ Write typing rules for a linear lambda calculus where every variable is used **e
 **Done when:** you can connect the rules to Rust's move semantics and say which Rust feature corresponds to weakening → [[programming-language-theory/07-effects-and-substructural-types|note 07]] · [[languages/03-rust/index|Rust]].
 
 ## Related
+<!-- bite: b2a1e6a5-2939-4df9-bc54-b5af40aa0a2e -->
 - [[programming-language-theory/09-practice-exercises-solutions|Solutions]]
 - [[programming-language-theory/index|the course]]
 - [[compilers/index|compilers]] · [[build-your-own-shit/04-your-own-language|build your own language]]

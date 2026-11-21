@@ -1,8 +1,13 @@
+---
+id: 40d570ae-ef87-4065-ac79-8cbcc2caa525
+---
+
 # Inverse Kinematics
 
 **[Intermediate → Advanced]** — Given where you want the hand, what joint angles get it there? The hard direction, and the one that actually matters.
 
 ## Why it's hard
+<!-- bite: dd50cdbb-e300-4ab9-9073-4235bd231158 -->
 
 $$\text{desired tool pose } T_{goal} \quad\longrightarrow\quad \boldsymbol\theta = ?$$
 
@@ -26,6 +31,7 @@ Forward kinematics is a chain of matrix multiplies. Inverse kinematics means **s
 > **So IK is not "the inverse function". It's a search with choices**, and picking *which* solution is as much of the problem as finding one.
 
 ## Analytical IK
+<!-- bite: 686dcb86-56f6-496c-b51f-e78d1cc1b515 -->
 
 Closed-form, exact, fast — solve the equations by hand for a specific geometry.
 
@@ -53,6 +59,7 @@ $$\theta_2 = \pm\arccos(\cdots) \qquad \theta_1 = \text{atan2}(y,x) - \text{atan
 **Use it when you have it.** For a standard industrial arm, the closed form exists and the vendor ships it.
 
 ## Numerical IK
+<!-- bite: 1250aaf4-dcce-485f-87f1-be7755af6203 -->
 
 Iterate towards the answer. **Works for any geometry**, which is why it's the general answer.
 
@@ -100,6 +107,7 @@ Adjust one joint at a time, from the tip backwards, each to minimise the error. 
 **Trivially simple, no Jacobian, no matrix maths.** Converges reliably if slowly, and it handles long chains well — which is why it's popular in **games and animation** for character IK. Less common in robotics because the joint motions it produces aren't smooth or natural.
 
 ## Choosing among solutions
+<!-- bite: 98e5df49-6eca-4e70-98f2-4e8a4b73736e -->
 
 Often the real work, and the part that determines whether the robot is usable.
 
@@ -116,6 +124,7 @@ Often the real work, and the part that determines whether the robot is usable.
 > **This is the failure that surprises people:** the robot executes a smooth path, then at one waypoint flips its elbow through a wide arc to reach a pose that's millimetres from the previous one. The IK was right every time; the *sequence* wasn't. **Solve IK for a trajectory as a sequence with continuity constraints**, not as independent points.
 
 ## Redundancy
+<!-- bite: 93126220-8547-4a28-8380-15761e2d8d9f -->
 
 For $n > 6$ joints, the solution set is a continuous manifold, and you can exploit it.
 
@@ -128,6 +137,7 @@ The first term achieves the task. **The second does whatever you like, projected
 **This is the concrete payoff of a 7-DOF arm**, and it's why collaborative robots have that extra joint: the elbow can move out of a human's way while the gripper holds still.
 
 ## Practical notes
+<!-- bite: d59d90db-eaf1-42ee-bb6a-d16f5357e9ba -->
 
 **Seed it well.** Numerical IK from the current configuration converges fast and lands on a nearby solution. From a random seed it converges slowly to somewhere arbitrary. **Always seed from the current joint angles** in a control loop.
 
@@ -144,6 +154,7 @@ The first term achieves the task. **The second does whatever you like, projected
 ---
 
 ## Related
+<!-- bite: c232409e-f35e-43a3-9011-187e7d3d2cff -->
 - [[robotics/05-forward-kinematics-and-dh-parameters|Forward Kinematics]] — the easy direction
 - [[robotics/07-jacobians-and-singularities|Jacobians and Singularities]] — the maths this depends on
 - [[robotics/10-motion-planning|Motion Planning]] — where IK gets called in a loop

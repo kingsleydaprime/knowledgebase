@@ -1,14 +1,20 @@
+---
+id: 15822f34-b707-4c62-b2e0-80f5093ddc56
+---
+
 # What Data Engineering Is
 
 **[Beginner]** — the discipline, why it exists as a role, and the one distinction everything else rests on.
 
 ## The kid version first
+<!-- bite: fa5f2bb7-63ee-404c-b1d6-01fa0ef66e2d -->
 
 A company's data starts scattered — in the app's database, in payment records, in logs, in spreadsheets, in third-party tools. **None of it is in a shape you can ask questions of.** *"How much did we make per region last quarter, split by new vs returning customers?"* touches five systems, and none of them can answer it alone.
 
 **Data engineering is the plumbing that moves data from where it's created to where it can be analysed, and reshapes it on the way** so that question becomes one query. Analysts, dashboards and ML models are the taps; data engineering is the pipes.
 
 ## The one distinction: operational vs analytical
+<!-- bite: 5bf24742-7198-4734-835f-c0b38e54a8a9 -->
 
 Everything in this domain rests on splitting two workloads that a single database can't serve well at once:
 
@@ -26,6 +32,7 @@ Everything in this domain rests on splitting two workloads that a single databas
 **So step one of data engineering is always: get the data *out* of the operational systems and into an analytical one.** That movement is the job.
 
 ## The shape of a data pipeline
+<!-- bite: b030aecc-d03e-4468-a888-6236be9e3e69 -->
 
 Almost every data system, however grand its tooling, is this:
 
@@ -47,6 +54,7 @@ Almost every data system, however grand its tooling, is this:
 - **Quality** → [[data-engineering/10-data-quality-governance-and-the-stack|quality & governance]]
 
 ## ETL vs ELT — the shift that defines the modern field
+<!-- bite: 43c9d96e-4477-4725-a2cb-64335456c3fb -->
 
 **Old way (ETL):** Extract, **Transform**, then Load. Reshape the data on a separate server *before* loading, because the warehouse was expensive and slow.
 
@@ -57,6 +65,7 @@ Almost every data system, however grand its tooling, is this:
 **"ELT over ETL" is the single biggest change in the field in the last decade**, and it's why the tooling looks the way it does.
 
 ## Where it sits between databases and ML
+<!-- bite: 360b9e34-59bf-4996-86f3-63ccfa4eeed2 -->
 
 ```
    databases/          →   DATA ENGINEERING   →   ai-ml/
@@ -70,6 +79,7 @@ Almost every data system, however grand its tooling, is this:
 - **Above it:** [[ai-ml/index|ai-ml]] — **models are only as good as the data pipeline feeding them.** "Garbage in, garbage out" is a data-engineering problem, and [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] is largely data engineering wearing an ML hat
 
 ## Why it's a distinct role
+<!-- bite: 24c39e50-1538-4c59-86d6-54b31a87e75b -->
 
 It emerged because building reliable data pipelines is neither database administration nor software engineering nor data science, but overlaps all three:
 
@@ -79,10 +89,12 @@ It emerged because building reliable data pipelines is neither database administ
 - **Its own:** the tools (warehouses, Kafka, Spark, orchestrators), the modelling patterns, and a deep respect for **idempotency and reprocessing**, because pipelines break and must be re-runnable
 
 ## Key insight
+<!-- bite: da47f58e-478a-476d-9250-8aa61b5ec181 -->
 
 **Data engineering exists to separate the systems that *run* the business from the systems that *analyse* it, and to keep data flowing reliably between them.** The operational/analytical split is the root of everything — different storage, different systems, different access patterns — and the modern field is defined by ELT: load raw into a cheap elastic warehouse, then transform in place with SQL. Learn that split and that flip, and the tooling stops looking like an arbitrary zoo.
 
 ## Related
+<!-- bite: 4c66f4f9-da4d-4f9c-89f8-605308255fa2 -->
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses, lakes and lakehouses]] — where analytical data lives
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — the two ways it moves
 - [[databases/index|databases]] — the operational side

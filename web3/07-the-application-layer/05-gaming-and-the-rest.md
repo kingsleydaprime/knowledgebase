@@ -1,8 +1,13 @@
+---
+id: b15fdae1-fa6d-43f8-b40b-ba687273941a
+---
+
 # Gaming, Social and the Rest
 
 **[Intermediate]** — the non-financial applications, what's genuinely working, and a method for judging the next proposal.
 
 ## Gaming
+<!-- bite: 477cb07c-82c0-418a-9ba6-d0879efbdada -->
 
 **The theory:** players own their items, trade them without the publisher's permission, and carry them between games. Items outlive the game.
 
@@ -20,6 +25,7 @@
 **The honest constraints:** blockchains are far too slow and expensive for real-time gameplay, so only ownership and settlement go on-chain; **cross-game interoperability is mostly aspiration**, because it requires games to agree what an item *means*, which is a game-design problem no chain solves; and players have been consistently hostile to NFTs in mainstream games, with several major publishers reversing announcements after backlash.
 
 ## Social
+<!-- bite: 919af62b-8357-40ba-a9cb-12882a805f59 -->
 
 **The pitch:** own your social graph, so you can leave a platform without losing your followers.
 
@@ -30,6 +36,7 @@
 **The genuine difficulty:** network effects are the product. A protocol with 50,000 users doesn't compete with one that has hundreds of millions, and "you own your data" has repeatedly failed to move ordinary users. **Moderation is also unsolved** — a censorship-resistant network is also a network that can't remove abuse, and every deployment discovers this.
 
 ## Real-world assets
+<!-- bite: 4683fa09-63f9-49c0-b8b7-bbde61e0f8e3 -->
 
 Tokenising treasuries, real estate, invoices and commodities. **This is where serious institutional money has actually gone** — tokenised money-market funds run into the billions, and BlackRock's BUIDL is the flagship.
 
@@ -38,6 +45,7 @@ Tokenising treasuries, real estate, invoices and commodities. **This is where se
 **The unavoidable caveat:** a token representing a house is only worth something if a legal system agrees. **The chain settles the token; the courts settle the asset.** These systems are therefore permissioned, KYC'd and centralised by necessity — which is fine, and is not what the field originally promised.
 
 ## Supply chain, credentials, provenance
+<!-- bite: 21eeec48-3872-404e-b204-c69fc961011f -->
 
 The perennial enterprise pitch: track goods on a blockchain for tamper-proof provenance.
 
@@ -48,6 +56,7 @@ The perennial enterprise pitch: track goods on a blockchain for tamper-proof pro
 Where it does work: **credentials whose issuer is the authority** — a university issuing a degree, where the issuer's signature is the truth and the chain provides permanent, verifiable, revocable publication. That's a genuine fit.
 
 ## The test to apply to anything new
+<!-- bite: e40a64ad-57e8-4847-bd79-23beb5743fc1 -->
 
 When someone proposes a blockchain application, four questions resolve it:
 
@@ -59,10 +68,12 @@ When someone proposes a blockchain application, four questions resolve it:
 **Applications that pass all four are rarer than the field pretends, and genuinely valuable when they exist** → [[web3/08-the-honest-assessment/01-what-blockchains-are-actually-good-for|what blockchains are actually good for]].
 
 ## Key insight
+<!-- bite: a66d2ba4-9fb3-4e37-8080-15183f280e65 -->
 
 **The non-financial applications that work share one property: the thing being tracked is *born* on-chain.** ENS names, on-chain game state, DAO membership and tokens are created and live entirely within the system, so the chain's guarantees fully apply. Everything that tracks a physical or legal object depends on someone honestly typing it in — and at that point the chain is an expensive, permanent record of whatever they typed.
 
 ## Related
+<!-- bite: f795f9a1-0c50-40c7-8b51-db71a56f3349 -->
 - [[web3/08-the-honest-assessment/01-what-blockchains-are-actually-good-for|what blockchains are actually good for]] — the full argument
 - [[web3/06-building-dapps/06-oracles|oracles]] — why supply chain doesn't work
 - [[game-development/index|game development]] — how games are actually built

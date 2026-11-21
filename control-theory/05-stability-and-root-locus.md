@@ -1,8 +1,13 @@
+---
+id: 8844a418-f95f-4fe1-ae7e-5029138a5078
+---
+
 # Stability and Root Locus
 
 **[Intermediate]** — What stability actually means, how to test for it without factoring polynomials, and how to see where the closed-loop poles go as you turn the gain up.
 
 ## What stability means
+<!-- bite: a15f1623-3328-4a5d-8370-65955a83b94c -->
 
 **BIBO stability** — bounded input, bounded output. A bounded input can never produce an unbounded output.
 
@@ -23,6 +28,7 @@ Three cases:
 **The poles that matter are the closed-loop poles** — roots of $1 + L(s) = 0$, not the poles of the plant. An unstable plant can be stabilised by feedback (that's the point), and a stable plant can be destabilised by it.
 
 ## Routh–Hurwitz
+<!-- bite: d57fac8d-37dd-414c-9d6c-b377c16fa657 -->
 
 You can test stability **without finding the roots**. For a polynomial of degree 5 or more there's no closed form, so this matters.
 
@@ -52,6 +58,7 @@ $$s^3 + 3s^2 + 2s + K = 0 \quad\Rightarrow\quad 6 > K > 0$$
 At $K = 6$ the $s^1$ row vanishes — the poles are on the imaginary axis, and that gain is the **ultimate gain** $K_u$ from [[control-theory/04-pid-control|Ziegler–Nichols tuning]]. The auxiliary polynomial from the row above gives the oscillation frequency, hence $T_u$. Routh–Hurwitz computes the Z-N test parameters analytically instead of by experiment.
 
 ## Root locus
+<!-- bite: 1237faa4-0817-426d-a97e-654ac98ed29b -->
 
 **The question:** as you increase the controller gain $K$, where do the closed-loop poles move?
 
@@ -131,6 +138,7 @@ A pole–zero pair near the origin, close together. Barely moves the dominant po
 **Lead–lag** does both — the classical answer when you need transient performance *and* steady-state accuracy, and the structural analogue of a full PID.
 
 ## Pole–zero cancellation — a warning
+<!-- bite: bb070c77-a36e-43ac-a6e4-05f0ce9910e2 -->
 
 The locus makes an attractive-looking move available: put a controller zero exactly on a bad plant pole to cancel it.
 
@@ -143,6 +151,7 @@ The locus makes an attractive-looking move available: put a controller zero exac
 **Cancelling a stable, well-damped, well-known pole is acceptable** and is exactly what lag compensator design does deliberately. Cancelling anything near the imaginary axis or in the RHP is not.
 
 ## Stability isn't binary
+<!-- bite: 29f90074-cf10-4207-a329-12dfe9963f45 -->
 
 The important shift in thinking, and the bridge to the next two notes.
 
@@ -155,6 +164,7 @@ Root locus answers this partially (you can see how close the locus is to the axi
 ---
 
 ## Related
+<!-- bite: fee6d490-963c-4a98-9f3a-1e30d6cabe08 -->
 - [[control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]] — the characteristic equation
 - [[control-theory/06-frequency-response|Frequency Response]] — the other view of the same problem
 - [[control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — stability with margin

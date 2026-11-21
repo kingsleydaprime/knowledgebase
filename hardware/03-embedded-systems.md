@@ -1,8 +1,13 @@
+---
+id: 6e6718e9-59bc-4f3d-a264-4a4346b4bb3e
+---
+
 # Embedded Systems
 
 **[Beginner → Intermediate]** — What makes a system "embedded," bare metal vs an RTOS, how memory differs when there are kilobytes of it, and the firmware loop everything runs inside.
 
 ## What Makes a System "Embedded"?
+<!-- bite: 05adb676-7405-4061-86c3-07429b7fa8d9 -->
 
 An embedded system is a computer built *into* something else to control it or sense it. It's not a general-purpose computer you use for whatever you want — it has a dedicated job.
 
@@ -18,6 +23,7 @@ The defining characteristics:
 - **Runs forever** — usually runs in an infinite loop with no "shutdown"
 
 ## Bare Metal vs RTOS
+<!-- bite: eb9dcbdc-bce3-489e-b090-899e34576225 -->
 
 **Bare metal** means you write code that runs directly on the hardware with no operating system in between. Your `main()` function typically looks like:
 
@@ -42,6 +48,7 @@ This is what Arduino does. It's simple, fast, and predictable — but it breaks 
 - Your system complexity grows beyond what a simple loop can manage cleanly
 
 ## Memory in Embedded Systems
+<!-- bite: 97746b65-1cfe-4396-8c6a-abe3e2b9241b -->
 
 Embedded systems have three types of memory and you need to understand all three:
 
@@ -56,6 +63,7 @@ Flash is where you "flash" your firmware. SRAM is where your variables live at r
 The pain: SRAM is tiny. On an ATmega328P (classic Arduino Uno chip), you have **2KB of SRAM**. A single `String` object can eat hundreds of bytes. This is why embedded C developers are fanatical about memory — you can't just malloc your way out of problems.
 
 ## The Firmware Loop
+<!-- bite: 0744425e-33ec-40ab-87e2-ffc490f9b675 -->
 
 Most embedded firmware follows this structure mentally, even if the code looks different:
 
@@ -66,6 +74,7 @@ Most embedded firmware follows this structure mentally, even if the code looks d
 Interrupts are critical to understand. If you poll a button 1000 times per second in your loop, you waste CPU and might still miss a very fast press. An interrupt fires *immediately* when the pin changes state, regardless of what the CPU is doing, handles it, then returns control to the main loop.
 
 ## GPIO — General Purpose Input/Output
+<!-- bite: 12d0dba4-5296-4cb2-a889-2cf4547e1159 -->
 
 GPIO pins are the hands of a microcontroller — they're how it interacts with the physical world.
 
@@ -83,6 +92,7 @@ gpio_set_level(GPIO_NUM_2, 1);  // HIGH
 ---
 
 ## Related
+<!-- bite: 40dd8e61-e0c5-46fe-bbd9-2b397b72ad5d -->
 - [[hardware/04-microcontrollers|Microcontrollers]] — the chips this runs on
 - [[hardware/02-digital-and-analog|Digital vs Analog]] — what GPIO and ADC pins are reading
 - [[os/index|Operating Systems]] — the same scheduling ideas, with megabytes instead of kilobytes

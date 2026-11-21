@@ -1,8 +1,13 @@
+---
+id: 50edad9b-0b82-48de-a68f-3734324b6452
+---
+
 # Out-of-Order and Superscalar Execution
 
 **[Advanced]** — Executing several instructions per cycle, in the wrong order, while pretending you didn't.
 
 ## Two separate ideas
+<!-- bite: e28b1972-4ec0-4089-a89f-e5b07d8940dc -->
 
 **Superscalar** — issue **multiple instructions per cycle**. Width, not order.
 
@@ -25,6 +30,7 @@
 > **The whole point is hiding latency.** A cache miss costs 200+ cycles; **out-of-order execution finds other work to do during them.** It's the primary reason a modern core outperforms an in-order one on the same clock — sometimes by 3–4×.
 
 ## Register renaming
+<!-- bite: 190b9427-6d71-4b21-bc33-9e134737661a -->
 
 **The enabler**, and the idea worth understanding properly.
 
@@ -52,6 +58,7 @@ add x1, x5, x6     ; writes x1    — WAW: a NAME conflict only
 > **This is why "x86 only has 16 registers" matters less than it sounds.** The hardware has plenty; the ISA limit costs you *encoding* flexibility and forces the compiler to spill more often — real, but not the whole story.
 
 ## The pipeline
+<!-- bite: ff5572bf-e59c-490b-900e-19fcb8fbcb59 -->
 
 ```
  ┌────────┐  ┌────────┐  ┌────────┐  ┌──────────┐  ┌────────┐  ┌────────┐
@@ -73,6 +80,7 @@ add x1, x5, x6     ; writes x1    — WAW: a NAME conflict only
 **Tomasulo's algorithm** (IBM 360/91, 1967) is the origin of all this — renaming plus reservation stations plus a common data bus. **Sixty years old and still the shape of every high-performance core.**
 
 ## Execution units
+<!-- bite: 1c46e88b-622e-4cb1-b598-7b827aa39769 -->
 
 **A modern core has 8–12 ports**, each feeding different units:
 
@@ -100,6 +108,7 @@ add x1, x5, x6     ; writes x1    — WAW: a NAME conflict only
 > And note the FMA row: **you can do 2 fused multiply-adds per cycle but each has 4-cycle latency.** A dependent chain runs at 1 per 4 cycles; independent ones run 8× faster. **This is exactly why loop unrolling helps** — it creates independent chains.
 
 ## What limits ILP
+<!-- bite: 52f5dab8-18e6-4bfa-a64b-2c469dd9707d -->
 
 **Real code rarely achieves the peak width.**
 
@@ -130,6 +139,7 @@ sum = s0 + s1 + s2 + s3;
 **Memory ordering.** A load can't reorder past a store to the same address; **memory disambiguation predicts this**, and mispredicting costs a flush.
 
 ## Hyperthreading (SMT)
+<!-- bite: a5a3ffab-bb12-4cc6-86c3-f21f206d097d -->
 
 **Two logical cores sharing one physical core** — duplicated architectural state (registers, PC), shared everything else (execution units, caches, predictors).
 
@@ -147,6 +157,7 @@ sum = s0 + s1 + s2 + s3;
 **Benchmark it.** Databases and HPC codes frequently disable SMT and gain.
 
 ## Writing ILP-friendly code
+<!-- bite: e91c1fcf-59dd-4ad5-a7f9-1778c3145179 -->
 
 **What actually helps:**
 
@@ -182,6 +193,7 @@ perf stat ./program     # look at insn per cycle
 ---
 
 ## Related
+<!-- bite: e6353bb3-26cf-44c6-9875-2d4b87384ddc -->
 - [[computer-architecture/06-pipelining|Pipelining]] — the simpler model
 - [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]] — what feeds the front end
 - [[computer-architecture/12-performance|Performance]] — the methodology

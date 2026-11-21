@@ -1,3 +1,7 @@
+---
+id: 21438855-aa4e-49a9-807f-12afe4f96da4
+---
+
 # Practice Exercises
 
 > **[Beginner]** · Sixteen exercises over the whole course. **This is the note that turns the previous fourteen into a skill.**
@@ -13,6 +17,7 @@ The course's own honest note says it plainly: *"this is a reading course with no
 ---
 
 ## Part A — The model (notes 01–04)
+<!-- bite: 28c53779-a3db-4540-a2a0-3dc9fc44a8d4 -->
 
 **1. Be the compiler for a person.**
 Write instructions for "find the largest number in a list" precise enough for someone with no judgement to follow. No code — English, numbered steps. Then hand them to an actual person and have them follow it *literally* on `[3, 9, 2]`, then on `[]`, then on `[-5, -2]`.
@@ -33,6 +38,7 @@ Open a REPL. Answer these by *trying*, not reasoning: does string slicing includ
 ---
 
 ## Part B — The building blocks (notes 05–08)
+<!-- bite: 5d656ef4-4fbf-47c5-af91-67e75bf55442 -->
 
 **5. Make a variable change without touching it.**
 Create a list, assign it to a second name, modify through the second name, print the first. Then do the same with an integer. Then fix the list case so the original is untouched — and then break your fix with a *nested* list.
@@ -61,6 +67,7 @@ Write a function returning the last `n` items of a list. Test it with `n = 0`, `
 ---
 
 ## Part C — Depth (notes 09–14)
+<!-- bite: eacf813a-0deb-47da-87c6-8f6d7444595d -->
 
 **11. Overflow the stack, then remove the recursion.**
 Write recursive factorial. Call it with 5, then 100, then 100,000. Then rewrite it as a loop and call it with 100,000 again.
@@ -89,12 +96,14 @@ Take a list of order records and compute the total value per customer, twice: on
 ---
 
 ## When you're done
+<!-- bite: a6f354e6-6ac5-4f5f-9c07-5de06dbfe098 -->
 
 **You are not finished with this course until you've built something nobody told you to build** → [[programming-fundamentals/12-choosing-what-to-build-next|note 12]]. These exercises are reps; a project is the game.
 
 Then: [[dsa/index|DSA]] for efficiency, or [[languages/06-python/index|Python]] to go deep in one language.
 
 ## Related
+<!-- bite: 6e6ec950-e247-4bc3-ab70-2bcc72beebde -->
 - [[programming-fundamentals/17-practice-exercises-solutions|Solutions]] — after you've tried
 - [[programming-fundamentals/index|the course]]
 - [[learning/06-ai-as-sparring-partner|AI as sparring partner]] — **how to use an LLM on these without wasting them**

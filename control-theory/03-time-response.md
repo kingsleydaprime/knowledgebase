@@ -1,8 +1,13 @@
+---
+id: 035220ab-a0f6-4302-8971-6c5be78e4a38
+---
+
 # Time Response
 
 **[Intermediate]** — Reading a step response, the two numbers that determine everything, and the specifications you design against.
 
 ## First-order systems
+<!-- bite: fec105cf-33dd-44de-9157-6477742377c9 -->
 
 $$G(s) = \frac{K}{\tau s + 1}$$
 
@@ -27,6 +32,7 @@ K ┤        ╭────────────────────
 No overshoot, no oscillation, ever. A first-order system cannot overshoot — which is why thermal processes and simple RC filters are so well-behaved and so slow.
 
 ## Second-order systems
+<!-- bite: e40d93cc-cf88-40fa-a4e5-f6b79f046ac0 -->
 
 $$G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$$
 
@@ -80,6 +86,7 @@ y
 Move a pole left → faster settling. Move it toward the real axis → less overshoot. **That's the entire vocabulary of pole placement.**
 
 ## Step response specifications
+<!-- bite: e21046c4-7c4a-4c3a-8417-1580e32c0025 -->
 
 The numbers you actually design against:
 
@@ -108,6 +115,7 @@ The overshoot table is worth carrying:
 **Settling time depends on $\zeta\omega_n$**, the real part of the pole. That's why "move the poles left" means "settle faster".
 
 ## Dominant poles
+<!-- bite: 53e463dc-4034-4c89-9db0-82f09ad75821 -->
 
 Real systems are higher than second order. **The approximation that makes classical design work:**
 
@@ -128,6 +136,7 @@ Rule of thumb: if other poles are **5× further left**, treat the system as seco
 This is why every textbook formula above, derived for a pure second-order system, applies usefully to a sixth-order plant. **It's also the first thing to check when a system doesn't behave as designed** — a neglected pole or an unmodelled delay has crept close enough to matter.
 
 ## Steady-state error
+<!-- bite: 233103b9-5549-4326-abb2-3f37430416f5 -->
 
 Does the output actually reach the reference? For unity feedback with loop gain $L(s)$:
 
@@ -148,6 +157,7 @@ And it explains a common frustration: a proportional-only controller on a plant 
 **Where the integrator comes from doesn't matter.** A motor position loop is naturally type 1 (velocity integrates to position), so P control alone gives zero steady-state position error. A motor *speed* loop is type 0, and needs the I term.
 
 ## Time delay
+<!-- bite: fc5795aa-a20e-46d3-984a-1a1b253bda9d -->
 
 The most destructive thing you can have in a loop.
 
@@ -176,6 +186,7 @@ Note the numerator — that's a **right-half-plane zero**. Delay behaves like a 
 **Smith predictor** is the classical remedy: use a model to predict what the delayed output *will* be and control against the prediction. Works well when the delay is known and constant, and badly when it isn't.
 
 ## Reading a real step response
+<!-- bite: 5fdca932-1d60-4a4e-9c37-029cc37483f0 -->
 
 The practical skill — extracting a model from data:
 
@@ -203,6 +214,7 @@ That gives you $G(s) = Ke^{-\theta s}/(\tau s + 1)$ or a second-order fit — en
 ---
 
 ## Related
+<!-- bite: 10eeb856-c904-4c16-bd1f-070ef0b67ec5 -->
 - [[control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]] — where poles come from
 - [[control-theory/04-pid-control|PID Control]] — using this to tune
 - [[control-theory/05-stability-and-root-locus|Stability and Root Locus]] — moving poles deliberately

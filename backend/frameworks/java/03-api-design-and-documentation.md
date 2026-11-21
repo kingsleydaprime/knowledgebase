@@ -1,8 +1,13 @@
+---
+id: 2d058202-4d12-454b-a6a9-8721f3ae9e61
+---
+
 # API Design & Documentation
 
 **Source:** merged from `direct-debit-sandbox-java/learning/06-business-domain-flow.md` (the generally-applicable patterns extracted from that project's mandate/subscription domain) and `08-openapi-and-swagger-docs.md`. The custom vanilla-JS docs portal covered in `09-custom-docs-portal-ui.md` is frontend work, not Java — it's summarized here only as context for how a spec gets consumed; the full CSS/JS build (syntax highlighting, retractable sidebar, iframe embedding) is worth reading directly in the original if that's the part of interest.
 
 ## RestTemplate — outbound HTTP calls
+<!-- bite: 24980ee6-7c93-4d6d-8f56-b1ea09584c98 -->
 
 Spring's built-in synchronous HTTP client, used for calling out to another service (e.g. firing a webhook after processing completes):
 
@@ -16,6 +21,7 @@ ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, en
 Defined once as a `@Bean` and injected wherever needed, same as any other Spring-managed dependency (see [[backend/frameworks/java/01-spring-boot]]).
 
 ## A catalogue of common Spring/Java runtime errors
+<!-- bite: d994c792-2af4-4b1b-8547-b1eef6dafa76 -->
 
 | Exception | Usual cause |
 |---|---|
@@ -27,6 +33,7 @@ Defined once as a `@Bean` and injected wherever needed, same as any other Spring
 | `@Async` method runs synchronously with no error | Called from inside the same class — Spring's proxy is bypassed (see [[backend/frameworks/java/01-spring-boot]]) |
 
 ## The config-resolution / fallback pattern
+<!-- bite: 05cb4531-0e02-4434-86e5-45af53dee5a1 -->
 
 A common shape: a caller *may* supply configuration per-request, but should fall back to a default registered once elsewhere (at onboarding, in a cache, in an env var) if they don't:
 
@@ -46,6 +53,7 @@ Three design choices worth naming explicitly: **caller wins** (an explicit value
 This is also the mechanism behind the **provision pattern**: instead of every request carrying repeated per-caller config (a webhook URL, retry limits), a caller registers it once, and every subsequent operation resolves it via a lookup rather than requiring it inline — a normalization decision at the API-design level, not just the schema level (see [[languages/01-java/04-persistence/01-jdbc-and-data-modeling]] for the same idea applied to storage).
 
 ## Enum-based validation and value migration shims
+<!-- bite: 95e77033-eef0-4cbc-99c3-ff8754549e70 -->
 
 Accepting a field as a plain `String` accepts *anything*; typos and invalid values only surface downstream. Typing the field as an enum gets free validation from the JSON deserializer — an unmatched value throws before any handler code runs:
 
@@ -68,6 +76,7 @@ if (Channel.VODAFONE == req.getChannel()) {
 This is a **value migration shim** — absorbing a caller's stale vocabulary at the API boundary so every downstream code path only ever has to reason about one canonical value, instead of scattering `if (x == OLD || x == NEW)` checks throughout the codebase.
 
 ## Business codes over raw HTTP status
+<!-- bite: 52c71888-8eb5-4e15-b452-1b31345a8397 -->
 
 Real payment/banking APIs commonly return `HTTP 200` for nearly everything and communicate outcome through a `responseCode` field in the body — this avoids clients needing two separate error-handling paths (HTTP status *and* body):
 
@@ -82,6 +91,7 @@ return ResponseEntity.ok(ApiResponseDto.builder().responseCode("107").responseMe
 Not universally correct (it breaks tooling and conventions that assume HTTP status carries meaning) — but it's a deliberate, common convention in this domain worth recognizing rather than "fixing" when working in an existing fintech API.
 
 ## OpenAPI and springdoc
+<!-- bite: 9c206b87-d637-46a0-8454-25df1e782374 -->
 
 OpenAPI (formerly Swagger) is a machine-readable JSON/YAML description of an HTTP API — every endpoint, header, request/response shape, in a format tooling (docs portals, code generators, Postman) can consume without custom integration per API.
 
@@ -110,12 +120,14 @@ Annotations shape what the generated spec says without changing runtime behavior
 paired with `.addSecurityItem(new SecurityRequirement().addList("x-transflowId"))` on the spec's `@Bean` definition, and `@Parameter(hidden = true)` on the corresponding `@RequestHeader` parameters so they don't also appear as redundant per-endpoint fields.
 
 ## Consuming the spec — Swagger UI vs. a custom portal
+<!-- bite: 6c85a123-bf9c-4bb3-8d3f-fb3c9182e0bb -->
 
 Swagger UI is a JavaScript SPA bundled inside the springdoc jar — it fetches `/v3/api-docs` and renders a full docs UI from that JSON, knowing nothing about Java or Spring specifically (the same UI documents a Go or Node backend, given the same spec shape). "Try it out" fires a genuine HTTP request from the browser directly at the running server, not a simulation.
 
 A hand-built portal can do exactly the same thing — fetch `/v3/api-docs`, walk the JSON (resolving `$ref` pointers into `components.schemas` manually), and render a custom UI — trading Swagger UI's zero-maintenance battle-testing for full control over branding and layout. Both read the same spec, so they never drift apart; this is the practical value of generating the spec from code rather than hand-maintaining a YAML file that two consumers could each go stale against independently.
 
 ## Related
+<!-- bite: dfa155ca-2686-4b9f-91cc-aadb3a3d8c8f -->
 - [[backend/frameworks/java/01-spring-boot|Spring Boot & Scheduling]] — the controller layer this whole file annotates
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|Persistence & Data Modeling]] — the provision pattern as a normalization decision
 - [[languages/01-java/01-language/01-fundamentals|Fundamentals]] — enums as a language feature, before their use here as a validation mechanism

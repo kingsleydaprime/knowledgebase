@@ -1,8 +1,13 @@
+---
+id: 44526ce2-c422-4874-b968-c0d953d525d4
+---
+
 # Decidability
 
 **[Advanced]** — The halting problem, why it generalises to almost everything, and what it means for the tools you use every day.
 
 ## The halting problem
+<!-- bite: 82339878-7f90-4cbb-bd84-bda8da49d62d -->
 
 > **Given a program $P$ and input $w$, does $P$ halt on $w$?**
 >
@@ -34,6 +39,7 @@ function DIAGONAL(P):
 > **What it does *not* say.** It doesn't say you can never tell whether a program halts. **Often you can** — a `for` loop with a constant bound obviously terminates. It says **no single algorithm works for every program.** Termination checkers exist, work well, and answer "yes", "no", or "don't know". **That third answer is where the theorem lives.**
 
 ## Reductions
+<!-- bite: fadfc13f-329e-48e5-94c9-dafa1eb14f9a -->
 
 **The tool that spreads undecidability**, and the most transferable technique here.
 
@@ -52,6 +58,7 @@ Given $(P, w)$, construct machine $M$ that ignores its input, runs $P$ on $w$, a
 **The pattern:** build a machine whose *language* encodes the answer to halting.
 
 ## Rice's theorem
+<!-- bite: 3cd21ace-0cd3-47cb-a87a-e4212b273d40 -->
 
 **The sledgehammer**, and the result that makes the scope clear.
 
@@ -81,6 +88,7 @@ Given $(P, w)$, construct machine $M$ that ignores its input, runs $P$ on $w$, a
 > **The dividing line is *semantic vs syntactic*.** Static analysis works by finding syntactic proxies for semantic properties, and **every such proxy is necessarily imperfect** — that's Rice's theorem, not a weakness of any particular tool.
 
 ## What this means for your tools
+<!-- bite: d4e311bc-45d3-4f67-8292-25d08ad17644 -->
 
 **The practical payoff of the whole note.**
 
@@ -116,6 +124,7 @@ Given $(P, w)$, construct machine $M$ that ignores its input, runs $P$ on $w$, a
 **Total languages (Coq, Agda, Idris) reject general recursion** for the same reason: to keep type checking decidable, they give up Turing completeness. **A deliberate, principled trade.**
 
 ## Other undecidable problems
+<!-- bite: ca7f92e1-184c-4d0c-9a20-6e35745b9f4c -->
 
 Worth recognising, because they show the reach:
 
@@ -130,6 +139,7 @@ Worth recognising, because they show the reach:
 **Program equivalence** — the one that would make refactoring verifiable and doesn't exist.
 
 ## Degrees of unsolvability
+<!-- bite: 37ef6437-012b-4d4d-8151-a26a74fc7efb -->
 
 **Not all undecidable problems are equally undecidable**, which is a satisfying refinement.
 
@@ -143,6 +153,7 @@ Worth recognising, because they show the reach:
 **The halting problem *with a halting oracle*** is still undecidable — it's a strictly harder problem. **There's an infinite tower of unsolvability**, which is a genuinely surprising structural result.
 
 ## Living with it
+<!-- bite: 682bdbc4-8567-47ad-af24-0f7e64acb29d -->
 
 **The productive responses**, because "undecidable" is not "give up":
 
@@ -161,6 +172,7 @@ Worth recognising, because they show the reach:
 ---
 
 ## Related
+<!-- bite: 6e093ad4-210a-492b-ae10-adb3cd24c7eb -->
 - [[theory-of-computation/05-turing-machines|Turing Machines]] — the machines this is about
 - [[theory-of-computation/07-complexity-classes|Complexity Classes]] — hard rather than impossible
 - [[compilers/05-type-systems-and-checking|Type Systems]] — soundness/completeness in practice

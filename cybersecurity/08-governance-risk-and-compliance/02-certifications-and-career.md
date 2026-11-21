@@ -1,8 +1,13 @@
+---
+id: b562d79c-8b96-4a69-a9d9-cb7968a80455
+---
+
 # Certifications & Career
 
 **[reference]** — from the roadmap.sh cyber-security roadmap. The credential landscape and how the security career paths map to this course. Certs matter more in security than most of tech — many roles (especially government/defense) *require* them, and they're a common hiring filter.
 
 ## The career paths
+<!-- bite: 49ff0e4f-9eb5-43e1-876f-d23813fd01f5 -->
 
 Security isn't one job; the main tracks map onto this course's sections:
 
@@ -16,6 +21,7 @@ Security isn't one job; the main tracks map onto this course's sections:
 For someone coming from software engineering, **application security** and **cloud/DevSecOps** are the most natural entries — they build directly on skills you already have.
 
 ## The certification landscape
+<!-- bite: b837e7bd-5041-4341-ba26-8dc19a69a3fa -->
 
 Grouped by level and focus:
 
@@ -38,12 +44,14 @@ Grouped by level and focus:
 **Cloud:** vendor security certs (AWS Security Specialty, etc.) plus the vendor-neutral ones.
 
 ## The honest advice
+<!-- bite: 887ac75d-ed82-4b84-8ceb-d980ee52682e -->
 
 - **Certs open doors but don't replace skill.** OSCP is respected precisely because it's hands-on; a paper cert with no practical ability shows quickly. Pair certs with real practice — the [[cybersecurity/02-ethical-hacking/12-practice-exercises|labs and platforms]] (HackTheBox, TryHackMe, picoCTF, and building a [[cybersecurity/02-ethical-hacking/05-home-lab-setup|home lab]]) are where the actual capability comes from.
 - **Match the cert to the path**: Security+ to get in the door, then OSCP (offensive) / CySA+ or GCIH (defensive) / CISSP (management) depending on direction.
 - **For a developer**, the highest-leverage move is often *not* a cert first but *building secure things* and learning app/cloud security on the job — the same "reps over reading" principle as the rest of this vault ([[project-ideas|project ideas]]).
 
 ## Related
+<!-- bite: 86e77a71-9336-440c-a87b-3fbb6ee861fa -->
 - [[cybersecurity/02-ethical-hacking/14-career-path-and-best-practices|Career Path & Best Practices (ethical hacking)]] — the offensive-career deep dive
 - [[cybersecurity/index|Cybersecurity course map]] — the sections each path maps to
 - [[project-ideas|Project Ideas]] — building real skill alongside any cert

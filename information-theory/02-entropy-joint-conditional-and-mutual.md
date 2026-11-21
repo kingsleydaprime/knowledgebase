@@ -1,8 +1,13 @@
+---
+id: 153001ba-a568-43a9-949e-2f01572042f6
+---
+
 # Joint, Conditional and Mutual Information
 
 **[Intermediate]** — What one variable tells you about another. The toolkit, and the one Venn diagram worth memorising.
 
 ## Joint entropy
+<!-- bite: 9b7b3e09-451a-4ee5-a472-73b2840d235c -->
 
 **The uncertainty in two variables together:**
 
@@ -17,6 +22,7 @@ $$\max(H(X), H(Y)) \leq H(X,Y) \leq H(X) + H(Y)$$
 **The lower bound is reached when one determines the other** — $Y = f(X)$ means $Y$ adds nothing.
 
 ## Conditional entropy
+<!-- bite: 34fec3bf-80df-4925-9e93-9213eb23ab24 -->
 
 **The uncertainty remaining in $Y$ once you know $X$:**
 
@@ -39,6 +45,7 @@ $$H(Y|X) \leq H(Y) \qquad\text{— conditioning never increases entropy}$$
 $$H(Y|X) = 0 \iff Y \text{ is completely determined by } X$$
 
 ## Mutual information
+<!-- bite: ae8903c4-d8f9-4807-a4cc-51c9441072a0 -->
 
 **The central quantity in the subject.**
 
@@ -80,6 +87,7 @@ $$I(X;Y) = H(X) + H(Y) - H(X,Y) = \sum_{x,y}p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)}$
 > The cost: MI is much harder to estimate from finite samples, needs binning or a density estimator for continuous variables, and has no natural sign or scale.
 
 ## Where these get used
+<!-- bite: 34e538b7-e0b9-4500-8933-0a871475eaaa -->
 
 **Feature selection.** Rank features by $I(\text{feature}; \text{target})$ — `sklearn.feature_selection.mutual_info_classif`. **Catches nonlinear relevance that a correlation filter misses.**
 
@@ -98,6 +106,7 @@ $$I(X;Y) = H(X) + H(Y) - H(X,Y) = \sum_{x,y}p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)}$
 **Side-channel analysis.** $I(\text{secret}; \text{timing})$ quantifies exactly how much a timing channel leaks. **Zero mutual information is what constant-time code is trying to achieve**, and this makes "how bad is this leak" a measurable question. → [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|Cryptographic Attacks]]
 
 ## Conditional mutual information
+<!-- bite: 4197916d-ffe7-4554-989c-6abef2a93214 -->
 
 $$I(X;Y|Z) = H(X|Z) - H(X|Y,Z)$$
 
@@ -114,6 +123,7 @@ $$I(X;Y|Z) = H(X|Z) - H(X|Y,Z)$$
 **Practical consequence:** *"controlling for more variables is always more rigorous"* is **false**. Conditioning on a collider introduces bias rather than removing it, and this is a live problem in applied statistics.
 
 ## The data processing inequality
+<!-- bite: 3cdcfa4f-721a-49f8-8c6a-4475c28069a9 -->
 
 **A short result with wide consequences.**
 
@@ -134,6 +144,7 @@ $$I(X;Z) \leq I(X;Y)$$
 **Anonymisation is one-way**, which is the reassuring version — though the inequality says nothing about how much information *survives*, which is why re-identification attacks work.
 
 ## Entropy for continuous variables
+<!-- bite: ebd50dd2-9fe9-4f12-8197-4ad6d846744f -->
 
 **Differential entropy** replaces the sum with an integral:
 
@@ -154,6 +165,7 @@ $$h(X) = -\int p(x)\log p(x)\,dx$$
 **For a fixed range, the uniform distribution maximises entropy.** Same principle, different constraint.
 
 ## Practical notes
+<!-- bite: 50b5ae02-bd28-4e55-8459-37b2831d0ee5 -->
 
 **Estimating entropy from samples is biased downward.** With few samples you systematically underestimate — you haven't seen the rare events. **Miller–Madow and other corrections exist**; the naive plug-in estimator is optimistic.
 
@@ -166,6 +178,7 @@ $$h(X) = -\int p(x)\log p(x)\,dx$$
 ---
 
 ## Related
+<!-- bite: ac27050e-eeff-43d2-8789-c24df1f9688c -->
 - [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the ML-facing measures
 - [[information-theory/05-channel-capacity-and-noise|Channel Capacity]] — mutual information, maximised
 - [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|Causal Inference]] — where conditioning-on-colliders bites

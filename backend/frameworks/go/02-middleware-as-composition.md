@@ -1,8 +1,13 @@
+---
+id: e5808543-ba85-4c12-a67a-ee1255553d33
+---
+
 # Middleware as Composition
 
 **[Intermediate]** — No registration, no framework, no ordering config. Middleware in Go is a function that wraps a function, and that's the whole design.
 
 ## The pattern
+<!-- bite: ded06694-07d5-4303-bf5d-972c9e7f2f33 -->
 
 ```go
 func Logging(next http.Handler) http.Handler {
@@ -26,6 +31,7 @@ That's it. No `app.use()`, no `@Injectable`, no ordering annotations — **the n
 Compare with the [[backend/frameworks/index|translation table]]: Express `app.use`, Nest interceptors/guards, Spring filters. Those are registries the framework walks. Go's is function composition, which means you can read the order off the page and there's no framework to consult about precedence.
 
 ## Chaining without the nesting
+<!-- bite: 47206c16-6966-4c3b-aef1-4cee4b6c1510 -->
 
 Deeply nested calls get unreadable, so the usual helper:
 
@@ -45,6 +51,7 @@ handler := Chain(mux, Logging, Recoverer, Auth, RateLimit)
 Now the list reads top-to-bottom in execution order. This is ~8 lines and it's most of what a router's middleware support gives you.
 
 ## The essential middleware
+<!-- bite: 3750b92b-2409-4450-81d6-9adf07483e50 -->
 
 ### Panic recovery
 
@@ -162,6 +169,7 @@ handler = http.TimeoutHandler(handler, 5*time.Second, "request timed out")
 Standard library. Note it doesn't stop the handler goroutine — it stops *writing* the response. Real cancellation needs the handler to respect `ctx.Done()`, which is why context propagation matters more than this wrapper.
 
 ## Per-route middleware
+<!-- bite: a05957f7-7881-4531-973e-d04bbf2adbd4 -->
 
 The stdlib mux applies middleware to everything or nothing. Scoping it means composing at registration:
 
@@ -175,6 +183,7 @@ Workable, and verbose once you have twenty routes. **Route groups with shared mi
 (`{$}` matches the exact path only, without the trailing-slash subtree — a Go 1.22 addition that's easy to miss.)
 
 ## Ordering
+<!-- bite: f0c1f706-4083-472f-8843-f64bca02ffdf -->
 
 Order is a correctness concern, not a preference:
 
@@ -194,6 +203,7 @@ Two that catch people: **CORS before auth**, because a preflight `OPTIONS` carri
 Whether `Recoverer` goes inside or outside `Logging` is a real choice: inside means a panic is logged as a completed request with a 500; outside means the recoverer sees panics from the logger itself.
 
 ## Why this composes better than a registry
+<!-- bite: e756d4f5-f931-468f-b9b5-76bc4355aecb -->
 
 The standard interface means **middleware from unrelated libraries interoperates**. A `chi` middleware works with a Gin engine, with the stdlib mux, or with your own handler, because they all speak `http.Handler`.
 
@@ -204,6 +214,7 @@ The cost: no framework means no framework *features*. No automatic dependency in
 ---
 
 ## Related
+<!-- bite: 7354a01b-7342-41fb-a229-1c65e6fcf1e2 -->
 - [[backend/frameworks/go/01-net-http-in-depth|net/http in Depth]] — the `Handler` interface this builds on
 - [[backend/frameworks/go/03-routers-chi-and-gin|Routers: Chi and Gin]] — what a router adds
 - [[languages/02-go/08-context|Go: Context]] — request-scoped values and cancellation

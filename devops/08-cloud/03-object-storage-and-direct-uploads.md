@@ -1,3 +1,7 @@
+---
+id: 81b35147-e1d6-4af6-a174-e9a6f55ccb96
+---
+
 # Object Storage & Direct Browser Uploads
 
 S3-compatible object storage, presigned URLs, and the CORS/public-access rules that decide
@@ -13,6 +17,7 @@ Written 2026-08-12 while building a media pipeline on Cloudflare R2.
 ---
 
 ## 1. The S3 API Is a Standard, Not a Product
+<!-- bite: 5253466e-b816-428d-afd0-e829b97b0ac8 -->
 
 S3's HTTP API is implemented by most object stores — Cloudflare R2, Backblaze B2,
 DigitalOcean Spaces, MinIO, Wasabi. The AWS SDK talks to all of them; only the endpoint and
@@ -49,6 +54,7 @@ comparison. That's the whole reason R2 tends to win for media.
 ---
 
 ## 2. Never Proxy Uploads Through Your API
+<!-- bite: 4d3a45ad-66f5-4025-9ff1-5824e38e80ae -->
 
 The naive design — browser POSTs the file to your server, your server forwards it to storage
 — breaks in three ways:
@@ -103,6 +109,7 @@ collisions in exchange for nothing, since nobody sees the key.
 ---
 
 ## 3. CORS — The Failure Everyone Hits Once
+<!-- bite: 1d42bf80-b156-4971-a892-12ae6f53ec1a -->
 
 **Buckets ship with no CORS policy.** The presign call succeeds (it's your own API, same
 origin or already CORS-configured), and then the PUT — a *cross-origin* request to the
@@ -142,6 +149,7 @@ xhr.onerror = () => reject(new Error(
 ---
 
 ## 4. Public Read Is a Separate Setting from CORS
+<!-- bite: 709fe553-dcdd-4813-be70-5c710ef021a6 -->
 
 These get conflated constantly. They are unrelated:
 
@@ -166,6 +174,7 @@ assets only.
 ---
 
 ## 5. Big Files: Multipart and Async Processing
+<!-- bite: 03eaaf9d-5afa-4771-8b9a-f3981b43e2c6 -->
 
 Beyond ~100MB, a single PUT is fragile — one dropped connection and the whole transfer
 restarts. Multipart upload splits the object into independently-retryable parts, and you can
@@ -182,6 +191,7 @@ scanning. That belongs in a background job, not the upload request. See
 ---
 
 ## 6. Checklist for a New Bucket
+<!-- bite: cd4b5973-296f-4a96-aea1-9ce55ffa1c81 -->
 
 1. Bucket created, credentials scoped to **that bucket only** (not account-wide)
 2. Permission is read+write on objects, not admin
@@ -195,6 +205,7 @@ scanning. That belongs in a background job, not the upload request. See
 ---
 
 ## Related
+<!-- bite: 3e249818-631a-4577-af94-0665660bfdd4 -->
 - [[devops/minio-guide|MinIO guide]] — self-hosting an S3-compatible store
 - [[devops/08-cloud/aws-cloud-reference|AWS cloud reference]] — S3 specifics within AWS
 - [[devops/08-cloud/01-cloud-fundamentals|Cloud fundamentals]]

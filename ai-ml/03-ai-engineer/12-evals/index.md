@@ -7,6 +7,7 @@ id: c2cc6ebe-f1fd-4ea1-8f13-a8eb3156135e
 > **[Intermediate]** · Covers how to tell whether an AI feature works, and whether a change made it better: a golden set, scorers from cheapest to most flexible, baselines, error bars, an LLM judge you've checked against a human, and a gate in CI. The worked example evaluates a support-ticket classifier on 20 cases with a local model. The numbers were measured on 2026-10-02. This is the core skill of applied AI, and the one that most separates a demo from a product.
 
 ## Before you start
+<!-- bite: dacd1dda-3794-432a-a82b-e8cccb219124 -->
 
 You can already:
 
@@ -25,16 +26,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–7. Then, before running anything, do week 3's Build step: write your flagship's golden set. Run the lab after that, and compare your set with this one.
 
 ## The kid version
+<!-- bite: 08f7193a-8b0b-4b40-9c38-dfdecbed426f -->
 
 Imagine you're learning to bake bread, and you want to know whether a new recipe is better. Tasting one slice and saying "yum, better!" doesn't really tell you. So you write down 20 things a good loaf must do: rise properly, not burn, slice cleanly, and so on. You check every loaf against the same list, and count. Now "better" is a number: the old recipe passed 15, the new one passed 18. And because a friend might just like whichever loaf they taste first, you make them taste in both orders.
 
 **Where the analogy stops working.** Bread doesn't change its answer when you ask twice. A model can, so one run on 20 cases is only a rough measurement. And unlike a friend, the model judging your bread can be tested and found to be a soft marker who passes almost everything.
 
 ## 1. Why this exists
+<!-- bite: 886aee75-57bb-44a0-b58e-895fb1a4286a -->
 
 You change one sentence in a prompt so the replies "sound friendlier". You try three tickets, they look good, and you ship. A week later, refund requests are being routed to the bug team: the new wording made the model read "the app charged me twice" as a bug report. Nobody noticed, because nobody had a list of tickets to rerun, a number to compare, or a rule that would have stopped the change. **Unit tests can't catch this, because the output isn't fixed and "correct" is often a judgment.** An eval replaces "it seems better" with a measurement: the same cases, the same scorer, a number for every version.
 
 ## Terms used in this lesson
+<!-- bite: d113dd12-37a3-4041-97a0-2c2cb49a4b2a -->
 
 1. **Eval (evaluation)**: This is a repeatable measurement of an AI feature: a set of inputs, a way to score each output, and a number you track as you change things.
 2. **Golden set**: This is also called an **eval set**. It is the list of representative inputs, each with what a good output looks like, kept in version control.
@@ -52,12 +56,14 @@ You change one sentence in a prompt so the replies "sound friendlier". You try t
 14. **Offline and online evals**: Offline evals run on the golden set before you ship. Online evals measure the live system, from user feedback and sampled traffic.
 
 ## 2. Why ordinary tests aren't enough
+<!-- bite: ec75cf2a-6fa4-4fee-aaf7-a99d753c4054 -->
 
 A unit test asserts `add(2, 2) === 4`. That works because the function is deterministic and has one right answer. LLM output is neither. The same prompt can give different answers that are equally good, and "good" is often a judgment — is this summary faithful? is this tone right? — that no `===` can check. So "did my change help?" has no built-in answer.
 
 **An eval is three things:** representative inputs, a way to score each output, and a number you track as you change anything — the prompt, the model, retrieval, temperature. Every change is rescored on the same set, so "better" can be shown rather than felt.
 
 ## 3. The golden set
+<!-- bite: c8679114-dea5-488c-ae49-3ef5fd8d74d6 -->
 
 The set *is* the eval. A perfect scorer on unrepresentative cases measures nothing.
 
@@ -68,6 +74,7 @@ The set *is* the eval. A perfect scorer on unrepresentative cases measures nothi
 - **Version it.** A set that changes silently can't show progress. Keep it in a file, review additions like code, and say which version a number came from.
 
 ## 4. Scorers, cheapest first
+<!-- bite: d8a06bf5-68e1-458b-b3c5-cd05405f4e52 -->
 
 Use the cheapest scorer that fits. Most real evals mix several.
 
@@ -81,6 +88,7 @@ Use the cheapest scorer that fits. Most real evals mix several.
 **Shape the task so it can be checked cheaply.** Ask for one label from a closed set rather than a paragraph; extract fields rather than prose. You give up a little flexibility and get a free, exact, repeatable score. Much of the skill in evals is designing the task this way.
 
 ## 5. Baselines and error bars
+<!-- bite: 7974c60d-7277-4ce2-bcd7-a8f2dd5ae5fd -->
 
 **A number with nothing to compare it to tells you very little.** Always run at least one trivial baseline. In the lab, answering "billing" every time scores 40%, and eight lines of keyword rules score **75%**. A model that scores 80% is barely earning its cost and latency over the keywords; a model that scores 70% isn't earning it at all.
 
@@ -89,6 +97,7 @@ Use the cheapest scorer that fits. Most real evals mix several.
 **Compare case by case, not only in total.** Two versions with the same pass rate can fail completely different cases. The lab's `compare` lists what a change fixed and what it broke. "Fixed 3, broke 3" is not "no change".
 
 ## 6. LLM-as-judge, and checking the judge
+<!-- bite: 828a89e9-bcf2-4f63-b8e1-3533f7463c8e -->
 
 For quality that code can't check, have a model grade the output against a rubric. It scales to thousands of outputs cheaply, and it agrees with people surprisingly often — *when it's set up carefully*:
 
@@ -99,6 +108,7 @@ For quality that code can't check, have a model grade the output against a rubri
 - **Measure the judge against a human.** Grade a sample yourself and compute agreement and **Cohen's kappa**. A lenient judge that passes almost everything can agree with you 60% of the time and still have a kappa of 0.2, little better than chance. Trust a judge only on the criteria where kappa is high, and recheck it whenever you change the judge model.
 
 ## 7. Offline, online, and the gate
+<!-- bite: 23e246d4-8adf-4293-9424-4675a97f8be5 -->
 
 - **Offline, before shipping.** Run the golden set in CI on every change to a prompt, model or retrieval setting. The **gate** fails the build when the pass rate falls below a floor, when any previously passing case now fails, or when a must-pass case fails (the injection case, say). This is week 4's Build.
 - **Online, after shipping.** Measure the live system: thumbs up and down, task completion, escalations to a human, and a sample of real traffic reviewed by a person. This catches what the golden set didn't anticipate, and every failure found online becomes a new offline case.
@@ -113,6 +123,7 @@ A whole-pipeline score hides *where* a failure came from.
 - **Agents** ([[ai-ml/03-ai-engineer/08-agents/index|agents]]): score the *trajectory* — the right tools, in a sensible order, without looping — as well as whether the task got done.
 
 ## Worked example — evaluating a ticket classifier
+<!-- bite: 32e8235c-b932-4e26-84c5-006abff6725b -->
 
 The golden set: 20 tickets, each with a label and tags for the hard kinds. It's a file in `labs/shared/`, so a change to it shows up in review, and every language's lab in the [[ai-ml/03-ai-engineer/12-evals/in-other-languages|companion]] scores the same cases.
 
@@ -470,6 +481,7 @@ That timing is a lesson of its own: an eval you can't afford to run doesn't get 
 **Lab:** the code is in [`ai-ml/03-ai-engineer/12-evals/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/12-evals/labs/typescript), and the golden set in [`labs/shared/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/12-evals/labs/shared). From the vault root, `python3 labs/run.py evals/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama running and makes 20 calls, so run it yourself from the lab folder with `node live.ts`.
 
 ## Common pitfalls
+<!-- bite: d2d46bc9-ef64-44bf-82f9-eb30d05ee0ce -->
 
 1. **Judging by eye.** Three examples that look good are a feeling, not a measurement.
 2. **No baseline.** "80%" means nothing until you know keyword rules get 75%.
@@ -481,6 +493,7 @@ That timing is a lesson of its own: an eval you can't afford to run doesn't get 
 8. **Only a total.** A pass rate hides a change that fixed three cases and broke three others. Compare case by case.
 
 ## Check your understanding
+<!-- bite: d0b626ea-6c6e-4b7d-9ed9-1812fa80f060 -->
 
 1. Why can't an ordinary unit test check most LLM features?
 2. A model scores 16/20 and keyword rules score 15/20. What can you conclude, and what would you do next?
@@ -504,6 +517,7 @@ That timing is a lesson of its own: an eval you can't afford to run doesn't get 
 </details>
 
 ## Practice — independent task
+<!-- bite: a0bdaed7-bf83-445a-b729-905cebae1a98 -->
 
 **Week 3's Build: the flagship's golden set, before any harness.**
 
@@ -517,6 +531,7 @@ Then try [[ai-ml/03-ai-engineer/19-practice-exercises|practice exercises]] 3 (a 
 **Done when:** the golden set is a file in your repository, a script prints the baseline's score and the feature's score with intervals, and you can name one failure the set caught that you didn't expect.
 
 ## Before moving on
+<!-- bite: f3afee2a-44f5-4ec6-babb-97182af6b2ec -->
 
 You can build a golden set with a labelling policy, choose a scorer, compare against a baseline with error bars in mind, check an LLM judge against a human, and describe the gate you'll put in CI next week.
 
@@ -525,6 +540,7 @@ You can build a golden set with a labelling policy, choose a scorer, compare aga
 **Next.** [[ai-ml/03-ai-engineer/19-practice-exercises|Practice exercises]] — the rest of week 3. Then [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]] in week 4, where the gate goes into CI.
 
 ## Related
+<!-- bite: 6d7d4a67-f92a-41dd-a192-cc65fd51aa43 -->
 - [[ai-ml/03-ai-engineer/12-evals/in-other-languages|Evals in other languages]] — the same harness, baselines and judge checks in Python, Go, Java, Rust and C#
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — the first labelled set, and why you measure prompt changes
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — structural checks, the cheapest scorer

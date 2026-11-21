@@ -1,14 +1,20 @@
+---
+id: 7393d50c-1e00-471d-bd9d-48317b0db733
+---
+
 # Digital Filters
 
 **[Advanced]** — the most common thing DSP is *used* for: reshaping a signal's frequency content, and the two families that do it.
 
 ## The kid version first
+<!-- bite: b6d80128-55d8-4618-9ce0-1a8c1048d186 -->
 
 A filter passes some frequencies and blocks others. A bass boost, a hum remover, a noise cleaner, the tone controls on a stereo — all filters. **A digital filter does this with arithmetic on the samples**: each output is a weighted combination of recent input (and sometimes output) samples.
 
 The weights *are* the filter. Choosing them so the filter passes what you want and blocks what you don't is **filter design**, and the two ways of structuring the arithmetic give the two great families: FIR and IIR.
 
 ## What a filter is
+<!-- bite: d99eef22-a6e3-4f66-ba1a-5b5127fbdd33 -->
 
 By type of what it passes:
 
@@ -22,6 +28,7 @@ By type of what it passes:
 The **cutoff frequency** is where it transitions; the **transition band** is how sharply (a real filter can't cut instantly); the **passband** and **stopband** are what it keeps and rejects. A filter is fundamentally a [[digital-signal-processing/05-convolution-and-lti-systems|frequency response `H(f)`]] — a gain to apply at each frequency — and applying it is [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] with its impulse response.
 
 ## FIR — Finite Impulse Response
+<!-- bite: 0e50cb99-29e5-4f8c-a313-90592e6fd0e1 -->
 
 The output is a weighted sum of *input* samples only:
 
@@ -39,6 +46,7 @@ The impulse response is finite (`M+1` taps, then it stops) — it's literally th
 **Design methods:** the window method (take the ideal response, truncate it with a [[digital-signal-processing/07-spectral-analysis|window]]), or Parks–McClellan for optimal equiripple designs. In practice, `scipy.signal.firwin`.
 
 ## IIR — Infinite Impulse Response
+<!-- bite: 3e3ae5de-371f-47e7-9c25-6c67b0b97e74 -->
 
 The output feeds back on itself — it depends on past *outputs* as well as inputs:
 
@@ -57,6 +65,7 @@ The feedback means the impulse response rings on forever (infinite), and it's th
 **Design methods:** usually by transforming a classic analog prototype — **Butterworth** (maximally flat passband), **Chebyshev** (sharper, at the cost of ripple), **Elliptic** (sharpest, ripple in both bands). In practice, `scipy.signal.butter` / `iirfilter`.
 
 ## The choice
+<!-- bite: 885d929e-3efb-4ce4-b367-41d829d0cce7 -->
 
 | | FIR | IIR |
 |---|---|---|
@@ -70,6 +79,7 @@ The feedback means the impulse response rings on forever (infinite), and it's th
 **Rule of thumb:** FIR when you can afford the taps and need linear phase or guaranteed stability (audio, biomedical); IIR when efficiency or low latency dominates and phase distortion is acceptable (real-time control, cheap embedded).
 
 ## Poles, zeros and the z-transform
+<!-- bite: c3246f16-d6e4-4fd1-9f1b-a0573fa66328 -->
 
 To reason about IIR stability, DSP uses the **z-transform** — the discrete-time analogue of the Laplace transform → [[control-theory/index|control theory]]. It turns the filter's difference equation into a ratio of polynomials, the **transfer function `H(z)`**:
 
@@ -81,16 +91,19 @@ To reason about IIR stability, DSP uses the **z-transform** — the discrete-tim
 **This is the same pole/stability analysis as [[control-theory/05-stability-and-root-locus|control theory]]**, with the unit circle playing the role that the left-half-plane plays for continuous systems. If you know control theory, IIR filter stability is the same idea in `z` instead of `s`.
 
 ## Practical warnings
+<!-- bite: 8ee144d3-3b82-42ee-b512-5b6ce65e5b69 -->
 
 - **Fixed-point arithmetic** on cheap hardware causes coefficient rounding that can move a pole *outside* the unit circle — a filter that's stable in floating-point maths becomes unstable when quantised. Real embedded concern → [[digital-signal-processing/09-dsp-in-practice|fixed-point]]
 - **Cascade IIR filters as second-order sections (biquads)** rather than one high-order filter — high-order direct forms are numerically fragile, and biquads are the standard robust building block
 - **Don't hand-roll the coefficients** — use `scipy.signal`. Getting them right by hand is error-prone, and the design functions encode decades of care
 
 ## Key insight
+<!-- bite: 10268286-d273-4e5a-90d6-8c4e7a4a6b35 -->
 
 **A filter is a frequency response you apply by convolution, and the FIR-vs-IIR choice is the trade between guaranteed stability with linear phase (FIR, but many taps) and high efficiency with low latency (IIR, but it can go unstable).** IIR stability reduces to one geometric rule — all poles inside the unit circle — which is the same pole analysis as control theory, and the practical craft is choosing the family for your constraints and letting a library compute the coefficients rather than hand-deriving them.
 
 ## Designing an IIR filter from an analog one
+<!-- bite: b838dc11-b865-4930-a43c-0f5e7bb6d937 -->
 
 **The usual route to an IIR filter is not to design it digitally at all.** Analog filter design is a solved, century-old subject — Butterworth, Chebyshev, elliptic — so the standard move is to take a known analog prototype and *convert* it. There are two ways, and they fail differently.
 
@@ -112,6 +125,7 @@ into the analog transfer function. This is **the trapezoidal rule applied to a s
 **Bilinear is the default**, and impulse invariance is reached for only when matching the time-domain response matters more than the frequency response. The same bilinear substitution is how a continuous PID controller becomes a difference equation — see [[control-theory/12-digital-control|digital control]], which does it from the control side.
 
 ## Related
+<!-- bite: 3f1ba2ca-5cb8-4ff3-965f-0aedcacf351b -->
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] — applying a filter *is* convolution
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — windows, used in FIR design
 - [[control-theory/05-stability-and-root-locus|control theory: stability]] — the same pole analysis in `s`

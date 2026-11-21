@@ -1,20 +1,27 @@
+---
+id: 2f4ef1bb-e497-4b29-b634-7190fbe63b3e
+---
+
 # Gas and Fees
 
 **[Intermediate]** — why metering exists at all, how EIP-1559 actually works, and the failure modes that cost people money.
 
 ## The kid version first
+<!-- bite: a7323049-5e97-4084-8992-f8123cc0d635 -->
 
 Every instruction has a price. Before your transaction runs, you say **"I'll allow at most this much"** and you pre-pay it. The machine counts down as it works. If it finishes, you get the change back. If it runs out mid-way, **the work is undone but the money is gone.**
 
 The reason is simple: nobody can tell in advance whether a program will ever stop. So instead of asking, you charge it until it does.
 
 ## Why gas exists — the halting problem, priced
+<!-- bite: e8dc410f-65e2-4d32-9b0d-eed9e7e459ab -->
 
 You cannot decide whether an arbitrary program terminates → [[theory-of-computation/06-decidability|decidability]]. On a network where every node must execute every program, an infinite loop is a network-wide denial of service.
 
 **Gas converts an undecidable question into an economic one.** Rather than proving termination, you bound it: every operation costs, the budget is finite, and execution halts when the budget is exhausted. Simultaneously it prices resource use — storage costs more than arithmetic because storage burdens every node forever.
 
 ## The three numbers, and how they combine
+<!-- bite: 5fd845fc-0524-49bc-a65f-1d11ee035ca8 -->
 
 ```
 gasLimit                max units you'll allow          → you choose
@@ -38,6 +45,7 @@ refunded          = (gasLimit − gasUsed) × effectiveGasPrice
 **`gasLimit` is a cap, not a price.** Setting it higher does not make you pay more and does not make you go faster — you're refunded the difference. Setting it too *low* is what hurts: you run out mid-execution, everything reverts, and **you pay for every unit consumed up to the failure.** Wallets estimate the limit by simulating, then add a margin; the estimate can be wrong when execution depends on state that changes before inclusion.
 
 ## EIP-1559 — the fee market that actually works
+<!-- bite: 41d2829f-9ecc-4bd6-805e-38a7d8676f9e -->
 
 Before August 2021, fees were a blind first-price auction: guess what everyone else will bid, overpay or wait. EIP-1559 replaced it with an algorithmic price:
 
@@ -57,6 +65,7 @@ Three consequences worth carrying:
 - **The 2× elastic limit absorbs bursts** while the target keeps average block size sustainable
 
 ## Where gas actually goes
+<!-- bite: 1140525c-7a9e-464e-b16c-ca1524274e53 -->
 
 For a typical transaction, the split is unintuitive:
 
@@ -75,6 +84,7 @@ For a typical transaction, the split is unintuitive:
 Since **EIP-4844** (Dencun, March 2024) there is a **second, separate fee market for blobs** — large data attachments used by rollups, priced independently and deleted after ~18 days. It cut L2 costs by an order of magnitude, and it's the reason L2 fees fell off a cliff in 2024 → [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|rollups]].
 
 ## The failure modes
+<!-- bite: 659315c4-718b-4715-9758-12eafa962eec -->
 
 **Out-of-gas mid-execution.** State rolls back, gas is consumed. The user sees a failed transaction and a real charge. Most common cause: a loop over an unbounded array that grew past the point where iteration fits in a block. **Any loop over user-extendable data is a latent liveness bug** — including one in a `withdraw` function, which can permanently trap funds.
 
@@ -85,10 +95,12 @@ Since **EIP-4844** (Dencun, March 2024) there is a **second, separate fee market
 **Gas griefing.** A contract that forwards a fixed, insufficient gas stipend to an untrusted callee can be manipulated into failing in ways the caller didn't anticipate. The 2300-gas stipend from `.transfer()` was the classic case — it broke when smart-contract wallets became common, which is why **`.call{value: x}("")` with a reentrancy guard is now the correct way to send ETH**, and `.transfer()` is deprecated advice you'll still find in old tutorials.
 
 ## Key insight
+<!-- bite: cc959978-697c-4709-a9d9-e18bedcea15a -->
 
 **Gas is not a fee — it's a resource-accounting system that happens to be denominated in money.** Every price in the schedule encodes a real cost imposed on every node in the network, forever. Read the gas table and you're reading Ethereum's opinion about what is expensive, which is why optimising for it teaches you the machine.
 
 ## Related
+<!-- bite: 353a5c04-e604-4d25-be10-31a26db2ad59 -->
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — what's being metered
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]] — acting on this
 - [[theory-of-computation/06-decidability|decidability]] — the halting problem this prices around

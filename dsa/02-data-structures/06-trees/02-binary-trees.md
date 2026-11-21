@@ -1,8 +1,13 @@
+---
+id: 562ce51e-f94a-4331-9dba-87b79ef261c3
+---
+
 # Module: Binary Trees (At Most Two Children)
 
 **[Intermediate]** — the tree this course is built on, and the five shapes worth naming.
 
 ## Before you start
+<!-- bite: f2c326fd-23a0-47a0-95b5-111129e4ca97 -->
 
 - You know the tree vocabulary — root, parent, child, leaf, subtree, height, depth — from [[01-trees|trees]].
 - You can trace a recursive function.
@@ -19,6 +24,7 @@
 ---
 
 ## What a binary tree is
+<!-- bite: 7b04359a-a06e-42e1-89d8-3a4d6af20bfa -->
 
 A **binary tree** is a tree in which every node has **at most two** children. They are named the **left child** and the **right child**, and the distinction matters — swapping them gives a different tree, even with the same values present.
 
@@ -28,6 +34,7 @@ That is the whole definition. There is no rule about the values, no ordering req
 A **Binary Tree** is the most widely used variation of a tree. The rule is simple: **Every node can have AT MOST two children**, conventionally named `left` and `right`.
 
 ## The node
+<!-- bite: c2a61513-df39-4044-898f-cbb65b2f2015 -->
 ```python
 class TreeNode:
     """Represents a single node in a Binary Tree."""
@@ -38,6 +45,7 @@ class TreeNode:
 ```
 
 ## The five shapes
+<!-- bite: 5cbaea0b-cec7-48d4-87ad-b74514bee286 -->
 
 Understanding these shapes is critical because a tree's shape directly dictates its performance ($O(\log n)$ vs $O(n)$).
 
@@ -101,6 +109,7 @@ Every node has only 1 child. The tree degrades into a single straight line.
 ---
 
 ## Implementing the shape checks
+<!-- bite: e8c2f839-99de-43fc-8961-9bc9136dd904 -->
 
 Each shape is a property you can test for. These are written to be read rather than run — there is no lab here, because each one is short enough to follow by eye, and the point is the **definition made precise**, not a measurement.
 
@@ -212,6 +221,7 @@ def is_degenerate(node):
 ```
 
 ## Why complete trees can live in an array
+<!-- bite: b32fc05d-6502-4db7-b65e-af7620601413 -->
 
 This is the most useful consequence of any of these shapes, and it is why [[07-heaps|heaps]] are built on complete trees.
 
@@ -234,6 +244,7 @@ Because a complete tree has no gaps except at the end, you can number the nodes 
 The catch is that it only works while the tree stays complete. Put a gap in the middle and the arithmetic breaks, because every later position shifts. That is exactly why a heap keeps itself complete by construction — inserting always adds at the next free array slot and removing always takes the last one — while a binary search tree, whose shape is dictated by the order keys arrive in, cannot be stored this way without wasting most of the array.
 
 ## Common pitfalls and traps
+<!-- bite: bc3f7f72-616a-4831-884e-2d1aaad6e7d2 -->
 
 - **Confusing full with complete.** Full is about the *number* of children — 0 or 2. Complete is about *where the gaps are* — only at the end of the last level. A tree can be either one without being the other.
 - **Assuming "binary tree" implies ordering.** It does not. Ordering is the extra rule that makes a [[03-binary-search-trees|binary search tree]]. A heap and an expression tree are both binary and neither is sorted.
@@ -242,6 +253,7 @@ The catch is that it only works while the tree stays complete. Put a gap in the 
 - **Forgetting the empty-tree convention.** Here `height(None)` is $-1$, so a single node has height $0$. Some books use $0$ for empty and $1$ for a single node. Neither is wrong, but mixing the two produces off-by-one errors everywhere.
 
 ## Check your understanding
+<!-- bite: 8f6ae170-7459-409e-933c-1540651e1c0a -->
 
 1. How many nodes does a perfect binary tree of height 3 have?
 2. Is a perfect tree always complete? Is a complete tree always perfect?
@@ -259,6 +271,7 @@ The catch is that it only works while the tree stays complete. Put a gap in the 
 </details>
 
 ## Before moving on
+<!-- bite: 43fd0d9f-5352-4715-b88d-a57a6e22d415 -->
 
 You can define a binary tree, name and check all five shapes, and explain array storage.
 
@@ -267,6 +280,7 @@ You can define a binary tree, name and check all five shapes, and explain array 
 **Next:** [[03-binary-search-trees|Binary Search Trees]] — what happens when you add an ordering rule.
 
 ## Related
+<!-- bite: b7ab2615-f836-46f8-9395-1e5afdac2e86 -->
 
 - [[01-trees|Trees]] — the vocabulary, and the other kinds of tree
 - [[03-binary-search-trees|Binary Search Trees]] — the next lesson

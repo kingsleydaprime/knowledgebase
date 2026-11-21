@@ -1,3 +1,7 @@
+---
+id: 82ac214b-c2d9-4abf-a017-a457afc371ed
+---
+
 # Architecture Interview — Distributed Systems Depth
 
 From [[architecture/04-distributed-systems/index|04-distributed-systems]]. The round for infrastructure, platform, and senior backend roles — where they check whether your system design answers rest on understanding or on pattern-matching.

@@ -1,14 +1,20 @@
+---
+id: 7e401d3b-ff6a-4e4e-9cc8-9ab98a199b2c
+---
+
 # SQL for Analysis
 
 **[Intermediate]** — the analyst's primary tool, and the handful of patterns that separate analytical SQL from the transactional SQL of [[databases/index|the databases course]].
 
 ## The kid version first
+<!-- bite: 445c4d97-76d1-4ea2-a6af-5ad78c0db56d -->
 
 Most people learn SQL for *transactions* — insert a row, fetch a user, update an order. **Analytical SQL is a different dialect of the same language**, built for questions like "rank customers by spend," "what's the running total by month," "how does this week compare to last." The workhorses are **window functions** and **CTEs** — and once they click, a huge fraction of the analyst job is one well-written query.
 
 This note assumes you know [[databases/sql-reference|basic SQL]] (SELECT, JOIN, GROUP BY, WHERE) and goes to the analytical layer on top.
 
 ## Why SQL is the analyst's tool
+<!-- bite: cff41d83-2245-4c87-9b98-0904c46e61d4 -->
 
 Not Python, not a BI tool — **SQL is where analysts spend most of their time**, because:
 
@@ -20,6 +26,7 @@ Not Python, not a BI tool — **SQL is where analysts spend most of their time**
 **Python and pandas are the analyst's second tool** — for stats, complex reshaping, and anything SQL is awkward at → [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]]. But start in SQL; leave it only when you must.
 
 ## Window functions — the single most important skill
+<!-- bite: b1420a53-d34e-421c-a90b-4edc1d195630 -->
 
 **A window function computes across a set of rows *related to the current row*, without collapsing them into one** — which is the difference from `GROUP BY`. This one feature unlocks ranking, running totals, period-over-period, and cohort analysis.
 
@@ -63,6 +70,7 @@ SELECT * FROM (
 **If you learn one thing from this note, learn window functions.** They're the dividing line between someone who can query a database and someone who can *analyse* one.
 
 ## CTEs — making complex queries readable
+<!-- bite: d6c03680-79de-4b3e-9e36-22789f54cf31 -->
 
 A **Common Table Expression** (`WITH`) names a subquery so you can build an analysis in readable steps instead of a nested-subquery nightmare:
 
@@ -84,6 +92,7 @@ FROM with_growth;
 **CTEs read top-to-bottom like a recipe** — each step builds on the last, named for what it represents. This is the single biggest readability improvement in analytical SQL, and it's how you (and the reviewer) follow a 100-line query. **Chain CTEs; avoid deeply nested subqueries** — they're the same logic, but one is legible and one isn't. It's also exactly how [[data-engineering/07-transformation-and-dbt|dbt models]] are structured.
 
 ## The analytical query patterns
+<!-- bite: 827a91b1-5eee-422f-b7de-97e44edcc500 -->
 
 A small set of recipes covers most analyst questions:
 
@@ -118,6 +127,7 @@ FROM user_funnel;
 **Conditional aggregation** — `COUNT/SUM(...) FILTER (WHERE ...)` or `CASE` inside an aggregate — pivots rows into columns and is one of the most-used analyst tricks.
 
 ## The traps
+<!-- bite: 0f1ce331-a815-43dc-96e2-dae662f707e5 -->
 
 Analytical SQL has specific footguns worth naming:
 
@@ -128,14 +138,17 @@ Analytical SQL has specific footguns worth naming:
 - **`WHERE` filters before aggregation, `HAVING` after** — filtering a windowed/grouped result needs the right clause or a wrapping CTE
 
 ## Beyond SQL
+<!-- bite: 2faea5ed-c7e5-4974-b59c-bc2ad1863909 -->
 
 Reach for **Python/pandas** when SQL gets awkward: statistical tests, complex reshaping, anything iterative, or joining SQL results with an API/file → [[ai-ml/00-foundations/04-python-and-data-tools/index|the Python data stack]]. And **spreadsheets** remain a legitimate analyst tool for small, ad-hoc, stakeholder-facing work — don't be a snob about them; the right tool is the one that answers the question fastest and most clearly.
 
 ## Key insight
+<!-- bite: 9ff9fc2b-8ac3-4bd8-927e-b1c3c9ef571b -->
 
 **Analytical SQL is the same language as transactional SQL pointed at a different question, and two features carry most of it: window functions (compute across related rows without collapsing them — ranking, running totals, period-over-period, cohorts) and CTEs (build a complex analysis as a readable top-to-bottom recipe).** Learn window functions above all else — they're the line between querying a database and analysing one. Then watch for the analytical footguns, chiefly join fan-out silently multiplying your numbers, and drop to pandas only when SQL genuinely can't express the question.
 
 ## Related
+<!-- bite: 16e53142-1f44-42f6-b683-0ce0143ba36f -->
 - [[databases/sql-reference|SQL reference]] — the syntax lookup · [[databases/index|the databases course]] — how the engine runs it
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — where these patterns get applied
 - [[data-engineering/07-transformation-and-dbt|dbt]] — CTEs as the transformation layer

@@ -1,14 +1,20 @@
+---
+id: 364b6e31-f2b3-4ab0-93a0-2bee948aa41d
+---
+
 # The Standard Library
 
 **[Intermediate]** — What C actually ships, which is far less than you're used to, and the parts of it that are traps.
 
 ## How small it is
+<!-- bite: 9baa0ddf-4c69-4d90-af53-ad5665d907d2 -->
 
 There are no collections, no strings, no hash maps, no JSON, no networking, no threads before C11, no sorting beyond `qsort`, and no error type. The C standard library is roughly: I/O, string-and-memory functions, allocation, math, time, and a handful of utilities.
 
 Everything else you either write or take as a dependency — which is why every large C project has its own vector, its own hash table, and its own string builder. That duplication is a real cost of the language.
 
 ## `<stdio.h>`
+<!-- bite: b5eff572-baf5-453d-a1ed-e9830d082d42 -->
 
 ```c
 printf("%s is %d\n", name, age);
@@ -81,6 +87,7 @@ setvbuf(stdout, NULL, _IONBF, 0);      // unbuffered
 **Check `fclose`.** Data can still be in a buffer; a failed flush surfaces there and nowhere else.
 
 ## `<stdlib.h>`
+<!-- bite: 30369cde-1c8e-49a4-8be7-6f76389c66d5 -->
 
 ```c
 malloc calloc realloc free                 // → 07-memory-management
@@ -118,6 +125,7 @@ Verbose, and it's the only way to parse an integer correctly in C.
 **`rand()` is not a CSPRNG.** For anything security-relevant use `getrandom()` (Linux), `arc4random_buf()` (BSD/macOS), or read `/dev/urandom`. → [[cybersecurity/05-cryptography/index|Cryptography]]
 
 ## `<string.h>`
+<!-- bite: 1977568c-eec1-47fa-8691-66cf4d938667 -->
 
 Covered in [[languages/04-c/06-arrays-strings-and-decay|Arrays, Strings and Decay]]. The summary:
 
@@ -127,6 +135,7 @@ Covered in [[languages/04-c/06-arrays-strings-and-decay|Arrays, Strings and Deca
 `memset` for zeroing secrets is a trap — the optimiser deletes a write to memory that's about to be freed. Use `memset_s` (C11 Annex K), `explicit_bzero`, or a `volatile` function pointer.
 
 ## `<errno.h>`
+<!-- bite: 571a6eea-7af5-4850-9672-b749353acbd9 -->
 
 ```c
 #include <errno.h>
@@ -146,6 +155,7 @@ Two rules: **only check `errno` after a function has indicated failure** (a succ
 Compared to [[languages/03-rust/07-option-and-result|`Result<T, E>`]] or even [[languages/02-go/05-errors|Go's error returns]], this is genuinely bad: it's easy to ignore, easy to clobber with an intervening call, and carries no context.
 
 ## `<math.h>`
+<!-- bite: 01a1837f-ab72-4d32-affb-890a87fc1901 -->
 
 ```c
 sqrt pow fabs floor ceil round trunc fmod
@@ -158,6 +168,7 @@ M_PI                            // POSIX, not ISO C — define your own for port
 **Link with `-lm`** on Linux, or you get `undefined reference to 'sqrt'` — a classic first linker error.
 
 ## `<time.h>`
+<!-- bite: 6dd9057b-3298-448a-b138-594a137b6508 -->
 
 ```c
 time_t now = time(NULL);
@@ -174,6 +185,7 @@ clock_gettime(CLOCK_MONOTONIC, &ts);      // POSIX — use MONOTONIC for measuri
 `CLOCK_MONOTONIC` doesn't jump when NTP adjusts the clock. Measuring elapsed time with `CLOCK_REALTIME` produces negative durations occasionally, which is a genuinely confusing bug.
 
 ## Other headers
+<!-- bite: 77234e25-7e97-42c7-b23c-a4975a94a7a6 -->
 
 ```c
 <stdbool.h>   bool, true, false                    (C99)
@@ -213,6 +225,7 @@ int sum(int count, ...) {
 **Completely type-unsafe** — `va_arg` trusts the type you name, and there's no way to know how many arguments were passed. That's why `printf` needs a format string and why a wrong specifier is UB. Use them for logging wrappers and little else.
 
 ## POSIX, which is where the real work is
+<!-- bite: ce06b181-4c3e-4e7e-999f-8c7c30a3df14 -->
 
 The C standard has no files-as-descriptors, no networking, no processes, no threads. On Unix that's POSIX:
 
@@ -229,6 +242,7 @@ The C standard has no files-as-descriptors, no networking, no processes, no thre
 This is what [[os/fundamentals|OS Fundamentals]] and [[networking/09-sockets-and-the-network-api|the sockets note]] cover, and it's what you'll actually use to build anything real. Portability to Windows means a compatibility layer or a library.
 
 ## Rules
+<!-- bite: 074576de-ae82-48bd-a915-f057b18db1c2 -->
 
 1. **`snprintf` over `sprintf`. Never `gets`.**
 2. **Never pass user input as a format string.**
@@ -242,6 +256,7 @@ This is what [[os/fundamentals|OS Fundamentals]] and [[networking/09-sockets-and
 ---
 
 ## Related
+<!-- bite: 5968d10a-90ad-4298-9cb7-9e59b9f2b0d1 -->
 - [[languages/04-c/06-arrays-strings-and-decay|Arrays, Strings and Decay]] — the string functions in detail
 - [[languages/04-c/07-memory-management|Memory Management]] — `malloc` and friends
 - [[os/fundamentals|OS Fundamentals]] — where POSIX takes over

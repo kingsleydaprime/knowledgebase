@@ -1,3 +1,7 @@
+---
+id: 3af4e58f-0695-4300-8aa8-adc1213c64cc
+---
+
 # Virtualisation and Hypervisors
 
 > **[Beginner → Intermediate]** · The layer that turned one machine into many, why containers are not a smaller version of it, and the trade you're making either way.
@@ -5,6 +9,7 @@
 The previous note ended on four problems with one-app-per-server: underutilisation, slow scaling, duplicated environments, hardware-shaped backups. **All four are solved by changing what you hand out.** Stop allocating physical machines. Allocate slices of one.
 
 ## The idea
+<!-- bite: 3af41cf3-0aaa-4fb2-904b-232cc9fc4221 -->
 
 A **hypervisor** (also: virtual machine monitor) sits between the hardware and the operating systems, and presents each guest OS with what looks like its own complete machine — its own CPUs, memory, disks, network cards.
 
@@ -25,6 +30,7 @@ The guest OS is not modified and is not told. It boots, probes for hardware, fin
 Each VM gets **virtual** instances of the real components: vCPUs, virtual disks (a file on the host, usually), virtual NICs on a virtual switch.
 
 ## Type 1 and Type 2
+<!-- bite: d4578c81-6c55-4452-9d45-e6046179c91c -->
 
 The only structural distinction worth memorising, and it's simply *what's underneath the hypervisor*.
 
@@ -43,6 +49,7 @@ Type 2 is for a laptop lab — a Linux VM on a Windows machine, a [[cybersecurit
 **KVM is the interesting edge case:** it's a Linux kernel module that turns the kernel itself into a Type 1 hypervisor. So it's genuinely bare metal, while looking like software you installed on an OS. Most of the world's cloud compute runs on it.
 
 ## What the hardware does for you
+<!-- bite: 970dd0df-9ac4-42e0-a53b-e3def0902c20 -->
 
 Early virtualisation was slow because privileged instructions had to be trapped and emulated in software. Then Intel (VT-x) and AMD (AMD-V) added a mode where guest code runs directly on the CPU at near-native speed, with the hypervisor invoked only on genuine transitions.
 
@@ -54,6 +61,7 @@ Two more that matter operationally:
 **The practical consequence: CPU and memory virtualisation are close to free; I/O is where the overhead lives.** If a virtualised workload is slow, look at disk and network before you look at compute.
 
 ## Oversubscription — the economics, and the trap
+<!-- bite: 98003f7b-e50d-4dc9-917a-acd7d3102303 -->
 
 You can allocate 128 vCPUs across VMs on a 64-core host, because most VMs are idle most of the time. The whole business model of cloud compute rests on this.
 
@@ -68,6 +76,7 @@ top     # the %st column; anything sustained above ~5% means you're fighting nei
 This is the mechanism behind the **noisy neighbour** problem, and the reason dedicated/metal instance types exist and cost more. See [[os/03-scheduling|scheduling]] for why queuing behaves this way.
 
 ## VMs and containers are not the same tool
+<!-- bite: 83f29929-13f9-42fa-97aa-c0468dd06f2b -->
 
 The most common confusion in this area, and worth being precise about.
 
@@ -89,6 +98,7 @@ That last row is the one people trip on. Docker on macOS or Windows runs a **Lin
 Where the boundary genuinely matters — running untrusted code — the industry built hybrids: **Firecracker** (behind AWS Lambda and Fargate) boots a stripped-down VM in ~125ms, buying hardware isolation at roughly container speed. **gVisor** takes the other route, intercepting syscalls in userspace.
 
 ## What virtualisation actually bought
+<!-- bite: d23d0151-a95c-42dc-8e7f-1832545a6ee5 -->
 
 Reading back against the four problems:
 
@@ -102,6 +112,7 @@ Reading back against the four problems:
 And the same insight — *make the unit of deployment a portable artefact* — is what [[devops/03-docker/index|container images]], [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|Terraform state]] and [[devops/11-delivery-and-advanced/01-gitops|GitOps]] are all separately re-applying one layer up.
 
 ## The honest cost
+<!-- bite: f00adced-ba77-4948-a26e-184a9bb10807 -->
 
 Virtualisation is not free, and the bill has three lines:
 
@@ -110,6 +121,7 @@ Virtualisation is not free, and the bill has three lines:
 3. **A new attack surface** — hypervisor escape is rare and devastating. Shared-hardware side channels (Spectre/Meltdown, see [[computer-architecture/07-branch-prediction-and-speculation|speculation]]) are cross-tenant risks that simply don't exist on a machine you own
 
 ## Related
+<!-- bite: fc55437f-bd3c-4e95-97b5-76343a5d78da -->
 - [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|servers]] — the problems this solved
 - [[devops/03-docker/index|Docker]] — the container half, in depth
 - [[os/11-isolation-and-containers|namespaces and cgroups]] — the kernel primitives containers are built from

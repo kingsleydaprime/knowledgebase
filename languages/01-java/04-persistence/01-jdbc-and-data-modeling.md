@@ -1,8 +1,13 @@
+---
+id: 9dcef995-52ae-4984-9794-ac0bd99bbf69
+---
+
 # Persistence & Data Modeling
 
 **Source:** merged from `record-id-generator-java/learning/04-database-mysql-flyway.md` and `direct-debit-sandbox-java/learning/04-data-storage-patterns.md`.
 
 ## HikariCP — connection pooling
+<!-- bite: d25c4e46-f117-4216-a220-54d432177a54 -->
 
 Opening a new DB connection per operation is expensive. A pool keeps a set of reusable connections open:
 
@@ -17,6 +22,7 @@ Connection conn = dataSource.getConnection();   // borrowed from the pool, not o
 Pool sizing rule: `maximumPoolSize` should comfortably exceed the number of concurrent consumers/threads doing DB work, with headroom for Flyway and startup overhead — otherwise threads block waiting for a connection (`waiting > 0` in HikariCP's pool stats is the signal).
 
 ## Flyway — versioned migrations
+<!-- bite: a0f1033e-15c1-4bda-8db8-fa390b7de622 -->
 
 Flyway runs SQL scripts in order and tracks which have applied, so schema state is reproducible from source control instead of manual `CREATE TABLE` runs:
 
@@ -32,6 +38,7 @@ CREATE TABLE transactions (
 Naming convention: `V{version}__{description}.sql`. `flyway.migrate()` runs pending migrations automatically at startup.
 
 ## Prepared statements — always
+<!-- bite: d635caec-17ab-4777-8878-cbd43fcad662 -->
 
 Never concatenate SQL strings — it's the canonical SQL injection vector. `PreparedStatement` parameterizes values instead:
 
@@ -42,6 +49,7 @@ stmt.setBigDecimal(2, amount);
 ```
 
 ## SQL quick reference
+<!-- bite: b702a9ff-51b1-4c1b-a2db-4798fada643d -->
 
 | Category | Purpose | Commands |
 |---|---|---|
@@ -65,6 +73,7 @@ SELECT * FROM transactions ORDER BY created_at DESC LIMIT 50 OFFSET 100;  -- pag
 | `DATETIME`/`TIMESTAMP` | `LocalDateTime` | See the JDBC bridging note in [[languages/01-java/01-language/01-fundamentals]] |
 
 ## Primary key design — surrogate vs natural keys
+<!-- bite: 4e40c3b2-6e17-47c2-8cf2-5545eaeb4488 -->
 
 A **surrogate key** carries no business meaning (a random generated ID) — stable and compact, but inserting the same source record twice under a new random ID isn't caught by the DB. A **natural key** uses a real business field — automatic deduplication, but business data can change or arrive dirty.
 
@@ -92,6 +101,7 @@ ALTER TABLE transactions
 This is the same reasoning behind why **UUID v7** (time-ordered) is preferred over UUID v4 as a primary/indexed key at scale — see [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency]].
 
 ## In-memory storage: ConcurrentHashMap as a lightweight store
+<!-- bite: 3c65254b-e0a7-49a6-b7a3-8635e51fe0dc -->
 
 A plain `HashMap` is not safe under concurrent reads/writes — data corruption or crashes that only reproduce under production load. `ConcurrentHashMap` handles concurrent access internally:
 
@@ -135,6 +145,7 @@ This is exactly what a database index does internally (usually a B-tree mapping 
 A single `save(id, record)` method used for both create and update becomes a bug magnet once secondary indexes exist — create must populate the indexes, update must not touch them. Splitting into two explicitly named methods (`createSubscription` vs `updateSubscription`) makes the side effects self-documenting: **method names should reflect intent, not implementation.**
 
 ## Data normalization
+<!-- bite: b4602b10-16c5-4e90-b916-518ce68c4729 -->
 
 Normalization means storing every fact in exactly one place, so a value only ever needs updating in one row when it changes.
 
@@ -161,6 +172,7 @@ Normalization is a default, not a law. A `TransactionRecord` that duplicates `de
 Default to normalized; denormalize deliberately, where read performance or point-in-time correctness justifies it, and document why.
 
 ## Related
+<!-- bite: 6cb17896-d641-47c3-bdd1-55f980e890d2 -->
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] — `ConcurrentHashMap`'s actual thread-safety guarantees
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation & Idempotency]] — the business-key/surrogate-key split in full
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — what happens to these indexes under bulk load

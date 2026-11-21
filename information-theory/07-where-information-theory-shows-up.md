@@ -1,3 +1,7 @@
+---
+id: 6d5edf8b-35bc-4f70-904f-c22a6b401187
+---
+
 # Where Information Theory Shows Up
 
 **[Intermediate]** — The payoff note. One measure, applied across nine domains already in this vault.
@@ -5,6 +9,7 @@
 > **The argument for this track being connective tissue rather than a new silo:** almost everything below is already written elsewhere in the vault. **This note is the thread running through it.**
 
 ## Cryptography — entropy as security
+<!-- bite: 853622d4-779e-46d9-9769-9b77426f26ed -->
 
 **Key strength is entropy, measured in bits.**
 
@@ -29,6 +34,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 **Perfect secrecy** has an information-theoretic definition: $I(\text{plaintext};\text{ciphertext}) = 0$. **The one-time pad achieves it** — and Shannon proved it requires a key at least as long as the message, which is why it's unusable in practice. → [[cybersecurity/05-cryptography/02-symmetric-encryption|Symmetric Encryption]]
 
 ## Machine learning — the loss function
+<!-- bite: be9c97f3-8ec2-455e-abde-d92c5c4313b8 -->
 
 **Cross-entropy loss, KL divergence, perplexity.** Fully covered in [[information-theory/04-cross-entropy-and-kl-divergence|note 04]] — the short version:
 
@@ -47,6 +53,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 **Active learning** picks the sample with maximum expected information gain — **which is just "ask the question whose answer you can least predict".**
 
 ## Compression — and the LLM connection
+<!-- bite: cdadab3a-4725-4bdf-aa06-669416fb8eed -->
 
 **A model that predicts well compresses well**, because they're the same quantity. → [[information-theory/03-source-coding-and-compression|Source Coding]]
 
@@ -55,6 +62,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 **And practically: `gzip` + k-NN is a surprisingly competitive text classifier.** Classify a document by which training document it compresses best with. **No training, no embeddings, and it beat several neural baselines on low-resource benchmarks** — a 2023 result that caused some healthy embarrassment.
 
 ## Networking — capacity and coding
+<!-- bite: 3a3f4e0c-ce1b-47c8-9f59-8642f6f77de1 -->
 
 **Shannon–Hartley sets the physical layer's ceiling.** → [[information-theory/05-channel-capacity-and-noise|Channel Capacity]]
 
@@ -68,6 +76,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 **Adaptive bitrate streaming** is a rate–distortion problem solved live: estimate the channel, choose the quality level whose rate fits.
 
 ## Databases and storage
+<!-- bite: 0f077bad-4deb-40b8-b98d-4830080101e0 -->
 
 **Compression in column stores** works because a single column is homogeneous — **low entropy given the context**, which is exactly why run-length and dictionary encoding get 10× ratios there and not on rows. → [[databases/03-storage-and-page-layout|Storage and Page Layout]]
 
@@ -78,6 +87,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 **Erasure coding** for durability at 40–50% overhead instead of 200%. → [[information-theory/06-error-correcting-codes|Error-Correcting Codes]]
 
 ## Security — leakage as a channel
+<!-- bite: 4b53c929-eccb-4b75-aea2-28ab2c395624 -->
 
 **A side channel is a communication channel from a secret to an attacker, and its capacity is measurable in bits per query.**
 
@@ -91,6 +101,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 > **Differential privacy is the cleanest example of information theory as a design tool** rather than an analysis tool — you choose a leakage budget, then add exactly enough noise to enforce it.
 
 ## Physics and biology
+<!-- bite: 2938dfc3-c652-4508-9f5b-8fcedccd29ed -->
 
 **Landauer's principle** — erasing a bit costs at least $k_BT\ln2$ of dissipated energy. **Measured experimentally in 2012.** Information is physical.
 
@@ -103,6 +114,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 **Neural coding** — how many bits does a spike train carry? An active research area using exactly these tools.
 
 ## Language and cognition
+<!-- bite: 374cb4d9-6b70-4531-bf3a-d59305c06e02 -->
 
 **English is ~1.1 bits/character** with full context, against 4.7 for uniform letters. **~75% redundant.**
 
@@ -113,6 +125,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 **The uniform information density hypothesis** proposes that speakers unconsciously spread information evenly across an utterance — **contracting predictable words ("I'm" for "I am") and spelling out surprising ones.** There's decent empirical support, and it's a nice example of an information-theoretic prediction about behaviour.
 
 ## Decision-making and inference
+<!-- bite: 501b18f7-da61-41be-bd85-458e4d19ba7b -->
 
 **Bayesian updating is information acquisition.** The expected reduction in entropy from an observation is exactly the mutual information between the observation and the parameter.
 
@@ -123,6 +136,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 **Model selection** — AIC and MDL (minimum description length) are information-theoretic. **MDL's framing is the cleanest: the best model is the one that most compresses the data, counting the model's own description length.** Occam's razor as a compression argument, and it's a genuinely satisfying formalisation.
 
 ## The thread
+<!-- bite: 3a32c4e5-7f6a-4193-bda5-143e746e6981 -->
 
 **One measure — $-\log p$ — applied consistently:**
 
@@ -142,6 +156,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 ---
 
 ## Related
+<!-- bite: ba924298-8374-4bd3-9d35-02fdbd537f22 -->
 - [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the ML-facing half
 - [[information-theory/05-channel-capacity-and-noise|Channel Capacity]] — the communications half
 - [[cybersecurity/05-cryptography/index|Cryptography]] — entropy as security

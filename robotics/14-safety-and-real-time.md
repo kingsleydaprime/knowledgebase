@@ -1,8 +1,13 @@
+---
+id: d0a65b78-d79e-4cdc-8927-b20470ebfae2
+---
+
 # Safety and Real-Time
 
 **[Advanced]** — Deadlines that are correctness constraints rather than performance goals, and failing safe when a moving machine can hurt someone.
 
 ## Real-time means deadlines, not speed
+<!-- bite: 1d2c3035-8a47-4f0b-be88-110ced291c38 -->
 
 **The commonest misunderstanding in the subject.**
 
@@ -19,6 +24,7 @@
 **And jitter is worse than latency.** A consistent 5 ms delay you can design around — model it, add phase margin. A delay varying between 1 and 10 ms you cannot, because the plant you're controlling changes every cycle.
 
 ## Achieving it
+<!-- bite: a221894e-0499-4f59-98b1-9551a56ac407 -->
 
 **Determinism is destroyed by anything unbounded.** The list of what to avoid in a real-time path:
 
@@ -58,6 +64,7 @@
 **Put the hard real-time work on hardware that can guarantee it**, and let the smart, slow, occasionally-crashing layer send setpoints. **If the top layer dies, the bottom layer must still behave safely** — which is the whole point of the split.
 
 ## Failing safe
+<!-- bite: 2ad61b3b-7e19-436e-9b07-f7ea15590fed -->
 
 **Every robot needs a defined behaviour for every failure**, and "undefined" is a decision you've made by not making it.
 
@@ -89,6 +96,7 @@
 **Defence in depth.** The software limit will be wrong someday.
 
 ## Emergency stops
+<!-- bite: 01192b4b-5d11-41df-8d7c-edafbe2a6526 -->
 
 **The E-stop is not a software feature.**
 
@@ -105,6 +113,7 @@ A real E-stop is a **hardwired, normally-closed circuit** that cuts motor power 
 **Never route an E-stop through software you wrote.** The entire point is that it works when your software doesn't.
 
 ## Human-robot safety
+<!-- bite: a073e407-49c6-47fe-9c39-a0a51b325339 -->
 
 The standards exist because people have been killed by robots, and they encode real lessons.
 
@@ -123,6 +132,7 @@ The standards exist because people have been killed by robots, and they encode r
 **And the honest caveat:** a cobot is only collaborative *for a given task*. Give it a knife or a hot tool and the force limits are irrelevant. **The risk assessment covers the whole application, not the arm.**
 
 ## Redundancy and diversity
+<!-- bite: 4136fd95-ad9d-406e-a772-b87ecbaf02ff -->
 
 **For anything where failure is unacceptable:**
 
@@ -135,6 +145,7 @@ Dual encoders that disagree indicate a fault. **Comparison is itself a detection
 **Safety Integrity Levels (SIL/PL)** quantify the required reliability of a safety function. **You cannot claim a safety level for software you haven't developed to the corresponding process** — this is why certified safety controllers are separate, simple, and expensive.
 
 ## Testing what can hurt people
+<!-- bite: 3b9de15b-16b7-4233-8de9-1563804cd0d5 -->
 
 **You cannot test safety into a system**, but you can catch a great deal.
 
@@ -149,6 +160,7 @@ Dual encoders that disagree indicate a fault. **Comparison is itself a detection
 **Record everything.** When something goes wrong you get one chance to understand it, and the log is all you'll have. → [[robotics/13-ros-and-robot-software|rosbag]]
 
 ## Practical notes
+<!-- bite: 80551a49-ecb5-4cc2-b353-cd97a2db6869 -->
 
 **Measure your loop timing.** Log actual $dt$, not the nominal one, and look at the *distribution* — the tail is what matters. A p99 of 3× your period means you're not meeting your deadline.
 
@@ -167,6 +179,7 @@ Dual encoders that disagree indicate a fault. **Comparison is itself a detection
 ---
 
 ## Related
+<!-- bite: 5b9a8aee-852a-4a77-abf3-85a88ed4a827 -->
 - [[robotics/09-robot-control|Robot Control]] — the loops with the deadlines
 - [[os/03-scheduling|Scheduling]] — how an OS meets or misses them
 - [[robotics/13-ros-and-robot-software|ROS and Robot Software]] — and where it isn't appropriate

@@ -1,8 +1,13 @@
+---
+id: 4660e6f8-3126-4308-a5bb-dd2b7049be43
+---
+
 # Voice & Realtime
 
 **Source:** Part II of the AI-engineer track. [[ai-ml/03-ai-engineer/09-multimodal/index|Multimodal AI]] covered speech-to-text and text-to-speech as *building blocks*; this note is what you assemble from them — a conversational **voice agent** — and the realtime constraints that make it a distinct engineering problem. Code is illustrative shape.
 
 ## Two ways to build a voice agent
+<!-- bite: 3c4ecf7a-af38-408e-aea9-a4634d6867e8 -->
 
 ### The pipeline (cascaded) approach
 Chain the components you already know:
@@ -21,6 +26,7 @@ mic audio → [STT] → text → [LLM] → text → [TTS] → speaker audio
 A single **speech-to-speech** model takes audio in and emits audio out directly, without a text bottleneck in the middle. **Pros:** far lower latency, and it preserves prosody — tone, laughter, emphasis — because it never flattens the conversation to text. **Cons:** less transparent (harder to log/inspect/guardrail the intermediate), newer, and often more expensive. Use it when *natural, low-latency conversation* is the product; use the pipeline when *control and reuse of your text stack* matter more.
 
 ## Latency is the whole game
+<!-- bite: c3996b4e-d830-422e-a6ba-546beb555938 -->
 
 In text, a second of delay is fine. In voice, **humans expect a reply in well under a second** — the natural gap between conversational turns is short, and a two-second pause feels broken, like the system froze. This single constraint reshapes every choice:
 
@@ -29,6 +35,7 @@ In text, a second of delay is fine. In voice, **humans expect a reply in well un
 - **Favor faster models** for the LLM step ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost, caching & latency]]) — a voice turn can't afford a slow frontier model unless the task truly needs it. A cascade (fast model for simple turns, escalate for hard ones) fits voice especially well.
 
 ## The hard parts unique to voice
+<!-- bite: 67af993e-6249-43fa-9800-0599a4515b7d -->
 
 Beyond latency, conversation has mechanics that text doesn't:
 - **Turn-taking / endpointing** — knowing when the user has *finished* speaking versus just paused mid-sentence. Cut them off too early and you interrupt; wait too long and the agent feels sluggish. This "voice activity detection + endpointing" is a genuinely hard sub-problem and a common source of a bad feel.
@@ -36,6 +43,7 @@ Beyond latency, conversation has mechanics that text doesn't:
 - **Backchannel and pacing** — natural conversation has "mm-hm"s, brief acknowledgments, and pauses. Getting the rhythm right is much of what makes a voice agent feel human rather than like a menu.
 
 ## Everything else still applies — plus voice-specific safety
+<!-- bite: aba506f9-0d74-4f52-ba10-9ef25b3ef4c6 -->
 
 A voice agent is still an LLM app, so the whole track carries over: it needs [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools]] to *do* things, [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]] to know your data, [[ai-ml/03-ai-engineer/12-evals/index|evals]] to measure quality, and [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability plumbing]] underneath. Safety ([[ai-ml/03-ai-engineer/10-safety-and-production/index|safety & production]]) gains extra edges in voice:
 - **[[ai-ml/03-ai-engineer/10-safety-and-production/index|Prompt injection]] via spoken input** — the same attack surface as text, now arriving as transcribed speech; treat the transcript as untrusted.
@@ -43,6 +51,7 @@ A voice agent is still an LLM app, so the whole track carries over: it needs [[a
 - **STT errors compound** — a misheard word propagates through the whole pipeline; the LLM should tolerate imperfect transcripts and ask for clarification rather than confidently acting on a mishearing.
 
 ## Gotchas
+<!-- bite: 0ce2915d-e450-496d-bae9-1bbe1d71ebf5 -->
 
 - **Sequential (non-streaming) stages blow the latency budget.** STT-then-LLM-then-TTS run end-to-end is always too slow. Overlap them by streaming, or the agent feels broken.
 - **No barge-in = talks over the user.** Interruption handling isn't a nice-to-have; without it the thing is unusable in real conversation.
@@ -51,10 +60,12 @@ A voice agent is still an LLM app, so the whole track carries over: it needs [[a
 - **Transcription errors acted on blindly.** Confirm consequential actions; a homophone shouldn't cancel someone's flight.
 
 ## Key insight
+<!-- bite: 935ab6a9-6701-4009-9a30-f6ed47204c9d -->
 
 **A voice agent is your text LLM stack wrapped in speech-in/speech-out — either as a streamed STT→LLM→TTS pipeline (control, reuse) or a speech-native realtime model (natural, low-latency) — and the defining constraint is sub-second latency, which forces you to stream and overlap every stage.** The genuinely voice-specific engineering is the conversation mechanics: turn-taking, barge-in, and pacing. Everything else you learned in this track (tools, RAG, evals, safety, reliability) still holds — it just now has to happen fast enough to feel like talking.
 
 ## Related
+<!-- bite: fc3665ce-9627-4111-80b8-ba10b22163fa -->
 - [[ai-ml/03-ai-engineer/09-multimodal/index|Multimodal AI]] — STT and TTS as the building blocks
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, Caching & Latency]] — streaming and right-sizing for the latency budget
 - [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — a voice agent is an agent that listens and speaks

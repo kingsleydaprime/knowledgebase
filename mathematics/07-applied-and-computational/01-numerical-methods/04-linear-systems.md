@@ -1,8 +1,13 @@
+---
+id: 96b5802d-aa25-40f5-985a-718d308e715c
+---
+
 # Linear Systems
 
 **[Intermediate → Advanced]** — Solving $Ax = b$. The most-used algorithm in scientific computing, and the one where conditioning bites hardest.
 
 ## Why this note matters most
+<!-- bite: 8cdeb630-183d-4c80-9f01-1acee05d43a2 -->
 
 **Almost everything reduces to a linear solve:**
 
@@ -18,6 +23,7 @@
 **If you optimise one thing in a scientific code, it's usually the linear solve.**
 
 ## Never invert the matrix
+<!-- bite: fcf8005a-11ee-432a-b70f-d1bf50c60a08 -->
 
 > **The single most important practical rule in this domain:**
 >
@@ -35,6 +41,7 @@
 **In code:** `numpy.linalg.solve(A, b)`, **not** `inv(A) @ b`. `scipy.linalg.solve_triangular`, `cho_solve`, `lu_solve`. MATLAB's `A\b`. **The only legitimate uses of an explicit inverse are when you genuinely need the entries** — a covariance matrix's inverse for a statistical quantity, for instance.
 
 ## LU decomposition
+<!-- bite: cc8dc3ad-fc6b-4626-a065-ceb8fcf6b3d4 -->
 
 **Gaussian elimination, recorded.**
 
@@ -68,6 +75,7 @@ $$\begin{bmatrix}10^{-20} & 1\\ 1 & 1\end{bmatrix}$$
 **Complete pivoting** (rows and columns) is more stable and rarely worth the cost.
 
 ## Specialised factorisations
+<!-- bite: 97843e91-518d-4346-98ee-e3439fd6da03 -->
 
 **Exploit structure — often a 2× or better win, and better stability.**
 
@@ -88,6 +96,7 @@ $$A = LL^T$$
 **The most expensive and the most informative.** Gives you rank, condition number, null space, pseudoinverse, and the best low-rank approximation. **When a problem is rank-deficient or nearly so, SVD is what tells you and what handles it.** → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
 
 ## Conditioning
+<!-- bite: df490e11-94cc-4380-b000-c718a3ddeee2 -->
 
 $$\kappa(A) = \|A\|\,\|A^{-1}\| = \frac{\sigma_{max}}{\sigma_{min}}$$
 
@@ -114,6 +123,7 @@ $$\frac{\|\delta x\|}{\|x\|} \leq \kappa(A)\frac{\|\delta b\|}{\|b\|}$$
 **A residual is not an error.** A small $\|Ax - b\|$ does **not** imply $x$ is close to the true solution when $\kappa$ is large. **Check the condition number, not just the residual.**
 
 ## Sparse systems
+<!-- bite: d74bedb9-b084-48b8-8b7b-47f2fe4514c4 -->
 
 **Most large real systems are sparse** — FEM, circuit simulation, PDEs, graphs. A million unknowns with ten nonzeros per row.
 
@@ -158,6 +168,7 @@ $$\left(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1}\right)^k$$
 > **An unpreconditioned iterative solver on a real problem usually doesn't converge in useful time.** **The preconditioner is not an optimisation — it's the algorithm.** Most of the research effort in this area is about preconditioners, not the Krylov methods themselves.
 
 ## Choosing
+<!-- bite: 0166ca7a-eb9d-4353-9387-1875aeb9c27d -->
 
 ```
 Is A small (n < ~1000) and dense?
@@ -172,6 +183,7 @@ Is A large and sparse?
 ```
 
 ## Practical notes
+<!-- bite: e5f4363d-7b5a-4881-9a7c-89558b9b5615 -->
 
 **Use LAPACK.** Directly, or through NumPy/SciPy/Eigen/Armadillo. **Forty years of numerical care that you will not reproduce.** Your hand-written elimination will be slower *and* less accurate.
 
@@ -190,6 +202,7 @@ Is A large and sparse?
 ---
 
 ## Related
+<!-- bite: a98e87ed-7129-48c4-9d7e-07b0330d311d -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/05-eigenvalues|Eigenvalues]] — the other big linear-algebra computation
 - [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations|PDEs]] — where the huge sparse systems come from
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory

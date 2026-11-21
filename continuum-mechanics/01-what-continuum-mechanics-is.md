@@ -1,3 +1,7 @@
+---
+id: 1a38f540-418b-4d7e-8847-3366388c5e90
+---
+
 # What Continuum Mechanics Is
 
 **[Intermediate]** — The one modelling assumption the whole field rests on, when it holds, and why solids and fluids turn out to be the same theory with different closures.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[continuum-mechanics/index|the domain note]] on what that means here.
 
 ## The continuum hypothesis
+<!-- bite: f9be4d69-086e-4601-873b-281492040fa3 -->
 
 Matter is atoms with space between them. Continuum mechanics ignores that entirely and treats material as **continuously distributed** — every point in a body has a density, a velocity, a stress, and these vary smoothly.
 
@@ -39,6 +44,7 @@ The plateau is the **representative elementary volume (REV)** — large enough t
 **What you gain** is enormous: the machinery of calculus. Fields, derivatives, integrals, and PDEs instead of $10^{23}$ coupled ODEs.
 
 ## Solids and fluids are the same theory
+<!-- bite: 7d31451b-f199-4233-be47-153b6c39ee11 -->
 
 The structural insight worth having early. Both obey the same conservation laws:
 
@@ -60,6 +66,7 @@ The equations are also **underdetermined** — more unknowns than equations. Wha
 Which is why the same course covers Navier–Stokes and beam bending, and why **viscoelastic** materials (polymers, biological tissue, asphalt) are genuinely awkward: they're both, depending on timescale. Silly putty bounces and also flows.
 
 ## The three ingredients
+<!-- bite: a5513a07-a1ec-4ae6-9ae1-cacf6df5492e -->
 
 Every problem in this field is assembled from three parts, and knowing which one you're missing is most of getting unstuck:
 
@@ -77,6 +84,7 @@ kinematics  +  balance laws  +  constitutive model  =  a solvable problem
 The balance laws are as close to certain as anything in engineering. **The constitutive model is where the modelling error lives**, and it's the part chosen rather than derived. When a simulation is wrong by a factor of three, look there first.
 
 ## Why tensors
+<!-- bite: d8fa4cc6-c245-4df9-a3af-4da3eaee78f1 -->
 
 You cannot avoid them, so it's worth knowing why.
 
@@ -93,6 +101,7 @@ Nine components in 3D (six independent, by symmetry). Not because someone wanted
 Same for strain, and for the deformation gradient.
 
 ## The two viewpoints
+<!-- bite: edd04215-4397-4cb2-9f93-c49876db7385 -->
 
 A recurring source of confusion, so it's worth naming now.
 
@@ -103,6 +112,7 @@ A recurring source of confusion, so it's worth naming now.
 Both describe the same physics. Solid mechanics is usually Lagrangian, fluid mechanics usually Eulerian, and **the translation between them is where a lot of the notation comes from** — the material derivative, the two stress measures, the several strain measures. → [[continuum-mechanics/03-kinematics-of-deformation|Kinematics]]
 
 ## The simplifying assumptions
+<!-- bite: 7ccce2d5-b446-4ef0-aedc-a53c3be695e8 -->
 
 Most engineering practice is continuum mechanics plus assumptions that make it tractable. Knowing which are active is the skill:
 
@@ -119,6 +129,7 @@ Most engineering practice is continuum mechanics plus assumptions that make it t
 Every textbook formula you've used carries some subset of these. **The formula isn't wrong; the assumptions are.** Being able to name them is the difference between using a result and understanding it.
 
 ## Where this is used
+<!-- bite: 45f73b2d-2963-441d-8104-6aede4d77613 -->
 
 - **Structural analysis** — will this hold? → beams, plates, FEM
 - **Fluid dynamics** — aerodynamics, pipe flow, weather, blood flow
@@ -129,6 +140,7 @@ Every textbook formula you've used carries some subset of these. **The formula i
 - **Robotics** — [[robotics/index|soft robotics]] and compliant mechanisms are continuum problems
 
 ## Reading this track
+<!-- bite: 072554bd-1d32-4255-bec2-1e80e8a5db95 -->
 
 The order is deliberate: **kinematics before stress before balance laws before constitutive models**, because each genuinely needs the previous. Notes 02–06 are the foundation and can't be skipped. After that, 07–13 are applications and you can take what you need.
 
@@ -137,6 +149,7 @@ The order is deliberate: **kinematics before stress before balance laws before c
 ---
 
 ## Related
+<!-- bite: c531c512-7625-4a61-8ee3-efa92d966987 -->
 
 - [[continuum-mechanics/02-index-notation-and-tensors|Index Notation and Tensors]] — the language
 - [[continuum-mechanics/07-constitutive-models|Constitutive Models]] — where the modelling error lives

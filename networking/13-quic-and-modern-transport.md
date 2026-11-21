@@ -1,8 +1,13 @@
+---
+id: e1d23679-332a-47d8-a781-0c4ea2ef213c
+---
+
 # QUIC & Modern Transport
 
 **[Advanced]** — the payoff note. QUIC is what you get when you take every complaint in the previous seven notes seriously and rebuild the transport layer from scratch. It's also a case study in **how to deploy a new protocol on an internet that no longer permits new protocols.**
 
 ## The kid version first
+<!-- bite: 5e97e914-5765-4b27-aa16-28be45d9b0cb -->
 
 TCP has four problems that can't be fixed *inside* TCP:
 
@@ -14,6 +19,7 @@ TCP has four problems that can't be fixed *inside* TCP:
 QUIC's answer: **build a new transport on top of [[networking/05-udp-and-ports|UDP]], in userspace.** UDP is just "here are some bytes, for this port" — a blank slate that already passes through every network on Earth. Everything TCP does well gets reimplemented on top, properly, in a library that ships with the application and can be updated in a browser release rather than a kernel release.
 
 ## What QUIC actually fixes
+<!-- bite: 97e64f6c-b45c-4baf-a9fa-d81b3b3e5fb0 -->
 
 ### 1. Real stream multiplexing — no head-of-line blocking
 
@@ -46,6 +52,7 @@ QUIC responds by **encrypting almost the entire packet, including most of the he
 Combined with userspace implementation (it ships in Chrome, in your app's library), QUIC can iterate on version timescales of *weeks*. That's the real long-term significance.
 
 ## What QUIC costs
+<!-- bite: 85f41fd0-5f43-4374-a0c3-e3575c2fc2de -->
 
 An honest accounting, because it isn't free:
 
@@ -55,6 +62,7 @@ An honest accounting, because it isn't free:
 - **Ampli­fication protection adds complexity.** Because UDP has no handshake, a QUIC server must not send more than 3× what it received from an unvalidated address, or it becomes a DDoS amplifier. Address validation tokens exist for this.
 
 ## HTTP/3 = HTTP over QUIC
+<!-- bite: fd534b09-7831-452b-9091-4f426cd6f33e -->
 
 HTTP/3 keeps HTTP's semantics unchanged (same methods, headers, status codes) and swaps the transport. Two adjustments were needed:
 
@@ -62,6 +70,7 @@ HTTP/3 keeps HTTP's semantics unchanged (same methods, headers, status codes) an
 - **Discovery.** You can't just try HTTP/3 blindly. A server advertises `Alt-Svc: h3=":443"` over HTTP/2, or publishes an **HTTPS/SVCB DNS record**, and the client upgrades on a later connection. Note that this means **the first visit is usually still over TCP** — HTTP/3's benefit lands on repeat visits.
 
 ## Where this is going
+<!-- bite: c054f20a-574c-4448-bb22-b4fa3a468828 -->
 
 - **MASQUE** — proxying arbitrary UDP/IP over QUIC. The machinery behind iCloud Private Relay and modern VPN-over-HTTPS designs.
 - **WebTransport** — the browser API for QUIC streams and datagrams, i.e. the long-overdue replacement for WebSockets that supports unreliable and multiplexed delivery.
@@ -69,10 +78,12 @@ HTTP/3 keeps HTTP's semantics unchanged (same methods, headers, status codes) an
 - **Post-quantum key exchange** — already shipping in TLS/QUIC hybrids (X25519+ML-KEM), specifically because of "harvest now, decrypt later."
 
 ## Key insight
+<!-- bite: 262bd9c1-5086-4c85-a972-21c3243afea9 -->
 
 QUIC's most important contribution isn't multiplexing or 0-RTT — it's **relocating the transport layer to somewhere it can still be changed.** Layering was supposed to allow independent evolution, but middleboxes broke that by inspecting layers that weren't theirs, freezing TCP in place. QUIC restores evolvability by two moves: **encrypt the layer so nobody downstack can read it, and implement it in userspace so it deploys at application speed.** The lesson generalises far past networking: *an interface that everyone can see and depend on will ossify, so hide what you intend to keep changing.*
 
 ## Related
+<!-- bite: 37cc903b-d9b9-44fa-bda9-b599cbb858b4 -->
 - [[networking/07-tcp-reliability-and-flow-control|TCP Reliability]] — the head-of-line blocking QUIC escapes
 - [[networking/12-tls-and-transport-security/index|TLS]] — the handshake QUIC absorbed
 - [[networking/11-http-evolution/index|HTTP Evolution]] — the story this concludes

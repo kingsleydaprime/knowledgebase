@@ -1,8 +1,13 @@
+---
+id: 90b03296-3219-4ce8-9de1-e47c91f372de
+---
+
 # Warehouses, Lakes and Lakehouses
 
 **[Intermediate]** — where analytical data lives, why columnar storage changes everything, and the architecture that won.
 
 ## The kid version first
+<!-- bite: 7cd9af6b-f0f0-41cf-bbdb-c428e563d49a -->
 
 You need somewhere to put all the data you've extracted, in a form that answers analytical questions fast. Three answers evolved:
 
@@ -11,6 +16,7 @@ You need somewhere to put all the data you've extracted, in a form that answers 
 - **Lakehouse** — files in the cheap bucket, plus a layer that makes them behave like a warehouse. **The current consensus.**
 
 ## Columnar storage — the idea underneath all of it
+<!-- bite: 7e58bb08-d1d4-4e59-b50e-1db00d145fda -->
 
 The single most important concept in analytical storage. **Row storage keeps each record together; column storage keeps each *field* together.**
 
@@ -30,6 +36,7 @@ Column-oriented (OLAP):  ids: [1,2,...]  names: [Ada,Bo,...]  ages: [36,29,...]
 **Parquet** is the ubiquitous columnar file format; **ORC** is the other. Both are what lakes actually store.
 
 ## The data warehouse
+<!-- bite: 6ca8d1ea-3bfc-4fbd-9368-52f343f1895e -->
 
 A managed, columnar, SQL-first analytical database. The big three:
 
@@ -43,6 +50,7 @@ A managed, columnar, SQL-first analytical database. The big three:
 **The separation of storage and compute is the key modern property.** Historically the warehouse coupled them (Redshift's original design), so scaling storage meant scaling compute and vice versa. Decoupling them means storage is cheap object storage, compute is elastic and per-workload, and **this is exactly what made ELT affordable** → [[data-engineering/01-what-data-engineering-is|ELT]].
 
 ## The data lake
+<!-- bite: a20792c1-b3da-4864-bffb-b7b1b34a1ba3 -->
 
 **Raw files in cheap object storage** (S3, GCS, Azure Blob), in open formats (Parquet, JSON, CSV, images).
 
@@ -51,6 +59,7 @@ A managed, columnar, SQL-first analytical database. The big three:
 **The problem — "data swamp":** a bucket of files is not a database. No transactions, no schema enforcement, no easy updates or deletes, no indexes. Concurrent writers corrupt each other; a half-finished job leaves partial files that queries then read. **The early data-lake era drowned in ungoverned, undocumented, untrustworthy files.**
 
 ## The lakehouse — the architecture that won
+<!-- bite: ec02896a-6222-4529-a0d6-61e8b5198348 -->
 
 **Files in the cheap lake, plus a metadata/transaction layer that gives them warehouse behaviour.** You get the lake's cost and openness *and* the warehouse's reliability. This is the current mainstream architecture.
 
@@ -73,6 +82,7 @@ What the transaction log buys you over raw Parquet:
 **The strategic point:** because Iceberg is an open format, **your data isn't locked into one vendor's warehouse.** Snowflake, Spark, DuckDB and Trino can all query the same Iceberg tables. This is why Iceberg winning matters — it decouples the data from the engine.
 
 ## The recent counter-current: single-node is back
+<!-- bite: 884fa03b-4c29-469d-80f9-be7e7352c200 -->
 
 Worth knowing, because it pushes against the "everything must be distributed" assumption:
 
@@ -81,6 +91,7 @@ Worth knowing, because it pushes against the "everything must be distributed" as
 **Don't reach for Spark and a cluster by default.** DuckDB or a warehouse handles a shocking amount → [[data-engineering/06-distributed-processing|distributed processing]].
 
 ## Choosing
+<!-- bite: d477cfcd-437d-4cfb-bc16-e0e64c99ccd5 -->
 
 - **Just starting / small team** → a cloud warehouse (BigQuery or Snowflake). Lowest ops, and you may never outgrow it
 - **Large scale, many data types, cost-sensitive** → lakehouse with Iceberg
@@ -88,10 +99,12 @@ Worth knowing, because it pushes against the "everything must be distributed" as
 - **Avoid** → a raw data lake with no table format. That's the swamp
 
 ## Key insight
+<!-- bite: 43314153-24b5-4dc2-96eb-fbb0ae6ffb38 -->
 
 **Columnar storage is why analytical systems are fast, and the separation of storage from compute is why the modern stack is affordable** — everything else is a consequence. The architecture converged on the lakehouse: cheap open files (Parquet) plus a transaction log (Iceberg) that makes them behave like a warehouse without the lock-in. And the useful contrarian note is that most data fits on one machine, so a distributed cluster should be a decision, not a default.
 
 ## Related
+<!-- bite: c5d0fc68-eb7f-4d7f-b352-d77d31f36def -->
 - [[data-engineering/06-distributed-processing|distributed processing]] — Spark, and when you actually need it
 - [[data-engineering/09-data-modelling-for-analytics|dimensional modelling]] — how to structure what's in the warehouse
 - [[databases/03-storage-and-page-layout|storage and page layout]] — row vs columnar at the engine level

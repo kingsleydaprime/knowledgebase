@@ -7,6 +7,7 @@ id: 7f490df2-4488-46fd-918f-c567d6cd4b84
 > **[Intermediate]** · Covers working with more than text: images as input to a model that can see, images, audio and video as output, and speech in and out. For an AI engineer most of this is the same call with more kinds of content, so the lesson spends its time on the engineering around it: checking what an uploaded file really is, what an image costs in tokens and how to cut that, sending it in each provider's format, and checking data read from an image as strictly as data read from text. The worked example reads an invoice from a photo.
 
 ## Before you start
+<!-- bite: 07c62e71-f4f1-41aa-a72d-6b65d7c6d4c6 -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–4, stop at the prediction in §3, then §5–6 and the lab.
 
 ## The kid version
+<!-- bite: 6dc78d20-6245-45c3-acd4-7573c06ac6c5 -->
 
 Until recently, you could only talk to these models by writing notes. Now you can also hand them a photo, a drawing or a recording, and some can draw a picture or speak back. Showing a model a photo is like showing a friend a picture of a broken bike and asking "what's wrong?": quicker than describing it. But big photos take longer to look at and cost more, so you crop them to the part that matters. And a friend can misread a blurry number, so you check the arithmetic.
 
 **Where the analogy stops working.** A friend looks at a photo the same way whatever its size. A model's cost grows with the number of pixels it's sent, so sending a huge photo of a small receipt pays for detail nobody needed.
 
 ## 1. Why this exists
+<!-- bite: b3544678-3fa7-4b41-b49e-2dba1de7ed73 -->
 
 A customer emails a photo of a receipt to claim a refund, or uploads a screenshot of an error. Typing the details out is slow and error-prone; asking the model to read the image is a single call. But the upload might not be an image at all, a 12-megapixel phone photo costs several times what the job needs, each provider wants the image in a different shape, and a model reading a blurry photo can misread a digit. The model call is the easy part; the rest is this lesson.
 
 ## Terms used in this lesson
+<!-- bite: e36d4145-3102-4f81-98e6-a6f91ce4fbd9 -->
 
 1. **Multimodal**: This describes a model that works with more than one kind of data, such as text and images, or audio.
 2. **Vision model**: This is a model that accepts images as input and reasons about them, such as describing a photo or reading text in a screenshot. Most current frontier language models are vision models.
@@ -45,12 +49,14 @@ A customer emails a photo of a receipt to claim a refund, or uploads a screensho
 8. **ASR and TTS**: ASR (automatic speech recognition) turns speech into text; TTS (text to speech) turns text into speech.
 
 ## 2. Check what the file really is
+<!-- bite: 78d6d5be-5261-4aaa-911e-9b2c7713d20a -->
 
 An upload arrives with a file name (`receipt.png`) and a Content-Type header (`image/png`). **Both are chosen by the sender**, so both can lie. Decide the type from the file's own first bytes, the magic bytes, and refuse anything that isn't an image type you accept. The lab's `sniff` recognises PNG, JPEG, GIF and WebP and reads the width and height from the file's header, so you know the size before deciding what to send. A shell script renamed `photo.png` is refused, and so is SVG, which is text that can carry scripts.
 
 This matters beyond the model: the same file may be stored, shown to staff in a browser, or passed to other tools. Treat it as untrusted input, like any other ([[ai-ml/03-ai-engineer/10-safety-and-production/index|safety and production]]: an image can also carry an injected instruction as visible text).
 
 ## 3. What an image costs
+<!-- bite: dc2ed79b-92eb-47ce-9c7c-41ec38042f3b -->
 
 An image is counted as tokens, and the count grows with its pixels. Anthropic documents the approximation:
 
@@ -63,6 +69,7 @@ after the provider has scaled the image to fit the model's limits. Those limits 
 The lab's answer: the provider scales it to 2,187 × 1,640, about **4,783 tokens**: the per-image maximum. Shrunk to 1,024 × 768 before sending, it's **1,049 tokens**, under a quarter. At $2 per million input tokens, a thousand receipts cost $9.57 one way and $2.10 the other. If 1,024 pixels is enough to read the text, the rest is detail you pay for and don't use. Keep full resolution for what needs it: dense charts, small print, screenshots where positions matter.
 
 ## 4. Sending it
+<!-- bite: c4a83895-0dd8-4a54-aac9-b1633aeef3d3 -->
 
 An image goes into the user message as one more content part, beside the text. Each API spells it differently:
 
@@ -73,6 +80,7 @@ An image goes into the user message as one more content part, beside the text. E
 Most APIs also accept a URL or a previously uploaded file instead of base64, which saves sending the same image again. As with text, keep these differences behind a port ([[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]), so the rest of your code says "image plus question" once.
 
 ## 5. Read an image like you'd read a stranger's handwriting
+<!-- bite: c1ea7ca8-e3b8-461f-abc2-cedd33569b7a -->
 
 Reading text from a photo is less reliable than reading text you were given. Glare, blur and odd layouts produce misreadings that look perfectly plausible. So the extraction pipeline in the lab is the structured-output pipeline, unchanged, with one addition:
 
@@ -83,6 +91,7 @@ Reading text from a photo is less reliable than reading text you were given. Gla
 5. Anything that fails goes to a person, with the image.
 
 ## 6. Generation, speech and video
+<!-- bite: e861ecf0-c4d5-4815-85d0-b4fdb03c7675 -->
 
 **Images out.** Diffusion models generate images from a prompt. Hosted options include OpenAI's image models, Google's Imagen and Midjourney; open-weight options such as Stable Diffusion and Flux run locally and can be customised with fine-tuned add-ons (LoRAs) and layout controls. Judging them is different from judging text: does the image follow the prompt, does it look right, does it stay consistent across edits?
 
@@ -93,6 +102,7 @@ Reading text from a photo is less reliable than reading text you were given. Gla
 **The extra risks.** Generated images, voices and video raise questions text doesn't: likenesses of real people, cloned voices used for fraud, and provenance — showing that media was generated. Providers increasingly attach provenance metadata, such as C2PA content credentials; keep it intact if your product passes generated media on.
 
 ## Worked example — an invoice from a photo
+<!-- bite: 48d6e6d2-087d-4060-84c4-2fcf118be340 -->
 
 The file checks and the cost estimate:
 
@@ -324,6 +334,7 @@ console.log(`(${((performance.now() - started) / 1000).toFixed(1)} s)`);
 **Lab:** the code is in [`ai-ml/03-ai-engineer/09-multimodal/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/09-multimodal/labs/typescript). From the vault root, `python3 labs/run.py multimodal/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama and an image of your own.
 
 ## Common pitfalls
+<!-- bite: 5b1bf1a9-214a-4732-82ff-c3872aa1590a -->
 
 1. **Trusting the file name or Content-Type.** The sender chooses both. Read the magic bytes.
 2. **Sending every image at full size.** Pay for the detail the task needs, and shrink the rest.
@@ -334,6 +345,7 @@ console.log(`(${((performance.now() - started) / 1000).toFixed(1)} s)`);
 7. **Stripping provenance from generated media.** Keep content credentials intact.
 
 ## Check your understanding
+<!-- bite: ef0ab54d-32ce-4660-a481-c35199697622 -->
 
 1. Why decide a file's type from its bytes rather than its name or Content-Type?
 2. Roughly how many tokens is a 1,920 × 1,080 screenshot on a high-resolution model, and why isn't it scaled?
@@ -353,6 +365,7 @@ console.log(`(${((performance.now() - started) / 1000).toFixed(1)} s)`);
 </details>
 
 ## Practice — independent task
+<!-- bite: 690adc5e-0e4b-44ba-81f3-ed7cb7c4dac0 -->
 
 **Read a document from an image, and measure the cost of detail.**
 
@@ -363,6 +376,7 @@ console.log(`(${((performance.now() - started) / 1000).toFixed(1)} s)`);
 **Done when:** you have a table showing whether shrinking changed accuracy, how much it saved, and whether the blurry receipt was caught by a check rather than accepted with a wrong value.
 
 ## Before moving on
+<!-- bite: c57d1f4b-ed0a-4e16-b6fb-ba9440e7d0b3 -->
 
 You can check an upload's real type, estimate and cut an image's token cost, send an image in each provider's format, and extract data from an image with the checks you'd use for text.
 
@@ -371,6 +385,7 @@ You can check an upload's real type, estimate and cut an image's token cost, sen
 **Next.** Back to week 5's core lessons if you came from there; speech gets its own lesson in [[ai-ml/03-ai-engineer/17-voice-and-realtime|voice and realtime]].
 
 ## Related
+<!-- bite: efaf25df-08a2-42c9-be2f-e3b9f01eaa54 -->
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — the schema and invariant checks the pipeline reuses
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — the same call, with more content types
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The model landscape]] — generation and speech models as kinds of model

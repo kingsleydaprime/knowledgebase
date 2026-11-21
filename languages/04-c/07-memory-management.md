@@ -1,8 +1,13 @@
+---
+id: adc7cfa1-0cc9-4a59-ba73-30c7bad2c12f
+---
+
 # Memory Management
 
 **[Intermediate]** — The three storage regions, `malloc`/`free`, and a catalogue of every way this goes wrong — because it's the same list that fills the CVE database.
 
 ## Where memory lives
+<!-- bite: 0364ace7-0988-4651-a316-3de15f4bddf0 -->
 
 ```
 high addresses
@@ -52,6 +57,7 @@ int *big = malloc(10000000 * sizeof *big);   // heap: fine (if it succeeds)
 Deep or unbounded recursion overflows the stack for the same reason.
 
 ## `malloc` and friends
+<!-- bite: cc1f28d6-29c2-4da9-9c6f-191b8c7f0f8e -->
 
 ```c
 #include <stdlib.h>
@@ -103,6 +109,7 @@ Assigning `realloc`'s result directly to the same pointer leaks the old block wh
 `realloc` may move the block, so **every other pointer into it is now dangling.** This is C's version of iterator invalidation, and it's why growing a buffer while holding pointers into it is a bug.
 
 ## Every way this goes wrong
+<!-- bite: 8d4f70ca-1599-4bff-be42-e5f018c88882 -->
 
 **1. Memory leak** — allocated, never freed.
 
@@ -173,6 +180,7 @@ printf("%d\n", *p);        // garbage — malloc doesn't zero. Use calloc if you
 **8. Mismatched allocator.** Memory from a library's allocator must be freed by that library's `free`. Crossing an FFI boundary, this is a real hazard. → [[languages/03-rust/15-unsafe-and-ffi|Rust FFI]]
 
 ## Ownership discipline
+<!-- bite: 5fb6f9f3-1c53-47ec-80a6-626230825fd5 -->
 
 C has no ownership system, so you impose one by convention. The rules that make a codebase survivable:
 
@@ -237,6 +245,7 @@ Note this is C reinventing, by hand and by discipline, what [[languages/03-rust/
 | Ownership | a comment | the type system |
 
 ## Custom allocation strategies
+<!-- bite: b6c87909-4c78-4a55-aeba-c5861cd7c88f -->
 
 Worth knowing, because they sidestep whole categories of the above:
 
@@ -261,6 +270,7 @@ Allocation is a pointer bump; there is no individual `free`, so **no use-after-f
 **Stack allocation with VLAs or `alloca`** — avoid both. VLAs can't fail gracefully and blow the stack on attacker-controlled sizes; `alloca` is worse. C11 made VLAs optional for good reason.
 
 ## Rules
+<!-- bite: 11d6f55b-4b65-44f6-9fc0-1caf9ea139ff -->
 
 1. **Check every allocation.**
 2. **`p = NULL` after `free`.**
@@ -274,6 +284,7 @@ Allocation is a pointer bump; there is no individual `free`, so **no use-after-f
 ---
 
 ## Related
+<!-- bite: 6feefe11-4452-44b3-9c1a-d337837628fc -->
 - [[languages/04-c/05-pointers|Pointers]] — what you're managing
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — what these bugs formally are
 - [[languages/04-c/13-debugging-and-tooling|Debugging and Tooling]] — ASan and Valgrind

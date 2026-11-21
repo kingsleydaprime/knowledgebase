@@ -1,12 +1,18 @@
+---
+id: 7f8bb123-c851-4949-a99a-4f940264160d
+---
+
 # GitHub as a Platform, and Git in CI
 
 **[Intermediate]** — The layer above Git itself: branch protection, CODEOWNERS, rulesets, pull request practice — and how a CI system interacts with your repository once those rules exist.
 
 ## Why Branch Protection Matters
+<!-- bite: 09b1e644-cf34-417c-bfab-87b1ebca1706 -->
 
 Without protection, anyone with write access can push directly to `main`, force-push over history, or delete the branch. Protection rules enforce your team's branching strategy at the GitHub level — they apply even to admins (optionally) and cannot be bypassed by individual developers.
 
 ## Recommended Settings for `main`
+<!-- bite: 26d116ee-9da1-4368-be90-6a22d7ba432d -->
 
 ```
 Settings → Branches → Add branch protection rule
@@ -48,6 +54,7 @@ Danger zone:
 ```
 
 ## CODEOWNERS
+<!-- bite: 7c08fe6d-3213-4cc4-a777-08b2f393f132 -->
 
 The `.github/CODEOWNERS` file defines who must review changes to specific files or directories. Reviewers are automatically requested when a PR touches those paths.
 
@@ -78,6 +85,7 @@ The `.github/CODEOWNERS` file defines who must review changes to specific files 
 ```
 
 ## Setting Merge Strategy
+<!-- bite: bceb6682-3dcf-4362-94e6-ce57416ea3a4 -->
 
 Enforce a specific merge strategy to maintain clean history:
 
@@ -102,6 +110,7 @@ Auto-delete head branches:
 ```
 
 ## Rulesets (Newer, More Powerful)
+<!-- bite: a2cbae3f-6b22-46b0-bee2-ec4489a79be5 -->
 
 GitHub Rulesets (GA 2023) replace branch protection rules for organisations. They can target multiple branches with a single rule and have bypass lists for specific roles.
 
@@ -133,6 +142,7 @@ Rules:
 ---
 
 ## Pull Request Best Practices
+<!-- bite: d6f5b9d2-4fbf-4f25-b69c-e52e96ea53d3 -->
 
 ```
 A good PR:
@@ -165,6 +175,7 @@ Closes #42
 ---
 
 ## Git in CI/CD Pipelines
+<!-- bite: 0b02af29-9c14-4d40-91f8-ef84509db5ed -->
 
 ### How CI Systems Interact with Git
 
@@ -352,6 +363,7 @@ git commit -m "chore: configure LFS for design assets"
 ---
 
 ## Related
+<!-- bite: 27687957-74ac-4fcb-9563-b13e3362cdaf -->
 - [[devops/05-ci-cd/02-ci-cd-tools|CI/CD Tools]] — GitHub Actions dissected via this vault's own deploy pipeline
 - [[git/15-the-github-cli|The GitHub CLI]] — every rule on this page, driven from the terminal
 - [[devops/05-ci-cd/index|DevOps → CI/CD]] — GitHub Actions itself, in depth, across 10 notes

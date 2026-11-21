@@ -1,8 +1,13 @@
+---
+id: fb648ecb-2573-4745-9349-e90907ea1ef7
+---
+
 # Module 33: Build the Language (The Two Directions Meet)
 
 **[Advanced]** — A compiler for a language you designed, emitting instructions for a CPU you designed. **This is the module the whole course exists for.**
 
 ## Before you start
+<!-- bite: 22ee8b55-3739-41b0-926c-c5aa62749fab -->
 
 - You have a working CPU, assembler and emulator — modules [[how-computers-work/08-capstone/03-build-the-hardware|30]]–[[how-computers-work/08-capstone/05-build-the-emulator|32]].
 - You have read [[compilers/02-lexical-analysis|compilers/lexical analysis]] through [[compilers/08-code-generation|code generation]], or are prepared to learn them here.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 185e396e-a326-498f-80e7-c4c41501904e -->
 
 [[how-computers-work/index|The course index]] promised two directions: bottom-up from physics, and top-down from source code, meeting at the processor.
 
@@ -32,6 +38,7 @@
 ---
 
 ## 2. The language: Pebble
+<!-- bite: 700e0eee-e805-44f0-8d1a-072e701354d0 -->
 
 Deliberately tiny — one page of grammar, enough to write real programs:
 
@@ -72,6 +79,7 @@ term       := NUMBER | ID | '(' expr ')'
 ---
 
 ## 3. The three stages
+<!-- bite: e99bed4b-d64d-4566-aa2c-8728c35902d4 -->
 
 ### Lexer — characters to tokens
 
@@ -104,6 +112,7 @@ Walk the tree, emitting instructions. **Two conventions carry the whole design:*
 ---
 
 ## 4. Code generation, in detail
+<!-- bite: 4a4fc1a7-a04a-4e30-8cd6-f24ff5a17463 -->
 
 ### Expressions
 
@@ -157,6 +166,7 @@ Address 31 is used because `ST` takes a 6-bit signed displacement, so 31 is the 
 ---
 
 ## 5. The complete pipeline
+<!-- bite: 170e93d4-28fb-4413-b42c-cb76dbbdf12d -->
 
 ```
    Pebble source
@@ -177,6 +187,7 @@ Address 31 is used because `ST` takes a 6-bit signed displacement, so 31 is the 
 ---
 
 ## 6. Predict before reading on
+<!-- bite: 221d42dc-1fbb-4641-b592-bb7ad470b91d -->
 
 Pebble compiles `sum = sum + i;` into a load, a load, an add, and a store — **four instructions to add two numbers.**
 
@@ -200,6 +211,7 @@ Pebble compiles `sum = sum + i;` into a load, a load, an add, and a store — **
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: d04790ea-aa04-489b-9005-d78f1875ab69 -->
 
 Save as `pebble.py` next to `prime1.py`, and run `python3 pebble.py`.
 
@@ -576,6 +588,7 @@ pebble: passed
 ---
 
 ## 8. Common pitfalls and traps
+<!-- bite: 863a293f-f42a-4363-b012-ff12ef2c15b5 -->
 
 1. **Emitting code directly from the parser.** It works and forecloses every optimisation. Build the AST.
 2. **Getting precedence wrong.** It comes from the grammar's nesting, not a table. If `a + b * c` is wrong, your rule-call order is wrong.
@@ -587,6 +600,7 @@ pebble: passed
 ---
 
 ## 9. Check your understanding
+<!-- bite: 930b9f4b-3df7-4596-b531-053abbcc8b3a -->
 
 1. **Why does `gen()` take a `depth` parameter?**
    <details><summary>Answer</summary>
@@ -616,6 +630,7 @@ pebble: passed
 ---
 
 ## 10. Practice — independent task
+<!-- bite: f9bce6c0-abf3-4026-9d4a-ffda9627925f -->
 
 **Task:** Extend Pebble toward a language you would actually use.
 
@@ -637,6 +652,7 @@ In Pebble's code generator, emit a small loop rather than trying to unroll it �
 ---
 
 ## 11. Tradeoffs and limits
+<!-- bite: e6ba026d-31e9-4294-ac52-3bf5eb3be219 -->
 
 - **No type checking.** Everything is a 16-bit integer. A real compiler has a semantic analysis phase between parsing and codegen that catches type errors, undefined variables and scope violations ([[compilers/04-asts-and-semantic-analysis|compilers/ASTs and semantic analysis]]).
 - **No intermediate representation.** Pebble goes straight from AST to assembly. Real compilers lower to an IR first, because optimisation is far easier on a flat, uniform representation than on a tree ([[compilers/06-intermediate-representations|compilers/IR]]).
@@ -646,6 +662,7 @@ In Pebble's code generator, emit a small loop rather than trying to unroll it �
 ---
 
 ## Before moving on
+<!-- bite: d18b518a-428c-456e-85e8-4b5e99de88e6 -->
 
 - [ ] Build a lexer, and explain the keyword-versus-identifier ordering problem.
 - [ ] Write a recursive-descent parser and explain where precedence comes from.
@@ -660,6 +677,7 @@ In Pebble's code generator, emit a small loop rather than trying to unroll it �
 ---
 
 ## Related
+<!-- bite: d1e46ac7-d402-41b5-8029-908a9a1a62bc -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[build-your-own-shit/04-your-own-language|Your Own Language]] — the fuller treatment, with a bytecode VM and closures

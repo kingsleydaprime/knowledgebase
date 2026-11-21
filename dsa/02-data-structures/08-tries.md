@@ -1,3 +1,7 @@
+---
+id: 3a43339a-c35c-4a02-90a6-c8f4c0fd1229
+---
+
 # Module: Tries / Prefix Trees (Shared Prefix Search)
 
 Welcome to the **Trie** (pronounced *"try"*, short for re**TRIE**val) module. A Trie is a tree-based data structure optimized for storing strings by sharing common letter prefixes.
@@ -7,6 +11,7 @@ Tries trade extra memory to grant a superpower that [[03-hash-maps|Hash Maps]] c
 ---
 
 ## Before you start
+<!-- bite: f5aabaf3-b2e8-43bd-aef8-efcdc4ab8b11 -->
 
 - You understand tree structure. See [[01-trees|trees]].
 - You understand hash maps and what they give up. See [[03-hash-maps|hash maps]].
@@ -21,6 +26,7 @@ Tries trade extra memory to grant a superpower that [[03-hash-maps|Hash Maps]] c
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: b3a57254-a940-4a1f-9b63-8b4c8baf57d8 -->
 
 Imagine using the **Search Bar Autocomplete** on your phone:
 
@@ -43,6 +49,7 @@ User types "app"  --->  Trie follows path: 'a' -> 'p' -> 'p'
 ---
 
 ## Terms used with tries
+<!-- bite: a1b3595c-6e43-463c-a3e1-f47596292882 -->
 
 1. **Trie**: This is a tree where the **path you walk spells out a word**, rather than any single node holding one. It is also called a **prefix tree**. The name comes from "retrieval" and is usually pronounced "try".
 
@@ -57,6 +64,7 @@ User types "app"  --->  Trie follows path: 'a' -> 'p' -> 'p'
 6. **Alphabet size**: This is how many different characters can follow any node, written $\Sigma$. It is 26 for lowercase English letters, 128 for ASCII, and over a million for full Unicode. **This number decides how much memory a trie costs**, which is its main drawback.
 
 ## 3. Visual Anatomy of a Trie
+<!-- bite: 77d94ae2-9384-4821-bb16-8b959e480e00 -->
 
 Below is a Trie containing the words **`"app"`, `"apple"`, `"apt"`, and `"cat"`**:
 
@@ -81,6 +89,7 @@ Notice how `"app"`, `"apple"`, and `"apt"` all share the initial path `'a' -> 'p
 ---
 
 ## The trie ADT
+<!-- bite: 93be1f36-96ee-428d-bbd9-f7e810caf776 -->
 
 A trie stores a set of strings, like a [[03-hash-maps|hash set]] would. The difference is entirely in the **third** operation below, and that one operation is the reason tries exist.
 
@@ -107,6 +116,7 @@ Compared with a hash set, a trie:
 **Use a trie when the question is about prefixes.** If you only ever ask "is this exact word present?", use a hash set.
 
 ## 4. Technical Deep Dive: Trie Implementation
+<!-- bite: 5d0aa600-d017-4c2a-913e-a2362ab9d1eb -->
 
 ### Python Code: `TrieNode` & `Trie` Class
 ```python
@@ -153,6 +163,7 @@ class Trie:
 ---
 
 ## 5. Hash Set vs. Trie Comparison
+<!-- bite: e4d076a8-e184-4905-897d-cdcc6aae2cec -->
 
 | Feature | Hash Set / Hash Map | Trie (Prefix Tree) |
 | :--- | :--- | :--- |
@@ -164,6 +175,7 @@ class Trie:
 ---
 
 ## 6. Advanced Pattern: Wildcard Search (`.`)
+<!-- bite: 71b81c8a-cdbb-457e-9086-696e5bc2c7c5 -->
 
 When a query string includes a wildcard `.` (matching any character), the single-path lookup transforms into a **Depth-First Search (DFS)** over all child branches:
 
@@ -189,6 +201,7 @@ def search_wildcard(self, word: str) -> bool:
 ---
 
 ## 7. Complexity & Memory Trade-Offs
+<!-- bite: c5412957-4502-4b4d-9138-1dea0e7ad867 -->
 
 Let $L$ = Length of the target word/prefix, and $\Sigma$ = Alphabet size (e.g. 26).
 
@@ -202,6 +215,7 @@ Let $L$ = Length of the target word/prefix, and $\Sigma$ = Alphabet size (e.g. 2
 ---
 
 ## 8. Common Pitfalls & Traps
+<!-- bite: cb93ac6f-c6f0-4b0d-a417-387c559dfb7b -->
 
 1. **Forgetting `is_end`**: If you forget to flag `is_end = True`, your Trie cannot distinguish between an actual word (`"app"`) and a prefix of a longer word (`"apple"`).
 2. **Memory Overuse**: Using fixed arrays of size 26 for Unicode/multilingual inputs wastes massive RAM. Use a dynamic dictionary `self.children = {}` instead.
@@ -210,6 +224,7 @@ Let $L$ = Length of the target word/prefix, and $\Sigma$ = Alphabet size (e.g. 2
 ---
 
 ## Implementation - complete runnable example
+<!-- bite: c362c287-914f-4506-8f3e-3f839eb8d8a0 -->
 
 **Runnable example:** save as `tries_lab.py` and run `python3 tries_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -359,6 +374,7 @@ tries_lab: passed
 ```
 
 ## 9. Check Your Understanding (University Self-Assessment)
+<!-- bite: eb4aa98d-87aa-4d59-bf0c-4cdf8b87e7a4 -->
 
 1. **Question**: Why can't a Hash Set perform prefix searches (`startsWith("app")`) in $O(L)$ time?
    - <details><summary>Click for Answer</summary><b>Answer:</b> A Hash Set hashes the entire string to compute an index. Searching for a prefix gives a completely different hash than the full word (e.g., <code>hash("app") != hash("apple")</code>). To check prefixes, a Hash Set must scan every key one-by-one (<b>O(N)</b>).</details>
@@ -372,6 +388,7 @@ tries_lab: passed
 ---
 
 ## Practice - independent task
+<!-- bite: 85f6f083-f08c-4824-b81c-39cbc1252937 -->
 
 Implement **autocomplete with ranking** - the actual product feature.
 
@@ -389,6 +406,7 @@ This is the same idea as branch-and-bound: <strong>an upper bound on what a bran
 </details>
 
 ## Before moving on
+<!-- bite: c002b409-b74d-4449-8797-83b77473747d -->
 
 You are done with this module when you can, closed-book:
 
@@ -402,6 +420,7 @@ You are done with this module when you can, closed-book:
 **Next:** [[09-graphs/index|Graphs]] - drop the rule that every node has one parent, and trees become graphs: roads, networks, dependencies.
 
 ## Related Modules
+<!-- bite: e1fa0186-6bf7-477d-85c1-0ce651d054d1 -->
 - [[03-hash-maps|Hash Maps]] — The $O(1)$ exact-match alternative
 - [[01-trees|Trees]] — General tree hierarchies
 - [[01-depth-first-search|Depth-First Search (DFS)]] — Traversing Tries for wildcard and grid search (Word Search II)

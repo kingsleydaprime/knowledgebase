@@ -1,8 +1,13 @@
+---
+id: dd6635a8-221d-49a4-a92e-ced2a6b74cf6
+---
+
 # Module: Graph Representations
 
 **[Intermediate]** — five ways to store a graph, what each one makes cheap, and how to choose.
 
 ## Before you start
+<!-- bite: 1021c1bb-53d2-4da1-90ea-967dad9d22fa -->
 
 - You know the graph vocabulary — [[01-what-a-graph-is|what a graph is]].
 - You know arrays and hash maps and their costs — [[01-arrays|arrays]], [[03-hash-maps|hash-maps]].
@@ -19,6 +24,7 @@
 ---
 
 ## Why this exists
+<!-- bite: 5ae2084b-08fb-423d-be87-038be2f9602d -->
 
 A graph is an abstract object: a set of vertices and a set of edges. To compute with it you must pick a concrete layout, and that choice decides your program's complexity more than the algorithm does.
 
@@ -27,6 +33,7 @@ Ask "does edge $(u,v)$ exist?" a million times and an adjacency matrix answers e
 There is no universally best choice. There is a right one per problem.
 
 ## The five representations
+<!-- bite: 3f417feb-2f82-4c76-bdaf-e073186f6717 -->
 
 Take this graph throughout:
 
@@ -102,6 +109,7 @@ Space $O(V \times E)$ — the largest of all, and rarely used for computation. I
 Each **column sums to 2** in the undirected case, because every edge has two endpoints. That is the handshake lemma again.
 
 ## Choosing a representation
+<!-- bite: 8bf001af-1acb-406d-a33c-8442d2f5cbd6 -->
 
 This is the table promised in [[01-what-a-graph-is|lesson 1]]: the same ADT operations, costed under each way of storing the graph. Nothing here changes *what* the operations mean — only what they cost.
 
@@ -130,6 +138,7 @@ The crossover is roughly $E \sim V^2/32$ if you store matrix bits, or where $V^2
 > **Predict before running the lab.** A social network has $10^6$ users averaging $200$ friends each. Compare the storage for an adjacency list against an adjacency matrix — roughly what is the ratio? Decide the order of magnitude before opening the answers.
 
 ## Implicit graphs
+<!-- bite: 0765a2a0-95d5-4454-bb12-bc061ad5aaa0 -->
 
 Sometimes the best representation is **none at all**. A grid maze is a graph — each cell a vertex, each open neighbour an edge — but building the adjacency list wastes time and memory when the neighbours are computable:
 
@@ -143,6 +152,7 @@ for dr, dc in ((1,0), (-1,0), (0,1), (0,-1)):
 The same applies to state-space search — puzzle configurations, word ladders, game positions — where the graph is astronomically large but each node's neighbours are cheap to generate. You traverse the graph without ever holding it.
 
 ## Worked example — runnable
+<!-- bite: 0f6dbece-f708-4675-ad87-627ddea91cfd -->
 
 **Runnable example:** save as `representations.py` in any empty directory and run `python3 representations.py`. Standard library only; writes no files.
 
@@ -397,6 +407,7 @@ representations: passed
 Block 3 is the adjacency matrix's real justification: $M^k[i][j]$ counts walks of length $k$, so a matrix multiplication answers a combinatorial question no other layout gives you directly.
 
 ## Common pitfalls and traps
+<!-- bite: 1636c9e9-89f6-44af-bcf9-05c10768e554 -->
 
 - **Reaching for a matrix by default.** $O(V^2)$ space is fine at $V=100$ and impossible at $V=10^6$, whatever the density.
 - **Storing an undirected edge once in an adjacency list.** It must appear in **both** vertices' lists, or half your traversals miss it.
@@ -406,6 +417,7 @@ Block 3 is the adjacency matrix's real justification: $M^k[i][j]$ counts walks o
 - **Assuming an adjacency matrix can hold a multigraph.** A single cell cannot record two parallel edges — store counts, or use an incidence matrix.
 
 ## Check your understanding
+<!-- bite: 37f81b89-7b77-4830-a9ee-4343eb93571a -->
 
 1. A graph has $V = 10^5$, $E = 3\times10^5$. Which representation, and why?
 2. How many entries does an undirected adjacency list hold in total?
@@ -425,6 +437,7 @@ Block 3 is the adjacency matrix's real justification: $M^k[i][j]$ counts walks o
 </details>
 
 ## Practice — independent task
+<!-- bite: f9fc5191-00cd-4809-83d4-756f30b11c97 -->
 
 Implement a `Graph` class supporting all five representations behind one interface, and measure the crossover point.
 
@@ -439,6 +452,7 @@ Implement a `Graph` class supporting all five representations behind one interfa
 **Done when:** all five agree on every random graph tested, you can state both crossover densities with numbers you measured, and you can say which representations cannot express a multigraph and why.
 
 ## Before moving on
+<!-- bite: e0de8feb-50da-4774-bc67-c2539b8df199 -->
 
 You can build all five, state their costs, choose from density and operation mix, and traverse an implicit graph.
 
@@ -447,6 +461,7 @@ You can build all five, state their costs, choose from density and operation mix
 **Next:** the algorithms that run on these — [[01-depth-first-search|DFS]], [[02-breadth-first-search|BFS]], [[02-dijkstra|Dijkstra]], [[01-topological-sort|topological sort]], [[06-minimum-spanning-tree|MST]].
 
 ## Related
+<!-- bite: fbb49e01-84c2-4045-9fd4-ffe5af46630f -->
 
 - [[01-arrays|Arrays]] · [[03-hash-maps|Hash Maps]] — what each representation is built from
 - [[04-linear-algebra/01-matrices-and-determinants/01-matrices-and-determinants|Matrices]] — why $M^k$ counts walks

@@ -1,3 +1,7 @@
+---
+id: d6553b79-ff9f-4f2f-be5c-c107d017de97
+---
+
 # Module: Hash Maps & Hash Sets (Instant Key-Value Lookups)
 
 Welcome to the **Hash Maps** module. A Hash Map (also known as a Dictionary, Hash Table, or Associative Array) is a structure that stores **Key $\rightarrow$ Value** pairs and retrieves values in average **$O(1)$ Constant Time**, regardless of whether the table contains 10 entries or 10,000,000 entries.
@@ -7,6 +11,7 @@ If Arrays are the workhorse of memory, Hash Maps are the most useful high-level 
 ---
 
 ## Before you start
+<!-- bite: a504ec54-be0d-4a26-b8be-d526086944a1 -->
 
 - You understand arrays and O(1) indexing. See [[01-arrays|arrays]].
 - You know what a linked list is, since chaining uses one. See [[04-linked-lists|linked lists]].
@@ -21,6 +26,7 @@ If Arrays are the workhorse of memory, Hash Maps are the most useful high-level 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
 ## 1. Why Do Hash Maps Exist? (Real-World Motivation)
+<!-- bite: 677571fd-4537-4f0a-aa09-7d26fde444d9 -->
 
 Imagine a physical **Coat Check Room** at a concert hall:
 
@@ -40,6 +46,7 @@ A Hash Map acts like that coat check attendant: it takes **any arbitrary key**, 
 ---
 
 ## Terms used with hash maps
+<!-- bite: 4194820b-0c20-4adb-a54b-c85526936299 -->
 
 1. **Hash map**: This is a structure that stores pairs of things, so you can look one up by the other almost instantly. It is also called a **hash table**, a **dictionary** or `dict` in Python, a **map** in C++ and Java, and an **object** in JavaScript.
 
@@ -62,6 +69,7 @@ A Hash Map acts like that coat check attendant: it takes **any arbitrary key**, 
 10. **Rehashing**: This is what happens when the load factor gets too high. The map allocates a larger bucket array and **recomputes the bucket for every existing entry**, because the bucket depends on the array size. It is $O(n)$ and it is why a hash map's excellent average performance is amortised rather than guaranteed.
 
 ## 3. How a Hash Map Works (The 3-Step Pipeline)
+<!-- bite: b2c2bffb-7828-4db3-9d47-af3bd74850f0 -->
 
 When you write `map["apple"] = 100`, the Hash Map executes three fast steps:
 
@@ -87,6 +95,7 @@ Slot 5: ("apple", 100)  <-- Direct O(1) Access!
 ---
 
 ## 4. Handling Collisions (What Happens When Keys Clash?)
+<!-- bite: 63f39489-622d-485a-aade-8d104bc1b330 -->
 
 Because there are infinitely many possible strings/keys but a finite number of bucket slots, two different keys will eventually hash to the same bucket index. This is called a **Collision**.
 
@@ -126,6 +135,7 @@ Bucket 6: ("grape", 250)  <-- Probed to next slot because Slot 5 was full!
 ---
 
 ## 5. Load Factor & Dynamic Resizing
+<!-- bite: ae00bfa0-139f-4942-a6a1-1069d094e57d -->
 
 As more items are added to a Hash Map, the buckets fill up and collisions become frequent. Left unchecked, $O(1)$ lookups would slow down to $O(n)$ linear scans.
 
@@ -143,6 +153,7 @@ Because resizing happens exponentially rarely, Hash Map operations are **Amortiz
 ---
 
 ## 6. Hash Sets (Instant Membership Checks)
+<!-- bite: f519458c-31f0-4ae2-9876-7161b9fa85fc -->
 
 A **Hash Set** is simply a Hash Map that stores only **Keys without Values**. 
 
@@ -168,6 +179,7 @@ for item in items:
 ---
 
 ## 7. Trade-Offs: What Hash Maps Give Up to Buy $O(1)$
+<!-- bite: e17815a1-18c9-4f51-88c7-f208183fbe47 -->
 
 Hash Maps are extraordinarily fast, but they come with trade-offs:
 
@@ -178,6 +190,7 @@ Hash Maps are extraordinarily fast, but they come with trade-offs:
 ---
 
 ## 8. Summary of Complexity
+<!-- bite: 4576389d-30fb-4440-b6a7-3b2bf7950c82 -->
 
 | Operation | Average Time | Worst-Case Time (Hash Flooding / Collisions) |
 | :--- | :--- | :--- |
@@ -189,6 +202,7 @@ Hash Maps are extraordinarily fast, but they come with trade-offs:
 ---
 
 ## The hash map ADT
+<!-- bite: 4977f85d-3ef3-49cb-a61f-b2a8d46c6c1c -->
 
 A hash map answers one question extremely well: **"what value did I store under this key?"** It answers almost nothing else.
 
@@ -220,6 +234,7 @@ So a hash map cannot answer:
 **The average-case asterisk.** Every $O(1)$ above says "on average". With a bad hash function, or an attacker deliberately choosing keys that collide, every entry can land in one bucket and lookups degrade to $O(n)$. That attack is real and has a name — a **hash collision denial-of-service** — and it is why languages now randomise their hash seed at startup.
 
 ## Implementation - complete runnable example
+<!-- bite: 6916e00c-4410-4a5c-9f58-831e54207072 -->
 
 **Runnable example:** save as `hash_maps_lab.py` and run `python3 hash_maps_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -356,6 +371,7 @@ hash_maps_lab: passed
 ```
 
 ## 9. Check Your Understanding (University Self-Assessment)
+<!-- bite: 8b551d85-f262-4b27-85f5-1543755e4300 -->
 
 1. **Question**: Why are Python `list`s invalid as dictionary keys (`TypeError: unhashable type`), while `tuple`s are valid?
    - <details><summary>Click for Answer</summary><b>Answer:</b> Lists are <b>mutable</b> (their contents can change). If a key's contents change, its hash value changes, breaking the table's ability to locate it. Tuples are <b>immutable</b> and cannot change after creation.</details>
@@ -369,6 +385,7 @@ hash_maps_lab: passed
 ---
 
 ## Practice - independent task
+<!-- bite: 9033b8c1-8074-4d49-9061-8d04a74bc67e -->
 
 Implement **open addressing** with linear probing, as an alternative to chaining.
 
@@ -386,6 +403,7 @@ A <strong>tombstone</strong> marks the slot as "deleted, keep probing". The cost
 </details>
 
 ## Before moving on
+<!-- bite: e7451a03-22e2-4fdb-9d53-4cca3ebfa405 -->
 
 You are done with this module when you can, closed-book:
 
@@ -399,6 +417,7 @@ You are done with this module when you can, closed-book:
 **Next:** [[04-linked-lists|Linked Lists]] - the non-contiguous alternative, and the opposite bet about which operation should be cheap.
 
 ## Related Modules
+<!-- bite: a88e0621-2821-48a0-9a0f-daa3c7825dd9 -->
 - [[01-arrays|Arrays]] — The bucket array foundation underneath
 - [[02-dynamic-arrays|Dynamic Arrays]] — Amortized resizing principles
 - [[01-trees|Trees]] — Binary Search Trees for ordered key-value storage

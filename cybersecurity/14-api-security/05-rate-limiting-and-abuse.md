@@ -1,14 +1,20 @@
+---
+id: 82b1420c-4aec-4ae2-8426-308a61da0a3a
+---
+
 # Rate Limiting and Abuse
 
 **[Intermediate]** — defending against machine clients that hit you thousands of times a second, and abuse that uses your API exactly as designed.
 
 ## The kid version first
+<!-- bite: 3b3b0a4f-4ec9-4fda-8c3e-d473e1215dec -->
 
 A human uses your app a few times a minute. **A script uses it a few thousand times a second** — and can keep going all day, from a thousand IPs. So an API faces attacks a web page rarely does: brute-forcing logins, scraping the whole database, exhausting your resources, and abusing legitimate features at machine scale.
 
 Rate limiting is the throttle. And some abuse needs *more* than a throttle, because it uses the API precisely as intended — just far more, and for the wrong reason.
 
 ## API4: Unrestricted Resource Consumption
+<!-- bite: 08be1b14-0eea-452c-b7fc-6b5abbe2c8a6 -->
 
 Every request costs you — CPU, memory, database load, bandwidth, and real money (third-party API calls, SMS, egress, LLM tokens). **An API with no limits lets a caller run up that cost without bound**, which is denial-of-service and, in the cloud, denial-of-*wallet*.
 
@@ -31,6 +37,7 @@ The vectors:
 **Quotas** — longer-window caps (per day/month), especially where each call has real cost.
 
 ## API6: Unrestricted Access to Sensitive Business Flows
+<!-- bite: 2b102dbd-3030-4cfd-a202-a82ab0d8b784 -->
 
 The subtle one, and why rate limiting alone isn't enough. **Some abuse uses the API *exactly as designed* — the requests are individually valid, but the *pattern* is the attack:**
 
@@ -49,6 +56,7 @@ The subtle one, and why rate limiting alone isn't enough. **Some abuse uses the 
 **The mindset shift: ask not just "is this request valid?" but "does this *pattern of valid requests* make sense for a real user?"** That's the question a rate limit can't answer alone.
 
 ## Login and credential endpoints
+<!-- bite: 16a75182-446d-4991-98a2-e34b6cb48572 -->
 
 The highest-value target for automated abuse, deserving special treatment:
 
@@ -59,6 +67,7 @@ The highest-value target for automated abuse, deserving special treatment:
 - **Monitor for credential stuffing** — many accounts, one IP; or many IPs, breach-list passwords
 
 ## Where to enforce it
+<!-- bite: 2f695599-81db-4c23-aa35-9cd4c1dee2e3 -->
 
 - **API gateway / reverse proxy** — the natural place for coarse rate limiting, applied before requests reach your app (Kong, cloud API gateways, nginx, Cloudflare) → [[cybersecurity/14-api-security/06-the-api-security-lifecycle|gateways]]
 - **Application layer** — for per-user and business-logic limits the gateway can't see
@@ -68,10 +77,12 @@ The highest-value target for automated abuse, deserving special treatment:
 **Layer them:** gateway for volume, app for business logic, WAF for bots.
 
 ## Key insight
+<!-- bite: 93ac4347-8c99-43ac-9fb5-45670548f9e9 -->
 
 **Machine clients turn abuse from an edge case into the normal case, so APIs need throttling that web pages rarely do — but rate limiting alone catches only volume, not *pattern*.** The harder class (API6) is abuse that uses the API exactly as designed — bulk-buying, fake accounts, scraping, credential stuffing — where every request is valid and only the pattern reveals the attack. Defending it means asking "does this *sequence* of valid requests make sense for a real user?", which needs behavioural detection and business-logic limits, not just a token bucket.
 
 ## Related
+<!-- bite: 1ddfe864-16dc-4a30-a261-e69c74ed5b69 -->
 - [[cybersecurity/14-api-security/04-input-validation-and-injection|input validation]] — bounding per-request work
 - [[cybersecurity/14-api-security/06-the-api-security-lifecycle|the API security lifecycle]] — gateways and WAFs
 - [[backend/06-cross-cutting/index|cross-cutting concerns]] — rate limiting while building

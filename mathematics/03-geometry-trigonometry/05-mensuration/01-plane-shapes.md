@@ -1,8 +1,13 @@
+---
+id: c06a8a29-e146-4555-ac37-2e080bccd531
+---
+
 # Mensuration: Plane Shapes
 
 **[Beginner]** — where the area formulas come from, and how Archimedes computed $\pi$ without knowing what $\pi$ was.
 
 ## Before you start
+<!-- bite: 1f5d144f-a0f0-4b29-b915-9321c991704e -->
 
 - You know the polygon angle sums, and that a regular polygon approaches a circle — [[02-triangles-and-polygons|triangles and polygons]].
 - You can use $\tfrac12 ab\sin C$ for a triangle's area — [[03-sine-and-cosine-rules|sine and cosine rules]].
@@ -20,12 +25,14 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 037c146e-08ac-4ee4-a52d-59d4895361c8 -->
 
 Area is what you pay for. Land is sold by it, paint and fabric and roofing are bought by it, and a wrong figure costs money in a way a wrong angle usually does not.
 
 But there is a deeper reason these formulas are worth deriving rather than memorising. Area for straight-sided shapes is a matter of **rearrangement** — cut a shape up, reassemble it as a rectangle, and the area cannot have changed. Area for a *curved* shape is not, because no finite rearrangement turns a circle into a rectangle. Getting from one to the other requires a limit, and that limit is the first genuinely infinite argument in elementary mathematics. It is the beginning of integral calculus, two thousand years early.
 
 ## 2. Terminology
+<!-- bite: c80ebdaa-3503-4d54-91e6-0be6e61211ab -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -38,6 +45,7 @@ But there is a deeper reason these formulas are worth deriving rather than memor
 | **Composite shape** | A shape made by joining or removing simpler ones | Add or subtract the parts |
 
 ## 3. Straight-sided shapes, by rearrangement
+<!-- bite: 146750f9-0b18-417e-b694-72dbf241b14b -->
 
 **Rectangle.** $A = bh$. This is the definition of area — how many unit squares fit — rather than a result.
 
@@ -74,6 +82,7 @@ $$
 Read it as "the average of the parallel sides, times the height" — which also explains why a trapezium with $a = b$ reduces to the parallelogram formula.
 
 ## 4. The circle, by exhaustion
+<!-- bite: 197a85dc-df85-4e2c-a216-3e86ccc957c8 -->
 
 No rearrangement turns a circle into a rectangle. So instead: **approximate it by polygons and let the number of sides grow.**
 
@@ -112,6 +121,7 @@ The upper bounds coincide, because a circumscribed polygon's area is half its pe
 > **Predict before running the lab.** The two bounds close in on $\pi$ from either side. If doubling $n$ from $6$ to $12$ roughly quarters the gap, how many doublings would you need to pin $\pi$ down to ten decimal places? Estimate before opening the answers.
 
 ## 5. Arcs, sectors and segments
+<!-- bite: 1472acc7-a406-4348-8e07-0bd51267facc -->
 
 A sector is a fraction of the circle — the fraction being the angle over a full turn.
 
@@ -131,6 +141,7 @@ $$
 The triangle's area uses $\tfrac12 ab\sin C$ with both sides equal to $r$. And notice: the formula is positive exactly because $\theta > \sin\theta$ for $\theta > 0$ — the same inequality that made $\frac{\sin\theta}{\theta} \to 1$ approach from below.
 
 ## Worked example — runnable
+<!-- bite: dfe67183-c3da-457a-b5a6-7581ff311b82 -->
 
 **Runnable example:** save as `plane_shapes.py` in any empty directory and run `python3 plane_shapes.py`. Standard library only; writes no files.
 
@@ -327,6 +338,7 @@ plane_shapes: passed
 Block 2 is the lesson in miniature. The bounds are computable, they provably straddle $\pi$, and they converge — which is what makes this a *derivation* of the circle's area rather than a measurement of it.
 
 ## Common pitfalls and traps
+<!-- bite: ad6b039c-e71f-4f62-931a-5290167829fe -->
 
 - **Using a slanted side as the height.** In a parallelogram, trapezium or triangle, $h$ is the **perpendicular** distance between the parallel sides. The slanted side is longer and gives a wrong, too-large answer.
 - **Mixing degrees and radians in sector formulas.** $\tfrac12 r^2\theta$ requires radians. With degrees you need the $\frac{\theta}{360}$ version. Substituting $90$ into the radian formula gives an answer about $57$ times too big.
@@ -336,6 +348,7 @@ Block 2 is the lesson in miniature. The bounds are computable, they provably str
 - **Treating $\pi r^2$ as a definition.** It is a theorem, and the limit argument is what proves it. The lab's block 2 is that argument made computational.
 
 ## Check your understanding
+<!-- bite: dc214825-2f35-4586-9fd7-f177e4ec2a67 -->
 
 1. A parallelogram has base $12$ cm and slant side $8$ cm, with the slant at $30°$ to the base. Find its area.
 2. A trapezium has parallel sides $9$ and $15$, and height $6$. Find its area.
@@ -355,6 +368,7 @@ Block 2 is the lesson in miniature. The bounds are computable, they provably str
 </details>
 
 ## Practice — independent task
+<!-- bite: 3743e462-a17e-4816-9898-9707d353b8c8 -->
 
 Implement `polygon_area(vertices)` using the **shoelace formula**, and use it to check everything above.
 
@@ -373,6 +387,7 @@ $$
 **Done when:** all four closed forms are reproduced, you can state what the sign means and why the figure-eight behaves as it does, and your $n$-gon check matches to `1e-9` for at least five values of $n$.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 060bbe8d-dc53-43c2-b39c-f123902635c4 -->
 
 **This is integral calculus in disguise.** "Approximate by simple pieces, refine, take a limit" is exactly the Riemann integral. The circle was done here with triangles because they are the pieces available without calculus; a formal treatment uses rectangles and reaches the same answer. Anyone who has followed section 4 has already met the central idea of [[06-calculus/03-calculus-2/03-applications|integration]].
 
@@ -381,6 +396,7 @@ $$
 **Precision in practice.** For land measurement the shoelace formula on surveyed coordinates is what is actually used, and its accuracy is set by the coordinates, not the formula. On a large enough parcel the Earth's curvature matters and a plane formula is simply wrong — see [[01-latitude-and-longitude|latitude and longitude]].
 
 ## Before moving on
+<!-- bite: 0c997e0c-2049-4175-930f-1720154aedf9 -->
 
 You are done with this lesson when you can:
 
@@ -394,6 +410,7 @@ You are done with this lesson when you can:
 **Next:** [[02-solids|Mensuration: Solids]] — the same limiting idea applied one dimension up, where it delivers the cone and the sphere.
 
 ## Related
+<!-- bite: b7210d02-6a2b-4ef5-8bea-69ae6c6da56f -->
 
 - [[02-triangles-and-polygons|Triangles and Polygons]] — where the polygon-to-circle prediction was made
 - [[03-sine-and-cosine-rules|Sine and Cosine Rules]] — the $\tfrac12 ab\sin C$ the derivation depends on

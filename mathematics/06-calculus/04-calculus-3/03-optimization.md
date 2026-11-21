@@ -1,8 +1,13 @@
+---
+id: 646342fd-fe6e-4db4-8570-f3e594580c12
+---
+
 # Multivariable Optimisation
 
 **[Advanced]** — Finding maxima and minima of a surface, distinguishing them from saddle points, and optimising subject to a constraint.
 
 ## Before you start
+<!-- bite: 614e4c8c-4e0a-41d2-8a57-9121b5cc779c -->
 
 - You can compute partial derivatives and the gradient — [[01-partial-derivatives|partial derivatives]].
 - You can classify critical points in one variable — [[01-related-rates|applications of the derivative]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. Critical points
+<!-- bite: e2ad1dfc-8f27-4828-8c67-fbafe5e61d6a -->
 
 **At an interior extremum the surface is level in every direction**, so every partial derivative vanishes:
 
@@ -31,6 +37,7 @@ One critical point, at $(2,3)$.
 **But as in one variable, a critical point need not be an extremum** — and in two variables there is a new possibility that has no one-dimensional analogue.
 
 ## 2. The saddle point
+<!-- bite: 7745bbf4-4c7c-4587-a9a5-e404aee3b07c -->
 
 $$f(x,y) = x^2 - y^2$$
 
@@ -51,6 +58,7 @@ At the origin both partials vanish. But along the $x$-axis the surface curves **
 **It is a minimum and a maximum at the same time, in different directions** — hence the name, from the shape of a horse's saddle. There is nothing like this in one variable, where a critical point is a max, a min, or a flat inflection.
 
 ## 3. The second derivative test
+<!-- bite: 687cbbc1-1ef8-493c-965b-51671ded5d5d -->
 
 Compute the **discriminant**:
 
@@ -79,6 +87,7 @@ $$H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy}\end{pmatrix}$$
 > **So in a neural network with millions of parameters, almost every critical point is a saddle, not a local minimum.** This reversed a long-standing belief: training was assumed to get trapped in bad local minima, and the actual difficulty is escaping the flat regions around saddles — which is why momentum and stochastic noise help so much. See [[ai-ml/index|ai-ml]].
 
 ## 4. Constrained optimisation and Lagrange multipliers
+<!-- bite: cec9120b-570d-42e6-8b1f-f790409c428e -->
 
 **Often you must optimise subject to a restriction.** Maximise area given a fixed perimeter; minimise cost given a required output.
 
@@ -107,6 +116,7 @@ With the constraint $x + y = 10$: $x = y = 5$, giving a maximum product of **25*
 **$\lambda$ also has a meaning:** it is the rate at which the optimal value would improve if the constraint were relaxed. In economics that is the *shadow price* — what one more unit of the constrained resource is worth.
 
 ## 5. Practice — problems
+<!-- bite: 74d4dd1d-d51e-4491-8c02-197b138f1ea0 -->
 
 1. Find and classify the critical points of $f = x^2 + y^2 - 4x - 6y + 13$.
 2. Find and classify the critical points of $f = x^3 - 3xy + y^3$.
@@ -126,6 +136,7 @@ With the constraint $x + y = 10$: $x = y = 5$, giving a maximum product of **25*
 </details>
 
 ## Before moving on
+<!-- bite: 9e7f02c6-db6a-4642-9f35-590cb9d24cde -->
 
 - [ ] Find critical points by setting the gradient to zero.
 - [ ] Classify them with the discriminant, including saddles.
@@ -137,6 +148,7 @@ With the constraint $x + y = 10$: $x = y = 5$, giving a maximum product of **25*
 **This is the end of Calculus 3, and of the calculus sequence.**
 
 ## Related
+<!-- bite: 83273510-9847-4424-be0f-00bc5b689758 -->
 
 - [[01-partial-derivatives|Partial derivatives]] · [[02-multiple-integrals|Multiple integrals]]
 - [[ai-ml/index|ai-ml]] — where saddle points became a practical concern

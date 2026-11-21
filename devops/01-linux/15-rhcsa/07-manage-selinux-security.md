@@ -1,3 +1,7 @@
+---
+id: 647fca34-7cd3-47ef-a298-77c77a72fb1c
+---
+
 # Manage SELinux Security
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. RHEL-specific — no equiv
 ---
 
 ## The core idea: MAC vs. DAC
+<!-- bite: eee21f04-a005-486b-aa9b-cbdfedff95c5 -->
 
 Everything in [[devops/01-linux/02-navigating-file-system|Navigating the Filesystem]] — `chmod`, `chown`, owner/group/other — is **DAC (Discretionary Access Control)**. The owner of a resource *discretionarily* decides who can access it. If `httpd` runs as root, DAC gives it access to literally everything root can touch — which is way more than a web server should ever need.
 
@@ -15,6 +20,7 @@ Everything in [[devops/01-linux/02-navigating-file-system|Navigating the Filesys
 ---
 
 ## Modes
+<!-- bite: be31064a-a2c9-4374-89f1-d527e9c1e8aa -->
 
 ```bash
 getenforce                       # current mode: Enforcing / Permissive / Disabled
@@ -38,6 +44,7 @@ Changing `SELINUX=` here requires a **reboot** to take effect (unlike `setenforc
 ---
 
 ## Contexts — SELinux's version of ownership
+<!-- bite: 1dd73173-da5c-4f79-9d9c-94a13f48e00f -->
 
 Every process and every file has an SELinux **context**: `user:role:type:level`. For file access decisions, the part that matters almost all the time is the **type**.
 
@@ -57,6 +64,7 @@ The policy (type `httpd_t` can read type `httpd_sys_content_t`) is what actually
 ---
 
 ## Fixing file contexts — the classic exam scenario
+<!-- bite: cd96ae25-9d6c-4a8c-88ef-6326773fbaa8 -->
 
 **Setup:** you move (or `mkdir`) a new web root at `/web` instead of the default `/var/www/html`, put files there, point Apache's config at it. Apache 403s anyway, even though DAC permissions are fine. This is *always* an SELinux context problem: files created outside `/var/www/html` don't inherit `httpd_sys_content_t` automatically.
 
@@ -91,6 +99,7 @@ semanage fcontext -l | grep web        # confirm the rule is registered
 ---
 
 ## Booleans — policy on/off switches without editing policy
+<!-- bite: 1489a071-fd52-4463-9665-61ec1555ba51 -->
 
 Booleans are pre-defined toggles for common "should this be allowed" questions, so you don't need custom policy just to, say, let a web server make outbound network connections (needed for reverse proxying, calling an API, etc.).
 
@@ -106,6 +115,7 @@ setsebool -P httpd_can_network_connect on        # -P = persistent, survives reb
 ---
 
 ## Troubleshooting when something's denied
+<!-- bite: 3211e85e-4a0d-4fb3-9bd2-94c4be2c4d87 -->
 
 ```bash
 tail -f /var/log/audit/audit.log | grep AVC     # raw denial log — AVC = Access Vector Cache, the denial event type
@@ -123,6 +133,7 @@ audit2allow -a                    # generate a custom policy MODULE from recent 
 ---
 
 ## Quick diagnostic checklist
+<!-- bite: f8a323e0-5865-403b-9115-fa11a55b94da -->
 
 1. `getenforce` — is SELinux even enforcing right now?
 2. `ls -Z` / `ps -eZ` — what context does the file/process actually have?

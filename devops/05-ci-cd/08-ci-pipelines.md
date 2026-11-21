@@ -1,8 +1,13 @@
+---
+id: 4b2e4fa4-ce05-4829-b88b-22a2da15e649
+---
+
 # CI Pipelines — The Complete Build
 
 **[Intermediate]** — What a good CI pipeline actually does, worked end to end in two real stacks: Node/NestJS and Java/Spring Boot.
 
 ## What a Good CI Pipeline Does
+<!-- bite: bf7084c4-8f7d-45d0-8edc-3724860e8717 -->
 
 Every pull request and push should:
 1. Fail fast on obvious issues (lint/format in seconds)
@@ -12,6 +17,7 @@ Every pull request and push should:
 5. Report status back to the PR
 
 ## Complete Node.js / NestJS CI Pipeline
+<!-- bite: fd5e43ae-4cf8-416c-8507-a410c7c95d68 -->
 
 ```yaml
 # .github/workflows/ci.yml
@@ -232,6 +238,7 @@ jobs:
 ```
 
 ## Complete Java / Spring Boot CI Pipeline
+<!-- bite: 0ae14625-c59a-43b9-a41e-1f7860f210b6 -->
 
 ```yaml
 name: Java CI
@@ -299,6 +306,7 @@ jobs:
 ---
 
 ## Related
+<!-- bite: b4404487-f73c-4528-bd6e-0645081e933b -->
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — the stages and gates these pipelines implement
 - [[devops/05-ci-cd/09-cd-and-deployment|CD and Deployment]] — what happens after the build goes green
 - [[languages/01-java/03-tooling/04-testing|Testing (Java)]] — the gate at the centre of the Spring Boot pipeline

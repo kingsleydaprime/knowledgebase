@@ -1,8 +1,13 @@
+---
+id: 0c0c4180-447f-418e-9326-5801289089a8
+---
+
 # Gas Optimisation
 
 **[Intermediate]** — the optimisations that are worth doing, in order, and the ones that trade safety for pennies.
 
 ## The one rule
+<!-- bite: 38d22a7f-5ffa-425c-9564-f7a995772813 -->
 
 **Storage dominates everything else.** 20,000 gas to create a slot, 2,900 to update, 2,100 to read cold — against 3 for arithmetic and 3 for a memory write.
 
@@ -13,6 +18,7 @@ one SSTORE  ≈  6,600 arithmetic operations
 **So gas optimisation is almost entirely "touch storage less."** Optimising computation is, in nearly every case, a waste of your time and your reviewers'.
 
 ## The optimisations that actually matter
+<!-- bite: 86f08c80-8f4c-4ae6-be58-df6f53b693e2 -->
 
 **1. Pack storage variables.** Free, mechanical, and worth 20,000 gas per slot avoided:
 
@@ -61,6 +67,7 @@ for (uint256 i; i < len;) {
 ~30–40 gas per iteration. Justify each use in a comment; **this is where cleverness starts costing safety.**
 
 ## The pull-over-push pattern — safety and gas together
+<!-- bite: 64fd61e1-57f3-4fd8-ab64-1476b1dd87b7 -->
 
 ```solidity
 // BAD: loops over an unbounded array, sends ETH to arbitrary addresses
@@ -82,6 +89,7 @@ function withdraw() external {
 The push version has **three** problems: it can exceed the block gas limit and become permanently uncallable; a single malicious recipient with a reverting `receive()` blocks all payments; and the caller pays everyone's gas. **This is a denial-of-service bug class, not just an inefficiency** → [[web3/04-smart-contract-security/index|security]].
 
 ## Measuring, which you should do before optimising
+<!-- bite: 63662096-baf1-4035-8381-1fc22b1f6932 -->
 
 ```bash
 forge test --gas-report          # per-function min/avg/max
@@ -92,6 +100,7 @@ forge snapshot --diff            # compare against it — PUT THIS IN CI
 **`forge snapshot --diff` in CI is the practical answer**: you see the gas cost of every PR, so regressions surface at review time rather than after deployment.
 
 ## What not to do
+<!-- bite: 75903361-737f-4687-818e-02cdcaad4e5c -->
 
 **Assembly for small wins.** Yul bypasses every compiler safety check — no overflow checks, no type safety, no bounds checks. It is appropriate in a hot loop after profiling, written by someone who reads the Yellow Paper for fun, and reviewed accordingly. **It is not appropriate to save 200 gas in a function called once a day.**
 
@@ -104,6 +113,7 @@ forge snapshot --diff            # compare against it — PUT THIS IN CI
 **Short-circuit ordering and `++i` vs `i++`** are real but tiny. Do them if free; don't contort code for them.
 
 ## The compiler settings that matter
+<!-- bite: 9c3111d2-3e3a-42af-b81a-8612426b3ac7 -->
 
 ```toml
 # foundry.toml
@@ -115,10 +125,12 @@ via_ir = true             # better optimisation, slower compiles
 **`optimizer_runs` is a trade, not a quality dial**: it estimates how many times each function will be called over the contract's life. `200` favours deployment size; `1000000` favours runtime cost for a heavily-used contract. Set it to what your contract actually is.
 
 ## Key insight
+<!-- bite: 0b5691c1-8eda-48ea-b0ff-9d9694d6f559 -->
 
 **Gas optimisation is state-access optimisation.** Every genuinely large win — packing, caching, `immutable`, events-over-storage, pull-over-push — is about touching storage fewer times. Everything else is rounding error, and the assembly-level tricks trade a real safety property for an amount of gas that rarely justifies the review burden.
 
 ## Related
+<!-- bite: 7e8237b6-f355-4ee2-be33-9b8ccffeef73 -->
 - [[web3/02-ethereum-and-the-evm/03-gas-and-fees|gas and fees]] — where the numbers come from
 - [[web3/03-smart-contracts-with-solidity/03-storage-memory-calldata|storage, memory, calldata]]
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing and tooling]] — measuring it

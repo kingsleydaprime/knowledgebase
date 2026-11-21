@@ -1,8 +1,13 @@
+---
+id: b106054d-3f3c-469f-85a8-2078e042b02b
+---
+
 # Quadric Surfaces
 
 **[Advanced]** — what second-degree equations describe in space, and the curved surface you can build entirely from straight beams.
 
 ## Before you start
+<!-- bite: 196f84fd-0920-45f1-a020-c64e71d3809a -->
 
 - You can work with planes, normals and the dot product — [[01-lines-and-planes|lines and planes in space]].
 - You know the circle and its equation, and completing the square — [[03-coordinate-geometry/01-coordinate-geometry|coordinate geometry]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 7be9fa20-e31d-4441-a386-78a64e261431 -->
 
 In the plane, second-degree equations give the conic sections: circles, ellipses, parabolas, hyperbolas. In space they give the **quadric surfaces**, and each one is in industrial use:
 
@@ -30,6 +36,7 @@ In the plane, second-degree equations give the conic sections: circles, ellipses
 There is also a classification worth having for its own sake. There are infinitely many second-degree equations in three variables, but up to rotation and translation only a handful of distinct shapes, and the signs of three coefficients tell you which one you have.
 
 ## 2. Terminology
+<!-- bite: 012cacf8-615e-45b3-9b01-8fcc92b6620f -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -41,6 +48,7 @@ There is also a classification worth having for its own sake. There are infinite
 | **Saddle point** | A point that is a minimum in one direction and a maximum in another | Neither a peak nor a pit |
 
 ## 3. The classification
+<!-- bite: 0afd18cf-3cf3-4587-a774-0141d38f00bc -->
 
 Every quadric can be rotated and translated into one of these standard forms. **The signs decide the shape:**
 
@@ -70,6 +78,7 @@ Circles horizontally, hyperbolas vertically, one connected piece: a hyperboloid 
 Compare with $x^2 - y^2 - z^2 = 1$. Now the $z=k$ trace is $x^2 = 1 + y^2 + k^2$, which forces $\lvert x\rvert \ge 1$ — **no points at all** for $\lvert x \rvert < 1$. The surface is empty in a slab through the middle, so it comes in two separate sheets.
 
 ## 4. Ruled surfaces
+<!-- bite: 072002c5-eba6-400d-ba5e-61810f62f51b -->
 
 A surface is **ruled** if through every point there is a straight line lying entirely within it. Cones and cylinders are obviously ruled. The surprise is this:
 
@@ -103,6 +112,7 @@ The hyperbolic paraboloid is doubly ruled too, and more obviously: rotating $z =
 > **Predict before section 5.** On the surface $z = x^2 - y^2$, walk away from the origin along the $x$-axis. Does $z$ rise or fall? Now walk along the $y$-axis. What does that make the origin — a maximum, a minimum, or neither? Decide before opening the answers.
 
 ## 5. The saddle, and why it matters
+<!-- bite: b38fe5a5-8f3b-495f-a637-0fd204edc537 -->
 
 The origin of $z = x^2 - y^2$ is a **saddle point**. Along the $x$-axis ($y=0$) the surface is $z = x^2$, a valley with a minimum at the origin. Along the $y$-axis ($x=0$) it is $z = -y^2$, a ridge with a maximum there.
 
@@ -111,6 +121,7 @@ So the origin is simultaneously the lowest point of one cross-section and the hi
 This is not a curiosity. In high-dimensional optimisation, a stationary point is a true minimum only if it curves upwards in **every** one of the many directions. With $n$ independent directions and no reason for the curvature signs to agree, saddle points vastly outnumber genuine minima as $n$ grows. That is the central obstacle in training large models, and it is developed properly in [[06-calculus/04-calculus-3/03-optimization|multivariable optimisation]].
 
 ## Worked example — runnable
+<!-- bite: 17cee207-8642-4635-bcd4-ec4b00eff424 -->
 
 **Runnable example:** save as `quadrics.py` in any empty directory and run `python3 quadrics.py`. Standard library only; writes no files.
 
@@ -323,6 +334,7 @@ quadrics: passed
 Block 3 is the claim that sounds false. Points generated along a perfectly straight line — equal steps, constant direction — satisfy the hyperboloid's equation to within $10^{-12}$, for both families and every angle tried.
 
 ## Common pitfalls and traps
+<!-- bite: 237c21a4-1104-46d8-a318-fa28a9541470 -->
 
 - **Reading the surface off the equation without normalising first.** A quadric with cross terms like $xy$ is one of the standard forms *rotated*. Classify only after removing them — $z = xy$ looks unlike anything in the table but is a hyperbolic paraboloid.
 - **Confusing the cone with the hyperboloids.** All three have signs $+\,+\,-$. What separates them is the right-hand side: $=1$ gives one sheet, $=0$ gives the cone, and $=-1$ (equivalently $+\,-\,-$ with $=1$) gives two sheets.
@@ -332,6 +344,7 @@ Block 3 is the claim that sounds false. Points generated along a perfectly strai
 - **Forgetting that a dish must be a paraboloid, not a sphere.** A spherical mirror does not focus parallel rays to a point; it suffers spherical aberration. Only the parabola has the exact focusing property that block 5 verifies.
 
 ## Check your understanding
+<!-- bite: ba0c02c9-5614-4b81-b7bf-48d3ba177e05 -->
 
 1. Identify $4x^2 + 9y^2 + z^2 = 36$.
 2. Identify $z = x^2 + 4y^2$, and describe its $z = k$ traces for $k > 0$, $k = 0$ and $k < 0$.
@@ -351,6 +364,7 @@ Block 3 is the claim that sounds false. Points generated along a perfectly strai
 </details>
 
 ## Practice — independent task
+<!-- bite: e21c4b05-cff9-4e15-b1cf-5fff4db5029d -->
 
 Implement `classify_quadric(A, B, C, D)` for surfaces of the form $Ax^2 + By^2 + Cz^2 = D$, returning the surface name — then extend it.
 
@@ -365,6 +379,7 @@ Implement `classify_quadric(A, B, C, D)` for surfaces of the form $Ax^2 + By^2 +
 **Done when:** every surface in section 3 is classified correctly under both sign conventions, your trace check agrees with your classifier on all of them, and your ruling lines stay on the surface to `1e-12` for $\lvert t\rvert$ up to at least $1000$.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: db068b8a-8264-4241-9d42-54c2b161b251 -->
 
 **Classification by signs needs the cross terms gone.** A general quadric $Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + \ldots = 0$ must first be rotated into alignment. The rotation that does it is found by **diagonalising** the symmetric matrix of coefficients, and the resulting signs are its **eigenvalues**. So this classification is really a theorem about eigenvalues in disguise — see [[04-linear-algebra/06-eigenvalues/01-eigenvalues-and-eigenvectors|eigenvalues]].
 
@@ -373,6 +388,7 @@ Implement `classify_quadric(A, B, C, D)` for surfaces of the form $Ax^2 + By^2 +
 **Ruled does not mean developable.** A hyperboloid of one sheet is ruled but *cannot* be flattened without stretching — unlike a cylinder or cone, which are both. So the straight beams make it cheap to *build*, but the cladding between them still cannot be cut from flat sheet without distortion. This is the same developability question raised in [[02-solids|solids]] and [[01-latitude-and-longitude|latitude and longitude]].
 
 ## Before moving on
+<!-- bite: 6e525b67-2ce5-4ae4-9967-fda2c34a658b -->
 
 You are done with this lesson when you can:
 
@@ -386,6 +402,7 @@ You are done with this lesson when you can:
 **Where next:** this is the last lesson in geometry and trigonometry. The natural continuations are [[04-linear-algebra/06-eigenvalues/01-eigenvalues-and-eigenvectors|eigenvalues]], which explain the classification, and [[06-calculus/04-calculus-3/03-optimization|multivariable optimisation]], where saddle points become the central difficulty.
 
 ## Related
+<!-- bite: 7e4965f1-d1ed-41a4-b6b0-62c1d9b9475f -->
 
 - [[01-lines-and-planes|Lines and Planes in Space]] — the vector machinery the ruling lines are written in
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the conic sections these surfaces generalise

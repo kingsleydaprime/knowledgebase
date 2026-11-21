@@ -1,8 +1,13 @@
+---
+id: 5d8c4a5f-e008-45c4-9c54-909c0c9a6169
+---
+
 # Classes and Collections
 
 **[Intermediate]** — the object model, and the collection idioms Flutter code is built from.
 
 ## Classes
+<!-- bite: ea24dd8e-1162-46e8-8b4f-c07dfc09a11e -->
 
 ```dart
 class User {
@@ -30,10 +35,12 @@ class User {
 **`this.field` in the constructor parameter list** assigns directly — no body needed.
 
 ## Everything is an object
+<!-- bite: 0cc892af-4985-4f96-9334-a20bd60bad71 -->
 
 `int`, `bool`, functions and `null` are all objects. **There are no primitives** and no `static` classes — a top-level function is fine and idiomatic.
 
 ## Mixins
+<!-- bite: 21ae1308-9ad2-46fd-a229-c8a992fece77 -->
 
 Dart's answer to multiple inheritance:
 
@@ -54,6 +61,7 @@ class UserRepo extends Repository with Loggable, Cacheable { }
 **Order matters** — later mixins override earlier ones.
 
 ## `abstract` and `implements`
+<!-- bite: d18d0a4a-0296-4223-8859-cde41dd9a320 -->
 
 ```dart
 abstract class Repository {
@@ -74,6 +82,7 @@ class FakeRepo implements Repository {  // implements = interface only, no inher
 **Dart 3 added `sealed`, `final`, `base` and `interface` modifiers** for controlling this precisely — `sealed` is the one you'll use → [[languages/10-dart/02-types-and-null-safety|sealed classes]].
 
 ## Collections
+<!-- bite: e8c848dd-43d2-4412-b7b7-2e8939f13241 -->
 
 ```dart
 final list = <String>['a', 'b'];
@@ -99,6 +108,7 @@ final list = [...users]..sort()..removeWhere((u) => !u.isActive);
 ```
 
 ## Collection literals with control flow
+<!-- bite: d368db56-bdb4-445e-94cd-56c312db187a -->
 
 Unusual and heavily used in Flutter:
 
@@ -115,6 +125,7 @@ final widgets = [
 **This is why Flutter widget trees don't need helper functions** for conditional children — it's the single most distinctive piece of Dart syntax, and it reads well once you've seen it.
 
 ## `package:collection`
+<!-- bite: ab7a57dc-d775-4594-9c3f-273851537fc0 -->
 
 The standard library is thin. **Add `collection` immediately** — it provides `firstWhereOrNull`, `groupBy`, `sortedBy`, `equals` for deep comparison, and much of what Kotlin has built in.
 
@@ -123,16 +134,19 @@ final byCity = groupBy(users, (User u) => u.city);
 ```
 
 ## Equality
+<!-- bite: c515b53f-ae6d-4f21-a9be-0e30869db200 -->
 
 **Dart's `==` is identity by default** — two `User` objects with identical fields are not equal unless you override `==` and `hashCode`.
 
 **Nobody writes those by hand.** Use **`freezed`** (code generation) or **`equatable`**. This is the most-felt consequence of Dart lacking `data class` → [[languages/10-dart/06-tooling-and-codegen|code generation]].
 
 ## Key insight
+<!-- bite: 46e2eb30-ad44-4a8c-ae57-878ee0408732 -->
 
 **Dart's object model is conventional; what's distinctive is the collection syntax** — lazy `Iterable`s that need `.toList()`, cascades, and control flow inside literals. That last one is why Flutter's declarative widget trees read cleanly, and it's the piece of Dart most worth internalising early.
 
 ## Related
+<!-- bite: 905df4d5-2206-4945-b121-6170ca2ee06e -->
 - [[languages/10-dart/02-types-and-null-safety|types and null safety]]
 - [[languages/10-dart/06-tooling-and-codegen|codegen]] — `freezed`, and why you need it
 - [[mobile/frameworks/flutter/index|Flutter]] — where the collection syntax pays off

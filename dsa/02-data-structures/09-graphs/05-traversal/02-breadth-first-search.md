@@ -1,3 +1,7 @@
+---
+id: 05d97cc5-ada4-48d1-90e1-205671a108ba
+---
+
 # Module: Breadth-First Search (BFS) (Level-by-Level & Shortest Path)
 
 Welcome to the **Breadth-First Search (BFS)** module. BFS is a fundamental graph and tree traversal algorithm that explores nodes **level-by-level**, expanding outward in concentric rings from a starting vertex.
@@ -7,6 +11,7 @@ Where [[01-depth-first-search|DFS]] dives deep down one branch before backtracki
 ---
 
 ## Before you start
+<!-- bite: 9b7606b4-31ed-432b-94f5-6ead9cbdb4da -->
 
 - You know DFS and what it does *not* guarantee — [[01-depth-first-search|depth-first search]].
 - You know how a queue behaves — [[05-stacks-and-queues|stacks and queues]].
@@ -24,6 +29,7 @@ Where [[01-depth-first-search|DFS]] dives deep down one branch before backtracki
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 4ccd0cd5-ac36-4d6b-b87b-ac308ff75e8e -->
 
 Imagine dropping a **pebble into a calm pond**:
 
@@ -50,6 +56,7 @@ Because BFS explores every node at distance $k$ before touching distance $k+1$, 
 ---
 
 ## Terms used in breadth-first search
+<!-- bite: d071ffd6-3e06-4085-a8dc-25aa52d9a701 -->
 
 1. **Breadth-first**: This is expanding uniformly across every neighbour at the current distance before considering anything further away. It is the shape of concentric ripples from a pebble dropped in water — the wave reaches everything one metre away before it reaches anything two metres away.
 2. **Queue**: This is a **FIFO (first-in, first-out)** collection: things leave in the order they arrived, like a supermarket line. Scheduling vertices through a queue is the entire difference between BFS and [[01-depth-first-search|DFS]], which uses a stack.
@@ -62,6 +69,7 @@ Because BFS explores every node at distance $k$ before touching distance $k+1$, 
 ---
 
 ## 3. Technical Deep Dive: BFS Implementation
+<!-- bite: e7477ccd-b7b4-4e2f-94e2-2cc468488779 -->
 
 ### Standard BFS Algorithm (Using `collections.deque`)
 
@@ -92,6 +100,7 @@ def bfs(graph: dict, start: str) -> list:
 ---
 
 ## 4. Shortest Path Reconstruction in Unweighted Graphs
+<!-- bite: fc84838d-d0b4-4279-8fed-78fe5c25b071 -->
 
 To reconstruct the exact shortest path from `start` to `target`, track each node's `parent` pointer during traversal:
 
@@ -128,6 +137,7 @@ def shortest_path_bfs(graph: dict, start: str, target: str) -> list:
 ---
 
 ## 5. Time & Space Complexity Summary
+<!-- bite: a673dfd6-96b1-489a-ae53-346136f1e883 -->
 
 | Metric | Complexity | Explanation |
 | :--- | :--- | :--- |
@@ -137,6 +147,7 @@ def shortest_path_bfs(graph: dict, start: str, target: str) -> list:
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: 2e733ca3-db98-42d0-89bf-47118d249302 -->
 
 **Runnable example:** save as `bfs_lab.py` in any empty directory and run `python3 bfs_lab.py`. Standard library only; writes no files.
 
@@ -342,6 +353,7 @@ bfs_lab: passed
 Block 4 is the one to remember. BFS is not "the shortest path algorithm" — it is the **fewest edges** algorithm, and those coincide only when every edge costs the same.
 
 ## 6. Common Pitfalls & Traps
+<!-- bite: e5c810aa-c1c1-43c9-a9b2-3366817aca92 -->
 
 1. **`list.pop(0)` Performance Trap**: Never write `queue.pop(0)` on a Python list! It takes $O(n)$ time to shift remaining elements, ruining BFS performance. Always use `collections.deque.popleft()` ($O(1)$).
 2. **BFS on Weighted Graphs is WRONG**: BFS only finds shortest paths on **unweighted graphs** (or equal-cost edges). If edges have varying costs/distances, a path with 2 heavy edges can cost more than 3 light edges. Use **[[02-dijkstra|Dijkstra's Algorithm]]** for weighted graphs!
@@ -350,6 +362,7 @@ Block 4 is the one to remember. BFS is not "the shortest path algorithm" — it 
 ---
 
 ## 7. Check Your Understanding (University Self-Assessment)
+<!-- bite: 08d7cf85-99df-4da2-a2f8-ab86ec3f5503 -->
 
 1. **Question**: Why does BFS require a FIFO Queue while DFS uses a LIFO Stack?
    - <details><summary>Click for Answer</summary><b>Answer:</b> A <b>FIFO Queue</b> ensures that nodes are processed in the exact order they were discovered. All level <code>k</code> nodes are popped and processed before any level <code>k+1</code> nodes can be popped, driving level-by-level exploration.</details>
@@ -363,6 +376,7 @@ Block 4 is the one to remember. BFS is not "the shortest path algorithm" — it 
 ---
 
 ## Practice — independent task
+<!-- bite: 1e8b9ade-c134-4dab-820f-150c3bea273d -->
 
 Implement `word_ladder(begin, end, wordlist)` — the shortest chain of one-letter changes from one word to another.
 
@@ -377,6 +391,7 @@ Implement `word_ladder(begin, end, wordlist)` — the shortest chain of one-lett
 **Done when:** your ladder is verifiable — every consecutive pair differs in exactly one position and every word is in the list — bidirectional BFS returns the same length as plain BFS, and your step-5 ratio is backed by counts you measured.
 
 ## Before moving on
+<!-- bite: a7c75c9c-b919-472d-ad98-0d491b88fa27 -->
 
 You can implement BFS, reconstruct paths, use multi-source BFS, and state exactly where the shortest-path guarantee stops.
 
@@ -385,6 +400,7 @@ You can implement BFS, reconstruct paths, use multi-source BFS, and state exactl
 **Next:** [[03-traversal-trees-and-edge-classification|Traversal Trees and Edge Classification]] — what both searches leave behind, and the timestamps that cycle detection and topological sort are built on. After that, [[02-dijkstra|Dijkstra]] is this algorithm with the queue swapped for a priority queue.
 
 ## Related
+<!-- bite: 06f8cf9a-e923-48b2-9d36-5f2177b5b5af -->
 
 - [[01-depth-first-search|Depth-First Search]] — the other traversal, and what changes when the queue becomes a stack
 - [[03-traversal-trees-and-edge-classification|Traversal Trees and Edge Classification]] — the BFS tree, the level property, and the bipartite test that falls out of it

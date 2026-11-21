@@ -1,8 +1,13 @@
+---
+id: 91ff0b33-ccfc-42f9-9ff3-3f207df0f021
+---
+
 # Language Fundamentals
 
 **[Beginner]** — Declarations, the type system's strictness, functions with multiple returns, and the three control structures Go bothered to keep.
 
 ## Variables
+<!-- bite: dadbf147-4f9f-4113-b477-800ca002b9e6 -->
 
 ```go
 var x int = 5      // full form
@@ -30,6 +35,7 @@ There is no `undefined`, no uninitialised memory, and no "variable might not hav
 **An unused local variable is a compile error**, like unused imports. Package-level variables are exempt.
 
 ## The type system is stricter than you expect
+<!-- bite: 7b6c286b-205a-41fd-997a-cb74711e30e8 -->
 
 ```go
 var i int = 5
@@ -78,6 +84,7 @@ for i, r := range s {     // range over a string decodes UTF-8
 `len()` on a string is bytes. This is correct and it will bite you the first time you slice user input.
 
 ## Functions
+<!-- bite: 8ce41374-ab31-4f2e-9561-4c9797681e49 -->
 
 ```go
 func add(a int, b int) int { return a + b }
@@ -146,6 +153,7 @@ doubled := apply(nums, func(n int) int { return n * 2 })
 Closures capture by reference, which is the source of the classic loop-variable bug — **fixed in Go 1.22**, where each iteration gets a fresh variable. Before 1.22, every goroutine in a loop saw the final value. If you read older Go code with `i := i` shadowing at the top of a loop body, that's what it was for.
 
 ## `defer`
+<!-- bite: aa1e1a90-3e1c-4c8d-9820-2e686ecee76e -->
 
 ```go
 func readFile(path string) error {
@@ -176,6 +184,7 @@ i = 5
 ```
 
 ## Control flow
+<!-- bite: 3840d7ae-4b7c-4840-acad-30609b1db499 -->
 
 Go has `if`, `for`, and `switch`. That's it — no `while`, no `do-while`.
 
@@ -213,6 +222,7 @@ case score >= 80: grade = "B"
 ```
 
 ## Pointers
+<!-- bite: 7142f9f7-b687-4de6-b654-b496c4c4abca -->
 
 ```go
 x := 5
@@ -230,6 +240,7 @@ Whether the value lives on the stack or the heap is decided by **escape analysis
 ---
 
 ## Related
+<!-- bite: 3f62ddb5-a7d1-4a95-9007-34f36763632a -->
 
 - [[languages/02-go/03-composite-types|Composite Types]] — slices, maps, structs
 - [[languages/02-go/05-errors|Errors]] — what that second return value is for

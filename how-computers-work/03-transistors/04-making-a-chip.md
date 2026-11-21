@@ -1,8 +1,13 @@
+---
+id: 88027caa-3cae-4092-adde-d4853d9858b6
+---
+
 # Module 14: Making a Chip (How Transistors Are Actually Built)
 
 **[Intermediate]** — Part IV ends with the question the previous three modules kept deferring: a MOSFET is a beautiful idea, but **how do you physically build a billion of them, each a few atoms across, without touching any of them individually?**
 
 ## Before you start
+<!-- bite: 7b5caa81-6a94-4e70-aa6b-1487b141727d -->
 
 - You know what a MOSFET is structurally — gate, oxide, source, drain, body — [[how-computers-work/03-transistors/02-mosfet-physics|module 12]].
 - You know how CMOS pairs NMOS and PMOS — [[how-computers-work/03-transistors/03-cmos|module 13]].
@@ -22,6 +27,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: c03abc8b-ba8a-4c1d-9997-5703768cd015 -->
 
 Module 13 finished the logical story: two complementary transistors make an inverter, and from there any gate. Module 7 delivered a polished single-crystal wafer.
 
@@ -36,6 +42,7 @@ That single economic fact — patterning is parallel and its cost is independent
 ---
 
 ## 2. Terminology
+<!-- bite: 4da93f01-e1f4-4f89-9547-da50f7bab584 -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -58,6 +65,7 @@ That single economic fact — patterning is parallel and its cost is independent
 ---
 
 ## 3. The core loop: pattern, then modify
+<!-- bite: 415eeecf-2071-451b-9ece-b85cf275b96b -->
 
 Everything in chip fabrication is one cycle, repeated. **Learn the cycle and you have learned the process** — a modern chip is this loop run 60 to 75 times.
 
@@ -88,6 +96,7 @@ Second, **the mask is not the same size as the chip.** It carries the pattern at
 ---
 
 ## 4. Building one MOSFET, step by step
+<!-- bite: 39c37a2f-fe2d-4b3a-8a5e-adffdac1b993 -->
 
 Here is a simplified but honest sequence for a single NMOS transistor. Each numbered step is one pass around the loop above.
 
@@ -152,6 +161,7 @@ Here is a simplified but honest sequence for a single NMOS transistor. Each numb
 ---
 
 ## 5. How gates become wires — the interconnect stack
+<!-- bite: 2d5371ec-11b4-4528-b6ef-a1fa05b39d87 -->
 
 This answers a question the course has quietly dodged: schematics show gates connected by lines, but **what is a wire on a chip?**
 
@@ -205,6 +215,7 @@ Automated tools then **place** cells and **route** wires between them. This is w
 ---
 
 ## 6. Printing smaller than your light
+<!-- bite: 5f02a49a-94f1-4c3c-9b01-729fb615846b -->
 
 Here is the part that sounds impossible.
 
@@ -247,6 +258,7 @@ Meanwhile the industry kept shrinking, using **multi-patterning**: print half th
 ---
 
 ## 7. Yield — why big chips cost so much
+<!-- bite: cfc9230b-1976-4631-9359-17dacec301f7 -->
 
 Wafers have defects: a dust particle, a crystal flaw, a mis-etched line. Defects land at random, so **a bigger die is more likely to catch one.**
 
@@ -278,6 +290,7 @@ It is also why defective dies are not thrown away: a chip with one bad core is s
 ---
 
 ## 8. Predict before reading on
+<!-- bite: d602c043-f593-4e32-9ac4-a475fdc709a2 -->
 
 A mask set for a 3 nm process costs about \$30 million, paid once per design regardless of volume.
 
@@ -298,6 +311,7 @@ That tradeoff is now fully explained: FPGAs exist because **masks are a fixed co
 ---
 
 ## 9. Worked example — runnable
+<!-- bite: a1b0f4b6-9049-4795-8466-0a77b1cd8718 -->
 
 Save as `fab_lab.py` and run `python3 fab_lab.py`.
 
@@ -433,6 +447,7 @@ fab_lab: passed
 ---
 
 ## 10. Common pitfalls and traps
+<!-- bite: df485051-1687-4537-b324-eab34e896823 -->
 
 1. **Thinking transistors are placed individually.** Nothing is placed. Everything on a layer is printed simultaneously by one exposure.
 2. **Reading node names as measurements.** "5 nm" names a generation, not a feature. Compare density instead.
@@ -444,6 +459,7 @@ fab_lab: passed
 ---
 
 ## 11. Check your understanding
+<!-- bite: 24e1e53c-47e8-4964-a7e1-1c6ca45f033c -->
 
 1. **Why is the self-aligned gate such an important invention?**
    <details><summary>Answer</summary>
@@ -472,6 +488,7 @@ fab_lab: passed
 ---
 
 ## 12. Practice — independent task
+<!-- bite: 7eed3f95-007a-4f30-846b-3888e3db9b48 -->
 
 **Task:** You are advising on the packaging strategy for a 256-core processor. Each core plus its cache occupies 0.35 cm². Defect density is 0.08/cm², wafers are 300 mm and cost \$18,000.
 
@@ -493,6 +510,7 @@ As $D$ grows, the exponential punishes large dies far harder. Sweep $D$ from 0.0
 ---
 
 ## 13. Tradeoffs and limits
+<!-- bite: c40059da-69fa-4096-8c52-bad7ce854c45 -->
 
 - **This is a simplified flow.** A real process has 60–75 mask layers, with wells, multiple threshold implants, strain engineering, silicide, and many steps omitted here.
 - **The Poisson yield model is optimistic.** Real defects cluster rather than distributing uniformly, so refined models (Murphy, negative binomial) are used commercially. The qualitative conclusion — cost grows faster than area — holds under all of them.
@@ -502,6 +520,7 @@ As $D$ grows, the exponential punishes large dies far harder. Sweep $D$ from 0.0
 ---
 
 ## Before moving on
+<!-- bite: 6efb466c-eb3b-4fc7-b33a-7b1d3bc267c2 -->
 
 **This is the end of Part IV.** You are ready for Part V when you can, closed-book:
 
@@ -518,6 +537,7 @@ As $D$ grows, the exponential punishes large dies far harder. Sweep $D$ from 0.0
 ---
 
 ## Related
+<!-- bite: dd2e4f30-494a-4fe2-bb00-0b7a66f9a3cd -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/02-semiconductors/02-silicon-and-crystal|Module 7]] — where the wafer came from

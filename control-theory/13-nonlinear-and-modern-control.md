@@ -1,8 +1,13 @@
+---
+id: dfe59854-4dfd-43ec-a2de-beeed1978784
+---
+
 # Nonlinear and Modern Control
 
 **[Advanced]** — What happens when linearisation isn't enough, the tools for handling it, and where the field is going.
 
 ## Why linear methods fail
+<!-- bite: b8974bce-52f1-4fa1-8f56-400b9763dc70 -->
 
 Everything so far assumed linearity. Real systems aren't, and the failures come in two flavours.
 
@@ -29,6 +34,7 @@ Everything so far assumed linearity. Real systems aren't, and the failures come 
 > **The last one breaks the mental model most.** For a linear system, doubling the input doubles the output — superposition. For a nonlinear one, a system stable for small disturbances can be unstable for large ones. **Stability becomes a local property with a region of attraction, not a global fact.**
 
 ## Lyapunov stability
+<!-- bite: 2858065f-2d07-4dc8-947a-246bd52dff9f -->
 
 The main analytical tool, and it works without solving anything.
 
@@ -51,6 +57,7 @@ $$\implies \text{asymptotically stable}$$
 **LaSalle's invariance principle** relaxes the requirement to $\dot{V} \leq 0$ plus an argument that the system can't stay where $\dot{V} = 0$. Necessary for most mechanical systems, where damping doesn't act in every direction.
 
 ## Describing functions
+<!-- bite: d61e538c-bae1-4722-b62c-a48750fd2d55 -->
 
 An engineer's approximation for **predicting limit cycles**, and genuinely useful.
 
@@ -65,6 +72,7 @@ $$L(j\omega) = -\frac{1}{N(A)}$$
 **It's an approximation** — it assumes the plant filters out harmonics well, which requires reasonable lowpass rolloff. But it predicts the amplitude and frequency of oscillation caused by saturation or backlash, which is exactly the practical question when a loop is limit-cycling and you need to know why. → [[control-theory/07-nyquist-and-robustness|Nyquist]]
 
 ## Practical nonlinear methods
+<!-- bite: ff37da1d-3e42-4a17-a6fb-46896579c33c -->
 
 The ones you'd actually reach for, roughly in order of how often.
 
@@ -102,6 +110,7 @@ $$u = -k\,\text{sign}(s)$$
 *Caveats worth taking seriously:* adaptive control needs **persistent excitation** to keep the estimates honest, it can drift badly without it, and stability proofs are delicate. **Adaptive systems have caused real accidents** — the X-15 crash in 1967 involved an adaptive controller — and the field's reputation for fragility is earned. Use it where parameters genuinely change a lot and you cannot schedule.
 
 ## Where the field is going
+<!-- bite: 2bd08de8-c1c9-4de7-8670-c9a314a8576a -->
 
 Honest orientation on the modern landscape.
 
@@ -120,6 +129,7 @@ Honest orientation on the modern landscape.
 **Data-driven control** — behavioural systems theory and Willems' fundamental lemma: **design a controller directly from measured input–output data, with guarantees, without ever identifying a model.** An active and genuinely novel area.
 
 ## What to take away
+<!-- bite: 6a3f8f3c-d421-48b1-b2ac-e4651693cf9b -->
 
 **Classical control is not obsolete.** Most working loops are PID, and most of the value in this track is in notes 03–07.
 
@@ -134,6 +144,7 @@ Honest orientation on the modern landscape.
 ---
 
 ## Related
+<!-- bite: 2432212e-4328-45a2-bb27-b61ff0bcfe9f -->
 - [[control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — MPC, the modern default
 - [[control-theory/02-modelling-and-transfer-functions|Modelling]] — linearisation and its limits
 - [[robotics/index|Robotics]] — where most of this gets applied

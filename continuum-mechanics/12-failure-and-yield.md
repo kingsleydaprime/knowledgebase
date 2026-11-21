@@ -1,8 +1,13 @@
+---
+id: 282d695c-d7ae-4005-85ad-71a0ff0cf539
+---
+
 # Failure and Yield
 
 **[Intermediate → Advanced]** — Turning a six-component stress tensor into one number and a verdict. The criteria, what each assumes, and why most real failures are fatigue.
 
 ## The problem
+<!-- bite: a5d36560-7c09-4e7f-86ae-e7d6db359ed3 -->
 
 You have a stress state — six independent components. Material data comes from a **uniaxial** tensile test — one number.
 
@@ -13,6 +18,7 @@ $$f(\boldsymbol\sigma) \geq \sigma_{\text{allowable}} \quad\Longrightarrow\quad 
 Different criteria embody different assumptions about *how* the material fails, and choosing the wrong one gives a confidently wrong answer.
 
 ## Ductile vs brittle
+<!-- bite: 577f29e0-392d-4d49-98d1-44047f2c937e -->
 
 The distinction that determines which criterion applies.
 
@@ -27,6 +33,7 @@ The distinction that determines which criterion applies.
 **The fracture surface tells you the mechanism.** Twist a piece of chalk (brittle) and it breaks along a 45° helix — following the principal *tension*. Twist mild steel and it fails on a transverse plane — following the maximum *shear*. Same loading, different criterion, visibly different result. → [[continuum-mechanics/05-stress|Stress]]
 
 ## Von Mises — for ductile materials
+<!-- bite: 80430c6e-79e1-47cf-9195-4e6b379397c3 -->
 
 The standard, and the one you'll use most:
 
@@ -47,6 +54,7 @@ In principal stress space, the von Mises surface is a **cylinder** whose axis is
 > **Von Mises stress is what FE post-processors plot by default**, and it's usually the right thing to look at for metals. But it is a **scalar with no sign** — it cannot distinguish tension from compression. For a material with different tensile and compressive strengths (concrete, cast iron, most polymers) it is simply the wrong criterion.
 
 ## Tresca — maximum shear stress
+<!-- bite: 8d80fe9b-b43a-4bbf-bb2a-c9c288b3647b -->
 
 $$\tau_{max} = \frac{\sigma_1 - \sigma_3}{2} \geq \frac{\sigma_y}{2}$$
 
@@ -57,6 +65,7 @@ In principal space it's a **hexagonal prism** inscribed inside the von Mises cyl
 **Used in pressure-vessel codes** (ASME) precisely because it's conservative and easy to hand-check. Experimentally, von Mises fits metal data better; Tresca errs safe. The corners of the hexagon make it awkward numerically, which is why FE plasticity uses von Mises.
 
 ## Maximum principal stress (Rankine) — for brittle materials
+<!-- bite: 65520ba3-3645-45d8-a813-6b51cb2192ac -->
 
 $$\sigma_1 \geq \sigma_{ut}$$
 
@@ -73,6 +82,7 @@ with $c$ the cohesion and $\phi$ the friction angle. **The standard criterion in
 **Drucker–Prager** is the smooth version, used in FE because it has no corners.
 
 ## Choosing
+<!-- bite: 8798671a-ac7c-49be-b55b-ea2127d5a949 -->
 
 | Material | Criterion |
 |---|---|
@@ -86,6 +96,7 @@ with $c$ the cohesion and $\phi$ the friction angle. **The standard criterion in
 That last row matters more than the rest.
 
 ## Fatigue
+<!-- bite: 175d8406-0a41-4b74-9410-d3c75578dca0 -->
 
 > **Most real structural failures are fatigue.** A part that survives its static load indefinitely can fail after millions of cycles at a fraction of that load.
 
@@ -110,6 +121,7 @@ Cracks initiate at a stress concentration, grow a little each cycle, and eventua
 Historical note worth carrying: the **de Havilland Comet** crashes of 1954 were fatigue cracks starting at square window corners. The fix — rounded windows — is why every aircraft window you've looked through has a radius.
 
 ## Fracture mechanics
+<!-- bite: ceff6d9b-9c9b-4072-87ed-83640629814d -->
 
 For a body that already contains a crack, stress-based criteria fail: [[continuum-mechanics/08-linear-elasticity|linear elasticity predicts infinite stress at a crack tip]].
 
@@ -126,6 +138,7 @@ where $a$ is crack length and $Y$ a geometry factor. Fracture when $K_I \geq K_{
 **Ductile-to-brittle transition:** many steels become brittle below a transition temperature. The **Liberty ship** fractures of WWII — hulls splitting in cold North Atlantic water — established this, and it's why toughness is specified at service temperature rather than at room temperature.
 
 ## Other failure modes
+<!-- bite: 7d1bb4b0-be5f-420b-bc71-1fcdec9e9cf9 -->
 
 Stress-based criteria miss several important ones entirely:
 
@@ -140,6 +153,7 @@ Stress-based criteria miss several important ones entirely:
 **Impact** — high strain rate changes material behaviour; many materials embrittle. A static toughness value can be badly optimistic.
 
 ## Safety factors
+<!-- bite: 1e19428a-a40f-4c65-a968-50af986b8cb1 -->
 
 $$n = \frac{\text{strength}}{\text{applied stress}}$$
 
@@ -152,6 +166,7 @@ Which is why **a large safety factor does not compensate for the wrong criterion
 **Limit-state design** (Eurocode, LRFD) is the modern replacement: separate partial factors on loads and on resistances, calibrated so the *probability* of failure meets a target. More honest than a single lumped number, because it distinguishes "we don't know the load" from "we don't know the material".
 
 ## The practical checklist
+<!-- bite: c071b408-39a7-4f2b-b0f4-2dd46348a02b -->
 
 1. **Ductile or brittle?** Choose von Mises or max principal accordingly
 2. **Static or cyclic?** If cyclic, fatigue governs and static criteria are irrelevant
@@ -167,6 +182,7 @@ That last one is the most commonly ignored, and the most consequential.
 ---
 
 ## Related
+<!-- bite: 414ef1ca-e466-4264-bcd6-34dcedbf3c54 -->
 - [[continuum-mechanics/05-stress|Stress]] — principal stresses and the deviator
 - [[continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — stress concentration and the crack-tip singularity
 - [[continuum-mechanics/09-beams-and-structures|Beams and Structures]] — buckling

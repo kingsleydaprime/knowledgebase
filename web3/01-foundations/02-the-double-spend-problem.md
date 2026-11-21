@@ -1,8 +1,13 @@
+---
+id: a124bfde-85e2-4b30-bdce-99b0e85028f5
+---
+
 # The Double-Spend Problem
 
 **[Beginner]** — the specific problem blockchains were invented to solve, why it's hard, and why every prior attempt failed. Assumes [[01-what-web3-actually-is|note 01]].
 
 ## The kid version first
+<!-- bite: cfa27641-3856-4bca-850a-be336afd022a -->
 
 If I send you a photo, I still have the photo. **Copying digital things is free — that's the whole point of digital.**
 
@@ -11,6 +16,7 @@ That's a disaster for money. If I send you a digital coin and I still have it, I
 Banks solve this by **keeping the only list that counts.** You can't spend twice because the bank checks. The problem blockchains solve is: **how do you stop double-spending when there's no bank?**
 
 ## Why it's genuinely hard
+<!-- bite: 7abe02c0-407e-4965-aef9-4186e890967b -->
 
 The naive fix is obvious — everyone keeps a copy of the ledger, and rejects a second spend of the same coin. It fails immediately:
 
@@ -21,6 +27,7 @@ I broadcast two conflicting transactions at the same instant — coin X to Alice
 Detecting a double-spend is trivial. **Agreeing on which one came first, globally, with no clock anyone trusts and no authority to ask — that's the hard part.** This is the same problem [[architecture/04-distributed-systems/07-consensus-and-paxos|distributed consensus]] has always been, with one brutal extra constraint.
 
 ## The extra constraint: open membership
+<!-- bite: d07af1be-ae8f-4386-b708-fb014525ff88 -->
 
 Classical consensus (Paxos, Raft) assumes **you know who the participants are.** Five nodes, majority of five. That assumption does a lot of work — it lets you count votes.
 
@@ -31,6 +38,7 @@ A public blockchain can't have it. Anyone can join. And the moment votes are cou
 Everything expensive about blockchains — proof-of-work burning electricity, proof-of-stake locking up capital — exists to solve this one thing. **You cannot count identities, so you count something that costs money.**
 
 ## What was tried before, and why it didn't work
+<!-- bite: f655812c-7466-4bbf-8de1-2b7c15ac98f8 -->
 
 Digital cash is much older than Bitcoin. The failures are instructive:
 
@@ -44,6 +52,7 @@ Digital cash is much older than Bitcoin. The failures are instructive:
 **Every pre-2008 design either kept a trusted issuer or hand-waved consensus.** The pieces — hash chains, Merkle trees, digital signatures, proof-of-work — all existed by 1998. None of them was new in 2008.
 
 ## What Bitcoin actually contributed
+<!-- bite: af26af09-407f-4528-a788-301fad60bb2d -->
 
 Satoshi's 2008 paper assembled known parts into one mechanism that closed the gap:
 
@@ -54,6 +63,7 @@ Satoshi's 2008 paper assembled known parts into one mechanism that closed the ga
 That third point is the quiet genius. **Consensus becomes a rule each node applies alone, rather than a protocol nodes run together.** The order of transactions is decided by whoever wins the work lottery, and the network agrees on that ordering because the tiebreak rule is deterministic and self-evident from data everyone has.
 
 ## The cost of the answer
+<!-- bite: 22b6273e-6f50-4139-ba60-63df68b93efb -->
 
 The solution is real, and it is not free:
 
@@ -62,10 +72,12 @@ The solution is real, and it is not free:
 - **A 51% assumption.** Safety holds while no single party controls a majority of the work (or stake). It's an economic assumption, not a mathematical guarantee → [[web3/01-foundations/05-consensus|consensus]]
 
 ## Key insight
+<!-- bite: 2faa0904-e785-42bc-8464-d383b0cd9328 -->
 
 **Blockchains are not a cryptography breakthrough — every primitive they use predates them by a decade.** The contribution is an *economic* one: making the right to write to a shared log costly enough that lying about history is more expensive than the profit from lying. Security here is a budget, not a proof.
 
 ## Related
+<!-- bite: 9776e3a9-449b-455b-95d4-7380fa76cdb0 -->
 - [[web3/01-foundations/05-consensus|consensus]] — how proof-of-work and proof-of-stake actually do this
 - [[web3/01-foundations/03-cryptographic-primitives|cryptographic primitives]] — the parts that already existed
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus and Paxos]] — the classical version, with known membership

@@ -1,8 +1,13 @@
+---
+id: e5ed515b-2caf-4c2d-b82f-8c2080cffe36
+---
+
 # The Browser and the DOM
 
 > **[Beginner → Intermediate]** · What happens between a URL and pixels — and why that pipeline explains most performance advice.
 
 ## From URL to pixels
+<!-- bite: eb1f7203-777c-427b-858c-d7b4c9d48c2c -->
 
 ```
 DNS → TCP → TLS → HTTP request → HTML arrives
@@ -19,6 +24,7 @@ DNS → TCP → TLS → HTTP request → HTML arrives
 **Each later step depends on the one before**, which is why the order of your `<head>` matters and why "just move the script tag" is real advice rather than folklore.
 
 ## The critical rendering path
+<!-- bite: 9f455c12-98d7-4c59-b8b7-ff9816d0ac7c -->
 
 **Two blocking behaviours account for most slow first paints:**
 
@@ -35,6 +41,7 @@ DNS → TCP → TLS → HTTP request → HTML arrives
 **Use `defer` for anything that touches the DOM. `async` only for independent things** like analytics — because `async` scripts can run before the DOM they need exists.
 
 ## Reflow and repaint
+<!-- bite: 807ed5fa-5e98-4d1a-9b79-e699337c807b -->
 
 **Reflow (layout)** — recompute geometry. Expensive, and can cascade to the whole document.
 **Repaint** — redraw pixels without changing geometry. Cheaper.
@@ -60,6 +67,7 @@ for (const el of items) {
 Each read after a write forces a synchronous reflow. **Batch reads, then batch writes** — or use `requestAnimationFrame`. The pattern has a name, *read-write separation*, and it turns O(n) reflows into one.
 
 ## The DOM is a tree, and it's slow to touch
+<!-- bite: 59ceab18-2969-4984-be35-68be8f621e2b -->
 
 The DOM is a live tree of nodes. Mutating it triggers the pipeline above.
 
@@ -70,6 +78,7 @@ The DOM is a live tree of nodes. Mutating it triggers the pipeline above.
 **And it's why `key` matters in every framework's list rendering** — it tells the reconciler which DOM node corresponds to which item, and getting it wrong moves state to the wrong row.
 
 ## Events
+<!-- bite: c5e81b0d-2d69-4ea1-9746-09ab3a4becec -->
 
 **Events propagate in three phases:** capture (root → target), target, then **bubble** (target → root).
 
@@ -92,6 +101,7 @@ list.addEventListener("click", (e) => {
 **`preventDefault()` stops the browser's default action; `stopPropagation()` stops the event travelling.** They're different, and reaching for the second is usually a sign of a design problem.
 
 ## The APIs worth knowing
+<!-- bite: 7a3453fb-540f-4831-9acd-e15bb1a26218 -->
 
 | API | For |
 |---|---|
@@ -109,6 +119,7 @@ list.addEventListener("click", (e) => {
 **The observers are the ones people miss.** A `scroll` listener firing hundreds of times a second, each doing `getBoundingClientRect()`, is a classic jank source. `IntersectionObserver` does the same job off the main thread.
 
 ## Related
+<!-- bite: 4cc282ef-7e23-4282-be16-77e684191597 -->
 - [[frontend/06-rendering/index|rendering]] — CSR, SSR, hydration
 - [[frontend/07-practices/index|practices]] — Core Web Vitals
 - [[networking/11-http-evolution/index|HTTP]] — the first four steps

@@ -1,8 +1,13 @@
+---
+id: 3eee042c-b8f4-44f6-9a66-c597b9155b2b
+---
+
 # Sensors and Perception
 
 **[Beginner]** — What a robot can actually measure, why every sensor lies in its own particular way, and why one sensor is never trusted alone.
 
 ## The two questions
+<!-- bite: efcabc1d-91fc-4f1d-bb87-aad280c3d842 -->
 
 Sensors answer one of two things, and the split matters because they fail differently:
 
@@ -15,6 +20,7 @@ Sensors answer one of two things, and the split matters because they fail differ
 > **Fusing those two characteristics is what [[robotics/11-state-estimation-and-filtering|state estimation]] is for.** It's not a coincidence that the maths works out — the two error profiles are complementary by nature.
 
 ## Encoders
+<!-- bite: 8bed1acd-59c9-4c85-abe6-cd1b6566fad9 -->
 
 The most important sensor on most robots, and the one you'll use first.
 
@@ -39,6 +45,7 @@ B  ─┐  ┌──┐  ┌──┐  ┌───
 - **Encoder on the motor vs on the joint.** With a gearbox, motor-side gives resolution and joint-side gives truth. **Backlash lives between them** and the difference is real.
 
 ## IMUs
+<!-- bite: 120ff16e-2f34-4c4b-b913-5e9e12d05672 -->
 
 Accelerometer + gyroscope, usually + magnetometer. On every drone, every balancing robot, every phone.
 
@@ -67,6 +74,7 @@ with $\alpha \approx 0.98$. **Five lines of code, and on a balancing robot it wo
 **Yaw is the hard one.** Roll and pitch have gravity as an absolute reference. **Yaw has nothing** except the magnetometer or an external fix, so indoors, where the magnetometer is unreliable, yaw drifts and there's no clean fix. This is a real, common, and frequently underestimated problem.
 
 ## Range and depth
+<!-- bite: 20edfb64-d07c-4aad-aef5-fe564f22b453 -->
 
 **Ultrasonic** — cheap, a few metres, wide beam. Fails on soft or angled surfaces (the pulse reflects away rather than back). Fine for "is there a wall", useless for mapping.
 
@@ -83,6 +91,7 @@ with $\alpha \approx 0.98$. **Five lines of code, and on a balancing robot it wo
 **Radar** — works through fog, rain and dust where lidar doesn't, and measures velocity directly via Doppler. Low angular resolution. Automotive and outdoor.
 
 ## Cameras
+<!-- bite: 0a1da5bb-eb8b-47d8-a87d-a254e6a1f306 -->
 
 The richest sensor and the hardest to use.
 
@@ -104,6 +113,7 @@ The richest sensor and the hardest to use.
 - **One camera gives no scale.** Monocular vision recovers structure only up to an unknown scale factor. Stereo, depth, or a known-size object resolves it
 
 ## Force and torque
+<!-- bite: c1bf35b1-e038-4319-b718-46ab52f3b29f -->
 
 Underrated, and what separates a robot that can only follow a trajectory from one that can interact.
 
@@ -118,6 +128,7 @@ Underrated, and what separates a robot that can only follow a trajectory from on
 > **Force sensing changes what's possible.** Position control alone requires knowing exactly where the world is. **Force control lets you say "push until you feel 5 N" and stop caring**, which is how a human inserts a plug without measuring anything. → [[robotics/09-robot-control|Robot Control]]
 
 ## GPS and absolute positioning
+<!-- bite: b2a65097-f6cb-4039-9825-b8be18e703f2 -->
 
 **GPS/GNSS** — a few metres, outdoors only. **RTK-GNSS** with a base station gets centimetres, and it's what agricultural and survey robots use.
 
@@ -126,6 +137,7 @@ Underrated, and what separates a robot that can only follow a trajectory from on
 **Indoor alternatives:** UWB beacons (10 cm, needs infrastructure), motion capture (sub-millimetre, needs a room full of cameras — the standard for drone research), and visual/lidar localisation against a map, which needs no infrastructure and is what most real robots use.
 
 ## The rules
+<!-- bite: 5392b2c3-5a78-4145-95cf-2d77a671c098 -->
 
 What experience teaches, compressed:
 
@@ -146,6 +158,7 @@ What experience teaches, compressed:
 ---
 
 ## Related
+<!-- bite: a9c215a2-04f9-4ecf-9879-f46d566108b2 -->
 - [[robotics/11-state-estimation-and-filtering|State Estimation and Filtering]] — turning these into a usable belief
 - [[robotics/03-actuators-and-motion|Actuators and Motion]] — the other half of the hardware
 - [[hardware/05-communication-protocols|Communication Protocols]] — I2C/SPI/UART, how sensors physically talk

@@ -1,3 +1,7 @@
+---
+id: a2d1329b-c144-4261-aeb3-774a9f81fa24
+---
+
 # Timelines
 
 A **timeline** is a container that sequences multiple tweens against a single, controllable playhead. This is GSAP's biggest advantage over CSS animations: instead of manually calculating `animation-delay` on every element to make them line up, you build a timeline and add tweens to it in order — GSAP handles the offsets.
@@ -13,6 +17,7 @@ tl.to(".title", { opacity: 1, y: 0, duration: 0.5 })
 By default, each tween added to a timeline starts **immediately after the previous one ends** — no manual delay math required. If you reorder the array of elements to animate, the sequence just works; nothing needs recalculating.
 
 ## The position parameter
+<!-- bite: c3c51e8f-1da2-4d24-a5a5-d1d140a30d63 -->
 
 The real power is the optional third argument to `.to()`/`.from()`, which controls exactly when a tween starts relative to the timeline:
 
@@ -34,6 +39,7 @@ tl.to(".a", { x: 100 })
 | `"<0.2"` | 0.2s after the previous tween's start |
 
 ## Labels
+<!-- bite: 9cfc5512-c7a9-410a-b756-5a6909187a91 -->
 
 Labels are named markers on the timeline — useful for jumping to a section, or anchoring several tweens to the same point without hardcoding a time:
 
@@ -44,6 +50,7 @@ tl.addLabel("introDone")
 ```
 
 ## Controlling playback
+<!-- bite: 67fae190-a2d0-4dfa-a455-181bf780fe9c -->
 
 Because a timeline is a single object with a playhead, you get transport controls for the *entire sequence* at once:
 
@@ -59,6 +66,7 @@ tl.timeScale(2);    // play at 2x speed
 This is the pattern behind scroll-driven and drag-driven animation — you're not writing new tweens as the user scrolls/drags, you're just calling `tl.progress()` or `tl.seek()` against a percentage derived from scroll position. [[04-scrolltrigger|ScrollTrigger]] is built entirely on this idea.
 
 ## Nesting timelines
+<!-- bite: 75c0019c-3a70-441e-9798-420d9dfaa422 -->
 
 Timelines can contain other timelines, which is how complex multi-stage sequences (intro → main content → outro) stay organized instead of becoming one giant flat list of tweens:
 
@@ -71,6 +79,7 @@ master.add(intro).add(main, "+=0.5");
 ```
 
 ## Related
+<!-- bite: 31f263ff-b6e2-4214-881d-36acde517905 -->
 - [[02-tweens-and-easing|tweens and easing]] — the vars used inside each `.to()` call
 - [[04-scrolltrigger|ScrollTrigger]] — drives a timeline's `progress()` from scroll position
 - [[06-react-integration|react integration]] — where to create timelines in a component lifecycle

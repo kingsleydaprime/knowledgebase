@@ -1,8 +1,13 @@
+---
+id: ca0f1eff-fc32-4325-8b57-2b44c713563e
+---
+
 # CI/CD Tools
 
 **Partly grounded** — the GitHub Actions walkthrough dissects this vault's *actual* deploy pipeline (`.github/workflows/deploy.yml`). The other tools are `[reference]`. Notes [[devops/05-ci-cd/03-github-actions-fundamentals|03]]–[[devops/05-ci-cd/12-troubleshooting-workflows|12]] take Actions apart properly; this one is the orientation.
 
 ## GitHub Actions — dissected from a real pipeline
+<!-- bite: 33d4db8e-adf8-4731-b45d-47db1742da28 -->
 
 This knowledgebase publishes itself to GitHub Pages via a GitHub Actions workflow. It's a genuine, working CI/CD pipeline, and every core concept from [[devops/05-ci-cd/01-ci-cd-concepts|the concepts note]] shows up in it. The real file, annotated:
 
@@ -61,6 +66,7 @@ What this concretely demonstrates:
 This is Continuous *Deployment* in the strict sense: a push to `main` goes straight to the live site with no human gate — appropriate here because the "test" is a successful static build and the blast radius is a personal site.
 
 ## The tool landscape
+<!-- bite: 5766cbee-04a5-4230-8e94-89fbd4bbd62b -->
 
 All CI/CD tools express the same model (triggers → jobs → steps → artifacts → deploy); they differ in where they run and how they integrate.
 
@@ -78,6 +84,7 @@ The two axes that actually drive the choice: **hosted vs self-hosted** (managed 
 For the *delivery* half specifically on Kubernetes, note that GitOps tools ([[devops/11-delivery-and-advanced/01-gitops|ArgoCD/FluxCD]]) increasingly own the "deploy" stage, with the CI tool responsible only up to building and pushing the image.
 
 ## Related
+<!-- bite: d0715934-206f-4c94-9f8f-862e03eee79a -->
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — the model this file makes concrete
 - [[devops/05-ci-cd/03-github-actions-fundamentals|GitHub Actions Fundamentals]] — the same tool, taken apart in depth from here on
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the k8s-native delivery model

@@ -1,4 +1,9 @@
+---
+id: b21d4431-45bd-460f-87d2-b0a083c0139d
+---
+
 ## Process Management
+<!-- bite: c23fd343-3180-4d08-9765-4ef46837fd08 -->
 
 Every program running on your system is a **process**. Your browser, your terminal, your music player — all processes.
 
@@ -143,6 +148,7 @@ Ready to learn how to control processes — killing, pausing, backgrounding them
 
 
 ## Controlling Processes
+<!-- bite: 5e771542-e490-4a39-952a-b60d33527fbd -->
 
 ### Killing a process
 
@@ -276,6 +282,7 @@ Good eye on htop. We'll come back to it.
 ---
 
 ## Processes vs Threads vs Jobs vs Tasks
+<!-- bite: 0923961e-0686-40d9-a5b5-eed90de38dd3 -->
 
 ### Process
 A running program. Has its own memory space, PID, resources. Completely isolated from other processes.
@@ -314,6 +321,7 @@ Your machine has 16GB RAM and you're already at 7.7GB — half gone just from id
 ---
 
 ## Reading htop
+<!-- bite: 6eccd272-d3c5-44d1-83b1-f7aaf2617d98 -->
 
 ### Top section — System overview
 

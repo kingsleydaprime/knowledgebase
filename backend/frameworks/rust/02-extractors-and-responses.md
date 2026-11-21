@@ -1,8 +1,13 @@
+---
+id: 89abf20e-3168-41ca-8163-a34f7b00c5c8
+---
+
 # Extractors and Responses
 
 **[Intermediate]** — Request parsing expressed entirely in the type system. This is what Rust web frameworks do that others structurally can't.
 
 ## Extractors
+<!-- bite: f5023435-9688-43fd-8b31-240fc5490fb9 -->
 
 An extractor is a type that knows how to build itself from a request. Put it in a handler's parameter list and Axum runs it before your code.
 
@@ -60,6 +65,7 @@ async fn handler(
 ```
 
 ## Custom extractors
+<!-- bite: d0aa0eaf-a22e-4770-8045-3b4ba18221b9 -->
 
 Where this pays off. Authentication becomes a **type**:
 
@@ -105,6 +111,7 @@ async fn delete_everything(_: AdminUser) { }   // unreachable without admin
 **This is the strongest argument for Rust on the web.** Authorisation bugs are a top-3 cause of real breaches, and they're usually "this endpoint forgot the check". Here the check is a function parameter, and forgetting it is a compile error.
 
 ## Responses
+<!-- bite: 86375e7f-c5cb-4abd-885a-d9bdd1513b5d -->
 
 The mirror image: anything implementing `IntoResponse` can be returned.
 
@@ -131,6 +138,7 @@ async fn handler() -> Response {
 ```
 
 ## Errors as responses
+<!-- bite: c67cf95b-2574-49a9-abac-4b5245a48110 -->
 
 The pattern that ties it together — implement `IntoResponse` on your error type once, then every handler can use `?`:
 
@@ -173,6 +181,7 @@ One place maps errors to statuses, and `?` handles propagation with automatic co
 The two rules hold as everywhere: **log internal detail, return generic**.
 
 ## State
+<!-- bite: 497fca8e-a696-4a48-b77e-727a0068d9d6 -->
 
 ```rust
 #[derive(Clone)]
@@ -208,6 +217,7 @@ That keeps handlers depending on the narrowest thing they need, which makes them
 **`State` over `Extension`.** `Extension<T>` is type-erased and fails at *runtime* if the layer wasn't added; `State` is checked at compile time. Extension is for things middleware inserts per request (like `AuthUser`), not for application state.
 
 ## Validation
+<!-- bite: b2b85db4-11fd-4cb7-af52-fcf495e6c156 -->
 
 Extractors give you type validation; business validation needs a crate:
 
@@ -235,6 +245,7 @@ async fn create(ValidatedJson(payload): ValidatedJson<CreateUser>) -> ... { }
 ---
 
 ## Related
+<!-- bite: 98f8cf96-c9cb-4b48-b83d-73dd408e04b2 -->
 - [[backend/frameworks/rust/01-axum-and-the-tower-stack|Axum and the Tower Stack]] — where extractors run
 - [[backend/frameworks/rust/03-state-and-shared-data|State and Shared Data]] — `Arc`, and what happens under concurrency
 - [[languages/03-rust/08-error-handling-in-practice|Rust: Error Handling]] — `thiserror` and `anyhow`

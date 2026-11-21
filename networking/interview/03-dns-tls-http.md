@@ -1,3 +1,7 @@
+---
+id: c63959ea-0a10-4e86-8ec7-297a7b4bf325
+---
+
 # Networking Interview — DNS, TLS & HTTP
 
 From [[networking/10-dns-in-depth/index|10-dns-in-depth]], [[networking/11-http-evolution/index|11-http-evolution]], [[networking/12-tls-and-transport-security/index|12-tls-and-transport-security]], [[networking/13-quic-and-modern-transport|13-quic-and-modern-transport]].

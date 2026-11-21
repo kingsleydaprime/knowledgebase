@@ -1,4 +1,9 @@
+---
+id: f46f7120-b7f5-48d8-88ab-ad8852dad8dd
+---
+
 ## Docker Networking
+<!-- bite: 34ec2c2c-b43d-41df-b626-eb34f1921681 -->
 
 By default containers are isolated — they can't talk to each other or the outside world unless you explicitly configure it.
 

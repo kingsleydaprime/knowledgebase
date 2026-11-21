@@ -7,6 +7,7 @@ id: 92ba88db-d632-4600-a184-c042eb60bf54
 > **[Beginner]** · Covers shaping what a model sees so its predictions land where you want: specific instructions, examples, delimited user input, reasoning, and composing several prompts. Also covers treating prompts as code: versioned files, measured against a labelled set. The worked example compares zero-shot and few-shot prompts on twelve labelled reviews with a local model. The numbers were measured on 2026-10-02.
 
 ## Before you start
+<!-- bite: 8cd96258-70a1-4165-9908-2d7875eb07fa -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–6. Before running `live.ts`, write down how many of the 12 reviews you expect each prompt to get right, and which ones you expect both to miss.
 
 ## The kid version
+<!-- bite: 7c5e1842-6369-4d9b-a258-10b223c176ee -->
 
 If you ask a friend to "draw an animal", you might get anything. If you say "draw a cat, sitting, in pencil, small enough to fit on this sticky note", you get much closer to what you wanted. And if you show them two drawings you liked first, they copy the style without you having to explain it. That's all prompting is: telling the model clearly what you want, and showing it examples. Then, to know which way of asking works best, you don't guess. You ask both ways lots of times and count which one gets it right more often.
 
 **Where the analogy stops working.** A friend would ask you a question if your request was unclear. A model never does. It fills every gap with its most likely guess, and it can be fooled by instructions hidden in the very text you asked it to read.
 
 ## 1. Why this exists
+<!-- bite: 61618b35-be43-415d-8b32-2fa24cce5d1b -->
 
 A team's support bot classifies reviews. Someone rewords the prompt so it "reads better", and it ships. A week later, mixed reviews ("great product, slow delivery") are all being tagged positive, and nobody can say when it started or which change caused it — the prompt was a string in the code, edited in passing, and never measured. **Prompts behave like code: they change behaviour, they regress, and they need versioning and tests.** And because the model fills every gap with a guess, the precise wording decides which guess it makes.
 
 ## Terms used in this lesson
+<!-- bite: f423a6dc-aba8-46dc-a54a-49ac826ed46e -->
 
 1. **Prompt**: This is everything the model sees before it generates: instructions, context, examples and the question.
 2. **System prompt**: This is the standing instructions, sent as the system message, that stay the same across requests.
@@ -49,12 +53,14 @@ A team's support bot classifies reviews. Someone rewords the prompt so it "reads
 12. **Accuracy**: This is the fraction of cases a prompt gets right.
 
 ## 2. Why prompting works
+<!-- bite: a8d3054c-7262-4bc2-a1d4-8377661bb5eb -->
 
 The model predicts the next token from everything in context. A vague prompt leaves many likely continuations; a specific one leaves few. "Write about dogs" and "write a 200-word product description for a durable dog lead, playful tone, for an Instagram caption" go through the same mechanism. The second just leaves far less room to guess wrong. Prompting isn't magic words. It's giving the model more of the information it's conditioning on.
 
 **System versus user.** Put stable instructions in the system prompt ("you are a terse code reviewer", "reply in JSON"); put the task in the user message. **Role prompting** ("you are an experienced epidemiologist") is a light lever that shifts vocabulary and framing; it doesn't add knowledge the model lacks.
 
 ## 3. The core techniques
+<!-- bite: 007d1a73-5585-4734-8fb2-7f912a7c10a3 -->
 
 **Be specific about what you want back.** Models guess when something is ambiguous. "Reply with exactly one word: positive, negative or mixed" removes a whole class of reasonable-but-wrong answers. Define anything fuzzy: in the worked example, "mixed means a clear good point and a clear bad point". For guaranteed shapes, use [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]], not wording.
 
@@ -75,6 +81,7 @@ Two rules. Format the examples **exactly** like the real question, because consi
 **Self-consistency** samples several reasoned answers and takes the majority; it trades cost for reliability on hard problems. **Step-back prompting** asks for the general principle first, then its application.
 
 ## 4. Beyond one prompt
+<!-- bite: 7069d645-f0f0-4418-a47e-e37d645932ed -->
 
 Past a point, the gain isn't a cleverer prompt but how you combine several:
 
@@ -86,6 +93,7 @@ Past a point, the gain isn't a cleverer prompt but how you combine several:
 **Context engineering.** As systems grow, the harder problem is *what* goes in the window, and in what order: retrieved documents ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]]), tool results, history, examples. With a fixed context window, choosing the most relevant material, and summarising the rest, often matters more than clever wording.
 
 ## 5. Prompts are code — version them, measure them
+<!-- bite: fd3c06e5-ab96-4695-9a61-5e9e4992d09a -->
 
 - **Keep prompts in files under version control,** not as strings in the code. A prompt change is a deploy: you want to see the diff, review it and roll it back. This is week 2's Build task.
 - **Fill them in safely.** A missing template value should throw an error, not quietly send `undefined` to the model.
@@ -93,6 +101,7 @@ Past a point, the gain isn't a cleverer prompt but how you combine several:
 - **Optimise systematically, once you have a set.** Frameworks like **DSPy** treat instructions and examples as parameters, and search for the ones that score best on your metric. That only works once a labelled set and a scorer exist.
 
 ## 6. Failure → the actual fix
+<!-- bite: 7aa362ee-a644-426b-b3c3-d8796afecb6f -->
 
 - **Vague or wrongly shaped output** → be specific about format, length and audience; add an example.
 - **Ignores part of a long instruction** → split it into steps or a chain. Prompts with fifteen caveats reliably drop several.
@@ -101,6 +110,7 @@ Past a point, the gain isn't a cleverer prompt but how you combine several:
 - **Can't do it however you ask** → it's a capability gap. Use a bigger or different model → [[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]].
 
 ## Worked example — zero-shot vs few-shot, measured
+<!-- bite: 24874f2c-a830-4c42-9124-38649dbc17d9 -->
 
 The two prompts are files in `labs/shared/prompts/`, shared by every language's lab in the [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages|companion]]. They're identical except that the few-shot one has an `{{examples}}` slot:
 
@@ -315,6 +325,7 @@ for (const name of ["classify-zero-shot", "classify-few-shot"]) {
 **Lab:** the code is in [`ai-ml/03-ai-engineer/05-prompt-engineering/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/05-prompt-engineering/labs/typescript), and the prompts in [`labs/shared/prompts/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/05-prompt-engineering/labs/shared/prompts). From the vault root, `python3 labs/run.py prompt-engineering/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama running, so run it yourself from the lab folder with `node live.ts`.
 
 ## Common pitfalls
+<!-- bite: a503b96c-57d4-425b-803e-2b8150bf88d2 -->
 
 1. **Prompts as strings in the code.** No diff, no review, no rollback, and nobody knows when behaviour changed.
 2. **Judging a prompt on a few tries.** Measure on a labelled set; read the failures.
@@ -325,6 +336,7 @@ for (const name of ["classify-zero-shot", "classify-few-shot"]) {
 7. **Fifteen rules in one paragraph.** Split into steps; check each.
 
 ## Check your understanding
+<!-- bite: f6f0a798-1c71-4fab-9ac1-45b89defe832 -->
 
 1. Why does a more specific prompt produce better output, in terms of next-token prediction?
 2. What two rules make few-shot examples work, and why does each matter?
@@ -346,6 +358,7 @@ for (const name of ["classify-zero-shot", "classify-few-shot"]) {
 </details>
 
 ## Practice — independent task
+<!-- bite: e430b4a7-2fd7-456f-9cee-a395edfee404 -->
 
 **Version and measure the flagship's prompt.** This is week 2's Build task.
 
@@ -357,6 +370,7 @@ for (const name of ["classify-zero-shot", "classify-few-shot"]) {
 **Done when:** both prompts are files in the repository, the scores are recorded, and you can name one failure that neither version fixed and say whether it's a wording, grounding or capability problem.
 
 ## Before moving on
+<!-- bite: 4dd33a65-1295-4446-af2e-7265d1afb36b -->
 
 You can turn a vague prompt into a specific one, explain the two few-shot rules, and choose between two prompts with a number.
 
@@ -365,6 +379,7 @@ You can turn a vague prompt into a specific one, explain the two few-shot rules,
 **Next.** [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — week 3 turns the labelled set into a real harness.
 
 ## Related
+<!-- bite: 1170873e-b602-483f-8a6c-e0ca6f6f9ab3 -->
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages|Prompt engineering in other languages]] — the same prompt files, rendered and scored in Python, Go, Java, Rust and C#
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — why better context works
 - [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — guaranteed shapes, beyond "please return JSON"

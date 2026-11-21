@@ -1,3 +1,7 @@
+---
+id: bd8c09dd-62fd-4800-8ea1-e516cd17d8cd
+---
+
 # Electricity
 
 **[Beginner]** — The foundation everything else stands on: voltage, current, resistance, and the components that shape them. If Ohm's law isn't reflexive yet, this is the note to read twice.
@@ -5,6 +9,7 @@
 Before you touch a microcontroller or antenna, you need to internalize three things: **voltage**, **current**, and **resistance**. Everything else is built on top of these.
 
 ## The Water Analogy (and Why It's Actually Useful)
+<!-- bite: db51a797-ef31-4e07-b0b0-45a5e3fcf1df -->
 
 Think of electricity flowing through a wire like water flowing through a pipe:
 
@@ -20,6 +25,7 @@ Think of electricity flowing through a wire like water flowing through a pipe:
 - **Resistance** is how much a component fights current. A resistor is literally a component designed to resist. Measured in Ohms (Ω).
 
 ## Ohm's Law — The One Formula You Must Know
+<!-- bite: 703a1d80-b3cc-4c3b-a315-d90a97320e96 -->
 
 ```
 V = I × R
@@ -39,6 +45,7 @@ R = 3V / 0.02A = 150Ω
 Use a 150Ω resistor. Miss this step and you burn the LED in about 2 seconds.
 
 ## Power
+<!-- bite: e8b289b0-cec9-4081-a156-beab1f0ef06d -->
 
 ```
 P = V × I
@@ -47,11 +54,13 @@ P = V × I
 Power tells you heat. If something dissipates more power than it's rated for, it gets hot and dies. A resistor rated for 0.25W (quarter watt) handling 0.5W will toast itself.
 
 ## AC vs DC
+<!-- bite: bf01a0c8-a392-4c13-a5d3-dcc8794bde5e -->
 
 - **DC (Direct Current)** — current flows in one direction. Batteries, USB, GPIO pins. Everything in embedded systems is DC.
 - **AC (Alternating Current)** — current reverses direction at a frequency (50Hz in Nigeria/EU, 60Hz in the US). Your wall socket is AC. Power supplies convert AC to DC for your devices.
 
 ## Voltage Regulators — Making One Voltage from Another
+<!-- bite: b77ced1a-d6d3-4fd2-bc28-da6b15807c0a -->
 
 Almost every real circuit needs multiple voltages. Your USB port gives you 5V, but the STM32 or ESP32 needs 3.3V, and a cellular module might need 3.8V. Voltage regulators solve this — they take a higher input voltage and output a stable, lower voltage regardless of how much current the load draws.
 
@@ -82,6 +91,7 @@ Rapidly switches a transistor on and off, then uses an inductor and capacitor to
 For the IoT Bridge: we use LDOs (TLV1117-33 and AP2112K-3.8) because the currents are manageable and we want clean, quiet power rails.
 
 ## Power OR'ing — Combining Two Power Sources Safely
+<!-- bite: 3b52864c-4816-4541-b227-807c5bb02559 -->
 
 When a device can be powered from two different sources (e.g., USB-C and PoE), you need a way to combine them so:
 - Whichever source is present powers the board
@@ -108,10 +118,12 @@ Source B (5.1V) ──► [LM66100 #2] ──┘
 - No glitch, no reverse current, no damage
 
 ## Ground
+<!-- bite: c4e0cf64-2713-463c-92d2-e2dec9be42d6 -->
 
 Ground (GND) is the reference point — the "zero" that all voltages are measured against. It's not a mystical sink, it's just a common reference. If two circuits don't share a common ground, they can't communicate reliably. This trips up beginners constantly.
 
 ## How Does Electricity Move So Fast?
+<!-- bite: c8bf1ae6-6522-4aef-a4b1-02b2a485dd22 -->
 
 Here's something that breaks most people's mental model: when we say electricity travels "at nearly the speed of light," we do NOT mean electrons are sprinting down the wire. Individual electrons in a copper wire actually crawl at roughly **3 inches per hour** — this is called **drift velocity**. Embarrassingly slow.
 
@@ -126,6 +138,7 @@ Copper wire works identically. The wire is already packed dense with free electr
 This is why signal integrity matters in high-speed circuits. At low frequencies, you barely notice. But once you're dealing with GHz-speed signals, the physical length of a wire becomes a significant fraction of the signal's wavelength — and things get complicated fast (reflections, impedance matching, transmission line effects).
 
 ## Transistors — The Switch That Changed Everything
+<!-- bite: 13366af8-784c-4f03-8992-8a73ac3b3acc -->
 
 Understanding transistors is understanding *why* modern electronics can do what they do. A transistor is a microscopic electronic switch — no moving parts, no mechanical contact, just a tiny voltage controlling whether current can flow through a pathway.
 
@@ -140,6 +153,7 @@ So here's the full picture: electricity provides a near-light-speed electromagne
 This is why clock speed isn't the only thing that matters for performance — pipeline depth, instruction-level parallelism, cache architecture, and branch prediction all affect how much actual work gets done per clock cycle. MHz/GHz is just the metronome. The orchestra is everything else.
 
 ## Capacitors — Storing and Releasing Energy
+<!-- bite: 3a5d8dae-8dab-4571-8234-db26adffdbe8 -->
 
 A **capacitor** stores electrical energy in an electric field between two conductive plates separated by an insulating layer (called a dielectric). Unlike a battery — which stores energy chemically and releases it slowly — a capacitor stores energy electrically and can release it almost instantaneously. That difference in speed is exactly what makes capacitors so useful in electronics.
 
@@ -155,6 +169,7 @@ Capacitors have two key behaviors that matter in circuits:
 2. **They resist sudden voltage changes.** A capacitor can't change its voltage instantaneously — it has to charge or discharge first. This makes them excellent at smoothing out voltage spikes and dips.
 
 ## Decoupling Capacitors — The Most Important Caps You'll Place
+<!-- bite: ea3ff870-95aa-4347-a812-9a527a585660 -->
 
 You will see these on *every single* professional PCB, right next to every IC's power pins. Understanding them separates someone who copies schematics from someone who understands them.
 
@@ -210,6 +225,7 @@ When a tutorial places capacitors directly on an STM32's VDD or VDDA pins — on
 ---
 
 ## Related
+<!-- bite: 16ac8ec1-50ea-4262-a0b1-ea664afe61f3 -->
 - [[hardware/02-digital-and-analog|Digital vs Analog]] — turning these voltages into numbers
 - [[hardware/03-embedded-systems|Embedded Systems]] — what runs on the power you've just designed
 - [[hardware/10-kicad-basics|KiCad Basics]] — decoupling and power rails as drawn on a real board

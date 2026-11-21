@@ -1,3 +1,7 @@
+---
+id: 615f55c0-1fb4-4ee7-96c5-9dccb734209f
+---
+
 # The Three Trees — Working Directory, Index, HEAD
 
 **[Beginner]** — The most important mental model in Git, and the staging, committing and `.gitignore` mechanics that sit on top of it.
@@ -5,6 +9,7 @@
 This is the most important conceptual model for understanding Git commands.
 
 ## The Three Areas
+<!-- bite: e669044f-8f34-4588-b1d4-ec00553bac13 -->
 
 **Working Directory** — The actual files on your disk. What you see in your editor. Untracked changes live here.
 
@@ -21,6 +26,7 @@ git diff HEAD          = Working Directory vs HEAD
 ```
 
 ## File States
+<!-- bite: 708bba4d-497f-4b4f-a5a5-140764d4bc20 -->
 
 ```bash
 git status             # Show state of all files
@@ -45,6 +51,7 @@ git status -s          # Short status
 ---
 
 ## Staging and Committing
+<!-- bite: d89b8c24-7b21-4fde-a72b-48bdb1e877c5 -->
 
 ### Staging
 
@@ -127,6 +134,7 @@ git commit -m "stop tracking file.txt"
 ---
 
 ## Related
+<!-- bite: 78255e00-f2ae-4064-a094-8078eed9c7fb -->
 - [[git/01-how-git-works|How Git Actually Works]] — what the index is a binary file *of*
 - [[git/10-undoing-things|Undoing Things]] — `reset` is defined entirely in terms of these three trees
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — what to put in the message you just learned to write

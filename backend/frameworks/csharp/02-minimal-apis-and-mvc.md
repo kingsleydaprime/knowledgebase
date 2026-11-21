@@ -1,3 +1,7 @@
+---
+id: 113ac0f5-ac06-4949-84ef-28726c3c5d22
+---
+
 # Minimal APIs and MVC
 
 > **[Intermediate]** · Two endpoint styles in one framework — what differs, what doesn't, and which to pick.
@@ -5,6 +9,7 @@
 **Both are ASP.NET Core.** Same pipeline, same DI, same routing engine. They differ in _how you declare an endpoint_, not in what happens underneath.
 
 ## Minimal APIs
+<!-- bite: 28e24fc4-16be-43cd-adaf-e5a8bb4af723 -->
 
 ```csharp
 app.MapGet("/orders/{id:int}", async (int id, IOrderService svc) =>
@@ -27,6 +32,7 @@ app.MapPost("/orders", async (CreateOrder cmd, IOrderService svc) =>
 **Route constraints (`{id:int}`) are matching rules, not validation** — `/orders/abc` produces a 404, not a 400, because the route simply didn't match.
 
 ## Controllers (MVC)
+<!-- bite: 93d4f2c7-196e-4e96-be16-4d537c3e29c6 -->
 
 ```csharp
 [ApiController]
@@ -43,6 +49,7 @@ public class OrdersController(IOrderService svc) : ControllerBase
 **`[ApiController]` is doing real work** — automatic model-state validation returning a 400 with `ProblemDetails`, inference of binding sources, and attribute routing requirements. Without it you'd hand-write `if (!ModelState.IsValid)` in every action.
 
 ## Which to use
+<!-- bite: 06d4fc3f-ea9f-433b-bda0-d4c6e4d42cdd -->
 
 |                       | Minimal APIs                            | Controllers              |
 | --------------------- | --------------------------------------- | ------------------------ |
@@ -66,6 +73,7 @@ orders.MapPost("/", CreateOrder);
 **Put handlers in separate static classes and register them per feature**, or you get a 900-line `Program.cs` — which is the real failure mode → [[backend/03-structuring-a-backend/index|structuring a backend]].
 
 ## Validation
+<!-- bite: 81cd16d3-f06c-4d08-bbd7-d95725b77781 -->
 
 **Neither style validates a request body by itself** beyond type binding.
 
@@ -86,6 +94,7 @@ public class CreateOrderValidator : AbstractValidator<CreateOrder>
 **Validate at the boundary** — the same argument as Pydantic in [[backend/frameworks/python/01-fastapi/index|FastAPI]] and zod in TypeScript. **Type annotations describe intent; only a validator enforces it at runtime** → [[languages/07-csharp/02-the-type-system|note 02]].
 
 ## Errors → status codes
+<!-- bite: 3fc7f0ea-a141-4663-8bc2-8054ceda614f -->
 
 ```csharp
 builder.Services.AddProblemDetails();
@@ -97,12 +106,14 @@ app.UseExceptionHandler();
 **Map domain exceptions to status codes in one place** — an `IExceptionHandler` or an exception-handling middleware — rather than try/catch in every endpoint. **Never let a raw stack trace reach a client in production** → [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]].
 
 ## OpenAPI
+<!-- bite: de2f8391-71f8-4d69-9deb-2c1ad2b59f12 -->
 
 .NET 9+ ships built-in OpenAPI document generation (`AddOpenApi`/`MapOpenApi`); **Swashbuckle** and **NSwag** remain common and offer more.
 
 **The honest comparison with FastAPI:** there, the schema is _derived from the same Pydantic model that validates_ — so drift between docs and behaviour is structurally impossible. **In ASP.NET Core the schema is generated from types and attributes, and can drift** from a separately-defined validator. Worth knowing rather than assuming parity.
 
 ## The concept translation
+<!-- bite: 5603c0b1-ebe7-4ea5-8b5b-efb4a0d3ad50 -->
 
 | Course concept      | ASP.NET Core                                   |
 | ------------------- | ---------------------------------------------- |
@@ -115,6 +126,7 @@ app.UseExceptionHandler();
 | **Errors → status** | `ProblemDetails` + `IExceptionHandler`         |
 
 ## Related
+<!-- bite: bb596c42-3d3d-40d6-91d8-6e838a105674 -->
 
 - [[backend/frameworks/csharp/01-aspnet-core-and-the-pipeline|the pipeline]]
 - [[backend/frameworks/csharp/03-data-access|data access]]

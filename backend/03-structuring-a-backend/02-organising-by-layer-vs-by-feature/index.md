@@ -7,6 +7,7 @@ id: 38cfe629-669f-4d83-b209-db43bb0107eb
 **[Beginner→Intermediate]** — the folder-structure argument every team has, usually badly. It looks like bikeshedding and isn't: it determines how far you have to scroll to make one change, and how easy it is to delete something. This lesson shows both layouts, **with the wiring, in Express, NestJS, React, Django and Flask** — and a companion lesson does the same for Go, Java, Rust, C, C++ and C#.
 
 ## Before you start
+<!-- bite: 69f44c3e-a14f-4c04-8e05-cafe2d49b5b6 -->
 
 You can already:
 
@@ -25,6 +26,7 @@ After this lesson you will be able to:
 **Labs.** The verified examples are in [`backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/labs/eslint/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/labs/eslint) (Express and React), [`backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/labs/django-by-feature/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/labs/django-by-feature), [`backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/labs/django-by-layer/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/labs/django-by-layer), [`backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/labs/flask/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/labs/flask), and the compiled languages' labs are listed in the companion lesson. From the vault root, `python3 labs/run.py organising-by-layer-vs-by-feature/flask` (for example) runs one and checks this page still matches it.
 
 ## The kid version first
+<!-- bite: 25facd11-6196-41ad-b2cc-42f0efca3608 -->
 
 You're organising a toolbox.
 
@@ -36,6 +38,7 @@ Neither is wrong. **The right one depends on whether you more often do "one job"
 **Where the analogy stops working.** A spare screwdriver costs money; a copied ten-line helper costs nothing to own, but costs you later when the two copies drift apart. And a box on a shelf does nothing until you plug it in — in software, every feature box must be **plugged into the app** somewhere. That plug point is most of what the framework sections below are about.
 
 ## 1. Why this exists — one change, counted
+<!-- bite: 8d6efdf2-3a30-44ac-807a-96564bde70c9 -->
 
 The running example for the whole lesson is a small shop with three features: **users**, **products** and **orders**.
 
@@ -49,6 +52,7 @@ By layer: `controllers/`, `services/`, `repositories/`, `dtos/`, `tests/` — **
 </details>
 
 ## Terms used in this lesson
+<!-- bite: 4ee22aa6-ac3f-487c-ba18-e7e535a75724 -->
 
 1. **Layer**: This is also known as a **technical role**. It is a kind of job a piece of code does regardless of which feature it serves — handling HTTP (controller), business rules (service), talking to the database (repository). A layer folder groups every file that does the same kind of job.
 2. **Feature**: This is also known as a **domain module**, a **slice**, or, in Django, an **app**. It is one area of the product a user would recognise, such as orders or users. A feature folder groups every file that serves that area, whatever its technical role.
@@ -59,6 +63,7 @@ By layer: `controllers/`, `services/`, `repositories/`, `dtos/`, `tests/` — **
 7. **Boundary enforcement**: This is a tool that makes a forbidden import fail the build. In this lesson that is ESLint's `import/no-restricted-paths` for JavaScript and TypeScript, NestJS's own module system, and `import-linter` for Python. In Go, Java, Rust, C and C++ the compiler or the build system does it, with no extra tool.
 
 ## 2. The two layouts
+<!-- bite: e4af359f-aefb-4b7a-9a04-0ca46e96ede6 -->
 
 **By layer (by technical role):**
 ```
@@ -79,6 +84,7 @@ src/
 ```
 
 ## 3. The case for by-feature
+<!-- bite: 959efd65-2233-4ee9-94f5-7753a40316be -->
 
 **1. Change locality.** Adding a field to an order touches the controller, service, repository, DTO, and tests. By feature, that's **one folder**. By layer, it's five folders and a lot of scrolling. Since most work is feature work, by-feature optimises for the common case.
 
@@ -91,6 +97,7 @@ src/
 **5. It scales with the team.** Teams own features, not layers. Ownership maps to folders, and `CODEOWNERS` becomes trivial.
 
 ## 4. The case for by-layer
+<!-- bite: 0ecaf81c-66d3-49c7-9660-353fd286166f -->
 
 Not nothing, and worth stating fairly:
 
@@ -101,6 +108,7 @@ Not nothing, and worth stating fairly:
 **The verdict: start by-feature, or move to it the moment you have more than a handful of features.** The by-layer structure looks tidy at the start and gets worse every month; by-feature looks slightly over-engineered at the start and gets better. The tell that you needed it a while ago: **a `services/` folder with twenty-five files in it that you scroll to find things in.** A folder is a bad index past about a dozen entries.
 
 ## 5. The three questions every framework answers
+<!-- bite: d51be0a5-cf52-4475-8255-d4c73e9393cb -->
 
 Every framework section below answers the same three questions. Once you see them, the five frameworks stop looking like five different topics.
 
@@ -113,6 +121,7 @@ The labels on the code blocks below mean: **verified** — the code was run in a
 ---
 
 ## 6. Express (TypeScript)
+<!-- bite: 93a18e73-9737-4cab-a4ad-fa18912b831d -->
 
 Express has no opinion at all, so you choose the layout and you write the composition root yourself.
 
@@ -290,6 +299,7 @@ src/shared/bad-shared.ts
 ---
 
 ## 7. NestJS
+<!-- bite: 98521c13-1a08-4a66-b89c-c9a9365450e0 -->
 
 Nest is the one framework here that is **by-feature out of the box**, and it enforces part of the boundary at runtime for you.
 
@@ -398,6 +408,7 @@ It runs. But with a single module there are no `exports`, so **every provider ca
 ---
 
 ## 8. React (and Next.js)
+<!-- bite: 04c235ff-e34d-4b8a-891d-2139e66d672c -->
 
 **This is the one frontend developers most need.** Most React projects start with type folders — `components/`, `hooks/`, `services/` — because that's what the first tutorial did, and by the time the app has twenty screens `components/` holds eighty files from every part of the product.
 
@@ -567,6 +578,7 @@ src/
 ---
 
 ## 9. Django
+<!-- bite: 8eef4f1f-6fe0-429a-8438-91d5c75f11c0 -->
 
 ### Correcting a common belief: Django is already by-feature
 
@@ -789,6 +801,7 @@ Run `lint-imports` from the folder containing `manage.py`. A direct `from apps.u
 ---
 
 ## 10. Flask
+<!-- bite: d23c09d3-d25c-401d-8291-c9b4062a1bda -->
 
 ### Correcting a common belief: Flask has no default
 
@@ -970,12 +983,14 @@ allow_indirect_imports = true
 ---
 
 ## 11. Go, Java, Rust, C, C++ and C#
+<!-- bite: a7b6ba1b-bce1-4daf-a54c-b0502aea9b1a -->
 
 These have their own lesson: [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/in-compiled-languages|organising by feature in compiled languages]]. The short version is worth knowing even if you never write them: **in these languages the compiler or build system enforces feature boundaries** — Go's `internal/` packages, Java's package-private classes, Rust's private modules, C's opaque types and `static` functions, C++'s `PRIVATE` include directories, and C#'s `internal` with one project per feature. And a by-layer layout switches each of those off, because each layer lives in a different package and everything has to be public for the next layer to reach it.
 
 ---
 
 ## 12. Side by side
+<!-- bite: e6c2c95b-7bb0-4992-b1ec-0c015a0890bb -->
 
 | Framework | Default lean | Composition root | Boundary enforced by |
 |---|---|---|---|
@@ -994,6 +1009,7 @@ These have their own lesson: [[backend/03-structuring-a-backend/02-organising-by
 The last six rows are explained in the companion lesson.
 
 ## 13. Getting the details right
+<!-- bite: 095e2789-bbde-4473-b756-0d26be8ab0b8 -->
 
 **Inside a feature, keep the layers.** By-feature doesn't mean abandoning [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|controller/service/repository]] — it means those three files sit next to each other. Both axes, feature outer, layer inner.
 
@@ -1006,6 +1022,7 @@ The last six rows are explained in the companion lesson.
 **Enforce boundaries mechanically, not by discipline.** Nobody remembers architectural rules under deadline. Every framework section above ends with the rule that makes a forbidden import a build failure. In the compiled languages it costs nothing, because the language already has the boundary — the only mistake is choosing a layout that forces everything public.
 
 ## Common pitfalls
+<!-- bite: b4d9eb25-1f1d-496d-a8d9-d4e06d058823 -->
 
 1. **Feature folders with layer thinking.** `features/orders/` exists, but the business logic still lives in a top-level `services/` folder. You get the ceremony of both and the benefit of neither.
 2. **Barrel files that import themselves.** Inside a feature, import siblings by relative path (`./components/CartItem`), never through your own `index.ts` — that creates circular imports. Keep feature barrels short; a barrel re-exporting a hundred files slows the Vite dev server and can defeat tree-shaking.
@@ -1016,6 +1033,7 @@ The last six rows are explained in the companion lesson.
 7. **Configuring the `@/` alias in only one tool.** TypeScript and the bundler (Vite, Jest/Vitest) each need it.
 
 ## Check your understanding
+<!-- bite: 8f59e9a2-2746-4005-a40f-fb0d28ef4b1f -->
 
 Answer each before opening its fold.
 
@@ -1041,6 +1059,7 @@ Answer each before opening its fold.
 </details>
 
 ## Practice — independent task
+<!-- bite: 8d65e51b-9846-424e-94c3-7ee4c4de883f -->
 
 **Build both, then convert.** Pick Express or Flask for the backend (or a compiled language from the companion lesson, using its own boundary instead of a lint rule), **and** React for the frontend.
 
@@ -1061,12 +1080,14 @@ Answer each before opening its fold.
 - You can explain, closed-book, which file is your composition root and why there's only one.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: e5bac1ce-6c62-4748-8d59-2f2b303afa7e -->
 
 - **Features aren't always obvious.** "Notifications" might be its own feature or a part of orders. Pick, write it down, and move it when the code tells you you were wrong — moving a folder is cheap when boundaries are enforced.
 - **Feature-Sliced Design** is a stricter frontend methodology that adds more layers (`entities`, `widgets`, `pages`) on top of the idea here. Worth knowing it exists; this lesson's three-level version covers most apps.
 - **Monorepos** take the same idea one level up: each feature becomes a package, and the package manager enforces the boundary.
 
 ## Before moving on
+<!-- bite: 33664ee6-7a67-43a7-b310-9403c1cfe6bd -->
 
 You're done when you can lay out the shop app both ways in your main framework from memory, write its composition root, and make a cross-feature import fail the linter.
 
@@ -1075,6 +1096,7 @@ You're done when you can lay out the shop app both ways in your main framework f
 **Next.** A well-kept feature layout with enforced boundaries **is** a modular monolith — the structure you want before you ever consider splitting into services, because the boundaries have already been tested where getting them wrong is cheap. → [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|modular monolith to services]]
 
 ## Related
+<!-- bite: 752884a2-00ab-4630-bbe3-0faebcf09600 -->
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|Layers]] — what lives inside each feature folder
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection and wiring]] — how the composition root builds each feature
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular Monolith → Services]] — where good feature boundaries pay off

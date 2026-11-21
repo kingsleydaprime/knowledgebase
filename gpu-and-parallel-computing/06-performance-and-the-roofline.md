@@ -1,8 +1,13 @@
+---
+id: 1a3ad619-874b-466a-9cbe-237d9481a14c
+---
+
 # Performance and the Roofline
 
 **[Intermediate → Advanced]** — Arithmetic intensity, the one diagram that tells you what to optimise, and how to benchmark a GPU honestly.
 
 ## Arithmetic intensity
+<!-- bite: 45abedac-93f9-4287-9c62-186c96e70c90 -->
 
 $$I = \frac{\text{FLOPs performed}}{\text{bytes moved from memory}}$$
 
@@ -23,6 +28,7 @@ $$I = \frac{\text{FLOPs performed}}{\text{bytes moved from memory}}$$
 > **Matrix multiply is the outlier: intensity grows with size.** $O(n^3)$ work against $O(n^2)$ data. **That's exactly why GEMM can saturate a GPU and why deep learning maps so well onto this hardware** — the workload is mostly large matmuls.
 
 ## The roofline model
+<!-- bite: d758158c-d070-4f49-9123-9845595b845c -->
 
 **Plot achievable performance against arithmetic intensity, log–log:**
 
@@ -64,6 +70,7 @@ $$\text{attainable} = \min(\text{peak FLOPS},\ I \times \text{bandwidth})$$
 **The "ceilings" refinement** adds sub-rooflines for not using tensor cores, not vectorising, or poor coalescing — **so the gap between your point and the top roof decomposes into named causes.**
 
 ## Benchmarking honestly
+<!-- bite: 63d983b3-a977-467a-94c0-7ce4947369db -->
 
 **GPU benchmarking has its own specific traps**, and most reported numbers hit at least one.
 
@@ -90,6 +97,7 @@ cudaDeviceSynchronize();  end = now();     // ✓
 **Report the distribution**, not one run. Median and p99 — GPU timings have real variance from scheduling and thermal effects.
 
 ## The tooling
+<!-- bite: 28784061-c010-4ce6-b368-0db9dc85ea64 -->
 
 **Nsight Compute** — per-kernel analysis. **Occupancy, memory throughput, coalescing efficiency, warp stall reasons, roofline placement.** The tool to reach for when one kernel is slow.
 
@@ -102,6 +110,7 @@ cudaDeviceSynchronize();  end = now();     // ✓
 **PyTorch profiler / `torch.profiler`** — operator-level attribution for ML workloads, with a trace viewer. **Start here for model work** rather than dropping to Nsight.
 
 ## Common bottlenecks in ML
+<!-- bite: 6dd2ddb5-9d70-4bad-91db-fe340c110c87 -->
 
 **Since that's the biggest consumer of GPUs in this vault:**
 
@@ -120,6 +129,7 @@ cudaDeviceSynchronize();  end = now();     // ✓
 **Gradient synchronisation** in multi-GPU training. → [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]]
 
 ## The optimisation order
+<!-- bite: 41ef8e80-490b-492d-8520-48c741fe3c98 -->
 
 **Same discipline as [[computer-architecture/12-performance|CPU performance]], different specifics:**
 
@@ -136,6 +146,7 @@ cudaDeviceSynchronize();  end = now();     // ✓
 **Step 2 is the one people skip.** **A GPU sitting idle 60% of the time because of data loading cannot be fixed by optimising kernels**, and it's a very common situation.
 
 ## Practical notes
+<!-- bite: 76270d8d-6066-47ba-874e-1c0073a8f23f -->
 
 **Measure before porting to GPU at all.** Compute the arithmetic intensity by hand. **If it's below 1 and the data doesn't already live on the device, the transfer will dominate.**
 
@@ -154,6 +165,7 @@ cudaDeviceSynchronize();  end = now();     // ✓
 ---
 
 ## Related
+<!-- bite: a081fe4d-991b-4681-9bf7-beeb4b04e8b9 -->
 - [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — the memory-bound fixes
 - [[computer-architecture/12-performance|Performance]] — the CPU-side methodology
 - [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]] — when one GPU isn't enough

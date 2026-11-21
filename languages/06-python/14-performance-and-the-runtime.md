@@ -1,8 +1,13 @@
+---
+id: c62720d1-af8e-44ca-8cf6-1df3388e1035
+---
+
 # Performance and the Runtime
 
 > **[Advanced]** · What CPython is actually doing, why it's slow, and the ordered list of things to try — measurement first.
 
 ## What CPython does with your code
+<!-- bite: 2aee2349-437c-49d6-8ec7-e1fc7482009e -->
 
 1. **Parse** source into an AST
 2. **Compile** to **bytecode** — cached in `__pycache__/*.pyc`
@@ -20,6 +25,7 @@ dis.dis(lambda x: x + 1)
 **The `.pyc` cache saves parsing, not execution.** Python is not "compiled" in the sense C is; the bytecode is still interpreted every run.
 
 ## Why it's slow
+<!-- bite: 56c25995-1626-4a7b-b8d2-4f94b298fbb2 -->
 
 Four costs, and they're inherent to the design rather than fixable bugs:
 
@@ -34,6 +40,7 @@ Four costs, and they're inherent to the design rather than fixable bugs:
 Together: **10–100× slower than C for tight numeric loops.** For I/O-bound work, ~0×, because you're waiting on the network either way.
 
 ## Measure first
+<!-- bite: f0c88b10-2496-4348-8983-64e85067169a -->
 
 **The overwhelmingly common mistake is optimising the wrong thing.** Python's runtime characteristics are unintuitive enough that guessing is worse than useless.
 
@@ -54,6 +61,7 @@ python -m timeit -s "setup" "statement"               # micro-benchmarks, done r
 **Profile before changing anything, and measure after.** "It should be faster" is a hypothesis → [[computer-architecture/12-performance|performance method]].
 
 ## The ordered list
+<!-- bite: 2c200429-2232-437b-bf81-4e271201f4ee -->
 
 ### 1. Fix the algorithm
 
@@ -106,6 +114,7 @@ result = a * b                                     # NumPy: one C loop
 **CPython is getting faster on its own.** 3.11 was ~25% faster than 3.10 (specialising adaptive interpreter, PEP 659), 3.12 continued it, 3.13 added an experimental JIT. **Upgrading Python is the cheapest optimisation available** and people forget it exists.
 
 ## Memory
+<!-- bite: dfaaefde-c0c4-437f-930f-c327c9e90247 -->
 
 ```python
 import sys
@@ -127,12 +136,14 @@ Then: **generators** instead of lists for large sequences → [[languages/06-pyt
 **Reference cycles need the cycle collector**, which runs periodically and can cause latency spikes in large heaps. `gc.freeze()` after startup helps, and `gc.disable()` is occasionally correct in short-lived processes — but only with measurement.
 
 ## Know when not to bother
+<!-- bite: 443b8c09-7e04-46da-ac90-08aae9b6b4ff -->
 
 **Python's slowness is irrelevant to most programs you'll write.** A script that runs for 2 seconds instead of 0.1 is fine. An API endpoint spending 200 ms in the database and 5 ms in Python is a database problem.
 
 **Optimise when there's a number and a target** — a p99 latency, a batch window, a cost line. Otherwise you're trading readability, which is the thing you chose Python for, against a benefit nobody asked for.
 
 ## Related
+<!-- bite: ba65fb45-bc57-4c04-8a06-72b701a4831f -->
 
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — the parallelism half
 - [[computer-architecture/12-performance|performance method]] — how to measure anything

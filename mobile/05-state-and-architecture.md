@@ -1,8 +1,13 @@
+---
+id: c6927b60-f291-41ff-89ea-403630f604a2
+---
+
 # State and Architecture
 
 **[Intermediate]** — the layered shape both platforms converged on, and the rule that makes it work.
 
 ## The kid version first
+<!-- bite: 96590b09-bd3c-4895-bdb1-4638f62058c4 -->
 
 Three jobs, kept apart:
 
@@ -13,6 +18,7 @@ Three jobs, kept apart:
 **Keep those separate and the app is testable, survives being killed, and doesn't turn into one 3,000-line file.** Merge them and it does.
 
 ## The layers
+<!-- bite: a6113e12-b6d5-49c8-b6ce-db31f26a2075 -->
 
 ```
    UI (SwiftUI / Compose)        ← stateless. Renders state, emits events
@@ -28,6 +34,7 @@ Three jobs, kept apart:
 **The rule that makes it work: data flows down, events flow up.** No layer reaches back up. The UI never calls the network; the repository never knows a screen exists.
 
 ## Unidirectional data flow
+<!-- bite: d545c14f-78ae-41e6-9ef6-a99747337b0d -->
 
 ```
   ┌──────────────────────────────────────────┐
@@ -41,6 +48,7 @@ State ──► UI renders ──► user acts ──► Event ┘
 **One direction, one place where state changes.** When something is wrong on screen, there's exactly one place to look. This is the same idea as Redux, Elm and React's model → [[frontend/03-state-and-data/index|state and data]].
 
 ## Model UI state as one type
+<!-- bite: 45ef8f8f-353c-4528-884b-3b0da634bb9a -->
 
 The highest-value habit here, and the one most codebases miss:
 
@@ -66,6 +74,7 @@ sealed interface UiState {
 **And note `Success(emptyList())` is a real state that needs its own UI.** "Loaded, and there's nothing" is not "loading", and shipping a spinner forever for empty results is a classic.
 
 ## Where state lives — the three durations
+<!-- bite: 96dbdf47-72e4-46dd-8661-213abd94fd4d -->
 
 From [[mobile/03-the-app-lifecycle|the lifecycle note]], because it's the thing to get right:
 
@@ -78,6 +87,7 @@ From [[mobile/03-the-app-lifecycle|the lifecycle note]], because it's the thing 
 **Test the third one deliberately** — background the app, kill the process, return.
 
 ## Events that should happen once
+<!-- bite: 93d88d41-20f8-4466-85ac-a9fc4dd11016 -->
 
 A subtle bug worth naming: **navigation, toasts and dialogs are events, not state.**
 
@@ -86,6 +96,7 @@ If "show error snackbar" is a boolean in your state, rotating the screen re-emit
 **The fix:** a `Channel`/`SharedFlow` of one-shot events (Android), or state that the UI explicitly consumes and clears. **Any "why does this toast appear twice" bug is this.**
 
 ## The repository, and the source of truth
+<!-- bite: e232004a-38e8-4c2b-9110-46d02acf1c69 -->
 
 ```kotlin
 fun observeItems(): Flow<List<Item>> = database.observeItems()   // UI reads THIS
@@ -101,6 +112,7 @@ suspend fun refresh() {
 **This is the single most important architectural decision in a mobile app**, and it's cheap if you make it on day one and expensive later.
 
 ## Dependency injection
+<!-- bite: bf9fe252-9289-4f93-b024-4190c7bef0f8 -->
 
 You need it to swap the network for a fake in tests. **Constructor injection is enough** — a framework is optional.
 
@@ -110,6 +122,7 @@ You need it to swap the network for a fake in tests. **Constructor injection is 
 **Whatever you choose, the point is that a ViewModel takes its repository as a parameter** rather than constructing one. That's what makes it testable.
 
 ## What to actually test
+<!-- bite: 78b95b71-72dd-4687-aaa5-e7ee7eac5d72 -->
 
 Mobile testing has an awkward cost curve — UI tests are slow and flaky. So:
 
@@ -120,10 +133,12 @@ Mobile testing has an awkward cost curve — UI tests are slow and flaky. So:
 - **Test process death.** Not automatable easily; do it by hand per screen
 
 ## Key insight
+<!-- bite: 9a79915e-a81a-46f3-a148-d651461b22dd -->
 
 **Both platforms converged on the same architecture because the lifecycle forced them to** — when the OS can destroy your UI at any moment, state cannot live in the UI. Everything else (unidirectional flow, sealed state types, database-as-source-of-truth) follows from putting state somewhere that outlives the screen.
 
 ## Related
+<!-- bite: 17bea936-8bcd-48e4-9aea-6319d700199d -->
 - [[mobile/03-the-app-lifecycle|the app lifecycle]] — the constraint this answers
 - [[mobile/07-data-and-offline-first|offline-first]] — the repository pattern in full
 - [[frontend/02-structuring-a-frontend/index|structuring a frontend]] — the same layering

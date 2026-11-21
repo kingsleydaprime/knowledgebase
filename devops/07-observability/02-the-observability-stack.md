@@ -7,6 +7,7 @@ id: c376f738-4c82-4c77-bdd6-eb8ed172b268
 **[reference]** — from roadmap.sh and vendor docs. The three-pillar concepts are in [[devops/07-observability/01-observability-fundamentals/index|the fundamentals note]]; this maps the tools that implement them.
 
 ## Metrics: Prometheus + Grafana
+<!-- bite: 93975e3b-c9b9-44f1-9355-f893c1b4e4a9 -->
 
 The de-facto open-source metrics stack, and the default in the Kubernetes world.
 
@@ -24,6 +25,7 @@ rate(http_requests_total{status=~"5.."}[5m])
 Prometheus is pull-based and great for metrics but not for long-term storage or high-cardinality data at massive scale (where Thanos/Cortex/Mimir or a hosted TSDB extend it).
 
 ## Logs: ELK, Loki, and friends
+<!-- bite: 8bce564e-1727-4d55-94eb-d35a065b760b -->
 
 Centralized logging aggregates logs from every service/host into one searchable place — essential once you have more than one machine:
 
@@ -33,11 +35,13 @@ Centralized logging aggregates logs from every service/host into one searchable 
 - The pattern regardless of tool: **structured logs** (JSON) + a shipper (Fluentd/Fluent Bit/Vector) → central store → search UI. Structured logging is what makes this queryable — the [[languages/01-java/03-tooling/05-logging-and-observability|log-table/structured-logging note]] is the app-side of this.
 
 ## Traces: OpenTelemetry + Jaeger
+<!-- bite: 51f34890-ae70-46de-8971-03f514f35bb1 -->
 
 - **OpenTelemetry (OTel)** — the vendor-neutral **standard** for instrumenting traces (and increasingly metrics/logs). You instrument once against the OTel API and export to any backend — the important strategic choice, because it avoids lock-in to one vendor's agent. This is the SLF4J-facade idea ([[languages/01-java/03-tooling/05-logging-and-observability|logging]]) applied to all telemetry.
 - **Jaeger** (and Tempo, Zipkin) — the trace **backend/UI**: stores traces and renders the per-request waterfall showing where latency went across services.
 
 ## APM and hosted platforms
+<!-- bite: 13c274c1-d6af-4b1a-a2dc-2929f6f9c2ea -->
 
 Commercial all-in-one Application Performance Monitoring — metrics, logs, traces, dashboards, and alerting in one product, agent-based and low-setup, at a cost (often usage-priced and expensive at scale):
 
@@ -52,6 +56,7 @@ Commercial all-in-one Application Performance Monitoring — metrics, logs, trac
 The recurring build-vs-buy decision: run the open-source stack yourself (Prometheus/Grafana/Loki/OTel — cheaper at scale, more operational work) versus buy a hosted APM (Datadog et al. — fast to set up, great UX, expensive as you grow). Many start hosted and migrate the highest-volume pillars to self-hosted as the bill climbs.
 
 ## How it fits together
+<!-- bite: 683c185e-496a-4bc4-82db-880c189e065b -->
 
 ```
 service (OTel-instrumented)
@@ -64,6 +69,7 @@ service (OTel-instrumented)
 Instrument once (OTel), route each pillar to its store, correlate by ID, visualize in one place — that's a modern observability stack.
 
 ## Related
+<!-- bite: 58edf2b8-e2c2-4318-9054-6a75ac11c6b8 -->
 - [[devops/07-observability/01-observability-fundamentals/index|Observability Fundamentals]] — the concepts these tools serve
 - [[languages/01-java/03-tooling/05-logging-and-observability|Logging & Observability (Java)]] — the app-side instrumentation
 - [[devops/10-orchestration/01-kubernetes|Kubernetes]] — Prometheus is the default k8s monitoring stack

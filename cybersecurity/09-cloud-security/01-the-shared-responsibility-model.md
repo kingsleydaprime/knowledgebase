@@ -1,14 +1,20 @@
+---
+id: b16d5945-1769-445d-8b91-a84272027e3e
+---
+
 # The Shared Responsibility Model
 
 **[Intermediate]** — the one concept cloud security is built on, why misconfiguration (not exotic exploits) causes most cloud breaches, and where the line actually sits. Overlaps the [[devops/index|DevOps domain]] — this is the *security* lens.
 
 ## The kid version first
+<!-- bite: 526b5a71-9c4c-46e0-96f1-00faa698950a -->
 
 When you rent space in the cloud, security is *split*: the provider (AWS, Azure, GCP) secures the building, the locks, and the plumbing; **you** secure everything you put inside your unit and who you give keys to. The provider is world-class at their half. **Almost every cloud breach is a customer leaving their own door open** — a public storage bucket, an over-powered access key, a database with no password.
 
 Getting clear on *which* half is yours is the foundational skill, because assuming the provider handles something they don't is itself how people get breached.
 
 ## The model
+<!-- bite: c9ccddc4-4366-43da-9536-ca6362f541a5 -->
 
 > **The provider secures the cloud; you secure what you put in it.**
 
@@ -32,6 +38,7 @@ Getting clear on *which* half is yours is the foundational skill, because assumi
 **Whatever the model, two things are *always* yours: your data, and your access controls.** No cloud service secures those for you — that's the through-line.
 
 ## Why misconfiguration dominates
+<!-- bite: eaa19da9-06d0-4b8d-8e47-1ee4d59771e6 -->
 
 **Most cloud breaches are the customer's misconfiguration, not the provider being hacked.** The providers' own infrastructure is exceptionally well-secured — you will almost never out-secure AWS's physical and hypervisor security. What breaks is the customer's config:
 
@@ -43,6 +50,7 @@ Getting clear on *which* half is yours is the foundational skill, because assumi
 **Cloud security is therefore largely *configuration* security**, which is why the discipline looks different from classic pentesting. The attacker isn't finding a buffer overflow; they're finding the door you left open — and in the cloud, a single misconfiguration is **instantly internet-reachable**. There's no internal network to hide a mistake behind → [[cybersecurity/09-cloud-security/03-the-cloud-attack-surface|the attack surface]].
 
 ## Why the perimeter dissolved
+<!-- bite: e92aebc2-9c63-4fa7-a5b9-99228ee6530b -->
 
 On-premises security assumed a **network perimeter** — a firewall around the corporate network, trusted inside, untrusted outside. **The cloud demolishes that model:**
 
@@ -53,6 +61,7 @@ On-premises security assumed a **network perimeter** — a firewall around the c
 So cloud security replaces the perimeter with **identity as the new perimeter** — who-can-do-what-to-which-resource becomes the primary control, which is [[cybersecurity/07-security-operations/01-defensive-architecture|zero trust]] applied to infrastructure → [[cybersecurity/09-cloud-security/02-identity-is-the-perimeter|identity]].
 
 ## The through-line for the whole folder
+<!-- bite: 77e194de-e9f0-4350-86e0-7eaaa23ba405 -->
 
 Cloud security is **discipline at scale, not novel exploits**:
 
@@ -64,10 +73,12 @@ Cloud security is **discipline at scale, not novel exploits**:
 Each is [[cybersecurity/07-security-operations/01-defensive-architecture|defence-in-depth and zero-trust]] applied to an environment with no edge.
 
 ## Key insight
+<!-- bite: 3896c803-31c4-47f6-b1d2-73db0c8089a7 -->
 
 **The shared responsibility model draws a line — the provider secures the cloud, you secure what you put in it — and the line moves with the service model, but your *data* and your *access controls* are always yours.** Almost every cloud breach is a customer misconfiguration on their side of that line, because in a perimeter-less environment a single wrong setting is instantly internet-reachable. Cloud security is therefore configuration and identity discipline at scale, not exotic exploitation — and knowing exactly which half is yours is where it starts.
 
 ## Related
+<!-- bite: 6223604c-2127-4999-ae7c-a25fb0549b52 -->
 - [[cybersecurity/09-cloud-security/02-identity-is-the-perimeter|identity is the new perimeter]] — the primary control
 - [[devops/08-cloud/01-cloud-fundamentals|cloud fundamentals (DevOps)]] — the model from the ops side
 - [[cybersecurity/07-security-operations/01-defensive-architecture|defensive architecture]] — zero trust, which this embodies

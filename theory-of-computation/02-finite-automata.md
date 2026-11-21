@@ -1,8 +1,13 @@
+---
+id: 4a77cbbd-07a6-4f02-a66b-292748d03928
+---
+
 # Finite Automata
 
 **[Intermediate]** — Machines with no memory beyond their current state, and why that's enough for lexers, protocols and UI logic.
 
 ## The machine
+<!-- bite: 2afe5b14-c6ff-4cc4-8919-bfc391d42332 -->
 
 **A finite automaton is a fixed set of states, transitions on input symbols, and nothing else.** No memory, no counter, no stack — **the current state is all it knows.**
 
@@ -36,6 +41,7 @@ A DFA accepting binary strings with an even number of 1s:
 > **The defining constraint: a machine with $n$ states can distinguish at most $n$ situations.** It cannot count beyond $n$, because counting to $n+1$ requires $n+1$ distinguishable states. **That single observation is what limits regular languages**, and it's the whole content of the pumping lemma. → [[theory-of-computation/03-regular-languages|Regular Languages]]
 
 ## Nondeterministic automata
+<!-- bite: fa1c203b-972c-4113-842c-1d6f93bc535f -->
 
 An **NFA** relaxes two things: a state may have **several transitions** on the same symbol, and may have **$\epsilon$-transitions** taken without consuming input.
 
@@ -60,6 +66,7 @@ $$\delta: Q\times(\Sigma\cup\{\epsilon\}) \to \mathcal{P}(Q)$$
 > **The minimal DFA is unique up to renaming** — a genuinely elegant result, and it comes from **Myhill–Nerode**: the states of the minimal DFA *are* the equivalence classes of "strings that behave identically from here on". [[mathematics/02-discrete-math/04-sets-relations-and-functions|Equivalence relations]] doing real work.
 
 ## Regular expressions are the same thing
+<!-- bite: 10684e63-f20b-4156-a92b-b50dd59dce41 -->
 
 **Kleene's theorem:**
 
@@ -85,6 +92,7 @@ Kleene star a*  :    →ε→((a))→ε→   with a loop back
 **RE2, Go's `regexp`, and Rust's `regex` deliberately omit backreferences** to guarantee linear time. That's the trade, made explicitly.
 
 ## Catastrophic backtracking
+<!-- bite: 1fed1997-1c9b-49f1-a167-8e583212ee4e -->
 
 **The practical consequence worth knowing**, because it's a real availability bug.
 
@@ -97,6 +105,7 @@ A backtracking engine matching `(a+)+b` against `aaaaaaaaaaaaaaaaaaaaaaaaX` trie
 > **The fix:** use a non-backtracking engine (RE2, Rust's `regex`, Go's `regexp`), which is guaranteed $O(nm)$ because it simulates the NFA directly rather than backtracking. **Or avoid nested quantifiers** — `(a+)+`, `(a*)*`, `(a|a)*` — and set a timeout. **Never run a user-supplied regex in a backtracking engine.**
 
 ## Variants
+<!-- bite: bff2f6d3-c0be-4038-ac9c-e1e0b5e335be -->
 
 **Moore machine** — output attached to states. **Mealy machine** — output attached to transitions. **Same power**, different convenience; both are standard in hardware design. → [[hardware/02-digital-and-analog|Digital and Analog]]
 
@@ -105,6 +114,7 @@ A backtracking engine matching `(a+)+b` against `aaaaaaaaaaaaaaaaaaaaaaaaX` trie
 **Two-way automata** can move the head both directions. **Surprisingly, no extra power** — still exactly regular.
 
 ## Where finite automata actually appear
+<!-- bite: 6dd4e569-10f0-48e0-ab4c-643a3dc660c3 -->
 
 **More places than people expect**, and the pattern is: whenever the state you need is bounded, this is the right tool.
 
@@ -123,6 +133,7 @@ A backtracking engine matching `(a+)+b` against `aaaaaaaaaaaaaaaaaaaaaaaaX` trie
 **Embedded systems.** No dynamic allocation, bounded memory, predictable timing — **a table-driven FSM is ideal**. → [[hardware/03-embedded-systems|Embedded Systems]]
 
 ## What they cannot do
+<!-- bite: 3f900072-faaf-468a-97e7-dc05186d93fc -->
 
 **The limits, stated plainly:**
 
@@ -137,6 +148,7 @@ A backtracking engine matching `(a+)+b` against `aaaaaaaaaaaaaaaaaaaaaaaaX` trie
 **Proving a language isn't regular** is the pumping lemma, in the next note.
 
 ## Practical notes
+<!-- bite: 146aa862-8069-425e-b7b0-4e43ecea69a4 -->
 
 **Make the state explicit.** Replacing five booleans with one enum eliminates $2^5 - k$ impossible states by construction. **This is one of the highest-value refactorings available**, and it's applied automata theory.
 
@@ -151,6 +163,7 @@ A backtracking engine matching `(a+)+b` against `aaaaaaaaaaaaaaaaaaaaaaaaX` trie
 ---
 
 ## Related
+<!-- bite: 0c3ffbd5-b153-4ec0-94c1-bca2b08fc016 -->
 - [[theory-of-computation/03-regular-languages|Regular Languages]] — what these recognise, and the limits
 - [[compilers/02-lexical-analysis|Lexical Analysis]] — the industrial application
 - [[theory-of-computation/04-context-free-languages|Context-Free Languages]] — the next level up

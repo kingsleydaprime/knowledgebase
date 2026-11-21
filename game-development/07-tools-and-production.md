@@ -1,3 +1,7 @@
+---
+id: 723976ef-8018-40bd-ab4a-29665512108d
+---
+
 # Tools and Production
 
 > **[Intermediate]** · The content pipeline, why tools programmers matter most, and how games actually ship.
@@ -5,6 +9,7 @@
 **Most of a game is not code**, and most engineering effort on a mature project goes into making *other people* productive. This is the least-discussed and most-underestimated part of the field.
 
 ## The content pipeline
+<!-- bite: 32ba119c-3454-4336-8380-b127851d34cb -->
 
 Between an artist's file and something a game can load at 60 fps:
 
@@ -24,6 +29,7 @@ Between an artist's file and something a game can load at 60 fps:
 **And every step is a build step that can be slow or wrong**, which is why a game studio has build engineers and why "the build is broken" is an all-hands problem.
 
 ## Iteration time is the metric
+<!-- bite: de3d746f-fe70-430e-8161-5b7b275b5c1f -->
 
 **The single most important number on a game project is how long it takes to see a change.**
 
@@ -34,6 +40,7 @@ So a large fraction of tools work is attacking that number: hot reloading, in-ed
 **This is the same argument as [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]]** — reduce the cognitive load and waiting time of the people producing value, and treat their productivity as your product. Games understood it decades earlier because the feedback loop is so visibly tied to quality.
 
 ## Data-driven design
+<!-- bite: 2ee0c9ea-fe47-4555-83c8-c795e4ca49b0 -->
 
 **Hard-coding values means a programmer is in the loop for every tuning change.** So games push everything into data: JSON, YAML, spreadsheets, custom editors, visual node graphs.
 
@@ -46,6 +53,7 @@ So a large fraction of tools work is attacking that number: hot reloading, in-ed
 The trade is real: data-driven systems are harder to debug (the logic is in content nobody type-checks), and errors move from compile time to runtime. **Validate your data**, and treat a schema for it as seriously as a type system → [[languages/06-python/08-typing-and-type-hints|typing]].
 
 ## Version control, and why games broke git
+<!-- bite: 37c4571a-03c8-4a89-ab25-f40632f54867 -->
 
 Games are **large binary assets** — textures, models, audio, video. Git handles this badly:
 
@@ -60,6 +68,7 @@ Games are **large binary assets** — textures, models, audio, video. Git handle
 **This is a genuine case where general software's best practice doesn't transfer**, and it's worth noticing why: the constraint isn't culture, it's that the merge operation doesn't exist for the data type.
 
 ## How games are actually built
+<!-- bite: 1261895e-36ef-4b31-a886-26ba01f30a2a -->
 
 **Vertical slice first.** One level, one enemy, one weapon — *finished to shipping quality*. It proves the game is fun and exposes the real cost per unit of content. **A game that isn't fun as a vertical slice will not become fun with more content**, and finding that out early is the whole point.
 
@@ -70,6 +79,7 @@ Games are **large binary assets** — textures, models, audio, video. Git handle
 **Scope is the killer.** Almost every failed indie project failed on scope, not skill. The reliable heuristic: **estimate, then cut to a third**, and ship the third.
 
 ## Performance culture
+<!-- bite: ab8013cb-05a3-43a9-8b22-137cb335d331 -->
 
 Games profile continuously, not at the end — because a frame budget is a hard constraint you can violate at any moment, and finding out late means an expensive redesign.
 
@@ -78,12 +88,14 @@ Games profile continuously, not at the end — because a frame budget is a hard 
 Tools: engine profilers, RenderDoc (frame capture), platform vendor tools (PIX, Instruments, Nsight). And the same method as everywhere else — **measure, hypothesise, change one thing, measure again** → [[computer-architecture/12-performance|performance method]].
 
 ## Shipping
+<!-- bite: 24ec3b27-0aa5-41de-b412-ae64403a4ebf -->
 
 **Certification** is real for consoles. Sony, Microsoft and Nintendo each have hundreds of technical requirements — how you handle a controller disconnecting, suspend/resume, save-data corruption, naming conventions, load-time limits. **Failing cert costs weeks**, and it's a fixed, knowable checklist that studios still get wrong.
 
 **Then:** store pages, age ratings, localisation, day-one patches, and live operations if the game continues after launch — which is now most of them, and is a [[devops/index|devops]] job with a different name.
 
 ## Related
+<!-- bite: 7e6d1dbf-82c4-4ef0-afc8-498bf58d88cb -->
 - [[game-development/08-getting-started|getting started]] — scope, applied to you
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the same productivity argument
 - [[git/index|git]] — and where it doesn't fit

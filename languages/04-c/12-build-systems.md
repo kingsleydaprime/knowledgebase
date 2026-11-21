@@ -1,8 +1,13 @@
+---
+id: ee956c58-4470-4c35-a686-91137f739e17
+---
+
 # Build Systems
 
 **[Intermediate]** — `make` from first principles, then CMake, then the honest state of C dependency management.
 
 ## Why a build system
+<!-- bite: defac02a-471c-4820-a4de-0bb76a727275 -->
 
 Compiling by hand doesn't scale past a couple of files:
 
@@ -18,6 +23,7 @@ You need something that recompiles **only what changed** — and to know that, i
 That dependency problem is what build systems exist for.
 
 ## `make`
+<!-- bite: e75c7196-549a-4d6a-b154-c4c0fff22355 -->
 
 Make's model is small: **targets, prerequisites, and recipes.** If any prerequisite is newer than the target, run the recipe.
 
@@ -101,6 +107,7 @@ make --debug=b           # why did it decide to rebuild that?
 ```
 
 ## CMake
+<!-- bite: 0488d1b5-1833-4bb5-a0a5-07498152c52a -->
 
 Make is a build *executor*. CMake is a build *generator* — it produces Makefiles, Ninja files, Visual Studio projects, or Xcode projects from one description. That cross-platform generation is why it won.
 
@@ -142,6 +149,7 @@ Getting these right means dependencies propagate automatically and consumers don
 `CMAKE_EXPORT_COMPILE_COMMANDS` produces `compile_commands.json`, which is what `clangd` (and therefore your editor's autocomplete, go-to-definition and diagnostics) reads. **Turn it on.** For Make, `bear -- make` generates the same file.
 
 ## The alternatives
+<!-- bite: 8c432326-c306-45f2-b10b-d13848d2a7f5 -->
 
 | Tool | Character |
 |---|---|
@@ -154,6 +162,7 @@ Getting these right means dependencies propagate automatically and consumers don
 If you're starting fresh: **Make for something small, CMake for anything with dependencies or that others will build.**
 
 ## Dependencies — the honest state
+<!-- bite: e257d73a-6622-4246-be13-3983551ce996 -->
 
 C has **no standard package manager.** This is its biggest practical weakness compared to [[languages/02-go/12-modules-and-project-layout|Go modules]] or [[languages/03-rust/16-modules-cargo-and-testing|Cargo]].
 
@@ -195,6 +204,7 @@ target_link_libraries(app PRIVATE cjson)
 The consequence of all this: **C projects minimise dependencies.** Where a Node project has 400 and a Rust project 50, a serious C project has five, and often writes its own hash table rather than take a sixth. That's partly discipline and partly the packaging story being bad enough to make dependencies genuinely expensive.
 
 ## Libraries
+<!-- bite: f4e2d783-8d8a-488b-b9f8-1966d5bf3ae1 -->
 
 ```bash
 # Static — .a, an archive of .o files, copied into the binary
@@ -217,6 +227,7 @@ nm -D libstack.so   # what symbols does it export?
 **Link order matters** with static libraries: `-l` flags must come *after* the objects that need them. `gcc -lm main.c` fails where `gcc main.c -lm` works, because the linker processes left to right and discards a library whose symbols nothing has requested yet. This trips up everyone once.
 
 ## A CI target worth having
+<!-- bite: 28c7482d-c49e-44d3-9814-f6750c1e809e -->
 
 ```make
 .PHONY: check
@@ -230,6 +241,7 @@ Build and test under sanitizers as a separate target, since they're too slow for
 ---
 
 ## Related
+<!-- bite: a9de3ae5-8a76-48d3-8a1c-2cdb01a95f9e -->
 - [[languages/04-c/02-headers-and-the-translation-unit|Headers and the Translation Unit]] — the dependency problem `-MMD` solves
 - [[languages/04-c/11-modular-c-and-project-structure|Modular C]] — the layout being built
 - [[languages/04-c/13-debugging-and-tooling|Debugging and Tooling]] — the sanitizer flags

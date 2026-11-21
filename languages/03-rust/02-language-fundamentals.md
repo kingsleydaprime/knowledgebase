@@ -1,8 +1,13 @@
+---
+id: 22b1fe1f-b5ac-4103-9d69-461a05f99f3d
+---
+
 # Language Fundamentals
 
 **[Beginner]** — Bindings, the type system, expressions-as-values, and the control flow you'll use before ownership makes sense.
 
 ## Bindings
+<!-- bite: f09f066f-c40a-480b-9601-5316cb536997 -->
 
 ```rust
 let x = 5;              // immutable
@@ -30,6 +35,7 @@ let input: i32 = input.trim().parse().expect("not a number");
 You don't end up with `input_str` and `input_num` in scope, and the old binding can't be used by accident.
 
 ## Types
+<!-- bite: 748ffda6-6018-4013-978e-2029b359a1cb -->
 
 ```rust
 i8 i16 i32 i64 i128 isize      // signed; i32 is the default integer
@@ -77,6 +83,7 @@ let slice: &[i32] = &arr[1..3];         // a borrowed view
 `()` is the **unit type** — one value, zero size. It's what functions return when they return nothing, and it's the reason `Result<(), Error>` is the signature for "can fail, produces nothing".
 
 ## Functions and expressions
+<!-- bite: 7e4d44dc-9837-4b58-904e-aac940f8d3cd -->
 
 ```rust
 fn add(a: i32, b: i32) -> i32 {
@@ -127,6 +134,7 @@ let x = match n {
 ```
 
 ## Control flow
+<!-- bite: 9aca7ae0-25af-424e-be42-6883c1d7026f -->
 
 ```rust
 if x > 5 { } else if x > 2 { } else { }     // no parentheses; braces mandatory
@@ -152,6 +160,7 @@ There's no C-style `for`. Ranges and iterators cover it, and `for item in collec
 ```
 
 ## Strings, which surprise everyone
+<!-- bite: 23907364-cd8e-4da9-8ac2-eb66eb8e021a -->
 
 Two types, and you need both:
 
@@ -186,6 +195,7 @@ s.chars().count()          // 5
 This is the same reality as Go's strings, enforced harder: Go lets you index and get a byte, Rust refuses the operation. Annoying at first, correct in the end — indexing a UTF-8 string by "character" is an O(n) operation and the API shouldn't pretend otherwise.
 
 ## Comments and docs
+<!-- bite: 0273bf6c-a0a3-402b-b0c2-a34f828fbe22 -->
 
 ```rust
 // line comment
@@ -204,6 +214,7 @@ Doc-comment code blocks are **compiled and run by `cargo test`**. Documentation 
 ---
 
 ## Related
+<!-- bite: 6cb7c52f-f0db-4647-9dd2-05b8810eb44c -->
 - [[languages/03-rust/03-ownership|Ownership]] — why `for item in collection` consumes it
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Structs, Enums and Pattern Matching]] — where `match` gets serious
 - [[languages/02-go/02-language-fundamentals|Go: Language Fundamentals]] — the same ground, different trade-offs

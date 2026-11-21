@@ -1,8 +1,13 @@
+---
+id: 923ad015-a7a4-4c49-9fe1-e55a09578b82
+---
+
 # Provisioning & Terraform
 
 **[reference]** — from roadmap.sh and the Terraform docs. Not yet run against a real cloud account; the honest next step is a `terraform apply` on a throwaway account.
 
 ## Infrastructure as Code — the idea
+<!-- bite: 9d5dd541-fa94-471f-afc5-affec7cdae47 -->
 
 **IaC** means defining your infrastructure (servers, networks, databases, DNS, load balancers) in version-controlled code instead of clicking through a cloud console. The payoff:
 
@@ -14,6 +19,7 @@
 The mental shift is from **imperative** ("run these steps to create a server") to **declarative** ("I want a server that looks like this") — you describe the desired end state and the tool figures out the changes to get there.
 
 ## Two disciplines: provisioning vs configuration
+<!-- bite: 33c2627c-5e96-49d6-afd9-81aca9715e2b -->
 
 IaC splits into two related jobs, and conflating them causes confusion:
 
@@ -23,6 +29,7 @@ IaC splits into two related jobs, and conflating them causes confusion:
 A common pattern: Terraform provisions the servers, then Ansible configures them. (Immutable-infrastructure shops skip config management entirely — they bake a machine image and provision from it, replacing rather than mutating.)
 
 ## Terraform
+<!-- bite: b584358c-55f6-4cf3-b26c-9c677a778f61 -->
 
 Terraform is the de-facto provisioning standard. You write **HCL** (HashiCorp Configuration Language) describing resources; Terraform figures out how to create/change/destroy them via each provider's API.
 
@@ -60,6 +67,7 @@ terraform destroy   # tear it all down
 Reusable modules, input variables, and outputs let you parameterize and compose infrastructure (a `vpc` module reused across environments).
 
 ## The provisioning landscape
+<!-- bite: 4eec7f06-53e0-4f64-83a5-e59d6cec95f4 -->
 
 | Tool | Language | Scope | Notes |
 |---|---|---|---|
@@ -72,10 +80,12 @@ Reusable modules, input variables, and outputs let you parameterize and compose 
 The axis that matters: **HCL/declarative (Terraform) vs a real programming language (Pulumi/CDK)** — declarative is simpler and more predictable; real-language IaC is more powerful and testable but easier to over-engineer. And **multi-cloud (Terraform/Pulumi) vs cloud-native (CloudFormation/Bicep)** — native tools integrate deepest but lock you in.
 
 ## Where IaC runs
+<!-- bite: caf4faa6-ddab-4a3c-a097-0ddba8023c8c -->
 
 IaC belongs in a [[devops/05-ci-cd/index|CI/CD pipeline]], not on someone's laptop: a change to the `.tf` files triggers a `plan` (posted for review on the PR) and, on merge, an `apply`. And IaC must **never hardcode secrets** — credentials come from a [[devops/06-secret-management/index|secret manager]] at apply time, never committed to the repo or baked into state carelessly.
 
 ## Related
+<!-- bite: a44cce8d-bd3a-4c3c-a870-498524266149 -->
 - [[devops/09-infrastructure-as-code/02-configuration-management|Configuration Management]] — the other half of IaC
 - [[devops/08-cloud/index|Cloud]] — what provisioning tools create
 - [[devops/05-ci-cd/index|CI/CD]] — where `terraform apply` actually runs

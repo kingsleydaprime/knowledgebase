@@ -9,6 +9,7 @@ id: b1db3e87-7a45-4d4d-b1e0-d14d11dcf442
 **[reference]**, with a grounded companion: the [[languages/01-java/03-tooling/05-logging-and-observability|Java logging & observability note]] covers the application side (SLF4J/Logback, Micrometer → Prometheus metrics, the four pipeline signals) from a real project. This note is the concepts view.
 
 ## Before you start
+<!-- bite: ea90be15-7f7e-490a-a9ea-b504bf5e48ce -->
 
 You can already:
 
@@ -25,16 +26,19 @@ After this lesson you will be able to:
 **Study route.** The kid version and §1–5, then the worked example — predict the numbers first. The practice task is the second half of SWE 101's week 6 milestone.
 
 ## The kid version
+<!-- bite: acf849b6-666d-43f9-85ba-56d406852f60 -->
 
 A car's dashboard doesn't tell you what's wrong with the engine. It tells you a few things that matter right now — speed, fuel, temperature — and lights a warning when one goes wrong. Then a mechanic plugs in and reads the detailed record of what the engine did. **Observability is the dashboard plus the mechanic's record, for software.** The dashboard (metrics) tells you something's wrong; the record (logs and traces) tells you what.
 
 **Where the analogy stops working.** A car has one driver, so "the speed" is one number. A server handles thousands of requests at once, and "how fast is it?" has no single answer — most requests can be fast while one in a hundred takes ten seconds. That's why §3 matters: you measure the spread, not just one number.
 
 ## 1. Why this exists
+<!-- bite: fba61c68-4a6d-40ac-b038-7271275cbed9 -->
 
 The team dashboard shows average response time: 93ms. Everyone's happy. Meanwhile support is fielding complaints that checkout "hangs". One request in a hundred takes over two seconds, and those are mostly the users with full carts — the ones spending the most. The average stayed fine because 97 fast requests outweigh a slow one. **You can't fix what your numbers can't see**, and the most common number — the average — is the one that hides it. The worked example reproduces exactly this.
 
 ## Terms used in this lesson
+<!-- bite: 29216655-1d37-4ff0-b48d-f3a1299a33fd -->
 
 1. **Monitoring**: This means watching for problems you predicted — "alert if the site is down" — with dashboards and alerts set up in advance.
 2. **Observability**: This is how well you can answer *new* questions about a system from what it outputs, without shipping new code — "why are requests from this one customer slow today?"
@@ -49,6 +53,7 @@ The team dashboard shows average response time: 93ms. Everyone's happy. Meanwhil
 11. **Burn rate**: This is how fast the error budget is being used, compared with using it evenly. A burn rate of 1 uses exactly the whole budget by the end of the period.
 
 ## 2. The three pillars
+<!-- bite: 878a258e-22ab-4ad0-b21f-885a775a8442 -->
 
 | Pillar | Answers | Tool examples |
 |---|---|---|
@@ -65,6 +70,7 @@ The team dashboard shows average response time: 93ms. Everyone's happy. Meanwhil
 **Monitoring vs observability.** Monitoring tells you *something* is wrong, for problems you predicted. Observability helps you find out *what*, including for problems you didn't.
 
 ## 3. Why averages lie — measure percentiles
+<!-- bite: 75ba4594-188c-450c-9f68-8985f8d48f71 -->
 
 Latency is never one number; it's a spread. The average (mean) adds every request and divides, so a few very slow requests barely move it when there are many fast ones. **Percentiles describe the spread directly:**
 
@@ -75,6 +81,7 @@ Latency is never one number; it's a spread. The average (mean) adds every reques
 **Track p50 and p99 together.** p50 tells you what most people get; p99 tells you how bad the bad experience is. And in a system where one page makes many requests, a "1 in 100" slow request is hit by far more than 1% of page loads.
 
 ## 4. The four golden signals
+<!-- bite: 834fb31d-fe4b-445d-b615-795c4cdff292 -->
 
 Google's SRE book distils "what to monitor" for any user-facing service into four signals — a better starting point than a hundred host metrics:
 
@@ -86,6 +93,7 @@ Google's SRE book distils "what to monitor" for any user-facing service into fou
 The related **RED method** — **R**ate, **E**rrors, **D**uration — is the request-centric subset most people start with, and it's what the worked example computes.
 
 ## 5. SLOs, error budgets, and when to wake someone up
+<!-- bite: c8a8e0fa-caa4-49ee-aec0-36f94de11419 -->
 
 **Pick an SLI that matches what users feel**, for the routes that matter: "the fraction of checkout requests that succeed in under 500ms". Then set an **SLO**: "99.9% over 30 days". Now reliability is a number you can engineer to.
 
@@ -100,6 +108,7 @@ $$\text{burn rate} = \frac{\text{error rate}}{1 - \text{SLO}}$$
 At burn rate 1, you spend the whole budget in exactly the period. At 14.4, sustained for one hour, you spend 2% of a 30-day budget, because 14.4 × 1 hour ÷ 720 hours = 0.02. The SRE workbook's recommendation is to **page when the burn rate is at least 14.4 over the last hour *and* the last 5 minutes**. The hour shows it's serious; the 5 minutes show it's still happening, so nobody is woken for something that already recovered.
 
 ## Worked example — what the dashboard should have shown
+<!-- bite: 720a11f9-3eb6-4146-bc54-a5bfac93d049 -->
 
 The lab computes RED signals from structured log lines — the kind the backend-practices lesson produces — then works out an error budget and a paging decision.
 
@@ -213,6 +222,7 @@ test("burn rate, and paging only on a fast burn that is still happening", () => 
 **The limits.** These numbers come from logs after the fact. A real system computes them continuously from metrics, using histograms that approximate percentiles cheaply instead of sorting every value, and keeps logs for the detail.
 
 ## Common pitfalls
+<!-- bite: f49032d2-29d5-456d-861e-b7a5d5c5fdbc -->
 
 1. **Averaging latency** — §3. And never average percentiles across servers: the average of five p99s is not the p99 of the whole.
 2. **Alerting on causes** — CPU, memory, disk — instead of what users feel. Put causes on dashboards and alert on symptoms.
@@ -221,6 +231,7 @@ test("burn rate, and paging only on a fast burn that is still happening", () => 
 5. **Too many alerts.** Every page should be actionable and come with a runbook — a short note on what to check first.
 
 ## Check your understanding
+<!-- bite: 2ea55d2e-f2a9-450c-9a16-8f33c45b5183 -->
 
 1. Which pillar tells you *that* something is wrong, which tells you *where*, and which tells you *what*?
 2. Why is p99 more useful than the mean for latency? Give a case where the mean looks fine and users are suffering.
@@ -240,6 +251,7 @@ test("burn rate, and paging only on a fast burn that is still happening", () => 
 </details>
 
 ## Practice — independent task
+<!-- bite: 60e608b0-06f3-4817-8a69-48cd0204bb77 -->
 
 **The second half of SWE 101's week 6 milestone.**
 
@@ -251,6 +263,7 @@ test("burn rate, and paging only on a fast burn that is still happening", () => 
 **Done when:** you can answer "is it up, is it fast, and what broke last?" for the flagship without opening the code, and the SLO is written in the README.
 
 ## Before moving on
+<!-- bite: b0063d47-9af7-4d7b-bde3-6afcb7b4f49a -->
 
 You can name the three pillars and what connects them, compute and explain percentiles, define an SLI and SLO, and decide when an alert should page.
 
@@ -259,6 +272,7 @@ You can name the three pillars and what connects them, compute and explain perce
 **Next.** Week 7: [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation and output encoding]].
 
 ## Related
+<!-- bite: 0b31366d-9a2c-4a3b-bdea-fdbdff13d0c9 -->
 - [[devops/07-observability/01-observability-fundamentals/in-other-languages|Observability in Other Languages]] — histograms, estimated percentiles and each ecosystem's metrics library
 - [[languages/01-java/03-tooling/05-logging-and-observability|Logging & observability (Java)]] — the application side, grounded in a real pipeline
 - [[devops/07-observability/02-the-observability-stack|The observability stack]] — the tools that implement these pillars

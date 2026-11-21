@@ -1,8 +1,13 @@
+---
+id: b4dab19f-e8f1-4817-bdc2-f9b988a15ac1
+---
+
 # Linking and Loading
 
 **[Intermediate → Advanced]** — What happens between "the compiler produced machine code" and "the program is running". The step every course skips, including this one until now.
 
 ## Before you start
+<!-- bite: dc55cd03-9982-462e-ba78-ed7872c9aee4 -->
 
 - You know what a compiler emits — [[08-code-generation|code generation]].
 - You can read basic assembly and know what an address is — [[computer-architecture/04-assembly|computer-architecture/assembly]].
@@ -18,6 +23,7 @@
 ---
 
 ## 1. The gap this fills
+<!-- bite: 2d190e35-ca68-4fc4-9c11-7faa47c10443 -->
 
 [[08-code-generation|Code generation]] ends with assembly, and the assembler turns that into machine code. **But that machine code is not a program yet.**
 
@@ -32,6 +38,7 @@
 **That something is the linker**, and the gap between object file and executable is where a surprising amount of real-world confusion lives: `undefined reference to`, `symbol not found`, version mismatches, "works on my machine".
 
 ## 2. Why compilation and linking are separate
+<!-- bite: 7a143e9b-1269-4726-b4be-aad782c41d9c -->
 
 **A compiler sees one file at a time.** That is a deliberate choice, and it buys two things:
 
@@ -42,6 +49,7 @@
 **The cost is that the compiler cannot know addresses.** When `main.c` calls `add()`, the compiler has no idea where `add` will end up in memory — that depends on what else gets linked and in what order. **So it leaves a hole and writes down what should fill it.**
 
 ## 3. Symbols: promises and definitions
+<!-- bite: 4626aead-0c17-4ea1-bece-717f88322ff1 -->
 
 **A symbol is a name with a kind.** Running `nm` on an object file shows them:
 
@@ -75,6 +83,7 @@
 > This is why `static` prevents name collisions between translation units, and why two files can each define `static void log()` without conflict. **The `t` versus `T` distinction *is* the mechanism.**
 
 ## 4. The sections of an object file
+<!-- bite: c6f931d8-9b01-4be9-bfea-60babc6538c7 -->
 
 An object file is not a flat blob. It is divided by what the contents *are*:
 
@@ -90,6 +99,7 @@ An object file is not a flat blob. It is divided by what the contents *are*:
 **`.bss` is the clever one.** A million-element zero array needs no bytes on disk — just "reserve 8 MB of zeros". That is why a program with huge zeroed buffers has a small executable, and why `.bss` stands for "block started by symbol" and confuses everyone who looks it up.
 
 ## 5. Relocations: the holes and their instructions
+<!-- bite: fc39f23c-03ac-4dc8-a9e0-3fce3679dc89 -->
 
 When the compiler emits a call to a function it cannot locate, it writes a placeholder and records a **relocation entry**:
 
@@ -105,6 +115,7 @@ When the compiler emits a call to a function it cannot locate, it writes a place
 **This is the same idea as [[how-computers-work/08-capstone/02-the-isa|PRIME-1's PC-relative branches]]**, and it is why the disassembler in that module needed to know an instruction's address. Position-dependent encodings must be adjusted when code moves — and relocation is that adjustment, done once at link time.
 
 ## 6. What the linker actually does
+<!-- bite: f5e88fd5-20bd-4fc0-ba8f-e614bced1f98 -->
 
 **Four steps:**
 
@@ -123,6 +134,7 @@ When the compiler emits a call to a function it cannot locate, it writes a place
 > That is why a C program without `main` links fine if you supply your own `_start`, and why "undefined reference to `main`" comes from the *runtime*, not the compiler.
 
 ## 7. Static versus dynamic linking
+<!-- bite: e346d851-d641-4213-9648-0b87c4ed1ef1 -->
 
 **Static** — copy the library's code into the executable.
 
@@ -141,6 +153,7 @@ When the compiler emits a call to a function it cannot locate, it writes a place
 That is why Go defaults to static binaries, why Docker images exist largely to pin the dynamic dependencies, and why `musl` is popular for small static builds.
 
 ## 8. The dynamic loader
+<!-- bite: b31043ce-3852-4d30-9a34-160657848c17 -->
 
 A dynamically linked executable contains this:
 
@@ -159,6 +172,7 @@ The dynamic loader maps the required shared libraries into the address space, re
 **And this is why `LD_PRELOAD` works** — you can insert a library ahead of the normal search order and have your `malloc` found first, which is exactly what [[build-your-own-shit/11-your-own-memory-allocator|your own memory allocator]] relies on.
 
 ## 9. Worked example — runnable
+<!-- bite: 409b851f-5da8-4cf8-8e48-3e800bb86e17 -->
 
 **Runnable example:** save as `linker_lab.py` and run `python3 linker_lab.py`. Needs `gcc`, `nm` and `readelf`; it compiles into a temporary directory and cleans up after itself. Everything printed is a symbol name or a relocation type — no addresses — so your output should match.
 
@@ -372,6 +386,7 @@ linker_lab: passed
 ---
 
 ## 10. Common pitfalls and traps
+<!-- bite: c3ffb4f0-1ede-40ae-8ce9-871c928a7a4a -->
 
 1. **Reading `undefined reference` as a compiler error.** It is a *linker* error — the code compiled fine. The distinction tells you where to look: a missing declaration is a compile error, a missing definition is a link error.
 2. **Getting library order wrong.** With static libraries, `gcc main.o -lfoo` works and `gcc -lfoo main.o` may not — the linker processes left to right and only pulls in objects satisfying symbols it has *already* seen undefined.
@@ -381,6 +396,7 @@ linker_lab: passed
 6. **Thinking `main` is the entry point.** `_start` is. `main` is called by the runtime.
 
 ## 11. Check your understanding
+<!-- bite: 6a587778-b141-48dc-abc8-80361d253f9f -->
 
 1. **Why can the compiler not resolve a call to a function in another file?**
    <details><summary>Answer</summary>
@@ -406,6 +422,7 @@ linker_lab: passed
    </details>
 
 ## 12. Practice — independent task
+<!-- bite: ef5e4033-36c1-490b-b5a2-ffb14c6bf7e5 -->
 
 **Task:** Build and inspect a shared library end to end.
 
@@ -425,6 +442,7 @@ linker_lab: passed
 </details>
 
 ## 13. Tradeoffs and limits
+<!-- bite: 67f3d3bb-aad7-4b97-b6b1-c62236803189 -->
 
 - **This covers ELF only.** macOS uses Mach-O and Windows uses PE/COFF. The concepts — symbols, sections, relocations, dynamic loading — are the same; the formats and tools differ (`otool`, `dumpbin`).
 - **Link-time optimisation blurs the boundary.** With LTO the compiler defers code generation so the linker can optimise across translation units, which makes "compilation" and "linking" less cleanly separated than described here.
@@ -432,6 +450,7 @@ linker_lab: passed
 - **Nothing here covers relocatable kernels or position-independent executables in depth.** PIE is now the default on most distributions, which adds another layer of runtime relocation.
 
 ## Before moving on
+<!-- bite: 124349aa-e205-4080-a090-64a3ee7b7788 -->
 
 - [ ] Explain why compilation and linking are separate, and what each step cannot know.
 - [ ] Read `nm` output and distinguish promises from definitions.
@@ -443,6 +462,7 @@ linker_lab: passed
 **Next:** [[10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — what happens when the target is not a real machine.
 
 ## Related
+<!-- bite: e03af18c-ec33-4385-94d5-90f32539ee96 -->
 
 - [[08-code-generation|Code generation]] — where the object files come from
 - [[os/09-syscalls-interrupts-and-the-abi|os/syscalls and the ABI]] — the calling convention the linker assumes

@@ -1,8 +1,13 @@
+---
+id: 487423b6-e6f5-40a3-ac0f-06521c448038
+---
+
 # Eigenvalues and Eigenvectors
 
 **[Advanced]** — the directions a transformation does not turn, and the change of basis that makes a matrix diagonal.
 
 ## Before you start
+<!-- bite: 6efaccc5-3e40-4849-bf37-3983356afd16 -->
 
 - You know that a matrix is a linear map and that its columns are the images of the basis vectors — [[05-linear-transformations/01-linear-transformations|linear transformations]].
 - You can compute a $2\times2$ determinant and inverse — [[01-matrices-and-determinants|matrices and determinants]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: a2855442-7541-4e28-b970-799b58f90c5a -->
 
 A linear map generally does two things to a vector: **stretches** it and **turns** it. The turning is what makes maps hard to reason about, and hard to iterate — apply a matrix ten times and the result is a tangle.
 
@@ -34,6 +40,7 @@ That is the whole idea, and its consequences are everywhere:
 - The **classification of quadric surfaces** in [[02-quadric-surfaces|quadric surfaces]] was, as flagged there, a statement about the signs of eigenvalues.
 
 ## 2. The definition
+<!-- bite: c92d6621-5af7-43b4-b0e6-a834de7ce915 -->
 
 A non-zero vector $\mathbf{v}$ is an **eigenvector** of $A$ with **eigenvalue** $\lambda$ when:
 
@@ -56,6 +63,7 @@ The requirement $\mathbf{v} \neq \mathbf{0}$ matters: $A\mathbf{0} = \lambda\mat
 Eigenvectors are never unique either — if $\mathbf{v}$ is one, so is $5\mathbf{v}$ and $-\mathbf{v}$. What is really determined is a **direction**, or more precisely the **eigenspace**: the null space of $A - \lambda I$, which is a subspace.
 
 ## 3. Finding them
+<!-- bite: e8013cc4-8081-4877-9ee5-73e397317769 -->
 
 Rearrange the definition:
 
@@ -103,6 +111,7 @@ Check: $A(1,1) = (5,5) = 5(1,1)$. ✓ And $A(1,-2) = (2,-4) = 2(1,-2)$. ✓
 > **Predict before section 4.** Consider the matrix that rotates the plane by $90°$: $\begin{pmatrix}0&-1\\1&0\end{pmatrix}$. Before computing anything — is there any direction a $90°$ rotation leaves pointing the same way? What does that tell you about its real eigenvalues, and what will the characteristic equation look like? Decide before opening the answers.
 
 ## 4. Diagonalisation
+<!-- bite: bb8c07f5-6e45-4730-8bcf-4ab2b761837b -->
 
 Suppose $A$ ($n\times n$) has $n$ independent eigenvectors. Put them in the columns of $P$ and the eigenvalues on the diagonal of $D$. Then:
 
@@ -131,6 +140,7 @@ and $D^n$ is just each diagonal entry raised to the $n$th power. Computing $A^{1
 **Symmetric matrices are always well behaved.** If $A = A^{T}$, then its eigenvalues are all **real**, and eigenvectors for different eigenvalues are **orthogonal**. This is the spectral theorem, and it is why covariance matrices — symmetric by construction — always yield the clean orthogonal axes that PCA uses.
 
 ## 5. Markov chains and power iteration
+<!-- bite: 07d16a65-8f40-46b7-b800-ab4ad4b5bf28 -->
 
 A **Markov chain** has a transition matrix whose columns are probabilities summing to $1$. Such a matrix always has $\lambda = 1$ as an eigenvalue, and its eigenvector — normalised to sum to $1$ — is the **steady state** the system settles into regardless of where it started.
 
@@ -145,6 +155,7 @@ You do not need the characteristic polynomial to find it. **Power iteration** wo
 This is PageRank. The matrix is the web's link structure, and the dominant eigenvector is the ranking. Google's original contribution was not the mathematics — it was noticing that the mathematics applied, and making power iteration work at web scale.
 
 ## Worked example — runnable
+<!-- bite: 04d2441c-1054-46ba-9734-6b3e08949e70 -->
 
 **Runnable example:** save as `eigen.py` in any empty directory and run `python3 eigen.py`. Standard library only; writes no files.
 
@@ -395,6 +406,7 @@ eigen: passed
 Block 5 is the whole idea in one place. Two completely different starting states, forty steps of nothing but matrix–vector multiplication, and both land on $(5/6, 1/6)$ — the eigenvector for $\lambda = 1$, to nine decimal places.
 
 ## Common pitfalls and traps
+<!-- bite: ada9ac12-7c65-45ef-a3a4-473300646e56 -->
 
 - **Forgetting the $I$.** It is $\det(A - \lambda I) = 0$, not $\det(A - \lambda)$. Subtracting a scalar from a matrix is not defined.
 - **Accepting $\mathbf{v} = \mathbf{0}$.** It satisfies the equation for every $\lambda$ and is excluded by definition. When solving $(A-\lambda I)\mathbf{v} = \mathbf{0}$ you want the *non-trivial* null space vectors.
@@ -404,6 +416,7 @@ Block 5 is the whole idea in one place. Two completely different starting states
 - **Expecting power iteration always to converge.** It needs a *strictly* dominant eigenvalue and a starting vector with a component along it. Two eigenvalues of equal magnitude — as with a rotation — make it oscillate instead.
 
 ## Check your understanding
+<!-- bite: 54451ab9-ba85-464f-8c2b-275acc27cbb8 -->
 
 1. Find the eigenvalues of $\begin{pmatrix}3&0\\0&-2\end{pmatrix}$ and their eigenvectors, by inspection.
 2. A $2\times2$ matrix has trace $6$ and determinant $8$. What are its eigenvalues?
@@ -423,6 +436,7 @@ Block 5 is the whole idea in one place. Two completely different starting states
 </details>
 
 ## Practice — independent task
+<!-- bite: 2ba1fd3c-91d8-4e28-8da0-175e15d97dd8 -->
 
 Implement `pagerank(links, damping=0.85)` — power iteration on a real link structure.
 
@@ -442,6 +456,7 @@ Then investigate:
 **Done when:** your eigenvector check passes, your step-6 example behaves as you predicted before running it, and your step-7 numbers show the trend you expect from the theory rather than one you rationalise afterwards.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 4ccda6cb-2204-4f48-8ab6-52aaa5dc70f4 -->
 
 **Never compute eigenvalues from the characteristic polynomial.** Root-finding for polynomials is ill-conditioned: Wilkinson's classic example is a degree-20 polynomial whose roots move by orders of magnitude under a change of $2^{-23}$ in one coefficient. Production libraries use the **QR algorithm**, which is iterative and numerically stable, and compute the polynomial — if at all — from the eigenvalues rather than the reverse.
 
@@ -450,6 +465,7 @@ Then investigate:
 **The SVD generalises this to non-square matrices.** Eigenvalues need $A$ square, and even then may not give a full basis. The **singular value decomposition** $A = U\Sigma V^{T}$ exists for every matrix, always has orthogonal factors, and is the tool of choice for rank, least squares, compression and pseudo-inverses. Where eigenvalues are the natural object for *iteration*, singular values are the natural object for *approximation*.
 
 ## Before moving on
+<!-- bite: 3ffa611c-0f5c-4d89-9817-6ec808bc21f5 -->
 
 You are done with this lesson when you can:
 
@@ -463,6 +479,7 @@ You are done with this lesson when you can:
 **Where next:** this is the last lesson in linear algebra. The natural continuations are [[02-quadric-surfaces|quadric surfaces]], whose classification is a statement about eigenvalue signs, and **06-calculus/04-calculus-3/03-optimization**, where the Hessian's eigenvalues decide whether a stationary point is a maximum, a minimum or a saddle.
 
 ## Related
+<!-- bite: 9b427b69-fba5-471a-974f-720347d85969 -->
 
 - [[05-linear-transformations/01-linear-transformations|Linear Transformations]] — the change of basis diagonalisation performs
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — eigenspaces are null spaces

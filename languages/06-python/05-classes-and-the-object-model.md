@@ -1,3 +1,7 @@
+---
+id: 59f89766-66ec-4325-8446-16a497904ceb
+---
+
 # Classes and the Object Model
 
 > **[Intermediate]** · Dunder methods, properties, dataclasses, and why Python's OOP is a set of *protocols* rather than a set of *declarations*.
@@ -5,6 +9,7 @@
 Python has classes, inheritance and polymorphism → [[programming-fundamentals/13-objects-and-classes|objects and classes]]. What makes it different from Java or C# is that **behaviour is opted into by implementing methods with specific names, not by declaring that you implement an interface.**
 
 ## The basics
+<!-- bite: f57a7273-673f-479c-96f3-2d0cb6356836 -->
 
 ```python
 class Account:
@@ -41,6 +46,7 @@ class Basket:
 Put mutable state in `__init__`, always.
 
 ## Dunder methods — the protocols
+<!-- bite: af4784a4-eb50-4ea2-ab73-fd2ce2107ad6 -->
 
 Double-underscore methods hook your class into the language's syntax. **This is the core of Python's object model**: `len(x)` calls `x.__len__()`, `a + b` calls `a.__add__(b)`, `for i in x` calls `x.__iter__()`.
 
@@ -67,6 +73,7 @@ class Money:
 **The consequence of protocols over declarations:** anything with `__iter__` is iterable, anything with `__len__` works with `len()`, and no base class or interface declaration is involved. This is **duck typing** with hooks, and it's why `collections.abc` types work with your classes without your classes knowing they exist.
 
 ## Properties
+<!-- bite: eaaf447b-c67a-421e-8581-fe71eacccfef -->
 
 Computed attributes that look like plain ones:
 
@@ -94,6 +101,7 @@ c.area            # computed; no parentheses
 **This is why Python code doesn't have getters and setters everywhere.** In Java you write them upfront because turning a public field into a method later breaks callers. In Python you expose the attribute directly and *convert it to a property later if you ever need to* — the call sites don't change. Writing `get_radius()` in Python is importing a solution to a problem the language doesn't have.
 
 ## Privacy by convention
+<!-- bite: 4c4709ea-6782-462f-a1b0-d03e5084e5a7 -->
 
 - `name` — public
 - `_name` — internal. **Convention only**; nothing stops you, but you're on your own
@@ -102,6 +110,7 @@ c.area            # computed; no parentheses
 Python's position is *we're all consenting adults here*. It trades enforcement for the ability to inspect and monkey-patch anything, which is why testing and debugging tools in Python can do things they can't elsewhere.
 
 ## Dataclasses
+<!-- bite: 690ce611-2e65-42eb-82aa-aa046929dfc6 -->
 
 Most classes exist to hold data. `@dataclass` removes the boilerplate:
 
@@ -128,6 +137,7 @@ You get `__init__`, `__repr__` and `__eq__` generated. Options worth knowing:
 The alternatives: **`NamedTuple`** for immutable positional records, and **`pydantic`** when the data comes from *outside* your program and needs validating and parsing → [[backend/frameworks/python/01-fastapi/index|FastAPI]] is built on it.
 
 ## Inheritance and the MRO
+<!-- bite: 0578ebd0-2815-491f-a7e2-1494c6a3561e -->
 
 Python has multiple inheritance, resolved by the **C3 linearisation** — the method resolution order:
 
@@ -151,6 +161,7 @@ class Storage(ABC):
 Or, better for duck-typed code, a **`Protocol`** — structural typing, no inheritance required → [[languages/06-python/08-typing-and-type-hints|note 08]].
 
 ## Related
+<!-- bite: 80639205-28f0-47fb-bb57-fe7a8cd06eac -->
 - [[languages/06-python/08-typing-and-type-hints|typing]] — Protocols and generics
 - [[languages/06-python/07-decorators-and-context-managers|decorators]] — `@property` is one
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]] — the concepts, language-agnostic

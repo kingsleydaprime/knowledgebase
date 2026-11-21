@@ -7,6 +7,7 @@ id: e3fed3fe-7b08-4628-8f28-844a21025dbc
 > **[Beginner]** · The distinction that actually matters, and why most of the job isn't typing.
 
 ## Before you start
+<!-- bite: a194626c-d0ed-462a-85c2-b215522f3e8e -->
 
 You can already write a program that runs and does something useful. That's the only prerequisite.
 
@@ -19,16 +20,19 @@ After this lesson you will be able to:
 **Study route.** Read straight through; it's short. Stop at *Check your understanding*, answer from memory, then do the practice task. The task is the finish line, not the reading.
 
 ## The kid version
+<!-- bite: c3250632-5ae6-4128-ab06-587f413f9fb6 -->
 
 Building a sandcastle is programming: you make it, it looks right, you're done. Building a real house is engineering. Other people will live in it for fifty years, a plumber who has never met you will have to fix the pipes, and if the roof leaks in winter someone has to know why. **The bricks are the same. What's different is that the house has to keep working for other people, long after you've stopped looking at it.**
 
 **Where the analogy stops working.** A house is mostly finished when the builders leave. Software never is — it gets changed every week for as long as it's used, so the "fixing the pipes" part isn't the end of the job, it *is* the job.
 
 ## 1. Why this exists
+<!-- bite: 3dc8c342-867f-469c-b445-c787efa1fb66 -->
 
 You built a script that exports orders to CSV. It works. Three months later a teammate adds a "refunded" status, a customer in Lagos sees prices in the wrong currency, the script runs on a server with a different Python version, and nobody remembers why one column is formatted strangely. None of those problems is about the algorithm. **All of them are about the script surviving contact with other people and time** — and that's the gap this lesson names.
 
 ## Terms used in this lesson
+<!-- bite: 39f4a35a-414d-4d0f-80ee-f5e9c1152dc2 -->
 
 1. **Programming**: This is getting a computer to do what you want. Its success test is "does it give the right output now, on this machine?"
 2. **Software engineering**: This is programming plus everything needed for the program to keep working when there are other people, a deadline, money at stake, and a version of the code that has to work next year.
@@ -38,6 +42,7 @@ You built a script that exports orders to CSV. It works. Three months later a te
 6. **Production**: This is the live environment real users depend on, as opposed to your laptop or a test server.
 
 ## 2. Programming vs engineering
+<!-- bite: 52f65f9b-6b60-49a4-81fe-fb898af5c82f -->
 
 Programming is getting a computer to do what you want. Software engineering is getting a computer to do what you want **when there are other people, a deadline, money at stake, and a version of the code that has to keep working next year.**
 
@@ -54,6 +59,7 @@ That sounds like a slogan, so here it is concretely. A program that works on you
 **The engineering is in the second column.** It's why two people can both "know how to code" and produce work of completely different value.
 
 ## 3. Where the time actually goes
+<!-- bite: 323760f2-de9e-4e1a-893d-4f69bd025886 -->
 
 The single most surprising fact for people entering the profession: **writing new code is a minority of the job.** Most hours go to reading existing code, working out what's actually being asked for, deciding between approaches, reviewing other people's work, and finding out why something broke.
 
@@ -62,6 +68,7 @@ This is not a complaint about bureaucracy. It's a consequence of the economics �
 **Pause and predict.** Think of the last feature you shipped. Before reading the worked example, guess what fraction of your time was typing new code.
 
 ## 4. The three habits
+<!-- bite: d61accc8-4d94-4bbd-8d3e-2b681a15967f -->
 
 Almost everything in this vault is one of three moves applied to a different subject.
 
@@ -72,6 +79,7 @@ Almost everything in this vault is one of three moves applied to a different sub
 **Trade-offs** — recognising there is no best option, only an option that's best given what you're optimising for. Faster or cheaper. Consistent or available. Simple now or flexible later. **Engineers are distinguished less by knowing more options than by being able to say why they chose one.** That's also what a system-design interview is measuring — see [[architecture/interview/01-system-design-round|the round]].
 
 ## 5. Worked example — one ticket, honestly timed
+<!-- bite: 0dabb833-85ed-4cf7-b713-495d65953293 -->
 
 The ticket: *"Add a 'refunded' status to orders."* Here is a realistic breakdown for a mid-sized codebase, five and a half hours in total:
 
@@ -87,6 +95,7 @@ The ticket: *"Add a 'refunded' status to orders."* Here is a realistic breakdown
 **Typing new code: one hour of five and a half.** The rest is what made the one hour correct. Notice too that the most valuable 40 minutes came first: had nobody asked "full or partial?", every later step would have been competently done on the wrong thing.
 
 ## 6. Engineer, developer, programmer
+<!-- bite: 4539a0df-9dd0-4a8b-813e-27d11b671809 -->
 
 Practically, these are used interchangeably in job ads and you should not read much into a title. Where the distinction has content:
 
@@ -97,12 +106,14 @@ Practically, these are used interchangeably in job ads and you should not read m
 The useful version isn't a hierarchy of people, it's a question about *scope of responsibility*. "Does it work?" is programming. "Will it still work at 10× traffic, and what happens at 3am when it doesn't?" is engineering.
 
 ## Common pitfalls
+<!-- bite: ba8e3406-0c0e-40bb-9b48-fb845cb373c9 -->
 
 1. **Measuring yourself by lines written.** Deleting a module, writing a one-paragraph decision record, or asking the question that cancels a feature can be the most valuable thing you do all week.
 2. **Treating "engineering" as process for its own sake.** The second column of §2 exists because each item prevented a real failure. If you can't name the failure a practice prevents, question the practice.
 3. **Abstracting too early.** An interface with one implementation and a guessed-at future is the "bad abstraction" from §4 — it hides the detail and misleads.
 
 ## Check your understanding
+<!-- bite: 08e15ac0-7085-4485-b869-0e73828088a2 -->
 
 1. In one sentence, what does software engineering add to programming?
 2. Why does "code is read more than it is written" lead to practices like clear naming and tests?
@@ -120,6 +131,7 @@ The useful version isn't a hierarchy of people, it's a question about *scope of 
 </details>
 
 ## Practice — independent task
+<!-- bite: 1a4cc4c7-6032-4887-ba81-aad6561fb500 -->
 
 **Time one real ticket.** Choose the last feature or bug fix you shipped in any project.
 
@@ -130,6 +142,7 @@ The useful version isn't a hierarchy of people, it's a question about *scope of 
 **Done when:** the breakdown adds up to roughly the real time, you can point to the three habits in actual files, and you can say — closed-book — why typing was a minority of the time.
 
 ## Before moving on
+<!-- bite: 9e65af8c-be7a-473a-98ac-15ef2fc62efb -->
 
 You can explain the programming/engineering difference to a non-programmer, and you've timed one real ticket.
 
@@ -138,6 +151,7 @@ You can explain the programming/engineering difference to a non-programmer, and 
 **Next.** [[software-engineering/02-the-software-development-lifecycle|The software development lifecycle]] gives the time-breakdown above its standard names, which is what lets you say *which phase* a problem belongs to.
 
 ## Related
+<!-- bite: 07065de9-dc10-407e-a086-ee15fdf91359 -->
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — the shape of the work
 - [[software-engineering/03-the-engineering-roles|the roles]] — who does which part
 - [[PRIMETECHIE|the Primetechie path]] — the tiered progression through this whole vault

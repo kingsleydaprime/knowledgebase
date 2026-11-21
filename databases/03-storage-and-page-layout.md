@@ -1,8 +1,13 @@
+---
+id: c982b815-8982-4f49-a99b-5c5ee44f1844
+---
+
 # Storage and Page Layout
 
 **[Intermediate → Advanced]** — How a database fits variable-sized rows into fixed-sized pages, finds them again after they move, and keeps useful pages in memory. `[reference]`.
 
 ## Before you start
+<!-- bite: c937be04-923c-40e2-8745-e8ec3c3d5324 -->
 
 You should know what a table, row, and primary key are from [[databases/02-the-relational-model|the relational model]]. For the lab, you need Python 3 and familiarity with lists, tuples, classes, and byte slices. If the code is unfamiliar, take a detour through [[languages/06-python/03-built-in-types-and-collections|Python collections]] and [[languages/06-python/05-classes-and-the-object-model|classes]]. No database server or third-party packages are required.
 
@@ -16,6 +21,7 @@ By the end, you should be able to:
 **Study route:** work through the page trace and lab first. Attempt the compaction exercise before looking at its hints. The engine-specific sections afterwards connect the model to real databases; they are not prerequisites for writing the lab.
 
 ## Everything is pages
+<!-- bite: 229c4f61-4145-4fa4-b6a5-23b1ab87113d -->
 
 Suppose you store names in a file, one after another:
 
@@ -49,6 +55,7 @@ A typical PostgreSQL build uses 8 KiB pages, InnoDB defaults to 16 KiB, and SQLi
 An SQL query asks for rows, but the storage machinery commonly fetches and caches the pages containing those rows. See [[computer-architecture/08-the-memory-hierarchy|the memory hierarchy]] for the same reasoning at the CPU-cache level.
 
 ## Inside a page
+<!-- bite: d9af8535-1a79-49a4-a3ad-a0077c79af3a -->
 
 A common design for variable-length records is a **slotted page**. This is a useful model, not the exact layout of every row-oriented engine.
 
@@ -107,6 +114,7 @@ PostgreSQL does **not** automatically reorder your columns to minimise padding. 
 Oversized values need another strategy. PostgreSQL's **TOAST** mechanism can compress eligible values and/or store them out of line in chunks. Retrieving large values may require extra reads and decompression, so select the columns you need rather than routinely returning every large field.
 
 ## Lab — build the page before building the database
+<!-- bite: 0943992a-a9f2-4da5-a23e-5312778aabde -->
 
 **Runnable example:** save this block as `page_lab.py` in a scratch directory and run `python3 page_lab.py`. It uses only memory; it does not read or modify a database.
 
@@ -311,6 +319,7 @@ Expected output after a correct implementation: `test_page_lab: compaction check
 **Done when:** the checks pass, you can trace a new insertion/deletion/compaction sequence on paper, and you can explain why stable slot IDs require updating directory entries rather than callers. Add your own test with adjacent deletions and a rejected insertion before calling the lab complete.
 
 ## The buffer pool
+<!-- bite: 67db0ba9-613a-43c1-bcec-3bd286616fc6 -->
 
 The page lab manipulates one in-memory page. A real database must decide which of many pages to keep in memory. Its **buffer pool** is a cache of database pages.
 
@@ -348,6 +357,7 @@ For PostgreSQL on a dedicated server, roughly 25% of RAM is a common starting po
 Leave room for connections, query workspaces, the OS, and other processes. Inspect cache statistics **alongside** query latency, physical reads, memory pressure, and workload shape. A high hit ratio can coexist with bad performance; a scan-heavy workload need not achieve an arbitrary 99% target.
 
 ## Row vs column storage
+<!-- bite: 9759efb2-5af3-47a4-b8d6-197e3ac95caa -->
 
 A slotted page explains how to fit records. There is a separate question: should neighbouring bytes belong to the same **row** or the same **column**?
 
@@ -377,6 +387,7 @@ Columnar engines can also process batches rather than one row at a time. This **
 Hybrid analytical formats such as Parquet and ORC partition data into row groups or stripes and then store columns within those groups. This balances column-wise access with manageable chunks. It is related to the partition-attributes-across layout idea, rather than literally the small slotted page from our lab.
 
 ## Table organisation
+<!-- bite: 696ca289-2c28-424b-8b10-904e86062eac -->
 
 Once rows occupy many pages, an engine needs a policy for placing them.
 
@@ -394,6 +405,7 @@ A random primary key in InnoDB distributes inserts across the clustered tree and
 **Fill factor** is a configurable amount of packing in some structures. Leaving room on PostgreSQL heap pages can help eligible updates create a new row version on the same page; it also makes the table larger. Choose it from observed update patterns, not a blanket “lower is better” rule. Index fill-factor settings have related but distinct purposes.
 
 ## Free space and fragmentation
+<!-- bite: 991323b2-f980-4507-b967-f9647b3b4371 -->
 
 The lab already showed the central idea: deleting a record does not shrink its page. Deleting rows usually does not immediately shrink the database file either.
 
@@ -404,6 +416,7 @@ In PostgreSQL, old row versions can be reclaimed once no transaction needs them.
 Fragmentation and **bloat** mean extra space and potentially more reads for the same useful data. MVCC's old versions are one cause, not a phenomenon unique to PostgreSQL. Read [[databases/09-mvcc-and-concurrency-control/index|MVCC]] before interpreting dead-tuple counts as a command to rebuild everything.
 
 ## Check your understanding
+<!-- bite: 4fa06fe9-8332-47ea-ac4b-0914cad4a24d -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -420,6 +433,7 @@ Attempt these without the note, then compare your reasoning below.
 4. It can avoid reading unrelated fields and exploit compression/batched execution. Compare equivalent query results and inspect bytes read, cache conditions, query plans, and timings on representative data. Do not claim an engine-independent speed multiplier.
 
 ## What to actually do
+<!-- bite: 8c7d2271-fbab-4553-a674-4e460f35d721 -->
 
 - Choose types that represent the required range and semantics; smaller correct records can improve density. Do not undersize a field just to save bytes.
 - Request only the columns you need, especially when values are large or stored out of line.
@@ -432,6 +446,7 @@ Attempt these without the note, then compare your reasoning below.
 For a larger implementation, [[build-your-own-shit/06-your-own-database|build your own database]] extends beyond this in-memory model into files, indexes, and recovery. Passing the lab proves your teaching model behaves as specified, not that you have implemented a production storage engine.
 
 ## Related
+<!-- bite: 46c5d730-a4f5-40bf-a97d-4169df1bbaf6 -->
 
 - [[databases/04-b-trees-and-indexes/index|B-Trees and Indexes]] — the structure built on these pages
 - [[databases/05-lsm-trees|LSM Trees]] — the write-optimised alternative
@@ -439,6 +454,7 @@ For a larger implementation, [[build-your-own-shit/06-your-own-database|build yo
 - [[databases/index|Databases map]]
 
 ## Further reading
+<!-- bite: 1a0918b1-a477-4d10-ab35-b1fa42c2a2f8 -->
 
 - [PostgreSQL: Database Page Layout](https://www.postgresql.org/docs/current/storage-page-layout.html) — actual page headers, item identifiers, and tuple layout
 - [PostgreSQL: TOAST](https://www.postgresql.org/docs/current/storage-toast.html) — storage of large attribute values

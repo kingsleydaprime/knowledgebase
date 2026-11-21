@@ -1,12 +1,18 @@
+---
+id: 1d983b5b-0e8f-4270-a48f-dc7c4d801c09
+---
+
 # The Data Scientist Role
 
 **[reference]** — from the roadmap.sh `ai-data-scientist` and `data-analyst` roadmaps. Orientation for the whole track.
 
 ## What a data scientist does
+<!-- bite: b696d223-9a1a-4c88-9b6a-98489039f70f -->
 
 A data scientist turns data into **decisions**. The job is less "build a model that ships" and more "answer a question well enough that someone acts on it": _Is this new feature actually working? Why did churn spike? Which customers should we target? Will this change help or hurt?_ The deliverable is usually an analysis, an experiment result, or a model _used for insight_ — often a notebook and a presentation, not a production service.
 
 ## DS vs ML Engineer vs Data Analyst
+<!-- bite: 4607ab42-2ed2-466a-8efb-44dc54f7d09c -->
 
 The three blur in practice, but the emphasis differs:
 
@@ -19,6 +25,7 @@ The three blur in practice, but the emphasis differs:
 The Data Scientist sits between the analyst (who reports) and the ML engineer (who ships), leaning hardest on **statistics and experimental rigor** — the skills that let you say "this result is real, not noise" and "this actually _caused_ that." Many real jobs are a blend; the split is about where the weight sits.
 
 ## The analytics spectrum
+<!-- bite: ae642a52-f813-440f-9e87-80359fe5b0e0 -->
 
 A useful frame for what kind of question you're answering — each level is harder and more valuable:
 
@@ -30,6 +37,7 @@ A useful frame for what kind of question you're answering — each level is hard
 Most business value is unlocked by moving up this ladder — and the higher rungs need the statistical and causal rigor this track is about.
 
 ## The data science workflow
+<!-- bite: 9de6cbf7-bea2-4b16-b20e-dcd9151ad26b -->
 
 Real DS work is a loop, and (like ML engineering) it's mostly _not_ modeling:
 
@@ -43,14 +51,17 @@ frame the question → get & clean data → explore (EDA) → analyze / model
 - **Validation** is what separates a data scientist from someone who found a pattern in noise — [[ai-ml/01-data-scientist/03-inferential-statistics|inferential statistics]] and [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|causal reasoning]].
 
 ## Communication is half the job
+<!-- bite: ce87b2ad-a8eb-4dcd-867e-360b985f880a -->
 
 The best analysis is worthless if no one acts on it. A data scientist must translate a statistical finding into a decision-maker's language — a clear [[ai-ml/01-data-scientist/05-data-visualization|visualization]], an honest statement of uncertainty ("we're 95% confident the lift is 2–5%"), and a recommendation. Two failure modes to avoid: **false certainty** (presenting a noisy estimate as fact) and **drowning the signal** (a 40-slide deck when one chart would do). This "storytelling with data" skill is genuinely part of the role, not a soft add-on.
 
 ## The toolkit
+<!-- bite: 0cc49540-d415-4ef0-a304-dbdf29c1cf85 -->
 
 Python (pandas, [[ai-ml/02-ml-engineer/01-foundations-of-ml/02-the-ml-toolkit|the ML stack]]) and increasingly notebooks are standard, but data science leans on **R** more than the other paths — it's built for statistics and has unmatched packages for inference, modeling, and visualization (ggplot2). SQL is essential (the data usually lives in a database), and analysts/DS often use **BI tools** (Tableau, Power BI) and even Excel for reporting ([[ai-ml/01-data-scientist/05-data-visualization|visualization]]).
 
 ## Related
+<!-- bite: 1042151c-3081-4ee6-87a2-d0e8ac9d7cf1 -->
 
 - [[ai-ml/01-data-scientist/02-descriptive-statistics|Descriptive Statistics]] — the first analytical tool
 - [[ai-ml/01-data-scientist/03-inferential-statistics|Inferential Statistics]] — the "is it real?" toolkit

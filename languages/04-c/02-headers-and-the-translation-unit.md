@@ -1,8 +1,13 @@
+---
+id: b6917cf4-a805-4a03-a4fb-63883da33f79
+---
+
 # Headers and the Translation Unit
 
 **[Beginner → Intermediate]** — The thing nobody explains properly. Why `.h`/`.c` exists at all, what a header is *for*, and the rules that make multi-file C work.
 
 ## The translation unit
+<!-- bite: 87b70ed4-4bcc-4c63-b6cf-f6d28933cee1 -->
 
 > A **translation unit** is one `.c` file *after preprocessing* — meaning after every `#include` has been pasted in.
 
@@ -28,6 +33,7 @@ When compiling `main.c`, the compiler has never heard of `square`. It doesn't kn
 You need to **tell each translation unit what exists elsewhere**. That's a header.
 
 ## Declaration vs definition
+<!-- bite: b72838f6-2e46-4205-8f82-442aac647df4 -->
 
 The distinction the whole system rests on:
 
@@ -62,6 +68,7 @@ So the split is:
 **That's the entire reason `.h`/`.c` exists.** It isn't convention or taste. It's a direct consequence of separate compilation: declarations must be visible everywhere, definitions must exist exactly once.
 
 ## The pattern
+<!-- bite: b038ffd7-3842-4136-83c0-95b39615b63e -->
 
 ```c
 // math_utils.h
@@ -104,6 +111,7 @@ The compiler compiled `main.c` trusting the declaration. The **linker** is what 
 If the header lies — declares `int square(int)` while the `.c` defines `double square(double)` — the compiler catches nothing, and you get a corrupted call. **Always `#include` your own header in its `.c` file.** Then the compiler compares the declaration against the definition and tells you when they drift apart. This one line prevents a genuinely nasty class of bug.
 
 ## Include guards
+<!-- bite: afad1ec1-6f49-4fd2-994b-e1f09259035b -->
 
 `#include` pastes text. Include the same header twice and you get its contents twice — and duplicate struct definitions are an error.
 
@@ -127,6 +135,7 @@ The macro name must be unique per header — `PROJECT_MODULE_H` is the safe conv
 `#pragma once` is one line, can't have a name collision, and is marginally faster. It isn't in the standard but every real compiler supports it. **Use `#pragma once` for new code**; understand `#ifndef` because you'll read it everywhere.
 
 ## What goes in a header
+<!-- bite: e3ea33a3-48ba-490a-9c1f-0eb40f28c655 -->
 
 **Yes:**
 - Function declarations (prototypes)
@@ -155,6 +164,7 @@ int g_verbose = 0;           // DEFINITION — exactly once, in one .c file
 Forget the `extern` and every `.c` including the header defines its own — `multiple definition` at link time.
 
 ## `static` — the other meaning
+<!-- bite: a38dc51b-c42c-496b-8d90-9c4d3d4e8cbb -->
 
 `static` at file scope means **internal linkage**: visible only within this translation unit.
 
@@ -173,6 +183,7 @@ This is C's only encapsulation mechanism, and it's the equivalent of Rust's priv
 (Confusingly, `static` inside a *function* means something else entirely — a variable that persists across calls. Same keyword, unrelated meaning.)
 
 ## Opaque types — real encapsulation
+<!-- bite: ffa9243b-27f0-40b0-a386-923cbcd4f446 -->
 
 The strongest information-hiding C offers:
 
@@ -203,6 +214,7 @@ Callers can hold a `Stack *` but cannot touch `s->len` or allocate a `Stack` on 
 This is the C equivalent of a private field, and it's how good C libraries are built (`FILE *` is exactly this pattern). Use it.
 
 ## Header hygiene
+<!-- bite: 3cca9fa0-3533-4335-b8fc-b614f2a56cff -->
 
 **Self-contained.** A header must compile on its own — include what it needs. If `widget.h` uses `size_t`, it includes `<stddef.h>` itself rather than hoping the caller did.
 
@@ -232,6 +244,7 @@ This cuts compile times and breaks circular includes, which are otherwise a real
 ```
 
 ## Why later languages abandoned this
+<!-- bite: 6f9109a2-c30b-443f-a73d-865d3859c346 -->
 
 Every modern language replaced headers with **modules**, because the textual-inclusion model has real costs:
 
@@ -247,6 +260,7 @@ Understanding headers isn't legacy trivia — it's what makes C, C++, and every 
 ---
 
 ## Related
+<!-- bite: 0448869d-1a3a-42b3-beea-a13ceb67b33c -->
 - [[languages/04-c/01-why-c-and-the-compilation-model|The Compilation Model]] — where translation units come from
 - [[languages/04-c/03-the-preprocessor|The Preprocessor]] — the text substitution doing all this
 - [[languages/04-c/11-modular-c-and-project-structure|Modular C]] — using these tools to structure a real project

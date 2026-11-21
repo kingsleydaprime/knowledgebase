@@ -1,8 +1,13 @@
+---
+id: 5e68d73c-806f-42e5-b3b2-48bd87280ab5
+---
+
 # Modules and Project Layout
 
 **[Intermediate]** — `go.mod`, the versioning rules that are stricter than npm's, and the layout argument you should know before someone tells you to use `pkg/`.
 
 ## Modules
+<!-- bite: bd0fb1d2-caeb-4bd1-bc56-ab906728238a -->
 
 ```bash
 go mod init github.com/kingsleydaprime/myservice
@@ -39,6 +44,7 @@ go mod graph                         # the full dependency graph
 **`go.sum` is a checksum file, not a lockfile.** Versions are pinned in `go.mod`; `go.sum` records cryptographic hashes so a dependency can't be swapped underneath you. Commit both. Verification runs against the public checksum database by default, which is a meaningfully stronger [[devops/05-ci-cd/10-pipeline-security|supply-chain]] story than npm's.
 
 ## Minimal Version Selection
+<!-- bite: ecc5dad9-2948-4f9c-81e0-9990b9a43bc3 -->
 
 The rule that surprises people coming from npm:
 
@@ -49,6 +55,7 @@ If your module needs `foo v1.2.0` and a dependency needs `foo v1.4.0`, you get *
 The consequence is that **builds are reproducible without a lockfile**. Adding a dependency never silently upgrades an unrelated one. Upgrades only happen when you ask for them, which is the opposite of the npm default and much calmer to operate.
 
 ## Semantic import versioning
+<!-- bite: f6f0e22b-6769-4699-b739-22cbc05d2704 -->
 
 The other rule that catches people:
 
@@ -61,6 +68,7 @@ github.com/go-chi/chi/v5      ← the /v5 is part of the path
 This is why you see `/v2`, `/v5` in import paths. It means v1 and v5 of the same library can coexist in one build — a real advantage during migrations — at the cost of a module path that has to change on every major release. It's the mechanism that makes "diamond dependency" conflicts rare in Go.
 
 ## Package rules
+<!-- bite: 1781d0df-94c1-4cee-bd7c-36f317767bcc -->
 
 A **package** is a directory. All files in it share one package name, and there's no nesting relationship: `foo/bar` is not a sub-package of `foo`, just a different package.
 
@@ -83,6 +91,7 @@ Two special directory names the toolchain enforces:
 Package names should be short, lowercase, no underscores, and **not** repeat in the identifier: `http.Server`, not `http.HTTPServer`. `chi.NewRouter()` reads well; `chi.NewChiRouter()` doesn't. A package named `util` or `common` is a design smell — it means you haven't decided what it's for.
 
 ## Layout
+<!-- bite: b6adaa30-f16d-440b-a911-ec989fda8cc4 -->
 
 This is contentious, so here's the honest version.
 
@@ -113,6 +122,7 @@ myservice/
 **Start flat.** A `main.go` and a couple of packages is a perfectly good Go service. Structure when the flatness hurts, not before — the cost of moving a file is one `git mv` and the compiler telling you what broke.
 
 ## Workspaces
+<!-- bite: 10c48d28-9ac7-4322-9fe4-e22379988001 -->
 
 For working on several modules at once without publishing:
 
@@ -124,6 +134,7 @@ go work use ./another
 `go.work` overrides module resolution locally. **Don't commit it** — it's a developer-machine file, and committing it breaks CI in confusing ways. The alternative it replaced was a `replace` directive in `go.mod`, which people forgot to remove before merging.
 
 ## Publishing
+<!-- bite: 2c247e26-2df9-4909-9e96-d70443c3e20b -->
 
 There's no publish step. Tag the repo and it's released:
 
@@ -139,6 +150,7 @@ That's the whole distribution model: a git tag. See [[git/11-tags-and-versioning
 ---
 
 ## Related
+<!-- bite: facd4b13-8bd6-48a1-aae5-a4e5cd2679ce -->
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by Layer vs by Feature]] — the argument, in general
 - [[git/11-tags-and-versioning|Tags and Versioning]] — SemVer, which Go enforces structurally
 - [[devops/05-ci-cd/10-pipeline-security|Securing the Pipeline]] — the checksum database in context

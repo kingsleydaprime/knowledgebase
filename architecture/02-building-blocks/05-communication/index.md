@@ -7,6 +7,7 @@ id: 78dd10e2-e97d-4fc4-b85f-07c2170e981b
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. How the pieces of a system talk to each other and to their clients, and what each style costs. This lesson counts those costs for one screen: requests, round trips and bytes with REST and with GraphQL; the N+1 queries a naive GraphQL server makes and the batching that fixes them; how gRPC's Protocol Buffers fit a message in a third of JSON's bytes; what calling services in a chain does to availability and latency; and the options for pushing updates in real time. The worked example chooses a style for each of the shop's connections. The first lab checks every number; the second runs a real gRPC server and client, built from a `.proto` schema.
 
 ## Before you start
+<!-- bite: 0cfcab47-bbb7-4e67-9bdf-c8e81471b132 -->
 
 You can already:
 
@@ -25,16 +26,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–3 set up the costs. Stop at the predictions in sections 3, 4 and 5 and try them before reading on. Section 10 is the worked example, section 11 the lab, and section 12 the hands-on gRPC lab. Sections 8 and 9 are shorter and can be read on their own.
 
 ## The kid version
+<!-- bite: cb2d3b0a-bd86-4410-81de-16fc0175cd93 -->
 
 You can get things from a shop three ways. You can walk the aisles yourself, picking up a whole box of cereal when you only wanted to know its price, and going back for each item you forgot: that's REST. You can hand the shopkeeper a list saying exactly what you want, and they fetch it all in one trip, though now they do the running around: that's GraphQL. Or, if you're a shopkeeper ordering from your regular supplier, you both use a printed order form with numbered boxes, so you write "3: 12" instead of "number of boxes of cereal: twelve": that's gRPC.
 
 **Where the analogy stops working.** In a shop, the shopkeeper fetching ten items is one trip for you. In a server, a GraphQL query for ten orders can make the server go to the database 41 times unless it's careful (section 4). The trips didn't disappear; they moved to where you can't see them.
 
 ## 1. Why this exists
+<!-- bite: da21c63d-2369-4634-b531-7faf3ff33e17 -->
 
 The shop's mobile app has an order page: the order number, the total, the customer's name, and each item's name and quantity. Over the shop's REST API that's five requests: the order, then the customer, then three products. Each product comes back with its full description, the customer with their email and address, none of it shown. On a phone, each round trip to the server takes about 150 ms, so the page waits for that several times over. Meanwhile, inside the data centre, the checkout service calls payments, stock and pricing thousands of times a second, where every millisecond and every byte of JSON parsing adds up. And the order page should update when the parcel ships, without the user pulling to refresh. One API style doesn't suit all three, and this lesson is about choosing.
 
 ## Terms used in communication
+<!-- bite: add8fca0-6d7c-4819-add5-c0c65c5a4fb6 -->
 
 1. **API (application programming interface)**: The letters stand for those words. It's the set of requests one program accepts from another, and what it answers.
 2. **REST (representational state transfer)**: The letters stand for those words. It's an API style where each thing is a **resource** at its own URL, read and changed with the HTTP methods `GET`, `POST`, `PUT` and `DELETE`, usually as JSON.
@@ -53,6 +57,7 @@ The shop's mobile app has an order page: the order number, the total, the custom
 15. **WebSocket**: This is a connection that starts as an HTTP request and then becomes a two-way channel where either side can send messages at any time.
 
 ## 2. REST
+<!-- bite: a39fb5ac-29ed-4973-86c7-548965175800 -->
 
 Resources at URLs, verbs for what to do with them: `GET /orders/o1`, `POST /orders`, `DELETE /orders/o1`. It's the default for public and web APIs, and for good reasons:
 
@@ -63,6 +68,7 @@ Resources at URLs, verbs for what to do with them: `GET /orders/o1`, `POST /orde
 Its weaknesses are over-fetching and under-fetching, and no enforced contract unless you add one with OpenAPI ([[backend/frameworks/java/03-api-design-and-documentation|REST and OpenAPI design]]).
 
 ## 3. Counting the cost of one screen
+<!-- bite: 946f3b1b-39f0-4978-8b8d-508db2f61b90 -->
 
 The order page needs about 200 bytes of data: the order's ID and total, a name, and three item names with quantities. Over REST, the app asks for the order first, because only the order says which customer and products to ask for. It then asks for the customer and the three products together.
 
@@ -78,6 +84,7 @@ The order page needs about 200 bytes of data: the order's ID and total, a name, 
 REST has answers to both problems: endpoints shaped for a screen (`/order-pages/o1`), parameters that choose fields and embed related resources (`?fields=…&include=customer`), or a backend-for-frontend service that assembles each app's screens ([[architecture/03-architectural-patterns/04-microservices-patterns|microservices patterns]]). Each answer is more endpoints to build and keep in step with the screens. GraphQL is the general answer.
 
 ## 4. GraphQL, and the N+1 problem
+<!-- bite: 0057a5ee-efa6-42ba-95ce-3ef273d412d0 -->
 
 The client sends one query naming exactly the fields it wants:
 
@@ -107,6 +114,7 @@ Other costs to weigh before choosing GraphQL:
 It's powerful when many clients need different shapes of the same data, such as a web app, two mobile apps and partners. It's overkill for a simple CRUD API with one client.
 
 ## 5. gRPC and Protocol Buffers
+<!-- bite: 7462e48f-fab0-4140-9989-7e231b36cb1f -->
 
 For service-to-service calls inside a system, gRPC is the usual choice. You write a schema:
 
@@ -141,6 +149,7 @@ So `id = 150` is three bytes, `08 96 01`, exactly as in the Protocol Buffers doc
 </details>
 
 ## 6. The quick chooser
+<!-- bite: 524f9a5f-fa43-4d9f-8926-2c246d21831b -->
 
 | Use case | Reach for |
 |---|---|
@@ -152,6 +161,7 @@ So `id = 150` is three bytes, `08 96 01`, exactly as in the Protocol Buffers doc
 Most systems use several: REST or GraphQL at the edge, gRPC inside, messages between services that don't need to wait.
 
 ## 7. Synchronous chains
+<!-- bite: 97f05bd4-c591-45a1-946e-31b8830695dd -->
 
 Separately from the style, a call is either synchronous (the caller waits) or asynchronous. Synchronous calls are simple and give an answer now, but they couple the caller to the callee: if the callee is slow or down, so is the caller.
 
@@ -164,6 +174,7 @@ $$A_{\text{chain}} = \prod_i A_i \qquad t_{\text{sequential}} = \sum_i t_i \qqua
 Five services at 99.9% each give 99.50%. That's five times the downtime of one service, about 3.6 hours a month instead of 43 minutes. Five 20 ms calls one after another take 100 ms. The fixes: make independent calls in parallel, cut services out of the path, cache what can be cached, and turn calls whose answer isn't needed now into messages. [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability and reliability]] goes further.
 
 ## 8. Pushing updates: polling, server-sent events, WebSockets
+<!-- bite: 05d83747-f03e-4d9f-9d4e-ad39154e776a -->
 
 HTTP is request and response: the client asks, the server answers. When the server has news, such as "your parcel shipped", there are four ways to get it to the client:
 
@@ -175,6 +186,7 @@ HTTP is request and response: the client asks, the server answers. When the serv
 Use the simplest that meets the need: polling for "check every minute", server-sent events for a stream of server updates, WebSockets when both sides talk. Week 7's chat design goes deeper.
 
 ## 9. The protocols underneath
+<!-- bite: 2bc50bbf-2eeb-4df2-a89a-08fb803343e8 -->
 
 These all ride on the same stack ([[devops/02-networking-and-web/01-networking-and-protocols|networking and protocols]]):
 
@@ -185,6 +197,7 @@ These all ride on the same stack ([[devops/02-networking-and-web/01-networking-a
 - **TLS** encrypts all of it ([[cybersecurity/04-web-security/03-https-and-tls|HTTPS and TLS]]).
 
 ## 10. Worked example: a style for each of the shop's connections
+<!-- bite: e6863917-038a-4155-b9c9-9e3a27a1a86c -->
 
 **The mobile app's screens:** GraphQL. Two apps and the website each need different shapes of orders, products and customers, and phones pay for every round trip: the order page goes from two round trips and 912 bytes to one round trip and 203 bytes, 150 ms instead of 300 on a 150 ms connection. The server uses DataLoaders from day one, and limits query depth.
 
@@ -197,6 +210,7 @@ These all ride on the same stack ([[devops/02-networking-and-web/01-networking-a
 **"Your parcel shipped":** server-sent events on the order page while it's open, and nothing when it isn't. The client never sends anything back on that channel, so WebSockets would add cost for nothing.
 
 ## 11. Runnable example: the costs, counted
+<!-- bite: b8c8c14f-77b4-4470-a660-21565dc76fd1 -->
 
 `communication.ts` has a small shop database that counts queries, a REST API that counts requests and bytes, a GraphQL-style executor with resolvers and a DataLoader, a varint and protobuf encoder, and the chain arithmetic. `communication.test.ts` checks every number in this lesson, including the Protocol Buffers documentation's own example bytes. The shop data is in [`labs/shared/shop.json`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/02-building-blocks/05-communication/labs/shared), shared with the other languages' labs.
 
@@ -468,6 +482,7 @@ test("a synchronous chain: availabilities multiply and latencies add up", () => 
 **Lab:** the code is in [`architecture/02-building-blocks/05-communication/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/02-building-blocks/05-communication/labs/typescript). From the vault root, `python3 labs/run.py communication/typescript` runs the tests and checks this page still shows the same code. Inside the folder, `node --test` runs the tests alone. Expect six passing tests in well under a second.
 
 ## 12. Hands-on gRPC: a real server and client
+<!-- bite: 55efd438-fe7b-4384-a702-07e5e8e1fadd -->
 
 Section 5 encoded protobuf by hand. Here the same `OrderSummary` goes through a real gRPC server and client, on a local port, with Node's `@grpc/grpc-js`. Everything starts from the contract:
 
@@ -662,6 +677,7 @@ test("adding a field: old readers skip it, new readers see a default for old mes
 To go further on your own: add a client-streaming `rpc AddItems(stream AddItemRequest) returns (OrderSummary)`, and add an interceptor that reads a `x-request-id` from the call's metadata (gRPC's headers) and logs it. In production you'd also generate typed client and server code from the `.proto` with `buf` and protobuf-es or ts-proto, rather than loading it at run time.
 
 ## Common pitfalls
+<!-- bite: 6618b32a-f483-4c33-a57b-77bac743355d -->
 
 1. **Sequential requests that could go together.** A screen that waits for each REST call in turn pays a round trip per call. Send independent requests at once.
 2. **GraphQL without batching.** Every list field becomes N+1 queries. Use DataLoaders from the start.
@@ -673,6 +689,7 @@ To go further on your own: add a client-streaming `rpc AddItems(stream AddItemRe
 8. **gRPC calls without a deadline.** A slow dependency then holds every caller open. Set one on every call, and check for cancellation in long handlers.
 
 ## Check your understanding
+<!-- bite: db84fd3c-34a2-4c02-950d-8661f23e6b67 -->
 
 1. Why does the REST order screen need two round trips even when the requests are sent together?
 2. A GraphQL page lists 20 orders with each customer's name and each item's product name (3 items each). How many queries without batching? With?
@@ -694,6 +711,7 @@ To go further on your own: add a client-streaming `rpc AddItems(stream AddItemRe
 </details>
 
 ## Practice — independent task
+<!-- bite: 911208b9-3905-4f28-b607-4b9d8ab8d25b -->
 
 **Fix REST's over-fetching without GraphQL.**
 
@@ -716,6 +734,7 @@ To go further on your own: add a client-streaming `rpc AddItems(stream AddItemRe
 </details>
 
 ## Tradeoffs, limits and extensions
+<!-- bite: a6c0adfb-16de-44ec-a542-98ae40400e92 -->
 
 - **The lab counts bytes, not time.** Real latency depends on the network's round-trip time, compression (gzip shrinks repetitive JSON a lot) and parsing. Measure with your real payloads before deciding JSON is too big.
 - **REST, GraphQL and gRPC can share one backend.** The styles are interfaces, and the same service code can sit behind more than one.
@@ -723,6 +742,7 @@ To go further on your own: add a client-streaming `rpc AddItems(stream AddItemRe
 - **Streaming.** gRPC streams in both directions on one call; GraphQL has subscriptions, usually over WebSockets.
 
 ## Before moving on
+<!-- bite: 9a00e33c-82c7-47cf-9375-94bbfd8ebf97 -->
 
 You can count a screen's requests, round trips and bytes, explain and fix the N+1 problem, encode a protobuf message by hand and serve it over real gRPC with deadlines and status codes, work out what a synchronous chain does to availability and latency, and choose a way to push updates.
 
@@ -731,6 +751,7 @@ You can count a screen's requests, round trips and bytes, explain and fix the N+
 **Next.** Week 4, [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|monolith, microservices, serverless]]: once you know how services talk, whether to split them at all.
 
 ## Related
+<!-- bite: 7f607fff-b800-43ea-8d73-4f0cfb5a55a1 -->
 
 - [[backend/frameworks/java/03-api-design-and-documentation|API design and documentation (Java)]]: REST and OpenAPI in real code
 - [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging and async]]: the asynchronous alternative to request and response

@@ -1,3 +1,7 @@
+---
+id: b65f4d36-b2c5-4816-8db2-f31eb4bb7296
+---
+
 # Modern Java
 
 **Source:** text blocks and switch expressions are real project code (SQL statements and the `ScenarioEngine`); records, sealed classes, pattern matching, and `var` are **[reference]** — the projects predated or didn't adopt them, but they're the current idiomatic language and directly relevant to the Lombok-heavy DTO code the projects *did* write.
@@ -5,6 +9,7 @@
 Java ships a new release every six months now, with an LTS every two years (8, 11, 17, 21, 25…). "Modern Java" here means the features that have genuinely changed how idiomatic code reads since Java 8.
 
 ## `var` — local type inference
+<!-- bite: 18c6d495-876a-49d7-a2dd-2f05ced1be19 -->
 
 `var` lets the compiler infer a local variable's type from its initializer. It's still **statically typed** — `var` is not `Object` and not dynamic; the type is fixed at compile time, just not spelled out:
 
@@ -16,6 +21,7 @@ var total = BigDecimal.ZERO;
 Use it where the type is obvious from the right-hand side (cuts noise on verbose generics); avoid it where it hurts readability (`var x = getThing()` hides what `x` is). Locals only — not fields, not method parameters or return types.
 
 ## Text blocks
+<!-- bite: b7f2c7dc-19c5-4e3e-83b0-9ebb39d7c9d1 -->
 
 Multi-line string literals (`"""`), Java 15+ — they replace fragile concatenation for SQL, JSON, HTML. Leading whitespace common to all lines is stripped based on the closing delimiter's indentation:
 
@@ -29,6 +35,7 @@ String sql = """
 Real project use: every JDBC SQL statement and the OpenAPI description Markdown. `\s` at line-end forces a trailing space that would otherwise be trimmed.
 
 ## Switch expressions
+<!-- bite: d36377b6-ded3-4c0c-9971-c163755b29e0 -->
 
 Modern `switch` is an **expression** that produces a value — arrow labels, no fall-through, no `break`, and the compiler can enforce exhaustiveness:
 
@@ -79,6 +86,7 @@ try (Scanner scanner = new Scanner(System.in)) {
 ```
 
 ## Records — the data carrier
+<!-- bite: 2981314e-1bde-4e14-ace2-4f59bf442141 -->
 
 A `record` is an immutable data class where the compiler generates the constructor, private final fields, accessors, `equals`, `hashCode`, and `toString` from a one-line declaration:
 
@@ -109,6 +117,7 @@ public record Money(BigDecimal amount, String currency) {
 ```
 
 ## Sealed classes
+<!-- bite: d3406d8f-02e8-475f-939b-715832696d56 -->
 
 A `sealed` type restricts *which* classes may extend or implement it — the hierarchy is closed and known to the compiler:
 
@@ -122,6 +131,7 @@ public record Refunded(String id, BigDecimal amount) implements PaymentEvent {}
 The payoff is exhaustiveness: because the compiler knows the complete set of subtypes, a `switch` over a sealed type needs **no `default`** and will fail to compile if you add a new subtype and forget to handle it — turning "did I cover every case?" from a runtime hope into a compile-time guarantee. This pairs directly with pattern matching.
 
 ## Pattern matching
+<!-- bite: dfa2a0df-84c8-44ac-a8c1-64deb1438227 -->
 
 **`instanceof` patterns** bind the cast variable in one step, killing the classic test-then-cast dance:
 
@@ -148,10 +158,12 @@ String describe(PaymentEvent e) {
 This trio — sealed types + records + pattern-matching switch — is Java's answer to algebraic data types and the modern alternative to the visitor pattern for closed hierarchies.
 
 ## Why this matters even against a Lombok/JDBC codebase
+<!-- bite: 462900f2-1a14-4bb4-a2e9-536e741bc0ed -->
 
 The projects this domain is built from used `@Data` DTOs and hand-written type checks because that was the idiom at the time. Knowing records/sealed/pattern-matching is what lets you *modernize* that code with judgment — swapping an immutable DTO to a record, or replacing a chain of `instanceof`-and-cast with an exhaustive switch — rather than cargo-culting the old style forward.
 
 ## Related
+<!-- bite: 36a24978-5ee9-4ade-94e2-61222fb6366d -->
 - [[languages/01-java/03-tooling/03-lombok-and-builders|Lombok & Builders]] — the library records partly supersede
 - [[languages/01-java/01-language/02-oop|OOP]] — sealed types close an inheritance hierarchy
 - [[languages/01-java/01-language/05-functional-programming|Functional Programming]] — pattern matching pairs with functional dispatch

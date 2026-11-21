@@ -7,6 +7,7 @@ id: c05f62a2-7851-4718-bd93-ead604af330c
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. The biggest structural decision in a system's architecture, and the one most often made for the wrong reasons. This lesson puts numbers on the trade-offs: how coordination grows with the number of people, how often a shared release breaks, what moving a module behind the network costs in latency and availability, when paying per request beats paying for a server, and how often a serverless function starts cold. It also builds the checker that keeps a modular monolith modular. The worked example follows the shop from four developers to six teams. The lab checks every number.
 
 ## Before you start
+<!-- bite: f7568a22-d5d9-4cff-9308-cd466ae7705c -->
 
 You can already:
 
@@ -25,16 +26,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–4 cover monoliths and microservices. Stop at the predictions in sections 2, 4 and 6 and try them before reading on. Section 9 is the worked example and section 10 the lab. This week's closed-book question is *when would you not use microservices?* Answer it from memory before reading section 5.
 
 ## The kid version
+<!-- bite: 09566a32-197c-4c44-9bc0-f34c766c10bb -->
 
 A family kitchen has one cook who makes everything. It's fast and simple, until twenty people need feeding and the cooks keep bumping into each other. A food court gives every dish its own stall, own cook and own till, so the pizza stall can be busy while the curry stall is quiet, and a broken oven only closes one stall. But a meal needing three stalls means queueing at three tills, and someone has to run the whole food court. A pop-up chef who's only paid while cooking is cheap when you eat out once a month and expensive when you eat out every day, and they take a while to arrive when nobody's called them recently.
 
 **Where the analogy stops working.** Walking between food stalls is easy. In software, every trip between services crosses a network that can be slow or broken, and the stalls must keep agreeing about the menu. Most of the cost of microservices is in those trips and agreements, not in the stalls themselves.
 
 ## 1. Why this exists
+<!-- bite: 24a9bb9e-ad25-44af-8d93-a381274e7799 -->
 
 The shop has four developers and one codebase. Someone reads that large tech companies run hundreds of microservices, and proposes splitting the shop into twelve. Across town, a company with sixty engineers in eight teams has the opposite problem: one codebase, one weekly release, and every week someone's change breaks someone else's feature, so the whole release waits. Both are asking "should we use microservices?", and the right answers are opposite. This lesson is about telling which situation you're in, and putting numbers on it.
 
 ## Terms used in this lesson
+<!-- bite: 9201af34-9746-4cf2-a08b-802c6cee400e -->
 
 1. **Monolith**: This is one application, built and deployed as one unit, containing all of a system's features.
 2. **Module**: This is a part of a codebase that owns one area of the business, such as billing, and hides its inner workings behind a public interface.
@@ -50,6 +54,7 @@ The shop has four developers and one codebase. Someone reads that large tech com
 12. **Strangler fig**: This is a way to replace a system gradually: route one piece of functionality at a time to a new implementation, until the old system can be removed.
 
 ## 2. The monolith, and what really hurts
+<!-- bite: 8d53d2c8-9347-46da-9971-aa6a11dc18f2 -->
 
 One codebase, one process, one deployment. Despite its reputation, it's usually the right place to start:
 
@@ -81,6 +86,7 @@ $$P(\text{release breaks}) = 1 - (1 - p)^{\text{changes}}$$
 A monolith can also grow into a "big ball of mud", where every part calls every other part's internals. Then nothing can change without breaking something else, and nothing can ever be separated. The next section is about preventing that.
 
 ## 3. The modular monolith
+<!-- bite: 02a335d1-8c46-4c83-89fe-2468d549025d -->
 
 Keep one deployment, but divide the code into modules by business capability (orders, billing, catalogue, customers), each with a **public interface** and private insides. That gives most of the *organisational* benefit of microservices, with teams owning modules and clear contracts between them, without any of the network. It's the underrated middle ground.
 
@@ -92,6 +98,7 @@ Boundaries rot unless a machine checks them. Two rules matter:
 The lab's `boundaryViolations` and `findCycle` check both. In the shop's modules, `orders → catalog/internal/prices` is flagged. When `customers` starts importing `orders`, the cycle `orders → billing → customers → orders` is found. Run checks like these in CI; in a real TypeScript project, dependency-cruiser or ESLint boundary rules do it, and Java has ArchUnit. A module that passes both rules is one you *could* extract, which keeps that option cheap.
 
 ## 4. Microservices, and the network tax
+<!-- bite: 83139d7c-a1a4-4fed-a17e-91f6ea876f9d -->
 
 Each service owns one capability and its own data, is deployed on its own, and talks to others with [[architecture/02-building-blocks/05-communication/index|REST or gRPC]] or [[architecture/02-building-blocks/04-messaging-and-async/index|events]]. What you buy:
 
@@ -119,6 +126,7 @@ The network tax depends on the interface. In words: every in-process call that b
 </details>
 
 ## 5. When to use them, and when not
+<!-- bite: bd9aded2-b14e-4455-b88b-d0a8687d7a66 -->
 
 **Microservices solve an organisational problem, not a traffic problem.** The pain they relieve is many teams blocked on each other in one codebase and one release. A monolith can handle enormous traffic: scale it out behind a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancer]], add [[architecture/02-building-blocks/02-caching/index|caches]] and read replicas.
 
@@ -134,6 +142,7 @@ By **Conway's law**, a system ends up shaped like the teams that build it, so dr
 The widely endorsed path: **start with a modular monolith and keep its boundaries clean. Extract a service when you feel a specific pain:** a module that needs to scale on its own, a team that needs to release on its own, or a part with different reliability or security needs. Extract it with the [[architecture/03-architectural-patterns/03-data-and-integration-patterns|strangler fig]] pattern, one route at a time.
 
 ## 6. Serverless
+<!-- bite: d063d7cb-ffa0-4d60-9719-08433930730c -->
 
 Deploy functions; the platform starts instances when requests arrive, scales them, stops them when idle, and bills per request plus per **gigabyte-second** (memory × running time). [[devops/08-cloud/02-serverless|Serverless in depth]] covers the platforms.
 
@@ -159,6 +168,7 @@ With a 5-minute window: at 10 requests a minute, cold starts are effectively 0%;
 Other limits: a maximum run time (15 minutes on Lambda), no state kept between requests, harder local testing, and tight coupling to one provider's events and services. Serverless is great for event-driven glue, spiky work and scheduled jobs. It's poor for latency-critical, steady, heavy services.
 
 ## 7. Choosing
+<!-- bite: 86d2f9c2-ae86-43e4-b7f8-677af8784dbd -->
 
 | Situation | Reach for |
 |---|---|
@@ -169,10 +179,12 @@ Other limits: a maximum run time (15 minutes on Lambda), no state kept between r
 The mature answer is usually **a mix**: a core modular monolith, a few services extracted where they've earned it, and functions for event glue, chosen per part from the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|requirements]], not from fashion.
 
 ## 8. A note on migrating
+<!-- bite: d8369bd7-3f5d-4fc0-adad-8734ba06b49d -->
 
 The strangler fig works like this: put a proxy or gateway in front of the monolith, build the new service, route one path (`/search`) to it, watch it, and repeat until the monolith's version can be deleted. The monolith keeps working the whole time, and each step can be rolled back by changing the route. The hard part is data: the new service needs its own copy of the data it owns, kept in step during the move, usually with events from the [[architecture/03-architectural-patterns/05-transactional-outbox/index|outbox]] or with change data capture.
 
 ## 9. Worked example: the shop from four developers to six teams
+<!-- bite: 526e1568-dc2f-42df-ac74-2953263f1ebd -->
 
 **Stage 1: four developers.** A modular monolith with five modules: orders, billing, catalogue, customers, search. `boundaryViolations` and `findCycle` run in CI, so a pull request that reaches into another module's internals, or creates a cycle, fails. That's 6 coordination links, and one release a day with a handful of changes. Microservices would add a network, a platform and eventual consistency, and fix no problem they have.
 
@@ -183,6 +195,7 @@ The strangler fig works like this: put a proxy or gateway in front of the monoli
 **What stays.** Pricing stays in the monolith. Checkout calls it 40 times per request, and extracting it would add 40 ms and cut availability to 99.60%. If it's ever extracted, it will be behind a coarse "price this basket" call. Orders and billing stay together, because an order and its payment need one transaction.
 
 ## 10. Runnable example: the arithmetic of architecture
+<!-- bite: ce05c51b-3816-44c1-bb87-def1bb850c9a -->
 
 `architecture.ts` has the coordination and release formulas, the cost of extracting a module, serverless cost and break-even, cold-start chances with a seeded simulation, and the modular-monolith boundary checker. `architecture.test.ts` checks every number in this lesson.
 
@@ -355,6 +368,7 @@ test("a modular monolith's boundaries: no reaching inside, no cycles", () => {
 **Lab:** the code is in [`architecture/03-architectural-patterns/01-monolith-microservices-serverless/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/03-architectural-patterns/01-monolith-microservices-serverless/labs/typescript). From the vault root, `python3 labs/run.py monolith-microservices-serverless/typescript` runs the tests and checks this page still shows the same code. Inside the folder, `node --test` runs the tests alone. Expect six passing tests in well under a second.
 
 ## Common pitfalls
+<!-- bite: 8eb9b487-56af-4fd5-ad46-a1155b551379 -->
 
 1. **Microservices for traffic.** Scale a monolith out first; split for teams, not for load.
 2. **Microservices for a new product.** Boundaries move while you learn the domain, and moving them between services is a migration.
@@ -365,6 +379,7 @@ test("a modular monolith's boundaries: no reaching inside, no cycles", () => {
 7. **Serverless on a quiet, latency-critical path.** Most requests may hit a cold start.
 
 ## Check your understanding
+<!-- bite: d8d473c2-46ea-438d-9952-b001239556c4 -->
 
 1. What problem do microservices actually solve? Why isn't high traffic, on its own, a reason to adopt them?
 2. Twelve teams put 60 changes a week into one release, each 1% likely to break something. Roughly how often does the release break?
@@ -386,6 +401,7 @@ test("a modular monolith's boundaries: no reaching inside, no cycles", () => {
 </details>
 
 ## Practice — independent task
+<!-- bite: b945bf6e-77c7-4070-8bb3-c22a5f5ef20a -->
 
 **Check your own project's module boundaries.**
 
@@ -398,6 +414,7 @@ test("a modular monolith's boundaries: no reaching inside, no cycles", () => {
 **Done when:** you have your project's dependency list with every violation and cycle named, your `allowed` rule passes its tests, and one sentence names the module you would extract first and why, or why none.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 679add77-cdcd-44f7-b09d-6fb079e45755 -->
 
 - **The release formula assumes independent changes**, each with the same chance of breaking something. Real changes interact, and good tests lower $p$. The shape (more changes in one release, more breakage) holds.
 - **Microservices aren't the only way to deploy independently.** Feature flags, trunk-based development and a fast pipeline let many teams share a monolith well.
@@ -405,6 +422,7 @@ test("a modular monolith's boundaries: no reaching inside, no cycles", () => {
 - **Platform cost is real.** Each service needs a pipeline, monitoring, alerts and someone on call. With 20 services and 4 engineers, the platform is the job.
 
 ## Before moving on
+<!-- bite: 486eb06e-ace6-4dfd-a362-99fc7b808c1b -->
 
 You can explain what microservices solve and cost, say when you wouldn't use them, work out the network tax of extracting a module, compute serverless break-even and cold-start chances, and keep a modular monolith's boundaries enforced.
 
@@ -413,6 +431,7 @@ You can explain what microservices solve and cost, say when you wouldn't use the
 **Next.** [[architecture/03-architectural-patterns/05-transactional-outbox/index|Transactional outbox]], this week's other core lesson: how a service saves its data and publishes an event without losing either. Then week 5, databases.
 
 ## Related
+<!-- bite: 3d30e7fb-a562-4839-814e-7792e146b703 -->
 
 - [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices patterns]]: the machinery microservices require
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data and integration patterns]]: strangler fig and saga

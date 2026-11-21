@@ -1,3 +1,7 @@
+---
+id: 14561b34-fcb5-4d69-9d38-90ff2824805e
+---
+
 # Getting Started
 
 > **[Beginner]** · Observing with no equipment, what to buy and when, and how to do real science from a laptop.
@@ -5,6 +9,7 @@
 **Astronomy is unusually accessible.** The sky is free, the data is public, and amateurs still make genuine contributions — which is true of almost no other science.
 
 ## Start with your eyes
+<!-- bite: a6dedb56-f8e5-4ae8-8525-c8530bb35618 -->
 
 **Do not buy a telescope first.** The commonest path to an unused telescope in a cupboard is buying one before knowing the sky.
 
@@ -18,6 +23,7 @@
 **Then binoculars — genuinely, before a telescope.** A pair of 10×50s shows the Moon's craters, Jupiter's four Galilean moons, the Pleiades, the Orion Nebula and the Andromeda Galaxy. **They cost a fraction of a telescope, need no setup, and you may already own some.**
 
 ## Light pollution
+<!-- bite: 7c4dc58f-fa26-4b1f-b7e2-9ab93cff47da -->
 
 **The single biggest factor in what you can see**, and it's worth measuring rather than guessing.
 
@@ -28,6 +34,7 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 **The Moon and planets don't care** — they're bright enough for a city centre.
 
 ## Buying a telescope
+<!-- bite: bad772c5-9323-4aed-a627-d8eaf115dfc6 -->
 
 **When you've used binoculars enough to want more.** Then:
 
@@ -44,6 +51,7 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 **The mount matters as much as the optics.** A wobbly mount makes good optics unusable. **This is where cheap telescope kits fail.**
 
 ## Software, all free
+<!-- bite: c3f21098-0ada-484a-a9d1-6322010d9c5b -->
 
 - **Stellarium** — planetarium software; shows the sky for any time and place. **Start here**
 - **SkySafari** / **Stellarium Mobile** — the same, pointable at the sky
@@ -52,6 +60,7 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 - **Clear Outside** — cloud forecasting, which turns out to be the binding constraint most nights
 
 ## Doing real science
+<!-- bite: c3a74a9b-4db7-4095-b97a-0dee57832779 -->
 
 **This is the part people don't realise is open.**
 
@@ -69,6 +78,7 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 **That project is the reason this domain is worth a folder in a software vault:** modern astronomy is a data-analysis discipline, and the skills transfer both ways.
 
 ## Reading and watching
+<!-- bite: 54b60624-04b4-44df-921e-2fb0e0a61ff6 -->
 
 - **Astronomy Picture of the Day (APOD)** — daily, since 1995, with real explanations
 - **"Cosmos"** — Sagan's, and Tyson's
@@ -78,6 +88,7 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 - **Textbooks:** Carroll & Ostlie, *An Introduction to Modern Astrophysics* — the standard, and readable with first-year physics
 
 ## Related
+<!-- bite: 4c8e4b28-9ed3-4ef0-9697-22042526e8cb -->
 - [[astronomy/02-the-sky-and-how-it-moves|the sky and how it moves]] — what you're looking at
 - [[astronomy/03-light-and-instruments|light and instruments]] — why aperture wins
 - [[astronomy/index|the domain index]]

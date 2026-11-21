@@ -1,3 +1,7 @@
+---
+id: 0439640d-6d00-4f73-8bcd-202712ace0ad
+---
+
 # Collections
 
 > **[Beginner]** · Arrays, lists, dictionaries and sets — holding many values under one name, and why the choice between them decides how fast your program is.
@@ -7,6 +11,7 @@ A variable holds one value. Real programs handle many: a shopping list, users, s
 Collections hold many values under one name, and give you ways to add, find, remove and iterate.
 
 ## Arrays and indexing
+<!-- bite: 56adc745-52d0-46fd-a88e-98e36836b5d7 -->
 
 An **array** is an ordered sequence, accessed by position.
 
@@ -31,6 +36,7 @@ An **out-of-bounds** error. In Python or Java you get a clean exception. **In C 
 **The price:** a true fixed-size array is fixed at creation. Adding a sixth element to a five-element array means allocating a new, larger block and copying everything across.
 
 ## Dynamic arrays
+<!-- bite: 3b0f54f1-e045-48ac-871b-a1941dc54795 -->
 
 Which is exactly what a **dynamic array** does for you, automatically: `list` in Python, `ArrayList` in Java, `vector` in C++, `Array` in JavaScript.
 
@@ -45,6 +51,7 @@ Internally it keeps a fixed array with spare capacity. When it fills, it allocat
 **Use a dynamic array by default.** In most languages it's what you get from the literal syntax anyway.
 
 ## Dictionaries
+<!-- bite: ae3819ba-d8a8-40ea-8588-639a8e755880 -->
 
 An array answers *"what's at position 3?"*. That's rarely the question. Usually it's *"what's the price of bread?"* — and searching the whole list for it is both slow and awkward.
 
@@ -67,6 +74,7 @@ The rules that follow from that mechanism:
 **Reach for a dictionary whenever you find yourself looping through a list to find one thing by name.** That instinct is worth more than any specific syntax.
 
 ## Sets
+<!-- bite: 0b03b2aa-9296-4e2d-8013-80ca1ec2736e -->
 
 A **set** holds unique values, unordered, and answers one question fast: *is this in here?*
 
@@ -80,6 +88,7 @@ if "kingsley" in seen:      # O(1)
 Two things sets are ideal for and lists are bad at: **deduplication** (`list(set(items))`) and **membership testing**. `if x in my_list` scans the entire list — O(n). The same check on a set is O(1). On a large collection inside a loop, that difference is the whole performance story.
 
 ## Choosing
+<!-- bite: 92ac0d09-2335-4878-bf67-4b13a7c177e5 -->
 
 | Need | Use | Why |
 |---|---|---|
@@ -92,6 +101,7 @@ Two things sets are ideal for and lists are bad at: **deduplication** (`list(set
 **The single most common performance mistake in beginner code is scanning a list where a dictionary or set belongs.** A nested loop over two 10,000-item lists is 100 million comparisons; a dictionary turns it into 10,000 lookups. Same result, four orders of magnitude apart, and it's usually a five-line change.
 
 ## Iterating
+<!-- bite: 358c5a06-fd00-4c4d-9d21-57e2d1006350 -->
 
 Almost always for-each → [[programming-fundamentals/06-control-flow|note 06]]:
 
@@ -109,6 +119,7 @@ for i, score in enumerate(scores):      # when you genuinely need the index
 **One rule with teeth: do not modify a collection while iterating over it.** Removing items mid-loop shifts the remaining ones and the iteration skips elements — silently, with no error. Build a new collection instead, or iterate over a copy.
 
 ## Nesting
+<!-- bite: 2f3758e2-0802-4959-8999-079480bfa94b -->
 
 Collections hold collections, which is how you represent anything with structure:
 
@@ -126,6 +137,7 @@ users = [
 **That second shape is what JSON is**, and therefore what nearly every API response and config file is. Being comfortable reaching into nested lists-of-dictionaries is a genuinely high-return skill → [[backend/02-api-design/index|API design]].
 
 ## What's underneath, and where this goes
+<!-- bite: e7f85af6-39a5-413d-8878-12658840b1cf -->
 
 Everything above is built from two physical arrangements: **contiguous memory** (arrays — fast to index, expensive to insert in the middle) and **linked nodes** (each element pointing to the next — cheap to insert, no direct indexing).
 
@@ -134,6 +146,7 @@ From those two, everything else: stacks, queues, linked lists, trees, graphs, he
 **That's [[dsa/index|DSA]], and it's the natural next thing after this course.** You don't need it to write useful programs. You need it the first time something works on 100 items and takes four minutes on 100,000.
 
 ## Related
+<!-- bite: 6aaa8143-9bcd-4da4-aae3-a0550f2548b9 -->
 - [[programming-fundamentals/06-control-flow|control flow]] — iterating over these
 - [[programming-fundamentals/08-functions|functions]] — passing collections around (and note 05's sharing trap applies)
 - [[dsa/index|DSA]] — the depth version of this note

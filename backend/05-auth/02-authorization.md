@@ -7,6 +7,7 @@ id: 4a0a9a02-71a3-4c63-954d-64849094e21d
 Authentication ([[backend/05-auth/01-authentication-flows|authentication flows]]) answers "who are you." Authorization answers a completely separate question: "what are you allowed to do, now that I know who you are." Conflating the two is a common source of security bugs — a system can authenticate a user perfectly and still let them do things they shouldn't, if authorization checks are missing or incomplete (this is exactly the [[07-exploitation-concepts|broken access control]] vulnerability category from a defensive angle).
 
 ## RBAC — Role-Based Access Control
+<!-- bite: 5ca53e8c-08f0-4b53-b868-22c593e86b51 -->
 
 Users are assigned one or more **roles** (admin, editor, viewer); permissions are attached to roles, not directly to individual users. Checking access means checking whether the user's role(s) include the required permission.
 
@@ -25,6 +26,7 @@ function canPerform(user, action) {
 Simple to reason about and administer — assign a role once, and permissions follow automatically. The limitation: RBAC struggles with fine-grained, context-dependent rules ("editors can edit their *own* posts, but not others'") without either exploding the number of roles or falling back to extra, ad-hoc checks layered on top.
 
 ## ABAC — Attribute-Based Access Control
+<!-- bite: 3e7c20de-df63-4589-90fc-683e901e741a -->
 
 Access decisions are made from a policy that evaluates **attributes** of the user, the resource, and the context — not just a fixed role.
 
@@ -41,6 +43,7 @@ function canEdit(user, post, context) {
 More expressive than RBAC — it can encode exactly the "editors can only edit their own posts" rule RBAC struggled with — at the cost of more complex policies that are harder to audit at a glance than a simple role table.
 
 ## Guards and policies — where these checks actually live in code
+<!-- bite: 65f1acc2-8a9f-40f5-8e74-9a59c592d22e -->
 
 Most modern frameworks provide a dedicated place for authorization logic to live outside the handler itself, so it's consistently applied rather than manually re-checked (and potentially forgotten) in every individual handler:
 
@@ -58,10 +61,12 @@ deleteUser(@Param('id') id: string) { /* ... */ }
 The value of centralizing this (guards/policies) over inline `if` checks scattered through handlers is consistency — a missed inline check in one handler is a silent, easy-to-introduce vulnerability; a centralized guard applied declaratively is much harder to accidentally skip.
 
 ## The principle of least privilege
+<!-- bite: 7da93940-58bb-4229-ac1a-f339dd11a441 -->
 
 Grant only the minimum access actually needed for a given role/task, nothing more — the same principle from [[02-cia-triad|cia-triad]]'s confidentiality discussion, applied to authorization design specifically. A support-staff role that can view customer data but not modify billing, rather than one broad "staff" role with blanket access, limits the damage of both a compromised account and an honest mistake.
 
 ## Object-level authorization — the most commonly missed check
+<!-- bite: ec750f8b-e07e-40e3-b6dd-a395a704beb1 -->
 
 It's not enough to check "is this user allowed to edit posts in general" — you also have to check "is this user allowed to edit *this specific post*." Skipping the second, more granular check while only implementing the first is exactly the **Insecure Direct Object Reference (IDOR)** pattern mentioned in [[07-exploitation-concepts|exploitation-concepts]] — a regular user changing an ID in a URL or request body and successfully accessing or modifying another user's resource, because the check that ran was "are you an editor," not "do you own this specific post."
 
@@ -77,16 +82,19 @@ await updatePost(req.params.id, req.body);
 ```
 
 ## Gotchas
+<!-- bite: 7927151b-eac9-481a-b4dc-3041ea2f2527 -->
 
 - Checking authorization only in the frontend/UI (hiding a button) provides zero actual security — see the client-side-validation gotcha in [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input-validation-and-output-encoding]]; the same principle applies here identically. Every authorization check has to be enforced server-side.
 - Object-level authorization is the single most commonly missed check in real applications — role/permission checks alone are not sufficient the moment "which specific resource" matters, which is almost always.
 - Overly broad roles (a "staff" role that's really "everything except admin") tend to accumulate over time as a team takes the path of least resistance — periodically auditing actual role permissions against what's genuinely needed is a real, ongoing task, not a one-time setup step.
 
 ## Related
+<!-- bite: 9bbaa3cd-acd9-451b-b855-09e35da6e9a9 -->
 - [[backend/05-auth/01-authentication-flows|authentication flows]]
 - [[07-exploitation-concepts|exploitation-concepts]]
 - [[02-cia-triad|cia-triad]]
 
 ## Seen in the wild
+<!-- bite: ccb9104b-6728-4af3-8959-e5d6ebd5dd51 -->
 - [[projects/gees-arise/interview/01-postgres-rls-and-security|gees-arise]] — Postgres row-level security, authorization enforced at the data layer
 - [[concepts/interview/01-apis-auth-and-practices|Interview: Q5]] — RBAC/ABAC/ReBAC and the IDOR trap

@@ -1,8 +1,13 @@
+---
+id: 3ec135b4-0a0a-4cfe-8153-336dd6139148
+---
+
 # Passwords, and the Manager
 
 **[Beginner]** — the single highest-value hour in this folder.
 
 ## The kid version first
+<!-- bite: c9ca92fc-3a52-4b02-b0be-6e37d9b6878a -->
 
 The problem was never that your password is weak. **The problem is that you used it twice.**
 
@@ -11,6 +16,7 @@ Companies get breached constantly. When one you used gets breached, your email a
 The fix is one thing: **a different password everywhere.** Which is impossible to remember, which is why password managers exist.
 
 ## Why reuse is the whole problem
+<!-- bite: 4096174a-039b-4e2b-8672-88c456db9098 -->
 
 ```
 2019: a shop you forgot about gets breached
@@ -27,6 +33,7 @@ The fix is one thing: **a different password everywhere.** Which is impossible t
 **Check your own exposure right now:** [haveibeenpwned.com](https://haveibeenpwned.com) — enter your email. It's run by a well-known security researcher, it's free, and it doesn't store what you type. **Most people find several breaches.** That's normal, and it tells you which passwords to change first.
 
 ## Use a password manager
+<!-- bite: d95572eb-6ac2-45e8-87f6-b58fa8335a78 -->
 
 It generates a unique random password per site, stores them encrypted behind one master password, and fills them in. You remember **one** password.
 
@@ -42,6 +49,7 @@ It generates a unique random password per site, stores them encrypted behind one
 **The built-in one is a real option.** The best password manager is the one you'll actually use, and "I'll set up Bitwarden eventually" protects nobody.
 
 ## The master password
+<!-- bite: f26b5afb-4233-4a2c-9a2c-76538213ec2e -->
 
 This one you memorise, so make it a **passphrase** — four or five random, unrelated words:
 
@@ -58,6 +66,7 @@ correct-horse-battery-staple-mango
 - **Set up account recovery when you set up the manager**, not later. Bitwarden and 1Password have emergency-access and recovery-kit features. **Losing the master password can mean losing everything in it**
 
 ## "Isn't that all my eggs in one basket?"
+<!-- bite: 665a31df-ad05-4104-9225-aafb0c782fb0 -->
 
 The most common objection, and it deserves a straight answer.
 
@@ -68,6 +77,7 @@ The most common objection, and it deserves a straight answer.
 - **The basket is guarded by one strong password plus 2FA** → [[cybersecurity/10-protecting-yourself/03-two-factor-and-passkeys|03]]
 
 ## Getting there without a miserable weekend
+<!-- bite: c1e236f7-1d8f-47c1-9e58-7db366ea8f79 -->
 
 **Don't try to change 200 passwords at once.** You'll stop after nine.
 
@@ -79,6 +89,7 @@ The most common objection, and it deserves a straight answer.
 **Also do:** turn on breach alerts, and **delete accounts you don't use.** An account you forgot about is an account you won't notice being breached.
 
 ## Security questions are passwords too
+<!-- bite: 691615bb-2ca7-4ebb-ac87-306f55288ded -->
 
 *"Mother's maiden name"*, *"first school"* — these are **often discoverable** on social media or public records, and they bypass your strong password entirely.
 
@@ -91,10 +102,12 @@ First school?  →  vault-orbit-clement-99
 Nothing requires the answer to be true. This is one of the highest-value five-minute habits in the folder → [[cybersecurity/10-protecting-yourself/07-your-privacy-footprint|your privacy footprint]].
 
 ## Key insight
+<!-- bite: bef180eb-ba9f-4e2c-965a-9f4fadc5e782 -->
 
 **Password strength is a much smaller problem than password reuse.** A "weak" unique password on a site that salts and hashes properly is safer than a strong one you used in four places — because the attack that actually reaches you isn't guessing, it's a list from someone else's breach being replayed against you.
 
 ## Related
+<!-- bite: be28cb84-583d-41d0-b443-ee40db117288 -->
 - [[cybersecurity/10-protecting-yourself/03-two-factor-and-passkeys|two-factor and passkeys]] — the layer that survives a stolen password
 - [[cybersecurity/10-protecting-yourself/08-when-it-goes-wrong|when it goes wrong]]
 - [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]] — the builder's side: how sites *should* store these

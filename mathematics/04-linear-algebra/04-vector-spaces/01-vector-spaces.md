@@ -1,8 +1,13 @@
+---
+id: d8b5371c-5989-4663-8d39-7405a48e6f06
+---
+
 # Vector Spaces
 
 **[Advanced]** — the abstraction that lets polynomials, matrices and functions all be vectors, and the theorem that ties rank to solution count.
 
 ## Before you start
+<!-- bite: 5342c682-2b9b-4772-9e00-ff895cbbe015 -->
 
 - You can run Gaussian elimination and read off a rank — [[03-systems-of-linear-equations/01-gaussian-elimination|systems of linear equations]].
 - You are comfortable with vector arithmetic in $n$ dimensions — [[02-vectors/01-vectors|vectors]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: be3d9486-a84b-4b7e-bba7-99adff14e9db -->
 
 So far a vector has been a list of numbers. Here is the observation that changes the subject.
 
@@ -32,6 +38,7 @@ Every theorem proved using only "you can add them and scale them" is therefore *
 A vector space is the minimal structure making that work. "Vector" stops meaning *arrow* and starts meaning **anything that behaves like one**.
 
 ## 2. The definition
+<!-- bite: 05e80c72-8ed7-4a11-8cab-55133d1b0548 -->
 
 A **vector space** over the real numbers is a set $V$ with an addition and a scalar multiplication, satisfying:
 
@@ -69,6 +76,7 @@ Containing $\mathbf{0}$ is the quickest disqualifier. A line through the origin 
 | **Nullity** | The dimension of the null space — the number of free variables |
 
 ## 3. Independence, basis, dimension
+<!-- bite: b21cfd7b-68e8-460f-801d-1a91e54dc936 -->
 
 Vectors $\mathbf{v}_1,\dots,\mathbf{v}_k$ are **linearly independent** when the only solution of
 
@@ -85,6 +93,7 @@ A **basis** is independent *and* spanning: enough vectors to reach everything, w
 The crucial fact, which needs proof but is intuitive: **every basis of a given space has the same number of vectors.** That number is the **dimension**, and it is well defined because of this.
 
 ## 4. The two spaces of a matrix
+<!-- bite: db52d253-6d16-4765-bb9c-09b8988716b7 -->
 
 Every $m\times n$ matrix comes with two subspaces:
 
@@ -105,6 +114,7 @@ This is the [[03-systems-of-linear-equations/01-gaussian-elimination|three-outco
 > **Predict before running the lab.** A $3\times4$ matrix has three rows and four columns. What is the largest its rank could possibly be? Therefore what is the **smallest** its nullity could be — and what does that tell you about whether $A\mathbf{x} = \mathbf{0}$ can have only the zero solution? Decide before opening the answers.
 
 ## 5. The abstraction earning its keep
+<!-- bite: 03c3d71a-8f2b-4207-86f2-518eda4a8d50 -->
 
 Polynomials of degree at most $2$ form a vector space. Take the set $\{1, x, x^2\}$:
 
@@ -116,6 +126,7 @@ So it is a **basis**, and the space is **3-dimensional** — which means it is s
 That correspondence is not a metaphor. Differentiation sends polynomials to polynomials, respects addition and scaling, and is therefore a **linear map** with a matrix in these coordinates. Once written down, questions about calculus become questions about a $3\times3$ matrix — its null space is the constants, which is exactly "the functions whose derivative is zero". Block 5 does this explicitly, and [[05-linear-transformations/01-linear-transformations|linear transformations]] takes it further.
 
 ## Worked example — runnable
+<!-- bite: 82d0a13b-4dde-47de-bbdd-4976371a24ef -->
 
 **Runnable example:** save as `vector_spaces.py` in any empty directory and run `python3 vector_spaces.py`. Standard library only; writes no files.
 
@@ -350,6 +361,7 @@ vector_spaces: passed
 Block 5 is the abstraction paying off. Differentiation — an operation from calculus — is a $3\times3$ matrix, and "the only functions with zero derivative are the constants" is its null space, computed by the same elimination used on everything else.
 
 ## Common pitfalls and traps
+<!-- bite: 2ea884b1-bd83-45d7-a8d4-5147baaaa076 -->
 
 - **Forgetting to check that $\mathbf{0}$ is in the set.** It is the fastest disqualifier, and a set missing the origin can never be a subspace no matter how linear it looks.
 - **Taking the rref columns as a basis for the column space.** Row operations **change** the column space; they preserve only which columns are independent. Take the **original** columns at the pivot positions, as the lab does.
@@ -359,6 +371,7 @@ Block 5 is the abstraction paying off. Differentiation — an operation from cal
 - **Testing independence in floating point.** "Is this pivot zero?" cannot be answered reliably in floats. The lab uses `Fraction` throughout for exactly this reason; a numerical version needs the SVD and a tolerance, not an equality test.
 
 ## Check your understanding
+<!-- bite: 19fb29c4-ad73-42ff-ac1c-e29abe415cbc -->
 
 1. Is the set of vectors $(x, y)$ with $x + y = 0$ a subspace of $\mathbb{R}^2$? What about $x + y = 1$?
 2. Are $(1, 2, 3)$, $(2, 4, 6)$ and $(1, 0, 0)$ independent?
@@ -378,6 +391,7 @@ Block 5 is the abstraction paying off. Differentiation — an operation from cal
 </details>
 
 ## Practice — independent task
+<!-- bite: 4eeb4a68-ca44-4cbf-bf89-64ca50f0a570 -->
 
 Implement `coordinates(vector, basis)` returning the coordinates of a vector with respect to a given basis — and prove those coordinates are unique.
 
@@ -392,6 +406,7 @@ Implement `coordinates(vector, basis)` returning the coordinates of a vector wit
 **Done when:** your round-trip is exact for at least five vectors in three different bases, your rejection path fires correctly for a dependent set, and your step-5 argument is written out rather than asserted.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: be8a94c7-e875-43bb-9777-7a72dcdf86db -->
 
 **Exact versus numerical rank.** Everything here uses `Fraction`, so ranks are exact. Real data is not exact, and "is this pivot zero?" becomes "is it smaller than the noise?" — a question with no clean answer. The standard tool is the **singular value decomposition**, which produces singular values whose magnitudes let you set a principled threshold. Numerical rank is a judgement, not a fact.
 
@@ -400,6 +415,7 @@ Implement `coordinates(vector, basis)` returning the coordinates of a vector wit
 **Other scalar fields.** Nothing here used a property of real numbers beyond ordinary arithmetic, so the theory works over the rationals, the complex numbers, or the two-element field $\{0, 1\}$. That last one is not a curiosity: linear algebra over $\mathbb{F}_2$ is exactly what [[06-error-correcting-codes|error-correcting codes]] are built from, and the null space of a parity-check matrix is the set of valid codewords.
 
 ## Before moving on
+<!-- bite: 6be3c38c-dd68-4375-bb11-6efac06051ab -->
 
 You are done with this lesson when you can:
 
@@ -413,6 +429,7 @@ You are done with this lesson when you can:
 **Next:** [[05-linear-transformations/01-linear-transformations|Linear Transformations]] — why a matrix is a function, and why that makes the multiplication rule inevitable.
 
 ## Related
+<!-- bite: 1fd3a4f7-4b4b-4b8b-9544-f093af62f209 -->
 
 - [[03-systems-of-linear-equations/01-gaussian-elimination|Systems of Linear Equations]] — the elimination every computation here runs on
 - [[05-linear-transformations/01-linear-transformations|Linear Transformations]] — kernel and image are the null and column spaces

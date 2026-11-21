@@ -1,8 +1,13 @@
+---
+id: 563e3b78-3677-43a4-ba23-d4c9c3215f7e
+---
+
 # Ordinary Differential Equations
 
 **[Intermediate → Advanced]** — Stepping a system forward in time, why RK4 is the default, and what stiffness is.
 
 ## The problem
+<!-- bite: e0dfca8a-f428-4cbc-98b6-ab853327df5d -->
 
 $$\frac{d\mathbf{y}}{dt} = \mathbf{f}(t, \mathbf{y}), \qquad \mathbf{y}(t_0) = \mathbf{y}_0$$
 
@@ -24,6 +29,7 @@ $$\ddot{x} + c\dot{x} + kx = 0 \quad\Longrightarrow\quad \begin{cases}\dot{y}_1 
 **Which is exactly the [[control-theory/08-state-space|state-space form]]** — same conversion, and every solver assumes it.
 
 ## Euler's method
+<!-- bite: 19bb60d5-6cc0-40e9-b8fe-757551929c33 -->
 
 **The simplest thing that works, and the baseline everything is measured against.**
 
@@ -42,6 +48,7 @@ $$y_{n+1} = y_n + h\,f(t_{n+1}, y_{n+1})$$
 **$y_{n+1}$ appears on both sides** — you must solve an equation each step, usually with [[mathematics/07-applied-and-computational/01-numerical-methods/03-root-finding|Newton's method]]. **Much more expensive per step, and unconditionally stable**, which turns out to matter enormously.
 
 ## Runge–Kutta
+<!-- bite: cdc8481a-d239-49b0-a6c0-7cfc9d3fb196 -->
 
 **Evaluate the slope at several points within the step and combine.**
 
@@ -62,6 +69,7 @@ y_{n+1} &= y_n + \tfrac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
 **The weights $(1,2,2,1)/6$ are Simpson's rule.** RK4 is [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Simpson's quadrature]] applied to the integral form of the ODE — the connection is exact, not an analogy.
 
 ## Adaptive step size
+<!-- bite: 118023d8-2b21-4f97-a4a6-50bcbe3f04ae -->
 
 **What production solvers actually do.**
 
@@ -79,6 +87,7 @@ $$\text{err} = |y_{n+1}^{(p)} - y_{n+1}^{(p+1)}| \quad\Longrightarrow\quad h_{ne
 **Always set both `rtol` and `atol`.** Relative tolerance handles large values, absolute handles components passing through zero — **a pure relative tolerance is meaningless when a state variable is 0.**
 
 ## Stiffness
+<!-- bite: 836b1c12-c290-4221-8248-ef93a6b5a2c3 -->
 
 **The concept that determines which solver you need**, and it's poorly explained almost everywhere.
 
@@ -115,6 +124,7 @@ $$\text{err} = |y_{n+1}^{(p)} - y_{n+1}^{(p+1)}| \quad\Longrightarrow\quad h_{ne
 > **The practical tell that you have a stiff problem:** your simulation is taking absurdly small steps, or blowing up, for a system you know is physically stable and slow. **Switch to an implicit method before you optimise anything else.**
 
 ## Structure-preserving methods
+<!-- bite: c1abeeb1-7a50-49e5-9129-e359c13f0f2c -->
 
 **Sometimes accuracy per step isn't what you want — you want a conserved quantity to stay conserved.**
 
@@ -138,6 +148,7 @@ v(t + h)   = v(t + h/2) + (h/2)·a(t + h)
 **Note symplectic methods require a fixed step** — adaptive stepping destroys the symplectic property.
 
 ## Boundary value problems
+<!-- bite: decbe471-d496-4cb3-9527-5995fb3681a5 -->
 
 **Different problem: conditions at both ends rather than an initial state.**
 
@@ -150,6 +161,7 @@ $$y'' = f(x,y,y'), \qquad y(a)=\alpha,\ y(b)=\beta$$
 **Finite differences / collocation** — discretise the whole domain and solve the resulting system simultaneously. **More robust**, and it's what `scipy.integrate.solve_bvp` does. → [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations|PDEs]]
 
 ## Practical notes
+<!-- bite: 83898ea7-31c7-413c-afba-66eeb5036b75 -->
 
 **Use a library.** `scipy.integrate.solve_ivp`, SUNDIALS (CVODE/IDA), DifferentialEquations.jl. **They handle adaptivity, stiffness detection, event location and dense output** — all things you'd get subtly wrong.
 
@@ -170,6 +182,7 @@ $$y'' = f(x,y,y'), \qquad y(a)=\alpha,\ y(b)=\beta$$
 ---
 
 ## Related
+<!-- bite: aca0c144-4fea-4ed4-b891-c4913e9eb9fe -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations|PDEs]] — the same, with space as well as time
 - [[control-theory/12-digital-control|Digital Control]] — discretisation from the control side
 - [[robotics/08-dynamics|Robot Dynamics]] — what gets integrated

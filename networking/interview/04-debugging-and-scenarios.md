@@ -1,3 +1,7 @@
+---
+id: 9f7a2b0e-58e8-49e0-9f94-558ee04b69b2
+---
+
 # Networking Interview — Debugging & Scenarios
 
 From [[networking/14-nat-firewalls-and-middleboxes|14-nat-firewalls-and-middleboxes]], [[networking/15-network-performance|15-network-performance]], [[networking/16-debugging-networks|16-debugging-networks]].

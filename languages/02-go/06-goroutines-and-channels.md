@@ -1,8 +1,13 @@
+---
+id: 954eabc5-7659-457e-a30b-eb657892c92a
+---
+
 # Goroutines and Channels
 
 **[Intermediate]** — The feature Go is actually famous for: concurrency as a language primitive rather than a library, and the ways it goes wrong.
 
 ## Goroutines
+<!-- bite: 4cbfd361-1dfc-4f4b-a225-6a23b8ed3a88 -->
 
 ```go
 go doWork()                          // that's it
@@ -33,6 +38,7 @@ func main() {
 **A panic in any goroutine kills the whole process.** `recover` in the parent does not help. Anything spawned needs its own recovery if a panic there shouldn't be fatal. → [[languages/02-go/05-errors|Errors]]
 
 ## Channels
+<!-- bite: bb0e3eb8-5d09-4fc1-8a12-291456c02d2b -->
 
 > _"Don't communicate by sharing memory; share memory by communicating."_
 
@@ -82,6 +88,7 @@ func consume(in <-chan int)   // receive-only
 Restricting direction in a parameter is a compile-time guarantee about what a function can do, and it documents intent better than a comment. Use it.
 
 ## `select`
+<!-- bite: 89eb8bb4-ebd3-4f65-8593-2007265a32bc -->
 
 ```go
 select {
@@ -127,6 +134,7 @@ for {
 A `select` with only a `default` and nothing ready is a busy loop. If you find yourself spinning, you want a blocking receive.
 
 ## Deadlocks
+<!-- bite: 2a6611ba-67f6-4151-a932-b9ac90cd03fd -->
 
 ```go
 func main() {
@@ -144,6 +152,7 @@ kill -QUIT <pid>      # dump every goroutine's stack
 `GOTRACEBACK=all` and the `/debug/pprof/goroutine?debug=2` endpoint do the same thing on a live server, and a goroutine count that only ever climbs is the signature of a leak. → [[languages/02-go/13-performance-and-runtime|Performance and the Runtime]]
 
 ## When _not_ to use a channel
+<!-- bite: 0a64ab29-3126-48a5-a2a2-24c349734445 -->
 
 Channels are the famous feature, so they get over-applied. For plain shared state, a mutex is simpler, faster, and easier to read:
 
@@ -160,6 +169,7 @@ The Go team's own guidance: **use channels for passing ownership of data and for
 ---
 
 ## Related
+<!-- bite: 3661efcc-5168-4514-81dc-3c8854a93c3f -->
 
 - [[languages/02-go/07-concurrency-patterns|Concurrency Patterns]] — `sync`, worker pools, and the race detector
 - [[languages/02-go/08-context|Context]] — cancellation done properly

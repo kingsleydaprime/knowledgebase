@@ -1,8 +1,13 @@
+---
+id: 334cfbf8-259d-4263-aa4a-2536fd72d847
+---
+
 # Ray Tracing and Path Tracing
 
 **[Advanced]** — Solving light transport properly. BVHs, Monte Carlo, and why the image is noisy.
 
 ## Casting a ray
+<!-- bite: 43135eb1-62e1-4cf1-b0c6-72c616f2dd27 -->
 
 $$\mathbf{p}(t) = \mathbf{o} + t\mathbf{d}, \qquad t > 0$$
 
@@ -11,6 +16,7 @@ $$\mathbf{p}(t) = \mathbf{o} + t\mathbf{d}, \qquad t > 0$$
 **Ray–AABB** is the slab method: intersect against three pairs of parallel planes, keep the overlap. **Branch-free and fast**, which matters because it's the inner loop of every BVH traversal.
 
 ## Acceleration structures
+<!-- bite: efb43d15-264f-4e86-8bac-012f3e8b5b84 -->
 
 **The naive cost is $O(n)$ per ray against $n$ triangles. At 1080p with a few bounces that's astronomically slow.**
 
@@ -31,6 +37,7 @@ $$\text{cost} = \frac{A_L}{A}n_L + \frac{A_R}{A}n_R$$
 **Two-level structures** — a bottom-level BVH per mesh, a top-level BVH over instances. **Move an object and you only update the top level**, which is what makes animation affordable. **This is exactly what the hardware APIs expose** (BLAS/TLAS in DXR and Vulkan RT).
 
 ## Whitted ray tracing
+<!-- bite: a9477bb3-c570-4162-912c-87915c0998a3 -->
 
 **The 1980 original — recursive, and deterministic.**
 
@@ -48,6 +55,7 @@ trace(ray):
 **What it can't do:** soft shadows, glossy reflections, colour bleeding, caustics — **anything requiring an *integral* rather than a single ray.** It samples one direction where physics integrates over many.
 
 ## Path tracing
+<!-- bite: 1584279d-bc1c-4530-b390-ddd1753cdd89 -->
 
 **The correct approach: Monte Carlo estimation of the rendering equation.**
 
@@ -77,6 +85,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 **Which is why film renders take hours per frame at thousands of samples**, and why the noise-reduction techniques below are not optional extras.
 
 ## Variance reduction
+<!-- bite: 29295203-f517-4af4-a086-b6b4630c59de -->
 
 **Making path tracing converge faster** — this is where most of the engineering is.
 
@@ -97,6 +106,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 **Bidirectional path tracing** traces from the camera *and* the light and connects them — **much better for caustics and light through small openings**, which forward paths find by chance almost never.
 
 ## Denoising
+<!-- bite: 49d67d49-6174-432d-82d0-631caf98c274 -->
 
 **The development that made real-time ray tracing viable.**
 
@@ -111,6 +121,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 **The cost is artefacts:** ghosting on fast motion, blurred detail, and temporal lag. **Denoising is why real-time ray tracing works and why it sometimes looks smeary.**
 
 ## Hardware ray tracing
+<!-- bite: 5b7a07a3-da03-40dc-a92a-5af0cc6cd75f -->
 
 **2018 onwards: dedicated silicon.**
 
@@ -133,6 +144,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 > **Full path-traced modes exist** (Cyberpunk's Overdrive, Portal RTX) and need aggressive denoising plus upscaling to be playable. **The trend is clear and the transition is gradual.**
 
 ## Where ray tracing goes beyond rendering
+<!-- bite: 7bc33c7e-cf37-43b9-a5bb-3a5316222a50 -->
 
 **The same machinery, elsewhere:**
 
@@ -149,6 +161,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 **Differentiable rendering and NeRFs** — volumetric ray marching, differentiated to fit a scene to photographs.
 
 ## Practical notes
+<!-- bite: 6bf1a341-d5bd-48d5-990d-88cc41e62637 -->
 
 **Build a good BVH.** SAH is worth the build cost.
 
@@ -169,6 +182,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 ---
 
 ## Related
+<!-- bite: 61e3517d-bc6d-46ce-9ca0-15c845bbef80 -->
 - [[computer-graphics/08-how-rendering-works|How Rendering Works]] — the rendering equation
 - [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Numerical Integration]] — Monte Carlo and variance reduction
 - [[computer-graphics/11-shading-and-lighting|Shading and Lighting]] — the BRDFs being sampled

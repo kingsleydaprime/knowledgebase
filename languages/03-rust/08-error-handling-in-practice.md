@@ -1,8 +1,13 @@
+---
+id: e19fd243-6757-4eb5-934f-a332bcfecc25
+---
+
 # Error Handling in Practice
 
 **[Intermediate]** — Building real error types, the `thiserror`/`anyhow` split, and how errors become HTTP responses.
 
 ## The `Error` trait
+<!-- bite: bce248d7-94c0-47d0-8ef6-f15a955a22f5 -->
 
 ```rust
 pub trait Error: Debug + Display {
@@ -13,6 +18,7 @@ pub trait Error: Debug + Display {
 That's the whole contract: printable for humans (`Display`), printable for developers (`Debug`), and optionally pointing at the error that caused it (`source`). The `source` chain is Rust's equivalent of a Java stack trace's "Caused by" — except you build it deliberately.
 
 ## Hand-rolled, so you know what the macros generate
+<!-- bite: c7c7a832-3b86-47de-b378-76df41e9074e -->
 
 ```rust
 #[derive(Debug)]
@@ -49,6 +55,7 @@ impl From<std::io::Error> for ConfigError {
 That's ~25 lines of boilerplate for one error type, and the `From` impl is what makes `?` convert automatically. Nobody writes this by hand any more.
 
 ## `thiserror` — for libraries
+<!-- bite: 35579629-4b5c-4564-b48c-01402770c535 -->
 
 ```rust
 use thiserror::Error;
@@ -71,6 +78,7 @@ Everything above, generated. `#[from]` gives you the `From` conversion so `?` wo
 **Use `thiserror` when callers need to distinguish failures** — which is the definition of a library. Your error type is part of your public API: a caller should be able to `match` on it and react differently to "not found" versus "permission denied".
 
 ## `anyhow` — for applications
+<!-- bite: dbb34a0f-3f92-446b-820d-fb59ac4df00c -->
 
 ```rust
 use anyhow::{Context, Result, bail};
@@ -121,6 +129,7 @@ if let Some(e) = err.downcast_ref::<ConfigError>() { ... }
 ```
 
 ## `Box<dyn Error>` — the no-dependency option
+<!-- bite: cc5de00d-7581-4b26-bfde-6687caaa0812 -->
 
 ```rust
 fn run() -> Result<(), Box<dyn std::error::Error>> {
@@ -132,6 +141,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
 Works with `?` for anything implementing `Error`, needs no crates. It's what `fn main() -> Result<(), Box<dyn Error>>` uses, and it's fine for small programs. `anyhow` is strictly better — it adds context, backtraces, and a nicer `Display` — but this is the zero-dependency version.
 
 ## Errors to HTTP responses
+<!-- bite: e50adeba-eb33-4e71-a170-96ba0c58d944 -->
 
 The pattern that connects this to [[backend/frameworks/rust/index|Axum]] — implement `IntoResponse` on your error type and every handler can just use `?`:
 
@@ -171,6 +181,7 @@ Note the two things that separates this from a naive version: internal errors ar
 This is the type-system version of Spring's `@ControllerAdvice` and Nest's exception filters — one place, checked by the compiler, no runtime reflection. → [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]]
 
 ## Backtraces
+<!-- bite: 22773cd3-deeb-4b4d-821e-75857b8f0b0a -->
 
 ```bash
 RUST_BACKTRACE=1 cargo run
@@ -180,6 +191,7 @@ RUST_BACKTRACE=full cargo run
 `anyhow::Error` captures a backtrace automatically when the feature is enabled. Note it's captured at error *creation*, not at the `?` that propagates it — so create errors where they happen, not where you notice them.
 
 ## Practical rules
+<!-- bite: 850d1713-e7b2-40d8-b46c-0c8c0ee9e903 -->
 
 1. **Libraries: `thiserror`. Binaries: `anyhow`.**
 2. **Add context at every layer** with `.context()` — an error that says "No such file or directory" and nothing else is nearly useless.
@@ -191,6 +203,7 @@ RUST_BACKTRACE=full cargo run
 ---
 
 ## Related
+<!-- bite: 7dd7fcb9-028d-4a27-b10a-3829a2e964ff -->
 - [[languages/03-rust/07-option-and-result|Option and Result]] — the types being composed here
 - [[languages/03-rust/09-traits|Traits]] — `Error`, `Display`, `From` are all traits
 - [[backend/frameworks/rust/index|Rust Backends]] — `IntoResponse` in context

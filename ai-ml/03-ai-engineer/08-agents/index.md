@@ -7,6 +7,7 @@ id: ba795cf9-2877-4c57-aaac-30db9b6436a9
 > **[Intermediate]** · Covers what turns the tool-calling loop into an agent, and the harder question of when not to build one: workflows versus agents, the controls an agent's loop needs (step and token limits, stopping when it repeats itself, approval, a trace), evaluating the path an agent took as well as its answer, memory, and multi-agent systems. The worked example runs the support assistant as an agent and as a fixed workflow on the same questions. **Most tasks that look like they need an agent need a workflow.**
 
 ## Before you start
+<!-- bite: d46ffc8e-4b3c-4e0d-962e-fffcf2416c79 -->
 
 You can already:
 
@@ -24,18 +25,21 @@ After this lesson you will be able to:
 **Study route.** Read §1–3 first: they answer this week's closed-book question. Then §4–5, stopping at the prediction in §4, then the lab, then §6–8.
 
 ## The kid version
+<!-- bite: a791a4fd-98a8-4c96-b0ff-b8832c8f99d4 -->
 
 There are two ways to make dinner. You can follow a recipe: the same steps every time, easy to check, and you know how long it takes. Or you can hand a cook some money and say "make something nice", and they decide as they go: look in the fridge, go to the shop, change plans. The cook can handle surprises the recipe can't. But you'd give them a time limit, a budget, and a rule that anything expensive needs your OK, and you'd want them to tell you what they did. And if dinner is the same every night, you'd just use the recipe.
 
 **Where the analogy stops working.** A cook remembers last week's dinner. A model doesn't remember anything between runs unless your code stores it and puts it back in the prompt. And a cook doesn't usually take orders from a note they found in the fridge; a model might.
 
 ## 1. Why this exists
+<!-- bite: 5a8fe3de-25f8-4f04-ba81-5233447d55d7 -->
 
 The tools lesson's loop answered "Where is my refund for A123?" in two steps. Now the requests vary. "Where is my refund?" needs an order number first. "Compare my last three orders and cancel whichever hasn't shipped" needs an unknown number of lookups, then a decision, then an action. Writing a branch in code for every possible request is impossible, and that's the case for an **agent**: let the model decide the next step from what it has found so far.
 
 But look at what the first question actually needed: find the order number, look up the refund, phrase the answer. The steps were known before the question arrived. Run it as an agent and you pay for two or three model calls instead of one, the path changes from run to run, and a model that can choose tools can be talked into choosing the wrong one. **Giving the model control over the steps is a cost, paid in money, latency, predictability and safety.** It's worth paying only when the steps can't be known in advance.
 
 ## Terms used in this lesson
+<!-- bite: da96d79b-a246-4282-a927-0bd204d0f182 -->
 
 1. **Agent**: This is a system in which a model decides its own next steps, which tools to call and when to stop, in a loop, until a task is done.
 2. **Workflow**: This is a system in which models and tools run along paths written in code. The model may do some steps, but your code decides which steps happen, in what order.
@@ -52,6 +56,7 @@ But look at what the first question actually needed: find the order number, look
 13. **Multi-agent system**: This is a design in which several agents, often one coordinating **orchestrator** and several **workers**, split a task between them.
 
 ## 2. Workflows and agents
+<!-- bite: 839cd2d2-b529-4c1e-8b72-043755e7c81d -->
 
 The useful line is not "uses a model" but **who decides the steps**. In a workflow, your code does; in an agent, the model does. Between them are a handful of workflow patterns that cover most real features:
 
@@ -64,6 +69,7 @@ The useful line is not "uses a model" but **who decides the steps**. In a workfl
 An **agent** is the loop from the tools lesson with the steps left open: the model keeps choosing tools until it decides the task is done. The worked example's `refundStatus` is a workflow that chains and routes: keyword rules route, a regular expression extracts the order number, code calls `get_refund`, and one model call writes the sentence. The model in it has no tools at all.
 
 ## 3. When an agent is the wrong architecture
+<!-- bite: 8da2c835-cfb2-4a10-a9f6-2ff2b4bd6dee -->
 
 Use this list before building one. Any "yes" is a reason to build a workflow, or a single model call, instead.
 
@@ -79,6 +85,7 @@ Use this list before building one. Any "yes" is a reason to build a workflow, or
 The lab shows the difference on one question. For "Where is my refund for order a123?" the workflow makes **one** model call and **one** tool call, the same every time. The agent makes at least two model calls, and the second resends the first's results. For D012, whose order note carries an injected instruction, the workflow only ever reads the refund, so the note never reaches the model. The agent may look the order up, read the note, and depend on its controls to stop what follows.
 
 ## 4. The loop, with its controls
+<!-- bite: dd2a1ea3-ceb8-41f2-9ed1-e8863d0f7d69 -->
 
 When an agent is the right design, the loop from the tools lesson needs more controls, because it now runs for longer with more freedom. The lab's `runAgent` adds them, and each one prevents a specific failure:
 
@@ -96,6 +103,7 @@ The answer: three steps, `stuck`. The first two identical calls are allowed (a r
 Notice what the controls don't do: they don't make the agent's choices better. They limit how much damage and waste a bad run can cause, and they make every run explainable afterwards.
 
 ## 5. Evaluating an agent
+<!-- bite: d427caad-d088-4dc7-adbc-3c55b93e4997 -->
 
 An agent's answer can be right for the wrong reasons: it guessed, or it called a tool it shouldn't have and was saved by a declined approval. So score the **trajectory** as well as the answer:
 
@@ -109,24 +117,28 @@ The lab's `scoreTrajectory` checks these and names each failure, in the style of
 - **Test the limits deliberately.** Include tasks that can't be done, such as an order that doesn't exist, and check that the agent stops with an honest answer or a clean stop reason, rather than looping or inventing.
 
 ## 6. Memory
+<!-- bite: 03f9f8a5-6a2e-4ca7-bef1-6793c2530e2e -->
 
 **Short-term memory** is the history in the context window. In a long run it grows until it's slow, expensive or too big. The usual fixes are to drop old tool results once they've been used, or to replace older steps with a summary, keeping the opening instructions and the most recent steps intact. Keep the start of the history fixed where you can, so the [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|prompt cache]] still hits.
 
 **Long-term memory** is anything kept between runs: a user's preferences, facts learned earlier, what happened last time. The model keeps none of it. Your application writes it to a store, usually with embeddings so it can be searched ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]]), and puts the relevant parts back into the prompt next time. It helps to separate **episodic** memory (what happened) from **semantic** memory (facts that are true). Decide deliberately what gets written: a memory that an injected instruction managed to write is an injection that comes back in every future run.
 
 ## 7. More than one agent
+<!-- bite: 5aea0ece-a7a5-4fc0-af1f-0a835f2f6749 -->
 
 A **multi-agent** design splits a task between agents: typically an orchestrator that plans and delegates, and workers with narrower tools and their own context windows. It helps when a task really is too big for one context, such as researching many sources at once, or when parts need different tools and permissions.
 
 It also multiplies everything in §3. Each agent has its own loop, its own tokens and its own chance to go wrong, and they have to pass context to each other without losing it. Traces become trees. Start with one agent with good tools; most "we need several agents" turns out to be "we need better tools and a clearer task".
 
 ## 8. Frameworks and observability
+<!-- bite: 17de4ab2-b691-4a83-a812-23e5bb6ca290 -->
 
 Frameworks run the loop for you: LangGraph, the OpenAI Agents SDK, the Vercel AI SDK's agent classes, the Claude Agent SDK, and hosted agent services from the model providers. They're useful, but each hides the loop in this lesson behind its own names, so learn the loop first. When an agent misbehaves, you debug the loop, not the framework.
 
 **Observability** for agents means a trace per run: every model call with its prompt, tokens and time, every tool call with its arguments and result, and the stop reason. Tools such as Langfuse and LangSmith collect them, and OpenTelemetry has conventions for recording model calls, so they fit into the [[devops/07-observability/index|observability]] you'd use for any service. The lab's trace is the smallest useful version.
 
 ## Worked example — the support assistant, as an agent and as a workflow
+<!-- bite: f0f6a481-6a01-41c4-8f4d-7dba2f44a6ca -->
 
 The agent's loop, with its controls. It imports the tools lesson's `execute`, so validation, approval and the tool's own rules all still apply:
 
@@ -435,6 +447,7 @@ for (const question of ["Where is my refund for order A123?", "Where is my refun
 **Lab:** the code is in [`ai-ml/03-ai-engineer/08-agents/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/08-agents/labs/typescript). It imports the tools lab and the evals lab. From the vault root, `python3 labs/run.py agents/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama: run it from the lab folder with `node live.ts`.
 
 ## Common pitfalls
+<!-- bite: b7b33592-7aaf-4580-9b6a-1df4bd23ece8 -->
 
 1. **An agent where a workflow would do.** If you can draw the flowchart, write it in code.
 2. **No limits.** Every agent loop needs a step limit and a budget, and it should stop early when it repeats itself.
@@ -446,6 +459,7 @@ for (const question of ["Where is my refund for order A123?", "Where is my refun
 8. **Several agents by default.** Each one multiplies cost, failure points and debugging. Start with one.
 
 ## Check your understanding
+<!-- bite: 9c3b1476-4ba9-4c39-90f5-0da508b74ad0 -->
 
 1. What's the difference between a workflow and an agent, in one sentence?
 2. Give four reasons an agent might be the wrong architecture for a task.
@@ -469,6 +483,7 @@ for (const question of ["Where is my refund for order A123?", "Where is my refun
 </details>
 
 ## Practice — independent task
+<!-- bite: c2dd9c11-2e63-49f1-88d2-b5fa0a40c636 -->
 
 **This week's closed-book question, then a leash.**
 
@@ -480,6 +495,7 @@ for (const question of ["Where is my refund for order A123?", "Where is my refun
 **Done when:** your written answer covers at least four of the six reasons, your flagship's task list has a decision for each task, and your agent has stopped on its own at least once for each of `answered`, `step_limit` and `stuck`, with the trace to show it.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 24fa6712-f362-467d-898e-a9e7833952c4 -->
 
 - **Plan first, then act.** Some agents write a plan, show it to a person, and only then start. It's slower, and easier to approve and audit.
 - **Sandboxes.** Agents that run code or use a computer need an isolated environment with limited network and file access, not your machine ([[ai-ml/03-ai-engineer/10-safety-and-production/index|safety and production]]).
@@ -487,6 +503,7 @@ for (const question of ["Where is my refund for order A123?", "Where is my refun
 - **Hosted agents.** Model providers now run the loop and a sandbox for you. The controls in this lesson still apply; you configure them rather than write them.
 
 ## Before moving on
+<!-- bite: d2e95b65-606c-4c28-82a2-9f908dfac6e0 -->
 
 You can say when an agent is the wrong design and what to build instead, add the controls an agent's loop needs, score a trajectory, and explain memory and multi-agent tradeoffs.
 
@@ -495,6 +512,7 @@ You can say when an agent is the wrong design and what to build instead, add the
 **Next.** Week 6: [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety and production]] — prompt injection and personal data, which agents make both more likely and more costly.
 
 ## Related
+<!-- bite: 73912d7d-8916-4d20-9d52-e49b9321c057 -->
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] — the loop and the controls on each call
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — golden sets and gates, which trajectory scoring extends
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — why long runs get expensive
@@ -502,6 +520,7 @@ You can say when an agent is the wrong design and what to build instead, add the
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — injection, sandboxing, guardrails
 
 ## Seen in the wild
+<!-- bite: 93f01f5c-4ba7-4f4b-adac-b33ccfd77593 -->
 - [[projects/socioboom/interview/03-ai-and-agents|socioboom]] — agents doing real publishing work
 - [[projects/my-applicant/learning/02-ai-sdk-and-byok|my-applicant]] — the AI SDK, BYOK, and pipeline design
 - [[ai-ml/interview/01-ai-engineering|Interview: Q6–Q7]] — why agents are hard, and prompt injection

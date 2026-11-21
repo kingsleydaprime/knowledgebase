@@ -1,8 +1,13 @@
+---
+id: 599b14c1-fca7-4ebd-9047-900ca1bb9036
+---
+
 # Vectors
 
 **[Intermediate]** — quantities with direction, and the algebra that works identically in 2, 3 or 300 dimensions.
 
 ## Before you start
+<!-- bite: f27822a4-c826-4657-9b94-1d6079b88f3c -->
 
 - You know the dot and cross products geometrically — [[01-lines-and-planes|lines and planes in space]]. This lesson develops the same objects **algebraically**, and does not repeat the geometry.
 - You can manipulate algebraic expressions — [[03-algebraic-manipulation|algebraic manipulation]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: ffc4369e-a586-495c-b6a7-45e315f45caa -->
 
 A force of $5$ newtons is not a complete description — you need to know which way it pushes. Same for velocity, displacement, electric field. These are **vectors**: magnitude *and* direction.
 
@@ -30,6 +36,7 @@ A document can be represented by how often each word occurs — a vector with on
 That is the point of this lesson. Everything is defined by **formulas on components**, so nothing depends on being able to picture it.
 
 ## 2. Terminology
+<!-- bite: 8d3b55f8-aa93-42ce-872b-fdfb72009acd -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -43,6 +50,7 @@ That is the point of this lesson. Everything is defined by **formulas on compone
 | **Projection** | The shadow of one vector along another | The "how much of $\mathbf{a}$ points along $\mathbf{b}$" |
 
 ## 3. Operations, and which ones generalise
+<!-- bite: 709cd98c-0528-48db-a572-ee6d10e9e4af -->
 
 **Addition and scalar multiplication** are componentwise:
 
@@ -93,6 +101,7 @@ $$
 Every vector splits, uniquely, into a part along $\mathbf{b}$ and a part perpendicular to it. Block 3 of the lab checks the perpendicularity.
 
 ## 4. Cauchy–Schwarz, and the triangle inequality
+<!-- bite: 91c1d3ef-faec-48c0-9207-0455a95c48de -->
 
 **Claim:** for any two vectors,
 
@@ -132,6 +141,7 @@ so $\lVert\mathbf{a}+\mathbf{b}\rVert \le \lVert\mathbf{a}\rVert + \lVert\mathbf
 > **Predict before running the lab.** Two documents are represented by word-count vectors. Document A uses every word exactly twice as often as document B — it is simply twice as long, on the same topic. What is the **angle** between their vectors, and what is the **distance** between them? Which of the two is the better measure of "same topic"? Decide before opening the answers.
 
 ## 5. Cosine similarity
+<!-- bite: 6b9f5796-dca7-4388-98f9-34197154f22d -->
 
 Comparing two documents by the **distance** between their word-count vectors punishes length: a long article and a short note on the identical topic sit far apart, simply because one has bigger numbers.
 
@@ -146,6 +156,7 @@ is $1$ for identical direction, $0$ for orthogonal, and (for non-negative data l
 This is the standard similarity measure for text retrieval, recommendation systems and embedding search — every "find similar documents" feature is this formula, in a few hundred or a few thousand dimensions. It is worth appreciating that it is nothing more than the dot product with the lengths divided out, and that Cauchy–Schwarz is what guarantees it is a valid cosine at all.
 
 ## Worked example — runnable
+<!-- bite: 25b5ca99-be72-467f-8361-4dfe44d6af8f -->
 
 **Runnable example:** save as `vectors.py` in any empty directory and run `python3 vectors.py`. Standard library only; writes no files.
 
@@ -341,6 +352,7 @@ vectors: passed
 Block 4 is the point of the lesson. Nothing there can be drawn — it is a six-dimensional space of word counts — yet every operation is the same one used on arrows, and the answer is exactly right: the note and its doubled copy are at angle zero, and the baking post is nearly orthogonal to all of them.
 
 ## Common pitfalls and traps
+<!-- bite: e906d61c-fe38-4152-a4ed-dc34f5e4483b -->
 
 - **Trying to use the cross product in more than three dimensions.** It does not exist there. If a method needs it, that method is confined to 3-D.
 - **Confusing $\mathbf{a}\cdot\mathbf{b}$ (a number) with $\operatorname{proj}_{\mathbf{b}}\mathbf{a}$ (a vector).** The projection is the dot product *scaled by $\mathbf{b}$ again*; forgetting the final multiplication is the most common slip.
@@ -350,6 +362,7 @@ Block 4 is the point of the lesson. Nothing there can be drawn — it is a six-d
 - **Expecting Gram–Schmidt to return as many vectors as it was given.** If the input is linearly dependent, it returns fewer — and that is the useful behaviour, not a bug.
 
 ## Check your understanding
+<!-- bite: f00f6f2e-42d4-453f-b075-0be996e91cd3 -->
 
 1. Find $\lVert(2, -3, 6)\rVert$ and the unit vector in that direction.
 2. Find the angle between $(1, 0, 1)$ and $(0, 1, 1)$.
@@ -369,6 +382,7 @@ Block 4 is the point of the lesson. Nothing there can be drawn — it is a six-d
 </details>
 
 ## Practice — independent task
+<!-- bite: 9d639551-4c14-43f7-81bf-edfe423d2f67 -->
 
 Implement `least_squares_fit(points)`: given $(x, y)$ data, find the straight line minimising the total squared vertical error — using **projection**, not the memorised formulas.
 
@@ -383,6 +397,7 @@ Implement `least_squares_fit(points)`: given $(x, y)$ data, find the straight li
 **Done when:** your orthogonality assertion in step 3 passes for at least five datasets, your answer matches the closed-form formulas, and you can explain in a sentence why "minimise the squared error" and "make the residual orthogonal" are the same condition.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 2528236a-ddfe-40ae-9385-a2f062ecdc0b -->
 
 **The norm is a choice.** $\lVert\cdot\rVert_2$ (Pythagoras) is one option among many. The **$L^1$ norm** $\sum\lvert a_i\rvert$ measures city-block distance and produces sparse solutions, which is why LASSO regression uses it. The **$L^\infty$ norm** takes the largest component. Each defines a different geometry, and different "closest points". The one used here is standard because it is the only one coming from a dot product — which is what makes projection and orthogonality available at all.
 
@@ -391,6 +406,7 @@ Implement `least_squares_fit(points)`: given $(x, y)$ data, find the straight li
 **Dot products dominate the cost of modern computing.** A matrix multiplication is a grid of dot products, and a transformer's attention mechanism is dot products between query and key vectors. Essentially all GPU hardware exists to do the operation in section 3 as fast as possible.
 
 ## Before moving on
+<!-- bite: 4d269773-cd7b-4797-8421-919e63a4e63f -->
 
 You are done with this lesson when you can:
 
@@ -404,6 +420,7 @@ You are done with this lesson when you can:
 **Next:** [[03-systems-of-linear-equations/01-gaussian-elimination|Systems of Linear Equations]] — solving $A\mathbf{x} = \mathbf{b}$ the way software actually does it.
 
 ## Related
+<!-- bite: c7b08d1d-ee2b-4219-b3f2-00f6f2b36957 -->
 
 - [[01-lines-and-planes|Lines and Planes in Space]] — the same objects, geometrically
 - [[01-matrices-and-determinants|Matrices and Determinants]] — what acts on these

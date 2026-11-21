@@ -1,12 +1,18 @@
+---
+id: b9fcc944-8131-4c8f-bc17-cd111ed88ceb
+---
+
 # Testing and Tooling
 
 **[Intermediate]** — Foundry, the testing techniques that are mandatory rather than advanced, and a workable local workflow.
 
 ## Why testing is different here
+<!-- bite: e4cbba37-8b6b-4f60-997e-8f72418807b3 -->
 
 You cannot patch. You cannot roll back. Your code is public and holds money, and someone is paid to find your bug. **The testing bar is closer to avionics than to web development** — and the tooling has evolved to match, which is genuinely one of the field's better outcomes.
 
 ## Foundry — the default
+<!-- bite: e8137616-c12c-4714-bc59-2a57154bd051 -->
 
 Tests are written **in Solidity**, run in a native EVM, and are fast enough to run on every save.
 
@@ -60,6 +66,7 @@ forge test --gas-report
 ```
 
 ## Fuzzing — the default, not an extra
+<!-- bite: 6c12ae9e-f3e7-4f8f-9f34-8591af8b3b4c -->
 
 Declare a parameter and Foundry generates hundreds of random inputs automatically:
 
@@ -82,6 +89,7 @@ function testFuzz_DepositThenWithdraw(uint96 amount) public {
 **Write fuzz tests by default.** In this domain a unit test with three hand-picked values is the weaker choice.
 
 ## Invariant testing — the technique that finds real bugs
+<!-- bite: 0bf1e150-8a2c-476b-a9b3-34db993ab390 -->
 
 State a property that must hold **no matter what sequence of calls anyone makes**, and let the fuzzer attack it:
 
@@ -96,6 +104,7 @@ Foundry generates random sequences of calls against your contract and checks the
 **Good invariants to reach for:** total supply equals the sum of balances; the contract is always solvent; no user can withdraw more than they deposited; a monotonic value never decreases. If you write one test beyond the happy path, make it this.
 
 ## Fork testing
+<!-- bite: a35961c0-8212-4fb4-9715-a227734f47a4 -->
 
 Run against real mainnet state:
 
@@ -110,6 +119,7 @@ Now you can test against **the actual USDT contract, the actual Uniswap pool, th
 Pin the block number: unpinned fork tests are non-deterministic and will fail randomly in CI.
 
 ## Static analysis
+<!-- bite: d23408d4-a223-4618-a56c-750a62880c8a -->
 
 ```bash
 slither .                    # the standard. Fast, high signal, some noise
@@ -121,6 +131,7 @@ aderyn                       # Rust-based, newer, good output
 **Formal verification** — Certora, Halmos, and the SMTChecker built into solc — proves properties over all inputs rather than sampling. Expensive in effort, appropriate for high-value core logic, and worth knowing exists.
 
 ## The rest of the toolchain
+<!-- bite: 4066c79c-685a-4d48-80dd-ddaf66fef5be -->
 
 | Tool | For |
 |---|---|
@@ -134,6 +145,7 @@ aderyn                       # Rust-based, newer, good output
 **Foundry vs Hardhat:** use Foundry unless you have a specific reason — Solidity tests remove a language boundary, fuzzing and invariants are first-class, and it's dramatically faster. Hardhat wins when your deployment pipeline is already TypeScript, and the two coexist in one repo without difficulty.
 
 ## A workflow that works
+<!-- bite: 7f6de14a-01e4-4d89-9cbc-2d19a8c65fbd -->
 
 ```
 1. forge init, write the contract
@@ -149,10 +161,12 @@ aderyn                       # Rust-based, newer, good output
 ```
 
 ## Key insight
+<!-- bite: 71b58955-e87e-492a-9407-5a22d8a48f46 -->
 
 **Fuzzing and invariant testing are the baseline in this domain, not advanced practice.** A hand-written unit test verifies the case you imagined; an invariant test attacks the ones you didn't. Since the attacker's whole job is to find the sequence of calls you never considered, testing that generates sequences you never considered is the only kind that meets them on their ground.
 
 ## Related
+<!-- bite: 41ba242b-4114-4e90-8307-deb0c2385218 -->
 - [[web3/frameworks/solidity/index|the Solidity toolchain]] — installing and configuring these
 - [[web3/04-smart-contract-security/07-the-audit-process|the audit process]] — what comes after
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]] — measuring

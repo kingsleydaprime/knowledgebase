@@ -1,20 +1,27 @@
+---
+id: c859b3e0-e107-4ef7-8235-0392ea9df044
+---
+
 # Threat Modelling
 
 **[Intermediate]** — the planning tool that turns "be secure" into a concrete list of what to defend against, so you spend effort where the real danger is.
 
 ## The kid version first
+<!-- bite: b5b916e0-e407-4dae-bf31-cd9123e38640 -->
 
 You can't defend against *everything* — you have finite time and money. So before building defences, you ask four questions: **What are we building? What can go wrong? What are we going to do about it? Did we do a good job?** Answering them, deliberately, is threat modelling — and it's what stops you from armour-plating the front door while leaving the back window open.
 
 It's the bridge from the [[cybersecurity/01-fundamentals/03-attacker-and-hacker-types|"who would attack us"]] taxonomy to an actual plan.
 
 ## Why it matters
+<!-- bite: 3b572c00-49e7-4ada-885f-b94d575da62c -->
 
 Without threat modelling, security is guesswork — you defend against whatever you happened to read about last, which is rarely your real risk. **A small business armour-plating against nation-state APTs while skipping basic patching is the classic failure**, and it comes from never asking "who would actually target *us*, and how?" → [[cybersecurity/01-fundamentals/03-attacker-and-hacker-types|attacker types]].
 
 Threat modelling makes the danger *specific*, so the defences can be too. It's also cheapest done **early, at design time** — a threat found on a whiteboard costs a conversation; the same one found in production costs an incident.
 
 ## The four questions (Shostack's framework)
+<!-- bite: 12c8af43-7c27-46d9-853a-0f3474f8314a -->
 
 The whole discipline, and you can run it on a napkin:
 
@@ -50,6 +57,7 @@ For each threat, choose a response — the same four options as [[cybersecurity/
 Review the model, validate the mitigations actually work (this is what [[cybersecurity/02-ethical-hacking/index|penetration testing]] checks), and revisit as the system changes. **A threat model is a living document, not a one-time gate** — new features add new threats.
 
 ## Prioritise, because you still can't do everything
+<!-- bite: b295095b-e1a8-420f-a872-0f6a7abcfb73 -->
 
 Threat modelling produces a *list*, and the list is longer than your budget. Rank it by **risk = likelihood × impact** → [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|risk]]:
 
@@ -59,6 +67,7 @@ Threat modelling produces a *list*, and the list is longer than your budget. Ran
 This is the same likelihood × impact framing as risk management — threat modelling is where it gets applied to concrete, enumerated threats rather than vague worries → [[cybersecurity/01-fundamentals/01-what-is-cybersecurity|risk]].
 
 ## Keeping it practical
+<!-- bite: bb3c9058-61f0-4a94-9619-45fa8f038beb -->
 
 Threat modelling has a reputation for being heavyweight (formal diagrams, hours of meetings), and that reputation kills its adoption. The antidote:
 
@@ -70,10 +79,12 @@ Threat modelling has a reputation for being heavyweight (formal diagrams, hours 
 **The lightweight version — four questions on a whiteboard — is the one that actually gets done, which makes it the one that matters.**
 
 ## Key insight
+<!-- bite: cc721c45-7946-4b43-93de-a18b3c4fb9ce -->
 
 **Threat modelling turns "be secure" into an enumerated, prioritised list of what to defend against, by asking four questions — what are we building, what can go wrong, what do we do about it, did we do a good job — structured by STRIDE and focused on trust boundaries where attacks concentrate.** It's the bridge from the attacker taxonomy to an actual plan, cheapest done early on a whiteboard, and its whole value is making the danger *specific* so effort lands where the real risk is rather than on whatever you last read about. Done lightly and often, it's the single highest-leverage planning habit in security.
 
 ## Related
+<!-- bite: a80b3ec6-1cf5-45d1-bf16-6639e2460a17 -->
 - [[cybersecurity/01-fundamentals/03-attacker-and-hacker-types|attacker types]] — the "who" that threat modelling makes concrete
 - [[cybersecurity/01-fundamentals/04-security-principles|security principles]] — the mitigations you apply
 - [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|risk and frameworks]] — prioritising the resulting list

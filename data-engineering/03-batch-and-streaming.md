@@ -1,8 +1,13 @@
+---
+id: 4c892b72-322d-4130-8571-cb85d37addd8
+---
+
 # Batch and Streaming
 
 **[Intermediate]** — the two ways data moves, the real trade-off between them, and why the industry stopped maintaining both.
 
 ## The kid version first
+<!-- bite: 987dca30-614e-40d3-9e1d-5ce70672b59a -->
 
 **Batch:** collect data into a pile, then process the whole pile at once, on a schedule. *"Every night at 2am, process yesterday's orders."* Simple, cheap, and the answer is a few hours old.
 
@@ -11,6 +16,7 @@
 **The question is never "which is better" — it's "how fresh does the answer need to be, and what will you pay for freshness."**
 
 ## The distinction that actually matters: bounded vs unbounded
+<!-- bite: c8a38f4e-60b0-4db1-b760-988fa6592c35 -->
 
 Beneath the two words is one real difference:
 
@@ -20,6 +26,7 @@ Beneath the two words is one real difference:
 **This is the whole conceptual difficulty of streaming.** Every operation you take for granted in batch — sort, count, join, dedupe — becomes subtle when the dataset is infinite and you only ever see part of it.
 
 ## The trade-off
+<!-- bite: d74f0b09-152d-4871-a597-fc4dd009c86f -->
 
 | | Batch | Streaming |
 |---|---|---|
@@ -34,6 +41,7 @@ Beneath the two words is one real difference:
 **The honest default: use batch unless you have a specific reason not to.** Streaming is genuinely harder to build, run and debug, and **most "we need real-time" requirements dissolve into "we need it within a few minutes,"** which micro-batch handles at a fraction of the complexity. Reach for true streaming when the *value of the data decays in seconds* — fraud, trading, operational alerting, live personalisation.
 
 ## The hard problems in streaming
+<!-- bite: d966a851-1379-4c06-b5d7-bee76366b5d0 -->
 
 These are what make streaming a specialty:
 
@@ -49,6 +57,7 @@ These are what make streaming a specialty:
 **Exactly-once processing.** A record must be processed exactly once despite failures and retries — not zero times (data loss), not twice (double-counting). Genuinely hard in a distributed system, and the headline feature of modern streaming engines → [[data-engineering/05-kafka-and-event-streaming|Kafka]], [[architecture/04-distributed-systems/10-distributed-transactions|distributed transactions]].
 
 ## Lambda and Kappa — a piece of history worth knowing
+<!-- bite: c32e303f-516c-40e4-b705-66ee8e10629b -->
 
 **Lambda architecture** (~2011) ran *both*: a batch layer for correct, complete results and a streaming layer for fast, approximate ones, merged at query time. It worked, but **you maintained two codebases computing the same thing in two paradigms** — a notorious maintenance burden, and the two would drift and disagree.
 
@@ -57,6 +66,7 @@ These are what make streaming a specialty:
 **Why this matters even though you won't build Lambda:** it explains the industry's direction — toward *unifying* batch and streaming under one model, so you write logic once and run it either way. **Apache Beam**, **Spark Structured Streaming** and **Flink** all pursue this "batch is just streaming over bounded data" unification, and it's the modern consensus.
 
 ## The engines
+<!-- bite: 0d8c119a-219e-48c1-b2ca-aeeb0f1ab86b -->
 
 | | For |
 |---|---|
@@ -66,10 +76,12 @@ These are what make streaming a specialty:
 | **Materialize / RisingWave** | Streaming SQL — incrementally maintained materialised views over streams. The rising, approachable option |
 
 ## Key insight
+<!-- bite: 1efd58b4-8bec-457a-9dd5-27d62c912ac1 -->
 
 **The batch/streaming choice is really the bounded/unbounded distinction, and freshness-versus-complexity is the trade you're making.** Batch is bounded and easy; streaming is unbounded, which turns every ordinary operation into a windowing, event-time and late-data problem. Default to batch — most "real-time" needs are actually "few-minute" needs — and the industry's clear direction is to *unify* the two so you write the logic once, which is why "batch is streaming over bounded data" is the framing worth carrying.
 
 ## Related
+<!-- bite: b5f6b8c5-4d01-4abf-a236-5d12af50f18a -->
 - [[data-engineering/05-kafka-and-event-streaming|Kafka and event streaming]] — the backbone of streaming
 - [[data-engineering/06-distributed-processing|distributed processing]] — Spark for both
 - [[architecture/04-distributed-systems/12-the-log-and-state-machines|the log and state machines]] — the theory under replay

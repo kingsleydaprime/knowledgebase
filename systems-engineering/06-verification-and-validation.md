@@ -1,3 +1,7 @@
+---
+id: eb1d2450-2f53-4ee8-be77-c1edeccc57fd
+---
+
 # Verification and Validation
 
 > **[Intermediate]** · Proving it works — the four methods, and why "all tests passed" is not the same as "it works".
@@ -8,6 +12,7 @@
 A system can pass every verification activity and fail validation completely. That's Mars Climate Orbiter, and it's every product that meets its requirements and nobody wants.
 
 ## The four methods
+<!-- bite: 91e71d5e-9b9b-4fee-b745-eebb535c87f7 -->
 
 Every requirement is verified by one of these, and **choosing the method is part of writing the requirement** — you specify it at baseline, not at test time.
 
@@ -23,6 +28,7 @@ Every requirement is verified by one of these, and **choosing the method is part
 **And when you rely on analysis, the model becomes the thing that must be trusted.** That's where a whole discipline lives → [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical methods]] on conditioning and error, and [[continuum-mechanics/13-computational-methods-and-fem|FEM]] on whether your simulation resembles reality.
 
 ## The levels
+<!-- bite: 8f532e11-cdec-446c-85cf-43bed1919180 -->
 
 Verification happens at every level of the V, bottom-up:
 
@@ -34,6 +40,7 @@ Verification happens at every level of the V, bottom-up:
 **Then validation, which is a different question at every level:** does it satisfy the need, in the real environment, with real users, under real conditions?
 
 ## Test like reality, not like the lab
+<!-- bite: 63bfdbad-c48d-4f1a-bf10-eba680b1e2c2 -->
 
 **The most reliable source of field failures is a test environment that differs from the operating environment.**
 
@@ -50,6 +57,7 @@ Physical systems test against the environment explicitly — thermal cycling, vi
 **"It works on my machine" and "it passed in staging" are the same statement**: verified in an environment that isn't the one that matters.
 
 ## Coverage is not confidence
+<!-- bite: 7695711c-ac5e-4ba8-98e5-0d1b75921ec1 -->
 
 Every requirement traced to a verification activity gives you a **verification cross-reference matrix**, and it answers "have we checked everything we said?"
 
@@ -58,6 +66,7 @@ Every requirement traced to a verification activity gives you a **verification c
 The software version is the same trap: **line coverage measures what ran, not what was checked** → [[languages/06-python/13-testing-and-tooling|testing and tooling]]. 100% coverage of the behaviour you thought of says nothing about the behaviour you didn't.
 
 ## Independence
+<!-- bite: 3cc0b441-47a1-4040-9283-a49ca60b2bc3 -->
 
 Serious programmes use **Independent Verification and Validation** — a team not reporting to the development organisation.
 
@@ -68,6 +77,7 @@ The reason isn't distrust; it's that **the people who built it share the assumpt
 **A blameless postmortem is retrospective IV&V**: an examination of the assumptions that failed, deliberately structured so people will tell the truth → [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]].
 
 ## Operational validation
+<!-- bite: df863631-7380-4919-88e4-977161ad0914 -->
 
 The last stage, and the one most often treated as ceremony: **does it work in the hands of real users, doing real work, at real pace?**
 
@@ -78,6 +88,7 @@ Physical programmes call it operational test and evaluation, sea trials, or flig
 **"The user made a mistake" is almost always a system finding, not a user finding.** That's the same reasoning as blameless postmortems, and it's why human factors is part of the discipline rather than a nicety.
 
 ## Related
+<!-- bite: a87283b1-22cc-4492-9e87-1f7d718f08d5 -->
 - [[systems-engineering/03-the-lifecycle-and-the-v-model|the V-model]] — where V&V sits
 - [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — finding what you didn't specify
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — the software version

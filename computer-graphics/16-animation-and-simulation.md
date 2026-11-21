@@ -1,8 +1,13 @@
+---
+id: ee555b02-8c1c-45e7-91b9-9ec49c5b36c2
+---
+
 # Animation and Simulation
 
 **[Intermediate → Advanced]** — Making things move. Skinning, physics engines, and why game physics and robotics simulation are the same subject.
 
 ## Keyframe animation
+<!-- bite: 675129fb-7994-4273-a921-2450f7e3345d -->
 
 **Store poses at key times; interpolate between them.**
 
@@ -22,6 +27,7 @@
 **Easing** — `smoothstep` and its relatives shape the timing. **Linear interpolation looks mechanical**; the ease-in/ease-out that animators use is a perceptual necessity, not decoration.
 
 ## Skeletal animation
+<!-- bite: 2a7776dc-0a06-4fd7-a9bb-7eea91fccf02 -->
 
 **A hierarchy of bones deforms a mesh.**
 
@@ -42,6 +48,7 @@ $$\mathbf{v}' = \sum_i w_i\,M_i\,B_i^{-1}\,\mathbf{v}$$
 **Blend trees and state machines** combine animations — walk blended with run by speed, layered upper/lower body. **Motion matching** searches a database for the clip best matching current velocity and desired direction, and has largely replaced hand-built blend trees in AAA games.
 
 ## Rigid body physics
+<!-- bite: c01565bb-a125-4910-ab53-6f39838ecdfe -->
 
 **Integrate the equations of motion.** → [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]]
 
@@ -63,6 +70,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 > **A fixed timestep is essential.** Variable timesteps break the symplectic property and make simulations non-deterministic. **Use a fixed physics step with an accumulator**, interpolating for rendering — the standard "fix your timestep" pattern.
 
 ## Collision detection
+<!-- bite: c816b18f-3b47-495b-a731-62d1d4ee9cfb -->
 
 **Two phases, because $O(n^2)$ pair tests don't scale.**
 
@@ -75,6 +83,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 **Convex decomposition** — concave meshes are decomposed into convex pieces (V-HACD), because narrow-phase algorithms need convexity. **Or you use a triangle-mesh collider for static geometry only.**
 
 ## Constraint solving
+<!-- bite: db6708c7-89c5-40fd-8723-8d69a2062e33 -->
 
 **Contacts and joints are constraints**, and solving them is the heart of a physics engine.
 
@@ -87,6 +96,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 **Featherstone's articulated body algorithm** — $O(n)$ for a kinematic chain, and **used in robotics simulators** because it handles high joint stiffness ratios that impulse solvers struggle with. → [[robotics/08-dynamics|Dynamics]]
 
 ## Deformable simulation
+<!-- bite: b8a4302c-d791-46ae-b5b9-09b70ebdead9 -->
 
 **Cloth** — a mass-spring system (structural, shear and bend springs) or a proper continuum FEM model. **Position-based dynamics dominates in games**, FEM in film.
 
@@ -99,6 +109,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 > **The distinction worth naming: film simulation optimises for accuracy and can take hours per frame; game simulation optimises for stability at 60 Hz and will happily be wrong.** **A game physics engine that is slightly wrong but never explodes is strictly better than an accurate one that occasionally does** — which is why PBD, an unphysical method, dominates real-time.
 
 ## Particles
+<!-- bite: ef28ed7e-19d6-4dc0-8419-e6aac222ee70 -->
 
 **Many simple entities, updated independently.**
 
@@ -109,6 +120,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 **Uses:** smoke, fire, sparks, rain, debris, magic effects, crowds.
 
 ## Simulation for robotics and ML
+<!-- bite: 24172a1b-7105-454a-9a9f-bee9759b43a2 -->
 
 **The connection that makes this note relevant beyond games.**
 
@@ -121,6 +133,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 **Rendering for training data** — synthetic datasets with perfect ground-truth labels (depth, segmentation, pose), which is far cheaper than annotating real images.
 
 ## Practical notes
+<!-- bite: 2df2d1ad-88f7-4535-abdc-8854983ae8c5 -->
 
 **Fix your timestep.** Accumulate real time, step physics at a fixed rate, interpolate the rendered pose. **Variable-step physics is non-deterministic and unstable**, and this is the single most important practical rule here.
 
@@ -141,6 +154,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 ---
 
 ## Related
+<!-- bite: 2a072d74-df88-4f06-852d-bef1f552c8cc -->
 - [[robotics/08-dynamics|Robot Dynamics]] — the same equations, more rigour
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators and why symplectic matters
 - [[computer-graphics/15-geometry-and-meshes|Geometry and Meshes]] — what gets deformed

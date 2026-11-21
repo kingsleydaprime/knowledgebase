@@ -1,8 +1,13 @@
+---
+id: 8cdd6b85-c950-455f-b227-c784e9c72d41
+---
+
 # Other Plugins: Draggable, Flip, SplitText, MotionPath
 
 Beyond ScrollTrigger, GSAP ships several special-purpose plugins — all free as of GSAP 3.13 (see [[01-intro|intro]]). Each targets a specific hard problem that would be painful to hand-roll.
 
 ## Draggable
+<!-- bite: 7a9453db-f328-4fcb-bcb5-c2a7a91bd0d2 -->
 
 Makes an element draggable with physics (inertia, bounds, snapping) and integrates directly with tweens/timelines:
 
@@ -21,6 +26,7 @@ Draggable.create(".slider-handle", {
 ```
 
 ## Flip
+<!-- bite: 836913b9-afa3-45fe-9a4b-510f34557fe3 -->
 
 Solves the "animate a layout change" problem: an element that instantly jumps to a new position/size (e.g. it moved to a different parent, or a CSS class changed its layout) can instead be made to *animate smoothly* between the two states.
 
@@ -41,6 +47,7 @@ Flip.from(state, { duration: 0.6, ease: "power2.inOut" });
 **Why this exists**: browsers can't animate between two different layout states directly — you can't tween "this element used to be 100px in the DOM flow, now it's `position: fixed` full-screen" with a normal tween. Flip works by measuring the First and Last states, Inverting the visual result with a transform so it *looks* like it hasn't moved yet, then letting the browser Play a normal transform tween back to the real position — hence the name (First, Last, Invert, Play). This is the same core idea as the [[frontend/frameworks/framer-motion/06-layout-animations|`layout` prop in Framer Motion]], implemented explicitly instead of automatically.
 
 ## SplitText
+<!-- bite: a48f3ed3-c5d7-4941-9f30-2626c80cfb05 -->
 
 Splits text into individual characters, words, or lines (each wrapped in its own `<div>`/`<span>`) so they can be animated independently — the mechanism behind staggered letter-by-letter reveal effects:
 
@@ -59,6 +66,7 @@ gsap.from(split.chars, {
 ```
 
 ## MotionPathPlugin
+<!-- bite: b4e96f76-df04-46e9-8856-dd6a6315121c -->
 
 Animates an element along an arbitrary SVG path, rather than a straight line:
 
@@ -78,10 +86,12 @@ gsap.to(".rocket", {
 ```
 
 ## When to reach for a plugin vs. plain tweens
+<!-- bite: 665b62af-3643-41f3-82bb-20a7c1496500 -->
 
 All four solve problems that are either impossible or very fiddly with `.to()`/`.from()` alone: drag physics, layout-change animation, per-character text splitting, and curved-path motion each require dedicated measurement/DOM logic under the hood. If you find yourself manually calculating character offsets or writing your own drag-with-momentum math, that's usually the sign a plugin already covers it.
 
 ## Related
+<!-- bite: a365295d-0a34-4c53-8b0f-0bf505b8fc1f -->
 - [[01-intro|intro]] — plugin registration pattern
 - [[04-scrolltrigger|ScrollTrigger]] — the plugin you'll use most often
 - [[frontend/frameworks/framer-motion/06-layout-animations|Framer Motion layout animations]] — the declarative equivalent of Flip

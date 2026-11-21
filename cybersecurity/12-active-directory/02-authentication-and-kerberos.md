@@ -1,14 +1,20 @@
+---
+id: 96cfa2bd-23ce-41ce-b0a2-79f6d29cdd93
+---
+
 # Authentication and Kerberos
 
 **[Advanced]** — how AD proves who you are, because nearly every named AD attack is an abuse of this one protocol.
 
 ## The kid version first
+<!-- bite: eeb5bed7-a9aa-40aa-86bd-28bbe2c62d30 -->
 
 When you log into a Windows domain, you don't send your password to every server you use. Instead you get a **ticket** from a central authority — a stamped pass that says "this really is Alice." You show the ticket to file servers, databases and apps, and they trust it because it's stamped by the authority they all trust.
 
 **Almost every AD attack is a trick played on this ticket system:** stealing a ticket, forging a ticket, or forcing the system to hand you a ticket you can crack offline.
 
 ## Two protocols: NTLM and Kerberos
+<!-- bite: 489ab9cb-f063-4ceb-8164-9eeb1f94863e -->
 
 AD supports both, and the difference matters:
 
@@ -19,6 +25,7 @@ AD supports both, and the difference matters:
 **NTLM is still enabled almost everywhere** for backward compatibility, which is why pass-the-hash still works in 2026.
 
 ## How Kerberos works
+<!-- bite: 89a914d3-0fc4-47c6-b0d4-266a1f79e39c -->
 
 Three parties: the **client**, the service it wants, and the **KDC** (Key Distribution Center) — which runs on the Domain Controller. The flow:
 
@@ -43,6 +50,7 @@ Three parties: the **client**, the service it wants, and the **KDC** (Key Distri
 **That second point is the crucial insight**: a service ticket is, in effect, an offline password-guessing oracle for the service account's password, and *any* authenticated user can request one.
 
 ## Why each design choice becomes an attack
+<!-- bite: 5ccfb12c-a5f2-4e82-b0fb-35cda1b5ba55 -->
 
 | Kerberos feature | The attack it enables |
 |---|---|
@@ -55,6 +63,7 @@ Three parties: the **client**, the service it wants, and the **KDC** (Key Distri
 **This is why note 04 and 05 are mostly a tour of Kerberos.** Nearly every named AD attack is "abuse the fact that a ticket is encrypted with an account's password hash."
 
 ## SPNs — the Kerberoasting enabler
+<!-- bite: bd0a831a-10ee-4a7b-817e-2d6d5c7c26c5 -->
 
 A **Service Principal Name** links a service (like `MSSQLSvc/db.corp.local`) to the account that runs it. To request a ticket for a service, you ask for it *by SPN*. So:
 
@@ -68,6 +77,7 @@ A **Service Principal Name** links a service (like `MSSQLSvc/db.corp.local`) to 
 **Any authenticated domain user can enumerate SPNs and request tickets** — no special privilege. That's why Kerberoasting is the single most reliable AD attack: it needs only *a* valid account, and service accounts frequently have weak, human-set, non-expiring passwords → [[cybersecurity/12-active-directory/04-credential-attacks|credential attacks]].
 
 ## What "as an authenticated user" buys you
+<!-- bite: 91753fff-1ebb-4425-8921-538458cf02ab -->
 
 The recurring phrase in AD attacks is *"as any authenticated domain user."* Once you have **one** valid credential — from a phish, a password spray, a config file, a network capture — you can:
 
@@ -79,10 +89,12 @@ The recurring phrase in AD attacks is *"as any authenticated domain user."* Once
 **So the first foothold is the hard part; after that, AD hands you the map.** This is why password spraying and phishing get so much attention — they're the door into everything else → [[cybersecurity/12-active-directory/03-enumeration|enumeration]].
 
 ## Key insight
+<!-- bite: ce427794-13a0-4d8a-997d-b6387ad67f68 -->
 
 **Kerberos is a ticket system where every ticket is encrypted with some account's password hash, and that single fact generates nearly every named AD attack** — Kerberoasting cracks service tickets, Golden Tickets forge TGTs from KRBTGT's hash, Silver Tickets forge service tickets, and NTLM's pass-the-hash skips cracking entirely. Understand that a service ticket is an offline crackable object *any* user can request, and that KRBTGT's hash is the master key to the whole domain, and the rest of AD attacking is applying those two ideas.
 
 ## Related
+<!-- bite: a5201b7a-60ec-4fc6-85cc-2a6fd56d8ab8 -->
 - [[cybersecurity/12-active-directory/04-credential-attacks|credential attacks]] — Kerberoasting, AS-REP, pass-the-hash in practice
 - [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|lateral movement]] — Golden/Silver tickets, DCSync
 - [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures and PKI]] — the crypto Kerberos relies on

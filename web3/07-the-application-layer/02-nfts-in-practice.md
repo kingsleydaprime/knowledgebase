@@ -1,8 +1,13 @@
+---
+id: 4a1ed319-5517-4bb7-babf-b885f3beb4d8
+---
+
 # NFTs in Practice
 
 **[Intermediate]** — what the 2021 boom got wrong, what the technology genuinely provides, and where it's actually being used.
 
 ## What happened
+<!-- bite: b62c77f5-c800-4269-b824-e0bc8532c9ed -->
 
 2021–22 saw tens of billions of dollars trade in profile-picture collections. By 2023 most of it was worth a small fraction of peak, and trading volume fell by well over 90%.
 
@@ -15,6 +20,7 @@
 3. **Treating a thin, reflexive market as a price.** Floor prices were set by a handful of trades against near-zero liquidity, with substantial wash trading — much of it driven by marketplaces' token incentives
 
 ## What the technology actually provides
+<!-- bite: 20ddaa47-f746-483a-93ce-64bb7af7a622 -->
 
 Strip out the speculation and the useful properties are real:
 
@@ -27,6 +33,7 @@ Strip out the speculation and the useful properties are real:
 **That's a genuinely useful primitive.** It's a *registry*, and it's most valuable where the underlying thing is a right, a credential or an access grant — not where it's an image.
 
 ## Where it's actually working
+<!-- bite: db9fab2c-e65d-4000-b4f5-bf719bbab654 -->
 
 **Ticketing.** The strongest fit. Transferable, verifiable, with resale rules enforceable in the contract and a permanent record against counterfeiting. Adopted in production, quietly.
 
@@ -41,6 +48,7 @@ Strip out the speculation and the useful properties are real:
 **Art, honestly.** A smaller, calmer market persists. Fully on-chain generative art (Art Blocks, Autoglyphs) has held up best, which is unsurprising: those pieces have no external dependency and the artwork genuinely is the token.
 
 ## The design decisions that matter
+<!-- bite: 8d2a818a-1008-472d-9519-2667bdb21128 -->
 
 If you're building with NFTs, these are the ones that determine whether it ages well:
 
@@ -57,10 +65,12 @@ If you're building with NFTs, these are the ones that determine whether it ages 
 **6. Fair distribution.** On-chain randomness is manipulable, so naive reveals get sniped for rares. **Use Chainlink VRF, or reveal after minting closes** → [[web3/06-building-dapps/06-oracles|randomness]].
 
 ## Key insight
+<!-- bite: 69584e55-94d8-49cd-ae3c-4869ae93dff4 -->
 
 **NFTs are a good ownership registry attached to a bad story about digital art.** The registry — permissionless, verifiable, transferable, outliving the issuer — is genuinely useful for tickets, names, credentials and game items, where the token *is* the right rather than a pointer to a file on someone's server. The 2021 boom tested the story, not the technology, and it's the story that failed.
 
 ## Related
+<!-- bite: f0e19a6c-1489-4979-8531-40cf2c2c21dc -->
 - [[web3/01-foundations/07-tokens-coins-and-nfts|tokens, coins and NFTs]] — the data model
 - [[web3/06-building-dapps/05-decentralised-storage|decentralised storage]] — where the image lives
 - [[web3/07-the-application-layer/04-identity-and-naming|identity and naming]] — ENS, the success case

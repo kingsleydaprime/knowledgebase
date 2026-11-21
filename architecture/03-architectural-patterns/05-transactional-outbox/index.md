@@ -7,6 +7,7 @@ id: 475d7d74-dc61-4bd4-a459-6db006ec1d15
 > **[Intermediate→Advanced]** · How to save something to your database **and** tell other systems about it, without ever doing one and not the other. The fix for the "dual write" problem, with a lab that crashes at the worst moment on purpose.
 
 ## Before you start
+<!-- bite: 1da294af-1365-4acc-9cdf-990af132ae65 -->
 
 You can already:
 
@@ -23,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** The kid version and §1–4, then the worked example. The prediction before running it is the point. §6 (trade-offs) matters for interviews.
 
 ## The kid version
+<!-- bite: d7142210-eea8-46e2-bef2-b95ab499d1ab -->
 
 You've done your homework and you need to tell your teacher it's done. If you message "done!" first and then your laptop dies before you save, the teacher thinks it's done and it isn't. If you save first and your laptop dies before you message, it's done and nobody knows.
 
@@ -31,12 +33,14 @@ The trick: **write "tell the teacher" on a sticky note and stick it on the homew
 **Where the analogy stops working.** A teacher told twice just shrugs. A program told twice might ship two parcels or charge twice — so the receiver has to be built to recognise the repeat, which is the last part of this lesson.
 
 ## 1. Why this exists
+<!-- bite: a86a979e-5752-4880-b927-d65806fa3e8b -->
 
 Checkout saves an order to Postgres, then publishes `OrderPlaced` to a queue so the warehouse ships it and the email service sends a receipt. One night a deploy restarts the process between those two lines. The order is in the database, paid for, and **no one ever ships it**. A week later someone reorders the lines to publish first — and now, when the insert fails a validation check, the warehouse ships an order that doesn't exist.
 
 This is the **dual write** problem: two separate systems, and no transaction that covers both. Retrying doesn't fix it — the crash can happen during the retry too.
 
 ## Terms used in this lesson
+<!-- bite: 737bc0f0-5333-4fc2-ae9d-ebc9ddbd50c4 -->
 
 1. **Dual write**: This is updating two separate systems — such as a database and a message broker — one after the other, with nothing guaranteeing both happen.
 2. **Lost event**: This is a change that was saved but never announced, because the process stopped before publishing.
@@ -48,6 +52,7 @@ This is the **dual write** problem: two separate systems, and no transaction tha
 8. **Idempotent consumer**: This is a receiver that produces the same result whether it gets an event once or several times, usually by remembering the IDs of events it has already handled.
 
 ## 2. The two failures of a dual write
+<!-- bite: 774ef870-5e7b-40ac-bca1-05c4c60882ea -->
 
 There are only two orders to do the writes in, and each has its own failure.
 
@@ -65,6 +70,7 @@ publish        never happens
 Wrapping both in a database transaction doesn't help. The broker isn't in the transaction, so a publish can't be rolled back, and a commit can still fail after the publish.
 
 ## 3. The outbox
+<!-- bite: ceef736c-1d54-415a-8923-a4e0c23af1c2 -->
 
 Make it **one write to one system**. Insert the order and an `outbox` row describing the event **in the same database transaction**. Either both are committed or neither is, so there is no moment where one exists without the other.
 
@@ -82,12 +88,14 @@ relay, separately and repeatedly:
 The service never talks to the broker during the request. The relay does it afterwards. If the relay is down, events wait in the table — delayed, never lost.
 
 ## 4. The relay delivers at least once — on purpose
+<!-- bite: 518ddf95-72ee-408f-9f53-a4ca108d4ffe -->
 
 The relay has its own dual write: publish, then mark as sent. It's always done in that order, because the other order would lose events. So if the relay crashes after publishing and before marking, it publishes the same row again on restart.
 
 That's **at-least-once delivery**. It's the right trade, because a duplicate can be detected and a lost event can't. The other half of the pattern is that **consumers must be idempotent**: each event carries a unique `event_id`, and the consumer records the IDs it has handled and skips repeats.
 
 ## Worked example — crash it at the worst moments
+<!-- bite: 12cfd98a-0804-42fd-81f8-eb9a79387282 -->
 
 The lab uses Node's built-in SQLite for a real transaction, and a fake broker that records what it's sent.
 
@@ -252,6 +260,7 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 4. **Duplicated, then deduplicated.** The broker receives the event twice. The consumer applies it once and reports the second as `"duplicate"`.
 
 ## 5. Polling relay or change data capture?
+<!-- bite: ddbafb36-a6f3-442c-a213-221299324cde -->
 
 **Polling** — the relay runs `SELECT ... WHERE published_at IS NULL` every second or so, as in the lab. Simple, works on any database, easy to debug. Costs: a little latency (up to one poll interval), load from frequent queries, and care when running more than one relay, so two don't send the same rows. In Postgres, `SELECT ... FOR UPDATE SKIP LOCKED` lets several relays share the work safely.
 
@@ -260,6 +269,7 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 **Start with polling.** Move to CDC when the poll interval or the query load actually hurts.
 
 ## 6. Trade-offs and limits
+<!-- bite: c89722ff-8941-40af-83e9-cf6eb8224a82 -->
 
 - **Eventual, not immediate.** Other systems hear about the change a moment later, not as part of the request. Design the user experience for that gap.
 - **The outbox grows.** Delete or archive published rows on a schedule, or the table and its index slow down.
@@ -268,6 +278,7 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 - **It's a building block, not the whole saga.** In a [[architecture/03-architectural-patterns/03-data-and-integration-patterns|saga]], each step's local transaction uses an outbox to announce the next step reliably.
 
 ## Common pitfalls
+<!-- bite: c4d25ef2-60d9-45c3-a48d-ac531a88bc3f -->
 
 1. **Publishing inside the transaction "to be safe".** The broker isn't part of the transaction. If the commit fails after the publish, you've made a phantom event.
 2. **Marking as sent before publishing.** A crash between the two loses the event for good — the one failure the pattern exists to prevent.
@@ -276,6 +287,7 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 5. **Putting the outbox in a different database** from the business data. Then it's a dual write again.
 
 ## Check your understanding
+<!-- bite: 3e3ed8ea-359b-42e5-8644-3793940df197 -->
 
 1. What is a dual write, and why doesn't retrying fix it?
 2. Name the two failures, and which write order causes each.
@@ -295,6 +307,7 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 </details>
 
 ## Practice — independent task
+<!-- bite: 57e1a82a-a8d9-42a2-acb1-134978d2fb8e -->
 
 **Extend the lab into a two-service flow.**
 
@@ -305,6 +318,7 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 **Done when:** the crash-everywhere test passes, no step publishes to the broker from inside a request, and you can say — without notes — which crash causes a duplicate and which component absorbs it.
 
 ## Before moving on
+<!-- bite: 59944868-4c23-4097-b9c9-0153fef85e97 -->
 
 You can name both dual-write failures, implement an outbox and relay, and explain why the result is at-least-once delivery with idempotent consumers.
 
@@ -313,6 +327,7 @@ You can name both dual-write failures, implement an outbox and relay, and explai
 **Next.** [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data and integration patterns]] — sagas, which chain these reliable local steps into multi-service workflows.
 
 ## Related
+<!-- bite: d21e221c-0be0-4829-98fc-3919f1bc686d -->
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data and integration patterns]] — saga, CQRS, event sourcing
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular monolith to services]] — at-least-once delivery and idempotent consumers
 - [[concepts/02-design-patterns/03-behavioral-patterns/index|Behavioural patterns]] — the observer pattern this replaces at system scale

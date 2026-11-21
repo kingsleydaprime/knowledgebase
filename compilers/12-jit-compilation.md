@@ -1,8 +1,13 @@
+---
+id: 85348b51-c4ce-4bba-a94c-9f66e9050375
+---
+
 # JIT Compilation
 
 **[Advanced]** — Compiling at runtime, and the speculative optimisations that let a JIT beat an ahead-of-time compiler.
 
 ## The claim
+<!-- bite: 1876b1ef-50a6-4bf1-8531-545cdadefa2d -->
 
 A JIT can be **faster than AOT**, which sounds impossible until you see what it knows that a static compiler doesn't:
 
@@ -17,6 +22,7 @@ A JIT can be **faster than AOT**, which sounds impossible until you see what it 
 The cost is warm-up, memory, and enormous complexity.
 
 ## Tiered execution
+<!-- bite: 96cc3d81-6d89-41df-bcc1-40f9807ab096 -->
 
 Nobody JITs everything — compilation isn't free, and most code runs once.
 
@@ -46,6 +52,7 @@ Promotion is driven by **counters** — invocations and loop back-edges. Cross a
 **On-stack replacement (OSR)** handles the case where a long-running loop is hot but its enclosing method was only entered once: the runtime swaps the executing frame from interpreted to compiled *mid-loop*. Fiddly, and necessary — otherwise a `main` with a hot loop never gets optimised.
 
 ## Method JIT vs tracing JIT
+<!-- bite: ec59cadd-7ef2-47af-a5a1-17e713fc84a0 -->
 
 **Method-based** — compile a whole function. HotSpot, V8, .NET.
 
@@ -63,6 +70,7 @@ Tracing gets **aggressive inlining for free** — the trace already crosses call
 It's weaker on branchy code, where traces multiply and the guards dominate.
 
 ## Speculation and deoptimisation
+<!-- bite: f18d57ca-905a-4ba2-af7f-19822e342bba -->
 
 The mechanism that makes JITs fast, and the thing to understand:
 
@@ -104,6 +112,7 @@ obj.field
 **This is why "monomorphic code is fast" is real advice in JavaScript.** Passing consistently-shaped objects keeps sites monomorphic; a function called with ten different object shapes goes megamorphic and loses the optimisation entirely. V8's hidden classes exist to make shape comparison a pointer compare. → [[compilers/10-bytecode-and-virtual-machines|inline caching]]
 
 ## Warm-up
+<!-- bite: 6c200f84-d291-4b7f-8364-2d2748185e99 -->
 
 The JIT's structural weakness. A process starts interpreting, gathers profiles, compiles, maybe deoptimises and recompiles. Peak performance arrives **seconds to minutes** in.
 
@@ -124,6 +133,7 @@ The responses:
 This is the concrete reason [[languages/02-go/index|Go]] and [[languages/03-rust/index|Rust]] win for CLI tools and short-lived processes, regardless of peak throughput.
 
 ## How you actually emit code
+<!-- bite: e3880520-ba45-48be-b700-ef0efa9c72ee -->
 
 A JIT needs writable-then-executable memory:
 
@@ -147,6 +157,7 @@ Three things that bite:
 Rather than emitting bytes by hand, use a backend: **Cranelift** (designed for fast compilation), **LLVM's ORC JIT** (excellent code, slow compilation — usually the wrong trade for a JIT), **AsmJit**, or **DynASM** (what LuaJIT uses).
 
 ## Should you write one?
+<!-- bite: e83b7994-8025-4a30-82ff-6697c4a29d4f -->
 
 **For build-your-own-language: no.** A JIT is comparable in effort to everything else in the language combined. Get a good bytecode VM first — [[compilers/10-bytecode-and-virtual-machines|computed goto, inline caching, NaN boxing]] deliver a large fraction of the benefit for a fraction of the work.
 
@@ -155,6 +166,7 @@ Rather than emitting bytes by hand, use a backend: **Cranelift** (designed for f
 **A realistic path:** compile only hot functions, only with monomorphic types, with a guard that bails to the interpreter on anything unexpected. No deoptimisation machinery needed if "bail out" means "abandon this compiled version and interpret from the top of the next call".
 
 ## The wider picture
+<!-- bite: 815da9a4-f0b5-4a74-87aa-3a0eed6325be -->
 
 The interpreter/JIT/AOT distinction is blurring:
 
@@ -168,6 +180,7 @@ The interpreter/JIT/AOT distinction is blurring:
 ---
 
 ## Related
+<!-- bite: 17f5f5ea-fedc-4926-bb0b-8d346f7a8407 -->
 - [[compilers/10-bytecode-and-virtual-machines|Bytecode and Virtual Machines]] — what a JIT sits on top of
 - [[compilers/07-optimisation|Optimisation]] — the same passes, with runtime information
 - [[compilers/11-garbage-collection|Garbage Collection]] — the other half of a managed runtime

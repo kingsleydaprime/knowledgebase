@@ -1,3 +1,7 @@
+---
+id: 90fbf1ce-3bc6-4113-a0d5-ebd9628c086b
+---
+
 # Simulation
 
 **[Intermediate]** — When a system is too messy for formulas — rush hours, breakdowns, priorities, odd distributions — build it in code, run it thousands of times, and measure. This note covers Monte Carlo and discrete-event simulation, how to tell whether a simulation's answer can be trusted, and how simulation and optimisation fit together.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
+<!-- bite: 97766f77-95de-40cf-afd2-f0eb5f101fbd -->
 
 You should know the M/M/1 formulas → [[operations-research/12-queueing-theory|note 12]], what a standard deviation and a confidence interval are → [[mathematics/05-probability-statistics/05-inference-and-estimation|inference and estimation]], and write a Python loop with functions.
 
@@ -17,18 +22,21 @@ After this lesson you will be able to:
 **Study route:** sections 1–3 (Monte Carlo), then run the queue simulation (section 4) and compare with note 12. Then sections 5–6.
 
 ## The kid version
+<!-- bite: 469b31cb-cbc5-441f-b9fe-619bc06b008a -->
 
 You want to know how often you'd get at least one six when rolling four dice. You could work it out with fractions — or you could just roll four dice a thousand times, count how often a six shows up, and divide. **Simulation is answering a question about chance by acting it out many times, on a computer, very fast.** The more times you act it out, the closer your answer gets to the truth.
 
 **Where the analogy stops working.** Dice are simple and you know their rules exactly. A simulated hospital or factory is only as good as the rules you programmed into it — if your pretend hospital's patients behave differently from real ones, a million runs will give you a very precise wrong answer.
 
 ## 1. Why this exists
+<!-- bite: 19ce968c-96d3-491a-9f6d-6efd9e9dd8fc -->
 
 Note 12's formulas need assumptions: Poisson arrivals, a constant arrival rate, one class of customer, no breakdowns. A real A&E department has a morning lull and an evening surge, patients of different urgency who jump the queue, doctors who go on break, and beds that block when the wards are full. No formula covers that.
 
 A simulation can. You describe what happens — arrivals, services, priorities, breakdowns — as rules in code, and let the computer play it out. It's the most flexible tool in operations research, and the easiest to get wrong, because it'll always produce a number.
 
 ## Terms used in simulation
+<!-- bite: 1360f9bb-a580-4057-8294-a429ae926357 -->
 
 1. **Monte Carlo simulation**: This is estimating a quantity by drawing many random samples and averaging. Named after the casino.
 2. **Discrete-event simulation**: This is simulating a system as a sequence of events — an arrival, a service finishing — that each happen at a moment in time and change the system's state. Nothing is computed between events.
@@ -40,6 +48,7 @@ A simulation can. You describe what happens — arrivals, services, priorities, 
 8. **Validation**: This is checking that what you meant matches reality — you *built the right model*.
 
 ## 2. Monte Carlo: estimate by sampling
+<!-- bite: 1195a66f-f4e0-43cd-ac2b-c09d43e06ca1 -->
 
 **The method states that the average of many independent random samples of a quantity approaches its true expected value, and the error shrinks with the square root of the number of samples.**
 
@@ -62,6 +71,7 @@ The Monte Carlo recipe:
 A key effect appears that CPM can't show: **the expected project length is more than 13 days**, even though every activity's expected duration is unchanged. E has to wait for the *later* of C and D, and the maximum of two random things is, on average, more than the maximum of their averages. Path C (3 + 6 = 9 before E) and path B–D (3 + 5 + 2 = 10) are close, so sometimes C is the late one. Every merge point in a project adds expected delay — one reason projects run late more often than early.
 
 ## 3. Discrete-event simulation
+<!-- bite: 50c251a1-2900-4ddc-bb38-e5a950af9db7 -->
 
 For queues and other systems that evolve over time, you don't simulate every second. You jump from event to event.
 
@@ -76,6 +86,7 @@ Their time in the system is end minus arrival. That's the whole simulation for f
 For more complex systems (several servers, priorities, breakdowns), you keep a **future event list** — a priority queue of upcoming events sorted by time — and repeatedly pop the earliest, update the state, and schedule any events it causes → [[dsa/02-data-structures/07-heaps|DSA: heaps]]. Libraries like SimPy handle that bookkeeping.
 
 ## 4. Worked example — simulating M/M/1 against the formula
+<!-- bite: 08e452f2-f6a8-4c23-88f8-b0015c3a74fb -->
 
 **Runnable**, standard library only. Takes a few seconds.
 
@@ -116,6 +127,7 @@ lambda= 9.5: simulated W = 2.204 h, formula 1/(mu-lambda) = 2.000 h
 2. **At high load, it's 10% off — even with 200,000 customers.** That isn't a bug. Near $\rho = 1$, waiting times are hugely variable and strongly correlated from one customer to the next (if one waits a long time, the next one probably does too). The effective number of independent samples is far smaller than 200,000, and the error shrinks slowly. **Heavily loaded systems need much longer runs, or many replications, to estimate well.** Try a few different seeds at $\lambda = 9.5$ and watch the answer move.
 
 ## 5. Making simulation results trustworthy
+<!-- bite: 95fbee78-f2aa-4268-b1ab-f25817b8e5e0 -->
 
 A simulation always prints a number. These habits decide whether the number means anything.
 
@@ -127,6 +139,7 @@ A simulation always prints a number. These habits decide whether the number mean
 6. **Fix the seed for debugging, vary it for results.** Reproducible runs make bugs findable; multiple seeds make conclusions robust.
 
 ## 6. Simulation and optimisation together
+<!-- bite: 751c9c4f-ebbe-4496-9a15-f5c3a2d96386 -->
 
 Simulation evaluates one design at a time. To *choose* a design, you combine it with search:
 
@@ -137,6 +150,7 @@ Simulation evaluates one design at a time. To *choose* a design, you combine it 
 **That last pattern summarises the whole track.** Optimisation models (notes 02–10) choose; stochastic models and simulation (notes 11–14) test the choice against uncertainty.
 
 ## Common pitfalls and traps
+<!-- bite: b1e6e89e-7fa8-420e-914a-2b85e38a3dad -->
 
 1. **One run, one number.** No confidence interval, no idea whether a difference is real.
 2. **Same seed everywhere.** Every "replication" is identical, and the confidence interval collapses to zero.
@@ -146,6 +160,7 @@ Simulation evaluates one design at a time. To *choose* a design, you combine it 
 6. **Building the simulation before asking whether a formula would do.** Note 12's formulas answer many questions in a line. Simulate when they can't.
 
 ## Check your understanding
+<!-- bite: cff697c4-9383-406b-a807-1a196447072a -->
 
 1. A Monte Carlo estimate from 1,000 samples has a 95% confidence interval of ±4. Roughly how many samples would you need for ±1?
 2. Why is the high-load simulation in section 4 less accurate than the low-load one, even with the same number of customers?
@@ -163,6 +178,7 @@ Simulation evaluates one design at a time. To *choose* a design, you combine it 
 </details>
 
 ## Practice — independent task
+<!-- bite: 2928b266-3770-47f4-9a01-0b83caf2e9af -->
 
 1. **Monte Carlo the project.** Write `project_mc.py`: draw each activity's duration uniformly within ±1 day of note 06's estimates, compute the project length by the forward pass, and run 100,000 times. Report the mean length with a 95% confidence interval, and $P(\text{length} > 14)$.
 2. **Extend the queue.** Modify `mm1_sim.py` to (a) run 20 replications with different seeds at $\lambda = 9$ and report a confidence interval for $W$; (b) use *fixed* service times of 0.1 h (M/D/1), and check against note 12's Pollaczek–Khinchine result that $W_q$ halves.
@@ -171,6 +187,7 @@ Simulation evaluates one design at a time. To *choose* a design, you combine it 
 **Done when:** part 1 reports a mean above 13 with its interval; part 2's confidence interval contains the formula's 1.0 and the M/D/1 wait is about half; part 3 shows (in numbers) the queue growing during the rush, when $\rho > 1$, and draining afterwards — a behaviour steady-state formulas can't describe.
 
 ## Before moving on
+<!-- bite: 3be6c6d1-ea80-4da7-9195-566ed8035dfc -->
 
 You're ready when you can write a Monte Carlo estimate with a confidence interval, write a single-server queue simulation from memory, verify it against M/M/1, and list the habits that make a simulation's answer trustworthy.
 
@@ -184,6 +201,7 @@ You're ready when you can write a Monte Carlo estimate with a confidence interva
 **Next:** this is the last core note. Go to the [[operations-research/projects|projects]] — the rest of the learning happens there.
 
 ## Related
+<!-- bite: aef2aa70-c881-45ac-9c72-408337e72459 -->
 
 - [[operations-research/12-queueing-theory|Queueing Theory]] — the formulas to verify against
 - [[operations-research/06-network-models|Network Models]] — the project being simulated

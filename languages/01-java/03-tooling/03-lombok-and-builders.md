@@ -1,8 +1,13 @@
+---
+id: 25b760e0-7450-46a2-bd8e-8a004c09b8f1
+---
+
 # Lombok & the Builder Pattern
 
 **Source:** merged from `record-id-generator-java/learning/03-lombok-and-configuration.md` and `direct-debit-sandbox-java/learning/03-dtos-lombok-builder.md`.
 
 ## The boilerplate problem Lombok solves
+<!-- bite: 7d0e3bd9-c4c4-4df0-85cd-2b71321bea64 -->
 
 A plain Java class with 25 fields needs a constructor, 25 getters, 25 setters, `toString()`, `equals()`, and `hashCode()` — 200+ lines that carry zero business logic. Just 5 of those 25 fields, written by hand:
 
@@ -40,6 +45,7 @@ public class Transaction {
 **How it works**: Lombok is a compiler annotation processor — it injects bytecode during compilation. There is no runtime dependency; it's `compileOnly` in Gradle.
 
 ## The core annotations
+<!-- bite: 54201d27-b0ea-463c-aa0b-1e29b54e7cf1 -->
 
 ```java
 @Data                     // getters, setters, equals, hashCode, toString
@@ -51,6 +57,7 @@ public class Transaction {
 `@Slf4j` replaces `private static final Logger log = LoggerFactory.getLogger(MyClass.class);` with one class-level annotation, then `log.info(...)`/`log.error(...)` works anywhere in the class.
 
 ## Why DTOs exist as a separate layer
+<!-- bite: 69e1fdbe-0cee-4178-8a29-6cbc94c5730f -->
 
 A **DTO (Data Transfer Object)** is a class whose only job is carrying data across a boundary — typically an HTTP request/response. It's kept separate from the internal storage model because:
 
@@ -61,6 +68,7 @@ A **DTO (Data Transfer Object)** is a class whose only job is carrying data acro
 A project ends up with many small DTOs (`SubscriptionRequestDto`, `UpdateRequest`, `CancelRequest`) — each shaped to exactly what one endpoint needs, not a shared "one model to rule them all."
 
 ## The Builder pattern
+<!-- bite: e7aef509-41e2-4ba6-911d-e877b7474927 -->
 
 Constructors with many positional parameters are unreadable and error-prone — nothing stops two adjacent `String` arguments from being silently swapped:
 
@@ -82,6 +90,7 @@ SubscriptionRecord record = SubscriptionRecord.builder()
 Every field is named, optional fields can be skipped, and there's no argument-order footgun. Before `.build()` you're operating on the builder helper, not the real object.
 
 ## Partial updates — conditional field preservation
+<!-- bite: 68d9059a-0080-4628-a731-582f57599b9a -->
 
 When updating an existing record, the caller usually only sends the fields they're changing. Two idiomatic ways to implement "only overwrite what was explicitly provided":
 
@@ -106,6 +115,7 @@ if (req.getDebitDay()    != null) existing.setDebitDay(req.getDebitDay());
 Both implement the same **partial update / merge** pattern — callers can change one field without wiping out fields they didn't mention. Builder-style suits constructing new objects; setter-style suits patching an existing one in place. Neither is universally correct.
 
 ## Response mapping — don't leak internal models
+<!-- bite: 5347c9b9-3fdf-4601-b644-5932c4c6ab60 -->
 
 Returning an internal record directly from an endpoint leaks internal field names that may not match the public API contract, and exposes fields that were never meant to be public:
 
@@ -123,6 +133,7 @@ private Map<String, Object> toRetrieveResponse(PreAuthRecord r) {
 Use `LinkedHashMap`, not `HashMap`, whenever field order in the output JSON should be stable and match documentation — a plain `HashMap` doesn't guarantee iteration order.
 
 ## Related
+<!-- bite: ef695539-c25d-4406-9fcf-e32f546b2360 -->
 - [[languages/01-java/01-language/01-fundamentals|Fundamentals]] — what `@Data` is generating under the hood
 - [[backend/frameworks/java/01-spring-boot|Spring Boot & Scheduling]] — `@RequiredArgsConstructor` in the context of dependency injection
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|Persistence & Data Modeling]] — the fallback-resolution and secondary-index patterns that pair with partial updates

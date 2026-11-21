@@ -1,8 +1,13 @@
+---
+id: 81d20a5c-ee3e-4d62-90dc-59f64add8267
+---
+
 # Iterators and Algorithms
 
 **[Intermediate]** — The design that made the STL famous: containers and algorithms that know nothing about each other, connected by iterators.
 
 ## The idea
+<!-- bite: 04d739ad-1b57-4ba1-9ddd-802cc77b5c1d -->
 
 Without a common interface, *m* containers and *n* algorithms need *m × n* implementations. The STL's insight was to put an abstraction between them:
 
@@ -21,6 +26,7 @@ std::sort(std::begin(a), std::end(a));       // generic form
 That's *m + n* implementations instead of *m × n*, and it's the reason the STL is considered a landmark design.
 
 ## Iterators
+<!-- bite: 272e5a6f-de8b-4bbb-9133-48da9286b84e -->
 
 An iterator generalises a pointer. The core operations are deliberately pointer-shaped:
 
@@ -58,6 +64,7 @@ Which algorithms work depends on what an iterator supports:
 This is why `std::sort` doesn't work on `std::list` — sorting needs random access, and a list only offers bidirectional. `list` provides its own `.sort()` member instead. When "no matching function for call to `sort`" appears on a `list`, that's the reason.
 
 ## `<algorithm>`
+<!-- bite: 384e4033-85d4-4d8d-b465-6e6c65ee65a4 -->
 
 ```cpp
 #include <algorithm>
@@ -107,6 +114,7 @@ std::clamp(v, lo, hi);              // C++17
 **`std::lower_bound`** is binary search that returns a position rather than a bool — the building block for sorted-vector lookups and insert-in-order.
 
 ## Predicates and lambdas
+<!-- bite: f121ac0b-0733-4a77-911f-ae2b227828c1 -->
 
 ```cpp
 std::sort(v.begin(), v.end(), [](const auto &a, const auto &b) {
@@ -123,6 +131,7 @@ int n = std::count_if(v.begin(), v.end(), [](int x) { return x % 2 == 0; });
 The comparator must be a **strict weak ordering**: irreflexive (`!cmp(a,a)`), asymmetric, and transitive. Using `<=` instead of `<` violates it and `std::sort` may read out of bounds — a genuine crash, not just a wrong order. Debug STL builds (`-D_GLIBCXX_DEBUG`) catch it.
 
 ## The erase-remove idiom
+<!-- bite: 298dd579-1377-43e9-b3ec-f268c2c3f2fe -->
 
 ```cpp
 v.erase(std::remove(v.begin(), v.end(), value), v.end());
@@ -137,6 +146,7 @@ std::erase_if(v, pred);
 ```
 
 ## Ranges (C++20)
+<!-- bite: ef56d34d-0bbf-4769-a66f-809897e08c09 -->
 
 The biggest quality-of-life change since C++11:
 
@@ -172,6 +182,7 @@ auto v2 = result | std::ranges::to<std::vector>();   // C++23
 ```
 
 ## Custom iterators
+<!-- bite: 341cfeea-e658-4c1c-a77d-ccd74f7401f0 -->
 
 For your own container to work with algorithms:
 
@@ -208,6 +219,7 @@ for (int x : Range(0, 10)) { }
 ```
 
 ## Are they as fast as a loop?
+<!-- bite: 22a514a1-d335-4888-9f22-860ba216b5e8 -->
 
 Yes, and often faster. They're templates, fully inlined, and the standard implementations use tricks you wouldn't bother with — `std::sort` is introsort (quicksort, switching to heapsort on bad pivots, insertion sort for small ranges), and `std::copy` on trivially-copyable types becomes `memmove`.
 
@@ -223,6 +235,7 @@ std::transform(std::execution::par_unseq, b, e, dest, fn);
 One argument, and it's parallel — though `libstdc++` needs Intel TBB linked for it to actually parallelise.
 
 ## Practical rules
+<!-- bite: b7206e21-0cf7-4bc7-bdab-2f50a04070b0 -->
 
 1. **Algorithm over hand-written loop.**
 2. **`std::erase`/`erase_if` (C++20)** over the erase-remove idiom.
@@ -235,6 +248,7 @@ One argument, and it's parallel — though `libstdc++` needs Intel TBB linked fo
 ---
 
 ## Related
+<!-- bite: de9a18fb-c251-4be4-986b-2a26967e548b -->
 - [[languages/05-cpp/09-the-stl-containers|The STL Containers]] — what iterators point into, and invalidation
 - [[languages/05-cpp/08-templates-and-concepts|Templates and Concepts]] — how all of this is implemented
 - [[01-growth-and-asymptotic-notation|Algorithms]] — what these implement

@@ -1,8 +1,13 @@
+---
+id: c1972a4a-ecfd-4bf2-aae2-9b3d9016e0b0
+---
+
 # The Programming Model
 
 **[Intermediate → Advanced]** — Kernels, grids and blocks. Writing code that runs on thousands of threads.
 
 ## The shape of a GPU program
+<!-- bite: d665fd7e-1531-4c8f-9484-473418174eb1 -->
 
 ```
 1. Allocate device memory
@@ -15,6 +20,7 @@
 **Steps 2 and 4 are frequently the bottleneck**, which is the first thing to design around. → [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]]
 
 ## Kernels
+<!-- bite: fdc7e14b-59a4-4694-aeb0-1d25830ec120 -->
 
 **A kernel is a function that runs once per thread.**
 
@@ -56,6 +62,7 @@ add<<<(n + 255) / 256, 256>>>(a, b, c, n);
 **Choosing block size:** **256 is a good default.** Must be a multiple of 32 (the warp size) or you waste lanes. Larger blocks share more shared memory; smaller blocks schedule more flexibly. **Use the occupancy calculator rather than guessing**, and then measure.
 
 ## Synchronisation
+<!-- bite: 15ac6b74-db39-4703-b9e6-4b610a2aaca0 -->
 
 **`__syncthreads()`** — a barrier for all threads in a block.
 
@@ -78,6 +85,7 @@ float left = shared_data[threadIdx.x - 1];
 **`atomicAdd` on floats is non-deterministic** — the summation order varies between runs, and floating-point addition isn't associative. **So your results won't be bit-reproducible.** Usually fine; occasionally a real problem for debugging or regulatory reproducibility. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Non-associativity]]
 
 ## Streams and asynchrony
+<!-- bite: f529af66-ca73-447d-b917-3e61912c7a9a -->
 
 **By default, kernel launches are asynchronous** — the CPU returns immediately and the GPU queues the work.
 
@@ -104,6 +112,7 @@ float left = shared_data[threadIdx.x - 1];
 **CUDA graphs** capture a sequence of operations and replay it with a single launch. **Cuts launch overhead substantially for workloads with many small kernels** — which describes inference on small models, and it's why frameworks adopted them.
 
 ## The frameworks
+<!-- bite: 8d681fbd-ef9c-40ca-9ac2-e9bc063dc6d4 -->
 
 **Most people should never write a raw kernel.** The layers, from highest:
 
@@ -122,6 +131,7 @@ float left = shared_data[threadIdx.x - 1];
 > **The realistic recommendation: use the framework, profile, and only write a kernel when the profiler shows a specific fusion or memory pattern the compiler missed.** That's a real situation — it's why FlashAttention exists — but it's not the common one.
 
 ## The library layer
+<!-- bite: ee51d05e-9d4e-4d53-bdd6-8d1ad972c400 -->
 
 **Never write these yourself:**
 
@@ -140,6 +150,7 @@ float left = shared_data[threadIdx.x - 1];
 **NCCL matters for distributed training** — it implements ring and tree all-reduce over NVLink and InfiniBand, and it's what makes multi-GPU gradient synchronisation efficient. → [[gpu-and-parallel-computing/07-distributed-and-multi-gpu|Distributed and Multi-GPU]]
 
 ## Debugging
+<!-- bite: 30e83a9d-837c-47d4-8554-c9679170d4af -->
 
 **Harder than CPU debugging, and the tooling is decent if you use it.**
 
@@ -174,6 +185,7 @@ float left = shared_data[threadIdx.x - 1];
 **Integer overflow in the index** — `blockIdx.x * blockDim.x` overflows `int` for very large launches. Use `size_t`.
 
 ## Practical notes
+<!-- bite: 481cf1d3-8b09-4364-a47e-236b0292ed2c -->
 
 **Start with a working CPU version** and validate the GPU output against it numerically. **Expect small floating-point differences** from different summation orders — compare with a tolerance, not equality.
 
@@ -188,6 +200,7 @@ float left = shared_data[threadIdx.x - 1];
 ---
 
 ## Related
+<!-- bite: 9864e517-39e4-4629-91c3-f6fc4864d965 -->
 - [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — the algorithms to build with
 - [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — where the performance is
 - [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware this maps to

@@ -1,3 +1,7 @@
+---
+id: 597e4b56-b27a-455c-b02b-024fdef3c682
+---
+
 # Languages and the Translation Problem
 
 > **[Beginner]** · High level vs low level, compiled vs interpreted, and how to choose a first language without spending three weeks on the decision.
@@ -5,6 +9,7 @@
 Every language sits between two extremes: the machine code the processor runs, and plain English, which no machine can execute. **"Level" is just where on that line a language sits.**
 
 ## Low level and high level
+<!-- bite: 036d6922-d151-4e90-a9b5-70a1e6d3d918 -->
 
 **Low-level** languages stay close to the machine. You manage memory yourself, and the code mirrors what the hardware does. **Assembly** is the floor — one line per machine instruction. **C** is one step up: still explicit about memory, but readable and portable.
 
@@ -23,6 +28,7 @@ The trade is consistent, and it's not a quality ranking:
 **"Faster" needs qualifying.** C is faster at runtime. Python is faster to write, and often faster to *get a correct answer with*. Most software is limited by network calls, disk, and developer time — none of which a language change fixes. Optimising the language before you've measured is a classic misuse of effort. See [[computer-architecture/12-performance|performance]].
 
 ## Compiled, interpreted, and the middle
+<!-- bite: 073fee6e-03d6-4cbf-ae0e-79823cfc8b1e -->
 
 **How** the translation happens, which is a separate axis from level.
 
@@ -42,6 +48,7 @@ Two things worth knowing so the labels don't mislead you:
 **The real difference you'll feel is when you find out you're wrong.** Compiled: at build time, before anyone runs it. Interpreted: when execution reaches that line, possibly in production, possibly at 2 a.m. This is the substance behind arguments about type systems and it's a genuine trade — more upfront rigour against faster iteration. [[programming-language-theory/04-type-systems-formally|Type systems]] takes it much further.
 
 ## Static and dynamic types
+<!-- bite: 00931562-d695-4386-b0fb-9d48d9dd1ead -->
 
 The other axis you'll hit immediately.
 
@@ -60,6 +67,7 @@ Static typing costs you some verbosity and buys a class of error caught for free
 **The industry has been drifting toward "dynamic language, static types bolted on"** — TypeScript over JavaScript, type hints in Python — because it turns out most people want both, and the tooling caught up.
 
 ## Categories of language, by what they're for
+<!-- bite: 0d8cb165-c771-452b-919b-d4fea55ebd4f -->
 
 **General-purpose** — Python, Java, C#, Go, JavaScript, C++. Wide range; these should be your default.
 
@@ -74,6 +82,7 @@ Static typing costs you some verbosity and buys a class of error caught for free
 **Domain-specific** — HCL for [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|Terraform]], YAML for CI config, regex for text patterns. You'll learn dozens of these incidentally and none of them deliberately.
 
 ## Choosing a first language
+<!-- bite: 5a741245-f9a0-47a8-8e38-bba899a7d62f -->
 
 **Almost everything in this course transfers.** Variables, conditionals, loops, functions, collections, recursion — every mainstream language has them, with different punctuation. The second language costs a fraction of the first. **This is the single most useful fact for the decision, because it means the decision is low-stakes.**
 
@@ -94,6 +103,7 @@ Pick by what you want to build:
 **Then finish something small in it before you evaluate.** Judging a language from tutorials tells you about tutorials.
 
 ## Related
+<!-- bite: 167b9a39-637b-4ba4-8802-bb5dfa311f22 -->
 - [[programming-fundamentals/03-where-code-gets-written|where code gets written]] — the tools you'll need next
 - [[languages/index|languages/]] — the vault's full courses: Java, Go, Rust, C, C++
 - [[compilers/index|compilers]] — how translation actually works

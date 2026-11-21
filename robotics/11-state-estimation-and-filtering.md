@@ -1,3 +1,7 @@
+---
+id: 4b1502b6-8c25-44d6-87d4-e57533fef16d
+---
+
 # State Estimation and Filtering
 
 **[Advanced]** — Combining unreliable sensors into one usable belief, and why a robot never actually knows where it is.
@@ -5,6 +9,7 @@
 > **The theory is in [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]]** — the algorithm, the separation principle, tuning $Q$ and $R$, the EKF/UKF/particle variants. **This note is the robotics application**: what you fuse, why odometry drifts, and the practical failures.
 
 ## The premise
+<!-- bite: 490150c9-c38f-4660-bace-385aba80ec8c -->
 
 **A robot never observes its own state. It infers one.**
 
@@ -31,6 +36,7 @@ The state given every measurement and every command so far. **Filtering is the r
 ```
 
 ## Odometry and why it drifts
+<!-- bite: 81cd8a11-285a-42e7-991f-b17aa4ec858a -->
 
 **Odometry** integrates motion to estimate pose — wheel encoders for a ground robot, IMU for a drone, visual features for a camera.
 
@@ -52,6 +58,7 @@ $$\Delta x = \Delta s\cos\theta, \quad \Delta y = \Delta s\sin\theta, \quad \Del
 **Which is exactly the complementary structure from [[robotics/02-sensors-and-perception|note 02]]:** odometry is precise short-term and drifts; absolute measurements are noisy and don't. Fusing them is the whole game.
 
 ## What robots actually fuse
+<!-- bite: 02e87dea-1a10-42c1-8477-05f5556652a1 -->
 
 **Wheel odometry + IMU** — the IMU's gyro gives much better heading than differencing wheel encoders, and it doesn't care about slip. **This one pairing removes most odometry error** on a ground robot, and it's cheap.
 
@@ -64,6 +71,7 @@ $$\Delta x = \Delta s\cos\theta, \quad \Delta y = \Delta s\sin\theta, \quad \Del
 **Joint encoders + FK** for an arm — usually enough on its own, because a bolted-down arm has no drift. Add vision when the *object* position is uncertain rather than the robot's.
 
 ## Bias estimation
+<!-- bite: 10410126-c134-42f6-8e4e-04d0e1012cd4 -->
 
 **The trick worth knowing**, and it generalises beyond IMUs.
 
@@ -80,6 +88,7 @@ The filter tracks and removes it as conditions change. **Every serious IMU filte
 **The constraint is observability.** You can only estimate what the measurements actually reveal. Accelerometer bias and gravity are indistinguishable when stationary — you need motion to separate them, which is why VIO systems require an initialisation manoeuvre. → [[control-theory/09-controllability-observability-and-pole-placement|Observability]]
 
 ## Choosing a filter
+<!-- bite: 9234073a-dd6f-44e8-b717-c9689d9b83d6 -->
 
 | | When |
 |---|---|
@@ -99,6 +108,7 @@ The filter tracks and removes it as conditions change. **Every serious IMU filte
 **Factor graphs are where the field has moved for SLAM.** Instead of one recursive estimate, keep a window of past states and optimise them jointly. **Re-linearising the past is what makes them more accurate than an EKF**, and GTSAM/g2o/Ceres make it practical.
 
 ## Timing
+<!-- bite: dcf22d09-6cc9-47b3-865f-ae745dae0dfd -->
 
 **The robotics-specific problem that catches people**, and it's not in the textbook filter.
 
@@ -116,6 +126,7 @@ Applying it as if it were current is wrong — you're correcting the present wit
 **Clock synchronisation between machines** is its own problem, and a real one on a multi-computer robot. Two nodes disagreeing by 50 ms produce a fusion result that's confidently wrong. → [[architecture/04-distributed-systems/03-time-and-ordering|Time and Ordering]]
 
 ## Practical notes
+<!-- bite: 401eefc4-39a5-4d89-b592-d430f1d5f06a -->
 
 **Initialise honestly.** A confident wrong initial estimate is worse than an uncertain one — set $P_0$ large when you don't know, and the filter will trust early measurements appropriately.
 
@@ -134,6 +145,7 @@ Applying it as if it were current is wrong — you're correcting the present wit
 ---
 
 ## Related
+<!-- bite: 371e340d-9cbb-4cf1-b656-a1bf7d63c173 -->
 - [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — the theory this applies
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — what's being fused
 - [[robotics/12-localisation-and-slam|Localisation and SLAM]] — the largest application

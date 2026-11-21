@@ -1,4 +1,9 @@
+---
+id: 55cc7ab1-d655-47a2-9f41-356af7f733a7
+---
+
 ## Multi-Stage Builds
+<!-- bite: 9d759e5d-49e9-4155-afa0-9dd0d7ad0225 -->
 
 The problem with a basic Dockerfile — your final image contains everything used to build the app. Compilers, build tools, dev dependencies — none of that is needed to run the app. It just bloats the image.
 

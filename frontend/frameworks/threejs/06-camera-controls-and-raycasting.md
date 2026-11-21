@@ -1,6 +1,11 @@
+---
+id: 88cf685d-a41d-488a-9974-505ba6a6e004
+---
+
 # Camera Controls and Raycasting
 
 ## OrbitControls
+<!-- bite: c9e9594e-7c24-4300-89e6-6de50b4f5edd -->
 
 The camera created in [[01-intro|intro]] is completely static by default — moving it requires manually writing mouse/touch handlers, which is tedious to get right (inertia, zoom limits, avoiding the camera flipping upside down). `OrbitControls` is the standard solution: it lets the user rotate, pan, and zoom the camera around a target point using the mouse/touch, all built in.
 
@@ -24,6 +29,7 @@ function animate() {
 `OrbitControls` isn't part of the core `three` package import — it lives under `three/examples/jsm/`, a directory of officially-maintained but separately-imported add-ons (other camera controls like `FlyControls`/`FirstPersonControls`, loaders for formats like `.gltf`, post-processing effects, etc. all live there too).
 
 ## Raycasting: detecting what the mouse is pointing at
+<!-- bite: df19180d-6fae-4deb-9ef4-ee3d3b605621 -->
 
 A 2D mouse click has no inherent meaning in 3D space — raycasting is the technique for converting "the mouse is at this 2D screen position" into "here's what 3D object is under it," by casting an imaginary ray from the camera through that screen point and checking what it intersects.
 
@@ -51,10 +57,12 @@ window.addEventListener("click", onClick);
 `intersectObjects` returns every object the ray passes through, sorted nearest-first — `intersects[0]` is what the user actually "sees" at that click point (whatever's in front); later entries are objects hidden behind it.
 
 ## Why mouse coordinates need normalizing
+<!-- bite: c502a60e-de7b-4a8e-b71c-689f6b96f4ae -->
 
 Raycasting works in **normalized device coordinates** (NDC) — a -1 to +1 range across both axes, independent of actual screen pixel dimensions — because that's the coordinate space the GPU/camera projection already operates in internally. The conversion in the snippet above (`(pixelX / width) * 2 - 1`) maps raw pixel coordinates into that space; skipping it (passing raw pixel values instead) produces wildly wrong or no intersections.
 
 ## Limiting raycasting to specific objects
+<!-- bite: 5e193456-149a-436d-98b5-0d2d5e4df3e7 -->
 
 `intersectObjects(scene.children)` checks the entire scene, including lights/helpers that don't need to be interactive — pass a specific array instead for both correctness and performance on scenes with many objects:
 
@@ -64,5 +72,6 @@ const intersects = raycaster.intersectObjects(clickable);
 ```
 
 ## Related
+<!-- bite: 08261b45-8be1-41a8-9d00-7e9c4878b5ba -->
 - [[04-transformations-and-animation-loop|transformations and the animation loop]] — where `controls.update()` and raycasting checks live inside the render loop
 - [[07-react-three-fiber|React Three Fiber]] — `<OrbitControls />` and `onClick` become plain JSX props there

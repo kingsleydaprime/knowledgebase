@@ -1,8 +1,13 @@
+---
+id: 71ec1ca8-f44a-4ca6-84e1-3ce49c4e192c
+---
+
 # Structuring a Go Service
 
 **[Intermediate]** — Dependency injection without a container, the handler-as-method pattern, and why Go services have no `@Autowired`.
 
 ## No DI container, and why
+<!-- bite: ed9d2537-ed16-4261-8780-7822415ed331 -->
 
 Go has no framework container. There's no `@Injectable`, no `@Service`, no annotation scanning. Dependencies are **struct fields set in `main`**.
 
@@ -24,6 +29,7 @@ Handlers are **methods on a struct**, so they reach dependencies through the rec
 What you give up: automatic wiring, lifecycle scopes, and configuration-driven substitution. What you get: the dependency graph is a function you can read, it's checked at compile time, and there's no reflection or startup magic to debug.
 
 ## Wiring in `main`
+<!-- bite: 53ec952e-d7b3-49e8-8afb-9e85f99fb06c -->
 
 ```go
 func main() {
@@ -59,6 +65,7 @@ func run() error {
 Note the wiring is explicit and ordered: config, then logger, then database, then the things that need them. When startup fails you get a wrapped error naming the step, not a stack trace from inside a container.
 
 ## Interfaces declared by the consumer
+<!-- bite: 22c1896d-2397-4831-a803-8a448f09f387 -->
 
 The critical Go idiom, and the reason none of this needs a framework:
 
@@ -88,6 +95,7 @@ Two rules that follow:
 **Declare them where they're used, not where they're implemented.** An interface in the `postgres` package is usually the wrong place — it means the implementer is guessing at what consumers need.
 
 ## Layout
+<!-- bite: 3f009cbe-145b-4214-8351-4101bd52f28b -->
 
 ```
 myservice/
@@ -112,6 +120,7 @@ myservice/
 **Start flatter than this.** A `main.go` plus three packages is a perfectly good service. Structure when flatness hurts.
 
 ## Handler patterns
+<!-- bite: b722cd41-9ea5-4a78-9761-23e944cf9aa8 -->
 
 **Closure over dependencies**, when a handler needs one thing:
 
@@ -131,6 +140,7 @@ This is nice for per-handler setup — compile a template or a regex once, outsi
 **Methods on a struct**, when handlers share several dependencies — the more common shape, and the one above.
 
 ## Error handling
+<!-- bite: 449b12f0-f4e5-4848-a623-f06fab9c0933 -->
 
 Handlers returning `error` is cleaner than every handler writing its own response, but `http.HandlerFunc` doesn't return anything. The standard workaround:
 
@@ -170,6 +180,7 @@ func (s *Server) getUser(w http.ResponseWriter, r *http.Request) error {
 One place maps errors to statuses, handlers just `return err`, and the two rules hold: **log internal detail, return generic**. This is Go's hand-written equivalent of Spring's `@ControllerAdvice` — more code, and no framework knowledge required to read it. → [[languages/02-go/05-errors|Go: Errors]]
 
 ## Config
+<!-- bite: 2c80be16-91bd-4357-b495-558e41713074 -->
 
 ```go
 type Config struct {
@@ -195,6 +206,7 @@ func LoadConfig() (*Config, error) {
 `envconfig` or `viper` if you want tags and file support; plain `os.Getenv` is fine and dependency-free for a handful of values.
 
 ## The service layer question
+<!-- bite: 56cfb919-7213-4144-9a50-225e5aff5060 -->
 
 Whether to have one between handler and store:
 
@@ -221,6 +233,7 @@ func (s *UserService) Register(ctx context.Context, email string) (*User, error)
 Go's culture leans toward fewer layers than Java's. Add one when it earns its place, not by default. → [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|Layers]]
 
 ## Wire, and whether you need it
+<!-- bite: f7c8e4ee-46ed-4a98-90f3-595ff1b7b493 -->
 
 `google/wire` does compile-time DI via code generation — you declare providers, it generates the wiring function.
 
@@ -231,6 +244,7 @@ For most services, hand-written wiring in `run()` is clearer and shorter than th
 ---
 
 ## Related
+<!-- bite: 74059ab8-d2ab-4037-9ced-9de289957e9c -->
 - [[backend/frameworks/go/05-database-access|Database Access]] — what the store layer does
 - [[backend/frameworks/go/06-testing-and-production|Testing and Production]] — why small interfaces pay off
 - [[languages/02-go/04-methods-and-interfaces|Go: Methods and Interfaces]] — consumer-declared interfaces

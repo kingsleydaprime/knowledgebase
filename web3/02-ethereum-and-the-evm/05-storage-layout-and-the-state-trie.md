@@ -1,14 +1,20 @@
+---
+id: 73b1dfd1-c1d0-4bfa-89b0-f89361b2b36d
+---
+
 # Storage Layout and the State Trie
 
 **[Advanced]** — where a contract's variables physically live, and why that determines both your gas bill and whether an upgrade destroys your data.
 
 ## The kid version first
+<!-- bite: 77d63fa8-586c-4f72-8f8e-4a468dd2a026 -->
 
 A contract's storage is **not** a set of named variables. It's a giant array of numbered boxes — 2²⁵⁶ of them, all initially zero. The compiler decides which box each variable lives in, **by counting declarations in order.**
 
 Which means: **if you reorder your variable declarations, the same data is now in different boxes** — and to a contract that was already deployed with data in it, that's catastrophic.
 
 ## Slots, and packing
+<!-- bite: 8fe6a0de-c4eb-436d-ab18-745e612436da -->
 
 Storage is `mapping(uint256 slot => bytes32 value)`. Variables are assigned slots in declaration order, and **the compiler packs multiple small variables into one slot when they fit**:
 
@@ -28,6 +34,7 @@ contract Example {
 Two caveats worth knowing: packing costs a little extra gas to *read* (a mask and shift), so it wins only when you're saving whole slots; and **variables packed together are read and written together**, so writing one member of a packed slot reads-modifies-writes the whole slot.
 
 ## Mappings and arrays — where hashing comes in
+<!-- bite: 6ff5ac62-9989-4663-b8b8-15dbb9309825 -->
 
 Dynamic structures can't be laid out sequentially, so their locations are **derived by hashing**:
 
@@ -45,6 +52,7 @@ Consequences that matter:
 - **Collisions are cryptographically impossible**, which is what makes this safe. It's the same argument that makes content addressing work → [[web3/01-foundations/03-cryptographic-primitives|primitives]]
 
 ## Why this destroys upgrades
+<!-- bite: 74788866-f7d2-4430-b37d-7aadd4701dfb -->
 
 A [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|proxy]] uses `DELEGATECALL`: the proxy holds the storage, the implementation supplies the code. **The implementation's variable declarations decide which slots it reads — but it reads the proxy's storage.**
 
@@ -65,6 +73,7 @@ The rules that follow, and they are hard rules:
 4. **Run a storage-layout diff in CI.** OpenZeppelin's upgrades plugin and `forge inspect <C> storageLayout` both do this, and it is the check that actually prevents the bug
 
 ## The state trie — how it's all committed
+<!-- bite: 681423d2-d25f-42ed-a53f-73ef44a91663 -->
 
 Ethereum's global state is a **Merkle Patricia Trie**: a radix trie whose nodes are addressed by hash. Each account's storage is its own trie, whose root sits in the account, which sits in the global trie, whose root sits in the block header.
 
@@ -82,6 +91,7 @@ Why a *Patricia* trie rather than a plain Merkle tree: it's a **map**, so it pro
 The cost is real and openly acknowledged: every state write updates a path of nodes up to the root, so a single `SSTORE` touches multiple database nodes and causes heavy random I/O. **This is the main reason archive nodes are enormous and syncing is slow**, and it's why Verkle trees — with far smaller proofs, enabling stateless clients — have been on Ethereum's roadmap for years → [[web3/02-ethereum-and-the-evm/06-the-ethereum-roadmap|the roadmap]].
 
 ## Inspecting it yourself
+<!-- bite: 5401d000-1a6f-474e-8bf1-8dde8a6b0e2d -->
 
 ```bash
 forge inspect MyContract storageLayout      # slot-by-slot map, use this in CI
@@ -91,10 +101,12 @@ cast storage <address> <slot> --rpc-url $RPC   # read a live slot
 Reading the layout of a contract you wrote is a five-minute exercise that makes this note concrete, and it's worth doing once.
 
 ## Key insight
+<!-- bite: 276dd02d-e414-492f-b844-079263051aa5 -->
 
 **Solidity's variables are a naming convention over a numbered array, and the numbering is positional.** Everything downstream — why packing saves thousands of gas, why mappings can't be iterated, why upgrades have an append-only rule enforced by CI — follows from the compiler assigning slots by counting declarations rather than by name.
 
 ## Related
+<!-- bite: 7350760d-b52b-4108-aa4a-3a414a64031c -->
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — the cost of touching storage
 - [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|upgradeability and proxies]] — where this becomes dangerous
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]]

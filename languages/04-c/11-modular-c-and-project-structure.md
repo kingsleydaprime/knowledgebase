@@ -1,8 +1,13 @@
+---
+id: 91ab761e-9929-49f7-85f6-fb46ac2359cc
+---
+
 # Modular C and Project Structure
 
 **[Intermediate]** — C gives you almost no structuring tools, so the structure is convention. Here's the convention that works.
 
 ## What you get, and what you don't
+<!-- bite: 5b5b1729-f1a3-4a7a-875e-351d0d4ec656 -->
 
 **You get:** translation units, `static` for internal linkage, headers for interfaces, and incomplete types for encapsulation.
 
@@ -11,6 +16,7 @@
 So a well-structured C project is a set of disciplines. The good news is that the disciplines are few, and they're visible in every well-regarded C codebase — SQLite, Redis, curl, git.
 
 ## Layout
+<!-- bite: de1e398e-9fe3-4ba7-a3a8-797b5fae62c8 -->
 
 ```
 myproject/
@@ -32,6 +38,7 @@ myproject/
 `include/` for the public interface, `src/` for implementation and private headers. If you're building a library, that split is what users see; for an application it still helps by making the internal boundaries visible.
 
 ## The module pattern
+<!-- bite: 52be11d2-fd63-45ff-a4d9-ee07d51ee254 -->
 
 One module = one `.h` (interface) + one `.c` (implementation). The single most important rule:
 
@@ -100,6 +107,7 @@ What that buys you:
 The cost: callers must heap-allocate (they can't put a `Stack` on the stack, since the size is unknown), and every access goes through a function call. Where that matters — a small vector type in a hot loop — expose the struct and document the invariants instead. It's a trade, not a law.
 
 ## Naming
+<!-- bite: 3311e6a1-920a-48f1-9b8e-d83863894549 -->
 
 Without namespaces, **prefix everything public** with the module name:
 
@@ -112,6 +120,7 @@ typedef struct Stack Stack;                     // ModuleType or module_t
 This is why C library APIs read like `pthread_mutex_lock`, `sqlite3_open`, `curl_easy_setopt`. It's verbose and it's the only collision avoidance available — every non-`static` symbol shares one global namespace at link time.
 
 ## Error handling conventions
+<!-- bite: 8e44039a-d456-4c09-8a33-c707fa88e08d -->
 
 C has no exceptions and no `Result`. Pick **one** convention and hold it across the project:
 
@@ -156,6 +165,7 @@ cleanup:
 ```
 
 ## Interfaces via function pointers
+<!-- bite: f00fc8ed-bdba-45bd-aae8-8cde1305394e -->
 
 C's polymorphism, from [[languages/04-c/05-pointers|Pointers]] — a struct of function pointers is a vtable:
 
@@ -174,6 +184,7 @@ void log_info(const Logger *l, const char *msg) {
 The `void *ctx` carries the implementation's own state. This is how you'd inject a dependency in C, and it's the same shape as a [[languages/03-rust/09-traits|`dyn Trait`]] or a Go interface — you're just writing the vtable by hand.
 
 ## Configuration and compile-time options
+<!-- bite: 950078d2-40b5-475d-9269-0c14476c7e85 -->
 
 ```c
 // config.h
@@ -193,6 +204,7 @@ int platform_mkdir(const char *path);
 ```
 
 ## Testing
+<!-- bite: 2c903b3f-f66b-4ea5-8390-74ab6dfb1656 -->
 
 There's no built-in test framework. Options, in increasing weight:
 
@@ -228,6 +240,7 @@ test: $(TESTS)
 ```
 
 ## Practical rules
+<!-- bite: 26fe4bae-7777-466e-99bc-d76dec6797b9 -->
 
 1. **One module = one `.h` + one `.c`.**
 2. **`static` everything not in the header.**
@@ -242,6 +255,7 @@ test: $(TESTS)
 ---
 
 ## Related
+<!-- bite: 84f64070-7dab-40d2-a010-18bf042816c5 -->
 - [[languages/04-c/02-headers-and-the-translation-unit|Headers and the Translation Unit]] — the mechanism behind all of this
 - [[languages/04-c/12-build-systems|Build Systems]] — compiling the layout above
 - [[languages/04-c/07-memory-management|Memory Management]] — ownership discipline

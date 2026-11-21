@@ -1,8 +1,13 @@
+---
+id: f99e4727-dcd0-4766-8429-72e431bba1c3
+---
+
 # Controllability, Observability and Pole Placement
 
 **[Advanced]** — Can you steer it? Can you see it? And if both, you can put the poles anywhere you like.
 
 ## Controllability
+<!-- bite: e800a7e9-6efe-4190-a1d6-df0e110b04d7 -->
 
 > **A system is controllable if you can drive the state from any initial value to any desired value in finite time, using the available inputs.**
 
@@ -27,6 +32,7 @@ $$\mathcal{C} = \begin{bmatrix} B & AB & A^2B & \cdots & A^{n-1}B \end{bmatrix}$
 **The rank test is numerically fragile.** $\mathcal{C}$ is often badly conditioned, and "rank 4" versus "rank 3 with a tiny singular value" is a judgement call. **Use the smallest singular value, not the rank** — it tells you *how* controllable, which is what you actually want to know. A system that is technically controllable but nearly not will demand enormous control effort in that direction. Prefer the **PBH test** for reliability: the pair $(A,B)$ is controllable iff $\text{rank}[\,sI - A \quad B\,] = n$ for every eigenvalue $s$ of $A$ — and it tells you *which mode* is the problem.
 
 ## Observability
+<!-- bite: 1bc0f68b-c25d-42f1-85d8-89637fa6946b -->
 
 The dual question.
 
@@ -59,6 +65,7 @@ $$(A, B) \text{ controllable} \iff (A^T, B^T) \text{ observable}$$
 | Stabilisable | Detectable |
 
 ## Minimal realisation
+<!-- bite: 6926326c-8e44-462d-b035-5dd8ab2fea40 -->
 
 A state-space model is **minimal** iff it's both controllable and observable.
 
@@ -75,6 +82,7 @@ A state-space model is **minimal** iff it's both controllable and observable.
 **Only the top-left block appears in the transfer function.** The other three are real dynamics that a classical model is blind to — Kalman's decomposition, and the single clearest argument for state space.
 
 ## Pole placement
+<!-- bite: 85223954-ca7a-4aae-9627-9fbba08ebab7 -->
 
 Given controllability, here's the payoff.
 
@@ -119,6 +127,7 @@ That's a remarkable result. Not "improve the response" — **place the poles exa
 **Pole placement says nothing about robustness.** You can place poles beautifully and end up with terrible stability margins — the classical margins simply aren't part of the calculation. **This is the main practical criticism of the method**, and it's why [[control-theory/11-optimal-control-and-lqr|LQR]] is usually preferred: same structure, but the gain comes from an optimisation with known margin guarantees, and you tune weights rather than guessing pole locations.
 
 ## Integral action
+<!-- bite: b752d5a6-6de8-4b0e-aef6-65c6de117131 -->
 
 State feedback alone has the same failing as proportional control: **steady-state error.** $\mathbf{u} = -K\mathbf{x}$ drives the state to zero, which isn't the same as tracking a reference.
 
@@ -135,6 +144,7 @@ then place poles for the augmented $(n+1)$-state system. The result is **state f
 **And it needs anti-windup for exactly the reason PID does.** → [[control-theory/04-pid-control|PID Control]]
 
 ## The catch
+<!-- bite: 247c390d-1b3b-44b5-a1d9-ba89c34e7ef9 -->
 
 $\mathbf{u} = -K\mathbf{x}$ requires **the full state**.
 
@@ -149,6 +159,7 @@ Two options:
 ---
 
 ## Related
+<!-- bite: ffc9df88-69ab-4665-8b2e-e10fd035c06e -->
 - [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — getting the state you don't measure
 - [[control-theory/08-state-space|State Space]] — the representation
 - [[control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — choosing $K$ by optimisation instead

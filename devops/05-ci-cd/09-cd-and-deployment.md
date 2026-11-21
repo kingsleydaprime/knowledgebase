@@ -1,8 +1,13 @@
+---
+id: f1311fa3-df8a-42c1-9a5f-1482307e0672
+---
+
 # CD, Deployment Strategies and Releases
 
 **[Intermediate → Advanced]** — The deploy half: pipeline structure and rollback, the four rollout strategies in depth (recreate, rolling, blue-green, canary) with the tradeoffs that pick between them, and cutting releases automatically from CI.
 
 ## CD Pipeline — Deployment
+<!-- bite: 833d0941-8bfe-42d8-a06a-161d5cd521d6 -->
 
 ### CD Pipeline Structure
 
@@ -150,6 +155,7 @@ jobs:
 ---
 
 ## Deployment Strategies
+<!-- bite: 79b05f63-afa8-45a9-bcef-c58895d937ae -->
 
 ### Recreate (Simple)
 
@@ -318,6 +324,7 @@ High traffic, want gradual confidence before full rollout?
 ---
 
 ## Releasing from CI
+<!-- bite: d2a68b4f-1db9-43ba-8256-e22169001710 -->
 
 ### Automated Release Workflow
 
@@ -456,6 +463,7 @@ jobs:
 ---
 
 ## Related
+<!-- bite: 2cedb2ee-d6a9-4fc9-82ef-74cf5be923f6 -->
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — the build this deploys
 - [[devops/10-orchestration/index|Orchestration]] — rolling and canary rollouts as Kubernetes primitives
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the pull-based alternative to deploying from CI

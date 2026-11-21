@@ -1,8 +1,13 @@
+---
+id: d15fa865-9b5f-4498-8cfb-c2d8b3942f6c
+---
+
 # MBSE and Modelling
 
 > **[Intermediate]** · Model-Based Systems Engineering, SysML, digital twins — moving the source of truth out of documents.
 
 ## The problem with documents
+<!-- bite: 5cfd2cd3-8c5f-4997-b459-bbf7b162f707 -->
 
 Traditional systems engineering produces documents: requirements specs, ICDs, trade studies, test plans. Hundreds of them, in Word and Excel.
 
@@ -13,6 +18,7 @@ Traditional systems engineering produces documents: requirements specs, ICDs, tr
 **The immediate payoff is the query.** *"What breaks if this requirement changes?"* becomes something the tool answers, instead of a week of reading. Same for "which components have no requirement", "which requirements have no test", and "what does this interface touch".
 
 ## SysML in five diagrams
+<!-- bite: abcf68e7-06fe-456c-8842-d71e8082d16d -->
 
 SysML is a UML profile adapted for systems rather than software. Nine diagram types; **five carry nearly all the value**:
 
@@ -27,6 +33,7 @@ SysML is a UML profile adapted for systems rather than software. Nine diagram ty
 **Parametric diagram** — the one with no software equivalent. It binds *equations* to properties, so `mass_total = Σ mass_i` or a power budget is enforced by the model. **Change a component's mass and the system mass updates, and a violated constraint is flagged.** This is where a model stops being a drawing.
 
 ## SysML v2
+<!-- bite: f94ee0b3-54e9-4a08-8f08-093cb201cc51 -->
 
 v1 is widely criticised — verbose, tool-dependent, awkward to diff, and with a reputation for producing beautiful diagrams nobody reads.
 
@@ -41,6 +48,7 @@ v1 is widely criticised — verbose, tool-dependent, awkward to diff, and with a
 Adoption as of 2026 is still early. Treat v2 as the direction, not the current state.
 
 ## Digital twins and simulation
+<!-- bite: b7b87a97-3348-4184-acd2-99bd1c977bb8 -->
 
 A **digital twin** is a model of a specific physical instance, kept in sync with live data from it — as opposed to a model of the design in general.
 
@@ -56,6 +64,7 @@ Used for predictive maintenance, operator training, testing changes before makin
 **The honest limit: a model is only as good as its assumptions**, and a twin that has drifted from its physical counterpart is worse than no twin, because it's confidently wrong. Validating the model is a real, ongoing, funded activity → [[systems-engineering/06-verification-and-validation|V&V]].
 
 ## The software parallels
+<!-- bite: 1270f6fd-9f08-4d11-b9c2-273feb4ac99b -->
 
 Software has arrived at MBSE's central idea repeatedly without calling it that. **The pattern each time: make the artefact executable, and generate the documents.**
 
@@ -73,6 +82,7 @@ Software has arrived at MBSE's central idea repeatedly without calling it that. 
 **And the counter-lesson software learned the hard way is worth carrying back:** heavyweight UML modelling in the 2000s largely failed because the model and the code diverged, and the code was what ran. **Whatever is executable becomes the truth, and everything else becomes decoration.** MBSE only holds if the model is genuinely the source — the moment a spreadsheet becomes authoritative "just for this", the benefit evaporates.
 
 ## Is it worth it?
+<!-- bite: 4f48dbe8-3fde-4c16-a3be-3c9ed6c57a5f -->
 
 **The costs are real:** expensive tools, a steep learning curve, and organisational commitment. Half-adoption is the worst outcome — model *and* documents, both maintained, both drifting.
 
@@ -83,6 +93,7 @@ Software has arrived at MBSE's central idea repeatedly without calling it that. 
 **The useful middle ground, and the one most people should actually occupy:** take the ideas without the tooling. **Traceability from need to test. A written, owned interface contract. Diagrams generated from something real rather than drawn by hand. Decisions recorded.** All of that is available in markdown and git, at close to zero cost, and it captures most of the value → [[systems-engineering/05-trade-studies|ADRs]].
 
 ## Related
+<!-- bite: 5ebf82c1-b10a-45c7-8a30-b0df9ee0ddb7 -->
 - [[systems-engineering/04-architecture-and-interfaces|architecture and interfaces]] — what gets modelled
 - [[systems-engineering/02-requirements|requirements]] — traceability, mechanised
 - [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]] — the same idea, in software

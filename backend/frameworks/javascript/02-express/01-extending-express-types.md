@@ -1,3 +1,7 @@
+---
+id: 73b7dfa1-7c7c-45ed-aeb2-c50d1c436dea
+---
+
 # Extending express types
 
 `express.d.ts`

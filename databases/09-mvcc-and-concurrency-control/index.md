@@ -7,6 +7,7 @@ id: 86a01ae5-0e15-4957-ae6e-14fe7235350c
 **[Advanced]** — How isolation is actually implemented: row versions instead of read locks, why PostgreSQL needs `VACUUM` and what stops it, why every PostgreSQL update can touch every index, where deadlocks come from, and the migration lock that takes production down. Every PostgreSQL behaviour here is checked by the lab, which looks directly at the row versions on a page.
 
 ## Before you start
+<!-- bite: da26d241-e75b-4651-b081-948bf5033d11 -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–4 explain versions and snapshots. Stop at the predictions in sections 5, 6 and 8 and try them before reading on. Section 10 is the lab.
 
 ## The kid version
+<!-- bite: a035c5ae-f8ea-4176-a624-3bda773d3ddf -->
 
 A class notice board has one sheet per pupil. Instead of rubbing out and rewriting a sheet, the teacher pins a new one on top, marked with the time, and leaves the old one underneath. Anyone who started reading at 9:00 keeps reading the sheets as they were at 9:00, even if new ones go up at 9:05, so nobody has to wait for the teacher to finish, and the teacher doesn't wait for the readers. At the end of the day a caretaker takes down the old sheets nobody is still reading.
 
 **Where the analogy stops working.** On a notice board you'd notice the pile getting thick. In PostgreSQL, the old versions build up silently inside the table's pages, and if one reader never finishes, say a forgotten open transaction, the caretaker may take down *nothing*, anywhere in the database, until that reader leaves.
 
 ## 1. Why this exists
+<!-- bite: 342a9034-30d8-40ac-b7c7-2d8ad35a18fa -->
 
 The shop's nightly report reads every order for twenty minutes. Meanwhile, customers keep placing and updating orders. With locks alone, the report's read locks would block every order update for twenty minutes, or the updates would block the report. Neither is acceptable. Almost every modern database solves this the same way: keep several versions of each row, so the report reads the versions as they were when it started while customers write new ones. That's MVCC, and it works so well that it's easy to forget it has costs: dead versions to clean up, a cleaner that can be blocked, and updates that rewrite more than you'd think.
 
 ## Terms used in this lesson
+<!-- bite: 38c56fb0-3baa-4ffa-acbb-dd57b75eae58 -->
 
 1. **MVCC (multiversion concurrency control)**: The letters stand for those words. It's keeping several versions of each row, so that each transaction can read the versions that match its snapshot without locking anything.
 2. **Row version**: This is also called a **tuple**. It's one stored copy of a row as it was after one particular change.
@@ -48,6 +52,7 @@ The shop's nightly report reads every order for twenty minutes. Meanwhile, custo
 11. **Transaction ID wraparound**: PostgreSQL's transaction IDs are 32-bit and count round after about 4 billion. Old rows must be "frozen" before then, or they would seem to come from the future.
 
 ## 2. Two approaches
+<!-- bite: 23ffa707-47e7-4194-818b-a1e87794a423 -->
 
 **Pessimistic: two-phase locking.** Take locks before touching data, and hold them until commit. **The problem: readers block writers and writers block readers.** A long report blocks every update to the rows it reads, and concurrency collapses under mixed workloads.
 
@@ -64,6 +69,7 @@ In the lab, session A opens a Repeatable Read transaction and reads a balance of
 **Essentially every modern database uses MVCC**: PostgreSQL, InnoDB, Oracle, SQL Server (optionally), CockroachDB, and MongoDB's WiredTiger.
 
 ## 3. How MVCC works
+<!-- bite: 0ee06859-d064-4cc7-ba49-55609e2818cd -->
 
 **Each row version carries visibility information:**
 
@@ -89,6 +95,7 @@ In the lab, session A opens a Repeatable Read transaction and reads a balance of
 The lab looks at this directly. Every row exposes the hidden columns `xmin` and `ctid`, and the `pageinspect` extension shows every version stored on a page. After an update, the row has a new `xmin` and a new `ctid`: a new version, in a new place. While another session's snapshot still needs the old version, the page holds **one more version than before**. Once that snapshot ends and `VACUUM` runs, the count is back to where it started.
 
 ## 4. PostgreSQL and InnoDB
+<!-- bite: 0a229a73-fe74-45e6-aa03-11046e8576d1 -->
 
 **Both use MVCC. They store the old versions in completely different places, and every operational difference follows from that.**
 
@@ -118,6 +125,7 @@ After the `balance` update: still **1**. It was a HOT update: no indexed column 
 </details>
 
 ## 5. `VACUUM`, and what stops it
+<!-- bite: 7f1e2fc7-6e55-4f61-9740-0e8f89612c22 -->
 
 **PostgreSQL-specific, and the source of most PostgreSQL operational pain.** What it does:
 
@@ -147,6 +155,7 @@ Dead versions can also disappear sooner: when a page is nearly full, an ordinary
 **Autovacuum** runs vacuum automatically, triggered by the fraction of rows changed. **The defaults are conservative for large tables**: 20% of a billion-row table is 200 million dead rows before it starts. **Tune `autovacuum_vacuum_scale_factor` down for big tables**, or set per-table thresholds. **Monitor** `pg_stat_user_tables` for `n_dead_tup` and `last_autovacuum`, and `pg_stat_activity` for long transactions.
 
 ## 6. Transaction ID wraparound
+<!-- bite: 8b38b1ba-9086-4dbe-a786-2f1fe0933da8 -->
 
 > **PostgreSQL's transaction IDs are 32-bit.** IDs are compared within a window of about 2 billion either side, so **rows must be "frozen" (marked as older than everything) before their ID falls out of that window, or they'd suddenly seem to come from the future and become invisible**: silent data loss.
 >
@@ -157,6 +166,7 @@ Dead versions can also disappear sooner: when a page is nearly full, an ordinary
 > **This has taken down production systems**, famously Sentry in 2015 and Mailchimp's Mandrill in 2019. **It happens when autovacuum can't keep up or has been disabled.** **Monitor `age(datfrozenxid)`.** Modern versions handle it far better and the risk is lower, but the failure mode is worth knowing.
 
 ## 7. Locking
+<!-- bite: 9fa707c5-bf9b-4827-8871-66d2579b3bf5 -->
 
 **MVCC removes read locks. Write locks remain.**
 
@@ -174,6 +184,7 @@ Dead versions can also disappear sooner: when a page is nearly full, an ordinary
 **InnoDB adds gap locks and next-key locks** at Repeatable Read, locking the *gaps between* index entries to prevent phantoms. **They cause deadlocks that surprise people**, because you can conflict on rows that don't exist.
 
 ## 8. The migration that queues everything
+<!-- bite: a239ad59-07ec-4a61-a9af-758eeee4beb4 -->
 
 **Predict before reading on.** Session A has an open transaction that ran `SELECT count(*) FROM accounts`. Session B runs `ALTER TABLE accounts ADD COLUMN note text`. Session C then runs `SELECT count(*) FROM accounts`. A's lock and C's lock don't conflict with each other. Does C's query run?
 
@@ -194,6 +205,7 @@ In the lab, B with a 200 ms `lock_timeout` fails fast, and C's reads carry on un
 </details>
 
 ## 9. Deadlocks
+<!-- bite: 2a8e81f0-99d6-4d36-8b06-91e8a2fa2144 -->
 
 **Two transactions each holding a lock the other wants:**
 
@@ -214,6 +226,7 @@ T2: locks row B ─────────► wants row A
 **Debug them:** PostgreSQL logs both queries of a deadlock by default, and `SHOW ENGINE INNODB STATUS` shows the last one in MySQL. **The log tells you exactly which two statements conflicted**, which usually makes the ordering fix obvious.
 
 ## 10. The lab: MVCC, looked at directly
+<!-- bite: 7e85529a-3534-45ec-8bb4-6957a9b863aa -->
 
 `test_mvcc.py` uses two or three sessions. Where a session must block, it runs in a thread, and the test waits until `pg_stat_activity` reports it waiting for a lock before taking the next step, so the order of events is exact. It uses `pageinspect` to count row versions on a page and index entries, and `pgstattuple` to count dead tuples. It shares the [`with-postgres.sh`](https://github.com/kingsleydaprime/knowledgebase/tree/main/databases/09-mvcc-and-concurrency-control/labs/shared) throwaway cluster, which turns autovacuum off, so dead versions stay until the test vacuums.
 
@@ -401,6 +414,7 @@ if __name__ == "__main__":
 **Lab:** the code is in [`databases/09-mvcc-and-concurrency-control/labs/python/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/databases/09-mvcc-and-concurrency-control/labs/python). From the vault root, `python3 labs/run.py mvcc-and-concurrency-control/python` runs it and checks this page still shows the same code. It needs PostgreSQL 16 or later installed. Expect 8 passing tests in a couple of seconds.
 
 ## Common pitfalls
+<!-- bite: 63d53995-98b5-4e81-bd30-f7d2b6a451da -->
 
 1. **An open transaction left idle.** It blocks vacuum database-wide. Set `idle_in_transaction_session_timeout`.
 2. **Schema migrations without `lock_timeout`.** One slow query plus one `ALTER TABLE` stops all access to the table.
@@ -411,6 +425,7 @@ if __name__ == "__main__":
 7. **Forgetting replication slots for replicas that no longer exist.** They hold back vacuum and fill the disk with log.
 
 ## Check your understanding
+<!-- bite: ee2cf0c6-cd6f-4b11-a8a0-67faed20b0c6 -->
 
 1. A Repeatable Read transaction reads a row, and another session updates it and commits. Why can the update finish without waiting, and what does the first transaction see if it reads again?
 2. Why does a PostgreSQL update that changes only an indexed `email` column add an entry to the primary-key index?
@@ -432,6 +447,7 @@ if __name__ == "__main__":
 </details>
 
 ## Practice — independent task
+<!-- bite: 506a345a-c284-481a-8938-ffec4b71be37 -->
 
 **Find what's blocking, in a real database.**
 
@@ -450,6 +466,7 @@ if __name__ == "__main__":
 </details>
 
 ## Before moving on
+<!-- bite: 252b0e3d-56f3-4083-9721-74a748d0b64f -->
 
 You can explain how versions and snapshots let readers and writers work without blocking, say what vacuum does and what blocks it, explain HOT updates and why PostgreSQL updates touch every index, prevent deadlocks by ordering, and run a migration with `lock_timeout`.
 
@@ -458,6 +475,7 @@ You can explain how versions and snapshots let readers and writers work without 
 **Next.** Week 7, the web end to end: [[networking/10-dns-in-depth/index|DNS]], [[networking/11-http-evolution/index|HTTP]] and [[networking/12-tls-and-transport-security/index|TLS]].
 
 ## Related
+<!-- bite: f85e100f-eb3b-40eb-9edb-b8b8a64a8cc0 -->
 
 - [[databases/08-transactions-and-acid/index|Transactions and ACID]]: the guarantees this implements
 - [[databases/10-durability-and-recovery|Durability and recovery]]: the log underneath

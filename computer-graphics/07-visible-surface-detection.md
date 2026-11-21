@@ -1,3 +1,7 @@
+---
+id: 703bb147-2c89-40b0-861b-9225c41838c5
+---
+
 # Visible Surface Detection
 
 **[Intermediate]** — Deciding which surfaces the viewer can actually see: object-space versus image-space methods, the depth buffer worked by hand (including the plane-equation increment), back-face detection, the painter's algorithm, BSP trees, the scan-line method, Warnock's area subdivision, and ray casting.
@@ -5,6 +9,7 @@
 > Part 1 of the course. [[computer-graphics/10-rasterisation|Note 10]] covers the z-buffer as modern GPUs run it (early-Z, depth pre-pass, transparency); [[computer-graphics/09-the-transform-pipeline|note 09]] covers depth precision. **This note is the full classical family of methods.**
 
 ## Before you start
+<!-- bite: becefebf-75dd-48fd-b7c4-9421e88fc3e7 -->
 
 You can take a dot product, and you know a plane can be written $Ax + By + Cz + D = 0$ with normal $(A, B, C)$.
 
@@ -15,12 +20,14 @@ You can take a dot product, and you know a plane can be written $Ax + By + Cz + 
 4. Compare painter's, BSP, scan-line, Warnock and ray casting.
 
 ## The kid version
+<!-- bite: 27c3e864-5e0e-4960-b851-c297d1320c72 -->
 
 Hold up a book in front of a poster. You can't see the part of the poster behind the book. A computer drawing the scene has to work that out itself. One way: for every dot on the screen, remember how close the nearest thing drawn there so far is, and only paint over it if something new is even closer. Another: paint the far things first and the near things last, like a painter doing the sky before the trees.
 
 **Where the analogy stops working.** The painter's trick breaks when three objects overlap each other in a circle (A over B, B over C, C over A) — there is no "back" to start from. The remember-the-closest trick doesn't care.
 
 ## Terms used in visible surface detection
+<!-- bite: edb31fbd-85d6-458e-b021-226720e29ea3 -->
 
 1. **Visible surface detection**: This is also known as **hidden surface removal**. This is working out which surfaces are visible from the viewer's position and removing the rest, so the picture is correct.
 2. **Object-space method**: This is a method that compares objects or faces with each other in the 3D scene, independent of pixels.
@@ -30,11 +37,13 @@ Hold up a book in front of a poster. You can't see the part of the poster behind
 6. **Z-fighting**: This is flicker where two surfaces are at almost the same depth and limited depth precision makes the test flip between them.
 
 ## 1. Two families
+<!-- bite: 657db4ed-4007-42e5-8eef-d5b1163d03b8 -->
 
 - **Object-space methods** compare objects or faces with each other: **back-face detection, painter's algorithm, BSP trees.**
 - **Image-space methods** decide visibility per pixel: **depth buffer, scan-line method, area subdivision, ray casting.**
 
 ## 2. The depth-buffer (z-buffer) method
+<!-- bite: 3a4d255d-09e6-4cff-97b6-525c71f6519b -->
 
 **Test the depth of every surface at every pixel, and keep the closest.** Two buffers of the same size:
 
@@ -90,6 +99,7 @@ At pixel $(5, 5)$, a red polygon has $z = 0.3$ and a blue one $z = 0.7$ (larger 
 3. **Limited precision causes z-fighting** where two surfaces are almost at the same depth (the fix is in [[computer-graphics/09-the-transform-pipeline|note 09]]). **Transparency needs extra work.**
 
 ## 3. Back-face detection
+<!-- bite: f230e55b-d703-47c3-982c-b7db5817a134 -->
 
 **An object-space test.** Each polygon has an outward normal $N$. Let $V$ be the viewing direction (from the eye into the scene). **The polygon is a back face — facing away from the viewer — if $V \cdot N > 0$, so discard it.**
 
@@ -98,6 +108,7 @@ At pixel $(5, 5)$, a red polygon has $z = 0.3$ and a blue one $z = 0.7$ (larger 
 **For a closed solid, this removes about half the faces cheaply.** It does *not* solve everything: front faces can still hide each other when there are several objects or the shape is concave. **It is a pre-pass, not a full visibility method.**
 
 ## 4. The other methods
+<!-- bite: 2bd89754-60bc-4da8-85d2-ce444459984e -->
 
 | Method | Type | Idea | Weakness |
 |---|---|---|---|
@@ -116,6 +127,7 @@ Each node holds a splitting plane (usually a polygon's own plane). Polygons in f
 For each area, every polygon is one of: **surrounding** (covers the whole area), **intersecting**, **contained**, or **disjoint**. The area is simple enough to draw directly if all polygons are disjoint (background), there is one intersecting or contained polygon, or there is a surrounding polygon in front of all others. Otherwise split into four and recurse.
 
 ## Common pitfalls
+<!-- bite: f1b0be59-247b-41da-b396-dfcec5c99c8f -->
 
 1. **Not stating the depth convention** — "nearer" is $z >$ in one and $z <$ in the other.
 2. **Thinking back-face culling is enough** — it isn't, for multiple or concave objects.
@@ -123,6 +135,7 @@ For each area, every polygon is one of: **surrounding** (covers the whole area),
 4. **Calling the painter's algorithm image-space.** It sorts objects; it is object-space.
 
 ## Check your understanding
+<!-- bite: b8f10eeb-e605-4a03-8a25-ca36b19e4591 -->
 
 1. Why can the z-buffer handle two polygons that pass through each other, when the painter's algorithm cannot without splitting?
 2. A plane has $A = 2$, $B = -1$, $C = 4$. Moving one pixel to the right, how does $z$ change?
@@ -137,14 +150,17 @@ For each area, every polygon is one of: **surrounding** (covers the whole area),
 </details>
 
 ## Practice — independent task
+<!-- bite: 2dacd889-25c2-4551-af27-d34dc074d8e1 -->
 
 Write a tiny software z-buffer in Python: a 20 × 20 grid, two overlapping triangles at constant (different) depths, and the "larger = nearer" convention. Print the frame buffer as characters. **Done when** swapping the order you draw the triangles gives an identical picture, and switching to "smaller = nearer" (clear to $+\infty$, test `<`) also gives the same picture once you negate the depths.
 
 ## Before moving on
+<!-- bite: 97a844aa-48b5-4040-a2b2-d8df2ddd7327 -->
 
 That ends the teaching notes of Part 1. **Next:** the [[computer-graphics/19-ssg-511-question-bank|SSG 511 question bank]] to test it, then Part 2 from [[computer-graphics/08-how-rendering-works|note 08]] for the modern view.
 
 ## Related
+<!-- bite: 141dd939-59fb-4d84-9e1d-1ce3ca40efc4 -->
 - [[computer-graphics/10-rasterisation|Rasterisation]] — the z-buffer on a GPU
 - [[computer-graphics/14-ray-tracing-and-path-tracing|Ray Tracing]] — ray casting grown up
 - [[computer-graphics/index|Computer graphics map]]

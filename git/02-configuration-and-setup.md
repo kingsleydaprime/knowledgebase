@@ -1,8 +1,13 @@
+---
+id: 1bc19400-b9b5-4fe9-9049-75eb61def0bb
+---
+
 # Configuration and Setup
 
 **[Beginner]** — The three config levels, the `~/.gitconfig` worth copying, a global `.gitignore`, and the full set of `init` / `clone` / `remote` options.
 
 ## Config Levels
+<!-- bite: f8b0c820-caf8-4f6d-ba5d-31f2c9ab2935 -->
 
 Git has three config levels, each overriding the previous:
 
@@ -13,6 +18,7 @@ git config --local    # .git/config — applies to this repo only
 ```
 
 ## Essential Configuration
+<!-- bite: c38bde8e-865a-46b3-a74d-d45c484dc056 -->
 
 ```bash
 # Identity — required for commits
@@ -49,6 +55,7 @@ git config --global core.autocrlf true     # Windows: convert LF to CRLF on chec
 ```
 
 ## Useful Aliases
+<!-- bite: 6dbf11bd-346c-4ea3-9889-8f4a322d7902 -->
 
 ```bash
 git config --global alias.st status
@@ -73,6 +80,7 @@ git config --global core.editor
 ```
 
 ## The ~/.gitconfig File
+<!-- bite: c6bb5e66-48da-41c1-8ab5-ebd1edf83a4f -->
 
 ```ini
 [user]
@@ -137,6 +145,7 @@ git config --global core.editor
 ```
 
 ## Global .gitignore
+<!-- bite: ade20a6c-cf1b-4d6a-b356-c2e25bdfbdb5 -->
 
 ```bash
 git config --global core.excludesfile ~/.gitignore_global
@@ -161,6 +170,7 @@ Thumbs.db
 ---
 
 ## Repository Setup and Cloning
+<!-- bite: b7c21859-03e7-46bf-8670-2fb0b9822779 -->
 
 ```bash
 # Initialise
@@ -190,6 +200,7 @@ git remote set-url origin new-url  # Change remote URL
 ---
 
 ## Related
+<!-- bite: 576888d4-3a3c-4ae1-89b3-cc809df75257 -->
 - [[git/03-the-three-trees|The Three Trees]] — the next step once a repo exists
 - [[git/17-hooks-and-signing|Hooks and Signing]] — what `commit.gpgsign` and `tag.gpgsign` above actually turn on
 - [[devops/01-linux/10-environment-variables|Environment Variables]] — how the shell finds your editor and credentials

@@ -7,6 +7,7 @@ id: 6dce78e0-190e-429f-b903-f3141950005d
 > **[Beginner]** · What an AI engineer does, how it differs from an ML engineer, and the decision every AI feature starts with: whether to use a model at all, and if so which kind. The worked example runs four features from this course through the decision, step by step. It's the frame for the rest of SWE 102, so it's short, and its practice task is about your own flagship.
 
 ## Before you start
+<!-- bite: a454e178-acb1-42e5-a454-aefda47ff39c -->
 
 You can already:
 
@@ -22,16 +23,19 @@ After this lesson you will be able to:
 **Study route.** Read it straight through, then do the practice task on your own flagship. It takes about half an hour.
 
 ## The kid version
+<!-- bite: f3508232-05da-4c5c-9b03-cdcc9d8243b6 -->
 
 Imagine you need a cake for a party. You could become a baker: buy ovens, learn recipes, practise for years. Or you could buy a very good cake from a shop and spend your effort on the party: the decorations, the candles, making sure it arrives on time and nobody's allergic. An ML engineer is the baker. An AI engineer buys the cake, which is a model someone else trained, and builds the party around it. And sometimes the right answer is that the party doesn't need a cake at all; biscuits would do.
 
 **Where the analogy stops working.** A shop cake is the same every time. A model can give a different answer to the same question, and is sometimes confidently wrong, so most of the AI engineer's work is building around a cake that occasionally isn't what the box says.
 
 ## 1. Why this exists
+<!-- bite: 166ee0d5-7057-41d3-b24c-bc8e68970214 -->
 
 Until recently, getting a program to read a support ticket and decide what it was about meant collecting thousands of labelled tickets, training a model and running it on your own servers. Today you send the ticket to an API and get a good answer back in a second. The hard part moved: from **building the model** to **building dependably around a model you don't control**, one that is non-deterministic, sometimes wrong and priced per token. That's a different discipline, and it's the one this course teaches.
 
 ## Terms used in this lesson
+<!-- bite: 1821e449-5173-436c-85d0-aa53788a76d5 -->
 
 1. **Pre-trained model**: This is a model someone else has already trained on large amounts of data, which you use as it is, through an API or by downloading it.
 2. **AI engineer**: This is someone who builds products and features on top of pre-trained models, mostly language models. The work is prompting, retrieval, tools, agents, evals, cost and safety: software engineering with a model as one component.
@@ -40,6 +44,7 @@ Until recently, getting a program to read a support ticket and decide what it wa
 5. **Hosted model**: This is a model you reach through a provider's API. A **self-hosted** or **local** model runs on hardware you control.
 
 ## 2. AI engineer and ML engineer
+<!-- bite: b79c10b2-4d5f-49c3-9f53-097d35996f87 -->
 
 | | ML engineer | AI engineer |
 |---|---|---|
@@ -51,6 +56,7 @@ Until recently, getting a program to read a support ticket and decide what it wa
 A chatbot, a search over your documents, an agent, or a language-model feature inside an app is AI engineering. Training a fraud model on transaction data, or fine-tuning a vision network for a factory line, is ML engineering. The line blurs at the edges (an AI engineer may fine-tune a small model; see [[ai-ml/03-ai-engineer/15-fine-tuning-applied|fine-tuning applied]]), but the default tools and the default question differ.
 
 ## 3. The decision every feature starts with
+<!-- bite: 309d214d-3dfd-4d07-8d47-d869abdb299d -->
 
 The most common mistake is reaching for the biggest model by default. Before building, take the feature through four questions, in order.
 
@@ -76,6 +82,7 @@ The most common mistake is reaching for the biggest model by default. Before bui
 **Step 4 — hosted or self-run?** A hosted API is the usual default: the best models, no hardware. Run a model yourself when the data mustn't leave, when you must work offline, when volume makes per-token pricing dominate, or when you need to fine-tune on private data ([[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]] and [[ai-ml/03-ai-engineer/16-local-and-open-models/index|local and open models]]).
 
 ## Worked example — four features through the decision
+<!-- bite: 234197ef-d8e9-4966-b1ce-67e75d33b6d5 -->
 
 **1. Route support tickets to a team.**
 Step 1: keyword rules get 75% on the golden set; good, but they miss tickets with no keywords and in other languages. A model is worth trying, against that baseline. Step 2: text in, one label out: a language model. Step 3: narrow and high-volume, so a small model, with a closed set of labels. Step 4: hosted, unless tickets contain data that mustn't leave; then a local model, at the cost of speed (see the landscape lesson). **Decision:** a small model, beating 75%, with the rules kept as the fallback ([[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]]).
@@ -92,6 +99,7 @@ Step 2: the input is rows of account data, the output a probability. That's a cl
 Notice that only one of the four ended with "use a big language model for the whole thing", and even that one needed retrieval to be trustworthy.
 
 ## Common pitfalls
+<!-- bite: e437635f-809a-4672-a66c-0a312944543c -->
 
 1. **The biggest model by default.** Start from the cheapest option that could work, and move up only when the evals say so.
 2. **No baseline.** Without the rules' score, "the model gets 80%" means nothing.
@@ -100,6 +108,7 @@ Notice that only one of the four ended with "use a big language model for the wh
 5. **Letting the model make business decisions.** Whether a refund is allowed is a rule, not a judgement.
 
 ## Check your understanding
+<!-- bite: 92ae8e33-2844-4254-a3c6-81dc305d2c7c -->
 
 1. What does an AI engineer build, and what question does an ML engineer start from instead?
 2. Why write the keyword rules even when you're sure you'll use a model?
@@ -119,6 +128,7 @@ Notice that only one of the four ended with "use a big language model for the wh
 </details>
 
 ## Practice — independent task
+<!-- bite: 87cf5ddf-81e5-45d4-8377-baaf867efb59 -->
 
 **Take your flagship through the decision.**
 
@@ -129,6 +139,7 @@ Notice that only one of the four ended with "use a big language model for the wh
 **Done when:** each candidate has a written decision with a reason at every step, and the feature you'll build has a named baseline. Keep it; it's the first section of week 6's write-up.
 
 ## Before moving on
+<!-- bite: 2b1092af-0f71-40ca-9358-bb052795c2ff -->
 
 You can say what an AI engineer does, take a feature through the four-step decision, and name the baseline it must beat.
 
@@ -137,6 +148,7 @@ You can say what an AI engineer does, take a feature through the four-step decis
 **Next.** [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — what's actually inside the model you're building around.
 
 ## Related
+<!-- bite: 9251f12d-426c-40fa-9685-19ae83669019 -->
 - [[ai-ml/00-foundations/01-what-is-ai|What is AI]] — where AI, ML and deep learning sit
 - [[ai-ml/02-ml-engineer/index|ML engineer path]] — the "train the model" sibling
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The model landscape]] — the options step 2 and step 4 choose between

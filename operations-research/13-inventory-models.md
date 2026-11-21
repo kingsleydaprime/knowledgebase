@@ -1,3 +1,7 @@
+---
+id: c0cad2a8-0f7b-4a8d-b46d-be9cf98261ac
+---
+
 # Inventory Models
 
 **[Intermediate]** — How much stock to order and when: the economic order quantity and why it's so forgiving, reorder points and safety stock when demand is random, and the newsvendor model for things that can't be sold later. Small formulas with a lot of business behind them.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
+<!-- bite: 64ee4f7a-4d2b-4696-bd85-178599b3427b -->
 
 You need to be able to differentiate a simple function and set the derivative to zero → [[mathematics/06-calculus/02-calculus-1/07-derivative-rules/01-rules|derivative rules]], and know the normal distribution and what a percentile is → [[mathematics/05-probability-statistics/04-random-variables-and-distributions|distributions]].
 
@@ -17,12 +22,14 @@ After this lesson you will be able to:
 **Study route:** sections 1–3 (EOQ) with a pencil; stop and derive the formula yourself. Then sections 4–5.
 
 ## The kid version
+<!-- bite: cab120e3-0381-4a9a-832d-e22c72956380 -->
 
 You keep snacks in your cupboard. Every trip to the shop is a hassle, so you'd like to buy a lot at once. But a huge pile of snacks takes up space and some go stale. Buy too little and you're always at the shop; buy too much and the cupboard is full of stale crisps. **Inventory models find the amount to buy each time that balances the hassle of shopping against the cost of keeping stuff.** And because you never know exactly how many snacks you'll eat this week, they also tell you how many spare to keep so you don't run out.
 
 **Where the analogy stops working.** For you, running out of crisps is a small annoyance. For a hospital running out of blood, or a factory running out of a part that stops a production line, the cost of running out can be huge — and the models make you put a number on it, which is often the hardest and most important step.
 
 ## 1. Why this exists
+<!-- bite: b47a5400-7919-4dc1-a19b-6293773a3326 -->
 
 A shop sells 1,200 units of a product a year. Each order costs ₦50 to place (admin, delivery), whatever its size. Holding one unit in stock for a year costs ₦2 (storage, insurance, the money tied up).
 
@@ -32,6 +39,7 @@ A shop sells 1,200 units of a product a year. Each order costs ₦50 to place (a
 Somewhere between is a minimum. Inventory is one of the largest assets on most companies' balance sheets, so these trade-offs move real money — and the same logic covers cash balances, cache sizes and batch sizes in software.
 
 ## Terms used in inventory models
+<!-- bite: 983d05fa-d090-4720-b51d-83ce8adf31dc -->
 
 1. **Demand rate**: This is how many units are used or sold per unit time, written $D$ (here, per year).
 2. **Ordering cost**: This is also known as **setup cost**. Written $S$, it's the fixed cost of placing one order, regardless of its size.
@@ -45,6 +53,7 @@ Somewhere between is a minimum. Inventory is one of the largest assets on most c
 10. **Critical ratio**: This is the number that decides the newsvendor order: the cost of having too little divided by the total cost of being wrong in either direction.
 
 ## 2. The economic order quantity
+<!-- bite: cfff1708-7591-4a1c-9f02-39f2e4e6c557 -->
 
 Assume demand is steady and known, and orders arrive instantly. Stock then follows a sawtooth: it jumps to $Q$ when an order arrives, falls steadily to 0, and jumps again.
 
@@ -78,6 +87,7 @@ At $Q^*$, the two cost parts are exactly equal — a useful check.
 **Pause and predict:** if you ordered 300 instead of 245 — 22% more — how much would total cost rise?
 
 ## 3. Why EOQ is so forgiving
+<!-- bite: 7aba93e0-f1ad-4e09-b46f-4eab23d9f76e -->
 
 | Order quantity | 150 | 200 | 245 | 300 | 400 |
 |---|---|---|---|---|---|
@@ -95,6 +105,7 @@ That has big practical consequences:
 So EOQ is used not because its assumptions are true (they rarely are) but because its answer is robust to their being wrong.
 
 ## 4. Random demand: reorder points and safety stock
+<!-- bite: ceca030e-273d-44d2-acef-92891f169683 -->
 
 Now suppose orders take $L = 4$ days to arrive, and daily demand is random with mean 20 and standard deviation 5.
 
@@ -125,6 +136,7 @@ Going from 95% to 99.9% almost doubles the safety stock. Whether it's worth it d
 **Two levers reduce safety stock:** reduce demand variability (better forecasts) or reduce lead time (faster suppliers). Halving the lead time cuts $\sigma_L$ by a factor of $\sqrt{2}$, not 2.
 
 ## 5. The newsvendor: one chance to order
+<!-- bite: d3715953-43c9-49ae-a2da-dfca6e1826a0 -->
 
 Some products can't be sold later: newspapers, fresh bread, fashion items, event tickets, flu vaccines. You order once, before demand is known. Order too many and you're stuck with leftovers; too few and you lose sales.
 
@@ -152,6 +164,7 @@ $$P(D \le Q^*) = \frac{C_u}{C_u + C_o}$$
 This one idea — balance the cost of too little against the cost of too much, weighted by probability — also sets airline overbooking, hotel room allocation, cloud capacity reservations and how many servers to pre-provision.
 
 ## Worked example — EOQ and the newsvendor in Python
+<!-- bite: 9828591d-2493-4470-b2c4-22160a6a8442 -->
 
 **Runnable**, standard library only.
 
@@ -188,6 +201,7 @@ critical ratio 0.667 -> order 116.7
 ```
 
 ## Common pitfalls and traps
+<!-- bite: f0e19130-b99d-4b3c-ab1c-7224b117d798 -->
 
 1. **Units mismatch.** $D$ per year with $H$ per month gives a $Q^*$ that's off by $\sqrt{12}$. Put everything on the same time base.
 2. **Leaving out the cost of money.** Holding cost isn't just warehouse rent; the capital tied up in stock is usually the biggest part.
@@ -197,6 +211,7 @@ critical ratio 0.667 -> order 116.7
 6. **Ignoring the bullwhip effect.** Small swings in customer demand become larger swings in orders up a supply chain, as each stage adds safety stock and batches orders. Sharing demand data across the chain is the standard cure.
 
 ## Check your understanding
+<!-- bite: b6c14690-1140-43fa-994e-ec0bb493a1d7 -->
 
 1. If demand doubles, by what factor does the EOQ change? The total cost?
 2. Why is the EOQ cost curve so flat near the minimum?
@@ -214,6 +229,7 @@ critical ratio 0.667 -> order 116.7
 </details>
 
 ## Practice — independent task
+<!-- bite: afcf0c5c-e13b-41d4-97cf-91b62277e1c7 -->
 
 1. **Derive:** with the note closed, derive the EOQ formula from the total cost, and show the two cost parts are equal at the optimum.
 2. **Apply:** a pharmacy sells 5,000 boxes of a medicine a year. Each order costs ₦2,000; each box costs ₦800, and holding cost is 25% of value per year. Lead time is 10 days; daily demand has standard deviation 4 boxes. Find the EOQ, the reorder point for a 98% service level (assume 365 days a year), and the annual ordering and holding costs.
@@ -222,6 +238,7 @@ critical ratio 0.667 -> order 116.7
 **Done when:** your derivation is on paper, your pharmacy numbers are internally consistent (ordering cost ≈ cycle-stock holding cost), and the simulation's best quantity is within a couple of cakes of the formula.
 
 ## Before moving on
+<!-- bite: 51d60ceb-cf53-4ef8-9e0d-145ee707dd39 -->
 
 You're ready when you can derive EOQ, explain its flatness, compute a reorder point with safety stock, and explain the newsvendor answer in one sentence about the two costs of being wrong.
 
@@ -234,6 +251,7 @@ You're ready when you can derive EOQ, explain its flatness, compute a reorder po
 **Next:** [[operations-research/14-simulation|Simulation]] — when the system is too messy for any formula, build it in code and run it many times.
 
 ## Related
+<!-- bite: c2fbecf6-fd91-4995-8cc8-4ac0e9bd33cf -->
 
 - [[operations-research/08-dynamic-programming|Dynamic Programming]] — multi-period stocking under uncertainty
 - [[operations-research/12-queueing-theory|Queueing Theory]] — the other classic stochastic model

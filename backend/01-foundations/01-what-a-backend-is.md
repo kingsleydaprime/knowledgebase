@@ -1,8 +1,13 @@
+---
+id: e965caed-7370-490a-bd40-5bef10ba71a9
+---
+
 # What a Backend Actually Is
 
 **[Beginner]** — the orientation note. Short, but it sets up the vocabulary the rest of the course uses.
 
 ## The kid version first
+<!-- bite: 146ec660-d3a0-4eb8-be46-bcd639f8c7bf -->
 
 A restaurant has a **dining room** and a **kitchen**.
 
@@ -13,6 +18,7 @@ You could redecorate the dining room completely and the kitchen wouldn't change.
 **The backend is the kitchen.** And the important consequence: *the kitchen is the one that can't lie.* A diner can ask for anything; the kitchen decides what's actually true and what actually happens.
 
 ## What a backend is responsible for
+<!-- bite: 8574cfa3-9ebb-4188-8c00-bee162daddb7 -->
 
 Strip away frameworks and it's four things:
 
@@ -24,6 +30,7 @@ Strip away frameworks and it's four things:
 Everything else — routing, serialisation, middleware, ORMs — is machinery in service of those four.
 
 ## The rule that everything else follows from
+<!-- bite: 245d36e9-fb85-41c1-b982-24b5ed3fc727 -->
 
 > **Never trust the client.**
 
@@ -37,6 +44,7 @@ This single rule generates most of the backend's design:
 - Sensitive logic and secrets live server-side, because anything shipped to a client is public.
 
 ## Where the boundary sits
+<!-- bite: 56ccf3da-7ebb-4ea7-bd1f-7d13962f4d68 -->
 
 The frontend/backend line has moved a lot, and the vocabulary reflects that:
 
@@ -48,6 +56,7 @@ The frontend/backend line has moved a lot, and the vocabulary reflects that:
 **The four responsibilities don't move.** Whichever shape you pick, something still has to hold state, enforce rules, decide permission, and integrate. That's why this course is framework-agnostic and why [[backend/frameworks/index|frameworks/]] is a subfolder rather than the main event.
 
 ## What makes backend work hard
+<!-- bite: 598806aa-9f24-48ab-b641-1b56e1a97eab -->
 
 Not the syntax. The three things that actually generate difficulty:
 
@@ -58,10 +67,12 @@ Not the syntax. The three things that actually generate difficulty:
 A backend that works for one user on a laptop is easy. All the difficulty comes from *many*, *unreliable*, and *over time*.
 
 ## Key insight
+<!-- bite: d84768ff-24f2-4c74-a96e-bd9668e9f153 -->
 
 The backend is **the boundary where claims become facts.** The client can request anything; the backend decides what is true, records it durably, and makes sure it stays consistent when a thousand people ask at once and a third of the infrastructure is on fire. Every practice in this course — validation at the boundary, transactions, idempotency, authorization at the data layer — exists to defend that single job.
 
 ## Related
+<!-- bite: 151914f7-31cf-4629-826f-d04bedc75e3f -->
 - [[backend/01-foundations/02-http-servers|HTTP Servers]] — how requests physically arrive
 - [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]] — what happens to one
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — how many happen at once

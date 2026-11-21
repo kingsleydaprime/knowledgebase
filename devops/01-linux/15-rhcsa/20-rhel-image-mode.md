@@ -1,3 +1,7 @@
+---
+id: 0df0c8d3-8b61-4c67-a3b2-0de6e51a6689
+---
+
 # RHEL Image Mode (bootc)
 
 > RHCSA V10 — added after reviewing the official RH134 course book (Red Hat System Administration II, RHEL 10.0). This is RHEL 10's newest, most different-paradigm feature — zero prior coverage in this vault, and conceptually unlike everything else in this folder, which all assumes the traditional package-based install model.
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Everything else in this fo
 ---
 
 ## The core idea: treat the whole OS like a container image
+<!-- bite: 48abfb87-76c5-44a7-8146-71a118be15bf -->
 
 Instead of installing individual RPM packages onto a system and mutating it in place over its lifetime (the traditional model — and the reason configuration drift happens, since two servers set up "the same way" months apart rarely end up identical), **image mode builds the entire operating system as a bootable container image** — kernel, bootloader, and all — using the same `Containerfile` + `podman build` workflow already used for application containers.
 
@@ -36,12 +41,14 @@ curl http://localhost:8080          # confirm it actually serves before deployin
 ---
 
 ## Deploying it
+<!-- bite: 94c157db-0c24-41cf-89dc-b1cc2aa2a553 -->
 
 Anaconda ([[02-installing-rhel|installing-rhel]]) supports image mode as an install target directly — bare metal or VM, via Kickstart automation pointing at the image instead of a traditional package set. For cloud targets, Red Hat's `bootc-image-builder` tool turns a bootc image into a disk image in whatever format the target cloud needs (`qcow2` for QEMU, `ami` for AWS, `vmdk` for vSphere, `gce` for Google Cloud).
 
 ---
 
 ## Managing a deployed image-mode system — the `bootc` command
+<!-- bite: f7e4b306-94b3-464e-ab4f-e5c7bb0e5f30 -->
 
 ```bash
 bootc status              # what's currently booted, what's staged, what (if anything) you could roll back to
@@ -62,6 +69,7 @@ systemctl mask bootc-fetch-apply-updates.timer     # disable permanently — e.g
 ---
 
 ## What "immutable" actually means here — /etc and /var are the exception
+<!-- bite: 855fc51d-7f3e-442c-90d8-cb03f5a8376b -->
 
 The root filesystem is genuinely **read-only** by default (built on `composefs` + `OSTree`, which can hold multiple complete filesystem deployments side by side — conceptually version control, but for entire filesystem trees rather than individual files, which is exactly what makes instant rollback possible). Two directories are deliberately carved out as mutable, and behave differently from each other:
 
@@ -77,5 +85,6 @@ Booting into a specific deployment (current vs. rolled-back) is a GRUB2 menu ent
 ---
 
 ## Why this exists — the pitch, in one line
+<!-- bite: ad321700-f8a1-4acc-b09c-b55a53b0e30c -->
 
 Package mode lets two "identically configured" servers drift apart over months of individual `dnf` runs and manual fixes; image mode makes the entire OS the same kind of versioned, rollback-able, registry-distributed artifact an application container already is — the Containerfile *is* the system definition, checked into version control like any other build spec.

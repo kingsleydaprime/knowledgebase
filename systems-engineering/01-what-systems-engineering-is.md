@@ -1,3 +1,7 @@
+---
+id: f1b77b08-412f-4e1e-8e34-bf0eb6659b15
+---
+
 # What Systems Engineering Is
 
 > **[Beginner]** · The discipline of making a whole work when no one person understands all of it — and why it is not "senior software engineering".
@@ -7,6 +11,7 @@ Software engineering asks *how do we build this thing well?* Systems engineering
 INCOSE's definition, compressed: *a transdisciplinary approach to realising successful systems* — where "successful" means it satisfies the need across its entire life, not that it passes its tests.
 
 ## The problem it exists to solve
+<!-- bite: f0a5b711-7a19-443b-9e91-4241efb37611 -->
 
 A car has 30,000 parts, made by hundreds of suppliers, designed by thousands of engineers across mechanical, electrical, software, materials and manufacturing. **No individual understands all of it.** Yet the doors must shut, the emissions must pass, and the brakes must work at −20°C after eight years.
 
@@ -19,6 +24,7 @@ A car has 30,000 parts, made by hundreds of suppliers, designed by thousands of 
 **The pattern in all three: the failure lives between the parts, or in an assumption nobody owned.** That space is what systems engineering claims.
 
 ## The three things it actually does
+<!-- bite: b518fa20-f6d9-4135-9fad-2048155fd08d -->
 
 **1. Turn a need into a specification.** Stakeholders say "safer" and "faster". Somebody has to convert that into numbers a supplier can build against, and be answerable when the numbers were wrong → [[systems-engineering/02-requirements|requirements]].
 
@@ -27,6 +33,7 @@ A car has 30,000 parts, made by hundreds of suppliers, designed by thousands of 
 **3. Prove the whole works.** Not "each part passed" — that the integrated system satisfies the original need in its real environment → [[systems-engineering/06-verification-and-validation|V&V]].
 
 ## Emergence — the concept underneath all of it
+<!-- bite: 5d30ac6f-b421-4882-a9d0-e0c9003c4634 -->
 
 **A system has properties none of its parts have.** No component of an aircraft flies. No neuron thinks.
 
@@ -40,6 +47,7 @@ Emergent properties are the ones that matter and the ones you cannot check by in
 Software people meet this constantly without the vocabulary: a distributed system where every service is up and the system is down; a retry policy that is correct per-service and produces a [[architecture/04-distributed-systems/index|metastable failure]] in aggregate; a cache that improves latency until it fails and the cold database dies. **All emergent. All invisible in any single component's tests.**
 
 ## Where the cost is committed
+<!-- bite: 76548b39-9873-45fb-86ce-9258d7bd92ae -->
 
 The single most-cited chart in the field, and it is the economic argument for everything else:
 
@@ -64,6 +72,7 @@ The single most-cited chart in the field, and it is the economic argument for ev
 **The corollary is uncomfortable and correct: the highest-leverage engineering happens before anyone is confident.** It's also why fixing a requirements defect after deployment is routinely quoted at 100–1000× the cost of fixing it during requirements.
 
 ## Why it isn't just senior software engineering
+<!-- bite: fc5e68ee-2651-4538-b19e-330aa9cdb67b -->
 
 Genuine overlaps exist — decomposition, interfaces, trade-offs, non-functional requirements. But four things differ materially:
 
@@ -79,6 +88,7 @@ Genuine overlaps exist — decomposition, interfaces, trade-offs, non-functional
 **Neither culture is right.** The mistake is applying either where its assumption doesn't hold: heavyweight requirements documents for a web app, or "we'll iterate" for a satellite.
 
 ## Where it shows up in this vault
+<!-- bite: 3a5768c7-9dfc-45e9-9786-19daeebf63cc -->
 
 Deliberately: **the systems-engineering habit is already all over here without the name.**
 
@@ -89,6 +99,7 @@ Deliberately: **the systems-engineering habit is already all over here without t
 - [[control-theory/index|Control theory]] is the mathematics of one emergent behaviour: stability under feedback
 
 ## Related
+<!-- bite: 42905d64-c767-496b-9321-bf6123cca120 -->
 - [[systems-engineering/02-requirements|requirements]] — where it starts, and where it fails
 - [[systems-engineering/03-the-lifecycle-and-the-v-model|the lifecycle and the V-model]]
 - [[architecture/index|architecture]] — the software-shaped version

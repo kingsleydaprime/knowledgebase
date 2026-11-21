@@ -1,3 +1,7 @@
+---
+id: 6fea28c2-6a1d-4dd7-9ab0-7be75c583fb1
+---
+
 # Networking Interview — TCP & Transport
 
 From [[networking/05-udp-and-ports|05-udp-and-ports]], [[networking/06-tcp-connection-lifecycle|06-tcp-connection-lifecycle]], [[networking/07-tcp-reliability-and-flow-control|07-tcp-reliability-and-flow-control]], [[networking/08-congestion-control|08-congestion-control]], [[networking/09-sockets-and-the-network-api|09-sockets-and-the-network-api]].
