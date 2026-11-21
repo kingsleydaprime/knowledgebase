@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # Node.js (JavaScript Backends)
 
 ## What Node.js is
@@ -14,8 +10,6 @@ subject: false
 
 1. [[backend/frameworks/node/01-env-validation|Validating .env in nodejs]]
 2. [[backend/frameworks/node/02-error-handling|Ways to handle errors in Node.js]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## The runtime facts that matter most
 - **The event loop is single-threaded.** Any sync work blocks every pending request → the signature p99 spike with flat p50. → [[backend/interview/01-production-debugging|p99 debugging]]

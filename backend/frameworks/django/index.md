@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # Django (Python Backends)
 
 ## What Django is
@@ -13,8 +9,6 @@ subject: false
 ## Lessons so far
 
 1. [[backend/frameworks/django/01-django|Django]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## What to know
 - **`select_related` / `prefetch_related`, or you have an N+1.** Watch the query count on every page you build.

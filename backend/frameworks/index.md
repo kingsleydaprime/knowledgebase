@@ -23,7 +23,7 @@ The course itself (sections 01–07) teaches the ideas that are true everywhere.
 | **C++** | [[backend/frameworks/drogon/index\|Drogon]] · [[backend/frameworks/crow/index\|Crow]] · [[backend/frameworks/boost-beast/index\|Boost.Beast]] | async event loop (asio) |
 | **C** | [[backend/frameworks/c-sockets/index\|Sockets and epoll]] · [[backend/frameworks/libmicrohttpd/index\|libmicrohttpd]] · [[backend/frameworks/kore/index\|Kore]] · [[backend/frameworks/civetweb/index\|civetweb]] · [[backend/frameworks/ulfius/index\|Ulfius]] | whatever you build, usually `epoll` |
 
-Every subject has a **lesson plan** in its index: twelve stops that follow the backend course, named in that framework's own terms. A subject with fewer than three lessons has `subject: false`, so it stays off the platform until more are written.
+Every subject has a **lesson plan** in its index: twelve stops that follow the backend course, named in that framework's own terms.
 
 The lessons that are true of a whole language, not one framework, live with the language's base framework. Go's database and testing lessons are in net/http, Rust's async pitfalls are in Axum, C++'s JSON lesson is in Drogon, and C's safe-parsing lesson is in Sockets and epoll. The other frameworks of that language link to them.
 
@@ -80,7 +80,6 @@ FastAPI for a new JSON API, especially I/O-heavy or ML-serving. Django for a ful
 1. Make a folder named after the framework, with an `index.md` titled "Tool (Language Backends)".
 2. Open the index with what the framework is, in plain words, then its concurrency model.
 3. Copy the twelve-stop lesson plan and rename each stop in the framework's own terms.
-4. Put `subject: false` in the frontmatter until it has three lessons.
 
 **Don't restate the course.** If you find yourself explaining what a repository is, that belongs in [[backend/03-structuring-a-backend/index|03-structuring-a-backend]]. A framework lesson shows how *this* framework does it, what it names it, and where it bites.
 

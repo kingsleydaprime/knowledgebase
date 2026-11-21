@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # libmicrohttpd (C Backends)
 
 ## What libmicrohttpd is
@@ -11,8 +7,6 @@ subject: false
 ## Lessons so far
 
 1. [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## Lesson plan
 

@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # FastAPI (Python Backends)
 
 ## What FastAPI is
@@ -13,8 +9,6 @@ subject: false
 ## Lessons so far
 
 1. [[backend/frameworks/fastapi/01-fastapi|FastAPI]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## What to know
 - **`async def` with a blocking call inside freezes every concurrent request.** Use plain `def` and let the thread pool handle it.

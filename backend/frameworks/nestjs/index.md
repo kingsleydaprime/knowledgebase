@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # NestJS (TypeScript Backends)
 
 ## What NestJS is
@@ -11,8 +7,6 @@ subject: false
 ## Lessons so far
 
 1. [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## What to know
 - **It's Angular's architecture for the backend** — modules, providers, decorator-based DI.

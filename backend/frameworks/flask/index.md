@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # Flask (Python Backends)
 
 ## What Flask is
@@ -13,8 +9,6 @@ subject: false
 ## Lessons so far
 
 1. [[backend/frameworks/flask/01-flask|Flask]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## What to know
 - **Use the application factory from the start**, or your tests can't configure the app.
