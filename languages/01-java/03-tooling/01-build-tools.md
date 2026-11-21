@@ -161,6 +161,6 @@ Spring Boot configures itself based on what's on the classpath. Adding `spring-b
 ## Related
 <!-- bite: e880fa3d-ffd1-4814-b78b-dbedc2522f49 -->
 - [[languages/01-java/01-language/01-fundamentals|Fundamentals]]
-- [[backend/frameworks/java/01-spring-boot|Spring Boot & Scheduling]]
+- [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]]
 - [[languages/01-java/06-applied-systems/04-docker-for-java-apps|Docker for Java Apps]]
 - [[concepts/02-design-patterns/index|design patterns]] — Ports and Adapters is one of many

@@ -49,4 +49,4 @@ Plus everything in [[frontend/frameworks/react/index|React]]'s index.
 
 - [[frontend/frameworks/react/index|React]] · [[frontend/frameworks/index|frameworks/]]
 - [[frontend/06-rendering/index|rendering]] — the concepts this implements
-- [[backend/frameworks/javascript/index|Node backends]] — what runs on the server side
+- [[backend/frameworks/node/index|Node backends]] — what runs on the server side

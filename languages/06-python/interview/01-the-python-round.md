@@ -132,7 +132,7 @@ The check-then-act version has a **race condition**. `try/except FileNotFoundErr
 
 **Strong answer covers:** **nothing at runtime.** They're erased as far as execution is concerned — `calculate(  "100" )` on an `int` parameter runs happily. They exist for **static checkers, editors and readers**.
 
-**The consequence:** data crossing a boundary — an API response, a form, a file — is unchecked whatever you annotated. **Validate at the boundary** with Pydantic, then the type is earned → [[backend/frameworks/python/01-fastapi|FastAPI]].
+**The consequence:** data crossing a boundary — an API response, a form, a file — is unchecked whatever you annotated. **Validate at the boundary** with Pydantic, then the type is earned → [[backend/frameworks/fastapi/01-fastapi|FastAPI]].
 
 **Details that matter:** modern spellings (`list[str]`, `X | None`) over `List`/`Optional`; `Protocol` for structural typing, which fits duck-typed code far better than an ABC; `Any` disables checking and spreads — prefer `object` and narrow.
 
@@ -160,7 +160,7 @@ The check-then-act version has a **race condition**. `try/except FileNotFoundErr
 <!-- bite: cd61b12a-74f2-4cba-9ff8-cb6b890fd48d -->
 - [[languages/06-python/index|the Python course]]
 - [[languages/06-python/18-practice-exercises|practice exercises]] — reproduce every gotcha above
-- [[backend/frameworks/python/index|Python backends]] — the framework round
+- [[backend/frameworks/index|Choosing a Python framework]] — the framework round
 - [[languages/01-java/interview/index|Java interview prep]] — the contrast
 
 *Source: [reference] — assembled Aug 2026; measurements from the course's own exercises.*

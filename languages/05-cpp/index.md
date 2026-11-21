@@ -87,7 +87,7 @@ C++'s remaining unassailable ground: existing codebases (which are vast), game e
 
 Per [[languages/index|the vault rule]]:
 
-### → **[[backend/frameworks/cpp/index|backend/frameworks/cpp/]]** — Drogon, Crow, Pistache, oat++, Boost.Beast
+### → **[[backend/frameworks/drogon/index|backend/frameworks/drogon/]]** — Drogon, Crow, Pistache, oat++, Boost.Beast
 
 ## Known gaps
 

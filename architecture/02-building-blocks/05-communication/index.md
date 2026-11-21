@@ -65,7 +65,7 @@ Resources at URLs, verbs for what to do with them: `GET /orders/o1`, `POST /orde
 - **Cacheable.** A `GET` is safe to repeat, so browsers, CDNs and proxies can cache it with the `Cache-Control` rules from [[architecture/02-building-blocks/02-caching/index|caching]]. A product page can be served from the edge without reaching your servers.
 - **Stateless.** Each request carries everything needed, which is what lets the [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|load balancer]] send it to any server.
 
-Its weaknesses are over-fetching and under-fetching, and no enforced contract unless you add one with OpenAPI ([[backend/frameworks/java/03-api-design-and-documentation|REST and OpenAPI design]]).
+Its weaknesses are over-fetching and under-fetching, and no enforced contract unless you add one with OpenAPI ([[backend/frameworks/spring-boot/03-api-design-and-documentation|REST and OpenAPI design]]).
 
 ## 3. Counting the cost of one screen
 <!-- bite: 946f3b1b-39f0-4978-8b8d-508db2f61b90 -->
@@ -753,7 +753,7 @@ You can count a screen's requests, round trips and bytes, explain and fix the N+
 ## Related
 <!-- bite: 7f607fff-b800-43ea-8d73-4f0cfb5a55a1 -->
 
-- [[backend/frameworks/java/03-api-design-and-documentation|API design and documentation (Java)]]: REST and OpenAPI in real code
+- [[backend/frameworks/spring-boot/03-api-design-and-documentation|API design and documentation (Java)]]: REST and OpenAPI in real code
 - [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging and async]]: the asynchronous alternative to request and response
 - [[devops/02-networking-and-web/01-networking-and-protocols|Networking and protocols (DevOps)]]: the transport layer
 - [[networking/11-http-evolution/index|HTTP and its evolution]]: HTTP/1.1, 2 and 3 in depth

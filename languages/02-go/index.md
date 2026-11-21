@@ -46,7 +46,7 @@ A small language that made a deliberate trade: less expressiveness, in exchange 
 
 Following [[languages/index|the vault rule]] — `languages/` teaches the language, `backend/frameworks/` teaches the frameworks:
 
-### → **[[backend/frameworks/go/index|backend/frameworks/go/]]** — `net/http`, Chi, Gin
+### → **[[backend/frameworks/net-http/index|backend/frameworks/net-http/]]** — `net/http`, Chi, Gin
 
 The stdlib case is unusually strong in Go. `net/http` is a production HTTP server, not a toy you replace, and Go 1.22's method-aware routing removed most of the remaining reason to pull in a router at all. Note 10 covers enough `net/http` to build a real service; the frameworks section covers what a router adds and when it's worth it.
 
@@ -72,7 +72,7 @@ The standard library source is famously readable and is the best available Go st
 ---
 
 ## Related
-- [[backend/frameworks/go/index|Go Backends]] — the frameworks
+- [[backend/frameworks/net-http/index|Go Backends]] — the frameworks
 - [[languages/index|Languages]] — the language/framework split rule
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — goroutines among the alternatives
 - [[languages/01-java/index|Java]] — the other language course here, and a useful contrast on nearly every decision

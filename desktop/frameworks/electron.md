@@ -29,6 +29,6 @@ contextBridge.exposeInMainWorld("api", {
 
 ## Related
 - [[desktop/frameworks/tauri|Tauri]] — the lighter alternative
-- [[desktop/frameworks/index|frameworks/]] · [[backend/frameworks/javascript/01-node-runtime/index|Node runtime]]
+- [[desktop/frameworks/index|frameworks/]] · [[backend/frameworks/node/index|Node runtime]]
 
 *Source: [reference] — scaffold, from the Electron documentation.*

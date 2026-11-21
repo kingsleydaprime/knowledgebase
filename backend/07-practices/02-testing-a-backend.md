@@ -150,7 +150,7 @@ Backend testing comes down to one decision repeated: real, faked, or ignored. Us
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal & Clean Architecture]] — why ports and adapters make more of your code unit-testable
 - [[backend/05-auth/index|Auth]] — the 401/403 cases above
 - [[languages/01-java/03-tooling/04-testing|Java Testing]] — JUnit 5, Mockito and Testcontainers in depth
-- [[backend/frameworks/javascript/03-nest/01-nestjs-reference|NestJS reference]] — the three testing levels in that stack
+- [[backend/frameworks/nestjs/01-nestjs-reference|NestJS reference]] — the three testing levels in that stack
 
 ## Seen in the wild
 <!-- bite: 6e21b52e-d354-4d7c-9d97-f37497ce19a7 -->

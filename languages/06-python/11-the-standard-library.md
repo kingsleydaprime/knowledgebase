@@ -54,7 +54,7 @@ text = json.dumps(data, indent=2)        # Python → string
 data = json.load(file_obj)               # note: load/dump take file objects
 ```
 
-`json.dumps` fails on `datetime`, `Decimal`, `set` and your own classes — pass `default=str` for a quick fix, or a custom encoder for a real one. For anything with a schema, validate rather than trusting: `pydantic` → [[backend/frameworks/python/01-fastapi|FastAPI]].
+`json.dumps` fails on `datetime`, `Decimal`, `set` and your own classes — pass `default=str` for a quick fix, or a custom encoder for a real one. For anything with a schema, validate rather than trusting: `pydantic` → [[backend/frameworks/fastapi/01-fastapi|FastAPI]].
 
 ## `collections`, `itertools`, `functools`
 <!-- bite: eede9f10-6f9c-41b1-bb32-9157e224f1ea -->

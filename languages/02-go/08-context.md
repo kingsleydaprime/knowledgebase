@@ -154,7 +154,7 @@ Go's context is unusually good at this compared to most ecosystems, where cancel
 <!-- bite: 89f4bfb2-bf2a-42da-87e6-bbf4925ca811 -->
 - [[languages/02-go/07-concurrency-patterns|Concurrency Patterns]] — `errgroup.WithContext`
 - [[languages/02-go/06-goroutines-and-channels|Goroutines and Channels]] — the `Done()` channel
-- [[backend/frameworks/go/index|Go Backends]] — context through a real HTTP stack
+- [[backend/frameworks/net-http/index|Go Backends]] — context through a real HTTP stack
 - [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience Patterns]] — timeouts and deadlines as a design concern
 - [[languages/02-go/index|Go course map]]
 

@@ -4,7 +4,7 @@ id: 2bdfb929-ee62-4fcc-ba95-35bfa520f96a
 
 # Dependency Injection
 
-**Source:** the payment sandbox uses Spring DI throughout (`@Service` + `@RequiredArgsConstructor` is real code — see [[backend/frameworks/java/01-spring-boot|Spring Boot]]); this file pulls the *concept* out from under the framework, since roadmap.sh lists it as its own topic and it's worth understanding independently of Spring.
+**Source:** the payment sandbox uses Spring DI throughout (`@Service` + `@RequiredArgsConstructor` is real code — see [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]]); this file pulls the *concept* out from under the framework, since roadmap.sh lists it as its own topic and it's worth understanding independently of Spring.
 
 ## Inversion of Control — the idea
 <!-- bite: 0a870e73-e552-423d-b210-0aa0a86d6a9f -->
@@ -65,13 +65,13 @@ public class SubscriptionService {
 
 `@RequiredArgsConstructor` + `final` fields is the idiomatic modern pattern — it *is* constructor injection, with Lombok writing the constructor. Spring sees that constructor and calls it with the beans it manages. Component stereotypes (`@Component`, `@Service`, `@Repository`, `@Configuration`) all register a bean; `@Bean` methods register one explicitly. When two beans satisfy the same type, `@Qualifier` or `@Primary` disambiguates.
 
-The container also owns each bean's **lifecycle** and **scope** (singleton by default — one shared instance — or `prototype`/`request`/`session`). Spring's whole framework, and everything in [[backend/frameworks/java/01-spring-boot|Spring Boot]], is built on this container.
+The container also owns each bean's **lifecycle** and **scope** (singleton by default — one shared instance — or `prototype`/`request`/`session`). Spring's whole framework, and everything in [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]], is built on this container.
 
 Beyond Spring, the same idea appears as **CDI** (Jakarta EE / `@Inject`), **Guice** (Google's standalone injector), and **Dagger** (compile-time DI, popular on Android for zero reflection overhead) — but the concept is identical: declare dependencies, let a container supply them.
 
 ## Related
 <!-- bite: 3e2a8ba1-876c-4925-a064-2cf29c02024e -->
-- [[backend/frameworks/java/01-spring-boot|Spring Boot]] — DI applied across a real service
+- [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]] — DI applied across a real service
 - [[languages/01-java/03-tooling/04-testing|Testing]] — injecting mocks is why DI makes code testable
 - [[languages/01-java/01-language/02-oop|OOP]] — depending on interfaces, the abstraction DI exploits
 - [[concepts/02-design-patterns/index|Design Patterns]] — DI vs the Factory/Service Locator patterns

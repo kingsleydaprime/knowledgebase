@@ -87,7 +87,7 @@ signal(SIGPIPE, SIG_IGN);                 // then write() returns EPIPE, which y
 send(fd, buf, len, MSG_NOSIGNAL);          // or suppress per-call
 ```
 
-Every network program must do one of these. Go and Rust handle it in their runtimes; C and C++ don't. → [[backend/frameworks/c/01-the-accept-loop-and-event-loops|The Accept Loop]]
+Every network program must do one of these. Go and Rust handle it in their runtimes; C and C++ don't. → [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|The Accept Loop]]
 
 **`SIGTERM` is the graceful-shutdown contract.** Kubernetes sends `SIGTERM`, waits `terminationGracePeriodSeconds` (default 30), then `SIGKILL`. A process that ignores `SIGTERM` gets killed mid-request every deploy. → [[devops/10-orchestration/index|Orchestration]]
 

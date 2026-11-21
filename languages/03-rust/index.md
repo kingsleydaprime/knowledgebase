@@ -59,7 +59,7 @@ Notes 3, 4 and 5 are the hard part and everything after assumes them. Don't skip
 
 Per [[languages/index|the vault rule]] — `languages/` teaches the language, `backend/frameworks/` teaches the frameworks:
 
-### → **[[backend/frameworks/rust/index|backend/frameworks/rust/]]** — Axum, Actix Web, `tower`
+### → **[[backend/frameworks/axum/index|backend/frameworks/axum/]]** — Axum, Actix Web, `tower`
 
 ## Rust vs Go, since both now live here
 
@@ -87,7 +87,7 @@ They're often presented as competitors and mostly aren't.
 ---
 
 ## Related
-- [[backend/frameworks/rust/index|Rust Backends]] — Axum and Actix
+- [[backend/frameworks/axum/index|Rust Backends]] — Axum and Actix
 - [[languages/index|Languages]] — the language/framework split rule
 - [[languages/02-go/index|Go]] · [[languages/01-java/index|Java]] — the other language courses
 - [[BUILD-PLAN|Build Plan]] — what's queued next

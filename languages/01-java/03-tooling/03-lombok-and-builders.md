@@ -135,5 +135,5 @@ Use `LinkedHashMap`, not `HashMap`, whenever field order in the output JSON shou
 ## Related
 <!-- bite: ef695539-c25d-4406-9fcf-e32f546b2360 -->
 - [[languages/01-java/01-language/01-fundamentals|Fundamentals]] — what `@Data` is generating under the hood
-- [[backend/frameworks/java/01-spring-boot|Spring Boot & Scheduling]] — `@RequiredArgsConstructor` in the context of dependency injection
+- [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]] — `@RequiredArgsConstructor` in the context of dependency injection
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|Persistence & Data Modeling]] — the fallback-resolution and secondary-index patterns that pair with partial updates
