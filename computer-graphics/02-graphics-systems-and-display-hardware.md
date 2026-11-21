@@ -6,7 +6,7 @@ id: 7b5ea37c-d0b2-457a-92c7-195e30f8808e
 
 Before we draw anything, we need to know what we’re drawing on.
 
-## 4. Display hardware: CRT, raster scan and random scan
+## Display hardware: CRT, raster scan and random scan
 <!-- bite: 74cc2562-c350-4338-9e6c-7400118c21e8 -->
 
 We’ve already said that computer graphics is about drawing on a screen…
@@ -59,7 +59,7 @@ Things we should know…
 4. Two primitive (most basic) operations: setpixel(x,y,color): go to the pixel at column x, row y, and put this color there. This is the write operation. getpixel(x,y): look at the pixel at (x,y) and tell me what color it is right now. This is the read operation
 5. Scan conversion is turning lines, circles and polygons into pixels. It is usually an approximation, because the grid is discrete.
 
-## 6. Refresh rate
+## Refresh rate
 <!-- bite: 7df7517f-6cca-459e-9299-7abe0bde7666 -->
 
 **Why refreshing is needed on a CRT:** the phosphor glows only briefly. Unless each spot is redrawn again and again, the picture fades and flickers. **Redrawn fast enough — roughly 50–60 times a second or more — the eye sees a steady image.**
@@ -90,7 +90,7 @@ If the program writes into the frame buffer *while* the display is reading it, t
 
 > **Back to interactive computing.** The delay between your action and the picture changing (latency) depends partly on refresh rate: at most one new picture every 16.7 ms at 60 Hz, every 6.9 ms at 144 Hz. **A low refresh rate makes dragging and drawing feel laggy, which breaks the feedback loop.**
 
-## 7. Bitmap and vector graphics
+## Bitmap and vector graphics
 <!-- bite: 2aeda7b3-a10f-4fe2-aa93-1df283a9e616 -->
 
 **A bitmap is not an algorithm — it is a way of *storing* an image**, and it is the opposite of vector graphics.

@@ -1,5 +1,9 @@
 # Swift
 
+## What Swift is
+
+**Swift is Apple's programming language for building iPhone, iPad and Mac apps.** It is designed to be safe and quick to write.
+
 **Apple's language, and the only first-class way onto iOS.** Statically typed, memory-safe, value-oriented, with a modern type system and structured concurrency.
 
 **~12 notes, built Aug 2026** alongside [[mobile/index|the mobile track]]. `[reference]`.

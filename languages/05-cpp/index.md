@@ -1,5 +1,9 @@
 # C++
 
+## What C++ is
+
+**C++ is C with extra tools for organising big programs, while staying just as fast.** Games, web browsers and trading systems are written in it.
+
 A language that added abstraction to C without giving up a single cycle, then kept every feature it ever shipped for forty-five years. The result is the most powerful and the most difficult mainstream language in use.
 
 **~24,000 words across 15 notes.** Built August 2026, cross-referenced against [roadmap.sh C++](https://roadmap.sh/cpp).

@@ -1,3 +1,7 @@
+---
+subject_group: true
+---
+
 # Languages
 
 ## What this section is

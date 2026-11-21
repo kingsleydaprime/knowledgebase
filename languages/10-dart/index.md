@@ -1,5 +1,9 @@
 # Dart
 
+## What Dart is
+
+**Dart is the programming language you write Flutter apps in.** One Dart codebase can become an Android app, an iPhone app and a website.
+
 **Google's client-application language, and in practice: the language you learn to use [[mobile/frameworks/flutter/index|Flutter]].**
 
 **6 notes, built Aug 2026** alongside [[mobile/index|the mobile track]]. `[reference]`.

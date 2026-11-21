@@ -1,5 +1,9 @@
 # C
 
+## What C is
+
+**C is one of the oldest programming languages still in use, and it sits underneath almost everything: operating systems, databases and other languages.** It works close to the machine, so learning it shows you how a computer really handles memory.
+
 A language from 1972 that is still underneath everything you use. Small enough to hold entirely in your head, close enough to the machine that reading it teaches you what the machine does, and unsafe enough that it has generated most of the security industry.
 
 **~19,000 words across 13 notes.** Built August 2026, cross-referenced against [roadmap.sh C++](https://roadmap.sh/cpp) and the C standard.

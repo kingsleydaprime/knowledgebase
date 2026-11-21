@@ -1,5 +1,9 @@
 # Go
 
+## What Go is
+
+**Go is a small, simple programming language made at Google for building servers and tools.** It is quick to learn and easy to read, even when someone else wrote the code.
+
 A small language that made a deliberate trade: less expressiveness, in exchange for code a stranger can read at 3am during an incident. Whether that trade is worth it is the only interesting argument about Go, and you can't have it honestly until you've written some.
 
 **~14,000 words across 13 notes.** Built August 2026, cross-referenced against [roadmap.sh Go](https://roadmap.sh/golang).
