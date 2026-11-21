@@ -203,7 +203,7 @@ grep -q "use of internal package shop/internal/orders/internal/store not allowed
 echo "ok: the compiler refused the cross-feature import"
 ```
 
-It does, with `use of internal package shop/internal/orders/internal/store not allowed`. No lint rule, no configuration — the boundary is part of the language. More on wiring Go services: [[backend/frameworks/go/04-structuring-a-go-service|structuring a Go service]].
+It does, with `use of internal package shop/internal/orders/internal/store not allowed`. No lint rule, no configuration — the boundary is part of the language. More on wiring Go services: [[backend/frameworks/net-http/03-structuring-a-go-service|structuring a Go service]].
 
 ---
 
@@ -359,7 +359,7 @@ void modulesRespectTheirBoundaries() {
 }
 ```
 
-Java's module system (`module-info.java`, with `exports` listing the packages others may use) is the strictest option, but it's rarely used in Spring applications. Spring itself: [[backend/frameworks/java/01-spring-boot|Spring Boot]].
+Java's module system (`module-info.java`, with `exports` listing the packages others may use) is the strictest option, but it's rarely used in Spring applications. Spring itself: [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]].
 
 ---
 
@@ -525,7 +525,7 @@ let app = Router::new()
     .nest("/users", users::router(state));
 ```
 
-For a hard boundary between teams, make each feature its own **crate** in a Cargo workspace (`crates/orders`, `crates/users`). A crate can only use another crate listed in its `Cargo.toml`, so the dependency graph is written down and checked by Cargo. More: [[backend/frameworks/rust/01-axum-and-the-tower-stack|Axum and the Tower stack]].
+For a hard boundary between teams, make each feature its own **crate** in a Cargo workspace (`crates/orders`, `crates/users`). A crate can only use another crate listed in its `Cargo.toml`, so the dependency graph is written down and checked by Cargo. More: [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum and the Tower stack]].
 
 ---
 
@@ -659,7 +659,7 @@ echo "ok: the linker refused to call a private function"
 1. **An opaque type.** Reading `o->total_kobo` outside `orders.c` fails to compile: `invalid use of incomplete typedef 'orders'`. Callers can hold the pointer, and nothing else.
 2. **A `static` function.** Declaring `next_id` yourself and calling it gets past the compiler but fails at the **link** step: `undefined reference to 'next_id'`, because `static` gives the function no external name.
 
-Note how `orders` gets "does this user exist?" as a **function pointer** from `main` rather than including `users.h` — the C version of the composition root passing in a dependency. More on C backends: [[backend/frameworks/c/index|C]].
+Note how `orders` gets "does this user exist?" as a **function pointer** from `main` rather than including `users.h` — the C version of the composition root passing in a dependency. More on C backends: [[backend/frameworks/c-sockets/index|C]].
 
 ---
 
@@ -794,7 +794,7 @@ grep -q "repository.hpp: No such file or directory" "$work/err.txt"
 echo "ok: the build refused orders' private header"
 ```
 
-The `sneak` target links `orders` but only receives its `PUBLIC` include directory, so `#include "repository.hpp"` fails: `repository.hpp: No such file or directory`. The build file *is* the dependency rule. More on C++ backends: [[backend/frameworks/cpp/index|C++]].
+The `sneak` target links `orders` but only receives its `PUBLIC` include directory, so `#include "repository.hpp"` fails: `repository.hpp: No such file or directory`. The build file *is* the dependency rule. More on C++ backends: [[backend/frameworks/drogon/index|C++]].
 
 ---
 
@@ -917,7 +917,7 @@ echo "ok: the compiler refused the cross-feature access"
 
 The compiler refuses: `error CS0122: 'OrdersRepository' is inaccessible due to its protection level`.
 
-**Tests that need internals** add `<InternalsVisibleTo Include="Shop.Orders.Tests" />` to the feature's project file — a deliberate, named exception rather than making things public. In ASP.NET Core, each feature project can expose a `MapOrdersEndpoints(this IEndpointRouteBuilder app)` extension method and an `AddOrders(this IServiceCollection services)` registration, and `Program.cs` calls one of each per feature — the composition root. If one project per feature is too heavy, a single project with **feature folders** plus an architecture-test library (NetArchTest or ArchUnitNET) gets the checks back as tests. More: [[backend/frameworks/csharp/index|C#]].
+**Tests that need internals** add `<InternalsVisibleTo Include="Shop.Orders.Tests" />` to the feature's project file — a deliberate, named exception rather than making things public. In ASP.NET Core, each feature project can expose a `MapOrdersEndpoints(this IEndpointRouteBuilder app)` extension method and an `AddOrders(this IServiceCollection services)` registration, and `Program.cs` calls one of each per feature — the composition root. If one project per feature is too heavy, a single project with **feature folders** plus an architecture-test library (NetArchTest or ArchUnitNET) gets the checks back as tests. More: [[backend/frameworks/aspnet-core/index|C#]].
 
 
 ## Check your understanding
@@ -965,4 +965,4 @@ You can name each language's hiding mechanism, explain why by-layer switches it 
 ## Related
 <!-- bite: bd9b40e3-8113-4cd9-ad04-635ef412e6f7 -->
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by layer vs by feature]] — the main lesson
-- [[backend/frameworks/go/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/java/01-spring-boot|Spring Boot]] · [[backend/frameworks/rust/01-axum-and-the-tower-stack|Axum]] · [[backend/frameworks/c/index|C]] · [[backend/frameworks/cpp/index|C++]] · [[backend/frameworks/csharp/index|C#]]
+- [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]] · [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum]] · [[backend/frameworks/c-sockets/index|C]] · [[backend/frameworks/drogon/index|C++]] · [[backend/frameworks/aspnet-core/index|C#]]

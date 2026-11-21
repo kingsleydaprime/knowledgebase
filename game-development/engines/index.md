@@ -15,7 +15,7 @@
 
 ## The one axis that decides it
 
-**Not features — how much the engine has already decided for you**, exactly as in [[backend/frameworks/python/index|backend frameworks]]:
+**Not features — how much the engine has already decided for you**, exactly as in [[backend/frameworks/index|backend frameworks]]:
 
 - **From scratch** — nothing decided. You write the loop, the renderer, the asset pipeline. **Maximum learning, minimum shipping**
 - **Godot** — decided but small enough to read. The editor is itself a Godot application

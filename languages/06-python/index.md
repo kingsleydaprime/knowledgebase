@@ -4,7 +4,7 @@
 
 **Python is a programming language that reads almost like English, which makes it one of the easiest to start with.** People use it for scripts, websites, data and AI.
 
-The language and its core ecosystem. **Not the data stack** — that lives in [[ai-ml/00-foundations/04-python-and-data-tools/index|ai-ml/00-foundations]] — and **not the web frameworks**, which live in [[backend/frameworks/python/index|backend/frameworks/python/]] per [[languages/index|the rule]].
+The language and its core ecosystem. **Not the data stack** — that lives in [[ai-ml/00-foundations/04-python-and-data-tools/index|ai-ml/00-foundations]] — and **not the web frameworks**, which live in [[backend/frameworks/index|backend/frameworks/]] per [[languages/index|the rule]].
 
 **~18,800 words across 19 notes.** Built August 2026, extended the same week after a [roadmap.sh](https://roadmap.sh/python) audit. `[reference]`.
 
@@ -82,7 +82,7 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 
 |                                                                           |                                                                      |
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| [[backend/frameworks/python/index\|backend/frameworks/python/]]          | FastAPI, Django, Flask — **the frameworks, per the languages/ rule** |
+| [[backend/frameworks/index\|backend/frameworks/]]          | FastAPI, Django, Flask — **the frameworks, per the languages/ rule** |
 | [[ai-ml/00-foundations/04-python-and-data-tools/index\|Python for data]] | NumPy, pandas, matplotlib — the numeric stack                        |
 | [[programming-fundamentals/index\|programming fundamentals]] | **If this is your first language, start there**                      |
 | [[devops/01-linux/12-bash-scripting\|bash scripting]]                     | When a shell script should have been Python                          |
@@ -100,7 +100,7 @@ Audited against the [roadmap.sh Python track](https://roadmap.sh/python) (August
 | Roadmap topic                                                                                               | Where it lives                                                                                                                                            |
 | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Data structures & algorithms, sorting, arrays, linked lists, hashmaps, heaps/stacks/queues, BSTs, recursion | [[dsa/index\|foundations/dsa/]]                                                                                                              |
-| Django, Flask, FastAPI, Pydantic                                                                            | [[backend/frameworks/python/index\|backend/frameworks/python/]] — **per [[languages/index\|the languages/ rule]]**                                      |
+| Django, Flask, FastAPI, Pydantic                                                                            | [[backend/frameworks/index\|backend/frameworks/]] — **per [[languages/index\|the languages/ rule]]**                                      |
 | NumPy, pandas, plotting                                                                                     | [[ai-ml/00-foundations/04-python-and-data-tools/index\|ai-ml/00-foundations]]                                                                            |
 | Git, clean code, paradigms                                                                                  | [[git/index\|git/]], [[concepts/01-best-practices/index\|best practices]], [[programming-fundamentals/14-programming-paradigms\|paradigms]] |
 
@@ -126,5 +126,5 @@ Audited against the [roadmap.sh Python track](https://roadmap.sh/python) (August
 ## Related
 
 - [[languages/index|languages/]] — the domain index
-- [[backend/frameworks/python/index|Python backends]]
+- [[backend/frameworks/index|Choosing a Python framework]]
 - [[BUILD-PLAN|Build Plan]]

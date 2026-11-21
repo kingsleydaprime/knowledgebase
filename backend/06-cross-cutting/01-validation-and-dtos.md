@@ -44,7 +44,7 @@ HTTP request → [PARSE HERE] → typed command → service → repository → D
 - **C#** — nullable reference types are warnings, not enforcement → [[languages/07-csharp/02-the-type-system|note 02]]
 - **Go / Rust** — `json.Unmarshal` and `serde` populate zero values or fail; **you still need range and business rules**
 
-**The one framework where this is structural:** FastAPI, because the Pydantic model that validates *is* the model that generates the schema, so they cannot drift → [[backend/frameworks/python/01-fastapi|FastAPI]].
+**The one framework where this is structural:** FastAPI, because the Pydantic model that validates *is* the model that generates the schema, so they cannot drift → [[backend/frameworks/fastapi/01-fastapi|FastAPI]].
 
 ## What a DTO is for
 <!-- bite: 89fe1cae-accd-49f9-94c6-483881b59946 -->

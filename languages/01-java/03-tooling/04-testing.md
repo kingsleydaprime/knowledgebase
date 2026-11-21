@@ -81,7 +81,7 @@ class TransactionRepositoryIT {
 }
 ```
 
-Spring Boot's `@SpringBootTest` boots the actual application context for full-slice tests; `@DataJpaTest`/`@WebMvcTest` boot only one slice (persistence, or the web layer with `MockMvc`) for faster focused tests. This is where the JDBC pipeline and the Spring endpoints ([[languages/01-java/04-persistence/01-jdbc-and-data-modeling|JDBC]], [[backend/frameworks/java/01-spring-boot|Spring Boot]]) *should* be tested — against a real containerized MySQL, not a mock.
+Spring Boot's `@SpringBootTest` boots the actual application context for full-slice tests; `@DataJpaTest`/`@WebMvcTest` boot only one slice (persistence, or the web layer with `MockMvc`) for faster focused tests. This is where the JDBC pipeline and the Spring endpoints ([[languages/01-java/04-persistence/01-jdbc-and-data-modeling|JDBC]], [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]]) *should* be tested — against a real containerized MySQL, not a mock.
 
 ## The wider landscape (roadmap.sh breadth)
 <!-- bite: 4659003c-3508-4913-b835-f222e00151f8 -->
@@ -101,4 +101,4 @@ Spring Boot's `@SpringBootTest` boots the actual application context for full-sl
 <!-- bite: 54b15142-fa14-47f5-8b52-debd0140d586 -->
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency Injection]] — what makes a class mockable in the first place
 - [[languages/01-java/02-jvm-and-concurrency/exercises/index|Concurrency Exercises]] — a runnable test harness you implement against, the first real reps
-- [[backend/frameworks/java/01-spring-boot|Spring Boot]] — `@SpringBootTest` slices for the web layer
+- [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]] — `@SpringBootTest` slices for the web layer

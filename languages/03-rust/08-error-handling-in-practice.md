@@ -143,7 +143,7 @@ Works with `?` for anything implementing `Error`, needs no crates. It's what `fn
 ## Errors to HTTP responses
 <!-- bite: e50adeba-eb33-4e71-a170-96ba0c58d944 -->
 
-The pattern that connects this to [[backend/frameworks/rust/index|Axum]] — implement `IntoResponse` on your error type and every handler can just use `?`:
+The pattern that connects this to [[backend/frameworks/axum/index|Axum]] — implement `IntoResponse` on your error type and every handler can just use `?`:
 
 ```rust
 #[derive(Debug, Error)]
@@ -206,7 +206,7 @@ RUST_BACKTRACE=full cargo run
 <!-- bite: 7dd7fcb9-028d-4a27-b10a-3829a2e964ff -->
 - [[languages/03-rust/07-option-and-result|Option and Result]] — the types being composed here
 - [[languages/03-rust/09-traits|Traits]] — `Error`, `Display`, `From` are all traits
-- [[backend/frameworks/rust/index|Rust Backends]] — `IntoResponse` in context
+- [[backend/frameworks/axum/index|Rust Backends]] — `IntoResponse` in context
 - [[languages/02-go/05-errors|Go: Errors]] — the same philosophy, more manual
 - [[languages/03-rust/index|Rust course map]]
 

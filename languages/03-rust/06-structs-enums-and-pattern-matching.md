@@ -183,7 +183,7 @@ enum Connection {
 
 The second version cannot represent "connected and failed", and it can't hold a `socket` while disconnected. Whole classes of bug disappear at the type level, and every `match` on it is checked for completeness.
 
-This is the state-machine pattern from [[backend/frameworks/java/01-spring-boot|the retry state machine]], except the compiler enforces the transitions instead of a comment describing them. If you take one design idea from Rust into other languages, take this one.
+This is the state-machine pattern from [[backend/frameworks/spring-boot/01-spring-boot|the retry state machine]], except the compiler enforces the transitions instead of a comment describing them. If you take one design idea from Rust into other languages, take this one.
 
 ---
 

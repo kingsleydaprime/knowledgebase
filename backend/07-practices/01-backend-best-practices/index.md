@@ -66,7 +66,7 @@ app.use((err, req, res, next) => {
 });
 ```
 
-Never return stack traces or raw error messages to clients. They reveal internals useful to an attacker — file paths, library versions, internal hostnames — and they're bad API design. A Node-specific implementation is in [[backend/frameworks/javascript/01-node-runtime/02-error-handling|Node error handling]].
+Never return stack traces or raw error messages to clients. They reveal internals useful to an attacker — file paths, library versions, internal hostnames — and they're bad API design. A Node-specific implementation is in [[backend/frameworks/node/02-error-handling|Node error handling]].
 
 ## 3. Validation — at the boundary, every time
 <!-- bite: 1f69ed74-2c26-4efd-ab22-ec6824ceb43b -->
@@ -91,7 +91,7 @@ const result = Payment.safeParse(req.body); // unknown keys are stripped by defa
 if (!result.success) throw new AppError(400, "validation_failed", "the request body is invalid", result.error.issues);
 ```
 
-Validate **configuration at startup** on the same principle: if a required environment variable is missing, crash immediately with a clear message, not an hour later deep in business logic → [[backend/frameworks/javascript/01-node-runtime/01-env-validation|environment validation]].
+Validate **configuration at startup** on the same principle: if a required environment variable is missing, crash immediately with a clear message, not an hour later deep in business logic → [[backend/frameworks/node/01-env-validation|environment validation]].
 
 Validation is not the whole defence against injection or XSS — that's [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation and output encoding]], next week.
 
@@ -470,7 +470,7 @@ You can make errors predictable, validate at the boundary, write logs someone ca
 ## Related
 <!-- bite: d29dd487-2b77-4906-ba2d-ad13df06ab4b -->
 - [[backend/07-practices/01-backend-best-practices/in-other-languages|Backend Best Practices in Other Languages]] — each ecosystem's tools, rate limiting and redacted logging
-- [[backend/frameworks/javascript/01-node-runtime/02-error-handling|Node error handling]] · [[backend/frameworks/javascript/01-node-runtime/01-env-validation|environment validation]]
+- [[backend/frameworks/node/02-error-handling|Node error handling]] · [[backend/frameworks/node/01-env-validation|environment validation]]
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|Input validation and output encoding]] — the security half of validation
 - [[backend/05-auth/01-authentication-flows|Authentication flows]] — where rate limiting matters most
 - [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|Cryptographic attacks and best practices]] — handling secrets

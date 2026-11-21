@@ -112,7 +112,7 @@ HttpResponse<String> resp = client.send(
         HttpResponse.BodyHandlers.ofString());
 ```
 
-In a Spring app you'd typically use `RestTemplate`/`WebClient` instead ([[backend/frameworks/java/03-api-design-and-documentation|API Design]]) — the payment sandbox fires callbacks with `RestTemplate`. Raw sockets matter mostly for low-level/latency-sensitive work, which is where the JVM-internals and concurrency material earns its keep.
+In a Spring app you'd typically use `RestTemplate`/`WebClient` instead ([[backend/frameworks/spring-boot/03-api-design-and-documentation|API Design]]) — the payment sandbox fires callbacks with `RestTemplate`. Raw sockets matter mostly for low-level/latency-sensitive work, which is where the JVM-internals and concurrency material earns its keep.
 
 ## Annotations
 <!-- bite: 73b82253-6b41-4e18-86a1-ecb477e310be -->
@@ -125,7 +125,7 @@ Metadata attached to code, readable at compile time or runtime. You *consume* th
 public @interface RateLimited { int perSecond() default 10; }
 ```
 
-`@Retention` controls whether the annotation survives to runtime (`RUNTIME`) or is discarded (`SOURCE`/`CLASS`); `@Target` restricts where it can be applied. Frameworks read runtime-retained annotations via **reflection** to wire behavior — how Spring finds `@Service` beans and springdoc builds the OpenAPI spec ([[backend/frameworks/java/03-api-design-and-documentation|API Design]]). Reflection also underlies Lombok's compile-time processing and mocking libraries ([[languages/01-java/03-tooling/04-testing|Testing]]).
+`@Retention` controls whether the annotation survives to runtime (`RUNTIME`) or is discarded (`SOURCE`/`CLASS`); `@Target` restricts where it can be applied. Frameworks read runtime-retained annotations via **reflection** to wire behavior — how Spring finds `@Service` beans and springdoc builds the OpenAPI spec ([[backend/frameworks/spring-boot/03-api-design-and-documentation|API Design]]). Reflection also underlies Lombok's compile-time processing and mocking libraries ([[languages/01-java/03-tooling/04-testing|Testing]]).
 
 ## Modules (JPMS)
 <!-- bite: e43a94b5-9b86-4dcd-8769-dc852f1f7a1b -->
@@ -196,7 +196,7 @@ timer.scheduleAtFixedRate(new TimerTask() {
 }, 0, 1000);                                          // initial delay 0ms, then every 1000ms
 ```
 
-That's the **countdown timer** project. `schedule(task, delay)` fires once; `scheduleAtFixedRate(task, delay, period)` repeats — and `timer.cancel()` is mandatory or the JVM keeps ticking. (For richer scheduling in real apps, use `ScheduledExecutorService` from [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] or Spring's `@Scheduled` from [[backend/frameworks/java/01-spring-boot|Spring Boot]].)
+That's the **countdown timer** project. `schedule(task, delay)` fires once; `scheduleAtFixedRate(task, delay, period)` repeats — and `timer.cancel()` is mandatory or the JVM keeps ticking. (For richer scheduling in real apps, use `ScheduledExecutorService` from [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] or Spring's `@Scheduled` from [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]].)
 
 ## Capstone project: the alarm clock
 <!-- bite: 531bbf15-a8aa-4243-a50a-7dd274306c25 -->

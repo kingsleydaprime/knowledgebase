@@ -1101,7 +1101,7 @@ You're done when you can lay out the shop app both ways in your main framework f
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection and wiring]] — how the composition root builds each feature
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular Monolith → Services]] — where good feature boundaries pay off
 - [[frontend/02-structuring-a-frontend/01-components-and-composition|Components and composition]] — the React side of the slot pattern
-- [[backend/frameworks/javascript/02-express/index|Express]] · [[backend/frameworks/javascript/03-nest/index|NestJS]] · [[backend/frameworks/python/02-django|Django]] · [[backend/frameworks/python/03-flask|Flask]] · [[backend/frameworks/go/index|Go]] · [[backend/frameworks/java/index|Java]] · [[backend/frameworks/rust/index|Rust]] · [[backend/frameworks/c/index|C]] · [[backend/frameworks/cpp/index|C++]]
+- [[backend/frameworks/express/index|Express]] · [[backend/frameworks/nestjs/index|NestJS]] · [[backend/frameworks/django/01-django|Django]] · [[backend/frameworks/flask/01-flask|Flask]] · [[backend/frameworks/net-http/index|Go]] · [[backend/frameworks/spring-boot/index|Java]] · [[backend/frameworks/axum/index|Rust]] · [[backend/frameworks/c-sockets/index|C]] · [[backend/frameworks/drogon/index|C++]]
 - [[concepts/01-best-practices/01-clean-code/index|Clean Code]] — the duplication-vs-abstraction argument
 
 ## About this lesson

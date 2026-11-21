@@ -22,7 +22,7 @@ An HTTP/1.1 server that accepts TCP connections, parses requests, routes them, a
 
 You **don't** need: parsing theory (the grammar is trivial), TLS knowledge, or any framework experience.
 
-**If you're doing this in C**, read [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] before milestone 2 — every byte you parse is attacker-controlled and the language gives you no bounds checking.
+**If you're doing this in C**, read [[backend/frameworks/c-sockets/02-parsing-http-safely|Parsing HTTP Safely]] before milestone 2 — every byte you parse is attacker-controlled and the language gives you no bounds checking.
 
 ## The build order
 
@@ -147,7 +147,7 @@ Pick one:
 
 **Watch for:** shared state now needs synchronisation. **Ignore `SIGPIPE`** (or use `MSG_NOSIGNAL`), or a client disconnecting mid-response kills your process. → [[os/10-signals-and-ipc|Signals]]
 
-If you choose the event loop, you'll need a **per-connection state machine** — a request can arrive across several reads, so parser state can't live on the stack. → [[backend/frameworks/c/01-the-accept-loop-and-event-loops|The Accept Loop]]
+If you choose the event loop, you'll need a **per-connection state machine** — a request can arrive across several reads, so parser state can't live on the stack. → [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|The Accept Loop]]
 
 ### 9. Chunked transfer encoding
 
@@ -181,11 +181,11 @@ What each language gives you per milestone, and what a library would add.
 
 **Language-specific advice:**
 
-**Go** — the standard library already contains a complete server, so **use only `net.Listen` and do the rest yourself**, or you're not building anything. Goroutines make milestone 8 nearly free, which is the point of the language. → [[backend/frameworks/go/01-net-http-in-depth|net/http in Depth]]
+**Go** — the standard library already contains a complete server, so **use only `net.Listen` and do the rest yourself**, or you're not building anything. Goroutines make milestone 8 nearly free, which is the point of the language. → [[backend/frameworks/net-http/01-net-http-in-depth|net/http in Depth]]
 
 **Rust** — `std::net` for a blocking version first; tokio for the async one. The borrow checker will push you toward the right buffer ownership, which is genuinely instructive. → [[languages/03-rust/index|Rust]]
 
-**C** — the most educational and the most dangerous. Read [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] first, bound every buffer, and build with `-fsanitize=address,undefined`.
+**C** — the most educational and the most dangerous. Read [[backend/frameworks/c-sockets/02-parsing-http-safely|Parsing HTTP Safely]] first, bound every buffer, and build with `-fsanitize=address,undefined`.
 
 **Python** — fastest to a working server; `asyncio` for milestone 8. You'll learn the protocol without fighting the language.
 
@@ -253,6 +253,6 @@ The natural follow-on from here is **your own Redis** (guide 03, planned) — sa
 ## Related
 - [[networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the syscalls
 - [[os/08-io-models|I/O Models]] — blocking, epoll, io_uring
-- [[backend/frameworks/c/01-the-accept-loop-and-event-loops|C: The Accept Loop]] — milestone 8 in depth
-- [[backend/frameworks/c/02-parsing-http-safely|C: Parsing HTTP Safely]] — read before milestone 2 if you're in C
+- [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|C: The Accept Loop]] — milestone 8 in depth
+- [[backend/frameworks/c-sockets/02-parsing-http-safely|C: Parsing HTTP Safely]] — read before milestone 2 if you're in C
 - [[build-your-own-shit/index|build-your-own-shit]]

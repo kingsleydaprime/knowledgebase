@@ -74,18 +74,19 @@ Caching, monitoring and background jobs are taught in [[architecture/02-building
 23. [[backend/07-practices/02-testing-a-backend|Testing a Backend]]: checking your backend works, automatically.
 24. [[backend/07-practices/03-load-and-performance-testing|Load and Performance Testing]]: finding out how your backend copes with many users before real users find out.
 
-## Frameworks: the same ideas in your language
+## Frameworks: the whole course, in one framework
 
-These aren't in a reading order; pick the one you use. **Read note 4 (Runtime and Concurrency Models) first:** frameworks look like twenty different things to learn, but they're really three ways of handling many users, with different names.
+Every framework is its own subject, and each one teaches this whole course its own way, from a first server to production. They aren't in a reading order; pick the one you use. **Read note 4 (Runtime and Concurrency Models) first:** frameworks look like twenty different things to learn, but they're really three ways of handling many users, with different names. The [[backend/frameworks/index|frameworks index]] helps you choose.
 
-- [[backend/frameworks/javascript/index|JavaScript and TypeScript]]: Node, Express and Nest.
-- [[backend/frameworks/java/index|Java]]: Spring Boot.
-- [[backend/frameworks/python/index|Python]]: FastAPI, Django and Flask.
-- [[backend/frameworks/csharp/index|C#]]: ASP.NET Core.
-- [[backend/frameworks/go/index|Go]]: the standard library, Chi and Gin.
-- [[backend/frameworks/rust/index|Rust]]: Axum and Actix.
-- [[backend/frameworks/cpp/index|C++]] and [[backend/frameworks/c/index|C]]: when you'd actually use them, and when you wouldn't.
-- [[backend/frameworks/cross-language-recipes|Cross-Language Recipes]]: rate limiting, login tokens, CORS, shutting down cleanly and logging, in all six languages side by side.
+- JavaScript and TypeScript: [[backend/frameworks/node/index|Node.js]], [[backend/frameworks/express/index|Express]], [[backend/frameworks/nestjs/index|NestJS]].
+- Python: [[backend/frameworks/fastapi/index|FastAPI]], [[backend/frameworks/django/index|Django]], [[backend/frameworks/flask/index|Flask]].
+- Java: [[backend/frameworks/spring-boot/index|Spring Boot]].
+- C#: [[backend/frameworks/aspnet-core/index|ASP.NET Core]].
+- Go: [[backend/frameworks/net-http/index|net/http]], [[backend/frameworks/chi/index|Chi]], [[backend/frameworks/gin/index|Gin]].
+- Rust: [[backend/frameworks/axum/index|Axum]], [[backend/frameworks/actix-web/index|Actix Web]].
+- C++: [[backend/frameworks/drogon/index|Drogon]], [[backend/frameworks/crow/index|Crow]], [[backend/frameworks/boost-beast/index|Boost.Beast]].
+- C: [[backend/frameworks/c-sockets/index|Sockets and epoll]] (no framework), [[backend/frameworks/libmicrohttpd/index|libmicrohttpd]], [[backend/frameworks/kore/index|Kore]], [[backend/frameworks/civetweb/index|civetweb]], [[backend/frameworks/ulfius/index|Ulfius]].
+- [[backend/frameworks/cross-language-recipes|Cross-Language Recipes]]: rate limiting, login tokens, CORS, shutting down cleanly and logging, in six languages side by side.
 
 ## Practice
 

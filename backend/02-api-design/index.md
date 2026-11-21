@@ -16,4 +16,4 @@ Meanwhile, the material exists in interview form: [[concepts/interview/01-apis-a
 ## Related
 - [[cybersecurity/14-api-security/index|API security]] — the attacking-and-defending side of what you're building here
 - [[backend/index|Backend course]] · [[networking/11-http-evolution/index|HTTP evolution]] — what your API rides on
-- [[backend/frameworks/java/03-api-design-and-documentation|API design & docs (Java)]]
+- [[backend/frameworks/spring-boot/03-api-design-and-documentation|API design & docs (Java)]]

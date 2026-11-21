@@ -96,7 +96,7 @@ for (;;) {
 }
 ```
 
-Miss that and the remaining bytes sit in the buffer forever with no further notification — a hung connection that looks like a bug in your protocol handling. Edge-triggered is fewer syscalls and less forgiving. **Start level-triggered.** → [[backend/frameworks/c/01-the-accept-loop-and-event-loops|The Accept Loop]]
+Miss that and the remaining bytes sit in the buffer forever with no further notification — a hung connection that looks like a bug in your protocol handling. Edge-triggered is fewer syscalls and less forgiving. **Start level-triggered.** → [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|The Accept Loop]]
 
 ### The thundering herd
 
@@ -190,7 +190,7 @@ A high syscall count per request is the signature of a poorly-batched I/O loop �
 <!-- bite: a527b640-dc6d-40f0-813c-113cd685e038 -->
 - [[os/07-filesystems-and-storage|Filesystems and Storage]] — the page cache and `fsync`
 - [[networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the same material, network-side
-- [[backend/frameworks/c/01-the-accept-loop-and-event-loops|Building an Event Loop]] — writing one
+- [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|Building an Event Loop]] — writing one
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — how frameworks expose this
 - [[os/index|OS course map]]
 

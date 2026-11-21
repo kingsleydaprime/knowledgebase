@@ -55,7 +55,7 @@ If you read nothing else:
 
 Per [[languages/index|the vault rule]]:
 
-### → **[[backend/frameworks/c/index|backend/frameworks/c/]]** — libmicrohttpd, Kore, Ulfius, civetweb
+### → **[[backend/frameworks/c-sockets/index|backend/frameworks/c-sockets/]]** — libmicrohttpd, Kore, Ulfius, civetweb
 
 Including the honest question of when a C web server is a real answer and when it's a bad idea.
 

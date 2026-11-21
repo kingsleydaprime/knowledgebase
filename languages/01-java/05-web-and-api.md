@@ -3,15 +3,15 @@ lesson: false
 id: 3495907b-5d29-46cc-b2e5-e71bbe130598
 ---
 
-# 05 — Web & API → moved to `backend/frameworks/java/`
+# 05 — Web & API → moved to `backend/frameworks/spring-boot/`
 
 **This section's notes were moved, not duplicated.** Spring Boot, the Java web-framework landscape, and API design/documentation now live at:
 
-### → **[[backend/frameworks/java/index|backend/frameworks/java/]]**
+### → **[[backend/frameworks/spring-boot/index|backend/frameworks/spring-boot/]]**
 
-- [[backend/frameworks/java/01-spring-boot|Spring Boot & Scheduling]] — DI, the controller/service/store layering, validation, `@Async`, `@Scheduled`, retry state machines
-- [[backend/frameworks/java/02-web-frameworks|The Java Web Landscape]] — Quarkus, Micronaut, Javalin, Play **[reference]**
-- [[backend/frameworks/java/03-api-design-and-documentation|API Design & Documentation]] — `RestTemplate`, config-resolution patterns, business codes, OpenAPI/springdoc
+- [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]] — DI, the controller/service/store layering, validation, `@Async`, `@Scheduled`, retry state machines
+- [[backend/frameworks/spring-boot/02-web-frameworks|The Java Web Landscape]] — Quarkus, Micronaut, Javalin, Play **[reference]**
+- [[backend/frameworks/spring-boot/03-api-design-and-documentation|API Design & Documentation]] — `RestTemplate`, config-resolution patterns, business codes, OpenAPI/springdoc
 
 There is **one copy** of that material and it's the one linked above. Nothing was left behind here and nothing was cloned — this page is a signpost, not a stub.
 
@@ -33,7 +33,7 @@ You probably want one of these instead:
 
 | You want | Go to |
 |---|---|
-| To build an HTTP service in Java | [[backend/frameworks/java/index\|backend/frameworks/java/]] |
+| To build an HTTP service in Java | [[backend/frameworks/spring-boot/index\|backend/frameworks/spring-boot/]] |
 | The DI concept, not Spring's version of it | [[languages/01-java/03-tooling/02-dependency-injection\|03-tooling/02-dependency-injection]] |
 | Threads, virtual threads, the memory model | [[languages/01-java/02-jvm-and-concurrency/index\|02-jvm-and-concurrency/]] |
 | JDBC, JPA, transactions | [[languages/01-java/04-persistence/index\|04-persistence/]] |
@@ -41,6 +41,6 @@ You probably want one of these instead:
 
 ## Related
 <!-- bite: e4f72f30-def6-45ba-98ad-ddef64ba7cb3 -->
-- [[backend/frameworks/java/index|backend/frameworks/java/]] — where this went
+- [[backend/frameworks/spring-boot/index|backend/frameworks/spring-boot/]] — where this went
 - [[backend/frameworks/index|frameworks/]] — every stack, compared
 - [[languages/01-java/index|Java course index]]

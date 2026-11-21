@@ -78,7 +78,7 @@ The working queue for the vault, agreed 2026-08-14. Ordered, sized, and honest a
 ## Phase 0 — done
 
 - [x] `languages/02-go/` — README + 13 notes, ~14,400 words
-- [x] Spring Boot moved to `backend/frameworks/java/`; the `languages/` vs `backend/frameworks/` rule stated
+- [x] Spring Boot moved to `backend/frameworks/spring-boot/`; the `languages/` vs `backend/frameworks/` rule stated
 - [x] `languages/03-rust/` — README + 18 notes, ~22,000 words
 - [x] `languages/04-c/` — README + 13 notes, ~19,000 words
 - [x] `languages/05-cpp/` — README + 15 notes, ~24,000 words
@@ -208,7 +208,7 @@ Found in the same session, from a third source (`sources/100 CS concepts explain
 
 - [x] **`foundations/programming-fundamentals/` notes 13–14** — ✅ **DONE** — ~2,200 words. **Closes the gap this course's own README declared.** The original call — "OOP belongs in `languages/`" — was wrong: OOP is language-_flavoured_, not language-specific, and omitting it stopped the course one concept short of where every real codebase starts. Objects and classes; programming paradigms (with expression-vs-statement, which was absent vault-wide outside `compilers/`)
 - [x] **`languages/06-python/`** — ✅ **DONE** — README + 14 notes, ~12,600 words. **`languages/index` had listed "Python at depth" as a track that would slot in if notes got written.** They hadn't been — despite the entire `ai-ml/` domain being written in Python and `devops/` assuming it for automation. **The vault taught Python-the-tool everywhere and Python-the-language nowhere.** Deliberately excludes the web frameworks (below) and the numeric stack (`ai-ml/00-foundations/04-python-and-data-tools/`), per the `languages/` rule
-- [x] **`backend/frameworks/python/`** — ✅ **DONE** — rewritten README + 3 notes, ~2,650 words. Was scaffold-only. Took the **folder shape** its own index predicted it would, since FastAPI, Django and Flask are genuinely co-equal subjects
+- [x] **`backend/frameworks/`** — ✅ **DONE** — rewritten README + 3 notes, ~2,650 words. Was scaffold-only. Took the **folder shape** its own index predicted it would, since FastAPI, Django and Flask are genuinely co-equal subjects
 - [x] **`devops/01-linux/12-bash-scripting`** — extended with repo-wide scripting technique (`fold`, assertion-guarded rewrites, verification passes). **Not a new note** — the heredoc and `python3 -` material was already there, so this extends rather than restates
 - [x] **`.obsidian/app.json`** — `userIgnoreFilters` for `quartz/` and `sources/`. **487 stray `.md` files in `quartz/node_modules/`** were polluting the graph and search. Not committed — `.obsidian/` is gitignored
 
@@ -296,7 +296,7 @@ Prompted by a single message naming six directions at once, plus "is the Python 
 
 Both asked for directly, and both were things the vault had already flagged against itself.
 
-- [x] **`backend/frameworks/csharp/`** — ✅ README + 4 notes, ~3,500 words. **Named in `languages/07-csharp/index`'s own "what's missing"**, and the frameworks map listed seven languages with C# conspicuously absent right after the language course landed. **Flat notes by concern**, per the folder's own folder-vs-flat test: ASP.NET Core is _the_ choice, and Minimal APIs vs MVC are two styles within it. Also updated the cross-stack concept table to seven columns
+- [x] **`backend/frameworks/aspnet-core/`** — ✅ README + 4 notes, ~3,500 words. **Named in `languages/07-csharp/index`'s own "what's missing"**, and the frameworks map listed seven languages with C# conspicuously absent right after the language course landed. **Flat notes by concern**, per the folder's own folder-vs-flat test: ASP.NET Core is _the_ choice, and Minimal APIs vs MVC are two styles within it. Also updated the cross-stack concept table to seven columns
 - [x] **`build-your-own-shit/` 10–12** — ✅ ~2,900 words. Chosen against the folder's stated criterion rather than to pad the list:
   - **Neural network** — **`ai-ml/` is ~98 notes, the largest domain in the vault, and had no build guide.** The most conspicuous absence
   - **Memory allocator** — best effort-to-insight after the container guide; makes `foundations/os/05` and `languages/04-c` concrete

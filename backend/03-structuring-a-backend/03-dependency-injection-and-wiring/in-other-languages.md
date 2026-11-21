@@ -168,7 +168,7 @@ if __name__ == "__main__":
 ## 3. Go
 <!-- bite: 8e607568-a96b-4b1a-935a-809758e1149d -->
 
-Go has no container, by design and by culture. **Dependencies are struct fields, set in `main`** — see [[backend/frameworks/go/04-structuring-a-go-service|structuring a Go service]]. Interfaces are declared by the package that *uses* them, and any type with the right methods satisfies them without saying so.
+Go has no container, by design and by culture. **Dependencies are struct fields, set in `main`** — see [[backend/frameworks/net-http/03-structuring-a-go-service|structuring a Go service]]. Interfaces are declared by the package that *uses* them, and any type with the right methods satisfies them without saying so.
 
 Per-request data travels in a **`context.Context`**, passed as the first argument of every call in the request path. That makes request scope explicit in every signature — verbose, and the reason Go code rarely has this bug.
 
@@ -302,7 +302,7 @@ class AuditService {
 }
 ```
 
-Spring beans are **singletons by default** — so the scope bug is the classic Spring mistake. A `@RequestScope` bean injected into a singleton works only because Spring injects a *proxy* that looks up the current request's instance on each call. The safer habit is the same as everywhere: pass request data as an argument. Spring itself: [[backend/frameworks/java/01-spring-boot|Spring Boot]].
+Spring beans are **singletons by default** — so the scope bug is the classic Spring mistake. A `@RequestScope` bean injected into a singleton works only because Spring injects a *proxy* that looks up the current request's instance on each call. The safer habit is the same as everywhere: pass request data as an argument. Spring itself: [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]].
 
 The lab forces the bad interleaving with two latches, so it happens every run instead of occasionally:
 
@@ -413,7 +413,7 @@ public final class Check {
 ## 5. Rust
 <!-- bite: a0b8b7aa-d84e-4a46-b308-6479b37e7b27 -->
 
-Rust wires by hand. Dependencies are fields; an interface is a **trait**, used either as `&dyn Trait` (one compiled function, chosen at runtime) or as a generic `T: Trait` (a copy compiled per type, no runtime cost). Shared, app-wide dependencies are usually an `Arc<…>` in the web framework's state → [[backend/frameworks/rust/03-state-and-shared-data|state and shared data]].
+Rust wires by hand. Dependencies are fields; an interface is a **trait**, used either as `&dyn Trait` (one compiled function, chosen at runtime) or as a generic `T: Trait` (a copy compiled per type, no runtime cost). Shared, app-wide dependencies are usually an `Arc<…>` in the web framework's state → [[backend/frameworks/axum/03-state-and-shared-data|state and shared data]].
 
 **What Rust adds is the most interesting part.** The scope bug, written naively, **doesn't compile**:
 
@@ -758,7 +758,7 @@ caught at startup: … Cannot consume scoped service 'RequestContext' from singl
 scoped: ada: viewed invoice, bayo: viewed invoice
 ```
 
-The context-variable equivalent is `AsyncLocal<T>`; ASP.NET Core's `IHttpContextAccessor` is built on it. C# itself: [[backend/frameworks/csharp/index|C#]].
+The context-variable equivalent is `AsyncLocal<T>`; ASP.NET Core's `IHttpContextAccessor` is built on it. C# itself: [[backend/frameworks/aspnet-core/index|C#]].
 
 ## Check your understanding
 <!-- bite: 7c6aa0a4-9daf-4678-8ad1-89505ef066ce -->
@@ -805,4 +805,4 @@ You can wire dependencies idiomatically in your language and say what it does ab
 <!-- bite: c2a88842-42cc-4b6c-bb0c-f1dbc08f23e4 -->
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection and wiring]] — the main lesson
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency injection in Java]] — Spring's implementation in depth
-- [[backend/frameworks/go/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/rust/03-state-and-shared-data|Rust: state and shared data]] · [[backend/frameworks/csharp/index|C#]]
+- [[backend/frameworks/net-http/03-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/axum/03-state-and-shared-data|Rust: state and shared data]] · [[backend/frameworks/aspnet-core/index|C#]]
